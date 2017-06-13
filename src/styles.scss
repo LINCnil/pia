@@ -1,0 +1,60 @@
+@import './assets/stylesheets/variables';
+
+@import "~normalize.css/normalize.css";
+
+$fa-font-path: "../node_modules/font-awesome/fonts";
+@import "~font-awesome/scss/font-awesome.scss";
+
+@import "~foundation-sites/scss/foundation.scss";
+@include foundation-global-styles;
+@include foundation-flex-grid;
+@include foundation-flex-classes;
+
+@import "./assets/stylesheets/fonts";
+@import "./assets/stylesheets/sprites";
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.2rem;
+  font-family: 'Roboto', sans-serif;
+  background-color: $pia-white;
+}
+
+html, body {
+  height: 100%;
+}
+
+.container {
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+/* Contrasted colors switches */
+.contrasted-green {
+  color: $pia-green-contrast;
+}
+
+.contrasted-red {
+  color: $pia-red-contrast;
+}
+
+.contrasted-gray {
+  color: $pia-gray-contrast;
+}
+
+/* Inactive inputs styles */
+input {
+  &:disabled {
+    background-color: #fff !important;
+  }
+}
+// Active navigation button styles
+.active {
+  background-color: #fff;
+  a {
+    color: $pia-blue !important;
+  }
+}

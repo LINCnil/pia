@@ -1,0 +1,136 @@
+.pia {
+    &-icons {
+        display: inline-block;
+        vertical-align: middle;
+        background: url("/assets/images/sprites.png") no-repeat center center transparent;
+    }
+    &-icon {
+        &-accordeon-up {
+            width: 13px;
+            height: 9px;
+            background-position: -343px -129px;
+        }
+        &-accordeon-down {
+            width: 13px;
+            height: 9px;
+            background-position: -341px -175px;
+        }
+        &-hand {
+            width: 48px;
+            height: 54px;
+            background-position: -126px -20px;
+        }
+        &-preview {
+            width: 36px;
+            height: 36px;
+            background-position: -272px -25px;
+        }
+        &-close {
+            width: 19px;
+            height: 19px;
+            background-position: -328px -25px;
+        }
+        &-close-big {
+            width: 29px;
+            height: 29px;
+            background-position: -323px -54px;
+        }
+        &-scroll {
+            width: 17px;
+            height: 9px;
+            background-position: -367px -25px;
+        }
+        &-scroll-green {
+            width: 17px;
+            height: 9px;
+            background-position: -367px -58px;
+        }
+        &-add {
+            width: 22px;
+            height: 22px;
+            background-position: -223px -25px;
+        }
+        &-file {
+            &-blank {
+                width: 20px;
+                height: 22px;
+                background-position: -397px -25px;
+            }
+            &-pdf {
+                width: 20px;
+                height: 22px;
+                background-position: -433px -25px;
+            }
+            &-pdf-blue {
+                width: 20px;
+                height: 22px;
+                background-position: -621px -27px;
+            }
+            &-board {
+                width: 20px;
+                height: 22px;
+                background-position: -472px -25px;
+            }
+            &-list {
+                width: 20px;
+                height: 22px;
+                background-position: -511px -25px;
+            }
+        }
+        &-rocket {
+            width: 62px;
+            height: 188px;
+            background-position: -408px -203px;
+            &-small {
+                width: 26px;
+                height: 51px;
+                background-position: -529px -273px;
+            }
+        }
+        &-happy {
+            width: 212px;
+            height: 74px;
+            background-position: -127px -287px;
+        }
+        &-sorry {
+            width: 233px;
+            height: 43px;
+            background-position: -127px -224px;
+        }
+        &-sad {
+            width: 212px;
+            height: 74px;
+            background-position: -127px -377px;
+        }
+        &-lock {
+            width: 19px;
+            height: 24px;
+            background-position: -226px -68px;
+        }
+        &-small-arrow {
+            width: 23px;
+            height: 45px;
+            background-position: -557px -17px;
+            &-extra {
+                width: 14px;
+                height: 27px;
+                background-position: -589px -27px;
+            }
+        }
+        &-pia-plus {
+            width: 62px;
+            height: 63px;
+            background-position: -408px -74px;
+        }
+        &-green-hint-arrow {
+            width: 7px;
+            height: 5px;
+            background-position: -371px -93px;
+        }
+        &-attachment {
+            width: 16px;
+            height: 18px;
+            background-position: -514px -78px;
+        }
+    }
+}

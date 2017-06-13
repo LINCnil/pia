@@ -9,7 +9,17 @@
       "outDir": "dist",
       "assets": [
         "assets",
-        "favicon.ico"
+        "android-chrome-192x192.png",
+        "android-chrome-256x256.png",
+        "apple-touch-icon.png",
+        "browserconfig.xml",
+        "favicon-16x16.png",
+        "favicon-32x32.png",
+        "favicon.ico",
+        "humans.txt",
+        "manifest.json",
+        "mstitle-150x150.png",
+        "safari-pinned-tab.svg"
       ],
       "index": "index.html",
       "main": "main.ts",
@@ -19,7 +29,7 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "styles.css"
+        "styles.scss"
       ],
       "scripts": [],
       "environmentSource": "environments/environment.ts",
