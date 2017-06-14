@@ -137,15 +137,18 @@
         text-transform: none !important;
         padding: 4px 14px !important;
         cursor: context-menu;
+        text-align: center;
         .fa-user {
           margin-right: 14px;
           font-size: 1.9rem;
         }
         .pia-icon-scroll {
-          margin-left: 13px;
-          margin-bottom: 2px;
+          margin-top: 5px;
+          margin-left: 8px;
+          float: right;
         }
         &:focus, &:hover, &:active {
+          color: #fff !important;
           background-color: $pia-green !important;
           & + form {
             display: block;
@@ -161,6 +164,7 @@
         border: 1px solid $pia-gray;
         border-top: none;
         position: absolute;
+        width: 185px;
         top: 28px;
         left: -2px;
         right: 0;
