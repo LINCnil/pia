@@ -1,0 +1,75 @@
+<div class="pia-cardsBlock pia-doingBlock">
+    <div class="pia-cardsBlock-header-title">
+      <span *ngIf="card.status == 'doing'">En cours</span>
+      <span *ngIf="card.status == 'archived'">Archivée</span>
+    </div>
+    <div class="pia-cardsBlock-item pia-doingBlock-item">
+      <div class="pia-cardsBlock-toolbar">
+          <div class="pia-cardsBlock-toolbar-edit">
+              <button type="button" class="btn pia-cardsBlock-toolbar-editBtn" title="Éditer"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+              <div class="pia-cardsBlock-toolbar-editHint">
+                  <span class="pia-icons pia-icon-green-hint-arrow"></span>Éditer
+              </div>
+          </div>
+          <div class="pia-cardsBlock-toolbar-export">
+              <button type="button" class="btn" title="Exporter"><i class="fa fa-download" aria-hidden="true"></i></button>
+              <div class="pia-cardsBlock-toolbar-exportHint">
+                  <span class="pia-icons pia-icon-green-hint-arrow"></span>Exporter
+              </div>
+          </div>
+          <div class="pia-cardsBlock-toolbar-more">
+              <button type="button" class="btn" title=""><i class="fa fa-ellipsis-h" aria-hidden="true"></i></button>
+              <ul class="pia-cardsBlock-toolbar-moreList">
+                  <li>
+                      <i class="fa fa-files-o" aria-hidden="true"></i>
+                      <button type="button" class="btn">Dupliquer</button>
+                  </li>
+                  <li>
+                      <i class="fa fa-file-excel-o" aria-hidden="true"></i>
+                      <button type="button" class="btn">Export du<br>plan d'action</button>
+                  </li>
+                  <li>
+                      <i class="fa fa-trash-o" aria-hidden="true"></i>
+                      <button type="button" class="btn">Supprimer</button>
+                  </li>
+              </ul>
+          </div>
+      </div>
+      <form class="pia-cardsBlock-item-form">
+          <div>
+              <div class="pia-doingBlock-item-form-attachment">
+                  <span class="pia-icons pia-icon-attachment"></span>
+                  <button type="button" class="btn">Analyse EBIOS</button>
+              </div>
+              <label for="pia-edit-name">Nom du PIA</label>
+              <input type="text" disabled placeholder="Intitulé" value="{{ card.name }}" id="pia-edit-name">
+          </div>
+          <div>
+              <label for="pia-edit-author-name">Saisie</label>
+              <input type="text" disabled placeholder="Prénom, nom" value="Emilie Launaix, Jean-Charles Chombard" id="pia-edit-author-name">
+          </div>
+          <div>
+              <label for="pia-edit-evaluator-name">Évaluation</label>
+              <input type="text" disabled placeholder="Prénom, nom" value="Rémy Dutronc, Marie Dubois" id="pia-edit-evaluator-name">
+          </div>
+          <div>
+              <label for="pia-edit-validator-name">Validation</label>
+              <input type="text" disabled placeholder="Prénom, nom" value="Sophie Hadid" id="pia-edit-validator-name">
+          </div>
+      </form>
+      <div class="pia-cardsBlock-item-date">
+          <div>Date</div>
+          <time>30/06/2017</time>
+      </div>
+      <div class="pia-cardsBlock-item-status">
+          <div class="pia-cardsBlock-item-status-infos">
+              <div>Status</div>
+              <div>En cours d'édition</div>
+          </div>
+          <div class="pia-cardsBlock-item-status-progressBar">
+              <div>30%</div>
+              <progress max="100" value="30"></progress>
+          </div>
+      </div>
+  </div>
+</div>

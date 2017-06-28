@@ -1,0 +1,44 @@
+<app-header></app-header>
+
+<div class="container">
+    <div class="row">
+      <div class="small-12 medium-12 columns">
+        <app-filters></app-filters>
+      </div>
+    </div>
+    <div class="row">
+      <div class="small-12 medium-12 columns">
+        <div class="pia-cardsBlock pia-newBlock">
+            <div class="pia-newBlock-item">
+                <div class="pia-newBlock-item-new">
+                    <div class="pia-newBlock-item-new-title">Nouveau PIA</div>
+                    <div class="pia-newBlock-item-new-btn">
+                        <i class="fa fa-folder-open" aria-hidden="true"></i>
+                        <button class="btn" type="button" title="Nouveau PIA"><span class="pia-icons pia-icon-pia-plus"></span></button>
+                    </div>
+                </div>
+                <span>ou</span>
+                <div class="pia-newBlock-item-import">
+                    <div class="pia-newBlock-item-import-title">Importer PIA</div>
+                    <div class="pia-newBlock-item-import-btn">
+                        <i class="fa fa-upload" aria-hidden="true"></i>
+                        <button class="btn" type="button" title="Importer PIA"><span class="pia-icons pia-icon-pia-plus"></span></button>
+                    </div>
+                </div>
+            </div>
+            <div class="pia-newBlock-hint" *ngIf="cards.length == 0">
+                <span class="pia-icons pia-icon-small-arrow"></span>
+                <div>
+                    <span class="pia-icons pia-icon-rocket"></span>
+                    <p>
+                        Lancez-vous !<br><br>
+                        Pour commencer<br>
+                        un PIA, c'est par là.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <app-card-item *ngFor="let card of cards" [card]="card"></app-card-item>
+      </div>
+    </div>
+</div>

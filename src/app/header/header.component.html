@@ -12,48 +12,48 @@
       <div class="row">
         <div class="small-12 medium-12 columns">
           <ul class="pia-navigationBlock-list">
-            <li class="active">
-              <a href="#">Accueil</a>
-            </li><li>
-            <a href="#">CAPTOO</a>
-          </li>
+            <li routerLinkActive="active">
+              <a routerLink="/home">Accueil</a>
+            </li><!--<li>
+              <a href="#">CAPTOO</a>
+            </li>-->
           </ul>
           <ul class="pia-navigationBlock-list">
-            <li>
+            <!--<li>
               <a href="#">Base de Connaissance</a>
             </li><li>
-            <a href="#">Exemple de Pia</a>
-          </li><li class="pia-navigationBlock-languages">
-            <a href="#">
-              <i class="fa fa-globe" aria-hidden="true"></i>
-            </a>
-            <ul>
-              <li>
-                <a href="#">Français</a>
-              </li>
-              <li>
-                <a href="#">English</a>
-              </li>
-            </ul>
-          </li><li class="pia-navigationBlock-company">
-            <a href="#">
-              <i class="fa fa-user" style="display:none;" aria-hidden="true"></i>
-              Outils
-              <span class="pia-icons pia-icon-scroll" aria-hidden="true"></span>
-            </a>
-            <form>
-              <fieldset>
-                <legend>Paramètres</legend>
-                <div>
-                  <input type="checkbox" name="pia-accessibility" id="pia-accessibility">
-                  <label for="pia-accessibility">Accessibilité malvoyants (couleurs à <span>contraste fort, adapté daltonisme)</span></label>
-                </div>
-                <div>
-                  <a href="#">Aide</a>
-                </div>
-              </fieldset>
-            </form>
-          </li>
+              <a href="#">Exemple de Pia</a>
+            </li>--><li class="pia-navigationBlock-languages">
+              <a href="#">
+                <i class="fa fa-globe" aria-hidden="true"></i>
+              </a>
+              <ul>
+                <li>
+                  <a href="#">Français</a>
+                </li>
+                <li>
+                  <a href="#">English</a>
+                </li>
+              </ul>
+            </li><li class="pia-navigationBlock-company">
+              <a href="#">
+                <i class="fa fa-user" style="display:none;" aria-hidden="true"></i>
+                Outils
+                <span class="pia-icons pia-icon-scroll" aria-hidden="true"></span>
+              </a>
+              <form>
+                <fieldset>
+                  <legend>Paramètres</legend>
+                  <div>
+                    <input type="checkbox" name="pia-accessibility" id="pia-accessibility" [checked]="increaseContrast == 'true'" (change)="changeContrast($event)">
+                    <label for="pia-accessibility">Accessibilité malvoyants (couleurs à <span>contraste fort, adapté daltonisme)</span></label>
+                  </div>
+                  <div>
+                    <a href="#">Aide</a>
+                  </div>
+                </fieldset>
+              </form>
+            </li>
           </ul>
         </div>
       </div>

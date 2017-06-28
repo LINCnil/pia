@@ -1,0 +1,270 @@
+.pia-cardsBlock {
+    width: 276px;
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+    margin-right: 12px;
+    margin-bottom: 40px;
+    height: 370px;
+    border: 1px solid #fff;
+    background-color: #fff;
+    &-title {
+        height: 23px;
+    }
+    &-header-title {
+        border-bottom: 1px solid $pia-green;
+        color: $pia-green;
+        height: 20px;
+        margin-top: -30px;
+        margin-bottom: 10px;
+        font-weight: 500;
+    }
+    &-item {
+        padding: 9px;
+        background-color: #fff;
+        padding-top: 6px;
+        height: 368px;
+        &-status {
+            margin-top: 5px;
+            &-infos {
+                width: 150px;
+                div {
+                    color: $pia-gray;
+                    font-size: 1rem;
+                    margin-bottom: -1px;
+                    font-style: italic;
+                    &:last-child {
+                        font-size: 1.45rem;
+                        color: $pia-dark-black;
+                    }
+                }
+            }
+            &-infos, &-progressBar {
+                display: inline-block;
+                vertical-align: top;
+            }
+            &-progressBar {
+                width: 100px;
+                text-align: right;
+                div {
+                    color: $pia-green;
+                    font-style: italic;
+                    text-align: right;
+                    font-size: 1rem;
+                }
+                progress {
+                    width: 100%;
+                    position: relative;
+                    margin-top: 5px;
+                    &:after {
+                        position: absolute;
+                        left: 0;
+                        top: 50%;
+                        content: '';
+                        height: 12px;
+                        width: 1px;
+                        margin-top: -6px;
+                        background-color: $pia-green;
+                    }
+                    &:before {
+                        position: absolute;
+                        content: '';
+                        left: 0;
+                        right: 0;
+                        top: 50%;
+                        height: 1px;
+                        background-color: $pia-green;
+                    }
+                }
+                progress[value] {
+                    background-color: #fff;
+                    height: 12px;
+                    &::-webkit-progress-bar {
+                        background-color: #fff;
+                    }
+                    &::-webkit-progress-value {
+                        background-color: $pia-green;
+                    }
+                }
+            }
+            &-refused {
+                color: $pia-red !important;
+            }
+        }
+        &-form {
+            div {
+                label {
+                    color: $pia-gray;
+                    font-size: 0.95rem;
+                    font-style: italic;
+                }
+                input {
+                    padding-bottom: 6px;
+                    display: block;
+                    border: 0;
+                    font-size: 1.4rem;
+                    color: $pia-dark-black;
+                    width: 100%;
+                    background-color: $pia-white;
+                    margin-top: -2px;
+                    &::placeholder {
+                        color: $pia-gray;
+                    }
+                }
+                &:first-child {
+                    margin-bottom: 5px;
+                    input {
+                        margin-top: 0;
+                        font-size: 2.1rem;
+                        padding-bottom: 23px;
+                    }
+                }
+            }
+            &-attachment {
+                position: relative;
+                display: inline-block;
+                button {
+                    font-size: 1rem;
+                    color: $pia-gray;
+                    background-color: #fff;
+                    display: none;
+                    position: absolute;
+                    bottom: -14px;
+                    left: -50%;
+                    text-align: center;
+                    width: 78px;
+                    padding: 2px 4px;
+                    -webkit-box-shadow: 1px 1px 2px 1px rgba(204,202,204,1);
+                    -moz-box-shadow: 1px 1px 2px 1px rgba(204,202,204,1);
+                    box-shadow: 1px 1px 2px 1px rgba(204,202,204,1);
+                }
+                &:focus, &:hover, &:active {
+                    button {
+                        display: block;
+                    }
+                }
+            }
+        }
+        &-date {
+            div {
+                color: $pia-gray;
+                font-size: 1rem;
+                margin-bottom: -1px;
+                &:first-child {
+                    font-style: italic;
+                }
+            }
+            time {
+                font-size: 1.45rem;
+                color: $pia-dark-black;
+            }
+        }
+        &-btn {
+            border-top: 1px solid $pia-green;
+            padding-top: 21px;
+            margin-top: 21px;
+            text-align: center;
+            margin-bottom: 15px;
+            button {
+                border-radius: 20px;
+                border: 1px solid;
+                font-size: 1.25rem;
+                padding: 8px 24px;
+            }
+        }
+
+    }
+    &-toolbar {
+        font-size: 1.45rem;
+        float: right;
+        button {
+            color: $pia-green;
+            .fa {
+                margin: 0 3px;
+            }
+        }
+        &-edit, &-export, &-more {
+            display: inline-block;
+            vertical-align: top;
+            position: relative;
+            &:hover {
+                .pia-cardsBlock-toolbar-editHint,
+                .pia-cardsBlock-toolbar-exportHint,
+                .pia-cardsBlock-toolbar-moreList {
+                    display: block;
+                }
+            }
+            > button {
+                &:focus, &:hover, &:active {
+                    & + .pia-cardsBlock-toolbar-editHint,
+                    & + .pia-cardsBlock-toolbar-exportHint,
+                    & + .pia-cardsBlock-toolbar-moreList {
+                        display: block;
+                    }
+                }
+            }
+        }
+        &-more {
+            position: relative;
+        }
+        &-editHint, &-exportHint {
+            z-index: 999;
+            display: none;
+            position: absolute;
+            bottom: -15px;
+            left: -13px;
+            background-color: $pia-green;
+            padding: 2px 5px;
+            color: #fff;
+            font-size: 1rem;
+            text-align: center;
+            box-shadow: 1px 1px 3px 1px rgba(204,202,204,1);
+            .pia-icon-green-hint-arrow {
+                position: absolute;
+                top: -4px;
+                left: 50%;
+                margin-left: -3px;
+            }
+        }
+        &-moreList {
+            z-index: 999;
+            margin: 0;
+            padding: 0;
+            display: none;
+            position: absolute;
+            left: 15px;
+            top: -6px;
+            padding-left: 15px;
+            background-color: #fff;
+            width: 110px;
+            li {
+                width: 100%;
+                padding-left: 15px;
+                list-style-type: none;
+                color: $pia-green;
+                padding: 0;
+                background-color: #fff;
+                padding-left: 10px;
+                .fa, button {
+                    display: inline-block;
+                    vertical-align: middle;
+                    font-size: 1rem;
+                }
+                .fa {
+                    margin-right: 3px;
+                }
+                button {
+                    text-align: left;
+                    padding: 2px;
+                }
+                &:focus, &:hover, &:active {
+                    color: #fff;
+                    background-color: $pia-green;
+                    button {
+                        color: #fff;
+                    }
+                }
+            }
+        }
+    }
+}

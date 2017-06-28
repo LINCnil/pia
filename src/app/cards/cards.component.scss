@@ -1,0 +1,67 @@
+@import '../../assets/stylesheets/variables';
+
+.pia-newBlock {
+    border-color: $pia-gray;
+    &-item {
+        background: url("/assets/images/pia-bg.png") repeat center center;
+        padding: 40px;
+        padding-top: 32px;
+        font-size: 1.9rem;
+        color: $pia-green;
+        height: 368px;
+        &-new, &-import {
+            &-title {
+                padding-bottom: 10px;
+            }
+            &-btn {
+                padding-left: 18px;
+                .fa-folder-open, .fa-upload {
+                    font-size: 7rem;
+                    margin-right: 30px;
+                }
+                .fa-upload {
+                    margin-right: 40px;
+                }
+                .fa-folder-open, .fa-upload, button {
+                    display: inline-block;
+                    vertical-align: top;
+                }
+            }
+        }
+        > span {
+            display: block;
+            padding: 22px 0;
+            color: $pia-gray;
+            font-size: 2.1rem;
+        }
+    }
+    &-hint {
+        position: absolute;
+        background-color: #fff;
+        width: 300px;
+        height: 200px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 18px 2px rgba(212,212,212,1);
+        top: 110px;
+        right: -323px;
+        .pia-icon-small-arrow {
+            position: absolute;
+            top: 50%;
+            left: -22px;
+            margin-top: -18.5px;
+        }
+        div {
+            margin-top: 8px;
+            margin-left: 38px;
+            p {
+                display: inline-block;
+                vertical-align: top;
+                color: $pia-blue;
+                font-size: 2rem;
+                line-height: 1.2;
+                margin-top: 58px;
+                margin-left: 14px;
+            }
+        }
+    }
+}

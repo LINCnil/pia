@@ -12,39 +12,31 @@ $fa-font-path: "../node_modules/font-awesome/fonts";
 
 @import "./assets/stylesheets/fonts";
 @import "./assets/stylesheets/sprites";
+@import "./assets/stylesheets/btn";
+@import "./assets/stylesheets/card";
 
 html {
-  font-size: 62.5%;
+    font-size: 62.5%;
 }
-
 body {
-  font-size: 1.2rem;
-  font-family: 'Roboto', sans-serif;
-  background-color: $pia-white;
+    font-size: 1.2rem;
+    font-family: 'Roboto', sans-serif;
+    background-color: $pia-white;
 }
-
 html, body {
-  height: 100%;
+    height: 100%;
 }
-
+body {
+  &.pia-authentication {
+    border-top: 28px solid rgb(9, 28, 107);
+    background: url("/assets/images/authentication-bg.png") no-repeat center center transparent;
+    background-size: cover;
+  }
+}
 .container {
   max-width: 1180px;
   margin: 0 auto;
 }
-
-/* Contrasted colors switches */
-.contrasted-green {
-  color: $pia-green-contrast;
-}
-
-.contrasted-red {
-  color: $pia-red-contrast;
-}
-
-.contrasted-gray {
-  color: $pia-gray-contrast;
-}
-
 /* Inactive inputs styles */
 input {
   &:disabled {
@@ -57,4 +49,17 @@ input {
   a {
     color: $pia-blue !important;
   }
+}
+.hide {
+  visibility: hidden;
+}
+.pia-rightSidebarBlock {
+  position: relative;
+}
+.fixed {
+  position: fixed;
+  top: 0;
+}
+.red-highlight {
+  color: $pia-red;
 }
