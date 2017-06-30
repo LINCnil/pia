@@ -1,12 +1,14 @@
 <div class="pia-cardsBlock pia-doingBlock">
-    <div class="pia-cardsBlock-header-title">
+
+    <div class="pia-cardsBlock-header-title" *ngIf="card.id != null">
       <span *ngIf="card.status == 'doing'">En cours</span>
       <span *ngIf="card.status == 'archived'">Archivée</span>
     </div>
+
     <div class="pia-cardsBlock-item pia-doingBlock-item">
       <div class="pia-cardsBlock-toolbar">
           <div class="pia-cardsBlock-toolbar-edit">
-              <button type="button" class="btn pia-cardsBlock-toolbar-editBtn" title="Éditer"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+              <button type="submit" class="btn pia-cardsBlock-toolbar-editBtn" title="Éditer" (click)="onEdit()"><i class="fa fa-pencil" aria-hidden="true"></i></button>
               <div class="pia-cardsBlock-toolbar-editHint">
                   <span class="pia-icons pia-icon-green-hint-arrow"></span>Éditer
               </div>
@@ -35,6 +37,7 @@
               </ul>
           </div>
       </div>
+
       <form class="pia-cardsBlock-item-form">
           <div>
               <div class="pia-doingBlock-item-form-attachment">
@@ -42,19 +45,19 @@
                   <button type="button" class="btn">Analyse EBIOS</button>
               </div>
               <label for="pia-edit-name">Nom du PIA</label>
-              <input type="text" disabled placeholder="Intitulé" value="{{ card.name }}" id="pia-edit-name">
+              <input type="text" ngModel name="pia-edit-name" [disabled]="card.editMode" placeholder="Intitulé" value="{{ card.name }}" id="pia-edit-name">
           </div>
           <div>
               <label for="pia-edit-author-name">Saisie</label>
-              <input type="text" disabled placeholder="Prénom, nom" value="Emilie Launaix, Jean-Charles Chombard" id="pia-edit-author-name">
+              <input type="text" ngModel name="pia-edit-author" [disabled]="card.editMode" placeholder="Prénom, nom" value="Emilie Launaix, Jean-Charles Chombard" id="pia-edit-author-name">
           </div>
           <div>
               <label for="pia-edit-evaluator-name">Évaluation</label>
-              <input type="text" disabled placeholder="Prénom, nom" value="Rémy Dutronc, Marie Dubois" id="pia-edit-evaluator-name">
+              <input type="text" ngModel name="pia-edit-evaluator-name" [disabled]="card.editMode" placeholder="Prénom, nom" value="Rémy Dutronc, Marie Dubois" id="pia-edit-evaluator-name">
           </div>
           <div>
               <label for="pia-edit-validator-name">Validation</label>
-              <input type="text" disabled placeholder="Prénom, nom" value="Sophie Hadid" id="pia-edit-validator-name">
+              <input type="text" ngModel name="pia-edit-validator-name" [disabled]="card.editMode" placeholder="Prénom, nom" value="Sophie Hadid" id="pia-edit-validator-name">
           </div>
       </form>
       <div class="pia-cardsBlock-item-date">

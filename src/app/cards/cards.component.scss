@@ -1,5 +1,6 @@
 @import '../../assets/stylesheets/variables';
 
+// New PIA
 .pia-newBlock {
     border-color: $pia-gray;
     &-item {
@@ -9,6 +10,7 @@
         font-size: 1.9rem;
         color: $pia-green;
         height: 368px;
+        width: 274px;
         &-new, &-import {
             &-title {
                 padding-bottom: 10px;
@@ -65,3 +67,27 @@
         }
     }
 }
+
+// Edit PIA
+.pia-editBlock {
+  border-color: $pia-green;
+}
+
+// Cards flipper (New / Edit)
+#cardsSwitch {
+  position: absolute;
+  transform-style: preserve-3d;
+  transition: transform 1s;
+}
+#cardsSwitch > div {
+  margin: 0;
+  position: absolute;
+  backface-visibility: hidden;
+}
+#cardsSwitch .back {
+  transform: rotateY( 180deg );
+}
+#cardsSwitch.flipped {
+  transform: rotateY( 180deg );
+}
+

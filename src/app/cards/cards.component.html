@@ -8,13 +8,13 @@
     </div>
     <div class="row">
       <div class="small-12 medium-12 columns">
-        <div class="pia-cardsBlock pia-newBlock">
-            <div class="pia-newBlock-item">
+        <div class="pia-cardsBlock pia-newBlock" id="cardsSwitch">
+            <div class="pia-newBlock-item front" id="pia-new-card">
                 <div class="pia-newBlock-item-new">
                     <div class="pia-newBlock-item-new-title">Nouveau PIA</div>
                     <div class="pia-newBlock-item-new-btn">
                         <i class="fa fa-folder-open" aria-hidden="true"></i>
-                        <button class="btn" type="button" title="Nouveau PIA"><span class="pia-icons pia-icon-pia-plus"></span></button>
+                        <button class="btn" (click)="newPia()" type="button" title="Nouveau PIA"><span class="pia-icons pia-icon-pia-plus"></span></button>
                     </div>
                 </div>
                 <span>ou</span>
@@ -22,22 +22,67 @@
                     <div class="pia-newBlock-item-import-title">Importer PIA</div>
                     <div class="pia-newBlock-item-import-btn">
                         <i class="fa fa-upload" aria-hidden="true"></i>
-                        <button class="btn" type="button" title="Importer PIA"><span class="pia-icons pia-icon-pia-plus"></span></button>
+                        <button class="btn" (click)="importPia()" type="button" title="Importer PIA"><span class="pia-icons pia-icon-pia-plus"></span></button>
                     </div>
                 </div>
             </div>
-            <div class="pia-newBlock-hint" *ngIf="cards.length == 0">
-                <span class="pia-icons pia-icon-small-arrow"></span>
+
+          <div class="pia-cardsBlock pia-editBlock back">
+            <div class="pia-cardsBlock-item pia-editBlock-item">
+              <form class="pia-cardsBlock-item-form" (ngSubmit)="onSubmit(f)"
+                    #f='ngForm'>
                 <div>
-                    <span class="pia-icons pia-icon-rocket"></span>
-                    <p>
-                        Lancez-vous !<br><br>
-                        Pour commencer<br>
-                        un PIA, c'est par là.
-                    </p>
+                  <label for="pia-name">Nom du PIA</label>
+                  <input ngModel name="pia-name" type="text" placeholder="Intitulé" id="pia-name" required>
                 </div>
+                <div>
+                  <label for="pia-author-name">Saisie</label>
+                  <input ngModel name="pia-author-name" type="text" placeholder="Prénom, nom" id="pia-author-name" required>
+                </div>
+                <div>
+                  <label for="pia-evaluator-name">Évaluation</label>
+                  <input ngModel name="pia-evaluator-name" type="text" placeholder="Prénom, nom" id="pia-evaluator-name" required>
+                </div>
+                <div>
+                  <label for="pia-validator-name">Validation</label>
+                  <input ngModel name="pia-validator-name" type="text" placeholder="Prénom, nom" id="pia-validator-name" required>
+                </div>
+                <div class="pia-cardsBlock-item-date">
+                  <div>Date</div>
+                  <time>30/06/17</time>
+                </div>
+                <div class="pia-cardsBlock-item-status">
+                  <div class="pia-cardsBlock-item-status-infos">
+                    <div>Status</div>
+                    <div>Création</div>
+                  </div>
+                  <div class="pia-cardsBlock-item-status-progressBar">
+                    <div>0%</div>
+                    <progress max="100" value="0">
+                    </progress>
+                  </div>
+                </div>
+                <div class="pia-cardsBlock-item-btn">
+                  <button type="submit" [disabled]="!f.valid" class="btn btn-green" id="pia-save-card-btn">Commencer</button>
+                  <!--<button type="submit" [disabled]="!f.valid" class="btn btn-green" id="pia-save-card-btn" [routerLink]="['/entry/5']">Commencer</button>-->
+                </div>
+              </form>
             </div>
+          </div>
+
+          <div class="pia-newBlock-hint" *ngIf="cards.length == 0" id="pia-rocket">
+            <span class="pia-icons pia-icon-small-arrow"></span>
+            <div>
+              <span class="pia-icons pia-icon-rocket"></span>
+              <p>
+                Lancez-vous !<br><br>
+                Pour commencer<br>
+                un PIA, c'est par là.
+              </p>
+            </div>
+          </div>
         </div>
+
         <app-card-item *ngFor="let card of cards" [card]="card"></app-card-item>
       </div>
     </div>

@@ -20,13 +20,15 @@
     &.hide {
         @extend .btn-default;
     }
-    &-inactive {
+    &-inactive, &[disabled] {
         @extend .btn-default;
         color: $pia-gray;
         border-color: $pia-gray;
         cursor: not-allowed;
+        background-color: transparent;
         &:focus, &:hover {
             color: $pia-gray;
+            background-color: transparent;
         }
     }
     &-white {
