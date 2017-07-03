@@ -8,10 +8,14 @@ import { AuthenticationComponent } from './authentication/authentication.compone
 import { CardsComponent } from './cards/cards.component';
 import { FiltersComponent } from './filters/filters.component';
 import { CardItemComponent } from './cards/card-item/card-item.component';
+import { SidebarRightComponent } from './sidebar-right/sidebar-right.component';
+import { EntryComponent } from './entry/entry.component';
+import { SidebarLeftComponent } from './sidebar-left/sidebar-left.component';
 
 const appRoutes: Routes = [
   { path: '', component: AuthenticationComponent },
-  { path: 'home', component: CardsComponent }
+  { path: 'home', component: CardsComponent },
+  { path: 'entry/:id', component: EntryComponent }
 ]
 
 @NgModule({
@@ -21,7 +25,10 @@ const appRoutes: Routes = [
     AuthenticationComponent,
     CardsComponent,
     FiltersComponent,
-    CardItemComponent
+    CardItemComponent,
+    SidebarRightComponent,
+    EntryComponent,
+    SidebarLeftComponent
   ],
   imports: [
     BrowserModule,

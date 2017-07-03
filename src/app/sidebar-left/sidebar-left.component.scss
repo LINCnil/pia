@@ -1,0 +1,224 @@
+@import '../../assets/stylesheets/variables';
+// Left navigation with sections
+.pia {
+  &-sectionBlock {
+    &-header {
+      display: flex;
+      justify-content: space-between;
+      padding: 0 10px;
+      border-bottom: solid 2px $pia-gray;
+      h1 {
+        font-size: 3rem;
+        font-weight: 400;
+        margin: auto 4px 10px 4px;
+      }
+      a {
+        align-self: center;
+      }
+    }
+    &-title {
+      margin-top: 18px;
+      margin-left: 10px;
+      text-transform: uppercase;
+      border-left: solid 10px;
+      padding: 3px 0 2px 10px;
+      align-self: center;
+      display: flex;
+      font-weight: 600;
+      justify-content: flex-end;
+      font-size: 1.3rem;
+      hr {
+        margin: auto 10px auto auto;
+        background-color: $pia-gray;
+        border: 0;
+        height: 1px;
+      }
+    }
+    &-list {
+      padding: 0;
+      margin-bottom: 22px;
+      margin-left: 10px;
+      li {
+        padding: 2px 0;
+        font-size: 1.4rem;
+        list-style-type: none;
+        display: flex;
+        align-self: center;
+        justify-content: start;
+        a {
+          color: $pia-dark-black;
+          text-decoration: none;
+          padding-left: 5px;
+        }
+        &::before {
+          content: "";
+          border-top: solid 1px $pia-gray;
+          width: 8.5px;
+          margin-right: 7px;
+          margin-top: 9px;
+          color: $pia-gray;
+        }
+        i {
+          font-size: 1.8rem;
+          margin-top: 2px;
+          margin-left: auto;
+          margin-right: 10px;
+          color: $pia-gray;
+        }
+        .fa-check-square-o {
+          color: $pia-blue;
+        }
+      }
+    }
+    &-first,
+    &-second,
+    &-third,
+    &-fourth {
+      hr {
+        width: 100%;
+      }
+      a {
+        &:focus, &:hover, &:active {
+          border-radius: 4px;
+          color: #fff;
+          width: 82%;
+        }
+      }
+    }
+    &-first {
+      .pia-sectionBlock-title {
+        color: $pia-green;
+        border-color: $pia-green;
+      }
+      hr {
+        max-width: 164px;
+      }
+      a {
+        &:focus, &:hover, &:active {
+          background-color: $pia-green;
+        }
+      }
+    }
+    &-second {
+      .pia-sectionBlock-title {
+        color: $pia-blue;
+        border-color: $pia-blue;
+      }
+      hr {
+        max-width: 62px;
+      }
+      a {
+        &:focus, &:hover, &:active {
+          background-color: $pia-blue;
+        }
+      }
+    }
+    &-third {
+      .pia-sectionBlock-title {
+        color: $pia-red;
+        border-color: $pia-red;
+      }
+      hr {
+        max-width: 182px;
+      }
+      a {
+        &:focus, &:hover, &:active {
+          background-color: $pia-red;
+        }
+      }
+    }
+    &-fourth {
+      .pia-sectionBlock-title {
+        color: $pia-dark-black;
+        border-color: $pia-dark-black;
+        display: block;
+      }
+      hr {
+        display: none;
+      }
+      a {
+        &:focus, &:hover, &:active {
+          background-color: $pia-dark-black;
+        }
+      }
+    }
+  }
+}
+// Validate block styles
+.pia {
+  &-validatePIABlock {
+    padding: 10px;
+    text-align: center;
+    a {
+      display: block;
+      width: 250px;
+      margin: 0 auto;
+      border-radius: 0;
+      padding: 2px;
+      text-align: center;
+      text-decoration: none;
+      &.btn-active {
+        &:focus, &:hover, &:active {
+          background-color: $pia-gray;
+          border-color: $pia-gray;
+        }
+      }
+    }
+  }
+}
+// Attachments block styles
+.pia {
+  &-attachmentsBlock {
+    box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.2);
+    background-color: #fff;
+    margin-top: 10px;
+    padding:  10px;
+    max-height: 108px;
+    p {
+      margin-top:0;
+      color: $pia-dark-black;
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+    &-item {
+      padding: 4px;
+      position: relative;
+      border: solid 1px $pia-gray;
+      display: flex;
+      justify-content: space-between;
+      span:first-child {
+        align-self: center;
+        padding: 10px;
+        color: $pia-blue;
+      }
+      span:nth-child(2) {
+        align-self: center;
+        color: $pia-blue;
+        width: 100%;
+        margin-left: 5px;
+      }
+      span:last-child {
+        align-self: center;
+        padding: 10px;
+      }
+      div {
+        margin-top: 2px;
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 1.15rem;
+        color: $pia-blue;
+      }
+    }
+    &-addBtn {
+      margin-top: 8px;
+      font-weight: 500;
+      color: $pia-green;
+      font-size: 1.2rem;
+      span {
+        margin-right: 10px;
+      }
+    }
+  }
+}
+

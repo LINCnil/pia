@@ -1,0 +1,162 @@
+@import '../../assets/stylesheets/variables';
+
+// Right sidebar with knowledge base
+.pia {
+  &-knowledgeBaseBlock {
+    padding-top: 10px;
+    &-header {
+      color: $pia-gray;
+      border-bottom: solid 1px $pia-gray;
+      i {
+        font-size: 2.2rem;
+        padding-right: 14px;
+      }
+      h1 {
+        font-size: 1.7rem;
+        font-weight: 400;
+        display: inline-block;
+      }
+    }
+    &-searchForm {
+      position: relative;
+      padding-top: 17px;
+      form {
+        margin: 0;
+        position: relative;
+      }
+      input {
+        width: 100%;
+        padding: 15px;
+        box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.2);
+        border: none;
+      }
+      i {
+        font-size: 1.7rem;
+        color: $pia-gray;
+      }
+      button {
+        position: absolute;
+        right: 6%;
+        top: 30%;
+      }
+    }
+    &-filters {
+      padding-top: 5px;
+      padding-bottom: 8px;
+      div:first-child {
+        color: $pia-gray;
+        font-size: 1rem;
+      }
+      button:first-of-type {
+        color: $pia-blue;
+        font-weight: bold;
+        font-style: normal;
+        font-size: 1rem;
+      }
+      button {
+        color: $pia-gray;
+        font-style: italic;
+        font-size: 1rem;
+        &::before {
+          content: " - ";
+        }
+      }
+    }
+    &-list {
+      height: 600px;
+      overflow-x: hidden;
+      overflow-y: scroll;
+    }
+    &-item {
+      padding-bottom: 18px;
+      border-top: solid 1px $pia-green;
+      position: relative;
+      &-accordion, &-definition {
+        display: inline-block;
+        vertical-align: middle;
+      }
+      &-accordion {
+        width: 8%;
+        vertical-align: 2px;
+      }
+      &-definition {
+        position: relative;
+        width: 92%;
+        button, p {
+          display: inline-block;
+          vertical-align: top;
+        }
+        button {
+          margin-top: 10px;
+          margin-right: 4px;
+        }
+        > p {
+          margin-top: 10px;
+          margin-bottom: 14px;
+          color: $pia-red;
+        }
+        button {
+          float: right;
+          margin-top: 5px;
+          align-self: center;
+          text-decoration: none;
+          p {
+            margin: 0;
+            color: $pia-green;
+            text-align: center;
+            font-size: 0.9rem;
+          }
+          span {
+            display: block;
+            margin: auto;
+          }
+        }
+        div {
+          z-index: 999;
+          box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.2);
+          position: absolute;
+          top: 90px;
+          right: -66px;
+          max-width: 146px;
+          max-height: 90px;
+          border-radius: 5px;
+          padding: 5px 10px;
+          background-color: #fff;
+          span {
+            position: absolute;
+            left: 30%;
+            top: -57%;
+          }
+          p {
+            margin: 0;
+            padding: 0 5px;
+            font-size: 1.3rem;
+            text-align: center;
+            color: $pia-blue;
+            font-style: italic;
+          }
+        }
+      }
+      &-title {
+        p {
+          margin-top: -10px;
+          margin-right: 40px;
+          margin-bottom: 0;
+          font-size: 1.7rem;
+          color: $pia-light-black;
+          line-height: 1.7rem;
+          a {
+            color: $pia-green;
+          }
+        }
+      }
+      &-content {
+        // display: none;
+        padding-top: 10px;
+        padding-bottom: 15px;
+        color: $pia-dark-black;
+        font-size: 1.4rem;
+      }
+    }
+  }
+}
