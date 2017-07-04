@@ -10,7 +10,9 @@ import { CardItemComponent } from './cards/card-item/card-item.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {FormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
+import { SidebarRightComponent } from './sidebar-right/sidebar-right.component';
 import { EntryComponent } from './entry/entry.component';
+import { SidebarLeftComponent } from './sidebar-left/sidebar-left.component';
 
 const appRoutes: Routes = [
   { path: '', component: AuthenticationComponent },
@@ -26,7 +28,9 @@ const appRoutes: Routes = [
     CardsComponent,
     FiltersComponent,
     CardItemComponent,
-    EntryComponent
+    SidebarRightComponent,
+    EntryComponent,
+    SidebarLeftComponent
   ],
   imports: [
     BrowserModule,
