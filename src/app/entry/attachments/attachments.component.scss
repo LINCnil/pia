@@ -4,44 +4,14 @@
   &-attachmentsBlock {
     box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.2);
     background-color: #fff;
-    margin-top: 10px;
+    margin: 10px 0;
     padding:  10px;
-    max-height: 108px;
     p {
       margin-top:0;
       color: $pia-dark-black;
       font-size: 1.1rem;
       text-transform: uppercase;
       font-weight: bold;
-    }
-    &-item {
-      padding: 4px;
-      position: relative;
-      border: solid 1px $pia-gray;
-      display: flex;
-      justify-content: space-between;
-      span:first-child {
-        align-self: center;
-        padding: 10px;
-        color: $pia-blue;
-      }
-      span:nth-child(2) {
-        align-self: center;
-        color: $pia-blue;
-        width: 100%;
-        margin-left: 5px;
-      }
-      span:last-child {
-        align-self: center;
-        padding: 10px;
-      }
-      div {
-        margin-top: 2px;
-        text-decoration: none;
-        font-weight: 500;
-        font-size: 1.15rem;
-        color: $pia-blue;
-      }
     }
     &-addBtn {
       margin-top: 8px;
