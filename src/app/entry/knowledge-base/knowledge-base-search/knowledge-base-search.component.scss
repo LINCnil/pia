@@ -1,0 +1,29 @@
+@import '../../../../assets/stylesheets/variables';
+// Search input for knowledge base
+.pia {
+  &-knowledgeBaseBlock {
+    &-searchForm {
+      position: relative;
+      padding-top: 17px;
+      form {
+        margin: 0;
+        position: relative;
+      }
+      input {
+        width: 100%;
+        padding: 15px;
+        box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.2);
+        border: none;
+      }
+      i {
+        font-size: 1.7rem;
+        color: $pia-gray;
+      }
+      button {
+        position: absolute;
+        right: 6%;
+        top: 30%;
+      }
+    }
+  }
+}

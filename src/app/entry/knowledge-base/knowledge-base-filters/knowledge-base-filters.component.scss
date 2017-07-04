@@ -1,0 +1,28 @@
+@import '../../../../assets/stylesheets/variables';
+// Filters on knowledge base
+.pia {
+  &-knowledgeBaseBlock {
+    &-filters {
+      padding-top: 5px;
+      padding-bottom: 8px;
+      div:first-child {
+        color: $pia-gray;
+        font-size: 1rem;
+      }
+      button:first-of-type {
+        color: $pia-blue;
+        font-weight: bold;
+        font-style: normal;
+        font-size: 1rem;
+      }
+      button {
+        color: $pia-gray;
+        font-style: italic;
+        font-size: 1rem;
+        &::before {
+          content: " - ";
+        }
+      }
+    }
+  }
+}

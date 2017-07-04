@@ -3,88 +3,15 @@
     <i class="fa fa-book" aria-hidden="true"></i>
     <h1>Base de connaissance</h1>
   </div>
-  <div class="pia-knowledgeBaseBlock-searchForm">
-    <form>
-      <input type="text">
-      <button class="btn" type="submit" title="Rechercher"><i class="fa fa-search" aria-hidden="true"></i></button>
-    </form>
-  </div>
-  <div class="pia-knowledgeBaseBlock-filters">
-    <div>Filtres</div>
-    <button class="btn" type="button" title="Toutes les mesures">Toutes les mesures</button>
-    <button class="btn" type="button" title="Mesures organisationnelles">Mesures organisationnelles</button>
-    <button class="btn" type="button" title="Mesures de sécurité logistique">Mesures de sécurité logistique</button>
-    <button class="btn" type="button" title="Mesures de sécurité physique">Mesures de sécurité physique</button>
-  </div>
+
+  <app-knowledge-base-search></app-knowledge-base-search>
+  <app-knowledge-base-filters></app-knowledge-base-filters>
+
+  <!--Contains each knowledge base item -->
   <div class="pia-knowledgeBaseBlock-list">
-    <div class="pia-knowledgeBaseBlock-item">
-      <div class="pia-knowledgeBaseBlock-item-accordion">
-        <button class="btn" type="button" title="Afficher / masquer"><span
-          class="pia-icons pia-icon-accordeon-down"></span></button>
-      </div><!--
-      -->
-      <div class="pia-knowledgeBaseBlock-item-definition">
-        <p>Définition</p>
-        <button class="btn" type="button" title="Ajouter une mesure">
-          <span class="pia-icons pia-icon-add"></span>
-          <p>Ajouter</p>
-        </button>
-        <div style="display:none;">
-          <span class="pia-icons pia-icon-hand"></span>
-          <p>Ajoutez aussi une mesure à partir de la base de connaissance.</p>
-        </div>
-      </div>
-      <div class="pia-knowledgeBaseBlock-item-title">
-        <p>Données à caractère personnel courantes</p>
-      </div>
-      <div class="pia-knowledgeBaseBlock-item-content">
-        État-civil, identité, données d'identification<br>
-        Vie personnelle (habitudes de vie, situation familiale, hors données sensibles ou dangereuses...)<br>
-        Vie professionnelle (CV, scolarité, formation professionnelle, distinctions...)<br>
-        Informations d'ordre économique et financier (revenus, situation financière, situation fiscale...)<br>
-        Données de connexion (adresses IP, journaux d'événements...)<br>
-        Données de localisation (déplacements, données GPS, GSM...)
-      </div>
-    </div>
-    <div class="pia-knowledgeBaseBlock-item">
-      <div class="pia-knowledgeBaseBlock-item-accordion">
-        <button class="btn" type="button" title="Afficher / masquer"><span
-          class="pia-icons pia-icon-accordeon-down"></span></button>
-      </div><div class="pia-knowledgeBaseBlock-item-definition">
-        <p>Définition</p>
-        <button class="btn" type="button" title="Ajouter une mesure">
-          <span class="pia-icons pia-icon-add"></span>
-          <p>Ajouter</p>
-        </button>
-      </div>
-      <div class="pia-knowledgeBaseBlock-item-title"><p>Données à caractère personnel perçues comme sensibles</p>
-      </div>
-      <div class="pia-knowledgeBaseBlock-item-content">
-        Numéro de sécurité sociale (NIR)<br>
-        Données Biométriques<br>
-        Données bancaires
-      </div>
-    </div>
-    <div class="pia-knowledgeBaseBlock-item">
-      <div class="pia-knowledgeBaseBlock-item-accordion">
-        <button class="btn" type="button" title="Afficher / masquer"><span
-          class="pia-icons pia-icon-accordeon-down"></span></button>
-      </div>
-      <div class="pia-knowledgeBaseBlock-item-definition">
-        <p>Définition</p>
-        <button class="btn" type="button" title="Ajouter une mesure">
-          <span class="pia-icons pia-icon-add"></span>
-          <p>Ajouter</p>
-        </button>
-      </div>
-      <div class="pia-knowledgeBaseBlock-item-title"><p>DCP sensibles<br> au sens de la <a href="#">[Loi-I&L]</a></p>
-      </div>
-      <div class="pia-knowledgeBaseBlock-item-content">
-        Opinions philosophiques, politiques, religieuses, syndicales, vie sexuelle, données de santé, origines
-        raciales ou ethniques, relatives à la santé ou à la vie sexuelle, infractions, condamnations, mesures de
-        sécurité.
-      </div>
-    </div>
+    <app-knowledge-base-item></app-knowledge-base-item>
+    <app-knowledge-base-item></app-knowledge-base-item>
+    <app-knowledge-base-item></app-knowledge-base-item>
   </div>
 </div>
 
