@@ -19,9 +19,6 @@ import { KnowledgeBaseFiltersComponent } from './entry/knowledge-base/knowledge-
 import { KnowledgeBaseItemComponent } from './entry/knowledge-base/knowledge-base-item/knowledge-base-item.component';
 import { KnowledgeBaseSearchComponent } from './entry/knowledge-base/knowledge-base-search/knowledge-base-search.component';
 import { AttachmentItemComponent } from './entry/attachments/attachment-item/attachment-item.component';
-import { ModalsComponent } from './modals/modals.component';
-
-
 
 const appRoutes: Routes = [
   { path: '', component: AuthenticationComponent },
@@ -45,8 +42,7 @@ const appRoutes: Routes = [
     KnowledgeBaseFiltersComponent,
     KnowledgeBaseItemComponent,
     KnowledgeBaseSearchComponent,
-    AttachmentItemComponent,
-    ModalsComponent,
+    AttachmentItemComponent
 
   ],
   imports: [
