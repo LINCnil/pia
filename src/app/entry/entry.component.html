@@ -1,14 +1,23 @@
 <app-header></app-header>
 <main class="container">
   <div class="row">
+    <!--Left sidebar -->
     <div class="small-12 medium-3 columns">
-      <app-sidebar-left></app-sidebar-left>
+      <aside class="pia-leftSidebarBlock">
+        <app-sections></app-sections>
+      </aside>
     </div>
-    <div class="small-12 medium-6 columns">
 
+    <!--Main entry content -->
+    <div class="small-12 medium-6 columns">
+      <app-entry-content></app-entry-content>
     </div>
+
+    <!--Right sidebar  -->
     <div class="small-12 medium-3 columns">
-      <app-sidebar-right></app-sidebar-right>
+      <div class="pia-rightSidebarBlock">
+        <app-knowledge-base></app-knowledge-base>
+      </div>
     </div>
   </div>
 </main>

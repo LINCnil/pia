@@ -1,6 +1,5 @@
-@import '../../assets/stylesheets/variables';
-
-// Right sidebar with knowledge base
+@import '../../../assets/stylesheets/variables';
+// Knowledge base
 .pia {
   &-knowledgeBaseBlock {
     padding-top: 10px;
@@ -81,7 +80,7 @@
       }
       &-definition {
         position: relative;
-        width: 92%;
+        width: 90%;
         button, p {
           display: inline-block;
           vertical-align: top;
