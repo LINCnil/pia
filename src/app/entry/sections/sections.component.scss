@@ -80,7 +80,7 @@
       a {
         &:focus, &:hover, &:active {
           border-radius: 4px;
-          color: #fff;
+          color: #fff!important;
           width: 82%;
         }
       }
