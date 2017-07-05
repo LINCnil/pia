@@ -47,13 +47,6 @@ export class CardItemComponent implements OnInit {
   onEdit() {
     this.card.editMode = !this.card.editMode;
   }
-
-  onFlip() {
-    this.frontState = (this.frontState === 'normal' ? 'flip' : 'normal');
-    this.backState = (this.backState === 'normal' ? 'flip' : 'normal');
-
-  }
-
   ngOnInit() {
 
   }

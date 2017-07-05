@@ -1,0 +1,69 @@
+@import '../../../../assets/stylesheets/variables';
+.pia {
+  &-questionBlock {
+    position: relative;
+    margin-bottom: 10px;
+    background-color: #fff;
+    padding: 12px 32px;
+    box-shadow: 1px 1px 15px 1px rgba(210,210,210,1);
+    &-title {
+      position: relative;
+      font-size: 1.75rem;
+      padding-left: 12px;
+      button {
+        position: absolute;
+        left: -20px;
+        top: 50%;
+        margin-top: -8.5px;
+      }
+    }
+    &-edit {
+      color: $pia-gray;
+      position: absolute;
+      top: 16px;
+      right: 20px;
+      font-size: 1.9rem;
+    }
+    &-highlight {
+      color: $pia-red;
+    }
+    &-content {
+      padding: 0;
+      // Tags questions
+      &-tags {
+        width: 100%;
+        border: none;
+        margin: 10px 0;
+        padding: 4px;
+      }
+      // Simple questions
+      textarea {
+        resize: none;
+        display: block;
+        vertical-align: top;
+        width: 100%;
+        background-color: $pia-white;
+        border: 0;
+        padding: 5px 12px;
+        font-size: 1.35rem;
+        &::placeholder {
+          font-style: italic;
+        }
+        &:disabled {
+          background-color: transparent;
+          color: $pia-dark-black;
+        }
+      }
+    }
+    &-date {
+      display: inline-block;
+      width: 50%;
+      color: $pia-gray;
+      font-size: 1rem;
+    }
+    &.approved {
+      border: 1px solid $pia-gray;
+      box-shadow: none;
+    }
+  }
+}

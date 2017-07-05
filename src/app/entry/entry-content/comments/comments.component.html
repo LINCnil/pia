@@ -1,0 +1,19 @@
+<div class="pia-commentsBlock">
+  <div class="pia-commentsBlock-count">1 commentaire</div>
+  <div class="pia-commentsBlock-infos">
+    <time datetime="2016-12-12" class="pia-commentsBlock-date">le 12/12/2016</time><div class="pia-commentsBlock-btn">
+    <button class="btn" type="button" (click)="commentsOpenCloseType()" title="Commenter"><i class="fa fa-comment-o" aria-hidden="true"></i> Commenter</button>
+    <button class="btn" (click)="commentsOpenCloseList()" type="button" title="Afficher / masquer"><span class="pia-icons pia-icon-accordeon-up"></span></button>
+  </div>
+  </div>
+  <div class="pia-CommentsType">
+    <textarea class="pia-CommentsType-area" placeholder="Laissez un commentaire" rows="8" cols="50"></textarea>
+  </div>
+
+  <div class="pia-CommentsList">
+    <app-comment-item></app-comment-item>
+    <app-comment-item></app-comment-item>
+    <app-comment-item></app-comment-item>
+    <app-comment-item></app-comment-item>
+  </div>
+</div>

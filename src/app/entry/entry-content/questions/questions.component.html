@@ -1,0 +1,16 @@
+<div class="pia-questionBlock">
+  <form (ngSubmit)="onSubmit(f)" #f='ngForm'>
+    <div class="pia-questionBlock-title">
+
+      <button class="btn" type="button" title="Afficher / masquer"><span
+        class="pia-icons pia-icon-accordeon-up"></span></button>
+      Description du produit
+    </div>
+    <button type="button" class="btn pia-questionBlock-edit" (click)="modReedit()" title="Éditer"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+    <div class="pia-questionBlock-content">
+      <textarea ngModel name="pia-question" rows="8" cols="50" placeholder="Décrivez les caractéristiques de votre produit." [disabled]="f.focus">orem ipsum dolor sit amet, consectetur adipiscing elit. Ut hendrerit urna odio, eget cursus ferit urna odio, eget cursus ferit urna odio, eget cursus ferit urna odio, eget cursus ferit urna odio, eget          cursus ferit urna odio, eget cursus ferit urna odio, eget cursus ferit urna odio, eget cursus felis commodo id. Vivamus finibus sollicitudin lectus, et         tempor eros sodales vel. Pellentesque vulputate sodales consequat.</textarea>
+    </div>
+    <app-comments></app-comments>
+    <app-evaluations></app-evaluations>
+  </form>
+</div>
