@@ -52,28 +52,21 @@
       &:before {
         margin: 0 5px;
       }
-
+    }
+    &-new {
+      display: none;
+      textarea {
+        margin: 10px auto;
+        resize: none;
+        display: block;
+        vertical-align: top;
+        width: 100%;
+        background-color: $pia-white;
+        border: 0;
+        padding: 5px 12px;
+        font-size: 1.35rem;
+        font-style: italic;
+      }
     }
   }
-}
-.close {
-  display: none;
-}
-.pia-CommentsType {
-  display: none;
-  &-area{
-    margin: 10px auto;
-    resize: none;
-    display: block;
-    vertical-align: top;
-    width: 100%;
-    background-color: $pia-white;
-    border: 0;
-    padding: 5px 12px;
-    font-size: 1.35rem;
-    font-style: italic;
-  }
-}
-.open {
-  display: block;
 }

@@ -1,4 +1,4 @@
-import {Component, Input, OnInit, ViewChild} from '@angular/core';
+import {Component, ElementRef, Input, OnInit, ViewChild} from '@angular/core';
 import {NgForm} from '@angular/forms';
 
 @Component({
@@ -8,21 +8,31 @@ import {NgForm} from '@angular/forms';
 })
 export class QuestionsComponent implements OnInit {
   @ViewChild('f') form: NgForm;
-  private editMode: boolean;
-  constructor() { }
+  public editStatus: boolean;
+  constructor(private el: ElementRef) { }
+
+  ngOnInit() {
+  }
 
   onSubmit(form: NgForm) {
-    //console.log(form);
+    console.log(form);
   }
 
-  modEdit() {
-    this.editMode = !this.editMode;
-    console.log(this.editMode);
+  // Disable fields + save data
+  focusOut() {
+    this.editStatus = true;
+    // Saving data here
   }
-  modReedit() {
-    this.editMode = !this.editMode;
+
+  activateEdition() {
+    this.editStatus = false;
   }
-  ngOnInit() {
+
+  displayQuestion() {
+    const accordeon = this.el.nativeElement.querySelector('.pia-questionBlock-title button span');
+    accordeon.classList.toggle('pia-icon-accordeon-down');
+    const displayer = this.el.nativeElement.querySelector('.pia-questionBlock-displayer');
+    displayer.classList.toggle('close');
   }
 
 }
