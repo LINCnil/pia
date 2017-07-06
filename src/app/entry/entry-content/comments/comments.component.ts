@@ -1,5 +1,5 @@
 import { Component, ElementRef, OnInit } from '@angular/core';
-
+/*import {CommentItem} from './comment-item/comment-item.model';*/
 
 @Component({
   selector: 'app-comments',
@@ -10,9 +10,14 @@ export class CommentsComponent implements OnInit {
   nbComments = 5;
   constructor(private el: ElementRef) { }
 
-  generateNewComment() {
+  displayNewCommentBox() {
     const dropdown = this.el.nativeElement.querySelector('.pia-commentsBlock-new');
     dropdown.classList.toggle('open');
+  }
+
+  newCommentFocusOut() {
+    // Generation of a new comment item component with value from new comment field
+    /*new CommentItem(null, 'test');*/
   }
 
   displayCommentsList() {

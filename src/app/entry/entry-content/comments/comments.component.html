@@ -2,18 +2,21 @@
   <div class="pia-commentsBlock-count">{{nbComments}} commentaire(s)</div>
   <div class="pia-commentsBlock-infos">
     <time datetime="2016-12-12" class="pia-commentsBlock-date">le 12/12/2016</time><div class="pia-commentsBlock-btn">
-    <button class="btn" type="button" (click)="generateNewComment()" title="Commenter"><i class="fa fa-comment-o" aria-hidden="true"></i> Commenter</button>
+    <button class="btn" type="button" (click)="displayNewCommentBox()" title="Commenter"><i class="fa fa-comment-o" aria-hidden="true"></i> Commenter</button>
     <button class="btn" (click)="displayCommentsList()" type="button" title="Afficher / masquer"><span class="pia-icons pia-icon-accordeon-up"></span></button>
   </div>
   </div>
-  <div class="pia-commentsBlock-new fadeIn">
+  <form class="pia-commentsBlock-new fadeIn" (focusout)="newCommentFocusOut()">
     <textarea placeholder="Laissez un commentaire" rows="8" cols="50"></textarea>
-  </div>
+  </form>
 
   <div class="pia-commentsBlock-list">
+    <!-- <app-comment-item, value="f.value"></app-comment-item> -->
     <app-comment-item></app-comment-item>
     <app-comment-item></app-comment-item>
     <app-comment-item></app-comment-item>
     <app-comment-item></app-comment-item>
   </div>
 </div>
+
+<!-- (focusout)="newCommentFocusOut()" -->

@@ -16,6 +16,7 @@
       position: absolute;
       top: 10px;
       right: 10px;
+      display: none;
       button {
         color: $pia-red;
         font-size: 1.8rem;
@@ -28,10 +29,26 @@
         display: inline-block;
         vertical-align: middle;
         margin: 0 8px;
-        i {
+        &:before {
+          font-family: FontAwesome;
           margin-right: 5px;
           font-size: 1.85rem;
           vertical-align: -2px;
+        }
+      }
+      .btn-red {
+        &:before {
+          content: '\f00d';
+        }
+      }
+      .btn-blue {
+        &:before {
+          content: '\f1ce';
+        }
+      }
+      .btn-green {
+        &:before {
+          content: '\f00c';
         }
       }
     }
@@ -39,9 +56,8 @@
       font-size: 1rem;
       color: $pia-gray;
     }
-    &-fixContent,
-    &-improvableContent,
-    &-acceptableContent {
+    &-content {
+      display: none;
       background: rgba(62, 224, 149, 0.2);
       padding: 14px 16px 6px 16px;
       label {
@@ -68,6 +84,9 @@
           padding: 0;
         }
       }
+    }
+    &-actionPlan {
+      display: none;
     }
     &-gauge {
       font-weight: 500;

@@ -73,9 +73,9 @@ input {
 }
 
 // Mostly used for displayers
-.close {
+.close, .hide {
   display: none !important;
 }
-.open {
+.open, .show {
   display: block !important;
 }
