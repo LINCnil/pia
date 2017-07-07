@@ -12,4 +12,10 @@ export class AttachmentsComponent implements OnInit {
   ngOnInit() {
   }
 
+  /**
+   * Allows users to add attachments to a PIA.
+   */
+  addAttachment() {
+    alert('test');
+  }
 }

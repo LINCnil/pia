@@ -12,4 +12,18 @@ export class KnowledgeBaseFiltersComponent implements OnInit {
   ngOnInit() {
   }
 
+  /**
+   * Resets filters so that all measures types are displayed.
+   */
+  resetFilters() {
+
+  }
+
+  /**
+   * Filters help items by a specific measures type.
+   */
+  filterPerMeasures() {
+    
+  }
+
 }

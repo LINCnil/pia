@@ -12,4 +12,11 @@ export class AttachmentItemComponent implements OnInit {
   ngOnInit() {
   }
 
+  /**
+   * Deletes an attachment which was added to a PIA.
+   */    
+  deleteAttachment() {
+    alert('test');
+  }
+
 }

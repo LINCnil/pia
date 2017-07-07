@@ -1,10 +1,9 @@
 <div class="pia-knowledgeBaseBlock-item">
   <div class="pia-knowledgeBaseBlock-item-accordion">
-    <button class="btn" type="button" title="Afficher / masquer"><span
-      class="pia-icons pia-icon-accordeon-down"></span></button>
+    <button class="btn" type="button" (click)="displayItem()" title="Afficher / masquer"><span class="pia-icons pia-icon-accordeon-up"></span></button>
   </div><div class="pia-knowledgeBaseBlock-item-definition">
     <p>Définition</p>
-    <button class="btn" type="button" title="Ajouter une mesure">
+    <button class="btn" type="button" (click)="addMeasure()" title="Ajouter une mesure">
       <span class="pia-icons pia-icon-add"></span>
       <p>Ajouter</p>
     </button>

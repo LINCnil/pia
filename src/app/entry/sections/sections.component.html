@@ -4,6 +4,7 @@
     <a class="pia-icons pia-icon-close-big" routerLink="/home" title="Retourner à l'accueil"></a>
   </div>
 
+  <!-- TODO : add json data for sections / links -->
   <div class="pia-sectionBlock pia-sectionBlock-first">
     <div class="pia-sectionBlock-title">Contexte
       <hr>
@@ -72,6 +73,7 @@
     </ul>
   </div>
 
+  <!-- Static section and links -->
   <div class="pia-sectionBlock pia-sectionBlock-fourth">
     <div class="pia-sectionBlock-title"> Validation du Pia
       <hr>
@@ -94,8 +96,9 @@
 
 </div>
 <div class="pia-validatePIABlock">
-  <a href="#" class="btn btn-inactive">Valider le PIA</a>
-  <a href="#" class="btn btn-red btn-active">Valider le PIA</a>
-  <a href="#" class="btn btn-red btn-active">PIA refusé</a>
+  <!-- TODO : add adequate links (2 components : validatePIAComponent / refusedPIAComponent ) -->
+  <a routerLink="/home" class="btn" disabled title="Valider le PIA">Valider le PIA</a>
+  <a routerLink="/home" class="btn btn-red btn-active" title="Valider le PIA">Valider le PIA</a>
+  <a routerLink="/home" class="btn btn-red btn-active" title="PIA refusé">PIA refusé</a>
 </div>
 <app-attachments></app-attachments>

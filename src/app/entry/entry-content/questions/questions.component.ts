@@ -18,16 +18,24 @@ export class QuestionsComponent implements OnInit {
     console.log(form);
   }
 
-  // Disable fields + save data
+  /**
+   * Disables fields and save data.
+   */
   focusOut() {
     this.editStatus = true;
     // Saving data here
   }
 
+  /**
+   * Enables or disables edition mode (fields) for a specific question.
+   */
   activateEdition() {
     this.editStatus = false;
   }
 
+  /**
+   * Shows or hides a question.
+   */
   displayQuestion() {
     const accordeon = this.el.nativeElement.querySelector('.pia-questionBlock-title button span');
     accordeon.classList.toggle('pia-icon-accordeon-down');
