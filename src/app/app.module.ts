@@ -8,8 +8,8 @@ import { CardsComponent } from './cards/cards.component';
 import { FiltersComponent } from './filters/filters.component';
 import { CardItemComponent } from './cards/card-item/card-item.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {FormsModule} from '@angular/forms';
-import {HttpModule} from '@angular/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
 import { EntryComponent } from './entry/entry.component';
 import { SectionsComponent } from './entry/sections/sections.component';
 import { AttachmentsComponent } from './entry/attachments/attachments.component';
@@ -52,12 +52,14 @@ const appRoutes: Routes = [
     CommentItemComponent,
     EvaluationsComponent,
     QuestionsComponent,
-    QuestionTextItemComponent
+    QuestionTextItemComponent,
+
 
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpModule,
     BrowserAnimationsModule,
     RouterModule.forRoot(appRoutes)
