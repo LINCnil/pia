@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-comment-item',
@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./comment-item.component.scss']
 })
 export class CommentItemComponent implements OnInit {
+  @Input() title: string;
 
   constructor() { }
 

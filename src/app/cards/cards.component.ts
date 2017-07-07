@@ -11,7 +11,8 @@ import {Router} from '@angular/router';
 })
 export class CardsComponent implements OnInit {
   newCard: Card;
-  cards: Card[] = [new Card(4, 2, 'test', 'test2', 'test3', 'test4')];
+  cards: Card[] = [];
+  /*cards: Card[] = [new Card(4, 2, 'test', 'test2', 'test3', 'test4')];*/
   // see formlist method with ngform
   @ViewChild('f') newCardForm: NgForm;
 

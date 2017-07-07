@@ -24,10 +24,21 @@ import { CommentItemComponent } from './entry/entry-content/comments/comment-ite
 import { EvaluationsComponent } from './entry/entry-content/evaluations/evaluations.component';
 import { QuestionsComponent } from './entry/entry-content/questions/questions.component';
 import { QuestionTextItemComponent } from './entry/entry-content/questions/question-text-item/question-text-item.component';
+import { RisksCartographyComponent } from './entry/risks-cartography/risks-cartography.component';
+import { ActionPlanComponent } from './entry/action-plan/action-plan.component';
+import { DPOPeopleOpinionsComponent } from './entry/dpo-people-opinions/dpo-people-opinions.component';
+import { ActionPlanGraphComponent } from './entry/action-plan/action-plan-graph/action-plan-graph.component';
+import { ValidatePIAComponent } from './entry/validate-pia/validate-pia.component';
+import { RefusePIAComponent } from './entry/refuse-pia/refuse-pia.component';
 
 const appRoutes: Routes = [
   { path: '', component: AuthenticationComponent },
   { path: 'home', component: CardsComponent },
+  { path: 'entry/risks-cartography', component: RisksCartographyComponent },
+  { path: 'entry/action-plan', component: ActionPlanComponent },
+  { path: 'entry/dpo-and-people-opinions', component: DPOPeopleOpinionsComponent },
+  { path: 'entry/validate-PIA', component: ValidatePIAComponent },
+  { path: 'entry/refuse-PIA', component: RefusePIAComponent },
   { path: 'entry/:id', component: EntryComponent }
 ];
 
@@ -52,8 +63,13 @@ const appRoutes: Routes = [
     CommentItemComponent,
     EvaluationsComponent,
     QuestionsComponent,
-    QuestionTextItemComponent
-
+    QuestionTextItemComponent,
+    RisksCartographyComponent,
+    ActionPlanComponent,
+    DPOPeopleOpinionsComponent,
+    ActionPlanGraphComponent,
+    ValidatePIAComponent,
+    RefusePIAComponent
   ],
   imports: [
     BrowserModule,
