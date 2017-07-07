@@ -15,20 +15,23 @@ export class EvaluationsComponent implements OnInit {
   ngOnInit() {
   }
 
+  /**
+   * Executes various functionnalities when evaluating an item/question/section.
+   * (displaying edit button, displaying evaluatio content with fields, switch value from action plan field to comment field, ...)
+   */
   selectedButton(event) {
-    // Elements and current button
     const actionPlan = this.el.nativeElement.querySelector('.pia-evaluationBlock-actionPlan');
     const clickedBtn = event.target || event.srcElement || event.currentTarget;
 
-    // Enable edit button
+    // Displays edit button.
     const editBtn = this.el.nativeElement.querySelector('.pia-evaluationBlock-edit');
     editBtn.classList.add('show');
 
-    // Show action plan field on "improvable" evaluation
+    // Shows action plan field on "improvable" evaluation.
     if (clickedBtn.getAttribute('data-btn-type')) {
       actionPlan.classList.add('show');
     } else {
-      // Hide action plan field + switch its value to comment field + remove the value
+      // Hides action plan field + switchs its value to comment field + removes the value.
       actionPlan.classList.remove('show');
       const evaluationActionPlanField = <HTMLTextAreaElement>document.getElementById('pia-evaluation-action-plan');
       const evaluationCommentField = <HTMLTextAreaElement>document.getElementById('pia-evaluation-comment');
@@ -38,41 +41,49 @@ export class EvaluationsComponent implements OnInit {
       }
     }
 
-    // Disable active classes + set disabled attributes for all evaluation buttons
+    // Disables active classes + sets disabled attributes for all evaluation buttons.
     const allBtn = this.el.nativeElement.querySelectorAll('.pia-evaluationBlock-buttons .btn');
     [].forEach.call(allBtn, function(btn) {
       btn.classList.remove('btn-active');
       btn.setAttribute('disabled', true);
     });
 
-    // Add active class + remove previous disable attribute from current button
+    // Adds an active class + removes previous disable attribute from current button.
     clickedBtn.classList.add('btn-active');
     clickedBtn.removeAttribute('disabled');
 
-    // Display content (fields)
+    // Displays content (action plan & comment fields).
     const content = this.el.nativeElement.querySelector('.pia-evaluationBlock-content');
     content.classList.add('show');
   }
 
-  // Disable comment and actionPlan field when losing focus
+  /**
+   * Disables comment field when losing focus from it.
+   */
   commentFocusOut() {
     this.commentStatus = true;
-    // Saving data here
-  }
-  actionPlanFocusOut() {
-    this.actionPlanStatus = true;
-    // Saving data here
+    // TODO : save data
   }
 
-  // Enable edition on evaluation fields
+  /**
+   * Disables action plan field when losing focus from it.
+   */
+  actionPlanFocusOut() {
+    this.actionPlanStatus = true;
+    // TODO : save data
+  }
+
+  /**
+   * Enables edition mode : activates buttons and fields.
+   */
   activateEdition() {
-    // Enable evaluation buttons
+    // Enables evaluation buttons.
     const buttonsToEnable = this.el.nativeElement.querySelectorAll('.pia-evaluationBlock-buttons button');
     [].forEach.call(buttonsToEnable, function(btn) {
       btn.removeAttribute('disabled');
     });
 
-    // Enable evaluation fields
+    // Enables evaluation fields.
     this.commentStatus = false;
     this.actionPlanStatus = false;
   }

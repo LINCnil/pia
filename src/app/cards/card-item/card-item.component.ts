@@ -13,9 +13,14 @@ export class CardItemComponent implements OnInit {
   constructor() {
 
   }
-  onEdit() {
+
+  /**
+   * Enable or disable edition mode on PIA main fields.
+   */
+  activateEdition() {
     this.card.editMode = !this.card.editMode;
   }
+
   ngOnInit() {
 
   }

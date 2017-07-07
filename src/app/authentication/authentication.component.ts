@@ -15,6 +15,9 @@ export class AuthenticationComponent implements OnInit, OnDestroy {
   ngOnInit() {
   }
 
+  /**
+   * Removes authentication class on component destruction, so that it is not shown on other pages.
+   */
   ngOnDestroy() {
     this.renderer.removeClass(document.body, 'pia-authentication');
   }

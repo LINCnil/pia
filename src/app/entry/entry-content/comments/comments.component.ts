@@ -13,6 +13,9 @@ export class CommentsComponent implements OnInit {
   comments: Comment[] = [];
   constructor(private el: ElementRef) { }
 
+  /**
+   * Shows or hides the block which allows users to create a new comment.
+   */
   displayNewCommentBox() {
     const dropdown = this.el.nativeElement.querySelector('.pia-commentsBlock-new');
     dropdown.classList.toggle('open');
@@ -34,5 +37,4 @@ export class CommentsComponent implements OnInit {
       'description': new FormControl()
     });
   }
-
 }
