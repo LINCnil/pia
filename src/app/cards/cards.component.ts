@@ -11,13 +11,16 @@ import {Router} from '@angular/router';
 })
 export class CardsComponent implements OnInit {
   newCard: Card;
-  cards: Card[] = [];
+  cards: Card[] = [new Card(4, 2, 'test', 'test2', 'test3', 'test4')];
   // see formlist method with ngform
   @ViewChild('f') newCardForm: NgForm;
 
   constructor(private router: Router) { }
 
-  newPia() {
+  /**
+   * Creates a new PIA card and adds a flip effect to go switch between new PIA and edit PIA events.
+   */
+  newPIA() {
     this.newCard = new Card(null, null);
     const cardsToSwitch = document.getElementById('cardsSwitch');
     const newCard = document.getElementById('pia-new-card');
@@ -27,10 +30,20 @@ export class CardsComponent implements OnInit {
     newCard.style.display = 'none';
   }
 
-  importPia() {
-    console.log('import de doc');
+  /**
+   * Allows users to import a PIA.
+   */
+  importPIA() {
+    // TODO
   }
+
+  /**
+   * Save the newly created PIA.
+   * Sends on the link associated to this new PIA.
+   */
   onSubmit(form: NgForm) {
+    // TODO : save the new PIA
+
     // To navigate from home to PIA
     this.router.navigate(['/entry/5']);
   }

@@ -8,8 +8,8 @@ import { CardsComponent } from './cards/cards.component';
 import { FiltersComponent } from './filters/filters.component';
 import { CardItemComponent } from './cards/card-item/card-item.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {FormsModule} from '@angular/forms';
-import {HttpModule} from '@angular/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
 import { EntryComponent } from './entry/entry.component';
 import { SectionsComponent } from './entry/sections/sections.component';
 import { AttachmentsComponent } from './entry/attachments/attachments.component';
@@ -19,6 +19,11 @@ import { KnowledgeBaseFiltersComponent } from './entry/knowledge-base/knowledge-
 import { KnowledgeBaseItemComponent } from './entry/knowledge-base/knowledge-base-item/knowledge-base-item.component';
 import { KnowledgeBaseSearchComponent } from './entry/knowledge-base/knowledge-base-search/knowledge-base-search.component';
 import { AttachmentItemComponent } from './entry/attachments/attachment-item/attachment-item.component';
+import { CommentsComponent } from './entry/entry-content/comments/comments.component';
+import { CommentItemComponent } from './entry/entry-content/comments/comment-item/comment-item.component';
+import { EvaluationsComponent } from './entry/entry-content/evaluations/evaluations.component';
+import { QuestionsComponent } from './entry/entry-content/questions/questions.component';
+import { QuestionTextItemComponent } from './entry/entry-content/questions/question-text-item/question-text-item.component';
 
 const appRoutes: Routes = [
   { path: '', component: AuthenticationComponent },
@@ -42,12 +47,19 @@ const appRoutes: Routes = [
     KnowledgeBaseFiltersComponent,
     KnowledgeBaseItemComponent,
     KnowledgeBaseSearchComponent,
-    AttachmentItemComponent
+    AttachmentItemComponent,
+    CommentsComponent,
+    CommentItemComponent,
+    EvaluationsComponent,
+    QuestionsComponent,
+    QuestionTextItemComponent,
+
 
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpModule,
     BrowserAnimationsModule,
     RouterModule.forRoot(appRoutes)

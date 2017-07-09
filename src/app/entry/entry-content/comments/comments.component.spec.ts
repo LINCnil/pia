@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AttachmentItemComponent } from './attachment-item.component';
+import { CommentsComponent } from './comments.component';
 
-describe('AttachmentItemComponent', () => {
-  let component: AttachmentItemComponent;
-  let fixture: ComponentFixture<AttachmentItemComponent>;
+describe('CommentsComponent', () => {
+  let component: CommentsComponent;
+  let fixture: ComponentFixture<CommentsComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AttachmentItemComponent ]
+      declarations: [ CommentsComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AttachmentItemComponent);
+    fixture = TestBed.createComponent(CommentsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -23,4 +23,3 @@ describe('AttachmentItemComponent', () => {
     expect(component).toBeTruthy();
   });
 });
-
