@@ -2,7 +2,9 @@
 
 // New PIA
 .pia-newBlock {
-    border-color: $pia-gray;
+  > #pia-new-card {
+    border: 1px solid $pia-gray;
+  }
     &-item {
         background: url("/assets/images/pia-bg.png") repeat center center;
         padding: 40px;
@@ -75,7 +77,7 @@
 
 // Cards flipper (New / Edit)
 #cardsSwitch {
-  position: absolute;
+  // position: absolute;
   transform-style: preserve-3d;
   transition: transform 1s;
 }

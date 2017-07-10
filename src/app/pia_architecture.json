@@ -1,0 +1,296 @@
+{
+  "sections": [
+    {
+      "id": 1,
+      "title": "Contexte",
+      "display_mode": "by_item",
+      "link_knowledge_base": "",
+      "short_help": "TODO - Description du contexte",
+      "items": [
+        {
+          "id": 1,
+          "title": "Description du produit",
+          "evaluation_mode": "section",
+          "link_knowledge_base": "",
+          "short_help": "TODO",
+          "type": "question",
+          "questions": [
+            {
+              "id": 1,
+              "title": "Description du produit",
+              "keyword": "",
+              "link_knowledge_base": "",
+              "highligth_words": "",
+              "active": true,
+              "answer_type": "text"
+            }  
+          ]
+        },
+        {
+          "id": 2,
+          "title": "Données",
+          "evaluation_mode": "section",
+          "link_knowledge_base": "",
+          "short_help": "TODO",
+          "type": "question",
+          "questions": [
+            {
+              "id": 1,
+              "title": "Données",
+              "keyword": "",
+              "link_knowledge_base": "",
+              "highligth_words": "",
+              "active": true,
+              "answer_type": "text"
+            }  
+          ]
+        },
+        {
+          "id": 3,
+          "title": "Cycle de vie des données",
+          "evaluation_mode": "section",
+          "link_knowledge_base": "",
+          "short_help": "TODO",
+          "type": "question",
+          "questions": [
+            {
+              "id": 1,
+              "title": "Cycle de vie des données",
+              "keyword": "",
+              "link_knowledge_base": "",
+              "highligth_words": "",
+              "active": true,
+              "answer_type": "text"
+            }  
+          ]
+        },
+        {
+          "id": 4,
+          "title": "Supports des données",
+          "evaluation_mode": "section",
+          "link_knowledge_base": "",
+          "short_help": "TODO",
+          "type": "question",
+          "questions": [
+            {
+              "id": 1,
+              "title": "Supports des données",
+              "keyword": "",
+              "link_knowledge_base": "",
+              "highligth_words": "",
+              "active": true,
+              "answer_type": "text"
+            }  
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Principes fondamentaux",
+      "display_mode": "all_items",
+      "link_knowledge_base": "",
+      "short_help": "TODO",
+      "items": [
+        {
+          "id": 1,
+          "title": "Proportionnalité et nécessité",
+          "evaluation_mode": "",
+          "link_knowledge_base": "",
+          "short_help": "TODO",
+          "type": "question",
+          "questions": [
+            {
+              "id": 1,
+              "title": "Quelles sont les finalités de la collecte et l’utilisation des données par le service ?",
+              "keyword": "",
+              "link_knowledge_base": "",
+              "highligth_words": "",
+              "active": true,
+              "answer_type": "text"
+            },
+            {
+              "id": 2,
+              "title": "Comment les données sont-elles minimisées ?",
+              "keyword": "",
+              "link_knowledge_base": "",
+              "highligth_words": "",
+              "active": true,
+              "answer_type": "text"
+            },
+            {
+              "id": 3,
+              "title": "Qui sont les destinataires des données ?",
+              "keyword": "",
+              "link_knowledge_base": "",
+              "highligth_words": "",
+              "active": true,
+              "answer_type": "text"
+            },
+            {
+              "id": 4,
+              "title": "Quelle est la durée de conservation des données ?",
+              "keyword": "",
+              "link_knowledge_base": "",
+              "highligth_words": "",
+              "active": true,
+              "answer_type": "text"
+            },
+            {
+              "id": 5,
+              "title": "Comment les utilisateurs du service sont-ils informés de l’utilisation des données ?",
+              "keyword": "",
+              "link_knowledge_base": "",
+              "highligth_words": "",
+              "active": true,
+              "answer_type": "text"
+            },
+            {
+              "id": 6,
+              "title": "Comment l’accord de l’utilisateur est-il obtenu ?",
+              "keyword": "",
+              "link_knowledge_base": "",
+              "highligth_words": "",
+              "active": true,
+              "answer_type": "text"
+            },
+            {
+              "id": 7,
+              "title": "Comment l’utilisateur peut-il s’opposer à l’utilisation des données ?",
+              "keyword": "",
+              "link_knowledge_base": "",
+              "highligth_words": "",
+              "active": true,
+              "answer_type": "text"
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "title": "Mesures protectrices des droits",
+          "evaluation_mode": "",
+          "link_knowledge_base": "",
+          "short_help": "TODO",
+          "type": "question",
+          "questions": [
+            {
+              "id": 1,
+              "title": "TODO",
+              "keyword": "",
+              "link_knowledge_base": "",
+              "highligth_words": "",
+              "active": true,
+              "answer_type": "text"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Risques",
+      "display_mode": "all_items",
+      "link_knowledge_base": "",
+      "short_help": "TODO",
+      "items": [
+        {
+          "id": 1,
+          "title": "Mesures existantes ou prévues",
+          "evaluation_mode": "",
+          "link_knowledge_base": "",
+          "short_help": "TODO",
+          "type": "question"
+        },
+        {
+          "id": 2,
+          "title": "Accès illégitime aux données",
+          "evaluation_mode": "",
+          "link_knowledge_base": "",
+          "short_help": "TODO",
+          "type": "question",
+          "questions": [
+            {
+              "id": 1,
+              "title": "Quelles sont les sources pertinentes pour ce risque ?",
+              "keyword": "",
+              "link_knowledge_base": "",
+              "highligth_words": "",
+              "active": true,
+              "answer_type": "list"
+            },
+            {
+              "id": 2,
+              "title": "Quelles sont les menaces qui pourraient permettre la   la réalisation ce risque ?",
+              "keyword": "",
+              "link_knowledge_base": "",
+              "highligth_words": "",
+              "active": true,
+              "answer_type": "list"
+            },
+            {
+              "id": 3,
+              "title": "Quels peuvent être les impacts sur les personnes concernées si le risque se produisait ?",
+              "keyword": "",
+              "link_knowledge_base": "",
+              "highligth_words": "",
+              "active": true,
+              "answer_type": "list"
+            },
+            {
+              "id": 4,
+              "title": "Quelles sont les mesures, parmi celles identifiées qui contribuent à traiter ce risque ?",
+              "keyword": "",
+              "link_knowledge_base": "",
+              "highligth_words": "",
+              "active": true,
+              "answer_type": "list"
+            },
+            {
+              "id": 5,
+              "title": "Comment estimez-vous la gravité du risque d’accès illégitime aux données ?",
+              "keyword": "",
+              "link_knowledge_base": "",
+              "highligth_words": "",
+              "active": true,
+              "answer_type": "gauge"
+            },
+            {
+              "id": 6,
+              "title": "Comment estimez-vous la vraissemblance du risque d’accès illégitime aux données ?",
+              "keyword": "",
+              "link_knowledge_base": "",
+              "highligth_words": "",
+              "active": true,
+              "answer_type": "gauge"
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "title": "Modifications de données",
+          "evaluation_mode": "",
+          "link_knowledge_base": "",
+          "short_help": "TODO",
+          "type": "question"
+        },
+        {
+          "id": 4,
+          "title": "Disparition de données",
+          "evaluation_mode": "",
+          "link_knowledge_base": "",
+          "short_help": "TODO",
+          "type": "question"
+        },
+        {
+          "id": 5,
+          "title": "Vue d'ensemble des risques",
+          "evaluation_mode": "",
+          "link_knowledge_base": "",
+          "short_help": "TODO",
+          "type": "question"
+        }
+      ]
+    }
+  ]
+}
+
