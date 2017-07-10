@@ -1,0 +1,145 @@
+<app-header></app-header>
+<main class="container pia-PIAEntryBlock pia-validation-PlanAction">
+  <div class="row">
+    <!--Left sidebar (sections) -->
+    <div class="small-12 medium-3 columns">
+      <aside class="pia-leftSidebarBlock">
+        <app-sections></app-sections>
+      </aside>
+    </div>
+
+    <!--Main entry content -->
+    <div class="small-12 medium-6 columns">
+      <section class="pia-entryContentBlock">
+        <header class="pia-entryContentBlock-header">
+          <div>
+            <i class="fa fa-cog" aria-hidden="true"></i>
+          </div>
+          <div class="pia-entryContentBlock-header-title">
+            <h1>Validation du PIA</h1>
+            <span>Plan d'action</span>
+          </div>
+          <a href="#" class="btn pia-previewBlock" title="Export csv">
+            <span><i class="fa fa-file-excel-o" aria-hidden="true"></i></span>
+            <div>Export csv</div>
+          </a>
+        </header>
+
+        <div class="pia-entryContentBlock-content">
+
+          <!-- Action plan graph -->
+          <app-action-plan-graph></app-action-plan-graph>
+
+          <div class="pia-entryContentBlock-content-fundamental">
+            <h2>Principes fondamentaux</h2>
+            <div class="pia-entryContentBlock-content-details-blocks">
+              <div class="pia-details-blocks-content">
+                <div class="pia-details-blocks-content-title">
+                  <h3>Finalités</h3>
+                  <button type="button" class="btn" title="Éditer"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                </div>
+                <p>Afin d’éviter un usage incompatible ou un détournement de finalité, il
+                  conviendrait d’expliciter les autres finalités dans les documents portés à
+                  la connaissance des clients et de réitérer le PIA pour ces traitements.
+                  L’enjeu pour la vie privée des personnes difféère en fonction des finalités.
+                </p>
+                <form>
+                  <input type="date" name="date">
+                  <input type="text"  name="executive" placeholder="Responsable de la mise en oeuvre">
+                </form>
+              </div>
+            </div>
+
+            <div class="pia-entryContentBlock-content-details-blocks">
+              <div class="pia-details-blocks-content">
+                <div class="pia-details-blocks-content-title">
+                  <h3>Fondement du traitement</h3>
+                  <button type="button" class="btn" title="Éditer"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                </div>
+                <p>Cf finalités</p>
+                <form>
+                  Date prévue de mise en oeuvre
+                  <input type="text"  name="executive" placeholder="Responsable de la mise en oeuvre">
+                </form>
+              </div>
+            </div>
+
+            <div class="pia-entryContentBlock-content-details-blocks">
+              <div class="pia-details-blocks-content">
+                <div class="pia-details-blocks-content-title">
+                  <h3>Données adéquates, pertinentes, minimisées, exactes et <br> tenues à jour</h3>
+                  <button type="button" class="btn" title="Éditer"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                </div>
+                <p>Une distinction entre les données absolument nécessaires au
+                  fonctionnement du moniteur et de l’application et celles non nécessaires
+                  doit être faite.
+                </p>
+                <form>
+                  <input type="date" name="date">
+                  <input type="text"  name="executive" placeholder="Responsable de la mise en oeuvre">
+                </form>
+              </div>
+            </div>
+
+            <div class="pia-entryContentBlock-content-details-blocks">
+              <div class="pia-details-blocks-content">
+                <div class="pia-details-blocks-content-title">
+                  <h3>Durée de conservation limitée</h3>
+                  <button type="button" class="btn" title="Éditer"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                </div>
+                <p>Une durée de conservation pour chaque catégorie de donnée doit être
+                  fisée en tenant compte de ce qui est strictement nécessaire au bon
+                  fonctionnement du service.Pour que la procédure d’effacement soit
+                  efficace, ALPHA doit distinguer entre les données résentes dans ses
+                  serveurs de son sour-traitant et celles traitées en local dans le miniteur et
+                  le téléphone de l’utilisateur.
+                </p>
+                <form>
+                  <input type="date" name="date">
+                  <input type="text"  name="executive" placeholder="Responsable de la mise en oeuvre">
+                </form>
+              </div>
+            </div>
+          </div>
+
+          <div class="pia-entryContentBlock-content-measures">
+            <h2>Mesures existantes ou prévues</h2>
+            <div class="pia-entryContentBlock-content-details-blocks">
+              <div class="pia-details-blocks-content">
+                <div>
+                  Aucun plan d'action enregistré.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="pia-entryContentBlock-content-risks">
+            <h2>Risques</h2>
+            <div class="pia-entryContentBlock-content-details-blocks">
+              <div class="pia-details-blocks-content">
+                <div>
+                  Aucun plan d'action enregistré.
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <footer class="pia-entryContentBlock-footer">
+          <div class="pia-entryContentBlock-footer-nav">
+            <a href="#"><< Risques</a>
+            <a href="#">Validation légale du PIA – Avis du DPO... >></a>
+          </div>
+        </footer>
+      </section>
+    </div>
+
+    <!--Right sidebar (knowledge base) -->
+    <div class="small-12 medium-3 columns">
+      <div class="pia-rightSidebarBlock">
+        <app-knowledge-base></app-knowledge-base>
+      </div>
+    </div>
+  </div>
+</main>

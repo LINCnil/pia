@@ -1,0 +1,158 @@
+@import '../../../assets/stylesheets/variables';
+
+// Refuse PIA
+.pia-ValidationRefuse {
+  .pia-entryContentBlock {
+    &-header {
+      &-title h1 {
+        color: $pia-dark-black;
+      }
+      div:first-child {
+        width: 74px;
+        background-color: $pia-dark-black;
+      }
+    }
+    &-content {
+      &-subject {
+        margin: 10px 0;
+        &-title {
+          padding: 0 10px;
+          display: flex;
+          justify-content: space-between;
+          h1, i {
+            align-self: center;
+          }
+          i {
+            font-size: 20px;
+            color: $pia-gray;
+          }
+          button {
+            display: none;
+          }
+        }
+        background-color: #fefefe;
+        padding: 15px 10px 40px 10px;
+        box-shadow: 2px 1px 18px 1px rgba(194, 194, 194, 1);
+        h3 {
+          font-size: 1.8rem;
+          font-weight: normal;
+          padding-left: 10px;
+          margin: 0;
+        }
+        div:last-child {
+          padding: 0 38px;
+          textarea {
+            resize: none;
+            display: flex;
+            justify-content: center;
+            margin: 5px auto auto auto;
+            width: 100%;
+            border-bottom: solid $pia-green 1px;
+            border-top: 0;
+            border-right: 0;
+            font-size: 1.4rem;
+            border-left: 0;
+            &[placeholder] {
+              padding-left: 10px;
+              padding-top: 10px;
+              font-size: 1.4rem;
+              font-style: italic;
+              background-color: $pia-white;
+              color: #A7A7A7;
+            }
+            &:disabled {
+              background-color: #fff;
+              color: $pia-dark-black;
+            }
+          }
+        }
+      }
+      &-cancelButtons {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 10px;
+        button {
+          width: 49%;
+          border-radius: 0;
+        }
+        .outline-red{
+          border: $pia-red solid 1px;
+          color: $pia-red;
+        }
+        .active-red {
+          background-color: $pia-red;
+          color: #fefefe;
+        }
+        .btn-block-gray {
+          width: 100%;
+          border: $pia-gray solid 1px;
+          color: $pia-gray;
+        }
+      }
+    }
+    &-footer {
+      &-nav {
+        a {
+          float: none !important;
+        }
+      }
+    }
+  }
+}
+// Send PIA button styles
+.btn-inactive-resend,
+.btn-inactive-cancel-treatment,
+.btn-inactive-refuse-pia {
+  color: $pia-gray;
+  cursor: not-allowed;
+}
+
+.btn-inactive-resend,
+.btn-inactive-cancel-treatment,
+.btn-inactive-refuse-pia,
+.btn-resend,
+.btn-cancel-treatment,
+.btn-refuse-pia,
+.btn-active-resend,
+.btn-active-cancel-treatment,
+.btn-active-refuse-pia {
+  border: 1px solid $pia-red;
+  color: $pia-red;
+  padding: 10px 12px;
+  max-height: 34px;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.btn-inactive-resend,
+.btn-inactive-cancel-treatment,
+.btn-inactive-refuse-pia {
+  border-color: $pia-gray;
+  color: $pia-gray;
+}
+
+.btn-refuse-pia,
+.btn-cancel-treatment,
+.btn-resend {
+  border-color: $pia-red;
+  color: $pia-red;
+  &:hover, &:focus, &:active {
+    background-color: $pia-red;
+    border-color: $pia-red;
+    color: #fff;
+    padding: 10px 12px;
+    max-height: 34px;
+    font-size: 1.2rem;
+  }
+}
+
+.btn-active-resend,
+.btn-active-cancel-treatment,
+.btn-active-refuse-pia {
+  background-color: $pia-red;
+  border-color: $pia-red;
+  color: #fff;
+  padding: 10px 12px;
+  max-height: 34px;
+  font-size: 1.2rem;
+}

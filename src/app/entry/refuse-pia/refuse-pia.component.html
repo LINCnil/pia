@@ -1,0 +1,87 @@
+<app-header></app-header>
+<main class="container pia-PIAEntryBlock pia-ValidationRefuse">
+  <div class="row">
+    <!--Left sidebar (sections) -->
+    <div class="small-12 medium-3 columns">
+      <aside class="pia-leftSidebarBlock">
+        <app-sections></app-sections>
+      </aside>
+    </div>
+
+    <!--Main entry content -->
+    <div class="small-12 medium-6 columns">
+      <section class="pia-entryContentBlock">
+          <header class="pia-entryContentBlock-header">
+            <div>
+              <i class="fa fa-cog" aria-hidden="true"></i>
+            </div>
+            <div class="pia-entryContentBlock-header-title">
+              <h1>Validation du PIA</h1>
+            </div>
+            <a href="#" class="btn pia-previewBlock" title="Aperçu">
+              <span class="pia-icons pia-icon-preview"></span>
+              <div>Aperçu</div>
+            </a>
+          </header>
+
+          <div class="pia-entryContentBlock-content">
+            // Motif du refus
+            <div class="pia-entryContentBlock-content-subject">
+              <div class="pia-entryContentBlock-content-subject-title">
+                <h3>Motif du refus</h3>
+                <button type="button" class="btn" id="rejection-reason-btn" (click)="activateEdition1()" title="Éditer"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+              </div>
+              <div class="pia-entryContentBlock-content-subject-textarea">
+                <textarea rows="8" cols="50" (focus)="rejectionReasonFocus()" (focusout)="rejectionReasonFocusOut()" [disabled]="rejectionReasonStatus" placeholder="Décrivez les motifs de refus de validation du PIA"></textarea>
+              </div>
+            </div>
+
+            // Modifications apportées
+            <div class="pia-entryContentBlock-content-subject">
+              <div class="pia-entryContentBlock-content-subject-title">
+                <h3>Modifications apportées</h3>
+                <button type="button" class="btn" id="modifications-made-btn" (click)="activateEdition2()" title="Éditer"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+              </div>
+              <div class="pia-entryContentBlock-content-subject-textarea">
+                <textarea rows="8" cols="50" (focus)="modificationsMadeFocus()" (focusout)="modificationsMadeFocusOut()" [disabled]="modificationsMadeStatus" placeholder="Décrivez les modifications apportées au PIA"></textarea>
+              </div>
+            </div>
+
+<!--            <div class="pia-entryContentBlock-content-subject">
+              <div class="pia-entryContentBlock-content-subject-title">
+                <h3>Modifications apportées</h3>
+                <button type="button" class="btn" title="Éditer"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+              </div>
+              <div>
+                <textarea rows="8" cols="50" disabled>Nemo enim ipsam voluptatem quia voluptas sit aspe</textarea>
+              </div>
+            </div>-->
+          </div>
+
+        <footer class="pia-entryContentBlock-footer">
+          <div class="pia-entryContentBlock-content-cancelButtons">
+            <button type="button" class="btn btn-inactive" title="Abandonner le traitement" disabled>Abandonner le traitement</button>
+            <button type="button" class="btn btn-inactive" title="Refuser le PIA" disabled>Refuser le PIA</button>
+          </div>
+          <div class="pia-entryContentBlock-content-cancelButtons">
+            <button type="button" class="btn btn-red" title="Abandonner le traitement" disabled>Abandonner le traitement</button>
+            <button type="button" class="btn btn-red btn-active" title="Refuser le PIA">Refuser le PIA</button>
+          </div>
+          <button type="button" class="btn btn-inactive" disabled title="Renvoyer pour validation">Renvoyer pour validation</button>
+          <button type="button" class="btn btn-red btn-active" title="Renvoyer le PIA pour validation">Renvoyer le PIA pour validation</button>
+          <p>Tous les champs doivent être remplis</p>
+          <div class="pia-entryContentBlock-footer-nav">
+            <a href="#"><< Validation du PIA </a>
+          </div>
+        </footer>
+      </section>
+    </div>
+
+    <!--Right sidebar (knowledge base) -->
+    <div class="small-12 medium-3 columns">
+      <div class="pia-rightSidebarBlock">
+        <app-knowledge-base></app-knowledge-base>
+      </div>
+    </div>
+  </div>
+</main>

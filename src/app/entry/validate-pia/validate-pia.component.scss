@@ -1,0 +1,221 @@
+@import '../../../assets/stylesheets/variables';
+
+// Validate PIA
+.pia-validationBlock {
+  .pia-entryContentBlock {
+    &-header {
+      div:first-child {
+        background-color: $pia-dark-black!important;
+        color: $pia-light-black;
+        min-height: 70px;
+        p {
+          font-size: 1rem;
+          margin: 0;
+          padding-bottom: 5px;
+          color: #fefefe;
+          text-align: center;
+          font-style: italic;
+        }
+        i {
+          margin-top: 13px;
+          margin-bottom: 5px;
+        }
+      }
+      &-title h1 {
+        color: $pia-light-black;
+        font-size: 2.4rem;
+      }
+    }
+    &-content {
+      background-color: #fefefe;
+      box-shadow: 2px 1px 18px 1px rgba(194,194,194,1);
+      &-list-1 {
+        padding:  10px 60px 20px  60px;
+        font-size: 1.4rem;
+        .blue {
+          color: $pia-blue;
+          font-weight: bold;
+        }
+        &-confirm {
+          background-color: $pia-white;
+          margin: 10px auto;
+          padding: 10px 0;
+          label {
+            display:  flex;
+            justify-content: flex-start;
+          }
+          input {
+            display: none;
+          }
+          i {
+            font-size: 21px;
+            color: $pia-gray;
+            align-self: center;
+            padding: 0 20px;
+          }
+          input, label {
+            align-self: center;
+          }
+        }
+        p:last-of-type {
+          font-size: 0.95rem;
+          text-align: right;
+          font-style: italic;
+          margin: 0;
+          font-weight: 600;
+          color: $pia-gray;
+          margin-top: 3px;
+        }
+      }
+      &-list-2 {
+        padding:  10px 60px;
+        font-size: 1.4rem;
+        .blue {
+          color: $pia-blue;
+          font-weight: bold;
+        }
+        &-confirm {
+          margin-top: 10px;
+          border: solid $pia-green 1px;
+          display: flex;
+          justify-content: flex-start;
+          p {
+            align-self: center;
+            padding: 8px 15px;
+            margin: 0;
+            font-size: 1.4rem;
+            text-align: justify;
+          }
+          i {
+            font-size: 2rem;
+            padding: 5px 15px;
+            color: $pia-green;
+            align-self: center;
+          }
+        }
+      }
+      &-list-3 {
+        padding:  10px 60px 20px  60px;
+        font-size: 1.4rem;
+        &-confirm {
+          background-color: $pia-green;
+          margin-top: 10px;
+          border: solid $pia-green 1px;
+          color: $pia-white;
+          padding:  0;
+          font-weight: bold;
+          display: flex;
+          justify-content: flex-start;
+          p {
+            align-self: center;
+            padding: 8px 15px;
+            margin: 0;
+            font-size: 1.4rem;
+            text-align: justify;
+          }
+          i {
+            font-size: 2rem;
+            padding: 5px 15px;
+            color: $pia-white;
+            align-self: center;
+          }
+        }
+      }
+      &-wait, &-check {
+        display: flex;
+        justify-content: flex-end;
+        p {
+          align-self: center;
+          font-size: 1.4rem;
+          font-style: normal;
+          padding-left: 10px;
+        }
+        i{
+          padding-left: 10px;
+          align-self: center;
+          font-size: 1.7rem;
+        }
+      }
+      &-btn-valid {
+        display: flex;
+        justify-content: space-between;
+        button {
+            padding: 3px 12px;
+            max-width: 140px;
+            max-height: 34px;
+            font-size: 1.2rem;
+        }
+      }
+    }
+    &-submitAttachmentButton {
+      width: 100%;
+      border-radius: 0;
+      &.btn-active {
+        &:focus, &:hover, &:active {
+          background-color: $pia-gray !important;
+          border-color: $pia-gray !important;
+        }
+      }
+
+    }
+    &-footer {
+      &-validationAttachments {
+        display: flex;
+        margin: 10px 0;
+        justify-content: space-between;
+        box-shadow: 2px 1px 18px 1px #c2c2c2;
+        background-color: #fff;
+        padding: 10px 24px;
+        button {
+          padding: 0;
+          width: auto;
+        }
+        div {
+          align-self: center;
+          font-weight: 500;
+          color: $pia-blue;
+        }
+        i {
+          align-self: center;
+          color: $pia-gray;
+          font-size: 16px;
+        }
+        a {
+          text-decoration: none;
+          align-self: center;
+          color: $pia-blue;
+        }
+      }
+      &-validationTools {
+        box-shadow: 2px 1px 18px 1px #c2c2c2;
+        background-color: #fff;
+        display: flex;
+        justify-content: center;
+        color: $pia-green;
+        a {
+          display: block;
+          align-self: center;
+          padding: 4px;
+          margin-right: 10px;
+          color: $pia-green;
+          text-decoration: none;
+        }
+        i {
+          color: $pia-green;
+          display: block;
+          margin-top: 2px;
+          text-align: center;
+          font-size: 2rem;
+          text-decoration: none;
+        }
+        p {
+          display: block;
+          font-size: 1rem;
+          margin-bottom: 0;
+          font-style: normal;
+          color: $pia-green;
+        }
+      }
+    }
+  }
+}

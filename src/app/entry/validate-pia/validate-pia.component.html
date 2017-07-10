@@ -1,0 +1,79 @@
+<app-header></app-header>
+<main class="container pia-PIAEntryBlock pia-validationBlock">
+  <div class="row">
+    <!--Left sidebar (sections) -->
+    <div class="small-12 medium-3 columns">
+      <aside class="pia-leftSidebarBlock">
+        <app-sections></app-sections>
+      </aside>
+    </div>
+
+    <!--Main entry content -->
+    <div class="small-12 medium-6 columns">
+      <section class="pia-entryContentBlock">
+        <form>
+          <header class="pia-entryContentBlock-header">
+            <div>
+              <i class="fa fa-cog" aria-hidden="true"></i>
+              <p>En signature</p>
+            </div>
+            <div class="pia-entryContentBlock-header-title">
+                <h1>Validation du PIA</h1>
+            </div>
+            <a href="#" class="btn pia-previewBlock" title="Aperçu">
+              <span class="pia-icons pia-icon-preview"></span>
+              <div>Aperçu</div>
+            </a>
+          </header>
+
+          <header class="pia-entryContentBlock-header">
+            <div>
+              <i class="fa fa-check-square-o" aria-hidden="true"></i>
+              <p>Validé</p>
+            </div>
+            <div class="pia-entryContentBlock-header-title">
+                <h1>Validation du PIA</h1>
+            </div>
+            <a href="#" class="btn pia-previewBlock" title="Aperçu">
+              <span class="pia-icons pia-icon-preview"></span>
+              <div>Aperçu</div>
+            </a>
+          </header>
+
+          <div class="pia-entryContentBlock-content">
+            <?php require 'questionConfirm-1.php'; ?>
+            <?php require 'questionConfirm-3.php'; ?>
+            <?php require 'questionConfirm-2.php'; ?>
+          </div>
+
+          <button type="button" class="pia-entryContentBlock-submitAttachmentButton btn btn-red btn-active" title="Ajouter le rapport PIA signé">Ajouter le rapport PIA Signé</button>
+
+          <!-- TODO : add condition : show only if PIA was refused first -->
+          <?php require 'piaValidationHistory.php'; ?>
+
+          <footer class="pia-entryContentBlock-footer">
+            <div class="pia-entryContentBlock-footer-validationAttachments">
+              <div>
+                <span class="pia-icons pia-icon-file-pdf-blue"></span>
+                <a href="#">Admin_serveur.pdf</a>
+              </div>
+              <button type="button" class="btn" title="Supprimer"><span class="pia-icons pia-icon-close"></span></button>
+            </div>
+            <div class="pia-entryContentBlock-footer-validationTools">
+              <a href="/"><i class="fa fa-home" aria-hidden="true"></i><p>Accueil</p></a>
+              <a href="#"><i class="fa fa-download" aria-hidden="true"></i><p>Télécharger</p></a>
+              <a href="#"><i class="fa fa-file-excel-o" aria-hidden="true"></i><p>Plan d'action</p></a>
+            </div>
+          </footer>
+        </form>
+      </section>
+    </div>
+
+    <!--Right sidebar (knowledge base) -->
+    <div class="small-12 medium-3 columns">
+      <div class="pia-rightSidebarBlock">
+        <app-knowledge-base></app-knowledge-base>
+      </div>
+    </div>
+  </div>
+</main>

@@ -1,0 +1,78 @@
+<app-header></app-header>
+<main class="container pia-PIAEntryBlock pia-validationCartographyBlock">
+  <div class="row">
+    <!--Left sidebar (sections) -->
+    <div class="small-12 medium-3 columns">
+      <aside class="pia-leftSidebarBlock">
+        <app-sections></app-sections>
+      </aside>
+    </div>
+
+    <!--Main entry content -->
+    <div class="small-12 medium-6 columns">
+      <section class="pia-entryContentBlock">
+        <header class="pia-entryContentBlock-header">
+          <div>
+            <i class="fa fa-check-square-o" aria-hidden="true"></i>
+          </div>
+          <div class="pia-entryContentBlock-header-title">
+            <h1>Validation du PIA</h1>
+            <p>Cartographie des risques</p>
+          </div>
+          <a href="#" class="btn pia-previewBlock" title="Aperçu">
+            <span class="pia-icons pia-icon-preview"></span>
+            <div>Aperçu</div>
+          </a>
+        </header>
+
+        <div class="pia-entryContentBlock-content">
+          <div class="pia-cartographyBlock">
+            <div>
+              <div class="pia-cartographyBlock-gravity">Gravité du risque</div>
+              <div class="pia-cartographyBlock-graph">
+                <div class="pia-cartographyBlock-ordinates">
+                  <div>Maximale</div>
+                  <div>Importante</div>
+                  <div>Limitée</div>
+                  <div>Négligeable</div>
+                </div>
+                <canvas id="actionPlanCartography" width="400" height="400"></canvas>
+              </div>
+              <div class="pia-cartographyBlock-abscisses">
+                <div>Négligeable</div>
+                <div>Limitée</div>
+                <div>Importante</div>
+                <div>Maximale</div>
+              </div>
+              <div class="pia-cartographyBlock-probability">
+                Vraissemblance du risque
+              </div><!--
+              --><ul class="pia-cartographyBlock-legend">
+                <li>Mesures prévues ou existantes</li>
+                <li>Avec les mesures correctives mises en oeuvre</li>
+              </ul>
+              <!--  last PIA update -->
+              <div class="pia-cartographyBlock-date">
+                <time datetime="2016-12-12">le 12/12/2016</time>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <footer class="pia-entryContentBlock-footer">
+          <div class="pia-entryContentBlock-footer-nav">
+            <a href="#"><< Risques</a>
+            <a href="#">Validation légale du PIA – Avis du DPO... >></a>
+          </div>
+        </footer>
+      </section>
+    </div>
+
+    <!--Right sidebar (knowledge base) -->
+    <div class="small-12 medium-3 columns">
+      <div class="pia-rightSidebarBlock">
+        <app-knowledge-base></app-knowledge-base>
+      </div>
+    </div>
+  </div>
+</main>

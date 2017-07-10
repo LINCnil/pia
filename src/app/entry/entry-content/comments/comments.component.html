@@ -17,5 +17,9 @@
     <!--</div>-->
   <!--</div>-->
   </form>
-  <app-comment-item *ngFor="let comment of comments" [comment]="comment"></app-comment-item>
+
+  <div class="pia-commentsBlock-list">
+    <!--<app-comment-item title="truc"></app-comment-item>-->
+    <app-comment-item *ngFor="let comment of comments" [comment]="comment"></app-comment-item>
+  </div>
 </div>
