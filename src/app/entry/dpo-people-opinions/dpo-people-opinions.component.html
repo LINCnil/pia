@@ -12,7 +12,6 @@
     <div class="small-12 medium-6 columns">
       // DPO 1
       <section class="pia-entryContentBlock">
-        <form>
           <header class="pia-entryContentBlock-header">
             <div>
               <i class="fa fa-cog" aria-hidden="true"></i>
@@ -32,20 +31,11 @@
             <div class="pia-entryContentBlock-content-DPO">
               <h2>Avis du DPO</h2>
               <p><span>Rémy Dutronc</span> et <span>Marie Dubois</span>, DPO de la société Alpha, considèrent que :</p>
-              <form>
-                <div class="pia-entryContentBlock-content-DPO-treatment">
-                  <input type="checkbox" id="checkbox-1" value="1">
-                  <label for="checkbox-1">
-                    <i class="fa fa-circle" aria-hidden="true"></i>
-                    <span>Le traitement peut être mis en oeuvre.</span>
-                  </label>
-                </div>
-
-                <div class="pia-entryContentBlock-content-DPO-treatment">
-                  <input type="checkbox" id="checkbox-2" value="2">
-                  <label for="checkbox-2">
-                    <i class="fa fa-circle" aria-hidden="true"></i>
-                    <span>Le traitement ne doit pas être mis en oeuvre.</span>
+              <form [formGroup]="treatmentForm">
+                <div class="radio" *ngFor="let treatment of treatments">
+                  <label>
+                    <input type="radio" formControlName="treatment" [value]="treatment">{{treatment}}
+                    <input type="radio" formControlName="treatment" [value]="treatment">{{treatment}}
                   </label>
                 </div>
                 <div class="pia-entryContentBlock-content-DPO-reasons">
@@ -58,7 +48,6 @@
             <div class="pia-entryContentBlock-content-DPO-avis">
               <h2>Avis des personnes concernées</h2>
               <p><span>Rémy Dutronc</span> et <span>Marie Dubois</span>, DPO de la société Alpha, considèrent que :</p>
-              <form>
                 <div class="pia-entryContentBlock-content-DPO-treatment">
                   <input type="checkbox" id="checkbox-1" value="1">
                   <label for="checkbox-1">
@@ -77,7 +66,6 @@
                 <div class="pia-entryContentBlock-content-DPO-reasons">
                   <textarea rows="8" cols="50" placeholder="Décrivez comment les avis ont été collectés et quelle en est l’analyse. Dans le cas où les avis n’ont pas été recherchés, en préciser les raisons."></textarea>
                 </div>
-              </form>
             </div>
 
           </div>
@@ -88,7 +76,6 @@
               <a href="#">Risques - Accès illégitime aux données >></a>
             </div>
           </footer>
-        </form>
       </section>
     </div>
 
@@ -111,7 +98,6 @@
     <div class="small-12 medium-6 columns">
       // DPO 2
       <section class="pia-entryContentBlock pia-ValidationAvis">
-        <form>
           <header class="pia-entryContentBlock-header">
             <div>
               <i class="fa fa-cog" aria-hidden="true"></i>
@@ -134,7 +120,6 @@
                 <i class="fa fa-pencil" aria-hidden="true"></i>
               </div>
               <p><span>Rémy Dutronc</span> et <span>Marie Dubois</span>, DPO de la société Alpha, considèrent que :</p>
-              <form>
                 <div class="pia-entryContentBlock-content-DPO-treatment">
                   <input type="checkbox" id="checkbox-1" value="1" checked>
                   <label class="edited" for="checkbox-1">
@@ -156,7 +141,6 @@
                   <textarea rows="8" cols="50" disabled>Totam rem aperiam, eaque quae ab illo inventore veritatis et quasi arc quae ab illo inventore veritatis et quasi arc quae ab illo inventore veritatis et quasi arc quae ab illo inventore veritatis et quasi architecto</textarea>
                 </div>
                 <time datetime="2016-12-12" class="pia-entryContentBlock-content-DPO-publishDate">Le 12/12/2016</time>
-              </form>
             </div>
 
             <!-- Concerned people opinions -->
@@ -166,7 +150,6 @@
                 <i class="fa fa-pencil" aria-hidden="true"></i>
               </div>
               <p><span>Rémy Dutronc</span> et <span>Marie Dubois</span>, DPO de la société Alpha, considèrent que :</p>
-              <form>
                 <div class="pia-entryContentBlock-content-DPO-treatment">
                   <input type="checkbox" id="checkbox-3" value="3">
                   <label class="edited" for="checkbox-3">
@@ -188,12 +171,9 @@
                   <textarea rows="8" cols="50" disabled>est, qui doloreatem.  quae ab illo inventore veritatis et quasi arc quae ab illo inventore veritatis et quasi arc</textarea>
                 </div>
                 <time datetime="2016-12-12" class="pia-entryContentBlock-content-DPO-publishDate">Le 12/12/2016</time>
-              </form>
             </div>
 
           </div>
-
-        </form>
       </section>
     </div>
 

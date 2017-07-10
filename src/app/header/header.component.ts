@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Renderer2 } from "@angular/core";
+import { Renderer2 } from '@angular/core';
 
 @Component({
   selector: 'app-header',
