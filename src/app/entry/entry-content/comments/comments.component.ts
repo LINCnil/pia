@@ -1,5 +1,6 @@
 import { Component, ElementRef, OnInit } from '@angular/core';
-/*import {CommentItem} from './comment-item/comment-item.model';*/
+import {FormArray, FormControl, FormGroup} from '@angular/forms';
+import {Comment} from './comments.model';
 
 @Component({
   selector: 'app-comments',
@@ -8,6 +9,8 @@ import { Component, ElementRef, OnInit } from '@angular/core';
 })
 export class CommentsComponent implements OnInit {
   nbComments = 5;
+  commentForm: FormGroup;
+  comments: Comment[] = [];
   constructor(private el: ElementRef) { }
 
   /**
@@ -17,27 +20,21 @@ export class CommentsComponent implements OnInit {
     const dropdown = this.el.nativeElement.querySelector('.pia-commentsBlock-new');
     dropdown.classList.toggle('open');
   }
-
-  /**
-   * Generates a new comment which is added in the comments list.
-   */
   newCommentFocusOut() {
-    // Generation of a new comment item component with value from new comment field.
-    /*new CommentItem(null, 'test');*/
+    // Generation of a new comment item component with value from new comment field
+    const commentRecord = new Comment(null, this.commentForm.value.description);
+    this.comments.unshift(commentRecord);
+    console.log(this.comments)
   }
-
-  /**
-   * Shows or hides the comments list.
-   */
   displayCommentsList() {
     const typingArea = this.el.nativeElement.querySelector('.pia-commentsBlock-list');
     const btn = this.el.nativeElement.querySelector('.pia-commentsBlock-btn button span');
     btn.classList.toggle('pia-icon-accordeon-down');
     typingArea.classList.toggle('close');
   }
-
-
   ngOnInit() {
+    this.commentForm = new FormGroup({
+      'description': new FormControl()
+    });
   }
-
 }
