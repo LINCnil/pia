@@ -1,5 +1,5 @@
 <app-header></app-header>
-<main class="container pia-PIAEntryBlock pia-ValidationDPO1">
+<main class="container pia-PIAEntryBlock pia-ValidationDPO">
   <div class="row">
     <!--Left sidebar (sections) -->
     <div class="small-12 medium-3 columns">
@@ -7,178 +7,93 @@
         <app-sections></app-sections>
       </aside>
     </div>
-
     <!--Main entry content -->
     <div class="small-12 medium-6 columns">
-      // DPO 1
       <section class="pia-entryContentBlock">
-          <header class="pia-entryContentBlock-header">
-            <div>
-              <i class="fa fa-cog" aria-hidden="true"></i>
-            </div>
-            <div class="pia-entryContentBlock-header-title">
-              <h1>Validation du PIA</h1>
-              <p>Avis du Cil/DPO</p>
-            </div>
-            <a href="#" class="btn pia-previewBlock" title="Aperçu">
-              <span class="pia-icons pia-icon-preview"></span>
-              <div>Aperçu</div>
-            </a>
-          </header>
-
-          <div class="pia-entryContentBlock-content">
-            <!-- DPO opinions -->
-            <div class="pia-entryContentBlock-content-DPO">
-              <h2>Avis du DPO</h2>
-              <p><span>Rémy Dutronc</span> et <span>Marie Dubois</span>, DPO de la société Alpha, considèrent que :</p>
-              <form [formGroup]="treatmentForm">
-                <div class="radio" *ngFor="let treatment of treatments">
-                  <label>
-                    <input type="radio" formControlName="treatment" [value]="treatment">{{treatment}}
-                    <input type="radio" formControlName="treatment" [value]="treatment">{{treatment}}
-                  </label>
-                </div>
-                <div class="pia-entryContentBlock-content-DPO-reasons">
-                  <textarea rows="8" cols="50" placeholder="Précisez les raisons de votre choix"></textarea>
-                </div>
-              </form>
-            </div>
-
-            <!-- Concerned people opinions -->
-            <div class="pia-entryContentBlock-content-DPO-avis">
-              <h2>Avis des personnes concernées</h2>
-              <p><span>Rémy Dutronc</span> et <span>Marie Dubois</span>, DPO de la société Alpha, considèrent que :</p>
-                <div class="pia-entryContentBlock-content-DPO-treatment">
-                  <input type="checkbox" id="checkbox-1" value="1">
-                  <label for="checkbox-1">
-                    <i class="fa fa-circle" aria-hidden="true"></i>
-                    <span>Les personnes concernées ont été consultées</span>
-                  </label>
-                </div>
-
-                <div class="pia-entryContentBlock-content-DPO-treatment">
-                  <input type="checkbox" id="checkbox-2" value="2">
-                  <label for="checkbox-2">
-                    <i class="fa fa-circle" aria-hidden="true"></i>
-                    <span>Les personnes concernées n’ont pas été consultées</span>
-                  </label>
-                </div>
-                <div class="pia-entryContentBlock-content-DPO-reasons">
-                  <textarea rows="8" cols="50" placeholder="Décrivez comment les avis ont été collectés et quelle en est l’analyse. Dans le cas où les avis n’ont pas été recherchés, en préciser les raisons."></textarea>
-                </div>
-            </div>
-
+        <header class="pia-entryContentBlock-header">
+          <div>
+            <i class="fa fa-cog" aria-hidden="true"></i>
           </div>
-
-          <footer class="pia-entryContentBlock-footer">
-            <div class="pia-entryContentBlock-footer-nav">
-              <a href="#"><< Principes fondamentaux - Mesures... </a>
-              <a href="#">Risques - Accès illégitime aux données >></a>
-            </div>
-          </footer>
-      </section>
-    </div>
-
-    <!--Right sidebar (knowledge base) -->
-    <div class="small-12 medium-3 columns">
-      <div class="pia-rightSidebarBlock">
-        <app-knowledge-base></app-knowledge-base>
-      </div>
-    </div>
-  </div>
-</main>
-
-<main class="container pia-PIAEntryBlock pia-ValidationDPO2">
-  <div class="row">
-    <!--Left sidebar (sections) -->
-    <div class="small-12 medium-3 columns">
-    </div>
-
-    <!--Main entry content -->
-    <div class="small-12 medium-6 columns">
-      // DPO 2
-      <section class="pia-entryContentBlock pia-ValidationAvis">
-          <header class="pia-entryContentBlock-header">
-            <div>
-              <i class="fa fa-cog" aria-hidden="true"></i>
-            </div>
-            <div class="pia-entryContentBlock-header-title">
-              <h1>Validation du PIA</h1>
-              <p>Avis du Cil/DPO</p>
-            </div>
-            <a href="#" class="btn pia-previewBlock" title="Aperçu">
-              <span class="pia-icons pia-icon-preview"></span>
-              <div>Aperçu</div>
-            </a>
-          </header>
-
-          <div class="pia-entryContentBlock-content">
-            <!-- DPO opinions -->
-            <div class="pia-entryContentBlock-content-DPO">
-              <div class="pia-entryContentBlock-content-DPO-title">
-                <h2>Avis du DPO</h2>
-                <i class="fa fa-pencil" aria-hidden="true"></i>
-              </div>
-              <p><span>Rémy Dutronc</span> et <span>Marie Dubois</span>, DPO de la société Alpha, considèrent que :</p>
-                <div class="pia-entryContentBlock-content-DPO-treatment">
-                  <input type="checkbox" id="checkbox-1" value="1" checked>
-                  <label class="edited" for="checkbox-1">
+          <div class="pia-entryContentBlock-header-title">
+            <h1>Validation du PIA</h1>
+            <p>Avis du Cil/DPO</p>
+          </div>
+          <a href="#" class="btn pia-previewBlock" title="Aperçu">
+            <span class="pia-icons pia-icon-preview"></span>
+            <div>Aperçu</div>
+          </a>
+        </header>
+        <div class="pia-entryContentBlock-content">
+          <!-- DPO opinions -->
+          <div class="pia-entryContentBlock-content-DPO">
+            <h2>Avis du DPO</h2>
+            <p><span>Rémy Dutronc</span> et <span>Marie Dubois</span>, DPO de la société Alpha, considèrent que :</p>
+            <form [formGroup]="treatmentForm">
+              <div class="pia-entryContentBlock-content-DPO-treatment">
+                <div>
+                  <input type="radio" id="treatment-1" formControlName="treatment" value="DPO_approved" [disabled]="dpoEditStatus">
+                  <label for="treatment-1">
                     <i class="fa fa-circle" aria-hidden="true"></i>
                     <i class="fa fa-check" aria-hidden="true"></i>
                     <span>Le traitement peut être mis en oeuvre.</span>
                   </label>
                 </div>
-
-                <div class="pia-entryContentBlock-content-DPO-treatment">
-                  <input type="checkbox" id="checkbox-2" value="2">
-                  <label class="edited" for="checkbox-2">
+                <div>
+                  <input type="radio" id="treatment-2" formControlName="treatment" value="DPO_refused" [disabled]="dpoEditStatus">
+                  <label for="treatment-2">
                     <i class="fa fa-circle" aria-hidden="true"></i>
                     <i class="fa fa-check" aria-hidden="true"></i>
-                    <span>Le traitement ne doit pas être mis en oeuvre.</span>
+                    <span>Le traitement ne doit pas être mis en oeuvre</span>
                   </label>
                 </div>
-                <div class="pia-entryContentBlock-content-DPO-reasons">
-                  <textarea rows="8" cols="50" disabled>Totam rem aperiam, eaque quae ab illo inventore veritatis et quasi arc quae ab illo inventore veritatis et quasi arc quae ab illo inventore veritatis et quasi arc quae ab illo inventore veritatis et quasi architecto</textarea>
-                </div>
-                <time datetime="2016-12-12" class="pia-entryContentBlock-content-DPO-publishDate">Le 12/12/2016</time>
-            </div>
-
-            <!-- Concerned people opinions -->
-            <div class="pia-entryContentBlock-content-DPO-avis">
-              <div class="pia-entryContentBlock-content-DPO-title">
-                <h2>Avis des personnes concernées</h2>
-                <i class="fa fa-pencil" aria-hidden="true"></i>
               </div>
-              <p><span>Rémy Dutronc</span> et <span>Marie Dubois</span>, DPO de la société Alpha, considèrent que :</p>
-                <div class="pia-entryContentBlock-content-DPO-treatment">
-                  <input type="checkbox" id="checkbox-3" value="3">
-                  <label class="edited" for="checkbox-3">
-                    <i class="fa fa-circle" aria-hidden="true"></i>
-                    <i class="fa fa-check" aria-hidden="true"></i>
-                    <span>Les personnes concernées ont été consultées</span>
-                  </label>
-                </div>
-
-                <div class="pia-entryContentBlock-content-DPO-treatment">
-                  <input type="checkbox" id="checkbox-4" checked value="4">
-                  <label for="checkbox-4">
-                    <i class="fa fa-circle" aria-hidden="true"></i>
-                    <i class="fa fa-check" aria-hidden="true"></i>
-                    <span>Les personnes concernées n’ont pas été consultées</span>
-                  </label>
-                </div>
-                <div class="pia-entryContentBlock-content-DPO-reasons">
-                  <textarea rows="8" cols="50" disabled>est, qui doloreatem.  quae ab illo inventore veritatis et quasi arc quae ab illo inventore veritatis et quasi arc</textarea>
-                </div>
-                <time datetime="2016-12-12" class="pia-entryContentBlock-content-DPO-publishDate">Le 12/12/2016</time>
-            </div>
-
+              <div class="pia-entryContentBlock-content-DPO-reasons">
+                <textarea (focusout)="dpoFocusOut()" [disabled]="dpoEditStatus" rows="8" cols="50" placeholder="Précisez les raisons de votre choix"></textarea>
+              </div>
+            </form>
           </div>
+          <!-- Concerned people opinions -->
+          <div class="pia-entryContentBlock-content-DPO-avis">
+            <h2>Avis des personnes concernées</h2>
+            <p><span>Rémy Dutronc</span> et <span>Marie Dubois</span>, DPO de la société Alpha, considèrent que :</p>
+            <form [formGroup]="dpoAvisForm">
+              <div class="pia-entryContentBlock-content-DPO-treatment">
+                <div>
+                  <input type="radio" id="dpoAvis-1" formControlName="dpoAvis" value="DPO_approved" [disabled]="peopleApprovedStatus">
+                  <label for="dpoAvis-1">
+                    <i class="fa fa-circle" aria-hidden="true"></i>
+                    <i class="fa fa-check" aria-hidden="true"></i>
+                    <span>Le traitement peut être mis en oeuvre.</span>
+                  </label>
+                </div>
+                <div>
+                  <input type="radio" id="dpoAvis-2" formControlName="dpoAvis" value="DPO_refused" [disabled]="peopleRefusedStatus">
+                  <label for="dpoAvis-2">
+                    <i class="fa fa-circle" aria-hidden="true"></i>
+                    <i class="fa fa-check" aria-hidden="true"></i>
+                    <span>Le traitement ne doit pas être mis en oeuvre</span>
+                  </label>
+                </div>
+              </div>
+              <div class="pia-entryContentBlock-content-DPO-reasons">
+                <textarea rows="8" cols="50" (focusout)="peopleFocusOut()" placeholder="Décrivez comment les avis ont été collectés et quelle en est l’analyse. Dans le cas où les avis n’ont pas été recherchés, en préciser les raisons."></textarea>
+              </div>
+            </form>
+          </div>
+        </div>
+        <footer class="pia-entryContentBlock-footer">
+          <div class="pia-entryContentBlock-footer-nav">
+            <a href="#"><< Principes fondamentaux - Mesures... </a>
+            <a href="#">Risques - Accès illégitime aux données >></a>
+          </div>
+        </footer>
       </section>
     </div>
-
     <!--Right sidebar (knowledge base) -->
     <div class="small-12 medium-3 columns">
+      <div class="pia-rightSidebarBlock">
+        <app-knowledge-base></app-knowledge-base>
+      </div>
     </div>
   </div>
 </main>
