@@ -2,9 +2,6 @@
 
 // DPO and people opinions
 .pia-ValidationDPO {
-  [disabled] {
-    background-color: red;
-  }
   .pia-entryContentBlock {
     &-header {
       div:first-child {
@@ -25,6 +22,19 @@
     }
     &-content {
       &-DPO, &-DPO-avis {
+        > div {
+          display: flex;
+          justify-content: space-between;
+        }
+        .pia-questionBlock-edit {
+          i {
+            font-size: 20px;
+            color: $pia-gray;
+          }
+          .show {
+            display: block;
+          }
+        }
         box-shadow: 2px 1px 18px 1px rgba(194,194,194,1);
         padding: 15px 46px;
         padding-bottom: 40px;
@@ -105,6 +115,9 @@
               color: $pia-gray;
               font-style: italic;
               font-size: 1.2rem;
+            }
+            &[disabled] {
+              background-color: white;
             }
           }
         }

@@ -42,5 +42,4 @@ export class QuestionsComponent implements OnInit {
     const displayer = this.el.nativeElement.querySelector('.pia-questionBlock-displayer');
     displayer.classList.toggle('close');
   }
-
 }
