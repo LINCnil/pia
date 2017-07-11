@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+declare var modalObject: any
+
 @Component({
   selector: 'app-entry',
   templateUrl: './entry.component.html',
@@ -10,6 +12,10 @@ export class EntryComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+  }
+
+  closeModal() {
+    modalObject.modalDisplayer();
   }
 
 }

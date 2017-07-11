@@ -20,28 +20,25 @@ export class QuestionsComponent implements OnInit {
    * Hides edit button.
    */
   questionTextareaFocus() {
-    const editBtn = this.el.nativeElement.querySelector('.pia-questionBlock-edit');
-    editBtn.classList.add('hide');
+    this.hideEditButton();
   }
 
   /**
-   * Disables question fields + shows edit button + save data.
+   * Disables question field + shows edit button + save data.
    */
   questionTextareaFocusOut() {
     if (this.questionForm.value.textarea && this.questionForm.value.textarea.length > 0) {
-      const editBtn = this.el.nativeElement.querySelector('.pia-questionBlock-edit');
-      editBtn.classList.remove('hide');
+      this.showEditButton();
       this.questionForm.controls['textarea'].disable();
     }
     // Saving data here
   }
 
   /**
-   * Enables or disables edition mode (textarea field) for questions.
+   * Enables or disables edition mode (fields) for questions.
    */
   activateQuestionEdition() {
-    const editBtn = this.el.nativeElement.querySelector('.pia-questionBlock-edit');
-    editBtn.classList.add('hide');
+    this.hideEditButton();
     this.questionForm.controls['textarea'].enable();
   }
 
@@ -53,5 +50,20 @@ export class QuestionsComponent implements OnInit {
     accordeon.classList.toggle('pia-icon-accordeon-down');
     const displayer = this.el.nativeElement.querySelector('.pia-questionBlock-displayer');
     displayer.classList.toggle('close');
+  }
+
+  /**
+   * Shows edit button.
+   */
+  showEditButton() {
+    const editBtn = this.el.nativeElement.querySelector('.pia-questionBlock-edit');
+    editBtn.classList.remove('hide');
+  }
+  /**
+   * Hides edit button.
+   */
+  hideEditButton() {
+    const editBtn = this.el.nativeElement.querySelector('.pia-questionBlock-edit');
+    editBtn.classList.add('hide');
   }
 }

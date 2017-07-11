@@ -8,7 +8,7 @@
     </div>
   </div>
   <form [formGroup]="commentsForm" class="pia-commentsBlock-new fadeIn" (focusout)="newCommentFocusOut()">
-    <textarea formControlName="description" placeholder="Laissez un commentaire" rows="8" cols="50"></textarea>
+    <textarea formControlName="description" data-target="simpleModal_2" data-toggle="modal" placeholder="Laissez un commentaire" rows="8" cols="50"></textarea>
   </form>
   <div class="pia-commentsBlock-list">
     <!--<app-comment-item title="truc"></app-comment-item>-->

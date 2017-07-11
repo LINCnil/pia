@@ -26,9 +26,6 @@
             font-size: 20px;
             color: $pia-gray;
           }
-          button {
-            display: none;
-          }
         }
         background-color: #fefefe;
         padding: 15px 10px 40px 10px;
@@ -50,8 +47,9 @@
             border-bottom: solid $pia-green 1px;
             border-top: 0;
             border-right: 0;
-            font-size: 1.4rem;
+            font-size: 1.35rem;
             border-left: 0;
+            color: $pia-dark-black !important;
             &[placeholder] {
               padding-left: 10px;
               padding-top: 10px;
@@ -70,7 +68,7 @@
       &-cancelButtons {
         display: flex;
         justify-content: space-between;
-        margin-top: 10px;
+        margin: 10px 0;
         button {
           width: 49%;
           border-radius: 0;

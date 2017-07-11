@@ -85,11 +85,14 @@
     }
     &-footer {
       margin-top: 10px;
-      button {
+      > button {
         display: block;
         width: 100%;
         padding: 12px 15px;
         border-radius: 0;
+        &:disabled {
+          border-radius: 0;
+        }
       }
       p {
         font-size: 0.95rem;

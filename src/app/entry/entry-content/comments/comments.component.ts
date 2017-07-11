@@ -1,6 +1,9 @@
 import {Component, ElementRef, OnInit} from '@angular/core';
 import {FormArray, FormControl, FormGroup} from '@angular/forms';
 import {Comment} from './comments.model';
+import '../../../../assets/scripts/modals.js';
+
+declare var modalObject: any
 
 @Component({
   selector: 'app-comments',
@@ -31,10 +34,10 @@ export class CommentsComponent implements OnInit {
     // Opens comments list if it's closed.
     const accordeonButton = this.el.nativeElement.querySelector('.pia-commentsBlock-btn button span');
     if (accordeonButton && !accordeonButton.classList.contains('pia-icon-accordeon-down')) {
-      const commentsList = this.el.nativeElement.querySelector('.pia-commentsBlock-list');
-      commentsList.classList.remove('close');
+      accordeonButton.classList.toggle('pia-icon-accordeon-down');
     }
-
+    const commentsList = this.el.nativeElement.querySelector('.pia-commentsBlock-list');
+    commentsList.classList.remove('close');
     newCommentBox.classList.toggle('open');
   }
 
@@ -47,11 +50,13 @@ export class CommentsComponent implements OnInit {
       // Checks if there are already comments and if so, checks if the last comment value is different from our current comment.
       if (this.comments.length > 0 && this.comments[0].description === this.commentsForm.value.description) {
         /* TODO : insérer une modale propre pour spécifier ce cas de figure */
-        alert("Vous ne pouvez pas insérer un commentaire identique au dernier.");
+        modalObject.modalDisplayer();
       } else {
-        // Creates the new comment and pushes it as the first comment in list + updates accordeon and counter.
+        // Creates the new comment and pushes it as the first comment in list
+        // Updates accordeon and counter + removes the written comment.
         const commentRecord = new Comment(null, this.commentsForm.value.description);
         this.comments.unshift(commentRecord);
+        this.commentsForm.controls['description'].setValue('');
         this.toggleNewCommentBox();
         this.updateCommentsCounter();
         this.getCommentsAccordeonStatus();
