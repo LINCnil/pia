@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-entry-content',
@@ -6,10 +6,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./entry-content.component.scss']
 })
 export class EntryContentComponent implements OnInit {
+  @Input() section: string;
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  /**
+   * Returns the current PIA section.
+   * @returns {string} the name of section.
+   */
+  getCurrentSection() {
+    return this.section;
   }
 
 }

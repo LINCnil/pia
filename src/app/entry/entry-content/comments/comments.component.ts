@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit } from '@angular/core';
+import {Component, ElementRef, OnInit} from '@angular/core';
 import {FormArray, FormControl, FormGroup} from '@angular/forms';
 import {Comment} from './comments.model';
 
@@ -8,33 +8,81 @@ import {Comment} from './comments.model';
   styleUrls: ['./comments.component.scss']
 })
 export class CommentsComponent implements OnInit {
-  nbComments = 5;
-  commentForm: FormGroup;
+  nbComments: number;
+  commentsForm: FormGroup;
   comments: Comment[] = [];
   constructor(private el: ElementRef) { }
+
+  ngOnInit() {
+    const commentsNumber = this.comments.length;
+    this.nbComments = commentsNumber;
+
+    this.commentsForm = new FormGroup({
+      description: new FormControl()
+    });
+  }
 
   /**
    * Shows or hides the block which allows users to create a new comment.
    */
-  displayNewCommentBox() {
-    const dropdown = this.el.nativeElement.querySelector('.pia-commentsBlock-new');
-    dropdown.classList.toggle('open');
+  toggleNewCommentBox() {
+    const newCommentBox = this.el.nativeElement.querySelector('.pia-commentsBlock-new');
+
+    // Opens comments list if it's closed.
+    const accordeonButton = this.el.nativeElement.querySelector('.pia-commentsBlock-btn button span');
+    if (accordeonButton && !accordeonButton.classList.contains('pia-icon-accordeon-down')) {
+      const commentsList = this.el.nativeElement.querySelector('.pia-commentsBlock-list');
+      commentsList.classList.remove('close');
+    }
+
+    newCommentBox.classList.toggle('open');
   }
+
+  /**
+   * Shows or hides the block which allows users to create a new comment.
+   */
   newCommentFocusOut() {
-    // Generation of a new comment item component with value from new comment field
-    const commentRecord = new Comment(null, this.commentForm.value.description);
-    this.comments.unshift(commentRecord);
-    console.log(this.comments)
+    // Checks if the comment value exists.
+    if (this.commentsForm.value.description && this.commentsForm.value.description.length > 0) {
+      // Checks if there are already comments and if so, checks if the last comment value is different from our current comment.
+      if (this.comments.length > 0 && this.comments[0].description === this.commentsForm.value.description) {
+        /* TODO : insérer une modale propre pour spécifier ce cas de figure */
+        alert("Vous ne pouvez pas insérer un commentaire identique au dernier.");
+      } else {
+        // Creates the new comment and pushes it as the first comment in list + updates accordeon and counter.
+        const commentRecord = new Comment(null, this.commentsForm.value.description);
+        this.comments.unshift(commentRecord);
+        this.toggleNewCommentBox();
+        this.updateCommentsCounter();
+        this.getCommentsAccordeonStatus();
+      }
+    }
   }
+
+  /**
+   * Updates comments counter with the total number of comments.
+   */
+  updateCommentsCounter() {
+    const commentsNumber = this.comments.length;
+    this.nbComments = commentsNumber;
+  }
+
+  /**
+   * Display comments list.
+   */
   displayCommentsList() {
-    const typingArea = this.el.nativeElement.querySelector('.pia-commentsBlock-list');
+    const commentsList = this.el.nativeElement.querySelector('.pia-commentsBlock-list');
     const btn = this.el.nativeElement.querySelector('.pia-commentsBlock-btn button span');
     btn.classList.toggle('pia-icon-accordeon-down');
-    typingArea.classList.toggle('close');
+    commentsList.classList.toggle('close');
   }
-  ngOnInit() {
-    this.commentForm = new FormGroup({
-      'description': new FormControl()
-    });
+
+  /**
+   * Returns a status about the comments number.
+   * @returns {Boolean} true if there are comments, false otherwise.
+   */
+  getCommentsAccordeonStatus() {
+    return this.nbComments > 0 ? true : false;
   }
+
 }

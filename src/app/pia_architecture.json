@@ -1,293 +1,444 @@
 {
   "sections": [
     {
+      // "CONTEXTE"
       "id": 1,
       "title": "Contexte",
-      "display_mode": "by_item",
+      "display_mode": "all_items",
       "link_knowledge_base": "",
-      "short_help": "TODO - Description du contexte",
+      "short_help": "TODO - Description de la section (pour cette section cela décrira aussi les sous-sections puisqu'elles sont toutes dans la même page)",
       "items": [
         {
+          // "DESCRIPTION DU PRODUIT"
           "id": 1,
           "title": "Description du produit",
           "evaluation_mode": "section",
           "link_knowledge_base": "",
-          "short_help": "TODO",
-          "type": "question",
+          "short_help": "",
           "questions": [
             {
               "id": 1,
               "title": "Description du produit",
-              "keyword": "",
               "link_knowledge_base": "",
-              "highligth_words": "",
-              "active": true,
-              "answer_type": "text"
-            }  
+              "placeholder": "Décrivez les caractéristiques de votre produit.",
+              "highlight_words": "",
+              "answer_type": "text",
+              "keywords": "",
+              "active": true
+            }
           ]
         },
         {
+          // "DONNEES"
           "id": 2,
           "title": "Données",
           "evaluation_mode": "section",
           "link_knowledge_base": "",
-          "short_help": "TODO",
-          "type": "question",
+          "short_help": "",
           "questions": [
             {
               "id": 1,
               "title": "Données",
-              "keyword": "",
               "link_knowledge_base": "",
-              "highligth_words": "",
-              "active": true,
-              "answer_type": "text"
-            }  
+              "placeholder": "Énumérez les différents types de données traitées par votre produit. N'hésitez pas à préciser les informations.",
+              "highlight_words": "",
+              "answer_type": "text",
+              "keywords": "",
+              "active": true
+            }
           ]
         },
         {
+          // "CYCLE DE VIE DES DONNEES"
           "id": 3,
           "title": "Cycle de vie des données",
           "evaluation_mode": "section",
           "link_knowledge_base": "",
-          "short_help": "TODO",
-          "type": "question",
+          "short_help": "",
           "questions": [
             {
               "id": 1,
               "title": "Cycle de vie des données",
-              "keyword": "",
               "link_knowledge_base": "",
-              "highligth_words": "",
-              "active": true,
-              "answer_type": "text"
-            }  
+              "placeholder": "Décrivez le contexte d'utilisation et de conservation des données traitées.",
+              "highlight_words": "",
+              "answer_type": "text",
+              "keywords": "",
+              "active": true
+            }
           ]
         },
         {
+          // "SUPPORT DES DONNEES"
           "id": 4,
           "title": "Supports des données",
           "evaluation_mode": "section",
           "link_knowledge_base": "",
-          "short_help": "TODO",
-          "type": "question",
+          "short_help": "",
           "questions": [
             {
               "id": 1,
               "title": "Supports des données",
-              "keyword": "",
               "link_knowledge_base": "",
-              "highligth_words": "",
-              "active": true,
-              "answer_type": "text"
-            }  
+              "placeholder": "Décrivez le contexte d'utilisation et de conservation des données traitées.",
+              "highlight_words": "",
+              "answer_type": "text",
+              "keywords": "",
+              "active": true
+            }
           ]
         }
       ]
     },
     {
+      // "PRINCIPES FONDAMENTAUX"
       "id": 2,
       "title": "Principes fondamentaux",
-      "display_mode": "all_items",
+      "display_mode": "by_item",
       "link_knowledge_base": "",
-      "short_help": "TODO",
+      "short_help": "TODO - Description de la section",
       "items": [
         {
+          // "PROPORTIONNALITE ET NECESSITE"
           "id": 1,
           "title": "Proportionnalité et nécessité",
-          "evaluation_mode": "",
+          "evaluation_mode": "question",
           "link_knowledge_base": "",
-          "short_help": "TODO",
-          "type": "question",
+          "short_help": "TODO - Description de la sous-section",
           "questions": [
             {
               "id": 1,
               "title": "Quelles sont les finalités de la collecte et l’utilisation des données par le service ?",
-              "keyword": "",
               "link_knowledge_base": "",
-              "highligth_words": "",
-              "active": true,
-              "answer_type": "text"
+              "placeholder": "Décrivez les finalités de l'utilisation des données collectées par votre service.",
+              "highlight_words": "",
+              "answer_type": "text",
+              "keywords": "",
+              "active": true
             },
             {
               "id": 2,
               "title": "Comment les données sont-elles minimisées ?",
-              "keyword": "",
               "link_knowledge_base": "",
-              "highligth_words": "",
-              "active": true,
-              "answer_type": "text"
+              "placeholder": "Décrivez les mesures mises en place afin de minimiser les données collectées.",
+              "highlight_words": "",
+              "answer_type": "text",
+              "keywords": "",
+              "active": true
             },
             {
               "id": 3,
               "title": "Qui sont les destinataires des données ?",
-              "keyword": "",
               "link_knowledge_base": "",
-              "highligth_words": "",
-              "active": true,
-              "answer_type": "text"
+              "placeholder": "Décrivez qui a accès aux données collectées.",
+              "highlight_words": "",
+              "answer_type": "text",
+              "keywords": "",
+              "active": true
             },
             {
               "id": 4,
               "title": "Quelle est la durée de conservation des données ?",
-              "keyword": "",
               "link_knowledge_base": "",
-              "highligth_words": "",
-              "active": true,
-              "answer_type": "text"
+              "placeholder": "Décrivez la durée nécessaire à l'accomplissement des finalités, à défaut d'une autre obligation légale imposant une conservation plus longue.",
+              "highlight_words": "",
+              "answer_type": "text",
+              "keywords": "",
+              "active": true
             },
             {
               "id": 5,
               "title": "Comment les utilisateurs du service sont-ils informés de l’utilisation des données ?",
-              "keyword": "",
               "link_knowledge_base": "",
-              "highligth_words": "",
-              "active": true,
-              "answer_type": "text"
+              "placeholder": "Décrivez la durée nécessaire à l'accomplissement des finalités, à défaut d'une autre obligation légale imposant une conservation plus longue.",
+              "highlight_words": "",
+              "answer_type": "text",
+              "keywords": "",
+              "active": true
             },
             {
               "id": 6,
               "title": "Comment l’accord de l’utilisateur est-il obtenu ?",
-              "keyword": "",
               "link_knowledge_base": "",
-              "highligth_words": "",
-              "active": true,
-              "answer_type": "text"
+              "placeholder": "Décrivez la durée nécessaire à l'accomplissement des finalités, à défaut d'une autre obligation légale imposant une conservation plus longue.",
+              "highlight_words": "",
+              "answer_type": "text",
+              "keywords": "",
+              "active": true
             },
             {
               "id": 7,
               "title": "Comment l’utilisateur peut-il s’opposer à l’utilisation des données ?",
-              "keyword": "",
               "link_knowledge_base": "",
-              "highligth_words": "",
-              "active": true,
-              "answer_type": "text"
+              "placeholder": "Décrivez la durée nécessaire à l'accomplissement des finalités, à défaut d'une autre obligation légale imposant une conservation plus longue.",
+              "highlight_words": "",
+              "answer_type": "text",
+              "keywords": "",
+              "active": true
             }
           ]
         },
+        // "MESURES PROTECTRICES DES DROITS"
+        /* Nous n'avons pas le contenu de cette sous-section donc on vous laisse la remplir de façon adéquate.
+         * (même s'il me semble que c'est comme celle d'avant : que des questions classiques à remplir.)
+        */
         {
           "id": 2,
           "title": "Mesures protectrices des droits",
-          "evaluation_mode": "",
+          "evaluation_mode": "question",
           "link_knowledge_base": "",
-          "short_help": "TODO",
-          "type": "question",
+          "short_help": "TODO - Description de la sous-section",
           "questions": [
             {
               "id": 1,
-              "title": "TODO",
-              "keyword": "",
+              "title": "TODO - Titre de la question",
               "link_knowledge_base": "",
-              "highligth_words": "",
-              "active": true,
-              "answer_type": "text"
+              "placeholder": "TODO - Explications indiquées dans le champ de saisie.",
+              "highlight_words": "",
+              "answer_type": "text",
+              "keywords": "",
+              "active": true
             }
+            // Etc ...
           ]
         }
       ]
     },
     {
+      // "RISQUES"
       "id": 3,
       "title": "Risques",
-      "display_mode": "all_items",
+      "display_mode": "by_items",
       "link_knowledge_base": "",
-      "short_help": "TODO",
+      "short_help": "TODO - Description de la section",
       "items": [
         {
+          // "MESURES EXISTANTES OU PREVUES"
           "id": 1,
           "title": "Mesures existantes ou prévues",
-          "evaluation_mode": "",
+          "evaluation_mode": "question",
           "link_knowledge_base": "",
-          "short_help": "TODO",
-          "type": "question"
+          "short_help": "TODO - Description de la sous-section"
         },
         {
+          // "RISQUE 1 : ACCES ILLEGITIME AUX DONNES
           "id": 2,
           "title": "Accès illégitime aux données",
-          "evaluation_mode": "",
+          "evaluation_mode": "item",
           "link_knowledge_base": "",
-          "short_help": "TODO",
-          "type": "question",
+          "short_help": "TODO - Description de la sous-section",
           "questions": [
             {
               "id": 1,
               "title": "Quelles sont les sources pertinentes pour ce risque ?",
-              "keyword": "",
               "link_knowledge_base": "",
-              "highligth_words": "",
-              "active": true,
-              "answer_type": "list"
+              "placeholder": "Entrez votre source.",
+              "highlight_words": "sources",
+              "answer_type": "list",
+              "keywords": "",
+              "active": true
             },
             {
               "id": 2,
-              "title": "Quelles sont les menaces qui pourraient permettre la   la réalisation ce risque ?",
-              "keyword": "",
+              "title": "Quelles sont les menaces qui pourraient permettre la réalisation de ce risque ?",
               "link_knowledge_base": "",
-              "highligth_words": "",
-              "active": true,
-              "answer_type": "list"
+              "placeholder": "Entrez votre source.",
+              "highlight_words": "menaces",
+              "answer_type": "list",
+              "keywords": "",
+              "active": true
             },
             {
               "id": 3,
               "title": "Quels peuvent être les impacts sur les personnes concernées si le risque se produisait ?",
-              "keyword": "",
               "link_knowledge_base": "",
-              "highligth_words": "",
-              "active": true,
-              "answer_type": "list"
+              "placeholder": "Entrez votre source.",
+              "highlight_words": "impacts sur les personnes",
+              "answer_type": "list",
+              "keywords": "",
+              "active": true
             },
             {
               "id": 4,
               "title": "Quelles sont les mesures, parmi celles identifiées qui contribuent à traiter ce risque ?",
-              "keyword": "",
               "link_knowledge_base": "",
-              "highligth_words": "",
-              "active": true,
-              "answer_type": "list"
+              "placeholder": "Entrez votre source.",
+              "highlight_words": "mesures",
+              "answer_type": "list",
+              "keywords": "",
+              "active": true
             },
             {
               "id": 5,
-              "title": "Comment estimez-vous la gravité du risque d’accès illégitime aux données ?",
-              "keyword": "",
+              "title": "Comment estimez-vous la gravité du risque d'accès illégitime aux données ?",
               "link_knowledge_base": "",
-              "highligth_words": "",
-              "active": true,
-              "answer_type": "gauge"
+              "placeholder": "Ajoutez votre description.",
+              "highlight_words": "gravité du risque",
+              "answer_type": "gauge",
+              "keywords": "",
+              "active": true
             },
             {
               "id": 6,
-              "title": "Comment estimez-vous la vraissemblance du risque d’accès illégitime aux données ?",
-              "keyword": "",
+              "title": "Comment estimez-vous la vraissemblance du risque d'accès illégitime aux données ?",
               "link_knowledge_base": "",
-              "highligth_words": "",
-              "active": true,
-              "answer_type": "gauge"
+              "placeholder": "Ajoutez votre description.",
+              "highlight_words": "vraissemblance du risque",
+              "answer_type": "gauge",
+              "keywords": "",
+              "active": true
             }
           ]
         },
         {
+          // "RISQUE 2 : MODIFICATIONS DE DONNEES"
           "id": 3,
           "title": "Modifications de données",
-          "evaluation_mode": "",
+          "evaluation_mode": "item",
           "link_knowledge_base": "",
-          "short_help": "TODO",
-          "type": "question"
+          "short_help": "TODO - Description de la sous-section",
+          "questions": [
+            {
+              "id": 1,
+              "title": "Quelles sont les sources pertinentes pour ce risque ?",
+              "link_knowledge_base": "",
+              "placeholder": "Entrez votre source.",
+              "highlight_words": "sources",
+              "answer_type": "list",
+              "keywords": "",
+              "active": true
+            },
+            {
+              "id": 2,
+              "title": "Quelles sont les menaces qui pourraient permettre la réalisation de ce risque ?",
+              "link_knowledge_base": "",
+              "placeholder": "Entrez votre source.",
+              "highlight_words": "menaces",
+              "answer_type": "list",
+              "keywords": "",
+              "active": true
+            },
+            {
+              "id": 3,
+              "title": "Quels peuvent être les impacts sur les personnes concernées si le risque se produisait ?",
+              "link_knowledge_base": "",
+              "placeholder": "Entrez votre source.",
+              "highlight_words": "impacts sur les personnes",
+              "answer_type": "list",
+              "keywords": "",
+              "active": true
+            },
+            {
+              "id": 4,
+              "title": "Quelles sont les mesures, parmi celles identifiées qui contribuent à traiter ce risque ?",
+              "link_knowledge_base": "",
+              "placeholder": "Entrez votre source.",
+              "highlight_words": "mesures",
+              "answer_type": "list",
+              "keywords": "",
+              "active": true
+            },
+            {
+              "id": 5,
+              "title": "Comment estimez-vous la gravité du risque de modifications de données ?",
+              "link_knowledge_base": "",
+              "placeholder": "Ajoutez votre description.",
+              "highlight_words": "gravité du risque",
+              "answer_type": "gauge",
+              "keywords": "",
+              "active": true
+            },
+            {
+              "id": 6,
+              "title": "Comment estimez-vous la vraissemblance du risque de modifications de données ?",
+              "link_knowledge_base": "",
+              "placeholder": "Ajoutez votre description.",
+              "highlight_words": "vraissemblance du risque",
+              "answer_type": "gauge",
+              "keywords": "",
+              "active": true
+            }
+          ]
         },
         {
+          // "RISQUE 3 : DISPARITION DE DONNEES"
           "id": 4,
           "title": "Disparition de données",
-          "evaluation_mode": "",
+          "evaluation_mode": "item",
           "link_knowledge_base": "",
-          "short_help": "TODO",
-          "type": "question"
+          "short_help": "TODO - Description de la sous-section",
+          "questions": [
+            {
+              "id": 1,
+              "title": "Quelles sont les sources pertinentes pour ce risque ?",
+              "link_knowledge_base": "",
+              "placeholder": "Entrez votre source.",
+              "highlight_words": "sources",
+              "answer_type": "list",
+              "keywords": "",
+              "active": true
+            },
+            {
+              "id": 2,
+              "title": "Quelles sont les menaces qui pourraient permettre la réalisation de ce risque ?",
+              "link_knowledge_base": "",
+              "placeholder": "Entrez votre source.",
+              "highlight_words": "menaces",
+              "answer_type": "list",
+              "keywords": "",
+              "active": true
+            },
+            {
+              "id": 3,
+              "title": "Quels peuvent être les impacts sur les personnes concernées si le risque se produisait ?",
+              "link_knowledge_base": "",
+              "placeholder": "Entrez votre source.",
+              "highlight_words": "impacts sur les personnes",
+              "answer_type": "list",
+              "keywords": "",
+              "active": true
+            },
+            {
+              "id": 4,
+              "title": "Quelles sont les mesures, parmi celles identifiées qui contribuent à traiter ce risque ?",
+              "link_knowledge_base": "",
+              "placeholder": "Entrez votre source.",
+              "highlight_words": "mesures",
+              "answer_type": "list",
+              "keywords": "",
+              "active": true
+            },
+            {
+              "id": 5,
+              "title": "Comment estimez-vous la gravité du risque de disparition de données ?",
+              "link_knowledge_base": "",
+              "placeholder": "Ajoutez votre description.",
+              "highlight_words": "gravité du risque",
+              "answer_type": "gauge",
+              "keywords": "",
+              "active": true
+            },
+            {
+              "id": 6,
+              "title": "Comment estimez-vous la vraissemblance du risque de disparition de données ?",
+              "link_knowledge_base": "",
+              "placeholder": "Ajoutez votre description.",
+              "highlight_words": "vraissemblance du risque",
+              "answer_type": "gauge",
+              "keywords": "",
+              "active": true
+            }
+          ]
         },
         {
+          // "VUE D'ENSEMBLE DES RISQUES"
+          // Pour cette sous-section : remplir "short_help" puis laisser le reste comme tel.
           "id": 5,
           "title": "Vue d'ensemble des risques",
           "evaluation_mode": "",
           "link_knowledge_base": "",
-          "short_help": "TODO",
-          "type": "question"
+          "short_help": "TODO - Description de la sous-section",
+          "type": ""
         }
       ]
     }

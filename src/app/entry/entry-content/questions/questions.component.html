@@ -1,13 +1,13 @@
 <div class="pia-questionBlock">
-  <form (ngSubmit)="onSubmit(f)" #f='ngForm'>
+  <form [formGroup]="questionForm">
     <div class="pia-questionBlock-title">
       <button class="btn" type="button" (click)="displayQuestion()" title="Afficher / masquer"><span class="pia-icons pia-icon-accordeon-up"></span></button>
       Description du produit
     </div>
     <div class="pia-questionBlock-displayer fadeIn">
-      <button type="button" class="btn pia-questionBlock-edit" (click)="activateEdition()" title="Éditer"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+      <button type="button" class="btn pia-questionBlock-edit hide" (click)="activateQuestionEdition()" title="Éditer"><i class="fa fa-pencil" aria-hidden="true"></i></button>
       <div class="pia-questionBlock-content">
-        <textarea ngModel name="pia-question" rows="8" cols="50" (focusout)="focusOut()" placeholder="Décrivez les caractéristiques de votre produit." [disabled]="editStatus">orem ipsum dolor sit amet, consectetur adipiscing elit. Ut hendrerit urna odio, eget cursus ferit urna odio, eget cursus ferit urna odio, eget cursus ferit urna odio, eget cdales consequat.</textarea>
+        <textarea formControlName="textarea" name="pia-question" rows="8" cols="50" (focus)="questionTextareaFocus()" (focusout)="questionTextareaFocusOut()" placeholder="Décrivez les caractéristiques de votre produit.">orem ipsum dolor sit amet, consectetur adipiscing elit. Ut hendrerit urna odio, eget cursus ferit urna odio, eget cursus ferit urna odio, eget cursus ferit urna odio, eget cdales consequat.</textarea>
       </div>
       <app-comments></app-comments>
       <app-evaluations></app-evaluations>

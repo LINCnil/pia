@@ -1,4 +1,34 @@
 <button data-target="simpleModal_1" data-toggle="modal">PIA modal</button>
 
-<app-questions></app-questions>
+<!-- A conserver :
 
+  <div *ngIf="getCurrentSection() == 'context'">
+    <app-questions title="json.section1.subsection1.question1.name" placeholder="..." ...></app-questions>
+    <app-questions title="json.section1.subsection2.question1.name" placeholder="..." ...></app-questions>
+    <app-questions title="json.section1.subsection3.question1.name" placeholder="..." ...></app-questions>
+    <app-questions title="json.section1.subsection4.question1.name" placeholder="..." ...></app-questions>
+  </div>
+
+  <div *ngIf="getCurrentSection() == 'principles'">
+    <div *ngIf="getCurrentSubsection() == 'principles-1'">
+      <app-questions title="json.section2.subsection1.question1.name" placeholder="..." ...></app-questions>
+      <app-questions title="json.section2.subsection1.question2.name" placeholder="..." ...></app-questions>
+      <app-questions title="json.section2.subsection1.question3.name" placeholder="..." ...></app-questions>
+      <app-questions title="json.section2.subsection1.question4.name" placeholder="..." ...></app-questions>
+    </div>
+    <div *ngIf="getCurrentSubsection() == 'principles-2'">
+      <app-questions title="json.section2.subsection2.question1.name" placeholder="..." ...></app-questions>
+      <app-questions title="json.section2.subsection2.question2.name" placeholder="..." ...></app-questions>
+      <app-questions title="json.section2.subsection2.question3.name" placeholder="..." ...></app-questions>
+      <app-questions title="json.section2.subsection2.question4.name" placeholder="..." ...></app-questions>
+    </div>
+  </div>
+
+  <div *ngIf="getCurrentSection() == 'risks'">
+    ... section 3
+  </div>
+
+-->
+
+<app-questions></app-questions>
+<app-questions></app-questions>

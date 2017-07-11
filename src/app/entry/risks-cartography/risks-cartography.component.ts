@@ -15,10 +15,8 @@ export class RisksCartographyComponent implements OnInit {
     this.loadCartography();
   }
 
-  // TODO : make loadCartography() loaded on init.
-
   /**
-   * Loads the risks cartography
+   * Loads the risks cartography with author and evalutor choices positioned as dots.
    */
   loadCartography() {
     // document ready

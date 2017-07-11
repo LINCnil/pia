@@ -1,28 +1,28 @@
 <div class="pia-evaluationBlock">
   <div class="pia-evaluationBlock-title">Évaluation</div>
-  <div class="pia-evaluationBlock-edit">
-    <button class="btn" type="button" (click)="activateEdition()" title="Éditer"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+  <div class="pia-evaluationBlock-edit hide">
+    <button class="btn" type="button" (click)="activateEvaluationEdition()" title="Éditer"><i class="fa fa-pencil" aria-hidden="true"></i></button>
   </div>
-  <div class="pia-evaluationBlock-buttons">
-    <button class="btn btn-red" (click)="selectedButton($event)" name="fix" type="submit" title="À corriger">
-      À corriger
-    </button>
-    <button class="btn btn-blue" (click)="selectedButton($event)" data-btn-type="true" name="improvable" type="submit" title="Améliorable">
-      Améliorable
-    </button>
-    <button class="btn btn-green" (click)="selectedButton($event)" name="acceptable" type="submit" title="Acceptable">
-      Acceptable
-    </button>
-  </div>
-  <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
+  <form [formGroup]="evaluationForm">
+    <div class="pia-evaluationBlock-buttons">
+      <button class="btn btn-red" (click)="selectedButton($event)" name="fix" type="submit" title="À corriger">
+        À corriger
+      </button>
+      <button class="btn btn-blue" (click)="selectedButton($event)" data-btn-type="true" name="improvable" type="submit" title="Améliorable">
+        Améliorable
+      </button>
+      <button class="btn btn-green" (click)="selectedButton($event)" name="acceptable" type="submit" title="Acceptable">
+        Acceptable
+      </button>
+    </div>
     <div class="pia-evaluationBlock-content fadeIn">
       <time datetime="2016-12-12" class="pia-evaluationBlock-date">le 14/12/2016</time>
       <div class="pia-evaluationBlock-actionPlan fadeIn">
         <label for="pia-evaluation-action-plan">Plan d'action / Mesures correctives</label>
-        <textarea rows="8" ngModel name="pia-evaluation-action-plan" (focusout)="commentFocusOut()" [disabled]="commentStatus" cols="50" placeholder="Entrez vos commentaires." id="pia-evaluation-action-plan"></textarea>
+        <textarea rows="8" formControlName="evaluationActionPlan" name="pia-evaluation-action-plan" (focus)="evaluationActionPlanFocus()" (focusout)="evaluationActionPlanFocusOut()" cols="50" placeholder="Entrez vos commentaires." id="pia-evaluation-action-plan"></textarea>
       </div>
       <label for="pia-evaluation-comment">Commentaire d'évaluation</label>
-      <textarea rows="8" cols="50" ngModel name="pia-evaluation-comment" (focusout)="actionPlanFocusOut()" [disabled]="actionPlanStatus" placeholder="Entrez vos commentaires." id="pia-evaluation-comment"></textarea>
+      <textarea rows="8" cols="50" formControlName="evaluationComment" name="pia-evaluation-comment" (focus)="evaluationCommentFocus()" (focusout)="evaluationCommentFocusOut()" placeholder="Entrez vos commentaires." id="pia-evaluation-comment"></textarea>
     </div>
   </form>
 </div>

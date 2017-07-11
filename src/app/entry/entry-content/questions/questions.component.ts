@@ -1,5 +1,5 @@
-import {Component, ElementRef, Input, OnInit, Output, ViewChild} from '@angular/core';
-import {NgForm} from '@angular/forms';
+import {Component, ElementRef, OnInit} from '@angular/core';
+import {FormArray, FormControl, FormGroup} from '@angular/forms';
 
 @Component({
   selector: 'app-questions',
@@ -7,30 +7,42 @@ import {NgForm} from '@angular/forms';
   styleUrls: ['./questions.component.scss'],
 })
 export class QuestionsComponent implements OnInit {
-  @ViewChild('f') form: NgForm;
-  public editStatus: boolean;
+  questionForm: FormGroup;
   constructor(private el: ElementRef) { }
 
   ngOnInit() {
-  }
-
-  onSubmit(form: NgForm) {
-    console.log(form);
+    this.questionForm = new FormGroup({
+      textarea: new FormControl()
+    });
   }
 
   /**
-   * Disables fields and save data.
+   * Hides edit button.
    */
-  focusOut() {
-    this.editStatus = true;
+  questionTextareaFocus() {
+    const editBtn = this.el.nativeElement.querySelector('.pia-questionBlock-edit');
+    editBtn.classList.add('hide');
+  }
+
+  /**
+   * Disables question fields + shows edit button + save data.
+   */
+  questionTextareaFocusOut() {
+    if (this.questionForm.value.textarea && this.questionForm.value.textarea.length > 0) {
+      const editBtn = this.el.nativeElement.querySelector('.pia-questionBlock-edit');
+      editBtn.classList.remove('hide');
+      this.questionForm.controls['textarea'].disable();
+    }
     // Saving data here
   }
 
   /**
-   * Enables or disables edition mode (fields) for a specific question.
+   * Enables or disables edition mode (textarea field) for questions.
    */
-  activateEdition() {
-    this.editStatus = false;
+  activateQuestionEdition() {
+    const editBtn = this.el.nativeElement.querySelector('.pia-questionBlock-edit');
+    editBtn.classList.add('hide');
+    this.questionForm.controls['textarea'].enable();
   }
 
   /**
