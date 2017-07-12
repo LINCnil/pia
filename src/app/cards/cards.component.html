@@ -29,23 +29,22 @@
 
           <div class="pia-cardsBlock pia-editBlock back">
             <div class="pia-cardsBlock-item pia-editBlock-item">
-              <form class="pia-cardsBlock-item-form" (ngSubmit)="onSubmit(f)"
-                    #f='ngForm'>
+              <form class="pia-cardsBlock-item-form" (ngSubmit)="onSubmit(cardForm)" [formGroup]="cardForm">
                 <div>
                   <label for="name">Nom du PIA</label>
-                  <input ngModel name="name" type="text" placeholder="Intitulé" id="name" required>
+                  <input formControlName="name" type="text" placeholder="Intitulé" id="name" required>
                 </div>
                 <div>
                   <label for="author_name">Saisie</label>
-                  <input ngModel name="author_name" type="text" placeholder="Prénom, nom" id="author_name" required>
+                  <input formControlName="author_name" type="text" placeholder="Prénom, nom" id="author_name" required>
                 </div>
                 <div>
                   <label for="evaluator_name">Évaluation</label>
-                  <input ngModel name="evaluator_name" type="text" placeholder="Prénom, nom" id="evaluator_name" required>
+                  <input formControlName="evaluator_name" type="text" placeholder="Prénom, nom" id="evaluator_name" required>
                 </div>
                 <div>
                   <label for="validator_name">Validation</label>
-                  <input ngModel name="validator_name" type="text" placeholder="Prénom, nom" id="validator_name" required>
+                  <input formControlName="validator_name" type="text" placeholder="Prénom, nom" id="validator_name" required>
                 </div>
                 <div class="pia-cardsBlock-item-date" *ngIf="newCard">
                   <div>Date</div>
@@ -63,7 +62,7 @@
                   </div>
                 </div>
                 <div class="pia-cardsBlock-item-btn">
-                  <button type="submit" [disabled]="!f.valid" class="btn btn-green" id="pia-save-card-btn">Commencer</button>
+                  <button type="submit" [disabled]="cardForm.invalid" class="btn btn-green" id="pia-save-card-btn">Commencer</button>
                 </div>
               </form>
             </div>
