@@ -77,19 +77,22 @@
 
 // Cards flipper (New / Edit)
 #cardsSwitch {
-  // position: absolute;
-  transform-style: preserve-3d;
-  transition: transform 1s;
+  background-color: transparent;
 }
 #cardsSwitch > div {
   margin: 0;
   position: absolute;
   backface-visibility: hidden;
+  transform-style: preserve-3d;
+  transition: transform 1s;
 }
 #cardsSwitch .back {
   transform: rotateY( 180deg );
 }
-#cardsSwitch.flipped {
+#cardsSwitch.flipped .back {
+  transform: rotateY( 0deg );
+}
+#cardsSwitch.flipped .front {
   transform: rotateY( 180deg );
 }
 

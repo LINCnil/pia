@@ -28,7 +28,6 @@ export class CardsComponent implements OnInit {
     const rocketToHide = document.getElementById('pia-rocket');
     cardsToSwitch.classList.toggle('flipped');
     rocketToHide.style.display = 'none';
-    newCard.style.display = 'none';
   }
 
   /**
