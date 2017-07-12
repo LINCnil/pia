@@ -32,24 +32,24 @@
               <form class="pia-cardsBlock-item-form" (ngSubmit)="onSubmit(f)"
                     #f='ngForm'>
                 <div>
-                  <label for="pia-name">Nom du PIA</label>
-                  <input ngModel name="pia-name" type="text" placeholder="Intitulé" id="pia-name" required>
+                  <label for="name">Nom du PIA</label>
+                  <input ngModel name="name" type="text" placeholder="Intitulé" id="name" required>
                 </div>
                 <div>
-                  <label for="pia-author-name">Saisie</label>
-                  <input ngModel name="pia-author-name" type="text" placeholder="Prénom, nom" id="pia-author-name" required>
+                  <label for="author_name">Saisie</label>
+                  <input ngModel name="author_name" type="text" placeholder="Prénom, nom" id="author_name" required>
                 </div>
                 <div>
-                  <label for="pia-evaluator-name">Évaluation</label>
-                  <input ngModel name="pia-evaluator-name" type="text" placeholder="Prénom, nom" id="pia-evaluator-name" required>
+                  <label for="evaluator_name">Évaluation</label>
+                  <input ngModel name="evaluator_name" type="text" placeholder="Prénom, nom" id="evaluator_name" required>
                 </div>
                 <div>
-                  <label for="pia-validator-name">Validation</label>
-                  <input ngModel name="pia-validator-name" type="text" placeholder="Prénom, nom" id="pia-validator-name" required>
+                  <label for="validator_name">Validation</label>
+                  <input ngModel name="validator_name" type="text" placeholder="Prénom, nom" id="validator_name" required>
                 </div>
                 <div class="pia-cardsBlock-item-date">
                   <div>Date</div>
-                  <time>30/06/17</time>
+                  <time>{{newCard.creation_date | date: 'dd/MM/yyyy'}}</time>
                 </div>
                 <div class="pia-cardsBlock-item-status">
                   <div class="pia-cardsBlock-item-status-infos">
@@ -63,7 +63,7 @@
                   </div>
                 </div>
                 <div class="pia-cardsBlock-item-btn">
-                  <button type="submit" [disabled]="!f.valid" class="btn btn-green" id="pia-save-card-btn" [routerLink]="['/entry/5']">Commencer</button>
+                  <button type="submit" [disabled]="!f.valid" class="btn btn-green" id="pia-save-card-btn">Commencer</button>
                 </div>
               </form>
             </div>
@@ -81,7 +81,7 @@
             </div>
           </div>
         </div>
-        <app-card-item *ngFor="let card of cards"  [card]="card"></app-card-item>
+        <app-card-item *ngFor="let card of cards" [card]="card"></app-card-item>
       </div>
     </div>
 </div>

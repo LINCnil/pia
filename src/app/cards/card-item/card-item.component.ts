@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import {Card} from '../card.model';
 
 @Component({
   selector: 'app-card-item',
@@ -7,22 +8,28 @@ import { Component, OnInit, Input } from '@angular/core';
     './card-item_doing.component.scss', './card-item_archived.component.scss'],
 })
 export class CardItemComponent implements OnInit {
-  @Input() card: { name: string, status: string, editMode: boolean, flip: boolean };
-
+  @Input() card: any;
+  editMode: Boolean;
 
   constructor() {
-
+    this.editMode = false;
   }
 
   /**
    * Enable or disable edition mode on PIA main fields.
    */
   activateEdition() {
-    this.card.editMode = !this.card.editMode;
+    this.editMode = !this.editMode;
   }
 
   ngOnInit() {
+  }
 
+  delete(id) {
+    const el = new Card();
+    el.delete(id).then((status) => {
+      // TODO supprimer la carte sur l'affichage
+    });
   }
 
 }
