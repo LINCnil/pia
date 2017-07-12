@@ -47,7 +47,7 @@
                   <label for="validator_name">Validation</label>
                   <input ngModel name="validator_name" type="text" placeholder="Prénom, nom" id="validator_name" required>
                 </div>
-                <div class="pia-cardsBlock-item-date">
+                <div class="pia-cardsBlock-item-date" *ngIf="newCard">
                   <div>Date</div>
                   <time>{{newCard.creation_date | date: 'dd/MM/yyyy'}}</time>
                 </div>
@@ -69,7 +69,7 @@
             </div>
           </div>
 
-          <div class="pia-newBlock-hint" *ngIf="cards.length == 0" id="pia-rocket">
+          <div class="pia-newBlock-hint" *ngIf="cards && cards.length == 0" id="pia-rocket">
             <span class="pia-icons pia-icon-small-arrow"></span>
             <div>
               <span class="pia-icons pia-icon-rocket"></span>
