@@ -2,7 +2,7 @@
   <div class="pia-logoBlock container">
     <div class="row">
       <div class="small-12 medium-12 columns">
-        <a routerLink="/home"><img src="assets/images/pia-logo.jpg" alt="Logo PIA"></a>
+        <a href="/home"><img src="assets/images/pia-logo.jpg" alt="Logo PIA"></a>
         <div>étude d'impact sur la vie privée<br><span>privacy impact assessment</span></div>
       </div>
     </div>
@@ -13,7 +13,7 @@
         <div class="small-12 medium-12 columns">
           <ul class="pia-navigationBlock-list">
             <li routerLinkActive="active">
-              <a routerLink="/home">Accueil</a>
+              <a href="/home">Accueil</a>
             </li><!--<li>
               <a href="#">CAPTOO</a>
             </li>-->
@@ -43,13 +43,13 @@
               </a>
               <form>
                 <fieldset>
-                  <legend>Paramètres</legend>
+                  <legend><a routerLink="/settings">Paramètres</a></legend>
                   <div>
                     <input type="checkbox" name="pia-accessibility" id="pia-accessibility" [checked]="increaseContrast == 'true'" (change)="changeContrast($event)">
                     <label for="pia-accessibility">Accessibilité malvoyants (couleurs à <span>contraste fort, adapté daltonisme)</span></label>
                   </div>
                   <div>
-                    <a href="#">Aide</a>
+                    <a routerLink="/help">Aide</a>
                   </div>
                 </fieldset>
               </form>

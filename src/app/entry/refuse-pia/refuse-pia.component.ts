@@ -7,6 +7,7 @@ import {FormArray, FormControl, FormGroup} from '@angular/forms';
   styleUrls: ['./refuse-pia.component.scss']
 })
 export class RefusePIAComponent implements OnInit {
+
   rejectionReasonForm: FormGroup;
   modificationsMadeForm: FormGroup;
 
@@ -32,11 +33,23 @@ export class RefusePIAComponent implements OnInit {
    * Executes functionnalities when losing focus from rejection reason field.
    */
   rejectionReasonFocusOut() {
-     if (this.rejectionReasonForm.value.textarea && this.rejectionReasonForm.value.textarea.length > 0) {
-      this.showRejectionReasonEditButton();
-      this.rejectionReasonForm.controls['textarea'].disable();
+    const rejectionReasonValue = this.rejectionReasonForm.value.textarea;
+    const modificationsMadeValue = this.modificationsMadeForm.value.textarea;
+    const buttons = this.el.nativeElement.querySelectorAll('.pia-entryContentBlock-content-cancelButtons button');
+    setTimeout(()=>{
+      if (rejectionReasonValue && rejectionReasonValue.length > 0 && document.activeElement.id != 'pia-modifications-made') {
+        this.showRejectionReasonEditButton();
+        this.rejectionReasonForm.controls['textarea'].disable();
+        // TODO : save data
      }
-    // TODO : save data
+     [].forEach.call(buttons, function(btn) {
+        if (rejectionReasonValue) {
+          btn.removeAttribute('disabled');
+        } else {
+          btn.setAttribute('disabled', true);
+        }
+      });
+    },1);
   }
 
   /**
@@ -74,11 +87,20 @@ export class RefusePIAComponent implements OnInit {
    * Executes functionnalities when losing focus from modifications made field.
    */
   modificationsMadeFocusOut() {
-    if (this.modificationsMadeForm.value.textarea && this.modificationsMadeForm.value.textarea.length > 0) {
-      this.showModificationsMadeEditButton();
-      this.modificationsMadeForm.controls['textarea'].disable();
-    }
-      // TODO : save data
+    const modificationsMadeValue = this.modificationsMadeForm.value.textarea;
+    const resendButton = this.el.nativeElement.querySelector('.pia-entryContentBlock-footer > button');
+    setTimeout(()=>{
+      if (modificationsMadeValue && modificationsMadeValue.length > 0 && document.activeElement.id != 'pia-rejection-reason') {
+        this.showModificationsMadeEditButton();
+        this.modificationsMadeForm.controls['textarea'].disable();
+        // TODO : save data
+     }
+      if (modificationsMadeValue) {
+        resendButton.removeAttribute('disabled');
+      } else {
+        resendButton.setAttribute('disabled', true);
+      }
+    },1);
   }
 
   /**
@@ -103,6 +125,24 @@ export class RefusePIAComponent implements OnInit {
   activateModificationsMadeEdition() {
     this.hideModificationsMadeEditButton();
     this.modificationsMadeForm.controls['textarea'].enable();
+  }
+
+  /**
+   * Opens a specific modal through its unique id.
+   * @param {string} modal_id unique id of the modal which has to be opened.
+   */
+  openModal(modal_id: string) {
+    document.body.classList.add('pia-blurBackground');
+    document.getElementById(modal_id).classList.add('open');
+  }
+
+  /**
+   * Closes the current opened modal.
+   */
+  closeModal() {
+    const modal = document.querySelector('[class="pia-modalBlock open"]');
+    document.body.classList.remove('pia-blurBackground');
+    modal.classList.remove('open');
   }
 
 }

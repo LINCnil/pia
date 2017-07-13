@@ -3,6 +3,7 @@ import {FormArray, FormControl, FormGroup} from '@angular/forms';
 import {Comment} from './comments.model';
 import '../../../../assets/scripts/modals.js';
 
+// Special var to manipulate modals
 declare var modalObject: any
 
 @Component({
@@ -11,14 +12,15 @@ declare var modalObject: any
   styleUrls: ['./comments.component.scss']
 })
 export class CommentsComponent implements OnInit {
+
   nbComments: number;
   commentsForm: FormGroup;
   comments: Comment[] = [];
+
   constructor(private el: ElementRef) { }
 
   ngOnInit() {
-    const commentsNumber = this.comments.length;
-    this.nbComments = commentsNumber;
+    this.nbComments = this.comments.length;
 
     this.commentsForm = new FormGroup({
       description: new FormControl()

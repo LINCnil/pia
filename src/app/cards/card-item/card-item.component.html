@@ -1,8 +1,8 @@
 <div class="pia-cardsBlock pia-doingBlock">
 
     <div class="pia-cardsBlock-header-title" *ngIf="card.id != null">
-      <span *ngIf="card.status == 'doing'">En cours</span>
-      <span *ngIf="card.status == 'archived'">Archivée</span>
+      <span *ngIf="card.status == '1'">En cours</span>
+      <span *ngIf="card.status == '2'">Archivée</span>
     </div>
 
     <div class="pia-cardsBlock-item pia-doingBlock-item">
@@ -32,7 +32,7 @@
                   </li>
                   <li>
                       <i class="fa fa-trash-o" aria-hidden="true"></i>
-                      <button type="button" class="btn">Supprimer</button>
+                      <button type="button" class="btn" (click)="delete(card.id)">Supprimer</button>
                   </li>
               </ul>
           </div>
@@ -40,29 +40,33 @@
 
       <form class="pia-cardsBlock-item-form">
           <div>
-              <div class="pia-doingBlock-item-form-attachment">
+              <div style="display:none;" class="pia-doingBlock-item-form-attachment">
                   <span class="pia-icons pia-icon-attachment"></span>
                   <button type="button" class="btn">Analyse EBIOS</button>
               </div>
               <label for="pia-edit-name">Nom du PIA</label>
-              <input type="text" ngModel name="pia-edit-name" [disabled]="card.editMode" placeholder="Intitulé" value="{{ card.name }}" id="pia-edit-name">
+              <input type="text" name="name" [disabled]="editMode !== true" placeholder="Intitulé"
+                     value="{{ card.name }}" id="pia-edit-name">
           </div>
           <div>
               <label for="pia-edit-author-name">Saisie</label>
-              <input type="text" ngModel name="pia-edit-author" [disabled]="card.editMode" placeholder="Prénom, nom" value="Emilie Launaix, Jean-Charles Chombard" id="pia-edit-author-name">
+              <input type="text" name="author_name" [disabled]="editMode !== true" placeholder="Prénom, nom"
+                     value="{{ card.author_name }}" id="pia-edit-author-name">
           </div>
           <div>
               <label for="pia-edit-evaluator-name">Évaluation</label>
-              <input type="text" ngModel name="pia-edit-evaluator-name" [disabled]="card.editMode" placeholder="Prénom, nom" value="Rémy Dutronc, Marie Dubois" id="pia-edit-evaluator-name">
+              <input type="text" name="evaluator_name" [disabled]="editMode !== true" placeholder="Prénom, nom"
+                     value="{{ card.evaluator_name }}" id="pia-edit-evaluator-name">
           </div>
           <div>
               <label for="pia-edit-validator-name">Validation</label>
-              <input type="text" ngModel name="pia-edit-validator-name" [disabled]="card.editMode" placeholder="Prénom, nom" value="Sophie Hadid" id="pia-edit-validator-name">
+              <input type="text" name="validator_name" [disabled]="editMode !== true" placeholder="Prénom, nom"
+                    value="{{ card.validator_name }}" id="pia-edit-validator-name">
           </div>
       </form>
       <div class="pia-cardsBlock-item-date">
           <div>Date</div>
-          <time>30/06/2017</time>
+          <time>{{ card.creation_date | date: 'dd/MM/yyyy' }}</time>
       </div>
       <div class="pia-cardsBlock-item-status">
           <div class="pia-cardsBlock-item-status-infos">
@@ -70,9 +74,12 @@
               <div>En cours d'édition</div>
           </div>
           <div class="pia-cardsBlock-item-status-progressBar">
-              <div>30%</div>
-              <progress max="100" value="30"></progress>
+              <div>0%</div>
+              <progress max="100" value="0"></progress>
           </div>
+      </div>
+      <div class="pia-cardsBlock-item-btn" [ngClass]="{'hide': editMode !== true}">
+        <button type="button" class="btn btn-green">Sauvegarder</button>
       </div>
   </div>
 </div>

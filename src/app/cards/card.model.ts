@@ -1,3 +1,6 @@
+// import { piaDb } from '../db';
+// import { AngularIndexedDB } from 'angular2-indexeddb';
+
 export class Card {
   public id: number;
   public status: number;
@@ -11,23 +14,65 @@ export class Card {
   public concerned_people_status: string;
   public rejected_reason: string;
   public applied_adjustements: string;
-  public creation_date;
-  public last_open_date;
+  public creation_date: Date;
+  public last_open_date: Date;
+  private piaDb: any;
 
-  constructor(id = null, status = null, name = null, author_name = null, evaluator_name = null, validator_name = null, dpo_status = null, dpo_opinion = null, concerned_people_opinion  = null, concerned_people_status = null, rejected_reason = null, applied_adjustements = null, creation_date = null, last_open_date = null) {
-    this.id = id;
-    this.status = status;
+  constructor(name = null, author_name = null, evaluator_name = null, validator_name = null) {
     this.name = name;
     this.author_name = author_name;
     this.evaluator_name = evaluator_name;
     this.validator_name = validator_name;
-    this.dpo_status = dpo_status;
-    this.dpo_opinion = dpo_opinion;
-    this.concerned_people_opinion = concerned_people_opinion;
-    this.concerned_people_status = concerned_people_status;
-    this.rejected_reason = rejected_reason;
-    this.applied_adjustements = applied_adjustements;
-    this.creation_date = creation_date;
-    this.last_open_date = last_open_date;
+    this.creation_date = new Date();
+    this.piaDb = null;
+  }
+
+  initDb() {
+    return new Promise((resolve, reject) => {
+      const request = window.indexedDB.open("pia", 201707071818);
+      request.onerror = (event: any) => {
+        console.error('Error');
+      };
+      request.onsuccess = (event: any) => {
+        resolve(event.target.result);
+      };
+      request.onupgradeneeded = (event: any) => {
+        const objectStore = event.target.result.createObjectStore("pia", { keyPath: "id", autoIncrement: true });
+        objectStore.createIndex("name", "name", { unique: false });
+        objectStore.createIndex("status", "status", { unique: false });
+      };
+    });
+  }
+
+  async getAll() {
+    this.piaDb = await this.initDb();
+    return new Promise((resolve, reject) => {
+      const pia: any = this.piaDb.transaction("pia", "readwrite").objectStore("pia");
+      pia.getAll().onsuccess = (event) => {
+        resolve(event.target.result);
+      };
+    });
+  }
+
+  async save() {
+    this.piaDb = await this.initDb();
+    return new Promise((resolve, reject) => {
+      const pia: IDBObjectStore = this.piaDb.transaction("pia", "readwrite").objectStore("pia");
+      pia.add({
+        name: this.name, author_name: this.author_name,
+        evaluator_name: this.evaluator_name, validator_name: this.validator_name,
+        creation_date: this.creation_date, last_open_date: new Date(), status: 1
+      }).onsuccess = (event: any) => {
+        resolve(event.target.result);
+      };
+    });
+  }
+
+  async delete(id) {
+    this.piaDb = await this.initDb();
+    return new Promise((resolve, reject) => {
+      const pia: IDBObjectStore = this.piaDb.transaction("pia", "readwrite").objectStore("pia");
+      pia.delete(id);
+    });
   }
 }
