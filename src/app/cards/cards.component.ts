@@ -12,7 +12,7 @@ import {Router} from '@angular/router';
 export class CardsComponent implements OnInit {
 
   newCard: Card;
-  cards: Card[] = [];
+  cards: any;
   /*cards: Card[] = [new Card(4, 2, 'test', 'test2', 'test3', 'test4')];*/
   // see formlist method with ngform
 
@@ -21,20 +21,23 @@ export class CardsComponent implements OnInit {
   constructor(private router: Router) { }
 
   ngOnInit() {
-
+    let card = new Card();
+    card.getAll().then((data) => {
+      this.cards = data;
+    });
   }
 
   /**
    * Creates a new PIA card and adds a flip effect to go switch between new PIA and edit PIA events.
    */
   newPIA() {
-    this.newCard = new Card(null, null);
+    this.newCard = new Card();
     const cardsToSwitch = document.getElementById('cardsSwitch');
-    const newCard = document.getElementById('pia-new-card');
-    const rocketToHide = document.getElementById('pia-rocket');
     cardsToSwitch.classList.toggle('flipped');
-    rocketToHide.style.display = 'none';
-    newCard.style.display = 'none';
+    const rocketToHide = document.getElementById('pia-rocket');
+    if (rocketToHide) {
+      rocketToHide.style.display = 'none';
+    }
   }
 
   /**
@@ -49,10 +52,14 @@ export class CardsComponent implements OnInit {
    * Sends on the link associated to this new PIA.
    */
   onSubmit(form: NgForm) {
-    // TODO : save the new PIA
-
-    // To navigate from home to PIA
-    this.router.navigate(['/entry/5']);
+    let card = new Card(
+      form.value.name,
+      form.value.author_name,
+      form.value.evaluator_name,
+      form.value.validator_name
+    );
+    const p = card.save();
+    p.then((id) => this.router.navigate(['/entry/' + id]));
   }
 
 }
