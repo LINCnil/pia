@@ -1,5 +1,4 @@
-// import { piaDb } from '../db';
-// import { AngularIndexedDB } from 'angular2-indexeddb';
+import { piaDb } from '../piadb';
 
 export class Card {
   public id: number;
@@ -16,63 +15,38 @@ export class Card {
   public applied_adjustements: string;
   public creation_date: Date;
   public last_open_date: Date;
-  private piaDb: any;
+  private piaDb: piaDb;
 
-  constructor(name = null, author_name = null, evaluator_name = null, validator_name = null) {
-    this.name = name;
-    this.author_name = author_name;
-    this.evaluator_name = evaluator_name;
-    this.validator_name = validator_name;
+  constructor() {
+    this.piaDb = new piaDb();
     this.creation_date = new Date();
-    this.piaDb = null;
   }
 
-  initDb() {
-    return new Promise((resolve, reject) => {
-      const request = window.indexedDB.open("pia", 201707071818);
-      request.onerror = (event: any) => {
-        console.error('Error');
-      };
-      request.onsuccess = (event: any) => {
-        resolve(event.target.result);
-      };
-      request.onupgradeneeded = (event: any) => {
-        const objectStore = event.target.result.createObjectStore("pia", { keyPath: "id", autoIncrement: true });
-        objectStore.createIndex("name", "name", { unique: false });
-        objectStore.createIndex("status", "status", { unique: false });
-      };
+  async findAll() {
+    return this.piaDb.findAllPia();
+  }
+
+  async create() {
+    this.creation_date = new Date();
+    return this.piaDb.createPia(this.name, this.author_name, this.evaluator_name, this.validator_name, this.creation_date);
+  }
+
+  async find(id) {
+    this.piaDb.findPia(id).then((entry: any) => {
+      console.log(entry);
+      this.id = entry.id;
+      this.name = entry.name;
+      this.author_name = entry.author_name;
+      this.evaluator_name = entry.evaluator_name;
+      this.validator_name = entry.validator_name;
     });
   }
 
-  async getAll() {
-    this.piaDb = await this.initDb();
-    return new Promise((resolve, reject) => {
-      const pia: any = this.piaDb.transaction("pia", "readwrite").objectStore("pia");
-      pia.getAll().onsuccess = (event) => {
-        resolve(event.target.result);
-      };
-    });
-  }
-
-  async save() {
-    this.piaDb = await this.initDb();
-    return new Promise((resolve, reject) => {
-      const pia: IDBObjectStore = this.piaDb.transaction("pia", "readwrite").objectStore("pia");
-      pia.add({
-        name: this.name, author_name: this.author_name,
-        evaluator_name: this.evaluator_name, validator_name: this.validator_name,
-        creation_date: this.creation_date, last_open_date: new Date(), status: 1
-      }).onsuccess = (event: any) => {
-        resolve(event.target.result);
-      };
-    });
+  update() {
+    this.piaDb.updatePia(this.id, this.name, this.author_name, this.evaluator_name, this.validator_name);
   }
 
   async delete(id) {
-    this.piaDb = await this.initDb();
-    return new Promise((resolve, reject) => {
-      const pia: IDBObjectStore = this.piaDb.transaction("pia", "readwrite").objectStore("pia");
-      pia.delete(id);
-    });
+    return this.piaDb.deletePia(id);
   }
 }

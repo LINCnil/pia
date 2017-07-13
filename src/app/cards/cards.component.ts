@@ -19,7 +19,7 @@ export class CardsComponent implements OnInit {
 
   ngOnInit() {
     let card = new Card();
-    card.getAll().then((data) => {
+    card.findAll().then((data) => {
       this.cards = data;
     });
     this.cardForm = new FormGroup({
@@ -55,13 +55,12 @@ export class CardsComponent implements OnInit {
    * Sends on the link associated to this new PIA.
    */
   onSubmit() {
-    let card = new Card(
-      this.cardForm.value.name,
-      this.cardForm.value.author_name,
-      this.cardForm.value.evaluator_name,
-      this.cardForm.value.validator_name
-    );
-    const p = card.save();
+    let card = new Card();
+    card.name = this.cardForm.value.name,
+    card.author_name = this.cardForm.value.author_name,
+    card.evaluator_name = this.cardForm.value.evaluator_name,
+    card.validator_name = this.cardForm.value.validator_name
+    const p = card.create();
     p.then((id) => this.router.navigate(['/entry/' + id]));
   }
 
