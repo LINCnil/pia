@@ -1,5 +1,5 @@
 import {Component, OnInit, ViewChild } from '@angular/core';
-import {NgForm} from '@angular/forms';
+import {FormControl, FormGroup} from '@angular/forms';
 import {Card} from './card.model';
 import {Router} from '@angular/router';
 
@@ -13,17 +13,20 @@ export class CardsComponent implements OnInit {
 
   newCard: Card;
   cards: any;
-  /*cards: Card[] = [new Card(4, 2, 'test', 'test2', 'test3', 'test4')];*/
-  // see formlist method with ngform
-
-  @ViewChild('f') newCardForm: NgForm;
+  cardForm: FormGroup;
 
   constructor(private router: Router) { }
 
   ngOnInit() {
     let card = new Card();
-    card.getAll().then((data) => {
+    card.findAll().then((data) => {
       this.cards = data;
+    });
+    this.cardForm = new FormGroup({
+      name: new FormControl(),
+      author_name: new FormControl(),
+      evaluator_name: new FormControl(),
+      validator_name: new FormControl()
     });
   }
 
@@ -51,14 +54,13 @@ export class CardsComponent implements OnInit {
    * Save the newly created PIA.
    * Sends on the link associated to this new PIA.
    */
-  onSubmit(form: NgForm) {
-    let card = new Card(
-      form.value.name,
-      form.value.author_name,
-      form.value.evaluator_name,
-      form.value.validator_name
-    );
-    const p = card.save();
+  onSubmit() {
+    let card = new Card();
+    card.name = this.cardForm.value.name,
+    card.author_name = this.cardForm.value.author_name,
+    card.evaluator_name = this.cardForm.value.evaluator_name,
+    card.validator_name = this.cardForm.value.validator_name
+    const p = card.create();
     p.then((id) => this.router.navigate(['/entry/' + id]));
   }
 
