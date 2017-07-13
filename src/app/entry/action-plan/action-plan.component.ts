@@ -7,7 +7,9 @@ import {FormControl, FormGroup} from '@angular/forms';
   styleUrls: ['./action-plan.component.scss']
 })
 export class ActionPlanComponent implements OnInit {
+
   actionPlanForm: FormGroup;
+
   constructor(private el: ElementRef) { }
 
   ngOnInit() {
@@ -17,8 +19,9 @@ export class ActionPlanComponent implements OnInit {
       actionPlanExecutive: new FormControl()
     });
   }
+
   /**
-  * Disables fields and save data.
+  * Disables action plan fields and saves data.
   */
   actionPlanFocusOut() {
     if (this.actionPlanForm.value.actionPlanDescription && this.actionPlanForm.value.actionPlanDescription.length > 0 ) {
@@ -29,6 +32,10 @@ export class ActionPlanComponent implements OnInit {
       // Saving data here
     }
   }
+
+  /**
+  * Activates action plan fields.
+  */
   activateActionPlanEdition() {
     this.hideActionPlanEditButton();
     this.actionPlanForm.controls['actionPlanDescription'].enable();
@@ -36,11 +43,17 @@ export class ActionPlanComponent implements OnInit {
     this.actionPlanForm.controls['actionPlanExecutive'].enable();
   }
 
+  /**
+   * Shows action plan edit button.
+   */
   showActionPlanEditButton() {
     const editBtn = this.el.nativeElement.querySelector('#piaActionPlanPencil');
     editBtn.classList.remove('hide');
   }
 
+  /**
+   * Hides action plan edit button.
+   */
   hideActionPlanEditButton() {
     const editBtn = this.el.nativeElement.querySelector('#piaActionPlanPencil');
     editBtn.classList.add('hide');

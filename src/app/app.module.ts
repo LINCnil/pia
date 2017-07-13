@@ -30,6 +30,9 @@ import { DPOPeopleOpinionsComponent } from './entry/dpo-people-opinions/dpo-peop
 import { ActionPlanGraphComponent } from './entry/action-plan/action-plan-graph/action-plan-graph.component';
 import { ValidatePIAComponent } from './entry/validate-pia/validate-pia.component';
 import { RefusePIAComponent } from './entry/refuse-pia/refuse-pia.component';
+import { SettingsComponent } from './settings/settings.component';
+import { HelpComponent } from './help/help.component';
+import { GaugeComponent } from './entry/gauge/gauge.component';
 
 const appRoutes: Routes = [
   { path: '', component: AuthenticationComponent },
@@ -39,7 +42,9 @@ const appRoutes: Routes = [
   { path: 'entry/dpo-and-people-opinions', component: DPOPeopleOpinionsComponent },
   { path: 'entry/validate-PIA', component: ValidatePIAComponent },
   { path: 'entry/refuse-PIA', component: RefusePIAComponent },
-  { path: 'entry/:id', component: EntryComponent }
+  { path: 'entry/:id', component: EntryComponent },
+  { path: 'settings', component: SettingsComponent },
+  { path: 'help', component: HelpComponent }
 ];
 
 @NgModule({
@@ -69,7 +74,10 @@ const appRoutes: Routes = [
     DPOPeopleOpinionsComponent,
     ActionPlanGraphComponent,
     ValidatePIAComponent,
-    RefusePIAComponent
+    RefusePIAComponent,
+    SettingsComponent,
+    HelpComponent,
+    GaugeComponent
   ],
   imports: [
     BrowserModule,

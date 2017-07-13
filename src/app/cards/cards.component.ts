@@ -10,13 +10,19 @@ import {Router} from '@angular/router';
   styleUrls: ['./cards.component.scss']
 })
 export class CardsComponent implements OnInit {
+
   newCard: Card;
   cards: Card[] = [];
   /*cards: Card[] = [new Card(4, 2, 'test', 'test2', 'test3', 'test4')];*/
   // see formlist method with ngform
+
   @ViewChild('f') newCardForm: NgForm;
 
   constructor(private router: Router) { }
+
+  ngOnInit() {
+
+  }
 
   /**
    * Creates a new PIA card and adds a flip effect to go switch between new PIA and edit PIA events.
@@ -47,11 +53,6 @@ export class CardsComponent implements OnInit {
 
     // To navigate from home to PIA
     this.router.navigate(['/entry/5']);
-  }
-
-
-  ngOnInit() {
-
   }
 
 }

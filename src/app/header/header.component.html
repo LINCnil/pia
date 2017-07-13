@@ -43,13 +43,13 @@
               </a>
               <form>
                 <fieldset>
-                  <legend>Paramètres</legend>
+                  <legend><a routerLink="/settings">Paramètres</a></legend>
                   <div>
                     <input type="checkbox" name="pia-accessibility" id="pia-accessibility" [checked]="increaseContrast == 'true'" (change)="changeContrast($event)">
                     <label for="pia-accessibility">Accessibilité malvoyants (couleurs à <span>contraste fort, adapté daltonisme)</span></label>
                   </div>
                   <div>
-                    <a href="#">Aide</a>
+                    <a routerLink="/help">Aide</a>
                   </div>
                 </fieldset>
               </form>

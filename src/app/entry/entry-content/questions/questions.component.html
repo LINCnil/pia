@@ -6,6 +6,7 @@
     </div>
     <div class="pia-questionBlock-displayer fadeIn">
       <button type="button" class="btn pia-questionBlock-edit hide" (click)="activateQuestionEdition()" title="Éditer"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+      <app-gauge></app-gauge>
       <div class="pia-questionBlock-content">
         <textarea formControlName="textarea" name="pia-question" rows="8" cols="50" (focus)="questionTextareaFocus()" (focusout)="questionTextareaFocusOut()" placeholder="Décrivez les caractéristiques de votre produit.">orem ipsum dolor sit amet, consectetur adipiscing elit. Ut hendrerit urna odio, eget cursus ferit urna odio, eget cursus ferit urna odio, eget cursus ferit urna odio, eget cdales consequat.</textarea>
       </div>

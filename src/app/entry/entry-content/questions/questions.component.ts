@@ -7,7 +7,9 @@ import {FormArray, FormControl, FormGroup} from '@angular/forms';
   styleUrls: ['./questions.component.scss'],
 })
 export class QuestionsComponent implements OnInit {
+
   questionForm: FormGroup;
+
   constructor(private el: ElementRef) { }
 
   ngOnInit() {
@@ -17,7 +19,7 @@ export class QuestionsComponent implements OnInit {
   }
 
   /**
-   * Hides edit button.
+   * Hides edit button for the question field.
    */
   questionTextareaFocus() {
     this.hideEditButton();
@@ -53,14 +55,14 @@ export class QuestionsComponent implements OnInit {
   }
 
   /**
-   * Shows edit button.
+   * Shows question edit button.
    */
   showEditButton() {
     const editBtn = this.el.nativeElement.querySelector('.pia-questionBlock-edit');
     editBtn.classList.remove('hide');
   }
   /**
-   * Hides edit button.
+   * Hides question edit button.
    */
   hideEditButton() {
     const editBtn = this.el.nativeElement.querySelector('.pia-questionBlock-edit');
