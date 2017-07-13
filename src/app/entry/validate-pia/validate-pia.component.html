@@ -7,49 +7,104 @@
         <app-sections></app-sections>
       </aside>
     </div>
-
     <!--Main entry content -->
     <div class="small-12 medium-6 columns">
       <section class="pia-entryContentBlock">
-        <form>
-          <header class="pia-entryContentBlock-header">
-            <div>
-              <i class="fa fa-cog" aria-hidden="true"></i>
-              <p>En signature</p>
-            </div>
-            <div class="pia-entryContentBlock-header-title">
-                <h1>Validation du PIA</h1>
-            </div>
-            <a href="#" class="btn pia-previewBlock" title="Aperçu">
-              <span class="pia-icons pia-icon-preview"></span>
-              <div>Aperçu</div>
-            </a>
-          </header>
+        <header class="pia-entryContentBlock-header">
+          <div>
+            <i class="fa fa-cog" aria-hidden="true"></i>
+            <p>En signature</p>
+          </div>
+          <div class="pia-entryContentBlock-header-title">
+            <h1>Validation du PIA</h1>
+          </div>
+          <a href="#" class="btn pia-previewBlock" title="Aperçu">
+            <span class="pia-icons pia-icon-preview"></span>
+            <div>Aperçu</div>
+          </a>
+        </header>
 
-          <header class="pia-entryContentBlock-header">
-            <div>
-              <i class="fa fa-check-square-o" aria-hidden="true"></i>
+        <header class="pia-entryContentBlock-header">
+          <div>
+            <i class="fa fa-check-square-o" aria-hidden="true"></i>
+            <p>Validé</p>
+          </div>
+          <div class="pia-entryContentBlock-header-title">
+            <h1>Validation du PIA</h1>
+          </div>
+          <a href="#" class="btn pia-previewBlock" title="Aperçu">
+            <span class="pia-icons pia-icon-preview"></span>
+            <div>Aperçu</div>
+          </a>
+        </header>
+
+        <div class="pia-entryContentBlock-content">
+          <div class="pia-entryContentBlock-content-list">
+            <p>Le 25 Avril 2015,</p>
+            <p>Le Responsable de la validation du PIA <span class="blue">Sophie Hadid</span>.</p>
+            <p>Aprés lecture intégrale du PIA concernant le traitement des données liées à l'activité de <span class="blue">Captoo</span></p>
+            <form [formGroup]="validateForm" (change)="onCheck()" novalidate>
+              <div class="pia-entryContentBlock-content-list-confirm">
+                <input type="checkbox" formControlName="validateStatus" (click)="lockStatus($event)" id="checkbox-1" value="1">
+                <label for="checkbox-1">
+                  <span class="pia-list-confirm-icon">
+                    <i class="fa fa-circle" aria-hidden="true"></i>
+                    <i class="fa fa-check" aria-hidden="true"></i>
+                  </span>
+                  <span class="pia-list-confirm-desc">Je confirme que la description du contexte de mon traitement est conforme à la réalité.</span>
+                </label>
+              </div>
+              <div class="pia-entryContentBlock-content-list-confirm">
+                <input type="checkbox" formControlName="validateStatus" (click)="lockStatus($event)" id="checkbox-2" value="2">
+                <label for="checkbox-2">
+                  <span class="pia-list-confirm-icon">
+                    <i class="fa fa-circle" aria-hidden="true"></i>
+                    <i class="fa fa-check" aria-hidden="true"></i>
+                  </span>
+                  <span class="pia-list-confirm-desc">Je confirme avoir pris connaissance des risques existants en fonction des mesures actuellement mises en oeuvre ou prévues.</span>
+                </label>
+              </div>
+              <div class="pia-entryContentBlock-content-list-confirm">
+                <input type="checkbox" formControlName="validateStatus" (click)="lockStatus($event)" id="checkbox-3" value="3">
+                <label for="checkbox-3">
+                  <span class="pia-list-confirm-icon">
+                    <i class="fa fa-circle" aria-hidden="true"></i>
+                    <i class="fa fa-check" aria-hidden="true"></i>
+                  </span>
+                  <span class="pia-list-confirm-desc">Je valide les mesures correctives indiquées.</span>
+                </label>
+              </div>
+              <div class="pia-entryContentBlock-content-list-confirm">
+                <input type="checkbox" formControlName="validateStatus" (click)="lockStatus($event)" id="checkbox-4" value="4">
+                <label for="checkbox-4">
+                  <span class="pia-list-confirm-icon">
+                    <i class="fa fa-circle" aria-hidden="true"></i>
+                    <i class="fa fa-check" aria-hidden="true"></i>
+                  </span>
+                  <span class="pia-list-confirm-desc">Je m’engage à mettre en oeuvre dans les plus brefs délais les mesures correctives indiquées.</span>
+                </label>
+              </div>
+              <div class="pia-entryContentBlock-content-btn-valid">
+                <a routerLink="/entry/5/refused-PIA" class="btn btn-red"  title="Refuser la validation">Refuser la validation</a>
+                <button type="submit" class="btn btn-blue" id="pia-simple-validation" disabled title="Validation simple">Validation simple</button>
+                <button type="submit" class="btn btn-red" id="pia-sign-validation" disabled title="Faire signer le PIA par le responsable">Faire signer le PIA par le responsable</button>
+              </div>
+              <p>Tous les champs doivent être cochés</p>
+            </form>
+            <div class="pia-entryContentBlock-content-status">
+              <p>En attente de la signature du rapport PIA</p>
+              <i class="fa fa-cog" aria-hidden="true"></i>
+            </div>
+            <div class="pia-entryContentBlock-content-status">
+              <i class="fa fa fa-check-square-o" aria-hidden="true"></i>
               <p>Validé</p>
             </div>
-            <div class="pia-entryContentBlock-header-title">
-                <h1>Validation du PIA</h1>
-            </div>
-            <a href="#" class="btn pia-previewBlock" title="Aperçu">
-              <span class="pia-icons pia-icon-preview"></span>
-              <div>Aperçu</div>
-            </a>
-          </header>
-
-          <div class="pia-entryContentBlock-content">
-            <?php require 'questionConfirm-1.php'; ?>
-            <?php require 'questionConfirm-3.php'; ?>
-            <?php require 'questionConfirm-2.php'; ?>
           </div>
+        </div>
 
           <button type="button" class="pia-entryContentBlock-submitAttachmentButton btn btn-red btn-active" title="Ajouter le rapport PIA signé">Ajouter le rapport PIA Signé</button>
 
-          <!-- TODO : add condition : show only if PIA was refused first -->
-          <?php require 'piaValidationHistory.php'; ?>
+          <app-pia-validate-history></app-pia-validate-history>
 
           <footer class="pia-entryContentBlock-footer">
             <div class="pia-entryContentBlock-footer-validationAttachments">
@@ -65,10 +120,9 @@
               <a href="#"><i class="fa fa-file-excel-o" aria-hidden="true"></i><p>Plan d'action</p></a>
             </div>
           </footer>
-        </form>
+
       </section>
     </div>
-
     <!--Right sidebar (knowledge base) -->
     <div class="small-12 medium-3 columns">
       <div class="pia-rightSidebarBlock">

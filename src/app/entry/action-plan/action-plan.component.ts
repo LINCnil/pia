@@ -12,7 +12,6 @@ export class ActionPlanComponent implements OnInit {
 
   ngOnInit() {
     this.actionPlanForm = new FormGroup({
-      actionPlanDescription : new FormControl(),
       actionPlanDate : new FormControl(),
       actionPlanExecutive: new FormControl()
     });
@@ -20,18 +19,20 @@ export class ActionPlanComponent implements OnInit {
   /**
   * Disables fields and save data.
   */
-  actionPlanFocusOut() {
-    if (this.actionPlanForm.value.actionPlanDescription && this.actionPlanForm.value.actionPlanDescription.length > 0 ) {
-      this.actionPlanForm.controls['actionPlanDescription'].disable();
+  actionPlanDateFocusOut() {
       this.actionPlanForm.controls['actionPlanDate'].disable();
-      this.actionPlanForm.controls['actionPlanExecutive'].disable();
       this.showActionPlanEditButton();
-      // Saving data here
-    }
+    // Saving data here
   }
+
+  actionPlanExecutiveFocusOut() {
+    this.actionPlanForm.controls['actionPlanExecutive'].disable();
+    this.showActionPlanEditButton();
+    // Saving data here
+  }
+
   activateActionPlanEdition() {
     this.hideActionPlanEditButton();
-    this.actionPlanForm.controls['actionPlanDescription'].enable();
     this.actionPlanForm.controls['actionPlanDate'].enable();
     this.actionPlanForm.controls['actionPlanExecutive'].enable();
   }
