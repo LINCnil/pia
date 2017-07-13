@@ -43,7 +43,7 @@
             <p>Le 25 Avril 2015,</p>
             <p>Le Responsable de la validation du PIA <span class="blue">Sophie Hadid</span>.</p>
             <p>Aprés lecture intégrale du PIA concernant le traitement des données liées à l'activité de <span class="blue">Captoo</span></p>
-            <form [formGroup]="validateForm" (change)="onCheck()" novalidate>
+            <form [formGroup]="validateForm" (change)="checkValidationFormStatus()" novalidate>
               <div class="pia-entryContentBlock-content-list-confirm">
                 <input type="checkbox" formControlName="validateStatus" (click)="lockStatus($event)" id="checkbox-1" value="1">
                 <label for="checkbox-1">
@@ -85,9 +85,9 @@
                 </label>
               </div>
               <div class="pia-entryContentBlock-content-btn-valid">
-                <a routerLink="/entry/5/refused-PIA" class="btn btn-red"  title="Refuser la validation">Refuser la validation</a>
+                <a routerLink="/entry/5/refuse-PIA" class="btn btn-red"  title="Refuser la validation">Refuser la validation</a>
                 <button type="submit" class="btn btn-blue" id="pia-simple-validation" disabled title="Validation simple">Validation simple</button>
-                <button type="submit" class="btn btn-red" id="pia-sign-validation" disabled title="Faire signer le PIA par le responsable">Faire signer le PIA par le responsable</button>
+                <button type="submit" (click)="this.modal.openModal('modal-accepted-pia')" class="btn btn-red" id="pia-sign-validation" disabled title="Faire signer le PIA par le responsable">Faire signer le PIA par le responsable</button>
               </div>
               <p>Tous les champs doivent être cochés</p>
             </form>
@@ -131,3 +131,19 @@
     </div>
   </div>
 </main>
+
+<div class="pia-modalBlock" id="modal-accepted-pia">
+  <div class="pia-modalBlock-acceptedPIA bounceIn">
+    <button type="button" class="pia-modalBlock-close btn" title="Fermer"><span (click)="this.modal.closeModal()" class="pia-icons pia-icon-close-big"></span></button>
+    <p>
+      <span class="strong">Le PIA est accepté</span><br>
+      Finalisez la validation du PIA en attachant<br>
+      en pièce jointe le rapport signé par le responsable.
+    </p>
+    <span class="pia-icons pia-icon-happy"></span>
+    <div class="pia-modalBlock-buttons-choice">
+      <button class="btn btn-green btn-active" type="button" title="Retour à l'accueil" (click)="returnToHomepage()">Retour à l'accueil</button>
+      <button class="btn btn-green" type="button" title="Exporter le rapport PIA">Exporter<br>le rapport PIA</button>
+    </div>
+  </div>
+</div>

@@ -1,10 +1,7 @@
 import {Component, ElementRef, OnInit} from '@angular/core';
 import {FormArray, FormControl, FormGroup} from '@angular/forms';
+import { ModalsComponent } from '../../../modals/modals.component';
 import {Comment} from './comments.model';
-import '../../../../assets/scripts/modals.js';
-
-// Special var to manipulate modals
-declare var modalObject: any
 
 @Component({
   selector: 'app-comments',
@@ -13,6 +10,7 @@ declare var modalObject: any
 })
 export class CommentsComponent implements OnInit {
 
+  modal = new ModalsComponent();
   nbComments: number;
   commentsForm: FormGroup;
   comments: Comment[] = [];
@@ -21,11 +19,11 @@ export class CommentsComponent implements OnInit {
 
   ngOnInit() {
     this.nbComments = this.comments.length;
-
     this.commentsForm = new FormGroup({
       description: new FormControl()
     });
   }
+
 
   /**
    * Shows or hides the block which allows users to create a new comment.
@@ -51,8 +49,7 @@ export class CommentsComponent implements OnInit {
     if (this.commentsForm.value.description && this.commentsForm.value.description.length > 0) {
       // Checks if there are already comments and if so, checks if the last comment value is different from our current comment.
       if (this.comments.length > 0 && this.comments[0].description === this.commentsForm.value.description) {
-        /* TODO : insérer une modale propre pour spécifier ce cas de figure */
-        modalObject.modalDisplayer();
+        this.modal.openModal('modal-same-comment');
       } else {
         // Creates the new comment and pushes it as the first comment in list
         // Updates accordeon and counter + removes the written comment.

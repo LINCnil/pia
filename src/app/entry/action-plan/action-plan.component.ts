@@ -23,15 +23,49 @@ export class ActionPlanComponent implements OnInit {
   * Disables action plan fields and saves data.
   */
   actionPlanDateFocusOut() {
-      this.actionPlanForm.controls['actionPlanDate'].disable();
-      this.showActionPlanEditButton();
-    // Saving data here
+    const dateValue = this.actionPlanForm.value.actionPlanDate;
+    const executiveValue = this.actionPlanForm.value.actionPlanExecutive;
+
+    // Waiting for document.activeElement update
+    setTimeout(()=>{
+      if (dateValue && dateValue.length > 0 && document.activeElement.id != 'pia-action-plan-executive') {
+        this.showActionPlanEditButton();
+        this.actionPlanForm.controls['actionPlanDate'].disable();
+        // Disables executive field if both fields are filled and executive isn't the next targeted element.
+        if (executiveValue && executiveValue.length > 0) {
+          this.actionPlanForm.controls['actionPlanExecutive'].disable();
+        }
+        // TODO : save data
+      }
+      // Disables executive field too if no date and executive is filled and isn't the next targeted element.
+      if (!dateValue && executiveValue && executiveValue.length > 0 && document.activeElement.id != 'pia-action-plan-executive') {
+        this.showActionPlanEditButton();
+        this.actionPlanForm.controls['actionPlanExecutive'].disable();
+      }
+    },1);
   }
 
   actionPlanExecutiveFocusOut() {
-    this.actionPlanForm.controls['actionPlanExecutive'].disable();
-    this.showActionPlanEditButton();
-    // Saving data here
+    const dateValue = this.actionPlanForm.value.actionPlanDate;
+    const executiveValue = this.actionPlanForm.value.actionPlanExecutive;
+
+    // Waiting for document.activeElement update
+    setTimeout(()=>{
+      if (executiveValue && executiveValue.length > 0 && document.activeElement.id != 'pia-action-plan-date') {
+        this.showActionPlanEditButton();
+        this.actionPlanForm.controls['actionPlanExecutive'].disable();
+        // Disables date field if both fields are filled and date isn't the next targeted element.
+        if (dateValue && dateValue.length > 0) {
+          this.actionPlanForm.controls['actionPlanDate'].disable();
+        }
+        // TODO : save data
+      }
+      // Disables date field too if no executive and dateValue is filled and isn't the next targeted element.
+      if (!executiveValue && dateValue && dateValue.length > 0 && document.activeElement.id != 'pia-action-plan-date') {
+        this.showActionPlanEditButton();
+        this.actionPlanForm.controls['actionPlanDate'].disable();
+      }
+    },1);
   }
 
   /**

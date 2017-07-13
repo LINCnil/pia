@@ -57,8 +57,8 @@
 
         <footer class="pia-entryContentBlock-footer">
           <div class="pia-entryContentBlock-content-cancelButtons">
-            <button type="button" class="btn btn-red" (click)="openModal('modal-abandon-pia')" title="Abandonner le traitement" disabled>Abandonner le traitement</button>
-            <button type="button" class="btn btn-red" (click)="openModal('modal-refuse-pia')" title="Refuser le PIA" disabled>Refuser le PIA</button>
+            <button type="button" class="btn btn-red" (click)="this.modal.openModal('modal-abandon-pia')" title="Abandonner le traitement" disabled>Abandonner le traitement</button>
+            <button type="button" class="btn btn-red" (click)="this.modal.openModal('modal-refuse-pia')" title="Refuser le PIA" disabled>Refuser le PIA</button>
           </div>
           <button type="button" id="pia-resend-button" class="btn btn-red" disabled title="Renvoyer pour validation">Renvoyer pour validation</button>
           <p>Tous les champs doivent être remplis</p>
@@ -80,21 +80,21 @@
 
 <div class="pia-modalBlock" id="modal-abandon-pia">
   <div class="pia-modalBlock-abandonPIA bounceIn">
-    <button type="button" class="pia-modalBlock-close btn" title="Fermer"><span (click)="closeModal()" class="pia-icons pia-icon-close-big"></span></button>
+    <button type="button" class="pia-modalBlock-close btn" title="Fermer"><span (click)="this.modal.closeModal()" class="pia-icons pia-icon-close-big"></span></button>
     <p>
       Êtes-vous sûr de vouloir<br>
       abandonner le traitement Captoo ?
     </p>
     <div class="pia-modalBlock-buttons-choice">
       <button class="btn btn-red btn-active" type="button" title="Supprimer et archiver">Supprimer <br>et archiver</button>
-      <button class="btn btn-red" type="button" (click)="closeModal()" title="Reprendre">Reprendre</button>
+      <button class="btn btn-red" type="button" (click)="this.modal.closeModal()" title="Reprendre">Reprendre</button>
     </div>
   </div>
 </div>
 
 <div class="pia-modalBlock" id="modal-refuse-pia">
   <div class="pia-modalBlock-refusedPIA bounceIn">
-    <button type="button" class="pia-modalBlock-close btn" title="Fermer"><span (click)="closeModal()" class="pia-icons pia-icon-close-big"></span></button>
+    <button type="button" class="pia-modalBlock-close btn" title="Fermer"><span (click)="this.modal.closeModal()" class="pia-icons pia-icon-close-big"></span></button>
     <p>
       <span class="strong">PIA refusé,</span><br>
       Plusieurs champs doivent être corrigés.<br>
@@ -103,7 +103,7 @@
     </p>
     <span class="pia-icons pia-icon-sorry"></span>
     <div class="pia-modalBlock-validate">
-      <button class="btn btn-green" type="button" (click)="closeModal()" title="Continuer">Continuer</button>
+      <button class="btn btn-green" type="button" (click)="this.modal.closeModal()" title="Continuer">Continuer</button>
     </div>
   </div>
 </div>

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
-declare var modalObject: any
+import { ModalsComponent } from '../modals/modals.component';
 
 @Component({
   selector: 'app-entry',
@@ -9,13 +8,14 @@ declare var modalObject: any
 })
 export class EntryComponent implements OnInit {
 
+  /* Do not remove.
+   * Allows this component to get access to ModalsComponent methods used by entry children components here.
+   */
+  modal = new ModalsComponent();
+
   constructor() { }
 
   ngOnInit() {
-  }
-
-  closeModal() {
-    modalObject.modalDisplayer();
   }
 
 }

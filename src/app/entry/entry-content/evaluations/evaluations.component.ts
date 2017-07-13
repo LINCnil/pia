@@ -85,8 +85,10 @@ export class EvaluationsComponent implements OnInit {
    */
   evaluationActionPlanFocusOut() {
     const actionPlanValue = this.evaluationForm.value.evaluationActionPlan;
+    const commentValue = this.evaluationForm.value.evaluationComment;
     let noEvaluationButtonsClicked = true;
     const evaluationButtons = document.querySelectorAll('.pia-evaluationBlock-buttons button');
+
     // Waiting for document.activeElement update
     setTimeout(()=>{
       if (actionPlanValue && actionPlanValue.length > 0 && document.activeElement.id != 'pia-evaluation-comment') {
@@ -100,8 +102,17 @@ export class EvaluationsComponent implements OnInit {
         if (noEvaluationButtonsClicked) {
           this.disableEvaluationButtons();
         }
+        // Disables comment field if both fields are filled and comment isn't the next targeted element.
+        if (commentValue && commentValue.length > 0) {
+          this.evaluationForm.controls['evaluationComment'].disable();
+        }
         // TODO : save data
-     }
+      }
+      // Disables comment field too if no action plan and comment is filled and isn't the next targeted element.
+      if (!actionPlanValue && commentValue && commentValue.length > 0 && document.activeElement.id != 'pia-evaluation-comment') {
+        this.showEvaluationEditButton();
+        this.evaluationForm.controls['evaluationComment'].disable();
+      }
     },1);
   }
 
@@ -119,9 +130,11 @@ export class EvaluationsComponent implements OnInit {
    * Saves data from comment field.
    */
   evaluationCommentFocusOut() {
+    const actionPlanValue = this.evaluationForm.value.evaluationActionPlan;
     const commentValue = this.evaluationForm.value.evaluationComment;
     let noEvaluationButtonsClicked = true;
     const evaluationButtons = document.querySelectorAll('.pia-evaluationBlock-buttons button');
+
     // Waiting for document.activeElement update
     setTimeout(()=>{
       if (commentValue && commentValue.length > 0 && document.activeElement.id != 'pia-evaluation-action-plan') {
@@ -135,8 +148,17 @@ export class EvaluationsComponent implements OnInit {
         if (noEvaluationButtonsClicked) {
           this.disableEvaluationButtons();
         }
+        // Disables action plan field if both fields are filled and action plan isn't the next targeted element.
+        if (actionPlanValue && actionPlanValue.length > 0) {
+          this.evaluationForm.controls['evaluationActionPlan'].disable();
+        }
         // TODO : save data
-     }
+      }
+      // Disables action plan field too if no comment and action plan is filled and isn't the next targeted element.
+      if (!commentValue && actionPlanValue && actionPlanValue.length > 0 && document.activeElement.id != 'pia-evaluation-action-plan') {
+        this.showEvaluationEditButton();
+        this.evaluationForm.controls['evaluationActionPlan'].disable();
+      }
     },1);
   }
 

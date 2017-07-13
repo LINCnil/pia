@@ -26,40 +26,98 @@
   </div>
 </main>
 
-<!-- TODO : les centraliser dans un fichier spécial ? -->
-<!--
-    A conserver pour l'exemple dans entry-content.html :
-    <div class="pia-modalBlock" id="simpleModal_1">
-    <div class="pia-modalBlock-abandonPIA bounceIn">
-      <button class="pia-modalBlock-close btn" title="Fermer"><span data-dismiss="modal" class="pia-icons pia-icon-close-big"></span></button>
-      <p>
-        Êtes-vous sûr de vouloir<br>
-        abandonner le traitement Captoo ?
-      </p>
-      <div class="pia-modalBlock-buttons-choice">
-        <button class="btn btn-red btn-active" type="button" title="Supprimer et archiver">Supprimer <br>et archiver</button>
-        <button class="btn btn-red" type="button" title="Reprendre">Reprendre</button>
-      </div>
-    </div>
-  </div>
--->
+<!-- TODO : Voir comment regrouper ça ailleurs ou faire autrement au lieu de tout appeler ici -->
 
-<!--
-   Solution potentielle :
-   créer un composant / un dossier qui comprendra chaque modale en tant que composant à part entière.
-   Au lieu de toutes les positionner ici.
--->
-
-<div class="pia-modalBlock" id="simpleModal_2">
+<div class="pia-modalBlock" id="modal-same-comment">
   <div class="pia-modalBlock-sameComment bounceIn">
-    <button type="button" class="pia-modalBlock-close btn" title="Fermer"><span (click)="closeModal()" data-dismiss="modal" class="pia-icons pia-icon-close-big"></span></button>
+    <button type="button" class="pia-modalBlock-close btn" title="Fermer"><span (click)="this.modal.closeModal();" data-dismiss="modal" class="pia-icons pia-icon-close-big"></span></button>
     <p>
       <span class="strong">Attention,</span><br>
       Veuillez saisir un commentaire différent du dernier enregistré.
     </p>
     <span class="pia-icons pia-icon-sorry"></span>
     <div class="pia-modalBlock-validate">
-      <button class="btn btn-blue" type="button" (click)="closeModal()" data-dismiss="modal" title="Continuer">Fermer</button>
+      <button class="btn btn-blue" type="button" (click)="this.modal.closeModal();" data-dismiss="modal" title="Continuer">Fermer</button>
+    </div>
+  </div>
+</div>
+
+
+<!-- TODO : mettre leurs ids et les (click) adéquats -->
+
+<div class="pia-modalBlock">
+  <div class="pia-modalBlock-evaluateContext">
+    <button type="button" class="pia-modalBlock-close btn" title="Fermer"><span class="pia-icons pia-icon-close-big"></span></button>
+    <p>
+      <span class="strong">Bravo,</span><br>
+      la partie est désormais<br>
+      disponible pour évaluation
+    </p>
+    <span class="pia-icons pia-icon-happy"></span>
+    <div class="pia-modalBlock-validate">
+      <button class="btn btn-green" type="button" title="Continuer">Continuer</button>
+    </div>
+  </div>
+</div>
+
+<div class="pia-modalBlock">
+  <div class="pia-modalBlock-declareMeasuresForRisks">
+    <button type="button" class="pia-modalBlock-close btn" title="Fermer"><span class="pia-icons pia-icon-close-big"></span></button>
+    <p>
+      Désolé,<br>
+      Avant d'évaluer les risques,<br>
+      vous devez déclarer les mesures<br>
+      existantes ou prévues
+    </p>
+    <span class="pia-icons pia-icon-sorry"></span>
+    <div class="pia-modalBlock-validate">
+      <button type="button" title="Déclarer les mesures existantes ou prévues" class="btn btn-green">Déclarer les mesures existantes ou prévues</button>
+    </div>
+  </div>
+</div>
+
+<div class="pia-modalBlock">
+  <div class="pia-modalBlock-addMeasureForRisks">
+    <button type="button" class="pia-modalBlock-close btn" title="Fermer"><span class="pia-icons pia-icon-close-big"></span></button>
+    <p>
+      <span class="strong">Attention,</span><br>
+      vous venez d'ajouter une mesure,<br>
+      <span class="red">" Sauvegarde de données ",</span><br>
+      n'oubliez pas de la mettre à jour dans<br>
+      la partie <span class="red">" Mesures existantes ou prévues "</span>
+    </p>
+    <div class="pia-modalBlock-validate">
+      <button class="btn btn-blue" type="button" title="Continuer">Continuer</button>
+    </div>
+  </div>
+</div>
+
+<div class="pia-modalBlock">
+  <div class="pia-modalBlock-removeMeasure">
+    <button type="button" class="pia-modalBlock-close btn" title="Fermer"><span class="pia-icons pia-icon-close-big"></span></button>
+    <p>
+      Supprimer la mesure<br>
+      " Archivage " ?
+    </p>
+    <span class="pia-icons pia-icon-sad"></span>
+    <div class="pia-modalBlock-buttons-choice">
+      <button class="btn btn-red btn-active" type="button" title="Supprimer la mesure">Supprimer <br> "Archivage"</button>
+      <button class="btn btn-red" type="button" title="Conserver la mesure">Conserver <br> "Archivage"</button>
+    </div>
+  </div>
+</div>
+
+<div class="pia-modalBlock">
+  <div class="pia-modalBlock-evaluateContext">
+    <button type="button" class="pia-modalBlock-close btn" title="Fermer"><span class="pia-icons pia-icon-close-big"></span></button>
+    <p>
+      <span class="strong">Bravo,</span><br>
+      en attente de la validation <br>
+      globale du PIA
+    </p>
+    <span class="pia-icons pia-icon-happy"></span>
+    <div class="pia-modalBlock-validate">
+      <button class="btn btn-green" type="button" title="Continuer">Continuer</button>
     </div>
   </div>
 </div>

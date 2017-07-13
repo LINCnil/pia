@@ -34,6 +34,7 @@ import { PiaValidateHistoryComponent } from './entry/validate-pia/pia-validate-h
 import { SettingsComponent } from './settings/settings.component';
 import { HelpComponent } from './help/help.component';
 import { GaugeComponent } from './entry/gauge/gauge.component';
+import { ModalsComponent } from './modals/modals.component';
 
 const appRoutes: Routes = [
   { path: '', component: AuthenticationComponent },
@@ -79,7 +80,8 @@ const appRoutes: Routes = [
     PiaValidateHistoryComponent,
     SettingsComponent,
     HelpComponent,
-    GaugeComponent
+    GaugeComponent,
+    ModalsComponent
   ],
   imports: [
     BrowserModule,

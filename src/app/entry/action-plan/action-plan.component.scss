@@ -98,15 +98,20 @@
             display: flex;
             padding: 20px 50px;
             justify-content: space-between;
-            font-size: 1rem;
+            font-size: 1.1rem;
             color: $pia-gray;
             input {
+              padding: 2px 4px;
               border: none;
               align-self: center;
               color: $pia-gray;
-            }
-            input:last-of-type {
-              min-width: 170px;
+              background-color: #ddd;
+              &:first-child {
+                width: 120px;
+              }
+              &:last-child {
+                min-width: 200px;
+              }
             }
           }
         }

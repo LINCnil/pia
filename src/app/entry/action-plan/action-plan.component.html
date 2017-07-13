@@ -45,8 +45,8 @@
                   L’enjeu pour la vie privée des personnes difféère en fonction des finalités.
                 </p>
                 <form [formGroup]="actionPlanForm">
-                  <input type="date" (focusout)="actionPlanDateFocusOut()" formControlName="actionPlanDate">
-                  <input type="text" (focusout)="actionPlanExecutiveFocusOut()" formControlName="actionPlanExecutive" placeholder="Responsable de la mise en oeuvre">
+                  <input type="date" id="pia-action-plan-date" (focusout)="actionPlanDateFocusOut()" formControlName="actionPlanDate">
+                  <input type="text" id="pia-action-plan-executive" (focusout)="actionPlanExecutiveFocusOut()" formControlName="actionPlanExecutive" placeholder="Responsable de la mise en oeuvre">
                 </form>
               </div>
             </div>

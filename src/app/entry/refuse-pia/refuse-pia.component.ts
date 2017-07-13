@@ -1,5 +1,6 @@
 import {Component, ElementRef, OnInit} from '@angular/core';
 import {FormArray, FormControl, FormGroup} from '@angular/forms';
+import { ModalsComponent } from '../../modals/modals.component';
 
 @Component({
   selector: 'app-refuse-pia',
@@ -8,6 +9,7 @@ import {FormArray, FormControl, FormGroup} from '@angular/forms';
 })
 export class RefusePIAComponent implements OnInit {
 
+  modal = new ModalsComponent();
   rejectionReasonForm: FormGroup;
   modificationsMadeForm: FormGroup;
 
@@ -125,24 +127,6 @@ export class RefusePIAComponent implements OnInit {
   activateModificationsMadeEdition() {
     this.hideModificationsMadeEditButton();
     this.modificationsMadeForm.controls['textarea'].enable();
-  }
-
-  /**
-   * Opens a specific modal through its unique id.
-   * @param {string} modal_id unique id of the modal which has to be opened.
-   */
-  openModal(modal_id: string) {
-    document.body.classList.add('pia-blurBackground');
-    document.getElementById(modal_id).classList.add('open');
-  }
-
-  /**
-   * Closes the current opened modal.
-   */
-  closeModal() {
-    const modal = document.querySelector('[class="pia-modalBlock open"]');
-    document.body.classList.remove('pia-blurBackground');
-    modal.classList.remove('open');
   }
 
 }
