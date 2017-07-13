@@ -1,5 +1,6 @@
-import { Component, OnInit, Input, OnChanges } from '@angular/core';
+import {Component, OnInit, Input, OnChanges, ElementRef} from '@angular/core';
 import {FormArray, FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import {el} from "@angular/platform-browser/testing/src/browser_util";
 
 
 
@@ -11,7 +12,7 @@ import {FormArray, FormBuilder, FormControl, FormGroup, Validators} from '@angul
 export class ValidatePIAComponent implements OnInit {
   validateForm: FormGroup;
 
-  constructor() {}
+  constructor(private el: ElementRef) {}
 
   ngOnInit() {
     this.validateForm = new FormGroup({
@@ -29,8 +30,6 @@ export class ValidatePIAComponent implements OnInit {
     [].forEach.call(radioButtons, function(currentRadioBtn) {
       if (!currentRadioBtn.checked) {
         allBtnChecked = false;
-      } else {
-        allBtnChecked = true;
       }
     });
 
@@ -44,6 +43,11 @@ export class ValidatePIAComponent implements OnInit {
     const clickedRadioButton = event.target || event.srcElement || event.currentTarget;
     clickedRadioButton.setAttribute('disabled', true);
 
+  }
+
+  dimissAttachement() {
+    //const closeAttachement = this.el.nativeElement.querySelector('.pia-entryContentBlock-footer-validationAttachments');
+    //this.el.removeChild;
   }
 
 }

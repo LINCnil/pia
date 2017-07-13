@@ -20,10 +20,10 @@ export class PiaValidateHistoryComponent implements OnInit {
     historyList.classList.toggle('close');
   }
   displayRefuseList() {
-    // const historyList = this.el.nativeElement.querySelector('.pia-validationHistoryBlock-content');
-    // const btn = this.el.nativeElement.querySelector('.pia-historyBlock-btn span');
-    // btn.classList.toggle('pia-icon-accordeon-down');
-    // historyList.classList.toggle('close');
+    const refuseList = this.el.nativeElement.querySelector('.pia-validationHistoryBlock-refuse-content');
+    const btn = this.el.nativeElement.querySelector('.pia-refuseBlock-btn span');
+    btn.classList.toggle('pia-icon-accordeon-down');
+    refuseList.classList.toggle('close');
   }
 
 }
