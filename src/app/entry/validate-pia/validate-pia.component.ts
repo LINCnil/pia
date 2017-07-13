@@ -1,5 +1,5 @@
-import {Component, OnInit, Input, ElementRef} from '@angular/core';
-import {FormArray, FormBuilder, FormControl, FormGroup} from '@angular/forms';
+import { Component, OnInit, ElementRef } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ModalsComponent } from '../../modals/modals.component';
 
@@ -53,10 +53,10 @@ export class ValidatePIAComponent implements OnInit {
     clickedRadioButton.setAttribute('disabled', true);
   }
 
-  dimissAttachement() {
-    //const closeAttachement = this.el.nativeElement.querySelector('.pia-entryContentBlock-footer-validationAttachments');
-    //this.el.removeChild;
-  }
+  // dimissAttachement() {
+  //   const closeAttachement = this.el.nativeElement.querySelector('.pia-entryContentBlock-footer-validationAttachments');
+  //
+  // }
 
   /**
    * Returns to homepage.
