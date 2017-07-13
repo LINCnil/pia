@@ -30,16 +30,22 @@ import { DPOPeopleOpinionsComponent } from './entry/dpo-people-opinions/dpo-peop
 import { ActionPlanGraphComponent } from './entry/action-plan/action-plan-graph/action-plan-graph.component';
 import { ValidatePIAComponent } from './entry/validate-pia/validate-pia.component';
 import { RefusePIAComponent } from './entry/refuse-pia/refuse-pia.component';
+import { PiaValidateHistoryComponent } from './entry/validate-pia/pia-validate-history/pia-validate-history.component';
+import { SettingsComponent } from './settings/settings.component';
+import { HelpComponent } from './help/help.component';
+import { GaugeComponent } from './entry/gauge/gauge.component';
 
 const appRoutes: Routes = [
   { path: '', component: AuthenticationComponent },
   { path: 'home', component: CardsComponent },
-  { path: 'entry/risks-cartography', component: RisksCartographyComponent },
-  { path: 'entry/action-plan', component: ActionPlanComponent },
-  { path: 'entry/dpo-and-people-opinions', component: DPOPeopleOpinionsComponent },
-  { path: 'entry/validate-PIA', component: ValidatePIAComponent },
-  { path: 'entry/refuse-PIA', component: RefusePIAComponent },
-  { path: 'entry/:id', component: EntryComponent }
+  { path: 'entry/:id/risks-cartography', component: RisksCartographyComponent },
+  { path: 'entry/:id/action-plan', component: ActionPlanComponent },
+  { path: 'entry/:id/dpo-and-people-opinions', component: DPOPeopleOpinionsComponent },
+  { path: 'entry/:id/validate-PIA', component: ValidatePIAComponent },
+  { path: 'entry/:id/refuse-PIA', component: RefusePIAComponent },
+  { path: 'entry/:id', component: EntryComponent },
+  { path: 'settings', component: SettingsComponent },
+  { path: 'help', component: HelpComponent }
 ];
 
 @NgModule({
@@ -69,7 +75,11 @@ const appRoutes: Routes = [
     DPOPeopleOpinionsComponent,
     ActionPlanGraphComponent,
     ValidatePIAComponent,
-    RefusePIAComponent
+    RefusePIAComponent,
+    PiaValidateHistoryComponent,
+    SettingsComponent,
+    HelpComponent,
+    GaugeComponent
   ],
   imports: [
     BrowserModule,

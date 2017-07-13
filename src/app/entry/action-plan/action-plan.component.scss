@@ -88,34 +88,18 @@
           > div {
             font-size: 1.4rem;
           }
+          p {
+            margin:  0 50px;
+            padding-bottom: 20px;
+            font-size: 1.4rem;
+            border-bottom: solid $pia-green 1px;
+          }
           form {
-            padding: 10px 50px;
+            display: flex;
+            padding: 20px 50px;
+            justify-content: space-between;
             font-size: 1rem;
             color: $pia-gray;
-            textarea {
-              resize: none;
-              width: 100%;
-              max-width: 500px;
-              margin-bottom: 16px;
-              background-color: $pia-white;
-              border:none;
-              padding-top: 10px;
-              padding-left: 5px;
-              font-size: 1.4rem;
-              border-bottom: solid 1px $pia-green;
-              &[placeholder] {
-                color: $pia-gray;
-                font-style: italic;
-                font-size: 1.2rem;
-              }
-              &[disabled] {
-                background-color: white;
-              }
-            }
-            > div {
-              display: flex;
-              justify-content: space-between;
-            }
             input {
               border: none;
               align-self: center;

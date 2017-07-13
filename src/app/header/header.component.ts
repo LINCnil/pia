@@ -7,6 +7,7 @@ import { Renderer2 } from '@angular/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+
   public increaseContrast: String;
 
   constructor(private renderer: Renderer2) {

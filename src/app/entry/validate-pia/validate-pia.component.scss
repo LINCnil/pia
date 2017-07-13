@@ -29,99 +29,90 @@
     &-content {
       background-color: #fefefe;
       box-shadow: 2px 1px 18px 1px rgba(194,194,194,1);
-      &-list-1 {
+      &-list {
         padding:  10px 60px 20px  60px;
         font-size: 1.4rem;
         .blue {
           color: $pia-blue;
           font-weight: bold;
         }
-        &-confirm {
-          background-color: $pia-white;
-          margin: 10px auto;
-          padding: 10px 0;
-          label {
-            display:  flex;
-            justify-content: flex-start;
+        form {
+          > p {
+            font-size: 0.95rem;
+            text-align: right;
+            font-style: italic;
+            margin: 0;
+            font-weight: 600;
+            color: $pia-gray;
+            margin-top: 3px;
           }
+        }
+        &-confirm {
+          margin-top: 10px;
           input {
             display: none;
           }
-          i {
-            font-size: 21px;
-            color: $pia-gray;
-            align-self: center;
-            padding: 0 20px;
+          label {
+            display: flex;
+            justify-content: flex-start;
+            margin-top: 5px;
+            padding: 10px;
+            background-color: $pia-white;
+            border: solid 1px #eee;
+            cursor: pointer;
+            .pia-list-confirm-icon {
+              align-self: center;
+            }
           }
-          input, label {
-            align-self: center;
-          }
-        }
-        p:last-of-type {
-          font-size: 0.95rem;
-          text-align: right;
-          font-style: italic;
-          margin: 0;
-          font-weight: 600;
-          color: $pia-gray;
-          margin-top: 3px;
-        }
-      }
-      &-list-2 {
-        padding:  10px 60px;
-        font-size: 1.4rem;
-        .blue {
-          color: $pia-blue;
-          font-weight: bold;
-        }
-        &-confirm {
-          margin-top: 10px;
-          border: solid $pia-green 1px;
-          display: flex;
-          justify-content: flex-start;
-          p {
-            align-self: center;
-            padding: 8px 15px;
-            margin: 0;
-            font-size: 1.4rem;
-            text-align: justify;
-          }
-          i {
+          i{
+            margin: auto;
+            width: 20px;
+            height: 20px;
             font-size: 2rem;
-            padding: 5px 15px;
-            color: $pia-green;
-            align-self: center;
+          }
+          .pia-list-confirm-desc {
+            margin-left: 15px;
+          }
+          .fa-circle {
+            display: block;
+            color: #fff;
+            border-radius: 50%;
+            border: solid 1px $pia-gray;
+          }
+          .fa-check {
+            display:none;
+          }
+          input:checked + label {
+            border: solid $pia-green 1px;
+            background-color: #fff;
+            .fa-check {
+              display: block;
+              color: $pia-green;
+            }
+            .fa-circle {
+              display: none;
+            }
+          }
+        }
+
+        /* Special class added to checked radio buttons */
+        .validate {
+          input:checked + label {
+            border: solid $pia-green 1px;
+            background-color: $pia-green;
+            color: #fff;
+            font-weight: bold;
+            .fa-circle {
+              display: none;
+            }
+            .fa-check {
+              display: block;
+              color: #fff;
+            }
           }
         }
       }
-      &-list-3 {
-        padding:  10px 60px 20px  60px;
-        font-size: 1.4rem;
-        &-confirm {
-          background-color: $pia-green;
-          margin-top: 10px;
-          border: solid $pia-green 1px;
-          color: $pia-white;
-          padding:  0;
-          font-weight: bold;
-          display: flex;
-          justify-content: flex-start;
-          p {
-            align-self: center;
-            padding: 8px 15px;
-            margin: 0;
-            font-size: 1.4rem;
-            text-align: justify;
-          }
-          i {
-            font-size: 2rem;
-            padding: 5px 15px;
-            color: $pia-white;
-            align-self: center;
-          }
-        }
-      }
-      &-wait, &-check {
+      &-status {
         display: flex;
         justify-content: flex-end;
         p {
@@ -130,20 +121,34 @@
           font-style: normal;
           padding-left: 10px;
         }
-        i{
+        i {
           padding-left: 10px;
           align-self: center;
           font-size: 1.7rem;
         }
       }
       &-btn-valid {
+        margin-top: 10px;
         display: flex;
         justify-content: space-between;
-        button {
-            padding: 3px 12px;
-            max-width: 140px;
-            max-height: 34px;
-            font-size: 1.2rem;
+        button{
+          display:block;
+          width: 145px;
+          height: 34px;
+          font-size: 1.1rem;
+          text-decoration: none;
+          align-self: center;
+          &:last-of-type {
+            padding-top: 4px;
+          }
+        }
+        a{
+          width: 145px;
+          height: 34px;
+          display: block;
+          font-size: 1.1rem;
+          text-decoration: none;
+          align-self: center;
         }
       }
     }

@@ -53,7 +53,8 @@
     &-declareMeasuresForRisks,
     &-refusedPIA,
     &-abandonPIA,
-    &-acceptedPIA {
+    &-acceptedPIA,
+    &-sameComment {
       margin-left: -220px;
       width: 440px;
       box-shadow: 5px 5px 205px -40px black;
@@ -100,7 +101,7 @@
     &-abandonPIA {
       .pia-modalBlock-buttons-choice {
         button {
-          padding: 2px 32px;
+          padding: 2px 28px;
           height: 32px;
           &:first-child {
             margin-right: 34px;
@@ -112,7 +113,7 @@
       .pia-modalBlock-buttons-choice {
         margin-top: 22px;
         button {
-          padding: 2px 32px;
+          padding: 2px 28px;
           height: 32px;
           &:first-child {
             margin-right: 4px;

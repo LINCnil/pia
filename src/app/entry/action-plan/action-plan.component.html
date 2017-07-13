@@ -38,16 +38,15 @@
                   <h3>Finalités</h3>
                   <button type="button" id="piaActionPlanPencil" class="btn hide" (click)="activateActionPlanEdition()" title="Éditer"><i class="fa fa-pencil" aria-hidden="true"></i></button>
                 </div>
+                <p>
+                  Afin d’éviter un usage incompatible ou un détournement de finalité, il
+                  conviendrait d’expliciter les autres finalités dans les documents portés à
+                  la connaissance des clients et de réitérer le PIA pour ces traitements.
+                  L’enjeu pour la vie privée des personnes difféère en fonction des finalités.
+                </p>
                 <form [formGroup]="actionPlanForm">
-                  <textarea rows="8" cols="50" formControlName="actionPlanDescription" (focusout)="actionPlanFocusOut()">Afin d’éviter un usage incompatible ou un détournement de finalité, il
-                    conviendrait d’expliciter les autres finalités dans les documents portés à
-                    la connaissance des clients et de réitérer le PIA pour ces traitements.
-                    L’enjeu pour la vie privée des personnes difféère en fonction des finalités.
-                  </textarea>
-                  <div>
-                    <input type="date" (change)="actionPlanFocusOut()" formControlName="actionPlanDate">
-                    <input type="text" (change)="actionPlanFocusOut()" formControlName="actionPlanExecutive" placeholder="Responsable de la mise en oeuvre">
-                  </div>
+                  <input type="date" (focusout)="actionPlanDateFocusOut()" formControlName="actionPlanDate">
+                  <input type="text" (focusout)="actionPlanExecutiveFocusOut()" formControlName="actionPlanExecutive" placeholder="Responsable de la mise en oeuvre">
                 </form>
               </div>
             </div>

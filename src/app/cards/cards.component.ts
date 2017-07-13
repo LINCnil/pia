@@ -10,11 +10,25 @@ import {Router} from '@angular/router';
   styleUrls: ['./cards.component.scss']
 })
 export class CardsComponent implements OnInit {
+
   newCard: Card;
   cards: any;
   cardForm: FormGroup;
 
   constructor(private router: Router) { }
+
+  ngOnInit() {
+    let card = new Card();
+    card.getAll().then((data) => {
+      this.cards = data;
+    });
+    this.cardForm = new FormGroup({
+      name: new FormControl(),
+      author_name: new FormControl(),
+      evaluator_name: new FormControl(),
+      validator_name: new FormControl()
+    });
+  }
 
   /**
    * Creates a new PIA card and adds a flip effect to go switch between new PIA and edit PIA events.
@@ -49,20 +63,6 @@ export class CardsComponent implements OnInit {
     );
     const p = card.save();
     p.then((id) => this.router.navigate(['/entry/' + id]));
-  }
-
-
-  ngOnInit() {
-    this.cardForm = new FormGroup({
-      name: new FormControl(),
-      author_name: new FormControl(),
-      evaluator_name: new FormControl(),
-      validator_name: new FormControl()
-    });
-    let card = new Card();
-    card.getAll().then((data) => {
-      this.cards = data;
-    });
   }
 
 }
