@@ -1,27 +1,27 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+
 
 @Component({
   selector: 'app-risks-cartography',
   templateUrl: './risks-cartography.component.html',
   styleUrls: ['./risks-cartography.component.scss']
 })
-export class RisksCartographyComponent implements OnInit {
+export class RisksCartographyComponent implements OnInit{
 
   constructor() {
-    this.loadCartography();
+
   }
 
   ngOnInit() {
-    this.loadCartography();
+      this.loadCartography();
   }
+
+
 
   /**
    * Loads the risks cartography with author and evalutor choices positioned as dots.
    */
   loadCartography() {
-    // document ready
-    document.onreadystatechange = () => {
-      if (document.readyState === 'complete') {
 
       /* /!\ TO READ :
       *
@@ -58,7 +58,7 @@ export class RisksCartographyComponent implements OnInit {
       */
 
       // JSON data
-      var dataJSON = {
+      const dataJSON = {
         "risk1-data-access":{
           "author_dot":{
             "x":320,
@@ -213,9 +213,6 @@ export class RisksCartographyComponent implements OnInit {
       context.lineTo(dataJSON["risk3-data-disappearance"]["evaluator_dot"].x,dataJSON["risk3-data-disappearance"]["evaluator_dot"].y);
       context.closePath();
       context.stroke();
-
-      }
-    };
   }
 
 }

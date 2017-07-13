@@ -1,7 +1,5 @@
-import {Component, OnInit, Input, OnChanges, ElementRef} from '@angular/core';
-import {FormArray, FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
-import {el} from "@angular/platform-browser/testing/src/browser_util";
-
+import {Component, OnInit, ElementRef, Renderer2} from '@angular/core';
+import {FormControl, FormGroup} from '@angular/forms';
 
 
 @Component({
@@ -12,12 +10,16 @@ import {el} from "@angular/platform-browser/testing/src/browser_util";
 export class ValidatePIAComponent implements OnInit {
   validateForm: FormGroup;
 
-  constructor(private el: ElementRef) {}
+  constructor(
+    private el: ElementRef,
+    private renderer: Renderer2
+  ) {}
 
   ngOnInit() {
     this.validateForm = new FormGroup({
       validateStatus: new FormControl()
     });
+    console.log(this.renderer);
   }
 
   onCheck() {
@@ -45,9 +47,9 @@ export class ValidatePIAComponent implements OnInit {
 
   }
 
-  dimissAttachement() {
-    //const closeAttachement = this.el.nativeElement.querySelector('.pia-entryContentBlock-footer-validationAttachments');
-    //this.el.removeChild;
-  }
+  // dimissAttachement() {
+  //   const closeAttachement = this.el.nativeElement.querySelector('.pia-entryContentBlock-footer-validationAttachments');
+  //
+  // }
 
 }
