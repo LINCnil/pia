@@ -19,11 +19,24 @@ export class applicationDb {
         resolve(event.target.result);
       };
       request.onupgradeneeded = (event: any) => {
+        const objectStore = event.target.result.createObjectStore(this.tableName, { keyPath: "id", autoIncrement: true });
         // TODO need to be in comment.db.ts instead of this file
-        if (this.tableName == 'comment') {
-          const objectStore = event.target.result.createObjectStore(this.tableName, { keyPath: "id", autoIncrement: true });
+        if (this.tableName == 'pia') {
+          objectStore.createIndex("name", "name", { unique: false });
+          objectStore.createIndex("status", "status", { unique: false });
+        } else if(this.tableName == 'comment') {
+          objectStore.createIndex("pia_id", "pia_id", { unique: false });
           objectStore.createIndex("reference_to", "reference_to", { unique: false });
           objectStore.createIndex("type", "type", { unique: false });
+        } else if(this.tableName == 'evaluation') {
+          objectStore.createIndex("pia_id", "pia_id", { unique: false });
+          objectStore.createIndex("reference_to", "reference_to", { unique: false });
+          objectStore.createIndex("status", "status", { unique: false });
+        } else if(this.tableName == 'answer') {
+          objectStore.createIndex("pia_id", "pia_id", { unique: false });
+          objectStore.createIndex("reference_to", "reference_to", { unique: false });
+        } else if(this.tableName == 'measure') {
+          objectStore.createIndex("pia_id", "pia_id", { unique: false });
         }
       };
     });
