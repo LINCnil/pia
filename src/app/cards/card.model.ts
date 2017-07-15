@@ -1,6 +1,6 @@
-import { piaDb } from '../piadb';
+import { applicationDb } from "../application.db";
 
-export class Card {
+export class Card extends applicationDb {
   public id: number;
   public status: number;
   public name: string;
@@ -13,40 +13,36 @@ export class Card {
   public concerned_people_status: string;
   public rejected_reason: string;
   public applied_adjustements: string;
-  public creation_date: Date;
-  public last_open_date: Date;
-  private piaDb: piaDb;
+  public created_at: Date;
+  public updated_at: Date;
 
   constructor() {
-    this.piaDb = new piaDb();
-    this.creation_date = new Date();
-  }
-
-  async findAll() {
-    return this.piaDb.findAllPia();
+    super(201707071818, 'pia');
   }
 
   async create() {
-    this.creation_date = new Date();
-    return this.piaDb.createPia(this.name, this.author_name, this.evaluator_name, this.validator_name, this.creation_date);
-  }
-
-  async find(id) {
-    this.piaDb.findPia(id).then((entry: any) => {
-      console.log(entry);
-      this.id = entry.id;
-      this.name = entry.name;
-      this.author_name = entry.author_name;
-      this.evaluator_name = entry.evaluator_name;
-      this.validator_name = entry.validator_name;
+    if (this.created_at == undefined) {
+      this.created_at = new Date();
+    }
+    await this.getObjectStore();
+    return new Promise((resolve, reject) => {
+      this.objectStore.add({
+        name: name, author_name: this.author_name, evaluator_name: this.evaluator_name, validator_name: this.validator_name,
+        created_at: this.created_at, updated_at: new Date(), status: 1
+      }).onsuccess = (event: any) => {
+        resolve(event.target.result);
+      };
     });
   }
 
-  update() {
-    this.piaDb.updatePia(this.id, this.name, this.author_name, this.evaluator_name, this.validator_name);
-  }
-
-  async delete(id) {
-    return this.piaDb.deletePia(id);
+  async update() {
+    this.find(this.id).then((entry: any) => {
+      entry.name = this.name;
+      entry.author_name = this.author_name;
+      entry.evaluator_name = this.evaluator_name;
+      entry.validator_name = this.validator_name;
+      entry.updated_at = new Date();
+      this.objectStore.put(entry);
+    });
   }
 }

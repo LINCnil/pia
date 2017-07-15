@@ -38,48 +38,54 @@
           </div>
       </div>
 
-      <form class="pia-cardsBlock-item-form">
+      <form class="pia-cardsBlock-item-form"
+            (ngSubmit)="onSubmit(f)"
+            [formGroup]="cardForm">
+          <input type="hidden" formControlName="id">
           <div>
               <div style="display:none;" class="pia-doingBlock-item-form-attachment">
                   <span class="pia-icons pia-icon-attachment"></span>
                   <button type="button" class="btn">Analyse EBIOS</button>
               </div>
               <label for="pia-edit-name">Nom du PIA</label>
-              <input type="text" name="name" [disabled]="editMode !== true" placeholder="Intitulé"
-                     value="{{ card.name }}" id="pia-edit-name">
+              <input type="text" formControlName="name" required
+                     placeholder="Intitulé" id="pia-edit-name">
           </div>
           <div>
               <label for="pia-edit-author-name">Saisie</label>
-              <input type="text" name="author_name" [disabled]="editMode !== true" placeholder="Prénom, nom"
-                     value="{{ card.author_name }}" id="pia-edit-author-name">
+              <input type="text" formControlName="author_name" required
+                     placeholder="Prénom, nom" id="pia-edit-author-name">
           </div>
           <div>
               <label for="pia-edit-evaluator-name">Évaluation</label>
-              <input type="text" name="evaluator_name" [disabled]="editMode !== true" placeholder="Prénom, nom"
-                     value="{{ card.evaluator_name }}" id="pia-edit-evaluator-name">
+              <input type="text" formControlName="evaluator_name" required
+                     placeholder="Prénom, nom" id="pia-edit-evaluator-name">
           </div>
           <div>
               <label for="pia-edit-validator-name">Validation</label>
-              <input type="text" name="validator_name" [disabled]="editMode !== true" placeholder="Prénom, nom"
-                    value="{{ card.validator_name }}" id="pia-edit-validator-name">
+              <input type="text" formControlName="validator_name" required
+                     placeholder="Prénom, nom" id="pia-edit-validator-name">
           </div>
+        <div class="pia-cardsBlock-item-date">
+            <div>Date</div>
+            <time>{{ card.creation_date | date: 'dd/MM/yyyy' }}</time>
+        </div>
+        <div class="pia-cardsBlock-item-status">
+            <div class="pia-cardsBlock-item-status-infos">
+                <div>Status</div>
+                <div>En cours d'édition</div>
+            </div>
+            <div class="pia-cardsBlock-item-status-progressBar">
+                <div>0%</div>
+                <progress max="100" value="0"></progress>
+            </div>
+        </div>
+        <div class="pia-cardsBlock-item-btn" [ngClass]="{'hide': editMode !== true}">
+          <button type="submit" [disabled]="cardForm.invalid" class="btn btn-green">Sauvegarder</button>
+        </div>
+        <div class="pia-cardsBlock-item-btn" [ngClass]="{'hide': editMode !== false}">
+          <a routerLink="/entry/{{card.id}}" class="btn btn-green">TODO</a>
+        </div>
       </form>
-      <div class="pia-cardsBlock-item-date">
-          <div>Date</div>
-          <time>{{ card.creation_date | date: 'dd/MM/yyyy' }}</time>
-      </div>
-      <div class="pia-cardsBlock-item-status">
-          <div class="pia-cardsBlock-item-status-infos">
-              <div>Status</div>
-              <div>En cours d'édition</div>
-          </div>
-          <div class="pia-cardsBlock-item-status-progressBar">
-              <div>0%</div>
-              <progress max="100" value="0"></progress>
-          </div>
-      </div>
-      <div class="pia-cardsBlock-item-btn" [ngClass]="{'hide': editMode !== true}">
-        <button type="button" class="btn btn-green">Sauvegarder</button>
-      </div>
   </div>
 </div>
