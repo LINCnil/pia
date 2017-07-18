@@ -168,62 +168,32 @@
                 border-radius: 20px;
                 border: 1px solid;
                 padding: 9px 20px;
-
             }
         }
-
     }
     &-toolbar {
         font-size: 1.45rem;
         float: right;
-        button {
+        a {
             color: $pia-green;
             .fa {
                 margin: 0 3px;
             }
         }
-        &-edit, &-export, &-more {
-            display: inline-block;
-            vertical-align: top;
-            position: relative;
-            &:hover {
-                .pia-cardsBlock-toolbar-editHint,
-                .pia-cardsBlock-toolbar-exportHint,
-                .pia-cardsBlock-toolbar-moreList {
-                    display: block;
-                }
-            }
-            > button {
-                &:focus, &:hover, &:active {
-                    & + .pia-cardsBlock-toolbar-editHint,
-                    & + .pia-cardsBlock-toolbar-exportHint,
-                    & + .pia-cardsBlock-toolbar-moreList {
-                        display: block;
-                    }
-                }
-            }
+        > div {
+          display: inline-block;
+          vertical-align: top;
+          position: relative;
         }
         &-more {
-            position: relative;
-        }
-        &-editHint, &-exportHint {
-            z-index: 999;
-            display: none;
-            position: absolute;
-            bottom: -15px;
-            left: -13px;
-            background-color: $pia-green;
-            padding: 2px 5px;
-            color: #fff;
-            font-size: 1rem;
-            text-align: center;
-            box-shadow: 1px 1px 3px 1px rgba(204,202,204,1);
-            .pia-icon-green-hint-arrow {
-                position: absolute;
-                top: -4px;
-                left: 50%;
-                margin-left: -3px;
+          position: relative;
+           > a {
+            &:focus, &:hover, &:active {
+              .pia-cardsBlock-toolbar-moreList {
+                display: block;
+              }
             }
+          }
         }
         &-moreList {
             z-index: 999;
@@ -244,7 +214,8 @@
                 padding: 0;
                 background-color: #fff;
                 padding-left: 10px;
-                .fa, button {
+                text-align: left;
+                .fa, a {
                     display: inline-block;
                     vertical-align: middle;
                     font-size: 1rem;
@@ -252,14 +223,16 @@
                 .fa {
                     margin-right: 3px;
                 }
-                button {
+                a {
                     text-align: left;
                     padding: 2px;
+                    text-decoration: none;
+                    line-height: 1;
                 }
                 &:focus, &:hover, &:active {
                     color: #fff;
                     background-color: $pia-green;
-                    button {
+                    a {
                         color: #fff;
                     }
                 }
