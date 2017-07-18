@@ -9,28 +9,31 @@ export class Measure extends applicationDb {
   public created_at: Date;
   public updated_at: Date;
 
-  constructor(id: number = null, title: string = null, content: string = null) {
+  constructor() {
     super(201707071818, 'measure');
-    this.id = id;
-    this.title = title;
-    this.content = content;
   }
 
   async create() {
-    // await this.getObjectStore();
-    // return new Promise((resolve, reject) => {
-    //   this.objectStore.add({
-    //     created_at: new Date(), updated_at: new Date()
-    //   }).onsuccess = (event: any) => {
-    //     resolve(event.target.result);
-    //   };
-    // });
+    if (this.created_at == undefined) {
+      this.created_at = new Date();
+    }
+    await this.getObjectStore();
+    return new Promise((resolve, reject) => {
+      const created_at = new Date();
+      this.objectStore.add({title: this.title, rank: this.rank, content: this.content,
+        created_at: this.created_at, updated_at: new Date()
+      }).onsuccess = (event: any) => {
+        resolve(event.target.result);
+      };
+    });
   }
 
-  async update() {
-    // this.find(this.id).then((entry: any) => {
-    //   entry.updated_at = new Date();
-    //   this.objectStore.put(entry);
-    // });
+  async update(id) {
+    this.find(id).then((entry: any) => {
+      entry.title = this.title;
+      entry.content = this.content;
+      entry.updated_at = new Date();
+      this.objectStore.put(entry);
+    });
   }
 }
