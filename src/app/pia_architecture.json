@@ -5,21 +5,19 @@
       "id": 1,
       "title": "Contexte",
       "display_mode": "all_items",
-      "link_knowledge_base": "",
-      "short_help": "TODO - Description de la section (pour cette section cela décrira aussi les sous-sections puisqu'elles sont toutes dans la même page)",
+      "short_help": "Cette section vous permet de contextualiser et d'obtenir une vision claire des traitements de données personnelles considérés.",
       "items": [
         {
           // "DESCRIPTION DU PRODUIT"
           "id": 1,
           "title": "Description du produit",
           "evaluation_mode": "section",
-          "link_knowledge_base": "",
-          "short_help": "",
+          "short_help": "Décrivez de manière synthétique la finalité, les enjeux et le contexte d'utilisation du traitement. Incluez également le responsable du traitement et les potentiels sous-traitants.",
           "questions": [
             {
               "id": 1,
               "title": "Description du produit",
-              "link_knowledge_base": "",
+              "link_knowledge_base": ["PIA_DEF_RT", "PIA_DEF_FIN", "PIA_LGL_DESC"],
               "placeholder": "Décrivez les caractéristiques de votre produit.",
               "highlight_words": "",
               "answer_type": "text",
@@ -31,16 +29,15 @@
         {
           // "DONNEES"
           "id": 2,
-          "title": "Données",
+          "title": "Données traitées",
           "evaluation_mode": "section",
-          "link_knowledge_base": "",
-          "short_help": "",
+          "short_help": "Listez l'ensemble des données collectées et traitées en indiquant les durées de conservation, les destinataires et les personnes pouvant y accèder.",
           "questions": [
             {
               "id": 1,
-              "title": "Données",
-              "link_knowledge_base": "",
-              "placeholder": "Énumérez les différents types de données traitées par votre produit. N'hésitez pas à préciser les informations.",
+              "title": "Données traitées",
+              "link_knowledge_base": ["PIA_LGL_DATA", "PIA_DEF_DCP", "PIA_DEF_DEST", "PIA_EX_DC", "PIA_EX_DCPC", "PIA_EX_DCPR", "PIA_EX_DCPS"],
+              "placeholder": "Énumérez les différents types de données traitées par votre produit ainsi que les informations liées.",
               "highlight_words": "",
               "answer_type": "text",
               "keywords": "",
@@ -53,14 +50,13 @@
           "id": 3,
           "title": "Cycle de vie des données",
           "evaluation_mode": "section",
-          "link_knowledge_base": "",
-          "short_help": "",
+          "short_help": "Représentez et décrivez le fonctionnement général du produit, avec un schéma des flux de données et la description détaillée des processus mis en œuvre",
           "questions": [
             {
               "id": 1,
               "title": "Cycle de vie des données",
-              "link_knowledge_base": "",
-              "placeholder": "Décrivez le contexte d'utilisation et de conservation des données traitées.",
+              "link_knowledge_base": ["PIA_LGL_LCYC", "PIA_EX_SUPT"],
+              "placeholder": "Décrivez le contexte d'utilisation et de stockage des données traitées.",
               "highlight_words": "",
               "answer_type": "text",
               "keywords": "",
@@ -73,14 +69,13 @@
           "id": 4,
           "title": "Supports des données",
           "evaluation_mode": "section",
-          "link_knowledge_base": "",
-          "short_help": "",
+          "short_help": "Décrivez l'ensemble des supports des données utilisés.",
           "questions": [
             {
               "id": 1,
               "title": "Supports des données",
-              "link_knowledge_base": "",
-              "placeholder": "Décrivez le contexte d'utilisation et de conservation des données traitées.",
+              "link_knowledge_base": ["PIA_LGL_SUPT", "PIA_EX_SUPT"],
+              "placeholder": "Décrivez les supports des données de votre traitement (eg. systèmes informatiques, serveurs, logiciels...).",
               "highlight_words": "",
               "answer_type": "text",
               "keywords": "",
@@ -95,20 +90,18 @@
       "id": 2,
       "title": "Principes fondamentaux",
       "display_mode": "by_item",
-      "link_knowledge_base": "",
-      "short_help": "TODO - Description de la section",
+      "short_help": "Cette section vous permet de bâtir le dispositif de conformité aux principes de protection de la vie privée.",
       "items": [
         {
           // "PROPORTIONNALITE ET NECESSITE"
           "id": 1,
           "title": "Proportionnalité et nécessité",
           "evaluation_mode": "question",
-          "link_knowledge_base": "",
-          "short_help": "TODO - Description de la sous-section",
+          "short_help": "Démontrez que votre traitement est licite et qu'il est raisonnable et non-excessif dans sa mise en oeuvre.",
           "questions": [
             {
               "id": 1,
-              "title": "Quelles sont les finalités de la collecte et l’utilisation des données par le service ?",
+              "title": "Les finalités du traitement sont-elles déterminées, explicites et légitimes ?",
               "link_knowledge_base": "",
               "placeholder": "Décrivez les finalités de l'utilisation des données collectées par votre service.",
               "highlight_words": "",
@@ -118,9 +111,9 @@
             },
             {
               "id": 2,
-              "title": "Comment les données sont-elles minimisées ?",
+              "title": "Quel(s) fondement(s) rendent votre traitement licite ?",
               "link_knowledge_base": "",
-              "placeholder": "Décrivez les mesures mises en place afin de minimiser les données collectées.",
+              "placeholder": "Listez le ou les critères permettant de justifier la licéité de votre traitement (eg. consentement de la personne concernée...)",
               "highlight_words": "",
               "answer_type": "text",
               "keywords": "",
@@ -128,9 +121,9 @@
             },
             {
               "id": 3,
-              "title": "Qui sont les destinataires des données ?",
+              "title": "Les données collectées sont-elles adéquates, pertinentes et non excessives ?",
               "link_knowledge_base": "",
-              "placeholder": "Décrivez qui a accès aux données collectées.",
+              "placeholder": "Décrivez comment votre traitement suit les principes de minimisation des données en justifiant la collecte de celles-ci avec un ou des besoins spécifiques dans le cadre du traitement et de sa finalité.",
               "highlight_words": "",
               "answer_type": "text",
               "keywords": "",
@@ -138,9 +131,9 @@
             },
             {
               "id": 4,
-              "title": "Quelle est la durée de conservation des données ?",
+              "title": "Les données sont-elles exactes et tenues à jour ?",
               "link_knowledge_base": "",
-              "placeholder": "Décrivez la durée nécessaire à l'accomplissement des finalités, à défaut d'une autre obligation légale imposant une conservation plus longue.",
+              "placeholder": "Décrivez les mesures mises en oeuvre afin de s'assurer de la qualité des données.",
               "highlight_words": "",
               "answer_type": "text",
               "keywords": "",
@@ -148,27 +141,7 @@
             },
             {
               "id": 5,
-              "title": "Comment les utilisateurs du service sont-ils informés de l’utilisation des données ?",
-              "link_knowledge_base": "",
-              "placeholder": "Décrivez la durée nécessaire à l'accomplissement des finalités, à défaut d'une autre obligation légale imposant une conservation plus longue.",
-              "highlight_words": "",
-              "answer_type": "text",
-              "keywords": "",
-              "active": true
-            },
-            {
-              "id": 6,
-              "title": "Comment l’accord de l’utilisateur est-il obtenu ?",
-              "link_knowledge_base": "",
-              "placeholder": "Décrivez la durée nécessaire à l'accomplissement des finalités, à défaut d'une autre obligation légale imposant une conservation plus longue.",
-              "highlight_words": "",
-              "answer_type": "text",
-              "keywords": "",
-              "active": true
-            },
-            {
-              "id": 7,
-              "title": "Comment l’utilisateur peut-il s’opposer à l’utilisation des données ?",
+              "title": "Quelle est la durée de conservation des données ?",
               "link_knowledge_base": "",
               "placeholder": "Décrivez la durée nécessaire à l'accomplissement des finalités, à défaut d'une autre obligation légale imposant une conservation plus longue.",
               "highlight_words": "",
@@ -179,27 +152,82 @@
           ]
         },
         // "MESURES PROTECTRICES DES DROITS"
-        /* Nous n'avons pas le contenu de cette sous-section donc on vous laisse la remplir de façon adéquate.
-         * (même s'il me semble que c'est comme celle d'avant : que des questions classiques à remplir.)
-        */
         {
           "id": 2,
           "title": "Mesures protectrices des droits",
           "evaluation_mode": "question",
-          "link_knowledge_base": "",
-          "short_help": "TODO - Description de la sous-section",
+          "short_help": "Démontrez que vous mettez en oeuvre les moyens nécessaires afin d'informer les personnes concernées par votre traitement et de respecter leurs droits.",
           "questions": [
             {
               "id": 1,
-              "title": "TODO - Titre de la question",
+              "title": "Comment les personnes concernées sont-elles informées à propos du traitement ? ",
               "link_knowledge_base": "",
-              "placeholder": "TODO - Explications indiquées dans le champ de saisie.",
+              "placeholder": "Décrivez les moyens utilisés afin de s'assurer de l'information des personnes concernées.",
+              "highlight_words": "",
+              "answer_type": "text",
+              "keywords": "",
+              "active": true
+            },
+            {
+              "id": 2,
+              "title": "Comment l’accord de l’utilisateur est-il obtenu ?",
+              "link_knowledge_base": "",
+              "placeholder": "Décrivez comment le consentement est recueilli si celui-ci sert de base légale au traitement.",
+              "highlight_words": "",
+              "answer_type": "text",
+              "keywords": "",
+              "active": true
+            },
+            {
+              "id": 3,
+              "title": "Comment l’utilisateur peut-il exercer son droit d'accès et droit à la portabilité ?",
+              "link_knowledge_base": "",
+              "placeholder": "Décrivez quels sont les moyens mis en oeuvre afin de permettre aux personnes concernées d'exercer leurs droits.",
+              "highlight_words": "",
+              "answer_type": "text",
+              "keywords": "",
+              "active": true
+            },
+            {
+              "id": 4,
+              "title": "Comment l’utilisateur peut-il exercer son droit de rectification et droit d'effacement ?",
+              "link_knowledge_base": "",
+              "placeholder": "Décrivez quels sont les moyens mis en oeuvre afin de permettre aux personnes concernées d'exercer leurs droits.",
+              "highlight_words": "",
+              "answer_type": "text",
+              "keywords": "",
+              "active": true
+            },
+            {
+              "id": 5,
+              "title": "Comment l’utilisateur peut-il exercer son droit de limitation et droit d'opposition ?",
+              "link_knowledge_base": "",
+              "placeholder": "Décrivez quels sont les moyens mis en oeuvre afin de permettre aux personnes concernées d'exercer leurs droits.",
+              "highlight_words": "",
+              "answer_type": "text",
+              "keywords": "",
+              "active": true
+            },
+            {
+              "id": 6,
+              "title": "Avez-vous identifié et contractualisé vos sous-traitances ?",
+              "link_knowledge_base": "",
+              "placeholder": "Indiquez pour chaque sous-traitant son nom, la finalité et le périmètre de la sous-traitance, la référence du contrat de sous-traitance et la conformité à l'Art. 28 du RGPD.",
+              "highlight_words": "",
+              "answer_type": "text",
+              "keywords": "",
+              "active": true
+            },
+            {
+              "id": 7,
+              "title": "Où stockez-vous vos données ? Respectez-vous les obligations en cas de transfert en-dehors de l'UE ?",
+              "link_knowledge_base": "",
+              "placeholder": "Décrivez le lieu géographique de stockage des données collectées et utilisées par le traitement.",
               "highlight_words": "",
               "answer_type": "text",
               "keywords": "",
               "active": true
             }
-            // Etc ...
           ]
         }
       ]
@@ -209,24 +237,21 @@
       "id": 3,
       "title": "Risques",
       "display_mode": "by_items",
-      "link_knowledge_base": "",
-      "short_help": "TODO - Description de la section",
+      "short_help": "Un risque est un scénario hypothétique qui décrit un événement redouté et toutes les menaces qui permettraient qu'il survienne. Cette section vous permet de définir et qualifier les risques sur la vie privée des personnes concernées de votre traitement.",
       "items": [
         {
           // "MESURES EXISTANTES OU PREVUES"
           "id": 1,
           "title": "Mesures existantes ou prévues",
           "evaluation_mode": "question",
-          "link_knowledge_base": "",
-          "short_help": "TODO - Description de la sous-section"
+          "short_help": "Obtenir une bonne connaissance des mesures existantes ou prévues contribuant à la sécurité du traitement en les identifiant puis en évaluant leur pertinence."
         },
         {
-          // "RISQUE 1 : ACCES ILLEGITIME AUX DONNES
+          // "RISQUE 1 : ACCES ILLEGITIME AUX DONNES"
           "id": 2,
           "title": "Accès illégitime aux données",
           "evaluation_mode": "item",
-          "link_knowledge_base": "",
-          "short_help": "TODO - Description de la sous-section",
+          "short_help": "Obtenir une bonne compréhension des causes et conséquences d'un accès illégitime aux données en identifiant les sources de risques et les menaces potentielles et en les mettant en balance avec les mesures existantes ou prévues.",
           "questions": [
             {
               "id": 1,
@@ -270,7 +295,7 @@
             },
             {
               "id": 5,
-              "title": "Comment estimez-vous la gravité du risque d'accès illégitime aux données ?",
+              "title": "Comment estimez-vous la gravité d'un accès illégitime aux données ?",
               "link_knowledge_base": "",
               "placeholder": "Ajoutez votre description.",
               "highlight_words": "gravité du risque",
@@ -280,7 +305,7 @@
             },
             {
               "id": 6,
-              "title": "Comment estimez-vous la vraissemblance du risque d'accès illégitime aux données ?",
+              "title": "Comment estimez-vous la vraissemblance d'un accès illégitime aux données ?",
               "link_knowledge_base": "",
               "placeholder": "Ajoutez votre description.",
               "highlight_words": "vraissemblance du risque",
@@ -293,10 +318,9 @@
         {
           // "RISQUE 2 : MODIFICATIONS DE DONNEES"
           "id": 3,
-          "title": "Modifications de données",
+          "title": "Modifications non désirées de données",
           "evaluation_mode": "item",
-          "link_knowledge_base": "",
-          "short_help": "TODO - Description de la sous-section",
+          "short_help": "Obtenir une bonne compréhension des causes et conséquences de modifications non désirées de données en identifiant les sources de risques et les menaces potentielles et en les mettant en balance avec les mesures existantes ou prévues.",
           "questions": [
             {
               "id": 1,
@@ -340,7 +364,7 @@
             },
             {
               "id": 5,
-              "title": "Comment estimez-vous la gravité du risque de modifications de données ?",
+              "title": "Comment estimez-vous la gravité d'une modifications de données ?",
               "link_knowledge_base": "",
               "placeholder": "Ajoutez votre description.",
               "highlight_words": "gravité du risque",
@@ -350,7 +374,7 @@
             },
             {
               "id": 6,
-              "title": "Comment estimez-vous la vraissemblance du risque de modifications de données ?",
+              "title": "Comment estimez-vous la vraissemblance d'une modifications de données ?",
               "link_knowledge_base": "",
               "placeholder": "Ajoutez votre description.",
               "highlight_words": "vraissemblance du risque",
@@ -365,12 +389,11 @@
           "id": 4,
           "title": "Disparition de données",
           "evaluation_mode": "item",
-          "link_knowledge_base": "",
-          "short_help": "TODO - Description de la sous-section",
+          "short_help": "Obtenir une bonne compréhension des causes et conséquences d'une disparition de données en identifiant les sources de risques et les menaces potentielles et en les mettant en balance avec les mesures existantes ou prévues.",
           "questions": [
             {
               "id": 1,
-              "title": "Quelles sont les sources pertinentes pour ce risque ?",
+              "title": "Quelles sont les principales sources de risque ?",
               "link_knowledge_base": "",
               "placeholder": "Entrez votre source.",
               "highlight_words": "sources",
@@ -380,7 +403,7 @@
             },
             {
               "id": 2,
-              "title": "Quelles sont les menaces qui pourraient permettre la réalisation de ce risque ?",
+              "title": "Quelles sont les principales menaces qui pourraient permettre la réalisation de ce risque ?",
               "link_knowledge_base": "",
               "placeholder": "Entrez votre source.",
               "highlight_words": "menaces",
@@ -390,7 +413,7 @@
             },
             {
               "id": 3,
-              "title": "Quels peuvent être les impacts sur les personnes concernées si le risque se produisait ?",
+              "title": "Quels peuvent être les principaux impacts sur les personnes concernées si le risque se produisait ?",
               "link_knowledge_base": "",
               "placeholder": "Entrez votre source.",
               "highlight_words": "impacts sur les personnes",
@@ -400,7 +423,7 @@
             },
             {
               "id": 4,
-              "title": "Quelles sont les mesures, parmi celles identifiées qui contribuent à traiter ce risque ?",
+              "title": "Quelles sont les mesures, parmi celles identifiées, qui contribuent à traiter ce risque ?",
               "link_knowledge_base": "",
               "placeholder": "Entrez votre source.",
               "highlight_words": "mesures",
@@ -410,7 +433,7 @@
             },
             {
               "id": 5,
-              "title": "Comment estimez-vous la gravité du risque de disparition de données ?",
+              "title": "Comment estimez-vous la gravité d'une disparition de données ?",
               "link_knowledge_base": "",
               "placeholder": "Ajoutez votre description.",
               "highlight_words": "gravité du risque",
@@ -420,7 +443,7 @@
             },
             {
               "id": 6,
-              "title": "Comment estimez-vous la vraissemblance du risque de disparition de données ?",
+              "title": "Comment estimez-vous la vraissemblance d'une disparition de données ?",
               "link_knowledge_base": "",
               "placeholder": "Ajoutez votre description.",
               "highlight_words": "vraissemblance du risque",
@@ -432,16 +455,13 @@
         },
         {
           // "VUE D'ENSEMBLE DES RISQUES"
-          // Pour cette sous-section : remplir "short_help" puis laisser le reste comme tel.
           "id": 5,
           "title": "Vue d'ensemble des risques",
           "evaluation_mode": "",
-          "link_knowledge_base": "",
-          "short_help": "TODO - Description de la sous-section",
+          "short_help": "",
           "type": ""
         }
       ]
     }
   ]
 }
-

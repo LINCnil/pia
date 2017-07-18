@@ -1,12 +1,13 @@
 <div class="pia-attachmentsBlock">
   <p>Pièces jointes</p>
 
-  <app-attachment-item></app-attachment-item>
-  <app-attachment-item></app-attachment-item>
-  <app-attachment-item></app-attachment-item>
+  <app-attachment-item *ngFor="let attachment of attachments" [attachment]="attachment"></app-attachment-item>
 
-  <button class="pia-attachmentsBlock-addBtn btn" type="button" (click)="addAttachment()" title="Ajouter">
-    <span class="pia-icons pia-icon-add"></span>
-    Ajouter
-  </button>
+  <form enctype="multipart/form-data" [formGroup]="attachmentForm">
+    <input type="file" formControlName="attachment_file" id="attachment_file" (change)="uploadAttachement($event)" class="hide">
+    <button class="pia-attachmentsBlock-addBtn btn" type="button" (click)="addAttachment()" title="Ajouter">
+      <span class="pia-icons pia-icon-add"></span>
+      Ajouter
+    </button>
+  </form>
 </div>

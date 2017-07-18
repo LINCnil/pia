@@ -1,7 +1,7 @@
 <div class="pia-attachmentsBlock-item">
   <span class="pia-icons pia-icon-file-pdf-blue"></span>
-  <div>Admin_serveur.pdf</div>
-  <button type="button" class="btn" (click)="deleteAttachment()" title="Supprimer">
+  <a href="javascript:;" (click)="downloadAttachment(attachment.id)">{{attachment.name}}</a>
+  <button type="button" class="btn" (click)="deleteAttachment(attachment.id, $event)" title="Supprimer">
     <span class="pia-icons pia-icon-close"></span>
   </button>
 </div>
