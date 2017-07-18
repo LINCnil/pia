@@ -24,7 +24,7 @@ export class Comment extends applicationDb {
   async update(id) {
     this.find(id).then((entry: any) => {
       entry.description = this.description;
-      entry.udpated_at = new Date();
+      entry.updated_at = new Date();
       this.objectStore.put(entry);
     });
   }

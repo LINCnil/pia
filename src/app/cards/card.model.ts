@@ -27,7 +27,7 @@ export class Card extends applicationDb {
     await this.getObjectStore();
     return new Promise((resolve, reject) => {
       this.objectStore.add({
-        name: name, author_name: this.author_name, evaluator_name: this.evaluator_name, validator_name: this.validator_name,
+        name: this.name, author_name: this.author_name, evaluator_name: this.evaluator_name, validator_name: this.validator_name,
         created_at: this.created_at, updated_at: new Date(), status: 1
       }).onsuccess = (event: any) => {
         resolve(event.target.result);
