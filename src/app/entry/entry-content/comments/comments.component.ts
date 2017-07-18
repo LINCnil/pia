@@ -1,7 +1,7 @@
-import {Component, ElementRef, OnInit} from '@angular/core';
-import {FormArray, FormControl, FormGroup} from '@angular/forms';
+import { Component, ElementRef, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 import { ModalsComponent } from '../../../modals/modals.component';
-import {Comment} from './comments.model';
+import { Comment } from './comments.model';
 
 @Component({
   selector: 'app-comments',

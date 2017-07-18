@@ -1,21 +1,19 @@
 import { applicationDb } from "../../../application.db";
 
-export class Evaluation extends applicationDb {
+export class Measure extends applicationDb {
   public id: number;
   public pia_id: number;
-  public status: string;
-  public reference_to: string;
-  public action_plan_comment: string;
-  public evaluation_comment: string;
-  public evaluation_date: Date;
-  public gauges: string;
-  public estimated_evaluation_date: Date;
-  public person_in_charge: string;
+  public title: string;
+  public rank: number;
+  public content: string;
   public created_at: Date;
   public updated_at: Date;
 
-  constructor() {
-    super(201707071818, 'evaluation');
+  constructor(id: number = null, title: string = null, content: string = null) {
+    super(201707071818, 'measure');
+    this.id = id;
+    this.title = title;
+    this.content = content;
   }
 
   async create() {

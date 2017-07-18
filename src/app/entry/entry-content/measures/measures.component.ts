@@ -1,7 +1,7 @@
 import { Component,Input, ElementRef, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ModalsComponent } from '../../../modals/modals.component';
-
+import {Measure} from './measure.model';
 @Component({
   selector: 'app-measures',
   templateUrl: './measures.component.html',
