@@ -1,0 +1,86 @@
+@import '../../../../assets/stylesheets/variables';
+
+// Measures block
+.pia {
+  &-measureBlock {
+    position: relative;
+    margin-bottom: 10px;
+    background-color: #fff;
+    padding: 5px 40px 5px 40px;
+    box-shadow: 1px 1px 15px 1px rgba(210,210,210,1);
+    &-title {
+      position: relative;
+      font-size: 1.75rem;
+      margin-bottom: 3px;
+      button {
+        position: absolute;
+        left: -25px;
+        top: 50%;
+        margin-top: -8.5px;
+      }
+      input {
+        border: none;
+        width: 100%;
+        background-color: $pia-white;
+        font-size: 1.75rem;
+        padding: 4px 0;
+        padding-left: 12px;
+        color: $pia-dark-black;
+        &::placeholder {
+          font-style: italic;
+          color: $pia-gray;
+        }
+        &:disabled {
+          background-color: transparent;
+          color: $pia-dark-black;
+        }
+      }
+    }
+    &-edit, &-delete {
+      z-index: 999;
+      color: $pia-red;
+      position: absolute;
+      top: 16px;
+      right: 20px;
+      font-size: 1.9rem;
+    }
+    &-edit {
+      color: $pia-gray;
+    }
+    &-content {
+      padding: 0;
+      textarea {
+        resize: none;
+        display: block;
+        width: 100%;
+        background-color: $pia-white;
+        border: 0;
+        padding: 5px 12px;
+        font-size: 1.35rem;
+        color: $pia-dark-black;
+        &::placeholder {
+          font-style: italic;
+        }
+        &:disabled {
+          background-color: transparent;
+          color: $pia-dark-black;
+        }
+      }
+    }
+    &-date {
+      display: inline-block;
+      width: 50%;
+      color: $pia-gray;
+      font-size: 1rem;
+    }
+  }
+}
+
+.pia {
+  &-measureBlock {
+    &.approved {
+      border: 1px solid $pia-gray;
+      box-shadow: none;
+    }
+  }
+}

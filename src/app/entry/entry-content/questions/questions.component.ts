@@ -1,5 +1,5 @@
-import {Component, ElementRef, OnInit} from '@angular/core';
-import {FormArray, FormControl, FormGroup} from '@angular/forms';
+import { Component, Input, ElementRef, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-questions',
@@ -8,30 +8,24 @@ import {FormArray, FormControl, FormGroup} from '@angular/forms';
 })
 export class QuestionsComponent implements OnInit {
 
+  @Input() id: string;
   questionForm: FormGroup;
 
   constructor(private el: ElementRef) { }
 
   ngOnInit() {
     this.questionForm = new FormGroup({
-      textarea: new FormControl()
+      questionContent: new FormControl()
     });
-  }
-
-  /**
-   * Hides edit button for the question field.
-   */
-  questionTextareaFocus() {
-    this.hideEditButton();
   }
 
   /**
    * Disables question field + shows edit button + save data.
    */
-  questionTextareaFocusOut() {
-    if (this.questionForm.value.textarea && this.questionForm.value.textarea.length > 0) {
+  questionContentFocusOut() {
+    if (this.questionForm.value.questionContent && this.questionForm.value.questionContent.length > 0) {
       this.showEditButton();
-      this.questionForm.controls['textarea'].disable();
+      this.questionForm.controls['questionContent'].disable();
     }
     // Saving data here
   }
@@ -41,7 +35,7 @@ export class QuestionsComponent implements OnInit {
    */
   activateQuestionEdition() {
     this.hideEditButton();
-    this.questionForm.controls['textarea'].enable();
+    this.questionForm.controls['questionContent'].enable();
   }
 
   /**

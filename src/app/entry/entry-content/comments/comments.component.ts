@@ -33,10 +33,10 @@ export class CommentsComponent implements OnInit {
 
     // Opens comments list if it's closed.
     const accordeonButton = this.el.nativeElement.querySelector('.pia-commentsBlock-btn button span');
-    if (accordeonButton && !accordeonButton.classList.contains('pia-icon-accordeon-down')) {
+    const commentsList = this.el.nativeElement.querySelector('.pia-commentsBlock-list');
+    if (commentsList.classList.contains('close')) {
       accordeonButton.classList.toggle('pia-icon-accordeon-down');
     }
-    const commentsList = this.el.nativeElement.querySelector('.pia-commentsBlock-list');
     commentsList.classList.remove('close');
     newCommentBox.classList.toggle('open');
   }
@@ -51,7 +51,7 @@ export class CommentsComponent implements OnInit {
       if (this.comments.length > 0 && this.comments[0].description === this.commentsForm.value.description) {
         this.modal.openModal('modal-same-comment');
       } else {
-        // Creates the new comment and pushes it as the first comment in list
+        // Creates the new comment and pushes it as the first comment in list.
         // Updates accordeon and counter + removes the written comment.
         const commentRecord = new Comment(null, this.commentsForm.value.description);
         this.comments.unshift(commentRecord);

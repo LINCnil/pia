@@ -78,32 +78,4 @@
   </div>
 </main>
 
-<div class="pia-modalBlock" id="modal-abandon-pia">
-  <div class="pia-modalBlock-abandonPIA bounceIn">
-    <button type="button" class="pia-modalBlock-close btn" title="Fermer"><span (click)="this.modal.closeModal()" class="pia-icons pia-icon-close-big"></span></button>
-    <p>
-      Êtes-vous sûr de vouloir<br>
-      abandonner le traitement Captoo ?
-    </p>
-    <div class="pia-modalBlock-buttons-choice">
-      <button class="btn btn-red btn-active" type="button" title="Supprimer et archiver">Supprimer <br>et archiver</button>
-      <button class="btn btn-red" type="button" (click)="this.modal.closeModal()" title="Reprendre">Reprendre</button>
-    </div>
-  </div>
-</div>
-
-<div class="pia-modalBlock" id="modal-refuse-pia">
-  <div class="pia-modalBlock-refusedPIA bounceIn">
-    <button type="button" class="pia-modalBlock-close btn" title="Fermer"><span (click)="this.modal.closeModal()" class="pia-icons pia-icon-close-big"></span></button>
-    <p>
-      <span class="strong">PIA refusé,</span><br>
-      Plusieurs champs doivent être corrigés.<br>
-      Retour au monde d'évaluation<br>
-      pour apporter des corrections.
-    </p>
-    <span class="pia-icons pia-icon-sorry"></span>
-    <div class="pia-modalBlock-validate">
-      <button class="btn btn-green" type="button" (click)="this.modal.closeModal()" title="Continuer">Continuer</button>
-    </div>
-  </div>
-</div>
+<app-modals></app-modals>

@@ -23,7 +23,6 @@ import { CommentsComponent } from './entry/entry-content/comments/comments.compo
 import { CommentItemComponent } from './entry/entry-content/comments/comment-item/comment-item.component';
 import { EvaluationsComponent } from './entry/entry-content/evaluations/evaluations.component';
 import { QuestionsComponent } from './entry/entry-content/questions/questions.component';
-import { QuestionTextItemComponent } from './entry/entry-content/questions/question-text-item/question-text-item.component';
 import { RisksCartographyComponent } from './entry/risks-cartography/risks-cartography.component';
 import { ActionPlanComponent } from './entry/action-plan/action-plan.component';
 import { DPOPeopleOpinionsComponent } from './entry/dpo-people-opinions/dpo-people-opinions.component';
@@ -35,6 +34,7 @@ import { SettingsComponent } from './settings/settings.component';
 import { HelpComponent } from './help/help.component';
 import { GaugeComponent } from './entry/gauge/gauge.component';
 import { ModalsComponent } from './modals/modals.component';
+import { MeasuresComponent } from './entry/entry-content/measures/measures.component';
 
 const appRoutes: Routes = [
   { path: '', component: AuthenticationComponent },
@@ -70,7 +70,6 @@ const appRoutes: Routes = [
     CommentItemComponent,
     EvaluationsComponent,
     QuestionsComponent,
-    QuestionTextItemComponent,
     RisksCartographyComponent,
     ActionPlanComponent,
     DPOPeopleOpinionsComponent,
@@ -81,7 +80,8 @@ const appRoutes: Routes = [
     SettingsComponent,
     HelpComponent,
     GaugeComponent,
-    ModalsComponent
+    ModalsComponent,
+    MeasuresComponent
   ],
   imports: [
     BrowserModule,

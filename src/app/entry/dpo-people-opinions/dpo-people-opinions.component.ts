@@ -29,8 +29,7 @@ export class DPOPeopleOpinionsComponent implements OnInit {
    */
   DPOFocusOut() {
     if (this.DPOForm.value.DPOOpinion && this.DPOForm.value.DPOOpinion.length > 0 && this.DPOForm.controls['DPOStatus'].dirty) {
-      this.DPOForm.controls['DPOStatus'].disable();
-      this.DPOForm.controls['DPOOpinion'].disable();
+      this.DPOForm.disable();
       this.showDPOEditButton();
     }
     // Saving data here
@@ -41,8 +40,7 @@ export class DPOPeopleOpinionsComponent implements OnInit {
    */
   activateDPOEdition() {
     this.hideDPOEditButton();
-    this.DPOForm.controls['DPOStatus'].enable();
-    this.DPOForm.controls['DPOOpinion'].enable();
+    this.DPOForm.enable();
   }
 
   /**
@@ -66,8 +64,7 @@ export class DPOPeopleOpinionsComponent implements OnInit {
    */
   peopleFocusOut() {
     if (this.peopleForm.value.peopleOpinion && this.peopleForm.value.peopleOpinion.length > 0 && this.peopleForm.controls['peopleStatus'].dirty) {
-      this.peopleForm.controls['peopleStatus'].disable();
-      this.peopleForm.controls['peopleOpinion'].disable();
+      this.peopleForm.disable();
       this.showPeopleEditButton();
     }
     // Saving data here
@@ -78,8 +75,7 @@ export class DPOPeopleOpinionsComponent implements OnInit {
    */
   activatePeopleEdition() {
     this.hidePeopleEditButton();
-    this.peopleForm.controls['peopleStatus'].enable();
-    this.peopleForm.controls['peopleOpinion'].enable();
+    this.peopleForm.enable();
   }
 
   /**

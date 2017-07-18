@@ -1,7 +1,11 @@
 <div class="pia-commentsBlock">
   <div class="pia-commentsBlock-count">{{nbComments}} commentaire(s)</div>
   <div class="pia-commentsBlock-infos">
-    <time datetime="2016-12-12" class="pia-commentsBlock-date">le 12/12/2016</time>
+    <!--
+      TODO : Show time html tag after first edition on a "question" OR "measure".
+      By default it's hidden, but should appear after at least one update.
+    -->
+    <time datetime="2016-12-12" style="visibility:hidden;" class="pia-commentsBlock-date">le 12/12/2016</time>
     <div class="pia-commentsBlock-btn">
       <button class="btn" type="button" (click)="toggleNewCommentBox()" title="Commenter"><i class="fa fa-comment-o" aria-hidden="true"></i> Commenter</button>
       <button class="btn" *ngIf="getCommentsAccordeonStatus()" (click)="displayCommentsList()" type="button" title="Afficher / masquer"><span class="pia-icons pia-icon-accordeon-up"></span></button>

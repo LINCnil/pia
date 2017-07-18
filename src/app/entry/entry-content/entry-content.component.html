@@ -27,9 +27,33 @@
     ... section 3
   </div>
 -->
-<header *ngIf="getCurrentSection() == 'context'">
-    header de context
-</header>
+<section class="pia-entryContentBlock">
+  <header *ngIf="getCurrentSection() == 'context'">
+      header de context
+  </header>
 
-<app-questions></app-questions>
-<app-questions></app-questions>
+  <app-measures id="1"></app-measures>
+  <app-measures id="2"></app-measures>
+
+  <app-questions id="1"></app-questions>
+  <app-questions id="2"></app-questions>
+
+  <footer class="pia-entryContentBlock-footer">
+    <button class="btn btn-inactive" disabled type="submit" title="Demander l'évaluation">Demander l'évaluation</button>
+    <button class="btn btn-green btn-active" (click)="askForEvaluation()" type="submit" title="Demander l'évaluation">Demander l'évaluation</button>
+
+    <button class="btn btn-inactive" disabled type="submit" title="Valider l'évaluation">Valider l'évaluation</button>
+    <button class="btn btn-green btn-active" (click)="validateEvaluation()" type="submit" title="Valider l'évaluation">Valider l'évaluation</button>
+
+    <button class="btn btn-pending-validation" disabled type="submit" title="Partie évaluée, en attente de la validation finale">
+      <i class="fa fa-check-square-o" aria-hidden="true"></i>
+      Partie évaluée, en attente de la validation finale
+    </button>
+
+    <p>Tous les champs doivent être remplis</p>
+    <div class="pia-entryContentBlock-footer-nav">
+      <a href="#"><< Contexte </a>
+      <a href="#">Principes fondamentaux >></a>
+    </div>
+  </footer>
+</section>

@@ -72,7 +72,7 @@
     }
   }
 
-  &-pending-validation {
+  &-pending-validation, &-pending-validation[disabled] {
     font-size: 1.3rem;
     cursor: not-allowed;
     border: 1px solid $pia-blue;
@@ -82,6 +82,9 @@
       font-size: 1.8rem;
       margin-right: 8px;
       vertical-align: -3px;
+    }
+    &:focus, &:hover, &:active {
+      color: $pia-blue;
     }
   }
 }

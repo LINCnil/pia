@@ -132,18 +132,4 @@
   </div>
 </main>
 
-<div class="pia-modalBlock" id="modal-accepted-pia">
-  <div class="pia-modalBlock-acceptedPIA bounceIn">
-    <button type="button" class="pia-modalBlock-close btn" title="Fermer"><span (click)="this.modal.closeModal()" class="pia-icons pia-icon-close-big"></span></button>
-    <p>
-      <span class="strong">Le PIA est accepté</span><br>
-      Finalisez la validation du PIA en attachant<br>
-      en pièce jointe le rapport signé par le responsable.
-    </p>
-    <span class="pia-icons pia-icon-happy"></span>
-    <div class="pia-modalBlock-buttons-choice">
-      <button class="btn btn-green btn-active" type="button" title="Retour à l'accueil" (click)="returnToHomepage()">Retour à l'accueil</button>
-      <button class="btn btn-green" type="button" title="Exporter le rapport PIA">Exporter<br>le rapport PIA</button>
-    </div>
-  </div>
-</div>
+<app-modals></app-modals>

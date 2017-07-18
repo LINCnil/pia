@@ -6,7 +6,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./modals.component.scss']
 })
 export class ModalsComponent implements OnInit {
-
   constructor() { }
 
   ngOnInit() {
@@ -30,10 +29,27 @@ export class ModalsComponent implements OnInit {
     modal.classList.remove('open');
   }
 
+  /**
+   * Allows an user to remove a measure ("RISKS" section).
+   */
+  removeMeasure() {
+    const measure_id = localStorage.getItem('measure-id');
+    const measureToRemove = document.querySelector(".pia-measureBlock[data-id='" + measure_id + "']");
+    localStorage.removeItem('measure-id');
+    measureToRemove.remove();
+    this.closeModal();
+  }
+
+  /**
+   *
+   */
   abandonTreatment() {
     // TODO
   }
 
+  /**
+   *
+   */
   exportPIAReport() {
     // TODO
   }
