@@ -1,6 +1,6 @@
 import { applicationDb } from "../../../application.db";
 
-export class Card extends applicationDb {
+export class Evaluation extends applicationDb {
   public id: number;
   public pia_id: number;
   public status: string;

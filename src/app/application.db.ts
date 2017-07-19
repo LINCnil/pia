@@ -37,6 +37,8 @@ export class applicationDb {
           objectStore.createIndex("reference_to", "reference_to", { unique: false });
         } else if(this.tableName == 'measure') {
           objectStore.createIndex("pia_id", "pia_id", { unique: false });
+        } else if(this.tableName == 'attachment') {
+          objectStore.createIndex("pia_id", "pia_id", { unique: false });
         }
       };
     });

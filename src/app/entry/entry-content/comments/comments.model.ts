@@ -1,3 +1,7 @@
+/* Might be useless with the new comment model */
+/* But this model is used in comments.component.ts with ngFor on comments[] */
+/* TODO : fix this functionnality using the new Comment model */
+
 export class Comment {
   public id: number;
   public description: string;
