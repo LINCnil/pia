@@ -4,101 +4,47 @@
     <a class="pia-icons pia-icon-close-big" routerLink="/home" title="Retourner à l'accueil"></a>
   </div>
 
-  <!-- TODO : add json data for sections / links -->
-  <div class="pia-sectionBlock pia-sectionBlock-first">
-    <div class="pia-sectionBlock-title">Contexte
-      <hr>
+  <div class="pia-sectionBlock-body">
+    <div *ngFor="let section of data?.sections">
+      <div class="pia-sectionBlock-title">
+        {{ section.title }}
+        <hr>
+      </div>
+      <ul class="pia-sectionBlock-list">
+        <li *ngFor="let item of section?.items">
+          <a href="#">{{item.title}}</a>
+          <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+        </li>
+      </ul>
     </div>
-    <ul class="pia-sectionBlock-list">
-      <li>
-        <a href="#">Description du produit</a>
-        <i class="fa fa-cog" aria-hidden="true"></i>
-      </li>
-      <li>
-        <a href="#">Données</a>
-        <i class="fa fa-check-square-o" aria-hidden="true"></i>
-      </li>
-      <li>
-        <a href="#">Cycle de vie des données</a>
-        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-      </li>
-      <li>
-        <a href="#">Supports des données</a>
-        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-      </li>
-    </ul>
-  </div>
 
-  <div class="pia-sectionBlock pia-sectionBlock-second">
-    <div class="pia-sectionBlock-title">Principes Fondamentaux
-      <hr>
+    <!-- Static section and links -->
+    <div>
+      <div class="pia-sectionBlock-title"> Validation du Pia
+        <hr>
+      </div>
+      <ul class="pia-sectionBlock-list">
+        <li>
+          <a routerLink="/entry/5/risks-cartography">Carthographie des risques</a>
+          <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+        </li>
+        <li>
+          <a routerLink="/entry/5/action-plan">Plan d'action</a>
+          <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+        </li>
+        <li>
+          <a routerLink="/entry/5/dpo-and-people-opinions">Avis du DPO et des personnes</a>
+          <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+        </li>
+      </ul>
     </div>
-    <ul class="pia-sectionBlock-list">
-      <li>
-        <a href="#">Proportionnalité et nécessité</a>
-        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-      </li>
-      <li>
-        <a href="#">Mesures protectrices des droits</a>
-        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-      </li>
-    </ul>
   </div>
-
-  <div class="pia-sectionBlock pia-sectionBlock-third">
-    <div class="pia-sectionBlock-title"> Risques
-      <hr>
-    </div>
-    <ul class="pia-sectionBlock-list">
-      <li>
-        <a href="#">Mesures existantes ou prévues</a>
-        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-      </li>
-      <li>
-        <a href="#">Accès illégitime aux données</a>
-        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-      </li>
-      <li>
-        <a href="#">Modifications de données</a>
-        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-      </li>
-      <li>
-        <a href="#">Disparition de données</a>
-        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-      </li>
-      <li>
-        <a href="#">Vue d'ensemble des risques</a>
-        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-      </li>
-    </ul>
-  </div>
-
-  <!-- Static section and links -->
-  <div class="pia-sectionBlock pia-sectionBlock-fourth">
-    <div class="pia-sectionBlock-title"> Validation du Pia
-      <hr>
-    </div>
-    <ul class="pia-sectionBlock-list">
-      <li>
-        <a routerLink="/entry/5/risks-cartography">Carthographie des risques</a>
-        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-      </li>
-      <li>
-        <a routerLink="/entry/5/action-plan">Plan d'action</a>
-        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-      </li>
-      <li>
-        <a routerLink="/entry/5/dpo-and-people-opinions">Avis du DPO et des personnes</a>
-        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-      </li>
-    </ul>
-  </div>
-
 </div>
+
 <div class="pia-validatePIABlock">
   <!-- TODO : add adequate links (2 components : validatePIAComponent / refusePIAComponent ) -->
   <a routerLink="/entry/5/validate-PIA" class="btn" disabled title="Valider le PIA">Valider le PIA</a>
-  <a routerLink="/entry/5/validate-PIA" class="btn btn-red btn-active" title="Valider le PIA">Valider le PIA</a>
-  <a routerLink="/entry/5/refuse-PIA" class="btn btn-red btn-active" title="PIA refusé">PIA refusé</a>
+  <a routerLink="/entry/5/validate-PIA" class="btn btn-red btn-active hide" title="Valider le PIA">Valider le PIA</a>
+  <a routerLink="/entry/5/refuse-PIA" class="btn btn-red btn-active hide" title="PIA refusé">PIA refusé</a>
 </div>
 <app-attachments></app-attachments>

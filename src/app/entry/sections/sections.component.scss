@@ -70,10 +70,7 @@
         }
       }
     }
-    &-first,
-    &-second,
-    &-third,
-    &-fourth {
+    &-body {
       hr {
         width: 100%;
       }
@@ -84,61 +81,63 @@
           width: 82%;
         }
       }
-    }
-    &-first {
-      .pia-sectionBlock-title {
-        color: $pia-green;
-        border-color: $pia-green;
-      }
-      hr {
-        max-width: 164px;
-      }
-      a {
-        &:focus, &:hover, &:active {
-          background-color: $pia-green;
+      > div {
+        &:first-child {
+          .pia-sectionBlock-title {
+            color: $pia-green;
+            border-color: $pia-green;
+          }
+          hr {
+            max-width: 164px;
+          }
+          a {
+            &:focus, &:hover, &:active {
+              background-color: $pia-green;
+            }
+          }
         }
-      }
-    }
-    &-second {
-      .pia-sectionBlock-title {
-        color: $pia-blue;
-        border-color: $pia-blue;
-      }
-      hr {
-        max-width: 62px;
-      }
-      a {
-        &:focus, &:hover, &:active {
-          background-color: $pia-blue;
+        &:nth-child(2) {
+          .pia-sectionBlock-title {
+            color: $pia-blue;
+            border-color: $pia-blue;
+          }
+          hr {
+            max-width: 62px;
+          }
+          a {
+            &:focus, &:hover, &:active {
+              background-color: $pia-blue;
+            }
+          }
         }
-      }
-    }
-    &-third {
-      .pia-sectionBlock-title {
-        color: $pia-red;
-        border-color: $pia-red;
-      }
-      hr {
-        max-width: 182px;
-      }
-      a {
-        &:focus, &:hover, &:active {
-          background-color: $pia-red;
+        &:nth-child(3) {
+          .pia-sectionBlock-title {
+            color: $pia-red;
+            border-color: $pia-red;
+          }
+          hr {
+            max-width: 182px;
+          }
+          a {
+            &:focus, &:hover, &:active {
+              background-color: $pia-red;
+            }
+          }
         }
-      }
-    }
-    &-fourth {
-      .pia-sectionBlock-title {
-        color: $pia-dark-black;
-        border-color: $pia-dark-black;
-        display: block;
-      }
-      hr {
-        display: none;
-      }
-      a {
-        &:focus, &:hover, &:active {
-          background-color: $pia-dark-black;
+        &:last-child {
+          .pia-sectionBlock-title {
+            color: $pia-dark-black;
+            border-color: $pia-dark-black;
+            display: block;
+          }
+          hr {
+            display: none;
+          }
+          a {
+            &:focus, &:hover, &:active {
+              background-color: $pia-dark-black;
+            }
+          }
         }
       }
     }
