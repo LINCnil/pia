@@ -1,14 +1,12 @@
 {
   "sections": [
     {
-      // "CONTEXTE"
       "id": 1,
       "title": "Contexte",
       "display_mode": "all_items",
       "short_help": "Cette section vous permet de contextualiser et d'obtenir une vision claire des traitements de données personnelles considérés.",
       "items": [
         {
-          // "DESCRIPTION DU PRODUIT"
           "id": 1,
           "title": "Description du produit",
           "evaluation_mode": "section",
@@ -27,7 +25,6 @@
           ]
         },
         {
-          // "DONNEES"
           "id": 2,
           "title": "Données traitées",
           "evaluation_mode": "section",
@@ -46,7 +43,6 @@
           ]
         },
         {
-          // "CYCLE DE VIE DES DONNEES"
           "id": 3,
           "title": "Cycle de vie des données",
           "evaluation_mode": "section",
@@ -65,7 +61,6 @@
           ]
         },
         {
-          // "SUPPORT DES DONNEES"
           "id": 4,
           "title": "Supports des données",
           "evaluation_mode": "section",
@@ -86,14 +81,12 @@
       ]
     },
     {
-      // "PRINCIPES FONDAMENTAUX"
       "id": 2,
       "title": "Principes fondamentaux",
       "display_mode": "by_item",
       "short_help": "Cette section vous permet de bâtir le dispositif de conformité aux principes de protection de la vie privée.",
       "items": [
         {
-          // "PROPORTIONNALITE ET NECESSITE"
           "id": 1,
           "title": "Proportionnalité et nécessité",
           "evaluation_mode": "question",
@@ -151,7 +144,6 @@
             }
           ]
         },
-        // "MESURES PROTECTRICES DES DROITS"
         {
           "id": 2,
           "title": "Mesures protectrices des droits",
@@ -233,21 +225,18 @@
       ]
     },
     {
-      // "RISQUES"
       "id": 3,
       "title": "Risques",
       "display_mode": "by_items",
       "short_help": "Un risque est un scénario hypothétique qui décrit un événement redouté et toutes les menaces qui permettraient qu'il survienne. Cette section vous permet de définir et qualifier les risques sur la vie privée des personnes concernées de votre traitement.",
       "items": [
         {
-          // "MESURES EXISTANTES OU PREVUES"
           "id": 1,
           "title": "Mesures existantes ou prévues",
           "evaluation_mode": "question",
           "short_help": "Obtenir une bonne connaissance des mesures existantes ou prévues contribuant à la sécurité du traitement en les identifiant puis en évaluant leur pertinence."
         },
         {
-          // "RISQUE 1 : ACCES ILLEGITIME AUX DONNES"
           "id": 2,
           "title": "Accès illégitime aux données",
           "evaluation_mode": "item",
@@ -316,7 +305,6 @@
           ]
         },
         {
-          // "RISQUE 2 : MODIFICATIONS DE DONNEES"
           "id": 3,
           "title": "Modifications non désirées de données",
           "evaluation_mode": "item",
@@ -385,7 +373,6 @@
           ]
         },
         {
-          // "RISQUE 3 : DISPARITION DE DONNEES"
           "id": 4,
           "title": "Disparition de données",
           "evaluation_mode": "item",
@@ -454,7 +441,6 @@
           ]
         },
         {
-          // "VUE D'ENSEMBLE DES RISQUES"
           "id": 5,
           "title": "Vue d'ensemble des risques",
           "evaluation_mode": "",
