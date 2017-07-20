@@ -8,33 +8,35 @@
     <div class="pia-cardsBlock-item pia-doingBlock-item">
       <div class="pia-cardsBlock-toolbar">
           <div class="pia-cardsBlock-toolbar-edit">
-              <button type="submit" class="btn pia-cardsBlock-toolbar-editBtn" title="Éditer" (click)="activateEdition()"><i class="fa fa-pencil" aria-hidden="true"></i></button>
-              <div class="pia-cardsBlock-toolbar-editHint">
-                  <span class="pia-icons pia-icon-green-hint-arrow"></span>Éditer
-              </div>
+            <a href="javascript:;" (click)="activateEdition()" class="btn pia-tooltip">
+              <i class="fa fa-pencil" aria-hidden="true"></i>
+              <span class="pia-tooltip-text">Éditer</span>
+            </a>
           </div>
           <div class="pia-cardsBlock-toolbar-export">
-              <button type="button" class="btn" title="Exporter"><i class="fa fa-download" aria-hidden="true"></i></button>
-              <div class="pia-cardsBlock-toolbar-exportHint">
-                  <span class="pia-icons pia-icon-green-hint-arrow"></span>Exporter
-              </div>
+            <a href="javascript:;" onclick="alert('Bientôt disponible.');" class="btn pia-tooltip">
+              <i class="fa fa-download" aria-hidden="true"></i>
+              <span class="pia-tooltip-text">Exporter</span>
+            </a>
           </div>
           <div class="pia-cardsBlock-toolbar-more">
-              <button type="button" class="btn" title=""><i class="fa fa-ellipsis-h" aria-hidden="true"></i></button>
+            <a href="javascript:;" class="btn pia-tooltip" title="Plus">
+              <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
               <ul class="pia-cardsBlock-toolbar-moreList">
-                  <li>
-                      <i class="fa fa-files-o" aria-hidden="true"></i>
-                      <button type="button" class="btn">Dupliquer</button>
-                  </li>
-                  <li>
-                      <i class="fa fa-file-excel-o" aria-hidden="true"></i>
-                      <button type="button" class="btn">Export du<br>plan d'action</button>
-                  </li>
-                  <li>
-                      <i class="fa fa-trash-o" aria-hidden="true"></i>
-                      <button type="button" class="btn" (click)="delete(card.id)">Supprimer</button>
-                  </li>
+                <li>
+                  <i class="fa fa-files-o" aria-hidden="true"></i>
+                  <a href="javascript:;" onclick="alert('Bientôt disponible.');">Dupliquer</a>
+                </li>
+                <li>
+                  <i class="fa fa-file-excel-o" aria-hidden="true"></i>
+                  <a href="javascript:;">Export du<br>plan d'action</a>
+                </li>
+                <li>
+                  <i class="fa fa-trash-o" aria-hidden="true"></i>
+                  <a href="javascript:;" (click)="delete(card.id)">Supprimer</a>
+                </li>
               </ul>
+            </a>
           </div>
       </div>
 

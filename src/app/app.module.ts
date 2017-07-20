@@ -15,9 +15,7 @@ import { SectionsComponent } from './entry/sections/sections.component';
 import { AttachmentsComponent } from './entry/attachments/attachments.component';
 import { EntryContentComponent } from './entry/entry-content/entry-content.component';
 import { KnowledgeBaseComponent } from './entry/knowledge-base/knowledge-base.component';
-import { KnowledgeBaseFiltersComponent } from './entry/knowledge-base/knowledge-base-filters/knowledge-base-filters.component';
 import { KnowledgeBaseItemComponent } from './entry/knowledge-base/knowledge-base-item/knowledge-base-item.component';
-import { KnowledgeBaseSearchComponent } from './entry/knowledge-base/knowledge-base-search/knowledge-base-search.component';
 import { AttachmentItemComponent } from './entry/attachments/attachment-item/attachment-item.component';
 import { CommentsComponent } from './entry/entry-content/comments/comments.component';
 import { CommentItemComponent } from './entry/entry-content/comments/comment-item/comment-item.component';
@@ -62,9 +60,7 @@ const appRoutes: Routes = [
     AttachmentsComponent,
     EntryContentComponent,
     KnowledgeBaseComponent,
-    KnowledgeBaseFiltersComponent,
     KnowledgeBaseItemComponent,
-    KnowledgeBaseSearchComponent,
     AttachmentItemComponent,
     CommentsComponent,
     CommentItemComponent,

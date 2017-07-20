@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-knowledge-base-item',
@@ -6,6 +6,8 @@ import { Component, ElementRef, OnInit } from '@angular/core';
   styleUrls: ['./knowledge-base-item.component.scss']
 })
 export class KnowledgeBaseItemComponent implements OnInit {
+
+  @Input() item: any;
 
   constructor(private el: ElementRef) { }
 

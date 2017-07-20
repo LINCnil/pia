@@ -1,0 +1,132 @@
+[
+  {
+    "slug": "PIA_DEF_DCP",
+    "measure_type": "",
+    "name": "Données à caractère personnel (DCP)",
+    "description": "Toute information identifiant directement ou indirectement une personne physique.",
+    "link_objectives": "",
+    "link_good_practices": "",
+    "link_notes": "",
+    "link_tools": ""
+  },
+  {
+    "slug": "PIA_DEF_DEST",
+    "measure_type": "",
+    "name": "Destinataires",
+    "description": "Personne habilitée à obtenir communication de données enregistrées dans un fichier ou un traitement en raison de ses fonctions.",
+    "link_objectives": "",
+    "link_good_practices": "",
+    "link_notes": "",
+    "link_tools": ""
+  },
+  {
+    "slug": "PIA_DEF_FIN",
+    "measure_type": "",
+    "name": "Finalité du traitement",
+    "description": "Objectif principal d’une application informatique de données personnelles.<br>Exemples de finalité : gestion des recrutements, gestion des clients, enquête de satisfaction, surveillance des locaux, etc.",
+    "link_objectives": "",
+    "link_good_practices": "",
+    "link_notes": "",
+    "link_tools": ""
+  },
+  {
+    "slug": "PIA_DEF_RT",
+    "measure_type": "",
+    "name": "Responsable de traitement",
+    "description": "Le responsable d’un traitement de données à caractère personnel est,<br>sauf désignation expresse par les dispositions législatives ou réglementaires relatives à ce traitement,<br>la personne, l’autorité publique, le service ou l’organisme qui détermine ses finalités et ses moyens.<br>En pratique et en général, il s’agit de la personne morale incarnée par son représentant légal.<br>Pour plus d'informations sur les obligations du responsable de traitement, se référer au <a href='https://www.cnil.fr/fr/reglement-europeen-protection-donnees/chapitre4#Section1'>chap. IV du [RGPD]</a>",
+    "link_objectives": "",
+    "link_good_practices": "",
+    "link_notes": "",
+    "link_tools": ""
+  },
+  {
+    "slug": "PIA_EX_DC",
+    "measure_type": "",
+    "name": "Données calculées",
+    "description": "Données pour un système de score, résultat de l’application du score... ",
+    "link_objectives": "",
+    "link_good_practices": "",
+    "link_notes": "",
+    "link_tools": ""
+  },
+  {
+    "slug": "PIA_EX_DCPC",
+    "measure_type": "",
+    "name": "Catégories de DCP courantes",
+    "description": "<strong>Données d’identification</strong> : état civil, age, nationalité, double nationalité, adresse postale, capacité juridique... <br><strong>Vie personnelle</strong> : situation maritale, nombre d’enfants, département de résidence, type d’habitation, situation de logement, ancienneté dans le logement, CSP... <br><strong>Vie professionnelle</strong> : emploi, type de contrat, CSP, nom de l’employeur, ancienneté dans l’emploi, chômage... <br><strong>Données de connexion</strong> : adresse IP, journaux d'événements...<br><strong>Données de localisation</strong> : déplacement, données GPS, GSM...<br><strong>Autre</strong> : numéro de téléphone, adresse électronique...",
+    "link_objectives": "",
+    "link_good_practices": "",
+    "link_notes": "",
+    "link_tools": ""
+  },
+  {
+    "slug": "PIA_EX_DCPR",
+    "measure_type": "",
+    "name": "Catégories de DCP sensibles au sens du RGDP",
+    "description": "Opinions philosophiques, politiques, religieuses, syndicales, vie sexuelle, données de santé,<br>origine raciales ou ethniques, relatives à la santé ou à la vie sexuelle, infractions, condamnations,<br>mesures de sécurité.<br>Se référer aux <a href='https://www.cnil.fr/fr/reglement-europeen-protection-donnees/chapitre2#Article9'>art. 9</a> et <a href='https://www.cnil.fr/fr/reglement-europeen-protection-donnees/chapitre2#Article10'>art.10</a> du [RGPD]",
+    "link_objectives": "",
+    "link_good_practices": "",
+    "link_notes": "",
+    "link_tools": ""
+  },
+  {
+    "slug": "PIA_EX_DCPS",
+    "measure_type": "",
+    "name": "Catégories de DCP perçues comme sensibles",
+    "description": "Numéro de sécurité sociale (NIR), données biométriques, données bancaires...",
+    "link_objectives": "",
+    "link_good_practices": "",
+    "link_notes": "",
+    "link_tools": ""
+  },
+  {
+    "slug": "PIA_EX_SUPT",
+    "measure_type": "",
+    "name": "Typologie des supports de DCP",
+    "description": "<strong>Matériels et supports de données électroniques</strong> : ordinateurs, relais de communication, clés USB, disques durs...<br><strong>Logiciels</strong> : systèmes d’exploitation, messagerie, bases de données, applications métier...<br><strong>Canaux informatiques</strong> : câbles, WiFi, fibre optique<br><strong>Personnes</strong> : utilisateurs, administrateurs informatiques, décideurs...<br><strong>Supports papier</strong> : impressions, photocopies, documents manuscrits...<br><strong>Canaux de transmission papier</strong> : envoi postal, circuit de validation...",
+    "link_objectives": "",
+    "link_good_practices": "",
+    "link_notes": "",
+    "link_tools": ""
+  },
+  {
+    "slug": "PIA_LGL_DATA",
+    "measure_type": "",
+    "name": "Données traitées",
+    "description": "Délimiter et décrire de manière détaillée les données personnelles concernées :<br>informations sur la personne concernée, données renseignées par un tiers, données relevées, données calculées.<br>Il convient de prêter un attention particulière aux données considérées comme sensibles ou sensibles au sens du RGPD",
+    "link_objectives": "",
+    "link_good_practices": "",
+    "link_notes": "",
+    "link_tools": ""
+  },
+  {
+    "slug": "PIA_LGL_DESC",
+    "measure_type": "",
+    "name": "Description du produit",
+    "description": "Présenter le produit considéré, les finalités et les enjeux de manière synthétique.<br>Identifier le responsable du traitement et les éventuels sous-traitants. Recenser les référentiels<br>applicables au traitement, utiles ou à respecter , notamment les codes de conduite approuvés<br>Cf. <a href='https://www.cnil.fr/fr/reglement-europeen-protection-donnees/chapitre4#Article40'>art. 40 du [RGPD]</a>)et certifications en matière de protection des données (cf. <a href='https://www.cnil.fr/fr/reglement-europeen-protection-donnees/chapitre4#Article42'>art. 42 du [RGPD]</a>).",
+    "link_objectives": "",
+    "link_good_practices": "",
+    "link_notes": "",
+    "link_tools": ""
+  },
+  {
+    "slug": "PIA_LGL_LCYC",
+    "measure_type": "",
+    "name": "Cycle de vie des données",
+    "description": "Les étapes habituelles de la vie d'une donnée sont les suivantes : <strong>collecte, conservation,<br>utilisation, transfert, destruction</strong>.<br>Veillez à inclure, pour chacune de ces étapes, la description détaillée du processus et des flux de données<br>mis en oeuvre. Il est recommandé de joindre un schéma décrivant le traitement.",
+    "link_objectives": "",
+    "link_good_practices": "",
+    "link_notes": "",
+    "link_tools": ""
+  },
+  {
+    "slug": "PIA_LGL_SUPT",
+    "measure_type": "",
+    "name": "Support des données",
+    "description": "Les supports de DCP sont les composants du système d’information sur lesquels reposent les DCP.<br>A noter que les solutions de sécurité (produits, procédures, mesures…) ne sont pas des supports de DCP :<br>il s’agit de mesures destinées à traiter les risques.",
+    "link_objectives": "",
+    "link_good_practices": "",
+    "link_notes": "",
+    "link_tools": ""
+  }
+]
