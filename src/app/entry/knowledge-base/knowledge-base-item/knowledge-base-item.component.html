@@ -13,11 +13,8 @@
     </div>
   </div>
   <div class="pia-knowledgeBaseBlock-item-title">
-    <p>Données à caractère personnel courantes</p>
+    <p>{{item.name}}</p>
   </div>
-  <div class="pia-knowledgeBaseBlock-item-content">
-    État-civil, identité, données d'identification<br>
-    Vie personnelle (habitudes de vie, situation familiale, hors données sensibles ou dangereuses...)<br>
-    Vie professionnelle (CV, scolarité, formation professionnelle, distinctions...)<br>
+  <div class="pia-knowledgeBaseBlock-item-content" [innerHTML]="item.description">
   </div>
 </div>

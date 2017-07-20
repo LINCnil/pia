@@ -29,10 +29,10 @@
               </a>
               <ul>
                 <li>
-                  <a href="#">Français</a>
+                  <a href="javascript:;" onclick="alert('Bientôt disponible.');">Français</a>
                 </li>
                 <li>
-                  <a href="#">English</a>
+                  <a href="javascript:;" onclick="alert('Bientôt disponible.');">English</a>
                 </li>
               </ul>
             </li><li class="pia-navigationBlock-company">
@@ -43,13 +43,13 @@
               </a>
               <form>
                 <fieldset>
-                  <legend><a routerLink="/settings">Paramètres</a></legend>
+                  <legend><a onclick="alert('Bientôt disponible.');">Paramètres</a></legend>
                   <div>
                     <input type="checkbox" name="pia-accessibility" id="pia-accessibility" [checked]="increaseContrast == 'true'" (change)="changeContrast($event)">
                     <label for="pia-accessibility">Accessibilité malvoyants (couleurs à <span>contraste fort, adapté daltonisme)</span></label>
                   </div>
                   <div>
-                    <a routerLink="/help">Aide</a>
+                    <a onclick="alert('Bientôt disponible.');">Aide</a>
                   </div>
                 </fieldset>
               </form>

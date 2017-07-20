@@ -4,15 +4,24 @@
     <h1>Base de connaissance</h1>
   </div>
 
-  <app-knowledge-base-search></app-knowledge-base-search>
+  <div class="pia-knowledgeBaseBlock-searchForm">
+    <form (ngSubmit)="onSubmit(searchForm)" [formGroup]="searchForm">
+      <input type="search" formControlName="q">
+      <button class="btn" type="submit" title="Rechercher"><i class="fa fa-search" aria-hidden="true"></i></button>
+    </form>
+  </div>
 
-  <!-- TODO : show this component only if we are on "Mesures existantes ou prévues" subsection -->
-  <app-knowledge-base-filters></app-knowledge-base-filters>
+  <!-- TODO : show this only if we are on "Mesures existantes ou prévues" subsection -->
+  <div class="pia-knowledgeBaseBlock-filters">
+    <div>Filtres</div>
+    <button class="btn" type="button" (click)="resetFilters()" title="Toutes les mesures">Toutes les mesures</button>
+    <button class="btn" type="button" (click)="filterPerMeasures()" title="Mesures organisationnelles">Mesures organisationnelles</button>
+    <button class="btn" type="button" (click)="filterPerMeasures()" title="Mesures de sécurité logistique">Mesures de sécurité logistique</button>
+    <button class="btn" type="button" (click)="filterPerMeasures()" title="Mesures de sécurité physique">Mesures de sécurité physique</button>
+  </div>
 
   <!-- Contains each knowledge base item -->
   <div class="pia-knowledgeBaseBlock-list">
-    <app-knowledge-base-item></app-knowledge-base-item>
-    <app-knowledge-base-item></app-knowledge-base-item>
-    <app-knowledge-base-item></app-knowledge-base-item>
+    <app-knowledge-base-item *ngFor="let item of data" [item]="item"></app-knowledge-base-item>
   </div>
 </div>

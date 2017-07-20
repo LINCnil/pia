@@ -1,4 +1,6 @@
+import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
+import { Card } from '../../cards/card.model';
 
 @Component({
   selector: 'app-sections',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SectionsComponent implements OnInit {
 
-  constructor() { }
+  pia_id: number;
+  pia_name: string;
 
-  ngOnInit() {
+  constructor(private activatedRoute: ActivatedRoute) {
   }
 
+  ngOnInit() {
+    this.activatedRoute.params.subscribe((params: Params) => {
+      this.pia_id = parseInt(params['id']);
+      const card = new Card();
+      card.find(this.pia_id).then((entry: any) => {
+        this.pia_name = entry.name;
+      });
+    });
+  }
 }
