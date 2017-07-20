@@ -43,6 +43,7 @@ const appRoutes: Routes = [
   { path: 'entry/:id/validate-PIA', component: ValidatePIAComponent },
   { path: 'entry/:id/refuse-PIA', component: RefusePIAComponent },
   { path: 'entry/:id', component: EntryComponent },
+  { path: 'entry/:id/section/:section_id/item/:item_id', component: EntryComponent },
   { path: 'settings', component: SettingsComponent },
   { path: 'help', component: HelpComponent }
 ];
