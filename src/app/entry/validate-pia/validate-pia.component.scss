@@ -93,21 +93,20 @@
               display: none;
             }
           }
-        }
-
-        /* Special class added to checked radio buttons */
-        .validate {
-          input:checked + label {
-            border: solid $pia-green 1px;
-            background-color: $pia-green;
-            color: #fff;
-            font-weight: bold;
-            .fa-circle {
-              display: none;
-            }
-            .fa-check {
-              display: block;
+          /* Special class added to checked radio buttons */
+          &.validate {
+            input:checked + label {
+              border: solid $pia-green 1px;
+              background-color: $pia-green;
               color: #fff;
+              font-weight: bold;
+              .fa-circle {
+                display: none;
+              }
+              .fa-check {
+                display: block;
+                color: #fff;
+              }
             }
           }
         }
@@ -131,24 +130,20 @@
         margin-top: 10px;
         display: flex;
         justify-content: space-between;
-        button{
-          display:block;
-          width: 145px;
+        button, a {
+          padding: 9px 10px;
+          display: block;
+          width: 140px;
           height: 34px;
-          font-size: 1.1rem;
+          font-size: 1.3rem;
           text-decoration: none;
           align-self: center;
           &:last-of-type {
             padding-top: 4px;
           }
         }
-        a{
-          width: 145px;
-          height: 34px;
-          display: block;
-          font-size: 1.1rem;
-          text-decoration: none;
-          align-self: center;
+        a {
+          line-height: 12px;
         }
       }
     }

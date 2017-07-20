@@ -1,6 +1,7 @@
 import { Component, ElementRef, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ModalsComponent } from '../../../modals/modals.component';
+import { Router } from '@angular/router';
 import { Comment } from './comments.model';
 
 @Component({
@@ -10,12 +11,14 @@ import { Comment } from './comments.model';
 })
 export class CommentsComponent implements OnInit {
 
-  modal = new ModalsComponent();
+  modal = new ModalsComponent(this.router);
   nbComments: number;
   commentsForm: FormGroup;
   comments: Comment[] = [];
 
-  constructor(private el: ElementRef) { }
+  constructor(private el: ElementRef, private router: Router) {
+    this.router = router;
+  }
 
   ngOnInit() {
     this.nbComments = this.comments.length;

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-modals',
@@ -6,7 +7,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./modals.component.scss']
 })
 export class ModalsComponent implements OnInit {
-  constructor() { }
+
+  constructor(private router: Router) {
+    this.router = router;
+  }
 
   ngOnInit() {
   }
@@ -27,6 +31,14 @@ export class ModalsComponent implements OnInit {
     const modal = document.querySelector('[class="pia-modalBlock open"]');
     document.body.classList.remove('pia-blurBackground');
     modal.classList.remove('open');
+  }
+
+    /**
+   * Returns to homepage.
+   */
+  returnToHomepage() {
+    this.closeModal();
+    this.router.navigate(['home']);
   }
 
   /**

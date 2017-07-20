@@ -1,6 +1,7 @@
 import {Component, ElementRef, OnInit} from '@angular/core';
 import {FormArray, FormControl, FormGroup} from '@angular/forms';
 import { ModalsComponent } from '../../modals/modals.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-refuse-pia',
@@ -9,11 +10,13 @@ import { ModalsComponent } from '../../modals/modals.component';
 })
 export class RefusePIAComponent implements OnInit {
 
-  modal = new ModalsComponent();
+  modal = new ModalsComponent(this.router);
   rejectionReasonForm: FormGroup;
   modificationsMadeForm: FormGroup;
 
-  constructor(private el: ElementRef) { }
+  constructor(private el: ElementRef, private router: Router) {
+    this.router = router;
+  }
 
   ngOnInit() {
     this.rejectionReasonForm = new FormGroup({
