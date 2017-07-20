@@ -5,8 +5,8 @@
       <input [attr.data-id]="id" id="pia-measure-title-{{id}}" formControlName="measureTitle" (focusout)="measureTitleFocusOut($event)" type="text" value="" placeholder="Titre de la mesure">
     </div>
     <div class="pia-measureBlock-displayer fadeIn">
+      <button type="button" class="btn pia-measureBlock-delete hide" (click)="removeMeasure(id)" title="Supprimer"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
       <button type="button" class="btn pia-measureBlock-edit hide" (click)="activateMeasureEdition()" title="Éditer"><i class="fa fa-pencil" aria-hidden="true"></i></button>
-      <button type="button" class="btn pia-measureBlock-delete" (click)="removeMeasure(id)" title="Supprimer"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
       <div class="pia-measureBlock-content">
         <textarea [attr.data-id]="id" id="pia-measure-content-{{id}}" formControlName="measureContent" (focusout)="measureContentFocusOut($event)" rows="8" cols="50" placeholder="Ajoutez les mesures prises pour garantir la sécurité des données."></textarea>
       </div>

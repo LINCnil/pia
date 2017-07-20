@@ -76,15 +76,14 @@
   <div class="pia-modalBlock-content pia-modalBlock-removeMeasure bounceIn">
     <button type="button" class="pia-modalBlock-close btn" title="Fermer"><span (click)="closeModal()" class="pia-icons pia-icon-close-big"></span></button>
     <p>
-      Supprimer la mesure<br>
-      <!-- TODO : add here the correct measure name -->
-      " Archivage " ?
+      <span class="strong">Attention,</span><br>
+      Êtes-vous sûr de vouloir<br>
+      supprimer cette mesure ?
     </p>
     <span class="pia-icons pia-icon-sad"></span>
     <div class="pia-modalBlock-buttons-choice">
-      <button class="btn btn-red btn-active" (click)="removeMeasure()" type="button" title="Supprimer la mesure">Supprimer <br> "Archivage"</button>
-      <!-- TODO : add here the correct measure name in button -->
-      <button class="btn btn-red" type="button" (click)="closeModal()" title="Conserver la mesure">Conserver <br> "Archivage"</button>
+      <button class="btn btn-red" (click)="removeMeasure()" type="button" title="Supprimer la mesure">Supprimer cette <br>mesure</button>
+      <button class="btn btn-red" type="button" (click)="closeModal()" title="Conserver la mesure">Conserver cette <br>mesure</button>
     </div>
   </div>
 </div>
