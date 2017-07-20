@@ -14,6 +14,8 @@ export class SectionsComponent implements OnInit {
   pia_id: number;
   pia_name: string;
   data: any;
+  item_id: number;
+  section_id: number;
 
   constructor(private activatedRoute: ActivatedRoute, private http: Http) {
   }
@@ -22,6 +24,8 @@ export class SectionsComponent implements OnInit {
     // Display the name of the current PIA
     this.activatedRoute.params.subscribe((params: Params) => {
       this.pia_id = parseInt(params['id']);
+      this.item_id = parseInt(params['item_id']);
+      this.section_id = parseInt(params['section_id']);
       const card = new Card();
       card.find(this.pia_id).then((entry: any) => {
         this.pia_name = entry.name;

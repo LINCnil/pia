@@ -12,7 +12,7 @@
       </div>
       <ul class="pia-sectionBlock-list">
         <li *ngFor="let item of section?.items">
-          <a href="#">{{item.title}}</a>
+          <a routerLink="/entry/{{pia_id}}/section/{{section.id}}/item/{{item.id}}" [ngClass]="{'active': section.id == section_id && item.id == item_id}">{{item.title}}</a>
           <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
         </li>
       </ul>
