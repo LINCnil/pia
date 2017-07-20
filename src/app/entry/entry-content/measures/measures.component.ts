@@ -1,7 +1,9 @@
 import { Component,Input, ElementRef, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ModalsComponent } from '../../../modals/modals.component';
+import { Router } from '@angular/router';
 import {Measure} from './measure.model';
+
 @Component({
   selector: 'app-measures',
   templateUrl: './measures.component.html',
@@ -11,9 +13,11 @@ export class MeasuresComponent implements OnInit {
 
   @Input() id: string;
   measureForm: FormGroup;
-  modal = new ModalsComponent();
+  modal = new ModalsComponent(this.router);
 
-  constructor(private el: ElementRef) { }
+  constructor(private el: ElementRef, private router: Router) {
+    this.router = router;
+  }
 
   ngOnInit() {
     this.measureForm = new FormGroup({

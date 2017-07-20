@@ -10,7 +10,7 @@ import { ModalsComponent } from '../../modals/modals.component';
 })
 export class ValidatePIAComponent implements OnInit {
 
-  modal = new ModalsComponent();
+  modal = new ModalsComponent(this.router);
   validateForm: FormGroup;
 
   constructor(private el: ElementRef, private router: Router) {
@@ -59,11 +59,17 @@ export class ValidatePIAComponent implements OnInit {
   // }
 
   /**
-   * Returns to homepage.
+   * Allows users to make a simple validation of a PIA.
    */
-  returnToHomepage() {
-    this.modal.closeModal();
-    this.router.navigate(['home']);
+  simplePIAValidation() {
+    this.modal.openModal('modal-simple-pia-validation');
+  }
+
+  /**
+   * Allows users to make a signed validation of a PIA.
+   */
+  signedPIAValidation() {
+    this.modal.openModal('modal-signed-pia-validation');
   }
 
 }

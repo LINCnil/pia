@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ModalsComponent } from '../../modals/modals.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-entry-content',
@@ -9,9 +10,11 @@ import { ModalsComponent } from '../../modals/modals.component';
 export class EntryContentComponent implements OnInit {
 
   @Input() section: string;
-  modal = new ModalsComponent();
+  modal = new ModalsComponent(this.router);
 
-  constructor() { }
+  constructor(private router: Router) {
+    this.router = router;
+  }
 
   ngOnInit() {
   }
