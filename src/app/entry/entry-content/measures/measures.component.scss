@@ -76,6 +76,11 @@
       color: $pia-gray;
       font-size: 1rem;
     }
+    /* TODO : special class to be added on measures when they are evaluated as improvable or acceptable */
+    &.approved {
+      border: 1px solid $pia-gray;
+      box-shadow: none;
+    }
   }
 }
 

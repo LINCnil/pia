@@ -192,13 +192,15 @@
         display: flex;
         justify-content: center;
         color: $pia-green;
-        a {
+        a, button {
           display: block;
-          align-self: center;
+          align-self: center !important;
           padding: 4px;
           margin-right: 10px;
           color: $pia-green;
           text-decoration: none;
+          width: initial;
+          cursor: pointer;
         }
         i {
           color: $pia-green;

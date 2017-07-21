@@ -12,10 +12,10 @@ import 'rxjs/add/operator/map'
 export class SectionsComponent implements OnInit {
 
   pia_id: number;
-  pia_name: string;
-  data: any;
   item_id: number;
   section_id: number;
+  pia_name: string;
+  data: any;
 
   constructor(private activatedRoute: ActivatedRoute, private http: Http) {
   }

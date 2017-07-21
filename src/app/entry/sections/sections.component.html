@@ -42,7 +42,10 @@
 </div>
 
 <div class="pia-validatePIABlock">
-  <!-- TODO : add adequate links (2 components : validatePIAComponent / refusePIAComponent ) -->
+  <!--
+      TODO : handle better the a disabled state : it is clickable even when disabled for now.
+      We don't want this.
+  -->
   <a routerLink="/entry/5/validate-PIA" class="btn" disabled title="Valider le PIA">Valider le PIA</a>
   <a routerLink="/entry/5/validate-PIA" class="btn btn-red btn-active hide" title="Valider le PIA">Valider le PIA</a>
   <a routerLink="/entry/5/refuse-PIA" class="btn btn-red btn-active hide" title="PIA refusé">PIA refusé</a>

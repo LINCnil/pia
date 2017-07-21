@@ -157,6 +157,10 @@
   version "2.5.45"
   resolved "https://registry.yarnpkg.com/@types/jasmine/-/jasmine-2.5.45.tgz#58928a621d014ce6ab59c5a9c41071f7328b0ca9"
 
+"@types/jspdf@^1.1.31":
+  version "1.1.31"
+  resolved "https://registry.yarnpkg.com/@types/jspdf/-/jspdf-1.1.31.tgz#88de8018ffeb8f264f97574f2b1c55b8c5405326"
+
 "@types/node@^6.0.46", "@types/node@~6.0.60":
   version "6.0.79"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-6.0.79.tgz#5efe7d4a6d8c453c7e9eaf55d931f4a22fac5169"
@@ -193,6 +197,10 @@ acorn@^4.0.3:
 acorn@^5.0.0:
   version "5.0.3"
   resolved "https://registry.yarnpkg.com/acorn/-/acorn-5.0.3.tgz#c460df08491463f028ccb82eab3730bf01087b3d"
+
+"adler32cs@github:chick307/adler32cs.js":
+  version "0.0.1"
+  resolved "https://codeload.github.com/chick307/adler32cs.js/tar.gz/c6576b4ed91b4216973bf85d8478a49970934515"
 
 adm-zip@0.4.4:
   version "0.4.4"
@@ -764,6 +772,10 @@ center-align@^0.1.1:
   dependencies:
     align-text "^0.1.3"
     lazy-cache "^1.0.3"
+
+cf-blob.js@0.0.1:
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/cf-blob.js/-/cf-blob.js-0.0.1.tgz#f5ab7e12e798caf08ccf828c69aba0f063d83f99"
 
 chalk@^1.0.0, chalk@^1.1.0, chalk@^1.1.1, chalk@^1.1.3:
   version "1.1.3"
@@ -1696,6 +1708,10 @@ file-loader@^0.10.0:
 filename-regex@^2.0.0:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/filename-regex/-/filename-regex-2.0.1.tgz#c1c4b9bee3e09725ddb106b75c1e301fe2f18b26"
+
+"filesaver.js@github:andyinabox/FileSaver.js":
+  version "1.0.0"
+  resolved "https://codeload.github.com/andyinabox/FileSaver.js/tar.gz/973b433b8fbaee9a11d53b9ae423b046742cfe32"
 
 fileset@^2.0.2:
   version "2.0.3"
@@ -2630,6 +2646,18 @@ jsonfile@^3.0.0:
 jsonify@~0.0.0:
   version "0.0.0"
   resolved "https://registry.yarnpkg.com/jsonify/-/jsonify-0.0.0.tgz#2c74b6ee41d93ca51b7b5aaee8f503631d252a73"
+
+jspdf-autotable@^2.3.2:
+  version "2.3.2"
+  resolved "https://registry.yarnpkg.com/jspdf-autotable/-/jspdf-autotable-2.3.2.tgz#a781ec09dc77b1a4c354bbc546b372e3a2b13117"
+
+jspdf@^1.3.3:
+  version "1.3.3"
+  resolved "https://registry.yarnpkg.com/jspdf/-/jspdf-1.3.3.tgz#b3b76d6256acbd2032bfe96cf88304696e11de0c"
+  dependencies:
+    adler32cs "github:chick307/adler32cs.js"
+    cf-blob.js "0.0.1"
+    filesaver.js "github:andyinabox/FileSaver.js"
 
 jsprim@^1.2.2:
   version "1.4.0"

@@ -2,7 +2,7 @@ import { Component, OnInit, ElementRef } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ModalsComponent } from '../../modals/modals.component';
-
+import * as jsPDF from 'jspdf';
 @Component({
   selector: 'app-validate-pia',
   templateUrl: './validate-pia.component.html',
@@ -70,6 +70,43 @@ export class ValidatePIAComponent implements OnInit {
    */
   signedPIAValidation() {
     this.modal.openModal('modal-signed-pia-validation');
+  }
+
+  /**
+   * Allows users to download the PIA as a .pdf file.
+   */
+  downloadPIA() {
+    document.createElement('canvas');
+    let doc = new jsPDF('p', 'pt', 'a4');
+    const test = "test";
+    doc.text(20, 20, 'Hello' + test + 'world!');
+    doc.save('autoprint.pdf');
+
+
+
+    /* Could be useful :
+    Get all sections, items, questions/measures.
+    Then make an autoTable per section or something like that...
+    convert(){
+      var item = {
+        "Name" : "XYZ",
+        "Age" : "22",
+        "Gender" : "Male"
+      };
+      var doc = new jsPDF();
+      var col = ["Details", "Values"];
+      var rows = [];
+
+      for(var key in item){
+          var temp = [key, item[key]];
+          rows.push(temp);
+      }
+
+      doc.autoTable(col, rows);
+
+      doc.save('Test.pdf');
+    }*/
+
   }
 
 }
