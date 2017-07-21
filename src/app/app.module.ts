@@ -5,7 +5,6 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { AuthenticationComponent } from './authentication/authentication.component';
 import { CardsComponent } from './cards/cards.component';
-import { FiltersComponent } from './filters/filters.component';
 import { CardItemComponent } from './cards/card-item/card-item.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -33,6 +32,7 @@ import { HelpComponent } from './help/help.component';
 import { GaugeComponent } from './entry/gauge/gauge.component';
 import { ModalsComponent } from './modals/modals.component';
 import { MeasuresComponent } from './entry/entry-content/measures/measures.component';
+import { CardFilterComponent } from './cards/card-filter/card-filter.component';
 
 const appRoutes: Routes = [
   { path: '', component: AuthenticationComponent },
@@ -54,7 +54,6 @@ const appRoutes: Routes = [
     HeaderComponent,
     AuthenticationComponent,
     CardsComponent,
-    FiltersComponent,
     CardItemComponent,
     EntryComponent,
     SectionsComponent,
@@ -78,7 +77,8 @@ const appRoutes: Routes = [
     HelpComponent,
     GaugeComponent,
     ModalsComponent,
-    MeasuresComponent
+    MeasuresComponent,
+    CardFilterComponent
   ],
   imports: [
     BrowserModule,
