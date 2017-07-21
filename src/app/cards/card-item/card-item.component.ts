@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, ComponentRef, Input, Output, EventEmitter } from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
 import {Pia} from '../../entry/pia.model';
 import {Router} from '@angular/router';
@@ -11,6 +11,7 @@ import {Router} from '@angular/router';
 })
 export class CardItemComponent implements OnInit {
   @Input() pia: any;
+  @Output() delete: EventEmitter<string> = new EventEmitter<string>();
   editMode: Boolean;
   piaForm: FormGroup;
 
@@ -53,11 +54,13 @@ export class CardItemComponent implements OnInit {
     });
   }
 
-  delete(id) {
-    const el = new Pia();
-    el.delete(id).then((status) => {
-      // TODO supprimer la carte sur l'affichage
+  deletePIA(id) {
+    if (confirm('Merci de confirmer la suppression de ce PIA')) {
+      const el = new Pia();
+      this.delete.emit(id);
+      el.delete(id).then((status) => {
     });
+    }
   }
 
 }

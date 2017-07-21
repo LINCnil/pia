@@ -194,6 +194,7 @@
           position: relative;
            > a {
             &:focus, &:hover, &:active {
+              cursor: context-menu;
               .pia-cardsBlock-toolbar-moreList {
                 display: block;
               }

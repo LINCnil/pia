@@ -17,6 +17,14 @@ export class EntryContentComponent implements OnInit {
   }
 
   ngOnInit() {
+    /*
+      TODO : handle measures modal on risks subsection.
+      Do this :
+      if pia.measures.count == 0 {
+        this.modal.open('pia-declare-measures');
+      }
+      AND add ".blur-content" to entry-content page (see pia-integration modal).
+    */
   }
 
   /**

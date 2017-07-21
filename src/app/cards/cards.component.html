@@ -80,7 +80,7 @@
             </div>
           </div>
         </div>
-        <app-card-item *ngFor="let pia of pias" [pia]="pia"></app-card-item>
+        <app-card-item *ngFor="let pia of pias;let i=index" [pia]="pia" (delete)="pias.splice(i,1)"></app-card-item>
       </div>
     </div>
 </div>

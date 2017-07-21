@@ -64,4 +64,12 @@ export class CardsComponent implements OnInit {
     p.then((id) => this.router.navigate(['/entry/' + id]));
   }
 
+
+/*  removeCardItem(event) {
+    const test = this.pias.find(pia => pia.id === event);
+    const index = this.pias.findIndex(test);
+    console.log(test);
+    console.log(index);
+  }*/
+
 }

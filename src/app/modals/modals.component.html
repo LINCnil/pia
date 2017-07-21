@@ -131,10 +131,9 @@
   </div>
 </div>
 
-<!-- TODO : mettre leurs ids et les (click) adéquats -->
-<div class="pia-modalBlock">
+<div class="pia-modalBlock" id="pia-declare-measures">
   <div class="pia-modalBlock-content pia-modalBlock-declareMeasuresForRisks bounceIn">
-    <button type="button" class="pia-modalBlock-close btn" title="Fermer"><span class="pia-icons pia-icon-close-big"></span></button>
+    <button type="button" class="pia-modalBlock-close btn" title="Fermer"><span (click)="closeModal()" class="pia-icons pia-icon-close-big"></span></button>
     <p>
       Désolé,<br>
       Avant d'évaluer les risques,<br>
@@ -143,11 +142,14 @@
     </p>
     <span class="pia-icons pia-icon-sorry"></span>
     <div class="pia-modalBlock-validate">
-      <button type="button" title="Déclarer les mesures existantes ou prévues" class="btn btn-green">Déclarer les mesures existantes ou prévues</button>
+      <button (click)="closeModal()" type="button" title="Déclarer les mesures existantes ou prévues" class="btn btn-green">Déclarer les mesures existantes ou prévues</button>
     </div>
   </div>
 </div>
 
+
+
+<!-- TODO : mettre leurs ids et les (click) adéquats -->
 <div class="pia-modalBlock">
   <div class="pia-modalBlock-content bounceIn">
     <button type="button" class="pia-modalBlock-close btn" title="Fermer"><span class="pia-icons pia-icon-close-big"></span></button>

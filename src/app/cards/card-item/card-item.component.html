@@ -20,20 +20,20 @@
             </a>
           </div>
           <div class="pia-cardsBlock-toolbar-more">
-            <a href="javascript:;" class="btn pia-tooltip" title="Plus">
+            <a href="javascript:;" class="btn pia-tooltip" title="Plus d'options">
               <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
               <ul class="pia-cardsBlock-toolbar-moreList">
                 <li>
                   <i class="fa fa-files-o" aria-hidden="true"></i>
-                  <a href="javascript:;" onclick="alert('Bientôt disponible.');">Dupliquer</a>
+                  <a href="javascript:;" title="Dupliquer le PIA" onclick="alert('Bientôt disponible.');">Dupliquer</a>
                 </li>
                 <li>
                   <i class="fa fa-file-excel-o" aria-hidden="true"></i>
-                  <a href="javascript:;">Export du<br>plan d'action</a>
+                  <a href="javascript:;" title="Exporter le plan d'action">Export du<br>plan d'action</a>
                 </li>
                 <li>
                   <i class="fa fa-trash-o" aria-hidden="true"></i>
-                  <a href="javascript:;" (click)="delete(pia.id)">Supprimer</a>
+                  <a href="javascript:;" title="Supprimer le PIA" (click)="deletePIA(pia.id)">Supprimer</a>
                 </li>
               </ul>
             </a>
