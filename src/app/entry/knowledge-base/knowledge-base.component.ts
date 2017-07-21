@@ -26,8 +26,10 @@ export class KnowledgeBaseComponent implements OnInit {
   ngAfterViewInit() {
     // Automatic resize the height of the KnowledgeBase block to improve the navigation with the overflow.
     const centralElementHeight = <HTMLElement>document.querySelector('.pia-entryContentBlock');
-    const element = <HTMLElement>document.querySelector('.pia-knowledgeBaseBlock-list');
-    element.style.height = centralElementHeight.offsetHeight - 190 + 'px';
+    if (centralElementHeight) {
+      const element = <HTMLElement>document.querySelector('.pia-knowledgeBaseBlock-list');
+      element.style.height = centralElementHeight.offsetHeight - 190 + 'px';
+    }
   }
 
   onSubmit() {

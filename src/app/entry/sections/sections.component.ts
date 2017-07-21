@@ -1,7 +1,7 @@
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { Http } from '@angular/http';
-import { Card } from '../../cards/card.model';
+import { Pia } from '../pia.model';
 import 'rxjs/add/operator/map'
 
 @Component({
@@ -26,8 +26,8 @@ export class SectionsComponent implements OnInit {
       this.pia_id = parseInt(params['id']);
       this.item_id = parseInt(params['item_id']);
       this.section_id = parseInt(params['section_id']);
-      const card = new Card();
-      card.find(this.pia_id).then((entry: any) => {
+      const pia = new Pia();
+      pia.find(this.pia_id).then((entry: any) => {
         this.pia_name = entry.name;
       });
     });

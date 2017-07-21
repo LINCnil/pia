@@ -1,8 +1,8 @@
 <div class="pia-cardsBlock pia-doingBlock">
 
-    <div class="pia-cardsBlock-header-title" *ngIf="card.id != null">
-      <span *ngIf="card.status == '1'">En cours</span>
-      <span *ngIf="card.status == '2'">Archivée</span>
+    <div class="pia-cardsBlock-header-title" *ngIf="pia.id != null">
+      <span *ngIf="pia.status == '1'">En cours</span>
+      <span *ngIf="pia.status == '2'">Archivée</span>
     </div>
 
     <div class="pia-cardsBlock-item pia-doingBlock-item">
@@ -33,7 +33,7 @@
                 </li>
                 <li>
                   <i class="fa fa-trash-o" aria-hidden="true"></i>
-                  <a href="javascript:;" (click)="delete(card.id)">Supprimer</a>
+                  <a href="javascript:;" (click)="delete(pia.id)">Supprimer</a>
                 </li>
               </ul>
             </a>
@@ -42,7 +42,7 @@
 
       <form class="pia-cardsBlock-item-form"
             (ngSubmit)="onSubmit(f)"
-            [formGroup]="cardForm">
+            [formGroup]="piaForm">
           <input type="hidden" formControlName="id">
           <div>
               <div style="display:none;" class="pia-doingBlock-item-form-attachment">
@@ -70,7 +70,7 @@
           </div>
         <div class="pia-cardsBlock-item-date">
             <div>Date</div>
-            <time>{{ card.creation_date | date: 'dd/MM/yyyy' }}</time>
+            <time>{{ pia.creation_date | date: 'dd/MM/yyyy' }}</time>
         </div>
         <div class="pia-cardsBlock-item-status">
             <div class="pia-cardsBlock-item-status-infos">
@@ -83,10 +83,10 @@
             </div>
         </div>
         <div class="pia-cardsBlock-item-btn" [ngClass]="{'hide': editMode !== true}">
-          <button type="submit" [disabled]="cardForm.invalid" class="btn btn-green">Sauvegarder</button>
+          <button type="submit" [disabled]="piaForm.invalid" class="btn btn-green">Sauvegarder</button>
         </div>
         <div class="pia-cardsBlock-item-btn" [ngClass]="{'hide': editMode !== false}">
-          <a routerLink="/entry/{{card.id}}" class="btn btn-green">Éditer le PIA</a>
+          <a routerLink="/entry/{{pia.id}}/section/1/item/1" class="btn btn-green">Éditer le PIA</a>
         </div>
       </form>
   </div>

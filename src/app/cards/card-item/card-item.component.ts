@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
-import {Card} from '../card.model';
+import {Pia} from '../../entry/pia.model';
 import {Router} from '@angular/router';
 
 @Component({
@@ -10,9 +10,9 @@ import {Router} from '@angular/router';
     './card-item_doing.component.scss', './card-item_archived.component.scss'],
 })
 export class CardItemComponent implements OnInit {
-  @Input() card: any;
+  @Input() pia: any;
   editMode: Boolean;
-  cardForm: FormGroup;
+  piaForm: FormGroup;
 
   constructor(private router: Router) {
     this.editMode = false;
@@ -24,37 +24,37 @@ export class CardItemComponent implements OnInit {
   activateEdition() {
     this.editMode = !this.editMode;
     if(this.editMode) {
-      this.cardForm.enable();
+      this.piaForm.enable();
     } else {
-      this.cardForm.disable();
+      this.piaForm.disable();
     }
   }
 
   ngOnInit() {
-    this.cardForm = new FormGroup({
-      id: new FormControl(this.card.id),
-      name: new FormControl({ value: this.card.name, disabled: true }),
-      author_name: new FormControl({ value: this.card.author_name, disabled: true }),
-      evaluator_name: new FormControl({ value: this.card.evaluator_name, disabled: true }),
-      validator_name: new FormControl({ value: this.card.validator_name, disabled: true })
+    this.piaForm = new FormGroup({
+      id: new FormControl(this.pia.id),
+      name: new FormControl({ value: this.pia.name, disabled: true }),
+      author_name: new FormControl({ value: this.pia.author_name, disabled: true }),
+      evaluator_name: new FormControl({ value: this.pia.evaluator_name, disabled: true }),
+      validator_name: new FormControl({ value: this.pia.validator_name, disabled: true })
     });
   }
 
   onSubmit() {
-    let card = new Card();
-    card.id = this.cardForm.value.id;
-    card.find(card.id).then((entry: any) => {
-      card.name = this.cardForm.value.name
-      card.author_name = this.cardForm.value.author_name
-      card.evaluator_name = this.cardForm.value.evaluator_name
-      card.validator_name = this.cardForm.value.validator_name
-      card.update();
+    let pia = new Pia();
+    pia.id = this.piaForm.value.id;
+    pia.find(pia.id).then((entry: any) => {
+      pia.name = this.piaForm.value.name
+      pia.author_name = this.piaForm.value.author_name
+      pia.evaluator_name = this.piaForm.value.evaluator_name
+      pia.validator_name = this.piaForm.value.validator_name
+      pia.update();
       this.activateEdition();
     });
   }
 
   delete(id) {
-    const el = new Card();
+    const el = new Pia();
     el.delete(id).then((status) => {
       // TODO supprimer la carte sur l'affichage
     });
