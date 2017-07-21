@@ -29,7 +29,7 @@
 
           <div class="pia-cardsBlock pia-editBlock back">
             <div class="pia-cardsBlock-item pia-editBlock-item">
-              <form class="pia-cardsBlock-item-form" (ngSubmit)="onSubmit(cardForm)" [formGroup]="cardForm">
+              <form class="pia-cardsBlock-item-form" (ngSubmit)="onSubmit(piaForm)" [formGroup]="piaForm">
                 <div>
                   <label for="name">Nom du PIA</label>
                   <input formControlName="name" type="text" placeholder="Intitulé" id="name" required>
@@ -62,7 +62,7 @@
                   </div>
                 </div>
                 <div class="pia-cardsBlock-item-btn">
-                  <button type="submit" [disabled]="cardForm.invalid" class="btn btn-green" id="pia-save-card-btn">Commencer</button>
+                  <button type="submit" [disabled]="piaForm.invalid" class="btn btn-green" id="pia-save-card-btn">Commencer</button>
                 </div>
               </form>
             </div>
@@ -80,7 +80,7 @@
             </div>
           </div>
         </div>
-        <app-card-item *ngFor="let card of cards" [card]="card"></app-card-item>
+        <app-card-item *ngFor="let pia of pias" [pia]="pia"></app-card-item>
       </div>
     </div>
 </div>
