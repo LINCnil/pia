@@ -1,5 +1,5 @@
-import { Router, ActivatedRoute, Params } from '@angular/router';
-import { Component, OnInit, Input } from '@angular/core';
+import { Router, ActivatedRoute, Params  } from '@angular/router';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Attachment } from '../attachment.model';
 
 @Component({
@@ -11,6 +11,7 @@ export class AttachmentItemComponent implements OnInit {
 
   pia_id: number;
   @Input() attachment: any;
+  @Output() delete: EventEmitter<number> = new EventEmitter<number>();
 
   constructor(private activatedRoute: ActivatedRoute) { }
 
@@ -27,8 +28,8 @@ export class AttachmentItemComponent implements OnInit {
     // TODO Change to use MODAL
     if (confirm('Merci de confirmer la suppression de cette pièce jointe')) {
       const attachment = new Attachment();
+      this.delete.emit(id);
       attachment.delete(id);
-      event.srcElement.parentElement.parentElement.remove();
     }
   }
 

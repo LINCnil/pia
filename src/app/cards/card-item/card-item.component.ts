@@ -11,7 +11,7 @@ import {Router} from '@angular/router';
 })
 export class CardItemComponent implements OnInit {
   @Input() pia: any;
-  @Output() delete: EventEmitter<string> = new EventEmitter<string>();
+  @Output() delete: EventEmitter<number> = new EventEmitter<number>();
   editMode: Boolean;
   piaForm: FormGroup;
 
@@ -54,12 +54,11 @@ export class CardItemComponent implements OnInit {
     });
   }
 
-  deletePIA(id) {
+  deletePIA(id: number) {
     if (confirm('Merci de confirmer la suppression de ce PIA')) {
       const el = new Pia();
       this.delete.emit(id);
-      el.delete(id).then((status) => {
-    });
+      el.delete(id);
     }
   }
 

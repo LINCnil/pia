@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewChild } from '@angular/core';
+import {Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
 import {Pia} from '../entry/pia.model';
 import {Router} from '@angular/router';
@@ -67,9 +67,7 @@ export class CardsComponent implements OnInit {
 
 /*  removeCardItem(event) {
     const test = this.pias.find(pia => pia.id === event);
-    const index = this.pias.findIndex(test);
     console.log(test);
-    console.log(index);
   }*/
 
 }

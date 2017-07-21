@@ -34,7 +34,6 @@ export class AttachmentsComponent implements OnInit {
    * Allows users to add attachments to a PIA.
    */
   addAttachment() {
-    console.log(this.attachmentForm);
     const attachment: any = document.querySelector('[formcontrolname="attachment_file"]');
     attachment.click();
   }
@@ -51,6 +50,7 @@ export class AttachmentsComponent implements OnInit {
       attachment.type = attachment_file.type;
       attachment.pia_id = this.pia_id;
       attachment.create();
+      this.attachments.unshift(attachment);
     }
   }
 }
