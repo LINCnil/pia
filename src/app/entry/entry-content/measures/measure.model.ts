@@ -1,6 +1,6 @@
-import { applicationDb } from "../../../application.db";
+import { ApplicationDb } from "../../../application.db";
 
-export class Measure extends applicationDb {
+export class Measure extends ApplicationDb {
   public id: number;
   public pia_id: number;
   public title: string;
@@ -33,6 +33,17 @@ export class Measure extends applicationDb {
       entry.content = this.content;
       entry.updated_at = new Date();
       this.objectStore.put(entry);
+    });
+  }
+
+  async get(id: number) {
+    this.id = id;
+    this.find(this.id).then((entry: any) => {
+      this.pia_id = parseInt(entry.pia_id);
+      this.title = entry.title;
+      this.rank = parseInt(entry.rank);
+      this.created_at = new Date(entry.created_at);
+      this.updated_at = new Date(entry.updated_at);
     });
   }
 }

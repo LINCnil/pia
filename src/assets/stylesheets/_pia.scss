@@ -26,8 +26,9 @@
       }
       &-title {
         width: 420px;
+        padding-bottom: 10px;
       }
-      h1, h2 {
+      h1, h2, h3, h4 {
         margin: 0;
         padding: 0;
         line-height: 1.2;
@@ -43,6 +44,18 @@
         font-size: 1.4rem;
         text-transform: uppercase;
         font-weight: 500;
+      }
+      h3 {
+        font-size: 1.1rem;
+        font-weight: 400;
+        margin-top: 4px;
+      }
+      h4 {
+        font-size: 1rem;
+        font-weight: 400;
+        font-style: italic;
+        margin-top: 4px;
+        color: $pia-gray-dark;
       }
       div, h1 {
         display: inline-block;

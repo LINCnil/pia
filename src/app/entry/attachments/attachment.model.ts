@@ -1,6 +1,6 @@
-import { applicationDb } from "../../application.db";
+import { ApplicationDb } from "../../application.db";
 
-export class Attachment extends applicationDb {
+export class Attachment extends ApplicationDb {
   public id: number;
   public pia_id: number;
   public file: Blob;

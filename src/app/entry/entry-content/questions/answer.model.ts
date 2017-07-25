@@ -1,6 +1,6 @@
-import { applicationDb } from "../../../application.db";
+import { ApplicationDb } from "../../../application.db";
 
-export class Answer extends applicationDb {
+export class Answer extends ApplicationDb {
   public id: number;
   public pia_id: number;
   public reference_to: string;
@@ -28,5 +28,16 @@ export class Answer extends applicationDb {
     //   entry.updated_at = new Date();
     //   this.objectStore.put(entry);
     // });
+  }
+
+  async get(id: number) {
+    this.id = id;
+    this.find(this.id).then((entry: any) => {
+      this.pia_id = parseInt(entry.pia_id);
+      this.reference_to = entry.reference_to;
+      this.data = entry.data;
+      this.created_at = new Date(entry.created_at);
+      this.updated_at = new Date(entry.updated_at);
+    });
   }
 }

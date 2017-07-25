@@ -1,6 +1,7 @@
-import { applicationDb } from '../../../application.db';
+import { ApplicationDb } from '../../../application.db';
 
-export class Comment extends applicationDb {
+export class Comment extends ApplicationDb {
+  public id: number;
   public description: string;
   public reference_to: string;
   public type: string;
@@ -26,6 +27,17 @@ export class Comment extends applicationDb {
       entry.description = this.description;
       entry.updated_at = new Date();
       this.objectStore.put(entry);
+    });
+  }
+
+  async get(id: number) {
+    this.id = id;
+    this.find(this.id).then((entry: any) => {
+      this.description = entry.description;
+      this.reference_to = entry.reference_to;
+      this.type = entry.type;
+      this.created_at = new Date(entry.created_at);
+      this.updated_at = new Date(entry.updated_at);
     });
   }
 }
