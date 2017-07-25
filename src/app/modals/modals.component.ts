@@ -20,7 +20,16 @@ export class ModalsComponent implements OnInit {
    * @param {string} modal_id unique id of the modal which has to be opened.
    */
   openModal(modal_id: string) {
-    document.body.classList.add('pia-blurBackground');
+    if (modal_id === 'pia-declare-measures') {
+      const mainContent = document.querySelector('.pia-entryContentBlock');
+      mainContent.classList.add('blur-content');
+    } else {
+      const header = document.querySelector('.pia-headerBlock');
+      const container = document.querySelector('.pia-mainContainerBlock');
+      header.classList.add('blur');
+      container.classList.add('blur');
+      /*document.body.classList.add('pia-blurBackground');*/
+    }
     document.getElementById(modal_id).classList.add('open');
   }
 
@@ -29,12 +38,16 @@ export class ModalsComponent implements OnInit {
    */
   closeModal() {
     const modal = document.querySelector('[class="pia-modalBlock open"]');
-    document.body.classList.remove('pia-blurBackground');
+    const mainContent = document.querySelector('.pia-entryContentBlock');
+    const header = document.querySelector('.pia-headerBlock');
+    const container = document.querySelector('.pia-mainContainerBlock');
+    header.classList.remove('blur');
+    container.classList.remove('blur');
     modal.classList.remove('open');
   }
 
-    /**
-   * Returns to homepage.
+  /**
+   * Returns to homepage (used on several modals).
    */
   returnToHomepage() {
     this.closeModal();
@@ -56,14 +69,14 @@ export class ModalsComponent implements OnInit {
    *
    */
   abandonTreatment() {
-    // TODO
+    // TODO abandon treatment functionnalities (update the PIA, ...)
   }
 
   /**
-   *
+   * Allows users to download a report about the PIA.
    */
   exportPIAReport() {
-    // TODO
+    // TODO export PIA Report
   }
 
 }

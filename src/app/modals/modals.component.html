@@ -131,7 +131,7 @@
   </div>
 </div>
 
-<div class="pia-modalBlock" id="pia-declare-measures">
+<div class="pia-modalBlock" style="background-color:transparent;" id="pia-declare-measures">
   <div class="pia-modalBlock-content pia-modalBlock-declareMeasuresForRisks bounceIn">
     <button type="button" class="pia-modalBlock-close btn" title="Fermer"><span (click)="closeModal()" class="pia-icons pia-icon-close-big"></span></button>
     <p>
@@ -142,6 +142,7 @@
     </p>
     <span class="pia-icons pia-icon-sorry"></span>
     <div class="pia-modalBlock-validate">
+      <!-- TODO : see what we can do with this bouton and RouterLink -->
       <button (click)="closeModal()" type="button" title="Déclarer les mesures existantes ou prévues" class="btn btn-green">Déclarer les mesures existantes ou prévues</button>
     </div>
   </div>

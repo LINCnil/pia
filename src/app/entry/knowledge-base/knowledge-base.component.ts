@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, Output, EventEmitter } from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map'
@@ -12,6 +12,8 @@ export class KnowledgeBaseComponent implements OnInit {
 
   data: any;
   searchForm: FormGroup;
+  @Output() newMeasureEvent: EventEmitter<any> = new EventEmitter<any>();
+
   constructor(private http: Http) { }
 
   ngOnInit() {
@@ -42,6 +44,10 @@ export class KnowledgeBaseComponent implements OnInit {
         element.classList.remove('hide');
       }
     });
+  }
+
+  addNewMeasure(event) {
+    this.newMeasureEvent.emit(event);
   }
 
 }

@@ -1,5 +1,5 @@
 <app-header></app-header>
-<main class="container">
+<main class="container pia-mainContainerBlock">
   <div class="row">
     <!-- Left sidebar (sections) -->
     <div class="small-12 medium-3 columns">
@@ -12,15 +12,14 @@
     <div class="small-12 medium-6 columns">
       <!-- TODO : add header which contains json data -->
 
-
       <!-- <app-entry-content section="A transmettre depuis la sous-section cliquée"></app-entry-content> -->
-      <app-entry-content section="context"></app-entry-content>
+      <app-entry-content [measureName]="measureTitle" section="context"></app-entry-content>
     </div>
 
     <!-- Right sidebar (knowledge base) -->
     <div class="small-12 medium-3 columns">
       <div class="pia-rightSidebarBlock">
-        <app-knowledge-base></app-knowledge-base>
+        <app-knowledge-base (newMeasureEvent)="addNewMeasure($event)"></app-knowledge-base>
       </div>
     </div>
   </div>

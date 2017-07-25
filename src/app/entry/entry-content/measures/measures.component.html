@@ -2,17 +2,17 @@
     TODO : remove the 'approved' class by default (it's just to show here)
     and add it only when evaluation is done
 -->
-<div class="pia-measureBlock approved" [attr.data-id]="id">
+<div class="pia-measureBlock approved" [attr.data-id]="measure.id">
   <form [formGroup]="measureForm">
     <div class="pia-measureBlock-title">
       <button type="button" (click)="displayMeasure()" class="btn" title="Afficher / masquer"><span class="pia-icons pia-icon-accordeon-up"></span></button>
-      <input [attr.data-id]="id" id="pia-measure-title-{{id}}" formControlName="measureTitle" (focusout)="measureTitleFocusOut($event)" type="text" value="" placeholder="Titre de la mesure">
+      <input [attr.data-id]="measure.id" id="pia-measure-title-{{measure.id}}" formControlName="measureTitle" (focusout)="measureTitleFocusOut($event)" type="text" value="{{measure.title}}" placeholder="Titre de la mesure">
     </div>
     <div class="pia-measureBlock-displayer fadeIn">
-      <button type="button" class="btn pia-measureBlock-delete hide" (click)="removeMeasure(id)" title="Supprimer"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+      <button type="button" class="btn pia-measureBlock-delete hide" (click)="removeMeasure(measure.id)" title="Supprimer"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
       <button type="button" class="btn pia-measureBlock-edit hide" (click)="activateMeasureEdition()" title="Éditer"><i class="fa fa-pencil" aria-hidden="true"></i></button>
       <div class="pia-measureBlock-content">
-        <textarea [attr.data-id]="id" id="pia-measure-content-{{id}}" formControlName="measureContent" (focusout)="measureContentFocusOut($event)" rows="8" cols="50" placeholder="Ajoutez les mesures prises pour garantir la sécurité des données."></textarea>
+        <textarea [attr.data-id]="measure.id" id="pia-measure-content-{{measure.id}}" formControlName="measureContent" (focusout)="measureContentFocusOut($event)" rows="8" cols="50" placeholder="Ajoutez les mesures prises pour garantir la sécurité des données."></textarea>
       </div>
       <app-comments></app-comments>
       <!-- TODO : To show only on evaluation mode -->

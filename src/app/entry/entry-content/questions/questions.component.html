@@ -13,11 +13,15 @@
       <!-- TODO : to display only if question is of type 'gauge' -->
       <app-gauge></app-gauge>
       <div class="pia-questionBlock-content">
+        <!-- TODO : check the question.type (text or list here) to display a question with tags or a simple question -->
+        <tag-input class="form-control input-lg" [theme]="'questions-tags-theme'" [(ngModel)]='tags' [ngModelOptions]="{standalone: true}"></tag-input>
+        <!-- TODO : add the correct placeholder (something like question.placeholder from JSON file and NgFor) -->
         <textarea [attr.data-id]="id" id="pia-question-content-{{id}}" formControlName="questionContent" name="pia-question" rows="8" cols="50" (focusout)="questionContentFocusOut()" placeholder="Décrivez les caractéristiques de votre produit.">orem ipsum dolor sit amet, consectetur adipiscing elit. Ut hendrerit urna odio, eget cursus ferit urna odio, eget cursus ferit urna odio, eget cursus ferit urna odio, eget cdales consequat.</textarea>
       </div>
-      <app-comments></app-comments>
+      <!-- TODO : to show only after a first edition (when the current measure is created in DB) -->
+      <!-- <app-comments></app-comments> -->
       <!-- TODO : to show only on evaluation mode -->
-      <app-evaluations></app-evaluations>
+      <!-- <app-evaluations></app-evaluations> -->
     </div>
   </form>
 </div>

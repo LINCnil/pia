@@ -29,21 +29,18 @@
 -->
 <section class="pia-entryContentBlock">
   <header *ngIf="getCurrentSection() == 'context'">
-      header de context
+      Header à changer dynamiquement...
   </header>
 
-  <app-measures id="1"></app-measures>
-  <app-measures id="2"></app-measures>
+  <app-measures *ngFor="let measure of measures" [measure]="measure"></app-measures>
 
   <app-questions id="1"></app-questions>
-  <app-questions id="2"></app-questions>
 
   <footer class="pia-entryContentBlock-footer">
-
     <div class="pia-entryContentBlock-footer-measures">
-      <button class="btn btn-white" type="button" title="Ajouter une mesure"><span class="pia-icons pia-icon-add"></span>Ajouter une mesure</button>
-      <button class="btn btn-green" disabled type="submit" title="Demander l'évaluation">Demander l'évaluation</button>
-      <button class="btn btn-green btn-active" type="submit" title="Demander l'évaluation">Demander l'évaluation</button>
+      <button (click)="addNewMeasure()" class="btn btn-white" type="button" title="Ajouter une mesure"><span class="pia-icons pia-icon-add"></span>Ajouter une mesure</button>
+      <button (click)="askForEvaluation()" class="btn btn-green" disabled type="submit" title="Demander l'évaluation">Demander l'évaluation</button>
+      <button (click)="askForEvaluation()" class="btn btn-green btn-active" type="submit" title="Demander l'évaluation">Demander l'évaluation</button>
     </div>
 
     <button class="btn btn-green" disabled type="submit" title="Demander l'évaluation">Demander l'évaluation</button>

@@ -11,7 +11,7 @@ import {Measure} from './measure.model';
 })
 export class MeasuresComponent implements OnInit {
 
-  @Input() id: string;
+  @Input() measure: Measure;
   measureForm: FormGroup;
   modal = new ModalsComponent(this.router);
 
@@ -157,10 +157,4 @@ export class MeasuresComponent implements OnInit {
     deleteBtn.classList.add('hide');
   }
 
-  /**
-   * Returns the unique of of a measure.
-   */
-  getMeasureID() {
-    return this.id;
-  }
 }

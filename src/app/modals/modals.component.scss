@@ -111,23 +111,3 @@
   }
 }
 
-// Main blur
-body.pia-blurBackground {
-    .pia-headerBlock, .container {
-        filter: blur(1.5px);
-    }
-}
-
-// "RISKS" special blur
-.blur-content {
-  &:after {
-    z-index: 1000;
-    content: '';
-    background-color: rgba(0,0,0,0.6);
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-  }
-}

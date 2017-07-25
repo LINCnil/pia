@@ -4,7 +4,6 @@ export class Measure extends applicationDb {
   public id: number;
   public pia_id: number;
   public title: string;
-  public rank: number;
   public content: string;
   public created_at: Date;
   public updated_at: Date;
@@ -20,7 +19,7 @@ export class Measure extends applicationDb {
     await this.getObjectStore();
     return new Promise((resolve, reject) => {
       const created_at = new Date();
-      this.objectStore.add({title: this.title, rank: this.rank, content: this.content,
+      this.objectStore.add({title: this.title, content: this.content,
         created_at: this.created_at, updated_at: new Date()
       }).onsuccess = (event: any) => {
         resolve(event.target.result);

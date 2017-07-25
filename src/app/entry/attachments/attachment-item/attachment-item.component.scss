@@ -5,6 +5,7 @@
     &-item {
       margin: 4px 0;
       padding: 4px;
+      padding-right: 10px;
       position: relative;
       border: solid 1px $pia-gray;
       display: flex;
@@ -13,7 +14,6 @@
         align-self: center;
         padding: 10px;
         color: $pia-blue;
-        margin-right: 10px;
       }
       span:nth-child(2) {
         align-self: center;

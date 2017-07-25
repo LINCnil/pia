@@ -20,7 +20,6 @@ $fa-font-path: "../node_modules/font-awesome/fonts";
 @import "./assets/stylesheets/animations";
 @import "./assets/stylesheets/pia";
 
-
 // Default styles
 html {
     font-size: 62.5%;
@@ -79,4 +78,24 @@ input {
 }
 .open, .show {
   display: block !important;
+}
+
+// Main blur (used on modals)
+.blur {
+  filter: blur(1.5px);
+}
+
+// Special blur (used on a "RISKS" modal)
+.blur-content {
+  &:after {
+    cursor: not-allowed;
+    z-index: 1000;
+    content: '';
+    background-color: rgba(0,0,0,0.6);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
 }

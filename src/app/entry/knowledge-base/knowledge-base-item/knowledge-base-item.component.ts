@@ -1,4 +1,5 @@
-import { Component, ElementRef, OnInit, Input } from '@angular/core';
+import { Component, ElementRef, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-knowledge-base-item',
@@ -8,8 +9,11 @@ import { Component, ElementRef, OnInit, Input } from '@angular/core';
 export class KnowledgeBaseItemComponent implements OnInit {
 
   @Input() item: any;
+  @Output() newMeasureEvent: EventEmitter<any> = new EventEmitter<any>();
 
-  constructor(private el: ElementRef) { }
+  constructor(private el: ElementRef, private router: Router, private activatedRoute: ActivatedRoute) {
+    this.router = router;
+  }
 
   ngOnInit() {
   }
@@ -28,8 +32,8 @@ export class KnowledgeBaseItemComponent implements OnInit {
    * Adds a measure to the PIA.
    * This is used mainly on "Mesures préventives et existantes" subsection.
    */
-  addMeasure() {
-
+  addNewMeasure() {
+    this.newMeasureEvent.emit(this.item.name);
   }
 
 }
