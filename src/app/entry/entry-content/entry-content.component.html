@@ -27,12 +27,24 @@
     ... section 3
   </div>
 -->
-<section class="pia-entryContentBlock">
-  <header *ngIf="getCurrentSection() == 'context'">
-      header de context
+<section class="pia-entryContentBlock" *ngIf="section && item">
+  <header class="pia-entryContentBlock-header">
+    <div>
+      <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+    </div>
+    <div class="pia-entryContentBlock-header-title">
+      <h1>{{ section.title }}</h1>
+      <h2 [ngClass]="{'hide': section.display_mode == 'all_items'}">{{ item.title }}</h2>
+      <h3 *ngIf="section.short_help">{{ section.short_help }}</h3>
+      <h4 *ngIf="item.short_help">{{ item.short_help }}</h4>
+    </div>
+    <a href="javascript:;" class="btn pia-previewBlock" title="Aperçu">
+      <span class="pia-icons pia-icon-preview"></span>
+      <div>Aperçu</div>
+    </a>
   </header>
 
-  <app-measures id="1"></app-measures>
+  <!-- <app-measures id="1"></app-measures>
   <app-measures id="2"></app-measures>
 
   <app-questions id="1"></app-questions>
@@ -62,5 +74,5 @@
       <a href="#"><< Contexte </a>
       <a href="#">Principes fondamentaux >></a>
     </div>
-  </footer>
+  </footer> -->
 </section>

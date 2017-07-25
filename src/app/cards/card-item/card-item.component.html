@@ -1,8 +1,10 @@
 <div class="pia-cardsBlock pia-doingBlock">
 
     <div class="pia-cardsBlock-header-title" *ngIf="pia.id != null">
-      <span *ngIf="pia.status == '1'">En cours</span>
-      <span *ngIf="pia.status == '2'">Archivée</span>
+      <span *ngIf="pia.status == '1'; else piaArchived">En cours</span>
+      <ng-template #piaArchived>
+        Archivée
+      </ng-template>
     </div>
 
     <div class="pia-cardsBlock-item pia-doingBlock-item">

@@ -21,7 +21,7 @@
   </div>
 
   <!-- Contains each knowledge base item -->
-  <div class="pia-knowledgeBaseBlock-list">
+  <div class="pia-knowledgeBaseBlock-list" [ngStyle]="{height: getEntryContentHeight()}">
     <app-knowledge-base-item *ngFor="let item of data" [item]="item"></app-knowledge-base-item>
   </div>
 </div>

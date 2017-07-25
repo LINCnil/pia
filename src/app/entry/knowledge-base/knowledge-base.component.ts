@@ -23,12 +23,13 @@ export class KnowledgeBaseComponent implements OnInit {
     });
   }
 
-  ngAfterViewInit() {
+  getEntryContentHeight() {
     // Automatic resize the height of the KnowledgeBase block to improve the navigation with the overflow.
     const centralElementHeight = <HTMLElement>document.querySelector('.pia-entryContentBlock');
     if (centralElementHeight) {
       const element = <HTMLElement>document.querySelector('.pia-knowledgeBaseBlock-list');
-      element.style.height = centralElementHeight.offsetHeight - 190 + 'px';
+      const totalSize = centralElementHeight.offsetHeight - 190;
+      return (totalSize < 700 ? 700 : totalSize) + 'px';
     }
   }
 

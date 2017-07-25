@@ -1,6 +1,6 @@
-import { applicationDb } from "../../../application.db";
+import { ApplicationDb } from "../../../application.db";
 
-export class Evaluation extends applicationDb {
+export class Evaluation extends ApplicationDb {
   public id: number;
   public pia_id: number;
   public status: string;
@@ -34,5 +34,22 @@ export class Evaluation extends applicationDb {
     //   entry.updated_at = new Date();
     //   this.objectStore.put(entry);
     // });
+  }
+
+  async get(id: number) {
+    this.id = id;
+    this.find(this.id).then((entry: any) => {
+      this.pia_id = parseInt(entry.pia_id);
+      this.status = entry.status;
+      this.reference_to = entry.reference_to;
+      this.action_plan_comment = entry.action_plan_comment;
+      this.evaluation_comment = entry.evaluation_comment;
+      this.evaluation_date = new Date(entry.evaluation_date);
+      this.gauges = entry.gauges;
+      this.estimated_evaluation_date = new Date(entry.estimated_evaluation_date);
+      this.person_in_charge = entry.person_in_charge;
+      this.created_at = new Date(entry.created_at);
+      this.updated_at = new Date(entry.updated_at);
+    });
   }
 }

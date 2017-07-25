@@ -1,4 +1,4 @@
-export class applicationDb {
+export class ApplicationDb {
   protected dbVersion: number;
   protected db: any;
   protected tableName: string;

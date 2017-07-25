@@ -1,6 +1,9 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Router, ActivatedRoute, Params } from '@angular/router';
+import { Component, OnInit, Input } from '@angular/core';
 import { ModalsComponent } from '../../modals/modals.component';
-import { Router } from '@angular/router';
+import { Http } from '@angular/http';
+import { Pia } from '../pia.model';
+import 'rxjs/add/operator/map'
 
 @Component({
   selector: 'app-entry-content',
@@ -9,22 +12,17 @@ import { Router } from '@angular/router';
 })
 export class EntryContentComponent implements OnInit {
 
-  @Input() section: string;
+  @Input() section: {};
+  @Input() item: {};
+  @Input() pia: Pia;
+
   modal = new ModalsComponent(this.router);
 
-  constructor(private router: Router) {
-    this.router = router;
+  constructor(private router: Router, private activatedRoute: ActivatedRoute, private http: Http) {
+
   }
 
   ngOnInit() {
-  }
-
-  /**
-   * Returns the current PIA section.
-   * @returns {string} the name of section.
-   */
-  getCurrentSection() {
-    return this.section;
   }
 
   /**
