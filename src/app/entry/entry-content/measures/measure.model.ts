@@ -41,7 +41,6 @@ export class Measure extends ApplicationDb {
     this.find(this.id).then((entry: any) => {
       this.pia_id = parseInt(entry.pia_id);
       this.title = entry.title;
-      this.rank = parseInt(entry.rank);
       this.created_at = new Date(entry.created_at);
       this.updated_at = new Date(entry.updated_at);
     });

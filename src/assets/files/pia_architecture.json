@@ -448,6 +448,32 @@
           "type": ""
         }
       ]
+    },
+    {
+      "id": 4,
+      "title": "Validation du PIA",
+      "display_mode": "",
+      "short_help": "",
+      "items": [
+        {
+          "id": 1,
+          "title": "Cartographie des risques",
+          "evaluation_mode": "",
+          "short_help": ""
+        },
+        {
+          "id": 2,
+          "title": "Plan d'action",
+          "evaluation_mode": "",
+          "short_help": ""
+        },
+        {
+          "id": 3,
+          "title": "Avis du DPO et des personnes",
+          "evaluation_mode": "",
+          "short_help": ""
+        }
+      ]
     }
   ]
 }
