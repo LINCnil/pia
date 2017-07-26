@@ -1,7 +1,10 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { ModalsComponent } from '../../modals/modals.component';
 import { Router, ActivatedRoute, Params } from '@angular/router';
-import {Measure} from './measures/measure.model';
+import { Component, OnInit, Input } from '@angular/core';
+import { ModalsComponent } from '../../modals/modals.component';
+import { Measure } from './measures/measure.model';
+import { Http } from '@angular/http';
+import { Pia } from '../pia.model';
+import 'rxjs/add/operator/map'
 
 @Component({
   selector: 'app-entry-content',
@@ -10,22 +13,19 @@ import {Measure} from './measures/measure.model';
 })
 export class EntryContentComponent implements OnInit {
 
-  pia_id: number;
   @Input() measureName: string;
-  @Input() section: string;
+  @Input() section: {};
+  @Input() item: {};
+  @Input() pia: Pia;
+
   modal = new ModalsComponent(this.router);
   /* TODO : get additional measures from DB if there are some */
   measures: any;
 
   constructor(private router: Router, private activatedRoute: ActivatedRoute) {
-    this.router = router;
   }
 
   ngOnInit() {
-    this.activatedRoute.params.subscribe((params: Params) => {
-      this.pia_id = params['id'];
-    });
-
     const measuresModel = new Measure();
     /* TODO : find measures where PIA id = this.pia_id */
     measuresModel.findAll().then((entries) => {
@@ -59,14 +59,6 @@ export class EntryContentComponent implements OnInit {
   }
 
   /**
-   * Returns the current PIA section.
-   * @returns {string} the name of section.
-   */
-  getCurrentSection() {
-    return this.section;
-  }
-
-  /**
    * Allows an user to ask an evaluation for a section.
    */
   askForEvaluation() {
@@ -92,7 +84,7 @@ export class EntryContentComponent implements OnInit {
      * Sinon on se retrouve avec des mesures avec un id vide... et après c'est bon au rafraîchissement.
     */
     const newMeasureRecord = new Measure();
-    newMeasureRecord.pia_id = this.pia_id;
+    newMeasureRecord.pia_id = this.pia.id;
     if (measureTitle) {
       newMeasureRecord.title = measureTitle;
     }

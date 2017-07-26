@@ -4,16 +4,13 @@
     <!-- Left sidebar (sections) -->
     <div class="small-12 medium-3 columns">
       <aside class="pia-leftSidebarBlock">
-        <app-sections></app-sections>
+        <app-sections [section]="section" [item]="item" [data]="data" [pia]="pia"></app-sections>
       </aside>
     </div>
 
     <!-- Main entry content -->
     <div class="small-12 medium-6 columns">
-      <!-- TODO : add header which contains json data -->
-
-      <!-- <app-entry-content section="A transmettre depuis la sous-section cliquée"></app-entry-content> -->
-      <app-entry-content [measureName]="measureTitle" section="context"></app-entry-content>
+      <app-entry-content [measureName]="measureTitle" [section]="section" [item]="item" [pia]="pia"></app-entry-content>
     </div>
 
     <!-- Right sidebar (knowledge base) -->
