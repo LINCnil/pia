@@ -1,6 +1,8 @@
 <!--
-    TODO : remove the 'approved' class by default (it's just to show here)
-    and add it only when evaluation is done
+    TODO : remove the 'approved' class by default (it's just to show what it does, here)
+    Add it only on questions which have been evaluated as 'improvable' or 'acceptable'.
+    In addition of this class, questions should be 'locked' (uneditable).
+    However, other questions ('to be fixed') don't get this special class and stay editable.
 -->
 <div class="pia-questionBlock approved" [attr.data-id]="id">
   <form [formGroup]="questionForm">
@@ -14,11 +16,15 @@
       <app-gauge></app-gauge>
       <div class="pia-questionBlock-content">
         <!-- TODO : check the question.type (text or list here) to display a question with tags or a simple question -->
-        <tag-input class="form-control input-lg" [theme]="'questions-tags-theme'" [(ngModel)]='tags' [ngModelOptions]="{standalone: true}"></tag-input>
-        <!-- TODO : add the correct placeholder (something like question.placeholder from JSON file and NgFor) -->
+        <tag-input [theme]="'foundation-theme'" [ngModel]="tags" [ngModelOptions]="{standalone: true}" [placeholder]="'&#10010;'" [secondaryPlaceholder]="'Entrez votre source  &#10010;'">
+          <tag-input-dropdown [showDropdownIfEmpty]="true"
+                              [autocompleteItems]="userMeasures">
+          </tag-input-dropdown>
+        </tag-input>
+        <!-- TODO : for questions with 'text', add the correct placeholder (something like question.placeholder from JSON file and NgFor) -->
         <textarea [attr.data-id]="id" id="pia-question-content-{{id}}" formControlName="questionContent" name="pia-question" rows="8" cols="50" (focusout)="questionContentFocusOut()" placeholder="Décrivez les caractéristiques de votre produit.">orem ipsum dolor sit amet, consectetur adipiscing elit. Ut hendrerit urna odio, eget cursus ferit urna odio, eget cursus ferit urna odio, eget cursus ferit urna odio, eget cdales consequat.</textarea>
       </div>
-      <!-- TODO : to show only after a first edition (when the current measure is created in DB) -->
+      <!-- TODO : to show only after a first edition (when the current question is created in DB) -->
       <!-- <app-comments></app-comments> -->
       <!-- TODO : to show only on evaluation mode -->
       <!-- <app-evaluations></app-evaluations> -->

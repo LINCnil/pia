@@ -1,5 +1,7 @@
 import { Component, Input, ElementRef, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import 'rxjs/add/operator/debounceTime';
+import 'rxjs/add/operator/map';
 
 @Component({
   selector: 'app-questions',
@@ -8,7 +10,8 @@ import { FormControl, FormGroup } from '@angular/forms';
 })
 export class QuestionsComponent implements OnInit {
 
-  tags = ['aaaa', 'bbbb', 'cccc'];
+  tags = [];
+  userMeasures = ['user_measure1', 'user_measure2', 'user_measure3'];
   @Input() id: string;
   questionForm: FormGroup;
 
