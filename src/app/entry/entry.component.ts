@@ -11,6 +11,7 @@ import { Pia } from './pia.model';
 export class EntryComponent implements OnInit {
 
   measureTitle: string;
+  measurePlaceholder: string;
 
   @Output() pia: Pia;
   @Output() section: { id: number, title: string, display_mode: string, short_help: string, items: any };
@@ -42,8 +43,9 @@ export class EntryComponent implements OnInit {
 
   ngOnInit() { }
 
-  addNewMeasure(event) {
-    this.measureTitle = event;
+  addNewMeasure(item) {
+    this.measureTitle = item.name;
+    this.measurePlaceholder = item.placeholder !== undefined ? item.placeholder : 'Ajoutez les mesures prises pour garantir la sécurité des données.';
   }
 
   private getSectionAndItem(sectionId, itemId) {

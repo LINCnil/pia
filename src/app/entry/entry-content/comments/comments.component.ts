@@ -12,7 +12,6 @@ import { Comment } from './comment.model';
 export class CommentsComponent implements OnInit {
 
   modal = new ModalsComponent(this.router);
-  nbComments: number;
   commentsForm: FormGroup;
   comments: any;
   @Input() question: any;
@@ -24,6 +23,7 @@ export class CommentsComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.comments = [];
     /*
       TODO : load in 'this.comments' the adequate comments for each specific question/measure.
       Think to do this in the promise : this.nbComments = this.comments.length;
@@ -39,7 +39,6 @@ export class CommentsComponent implements OnInit {
     // Just for now 'till we code the above TODO...
     commentsModel.findAll().then((entries) => {
       this.comments = entries;
-      this.nbComments = this.comments.length;
     });
 
     this.commentsForm = new FormGroup({
@@ -88,7 +87,7 @@ export class CommentsComponent implements OnInit {
           this.comments.unshift(commentRecord);
           this.commentsForm.controls['description'].setValue('');
           this.toggleNewCommentBox();
-          this.updateCommentsCounter();
+          // this.updateCommentsCounter();
           this.getCommentsAccordeonStatus();
         });
       }
@@ -98,10 +97,10 @@ export class CommentsComponent implements OnInit {
   /**
    * Updates comments counter with the total number of comments.
    */
-  updateCommentsCounter() {
-    const commentsNumber = this.comments.length;
-    this.nbComments = commentsNumber;
-  }
+  // updateCommentsCounter() {
+  //   const commentsNumber = this.comments.length;
+  //   this.nbComments = commentsNumber;
+  // }
 
   /**
    * Display comments list.
@@ -118,7 +117,7 @@ export class CommentsComponent implements OnInit {
    * @returns {Boolean} true if there are comments, false otherwise.
    */
   getCommentsAccordeonStatus() {
-    return this.nbComments > 0 ? true : false;
+    return this.comments.length > 0 ? true : false;
   }
 
 }
