@@ -54,7 +54,7 @@
   </div>
 
   <!-- TODO : to show only after a first edition (when the current question is created in DB) -->
-  <app-comments></app-comments>
+  <app-comments [pia]="pia" [question]="question"></app-comments>
 
   <!-- TODO : to show only on evaluation mode -->
   <app-evaluations *ngIf="item.evaluation_mode == 'question'"></app-evaluations>

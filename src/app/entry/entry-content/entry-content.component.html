@@ -16,10 +16,10 @@
   </header>
 
   <ng-container *ngIf="section.id == 3 && item.id == 1; else appQuestions">
-    <app-measures *ngFor="let measure of measures" [measure]="measure" [item]="item"></app-measures>
+    <app-measures *ngFor="let measure of measures" [measure]="measure" [pia]="pia" [item]="item"></app-measures>
   </ng-container>
   <ng-template #appQuestions>
-    <app-questions *ngFor="let question of questions" [question]="question" [item]="item"></app-questions>
+    <app-questions *ngFor="let question of questions" [question]="question" [pia]="pia" [item]="item"></app-questions>
   </ng-template>
 
   <app-evaluations *ngIf="item.evaluation_mode == 'section'" [item]="item"></app-evaluations>

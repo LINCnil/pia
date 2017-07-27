@@ -14,6 +14,7 @@ export class QuestionsComponent implements OnInit {
   userMeasures = ['user_measure1', 'user_measure2', 'user_measure3'];
   @Input() question: any;
   @Input() item: any;
+  @Input() pia: any;
   questionForm: FormGroup;
 
   constructor(private el: ElementRef) { }

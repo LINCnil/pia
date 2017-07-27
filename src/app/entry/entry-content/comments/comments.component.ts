@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, Input } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ModalsComponent } from '../../../modals/modals.component';
 import { Router } from '@angular/router';
@@ -14,14 +14,34 @@ export class CommentsComponent implements OnInit {
   modal = new ModalsComponent(this.router);
   nbComments: number;
   commentsForm: FormGroup;
-  comments: Comment[] = [];
+  comments: any;
+  @Input() question: any;
+  @Input() measure: any;
+  @Input() pia: any;
 
   constructor(private el: ElementRef, private router: Router) {
     this.router = router;
   }
 
   ngOnInit() {
-    this.nbComments = this.comments.length;
+    /*
+      TODO : load in 'this.comments' the adequate comments for each specific question/measure.
+      Think to do this in the promise : this.nbComments = this.comments.length;
+    */
+    const commentsModel = new Comment();
+
+    if (this.measure) {
+      /* TODO : select * from comments where comment.pia_id = this.pia.id && comment.type = "measure" && reference_to = this.measure.id */
+    } else {
+      /* TODO : select * from comments where comment.pia_id = this.pia.id && reference_to = this.question.id */
+    }
+
+    // Just for now 'till we code the above TODO...
+    commentsModel.findAll().then((entries) => {
+      this.comments = entries;
+      this.nbComments = this.comments.length;
+    });
+
     this.commentsForm = new FormGroup({
       description: new FormControl()
     });
@@ -32,8 +52,7 @@ export class CommentsComponent implements OnInit {
    * Shows or hides the block which allows users to create a new comment.
    */
   toggleNewCommentBox() {
-    const newCommentBox = this.el.nativeElement.querySelector('.pia-commentsBlock-new');
-
+    const newCommentBox = this.el.nativeElement.querySelector('.pia-commentsBlock-new');;
     // Opens comments list if it's closed.
     const accordeonButton = this.el.nativeElement.querySelector('.pia-commentsBlock-btn button span');
     const commentsList = this.el.nativeElement.querySelector('.pia-commentsBlock-list');
@@ -58,7 +77,13 @@ export class CommentsComponent implements OnInit {
         // Updates accordeon and counter + removes the written comment.
         const commentRecord = new Comment();
         commentRecord.description = this.commentsForm.value.description;
-        // TODO Add pia_id
+        commentRecord.pia_id = this.pia.id;
+        if (this.measure) {
+          commentRecord.type = "measure";
+          commentRecord.reference_to = this.measure.id ;
+        } else {
+          commentRecord.reference_to = this.question.id;
+        }
         commentRecord.create().then((entry) => {
           this.comments.unshift(commentRecord);
           this.commentsForm.controls['description'].setValue('');

@@ -14,6 +14,7 @@ export class MeasuresComponent implements OnInit {
   @Input() measure: Measure;
   @Input() question: any;
   @Input() item: any;
+  @Input() pia: any;
   measureForm: FormGroup;
   modal = new ModalsComponent(this.router);
 

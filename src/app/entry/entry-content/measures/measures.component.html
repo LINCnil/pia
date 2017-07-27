@@ -14,7 +14,7 @@
       <div class="pia-measureBlock-content">
         <textarea [attr.data-id]="measure.id" id="pia-measure-content-{{measure.id}}" formControlName="measureContent" (focusout)="measureContentFocusOut($event)" rows="8" cols="50" placeholder="Ajoutez les mesures prises pour garantir la sécurité des données."></textarea>
       </div>
-      <app-comments></app-comments>
+      <app-comments [pia]="pia" [measure]="measure"></app-comments>
       <!-- TODO : To show only on evaluation mode -->
       <app-evaluations></app-evaluations>
     </div>
