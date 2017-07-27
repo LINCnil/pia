@@ -32,7 +32,6 @@ import { RefusePIAComponent } from './entry/refuse-pia/refuse-pia.component';
 import { PiaValidateHistoryComponent } from './entry/validate-pia/pia-validate-history/pia-validate-history.component';
 import { SettingsComponent } from './settings/settings.component';
 import { HelpComponent } from './help/help.component';
-import { GaugeComponent } from './entry/gauge/gauge.component';
 import { ModalsComponent } from './modals/modals.component';
 import { MeasuresComponent } from './entry/entry-content/measures/measures.component';
 import { CardFilterComponent } from './cards/card-filter/card-filter.component';
@@ -75,7 +74,6 @@ const appRoutes: Routes = [
     PiaValidateHistoryComponent,
     SettingsComponent,
     HelpComponent,
-    GaugeComponent,
     ModalsComponent,
     MeasuresComponent,
     CardFilterComponent
