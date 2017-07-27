@@ -15,12 +15,14 @@
     </a>
   </header>
 
-  <div *ngIf="section.id == 3 && item.id == 1">
-    <app-measures *ngFor="let measure of measures" [measure]="measure"></app-measures>
-  </div>
-  <div *ngIf="section.id != 3 && item.id != 1">
-    <app-questions *ngFor="let question of questions" [question]="question"></app-questions>
-  </div>
+  <ng-container *ngIf="section.id == 3 && item.id == 1; else appQuestions">
+    <app-measures *ngFor="let measure of measures" [measure]="measure" [item]="item"></app-measures>
+  </ng-container>
+  <ng-template #appQuestions>
+    <app-questions *ngFor="let question of questions" [question]="question" [item]="item"></app-questions>
+  </ng-template>
+
+  <app-evaluations *ngIf="item.evaluation_mode == 'section'" [item]="item"></app-evaluations>
 
   <footer class="pia-entryContentBlock-footer">
     <div class="pia-entryContentBlock-footer-measures">

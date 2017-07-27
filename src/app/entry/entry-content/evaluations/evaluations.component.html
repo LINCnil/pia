@@ -1,4 +1,4 @@
-<div class="pia-evaluationBlock">
+<div class="pia-evaluationBlock" [ngClass]="{'pia-evaluationBlock-shadowed pia-evaluationBlock-self-padding': item.evaluation_mode == 'section'}">
   <div class="pia-evaluationBlock-title">Évaluation</div>
   <div class="pia-evaluationBlock-edit hide">
     <button class="btn" type="button" (click)="activateEvaluationEdition()" title="Éditer"><i class="fa fa-pencil" aria-hidden="true"></i></button>

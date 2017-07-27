@@ -12,6 +12,8 @@ import {Measure} from './measure.model';
 export class MeasuresComponent implements OnInit {
 
   @Input() measure: Measure;
+  @Input() question: any;
+  @Input() item: any;
   measureForm: FormGroup;
   modal = new ModalsComponent(this.router);
 

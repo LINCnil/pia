@@ -18,6 +18,7 @@ export class Pia extends ApplicationDb {
 
   constructor() {
     super(201707071818, 'pia');
+    this.created_at = new Date();
   }
 
   async create() {

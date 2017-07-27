@@ -13,6 +13,7 @@ export class QuestionsComponent implements OnInit {
   tags = [];
   userMeasures = ['user_measure1', 'user_measure2', 'user_measure3'];
   @Input() question: any;
+  @Input() item: any;
   questionForm: FormGroup;
 
   constructor(private el: ElementRef) { }

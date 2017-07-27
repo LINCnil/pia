@@ -91,10 +91,10 @@
       font-weight: 500;
       color: $pia-blue;
     }
-    &.shadowed {
+    &-shadowed {
       box-shadow: 1px 1px 15px 1px rgba(210,210,210,1);
     }
-    &.self-padding {
+    &-self-padding {
       padding: 2px 30px 25px 30px;
     }
   }

@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, Input } from '@angular/core';
 import { FormArray, FormControl, FormGroup } from '@angular/forms';
 
 @Component({
@@ -9,6 +9,7 @@ import { FormArray, FormControl, FormGroup } from '@angular/forms';
 export class EvaluationsComponent implements OnInit {
 
   evaluationForm: FormGroup;
+  @Input() item: any;
 
   constructor(private el: ElementRef) { }
 
