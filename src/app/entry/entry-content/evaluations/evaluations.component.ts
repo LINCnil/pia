@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, ElementRef, OnInit } from '@angular/core';
 import { FormArray, FormControl, FormGroup } from '@angular/forms';
 
 @Component({
@@ -9,7 +9,6 @@ import { FormArray, FormControl, FormGroup } from '@angular/forms';
 export class EvaluationsComponent implements OnInit {
 
   evaluationForm: FormGroup;
-  @Output() actionPlanIsMandatory: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   constructor(private el: ElementRef) { }
 
@@ -41,12 +40,10 @@ export class EvaluationsComponent implements OnInit {
     // Shows action plan field on "improvable" evaluation.
     if (clickedBtn.getAttribute('data-btn-type')) {
       actionPlan.classList.add('show');
-      this.actionPlanIsMandatory.emit(true);
     } else {
       // Hides action plan field + switchs its value to comment field + removes its value.
       const evaluationPlanValue = this.evaluationForm.value.evaluationActionPlan;
       const commentValue = this.evaluationForm.value.evaluationComment;
-      this.actionPlanIsMandatory.emit(false);
       if (evaluationPlanValue && evaluationPlanValue.length > 0) {
         // Checks if there is an evaluation comment to concatenate it after the action plan value.
         if (commentValue && commentValue.length > 0) {

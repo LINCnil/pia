@@ -516,5 +516,16 @@ body.pia-contrast {
   }
 
   /* modals */
+  .pia-modalBlock {
+    .pia-icon-happy {
+      background-position: -127px -391px;
+    }
+    .pia-icon-sad {
+      background-position: -128px -600px;
+    }
+    .pia-icon-close-big {
+      background-position: -323px -86px;
+    }
+  }
 
 }

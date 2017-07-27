@@ -116,8 +116,4 @@ export class QuestionsComponent implements OnInit {
     editBtn.classList.add('hide');
   }
 
-  test(event) {
-    console.log(event);
-  }
-
 }
