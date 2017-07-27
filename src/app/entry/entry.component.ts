@@ -16,7 +16,6 @@ export class EntryComponent implements OnInit {
   @Output() section: { id: number, title: string, display_mode: string, short_help: string, items: any };
   @Output() item: { id: number, title: string, evaluation_mode: string, short_help: string, questions: any };
   @Output() data: { sections: any };
-  @Output() questions: any;
 
   constructor(private route: ActivatedRoute, private http: Http) {
     let sectionId = parseInt(this.route.snapshot.params['section_id']);
@@ -48,27 +47,11 @@ export class EntryComponent implements OnInit {
   }
 
   private getSectionAndItem(sectionId, itemId) {
-    this.questions = [];
-
     this.section = this.data['sections'].filter((section) => {
       return section.id === sectionId;
     })[0];
     this.item = this.section['items'].filter((item) => {
       return item.id === itemId;
     })[0];
-
-    if (this.section.display_mode == 'all_items') {
-      if (this.section['items']) {
-        this.section['items'].forEach(item => {
-          item['questions'].forEach(question => {
-            this.questions.push(question);
-          });
-        });
-      }
-    } else if(this.item['questions']) {
-      this.item['questions'].forEach(question => {
-        this.questions.push(question);
-      });
-    }
   }
 }
