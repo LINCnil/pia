@@ -52,7 +52,7 @@ export class CardsComponent implements OnInit {
 
   /**
    * Save the newly created PIA.
-   * Sends on the link associated to this new PIA.
+   * Sends to the path associated to this new PIA.
    */
   onSubmit() {
     let pia = new Pia();
@@ -63,11 +63,5 @@ export class CardsComponent implements OnInit {
     const p = pia.create();
     p.then((id) => this.router.navigate(['/entry/' + id]));
   }
-
-
-/*  removeCardItem(event) {
-    const test = this.pias.find(pia => pia.id === event);
-    console.log(test);
-  }*/
 
 }

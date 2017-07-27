@@ -19,18 +19,6 @@ export class CardItemComponent implements OnInit {
     this.editMode = false;
   }
 
-  /**
-   * Enable or disable edition mode on PIA main fields.
-   */
-  activateEdition() {
-    this.editMode = !this.editMode;
-    if(this.editMode) {
-      this.piaForm.enable();
-    } else {
-      this.piaForm.disable();
-    }
-  }
-
   ngOnInit() {
     this.piaForm = new FormGroup({
       id: new FormControl(this.pia.id),
@@ -41,6 +29,21 @@ export class CardItemComponent implements OnInit {
     });
   }
 
+  /**
+   * Enables or disables edition mode on PIA main fields.
+   */
+  activateEdition() {
+    this.editMode = !this.editMode;
+    if(this.editMode) {
+      this.piaForm.enable();
+    } else {
+      this.piaForm.disable();
+    }
+  }
+
+  /**
+   * TODO : explain this function
+   */
   onSubmit() {
     let pia = new Pia();
     pia.id = this.piaForm.value.id;
@@ -54,6 +57,10 @@ export class CardItemComponent implements OnInit {
     });
   }
 
+  /**
+   * Deletes a PIA with a given id.
+   * @param id {number} id of the PIA to be deleted.
+   */
   deletePIA(id: number) {
     if (confirm('Merci de confirmer la suppression de ce PIA')) {
       const el = new Pia();

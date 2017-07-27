@@ -47,18 +47,17 @@
         color: $pia-gray;
         font-size: 1rem;
       }
-      button:first-of-type {
-        color: $pia-blue;
-        font-weight: bold;
-        font-style: normal;
-        font-size: 1rem;
-      }
       button {
         color: $pia-gray;
         font-style: italic;
         font-size: 1rem;
         &::before {
           content: " - ";
+        }
+        &.active {
+          color: $pia-blue;
+          font-weight: bold;
+          font-style: normal;
         }
       }
     }
@@ -156,57 +155,6 @@
         padding-bottom: 15px;
         color: $pia-dark-black;
         font-size: 1.4rem;
-      }
-    }
-  }
-}
-
-// Filters on knowledge base
-.pia {
-  &-knowledgeBaseBlock {
-    &-filters {
-      padding-top: 5px;
-      padding-bottom: 8px;
-      div:first-child {
-        color: $pia-gray;
-        font-size: 1rem;
-      }
-      button:first-of-type {
-        color: $pia-blue;
-        font-weight: bold;
-        font-style: normal;
-        font-size: 1rem;
-      }
-      button {
-        color: $pia-gray;
-        font-style: italic;
-        font-size: 1rem;
-        &::before {
-          content: " - ";
-        }
-      }
-    }
-    &-searchForm {
-      position: relative;
-      padding-top: 17px;
-      form {
-        margin: 0;
-        position: relative;
-      }
-      input {
-        width: 100%;
-        padding: 15px;
-        box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.2);
-        border: none;
-      }
-      i {
-        font-size: 1.7rem;
-        color: $pia-gray;
-      }
-      button {
-        position: absolute;
-        right: 6%;
-        top: 30%;
       }
     }
   }

@@ -20,7 +20,8 @@ export class QuestionsComponent implements OnInit {
   ngOnInit() {
     this.questionForm = new FormGroup({
       questionGauge: new FormControl(),
-      questionContent: new FormControl()
+      questionContent: new FormControl(),
+      questionTags: new FormControl()
     });
   }
 
@@ -44,6 +45,42 @@ export class QuestionsComponent implements OnInit {
       this.questionForm.controls['questionContent'].disable();
     }
     // Saving data here
+  }
+
+  /**
+   * Disables question field + shows edit button + save data.
+   */
+  questionTagsFocusOut() {
+    alert(this.questionForm.value.questionTags);
+    // Saving data here
+  }
+
+  /* TODO onAdd */
+  /**
+   * Adds the measure tag in the database.
+   * @param {event} event any event.
+   */
+  onAdd(event) {
+    console.log(event);
+  }
+
+
+  /* TODO onTagEdited */
+  /**
+   * Updates the edited measure tag in the database.
+   * @param {event} event any event.
+   */
+  onTagEdited(event) {
+    console.log(event);
+  }
+
+  /* TODO onRemove */
+  /**
+   * Removes the measure tag from the database.
+   * @param {event} event any event.
+   */
+  onRemove(event) {
+    console.log(event);
   }
 
   /**
@@ -77,6 +114,10 @@ export class QuestionsComponent implements OnInit {
   hideEditButton() {
     const editBtn = this.el.nativeElement.querySelector('.pia-questionBlock-edit');
     editBtn.classList.add('hide');
+  }
+
+  test(event) {
+    console.log(event);
   }
 
 }

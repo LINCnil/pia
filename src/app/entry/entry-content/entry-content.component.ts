@@ -77,6 +77,7 @@ export class EntryContentComponent implements OnInit {
 
   /**
    * Adds a new measure to the PIA (used in "RISKS" section, "Mesures existantes ou prévus" subsection).
+   * @param {string} measureTitle the title of the measure to be added (used in some cases).
    */
   addNewMeasure(measureTitle?: string) {
     /*

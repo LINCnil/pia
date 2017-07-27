@@ -20,8 +20,8 @@ export class ActionPlanComponent implements OnInit {
   }
 
   /**
-  * Disables action plan fields and saves data.
-  */
+   * Disables action plan fields and saves data.
+   */
   actionPlanDateFocusOut() {
     const dateValue = this.actionPlanForm.value.actionPlanDate;
     const executiveValue = this.actionPlanForm.value.actionPlanExecutive;
@@ -37,7 +37,7 @@ export class ActionPlanComponent implements OnInit {
         }
         // TODO : save data
       }
-      // Disables executive field too if no date and executive is filled and isn't the next targeted element.
+      // Disables executive field too if no date, and executive is filled and isn't the next targeted element.
       if (!dateValue && executiveValue && executiveValue.length > 0 && document.activeElement.id != 'pia-action-plan-executive') {
         this.showActionPlanEditButton();
         this.actionPlanForm.controls['actionPlanExecutive'].disable();
@@ -45,6 +45,9 @@ export class ActionPlanComponent implements OnInit {
     },1);
   }
 
+  /**
+   * Disables action plan fields and saves data.
+   */
   actionPlanExecutiveFocusOut() {
     const dateValue = this.actionPlanForm.value.actionPlanDate;
     const executiveValue = this.actionPlanForm.value.actionPlanExecutive;
@@ -60,7 +63,7 @@ export class ActionPlanComponent implements OnInit {
         }
         // TODO : save data
       }
-      // Disables date field too if no executive and dateValue is filled and isn't the next targeted element.
+      // Disables date field too if no executive, and dateValue is filled and isn't the next targeted element.
       if (!executiveValue && dateValue && dateValue.length > 0 && document.activeElement.id != 'pia-action-plan-date') {
         this.showActionPlanEditButton();
         this.actionPlanForm.controls['actionPlanDate'].disable();
@@ -69,8 +72,8 @@ export class ActionPlanComponent implements OnInit {
   }
 
   /**
-  * Activates action plan fields.
-  */
+   * Activates action plan fields.
+   */
   activateActionPlanEdition() {
     this.hideActionPlanEditButton();
     this.actionPlanForm.controls['actionPlanDate'].enable();
