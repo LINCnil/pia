@@ -48,7 +48,7 @@
                 </div>
                 <div class="pia-cardsBlock-item-date" *ngIf="newCard">
                   <div>Date</div>
-                  <time>{{newCard.creation_date | date: 'dd/MM/yyyy'}}</time>
+                  <time>{{newCard.created_at | date: 'dd/MM/yyyy'}}</time>
                 </div>
                 <div class="pia-cardsBlock-item-status">
                   <div class="pia-cardsBlock-item-status-infos">
@@ -68,7 +68,7 @@
             </div>
           </div>
 
-          <div class="pia-newBlock-hint" *ngIf="cards && cards.length == 0" id="pia-rocket">
+          <div class="pia-newBlock-hint" *ngIf="pias && pias.length == 0" id="pia-rocket">
             <span class="pia-icons pia-icon-small-arrow"></span>
             <div>
               <span class="pia-icons pia-icon-rocket"></span>

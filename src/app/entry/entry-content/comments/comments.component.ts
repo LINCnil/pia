@@ -2,7 +2,7 @@ import { Component, ElementRef, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ModalsComponent } from '../../../modals/modals.component';
 import { Router } from '@angular/router';
-import { Comment } from './comments.model';
+import { Comment } from './comment.model';
 
 @Component({
   selector: 'app-comments',
@@ -56,12 +56,16 @@ export class CommentsComponent implements OnInit {
       } else {
         // Creates the new comment and pushes it as the first comment in list.
         // Updates accordeon and counter + removes the written comment.
-        const commentRecord = new Comment(null, this.commentsForm.value.description);
-        this.comments.unshift(commentRecord);
-        this.commentsForm.controls['description'].setValue('');
-        this.toggleNewCommentBox();
-        this.updateCommentsCounter();
-        this.getCommentsAccordeonStatus();
+        const commentRecord = new Comment();
+        commentRecord.description = this.commentsForm.value.description;
+        // TODO Add pia_id
+        commentRecord.create().then((entry) => {
+          this.comments.unshift(commentRecord);
+          this.commentsForm.controls['description'].setValue('');
+          this.toggleNewCommentBox();
+          this.updateCommentsCounter();
+          this.getCommentsAccordeonStatus();
+        });
       }
     }
   }
