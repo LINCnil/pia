@@ -14,8 +14,9 @@ import 'rxjs/add/operator/map'
 export class EntryContentComponent implements OnInit {
 
   @Input() measureName: string;
-  @Input() section: {};
-  @Input() item: {};
+  @Input() section: { id: number, title: string, display_mode: string, short_help: string, items: any };
+  @Input() item: { id: number, title: string, evaluation_mode: string, short_help: string, questions: any };
+  @Input() questions: any;
   @Input() pia: Pia;
 
   modal = new ModalsComponent(this.router);

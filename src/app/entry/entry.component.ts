@@ -16,10 +16,15 @@ export class EntryComponent implements OnInit {
   @Output() section: { id: number, title: string, display_mode: string, short_help: string, items: any };
   @Output() item: { id: number, title: string, evaluation_mode: string, short_help: string, questions: any };
   @Output() data: { sections: any };
+  @Output() questions: any;
 
   constructor(private route: ActivatedRoute, private http: Http) {
-    const sectionId = parseInt(this.route.snapshot.params['section_id']);
-    const itemId = parseInt(this.route.snapshot.params['item_id']);
+    let sectionId = parseInt(this.route.snapshot.params['section_id']);
+    let itemId = parseInt(this.route.snapshot.params['item_id']);
+    // if (!sectionId) {
+    //   sectionId = 1;
+    //   itemId = 1;
+    // }
     const piaId = parseInt(this.route.snapshot.params['id']);
     this.pia = new Pia();
     this.pia.get(piaId);
@@ -28,8 +33,8 @@ export class EntryComponent implements OnInit {
       this.getSectionAndItem(sectionId, itemId);
       this.route.params.subscribe(
         (params: Params) => {
-          const sectionId = parseInt(params['section_id']);
-          const itemId = parseInt(params['item_id']);
+          sectionId = parseInt(params['section_id']);
+          itemId = parseInt(params['item_id']);
           this.getSectionAndItem(sectionId, itemId);
         }
       );
@@ -43,11 +48,27 @@ export class EntryComponent implements OnInit {
   }
 
   private getSectionAndItem(sectionId, itemId) {
+    this.questions = [];
+
     this.section = this.data['sections'].filter((section) => {
       return section.id === sectionId;
     })[0];
     this.item = this.section['items'].filter((item) => {
       return item.id === itemId;
     })[0];
+
+    if (this.section.display_mode == 'all_items') {
+      if (this.section['items']) {
+        this.section['items'].forEach(item => {
+          item['questions'].forEach(question => {
+            this.questions.push(question);
+          });
+        });
+      }
+    } else if(this.item['questions']) {
+      this.item['questions'].forEach(question => {
+        this.questions.push(question);
+      });
+    }
   }
 }
