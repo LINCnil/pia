@@ -21,6 +21,15 @@ $foundation-tag-theme: (
     border-radius: 0
 );
 
+// this is tags edit theme
+$foundation-tag-edit-theme: (
+    background: $foundation-primary,
+    background-focused: $foundation-primary-dark,
+    background-active: $foundation-primary-dark,
+    background-hover: $foundation-primary-dark,
+    color: #fff,
+);
+
 // this is the delete icon's theme
 $foundation-icon-theme: (
     fill: #fff,
@@ -36,6 +45,11 @@ $foundation-icon-theme: (
 // apply theme to the tags
 .ng2-tag-input.foundation-theme tag {
     @include tag-theme($foundation-tag-theme);
+}
+
+// apply theme to the tags in edition
+.ng2-tag-input.foundation-theme .tag--editing {
+    @include tag-theme($foundation-tag-edit-theme);
 }
 
 // apply theme to the delete icon
