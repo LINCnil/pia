@@ -1,7 +1,7 @@
-import { Component, OnInit, ElementRef } from '@angular/core';
+import { Component, OnInit, ElementRef, Input } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ModalsComponent } from '../../modals/modals.component';
+import { ModalsComponent } from '../../../modals/modals.component';
 import * as jsPDF from 'jspdf';
 @Component({
   selector: 'app-validate-pia',
@@ -10,6 +10,7 @@ import * as jsPDF from 'jspdf';
 })
 export class ValidatePIAComponent implements OnInit {
 
+  @Input() pia: any;
   modal = new ModalsComponent(this.router);
   validateForm: FormGroup;
 

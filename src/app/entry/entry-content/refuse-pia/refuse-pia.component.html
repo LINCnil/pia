@@ -1,0 +1,41 @@
+<div class="pia-ValidationRefuse">
+  // There is only this block displayed when we come from validate PIA page and we clicked on refuse it.<br>
+  // In this case, it should show only "Abandonner le traitement" and "Refuser le PIA" buttons.
+  <div class="pia-entryContentBlock-content">
+    <form [formGroup]="rejectionReasonForm">
+      <div class="pia-entryContentBlock-content-subject">
+        <div class="pia-entryContentBlock-content-subject-title">
+          <h3>Motif du refus</h3>
+          <button type="button" class="btn hide" id="rejection-reason-btn" (click)="activateRejectionReasonEdition()" title="Éditer"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+        </div>
+        <div class="pia-entryContentBlock-content-subject-textarea">
+          <textarea rows="8" cols="50" id="pia-rejection-reason" formControlName="textarea" (focus)="rejectionReasonFocus()" (focusout)="rejectionReasonFocusOut()" placeholder="Décrivez les motifs de refus de validation du PIA"></textarea>
+        </div>
+      </div>
+    </form>
+
+    // This block should be displayed if the PIA status is refused.<br>
+    // If it's refused, it shows this block and only the resend button.<br>
+    // And the "Motif du refus" block is also displayed but locked, nothing can be changed on it.
+    <form [formGroup]="modificationsMadeForm">
+      <div class="pia-entryContentBlock-content-subject">
+        <div class="pia-entryContentBlock-content-subject-title">
+          <h3>Modifications apportées</h3>
+          <button type="button" class="btn hide" id="modifications-made-btn" (click)="activateModificationsMadeEdition()" title="Éditer"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+        </div>
+        <div class="pia-entryContentBlock-content-subject-textarea">
+          <textarea rows="8" cols="50" id="pia-modifications-made" formControlName="textarea" (focus)="modificationsMadeFocus()" (focusout)="modificationsMadeFocusOut()" placeholder="Décrivez les modifications apportées au PIA"></textarea>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div class="pia-entryContentBlock-footer">
+    <div class="pia-entryContentBlock-content-cancelButtons">
+      <button type="button" class="btn btn-red" (click)="this.modal.openModal('modal-abandon-pia')" title="Abandonner le traitement" disabled>Abandonner le traitement</button>
+      <button type="button" class="btn btn-red" (click)="this.modal.openModal('modal-refuse-pia')" title="Refuser le PIA" disabled>Refuser le PIA</button>
+    </div>
+    <button type="button" id="pia-resend-button" class="btn btn-green" disabled title="Renvoyer pour validation">Renvoyer pour validation</button>
+  </div>
+</div>
+

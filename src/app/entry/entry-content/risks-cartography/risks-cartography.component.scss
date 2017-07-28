@@ -1,28 +1,7 @@
-@import '../../../assets/stylesheets/variables';
+@import '../../../../assets/stylesheets/variables';
 
+// Risk cartography page
 .pia {
-  &-validationCartographyBlock {
-    .pia-entryContentBlock {
-      &-header {
-        div:first-child {
-          background-color: $pia-dark-black;
-        }
-        h1, p {
-          color: $pia-dark-black;
-        }
-        h1 {
-          margin-top: 13px;
-        }
-        p {
-          padding-left: 19px;
-          text-transform: uppercase;
-          margin:0;
-          font-size: 1.4rem;
-        }
-      }
-    }
-  }
-
   &-cartographyBlock {
     box-shadow: 1px 1px 15px 1px #d2d2d2;
     background-color: #fff;

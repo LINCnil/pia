@@ -1,0 +1,50 @@
+<div class="pia-validation-PlanAction">
+  <div class="pia-entryContentBlock-content">
+    <!-- Action plan graph -->
+    <app-action-plan-graph></app-action-plan-graph>
+    <!-- Principles action plans -->
+    <div class="pia-entryContentBlock-content-fundamental">
+      <h2>Principes fondamentaux</h2>
+      <div class="pia-entryContentBlock-content-details-blocks">
+        <div class="pia-details-blocks-content">
+          <div class="pia-details-blocks-content-title">
+            <h3>Finalités</h3>
+            <button type="button" id="piaActionPlanPencil" class="btn hide" (click)="activateActionPlanEdition()" title="Éditer"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+          </div>
+          <p>
+            Afin d’éviter un usage incompatible ou un détournement de finalité, il
+            conviendrait d’expliciter les autres finalités dans les documents portés à
+            la connaissance des clients et de réitérer le PIA pour ces traitements.
+            L’enjeu pour la vie privée des personnes difféère en fonction des finalités.
+          </p>
+          <form [formGroup]="actionPlanForm">
+            <input type="date" id="pia-action-plan-date" (focusout)="actionPlanDateFocusOut()" formControlName="actionPlanDate">
+            <input type="text" id="pia-action-plan-executive" (focusout)="actionPlanExecutiveFocusOut()" formControlName="actionPlanExecutive" placeholder="Responsable de la mise en oeuvre">
+          </form>
+        </div>
+      </div>
+    </div>
+    <!-- Measures action plans -->
+    <div class="pia-entryContentBlock-content-measures">
+      <h2>Mesures existantes ou prévues</h2>
+      <div class="pia-entryContentBlock-content-details-blocks">
+        <div class="pia-details-blocks-content">
+          <div>
+            Aucun plan d'action enregistré.
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Risks action plans -->
+    <div class="pia-entryContentBlock-content-risks">
+      <h2>Risques</h2>
+      <div class="pia-entryContentBlock-content-details-blocks">
+        <div class="pia-details-blocks-content">
+          <div>
+            Aucun plan d'action enregistré.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

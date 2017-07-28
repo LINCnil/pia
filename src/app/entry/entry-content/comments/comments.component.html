@@ -8,7 +8,7 @@
     <time datetime="2016-12-12" style="visibility:hidden;" class="pia-commentsBlock-date">le 12/12/2016</time>
     <div class="pia-commentsBlock-btn">
       <button class="btn" type="button" (click)="toggleNewCommentBox()" title="Commenter"><i class="fa fa-comment-o" aria-hidden="true"></i> Commenter</button>
-      <button class="btn" *ngIf="getCommentsAccordeonStatus()" (click)="displayCommentsList()" type="button" title="Afficher / masquer"><span class="pia-icons pia-icon-accordeon-up"></span></button>
+      <button class="btn" *ngIf="getCommentsAccordeonStatus()" (click)="displayCommentsList()" type="button" title="Afficher / masquer"><span class="pia-icons pia-icon-accordeon-down"></span></button>
     </div>
   </div>
   <form [formGroup]="commentsForm" class="pia-commentsBlock-new fadeIn" (focusout)="newCommentFocusOut()">

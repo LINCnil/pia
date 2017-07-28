@@ -1,6 +1,6 @@
-import {Component, ElementRef, OnInit} from '@angular/core';
-import {FormArray, FormControl, FormGroup} from '@angular/forms';
-import { ModalsComponent } from '../../modals/modals.component';
+import { Component, ElementRef, OnInit, Input } from '@angular/core';
+import { FormArray, FormControl, FormGroup } from '@angular/forms';
+import { ModalsComponent } from '../../../modals/modals.component';
 import { Router } from '@angular/router';
 
 @Component({
@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 })
 export class RefusePIAComponent implements OnInit {
 
+  @Input() pia: any;
   modal = new ModalsComponent(this.router);
   rejectionReasonForm: FormGroup;
   modificationsMadeForm: FormGroup;

@@ -1,5 +1,5 @@
-import {Component, ElementRef, OnInit} from '@angular/core';
-import {FormControl, FormGroup} from '@angular/forms';
+import { Component, ElementRef, OnInit, Input } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-action-plan',
@@ -8,6 +8,7 @@ import {FormControl, FormGroup} from '@angular/forms';
 })
 export class ActionPlanComponent implements OnInit {
 
+  @Input() pia: any;
   actionPlanForm: FormGroup;
 
   constructor(private el: ElementRef) { }

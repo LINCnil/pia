@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, Input } from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
 
 @Component({
@@ -8,6 +8,7 @@ import {FormControl, FormGroup} from '@angular/forms';
 })
 export class DPOPeopleOpinionsComponent implements OnInit {
 
+  @Input() pia: any;
   DPOForm: FormGroup;
   peopleForm: FormGroup;
 

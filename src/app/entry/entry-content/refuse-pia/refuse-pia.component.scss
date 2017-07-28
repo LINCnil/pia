@@ -1,17 +1,8 @@
-@import '../../../assets/stylesheets/variables';
+@import '../../../../assets/stylesheets/variables';
 
-// Refuse PIA
+// Refuse PIA page
 .pia-ValidationRefuse {
   .pia-entryContentBlock {
-    &-header {
-      &-title h1 {
-        color: $pia-dark-black;
-      }
-      div:first-child {
-        width: 74px;
-        background-color: $pia-dark-black;
-      }
-    }
     &-content {
       &-subject {
         margin: 10px 0;
@@ -76,10 +67,25 @@
       }
     }
     &-footer {
-      &-nav {
-        a {
-          float: none !important;
+      margin-top: 10px;
+      button {
+        padding: 12px 15px !important;
+      }
+      > button {
+        display: block;
+        width: 100%;
+        border-radius: 0;
+        &:disabled {
+          border-radius: 0;
         }
+      }
+      p {
+        font-size: 0.95rem;
+        text-align: right;
+        font-style: italic;
+        margin: 0;
+        font-weight: 600;
+        color: $pia-gray;
       }
     }
   }

@@ -1,0 +1,69 @@
+
+<div class="pia-ValidationDPO">
+  <div class="pia-entryContentBlock-content">
+    <!-- DPO opinions -->
+    <div class="pia-entryContentBlock-content-DPO">
+      <div>
+        <h2>Avis du DPO</h2>
+        <button type="button" id="piaDPOPencil" class="btn pia-questionBlock-edit hide"  (click)="activateDPOEdition()" title="Éditer"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+      </div>
+      <p><span>{{pia.validator_name}}</span>, considère que :</p>
+      <form [formGroup]="DPOForm">
+        <!-- TODO : set selected value to true (checked) if it has been checked previously (check pia.dpo_opinions_status, ...) -->
+        <div class="pia-entryContentBlock-content-DPO-treatment">
+          <div>
+            <input type="radio" id="treatment-1" (change)="DPOFocusOut()" formControlName="DPOStatus" value="DPO_approved">
+            <label for="treatment-1">
+              <i class="fa fa-circle" aria-hidden="true"></i>
+              <i class="fa fa-check" aria-hidden="true"></i>
+              <span>Le traitement peut être mis en oeuvre.</span>
+            </label>
+          </div>
+          <div>
+            <input type="radio" id="treatment-2" (change)="DPOFocusOut()" formControlName="DPOStatus" value="DPO_refused">
+            <label for="treatment-2">
+              <i class="fa fa-circle" aria-hidden="true"></i>
+              <i class="fa fa-check" aria-hidden="true"></i>
+              <span>Le traitement ne doit pas être mis en oeuvre</span>
+            </label>
+          </div>
+        </div>
+        <div class="pia-entryContentBlock-content-DPO-reasons">
+          <textarea formControlName="DPOOpinion" (focusout)="DPOFocusOut()" rows="8" cols="50" placeholder="Précisez les raisons de votre choix"></textarea>
+        </div>
+      </form>
+    </div>
+    <!-- Concerned people opinions -->
+    <div class="pia-entryContentBlock-content-DPO-avis">
+      <div>
+        <h2>Avis des personnes concernées</h2>
+        <button type="button" id="piaPeoplePencil" class="btn pia-questionBlock-edit hide" (click)="activatePeopleEdition()" title="Éditer"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+      </div>
+      <p><span>{{pia.validator_name}}</span>, considère que :</p>
+      <form [formGroup]="peopleForm">
+        <!-- TODO : set selected value to true (checked) if it has been checked previously (check pia.people_opinions_status, ...) -->
+        <div class="pia-entryContentBlock-content-DPO-treatment">
+          <div>
+            <input type="radio" id="dpoAvis-1" (change)="peopleFocusOut()" formControlName="peopleStatus" value="people_approved">
+            <label for="dpoAvis-1">
+              <i class="fa fa-circle" aria-hidden="true"></i>
+              <i class="fa fa-check" aria-hidden="true"></i>
+              <span>Le traitement peut être mis en oeuvre.</span>
+            </label>
+          </div>
+          <div>
+            <input type="radio" id="dpoAvis-2" (change)="peopleFocusOut()" formControlName="peopleStatus" value="people_refused">
+            <label for="dpoAvis-2">
+              <i class="fa fa-circle" aria-hidden="true"></i>
+              <i class="fa fa-check" aria-hidden="true"></i>
+              <span>Le traitement ne doit pas être mis en oeuvre</span>
+            </label>
+          </div>
+        </div>
+        <div class="pia-entryContentBlock-content-DPO-reasons">
+          <textarea rows="8" formControlName="peopleOpinion" (focusout)="peopleFocusOut()" cols="50" placeholder="Décrivez comment les avis ont été collectés et quelle en est l’analyse. Dans le cas où les avis n’ont pas été recherchés, en préciser les raisons."></textarea>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

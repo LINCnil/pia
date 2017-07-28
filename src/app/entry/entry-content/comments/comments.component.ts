@@ -59,8 +59,9 @@ export class CommentsComponent implements OnInit {
     // Opens comments list if it's closed.
     const accordeonButton = this.el.nativeElement.querySelector('.pia-commentsBlock-btn button span');
     const commentsList = this.el.nativeElement.querySelector('.pia-commentsBlock-list');
-    if (commentsList.classList.contains('close')) {
-      accordeonButton.classList.toggle('pia-icon-accordeon-down');
+    if (commentsList.classList.contains('close') && accordeonButton.classList.contains('pia-icon-accordeon-down')) {
+      accordeonButton.classList.toggle('pia-icon-accordeon-up');
+      accordeonButton.classList.remove('pia-icon-accordeon-down');
     }
     commentsList.classList.remove('close');
     newCommentBox.classList.toggle('open');
@@ -99,20 +100,13 @@ export class CommentsComponent implements OnInit {
   }
 
   /**
-   * Updates comments counter with the total number of comments.
-   */
-  // updateCommentsCounter() {
-  //   const commentsNumber = this.comments.length;
-  //   this.nbComments = commentsNumber;
-  // }
-
-  /**
    * Display comments list.
    */
   displayCommentsList() {
     const commentsList = this.el.nativeElement.querySelector('.pia-commentsBlock-list');
     const btn = this.el.nativeElement.querySelector('.pia-commentsBlock-btn button span');
     btn.classList.toggle('pia-icon-accordeon-down');
+    btn.classList.toggle('pia-icon-accordeon-up');
     commentsList.classList.toggle('close');
   }
 

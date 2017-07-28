@@ -1,25 +1,8 @@
-@import '../../../assets/stylesheets/variables';
+@import '../../../../assets/stylesheets/variables';
 
-// DPO and people opinions
+// DPO and people opinions page
 .pia-ValidationDPO {
   .pia-entryContentBlock {
-    &-header {
-      div:first-child {
-        background-color: $pia-dark-black;
-      }
-      h1, p {
-        color: $pia-dark-black;
-      }
-      h1 {
-        margin-top: 13px;
-      }
-      p {
-        padding-left: 19px;
-        text-transform: uppercase;
-        margin:0;
-        font-size: 1.4rem;
-      }
-    }
     &-content {
       &-DPO, &-DPO-avis {
         > div {
@@ -124,9 +107,6 @@
       }
       &-DPO-avis {
         margin-top: 10px;
-      }
-      .checked {
-        background-color: $pia-green;
       }
     }
   }
