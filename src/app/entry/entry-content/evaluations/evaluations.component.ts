@@ -10,6 +10,8 @@ export class EvaluationsComponent implements OnInit {
 
   evaluationForm: FormGroup;
   @Input() item: any;
+  @Input() pia: any;
+  @Input() section: any;
 
   constructor(private el: ElementRef) { }
 

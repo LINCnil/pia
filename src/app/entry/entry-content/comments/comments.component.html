@@ -1,5 +1,5 @@
 <div class="pia-commentsBlock">
-  <div class="pia-commentsBlock-count">{{nbComments}} commentaire(s)</div>
+  <div class="pia-commentsBlock-count">{{comments.length}} commentaire(s)</div>
   <div class="pia-commentsBlock-infos">
     <!--
       TODO : Show time html tag after first edition on a "question" OR "measure".
@@ -14,7 +14,7 @@
   <form [formGroup]="commentsForm" class="pia-commentsBlock-new fadeIn" (focusout)="newCommentFocusOut()">
     <textarea formControlName="description" data-target="simpleModal_2" data-toggle="modal" placeholder="Laissez un commentaire" rows="8" cols="50"></textarea>
   </form>
-  <div class="pia-commentsBlock-list">
+  <div class="pia-commentsBlock-list close">
     <app-comment-item *ngFor="let comment of comments" [comment]="comment"></app-comment-item>
   </div>
 </div>

@@ -5,6 +5,7 @@ export class Measure extends ApplicationDb {
   public pia_id: number;
   public title: string;
   public content: string;
+  public placeholder: string;
   public created_at: Date;
   public updated_at: Date;
 
@@ -20,7 +21,7 @@ export class Measure extends ApplicationDb {
     return new Promise((resolve, reject) => {
       const created_at = new Date();
       this.objectStore.add({title: this.title, content: this.content,
-        created_at: this.created_at, updated_at: new Date()
+        placeholder: this.placeholder, created_at: this.created_at, updated_at: new Date()
       }).onsuccess = (event: any) => {
         resolve(event.target.result);
       };
@@ -41,6 +42,8 @@ export class Measure extends ApplicationDb {
     this.find(this.id).then((entry: any) => {
       this.pia_id = parseInt(entry.pia_id);
       this.title = entry.title;
+      this.content = entry.content;
+      this.placeholder = entry.placeholder;
       this.created_at = new Date(entry.created_at);
       this.updated_at = new Date(entry.updated_at);
     });

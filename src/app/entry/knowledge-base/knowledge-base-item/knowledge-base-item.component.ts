@@ -33,7 +33,7 @@ export class KnowledgeBaseItemComponent implements OnInit {
    * This is used mainly on "Mesures préventives et existantes" subsection.
    */
   addNewMeasure() {
-    this.newMeasureEvent.emit(this.item.name);
+    this.newMeasureEvent.emit(this.item);
   }
 
 }

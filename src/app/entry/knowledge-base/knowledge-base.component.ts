@@ -25,15 +25,16 @@ export class KnowledgeBaseComponent implements OnInit {
     });
   }
 
-  // TODO - This doesn't work
+  // TODO - Error ExpressionChangedAfterItHasBeenCheckedError
   getEntryContentHeight() {
     // Automatic resize the height of the KnowledgeBase block to improve the navigation with the overflow.
+    // let totalSize = 0;
     // const centralElementHeight = <HTMLElement>document.querySelector('.pia-entryContentBlock');
     // if (centralElementHeight) {
     //   const element = <HTMLElement>document.querySelector('.pia-knowledgeBaseBlock-list');
-    //   const totalSize = centralElementHeight.offsetHeight - 190;
-    //   return (totalSize < 700 ? 700 : totalSize) + 'px';
+    //   totalSize = centralElementHeight.offsetHeight - 190;
     // }
+    // return (totalSize < 700 ? 700 : totalSize) + 'px';
   }
 
   onSubmit() {

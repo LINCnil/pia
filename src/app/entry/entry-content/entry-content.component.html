@@ -16,13 +16,13 @@
   </header>
 
   <ng-container *ngIf="section.id == 3 && item.id == 1; else appQuestions">
-    <app-measures *ngFor="let measure of measures" [measure]="measure" [pia]="pia" [item]="item"></app-measures>
+    <app-measures [measures]="measures" [pia]="pia" [item]="item"></app-measures>
   </ng-container>
   <ng-template #appQuestions>
-    <app-questions *ngFor="let question of questions" [question]="question" [pia]="pia" [item]="item"></app-questions>
+    <app-questions [pia]="pia" [section]="section" [item]="item"></app-questions>
   </ng-template>
 
-  <app-evaluations *ngIf="item.evaluation_mode == 'section'" [item]="item"></app-evaluations>
+  <app-evaluations *ngIf="item.evaluation_mode == 'section'" [pia]="pia" [section]="section" [item]="item"></app-evaluations>
 
   <!-- TODO : if page is PIA validation, show this -->
   <!--<app-validate-pia></app-validate-pia>-->

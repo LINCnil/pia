@@ -11,8 +11,7 @@ import {Measure} from './measure.model';
 })
 export class MeasuresComponent implements OnInit {
 
-  @Input() measure: Measure;
-  @Input() question: any;
+  @Input() measures: Measure;
   @Input() item: any;
   @Input() pia: any;
   measureForm: FormGroup;

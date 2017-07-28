@@ -14,6 +14,7 @@ import 'rxjs/add/operator/map'
 export class EntryContentComponent implements OnInit {
 
   @Input() measureName: string;
+  @Input() measurePlaceholder: string;
   @Input() section: { id: number, title: string, display_mode: string, short_help: string, items: any };
   @Input() item: { id: number, title: string, evaluation_mode: string, short_help: string, questions: any };
   @Input() questions: any;
@@ -55,7 +56,7 @@ export class EntryContentComponent implements OnInit {
 
   ngOnChanges() {
     if (this.measureName) {
-      this.addNewMeasure(this.measureName);
+      this.addNewMeasure(this.measureName, this.measurePlaceholder);
     }
   }
 
@@ -80,7 +81,7 @@ export class EntryContentComponent implements OnInit {
    * Adds a new measure to the PIA (used in "RISKS" section, "Mesures existantes ou prévus" subsection).
    * @param {string} measureTitle the title of the measure to be added (used in some cases).
    */
-  addNewMeasure(measureTitle?: string) {
+  addNewMeasure(measureTitle?: string, measurePlaceholder?: string) {
     /*
      * TODO : faire en sorte que l'id se mette bien et qu'il ne faille pas rafraîchir pour qu'il apparaîsse.
      * Sinon on se retrouve avec des mesures avec un id vide... et après c'est bon au rafraîchissement.
@@ -89,6 +90,7 @@ export class EntryContentComponent implements OnInit {
     newMeasureRecord.pia_id = this.pia.id;
     if (measureTitle) {
       newMeasureRecord.title = measureTitle;
+      newMeasureRecord.placeholder = measurePlaceholder;
     }
     newMeasureRecord.create();
     this.measures.push(newMeasureRecord);
