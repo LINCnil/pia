@@ -13,7 +13,6 @@
       <ul class="pia-sectionBlock-list">
         <li *ngFor="let dataItem of dataSection?.items">
           <a routerLink="/entry/{{pia.id}}/section/{{dataSection.id}}/item/{{dataItem.id}}"
-             *ngIf="verifySectionAndItem()"
              [ngClass]="{'active': section.id == dataSection.id && item.id == dataItem.id}">{{dataItem.title}}</a>
           <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
         </li>
