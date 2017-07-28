@@ -25,22 +25,18 @@
   <app-evaluations *ngIf="item.evaluation_mode == 'section'" [pia]="pia" [section]="section" [item]="item"></app-evaluations>
 
   <!-- Section 4 : VALIDATION -->
-  <!--*ngIf="section.id == 3 && item.id == 1-->
 
   <!-- TODO : if page is PIA validation, show this -->
-  <!--<app-validate-pia [pia]="pia"></app-validate-pia>-->
-
-  <!-- TODO : if page is action plan, show this -->
-  <app-action-plan [pia]="pia"></app-action-plan>
+  <!--<app-validate-pia *ngIf="section.id == 3 && item.id == 1 [pia]="pia"></app-validate-pia>-->
 
   <!-- TODO : if page is refuse PIA, show this -->
   <!--<app-refuse-pia [pia]="pia"></app-refuse-pia>-->
 
-  <!-- TODO : if page is risk cartography, show this -->
-  <!--<app-risks-cartography [pia]="pia"></app-risks-cartography>-->
+  <app-risks-cartography *ngIf="section.id == 4 && item.id == 1" [pia]="pia"></app-risks-cartography>
 
-  <!-- TODO : if page is DPO people opinions, show this -->
-  <!--<app-dpo-people-opinions [pia]="pia"></app-dpo-people-opinions>-->
+  <app-action-plan *ngIf="section.id == 4 && item.id == 2" [pia]="pia"></app-action-plan>
+
+  <app-dpo-people-opinions *ngIf="section.id == 4 && item.id == 3" [pia]="pia"></app-dpo-people-opinions>
 
   <footer class="pia-entryContentBlock-footer">
     <!-- Measures buttons -->
