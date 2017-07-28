@@ -53,11 +53,6 @@ export class ValidatePIAComponent implements OnInit {
     clickedRadioButton.setAttribute('disabled', true);
   }
 
-  // dimissAttachement() {
-  //   const closeAttachement = this.el.nativeElement.querySelector('.pia-entryContentBlock-footer-validationAttachments');
-  //
-  // }
-
   /**
    * Allows users to make a simple validation of a PIA.
    */
@@ -76,37 +71,12 @@ export class ValidatePIAComponent implements OnInit {
    * Allows users to download the PIA as a .pdf file.
    */
   downloadPIA() {
+    /* TODO : download PIA as pdf */
     document.createElement('canvas');
     let doc = new jsPDF('p', 'pt', 'a4');
     const test = "test";
     doc.text(20, 20, 'Hello' + test + 'world!');
     doc.save('autoprint.pdf');
-
-
-
-    /* Could be useful :
-    Get all sections, items, questions/measures.
-    Then make an autoTable per section or something like that...
-    convert(){
-      var item = {
-        "Name" : "XYZ",
-        "Age" : "22",
-        "Gender" : "Male"
-      };
-      var doc = new jsPDF();
-      var col = ["Details", "Values"];
-      var rows = [];
-
-      for(var key in item){
-          var temp = [key, item[key]];
-          rows.push(temp);
-      }
-
-      doc.autoTable(col, rows);
-
-      doc.save('Test.pdf');
-    }*/
-
   }
 
 }

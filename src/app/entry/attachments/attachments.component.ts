@@ -47,7 +47,7 @@ export class AttachmentsComponent implements OnInit {
       const attachment = new Attachment();
       attachment.file = reader.result;
       attachment.name = attachment_file.name;
-      attachment.type = attachment_file.type;
+      attachment.mime_type = attachment_file.mime_type;
       attachment.pia_id = this.pia_id;
       attachment.create();
       this.attachments.unshift(attachment);

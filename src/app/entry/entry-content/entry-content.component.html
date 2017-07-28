@@ -24,13 +24,26 @@
 
   <app-evaluations *ngIf="item.evaluation_mode == 'section'" [item]="item"></app-evaluations>
 
+  <!-- TODO : if page is PIA validation, show this -->
+  <!--<app-validate-pia></app-validate-pia>-->
+
+  <!-- TODO : if page is PIA validation, show this -->
+
+  <!-- TODO : if page is refuse PIA, show this -->
+
+  <!-- TODO : if page is risk cartography, show this -->
+
+  <!-- TODO : if page is DPO people opinions, show this -->
+
   <footer class="pia-entryContentBlock-footer">
+    <!-- Measures buttons -->
     <div class="pia-entryContentBlock-footer-measures">
       <button (click)="addNewMeasure()" class="btn btn-white" type="button" title="Ajouter une mesure"><span class="pia-icons pia-icon-add"></span>Ajouter une mesure</button>
       <button (click)="askForEvaluation()" class="btn btn-green" disabled type="submit" title="Demander l'évaluation">Demander l'évaluation</button>
       <button (click)="askForEvaluation()" class="btn btn-green btn-active" type="submit" title="Demander l'évaluation">Demander l'évaluation</button>
     </div>
 
+    <!-- Classic buttons -->
     <button class="btn btn-green" disabled type="submit" title="Demander l'évaluation">Demander l'évaluation</button>
     <button class="btn btn-green btn-active" (click)="askForEvaluation()" type="submit" title="Demander l'évaluation">Demander l'évaluation</button>
 
@@ -41,6 +54,20 @@
       <i class="fa fa-check-square-o" aria-hidden="true"></i>
       Partie évaluée, en attente de la validation finale
     </button>
+
+    <!-- PIA Validation buttons -->
+    <div class="pia-entryContentBlock-footer-validationAttachments">
+      <div>
+        <span class="pia-icons pia-icon-file-pdf-blue"></span>
+        <a href="#">Admin_serveur.pdf</a>
+      </div>
+      <button type="button" class="btn" (click)="dimissAttachement()" title="Supprimer"><span class="pia-icons pia-icon-close"></span></button>
+    </div>
+    <div class="pia-entryContentBlock-footer-validationTools">
+      <a routerLink="/home"><i class="fa fa-home" aria-hidden="true"></i><p>Accueil</p></a>
+      <button (click)="downloadPIA()" type="button" title="Télécharger le PIA"><i class="fa fa-download" aria-hidden="true"></i><p>Télécharger le PIA</p></button>
+      <a href="#"><i class="fa fa-file-excel-o" aria-hidden="true"></i><p>Plan d'action</p></a>
+    </div>
 
     <p>Tous les champs doivent être remplis</p>
     <div class="hide pia-entryContentBlock-footer-nav">

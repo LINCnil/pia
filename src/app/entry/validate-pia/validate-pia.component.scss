@@ -1,31 +1,8 @@
 @import '../../../assets/stylesheets/variables';
 
-// Validate PIA
+// PIA Validation page
 .pia-validationBlock {
   .pia-entryContentBlock {
-    &-header {
-      div:first-child {
-        background-color: $pia-dark-black!important;
-        color: $pia-light-black;
-        min-height: 70px;
-        p {
-          font-size: 1rem;
-          margin: 0;
-          padding-bottom: 5px;
-          color: #fefefe;
-          text-align: center;
-          font-style: italic;
-        }
-        i {
-          margin-top: 13px;
-          margin-bottom: 5px;
-        }
-      }
-      &-title h1 {
-        color: $pia-light-black;
-        font-size: 2.4rem;
-      }
-    }
     &-content {
       background-color: #fefefe;
       box-shadow: 2px 1px 18px 1px rgba(194,194,194,1);
@@ -150,74 +127,8 @@
     &-submitAttachmentButton {
       width: 100%;
       border-radius: 0;
-      &.btn-active {
-        &:focus, &:hover, &:active {
-          background-color: $pia-gray !important;
-          border-color: $pia-gray !important;
-        }
-      }
+      margin: 1rem 0;
 
-    }
-    &-footer {
-      &-validationAttachments {
-        display: flex;
-        margin: 10px 0;
-        justify-content: space-between;
-        box-shadow: 2px 1px 18px 1px #c2c2c2;
-        background-color: #fff;
-        padding: 10px 24px;
-        button {
-          padding: 0;
-          width: auto;
-        }
-        div {
-          align-self: center;
-          font-weight: 500;
-          color: $pia-blue;
-        }
-        i {
-          align-self: center;
-          color: $pia-gray;
-          font-size: 16px;
-        }
-        a {
-          text-decoration: none;
-          align-self: center;
-          color: $pia-blue;
-        }
-      }
-      &-validationTools {
-        box-shadow: 2px 1px 18px 1px #c2c2c2;
-        background-color: #fff;
-        display: flex;
-        justify-content: center;
-        color: $pia-green;
-        a, button {
-          display: block;
-          align-self: center !important;
-          padding: 4px;
-          margin-right: 10px;
-          color: $pia-green;
-          text-decoration: none;
-          width: initial;
-          cursor: pointer;
-        }
-        i {
-          color: $pia-green;
-          display: block;
-          margin-top: 2px;
-          text-align: center;
-          font-size: 2rem;
-          text-decoration: none;
-        }
-        p {
-          display: block;
-          font-size: 1rem;
-          margin-bottom: 0;
-          font-style: normal;
-          color: $pia-green;
-        }
-      }
     }
   }
 }

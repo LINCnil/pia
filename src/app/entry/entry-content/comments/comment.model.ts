@@ -5,7 +5,7 @@ export class Comment extends ApplicationDb {
   public pia_id: number;
   public description: string;
   public reference_to: string;
-  public type: string;
+  public for_measure: boolean;
   public created_at: Date;
   public updated_at: Date;
 
@@ -17,7 +17,7 @@ export class Comment extends ApplicationDb {
     await this.getObjectStore();
     return new Promise((resolve, reject) => {
       const created_at = new Date();
-      this.objectStore.add({description: this.description,  pia_id: this.pia_id, reference_to: this.reference_to, type: this.type, created_at: created_at}).onsuccess = (event: any) => {
+      this.objectStore.add({description: this.description,  pia_id: this.pia_id, reference_to: this.reference_to, for_measure: this.for_measure, created_at: created_at}).onsuccess = (event: any) => {
         resolve(event.target.result);
       };
     });
@@ -37,7 +37,7 @@ export class Comment extends ApplicationDb {
       this.pia_id = entry.pia_id;
       this.description = entry.description;
       this.reference_to = entry.reference_to;
-      this.type = entry.type;
+      this.for_measure = entry.for_measure;
       this.created_at = new Date(entry.created_at);
       this.updated_at = new Date(entry.updated_at);
     });

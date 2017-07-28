@@ -5,7 +5,7 @@ export class Attachment extends ApplicationDb {
   public pia_id: number;
   public file: Blob;
   public name: string;
-  public type: string;
+  public mime_type: string;
   public pia_signed: Boolean;
   public created_at: Date;
   public updated_at: Date;
@@ -19,7 +19,7 @@ export class Attachment extends ApplicationDb {
     await this.getObjectStore();
     return new Promise((resolve, reject) => {
       this.objectStore.add({
-        name: this.name, type: this.type, pia_signed: false,
+        name: this.name, mime_type: this.mime_type, pia_signed: false,
         file: this.file, created_at: this.created_at
       }).onsuccess = (event: any) => {
         resolve(event.target.result);

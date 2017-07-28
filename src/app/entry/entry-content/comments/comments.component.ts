@@ -31,13 +31,17 @@ export class CommentsComponent implements OnInit {
     const commentsModel = new Comment();
 
     if (this.measure) {
-      /* TODO : select * from comments where comment.pia_id = this.pia.id && comment.type = "measure" && reference_to = this.measure.id */
+      /* TODO : select * from comments where comment.pia_id = this.pia.id && comment.for_measure = true && reference_to = this.measure.id */
     } else {
       /* TODO : select * from comments where comment.pia_id = this.pia.id && reference_to = this.question.id */
     }
 
     // Just for now 'till we code the above TODO...
     commentsModel.findAll().then((entries) => {
+      /*
+        TODO : les mettre dans l'ordre inversé : du dernier au premier
+        (dans la logique de l'outil où les derniers commentaires sont en haut/en premier)
+      */
       this.comments = entries;
       this.nbComments = this.comments.length;
     });
@@ -79,7 +83,7 @@ export class CommentsComponent implements OnInit {
         commentRecord.description = this.commentsForm.value.description;
         commentRecord.pia_id = this.pia.id;
         if (this.measure) {
-          commentRecord.type = "measure";
+          commentRecord.for_measure = true;
           commentRecord.reference_to = this.measure.id ;
         } else {
           commentRecord.reference_to = this.question.id;
