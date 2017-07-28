@@ -23,9 +23,13 @@ export class AttachmentItemComponent implements OnInit {
 
   /**
    * Deletes an attachment which was added to a PIA.
+   * @param {number} id the unique id of the attachment.
+   * @param {Event} event any kind of event.
    */
   deleteAttachment(id: number, event: Event) {
     // TODO Change to use MODAL
+    console.log(id);
+    console.log(event);
     if (confirm('Merci de confirmer la suppression de cette pièce jointe')) {
       const attachment = new Attachment();
       this.delete.emit(id);
@@ -33,7 +37,11 @@ export class AttachmentItemComponent implements OnInit {
     }
   }
 
-  downloadAttachment(id) {
+  /**
+   * Allows an user to download a specific attachment.
+   * @param {number} id the unique id of the attachment.
+   */
+  downloadAttachment(id: number) {
     const attachment = new Attachment();
     attachment.find(id).then((entry: any) => {
       const url = entry.file.replace('data:', 'data:' + entry.type);

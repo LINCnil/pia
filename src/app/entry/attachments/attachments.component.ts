@@ -24,7 +24,7 @@ export class AttachmentsComponent implements OnInit {
       attachment_file: new FormControl('', [])
     });
     const attachment = new Attachment();
-    // TODO findByPiaID
+    // TODO findByPiaID !
     attachment.findAll().then((data) => {
       this.attachments = data;
     });
@@ -46,11 +46,15 @@ export class AttachmentsComponent implements OnInit {
     reader.onloadend = () => {
       const attachment = new Attachment();
       attachment.file = reader.result;
+      console.log(attachment_file);
       attachment.name = attachment_file.name;
-      attachment.mime_type = attachment_file.mime_type;
+      attachment.mime_type = attachment_file.type;
       attachment.pia_id = this.pia_id;
-      attachment.create();
-      this.attachments.unshift(attachment);
+      console.log(this.pia_id);
+      console.log(attachment);
+      attachment.create().then((entry) => {
+        this.attachments.unshift(attachment);
+      });
     }
   }
 }
