@@ -39,8 +39,6 @@ import { CardFilterComponent } from './cards/card-filter/card-filter.component';
 const appRoutes: Routes = [
   { path: '', component: AuthenticationComponent },
   { path: 'home', component: CardsComponent },
-  { path: 'entry/:id/validate-PIA', component: ValidatePIAComponent },
-  { path: 'entry/:id/refuse-PIA', component: RefusePIAComponent },
   { path: 'entry/:id', component: EntryComponent },
   { path: 'entry/:id/section/:section_id/item/:item_id', component: EntryComponent },
   { path: 'settings', component: SettingsComponent },

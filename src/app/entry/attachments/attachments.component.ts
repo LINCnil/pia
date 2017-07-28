@@ -46,13 +46,11 @@ export class AttachmentsComponent implements OnInit {
     reader.onloadend = () => {
       const attachment = new Attachment();
       attachment.file = reader.result;
-      console.log(attachment_file);
       attachment.name = attachment_file.name;
       attachment.mime_type = attachment_file.type;
       attachment.pia_id = this.pia_id;
-      console.log(this.pia_id);
-      console.log(attachment);
-      attachment.create().then((entry) => {
+      attachment.create().then((id: number) => {
+        attachment.id = id;
         this.attachments.unshift(attachment);
       });
     }

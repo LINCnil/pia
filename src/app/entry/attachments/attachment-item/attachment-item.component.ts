@@ -28,8 +28,6 @@ export class AttachmentItemComponent implements OnInit {
    */
   deleteAttachment(id: number, event: Event) {
     // TODO Change to use MODAL
-    console.log(id);
-    console.log(event);
     if (confirm('Merci de confirmer la suppression de cette pièce jointe')) {
       const attachment = new Attachment();
       this.delete.emit(id);
@@ -44,8 +42,9 @@ export class AttachmentItemComponent implements OnInit {
   downloadAttachment(id: number) {
     const attachment = new Attachment();
     attachment.find(id).then((entry: any) => {
-      const url = entry.file.replace('data:', 'data:' + entry.type);
+      const url = entry.file.replace('data:', 'data:' + entry.mime_type);
       fetch(url).then(res => res.blob()).then(blob => {
+          console.log(blob);
           const url = window.URL.createObjectURL(blob);
           window.open(url);
         }

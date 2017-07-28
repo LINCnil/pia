@@ -27,10 +27,10 @@
   <!-- Section 4 : VALIDATION -->
 
   <!-- TODO : if page is PIA validation, show this -->
-  <!--<app-validate-pia *ngIf="section.id == 3 && item.id == 1 [pia]="pia"></app-validate-pia>-->
+  <app-validate-pia *ngIf="section.id == 4 && item.id == 4" [pia]="pia"></app-validate-pia>
 
   <!-- TODO : if page is refuse PIA, show this -->
-  <!--<app-refuse-pia [pia]="pia"></app-refuse-pia>-->
+  <app-refuse-pia *ngIf="section.id == 4 && item.id == 5" [pia]="pia"></app-refuse-pia>
 
   <app-risks-cartography *ngIf="section.id == 4 && item.id == 1" [pia]="pia"></app-risks-cartography>
 

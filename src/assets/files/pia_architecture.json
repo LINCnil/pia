@@ -664,6 +664,20 @@
             "PIA_VAL_RT"
           ],
           "short_help": ""
+        },
+        {
+          "id": 4,
+          "title": "Valider le PIA",
+          "evaluation_mode": "",
+          "link_knowledge_base": "",
+          "short_help": ""
+        },
+        {
+          "id": 5,
+          "title": "PIA refusé",
+          "evaluation_mode": "",
+          "link_knowledge_base": "",
+          "short_help": ""
         }
       ]
     }

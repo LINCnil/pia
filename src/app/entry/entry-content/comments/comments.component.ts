@@ -88,7 +88,8 @@ export class CommentsComponent implements OnInit {
         } else {
           commentRecord.reference_to = this.question.id;
         }
-        commentRecord.create().then((entry) => {
+        commentRecord.create().then((id: number) => {
+          commentRecord.id = id;
           this.comments.unshift(commentRecord);
           this.commentsForm.controls['description'].setValue('');
           this.toggleNewCommentBox();
