@@ -44,11 +44,11 @@ export class AttachmentItemComponent implements OnInit {
     attachment.find(id).then((entry: any) => {
       const url = entry.file.replace('data:', 'data:' + entry.mime_type);
       fetch(url).then(res => res.blob()).then(blob => {
-          console.log(blob);
-          const url = window.URL.createObjectURL(blob);
-          window.open(url);
-        }
-      );
+        let a = document.createElement("a");
+        a.href = window.URL.createObjectURL(blob);
+        a.download = entry.name;
+        a.click();
+      });
     });
   }
 
