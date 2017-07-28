@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Measure } from '../entry/entry-content/measures/measure.model';
 
 @Component({
   selector: 'app-modals',
@@ -59,11 +60,20 @@ export class ModalsComponent implements OnInit {
    */
   removeMeasure() {
     const measure_id = localStorage.getItem('measure-id');
+
+    /* Removing from DB */
+    const measure = new Measure();
+    measure.delete(parseInt(measure_id));
+
+    /* Removing the measure from the view */
     const measureToRemove = document.querySelector(".pia-measureBlock[data-id='" + measure_id + "']");
-    localStorage.removeItem('measure-id');
     measureToRemove.remove();
+
+    localStorage.removeItem('measure-id');
     this.closeModal();
   }
+
+  /*input:not([type])*/
 
   /**
    *

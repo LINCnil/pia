@@ -82,18 +82,18 @@ export class EntryContentComponent implements OnInit {
    * @param {string} measureTitle the title of the measure to be added (used in some cases).
    */
   addNewMeasure(measureTitle?: string, measurePlaceholder?: string) {
-    /*
-     * TODO : faire en sorte que l'id se mette bien et qu'il ne faille pas rafraîchir pour qu'il apparaîsse.
-     * Sinon on se retrouve avec des mesures avec un id vide... et après c'est bon au rafraîchissement.
-    */
     const newMeasureRecord = new Measure();
     newMeasureRecord.pia_id = this.pia.id;
     if (measureTitle) {
       newMeasureRecord.title = measureTitle;
+    }
+    if(measurePlaceholder) {
       newMeasureRecord.placeholder = measurePlaceholder;
     }
-    newMeasureRecord.create();
-    this.measures.push(newMeasureRecord);
+    newMeasureRecord.create().then((entry: number) => {
+      newMeasureRecord.id = entry;
+      this.measures.push(newMeasureRecord);
+    });
   }
 
 }
