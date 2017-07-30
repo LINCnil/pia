@@ -2,13 +2,10 @@ import { ApplicationDb } from "../../application.db";
 
 export class Attachment extends ApplicationDb {
   public id: number;
-  public pia_id: number;
   public file: Blob;
   public name: string;
   public mime_type: string;
   public pia_signed: Boolean;
-  public created_at: Date;
-  public updated_at: Date;
 
   constructor() {
     super(201707071818, 'attachment');

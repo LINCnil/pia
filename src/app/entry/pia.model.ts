@@ -13,8 +13,6 @@ export class Pia extends ApplicationDb {
   public concerned_people_status: string;
   public rejected_reason: string;
   public applied_adjustements: string;
-  public created_at: Date;
-  public updated_at: Date;
 
   constructor() {
     super(201707071818, 'pia');
