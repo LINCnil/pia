@@ -29,6 +29,8 @@ export class CommentsComponent implements OnInit {
       Think to do this in the promise : this.nbComments = this.comments.length;
     */
     const commentsModel = new Comment();
+    commentsModel.pia_id = this.pia.id;
+    commentsModel.reference_to = this.question.id;
 
     if (this.measure) {
       /* TODO : select * from comments where comment.pia_id = this.pia.id && comment.for_measure = true && reference_to = this.measure.id */
@@ -59,11 +61,13 @@ export class CommentsComponent implements OnInit {
     // Opens comments list if it's closed.
     const accordeonButton = this.el.nativeElement.querySelector('.pia-commentsBlock-btn button span');
     const commentsList = this.el.nativeElement.querySelector('.pia-commentsBlock-list');
-    if (commentsList.classList.contains('close') && accordeonButton.classList.contains('pia-icon-accordeon-down')) {
-      accordeonButton.classList.toggle('pia-icon-accordeon-up');
-      accordeonButton.classList.remove('pia-icon-accordeon-down');
+    if (commentsList && accordeonButton) {
+      if (commentsList.classList.contains('close') && accordeonButton.classList.contains('pia-icon-accordeon-down')) {
+        accordeonButton.classList.toggle('pia-icon-accordeon-up');
+        accordeonButton.classList.remove('pia-icon-accordeon-down');
+      }
+      commentsList.classList.remove('close');
     }
-    commentsList.classList.remove('close');
     newCommentBox.classList.toggle('open');
   }
 
@@ -80,6 +84,7 @@ export class CommentsComponent implements OnInit {
         // Creates the new comment and pushes it as the first comment in list.
         // Updates accordeon and counter + removes the written comment.
         const commentRecord = new Comment();
+        commentRecord.for_measure = false;
         commentRecord.description = this.commentsForm.value.description;
         commentRecord.pia_id = this.pia.id;
         if (this.measure) {

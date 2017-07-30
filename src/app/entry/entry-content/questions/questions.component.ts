@@ -1,4 +1,4 @@
-import { Component, Input, ElementRef, OnInit, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, Input, ElementRef, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/map';
@@ -12,7 +12,7 @@ export class QuestionsComponent implements OnInit {
 
   tags = [];
   userMeasures = ['user_measure1', 'user_measure2', 'user_measure3'];
-  questions: any;
+  @Input() question: any;
   @Input() section: any;
   @Input() item: any;
   @Input() pia: any;
@@ -26,23 +26,6 @@ export class QuestionsComponent implements OnInit {
       questionContent: new FormControl(),
       questionTags: new FormControl()
     });
-  }
-
-  ngOnChanges(changes: SimpleChanges) {
-    this.questions = [];
-    if (this.section.display_mode == 'all_items') {
-      if (this.section['items']) {
-        this.section['items'].forEach(item => {
-          item['questions'].forEach(question => {
-            this.questions.push(question);
-          });
-        });
-      }
-    } else if(this.item['questions']) {
-      this.item['questions'].forEach(question => {
-        this.questions.push(question);
-      });
-    }
   }
 
   /*

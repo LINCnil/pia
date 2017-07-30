@@ -1,10 +1,13 @@
 export class ApplicationDb {
+  public pia_id: number;
+  public reference_to: string;
   protected dbVersion: number;
-  protected db: any;
   protected tableName: string;
   protected objectStore: IDBObjectStore;
+  protected created_at: Date;
+  protected updated_at: Date;
 
-  constructor(dbVersion, tableName) {
+  constructor(dbVersion: number, tableName: string) {
     this.dbVersion = dbVersion;
     this.tableName = tableName;
   }
@@ -22,32 +25,26 @@ export class ApplicationDb {
         const objectStore = event.target.result.createObjectStore(this.tableName, { keyPath: "id", autoIncrement: true });
         // TODO need to be in comment.db.ts instead of this file
         if (this.tableName == 'pia') {
-          objectStore.createIndex("name", "name", { unique: false });
-          objectStore.createIndex("status", "status", { unique: false });
+          objectStore.createIndex("index1", 'status', { unique: false });
         } else if(this.tableName == 'comment') {
-          objectStore.createIndex("pia_id", "pia_id", { unique: false });
-          objectStore.createIndex("reference_to", "reference_to", { unique: false });
-          objectStore.createIndex("type", "type", { unique: false });
+          objectStore.createIndex("index1", ['pia_id', 'reference_to'], { unique: false });
         } else if(this.tableName == 'evaluation') {
-          objectStore.createIndex("pia_id", "pia_id", { unique: false });
-          objectStore.createIndex("reference_to", "reference_to", { unique: false });
-          objectStore.createIndex("status", "status", { unique: false });
+          objectStore.createIndex("index1", ['pia_id', 'reference_to'], { unique: false });
         } else if(this.tableName == 'answer') {
-          objectStore.createIndex("pia_id", "pia_id", { unique: false });
-          objectStore.createIndex("reference_to", "reference_to", { unique: false });
+          objectStore.createIndex("index1", ['pia_id', 'reference_to'], { unique: false });
         } else if(this.tableName == 'measure') {
-          objectStore.createIndex("pia_id", "pia_id", { unique: false });
+          objectStore.createIndex("index1", "pia_id", { unique: false });
         } else if(this.tableName == 'attachment') {
-          objectStore.createIndex("pia_id", "pia_id", { unique: false });
+          objectStore.createIndex("index1", "pia_id", { unique: false });
         }
       };
     });
   }
 
   async getObjectStore() {
-    this.db = await this.initDb();
+    const db:any = await this.initDb();
     return new Promise((resolve, reject) => {
-      this.objectStore = this.db.transaction(this.tableName, "readwrite").objectStore(this.tableName);
+      this.objectStore = db.transaction(this.tableName, "readwrite").objectStore(this.tableName);
       resolve();
     });
   }

@@ -2,12 +2,8 @@ import { ApplicationDb } from '../../../application.db';
 
 export class Comment extends ApplicationDb {
   public id: number;
-  public pia_id: number;
   public description: string;
-  public reference_to: string;
   public for_measure: boolean;
-  public created_at: Date;
-  public updated_at: Date;
 
   constructor() {
     super(201707071818, 'comment');
@@ -23,13 +19,22 @@ export class Comment extends ApplicationDb {
     });
   }
 
-  // async update(id) {
-  //   this.find(id).then((entry: any) => {
-  //     entry.description = this.description;
-  //     entry.updated_at = new Date();
-  //     this.objectStore.put(entry);
-  //   });
-  // }
+  async findAll() {
+    let items = [];
+    await this.getObjectStore();
+    return new Promise((resolve, reject) => {
+      const index1 = this.objectStore.index('index1');
+      index1.openCursor(IDBKeyRange.only([this.pia_id, this.reference_to])).onsuccess = (event: any) => {
+        let cursor = event.target.result;
+        if (cursor) {
+          console.log(cursor.value);
+          items.push(cursor.value);
+          cursor.continue();
+        }
+        resolve(items);
+      }
+    });
+  }
 
   async get(id: number) {
     this.id = id;

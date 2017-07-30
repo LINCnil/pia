@@ -19,7 +19,9 @@
     <app-measures [measures]="measures" [pia]="pia" [item]="item"></app-measures>
   </ng-container>
   <ng-template #appQuestions>
-    <app-questions [pia]="pia" [section]="section" [item]="item"></app-questions>
+    <div *ngFor="let question of questions">
+      <app-questions [question]="question" [pia]="pia" [section]="section" [item]="item"></app-questions>
+    </div>
   </ng-template>
 
   <app-evaluations *ngIf="item.evaluation_mode == 'section'" [pia]="pia" [section]="section" [item]="item"></app-evaluations>
