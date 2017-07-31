@@ -15,10 +15,9 @@ export class KnowledgeBaseComponent implements OnInit, OnChanges {
   @Input() pia: Pia;
   @Input() item: any;
   @Output() newMeasureEvent: EventEmitter<any> = new EventEmitter<any>();
-  private _knowledgeBaseService: KnowledgeBaseService;
 
-  constructor(private http: Http, private _measureService: MeasureService) {
-    this._knowledgeBaseService = new KnowledgeBaseService(this.http);
+  constructor(private http: Http, private _measureService: MeasureService, private _knowledgeBaseService: KnowledgeBaseService) {
+    this._knowledgeBaseService.loadData(this.http);
   }
 
   ngOnInit() {

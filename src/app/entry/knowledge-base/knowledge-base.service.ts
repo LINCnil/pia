@@ -8,8 +8,8 @@ export class KnowledgeBaseService {
   q: string;
   filter: string;
 
-  constructor(http) {
-    const kb = http.request('/assets/files/pia_knowledge-base.json').map(res => res.json()).subscribe(data => {
+  loadData(http) {
+    http.request('/assets/files/pia_knowledge-base.json').map(res => res.json()).subscribe(data => {
       this.knowledgeBaseData = data;
       this.allKnowledgeBaseData = data;
     });
