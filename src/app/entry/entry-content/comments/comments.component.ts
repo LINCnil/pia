@@ -1,8 +1,10 @@
 import { Component, ElementRef, OnInit, Input } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { ModalsComponent } from '../../../modals/modals.component';
-import { Router } from '@angular/router';
+
 import { Comment } from './comment.model';
+
+import { MeasureService } from 'app/entry/entry-content/measures/measures.service';
+import { ModalsService } from 'app/modals/modals.service';
 
 @Component({
   selector: 'app-comments',
@@ -11,16 +13,15 @@ import { Comment } from './comment.model';
 })
 export class CommentsComponent implements OnInit {
 
-  modal = new ModalsComponent(this.router);
   commentsForm: FormGroup;
   comments: any;
   @Input() question: any;
   @Input() measure: any;
   @Input() pia: any;
 
-  constructor(private el: ElementRef, private router: Router) {
-    this.router = router;
-  }
+  constructor(private el: ElementRef,
+              private _measureService: MeasureService,
+              private _modalsService: ModalsService) { }
 
   ngOnInit() {
     this.comments = [];
@@ -57,7 +58,7 @@ export class CommentsComponent implements OnInit {
    * Shows or hides the block which allows users to create a new comment.
    */
   toggleNewCommentBox() {
-    const newCommentBox = this.el.nativeElement.querySelector('.pia-commentsBlock-new');;
+    const newCommentBox = this.el.nativeElement.querySelector('.pia-commentsBlock-new');
     // Opens comments list if it's closed.
     const accordeonButton = this.el.nativeElement.querySelector('.pia-commentsBlock-btn button span');
     const commentsList = this.el.nativeElement.querySelector('.pia-commentsBlock-list');
@@ -79,7 +80,7 @@ export class CommentsComponent implements OnInit {
     if (this.commentsForm.value.description && this.commentsForm.value.description.length > 0) {
       // Checks if there are already comments and if so, checks if the last comment value is different from our current comment.
       if (this.comments.length > 0 && this.comments[0].description === this.commentsForm.value.description) {
-        this.modal.openModal('modal-same-comment');
+        this._modalsService.openModal('modal-same-comment');
       } else {
         // Creates the new comment and pushes it as the first comment in list.
         // Updates accordeon and counter + removes the written comment.
@@ -89,7 +90,7 @@ export class CommentsComponent implements OnInit {
         commentRecord.pia_id = this.pia.id;
         if (this.measure) {
           commentRecord.for_measure = true;
-          commentRecord.reference_to = this.measure.id ;
+          commentRecord.reference_to = this.measure.id;
         } else {
           commentRecord.reference_to = this.question.id;
         }

@@ -1,7 +1,11 @@
-import { Component, OnInit, AfterViewInit, Output, EventEmitter } from '@angular/core';
-import {FormControl, FormGroup} from '@angular/forms';
+import { Component, OnInit, AfterViewInit, Input, Output, EventEmitter } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map'
+
+import { Pia } from '../pia.model';
+
+import { MeasureService } from 'app/entry/entry-content/measures/measures.service';
 
 @Component({
   selector: 'app-knowledge-base',
@@ -12,9 +16,10 @@ export class KnowledgeBaseComponent implements OnInit {
 
   data: any;
   searchForm: FormGroup;
+  @Input() pia: Pia;
   @Output() newMeasureEvent: EventEmitter<any> = new EventEmitter<any>();
 
-  constructor(private http: Http) { }
+  constructor(private http: Http, private _measureService: MeasureService) { }
 
   ngOnInit() {
     const kb = this.http.request('/assets/files/pia_knowledge-base.json').map(res => res.json()).subscribe(data => {
@@ -41,7 +46,7 @@ export class KnowledgeBaseComponent implements OnInit {
     const q = this.searchForm.value.q;
     const items: any = document.querySelectorAll('app-knowledge-base-item');
     items.forEach((element) => {
-      if (q != '') {
+      if (q !== '') {
         element.classList.add('hide');
       } else {
         element.classList.remove('hide');
@@ -49,8 +54,12 @@ export class KnowledgeBaseComponent implements OnInit {
     });
   }
 
+  /**
+   * Allows an user to add a new measure (with its title and its placeholder) through the knowledge base.
+   * @param {Event} event any kind of event.
+   */
   addNewMeasure(event) {
-    this.newMeasureEvent.emit(event);
+    this._measureService.addNewMeasure(this.pia, event.name, event.placeholder);
   }
 
 }

@@ -17,7 +17,7 @@ export class Measure extends ApplicationDb {
     await this.getObjectStore();
     return new Promise((resolve, reject) => {
       const created_at = new Date();
-      this.objectStore.add({title: this.title, content: this.content,
+      this.objectStore.add({title: this.title, pia_id: this.pia_id, content: this.content,
         placeholder: this.placeholder, created_at: this.created_at, updated_at: new Date()
       }).onsuccess = (event: any) => {
         resolve(event.target.result);

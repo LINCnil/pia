@@ -1,62 +1,62 @@
 <section class="pia-entryContentBlock pia-entryContentBlock-section{{section.id}}" *ngIf="section && item">
-  <header class="pia-entryContentBlock-header">
-    <div>
-      <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-    </div>
-    <div class="pia-entryContentBlock-header-title">
-      <h1>{{ section.title }}</h1>
-      <h2 [ngClass]="{'hide': section.display_mode == 'all_items'}">{{ item.title }}</h2>
-      <h3 *ngIf="section.short_help">{{ section.short_help }}</h3>
-      <h4 *ngIf="item.short_help">{{ item.short_help }}</h4>
-    </div>
-    <a href="javascript:;" class="btn pia-previewBlock" title="Aperçu">
-      <span class="pia-icons pia-icon-preview"></span>
-      <div>Aperçu</div>
-    </a>
-  </header>
+    <header class="pia-entryContentBlock-header">
+        <div>
+            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+        </div>
+        <div class="pia-entryContentBlock-header-title">
+            <h1>{{ section.title }}</h1>
+            <h2 [ngClass]="{'hide': section.display_mode == 'all_items'}">{{ item.title }}</h2>
+            <h3 *ngIf="section.short_help">{{ section.short_help }}</h3>
+            <h4 *ngIf="item.short_help">{{ item.short_help }}</h4>
+        </div>
+        <a href="javascript:;" class="btn pia-previewBlock" title="Aperçu">
+            <span class="pia-icons pia-icon-preview"></span>
+            <div>Aperçu</div>
+        </a>
+    </header>
 
   <app-measures *ngIf="section.id == 3 && item.id == 1; else appQuestions" [measures]="measures" [pia]="pia" [item]="item"></app-measures>
   <ng-template #appQuestions>
     <div *ngFor="let question of questions">
-      <app-questions [question]="question" [pia]="pia" [section]="section" [item]="item"></app-questions>
+      <app-questions [question]="question" [pia]="pia" [item]="item"></app-questions>
     </div>
   </ng-template>
 
-  <app-evaluations *ngIf="item.evaluation_mode == 'section'" [pia]="pia" [section]="section" [item]="item"></app-evaluations>
+    <app-evaluations *ngIf="item.evaluation_mode == 'section'" [pia]="pia" [section]="section" [item]="item"></app-evaluations>
 
-  <!-- Section 4 : VALIDATION -->
+    <!-- Section 4 : VALIDATION -->
 
-  <!-- TODO : if page is PIA validation, show this -->
-  <app-validate-pia *ngIf="section.id == 4 && item.id == 4" [pia]="pia"></app-validate-pia>
+    <!-- TODO : if page is PIA validation, show this -->
+    <app-validate-pia *ngIf="section.id == 4 && item.id == 4" [pia]="pia"></app-validate-pia>
 
-  <!-- TODO : if page is refuse PIA, show this -->
-  <app-refuse-pia *ngIf="section.id == 4 && item.id == 5" [pia]="pia"></app-refuse-pia>
+    <!-- TODO : if page is refuse PIA, show this -->
+    <app-refuse-pia *ngIf="section.id == 4 && item.id == 5" [pia]="pia"></app-refuse-pia>
 
-  <app-risks-cartography *ngIf="section.id == 4 && item.id == 1" [pia]="pia"></app-risks-cartography>
+    <app-risks-cartography *ngIf="section.id == 4 && item.id == 1" [pia]="pia"></app-risks-cartography>
 
-  <app-action-plan *ngIf="section.id == 4 && item.id == 2" [pia]="pia"></app-action-plan>
+    <app-action-plan *ngIf="section.id == 4 && item.id == 2" [pia]="pia"></app-action-plan>
 
-  <app-dpo-people-opinions *ngIf="section.id == 4 && item.id == 3" [pia]="pia"></app-dpo-people-opinions>
+    <app-dpo-people-opinions *ngIf="section.id == 4 && item.id == 3" [pia]="pia"></app-dpo-people-opinions>
 
-  <footer class="pia-entryContentBlock-footer">
-    <!-- TODO Refactor needed -->
-    <div class="pia-entryContentBlock-footer-measures" *ngIf="section.id == 3 && item.id == 1">
-      <button (click)="addNewMeasure()" class="btn btn-white" type="button" title="Ajouter une mesure"><span class="pia-icons pia-icon-add"></span>Ajouter une mesure</button>
-      <button (click)="askForEvaluation()" class="btn btn-green" [ngClass]="{'btn-active': false}" [disabled]="true" type="submit" title="Demander l'évaluation">Demander l'évaluation</button>
-    </div>
-    <button class="btn btn-green" (click)="askForEvaluation()" [ngClass]="{'btn-active': false, 'hide': ((section.id == 3 && item.id == 1) || (section.id == 3 && item.id == 5)) || section.id == 4}" [disabled]="true" type="submit" title="Demander l'évaluation">Demander l'évaluation</button>
-    <button class="btn btn-green" (click)="validateEvaluation()" [ngClass]="{'btn-active': false, 'hide': (section.id == 3 && item.id == 5) || section.id == 4}" [disabled]="true" type="submit" title="Valider l'évaluation">Valider l'évaluation</button>
-    <button class="btn btn-pending-validation" [ngClass]="{'hide': (section.id == 3 && item.id == 5) || section.id == 4}"  disabled type="submit" title="Partie évaluée, en attente de la validation finale">
+    <footer class="pia-entryContentBlock-footer">
+        <!-- TODO Refactor needed -->
+        <div class="pia-entryContentBlock-footer-measures" *ngIf="section.id == 3 && item.id == 1">
+            <button (click)="_measureService.addNewMeasure(pia)" class="btn btn-white" type="button" title="Ajouter une mesure"><span class="pia-icons pia-icon-add"></span>Ajouter une mesure</button>
+            <button (click)="askForEvaluation()" class="btn btn-green" [ngClass]="{'btn-active': false}" [disabled]="true" type="submit" title="Demander l'évaluation">Demander l'évaluation</button>
+        </div>
+        <button class="btn btn-green" (click)="askForEvaluation()" [ngClass]="{'btn-active': false, 'hide': ((section.id == 3 && item.id == 1) || (section.id == 3 && item.id == 5)) || section.id == 4}" [disabled]="true" type="submit" title="Demander l'évaluation">Demander l'évaluation</button>
+        <button class="btn btn-green" (click)="validateEvaluation()" [ngClass]="{'btn-active': false, 'hide': (section.id == 3 && item.id == 5) || section.id == 4}" [disabled]="true" type="submit" title="Valider l'évaluation">Valider l'évaluation</button>
+        <button class="btn btn-pending-validation" [ngClass]="{'hide': (section.id == 3 && item.id == 5) || section.id == 4}" disabled type="submit" title="Partie évaluée, en attente de la validation finale">
       <i class="fa fa-check-square-o" aria-hidden="true"></i>
       Partie évaluée, en attente de la validation finale
     </button>
 
-    <!-- TODO : pagination -->
-    <p [ngClass]="{'hide': (section.id == 3 && item.id == 5) || section.id == 4}">Tous les champs doivent être remplis</p>
+        <!-- TODO : pagination -->
+        <p [ngClass]="{'hide': (section.id == 3 && item.id == 5) || section.id == 4}">Tous les champs doivent être remplis</p>
 
-    <div class="hide pia-entryContentBlock-footer-nav">
-      <a href="#"><< Contexte </a>
-      <a href="#">Principes fondamentaux >></a>
-    </div>
-  </footer>
+        <div class="hide pia-entryContentBlock-footer-nav">
+            <a href="#"><< Contexte </a>
+            <a href="#">Principes fondamentaux >></a>
+        </div>
+    </footer>
 </section>
