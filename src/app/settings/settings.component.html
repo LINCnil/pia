@@ -1,3 +1,17 @@
-<p>
-  settings works!
-</p>
+<app-header></app-header>
+<main class="container pia-settingsBlock">
+  <div class="row">
+    <div class="small-12 medium-12 columns">
+      <div class="pia-settingsBlock-server">
+        <h1>Paramètres</h1>
+        <form [formGroup]="settingsForm" (ngSubmit)="onSubmit()" novalidate >
+          <label for="server_url">URL du Serveur distant </label>
+          <input type="text" id="server_url" formControlName="server_url">
+          <button type="submit" [disabled]="setting.id === undefined" class="btn btn-green" ngClass="{'btn--processing': formProcessing}">Mettre à jour l'url</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</main>
+
+

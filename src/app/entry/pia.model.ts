@@ -1,4 +1,4 @@
-import { ApplicationDb } from "../application.db";
+import { ApplicationDb } from '../application.db';
 
 export class Pia extends ApplicationDb {
   public id: number;
