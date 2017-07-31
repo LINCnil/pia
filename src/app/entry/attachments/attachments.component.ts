@@ -1,6 +1,7 @@
 import { Router, ActivatedRoute, Params } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { Pia } from '../pia.model';
 import { Attachment } from './attachment.model';
 
 @Component({
@@ -10,21 +11,18 @@ import { Attachment } from './attachment.model';
 })
 export class AttachmentsComponent implements OnInit {
 
-  pia_id: number;
+  @Input() pia: Pia;
   attachmentForm: FormGroup;
   attachments: any;
 
   constructor(private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
-    this.activatedRoute.params.subscribe((params: Params) => {
-      this.pia_id = params['id'];
-    });
     this.attachmentForm = new FormGroup({
       attachment_file: new FormControl('', [])
     });
     const attachment = new Attachment();
-    // TODO findByPiaID !
+    attachment.pia_id = this.pia.id;
     attachment.findAll().then((data) => {
       this.attachments = data;
     });
@@ -48,7 +46,7 @@ export class AttachmentsComponent implements OnInit {
       attachment.file = reader.result;
       attachment.name = attachment_file.name;
       attachment.mime_type = attachment_file.type;
-      attachment.pia_id = this.pia_id;
+      attachment.pia_id = this.pia.id;
       attachment.create().then((id: number) => {
         attachment.id = id;
         this.attachments.unshift(attachment);

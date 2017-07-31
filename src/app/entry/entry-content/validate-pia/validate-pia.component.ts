@@ -1,8 +1,9 @@
 import { Component, OnInit, ElementRef, Input } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { Router } from '@angular/router';
-import { ModalsComponent } from '../../../modals/modals.component';
 import * as jsPDF from 'jspdf';
+
+import { ModalsService } from 'app/modals/modals.service';
+
 @Component({
   selector: 'app-validate-pia',
   templateUrl: './validate-pia.component.html',
@@ -11,12 +12,10 @@ import * as jsPDF from 'jspdf';
 export class ValidatePIAComponent implements OnInit {
 
   @Input() pia: any;
-  modal = new ModalsComponent(this.router);
   validateForm: FormGroup;
 
-  constructor(private el: ElementRef, private router: Router) {
-    this.router = router;
-  }
+  constructor(private el: ElementRef,
+              private _modalsService: ModalsService) { }
 
   ngOnInit() {
     this.validateForm = new FormGroup({
@@ -34,7 +33,7 @@ export class ValidatePIAComponent implements OnInit {
     const simpleValidationBtn = document.getElementById('pia-simple-validation');
     const signValidationBtn = document.getElementById('pia-sign-validation');
 
-    [].forEach.call(radioButtons, function(currentRadioBtn) {
+    [].forEach.call(radioButtons, function (currentRadioBtn) {
       if (!currentRadioBtn.checked) {
         allBtnChecked = false;
       }
@@ -58,14 +57,14 @@ export class ValidatePIAComponent implements OnInit {
    * Allows users to make a simple validation of a PIA.
    */
   simplePIAValidation() {
-    this.modal.openModal('modal-simple-pia-validation');
+    this._modalsService.openModal('modal-simple-pia-validation');
   }
 
   /**
    * Allows users to make a signed validation of a PIA.
    */
   signedPIAValidation() {
-    this.modal.openModal('modal-signed-pia-validation');
+    this._modalsService.openModal('modal-signed-pia-validation');
   }
 
   /**
@@ -74,8 +73,8 @@ export class ValidatePIAComponent implements OnInit {
   downloadPIA() {
     /* TODO : download PIA as pdf */
     document.createElement('canvas');
-    let doc = new jsPDF('p', 'pt', 'a4');
-    const test = "test";
+    const doc = new jsPDF('p', 'pt', 'a4');
+    const test = 'test';
     doc.text(20, 20, 'Hello' + test + 'world!');
     doc.save('autoprint.pdf');
   }

@@ -22,39 +22,42 @@ export class ApplicationDb {
         resolve(event.target.result);
       };
       request.onupgradeneeded = (event: any) => {
-        const objectStore = event.target.result.createObjectStore(this.tableName, { keyPath: "id", autoIncrement: true });
+        const objectStore = event.target.result.createObjectStore(this.tableName, { keyPath: 'id', autoIncrement: true });
         // TODO need to be in comment.db.ts instead of this file
-        if (this.tableName == 'pia') {
-          objectStore.createIndex("index1", 'status', { unique: false });
-        } else if(this.tableName == 'comment') {
-          objectStore.createIndex("index1", ['pia_id', 'reference_to'], { unique: false });
-        } else if(this.tableName == 'evaluation') {
-          objectStore.createIndex("index1", ['pia_id', 'reference_to'], { unique: false });
-        } else if(this.tableName == 'answer') {
-          objectStore.createIndex("index1", ['pia_id', 'reference_to'], { unique: false });
-        } else if(this.tableName == 'measure') {
-          objectStore.createIndex("index1", "pia_id", { unique: false });
-        } else if(this.tableName == 'attachment') {
-          objectStore.createIndex("index1", "pia_id", { unique: false });
+        if (this.tableName === 'pia') {
+          objectStore.createIndex('index1', 'status', { unique: false });
+        } else if (this.tableName === 'comment') {
+          objectStore.createIndex('index1', ['pia_id', 'reference_to'], { unique: false });
+        } else if (this.tableName === 'evaluation') {
+          objectStore.createIndex('index1', ['pia_id', 'reference_to'], { unique: false });
+        } else if (this.tableName === 'answer') {
+          objectStore.createIndex('index1', ['pia_id', 'reference_to'], { unique: false });
+        } else if (this.tableName === 'measure') {
+          objectStore.createIndex('index1', 'pia_id', { unique: false });
+        } else if (this.tableName === 'attachment') {
+          objectStore.createIndex('index1', 'pia_id', { unique: false });
         }
       };
     });
   }
 
   async getObjectStore() {
-    const db:any = await this.initDb();
+    const db: any = await this.initDb();
     return new Promise((resolve, reject) => {
-      this.objectStore = db.transaction(this.tableName, "readwrite").objectStore(this.tableName);
+      this.objectStore = db.transaction(this.tableName, 'readwrite').objectStore(this.tableName);
       resolve();
     });
   }
 
+  /**
+   * Find all entries without conditions
+   */
   async findAll() {
-    let items = [];
+    const items = [];
     await this.getObjectStore();
     return new Promise((resolve, reject) => {
       this.objectStore.openCursor().onsuccess = (event: any) => {
-        let cursor = event.target.result;
+        const cursor = event.target.result;
         if (cursor) {
           items.push(cursor.value);
           cursor.continue();
