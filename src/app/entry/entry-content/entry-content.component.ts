@@ -30,12 +30,22 @@ export class EntryContentComponent implements OnInit, AfterViewInit, OnChanges {
 
   ngOnInit() {
     const measuresModel = new Measure();
+    measuresModel.pia_id = this.pia.id;
     /* TODO : find measures where PIA id = this.pia_id */
     measuresModel.findAll().then((entries: any[]) => {
       this._measureService.measures = entries;
       if (this._measureService.measures.length === 0) {
         this._measureService.addNewMeasure(this.pia);
       }
+      // if (this.measures && parseInt(this.measures.length, 10) === 1) {
+      //   /*
+      //    * TODO : check if the only measure is empty :
+      //    * measures[0].content == 'undefined' && measures[0].title == 'undefined'
+      //    * Then open the modal...
+      //   */
+      //   console.log('TODO');
+      //   /* this._modalsService.openModal('pia-declare-measures'); */
+      // }
     });
   }
 

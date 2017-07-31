@@ -50,7 +50,8 @@ export class EvaluationsComponent implements OnInit {
       if (evaluationPlanValue && evaluationPlanValue.length > 0) {
         // Checks if there is an evaluation comment to concatenate it after the action plan value.
         if (commentValue && commentValue.length > 0) {
-          this.evaluationForm.controls['evaluationComment'].setValue(evaluationPlanValue + '\n' + this.evaluationForm.controls['evaluationComment'].value);
+          this.evaluationForm.controls['evaluationComment'].setValue(evaluationPlanValue + '\n'
+            + this.evaluationForm.controls['evaluationComment'].value);
         } else {
           this.evaluationForm.controls['evaluationComment'].setValue(evaluationPlanValue);
         }
@@ -94,8 +95,8 @@ export class EvaluationsComponent implements OnInit {
     const evaluationButtons = document.querySelectorAll('.pia-evaluationBlock-buttons button');
 
     // Waiting for document.activeElement update
-    setTimeout(()=>{
-      if (actionPlanValue && actionPlanValue.length > 0 && document.activeElement.id != 'pia-evaluation-comment') {
+    setTimeout(() => {
+      if (actionPlanValue && actionPlanValue.length > 0 && document.activeElement.id !== 'pia-evaluation-comment') {
         this.showEvaluationEditButton();
         this.evaluationForm.controls['evaluationActionPlan'].disable();
         [].forEach.call(evaluationButtons, function(btn) {
@@ -113,11 +114,11 @@ export class EvaluationsComponent implements OnInit {
         // TODO : save data
       }
       // Disables comment field too if no action plan and comment is filled and isn't the next targeted element.
-      if (!actionPlanValue && commentValue && commentValue.length > 0 && document.activeElement.id != 'pia-evaluation-comment') {
+      if (!actionPlanValue && commentValue && commentValue.length > 0 && document.activeElement.id !== 'pia-evaluation-comment') {
         this.showEvaluationEditButton();
         this.evaluationForm.controls['evaluationComment'].disable();
       }
-    },1);
+    }, 1);
   }
 
   /**
@@ -140,8 +141,8 @@ export class EvaluationsComponent implements OnInit {
     const evaluationButtons = document.querySelectorAll('.pia-evaluationBlock-buttons button');
 
     // Waiting for document.activeElement update
-    setTimeout(()=>{
-      if (commentValue && commentValue.length > 0 && document.activeElement.id != 'pia-evaluation-action-plan') {
+    setTimeout(() => {
+      if (commentValue && commentValue.length > 0 && document.activeElement.id !== 'pia-evaluation-action-plan') {
         this.showEvaluationEditButton();
         this.evaluationForm.controls['evaluationComment'].disable();
         [].forEach.call(evaluationButtons, function(btn) {
@@ -159,11 +160,11 @@ export class EvaluationsComponent implements OnInit {
         // TODO : save data
       }
       // Disables action plan field too if no comment and action plan is filled and isn't the next targeted element.
-      if (!commentValue && actionPlanValue && actionPlanValue.length > 0 && document.activeElement.id != 'pia-evaluation-action-plan') {
+      if (!commentValue && actionPlanValue && actionPlanValue.length > 0 && document.activeElement.id !== 'pia-evaluation-action-plan') {
         this.showEvaluationEditButton();
         this.evaluationForm.controls['evaluationActionPlan'].disable();
       }
-    },1);
+    }, 1);
   }
 
   /**

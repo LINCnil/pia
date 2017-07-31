@@ -18,6 +18,8 @@ export class KnowledgeBaseComponent implements OnInit {
   searchForm: FormGroup;
   @Input() pia: Pia;
   @Output() newMeasureEvent: EventEmitter<any> = new EventEmitter<any>();
+  // @Input() section: { id: number, title: string, display_mode: string, short_help: string, items: any };
+  // @Input() item: { id: number, title: string, evaluation_mode: string, short_help: string, questions: any };
 
   constructor(private http: Http, private _measureService: MeasureService) { }
 

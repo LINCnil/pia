@@ -1,21 +1,21 @@
 <section class="pia-entryContentBlock pia-entryContentBlock-section{{section.id}}" *ngIf="section && item">
-    <header class="pia-entryContentBlock-header">
-        <div>
-            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-        </div>
-        <div class="pia-entryContentBlock-header-title">
-            <h1>{{ section.title }}</h1>
-            <h2 [ngClass]="{'hide': section.display_mode == 'all_items'}">{{ item.title }}</h2>
-            <h3 *ngIf="section.short_help">{{ section.short_help }}</h3>
-            <h4 *ngIf="item.short_help">{{ item.short_help }}</h4>
-        </div>
-        <a href="javascript:;" class="btn pia-previewBlock" title="Aperçu">
-            <span class="pia-icons pia-icon-preview"></span>
-            <div>Aperçu</div>
-        </a>
-    </header>
+  <header class="pia-entryContentBlock-header">
+    <div>
+      <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+    </div>
+    <div class="pia-entryContentBlock-header-title">
+      <h1>{{ section.title }}</h1>
+      <h2 [ngClass]="{'hide': section.display_mode == 'all_items'}">{{ item.title }}</h2>
+      <h3 *ngIf="section.short_help">{{ section.short_help }}</h3>
+      <h4 *ngIf="item.short_help">{{ item.short_help }}</h4>
+    </div>
+    <a href="javascript:;" class="btn pia-previewBlock" title="Aperçu">
+      <span class="pia-icons pia-icon-preview"></span>
+      <div>Aperçu</div>
+    </a>
+  </header>
 
-  <app-measures *ngIf="section.id == 3 && item.id == 1; else appQuestions" [measures]="measures" [pia]="pia" [item]="item"></app-measures>
+  <app-measures *ngIf="section.id == 3 && item.id == 1; else appQuestions" [measures]="_measureService.measures" [pia]="pia" [item]="item"></app-measures>
   <ng-template #appQuestions>
     <div *ngFor="let question of questions">
       <app-questions [question]="question" [pia]="pia" [item]="item"></app-questions>

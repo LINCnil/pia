@@ -31,7 +31,11 @@ export class CommentsComponent implements OnInit {
     */
     const commentsModel = new Comment();
     commentsModel.pia_id = this.pia.id;
-    commentsModel.reference_to = this.question.id;
+    if (this.measure) {
+      commentsModel.reference_to = this.measure.id;
+    } else {
+      commentsModel.reference_to = this.question.id;
+    }
 
     if (this.measure) {
       /* TODO : select * from comments where comment.pia_id = this.pia.id && comment.for_measure = true && reference_to = this.measure.id */
