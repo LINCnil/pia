@@ -2,6 +2,8 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Settings } from './settings.model';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
+import { ModalsService } from 'app/modals/modals.service';
+
 @Component({
   selector: 'app-settings',
   templateUrl: './settings.component.html',
@@ -10,7 +12,8 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 export class SettingsComponent implements OnInit {
   setting: Settings;
   settingsForm: FormGroup;
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder,
+              private _modalsService: ModalsService) {
   }
 
   ngOnInit() {
@@ -36,5 +39,6 @@ export class SettingsComponent implements OnInit {
   onSubmit() {
     this.setting.server_url = this.settingsForm.value.server_url;
     this.setting.update();
+    this._modalsService.openModal('modal-update-server-url');
   }
 }
