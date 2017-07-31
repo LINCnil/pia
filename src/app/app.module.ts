@@ -37,6 +37,8 @@ import { MeasuresComponent } from './entry/entry-content/measures/measures.compo
 import { CardFilterComponent } from './cards/card-filter/card-filter.component';
 import { MeasureService } from './entry/entry-content/measures/measures.service';
 import { ModalsService } from './modals/modals.service';
+import { PiaService } from './entry/pia.service';
+import { AttachmentsService } from './entry/attachments/attachments.service';
 
 const appRoutes: Routes = [
   { path: '', component: AuthenticationComponent },
@@ -87,7 +89,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     TagInputModule
   ],
-  providers: [MeasureService, ModalsService],
+  providers: [MeasureService, ModalsService, PiaService, AttachmentsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

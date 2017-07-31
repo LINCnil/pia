@@ -1,9 +1,12 @@
 import { Injectable } from '@angular/core';
+
 import { Measure } from './measure.model';
+
 import { ModalsService } from 'app/modals/modals.service';
 
 @Injectable()
 export class MeasureService {
+
   private _modalsService = new ModalsService();
   measures: any[];
 

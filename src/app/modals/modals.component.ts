@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { ModalsService } from './modals.service';
-import { MeasureService } from './../entry/entry-content/measures/measures.service';
+import { MeasureService } from 'app/entry/entry-content/measures/measures.service';
+import { PiaService } from 'app/entry/pia.service';
+import { AttachmentsService } from 'app/entry/attachments/attachments.service';
 
 @Component({
   selector: 'app-modals',
@@ -14,7 +16,9 @@ export class ModalsComponent implements OnInit {
   constructor(
     private router: Router,
     private _modalsService: ModalsService,
-    private _measuresService: MeasureService
+    private _piaService: PiaService,
+    private _measuresService: MeasureService,
+    private _attachmentsService: AttachmentsService
   ) { }
 
   ngOnInit() {

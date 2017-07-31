@@ -1,8 +1,10 @@
-import {Component, OnInit } from '@angular/core';
-import {FormControl, FormGroup} from '@angular/forms';
-import {Pia} from '../entry/pia.model';
-import {Router} from '@angular/router';
+import { Component, OnInit  } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 
+import { Pia } from '../entry/pia.model';
+
+import { PiaService } from 'app/entry/pia.service';
 
 @Component({
   selector: 'app-cards',
@@ -12,15 +14,15 @@ import {Router} from '@angular/router';
 export class CardsComponent implements OnInit {
 
   newPia: Pia;
-  pias: any;
   piaForm: FormGroup;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router,
+              private _piaService: PiaService) { }
 
   ngOnInit() {
-    let pia = new Pia();
-    pia.findAll().then((data) => {
-      this.pias = data;
+    const pia = new Pia();
+    pia.findAll().then((data: any[]) => {
+      this._piaService.pias = data;
     });
     this.piaForm = new FormGroup({
       name: new FormControl(),
@@ -55,7 +57,7 @@ export class CardsComponent implements OnInit {
    * Sends to the path associated to this new PIA.
    */
   onSubmit() {
-    let pia = new Pia();
+    const pia = new Pia();
     pia.name = this.piaForm.value.name,
     pia.author_name = this.piaForm.value.author_name,
     pia.evaluator_name = this.piaForm.value.evaluator_name,

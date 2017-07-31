@@ -63,7 +63,9 @@
         }
       }
     }
-    &-removeMeasure {
+    &-removeMeasure,
+    &-removePIA,
+    &-removeAttachment {
       p {
         margin-bottom: 30px;
       }

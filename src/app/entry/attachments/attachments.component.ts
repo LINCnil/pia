@@ -1,8 +1,11 @@
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Component, OnInit, Input } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+
 import { Pia } from '../pia.model';
 import { Attachment } from './attachment.model';
+
+import { AttachmentsService } from 'app/entry/attachments/attachments.service';
 
 @Component({
   selector: 'app-attachments',
@@ -13,9 +16,9 @@ export class AttachmentsComponent implements OnInit {
 
   @Input() pia: Pia;
   attachmentForm: FormGroup;
-  attachments: any;
 
-  constructor(private activatedRoute: ActivatedRoute) { }
+  constructor(private activatedRoute: ActivatedRoute,
+              private _attachmentsService: AttachmentsService) { }
 
   ngOnInit() {
     this.attachmentForm = new FormGroup({
@@ -23,8 +26,8 @@ export class AttachmentsComponent implements OnInit {
     });
     const attachment = new Attachment();
     attachment.pia_id = this.pia.id;
-    attachment.findAll().then((data) => {
-      this.attachments = data;
+    attachment.findAll().then((data: any[]) => {
+      this._attachmentsService.attachments = data;
     });
   }
 
@@ -39,7 +42,7 @@ export class AttachmentsComponent implements OnInit {
   uploadAttachement(event: any) {
     const attachment_file = event.target.files[0];
     const file = new Blob([attachment_file]);
-    var reader = new FileReader();
+    const reader = new FileReader();
     reader.readAsDataURL(file);
     reader.onloadend = () => {
       const attachment = new Attachment();
@@ -49,7 +52,7 @@ export class AttachmentsComponent implements OnInit {
       attachment.pia_id = this.pia.id;
       attachment.create().then((id: number) => {
         attachment.id = id;
-        this.attachments.unshift(attachment);
+        this._attachmentsService.attachments.unshift(attachment);
       });
     }
   }

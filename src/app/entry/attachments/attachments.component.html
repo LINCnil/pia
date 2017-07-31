@@ -1,7 +1,7 @@
 <div class="pia-attachmentsBlock">
   <p>Pièces jointes</p>
 
-  <app-attachment-item *ngFor="let attachment of attachments;let i=index" [attachment]="attachment" (delete)="attachments.splice(i,1)"></app-attachment-item>
+  <app-attachment-item *ngFor="let attachment of _attachmentsService.attachments;let i=index" [attachment]="attachment"></app-attachment-item>
 
   <form enctype="multipart/form-data" [formGroup]="attachmentForm" *ngIf="pia.status != 2 && pia.status != 3">
     <input type="file" formControlName="attachment_file" id="attachment_file" (change)="uploadAttachement($event)" class="hide">
@@ -11,3 +11,5 @@
     </button>
   </form>
 </div>
+
+<!--<app-modals></app-modals>-->

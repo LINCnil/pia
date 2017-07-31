@@ -1,6 +1,6 @@
 <app-header></app-header>
 
-<div class="container">
+<div class="container pia-mainContainerBlock">
     <div class="row">
       <div class="small-12 medium-12 columns">
         <app-card-filter></app-card-filter>
@@ -68,7 +68,7 @@
             </div>
           </div>
 
-          <div class="pia-newBlock-hint" *ngIf="pias && pias.length == 0" id="pia-rocket">
+          <div class="pia-newBlock-hint" *ngIf="_piaService.pias && _piaService.pias.length == 0" id="pia-rocket">
             <span class="pia-icons pia-icon-small-arrow"></span>
             <div>
               <span class="pia-icons pia-icon-rocket"></span>
@@ -80,7 +80,9 @@
             </div>
           </div>
         </div>
-        <app-card-item *ngFor="let pia of pias;let i=index" [pia]="pia" (delete)="pias.splice(i,1)"></app-card-item>
+        <app-card-item *ngFor="let pia of _piaService.pias;let i=index" [pia]="pia"></app-card-item>
       </div>
     </div>
 </div>
+
+<app-modals></app-modals>

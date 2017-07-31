@@ -155,13 +155,44 @@
     </p>
     <span class="pia-icons pia-icon-sorry"></span>
     <div class="pia-modalBlock-validate">
-      <!-- TODO : see what we can do with this bouton and RouterLink -->
+      <!-- TODO : see what we can do with this bouton and RouterLink to link to section3/item/1 -->
       <button (click)="_modalsService.closeModal()" type="button" title="Déclarer les mesures existantes ou prévues" class="btn btn-green">Déclarer les mesures existantes ou prévues</button>
     </div>
   </div>
 </div>
 
 
+<div class="pia-modalBlock" id="modal-remove-pia">
+  <div class="pia-modalBlock-content pia-modalBlock-removePIA bounceIn">
+    <button type="button" class="pia-modalBlock-close btn" title="Fermer"><span (click)="_modalsService.closeModal()" class="pia-icons pia-icon-close-big"></span></button>
+    <p>
+      <span class="strong">Attention,</span><br>
+      Êtes-vous sûr de vouloir<br>
+      supprimer ce PIA ?
+    </p>
+    <span class="pia-icons pia-icon-sad"></span>
+    <div class="pia-modalBlock-buttons-choice">
+      <button class="btn btn-red" type="button" (click)="_modalsService.closeModal()" title="Conserver le PIA">Annuler</button>
+      <button class="btn btn-red" (click)="_piaService.removePIA()" type="button" title="Supprimer le PIA">Supprimer ce PIA</button>
+    </div>
+  </div>
+</div>
+
+<div class="pia-modalBlock" id="modal-remove-attachment">
+  <div class="pia-modalBlock-content pia-modalBlock-removeAttachment bounceIn">
+    <button type="button" class="pia-modalBlock-close btn" title="Fermer"><span (click)="_modalsService.closeModal()" class="pia-icons pia-icon-close-big"></span></button>
+    <p>
+      <span class="strong">Attention,</span><br>
+      Êtes-vous sûr de vouloir<br>
+      supprimer cette pièce jointe ?
+    </p>
+    <span class="pia-icons pia-icon-sad"></span>
+    <div class="pia-modalBlock-buttons-choice">
+      <button class="btn btn-red" type="button" (click)="_modalsService.closeModal()" title="Conserver la pièce jointe">Conserver</button>
+      <button class="btn btn-red" (click)="_attachmentsService.removeAttachment()" type="button" title="Supprimer la pièce jointe">Supprimer</button>
+    </div>
+  </div>
+</div>
 
 <!-- TODO : mettre leurs ids et les (click) adéquats -->
 <div class="pia-modalBlock">

@@ -1,6 +1,9 @@
 import { Router, ActivatedRoute, Params  } from '@angular/router';
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+
 import { Attachment } from '../attachment.model';
+
+import { ModalsService } from 'app/modals/modals.service';
 
 @Component({
   selector: 'app-attachment-item',
@@ -11,9 +14,9 @@ export class AttachmentItemComponent implements OnInit {
 
   pia_id: number;
   @Input() attachment: any;
-  @Output() delete: EventEmitter<number> = new EventEmitter<number>();
 
-  constructor(private activatedRoute: ActivatedRoute) { }
+  constructor(private activatedRoute: ActivatedRoute,
+              private _modalsService: ModalsService) { }
 
   ngOnInit() {
     this.activatedRoute.params.subscribe((params: Params) => {
@@ -22,17 +25,12 @@ export class AttachmentItemComponent implements OnInit {
   }
 
   /**
-   * Deletes an attachment which was added to a PIA.
-   * @param {number} id the unique id of the attachment.
-   * @param {Event} event any kind of event.
+   * Deletes an attachment with a given id.
+   * @param {string} id unique id of the attachment to be deleted.
    */
-  deleteAttachment(id: number, event: Event) {
-    // TODO Change to use MODAL
-    if (confirm('Merci de confirmer la suppression de cette pièce jointe')) {
-      const attachment = new Attachment();
-      this.delete.emit(id);
-      attachment.delete(id);
-    }
+  removeAttachment(id: string) {
+    localStorage.setItem('attachment-id', id);
+    this._modalsService.openModal('modal-remove-attachment');
   }
 
   /**
@@ -44,7 +42,7 @@ export class AttachmentItemComponent implements OnInit {
     attachment.find(id).then((entry: any) => {
       const url = entry.file.replace('data:', 'data:' + entry.mime_type);
       fetch(url).then(res => res.blob()).then(blob => {
-        let a = document.createElement("a");
+        const a = document.createElement('a');
         a.href = window.URL.createObjectURL(blob);
         a.download = entry.name;
         a.click();
