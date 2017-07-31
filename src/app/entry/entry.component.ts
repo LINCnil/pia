@@ -20,13 +20,13 @@ export class EntryComponent implements OnInit {
   @Output() questions: any;
 
   constructor(private route: ActivatedRoute, private http: Http) {
-    let sectionId = parseInt(this.route.snapshot.params['section_id']);
-    let itemId = parseInt(this.route.snapshot.params['item_id']);
+    let sectionId = parseInt(this.route.snapshot.params['section_id'], 10);
+    let itemId = parseInt(this.route.snapshot.params['item_id'], 10);
     // if (!sectionId) {
     //   sectionId = 1;
     //   itemId = 1;
     // }
-    const piaId = parseInt(this.route.snapshot.params['id']);
+    const piaId = parseInt(this.route.snapshot.params['id'], 10);
     this.pia = new Pia();
     this.pia.get(piaId);
     this.http.request('/assets/files/pia_architecture.json').map(res => res.json()).subscribe(data => {
@@ -35,8 +35,8 @@ export class EntryComponent implements OnInit {
       this.toggleKnowledgeBase();
       this.route.params.subscribe(
         (params: Params) => {
-          sectionId = parseInt(params['section_id']);
-          itemId = parseInt(params['item_id']);
+          sectionId = parseInt(params['section_id'], 10);
+          itemId = parseInt(params['item_id'], 10);
           this.getSectionAndItem(sectionId, itemId);
           this.toggleKnowledgeBase();
         }
@@ -59,7 +59,7 @@ export class EntryComponent implements OnInit {
       return item.id === itemId;
     })[0];
     this.questions = [];
-    if (this.section.display_mode == 'all_items') {
+    if (this.section.display_mode === 'all_items') {
       if (this.section['items']) {
         this.section['items'].forEach(item => {
           item['questions'].forEach(question => {
@@ -67,7 +67,7 @@ export class EntryComponent implements OnInit {
           });
         });
       }
-    } else if(this.item['questions']) {
+    } else if (this.item['questions']) {
       this.item['questions'].forEach(question => {
         this.questions.push(question);
       });
@@ -75,16 +75,16 @@ export class EntryComponent implements OnInit {
   }
 
   private toggleKnowledgeBase() {
-    const kb:any = document.querySelectorAll('.pia-knowledgeBaseBlock-item');
+    const kb: any = document.querySelectorAll('.pia-knowledgeBaseBlock-item');
     kb.forEach(element => {
       element.classList.add('hide');
     });
-    if(this.questions.length > 0) {
+    if (this.questions.length > 0) {
       this.questions.forEach(question => {
         const lkb = question.link_knowledge_base;
         if (lkb.length > 0) {
           lkb.forEach(kb_element => {
-            const kb2:any = document.querySelectorAll('[data-slug="'+kb_element+'"]');
+            const kb2: any = document.querySelectorAll('[data-slug="' + kb_element + '"]');
             kb2.forEach(e => {
               e.classList.remove('hide');
             });
@@ -95,7 +95,7 @@ export class EntryComponent implements OnInit {
       const lkb = this.item['link_knowledge_base'];
       if (lkb.length > 0) {
         lkb.forEach(kb_element => {
-          const kb2:any = document.querySelectorAll('[data-slug="'+kb_element+'"]');
+          const kb2: any = document.querySelectorAll('[data-slug="' + kb_element + '"]');
           kb2.forEach(e => {
             e.classList.remove('hide');
           });
@@ -110,7 +110,7 @@ export class EntryComponent implements OnInit {
       totalSize = centralElementHeight.offsetHeight - 190;
     }
     totalSize = totalSize < 700 ? 700 : totalSize;
-    const kb_block:any = <HTMLElement>document.querySelector('.pia-knowledgeBaseBlock-list');
-    kb_block.style.height = totalSize+'px';
+    const kb_block: any = <HTMLElement>document.querySelector('.pia-knowledgeBaseBlock-list');
+    kb_block.style.height = totalSize + 'px';
   }
 }

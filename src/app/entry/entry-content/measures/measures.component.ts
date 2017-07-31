@@ -1,8 +1,8 @@
-import { Component,Input, ElementRef, OnInit } from '@angular/core';
+import { Component, Input, ElementRef, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { ModalsComponent } from '../../../modals/modals.component';
-import { Router } from '@angular/router';
-import {Measure} from './measure.model';
+import { Measure } from './measure.model';
+
+import { ModalsService } from 'app/modals/modals.service';
 
 @Component({
   selector: 'app-measures',
@@ -15,11 +15,10 @@ export class MeasuresComponent implements OnInit {
   @Input() item: any;
   @Input() pia: any;
   measureForm: FormGroup;
-  modal = new ModalsComponent(this.router);
 
-  constructor(private el: ElementRef, private router: Router) {
-    this.router = router;
-  }
+  constructor(
+    private el: ElementRef,
+    private _modalsService: ModalsService) { }
 
   ngOnInit() {
     this.measureForm = new FormGroup({
@@ -41,8 +40,8 @@ export class MeasuresComponent implements OnInit {
     const contentValue = this.measureForm.value.measureContent;
 
     // Waiting for document.activeElement update
-    setTimeout(()=>{
-      if (titleValue && titleValue.length > 0 && document.activeElement.id != 'pia-measure-content-' + currentMeasureID) {
+    setTimeout(() => {
+      if (titleValue && titleValue.length > 0 && document.activeElement.id !== 'pia-measure-content-' + currentMeasureID) {
         this.showEditButton();
         this.measureForm.controls['measureTitle'].disable();
         // Disables content field if both fields are filled and content isn't the next targeted element.
@@ -52,11 +51,11 @@ export class MeasuresComponent implements OnInit {
         // TODO : save data
       }
       // Disables content field too if no title and content is filled and isn't the next targeted element.
-      if (!titleValue && contentValue && contentValue.length > 0 && document.activeElement.id != 'pia-measure-content') {
+      if (!titleValue && contentValue && contentValue.length > 0 && document.activeElement.id !== 'pia-measure-content') {
         this.showEditButton();
         this.measureForm.controls['measureContent'].disable();
       }
-    },1);
+    }, 1);
   }
 
   /**
@@ -72,8 +71,8 @@ export class MeasuresComponent implements OnInit {
     const contentValue = this.measureForm.value.measureContent;
 
     // Waiting for document.activeElement update
-    setTimeout(()=>{
-      if (contentValue && contentValue.length > 0 && document.activeElement.id != 'pia-measure-title-' +currentMeasureID) {
+    setTimeout(() => {
+      if (contentValue && contentValue.length > 0 && document.activeElement.id !== 'pia-measure-title-' + currentMeasureID) {
         this.showEditButton();
         this.measureForm.controls['measureContent'].disable();
         // Disables title field if both fields are filled and title isn't the next targeted element.
@@ -83,14 +82,12 @@ export class MeasuresComponent implements OnInit {
         // TODO : save data
       }
       // Disables content field too if no title and content is filled and isn't the next targeted element.
-      if (!contentValue && contentValue && titleValue.length > 0 && document.activeElement.id != 'pia-measure-title') {
+      if (!contentValue && contentValue && titleValue.length > 0 && document.activeElement.id !== 'pia-measure-title') {
         this.showEditButton();
         this.measureForm.controls['measureTitle'].disable();
       }
-    },1);
+    }, 1);
   }
-
-  /* TODO : method onFormUpdate() to show/hide trash button */
 
   /**
    * Enables or disables edition mode (fields) for measures.
@@ -116,10 +113,10 @@ export class MeasuresComponent implements OnInit {
   removeMeasure(measureID: string) {
     const measuresCount = document.querySelectorAll('.pia-measureBlock');
     if (measuresCount && measuresCount.length <= 1) {
-      this.modal.openModal('not-enough-measures-to-remove');
+      this._modalsService.openModal('not-enough-measures-to-remove');
     } else {
       localStorage.setItem('measure-id', measureID);
-      this.modal.openModal('remove-measure');
+      this._modalsService.openModal('remove-measure');
     }
   }
 

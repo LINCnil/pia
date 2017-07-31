@@ -1,7 +1,7 @@
 import { Component, ElementRef, OnInit, Input } from '@angular/core';
 import { FormArray, FormControl, FormGroup } from '@angular/forms';
-import { ModalsComponent } from '../../../modals/modals.component';
-import { Router } from '@angular/router';
+
+import { ModalsService } from 'app/modals/modals.service';
 
 @Component({
   selector: 'app-refuse-pia',
@@ -11,13 +11,11 @@ import { Router } from '@angular/router';
 export class RefusePIAComponent implements OnInit {
 
   @Input() pia: any;
-  modal = new ModalsComponent(this.router);
   rejectionReasonForm: FormGroup;
   modificationsMadeForm: FormGroup;
 
-  constructor(private el: ElementRef, private router: Router) {
-    this.router = router;
-  }
+  constructor(private el: ElementRef,
+              private _modalsService: ModalsService) { }
 
   ngOnInit() {
     this.rejectionReasonForm = new FormGroup({
@@ -42,20 +40,20 @@ export class RefusePIAComponent implements OnInit {
     const rejectionReasonValue = this.rejectionReasonForm.value.textarea;
     const modificationsMadeValue = this.modificationsMadeForm.value.textarea;
     const buttons = this.el.nativeElement.querySelectorAll('.pia-entryContentBlock-content-cancelButtons button');
-    setTimeout(()=>{
+    setTimeout(() => {
       if (rejectionReasonValue && rejectionReasonValue.length > 0 && document.activeElement.id != 'pia-modifications-made') {
         this.showRejectionReasonEditButton();
         this.rejectionReasonForm.controls['textarea'].disable();
         // TODO : save data
-     }
-     [].forEach.call(buttons, function(btn) {
+      }
+      [].forEach.call(buttons, function (btn) {
         if (rejectionReasonValue) {
           btn.removeAttribute('disabled');
         } else {
           btn.setAttribute('disabled', true);
         }
       });
-    },1);
+    }, 1);
   }
 
   /**
@@ -95,18 +93,18 @@ export class RefusePIAComponent implements OnInit {
   modificationsMadeFocusOut() {
     const modificationsMadeValue = this.modificationsMadeForm.value.textarea;
     const resendButton = this.el.nativeElement.querySelector('.pia-entryContentBlock-footer > button');
-    setTimeout(()=>{
+    setTimeout(() => {
       if (modificationsMadeValue && modificationsMadeValue.length > 0 && document.activeElement.id != 'pia-rejection-reason') {
         this.showModificationsMadeEditButton();
         this.modificationsMadeForm.controls['textarea'].disable();
         // TODO : save data
-     }
+      }
       if (modificationsMadeValue) {
         resendButton.removeAttribute('disabled');
       } else {
         resendButton.setAttribute('disabled', true);
       }
-    },1);
+    }, 1);
   }
 
   /**

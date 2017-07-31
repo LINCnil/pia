@@ -1,6 +1,6 @@
 <div class="pia-modalBlock" id="modal-simple-pia-validation">
   <div class="pia-modalBlock-content bounceIn">
-    <button type="button" class="pia-modalBlock-close btn" title="Fermer"><span (click)="closeModal()" class="pia-icons pia-icon-close-big"></span></button>
+    <button type="button" class="pia-modalBlock-close btn" title="Fermer"><span (click)="_modalsService.closeModal()" class="pia-icons pia-icon-close-big"></span></button>
     <p>
       Le PIA vient d'être validé !
     </p>
@@ -13,7 +13,7 @@
 
 <div class="pia-modalBlock" id="modal-signed-pia-validation">
   <div class="pia-modalBlock-content pia-modalBlock-acceptedPIA bounceIn">
-    <button type="button" class="pia-modalBlock-close btn" title="Fermer"><span (click)="closeModal()" class="pia-icons pia-icon-close-big"></span></button>
+    <button type="button" class="pia-modalBlock-close btn" title="Fermer"><span (click)="_modalsService.closeModal()" class="pia-icons pia-icon-close-big"></span></button>
     <p>
       <span class="strong">Le PIA est accepté</span><br>
       Finalisez la validation du PIA en attachant<br>
@@ -29,21 +29,21 @@
 
 <div class="pia-modalBlock" id="modal-abandon-pia">
   <div class="pia-modalBlock-content pia-modalBlock-abandonPIA bounceIn">
-    <button type="button" class="pia-modalBlock-close btn" title="Fermer"><span (click)="closeModal()" class="pia-icons pia-icon-close-big"></span></button>
+    <button type="button" class="pia-modalBlock-close btn" title="Fermer"><span (click)="_modalsService.closeModal()" class="pia-icons pia-icon-close-big"></span></button>
     <p>
       Êtes-vous sûr de vouloir<br>
       abandonner ce traitement ?
     </p>
     <div class="pia-modalBlock-buttons-choice">
       <button class="btn btn-red btn-active" type="button" title="Supprimer et archiver">Supprimer <br>et archiver</button>
-      <button class="btn btn-red" type="button" (click)="closeModal()" title="Reprendre">Reprendre</button>
+      <button class="btn btn-red" type="button" (click)="_modalsService.closeModal()" title="Reprendre">Reprendre</button>
     </div>
   </div>
 </div>
 
 <div class="pia-modalBlock" id="modal-refuse-pia">
   <div class="pia-modalBlock-content bounceIn">
-    <button type="button" class="pia-modalBlock-close btn" title="Fermer"><span (click)="closeModal()" class="pia-icons pia-icon-close-big"></span></button>
+    <button type="button" class="pia-modalBlock-close btn" title="Fermer"><span (click)="_modalsService.closeModal()" class="pia-icons pia-icon-close-big"></span></button>
     <p>
       <span class="strong">PIA refusé,</span><br>
       Plusieurs champs doivent être corrigés.<br>
@@ -52,42 +52,42 @@
     </p>
     <span class="pia-icons pia-icon-sorry"></span>
     <div class="pia-modalBlock-validate">
-      <button class="btn btn-green" type="button" (click)="closeModal()" title="Continuer">Continuer</button>
+      <button class="btn btn-green" type="button" (click)="_modalsService.closeModal()" title="Continuer">Continuer</button>
     </div>
   </div>
 </div>
 
 <div class="pia-modalBlock" id="modal-same-comment">
   <div class="pia-modalBlock-content bounceIn">
-    <button type="button" class="pia-modalBlock-close btn" title="Fermer"><span (click)="closeModal()" data-dismiss="modal" class="pia-icons pia-icon-close-big"></span></button>
+    <button type="button" class="pia-modalBlock-close btn" title="Fermer"><span (click)="_modalsService.closeModal()" data-dismiss="modal" class="pia-icons pia-icon-close-big"></span></button>
     <p>
       <span class="strong">Attention,</span><br>
       Veuillez saisir un commentaire différent du dernier enregistré.
     </p>
     <span class="pia-icons pia-icon-sorry"></span>
     <div class="pia-modalBlock-validate">
-      <button class="btn btn-blue" type="button" (click)="closeModal()" data-dismiss="modal" title="Continuer">Fermer</button>
+      <button class="btn btn-blue" type="button" (click)="_modalsService.closeModal()" data-dismiss="modal" title="Continuer">Fermer</button>
     </div>
   </div>
 </div>
 
 <div class="pia-modalBlock" id="not-enough-measures-to-remove">
   <div class="pia-modalBlock-content bounceIn">
-    <button type="button" class="pia-modalBlock-close btn" title="Fermer"><span (click)="closeModal()" data-dismiss="modal" class="pia-icons pia-icon-close-big"></span></button>
+    <button type="button" class="pia-modalBlock-close btn" title="Fermer"><span (click)="_modalsService.closeModal()" data-dismiss="modal" class="pia-icons pia-icon-close-big"></span></button>
     <p>
       <span class="strong">Attention,</span><br>
       Au moins une mesure doit être renseignée : suppression impossible.
     </p>
     <span class="pia-icons pia-icon-sorry"></span>
     <div class="pia-modalBlock-validate">
-      <button class="btn btn-blue" type="button" (click)="closeModal()" data-dismiss="modal" title="Continuer">Fermer</button>
+      <button class="btn btn-blue" type="button" (click)="_modalsService.closeModal()" data-dismiss="modal" title="Continuer">Fermer</button>
     </div>
   </div>
 </div>
 
 <div class="pia-modalBlock" id="remove-measure">
   <div class="pia-modalBlock-content pia-modalBlock-removeMeasure bounceIn">
-    <button type="button" class="pia-modalBlock-close btn" title="Fermer"><span (click)="closeModal()" class="pia-icons pia-icon-close-big"></span></button>
+    <button type="button" class="pia-modalBlock-close btn" title="Fermer"><span (click)="_modalsService.closeModal()" class="pia-icons pia-icon-close-big"></span></button>
     <p>
       <span class="strong">Attention,</span><br>
       Êtes-vous sûr de vouloir<br>
@@ -95,15 +95,15 @@
     </p>
     <span class="pia-icons pia-icon-sad"></span>
     <div class="pia-modalBlock-buttons-choice">
-      <button class="btn btn-red" (click)="removeMeasure()" type="button" title="Supprimer la mesure">Supprimer cette <br>mesure</button>
-      <button class="btn btn-red" type="button" (click)="closeModal()" title="Conserver la mesure">Conserver cette <br>mesure</button>
+      <button class="btn btn-red" (click)="_measuresService.removeMeasure()" type="button" title="Supprimer la mesure">Supprimer cette <br>mesure</button>
+      <button class="btn btn-red" type="button" (click)="_modalsService.closeModal()" title="Conserver la mesure">Conserver cette <br>mesure</button>
     </div>
   </div>
 </div>
 
 <div class="pia-modalBlock" id="ask-for-evaluation">
   <div class="pia-modalBlock-content bounceIn">
-    <button type="button" class="pia-modalBlock-close btn" title="Fermer"><span (click)="closeModal()" class="pia-icons pia-icon-close-big"></span></button>
+    <button type="button" class="pia-modalBlock-close btn" title="Fermer"><span (click)="_modalsService.closeModal()" class="pia-icons pia-icon-close-big"></span></button>
     <p>
       <span class="strong">Bravo,</span><br>
       la partie est désormais<br>
@@ -111,14 +111,14 @@
     </p>
     <span class="pia-icons pia-icon-happy"></span>
     <div class="pia-modalBlock-validate">
-      <button (click)="closeModal()" class="btn btn-green" type="button" title="Continuer">Continuer</button>
+      <button (click)="_modalsService.closeModal()" class="btn btn-green" type="button" title="Continuer">Continuer</button>
     </div>
   </div>
 </div>
 
 <div class="pia-modalBlock" id="validate-evaluation">
   <div class="pia-modalBlock-content bounceIn">
-    <button type="button" class="pia-modalBlock-close btn" title="Fermer"><span (click)="closeModal()" class="pia-icons pia-icon-close-big"></span></button>
+    <button type="button" class="pia-modalBlock-close btn" title="Fermer"><span (click)="_modalsService.closeModal()" class="pia-icons pia-icon-close-big"></span></button>
     <p>
       <span class="strong">Bravo,</span><br>
       en attente de la validation <br>
@@ -126,14 +126,14 @@
     </p>
     <span class="pia-icons pia-icon-happy"></span>
     <div class="pia-modalBlock-validate">
-      <button (click)="closeModal()" class="btn btn-green" type="button" title="Continuer">Continuer</button>
+      <button (click)="_modalsService.closeModal()" class="btn btn-green" type="button" title="Continuer">Continuer</button>
     </div>
   </div>
 </div>
 
 <div class="pia-modalBlock" style="background-color:transparent;" id="pia-declare-measures">
   <div class="pia-modalBlock-content pia-modalBlock-declareMeasuresForRisks bounceIn">
-    <button type="button" class="pia-modalBlock-close btn" title="Fermer"><span (click)="closeModal()" class="pia-icons pia-icon-close-big"></span></button>
+    <button type="button" class="pia-modalBlock-close btn" title="Fermer"><span (click)="_modalsService.closeModal()" class="pia-icons pia-icon-close-big"></span></button>
     <p>
       Désolé,<br>
       Avant d'évaluer les risques,<br>
@@ -143,7 +143,7 @@
     <span class="pia-icons pia-icon-sorry"></span>
     <div class="pia-modalBlock-validate">
       <!-- TODO : see what we can do with this bouton and RouterLink -->
-      <button (click)="closeModal()" type="button" title="Déclarer les mesures existantes ou prévues" class="btn btn-green">Déclarer les mesures existantes ou prévues</button>
+      <button (click)="_modalsService.closeModal()" type="button" title="Déclarer les mesures existantes ou prévues" class="btn btn-green">Déclarer les mesures existantes ou prévues</button>
     </div>
   </div>
 </div>
