@@ -13,21 +13,21 @@ export class Comment extends ApplicationDb {
     await this.getObjectStore();
     return new Promise((resolve, reject) => {
       const created_at = new Date();
-      this.objectStore.add({description: this.description,  pia_id: this.pia_id, reference_to: this.reference_to, for_measure: this.for_measure, created_at: created_at}).onsuccess = (event: any) => {
+      this.objectStore.add({description: this.description,  pia_id: this.pia_id, reference_to: this.reference_to,
+                            for_measure: this.for_measure, created_at: created_at}).onsuccess = (event: any) => {
         resolve(event.target.result);
       };
     });
   }
 
   async findAll() {
-    let items = [];
+    const items = [];
     await this.getObjectStore();
     return new Promise((resolve, reject) => {
       const index1 = this.objectStore.index('index1');
       index1.openCursor(IDBKeyRange.only([this.pia_id, this.reference_to])).onsuccess = (event: any) => {
-        let cursor = event.target.result;
+        const cursor = event.target.result;
         if (cursor) {
-          console.log(cursor.value);
           items.push(cursor.value);
           cursor.continue();
         }

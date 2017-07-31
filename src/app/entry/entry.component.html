@@ -16,7 +16,7 @@
         <!-- Right sidebar (knowledge base) -->
         <div class="small-12 medium-3 columns">
             <div class="pia-rightSidebarBlock">
-                <app-knowledge-base [pia]="pia" (newMeasureEvent)="addNewMeasure($event)"></app-knowledge-base>
+                <app-knowledge-base [pia]="pia" [item]="item" (newMeasureEvent)="addNewMeasure($event)"></app-knowledge-base>
             </div>
         </div>
     </div>

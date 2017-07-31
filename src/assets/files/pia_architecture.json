@@ -282,6 +282,7 @@
       "items": [
         {
           "id": 1,
+          "filter_by": "measure",
           "title": "Mesures existantes ou prévues",
           "link_knowledge_base": [
             "PIA_DEF_CHIF",
