@@ -1,8 +1,8 @@
-import { ApplicationDb } from "../application.db";
+import { ApplicationDb } from '../application.db';
 
 export class Pia extends ApplicationDb {
   public id: number;
-  public status: number; // 1: doing, 2: refused, 3: simple_validation, 4: signed_validation
+  public status: number; // 0: doing, 1: refused, 2: simple_validation, 3: signed_validation
   public name: string;
   public author_name: string;
   public evaluator_name: string;
@@ -20,7 +20,7 @@ export class Pia extends ApplicationDb {
   }
 
   async create() {
-    if (this.created_at == undefined) {
+    if (this.created_at === undefined) {
       this.created_at = new Date();
     }
     await this.getObjectStore();
@@ -48,12 +48,12 @@ export class Pia extends ApplicationDb {
   async get(id: number) {
     this.id = id;
     this.find(this.id).then((entry: any) => {
-      this.status = parseInt(entry.status);
+      this.status = parseInt(entry.status, 10);
       this.name = entry.name;
       this.author_name = entry.author_name;
       this.evaluator_name = entry.evaluator_name;
       this.validator_name = entry.validator_name;
-      this.dpo_status = parseInt(entry.dpo_status);
+      this.dpo_status = parseInt(entry.dpo_status, 10);
       this.dpo_opinion = entry.dpo_opinion;
       this.concerned_people_opinion = entry.concerned_people_opinion;
       this.concerned_people_status = entry.concerned_people_status;

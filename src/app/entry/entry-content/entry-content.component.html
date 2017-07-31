@@ -15,9 +15,7 @@
     </a>
   </header>
 
-  <ng-container *ngIf="section.id == 3 && item.id == 1; else appQuestions">
-    <app-measures [measures]="measures" [pia]="pia" [item]="item"></app-measures>
-  </ng-container>
+  <app-measures *ngIf="section.id == 3 && item.id == 1; else appQuestions" [measures]="measures" [pia]="pia" [item]="item"></app-measures>
   <ng-template #appQuestions>
     <div *ngFor="let question of questions">
       <app-questions [question]="question" [pia]="pia" [section]="section" [item]="item"></app-questions>

@@ -29,4 +29,4 @@
   <a routerLink="/entry/{{pia.id}}/section/4/item/5" class="btn btn-red btn-active hide"
      *ngIf="pia.status === 5">PIA refusé</a>
 </div>
-<app-attachments></app-attachments>
+<app-attachments [pia]="pia"></app-attachments>

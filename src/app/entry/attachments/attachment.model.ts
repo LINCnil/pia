@@ -1,4 +1,4 @@
-import { ApplicationDb } from "../../application.db";
+import { ApplicationDb } from '../../application.db';
 
 export class Attachment extends ApplicationDb {
   public id: number;
@@ -21,6 +21,22 @@ export class Attachment extends ApplicationDb {
       }).onsuccess = (event: any) => {
         resolve(event.target.result);
       };
+    });
+  }
+
+  async findAll() {
+    const items = [];
+    await this.getObjectStore();
+    return new Promise((resolve, reject) => {
+      const index1 = this.objectStore.index('index1');
+      index1.openCursor(IDBKeyRange.only(this.pia_id)).onsuccess = (event: any) => {
+        const cursor = event.target.result;
+        if (cursor) {
+          items.push(cursor.value);
+          cursor.continue();
+        }
+        resolve(items);
+      }
     });
   }
 }

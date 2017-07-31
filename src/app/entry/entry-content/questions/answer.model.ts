@@ -1,4 +1,4 @@
-import { ApplicationDb } from "../../../application.db";
+import { ApplicationDb } from '../../../application.db';
 
 export class Answer extends ApplicationDb {
   public id: number;
@@ -30,11 +30,27 @@ export class Answer extends ApplicationDb {
   async get(id: number) {
     this.id = id;
     this.find(this.id).then((entry: any) => {
-      this.pia_id = parseInt(entry.pia_id);
+      this.pia_id = parseInt(entry.pia_id, 10);
       this.reference_to = entry.reference_to;
       this.data = entry.data;
       this.created_at = new Date(entry.created_at);
       this.updated_at = new Date(entry.updated_at);
+    });
+  }
+
+  async findAll() {
+    const items = [];
+    await this.getObjectStore();
+    return new Promise((resolve, reject) => {
+      const index1 = this.objectStore.index('index1');
+      index1.openCursor(IDBKeyRange.only([this.pia_id, this.reference_to])).onsuccess = (event: any) => {
+        const cursor = event.target.result;
+        if (cursor) {
+          items.push(cursor.value);
+          cursor.continue();
+        }
+        resolve(items);
+      }
     });
   }
 }

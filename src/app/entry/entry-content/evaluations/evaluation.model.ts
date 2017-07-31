@@ -1,4 +1,4 @@
-import { ApplicationDb } from "../../../application.db";
+import { ApplicationDb } from '../../../application.db';
 
 export class Evaluation extends ApplicationDb {
   public id: number;
@@ -36,7 +36,7 @@ export class Evaluation extends ApplicationDb {
   async get(id: number) {
     this.id = id;
     this.find(this.id).then((entry: any) => {
-      this.pia_id = parseInt(entry.pia_id);
+      this.pia_id = parseInt(entry.pia_id, 10);
       this.status = entry.status;
       this.reference_to = entry.reference_to;
       this.action_plan_comment = entry.action_plan_comment;
@@ -47,6 +47,22 @@ export class Evaluation extends ApplicationDb {
       this.person_in_charge = entry.person_in_charge;
       this.created_at = new Date(entry.created_at);
       this.updated_at = new Date(entry.updated_at);
+    });
+  }
+
+  async findAll() {
+    const items = [];
+    await this.getObjectStore();
+    return new Promise((resolve, reject) => {
+      const index1 = this.objectStore.index('index1');
+      index1.openCursor(IDBKeyRange.only([this.pia_id, this.reference_to])).onsuccess = (event: any) => {
+        const cursor = event.target.result;
+        if (cursor) {
+          items.push(cursor.value);
+          cursor.continue();
+        }
+        resolve(items);
+      }
     });
   }
 }
