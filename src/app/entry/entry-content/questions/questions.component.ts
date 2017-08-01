@@ -7,7 +7,7 @@ import { KnowledgeBaseService } from '../../knowledge-base/knowledge-base.servic
 @Component({
   selector: 'app-questions',
   templateUrl: './questions.component.html',
-  styleUrls: ['./questions.component.scss'],
+  styleUrls: ['./questions.component.scss']
 })
 export class QuestionsComponent implements OnInit {
 
