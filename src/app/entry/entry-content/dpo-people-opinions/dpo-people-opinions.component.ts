@@ -1,5 +1,6 @@
 import { Component, ElementRef, OnInit, Input } from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
+import {Pia} from 'app/entry/pia.model';
 
 @Component({
   selector: 'app-dpo-people-opinions',
@@ -9,16 +10,29 @@ import {FormControl, FormGroup} from '@angular/forms';
 export class DPOPeopleOpinionsComponent implements OnInit {
 
   @Input() pia: any;
+  dpo_status_locker: boolean;
   DPOForm: FormGroup;
   peopleForm: FormGroup;
 
   constructor(private el: ElementRef) { }
 
   ngOnInit() {
+    if (this.pia.dpo_status === 0 || this.pia.dpo_status === 1) {
+      this.dpo_status_locker = true;
+    }
+/*    if (this.pia.dpo_opinion) {
+      this.DPOForm.value.DPOOpinion = pia.
+    }*/
+    /* TODO : lock field when PIA is validated */
+    /*if (pia.status === 4) {
+      this.peopleForm.disable();
+    }*/
+
     this.DPOForm = new FormGroup({
       DPOStatus : new FormControl(),
-      DPOOpinion: new FormControl()
+      DPOOpinion: new FormControl({ value: this.pia.dpo_opinion })
     });
+    console.log(this.pia.dpo_opinion);
     this.peopleForm = new FormGroup({
       peopleStatus : new FormControl(),
       peopleOpinion: new FormControl()
@@ -32,8 +46,14 @@ export class DPOPeopleOpinionsComponent implements OnInit {
     if (this.DPOForm.value.DPOOpinion && this.DPOForm.value.DPOOpinion.length > 0 && this.DPOForm.controls['DPOStatus'].dirty) {
       this.DPOForm.disable();
       this.showDPOEditButton();
+      const pia = new Pia();
+      pia.id = this.pia.id;
+      pia.get(pia.id).then(() => {
+        pia.dpo_opinion = this.DPOForm.value.DPOOpinion;
+        pia.dpo_status = parseInt(this.DPOForm.value.DPOStatus, 10);
+        pia.update()
+      });
     }
-    // Saving data here
   }
 
   /**

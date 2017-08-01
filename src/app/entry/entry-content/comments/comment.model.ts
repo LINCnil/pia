@@ -13,8 +13,12 @@ export class Comment extends ApplicationDb {
     await this.getObjectStore();
     return new Promise((resolve, reject) => {
       const created_at = new Date();
-      this.objectStore.add({description: this.description,  pia_id: this.pia_id, reference_to: this.reference_to,
-                            for_measure: this.for_measure, created_at: created_at}).onsuccess = (event: any) => {
+      this.objectStore.add({
+        description: this.description,
+        pia_id: this.pia_id,
+        reference_to: this.reference_to,
+        for_measure: this.for_measure,
+        created_at: this.created_at}).onsuccess = (event: any) => {
         resolve(event.target.result);
       };
     });
