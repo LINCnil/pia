@@ -23,7 +23,7 @@ export class ValidatePIAComponent implements OnInit {
               private _piaService: PiaService) { }
 
   ngOnInit() {
-    this.pia = this._piaService.getPIA();
+    this._piaService.getPIA();
 
     this.validateForm = new FormGroup({
       validateStatus: new FormControl()

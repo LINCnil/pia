@@ -1,6 +1,6 @@
 <div class="pia-sectionsBlock">
   <div class="pia-sectionBlock-header">
-    <h1>{{pia.name}}</h1>
+    <h1>{{_piaService.pia.name}}</h1>
     <a class="pia-icons pia-icon-close-big" routerLink="/home" title="Retourner à l'accueil"></a>
   </div>
 
@@ -12,7 +12,7 @@
       </div>
       <ul class="pia-sectionBlock-list">
         <li *ngFor="let dataItem of dataSection?.items">
-          <a routerLink="/entry/{{pia.id}}/section/{{dataSection.id}}/item/{{dataItem.id}}"
+          <a routerLink="/entry/{{_piaService.pia.id}}/section/{{dataSection.id}}/item/{{dataItem.id}}"
              [ngClass]="{'active': section.id == dataSection.id && item.id == dataItem.id}">{{dataItem.title}}</a>
           <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
         </li>
@@ -23,10 +23,10 @@
 
 <div class="pia-validatePIABlock">
   <!-- TODO : add adequate links (2 components : validatePIAComponent / refusePIAComponent ) -->
-  <a class="btn btn-inactive" *ngIf="pia.status === 1">Valider le PIA</a>
-  <a routerLink="/entry/{{pia.id}}/section/4/item/4" class="btn btn-red btn-active"
-     *ngIf="pia.status === 3 || pia.status === 4">Valider le PIA</a>
-  <a routerLink="/entry/{{pia.id}}/section/4/item/5" class="btn btn-red btn-active hide"
-     *ngIf="pia.status === 5">PIA refusé</a>
+  <a class="btn btn-inactive" *ngIf="_piaService.pia.status === 1">Valider le PIA</a>
+  <a routerLink="/entry/{{_piaService.pia.id}}/section/4/item/4" class="btn btn-red btn-active"
+     *ngIf="_piaService.pia.status === 3 || _piaService.pia.status === 4">Valider le PIA</a>
+  <a routerLink="/entry/{{_piaService.pia.id}}/section/4/item/5" class="btn btn-red btn-active hide"
+     *ngIf="_piaService.pia.status === 5">PIA refusé</a>
 </div>
-<app-attachments [pia]="pia"></app-attachments>
+<app-attachments [pia]="_piaService.pia"></app-attachments>

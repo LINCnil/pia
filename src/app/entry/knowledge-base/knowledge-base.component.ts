@@ -14,7 +14,6 @@ import { PiaService } from 'app/entry/pia.service';
 })
 export class KnowledgeBaseComponent implements OnInit, OnChanges {
   searchForm: FormGroup;
-  pia: Pia;
   @Input() item: any;
   @Output() newMeasureEvent: EventEmitter<any> = new EventEmitter<any>();
 
@@ -26,7 +25,7 @@ export class KnowledgeBaseComponent implements OnInit, OnChanges {
   }
 
   ngOnInit() {
-    this.pia = this._piaService.getPIA();
+    this._piaService.getPIA();
     this.searchForm = new FormGroup({
       q: new FormControl()
     });
@@ -46,7 +45,7 @@ export class KnowledgeBaseComponent implements OnInit, OnChanges {
    * @param {Event} event any kind of event.
    */
   addNewMeasure(event) {
-    this._measureService.addNewMeasure(this.pia, event.name, event.placeholder);
+    this._measureService.addNewMeasure(this._piaService.pia, event.name, event.placeholder);
   }
 
 }

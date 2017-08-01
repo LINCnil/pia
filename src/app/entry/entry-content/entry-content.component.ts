@@ -2,7 +2,6 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Component, OnInit, Input, OnChanges, AfterViewInit } from '@angular/core';
 import { Measure } from './measures/measure.model';
 import { Http } from '@angular/http';
-import { Pia } from '../pia.model';
 import 'rxjs/add/operator/map'
 
 import { MeasureService } from 'app/entry/entry-content/measures/measures.service';
@@ -22,7 +21,6 @@ export class EntryContentComponent implements OnInit, AfterViewInit, OnChanges {
   @Input() section: { id: number, title: string, display_mode: string, short_help: string, items: any };
   @Input() item: { id: number, title: string, evaluation_mode: string, short_help: string, questions: any };
   @Input() questions: any;
-  pia: Pia;
 
   constructor(private router: Router,
               private activatedRoute: ActivatedRoute,
@@ -32,30 +30,31 @@ export class EntryContentComponent implements OnInit, AfterViewInit, OnChanges {
   }
 
   ngOnInit() {
-    this.pia = this._piaService.getPIA();
     const measuresModel = new Measure();
-    measuresModel.pia_id = this.pia.id;
-    /* TODO : find measures where PIA id = this.pia_id */
-    measuresModel.findAll().then((entries: any[]) => {
-      this._measureService.measures = entries;
-      if (this._measureService.measures.length === 0) {
-        this._measureService.addNewMeasure(this.pia);
-      }
-      /*
-        TODO : display the 'declare measures' modal when there is only one measure and it is empty.
-        It should be applied only on RISK other subsections.
+    this._piaService.getPIA().then((entry) => {
+      measuresModel.pia_id = this._piaService.pia.id;
+      /* TODO : find measures where PIA id = this._piaService.pia_id */
+      measuresModel.findAll().then((entries: any[]) => {
+        this._measureService.measures = entries;
+        if (this._measureService.measures.length === 0) {
+          this._measureService.addNewMeasure(this._piaService.pia);
+        }
+        /*
+          TODO : display the 'declare measures' modal when there is only one measure and it is empty.
+          It should be applied only on RISK other subsections.
 
-        Check if there is only one measure :
-        if (this._measureService.measures && parseInt(this._measureService.measures.length, 10) === 1) {
-          Check if this only measure is empty :
-          if (_measureService.measures[0].content == 'undefined' && _measureService.measures[0].title == 'undefined') {
-          Then open the modal if section = 3 ET item != 1 (pas sur la page des mesures) :
-            if () {
-              this._modalsService.openModal('pia-declare-measures');
+          Check if there is only one measure :
+          if (this._measureService.measures && parseInt(this._measureService.measures.length, 10) === 1) {
+            Check if this only measure is empty :
+            if (_measureService.measures[0].content == 'undefined' && _measureService.measures[0].title == 'undefined') {
+            Then open the modal if section = 3 ET item != 1 (pas sur la page des mesures) :
+              if () {
+                this._modalsService.openModal('pia-declare-measures');
+              }
             }
           }
-        }
-      */
+        */
+      });
     });
   }
 
@@ -70,7 +69,7 @@ export class EntryContentComponent implements OnInit, AfterViewInit, OnChanges {
 
   ngOnChanges() {
     if (this.measureName) {
-      this._measureService.addNewMeasure(this.pia, this.measureName, this.measurePlaceholder);
+      this._measureService.addNewMeasure(this._piaService.pia, this.measureName, this.measurePlaceholder);
     }
   }
 

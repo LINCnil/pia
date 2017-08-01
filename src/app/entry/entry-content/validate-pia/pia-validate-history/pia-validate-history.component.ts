@@ -12,12 +12,10 @@ import { PiaService } from 'app/entry/pia.service';
 })
 export class PiaValidateHistoryComponent implements OnInit {
 
-  pia: Pia;
-
   constructor(private el: ElementRef, private _piaService: PiaService) { }
 
   ngOnInit() {
-    this.pia = this._piaService.getPIA();
+    this._piaService.getPIA();
   }
 
   displayHistoryList() {

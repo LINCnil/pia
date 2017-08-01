@@ -7,10 +7,10 @@ export class Pia extends ApplicationDb {
   public author_name: string;
   public evaluator_name: string;
   public validator_name: string;
-  public dpo_status: number;
+  public dpo_status: number; // 0: NOK, 1: OK
   public dpo_opinion: string;
   public concerned_people_opinion: string;
-  public concerned_people_status: number;
+  public concerned_people_status: number; // 0: NOK, 1: OK
   public rejected_reason: string;
   public applied_adjustements: string;
   public dpos_names: string;
@@ -50,22 +50,26 @@ export class Pia extends ApplicationDb {
   }
 
   async update() {
-    this.find(this.id).then((entry: any) => {
-      entry.name = this.name;
-      entry.author_name = this.author_name;
-      entry.evaluator_name = this.evaluator_name;
-      entry.validator_name = this.validator_name;
-      entry.dpo_status = this.dpo_status;
-      entry.dpo_opinion = this.dpo_opinion;
-      entry.concerned_people_opinion = this.concerned_people_opinion;
-      entry.concerned_people_status = this.concerned_people_status;
-      entry.rejected_reason = this.rejected_reason;
-      entry.applied_adjustements = this.applied_adjustements;
-      entry.updated_at = new Date();
-      entry.status = this.status;
-      entry.dpos_names = this.dpos_names;
-      entry.people_names = this.people_names;
-      this.objectStore.put(entry);
+    return new Promise((resolve, reject) => {
+      this.find(this.id).then((entry: any) => {
+        entry.name = this.name;
+        entry.author_name = this.author_name;
+        entry.evaluator_name = this.evaluator_name;
+        entry.validator_name = this.validator_name;
+        entry.dpo_status = this.dpo_status;
+        entry.dpo_opinion = this.dpo_opinion;
+        entry.concerned_people_opinion = this.concerned_people_opinion;
+        entry.concerned_people_status = this.concerned_people_status;
+        entry.rejected_reason = this.rejected_reason;
+        entry.applied_adjustements = this.applied_adjustements;
+        entry.updated_at = new Date();
+        entry.status = this.status;
+        entry.dpos_names = this.dpos_names;
+        entry.people_names = this.people_names;
+        this.objectStore.put(entry).onsuccess = () => {
+          resolve();
+        };
+      });
     });
   }
 

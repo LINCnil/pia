@@ -80,7 +80,7 @@
         <span class="pia-icons pia-icon-file-pdf-blue"></span>
         <a href="#">Admin_serveur.pdf</a>
       </div>
-      <button *ngIf="pia.status !== 4" type="button" class="btn" (click)="dimissAttachement()" title="Supprimer"><span class="pia-icons pia-icon-close"></span></button>
+      <button *ngIf="_piaService.pia.status !== 4" type="button" class="btn" (click)="dimissAttachement()" title="Supprimer"><span class="pia-icons pia-icon-close"></span></button>
     </div>
     <div class="pia-entryContentBlock-footer-validationTools">
       <a routerLink="/home"><i class="fa fa-home" aria-hidden="true"></i><p>Accueil</p></a>

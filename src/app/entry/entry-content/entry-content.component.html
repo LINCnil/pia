@@ -15,14 +15,14 @@
     </a>
   </header>
 
-  <app-measures *ngIf="item.filter_by === 'measure'; else appQuestions" [measures]="_measureService.measures" [pia]="pia" [item]="item"></app-measures>
+  <app-measures *ngIf="item.filter_by === 'measure'; else appQuestions" [measures]="_measureService.measures" [pia]="_piaService.pia" [item]="item"></app-measures>
   <ng-template #appQuestions>
     <div *ngFor="let question of questions">
-      <app-questions [question]="question" [pia]="pia" [item]="item"></app-questions>
+      <app-questions [question]="question" [pia]="_piaService.pia" [item]="item"></app-questions>
     </div>
   </ng-template>
 
-    <app-evaluations *ngIf="item.evaluation_mode == 'section'" [pia]="pia" [section]="section" [item]="item"></app-evaluations>
+    <app-evaluations *ngIf="item.evaluation_mode == 'section'" [pia]="_piaService.pia" [section]="section" [item]="item"></app-evaluations>
 
     <!-- Section 4 : VALIDATION -->
 
@@ -30,11 +30,11 @@
     <app-validate-pia *ngIf="section.id == 4 && item.id == 4"></app-validate-pia>
 
     <!-- TODO : if page is refuse PIA, show this -->
-    <app-refuse-pia *ngIf="section.id == 4 && item.id == 5" [pia]="pia"></app-refuse-pia>
+    <app-refuse-pia *ngIf="section.id == 4 && item.id == 5" [pia]="_piaService.pia"></app-refuse-pia>
 
-    <app-risks-cartography *ngIf="section.id == 4 && item.id == 1" [pia]="pia"></app-risks-cartography>
+    <app-risks-cartography *ngIf="section.id == 4 && item.id == 1" [pia]="_piaService.pia"></app-risks-cartography>
 
-    <app-action-plan *ngIf="section.id == 4 && item.id == 2" [pia]="pia"></app-action-plan>
+    <app-action-plan *ngIf="section.id == 4 && item.id == 2" [pia]="_piaService.pia"></app-action-plan>
 
     <app-dpo-people-opinions *ngIf="section.id == 4 && item.id == 3"></app-dpo-people-opinions>
 

@@ -12,8 +12,6 @@ import { PiaService } from 'app/entry/pia.service';
   providers: [PiaService]
 })
 export class DPOPeopleOpinionsComponent implements OnInit {
-
-  pia: any;
   dpo_status_1_checker: boolean;
   dpo_status_0_checker: boolean;
   DPOForm: FormGroup;
@@ -22,29 +20,25 @@ export class DPOPeopleOpinionsComponent implements OnInit {
   constructor(private el: ElementRef, private _piaService: PiaService) { }
 
   ngOnInit() {
-    this.pia = this._piaService.getPIA();
-
-    /* TODO : faire en sorte que ça lise correctement les données pour gérer états côté vue .html */
-    if (this.pia.dpo_status === 0) {
-      this.dpo_status_0_checker = true;
-    } else if (this.pia.dpo_status === 1) {
-      this.dpo_status_1_checker = true;
-    }
-
-    /* TODO : lock fields (names, statuses, opinions) when PIA is validated */
-    /*if (pia.status === 4) {
-      this.peopleForm.disable();
-    }*/
-
     this.DPOForm = new FormGroup({
       DPOStatus : new FormControl(),
-      DPOOpinion : new FormControl({ value: this.pia.dpo_opinion }),
-      DPONames : new FormControl({ value: this.pia.dpos_names })
+      DPOOpinion : new FormControl(),
+      DPONames : new FormControl()
     });
     this.peopleForm = new FormGroup({
       peopleStatus : new FormControl(),
       peopleOpinion : new FormControl(),
       peopleNames: new FormControl()
+    });
+    this._piaService.getPIA().then(() => {
+      /* TODO : lock fields (names, statuses, opinions) when PIA is validated */
+      /*if (pia.status === 4) {
+        this.peopleForm.disable();
+      }*/
+      this.DPOForm.controls['DPOOpinion'].patchValue(this._piaService.pia.dpo_opinion);
+      this.DPOForm.controls['DPONames'].patchValue(this._piaService.pia.dpos_names);
+      this.peopleForm.controls['peopleOpinion'].patchValue(this._piaService.pia.concerned_people_opinion);
+      this.peopleForm.controls['peopleNames'].patchValue(this._piaService.pia.people_names);
     });
   }
 
@@ -60,7 +54,7 @@ export class DPOPeopleOpinionsComponent implements OnInit {
       this.DPOForm.disable();
       this.showDPOEditButton();
       const pia = new Pia();
-      pia.id = this.pia.id;
+      pia.id = this._piaService.pia.id;
       pia.get(pia.id).then(() => {
         pia.dpo_opinion = this.DPOForm.value.DPOOpinion;
         pia.dpo_status = parseInt(this.DPOForm.value.DPOStatus, 10);

@@ -10,7 +10,7 @@ export class PiaService {
 
   private _modalsService = new ModalsService();
   pias: any[];
-  private pia: Pia;
+  pia: Pia = new Pia();
 
   constructor(private route: ActivatedRoute) { }
 
@@ -18,15 +18,13 @@ export class PiaService {
    * Gets the PIA.
    * @return the PIA object.
    */
-  getPIA() {
-    if (!this.pia) {
-      console.log(this.route);
+  async getPIA() {
+    return new Promise((resolve, reject) => {
       const piaId = parseInt(this.route.snapshot.params['id'], 10);
-      console.log(piaId);
-      this.pia = new Pia();
-      this.pia.get(piaId);
-    }
-    return this.pia;
+      this.pia.get(piaId).then((entry) => {
+        resolve();
+      });
+    });
   }
 
   /**

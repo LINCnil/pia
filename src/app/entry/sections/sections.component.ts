@@ -23,6 +23,6 @@ export class SectionsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.pia = this._piaService.getPIA();
+    this._piaService.getPIA();
   }
 }
