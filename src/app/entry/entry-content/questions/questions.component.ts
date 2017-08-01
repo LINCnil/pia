@@ -2,6 +2,7 @@ import { Component, Input, ElementRef, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/map';
+import { KnowledgeBaseService } from '../../knowledge-base/knowledge-base.service';
 
 @Component({
   selector: 'app-questions',
@@ -17,7 +18,7 @@ export class QuestionsComponent implements OnInit {
   @Input() pia: any;
   questionForm: FormGroup;
 
-  constructor(private el: ElementRef) { }
+  constructor(private el: ElementRef, private _knowledgeBaseService: KnowledgeBaseService) { }
 
   ngOnInit() {
     this.questionForm = new FormGroup({
@@ -47,6 +48,13 @@ export class QuestionsComponent implements OnInit {
       this.questionForm.controls['questionContent'].disable();
     }
     // Saving data here
+  }
+
+  /**
+   * Show only knowledge base elements for this question
+   */
+  questionContentFocusIn() {
+    this._knowledgeBaseService.search('', '', this.question.link_knowledge_base);
   }
 
   /**

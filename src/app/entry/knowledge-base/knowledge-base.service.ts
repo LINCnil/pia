@@ -7,6 +7,7 @@ export class KnowledgeBaseService {
   knowledgeBaseData: any[];
   q: string;
   filter: string;
+  linkKnowledgeBase: string[] = [];
 
   loadData(http) {
     http.request('/assets/files/pia_knowledge-base.json').map(res => res.json()).subscribe(data => {
@@ -15,8 +16,9 @@ export class KnowledgeBaseService {
     });
   }
 
-  search(filter?: string, event?: any) {
+  search(filter?: string, event?: any, linkKnowledgeBase?: any) {
     this.filter = (filter && filter.length > 0) ? filter : '';
+    this.linkKnowledgeBase = (linkKnowledgeBase && linkKnowledgeBase.length > 0) ? linkKnowledgeBase : '';
     this.knowledgeBaseData = this.allKnowledgeBaseData;
     if (this.q && this.q.length > 0) {
       this.knowledgeBaseData = this.knowledgeBaseData.filter((item) => {
@@ -26,6 +28,11 @@ export class KnowledgeBaseService {
     if (this.filter && this.filter.length > 0) {
       this.knowledgeBaseData = this.knowledgeBaseData.filter((item) => {
         return (item.measure_type.startsWith(this.filter));
+      });
+    }
+    if (this.linkKnowledgeBase && this.linkKnowledgeBase.length > 0) {
+      this.knowledgeBaseData = this.knowledgeBaseData.filter((item) => {
+        return (this.linkKnowledgeBase.indexOf(item.slug) >= 0);
       });
     }
     if (event) {

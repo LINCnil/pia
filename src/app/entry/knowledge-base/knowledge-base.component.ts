@@ -16,7 +16,8 @@ export class KnowledgeBaseComponent implements OnInit, OnChanges {
   @Input() item: any;
   @Output() newMeasureEvent: EventEmitter<any> = new EventEmitter<any>();
 
-  constructor(private http: Http, private _measureService: MeasureService, private _knowledgeBaseService: KnowledgeBaseService) {
+  constructor(private http: Http, private _measureService: MeasureService,
+              private _knowledgeBaseService: KnowledgeBaseService) {
     this._knowledgeBaseService.loadData(this.http);
   }
 
