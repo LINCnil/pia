@@ -7,20 +7,23 @@
         <h2>Avis du DPO</h2>
         <button type="button" id="piaDPOPencil" class="btn pia-questionBlock-edit hide"  (click)="activateDPOEdition()" title="Éditer"><i class="fa fa-pencil" aria-hidden="true"></i></button>
       </div>
-      <p><span>{{pia.validator_name}}</span>, considère que :</p>
       <form [formGroup]="DPOForm">
+        <p *ngIf="pia.status !== 3 || pia.status !== 4"><span><input type="text" (change)="DPOFocusOut()" formControlName="DPONames"></span>, considère(nt) que :</p>
+        <!-- TODO : show this second <p> only when PIA is validated and hide the previous p : -->
+         <p *ngIf="pia.status === 3 || pia.status === 4"><span>{{pia.dpos_names}}</span>, considère(nt) que :</p>
         <!-- TODO : set selected value to true (checked) if it has been checked previously (check pia.dpo_opinions_status, ...) -->
         <div class="pia-entryContentBlock-content-DPO-treatment">
-          <div [ngClass]="pia.dpo_status === 1 ? 'checked' : ''">
-            <input type="radio" id="treatment-1" [attr.disabled]="dpo_status_locker" (change)="DPOFocusOut()" formControlName="DPOStatus" value="0">
+          <!--<div [ngClass]="pia.dpo_status === 1 ? 'checked' : ''">-->
+          <div>
+            <input type="radio" id="treatment-1" [checked]="dpo_status_1_checker" (change)="DPOFocusOut()" formControlName="DPOStatus" value="1">
             <label for="treatment-1">
               <i class="fa fa-circle" aria-hidden="true"></i>
               <i class="fa fa-check" aria-hidden="true"></i>
               <span>Le traitement peut être mis en oeuvre.</span>
             </label>
           </div>
-          <div [ngClass]="pia.dpo_status === 0 ? 'checked' : ''">
-            <input type="radio" id="treatment-2" [attr.disabled]="dpo_status_locker" (change)="DPOFocusOut()" formControlName="DPOStatus" value="1">
+          <div>
+            <input type="radio" id="treatment-2" [checked]="dpo_status_0_checker" (change)="DPOFocusOut()" formControlName="DPOStatus" value="0">
             <label for="treatment-2">
               <i class="fa fa-circle" aria-hidden="true"></i>
               <i class="fa fa-check" aria-hidden="true"></i>
@@ -39,7 +42,7 @@
         <h2>Avis des personnes concernées</h2>
         <button type="button" id="piaPeoplePencil" class="btn pia-questionBlock-edit hide" (click)="activatePeopleEdition()" title="Éditer"><i class="fa fa-pencil" aria-hidden="true"></i></button>
       </div>
-      <p><span>{{pia.validator_name}}</span>, considère que :</p>
+      <p><span>{{pia.validator_name}}</span>, considère(nt) que :</p>
       <form [formGroup]="peopleForm">
         <!-- TODO : set selected value to true (checked) if it has been checked previously (check pia.people_opinions_status, ...) -->
         <div class="pia-entryContentBlock-content-DPO-treatment">

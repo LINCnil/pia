@@ -4,23 +4,29 @@ import { Http } from '@angular/http';
 import { Pia } from '../pia.model';
 import { MeasureService } from 'app/entry/entry-content/measures/measures.service';
 import { KnowledgeBaseService } from './knowledge-base.service';
+import { PiaService } from 'app/entry/pia.service';
 
 @Component({
   selector: 'app-knowledge-base',
   templateUrl: './knowledge-base.component.html',
-  styleUrls: ['./knowledge-base.component.scss']
+  styleUrls: ['./knowledge-base.component.scss'],
+  providers: [PiaService]
 })
 export class KnowledgeBaseComponent implements OnInit, OnChanges {
   searchForm: FormGroup;
-  @Input() pia: Pia;
+  pia: Pia;
   @Input() item: any;
   @Output() newMeasureEvent: EventEmitter<any> = new EventEmitter<any>();
 
-  constructor(private http: Http, private _measureService: MeasureService, private _knowledgeBaseService: KnowledgeBaseService) {
+  constructor(private http: Http,
+  private _measureService: MeasureService,
+  private _knowledgeBaseService: KnowledgeBaseService,
+  private _piaService: PiaService) {
     this._knowledgeBaseService.loadData(this.http);
   }
 
   ngOnInit() {
+    this.pia = this._piaService.getPIA();
     this.searchForm = new FormGroup({
       q: new FormControl()
     });

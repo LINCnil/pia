@@ -9,7 +9,8 @@ import { PiaService } from 'app/entry/pia.service';
 @Component({
   selector: 'app-cards',
   templateUrl: './cards.component.html',
-  styleUrls: ['./cards.component.scss']
+  styleUrls: ['./cards.component.scss'],
+  providers: [PiaService]
 })
 export class CardsComponent implements OnInit {
 

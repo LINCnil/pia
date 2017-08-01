@@ -4,19 +4,19 @@
         <!-- Left sidebar (sections) -->
         <div class="small-12 medium-3 columns">
             <aside class="pia-leftSidebarBlock">
-                <app-sections [section]="section" [item]="item" [data]="data" [pia]="pia"></app-sections>
+                <app-sections [section]="section" [item]="item" [data]="data"></app-sections>
             </aside>
         </div>
 
         <!-- Main entry content -->
         <div class="small-12 medium-6 columns">
-            <app-entry-content [measureName]="measureTitle" [questions]="questions" [measurePlaceholder]="measurePlaceholder" [section]="section" [item]="item" [pia]="pia"></app-entry-content>
+            <app-entry-content [measureName]="measureTitle" [questions]="questions" [measurePlaceholder]="measurePlaceholder" [section]="section" [item]="item"></app-entry-content>
         </div>
 
         <!-- Right sidebar (knowledge base) -->
         <div class="small-12 medium-3 columns">
             <div class="pia-rightSidebarBlock">
-                <app-knowledge-base [pia]="pia" [item]="item" (newMeasureEvent)="addNewMeasure($event)"></app-knowledge-base>
+                <app-knowledge-base [item]="item" (newMeasureEvent)="addNewMeasure($event)"></app-knowledge-base>
             </div>
         </div>
     </div>

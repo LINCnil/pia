@@ -2,22 +2,29 @@ import { Component, OnInit, ElementRef, Input } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import * as jsPDF from 'jspdf';
 
+import { Pia } from 'app/entry/pia.model';
+
+import { PiaService } from 'app/entry/pia.service';
 import { ModalsService } from 'app/modals/modals.service';
 
 @Component({
   selector: 'app-validate-pia',
   templateUrl: './validate-pia.component.html',
-  styleUrls: ['./validate-pia.component.scss']
+  styleUrls: ['./validate-pia.component.scss'],
+  providers: [PiaService]
 })
 export class ValidatePIAComponent implements OnInit {
 
-  @Input() pia: any;
+  pia: Pia;
   validateForm: FormGroup;
 
   constructor(private el: ElementRef,
-              private _modalsService: ModalsService) { }
+              private _modalsService: ModalsService,
+              private _piaService: PiaService) { }
 
   ngOnInit() {
+    this.pia = this._piaService.getPIA();
+
     this.validateForm = new FormGroup({
       validateStatus: new FormControl()
     });

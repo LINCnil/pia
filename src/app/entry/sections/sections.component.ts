@@ -1,23 +1,28 @@
 import { Component, OnInit, Input, Output } from '@angular/core';
 import { Http } from '@angular/http';
+import 'rxjs/add/operator/map';
+
 import { Pia } from '../pia.model';
-import 'rxjs/add/operator/map'
+
+import { PiaService } from 'app/entry/pia.service';
 
 @Component({
   selector: 'app-sections',
   templateUrl: './sections.component.html',
-  styleUrls: ['./sections.component.scss']
+  styleUrls: ['./sections.component.scss'],
+  providers: [PiaService]
 })
 export class SectionsComponent implements OnInit {
 
   @Input() section: { id: number, title: string, display_mode: string, short_help: string, items: any };
   @Input() item: { id: number, title: string, evaluation_mode: string, short_help: string, questions: any };
-  @Input() pia: Pia;
   @Input() data: any;
+  pia: Pia;
 
-  constructor() {
+  constructor(private _piaService: PiaService) {
   }
 
   ngOnInit() {
+    this.pia = this._piaService.getPIA();
   }
 }

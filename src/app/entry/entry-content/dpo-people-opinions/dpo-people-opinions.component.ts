@@ -1,41 +1,50 @@
 import { Component, ElementRef, OnInit, Input } from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
+
 import {Pia} from 'app/entry/pia.model';
+
+import { PiaService } from 'app/entry/pia.service';
 
 @Component({
   selector: 'app-dpo-people-opinions',
   templateUrl: './dpo-people-opinions.component.html',
-  styleUrls: ['./dpo-people-opinions.component.scss']
+  styleUrls: ['./dpo-people-opinions.component.scss'],
+  providers: [PiaService]
 })
 export class DPOPeopleOpinionsComponent implements OnInit {
 
-  @Input() pia: any;
-  dpo_status_locker: boolean;
+  pia: any;
+  dpo_status_1_checker: boolean;
+  dpo_status_0_checker: boolean;
   DPOForm: FormGroup;
   peopleForm: FormGroup;
 
-  constructor(private el: ElementRef) { }
+  constructor(private el: ElementRef, private _piaService: PiaService) { }
 
   ngOnInit() {
-    if (this.pia.dpo_status === 0 || this.pia.dpo_status === 1) {
-      this.dpo_status_locker = true;
+    this.pia = this._piaService.getPIA();
+
+    /* TODO : faire en sorte que ça lise correctement les données pour gérer états côté vue .html */
+    if (this.pia.dpo_status === 0) {
+      this.dpo_status_0_checker = true;
+    } else if (this.pia.dpo_status === 1) {
+      this.dpo_status_1_checker = true;
     }
-/*    if (this.pia.dpo_opinion) {
-      this.DPOForm.value.DPOOpinion = pia.
-    }*/
-    /* TODO : lock field when PIA is validated */
+
+    /* TODO : lock fields (names, statuses, opinions) when PIA is validated */
     /*if (pia.status === 4) {
       this.peopleForm.disable();
     }*/
 
     this.DPOForm = new FormGroup({
       DPOStatus : new FormControl(),
-      DPOOpinion: new FormControl({ value: this.pia.dpo_opinion })
+      DPOOpinion : new FormControl({ value: this.pia.dpo_opinion }),
+      DPONames : new FormControl({ value: this.pia.dpos_names })
     });
-    console.log(this.pia.dpo_opinion);
     this.peopleForm = new FormGroup({
       peopleStatus : new FormControl(),
-      peopleOpinion: new FormControl()
+      peopleOpinion : new FormControl(),
+      peopleNames: new FormControl()
     });
   }
 
@@ -43,7 +52,11 @@ export class DPOPeopleOpinionsComponent implements OnInit {
    * Disables DPO fields (status + opinion) and saves data.
    */
   DPOFocusOut() {
-    if (this.DPOForm.value.DPOOpinion && this.DPOForm.value.DPOOpinion.length > 0 && this.DPOForm.controls['DPOStatus'].dirty) {
+    if (this.DPOForm.value.DPOOpinion &&
+        this.DPOForm.value.DPOOpinion.length > 0 &&
+        this.DPOForm.value.DPONames &&
+        this.DPOForm.value.DPONames.length > 0 &&
+        this.DPOForm.controls['DPOStatus'].dirty) {
       this.DPOForm.disable();
       this.showDPOEditButton();
       const pia = new Pia();
@@ -51,6 +64,7 @@ export class DPOPeopleOpinionsComponent implements OnInit {
       pia.get(pia.id).then(() => {
         pia.dpo_opinion = this.DPOForm.value.DPOOpinion;
         pia.dpo_status = parseInt(this.DPOForm.value.DPOStatus, 10);
+        pia.dpos_names = this.DPOForm.value.DPONames;
         pia.update()
       });
     }

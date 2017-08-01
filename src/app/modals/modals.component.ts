@@ -9,7 +9,8 @@ import { AttachmentsService } from 'app/entry/attachments/attachments.service';
 @Component({
   selector: 'app-modals',
   templateUrl: './modals.component.html',
-  styleUrls: ['./modals.component.scss']
+  styleUrls: ['./modals.component.scss'],
+  providers: [PiaService]
 })
 export class ModalsComponent implements OnInit {
 

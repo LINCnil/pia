@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { ActivatedRoute, Params } from '@angular/router';
 
 import { Pia } from './pia.model';
 
@@ -9,6 +10,24 @@ export class PiaService {
 
   private _modalsService = new ModalsService();
   pias: any[];
+  private pia: Pia;
+
+  constructor(private route: ActivatedRoute) { }
+
+  /**
+   * Gets the PIA.
+   * @return the PIA object.
+   */
+  getPIA() {
+    if (!this.pia) {
+      console.log(this.route);
+      const piaId = parseInt(this.route.snapshot.params['id'], 10);
+      console.log(piaId);
+      this.pia = new Pia();
+      this.pia.get(piaId);
+    }
+    return this.pia;
+  }
 
   /**
    * Allows an user to remove a PIA.

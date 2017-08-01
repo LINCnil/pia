@@ -13,6 +13,8 @@ export class Pia extends ApplicationDb {
   public concerned_people_status: number;
   public rejected_reason: string;
   public applied_adjustements: string;
+  public dpos_names: string;
+  public people_names: string;
 
   constructor() {
     super(201707071818, 'pia');
@@ -38,7 +40,9 @@ export class Pia extends ApplicationDb {
         applied_adjustements: this.applied_adjustements,
         created_at: this.created_at,
         updated_at: new Date(),
-        status: 1
+        status: 1,
+        dpos_names: this.dpos_names,
+        people_names: this.people_names
       }).onsuccess = (event: any) => {
         resolve(event.target.result);
       };
@@ -58,6 +62,9 @@ export class Pia extends ApplicationDb {
       entry.rejected_reason = this.rejected_reason;
       entry.applied_adjustements = this.applied_adjustements;
       entry.updated_at = new Date();
+      entry.status = this.status;
+      entry.dpos_names = this.dpos_names;
+      entry.people_names = this.people_names;
       this.objectStore.put(entry);
     });
   }
@@ -79,6 +86,8 @@ export class Pia extends ApplicationDb {
         this.applied_adjustements = entry.applied_adjustements;
         this.created_at = new Date(entry.created_at);
         this.updated_at = new Date(entry.updated_at);
+        this.dpos_names = entry.dpos_names;
+        this.people_names = entry.people_names;
         resolve();
       });
     });

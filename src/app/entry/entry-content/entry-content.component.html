@@ -27,7 +27,7 @@
     <!-- Section 4 : VALIDATION -->
 
     <!-- TODO : if page is PIA validation, show this -->
-    <app-validate-pia *ngIf="section.id == 4 && item.id == 4" [pia]="pia"></app-validate-pia>
+    <app-validate-pia *ngIf="section.id == 4 && item.id == 4"></app-validate-pia>
 
     <!-- TODO : if page is refuse PIA, show this -->
     <app-refuse-pia *ngIf="section.id == 4 && item.id == 5" [pia]="pia"></app-refuse-pia>
@@ -36,7 +36,7 @@
 
     <app-action-plan *ngIf="section.id == 4 && item.id == 2" [pia]="pia"></app-action-plan>
 
-    <app-dpo-people-opinions *ngIf="section.id == 4 && item.id == 3" [pia]="pia"></app-dpo-people-opinions>
+    <app-dpo-people-opinions *ngIf="section.id == 4 && item.id == 3"></app-dpo-people-opinions>
 
     <footer class="pia-entryContentBlock-footer">
         <!-- TODO Refactor needed -->

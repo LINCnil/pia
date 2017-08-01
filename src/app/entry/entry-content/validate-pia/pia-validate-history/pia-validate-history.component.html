@@ -1,4 +1,8 @@
-<div class="pia-validationHistoryBlock">
+<!--
+    TODO : recheck if everything is ok here with ngIf condition when we have set the different status values
+-->
+<div *ngIf="pia.status === 4 && pia.applied_adjustements && pia.rejected_reason"
+      class="pia-validationHistoryBlock">
   <div class="pia-validationHistoryBlock-title">
     <p>Historique de validation</p>
     <div>
@@ -22,7 +26,7 @@
     </article>
   </div>
 </div>
-<div class="pia-validationHistoryBlock-refuse">
+<div *ngIf="pia.status === 5" class="pia-validationHistoryBlock-refuse">
   <div class="pia-validationHistoryBlock-refuse-title">
     <p>Refus Précédent</p>
     <div>

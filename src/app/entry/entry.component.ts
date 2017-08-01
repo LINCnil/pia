@@ -1,7 +1,6 @@
 import { Component, OnInit, Output } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Http } from '@angular/http';
-import { Pia } from './pia.model';
 
 @Component({
   selector: 'app-entry',
@@ -12,19 +11,15 @@ export class EntryComponent implements OnInit {
 
   measureTitle: string;
   measurePlaceholder: string;
-
-  @Output() pia: Pia;
-  @Output() section: { id: number, title: string, display_mode: string, short_help: string, items: any };
-  @Output() item: { id: number, title: string, evaluation_mode: string, short_help: string, questions: any };
-  @Output() data: { sections: any };
-  @Output() questions: any;
+  section: { id: number, title: string, display_mode: string, short_help: string, items: any };
+  item: { id: number, title: string, evaluation_mode: string, short_help: string, questions: any };
+  data: { sections: any };
+  questions: any;
 
   constructor(private route: ActivatedRoute, private http: Http) {
     let sectionId = parseInt(this.route.snapshot.params['section_id'], 10);
     let itemId = parseInt(this.route.snapshot.params['item_id'], 10);
-    const piaId = parseInt(this.route.snapshot.params['id'], 10);
-    this.pia = new Pia();
-    this.pia.get(piaId);
+
     this.http.request('/assets/files/pia_architecture.json').map(res => res.json()).subscribe(data => {
       this.data = data;
       this.getSectionAndItem(sectionId, itemId);
