@@ -58,12 +58,11 @@ export class CardsComponent implements OnInit {
    */
   onSubmit() {
     const pia = new Pia();
-    pia.name = this.piaForm.value.name,
-    pia.author_name = this.piaForm.value.author_name,
-    pia.evaluator_name = this.piaForm.value.evaluator_name,
-    pia.validator_name = this.piaForm.value.validator_name
+    pia.name = this.piaForm.value.name;
+    pia.author_name = this.piaForm.value.author_name;
+    pia.evaluator_name = this.piaForm.value.evaluator_name;
+    pia.validator_name = this.piaForm.value.validator_name;
     const p = pia.create();
     p.then((id) => this.router.navigate(['entry', id, 'section', 1, 'item', 1]));
   }
-
 }

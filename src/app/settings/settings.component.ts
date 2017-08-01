@@ -26,7 +26,6 @@ export class SettingsComponent implements OnInit {
       if (existEntry) {
         this.setting.get(1).then(() => {
           this.settingsForm.patchValue({ server_url: this.setting.server_url });
-          console.log('ok')
         });
       } else {
         this.setting.id = 1;

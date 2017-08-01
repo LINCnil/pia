@@ -101,8 +101,23 @@ input {
   }
 }
 
-  /* TODO : special class to be added on measures or questions when they are evaluated as improvable or acceptable */
-  .approved {
-    border: 1px solid $pia-gray;
-    box-shadow: none;
+/* TODO : special class to be added on measures or questions when they are evaluated as improvable or acceptable */
+.approved {
+  border: 1px solid $pia-gray;
+  box-shadow: none;
+}
+
+.checked {
+  label {
+    background-color: $pia-green !important;
+    .fa-circle {
+      display: none !important;
+    }
+    .fa-check {
+      display: block !important;
+    }
+    span {
+      color: #fff !important;
+    }
   }
+}

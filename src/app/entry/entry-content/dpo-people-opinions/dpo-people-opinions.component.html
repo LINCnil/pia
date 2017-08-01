@@ -11,16 +11,16 @@
       <form [formGroup]="DPOForm">
         <!-- TODO : set selected value to true (checked) if it has been checked previously (check pia.dpo_opinions_status, ...) -->
         <div class="pia-entryContentBlock-content-DPO-treatment">
-          <div>
-            <input type="radio" id="treatment-1" (change)="DPOFocusOut()" formControlName="DPOStatus" value="DPO_approved">
+          <div [ngClass]="pia.dpo_status === 1 ? 'checked' : ''">
+            <input type="radio" id="treatment-1" [attr.disabled]="dpo_status_locker" (change)="DPOFocusOut()" formControlName="DPOStatus" value="0">
             <label for="treatment-1">
               <i class="fa fa-circle" aria-hidden="true"></i>
               <i class="fa fa-check" aria-hidden="true"></i>
               <span>Le traitement peut être mis en oeuvre.</span>
             </label>
           </div>
-          <div>
-            <input type="radio" id="treatment-2" (change)="DPOFocusOut()" formControlName="DPOStatus" value="DPO_refused">
+          <div [ngClass]="pia.dpo_status === 0 ? 'checked' : ''">
+            <input type="radio" id="treatment-2" [attr.disabled]="dpo_status_locker" (change)="DPOFocusOut()" formControlName="DPOStatus" value="1">
             <label for="treatment-2">
               <i class="fa fa-circle" aria-hidden="true"></i>
               <i class="fa fa-check" aria-hidden="true"></i>
@@ -44,7 +44,7 @@
         <!-- TODO : set selected value to true (checked) if it has been checked previously (check pia.people_opinions_status, ...) -->
         <div class="pia-entryContentBlock-content-DPO-treatment">
           <div>
-            <input type="radio" id="dpoAvis-1" (change)="peopleFocusOut()" formControlName="peopleStatus" value="people_approved">
+            <input type="radio" id="dpoAvis-1" (change)="peopleFocusOut()" formControlName="peopleStatus" value="1">
             <label for="dpoAvis-1">
               <i class="fa fa-circle" aria-hidden="true"></i>
               <i class="fa fa-check" aria-hidden="true"></i>
@@ -52,7 +52,7 @@
             </label>
           </div>
           <div>
-            <input type="radio" id="dpoAvis-2" (change)="peopleFocusOut()" formControlName="peopleStatus" value="people_refused">
+            <input type="radio" id="dpoAvis-2" (change)="peopleFocusOut()" formControlName="peopleStatus" value="0">
             <label for="dpoAvis-2">
               <i class="fa fa-circle" aria-hidden="true"></i>
               <i class="fa fa-check" aria-hidden="true"></i>
