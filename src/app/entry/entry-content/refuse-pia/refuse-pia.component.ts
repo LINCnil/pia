@@ -1,7 +1,8 @@
 import { Component, ElementRef, OnInit, Input } from '@angular/core';
 import { FormArray, FormControl, FormGroup } from '@angular/forms';
-
 import { ModalsService } from 'app/modals/modals.service';
+import {Pia} from 'app/entry/pia.model';
+import { PiaService } from 'app/entry/pia.service';
 
 @Component({
   selector: 'app-refuse-pia',
@@ -12,17 +13,24 @@ export class RefusePIAComponent implements OnInit {
 
   @Input() pia: any;
   rejectionReasonForm: FormGroup;
+  rejectionState: boolean
   modificationsMadeForm: FormGroup;
 
   constructor(private el: ElementRef,
-              private _modalsService: ModalsService) { }
+              private _modalsService: ModalsService, private _piaService: PiaService) { }
 
   ngOnInit() {
     this.rejectionReasonForm = new FormGroup({
-      textarea: new FormControl()
+      rejectionReason: new FormControl({ value: this.pia.rejected_reason, disabled: false })
     });
     this.modificationsMadeForm = new FormGroup({
-      textarea: new FormControl()
+      modificationsMade: new FormControl( { value: this.pia.applied_adjustements, disabled: false })
+
+    });
+
+    this._piaService.getPIA().then(() => {
+      this.rejectionReasonForm.controls['rejectionReason'].patchValue(this._piaService.pia.rejected_reason);
+      this.modificationsMadeForm.controls['modificationsMade'].patchValue(this._piaService.pia.applied_adjustements);
     });
   }
 
@@ -37,13 +45,13 @@ export class RefusePIAComponent implements OnInit {
    * Executes functionnalities when losing focus from rejection reason field.
    */
   rejectionReasonFocusOut() {
-    const rejectionReasonValue = this.rejectionReasonForm.value.textarea;
-    const modificationsMadeValue = this.modificationsMadeForm.value.textarea;
+    const rejectionReasonValue = this.rejectionReasonForm.value.rejectionReason;
+    const modificationsMadeValue = this.modificationsMadeForm.value.modificationsMade;
     const buttons = this.el.nativeElement.querySelectorAll('.pia-entryContentBlock-content-cancelButtons button');
     setTimeout(() => {
       if (rejectionReasonValue && rejectionReasonValue.length > 0 && document.activeElement.id != 'pia-modifications-made') {
         this.showRejectionReasonEditButton();
-        this.rejectionReasonForm.controls['textarea'].disable();
+        this.rejectionReasonForm.controls['rejectionReason'].disable();
         // TODO : save data
       }
       [].forEach.call(buttons, function (btn) {
@@ -54,6 +62,12 @@ export class RefusePIAComponent implements OnInit {
         }
       });
     }, 1);
+    const pia = new Pia();
+    pia.id = this._piaService.pia.id;
+    pia.get(pia.id).then(() => {
+      pia.rejected_reason = this.rejectionReasonForm.value.rejectionReason;
+      pia.update()
+    });
   }
 
   /**
@@ -77,7 +91,7 @@ export class RefusePIAComponent implements OnInit {
    */
   activateRejectionReasonEdition() {
     this.hideRejectionReasonEditButton();
-    this.rejectionReasonForm.controls['textarea'].enable();
+    this.rejectionReasonForm.controls['rejectionReason'].enable();
   }
 
   /**
@@ -91,12 +105,12 @@ export class RefusePIAComponent implements OnInit {
    * Executes functionnalities when losing focus from modifications made field.
    */
   modificationsMadeFocusOut() {
-    const modificationsMadeValue = this.modificationsMadeForm.value.textarea;
+    const modificationsMadeValue = this.modificationsMadeForm.value.modificationsMade
     const resendButton = this.el.nativeElement.querySelector('.pia-entryContentBlock-footer > button');
     setTimeout(() => {
       if (modificationsMadeValue && modificationsMadeValue.length > 0 && document.activeElement.id != 'pia-rejection-reason') {
         this.showModificationsMadeEditButton();
-        this.modificationsMadeForm.controls['textarea'].disable();
+        this.modificationsMadeForm.controls['modificationsMade'].disable();
         // TODO : save data
       }
       if (modificationsMadeValue) {
@@ -105,6 +119,12 @@ export class RefusePIAComponent implements OnInit {
         resendButton.setAttribute('disabled', true);
       }
     }, 1);
+    const pia = new Pia();
+    pia.id = this._piaService.pia.id;
+    pia.get(pia.id).then(() => {
+      pia.applied_adjustements = this.modificationsMadeForm.value.modificationsMade;
+      pia.update();
+    });
   }
 
   /**
@@ -128,7 +148,7 @@ export class RefusePIAComponent implements OnInit {
    */
   activateModificationsMadeEdition() {
     this.hideModificationsMadeEditButton();
-    this.modificationsMadeForm.controls['textarea'].enable();
+    this.modificationsMadeForm.controls['modificationsMade'].enable();
   }
 
 }
