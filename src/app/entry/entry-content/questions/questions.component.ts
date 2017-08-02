@@ -4,6 +4,7 @@ import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/map';
 import { KnowledgeBaseService } from '../../knowledge-base/knowledge-base.service';
 import { Answer } from './answer.model';
+import { Measure } from '../measures/measure.model';
 
 @Component({
   selector: 'app-questions',
@@ -13,12 +14,13 @@ import { Answer } from './answer.model';
 export class QuestionsComponent implements OnInit {
 
   tags = [];
-  userMeasures = ['user_measure1', 'user_measure2', 'user_measure3'];
+  userMeasures = [];
   @Input() question: any;
   @Input() item: any;
   @Input() pia: any;
   questionForm: FormGroup;
   answer: Answer = new Answer();
+  measure: Measure = new Measure();
 
   constructor(private el: ElementRef, private _knowledgeBaseService: KnowledgeBaseService) { }
 
@@ -35,6 +37,16 @@ export class QuestionsComponent implements OnInit {
         this.questionForm.controls['list'].patchValue(this.answer.data.list);
         this.showEditButton();
         this.questionForm.controls['text'].disable();
+      }
+    });
+    this.measure.pia_id = this.pia.id;
+    this.measure.findAll().then((entries: any[]) => {
+      if (entries) {
+        entries.forEach(entry => {
+          if (entry.title) {
+            this.userMeasures.push(entry.title);
+          }
+        });
       }
     });
   }
@@ -95,17 +107,24 @@ export class QuestionsComponent implements OnInit {
    * @param {event} event any event.
    */
   onAdd(event) {
-    console.log(event);
+    let list = [];
+    if (this.answer.id) {
+      list = this.answer.data.list;
+    }
+    list.push(event.value);
+    this.createOrUpdateList(list);
   }
 
-
-  /* TODO onTagEdited */
-  /**
-   * Updates the edited measure tag in the database.
-   * @param {event} event any event.
-   */
-  onTagEdited(event) {
-    console.log(event);
+  private createOrUpdateList(list: string[]) {
+    if (this.answer.id) {
+      this.answer.data = { text: '', gauge: null, list: list };
+      this.answer.update();
+    } else {
+      this.answer.pia_id = this.pia.id;
+      this.answer.reference_to = this.question.id;
+      this.answer.data = { text: '', gauge: null, list: list };
+      this.answer.create();
+    }
   }
 
   /* TODO onRemove */
@@ -114,7 +133,15 @@ export class QuestionsComponent implements OnInit {
    * @param {event} event any event.
    */
   onRemove(event) {
-    console.log(event);
+    let list = [];
+    if (this.answer.id) {
+      list = this.answer.data.list;
+    }
+    const index = list.indexOf(event);
+    if (index >= 0) {
+      list.splice(list.indexOf(event), 1);
+      this.createOrUpdateList(list);
+    }
   }
 
   /**

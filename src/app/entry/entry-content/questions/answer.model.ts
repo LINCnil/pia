@@ -18,7 +18,8 @@ export class Answer extends ApplicationDb {
         data: this.data,
         created_at: new Date()
       }).onsuccess = (event: any) => {
-        resolve(event.target.result);
+        this.id = event.target.result;
+        resolve();
       };
     });
   }
@@ -58,6 +59,8 @@ export class Answer extends ApplicationDb {
       index1.get(IDBKeyRange.only([this.pia_id, this.reference_to])).onsuccess = (event: any) => {
         const entry = event.target.result;
         if (entry) {
+          this.id = entry.id;
+          this.reference_to = entry.reference_to;
           this.data = entry.data;
           this.created_at = new Date(entry.created_at);
           this.updated_at = new Date(entry.updated_at);
@@ -77,8 +80,9 @@ export class Answer extends ApplicationDb {
         if (cursor) {
           items.push(cursor.value);
           cursor.continue();
+        } else {
+          resolve(items);
         }
-        resolve(items);
       }
     });
   }
