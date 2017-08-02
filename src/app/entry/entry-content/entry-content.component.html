@@ -15,7 +15,9 @@
     </a>
   </header>
 
-  <app-measures *ngIf="item.filter_by === 'measure'; else appQuestions" [measures]="_measureService.measures" [pia]="_piaService.pia" [item]="item"></app-measures>
+  <ng-container *ngIf="item.filter_by === 'measure'; else appQuestions">
+    <app-measures *ngFor="let measure of _measureService.measures" [measure]="measure" [pia]="_piaService.pia" [item]="item"></app-measures>
+  </ng-container>
   <ng-template #appQuestions>
     <div *ngFor="let question of questions">
       <app-questions [question]="question" [pia]="_piaService.pia" [item]="item"></app-questions>
@@ -41,7 +43,7 @@
     <footer class="pia-entryContentBlock-footer">
         <!-- TODO Refactor needed -->
         <div class="pia-entryContentBlock-footer-measures" *ngIf="section.id == 3 && item.id == 1">
-            <button (click)="_measureService.addNewMeasure(pia)" class="btn btn-white" type="button" title="Ajouter une mesure"><span class="pia-icons pia-icon-add"></span>Ajouter une mesure</button>
+            <button (click)="_measureService.addNewMeasure(_piaService.pia)" class="btn btn-white" type="button" title="Ajouter une mesure"><span class="pia-icons pia-icon-add"></span>Ajouter une mesure</button>
             <button (click)="askForEvaluation()" class="btn btn-green" [ngClass]="{'btn-active': false}" [disabled]="true" type="submit" title="Demander l'évaluation">Demander l'évaluation</button>
         </div>
         <button class="btn btn-green" (click)="askForEvaluation()" [ngClass]="{'btn-active': false, 'hide': ((section.id == 3 && item.id == 1) || (section.id == 3 && item.id == 5)) || section.id == 4}" [disabled]="true" type="submit" title="Demander l'évaluation">Demander l'évaluation</button>

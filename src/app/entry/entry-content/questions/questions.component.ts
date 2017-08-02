@@ -33,6 +33,8 @@ export class QuestionsComponent implements OnInit {
         this.questionForm.controls['gauge'].patchValue(this.answer.data.gauge);
         this.questionForm.controls['text'].patchValue(this.answer.data.text);
         this.questionForm.controls['list'].patchValue(this.answer.data.list);
+        this.showEditButton();
+        this.questionForm.controls['text'].disable();
       }
     });
   }
@@ -53,13 +55,22 @@ export class QuestionsComponent implements OnInit {
    */
   questionContentFocusOut() {
     if (this.questionForm.value.text && this.questionForm.value.text.length > 0) {
-      this.answer.pia_id = this.pia.id;
-      this.answer.reference_to = this.question.id;
-      this.answer.data = { text: this.questionForm.value.text, gauge: null, list: [] };
-      this.answer.create().then(() => {
-        this.showEditButton();
-        this.questionForm.controls['text'].disable();
-      });
+      if (this.answer.id) {
+        this.answer.data = { text: this.questionForm.value.text, gauge: null, list: [] };
+        this.answer.update().then(() => {
+          this.showEditButton();
+          this.questionForm.controls['text'].disable();
+        });
+      } else {
+        this.answer.pia_id = this.pia.id;
+        this.answer.reference_to = this.question.id;
+        this.answer.data = { text: this.questionForm.value.text, gauge: null, list: [] };
+        this.answer.create().then((id: number) => {
+          this.answer.id = id;
+          this.showEditButton();
+          this.questionForm.controls['text'].disable();
+        });
+      }
     }
   }
 
