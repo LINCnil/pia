@@ -8,7 +8,7 @@
         <button type="button" id="piaDPOPencil" class="btn pia-questionBlock-edit hide"  (click)="activateDPOEdition()" title="Éditer"><i class="fa fa-pencil" aria-hidden="true"></i></button>
       </div>
       <form [formGroup]="DPOForm">
-        <p *ngIf="_piaService.pia.status !== 2 && _piaService.pia.status !== 3"><span><input type="text" (change)="DPOFocusOut()" formControlName="DPONames"></span>, considère(nt) que :</p>
+        <p *ngIf="_piaService.pia.status !== 2 && _piaService.pia.status !== 3"><span><input type="text" class="DPOName" (change)="DPOFocusOut()" formControlName="DPONames"></span>, considère(nt) que :</p>
         <!-- TODO : show this second <p> only when PIA is validated and hide the previous p : -->
         <p *ngIf="_piaService.pia.status === 2 || _piaService.pia.status === 3"><span>{{_piaService.pia.dpos_names}}</span>, considère(nt) que :</p>
         <!-- TODO : set selected value to true (checked) if it has been checked previously (check _piaService.pia.dpo_opinions_status, ...) -->
@@ -42,12 +42,14 @@
         <h2>Avis des personnes concernées</h2>
         <button type="button" id="piaPeoplePencil" class="btn pia-questionBlock-edit hide" (click)="activatePeopleEdition()" title="Éditer"><i class="fa fa-pencil" aria-hidden="true"></i></button>
       </div>
-      <p><span>{{_piaService.pia.validator_name}}</span>, considère(nt) que :</p>
       <form [formGroup]="peopleForm">
+        <p *ngIf="_piaService.pia.status !== 2 && _piaService.pia.status !== 3"><span><input type="text" class="DPOName" (change)="peopleFocusOut()" formControlName="peopleNames"></span>, considère(nt) que :</p>
+        <!-- TODO : show this second <p> only when PIA is validated and hide the previous p : -->
+        <p *ngIf="_piaService.pia.status === 2 || _piaService.pia.status === 3"><span>{{_piaService.pia.people_names}}</span>, considère(nt) que :</p>
         <!-- TODO : set selected value to true (checked) if it has been checked previously (check _piaService.pia.people_opinions_status, ...) -->
         <div class="pia-entryContentBlock-content-DPO-treatment">
           <div>
-            <input type="radio" id="dpoAvis-1" (change)="peopleFocusOut()" formControlName="peopleStatus" value="1">
+            <input type="radio" id="dpoAvis-1" [checked]="_piaService.pia.concerned_people_status == 1" (change)="peopleFocusOut()" formControlName="peopleStatus" value="1">
             <label for="dpoAvis-1">
               <i class="fa fa-circle" aria-hidden="true"></i>
               <i class="fa fa-check" aria-hidden="true"></i>
@@ -55,7 +57,7 @@
             </label>
           </div>
           <div>
-            <input type="radio" id="dpoAvis-2" (change)="peopleFocusOut()" formControlName="peopleStatus" value="0">
+            <input type="radio" id="dpoAvis-2" [checked]="_piaService.pia.concerned_people_status == 0" (change)="peopleFocusOut()" formControlName="peopleStatus" value="0">
             <label for="dpoAvis-2">
               <i class="fa fa-circle" aria-hidden="true"></i>
               <i class="fa fa-check" aria-hidden="true"></i>

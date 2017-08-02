@@ -39,8 +39,11 @@ export class DPOPeopleOpinionsComponent implements OnInit {
       this.DPOForm.controls['DPONames'].patchValue(this._piaService.pia.dpos_names);
       this.peopleForm.controls['peopleOpinion'].patchValue(this._piaService.pia.concerned_people_opinion);
       this.peopleForm.controls['peopleNames'].patchValue(this._piaService.pia.people_names);
+      /*TODO: check if values then lock*/
       this.DPOForm.disable();
       this.showDPOEditButton();
+      this.peopleForm.disable();
+      this.showPeopleEditButton();
     });
   }
 
@@ -94,9 +97,21 @@ export class DPOPeopleOpinionsComponent implements OnInit {
    * Disables people fields (status + opinion) and saves data.
    */
   peopleFocusOut() {
-    if (this.peopleForm.value.peopleOpinion && this.peopleForm.value.peopleOpinion.length > 0 && this.peopleForm.controls['peopleStatus'].dirty) {
+    if (this.peopleForm.value.peopleOpinion &&
+      this.peopleForm.value.peopleOpinion.length > 0 &&
+      this.peopleForm.value.peopleNames &&
+      this.peopleForm.value.peopleNames.length > 0 &&
+      this.peopleForm.controls['peopleStatus'].dirty) {
       this.peopleForm.disable();
       this.showPeopleEditButton();
+      const pia = new Pia();
+      pia.id = this._piaService.pia.id;
+      pia.get(pia.id).then(() => {
+        pia.concerned_people_opinion = this.DPOForm.value.DPOOpinion;
+        pia.concerned_people_status = parseInt(this.peopleForm.value.peopleStatus, 10);
+        pia.people_names = this.peopleForm.value.peopleNames;
+        pia.update()
+      });
     }
     // Saving data here
   }
