@@ -75,6 +75,11 @@
       hr {
         width: 100%;
       }
+      div:last-child {
+        li:last-child, li:nth-last-child(2) {
+          display: none;
+        }
+      }
       a {
         &:focus, &:hover, &:active, &.active {
           border-radius: 4px;
