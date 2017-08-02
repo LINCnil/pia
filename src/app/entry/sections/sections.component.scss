@@ -5,13 +5,15 @@
   &-sectionBlock {
     &-header {
       display: flex;
-      justify-content: space-between;
+      justify-content: flex-end;
       padding: 0 10px;
       border-bottom: solid 2px $pia-gray;
       h1 {
         font-size: 3rem;
         font-weight: 400;
         margin: auto 4px 10px 4px;
+        width: 100%;
+        line-height: 30px;
       }
       a {
         align-self: center;
@@ -74,6 +76,11 @@
     &-body {
       hr {
         width: 100%;
+      }
+      div:last-child {
+        li:last-child, li:nth-last-child(2) {
+          display: none;
+        }
       }
       a {
         &:focus, &:hover, &:active, &.active {
