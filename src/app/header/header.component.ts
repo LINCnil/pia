@@ -19,8 +19,7 @@ export class HeaderComponent implements OnInit {
 
   /**
    * Manually updates the contrast. Can be executed by users through header.
-   * TODO : To update when we know what it is.
-   * @param {Any} event - Any kind of event
+   * @param {any} event - Any kind of event
    */
   changeContrast(event: any) {
     localStorage.setItem('increaseContrast', event.target.checked);
@@ -32,9 +31,10 @@ export class HeaderComponent implements OnInit {
    */
   private updateContrast() {
     this.increaseContrast = localStorage.getItem('increaseContrast');
-    if (this.increaseContrast == 'true')
+    if (this.increaseContrast === 'true') {
       this.renderer.addClass(document.body, 'pia-contrast');
-    else
+    } else {
       this.renderer.removeClass(document.body, 'pia-contrast');
+    }
   }
 }

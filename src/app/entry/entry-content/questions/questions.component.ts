@@ -26,7 +26,7 @@ export class QuestionsComponent implements OnInit {
 
   ngOnInit() {
     this.questionForm = new FormGroup({
-      gauge: new FormControl(),
+      gauge: new FormControl(0),
       text: new FormControl(),
       list: new FormControl()
     });
@@ -35,8 +35,15 @@ export class QuestionsComponent implements OnInit {
         this.questionForm.controls['gauge'].patchValue(this.answer.data.gauge);
         this.questionForm.controls['text'].patchValue(this.answer.data.text);
         this.questionForm.controls['list'].patchValue(this.answer.data.list);
+        this.el.nativeElement.querySelector('.pia-gaugeBlock-background').classList.
+          add('pia-gaugeBlock-background-' + this.answer.data.gauge);
         this.showEditButton();
-        this.questionForm.controls['text'].disable();
+        if (this.answer.data.gauge) {
+          this.questionForm.controls['gauge'].disable();
+        }
+        if (this.answer.data.text) {
+          this.questionForm.controls['text'].disable();
+        }
       }
     });
     this.measure.pia_id = this.pia.id;
@@ -58,8 +65,36 @@ export class QuestionsComponent implements OnInit {
    * It disables the field only when the user clicks something different that :
    * The input textarea (under the gauge) OR the range input.
   */
-  checkGaugeChanges() {
-
+  checkGaugeChanges(event: any) {
+    const value: string = event.target.value;
+    const bgElement = event.target.parentNode.querySelector('.pia-gaugeBlock-background');
+    bgElement.classList.remove('pia-gaugeBlock-background-1');
+    bgElement.classList.remove('pia-gaugeBlock-background-2');
+    bgElement.classList.remove('pia-gaugeBlock-background-3');
+    bgElement.classList.add('pia-gaugeBlock-background-' + value);
+    if (this.questionForm.value.gauge && this.questionForm.value.gauge >= 0) {
+      if (this.answer.id) {
+        this.answer.data = { text: this.answer.data.text, gauge: this.questionForm.value.gauge, list: this.answer.data.list };
+        this.answer.update().then(() => {
+          this.showEditButton();
+          this.questionForm.controls['gauge'].disable();
+          if (this.questionForm.value.text && this.questionForm.value.text.length > 0) {
+            this.questionForm.controls['text'].disable();
+          }
+        });
+      } else {
+        this.answer.pia_id = this.pia.id;
+        this.answer.reference_to = this.question.id;
+        this.answer.data = { text: null, gauge: this.questionForm.value.gauge, list: [] };
+        this.answer.create().then(() => {
+          this.showEditButton();
+          this.questionForm.controls['gauge'].disable();
+          if (this.questionForm.value.text && this.questionForm.value.text.length > 0) {
+            this.questionForm.controls['text'].disable();
+          }
+        });
+      }
+    }
   }
 
   /**
@@ -68,19 +103,24 @@ export class QuestionsComponent implements OnInit {
   questionContentFocusOut() {
     if (this.questionForm.value.text && this.questionForm.value.text.length > 0) {
       if (this.answer.id) {
-        this.answer.data = { text: this.questionForm.value.text, gauge: null, list: [] };
+        this.answer.data = { text: this.questionForm.value.text, gauge: this.answer.data.gauge, list: this.answer.data.list };
         this.answer.update().then(() => {
           this.showEditButton();
           this.questionForm.controls['text'].disable();
+          if (this.questionForm.value.gauge && this.questionForm.value.gauge > 0) {
+            this.questionForm.controls['gauge'].disable();
+          }
         });
       } else {
         this.answer.pia_id = this.pia.id;
         this.answer.reference_to = this.question.id;
         this.answer.data = { text: this.questionForm.value.text, gauge: null, list: [] };
-        this.answer.create().then((id: number) => {
-          this.answer.id = id;
+        this.answer.create().then(() => {
           this.showEditButton();
           this.questionForm.controls['text'].disable();
+          if (this.questionForm.value.gauge && this.questionForm.value.gauge > 0) {
+            this.questionForm.controls['gauge'].disable();
+          }
         });
       }
     }
@@ -101,7 +141,6 @@ export class QuestionsComponent implements OnInit {
     // Saving data here
   }
 
-  /* TODO onAdd */
   /**
    * Adds the measure tag in the database.
    * @param {event} event any event.
@@ -115,19 +154,22 @@ export class QuestionsComponent implements OnInit {
     this.createOrUpdateList(list);
   }
 
+  /**
+   * Create or update the tags list
+   * @param {string[]} list of tags
+   */
   private createOrUpdateList(list: string[]) {
     if (this.answer.id) {
-      this.answer.data = { text: '', gauge: null, list: list };
+      this.answer.data = { text: this.answer.data.text, gauge: this.answer.data.gauge, list: list };
       this.answer.update();
     } else {
       this.answer.pia_id = this.pia.id;
       this.answer.reference_to = this.question.id;
-      this.answer.data = { text: '', gauge: null, list: list };
+      this.answer.data = { text: null, gauge: null, list: list };
       this.answer.create();
     }
   }
 
-  /* TODO onRemove */
   /**
    * Removes the measure tag from the database.
    * @param {event} event any event.
@@ -150,6 +192,7 @@ export class QuestionsComponent implements OnInit {
   activateQuestionEdition() {
     this.hideEditButton();
     this.questionForm.controls['text'].enable();
+    this.questionForm.controls['gauge'].enable();
   }
 
   /**

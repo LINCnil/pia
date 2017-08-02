@@ -33,7 +33,6 @@ export class EntryContentComponent implements OnInit, OnChanges {
     const measuresModel = new Measure();
     this._piaService.getPIA().then((entry) => {
       measuresModel.pia_id = this._piaService.pia.id;
-      /* TODO : find measures where PIA id = this._piaService.pia_id */
       measuresModel.findAll().then((entries: any[]) => {
         this._measureService.measures = entries;
         if (this._measureService.measures.length === 0) {

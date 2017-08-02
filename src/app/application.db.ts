@@ -23,7 +23,6 @@ export class ApplicationDb {
       };
       request.onupgradeneeded = (event: any) => {
         const objectStore = event.target.result.createObjectStore(this.tableName, { keyPath: 'id', autoIncrement: true });
-        // TODO need to be in comment.db.ts instead of this file
         if (this.tableName === 'pia') {
           objectStore.createIndex('index1', 'status', { unique: false });
         } else if (this.tableName === 'comment') {

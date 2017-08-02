@@ -32,7 +32,7 @@ export class DPOPeopleOpinionsComponent implements OnInit {
     });
     this._piaService.getPIA().then(() => {
       /* TODO : lock fields (names, statuses, opinions) when PIA is validated */
-      /*if (pia.status === 4) {
+      /*if (pia.status === 2 || pia.status === 3) {
         this.peopleForm.disable();
       }*/
       this.DPOForm.controls['DPOOpinion'].patchValue(this._piaService.pia.dpo_opinion);

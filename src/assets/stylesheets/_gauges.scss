@@ -8,21 +8,12 @@
       width: 100%;
       margin-bottom: 15px;
     }
-    span {
-      display: inline-block;
-      vertical-align: top;
-      width: 25%;
-      color: $pia-blue;
-      font-weight: 500;
-      &:nth-child(3) {
-        padding-left: 5%;
-      }
-      &:nth-child(4) {
-        padding-left: 8%;
-      }
-      &:nth-child(5) {
-        text-align: right;
-      }
+    > div {
+       display: flex;
+       justify-content: space-between;
+       > div:nth-child(2) {
+         padding-right: 15px;
+       }
     }
     &-background {
       z-index: 998;
@@ -32,7 +23,7 @@
       border-radius: 50px;
       left: 1px;
       top: 6px;
-      background: linear-gradient(90deg, $pia-green, $pia-red);
+      background: linear-gradient(90deg, $pia-green, $pia-green);
     }
     &-user-choice {
       width: 66%;
@@ -45,6 +36,18 @@
       background-color: #999;
       background: linear-gradient(90deg, #fff, $pia-gray);
       box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+    }
+    &-background-1 {
+      width: calc(33% + 15px);
+      background: linear-gradient(90deg, $pia-green, #7fac85);
+    }
+    &-background-2 {
+      width: calc(66% + 9px);
+      background: linear-gradient(90deg, $pia-green, #b87f77);
+    }
+    &-background-3 {
+      width: calc(99% + 2px);
+      background: linear-gradient(90deg, $pia-green, $pia-red);
     }
   }
 }
@@ -71,10 +74,11 @@ input[type=range]::-webkit-slider-thumb {
   height: 22px;
   width: 22px;
   border-radius: 50%;
-  background-color: transparent;
-  margin-top: -9px;
+  background-color: rgba(0, 0, 0, 0.2);
+  margin-top: -10px;
   position: relative;
   z-index: 999;
+  cursor: pointer;
 }
 input[type=range]:focus {
   outline: none;
@@ -95,7 +99,7 @@ input[type=range]::-moz-range-thumb {
   width: 22px;
   border-radius: 50%;
   background-color: transparent;
-  margin-top: -9px;
+  margin-top: -10px;
 }
 
 /* Hides the outline behind the border. */
@@ -121,5 +125,5 @@ input[type=range]::-ms-thumb {
   width: 22px;
   border-radius: 50%;
   background-color: transparent;
-  margin-top: -9px;
+  margin-top: -10px;
 }
