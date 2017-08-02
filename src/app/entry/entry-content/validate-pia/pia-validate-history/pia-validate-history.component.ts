@@ -43,7 +43,7 @@ export class PiaValidateHistoryComponent implements OnInit {
    * @return true if the PIA is validated and that there was a rejection before this validation, false otherwise.
    */
   showValidationHistory() {
-    return (this._piaService.pia.status === 4 &&
+    return ((this._piaService.pia.status === 2 || this._piaService.pia.status === 3) &&
             this._piaService.pia.applied_adjustements &&
             this._piaService.pia.rejected_reason);
   }

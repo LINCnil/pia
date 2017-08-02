@@ -44,6 +44,11 @@ export class SectionsComponent implements OnInit {
    * @return true if the PIA is refused, false otherwise.
    */
   showRefuseButton() {
-    return this._piaService.pia.status === 1;
+    if (((this._piaService.pia.status === 2 || this._piaService.pia.status === 3) &&
+            this._piaService.pia.rejected_reason) || this._piaService.pia.status === 1 ) {
+      return true;
+    } else {
+      return false;
+    }
   }
 }

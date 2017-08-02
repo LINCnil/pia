@@ -13,11 +13,14 @@ export class RefusePIAComponent implements OnInit {
 
   @Input() pia: any;
   rejectionReasonForm: FormGroup;
-  rejectionState: boolean
+  rejectionState: boolean;
+  showRejectionReasonButtons: boolean;
+  showResendValidationButton: boolean;
   modificationsMadeForm: FormGroup;
 
   constructor(private el: ElementRef,
-              private _modalsService: ModalsService, private _piaService: PiaService) { }
+              private _modalsService: ModalsService,
+              private _piaService: PiaService) { }
 
   ngOnInit() {
     this.rejectionReasonForm = new FormGroup({
@@ -29,9 +32,22 @@ export class RefusePIAComponent implements OnInit {
     });
 
     this._piaService.getPIA().then(() => {
-      this.rejectionReasonForm.controls['rejectionReason'].patchValue(this._piaService.pia.rejected_reason);
-      this.modificationsMadeForm.controls['modificationsMade'].patchValue(this._piaService.pia.applied_adjustements);
+      if (this._piaService.pia.rejected_reason && this._piaService.pia.status === 1) {
+        this.rejectionReasonForm.controls['rejectionReason'].patchValue(this._piaService.pia.rejected_reason);
+        this.showRejectionReasonEditButton();
+        this.showRejectionReasonButtons = true;
+        this.rejectionReasonForm.controls['rejectionReason'].disable();
+      }
+
+      if (this._piaService.pia.applied_adjustements && ((this._piaService.pia.status === 2 || this._piaService.pia.status === 3) &&
+          this._piaService.pia.rejected_reason)) {
+        this.modificationsMadeForm.controls['modificationsMade'].patchValue(this._piaService.pia.applied_adjustements);
+        this.showModificationsMadeEditButton();
+        this.showResendValidationButton = true;
+        this.modificationsMadeForm.controls['modificationsMade'].disable();
+      }
     });
+
   }
 
   /**
@@ -47,20 +63,14 @@ export class RefusePIAComponent implements OnInit {
   rejectionReasonFocusOut() {
     const rejectionReasonValue = this.rejectionReasonForm.value.rejectionReason;
     const modificationsMadeValue = this.modificationsMadeForm.value.modificationsMade;
-    const buttons = this.el.nativeElement.querySelectorAll('.pia-entryContentBlock-content-cancelButtons button');
     setTimeout(() => {
-      if (rejectionReasonValue && rejectionReasonValue.length > 0 && document.activeElement.id != 'pia-modifications-made') {
+      if (rejectionReasonValue && rejectionReasonValue.length > 0 && document.activeElement.id !== 'pia-modifications-made') {
         this.showRejectionReasonEditButton();
         this.rejectionReasonForm.controls['rejectionReason'].disable();
-        // TODO : save data
+        this.showRejectionReasonButtons = true;
+      } else {
+        this.showRejectionReasonButtons = false;
       }
-      [].forEach.call(buttons, function (btn) {
-        if (rejectionReasonValue) {
-          btn.removeAttribute('disabled');
-        } else {
-          btn.setAttribute('disabled', true);
-        }
-      });
     }, 1);
     const pia = new Pia();
     pia.id = this._piaService.pia.id;
@@ -108,10 +118,12 @@ export class RefusePIAComponent implements OnInit {
     const modificationsMadeValue = this.modificationsMadeForm.value.modificationsMade
     const resendButton = this.el.nativeElement.querySelector('.pia-entryContentBlock-footer > button');
     setTimeout(() => {
-      if (modificationsMadeValue && modificationsMadeValue.length > 0 && document.activeElement.id != 'pia-rejection-reason') {
+      if (modificationsMadeValue && modificationsMadeValue.length > 0 && document.activeElement.id !== 'pia-rejection-reason') {
         this.showModificationsMadeEditButton();
         this.modificationsMadeForm.controls['modificationsMade'].disable();
-        // TODO : save data
+        this.showResendValidationButton = true;
+      } else {
+        this.showResendValidationButton = false;
       }
       if (modificationsMadeValue) {
         resendButton.removeAttribute('disabled');
@@ -149,6 +161,40 @@ export class RefusePIAComponent implements OnInit {
   activateModificationsMadeEdition() {
     this.hideModificationsMadeEditButton();
     this.modificationsMadeForm.controls['modificationsMade'].enable();
+  }
+
+  /**
+   * Displays the rejection reason form.
+   * @return true if the PIA is refused, false otherwise.
+   */
+  showRejectionReasonForm() {
+    return (this._piaService.pia.status === 1);
+  }
+
+  /**
+   * Displays the refuse buttons.
+   * @return true if the PIA is refused, false otherwise.
+   */
+  showRefuseButtons() {
+    return (this._piaService.pia.status === 1);
+  }
+
+  /**
+   * Displays the modifications made form.
+   * @return true if the PIA is validated and that there was a rejection before this validation, false otherwise.
+   */
+  showModificationsMadeForm() {
+    return ((this._piaService.pia.status === 2 || this._piaService.pia.status === 3) &&
+            this._piaService.pia.rejected_reason);
+  }
+
+  /**
+   * Displays the resend validation button.
+   * @return true if the PIA is validated but has been refused previously (a rejected reason was specified), false otherwise.
+   */
+  showResendForValidationButton() {
+    return ((this._piaService.pia.status === 2 || this._piaService.pia.status === 3) &&
+            this._piaService.pia.rejected_reason);
   }
 
 }
