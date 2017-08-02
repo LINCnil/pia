@@ -8,14 +8,20 @@
         <button type="button" id="piaDPOPencil" class="btn pia-questionBlock-edit hide"  (click)="activateDPOEdition()" title="Éditer"><i class="fa fa-pencil" aria-hidden="true"></i></button>
       </div>
       <form [formGroup]="DPOForm">
+
+        <!--
+            TODO : pour ce premier p, il faut que :
+            * lorsqu'on est en mode édition, il y ait l'input.
+            * lorsqu'on est en mode non édition (les champs sont vérouillés), on doit voir un label (l'input disparaît).
+            Pistes : *ngIf condition_booleenne_sur_input; label
+        -->
+
         <p *ngIf="showNamesAsInputs()"><span><input type="text" class="DPOName" (change)="DPOFocusOut()" formControlName="DPONames"></span>, considère(nt) que :</p>
         <!-- TODO : show this second <p> only when PIA is validated and hide the previous p : -->
         <p *ngIf="showNamesAsLabels()"><span>{{_piaService.pia.dpos_names}}</span>, considère(nt) que :</p>
-        <!-- TODO : set selected value to true (checked) if it has been checked previously (check _piaService.pia.dpo_opinions_status, ...) -->
         <div class="pia-entryContentBlock-content-DPO-treatment">
-          <!--<div [ngClass]="_piaService.pia.dpo_status === 1 ? 'checked' : ''">-->
           <div>
-            <input type="radio" id="treatment-1" [checked]="_piaService.pia.dpo_status == 1" (change)="DPOFocusOut()" formControlName="DPOStatus" value="1">
+            <input type="radio" id="treatment-1" [attr.disabled]="dpo_status_locker" [attr.dirty]="_piaService.pia.dpo_status === 1" [checked]="_piaService.pia.dpo_status === 1" (change)="DPOFocusOut()" formControlName="DPOStatus" value="1">
             <label for="treatment-1">
               <i class="fa fa-circle" aria-hidden="true"></i>
               <i class="fa fa-check" aria-hidden="true"></i>
@@ -23,7 +29,7 @@
             </label>
           </div>
           <div>
-            <input type="radio" id="treatment-2" [checked]="_piaService.pia.dpo_status == 0" (change)="DPOFocusOut()" formControlName="DPOStatus" value="0">
+            <input type="radio" id="treatment-2" [attr.disabled]="dpo_status_locker" [attr.dirty]="_piaService.pia.dpo_status === 0" [checked]="_piaService.pia.dpo_status === 0" (change)="DPOFocusOut()" formControlName="DPOStatus" value="0">
             <label for="treatment-2">
               <i class="fa fa-circle" aria-hidden="true"></i>
               <i class="fa fa-check" aria-hidden="true"></i>
@@ -46,10 +52,9 @@
         <p *ngIf="showNamesAsInputs()"><span><input type="text" class="DPOName" (change)="peopleFocusOut()" formControlName="peopleNames"></span>, considère(nt) que :</p>
         <!-- TODO : show this second <p> only when PIA is validated and hide the previous p : -->
         <p *ngIf="showNamesAsLabels()"><span>{{_piaService.pia.people_names}}</span>, considère(nt) que :</p>
-        <!-- TODO : set selected value to true (checked) if it has been checked previously (check _piaService.pia.people_opinions_status, ...) -->
         <div class="pia-entryContentBlock-content-DPO-treatment">
           <div>
-            <input type="radio" id="dpoAvis-1" [checked]="_piaService.pia.concerned_people_status == 1" (change)="peopleFocusOut()" formControlName="peopleStatus" value="1">
+            <input type="radio" id="dpoAvis-1" [attr.disabled]="concerned_people_status_locker" [checked]="_piaService.pia.concerned_people_status == 1" (change)="peopleFocusOut()" formControlName="peopleStatus" value="1">
             <label for="dpoAvis-1">
               <i class="fa fa-circle" aria-hidden="true"></i>
               <i class="fa fa-check" aria-hidden="true"></i>
@@ -57,7 +62,7 @@
             </label>
           </div>
           <div>
-            <input type="radio" id="dpoAvis-2" [checked]="_piaService.pia.concerned_people_status == 0" (change)="peopleFocusOut()" formControlName="peopleStatus" value="0">
+            <input type="radio" id="dpoAvis-2" [attr.disabled]="concerned_people_status_locker" [checked]="_piaService.pia.concerned_people_status == 0" (change)="peopleFocusOut()" formControlName="peopleStatus" value="0">
             <label for="dpoAvis-2">
               <i class="fa fa-circle" aria-hidden="true"></i>
               <i class="fa fa-check" aria-hidden="true"></i>
