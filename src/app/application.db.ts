@@ -61,8 +61,9 @@ export class ApplicationDb {
         if (cursor) {
           items.push(cursor.value);
           cursor.continue();
+        } else {
+          resolve(items);
         }
-        resolve(items);
       }
     });
   }
