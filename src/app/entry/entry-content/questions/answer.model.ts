@@ -3,7 +3,7 @@ import { ApplicationDb } from '../../../application.db';
 export class Answer extends ApplicationDb {
   public id: number;
   public reference_to: string;
-  public data: { text: string, gauge: number, list: string[] };
+  public data: { text: string, gauge: number[], list: string[] };
 
   constructor() {
     super(201707071818, 'answer');
@@ -49,7 +49,7 @@ export class Answer extends ApplicationDb {
     });
   }
 
-  async getByReferenceAndPia(pia_id: number, reference_to: string) {
+  async getByReferenceAndPia(pia_id: number, reference_to: any) {
     this.pia_id = pia_id;
     this.reference_to = reference_to;
     await this.getObjectStore();

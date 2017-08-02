@@ -10,10 +10,11 @@ import { Measure } from './measure.model';
 })
 export class MeasuresComponent implements OnInit {
 
-  @Input() measures: Measure;
+  @Input() measure: Measure;
   @Input() item: any;
   @Input() pia: any;
   measureForm: FormGroup;
+  measureModel: Measure = new Measure();
 
   constructor(
     private el: ElementRef,
@@ -23,6 +24,21 @@ export class MeasuresComponent implements OnInit {
     this.measureForm = new FormGroup({
       measureTitle: new FormControl(),
       measureContent: new FormControl()
+    });
+    this.measureModel.get(this.measure.id).then(() => {
+      if (this.measureModel) {
+        this.measureForm.controls['measureTitle'].patchValue(this.measureModel.title);
+        this.measureForm.controls['measureContent'].patchValue(this.measureModel.content);
+        if (this.measureModel.title || this.measureModel.content) {
+          this.showEditButton();
+        }
+        if (this.measureModel.title) {
+          this.measureForm.controls['measureTitle'].disable();
+        }
+        if (this.measureModel.content) {
+          this.measureForm.controls['measureContent'].disable();
+        }
+      }
     });
   }
 
@@ -41,13 +57,15 @@ export class MeasuresComponent implements OnInit {
     // Waiting for document.activeElement update
     setTimeout(() => {
       if (titleValue && titleValue.length > 0 && document.activeElement.id !== 'pia-measure-content-' + currentMeasureID) {
-        this.showEditButton();
-        this.measureForm.controls['measureTitle'].disable();
         // Disables content field if both fields are filled and content isn't the next targeted element.
         if (contentValue && contentValue.length > 0) {
           this.measureForm.controls['measureContent'].disable();
         }
-        // TODO : save data
+        this.measureModel.title = titleValue;
+        this.measureModel.update().then(() => {
+          this.showEditButton();
+          this.measureForm.controls['measureTitle'].disable();
+        });
       }
       // Disables content field too if no title and content is filled and isn't the next targeted element.
       if (!titleValue && contentValue && contentValue.length > 0 && document.activeElement.id !== 'pia-measure-content') {
@@ -72,13 +90,15 @@ export class MeasuresComponent implements OnInit {
     // Waiting for document.activeElement update
     setTimeout(() => {
       if (contentValue && contentValue.length > 0 && document.activeElement.id !== 'pia-measure-title-' + currentMeasureID) {
-        this.showEditButton();
-        this.measureForm.controls['measureContent'].disable();
         // Disables title field if both fields are filled and title isn't the next targeted element.
         if (titleValue && titleValue.length > 0) {
           this.measureForm.controls['measureTitle'].disable();
         }
-        // TODO : save data
+        this.measureModel.content = contentValue;
+        this.measureModel.update().then(() => {
+          this.showEditButton();
+          this.measureForm.controls['measureContent'].disable();
+        });
       }
       // Disables content field too if no title and content is filled and isn't the next targeted element.
       if (!contentValue && contentValue && titleValue.length > 0 && document.activeElement.id !== 'pia-measure-title') {
