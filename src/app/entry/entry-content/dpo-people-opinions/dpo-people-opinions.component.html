@@ -8,9 +8,9 @@
         <button type="button" id="piaDPOPencil" class="btn pia-questionBlock-edit hide"  (click)="activateDPOEdition()" title="Éditer"><i class="fa fa-pencil" aria-hidden="true"></i></button>
       </div>
       <form [formGroup]="DPOForm">
-        <p *ngIf="_piaService.pia.status !== 2 && _piaService.pia.status !== 3"><span><input type="text" (change)="DPOFocusOut()" formControlName="DPONames"></span>, considère(nt) que :</p>
+        <p *ngIf="showNamesAsInputs()"><span><input type="text" (change)="DPOFocusOut()" formControlName="DPONames"></span>, considère(nt) que :</p>
         <!-- TODO : show this second <p> only when PIA is validated and hide the previous p : -->
-        <p *ngIf="_piaService.pia.status === 2 || _piaService.pia.status === 3"><span>{{_piaService.pia.dpos_names}}</span>, considère(nt) que :</p>
+        <p *ngIf="showNamesAsLabels()"><span>{{_piaService.pia.dpos_names}}</span>, considère(nt) que :</p>
         <!-- TODO : set selected value to true (checked) if it has been checked previously (check _piaService.pia.dpo_opinions_status, ...) -->
         <div class="pia-entryContentBlock-content-DPO-treatment">
           <!--<div [ngClass]="_piaService.pia.dpo_status === 1 ? 'checked' : ''">-->

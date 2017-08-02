@@ -1,5 +1,5 @@
 import { Router, ActivatedRoute, Params } from '@angular/router';
-import { Component, OnInit, Input, OnChanges, AfterViewInit } from '@angular/core';
+import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import { Measure } from './measures/measure.model';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map'
@@ -14,7 +14,7 @@ import { PiaService } from 'app/entry/pia.service';
   styleUrls: ['./entry-content.component.scss'],
   providers: [PiaService]
 })
-export class EntryContentComponent implements OnInit, AfterViewInit, OnChanges {
+export class EntryContentComponent implements OnInit, OnChanges {
 
   @Input() measureName: string;
   @Input() measurePlaceholder: string;
@@ -56,15 +56,6 @@ export class EntryContentComponent implements OnInit, AfterViewInit, OnChanges {
         */
       });
     });
-  }
-
-  ngAfterViewInit() {
-    /*
-    * TODO : check if the only measure is empty (length problem...)
-    */
-    if (this._measureService.measures && this._measureService.measures.length === 1) {
-      this._modalsService.openModal('pia-declare-measures');
-    }
   }
 
   ngOnChanges() {

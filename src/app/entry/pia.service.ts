@@ -37,11 +37,9 @@ export class PiaService {
     const pia = new Pia();
     pia.delete(piaID);
 
-    // Deletes from the pias array.
-    const index = this.pias.findIndex(p => p.id === piaID);
-    if (index !== -1) {
-      this.pias.splice(index, 1);
-    }
+    /* TODO : refactor this... */
+    // Deletes the PIA from the view.
+    document.querySelector('.pia-cardsBlock.pia-doingBlock[data-id="' + piaID + '"]').remove();
 
     localStorage.removeItem('pia-id');
     this._modalsService.closeModal();
