@@ -3,6 +3,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/map';
 import { KnowledgeBaseService } from '../../knowledge-base/knowledge-base.service';
+import { Answer } from './answer.model';
 
 @Component({
   selector: 'app-questions',
@@ -17,14 +18,22 @@ export class QuestionsComponent implements OnInit {
   @Input() item: any;
   @Input() pia: any;
   questionForm: FormGroup;
+  answer: Answer = new Answer();
 
   constructor(private el: ElementRef, private _knowledgeBaseService: KnowledgeBaseService) { }
 
   ngOnInit() {
     this.questionForm = new FormGroup({
-      questionGauge: new FormControl(),
-      questionContent: new FormControl(),
-      questionTags: new FormControl()
+      gauge: new FormControl(),
+      text: new FormControl(),
+      list: new FormControl()
+    });
+    this.answer.getByReferenceAndPia(this.pia.id, this.question.id).then(() => {
+      if (this.answer.data) {
+        this.questionForm.controls['gauge'].patchValue(this.answer.data.gauge);
+        this.questionForm.controls['text'].patchValue(this.answer.data.text);
+        this.questionForm.controls['list'].patchValue(this.answer.data.list);
+      }
     });
   }
 
@@ -43,11 +52,15 @@ export class QuestionsComponent implements OnInit {
    * Disables question field + shows edit button + save data.
    */
   questionContentFocusOut() {
-    if (this.questionForm.value.questionContent && this.questionForm.value.questionContent.length > 0) {
-      this.showEditButton();
-      this.questionForm.controls['questionContent'].disable();
+    if (this.questionForm.value.text && this.questionForm.value.text.length > 0) {
+      this.answer.pia_id = this.pia.id;
+      this.answer.reference_to = this.question.id;
+      this.answer.data = { text: this.questionForm.value.text, gauge: null, list: [] };
+      this.answer.create().then(() => {
+        this.showEditButton();
+        this.questionForm.controls['text'].disable();
+      });
     }
-    // Saving data here
   }
 
   /**
@@ -61,7 +74,7 @@ export class QuestionsComponent implements OnInit {
    * Disables question field + shows edit button + save data.
    */
   questionTagsFocusOut() {
-    alert(this.questionForm.value.questionTags);
+    alert(this.questionForm.value.list);
     // Saving data here
   }
 
@@ -98,7 +111,7 @@ export class QuestionsComponent implements OnInit {
    */
   activateQuestionEdition() {
     this.hideEditButton();
-    this.questionForm.controls['questionContent'].enable();
+    this.questionForm.controls['text'].enable();
   }
 
   /**

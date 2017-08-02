@@ -39,6 +39,8 @@ export class DPOPeopleOpinionsComponent implements OnInit {
       this.DPOForm.controls['DPONames'].patchValue(this._piaService.pia.dpos_names);
       this.peopleForm.controls['peopleOpinion'].patchValue(this._piaService.pia.concerned_people_opinion);
       this.peopleForm.controls['peopleNames'].patchValue(this._piaService.pia.people_names);
+      this.DPOForm.disable();
+      this.showDPOEditButton();
     });
   }
 
