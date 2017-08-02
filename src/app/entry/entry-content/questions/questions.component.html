@@ -15,7 +15,7 @@
 
       <!-- TODO : to display only if question is of type 'gauge' -->
       <div class="pia-gaugeBlock" *ngIf="question.answer_type == 'gauge'">
-        <input type="range" value="33" min="0" max="100" step="33">
+        <input type="range" formControlName="gauge" value="33" min="0" max="100" step="33">
         <span>Négligeable</span><span>Limité</span><span>Importante</span><span>Maximale</span>
         <div class="pia-gaugeBlock-background" style="width:35.5%;"></div>
       </div>
@@ -27,7 +27,7 @@
           (onAdd)="onAdd($event)"
           (onTagEdited)="onTagEdited($event)"
           (onRemove)="onRemove($event)"
-          formControlName="questionTags"
+          formControlName="list"
           [theme]="'foundation-theme'"
           [ngModel]="tags"
           [placeholder]="'&#10010;'"
@@ -42,7 +42,7 @@
           *ngIf="question.answer_type == 'text' || question.answer_type == 'gauge'"
           [attr.data-id]="question.id"
           id="pia-question-content-{{question.id}}"
-          formControlName="questionContent"
+          formControlName="text"
           name="pia-question"
           rows="8"
           cols="50"
