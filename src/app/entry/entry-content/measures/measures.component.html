@@ -2,7 +2,7 @@
     TODO : remove the 'approved' class by default (it's just to show here)
     and add it only when evaluation is done
 -->
-<div *ngFor="let measure of measures" class="pia-measureBlock approved" [attr.data-id]="measure.id">
+<div class="pia-measureBlock approved" [attr.data-id]="measure.id">
   <form [formGroup]="measureForm">
     <div class="pia-measureBlock-title">
       <button type="button" (click)="displayMeasure()" class="btn" title="Afficher / masquer"><span class="pia-icons pia-icon-accordeon-up"></span></button>

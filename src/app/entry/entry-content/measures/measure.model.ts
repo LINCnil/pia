@@ -30,24 +30,30 @@ export class Measure extends ApplicationDb {
     });
   }
 
-  async update(id) {
-    this.find(id).then((entry: any) => {
-      entry.title = this.title;
-      entry.content = this.content;
-      entry.updated_at = new Date();
-      this.objectStore.put(entry);
+  async update() {
+    return new Promise((resolve, reject) => {
+      this.find(this.id).then((entry: any) => {
+        entry.title = this.title;
+        entry.content = this.content;
+        entry.updated_at = new Date();
+        this.objectStore.put(entry);
+        resolve();
+      });
     });
   }
 
   async get(id: number) {
     this.id = id;
-    this.find(this.id).then((entry: any) => {
+    return new Promise((resolve, reject) => {
+      this.find(this.id).then((entry: any) => {
       this.pia_id = parseInt(entry.pia_id, 10);
       this.title = entry.title;
       this.content = entry.content;
       this.placeholder = entry.placeholder;
       this.created_at = new Date(entry.created_at);
       this.updated_at = new Date(entry.updated_at);
+        resolve();
+      });
     });
   }
 

@@ -9,7 +9,7 @@
                     <button type="button" class="btn hide" id="rejection-reason-btn" (click)="activateRejectionReasonEdition()" title="Éditer"><i class="fa fa-pencil" aria-hidden="true"></i></button>
                 </div>
                 <div class="pia-entryContentBlock-content-subject-textarea">
-                    <textarea rows="8" cols="50" id="pia-rejection-reason" formControlName="textarea" (focus)="rejectionReasonFocus()" (focusout)="rejectionReasonFocusOut()" placeholder="Décrivez les motifs de refus de validation du PIA"></textarea>
+                    <textarea rows="8" cols="50" id="pia-rejection-reason" formControlName="rejectionReason" (focus)="rejectionReasonFocus()" (focusout)="rejectionReasonFocusOut()" placeholder="Décrivez les motifs de refus de validation du PIA"></textarea>
                 </div>
             </div>
         </form>
@@ -24,7 +24,7 @@
                     <button type="button" class="btn hide" id="modifications-made-btn" (click)="activateModificationsMadeEdition()" title="Éditer"><i class="fa fa-pencil" aria-hidden="true"></i></button>
                 </div>
                 <div class="pia-entryContentBlock-content-subject-textarea">
-                    <textarea rows="8" cols="50" id="pia-modifications-made" formControlName="textarea" (focus)="modificationsMadeFocus()" (focusout)="modificationsMadeFocusOut()" placeholder="Décrivez les modifications apportées au PIA"></textarea>
+                    <textarea rows="8" cols="50" id="pia-modifications-made" formControlName="modificationsMade" (focus)="modificationsMadeFocus()" (focusout)="modificationsMadeFocusOut()" placeholder="Décrivez les modifications apportées au PIA"></textarea>
                 </div>
             </div>
         </form>
