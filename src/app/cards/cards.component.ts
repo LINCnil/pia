@@ -25,6 +25,7 @@ export class CardsComponent implements OnInit {
     pia.findAll().then((data: any[]) => {
       this._piaService.pias = data;
     });
+
     this.piaForm = new FormGroup({
       name: new FormControl(),
       author_name: new FormControl(),

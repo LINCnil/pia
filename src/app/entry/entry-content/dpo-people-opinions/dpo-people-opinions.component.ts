@@ -139,4 +139,20 @@ export class DPOPeopleOpinionsComponent implements OnInit {
     const editBtn = this.el.nativeElement.querySelector('#piaPeoplePencil');
     editBtn.classList.add('hide');
   }
+
+  /**
+   * Shows names (DPO & concerned people names) as inputs.
+   * @return true if the PIA is not validated, false otherwise.
+   */
+  showNamesAsInputs() {
+    return (this._piaService.pia.status !== 2 && this._piaService.pia.status !== 3);
+  }
+
+  /**
+   * Shows names (DPO & concerned people names) as beautiful labels.
+   * @return true if the PIA is validated, false otherwise.
+   */
+  showNamesAsLabels() {
+    return (this._piaService.pia.status === 2 || this._piaService.pia.status === 3);
+  }
 }

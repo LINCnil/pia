@@ -1,7 +1,7 @@
-<div class="pia-cardsBlock pia-doingBlock">
+<div class="pia-cardsBlock pia-doingBlock" [attr.data-id]="pia.id">
 
     <div class="pia-cardsBlock-header-title" *ngIf="pia.id != null">
-      <span *ngIf="pia.status == '1'; else piaArchived">En cours</span>
+      <span *ngIf="isOngoingPIA(); else piaArchived">En cours</span>
       <ng-template #piaArchived>
         Archivée
       </ng-template>

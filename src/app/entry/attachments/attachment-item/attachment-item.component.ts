@@ -1,4 +1,3 @@
-import { Router, ActivatedRoute, Params  } from '@angular/router';
 import { Component, OnInit, Input } from '@angular/core';
 
 import { Attachment } from '../attachment.model';
@@ -12,16 +11,12 @@ import { ModalsService } from 'app/modals/modals.service';
 })
 export class AttachmentItemComponent implements OnInit {
 
-  pia_id: number;
   @Input() attachment: any;
+  @Input() pia: any;
 
-  constructor(private activatedRoute: ActivatedRoute,
-              private _modalsService: ModalsService) { }
+  constructor(private _modalsService: ModalsService) { }
 
   ngOnInit() {
-    this.activatedRoute.params.subscribe((params: Params) => {
-      this.pia_id = params['id'];
-    });
   }
 
   /**
@@ -48,6 +43,14 @@ export class AttachmentItemComponent implements OnInit {
         a.click();
       });
     });
+  }
+
+  /**
+   * Checks if the add attachments button has to be shown, according to the PIA status.
+   * @return true if the PIA isn't validated (simple or signed validation), false otherwise.
+   */
+  showAddAttachmentButton() {
+    return (this.pia.status !== 2 && this.pia.status !== 3);
   }
 
 }

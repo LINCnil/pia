@@ -40,7 +40,7 @@ export class Pia extends ApplicationDb {
         applied_adjustements: this.applied_adjustements,
         created_at: this.created_at,
         updated_at: new Date(),
-        status: 1,
+        status: 0,
         dpos_names: this.dpos_names,
         people_names: this.people_names
       }).onsuccess = (event: any) => {
@@ -77,7 +77,7 @@ export class Pia extends ApplicationDb {
     this.id = id;
     return new Promise((resolve, reject) => {
       this.find(this.id).then((entry: any) => {
-        this.status = parseInt(entry.status, 10);
+        this.status = entry.status;
         this.name = entry.name;
         this.author_name = entry.author_name;
         this.evaluator_name = entry.evaluator_name;

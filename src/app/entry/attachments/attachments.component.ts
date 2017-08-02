@@ -39,6 +39,10 @@ export class AttachmentsComponent implements OnInit {
     attachment.click();
   }
 
+  /**
+   * Allows users to upload an attachment for a specific PIA.
+   * @param {event} event : any kind of event.
+   */
   uploadAttachement(event: any) {
     const attachment_file = event.target.files[0];
     const file = new Blob([attachment_file]);
@@ -55,5 +59,13 @@ export class AttachmentsComponent implements OnInit {
         this._attachmentsService.attachments.unshift(attachment);
       });
     }
+  }
+
+  /**
+   * Checks if the form has to be shown, according to the PIA status.
+   * @return true if the PIA isn't validated (simple or signed validation), false otherwise.
+   */
+  showAttachmentForm() {
+    return (this.pia.status !== 2 && this.pia.status !== 3);
   }
 }

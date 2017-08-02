@@ -23,10 +23,10 @@
 
 <div class="pia-validatePIABlock">
   <!-- TODO : add adequate links (2 components : validatePIAComponent / refusePIAComponent ) -->
-  <a class="btn btn-inactive" *ngIf="_piaService.pia.status === 1">Valider le PIA</a>
+  <a class="btn btn-inactive" *ngIf="lockedValidationButton()">Valider le PIA</a>
   <a routerLink="/entry/{{_piaService.pia.id}}/section/4/item/4" class="btn btn-red btn-active"
-     *ngIf="_piaService.pia.status === 3 || _piaService.pia.status === 4">Valider le PIA</a>
+     *ngIf="showValidationButton()">Valider le PIA</a>
   <a routerLink="/entry/{{_piaService.pia.id}}/section/4/item/5" class="btn btn-red btn-active hide"
-     *ngIf="_piaService.pia.status === 5">PIA refusé</a>
+     *ngIf="showRefuseButton()">PIA refusé</a>
 </div>
 <app-attachments [pia]="_piaService.pia"></app-attachments>
