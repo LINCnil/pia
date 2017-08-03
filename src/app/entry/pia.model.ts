@@ -1,5 +1,6 @@
 import { ApplicationDb } from '../application.db';
 
+
 export class Pia extends ApplicationDb {
   public id: number;
   public status: number; // 0: doing, 1: refused, 2: simple_validation, 3: signed_validation
@@ -96,4 +97,41 @@ export class Pia extends ApplicationDb {
     });
   }
 
+  getStatusName() {
+    switch (this.status) {
+      case 0:
+      {
+        return 'Doing';
+      }
+      case 1:
+      {
+        return 'Refused';
+      }
+      case 2:
+      {
+        return 'Simple Validation';
+      }
+      case 3:
+      {
+        return 'Signed Validation';
+      }
+    }
+  }
+  getOpinionsStatus(status: number) {
+    if (status ) {
+      switch (status) {
+        case 0:
+        {
+          return 'Le traitement ne devrait pas être mis en oeuvre.';
+        }
+        case 1:
+        {
+          return 'Le traitement devrait être mis en oeuvre.';
+        }
+      }
+    }
+  }
 }
+
+
+

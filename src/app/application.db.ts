@@ -1,11 +1,11 @@
 export class ApplicationDb {
   public pia_id: number;
   public reference_to: string;
+  public created_at: Date;
+  public updated_at: Date;
   protected dbVersion: number;
   protected tableName: string;
   protected objectStore: IDBObjectStore;
-  protected created_at: Date;
-  protected updated_at: Date;
 
   constructor(dbVersion: number, tableName: string) {
     this.dbVersion = dbVersion;
