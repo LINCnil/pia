@@ -7,7 +7,7 @@
     <div class="pia-measureBlock-title">
       <button type="button" (click)="displayMeasure()" class="btn" title="Afficher / masquer"><span class="pia-icons pia-icon-accordeon-up"></span></button>
       <input [attr.data-id]="measure.id" id="pia-measure-title-{{measure.id}}" formControlName="measureTitle"
-             (focusout)="measureTitleFocusOut($event)" type="text" value="{{measure.title}}" placeholder="Titre de la mesure">
+             (focusout)="measureTitleFocusOut($event)" type="text" placeholder="Titre de la mesure">
     </div>
     <div class="pia-measureBlock-displayer fadeIn">
       <button type="button" class="btn pia-measureBlock-delete" (click)="removeMeasure(measure.id)" title="Supprimer"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
@@ -17,10 +17,10 @@
                   (focusout)="measureContentFocusOut($event)" rows="8" cols="50"
                   placeholder="{{measure.placeholder}}"></textarea>
       </div>
-      <app-comments [pia]="pia" [measure]="measure"></app-comments>
-      <!-- TODO : To show only on evaluation mode -->
-      <!-- Todo : voir pour caler un mesureId pour app evaluation -->
-      <app-evaluations [pia]="pia" [section]="section" [item]="item" [measureId]="measure.id"></app-evaluations>
     </div>
   </form>
+  <app-comments [pia]="pia" [measure]="measure"></app-comments>
+  <!-- TODO : To show only on evaluation mode -->
+  <!-- Todo : voir pour caler un mesureId pour app evaluation -->
+  <app-evaluations [pia]="pia" [section]="section" [item]="item" [measureId]="measure.id"></app-evaluations>
 </div>
