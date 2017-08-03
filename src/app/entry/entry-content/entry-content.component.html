@@ -24,41 +24,32 @@
     </div>
   </ng-template>
 
-    <app-evaluations *ngIf="item.evaluation_mode == 'item'" [pia]="_piaService.pia" [section]="section" [item]="item"></app-evaluations>
+  <app-evaluations *ngIf="item.evaluation_mode == 'item'" [pia]="_piaService.pia" [section]="section" [item]="item"></app-evaluations>
 
-    <!-- Section 4 : VALIDATION -->
+  <app-validate-pia *ngIf="section.id == 4 && item.id == 4"></app-validate-pia>
+  <app-refuse-pia *ngIf="section.id == 4 && item.id == 5" [pia]="_piaService.pia"></app-refuse-pia>
+  <app-risks-cartography *ngIf="section.id == 4 && item.id == 1" [pia]="_piaService.pia"></app-risks-cartography>
+  <app-action-plan *ngIf="section.id == 4 && item.id == 2" [pia]="_piaService.pia"></app-action-plan>
+  <app-dpo-people-opinions *ngIf="section.id == 4 && item.id == 3"></app-dpo-people-opinions>
 
-    <!-- TODO : if page is PIA validation, show this -->
-    <app-validate-pia *ngIf="section.id == 4 && item.id == 4"></app-validate-pia>
-
-    <!-- TODO : if page is refuse PIA, show this -->
-    <app-refuse-pia *ngIf="section.id == 4 && item.id == 5" [pia]="_piaService.pia"></app-refuse-pia>
-
-    <app-risks-cartography *ngIf="section.id == 4 && item.id == 1" [pia]="_piaService.pia"></app-risks-cartography>
-
-    <app-action-plan *ngIf="section.id == 4 && item.id == 2" [pia]="_piaService.pia"></app-action-plan>
-
-    <app-dpo-people-opinions *ngIf="section.id == 4 && item.id == 3"></app-dpo-people-opinions>
-
-    <footer class="pia-entryContentBlock-footer">
-        <!-- TODO Refactor needed -->
-        <div class="pia-entryContentBlock-footer-measures" *ngIf="section.id == 3 && item.id == 1">
-            <button (click)="_measureService.addNewMeasure(_piaService.pia)" class="btn btn-white" type="button" title="Ajouter une mesure"><span class="pia-icons pia-icon-add"></span>Ajouter une mesure</button>
-            <button (click)="askForEvaluation()" class="btn btn-green" [ngClass]="{'btn-active': false}" [disabled]="true" type="submit" title="Demander l'évaluation">Demander l'évaluation</button>
-        </div>
-        <button class="btn btn-green" (click)="askForEvaluation()" [ngClass]="{'btn-active': false, 'hide': ((section.id == 3 && item.id == 1) || (section.id == 3 && item.id == 5)) || section.id == 4}" [disabled]="true" type="submit" title="Demander l'évaluation">Demander l'évaluation</button>
-        <button class="btn btn-green" (click)="validateEvaluation()" [ngClass]="{'btn-active': false, 'hide': (section.id == 3 && item.id == 5) || section.id == 4}" [disabled]="true" type="submit" title="Valider l'évaluation">Valider l'évaluation</button>
-        <button class="btn btn-pending-validation" [ngClass]="{'hide': (section.id == 3 && item.id == 5) || section.id == 4}" disabled type="submit" title="Partie évaluée, en attente de la validation finale">
+  <footer class="pia-entryContentBlock-footer">
+    <div class="pia-entryContentBlock-footer-measures" *ngIf="section.id == 3 && item.id == 1">
+      <button (click)="_measureService.addNewMeasure(_piaService.pia)" class="btn btn-white" type="button" title="Ajouter une mesure"><span class="pia-icons pia-icon-add"></span>Ajouter une mesure</button>
+      <button (click)="askForEvaluation()" class="btn btn-green" [ngClass]="{'btn-active': false}" [disabled]="true" type="submit" title="Demander l'évaluation">Demander l'évaluation</button>
+    </div>
+    <button class="btn btn-green" (click)="askForEvaluation()" [ngClass]="{'btn-active': false, 'hide': ((section.id == 3 && item.id == 1) || (section.id == 3 && item.id == 5)) || section.id == 4}" [disabled]="true" type="submit" title="Demander l'évaluation">Demander l'évaluation</button>
+    <button class="btn btn-green" (click)="validateEvaluation()" [ngClass]="{'btn-active': false, 'hide': (section.id == 3 && item.id == 5) || section.id == 4}" [disabled]="true" type="submit" title="Valider l'évaluation">Valider l'évaluation</button>
+    <button class="btn btn-pending-validation" [ngClass]="{'hide': (section.id == 3 && item.id == 5) || section.id == 4}" disabled type="submit" title="Partie évaluée, en attente de la validation finale">
       <i class="fa fa-check-square-o" aria-hidden="true"></i>
       Partie évaluée, en attente de la validation finale
     </button>
 
-        <!-- TODO : pagination -->
-        <p [ngClass]="{'hide': (section.id == 3 && item.id == 5) || section.id == 4}">Tous les champs doivent être remplis</p>
+    <p [ngClass]="{'hide': (section.id == 3 && item.id == 5) || section.id == 4}">Tous les champs doivent être remplis</p>
 
-        <div class="hide pia-entryContentBlock-footer-nav">
-            <a href="#"><< Contexte </a>
-            <a href="#">Principes fondamentaux >></a>
-        </div>
-    </footer>
+    <!-- TODO : pagination -->
+    <div class="hide pia-entryContentBlock-footer-nav">
+      <a href="#"><< Contexte </a>
+      <a href="#">Principes fondamentaux >></a>
+    </div>
+  </footer>
 </section>

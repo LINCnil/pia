@@ -27,7 +27,7 @@ export class KnowledgeBaseService {
     }
     if (this.filter && this.filter.length > 0) {
       this.knowledgeBaseData = this.knowledgeBaseData.filter((item) => {
-        return (item.measure_type.startsWith(this.filter));
+        return (item.filters.startsWith(this.filter));
       });
     }
     if (this.linkKnowledgeBase && this.linkKnowledgeBase.length > 0) {
@@ -35,15 +35,10 @@ export class KnowledgeBaseService {
         return (this.linkKnowledgeBase.indexOf(item.slug) >= 0);
       });
     }
-    if (event) {
-      event.target.parentNode.querySelectorAll('button').forEach(element => {
-        element.classList.remove('active');
-      });
-      event.target.classList.add('active');
-    }
+    this.switchSelectedElement(event);
   }
 
-  loadByItem(item: any) {
+  loadByItem(item: any, event?: any) {
     if (this.allKnowledgeBaseData) {
       this.knowledgeBaseData = this.allKnowledgeBaseData;
       let kbSlugs = [];
@@ -65,6 +60,16 @@ export class KnowledgeBaseService {
       } else {
         this.knowledgeBaseData = [];
       }
+      this.switchSelectedElement(event);
+    }
+  }
+
+  switchSelectedElement(event: any) {
+    if (event) {
+      event.target.parentNode.querySelectorAll('button').forEach(element => {
+        element.classList.remove('active');
+      });
+      event.target.classList.add('active');
     }
   }
 

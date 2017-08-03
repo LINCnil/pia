@@ -6,7 +6,6 @@
     <h1>Base de connaissance</h1>
   </div>
 
-  <!-- TODO : get the search input to work -->
   <div class="pia-knowledgeBaseBlock-searchForm">
     <form (ngSubmit)="onSubmit(searchForm)" [formGroup]="searchForm">
       <input type="search" formControlName="q">
@@ -14,17 +13,14 @@
     </form>
   </div>
 
-  <!-- TODO : show this only if we are on "Mesures existantes ou prévues" subsection -->
-  <!-- TODO : get the filters to work -->
   <div class="pia-knowledgeBaseBlock-filters" *ngIf="item && item.filter_by === 'measure'">
     <div>Filtres</div>
-    <button class="btn active" type="button" (click)="_knowledgeBaseService.search('', $event)" title="Toutes les mesures">Toutes les mesures</button>
+    <button class="btn active" type="button" (click)="_knowledgeBaseService.loadByItem(item, $event)" title="Toutes les mesures">Toutes les mesures</button>
     <button class="btn" type="button" (click)="_knowledgeBaseService.search('measure.goverance', $event)" title="Mesures organisationnelles">Mesures organisationnelles</button>
     <button class="btn" type="button" (click)="_knowledgeBaseService.search('measure.data_processing', $event)" title="Mesures sur les données">Mesures sur les données</button>
     <button class="btn" type="button" (click)="_knowledgeBaseService.search('measure.security', $event)" title="Mesures générales">Mesures générales</button>
   </div>
 
-  <!-- Contains each knowledge base item -->
   <div class="pia-knowledgeBaseBlock-list">
     <app-knowledge-base-item *ngFor="let item of _knowledgeBaseService.knowledgeBaseData" [item]="item" (newMeasureEvent)="addNewMeasure($event)"></app-knowledge-base-item>
   </div>

@@ -63,6 +63,7 @@ export class MeasuresComponent implements OnInit {
           this.measureForm.controls['measureContent'].disable();
         }
         this.measureModel.title = titleValue;
+        this.measureModel.content = contentValue;
         this.measureModel.update().then(() => {
           this.showEditButton();
           this.measureForm.controls['measureTitle'].disable();
@@ -95,6 +96,7 @@ export class MeasuresComponent implements OnInit {
         if (titleValue && titleValue.length > 0) {
           this.measureForm.controls['measureTitle'].disable();
         }
+        this.measureModel.title = titleValue;
         this.measureModel.content = contentValue;
         this.measureModel.update().then(() => {
           this.showEditButton();

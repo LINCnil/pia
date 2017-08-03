@@ -25,10 +25,6 @@ export class CommentsComponent implements OnInit {
 
   ngOnInit() {
     this.comments = [];
-    /*
-      TODO : load in 'this.comments' the adequate comments for each specific question/measure.
-      Think to do this in the promise : this.nbComments = this.comments.length;
-    */
     const commentsModel = new Comment();
     commentsModel.pia_id = this.pia.id;
     if (this.measure) {
@@ -37,19 +33,9 @@ export class CommentsComponent implements OnInit {
       commentsModel.reference_to = this.question.id;
     }
 
-    if (this.measure) {
-      /* TODO : select * from comments where comment.pia_id = this.pia.id && comment.for_measure = true && reference_to = this.measure.id */
-    } else {
-      /* TODO : select * from comments where comment.pia_id = this.pia.id && reference_to = this.question.id */
-    }
-
-    // Just for now 'till we code the above TODO...
     commentsModel.findAll().then((entries) => {
-      /*
-        TODO : les mettre dans l'ordre inversé : du dernier au premier
-        (dans la logique de l'outil où les derniers commentaires sont en haut/en premier)
-      */
       this.comments = entries;
+      this.comments.reverse();
     });
 
     this.commentsForm = new FormGroup({

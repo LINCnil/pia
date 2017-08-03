@@ -11,22 +11,24 @@
         <hr>
       </div>
       <ul class="pia-sectionBlock-list">
-        <li *ngFor="let dataItem of dataSection?.items">
-          <a routerLink="/entry/{{_piaService.pia.id}}/section/{{dataSection.id}}/item/{{dataItem.id}}"
-             [ngClass]="{'active': section.id == dataSection.id && item.id == dataItem.id}">{{dataItem.title}}</a>
-          <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-        </li>
+        <ng-container *ngFor="let dataItem of dataSection?.items">
+          <li *ngIf="!dataItem.hide">
+            <a routerLink="/entry/{{_piaService.pia.id}}/section/{{dataSection.id}}/item/{{dataItem.id}}"
+              [ngClass]="{'active': section.id == dataSection.id && item.id == dataItem.id}">{{dataItem.title}}</a>
+            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+          </li>
+        </ng-container>
       </ul>
     </div>
   </div>
 </div>
 
 <div class="pia-validatePIABlock">
-  <!-- TODO : add adequate links (2 components : validatePIAComponent / refusePIAComponent ) -->
   <a class="btn btn-inactive" *ngIf="lockedValidationButton()">Valider le PIA</a>
   <a routerLink="/entry/{{_piaService.pia.id}}/section/4/item/4" class="btn btn-red btn-active"
      *ngIf="showValidationButton()">Valider le PIA</a>
   <a routerLink="/entry/{{_piaService.pia.id}}/section/4/item/5" class="btn btn-red btn-active hide"
      *ngIf="showRefuseButton()">PIA refusé</a>
 </div>
+
 <app-attachments [pia]="_piaService.pia"></app-attachments>

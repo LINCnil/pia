@@ -42,9 +42,6 @@ export class CardItemComponent implements OnInit {
     }
   }
 
-  /**
-   * TODO : explain this function
-   */
   onSubmit() {
     const pia = new Pia();
     pia.id = this.piaForm.value.id;
