@@ -15,7 +15,7 @@
 
       <!-- TODO : to display only if question is of type 'gauge' -->
       <div class="pia-gaugeBlock" *ngIf="question.answer_type == 'gauge'">
-        <input type="range" (change)="checkGaugeChanges($event)" formControlName="gauge" min="0" max="3" step="1">
+        <input type="range" (change)="checkGaugeChanges($event)" formControlName="gauge" min="1" max="4" step="1">
         <div>
           <div>Négligeable</div>
           <div>Limité</div>

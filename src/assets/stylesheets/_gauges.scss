@@ -37,15 +37,15 @@
       background: linear-gradient(90deg, #fff, $pia-gray);
       box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 1px 2px 0 rgba(0, 0, 0, 0.2);
     }
-    &-background-1 {
+    &-background-2 {
       width: calc(33% + 15px);
       background: linear-gradient(90deg, $pia-green, #7fac85);
     }
-    &-background-2 {
+    &-background-3 {
       width: calc(66% + 9px);
       background: linear-gradient(90deg, $pia-green, #b87f77);
     }
-    &-background-3 {
+    &-background-4 {
       width: calc(99% + 2px);
       background: linear-gradient(90deg, $pia-green, $pia-red);
     }

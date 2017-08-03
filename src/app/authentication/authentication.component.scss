@@ -2,6 +2,9 @@
 
 .pia-authenticationBlock {
     padding-top: 110px;
+    &-warning {
+      color: white;
+    }
     &-logo {
         > img {
             margin-bottom: 37px;

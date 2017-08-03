@@ -2,8 +2,8 @@
   <div class="pia-knowledgeBaseBlock-item-accordion">
     <button class="btn" type="button" (click)="displayItem()" title="Afficher / masquer"><span class="pia-icons pia-icon-accordeon-up"></span></button>
   </div><div class="pia-knowledgeBaseBlock-item-definition">
-    <p>Définition</p>
-    <button *ngIf="item.measure_type.startsWith('measure.')" class="btn" type="button" (click)="addNewMeasure()" title="Ajouter une mesure">
+    <p>{{item.category}}</p>
+    <button *ngIf="item.filters.startsWith('measure.')" class="btn" type="button" (click)="addNewMeasure()" title="Ajouter une mesure">
       <span class="pia-icons pia-icon-add"></span>
       <p>Ajouter</p>
     </button>

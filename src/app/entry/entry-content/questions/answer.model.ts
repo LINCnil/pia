@@ -3,7 +3,7 @@ import { ApplicationDb } from '../../../application.db';
 export class Answer extends ApplicationDb {
   public id: number;
   public reference_to: string;
-  public data: { text: string, gauge: number[], list: string[] };
+  public data: { text: string, gauge: number, list: string[] };
 
   constructor() {
     super(201707071818, 'answer');
@@ -76,6 +76,23 @@ export class Answer extends ApplicationDb {
     return new Promise((resolve, reject) => {
       const index1 = this.objectStore.index('index1');
       index1.openCursor(IDBKeyRange.only([this.pia_id, this.reference_to])).onsuccess = (event: any) => {
+        const cursor = event.target.result;
+        if (cursor) {
+          items.push(cursor.value);
+          cursor.continue();
+        } else {
+          resolve(items);
+        }
+      }
+    });
+  }
+
+  async getGaugeByPia(pia_id: number) {
+    const items = [];
+    await this.getObjectStore();
+    return new Promise((resolve, reject) => {
+      const index2 = this.objectStore.index('index2');
+      index2.openCursor(IDBKeyRange.only(pia_id)).onsuccess = (event: any) => {
         const cursor = event.target.result;
         if (cursor) {
           items.push(cursor.value);

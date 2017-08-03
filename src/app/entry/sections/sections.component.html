@@ -11,11 +11,13 @@
         <hr>
       </div>
       <ul class="pia-sectionBlock-list">
-        <li *ngFor="let dataItem of dataSection?.items">
-          <a routerLink="/entry/{{_piaService.pia.id}}/section/{{dataSection.id}}/item/{{dataItem.id}}"
-             [ngClass]="{'active': section.id == dataSection.id && item.id == dataItem.id}">{{dataItem.title}}</a>
-          <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-        </li>
+        <ng-container *ngFor="let dataItem of dataSection?.items">
+          <li *ngIf="!dataItem.hide">
+            <a routerLink="/entry/{{_piaService.pia.id}}/section/{{dataSection.id}}/item/{{dataItem.id}}"
+              [ngClass]="{'active': section.id == dataSection.id && item.id == dataItem.id}">{{dataItem.title}}</a>
+            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+          </li>
+        </ng-container>
       </ul>
     </div>
   </div>

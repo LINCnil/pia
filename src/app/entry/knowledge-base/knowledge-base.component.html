@@ -15,7 +15,7 @@
 
   <div class="pia-knowledgeBaseBlock-filters" *ngIf="item && item.filter_by === 'measure'">
     <div>Filtres</div>
-    <button class="btn active" type="button" (click)="_knowledgeBaseService.search('', $event)" title="Toutes les mesures">Toutes les mesures</button>
+    <button class="btn active" type="button" (click)="_knowledgeBaseService.loadByItem(item, $event)" title="Toutes les mesures">Toutes les mesures</button>
     <button class="btn" type="button" (click)="_knowledgeBaseService.search('measure.goverance', $event)" title="Mesures organisationnelles">Mesures organisationnelles</button>
     <button class="btn" type="button" (click)="_knowledgeBaseService.search('measure.data_processing', $event)" title="Mesures de sécurité logistique">Mesures de sécurité logistique</button>
     <button class="btn" type="button" (click)="_knowledgeBaseService.search('measure.security', $event)" title="Mesures de sécurité physique">Mesures de sécurité physique</button>

@@ -31,6 +31,7 @@ export class ApplicationDb {
           objectStore.createIndex('index1', ['pia_id', 'reference_to'], { unique: false });
         } else if (this.tableName === 'answer') {
           objectStore.createIndex('index1', ['pia_id', 'reference_to'], { unique: false });
+          objectStore.createIndex('index2', 'pia_id', { unique: false });
         } else if (this.tableName === 'measure') {
           objectStore.createIndex('index1', 'pia_id', { unique: false });
         } else if (this.tableName === 'attachment') {

@@ -37,12 +37,14 @@ export class QuestionsComponent implements OnInit {
         this.questionForm.controls['list'].patchValue(this.answer.data.list);
         this.el.nativeElement.querySelector('.pia-gaugeBlock-background').classList.
           add('pia-gaugeBlock-background-' + this.answer.data.gauge);
-        this.showEditButton();
-        if (this.answer.data.gauge) {
+        if (this.answer.data.gauge >= 0) {
           this.questionForm.controls['gauge'].disable();
         }
-        if (this.answer.data.text) {
+        if (this.answer.data.text && this.answer.data.text.length > 0) {
           this.questionForm.controls['text'].disable();
+        }
+        if (this.answer.data.gauge >= 0 || (this.answer.data.text && this.answer.data.text.length > 0)) {
+          this.showEditButton();
         }
       }
     });
@@ -68,13 +70,14 @@ export class QuestionsComponent implements OnInit {
   checkGaugeChanges(event: any) {
     const value: string = event.target.value;
     const bgElement = event.target.parentNode.querySelector('.pia-gaugeBlock-background');
-    bgElement.classList.remove('pia-gaugeBlock-background-1');
     bgElement.classList.remove('pia-gaugeBlock-background-2');
     bgElement.classList.remove('pia-gaugeBlock-background-3');
+    bgElement.classList.remove('pia-gaugeBlock-background-4');
     bgElement.classList.add('pia-gaugeBlock-background-' + value);
-    if (this.questionForm.value.gauge && this.questionForm.value.gauge >= 0) {
+    const gaugeValue = parseInt(this.questionForm.value.gauge, 10);
+    if (gaugeValue >= 0) {
       if (this.answer.id) {
-        this.answer.data = { text: this.answer.data.text, gauge: this.questionForm.value.gauge, list: this.answer.data.list };
+        this.answer.data = { text: this.answer.data.text, gauge: gaugeValue, list: this.answer.data.list };
         this.answer.update().then(() => {
           this.showEditButton();
           this.questionForm.controls['gauge'].disable();
@@ -85,7 +88,7 @@ export class QuestionsComponent implements OnInit {
       } else {
         this.answer.pia_id = this.pia.id;
         this.answer.reference_to = this.question.id;
-        this.answer.data = { text: null, gauge: this.questionForm.value.gauge, list: [] };
+        this.answer.data = { text: null, gauge: gaugeValue, list: [] };
         this.answer.create().then(() => {
           this.showEditButton();
           this.questionForm.controls['gauge'].disable();
@@ -101,24 +104,25 @@ export class QuestionsComponent implements OnInit {
    * Disables question field + shows edit button + save data.
    */
   questionContentFocusOut() {
+    const gaugeValue = parseInt(this.questionForm.value.gauge, 10);
     if (this.questionForm.value.text && this.questionForm.value.text.length > 0) {
       if (this.answer.id) {
         this.answer.data = { text: this.questionForm.value.text, gauge: this.answer.data.gauge, list: this.answer.data.list };
         this.answer.update().then(() => {
           this.showEditButton();
           this.questionForm.controls['text'].disable();
-          if (this.questionForm.value.gauge && this.questionForm.value.gauge > 0) {
+          if (gaugeValue >= 0) {
             this.questionForm.controls['gauge'].disable();
           }
         });
       } else {
         this.answer.pia_id = this.pia.id;
         this.answer.reference_to = this.question.id;
-        this.answer.data = { text: this.questionForm.value.text, gauge: null, list: [] };
+        this.answer.data = { text: this.questionForm.value.text, gauge: 1, list: [] };
         this.answer.create().then(() => {
           this.showEditButton();
           this.questionForm.controls['text'].disable();
-          if (this.questionForm.value.gauge && this.questionForm.value.gauge > 0) {
+          if (gaugeValue >= 0) {
             this.questionForm.controls['gauge'].disable();
           }
         });

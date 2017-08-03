@@ -253,7 +253,10 @@
             {
               "id": 226,
               "title": "Les obligations des sous-traitants sont-elles clairement définies et contractualisées ?",
-              "link_knowledge_base": "",
+              "link_knowledge_base": [
+                "PIA_DEF_ST",
+                "PIA_LGL_ST"
+              ],
               "placeholder": "Pour chaque sous-traitant, décrivez le périmètre de ses responsabilités et indiquez les références aux contrats, codes de conduite et certifications qui fixent ses obligations.",
               "highlight_words": "",
               "answer_type": "text",
@@ -263,7 +266,9 @@
             {
               "id": 227,
               "title": "En cas de transfert de données en dehors de l'Union européenne, les données sont-elles protégées de manière équivalente ?",
-              "link_knowledge_base": "",
+              "link_knowledge_base": [
+                "PIA_LGL_TRAN"
+              ],
               "placeholder": "Pour chaque pays en dehors de l'Union européenne où des données sont stockées ou traitées, identifiez-le et indiquez s'il est reconnu comme adéquat ou décrivez les clauses qui encadrent le transfert.",
               "highlight_words": "",
               "answer_type": "text",
@@ -320,8 +325,7 @@
               "id": 321,
               "title": "Quels pourraient être les principaux impacts sur les personnes concernées si le risque se produisait ?",
               "link_knowledge_base": [
-                "PIA_DEF_ACCI",
-                "PIA_RSK_IMP"
+                "PIA_DEF_ACCI"
               ],
               "placeholder": "Saisissez les impacts potentiels.",
               "highlight_words": "impacts sur les personnes",
@@ -334,7 +338,6 @@
               "title": "Quelles sont les principales menaces qui pourraient permettre la réalisation du risque ?",
               "link_knowledge_base": [
                 "PIA_DEF_ACCI",
-                "PIA_RSK_MEN",
                 "PIA_DEF_MEN",
                 "PIA_EX_MENA",
                 "PIA_EX_MENM",
@@ -351,11 +354,10 @@
               "title": "Quelles sources de risques pourraient-elles en être à l'origine ?",
               "link_knowledge_base": [
                 "PIA_DEF_ACCI",
-                "PIA_RSK_SRC",
                 "PIA_DEF_SRC",
-                "PIA_SRC_HUMI",
-                "PIA_SRC_HUME",
-                "PIA_SRC_NHUM"
+                "PIA_EX_HUMI",
+                "PIA_EX_HUME",
+                "PIA_EX_NHUM"
               ],
               "placeholder": "Saisissez les sources de risque.",
               "highlight_words": "sources",
@@ -367,8 +369,7 @@
               "id": 324,
               "title": "Quelles sont les mesures, parmi celles identifiées, qui contribuent à traiter le risque ?",
               "link_knowledge_base": [
-                "PIA_DEF_ACCI",
-                "PIA_RSK_MES"
+                "PIA_DEF_ACCI"
               ],
               "placeholder": "Saisissez les mesures contribuant à traiter ce risque.",
               "highlight_words": "mesures",
@@ -381,7 +382,6 @@
               "title": "Comment estimez-vous la gravité du risque, notamment en fonction des impacts potentiels et des mesures prévues ?",
               "link_knowledge_base": [
                 "PIA_DEF_ACCI",
-                "PIA_RSK_GRVC",
                 "PIA_DEF_GRV",
                 "PIA_EX_IMPN",
                 "PIA_EX_IMPL",
@@ -391,6 +391,7 @@
               "placeholder": "Indiquez la gravité estimée.",
               "highlight_words": "gravité du risque",
               "answer_type": "gauge",
+              "cartography": "risk-access_x",
               "keywords": "",
               "active": true
             },
@@ -399,7 +400,6 @@
               "title": "Comment estimez-vous la vraisemblance du risque, notamment au regard des menaces, des sources de risques et des mesures prévues ?",
               "link_knowledge_base": [
                 "PIA_DEF_ACCI",
-                "PIA_RSK_VRAC",
                 "PIA_DEF_VRA",
                 "PIA_EX_VRAN",
                 "PIA_EX_VRAL",
@@ -409,6 +409,7 @@
               "placeholder": "Indiquez la vraisemblance estimée.",
               "highlight_words": "vraissemblance du risque",
               "answer_type": "gauge",
+              "cartography": "risk-access_y",
               "keywords": "",
               "active": true
             }
@@ -424,8 +425,7 @@
               "id": 331,
               "title": "Quels pourraient être les principaux impacts sur les personnes concernées si le risque se produisait ?",
               "link_knowledge_base": [
-                "PIA_DEF_MODI",
-                "PIA_RSK_IMP"
+                "PIA_DEF_MODI"
               ],
               "placeholder": "Saisissez les impacts potentiels.",
               "highlight_words": "impacts sur les personnes",
@@ -438,7 +438,6 @@
               "title": "Quelles sont les principales menaces qui pourraient permettre la réalisation du risque ?",
               "link_knowledge_base": [
                 "PIA_DEF_MODI",
-                "PIA_RSK_MEN",
                 "PIA_DEF_MEN",
                 "PIA_EX_MENA",
                 "PIA_EX_MENM",
@@ -455,7 +454,6 @@
               "title": "Quelles sources de risques pourraient-elles en être à l'origine ?",
               "link_knowledge_base": [
                 "PIA_DEF_MODI",
-                "PIA_RSK_SRC",
                 "PIA_DEF_SRC",
                 "PIA_SRC_HUMI",
                 "PIA_SRC_HUME",
@@ -471,9 +469,8 @@
               "id": 334,
               "title": "Quelles sont les mesures, parmi celles identifiées, qui contribuent à traiter le risque ?",
               "link_knowledge_base": [
-                "PIA_DEF_MODI",
-                "PIA_RSK_MES"
-              ],
+                "PIA_DEF_MODI"
+               ],
               "placeholder": "Saisissez les mesures contribuant à traiter ce risque.",
               "highlight_words": "mesures",
               "answer_type": "list",
@@ -485,7 +482,6 @@
               "title": "Comment estimez-vous la gravité du risque, notamment en fonction des impacts potentiels et des mesures prévues ?",
               "link_knowledge_base": [
                 "PIA_DEF_MODI",
-                "PIA_RSK_GRVC",
                 "PIA_DEF_GRV",
                 "PIA_EX_IMPN",
                 "PIA_EX_IMPL",
@@ -495,6 +491,7 @@
               "placeholder": "Indiquez la gravité estimée.",
               "highlight_words": "gravité du risque",
               "answer_type": "gauge",
+              "cartography": "risk-change_x",
               "keywords": "",
               "active": true
             },
@@ -503,7 +500,6 @@
               "title": "Comment estimez-vous la vraisemblance du risque, notamment au regard des menaces, des sources de risques et des mesures prévues ?",
               "link_knowledge_base": [
                 "PIA_DEF_MODI",
-                "PIA_RSK_VRAC",
                 "PIA_DEF_VRA",
                 "PIA_EX_VRAN",
                 "PIA_EX_VRAL",
@@ -513,6 +509,7 @@
               "placeholder": "Indiquez la vraisemblance estimée.",
               "highlight_words": "vraissemblance du risque",
               "answer_type": "gauge",
+              "cartography": "risk-change_y",
               "keywords": "",
               "active": true
             }
@@ -528,8 +525,7 @@
               "id": 341,
               "title": "Quels pourraient être les principaux impacts sur les personnes concernées si le risque se produisait ?",
               "link_knowledge_base": [
-                "PIA_DEF_IND",
-                "PIA_RSK_IMP"
+                "PIA_DEF_IND"
               ],
               "placeholder": "Saisissez les impacts potentiels.",
               "highlight_words": "impacts sur les personnes",
@@ -542,7 +538,6 @@
               "title": "Quelles sont les principales menaces qui pourraient permettre la réalisation du risque ?",
               "link_knowledge_base": [
                 "PIA_DEF_IND",
-                "PIA_RSK_MEN",
                 "PIA_DEF_MEN",
                 "PIA_EX_MENA",
                 "PIA_EX_MENM",
@@ -559,7 +554,6 @@
               "title": "Quelles sources de risques pourraient-elles en être à l'origine ?",
               "link_knowledge_base": [
                 "PIA_DEF_IND",
-                "PIA_RSK_SRC",
                 "PIA_DEF_SRC",
                 "PIA_SRC_HUMI",
                 "PIA_SRC_HUME",
@@ -575,8 +569,7 @@
               "id": 344,
               "title": "Quelles sont les mesures, parmi celles identifiées, qui contribuent à traiter le risque ?",
               "link_knowledge_base": [
-                "PIA_DEF_IND",
-                "PIA_RSK_MES"
+                "PIA_DEF_IND"
               ],
               "placeholder": "Saisissez les mesures contribuant à traiter ce risque.",
               "highlight_words": "mesures",
@@ -589,7 +582,6 @@
               "title": "Comment estimez-vous la gravité du risque, notamment en fonction des impacts potentiels et des mesures prévues ?",
               "link_knowledge_base": [
                 "PIA_DEF_IND",
-                "PIA_RSK_GRVC",
                 "PIA_DEF_GRV",
                 "PIA_EX_IMPN",
                 "PIA_EX_IMPL",
@@ -599,6 +591,7 @@
               "placeholder": "Indiquez la gravité estimée.",
               "highlight_words": "gravité du risque",
               "answer_type": "gauge",
+              "cartography": "risk-disappearance_x",
               "keywords": "",
               "active": true
             },
@@ -607,7 +600,6 @@
               "title": "Comment estimez-vous la vraisemblance du risque, notamment au regard des menaces, des sources de risques et des mesures prévues ?",
               "link_knowledge_base": [
                 "PIA_DEF_IND",
-                "PIA_RSK_VRAC",
                 "PIA_DEF_VRA",
                 "PIA_EX_VRAN",
                 "PIA_EX_VRAL",
@@ -617,6 +609,7 @@
               "placeholder": "Indiquez la vraisemblance estimée.",
               "highlight_words": "vraissemblance du risque",
               "answer_type": "gauge",
+              "cartography": "risk-disappearance_y",
               "keywords": "",
               "active": true
             }
@@ -626,7 +619,7 @@
           "id": 5,
           "title": "Vue d'ensemble des risques",
           "evaluation_mode": "",
-          "short_help": "Visualisation vous permettant d'avoir une vue globale et synthétique de vos risques et des facteurs les influençant.",
+          "short_help": "Cette visualisation vous permet d’avoir une vue globale et synthétique de l’action des mesures sur les composants des risques qu’elles contribuent à traiter.",
           "type": ""
         }
       ]
@@ -644,7 +637,7 @@
           "link_knowledge_base": [
             "PIA_VAL_CART"
           ],
-          "short_help": ""
+          "short_help": "Cette visualisation vous permet de comparer le positionnement des risques, entre eux et avant et après application des mesures complémentaires."
         },
         {
           "id": 2,
@@ -653,7 +646,7 @@
           "link_knowledge_base": [
             "PIA_VAL_ACT"
           ],
-          "short_help": ""
+          "short_help": "Planifiez en détail la mise en œuvre des mesures complémentaires déterminées au cours du PIA."
         },
         {
           "id": 3,
@@ -664,10 +657,11 @@
             "PIA_VAL_CONC",
             "PIA_VAL_RT"
           ],
-          "short_help": ""
+          "short_help": "Présentez le conseil de la personne en charge des aspects informatique et libertés (délégué à la protection des données s'il existe + Présentez l'avis des personnes concernées ou de leurs représentants."
         },
         {
           "id": 4,
+          "hide": true,
           "title": "Valider le PIA",
           "evaluation_mode": "",
           "link_knowledge_base": "",
@@ -675,6 +669,7 @@
         },
         {
           "id": 5,
+          "hide": true,
           "title": "PIA refusé",
           "evaluation_mode": "",
           "link_knowledge_base": "",
