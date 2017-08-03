@@ -1,17 +1,18 @@
-<div class="pia-evaluationBlock" [ngClass]="{'pia-evaluationBlock-shadowed pia-evaluationBlock-self-padding': item.evaluation_mode == 'section'}">
+<div class="pia-evaluationBlock" [ngClass]="{'pia-evaluationBlock-shadowed pia-evaluationBlock-self-padding': item.evaluation_mode === 'item'}">
   <div class="pia-evaluationBlock-title">Évaluation</div>
   <div class="pia-evaluationBlock-edit hide">
     <button class="btn" type="button" (click)="activateEvaluationEdition()" title="Éditer"><i class="fa fa-pencil" aria-hidden="true"></i></button>
   </div>
   <form [formGroup]="evaluationForm">
     <div class="pia-evaluationBlock-buttons">
-      <button class="btn btn-red" (click)="selectedButton($event)" name="fix" type="submit" title="À corriger">
+      <!-- TODO : add active state on button according to evaluation.status -->
+      <button class="btn btn-red" (click)="selectedButton($event)" data-btn-type="toBeFixed" name="fix" type="submit" title="À corriger">
         À corriger
       </button>
-      <button class="btn btn-blue" (click)="selectedButton($event)" data-btn-type="true" name="improvable" type="submit" title="Améliorable">
+      <button class="btn btn-blue" (click)="selectedButton($event)" data-btn-type="improvable" name="improvable" type="submit" title="Améliorable">
         Améliorable
       </button>
-      <button class="btn btn-green" (click)="selectedButton($event)" name="acceptable" type="submit" title="Acceptable">
+      <button class="btn btn-green" (click)="selectedButton($event)" data-btn-type="acceptable" name="acceptable" type="submit" title="Acceptable">
         Acceptable
       </button>
     </div>

@@ -17,6 +17,7 @@ export class QuestionsComponent implements OnInit {
   userMeasures = [];
   @Input() question: any;
   @Input() item: any;
+  @Input() section: any;
   @Input() pia: any;
   questionForm: FormGroup;
   answer: Answer = new Answer();

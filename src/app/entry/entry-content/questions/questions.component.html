@@ -21,7 +21,6 @@
       </div>
 
       <div class="pia-questionBlock-content">
-        <!-- TODO : check the question.type (text or list here) to display a question with tags or a simple question -->
         <tag-input
           *ngIf="question.answer_type == 'list'"
           (onAdd)="onAdd($event)"
@@ -30,9 +29,9 @@
           formControlName="list"
           [theme]="'foundation-theme'"
           [ngModel]="tags"
-          [placeholder]="'&#10010;'"
+          [placeholder]="question.placeholder + '&#10010;'"
           [editable]="'false'"
-          [secondaryPlaceholder]="'Entrez votre source  &#10010;'">
+          [secondaryPlaceholder]="question.placeholder + '&#10010;'">
           <tag-input-dropdown
             [showDropdownIfEmpty]="true"
             [autocompleteItems]="userMeasures">
@@ -58,5 +57,5 @@
   <app-comments [pia]="pia" [question]="question"></app-comments>
 
   <!-- TODO : to show only on evaluation mode -->
-  <app-evaluations *ngIf="item.evaluation_mode == 'question'" [item]="item"></app-evaluations>
+  <app-evaluations *ngIf="item.evaluation_mode == 'question'" [pia]="pia" [section]="section" [item]="item" [questionId]="question.id"></app-evaluations>
 </div>

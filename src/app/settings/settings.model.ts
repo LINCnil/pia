@@ -1,10 +1,8 @@
 import { ApplicationDb } from '../application.db';
 
-
 export class Settings extends ApplicationDb {
   public id: number;
   public server_url: string;
-
 
   constructor() {
     super(201707071818, 'settings');

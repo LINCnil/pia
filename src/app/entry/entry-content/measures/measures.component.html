@@ -19,7 +19,8 @@
       </div>
       <app-comments [pia]="pia" [measure]="measure"></app-comments>
       <!-- TODO : To show only on evaluation mode -->
-      <app-evaluations [pia]="pia" [item]="item"></app-evaluations>
+      <!-- Todo : voir pour caler un mesureId pour app evaluation -->
+      <app-evaluations [pia]="pia" [section]="section" [item]="item" [measureId]="measure.id"></app-evaluations>
     </div>
   </form>
 </div>

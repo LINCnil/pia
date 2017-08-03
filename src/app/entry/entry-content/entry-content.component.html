@@ -16,15 +16,15 @@
   </header>
 
   <ng-container *ngIf="item.filter_by === 'measure'; else appQuestions">
-    <app-measures *ngFor="let measure of _measureService.measures" [measure]="measure" [pia]="_piaService.pia" [item]="item"></app-measures>
+    <app-measures *ngFor="let measure of _measureService.measures" [measure]="measure" [pia]="_piaService.pia" [section]="section" [item]="item"></app-measures>
   </ng-container>
   <ng-template #appQuestions>
     <div *ngFor="let question of questions">
-      <app-questions [question]="question" [pia]="_piaService.pia" [item]="item"></app-questions>
+      <app-questions [question]="question" [pia]="_piaService.pia" [section]="section" [item]="item"></app-questions>
     </div>
   </ng-template>
 
-    <app-evaluations *ngIf="item.evaluation_mode == 'section'" [pia]="_piaService.pia" [section]="section" [item]="item"></app-evaluations>
+    <app-evaluations *ngIf="item.evaluation_mode == 'item'" [pia]="_piaService.pia" [section]="section" [item]="item"></app-evaluations>
 
     <!-- Section 4 : VALIDATION -->
 

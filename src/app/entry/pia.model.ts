@@ -39,7 +39,6 @@ export class Pia extends ApplicationDb {
         rejected_reason: this.rejected_reason,
         applied_adjustements: this.applied_adjustements,
         created_at: this.created_at,
-        updated_at: new Date(),
         status: 0,
         dpos_names: this.dpos_names,
         people_names: this.people_names
@@ -62,10 +61,10 @@ export class Pia extends ApplicationDb {
         entry.concerned_people_status = this.concerned_people_status;
         entry.rejected_reason = this.rejected_reason;
         entry.applied_adjustements = this.applied_adjustements;
-        entry.updated_at = new Date();
         entry.status = this.status;
         entry.dpos_names = this.dpos_names;
         entry.people_names = this.people_names;
+        entry.updated_at = new Date();
         this.objectStore.put(entry).onsuccess = () => {
           resolve();
         };

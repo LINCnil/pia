@@ -12,6 +12,7 @@ export class MeasuresComponent implements OnInit {
 
   @Input() measure: Measure;
   @Input() item: any;
+  @Input() section: any;
   @Input() pia: any;
   measureForm: FormGroup;
   measureModel: Measure = new Measure();
