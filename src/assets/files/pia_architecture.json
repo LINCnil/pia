@@ -287,6 +287,7 @@
       "items": [
         {
           "id": 1,
+          "is_measure": true,
           "filter_by": "measure",
           "title": "Mesures existantes ou prévues",
           "link_knowledge_base": [
