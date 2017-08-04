@@ -3,7 +3,56 @@
 <div class="container pia-mainContainerBlock">
     <div class="row">
       <div class="small-12 medium-12 columns">
-        <app-card-filter></app-card-filter>
+        <div class="pia-filtersBlock">
+          <button class="pia-filtersBlock-switch btn" onclick="alert('Bientôt disponible.');" type="button">
+            <i class="fa fa-list" aria-hidden="true"></i>
+            <div>liste</div>
+          </button>
+          <div class="pia-filtersBlock-filters">
+            <button class="pia-filtersBlock-filters-btn btn" type="button">
+              Trier les PIA
+              <span class="pia-icons pia-icon-scroll-green"></span>
+            </button>
+            <div class="pia-filtersBlock-filters-list">
+              <span>par</span>
+              <ul>
+                <li>
+                  <a (click)="sortBy('name');">Nom</a>
+                </li>
+                <li>
+                  <a (click)="sortBy('created_at');">Date</a>
+                </li>
+                <li>
+                  <a (click)="sortBy('state');">Status</a>
+                </li>
+                <li>
+                  <a (click)="sortBy('author');">Editeur</a>
+                </li>
+                <li>
+                  <a (click)="sortBy('evaluator');">Evaluateur</a>
+                </li>
+                <li>
+                  <a (click)="sortBy('validator');">Valideur</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <!--
+          <div class="pia-filtersBlock-buttons">
+              <button type="button" class="btn btn-green"><i class="fa fa-folder-open" aria-hidden="true"></i>Nouveau PIA</button>
+              <button type="button" class="btn btn-green"><i class="fa fa-upload" aria-hidden="true"></i>Importer PIA</button>
+          </div>
+          <div class="pia-filtersBlock-hint">
+              <div>
+                  <span class="pia-icons pia-icon-rocket-small"></span>
+                  <p>
+                      Lancez-vous ! Pour commencer<br>
+                      un PIA, c'est par là.
+                  </p>
+              </div>
+          </div>
+          -->
+        </div>
       </div>
     </div>
     <div class="row">

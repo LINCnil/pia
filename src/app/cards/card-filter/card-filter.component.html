@@ -11,22 +11,22 @@
         <div class="pia-filtersBlock-filters-list">
             <span>par</span>
             <ul>
-                <li>
+                <li (click)="sortBy('nom');">
                     <a href="#">Nom</a>
                 </li>
-                <li>
+                <li (click)="sortBy('Date');">
                     <a href="#">Date</a>
                 </li>
-                <li>
+                <li (click)="sortBy('Status');">
                     <a href="#">Status</a>
                 </li>
-                <li>
+                <li (click)="sortBy('Editeur');">
                     <a href="#">Editeur</a>
                 </li>
-                <li>
+                <li (click)="sortBy('Evaluateur');">
                     <a href="#">Evaluateur</a>
                 </li>
-                <li>
+                <li (click)="sortBy('Validateur');">
                     <a href="#">Valideur</a>
                 </li>
             </ul>
