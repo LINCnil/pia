@@ -129,7 +129,9 @@
             </div>
           </div>
         </div>
-        <app-card-item *ngFor="let pia of _piaService.pias;let i=index" [pia]="pia"></app-card-item>
+        <div>
+          <app-card-item class="test-{{pia.status}}" *ngFor="let pia of _piaService.pias;let i=index" [pia]="pia"></app-card-item>
+        </div>
       </div>
     </div>
 </div>

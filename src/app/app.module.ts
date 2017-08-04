@@ -78,7 +78,6 @@ const appRoutes: Routes = [
     HelpComponent,
     ModalsComponent,
     MeasuresComponent,
-    CardFilterComponent
   ],
   imports: [
     BrowserModule,
