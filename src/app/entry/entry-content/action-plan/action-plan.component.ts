@@ -1,6 +1,8 @@
 import { Component, ElementRef, OnInit, Input } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 
+import { Evaluation } from 'app/entry/entry-content/evaluations/evaluation.model';
+
 @Component({
   selector: 'app-action-plan',
   templateUrl: './action-plan.component.html',
@@ -9,11 +11,22 @@ import { FormControl, FormGroup } from '@angular/forms';
 export class ActionPlanComponent implements OnInit {
 
   @Input() pia: any;
+  evaluationModel: Evaluation = new Evaluation();
   actionPlanForm: FormGroup;
 
   constructor(private el: ElementRef) { }
 
   ngOnInit() {
+    this.evaluationModel.pia_id = this.pia.id;
+    console.log(this.evaluationModel);
+    this.evaluationModel.findAll().then((entries: any[]) => {
+      if (entries) {
+        entries.forEach(evaluation => {
+          console.log(evaluation);
+        });
+      }
+    });
+
     this.actionPlanForm = new FormGroup({
       actionPlanDate : new FormControl(),
       actionPlanExecutive: new FormControl()
@@ -28,8 +41,8 @@ export class ActionPlanComponent implements OnInit {
     const executiveValue = this.actionPlanForm.value.actionPlanExecutive;
 
     // Waiting for document.activeElement update
-    setTimeout(()=>{
-      if (dateValue && dateValue.length > 0 && document.activeElement.id != 'pia-action-plan-executive') {
+    setTimeout(() => {
+      if (dateValue && dateValue.length > 0 && document.activeElement.id !== 'pia-action-plan-executive') {
         this.showActionPlanEditButton();
         this.actionPlanForm.controls['actionPlanDate'].disable();
         // Disables executive field if both fields are filled and executive isn't the next targeted element.
@@ -39,11 +52,11 @@ export class ActionPlanComponent implements OnInit {
         // TODO : save data
       }
       // Disables executive field too if no date, and executive is filled and isn't the next targeted element.
-      if (!dateValue && executiveValue && executiveValue.length > 0 && document.activeElement.id != 'pia-action-plan-executive') {
+      if (!dateValue && executiveValue && executiveValue.length > 0 && document.activeElement.id !== 'pia-action-plan-executive') {
         this.showActionPlanEditButton();
         this.actionPlanForm.controls['actionPlanExecutive'].disable();
       }
-    },1);
+    }, 1);
   }
 
   /**
@@ -54,8 +67,8 @@ export class ActionPlanComponent implements OnInit {
     const executiveValue = this.actionPlanForm.value.actionPlanExecutive;
 
     // Waiting for document.activeElement update
-    setTimeout(()=>{
-      if (executiveValue && executiveValue.length > 0 && document.activeElement.id != 'pia-action-plan-date') {
+    setTimeout(() => {
+      if (executiveValue && executiveValue.length > 0 && document.activeElement.id !== 'pia-action-plan-date') {
         this.showActionPlanEditButton();
         this.actionPlanForm.controls['actionPlanExecutive'].disable();
         // Disables date field if both fields are filled and date isn't the next targeted element.
@@ -65,11 +78,11 @@ export class ActionPlanComponent implements OnInit {
         // TODO : save data
       }
       // Disables date field too if no executive, and dateValue is filled and isn't the next targeted element.
-      if (!executiveValue && dateValue && dateValue.length > 0 && document.activeElement.id != 'pia-action-plan-date') {
+      if (!executiveValue && dateValue && dateValue.length > 0 && document.activeElement.id !== 'pia-action-plan-date') {
         this.showActionPlanEditButton();
         this.actionPlanForm.controls['actionPlanDate'].disable();
       }
-    },1);
+    }, 1);
   }
 
   /**
