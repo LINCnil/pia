@@ -34,7 +34,6 @@ import { SettingsComponent } from './settings/settings.component';
 import { HelpComponent } from './help/help.component';
 import { ModalsComponent } from './modals/modals.component';
 import { MeasuresComponent } from './entry/entry-content/measures/measures.component';
-import { CardFilterComponent } from './cards/card-filter/card-filter.component';
 import { MeasureService } from './entry/entry-content/measures/measures.service';
 import { ModalsService } from './modals/modals.service';
 import { AttachmentsService } from './entry/attachments/attachments.service';
