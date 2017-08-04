@@ -106,14 +106,31 @@ export class Evaluation extends ApplicationDb {
     const items = [];
     await this.getObjectStore();
     return new Promise((resolve, reject) => {
-      const index1 = this.objectStore.index('index1');
-      index1.openCursor(IDBKeyRange.only([this.pia_id, this.reference_to])).onsuccess = (event: any) => {
+      const index1 = this.objectStore.index('index2');
+      index1.openCursor(IDBKeyRange.only(this.pia_id)).onsuccess = (event: any) => {
         const cursor = event.target.result;
         if (cursor) {
           items.push(cursor.value);
           cursor.continue();
         } else {
           resolve(items);
+        }
+      }
+    });
+  }
+
+  async existByReference(pia_id: number, reference_to: any) {
+    this.pia_id = pia_id;
+    this.reference_to = reference_to;
+    await this.getObjectStore();
+    return new Promise((resolve, reject) => {
+      const index1 = this.objectStore.index('index1');
+      index1.get(IDBKeyRange.only([this.pia_id, this.reference_to])).onsuccess = (event: any) => {
+        const entry = event.target.result;
+        if (entry) {
+          resolve(true);
+        } else {
+          resolve(false);
         }
       }
     });

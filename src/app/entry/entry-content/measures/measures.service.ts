@@ -20,6 +20,7 @@ export class MeasureService {
     /* Removing from DB */
     const measure = new Measure();
     measure.delete(measure_id).then(() => {
+      this._evaluationService.remove(measure_id);
       this._evaluationService.allowEvaluation();
     });
 
@@ -49,6 +50,8 @@ export class MeasureService {
     }
     if (measurePlaceholder) {
       newMeasureRecord.placeholder = measurePlaceholder;
+    } else {
+      newMeasureRecord.placeholder = 'Ajouter les mesures prises pour garantir la sécurité des données';
     }
     newMeasureRecord.create().then((entry: number) => {
       this._evaluationService.allowEvaluation();
