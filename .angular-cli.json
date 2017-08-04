@@ -31,9 +31,7 @@
       "styles": [
         "styles.scss"
       ],
-      "scripts": [
-        "../node_modules/jspdf/dist/jspdf.min.js"
-      ],
+      "scripts": [],
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",

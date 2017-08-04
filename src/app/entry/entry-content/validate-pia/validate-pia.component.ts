@@ -93,8 +93,7 @@ export class ValidatePIAComponent implements OnInit {
    */
   downloadPIA() {
     /* TODO : PIA status Condition Problem with 0 */
-    document.createElement('canvas');
-    const doc = new jsPDF('p', 'pt', 'a4');
+
 
   // PIA data
 

@@ -33,7 +33,6 @@ export class CardsComponent implements OnInit {
       validator_name: new FormControl()
     });
   }
-
   /**
    * Creates a new PIA card and adds a flip effect to go switch between new PIA and edit PIA events.
    */
@@ -66,5 +65,15 @@ export class CardsComponent implements OnInit {
     pia.validator_name = this.piaForm.value.validator_name;
     const p = pia.create();
     p.then((id) => this.router.navigate(['entry', id, 'section', 1, 'item', 1]));
+  }
+
+  /**
+   * Asort items created on PIA
+   */
+  sortBy(sort: string) {
+    console.log(this._piaService.pias)
+    this._piaService.pias = this._piaService.pias.sort((a, b) => {
+      return (a[sort] > b[sort]) ? 1 : 0 ;
+    });
   }
 }
