@@ -74,6 +74,10 @@ export class EvaluationService {
     /* TODO : update PIA status + 'refresh PIA' so that it changes header status icon + navigation status icons */
   }
 
+  validateEvaluation() {
+    console.log('test');
+  }
+
   private createEvaluationInDb(reference_to: string) {
     const evaluation = new Evaluation();
     evaluation.existByReference(this.pia.id, reference_to).then((exist: boolean) => {

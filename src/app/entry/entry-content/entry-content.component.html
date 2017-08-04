@@ -37,8 +37,8 @@
       <button (click)="_measureService.addNewMeasure(_piaService.pia)" class="btn btn-white" type="button" title="Ajouter une mesure"><span class="pia-icons pia-icon-add"></span>Ajouter une mesure</button>
       <button (click)="_evaluationService.prepareForEvaluation()" class="btn btn-green" [ngClass]="{'btn-active': _evaluationService.enable}" [disabled]="!_evaluationService.enable" type="submit" title="Demander l'évaluation">Demander l'évaluation</button>
     </div>
-    <button class="btn btn-green" (click)="askForEvaluation()" [ngClass]="{'btn-active': _evaluationService.enable, 'hide': ((section.id == 3 && item.id == 1) || (section.id == 3 && item.id == 5)) || section.id == 4}" [disabled]="!_evaluationService.enable" type="submit" title="Demander l'évaluation">Demander l'évaluation</button>
-    <button class="btn btn-green" (click)="validateEvaluation()" [ngClass]="{'btn-active': _evaluationService.toValidate, 'hide': (section.id == 3 && item.id == 5) || section.id == 4}" [disabled]="!_evaluationService.toValidate" type="submit" title="Valider l'évaluation">Valider l'évaluation</button>
+    <button class="btn btn-green" (click)="_evaluationService.prepareForEvaluation()" [ngClass]="{'btn-active': _evaluationService.enable, 'hide': ((section.id == 3 && item.id == 1) || (section.id == 3 && item.id == 5)) || section.id == 4}" [disabled]="!_evaluationService.enable" type="submit" title="Demander l'évaluation">Demander l'évaluation</button>
+    <button class="btn btn-green" (click)="_evaluationService.validateEvaluation()" [ngClass]="{'btn-active': _evaluationService.toValidate, 'hide': (section.id == 3 && item.id == 5) || section.id == 4}" [disabled]="!_evaluationService.toValidate" type="submit" title="Valider l'évaluation">Valider l'évaluation</button>
     <button class="btn btn-pending-validation" [ngClass]="{'hide': (section.id == 3 && item.id == 5) || section.id == 4}" disabled type="submit" title="Partie évaluée, en attente de la validation finale">
       <i class="fa fa-check-square-o" aria-hidden="true"></i>
       Partie évaluée, en attente de la validation finale

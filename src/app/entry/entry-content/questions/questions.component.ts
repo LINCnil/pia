@@ -85,6 +85,7 @@ export class QuestionsComponent implements OnInit {
       if (this.answer.id) {
         this.answer.data = { text: this.answer.data.text, gauge: gaugeValue, list: this.answer.data.list };
         this.answer.update().then(() => {
+          this._evaluationService.allowEvaluation();
           this.showEditButton();
           this.questionForm.controls['gauge'].disable();
           if (this.questionForm.value.text && this.questionForm.value.text.length > 0) {
@@ -96,6 +97,7 @@ export class QuestionsComponent implements OnInit {
         this.answer.reference_to = this.question.id;
         this.answer.data = { text: null, gauge: gaugeValue, list: [] };
         this.answer.create().then(() => {
+          this._evaluationService.allowEvaluation();
           this.showEditButton();
           this.questionForm.controls['gauge'].disable();
           if (this.questionForm.value.text && this.questionForm.value.text.length > 0) {
@@ -115,6 +117,7 @@ export class QuestionsComponent implements OnInit {
       if (this.answer.id) {
         this.answer.data = { text: this.questionForm.value.text, gauge: this.answer.data.gauge, list: this.answer.data.list };
         this.answer.update().then(() => {
+          this._evaluationService.allowEvaluation();
           this.showEditButton();
           this.questionForm.controls['text'].disable();
           if (gaugeValue > 0) {
@@ -126,6 +129,7 @@ export class QuestionsComponent implements OnInit {
         this.answer.reference_to = this.question.id;
         this.answer.data = { text: this.questionForm.value.text, gauge: 1, list: [] };
         this.answer.create().then(() => {
+          this._evaluationService.allowEvaluation();
           this.showEditButton();
           this.questionForm.controls['text'].disable();
           if (gaugeValue > 0) {
