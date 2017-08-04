@@ -5,6 +5,7 @@ import 'rxjs/add/operator/map';
 import { KnowledgeBaseService } from '../../knowledge-base/knowledge-base.service';
 import { Answer } from './answer.model';
 import { Measure } from '../measures/measure.model';
+import { EvaluationService } from 'app/entry/entry-content/evaluations/evaluations.service';
 
 @Component({
   selector: 'app-questions',
@@ -23,7 +24,9 @@ export class QuestionsComponent implements OnInit {
   answer: Answer = new Answer();
   measure: Measure = new Measure();
 
-  constructor(private el: ElementRef, private _knowledgeBaseService: KnowledgeBaseService) { }
+  constructor(private el: ElementRef,
+              private _knowledgeBaseService: KnowledgeBaseService,
+              private _evaluationService: EvaluationService) { }
 
   ngOnInit() {
     this.questionForm = new FormGroup({

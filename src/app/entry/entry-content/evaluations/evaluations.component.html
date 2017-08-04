@@ -9,7 +9,7 @@
       <button class="btn btn-red" (click)="selectedButton($event)" data-btn-type="toBeFixed" name="fix" type="submit" title="À corriger">
         À corriger
       </button>
-      <button class="btn btn-blue" (click)="selectedButton($event)" data-btn-type="improvable" name="improvable" type="submit" title="Améliorable">
+      <button class="btn btn-blue" *ngIf="section.id !== 1" (click)="selectedButton($event)" data-btn-type="improvable" name="improvable" type="submit" title="Améliorable">
         Améliorable
       </button>
       <button class="btn btn-green" (click)="selectedButton($event)" data-btn-type="acceptable" name="acceptable" type="submit" title="Acceptable">

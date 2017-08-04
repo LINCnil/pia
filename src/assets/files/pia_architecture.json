@@ -369,6 +369,7 @@
             {
               "id": 324,
               "title": "Quelles sont les mesures, parmi celles identifiées, qui contribuent à traiter le risque ?",
+              "is_measure": true,
               "link_knowledge_base": [
                 "PIA_DEF_ACCI"
               ],
@@ -469,6 +470,7 @@
             {
               "id": 334,
               "title": "Quelles sont les mesures, parmi celles identifiées, qui contribuent à traiter le risque ?",
+              "is_measure": true,
               "link_knowledge_base": [
                 "PIA_DEF_MODI"
                ],
@@ -569,6 +571,7 @@
             {
               "id": 344,
               "title": "Quelles sont les mesures, parmi celles identifiées, qui contribuent à traiter le risque ?",
+              "is_measure": true,
               "link_knowledge_base": [
                 "PIA_DEF_IND"
               ],

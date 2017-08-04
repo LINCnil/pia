@@ -80,7 +80,9 @@ export class ApplicationDb {
   async delete(id) {
     await this.getObjectStore();
     return new Promise((resolve, reject) => {
-      this.objectStore.delete(id);
+      this.objectStore.delete(id).onsuccess = (event: any) => {
+        resolve();
+      };
     });
   }
 }

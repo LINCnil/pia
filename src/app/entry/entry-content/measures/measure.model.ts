@@ -32,8 +32,9 @@ export class Measure extends ApplicationDb {
         entry.title = this.title;
         entry.content = this.content;
         entry.updated_at = new Date();
-        this.objectStore.put(entry);
-        resolve();
+        this.objectStore.put(entry).onsuccess = (event: any) => {
+          resolve();
+        };
       });
     });
   }
@@ -42,12 +43,12 @@ export class Measure extends ApplicationDb {
     this.id = id;
     return new Promise((resolve, reject) => {
       this.find(this.id).then((entry: any) => {
-      this.pia_id = parseInt(entry.pia_id, 10);
-      this.title = entry.title;
-      this.content = entry.content;
-      this.placeholder = entry.placeholder;
-      this.created_at = new Date(entry.created_at);
-      this.updated_at = new Date(entry.updated_at);
+        this.pia_id = parseInt(entry.pia_id, 10);
+        this.title = entry.title;
+        this.content = entry.content;
+        this.placeholder = entry.placeholder;
+        this.created_at = new Date(entry.created_at);
+        this.updated_at = new Date(entry.updated_at);
         resolve();
       });
     });

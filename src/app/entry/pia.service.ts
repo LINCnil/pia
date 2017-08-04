@@ -4,6 +4,7 @@ import { ActivatedRoute, Params } from '@angular/router';
 import { Pia } from './pia.model';
 
 import { ModalsService } from 'app/modals/modals.service';
+import { EvaluationService } from 'app/entry/entry-content/evaluations/evaluations.service';
 
 @Injectable()
 export class PiaService {
@@ -12,7 +13,7 @@ export class PiaService {
   pias: any[];
   pia: Pia = new Pia();
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute, private _evaluationService: EvaluationService) { }
 
   /**
    * Gets the PIA.
@@ -22,6 +23,7 @@ export class PiaService {
     return new Promise((resolve, reject) => {
       const piaId = parseInt(this.route.snapshot.params['id'], 10);
       this.pia.get(piaId).then((entry) => {
+        this._evaluationService.setPia(this.pia);
         resolve();
       });
     });

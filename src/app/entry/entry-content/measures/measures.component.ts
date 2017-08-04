@@ -2,6 +2,7 @@ import { Component, Input, ElementRef, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ModalsService } from 'app/modals/modals.service';
 import { Measure } from './measure.model';
+import { EvaluationService } from 'app/entry/entry-content/evaluations/evaluations.service';
 
 @Component({
   selector: 'app-measures',
@@ -19,7 +20,8 @@ export class MeasuresComponent implements OnInit {
 
   constructor(
     private el: ElementRef,
-    private _modalsService: ModalsService) { }
+    private _modalsService: ModalsService,
+    private _evaluationService: EvaluationService) { }
 
   ngOnInit() {
     this.measureForm = new FormGroup({
@@ -50,24 +52,22 @@ export class MeasuresComponent implements OnInit {
    * @param {event} event any event.
    */
   measureTitleFocusOut(event) {
-    const currentMeasureTitle = event.target || event.srcElement || event.currentTarget;
-    const currentMeasureID = currentMeasureTitle.getAttribute('data-id');
     const titleValue = this.measureForm.value.measureTitle;
     const contentValue = this.measureForm.value.measureContent;
 
     // Waiting for document.activeElement update
     setTimeout(() => {
-      if (titleValue && titleValue.length > 0 && document.activeElement.id !== 'pia-measure-content-' + currentMeasureID) {
+      this.measureModel.title = titleValue;
+      this.measureModel.update().then(() => {
+        this._evaluationService.allowEvaluation();
+      });
+      if (titleValue && titleValue.length > 0 && document.activeElement.id !== 'pia-measure-content-' + this.measureModel.id) {
+        this.showEditButton();
+        this.measureForm.controls['measureTitle'].disable();
         // Disables content field if both fields are filled and content isn't the next targeted element.
         if (contentValue && contentValue.length > 0) {
           this.measureForm.controls['measureContent'].disable();
         }
-        this.measureModel.title = titleValue;
-        this.measureModel.content = contentValue;
-        this.measureModel.update().then(() => {
-          this.showEditButton();
-          this.measureForm.controls['measureTitle'].disable();
-        });
       }
       // Disables content field too if no title and content is filled and isn't the next targeted element.
       if (!titleValue && contentValue && contentValue.length > 0 && document.activeElement.id !== 'pia-measure-content') {
@@ -84,24 +84,22 @@ export class MeasuresComponent implements OnInit {
    * @param {event} event any event.
    */
   measureContentFocusOut(event) {
-    const currentMeasureContent = event.target || event.srcElement || event.currentTarget;
-    const currentMeasureID = currentMeasureContent.getAttribute('data-id');
     const titleValue = this.measureForm.value.measureTitle;
     const contentValue = this.measureForm.value.measureContent;
 
     // Waiting for document.activeElement update
     setTimeout(() => {
-      if (contentValue && contentValue.length > 0 && document.activeElement.id !== 'pia-measure-title-' + currentMeasureID) {
+      this.measureModel.content = contentValue;
+      this.measureModel.update().then(() => {
+        this._evaluationService.allowEvaluation();
+      });
+      if (contentValue && contentValue.length > 0 && document.activeElement.id !== 'pia-measure-title-' + this.measureModel.id) {
+        this.showEditButton();
+        this.measureForm.controls['measureContent'].disable();
         // Disables title field if both fields are filled and title isn't the next targeted element.
         if (titleValue && titleValue.length > 0) {
           this.measureForm.controls['measureTitle'].disable();
         }
-        this.measureModel.title = titleValue;
-        this.measureModel.content = contentValue;
-        this.measureModel.update().then(() => {
-          this.showEditButton();
-          this.measureForm.controls['measureContent'].disable();
-        });
       }
       // Disables content field too if no title and content is filled and isn't the next targeted element.
       if (!contentValue && contentValue && titleValue.length > 0 && document.activeElement.id !== 'pia-measure-title') {

@@ -3,12 +3,14 @@ import { Injectable } from '@angular/core';
 import { Measure } from './measure.model';
 
 import { ModalsService } from 'app/modals/modals.service';
+import { EvaluationService } from 'app/entry/entry-content/evaluations/evaluations.service';
 
 @Injectable()
 export class MeasureService {
 
-  private _modalsService = new ModalsService();
   measures: any[];
+
+  constructor(private _modalsService: ModalsService, private _evaluationService: EvaluationService) {}
 
   /**
    * Allows an user to remove a measure ("RISKS" section).
@@ -17,7 +19,9 @@ export class MeasureService {
     const measure_id = parseInt(localStorage.getItem('measure-id'), 10);
     /* Removing from DB */
     const measure = new Measure();
-    measure.delete(measure_id);
+    measure.delete(measure_id).then(() => {
+      this._evaluationService.allowEvaluation();
+    });
 
     /* Removing the measure from the view */
     const measureToRemove = document.querySelector('.pia-measureBlock[data-id="' + measure_id + '"]');
@@ -47,6 +51,7 @@ export class MeasureService {
       newMeasureRecord.placeholder = measurePlaceholder;
     }
     newMeasureRecord.create().then((entry: number) => {
+      this._evaluationService.allowEvaluation();
       newMeasureRecord.id = entry;
       this.measures.push(newMeasureRecord);
     });

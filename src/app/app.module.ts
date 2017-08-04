@@ -39,6 +39,7 @@ import { MeasureService } from './entry/entry-content/measures/measures.service'
 import { ModalsService } from './modals/modals.service';
 import { AttachmentsService } from './entry/attachments/attachments.service';
 import { KnowledgeBaseService } from './entry/knowledge-base/knowledge-base.service';
+import { EvaluationService } from 'app/entry/entry-content/evaluations/evaluations.service';
 
 const appRoutes: Routes = [
   { path: '', component: AuthenticationComponent },
@@ -89,7 +90,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     TagInputModule
   ],
-  providers: [MeasureService, ModalsService, AttachmentsService, KnowledgeBaseService],
+  providers: [MeasureService, ModalsService, AttachmentsService, KnowledgeBaseService, EvaluationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

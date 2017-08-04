@@ -1,6 +1,7 @@
 import { Component, OnInit, Output } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Http } from '@angular/http';
+import { EvaluationService } from 'app/entry/entry-content/evaluations/evaluations.service';
 
 @Component({
   selector: 'app-entry',
@@ -16,7 +17,7 @@ export class EntryComponent implements OnInit {
   data: { sections: any };
   questions: any;
 
-  constructor(private route: ActivatedRoute, private http: Http) {
+  constructor(private route: ActivatedRoute, private http: Http, private _evaluationService: EvaluationService) {
     let sectionId = parseInt(this.route.snapshot.params['section_id'], 10);
     let itemId = parseInt(this.route.snapshot.params['item_id'], 10);
 
@@ -47,6 +48,12 @@ export class EntryComponent implements OnInit {
     this.item = this.section['items'].filter((item) => {
       return item.id === itemId;
     })[0];
+
+    // Set elements for evaluation verification on each page.
+    this._evaluationService.section = this.section;
+    this._evaluationService.item = this.item;
+    // this._evaluationService.allowEvaluation();
+
     this.questions = [];
     if (this.section.display_mode === 'all_items') {
       if (this.section['items']) {
