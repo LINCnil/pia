@@ -3,7 +3,6 @@
     {
       "id": 1,
       "title": "Contexte",
-      "display_mode": "by_item",
       "short_help": "Cette section vous permet d'obtenir une vision claire du(des) traitement(s) de données à caractère personnel considéré(s).",
       "items": [
         {
@@ -105,7 +104,6 @@
     {
       "id": 2,
       "title": "Principes fondamentaux",
-      "display_mode": "by_item",
       "short_help": "Cette section vous permet de bâtir le dispositif de conformité aux principes de protection de la vie privée.",
       "items": [
         {
@@ -131,6 +129,7 @@
               "id": 212,
               "title": "Quel(s) est(sont) les fondement(s) qui rend(ent) votre traitement licite ?",
               "link_knowledge_base": [
+                "PIA_LGL_FOND"
               ],
               "placeholder": "Présentez le(s) fondement(s) de votre traitement (ex : consentement, exécution d'un contrat, obligation légale, intérêts vitaux, etc.).",
               "highlight_words": "",
@@ -155,7 +154,9 @@
             {
               "id": 214,
               "title": "Les données sont-elles exactes et tenues à jour ?",
-              "link_knowledge_base": "",
+              "link_knowledge_base": [
+                "PIA_LGL_EXA"
+              ],
               "placeholder": "Décrivez les mesures prévues pour vous assurer de la qualité des données.",
               "highlight_words": "",
               "answer_type": "text",
@@ -282,7 +283,6 @@
     {
       "id": 3,
       "title": "Risques",
-      "display_mode": "by_items",
       "short_help": "Cette section vous permet d'apprécier les risques sur la vie privée, compte tenu des mesures existantes ou prévues.",
       "items": [
         {
@@ -308,7 +308,6 @@
             "PIA_DEF_MIN4",
             "PIA_DEF_MIN5",
             "PIA_DEF_MIN1",
-            "PIA_DEF_CTR",
             "PIA_DEF_PBDS",
             "PIA_DEF_PBDF",
             "PIA_DEF_VIOL"
@@ -327,7 +326,8 @@
               "id": 321,
               "title": "Quels pourraient être les principaux impacts sur les personnes concernées si le risque se produisait ?",
               "link_knowledge_base": [
-                "PIA_DEF_ACCI"
+                "PIA_DEF_ACCI",
+				        "PIA_DEF_IMP"
               ],
               "placeholder": "Saisissez les impacts potentiels.",
               "highlight_words": "impacts sur les personnes",
@@ -372,7 +372,8 @@
               "title": "Quelles sont les mesures, parmi celles identifiées, qui contribuent à traiter le risque ?",
               "is_measure": true,
               "link_knowledge_base": [
-                "PIA_DEF_ACCI"
+                "PIA_DEF_ACCI",
+				        "PIA_DEF_MES"
               ],
               "placeholder": "Saisissez les mesures contribuant à traiter ce risque.",
               "highlight_words": "mesures",
@@ -385,6 +386,7 @@
               "title": "Comment estimez-vous la gravité du risque, notamment en fonction des impacts potentiels et des mesures prévues ?",
               "link_knowledge_base": [
                 "PIA_DEF_ACCI",
+				        "PIA_DEF_IMP",
                 "PIA_DEF_GRV",
                 "PIA_EX_IMPN",
                 "PIA_EX_IMPL",
@@ -429,7 +431,8 @@
               "id": 331,
               "title": "Quels pourraient être les principaux impacts sur les personnes concernées si le risque se produisait ?",
               "link_knowledge_base": [
-                "PIA_DEF_MODI"
+                "PIA_DEF_MODI",
+				        "PIA_DEF_IMP"
               ],
               "placeholder": "Saisissez les impacts potentiels.",
               "highlight_words": "impacts sur les personnes",
@@ -474,7 +477,8 @@
               "title": "Quelles sont les mesures, parmi celles identifiées, qui contribuent à traiter le risque ?",
               "is_measure": true,
               "link_knowledge_base": [
-                "PIA_DEF_MODI"
+                "PIA_DEF_MODI",
+				        "PIA_DEF_MES"
                ],
               "placeholder": "Saisissez les mesures contribuant à traiter ce risque.",
               "highlight_words": "mesures",
@@ -488,6 +492,7 @@
               "link_knowledge_base": [
                 "PIA_DEF_MODI",
                 "PIA_DEF_GRV",
+				        "PIA_DEF_IMP",
                 "PIA_EX_IMPN",
                 "PIA_EX_IMPL",
                 "PIA_EX_IMPI",
@@ -531,7 +536,8 @@
               "id": 341,
               "title": "Quels pourraient être les principaux impacts sur les personnes concernées si le risque se produisait ?",
               "link_knowledge_base": [
-                "PIA_DEF_IND"
+                "PIA_DEF_IND",
+				        "PIA_DEF_IMP"
               ],
               "placeholder": "Saisissez les impacts potentiels.",
               "highlight_words": "impacts sur les personnes",
@@ -576,7 +582,8 @@
               "title": "Quelles sont les mesures, parmi celles identifiées, qui contribuent à traiter le risque ?",
               "is_measure": true,
               "link_knowledge_base": [
-                "PIA_DEF_IND"
+                "PIA_DEF_IND",
+				        "PIA_DEF_MES"
               ],
               "placeholder": "Saisissez les mesures contribuant à traiter ce risque.",
               "highlight_words": "mesures",
@@ -590,6 +597,7 @@
               "link_knowledge_base": [
                 "PIA_DEF_IND",
                 "PIA_DEF_GRV",
+				        "PIA_DEF_IMP",
                 "PIA_EX_IMPN",
                 "PIA_EX_IMPL",
                 "PIA_EX_IMPI",
@@ -634,7 +642,6 @@
     {
       "id": 4,
       "title": "Validation",
-      "display_mode": "",
       "short_help": "Cette section vous permet de préparer et de formaliser la validation du PIA.",
       "items": [
         {

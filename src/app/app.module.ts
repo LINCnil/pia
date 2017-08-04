@@ -39,6 +39,7 @@ import { ModalsService } from './modals/modals.service';
 import { AttachmentsService } from './entry/attachments/attachments.service';
 import { KnowledgeBaseService } from './entry/knowledge-base/knowledge-base.service';
 import { EvaluationService } from 'app/entry/entry-content/evaluations/evaluations.service';
+import { OverviewRisksComponent } from './entry/entry-content/overview-risks/overview-risks.component';
 
 const appRoutes: Routes = [
   { path: '', component: AuthenticationComponent },
@@ -78,6 +79,7 @@ const appRoutes: Routes = [
     HelpComponent,
     ModalsComponent,
     MeasuresComponent,
+    OverviewRisksComponent
   ],
   imports: [
     BrowserModule,

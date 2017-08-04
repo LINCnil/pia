@@ -12,7 +12,7 @@ export class EntryComponent implements OnInit {
 
   measureTitle: string;
   measurePlaceholder: string;
-  section: { id: number, title: string, display_mode: string, short_help: string, items: any };
+  section: { id: number, title: string, short_help: string, items: any };
   item: { id: number, title: string, evaluation_mode: string, short_help: string, questions: any };
   data: { sections: any };
   questions: any;
@@ -38,7 +38,11 @@ export class EntryComponent implements OnInit {
 
   addNewMeasure(item) {
     this.measureTitle = item.name;
-    this.measurePlaceholder = item.placeholder !== undefined ? item.placeholder : 'Ajoutez les mesures prises pour garantir la sécurité des données.';
+    if (item.placeholder !== undefined) {
+      this.measurePlaceholder = item.placeholder;
+    } else {
+      this.measurePlaceholder = 'Ajoutez les mesures prises pour garantir la sécurité des données.';
+    }
   }
 
   private getSectionAndItem(sectionId, itemId) {
@@ -55,15 +59,7 @@ export class EntryComponent implements OnInit {
     // this._evaluationService.allowEvaluation();
 
     this.questions = [];
-    if (this.section.display_mode === 'all_items') {
-      if (this.section['items']) {
-        this.section['items'].forEach(item => {
-          item['questions'].forEach(question => {
-            this.questions.push(question);
-          });
-        });
-      }
-    } else if (this.item['questions']) {
+    if (this.item['questions']) {
       this.item['questions'].forEach(question => {
         this.questions.push(question);
       });

@@ -10,8 +10,10 @@ export class EvaluationService {
 
   section: any;
   item: any;
-  enable = false;
-  toValidate = false;
+  enableEvaluation = false;
+  enableValidation = false;
+  showValidationButton = false;
+  enableFinalValidation = false;
   answers: any[] = [];
   answer: Answer = new Answer();
   measure: Measure = new Measure();
@@ -25,6 +27,10 @@ export class EvaluationService {
   }
 
   allowEvaluation() {
+    this.enableEvaluation = false;
+    this.enableValidation = false;
+    this.showValidationButton = false;
+    this.enableFinalValidation = false;
     this.answers = [];
     if (this.item) {
       if (this.item.is_measure) {
@@ -35,7 +41,7 @@ export class EvaluationService {
               this.answers.push(measure.id);
             }
           });
-          this.enable = this.answers.length === measures.length ? true : false;
+          this.enableEvaluation = this.answers.length === measures.length ? true : false;
         });
       } else if (this.item.questions) {
         // For questions
@@ -47,9 +53,10 @@ export class EvaluationService {
           this.answers = answers.filter((answer) => {
             return questionsIds.indexOf(answer.reference_to) >= 0;
           });
-          this.enable = this.answers.length === questionsIds.length ? true : false;
+          this.enableEvaluation = this.answers.length === questionsIds.length ? true : false;
         });
       }
+      this.allAwsersIsInEvaluation();
     }
   }
 
@@ -74,8 +81,37 @@ export class EvaluationService {
     /* TODO : update PIA status + 'refresh PIA' so that it changes header status icon + navigation status icons */
   }
 
+  allAwsersIsInEvaluation() {
+    const evaluation = new Evaluation();
+    let reference_to = '';
+    if (this.item.evaluation_mode === 'item') {
+      reference_to = this.section.id + '.' + this.item.id;
+      evaluation.existByReference(this.pia.id, reference_to).then((exist: boolean) => {
+        this.showValidationButton = exist;
+      });
+    } else {
+      this.answers.forEach((answer) => {
+        reference_to = answer.reference_to;
+        if (this.item.is_measure) {
+          reference_to = this.section.id + '.' + this.item.id + '.' + answer;
+        }
+      });
+    }
+  }
+
   validateEvaluation() {
-    console.log('test');
+    if (this.item.evaluation_mode === 'item') {
+      this.createEvaluationInDb(this.section.id + '.' + this.item.id);
+    } else {
+      this.answers.forEach((answer) => {
+        let reference_to = null;
+        reference_to = answer.reference_to;
+        if (this.item.is_measure) {
+          reference_to = this.section.id + '.' + this.item.id + '.' + answer;
+        }
+        this.createEvaluationInDb(reference_to);
+      });
+    }
   }
 
   private createEvaluationInDb(reference_to: string) {

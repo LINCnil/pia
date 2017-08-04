@@ -12,7 +12,7 @@ import { PiaService } from 'app/entry/pia.service';
 })
 export class SectionsComponent implements OnInit {
 
-  @Input() section: { id: number, title: string, display_mode: string, short_help: string, items: any };
+  @Input() section: { id: number, title: string, short_help: string, items: any };
   @Input() item: { id: number, title: string, evaluation_mode: string, short_help: string, questions: any };
   @Input() data: any;
 

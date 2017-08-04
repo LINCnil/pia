@@ -175,12 +175,16 @@ export class QuestionsComponent implements OnInit {
   private createOrUpdateList(list: string[]) {
     if (this.answer.id) {
       this.answer.data = { text: this.answer.data.text, gauge: this.answer.data.gauge, list: list };
-      this.answer.update();
+      this.answer.update().then(() => {
+        this._evaluationService.allowEvaluation();
+      });
     } else {
       this.answer.pia_id = this.pia.id;
       this.answer.reference_to = this.question.id;
       this.answer.data = { text: null, gauge: null, list: list };
-      this.answer.create();
+      this.answer.create().then(() => {
+        this._evaluationService.allowEvaluation();
+      });
     }
   }
 
@@ -223,8 +227,10 @@ export class QuestionsComponent implements OnInit {
    * Shows question edit button.
    */
   showEditButton() {
-    const editBtn = this.el.nativeElement.querySelector('.pia-questionBlock-edit');
-    editBtn.classList.remove('hide');
+    if (!this._evaluationService.enableEvaluation) {
+      const editBtn = this.el.nativeElement.querySelector('.pia-questionBlock-edit');
+      editBtn.classList.remove('hide');
+    }
   }
   /**
    * Hides question edit button.
