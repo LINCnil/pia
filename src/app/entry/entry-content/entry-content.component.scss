@@ -16,14 +16,17 @@
       div:first-child {
         width: 74px;
         background-color: $pia-green;
+        position: relative;
         i {
+          display: block;
+          top: 50%;
+          left: 50%;
+          margin-top: -17px;
+          margin-left: -15px;
+          position: absolute;
           font-size: 34px;
           color: #fff;
-          display: block;
-          margin: 0 auto;
           text-align: center;
-          margin-top: 18px;
-          margin-bottom: 20px;
         }
       }
       &-title {
