@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
+import { ModalsService } from 'app/modals/modals.service';
 import { Answer } from 'app/entry/entry-content/questions/answer.model';
 import { Measure } from 'app/entry/entry-content/measures/measure.model';
+import { Evaluation } from 'app/entry/entry-content/evaluations/evaluation.model';
 import { Pia } from 'app/entry/pia.model';
 
 @Injectable()
@@ -14,6 +16,8 @@ export class EvaluationService {
   answer: Answer = new Answer();
   measure: Measure = new Measure();
   private pia: Pia;
+
+  constructor(private _modalsService: ModalsService) { }
 
   setPia(pia: Pia) {
     this.pia = pia;
@@ -54,33 +58,25 @@ export class EvaluationService {
    */
   prepareForEvaluation() {
     // Creates evaluations according to evaluation_mode
-    // if (this.item.evaluation_mode === 'item') {
-    //   const evaluation = new Evaluation();
-    //   evaluation.pia_id = this._piaService.pia.id;
-    //   evaluation.reference_to = this.section.id + '.' + this.item.id;
-    //   evaluation.create();
-    // } else {
-    //   // Measures evaluations creation (n measures = n answers = n evaluations)
-    //   if (this.section.id === 3 && this.item.id === 1) {
-    //     for (let i = 0; i < this._measureService.measures.length; i++) {
-    //       const evaluation = new Evaluation();
-    //       evaluation.pia_id = this._piaService.pia.id;
-    //       evaluation.reference_to = this.section.id + '.' + this.item.id + '.' + this._measureService.measures[i].id;
-    //       evaluation.create();
-    //     }
-    //   } else {
-    //     // Questions evaluations creation (n questions = n questions answers = n evaluations)
-    //     for (let i = 0; i < this.questions.length; i++) {
-    //       const evaluation = new Evaluation();
-    //       evaluation.pia_id = this._piaService.pia.id;
-    //       evaluation.reference_to = this.answers[i].reference_to;
-    //       evaluation.create();
-    //     }
-    //   }
-    // }
-
-    // this._modalsService.openModal('ask-for-evaluation');
-
+    if (this.item.evaluation_mode === 'item') {
+      const evaluation = new Evaluation();
+      evaluation.pia_id = this.pia.id;
+      evaluation.reference_to = this.section.id + '.' + this.item.id;
+      evaluation.create();
+    } else {
+      this.answers.forEach((answer) => {
+        console.log(answer);
+        const evaluation = new Evaluation();
+        evaluation.pia_id = this.pia.id;
+        if (this.item.is_measure) {
+          evaluation.reference_to = this.section.id + '.' + this.item.id + '.' + answer;
+        } else {
+          evaluation.reference_to = answer.reference_to;
+        }
+        evaluation.create();
+      });
+    }
+    this._modalsService.openModal('ask-for-evaluation');
     /* TODO : update PIA status + 'refresh PIA' so that it changes header status icon + navigation status icons */
   }
 }
