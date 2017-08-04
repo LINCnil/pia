@@ -20,6 +20,7 @@ export class MeasureService {
     /* Removing from DB */
     const measure = new Measure();
     measure.delete(measure_id).then(() => {
+      this._evaluationService.remove(measure_id);
       this._evaluationService.allowEvaluation();
     });
 

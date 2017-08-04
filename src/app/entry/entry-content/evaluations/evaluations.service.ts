@@ -59,24 +59,43 @@ export class EvaluationService {
   prepareForEvaluation() {
     // Creates evaluations according to evaluation_mode
     if (this.item.evaluation_mode === 'item') {
-      const evaluation = new Evaluation();
-      evaluation.pia_id = this.pia.id;
-      evaluation.reference_to = this.section.id + '.' + this.item.id;
-      evaluation.create();
+      this.createEvaluationInDb(this.section.id + '.' + this.item.id);
     } else {
       this.answers.forEach((answer) => {
-        console.log(answer);
-        const evaluation = new Evaluation();
-        evaluation.pia_id = this.pia.id;
+        let reference_to = null;
+        reference_to = answer.reference_to;
         if (this.item.is_measure) {
-          evaluation.reference_to = this.section.id + '.' + this.item.id + '.' + answer;
-        } else {
-          evaluation.reference_to = answer.reference_to;
+          reference_to = this.section.id + '.' + this.item.id + '.' + answer;
         }
-        evaluation.create();
+        this.createEvaluationInDb(reference_to);
       });
     }
     this._modalsService.openModal('ask-for-evaluation');
     /* TODO : update PIA status + 'refresh PIA' so that it changes header status icon + navigation status icons */
+  }
+
+  private createEvaluationInDb(reference_to: string) {
+    const evaluation = new Evaluation();
+    evaluation.existByReference(this.pia.id, reference_to).then((exist: boolean) => {
+      if (!exist) {
+        evaluation.pia_id = this.pia.id;
+        evaluation.reference_to = reference_to;
+        evaluation.create();
+      }
+    });
+  }
+
+  remove(reference_to: any) {
+    const evaluation = new Evaluation();
+    if (this.item.is_measure) {
+      reference_to = this.section.id + '.' + this.item.id + '.' + reference_to;
+    } else if (this.item.evaluation_mode === 'item') {
+      reference_to = this.section.id + '.' + this.item.id;
+    }
+    evaluation.getByReference(this.pia.id, reference_to).then(() => {
+      if (evaluation.id) {
+        evaluation.delete(evaluation.id);
+      }
+    });
   }
 }
