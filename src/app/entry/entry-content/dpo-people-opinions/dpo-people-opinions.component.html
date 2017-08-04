@@ -20,20 +20,23 @@
         <!-- TODO : show this second <p> only when PIA is validated and hide the previous p : -->
         <p *ngIf="showNamesAsLabels()"><span>{{_piaService.pia.dpos_names}}</span>, considère(nt) que :</p>
         <div class="pia-entryContentBlock-content-DPO-treatment">
+          <!-- TODO : add 'checked' class on this div when a choice has been made/saved in DB -->
+          <!-- ( ex : <div [ngClass]="_piaService.pia.dpo_status === 1 ? 'checked' : ''> -->
           <div>
             <input type="radio" id="treatment-1" [attr.disabled]="dpo_status_locker" [attr.dirty]="_piaService.pia.dpo_status === 1" [checked]="_piaService.pia.dpo_status === 1" (change)="DPOFocusOut()" formControlName="DPOStatus" value="1">
             <label for="treatment-1">
               <i class="fa fa-circle" aria-hidden="true"></i>
               <i class="fa fa-check" aria-hidden="true"></i>
-              <span>Le traitement peut être mis en oeuvre.</span>
+              <span>Le traitement pourrait être mis en oeuvre.</span>
             </label>
           </div>
+          <!-- TODO : add 'checked' class on this div when a choice has been made/saved in DB -->
           <div>
             <input type="radio" id="treatment-2" [attr.disabled]="dpo_status_locker" [attr.dirty]="_piaService.pia.dpo_status === 0" [checked]="_piaService.pia.dpo_status === 0" (change)="DPOFocusOut()" formControlName="DPOStatus" value="0">
             <label for="treatment-2">
               <i class="fa fa-circle" aria-hidden="true"></i>
-              <i class="fa fa-check" aria-hidden="true"></i>
-              <span>Le traitement ne doit pas être mis en oeuvre</span>
+              <i class="fa fa-close" aria-hidden="true"></i>
+              <span>Le traitement ne devrait pas être mis en oeuvre.</span>
             </label>
           </div>
         </div>
@@ -53,20 +56,23 @@
         <!-- TODO : show this second <p> only when PIA is validated and hide the previous p : -->
         <p *ngIf="showNamesAsLabels()"><span>{{_piaService.pia.people_names}}</span>, considère(nt) que :</p>
         <div class="pia-entryContentBlock-content-DPO-treatment">
+          <!-- TODO : add 'checked' class on this div when a choice has been made/saved in DB -->
+          <!-- ( ex : <div [ngClass]="_piaService.pia.concerned_people_status === 1 ? 'checked' : ''> -->
           <div>
             <input type="radio" id="dpoAvis-1" [attr.disabled]="concerned_people_status_locker" [checked]="_piaService.pia.concerned_people_status == 1" (change)="peopleFocusOut()" formControlName="peopleStatus" value="1">
             <label for="dpoAvis-1">
               <i class="fa fa-circle" aria-hidden="true"></i>
               <i class="fa fa-check" aria-hidden="true"></i>
-              <span>Le traitement peut être mis en oeuvre.</span>
+              <span>Le traitement pourrait être mis en oeuvre.</span>
             </label>
           </div>
+          <!-- TODO : add 'checked' class on this div when a choice has been made/saved in DB -->
           <div>
             <input type="radio" id="dpoAvis-2" [attr.disabled]="concerned_people_status_locker" [checked]="_piaService.pia.concerned_people_status == 0" (change)="peopleFocusOut()" formControlName="peopleStatus" value="0">
             <label for="dpoAvis-2">
               <i class="fa fa-circle" aria-hidden="true"></i>
-              <i class="fa fa-check" aria-hidden="true"></i>
-              <span>Le traitement ne doit pas être mis en oeuvre</span>
+              <i class="fa fa-close" aria-hidden="true"></i>
+              <span>Le traitement ne devrait pas être mis en oeuvre.</span>
             </label>
           </div>
         </div>

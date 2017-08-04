@@ -27,18 +27,31 @@
 
       <!-- Evaluation gauges for "RISKS" -->
       <p class="pia-evaluationBlock-gauge">Prenant en compte le plan d'action, comment ré-évaluez-vous la <span class="red-highlight">gravité du risque</span> d'accès illégitime aux données ?</p>
-      <div class="pia-gaugeBlock">
-        <input type="range" value="33" min="0" max="100" step="33">
-        <span>Négligeable</span><span>Limité</span><span>Importante</span><span>Maximale</span>
-        <div class="pia-gaugeBlock-user-choice"></div>
-        <div class="pia-gaugeBlock-background" style="width:35.5%;"></div>
+      <div class="pia-gaugeBlock" *ngIf="item.evaluation_mode === 'item' && item.evaluation_with_gauge === true">
+        <!-- TODO : Update current evaluation.gauge[0] -->
+        <input type="range" formControlName="gaugeGravityY" min="1" max="4" step="1">
+        <div>
+          <div>Négligeable</div>
+          <div>Limité</div>
+          <div>Importante</div>
+          <div>Maximale</div>
+        </div>
+        <!--<div class="pia-gaugeBlock-user-choice pia-gaugeBlock-user-choice-{{evaluationGaugesValues[0][0]}}"></div>-->
+        <div class="pia-gaugeBlock-background"></div>
       </div>
+
       <p class="pia-evaluationBlock-gauge">Prenant en compte le plan d'action, comment ré-évaluez-vous la <span class="red-highlight">vraissemblance du risque</span> d'accès illégitime aux données ?</p>
-      <div class="pia-gaugeBlock">
-        <input type="range" value="0" min="0" max="100" step="0">
-        <span>Négligeable</span><span>Limité</span><span>Importante</span><span>Maximale</span>
-        <div class="pia-gaugeBlock-user-choice"></div>
-        <div class="pia-gaugeBlock-background" style="width:5%;"></div>
+      <div class="pia-gaugeBlock" *ngIf="item.evaluation_mode === 'item' && item.evaluation_with_gauge === true">
+        <!-- TODO : Update current evaluation.gauge[1] -->
+        <input type="range" formControlName="gaugeImpactX" min="1" max="4" step="1">
+        <div>
+          <div>Négligeable</div>
+          <div>Limité</div>
+          <div>Importante</div>
+          <div>Maximale</div>
+        </div>
+        <!--<div class="pia-gaugeBlock-user-choice pia-gaugeBlock-user-choice-{{evaluationGaugesValues[0][1]}}"></div>-->
+        <div class="pia-gaugeBlock-background"></div>
       </div>
     </div>
   </form>

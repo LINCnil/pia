@@ -49,7 +49,7 @@
               .fa-circle {
                 display: none;
               }
-              .fa-check {
+              .fa-check, .fa-close {
                 display: block;
               }
               span {
@@ -65,7 +65,7 @@
               color: #fefefe;
               align-self: center;
             }
-            .fa-check {
+            .fa-check, .fa-close {
               display: none;
               font-size: 2rem;
               align-self: center;
@@ -82,6 +82,30 @@
               justify-content: flex-start;
               background-color: $pia-white;
               padding: 14px 18px;
+            }
+            &.checked {
+              label {
+                background-color: $pia-green;
+                .fa-circle {
+                  display: none;
+                }
+                .fa-check, .fa-close {
+                  display: block;
+                }
+                span {
+                  color: #fff;
+                }
+              }
+            }
+            &:last-child {
+              input:checked + label {
+                background-color: $pia-red;
+              }
+              &.checked {
+                label {
+                  background-color: $pia-red;
+                }
+              }
             }
           }
         }

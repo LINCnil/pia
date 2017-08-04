@@ -6,7 +6,7 @@
     </p>
     <span class="pia-icons pia-icon-happy"></span>
     <div class="pia-modalBlock-validate">
-      <button class="btn btn-green btn-active" type="button" title="Retour à l'accueil" (click)="returnToHomepage()">Retour à l'accueil</button>
+      <button class="btn btn-green" type="button" title="Retour à l'accueil" (click)="returnToHomepage()">Retour à l'accueil</button>
     </div>
   </div>
 </div>
@@ -15,11 +15,11 @@
   <div class="pia-modalBlock-content bounceIn">
     <button type="button" class="pia-modalBlock-close btn" title="Fermer"><span (click)="_modalsService.closeModal()" class="pia-icons pia-icon-close-big"></span></button>
     <p>
-      L'adresse du serveur à été mise à jour !
+      L'adresse du serveur à été mise à jour.
     </p>
     <span class="pia-icons pia-icon-happy"></span>
     <div class="pia-modalBlock-validate">
-      <button class="btn btn-green btn-active" type="button" title="Retour à l'accueil" (click)="returnToHomepage()">Retour à l'accueil</button>
+      <button class="btn btn-green" type="button" title="Retour à l'accueil" (click)="returnToHomepage()">Retour à l'accueil</button>
     </div>
   </div>
 </div>
@@ -34,7 +34,7 @@
     </p>
     <span class="pia-icons pia-icon-happy"></span>
     <div class="pia-modalBlock-buttons-choice">
-      <button class="btn btn-green btn-active" type="button" title="Retour à l'accueil" (click)="returnToHomepage()">Retour à l'accueil</button>
+      <button class="btn btn-green" type="button" title="Retour à l'accueil" (click)="returnToHomepage()">Retour à l'accueil</button>
       <button class="btn btn-green" type="button" title="Exporter le rapport PIA">Exporter<br>le rapport PIA</button>
     </div>
   </div>
@@ -48,7 +48,7 @@
       abandonner ce traitement ?
     </p>
     <div class="pia-modalBlock-buttons-choice">
-      <button class="btn btn-red btn-active" type="button" title="Supprimer et archiver">Supprimer <br>et archiver</button>
+      <button class="btn btn-red" type="button" title="Supprimer et archiver">Supprimer <br>et archiver</button>
       <button class="btn btn-red" type="button" (click)="_modalsService.closeModal()" title="Reprendre">Reprendre</button>
     </div>
   </div>
@@ -63,9 +63,9 @@
       Retour au monde d'évaluation<br>
       pour apporter des corrections.
     </p>
-    <span class="pia-icons pia-icon-sorry"></span>
+    <span class="pia-icons pia-icon-sad"></span>
     <div class="pia-modalBlock-validate">
-      <button class="btn btn-green" type="button" (click)="_modalsService.closeModal()" title="Continuer">Continuer</button>
+      <button class="btn btn-red" type="button" (click)="_modalsService.closeModal()" title="Continuer">Continuer</button>
     </div>
   </div>
 </div>
@@ -156,7 +156,7 @@
     <span class="pia-icons pia-icon-sorry"></span>
     <div class="pia-modalBlock-validate">
       <!-- TODO : see what we can do with this bouton and RouterLink to link to section3/item/1 -->
-      <button (click)="_modalsService.closeModal()" type="button" title="Déclarer les mesures existantes ou prévues" class="btn btn-green">Déclarer les mesures existantes ou prévues</button>
+      <button (click)="_modalsService.closeModal()" type="button btn-blue" title="Déclarer les mesures existantes ou prévues" class="btn btn-green">Déclarer les mesures existantes ou prévues</button>
     </div>
   </div>
 </div>

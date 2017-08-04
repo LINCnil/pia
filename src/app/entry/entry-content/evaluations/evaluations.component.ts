@@ -4,6 +4,8 @@ import { FormArray, FormControl, FormGroup } from '@angular/forms';
 import { Evaluation } from './evaluation.model';
 import { Answer } from 'app/entry/entry-content/questions/answer.model';
 
+import { EvaluationService } from './evaluations.service';
+
 /**
  * TODO : switch the redundant code about evaluation update here in an EvaluationsService...
  * Create a method like "updateEvaluation(section, item, pia.id, data)"
@@ -30,12 +32,18 @@ export class EvaluationsComponent implements OnInit {
   @Input() questionId: any;
   @Input() measureId: any;
 
-  constructor(private el: ElementRef) { }
+  constructor(private el: ElementRef, private _evaluationsService: EvaluationService) { }
 
   ngOnInit() {
+    const evaluationGaugesValues = this._evaluationsService.getGaugesValues().then((data) => {
+
+    });
+
     this.evaluationForm = new FormGroup({
       evaluationActionPlan: new FormControl(),
-      evaluationComment: new FormControl()
+      evaluationComment: new FormControl(),
+      gaugeImpactX: new FormControl(),
+      gaugeGravityY: new FormControl()
     });
   }
 

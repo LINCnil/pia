@@ -320,6 +320,7 @@
           "id": 2,
           "title": "Accès illégitime à des données",
           "evaluation_mode": "item",
+          "evaluation_with_gauge": true,
           "short_help": "Analysez les causes et conséquences d'un accès illégitime à des données, et estimez sa gravité et sa vraisemblance.",
           "questions": [
             {
@@ -421,6 +422,7 @@
           "id": 3,
           "title": "Modification non désirée de données",
           "evaluation_mode": "item",
+          "evaluation_with_gauge": true,
           "short_help": "Analysez les causes et conséquences d'une modification on désirée de données, et estimez sa gravité et sa vraisemblance.",
           "questions": [
             {
@@ -522,6 +524,7 @@
           "id": 4,
           "title": "Disparition de données",
           "evaluation_mode": "item",
+          "evaluation_with_gauge": true,
           "short_help": "Analysez les causes et conséquences d'une disparition de données, et estimez sa gravité et sa vraisemblance.",
           "questions": [
             {

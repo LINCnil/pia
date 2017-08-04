@@ -102,4 +102,29 @@ export class EvaluationService {
       }
     });
   }
+  /*TODO : check why it sends an array with weird data in it to evaluation component.ts ... */
+  async getGaugesValues() {
+    const gaugesValues = [];
+    return new Promise((resolve, reject) => {
+      /* gaugesValues[0] is gravity (y) and gaugesValues[1] is impact (x) */
+
+      const questions: any[] = this.item.questions.filter((question) => {
+        return question.answer_type === 'gauge';
+      });
+
+      questions.forEach(question => {
+        const answersModel = new Answer();
+        answersModel.getByReferenceAndPia(this.pia.id, question.id).then(() => {
+          if (answersModel.data) {
+            console.log(answersModel.data['gauge']);
+            gaugesValues.push(answersModel.data['gauge']);
+          }
+        });
+      });
+
+      resolve(gaugesValues);
+    });
+  }
+
 }
+

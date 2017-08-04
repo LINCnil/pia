@@ -107,21 +107,6 @@ input {
   box-shadow: none;
 }
 
-.checked {
-  label {
-    background-color: $pia-green !important;
-    .fa-circle {
-      display: none !important;
-    }
-    .fa-check {
-      display: block !important;
-    }
-    span {
-      color: #fff !important;
-    }
-  }
-}
-
 tag-input-form {
   width: 100% !important;
   input {

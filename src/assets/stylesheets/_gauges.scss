@@ -26,7 +26,7 @@
       background: linear-gradient(90deg, $pia-green, $pia-green);
     }
     &-user-choice {
-      width: 66%;
+      width: 100%;
       z-index: 997;
       height: 10px;
       position: absolute;
@@ -34,8 +34,20 @@
       left: 0;
       top: 10px;
       background-color: #999;
-      background: linear-gradient(90deg, #fff, $pia-gray);
+      background: linear-gradient(90deg, #fff, #fff);
       box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+      &-2 {
+        width: calc(33% + 15px);
+        background: linear-gradient(90deg, #fff, #E0E0DF);
+      }
+      &-3 {
+        width: calc(66% + 9px);
+        background: linear-gradient(90deg, #fff, #c6c6c6);
+      }
+      &-4 {
+        width: calc(99% + 2px);
+        background: linear-gradient(90deg, #fff, $pia-gray);
+      }
     }
     &-background-2 {
       width: calc(33% + 15px);
