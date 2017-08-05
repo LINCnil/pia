@@ -40,6 +40,7 @@ import { AttachmentsService } from './entry/attachments/attachments.service';
 import { KnowledgeBaseService } from './entry/knowledge-base/knowledge-base.service';
 import { EvaluationService } from 'app/entry/entry-content/evaluations/evaluations.service';
 import { OverviewRisksComponent } from './entry/entry-content/overview-risks/overview-risks.component';
+import { ErrorsComponent } from './errors/errors.component';
 
 const appRoutes: Routes = [
   { path: '', component: AuthenticationComponent },
@@ -47,7 +48,8 @@ const appRoutes: Routes = [
   { path: 'entry/:id', component: EntryComponent },
   { path: 'entry/:id/section/:section_id/item/:item_id', component: EntryComponent },
   { path: 'settings', component: SettingsComponent },
-  { path: 'help', component: HelpComponent }
+  { path: 'help', component: HelpComponent },
+  { path: '**', component: ErrorsComponent }
 ];
 
 @NgModule({
@@ -79,7 +81,8 @@ const appRoutes: Routes = [
     HelpComponent,
     ModalsComponent,
     MeasuresComponent,
-    OverviewRisksComponent
+    OverviewRisksComponent,
+    ErrorsComponent
   ],
   imports: [
     BrowserModule,
