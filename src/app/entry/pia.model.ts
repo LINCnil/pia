@@ -101,19 +101,19 @@ export class Pia extends ApplicationDb {
     switch (this.status) {
       case 0:
       {
-        return 'Doing';
+        return 'En cours d\'édition';
       }
       case 1:
       {
-        return 'Refused';
+        return 'Refusé';
       }
       case 2:
       {
-        return 'Simple Validation';
+        return 'Validation simple';
       }
       case 3:
       {
-        return 'Signed Validation';
+        return 'Validation';
       }
     }
   }

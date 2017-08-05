@@ -4,6 +4,7 @@ import { Pia } from '../../entry/pia.model';
 import { Router } from '@angular/router';
 
 import { ModalsService } from 'app/modals/modals.service';
+import { PiaService } from 'app/entry/pia.service';
 
 @Component({
   selector: 'app-card-item',
@@ -15,12 +16,18 @@ export class CardItemComponent implements OnInit {
   @Input() pia: any;
   editMode: Boolean;
   piaForm: FormGroup;
+  progress: number;
 
-  constructor(private router: Router, private _modalsService: ModalsService) {
+  constructor(private router: Router,
+              private _modalsService: ModalsService,
+              private _piaService: PiaService) {
     this.editMode = false;
   }
 
   ngOnInit() {
+    this._piaService.getProgress(this.pia.id).then((nb: number) => {
+      this.progress = nb;
+    });
     this.piaForm = new FormGroup({
       id: new FormControl(this.pia.id),
       name: new FormControl({ value: this.pia.name, disabled: true }),

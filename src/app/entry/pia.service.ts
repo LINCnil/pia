@@ -5,6 +5,7 @@ import { Pia } from './pia.model';
 
 import { ModalsService } from 'app/modals/modals.service';
 import { EvaluationService } from 'app/entry/entry-content/evaluations/evaluations.service';
+import { Answer } from 'app/entry/entry-content/questions/answer.model';
 
 @Injectable()
 export class PiaService {
@@ -12,6 +13,7 @@ export class PiaService {
   private _modalsService = new ModalsService();
   pias: any[];
   pia: Pia = new Pia();
+  answer: Answer = new Answer();
 
   constructor(private route: ActivatedRoute, private _evaluationService: EvaluationService) { }
 
@@ -45,6 +47,16 @@ export class PiaService {
 
     localStorage.removeItem('pia-id');
     this._modalsService.closeModal();
+  }
+
+  async getProgress(pia_id: number) {
+    // TODO count number of questions in JSON
+    const numberOfQuestions = 36;
+    return new Promise((resolve, reject) => {
+      this.answer.findAllByPia(pia_id).then((entries: any) => {
+        resolve(Math.round((100 / numberOfQuestions) * entries.length));
+      });
+    });
   }
 
 }
