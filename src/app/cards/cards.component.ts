@@ -16,6 +16,7 @@ export class CardsComponent implements OnInit {
 
   newPia: Pia;
   piaForm: FormGroup;
+  filter: string;
 
   constructor(private router: Router,
               private _piaService: PiaService) { }
@@ -71,7 +72,7 @@ export class CardsComponent implements OnInit {
    * Asort items created on PIA
    */
   sortBy(sort: string) {
-    console.log(this._piaService.pias)
+    this.filter = sort;
     this._piaService.pias = this._piaService.pias.sort((a, b) => {
       return (a[sort] > b[sort]) ? 1 : 0 ;
     });

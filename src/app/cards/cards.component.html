@@ -16,22 +16,22 @@
             <div class="pia-filtersBlock-filters-list">
               <span>par</span>
               <ul>
-                <li>
+                <li [ngClass]="{'active': filter == 'name'}">
                   <a (click)="sortBy('name');">Nom</a>
                 </li>
-                <li>
+                <li [ngClass]="{'active': filter == 'created_at'}">
                   <a (click)="sortBy('created_at');">Date</a>
                 </li>
-                <li>
+                <li [ngClass]="{'active': filter == 'status'}">
                   <a (click)="sortBy('status');">Status</a>
                 </li>
-                <li>
+                <li [ngClass]="{'active': filter == 'author_name'}">
                   <a (click)="sortBy('author_name');">Editeur</a>
                 </li>
-                <li>
+                <li [ngClass]="{'active': filter == 'evaluator_name'}">
                   <a (click)="sortBy('evaluator_name');">Evaluateur</a>
                 </li>
-                <li>
+                <li [ngClass]="{'active': filter == 'validator_name'}">
                   <a (click)="sortBy('validator_name');">Valideur</a>
                 </li>
               </ul>
