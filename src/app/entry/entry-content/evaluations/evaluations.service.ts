@@ -94,6 +94,7 @@ export class EvaluationService {
         reference_to = answer.reference_to;
         if (this.item.is_measure) {
           reference_to = this.section.id + '.' + this.item.id + '.' + answer;
+          // TODO or REMOVE ????
         }
       });
     }

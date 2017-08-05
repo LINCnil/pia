@@ -26,22 +26,41 @@
       </div>
 
       <div class="pia-questionBlock-content">
-        <tag-input
-          *ngIf="question.answer_type == 'list'"
-          (onAdd)="onAdd($event)"
-          (onTagEdited)="onTagEdited($event)"
-          (onRemove)="onRemove($event)"
-          formControlName="list"
-          [theme]="'foundation-theme'"
-          [ngModel]="tags"
-          [placeholder]="question.placeholder + '&#10010;'"
-          [editable]="'false'"
-          [secondaryPlaceholder]="question.placeholder + '&#10010;'">
-          <tag-input-dropdown
-            [showDropdownIfEmpty]="true"
-            [autocompleteItems]="question.is_measure ? userMeasures : []">
-          </tag-input-dropdown>
-        </tag-input>
+        <ng-container *ngIf="question.is_measure; else tagInput2">
+          <tag-input
+            *ngIf="question.answer_type == 'list'"
+            (onAdd)="onAdd($event)"
+            (onTagEdited)="onTagEdited($event)"
+            (onRemove)="onRemove($event)"
+            formControlName="list"
+            [theme]="'foundation-theme'"
+            [ngModel]="tags"
+            [placeholder]="question.placeholder + '&#10010;'"
+            [editable]="'false'"
+            [disabled]="_evaluationService.showValidationButton"
+            [onlyFromAutocomplete]="true"
+            [secondaryPlaceholder]="question.placeholder + '&#10010;'">
+            <tag-input-dropdown
+              [showDropdownIfEmpty]="true"
+              [autocompleteItems]="userMeasures">
+            </tag-input-dropdown>
+          </tag-input>
+        </ng-container>
+        <ng-template #tagInput2>
+          <tag-input
+            *ngIf="question.answer_type == 'list'"
+            (onAdd)="onAdd($event)"
+            (onTagEdited)="onTagEdited($event)"
+            (onRemove)="onRemove($event)"
+            formControlName="list"
+            [theme]="'foundation-theme'"
+            [ngModel]="tags"
+            [placeholder]="question.placeholder + '&#10010;'"
+            [editable]="'false'"
+            [disabled]="_evaluationService.showValidationButton"
+            [secondaryPlaceholder]="question.placeholder + '&#10010;'">
+          </tag-input>
+        </ng-template>
         <textarea
           *ngIf="question.answer_type == 'text' || question.answer_type == 'gauge'"
           [attr.data-id]="question.id"
