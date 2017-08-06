@@ -55,27 +55,30 @@ export class ApplicationDb {
    */
   async findAll() {
     const items = [];
-    await this.getObjectStore();
     return new Promise((resolve, reject) => {
-      this.objectStore.openCursor().onsuccess = (event: any) => {
-        const cursor = event.target.result;
-        if (cursor) {
-          items.push(cursor.value);
-          cursor.continue();
-        } else {
-          resolve(items);
+      this.getObjectStore().then(() => {
+        this.objectStore.openCursor().onsuccess = (event: any) => {
+          const cursor = event.target.result;
+          if (cursor) {
+            items.push(cursor.value);
+            cursor.continue();
+          } else {
+            resolve(items);
+          }
         }
-      }
+      });
     });
   }
 
   async find(id) {
-    await this.getObjectStore();
-    return new Promise((resolve, reject) => {
-      this.objectStore.get(id).onsuccess = (event: any) => {
-        resolve(event.target.result);
-      };
-    });
+    if (id) {
+      await this.getObjectStore();
+      return new Promise((resolve, reject) => {
+        this.objectStore.get(id).onsuccess = (event: any) => {
+          resolve(event.target.result);
+        };
+      });
+    }
   }
 
   async delete(id) {

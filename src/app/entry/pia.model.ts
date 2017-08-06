@@ -77,21 +77,23 @@ export class Pia extends ApplicationDb {
     this.id = id;
     return new Promise((resolve, reject) => {
       this.find(this.id).then((entry: any) => {
-        this.status = entry.status;
-        this.name = entry.name;
-        this.author_name = entry.author_name;
-        this.evaluator_name = entry.evaluator_name;
-        this.validator_name = entry.validator_name;
-        this.dpo_status = entry.dpo_status;
-        this.dpo_opinion = entry.dpo_opinion;
-        this.concerned_people_opinion = entry.concerned_people_opinion;
-        this.concerned_people_status = entry.concerned_people_status;
-        this.rejected_reason = entry.rejected_reason;
-        this.applied_adjustements = entry.applied_adjustements;
-        this.created_at = new Date(entry.created_at);
-        this.updated_at = new Date(entry.updated_at);
-        this.dpos_names = entry.dpos_names;
-        this.people_names = entry.people_names;
+        if (entry) {
+          this.status = entry.status;
+          this.name = entry.name;
+          this.author_name = entry.author_name;
+          this.evaluator_name = entry.evaluator_name;
+          this.validator_name = entry.validator_name;
+          this.dpo_status = entry.dpo_status;
+          this.dpo_opinion = entry.dpo_opinion;
+          this.concerned_people_opinion = entry.concerned_people_opinion;
+          this.concerned_people_status = entry.concerned_people_status;
+          this.rejected_reason = entry.rejected_reason;
+          this.applied_adjustements = entry.applied_adjustements;
+          this.created_at = new Date(entry.created_at);
+          this.updated_at = new Date(entry.updated_at);
+          this.dpos_names = entry.dpos_names;
+          this.people_names = entry.people_names;
+        }
         resolve();
       });
     });

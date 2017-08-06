@@ -26,6 +26,7 @@ export class QuestionsComponent implements OnInit {
   questionForm: FormGroup;
   answer: Answer = new Answer();
   measure: Measure = new Measure();
+  reference_to: string;
 
   constructor(private el: ElementRef,
               private _knowledgeBaseService: KnowledgeBaseService,
@@ -38,7 +39,8 @@ export class QuestionsComponent implements OnInit {
       text: new FormControl(),
       list: new FormControl()
     });
-    this.answer.getByReferenceAndPia(this.pia.id, this.question.id).then(() => {
+    this.getReferenceTo();
+    this.answer.getByReferenceAndPia(this.pia.id, this.reference_to).then(() => {
       if (this.answer.data) {
         this.questionForm.controls['gauge'].patchValue(this.answer.data.gauge);
         this.questionForm.controls['text'].patchValue(this.answer.data.text);
@@ -98,7 +100,7 @@ export class QuestionsComponent implements OnInit {
         });
       } else {
         this.answer.pia_id = this.pia.id;
-        this.answer.reference_to = this.question.id;
+        this.answer.reference_to = this.reference_to;
         this.answer.data = { text: null, gauge: gaugeValue, list: [] };
         this.answer.create().then(() => {
           this._evaluationService.allowEvaluation();
@@ -130,7 +132,7 @@ export class QuestionsComponent implements OnInit {
         });
       } else {
         this.answer.pia_id = this.pia.id;
-        this.answer.reference_to = this.question.id;
+        this.answer.reference_to = this.reference_to;
         this.answer.data = { text: this.questionForm.value.text, gauge: 1, list: [] };
         this.answer.create().then(() => {
           this._evaluationService.allowEvaluation();
@@ -184,7 +186,7 @@ export class QuestionsComponent implements OnInit {
       });
     } else {
       this.answer.pia_id = this.pia.id;
-      this.answer.reference_to = this.question.id;
+      this.answer.reference_to = this.reference_to;
       this.answer.data = { text: null, gauge: null, list: list };
       this.answer.create().then(() => {
         this._evaluationService.allowEvaluation();
@@ -225,6 +227,10 @@ export class QuestionsComponent implements OnInit {
     accordeon.classList.toggle('pia-icon-accordeon-down');
     const displayer = this.el.nativeElement.querySelector('.pia-questionBlock-displayer');
     displayer.classList.toggle('close');
+  }
+
+  private getReferenceTo() {
+    this.reference_to = this.question.id; // this.section.id + '.' + this.item.id + '.' + this.question.id;
   }
 
 }

@@ -57,8 +57,6 @@ export class EvaluationService {
           this.enableEvaluation = this.answers.length === questionsIds.length ? true : false;
           this.allAwsersIsInEvaluation();
         });
-      } else {
-        console.error('No evaluation mode for this item ' + JSON.stringify(this.item));
       }
     }
   }

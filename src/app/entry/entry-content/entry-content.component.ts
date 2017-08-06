@@ -59,7 +59,10 @@ export class EntryContentComponent implements OnInit, OnChanges, AfterViewChecke
 
   ngAfterViewChecked() {
     // TODO This doesn't work some time.
-    if (this._measureService.measures && this._measureService.measures[0].content.length <= 0 &&
+    if (this._measureService.measures &&
+        this._measureService.measures[0] &&
+        this._measureService.measures[0].content &&
+        this._measureService.measures[0].content.length <= 0 &&
         this._measureService.measures[0].title.length <= 0 && this.section.id === 3 && this.item.id !== 1) {
       this._modalsService.openModal('pia-declare-measures');
     }
