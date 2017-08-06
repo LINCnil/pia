@@ -23,7 +23,7 @@ export class ModalsComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-
+    this._piaService.getPIA();
   }
 
   /**

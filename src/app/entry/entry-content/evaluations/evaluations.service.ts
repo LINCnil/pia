@@ -42,9 +42,10 @@ export class EvaluationService {
             }
           });
           this.enableEvaluation = this.answers.length === measures.length ? true : false;
+          this.allAwsersIsInEvaluation();
         });
       } else if (this.item.questions) {
-        // For questions
+        // For questions and item evaluation_mode
         const questionsIds = [];
         this.item.questions.forEach(question => {
           questionsIds.push(question.id);
@@ -54,27 +55,41 @@ export class EvaluationService {
             return questionsIds.indexOf(answer.reference_to) >= 0;
           });
           this.enableEvaluation = this.answers.length === questionsIds.length ? true : false;
+          this.allAwsersIsInEvaluation();
         });
+      } else {
+        console.error('No evaluation mode for this item ' + JSON.stringify(this.item));
       }
-      this.allAwsersIsInEvaluation();
     }
   }
 
   /**
    * Allows an user to ask an evaluation for a section.
    */
-  prepareForEvaluation() {
+  async prepareForEvaluation() {
     // Creates evaluations according to evaluation_mode
     if (this.item.evaluation_mode === 'item') {
-      this.createEvaluationInDb(this.section.id + '.' + this.item.id);
+      this.createEvaluationInDb(this.section.id + '.' + this.item.id).then(() => {
+        this.allAwsersIsInEvaluation();
+      });
     } else {
+      let count = 0;
       this.answers.forEach((answer) => {
-        let reference_to = null;
-        reference_to = answer.reference_to;
-        if (this.item.is_measure) {
-          reference_to = this.section.id + '.' + this.item.id + '.' + answer;
-        }
-        this.createEvaluationInDb(reference_to);
+        return new Promise((resolve, reject) => {
+          let reference_to = null;
+          reference_to = this.section.id + '.' + this.item.id + '.' + answer.reference_to;
+          if (this.item.is_measure) {
+            reference_to = this.section.id + '.' + this.item.id + '.' + answer;
+          }
+          this.createEvaluationInDb(reference_to).then(() => {
+            count += 1;
+            resolve();
+          });
+        }).then(() => {
+          if (count ===  this.answers.length) {
+            this.allAwsersIsInEvaluation();
+          }
+        });
       });
     }
     this._modalsService.openModal('ask-for-evaluation');
@@ -89,13 +104,23 @@ export class EvaluationService {
       evaluation.existByReference(this.pia.id, reference_to).then((exist: boolean) => {
         this.showValidationButton = exist;
       });
-    } else {
+    } else if (this.answers.length > 0) {
+      let count = 0;
       this.answers.forEach((answer) => {
-        reference_to = answer.reference_to;
         if (this.item.is_measure) {
+          // For measure
           reference_to = this.section.id + '.' + this.item.id + '.' + answer;
-          // TODO or REMOVE ????
+        } else {
+          // For question
+          reference_to = this.section.id + '.' + this.item.id + '.' + answer.reference_to;
+          console.log(reference_to);
         }
+        evaluation.existByReference(this.pia.id, reference_to).then((exist: boolean) => {
+          if (exist) {
+            count += 1;
+            this.showValidationButton = (count === this.answers.length);
+          }
+        });
       });
     }
   }
@@ -115,14 +140,20 @@ export class EvaluationService {
     }
   }
 
-  private createEvaluationInDb(reference_to: string) {
+  private async createEvaluationInDb(reference_to: string) {
     const evaluation = new Evaluation();
-    evaluation.existByReference(this.pia.id, reference_to).then((exist: boolean) => {
-      if (!exist) {
-        evaluation.pia_id = this.pia.id;
-        evaluation.reference_to = reference_to;
-        evaluation.create();
-      }
+    return new Promise((resolve, reject) => {
+      evaluation.existByReference(this.pia.id, reference_to).then((exist: boolean) => {
+        if (!exist) {
+          evaluation.pia_id = this.pia.id;
+          evaluation.reference_to = reference_to;
+          evaluation.create().then(() => {
+            resolve();
+          });
+        } else {
+          resolve();
+        }
+      });
     });
   }
 

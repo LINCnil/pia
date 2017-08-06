@@ -10,12 +10,13 @@ import { Answer } from 'app/entry/entry-content/questions/answer.model';
 @Injectable()
 export class PiaService {
 
-  private _modalsService = new ModalsService();
   pias: any[];
   pia: Pia = new Pia();
   answer: Answer = new Answer();
 
-  constructor(private route: ActivatedRoute, private _evaluationService: EvaluationService) { }
+  constructor(private route: ActivatedRoute,
+              private _evaluationService: EvaluationService,
+              private _modalsService: ModalsService) { }
 
   /**
    * Gets the PIA.

@@ -7,8 +7,9 @@ import { ModalsService } from 'app/modals/modals.service';
 @Injectable()
 export class AttachmentsService {
 
-  private _modalsService = new ModalsService();
   attachments: any[];
+
+  constructor(private _modalsService: ModalsService) {}
 
   /**
    * Allows an user to remove a PIA.

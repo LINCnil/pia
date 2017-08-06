@@ -10,7 +10,7 @@
     {{question.title}}
   </div>
   <div class="pia-questionBlock-displayer fadeIn">
-    <button type="button" class="btn pia-questionBlock-edit hide" (click)="activateQuestionEdition()" title="Éditer"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+    <button type="button" class="btn pia-questionBlock-edit"  *ngIf="displayEditButton && !this._evaluationService.showValidationButton" (click)="activateQuestionEdition()" title="Éditer"><i class="fa fa-pencil" aria-hidden="true"></i></button>
     <form [formGroup]="questionForm">
 
       <!-- TODO : to display only if question is of type 'gauge' -->
@@ -81,5 +81,5 @@
   <app-comments [pia]="pia" [question]="question"></app-comments>
 
   <!-- TODO : to show only on evaluation mode -->
-  <app-evaluations *ngIf="item.evaluation_mode == 'question' && _evaluationService.enable" [pia]="pia" [section]="section" [item]="item" [questionId]="question.id"></app-evaluations>
+  <app-evaluations *ngIf="item.evaluation_mode === 'question' && _evaluationService.showValidationButton" [pia]="pia" [section]="section" [item]="item" [questionId]="question.id"></app-evaluations>
 </div>

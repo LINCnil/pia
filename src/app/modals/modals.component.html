@@ -155,8 +155,7 @@
     </p>
     <span class="pia-icons pia-icon-sorry"></span>
     <div class="pia-modalBlock-validate">
-      <!-- TODO : see what we can do with this bouton and RouterLink to link to section3/item/1 -->
-      <button (click)="_modalsService.closeModal()" type="button btn-blue" title="Déclarer les mesures existantes ou prévues" class="btn btn-green">Déclarer les mesures existantes ou prévues</button>
+      <a routerLink="/entry/{{_piaService.pia.id}}/section/3/item/1" (click)="_modalsService.closeModal()" type="button btn-blue" title="Déclarer les mesures existantes ou prévues" class="btn btn-green">Déclarer les mesures existantes ou prévues</a>
     </div>
   </div>
 </div>

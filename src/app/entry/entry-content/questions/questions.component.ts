@@ -7,6 +7,7 @@ import { KnowledgeBaseService } from '../../knowledge-base/knowledge-base.servic
 import { Answer } from './answer.model';
 import { Measure } from '../measures/measure.model';
 import { EvaluationService } from 'app/entry/entry-content/evaluations/evaluations.service';
+import { ModalsService } from 'app/modals/modals.service';
 
 @Component({
   selector: 'app-questions',
@@ -21,13 +22,15 @@ export class QuestionsComponent implements OnInit {
   @Input() item: any;
   @Input() section: any;
   @Input() pia: any;
+  displayEditButton = false;
   questionForm: FormGroup;
   answer: Answer = new Answer();
   measure: Measure = new Measure();
 
   constructor(private el: ElementRef,
               private _knowledgeBaseService: KnowledgeBaseService,
-              private _evaluationService: EvaluationService) { }
+              private _evaluationService: EvaluationService,
+              private _modalsService: ModalsService) { }
 
   ngOnInit() {
     this.questionForm = new FormGroup({
@@ -51,7 +54,7 @@ export class QuestionsComponent implements OnInit {
           this.questionForm.controls['text'].disable();
         }
         if (this.answer.data.gauge > 0 || (this.answer.data.text && this.answer.data.text.length > 0)) {
-          this.showEditButton();
+          this.displayEditButton = true;
         }
       }
     });
@@ -87,7 +90,7 @@ export class QuestionsComponent implements OnInit {
         this.answer.data = { text: this.answer.data.text, gauge: gaugeValue, list: this.answer.data.list };
         this.answer.update().then(() => {
           this._evaluationService.allowEvaluation();
-          this.showEditButton();
+          this.displayEditButton = true;
           this.questionForm.controls['gauge'].disable();
           if (this.questionForm.value.text && this.questionForm.value.text.length > 0) {
             this.questionForm.controls['text'].disable();
@@ -99,7 +102,7 @@ export class QuestionsComponent implements OnInit {
         this.answer.data = { text: null, gauge: gaugeValue, list: [] };
         this.answer.create().then(() => {
           this._evaluationService.allowEvaluation();
-          this.showEditButton();
+          this.displayEditButton = true;
           this.questionForm.controls['gauge'].disable();
           if (this.questionForm.value.text && this.questionForm.value.text.length > 0) {
             this.questionForm.controls['text'].disable();
@@ -119,7 +122,7 @@ export class QuestionsComponent implements OnInit {
         this.answer.data = { text: this.questionForm.value.text, gauge: this.answer.data.gauge, list: this.answer.data.list };
         this.answer.update().then(() => {
           this._evaluationService.allowEvaluation();
-          this.showEditButton();
+          this.displayEditButton = true;
           this.questionForm.controls['text'].disable();
           if (gaugeValue > 0) {
             this.questionForm.controls['gauge'].disable();
@@ -131,7 +134,7 @@ export class QuestionsComponent implements OnInit {
         this.answer.data = { text: this.questionForm.value.text, gauge: 1, list: [] };
         this.answer.create().then(() => {
           this._evaluationService.allowEvaluation();
-          this.showEditButton();
+          this.displayEditButton = true;
           this.questionForm.controls['text'].disable();
           if (gaugeValue > 0) {
             this.questionForm.controls['gauge'].disable();
@@ -209,7 +212,7 @@ export class QuestionsComponent implements OnInit {
    * Enables or disables edition mode (fields) for questions.
    */
   activateQuestionEdition() {
-    this.hideEditButton();
+    this.displayEditButton = false;
     this.questionForm.controls['text'].enable();
     this.questionForm.controls['gauge'].enable();
   }
@@ -222,23 +225,6 @@ export class QuestionsComponent implements OnInit {
     accordeon.classList.toggle('pia-icon-accordeon-down');
     const displayer = this.el.nativeElement.querySelector('.pia-questionBlock-displayer');
     displayer.classList.toggle('close');
-  }
-
-  /**
-   * Shows question edit button.
-   */
-  showEditButton() {
-    if (!this._evaluationService.enableEvaluation) {
-      const editBtn = this.el.nativeElement.querySelector('.pia-questionBlock-edit');
-      editBtn.classList.remove('hide');
-    }
-  }
-  /**
-   * Hides question edit button.
-   */
-  hideEditButton() {
-    const editBtn = this.el.nativeElement.querySelector('.pia-questionBlock-edit');
-    editBtn.classList.add('hide');
   }
 
 }

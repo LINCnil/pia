@@ -1,5 +1,5 @@
 import { Router, ActivatedRoute, Params } from '@angular/router';
-import { Component, OnInit, Input, OnChanges } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, AfterViewChecked } from '@angular/core';
 import { Measure } from './measures/measure.model';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map'
@@ -18,7 +18,7 @@ import { EvaluationService } from 'app/entry/entry-content/evaluations/evaluatio
   styleUrls: ['./entry-content.component.scss'],
   providers: [PiaService]
 })
-export class EntryContentComponent implements OnInit, OnChanges {
+export class EntryContentComponent implements OnInit, OnChanges, AfterViewChecked {
 
   @Input() measureName: string;
   @Input() measurePlaceholder: string;
@@ -37,7 +37,7 @@ export class EntryContentComponent implements OnInit, OnChanges {
 
   ngOnInit() {
     const measuresModel = new Measure();
-    const answersModel = new Answer();
+    // const answersModel = new Answer();
     this._piaService.getPIA().then((entry) => {
       measuresModel.pia_id = this._piaService.pia.id;
       measuresModel.findAll().then((entries: any[]) => {
@@ -45,21 +45,6 @@ export class EntryContentComponent implements OnInit, OnChanges {
         if (this._measureService.measures.length === 0) {
           this._measureService.addNewMeasure(this._piaService.pia);
         }
-        /*
-          TODO : display the 'declare measures' modal when there is only one measure and it is empty.
-          It should be applied only on RISK other subsections.
-
-          Check if there is only one measure :
-          if (this._measureService.measures && parseInt(this._measureService.measures.length, 10) === 1) {
-            Check if this only measure is empty :
-            if (_measureService.measures[0].content == 'undefined' && _measureService.measures[0].title == 'undefined') {
-            Then open the modal if section = 3 ET item != 1 (pas sur la page des mesures) :
-              if () {
-                this._modalsService.openModal('pia-declare-measures');
-              }
-            }
-          }
-        */
       });
     });
   }
@@ -69,6 +54,14 @@ export class EntryContentComponent implements OnInit, OnChanges {
     this._evaluationService.allowEvaluation();
     if (this.measureName) {
       this._measureService.addNewMeasure(this._piaService.pia, this.measureName, this.measurePlaceholder);
+    }
+  }
+
+  ngAfterViewChecked() {
+    // TODO This doesn't work some time.
+    if (this._measureService.measures && this._measureService.measures[0].content.length <= 0 &&
+        this._measureService.measures[0].title.length <= 0 && this.section.id === 3 && this.item.id !== 1) {
+      this._modalsService.openModal('pia-declare-measures');
     }
   }
 

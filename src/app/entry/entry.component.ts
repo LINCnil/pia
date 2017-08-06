@@ -56,7 +56,6 @@ export class EntryComponent implements OnInit {
     // Set elements for evaluation verification on each page.
     this._evaluationService.section = this.section;
     this._evaluationService.item = this.item;
-    // this._evaluationService.allowEvaluation();
 
     this.questions = [];
     if (this.item['questions']) {

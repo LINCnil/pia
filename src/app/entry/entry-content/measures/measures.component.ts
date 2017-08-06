@@ -15,6 +15,8 @@ export class MeasuresComponent implements OnInit {
   @Input() item: any;
   @Input() section: any;
   @Input() pia: any;
+  displayEditButton = false;
+  displayDeleteButton = false;
   measureForm: FormGroup;
   measureModel: Measure = new Measure();
 
@@ -33,7 +35,8 @@ export class MeasuresComponent implements OnInit {
         this.measureForm.controls['measureTitle'].patchValue(this.measureModel.title);
         this.measureForm.controls['measureContent'].patchValue(this.measureModel.content);
         if (this.measureModel.title || this.measureModel.content) {
-          this.showEditButton();
+          this.displayEditButton = true;
+          this.displayDeleteButton = true;
         }
         if (this.measureModel.title) {
           this.measureForm.controls['measureTitle'].disable();
@@ -62,7 +65,8 @@ export class MeasuresComponent implements OnInit {
         this._evaluationService.allowEvaluation();
       });
       if (titleValue && titleValue.length > 0 && document.activeElement.id !== 'pia-measure-content-' + this.measureModel.id) {
-        this.showEditButton();
+        this.displayEditButton = true;
+        this.displayDeleteButton = true;
         this.measureForm.controls['measureTitle'].disable();
         // Disables content field if both fields are filled and content isn't the next targeted element.
         if (contentValue && contentValue.length > 0) {
@@ -71,7 +75,8 @@ export class MeasuresComponent implements OnInit {
       }
       // Disables content field too if no title and content is filled and isn't the next targeted element.
       if (!titleValue && contentValue && contentValue.length > 0 && document.activeElement.id !== 'pia-measure-content') {
-        this.showEditButton();
+        this.displayEditButton = true;
+        this.displayDeleteButton = true;
         this.measureForm.controls['measureContent'].disable();
       }
     }, 1);
@@ -94,7 +99,8 @@ export class MeasuresComponent implements OnInit {
         this._evaluationService.allowEvaluation();
       });
       if (contentValue && contentValue.length > 0 && document.activeElement.id !== 'pia-measure-title-' + this.measureModel.id) {
-        this.showEditButton();
+        this.displayEditButton = true;
+        this.displayDeleteButton = true;
         this.measureForm.controls['measureContent'].disable();
         // Disables title field if both fields are filled and title isn't the next targeted element.
         if (titleValue && titleValue.length > 0) {
@@ -103,7 +109,8 @@ export class MeasuresComponent implements OnInit {
       }
       // Disables content field too if no title and content is filled and isn't the next targeted element.
       if (!contentValue && contentValue && titleValue.length > 0 && document.activeElement.id !== 'pia-measure-title') {
-        this.showEditButton();
+        this.displayEditButton = true;
+        this.displayDeleteButton = true;
         this.measureForm.controls['measureTitle'].disable();
       }
     }, 1);
@@ -113,7 +120,7 @@ export class MeasuresComponent implements OnInit {
    * Enables or disables edition mode (fields) for measures.
    */
   activateMeasureEdition() {
-    this.hideEditButton();
+    this.displayEditButton = false;
     this.measureForm.enable();
   }
 
@@ -139,37 +146,5 @@ export class MeasuresComponent implements OnInit {
       this._modalsService.openModal('remove-measure');
     }
   }
-
-  /**
-   * Shows measure edit button.
-   */
-  showEditButton() {
-    const editBtn = this.el.nativeElement.querySelector('.pia-measureBlock-edit');
-    editBtn.classList.remove('hide');
-  }
-
-  /**
-   * Hides measure edit button.
-   */
-  hideEditButton() {
-    const editBtn = this.el.nativeElement.querySelector('.pia-measureBlock-edit');
-    editBtn.classList.add('hide');
-  }
-
-  /**
-   * Shows measure delete button.
-   */
-  /*showDeleteButton() {
-    const deleteBtn = this.el.nativeElement.querySelector('.pia-measureBlock-delete');
-    deleteBtn.classList.remove('hide');
-  }*/
-
-  /**
-   * Hides measure delete button.
-   */
-  /*hideDeleteButton() {
-    const deleteBtn = this.el.nativeElement.querySelector('.pia-measureBlock-delete');
-    deleteBtn.classList.add('hide');
-  }*/
 
 }
