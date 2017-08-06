@@ -29,6 +29,18 @@ export class KnowledgeBaseComponent implements OnInit, OnChanges {
     this.searchForm = new FormGroup({
       q: new FormControl()
     });
+    window.onscroll = function(ev) {
+      if (window.innerWidth > 640) {
+        const el: any = document.querySelector('.pia-knowledgeBaseBlock');
+        if (window.scrollY >= 100) {
+          el.classList.add('pia-knowledgeBaseBlock-scroll');
+          document.querySelector('.pia-knowledgeBaseBlock-list').setAttribute('style', 'height:' + (window.innerHeight - 160) + 'px');
+        } else {
+          el.classList.remove('pia-knowledgeBaseBlock-scroll');
+          document.querySelector('.pia-knowledgeBaseBlock-list').setAttribute('style', 'height:auto;');
+        }
+      }
+    };
   }
 
   ngOnChanges() {

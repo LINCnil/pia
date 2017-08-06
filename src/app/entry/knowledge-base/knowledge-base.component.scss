@@ -3,6 +3,14 @@
 // Knowledge base
 .pia {
   &-knowledgeBaseBlock {
+    &-scroll {
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      .pia-knowledgeBaseBlock-list {
+        overflow-y: scroll;
+      }
+    }
     padding-top: 10px;
     &-header {
       color: $pia-gray;
