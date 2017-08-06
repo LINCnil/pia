@@ -31,20 +31,73 @@ export class EvaluationsComponent implements OnInit {
   @Input() section: any;
   @Input() questionId: any;
   @Input() measureId: any;
+  evaluation: Evaluation = new Evaluation();
+  reference_to: string;
+  displayEditButton = false;
+  previousGauges = {x: 1, y: 1};
 
   constructor(private el: ElementRef, private _evaluationsService: EvaluationService) { }
 
   ngOnInit() {
-    const evaluationGaugesValues = this._evaluationsService.getGaugesValues().then((data) => {
-
-    });
+    // Prefix item
+    this.reference_to = this.section.id + '.' + this.item.id;
+    if (this.item.evaluation_mode === 'question') {
+      // Measure evaluation update
+      if (this.item.is_measure) {
+        this.reference_to += '.' + this.measureId;
+      } else {
+        // Question evaluation update
+        this.reference_to += '.' + this.questionId;
+      }
+    }
 
     this.evaluationForm = new FormGroup({
-      evaluationActionPlan: new FormControl(),
+      actionPlanComment: new FormControl(),
       evaluationComment: new FormControl(),
-      gaugeImpactX: new FormControl(),
-      gaugeGravityY: new FormControl()
+      gaugeX: new FormControl(),
+      gaugeY: new FormControl()
     });
+
+    this.evaluation.getByReference(this.pia.id, this.reference_to).then(() => {
+      if (!this.evaluation.gauges) {
+        this.evaluation.gauges = {x: 1, y: 1};
+      }
+      this.evaluationForm.controls['actionPlanComment'].patchValue(this.evaluation.action_plan_comment);
+      this.evaluationForm.controls['evaluationComment'].patchValue(this.evaluation.evaluation_comment);
+      if (this.evaluation.gauges) {
+        this.evaluationForm.controls['gaugeX'].patchValue(this.evaluation.gauges['x']);
+        this.evaluationForm.controls['gaugeX'].disable();
+        this.evaluationForm.controls['gaugeY'].patchValue(this.evaluation.gauges['y']);
+        this.evaluationForm.controls['gaugeY'].disable();
+      } else {
+        this.evaluationForm.controls['gaugeX'].patchValue(1);
+        this.evaluationForm.controls['gaugeY'].patchValue(1);
+      }
+      if (this.evaluation.action_plan_comment && this.evaluation.action_plan_comment.length > 0) {
+        this.displayEditButton = true;
+        this.evaluationForm.controls['actionPlanComment'].disable();
+      }
+      if (this.evaluation.evaluation_comment && this.evaluation.evaluation_comment.length > 0) {
+        this.displayEditButton = true;
+        this.evaluationForm.controls['evaluationComment'].disable();
+      }
+    });
+
+    if (this.item.questions) {
+      const answersModel = new Answer();
+      const questions: any[] = this.item.questions.filter((question) => {
+        return question.answer_type === 'gauge';
+      });
+      questions.forEach(question => {
+        answersModel.getByReferenceAndPia(this.pia.id, question.id).then(() => {
+          if (answersModel.data) {
+            this.previousGauges[question.cartography.split('_')[1]] = answersModel.data.gauge;
+          }
+        });
+      });
+    }
+
+    this._evaluationsService.isAllEvaluationValidated();
   }
 
   /**
@@ -52,134 +105,40 @@ export class EvaluationsComponent implements OnInit {
    * (displaying edit button, displaying evaluation content with fields, switch value from action plan field to comment field, ...)
    * @param {Event} event any event.
    */
-  selectedButton(event) {
-    const actionPlan = this.el.nativeElement.querySelector('.pia-evaluationBlock-actionPlan');
-    const clickedBtn = event.target || event.srcElement || event.currentTarget;
-
-    // Hides evaluation edit button if it is displayed.
-    const editBtn = this.el.nativeElement.querySelector('.pia-evaluationBlock-edit');
-    if (!editBtn.classList.contains('hide')) {
-      editBtn.classList.add('hide');
-    }
-
+  selectedButton(event, status: number) {
     // Activates (or reactivates after a choice change) evaluation edition on all fields.
     this.activateEvaluationEdition();
+    this.evaluation.status = status;
 
-    const buttonStatus = clickedBtn.getAttribute('data-btn-type');
-
-
-    // "improvable" evaluation state, with action plan.
-    if (buttonStatus === 'improvable') {
-      actionPlan.classList.add('show');
-      // Updates evaluation status
-      const evaluationModel = new Evaluation();
-      const answerModel = new Answer();
-      if (this.item.evaluation_mode === 'item') {
-        const item_reference = this.section.id + '.' + this.item.id;
-        evaluationModel.getByReference(this.pia.id, item_reference).then(() => {
-          evaluationModel.status = 2;
-          evaluationModel.update();
-        });
-      } else {
-        // Measure evaluation update
-        if (this.section.id === 3 && this.item.id === 1) {
-          const measure_reference = this.section.id + '.' + this.item.id + '.' + this.measureId; // Ex : 3.1.8
-          evaluationModel.getByReference(this.pia.id, measure_reference).then(() => {
-            evaluationModel.status = 2;
-            evaluationModel.update();
-          });
-        } else {
-          // Question evaluation update
-          answerModel.getByReferenceAndPia(this.pia.id, this.questionId).then(() => {
-            if (answerModel.data) {
-              evaluationModel.getByReference(this.pia.id, this.questionId).then(() => {
-                evaluationModel.status = 2;
-                evaluationModel.update();
-              });
-            }
-          });
-        }
-      }
-    } else {
-      // "toBeFixed" or "acceptable" evaluation states.
-      // Updates evaluation status
-      const evaluationModel = new Evaluation();
-      const answerModel = new Answer();
-      let statusToBeUpdated;
-      if (buttonStatus === 'toBeFixed') {
-        statusToBeUpdated = 1;
-      } else {
-        statusToBeUpdated = 3;
-      }
-      if (this.item.evaluation_mode === 'item') {
-        const item_reference = this.section.id + '.' + this.item.id;
-        evaluationModel.getByReference(this.pia.id, item_reference).then(() => {
-          evaluationModel.status = statusToBeUpdated;
-          evaluationModel.update();
-        });
-      } else {
-        // Measure evaluation update
-        if (this.section.id === 3 && this.item.id === 1) {
-          const measure_reference = this.section.id + '.' + this.item.id + '.' + this.measureId; // Ex : 3.1.8
-          evaluationModel.getByReference(this.pia.id, measure_reference).then(() => {
-            evaluationModel.status = statusToBeUpdated;
-            evaluationModel.update();
-          });
-        } else {
-          // Question evaluation update
-          answerModel.getByReferenceAndPia(this.pia.id, this.questionId).then(() => {
-            if (answerModel.data) {
-              evaluationModel.getByReference(this.pia.id, this.questionId).then(() => {
-                evaluationModel.status = statusToBeUpdated;
-                evaluationModel.update();
-              });
-            }
-          });
-        }
-      }
-
+    if (status !== 2) {
       // Hides action plan field + switchs its value to comment field + removes its value.
-      const evaluationPlanValue = this.evaluationForm.value.evaluationActionPlan;
+      const evaluationPlanValue = this.evaluationForm.value.actionPlanComment;
       const commentValue = this.evaluationForm.value.evaluationComment;
       if (evaluationPlanValue && evaluationPlanValue.length > 0) {
         // Checks if there is an evaluation comment to concatenate it after the action plan value.
         if (commentValue && commentValue.length > 0) {
-          this.evaluationForm.controls['evaluationComment'].setValue(evaluationPlanValue + '\n'
-            + this.evaluationForm.controls['evaluationComment'].value);
+          this.evaluationForm.controls['evaluationComment'].setValue(evaluationPlanValue + '\n' + commentValue);
         } else {
           this.evaluationForm.controls['evaluationComment'].setValue(evaluationPlanValue);
         }
-        // Deletes the value from action plan field.
-        this.evaluationForm.controls['evaluationActionPlan'].setValue('');
-        /*
-          TODO : update the 'action_plan_comment' attribute in THIS particular case.
-          Action plan is transfered in comment field, so we have to update in DB too...
-          evaluationModel.action_plan_comment = undefined
-        */
+        this.evaluationForm.controls['actionPlanComment'].setValue('');
+        this.evaluation.evaluation_comment = this.evaluationForm.value.evaluationComment;
+        this.evaluation.action_plan_comment = undefined;
       }
-      actionPlan.classList.remove('show');
-
     }
+    this.evaluation.update();
 
     // Disables active classes for all evaluation buttons.
     // Adds an active class and removes previous disable attribute from the current button.
-    const allBtn = this.el.nativeElement.querySelectorAll('.pia-evaluationBlock-buttons .btn');
-    [].forEach.call(allBtn, function(btn) {
+    this.el.nativeElement.querySelectorAll('.pia-evaluationBlock-buttons .btn').forEach((btn) => {
       btn.classList.remove('btn-active');
     });
-    clickedBtn.classList.add('btn-active');
-    clickedBtn.removeAttribute('disabled');
+    // clickedBtn.classList.add('btn-active');
+    // clickedBtn.removeAttribute('disabled');
 
     // Displays content (action plan & comment fields).
     const content = this.el.nativeElement.querySelector('.pia-evaluationBlock-content');
     content.classList.add('show');
-  }
-
-  /**
-   * Hides evaluation edit button for the action plan field.
-   */
-  evaluationActionPlanFocus() {
-    this.hideEvaluationEditButton();
   }
 
   /**
@@ -188,72 +147,37 @@ export class EvaluationsComponent implements OnInit {
    * Shows evaluation edit button.
    * Saves data from action plan field.
    */
-  evaluationActionPlanFocusOut() {
-    const actionPlanValue = this.evaluationForm.value.evaluationActionPlan;
+  actionPlanCommentFocusOut() {
+    const actionPlanValue = this.evaluationForm.value.actionPlanComment;
     const commentValue = this.evaluationForm.value.evaluationComment;
     let noEvaluationButtonsClicked = true;
-    const evaluationButtons = document.querySelectorAll('.pia-evaluationBlock-buttons button');
+    const evaluationButtons: any = document.querySelectorAll('.pia-evaluationBlock-buttons button');
 
     // Waiting for document.activeElement update
     setTimeout(() => {
-      // Evaluation update on items / questions / measures
-      const evaluationModel = new Evaluation();
-      const answerModel = new Answer();
-      if (this.item.evaluation_mode === 'item') {
-        const item_reference = this.section.id + '.' + this.item.id;
-        evaluationModel.getByReference(this.pia.id, item_reference).then(() => {
-          evaluationModel.action_plan_comment = actionPlanValue;
-          evaluationModel.update();
-        });
-      } else {
-        // Measure evaluation update
-        if (this.section.id === 3 && this.item.id === 1) {
-          const measure_reference = this.section.id + '.' + this.item.id + '.' + this.measureId; // Ex : 3.1.8
-          evaluationModel.getByReference(this.pia.id, measure_reference).then(() => {
-            evaluationModel.action_plan_comment = actionPlanValue;
-            evaluationModel.update();
-          });
-        } else {
-          // Question evaluation update
-          answerModel.getByReferenceAndPia(this.pia.id, this.questionId).then(() => {
-            if (answerModel.data) {
-              evaluationModel.getByReference(this.pia.id, this.questionId).then(() => {
-                evaluationModel.action_plan_comment = actionPlanValue;
-                evaluationModel.update();
-              });
-            }
-          });
-        }
-      }
+      this.evaluation.action_plan_comment = actionPlanValue;
       if (actionPlanValue && actionPlanValue.length > 0 && document.activeElement.id !== 'pia-evaluation-comment') {
-        this.showEvaluationEditButton();
-        this.evaluationForm.controls['evaluationActionPlan'].disable();
-        [].forEach.call(evaluationButtons, function(btn) {
-          if (document.activeElement === btn) {
-            noEvaluationButtonsClicked = false;
-          }
+        this.evaluationForm.controls['actionPlanComment'].disable();
+        evaluationButtons.forEach((btn) => {
+          noEvaluationButtonsClicked = (document.activeElement === btn);
         });
-        if (noEvaluationButtonsClicked) {
-          this.disableEvaluationButtons();
-        }
         // Disables comment field if both fields are filled and comment isn't the next targeted element.
         if (commentValue && commentValue.length > 0) {
           this.evaluationForm.controls['evaluationComment'].disable();
         }
+        if (noEvaluationButtonsClicked || (commentValue && commentValue.length > 0)) {
+          this.disableEvaluationButtons();
+        }
       }
       // Disables comment field too if no action plan and comment is filled and isn't the next targeted element.
       if (!actionPlanValue && commentValue && commentValue.length > 0 && document.activeElement.id !== 'pia-evaluation-comment') {
-        this.showEvaluationEditButton();
         this.evaluationForm.controls['evaluationComment'].disable();
       }
+      this.evaluation.update().then(() => {
+        this._evaluationsService.checkForFinalValidation();
+        this.displayEditButton = true;
+      });
     }, 1);
-  }
-
-  /**
-   * Hides evaluation edit button for the comment field.
-   */
-  evaluationCommentFocus() {
-    this.hideEvaluationEditButton();
   }
 
   /**
@@ -263,63 +187,64 @@ export class EvaluationsComponent implements OnInit {
    * Saves data from comment field.
    */
   evaluationCommentFocusOut() {
-    const actionPlanValue = this.evaluationForm.value.evaluationActionPlan;
+    const actionPlanValue = this.evaluationForm.value.actionPlanComment;
     const commentValue = this.evaluationForm.value.evaluationComment;
     let noEvaluationButtonsClicked = true;
-    const evaluationButtons = document.querySelectorAll('.pia-evaluationBlock-buttons button');
+    const evaluationButtons: any = document.querySelectorAll('.pia-evaluationBlock-buttons button');
     // Waiting for document.activeElement update
     setTimeout(() => {
-      // Evaluation update on items / questions / measures
-      const evaluationModel = new Evaluation();
-      const answerModel = new Answer();
-      if (this.item.evaluation_mode === 'item') {
-        const item_reference = this.section.id + '.' + this.item.id;
-        evaluationModel.getByReference(this.pia.id, item_reference).then(() => {
-          evaluationModel.evaluation_comment = commentValue;
-          evaluationModel.update();
-        });
-      } else {
-        // Measure evaluation update
-        if (this.section.id === 3 && this.item.id === 1) {
-          const measure_reference = this.section.id + '.' + this.item.id + '.' + this.measureId; // Ex : 3.1.8
-          evaluationModel.getByReference(this.pia.id, measure_reference).then(() => {
-            evaluationModel.evaluation_comment = commentValue;
-            evaluationModel.update();
-          });
-        } else {
-          // Question evaluation update
-          answerModel.getByReferenceAndPia(this.pia.id, this.questionId).then(() => {
-            if (answerModel.data) {
-              evaluationModel.getByReference(this.pia.id, this.questionId).then(() => {
-                evaluationModel.evaluation_comment = commentValue;
-                evaluationModel.update();
-              });
-            }
-          });
-        }
-      }
+      this.evaluation.evaluation_comment = commentValue;
       if (commentValue && commentValue.length > 0 && document.activeElement.id !== 'pia-evaluation-action-plan') {
-        this.showEvaluationEditButton();
         this.evaluationForm.controls['evaluationComment'].disable();
-        [].forEach.call(evaluationButtons, function(btn) {
+        evaluationButtons.forEach((btn) => {
           if (document.activeElement === btn) {
             noEvaluationButtonsClicked = false;
           }
         });
-        if (noEvaluationButtonsClicked) {
-          this.disableEvaluationButtons();
-        }
         // Disables action plan field if both fields are filled and action plan isn't the next targeted element.
         if (actionPlanValue && actionPlanValue.length > 0) {
-          this.evaluationForm.controls['evaluationActionPlan'].disable();
+          this.evaluationForm.controls['actionPlanComment'].disable();
+        }
+        if (noEvaluationButtonsClicked || ((actionPlanValue && actionPlanValue.length > 0))) {
+          this.disableEvaluationButtons();
         }
       }
       // Disables action plan field too if no comment and action plan is filled and isn't the next targeted element.
       if (!commentValue && actionPlanValue && actionPlanValue.length > 0 && document.activeElement.id !== 'pia-evaluation-action-plan') {
-        this.showEvaluationEditButton();
-        this.evaluationForm.controls['evaluationActionPlan'].disable();
+        this.evaluationForm.controls['actionPlanComment'].disable();
       }
+      this.evaluation.update().then(() => {
+        this._evaluationsService.checkForFinalValidation();
+        this.displayEditButton = true;
+      });
     }, 1);
+  }
+
+  checkGaugeChanges(event: any, xOrY: string) {
+    const value: string = event.target.value;
+    const bgElement = event.target.parentNode.querySelector('.pia-gaugeBlock-background-' + xOrY);
+    bgElement.classList.remove('pia-gaugeBlock-background-2');
+    bgElement.classList.remove('pia-gaugeBlock-background-3');
+    bgElement.classList.remove('pia-gaugeBlock-background-4');
+    bgElement.classList.add('pia-gaugeBlock-background-' + value);
+    const gaugeValueX = parseInt(this.evaluationForm.value.gaugeX, 10);
+    const gaugeValueY = parseInt(this.evaluationForm.value.gaugeY, 10);
+    if (!this.evaluation.gauges) {
+      this.evaluation.gauges = {x: 1, y: 1};
+    }
+    if (gaugeValueX > 0) {
+      this.evaluation.gauges['x'] = gaugeValueX;
+    }
+    if (gaugeValueY > 0) {
+      this.evaluation.gauges['y'] = gaugeValueY;
+    }
+    this.evaluation.update().then(() => {
+      if (xOrY === 'x') {
+        this.evaluationForm.controls['gaugeX'].disable();
+      } else if (xOrY === 'y') {
+        this.evaluationForm.controls['gaugeY'].disable();
+      }
+    });
   }
 
   /* TODO : update evaluation with gauges */
@@ -329,24 +254,10 @@ export class EvaluationsComponent implements OnInit {
    */
   activateEvaluationEdition() {
     this.enableEvaluationButtons();
-    this.evaluationForm.controls['evaluationActionPlan'].enable();
+    this.evaluationForm.controls['actionPlanComment'].enable();
     this.evaluationForm.controls['evaluationComment'].enable();
-  }
-
-  /**
-   * Shows evaluation edit button.
-   */
-  showEvaluationEditButton() {
-    const editBtn = this.el.nativeElement.querySelector('.pia-evaluationBlock-edit');
-    editBtn.classList.remove('hide');
-  }
-
-  /**
-   * Hides evaluation edit button.
-   */
-  hideEvaluationEditButton() {
-    const editBtn = this.el.nativeElement.querySelector('.pia-evaluationBlock-edit');
-    editBtn.classList.add('hide');
+    this.evaluationForm.controls['gaugeX'].enable();
+    this.evaluationForm.controls['gaugeY'].enable();
   }
 
   /**
@@ -354,7 +265,7 @@ export class EvaluationsComponent implements OnInit {
    */
   disableEvaluationButtons() {
     const evaluationButtons = this.el.nativeElement.querySelectorAll('.pia-evaluationBlock-buttons .btn');
-    [].forEach.call(evaluationButtons, function(btn) {
+    evaluationButtons.forEach((btn) => {
       if (!btn.classList.contains('btn-active')) {
         btn.setAttribute('disabled', true);
       }
@@ -366,7 +277,7 @@ export class EvaluationsComponent implements OnInit {
    */
   enableEvaluationButtons() {
     const evaluationButtons = this.el.nativeElement.querySelectorAll('.pia-evaluationBlock-buttons button');
-    [].forEach.call(evaluationButtons, function(btn) {
+    evaluationButtons.forEach((btn) => {
       btn.removeAttribute('disabled');
     });
   }

@@ -10,7 +10,11 @@
     {{question.title}}
   </div>
   <div class="pia-questionBlock-displayer fadeIn">
-    <button type="button" class="btn pia-questionBlock-edit"  *ngIf="displayEditButton && !this._evaluationService.showValidationButton" (click)="activateQuestionEdition()" title="Éditer"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+    <button type="button" class="btn pia-questionBlock-edit"
+            *ngIf="displayEditButton && !_evaluationService.showValidationButton && !_evaluationService.enableFinalValidation"
+            (click)="activateQuestionEdition()" title="Éditer">
+      <i class="fa fa-pencil" aria-hidden="true"></i>
+    </button>
     <form [formGroup]="questionForm">
 
       <!-- TODO : to display only if question is of type 'gauge' -->
@@ -37,7 +41,7 @@
             [ngModel]="tags"
             [placeholder]="question.placeholder + '&#10010;'"
             [editable]="'false'"
-            [disabled]="_evaluationService.showValidationButton"
+            [disabled]="_evaluationService.showValidationButton || _evaluationService.enableFinalValidation"
             [onlyFromAutocomplete]="true"
             [secondaryPlaceholder]="question.placeholder + '&#10010;'">
             <tag-input-dropdown
@@ -57,7 +61,7 @@
             [ngModel]="tags"
             [placeholder]="question.placeholder + '&#10010;'"
             [editable]="'false'"
-            [disabled]="_evaluationService.showValidationButton"
+            [disabled]="_evaluationService.showValidationButton || _evaluationService.enableFinalValidation"
             [secondaryPlaceholder]="question.placeholder + '&#10010;'">
           </tag-input>
         </ng-template>

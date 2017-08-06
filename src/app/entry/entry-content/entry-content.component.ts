@@ -69,9 +69,8 @@ export class EntryContentComponent implements OnInit, OnChanges, AfterViewChecke
    * Allows an user to validate evaluation for a section.
    */
   validateEvaluation() {
+    this._evaluationService.validateAllEvaluation();
     this._modalsService.openModal('validate-evaluation');
-    /* TODO : update PIA status + 'refresh PIA' so that it changes header status icon + navigation status icons */
-    /* It should also locks PIA updates for THIS section */
   }
 
 }

@@ -10,8 +10,8 @@
              (focusout)="measureTitleFocusOut($event)" type="text" placeholder="Titre de la mesure">
     </div>
     <div class="pia-measureBlock-displayer fadeIn">
-      <button type="button" class="btn pia-measureBlock-delete" *ngIf="displayEditButton && !this._evaluationService.showValidationButton" (click)="removeMeasure(measure.id)" title="Supprimer"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
-      <button type="button" class="btn pia-measureBlock-edit" *ngIf="displayDeleteButton && !this._evaluationService.showValidationButton" (click)="activateMeasureEdition()" title="Éditer"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+      <button type="button" class="btn pia-measureBlock-delete" *ngIf="displayEditButton && !this._evaluationService.showValidationButton && !_evaluationService.enableFinalValidation" (click)="removeMeasure(measure.id)" title="Supprimer"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+      <button type="button" class="btn pia-measureBlock-edit" *ngIf="displayDeleteButton && !this._evaluationService.showValidationButton && !_evaluationService.enableFinalValidation" (click)="activateMeasureEdition()" title="Éditer"><i class="fa fa-pencil" aria-hidden="true"></i></button>
       <div class="pia-measureBlock-content">
         <textarea [attr.data-id]="measure.id" id="pia-measure-content-{{measure.id}}" formControlName="measureContent"
                   (focusout)="measureContentFocusOut($event)" rows="8" cols="50"

@@ -1,7 +1,9 @@
 <section class="pia-entryContentBlock pia-entryContentBlock-section{{section.id}}" *ngIf="section && item">
   <header class="pia-entryContentBlock-header">
     <div>
-      <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+      <i class="fa"
+         [ngClass]="{'fa-check-square-o': _evaluationService.enableFinalValidation, 'fa-cog': _evaluationService.showValidationButton, 'fa-pencil-square-o': !_evaluationService.enableFinalValidation && !_evaluationService.showValidationButton}"
+         aria-hidden="true"></i>
     </div>
     <div class="pia-entryContentBlock-header-title">
       <h1 *ngIf="section.title">{{ section.title }}</h1>
@@ -24,7 +26,7 @@
     </div>
   </ng-template>
 
-  <app-evaluations *ngIf="item.evaluation_mode === 'item' && _evaluationService.showValidationButton" [pia]="_piaService.pia" [section]="section" [item]="item"></app-evaluations>
+  <app-evaluations *ngIf="item.evaluation_mode === 'item' && (_evaluationService.showValidationButton || _evaluationService.enableFinalValidation)" [pia]="_piaService.pia" [section]="section" [item]="item"></app-evaluations>
 
   <app-overview-risks *ngIf="section.id == 3 && item.id == 5"></app-overview-risks>
 
@@ -35,12 +37,24 @@
   <app-dpo-people-opinions *ngIf="section.id == 4 && item.id == 3"></app-dpo-people-opinions>
 
   <footer class="pia-entryContentBlock-footer">
-    <div class="pia-entryContentBlock-footer-measures" *ngIf="item.is_measure && !_evaluationService.showValidationButton">
-      <button (click)="_measureService.addNewMeasure(_piaService.pia)" class="btn btn-white" type="button" title="Ajouter une mesure"><span class="pia-icons pia-icon-add"></span>Ajouter une mesure</button>
-      <button (click)="_evaluationService.prepareForEvaluation()" class="btn btn-green" [ngClass]="{'btn-active': _evaluationService.enableEvaluation}" [disabled]="!_evaluationService.enableEvaluation" type="submit" title="Demander l'évaluation">Demander l'évaluation</button>
+    <div class="pia-entryContentBlock-footer-measures" *ngIf="item.is_measure && !_evaluationService.showValidationButton && !_evaluationService.enableFinalValidation">
+      <button (click)="_measureService.addNewMeasure(_piaService.pia)" class="btn btn-white" type="button"
+              title="Ajouter une mesure"><span class="pia-icons pia-icon-add"></span>Ajouter une mesure</button>
+      <button (click)="_evaluationService.prepareForEvaluation()" class="btn btn-green"
+              *ngIf="!_evaluationService.showValidationButton"
+              [ngClass]="{'btn-active': _evaluationService.enableEvaluation}"
+              [disabled]="!_evaluationService.enableEvaluation" type="submit"
+              title="Demander l'évaluation">Demander l'évaluation</button>
     </div>
-    <button class="btn btn-green" (click)="_evaluationService.prepareForEvaluation()" *ngIf="!_evaluationService.showValidationButton" [ngClass]="{'btn-active': _evaluationService.enableEvaluation, 'hide': ((section.id == 3 && item.id == 1) || (section.id == 3 && item.id == 5)) || section.id == 4}" [disabled]="!_evaluationService.enableEvaluation" type="submit" title="Demander l'évaluation">Demander l'évaluation</button>
-    <button class="btn btn-green" (click)="_evaluationService.validateEvaluation()" [ngClass]="{'btn-active': _evaluationService.enableValidation, 'hide': (section.id == 3 && item.id == 5) || section.id == 4 || !_evaluationService.showValidationButton}" [disabled]="!_evaluationService.enableValidation" type="submit" title="Valider l'évaluation">Valider l'évaluation</button>
+    <button class="btn btn-green" (click)="_evaluationService.prepareForEvaluation()"
+            *ngIf="!_evaluationService.showValidationButton && !_evaluationService.enableFinalValidation"
+            [ngClass]="{'btn-active': _evaluationService.enableEvaluation, 'hide': ((section.id == 3 && item.id == 1) || (section.id == 3 && item.id == 5)) || section.id == 4}"
+            [disabled]="!_evaluationService.enableEvaluation" type="submit"
+            title="Demander l'évaluation">Demander l'évaluation</button>
+    <button class="btn btn-green" (click)="validateEvaluation()"
+            [ngClass]="{'btn-active': _evaluationService.enableValidation, 'hide': (section.id == 3 && item.id == 5) || section.id == 4 || !_evaluationService.showValidationButton}"
+            [disabled]="!_evaluationService.enableValidation" type="submit"
+            title="Valider l'évaluation">Valider l'évaluation</button>
     <button class="btn btn-pending-validation" [ngClass]="{'hide': (section.id == 3 && item.id == 5) || section.id == 4 || !_evaluationService.enableFinalValidation}" disabled type="submit" title="Partie évaluée, en attente de la validation finale">
       <i class="fa fa-check-square-o" aria-hidden="true"></i>
       Partie évaluée, en attente de la validation finale

@@ -15,7 +15,9 @@
           <li *ngIf="!dataItem.hide">
             <a routerLink="/entry/{{_piaService.pia.id}}/section/{{dataSection.id}}/item/{{dataItem.id}}"
               [ngClass]="{'active': section.id == dataSection.id && item.id == dataItem.id}">{{dataItem.title}}</a>
-            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+            <!-- <i class="fa"
+               [ngClass]="{'fa-check-square-o': enableItemFinalValidation(dataItem), 'fa-cog': showItemValidationButton(dataItem), 'fa-pencil-square-o': !enableItemFinalValidation(dataItem) && !showItemValidationButton(dataItem)}"
+               aria-hidden="true"></i> -->
           </li>
         </ng-container>
       </ul>

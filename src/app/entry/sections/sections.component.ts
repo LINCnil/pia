@@ -1,4 +1,7 @@
 import { Component, OnInit, Input, Output } from '@angular/core';
+import { Evaluation } from 'app/entry/entry-content/evaluations/evaluation.model';
+import { Measure } from 'app/entry/entry-content/measures/measure.model';
+import { Answer } from 'app/entry/entry-content/questions/answer.model';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 
@@ -51,4 +54,71 @@ export class SectionsComponent implements OnInit {
       return false;
     }
   }
+
+  // enableItemFinalValidation(item: any) {
+  //   return true;
+  // }
+
+  // showItemValidationButton(item: any) {
+  //   const evaluation = new Evaluation();
+  //   let reference_to = '';
+  //   if (item.evaluation_mode === 'item') {
+  //     reference_to = this.section.id + '.' + item.id;
+  //     evaluation.existByReference(this._piaService.pia.id, reference_to).then((exist: boolean) => {
+  //       return exist;
+  //     });
+  //   } else {
+  //     let count = 0;
+  //     this.getAllAnswers(item).then((answers: any) => {
+  //       answers.forEach((answer) => {
+  //         if (item.is_measure) {
+  //           // For measure
+  //           reference_to = this.section.id + '.' + item.id + '.' + answer;
+  //         } else {
+  //           // For question
+  //           reference_to = this.section.id + '.' + item.id + '.' + answer.reference_to;
+  //         }
+  //         evaluation.existByReference(this._piaService.pia.id, reference_to).then((exist: boolean) => {
+  //           if (exist) {
+  //             count += 1;
+  //             if (count === answers.length) {
+  //               return true;
+  //             }
+  //           }
+  //         });
+  //       });
+  //     });
+  //   }
+  // }
+
+  // private async getAllAnswers(item: any) {
+  //   const answerModel = new Answer();
+  //   const measureModel = new Measure();
+  //   return new Promise((resolve, reject) => {
+  //     let answers = [];
+  //     if (item.is_measure) {
+  //       // For measures
+  //       measureModel.findAll().then((measures: any[]) => {
+  //         measures.forEach(measure => {
+  //           if (measure.title && measure.title.length > 0 && measure.content && measure.content.length > 0) {
+  //             answers.push(measure.id);
+  //           }
+  //         });
+  //         resolve(answers);
+  //       });
+  //     } else if (item.questions) {
+  //       // For questions and item evaluation_mode
+  //       const questionsIds = [];
+  //       this.item.questions.forEach(question => {
+  //         questionsIds.push(question.id);
+  //       });
+  //       answerModel.findAllByPia(this._piaService.pia.id).then((a: any) => {
+  //         answers = a.filter((answer) => {
+  //           return questionsIds.indexOf(answer.reference_to) >= 0;
+  //         });
+  //         resolve(answers);
+  //       });
+  //     }
+  //   });
+  // }
 }

@@ -113,7 +113,6 @@ export class EvaluationService {
         } else {
           // For question
           reference_to = this.section.id + '.' + this.item.id + '.' + answer.reference_to;
-          console.log(reference_to);
         }
         evaluation.existByReference(this.pia.id, reference_to).then((exist: boolean) => {
           if (exist) {
@@ -125,17 +124,85 @@ export class EvaluationService {
     }
   }
 
-  validateEvaluation() {
+  remove(reference_to: any) {
+    const evaluation = new Evaluation();
+    if (this.item.is_measure) {
+      reference_to = this.section.id + '.' + this.item.id + '.' + reference_to;
+    } else if (this.item.evaluation_mode === 'item') {
+      reference_to = this.section.id + '.' + this.item.id;
+    }
+    evaluation.getByReference(this.pia.id, reference_to).then(() => {
+      if (evaluation.id) {
+        evaluation.delete(evaluation.id);
+      }
+    });
+  }
+
+  checkForFinalValidation() {
+    this.enableValidation = true;
+  }
+
+  validateAllEvaluation() {
+    const evaluation = new Evaluation();
+    let reference_to = '';
     if (this.item.evaluation_mode === 'item') {
-      this.createEvaluationInDb(this.section.id + '.' + this.item.id);
-    } else {
+      reference_to = this.section.id + '.' + this.item.id;
+      evaluation.getByReference(this.pia.id, reference_to).then(() => {
+        evaluation.global_status = 1;
+        evaluation.update().then(() => {
+          this.showValidationButton = false;
+          this.enableFinalValidation = true;
+        });
+      });
+    } else if (this.answers.length > 0) {
       this.answers.forEach((answer) => {
-        let reference_to = null;
-        reference_to = answer.reference_to;
         if (this.item.is_measure) {
+          // For measure
           reference_to = this.section.id + '.' + this.item.id + '.' + answer;
+        } else {
+          // For question
+          reference_to = this.section.id + '.' + this.item.id + '.' + answer.reference_to;
         }
-        this.createEvaluationInDb(reference_to);
+        evaluation.getByReference(this.pia.id, reference_to).then(() => {
+          evaluation.global_status = 1;
+          evaluation.update();
+          this.showValidationButton = false;
+          this.enableFinalValidation = true;
+        });
+      });
+    }
+  }
+
+  isAllEvaluationValidated() {
+    const evaluation = new Evaluation();
+    let reference_to = '';
+    if (this.item.evaluation_mode === 'item') {
+      reference_to = this.section.id + '.' + this.item.id;
+      evaluation.getByReference(this.pia.id, reference_to).then(() => {
+        if (evaluation.global_status === 1) {
+          this.showValidationButton = false;
+          this.enableFinalValidation = true;
+        }
+      });
+    } else if (this.answers.length > 0) {
+      let count = 0;
+      this.answers.forEach((answer) => {
+        if (this.item.is_measure) {
+          // For measure
+          reference_to = this.section.id + '.' + this.item.id + '.' + answer;
+        } else {
+          // For question
+          reference_to = this.section.id + '.' + this.item.id + '.' + answer.reference_to;
+        }
+        evaluation.getByReference(this.pia.id, reference_to).then(() => {
+          if (evaluation.global_status === 1) {
+            count += 1;
+          }
+          if (count === this.answers.length) {
+            this.showValidationButton = false;
+            this.enableFinalValidation = true;
+          }
+        });
       });
     }
   }
@@ -154,43 +221,6 @@ export class EvaluationService {
           resolve();
         }
       });
-    });
-  }
-
-  remove(reference_to: any) {
-    const evaluation = new Evaluation();
-    if (this.item.is_measure) {
-      reference_to = this.section.id + '.' + this.item.id + '.' + reference_to;
-    } else if (this.item.evaluation_mode === 'item') {
-      reference_to = this.section.id + '.' + this.item.id;
-    }
-    evaluation.getByReference(this.pia.id, reference_to).then(() => {
-      if (evaluation.id) {
-        evaluation.delete(evaluation.id);
-      }
-    });
-  }
-  /*TODO : check why it sends an array with weird data in it to evaluation component.ts ... */
-  async getGaugesValues() {
-    const gaugesValues = [];
-    return new Promise((resolve, reject) => {
-      /* gaugesValues[0] is gravity (y) and gaugesValues[1] is impact (x) */
-
-      const questions: any[] = this.item.questions.filter((question) => {
-        return question.answer_type === 'gauge';
-      });
-
-      questions.forEach(question => {
-        const answersModel = new Answer();
-        answersModel.getByReferenceAndPia(this.pia.id, question.id).then(() => {
-          if (answersModel.data) {
-            console.log(answersModel.data['gauge']);
-            gaugesValues.push(answersModel.data['gauge']);
-          }
-        });
-      });
-
-      resolve(gaugesValues);
     });
   }
 
