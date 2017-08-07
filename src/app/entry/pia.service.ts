@@ -5,6 +5,7 @@ import { Pia } from './pia.model';
 
 import { ModalsService } from 'app/modals/modals.service';
 import { EvaluationService } from 'app/entry/entry-content/evaluations/evaluations.service';
+import { Evaluation } from 'app/entry/entry-content/evaluations/evaluation.model';
 import { Answer } from 'app/entry/entry-content/questions/answer.model';
 
 @Injectable()
@@ -56,6 +57,22 @@ export class PiaService {
     return new Promise((resolve, reject) => {
       this.answer.findAllByPia(pia_id).then((entries: any) => {
         resolve(Math.round((100 / numberOfQuestions) * entries.length));
+      });
+    });
+  }
+
+  async piaInGlobalValidation() {
+    return new Promise((resolve, reject) => {
+      // TODO - Count all evaluation_mode
+      const countEvaluationMode = 14;
+      // Count all valid evaluation in DB with global_status === 1
+      const evaluation = new Evaluation();
+      evaluation.pia_id = this._evaluationService.pia.id;
+      evaluation.findAll().then((entries: any) => {
+        const entriesWithGlobalStatus = entries.filter((e) => {
+          return e.global_status === 1;
+        })
+        resolve(countEvaluationMode === entriesWithGlobalStatus.length);
       });
     });
   }

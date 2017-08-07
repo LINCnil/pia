@@ -11,7 +11,7 @@
   </div>
   <div class="pia-questionBlock-displayer fadeIn">
     <button type="button" class="btn pia-questionBlock-edit"
-            *ngIf="displayEditButton && !_evaluationService.showValidationButton && !_evaluationService.enableFinalValidation"
+            *ngIf="displayEditButton"
             (click)="activateQuestionEdition()" title="Éditer">
       <i class="fa fa-pencil" aria-hidden="true"></i>
     </button>
@@ -87,5 +87,5 @@
   <app-comments [pia]="pia" [question]="question"></app-comments>
 
   <!-- TODO : to show only on evaluation mode -->
-  <app-evaluations *ngIf="item.evaluation_mode === 'question' && (_evaluationService.showValidationButton || _evaluationService.enableFinalValidation)" [pia]="pia" [section]="section" [item]="item" [questionId]="question.id"></app-evaluations>
+  <app-evaluations (evaluationEvent)="evaluationChange($event)" *ngIf="item.evaluation_mode === 'question' && (_evaluationService.showValidationButton || _evaluationService.enableFinalValidation)" [pia]="pia" [section]="section" [item]="item" [questionId]="question.id"></app-evaluations>
 </div>

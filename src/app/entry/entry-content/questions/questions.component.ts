@@ -8,6 +8,7 @@ import { Answer } from './answer.model';
 import { Measure } from '../measures/measure.model';
 import { EvaluationService } from 'app/entry/entry-content/evaluations/evaluations.service';
 import { ModalsService } from 'app/modals/modals.service';
+import { Evaluation } from 'app/entry/entry-content/evaluations/evaluation.model';
 
 @Component({
   selector: 'app-questions',
@@ -22,6 +23,7 @@ export class QuestionsComponent implements OnInit {
   @Input() item: any;
   @Input() section: any;
   @Input() pia: any;
+  evaluation: Evaluation = new Evaluation();
   displayEditButton = false;
   questionForm: FormGroup;
   answer: Answer = new Answer();
@@ -42,6 +44,9 @@ export class QuestionsComponent implements OnInit {
     this.getReferenceTo();
     this.answer.getByReferenceAndPia(this.pia.id, this.reference_to).then(() => {
       if (this.answer.data) {
+        this.evaluation.getByReference(this.pia.id, this.answer.id).then(() => {
+          this.checkDisplayButtons();
+        });
         this.questionForm.controls['gauge'].patchValue(this.answer.data.gauge);
         this.questionForm.controls['text'].patchValue(this.answer.data.text);
         this.questionForm.controls['list'].patchValue(this.answer.data.list);
@@ -70,6 +75,23 @@ export class QuestionsComponent implements OnInit {
         });
       }
     });
+  }
+
+  evaluationChange(evaluation) {
+    this.evaluation = evaluation;
+    this.checkDisplayButtons();
+  }
+
+  checkDisplayButtons() {
+    if (this._evaluationService.showValidationButton) {
+      this.displayEditButton = false;
+    }
+    if (this._evaluationService.enableFinalValidation) {
+      this.displayEditButton = false;
+    }
+    if (this.evaluation && this.evaluation.status === 1) {
+      this.displayEditButton = true;
+    }
   }
 
   /*

@@ -3,6 +3,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { ModalsService } from 'app/modals/modals.service';
 import { Measure } from './measure.model';
 import { EvaluationService } from 'app/entry/entry-content/evaluations/evaluations.service';
+import { Evaluation } from 'app/entry/entry-content/evaluations/evaluation.model';
 
 @Component({
   selector: 'app-measures',
@@ -15,6 +16,7 @@ export class MeasuresComponent implements OnInit {
   @Input() item: any;
   @Input() section: any;
   @Input() pia: any;
+  evaluation: Evaluation = new Evaluation();
   displayEditButton = false;
   displayDeleteButton = false;
   measureForm: FormGroup;
@@ -32,6 +34,9 @@ export class MeasuresComponent implements OnInit {
     });
     this.measureModel.get(this.measure.id).then(() => {
       if (this.measureModel) {
+        this.evaluation.getByReference(this.pia.id, this.measure.id).then(() => {
+          this.checkDisplayButtons();
+        });
         this.measureForm.controls['measureTitle'].patchValue(this.measureModel.title);
         this.measureForm.controls['measureContent'].patchValue(this.measureModel.content);
         if (this.measureModel.title || this.measureModel.content) {
@@ -46,6 +51,26 @@ export class MeasuresComponent implements OnInit {
         }
       }
     });
+  }
+
+  evaluationChange(evaluation) {
+    this.evaluation = evaluation;
+    this.checkDisplayButtons();
+  }
+
+  checkDisplayButtons() {
+    if (this._evaluationService.showValidationButton) {
+      this.displayEditButton = false;
+      this.displayDeleteButton = false;
+    }
+    if (this._evaluationService.enableFinalValidation) {
+      this.displayEditButton = false;
+      this.displayDeleteButton = false;
+    }
+    if (this.evaluation && this.evaluation.status === 1) {
+      this.displayEditButton = true;
+      this.displayDeleteButton = true;
+    }
   }
 
   /**

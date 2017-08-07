@@ -32,13 +32,15 @@ export class KnowledgeBaseComponent implements OnInit, OnChanges {
     window.onscroll = function(ev) {
       if (window.innerWidth > 640) {
         const el: any = document.querySelector('.pia-knowledgeBaseBlock');
-        if (window.scrollY >= 100) {
-          el.classList.add('pia-knowledgeBaseBlock-scroll');
-          document.querySelector('.pia-knowledgeBaseBlock-list').
-            setAttribute('style', 'width:283px;height:' + (window.innerHeight - 160) + 'px');
-        } else {
-          el.classList.remove('pia-knowledgeBaseBlock-scroll');
-          document.querySelector('.pia-knowledgeBaseBlock-list').setAttribute('style', 'width:auto;height:auto;');
+        if (el) {
+          if (window.scrollY >= 100) {
+            el.classList.add('pia-knowledgeBaseBlock-scroll');
+            document.querySelector('.pia-knowledgeBaseBlock-list').
+              setAttribute('style', 'width:283px;height:' + (window.innerHeight - 160) + 'px');
+          } else {
+            el.classList.remove('pia-knowledgeBaseBlock-scroll');
+            document.querySelector('.pia-knowledgeBaseBlock-list').setAttribute('style', 'width:auto;height:auto;');
+          }
         }
       }
     };

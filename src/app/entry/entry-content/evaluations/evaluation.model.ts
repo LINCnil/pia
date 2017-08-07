@@ -82,8 +82,10 @@ export class Evaluation extends ApplicationDb {
           this.global_status = entry.global_status;
           this.created_at = new Date(entry.created_at);
           this.updated_at = new Date(entry.updated_at);
+          resolve(this);
+        } else {
+          resolve(false);
         }
-        resolve();
       }
     });
   }
@@ -143,4 +145,18 @@ export class Evaluation extends ApplicationDb {
     });
   }
 
+  async globalStatusByReference(pia_id: number, reference_to: any) {
+    await this.getObjectStore();
+    return new Promise((resolve, reject) => {
+      const index1 = this.objectStore.index('index1');
+      index1.get(IDBKeyRange.only([pia_id, reference_to])).onsuccess = (event: any) => {
+        const entry = event.target.result;
+        if (entry.global_status === 1) {
+          resolve(true);
+        } else {
+          resolve(false);
+        }
+      }
+    });
+  }
 }

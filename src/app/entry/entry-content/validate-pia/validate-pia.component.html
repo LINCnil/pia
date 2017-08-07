@@ -1,18 +1,18 @@
 <div class="container pia-validationBlock ">
   <div class="pia-entryContentBlock-content">
     <div class="pia-entryContentBlock-content-list">
-      <p>Le 25 Avril 2015,</p>
-      <p>Le Responsable de la validation du PIA <span class="blue">Sophie Hadid</span>.</p>
-      <p>Aprés lecture intégrale du PIA concernant le traitement des données liées à l'activité de <span class="blue">Captoo</span></p>
+      <p>Le {{_piaService.pia.updated_at | date: 'dd/MM/yyyy'}},</p>
+      <p>Le Responsable de la validation du PIA <span class="blue">{{_piaService.pia.validator_name}}</span>.</p>
+      <p>Aprés lecture intégrale du PIA concernant le traitement des données liées à l'activité de <span class="blue">{{_piaService.pia.name}}</span></p>
       <form [formGroup]="validateForm" (change)="checkValidationFormStatus()" novalidate>
-        <div class="pia-entryContentBlock-content-list-confirm validate">
+        <div class="pia-entryContentBlock-content-list-confirm" [ngClass]="{'validate': _piaService.pia.status > 1}">
           <!--
               /!\ Just an example with 'validate' class here.
               TODO : remove this checked attr, and WHEN PIA IS VALIDATED :
               - Add 'validate' class on all div list-confirm,
               - Disable all checkbox input.
           -->
-          <input type="checkbox" formControlName="validateStatus" checked="checked" (click)="lockStatus($event)" id="checkbox-1" value="1">
+          <input type="checkbox" formControlName="validateStatus1" checked="checked" (click)="lockStatus($event)" id="checkbox-1" value="1">
           <label for="checkbox-1">
             <span class="pia-list-confirm-icon">
               <i class="fa fa-circle" aria-hidden="true"></i>
@@ -21,8 +21,8 @@
             <span class="pia-list-confirm-desc">Je confirme que la description du contexte de mon traitement est conforme à la réalité.</span>
           </label>
         </div>
-        <div class="pia-entryContentBlock-content-list-confirm">
-          <input type="checkbox" formControlName="validateStatus" (click)="lockStatus($event)" id="checkbox-2" value="2">
+        <div class="pia-entryContentBlock-content-list-confirm" [ngClass]="{'validate': _piaService.pia.status > 1}">
+          <input type="checkbox" formControlName="validateStatus2" (click)="lockStatus($event)" id="checkbox-2" value="2">
           <label for="checkbox-2">
             <span class="pia-list-confirm-icon">
               <i class="fa fa-circle" aria-hidden="true"></i>
@@ -31,8 +31,8 @@
             <span class="pia-list-confirm-desc">Je confirme avoir pris connaissance des risques existants en fonction des mesures actuellement mises en oeuvre ou prévues.</span>
           </label>
         </div>
-        <div class="pia-entryContentBlock-content-list-confirm">
-          <input type="checkbox" formControlName="validateStatus" (click)="lockStatus($event)" id="checkbox-3" value="3">
+        <div class="pia-entryContentBlock-content-list-confirm" [ngClass]="{'validate': _piaService.pia.status > 1}">
+          <input type="checkbox" formControlName="validateStatus3" (click)="lockStatus($event)" id="checkbox-3" value="3">
           <label for="checkbox-3">
             <span class="pia-list-confirm-icon">
               <i class="fa fa-circle" aria-hidden="true"></i>
@@ -41,8 +41,8 @@
             <span class="pia-list-confirm-desc">Je valide les mesures correctives indiquées.</span>
           </label>
         </div>
-        <div class="pia-entryContentBlock-content-list-confirm">
-          <input type="checkbox" formControlName="validateStatus" (click)="lockStatus($event)" id="checkbox-4" value="4">
+        <div class="pia-entryContentBlock-content-list-confirm" [ngClass]="{'validate': _piaService.pia.status > 1}">
+          <input type="checkbox" formControlName="validateStatus4" (click)="lockStatus($event)" id="checkbox-4" value="4">
           <label for="checkbox-4">
             <span class="pia-list-confirm-icon">
               <i class="fa fa-circle" aria-hidden="true"></i>
@@ -52,30 +52,30 @@
           </label>
         </div>
         <div class="pia-entryContentBlock-content-btn-valid">
-          <a routerLink="/entry/5/refuse-PIA" class="btn btn-red"  title="Refuser la validation">Refuser la validation</a>
-          <button type="submit" class="btn btn-blue" (click)="simplePIAValidation()" id="pia-simple-validation" disabled title="Validation simple">Validation simple</button>
-          <button type="submit" class="btn btn-red" (click)="signedPIAValidation()" id="pia-sign-validation" disabled title="Faire signer le PIA par le responsable">Faire signer le PIA par le responsable</button>
+          <a routerLink="/entry/{{_piaService.pia.id}}/section/4/item/5" class="btn btn-red" title="Refuser la validation">Refuser la validation</a>
+          <button type="submit" class="btn btn-blue" [ngClass]="{'btn-active': _piaService.pia.status === 2}" (click)="simplePIAValidation()" id="pia-simple-validation" [disabled]="_piaService.pia.status > 0" title="Validation simple">Validation simple</button>
+          <button type="submit" class="btn btn-red" [ngClass]="{'btn-active': _piaService.pia.status === 3}" (click)="signedPIAValidation()" id="pia-sign-validation" [disabled]="_piaService.pia.status > 0" title="Faire signer le PIA par le responsable">Faire signer le PIA par le responsable</button>
         </div>
         <p>Tous les champs doivent être cochés</p>
       </form>
-      <div class="pia-entryContentBlock-content-status">
+      <div class="pia-entryContentBlock-content-status" *ngIf="_piaService.pia.status === 3">
         <p>En attente de la signature du rapport PIA</p>
         <i class="fa fa-cog" aria-hidden="true"></i>
       </div>
-      <div class="pia-entryContentBlock-content-status">
+      <div class="pia-entryContentBlock-content-status" *ngIf="_piaService.pia.status === 3">
         <i class="fa fa fa-check-square-o" aria-hidden="true"></i>
         <p>Validé</p>
       </div>
     </div>
   </div>
-  <button type="button" class="pia-entryContentBlock-submitAttachmentButton btn btn-red" title="Ajouter le rapport PIA signé">Ajouter le rapport PIA signé</button>
+  <button type="button" *ngIf="_piaService.pia.status === 3" class="pia-entryContentBlock-submitAttachmentButton btn btn-red" title="Ajouter le rapport PIA signé">Ajouter le rapport PIA signé</button>
 
   <div>
     <app-pia-validate-history></app-pia-validate-history>
   </div>
 
   <div class="pia-entryContentBlock-footer">
-    <div class="pia-entryContentBlock-footer-validationAttachments">
+    <div class="pia-entryContentBlock-footer-validationAttachments" *ngIf="_piaService.pia.status === 3">
       <div>
         <span class="pia-icons pia-icon-file-pdf-blue"></span>
         <a href="#">Admin_serveur.pdf</a>

@@ -17,7 +17,7 @@ export class EvaluationService {
   answers: any[] = [];
   answer: Answer = new Answer();
   measure: Measure = new Measure();
-  private pia: Pia;
+  pia: Pia;
 
   constructor(private _modalsService: ModalsService) { }
 
@@ -141,18 +141,21 @@ export class EvaluationService {
   }
 
   validateAllEvaluation() {
-    const evaluation = new Evaluation();
     let reference_to = '';
     if (this.item.evaluation_mode === 'item') {
       reference_to = this.section.id + '.' + this.item.id;
+      const evaluation = new Evaluation();
       evaluation.getByReference(this.pia.id, reference_to).then(() => {
-        evaluation.global_status = 1;
-        evaluation.update().then(() => {
-          this.showValidationButton = false;
-          this.enableFinalValidation = true;
-        });
+        if (evaluation.status > 1) {
+          evaluation.global_status = 1;
+          evaluation.update().then(() => {
+            this.showValidationButton = false;
+            this.enableFinalValidation = true;
+          });
+        }
       });
     } else if (this.answers.length > 0) {
+      let count = 0;
       this.answers.forEach((answer) => {
         if (this.item.is_measure) {
           // For measure
@@ -161,11 +164,18 @@ export class EvaluationService {
           // For question
           reference_to = this.section.id + '.' + this.item.id + '.' + answer.reference_to;
         }
+        const evaluation = new Evaluation();
         evaluation.getByReference(this.pia.id, reference_to).then(() => {
-          evaluation.global_status = 1;
-          evaluation.update();
-          this.showValidationButton = false;
-          this.enableFinalValidation = true;
+          if (evaluation.status > 1) {
+            evaluation.global_status = 1;
+            evaluation.update().then(() => {
+              count += 1;
+              if (count === this.answers.length) {
+                this.showValidationButton = false;
+                this.enableFinalValidation = true;
+              }
+            });
+          }
         });
       });
     }
@@ -192,13 +202,14 @@ export class EvaluationService {
           // For question
           reference_to = this.section.id + '.' + this.item.id + '.' + answer.reference_to;
         }
-        evaluation.getByReference(this.pia.id, reference_to).then(() => {
-          if (evaluation.global_status === 1) {
+        evaluation.globalStatusByReference(this.pia.id, reference_to).then((exist: boolean) => {
+          // TODO - This doesn't work
+          if (exist) {
             count += 1;
-          }
-          if (count === this.answers.length) {
-            this.showValidationButton = false;
-            this.enableFinalValidation = true;
+            if (count === this.answers.length) {
+              this.showValidationButton = false;
+              this.enableFinalValidation = true;
+            }
           }
         });
       });

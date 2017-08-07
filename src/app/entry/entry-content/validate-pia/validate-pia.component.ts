@@ -9,10 +9,6 @@ import { PiaService } from 'app/entry/pia.service';
 import { ModalsService } from 'app/modals/modals.service';
 import { MeasureService } from '../measures/measures.service';
 
-
-
-
-
 @Component({
   selector: 'app-validate-pia',
   templateUrl: './validate-pia.component.html',
@@ -37,10 +33,17 @@ export class ValidatePIAComponent implements OnInit {
   }
 
   ngOnInit() {
-    this._piaService.getPIA();
-
     this.validateForm = new FormGroup({
-      validateStatus: new FormControl()
+      validateStatus1: new FormControl(),
+      validateStatus2: new FormControl(),
+      validateStatus3: new FormControl(),
+      validateStatus4: new FormControl()
+    });
+    this._piaService.getPIA().then(() => {
+      this.validateForm.controls['validateStatus1'].patchValue(this._piaService.pia.status > 1);
+      this.validateForm.controls['validateStatus2'].patchValue(this._piaService.pia.status > 1);
+      this.validateForm.controls['validateStatus3'].patchValue(this._piaService.pia.status > 1);
+      this.validateForm.controls['validateStatus4'].patchValue(this._piaService.pia.status > 1);
     });
   }
 
@@ -78,14 +81,20 @@ export class ValidatePIAComponent implements OnInit {
    * Allows users to make a simple validation of a PIA.
    */
   simplePIAValidation() {
-    this._modalsService.openModal('modal-simple-pia-validation');
+    this._piaService.pia.status = 2;
+    this._piaService.pia.update().then(() => {
+      this._modalsService.openModal('modal-simple-pia-validation');
+    });
   }
 
   /**
    * Allows users to make a signed validation of a PIA.
    */
   signedPIAValidation() {
-    this._modalsService.openModal('modal-signed-pia-validation');
+    this._piaService.pia.status = 3;
+    this._piaService.pia.update().then(() => {
+      this._modalsService.openModal('modal-signed-pia-validation');
+    });
   }
 
   /**

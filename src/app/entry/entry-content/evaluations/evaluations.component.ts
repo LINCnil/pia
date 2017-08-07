@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, Input } from '@angular/core';
+import { Component, ElementRef, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormArray, FormControl, FormGroup } from '@angular/forms';
 
 import { Evaluation } from './evaluation.model';
@@ -31,6 +31,7 @@ export class EvaluationsComponent implements OnInit {
   @Input() section: any;
   @Input() questionId: any;
   @Input() measureId: any;
+  @Output() evaluationEvent = new EventEmitter<Evaluation>();
   evaluation: Evaluation = new Evaluation();
   reference_to: string;
   displayEditButton = false;
@@ -59,6 +60,9 @@ export class EvaluationsComponent implements OnInit {
     });
 
     this.evaluation.getByReference(this.pia.id, this.reference_to).then(() => {
+      // Pass the evaluation to the parent component
+      this.evaluationEvent.emit(this.evaluation);
+
       if (!this.evaluation.gauges) {
         this.evaluation.gauges = {x: 1, y: 1};
       }
@@ -126,7 +130,10 @@ export class EvaluationsComponent implements OnInit {
         this.evaluation.action_plan_comment = undefined;
       }
     }
-    this.evaluation.update();
+    this.evaluation.update().then(() => {
+      // Pass the evaluation to the parent component
+      this.evaluationEvent.emit(this.evaluation);
+    });
 
     // Disables active classes for all evaluation buttons.
     // Adds an active class and removes previous disable attribute from the current button.

@@ -10,8 +10,10 @@
              (focusout)="measureTitleFocusOut($event)" type="text" placeholder="Titre de la mesure">
     </div>
     <div class="pia-measureBlock-displayer fadeIn">
-      <button type="button" class="btn pia-measureBlock-delete" *ngIf="displayEditButton && !this._evaluationService.showValidationButton && !_evaluationService.enableFinalValidation" (click)="removeMeasure(measure.id)" title="Supprimer"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
-      <button type="button" class="btn pia-measureBlock-edit" *ngIf="displayDeleteButton && !this._evaluationService.showValidationButton && !_evaluationService.enableFinalValidation" (click)="activateMeasureEdition()" title="Éditer"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+      <button type="button" class="btn pia-measureBlock-delete" *ngIf="displayDeleteButton"
+              (click)="removeMeasure(measure.id)" title="Supprimer"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+      <button type="button" class="btn pia-measureBlock-edit" *ngIf="displayEditButton"
+              (click)="activateMeasureEdition()" title="Éditer"><i class="fa fa-pencil" aria-hidden="true"></i></button>
       <div class="pia-measureBlock-content">
         <textarea [attr.data-id]="measure.id" id="pia-measure-content-{{measure.id}}" formControlName="measureContent"
                   (focusout)="measureContentFocusOut($event)" rows="8" cols="50"
@@ -22,5 +24,7 @@
   <app-comments [pia]="pia" [measure]="measure"></app-comments>
   <!-- TODO : To show only on evaluation mode -->
   <!-- Todo : voir pour caler un mesureId pour app evaluation -->
-  <app-evaluations *ngIf="item.evaluation_mode == 'question' && (_evaluationService.showValidationButton || _evaluationService.enableFinalValidation)" [pia]="pia" [section]="section" [item]="item" [measureId]="measure.id"></app-evaluations>
+  <app-evaluations *ngIf="item.evaluation_mode == 'question' && (_evaluationService.showValidationButton || _evaluationService.enableFinalValidation)"
+                   (evaluationEvent)="evaluationChange($event)"
+                   [pia]="pia" [section]="section" [item]="item" [measureId]="measure.id"></app-evaluations>
 </div>
