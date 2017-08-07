@@ -22,5 +22,5 @@
   <app-comments [pia]="pia" [measure]="measure"></app-comments>
   <!-- TODO : To show only on evaluation mode -->
   <!-- Todo : voir pour caler un mesureId pour app evaluation -->
-  <app-evaluations *ngIf="item.evaluation_mode == 'question' && _evaluationService.showValidationButton" [pia]="pia" [section]="section" [item]="item" [measureId]="measure.id"></app-evaluations>
+  <app-evaluations *ngIf="item.evaluation_mode == 'question' && (_evaluationService.showValidationButton || _evaluationService.enableFinalValidation)" [pia]="pia" [section]="section" [item]="item" [measureId]="measure.id"></app-evaluations>
 </div>

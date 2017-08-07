@@ -18,19 +18,10 @@ export class ActionPlanComponent implements OnInit {
   constructor(private el: ElementRef) { }
 
   ngOnInit() {
-    this.evaluationModel.pia_id = this.pia.id;
-    console.log(this.evaluationModel);
-    this.evaluationModel.findAll().then((entries: any[]) => {
-      if (entries) {
-        entries.forEach(evaluation => {
-          console.log(evaluation);
-        });
-      }
-    });
-
+    // TODO - This doesn't work as expected
     this.actionPlanForm = new FormGroup({
-      actionPlanDate : new FormControl(),
-      actionPlanExecutive: new FormControl()
+      actionPlanDate: new FormControl(this.pia.action_plan_date),
+      actionPlanExecutive: new FormControl(this.pia.action_plan_executive)
     });
   }
 
@@ -50,7 +41,8 @@ export class ActionPlanComponent implements OnInit {
         if (executiveValue && executiveValue.length > 0) {
           this.actionPlanForm.controls['actionPlanExecutive'].disable();
         }
-        // TODO : save data
+        this.pia.action_plan_date = dateValue;
+        this.pia.update();
       }
       // Disables executive field too if no date, and executive is filled and isn't the next targeted element.
       if (!dateValue && executiveValue && executiveValue.length > 0 && document.activeElement.id !== 'pia-action-plan-executive') {
@@ -76,7 +68,8 @@ export class ActionPlanComponent implements OnInit {
         if (dateValue && dateValue.length > 0) {
           this.actionPlanForm.controls['actionPlanDate'].disable();
         }
-        // TODO : save data
+        this.pia.action_plan_executive = executiveValue;
+        this.pia.update();
       }
       // Disables date field too if no executive, and dateValue is filled and isn't the next targeted element.
       if (!executiveValue && dateValue && dateValue.length > 0 && document.activeElement.id !== 'pia-action-plan-date') {

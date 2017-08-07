@@ -85,5 +85,5 @@
   <app-comments [pia]="pia" [question]="question"></app-comments>
 
   <!-- TODO : to show only on evaluation mode -->
-  <app-evaluations *ngIf="item.evaluation_mode === 'question' && _evaluationService.showValidationButton" [pia]="pia" [section]="section" [item]="item" [questionId]="question.id"></app-evaluations>
+  <app-evaluations *ngIf="item.evaluation_mode === 'question' && (_evaluationService.showValidationButton || _evaluationService.enableFinalValidation)" [pia]="pia" [section]="section" [item]="item" [questionId]="question.id"></app-evaluations>
 </div>
