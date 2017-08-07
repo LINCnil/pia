@@ -25,6 +25,12 @@ export class CardsComponent implements OnInit {
     const pia = new Pia();
     pia.findAll().then((data: any[]) => {
       this._piaService.pias = data;
+      this.filter = localStorage.getItem('sort');
+      if (this.filter.length > 0) {
+        this.sortBy(this.filter);
+      } else {
+        this.sortBy('udpated_at');
+      }
     });
 
     this.piaForm = new FormGroup({
@@ -73,8 +79,12 @@ export class CardsComponent implements OnInit {
    */
   sortBy(sort: string) {
     this.filter = sort;
+    localStorage.setItem('sort', sort);
     this._piaService.pias = this._piaService.pias.sort((a, b) => {
       return (a[sort] > b[sort]) ? 1 : 0 ;
     });
+    if (sort === 'updated_at') {
+      this._piaService.pias.reverse();
+    }
   }
 }

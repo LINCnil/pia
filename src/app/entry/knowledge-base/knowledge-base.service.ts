@@ -46,7 +46,6 @@ export class KnowledgeBaseService {
         kbSlugs = item.link_knowledge_base;
       } else if (item.questions) {
         item.questions.forEach(question => {
-          console.log(question);
           if (question.link_knowledge_base) {
             question.link_knowledge_base.forEach(kbElement => {
               kbSlugs.push(kbElement);

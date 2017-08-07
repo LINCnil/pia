@@ -39,6 +39,8 @@ export class EntryContentComponent implements OnInit, OnChanges, AfterViewChecke
     const measuresModel = new Measure();
     // const answersModel = new Answer();
     this._piaService.getPIA().then((entry) => {
+      this._piaService.pia.updated_at = new Date();
+      this._piaService.pia.update();
       measuresModel.pia_id = this._piaService.pia.id;
       measuresModel.findAll().then((entries: any[]) => {
         this._measureService.measures = entries;
