@@ -1,5 +1,100 @@
 @import '../../../../assets/stylesheets/variables';
 
+// Action plan graph
+.pia-entryContentBlock {
+  &-content {
+    &.pia-actionPlanGraphBlock {
+      background-color: #fefefe;
+      box-shadow: 2px 1px 18px 1px rgba(194,194,194,1);
+      padding: 10px 20px 20px 20px;
+    }
+    .pia-actionPlanGraphBlock-left {
+      h3 {
+        color: $pia-blue;
+        text-align: right;
+        padding-right: 10px;
+        font-size: 1.2rem;
+      }
+      .pia-actionPlanGraphBlock-item {
+        display: flex;
+        text-align: right;
+        justify-content: flex-end;
+        margin: auto 10px;
+      }
+      border-right: solid 1px $pia-white;
+    }
+    .pia-actionPlanGraphBlock-right {
+      h3 {
+        padding-left: 10px;
+        color: $pia-red;
+        font-size: 1.2rem;
+      }
+      &-measures {
+        position: relative;
+        &:after {
+          content: '';
+          position: absolute;
+          background: linear-gradient(to top,  rgba(255,255,255,0.6) 0%,rgba(255,255,255,0) 100%);
+          height: 32px;
+          left: 0;
+          bottom: 0;
+          right: 0;
+        }
+      }
+      &-measures-scroll {
+        display: block;
+        height: 155px;
+        overflow-y: scroll;
+      }
+      .pia-actionPlanGraphBlock-item {
+        display: flex;
+        text-align:left;
+        justify-content: flex-start;
+        margin: auto 10px;
+      }
+    }
+    .pia-list {
+      padding: 0 10px;
+      color: $pia-gray;
+    }
+    .pia-box {
+      width: 15px;
+      margin-right: 2px;
+      height: 15px;
+      background-color: $pia-white;
+    }
+    .pia-blue {
+      background-color: $pia-blue;
+    }
+    .pia-green {
+      background-color: $pia-green;
+    }
+    .pia-red {
+      background-color: $pia-red;
+    }
+    .pia-legend {
+      margin-top: 10px;
+      padding: 20px;
+      display: block;
+      width: 100%;
+      border-bottom: 1px solid $pia-green;
+      p {
+        font-weight: 500;
+        text-align: right;
+        margin: 0;
+        font-size: 1rem;
+        text-transform: capitalize;
+        &:first-child {
+          color: $pia-blue;
+        }
+        &:last-child {
+          color: $pia-green;
+        }
+      }
+    }
+  }
+}
+
 // Action plan
 .pia-validation-PlanAction {
   .pia-entryContentBlock {

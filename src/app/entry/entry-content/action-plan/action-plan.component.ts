@@ -2,6 +2,8 @@ import { Component, ElementRef, OnInit, Input } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 
 import { Evaluation } from 'app/entry/entry-content/evaluations/evaluation.model';
+import { Measure } from 'app/entry/entry-content/measures/measure.model';
+import { PiaService } from 'app/entry/pia.service';
 
 @Component({
   selector: 'app-action-plan',
@@ -12,16 +14,94 @@ export class ActionPlanComponent implements OnInit {
 
   @Input() pia: any;
   @Input() data: any;
+  risks = [];
+  measures = [];
+  results = [];
   evaluationModel: Evaluation = new Evaluation();
   actionPlanForm: FormGroup;
+  noMeasuresActionPlan = true;
+  noRisksActionPlan = true;
 
-  constructor(private el: ElementRef) { }
+  constructor(private el: ElementRef, private _piaService: PiaService) { }
 
   ngOnInit() {
-    // TODO - This doesn't work as expected
     this.actionPlanForm = new FormGroup({
-      actionPlanDate: new FormControl(this.pia.action_plan_date),
-      actionPlanExecutive: new FormControl(this.pia.action_plan_executive)
+      actionPlanDate: new FormControl(),
+      actionPlanExecutive: new FormControl()
+    });
+    this._piaService.getPIA().then(() => {
+      const date = this.pia.action_plan_date;
+      let month = date.getMonth() + 1;
+      if (month.toString.length === 1) {
+        month = '0' + month;
+      }
+      const finalDate =  date.getFullYear() + '-' + month + '-' + date.getDate();
+      this.actionPlanForm.controls['actionPlanDate'].patchValue(finalDate);
+      this.actionPlanForm.controls['actionPlanExecutive'].patchValue(this.pia.action_plan_executive);
+    });
+
+    const section = this.data.sections.filter((s) => {
+      return s.id === 2;
+    });
+    section[0].items.forEach((item) => {
+      item.questions.forEach(q => {
+        const evaluation = new Evaluation();
+        const reference_to = '2.' + item.id + '.' + q.id;
+        this.results[reference_to] = null;
+        evaluation.getByReference(this.pia.id, reference_to).then(() => {
+          if (evaluation.status > 0) {
+            this.results[reference_to] = evaluation.status;
+          }
+        });
+      });
+    });
+
+    const measure = new Measure();
+    measure.pia_id = this.pia.id;
+    measure.findAll().then((entries: any) => {
+      entries.forEach(m => {
+        const evaluation = new Evaluation();
+        const reference_to = '3.1.' + m.id;
+        this.measures[reference_to] = null;
+        evaluation.getByReference(this.pia.id, reference_to).then(() => {
+          if (evaluation.status > 0) {
+            if (evaluation.action_plan_comment && evaluation.action_plan_comment.length > 0) {
+              this.noMeasuresActionPlan = false;
+            }
+            this.measures.push({ name: m.title, status: evaluation.status, action_plan_comment: evaluation.action_plan_comment });
+          }
+        });
+      });
+    });
+
+    const evaluation = new Evaluation();
+    evaluation.getByReference(this.pia.id, '3.2').then(() => {
+      if (evaluation.status > 0) {
+        if (evaluation.action_plan_comment && evaluation.action_plan_comment.length > 0) {
+          this.noRisksActionPlan = false;
+        }
+        this.risks['3.2'] = { status: evaluation.status, action_plan_comment: evaluation.action_plan_comment };
+      }
+    });
+
+    const evaluation2 = new Evaluation();
+    evaluation2.getByReference(this.pia.id, '3.3').then(() => {
+      if (evaluation2.status > 0) {
+        if (evaluation.action_plan_comment && evaluation.action_plan_comment.length > 0) {
+          this.noRisksActionPlan = false;
+        }
+        this.risks['3.3'] = { status: evaluation2.status, action_plan_comment: evaluation2.action_plan_comment };
+      }
+    });
+
+    const evaluation3 = new Evaluation();
+    evaluation3.getByReference(this.pia.id, '3.4').then(() => {
+      if (evaluation3.status > 0) {
+        if (evaluation.action_plan_comment && evaluation.action_plan_comment.length > 0) {
+          this.noRisksActionPlan = false;
+        }
+        this.risks['3.4'] = { status: evaluation3.status, action_plan_comment: evaluation3.action_plan_comment };
+      }
     });
   }
 
