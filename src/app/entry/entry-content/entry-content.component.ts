@@ -25,6 +25,7 @@ export class EntryContentComponent implements OnInit, OnChanges, AfterViewChecke
   @Input() section: { id: number, title: string, short_help: string, items: any };
   @Input() item: { id: number, title: string, evaluation_mode: string, short_help: string, questions: any };
   @Input() questions: any;
+  @Input() data: any;
   answers: Answer[] = [];
 
   constructor(private router: Router,

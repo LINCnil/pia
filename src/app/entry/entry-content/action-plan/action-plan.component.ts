@@ -11,6 +11,7 @@ import { Evaluation } from 'app/entry/entry-content/evaluations/evaluation.model
 export class ActionPlanComponent implements OnInit {
 
   @Input() pia: any;
+  @Input() data: any;
   evaluationModel: Evaluation = new Evaluation();
   actionPlanForm: FormGroup;
 
