@@ -1,9 +1,7 @@
 import { Component, ElementRef, OnInit, Input } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
 
 import { Evaluation } from 'app/entry/entry-content/evaluations/evaluation.model';
 import { Measure } from 'app/entry/entry-content/measures/measure.model';
-import { PiaService } from 'app/entry/pia.service';
 
 @Component({
   selector: 'app-action-plan',
@@ -18,27 +16,13 @@ export class ActionPlanComponent implements OnInit {
   measures = [];
   results = [];
   evaluationModel: Evaluation = new Evaluation();
-  actionPlanForm: FormGroup;
+  noPrinciplesActionPlan = true;
   noMeasuresActionPlan = true;
   noRisksActionPlan = true;
 
-  constructor(private el: ElementRef, private _piaService: PiaService) { }
+  constructor(private el: ElementRef) { }
 
   ngOnInit() {
-    this.actionPlanForm = new FormGroup({
-      actionPlanDate: new FormControl(),
-      actionPlanExecutive: new FormControl()
-    });
-    this._piaService.getPIA().then(() => {
-      const date = this.pia.action_plan_date;
-      let month = date.getMonth() + 1;
-      if (month.toString.length === 1) {
-        month = '0' + month;
-      }
-      const finalDate =  date.getFullYear() + '-' + month + '-' + date.getDate();
-      this.actionPlanForm.controls['actionPlanDate'].patchValue(finalDate);
-      this.actionPlanForm.controls['actionPlanExecutive'].patchValue(this.pia.action_plan_executive);
-    });
 
     const section = this.data.sections.filter((s) => {
       return s.id === 2;
@@ -47,10 +31,13 @@ export class ActionPlanComponent implements OnInit {
       item.questions.forEach(q => {
         const evaluation = new Evaluation();
         const reference_to = '2.' + item.id + '.' + q.id;
-        this.results[reference_to] = null;
         evaluation.getByReference(this.pia.id, reference_to).then(() => {
           if (evaluation.status > 0) {
-            this.results[reference_to] = evaluation.status;
+            this.noPrinciplesActionPlan = false;
+            this.results.push({ status: evaluation.status, short_title: q.short_title,
+                                evaluation: evaluation });
+          } else {
+            this.results.push({ status: null, short_title: q.short_title, evaluation: null });
           }
         });
       });
@@ -103,84 +90,5 @@ export class ActionPlanComponent implements OnInit {
         this.risks['3.4'] = { status: evaluation3.status, action_plan_comment: evaluation3.action_plan_comment };
       }
     });
-  }
-
-  /**
-   * Disables action plan fields and saves data.
-   */
-  actionPlanDateFocusOut() {
-    const dateValue = this.actionPlanForm.value.actionPlanDate;
-    const executiveValue = this.actionPlanForm.value.actionPlanExecutive;
-
-    // Waiting for document.activeElement update
-    setTimeout(() => {
-      if (dateValue && dateValue.length > 0 && document.activeElement.id !== 'pia-action-plan-executive') {
-        this.showActionPlanEditButton();
-        this.actionPlanForm.controls['actionPlanDate'].disable();
-        // Disables executive field if both fields are filled and executive isn't the next targeted element.
-        if (executiveValue && executiveValue.length > 0) {
-          this.actionPlanForm.controls['actionPlanExecutive'].disable();
-        }
-        this.pia.action_plan_date = dateValue;
-        this.pia.update();
-      }
-      // Disables executive field too if no date, and executive is filled and isn't the next targeted element.
-      if (!dateValue && executiveValue && executiveValue.length > 0 && document.activeElement.id !== 'pia-action-plan-executive') {
-        this.showActionPlanEditButton();
-        this.actionPlanForm.controls['actionPlanExecutive'].disable();
-      }
-    }, 1);
-  }
-
-  /**
-   * Disables action plan fields and saves data.
-   */
-  actionPlanExecutiveFocusOut() {
-    const dateValue = this.actionPlanForm.value.actionPlanDate;
-    const executiveValue = this.actionPlanForm.value.actionPlanExecutive;
-
-    // Waiting for document.activeElement update
-    setTimeout(() => {
-      if (executiveValue && executiveValue.length > 0 && document.activeElement.id !== 'pia-action-plan-date') {
-        this.showActionPlanEditButton();
-        this.actionPlanForm.controls['actionPlanExecutive'].disable();
-        // Disables date field if both fields are filled and date isn't the next targeted element.
-        if (dateValue && dateValue.length > 0) {
-          this.actionPlanForm.controls['actionPlanDate'].disable();
-        }
-        this.pia.action_plan_executive = executiveValue;
-        this.pia.update();
-      }
-      // Disables date field too if no executive, and dateValue is filled and isn't the next targeted element.
-      if (!executiveValue && dateValue && dateValue.length > 0 && document.activeElement.id !== 'pia-action-plan-date') {
-        this.showActionPlanEditButton();
-        this.actionPlanForm.controls['actionPlanDate'].disable();
-      }
-    }, 1);
-  }
-
-  /**
-   * Activates action plan fields.
-   */
-  activateActionPlanEdition() {
-    this.hideActionPlanEditButton();
-    this.actionPlanForm.controls['actionPlanDate'].enable();
-    this.actionPlanForm.controls['actionPlanExecutive'].enable();
-  }
-
-  /**
-   * Shows action plan edit button.
-   */
-  showActionPlanEditButton() {
-    const editBtn = this.el.nativeElement.querySelector('#piaActionPlanPencil');
-    editBtn.classList.remove('hide');
-  }
-
-  /**
-   * Hides action plan edit button.
-   */
-  hideActionPlanEditButton() {
-    const editBtn = this.el.nativeElement.querySelector('#piaActionPlanPencil');
-    editBtn.classList.add('hide');
   }
 }

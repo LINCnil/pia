@@ -27,7 +27,7 @@ export class Evaluation extends ApplicationDb {
         evaluation_comment: this.evaluation_comment,
         evaluation_date: this.evaluation_date,
         gauges: this.gauges,
-        estimated_evaluation_date: this.estimated_evaluation_date,
+        estimated_evaluation_date: new Date(this.estimated_evaluation_date),
         person_in_charge: this.person_in_charge,
         global_status: 0,
         created_at: new Date()
@@ -46,7 +46,7 @@ export class Evaluation extends ApplicationDb {
         entry.evaluation_comment = this.evaluation_comment;
         entry.evaluation_date = this.evaluation_date;
         entry.gauges = this.gauges;
-        entry.estimated_evaluation_date = this.estimated_evaluation_date;
+        entry.estimated_evaluation_date = new Date(this.estimated_evaluation_date);
         entry.person_in_charge = this.person_in_charge;
         entry.global_status = this.global_status;
         entry.updated_at = new Date();
@@ -77,7 +77,7 @@ export class Evaluation extends ApplicationDb {
           this.evaluation_comment = entry.evaluation_comment;
           this.evaluation_date = entry.evaluation_date;
           this.gauges = entry.gauges;
-          this.estimated_evaluation_date = entry.estimated_evaluation_date;
+          this.estimated_evaluation_date = new Date(entry.estimated_evaluation_date);
           this.person_in_charge = entry.person_in_charge;
           this.global_status = entry.global_status;
           this.created_at = new Date(entry.created_at);
@@ -99,7 +99,7 @@ export class Evaluation extends ApplicationDb {
         this.evaluation_comment = entry.evaluation_comment;
         this.evaluation_date = entry.evaluation_date;
         this.gauges = entry.gauges;
-        this.estimated_evaluation_date = entry.estimated_evaluation_date;
+        this.estimated_evaluation_date = new Date(entry.estimated_evaluation_date);
         this.person_in_charge = entry.person_in_charge;
         this.global_status = entry.global_status;
         this.created_at = new Date(entry.created_at);

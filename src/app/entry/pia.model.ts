@@ -16,8 +16,6 @@ export class Pia extends ApplicationDb {
   public applied_adjustements: string;
   public dpos_names: string;
   public people_names: string;
-  public action_plan_date: Date;
-  public action_plan_executive: string;
 
   constructor() {
     super(201707071818, 'pia');
@@ -44,9 +42,7 @@ export class Pia extends ApplicationDb {
         created_at: this.created_at,
         status: 0,
         dpos_names: this.dpos_names,
-        people_names: this.people_names,
-        action_plan_date: new Date(this.action_plan_date),
-        action_plan_executive: this.action_plan_executive
+        people_names: this.people_names
       }).onsuccess = (event: any) => {
         resolve(event.target.result);
       };
@@ -69,8 +65,6 @@ export class Pia extends ApplicationDb {
         entry.status = this.status;
         entry.dpos_names = this.dpos_names;
         entry.people_names = this.people_names;
-        entry.action_plan_date = new Date(this.action_plan_date);
-        entry.action_plan_executive = this.action_plan_executive;
         entry.updated_at = new Date();
         this.objectStore.put(entry).onsuccess = () => {
           resolve();
@@ -99,8 +93,6 @@ export class Pia extends ApplicationDb {
           this.updated_at = new Date(entry.updated_at);
           this.dpos_names = entry.dpos_names;
           this.people_names = entry.people_names;
-          this.action_plan_date = new Date(entry.action_plan_date);
-          this.action_plan_executive = entry.action_plan_executive;
         }
         resolve();
       });

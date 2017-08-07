@@ -26,7 +26,7 @@ export class CardsComponent implements OnInit {
     pia.findAll().then((data: any[]) => {
       this._piaService.pias = data;
       this.filter = localStorage.getItem('sort');
-      if (this.filter.length > 0) {
+      if (this.filter && this.filter.length > 0) {
         this.sortBy(this.filter);
       } else {
         this.sortBy('udpated_at');

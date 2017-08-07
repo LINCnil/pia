@@ -1,0 +1,15 @@
+<div class="pia-entryContentBlock-content-details-blocks" *ngIf="data.evaluation">
+  <div class="pia-details-blocks-content">
+    <div class="pia-details-blocks-content-title">
+      <h3>{{data.short_title}}</h3>
+      <button type="button" class="btn" *ngIf="displayEditButton" (click)="activateActionPlanEdition()" title="Éditer"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+    </div>
+    <p>
+      {{data.evaluation.action_plan_comment}}
+    </p>
+    <form [formGroup]="actionPlanForm">
+      <input type="date" (focusout)="estimatedEvaluationDateFocusOut()" formControlName="estimatedEvaluationDate">
+      <input type="text" (focusout)="personInChargeFocusOut()" formControlName="personInCharge" placeholder="Responsable de la mise en oeuvre">
+    </form>
+  </div>
+</div>

@@ -1,0 +1,119 @@
+@import '../../assets/stylesheets/variables';
+
+// Action plan
+.pia-entryContentBlock {
+  &-header {
+    div:first-child {
+      background-color: $pia-dark-black;
+      min-height: 70px;
+    }
+    .pia-previewBlock {
+      span {
+        border: solid 1px $pia-green;
+        border-radius: 50%;
+        width: 34px;
+        height: 34px;
+        color: $pia-green;
+        text-align: center;
+        padding-top: 5px;
+      }
+      i{
+        font-size: 2rem;
+      }
+      a {
+        color: $pia-green;
+        text-decoration: none;
+      }
+    }
+    &-title {
+      h1 {
+        color: $pia-dark-black;
+        margin: 12px auto auto auto;
+      }
+      span {
+        padding-left: 19px;
+        text-transform: uppercase;
+        display: flex;
+        font-weight: 500;
+        font-size: 1.4rem;
+      }
+    }
+  }
+  &-content {
+    &-fundamental, &-measures, &-risks {
+      color: $pia-dark-black;
+      h2 {
+        color: #fff;
+        box-shadow: 2px 1px 18px 1px rgba(194,194,194,1);
+        padding: 4px 20px;
+      }
+    }
+    &-fundamental {
+      background-color: transparent;
+      h2 {
+        background-color: $pia-blue;
+      }
+    }
+    &-measures, &-risks {
+      background-color: transparent;
+      h2 {
+        background-color: $pia-red;
+      }
+    }
+    &-details-blocks {
+      padding: 10px;
+      margin-top: 10px;
+      box-shadow: 2px 1px 18px 1px rgba(194,194,194,1);
+      background-color: #fff;
+      .pia-details-blocks-content {
+        &-title {
+          display: flex;
+          margin: 0 30px;
+          justify-content: space-between;
+          h3 {
+            font-size: 1.8rem;
+            font-weight: normal;
+            align-self: center;
+          }
+          i{
+            color: $pia-gray;
+            font-size: 20px;
+          }
+          button {
+            align-self: center;
+
+          }
+        }
+        > div {
+          font-size: 1.4rem;
+        }
+        p {
+          margin:  0 50px;
+          padding-bottom: 20px;
+          font-size: 1.4rem;
+          border-bottom: solid $pia-green 1px;
+        }
+        form {
+          display: flex;
+          padding: 20px 50px;
+          justify-content: space-between;
+          font-size: 1.1rem;
+          color: $pia-gray;
+          input {
+            padding: 2px 4px;
+            border: none;
+            align-self: center;
+            color: $pia-gray;
+            background-color: $pia-white;
+            &:first-child {
+              width: 120px;
+            }
+            &:last-child {
+              min-width: 200px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

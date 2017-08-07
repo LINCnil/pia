@@ -115,6 +115,7 @@
             {
               "id": 211,
               "title": "Les finalités du traitement sont-elles déterminées, explicites et légitimes ?",
+              "short_title": "Finalités",
               "link_knowledge_base": [
                 "PIA_LGL_FIN",
                 "PIA_DEF_FIN"
@@ -128,6 +129,7 @@
             {
               "id": 212,
               "title": "Quel(s) est(sont) les fondement(s) qui rend(ent) votre traitement licite ?",
+              "short_title": "Fondement",
               "link_knowledge_base": [
                 "PIA_LGL_FOND"
               ],
@@ -140,6 +142,7 @@
             {
               "id": 213,
               "title": "Les données collectées sont-elles adéquates, pertinentes et limitées à ce qui est nécessaire au regard des finalités pour lesquelles elles sont traitées (minimisation des données) ?",
+              "short_title": "Données adéquates",
               "link_knowledge_base": [
                 "PIA_LGL_MINI",
                 "PIA_DEF_MINC",
@@ -154,6 +157,7 @@
             {
               "id": 214,
               "title": "Les données sont-elles exactes et tenues à jour ?",
+              "short_title": "Données exactes",
               "link_knowledge_base": [
                 "PIA_LGL_EXA"
               ],
@@ -166,6 +170,7 @@
             {
               "id": 215,
               "title": "Quelle est la durée de conservation des données ?",
+              "short_title": "Durée de conservation",
               "link_knowledge_base": [
                 "PIA_LGL_DUR"
               ],
@@ -186,6 +191,7 @@
             {
               "id": 221,
               "title": "Comment les personnes concernées sont-elles informées à propos du traitement ?",
+              "short_title": "Information des personnes",
               "link_knowledge_base": [
                 "PIA_LGL_INFO"
               ],
@@ -198,6 +204,7 @@
             {
               "id": 222,
               "title": "Comment le consentement des personnes concernées est-il obtenu ?",
+              "short_title": "Recueil du consentement",
               "link_knowledge_base": [
                 "PIA_LGL_CONS",
                 "PIA_DEF_CONS"
@@ -211,6 +218,7 @@
             {
               "id": 223,
               "title": "Comment les personnes concernées peuvent-elles exercer leurs droit d'accès et droit à la portabilité ?",
+              "short_title": "Droit d'accès et à la portabilité",
               "link_knowledge_base": [
                 "PIA_LGL_ACC",
                 "PIA_DEF_ACC",
@@ -226,6 +234,7 @@
             {
               "id": 224,
               "title": "Comment les personnes concernées peuvent-elles exercer leurs droit de rectification et droit à l'effacement (droit à l'oubli) ?",
+              "short_title": "Droit de rectification et d'effacement",
               "link_knowledge_base": [
                 "PIA_LGL_EFF",
                 "PIA_DEF_EFF",
@@ -241,6 +250,7 @@
             {
               "id": 225,
               "title": "Comment les personnes concernées peuvent-elles exercer leurs droit de limitation et droit d'opposition ?",
+              "short_title": "Droit de limitation et d'opposition",
               "link_knowledge_base": [
                 "PIA_LGL_LIM",
                 "PIA_DEF_LIM"
@@ -254,6 +264,7 @@
             {
               "id": 226,
               "title": "Les obligations des sous-traitants sont-elles clairement définies et contractualisées ?",
+              "short_title": "Sous-traitance",
               "link_knowledge_base": [
                 "PIA_DEF_ST",
                 "PIA_LGL_ST"
@@ -267,6 +278,7 @@
             {
               "id": 227,
               "title": "En cas de transfert de données en dehors de l'Union européenne, les données sont-elles protégées de manière équivalente ?",
+              "short_title": "Transferts",
               "link_knowledge_base": [
                 "PIA_LGL_TRAN"
               ],
@@ -375,7 +387,7 @@
                 "PIA_DEF_ACCI",
 				        "PIA_DEF_MES"
               ],
-              "placeholder": "Saisissez les mesures contribuant à traiter ce risque.",
+              "placeholder": "Cliquez ici pour sélectionner les mesures contribuant à traiter ce risque.",
               "highlight_words": "mesures",
               "answer_type": "list",
               "keywords": "",
@@ -480,7 +492,7 @@
                 "PIA_DEF_MODI",
 				        "PIA_DEF_MES"
                ],
-              "placeholder": "Saisissez les mesures contribuant à traiter ce risque.",
+              "placeholder": "Cliquez ici pour sélectionner les mesures contribuant à traiter ce risque.",
               "highlight_words": "mesures",
               "answer_type": "list",
               "keywords": "",
@@ -585,7 +597,7 @@
                 "PIA_DEF_IND",
 				        "PIA_DEF_MES"
               ],
-              "placeholder": "Saisissez les mesures contribuant à traiter ce risque.",
+              "placeholder": "Cliquez ici pour sélectionner les mesures contribuant à traiter ce risque.",
               "highlight_words": "mesures",
               "answer_type": "list",
               "keywords": "",

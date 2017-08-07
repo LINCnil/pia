@@ -40,6 +40,7 @@ import { KnowledgeBaseService } from './entry/knowledge-base/knowledge-base.serv
 import { EvaluationService } from 'app/entry/entry-content/evaluations/evaluations.service';
 import { OverviewRisksComponent } from './entry/entry-content/overview-risks/overview-risks.component';
 import { ErrorsComponent } from './errors/errors.component';
+import { ActionPlanImplementationComponent } from './entry/entry-content/action-plan/action-plan-implementation/action-plan-implementation.component';
 
 const appRoutes: Routes = [
   { path: '', component: AuthenticationComponent },
@@ -80,7 +81,8 @@ const appRoutes: Routes = [
     ModalsComponent,
     MeasuresComponent,
     OverviewRisksComponent,
-    ErrorsComponent
+    ErrorsComponent,
+    ActionPlanImplementationComponent
   ],
   imports: [
     BrowserModule,
