@@ -22,11 +22,7 @@ export class KnowledgeBaseService {
     this.filter = (filter && filter.length > 0) ? filter : '';
     this.linkKnowledgeBase = (linkKnowledgeBase && linkKnowledgeBase.length > 0) ? linkKnowledgeBase : '';
     this.knowledgeBaseData = this.previousKnowledgeBaseData;
-    if (this.q && this.q.length > 0) {
-      this.knowledgeBaseData = this.knowledgeBaseData.filter((item) => {
-        return (item.name.search(this.q) >= 0 || item.description.search(this.q) >= 0);
-      });
-    }
+    this.specificSearch();
     if (this.filter && this.filter.length > 0) {
       this.knowledgeBaseData = this.knowledgeBaseData.filter((item) => {
         return (item.filters.startsWith(this.filter));
@@ -63,11 +59,7 @@ export class KnowledgeBaseService {
         this.knowledgeBaseData = [];
       }
       this.previousKnowledgeBaseData = this.knowledgeBaseData;
-      if (this.q && this.q.length > 0) {
-        this.knowledgeBaseData = this.knowledgeBaseData.filter((item2) => {
-          return (item2.name.search(this.q) >= 0 || item2.description.search(this.q) >= 0);
-        });
-      }
+      this.specificSearch();
       this.switchSelectedElement(event);
     }
   }
@@ -78,6 +70,15 @@ export class KnowledgeBaseService {
         element.classList.remove('active');
       });
       event.target.classList.add('active');
+    }
+  }
+
+  private specificSearch() {
+    if (this.q && this.q.length > 0) {
+      const re = new RegExp(this.q, 'i');
+      this.knowledgeBaseData = this.knowledgeBaseData.filter((item2) => {
+        return (item2.name.match(re) || item2.description.match(re));
+      });
     }
   }
 }

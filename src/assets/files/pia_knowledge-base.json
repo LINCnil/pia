@@ -1165,7 +1165,7 @@
     "slug": "PIA_ORG_AUD",
     "filters": "measure.goverance",
     "category": "Mesure organisationnelle",
-  	"placeholder":"Décrivez ici les processus qui assurent un contrôle régulier des traitements de données.",
+    "placeholder":"Décrivez ici les processus qui assurent un contrôle régulier des traitements de données.",
     "name": "Superviser le protection de la vie privée",
     "description": "Existence d'une politique encadrant les processus qui assurent un contrôle régulier des traitements de données afin de vérifier leur conformité à la loi informatique et libertés<br>ainsi que l’effectivité et l’adéquation des mesures prévues.",
     "link_objectives": "",
