@@ -39,7 +39,7 @@ export class KnowledgeBaseService {
   }
 
   loadByItem(item: any, event?: any) {
-    if (this.allKnowledgeBaseData) {
+    if (this.allKnowledgeBaseData && item) {
       this.knowledgeBaseData = this.allKnowledgeBaseData;
       let kbSlugs = [];
       if (item.link_knowledge_base) {
