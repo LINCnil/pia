@@ -71,13 +71,10 @@
       button {
         padding: 12px 15px !important;
       }
-      > button {
+      > a {
         display: block;
         width: 100%;
         border-radius: 0;
-        &:disabled {
-          border-radius: 0;
-        }
       }
       p {
         font-size: 0.95rem;

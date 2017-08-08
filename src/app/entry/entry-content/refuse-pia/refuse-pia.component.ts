@@ -1,7 +1,6 @@
 import { Component, ElementRef, OnInit, Input } from '@angular/core';
 import { FormArray, FormControl, FormGroup } from '@angular/forms';
 import { ModalsService } from 'app/modals/modals.service';
-import {Pia} from 'app/entry/pia.model';
 import { PiaService } from 'app/entry/pia.service';
 
 @Component({

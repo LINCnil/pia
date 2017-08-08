@@ -30,10 +30,10 @@
     <div class="pia-entryContentBlock-footer">
         <div class="pia-entryContentBlock-content-cancelButtons" *ngIf="_piaService.pia.status !== 1">
             <button type="button" class="btn btn-red" (click)="abandon()"
-                    title="Abandonner le traitement" [disabled]="!showRejectionReasonButtons">Abandonner le traitement</button>
+                    [disabled]="!showRejectionReasonButtons">Abandonner le traitement</button>
             <button type="button" class="btn btn-red" (click)="refuse()"
-                    title="Refuser le PIA" [disabled]="!showRejectionReasonButtons">Refuser le PIA</button>
+                    [disabled]="!showRejectionReasonButtons">Refuser le PIA</button>
         </div>
-        <button *ngIf="_piaService.pia.status === 1" type="button" class="btn btn-green" disabled title="Renvoyer pour validation">Renvoyer pour validation</button>
+        <a routerLink="/entry/{{_piaService.pia.id}}/section/4/item/4" *ngIf="_piaService.pia.status === 1" class="btn btn-green">Renvoyer pour validation</a>
     </div>
 </div>
