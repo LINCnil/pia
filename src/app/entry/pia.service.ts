@@ -64,7 +64,7 @@ export class PiaService {
   async piaInGlobalValidation() {
     return new Promise((resolve, reject) => {
       // TODO - Count all evaluation_mode
-      const countEvaluationMode = 14;
+      const countEvaluationMode = 18;
       // Count all valid evaluation in DB with global_status === 1
       const evaluation = new Evaluation();
       evaluation.pia_id = this._evaluationService.pia.id;

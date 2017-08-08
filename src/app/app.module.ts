@@ -1,5 +1,6 @@
+import * as Raven from 'raven-js';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, ErrorHandler } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 
@@ -52,6 +53,16 @@ const appRoutes: Routes = [
   { path: '**', component: ErrorsComponent }
 ];
 
+Raven
+  .config('https://cfbe7053066a4cde8093c1678e2f64a7@sentry.io/201063', { release: '0.0.1-beta' })
+  .install();
+
+export class RavenErrorHandler implements ErrorHandler {
+  handleError(err: any): void {
+    Raven.captureException(err);
+  }
+}
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -93,7 +104,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     TagInputModule
   ],
-  providers: [MeasureService, ModalsService, AttachmentsService, KnowledgeBaseService, EvaluationService],
+  providers: [{ provide: ErrorHandler, useClass: RavenErrorHandler }, MeasureService, ModalsService, AttachmentsService, KnowledgeBaseService, EvaluationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
