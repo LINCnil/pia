@@ -102,7 +102,6 @@ export class RisksCartographyComponent implements OnInit {
                 this.dataJSON['risk-disappearance']['evaluator']['x'] = positions['x'][this.evaluation.gauges['x']] + 30;
                 this.dataJSON['risk-disappearance']['evaluator']['y'] = positions['y'][this.evaluation.gauges['y']] + 30;
               }
-              console.log(this.dataJSON);
               this.loadCartography();
             });
           });
@@ -190,7 +189,7 @@ export class RisksCartographyComponent implements OnInit {
         // TODO if evaluator dot x = 20 then text + 50 whereas of 20 and text 2 + 62 whereas of 32.
         // Same for bottom border :/
         try {
-          context.fillText('(1)',
+          context.fillText('(A)',
                       this.dataJSON['risk-access']['author'].x,
                       this.dataJSON['risk-access']['author'].y + 20);
           // context.fillText('à des données',
@@ -211,7 +210,7 @@ export class RisksCartographyComponent implements OnInit {
         // TODO if evaluator dot x = 20 then text + 50 whereas of 20 and text 2 + 62 whereas of 32.
         // Same for bottom border :/
         try {
-          context.fillText('(2)',
+          context.fillText('(M)',
                       this.dataJSON['risk-change']['author'].x,
                       this.dataJSON['risk-change']['author'].y + 20);
           // context.fillText('de données',
@@ -232,7 +231,7 @@ export class RisksCartographyComponent implements OnInit {
         // TODO if evaluator dot x = 20 then text + 50 whereas of 20 and text 2 + 62 whereas of 32.
         // Same for bottom border :/
         try {
-          context.fillText('(3)',
+          context.fillText('(D)',
                           this.dataJSON['risk-disappearance']['author'].x,
                           this.dataJSON['risk-disappearance']['author'].y + 20);
           // context.fillText('de données',

@@ -24,19 +24,19 @@
             </div>
           </div>
           <h3>Risques</h3>
-          <div class="pia-actionPlanGraphBlock-item" *ngIf="risks && risks['3.2']">
-            <span class="pia-box" [ngClass]="{'pia-blue': risks['3.2']['status'] === 2, 'pia-red': risks['3.2']['status'] === 1}"></span>
-            <span class="pia-box" [ngClass]="{'pia-green': risks['3.2']['status'] === 3, 'pia-red': risks['3.2']['status'] === 1}"></span>
+          <div class="pia-actionPlanGraphBlock-item">
+            <span class="pia-box" [ngClass]="{'pia-blue': risks['3.2'] && risks['3.2']['status'] === 2, 'pia-red': risks['3.2'] && risks['3.2']['status'] === 1}"></span>
+            <span class="pia-box" [ngClass]="{'pia-green': risks['3.2'] && risks['3.2']['status'] === 3, 'pia-red': risks['3.2'] && risks['3.2']['status'] === 1}"></span>
             <span class="pia-list">Accès illégitime aux données</span>
           </div>
-          <div class="pia-actionPlanGraphBlock-item" *ngIf="risks && risks['3.3']">
-            <span class="pia-box" [ngClass]="{'pia-blue': risks['3.3']['status'] === 2, 'pia-red': risks['3.3']['status'] === 1}"></span>
-            <span class="pia-box" [ngClass]="{'pia-green': risks['3.3']['status'] === 3, 'pia-red': risks['3.3']['status'] === 1}"></span>
+          <div class="pia-actionPlanGraphBlock-item">
+            <span class="pia-box" [ngClass]="{'pia-blue': risks['3.3'] && risks['3.3']['status'] === 2, 'pia-red': risks['3.3'] && risks['3.3']['status'] === 1}"></span>
+            <span class="pia-box" [ngClass]="{'pia-green': risks['3.3'] && risks['3.3']['status'] === 3, 'pia-red': risks['3.3'] && risks['3.3']['status'] === 1}"></span>
             <span class="pia-list">Modifications de données</span>
           </div>
-          <div class="pia-actionPlanGraphBlock-item" *ngIf="risks && risks['3.4']">
-            <span class="pia-box" [ngClass]="{'pia-blue': risks['3.4']['status'] === 2, 'pia-red': risks['3.4']['status'] === 1}"></span>
-            <span class="pia-box" [ngClass]="{'pia-green': risks['3.4']['status'] === 3, 'pia-red': risks['3.4']['status'] === 1}"></span>
+          <div class="pia-actionPlanGraphBlock-item">
+            <span class="pia-box" [ngClass]="{'pia-blue': risks['3.4'] && risks['3.4']['status'] === 2, 'pia-red': risks['3.4'] && risks['3.4']['status'] === 1}"></span>
+            <span class="pia-box" [ngClass]="{'pia-green': risks['3.4'] && risks['3.4']['status'] === 3, 'pia-red': risks['3.4'] && risks['3.4']['status'] === 1}"></span>
             <span class="pia-list">Disparition de données</span>
           </div>
         </div>

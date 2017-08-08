@@ -88,11 +88,11 @@ export class EvaluationsComponent implements OnInit {
     });
 
     if (this.item.questions) {
-      const answersModel = new Answer();
       const questions: any[] = this.item.questions.filter((question) => {
         return question.answer_type === 'gauge';
       });
       questions.forEach(question => {
+        const answersModel = new Answer();
         answersModel.getByReferenceAndPia(this.pia.id, question.id).then(() => {
           if (answersModel.data) {
             this.previousGauges[question.cartography.split('_')[1]] = answersModel.data.gauge;

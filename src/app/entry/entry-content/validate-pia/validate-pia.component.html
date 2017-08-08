@@ -62,7 +62,7 @@
         <p>En attente de la signature du rapport PIA</p>
         <i class="fa fa-cog" aria-hidden="true"></i>
       </div>
-      <div class="pia-entryContentBlock-content-status" *ngIf="_piaService.pia.status === 3">
+      <div class="pia-entryContentBlock-content-status hide" *ngIf="_piaService.pia.status === 3">
         <i class="fa fa fa-check-square-o" aria-hidden="true"></i>
         <p>Validé</p>
       </div>
@@ -75,7 +75,7 @@
   </div>
 
   <div class="pia-entryContentBlock-footer">
-    <div class="pia-entryContentBlock-footer-validationAttachments" *ngIf="_piaService.pia.status === 3">
+    <div class="pia-entryContentBlock-footer-validationAttachments hide" *ngIf="_piaService.pia.status === 3">
       <div>
         <span class="pia-icons pia-icon-file-pdf-blue"></span>
         <a href="#">Admin_serveur.pdf</a>

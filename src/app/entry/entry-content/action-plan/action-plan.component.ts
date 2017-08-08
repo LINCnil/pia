@@ -33,11 +33,13 @@ export class ActionPlanComponent implements OnInit {
         const reference_to = '2.' + item.id + '.' + q.id;
         evaluation.getByReference(this.pia.id, reference_to).then(() => {
           if (evaluation.status > 0) {
-            this.noPrinciplesActionPlan = false;
+            if (evaluation.action_plan_comment && evaluation.action_plan_comment.length > 0) {
+              this.noPrinciplesActionPlan = false;
+            }
             this.results.push({ status: evaluation.status, short_title: q.short_title,
-                                evaluation: evaluation });
+                                action_plan_comment: evaluation.action_plan_comment, evaluation: evaluation });
           } else {
-            this.results.push({ status: null, short_title: q.short_title, evaluation: null });
+            this.results.push({ status: null, short_title: q.short_title, action_plan_comment: null, evaluation: null });
           }
         });
       });
@@ -74,7 +76,7 @@ export class ActionPlanComponent implements OnInit {
     const evaluation2 = new Evaluation();
     evaluation2.getByReference(this.pia.id, '3.3').then(() => {
       if (evaluation2.status > 0) {
-        if (evaluation.action_plan_comment && evaluation.action_plan_comment.length > 0) {
+        if (evaluation2.action_plan_comment && evaluation2.action_plan_comment.length > 0) {
           this.noRisksActionPlan = false;
         }
         this.risks['3.3'] = { status: evaluation2.status, action_plan_comment: evaluation2.action_plan_comment };
@@ -84,7 +86,7 @@ export class ActionPlanComponent implements OnInit {
     const evaluation3 = new Evaluation();
     evaluation3.getByReference(this.pia.id, '3.4').then(() => {
       if (evaluation3.status > 0) {
-        if (evaluation.action_plan_comment && evaluation.action_plan_comment.length > 0) {
+        if (evaluation3.action_plan_comment && evaluation3.action_plan_comment.length > 0) {
           this.noRisksActionPlan = false;
         }
         this.risks['3.4'] = { status: evaluation3.status, action_plan_comment: evaluation3.action_plan_comment };

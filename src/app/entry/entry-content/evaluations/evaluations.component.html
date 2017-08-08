@@ -32,20 +32,6 @@
         <p class="pia-evaluationBlock-gauge">Prenant en compte le plan d'action, comment ré-évaluez-vous la <span class="red-highlight">gravité du risque</span> d'accès illégitime aux données ?</p>
         <div class="pia-gaugeBlock">
           <!-- TODO : Update current evaluation.gauge[0] -->
-          <input type="range" (change)="checkGaugeChanges($event, 'y')" formControlName="gaugeY" min="1" max="4" step="1">
-          <div>
-            <div>Négligeable</div>
-            <div>Limité</div>
-            <div>Importante</div>
-            <div>Maximale</div>
-          </div>
-          <div class="pia-gaugeBlock-user-choice pia-gaugeBlock-user-choice-{{previousGauges.y}}"></div>
-          <div *ngIf="evaluation.gauges" class="pia-gaugeBlock-background pia-gaugeBlock-background-y pia-gaugeBlock-background-{{evaluation.gauges['y']}}"></div>
-        </div>
-
-        <p class="pia-evaluationBlock-gauge">Prenant en compte le plan d'action, comment ré-évaluez-vous la <span class="red-highlight">vraissemblance du risque</span> d'accès illégitime aux données ?</p>
-        <div class="pia-gaugeBlock">
-          <!-- TODO : Update current evaluation.gauge[1] -->
           <input type="range" (change)="checkGaugeChanges($event, 'x')" formControlName="gaugeX" min="1" max="4" step="1">
           <div>
             <div>Négligeable</div>
@@ -55,6 +41,20 @@
           </div>
           <div class="pia-gaugeBlock-user-choice pia-gaugeBlock-user-choice-{{previousGauges.x}}"></div>
           <div *ngIf="evaluation.gauges" class="pia-gaugeBlock-background pia-gaugeBlock-background-x pia-gaugeBlock-background-{{evaluation.gauges['x']}}"></div>
+        </div>
+
+        <p class="pia-evaluationBlock-gauge">Prenant en compte le plan d'action, comment ré-évaluez-vous la <span class="red-highlight">vraissemblance du risque</span> d'accès illégitime aux données ?</p>
+        <div class="pia-gaugeBlock">
+          <!-- TODO : Update current evaluation.gauge[1] -->
+          <input type="range" (change)="checkGaugeChanges($event, 'y')" formControlName="gaugeY" min="1" max="4" step="1">
+          <div>
+            <div>Négligeable</div>
+            <div>Limité</div>
+            <div>Importante</div>
+            <div>Maximale</div>
+          </div>
+          <div class="pia-gaugeBlock-user-choice pia-gaugeBlock-user-choice-{{previousGauges.y}}"></div>
+          <div *ngIf="evaluation.gauges" class="pia-gaugeBlock-background pia-gaugeBlock-background-y pia-gaugeBlock-background-{{evaluation.gauges['y']}}"></div>
         </div>
       </div>
     </div>

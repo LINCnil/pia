@@ -5,7 +5,7 @@
     <div class="pia-entryContentBlock-content-DPO">
       <div>
         <h2>Avis du DPO</h2>
-        <button type="button" id="piaDPOPencil" class="btn pia-questionBlock-edit hide"  (click)="activateDPOEdition()" title="Éditer"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+        <button type="button" class="btn pia-questionBlock-edit" *ngIf="displayDpoEditButton" (click)="activateDPOEdition()" title="Éditer"><i class="fa fa-pencil" aria-hidden="true"></i></button>
       </div>
       <form [formGroup]="DPOForm">
 
@@ -49,7 +49,7 @@
     <div class="pia-entryContentBlock-content-DPO-avis">
       <div>
         <h2>Avis des personnes concernées</h2>
-        <button type="button" id="piaPeoplePencil" class="btn pia-questionBlock-edit hide" (click)="activatePeopleEdition()" title="Éditer"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+        <button type="button" class="btn pia-questionBlock-edit" *ngIf="displayPeopleEditButton" (click)="activatePeopleEdition()" title="Éditer"><i class="fa fa-pencil" aria-hidden="true"></i></button>
       </div>
       <form [formGroup]="peopleForm">
         <p *ngIf="showNamesAsInputs()"><span><input type="text" class="DPOName" (change)="peopleFocusOut()" formControlName="peopleNames"></span>, considère(nt) que :</p>

@@ -16,6 +16,8 @@ export class DPOPeopleOpinionsComponent implements OnInit {
   concerned_people_status_locker: boolean;
   DPOForm: FormGroup;
   peopleForm: FormGroup;
+  displayDpoEditButton = false;
+  displayPeopleEditButton = false;
 
   constructor(private el: ElementRef, private _piaService: PiaService) { }
 
@@ -36,56 +38,35 @@ export class DPOPeopleOpinionsComponent implements OnInit {
         this.peopleForm.disable();
       }*/
 
-      /*
-      * TODO : on fait un nouveau PIA.
-      * On va dans la page des avis, on remplit les 3 champs du DPO.
-      * On va sur une autre page (pas de F5 !), on revient sur la page des avis.
-      * On édite (crayon), on change juste le nom des DPO (1 er champ).
-      * On sort (DPOOnFocusOut) : NOTHING HAPPENS.
-      */
-
-      this.DPOForm.controls['DPOOpinion'].patchValue(this._piaService.pia.dpo_opinion);
-      this.DPOForm.controls['DPONames'].patchValue(this._piaService.pia.dpos_names);
-
-      /* TODO : check if this line is really useful : */
-      this.DPOForm.controls['DPOStatus'].patchValue(this._piaService.pia.dpo_status);
-
-      this.peopleForm.controls['peopleOpinion'].patchValue(this._piaService.pia.concerned_people_opinion);
-      this.peopleForm.controls['peopleNames'].patchValue(this._piaService.pia.people_names);
-
-      /* TODO : check if this line is really useful : */
-      this.peopleForm.controls['peopleStatus'].patchValue(this._piaService.pia.concerned_people_status);
-
-      // Checks if there are data in DB for DPO
-      if (this._piaService.pia.dpo_opinion ||
-          this._piaService.pia.dpo_status ||
-          this._piaService.pia.dpos_names) {
-        this.showDPOEditButton();
-      }
       if (this._piaService.pia.dpo_opinion) {
+        this.DPOForm.controls['DPOOpinion'].patchValue(this._piaService.pia.dpo_opinion);
         this.DPOForm.controls['DPOOpinion'].disable();
+        this.displayDpoEditButton = true;
       }
       if (this._piaService.pia.dpos_names) {
+        this.DPOForm.controls['DPONames'].patchValue(this._piaService.pia.dpos_names);
         this.DPOForm.controls['DPONames'].disable();
+        this.displayDpoEditButton = true;
       }
-      if (this._piaService.pia.dpo_status === 0 || this._piaService.pia.dpo_status === 1) {
+      if (this._piaService.pia.dpo_status >= 0) {
         this.dpo_status_locker = true;
-      }
-
-      // Checks if there are data in DB for concerned people
-      if (this._piaService.pia.concerned_people_opinion ||
-          this._piaService.pia.concerned_people_status ||
-          this._piaService.pia.people_names) {
-        this.showPeopleEditButton();
+        this.DPOForm.controls['DPOStatus'].patchValue(this._piaService.pia.dpo_status);
+        this.displayDpoEditButton = true;
       }
       if (this._piaService.pia.concerned_people_opinion) {
+        this.peopleForm.controls['peopleOpinion'].patchValue(this._piaService.pia.concerned_people_opinion);
         this.peopleForm.controls['peopleOpinion'].disable();
+        this.displayPeopleEditButton = true;
       }
       if (this._piaService.pia.people_names) {
+        this.peopleForm.controls['peopleNames'].patchValue(this._piaService.pia.people_names);
         this.peopleForm.controls['peopleNames'].disable();
+        this.displayPeopleEditButton = true;
       }
       if (this._piaService.pia.concerned_people_status === 0 || this._piaService.pia.concerned_people_status === 1) {
+        this.peopleForm.controls['peopleStatus'].patchValue(this._piaService.pia.concerned_people_status);
         this.concerned_people_status_locker = true;
+        this.displayPeopleEditButton = true;
       }
     });
   }
@@ -94,20 +75,22 @@ export class DPOPeopleOpinionsComponent implements OnInit {
    * Disables DPO fields (status + opinion) and saves data.
    */
   DPOFocusOut() {
-    if (this.DPOForm.value.DPOOpinion &&
-        this.DPOForm.value.DPOOpinion.length > 0 &&
-        this.DPOForm.value.DPONames &&
-        this.DPOForm.value.DPONames.length > 0 &&
-        this.DPOForm.controls['DPOStatus'].dirty) {
+    if (this.DPOForm.value.DPOOpinion && this.DPOForm.value.DPOOpinion.length > 0 && this.DPOForm.value.DPONames &&
+        this.DPOForm.value.DPONames.length > 0 && this.DPOForm.controls['DPOStatus'].dirty) {
       this.DPOForm.disable();
-      this.showDPOEditButton();
-      const pia = new Pia();
-      pia.id = this._piaService.pia.id;
-      pia.get(pia.id).then(() => {
-        pia.dpo_opinion = this.DPOForm.value.DPOOpinion;
-        pia.dpo_status = parseInt(this.DPOForm.value.DPOStatus, 10);
-        pia.dpos_names = this.DPOForm.value.DPONames;
-        pia.update();
+      this.displayDpoEditButton = true;
+      this._piaService.pia.dpo_opinion = this.DPOForm.value.DPOOpinion;
+      this._piaService.pia.dpo_status = parseInt(this.DPOForm.value.DPOStatus, 10);
+      this._piaService.pia.dpos_names = this.DPOForm.value.DPONames;
+      this._piaService.pia.update();
+    } else if (!this.DPOForm.value.DPONames || this.DPOForm.value.DPONames.length <= 0) {
+      this._piaService.pia.dpo_opinion = null;
+      this._piaService.pia.dpo_status = null;
+      this._piaService.pia.dpos_names = null;
+      this._piaService.pia.update().then(() => {
+        this.DPOForm.controls['DPOOpinion'].patchValue(null);
+        this.DPOForm.controls['DPONames'].patchValue(null);
+        this.DPOForm.controls['DPOStatus'].patchValue(null);
       });
     }
   }
@@ -116,24 +99,8 @@ export class DPOPeopleOpinionsComponent implements OnInit {
    * Activates DPO fields (status + opinion).
    */
   activateDPOEdition() {
-    this.hideDPOEditButton();
+    this.displayDpoEditButton = false;
     this.DPOForm.enable();
-  }
-
-  /**
-   * Shows DPO edit button.
-   */
-  showDPOEditButton() {
-    const editBtn = this.el.nativeElement.querySelector('#piaDPOPencil');
-    editBtn.classList.remove('hide');
-  }
-
-  /**
-   * Hides DPO edit button.
-   */
-  hideDPOEditButton() {
-    const editBtn = this.el.nativeElement.querySelector('#piaDPOPencil');
-    editBtn.classList.add('hide');
   }
 
   /**
@@ -146,41 +113,29 @@ export class DPOPeopleOpinionsComponent implements OnInit {
       this.peopleForm.value.peopleNames.length > 0 &&
       this.peopleForm.controls['peopleStatus'].dirty) {
       this.peopleForm.disable();
-      this.showPeopleEditButton();
-      const pia = new Pia();
-      pia.id = this._piaService.pia.id;
-      pia.get(pia.id).then(() => {
-        pia.concerned_people_opinion = this.peopleForm.value.peopleOpinion;
-        pia.concerned_people_status = parseInt(this.peopleForm.value.peopleStatus, 10);
-        pia.people_names = this.peopleForm.value.peopleNames;
-        pia.update();
+      this.displayPeopleEditButton = true;
+      this._piaService.pia.concerned_people_opinion = this.peopleForm.value.peopleOpinion;
+      this._piaService.pia.concerned_people_status = parseInt(this.peopleForm.value.peopleStatus, 10);
+      this._piaService.pia.people_names = this.peopleForm.value.peopleNames;
+      this._piaService.pia.update();
+    } else if (!this.peopleForm.value.peopleNames || this.peopleForm.value.peopleNames.length <= 0) {
+      this._piaService.pia.concerned_people_opinion = null;
+      this._piaService.pia.concerned_people_status = null;
+      this._piaService.pia.people_names = null;
+      this._piaService.pia.update().then(() => {
+        this.peopleForm.controls['peopleOpinion'].patchValue(null);
+        this.peopleForm.controls['peopleNames'].patchValue(null);
+        this.peopleForm.controls['peopleStatus'].patchValue(null);
       });
     }
-    // Saving data here
   }
 
   /**
    * Activates people fields (status + opinion).
    */
   activatePeopleEdition() {
-    this.hidePeopleEditButton();
+    this.displayPeopleEditButton = false;
     this.peopleForm.enable();
-  }
-
-  /**
-   * Shows people edit button.
-   */
-  showPeopleEditButton() {
-    const editBtn = this.el.nativeElement.querySelector('#piaPeoplePencil');
-    editBtn.classList.remove('hide');
-  }
-
-  /**
-   * Hides people edit button.
-   */
-  hidePeopleEditButton() {
-    const editBtn = this.el.nativeElement.querySelector('#piaPeoplePencil');
-    editBtn.classList.add('hide');
   }
 
   /**
