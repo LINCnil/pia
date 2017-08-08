@@ -3,6 +3,10 @@
 // Knowledge base
 .pia {
   &-knowledgeBaseBlock {
+    &-none {
+      text-align: center;
+      color: $pia-gray;
+    }
     &-scroll {
       position: fixed;
       top: 0;

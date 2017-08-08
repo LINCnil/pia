@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit, Input, Output, EventEmitter, OnChanges } from '@angular/core';
+import { Component, OnInit, AfterViewInit, Input, Output, EventEmitter, DoCheck } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Http } from '@angular/http';
 import { Pia } from '../pia.model';
@@ -12,7 +12,7 @@ import { PiaService } from 'app/entry/pia.service';
   styleUrls: ['./knowledge-base.component.scss'],
   providers: [PiaService]
 })
-export class KnowledgeBaseComponent implements OnInit, OnChanges {
+export class KnowledgeBaseComponent implements OnInit, DoCheck {
   searchForm: FormGroup;
   @Input() item: any;
   @Output() newMeasureEvent: EventEmitter<any> = new EventEmitter<any>();
@@ -32,8 +32,9 @@ export class KnowledgeBaseComponent implements OnInit, OnChanges {
     window.onscroll = function(ev) {
       if (window.innerWidth > 640) {
         const el: any = document.querySelector('.pia-knowledgeBaseBlock');
-        if (el) {
-          document.querySelector('.pia-knowledgeBaseBlock-list').setAttribute('style', 'height:' + (window.innerHeight - 350) + 'px');
+        const el2 = document.querySelector('.pia-knowledgeBaseBlock-list');
+        if (el && el2) {
+          el2.setAttribute('style', 'height:' + (window.innerHeight - 350) + 'px');
           if (window.scrollY >= 100) {
             el.setAttribute('style', 'width:283px;');
             el.classList.add('pia-knowledgeBaseBlock-scroll');
@@ -46,7 +47,7 @@ export class KnowledgeBaseComponent implements OnInit, OnChanges {
     };
   }
 
-  ngOnChanges() {
+  ngDoCheck() {
     this._knowledgeBaseService.loadByItem(this.item);
   }
 
