@@ -72,16 +72,4 @@ export class KnowledgeBaseService {
       event.target.classList.add('active');
     }
   }
-
-  // resizeBlock() {
-  //   let totalSize = 0;
-  //   const centralElementHeight = <HTMLElement>document.querySelector('.pia-entryContentBlock');
-  //   if (centralElementHeight) {
-  //     const element = <HTMLElement>document.querySelector('.pia-knowledgeBaseBlock-list');
-  //     totalSize = centralElementHeight.offsetHeight - 190;
-  //   }
-  //   totalSize = totalSize < 700 ? 700 : totalSize;
-  //   const kb_block: any = <HTMLElement>document.querySelector('.pia-knowledgeBaseBlock-list');
-  //   kb_block.style.height = totalSize + 'px';
-  // }
 }
