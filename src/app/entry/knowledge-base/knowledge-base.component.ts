@@ -1,6 +1,5 @@
-import { Component, OnInit, AfterViewInit, Input, Output, EventEmitter, DoCheck } from '@angular/core';
+import { Component, OnInit, AfterViewInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { Http } from '@angular/http';
 import { Pia } from '../pia.model';
 import { MeasureService } from 'app/entry/entry-content/measures/measures.service';
 import { KnowledgeBaseService } from './knowledge-base.service';
@@ -12,17 +11,14 @@ import { PiaService } from 'app/entry/pia.service';
   styleUrls: ['./knowledge-base.component.scss'],
   providers: [PiaService]
 })
-export class KnowledgeBaseComponent implements OnInit, DoCheck {
+export class KnowledgeBaseComponent implements OnInit {
   searchForm: FormGroup;
   @Input() item: any;
   @Output() newMeasureEvent: EventEmitter<any> = new EventEmitter<any>();
 
-  constructor(private http: Http,
-              private _measureService: MeasureService,
+  constructor(private _measureService: MeasureService,
               private _knowledgeBaseService: KnowledgeBaseService,
-              private _piaService: PiaService) {
-    this._knowledgeBaseService.loadData(this.http);
-  }
+              private _piaService: PiaService) { }
 
   ngOnInit() {
     this._piaService.getPIA();
@@ -45,10 +41,6 @@ export class KnowledgeBaseComponent implements OnInit, DoCheck {
         }
       }
     };
-  }
-
-  ngDoCheck() {
-    this._knowledgeBaseService.loadByItem(this.item);
   }
 
   onSubmit() {

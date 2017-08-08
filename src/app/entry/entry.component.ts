@@ -2,6 +2,7 @@ import { Component, OnInit, Output } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Http } from '@angular/http';
 import { EvaluationService } from 'app/entry/entry-content/evaluations/evaluations.service';
+import { KnowledgeBaseService } from 'app/entry/knowledge-base/knowledge-base.service';
 
 @Component({
   selector: 'app-entry',
@@ -17,7 +18,8 @@ export class EntryComponent implements OnInit {
   data: { sections: any };
   questions: any;
 
-  constructor(private route: ActivatedRoute, private http: Http, private _evaluationService: EvaluationService) {
+  constructor(private route: ActivatedRoute, private http: Http,
+              private _evaluationService: EvaluationService, private _knowledgeBaseService: KnowledgeBaseService) {
     let sectionId = parseInt(this.route.snapshot.params['section_id'], 10);
     let itemId = parseInt(this.route.snapshot.params['item_id'], 10);
 
@@ -63,5 +65,7 @@ export class EntryComponent implements OnInit {
         this.questions.push(question);
       });
     }
+
+    this._knowledgeBaseService.loadByItem(this.item);
   }
 }

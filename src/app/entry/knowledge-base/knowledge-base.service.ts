@@ -5,9 +5,11 @@ import 'rxjs/add/operator/map'
 export class KnowledgeBaseService {
   allKnowledgeBaseData: any[];
   knowledgeBaseData: any[];
+  previousKnowledgeBaseData: any[];
   q: string;
   filter: string;
   linkKnowledgeBase: string[] = [];
+
 
   loadData(http) {
     http.request('/assets/files/pia_knowledge-base.json').map(res => res.json()).subscribe(data => {
@@ -19,7 +21,7 @@ export class KnowledgeBaseService {
   search(filter?: string, event?: any, linkKnowledgeBase?: any) {
     this.filter = (filter && filter.length > 0) ? filter : '';
     this.linkKnowledgeBase = (linkKnowledgeBase && linkKnowledgeBase.length > 0) ? linkKnowledgeBase : '';
-    this.knowledgeBaseData = this.allKnowledgeBaseData;
+    this.knowledgeBaseData = this.previousKnowledgeBaseData;
     if (this.q && this.q.length > 0) {
       this.knowledgeBaseData = this.knowledgeBaseData.filter((item) => {
         return (item.name.search(this.q) >= 0 || item.description.search(this.q) >= 0);
@@ -59,6 +61,12 @@ export class KnowledgeBaseService {
         });
       } else {
         this.knowledgeBaseData = [];
+      }
+      this.previousKnowledgeBaseData = this.knowledgeBaseData;
+      if (this.q && this.q.length > 0) {
+        this.knowledgeBaseData = this.knowledgeBaseData.filter((item2) => {
+          return (item2.name.search(this.q) >= 0 || item2.description.search(this.q) >= 0);
+        });
       }
       this.switchSelectedElement(event);
     }
