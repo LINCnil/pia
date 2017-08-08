@@ -7,6 +7,7 @@ import { ModalsService } from 'app/modals/modals.service';
 import { EvaluationService } from 'app/entry/entry-content/evaluations/evaluations.service';
 import { Evaluation } from 'app/entry/entry-content/evaluations/evaluation.model';
 import { Answer } from 'app/entry/entry-content/questions/answer.model';
+import { Measure } from 'app/entry/entry-content/measures/measure.model';
 
 @Injectable()
 export class PiaService {
@@ -64,15 +65,22 @@ export class PiaService {
   async piaInGlobalValidation() {
     return new Promise((resolve, reject) => {
       // TODO - Count all evaluation_mode
-      const countEvaluationMode = 18;
-      // Count all valid evaluation in DB with global_status === 1
-      const evaluation = new Evaluation();
-      evaluation.pia_id = this._evaluationService.pia.id;
-      evaluation.findAll().then((entries: any) => {
-        const entriesWithGlobalStatus = entries.filter((e) => {
-          return e.global_status === 1;
-        })
-        resolve(countEvaluationMode === entriesWithGlobalStatus.length);
+      let countEvaluationMode = 17;
+      const measure = new Measure();
+      measure.pia_id = this._evaluationService.pia.id;
+      measure.findAll().then((entries: any) => {
+        if (entries) {
+          countEvaluationMode += entries.length;
+        }
+        // Count all valid evaluation in DB with global_status === 1
+        const evaluation = new Evaluation();
+        evaluation.pia_id = this._evaluationService.pia.id;
+        evaluation.findAll().then((entries2: any) => {
+          const entriesWithGlobalStatus = entries2.filter((e) => {
+            return e.global_status === 1;
+          });
+          resolve(countEvaluationMode === entriesWithGlobalStatus.length);
+        });
       });
     });
   }

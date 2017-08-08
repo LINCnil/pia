@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Renderer2 } from '@angular/core';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-header',
@@ -9,12 +10,14 @@ import { Renderer2 } from '@angular/core';
 export class HeaderComponent implements OnInit {
 
   public increaseContrast: String;
+  appVersion: string;
 
   constructor(private renderer: Renderer2) {
     this.updateContrast();
   }
 
   ngOnInit() {
+    this.appVersion = environment.version;
   }
 
   /**

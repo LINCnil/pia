@@ -75,7 +75,7 @@
         &:first-child {
           color: $pia-red;
         }
-        &:last-child {
+        &:nth-child(2) {
           color: $pia-blue;
         }
       }

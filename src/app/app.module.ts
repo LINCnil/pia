@@ -42,6 +42,7 @@ import { EvaluationService } from 'app/entry/entry-content/evaluations/evaluatio
 import { OverviewRisksComponent } from './entry/entry-content/overview-risks/overview-risks.component';
 import { ErrorsComponent } from './errors/errors.component';
 import { ActionPlanImplementationComponent } from './entry/entry-content/action-plan/action-plan-implementation/action-plan-implementation.component';
+import { environment } from '../environments/environment';
 
 const appRoutes: Routes = [
   { path: '', component: AuthenticationComponent },
@@ -53,14 +54,22 @@ const appRoutes: Routes = [
   { path: '**', component: ErrorsComponent }
 ];
 
-Raven
-  .config('https://cfbe7053066a4cde8093c1678e2f64a7@sentry.io/201063', { release: '0.0.1-beta' })
-  .install();
+const providersList: any = [MeasureService, ModalsService, AttachmentsService, KnowledgeBaseService, EvaluationService];
+
+if (!environment.production) {
+  Raven
+    .config('https://cfbe7053066a4cde8093c1678e2f64a7@sentry.io/201063', { release: environment.version })
+    .install();
+}
 
 export class RavenErrorHandler implements ErrorHandler {
   handleError(err: any): void {
-    Raven.captureException(err);
+      Raven.captureException(err);
   }
+}
+
+if (!environment.production) {
+  providersList.push({ provide: ErrorHandler, useClass: RavenErrorHandler });
 }
 
 @NgModule({
@@ -104,7 +113,7 @@ export class RavenErrorHandler implements ErrorHandler {
     RouterModule.forRoot(appRoutes),
     TagInputModule
   ],
-  providers: [{ provide: ErrorHandler, useClass: RavenErrorHandler }, MeasureService, ModalsService, AttachmentsService, KnowledgeBaseService, EvaluationService],
+  providers: providersList,
   bootstrap: [AppComponent]
 })
 export class AppModule { }
