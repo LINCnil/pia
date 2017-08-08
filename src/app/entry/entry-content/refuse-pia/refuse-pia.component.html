@@ -1,40 +1,39 @@
 <div class="pia-ValidationRefuse">
-    // There is only this block displayed when we come from validate PIA page and we clicked on refuse it.
-    // In this case, it should show only "Abandonner le traitement" and "Refuser le PIA" buttons.
     <div class="pia-entryContentBlock-content">
-        <form [formGroup]="rejectionReasonForm" *ngIf="showRejectionReasonForm()">
+        <form [formGroup]="rejectionReasonForm">
             <div class="pia-entryContentBlock-content-subject">
                 <div class="pia-entryContentBlock-content-subject-title">
                     <h3>Motif du refus</h3>
-                    <button type="button" class="btn hide" id="rejection-reason-btn" (click)="activateRejectionReasonEdition()" title="Éditer"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                    <button type="button" class="btn" *ngIf="displayEditButton1 && _piaService.pia.status !== 1" (click)="activateRejectionReasonEdition()" title="Éditer"><i class="fa fa-pencil" aria-hidden="true"></i></button>
                 </div>
                 <div class="pia-entryContentBlock-content-subject-textarea">
-                    <textarea rows="8" cols="50" id="pia-rejection-reason" formControlName="rejectionReason" (focus)="rejectionReasonFocus()" (focusout)="rejectionReasonFocusOut()" placeholder="Décrivez les motifs de refus de validation du PIA"></textarea>
+                    <textarea rows="8" cols="50" formControlName="rejectionReason" (focus)="rejectionReasonFocus()" (focusout)="rejectionReasonFocusOut()"
+                              [disabled]="_piaService.pia.status === 1"
+                              placeholder="Décrivez les motifs de refus de validation du PIA"></textarea>
                 </div>
             </div>
         </form>
-
-        // This block should be displayed if the PIA status is refused.
-        // If it's refused, it shows this block and only the resend button.
-        // And the "Motif du refus" block is also displayed but locked, nothing can be changed on it.
-        <form [formGroup]="modificationsMadeForm" *ngIf="showModificationsMadeForm()">
+        <form [formGroup]="modificationsMadeForm" *ngIf="_piaService.pia.status === 1">
             <div class="pia-entryContentBlock-content-subject">
                 <div class="pia-entryContentBlock-content-subject-title">
                     <h3>Modifications apportées</h3>
-                    <button type="button" class="btn hide" id="modifications-made-btn" (click)="activateModificationsMadeEdition()" title="Éditer"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                    <button type="button" class="btn" *ngIf="displayEditButton2" (click)="activateModificationsMadeEdition()" title="Éditer"><i class="fa fa-pencil" aria-hidden="true"></i></button>
                 </div>
                 <div class="pia-entryContentBlock-content-subject-textarea">
-                    <textarea rows="8" cols="50" id="pia-modifications-made" formControlName="modificationsMade" (focus)="modificationsMadeFocus()" (focusout)="modificationsMadeFocusOut()" placeholder="Décrivez les modifications apportées au PIA"></textarea>
+                    <textarea rows="8" cols="50" formControlName="modificationsMade" (focus)="modificationsMadeFocus()" (focusout)="modificationsMadeFocusOut()"
+                              placeholder="Décrivez les modifications apportées au PIA"></textarea>
                 </div>
             </div>
         </form>
     </div>
 
     <div class="pia-entryContentBlock-footer">
-        <div *ngIf="showRefuseButtons()" class="pia-entryContentBlock-content-cancelButtons">
-            <button type="button" [disabled]="!showRejectionReasonButtons" class="btn btn-red" (click)="_modalsService.openModal('modal-abandon-pia')" title="Abandonner le traitement" disabled>Abandonner le traitement</button>
-            <button type="button" [disabled]="!showRejectionReasonButtons" class="btn btn-red" (click)="_modalsService.openModal('modal-refuse-pia')" title="Refuser le PIA" disabled>Refuser le PIA</button>
+        <div class="pia-entryContentBlock-content-cancelButtons" *ngIf="_piaService.pia.status !== 1">
+            <button type="button" class="btn btn-red" (click)="abandon()"
+                    title="Abandonner le traitement" [disabled]="!showRejectionReasonButtons">Abandonner le traitement</button>
+            <button type="button" class="btn btn-red" (click)="refuse()"
+                    title="Refuser le PIA" [disabled]="!showRejectionReasonButtons">Refuser le PIA</button>
         </div>
-        <button *ngIf="showResendForValidationButton()" [disabled]="!showResendValidationButton" type="button" id="pia-resend-button" class="btn btn-green" disabled title="Renvoyer pour validation">Renvoyer pour validation</button>
+        <button *ngIf="_piaService.pia.status === 1" type="button" class="btn btn-green" disabled title="Renvoyer pour validation">Renvoyer pour validation</button>
     </div>
 </div>
