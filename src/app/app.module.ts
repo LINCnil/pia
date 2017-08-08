@@ -56,7 +56,7 @@ const appRoutes: Routes = [
 
 const providersList: any = [MeasureService, ModalsService, AttachmentsService, KnowledgeBaseService, EvaluationService];
 
-if (!environment.production) {
+if (environment.production) {
   Raven
     .config('https://cfbe7053066a4cde8093c1678e2f64a7@sentry.io/201063', { release: environment.version })
     .install();
@@ -68,7 +68,7 @@ export class RavenErrorHandler implements ErrorHandler {
   }
 }
 
-if (!environment.production) {
+if (environment.production) {
   providersList.push({ provide: ErrorHandler, useClass: RavenErrorHandler });
 }
 
