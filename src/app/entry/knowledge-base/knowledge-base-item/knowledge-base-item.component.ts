@@ -23,9 +23,16 @@ export class KnowledgeBaseItemComponent implements OnInit {
    */
   displayItem() {
     const accordeon = this.el.nativeElement.querySelector('.pia-knowledgeBaseBlock-item-accordion button span');
-    accordeon.classList.toggle('pia-icon-accordeon-down');
     const displayer = this.el.nativeElement.querySelector('.pia-knowledgeBaseBlock-item-content');
-    displayer.classList.toggle('hide');
+    if (displayer.classList.contains('hide')) {
+      displayer.classList.remove('hide');
+      accordeon.classList.remove('pia-icon-accordeon-down');
+      accordeon.classList.add('pia-icon-accordeon-up');
+    } else {
+      displayer.classList.add('hide');
+      accordeon.classList.add('pia-icon-accordeon-down');
+      accordeon.classList.remove('pia-icon-accordeon-up');
+    }
   }
 
   /**
