@@ -47,12 +47,24 @@ export class EvaluationService {
       } else if (this.item.questions) {
         // For questions and item evaluation_mode
         const questionsIds = [];
+        const answerTypeByQuestion = {};
         this.item.questions.forEach(question => {
           questionsIds.push(question.id);
+          answerTypeByQuestion[question.id] = question.answer_type;
         });
         this.answer.findAllByPia(this.pia.id).then((answers: any) => {
           this.answers = answers.filter((answer) => {
-            return questionsIds.indexOf(answer.reference_to) >= 0;
+            let contentOk = false;
+            if (answerTypeByQuestion[answer.reference_to] === 'text'  ) {
+              contentOk = answer.data.text && answer.data.text.length > 0;
+            } else if (answerTypeByQuestion[answer.reference_to] === 'list') {
+              contentOk = answer.data.list && answer.data.list.length > 0;
+            } else if (answerTypeByQuestion[answer.reference_to] === 'gauge') {
+              console.log(answer.data.text);
+              console.log(answer.data.gauge);
+              contentOk = answer.data.text && answer.data.gauge && answer.data.text.length > 0 && answer.data.gauge > 0;
+            }
+            return (contentOk && questionsIds.indexOf(answer.reference_to) >= 0);
           });
           this.enableEvaluation = this.answers.length === questionsIds.length ? true : false;
           this.allAwsersIsInEvaluation();

@@ -32,10 +32,11 @@
         <p class="pia-evaluationBlock-gauge">Prenant en compte le plan d'action, comment ré-évaluez-vous la <span class="red-highlight">gravité du risque</span> d'accès illégitime aux données ?</p>
         <div class="pia-gaugeBlock">
           <!-- TODO : Update current evaluation.gauge[0] -->
-          <input type="range" (change)="checkGaugeChanges($event, 'x')" formControlName="gaugeX" min="1" max="4" step="1">
+          <input type="range" (change)="checkGaugeChanges($event, 'x')" formControlName="gaugeX" min="0" max="4" step="1">
           <div>
+            <div>(Non définie)</div>
             <div>Négligeable</div>
-            <div>Limité</div>
+            <div>Limitée</div>
             <div>Importante</div>
             <div>Maximale</div>
           </div>
@@ -46,10 +47,11 @@
         <p class="pia-evaluationBlock-gauge">Prenant en compte le plan d'action, comment ré-évaluez-vous la <span class="red-highlight">vraissemblance du risque</span> d'accès illégitime aux données ?</p>
         <div class="pia-gaugeBlock">
           <!-- TODO : Update current evaluation.gauge[1] -->
-          <input type="range" (change)="checkGaugeChanges($event, 'y')" formControlName="gaugeY" min="1" max="4" step="1">
+          <input type="range" (change)="checkGaugeChanges($event, 'y')" formControlName="gaugeY" min="0" max="4" step="1">
           <div>
+            <div>(Non définie)</div>
             <div>Négligeable</div>
-            <div>Limité</div>
+            <div>Limitée</div>
             <div>Importante</div>
             <div>Maximale</div>
           </div>

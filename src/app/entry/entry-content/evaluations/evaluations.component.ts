@@ -35,7 +35,7 @@ export class EvaluationsComponent implements OnInit {
   evaluation: Evaluation = new Evaluation();
   reference_to: string;
   displayEditButton = false;
-  previousGauges = {x: 1, y: 1};
+  previousGauges = {x: 0, y: 0};
 
   constructor(private el: ElementRef, private _evaluationsService: EvaluationService) { }
 
@@ -64,7 +64,7 @@ export class EvaluationsComponent implements OnInit {
       this.evaluationEvent.emit(this.evaluation);
 
       if (!this.evaluation.gauges) {
-        this.evaluation.gauges = {x: 1, y: 1};
+        this.evaluation.gauges = {x: 0, y: 0};
       }
       this.evaluationForm.controls['actionPlanComment'].patchValue(this.evaluation.action_plan_comment);
       this.evaluationForm.controls['evaluationComment'].patchValue(this.evaluation.evaluation_comment);
@@ -230,6 +230,7 @@ export class EvaluationsComponent implements OnInit {
   checkGaugeChanges(event: any, xOrY: string) {
     const value: string = event.target.value;
     const bgElement = event.target.parentNode.querySelector('.pia-gaugeBlock-background-' + xOrY);
+    bgElement.classList.remove('pia-gaugeBlock-background-1');
     bgElement.classList.remove('pia-gaugeBlock-background-2');
     bgElement.classList.remove('pia-gaugeBlock-background-3');
     bgElement.classList.remove('pia-gaugeBlock-background-4');
@@ -248,8 +249,10 @@ export class EvaluationsComponent implements OnInit {
     this.evaluation.update().then(() => {
       if (xOrY === 'x') {
         this.evaluationForm.controls['gaugeX'].disable();
+        this.displayEditButton = true;
       } else if (xOrY === 'y') {
         this.evaluationForm.controls['gaugeY'].disable();
+        this.displayEditButton = true;
       }
     });
   }

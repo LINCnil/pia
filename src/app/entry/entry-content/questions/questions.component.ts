@@ -104,35 +104,34 @@ export class QuestionsComponent implements OnInit {
   checkGaugeChanges(event: any) {
     const value: string = event.target.value;
     const bgElement = event.target.parentNode.querySelector('.pia-gaugeBlock-background');
+    bgElement.classList.remove('pia-gaugeBlock-background-1');
     bgElement.classList.remove('pia-gaugeBlock-background-2');
     bgElement.classList.remove('pia-gaugeBlock-background-3');
     bgElement.classList.remove('pia-gaugeBlock-background-4');
     bgElement.classList.add('pia-gaugeBlock-background-' + value);
     const gaugeValue = parseInt(this.questionForm.value.gauge, 10);
-    if (gaugeValue > 0) {
-      if (this.answer.id) {
-        this.answer.data = { text: this.answer.data.text, gauge: gaugeValue, list: this.answer.data.list };
-        this.answer.update().then(() => {
-          this._evaluationService.allowEvaluation();
-          this.displayEditButton = true;
-          this.questionForm.controls['gauge'].disable();
-          if (this.questionForm.value.text && this.questionForm.value.text.length > 0) {
-            this.questionForm.controls['text'].disable();
-          }
-        });
-      } else {
-        this.answer.pia_id = this.pia.id;
-        this.answer.reference_to = this.reference_to;
-        this.answer.data = { text: null, gauge: gaugeValue, list: [] };
-        this.answer.create().then(() => {
-          this._evaluationService.allowEvaluation();
-          this.displayEditButton = true;
-          this.questionForm.controls['gauge'].disable();
-          if (this.questionForm.value.text && this.questionForm.value.text.length > 0) {
-            this.questionForm.controls['text'].disable();
-          }
-        });
-      }
+    if (this.answer.id) {
+      this.answer.data = { text: this.answer.data.text, gauge: gaugeValue, list: this.answer.data.list };
+      this.answer.update().then(() => {
+        this._evaluationService.allowEvaluation();
+        this.displayEditButton = true;
+        this.questionForm.controls['gauge'].disable();
+        if (this.questionForm.value.text && this.questionForm.value.text.length > 0) {
+          this.questionForm.controls['text'].disable();
+        }
+      });
+    } else {
+      this.answer.pia_id = this.pia.id;
+      this.answer.reference_to = this.reference_to;
+      this.answer.data = { text: null, gauge: gaugeValue, list: [] };
+      this.answer.create().then(() => {
+        this._evaluationService.allowEvaluation();
+        this.displayEditButton = true;
+        this.questionForm.controls['gauge'].disable();
+        if (this.questionForm.value.text && this.questionForm.value.text.length > 0) {
+          this.questionForm.controls['text'].disable();
+        }
+      });
     }
   }
 
