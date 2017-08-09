@@ -30,12 +30,12 @@ export class KnowledgeBaseItemComponent implements OnInit {
     const displayer = this.el.nativeElement.querySelector('.pia-knowledgeBaseBlock-item-content');
     if (displayer.classList.contains('hide')) {
       displayer.classList.remove('hide');
-      accordeon.classList.remove('pia-icon-accordeon-up');
-      accordeon.classList.add('pia-icon-accordeon-down');
-    } else {
-      displayer.classList.add('hide');
       accordeon.classList.remove('pia-icon-accordeon-down');
       accordeon.classList.add('pia-icon-accordeon-up');
+    } else {
+      displayer.classList.add('hide');
+      accordeon.classList.remove('pia-icon-accordeon-up');
+      accordeon.classList.add('pia-icon-accordeon-down');
     }
   }
 
