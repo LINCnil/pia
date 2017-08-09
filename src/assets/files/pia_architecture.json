@@ -63,8 +63,8 @@
               "title": "Quelles sont les données traitées ?",
               "link_knowledge_base": [
                 "PIA_LGL_DATA",
-                "PIA_DEF_DCP",
                 "PIA_LGL_DEST",
+                "PIA_DEF_DCP",
                 "PIA_DEF_DEST"
               ],
               "placeholder": "Listez les données collectées et traitées en indiquant les durées de conservation, les destinataires et les personnes pouvant y accèder.",
@@ -159,7 +159,7 @@
               "title": "Les données sont-elles exactes et tenues à jour ?",
               "short_title": "Données exactes",
               "link_knowledge_base": [
-                "PIA_LGL_EXA"
+                "PIA_DEF_EXA"
               ],
               "placeholder": "Décrivez les mesures prévues pour vous assurer de la qualité des données.",
               "highlight_words": "",
@@ -221,8 +221,8 @@
               "short_title": "Droit d'accès et à la portabilité",
               "link_knowledge_base": [
                 "PIA_LGL_ACC",
-                "PIA_DEF_ACC",
                 "PIA_LGL_PORT",
+                "PIA_DEF_ACC",
                 "PIA_DEF_PORT"
               ],
               "placeholder": "Décrivez les modalités prévues pour permettre aux personnes concernées d'accéder à leurs données et de recevoir ou transmettre leurs données.",
@@ -237,8 +237,8 @@
               "short_title": "Droit de rectification et d'effacement",
               "link_knowledge_base": [
                 "PIA_LGL_EFF",
-                "PIA_DEF_EFF",
                 "PIA_LGL_RECT",
+                "PIA_DEF_EFF",
                 "PIA_DEF_RECT"
               ],
               "placeholder": "Décrivez les modalités prévues pour permettre aux personnes concernées de rectifier et d'effacer leurs données.",
@@ -266,8 +266,8 @@
               "title": "Les obligations des sous-traitants sont-elles clairement définies et contractualisées ?",
               "short_title": "Sous-traitance",
               "link_knowledge_base": [
-                "PIA_DEF_ST",
-                "PIA_LGL_ST"
+                "PIA_LGL_ST",
+                "PIA_DEF_ST"
               ],
               "placeholder": "Pour chaque sous-traitant, décrivez le périmètre de ses responsabilités et indiquez les références aux contrats, codes de conduite et certifications qui fixent ses obligations.",
               "highlight_words": "",
@@ -339,7 +339,7 @@
               "title": "Quels pourraient être les principaux impacts sur les personnes concernées si le risque se produisait ?",
               "link_knowledge_base": [
                 "PIA_DEF_ACCI",
-				        "PIA_DEF_IMP"
+                "PIA_DEF_IMP"
               ],
               "placeholder": "Saisissez les impacts potentiels.",
               "highlight_words": "impacts sur les personnes",
@@ -385,7 +385,7 @@
               "is_measure": true,
               "link_knowledge_base": [
                 "PIA_DEF_ACCI",
-				        "PIA_DEF_MES"
+                "PIA_DEF_MES"
               ],
               "placeholder": "Cliquez ici pour sélectionner les mesures contribuant à traiter ce risque.",
               "highlight_words": "mesures",
@@ -398,7 +398,7 @@
               "title": "Comment estimez-vous la gravité du risque, notamment en fonction des impacts potentiels et des mesures prévues ?",
               "link_knowledge_base": [
                 "PIA_DEF_ACCI",
-				        "PIA_DEF_IMP",
+                "PIA_DEF_IMP",
                 "PIA_DEF_GRV",
                 "PIA_EX_IMPN",
                 "PIA_EX_IMPL",
@@ -444,7 +444,7 @@
               "title": "Quels pourraient être les principaux impacts sur les personnes concernées si le risque se produisait ?",
               "link_knowledge_base": [
                 "PIA_DEF_MODI",
-				        "PIA_DEF_IMP"
+                "PIA_DEF_IMP"
               ],
               "placeholder": "Saisissez les impacts potentiels.",
               "highlight_words": "impacts sur les personnes",
@@ -474,9 +474,9 @@
               "link_knowledge_base": [
                 "PIA_DEF_MODI",
                 "PIA_DEF_SRC",
-                "PIA_SRC_HUMI",
-                "PIA_SRC_HUME",
-                "PIA_SRC_NHUM"
+                "PIA_EX_HUMI",
+                "PIA_EX_HUME",
+                "PIA_EX_NHUM"
               ],
               "placeholder": "Saisissez les sources de risque.",
               "highlight_words": "sources",
@@ -490,7 +490,7 @@
               "is_measure": true,
               "link_knowledge_base": [
                 "PIA_DEF_MODI",
-				        "PIA_DEF_MES"
+                "PIA_DEF_MES"
                ],
               "placeholder": "Cliquez ici pour sélectionner les mesures contribuant à traiter ce risque.",
               "highlight_words": "mesures",
@@ -504,7 +504,7 @@
               "link_knowledge_base": [
                 "PIA_DEF_MODI",
                 "PIA_DEF_GRV",
-				        "PIA_DEF_IMP",
+                "PIA_DEF_IMP",
                 "PIA_EX_IMPN",
                 "PIA_EX_IMPL",
                 "PIA_EX_IMPI",
@@ -549,7 +549,7 @@
               "title": "Quels pourraient être les principaux impacts sur les personnes concernées si le risque se produisait ?",
               "link_knowledge_base": [
                 "PIA_DEF_IND",
-				        "PIA_DEF_IMP"
+                "PIA_DEF_IMP"
               ],
               "placeholder": "Saisissez les impacts potentiels.",
               "highlight_words": "impacts sur les personnes",
@@ -579,9 +579,9 @@
               "link_knowledge_base": [
                 "PIA_DEF_IND",
                 "PIA_DEF_SRC",
-                "PIA_SRC_HUMI",
-                "PIA_SRC_HUME",
-                "PIA_SRC_NHUM"
+                "PIA_EX_HUMI",
+                "PIA_EX_HUME",
+                "PIA_EX_NHUM"
               ],
               "placeholder": "Saisissez les sources de risque.",
               "highlight_words": "sources",
@@ -595,7 +595,7 @@
               "is_measure": true,
               "link_knowledge_base": [
                 "PIA_DEF_IND",
-				        "PIA_DEF_MES"
+                "PIA_DEF_MES"
               ],
               "placeholder": "Cliquez ici pour sélectionner les mesures contribuant à traiter ce risque.",
               "highlight_words": "mesures",
@@ -609,7 +609,7 @@
               "link_knowledge_base": [
                 "PIA_DEF_IND",
                 "PIA_DEF_GRV",
-				        "PIA_DEF_IMP",
+                "PIA_DEF_IMP",
                 "PIA_EX_IMPN",
                 "PIA_EX_IMPL",
                 "PIA_EX_IMPI",
