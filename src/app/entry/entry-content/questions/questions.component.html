@@ -40,7 +40,6 @@
             formControlName="list"
             [theme]="'foundation-theme'"
             [ngModel]="tags"
-            (onBlur)="onBlur($event)"
             [placeholder]="question.placeholder + '&#10010;'"
             [editable]="'false'"
             [disabled]="_evaluationService.showValidationButton || _evaluationService.enableFinalValidation"
