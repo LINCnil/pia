@@ -60,8 +60,6 @@ export class EvaluationService {
             } else if (answerTypeByQuestion[answer.reference_to] === 'list') {
               contentOk = answer.data.list && answer.data.list.length > 0;
             } else if (answerTypeByQuestion[answer.reference_to] === 'gauge') {
-              console.log(answer.data.text);
-              console.log(answer.data.gauge);
               contentOk = answer.data.text && answer.data.gauge && answer.data.text.length > 0 && answer.data.gauge > 0;
             }
             return (contentOk && questionsIds.indexOf(answer.reference_to) >= 0);
@@ -132,6 +130,11 @@ export class EvaluationService {
         });
       });
     }
+  }
+
+  dpoAnswerOk() {
+    return (this.pia.dpos_names && this.pia.dpo_opinion && this.pia.dpos_names.length > 0
+            && this.pia.dpo_opinion.length > 0 && this.pia.dpo_status >= 0);
   }
 
   remove(reference_to: any) {

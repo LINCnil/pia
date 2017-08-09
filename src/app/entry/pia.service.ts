@@ -68,6 +68,7 @@ export class PiaService {
       let countEvaluationMode = 17;
       const measure = new Measure();
       measure.pia_id = this._evaluationService.pia.id;
+      const dpoAnswerOk = this._evaluationService.dpoAnswerOk();
       measure.findAll().then((entries: any) => {
         if (entries) {
           countEvaluationMode += entries.length;
@@ -79,7 +80,7 @@ export class PiaService {
           const entriesWithGlobalStatus = entries2.filter((e) => {
             return e.global_status === 1;
           });
-          resolve(countEvaluationMode === entriesWithGlobalStatus.length);
+          resolve((countEvaluationMode === entriesWithGlobalStatus.length) && dpoAnswerOk);
         });
       });
     });

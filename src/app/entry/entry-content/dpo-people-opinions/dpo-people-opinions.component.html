@@ -16,9 +16,16 @@
             Pistes : *ngIf condition_booleenne_sur_input; label
         -->
 
-        <p *ngIf="showNamesAsInputs()"><span><input type="text" class="DPOName" (change)="DPOFocusOut()" formControlName="DPONames"></span>, considère(nt) que :</p>
-        <!-- TODO : show this second <p> only when PIA is validated and hide the previous p : -->
-        <p *ngIf="showNamesAsLabels()"><span>{{_piaService.pia.dpos_names}}</span>, considère(nt) que :</p>
+        <p>
+          <span>
+            <ng-container *ngIf="_piaService.pia.status < 2; else displayNames1">
+              <input type="text" class="DPOName" (change)="DPOFocusOut()" formControlName="DPONames">
+            </ng-container>
+            <ng-template #displayNames1>
+              {{_piaService.pia.dpos_names}}
+            </ng-template>
+          </span>, considère(nt) que :
+        </p>
         <div class="pia-entryContentBlock-content-DPO-treatment">
           <!-- TODO : add 'checked' class on this div when a choice has been made/saved in DB -->
           <!-- ( ex : <div [ngClass]="_piaService.pia.dpo_status === 1 ? 'checked' : ''> -->
@@ -52,9 +59,16 @@
         <button type="button" class="btn pia-questionBlock-edit" *ngIf="displayPeopleEditButton" (click)="activatePeopleEdition()" title="Éditer"><i class="fa fa-pencil" aria-hidden="true"></i></button>
       </div>
       <form [formGroup]="peopleForm">
-        <p *ngIf="showNamesAsInputs()"><span><input type="text" class="DPOName" (change)="peopleFocusOut()" formControlName="peopleNames"></span>, considère(nt) que :</p>
-        <!-- TODO : show this second <p> only when PIA is validated and hide the previous p : -->
-        <p *ngIf="showNamesAsLabels()"><span>{{_piaService.pia.people_names}}</span>, considère(nt) que :</p>
+        <p>
+          <span>
+            <ng-container *ngIf="this._piaService.pia.status < 2; else displayNames2">
+              <input type="text" class="DPOName" (change)="peopleFocusOut()" formControlName="peopleNames">
+            </ng-container>
+            <ng-template #displayNames2>
+              {{_piaService.pia.people_names}}
+            </ng-template>
+          </span>, considère(nt) que :
+        </p>
         <div class="pia-entryContentBlock-content-DPO-treatment">
           <!-- TODO : add 'checked' class on this div when a choice has been made/saved in DB -->
           <!-- ( ex : <div [ngClass]="_piaService.pia.concerned_people_status === 1 ? 'checked' : ''> -->

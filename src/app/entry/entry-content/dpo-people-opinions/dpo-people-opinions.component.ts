@@ -38,27 +38,27 @@ export class DPOPeopleOpinionsComponent implements OnInit {
         this.peopleForm.disable();
       }*/
 
-      if (this._piaService.pia.dpo_opinion) {
-        this.DPOForm.controls['DPOOpinion'].patchValue(this._piaService.pia.dpo_opinion);
-        this.DPOForm.controls['DPOOpinion'].disable();
-        this.displayDpoEditButton = true;
-      }
-      if (this._piaService.pia.dpos_names) {
+      if (this._piaService.pia.dpos_names && this._piaService.pia.dpos_names.length > 0) {
         this.DPOForm.controls['DPONames'].patchValue(this._piaService.pia.dpos_names);
         this.DPOForm.controls['DPONames'].disable();
         this.displayDpoEditButton = true;
       }
-      if (this._piaService.pia.dpo_status >= 0) {
+      if (this._piaService.pia.dpo_status && this._piaService.pia.dpo_status >= 0) {
         this.dpo_status_locker = true;
         this.DPOForm.controls['DPOStatus'].patchValue(this._piaService.pia.dpo_status);
         this.displayDpoEditButton = true;
+      } else {
+        this.dpo_status_locker = true;
       }
-      if (this._piaService.pia.concerned_people_opinion) {
-        this.peopleForm.controls['peopleOpinion'].patchValue(this._piaService.pia.concerned_people_opinion);
-        this.peopleForm.controls['peopleOpinion'].disable();
-        this.displayPeopleEditButton = true;
+      if (this._piaService.pia.dpo_opinion && this._piaService.pia.dpo_opinion.length > 0) {
+        this.DPOForm.controls['DPOOpinion'].patchValue(this._piaService.pia.dpo_opinion);
+        this.DPOForm.controls['DPOOpinion'].disable();
+        this.displayDpoEditButton = true;
+      } else {
+        this.DPOForm.controls['DPOOpinion'].disable();
       }
-      if (this._piaService.pia.people_names) {
+
+      if (this._piaService.pia.people_names && this._piaService.pia.people_names.length > 0) {
         this.peopleForm.controls['peopleNames'].patchValue(this._piaService.pia.people_names);
         this.peopleForm.controls['peopleNames'].disable();
         this.displayPeopleEditButton = true;
@@ -67,6 +67,22 @@ export class DPOPeopleOpinionsComponent implements OnInit {
         this.peopleForm.controls['peopleStatus'].patchValue(this._piaService.pia.concerned_people_status);
         this.concerned_people_status_locker = true;
         this.displayPeopleEditButton = true;
+      } else {
+        this.concerned_people_status_locker = true;
+      }
+      if (this._piaService.pia.concerned_people_opinion && this._piaService.pia.concerned_people_opinion.length > 0) {
+        this.peopleForm.controls['peopleOpinion'].patchValue(this._piaService.pia.concerned_people_opinion);
+        this.peopleForm.controls['peopleOpinion'].disable();
+        this.displayPeopleEditButton = true;
+      } else {
+        this.peopleForm.controls['peopleOpinion'].disable();
+      }
+
+      if (this._piaService.pia.status >= 2) {
+        this.DPOForm.disable();
+        this.peopleForm.disable();
+        this.displayPeopleEditButton = false;
+        this.displayDpoEditButton = false;
       }
     });
   }
@@ -92,6 +108,8 @@ export class DPOPeopleOpinionsComponent implements OnInit {
         this.DPOForm.controls['DPONames'].patchValue(null);
         this.DPOForm.controls['DPOStatus'].patchValue(null);
       });
+    } else if (this.DPOForm.value.DPONames && this.DPOForm.value.DPONames.length > 0) {
+      this.activateDPOEdition()
     }
   }
 
@@ -127,6 +145,8 @@ export class DPOPeopleOpinionsComponent implements OnInit {
         this.peopleForm.controls['peopleNames'].patchValue(null);
         this.peopleForm.controls['peopleStatus'].patchValue(null);
       });
+    } else if (this.peopleForm.value.peopleNames && this.peopleForm.value.peopleNames.length > 0) {
+      this.activatePeopleEdition()
     }
   }
 
@@ -136,21 +156,5 @@ export class DPOPeopleOpinionsComponent implements OnInit {
   activatePeopleEdition() {
     this.displayPeopleEditButton = false;
     this.peopleForm.enable();
-  }
-
-  /**
-   * Shows names (DPO & concerned people names) as inputs.
-   * @return true if the PIA is not validated, false otherwise.
-   */
-  showNamesAsInputs() {
-    return (this._piaService.pia.status !== 2 && this._piaService.pia.status !== 3);
-  }
-
-  /**
-   * Shows names (DPO & concerned people names) as beautiful labels.
-   * @return true if the PIA is validated, false otherwise.
-   */
-  showNamesAsLabels() {
-    return (this._piaService.pia.status === 2 || this._piaService.pia.status === 3);
   }
 }
