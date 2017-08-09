@@ -23,12 +23,12 @@ export class KnowledgeBaseService {
     this.linkKnowledgeBase = (linkKnowledgeBase && linkKnowledgeBase.length > 0) ? linkKnowledgeBase : '';
     this.knowledgeBaseData = this.previousKnowledgeBaseData;
     this.specificSearch();
-    if (this.filter && this.filter.length > 0) {
+    if (this.knowledgeBaseData && this.filter && this.filter.length > 0) {
       this.knowledgeBaseData = this.knowledgeBaseData.filter((item) => {
         return (item.filters.startsWith(this.filter));
       });
     }
-    if (this.linkKnowledgeBase && this.linkKnowledgeBase.length > 0) {
+    if (this.knowledgeBaseData && this.linkKnowledgeBase && this.linkKnowledgeBase.length > 0) {
       this.knowledgeBaseData = this.knowledgeBaseData.filter((item) => {
         return (this.linkKnowledgeBase.indexOf(item.slug) >= 0);
       });

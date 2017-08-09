@@ -22,6 +22,6 @@
   </div>
 
   <div class="pia-knowledgeBaseBlock-list">
-    <app-knowledge-base-item *ngFor="let item of _knowledgeBaseService.knowledgeBaseData" [item]="item" (newMeasureEvent)="addNewMeasure($event)"></app-knowledge-base-item>
+    <app-knowledge-base-item *ngFor="let itemKb of _knowledgeBaseService.knowledgeBaseData" [item]="item" [itemKb]="itemKb" (newMeasureEvent)="addNewMeasure($event)"></app-knowledge-base-item>
   </div>
 </div>

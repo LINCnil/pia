@@ -290,7 +290,7 @@
     "link_tools": ""
   },
   {
-    "slug": "PAI_TEC_LOG",
+    "slug": "PIA_TEC_LOG",
     "filters": "measure.data_processing",
     "category": "Mesure sur les données",
     "placeholder": "Indiquez ici si des événements sont journalisés et la durée de conservation de ces traces.",

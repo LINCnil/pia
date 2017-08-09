@@ -1,9 +1,9 @@
-<div class="pia-knowledgeBaseBlock-item" [attr.data-slug]="item.slug">
+<div class="pia-knowledgeBaseBlock-item" [attr.data-slug]="itemKb.slug" *ngIf="displayKb()">
   <div class="pia-knowledgeBaseBlock-item-accordion">
     <button class="btn" type="button" (click)="displayItem()" title="Afficher / masquer"><span class="pia-icons pia-icon-accordeon-up"></span></button>
   </div><div class="pia-knowledgeBaseBlock-item-definition">
-    <p>{{item.category}}</p>
-    <button *ngIf="item.filters.startsWith('measure.')" class="btn" type="button" (click)="addNewMeasure()" title="Ajouter une mesure">
+    <p>{{itemKb.category}}</p>
+    <button *ngIf="itemKb.filters.startsWith('measure.')" class="btn" type="button" (click)="addNewMeasure()" title="Ajouter une mesure">
       <span class="pia-icons pia-icon-add"></span>
       <p>Ajouter</p>
     </button>
@@ -13,8 +13,8 @@
     </div>
   </div>
   <div class="pia-knowledgeBaseBlock-item-title">
-    <p>{{item.name}}</p>
+    <p>{{itemKb.name}}</p>
   </div>
-  <div class="pia-knowledgeBaseBlock-item-content hide" [innerHTML]="item.description">
+  <div class="pia-knowledgeBaseBlock-item-content hide" [innerHTML]="itemKb.description">
   </div>
 </div>
