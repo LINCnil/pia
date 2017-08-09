@@ -49,47 +49,49 @@ export class ActionPlanComponent implements OnInit {
     measure.pia_id = this.pia.id;
     measure.findAll().then((entries: any) => {
       entries.forEach(m => {
-        const evaluation = new Evaluation();
+        const evaluation2 = new Evaluation();
         const reference_to = '3.1.' + m.id;
         this.measures[reference_to] = null;
-        evaluation.getByReference(this.pia.id, reference_to).then(() => {
-          if (evaluation.status > 0) {
-            if (evaluation.action_plan_comment && evaluation.action_plan_comment.length > 0) {
+        evaluation2.getByReference(this.pia.id, reference_to).then(() => {
+          if (evaluation2.status > 0) {
+            if (evaluation2.action_plan_comment && evaluation2.action_plan_comment.length > 0) {
               this.noMeasuresActionPlan = false;
             }
-            this.measures.push({ name: m.title, status: evaluation.status, action_plan_comment: evaluation.action_plan_comment });
+            this.measures.push({ name: m.title, status: evaluation2.status, action_plan_comment: evaluation2.action_plan_comment });
+          } else {
+            this.measures.push({ name: m.title, status: null, action_plan_comment: null });
           }
         });
       });
     });
 
-    const evaluation = new Evaluation();
-    evaluation.getByReference(this.pia.id, '3.2').then(() => {
-      if (evaluation.status > 0) {
-        if (evaluation.action_plan_comment && evaluation.action_plan_comment.length > 0) {
-          this.noRisksActionPlan = false;
-        }
-        this.risks['3.2'] = { status: evaluation.status, action_plan_comment: evaluation.action_plan_comment };
-      }
-    });
-
-    const evaluation2 = new Evaluation();
-    evaluation2.getByReference(this.pia.id, '3.3').then(() => {
-      if (evaluation2.status > 0) {
-        if (evaluation2.action_plan_comment && evaluation2.action_plan_comment.length > 0) {
-          this.noRisksActionPlan = false;
-        }
-        this.risks['3.3'] = { status: evaluation2.status, action_plan_comment: evaluation2.action_plan_comment };
-      }
-    });
-
     const evaluation3 = new Evaluation();
-    evaluation3.getByReference(this.pia.id, '3.4').then(() => {
+    evaluation3.getByReference(this.pia.id, '3.2').then(() => {
       if (evaluation3.status > 0) {
         if (evaluation3.action_plan_comment && evaluation3.action_plan_comment.length > 0) {
           this.noRisksActionPlan = false;
         }
-        this.risks['3.4'] = { status: evaluation3.status, action_plan_comment: evaluation3.action_plan_comment };
+        this.risks['3.2'] = { status: evaluation3.status, action_plan_comment: evaluation3.action_plan_comment };
+      }
+    });
+
+    const evaluation4 = new Evaluation();
+    evaluation4.getByReference(this.pia.id, '3.3').then(() => {
+      if (evaluation4.status > 0) {
+        if (evaluation4.action_plan_comment && evaluation4.action_plan_comment.length > 0) {
+          this.noRisksActionPlan = false;
+        }
+        this.risks['3.3'] = { status: evaluation4.status, action_plan_comment: evaluation4.action_plan_comment };
+      }
+    });
+
+    const evaluation5 = new Evaluation();
+    evaluation5.getByReference(this.pia.id, '3.4').then(() => {
+      if (evaluation5.status > 0) {
+        if (evaluation5.action_plan_comment && evaluation5.action_plan_comment.length > 0) {
+          this.noRisksActionPlan = false;
+        }
+        this.risks['3.4'] = { status: evaluation5.status, action_plan_comment: evaluation5.action_plan_comment };
       }
     });
   }
