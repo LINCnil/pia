@@ -70,12 +70,4 @@ export class CardItemComponent implements OnInit {
     localStorage.setItem('pia-id', id);
     this._modalsService.openModal('modal-remove-pia');
   }
-
-  /**
-   * Checks the current status of the PIA.
-   * @return true if the PIA is in progress, false otherwise.
-   */
-  isOngoingPIA() {
-    return this.pia.status === 0;
-  }
 }

@@ -49,7 +49,10 @@ export class QuestionsComponent implements OnInit {
         });
         this.questionForm.controls['gauge'].patchValue(this.answer.data.gauge);
         this.questionForm.controls['text'].patchValue(this.answer.data.text);
-        this.questionForm.controls['list'].patchValue(this.answer.data.list);
+        const dataList = this.answer.data.list.filter((l) => {
+          return (l && l.length > 0);
+        })
+        this.questionForm.controls['list'].patchValue(dataList);
         if (this.el.nativeElement.querySelector('.pia-gaugeBlock-background')) {
           this.el.nativeElement.querySelector('.pia-gaugeBlock-background').classList.
             add('pia-gaugeBlock-background-' + this.answer.data.gauge);
@@ -175,24 +178,33 @@ export class QuestionsComponent implements OnInit {
   }
 
   /**
-   * Disables question field + shows edit button + save data.
-   */
-  questionTagsFocusOut() {
-    alert(this.questionForm.value.list);
-    // Saving data here
-  }
-
-  /**
    * Adds the measure tag in the database.
    * @param {event} event any event.
    */
   onAdd(event) {
-    let list = [];
-    if (this.answer.id) {
-      list = this.answer.data.list;
+    if (event && event.value.length > 0) {
+      let list = [];
+      if (this.answer.id) {
+        list = this.answer.data.list;
+      }
+      if (list.indexOf(event.value) <= 0) {
+        list.push(event.value);
+        this.createOrUpdateList(list);
+      }
     }
-    list.push(event.value);
-    this.createOrUpdateList(list);
+  }
+
+  onBlur(event) {
+    if (event && event.length > 0) {
+      let list = [];
+      if (this.answer.id) {
+        list = this.answer.data.list;
+      }
+      if (list.indexOf(event) <= 0) {
+        list.push(event);
+        this.createOrUpdateList(list);
+      }
+    }
   }
 
   /**
