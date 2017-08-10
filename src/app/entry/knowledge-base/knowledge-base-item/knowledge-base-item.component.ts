@@ -48,18 +48,19 @@ export class KnowledgeBaseItemComponent implements OnInit {
   }
 
   displayKb() {
-    if (this.item) {
-      if (this.item.filter_by !== 'measure') {
-        return true;
-      } else {
-        if (this.itemKb && this.itemKb.filters.startsWith('measure.')
-            && (!this._knowledgeBaseService.filter || this._knowledgeBaseService.filter.length === 0)) {
-          return false;
-        } else {
-          return true;
-        }
-      }
-    }
+    return true;
+    // if (this.item) {
+    //   if (this.item.filter_by !== 'measure') {
+    //     return true;
+    //   } else {
+    //     if (this.itemKb && this.itemKb.filters.startsWith('measure.')
+    //         && (!this._knowledgeBaseService.filter || this._knowledgeBaseService.filter.length === 0)) {
+    //       return false;
+    //     } else {
+    //       return true;
+    //     }
+    //   }
+    // }
   }
 
 }

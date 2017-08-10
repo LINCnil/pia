@@ -801,7 +801,7 @@
   },
     {
     "slug": "PIA_DEF_CHIF",
-    "filters": "",
+    "filters": "measure.definition",
     "category": "Définition",
     "name": "Chiffrement",
     "description": "Le chiffrement d’un message permet de garantir que seuls l’émetteur et le(s) destinataire(s) légitime(s) d’un message en connaissent le contenu. C’est une sorte d’enveloppe scellée numérique. Une fois chiffré, faute d'avoir la clé spécifique, un message est inaccessible et illisible, que ce soit par les humains ou les machines.<br>Il existe deux grandes familles de chiffrement : le chiffrement symétrique et le chiffrement asymétrique.<br>- <strong>Le chiffrement symétrique</strong> permet de chiffrer et de déchiffrer un contenu avec la même clé, appelée alors la « clé secrète ». Le chiffrement symétrique est particulièrement rapide mais nécessite que l’émetteur et le destinataire se mettent d’accord sur une clé secrète commune ou se la transmettent par un autre canal. Celui-ci doit être choisi avec précautions, sans quoi la clé pourrait être récupérée par les mauvaises personnes, ce qui n’assurerait plus la confidentialité du message.<br>- <strong>Le chiffrement asymétrique</strong> suppose que le (futur) destinataire est muni d’une paire de clés (clé privée, clé publique) et qu’il a fait en sorte que les émetteurs potentiels aient accès à sa clé publique. Dans ce cas, l’émetteur utilise la clé publique du destinataire pour chiffrer le message tandis que le destinataire utilise sa clé privée pour le déchiffrer. Parmi ses avantages, la clé publique peut être connue de tous et publiée. Mais attention : il est nécessaire que les émetteurs aient confiance en l’origine de la clé publique, qu’ils soient sûrs qu’il s’agit bien de celle du destinataire. Autre point fort : plus besoin de partager une même clé secrète ! Le chiffrement asymétrique permet de s’en dispenser mais il est plus lent.",
@@ -812,7 +812,7 @@
   },
   {
     "slug": "PIA_DEF_VPN",
-    "filters": "",
+    "filters": "measure.definition",
     "category": "Définfition",
     "name": "VPN",
     "description": "Virtual Private Network, en Français Réseau Privé Virtuel. Il s'agit d'un réseau informatique virtuel permettant d'établir une connexion directe entre deux machines appartenant à des réseaux distants, comme si elles étaient reliées directement entre elles par un câble dédié, garantissant ainsi l'identité des deux machines correspondantes. Il est en outre recommandé de chiffrer, en se reposant sur des algorithmes cryptographiques réputés forts, les données transitant par cette connexion, en particulier si elle traverse l'Internet, afin de garantir la confidentialité des échanges entre les deux réseaux.",
@@ -823,7 +823,7 @@
   },
   {
     "slug": "PIA_DEF_ANO",
-    "filters": "",
+    "filters": "measure.definition",
     "category": "Définition",
     "name": "Anonymisation",
     "description": "Le but d'une solution d'anonymisation est de faire perdre le caractère identifiant des données à caractère personnel. Une solution d’anonymisation doit être construite au cas par cas et adaptée aux usages prévus. Pour aider à évaluer une bonne solution d’anonymisation, le <a target=\"_blank\" href=http://ec.europa.eu/justice/data-protection/article-29/documentation/opinion-recommendation/files/2014/wp216_fr.pdf>G29</a> propose trois critères :<br>- <strong>L’individualisation : </strong>est-il toujours possible d’isoler un individu ?<br>- <strong>La corrélation : est-il possible de relier entre eux des ensembles de données distincts concernant un même individu ?<br>- <strong>L’inférence :</strong> peut-on déduire de l’information sur un individu ? <br>Ainsi : un ensemble de données pour lequel il n’est possible ni d’individualiser ni de corréler ni d’inférer est a priori anonyme ;<br>un ensemble de données pour lequel au moins un des trois critères n’est pas respecté ne pourra être considéré comme anonyme qu’à la suite d’une analyse détaillée des risques de ré-identification.",
@@ -834,7 +834,7 @@
   },
   {
     "slug": "PIA_DEF_PSEU",
-    "filters": "",
+    "filters": "measure.definition",
     "category": "Définition",
     "name": "Pseudonymisation",
     "description": "Méthode consistant à modifier les données de telle façon que celles-ci ne puissent plus être attribuées à une personne concernée précise sans avoir recours à des informations supplémentaires, pour autant que ces informations supplémentaires soient conservées séparément et soumises à des mesures techniques et organisationnelles afin de garantir que les données à caractère personnel ne sont pas attribuées à une personne physique identifiée ou identifiable.<br>La pseudonymisation réduit le risque de mise en corrélation d’un ensemble de données avec l’identité  originale d’une personne concernée; à ce titre, <strong>c’est une mesure de sécurité utile, mais non une méthode d'anonymisation.</strong>",
@@ -845,7 +845,7 @@
   },
   {
     "slug": "PIA_DEF_CLO",
-    "filters": "",
+    "filters": "measure.definition",
     "category": "Définition",
     "name": "Cloisonnement",
     "description": "Ensemble de méthodes permettant de réduire la possibilité de corréler des données à caractère personnel et de provoquer une violation de l’ensemble des données.<br>On pourra par exemple réduire l'accès des personnes aux seules données qui leur sont utiles, séparer logiquement ou physiquement les données etc.",
@@ -856,7 +856,7 @@
   },
   {
     "slug": "PIA_DEF_CTLA",
-    "filters": "",
+    "filters": "measure.definition",
     "category": "Définition",
     "name": "Contrôle d'accès logique",
     "description": "Il consiste à limiter les risques que des personnes non autorisées accèdent aux données à caractère personnel par voie électronique.<br>Pour cela, il convient de :<br>- <strong>définir des profils d’habilitation</strong> dans les systèmes en séparant les tâches et les domaines de responsabilité, afin de limiter l’accès à des données à caractère personnel aux seuls utilisateurs dûment habilités<br>- <strong>supprimer les permissions d’accès des utilisateurs dès qu’ils ne sont plus habilités à accéder à un local ou à une ressource</strong>, ainsi qu’<strong>à la fin de leur période d’emploi.</strong>\n \t- <strong>réaliser une revue annuelle des privilèges</strong> afin d’identifier et de supprimer les comptes non utilisés, et de réaligner les privilèges sur les fonctions de chaque utilisateur.\n \t- <strong>documenter les procédures d’exploitation</strong>, les tenir à jour et les rendre disponibles à tous les utilisateurs concernés. Concrètement, toute action sur le système, qu’il s’agisse d’opérations d’administration ou de la simple utilisation d’une application, doit être expliquée dans des documents auxquels les utilisateurs peuvent se référer.<br>- <strong>rédiger  une charte informatique</strong> et lui donner une force contraignante (ex. annexion au règlement intérieur). ",
@@ -867,7 +867,7 @@
   },
   {
     "slug": "PIA_DEF_PROF",
-    "filters": "",
+    "filters": "measure.definition",
     "category": "Définition",
     "name": "Profil",
     "description": "Ensemble de données qui permet l'identification de l'utilisateur d'un système informatique et conditionnent la manière dont ce système se comporte pour cet utiisateur donné. Il s'agit par exemple de jeux d'autorisation, de ses préférences d'utilisation etc.",
@@ -878,7 +878,7 @@
   },
   {
     "slug": "PIA_DEF_PWD",
-    "filters": "",
+    "filters": "measure.definition",
     "category": "Définition",
     "name": "Mot de passe",
     "description": "Basée sur la gestion d’un secret, l’authentification par identifiant et mot de passe est un moyen simple et peu coûteux à déployer pour contrôler un accès. Toutefois, cette méthode d’authentification présente un niveau de sécurité faible.<br>Les exigences minimales de la CNIL en termes de taille et de complexité du mot de passe varient en fonction des mesures complémentaires mises en place pour fiabiliser le processus d’authentification :<br>ainsi, si une authentification est basée exclusivement sur un mot de passe, cela implique a minima l’utilisation d’un mot de passe complexe d’au moins 12 caractères composé de majuscules de minuscules, de chiffres et de<br>caractères spéciaux.  Des mesures complémentaires à la saisie d’un mot de passe (restrictions, d’accès, collecte d’autres donnée, support détenu en propre par l’utilisateur) permettent de réduire la longueur et la complexité du mot de passe, car ces mesures permettent d’assurer un niveau de sécurité équivalent au mot de passe seul.",
@@ -889,7 +889,7 @@
   },
   {
     "slug": "PIA_DEF_AUTH",
-    "filters": "",
+    "filters": "measure.definition",
     "category": "Définition",
     "name": "Authentification",
     "description": "L'authentification est une <strong>opération par laquelle l'utilisateur apporte la preuve de son identité</strong>, pour cela il existe plusieurs mécanismes catégorisés selon qu’ils font intervenir :<br>- ce que l’on sait, par exemple un mot de passe ;<br>- ce que l’on a, par exemple une carte à puce ;<br>- une caractéristique qui nous est propre, par exemple une empreinte digitale ou encore la manière de rédiger une signature manuscrite.<br>Pour rappel, la loi Informatique et Libertés subordonne l’utilisation de la biométrie à l’autorisation préalable de la CNIL<br><strong>L’authentification d’un utilisateur est qualifiée de forte lorsqu’elle a recours à une combinaison d’au moins deux de ces catégories.</strong>",
@@ -900,7 +900,7 @@
   },
   {
     "slug": "PIA_DEF_LOG",
-    "filters": "",
+    "filters": "measure.definition",
     "category": "Définition",
     "name": "Journalisation",
     "description": "Dispositif permettant d’enregistrer les actions effectuées sur le système informatique afin d’<strong>être en mesure d’identifier a posteriori un accès frauduleux</strong> à des données personnelles, une utilisation abusive de telles données ou de déterminer l’origine d’un incident. Pour ce faire, le responsable d’un système informatique doit mettre en place un solution adaptée aux risques associés à son système. Ce dispositif doit <strong>enregistrer les évènements</strong> pertinents, <strong>garantir que ces enregistrements ne peuvent être altérés</strong>, et dans tous les cas <strong>conserver ces éléments pendant une durée non excessive.</strong>",
@@ -911,7 +911,7 @@
   },
   {
     "slug": "PIA_DEF_ARCH",
-    "filters": "",
+    "filters": "measure.definition",
     "category": "Définition",
     "name": "Archivage",
     "description": "Les données qui ne sont plus utilisées au quotidien mais qui n’ont pas encore atteint leur durée limite de conservation, par exemple parce qu’elles sont conservées en cas de contentieux, devraient être archivées.<br>On distingue habituellement trois catégories d’archives :<br>- les bases actives (éventuellement appelées « archives courantes ») : il s'agit des données d'utilisation courante par les services en charge de la mise en œuvre du traitement ;<br>- les archives intermédiaires : il s'agit des données qui ne sont plus utilisées mais qui présentent encore un intérêt administratif pour l'organisme. Les données sont conservées sur support distinct et sont consultées de manière ponctuelle et motivée ;<br>- les archives définitives : il s'agit des données présentant un intérêt historique, scientifique ou statistique justifiant qu'elles ne fassent l'objet d'aucune destruction. Elles sont alors régies par le livre II du Code du patrimoine et non par la loi « informatique et libertés ».\n<br><strong>Les archives doivent être sécurisées et chiffrées</strong> si les données archivées sont des données sensibles, des données qui pourraient avoir des impacts graves sur les personnes concernées ou des données jugées confidentielles par l’entreprise.",
@@ -922,7 +922,7 @@
   },
   {
     "slug": "PIA_DEF_MIN1",
-    "filters": "",
+    "filters": "measure.definition",
     "category": "Définition",
     "name": "Filtrage et retrait",
     "description": "Lors de l'importation de données, différents types de métadonnées (par exemple, des données EXIF attachées avec un fichier d'image) peuvent être involontairement collectés.<br>Ces métadonnées doivent être identifiées et éliminées si elles ne sont pas nécessaires aux finalités spécifiées.",
@@ -933,7 +933,7 @@
   },
   {
     "slug": "PIA_DEF_MIN2",
-    "filters": "",
+    "filters": "measure.definition",
     "category": "Définition",
     "name": "Réduction de la sensibilité par transformations",
     "description": "Après réception de données sensibles, faisant partie d’un lot d’informations générales ou transmises à des fins statistiques uniquement, celles-ci peuvent être converties en une forme moins sensible ou pseudonymisée. Par exemple :<br>- si le système collecte l’adresse IP pour déterminer l'emplacement de l’utilisateur dans un but statistique, l’adresse IP peut être supprimées après déduction de la ville ou du quartier ;<br>- si le système reçoit des données vidéo à partir de caméras de surveillance, il peut reconnaître les personnes debout ou en mouvement dans la scène et les flouter ;<br>- si le système est un compteur intelligent, il peut agréger l'utilisation de l'énergie sur une certaine période, sans l’enregistrer en temps réel.<br>Le choix d'une méthode de la liste ci-dessus doit dépendre des menaces identifiées. Pour certains types de menaces sur la vie privée, la pseudonymisation sera plus appropriée que l'anonymisation (par exemple, s'il y a un besoin de traçabilité). En outre, certaines menaces sur la vie privée seront traitées par une combinaison de plusieurs méthodes.",
@@ -1054,7 +1054,7 @@
   },
   {
     "slug": "PIA_DEF_PBDS",
-    "filters": "",
+    "filters": "measure.definition",
     "category": "Définition",
     "name": "Privacy By Design",
     "description": "Ensemble de méthodes assurant la prise en compte de la protection des données à caractère personnel dès l'initiation d'un nouveau projet, notamment :<br>- Utiliser la démarche de gestion des risques de la CNIL dès l’élaboration d’un service ou la conception d’une application.<br>- Privilégier le recours à des labels de confiance dans les domaines de la SSI et « Informatique et libertés » (procédures, produits, systèmes de management, organismes, personnes, etc.).<br>- Privilégier le recours à des référentiels éprouvés et reconnus.<br>- Effectuer les formalités CNIL avant le lancement d’un nouveau traitement.",
@@ -1065,7 +1065,7 @@
   },
   {
     "slug": "PIA_DEF_PBDF",
-    "filters": "",
+    "filters": "measure.definition",
     "category": "Définition",
     "name": "Privacy By Default",
     "description": "Démarche consistant à permettre à l'utilisateur du service de profiter immédiatement, sans exiger d'action particulière de sa part, du plus haut niveau de protection possible pour ses données personnelles.<br>Il conviendra par exemple de régler les paramètres par défaut de façon à limiter au maximum la collecte et à protéger au mieux les données personnelles de l'utilisateur.",
@@ -1076,7 +1076,7 @@
   },
   {
     "slug": "PIA_DEF_VIOL",
-    "filters": "",
+    "filters": "measure.definition",
     "category": "Définition",
     "name": "Violation de données",
     "description": "Violation de la sécurité entraînant, de manière accidentelle ou illicite, la destruction, la perte, l'altération ou la divulgation non autorisée de données à caractère personnel transmises, conservées ou traitées d'une autre manière, ou l'accès non autorisé à de telles données.",

@@ -40,8 +40,15 @@ export class KnowledgeBaseService {
     if (this.allKnowledgeBaseData && item) {
       this.knowledgeBaseData = this.allKnowledgeBaseData;
       let kbSlugs = [];
-      if (item.link_knowledge_base) {
+      if (item.link_knowledge_base && item.link_knowledge_base.length > 0) {
         kbSlugs = item.link_knowledge_base;
+      } else if (item.is_measure) {
+        const kbSlugs2 = this.knowledgeBaseData.filter((kbItem) => {
+          return kbItem.filters.startsWith('measure.');
+        });
+        kbSlugs2.forEach(element => {
+          kbSlugs.push(element.slug);
+        });
       } else if (item.questions) {
         item.questions.forEach(question => {
           if (question.link_knowledge_base) {
