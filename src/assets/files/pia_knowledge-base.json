@@ -1141,7 +1141,7 @@
   },
   {
     "slug": "PIA_DEF_MIN3",
-    "filters": "measure.data_processing",
+    "filters": "measure.definition",
     "category": "Mesure sur les données",
     "name": "Réduction du caractère identifiant des données",
     "description": "Le système peut faire en sorte que :<br>- l’utilisateur peut utiliser une ressource ou un service sans risque de divulguer son identité (données anonymes) ;<br>- l’utilisateur peut utiliser une ressource ou un service sans divulguer son identité, mais reste identifiable et responsable de cette utilisation (données pseudonymes) ;<br>- l’utilisateur peut faire de multiples utilisations des ressources ou des services sans risque que ces utilisations puissent être reliées ensemble (données non corrélables) ;<br>- l’utilisateur peut utiliser une ressource ou un service sans risque que d’autres, en particulier des tiers, puissent être en mesure d'observer que la ressource ou le service est utilisé (non-observabilité).<br>Le choix d'une méthode de la liste ci-dessus doit dépendre des menaces identifiées. Pour certains types de menaces sur la vie privée, la pseudonymisation sera plus appropriée que l'anonymisation (par exemple, s'il y a un besoin de traçabilité). En outre, certaines menaces sur la vie privée seront traitées par une combinaison de plusieurs méthodes.",
@@ -1152,7 +1152,7 @@
   },
   {
     "slug": "PIA_DEF_MIN4",
-    "filters": "measure.data_processing",
+    "filters": "measure.definition",
     "category": "Mesure sur les données",
     "name": "Réduction de l'accumulation de données",
     "description": "Le système peut être structuré en parties indépendantes avec des fonctions de contrôle d'accès distinctes. Les données peuvent également être réparties entre ces sous-systèmes indépendants et contrôlées par chaque sous-système en utilisant différents mécanismes de contrôle d'accès. Si un sous-système est compromis, les impacts sur l’ensemble des données peuvent ainsi être réduits.",
