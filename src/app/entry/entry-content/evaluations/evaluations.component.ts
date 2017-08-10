@@ -149,6 +149,7 @@ export class EvaluationsComponent implements OnInit {
     // Displays content (action plan & comment fields).
     const content = this.el.nativeElement.querySelector('.pia-evaluationBlock-content');
     content.classList.add('show');
+    this._evaluationService.checkForFinalValidation(this.evaluation);
   }
 
   /**

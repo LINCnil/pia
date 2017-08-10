@@ -165,7 +165,7 @@ export class EvaluationService {
         validationOk = false;
       }
     }
-    if (this.item.evaluation_mode === 'item' && this.item.evaluation_with_gauge === true) {
+    if (this.item.evaluation_mode === 'item' && this.item.evaluation_with_gauge === true && evaluation.status !== 1) {
       if (!evaluation.gauges || evaluation.gauges['x'] < 1 || evaluation.gauges['y'] < 1) {
         validationOk = false;
       }
