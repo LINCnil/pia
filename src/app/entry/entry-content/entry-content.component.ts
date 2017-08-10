@@ -75,8 +75,13 @@ export class EntryContentComponent implements OnInit, OnChanges, AfterViewChecke
    * Allows an user to validate evaluation for a section.
    */
   validateEvaluation() {
-    this._evaluationService.validateAllEvaluation();
-    this._modalsService.openModal('validate-evaluation');
+    this._evaluationService.validateAllEvaluation().then((valid: boolean) => {
+      if (valid) {
+        this._modalsService.openModal('validate-evaluation');
+      } else {
+        this._modalsService.openModal('validate-evaluation-to-correct');
+      }
+    });
   }
 
 }

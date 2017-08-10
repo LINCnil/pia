@@ -144,6 +144,22 @@
   </div>
 </div>
 
+<div class="pia-modalBlock" style="background-color:transparent;" id="validate-evaluation-to-correct">
+  <div class="pia-modalBlock-content pia-modalBlock-declareMeasuresForRisks bounceIn">
+    <button type="button" class="pia-modalBlock-close btn" title="Fermer"><span (click)="_modalsService.closeModal()" class="pia-icons pia-icon-close-big"></span></button>
+    <p>
+      Désolé,<br>
+      Plusieurs champs doivent être corrigés.<br>
+      Retour au mode d'édition<br>
+      pour apporter des corrections.
+    </p>
+    <span class="pia-icons pia-icon-sorry"></span>
+    <div class="pia-modalBlock-validate">
+      <button (click)="_modalsService.closeModal()" class="btn btn-green" type="button" title="Continuer">Continuer</button>
+    </div>
+  </div>
+</div>
+
 <div class="pia-modalBlock" style="background-color:transparent;" id="pia-declare-measures">
   <div class="pia-modalBlock-content pia-modalBlock-declareMeasuresForRisks bounceIn">
     <button type="button" class="pia-modalBlock-close btn" title="Fermer"><span (click)="_modalsService.closeModal()" class="pia-icons pia-icon-close-big"></span></button>

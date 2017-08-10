@@ -30,7 +30,7 @@
                   (focusout)="evaluationCommentFocusOut()" placeholder="Entrez vos commentaires."
                   id="pia-evaluation-comment"></textarea>
       </div>
-      <div *ngIf="item.evaluation_mode === 'item' && item.evaluation_with_gauge === true">
+      <div *ngIf="item.evaluation_mode === 'item' && item.evaluation_with_gauge === true && evaluation.status > 1">
         <!-- Evaluation gauges for "RISKS" -->
         <p class="pia-evaluationBlock-gauge">Prenant en compte le plan d'action, comment ré-évaluez-vous la <span class="red-highlight">gravité du risque</span> d'accès illégitime aux données ?</p>
         <div class="pia-gaugeBlock">

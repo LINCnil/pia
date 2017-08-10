@@ -173,45 +173,53 @@ export class EvaluationService {
     this.enableValidation = validationOk;
   }
 
-  validateAllEvaluation() {
-    let reference_to = '';
-    if (this.item.evaluation_mode === 'item') {
-      reference_to = this.section.id + '.' + this.item.id;
-      const evaluation = new Evaluation();
-      evaluation.getByReference(this.pia.id, reference_to).then(() => {
-        if (evaluation.status > 1) {
-          evaluation.global_status = 1;
-          evaluation.update().then(() => {
-            this.showValidationButton = false;
-            this.enableFinalValidation = true;
-          });
-        }
-      });
-    } else if (this.answers.length > 0) {
-      let count = 0;
-      this.answers.forEach((answer) => {
-        if (this.item.is_measure) {
-          // For measure
-          reference_to = this.section.id + '.' + this.item.id + '.' + answer;
-        } else {
-          // For question
-          reference_to = this.section.id + '.' + this.item.id + '.' + answer.reference_to;
-        }
+  async validateAllEvaluation() {
+    return new Promise((resolve, reject) => {
+      let reference_to = '';
+      if (this.item.evaluation_mode === 'item') {
+        reference_to = this.section.id + '.' + this.item.id;
         const evaluation = new Evaluation();
         evaluation.getByReference(this.pia.id, reference_to).then(() => {
           if (evaluation.status > 1) {
             evaluation.global_status = 1;
             evaluation.update().then(() => {
-              count += 1;
-              if (count === this.answers.length) {
-                this.showValidationButton = false;
-                this.enableFinalValidation = true;
-              }
+              this.showValidationButton = false;
+              this.enableFinalValidation = true;
+              resolve(true);
             });
+          } else {
+            resolve(false);
           }
         });
-      });
-    }
+      } else if (this.answers.length > 0) {
+        let count = 0;
+        this.answers.forEach((answer) => {
+          if (this.item.is_measure) {
+            // For measure
+            reference_to = this.section.id + '.' + this.item.id + '.' + answer;
+          } else {
+            // For question
+            reference_to = this.section.id + '.' + this.item.id + '.' + answer.reference_to;
+          }
+          const evaluation = new Evaluation();
+          evaluation.getByReference(this.pia.id, reference_to).then(() => {
+            if (evaluation.status > 1) {
+              evaluation.global_status = 1;
+              evaluation.update().then(() => {
+                count += 1;
+                if (count === this.answers.length) {
+                  this.showValidationButton = false;
+                  this.enableFinalValidation = true;
+                  resolve(true);
+                }
+              });
+            } else {
+              resolve(false);
+            }
+          });
+        });
+      }
+    });
   }
 
   isAllEvaluationValidated() {
