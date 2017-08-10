@@ -1,6 +1,7 @@
 import { Component, ElementRef, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { KnowledgeBaseService } from '../knowledge-base.service';
+import { EvaluationService } from 'app/entry/entry-content/evaluations/evaluations.service';
 
 @Component({
   selector: 'app-knowledge-base-item',
@@ -15,6 +16,7 @@ export class KnowledgeBaseItemComponent implements OnInit {
 
   constructor(private el: ElementRef, private router: Router,
               private _knowledgeBaseService: KnowledgeBaseService,
+              private _evaluationService: EvaluationService,
               private activatedRoute: ActivatedRoute) {
     this.router = router;
   }

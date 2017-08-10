@@ -1,8 +1,4 @@
-<!--
-    TODO : remove the 'approved' class by default (it's just to show here)
-    and add it only when evaluation is done
--->
-<div class="pia-measureBlock approved" [attr.data-id]="measure.id">
+<div class="pia-measureBlock" [ngClass]="{'approved': _evaluationService.showValidationButton}" [attr.data-id]="measure.id">
   <form [formGroup]="measureForm">
     <div class="pia-measureBlock-title">
       <button type="button" (click)="displayMeasure()" class="btn" title="Afficher / masquer"><span class="pia-icons pia-icon-accordeon-up"></span></button>
@@ -21,9 +17,9 @@
       </div>
     </div>
   </form>
+
   <app-comments [pia]="pia" [measure]="measure"></app-comments>
-  <!-- TODO : To show only on evaluation mode -->
-  <!-- Todo : voir pour caler un mesureId pour app evaluation -->
+
   <app-evaluations *ngIf="item.evaluation_mode == 'question' && (_evaluationService.showValidationButton || _evaluationService.enableFinalValidation)"
                    (evaluationEvent)="evaluationChange($event)"
                    [pia]="pia" [section]="section" [item]="item" [measureId]="measure.id"></app-evaluations>

@@ -36,13 +36,15 @@ export class EvaluationService {
       if (this.item.is_measure) {
         // For measures
         this.measure.findAll().then((measures: any[]) => {
-          measures.forEach(measure => {
-            if (measure.title && measure.title.length > 0 && measure.content && measure.content.length > 0) {
-              this.answers.push(measure.id);
-            }
-          });
-          this.enableEvaluation = this.answers.length === measures.length ? true : false;
-          this.allAwsersIsInEvaluation();
+          if (measures.length > 0) {
+            measures.forEach(measure => {
+              if (measure.title && measure.title.length > 0 && measure.content && measure.content.length > 0) {
+                this.answers.push(measure.id);
+              }
+            });
+            this.enableEvaluation = this.answers.length === measures.length ? true : false;
+            this.allAwsersIsInEvaluation();
+          }
         });
       } else if (this.item.questions) {
         // For questions and item evaluation_mode
