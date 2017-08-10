@@ -92,7 +92,6 @@ export class DPOPeopleOpinionsComponent implements OnInit {
       this._piaService.pia.dpos_names = this.DPOForm.value.DPONames;
       this.DPOForm.enable();
       this.DPOForm.controls['DPONames'].disable();
-      this.DPOForm.controls['DPOStatus'].disable();
     } else {
       this.displayDpoEditButton = false;
       this._piaService.pia.dpos_names = null;
@@ -129,7 +128,6 @@ export class DPOPeopleOpinionsComponent implements OnInit {
       this._piaService.pia.people_names = this.peopleForm.value.peopleNames;
       this.peopleForm.enable();
       this.peopleForm.controls['peopleNames'].disable();
-      this.peopleForm.controls['peopleStatus'].disable();
     } else {
       this.displayDpoEditButton = false;
       this._piaService.pia.people_names = null;
