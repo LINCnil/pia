@@ -435,7 +435,7 @@
                 "PIA_EX_IMPI",
                 "PIA_EX_IMPM"
               ],
-              "placeholder": "Indiquez la gravité estimée.",
+              "placeholder": "Justifiez ici la gravité estimée.",
               "highlight_words": "gravité du risque",
               "answer_type": "gauge",
               "cartography": "risk-access_x",
@@ -453,7 +453,7 @@
                 "PIA_EX_VRAI",
                 "PIA_EX_VRAM"
               ],
-              "placeholder": "Indiquez la vraisemblance estimée.",
+              "placeholder": "Justifiez ici la vraisemblance estimée.",
               "highlight_words": "vraissemblance du risque",
               "answer_type": "gauge",
               "cartography": "risk-access_y",
@@ -540,7 +540,7 @@
                 "PIA_EX_IMPI",
                 "PIA_EX_IMPM"
               ],
-              "placeholder": "Indiquez la gravité estimée.",
+              "placeholder": "Justifiez ici la gravité estimée.",
               "highlight_words": "gravité du risque",
               "answer_type": "gauge",
               "cartography": "risk-change_x",
@@ -558,7 +558,7 @@
                 "PIA_EX_VRAI",
                 "PIA_EX_VRAM"
               ],
-              "placeholder": "Indiquez la vraisemblance estimée.",
+              "placeholder": "Justifiez ici la vraisemblance estimée.",
               "highlight_words": "vraissemblance du risque",
               "answer_type": "gauge",
               "cartography": "risk-change_y",
@@ -645,7 +645,7 @@
                 "PIA_EX_IMPI",
                 "PIA_EX_IMPM"
               ],
-              "placeholder": "Indiquez la gravité estimée.",
+              "placeholder": "Justifiez ici la gravité estimée.",
               "highlight_words": "gravité du risque",
               "answer_type": "gauge",
               "cartography": "risk-disappearance_x",
@@ -663,7 +663,7 @@
                 "PIA_EX_VRAI",
                 "PIA_EX_VRAM"
               ],
-              "placeholder": "Indiquez la vraisemblance estimée.",
+              "placeholder": "Justifiez ici la vraisemblance estimée.",
               "highlight_words": "vraissemblance du risque",
               "answer_type": "gauge",
               "cartography": "risk-disappearance_y",

@@ -37,7 +37,7 @@ export class EvaluationsComponent implements OnInit {
   displayEditButton = false;
   previousGauges = {x: 0, y: 0};
 
-  constructor(private el: ElementRef, private _evaluationsService: EvaluationService) { }
+  constructor(private el: ElementRef, private _evaluationService: EvaluationService) { }
 
   ngOnInit() {
     // Prefix item
@@ -73,9 +73,10 @@ export class EvaluationsComponent implements OnInit {
         this.evaluationForm.controls['gaugeX'].disable();
         this.evaluationForm.controls['gaugeY'].patchValue(this.evaluation.gauges['y']);
         this.evaluationForm.controls['gaugeY'].disable();
+        this.displayEditButton = true;
       } else {
-        this.evaluationForm.controls['gaugeX'].patchValue(1);
-        this.evaluationForm.controls['gaugeY'].patchValue(1);
+        this.evaluationForm.controls['gaugeX'].patchValue(0);
+        this.evaluationForm.controls['gaugeY'].patchValue(0);
       }
       if (this.evaluation.action_plan_comment && this.evaluation.action_plan_comment.length > 0) {
         this.displayEditButton = true;
@@ -100,8 +101,10 @@ export class EvaluationsComponent implements OnInit {
         });
       });
     }
+    this._evaluationService.isAllEvaluationValidated();
 
-    this._evaluationsService.isAllEvaluationValidated();
+    // TODO THe line below doesn't work
+    this._evaluationService.checkForFinalValidation(this.evaluation);
   }
 
   /**
@@ -181,7 +184,7 @@ export class EvaluationsComponent implements OnInit {
         this.evaluationForm.controls['evaluationComment'].disable();
       }
       this.evaluation.update().then(() => {
-        this._evaluationsService.checkForFinalValidation();
+        this._evaluationService.checkForFinalValidation(this.evaluation);
         this.displayEditButton = true;
       });
     }, 1);
@@ -221,7 +224,7 @@ export class EvaluationsComponent implements OnInit {
         this.evaluationForm.controls['actionPlanComment'].disable();
       }
       this.evaluation.update().then(() => {
-        this._evaluationsService.checkForFinalValidation();
+        this._evaluationService.checkForFinalValidation(this.evaluation);
         this.displayEditButton = true;
       });
     }, 1);
@@ -238,15 +241,16 @@ export class EvaluationsComponent implements OnInit {
     const gaugeValueX = parseInt(this.evaluationForm.value.gaugeX, 10);
     const gaugeValueY = parseInt(this.evaluationForm.value.gaugeY, 10);
     if (!this.evaluation.gauges) {
-      this.evaluation.gauges = {x: 1, y: 1};
+      this.evaluation.gauges = {x: 0, y: 0};
     }
-    if (gaugeValueX > 0) {
+    if (gaugeValueX >= 0) {
       this.evaluation.gauges['x'] = gaugeValueX;
     }
-    if (gaugeValueY > 0) {
+    if (gaugeValueY >= 0) {
       this.evaluation.gauges['y'] = gaugeValueY;
     }
     this.evaluation.update().then(() => {
+      this._evaluationService.checkForFinalValidation(this.evaluation);
       if (xOrY === 'x') {
         this.evaluationForm.controls['gaugeX'].disable();
         this.displayEditButton = true;

@@ -56,7 +56,7 @@ export class MeasureService {
     newMeasureRecord.create().then((entry: number) => {
       this._evaluationService.allowEvaluation();
       newMeasureRecord.id = entry;
-      this.measures.push(newMeasureRecord);
+      this.measures.unshift(newMeasureRecord);
     });
   }
 }

@@ -1,6 +1,6 @@
 <div class="pia-evaluationBlock" [ngClass]="{'pia-evaluationBlock-shadowed pia-evaluationBlock-self-padding': item.evaluation_mode === 'item'}">
   <div class="pia-evaluationBlock-title">Évaluation</div>
-  <div class="pia-evaluationBlock-edit" *ngIf="displayEditButton && !_evaluationsService.enableFinalValidation">
+  <div class="pia-evaluationBlock-edit" *ngIf="displayEditButton && !_evaluationService.enableFinalValidation">
     <button class="btn" type="button" (click)="activateEvaluationEdition()" title="Éditer">
       <i class="fa fa-pencil" aria-hidden="true"></i>
     </button>
@@ -8,13 +8,13 @@
   <form [formGroup]="evaluationForm">
     <div class="pia-evaluationBlock-buttons">
       <!-- TODO : add active state on button according to evaluation.status -->
-      <button class="btn btn-red" [ngClass]="{'btn-active': evaluation.status === 1}" [disabled]="evaluation.status === 1 || _evaluationsService.enableFinalValidation" (click)="selectedButton($event, 1)" name="fix" type="submit">
+      <button class="btn btn-red" [ngClass]="{'btn-active': evaluation.status === 1}" [disabled]="evaluation.status === 1 || _evaluationService.enableFinalValidation" (click)="selectedButton($event, 1)" name="fix" type="submit">
         À corriger
       </button>
-      <button class="btn btn-blue" [ngClass]="{'btn-active': evaluation.status === 2}" [disabled]="evaluation.status === 2 || _evaluationsService.enableFinalValidation" *ngIf="section.id !== 1" (click)="selectedButton($event, 2)" name="improvable" type="submit">
+      <button class="btn btn-blue" [ngClass]="{'btn-active': evaluation.status === 2}" [disabled]="evaluation.status === 2 || _evaluationService.enableFinalValidation" *ngIf="section.id !== 1" (click)="selectedButton($event, 2)" name="improvable" type="submit">
         Améliorable
       </button>
-      <button class="btn btn-green" [ngClass]="{'btn-active': evaluation.status === 3}" [disabled]="evaluation.status === 3 || _evaluationsService.enableFinalValidation" (click)="selectedButton($event, 3)" name="acceptable" type="submit">
+      <button class="btn btn-green" [ngClass]="{'btn-active': evaluation.status === 3}" [disabled]="evaluation.status === 3 || _evaluationService.enableFinalValidation" (click)="selectedButton($event, 3)" name="acceptable" type="submit">
         Acceptable
       </button>
     </div>
@@ -24,9 +24,12 @@
         <label for="pia-evaluation-action-plan">Plan d'action / Mesures correctives</label>
         <textarea rows="8" formControlName="actionPlanComment" name="pia-evaluation-action-plan" (focusout)="actionPlanCommentFocusOut()" cols="50" placeholder="Entrez vos commentaires." id="pia-evaluation-action-plan"></textarea>
       </div>
-      <label for="pia-evaluation-comment">Commentaire d'évaluation</label>
-      <textarea rows="8" cols="50" formControlName="evaluationComment" name="pia-evaluation-comment" (focusout)="evaluationCommentFocusOut()" placeholder="Entrez vos commentaires." id="pia-evaluation-comment"></textarea>
-
+      <div [ngClass]="{'hide': _evaluationService.enableFinalValidation && (!evaluation.evaluation_comment || evaluation.evaluation_comment.length <= 0)}">
+        <label for="pia-evaluation-comment">Commentaire d'évaluation</label>
+        <textarea rows="8" cols="50" formControlName="evaluationComment" name="pia-evaluation-comment"
+                  (focusout)="evaluationCommentFocusOut()" placeholder="Entrez vos commentaires."
+                  id="pia-evaluation-comment"></textarea>
+      </div>
       <div *ngIf="item.evaluation_mode === 'item' && item.evaluation_with_gauge === true">
         <!-- Evaluation gauges for "RISKS" -->
         <p class="pia-evaluationBlock-gauge">Prenant en compte le plan d'action, comment ré-évaluez-vous la <span class="red-highlight">gravité du risque</span> d'accès illégitime aux données ?</p>

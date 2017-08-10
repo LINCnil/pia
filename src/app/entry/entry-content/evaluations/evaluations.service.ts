@@ -151,8 +151,24 @@ export class EvaluationService {
     });
   }
 
-  checkForFinalValidation() {
-    this.enableValidation = true;
+  checkForFinalValidation(evaluation: any) {
+    let validationOk = true;
+    if (evaluation.status === 2) {
+      if (!evaluation.action_plan_comment || evaluation.action_plan_comment.length <= 0) {
+        validationOk = false;
+      }
+    }
+    if (evaluation.status === 1 || evaluation.status === 2) {
+      if (!evaluation.evaluation_comment || evaluation.evaluation_comment.length <= 0) {
+        validationOk = false;
+      }
+    }
+    if (this.item.evaluation_mode === 'item' && this.item.evaluation_with_gauge === true) {
+      if (!evaluation.gauges || evaluation.gauges['x'] < 1 || evaluation.gauges['y'] < 1) {
+        validationOk = false;
+      }
+    }
+    this.enableValidation = validationOk;
   }
 
   validateAllEvaluation() {
