@@ -157,7 +157,7 @@ export class QuestionsComponent implements OnInit {
       } else {
         this.answer.pia_id = this.pia.id;
         this.answer.reference_to = this.reference_to;
-        this.answer.data = { text: this.questionForm.value.text, gauge: 1, list: [] };
+        this.answer.data = { text: this.questionForm.value.text, gauge: 0, list: [] };
         this.answer.create().then(() => {
           this._evaluationService.allowEvaluation();
           this.displayEditButton = true;
