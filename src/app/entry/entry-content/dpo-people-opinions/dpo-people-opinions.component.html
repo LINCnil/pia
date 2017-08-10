@@ -19,7 +19,7 @@
         <p>
           <span>
             <ng-container *ngIf="_piaService.pia.status < 2; else displayNames1">
-              <input type="text" class="DPOName" (change)="DPOFocusOut()" formControlName="DPONames">
+              <input type="text" class="DPOName" (change)="DPOFocusOutNames()" formControlName="DPONames">
             </ng-container>
             <ng-template #displayNames1>
               {{_piaService.pia.dpos_names}}
@@ -30,7 +30,7 @@
           <!-- TODO : add 'checked' class on this div when a choice has been made/saved in DB -->
           <!-- ( ex : <div [ngClass]="_piaService.pia.dpo_status === 1 ? 'checked' : ''> -->
           <div>
-            <input type="radio" id="treatment-1" [attr.disabled]="dpo_status_locker" [attr.dirty]="_piaService.pia.dpo_status === 1" [checked]="_piaService.pia.dpo_status === 1" (change)="DPOFocusOut()" formControlName="DPOStatus" value="1">
+            <input type="radio" id="treatment-1" [attr.dirty]="_piaService.pia.dpo_status === 1" [checked]="_piaService.pia.dpo_status === 1" (change)="DPOFocusOutStatus()" formControlName="DPOStatus" value="1">
             <label for="treatment-1">
               <i class="fa fa-circle" aria-hidden="true"></i>
               <i class="fa fa-check" aria-hidden="true"></i>
@@ -39,7 +39,7 @@
           </div>
           <!-- TODO : add 'checked' class on this div when a choice has been made/saved in DB -->
           <div>
-            <input type="radio" id="treatment-2" [attr.disabled]="dpo_status_locker" [attr.dirty]="_piaService.pia.dpo_status === 0" [checked]="_piaService.pia.dpo_status === 0" (change)="DPOFocusOut()" formControlName="DPOStatus" value="0">
+            <input type="radio" id="treatment-2" [attr.dirty]="_piaService.pia.dpo_status === 0" [checked]="_piaService.pia.dpo_status === 0" (change)="DPOFocusOutStatus()" formControlName="DPOStatus" value="0">
             <label for="treatment-2">
               <i class="fa fa-circle" aria-hidden="true"></i>
               <i class="fa fa-close" aria-hidden="true"></i>
@@ -48,7 +48,7 @@
           </div>
         </div>
         <div class="pia-entryContentBlock-content-DPO-reasons">
-          <textarea formControlName="DPOOpinion" (focusout)="DPOFocusOut()" rows="8" cols="50" placeholder="Précisez les raisons de votre choix"></textarea>
+          <textarea formControlName="DPOOpinion" (focusout)="DPOFocusOutOpinion()" rows="8" cols="50" placeholder="Précisez les raisons de votre choix"></textarea>
         </div>
       </form>
     </div>
@@ -62,7 +62,7 @@
         <p>
           <span>
             <ng-container *ngIf="this._piaService.pia.status < 2; else displayNames2">
-              <input type="text" class="DPOName" (change)="peopleFocusOut()" formControlName="peopleNames">
+              <input type="text" class="DPOName" (change)="peopleFocusOutNames()" formControlName="peopleNames">
             </ng-container>
             <ng-template #displayNames2>
               {{_piaService.pia.people_names}}
@@ -73,7 +73,7 @@
           <!-- TODO : add 'checked' class on this div when a choice has been made/saved in DB -->
           <!-- ( ex : <div [ngClass]="_piaService.pia.concerned_people_status === 1 ? 'checked' : ''> -->
           <div>
-            <input type="radio" id="dpoAvis-1" [attr.disabled]="concerned_people_status_locker" [checked]="_piaService.pia.concerned_people_status == 1" (change)="peopleFocusOut()" formControlName="peopleStatus" value="1">
+            <input type="radio" id="dpoAvis-1" [checked]="_piaService.pia.concerned_people_status == 1" (change)="peopleFocusOutStatus()" formControlName="peopleStatus" value="1">
             <label for="dpoAvis-1">
               <i class="fa fa-circle" aria-hidden="true"></i>
               <i class="fa fa-check" aria-hidden="true"></i>
@@ -82,7 +82,7 @@
           </div>
           <!-- TODO : add 'checked' class on this div when a choice has been made/saved in DB -->
           <div>
-            <input type="radio" id="dpoAvis-2" [attr.disabled]="concerned_people_status_locker" [checked]="_piaService.pia.concerned_people_status == 0" (change)="peopleFocusOut()" formControlName="peopleStatus" value="0">
+            <input type="radio" id="dpoAvis-2" [checked]="_piaService.pia.concerned_people_status == 0" (change)="peopleFocusOutStatus()" formControlName="peopleStatus" value="0">
             <label for="dpoAvis-2">
               <i class="fa fa-circle" aria-hidden="true"></i>
               <i class="fa fa-close" aria-hidden="true"></i>
@@ -91,7 +91,7 @@
           </div>
         </div>
         <div class="pia-entryContentBlock-content-DPO-reasons">
-          <textarea rows="8" formControlName="peopleOpinion" (focusout)="peopleFocusOut()" cols="50" placeholder="Décrivez comment les avis ont été collectés et quelle en est l’analyse. Dans le cas où les avis n’ont pas été recherchés, en préciser les raisons."></textarea>
+          <textarea rows="8" formControlName="peopleOpinion" (focusout)="peopleFocusOutOpinion()" cols="50" placeholder="Décrivez comment les avis ont été collectés et quelle en est l’analyse. Dans le cas où les avis n’ont pas été recherchés, en préciser les raisons."></textarea>
         </div>
       </form>
     </div>
