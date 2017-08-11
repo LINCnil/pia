@@ -262,8 +262,6 @@ export class EvaluationsComponent implements OnInit {
     });
   }
 
-  /* TODO : update evaluation with gauges */
-
   /**
    * Activates evaluation buttons and evaluation fields.
    */

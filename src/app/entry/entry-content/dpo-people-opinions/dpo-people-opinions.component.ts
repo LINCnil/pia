@@ -32,11 +32,6 @@ export class DPOPeopleOpinionsComponent implements OnInit {
       peopleNames: new FormControl()
     });
     this._piaService.getPIA().then(() => {
-      /* TODO : lock fields (names, statuses, opinions) when PIA is validated */
-      /*if (pia.status === 2 || pia.status === 3) {
-        this.peopleForm.disable();
-      }*/
-
       if (this._piaService.pia.dpos_names && this._piaService.pia.dpos_names.length > 0) {
         this.DPOForm.controls['DPONames'].patchValue(this._piaService.pia.dpos_names);
         this.DPOForm.controls['DPONames'].disable();

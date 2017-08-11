@@ -7,7 +7,6 @@
   </div>
   <form [formGroup]="evaluationForm">
     <div class="pia-evaluationBlock-buttons">
-      <!-- TODO : add active state on button according to evaluation.status -->
       <button class="btn btn-red" [ngClass]="{'btn-active': evaluation.status === 1}" [disabled]="evaluation.status === 1 || _evaluationService.enableFinalValidation" (click)="selectedButton($event, 1)" name="fix" type="submit">
         À corriger
       </button>
@@ -34,7 +33,6 @@
         <!-- Evaluation gauges for "RISKS" -->
         <p class="pia-evaluationBlock-gauge">Prenant en compte le plan d'action, comment ré-évaluez-vous la <span class="red-highlight">gravité du risque</span> d'accès illégitime aux données ?</p>
         <div class="pia-gaugeBlock">
-          <!-- TODO : Update current evaluation.gauge[0] -->
           <input type="range" (change)="checkGaugeChanges($event, 'x')" formControlName="gaugeX" min="0" max="4" step="1">
           <div>
             <div>(Non définie)</div>
@@ -49,7 +47,6 @@
 
         <p class="pia-evaluationBlock-gauge">Prenant en compte le plan d'action, comment ré-évaluez-vous la <span class="red-highlight">vraissemblance du risque</span> d'accès illégitime aux données ?</p>
         <div class="pia-gaugeBlock">
-          <!-- TODO : Update current evaluation.gauge[1] -->
           <input type="range" (change)="checkGaugeChanges($event, 'y')" formControlName="gaugeY" min="0" max="4" step="1">
           <div>
             <div>(Non définie)</div>

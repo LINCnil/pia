@@ -8,14 +8,6 @@
         <button type="button" class="btn pia-questionBlock-edit" *ngIf="displayDpoEditButton" (click)="activateDPOEdition()" title="Éditer"><i class="fa fa-pencil" aria-hidden="true"></i></button>
       </div>
       <form [formGroup]="DPOForm">
-
-        <!--
-            TODO : pour ce premier p, il faut que :
-            * lorsqu'on est en mode édition, il y ait l'input.
-            * lorsqu'on est en mode non édition (les champs sont vérouillés), on doit voir un label (l'input disparaît).
-            Pistes : *ngIf condition_booleenne_sur_input; label
-        -->
-
         <p>
           <span>
             <ng-container *ngIf="_piaService.pia.status < 2; else displayNames1">
@@ -27,9 +19,9 @@
           </span>, considère(nt) que :
         </p>
         <div class="pia-entryContentBlock-content-DPO-treatment">
-          <!-- TODO : add 'checked' class on this div when a choice has been made/saved in DB -->
+          <!-- TODO/NO MODE NEEDED : add 'checked' class on this div when a choice has been made/saved in DB -->
           <!-- ( ex : <div [ngClass]="_piaService.pia.dpo_status === 1 ? 'checked' : ''> -->
-          <div>
+          <div class="checked">
             <input type="radio" id="treatment-1" [attr.dirty]="_piaService.pia.dpo_status === 1" [checked]="_piaService.pia.dpo_status === 1" (change)="DPOFocusOutStatus()" formControlName="DPOStatus" value="1">
             <label for="treatment-1">
               <i class="fa fa-circle" aria-hidden="true"></i>
@@ -37,7 +29,7 @@
               <span>Le traitement pourrait être mis en oeuvre.</span>
             </label>
           </div>
-          <!-- TODO : add 'checked' class on this div when a choice has been made/saved in DB -->
+          <!-- TODO/NO MODE NEEDED : add 'checked' class on this div when a choice has been made/saved in DB -->
           <div>
             <input type="radio" id="treatment-2" [attr.dirty]="_piaService.pia.dpo_status === 0" [checked]="_piaService.pia.dpo_status === 0" (change)="DPOFocusOutStatus()" formControlName="DPOStatus" value="0">
             <label for="treatment-2">
@@ -70,7 +62,7 @@
           </span>, considère(nt) que :
         </p>
         <div class="pia-entryContentBlock-content-DPO-treatment">
-          <!-- TODO : add 'checked' class on this div when a choice has been made/saved in DB -->
+          <!-- TODO/NO MODE NEEDED : add 'checked' class on this div when a choice has been made/saved in DB -->
           <!-- ( ex : <div [ngClass]="_piaService.pia.concerned_people_status === 1 ? 'checked' : ''> -->
           <div>
             <input type="radio" id="dpoAvis-1" [checked]="_piaService.pia.concerned_people_status == 1" (change)="peopleFocusOutStatus()" formControlName="peopleStatus" value="1">
@@ -80,7 +72,7 @@
               <span>Le traitement pourrait être mis en oeuvre.</span>
             </label>
           </div>
-          <!-- TODO : add 'checked' class on this div when a choice has been made/saved in DB -->
+          <!-- TODO/NO MODE NEEDED : add 'checked' class on this div when a choice has been made/saved in DB -->
           <div>
             <input type="radio" id="dpoAvis-2" [checked]="_piaService.pia.concerned_people_status == 0" (change)="peopleFocusOutStatus()" formControlName="peopleStatus" value="0">
             <label for="dpoAvis-2">

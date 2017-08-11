@@ -16,8 +16,6 @@
       <i class="fa fa-pencil" aria-hidden="true"></i>
     </button>
     <form [formGroup]="questionForm">
-
-      <!-- TODO : to display only if question is of type 'gauge' -->
       <div class="pia-gaugeBlock" *ngIf="question.answer_type == 'gauge'">
         <input type="range" (change)="checkGaugeChanges($event)" formControlName="gauge" min="0" max="4" step="1">
         <div>
@@ -88,6 +86,5 @@
   <!-- TODO : to show only after a first edition (when the current question is created in DB) -->
   <app-comments [pia]="pia" [question]="question"></app-comments>
 
-  <!-- TODO : to show only on evaluation mode -->
   <app-evaluations (evaluationEvent)="evaluationChange($event)" *ngIf="item.evaluation_mode === 'question' && (_evaluationService.showValidationButton || _evaluationService.enableFinalValidation)" [pia]="pia" [section]="section" [item]="item" [questionId]="question.id"></app-evaluations>
 </div>

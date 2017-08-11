@@ -103,7 +103,6 @@ export class EvaluationService {
       });
     }
     this._modalsService.openModal('ask-for-evaluation');
-    /* TODO : update PIA status + 'refresh PIA' so that it changes header status icon + navigation status icons */
   }
 
   allAwsersIsInEvaluation() {
