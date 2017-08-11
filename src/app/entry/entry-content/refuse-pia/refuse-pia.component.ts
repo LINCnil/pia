@@ -80,7 +80,9 @@ export class RefusePIAComponent implements OnInit {
   refuse() {
     this._piaService.pia.status = 1;
     this._piaService.pia.update().then(() => {
-      this._modalsService.openModal('modal-refuse-pia');
+      this._piaService.cancelAllValidatedEvaluation().then(() => {
+        this._modalsService.openModal('modal-refuse-pia');
+      });
     });
   }
 

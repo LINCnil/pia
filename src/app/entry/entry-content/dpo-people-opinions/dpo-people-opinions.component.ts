@@ -124,7 +124,7 @@ export class DPOPeopleOpinionsComponent implements OnInit {
       this.peopleForm.enable();
       this.peopleForm.controls['peopleNames'].disable();
     } else {
-      this.displayDpoEditButton = false;
+      this.displayPeopleEditButton = false;
       this._piaService.pia.people_names = null;
       this._piaService.pia.concerned_people_status = null;
       this._piaService.pia.concerned_people_opinion = null;
@@ -137,7 +137,7 @@ export class DPOPeopleOpinionsComponent implements OnInit {
   peopleFocusOutStatus() {
     if (this.peopleForm.value.peopleStatus && this.peopleForm.value.peopleStatus >= 0) {
       this._piaService.pia.concerned_people_status = parseInt(this.peopleForm.value.peopleStatus, 10);
-      this.displayDpoEditButton = true;
+      this.displayPeopleEditButton = true;
       this._piaService.pia.update();
       this.peopleForm.controls['peopleStatus'].disable();
     }
@@ -145,7 +145,7 @@ export class DPOPeopleOpinionsComponent implements OnInit {
   peopleFocusOutOpinion() {
     if (this.peopleForm.value.peopleOpinion && this.peopleForm.value.peopleOpinion.length > 0) {
       this._piaService.pia.concerned_people_opinion = this.peopleForm.value.peopleOpinion;
-      this.displayDpoEditButton = true;
+      this.displayPeopleEditButton = true;
       this._piaService.pia.update();
       this.peopleForm.controls['peopleOpinion'].disable();
     }

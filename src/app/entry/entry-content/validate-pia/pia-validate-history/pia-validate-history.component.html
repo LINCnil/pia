@@ -10,18 +10,11 @@
   </div>
   <div class="pia-validationHistoryBlock-content">
     <article>
-      <h5>le 14/12/2016</h5>
+      <time>le {{_piaService.pia.updated_at | date: 'dd/MM/yyyy'}}</time>
       <h4>Motif du refus</h4>
-      <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
-        nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat
-        volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation
-        ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
-        Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse
-        molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero</p>
-      <h4>Modifications apportées</h4>
-      <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
-        nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat
-        volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation</p>
+      <p>
+        {{_piaService.pia.rejected_reason}}
+      </p>
     </article>
   </div>
 </div>
@@ -34,18 +27,11 @@
   </div>
   <div class="pia-validationHistoryBlock-refuse-content">
     <article>
-      <h5>le 14/12/2016</h5>
+      <time>le {{_piaService.pia.updated_at | date: 'dd/MM/yyyy'}}</time>
       <h4>Motif du refus</h4>
-      <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
-        nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat
-        volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation
-        ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
-        Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse
-        molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero</p>
+      <p>{{_piaService.pia.rejected_reason}}</p>
       <h4>Modifications apportées</h4>
-      <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
-        nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat
-        volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation</p>
+      <p>{{_piaService.pia.applied_adjustements}}</p>
     </article>
   </div>
 </div>
