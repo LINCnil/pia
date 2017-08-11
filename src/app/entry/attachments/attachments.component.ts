@@ -16,6 +16,7 @@ export class AttachmentsComponent implements OnInit {
 
   @Input() pia: Pia;
   attachmentForm: FormGroup;
+  dispplayAttachmentButton = false;
 
   constructor(private activatedRoute: ActivatedRoute,
               private _attachmentsService: AttachmentsService) { }
@@ -24,11 +25,9 @@ export class AttachmentsComponent implements OnInit {
     this.attachmentForm = new FormGroup({
       attachment_file: new FormControl('', [])
     });
-    const attachment = new Attachment();
-    attachment.pia_id = this.pia.id;
-    attachment.findAll().then((data: any[]) => {
-      this._attachmentsService.attachments = data;
-    });
+    this._attachmentsService.pia = this.pia;
+    this._attachmentsService.listAttachments();
+    this.dispplayAttachmentButton = (this.pia.status !== 2 && this.pia.status !== 3);
   }
 
   /**
@@ -59,13 +58,5 @@ export class AttachmentsComponent implements OnInit {
         this._attachmentsService.attachments.unshift(attachment);
       });
     }
-  }
-
-  /**
-   * Checks if the form has to be shown, according to the PIA status.
-   * @return true if the PIA isn't validated (simple or signed validation), false otherwise.
-   */
-  showAttachmentForm() {
-    return (this.pia.status !== 2 && this.pia.status !== 3);
   }
 }

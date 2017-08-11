@@ -116,10 +116,12 @@ export class RefusePIAComponent implements OnInit {
       } else {
         this.showResendValidationButton = false;
       }
-      if (modificationsMadeValue) {
-        resendButton.removeAttribute('disabled');
-      } else {
-        resendButton.setAttribute('disabled', true);
+      if (resendButton) {
+        if (modificationsMadeValue) {
+          resendButton.removeAttribute('disabled');
+        } else {
+          resendButton.setAttribute('disabled', true);
+        }
       }
     }, 1);
     this._piaService.pia.applied_adjustements = this.modificationsMadeForm.value.modificationsMade;

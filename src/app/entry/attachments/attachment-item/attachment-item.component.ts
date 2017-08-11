@@ -3,6 +3,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Attachment } from '../attachment.model';
 
 import { ModalsService } from 'app/modals/modals.service';
+import { AttachmentsService } from 'app/entry/attachments/attachments.service';
 
 @Component({
   selector: 'app-attachment-item',
@@ -14,7 +15,7 @@ export class AttachmentItemComponent implements OnInit {
   @Input() attachment: any;
   @Input() pia: any;
 
-  constructor(private _modalsService: ModalsService) { }
+  constructor(private _modalsService: ModalsService, private _attachmentsService: AttachmentsService) { }
 
   ngOnInit() {
   }
@@ -33,16 +34,7 @@ export class AttachmentItemComponent implements OnInit {
    * @param {number} id the unique id of the attachment.
    */
   downloadAttachment(id: number) {
-    const attachment = new Attachment();
-    attachment.find(id).then((entry: any) => {
-      const url = entry.file.replace('data:', 'data:' + entry.mime_type);
-      fetch(url).then(res => res.blob()).then(blob => {
-        const a = document.createElement('a');
-        a.href = window.URL.createObjectURL(blob);
-        a.download = entry.name;
-        a.click();
-      });
-    });
+    this._attachmentsService.downloadAttachment(id);
   }
 
   /**

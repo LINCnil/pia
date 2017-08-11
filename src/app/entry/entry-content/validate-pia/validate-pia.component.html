@@ -68,24 +68,24 @@
       </div>
     </div>
   </div>
-  <button type="button" *ngIf="_piaService.pia.status === 3" class="pia-entryContentBlock-submitAttachmentButton btn btn-red" title="Ajouter le rapport PIA signé">Ajouter le rapport PIA signé</button>
+  <button type="button" (click)="addAttachment()" *ngIf="_piaService.pia.status === 3" class="pia-entryContentBlock-submitAttachmentButton btn btn-red">Ajouter le rapport PIA signé</button>
 
   <div>
     <app-pia-validate-history></app-pia-validate-history>
   </div>
 
   <div class="pia-entryContentBlock-footer">
-    <div class="pia-entryContentBlock-footer-validationAttachments hide" *ngIf="_piaService.pia.status === 3">
+    <div class="pia-entryContentBlock-footer-validationAttachments" *ngIf="_piaService.pia.status === 3 && attachment">
       <div>
         <span class="pia-icons pia-icon-file-pdf-blue"></span>
-        <a href="#">Admin_serveur.pdf</a>
+        <a href="javascript:;" (click)="downloadAttachment(attachment.id)">{{attachment.name}}</a>
       </div>
       <button *ngIf="_piaService.pia.status !== 4" type="button" class="btn" (click)="dimissAttachement()" title="Supprimer"><span class="pia-icons pia-icon-close"></span></button>
     </div>
     <div class="pia-entryContentBlock-footer-validationTools">
       <a routerLink="/home"><i class="fa fa-home" aria-hidden="true"></i><p>Accueil</p></a>
-      <button (click)="downloadPIA()" type="button" title="Télécharger le PIA"><i class="fa fa-download" aria-hidden="true"></i><p>Télécharger le PIA</p></button>
-      <a href="#"><i class="fa fa-file-excel-o" aria-hidden="true"></i><p>Plan d'action</p></a>
+      <button (click)="downloadPIA()" [disabled]="pdfNotReady" type="button"><i class="fa fa-download" aria-hidden="true"></i><p>Télécharger le PIA</p></button>
+      <button (click)="downloadActionPlan()" [disabled]="pdfNotReady" type="button"><i class="fa fa-file-excel-o" aria-hidden="true"></i><p>Plan d'action</p></button>
     </div>
   </div>
 </div>

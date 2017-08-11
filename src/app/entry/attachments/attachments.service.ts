@@ -8,8 +8,34 @@ import { ModalsService } from 'app/modals/modals.service';
 export class AttachmentsService {
 
   attachments: any[];
+  pia: any;
 
-  constructor(private _modalsService: ModalsService) {}
+  constructor(private _modalsService: ModalsService) {
+  }
+
+  async listAttachments() {
+    return new Promise((resolve, reject) => {
+      const attachment = new Attachment();
+      attachment.pia_id = this.pia.id;
+      attachment.findAll().then((data: any[]) => {
+        this.attachments = data;
+        resolve();
+      });
+    });
+  }
+
+  downloadAttachment(id: number) {
+    const attachment = new Attachment();
+    attachment.find(id).then((entry: any) => {
+      const url = entry.file.replace('data:', 'data:' + entry.mime_type);
+      fetch(url).then(res => res.blob()).then(blob => {
+        const a = document.createElement('a');
+        a.href = window.URL.createObjectURL(blob);
+        a.download = entry.name;
+        a.click();
+      });
+    });
+  }
 
   /**
    * Allows an user to remove a PIA.

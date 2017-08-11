@@ -6,7 +6,7 @@
       <div class="row">
         <div class="medium-6 columns pia-actionPlanGraphBlock-left">
           <h3>Principes Fondamentaux</h3>
-          <div class="pia-actionPlanGraphBlock-item" *ngFor="let r of results">
+          <div class="pia-actionPlanGraphBlock-item" *ngFor="let r of _actionPlanService.results">
             <span class="pia-list">{{r.short_title}}</span>
             <span class="pia-box" [ngClass]="{'pia-blue': r.status === 2, 'pia-red': r.status === 1}"></span>
             <span class="pia-box" [ngClass]="{'pia-green': r.status === 3, 'pia-red': r.status === 1}"></span>
@@ -15,8 +15,8 @@
         <div class="medium-6 columns pia-actionPlanGraphBlock-right">
           <h3>Mesures</h3>
           <div class="pia-actionPlanGraphBlock-right-measures">
-            <div class="pia-actionPlanGraphBlock-right-measures-scroll" *ngIf="measures">
-              <div *ngFor="let measure of measures" class="pia-actionPlanGraphBlock-item">
+            <div class="pia-actionPlanGraphBlock-right-measures-scroll" *ngIf="_actionPlanService.measures">
+              <div *ngFor="let measure of _actionPlanService.measures" class="pia-actionPlanGraphBlock-item">
                 <span class="pia-box" [ngClass]="{'pia-blue': measure.status === 2, 'pia-red': measure.status === 1}"></span>
                 <span class="pia-box" [ngClass]="{'pia-green': measure.status === 3, 'pia-red': measure.status === 1}"></span>
                 <span class="pia-list">{{measure.name}}</span>
@@ -25,18 +25,18 @@
           </div>
           <h3>Risques</h3>
           <div class="pia-actionPlanGraphBlock-item">
-            <span class="pia-box" [ngClass]="{'pia-blue': risks['3.2'] && risks['3.2']['status'] === 2, 'pia-red': risks['3.2'] && risks['3.2']['status'] === 1}"></span>
-            <span class="pia-box" [ngClass]="{'pia-green': risks['3.2'] && risks['3.2']['status'] === 3, 'pia-red': risks['3.2'] && risks['3.2']['status'] === 1}"></span>
+            <span class="pia-box" [ngClass]="{'pia-blue': _actionPlanService.risks['3.2'] && _actionPlanService.risks['3.2']['status'] === 2, 'pia-red': _actionPlanService.risks['3.2'] && _actionPlanService.risks['3.2']['status'] === 1}"></span>
+            <span class="pia-box" [ngClass]="{'pia-green': _actionPlanService.risks['3.2'] && _actionPlanService.risks['3.2']['status'] === 3, 'pia-red': _actionPlanService.risks['3.2'] && _actionPlanService.risks['3.2']['status'] === 1}"></span>
             <span class="pia-list">Accès illégitime aux données</span>
           </div>
           <div class="pia-actionPlanGraphBlock-item">
-            <span class="pia-box" [ngClass]="{'pia-blue': risks['3.3'] && risks['3.3']['status'] === 2, 'pia-red': risks['3.3'] && risks['3.3']['status'] === 1}"></span>
-            <span class="pia-box" [ngClass]="{'pia-green': risks['3.3'] && risks['3.3']['status'] === 3, 'pia-red': risks['3.3'] && risks['3.3']['status'] === 1}"></span>
+            <span class="pia-box" [ngClass]="{'pia-blue': _actionPlanService.risks['3.3'] && _actionPlanService.risks['3.3']['status'] === 2, 'pia-red': _actionPlanService.risks['3.3'] && _actionPlanService.risks['3.3']['status'] === 1}"></span>
+            <span class="pia-box" [ngClass]="{'pia-green': _actionPlanService.risks['3.3'] && _actionPlanService.risks['3.3']['status'] === 3, 'pia-red': _actionPlanService.risks['3.3'] && _actionPlanService.risks['3.3']['status'] === 1}"></span>
             <span class="pia-list">Modifications de données</span>
           </div>
           <div class="pia-actionPlanGraphBlock-item">
-            <span class="pia-box" [ngClass]="{'pia-blue': risks['3.4'] && risks['3.4']['status'] === 2, 'pia-red': risks['3.4'] && risks['3.4']['status'] === 1}"></span>
-            <span class="pia-box" [ngClass]="{'pia-green': risks['3.4'] && risks['3.4']['status'] === 3, 'pia-red': risks['3.4'] && risks['3.4']['status'] === 1}"></span>
+            <span class="pia-box" [ngClass]="{'pia-blue': _actionPlanService.risks['3.4'] && _actionPlanService.risks['3.4']['status'] === 2, 'pia-red': _actionPlanService.risks['3.4'] && _actionPlanService.risks['3.4']['status'] === 1}"></span>
+            <span class="pia-box" [ngClass]="{'pia-green': _actionPlanService.risks['3.4'] && _actionPlanService.risks['3.4']['status'] === 3, 'pia-red': _actionPlanService.risks['3.4'] && _actionPlanService.risks['3.4']['status'] === 1}"></span>
             <span class="pia-list">Disparition de données</span>
           </div>
         </div>
@@ -50,7 +50,7 @@
     <!-- Principles action plans -->
     <div class="pia-entryContentBlock-content-fundamental">
       <h2>Principes fondamentaux</h2>
-      <div *ngIf="noPrinciplesActionPlan; else listPrinciplesActionPlanComment">
+      <div *ngIf="_actionPlanService.noPrinciplesActionPlan; else listPrinciplesActionPlanComment">
         <div class="pia-entryContentBlock-content-details-blocks">
           <div class="pia-details-blocks-content">
             <div>Aucun plan d'action enregistré.</div>
@@ -58,7 +58,7 @@
         </div>
       </div>
       <ng-template #listPrinciplesActionPlanComment>
-        <app-action-plan-implementation *ngFor="let data of results" [data]="data"></app-action-plan-implementation>
+        <app-action-plan-implementation *ngFor="let data of _actionPlanService.results" [data]="data"></app-action-plan-implementation>
       </ng-template>
     </div>
     <!-- Measures action plans -->
@@ -66,11 +66,11 @@
       <h2>Mesures existantes ou prévues</h2>
       <div class="pia-entryContentBlock-content-details-blocks">
         <div class="pia-details-blocks-content">
-          <div *ngIf="noMeasuresActionPlan; else listMeasuresActionPlanComment">
+          <div *ngIf="_actionPlanService.noMeasuresActionPlan; else listMeasuresActionPlanComment">
             Aucun plan d'action enregistré.
           </div>
           <ng-template #listMeasuresActionPlanComment>
-            <div *ngFor="let m of measures">
+            <div *ngFor="let m of _actionPlanService.measures">
               {{m.action_plan_comment}}
             </div>
           </ng-template>
@@ -82,18 +82,18 @@
       <h2>Risques</h2>
       <div class="pia-entryContentBlock-content-details-blocks">
         <div class="pia-details-blocks-content">
-          <div *ngIf="noRisksActionPlan; else listRisksActionPlanComment">
+          <div *ngIf="_actionPlanService.noRisksActionPlan; else listRisksActionPlanComment">
             Aucun plan d'action enregistré.
           </div>
           <ng-template #listRisksActionPlanComment>
-            <div *ngIf="risks['3.2']">
-              {{risks['3.2'].action_plan_comment}}
+            <div *ngIf="_actionPlanService.risks['3.2']">
+              {{_actionPlanService.risks['3.2'].action_plan_comment}}
             </div>
-            <div *ngIf="risks['3.3']">
-              {{risks['3.3'].action_plan_comment}}
+            <div *ngIf="_actionPlanService.risks['3.3']">
+              {{_actionPlanService.risks['3.3'].action_plan_comment}}
             </div>
-            <div *ngIf="risks['3.4']">
-              {{risks['3.4'].action_plan_comment}}
+            <div *ngIf="_actionPlanService.risks['3.4']">
+              {{_actionPlanService.risks['3.4'].action_plan_comment}}
             </div>
           </ng-template>
         </div>

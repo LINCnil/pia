@@ -26,6 +26,7 @@ import { EvaluationsComponent } from './entry/entry-content/evaluations/evaluati
 import { QuestionsComponent } from './entry/entry-content/questions/questions.component';
 import { RisksCartographyComponent } from './entry/entry-content/risks-cartography/risks-cartography.component';
 import { ActionPlanComponent } from './entry/entry-content/action-plan/action-plan.component';
+import { ActionPlanService } from './entry/entry-content/action-plan/action-plan.service';
 import { DPOPeopleOpinionsComponent } from './entry/entry-content/dpo-people-opinions/dpo-people-opinions.component';
 import { ValidatePIAComponent } from './entry/entry-content/validate-pia/validate-pia.component';
 import { RefusePIAComponent } from './entry/entry-content/refuse-pia/refuse-pia.component';
@@ -54,7 +55,7 @@ const appRoutes: Routes = [
   { path: '**', component: ErrorsComponent }
 ];
 
-const providersList: any = [MeasureService, ModalsService, AttachmentsService, KnowledgeBaseService, EvaluationService];
+const providersList: any = [MeasureService, ModalsService, AttachmentsService, KnowledgeBaseService, EvaluationService, ActionPlanService];
 
 if (environment.production) {
   Raven

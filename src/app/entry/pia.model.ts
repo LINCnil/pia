@@ -133,6 +133,18 @@ export class Pia extends ApplicationDb {
       }
     }
   }
+
+  getGaugeName(value: number) {
+    if (value === 1) {
+      return 'Négligeable';
+    } else if (value === 2) {
+      return 'Limitée';
+    } else if (value === 3) {
+      return 'Importante';
+    } else if (value === 4) {
+      return 'Maximale';
+    }
+  }
 }
 
 
