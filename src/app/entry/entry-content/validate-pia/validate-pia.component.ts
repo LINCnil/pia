@@ -1,8 +1,8 @@
 import { Component, OnInit, ElementRef, Input } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import * as jsPDF from 'jspdf';
+import { pdfMake } from 'pdfmake/build/pdfMake';
 import { Http } from '@angular/http';
-
 import { Pia } from 'app/entry/pia.model';
 import { Answer } from 'app/entry/entry-content/questions/answer.model';
 import { PiaService } from 'app/entry/pia.service';
@@ -120,14 +120,21 @@ export class ValidatePIAComponent implements OnInit {
       this._modalsService.openModal('modal-signed-pia-validation');
     });
   }
+  pdfMake() {
+
+
+    const docDefinition = { content: 'This is an sample PDF printed with pdfMake' };
+    pdfMake.createPdf(docDefinition).open();
+  }
 
   /**
    * Allows users to download the PIA as a .pdf file.
    */
   downloadPIA() {
     // Start of the loop for each lines
-    const doc = new jsPDF();
+    const doc = new jsPDF('p', 'mm', 'a4');
     doc.setFontSize(12);
+    console.log('doc.getFontList()');
     let i = 1;
     this.pdf.forEach((entry) => {
       if (i === 34) {
