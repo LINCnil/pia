@@ -12,7 +12,6 @@ export class RisksCartographyComponent implements OnInit {
 
   questions: any[] = [];
   answer: Answer = new Answer();
-  evaluation: Evaluation = new Evaluation();
   answersGauge: any[] = [];
   @Input() pia: any;
   dataJSON: any;
@@ -87,20 +86,24 @@ export class RisksCartographyComponent implements OnInit {
             }
           }
         });
-        this.evaluation.getByReference(this.pia.id, '3.2').then(() => {
-          if (this.evaluation.gauges) {
-            this.dataJSON['risk-access']['evaluator']['x'] = positions['x'][this.evaluation.gauges['x']] + 10;
-            this.dataJSON['risk-access']['evaluator']['y'] = positions['y'][this.evaluation.gauges['y']] + 10;
+        const evaluation = new Evaluation();
+        evaluation.getByReference(this.pia.id, '3.2').then(() => {
+          if (evaluation.gauges) {
+            this.dataJSON['risk-access']['evaluator']['x'] = positions['x'][evaluation.gauges['x']] + 10;
+            this.dataJSON['risk-access']['evaluator']['y'] = positions['y'][evaluation.gauges['y']] + 10;
           }
-          this.evaluation.getByReference(this.pia.id, '3.3').then(() => {
-            if (this.evaluation.gauges) {
-              this.dataJSON['risk-change']['evaluator']['x'] = positions['x'][this.evaluation.gauges['x']] + 20;
-              this.dataJSON['risk-change']['evaluator']['y'] = positions['y'][this.evaluation.gauges['y']] + 20;
+          const evaluation2 = new Evaluation();
+          evaluation2.getByReference(this.pia.id, '3.3').then(() => {
+            if (evaluation2.gauges) {
+              console.log(evaluation2.gauges);
+              this.dataJSON['risk-change']['evaluator']['x'] = positions['x'][evaluation2.gauges['x']] + 20;
+              this.dataJSON['risk-change']['evaluator']['y'] = positions['y'][evaluation2.gauges['y']] + 20;
             }
-            this.evaluation.getByReference(this.pia.id, '3.4').then(() => {
-              if (this.evaluation.gauges) {
-                this.dataJSON['risk-disappearance']['evaluator']['x'] = positions['x'][this.evaluation.gauges['x']] + 30;
-                this.dataJSON['risk-disappearance']['evaluator']['y'] = positions['y'][this.evaluation.gauges['y']] + 30;
+            const evaluation3 = new Evaluation();
+            evaluation3.getByReference(this.pia.id, '3.4').then(() => {
+              if (evaluation3.gauges) {
+                this.dataJSON['risk-disappearance']['evaluator']['x'] = positions['x'][evaluation3.gauges['x']] + 30;
+                this.dataJSON['risk-disappearance']['evaluator']['y'] = positions['y'][evaluation3.gauges['y']] + 30;
               }
               this.loadCartography();
             });

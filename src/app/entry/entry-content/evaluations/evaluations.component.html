@@ -1,19 +1,19 @@
 <div class="pia-evaluationBlock" [ngClass]="{'pia-evaluationBlock-shadowed pia-evaluationBlock-self-padding': item.evaluation_mode === 'item'}">
   <div class="pia-evaluationBlock-title">Évaluation</div>
   <div class="pia-evaluationBlock-edit" *ngIf="displayEditButton && !_evaluationService.enableFinalValidation">
-    <button class="btn" type="button" (click)="activateEvaluationEdition()" title="Éditer">
+    <button class="btn" type="button" (click)="activateEvaluationEdition()" title="Éditer" *ngIf="!_evaluationService.someItemNeedToBeFixed">
       <i class="fa fa-pencil" aria-hidden="true"></i>
     </button>
   </div>
   <form [formGroup]="evaluationForm">
     <div class="pia-evaluationBlock-buttons">
-      <button class="btn btn-red" [ngClass]="{'btn-active': evaluation.status === 1}" [disabled]="evaluation.status === 1 || _evaluationService.enableFinalValidation" (click)="selectedButton($event, 1)" name="fix" type="submit">
+      <button class="btn btn-red" [ngClass]="{'btn-active': evaluation.status === 1}" [disabled]="evaluation.status === 1 || _evaluationService.enableFinalValidation || _evaluationService.someItemNeedToBeFixed" (click)="selectedButton($event, 1)" name="fix" type="submit">
         À corriger
       </button>
-      <button class="btn btn-blue" [ngClass]="{'btn-active': evaluation.status === 2}" [disabled]="evaluation.status === 2 || _evaluationService.enableFinalValidation" *ngIf="section.id !== 1" (click)="selectedButton($event, 2)" name="improvable" type="submit">
+      <button class="btn btn-blue" [ngClass]="{'btn-active': evaluation.status === 2}" [disabled]="evaluation.status === 2 || _evaluationService.enableFinalValidation || _evaluationService.someItemNeedToBeFixed" *ngIf="section.id !== 1" (click)="selectedButton($event, 2)" name="improvable" type="submit">
         Améliorable
       </button>
-      <button class="btn btn-green" [ngClass]="{'btn-active': evaluation.status === 3}" [disabled]="evaluation.status === 3 || _evaluationService.enableFinalValidation" (click)="selectedButton($event, 3)" name="acceptable" type="submit">
+      <button class="btn btn-green" [ngClass]="{'btn-active': evaluation.status === 3}" [disabled]="evaluation.status === 3 || _evaluationService.enableFinalValidation || _evaluationService.someItemNeedToBeFixed" (click)="selectedButton($event, 3)" name="acceptable" type="submit">
         Acceptable
       </button>
     </div>

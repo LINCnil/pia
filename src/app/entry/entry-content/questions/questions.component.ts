@@ -64,7 +64,9 @@ export class QuestionsComponent implements OnInit {
           this.questionForm.controls['text'].disable();
         }
         if (this.answer.data.gauge > 0 || (this.answer.data.text && this.answer.data.text.length > 0)) {
-          this.displayEditButton = true;
+          if (!this._evaluationService.showValidationButton && !this._evaluationService.enableFinalValidation) {
+            this.displayEditButton = true;
+          }
         }
       }
     });

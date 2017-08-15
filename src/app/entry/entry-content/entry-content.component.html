@@ -29,7 +29,7 @@
     </div>
   </ng-template>
 
-  <app-evaluations *ngIf="item.evaluation_mode === 'item' && (_evaluationService.showValidationButton || _evaluationService.enableFinalValidation)" [pia]="_piaService.pia" [section]="section" [item]="item"></app-evaluations>
+  <app-evaluations *ngIf="item.evaluation_mode === 'item' && (_evaluationService.showValidationButton || _evaluationService.enableFinalValidation || _evaluationService.someItemNeedToBeFixed)" [pia]="_piaService.pia" [section]="section" [item]="item"></app-evaluations>
 
   <app-overview-risks *ngIf="section.id == 3 && item.id == 5"></app-overview-risks>
 

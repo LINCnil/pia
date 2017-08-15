@@ -11,7 +11,7 @@
   </div>
   <div class="pia-questionBlock-displayer fadeIn">
     <button type="button" class="btn pia-questionBlock-edit"
-            *ngIf="displayEditButton"
+            *ngIf="displayEditButton && !_evaluationService.showValidationButton && !_evaluationService.enableFinalValidation"
             (click)="activateQuestionEdition()" title="Éditer">
       <i class="fa fa-pencil" aria-hidden="true"></i>
     </button>
@@ -86,5 +86,5 @@
   <!-- TODO : to show only after a first edition (when the current question is created in DB) -->
   <app-comments [pia]="pia" [question]="question"></app-comments>
 
-  <app-evaluations (evaluationEvent)="evaluationChange($event)" *ngIf="item.evaluation_mode === 'question' && (_evaluationService.showValidationButton || _evaluationService.enableFinalValidation)" [pia]="pia" [section]="section" [item]="item" [questionId]="question.id"></app-evaluations>
+  <app-evaluations (evaluationEvent)="evaluationChange($event)" *ngIf="item.evaluation_mode === 'question' && (_evaluationService.showValidationButton || _evaluationService.enableFinalValidation || _evaluationService.someItemNeedToBeFixed)" [pia]="pia" [section]="section" [item]="item" [questionId]="question.id"></app-evaluations>
 </div>
