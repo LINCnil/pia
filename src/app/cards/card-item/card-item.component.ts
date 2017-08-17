@@ -1,4 +1,4 @@
-import { Component, OnInit, ComponentRef, Input } from '@angular/core';
+import { Component, OnInit, ComponentRef, Input, Output } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Pia } from '../../entry/pia.model';
 import { Router } from '@angular/router';
@@ -28,6 +28,7 @@ export class CardItemComponent implements OnInit {
     this._piaService.getProgress(this.pia.id).then((nb: number) => {
       this.progress = nb;
     });
+
     this.piaForm = new FormGroup({
       id: new FormControl(this.pia.id),
       name: new FormControl({ value: this.pia.name, disabled: true }),

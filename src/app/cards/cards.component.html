@@ -1,10 +1,10 @@
 <app-header></app-header>
 
-<div class="container pia-mainContainerBlock">
+<div *ngIf="viewStyle.view == 'card'" class="container pia-mainContainerBlock">
     <div class="row">
       <div class="small-12 medium-12 columns">
         <div class="pia-filtersBlock">
-          <button class="pia-filtersBlock-switch btn" onclick="alert('Bientôt disponible.');" type="button">
+          <button class="pia-filtersBlock-switch btn" (click)="viewOnList()" type="button">
             <i class="fa fa-list" aria-hidden="true"></i>
             <div>liste</div>
           </button>
@@ -133,5 +133,64 @@
       </div>
     </div>
 </div>
-
+<div *ngIf="viewStyle.view === 'card-list'" class="container pia-mainContainerBlock viewOnList">
+  <div class="row">
+    <div class="small-12 medium-12 columns">
+      <div class="pia-listBlock-item">
+        <div class="pia-filtersBlock">
+          <button class="pia-filtersBlock-switch btn" (click)="viewOnCard()" type="button"><i class="fa fa-th" aria-hidden="true"></i><span>Carte</span></button>
+        </div>
+        <div class="pia-newBlock-item-new-btn">
+          <button class="btn" (click)="newPIA()" type="button" title="Nouveau PIA"><i class="fa fa-folder-open" aria-hidden="true"></i><span>Nouveau PIA</span></button>
+        </div>
+        <div class="pia-newBlock-item-new-btn">
+          <button class="btn" (click)="importPIA()" type="button" title="Importer PIA"><i class="fa fa-upload" aria-hidden="true"></i><span>Importer PIA</span></button>
+        </div>
+        <div class="pia-filtersBlock-hint">
+          <span class="pia-icons pia-icon-rocket-small"></span>
+          <p>
+            Lancez-vous ! Pour commencer<br>
+            un PIA, c'est par là.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="small-12 medium-12 columns">
+      <table class="pia-list-table">
+        <thead>
+        <tr>
+          <th><span>Pia</span></th>
+          <th><span>Saisie</span></th>
+          <th><span>Evaluation</span></th>
+          <th><span>Validation</span></th>
+          <th><span>Date</span></th>
+          <th><span>Status</span><i class="fa fa-caret-down" aria-hidden="true"></i></th>
+          <th><span>Action</span></th>
+        </tr>
+        </thead>
+        <tbody *ngFor="let pia of _piaService.pias;let i=index">
+        <tr>
+          <td>{{pia.name}}</td>
+          <td>{{pia.author_name}}</td>
+          <td>{{pia.evaluator_name}}</td>
+          <td>{{pia.validator_name}}</td>
+          <td><time>{{ pia.created_at | date: 'dd/MM/yyyy' }}</time></td>
+          <td *ngIf="pia.status === 0" >En cours</td>
+          <td *ngIf="pia.status === 1" >Archivée</td>
+          <td>
+            <span>
+              <a href="javascript:;" (click)="activateEdition()" class="btn pia-tooltip"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+              <a href="javascript:;" title="Dupliquer le PIA" onclick="alert('Bientôt disponible.');"><i class="fa fa-clone" aria-hidden="true"></i></a>
+              <a href="#"><i class="fa fa-file-excel-o" aria-hidden="true"></i></a>
+              <a href="javascript:;" title="Supprimer le PIA" (click)="removePia(pia.id)"><i class="fa fa fa-trash-o" aria-hidden="true"></i></a>
+            </span>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
 <app-modals></app-modals>

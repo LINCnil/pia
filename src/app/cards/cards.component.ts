@@ -1,6 +1,7 @@
-import { Component, OnInit  } from '@angular/core';
+import {Component, OnInit, OnDestroy, Input} from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute, Params } from '@angular/router';
+import { Subscription } from 'rxjs/Subscription'
 
 import { Pia } from '../entry/pia.model';
 
@@ -10,15 +11,19 @@ import { PiaService } from 'app/entry/pia.service';
   selector: 'app-cards',
   templateUrl: './cards.component.html',
   styleUrls: ['./cards.component.scss'],
-  providers: [PiaService]
+  providers: [PiaService],
 })
 export class CardsComponent implements OnInit {
-
+  @Input() pia: any;
   newPia: Pia;
   piaForm: FormGroup;
   filter: string;
+  viewStyle: { view: string }
+  view: 'card';
+  paramsSubscribe: Subscription
 
   constructor(private router: Router,
+              private route: ActivatedRoute,
               private _piaService: PiaService) { }
 
   ngOnInit() {
@@ -32,13 +37,20 @@ export class CardsComponent implements OnInit {
         this.sortBy('udpated_at');
       }
     });
-
     this.piaForm = new FormGroup({
       name: new FormControl(),
       author_name: new FormControl(),
       evaluator_name: new FormControl(),
       validator_name: new FormControl()
     });
+    this.viewStyle = {
+      view: this.route.snapshot.params['view']
+    }
+    this.paramsSubscribe = this.route.params.subscribe(
+      (params: Params) => {
+        this.viewStyle.view = params['view'];
+      }
+    );
   }
   /**
    * Creates a new PIA card and adds a flip effect to go switch between new PIA and edit PIA events.
@@ -86,5 +98,13 @@ export class CardsComponent implements OnInit {
     if (sort === 'updated_at') {
       this._piaService.pias.reverse();
     }
+  }
+  viewOnList() {
+    this.viewStyle.view = 'card-list';
+    this.router.navigate(['home', 'card-list']);
+  }
+  viewOnCard() {
+    this.viewStyle.view = 'card';
+    this.router.navigate(['home', 'card']);
   }
 }

@@ -45,9 +45,10 @@ import { ErrorsComponent } from './errors/errors.component';
 import { ActionPlanImplementationComponent } from './entry/entry-content/action-plan/action-plan-implementation/action-plan-implementation.component';
 import { environment } from '../environments/environment';
 
+
 const appRoutes: Routes = [
   { path: '', component: AuthenticationComponent },
-  { path: 'home', component: CardsComponent },
+  { path: 'home/:view', component: CardsComponent },
   { path: 'entry/:id', component: EntryComponent },
   { path: 'entry/:id/section/:section_id/item/:item_id', component: EntryComponent },
   { path: 'settings', component: SettingsComponent },
@@ -103,7 +104,7 @@ if (environment.production) {
     MeasuresComponent,
     OverviewRisksComponent,
     ErrorsComponent,
-    ActionPlanImplementationComponent
+    ActionPlanImplementationComponent,
   ],
   imports: [
     BrowserModule,

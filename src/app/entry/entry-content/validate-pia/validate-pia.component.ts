@@ -1,7 +1,6 @@
 import { Component, OnInit, ElementRef, Input } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import * as jsPDF from 'jspdf';
-import { pdfMake } from 'pdfmake/build/pdfMake';
 import { Http } from '@angular/http';
 import { Pia } from 'app/entry/pia.model';
 import { Answer } from 'app/entry/entry-content/questions/answer.model';
@@ -119,12 +118,6 @@ export class ValidatePIAComponent implements OnInit {
     this._piaService.pia.update().then(() => {
       this._modalsService.openModal('modal-signed-pia-validation');
     });
-  }
-  pdfMake() {
-
-
-    const docDefinition = { content: 'This is an sample PDF printed with pdfMake' };
-    pdfMake.createPdf(docDefinition).open();
   }
 
   /**
