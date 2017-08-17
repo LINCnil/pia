@@ -348,6 +348,8 @@
       }
     }
     tbody tr {
+      &:nth-child(odd)		{ background-color:rgba($pia-white, 1); }
+      &:nth-child(even)		{ background-color:rgba(#e5fdf1, 1); }
       td {
         padding-left: 10px;
         &:last-child {

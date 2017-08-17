@@ -170,8 +170,8 @@
           <th><span>Action</span></th>
         </tr>
         </thead>
-        <tbody *ngFor="let pia of _piaService.pias;let i=index">
-        <tr>
+        <tbody>
+        <tr  *ngFor="let pia of _piaService.pias;let i=index">
           <td>{{pia.name}}</td>
           <td>{{pia.author_name}}</td>
           <td>{{pia.evaluator_name}}</td>
