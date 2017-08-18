@@ -1,7 +1,8 @@
 import {Component, OnInit, OnDestroy, Input} from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router, ActivatedRoute, Params } from '@angular/router';
-import { Subscription } from 'rxjs/Subscription'
+import { Subscription } from 'rxjs/Subscription';
+import { ModalsService } from 'app/modals/modals.service';
 
 import { Pia } from '../entry/pia.model';
 
@@ -24,6 +25,7 @@ export class CardsComponent implements OnInit {
 
   constructor(private router: Router,
               private route: ActivatedRoute,
+              private _modalsService: ModalsService,
               private _piaService: PiaService) { }
 
   ngOnInit() {
@@ -106,5 +108,8 @@ export class CardsComponent implements OnInit {
   viewOnCard() {
     this.viewStyle.view = 'card';
     this.router.navigate(['home', 'card']);
+  }
+  listNewPIA() {
+    this._modalsService.openModal('modal-list-new-pia');
   }
 }
