@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, AfterViewInit, Input, Output, EventEmitter, ElementRef } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Pia } from '../pia.model';
 import { MeasureService } from 'app/entry/entry-content/measures/measures.service';
@@ -18,6 +18,7 @@ export class KnowledgeBaseComponent implements OnInit {
 
   constructor(private _measureService: MeasureService,
               private _knowledgeBaseService: KnowledgeBaseService,
+              private el: ElementRef,
               private _piaService: PiaService) { }
 
   ngOnInit() {
@@ -45,6 +46,10 @@ export class KnowledgeBaseComponent implements OnInit {
 
   onSubmit() {
     this._knowledgeBaseService.q = this.searchForm.value.q;
+    const filterBlock = this.el.nativeElement.querySelector('.pia-knowledgeBaseBlock-filters');
+    if (filterBlock) {
+      filterBlock.querySelector('button').click();
+    }
     this._knowledgeBaseService.search();
   }
 
