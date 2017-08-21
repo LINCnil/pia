@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, ElementRef, OnInit, Input, Output, EventEmitter, DoCheck } from '@angular/core';
 import { FormArray, FormControl, FormGroup } from '@angular/forms';
 
 import { Evaluation } from './evaluation.model';
@@ -23,7 +23,7 @@ import { EvaluationService } from './evaluations.service';
   templateUrl: './evaluations.component.html',
   styleUrls: ['./evaluations.component.scss']
 })
-export class EvaluationsComponent implements OnInit {
+export class EvaluationsComponent implements OnInit, DoCheck {
 
   evaluationForm: FormGroup;
   @Input() item: any;
@@ -32,16 +32,30 @@ export class EvaluationsComponent implements OnInit {
   @Input() questionId: any;
   @Input() measureId: any;
   @Output() evaluationEvent = new EventEmitter<Evaluation>();
-  evaluation: Evaluation = new Evaluation();
+  evaluation: Evaluation;
   reference_to: string;
   displayEditButton = false;
   previousGauges = {x: 0, y: 0};
+  previousReferenceTo: string;
 
   constructor(private el: ElementRef, private _evaluationService: EvaluationService) { }
 
   ngOnInit() {
     // Prefix item
     this.reference_to = this.section.id + '.' + this.item.id;
+    this.checkEvaluationValidation();
+  }
+
+  ngDoCheck() {
+    // Prefix item
+    this.reference_to = this.section.id + '.' + this.item.id;
+    if (this.item.evaluation_mode === 'item' && this.previousReferenceTo !== this.reference_to) {
+      this.previousReferenceTo = this.reference_to;
+      this.checkEvaluationValidation();
+    }
+  }
+
+  private checkEvaluationValidation() {
     if (this.item.evaluation_mode === 'question') {
       // Measure evaluation update
       if (this.item.is_measure) {
@@ -59,6 +73,7 @@ export class EvaluationsComponent implements OnInit {
       gaugeY: new FormControl()
     });
 
+    this.evaluation = new Evaluation();
     this.evaluation.getByReference(this.pia.id, this.reference_to).then(() => {
       // Pass the evaluation to the parent component
       this.evaluationEvent.emit(this.evaluation);

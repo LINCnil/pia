@@ -107,6 +107,7 @@ export class EvaluationService {
   }
 
   allAwsersIsInEvaluation() {
+    this.someItemNeedToBeFixed = false;
     let reference_to = '';
     if (this.item.evaluation_mode === 'item') {
       reference_to = this.section.id + '.' + this.item.id;
