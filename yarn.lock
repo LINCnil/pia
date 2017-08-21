@@ -262,6 +262,10 @@ amdefine@>=0.0.4:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/amdefine/-/amdefine-1.0.1.tgz#4a5282ac164729e93619bcfd3ad151f817ce91f5"
 
+angular2-autosize@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/angular2-autosize/-/angular2-autosize-1.0.1.tgz#df9d34231eef1d49f306b29ab353c8d9e9b0930f"
+
 ansi-escapes@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/ansi-escapes/-/ansi-escapes-2.0.0.tgz#5bae52be424878dd9783e8910e3fc2922e83c81b"
