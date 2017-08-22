@@ -11,7 +11,7 @@
       <button type="button" class="btn pia-measureBlock-edit" *ngIf="displayEditButton"
               (click)="activateMeasureEdition()" title="Éditer"><i class="fa fa-pencil" aria-hidden="true"></i></button>
       <div class="pia-measureBlock-content">
-        <textarea [attr.data-id]="measure.id" id="pia-measure-content-{{measure.id}}" formControlName="measureContent"
+        <textarea (keyup)="autoTextareaResize($event)" [attr.data-id]="measure.id" id="pia-measure-content-{{measure.id}}" formControlName="measureContent"
                   (focusout)="measureContentFocusOut($event)" rows="8" cols="50"
                   placeholder="{{measure.placeholder}}"></textarea>
       </div>

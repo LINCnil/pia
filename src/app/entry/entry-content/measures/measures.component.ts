@@ -50,7 +50,23 @@ export class MeasuresComponent implements OnInit {
           this.measureForm.controls['measureContent'].disable();
         }
       }
+      const textarea = document.getElementById('pia-measure-content-' + this.measure.id);
+      if (textarea) {
+        this.autoTextareaResize(null, textarea);
+      }
     });
+  }
+
+  autoTextareaResize(event: any, textarea: HTMLElement) {
+    if (event) {
+      textarea = event.target;
+    }
+    if (textarea.clientHeight < textarea.scrollHeight) {
+      textarea.style.height = textarea.scrollHeight + 'px';
+      if (textarea.clientHeight < textarea.scrollHeight) {
+        textarea.style.height = (textarea.scrollHeight * 2 - textarea.clientHeight) + 'px';
+      }
+    }
   }
 
   evaluationChange(evaluation) {

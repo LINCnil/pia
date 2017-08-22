@@ -69,7 +69,12 @@ export class QuestionsComponent implements OnInit {
           }
         }
       }
+      const textarea = document.getElementById('pia-question-content-' + this.question.id);
+      if (textarea) {
+        this.autoTextareaResize(null, textarea);
+      }
     });
+
     this.measure.pia_id = this.pia.id;
     this.measure.findAll().then((entries: any[]) => {
       if (entries) {
@@ -80,6 +85,19 @@ export class QuestionsComponent implements OnInit {
         });
       }
     });
+
+  }
+
+  autoTextareaResize(event: any, textarea: HTMLElement) {
+    if (event) {
+      textarea = event.target;
+    }
+    if (textarea.clientHeight < textarea.scrollHeight) {
+      textarea.style.height = textarea.scrollHeight + 'px';
+      if (textarea.clientHeight < textarea.scrollHeight) {
+        textarea.style.height = (textarea.scrollHeight * 2 - textarea.clientHeight) + 'px';
+      }
+    }
   }
 
   evaluationChange(evaluation) {

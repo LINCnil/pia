@@ -282,10 +282,7 @@ export class EvaluationsComponent implements OnInit, DoCheck {
    */
   activateEvaluationEdition() {
     this.enableEvaluationButtons();
-    this.evaluationForm.controls['actionPlanComment'].enable();
-    this.evaluationForm.controls['evaluationComment'].enable();
-    this.evaluationForm.controls['gaugeX'].enable();
-    this.evaluationForm.controls['gaugeY'].enable();
+    this.evaluationForm.enable();
   }
 
   /**
