@@ -113,22 +113,18 @@
           border-bottom: 1px solid $pia-green;
           textarea {
             resize: none;
-            margin-top: 5px;
+            display: block;
             width: 100%;
-            max-width: 500px;
-            margin-bottom: 16px;
             background-color: $pia-white;
-            border:none;
-            padding-top: 20px;
-            padding-left: 5px;
-            font-size: 1.4rem;
-            &[placeholder] {
-              color: $pia-gray;
+            border: 0;
+            padding: 5px 12px;
+            font-size: 1.35rem;
+            &::placeholder {
               font-style: italic;
-              font-size: 1.2rem;
             }
-            &[disabled] {
-              background-color: white;
+            &:disabled {
+              background-color: transparent;
+              color: $pia-dark-black;
             }
           }
         }

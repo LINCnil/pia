@@ -6,18 +6,6 @@ import { Answer } from 'app/entry/entry-content/questions/answer.model';
 
 import { EvaluationService } from './evaluations.service';
 
-/**
- * TODO : switch the redundant code about evaluation update here in an EvaluationsService...
- * Create a method like "updateEvaluation(section, item, pia.id, data)"
- * Where datas would contain all evaluation information :
- * clicked button to set evaluation status,
- * action plan comment,
- * evaluation comment,
- * ...
- * /!\ The fact that it doesn't update evaluations right after feeling questions/measures
- * probably comes from this point... that's why we should probably use a service.
- */
-
 @Component({
   selector: 'app-evaluations',
   templateUrl: './evaluations.component.html',
@@ -101,6 +89,16 @@ export class EvaluationsComponent implements OnInit, DoCheck {
         this.displayEditButton = true;
         this.evaluationForm.controls['evaluationComment'].disable();
       }
+
+      // Textareas auto resize
+      /*const evaluationActionPlanTextarea = document.getElementById('pia-evaluation-action-plan-' + this.evaluation.id);
+      if (evaluationActionPlanTextarea) {
+        this.autoTextareaResize(null, evaluationActionPlanTextarea);
+      }
+      const evaluationCommentTextarea = document.getElementById('pia-evaluation-comment' + this.evaluation.id);
+      if (evaluationCommentTextarea) {
+        this.autoTextareaResize(null, evaluationCommentTextarea);
+      }*/
     });
 
     if (this.item.questions) {
@@ -306,5 +304,18 @@ export class EvaluationsComponent implements OnInit, DoCheck {
       btn.removeAttribute('disabled');
     });
   }
+
+  /*autoTextareaResize(event: any, textarea: HTMLElement) {
+    if (event) {
+      textarea = event.target;
+    }
+    if (textarea.clientHeight < textarea.scrollHeight) {
+
+      textarea.style.height = textarea.scrollHeight + 'px';
+      if (textarea.clientHeight < textarea.scrollHeight) {
+        textarea.style.height = (textarea.scrollHeight * 2 - textarea.clientHeight) + 'px';
+      }
+    }
+  }*/
 
 }

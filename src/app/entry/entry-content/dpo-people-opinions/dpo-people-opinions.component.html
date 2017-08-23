@@ -40,7 +40,7 @@
           </div>
         </div>
         <div class="pia-entryContentBlock-content-DPO-reasons">
-          <textarea formControlName="DPOOpinion" (focusout)="DPOFocusOutOpinion()" rows="8" cols="50" placeholder="Précisez les raisons de votre choix"></textarea>
+          <textarea (keyup)="autoTextareaResize($event)" id="pia-opinions-dpo" formControlName="DPOOpinion" (focusout)="DPOFocusOutOpinion()" rows="8" cols="50" placeholder="Précisez les raisons de votre choix"></textarea>
         </div>
       </form>
     </div>
@@ -83,7 +83,7 @@
           </div>
         </div>
         <div class="pia-entryContentBlock-content-DPO-reasons">
-          <textarea rows="8" formControlName="peopleOpinion" (focusout)="peopleFocusOutOpinion()" cols="50" placeholder="Décrivez comment les avis ont été collectés et quelle en est l’analyse. Dans le cas où les avis n’ont pas été recherchés, en préciser les raisons."></textarea>
+          <textarea (keyup)="autoTextareaResize($event)" id="pia-opinions-people" rows="8" formControlName="peopleOpinion" (focusout)="peopleFocusOutOpinion()" cols="50" placeholder="Décrivez comment les avis ont été collectés et quelle en est l’analyse. Dans le cas où les avis n’ont pas été recherchés, en préciser les raisons."></textarea>
         </div>
       </form>
     </div>

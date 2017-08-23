@@ -76,6 +76,16 @@ export class DPOPeopleOpinionsComponent implements OnInit {
         this.displayPeopleEditButton = false;
         this.displayDpoEditButton = false;
       }
+
+      // Textareas auto resize
+      const DPOTextarea = document.getElementById('pia-opinions-dpo');
+      if (DPOTextarea) {
+        this.autoTextareaResize(null, DPOTextarea);
+      }
+      const peopleTextarea = document.getElementById('pia-opinions-people');
+      if (peopleTextarea) {
+        this.autoTextareaResize(null, peopleTextarea);
+      }
     });
   }
 
@@ -165,5 +175,17 @@ export class DPOPeopleOpinionsComponent implements OnInit {
   activatePeopleEdition() {
     this.displayPeopleEditButton = false;
     this.peopleForm.enable();
+  }
+
+  autoTextareaResize(event: any, textarea: HTMLElement) {
+    if (event) {
+      textarea = event.target;
+    }
+    if (textarea.clientHeight < textarea.scrollHeight) {
+      textarea.style.height = textarea.scrollHeight + 'px';
+      if (textarea.clientHeight < textarea.scrollHeight) {
+        textarea.style.height = (textarea.scrollHeight * 2 - textarea.clientHeight) + 'px';
+      }
+    }
   }
 }
