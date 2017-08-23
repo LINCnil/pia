@@ -1,4 +1,4 @@
-import { Component, Input, ElementRef, OnInit } from '@angular/core';
+import { Component, Input, ElementRef, OnInit, Renderer2 } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/map';
@@ -33,9 +33,18 @@ export class QuestionsComponent implements OnInit {
   constructor(private el: ElementRef,
               private _knowledgeBaseService: KnowledgeBaseService,
               private _evaluationService: EvaluationService,
-              private _modalsService: ModalsService) { }
+              private _modalsService: ModalsService,
+              private renderer: Renderer2) { }
 
   ngOnInit() {
+    const accordeonButton = this.el.nativeElement.querySelector('.pia-questionBlock-title button');
+    this.renderer.listen(accordeonButton, 'click', (evt) => {
+      const evaluationDisplayer = document.querySelector('.pia-evaluationBlock-question-' + this.question.id);
+      if (evaluationDisplayer) {
+        evaluationDisplayer.classList.toggle('show');
+      }
+    });
+
     this.questionForm = new FormGroup({
       gauge: new FormControl(0),
       text: new FormControl(),

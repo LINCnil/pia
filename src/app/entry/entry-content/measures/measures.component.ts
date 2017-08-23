@@ -1,4 +1,4 @@
-import { Component, Input, ElementRef, OnInit } from '@angular/core';
+import { Component, Input, ElementRef, Renderer2, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ModalsService } from 'app/modals/modals.service';
 import { Measure } from './measure.model';
@@ -25,9 +25,18 @@ export class MeasuresComponent implements OnInit {
   constructor(
     private el: ElementRef,
     private _modalsService: ModalsService,
-    private _evaluationService: EvaluationService) { }
+    private _evaluationService: EvaluationService,
+    private renderer: Renderer2) { }
 
   ngOnInit() {
+    const accordeonButton = this.el.nativeElement.querySelector('.pia-measureBlock-title button');
+    this.renderer.listen(accordeonButton, 'click', (evt) => {
+      const evaluationDisplayer = document.querySelector('.pia-evaluationBlock-measure-' + this.measure.id);
+      if (evaluationDisplayer) {
+        evaluationDisplayer.classList.toggle('show');
+      }
+    });
+
     this.measureForm = new FormGroup({
       measureTitle: new FormControl(),
       measureContent: new FormControl()

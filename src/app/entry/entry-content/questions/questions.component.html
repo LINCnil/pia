@@ -6,6 +6,7 @@
 -->
 <div class="pia-questionBlock approved" [attr.data-id]="question.id">
   <div class="pia-questionBlock-title">
+    <!-- TODO : get the accordeon orientation in synchronization with the opening/closing of the evaluation block -->
     <button class="btn" type="button" (click)="displayQuestion()" title="Afficher / masquer"><span class="pia-icons pia-icon-accordeon-up"></span></button>
     {{question.title}}
   </div>
