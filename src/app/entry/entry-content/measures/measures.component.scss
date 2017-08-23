@@ -18,13 +18,17 @@
         top: 50%;
         margin-top: -8.5px;
       }
-      input {
+      textarea {
+        overflow: hidden;
+        resize: none;
+        display: block;
         border: none;
         width: 100%;
         background-color: $pia-white;
         font-size: 1.75rem;
-        padding: 4px 0;
+        padding: 8px 0;
         padding-left: 12px;
+        line-height: 18px;
         color: $pia-dark-black;
         &::placeholder {
           font-style: italic;

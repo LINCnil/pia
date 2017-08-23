@@ -3,8 +3,8 @@
     <div class="pia-measureBlock-title">
       <!-- TODO : get the accordeon orientation in synchronization with the opening/closing of the evaluation block -->
       <button type="button" (click)="displayMeasure()" class="btn" title="Afficher / masquer"><span class="pia-icons pia-icon-accordeon-up"></span></button>
-      <input [attr.data-id]="measure.id" id="pia-measure-title-{{measure.id}}" formControlName="measureTitle"
-             (focusout)="measureTitleFocusOut($event)" type="text" placeholder="Titre de la mesure">
+      <textarea maxlength="120" rows="2" (keyup)="autoTextareaResize($event)" [attr.data-id]="measure.id" id="pia-measure-title-{{measure.id}}" formControlName="measureTitle"
+             (focusout)="measureTitleFocusOut($event)" placeholder="Titre de la mesure"></textarea>
     </div>
     <div class="pia-measureBlock-displayer fadeIn">
       <button type="button" class="btn pia-measureBlock-delete" *ngIf="displayDeleteButton"

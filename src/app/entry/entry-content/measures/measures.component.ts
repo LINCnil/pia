@@ -59,9 +59,13 @@ export class MeasuresComponent implements OnInit {
           this.measureForm.controls['measureContent'].disable();
         }
       }
-      const textarea = document.getElementById('pia-measure-content-' + this.measure.id);
-      if (textarea) {
-        this.autoTextareaResize(null, textarea);
+      const measureTitleTextarea = document.getElementById('pia-measure-title-' + this.measure.id);
+      if (measureTitleTextarea) {
+        this.autoTextareaResize(null, measureTitleTextarea);
+      }
+      const measureContentTextarea = document.getElementById('pia-measure-content-' + this.measure.id);
+      if (measureContentTextarea) {
+        this.autoTextareaResize(null, measureContentTextarea);
       }
     });
   }
