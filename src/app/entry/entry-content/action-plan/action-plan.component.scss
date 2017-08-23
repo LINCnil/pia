@@ -20,6 +20,9 @@
         text-align: right;
         justify-content: flex-end;
         margin: auto 10px;
+        &:last-child {
+          margin-bottom: 10px;
+        }
       }
       border-right: solid 1px $pia-white;
     }
@@ -45,6 +48,9 @@
         display: block;
         height: 138px;
         overflow-y: scroll;
+        > div:last-child {
+          margin-bottom: 14px;
+        }
       }
       .pia-actionPlanGraphBlock-item {
         display: flex;
