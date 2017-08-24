@@ -79,6 +79,10 @@ export class CardsComponent implements OnInit, OnDestroy {
       rocketToHide.style.display = 'none';
     }
   }
+  reversePIA() {
+    const cardsToSwitchReverse = document.getElementById('cardsSwitch');
+    cardsToSwitchReverse.classList.remove('flipped');
+  }
 
   /**
    * Allows users to import a PIA.

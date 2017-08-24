@@ -11,7 +11,7 @@ export class HeaderComponent implements OnInit {
 
   public increaseContrast: String;
   appVersion: string;
-
+  homepageDisplayMode = localStorage.getItem('homepageDisplayMode');
   constructor(private renderer: Renderer2) {
     this.updateContrast();
   }

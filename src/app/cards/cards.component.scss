@@ -236,6 +236,11 @@
 }
 #cardsSwitch .back {
   transform: rotateY( 180deg );
+  .pia-icon-close {
+    position: absolute;
+    top: 6px;
+    right: 9px;
+  }
 }
 #cardsSwitch.flipped .back {
   transform: rotateY( 0deg );
