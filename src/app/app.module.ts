@@ -44,6 +44,7 @@ import { OverviewRisksComponent } from './entry/entry-content/overview-risks/ove
 import { ErrorsComponent } from './errors/errors.component';
 import { ActionPlanImplementationComponent } from './entry/entry-content/action-plan/action-plan-implementation/action-plan-implementation.component';
 import { environment } from '../environments/environment';
+import { ListItemComponent } from 'app/cards/list-item/list-item.component';
 
 
 const appRoutes: Routes = [
@@ -105,6 +106,7 @@ if (environment.production) {
     OverviewRisksComponent,
     ErrorsComponent,
     ActionPlanImplementationComponent,
+    ListItemComponent,
   ],
   imports: [
     BrowserModule,

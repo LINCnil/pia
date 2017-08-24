@@ -14,14 +14,15 @@ import { PiaService } from 'app/entry/pia.service';
   styleUrls: ['./cards.component.scss'],
   providers: [PiaService],
 })
-export class CardsComponent implements OnInit {
+export class CardsComponent implements OnInit, OnDestroy {
   @Input() pia: any;
   newPia: Pia;
   piaForm: FormGroup;
   filter: string;
+  sortReverse: boolean;
   viewStyle: { view: string }
   view: 'card';
-  paramsSubscribe: Subscription
+  paramsSubscribe: Subscription;
 
   constructor(private router: Router,
               private route: ActivatedRoute,
@@ -35,6 +36,7 @@ export class CardsComponent implements OnInit {
       this.filter = localStorage.getItem('sort');
       if (this.filter && this.filter.length > 0) {
         this.sortBy(this.filter);
+        this.sortReverse = false;
       } else {
         this.sortBy('udpated_at');
       }
@@ -53,6 +55,17 @@ export class CardsComponent implements OnInit {
         this.viewStyle.view = params['view'];
       }
     );
+    if (localStorage.setItem('homepageDisplayMode', this.viewStyle.view)) {
+      localStorage.setItem('homepageDisplayMode', this.viewStyle.view);
+    } else {
+      const homepageDisplayMode = localStorage.getItem('homepageDisplayMode');
+      if (homepageDisplayMode === 'card') {
+        this.viewOnCard();
+      } else {
+        this.viewOnList();
+      }
+    }
+
   }
   /**
    * Creates a new PIA card and adds a flip effect to go switch between new PIA and edit PIA events.
@@ -89,27 +102,39 @@ export class CardsComponent implements OnInit {
   }
 
   /**
-   * Asort items created on PIA
+   *  Asort items created on PIA
    */
   sortBy(sort: string) {
+    this.sortReverse = !this.sortReverse;
     this.filter = sort;
     localStorage.setItem('sort', sort);
-    this._piaService.pias = this._piaService.pias.sort((a, b) => {
-      return (a[sort] > b[sort]) ? 1 : 0 ;
-    });
+    if (sort === 'name' || sort === 'author_name' || sort === 'evaluator_name' || sort === 'validator_name' || sort === 'created_at') {
+      if (this.sortReverse === true) {
+        this._piaService.pias = this._piaService.pias.sort((a, b) => {
+          return (a[sort] > b[sort]) ? 1 : 0 ;
+        });
+      } else {
+        this.sortReverse === false
+        this._piaService.pias.reverse();
+      }
+    }
     if (sort === 'updated_at') {
       this._piaService.pias.reverse();
     }
+    /** TODO sort on progress */
   }
   viewOnList() {
-    this.viewStyle.view = 'card-list';
-    this.router.navigate(['home', 'card-list']);
+    this.viewStyle.view = 'list';
+    localStorage.setItem('homepageDisplayMode', this.viewStyle.view);
+    this.router.navigate(['home', 'list']);
   }
+
   viewOnCard() {
     this.viewStyle.view = 'card';
+    localStorage.setItem('homepageDisplayMode', this.viewStyle.view);
     this.router.navigate(['home', 'card']);
   }
-  listNewPIA() {
-    this._modalsService.openModal('modal-list-new-pia');
+  ngOnDestroy() {
+    this.paramsSubscribe.unsubscribe();
   }
 }

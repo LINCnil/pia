@@ -46,7 +46,12 @@ export class PiaService {
 
     /* TODO : refactor this... */
     // Deletes the PIA from the view.
-    document.querySelector('.pia-cardsBlock.pia-doingBlock[data-id="' + piaID + '"]').remove();
+    if (localStorage.getItem('homepageDisplayMode') && localStorage.getItem('homepageDisplayMode') === 'list') {
+      document.querySelector('.app-list-item[data-id="' + piaID + '"]').remove();
+    } else {
+      document.querySelector('.pia-cardsBlock.pia-doingBlock[data-id="' + piaID + '"]').remove();
+    }
+
 
     localStorage.removeItem('pia-id');
     this._modalsService.closeModal();

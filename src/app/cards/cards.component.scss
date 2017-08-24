@@ -135,10 +135,10 @@
             text-decoration: none;
             color: #000;
           }
-          &:focus, &:hover, &:active {
+          &:focus, &:hover, &:active, .active {
             background-color: $pia-blue;
             a {
-              color: #fff;
+              color: #ffffff!important;
               font-weight: 600;
               cursor: pointer;
             }
@@ -244,126 +244,65 @@
   transform: rotateY( 180deg );
 }
 // List PIA
-.viewOnList {
-  .pia-filtersBlock-switch {
-    span {
-      font-size: 1.1rem;
-    }
-  }
-  .pia-listBlock-item {
-    display: flex;
-  }
-  .pia-filtersBlock {
-    align-self: center;
-    margin: 0;
-    &-hint {
-      width: 344px;
-      height: 58px;
-      display: flex;
-      padding: 5px;
-      justify-content: flex-start;
-      font-size: 1.7rem;
-      font-weight: 400;
-      span, p {
-        align-self: center;
-      }
-      span {
-        width: 24px;
-        height: 49px;
-        margin: 5px 20px;
-      }
-      p{
-        color: $pia-blue;
-      }
-    }
-  }
-  .pia-newBlock-item-new-btn {
-    align-self: center;
-    button {
-      display: flex;
-      justify-content: center;
-      border-radius: 20px;
-      background-color: $pia-green;
-      width: 140px;
-      height: 34px;
-      i {
-        font-size: 1.4rem;
-        margin: 0 5px;
-      }
-      i, span {
-        align-self: center;
-        color: $pia-white;
-      }
-      span {
-        font-size: 1.3rem;
-      }
-    }
-  }
-  .pia-list-table {
-    margin-top: 10px;
-    border-collapse: collapse;
-    width:100%;
-    max-width: 100%;
-    display: table;
-    border-bottom: 1px solid #d0d0d0;
-    thead tr {
-      background-color: $pia-dark-black;
-      color: $pia-white;
-      text-transform: uppercase;
-      font-size: 1.3rem;
-      text-align: left;
+.pia-list-table {
+  margin-top: 10px;
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #d0d0d0;
+  thead {
+    background-color: $pia-dark-black;
+    color: $pia-white;
+    text-transform: uppercase;
+    font-size: 1.3rem;
+    text-align: left;
+    display: table-header-group;
+    vertical-align: middle;
+    tr {
       display: table-row;
-      th {
-        display: table-cell;
-        padding: 5.5px 0;
-        i {
-          font-size: 1.7rem;
-        }
+    }
+    th {
+      width: 150px;
+      display: table-cell;
+      a {
+        padding: 5px 0;
+        color: $pia-white;
+        text-decoration: none;
+        display: flex;
+        cursor: pointer;
+        justify-content: space-between;
         span {
-          padding-left: 10px;
-          border-left: solid 1px $pia-white;
+          align-self: center;
+          padding-left: 13px;
         }
-        &:first-child span:first-of-type {
-          border: 0;
+        i {
+          padding-right: 13px;
+          color: $pia-white;
+          font-size: 2.5rem;
+          align-self: center;
         }
-        &:nth-child(1), &:nth-child(2), &:nth-child(3), &:nth-child(4) {
-          max-width: 100%;
-          width: 200px;
-        }
-        &:nth-child(6){
-          i {
-            vertical-align: middle;
-            font-size: 2.5rem;
-            padding-left: 13px;
-          }
-        }
-        &:nth-child(5), &:nth-child(6) {
-          max-width: 100%;
-          width: 100px;
-        }
-        &:nth-child(7) {
-          max-width: 100%;
-          width: 180px;
+        &:active {
+          color: $pia-green;
         }
       }
-    }
-    tbody tr {
-      &:nth-child(odd)		{ background-color:rgba($pia-white, 1); }
-      &:nth-child(even)		{ background-color:rgba(#e5fdf1, 1); }
-      td {
-        padding-left: 10px;
+      span {
+        border-left: solid 1px $pia-white;
         &:last-child {
-          span {
-            display: flex;
-            justify-content: space-around;
-          }
-          a i{
-            color: $pia-green;
-            font-size: 2rem;
-          }
+            padding-left: 13px;
         }
+      }
+      &:first-child span:first-of-type {
+        border: 0;
       }
     }
   }
 }
 
+.app-list-item {
+  display: table-row;
+
+  &:nth-child(even) {
+    background-color: rgba(62, 224, 149, 0.15);
+  }
+}

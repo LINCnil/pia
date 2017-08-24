@@ -1,4 +1,4 @@
-import { Component, OnInit, ComponentRef, Input, Output } from '@angular/core';
+import { Component, OnInit, Input} from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Pia } from '../../entry/pia.model';
 import { Router } from '@angular/router';
@@ -25,16 +25,15 @@ export class CardItemComponent implements OnInit {
   }
 
   ngOnInit() {
-    this._piaService.getProgress(this.pia.id).then((nb: number) => {
-      this.progress = nb;
-    });
-
     this.piaForm = new FormGroup({
       id: new FormControl(this.pia.id),
       name: new FormControl({ value: this.pia.name, disabled: true }),
       author_name: new FormControl({ value: this.pia.author_name, disabled: true }),
       evaluator_name: new FormControl({ value: this.pia.evaluator_name, disabled: true }),
       validator_name: new FormControl({ value: this.pia.validator_name, disabled: true })
+    });
+    this._piaService.getProgress(this.pia.id).then((nb: number) => {
+      this.progress = nb;
     });
   }
 

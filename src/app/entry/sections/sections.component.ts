@@ -21,6 +21,7 @@ export class SectionsComponent implements OnInit, OnChanges {
   @Input() data: any;
   showValidationButton = false;
   showRefuseButton = false;
+  homepageDisplayMode = localStorage.getItem('homepageDisplayMode');
 
   constructor(private _piaService: PiaService, private _evaluationService: EvaluationService) {
   }

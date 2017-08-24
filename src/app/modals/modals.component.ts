@@ -35,6 +35,7 @@ export class ModalsComponent implements OnInit {
       evaluator_name: new FormControl(),
       validator_name: new FormControl()
     });
+    this.newPia = new Pia();
   }
 
   /**

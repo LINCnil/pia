@@ -1,196 +1,201 @@
 <app-header></app-header>
 
-<div *ngIf="viewStyle.view == 'card'" class="container pia-mainContainerBlock">
-    <div class="row">
-      <div class="small-12 medium-12 columns">
-        <div class="pia-filtersBlock">
-          <button class="pia-filtersBlock-switch btn" (click)="viewOnList()" type="button">
-            <i class="fa fa-list" aria-hidden="true"></i>
-            <div>liste</div>
-          </button>
-          <div class="pia-filtersBlock-filters">
-            <button class="pia-filtersBlock-filters-btn btn" type="button">
-              Trier les PIA
-              <span class="pia-icons pia-icon-scroll-green"></span>
-            </button>
-            <div class="pia-filtersBlock-filters-list">
-              <span>par</span>
-              <ul>
-                <li [ngClass]="{'active': filter == 'name'}">
-                  <a (click)="sortBy('name');">Nom</a>
-                </li>
-                <li [ngClass]="{'active': filter == 'created_at'}">
-                  <a (click)="sortBy('created_at');">Date</a>
-                </li>
-                <li [ngClass]="{'active': filter == 'status'}">
-                  <a (click)="sortBy('status');">Status</a>
-                </li>
-                <li [ngClass]="{'active': filter == 'author_name'}">
-                  <a (click)="sortBy('author_name');">Editeur</a>
-                </li>
-                <li [ngClass]="{'active': filter == 'evaluator_name'}">
-                  <a (click)="sortBy('evaluator_name');">Evaluateur</a>
-                </li>
-                <li [ngClass]="{'active': filter == 'validator_name'}">
-                  <a (click)="sortBy('validator_name');">Valideur</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <!--
-          <div class="pia-filtersBlock-buttons">
-              <button type="button" class="btn btn-green"><i class="fa fa-folder-open" aria-hidden="true"></i>Nouveau PIA</button>
-              <button type="button" class="btn btn-green"><i class="fa fa-upload" aria-hidden="true"></i>Importer PIA</button>
-          </div>
-          <div class="pia-filtersBlock-hint">
-              <div>
-                  <span class="pia-icons pia-icon-rocket-small"></span>
-                  <p>
-                      Lancez-vous ! Pour commencer<br>
-                      un PIA, c'est par là.
-                  </p>
-              </div>
-          </div>
-          -->
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="small-12 medium-12 columns">
-        <div class="pia-cardsBlock pia-newBlock" id="cardsSwitch">
-            <div class="pia-newBlock-item front" id="pia-new-card">
-                <div class="pia-newBlock-item-new">
-                    <div class="pia-newBlock-item-new-title">Nouveau PIA</div>
-                    <div class="pia-newBlock-item-new-btn">
-                        <i class="fa fa-folder-open" aria-hidden="true"></i>
-                        <button class="btn" (click)="newPIA()" type="button" title="Nouveau PIA"><span class="pia-icons pia-icon-pia-plus"></span></button>
-                    </div>
-                </div>
-                <span>ou</span>
-                <div class="pia-newBlock-item-import">
-                    <div class="pia-newBlock-item-import-title">Importer PIA</div>
-                    <div class="pia-newBlock-item-import-btn">
-                        <i class="fa fa-upload" aria-hidden="true"></i>
-                        <button class="btn" onclick="alert('Bientôt disponible.');" type="button" title="Importer PIA"><span class="pia-icons pia-icon-pia-plus"></span></button>
-                    </div>
-                </div>
-            </div>
-
-          <div class="pia-cardsBlock pia-editBlock back">
-            <div class="pia-cardsBlock-item pia-editBlock-item">
-              <form class="pia-cardsBlock-item-form" (ngSubmit)="onSubmit(piaForm)" [formGroup]="piaForm">
-                <div>
-                  <label for="name">Nom du PIA</label>
-                  <input formControlName="name" type="text" placeholder="Intitulé" id="name" required>
-                </div>
-                <div>
-                  <label for="author_name">Saisie</label>
-                  <input formControlName="author_name" type="text" placeholder="Prénom, nom" id="author_name" required>
-                </div>
-                <div>
-                  <label for="evaluator_name">Évaluation</label>
-                  <input formControlName="evaluator_name" type="text" placeholder="Prénom, nom" id="evaluator_name" required>
-                </div>
-                <div>
-                  <label for="validator_name">Validation</label>
-                  <input formControlName="validator_name" type="text" placeholder="Prénom, nom" id="validator_name" required>
-                </div>
-                <div class="pia-cardsBlock-item-date" *ngIf="newPia">
-                  <div>Date</div>
-                  <time>{{newPia.created_at | date: 'dd/MM/yyyy'}}</time>
-                </div>
-                <div class="pia-cardsBlock-item-status">
-                  <div class="pia-cardsBlock-item-status-infos">
-                    <div>Status</div>
-                    <div>Création</div>
-                  </div>
-                  <div class="pia-cardsBlock-item-status-progressBar">
-                    <div>0%</div>
-                    <progress max="100" value="0">
-                    </progress>
-                  </div>
-                </div>
-                <div class="pia-cardsBlock-item-btn">
-                  <button type="submit" [disabled]="piaForm.invalid" class="btn btn-green" id="pia-save-card-btn">Commencer</button>
-                </div>
-              </form>
-            </div>
-          </div>
-
-          <div class="pia-newBlock-hint" *ngIf="_piaService.pias && _piaService.pias.length == 0" id="pia-rocket">
-            <span class="pia-icons pia-icon-small-arrow"></span>
-            <div>
-              <span class="pia-icons pia-icon-rocket"></span>
-              <p>
-                Lancez-vous !<br><br>
-                Pour commencer<br>
-                un PIA, c'est par là.
-              </p>
-            </div>
-          </div>
-        </div>
-        <app-card-item *ngFor="let pia of _piaService.pias;let i=index" [pia]="pia"></app-card-item>
-      </div>
-    </div>
-</div>
-<div *ngIf="viewStyle.view === 'card-list'" class="container pia-mainContainerBlock viewOnList">
+<div class="container pia-mainContainerBlock">
   <div class="row">
     <div class="small-12 medium-12 columns">
-      <div class="pia-listBlock-item">
-        <div class="pia-filtersBlock">
-          <button class="pia-filtersBlock-switch btn" (click)="viewOnCard()" type="button"><i class="fa fa-th" aria-hidden="true"></i><span>Carte</span></button>
+      <div class="pia-filtersBlock">
+        <button class="pia-filtersBlock-switch btn" type="button" *ngIf="viewStyle.view == 'list'" (click)="viewOnCard()">
+          <i class="fa fa-list" aria-hidden="true"></i>
+          <div>carte</div>
+        </button>
+        <button class="pia-filtersBlock-switch btn" type="button" *ngIf="viewStyle.view == 'card'" (click)="viewOnList()">
+          <i class="fa fa-list" aria-hidden="true"></i>
+          <div>liste</div>
+        </button>
+        <div class="pia-filtersBlock-filters">
+          <button class="pia-filtersBlock-filters-btn btn" type="button">
+            Trier les PIA
+            <span class="pia-icons pia-icon-scroll-green"></span>
+          </button>
+          <div class="pia-filtersBlock-filters-list">
+            <span>par</span>
+            <ul>
+              <li [ngClass]="{'active': filter == 'name'}">
+                <a (click)="sortBy('name');">Nom</a>
+              </li>
+              <li [ngClass]="{'active': filter == 'created_at'}">
+                <a (click)="sortBy('created_at');">Date</a>
+              </li>
+              <li [ngClass]="{'active': filter == 'status'}">
+                <a (click)="sortBy('status');">Status</a>
+              </li>
+              <li [ngClass]="{'active': filter == 'author_name'}">
+                <a (click)="sortBy('author_name');">Editeur</a>
+              </li>
+              <li [ngClass]="{'active': filter == 'evaluator_name'}">
+                <a (click)="sortBy('evaluator_name');">Evaluateur</a>
+              </li>
+              <li [ngClass]="{'active': filter == 'validator_name'}">
+                <a (click)="sortBy('validator_name');">Valideur</a>
+              </li>
+            </ul>
+          </div>
         </div>
-        <div class="pia-newBlock-item-new-btn">
-          <button class="btn" (click)="listNewPIA()" type="button" title="Nouveau PIA"><i class="fa fa-folder-open" aria-hidden="true"></i><span>Nouveau PIA</span></button>
-        </div>
-        <div class="pia-newBlock-item-new-btn">
-          <button class="btn" (click)="importPIA()" type="button" title="Importer PIA"><i class="fa fa-upload" aria-hidden="true"></i><span>Importer PIA</span></button>
+        <div *ngIf="viewStyle.view === 'list'" class="pia-filtersBlock-buttons">
+          <button type="button" class="btn btn-green" (click)="_modalsService.openModal('modal-list-new-pia')"><i class="fa fa-folder-open" aria-hidden="true"></i>Nouveau PIA</button>
+          <button type="button" onclick="alert('Bientôt disponible.');" class="btn btn-green"><i class="fa fa-upload" aria-hidden="true"></i>Importer PIA</button>
         </div>
         <div class="pia-filtersBlock-hint">
-          <span class="pia-icons pia-icon-rocket-small"></span>
-          <p>
-            Lancez-vous ! Pour commencer<br>
-            un PIA, c'est par là.
-          </p>
+          <div>
+            <span class="pia-icons pia-icon-rocket-small"></span>
+            <p>
+              Lancez-vous ! Pour commencer<br>
+              un PIA, c'est par là.
+            </p>
+          </div>
         </div>
       </div>
     </div>
   </div>
   <div class="row">
-    <div class="small-12 medium-12 columns">
-      <table class="pia-list-table">
-        <thead>
-        <tr>
-          <th><span>Pia</span><a (click)="sortBy('name');"><i class="fa fa-caret-down" aria-hidden="true"></i></a></th>
-          <th ><span>Saisie</span><a (click)="sortBy('author_name');"><i class="fa fa-caret-down" aria-hidden="true"></i></a></th>
-          <th><span>Evaluation</span><a (click)="sortBy('evaluator_name');"><i class="fa fa-caret-down" aria-hidden="true"></i></a></th>
-          <th><span>Validation</span><a (click)="sortBy('validator_name');"><i class="fa fa-caret-down" aria-hidden="true"></i></a></th>
-          <th><span>Date</span><a (click)="sortBy('created_at');"><i class="fa fa-caret-down" aria-hidden="true"></i></a></th>
-          <th><span>Status</span><a (click)="sortBy('status');"><i class="fa fa-caret-down" aria-hidden="true"></i></a></th>
-          <th><span>Action</span></th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr  *ngFor="let pia of _piaService.pias;let i=index">
-          <td>{{pia.name}}</td>
-          <td>{{pia.author_name}}</td>
-          <td>{{pia.evaluator_name}}</td>
-          <td>{{pia.validator_name}}</td>
-          <td><time>{{ pia.created_at | date: 'dd/MM/yyyy' }}</time></td>
-          <td *ngIf="pia.status === 0" >En cours</td>
-          <td *ngIf="pia.status === 1" >Archivée</td>
-          <td>
-            <span>
-              <a href="javascript:;" (click)="activateEdition()" class="btn pia-tooltip"><i class="fa fa-pencil" aria-hidden="true"></i></a>
-              <a href="javascript:;" title="Dupliquer le PIA" onclick="alert('Bientôt disponible.');"><i class="fa fa-clone" aria-hidden="true"></i></a>
-              <a href="#"><i class="fa fa-file-excel-o" aria-hidden="true"></i></a>
-              <a href="javascript:;" title="Supprimer le PIA" (click)="removePia(pia.id)"><i class="fa fa fa-trash-o" aria-hidden="true"></i></a>
-            </span>
-          </td>
-        </tr>
-        </tbody>
-      </table>
+    <div *ngIf="viewStyle.view === 'card'; else viewList" class="small-12 medium-12 columns">
+      <div class="pia-cardsBlock pia-newBlock" id="cardsSwitch">
+        <div class="pia-newBlock-item front" id="pia-new-card">
+          <div class="pia-newBlock-item-new">
+            <div class="pia-newBlock-item-new-title">Nouveau PIA</div>
+            <div class="pia-newBlock-item-new-btn">
+              <i class="fa fa-folder-open" aria-hidden="true"></i>
+              <button class="btn" (click)="newPIA()" type="button" title="Nouveau PIA"><span class="pia-icons pia-icon-pia-plus"></span></button>
+            </div>
+          </div>
+          <span>ou</span>
+          <div class="pia-newBlock-item-import">
+            <div class="pia-newBlock-item-import-title">Importer PIA</div>
+            <div class="pia-newBlock-item-import-btn">
+              <i class="fa fa-upload" aria-hidden="true"></i>
+              <button class="btn" onclick="alert('Bientôt disponible.');" type="button" title="Importer PIA"><span class="pia-icons pia-icon-pia-plus"></span></button>
+            </div>
+          </div>
+        </div>
+        <div class="pia-cardsBlock pia-editBlock back">
+          <div class="pia-cardsBlock-item pia-editBlock-item">
+            <form class="pia-cardsBlock-item-form" (ngSubmit)="onSubmit(piaForm)" [formGroup]="piaForm">
+              <div>
+                <label for="name">Nom du PIA</label>
+                <input formControlName="name" type="text" placeholder="Intitulé" id="name" required>
+              </div>
+              <div>
+                <label for="author_name">Saisie</label>
+                <input formControlName="author_name" type="text" placeholder="Prénom, nom" id="author_name" required>
+              </div>
+              <div>
+                <label for="evaluator_name">Évaluation</label>
+                <input formControlName="evaluator_name" type="text" placeholder="Prénom, nom" id="evaluator_name" required>
+              </div>
+              <div>
+                <label for="validator_name">Validation</label>
+                <input formControlName="validator_name" type="text" placeholder="Prénom, nom" id="validator_name" required>
+              </div>
+              <div class="pia-cardsBlock-item-date" *ngIf="newPia">
+                <div>Date</div>
+                <time>{{ newPia.created_at | date: 'dd/MM/yyyy'}}</time>
+              </div>
+              <div class="pia-cardsBlock-item-status">
+                <div class="pia-cardsBlock-item-status-infos">
+                  <div>Status</div>
+                  <div>Création</div>
+                </div>
+                <div class="pia-cardsBlock-item-status-progressBar">
+                  <div>0%</div>
+                  <progress max="100" value="0">
+                  </progress>
+                </div>
+              </div>
+              <div class="pia-cardsBlock-item-btn">
+                <button type="submit" [disabled]="piaForm.invalid" class="btn btn-green" id="pia-save-card-btn">Commencer</button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="pia-newBlock-hint" *ngIf="_piaService.pias && _piaService.pias.length == 0" id="pia-rocket">
+          <span class="pia-icons pia-icon-small-arrow"></span>
+          <div>
+            <span class="pia-icons pia-icon-rocket"></span>
+            <p>
+              Lancez-vous !<br><br>
+              Pour commencer<br>
+              un PIA, c'est par là.
+            </p>
+          </div>
+        </div>
+      </div>
+      <app-card-item *ngFor="let pia of _piaService.pias;let i=index" [pia]="pia"></app-card-item>
     </div>
+    <ng-template #viewList>
+      <div class="small-12 medium-12 columns">
+        <table class="pia-list-table">
+          <thead>
+          <tr>
+            <th>
+              <a (click)="sortBy('name')">
+                <span>PIA</span>
+                <i *ngIf="filter === 'name' && sortReverse === false" class="fa fa-caret-down"></i>
+                <i *ngIf="filter === 'name' && sortReverse === true" class="fa fa-caret-up"></i>
+              </a>
+            </th>
+            <th>
+              <a (click)="sortBy('updated_at')">
+                <span>Ouvert le</span>
+                <i *ngIf="filter === 'updated_at' && sortReverse === false" class="fa fa-caret-down"></i>
+                <i *ngIf="filter === 'updated_at' && sortReverse === true" class="fa fa-caret-up"></i>
+              </a>
+            </th>
+            <th>
+              <a (click)="sortBy('author_name')">
+                <span>Saisie</span>
+                <i *ngIf="filter === 'author_name' && sortReverse === false" class="fa fa-caret-down"></i>
+                <i *ngIf="filter === 'author_name' && sortReverse === true" class="fa fa-caret-up"></i>
+              </a>
+            </th>
+            <th>
+              <a (click)="sortBy('evaluator_name')">
+                <span>Évaluation</span>
+                <i *ngIf="filter === 'evaluator_name' && sortReverse === false" class="fa fa-caret-down"></i>
+                <i *ngIf="filter === 'evaluator_name' && sortReverse === true" class="fa fa-caret-up"></i>
+              </a>
+            </th>
+            <th>
+              <a (click)="sortBy('validator_name')">
+                <span>Validation</span>
+                <i *ngIf="filter === 'validator_name' && sortReverse === false" class="fa fa-caret-down"></i>
+                <i *ngIf="filter === 'validator_name' && sortReverse === true" class="fa fa-caret-up"></i>
+              </a>
+            </th>
+            <th>
+              <a (click)="sortBy('created_at')">
+                <span>Création</span>
+                <i *ngIf="filter === 'created_at' && sortReverse === false" class="fa fa-caret-down"></i>
+                <i *ngIf="filter === 'created_at' && sortReverse === true" class="fa fa-caret-up"></i>
+              </a>
+            </th>
+            <th>
+              <a (click)="sortBy('status')">
+                <span>Status</span>
+                <i *ngIf="filter === 'status' && sortReverse === false" class="fa fa-caret-down"></i>
+                <i *ngIf="filter === 'status' && sortReverse === true" class="fa fa-caret-up"></i>
+              </a>
+            </th>
+            <th>
+              <span>Actions</span>
+            </th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr class="app-list-item" [attr.data-id]="pia.id" *ngFor="let pia of _piaService.pias;let i=index" [pia]="pia"></tr>
+          </tbody>
+        </table>
+      </div>
+    </ng-template>
   </div>
 </div>
 <app-modals></app-modals>
