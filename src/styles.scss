@@ -115,6 +115,7 @@ tag-input-form {
   }
 }
 
+/*
 .ng2-tag-input--focused {
   background-color: rgba(0,0,0,0.1) !important;
 }
@@ -122,4 +123,12 @@ tag-input-form {
 .ng2-tag-input--focused tag-input-form form .ng2-tag-input__text-input {
   margin-top: 2px;
   background-color: rgba(0,0,0,0.05) !important;
+} */
+
+.ng2-tag-input.foundation-theme tag.tag--editing {
+  color: $pia-blue !important;
+}
+
+.tag--editing {
+  background-color: rgba(0,0,0,0.1) !important;
 }

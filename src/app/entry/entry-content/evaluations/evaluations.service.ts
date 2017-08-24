@@ -170,6 +170,13 @@ export class EvaluationService {
 
   checkForFinalValidation(evaluation: any) {
     let validationOk = true;
+
+    /*
+      - "A corriger" : action_plan_comment needed
+      - "A améliorer" : action_plan_comment optional, action_plan_comment needed
+      - "Acceptable" : action_plan_comment optional
+    */
+
     if (evaluation.status === 2) {
       if (!evaluation.action_plan_comment || evaluation.action_plan_comment.length <= 0) {
         validationOk = false;

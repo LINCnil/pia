@@ -17,7 +17,6 @@ import { Evaluation } from 'app/entry/entry-content/evaluations/evaluation.model
 })
 export class QuestionsComponent implements OnInit {
 
-  tags = [];
   userMeasures = [];
   @Input() question: any;
   @Input() item: any;
@@ -29,6 +28,7 @@ export class QuestionsComponent implements OnInit {
   answer: Answer = new Answer();
   measure: Measure = new Measure();
   reference_to: string;
+  lastSelectedTag: string;
 
   constructor(private el: ElementRef,
               private _knowledgeBaseService: KnowledgeBaseService,
@@ -224,6 +224,54 @@ export class QuestionsComponent implements OnInit {
     }
   }
 
+  onSelected(event) {
+    // When it returns an object (weird scenario)
+    if (event.hasOwnProperty('value')) {
+      this.lastSelectedTag = event.value;
+    } else {
+      this.lastSelectedTag = event;
+    }
+  }
+
+  /**
+   * Removes the measure tag from the database.
+   * @param {event} event any event.
+   */
+  onRemove(event) {
+    let list = [];
+    if (this.answer.id) {
+      list = this.answer.data.list;
+    }
+    let valueToRemove;
+    if (event.hasOwnProperty('value')) {
+      valueToRemove = event.value;
+    } else {
+      valueToRemove = event;
+    }
+    const index = list.indexOf(valueToRemove);
+    if (index >= 0) {
+      list.splice(list.indexOf(valueToRemove), 1);
+      this.createOrUpdateList(list);
+    }
+  }
+
+  onTagEdited(event) {
+    let list = [];
+    if (this.answer.id) {
+      list = this.answer.data.list;
+    }
+    const index = list.indexOf(this.lastSelectedTag);
+    let updatedValue;
+    // When it returns an object (weird scenario)
+    if (event.hasOwnProperty('value')) {
+      updatedValue = event.value;
+    } else {
+      updatedValue = event;
+    }
+    list[index] = updatedValue;
+    this.createOrUpdateList(list);
+  }
+
   onBlur(event) {
     if (event && event.length > 0) {
       let list = [];
@@ -236,6 +284,13 @@ export class QuestionsComponent implements OnInit {
       }
     }
   }
+
+  checkContentToAdd(event: any) {
+    const tagInput = event.target;
+
+  }
+
+
 
   /**
    * Create or update the tags list
@@ -254,22 +309,6 @@ export class QuestionsComponent implements OnInit {
       this.answer.create().then(() => {
         this._evaluationService.allowEvaluation();
       });
-    }
-  }
-
-  /**
-   * Removes the measure tag from the database.
-   * @param {event} event any event.
-   */
-  onRemove(event) {
-    let list = [];
-    if (this.answer.id) {
-      list = this.answer.data.list;
-    }
-    const index = list.indexOf(event);
-    if (index >= 0) {
-      list.splice(list.indexOf(event), 1);
-      this.createOrUpdateList(list);
     }
   }
 
