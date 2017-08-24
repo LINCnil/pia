@@ -5,7 +5,7 @@ $foundation-primary-dark: darken($foundation-primary, 10%);
 
 // this is the container's theme
 $foundation-theme: (
-    container-border-bottom: 2px solid transparent !important
+    container-border-bottom: 2px solid transparent !important,
 );
 
 // this is the tag's theme
@@ -37,9 +37,8 @@ $foundation-icon-theme: (
     transition: all 0.5s
 );
 
-// apply theme to the container
-.ng2-tag-input.foundation-theme {
-    @include tag-input-theme($foundation-theme);
+.ng2-tag-input.foundation-theme.ng2-tag-input--focused {
+  @include tag-input-theme($foundation-theme);
 }
 
 // apply theme to the tags

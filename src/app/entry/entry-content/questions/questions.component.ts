@@ -172,18 +172,19 @@ export class QuestionsComponent implements OnInit {
    */
   questionContentFocusOut() {
     const gaugeValue = parseInt(this.questionForm.value.gauge, 10);
+    if (this.answer.id) {
+      this.answer.data = { text: this.questionForm.value.text, gauge: this.answer.data.gauge, list: this.answer.data.list };
+      this.answer.update().then(() => {
+        this._evaluationService.allowEvaluation();
+        this.displayEditButton = true;
+        this.questionForm.controls['text'].disable();
+        if (gaugeValue > 0) {
+          this.questionForm.controls['gauge'].disable();
+        }
+      });
+    }
     if (this.questionForm.value.text && this.questionForm.value.text.length > 0) {
-      if (this.answer.id) {
-        this.answer.data = { text: this.questionForm.value.text, gauge: this.answer.data.gauge, list: this.answer.data.list };
-        this.answer.update().then(() => {
-          this._evaluationService.allowEvaluation();
-          this.displayEditButton = true;
-          this.questionForm.controls['text'].disable();
-          if (gaugeValue > 0) {
-            this.questionForm.controls['gauge'].disable();
-          }
-        });
-      } else {
+      if (!this.answer.id) {
         this.answer.pia_id = this.pia.id;
         this.answer.reference_to = this.reference_to;
         this.answer.data = { text: this.questionForm.value.text, gauge: 0, list: [] };
