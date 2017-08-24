@@ -45,7 +45,7 @@
           <button type="button" class="btn btn-green" (click)="_modalsService.openModal('modal-list-new-pia')"><i class="fa fa-folder-open" aria-hidden="true"></i>Nouveau PIA</button>
           <button type="button" onclick="alert('Bientôt disponible.');" class="btn btn-green"><i class="fa fa-upload" aria-hidden="true"></i>Importer PIA</button>
         </div>
-        <div class="pia-filtersBlock-hint">
+        <div class="pia-filtersBlock-hint" *ngIf="viewStyle.view === 'list'">
           <div>
             <span class="pia-icons pia-icon-rocket-small"></span>
             <p>
