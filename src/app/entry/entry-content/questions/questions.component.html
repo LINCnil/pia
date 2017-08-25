@@ -54,15 +54,14 @@
           <!-- Find where it saves in BDD... nothing here. WEIRD ! -->
           <tag-input
             *ngIf="question.answer_type == 'list'"
-            (focusout)="checkContentToAdd($event)"
             (onAdd)="onAdd($event)"
             (onSelect)="onSelected($event)"
-            [separatorKeyCodes]="[27, 13]"
+            (onBlur)="onBlur($event)"
             (onTagEdited)="onTagEdited($event)"
             (onRemove)="onRemove($event)"
+            [separatorKeyCodes]="[27, 13]"
             formControlName="list"
             [theme]="'foundation-theme'"
-            (onBlur)="onBlur($event)"
             [placeholder]="question.placeholder + '&#10010;'"
             [editable]="'false'"
             (focusin)="questionContentFocusIn()"

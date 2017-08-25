@@ -285,13 +285,6 @@ export class QuestionsComponent implements OnInit {
     }
   }
 
-  checkContentToAdd(event: any) {
-    const tagInput = event.target;
-
-  }
-
-
-
   /**
    * Create or update the tags list
    * @param {string[]} list of tags
