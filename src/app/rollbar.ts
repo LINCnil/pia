@@ -8,7 +8,15 @@ export let rollbarConfig = {
     captureUnhandledRejections: true,
     enabled: (environment.rollbar_key.length > 0),
     environment: environment.name,
-    autoInstrument: true
+    autoInstrument: true,
+    payload: {
+      client: {
+        javascript: {
+          code_version: environment.version,
+          source_map_enabled: true
+        }
+      }
+    }
 }
 
 @Injectable()
