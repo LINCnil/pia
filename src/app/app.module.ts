@@ -1,11 +1,9 @@
-import * as Raven from 'raven-js';
+import { RollbarService, RollbarErrorHandler, rollbarFactory } from './rollbar';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, ErrorHandler } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
-
 import { TagInputModule } from 'ngx-chips';
-
 import { HeaderComponent } from './header/header.component';
 import { AuthenticationComponent } from './authentication/authentication.component';
 import { CardsComponent } from './cards/cards.component';
@@ -55,22 +53,21 @@ const appRoutes: Routes = [
   { path: '**', component: ErrorsComponent }
 ];
 
-const providersList: any = [MeasureService, ModalsService, AttachmentsService, KnowledgeBaseService, EvaluationService, ActionPlanService];
+const providersList: any = [
+  MeasureService, ModalsService, AttachmentsService, KnowledgeBaseService, EvaluationService, ActionPlanService
+];
 
-if (environment.production) {
-  Raven
-    .config('https://cfbe7053066a4cde8093c1678e2f64a7@sentry.io/201063', { release: environment.version })
-    .install();
-}
-
-export class RavenErrorHandler implements ErrorHandler {
-  handleError(err: any): void {
-      Raven.captureException(err);
-  }
-}
-
-if (environment.production) {
-  providersList.push({ provide: ErrorHandler, useClass: RavenErrorHandler });
+if (environment.rollbar_key.length > 0) {
+  providersList.push(
+    {
+      provide: ErrorHandler,
+      useClass: RollbarErrorHandler
+    },
+    {
+      provide: RollbarService,
+      useFactory: rollbarFactory
+    }
+  );
 }
 
 @NgModule({
