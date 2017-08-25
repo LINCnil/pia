@@ -39,9 +39,23 @@ export class QuestionsComponent implements OnInit {
   ngOnInit() {
     const accordeonButton = this.el.nativeElement.querySelector('.pia-questionBlock-title button');
     this.renderer.listen(accordeonButton, 'click', (evt) => {
+      const commentsDisplayer = document.querySelector('.pia-commentsBlock-question-' + this.question.id);
       const evaluationDisplayer = document.querySelector('.pia-evaluationBlock-question-' + this.question.id);
+      /* TODO : Question closed + click on evaluation button (opening content) then click on question displayer = error... To be fixed. */
       if (evaluationDisplayer) {
-        evaluationDisplayer.classList.toggle('show');
+        const evaluationsBtns = evaluationDisplayer.parentElement.querySelectorAll('.pia-evaluationBlock-buttons button');
+        let evaluationChoosen = 'false';
+        [].forEach.call(evaluationsBtns, function(btn) {
+          if (btn.classList.contains('btn-active')) {
+            evaluationChoosen = 'true';
+          }
+        });
+        if (evaluationChoosen === 'true') {
+          evaluationDisplayer.classList.toggle('show');
+        }
+      }
+      if (commentsDisplayer) {
+        commentsDisplayer.classList.toggle('hide');
       }
     });
 

@@ -19,7 +19,7 @@
     </div>
   </form>
 
-  <app-comments [pia]="pia" [measure]="measure"></app-comments>
+  <app-comments [pia]="pia" [measure]="measure" [measureId]="measure.id"></app-comments>
 
   <app-evaluations *ngIf="item.evaluation_mode == 'question' && (_evaluationService.showValidationButton || _evaluationService.enableFinalValidation || _evaluationService.someItemNeedToBeFixed)"
                    (evaluationEvent)="evaluationChange($event)"

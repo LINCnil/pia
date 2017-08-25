@@ -87,7 +87,7 @@
   </div>
 
   <!-- TODO : to show only after a first edition (when the current question is created in DB) -->
-  <app-comments [pia]="pia" [question]="question"></app-comments>
+  <app-comments [pia]="pia" [question]="question" [questionId]="question.id"></app-comments>
 
   <app-evaluations (evaluationEvent)="evaluationChange($event)" *ngIf="item.evaluation_mode === 'question' && (_evaluationService.showValidationButton || _evaluationService.enableFinalValidation || _evaluationService.someItemNeedToBeFixed)" [pia]="pia" [section]="section" [item]="item" [questionId]="question.id"></app-evaluations>
 </div>

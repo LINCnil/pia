@@ -17,6 +17,8 @@ export class CommentsComponent implements OnInit {
   comments: any;
   @Input() question: any;
   @Input() measure: any;
+  @Input() questionId: any;
+  @Input() measureId: any;
   @Input() pia: any;
 
   constructor(private el: ElementRef,
