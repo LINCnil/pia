@@ -10,8 +10,12 @@ export let rollbarConfig = {
     environment: environment.name,
     autoInstrument: true,
     payload: {
-      source_map_enabled: true,
-      code_version: environment.version
+      client: {
+        javascript: {
+          code_version: environment.version,
+          source_map_enabled: true
+        }
+      }
     }
 }
 
