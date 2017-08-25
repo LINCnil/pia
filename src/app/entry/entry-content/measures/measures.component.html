@@ -1,4 +1,4 @@
-<div class="pia-measureBlock" [ngClass]="{'approved': _evaluationService.showValidationButton}" [attr.data-id]="measure.id">
+<div class="pia-measureBlock" [ngClass]="{'approved': evaluation.status === 2 || evaluation.status === 3}" [attr.data-id]="measure.id">
   <form [formGroup]="measureForm">
     <div class="pia-measureBlock-title">
       <!-- TODO : get the accordeon orientation in synchronization with the opening/closing of the evaluation block -->

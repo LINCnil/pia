@@ -11,16 +11,22 @@
       <h3 *ngIf="section.short_help">{{ section.short_help }}</h3>
       <h4 *ngIf="item.short_help">{{ item.short_help }}</h4>
     </div>
-    <a href="javascript:;" onclick="alert('Bientôt disponible')" class="btn pia-previewBlock" title="Aperçu">
+    <a *ngIf="section.id === 4 && item.id === 2;else defaultBlock" href="javascript:;" onclick="alert('Bientôt disponible')" class="btn pia-previewBlock" title="Export du plan d'action">
       <span class="pia-icons pia-icon-preview"></span>
-      <div>Aperçu</div>
+      <div>Export du<br>plan d'action</div>
     </a>
+    <ng-template #defaultBlock>
+      <a href="javascript:;" onclick="alert('Bientôt disponible')" class="btn pia-previewBlock" title="Aperçu">
+        <span class="pia-icons pia-icon-preview"></span>
+        <div>Aperçu</div>
+      </a>
+    </ng-template>
   </header>
 
   <ng-container *ngIf="item.is_measure; else appQuestions">
     <button (click)="_measureService.addNewMeasure(_piaService.pia)" class="btn btn-white btn-addMeasure" type="button"
             *ngIf="!_evaluationService.showValidationButton && !_evaluationService.enableFinalValidation"
-            title="Ajouter une mesure"><span class="pia-icons pia-icon-add"></span>Ajouter une mesure vide (sinon, utilisez la base de connaissance)</button>
+            title="Ajouter une mesure"><span class="pia-icons pia-icon-add"></span> Ajouter une mesure vide (sinon, utiliser la base de connaissance)</button>
     <app-measures *ngFor="let measure of _measureService.measures" [measure]="measure" [pia]="_piaService.pia" [section]="section" [item]="item"></app-measures>
   </ng-container>
   <ng-template #appQuestions>

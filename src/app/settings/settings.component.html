@@ -5,9 +5,9 @@
       <div class="pia-settingsBlock-server">
         <h1>Paramètres</h1>
         <form [formGroup]="settingsForm" (ngSubmit)="onSubmit()" novalidate >
-          <label for="server_url">URL du Serveur distant</label>
+          <label for="server_url">S'il vous plaît, veuillez fournir l'adresse (URL) du serveur distant :</label>
           <input type="text" id="server_url" formControlName="server_url">
-          <button type="submit" [disabled]="setting.id === undefined" class="btn btn-green" ngClass="{'btn--processing': formProcessing}">Mettre à jour l'url</button>
+          <button type="submit" title="Mettre à jour l'URL" [disabled]="setting.id === undefined" class="btn btn-green" ngClass="{'btn--processing': formProcessing}">Mettre à jour l'URL</button>
         </form>
       </div>
     </div>

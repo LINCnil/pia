@@ -4,7 +4,7 @@
     In addition of this class, questions should be 'locked' (uneditable).
     However, other questions ('to be fixed') don't get this special class and stay editable.
 -->
-<div class="pia-questionBlock approved" [attr.data-id]="question.id">
+<div class="pia-questionBlock" [ngClass]="{'approved': evaluation.status === 2 || evaluation.status === 3}" [attr.data-id]="question.id">
   <div class="pia-questionBlock-title">
     <!-- TODO : get the accordeon orientation in synchronization with the opening/closing of the evaluation block -->
     <button class="btn" type="button" (click)="displayQuestion()" title="Afficher / masquer"><span class="pia-icons pia-icon-accordeon-up"></span></button>

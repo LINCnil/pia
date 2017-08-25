@@ -140,13 +140,6 @@ export class QuestionsComponent implements OnInit {
     }
   }
 
-  /*
-   * TODO : a function to disable gauge after a value selection.
-   * It should disable range only if a value has been selected
-   * AND that the next target isn't the range input.
-   * It disables the field only when the user clicks something different that :
-   * The input textarea (under the gauge) OR the range input.
-  */
   checkGaugeChanges(event: any) {
     const value: string = event.target.value;
     const bgElement = event.target.parentNode.querySelector('.pia-gaugeBlock-background');

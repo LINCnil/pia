@@ -1,0 +1,600 @@
+/* CONTRAST CHANGES */
+body.pia-contrast {
+  /* buttons */
+  .btn {
+    &-inactive, &[disabled] {
+      color: $pia-gray-dark;
+      border-color: $pia-gray-dark;
+      &:focus, &:hover {
+        color: $pia-gray-dark;
+        background-color: transparent;
+      }
+    }
+    &-white {
+      color: $pia-green-dark;
+      &:focus, &:hover, &.btn-active, &.btn-active[disabled] {
+        color: $pia-green-dark;
+      }
+    }
+    &-green {
+      color: $pia-green-dark;
+      border-color: $pia-green-dark;
+      &:focus, &:hover, &.btn-active, &.btn-active[disabled] {
+        background-color: $pia-green-dark;
+        color: #fff;
+      }
+    }
+    &-blue {
+      color: $pia-blue;
+      border-color: $pia-blue;
+      &:focus, &:hover, &.btn-active, &.btn-active[disabled] {
+        background-color: $pia-blue;
+        color: #fff;
+      }
+    }
+    &-red {
+      color: $pia-red-dark;
+      border-color: $pia-red-dark;
+      &:focus, &:hover, &.btn-active, &.btn-active[disabled] {
+        background-color: $pia-red-dark;
+        color: #fff;
+      }
+    }
+  }
+
+  /* header */
+  .pia-navigationBlock {
+    &-company {
+      &:focus, &:hover, &:active {
+        > a {
+          background-color: $pia-green-dark !important;
+        }
+      }
+      > a {
+        &:focus, &:hover, &:active {
+          background-color: $pia-green-dark !important;
+        }
+      }
+      form {
+        border-color: $pia-gray-dark !important;
+        fieldset {
+          > div:first-of-type {
+            border-bottom-color: $pia-gray-dark !important;
+          }
+        }
+      }
+    }
+  }
+
+  /* cards */
+  .pia-filtersBlock {
+    &-switch,
+    &-filters-btn {
+      border-color: $pia-green-dark;
+      color: $pia-green-dark;
+      &:focus, &:hover, &:active {
+        background-color: $pia-green-dark;
+        border-color: $pia-green-dark;
+        color: #fff;
+      }
+    }
+    &-filters {
+      &:focus, &:hover, &:active {
+        .pia-filtersBlock-filters-btn {
+          background-color: $pia-green-dark !important;
+        }
+      }
+      &-list {
+        border-color: $pia-green-dark;
+        > span {
+          color: $pia-gray-dark !important;
+        }
+      }
+      .pia-icon-scroll-green {
+        background-position: -387px -58px;
+      }
+    }
+  }
+
+  .pia-cardsBlock {
+    &.pia-doingBlock {
+      .pia-cardsBlock-header-title {
+       border-bottom-color: $pia-red-dark;
+       color: $pia-red-dark;
+      }
+    }
+    &-item {
+      &-status {
+        &-infos {
+          > div:first-child {
+            color: $pia-gray-dark;
+          }
+        }
+        &-progressBar {
+          > div {
+            color: $pia-green-dark;
+          }
+          progress[value] {
+            &::-webkit-progress-bar,
+            &::-webkit-progress-value,
+            &::-moz-progress-bar {
+              color: $pia-green-dark !important;
+              background-color: $pia-green-dark !important;
+            }
+          }
+          progress {
+            &:before, &:after {
+              background-color: $pia-green-dark !important;
+            }
+          }
+        }
+      }
+      &-btn {
+        border-top-color: $pia-green-dark;
+      }
+      &-form {
+        label {
+          color: $pia-gray-dark;
+        }
+        input::placeholder {
+          color: $pia-gray-dark !important;
+        }
+      }
+      &-date {
+        div {
+          color: $pia-gray-dark;
+        }
+      }
+    }
+    &-toolbar {
+      a {
+        color: $pia-green-dark;
+      }
+      &-more {
+        ul li {
+          color: $pia-green-dark;
+          &:focus, &:hover, &:active {
+            background-color: $pia-green-dark;
+            i {
+              color: #fff;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .pia-newBlock,
+  .pia-editBlock,
+  .pia-archiveBlock {
+    &-item {
+      color: $pia-green-dark;
+    }
+  }
+
+  .pia-newBlock {
+    &-item {
+      .pia-icon-pia-plus {
+        background-position: -409px -137px;
+      }
+      > span {
+        color: $pia-gray-dark !important;
+      }
+    }
+    #pia-new-card {
+      border-color: $pia-gray-dark !important;
+    }
+  }
+
+  .pia-editBlock {
+    border-color: $pia-green-dark;
+  }
+
+  .pia-tooltip {
+    &-text {
+      background-color: $pia-green-dark;
+      &:before {
+        background-position: -392px -93px;
+      }
+    }
+  }
+
+  #pia-rocket {
+    > div {
+      .pia-icon-rocket {
+        background-position: -412px -406px;
+      }
+    }
+  }
+
+  /* entry-content */
+  .pia-entryContentBlock {
+    &-section1 {
+      .pia-entryContentBlock-header {
+        div:first-child {
+          background-color: $pia-green-dark;
+        }
+        h1 {
+          color: $pia-green-dark;
+        }
+      }
+    }
+    &-section3 {
+      .btn-addMeasure {
+        .pia-icon-add {
+          background-position: -223px -2px;
+        }
+      }
+      .pia-entryContentBlock-header {
+        div:first-child {
+          background-color: $pia-red-dark !important;
+        }
+        h1 {
+          color: $pia-red-dark !important;
+        }
+      }
+    }
+    &-footer {
+      p {
+        color: $pia-gray-dark !important;
+      }
+      &-measures {
+        button:first-child {
+          .pia-icon-add {
+            background-position: -223px -2px;
+          }
+        }
+      }
+      // footer for validation page
+      &-validationTools {
+        > a, button {
+          i {
+            color: $pia-green-dark !important;
+          }
+          p {
+            color: $pia-gray-dark !important;
+          }
+        }
+      }
+    }
+    // content for action plan page
+    &-content {
+      &-measures, &-risks {
+        h2 {
+          background-color: $pia-red-dark !important;
+        }
+      }
+    }
+  }
+
+  .pia-previewBlock {
+    .pia-icon-preview {
+      background-position: -272px -63px;
+    }
+    > div {
+      color: $pia-green-dark !important;
+    }
+  }
+
+  /* sections */
+  .pia-sectionBlock {
+    &-header {
+      border-bottom-color: $pia-gray-dark !important;
+      .pia-icon-close-big {
+        background-position: -323px -86px;
+      }
+    }
+    &-title {
+      hr {
+        background-color: $pia-gray-dark !important;
+      }
+    }
+    &-list {
+      li {
+        &::before {
+          content: "";
+          border-top: solid 1px $pia-gray-dark  !important;
+          color: $pia-gray-dark !important;
+        }
+        i {
+          color: $pia-gray-dark !important;
+        }
+      }
+    }
+    &-body {
+      > div {
+        &:first-child {
+          .pia-sectionBlock-title {
+            color: $pia-green-dark !important;
+            border-color: $pia-green-dark !important;
+          }
+          a {
+            &:focus, &:hover, &:active, &.active {
+              background-color: $pia-green-dark !important;
+            }
+          }
+        }
+        &:nth-child(3) {
+          .pia-sectionBlock-title {
+            color: $pia-red-dark !important;
+            border-color: $pia-red-dark !important;
+          }
+          a {
+            &:focus, &:hover, &:active, &.active {
+              background-color: $pia-red-dark !important;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  /* attachments */
+  .pia-attachmentsBlock {
+    &-item {
+      border-color: $pia-gray-dark;
+    }
+    &-addBtn {
+      color: $pia-green-dark;
+      .pia-icon-add {
+        background-position: -223px -3px;
+      }
+    }
+  }
+
+
+  /* knowledge-base */
+  .pia-knowledgeBaseBlock {
+    &-header {
+      color: $pia-gray-dark;
+      border-bottom-color: $pia-gray-dark;
+    }
+    &-searchForm {
+      i {
+        color: $pia-gray-dark !important;
+      }
+    }
+    &-filters {
+      > div:first-child {
+        color: $pia-gray-dark !important;
+      }
+      button {
+        color: $pia-gray-dark !important;
+        &.active {
+          color: $pia-blue !important;
+        }
+      }
+    }
+    &-item {
+      border-top-color: $pia-green-dark;
+      .pia-icon-accordeon-up {
+        background-position: -343px -140px;
+      }
+      .pia-icon-accordeon-down {
+        background-position: -341px -166px;
+      }
+      &-definition {
+        > p {
+          color: $pia-red-dark !important;
+        }
+        .btn {
+          .pia-icon-add {
+            background-position: -223px -2px;
+          }
+          p {
+            color: $pia-green-dark !important;
+          }
+        }
+        > div {
+         .pia-icon-hand {
+           background-position: -78px -20px;
+         }
+        }
+      }
+    }
+  }
+
+  /* measures AND questions */
+  .pia-measureBlock, .pia-questionBlock {
+    &.approved {
+      border-color: $pia-gray-dark;
+    }
+    &-title {
+      .pia-icon-accordeon-up {
+        background-position: -343px -140px;
+      }
+      .pia-icon-accordeon-down {
+        background-position: -341px -166px;
+      }
+    }
+    &-edit {
+      color: $pia-gray-dark;
+    }
+    &-delete {
+      color: $pia-red-dark;
+    }
+    form {
+      input::placeholder,
+      textarea::placeholder {
+        color: $pia-gray-dark !important;
+      }
+    }
+  }
+
+  /* comments */
+  .pia-commentsBlock {
+    &-infos {
+      border-top-color: $pia-green-dark;
+    }
+    &-btn {
+      button {
+        color: $pia-green-dark !important;
+        .pia-icon-accordeon-up {
+          background-position: -343px -140px;
+        }
+        .pia-icon-accordeon-down {
+          background-position: -341px -166px;
+        }
+      }
+    }
+    &-content {
+      border-color: $pia-gray-dark !important;
+    }
+    &-date time {
+      color: $pia-gray-dark !important;
+    }
+  }
+
+  /* evaluations */
+  .pia-evaluationBlock {
+    border-top-color: $pia-red-dark;
+    &-title {
+      color: $pia-red-dark;
+    }
+    &-edit {
+      button {
+        color: $pia-red-dark !important;
+      }
+    }
+    &-date {
+      color: $pia-gray-dark;
+    }
+    &-gauge {
+      .red-highlight {
+        color: $pia-red-dark;
+      }
+    }
+  }
+
+  /* modals */
+  .pia-modalBlock {
+    .pia-icon-happy {
+      background-position: -127px -391px;
+    }
+    .pia-icon-sad {
+      background-position: -128px -600px;
+    }
+    .pia-icon-close-big {
+      background-position: -323px -86px;
+    }
+  }
+
+  /* PIA validation page */
+  .pia-validationBlock {
+    .pia-entryContentBlock-content {
+      &-list {
+        form {
+          > p {
+            color: $pia-gray-dark !important;
+          }
+        }
+        &-confirm {
+          input:checked + label {
+            border: solid $pia-green-dark 1px !important;
+            .fa-check {
+              color: $pia-green-dark !important;
+            }
+          }
+        }
+        &-confirm.validate {
+          label {
+            border: 1px solid $pia-green-dark !important;
+            background-color: $pia-green-dark !important;
+          }
+        }
+      }
+    }
+  }
+  .pia-validationHistoryBlock-refuse {
+    border-top: 5px solid $pia-red-dark;
+    &-title {
+      > p {
+        color: $pia-red-dark;
+      }
+    }
+  }
+
+  /* PIA refusal page */
+  .pia-ValidationRefuse {
+    textarea {
+      border-bottom: 1px solid $pia-green-dark !important;
+    }
+  }
+
+  /* cartography */
+  .pia-cartographyBlock {
+    &-abscisses, &-ordinates {
+      div {
+        color: $pia-gray-dark !important;
+      }
+    }
+    &-legend {
+      li:first-child {
+        color: $pia-red-dark !important;
+      }
+    }
+    &-date {
+      border-top: 1px solid $pia-green-dark;
+      time {
+        color: $pia-gray-dark !important;
+      }
+    }
+  }
+
+  /* action plan */
+  .pia-actionPlanGraphBlock {
+    &-item {
+      .pia-green {
+        background-color: $pia-green-dark !important;
+      }
+      .pia-red {
+        background-color: $pia-red-dark !important;
+      }
+    }
+    &-right {
+      h3 {
+        color: $pia-red-dark !important;
+      }
+    }
+    .pia-legend {
+      border-bottom: 1px solid $pia-green-dark !important;
+      p:last-child {
+        color: $pia-green-dark !important;
+      }
+    }
+  }
+  .pia-details-blocks-content {
+    > p {
+      border-bottom: 1px solid $pia-green-dark;
+    }
+    form {
+     input {
+       color: $pia-gray-dark !important;
+     }
+    }
+  }
+
+  /* DPO & people opinions page */
+  .pia-ValidationDPO {
+    .pia-entryContentBlock-content {
+      &-DPO, &-people {
+        &-reasons {
+          border-bottom: 1px solid $pia-green-dark !important;
+        }
+        &-treatment {
+          > div {
+            input:checked + label {
+              background-color: $pia-green-dark !important;
+            }
+            &:last-child {
+              input:checked + label {
+                background-color: $pia-red-dark !important;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+}
