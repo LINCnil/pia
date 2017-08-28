@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, Input, Output, EventEmitter, DoCheck } from '@angular/core';
+import { Component, ElementRef, OnInit, Input, Output, EventEmitter, AfterViewChecked, DoCheck } from '@angular/core';
 import { FormArray, FormControl, FormGroup } from '@angular/forms';
 
 import { Evaluation } from './evaluation.model';
@@ -11,7 +11,7 @@ import { EvaluationService } from './evaluations.service';
   templateUrl: './evaluations.component.html',
   styleUrls: ['./evaluations.component.scss']
 })
-export class EvaluationsComponent implements OnInit, DoCheck {
+export class EvaluationsComponent implements OnInit, AfterViewChecked, DoCheck {
 
   evaluationForm: FormGroup;
   @Input() item: any;
@@ -25,13 +25,28 @@ export class EvaluationsComponent implements OnInit, DoCheck {
   displayEditButton = false;
   previousGauges = {x: 0, y: 0};
   previousReferenceTo: string;
-
+  hasResizedContent = false;
   constructor(private el: ElementRef, private _evaluationService: EvaluationService) { }
 
   ngOnInit() {
     // Prefix item
     this.reference_to = this.section.id + '.' + this.item.id;
     this.checkEvaluationValidation();
+  }
+
+  ngAfterViewChecked() {
+    // Textareas auto resize
+    const evaluationActionPlanTextarea = document.querySelector('.pia-evaluation-action-plan-' + this.evaluation.id);
+    const evaluationCommentTextarea = document.querySelector('.pia-evaluation-comment-' + this.evaluation.id);
+    if (!this.hasResizedContent && evaluationCommentTextarea) {
+      this.hasResizedContent = true;
+      if (evaluationActionPlanTextarea) {
+        this.autoTextareaResize(null, evaluationActionPlanTextarea);
+      }
+      if (evaluationCommentTextarea) {
+        this.autoTextareaResize(null, evaluationCommentTextarea);
+      }
+    }
   }
 
   ngDoCheck() {
@@ -89,16 +104,6 @@ export class EvaluationsComponent implements OnInit, DoCheck {
         this.displayEditButton = true;
         this.evaluationForm.controls['evaluationComment'].disable();
       }
-
-      // Textareas auto resize
-      /*const evaluationActionPlanTextarea = document.getElementById('pia-evaluation-action-plan-' + this.evaluation.id);
-      if (evaluationActionPlanTextarea) {
-        this.autoTextareaResize(null, evaluationActionPlanTextarea);
-      }
-      const evaluationCommentTextarea = document.getElementById('pia-evaluation-comment' + this.evaluation.id);
-      if (evaluationCommentTextarea) {
-        this.autoTextareaResize(null, evaluationCommentTextarea);
-      }*/
     });
 
     if (this.item.questions) {
@@ -305,17 +310,16 @@ export class EvaluationsComponent implements OnInit, DoCheck {
     });
   }
 
-  /*autoTextareaResize(event: any, textarea: HTMLElement) {
+  autoTextareaResize(event: any, textarea: any) {
+    console.log(textarea);
     if (event) {
       textarea = event.target;
     }
     if (textarea.clientHeight < textarea.scrollHeight) {
-
       textarea.style.height = textarea.scrollHeight + 'px';
-      if (textarea.clientHeight < textarea.scrollHeight) {
         textarea.style.height = (textarea.scrollHeight * 2 - textarea.clientHeight) + 'px';
-      }
+
     }
-  }*/
+  }
 
 }

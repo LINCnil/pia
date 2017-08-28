@@ -20,17 +20,13 @@
     <div class="pia-evaluationBlock-content pia-evaluationBlock-measure-{{measureId}} pia-evaluationBlock-question-{{questionId}} fadeIn" [ngClass]="{'hide': evaluation.status <= 0}">
       <time class="pia-evaluationBlock-date">le {{evaluation.created_at | date: 'dd/MM/yyyy'}}</time>
       <div class="pia-evaluationBlock-actionPlan fadeIn" *ngIf="evaluation.status === 2">
-        <!--<label for="pia-evaluation-action-plan-{{evaluation.id}}">Plan d'action / Mesures correctives</label>
-        <textarea (keyup)="autoTextareaResize($event)" id="pia-evaluation-action-plan-{{evaluation.id}}" rows="8" formControlName="actionPlanComment" name="pia-evaluation-action-plan" (focusout)="actionPlanCommentFocusOut()" cols="50" placeholder="Entrez vos commentaires."></textarea>-->
-        <label for="pia-evaluation-action-plan">Plan d'action / Mesures correctives</label>
-        <textarea id="pia-evaluation-action-plan" rows="8" formControlName="actionPlanComment" name="pia-evaluation-action-plan" (focusout)="actionPlanCommentFocusOut()" cols="50" placeholder="Entrez vos commentaires."></textarea>
+        <label for="pia-evaluation-action-plan-{{evaluation.id}}">Plan d'action / Mesures correctives</label>
+        <textarea (keyup)="autoTextareaResize($event)" class="pia-evaluation-action-plan-{{evaluation.id}}" rows="8" formControlName="actionPlanComment" name="pia-evaluation-action-plan" (focusout)="actionPlanCommentFocusOut()" cols="50" placeholder="Entrez vos commentaires."></textarea>
       </div>
       <div [ngClass]="{'hide': _evaluationService.enableFinalValidation && (!evaluation.evaluation_comment || evaluation.evaluation_comment.length <= 0)}">
-        <!--<label for="pia-evaluation-comment-{{evaluation.id}}">Commentaire d'évaluation</label>
-        <textarea (keyup)="autoTextareaResize($event)" id="pia-evaluation-comment-{{evaluation.id}}" rows="8" cols="50" formControlName="evaluationComment" name="pia-evaluation-comment"
-                  (focusout)="evaluationCommentFocusOut()" placeholder="Entrez vos commentaires."></textarea>-->
-        <label for="pia-evaluation-comment">Commentaire d'évaluation</label>
-        <textarea id="pia-evaluation-comment" rows="8" cols="50" formControlName="evaluationComment" name="pia-evaluation-comment" (focusout)="evaluationCommentFocusOut()" placeholder="Entrez vos commentaires."></textarea>
+        <label for="pia-evaluation-comment-{{evaluation.id}}">Commentaire d'évaluation</label>
+        <textarea (keyup)="autoTextareaResize($event)" class="pia-evaluation-comment-{{evaluation.id}}" rows="8" cols="50" formControlName="evaluationComment" name="pia-evaluation-comment"
+                  (focusout)="evaluationCommentFocusOut()" placeholder="Entrez vos commentaires."></textarea>
       </div>
       <div *ngIf="item.evaluation_mode === 'item' && item.evaluation_with_gauge === true && evaluation.status === 2">
         <!-- Evaluation gauges for "RISKS" -->
