@@ -27,7 +27,7 @@
                 <a (click)="sortBy('created_at');">Date</a>
               </li>
               <li [ngClass]="{'active': filter == 'status'}">
-                <a (click)="sortBy('status');">Status</a>
+                <a (click)="sortBy('status');">Statut</a>
               </li>
               <li [ngClass]="{'active': filter == 'author_name'}">
                 <a (click)="sortBy('author_name');">Editeur</a>
@@ -103,7 +103,7 @@
               </div>
               <div class="pia-cardsBlock-item-status">
                 <div class="pia-cardsBlock-item-status-infos">
-                  <div>Status</div>
+                  <div>Statut</div>
                   <div>Création</div>
                 </div>
                 <div class="pia-cardsBlock-item-status-progressBar">
@@ -180,10 +180,10 @@
                 </a>
               </th>
               <th>
-                <a (click)="sortBy('status')">
-                  <span>Status</span>
-                  <i *ngIf="filter === 'status' && sortReverse === false" class="fa fa-caret-down"></i>
-                  <i *ngIf="filter === 'status' && sortReverse === true" class="fa fa-caret-up"></i>
+                <a (click)="sortBy('progress')">
+                  <span>Progression</span>
+                  <i *ngIf="filter === 'progress' && sortReverse === false" class="fa fa-caret-down"></i>
+                  <i *ngIf="filter === 'progress' && sortReverse === true" class="fa fa-caret-up"></i>
                 </a>
               </th>
               <th>

@@ -1,11 +1,6 @@
-<div class="pia-cardsBlock pia-doingBlock" [attr.data-id]="pia.id">
+<div class="pia-cardsBlock" [ngClass]="{'pia-archiveBlock': pia.status > 3, 'pia-doingBlock': pia.status <= 3}" [attr.data-id]="pia.id">
 
-    <div class="pia-cardsBlock-header-title" *ngIf="pia.id != null">
-      <span *ngIf="pia.status <= 3; else piaArchived">En cours</span>
-      <ng-template #piaArchived>
-        Archivée
-      </ng-template>
-    </div>
+    <div class="pia-cardsBlock-header-title" *ngIf="pia.id !== null" [innerHTML]="pia.status > 3 ? 'Archives' : 'En cours' "></div>
     <div class="pia-cardsBlock-item pia-doingBlock-item">
       <div class="pia-cardsBlock-toolbar">
           <div class="pia-cardsBlock-toolbar-edit">
@@ -79,8 +74,8 @@
                 <div>En cours d'édition</div>
             </div>
             <div class="pia-cardsBlock-item-status-progressBar">
-                <div>{{ progress }}%</div>
-                <progress max="100" value="{{ progress }}"></progress>
+                <div>{{ pia.progress }}%</div>
+                <progress max="100" value="{{ pia.progress }}"></progress>
             </div>
         </div>
         <div class="pia-cardsBlock-item-btn" [ngClass]="{'hide': editMode !== true}">

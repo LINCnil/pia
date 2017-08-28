@@ -1,5 +1,5 @@
 import { ApplicationDb } from '../application.db';
-
+import { Answer } from 'app/entry/entry-content/questions/answer.model';
 
 export class Pia extends ApplicationDb {
   public id: number;
@@ -16,10 +16,46 @@ export class Pia extends ApplicationDb {
   public applied_adjustements: string;
   public dpos_names: string;
   public people_names: string;
+  public progress: number;
 
   constructor() {
     super(201707071818, 'pia');
     this.created_at = new Date();
+  }
+
+  /**
+   * Find all entries without conditions
+   */
+  async getAll() {
+    // TODO Auto calcul questions number
+    const numberOfQuestions = 36;
+    const items = [];
+    return new Promise((resolve, reject) => {
+      this.findAll().then((entries: any) => {
+        entries.forEach(element => {
+          const newPia = new Pia();
+          newPia.name = element.name;
+          newPia.author_name = element.author_name;
+          newPia.evaluator_name = element.evaluator_name;
+          newPia.validator_name = element.validator_name;
+          newPia.dpo_status = element.dpo_status;
+          newPia.dpo_opinion = element.dpo_opinion;
+          newPia.concerned_people_opinion = element.concerned_people_opinion;
+          newPia.concerned_people_status = element.concerned_people_status;
+          newPia.rejected_reason = element.rejected_reason;
+          newPia.applied_adjustements = element.applied_adjustements;
+          newPia.status = element.status;
+          newPia.dpos_names = element.dpos_names;
+          newPia.people_names = element.people_names;
+          const answer = new Answer();
+          answer.findAllByPia(element.id).then((answers: any) => {
+            newPia.progress = Math.round((100 / numberOfQuestions) * answers.length);
+            items.push(newPia);
+          });
+        });
+        resolve(items);
+      });
+    });
   }
 
   async create() {

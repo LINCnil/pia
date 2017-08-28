@@ -11,17 +11,12 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class ListItemComponent implements OnInit {
   @Input() pia: any;
-  progress: number;
   constructor(private router: Router,
               private route: ActivatedRoute,
               private _modalsService: ModalsService,
               private _piaService: PiaService) { }
 
-  ngOnInit() {
-    this._piaService.getProgress(this.pia.id).then((nb: number) => {
-      this.progress = nb;
-    });
-  }
+  ngOnInit() { }
 
   editPia() {
     this.router.navigate(['entry', this.pia.id, 'section', 1, 'item', 1]);

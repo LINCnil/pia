@@ -52,19 +52,8 @@ export class PiaService {
       document.querySelector('.pia-cardsBlock.pia-doingBlock[data-id="' + piaID + '"]').remove();
     }
 
-
     localStorage.removeItem('pia-id');
     this._modalsService.closeModal();
-  }
-
-  async getProgress(pia_id: number) {
-    // TODO count number of questions in JSON
-    const numberOfQuestions = 36;
-    return new Promise((resolve, reject) => {
-      this.answer.findAllByPia(pia_id).then((entries: any) => {
-        resolve(Math.round((100 / numberOfQuestions) * entries.length));
-      });
-    });
   }
 
   async piaInGlobalValidation() {

@@ -32,7 +32,7 @@ export class CardsComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     const pia = new Pia();
-    pia.findAll().then((data: any[]) => {
+    pia.getAll().then((data: any[]) => {
       this._piaService.pias = data;
       this.filter = localStorage.getItem('sort');
       if (this.filter && this.filter.length > 0) {
@@ -109,7 +109,8 @@ export class CardsComponent implements OnInit, OnDestroy {
     this.sortReverse = !this.sortReverse;
     this.filter = sort;
     localStorage.setItem('sort', sort);
-    if (sort === 'name' || sort === 'author_name' || sort === 'evaluator_name' || sort === 'validator_name' || sort === 'created_at') {
+    if (sort === 'name' || sort === 'author_name' || sort === 'evaluator_name' || sort === 'validator_name'
+        || sort === 'created_at' || sort === 'status' || sort === 'progress') {
       if (this.sortReverse === true) {
         this._piaService.pias = this._piaService.pias.sort((a, b) => {
           return (a[sort] > b[sort]) ? 1 : 0 ;
@@ -121,7 +122,6 @@ export class CardsComponent implements OnInit, OnDestroy {
     if (sort === 'updated_at') {
       this._piaService.pias.reverse();
     }
-    /** TODO sort on progress */
   }
 
   viewOnList() {

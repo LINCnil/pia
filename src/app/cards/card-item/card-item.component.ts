@@ -16,7 +16,6 @@ export class CardItemComponent implements OnInit {
   @Input() pia: any;
   editMode: Boolean;
   piaForm: FormGroup;
-  progress: number;
 
   constructor(private router: Router,
               private _modalsService: ModalsService,
@@ -31,9 +30,6 @@ export class CardItemComponent implements OnInit {
       author_name: new FormControl({ value: this.pia.author_name, disabled: true }),
       evaluator_name: new FormControl({ value: this.pia.evaluator_name, disabled: true }),
       validator_name: new FormControl({ value: this.pia.validator_name, disabled: true })
-    });
-    this._piaService.getProgress(this.pia.id).then((nb: number) => {
-      this.progress = nb;
     });
   }
 
