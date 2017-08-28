@@ -72,7 +72,6 @@
 .pia {
   &-filtersBlock {
     position: relative;
-    padding-right: 8px;
     margin: 8px 0 15px 0;
     &-switch, &-filters {
       display: inline-block;
@@ -136,10 +135,10 @@
             text-decoration: none;
             color: #000;
           }
-          &:focus, &:hover, &:active {
+          &:focus, &:hover, &:active, .active {
             background-color: $pia-blue;
             a {
-              color: #fff;
+              color: #ffffff !important;
               font-weight: 600;
               cursor: pointer;
             }
@@ -237,6 +236,11 @@
 }
 #cardsSwitch .back {
   transform: rotateY( 180deg );
+  .pia-icon-close {
+    position: absolute;
+    top: 6px;
+    right: 9px;
+  }
 }
 #cardsSwitch.flipped .back {
   transform: rotateY( 0deg );
@@ -244,4 +248,66 @@
 #cardsSwitch.flipped .front {
   transform: rotateY( 180deg );
 }
+// List PIA
+.pia-list-table {
+  margin-top: 10px;
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #d0d0d0;
+  thead {
+    background-color: $pia-dark-black;
+    color: $pia-white;
+    text-transform: uppercase;
+    font-size: 1.3rem;
+    text-align: left;
+    display: table-header-group;
+    vertical-align: middle;
+    tr {
+      display: table-row;
+    }
+    th {
+      width: 150px;
+      display: table-cell;
+      a {
+        padding: 5px 0;
+        color: $pia-white;
+        text-decoration: none;
+        display: flex;
+        cursor: pointer;
+        justify-content: space-between;
+        span {
+          align-self: center;
+          padding-left: 13px;
+        }
+        i {
+          padding-right: 13px;
+          color: $pia-white;
+          font-size: 2.5rem;
+          align-self: center;
+        }
+        &:active {
+          color: $pia-green;
+        }
+      }
+      span {
+        border-left: solid 1px $pia-white;
+        &:last-child {
+            padding-left: 13px;
+        }
+      }
+      &:first-child span:first-of-type {
+        border: 0;
+      }
+    }
+  }
+}
 
+.app-list-item {
+  display: table-row;
+
+  &:nth-child(even) {
+    background-color: rgba(62, 224, 149, 0.15);
+  }
+}

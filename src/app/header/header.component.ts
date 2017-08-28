@@ -11,7 +11,6 @@ export class HeaderComponent implements OnInit {
 
   public increaseContrast: String;
   appVersion: string;
-
   constructor(private renderer: Renderer2) {
     this.updateContrast();
   }

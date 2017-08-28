@@ -1,6 +1,8 @@
-import { Component, OnInit  } from '@angular/core';
+import {Component, OnInit, OnDestroy, Input} from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute, Params } from '@angular/router';
+import { Subscription } from 'rxjs/Subscription';
+import { ModalsService } from 'app/modals/modals.service';
 
 import { Pia } from '../entry/pia.model';
 
@@ -10,15 +12,22 @@ import { PiaService } from 'app/entry/pia.service';
   selector: 'app-cards',
   templateUrl: './cards.component.html',
   styleUrls: ['./cards.component.scss'],
-  providers: [PiaService]
+  providers: [PiaService],
 })
-export class CardsComponent implements OnInit {
 
+export class CardsComponent implements OnInit, OnDestroy {
+  @Input() pia: any;
   newPia: Pia;
   piaForm: FormGroup;
   filter: string;
+  sortReverse: boolean;
+  viewStyle: { view: string }
+  view: 'card';
+  paramsSubscribe: Subscription;
 
   constructor(private router: Router,
+              private route: ActivatedRoute,
+              private _modalsService: ModalsService,
               private _piaService: PiaService) { }
 
   ngOnInit() {
@@ -28,18 +37,32 @@ export class CardsComponent implements OnInit {
       this.filter = localStorage.getItem('sort');
       if (this.filter && this.filter.length > 0) {
         this.sortBy(this.filter);
+        this.sortReverse = false;
       } else {
         this.sortBy('udpated_at');
       }
     });
-
     this.piaForm = new FormGroup({
       name: new FormControl(),
       author_name: new FormControl(),
       evaluator_name: new FormControl(),
       validator_name: new FormControl()
     });
+    this.viewStyle = {
+      view: this.route.snapshot.params['view']
+    }
+    this.paramsSubscribe = this.route.params.subscribe(
+      (params: Params) => {
+        this.viewStyle.view = params['view'];
+      }
+    );
+    if (localStorage.getItem('homepageDisplayMode') === 'list') {
+      this.viewOnList();
+    } else {
+      this.viewOnCard();
+    }
   }
+
   /**
    * Creates a new PIA card and adds a flip effect to go switch between new PIA and edit PIA events.
    */
@@ -51,6 +74,11 @@ export class CardsComponent implements OnInit {
     if (rocketToHide) {
       rocketToHide.style.display = 'none';
     }
+  }
+
+  reversePIA() {
+    const cardsToSwitchReverse = document.getElementById('cardsSwitch');
+    cardsToSwitchReverse.classList.remove('flipped');
   }
 
   /**
@@ -78,13 +106,37 @@ export class CardsComponent implements OnInit {
    * Asort items created on PIA
    */
   sortBy(sort: string) {
+    this.sortReverse = !this.sortReverse;
     this.filter = sort;
     localStorage.setItem('sort', sort);
-    this._piaService.pias = this._piaService.pias.sort((a, b) => {
-      return (a[sort] > b[sort]) ? 1 : 0 ;
-    });
+    if (sort === 'name' || sort === 'author_name' || sort === 'evaluator_name' || sort === 'validator_name' || sort === 'created_at') {
+      if (this.sortReverse === true) {
+        this._piaService.pias = this._piaService.pias.sort((a, b) => {
+          return (a[sort] > b[sort]) ? 1 : 0 ;
+        });
+      } else {
+        this._piaService.pias.reverse();
+      }
+    }
     if (sort === 'updated_at') {
       this._piaService.pias.reverse();
     }
+    /** TODO sort on progress */
+  }
+
+  viewOnList() {
+    this.viewStyle.view = 'list';
+    localStorage.setItem('homepageDisplayMode', this.viewStyle.view);
+    this.router.navigate(['home', 'list']);
+  }
+
+  viewOnCard() {
+    this.viewStyle.view = 'card';
+    localStorage.setItem('homepageDisplayMode', this.viewStyle.view);
+    this.router.navigate(['home', 'card']);
+  }
+
+  ngOnDestroy() {
+    this.paramsSubscribe.unsubscribe();
   }
 }

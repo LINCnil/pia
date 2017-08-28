@@ -1,0 +1,16 @@
+@import '../../../assets/stylesheets/variables';
+.pia-listsBlock-item {
+  padding: 0 10px;
+  text-transform: capitalize;
+  &:last-child {
+    text-transform: none;
+  }
+  &-actions {
+    display: flex;
+    justify-content: space-around;
+    a {
+      color: $pia-green;
+      font-size: 2rem;
+    }
+  }
+}
