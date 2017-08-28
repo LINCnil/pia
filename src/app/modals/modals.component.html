@@ -225,3 +225,49 @@
     </div>
   </div>
 </div>
+
+
+
+
+
+<div class="pia-modalBlock" id="modal-list-new-pia">
+  <div class="pia-modalBlock-content bounceIn">
+    <button type="button" class="pia-modalBlock-close btn" title="Fermer"><span (click)="_modalsService.closeModal()" class="pia-icons pia-icon-close"></span></button>
+    <form class="pia-cardsBlock-item-form" (ngSubmit)="onSubmit(piaForm)" [formGroup]="piaForm">
+      <div>
+        <label for="name">Nom du PIA</label>
+        <input formControlName="name" type="text" placeholder="Intitulé" id="name" required>
+      </div>
+      <div>
+        <label for="author_name">Saisie</label>
+        <input formControlName="author_name" type="text" placeholder="Prénom, nom" id="author_name" required>
+      </div>
+      <div>
+        <label for="evaluator_name">Évaluation</label>
+        <input formControlName="evaluator_name" type="text" placeholder="Prénom, nom" id="evaluator_name" required>
+      </div>
+      <div>
+        <label for="validator_name">Validation</label>
+        <input formControlName="validator_name" type="text" placeholder="Prénom, nom" id="validator_name" required>
+      </div>
+      <div class="pia-cardsBlock-item-date" *ngIf="newPia">
+        <div>Date</div>
+        <time>{{ newPia.created_at | date: 'dd/MM/yyyy'}}</time>
+      </div>
+      <div class="pia-cardsBlock-item-status">
+        <div class="pia-cardsBlock-item-status-infos">
+          <div>Status</div>
+          <div>Création</div>
+        </div>
+        <div class="pia-cardsBlock-item-status-progressBar">
+          <div>0%</div>
+          <progress max="100" value="0">
+          </progress>
+        </div>
+      </div>
+      <div class="pia-cardsBlock-item-btn">
+        <button type="submit" [disabled]="piaForm.invalid" class="btn btn-green" id="pia-save-card-btn">Commencer</button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -40,5 +40,4 @@ export class ModalsService {
     container.classList.remove('blur');
     modal.classList.remove('open');
   }
-
 }

@@ -6,7 +6,6 @@
         Archivée
       </ng-template>
     </div>
-
     <div class="pia-cardsBlock-item pia-doingBlock-item">
       <div class="pia-cardsBlock-toolbar">
           <div class="pia-cardsBlock-toolbar-edit">
@@ -80,8 +79,8 @@
                 <div>En cours d'édition</div>
             </div>
             <div class="pia-cardsBlock-item-status-progressBar">
-                <div>{{progress}}%</div>
-                <progress max="100" value="{{progress}}"></progress>
+                <div>{{ progress }}%</div>
+                <progress max="100" value="{{ progress }}"></progress>
             </div>
         </div>
         <div class="pia-cardsBlock-item-btn" [ngClass]="{'hide': editMode !== true}">
