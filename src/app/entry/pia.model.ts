@@ -119,16 +119,16 @@ export class Pia extends ApplicationDb {
       }
     }
   }
-  getOpinionsStatus(status: number) {
-    if (status ) {
+  getOpinionsStatus(status: string) {
+    if (status) {
       switch (status) {
-        case 0:
+        case '0':
         {
           return 'Le traitement ne devrait pas être mis en oeuvre.';
         }
-        case 1:
+        case '1':
         {
-          return 'Le traitement devrait être mis en oeuvre.';
+          return 'Le traitement pourrait être mis en oeuvre.';
         }
       }
     }

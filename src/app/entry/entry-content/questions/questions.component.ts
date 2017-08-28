@@ -37,28 +37,6 @@ export class QuestionsComponent implements OnInit {
               private renderer: Renderer2) { }
 
   ngOnInit() {
-    const accordeonButton = this.el.nativeElement.querySelector('.pia-questionBlock-title button');
-    this.renderer.listen(accordeonButton, 'click', (evt) => {
-      const commentsDisplayer = document.querySelector('.pia-commentsBlock-question-' + this.question.id);
-      const evaluationDisplayer = document.querySelector('.pia-evaluationBlock-question-' + this.question.id);
-      /* TODO : Question closed + click on evaluation button (opening content) then click on question displayer = error... To be fixed. */
-      if (evaluationDisplayer) {
-        const evaluationsBtns = evaluationDisplayer.parentElement.querySelectorAll('.pia-evaluationBlock-buttons button');
-        let evaluationChoosen = 'false';
-        [].forEach.call(evaluationsBtns, function(btn) {
-          if (btn.classList.contains('btn-active')) {
-            evaluationChoosen = 'true';
-          }
-        });
-        if (evaluationChoosen === 'true') {
-          evaluationDisplayer.classList.toggle('show');
-        }
-      }
-      if (commentsDisplayer) {
-        commentsDisplayer.classList.toggle('hide');
-      }
-    });
-
     this.questionForm = new FormGroup({
       gauge: new FormControl(0),
       text: new FormControl(),
@@ -324,11 +302,28 @@ export class QuestionsComponent implements OnInit {
   /**
    * Shows or hides a question.
    */
-  displayQuestion() {
-    const accordeon = this.el.nativeElement.querySelector('.pia-questionBlock-title button span');
+  displayQuestion(event: any) {
+    const accordeon = this.el.nativeElement.querySelector('.pia-questionBlock-title button');
     accordeon.classList.toggle('pia-icon-accordeon-down');
     const displayer = this.el.nativeElement.querySelector('.pia-questionBlock-displayer');
     displayer.classList.toggle('close');
+
+    // Display comments/evaluations for questions
+    const commentsDisplayer = document.querySelector('.pia-commentsBlock-question-' + this.question.id);
+    const evaluationDisplayer = document.querySelector('.pia-evaluationBlock-question-' + this.question.id);
+    if (event.target.getAttribute('data-status') === 'hide') {
+      event.target.removeAttribute('data-status');
+      commentsDisplayer.classList.remove('hide');
+      if (evaluationDisplayer && this.evaluation.status > 0) {
+        evaluationDisplayer.classList.remove('hide');
+      }
+    } else {
+      event.target.setAttribute('data-status', 'hide');
+      commentsDisplayer.classList.add('hide');
+      if (evaluationDisplayer) {
+        evaluationDisplayer.classList.add('hide');
+      }
+    }
   }
 
   private getReferenceTo() {

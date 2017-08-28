@@ -177,14 +177,14 @@ export class EvaluationService {
       - "Acceptable" : action_plan_comment optional
     */
 
-    if (evaluation.status === 2) {
-      if (!evaluation.action_plan_comment || evaluation.action_plan_comment.length <= 0) {
+    if (evaluation.status === 1) {
+      if (!evaluation.evaluation_comment || evaluation.evaluation_comment.length <= 0) {
         validationOk = false;
       }
     }
 
-    if (evaluation.status === 1 || evaluation.status === 3) {
-      if (!evaluation.evaluation_comment || evaluation.evaluation_comment.length <= 0) {
+    if (evaluation.status === 2) {
+      if (!evaluation.action_plan_comment || evaluation.action_plan_comment.length <= 0) {
         validationOk = false;
       }
     }

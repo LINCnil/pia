@@ -29,28 +29,6 @@ export class MeasuresComponent implements OnInit {
     private renderer: Renderer2) { }
 
   ngOnInit() {
-    const accordeonButton = this.el.nativeElement.querySelector('.pia-measureBlock-title button');
-    this.renderer.listen(accordeonButton, 'click', (evt) => {
-      const commentsDisplayer = document.querySelector('.pia-commentsBlock-measure-' + this.measure.id);
-      const evaluationDisplayer = document.querySelector('.pia-evaluationBlock-measure-' + this.measure.id);
-      /* TODO : Measure closed + click on evaluation button (opening content) then click on measure displayer = error... To be fixed. */
-      if (evaluationDisplayer) {
-        const evaluationsBtns = evaluationDisplayer.parentElement.querySelectorAll('.pia-evaluationBlock-buttons button');
-        let evaluationChoosen = 'false';
-        [].forEach.call(evaluationsBtns, function(btn) {
-          if (btn.classList.contains('btn-active')) {
-            evaluationChoosen = 'true';
-          }
-        });
-        if (evaluationChoosen === 'true') {
-          evaluationDisplayer.classList.toggle('show');
-        }
-      }
-      if (commentsDisplayer) {
-        commentsDisplayer.classList.toggle('hide');
-      }
-    });
-
     this.measureForm = new FormGroup({
       measureTitle: new FormControl(),
       measureContent: new FormControl()
@@ -195,11 +173,28 @@ export class MeasuresComponent implements OnInit {
   /**
    * Shows or hides a measure.
    */
-  displayMeasure() {
-    const accordeon = this.el.nativeElement.querySelector('.pia-measureBlock-title button span');
+  displayMeasure(event: any) {
+    const accordeon = this.el.nativeElement.querySelector('.pia-measureBlock-title button');
     accordeon.classList.toggle('pia-icon-accordeon-down');
     const displayer = this.el.nativeElement.querySelector('.pia-measureBlock-displayer');
     displayer.classList.toggle('close');
+
+    // Display comments/evaluations for measures
+    const commentsDisplayer = document.querySelector('.pia-commentsBlock-measure-' + this.measure.id);
+    const evaluationDisplayer = document.querySelector('.pia-evaluationBlock-measure-' + this.measure.id);
+    if (event.target.getAttribute('data-status') === 'hide') {
+      event.target.removeAttribute('data-status');
+      commentsDisplayer.classList.remove('hide');
+      if (evaluationDisplayer && this.evaluation.status > 0) {
+        evaluationDisplayer.classList.remove('hide');
+      }
+    } else {
+      event.target.setAttribute('data-status', 'hide');
+      commentsDisplayer.classList.add('hide');
+      if (evaluationDisplayer) {
+        evaluationDisplayer.classList.add('hide');
+      }
+    }
   }
 
   /**
