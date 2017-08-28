@@ -491,9 +491,6 @@ body.pia-contrast {
         &-confirm {
           input:checked + label {
             border: solid $pia-green-dark 1px !important;
-            .fa-check {
-              color: $pia-green-dark !important;
-            }
           }
         }
         &-confirm.validate {

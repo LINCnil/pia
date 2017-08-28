@@ -161,7 +161,7 @@ export class EvaluationsComponent implements OnInit, DoCheck {
 
     // Displays content (action plan & comment fields).
     const content = this.el.nativeElement.querySelector('.pia-evaluationBlock-content');
-    content.classList.add('show');
+    content.classList.remove('hide');
     this._evaluationService.checkForFinalValidation(this.evaluation);
   }
 

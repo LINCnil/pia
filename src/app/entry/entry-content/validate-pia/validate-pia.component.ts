@@ -290,7 +290,7 @@ export class ValidatePIAComponent implements OnInit {
       this.pdf.push('Nom du DPO : ' +  pia.dpos_names);
     }
     if ( pia.dpo_status >= 0) {
-      this.pdf.push('Statut du DPO : ' +  pia.getOpinionsStatus(pia.dpo_status));
+      this.pdf.push('Statut du DPO : ' +  pia.getOpinionsStatus(pia.dpo_status.toString()));
     }
     if (pia.dpo_opinion && pia.dpo_opinion.length > 0) {
       this.pdf.push('Opinion du DPO : ' +  pia.dpo_opinion);
@@ -300,7 +300,7 @@ export class ValidatePIAComponent implements OnInit {
       this.pdf.push('Nom des personnes concernées : ' +  pia.people_names);
     }
     if (pia.concerned_people_status >= 0) {
-      this.pdf.push('Statut des personnes concernées : ' +  pia.getOpinionsStatus(pia.concerned_people_status));
+      this.pdf.push('Statut des personnes concernées : ' +  pia.getOpinionsStatus(pia.concerned_people_status.toString()));
     }
     if (pia.concerned_people_opinion && pia.concerned_people_opinion.length > 0) {
       this.pdf.push('Opinion des personnes concernées : ' +  pia.concerned_people_opinion);

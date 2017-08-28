@@ -7,7 +7,7 @@
 <div class="pia-questionBlock" [ngClass]="{'approved': evaluation.status === 2 || evaluation.status === 3}" [attr.data-id]="question.id">
   <div class="pia-questionBlock-title">
     <!-- TODO : get the accordeon orientation in synchronization with the opening/closing of the evaluation block -->
-    <button class="btn" type="button" (click)="displayQuestion()" title="Afficher / masquer"><span class="pia-icons pia-icon-accordeon-up"></span></button>
+    <button class="pia-icons pia-icon-accordeon-up" type="button" (click)="displayQuestion($event)" title="Afficher / masquer"></button>
     {{question.title}}
   </div>
   <div class="pia-questionBlock-displayer fadeIn">

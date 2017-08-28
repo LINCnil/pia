@@ -17,6 +17,15 @@
         left: -20px;
         top: 50%;
         margin-top: -8.5px;
+        cursor: pointer;
+        &:before {
+          position: absolute;
+          content: '';
+          top: -4px;
+          right: -4px;
+          left: -4px;
+          bottom: -4px;
+        }
       }
     }
     &-edit {
