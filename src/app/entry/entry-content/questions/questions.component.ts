@@ -1,4 +1,4 @@
-import { Component, Input, ElementRef, OnInit } from '@angular/core';
+import { Component, Input, ElementRef, OnInit, Renderer2 } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/map';
@@ -17,7 +17,6 @@ import { Evaluation } from 'app/entry/entry-content/evaluations/evaluation.model
 })
 export class QuestionsComponent implements OnInit {
 
-  tags = [];
   userMeasures = [];
   @Input() question: any;
   @Input() item: any;
@@ -29,13 +28,37 @@ export class QuestionsComponent implements OnInit {
   answer: Answer = new Answer();
   measure: Measure = new Measure();
   reference_to: string;
+  lastSelectedTag: string;
 
   constructor(private el: ElementRef,
               private _knowledgeBaseService: KnowledgeBaseService,
               private _evaluationService: EvaluationService,
-              private _modalsService: ModalsService) { }
+              private _modalsService: ModalsService,
+              private renderer: Renderer2) { }
 
   ngOnInit() {
+    const accordeonButton = this.el.nativeElement.querySelector('.pia-questionBlock-title button');
+    this.renderer.listen(accordeonButton, 'click', (evt) => {
+      const commentsDisplayer = document.querySelector('.pia-commentsBlock-question-' + this.question.id);
+      const evaluationDisplayer = document.querySelector('.pia-evaluationBlock-question-' + this.question.id);
+      /* TODO : Question closed + click on evaluation button (opening content) then click on question displayer = error... To be fixed. */
+      if (evaluationDisplayer) {
+        const evaluationsBtns = evaluationDisplayer.parentElement.querySelectorAll('.pia-evaluationBlock-buttons button');
+        let evaluationChoosen = 'false';
+        [].forEach.call(evaluationsBtns, function(btn) {
+          if (btn.classList.contains('btn-active')) {
+            evaluationChoosen = 'true';
+          }
+        });
+        if (evaluationChoosen === 'true') {
+          evaluationDisplayer.classList.toggle('show');
+        }
+      }
+      if (commentsDisplayer) {
+        commentsDisplayer.classList.toggle('hide');
+      }
+    });
+
     this.questionForm = new FormGroup({
       gauge: new FormControl(0),
       text: new FormControl(),
@@ -64,10 +87,17 @@ export class QuestionsComponent implements OnInit {
           this.questionForm.controls['text'].disable();
         }
         if (this.answer.data.gauge > 0 || (this.answer.data.text && this.answer.data.text.length > 0)) {
-          this.displayEditButton = true;
+          if (!this._evaluationService.showValidationButton && !this._evaluationService.enableFinalValidation) {
+            this.displayEditButton = true;
+          }
         }
       }
+      const textarea = document.getElementById('pia-question-content-' + this.question.id);
+      if (textarea) {
+        this.autoTextareaResize(null, textarea);
+      }
     });
+
     this.measure.pia_id = this.pia.id;
     this.measure.findAll().then((entries: any[]) => {
       if (entries) {
@@ -78,6 +108,19 @@ export class QuestionsComponent implements OnInit {
         });
       }
     });
+
+  }
+
+  autoTextareaResize(event: any, textarea: HTMLElement) {
+    if (event) {
+      textarea = event.target;
+    }
+    if (textarea.clientHeight < textarea.scrollHeight) {
+      textarea.style.height = textarea.scrollHeight + 'px';
+      if (textarea.clientHeight < textarea.scrollHeight) {
+        textarea.style.height = (textarea.scrollHeight * 2 - textarea.clientHeight) + 'px';
+      }
+    }
   }
 
   evaluationChange(evaluation) {
@@ -97,13 +140,6 @@ export class QuestionsComponent implements OnInit {
     }
   }
 
-  /*
-   * TODO : a function to disable gauge after a value selection.
-   * It should disable range only if a value has been selected
-   * AND that the next target isn't the range input.
-   * It disables the field only when the user clicks something different that :
-   * The input textarea (under the gauge) OR the range input.
-  */
   checkGaugeChanges(event: any) {
     const value: string = event.target.value;
     const bgElement = event.target.parentNode.querySelector('.pia-gaugeBlock-background');
@@ -143,18 +179,19 @@ export class QuestionsComponent implements OnInit {
    */
   questionContentFocusOut() {
     const gaugeValue = parseInt(this.questionForm.value.gauge, 10);
+    if (this.answer.id) {
+      this.answer.data = { text: this.questionForm.value.text, gauge: this.answer.data.gauge, list: this.answer.data.list };
+      this.answer.update().then(() => {
+        this._evaluationService.allowEvaluation();
+        this.displayEditButton = true;
+        this.questionForm.controls['text'].disable();
+        if (gaugeValue > 0) {
+          this.questionForm.controls['gauge'].disable();
+        }
+      });
+    }
     if (this.questionForm.value.text && this.questionForm.value.text.length > 0) {
-      if (this.answer.id) {
-        this.answer.data = { text: this.questionForm.value.text, gauge: this.answer.data.gauge, list: this.answer.data.list };
-        this.answer.update().then(() => {
-          this._evaluationService.allowEvaluation();
-          this.displayEditButton = true;
-          this.questionForm.controls['text'].disable();
-          if (gaugeValue > 0) {
-            this.questionForm.controls['gauge'].disable();
-          }
-        });
-      } else {
+      if (!this.answer.id) {
         this.answer.pia_id = this.pia.id;
         this.answer.reference_to = this.reference_to;
         this.answer.data = { text: this.questionForm.value.text, gauge: 0, list: [] };
@@ -194,6 +231,54 @@ export class QuestionsComponent implements OnInit {
     }
   }
 
+  onSelected(event) {
+    // When it returns an object (weird scenario)
+    if (event.hasOwnProperty('value')) {
+      this.lastSelectedTag = event.value;
+    } else {
+      this.lastSelectedTag = event;
+    }
+  }
+
+  /**
+   * Removes the measure tag from the database.
+   * @param {event} event any event.
+   */
+  onRemove(event) {
+    let list = [];
+    if (this.answer.id) {
+      list = this.answer.data.list;
+    }
+    let valueToRemove;
+    if (event.hasOwnProperty('value')) {
+      valueToRemove = event.value;
+    } else {
+      valueToRemove = event;
+    }
+    const index = list.indexOf(valueToRemove);
+    if (index >= 0) {
+      list.splice(list.indexOf(valueToRemove), 1);
+      this.createOrUpdateList(list);
+    }
+  }
+
+  onTagEdited(event) {
+    let list = [];
+    if (this.answer.id) {
+      list = this.answer.data.list;
+    }
+    const index = list.indexOf(this.lastSelectedTag);
+    let updatedValue;
+    // When it returns an object (weird scenario)
+    if (event.hasOwnProperty('value')) {
+      updatedValue = event.value;
+    } else {
+      updatedValue = event;
+    }
+    list[index] = updatedValue;
+    this.createOrUpdateList(list);
+  }
+
   onBlur(event) {
     if (event && event.length > 0) {
       let list = [];
@@ -224,22 +309,6 @@ export class QuestionsComponent implements OnInit {
       this.answer.create().then(() => {
         this._evaluationService.allowEvaluation();
       });
-    }
-  }
-
-  /**
-   * Removes the measure tag from the database.
-   * @param {event} event any event.
-   */
-  onRemove(event) {
-    let list = [];
-    if (this.answer.id) {
-      list = this.answer.data.list;
-    }
-    const index = list.indexOf(event);
-    if (index >= 0) {
-      list.splice(list.indexOf(event), 1);
-      this.createOrUpdateList(list);
     }
   }
 

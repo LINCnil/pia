@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, ElementRef, OnInit, Input, Output, EventEmitter, DoCheck } from '@angular/core';
 import { FormArray, FormControl, FormGroup } from '@angular/forms';
 
 import { Evaluation } from './evaluation.model';
@@ -6,24 +6,12 @@ import { Answer } from 'app/entry/entry-content/questions/answer.model';
 
 import { EvaluationService } from './evaluations.service';
 
-/**
- * TODO : switch the redundant code about evaluation update here in an EvaluationsService...
- * Create a method like "updateEvaluation(section, item, pia.id, data)"
- * Where datas would contain all evaluation information :
- * clicked button to set evaluation status,
- * action plan comment,
- * evaluation comment,
- * ...
- * /!\ The fact that it doesn't update evaluations right after feeling questions/measures
- * probably comes from this point... that's why we should probably use a service.
- */
-
 @Component({
   selector: 'app-evaluations',
   templateUrl: './evaluations.component.html',
   styleUrls: ['./evaluations.component.scss']
 })
-export class EvaluationsComponent implements OnInit {
+export class EvaluationsComponent implements OnInit, DoCheck {
 
   evaluationForm: FormGroup;
   @Input() item: any;
@@ -32,16 +20,30 @@ export class EvaluationsComponent implements OnInit {
   @Input() questionId: any;
   @Input() measureId: any;
   @Output() evaluationEvent = new EventEmitter<Evaluation>();
-  evaluation: Evaluation = new Evaluation();
+  evaluation: Evaluation;
   reference_to: string;
   displayEditButton = false;
   previousGauges = {x: 0, y: 0};
+  previousReferenceTo: string;
 
   constructor(private el: ElementRef, private _evaluationService: EvaluationService) { }
 
   ngOnInit() {
     // Prefix item
     this.reference_to = this.section.id + '.' + this.item.id;
+    this.checkEvaluationValidation();
+  }
+
+  ngDoCheck() {
+    // Prefix item
+    this.reference_to = this.section.id + '.' + this.item.id;
+    if (this.item.evaluation_mode === 'item' && this.previousReferenceTo !== this.reference_to) {
+      this.previousReferenceTo = this.reference_to;
+      this.checkEvaluationValidation();
+    }
+  }
+
+  private checkEvaluationValidation() {
     if (this.item.evaluation_mode === 'question') {
       // Measure evaluation update
       if (this.item.is_measure) {
@@ -59,6 +61,7 @@ export class EvaluationsComponent implements OnInit {
       gaugeY: new FormControl()
     });
 
+    this.evaluation = new Evaluation();
     this.evaluation.getByReference(this.pia.id, this.reference_to).then(() => {
       // Pass the evaluation to the parent component
       this.evaluationEvent.emit(this.evaluation);
@@ -86,6 +89,16 @@ export class EvaluationsComponent implements OnInit {
         this.displayEditButton = true;
         this.evaluationForm.controls['evaluationComment'].disable();
       }
+
+      // Textareas auto resize
+      /*const evaluationActionPlanTextarea = document.getElementById('pia-evaluation-action-plan-' + this.evaluation.id);
+      if (evaluationActionPlanTextarea) {
+        this.autoTextareaResize(null, evaluationActionPlanTextarea);
+      }
+      const evaluationCommentTextarea = document.getElementById('pia-evaluation-comment' + this.evaluation.id);
+      if (evaluationCommentTextarea) {
+        this.autoTextareaResize(null, evaluationCommentTextarea);
+      }*/
     });
 
     if (this.item.questions) {
@@ -267,10 +280,7 @@ export class EvaluationsComponent implements OnInit {
    */
   activateEvaluationEdition() {
     this.enableEvaluationButtons();
-    this.evaluationForm.controls['actionPlanComment'].enable();
-    this.evaluationForm.controls['evaluationComment'].enable();
-    this.evaluationForm.controls['gaugeX'].enable();
-    this.evaluationForm.controls['gaugeY'].enable();
+    this.evaluationForm.enable();
   }
 
   /**
@@ -294,5 +304,18 @@ export class EvaluationsComponent implements OnInit {
       btn.removeAttribute('disabled');
     });
   }
+
+  /*autoTextareaResize(event: any, textarea: HTMLElement) {
+    if (event) {
+      textarea = event.target;
+    }
+    if (textarea.clientHeight < textarea.scrollHeight) {
+
+      textarea.style.height = textarea.scrollHeight + 'px';
+      if (textarea.clientHeight < textarea.scrollHeight) {
+        textarea.style.height = (textarea.scrollHeight * 2 - textarea.clientHeight) + 'px';
+      }
+    }
+  }*/
 
 }

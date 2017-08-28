@@ -1,4 +1,4 @@
-import { Component, Input, ElementRef, OnInit } from '@angular/core';
+import { Component, Input, ElementRef, Renderer2, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ModalsService } from 'app/modals/modals.service';
 import { Measure } from './measure.model';
@@ -25,9 +25,32 @@ export class MeasuresComponent implements OnInit {
   constructor(
     private el: ElementRef,
     private _modalsService: ModalsService,
-    private _evaluationService: EvaluationService) { }
+    private _evaluationService: EvaluationService,
+    private renderer: Renderer2) { }
 
   ngOnInit() {
+    const accordeonButton = this.el.nativeElement.querySelector('.pia-measureBlock-title button');
+    this.renderer.listen(accordeonButton, 'click', (evt) => {
+      const commentsDisplayer = document.querySelector('.pia-commentsBlock-measure-' + this.measure.id);
+      const evaluationDisplayer = document.querySelector('.pia-evaluationBlock-measure-' + this.measure.id);
+      /* TODO : Measure closed + click on evaluation button (opening content) then click on measure displayer = error... To be fixed. */
+      if (evaluationDisplayer) {
+        const evaluationsBtns = evaluationDisplayer.parentElement.querySelectorAll('.pia-evaluationBlock-buttons button');
+        let evaluationChoosen = 'false';
+        [].forEach.call(evaluationsBtns, function(btn) {
+          if (btn.classList.contains('btn-active')) {
+            evaluationChoosen = 'true';
+          }
+        });
+        if (evaluationChoosen === 'true') {
+          evaluationDisplayer.classList.toggle('show');
+        }
+      }
+      if (commentsDisplayer) {
+        commentsDisplayer.classList.toggle('hide');
+      }
+    });
+
     this.measureForm = new FormGroup({
       measureTitle: new FormControl(),
       measureContent: new FormControl()
@@ -50,7 +73,27 @@ export class MeasuresComponent implements OnInit {
           this.measureForm.controls['measureContent'].disable();
         }
       }
+      const measureTitleTextarea = document.getElementById('pia-measure-title-' + this.measure.id);
+      if (measureTitleTextarea) {
+        this.autoTextareaResize(null, measureTitleTextarea);
+      }
+      const measureContentTextarea = document.getElementById('pia-measure-content-' + this.measure.id);
+      if (measureContentTextarea) {
+        this.autoTextareaResize(null, measureContentTextarea);
+      }
     });
+  }
+
+  autoTextareaResize(event: any, textarea: HTMLElement) {
+    if (event) {
+      textarea = event.target;
+    }
+    if (textarea.clientHeight < textarea.scrollHeight) {
+      textarea.style.height = textarea.scrollHeight + 'px';
+      if (textarea.clientHeight < textarea.scrollHeight) {
+        textarea.style.height = (textarea.scrollHeight * 2 - textarea.clientHeight) + 'px';
+      }
+    }
   }
 
   evaluationChange(evaluation) {

@@ -21,6 +21,7 @@ $fa-font-path: "../node_modules/font-awesome/fonts";
 @import "./assets/stylesheets/tags";
 @import "./assets/stylesheets/gauges";
 @import "./assets/stylesheets/action-plan";
+@import "./assets/stylesheets/contrast";
 
 // Default styles
 html {
@@ -102,7 +103,6 @@ input {
   }
 }
 
-/* TODO : special class to be added on measures or questions when they are evaluated as improvable or acceptable */
 .approved {
   border: 1px solid $pia-gray;
   box-shadow: none;
@@ -113,4 +113,22 @@ tag-input-form {
   input {
     width: 100% !important;
   }
+}
+
+/*
+.ng2-tag-input--focused {
+  background-color: rgba(0,0,0,0.1) !important;
+}
+
+.ng2-tag-input--focused tag-input-form form .ng2-tag-input__text-input {
+  margin-top: 2px;
+  background-color: rgba(0,0,0,0.05) !important;
+} */
+
+.ng2-tag-input.foundation-theme tag.tag--editing {
+  color: $pia-blue !important;
+}
+
+.tag--editing {
+  background-color: rgba(0,0,0,0.1) !important;
 }

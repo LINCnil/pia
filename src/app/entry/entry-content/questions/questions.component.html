@@ -4,14 +4,15 @@
     In addition of this class, questions should be 'locked' (uneditable).
     However, other questions ('to be fixed') don't get this special class and stay editable.
 -->
-<div class="pia-questionBlock approved" [attr.data-id]="question.id">
+<div class="pia-questionBlock" [ngClass]="{'approved': evaluation.status === 2 || evaluation.status === 3}" [attr.data-id]="question.id">
   <div class="pia-questionBlock-title">
+    <!-- TODO : get the accordeon orientation in synchronization with the opening/closing of the evaluation block -->
     <button class="btn" type="button" (click)="displayQuestion()" title="Afficher / masquer"><span class="pia-icons pia-icon-accordeon-up"></span></button>
     {{question.title}}
   </div>
   <div class="pia-questionBlock-displayer fadeIn">
     <button type="button" class="btn pia-questionBlock-edit"
-            *ngIf="displayEditButton"
+            *ngIf="displayEditButton && !_evaluationService.showValidationButton && !_evaluationService.enableFinalValidation"
             (click)="activateQuestionEdition()" title="Éditer">
       <i class="fa fa-pencil" aria-hidden="true"></i>
     </button>
@@ -37,9 +38,8 @@
             (onRemove)="onRemove($event)"
             formControlName="list"
             [theme]="'foundation-theme'"
-            [ngModel]="tags"
             [placeholder]="question.placeholder + '&#10010;'"
-            [editable]="'false'"
+            [editable]='false'
             [disabled]="_evaluationService.showValidationButton || _evaluationService.enableFinalValidation"
             [onlyFromAutocomplete]="true"
             (focusin)="questionContentFocusIn()"
@@ -51,15 +51,17 @@
           </tag-input>
         </ng-container>
         <ng-template #tagInput2>
+          <!-- Find where it saves in BDD... nothing here. WEIRD ! -->
           <tag-input
             *ngIf="question.answer_type == 'list'"
             (onAdd)="onAdd($event)"
+            (onSelect)="onSelected($event)"
+            (onBlur)="onBlur($event)"
             (onTagEdited)="onTagEdited($event)"
             (onRemove)="onRemove($event)"
+            [separatorKeyCodes]="[27, 13]"
             formControlName="list"
             [theme]="'foundation-theme'"
-            [ngModel]="tags"
-            (onBlur)="onBlur($event)"
             [placeholder]="question.placeholder + '&#10010;'"
             [editable]="'false'"
             (focusin)="questionContentFocusIn()"
@@ -68,12 +70,13 @@
           </tag-input>
         </ng-template>
         <textarea
+          (keyup)="autoTextareaResize($event)"
           *ngIf="question.answer_type == 'text' || question.answer_type == 'gauge'"
           [attr.data-id]="question.id"
           id="pia-question-content-{{question.id}}"
           formControlName="text"
           name="pia-question"
-          rows="8"
+          minRows="8"
           cols="50"
           (focusout)="questionContentFocusOut()"
           (focusin)="questionContentFocusIn()"
@@ -84,7 +87,7 @@
   </div>
 
   <!-- TODO : to show only after a first edition (when the current question is created in DB) -->
-  <app-comments [pia]="pia" [question]="question"></app-comments>
+  <app-comments [pia]="pia" [question]="question" [questionId]="question.id"></app-comments>
 
-  <app-evaluations (evaluationEvent)="evaluationChange($event)" *ngIf="item.evaluation_mode === 'question' && (_evaluationService.showValidationButton || _evaluationService.enableFinalValidation)" [pia]="pia" [section]="section" [item]="item" [questionId]="question.id"></app-evaluations>
+  <app-evaluations (evaluationEvent)="evaluationChange($event)" *ngIf="item.evaluation_mode === 'question' && (_evaluationService.showValidationButton || _evaluationService.enableFinalValidation || _evaluationService.someItemNeedToBeFixed)" [pia]="pia" [section]="section" [item]="item" [questionId]="question.id"></app-evaluations>
 </div>

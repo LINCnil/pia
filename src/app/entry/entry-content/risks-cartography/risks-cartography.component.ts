@@ -12,7 +12,6 @@ export class RisksCartographyComponent implements OnInit {
 
   questions: any[] = [];
   answer: Answer = new Answer();
-  evaluation: Evaluation = new Evaluation();
   answersGauge: any[] = [];
   @Input() pia: any;
   dataJSON: any;
@@ -75,7 +74,9 @@ export class RisksCartographyComponent implements OnInit {
           if (question[0]) {
             const cartographyKey = question[0].cartography.split('_');
             if (answer.data.gauge > 0) {
-              let pointPosition = positions[cartographyKey[1]][answer.data.gauge];
+              let axeValue;
+              axeValue = cartographyKey[1] === 'x' ? 'y' : 'x';
+              let pointPosition = positions[axeValue][answer.data.gauge];
               if (cartographyKey[0] === 'risk-access') {
                 pointPosition -= 10;
               } else if (cartographyKey[0] === 'risk-change') {
@@ -83,24 +84,27 @@ export class RisksCartographyComponent implements OnInit {
               } else if (cartographyKey[0] === 'risk-disappearance') {
                 pointPosition -= 30;
               }
-              this.dataJSON[cartographyKey[0]]['author'][cartographyKey[1]] = pointPosition;
+              this.dataJSON[cartographyKey[0]]['author'][axeValue] = pointPosition;
             }
           }
         });
-        this.evaluation.getByReference(this.pia.id, '3.2').then(() => {
-          if (this.evaluation.gauges) {
-            this.dataJSON['risk-access']['evaluator']['x'] = positions['x'][this.evaluation.gauges['x']] + 10;
-            this.dataJSON['risk-access']['evaluator']['y'] = positions['y'][this.evaluation.gauges['y']] + 10;
+        const evaluation = new Evaluation();
+        evaluation.getByReference(this.pia.id, '3.2').then(() => {
+          if (evaluation.gauges) {
+            this.dataJSON['risk-access']['evaluator']['y'] = positions['y'][evaluation.gauges['x']] + 10;
+            this.dataJSON['risk-access']['evaluator']['x'] = positions['x'][evaluation.gauges['y']] + 10;
           }
-          this.evaluation.getByReference(this.pia.id, '3.3').then(() => {
-            if (this.evaluation.gauges) {
-              this.dataJSON['risk-change']['evaluator']['x'] = positions['x'][this.evaluation.gauges['x']] + 20;
-              this.dataJSON['risk-change']['evaluator']['y'] = positions['y'][this.evaluation.gauges['y']] + 20;
+          const evaluation2 = new Evaluation();
+          evaluation2.getByReference(this.pia.id, '3.3').then(() => {
+            if (evaluation2.gauges) {
+              this.dataJSON['risk-change']['evaluator']['y'] = positions['y'][evaluation2.gauges['x']] + 20;
+              this.dataJSON['risk-change']['evaluator']['x'] = positions['x'][evaluation2.gauges['y']] + 20;
             }
-            this.evaluation.getByReference(this.pia.id, '3.4').then(() => {
-              if (this.evaluation.gauges) {
-                this.dataJSON['risk-disappearance']['evaluator']['x'] = positions['x'][this.evaluation.gauges['x']] + 30;
-                this.dataJSON['risk-disappearance']['evaluator']['y'] = positions['y'][this.evaluation.gauges['y']] + 30;
+            const evaluation3 = new Evaluation();
+            evaluation3.getByReference(this.pia.id, '3.4').then(() => {
+              if (evaluation3.gauges) {
+                this.dataJSON['risk-disappearance']['evaluator']['y'] = positions['y'][evaluation3.gauges['x']] + 30;
+                this.dataJSON['risk-disappearance']['evaluator']['x'] = positions['x'][evaluation3.gauges['y']] + 30;
               }
               this.loadCartography();
             });
@@ -139,18 +143,6 @@ export class RisksCartographyComponent implements OnInit {
       *
       */
 
-      /* TODO : associate gravity gauge to y-coordinates (red dots)
-      * 'Négligeable' : y coordinates for risk1, for risk2 and risk3
-      * 'Limitée' : y coordinates for risk1, for risk2 and risk3
-      * 'Importante' : y coordinates for risk1, for risk2 and risk3
-      * 'Maximale' : y coordinates for risk1, for risk2 and risk3
-      *
-      * TODO : associate probability gauge to x-coordinates (red dots)
-      * SAME but for x coordinates
-      *
-      * TODO : then same for evaluation gauge (for blue dots)
-      */
-
       // Instanciation of canvas context
       const canvas = <HTMLCanvasElement>document.getElementById('actionPlanCartography');
       const context = canvas.getContext('2d');
@@ -170,13 +162,6 @@ export class RisksCartographyComponent implements OnInit {
       context.strokeStyle = 'white';
       context.stroke();
 
-      // TODO add some conditions to check if there are author dots in JSON (if author has filled them or not) and same for evaluator dots
-      // To show nothing if there are none.
-
-      // TODO : for each dots, check if there are some dots (6 dots) which are the same coordinates as the current one.
-      // If so, for each other dots found, applies a coordonate y + 10 (then +20, +30...) (where i = 0; i < dots found; i++)
-      // So that dots and texts are displayed each one under each one.
-
       if (this.dataJSON['risk-access']['author'].x && this.dataJSON['risk-access']['author'].y) {
         // Author dots (red)
         context.beginPath();
@@ -186,15 +171,10 @@ export class RisksCartographyComponent implements OnInit {
         context.textAlign = 'center';
         context.font = 'bold 1.1rem Roboto, Times, serif';
         context.fillStyle = '#333';
-        // TODO if evaluator dot x = 20 then text + 50 whereas of 20 and text 2 + 62 whereas of 32.
-        // Same for bottom border :/
         try {
           context.fillText('(A)',
                       this.dataJSON['risk-access']['author'].x,
                       this.dataJSON['risk-access']['author'].y + 20);
-          // context.fillText('à des données',
-          //             this.dataJSON['risk-access']['author'].x,
-          //             this.dataJSON['risk-access']['author'].y + 32);
         } catch (ex) {}
       }
 
@@ -207,15 +187,10 @@ export class RisksCartographyComponent implements OnInit {
         context.textAlign = 'center';
         context.font = 'bold 1.1rem Roboto, Times, serif';
         context.fillStyle = '#333';
-        // TODO if evaluator dot x = 20 then text + 50 whereas of 20 and text 2 + 62 whereas of 32.
-        // Same for bottom border :/
         try {
           context.fillText('(M)',
                       this.dataJSON['risk-change']['author'].x,
                       this.dataJSON['risk-change']['author'].y + 20);
-          // context.fillText('de données',
-          //             this.dataJSON['risk-change']['author'].x,
-          //             this.dataJSON['risk-change']['author'].y + 32);
         } catch (ex) {}
       }
 
@@ -228,15 +203,10 @@ export class RisksCartographyComponent implements OnInit {
         context.textAlign = 'center';
         context.font = 'bold 1.1rem Roboto, Times, serif';
         context.fillStyle = '#333';
-        // TODO if evaluator dot x = 20 then text + 50 whereas of 20 and text 2 + 62 whereas of 32.
-        // Same for bottom border :/
         try {
           context.fillText('(D)',
                           this.dataJSON['risk-disappearance']['author'].x,
                           this.dataJSON['risk-disappearance']['author'].y + 20);
-          // context.fillText('de données',
-          //                 this.dataJSON['risk-disappearance']['author'].x,
-          //                 this.dataJSON['risk-disappearance']['author'].y + 32);
         } catch (ex) {}
       }
 

@@ -1,35 +1,38 @@
 <div class="pia-evaluationBlock" [ngClass]="{'pia-evaluationBlock-shadowed pia-evaluationBlock-self-padding': item.evaluation_mode === 'item'}">
   <div class="pia-evaluationBlock-title">Évaluation</div>
   <div class="pia-evaluationBlock-edit" *ngIf="displayEditButton && !_evaluationService.enableFinalValidation">
-    <button class="btn" type="button" (click)="activateEvaluationEdition()" title="Éditer">
+    <button class="btn" type="button" (click)="activateEvaluationEdition()" title="Éditer" *ngIf="!_evaluationService.someItemNeedToBeFixed">
       <i class="fa fa-pencil" aria-hidden="true"></i>
     </button>
   </div>
   <form [formGroup]="evaluationForm">
     <div class="pia-evaluationBlock-buttons">
-      <button class="btn btn-red" [ngClass]="{'btn-active': evaluation.status === 1}" [disabled]="evaluation.status === 1 || _evaluationService.enableFinalValidation" (click)="selectedButton($event, 1)" name="fix" type="submit">
+      <button class="btn btn-red" [ngClass]="{'btn-active': evaluation.status === 1}" [disabled]="evaluation.status === 1 || _evaluationService.enableFinalValidation || _evaluationService.someItemNeedToBeFixed" (click)="selectedButton($event, 1)" name="fix" type="submit">
         À corriger
       </button>
-      <button class="btn btn-blue" [ngClass]="{'btn-active': evaluation.status === 2}" [disabled]="evaluation.status === 2 || _evaluationService.enableFinalValidation" *ngIf="section.id !== 1" (click)="selectedButton($event, 2)" name="improvable" type="submit">
+      <button class="btn btn-blue" [ngClass]="{'btn-active': evaluation.status === 2}" [disabled]="evaluation.status === 2 || _evaluationService.enableFinalValidation || _evaluationService.someItemNeedToBeFixed" *ngIf="section.id !== 1" (click)="selectedButton($event, 2)" name="improvable" type="submit">
         Améliorable
       </button>
-      <button class="btn btn-green" [ngClass]="{'btn-active': evaluation.status === 3}" [disabled]="evaluation.status === 3 || _evaluationService.enableFinalValidation" (click)="selectedButton($event, 3)" name="acceptable" type="submit">
+      <button class="btn btn-green" [ngClass]="{'btn-active': evaluation.status === 3}" [disabled]="evaluation.status === 3 || _evaluationService.enableFinalValidation || _evaluationService.someItemNeedToBeFixed" (click)="selectedButton($event, 3)" name="acceptable" type="submit">
         Acceptable
       </button>
     </div>
-    <div class="pia-evaluationBlock-content fadeIn" [ngClass]="{'show': evaluation.status > 0}">
+    <div class="pia-evaluationBlock-content pia-evaluationBlock-measure-{{measureId}} pia-evaluationBlock-question-{{questionId}} fadeIn" [ngClass]="{'show': evaluation.status > 0}">
       <time class="pia-evaluationBlock-date">le {{evaluation.created_at | date: 'dd/MM/yyyy'}}</time>
       <div class="pia-evaluationBlock-actionPlan fadeIn" *ngIf="evaluation.status === 2">
+        <!--<label for="pia-evaluation-action-plan-{{evaluation.id}}">Plan d'action / Mesures correctives</label>
+        <textarea (keyup)="autoTextareaResize($event)" id="pia-evaluation-action-plan-{{evaluation.id}}" rows="8" formControlName="actionPlanComment" name="pia-evaluation-action-plan" (focusout)="actionPlanCommentFocusOut()" cols="50" placeholder="Entrez vos commentaires."></textarea>-->
         <label for="pia-evaluation-action-plan">Plan d'action / Mesures correctives</label>
-        <textarea rows="8" formControlName="actionPlanComment" name="pia-evaluation-action-plan" (focusout)="actionPlanCommentFocusOut()" cols="50" placeholder="Entrez vos commentaires." id="pia-evaluation-action-plan"></textarea>
+        <textarea id="pia-evaluation-action-plan" rows="8" formControlName="actionPlanComment" name="pia-evaluation-action-plan" (focusout)="actionPlanCommentFocusOut()" cols="50" placeholder="Entrez vos commentaires."></textarea>
       </div>
       <div [ngClass]="{'hide': _evaluationService.enableFinalValidation && (!evaluation.evaluation_comment || evaluation.evaluation_comment.length <= 0)}">
+        <!--<label for="pia-evaluation-comment-{{evaluation.id}}">Commentaire d'évaluation</label>
+        <textarea (keyup)="autoTextareaResize($event)" id="pia-evaluation-comment-{{evaluation.id}}" rows="8" cols="50" formControlName="evaluationComment" name="pia-evaluation-comment"
+                  (focusout)="evaluationCommentFocusOut()" placeholder="Entrez vos commentaires."></textarea>-->
         <label for="pia-evaluation-comment">Commentaire d'évaluation</label>
-        <textarea rows="8" cols="50" formControlName="evaluationComment" name="pia-evaluation-comment"
-                  (focusout)="evaluationCommentFocusOut()" placeholder="Entrez vos commentaires."
-                  id="pia-evaluation-comment"></textarea>
+        <textarea id="pia-evaluation-comment" rows="8" cols="50" formControlName="evaluationComment" name="pia-evaluation-comment" (focusout)="evaluationCommentFocusOut()" placeholder="Entrez vos commentaires."></textarea>
       </div>
-      <div *ngIf="item.evaluation_mode === 'item' && item.evaluation_with_gauge === true && evaluation.status > 1">
+      <div *ngIf="item.evaluation_mode === 'item' && item.evaluation_with_gauge === true && evaluation.status === 2">
         <!-- Evaluation gauges for "RISKS" -->
         <p class="pia-evaluationBlock-gauge">Prenant en compte le plan d'action, comment ré-évaluez-vous la <span class="red-highlight">gravité du risque</span> d'accès illégitime aux données ?</p>
         <div class="pia-gaugeBlock">

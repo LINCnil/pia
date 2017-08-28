@@ -18,6 +18,7 @@ export class EvaluationService {
   answer: Answer = new Answer();
   measure: Measure = new Measure();
   pia: Pia;
+  someItemNeedToBeFixed = false;
 
   constructor(private _modalsService: ModalsService) { }
 
@@ -106,12 +107,22 @@ export class EvaluationService {
   }
 
   allAwsersIsInEvaluation() {
-    const evaluation = new Evaluation();
+    this.someItemNeedToBeFixed = false;
     let reference_to = '';
     if (this.item.evaluation_mode === 'item') {
       reference_to = this.section.id + '.' + this.item.id;
-      evaluation.existByReference(this.pia.id, reference_to).then((exist: boolean) => {
-        this.showValidationButton = exist;
+      const evaluation = new Evaluation();
+      evaluation.getByReference(this.pia.id, reference_to).then((entry: any) => {
+        if (entry !== false) {
+          if (entry.status === 1) {
+            this.showValidationButton = false;
+            this.someItemNeedToBeFixed = true;
+          } else {
+            this.showValidationButton = true;
+          }
+        } else {
+          this.showValidationButton = false;
+        }
       });
     } else if (this.answers.length > 0) {
       let count = 0;
@@ -123,9 +134,14 @@ export class EvaluationService {
           // For question
           reference_to = this.section.id + '.' + this.item.id + '.' + answer.reference_to;
         }
-        evaluation.existByReference(this.pia.id, reference_to).then((exist: boolean) => {
-          if (exist) {
-            count += 1;
+        const evaluation = new Evaluation();
+        evaluation.getByReference(this.pia.id, reference_to).then((entry: any) => {
+          if (entry !== false) {
+            if (entry.status === 1) {
+              this.someItemNeedToBeFixed = true;
+            } else {
+              count += 1;
+            }
             this.showValidationButton = (count === this.answers.length);
           }
         });
@@ -154,17 +170,26 @@ export class EvaluationService {
 
   checkForFinalValidation(evaluation: any) {
     let validationOk = true;
+
+    /*
+      - "A corriger" : action_plan_comment needed
+      - "A améliorer" : action_plan_comment optional, action_plan_comment needed
+      - "Acceptable" : action_plan_comment optional
+    */
+
     if (evaluation.status === 2) {
       if (!evaluation.action_plan_comment || evaluation.action_plan_comment.length <= 0) {
         validationOk = false;
       }
     }
-    if (evaluation.status === 1 || evaluation.status === 2) {
+
+    if (evaluation.status === 1 || evaluation.status === 3) {
       if (!evaluation.evaluation_comment || evaluation.evaluation_comment.length <= 0) {
         validationOk = false;
       }
     }
-    if (this.item.evaluation_mode === 'item' && this.item.evaluation_with_gauge === true && evaluation.status !== 1) {
+
+    if (this.item.evaluation_mode === 'item' && this.item.evaluation_with_gauge === true && evaluation.status === 2) {
       if (!evaluation.gauges || evaluation.gauges['x'] < 1 || evaluation.gauges['y'] < 1) {
         validationOk = false;
       }
@@ -259,15 +284,19 @@ export class EvaluationService {
   private async createEvaluationInDb(reference_to: string) {
     const evaluation = new Evaluation();
     return new Promise((resolve, reject) => {
-      evaluation.existByReference(this.pia.id, reference_to).then((exist: boolean) => {
-        if (!exist) {
+      evaluation.getByReference(this.pia.id, reference_to).then((entry: any) => {
+        if (entry === false) {
           evaluation.pia_id = this.pia.id;
           evaluation.reference_to = reference_to;
           evaluation.create().then(() => {
             resolve();
           });
         } else {
-          resolve();
+          this.someItemNeedToBeFixed = false;
+          evaluation.status = 0;
+          evaluation.update().then(() => {
+            resolve();
+          });
         }
       });
     });

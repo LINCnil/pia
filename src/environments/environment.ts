@@ -4,6 +4,8 @@
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 
 export const environment = {
+  name: 'development',
   production: false,
-  version: '0.0.4-beta'
+  version: '0.0.6-beta',
+  rollbar_key: ''
 };

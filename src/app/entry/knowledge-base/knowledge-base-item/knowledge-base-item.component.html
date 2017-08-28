@@ -1,19 +1,21 @@
 <div class="pia-knowledgeBaseBlock-item" [attr.data-slug]="itemKb.slug" *ngIf="displayKb()">
-  <div class="pia-knowledgeBaseBlock-item-accordion">
-    <button class="btn" type="button" (click)="displayItem()" title="Afficher / masquer"><span class="pia-icons pia-icon-accordeon-down"></span></button>
-  </div><div class="pia-knowledgeBaseBlock-item-definition">
-    <p (click)="displayItem()">{{itemKb.category}}</p>
-    <button *ngIf="itemKb.filters.startsWith('measure.') && itemKb.filters !== 'measure.definition' && !_evaluationService.showValidationButton && !_evaluationService.enableFinalValidation" class="btn" type="button" (click)="addNewMeasure()" title="Ajouter une mesure">
-      <span class="pia-icons pia-icon-add"></span>
-      <p>Ajouter</p>
-    </button>
-    <div style="display:none;">
-      <span class="pia-icons pia-icon-hand"></span>
-      <p>Ajoutez aussi une mesure à partir de la base de connaissance.</p>
+  <div>
+    <div class="pia-knowledgeBaseBlock-item-accordion">
+      <button class="btn" type="button" (click)="displayItem()" title="Afficher / masquer"><span class="pia-icons pia-icon-accordeon-down"></span></button>
+    </div><div class="pia-knowledgeBaseBlock-item-definition">
+      <p (click)="displayItem()">{{itemKb.category}}</p>
+      <button *ngIf="itemKb.filters.startsWith('measure.') && itemKb.filters !== 'measure.definition' && !_evaluationService.showValidationButton && !_evaluationService.enableFinalValidation" class="btn" type="button" (click)="addNewMeasure()" title="Ajouter une mesure">
+        <span class="pia-icons pia-icon-add"></span>
+        <p>Ajouter</p>
+      </button>
+      <div style="display:none;">
+        <span class="pia-icons pia-icon-hand"></span>
+        <p>Ajoutez aussi une mesure à partir de la base de connaissance.</p>
+      </div>
     </div>
   </div>
   <div class="pia-knowledgeBaseBlock-item-title">
-    <p>{{itemKb.name}}</p>
+    <p (click)="displayItem()">{{itemKb.name}}</p>
   </div>
   <div class="pia-knowledgeBaseBlock-item-content hide" [innerHTML]="itemKb.description">
   </div>

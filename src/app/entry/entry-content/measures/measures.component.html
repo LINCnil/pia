@@ -1,9 +1,10 @@
-<div class="pia-measureBlock" [ngClass]="{'approved': _evaluationService.showValidationButton}" [attr.data-id]="measure.id">
+<div class="pia-measureBlock" [ngClass]="{'approved': evaluation.status === 2 || evaluation.status === 3}" [attr.data-id]="measure.id">
   <form [formGroup]="measureForm">
     <div class="pia-measureBlock-title">
+      <!-- TODO : get the accordeon orientation in synchronization with the opening/closing of the evaluation block -->
       <button type="button" (click)="displayMeasure()" class="btn" title="Afficher / masquer"><span class="pia-icons pia-icon-accordeon-up"></span></button>
-      <input [attr.data-id]="measure.id" id="pia-measure-title-{{measure.id}}" formControlName="measureTitle"
-             (focusout)="measureTitleFocusOut($event)" type="text" placeholder="Titre de la mesure">
+      <textarea maxlength="120" rows="2" (keyup)="autoTextareaResize($event)" [attr.data-id]="measure.id" id="pia-measure-title-{{measure.id}}" formControlName="measureTitle"
+             (focusout)="measureTitleFocusOut($event)" placeholder="Titre de la mesure"></textarea>
     </div>
     <div class="pia-measureBlock-displayer fadeIn">
       <button type="button" class="btn pia-measureBlock-delete" *ngIf="displayDeleteButton"
@@ -11,16 +12,16 @@
       <button type="button" class="btn pia-measureBlock-edit" *ngIf="displayEditButton"
               (click)="activateMeasureEdition()" title="Éditer"><i class="fa fa-pencil" aria-hidden="true"></i></button>
       <div class="pia-measureBlock-content">
-        <textarea [attr.data-id]="measure.id" id="pia-measure-content-{{measure.id}}" formControlName="measureContent"
+        <textarea (keyup)="autoTextareaResize($event)" [attr.data-id]="measure.id" id="pia-measure-content-{{measure.id}}" formControlName="measureContent"
                   (focusout)="measureContentFocusOut($event)" rows="8" cols="50"
                   placeholder="{{measure.placeholder}}"></textarea>
       </div>
     </div>
   </form>
 
-  <app-comments [pia]="pia" [measure]="measure"></app-comments>
+  <app-comments [pia]="pia" [measure]="measure" [measureId]="measure.id"></app-comments>
 
-  <app-evaluations *ngIf="item.evaluation_mode == 'question' && (_evaluationService.showValidationButton || _evaluationService.enableFinalValidation)"
+  <app-evaluations *ngIf="item.evaluation_mode == 'question' && (_evaluationService.showValidationButton || _evaluationService.enableFinalValidation || _evaluationService.someItemNeedToBeFixed)"
                    (evaluationEvent)="evaluationChange($event)"
                    [pia]="pia" [section]="section" [item]="item" [measureId]="measure.id"></app-evaluations>
 </div>

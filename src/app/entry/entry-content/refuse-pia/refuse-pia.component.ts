@@ -47,6 +47,16 @@ export class RefusePIAComponent implements OnInit {
           this.modificationsMadeForm.controls['modificationsMade'].disable();
         }
       }
+
+      // Textareas auto resize
+      const rejectionTextarea = document.getElementById('pia-refuse-reason');
+      if (rejectionTextarea) {
+        this.autoTextareaResize(null, rejectionTextarea);
+      }
+      const modificationsTextarea = document.getElementById('pia-refuse-modifications');
+      if (modificationsTextarea) {
+        this.autoTextareaResize(null, modificationsTextarea);
+      }
     });
 
   }
@@ -128,5 +138,17 @@ export class RefusePIAComponent implements OnInit {
     }, 1);
     this._piaService.pia.applied_adjustements = this.modificationsMadeForm.value.modificationsMade;
     this._piaService.pia.update();
+  }
+
+  autoTextareaResize(event: any, textarea: HTMLElement) {
+    if (event) {
+      textarea = event.target;
+    }
+    if (textarea.clientHeight < textarea.scrollHeight) {
+      textarea.style.height = textarea.scrollHeight + 'px';
+      if (textarea.clientHeight < textarea.scrollHeight) {
+        textarea.style.height = (textarea.scrollHeight * 2 - textarea.clientHeight) + 'px';
+      }
+    }
   }
 }

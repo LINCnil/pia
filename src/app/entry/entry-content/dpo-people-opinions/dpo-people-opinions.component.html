@@ -19,7 +19,6 @@
           </span>, considère(nt) que :
         </p>
         <div class="pia-entryContentBlock-content-DPO-treatment">
-          <!-- TODO/NO MODE NEEDED : add 'checked' class on this div when a choice has been made/saved in DB -->
           <!-- ( ex : <div [ngClass]="_piaService.pia.dpo_status === 1 ? 'checked' : ''> -->
           <div class="checked">
             <input type="radio" id="treatment-1" [attr.dirty]="_piaService.pia.dpo_status === 1" [checked]="_piaService.pia.dpo_status === 1" (change)="DPOFocusOutStatus()" formControlName="DPOStatus" value="1">
@@ -29,7 +28,6 @@
               <span>Le traitement pourrait être mis en oeuvre.</span>
             </label>
           </div>
-          <!-- TODO/NO MODE NEEDED : add 'checked' class on this div when a choice has been made/saved in DB -->
           <div>
             <input type="radio" id="treatment-2" [attr.dirty]="_piaService.pia.dpo_status === 0" [checked]="_piaService.pia.dpo_status === 0" (change)="DPOFocusOutStatus()" formControlName="DPOStatus" value="0">
             <label for="treatment-2">
@@ -40,12 +38,12 @@
           </div>
         </div>
         <div class="pia-entryContentBlock-content-DPO-reasons">
-          <textarea formControlName="DPOOpinion" (focusout)="DPOFocusOutOpinion()" rows="8" cols="50" placeholder="Précisez les raisons de votre choix"></textarea>
+          <textarea (keyup)="autoTextareaResize($event)" id="pia-opinions-dpo" formControlName="DPOOpinion" (focusout)="DPOFocusOutOpinion()" rows="8" cols="50" placeholder="Précisez les raisons de votre choix"></textarea>
         </div>
       </form>
     </div>
     <!-- Concerned people opinions -->
-    <div class="pia-entryContentBlock-content-DPO-avis">
+    <div class="pia-entryContentBlock-content-people">
       <div>
         <h2>Avis des personnes concernées</h2>
         <button type="button" class="btn pia-questionBlock-edit" *ngIf="displayPeopleEditButton" (click)="activatePeopleEdition()" title="Éditer"><i class="fa fa-pencil" aria-hidden="true"></i></button>
@@ -62,7 +60,6 @@
           </span>, considère(nt) que :
         </p>
         <div class="pia-entryContentBlock-content-DPO-treatment">
-          <!-- TODO/NO MODE NEEDED : add 'checked' class on this div when a choice has been made/saved in DB -->
           <!-- ( ex : <div [ngClass]="_piaService.pia.concerned_people_status === 1 ? 'checked' : ''> -->
           <div>
             <input type="radio" id="dpoAvis-1" [checked]="_piaService.pia.concerned_people_status == 1" (change)="peopleFocusOutStatus()" formControlName="peopleStatus" value="1">
@@ -72,7 +69,6 @@
               <span>Le traitement pourrait être mis en oeuvre.</span>
             </label>
           </div>
-          <!-- TODO/NO MODE NEEDED : add 'checked' class on this div when a choice has been made/saved in DB -->
           <div>
             <input type="radio" id="dpoAvis-2" [checked]="_piaService.pia.concerned_people_status == 0" (change)="peopleFocusOutStatus()" formControlName="peopleStatus" value="0">
             <label for="dpoAvis-2">
@@ -83,7 +79,7 @@
           </div>
         </div>
         <div class="pia-entryContentBlock-content-DPO-reasons">
-          <textarea rows="8" formControlName="peopleOpinion" (focusout)="peopleFocusOutOpinion()" cols="50" placeholder="Décrivez comment les avis ont été collectés et quelle en est l’analyse. Dans le cas où les avis n’ont pas été recherchés, en préciser les raisons."></textarea>
+          <textarea (keyup)="autoTextareaResize($event)" id="pia-opinions-people" rows="8" formControlName="peopleOpinion" (focusout)="peopleFocusOutOpinion()" cols="50" placeholder="Décrivez comment les avis ont été collectés et quelle en est l’analyse. Dans le cas où les avis n’ont pas été recherchés, en préciser les raisons."></textarea>
         </div>
       </form>
     </div>

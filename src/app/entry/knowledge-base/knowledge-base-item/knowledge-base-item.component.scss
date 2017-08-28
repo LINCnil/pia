@@ -12,7 +12,7 @@
       }
       &-accordion {
         width: 8%;
-        vertical-align: 2px;
+        margin-top: 9px;
       }
       &-definition {
         position: relative;
@@ -26,8 +26,9 @@
           margin-right: 4px;
         }
         > p {
-          margin-top: 10px;
-          margin-bottom: 14px;
+          cursor: pointer;
+          margin-top: 13px;
+          margin-bottom: 0;
           color: $pia-red;
         }
         button {
@@ -74,6 +75,7 @@
       }
       &-title {
         p {
+          cursor: pointer;
           margin-top: -10px;
           margin-right: 40px;
           margin-bottom: 0;
@@ -90,6 +92,9 @@
         padding-bottom: 15px;
         color: $pia-dark-black;
         font-size: 1.4rem;
+      }
+      > div:first-child {
+        margin-bottom: 14px;
       }
     }
   }

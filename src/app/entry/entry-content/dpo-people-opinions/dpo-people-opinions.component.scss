@@ -4,7 +4,7 @@
 .pia-ValidationDPO {
   .pia-entryContentBlock {
     &-content {
-      &-DPO, &-DPO-avis {
+      &-DPO, &-people {
         > div {
           display: flex;
           justify-content: space-between;
@@ -83,29 +83,10 @@
               background-color: $pia-white;
               padding: 14px 18px;
             }
-            // &.checked {
-            //   label {
-            //     background-color: $pia-green;
-            //     .fa-circle {
-            //       display: none;
-            //     }
-            //     .fa-check, .fa-close {
-            //       display: block;
-            //     }
-            //     span {
-            //       color: #fff;
-            //     }
-            //   }
-            // }
             &:last-child {
               input:checked + label {
                 background-color: $pia-red;
               }
-              // &.checked {
-              //   label {
-              //     background-color: $pia-red;
-              //   }
-              // }
             }
           }
         }
@@ -113,27 +94,23 @@
           border-bottom: 1px solid $pia-green;
           textarea {
             resize: none;
-            margin-top: 5px;
+            display: block;
             width: 100%;
-            max-width: 500px;
-            margin-bottom: 16px;
             background-color: $pia-white;
-            border:none;
-            padding-top: 20px;
-            padding-left: 5px;
-            font-size: 1.4rem;
-            &[placeholder] {
-              color: $pia-gray;
+            border: 0;
+            padding: 5px 12px;
+            font-size: 1.35rem;
+            &::placeholder {
               font-style: italic;
-              font-size: 1.2rem;
             }
-            &[disabled] {
-              background-color: white;
+            &:disabled {
+              background-color: transparent;
+              color: $pia-dark-black;
             }
           }
         }
       }
-      &-DPO-avis {
+      &-people {
         margin-top: 10px;
       }
     }
