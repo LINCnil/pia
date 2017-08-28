@@ -130,7 +130,7 @@
           </div>
         </div>
       </div>
-      <app-card-item *ngFor="let pia of _piaService.pias;let i=index" [pia]="pia"></app-card-item>
+      <app-card-item *ngFor="let pia of _piaService.pias;let i=index" [pia]="pia" [previousPia]="i > 0 ? _piaService.pias[i-1] : null"></app-card-item>
     </div>
     <ng-template #viewList>
       <div class="small-12 medium-12 columns">

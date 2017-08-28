@@ -1,4 +1,4 @@
-import { Component, OnInit, Input} from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Pia } from '../../entry/pia.model';
 import { Router } from '@angular/router';
@@ -14,6 +14,7 @@ import { PiaService } from 'app/entry/pia.service';
 })
 export class CardItemComponent implements OnInit {
   @Input() pia: any;
+  @Input() previousPia: any;
   editMode: Boolean;
   piaForm: FormGroup;
 

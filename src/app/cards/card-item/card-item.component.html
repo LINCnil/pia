@@ -1,6 +1,8 @@
 <div class="pia-cardsBlock" [ngClass]="{'pia-archiveBlock': pia.status > 3, 'pia-doingBlock': pia.status <= 3}" [attr.data-id]="pia.id">
 
-    <div class="pia-cardsBlock-header-title" *ngIf="pia.id !== null" [innerHTML]="pia.status > 3 ? 'Archives' : 'En cours' "></div>
+    <div class="pia-cardsBlock-header-title" *ngIf="pia.id !== null">
+      <span *ngIf="!previousPia || previousPia.status !== pia.status" [innerHTML]="pia.status > 3 ? 'Archives' : 'En cours'"></span>
+    </div>
     <div class="pia-cardsBlock-item pia-doingBlock-item">
       <div class="pia-cardsBlock-toolbar">
           <div class="pia-cardsBlock-toolbar-edit">

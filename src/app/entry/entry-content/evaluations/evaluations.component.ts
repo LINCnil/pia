@@ -311,7 +311,6 @@ export class EvaluationsComponent implements OnInit, AfterViewChecked, DoCheck {
   }
 
   autoTextareaResize(event: any, textarea: any) {
-    console.log(textarea);
     if (event) {
       textarea = event.target;
     }
