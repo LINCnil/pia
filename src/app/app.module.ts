@@ -40,13 +40,16 @@ import { KnowledgeBaseService } from './entry/knowledge-base/knowledge-base.serv
 import { EvaluationService } from 'app/entry/entry-content/evaluations/evaluations.service';
 import { OverviewRisksComponent } from './entry/entry-content/overview-risks/overview-risks.component';
 import { ErrorsComponent } from './errors/errors.component';
-import { ActionPlanImplementationComponent } from './entry/entry-content/action-plan/action-plan-implementation/action-plan-implementation.component';
+import {
+    ActionPlanImplementationComponent
+  } from './entry/entry-content/action-plan/action-plan-implementation/action-plan-implementation.component';
 import { environment } from '../environments/environment';
 import { ListItemComponent } from 'app/cards/list-item/list-item.component';
 
 
 const appRoutes: Routes = [
   { path: '', component: AuthenticationComponent },
+  { path: 'home', component: CardsComponent },
   { path: 'home/:view', component: CardsComponent },
   { path: 'entry/:id', component: EntryComponent },
   { path: 'entry/:id/section/:section_id/item/:item_id', component: EntryComponent },

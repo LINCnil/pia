@@ -14,6 +14,7 @@ import { PiaService } from 'app/entry/pia.service';
   styleUrls: ['./cards.component.scss'],
   providers: [PiaService],
 })
+
 export class CardsComponent implements OnInit, OnDestroy {
   @Input() pia: any;
   newPia: Pia;
@@ -55,18 +56,13 @@ export class CardsComponent implements OnInit, OnDestroy {
         this.viewStyle.view = params['view'];
       }
     );
-    if (localStorage.setItem('homepageDisplayMode', this.viewStyle.view)) {
-      localStorage.setItem('homepageDisplayMode', this.viewStyle.view);
+    if (localStorage.getItem('homepageDisplayMode') === 'list') {
+      this.viewOnList();
     } else {
-      const homepageDisplayMode = localStorage.getItem('homepageDisplayMode');
-      if (homepageDisplayMode === 'card') {
-        this.viewOnCard();
-      } else {
-        this.viewOnList();
-      }
+      this.viewOnCard();
     }
-
   }
+
   /**
    * Creates a new PIA card and adds a flip effect to go switch between new PIA and edit PIA events.
    */
@@ -79,6 +75,7 @@ export class CardsComponent implements OnInit, OnDestroy {
       rocketToHide.style.display = 'none';
     }
   }
+
   reversePIA() {
     const cardsToSwitchReverse = document.getElementById('cardsSwitch');
     cardsToSwitchReverse.classList.remove('flipped');
@@ -106,7 +103,7 @@ export class CardsComponent implements OnInit, OnDestroy {
   }
 
   /**
-   *  Asort items created on PIA
+   * Asort items created on PIA
    */
   sortBy(sort: string) {
     this.sortReverse = !this.sortReverse;
@@ -118,7 +115,6 @@ export class CardsComponent implements OnInit, OnDestroy {
           return (a[sort] > b[sort]) ? 1 : 0 ;
         });
       } else {
-        this.sortReverse === false
         this._piaService.pias.reverse();
       }
     }
@@ -127,6 +123,7 @@ export class CardsComponent implements OnInit, OnDestroy {
     }
     /** TODO sort on progress */
   }
+
   viewOnList() {
     this.viewStyle.view = 'list';
     localStorage.setItem('homepageDisplayMode', this.viewStyle.view);
@@ -138,6 +135,7 @@ export class CardsComponent implements OnInit, OnDestroy {
     localStorage.setItem('homepageDisplayMode', this.viewStyle.view);
     this.router.navigate(['home', 'card']);
   }
+
   ngOnDestroy() {
     this.paramsSubscribe.unsubscribe();
   }

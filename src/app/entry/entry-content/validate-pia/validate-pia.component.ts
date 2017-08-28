@@ -127,7 +127,6 @@ export class ValidatePIAComponent implements OnInit {
     // Start of the loop for each lines
     const doc = new jsPDF('p', 'mm', 'a4');
     doc.setFontSize(12);
-    console.log('doc.getFontList()');
     let i = 1;
     this.pdf.forEach((entry) => {
       if (i === 34) {

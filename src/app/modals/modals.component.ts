@@ -1,12 +1,12 @@
-import {Component, Input, OnInit} from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { ModalsService } from './modals.service';
 import { MeasureService } from 'app/entry/entry-content/measures/measures.service';
 import { PiaService } from 'app/entry/pia.service';
 import { AttachmentsService } from 'app/entry/attachments/attachments.service';
-import {FormControl, FormGroup} from "@angular/forms";
-import {Pia} from "../entry/pia.model";
+import { FormControl, FormGroup } from '@angular/forms';
+import { Pia } from '../entry/pia.model';
 
 @Component({
   selector: 'app-modals',

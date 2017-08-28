@@ -136,63 +136,63 @@
       <div class="small-12 medium-12 columns">
         <table class="pia-list-table">
           <thead>
-          <tr>
-            <th>
-              <a (click)="sortBy('name')">
-                <span>PIA</span>
-                <i *ngIf="filter === 'name' && sortReverse === false" class="fa fa-caret-down"></i>
-                <i *ngIf="filter === 'name' && sortReverse === true" class="fa fa-caret-up"></i>
-              </a>
-            </th>
-            <th>
-              <a (click)="sortBy('updated_at')">
-                <span>Ouvert le</span>
-                <i *ngIf="filter === 'updated_at' && sortReverse === false" class="fa fa-caret-down"></i>
-                <i *ngIf="filter === 'updated_at' && sortReverse === true" class="fa fa-caret-up"></i>
-              </a>
-            </th>
-            <th>
-              <a (click)="sortBy('author_name')">
-                <span>Saisie</span>
-                <i *ngIf="filter === 'author_name' && sortReverse === false" class="fa fa-caret-down"></i>
-                <i *ngIf="filter === 'author_name' && sortReverse === true" class="fa fa-caret-up"></i>
-              </a>
-            </th>
-            <th>
-              <a (click)="sortBy('evaluator_name')">
-                <span>Évaluation</span>
-                <i *ngIf="filter === 'evaluator_name' && sortReverse === false" class="fa fa-caret-down"></i>
-                <i *ngIf="filter === 'evaluator_name' && sortReverse === true" class="fa fa-caret-up"></i>
-              </a>
-            </th>
-            <th>
-              <a (click)="sortBy('validator_name')">
-                <span>Validation</span>
-                <i *ngIf="filter === 'validator_name' && sortReverse === false" class="fa fa-caret-down"></i>
-                <i *ngIf="filter === 'validator_name' && sortReverse === true" class="fa fa-caret-up"></i>
-              </a>
-            </th>
-            <th>
-              <a (click)="sortBy('created_at')">
-                <span>Création</span>
-                <i *ngIf="filter === 'created_at' && sortReverse === false" class="fa fa-caret-down"></i>
-                <i *ngIf="filter === 'created_at' && sortReverse === true" class="fa fa-caret-up"></i>
-              </a>
-            </th>
-            <th>
-              <a (click)="sortBy('status')">
-                <span>Status</span>
-                <i *ngIf="filter === 'status' && sortReverse === false" class="fa fa-caret-down"></i>
-                <i *ngIf="filter === 'status' && sortReverse === true" class="fa fa-caret-up"></i>
-              </a>
-            </th>
-            <th>
-              <span>Actions</span>
-            </th>
-          </tr>
+            <tr>
+              <th>
+                <a (click)="sortBy('name')">
+                  <span>PIA</span>
+                  <i *ngIf="filter === 'name' && sortReverse === false" class="fa fa-caret-down"></i>
+                  <i *ngIf="filter === 'name' && sortReverse === true" class="fa fa-caret-up"></i>
+                </a>
+              </th>
+              <th>
+                <a (click)="sortBy('updated_at')">
+                  <span>Ouvert le</span>
+                  <i *ngIf="filter === 'updated_at' && sortReverse === false" class="fa fa-caret-down"></i>
+                  <i *ngIf="filter === 'updated_at' && sortReverse === true" class="fa fa-caret-up"></i>
+                </a>
+              </th>
+              <th>
+                <a (click)="sortBy('author_name')">
+                  <span>Saisie</span>
+                  <i *ngIf="filter === 'author_name' && sortReverse === false" class="fa fa-caret-down"></i>
+                  <i *ngIf="filter === 'author_name' && sortReverse === true" class="fa fa-caret-up"></i>
+                </a>
+              </th>
+              <th>
+                <a (click)="sortBy('evaluator_name')">
+                  <span>Évaluation</span>
+                  <i *ngIf="filter === 'evaluator_name' && sortReverse === false" class="fa fa-caret-down"></i>
+                  <i *ngIf="filter === 'evaluator_name' && sortReverse === true" class="fa fa-caret-up"></i>
+                </a>
+              </th>
+              <th>
+                <a (click)="sortBy('validator_name')">
+                  <span>Validation</span>
+                  <i *ngIf="filter === 'validator_name' && sortReverse === false" class="fa fa-caret-down"></i>
+                  <i *ngIf="filter === 'validator_name' && sortReverse === true" class="fa fa-caret-up"></i>
+                </a>
+              </th>
+              <th>
+                <a (click)="sortBy('created_at')">
+                  <span>Création</span>
+                  <i *ngIf="filter === 'created_at' && sortReverse === false" class="fa fa-caret-down"></i>
+                  <i *ngIf="filter === 'created_at' && sortReverse === true" class="fa fa-caret-up"></i>
+                </a>
+              </th>
+              <th>
+                <a (click)="sortBy('status')">
+                  <span>Status</span>
+                  <i *ngIf="filter === 'status' && sortReverse === false" class="fa fa-caret-down"></i>
+                  <i *ngIf="filter === 'status' && sortReverse === true" class="fa fa-caret-up"></i>
+                </a>
+              </th>
+              <th>
+                <span>Actions</span>
+              </th>
+            </tr>
           </thead>
           <tbody>
-          <tr class="app-list-item" [attr.data-id]="pia.id" *ngFor="let pia of _piaService.pias;let i=index" [pia]="pia"></tr>
+            <tr class="app-list-item" [attr.data-id]="pia.id" *ngFor="let pia of _piaService.pias;let i=index" [pia]="pia"></tr>
           </tbody>
         </table>
       </div>

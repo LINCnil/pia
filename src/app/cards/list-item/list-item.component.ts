@@ -22,9 +22,11 @@ export class ListItemComponent implements OnInit {
       this.progress = nb;
     });
   }
+
   editPia() {
     this.router.navigate(['entry', this.pia.id, 'section', 1, 'item', 1]);
   }
+
   removePia(id: string) {
     localStorage.setItem('pia-id', id);
     this._modalsService.openModal('modal-remove-pia');
