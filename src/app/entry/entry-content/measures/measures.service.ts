@@ -1,7 +1,5 @@
 import { Injectable } from '@angular/core';
-
 import { Measure } from './measure.model';
-
 import { ModalsService } from 'app/modals/modals.service';
 import { EvaluationService } from 'app/entry/entry-content/evaluations/evaluations.service';
 
@@ -10,7 +8,19 @@ export class MeasureService {
 
   measures: any[];
 
-  constructor(private _modalsService: ModalsService, private _evaluationService: EvaluationService) {}
+  constructor(private _modalsService: ModalsService,
+              private _evaluationService: EvaluationService) {}
+
+  async listMeasures(pia_id: number) {
+    return new Promise((resolve, reject) => {
+      const measuresModel = new Measure();
+      measuresModel.pia_id = pia_id;
+      measuresModel.findAll().then((entries: any[]) => {
+        this.measures = entries;
+        resolve();
+      });
+    });
+  }
 
   /**
    * Allows an user to remove a measure ("RISKS" section).

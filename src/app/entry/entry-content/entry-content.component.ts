@@ -1,12 +1,8 @@
 import { Router, ActivatedRoute, Params } from '@angular/router';
-import { Component, OnInit, Input, OnChanges, AfterViewChecked } from '@angular/core';
-import { Measure } from './measures/measure.model';
+import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map'
-
 import { Evaluation } from 'app/entry/entry-content/evaluations/evaluation.model';
-import { Answer } from 'app/entry/entry-content/questions/answer.model';
-
 import { MeasureService } from 'app/entry/entry-content/measures/measures.service';
 import { ModalsService } from 'app/modals/modals.service';
 import { PiaService } from 'app/entry/pia.service';
@@ -18,16 +14,14 @@ import { EvaluationService } from 'app/entry/entry-content/evaluations/evaluatio
   styleUrls: ['./entry-content.component.scss'],
   providers: [PiaService]
 })
-export class EntryContentComponent implements OnInit, OnChanges, AfterViewChecked {
 
+export class EntryContentComponent implements OnInit, OnChanges {
   @Input() measureName: string;
   @Input() measurePlaceholder: string;
   @Input() section: { id: number, title: string, short_help: string, items: any };
   @Input() item: { id: number, title: string, evaluation_mode: string, short_help: string, questions: any };
   @Input() questions: any;
   @Input() data: any;
-  answers: Answer[] = [];
-  hasCheckedMeasures = false;
 
   constructor(private router: Router,
               private activatedRoute: ActivatedRoute,
@@ -38,15 +32,9 @@ export class EntryContentComponent implements OnInit, OnChanges, AfterViewChecke
   }
 
   ngOnInit() {
-    const measuresModel = new Measure();
-    // const answersModel = new Answer();
     this._piaService.getPIA().then((entry) => {
       this._piaService.pia.updated_at = new Date();
       this._piaService.pia.update();
-      measuresModel.pia_id = this._piaService.pia.id;
-      measuresModel.findAll().then((entries: any[]) => {
-        this._measureService.measures = entries;
-      });
     });
   }
 
@@ -55,25 +43,6 @@ export class EntryContentComponent implements OnInit, OnChanges, AfterViewChecke
     this._evaluationService.allowEvaluation();
     if (this.measureName) {
       this._measureService.addNewMeasure(this._piaService.pia, this.measureName, this.measurePlaceholder);
-    }
-  }
-
-  ngAfterViewChecked() {
-    if (!this.hasCheckedMeasures) {
-      this.hasCheckedMeasures = true;
-      if (this._measureService.measures) {
-        if ((this.section.id === 3) && (this.item.id === 2 || this.item.id === 3 || this.item.id === 4)) {
-          if ((this._measureService.measures[0] &&
-              this._measureService.measures[0].content &&
-              this._measureService.measures[0].content.length <= 0 &&
-              this._measureService.measures[0].title.length <= 0) ||
-              this._measureService.measures.length === 0) {
-                this._modalsService.openModal('pia-declare-measures');
-          }
-        }
-      }
-    } else {
-      this.hasCheckedMeasures = false;
     }
   }
 

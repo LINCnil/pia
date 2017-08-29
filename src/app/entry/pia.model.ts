@@ -48,6 +48,8 @@ export class Pia extends ApplicationDb {
           newPia.status = element.status;
           newPia.dpos_names = element.dpos_names;
           newPia.people_names = element.people_names;
+          newPia.created_at = new Date(element.created_at);
+          newPia.updated_at = new Date(element.updated_at);
           const answer = new Answer();
           answer.findAllByPia(element.id).then((answers: any) => {
             newPia.progress = Math.round((100 / numberOfQuestions) * answers.length);

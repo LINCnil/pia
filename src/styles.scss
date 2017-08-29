@@ -132,3 +132,9 @@ tag-input-form {
 .tag--editing {
   background-color: rgba(0,0,0,0.1) !important;
 }
+
+.truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

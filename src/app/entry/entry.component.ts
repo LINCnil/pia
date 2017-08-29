@@ -3,11 +3,15 @@ import { ActivatedRoute, Params } from '@angular/router';
 import { Http } from '@angular/http';
 import { EvaluationService } from 'app/entry/entry-content/evaluations/evaluations.service';
 import { KnowledgeBaseService } from 'app/entry/knowledge-base/knowledge-base.service';
+import { MeasureService } from 'app/entry/entry-content/measures/measures.service';
+import { PiaService } from 'app/entry/pia.service';
+import { ModalsService } from 'app/modals/modals.service';
 
 @Component({
   selector: 'app-entry',
   templateUrl: './entry.component.html',
-  styleUrls: ['./entry.component.scss']
+  styleUrls: ['./entry.component.scss'],
+  providers: [PiaService]
 })
 export class EntryComponent implements OnInit {
 
@@ -18,8 +22,13 @@ export class EntryComponent implements OnInit {
   data: { sections: any };
   questions: any;
 
-  constructor(private route: ActivatedRoute, private http: Http,
-              private _evaluationService: EvaluationService, private _knowledgeBaseService: KnowledgeBaseService) {
+  constructor(private route: ActivatedRoute,
+              private http: Http,
+              private _modalsService: ModalsService,
+              private _evaluationService: EvaluationService,
+              private _knowledgeBaseService: KnowledgeBaseService,
+              private _piaService: PiaService,
+              private _measureService: MeasureService) {
     let sectionId = parseInt(this.route.snapshot.params['section_id'], 10);
     let itemId = parseInt(this.route.snapshot.params['item_id'], 10);
 
@@ -65,6 +74,24 @@ export class EntryComponent implements OnInit {
         this.questions.push(question);
       });
     }
+
+    this._piaService.getPIA().then(() => {
+      this._measureService.listMeasures(this._piaService.pia.id).then(() => {
+        let displayModal = true;
+        if ((this.section.id === 3) && (this.item.id === 2 || this.item.id === 3 || this.item.id === 4)) {
+          if (this._measureService.measures.length > 0) {
+            this._measureService.measures.forEach(element => {
+              if (element.title && element.title.length > 0) {
+                displayModal = false;
+              }
+            });
+          }
+          if (displayModal) {
+            this._modalsService.openModal('pia-declare-measures');
+          }
+        }
+      });
+    });
 
     this._knowledgeBaseService.loadByItem(this.item);
   }
