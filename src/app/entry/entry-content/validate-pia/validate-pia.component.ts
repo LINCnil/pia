@@ -51,9 +51,7 @@ export class ValidatePIAComponent implements OnInit {
       this._piaService.getPIA().then(() => {
         this._actionPlanService.pia = this._piaService.pia;
         this._attachmentsService.pia = this._piaService.pia;
-        this._attachmentsService.listAttachments().then(() => {
-          this.attachment = this._attachmentsService.attachments[this._attachmentsService.attachments.length - 1];
-        });
+        this._attachmentsService.setSignedPia();
         this.getJsonInfo().then(() => {
           this.preparePdf();
         });
@@ -63,11 +61,17 @@ export class ValidatePIAComponent implements OnInit {
 
   addAttachment() {
     const attachment: any = document.querySelector('[formcontrolname="attachment_file"]');
+    this._attachmentsService.pia_signed = 1;
     attachment.click();
   }
 
   downloadAttachment(id: number) {
     this._attachmentsService.downloadAttachment(id);
+  }
+
+  removeAttachment(id: number) {
+    localStorage.setItem('attachment-id', id.toString());
+    this._modalsService.openModal('modal-remove-attachment');
   }
 
   /**

@@ -22,21 +22,37 @@ export class ApplicationDb {
         resolve(event.target.result);
       };
       request.onupgradeneeded = (event: any) => {
-        const objectStore = event.target.result.createObjectStore(this.tableName, { keyPath: 'id', autoIncrement: true });
-        if (this.tableName === 'pia') {
-          objectStore.createIndex('index1', 'status', { unique: false });
-        } else if (this.tableName === 'comment') {
-          objectStore.createIndex('index1', ['pia_id', 'reference_to'], { unique: false });
-        } else if (this.tableName === 'evaluation') {
-          objectStore.createIndex('index1', ['pia_id', 'reference_to'], { unique: false });
-          objectStore.createIndex('index2', 'pia_id', { unique: false });
-        } else if (this.tableName === 'answer') {
-          objectStore.createIndex('index1', ['pia_id', 'reference_to'], { unique: false });
-          objectStore.createIndex('index2', 'pia_id', { unique: false });
-        } else if (this.tableName === 'measure') {
-          objectStore.createIndex('index1', 'pia_id', { unique: false });
-        } else if (this.tableName === 'attachment') {
-          objectStore.createIndex('index1', 'pia_id', { unique: false });
+        let objectStore = null;
+        if (event.oldVersion !== 0) {
+          objectStore =  event.target.transaction.objectStore(this.tableName);
+        } else {
+          objectStore = event.target.result.createObjectStore(this.tableName, { keyPath: 'id', autoIncrement: true });
+        }
+        if (objectStore) {
+          if (event.oldVersion === 0) {
+            // First DB init
+            if (this.tableName === 'pia') {
+              objectStore.createIndex('index1', 'status', { unique: false });
+            } else if (this.tableName === 'comment') {
+              objectStore.createIndex('index1', ['pia_id', 'reference_to'], { unique: false });
+            } else if (this.tableName === 'evaluation') {
+              objectStore.createIndex('index1', ['pia_id', 'reference_to'], { unique: false });
+              objectStore.createIndex('index2', 'pia_id', { unique: false });
+            } else if (this.tableName === 'answer') {
+              objectStore.createIndex('index1', ['pia_id', 'reference_to'], { unique: false });
+              objectStore.createIndex('index2', 'pia_id', { unique: false });
+            } else if (this.tableName === 'measure') {
+              objectStore.createIndex('index1', 'pia_id', { unique: false });
+            } else if (this.tableName === 'attachment') {
+              objectStore.createIndex('index1', 'pia_id', { unique: false });
+            }
+          }
+          if (event.oldVersion !== this.dbVersion) {
+            // Next DB versions
+            if (this.dbVersion === 201708291502) {
+              objectStore.createIndex('index2', ['pia_id', 'pia_signed'], { unique: false });
+            }
+          }
         }
       };
     });
@@ -44,6 +60,10 @@ export class ApplicationDb {
 
   async getObjectStore() {
     const db: any = await this.initDb();
+    db.onversionchange = function(event) {
+      db.close();
+      alert('A new version of this page is ready. Please reload!');
+    };
     return new Promise((resolve, reject) => {
       this.objectStore = db.transaction(this.tableName, 'readwrite').objectStore(this.tableName);
       resolve();

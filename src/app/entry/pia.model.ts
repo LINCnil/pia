@@ -3,7 +3,7 @@ import { Answer } from 'app/entry/entry-content/questions/answer.model';
 
 export class Pia extends ApplicationDb {
   public id: number;
-  public status: number; // 0: doing, 1: refused, 2: simple_validation, 3: signed_validation
+  public status: number; // 0: doing, 1: refused, 2: simple_validation, 3: signed_validation, 4: archived
   public name: string;
   public author_name: string;
   public evaluator_name: string;
@@ -34,6 +34,7 @@ export class Pia extends ApplicationDb {
       this.findAll().then((entries: any) => {
         entries.forEach(element => {
           const newPia = new Pia();
+          newPia.id = element.id;
           newPia.name = element.name;
           newPia.author_name = element.author_name;
           newPia.evaluator_name = element.evaluator_name;
@@ -139,7 +140,7 @@ export class Pia extends ApplicationDb {
     switch (this.status) {
       case 0:
       {
-        return 'En cours d\'édition';
+        return 'En cours';
       }
       case 1:
       {
@@ -147,11 +148,15 @@ export class Pia extends ApplicationDb {
       }
       case 2:
       {
-        return 'Validation simple';
+        return 'Validé';
       }
       case 3:
       {
-        return 'Validation';
+        return 'Validé';
+      }
+      case 4:
+      {
+        return 'Archivé';
       }
     }
   }

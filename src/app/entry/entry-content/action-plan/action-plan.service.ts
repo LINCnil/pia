@@ -9,12 +9,13 @@ export class ActionPlanService {
   evaluationModel: Evaluation = new Evaluation();
   risks = [];
   measures = [];
-  results = [];
+  results: any;
   noPrinciplesActionPlan = true;
   noMeasuresActionPlan = true;
   noRisksActionPlan = true;
 
   listActionPlan() {
+    this.results = [];
     const section = this.data.sections.filter((s) => {
       return s.id === 2;
     });
