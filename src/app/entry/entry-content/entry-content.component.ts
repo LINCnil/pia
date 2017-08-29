@@ -27,6 +27,7 @@ export class EntryContentComponent implements OnInit, OnChanges, AfterViewChecke
   @Input() questions: any;
   @Input() data: any;
   answers: Answer[] = [];
+  hasCheckedMeasures = false;
 
   constructor(private router: Router,
               private activatedRoute: ActivatedRoute,
@@ -45,9 +46,6 @@ export class EntryContentComponent implements OnInit, OnChanges, AfterViewChecke
       measuresModel.pia_id = this._piaService.pia.id;
       measuresModel.findAll().then((entries: any[]) => {
         this._measureService.measures = entries;
-        // if (this._measureService.measures.length === 0) {
-        //   this._measureService.addNewMeasure(this._piaService.pia);
-        // }
       });
     });
   }
@@ -61,13 +59,21 @@ export class EntryContentComponent implements OnInit, OnChanges, AfterViewChecke
   }
 
   ngAfterViewChecked() {
-    // TODO This doesn't work some time.
-    if (this._measureService.measures &&
-        this._measureService.measures[0] &&
-        this._measureService.measures[0].content &&
-        this._measureService.measures[0].content.length <= 0 &&
-        this._measureService.measures[0].title.length <= 0 && this.section.id === 3 && this.item.id !== 1) {
-      this._modalsService.openModal('pia-declare-measures');
+    if (!this.hasCheckedMeasures) {
+      this.hasCheckedMeasures = true;
+      if (this._measureService.measures) {
+        if ((this.section.id === 3) && (this.item.id === 2 || this.item.id === 3 || this.item.id === 4)) {
+          if ((this._measureService.measures[0] &&
+              this._measureService.measures[0].content &&
+              this._measureService.measures[0].content.length <= 0 &&
+              this._measureService.measures[0].title.length <= 0) ||
+              this._measureService.measures.length === 0) {
+                this._modalsService.openModal('pia-declare-measures');
+          }
+        }
+      }
+    } else {
+      this.hasCheckedMeasures = false;
     }
   }
 
