@@ -53,33 +53,30 @@
         <p>Tous les champs doivent être cochés</p>
       </form>
       <div class="pia-entryContentBlock-content-status" *ngIf="_piaService.pia.status === 3">
-        <p>En attente de la signature du rapport PIA</p>
-        <i class="fa fa-cog" aria-hidden="true"></i>
-      </div>
-      <div class="pia-entryContentBlock-content-status hide" *ngIf="_piaService.pia.status === 3">
-        <i class="fa fa fa-check-square-o" aria-hidden="true"></i>
-        <p>Validé</p>
+        <ng-container *ngIf="!_attachmentsService.attachment_signed; else piaSignedAndValidated">
+          <p>En attente de la signature du rapport PIA</p>
+          <i class="fa fa-cog" aria-hidden="true"></i>
+        </ng-container>
+        <ng-template #piaSignedAndValidated>
+          <i class="fa fa fa-check-square-o" aria-hidden="true"></i>
+          <p>Validé</p>
+        </ng-template>
       </div>
     </div>
   </div>
-  <button type="button" (click)="addAttachment()" *ngIf="_piaService.pia.status === 3" class="pia-entryContentBlock-submitAttachmentButton btn btn-red">Ajouter le rapport PIA signé</button>
+  <button type="button" (click)="addAttachment()" *ngIf="_piaService.pia.status === 3 && !_attachmentsService.attachment_signed" class="pia-entryContentBlock-submitAttachmentButton btn btn-red">Ajouter le rapport PIA signé</button>
 
   <div>
     <app-pia-validate-history></app-pia-validate-history>
   </div>
 
   <div class="pia-entryContentBlock-footer">
-    <div class="pia-entryContentBlock-footer-validationAttachments" *ngIf="_piaService.pia.status === 3 && attachment">
+    <div class="pia-entryContentBlock-footer-validationAttachments" *ngIf="_piaService.pia.status === 3 && _attachmentsService.attachment_signed">
       <div>
         <span class="pia-icons pia-icon-file-pdf-blue"></span>
-        <a href="javascript:;" (click)="downloadAttachment(attachment.id)">{{attachment.name}}</a>
+        <a href="javascript:;" (click)="downloadAttachment(_attachmentsService.attachment_signed.id)">{{_attachmentsService.attachment_signed.name}}</a>
       </div>
-      <!--
-        TODO : status === 3 is signed_validation. So what is status === 4? Maybe we should do the following :
-        status 3 pending_for_signature_validation
-        status 4 signed_validation ?
-      -->
-      <button *ngIf="_piaService.pia.status !== 4" type="button" class="btn" (click)="dimissAttachement()" title="Supprimer"><span class="pia-icons pia-icon-close"></span></button>
+      <button *ngIf="_piaService.pia.status !== 4" type="button" class="btn" (click)="removeAttachment(_attachmentsService.attachment_signed.id)" title="Supprimer"><span class="pia-icons pia-icon-close"></span></button>
     </div>
     <div class="pia-entryContentBlock-footer-validationTools">
       <a routerLink="/home"><i class="fa fa-home" aria-hidden="true" title="Accueil"></i><p>Accueil</p></a>
