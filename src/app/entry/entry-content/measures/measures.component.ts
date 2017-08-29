@@ -18,7 +18,7 @@ export class MeasuresComponent implements OnInit {
   @Input() pia: any;
   evaluation: Evaluation = new Evaluation();
   displayEditButton = false;
-  displayDeleteButton = false;
+  displayDeleteButton = true;
   measureForm: FormGroup;
   measureModel: Measure = new Measure();
 
@@ -42,7 +42,6 @@ export class MeasuresComponent implements OnInit {
         this.measureForm.controls['measureContent'].patchValue(this.measureModel.content);
         if (this.measureModel.title || this.measureModel.content) {
           this.displayEditButton = true;
-          this.displayDeleteButton = true;
         }
         if (this.measureModel.title) {
           this.measureForm.controls['measureTitle'].disable();
@@ -90,7 +89,6 @@ export class MeasuresComponent implements OnInit {
     }
     if (this.evaluation && this.evaluation.status === 1) {
       this.displayEditButton = true;
-      this.displayDeleteButton = true;
     }
   }
 
@@ -112,7 +110,6 @@ export class MeasuresComponent implements OnInit {
       });
       if (titleValue && titleValue.length > 0 && document.activeElement.id !== 'pia-measure-content-' + this.measureModel.id) {
         this.displayEditButton = true;
-        this.displayDeleteButton = true;
         this.measureForm.controls['measureTitle'].disable();
         // Disables content field if both fields are filled and content isn't the next targeted element.
         if (contentValue && contentValue.length > 0) {
@@ -122,7 +119,6 @@ export class MeasuresComponent implements OnInit {
       // Disables content field too if no title and content is filled and isn't the next targeted element.
       if (!titleValue && contentValue && contentValue.length > 0 && document.activeElement.id !== 'pia-measure-content') {
         this.displayEditButton = true;
-        this.displayDeleteButton = true;
         this.measureForm.controls['measureContent'].disable();
       }
     }, 1);
@@ -146,7 +142,6 @@ export class MeasuresComponent implements OnInit {
       });
       if (contentValue && contentValue.length > 0 && document.activeElement.id !== 'pia-measure-title-' + this.measureModel.id) {
         this.displayEditButton = true;
-        this.displayDeleteButton = true;
         this.measureForm.controls['measureContent'].disable();
         // Disables title field if both fields are filled and title isn't the next targeted element.
         if (titleValue && titleValue.length > 0) {
@@ -156,7 +151,6 @@ export class MeasuresComponent implements OnInit {
       // Disables content field too if no title and content is filled and isn't the next targeted element.
       if (!contentValue && contentValue && titleValue.length > 0 && document.activeElement.id !== 'pia-measure-title') {
         this.displayEditButton = true;
-        this.displayDeleteButton = true;
         this.measureForm.controls['measureTitle'].disable();
       }
     }, 1);
