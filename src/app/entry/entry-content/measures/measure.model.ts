@@ -32,9 +32,11 @@ export class Measure extends ApplicationDb {
         entry.title = this.title;
         entry.content = this.content;
         entry.updated_at = new Date();
-        this.objectStore.put(entry).onsuccess = (event: any) => {
-          resolve();
-        };
+        this.getObjectStore().then(() => {
+          this.objectStore.put(entry).onsuccess = (event: any) => {
+            resolve();
+          };
+        });
       });
     });
   }

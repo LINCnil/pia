@@ -28,9 +28,11 @@ export class Answer extends ApplicationDb {
       this.find(this.id).then((entry: any) => {
         entry.data = this.data;
         entry.updated_at = new Date();
-        this.objectStore.put(entry).onsuccess = () => {
-          resolve();
-        };
+        this.getObjectStore().then(() => {
+          this.objectStore.put(entry).onsuccess = () => {
+            resolve();
+          };
+        });
       });
     });
   }

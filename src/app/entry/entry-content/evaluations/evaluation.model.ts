@@ -151,8 +151,12 @@ export class Evaluation extends ApplicationDb {
       const index1 = this.objectStore.index('index1');
       index1.get(IDBKeyRange.only([pia_id, reference_to])).onsuccess = (event: any) => {
         const entry = event.target.result;
-        if (entry.global_status === 1) {
-          resolve(true);
+        if (entry) {
+          if (entry.global_status === 1) {
+            resolve(true);
+          } else {
+            resolve(false);
+          }
         } else {
           resolve(false);
         }

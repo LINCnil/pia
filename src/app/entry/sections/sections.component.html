@@ -14,10 +14,16 @@
         <ng-container *ngFor="let dataItem of dataSection?.items">
           <li *ngIf="!dataItem.hide">
             <a routerLink="/entry/{{_piaService.pia.id}}/section/{{dataSection.id}}/item/{{dataItem.id}}"
-              [ngClass]="{'active': section.id == dataSection.id && item.id == dataItem.id}">{{dataItem.title}}</a>
-            <!-- <i class="fa"
-               [ngClass]="{'fa-check-square-o': enableItemFinalValidation(dataItem), 'fa-cog': showItemValidationButton(dataItem), 'fa-pencil-square-o': !enableItemFinalValidation(dataItem) && !showItemValidationButton(dataItem)}"
-               aria-hidden="true"></i> -->
+              [ngClass]="{'active': section.id == dataSection.id && item.id == dataItem.id}"
+              title="{{dataItem.title}}"
+              class="truncate">{{dataItem.title}}</a>
+            <i class="fa"
+               *ngIf="sidStatus"
+               [ngClass]="{'fa-cog': !sidStatus[dataSection.id.toString() + dataItem.id.toString()],
+                           'fa-pencil-square-o': sidStatus[dataSection.id.toString() + dataItem.id.toString()] === 1,
+                           'fa-check-square-o': sidStatus[dataSection.id.toString() + dataItem.id.toString()] === 2,
+                           'hide': dataSection.id === 4 || (dataSection.id === 3 && dataItem.id === 5)}"
+               aria-hidden="true"></i>
           </li>
         </ng-container>
       </ul>

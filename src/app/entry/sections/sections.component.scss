@@ -80,10 +80,10 @@
         width: 100%;
       }
       a {
+        width: 81%;
+        border-radius: 4px;
         &:focus, &:hover, &:active, &.active {
-          border-radius: 4px;
           color: #fff!important;
-          width: 90%;
         }
       }
       > div {
