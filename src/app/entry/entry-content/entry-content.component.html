@@ -2,7 +2,9 @@
   <header class="pia-entryContentBlock-header">
     <div>
       <i class="fa"
-         [ngClass]="{'fa-check-square-o': _evaluationService.enableFinalValidation, 'fa-cog': _evaluationService.showValidationButton, 'fa-pencil-square-o': !_evaluationService.enableFinalValidation && !_evaluationService.showValidationButton}"
+         [ngClass]="{'fa-check-square-o': _evaluationService.enableFinalValidation,
+                     'fa-pencil-square-o': _evaluationService.showValidationButton,
+                     'fa-cog': !_evaluationService.enableFinalValidation && !_evaluationService.showValidationButton}"
          aria-hidden="true"></i>
     </div>
     <div class="pia-entryContentBlock-header-title">
