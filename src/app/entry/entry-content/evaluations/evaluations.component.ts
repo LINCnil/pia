@@ -88,10 +88,15 @@ export class EvaluationsComponent implements OnInit, AfterViewChecked, DoCheck {
       this.evaluationForm.controls['evaluationComment'].patchValue(this.evaluation.evaluation_comment);
       if (this.evaluation.gauges) {
         this.evaluationForm.controls['gaugeX'].patchValue(this.evaluation.gauges['x']);
-        this.evaluationForm.controls['gaugeX'].disable();
         this.evaluationForm.controls['gaugeY'].patchValue(this.evaluation.gauges['y']);
-        this.evaluationForm.controls['gaugeY'].disable();
-        this.displayEditButton = true;
+        if (this.evaluation.gauges['x'] > 0) {
+          this.evaluationForm.controls['gaugeX'].disable();
+          this.displayEditButton = true;
+        }
+        if (this.evaluation.gauges['y'] > 0) {
+          this.evaluationForm.controls['gaugeY'].disable();
+          this.displayEditButton = true;
+        }
       } else {
         this.evaluationForm.controls['gaugeX'].patchValue(0);
         this.evaluationForm.controls['gaugeY'].patchValue(0);
@@ -284,6 +289,7 @@ export class EvaluationsComponent implements OnInit, AfterViewChecked, DoCheck {
    * Activates evaluation buttons and evaluation fields.
    */
   activateEvaluationEdition() {
+    this.displayEditButton = false;
     this.enableEvaluationButtons();
     this.evaluationForm.enable();
   }
