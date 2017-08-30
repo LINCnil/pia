@@ -9,7 +9,7 @@ export class KnowledgeBaseService {
   q: string;
   filter: string;
   linkKnowledgeBase: string[] = [];
-
+  hasKnowledgeBaseData = true;
 
   loadData(http) {
     http.request('/assets/files/pia_knowledge-base.json').map(res => res.json()).subscribe(data => {
@@ -83,9 +83,8 @@ export class KnowledgeBaseService {
   private specificSearch() {
     if (this.q && this.q.length > 0) {
       const re = new RegExp(this.q, 'i');
-      this.knowledgeBaseData = this.knowledgeBaseData.filter((item2) => {
-        return (item2.name.match(re) || item2.description.match(re));
-      });
+      this.knowledgeBaseData = this.knowledgeBaseData.filter((item2) => (item2.name.match(re) || item2.description.match(re)));
     }
+    this.hasKnowledgeBaseData = this.knowledgeBaseData.length > 0 ? true : false;
   }
 }

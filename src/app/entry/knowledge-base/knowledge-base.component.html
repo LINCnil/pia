@@ -20,7 +20,12 @@
     <button class="btn" type="button" (click)="_knowledgeBaseService.search('measure.security', $event)">Mesures générales</button>
   </div>
 
-  <div class="pia-knowledgeBaseBlock-list">
+  <div *ngIf="_knowledgeBaseService.hasKnowledgeBaseData;else noKnowledgeBaseData" class="pia-knowledgeBaseBlock-list">
     <app-knowledge-base-item *ngFor="let itemKb of _knowledgeBaseService.knowledgeBaseData" [item]="item" [itemKb]="itemKb" (newMeasureEvent)="addNewMeasure($event)"></app-knowledge-base-item>
   </div>
+  <ng-template #noKnowledgeBaseData>
+    <div class="pia-knowledgeBaseBlock-list">
+     Aucun résultat ne correspond à votre recherche.
+    </div>
+  </ng-template>
 </div>
