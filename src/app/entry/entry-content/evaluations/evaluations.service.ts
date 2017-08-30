@@ -34,29 +34,41 @@ export class EvaluationService {
     this.enableFinalValidation = false;
     this.answers = [];
     if (this.item) {
-      if (this.item.is_measure) {
+      this.setAnswers(this.item, true).then((answers: any) => {
+        this.answers = answers;
+        this.allAwsersIsInEvaluation();
+      });
+    }
+  }
+
+  private async setAnswers(item, checkNext?) {
+    let answers = [];
+    return new Promise((resolve, reject) => {
+      if (item.is_measure) {
         // For measures
         this.measure.findAll().then((measures: any[]) => {
           if (measures.length > 0) {
             measures.forEach(measure => {
               if (measure.title && measure.title.length > 0 && measure.content && measure.content.length > 0) {
-                this.answers.push(measure.id);
+                answers.push(measure.id);
               }
             });
-            this.enableEvaluation = this.answers.length === measures.length ? true : false;
-            this.allAwsersIsInEvaluation();
+            if (checkNext) {
+              this.enableEvaluation = answers.length === measures.length ? true : false;
+            }
+            resolve(answers);
           }
         });
-      } else if (this.item.questions) {
+      } else if (item.questions) {
         // For questions and item evaluation_mode
         const questionsIds = [];
         const answerTypeByQuestion = {};
-        this.item.questions.forEach(question => {
+        item.questions.forEach(question => {
           questionsIds.push(question.id);
           answerTypeByQuestion[question.id] = question.answer_type;
         });
-        this.answer.findAllByPia(this.pia.id).then((answers: any) => {
-          this.answers = answers.filter((answer) => {
+        this.answer.findAllByPia(this.pia.id).then((answers2: any) => {
+          answers = answers2.filter((answer) => {
             let contentOk = false;
             if (answerTypeByQuestion[answer.reference_to] === 'text'  ) {
               contentOk = answer.data.text && answer.data.text.length > 0;
@@ -67,11 +79,13 @@ export class EvaluationService {
             }
             return (contentOk && questionsIds.indexOf(answer.reference_to) >= 0);
           });
-          this.enableEvaluation = this.answers.length === questionsIds.length ? true : false;
-          this.allAwsersIsInEvaluation();
+          if (checkNext) {
+            this.enableEvaluation = answers.length === questionsIds.length ? true : false;
+          }
+          resolve(answers);
         });
       }
-    }
+    });
   }
 
   /**
@@ -169,32 +183,23 @@ export class EvaluationService {
   }
 
   checkForFinalValidation(evaluation: any) {
-    let validationOk = true;
-
-    /*
-      - "A corriger" : action_plan_comment needed
-      - "A améliorer" : action_plan_comment optional, action_plan_comment needed
-      - "Acceptable" : action_plan_comment optional
-    */
-
+    this.enableValidation = true;
     if (evaluation.status === 1) {
       if (!evaluation.evaluation_comment || evaluation.evaluation_comment.length <= 0) {
-        validationOk = false;
+        this.enableValidation = false;
       }
-    }
-
-    if (evaluation.status === 2) {
+    } else if (evaluation.status === 2) {
       if (!evaluation.action_plan_comment || evaluation.action_plan_comment.length <= 0) {
-        validationOk = false;
+        this.enableValidation = false;
       }
-    }
-
-    if (this.item.evaluation_mode === 'item' && this.item.evaluation_with_gauge === true && evaluation.status === 2) {
-      if (!evaluation.gauges || evaluation.gauges['x'] < 1 || evaluation.gauges['y'] < 1) {
-        validationOk = false;
+      if (this.item.evaluation_mode === 'item' && this.item.evaluation_with_gauge === true) {
+        if (!evaluation.gauges || evaluation.gauges['x'] < 1 || evaluation.gauges['y'] < 1) {
+          this.enableValidation = false;
+        }
       }
+    } else if (!evaluation.status) {
+      this.enableValidation = false;
     }
-    this.enableValidation = validationOk;
   }
 
   async validateAllEvaluation() {
@@ -247,10 +252,14 @@ export class EvaluationService {
   }
 
   isAllEvaluationValidated() {
-    const evaluation = new Evaluation();
+    this.isAllEvaluationValidated2(this.section.id, this.item);
+  }
+
+  isAllEvaluationValidated2(section_id: number, item: any) {
     let reference_to = '';
-    if (this.item.evaluation_mode === 'item') {
-      reference_to = this.section.id + '.' + this.item.id;
+    if (item.evaluation_mode === 'item') {
+      reference_to = section_id + '.' + item.id;
+      const evaluation = new Evaluation();
       evaluation.getByReference(this.pia.id, reference_to).then(() => {
         if (evaluation.global_status === 1) {
           this.showValidationButton = false;
@@ -260,13 +269,14 @@ export class EvaluationService {
     } else if (this.answers.length > 0) {
       let count = 0;
       this.answers.forEach((answer) => {
-        if (this.item.is_measure) {
+        if (item.is_measure) {
           // For measure
-          reference_to = this.section.id + '.' + this.item.id + '.' + answer;
+          reference_to = section_id + '.' + item.id + '.' + answer;
         } else {
           // For question
-          reference_to = this.section.id + '.' + this.item.id + '.' + answer.reference_to;
+          reference_to = section_id + '.' + item.id + '.' + answer.reference_to;
         }
+        const evaluation = new Evaluation();
         evaluation.globalStatusByReference(this.pia.id, reference_to).then((exist: boolean) => {
           // TODO - This doesn't work
           if (exist) {
@@ -279,6 +289,54 @@ export class EvaluationService {
         });
       });
     }
+  }
+
+  async isItemIsValidated(section_id: number, item: any) {
+    return new Promise((resolve, reject) => {
+      let reference_to = '';
+      if (item.evaluation_mode === 'item') {
+        reference_to = section_id + '.' + item.id;
+        const evaluation = new Evaluation();
+        evaluation.getByReference(this.pia.id, reference_to).then(() => {
+          if (evaluation.global_status === 1) {
+            resolve(true);
+          } else {
+            resolve(false);
+          }
+        });
+      } else {
+        let count = 0;
+        let countGlobal = 0;
+        this.setAnswers(item, false).then((answers: any) => {
+          if (answers.length > 0) {
+            answers.forEach((answer) => {
+              const evaluation = new Evaluation();
+              if (item.is_measure) {
+                // For measure
+                reference_to = section_id + '.' + item.id + '.' + answer;
+              } else {
+                // For question
+                reference_to = section_id + '.' + item.id + '.' + answer.reference_to;
+              }
+              evaluation.globalStatusByReference(this.pia.id, reference_to).then((exist: boolean) => {
+                countGlobal++;
+                if (exist) {
+                  count++;
+                  if (count === answers.length) {
+                    resolve(true);
+                  }
+                }
+                if (countGlobal === answers.length) {
+                  resolve(false);
+                }
+              });
+            });
+          } else {
+            resolve(false);
+          }
+        });
+      }
+    });
   }
 
   private async createEvaluationInDb(reference_to: string) {

@@ -105,9 +105,11 @@ export class Pia extends ApplicationDb {
         entry.dpos_names = this.dpos_names;
         entry.people_names = this.people_names;
         entry.updated_at = new Date();
-        this.objectStore.put(entry).onsuccess = () => {
-          resolve();
-        };
+        this.getObjectStore().then(() => {
+          this.objectStore.put(entry).onsuccess = () => {
+            resolve();
+          };
+        });
       });
     });
   }
@@ -154,7 +156,7 @@ export class Pia extends ApplicationDb {
       }
       case 3:
       {
-        return 'Validé';
+        return 'Validé avec signature';
       }
       case 4:
       {

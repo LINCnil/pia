@@ -21,6 +21,7 @@ export class EntryComponent implements OnInit {
   item: { id: number, title: string, evaluation_mode: string, short_help: string, questions: any };
   data: { sections: any };
   questions: any;
+  sidStatus: any;
 
   constructor(private route: ActivatedRoute,
               private http: Http,
@@ -90,6 +91,9 @@ export class EntryComponent implements OnInit {
             this._modalsService.openModal('pia-declare-measures');
           }
         }
+      });
+      this._piaService.setSidStatus().then(() => {
+        this.sidStatus = this._piaService.sidStatus;
       });
     });
 

@@ -23,7 +23,9 @@ export class Settings extends ApplicationDb {
   async update() {
     this.find(this.id).then((entry: any) => {
       entry.server_url = this.server_url;
-      this.objectStore.put(entry);
+      this.getObjectStore().then(() => {
+        this.objectStore.put(entry);
+      });
     });
   }
 
