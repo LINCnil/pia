@@ -3,12 +3,12 @@ import { ActivatedRoute, Params } from '@angular/router';
 import { Pia } from './pia.model';
 import { ModalsService } from 'app/modals/modals.service';
 import { EvaluationService } from 'app/entry/entry-content/evaluations/evaluations.service';
+import { AttachmentsService } from 'app/entry/attachments/attachments.service';
 import { Evaluation } from 'app/entry/entry-content/evaluations/evaluation.model';
 import { Answer } from 'app/entry/entry-content/questions/answer.model';
 import { Measure } from 'app/entry/entry-content/measures/measure.model';
 import { ActionPlanService } from 'app/entry/entry-content/action-plan//action-plan.service';
 import { Http } from '@angular/http';
-import * as jsPDF from 'jspdf';
 
 @Injectable()
 export class PiaService {
@@ -19,10 +19,11 @@ export class PiaService {
   data: { sections: any };
   sidStatus = {};
   jsonInfo = [];
-  pdf = [];
+  allData = [];
 
   constructor(private route: ActivatedRoute,
               private _evaluationService: EvaluationService,
+              private _attachmentsService: AttachmentsService,
               private _actionPlanService: ActionPlanService,
               private _modalsService: ModalsService, private http: Http) {
                 this.http.request('/assets/files/pia_architecture.json').map(res => res.json()).subscribe(data => {
@@ -142,248 +143,147 @@ export class PiaService {
     });
   }
 
-
   /**
-   * Allows users to download the PIA as a .pdf file.
+   * Allows users to show the PIA in HTML.
    */
   downloadPia() {
+    const alreadyTitle = [];
+    document.getElementById('pia-htmlBlock-content').innerHTML = '';
+    this.prepareHeader();
+    document.getElementById('pia-htmlBlock-content').innerHTML += '<h1>Pièces jointes</h1>';
+    document.getElementById('pia-htmlBlock-content').innerHTML += '<ul>';
+    this._attachmentsService.attachments.forEach((attachment) => {
+      document.getElementById('pia-htmlBlock-content').innerHTML += '<li>' + attachment.name + '</li>';
+    });
+    document.getElementById('pia-htmlBlock-content').innerHTML += '</ul>';
+
     this.getJsonInfo().then(() => {
-      this.preparePdf();
+      this.allData.forEach((element, index) => {
+        if (element.questions.length > 0) {
+          if (!alreadyTitle.includes(element.sectionTitle)) {
+            alreadyTitle.push(element.sectionTitle);
+            document.getElementById('pia-htmlBlock-content').innerHTML += '<h1>' + element.sectionTitle + '</h1>';
+          }
+          document.getElementById('pia-htmlBlock-content').innerHTML += '<h2>' + element.itemTitle + '</h2>';
+          element.questions.forEach(question => {
+            document.getElementById('pia-htmlBlock-content').innerHTML += '<p>';
+            document.getElementById('pia-htmlBlock-content').innerHTML += '<strong>' + question.title + '</strong><br>';
+            document.getElementById('pia-htmlBlock-content').innerHTML += question.content;
+            document.getElementById('pia-htmlBlock-content').innerHTML += '</p>';
+          });
+        }
+      });
     });
-    // Start of the loop for each lines
-    const doc = new jsPDF('p', 'mm', 'a4');
-    doc.setFontSize(12);
-    let i = 1;
-    this.pdf.forEach((entry) => {
-      if (i === 34) {
-        // Add a new page every 34 lines
-        i = 1;
-        doc.addPage();
-      }
-      i++;
-      // Add a new line every 90 characters
-      entry = entry.replace(/(.{90})/g, '$1\n');
-      const count = (entry.match(new RegExp('\n', 'g')) || []).length;
-
-      doc.text(entry, 10, i * 10);
-      i += count;
-    });
-    doc.addPage();
-    i = 1;
-    this.jsonInfo.forEach((entry) => {
-      if (i === 34) {
-        // Add a new page every 34 lines
-        i = 1;
-        doc.addPage();
-      }
-      i++;
-      // Add a new line every 90 characters
-      entry = entry.replace(/(.{90})/g, '$1\n');
-      const count = (entry.match(new RegExp('\n', 'g')) || []).length;
-      if (entry.startsWith('Question') || entry.startsWith('Réponse') || entry.startsWith('Titre de la mesure')) {
-        doc.setFontStyle('bold');
-      } else {
-        doc.setFontStyle('normal');
-      }
-      doc.text(entry, 10, i * 10);
-      i += count;
-    });
-
-    doc.save('pia_' + this.pia.id + '.pdf');
+    this._modalsService.openModal('pia-htmlBlock');
   }
 
+  private prepareHeader() {
+    document.getElementById('pia-htmlBlock-content').innerHTML += '<h1>Informations du PIA</h1>';
 
-  downloadActionPlan() {
-    const doc = new jsPDF();
-    doc.setFontSize(12);
-    let i = 1;
-    doc.setFontStyle('bold');
-    doc.text('Principes fondamentaux', 10, i * 10);
-    doc.setFontStyle('normal');
-    i++;
-
-    // TODO - Add estimated_evaluation_date and person_in_charge data
-
-    if (this._actionPlanService.noPrinciplesActionPlan) {
-      doc.text('Aucun plan d\'action enregistré.', 10, i * 10);
-      i++;
-    } else {
-      this._actionPlanService.results.forEach((data: any) => {
-        i++;
-        if (i === 34) {
-         // Add a new page every 34 lines
-          i = 1;
-          doc.addPage();
-        }
-        doc.text(data.short_title, 10, i * 10);
-        i++;
-        // Add a new line every 90 characters
-        const entry = data.evaluation.action_plan_comment.replace(/(.{90})/g, '$1\n');
-        const count = (entry.match(new RegExp('\n', 'g')) || []).length;
-
-        doc.text(entry, 10, i * 10);
-        i += count;
-      });
-    }
-    doc.setFontStyle('bold');
-    doc.text('Mesures existantes ou prévues', 10, i * 10);
-    doc.setFontStyle('normal');
-    i++;
-    if (this._actionPlanService.noMeasuresActionPlan) {
-      doc.text('Aucun plan d\'action enregistré.', 10, i * 10);
-      i++;
-    } else {
-      this._actionPlanService.measures.forEach((data: any) => {
-        i++;
-        if (i === 34) {
-         // Add a new page every 34 lines
-          i = 1;
-          doc.addPage();
-        }
-        doc.text(data.short_title, 10, i * 10);
-        i++;
-        // Add a new line every 90 characters
-        const entry = data.evaluation.action_plan_comment.replace(/(.{90})/g, '$1\n');
-        const count = (entry.match(new RegExp('\n', 'g')) || []).length;
-
-        doc.text(entry, 10, i * 10);
-        i += count;
-      });
-    }
-    doc.setFontStyle('bold');
-    doc.text('Risques', 10, i * 10);
-    doc.setFontStyle('normal');
-    i++;
-    if (this._actionPlanService.noRisksActionPlan) {
-      doc.text('Aucun plan d\'action enregistré.', 10, i * 10);
-      i++;
-    } else {
-      if (this._actionPlanService.risks['3.2'] && this._actionPlanService.risks['3.2'].action_plan_comment) {
-        if (this._actionPlanService.risks['3.2'].short_title) {
-          doc.text(this._actionPlanService.risks['3.2'].short_title, 10, i * 10);
-          i++;
-        }
-        const entry = this._actionPlanService.risks['3.2'].action_plan_comment.replace(/(.{90})/g, '$1\n');
-        const count = (entry.match(new RegExp('\n', 'g')) || []).length;
-        doc.text(entry, 10, i * 10);
-        i += count;
-      }
-      if (this._actionPlanService.risks['3.3'] && this._actionPlanService.risks['3.3'].action_plan_comment) {
-        if (this._actionPlanService.risks['3.3'].short_title) {
-          doc.text(this._actionPlanService.risks['3.3'].short_title, 10, i * 10);
-          i++;
-        }
-        const entry = this._actionPlanService.risks['3.3'].action_plan_comment.replace(/(.{90})/g, '$1\n');
-        const count = (entry.match(new RegExp('\n', 'g')) || []).length;
-        doc.text(entry, 10, i * 10);
-        i += count;
-      }
-      if (this._actionPlanService.risks['3.4'] && this._actionPlanService.risks['3.4'].action_plan_comment) {
-        if (this._actionPlanService.risks['3.4'].short_title) {
-          doc.text(this._actionPlanService.risks['3.4'].short_title, 10, i * 10);
-          i++;
-        }
-        const entry = this._actionPlanService.risks['3.4'].action_plan_comment.replace(/(.{90})/g, '$1\n');
-        const count = (entry.match(new RegExp('\n', 'g')) || []).length;
-        doc.text(entry, 10, i * 10);
-        i += count;
-      }
-      if (i === 34) {
-        // Add a new page every 34 lines
-        i = 1;
-        doc.addPage();
-      }
-    }
-    doc.save('action_plan_' + this.pia.id + '.pdf');
-  }
-
-  private preparePdf() {
     if (this.pia.name && this.pia.name.length > 0) {
-      this.pdf.push('Nom du Pia : ' +  this.pia.name);
+      document.getElementById('pia-htmlBlock-content').innerHTML += '<strong>Nom du Pia : </strong>'
+        + this.pia.name + '<br>';
     }
     if (this.pia.author_name && this.pia.author_name.length > 0) {
-      this.pdf.push('Nom de l\'auteur : ' +  this.pia.author_name);
+      document.getElementById('pia-htmlBlock-content').innerHTML += '<strong>Nom de l\'auteur : </strong>'
+        + this.pia.author_name + '<br>';
     }
     if (this.pia.evaluator_name && this.pia.evaluator_name.length > 0) {
-      this.pdf.push('Nom de l\'évaluateur : ' +  this.pia.evaluator_name);
+      document.getElementById('pia-htmlBlock-content').innerHTML += '<strong>Nom de l\'évaluateur : </strong>'
+        + this.pia.evaluator_name + '<br>';
     }
     if (this.pia.validator_name && this.pia.validator_name.length > 0) {
-      this.pdf.push('Nom du validateur : ' +  this.pia.validator_name);
+      document.getElementById('pia-htmlBlock-content').innerHTML += '<strong>Nom du validateur : </strong>'
+        + this.pia.validator_name + '<br>';
     }
 
     if (this.pia.dpos_names && this.pia.dpos_names.length > 0) {
-      this.pdf.push('Nom du DPO : ' +  this.pia.dpos_names);
+      document.getElementById('pia-htmlBlock-content').innerHTML += '<strong>Nom du DPO : </strong>'
+        + this.pia.dpos_names + '<br>';
     }
     if ( this.pia.dpo_status >= 0) {
-      this.pdf.push('Statut du DPO : ' +  this.pia.getOpinionsStatus(this.pia.dpo_status.toString()));
+      document.getElementById('pia-htmlBlock-content').innerHTML += '<strong>Statut du DPO : </strong>'
+        + this.pia.getOpinionsStatus(this.pia.dpo_status.toString()) + '<br>';
     }
     if (this.pia.dpo_opinion && this.pia.dpo_opinion.length > 0) {
-      this.pdf.push('Opinion du DPO : ' +  this.pia.dpo_opinion);
+      document.getElementById('pia-htmlBlock-content').innerHTML += '<strong>Opinion du DPO : </strong>'
+        + this.pia.dpo_opinion + '<br>';
     }
 
     if (this.pia.people_names && this.pia.people_names.length > 0) {
-      this.pdf.push('Nom des personnes concernées : ' +  this.pia.people_names);
+      document.getElementById('pia-htmlBlock-content').innerHTML += '<strong>Nom des personnes concernées : </strong>'
+        + this.pia.people_names + '<br>';
     }
     if (this.pia.concerned_people_status >= 0) {
-      this.pdf.push('Statut des personnes concernées : ' +  this.pia.getOpinionsStatus(this.pia.concerned_people_status.toString()));
+      document.getElementById('pia-htmlBlock-content').innerHTML += '<strong>Statut des personnes concernées : </strong>'
+        + this.pia.getOpinionsStatus(this.pia.concerned_people_status.toString()) + '<br>';
     }
     if (this.pia.concerned_people_opinion && this.pia.concerned_people_opinion.length > 0) {
-      this.pdf.push('Opinion des personnes concernées : ' +  this.pia.concerned_people_opinion);
+      document.getElementById('pia-htmlBlock-content').innerHTML += '<strong>Opinion des personnes concernées : </strong>'
+        + this.pia.concerned_people_opinion + '<br>';
     }
 
     if (this.pia.applied_adjustements && this.pia.applied_adjustements.length > 0) {
-      this.pdf.push('Modifications apportées : ' +  this.pia.applied_adjustements);
+      document.getElementById('pia-htmlBlock-content').innerHTML += '<strong>Modifications apportées : </strong>'
+        + this.pia.applied_adjustements + '<br>';
     }
     if (this.pia.rejected_reason && this.pia.rejected_reason.length > 0) {
-      this.pdf.push('Raison du refus : ' +  this.pia.rejected_reason);
+      document.getElementById('pia-htmlBlock-content').innerHTML += '<strong>Raison du refus : </strong>'
+        + this.pia.rejected_reason + '<br>';
     }
     if (this.pia.created_at) {
-      this.pdf.push('Date de création : ' +  this.pia.created_at);
+      document.getElementById('pia-htmlBlock-content').innerHTML += '<strong>Date de création : </strong>'
+        + this.pia.created_at + '<br><br>';
     }
   }
 
-  private async getJsonInfo() {
-    this._actionPlanService.pia = this.pia;
-    this._actionPlanService.listActionPlan();
+  private getJsonInfo() {
+    this.allData = [];
     return new Promise((resolve, reject) => {
-      const countSection = this.data.sections.length;
-      let i = 0;
       this.data.sections.forEach((section) => {
-        i++;
         section.items.forEach((item) => {
+          const ref = section.id.toString() + item.id.toString();
+          this.allData[ref] = {
+            sectionTitle: section.title,
+            itemTitle: item.title,
+            questions: []
+          }
           if (item.is_measure) {
             const measuresModel = new Measure();
             measuresModel.pia_id = this.pia.id;
-            measuresModel.findAll().then((entries: any[]) => {
+            measuresModel.findAll().then((entries: any) => {
               entries.forEach((measure) => {
                 if (measure.title !== undefined && measure.content !== undefined) {
-                  this.jsonInfo.push('Titre de la mesure : ' + measure.title);
-                  this.jsonInfo.push('Contenu de la mesure : ' + measure.content);
+                  this.allData[ref]['questions'].push({
+                    title: measure.title,
+                    content: measure.content
+                  });
                 }
               });
-              if (i === countSection) {
-                resolve();
-              }
             });
           } else if (item.questions) {
             item.questions.forEach((question) => {
               const answerModel = new Answer();
               answerModel.getByReferenceAndPia(this.pia.id, question.id).then(() => {
                 if (answerModel.data) {
-                  this.jsonInfo.push('Question : ' + question.title);
-                  let gauge = '';
+                  let content = null;
                   if (answerModel.data.gauge && answerModel.data.gauge > 0) {
-                    gauge = this.pia.getGaugeName(answerModel.data.gauge);
+                    content = this.pia.getGaugeName(answerModel.data.gauge);
                   }
-                  this.jsonInfo.push('Réponse : ' + gauge);
                   if (answerModel.data.text && answerModel.data.text.length > 0) {
-                    this.jsonInfo.push(answerModel.data.text);
+                    content = answerModel.data.text;
                   }
                   if (answerModel.data.list && answerModel.data.list.length > 0) {
-                    this.jsonInfo.push(answerModel.data.list.join(', '));
+                    content = answerModel.data.list.join(', ');
+                  }
+                  if (content) {
+                    this.allData[ref]['questions'].push({
+                      title: question.title,
+                      content: content
+                    });
                   }
                 }
-                if (i === countSection) {
+                if (section.id === 3 && item.id === 4) {
                   resolve();
                 }
               });
@@ -393,4 +293,120 @@ export class PiaService {
       });
     });
   }
+
+  private getJsonInfo_OLD() {
+    // this._actionPlanService.pia = this.pia;
+    // this._actionPlanService.listActionPlan();
+  }
+
+
+
+
+
+
+
+
+  // downloadActionPlan() {
+  //   const doc = new jsPDF();
+  //   doc.setFontSize(12);
+  //   let i = 1;
+  //   doc.setFontStyle('bold');
+  //   doc.text('Principes fondamentaux', 10, i * 10);
+  //   doc.setFontStyle('normal');
+  //   i++;
+
+  //   // TODO - Add estimated_evaluation_date and person_in_charge data
+
+  //   if (this._actionPlanService.noPrinciplesActionPlan) {
+  //     doc.text('Aucun plan d\'action enregistré.', 10, i * 10);
+  //     i++;
+  //   } else {
+  //     this._actionPlanService.results.forEach((data: any) => {
+  //       i++;
+  //       if (i === 34) {
+  //        // Add a new page every 34 lines
+  //         i = 1;
+  //         doc.addPage();
+  //       }
+  //       doc.text(data.short_title, 10, i * 10);
+  //       i++;
+  //       // Add a new line every 90 characters
+  //       const entry = data.evaluation.action_plan_comment.replace(/(.{90})/g, '$1\n');
+  //       const count = (entry.match(new RegExp('\n', 'g')) || []).length;
+
+  //       doc.text(entry, 10, i * 10);
+  //       i += count;
+  //     });
+  //   }
+  //   doc.setFontStyle('bold');
+  //   doc.text('Mesures existantes ou prévues', 10, i * 10);
+  //   doc.setFontStyle('normal');
+  //   i++;
+  //   if (this._actionPlanService.noMeasuresActionPlan) {
+  //     doc.text('Aucun plan d\'action enregistré.', 10, i * 10);
+  //     i++;
+  //   } else {
+  //     this._actionPlanService.measures.forEach((data: any) => {
+  //       i++;
+  //       if (i === 34) {
+  //        // Add a new page every 34 lines
+  //         i = 1;
+  //         doc.addPage();
+  //       }
+  //       doc.text(data.short_title, 10, i * 10);
+  //       i++;
+  //       // Add a new line every 90 characters
+  //       const entry = data.evaluation.action_plan_comment.replace(/(.{90})/g, '$1\n');
+  //       const count = (entry.match(new RegExp('\n', 'g')) || []).length;
+
+  //       doc.text(entry, 10, i * 10);
+  //       i += count;
+  //     });
+  //   }
+  //   doc.setFontStyle('bold');
+  //   doc.text('Risques', 10, i * 10);
+  //   doc.setFontStyle('normal');
+  //   i++;
+  //   if (this._actionPlanService.noRisksActionPlan) {
+  //     doc.text('Aucun plan d\'action enregistré.', 10, i * 10);
+  //     i++;
+  //   } else {
+  //     if (this._actionPlanService.risks['3.2'] && this._actionPlanService.risks['3.2'].action_plan_comment) {
+  //       if (this._actionPlanService.risks['3.2'].short_title) {
+  //         doc.text(this._actionPlanService.risks['3.2'].short_title, 10, i * 10);
+  //         i++;
+  //       }
+  //       const entry = this._actionPlanService.risks['3.2'].action_plan_comment.replace(/(.{90})/g, '$1\n');
+  //       const count = (entry.match(new RegExp('\n', 'g')) || []).length;
+  //       doc.text(entry, 10, i * 10);
+  //       i += count;
+  //     }
+  //     if (this._actionPlanService.risks['3.3'] && this._actionPlanService.risks['3.3'].action_plan_comment) {
+  //       if (this._actionPlanService.risks['3.3'].short_title) {
+  //         doc.text(this._actionPlanService.risks['3.3'].short_title, 10, i * 10);
+  //         i++;
+  //       }
+  //       const entry = this._actionPlanService.risks['3.3'].action_plan_comment.replace(/(.{90})/g, '$1\n');
+  //       const count = (entry.match(new RegExp('\n', 'g')) || []).length;
+  //       doc.text(entry, 10, i * 10);
+  //       i += count;
+  //     }
+  //     if (this._actionPlanService.risks['3.4'] && this._actionPlanService.risks['3.4'].action_plan_comment) {
+  //       if (this._actionPlanService.risks['3.4'].short_title) {
+  //         doc.text(this._actionPlanService.risks['3.4'].short_title, 10, i * 10);
+  //         i++;
+  //       }
+  //       const entry = this._actionPlanService.risks['3.4'].action_plan_comment.replace(/(.{90})/g, '$1\n');
+  //       const count = (entry.match(new RegExp('\n', 'g')) || []).length;
+  //       doc.text(entry, 10, i * 10);
+  //       i += count;
+  //     }
+  //     if (i === 34) {
+  //       // Add a new page every 34 lines
+  //       i = 1;
+  //       doc.addPage();
+  //     }
+  //   }
+  //   doc.save('action_plan_' + this.pia.id + '.pdf');
+  // }
 }

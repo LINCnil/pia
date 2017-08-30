@@ -60,8 +60,6 @@ export class ModalsComponent implements OnInit {
     // TODO export PIA Report
   }
 
-
-
   /**
    * Allows users to import a PIA.
    */
@@ -82,5 +80,4 @@ export class ModalsComponent implements OnInit {
     const p = pia.create();
     p.then((id) => this.router.navigate(['entry', id, 'section', 1, 'item', 1]));
   }
-
 }
