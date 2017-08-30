@@ -97,6 +97,15 @@ export class EntryComponent implements OnInit {
       });
     });
 
+    // Update on knowledge base (scroll / content / search field)
+    const knowledgeBaseScroll  = document.querySelector('.pia-knowledgeBaseBlock-list');
+    const knowledgeBaseContent  = <HTMLInputElement>document.querySelector('.pia-knowledgeBaseBlock-searchForm input');
+    knowledgeBaseScroll.scrollTop = 0;
+    knowledgeBaseContent.value = '';
+
+    this._knowledgeBaseService.q = null;
     this._knowledgeBaseService.loadByItem(this.item);
+
+
   }
 }
