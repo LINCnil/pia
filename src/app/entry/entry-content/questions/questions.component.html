@@ -37,9 +37,10 @@
             (onTagEdited)="onTagEdited($event)"
             (onRemove)="onRemove($event)"
             formControlName="list"
+            [clearOnBlur]="true"
             [theme]="'foundation-theme'"
             [placeholder]="question.placeholder + '&#10010;'"
-            [editable]='false'
+            [editable]="false"
             [disabled]="_evaluationService.showValidationButton || _evaluationService.enableFinalValidation"
             [onlyFromAutocomplete]="true"
             (focusin)="questionContentFocusIn()"
@@ -51,19 +52,18 @@
           </tag-input>
         </ng-container>
         <ng-template #tagInput2>
-          <!-- Find where it saves in BDD... nothing here. WEIRD ! -->
           <tag-input
             *ngIf="question.answer_type == 'list'"
             (onAdd)="onAdd($event)"
             (onSelect)="onSelected($event)"
-            (onBlur)="onBlur($event)"
             (onTagEdited)="onTagEdited($event)"
             (onRemove)="onRemove($event)"
+            [addOnBlur]="true"
             [separatorKeyCodes]="[27, 13]"
             formControlName="list"
             [theme]="'foundation-theme'"
             [placeholder]="question.placeholder + '&#10010;'"
-            [editable]="'false'"
+            [editable]="true"
             (focusin)="questionContentFocusIn()"
             [disabled]="_evaluationService.showValidationButton || _evaluationService.enableFinalValidation"
             [secondaryPlaceholder]="question.placeholder + '&#10010;'">
