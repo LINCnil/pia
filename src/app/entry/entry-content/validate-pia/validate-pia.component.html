@@ -80,8 +80,8 @@
     </div>
     <div class="pia-entryContentBlock-footer-validationTools">
       <a routerLink="/home"><i class="fa fa-home" aria-hidden="true" title="Accueil"></i><p>Accueil</p></a>
-      <button (click)="_piaService.downloadPia()" type="button" title="Télécharger le PIA"><i class="fa fa-download" aria-hidden="true"></i><p>Télécharger le PIA</p></button>
-      <button (click)="_piaService.downloadActionPlan()" type="button" title="Plan d'action"><i class="fa fa-file-excel-o" aria-hidden="true"></i><p>Plan d'action</p></button>
+      <a routerLink="/summary/{{_piaService.pia.id}}/pia" title="Télécharger le PIA"><i class="fa fa-download" aria-hidden="true"></i><p>Télécharger le PIA</p></a>
+      <a routerLink="/summary/{{_piaService.pia.id}}/action_plan" title="Plan d'action"><i class="fa fa-file-excel-o" aria-hidden="true"></i><p>Plan d'action</p></a>
     </div>
   </div>
 </div>

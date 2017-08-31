@@ -1,0 +1,10 @@
+.pia {
+  &-summaryButtonsBlock {
+    button {
+      margin: 0 5px;
+      &:last-child {
+        float: right;
+      }
+    }
+  }
+}

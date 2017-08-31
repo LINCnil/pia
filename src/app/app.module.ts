@@ -45,6 +45,7 @@ import {
   } from './entry/entry-content/action-plan/action-plan-implementation/action-plan-implementation.component';
 import { environment } from '../environments/environment';
 import { ListItemComponent } from 'app/cards/list-item/list-item.component';
+import { SummaryComponent } from './summary/summary.component';
 
 
 const appRoutes: Routes = [
@@ -52,6 +53,7 @@ const appRoutes: Routes = [
   { path: 'home', component: CardsComponent },
   { path: 'home/:view', component: CardsComponent },
   { path: 'entry/:id', component: EntryComponent },
+  { path: 'summary/:id/:type', component: SummaryComponent },
   { path: 'entry/:id/section/:section_id/item/:item_id', component: EntryComponent },
   { path: 'settings', component: SettingsComponent },
   { path: 'help', component: HelpComponent },
@@ -107,6 +109,7 @@ if (environment.rollbar_key.length > 0) {
     ErrorsComponent,
     ActionPlanImplementationComponent,
     ListItemComponent,
+    SummaryComponent,
   ],
   imports: [
     BrowserModule,

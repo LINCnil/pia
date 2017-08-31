@@ -3,6 +3,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { PiaService } from 'app/entry/pia.service';
 import { ModalsService } from 'app/modals/modals.service';
 import { AttachmentsService } from 'app/entry/attachments/attachments.service';
+import { ActionPlanService } from 'app/entry/entry-content/action-plan//action-plan.service';
 
 @Component({
   selector: 'app-validate-pia',
@@ -19,6 +20,7 @@ export class ValidatePIAComponent implements OnInit {
   constructor(private el: ElementRef,
               private _modalsService: ModalsService,
               private _attachmentsService: AttachmentsService,
+              private _actionPlanService: ActionPlanService,
               private _piaService: PiaService ) {
   }
 
@@ -35,6 +37,7 @@ export class ValidatePIAComponent implements OnInit {
       this.validateForm.controls['validateStatus3'].patchValue(this._piaService.pia.status > 1);
       this.validateForm.controls['validateStatus4'].patchValue(this._piaService.pia.status > 1);
       this._attachmentsService.setSignedPia();
+      this._actionPlanService.listActionPlan();
     });
   }
 

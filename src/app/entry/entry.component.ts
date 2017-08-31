@@ -4,6 +4,7 @@ import { Http } from '@angular/http';
 import { EvaluationService } from 'app/entry/entry-content/evaluations/evaluations.service';
 import { KnowledgeBaseService } from 'app/entry/knowledge-base/knowledge-base.service';
 import { MeasureService } from 'app/entry/entry-content/measures/measures.service';
+import { ActionPlanService } from 'app/entry/entry-content/action-plan//action-plan.service';
 import { PiaService } from 'app/entry/pia.service';
 import { ModalsService } from 'app/modals/modals.service';
 
@@ -29,6 +30,7 @@ export class EntryComponent implements OnInit {
               private _evaluationService: EvaluationService,
               private _knowledgeBaseService: KnowledgeBaseService,
               private _piaService: PiaService,
+              private _actionPlanService: ActionPlanService,
               private _measureService: MeasureService) {
     let sectionId = parseInt(this.route.snapshot.params['section_id'], 10);
     let itemId = parseInt(this.route.snapshot.params['item_id'], 10);
@@ -95,6 +97,9 @@ export class EntryComponent implements OnInit {
       this._piaService.setSidStatus().then(() => {
         this.sidStatus = this._piaService.sidStatus;
       });
+
+      this._actionPlanService.data = this.data;
+      this._actionPlanService.pia = this._piaService.pia;
     });
 
     // Update on knowledge base (scroll / content / search field)
@@ -105,7 +110,5 @@ export class EntryComponent implements OnInit {
 
     this._knowledgeBaseService.q = null;
     this._knowledgeBaseService.loadByItem(this.item);
-
-
   }
 }

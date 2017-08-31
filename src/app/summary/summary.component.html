@@ -1,0 +1,30 @@
+<app-header></app-header>
+<main class="container pia-mainContainerBlock">
+  <div class="hide-for-print pia-summaryButtonsBlock">
+    <button onclick="window.history.back()" class="btn" title="Retour à la page précente">
+      <i class="fa fa-chevron-left" aria-hidden="true"></i>
+    </button>
+    <button onclick="print()" class="btn" title="Imprimer">
+      <i class="fa fa-print" aria-hidden="true"></i>
+    </button>
+  </div>
+  <div class="row">
+    <div class="small-12 medium-12 columns">
+        <div *ngFor="let c of content">
+          <div *ngIf="c.data.length > 0">
+            <h1>{{c.title}}</h1>
+            <h2 *ngIf="c.subtitle">{{c.subtitle}}</h2>
+            <div *ngFor="let d of c.data">
+              <h3>{{d.title}}</h3>
+              <p>
+                <ng-container *ngIf="d.type !== 'date'; else dateBlock">{{d.content}}</ng-container>
+                <ng-template #dateBlock>
+                  <time>{{d.content | date: 'dd/MM/yyyy'}}</time>
+                </ng-template>
+              </p>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+</main>
