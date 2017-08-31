@@ -39,11 +39,13 @@ export class EntryContentComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges() {
-    this._evaluationService.setPia(this._piaService.pia);
-    this._evaluationService.allowEvaluation();
-    if (this.measureName) {
-      this._measureService.addNewMeasure(this._piaService.pia, this.measureName, this.measurePlaceholder);
-    }
+    this._piaService.getPIA().then((entry) => {
+      this._evaluationService.setPia(this._piaService.pia);
+      this._evaluationService.allowEvaluation();
+      if (this.measureName) {
+        this._measureService.addNewMeasure(this._piaService.pia, this.measureName, this.measurePlaceholder);
+      }
+    });
   }
 
   /**
