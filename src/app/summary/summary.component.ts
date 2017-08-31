@@ -230,57 +230,59 @@ export class SummaryComponent implements OnInit {
   private getJsonInfo() {
     this.allData = [];
     return new Promise((resolve, reject) => {
-      this._piaService.data.sections.forEach((section) => {
-        section.items.forEach((item) => {
-          const ref = section.id.toString() + item.id.toString();
-          this.allData[ref] = {
-            sectionTitle: section.title,
-            itemTitle: item.title,
-            questions: []
-          }
-          if (item.is_measure) {
-            const measuresModel = new Measure();
-            measuresModel.pia_id = this.pia.id;
-            measuresModel.findAll().then((entries: any) => {
-              entries.forEach((measure) => {
-                if (measure.title !== undefined && measure.content !== undefined) {
-                  this.allData[ref]['questions'].push({
-                    title: measure.title,
-                    content: measure.content
-                  });
-                }
-              });
-            });
-          } else if (item.questions) {
-            item.questions.forEach((question) => {
-              const answerModel = new Answer();
-              answerModel.getByReferenceAndPia(this.pia.id, question.id).then(() => {
-                if (answerModel.data) {
-                  let content = null;
-                  if (answerModel.data.gauge && answerModel.data.gauge > 0) {
-                    content = this.pia.getGaugeName(answerModel.data.gauge);
-                  }
-                  if (answerModel.data.text && answerModel.data.text.length > 0) {
-                    content = answerModel.data.text;
-                  }
-                  if (answerModel.data.list && answerModel.data.list.length > 0) {
-                    content = answerModel.data.list.join(', ');
-                  }
-                  if (content) {
+      if (this._piaService.data) {
+        this._piaService.data.sections.forEach((section) => {
+          section.items.forEach((item) => {
+            const ref = section.id.toString() + item.id.toString();
+            this.allData[ref] = {
+              sectionTitle: section.title,
+              itemTitle: item.title,
+              questions: []
+            }
+            if (item.is_measure) {
+              const measuresModel = new Measure();
+              measuresModel.pia_id = this.pia.id;
+              measuresModel.findAll().then((entries: any) => {
+                entries.forEach((measure) => {
+                  if (measure.title !== undefined && measure.content !== undefined) {
                     this.allData[ref]['questions'].push({
-                      title: question.title,
-                      content: content
+                      title: measure.title,
+                      content: measure.content
                     });
                   }
-                }
-                if (section.id === 3 && item.id === 4) {
-                  resolve();
-                }
+                });
               });
-            });
-          }
+            } else if (item.questions) {
+              item.questions.forEach((question) => {
+                const answerModel = new Answer();
+                answerModel.getByReferenceAndPia(this.pia.id, question.id).then(() => {
+                  if (answerModel.data) {
+                    let content = null;
+                    if (answerModel.data.gauge && answerModel.data.gauge > 0) {
+                      content = this.pia.getGaugeName(answerModel.data.gauge);
+                    }
+                    if (answerModel.data.text && answerModel.data.text.length > 0) {
+                      content = answerModel.data.text;
+                    }
+                    if (answerModel.data.list && answerModel.data.list.length > 0) {
+                      content = answerModel.data.list.join(', ');
+                    }
+                    if (content) {
+                      this.allData[ref]['questions'].push({
+                        title: question.title,
+                        content: content
+                      });
+                    }
+                  }
+                  if (section.id === 3 && item.id === 4) {
+                    resolve();
+                  }
+                });
+              });
+            }
+          });
         });
-      });
+      }
     });
   }
 }
