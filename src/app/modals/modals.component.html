@@ -34,7 +34,7 @@
     </p>
     <span class="pia-icons pia-icon-happy"></span>
     <div class="pia-modalBlock-buttons-choice">
-      <button class="btn btn-green" type="button" title="Télécharger le rapport PIA" (click)="_piaService.downloadPia()">Télécharger<br>le rapport PIA</button>
+      <a routerLink="/summary/{{_piaService.pia.id}}/pia" title="Télécharger le rapport PIA">Télécharger<br>le rapport PIA</a>
     </div>
   </div>
 </div>
