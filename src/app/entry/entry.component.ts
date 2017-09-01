@@ -1,6 +1,10 @@
-import { Component, OnInit, Output } from '@angular/core';
+import { Component, OnInit, Output, OnDestroy, DoCheck } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Http } from '@angular/http';
+import { Subscription } from 'rxjs/Subscription';
+
+import { Answer } from 'app/entry/entry-content/questions/answer.model';
+
 import { EvaluationService } from 'app/entry/entry-content/evaluations/evaluations.service';
 import { KnowledgeBaseService } from 'app/entry/knowledge-base/knowledge-base.service';
 import { MeasureService } from 'app/entry/entry-content/measures/measures.service';
@@ -14,7 +18,7 @@ import { ModalsService } from 'app/modals/modals.service';
   styleUrls: ['./entry.component.scss'],
   providers: [PiaService]
 })
-export class EntryComponent implements OnInit {
+export class EntryComponent implements OnInit, OnDestroy, DoCheck {
 
   measureTitle: string;
   measurePlaceholder: string;
@@ -23,6 +27,8 @@ export class EntryComponent implements OnInit {
   data: { sections: any };
   questions: any;
   sidStatus: any;
+  measureToRemoveFromTags: string;
+  subscription: Subscription;
 
   constructor(private route: ActivatedRoute,
               private http: Http,
@@ -46,9 +52,56 @@ export class EntryComponent implements OnInit {
         }
       );
     });
+
+    // Suscribe to measure service messages
+    this.subscription = this._measureService.behaviorSubject.subscribe((val) => {
+      this.measureToRemoveFromTags = val;
+    });
   }
 
-  ngOnInit() { }
+  ngOnInit() {}
+
+  ngDoCheck() {
+    /* maybe add in condition something about this._measureService.behaviorSubject.getValue() != null et remettre ça à null */
+    /*if (this.measureToRemoveFromTags !== null && this.measureToRemoveFromTags.length > 0) { */
+
+
+    if (this.measureToRemoveFromTags !== null && this.measureToRemoveFromTags.length > 0) {
+      const measureName = this.measureToRemoveFromTags;
+
+      // Maybe put this to null at the end of the whole code.
+      this.measureToRemoveFromTags = null;
+
+      // Update tags when removing measures from 3.1
+      const itemsQuestions = [];
+      this._piaService.data.sections.forEach(section => {
+        section.items.forEach(item => {
+            if (item.questions) {
+              itemsQuestions.push(item.questions.filter((question) => {
+                return (question.answer_type === 'list' && question.is_measure === true);
+              }));
+            }
+        });
+      });
+
+      // Keep only questions with measures lists
+      const listQuestions = itemsQuestions.filter(v => Object.keys(v).length !== 0);
+
+      // For each of these questions, get their respective answer
+      listQuestions.forEach(questionsSet => {
+        questionsSet.forEach(q => {
+          const answer = new Answer();
+          answer.getByReferenceAndPia(this._piaService.pia.id, q.id).then(() => {
+            if (answer.data && answer.data.list.length > 0 && answer.data.list.includes(measureName)) {
+              const index = answer.data.list.indexOf(measureName);
+              answer.data.list.splice(index, 1);
+              answer.update();
+            }
+          });
+        });
+      });
+    }
+  }
 
   addNewMeasure(item) {
     this.measureTitle = item.name;
@@ -110,5 +163,10 @@ export class EntryComponent implements OnInit {
 
     this._knowledgeBaseService.q = null;
     this._knowledgeBaseService.loadByItem(this.item);
+
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 }

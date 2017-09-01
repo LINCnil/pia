@@ -1,11 +1,15 @@
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+
 import { Measure } from './measure.model';
+
 import { ModalsService } from 'app/modals/modals.service';
 import { EvaluationService } from 'app/entry/entry-content/evaluations/evaluations.service';
 
 @Injectable()
 export class MeasureService {
-
+  public behaviorSubject = new BehaviorSubject<string>(null);
   measures: any[];
 
   constructor(private _modalsService: ModalsService,
@@ -27,8 +31,14 @@ export class MeasureService {
    */
   removeMeasure() {
     const measure_id = parseInt(localStorage.getItem('measure-id'), 10);
-    /* Removing from DB */
     const measure = new Measure();
+
+    /* TODO : maybe move it after deletion has been completed, with a new measure Model */
+    measure.get(measure_id).then(() => {
+      this.behaviorSubject.next(measure.title);
+    });
+
+    /* Removing from DB */
     measure.delete(measure_id).then(() => {
       this._evaluationService.remove(measure_id);
       this._evaluationService.allowEvaluation();

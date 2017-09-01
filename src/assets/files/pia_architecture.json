@@ -32,7 +32,7 @@
                 "PIA_DEF_RT",
                 "PIA_DEF_ST"
               ],
-              "placeholder": "Décrivez les responsabilités des parties prenantes : le responsable du traitement, les potentiels sous-traitants et les potentielles co-responsabilités.",
+              "placeholder": "Décrivez les responsabilités des parties prenantes : le responsable du traitement, les potentiels sous-traitants et les potentiels co-responsables.",
               "highlight_words": "",
               "answer_type": "text",
               "keywords": "",
