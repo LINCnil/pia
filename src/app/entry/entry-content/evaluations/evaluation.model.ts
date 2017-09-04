@@ -94,6 +94,7 @@ export class Evaluation extends ApplicationDb {
     this.id = id;
     return new Promise((resolve, reject) => {
       this.find(this.id).then((entry: any) => {
+        this.id = entry.id;
         this.status = entry.status;
         this.pia_id = parseInt(entry.pia_id, 10);
         this.reference_to = entry.reference_to;
@@ -106,7 +107,7 @@ export class Evaluation extends ApplicationDb {
         this.global_status = entry.global_status;
         this.created_at = new Date(entry.created_at);
         this.updated_at = new Date(entry.updated_at);
-        resolve();
+        resolve(this);
       });
     });
   }

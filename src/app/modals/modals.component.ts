@@ -47,20 +47,6 @@ export class ModalsComponent implements OnInit {
   }
 
   /**
-   *
-   */
-  abandonTreatment() {
-    // TODO abandon treatment functionnalities (update the PIA, ...)
-  }
-
-  /**
-   * Allows users to download a report about the PIA.
-   */
-  exportPIAReport() {
-    // TODO export PIA Report
-  }
-
-  /**
    * Allows users to import a PIA.
    */
   importPIA() {

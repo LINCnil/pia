@@ -33,7 +33,7 @@
 
 <div class="pia-validatePIABlock">
   <ng-container *ngIf="showValidationButton || showRefuseButton; else defaultButton">
-    <a routerLink="/entry/{{_piaService.pia.id}}/section/4/item/4" class="btn btn-red btn-active"
+    <a routerLink="/entry/{{_piaService.pia.id}}/section/4/item/4" class="btn btn-green btn-active"
       *ngIf="showValidationButton">Valider le PIA</a>
     <a routerLink="/entry/{{_piaService.pia.id}}/section/4/item/5" class="btn btn-red btn-active"
       *ngIf="showRefuseButton">PIA refusé</a>

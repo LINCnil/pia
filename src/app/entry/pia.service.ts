@@ -1,13 +1,15 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Router, Params } from '@angular/router';
+import { Http } from '@angular/http';
+
 import { Pia } from './pia.model';
-import { ModalsService } from 'app/modals/modals.service';
-import { EvaluationService } from 'app/entry/entry-content/evaluations/evaluations.service';
 import { Evaluation } from 'app/entry/entry-content/evaluations/evaluation.model';
 import { Answer } from 'app/entry/entry-content/questions/answer.model';
 import { Measure } from 'app/entry/entry-content/measures/measure.model';
+
+import { ModalsService } from 'app/modals/modals.service';
+import { EvaluationService } from 'app/entry/entry-content/evaluations/evaluations.service';
 import { ActionPlanService } from 'app/entry/entry-content/action-plan//action-plan.service';
-import { Http } from '@angular/http';
 
 @Injectable()
 export class PiaService {
@@ -18,7 +20,7 @@ export class PiaService {
   data: { sections: any };
   sidStatus = {};
 
-  constructor(private route: ActivatedRoute,
+  constructor(private _router: Router, private route: ActivatedRoute,
               private _evaluationService: EvaluationService,
               private _modalsService: ModalsService, private http: Http) {
                 this.http.request('/assets/files/pia_architecture.json').map(res => res.json()).subscribe(data => {
@@ -127,13 +129,25 @@ export class PiaService {
       evaluation.findAll().then((entries: any) => {
         entries.forEach(element => {
           evaluation = new Evaluation();
-          evaluation.get(element.id).then(() => {
-            evaluation.global_status = 0;
-            evaluation.update();
+          evaluation.get(element.id).then((entry: any) => {
+            /* TODO : entry.status = 0; */
+            entry.global_status = 0;
+            entry.update();
           });
         });
         resolve();
       });
+    });
+  }
+
+  /**
+   * Allows an user to abandon a treatment (archive a PIA)
+   */
+  abandonTreatment() {
+    this.pia.status = 4;
+    this.pia.update().then(() => {
+      this._modalsService.closeModal();
+      this._router.navigate(['home']);
     });
   }
 }

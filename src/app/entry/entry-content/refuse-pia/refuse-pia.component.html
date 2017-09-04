@@ -29,9 +29,9 @@
 
     <div class="pia-entryContentBlock-footer">
         <div class="pia-entryContentBlock-content-cancelButtons" *ngIf="_piaService.pia.status !== 1">
-            <button type="button" class="btn btn-red" (click)="abandon()"
+            <button type="button" class="btn btn-red" [ngClass]="{'btn-active':  _piaService.pia.status === 4}" (click)="abandon()"
                     [disabled]="!showRejectionReasonButtons">Abandonner le traitement</button>
-            <button type="button" class="btn btn-red" (click)="refuse()"
+            <button type="button" class="btn btn-red" [ngClass]="{'btn-active':  _piaService.pia.status === 1}" (click)="refuse()"
                     [disabled]="!showRejectionReasonButtons">Refuser le PIA</button>
         </div>
         <a routerLink="/entry/{{_piaService.pia.id}}/section/4/item/4" *ngIf="_piaService.pia.status === 1" class="btn btn-green">Renvoyer pour validation</a>

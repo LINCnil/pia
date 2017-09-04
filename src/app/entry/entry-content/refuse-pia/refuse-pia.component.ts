@@ -1,5 +1,9 @@
 import { Component, ElementRef, OnInit, Input } from '@angular/core';
 import { FormArray, FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
+
+import { Evaluation } from 'app/entry/entry-content/evaluations/evaluation.model';
+
 import { ModalsService } from 'app/modals/modals.service';
 import { PiaService } from 'app/entry/pia.service';
 
@@ -18,7 +22,8 @@ export class RefusePIAComponent implements OnInit {
   displayEditButton1 = false;
   displayEditButton2 = false;
 
-  constructor(private el: ElementRef,
+  constructor(private router: Router,
+              private el: ElementRef,
               private _modalsService: ModalsService,
               private _piaService: PiaService) { }
 
@@ -91,6 +96,7 @@ export class RefusePIAComponent implements OnInit {
     this._piaService.pia.status = 1;
     this._piaService.pia.update().then(() => {
       this._piaService.cancelAllValidatedEvaluation().then(() => {
+        this.router.navigate(['entry', this._piaService.pia.id, 'section', 1, 'item', 1]);
         this._modalsService.openModal('modal-refuse-pia');
       });
     });
