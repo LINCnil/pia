@@ -6,7 +6,7 @@
     </p>
     <span class="pia-icons pia-icon-happy"></span>
     <div class="pia-modalBlock-validate">
-      <button class="btn btn-green" type="button" title="Retour à l'accueil" (click)="returnToHomepage()">Retour à l'accueil</button>
+      <button class="btn btn-green" type="button" (click)="returnToHomepage()">Retour à l'accueil</button>
     </div>
   </div>
 </div>
@@ -19,7 +19,7 @@
     </p>
     <span class="pia-icons pia-icon-happy"></span>
     <div class="pia-modalBlock-validate">
-      <button class="btn btn-green" type="button" title="Retour à l'accueil" (click)="returnToHomepage()">Retour à l'accueil</button>
+      <button class="btn btn-green" type="button" (click)="returnToHomepage()">Retour à l'accueil</button>
     </div>
   </div>
 </div>
@@ -34,7 +34,7 @@
     </p>
     <span class="pia-icons pia-icon-happy"></span>
     <div class="pia-modalBlock-buttons-choice">
-      <a routerLink="/summary/{{_piaService.pia.id}}/pia" title="Télécharger le rapport PIA">Télécharger<br>le rapport PIA</a>
+      <a routerLink="/summary/{{_piaService.pia.id}}/pia">Télécharger<br>le rapport PIA</a>
     </div>
   </div>
 </div>
@@ -47,8 +47,8 @@
       abandonner ce traitement ?
     </p>
     <div class="pia-modalBlock-buttons-choice">
-      <button class="btn btn-red" type="button" (click)="_modalsService.closeModal()" title="Reprendre">Reprendre</button>
-      <button class="btn btn-red" type="button" (click)="_piaService.abandonTreatment()" title="Archiver">Archiver</button>
+      <button class="btn btn-red" type="button" (click)="_modalsService.closeModal()">Annuler</button>
+      <button class="btn btn-red" type="button" (click)="_piaService.abandonTreatment()">Archiver</button>
     </div>
   </div>
 </div>
@@ -64,7 +64,7 @@
     </p>
     <span class="pia-icons pia-icon-sad"></span>
     <div class="pia-modalBlock-validate">
-      <button class="btn btn-red" type="button" (click)="_modalsService.closeModal()" title="Continuer">Continuer</button>
+      <button class="btn btn-red" type="button" (click)="_modalsService.closeModal()">Continuer</button>
     </div>
   </div>
 </div>
@@ -78,7 +78,7 @@
     </p>
     <span class="pia-icons pia-icon-sorry"></span>
     <div class="pia-modalBlock-validate">
-      <button class="btn btn-blue" type="button" (click)="_modalsService.closeModal()" data-dismiss="modal" title="Continuer">Fermer</button>
+      <button class="btn btn-blue" type="button" (click)="_modalsService.closeModal()" data-dismiss="modal">Fermer</button>
     </div>
   </div>
 </div>
@@ -92,7 +92,7 @@
     </p>
     <span class="pia-icons pia-icon-sorry"></span>
     <div class="pia-modalBlock-validate">
-      <button class="btn btn-blue" type="button" (click)="_modalsService.closeModal()" data-dismiss="modal" title="Continuer">Fermer</button>
+      <button class="btn btn-blue" type="button" (click)="_modalsService.closeModal()" data-dismiss="modal">Fermer</button>
     </div>
   </div>
 </div>
@@ -107,8 +107,8 @@
     </p>
     <span class="pia-icons pia-icon-sad"></span>
     <div class="pia-modalBlock-buttons-choice">
-      <button class="btn btn-red" (click)="_measuresService.removeMeasure()" type="button" title="Supprimer la mesure">Supprimer cette <br>mesure</button>
-      <button class="btn btn-red" type="button" (click)="_modalsService.closeModal()" title="Conserver la mesure">Conserver cette <br>mesure</button>
+      <button class="btn btn-red" (click)="_measuresService.removeMeasure()" type="button">Supprimer cette <br>mesure</button>
+      <button class="btn btn-red" type="button" (click)="_modalsService.closeModal()">Conserver cette <br>mesure</button>
     </div>
   </div>
 </div>
@@ -123,7 +123,7 @@
     </p>
     <span class="pia-icons pia-icon-happy"></span>
     <div class="pia-modalBlock-validate">
-      <button (click)="_modalsService.closeModal()" class="btn btn-green" type="button" title="Continuer">Continuer</button>
+      <button (click)="_modalsService.closeModal()" class="btn btn-green" type="button">Continuer</button>
     </div>
   </div>
 </div>
@@ -138,7 +138,7 @@
     </p>
     <span class="pia-icons pia-icon-happy"></span>
     <div class="pia-modalBlock-validate">
-      <button (click)="_modalsService.closeModal()" class="btn btn-green" type="button" title="Continuer">Continuer</button>
+      <button (click)="_modalsService.closeModal()" class="btn btn-green" type="button">Continuer</button>
     </div>
   </div>
 </div>
@@ -154,7 +154,7 @@
     </p>
     <span class="pia-icons pia-icon-sorry"></span>
     <div class="pia-modalBlock-validate">
-      <button (click)="_modalsService.closeModal()" class="btn btn-green" type="button" title="Continuer">Continuer</button>
+      <button (click)="_modalsService.closeModal()" class="btn btn-green" type="button">Continuer</button>
     </div>
   </div>
 </div>
@@ -169,7 +169,7 @@
     </p>
     <span class="pia-icons pia-icon-sorry"></span>
     <div class="pia-modalBlock-validate">
-      <a routerLink="/entry/{{_piaService.pia.id}}/section/3/item/1" (click)="_modalsService.closeModal()" type="button btn-blue" title="Déclarer les mesures existantes ou prévues" class="btn btn-green">Déclarer les mesures existantes ou prévues</a>
+      <a routerLink="/entry/{{_piaService.pia.id}}/section/3/item/1" (click)="_modalsService.closeModal()" type="button btn-blue" class="btn btn-green">Déclarer les mesures existantes ou prévues</a>
     </div>
   </div>
 </div>
@@ -185,8 +185,8 @@
     </p>
     <span class="pia-icons pia-icon-sad"></span>
     <div class="pia-modalBlock-buttons-choice">
-      <button class="btn btn-red" type="button" (click)="_modalsService.closeModal()" title="Conserver le PIA">Annuler</button>
-      <button class="btn btn-red" (click)="_piaService.removePIA()" type="button" title="Supprimer le PIA">Supprimer ce PIA</button>
+      <button class="btn btn-red" type="button" (click)="_modalsService.closeModal()">Annuler</button>
+      <button class="btn btn-red" (click)="_piaService.removePIA()" type="button">Supprimer ce PIA</button>
     </div>
   </div>
 </div>
@@ -201,8 +201,8 @@
     </p>
     <span class="pia-icons pia-icon-sad"></span>
     <div class="pia-modalBlock-buttons-choice">
-      <button class="btn btn-red" type="button" (click)="_modalsService.closeModal()" title="Conserver la pièce jointe">Conserver</button>
-      <button class="btn btn-red" (click)="_attachmentsService.removeAttachment()" type="button" title="Supprimer la pièce jointe">Supprimer</button>
+      <button class="btn btn-red" type="button" (click)="_modalsService.closeModal()">Conserver</button>
+      <button class="btn btn-red" (click)="_attachmentsService.removeAttachment()" type="button">Supprimer</button>
     </div>
   </div>
 </div>
@@ -219,7 +219,7 @@
       la partie <span class="red">" Mesures existantes ou prévues "</span>
     </p>
     <div class="pia-modalBlock-validate">
-      <button class="btn btn-blue" type="button" title="Continuer">Continuer</button>
+      <button class="btn btn-blue" type="button">Continuer</button>
     </div>
   </div>
 </div>
