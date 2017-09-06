@@ -1,5 +1,7 @@
 @import '../../../assets/stylesheets/variables';
+
 .pia-listsBlock-item {
+  position: relative;
   padding: 0 10px;
   text-transform: capitalize;
   &:last-child {
@@ -11,6 +13,43 @@
     a {
       color: $pia-green;
       font-size: 2rem;
+    }
+  }
+  &-attachment {
+    display: inline-block;
+    position: absolute;
+    vertical-align: middle;
+    right: 0;
+    cursor: pointer;
+    ul {
+      display: none;
+      position: absolute;
+      z-index: 999;
+      top: 18px;
+      left: 2px;
+      font-size: 1rem;
+      color: $pia-gray-dark;
+      background-color: #fff;
+      text-align: center;
+      min-width: 100px;
+      margin: 10px 0;
+      padding: 2px 4px;
+      box-shadow: 1px 1px 2px 1px rgba(214, 212, 214, 1);
+      li {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        border-bottom: 1px dotted $pia-gray-dark;
+        padding: 2px 0;
+        &:last-child {
+          border-bottom: none;
+        }
+      }
+    }
+    &:focus, &:hover, &:active {
+      ul {
+        display: block;
+      }
     }
   }
 }

@@ -19,8 +19,8 @@
               class="truncate">{{dataItem.title}}</a>
             <i class="fa"
                *ngIf="sidStatus"
-               [ngClass]="{'fa-cog': !sidStatus[dataSection.id.toString() + dataItem.id.toString()],
-                           'fa-pencil-square-o': sidStatus[dataSection.id.toString() + dataItem.id.toString()] === 1,
+               [ngClass]="{'fa-cog': sidStatus[dataSection.id.toString() + dataItem.id.toString()] === 1,
+                           'fa-pencil-square-o': !sidStatus[dataSection.id.toString() + dataItem.id.toString()],
                            'fa-check-square-o': sidStatus[dataSection.id.toString() + dataItem.id.toString()] === 2,
                            'hide': dataSection.id === 4 || (dataSection.id === 3 && dataItem.id === 5)}"
                aria-hidden="true"></i>

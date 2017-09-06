@@ -4,6 +4,16 @@
       <span *ngIf="!previousPia || previousPia.status !== pia.status">{{pia.getStatusName()}}</span>
     </div>
     <div class="pia-cardsBlock-item pia-doingBlock-item">
+      <div *ngIf="attachments && attachments.length > 0" class="pia-cardsBlock-item-attachment" aria-hidden="true">
+        <span class="pia-icons pia-icon-attachment"></span>
+        <ul>
+          <ng-container *ngFor="let attachment of attachments">
+            <li>
+              {{attachment.name}}
+            </li>
+          </ng-container>
+        </ul>
+      </div>
       <div class="pia-cardsBlock-toolbar">
           <div class="pia-cardsBlock-toolbar-edit">
             <a href="javascript:;" (click)="activateEdition()" class="btn pia-tooltip">
@@ -42,11 +52,7 @@
             (ngSubmit)="onSubmit(f)"
             [formGroup]="piaForm">
           <input type="hidden" formControlName="id">
-          <div>
-              <div style="display:none;" class="pia-doingBlock-item-form-attachment">
-                  <span class="pia-icons pia-icon-attachment"></span>
-                  <button type="button" class="btn">Analyse EBIOS</button>
-              </div>
+          <div style="margin-top:20px;">
               <label for="pia-edit-name">Nom du PIA</label>
               <input type="text" formControlName="name" required
                      placeholder="Intitulé" id="pia-edit-name">

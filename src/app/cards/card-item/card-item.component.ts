@@ -3,6 +3,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { Pia } from '../../entry/pia.model';
 import { Router } from '@angular/router';
 
+import { Attachment } from 'app/entry/attachments/attachment.model';
 import { ModalsService } from 'app/modals/modals.service';
 import { PiaService } from 'app/entry/pia.service';
 
@@ -17,6 +18,7 @@ export class CardItemComponent implements OnInit {
   @Input() previousPia: any;
   editMode: Boolean;
   piaForm: FormGroup;
+  attachments: any;
 
   constructor(private router: Router,
               private _modalsService: ModalsService,
@@ -32,6 +34,13 @@ export class CardItemComponent implements OnInit {
       evaluator_name: new FormControl({ value: this.pia.evaluator_name, disabled: true }),
       validator_name: new FormControl({ value: this.pia.validator_name, disabled: true })
     });
+
+    const attachmentModel = new Attachment();
+    attachmentModel.pia_id = this.pia.id;
+    attachmentModel.findAll().then((entries: any) => {
+      this.attachments = entries;
+    });
+
   }
 
   /**
