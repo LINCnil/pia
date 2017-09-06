@@ -13,9 +13,9 @@
       <h3 *ngIf="section.short_help">{{ section.short_help }}</h3>
       <h4 *ngIf="item.short_help">{{ item.short_help }}</h4>
     </div>
-    <a *ngIf="section.id === 4 && item.id === 2;else defaultBlock" routerLink="/summary/{{_piaService.pia.id}}/action_plan" class="btn pia-previewBlock" title="Export du plan d'action">
+    <a *ngIf="section.id === 4 && item.id === 2;else defaultBlock" routerLink="/summary/{{_piaService.pia.id}}/action_plan" class="btn pia-previewBlock">
       <span class="pia-icons pia-icon-preview"></span>
-      <div>Export du<br>plan d'action</div>
+      <div>Afficher le<br>plan d'action</div>
     </a>
     <ng-template #defaultBlock>
       <a  routerLink="/summary/{{_piaService.pia.id}}/pia" class="btn pia-previewBlock" title="Aperçu">
