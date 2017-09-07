@@ -41,6 +41,13 @@ body.pia-contrast {
       }
     }
   }
+  .btn-pending-validation, .btn-pending-validation[disabled] {
+    color: $pia-blue;
+    border-color: $pia-blue;
+    &:focus, &:hover, &:active {
+      color: $pia-blue;
+    }
+  }
 
   /* header */
   .pia-navigationBlock {
@@ -66,7 +73,7 @@ body.pia-contrast {
     }
   }
 
-  /* cards */
+  /* "Card" display mode */
   .pia-filtersBlock {
     &-switch,
     &-filters-btn {
@@ -103,6 +110,12 @@ body.pia-contrast {
        color: $pia-red-dark;
       }
     }
+    &.pia-archiveBlock {
+      .pia-cardsBlock-header-title {
+       border-bottom-color: $pia-green-dark;
+       color: $pia-green-dark;
+      }
+    }
     &-item {
       &-status {
         &-infos {
@@ -114,17 +127,24 @@ body.pia-contrast {
           > div {
             color: $pia-green-dark;
           }
-          progress[value] {
-            &::-webkit-progress-bar,
-            &::-webkit-progress-value,
-            &::-moz-progress-bar {
-              color: $pia-green-dark !important;
+          progress {
+            &:before, &:after {
               background-color: $pia-green-dark !important;
             }
           }
           progress {
-            &:before, &:after {
-              background-color: $pia-green-dark !important;
+            appearance: none;
+            -moz-appearance: none;
+            -webkit-appearance: none;
+            color: $pia-green-dark;
+            &:after {
+              color: $pia-green-dark !important;
+            }
+            &::-moz-progress-bar {
+              background: $pia-green-dark;
+            }
+            &::-webkit-progress-value {
+              background: $pia-green-dark;
             }
           }
         }
@@ -155,8 +175,8 @@ body.pia-contrast {
           color: $pia-green-dark;
           &:focus, &:hover, &:active {
             background-color: $pia-green-dark;
-            i {
-              color: #fff;
+            a, i {
+              color: $pia-white;
             }
           }
         }
@@ -206,6 +226,31 @@ body.pia-contrast {
       }
     }
   }
+
+  /* "List" display mode */
+  .pia-listsBlock-item {
+    progress {
+      appearance: none;
+      -moz-appearance: none;
+      -webkit-appearance: none;
+      color: $pia-green-dark;
+      &:after {
+        color: $pia-green-dark !important;
+      }
+      &::-moz-progress-bar {
+        background: $pia-green-dark;
+      }
+      &::-webkit-progress-value {
+        background: $pia-green-dark;
+      }
+    }
+    &-actions {
+      .pia-tooltip {
+        color: $pia-green-dark !important;
+      }
+    }
+  }
+
 
   /* entry-content */
   .pia-entryContentBlock {
@@ -296,7 +341,7 @@ body.pia-contrast {
           border-top: solid 1px $pia-gray-dark  !important;
           color: $pia-gray-dark !important;
         }
-        i {
+        .fa-cog, .fa-pencil-square-o {
           color: $pia-gray-dark !important;
         }
       }
@@ -491,6 +536,16 @@ body.pia-contrast {
         &-confirm {
           input:checked + label {
             border: solid $pia-green-dark 1px !important;
+            .fa-check {
+              color: $pia-green-dark !important;
+            }
+          }
+          &.validate {
+            input:checked + label {
+              .fa-check {
+                color: $pia-white !important;
+              }
+            }
           }
         }
         &-confirm.validate {

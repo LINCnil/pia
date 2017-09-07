@@ -51,14 +51,12 @@
     <button class="btn btn-green" (click)="_evaluationService.prepareForEvaluation()"
             *ngIf="!_evaluationService.showValidationButton && !_evaluationService.enableFinalValidation"
             [ngClass]="{'btn-active': _evaluationService.enableEvaluation, 'hide': ((section.id == 3 && item.id == 5) || section.id == 4)}"
-            [disabled]="!_evaluationService.enableEvaluation" type="submit"
-            title="Demander l'évaluation">Demander l'évaluation</button>
+            [disabled]="!_evaluationService.enableEvaluation" type="submit">Demander l'évaluation</button>
     <button class="btn btn-green" (click)="validateEvaluation()"
             *ngIf="_evaluationService.showValidationButton && !_evaluationService.enableFinalValidation"
             [ngClass]="{'btn-active': _evaluationService.enableValidation, 'hide': (section.id == 3 && item.id == 5) || section.id == 4 || !_evaluationService.showValidationButton}"
-            [disabled]="!_evaluationService.enableValidation" type="submit"
-            title="Valider l'évaluation">Valider l'évaluation</button>
-    <button class="btn btn-pending-validation" [ngClass]="{'hide': (section.id == 3 && item.id == 5) || section.id == 4 || !_evaluationService.enableFinalValidation}" disabled type="submit" title="Partie évaluée, en attente de la validation finale">
+            [disabled]="!_evaluationService.enableValidation" type="submit">Valider l'évaluation</button>
+    <button class="btn btn-pending-validation" [ngClass]="{'hide': (section.id == 3 && item.id == 5) || section.id == 4 || !_evaluationService.enableFinalValidation}" disabled type="submit">
       <i class="fa fa-check-square-o" aria-hidden="true"></i>
       Partie évaluée, en attente de la validation finale
     </button>

@@ -3,7 +3,6 @@ import { Router, ActivatedRoute } from '@angular/router';
 
 import { Attachment } from 'app/entry/attachments/attachment.model';
 
-import {PiaService} from 'app/entry/pia.service';
 import {ModalsService} from 'app/modals/modals.service';
 
 @Component({
@@ -17,8 +16,7 @@ export class ListItemComponent implements OnInit {
 
   constructor(private router: Router,
               private route: ActivatedRoute,
-              private _modalsService: ModalsService,
-              private _piaService: PiaService) { }
+              private _modalsService: ModalsService) { }
 
   ngOnInit() {
     const attachmentModel = new Attachment();
