@@ -77,34 +77,32 @@ export class RisksCartographyComponent implements OnInit {
               let axeValue;
               axeValue = cartographyKey[1] === 'x' ? 'y' : 'x';
               let pointPosition = positions[axeValue][answer.data.gauge];
-              if (cartographyKey[0] === 'risk-access') {
+              if (cartographyKey[0] === 'risk-change') {
                 pointPosition -= 10;
-              } else if (cartographyKey[0] === 'risk-change') {
-                pointPosition -= 20;
               } else if (cartographyKey[0] === 'risk-disappearance') {
-                pointPosition -= 30;
+                pointPosition -= 20;
               }
-              this.dataJSON[cartographyKey[0]]['author'][axeValue] = pointPosition;
+              this.dataJSON[cartographyKey[0]]['author'][axeValue] =  pointPosition;
             }
           }
         });
         const evaluation = new Evaluation();
         evaluation.getByReference(this.pia.id, '3.2').then(() => {
           if (evaluation.gauges) {
-            this.dataJSON['risk-access']['evaluator']['y'] = positions['y'][evaluation.gauges['x']] + 10;
-            this.dataJSON['risk-access']['evaluator']['x'] = positions['x'][evaluation.gauges['y']] + 10;
+            this.dataJSON['risk-access']['evaluator']['y'] = positions['y'][evaluation.gauges['x']];
+            this.dataJSON['risk-access']['evaluator']['x'] = positions['x'][evaluation.gauges['y']];
           }
           const evaluation2 = new Evaluation();
           evaluation2.getByReference(this.pia.id, '3.3').then(() => {
             if (evaluation2.gauges) {
-              this.dataJSON['risk-change']['evaluator']['y'] = positions['y'][evaluation2.gauges['x']] + 20;
-              this.dataJSON['risk-change']['evaluator']['x'] = positions['x'][evaluation2.gauges['y']] + 20;
+              this.dataJSON['risk-change']['evaluator']['y'] = positions['y'][evaluation2.gauges['x']];
+              this.dataJSON['risk-change']['evaluator']['x'] = positions['x'][evaluation2.gauges['y']];
             }
             const evaluation3 = new Evaluation();
             evaluation3.getByReference(this.pia.id, '3.4').then(() => {
               if (evaluation3.gauges) {
-                this.dataJSON['risk-disappearance']['evaluator']['y'] = positions['y'][evaluation3.gauges['x']] + 30;
-                this.dataJSON['risk-disappearance']['evaluator']['x'] = positions['x'][evaluation3.gauges['y']] + 30;
+                this.dataJSON['risk-disappearance']['evaluator']['y'] = positions['y'][evaluation3.gauges['x']];
+                this.dataJSON['risk-disappearance']['evaluator']['x'] = positions['x'][evaluation3.gauges['y']];
               }
               this.loadCartography();
             });
@@ -212,26 +210,50 @@ export class RisksCartographyComponent implements OnInit {
 
       // Evaluator dots (blue)
       if (this.dataJSON['risk-access']['evaluator'].x && this.dataJSON['risk-access']['evaluator'].y) {
+        let diameter = 7;
+        if (this.dataJSON['risk-access']['evaluator'].x === this.dataJSON['risk-access']['author'].x &&
+            this.dataJSON['risk-access']['evaluator'].y === this.dataJSON['risk-access']['author'].y) {
+          diameter = 10;
+          context.globalCompositeOperation = 'destination-over';
+        }
         context.beginPath();
         context.fillStyle = '#091C6B';
         context.arc(this.dataJSON['risk-access']['evaluator'].x,
-                    this.dataJSON['risk-access']['evaluator'].y, 7, 0, Math.PI * 2, true);
+                    this.dataJSON['risk-access']['evaluator'].y, diameter, 0, Math.PI * 2, true);
         context.fill();
       }
 
       if (this.dataJSON['risk-change']['evaluator'].x && this.dataJSON['risk-change']['evaluator'].y) {
+        let x = this.dataJSON['risk-change']['evaluator'].x;
+        let y = this.dataJSON['risk-change']['evaluator'].y;
+        let diameter = 7;
+        if (this.dataJSON['risk-change']['evaluator'].x - 10 === this.dataJSON['risk-change']['author'].x &&
+            this.dataJSON['risk-change']['evaluator'].y - 10 === this.dataJSON['risk-change']['author'].y) {
+          x = this.dataJSON['risk-change']['evaluator'].x - 10;
+          y = this.dataJSON['risk-change']['evaluator'].y - 10;
+          diameter = 10;
+          context.globalCompositeOperation = 'destination-over';
+        }
         context.beginPath();
         context.fillStyle = '#091C6B';
-        context.arc(this.dataJSON['risk-change']['evaluator'].x,
-                    this.dataJSON['risk-change']['evaluator'].y, 7, 0, Math.PI * 2, true);
+        context.arc(x, y, diameter, 0, Math.PI * 2, true);
         context.fill();
       }
 
       if (this.dataJSON['risk-disappearance']['evaluator'].x && this.dataJSON['risk-disappearance']['evaluator'].y) {
+        let x = this.dataJSON['risk-disappearance']['evaluator'].x;
+        let y = this.dataJSON['risk-disappearance']['evaluator'].y;
+        let diameter = 7;
+        if (this.dataJSON['risk-disappearance']['evaluator'].x - 20 === this.dataJSON['risk-disappearance']['author'].x &&
+            this.dataJSON['risk-disappearance']['evaluator'].y - 20 === this.dataJSON['risk-disappearance']['author'].y) {
+          x = this.dataJSON['risk-disappearance']['evaluator'].x - 20;
+          y = this.dataJSON['risk-disappearance']['evaluator'].y - 20;
+          diameter = 10;
+          context.globalCompositeOperation = 'destination-over';
+        }
         context.beginPath();
         context.fillStyle = '#091C6B';
-        context.arc(this.dataJSON['risk-disappearance']['evaluator'].x,
-                    this.dataJSON['risk-disappearance']['evaluator'].y, 7, 0, Math.PI * 2, true);
+        context.arc(x, y, diameter, 0, Math.PI * 2, true);
         context.fill();
       }
 
@@ -240,7 +262,7 @@ export class RisksCartographyComponent implements OnInit {
 
       // Dotted lines params
       context.setLineDash([0.1, 1.8]);
-      context.lineWidth = 0.3;
+      context.lineWidth = 0.6;
 
       // Dotted lines
       if (this.dataJSON['risk-access']['author'].x && this.dataJSON['risk-access']['author'].y &&
@@ -253,8 +275,10 @@ export class RisksCartographyComponent implements OnInit {
         gradRisk1.addColorStop(0, '#FD4664');
         gradRisk1.addColorStop(1, '#091C6B');
         context.strokeStyle = gradRisk1;
-        context.moveTo(this.dataJSON['risk-access']['author'].x, this.dataJSON['risk-access']['author'].y);
-        context.lineTo(this.dataJSON['risk-access']['evaluator'].x, this.dataJSON['risk-access']['evaluator'].y);
+        this.canvasArrow(context, this.dataJSON['risk-access']['author'].x,
+                        this.dataJSON['risk-access']['author'].y,
+                        this.dataJSON['risk-access']['evaluator'].x,
+                        this.dataJSON['risk-access']['evaluator'].y);
         context.closePath();
         context.stroke();
       }
@@ -269,8 +293,11 @@ export class RisksCartographyComponent implements OnInit {
         gradRisk2.addColorStop(0, '#FD4664');
         gradRisk2.addColorStop(1, '#091C6B');
         context.strokeStyle = gradRisk2;
-        context.moveTo(this.dataJSON['risk-change']['author'].x, this.dataJSON['risk-change']['author'].y);
-        context.lineTo(this.dataJSON['risk-change']['evaluator'].x, this.dataJSON['risk-change']['evaluator'].y);
+        /* TODO : - 10 if same coordinates (evaluator - 10 === author) */
+        this.canvasArrow(context, this.dataJSON['risk-change']['author'].x,
+                        this.dataJSON['risk-change']['author'].y,
+                        this.dataJSON['risk-change']['evaluator'].x,
+                        this.dataJSON['risk-change']['evaluator'].y);
         context.closePath();
         context.stroke();
       }
@@ -285,11 +312,24 @@ export class RisksCartographyComponent implements OnInit {
         gradRisk3.addColorStop(0, '#FD4664');
         gradRisk3.addColorStop(1, '#091C6B');
         context.strokeStyle = gradRisk3;
-        context.moveTo(this.dataJSON['risk-disappearance']['author'].x, this.dataJSON['risk-disappearance']['author'].y);
-        context.lineTo(this.dataJSON['risk-disappearance']['evaluator'].x, this.dataJSON['risk-disappearance']['evaluator'].y);
+        /* TODO : - 20 if same coordinates (evaluator - 20 === author) */
+        this.canvasArrow(context, this.dataJSON['risk-disappearance']['author'].x,
+                        this.dataJSON['risk-disappearance']['author'].y,
+                        this.dataJSON['risk-disappearance']['evaluator'].x,
+                        this.dataJSON['risk-disappearance']['evaluator'].y);
         context.closePath();
         context.stroke();
       }
+  }
+
+  canvasArrow(context, fromx, fromy, tox, toy) {
+    const headlength = 16;
+    const angle = Math.atan2(toy - fromy, tox - fromx);
+    context.moveTo(fromx, fromy);
+    context.lineTo(tox, toy);
+    context.lineTo(tox - headlength * Math.cos(angle - Math.PI / 6), toy - headlength * Math.sin(angle - Math.PI / 6));
+    context.moveTo(tox, toy);
+    context.lineTo(tox - headlength * Math.cos(angle + Math.PI / 6), toy - headlength * Math.sin(angle + Math.PI / 6));
   }
 
 }
