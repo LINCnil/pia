@@ -104,22 +104,32 @@ export class MeasuresComponent implements OnInit {
 
     // Waiting for document.activeElement update
     setTimeout(() => {
-      this.measureModel.title = titleValue;
-      this.measureModel.update().then(() => {
-        this._evaluationService.allowEvaluation();
-      });
-      if (titleValue && titleValue.length > 0 && document.activeElement.id !== 'pia-measure-content-' + this.measureModel.id) {
-        this.displayEditButton = true;
-        this.measureForm.controls['measureTitle'].disable();
-        // Disables content field if both fields are filled and content isn't the next targeted element.
-        if (contentValue && contentValue.length > 0) {
+      if (this.measureForm.value.measureTitle !== undefined) {
+        console.log('moy?');
+        this.measureModel.title = titleValue;
+        const userText = titleValue.replace(/^\s+/, '').replace(/\s+$/, '');
+        console.log(userText);
+        if (userText === '') {
+          this.measureModel.title = '';
+        }
+        if (userText !== '' || this.measureModel.title === '') {
+          this.measureModel.update().then(() => {
+            this._evaluationService.allowEvaluation();
+          });
+        }
+        if (titleValue && titleValue.length > 0 && userText !== '' && document.activeElement.id !== 'pia-measure-content-' + this.measureModel.id) {
+          this.displayEditButton = true;
+          this.measureForm.controls['measureTitle'].disable();
+          // Disables content field if both fields are filled and content isn't the next targeted element.
+          if (contentValue && contentValue.length > 0) {
+            this.measureForm.controls['measureContent'].disable();
+          }
+        }
+        // Disables content field too if no title and content is filled and isn't the next targeted element.
+        if (!titleValue && contentValue && contentValue.length > 0 && document.activeElement.id !== 'pia-measure-content') {
+          this.displayEditButton = true;
           this.measureForm.controls['measureContent'].disable();
         }
-      }
-      // Disables content field too if no title and content is filled and isn't the next targeted element.
-      if (!titleValue && contentValue && contentValue.length > 0 && document.activeElement.id !== 'pia-measure-content') {
-        this.displayEditButton = true;
-        this.measureForm.controls['measureContent'].disable();
       }
     }, 1);
   }
@@ -136,22 +146,30 @@ export class MeasuresComponent implements OnInit {
 
     // Waiting for document.activeElement update
     setTimeout(() => {
-      this.measureModel.content = contentValue;
-      this.measureModel.update().then(() => {
-        this._evaluationService.allowEvaluation();
-      });
-      if (contentValue && contentValue.length > 0 && document.activeElement.id !== 'pia-measure-title-' + this.measureModel.id) {
-        this.displayEditButton = true;
-        this.measureForm.controls['measureContent'].disable();
-        // Disables title field if both fields are filled and title isn't the next targeted element.
-        if (titleValue && titleValue.length > 0) {
+      if (this.measureForm.value.measureContent !== undefined) {
+        this.measureModel.content = contentValue;
+        const userText = contentValue.replace(/^\s+/, '').replace(/\s+$/, '');
+        if (userText === '') {
+          this.measureModel.content = '';
+        }
+        if (userText !== '' || this.measureModel.content === '') {
+          this.measureModel.update().then(() => {
+            this._evaluationService.allowEvaluation();
+          });
+        }
+        if (contentValue && contentValue.length > 0 && userText !== '' && document.activeElement.id !== 'pia-measure-title-' + this.measureModel.id) {
+          this.displayEditButton = true;
+          this.measureForm.controls['measureContent'].disable();
+          // Disables title field if both fields are filled and title isn't the next targeted element.
+          if (titleValue && titleValue.length > 0) {
+            this.measureForm.controls['measureTitle'].disable();
+          }
+        }
+        // Disables content field too if no title and content is filled and isn't the next targeted element.
+        if (!contentValue && contentValue && titleValue.length > 0 && document.activeElement.id !== 'pia-measure-title') {
+          this.displayEditButton = true;
           this.measureForm.controls['measureTitle'].disable();
         }
-      }
-      // Disables content field too if no title and content is filled and isn't the next targeted element.
-      if (!contentValue && contentValue && titleValue.length > 0 && document.activeElement.id !== 'pia-measure-title') {
-        this.displayEditButton = true;
-        this.measureForm.controls['measureTitle'].disable();
       }
     }, 1);
   }

@@ -62,14 +62,8 @@ export class EntryComponent implements OnInit, OnDestroy, DoCheck {
   ngOnInit() {}
 
   ngDoCheck() {
-    /* maybe add in condition something about this._measureService.behaviorSubject.getValue() != null et remettre ça à null */
-    /*if (this.measureToRemoveFromTags !== null && this.measureToRemoveFromTags.length > 0) { */
-
-
     if (this.measureToRemoveFromTags !== null && this.measureToRemoveFromTags.length > 0) {
       const measureName = this.measureToRemoveFromTags;
-
-      // Maybe put this to null at the end of the whole code.
       this.measureToRemoveFromTags = null;
 
       // Update tags when removing measures from 3.1
