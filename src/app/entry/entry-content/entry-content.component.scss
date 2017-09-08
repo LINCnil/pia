@@ -139,15 +139,17 @@
       &-nav {
         position: relative;
         margin-top: 5px;
-        a {
+        .pia-previousLink, .pia-nextLink {
+          display: inline-block;
+          vertical-align: middle;
+          width: 49.5%;
           color: $pia-green;
           text-decoration: none;
           font-weight: 500;
           font-size: 1.3rem;
-          vertical-align: middle;
-          &:last-child {
-            float: right;
-          }
+        }
+        .pia-nextLink {
+          text-align: right;
         }
       }
       &-measures {

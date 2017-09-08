@@ -1,5 +1,5 @@
 <section class="pia-entryContentBlock pia-entryContentBlock-section{{section.id}}" *ngIf="section && item">
-  <header class="pia-entryContentBlock-header">
+  <header autoscroll="true" class="pia-entryContentBlock-header">
     <div>
       <i class="fa"
          [ngClass]="{'fa-check-square-o': _evaluationService.enableFinalValidation,
@@ -64,9 +64,18 @@
     <p [ngClass]="{'hide': (section.id == 3 && item.id == 5) || section.id == 4}">Tous les champs doivent être remplis</p>
 
     <!-- TODO : pagination -->
-    <div class="hide pia-entryContentBlock-footer-nav">
-      <a href="#"><< Contexte </a>
-      <a href="#">Principes fondamentaux >></a>
+    <div class="pia-entryContentBlock-footer-nav">
+      <a [ngClass]="{'mask': this.hasPreviousLink === false}"
+          class="pia-previousLink"
+          routerLink="/entry/{{_piaService.pia.id}}/section/{{this.previousLink[0]}}/item/{{this.previousLink[1]}}">
+          <i class="fa fa-angle-double-left" aria-hidden="true"></i>
+          {{this.previousLink[2]}}
+      </a><a [ngClass]="{'mask': this.hasNextLink === false}"
+          class="pia-nextLink"
+          routerLink="/entry/{{_piaService.pia.id}}/section/{{this.nextLink[0]}}/item/{{this.nextLink[1]}}">
+          {{this.nextLink[2]}}
+          <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+      </a>
     </div>
   </footer>
 </section>
