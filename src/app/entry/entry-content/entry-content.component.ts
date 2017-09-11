@@ -26,8 +26,8 @@ export class EntryContentComponent implements OnInit, OnChanges {
   @Input() questions: any;
   @Input() data: any;
 
-  constructor(private router: Router,
-              private activatedRoute: ActivatedRoute,
+  constructor(private _router: Router,
+              private _activatedRoute: ActivatedRoute,
               private _measureService: MeasureService,
               private _modalsService: ModalsService,
               private _piaService: PiaService,
@@ -49,8 +49,8 @@ export class EntryContentComponent implements OnInit, OnChanges {
       if (this.measureName) {
         this._measureService.addNewMeasure(this._piaService.pia, this.measureName, this.measurePlaceholder);
       }
-      this._paginationService.sectionId = parseInt(this.activatedRoute.snapshot.params['section_id'], 10);
-      this._paginationService.itemId = parseInt(this.activatedRoute.snapshot.params['item_id'], 10);
+      this._paginationService.sectionId = parseInt(this._activatedRoute.snapshot.params['section_id'], 10);
+      this._paginationService.itemId = parseInt(this._activatedRoute.snapshot.params['item_id'], 10);
       this._paginationService.checkForPreviousLink(this.data);
       this._paginationService.checkForNextLink(this.data);
     });
@@ -61,6 +61,7 @@ export class EntryContentComponent implements OnInit, OnChanges {
    */
   validateEvaluation() {
     this._evaluationService.validateAllEvaluation().then((valid: boolean) => {
+      this._router.navigate(['entry',this._piaService.pia.id, 'section', this._paginationService.nextLink[0], 'item', this._paginationService.nextLink[1]]);
       if (valid) {
         this._modalsService.openModal('validate-evaluation');
       } else {

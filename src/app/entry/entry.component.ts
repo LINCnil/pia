@@ -49,6 +49,7 @@ export class EntryComponent implements OnInit, OnDestroy, DoCheck {
           sectionId = parseInt(params['section_id'], 10);
           itemId = parseInt(params['item_id'], 10);
           this.getSectionAndItem(sectionId, itemId);
+          window.scroll(0, 0);
         }
       );
     });

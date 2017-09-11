@@ -1,9 +1,13 @@
 import { Injectable } from '@angular/core';
-import { ModalsService } from 'app/modals/modals.service';
+import { ActivatedRoute, Router, Params } from '@angular/router';
+
 import { Answer } from 'app/entry/entry-content/questions/answer.model';
 import { Measure } from 'app/entry/entry-content/measures/measure.model';
 import { Evaluation } from 'app/entry/entry-content/evaluations/evaluation.model';
 import { Pia } from 'app/entry/pia.model';
+
+import { PaginationService } from 'app/entry/entry-content/pagination.service';
+import { ModalsService } from 'app/modals/modals.service';
 
 @Injectable()
 export class EvaluationService {
@@ -20,7 +24,9 @@ export class EvaluationService {
   pia: Pia;
   someItemNeedToBeFixed = false;
 
-  constructor(private _modalsService: ModalsService) { }
+  constructor(private _modalsService: ModalsService,
+              private _paginationService: PaginationService,
+              private _router: Router) { }
 
   setPia(pia: Pia) {
     this.pia = pia;
@@ -117,6 +123,7 @@ export class EvaluationService {
         });
       });
     }
+    this._router.navigate(['entry',this.pia.id, 'section', this._paginationService.nextLink[0], 'item', this._paginationService.nextLink[1]]);
     this._modalsService.openModal('ask-for-evaluation');
   }
 
