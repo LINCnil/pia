@@ -65,15 +65,15 @@
 
     <!-- TODO : pagination -->
     <div class="pia-entryContentBlock-footer-nav">
-      <a [ngClass]="{'mask': this.hasPreviousLink === false}"
+      <a [ngClass]="{'mask': _paginationService.hasPreviousLink === false}"
           class="pia-previousLink"
-          routerLink="/entry/{{_piaService.pia.id}}/section/{{this.previousLink[0]}}/item/{{this.previousLink[1]}}">
+          routerLink="/entry/{{_piaService.pia.id}}/section/{{_paginationService.previousLink[0]}}/item/{{_paginationService.previousLink[1]}}">
           <i class="fa fa-angle-double-left" aria-hidden="true"></i>
-          {{this.previousLink[2]}}
-      </a><a [ngClass]="{'mask': this.hasNextLink === false}"
+          {{_paginationService.previousLink[2]}}
+      </a><a [ngClass]="{'mask': _paginationService.hasNextLink === false}"
           class="pia-nextLink"
-          routerLink="/entry/{{_piaService.pia.id}}/section/{{this.nextLink[0]}}/item/{{this.nextLink[1]}}">
-          {{this.nextLink[2]}}
+          routerLink="/entry/{{_piaService.pia.id}}/section/{{_paginationService.nextLink[0]}}/item/{{_paginationService.nextLink[1]}}">
+          {{_paginationService.nextLink[2]}}
           <i class="fa fa-angle-double-right" aria-hidden="true"></i>
       </a>
     </div>

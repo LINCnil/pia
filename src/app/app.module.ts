@@ -38,6 +38,7 @@ import { ModalsService } from './modals/modals.service';
 import { AttachmentsService } from './entry/attachments/attachments.service';
 import { KnowledgeBaseService } from './entry/knowledge-base/knowledge-base.service';
 import { EvaluationService } from 'app/entry/entry-content/evaluations/evaluations.service';
+import { PaginationService } from 'app/entry/entry-content/pagination.service';
 import { OverviewRisksComponent } from './entry/entry-content/overview-risks/overview-risks.component';
 import { ErrorsComponent } from './errors/errors.component';
 import {
@@ -61,7 +62,13 @@ const appRoutes: Routes = [
 ];
 
 const providersList: any = [
-  MeasureService, ModalsService, AttachmentsService, KnowledgeBaseService, EvaluationService, ActionPlanService
+  MeasureService,
+  ModalsService,
+  AttachmentsService,
+  KnowledgeBaseService,
+  EvaluationService,
+  ActionPlanService,
+  PaginationService
 ];
 
 if (environment.rollbar_key.length > 0) {

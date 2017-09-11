@@ -23,6 +23,7 @@ export class PiaService {
   constructor(private _router: Router, private route: ActivatedRoute,
               private _evaluationService: EvaluationService,
               private _modalsService: ModalsService, private http: Http) {
+                /* TODO : move the JSON loading */
                 this.http.request('/assets/files/pia_architecture.json').map(res => res.json()).subscribe(data => {
                   this.data = data;
                 });
