@@ -1,9 +1,9 @@
-import {Component, Input, OnInit} from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
 import { Attachment } from 'app/entry/attachments/attachment.model';
-
-import {ModalsService} from 'app/modals/modals.service';
+import { ModalsService } from 'app/modals/modals.service';
+import { PiaService } from 'app/entry/pia.service';
 
 @Component({
   selector: `.app-list-item`,
@@ -16,6 +16,7 @@ export class ListItemComponent implements OnInit {
 
   constructor(private router: Router,
               private route: ActivatedRoute,
+              private _piaService: PiaService,
               private _modalsService: ModalsService) { }
 
   ngOnInit() {
@@ -33,5 +34,9 @@ export class ListItemComponent implements OnInit {
   removePia(id: string) {
     localStorage.setItem('pia-id', id);
     this._modalsService.openModal('modal-remove-pia');
+  }
+
+  export(id: number) {
+    this._piaService.export(id);
   }
 }

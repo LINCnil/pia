@@ -6,6 +6,8 @@ import { Pia } from './pia.model';
 import { Evaluation } from 'app/entry/entry-content/evaluations/evaluation.model';
 import { Answer } from 'app/entry/entry-content/questions/answer.model';
 import { Measure } from 'app/entry/entry-content/measures/measure.model';
+import { Comment } from 'app/entry/entry-content/comments/comment.model';
+import { Attachment } from 'app/entry/attachments/attachment.model';
 
 import { ModalsService } from 'app/modals/modals.service';
 import { EvaluationService } from 'app/entry/entry-content/evaluations/evaluations.service';
@@ -36,7 +38,7 @@ export class PiaService {
   async getPIA() {
     return new Promise((resolve, reject) => {
       const piaId = parseInt(this.route.snapshot.params['id'], 10);
-      this.pia.get(piaId).then((entry) => {
+      this.pia.get(piaId).then(() => {
         this._evaluationService.setPia(this.pia);
         resolve();
       });
@@ -149,6 +151,48 @@ export class PiaService {
     this.pia.update().then(() => {
       this._modalsService.closeModal();
       this._router.navigate(['home']);
+    });
+  }
+
+  async export(id:  number) {
+    const pia = new Pia();
+    const answer = new Answer();
+    const measure = new Measure();
+    measure.pia_id = id;
+    const evaluation = new Evaluation();
+    evaluation.pia_id = id;
+    const comment = new Comment();
+    comment.pia_id = id;
+    // const attachment = new Attachment();
+    // attachment.pia_id = id;
+    await pia.get(id);
+    const data = {
+      pia: pia,
+      answers: null,
+      measures: null,
+      evaluations: null,
+      comments: null
+    }
+    const date = new Date().getTime();
+    answer.findAllByPia(id).then((answers) => {
+      data['answers'] = answers;
+      measure.findAll().then((measures) => {
+        data['measures'] = measures;
+        evaluation.findAll().then((evaluations) => {
+          data['evaluations'] = evaluations;
+          comment.findAll().then((comments) => {
+            data['comments'] = comments;
+            // attachment.findAll().then((attachments) => {
+              // data['attachments'] = attachments;
+              const url = 'data:plain/text,' + JSON.stringify(data);
+              const a = document.createElement('a');
+              a.href = url;
+              a.download = date + '_export_pia_' + id + '.json';
+              a.click();
+            // });
+          });
+        });
+      });
     });
   }
 }

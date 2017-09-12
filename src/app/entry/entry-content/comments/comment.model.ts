@@ -6,7 +6,7 @@ export class Comment extends ApplicationDb {
   public for_measure: boolean;
 
   constructor() {
-    super(201707071818, 'comment');
+    super(201709122303, 'comment');
   }
 
   async create() {
@@ -24,12 +24,29 @@ export class Comment extends ApplicationDb {
     });
   }
 
-  async findAll() {
+  async findAllByReference() {
     const items = [];
     await this.getObjectStore();
     return new Promise((resolve, reject) => {
       const index1 = this.objectStore.index('index1');
       index1.openCursor(IDBKeyRange.only([this.pia_id, this.reference_to])).onsuccess = (event: any) => {
+        const cursor = event.target.result;
+        if (cursor) {
+          items.push(cursor.value);
+          cursor.continue();
+        } else {
+          resolve(items);
+        }
+      }
+    });
+  }
+
+  async findAll() {
+    const items = [];
+    await this.getObjectStore();
+    return new Promise((resolve, reject) => {
+      const index1 = this.objectStore.index('index2');
+      index1.openCursor(IDBKeyRange.only(this.pia_id)).onsuccess = (event: any) => {
         const cursor = event.target.result;
         if (cursor) {
           items.push(cursor.value);

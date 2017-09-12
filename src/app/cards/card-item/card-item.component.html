@@ -22,10 +22,10 @@
             </a>
           </div>
           <div class="pia-cardsBlock-toolbar-export">
-            <a href="javascript:;" onclick="alert('Bientôt disponible.');" class="btn pia-tooltip">
+            <button (click)="export(pia.id)" class="btn pia-tooltip">
               <i class="fa fa-download" aria-hidden="true"></i>
               <span class="pia-tooltip-text">{{ 'homepage.cards.item.tools.export' | translate }}</span>
-            </a>
+            </button>
           </div>
           <div class="pia-cardsBlock-toolbar-more">
             <a href="javascript:;" class="btn pia-tooltip" title="{{ 'homepage.cards.item.tools.more_options' | translate }}">
@@ -37,7 +37,7 @@
                 </li>
                 <li>
                   <i class="fa fa-file-excel-o" aria-hidden="true"></i>
-                  <a routerLink="/summary/{{_piaService.pia.id}}/action_plan" [innerHTML]="'homepage.cards.item.tools.action_plan' | translate"></a>
+                  <a routerLink="/summary/{{pia.id}}/action_plan" [innerHTML]="'homepage.cards.item.tools.action_plan' | translate"></a>
                 </li>
                 <li>
                   <i class="fa fa-trash-o" aria-hidden="true"></i>

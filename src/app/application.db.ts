@@ -50,7 +50,14 @@ export class ApplicationDb {
           if (event.oldVersion !== this.dbVersion) {
             // Next DB versions
             if (this.dbVersion === 201708291502) {
-              objectStore.createIndex('index2', ['pia_id', 'pia_signed'], { unique: false });
+              if (this.tableName === 'attachment') {
+                objectStore.createIndex('index2', ['pia_id', 'pia_signed'], { unique: false });
+              }
+            }
+            if (this.dbVersion === 201709122303) {
+              if (this.tableName === 'comment') {
+                objectStore.createIndex('index2', 'pia_id', { unique: false });
+              }
             }
           }
         }

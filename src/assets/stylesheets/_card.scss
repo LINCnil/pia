@@ -216,11 +216,11 @@
     &-toolbar {
         font-size: 1.45rem;
         float: right;
-        a {
-            color: $pia-green;
-            .fa {
-                margin: 0 3px;
-            }
+        a, button {
+          color: $pia-green;
+          .fa {
+            margin: 0 3px;
+          }
         }
         > div {
           display: inline-block;
