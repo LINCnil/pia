@@ -36,15 +36,15 @@
           margin-top: 5px;
           align-self: center;
           text-decoration: none;
-          p {
-            margin: 0;
-            color: $pia-green;
-            text-align: center;
-            font-size: 0.9rem;
-          }
           span {
             display: block;
             margin: auto;
+            &:last-child {
+              margin: 0;
+              color: $pia-green;
+              text-align: center;
+              font-size: 0.9rem;
+            }
           }
         }
         div {

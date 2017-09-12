@@ -3,11 +3,16 @@
   <div class="row">
     <div class="small-12 medium-12 columns">
       <div class="pia-settingsBlock-server">
-        <h1>Paramètres</h1>
+        <h1>{{ 'settings.title' | translate }}</h1>
         <form [formGroup]="settingsForm" (ngSubmit)="onSubmit()" novalidate >
-          <label for="server_url">S'il vous plaît, veuillez fournir l'adresse (URL) du serveur distant :</label>
+          <label for="server_url">{{ 'settings.content' | translate }}</label>
           <input type="text" id="server_url" formControlName="server_url">
-          <button type="submit" title="Mettre à jour l'URL" [disabled]="setting.id === undefined" class="btn btn-green" ngClass="{'btn--processing': formProcessing}">Mettre à jour l'URL</button>
+          <button type="submit"
+                  [disabled]="setting.id === undefined"
+                  class="btn btn-green"
+                  ngClass="{'btn--processing': formProcessing}">
+            {{ 'settings.update' | translate }}
+          </button>
         </form>
       </div>
     </div>

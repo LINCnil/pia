@@ -6,25 +6,24 @@
 -->
 <div class="pia-questionBlock" [ngClass]="{'approved': evaluation.status === 2 || evaluation.status === 3}" [attr.data-id]="question.id">
   <div class="pia-questionBlock-title">
-    <!-- TODO : get the accordeon orientation in synchronization with the opening/closing of the evaluation block -->
-    <button class="pia-icons pia-icon-accordeon-up" type="button" (click)="displayQuestion($event)" title="Afficher / masquer"></button>
+    <button class="pia-icons pia-icon-accordeon-up" type="button" (click)="displayQuestion($event)" title="{{ 'misc.display' | translate }}"></button>
     {{question.title}}
   </div>
   <div class="pia-questionBlock-displayer fadeIn">
     <button type="button" class="btn pia-questionBlock-edit"
             *ngIf="displayEditButton && !_evaluationService.showValidationButton && !_evaluationService.enableFinalValidation"
-            (click)="activateQuestionEdition()" title="Éditer">
+            (click)="activateQuestionEdition()" title="{{ 'questions.edit' | translate }}">
       <i class="fa fa-pencil" aria-hidden="true"></i>
     </button>
     <form [formGroup]="questionForm">
       <div class="pia-gaugeBlock" *ngIf="question.answer_type == 'gauge'">
         <input type="range" (change)="checkGaugeChanges($event)" formControlName="gauge" min="0" max="4" step="1">
         <div>
-          <div>(Non définie)</div>
-          <div>Négligeable</div>
-          <div>Limitée</div>
-          <div>Importante</div>
-          <div>Maximale</div>
+          <div>{{ 'questions.gauges.undefined' | translate }}</div>
+          <div>{{ 'questions.gauges.negligible' | translate }}</div>
+          <div>{{ 'questions.gauges.limited' | translate }}</div>
+          <div>{{ 'questions.gauges.important' | translate }}</div>
+          <div>{{ 'questions.gauges.maximum' | translate }}</div>
         </div>
         <div class="pia-gaugeBlock-background"></div>
       </div>

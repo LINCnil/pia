@@ -1,20 +1,17 @@
 <div class="pia-commentsBlock pia-commentsBlock-question-{{questionId}} pia-commentsBlock-measure-{{measureId}}">
-    <div class="pia-commentsBlock-count">{{comments.length}} commentaire(s)</div>
+    <div class="pia-commentsBlock-count">{{comments.length}} {{ 'comments.comments_count' | translate }}</div>
     <div class="pia-commentsBlock-infos">
-        <!--
-          TODO : Show time html tag after first edition on a "question" OR "measure".
-          By default it's hidden, but should appear after at least one update.
-        -->
+        <!-- TODO : display correct date for comments -->
         <time datetime="2016-12-12" style="visibility:hidden;" class="pia-commentsBlock-date">le 12/12/2016</time>
         <div class="pia-commentsBlock-btn">
-            <button class="btn" type="button" (click)="toggleNewCommentBox()" title="Commenter"><i class="fa fa-comment-o" aria-hidden="true"></i> Commenter</button>
-            <button class="btn" (click)="displayCommentsList()" type="button" title="Afficher / masquer">
+            <button class="btn" type="button" (click)="toggleNewCommentBox()"><i class="fa fa-comment-o" aria-hidden="true"></i> {{ 'comments.new_comment' | translate }}</button>
+            <button class="btn" (click)="displayCommentsList()" type="button" title="{{ 'misc.display' | translate }}">
       <span class="pia-icons pia-icon-accordeon-down"></span>
       </button>
         </div>
     </div>
     <form [formGroup]="commentsForm" class="pia-commentsBlock-new fadeIn" (focusout)="newCommentFocusOut()">
-        <textarea formControlName="description" placeholder="Laissez un commentaire" rows="8" cols="50"></textarea>
+        <textarea formControlName="description" placeholder="{{ 'comments.placeholder_new_comment' | translate }}" rows="8" cols="50"></textarea>
     </form>
     <div class="pia-commentsBlock-list close">
         <app-comment-item *ngFor="let comment of comments" [comment]="comment"></app-comment-item>

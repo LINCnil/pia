@@ -4,13 +4,17 @@ import { NgModule, ErrorHandler } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { TagInputModule } from 'ngx-chips';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+
 import { HeaderComponent } from './header/header.component';
 import { AuthenticationComponent } from './authentication/authentication.component';
 import { CardsComponent } from './cards/cards.component';
 import { CardItemComponent } from './cards/card-item/card-item.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
 import { EntryComponent } from './entry/entry.component';
 import { SectionsComponent } from './entry/sections/sections.component';
 import { AttachmentsComponent } from './entry/attachments/attachments.component';
@@ -84,6 +88,10 @@ if (environment.rollbar_key.length > 0) {
   );
 }
 
+export function HttpLoaderFactory(http: HttpClient) {
+    return new TranslateHttpLoader(http);
+}
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -123,9 +131,17 @@ if (environment.rollbar_key.length > 0) {
     FormsModule,
     ReactiveFormsModule,
     HttpModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     RouterModule.forRoot(appRoutes),
-    TagInputModule
+    TagInputModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    })
   ],
   providers: providersList,
   bootstrap: [AppComponent]

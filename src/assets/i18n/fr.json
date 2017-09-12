@@ -1,0 +1,245 @@
+{
+  "authentication": {
+    "subtitle1": "Une plateforme pour creer <br> et administrer vos pia",
+    "subtitle2": "Accéder aux outils et glossaires"
+  },
+  "header": {
+    "logo_title": "étude d'impact sur la vie privée",
+    "logo_subtitle": "(privacy impact assessment)",
+    "homepage_link": "Accueil",
+    "knowledge_base_link": "Base de connaissances",
+    "pia_example_link": "Exemple de PIA",
+    "languages": {
+      "fr": "Français",
+      "en": "Anglais"
+    },
+    "tools": {
+      "title": "Outils",
+      "settings": "Paramètres",
+      "accessibility": "Accessibilité malvoyants (couleurs à contraste fort, adapté daltonisme)",
+      "help": "Aide"
+    }
+  },
+  "homepage": {
+    "filters": {
+      "list": "liste",
+      "card": "carte",
+      "sort": "Trier les PIA",
+      "sort_by": "par",
+      "name": "Nom",
+      "date": "Date",
+      "status": "Statut",
+      "author": "Éditeur",
+      "assessor": "Évaluateur",
+      "validator": "Validateur",
+      "new_pia": "Nouveau PIA",
+      "import_pia": "Importer PIA",
+      "list_rocket_content": "Lancez-vous ! Pour commencer<br>un PIA, c'est par là.",
+      "card_rocket_content": "Lancez-vous !<br><br>Pour commencer<br>un PIA, c'est par là."
+    },
+    "cards": {
+      "new_pia": "Nouveau PIA",
+      "or": "ou",
+      "import_pia": "Importer PIA",
+      "title_close_creation": "Fermer la création",
+      "pia_name": "Nom du PIA",
+      "placeholder_pia_name": "Intitulé",
+      "author": "Saisie",
+      "placeholder_author": "Prénom, nom",
+      "evaluation": "Évaluation",
+      "placeholder_evaluation": "Prénom, nom",
+      "validation": "Validation",
+      "placeholder_validation": "Prénom, nom",
+      "date": "Date",
+      "status": "Statut",
+      "creation_status": "Création",
+      "start": "Commencer",
+      "item": {
+        "tools": {
+          "edit": "Éditer",
+          "export": "Exporter",
+          "more_options": "Plus d'options",
+          "duplicate": "Dupliquer",
+          "action_plan": "Afficher le<br>plan d'action",
+          "remove": "Supprimer"
+        },
+        "edit_pia": "Éditer le PIA",
+        "save_pia": "Sauvegarder"
+      }
+    },
+    "lists": {
+      "column_pia": "PIA",
+      "column_updated_at": "Ouvert le",
+      "column_author": "Saisie",
+      "column_evaluation": "Évaluation",
+      "column_validation": "Validation",
+      "column_creation": "Création",
+      "column_progression": "Progression",
+      "column_actions": "Actions",
+      "item": {
+        "tools": {
+          "edit": "Éditer",
+          "export": "Exporter",
+          "duplicate": "Dupliquer",
+          "action_plan": "Afficher le plan d'action",
+          "remove": "Supprimer"
+        }
+      }
+    }
+  },
+  "pia": {
+    "header": {
+      "preview": "Aperçu",
+      "display_action_plan": "Afficher le<br>plan d'action"
+    },
+    "attachments": {
+      "title": "Pièces jointes",
+      "add": "Ajouter",
+      "remove": "Supprimer"
+    },
+    "sections": {
+      "homepage_link": "Retourner à l'accueil",
+      "validate_pia": "Valider le PIA",
+      "refuse_pia": "PIA refusé"
+    },
+    "footer": {
+      "ask_evaluation": "Demander l'évaluation",
+      "validate_evaluation": "Valider l'évaluation",
+      "subsection_validated": "Partie évaluée, en attente de la validation finale",
+      "mandatory_fields": "Tous les champs doivent être remplis"
+    }
+  },
+  "measures": {
+    "placeholder_title": "Titre de la mesure",
+    "add": "Ajouter une mesure vide (sinon, utiliser la base de connaissance)",
+    "edit": "Éditer la mesure",
+    "remove": "Supprimer la mesure"
+  },
+  "knowledge_base": {
+    "title": "Base de connaissances",
+    "search": "Rechercher",
+    "add_measure": "Ajouter",
+    "placeholder_add_measure": "Ajouter cette mesure",
+    "add_measure_hint": "Ajoutez aussi une mesure à partir de la base de connaissance.",
+    "filters": {
+      "title": "Filtres",
+      "all": "Tout",
+      "definitions": "Définitions",
+      "organizational_measures": "Mesures organisationnelles",
+      "measures_on_data": "Mesures sur les données",
+      "general_measures": "Mesures générales",
+      "no_result": "Aucun résultat trouvé."
+    }
+  },
+  "comments": {
+    "comments_count": "commentaire(s)",
+    "new_comment": "Commenter",
+    "placeholder_new_comment": "Laissez un commentaire",
+    "comment": "Commentaire"
+  },
+  "questions": {
+    "edit": "Éditer la question",
+    "gauges": {
+      "undefined": "(Non définie)",
+      "negligible": "Négligeable",
+      "limited": "Limitée",
+      "important": "Importante",
+      "maximum": "Maximale"
+    }
+  },
+  "evaluations": {
+    "title": "Évaluation",
+    "to_correct": "À corriger",
+    "improvable": "Améliorable",
+    "acceptable": "Acceptable",
+    "evaluation_comment": "Commentaire d'évaluation",
+    "action_plan_comment": "Plan d'action / mesures correctives",
+    "placeholder_comment": "Entrez vos commentaires.",
+    "gauges": {
+      "seriousness": "Prenant en compte le plan d'action, comment ré-évaluez-vous la <span class='red-highlight'>gravité de ce risque</span> ({{value}}) ?",
+      "likelihood": "Prenant en compte le plan d'action, comment ré-évaluez-vous la <span class='red-highlight'>vraissemblance de ce risque</span> ({{value}}) ?",
+      "undefined": "(Non définie)",
+      "negligible": "Négligeable",
+      "limited": "Limitée",
+      "important": "Importante",
+      "maximal": "Maximale"
+    }
+  },
+  "help": {
+    "title": "Aide",
+    "soon": "Bientôt disponible"
+  },
+  "settings": {
+    "title": "Paramètres",
+    "content": "S'il vous plaît, veuillez fournir l'adresse (URL) du serveur distant :",
+    "update": "Mettre à jour l'URL"
+  },
+  "misc": {
+    "display": "Afficher / Masquer"
+  },
+  "modals": {
+    "cancel": "Annuler",
+    "archive": "Archiver",
+    "close": "Fermer",
+    "continue": "Continuer",
+    "back_to_home": "Retour à l'accueil",
+    "simple_pia_validation": {
+      "content": "Le PIA vient d'être validé."
+    },
+    "update_server_url": {
+      "content": "L'adresse du serveur à été mise à jour."
+    },
+    "signed_pia_validation": {
+      "content": "<span class='strong'>Le PIA est accepté</span><br>Finalisez la validation du PIA en attachant<br>en pièce jointe le rapport signé par le responsable.",
+      "download_pia": "Télécharger<br>le rapport PIA"
+    },
+    "abandon_pia": {
+      "content": "Êtes-vous sûr de vouloir<br>abandonner ce traitement ?"
+    },
+    "refuse_pia": {
+      "content": "<span class='strong'>PIA refusé,</span><br>Plusieurs champs doivent être corrigés.<br>Retour au mode d'évaluation<br>pour apporter des corrections."
+    },
+    "same_comment": {
+      "content": "<span class='strong'>Attention,</span><br>Veuillez saisir un commentaire différent du dernier enregistré."
+    },
+    "not_enough_measures_to_remove": {
+      "content": "<span class='strong'>Attention,</span><br>Au moins une mesure doit être renseignée : suppression impossible."
+    },
+    "remove_measure": {
+      "content": "<span class='strong'>Attention,</span><br>Êtes-vous sûr de vouloir<br>supprimer cette mesure ?",
+      "remove": "Supprimer cette <br>mesure",
+      "keep": "Conserver cette <br>mesure"
+    },
+    "ask_for_evaluation": {
+      "content": "<span class='strong'>Bravo,</span><br>la partie est désormais<br>disponible pour évaluation"
+    },
+    "validate_evaluation": {
+      "content": "<span class='strong'>Bravo,</span><br>en attente de la validation <br>globale du PIA"
+    },
+    "validate_evaluation_to_correct": {
+      "content": "Désolé,<br>Plusieurs champs doivent être corrigés.<br>Retour au mode d'édition<br>pour apporter des corrections."
+    },
+    "declare_measures": {
+      "content": "Désolé,<br>Avant d'évaluer les risques,<br>vous devez déclarer les mesures<br>existantes ou prévues",
+      "declare": "Déclarer les mesures existantes ou prévues"
+    },
+    "remove_pia": {
+      "content": "<span class='strong'>Attention,</span><br>Êtes-vous sûr de vouloir<br>supprimer ce PIA ?",
+      "remove": "Supprimer ce PIA"
+    },
+    "remove_attachment": {
+      "content": "<span class='strong'>Attention,</span><br>Êtes-vous sûr de vouloir<br>supprimer cette pièce jointe ?",
+      "keep": "Conserver",
+      "remove": "Supprimer"
+    }
+  },
+  "summary": {
+    "previous_page": "Retour à la page précédente",
+    "print": "Imprimer"
+  },
+  "sections": {
+    "1": {
+      "title": "Contexte"
+    }
+  }
+}

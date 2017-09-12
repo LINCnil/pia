@@ -6,52 +6,49 @@
       <div class="pia-filtersBlock">
         <button class="pia-filtersBlock-switch btn" type="button" *ngIf="viewStyle.view == 'list'" (click)="viewOnCard()">
           <i class="fa fa-list" aria-hidden="true"></i>
-          <div>carte</div>
+          <div>{{ 'homepage.filters.card' | translate }}</div>
         </button>
         <button class="pia-filtersBlock-switch btn" type="button" *ngIf="viewStyle.view == 'card'" (click)="viewOnList()">
           <i class="fa fa-list" aria-hidden="true"></i>
-          <div>liste</div>
+          <div>{{ 'homepage.filters.list' | translate }}</div>
         </button>
         <div class="pia-filtersBlock-filters">
           <button class="pia-filtersBlock-filters-btn btn" type="button">
-            Trier les PIA
+            {{ 'homepage.filters.sort' | translate }}
             <span class="pia-icons pia-icon-scroll-green"></span>
           </button>
           <div class="pia-filtersBlock-filters-list">
-            <span>par</span>
+            <span>{{ 'homepage.filters.sort_by' | translate }}</span>
             <ul>
               <li [ngClass]="{'active': filter == 'name'}">
-                <a (click)="sortBy('name');">Nom</a>
+                <a (click)="sortBy('name');">{{ 'homepage.filters.name' | translate }}</a>
               </li>
               <li [ngClass]="{'active': filter == 'created_at'}">
-                <a (click)="sortBy('created_at');">Date</a>
+                <a (click)="sortBy('created_at');">{{ 'homepage.filters.date' | translate }}</a>
               </li>
               <li [ngClass]="{'active': filter == 'status'}">
-                <a (click)="sortBy('status');">Statut</a>
+                <a (click)="sortBy('status');">{{ 'homepage.filters.status' | translate }}</a>
               </li>
               <li [ngClass]="{'active': filter == 'author_name'}">
-                <a (click)="sortBy('author_name');">Editeur</a>
+                <a (click)="sortBy('author_name');">{{ 'homepage.filters.author' | translate }}</a>
               </li>
               <li [ngClass]="{'active': filter == 'evaluator_name'}">
-                <a (click)="sortBy('evaluator_name');">Evaluateur</a>
+                <a (click)="sortBy('evaluator_name');">{{ 'homepage.filters.assessor' | translate }}</a>
               </li>
               <li [ngClass]="{'active': filter == 'validator_name'}">
-                <a (click)="sortBy('validator_name');">Valideur</a>
+                <a (click)="sortBy('validator_name');">{{ 'homepage.filters.validator' | translate }}</a>
               </li>
             </ul>
           </div>
         </div>
         <div *ngIf="viewStyle.view === 'list'" class="pia-filtersBlock-buttons">
-          <button type="button" class="btn btn-green" (click)="_modalsService.openModal('modal-list-new-pia')"><i class="fa fa-folder-open" aria-hidden="true"></i>Nouveau PIA</button>
-          <button type="button" onclick="alert('Bientôt disponible.');" class="btn btn-green"><i class="fa fa-upload" aria-hidden="true"></i>Importer PIA</button>
+          <button type="button" class="btn btn-green" (click)="_modalsService.openModal('modal-list-new-pia')"><i class="fa fa-folder-open" aria-hidden="true"></i>{{ 'homepage.filters.new_pia' | translate }}</button>
+          <button type="button" onclick="alert('Bientôt disponible.');" class="btn btn-green"><i class="fa fa-upload" aria-hidden="true"></i>{{ 'homepage.filters.import_pia' | translate }}</button>
         </div>
         <div class="pia-filtersBlock-hint" *ngIf="viewStyle.view === 'list' && _piaService.pias && _piaService.pias.length == 0">
           <div>
             <span class="pia-icons pia-icon-rocket-small"></span>
-            <p>
-              Lancez-vous ! Pour commencer<br>
-              un PIA, c'est par là.
-            </p>
+            <p [innerHTML]="'homepage.filters.list_rocket_content' | translate"></p>
           </div>
         </div>
       </div>
@@ -62,15 +59,15 @@
       <div class="pia-cardsBlock pia-newBlock" id="cardsSwitch">
         <div class="pia-newBlock-item front" id="pia-new-card">
           <div class="pia-newBlock-item-new">
-            <div class="pia-newBlock-item-new-title">Nouveau PIA</div>
+            <div class="pia-newBlock-item-new-title">{{ 'homepage.cards.new_pia' | translate }}</div>
             <div class="pia-newBlock-item-new-btn">
               <i class="fa fa-folder-open" aria-hidden="true"></i>
               <button class="btn" (click)="newPIA()" type="button" title="Nouveau PIA"><span class="pia-icons pia-icon-pia-plus"></span></button>
             </div>
           </div>
-          <span>ou</span>
+          <span>{{ 'homepage.cards.or' | translate }}</span>
           <div class="pia-newBlock-item-import">
-            <div class="pia-newBlock-item-import-title">Importer PIA</div>
+            <div class="pia-newBlock-item-import-title">{{ 'homepage.cards.import_pia' | translate }}</div>
             <div class="pia-newBlock-item-import-btn">
               <i class="fa fa-upload" aria-hidden="true"></i>
               <button class="btn" onclick="alert('Bientôt disponible.');" type="button" title="Importer PIA"><span class="pia-icons pia-icon-pia-plus"></span></button>
@@ -79,32 +76,32 @@
         </div>
         <div class="pia-cardsBlock pia-editBlock back">
           <div class="pia-cardsBlock-item pia-editBlock-item">
-            <button class="btn" (click)="reversePIA()" type="button" title="Fermer la création"><span class="pia-icons pia-icon-close"></span></button>
+            <button class="btn" (click)="reversePIA()" type="button" title="{{ 'homepage.cards.title_close_creation' | translate }}"><span class="pia-icons pia-icon-close"></span></button>
             <form class="pia-cardsBlock-item-form" (ngSubmit)="onSubmit(piaForm)" [formGroup]="piaForm">
               <div>
-                <label for="name">Nom du PIA</label>
-                <input formControlName="name" type="text" placeholder="Intitulé" id="name" required>
+                <label for="name">{{ 'homepage.cards.pia_name' | translate }}</label>
+                <input formControlName="name" type="text" placeholder="{{ 'homepage.cards.placeholder_pia_name' | translate }}" id="name" required>
               </div>
               <div>
-                <label for="author_name">Saisie</label>
-                <input formControlName="author_name" type="text" placeholder="Prénom, nom" id="author_name" required>
+                <label for="author_name">{{ 'homepage.cards.author' | translate }}</label>
+                <input formControlName="author_name" type="text" placeholder="{{ 'homepage.cards.placeholder_author' | translate }}" id="author_name" required>
               </div>
               <div>
-                <label for="evaluator_name">Évaluation</label>
-                <input formControlName="evaluator_name" type="text" placeholder="Prénom, nom" id="evaluator_name" required>
+                <label for="evaluator_name">{{ 'homepage.cards.evaluation' | translate }}</label>
+                <input formControlName="evaluator_name" type="text" placeholder="{{ 'homepage.cards.placeholder_evaluation' | translate }}" id="evaluator_name" required>
               </div>
               <div>
-                <label for="validator_name">Validation</label>
-                <input formControlName="validator_name" type="text" placeholder="Prénom, nom" id="validator_name" required>
+                <label for="validator_name">{{ 'homepage.cards.validation' | translate }}</label>
+                <input formControlName="validator_name" type="text" placeholder="{{ 'homepage.cards.placeholder_validation' | translate }}" id="validator_name" required>
               </div>
               <div class="pia-cardsBlock-item-date" *ngIf="newPia">
-                <div>Date</div>
+                <div>{{ 'homepage.cards.validation' | translate }}</div>
                 <time>{{ newPia.created_at | date: 'dd/MM/yyyy'}}</time>
               </div>
               <div class="pia-cardsBlock-item-status">
                 <div class="pia-cardsBlock-item-status-infos">
-                  <div>Statut</div>
-                  <div>Création</div>
+                  <div>{{ 'homepage.cards.status' | translate }}</div>
+                  <div>{{ 'homepage.cards.creation_status' | translate }}</div>
                 </div>
                 <div class="pia-cardsBlock-item-status-progressBar">
                   <div>0%</div>
@@ -113,7 +110,7 @@
                 </div>
               </div>
               <div class="pia-cardsBlock-item-btn">
-                <button type="submit" [disabled]="piaForm.invalid" class="btn btn-green" title="Pour commencer, veuillez remplir tous les champs" id="pia-save-card-btn">Commencer</button>
+                <button type="submit" [disabled]="piaForm.invalid" class="btn btn-green" id="pia-save-card-btn">{{ 'homepage.cards.start' | translate }}</button>
               </div>
             </form>
           </div>
@@ -122,11 +119,7 @@
           <span class="pia-icons pia-icon-small-arrow"></span>
           <div>
             <span class="pia-icons pia-icon-rocket"></span>
-            <p>
-              Lancez-vous !<br><br>
-              Pour commencer<br>
-              un PIA, c'est par là.
-            </p>
+            <p [innerHTML]="'homepage.filters.card_rocket_content' | translate"></p>
           </div>
         </div>
       </div>
@@ -139,55 +132,55 @@
             <tr>
               <th>
                 <a (click)="sortBy('name')">
-                  <span>PIA</span>
+                  <span>{{ 'homepage.lists.column_pia' | translate }}</span>
                   <i *ngIf="filter === 'name' && sortReverse === false" class="fa fa-caret-down"></i>
                   <i *ngIf="filter === 'name' && sortReverse === true" class="fa fa-caret-up"></i>
                 </a>
               </th>
               <th>
                 <a (click)="sortBy('updated_at')">
-                  <span>Ouvert le</span>
+                  <span>{{ 'homepage.lists.column_updated_at' | translate }}</span>
                   <i *ngIf="filter === 'updated_at' && sortReverse === false" class="fa fa-caret-down"></i>
                   <i *ngIf="filter === 'updated_at' && sortReverse === true" class="fa fa-caret-up"></i>
                 </a>
               </th>
               <th>
                 <a (click)="sortBy('author_name')">
-                  <span>Saisie</span>
+                  <span>{{ 'homepage.lists.column_author' | translate }}</span>
                   <i *ngIf="filter === 'author_name' && sortReverse === false" class="fa fa-caret-down"></i>
                   <i *ngIf="filter === 'author_name' && sortReverse === true" class="fa fa-caret-up"></i>
                 </a>
               </th>
               <th>
                 <a (click)="sortBy('evaluator_name')">
-                  <span>Évaluation</span>
+                  <span>{{ 'homepage.lists.column_evaluation' | translate }}</span>
                   <i *ngIf="filter === 'evaluator_name' && sortReverse === false" class="fa fa-caret-down"></i>
                   <i *ngIf="filter === 'evaluator_name' && sortReverse === true" class="fa fa-caret-up"></i>
                 </a>
               </th>
               <th>
                 <a (click)="sortBy('validator_name')">
-                  <span>Validation</span>
+                  <span>{{ 'homepage.lists.column_validation' | translate }}</span>
                   <i *ngIf="filter === 'validator_name' && sortReverse === false" class="fa fa-caret-down"></i>
                   <i *ngIf="filter === 'validator_name' && sortReverse === true" class="fa fa-caret-up"></i>
                 </a>
               </th>
               <th>
                 <a (click)="sortBy('created_at')">
-                  <span>Création</span>
+                  <span>{{ 'homepage.lists.column_creation' | translate }}</span>
                   <i *ngIf="filter === 'created_at' && sortReverse === false" class="fa fa-caret-down"></i>
                   <i *ngIf="filter === 'created_at' && sortReverse === true" class="fa fa-caret-up"></i>
                 </a>
               </th>
               <th>
                 <a (click)="sortBy('progress')">
-                  <span>Progression</span>
+                  <span>{{ 'homepage.lists.column_progression' | translate }}</span>
                   <i *ngIf="filter === 'progress' && sortReverse === false" class="fa fa-caret-down"></i>
                   <i *ngIf="filter === 'progress' && sortReverse === true" class="fa fa-caret-up"></i>
                 </a>
               </th>
               <th>
-                <span>Actions</span>
+                <span>{{ 'homepage.lists.column_actions' | translate }}</span>
               </th>
             </tr>
           </thead>

@@ -1,0 +1,245 @@
+{
+  "authentication": {
+    "subtitle1": "A platform to create <br> and manage your PIAs",
+    "subtitle2": "Access to tools and glossaries"
+  },
+  "header": {
+    "logo_title": "Privacy impact assessment",
+    "logo_subtitle": "",
+    "homepage_link": "Homepage",
+    "knowledge_base_link": "Knowledge base",
+    "pia_example_link": "PIA example",
+    "languages": {
+      "fr": "French",
+      "en": "English"
+    },
+    "tools": {
+      "title": "Tools",
+      "settings": "Settings",
+      "accessibility": "Visually impaired accessibility (high contrast colors, daltonism)",
+      "help": "Help"
+    }
+  },
+  "homepage": {
+    "filters": {
+      "list": "list",
+      "card": "card",
+      "sort": "Sort",
+      "sort_by": "by",
+      "name": "Name",
+      "date": "Date",
+      "status": "Status",
+      "author": "Author",
+      "assessor": "Assessor",
+      "validator": "Validator",
+      "new_pia": "New PIA",
+      "import_pia": "Import PIA",
+      "list_rocket_content": "Get started ! To initiate <br>a PIA, it is this way.",
+      "card_rocket_content": "Get started !<br><br>To initiate <br>a PIA, it is this way."
+    },
+    "cards": {
+     "new_pia": "New PIA",
+     "or": "or",
+     "import_pia": "Import PIA",
+     "title_close_creation": "Close creation",
+     "pia_name": "PIA's name",
+     "placeholder_pia_name": "Title",
+     "author": "Author",
+     "placeholder_author": "Firstname, lastname",
+     "evaluation": "Evaluation",
+     "placeholder_evaluation": "Firstname, lastname",
+     "validation": "Validation",
+     "placeholder_validation": "Firstname, lastname",
+     "date": "Date",
+     "status": "Status",
+     "creation_status": "Creation",
+     "start": "Start",
+     "item": {
+        "tools": {
+          "edit": "Edit",
+          "export": "Export",
+          "more_options": "More options",
+          "duplicate": "Duplicate",
+          "action_plan": "Display<br>action plan",
+          "remove": "Remove"
+        },
+        "edit_pia": "Edit PIA",
+        "save_pia": "Save"
+      }
+    },
+    "lists": {
+      "column_pia": "PIA",
+      "column_updated_at": "Last opening time",
+      "column_author": "Author",
+      "column_evaluation": "Evaluation",
+      "column_validation": "Validation",
+      "column_creation": "Creation",
+      "column_progression": "Progression",
+      "column_actions": "Actions",
+      "item": {
+        "tools": {
+          "edit": "Edit",
+          "export": "Export",
+          "duplicate": "Duplicate",
+          "action_plan": "Display action plan",
+          "remove": "Remove"
+        }
+      }
+    }
+  },
+  "pia": {
+    "header": {
+      "preview": "Preview",
+      "display_action_plan": "Display<br>action plan"
+    },
+    "attachments": {
+      "title": "Attachments",
+      "add": "Add",
+      "remove": "Remove"
+    },
+    "sections": {
+      "homepage_link": "Back to home",
+      "validate_pia": "Validate PIA",
+      "refuse_pia": "Refused PIA"
+    },
+    "footer": {
+      "ask_evaluation": "Ask for evaluation",
+      "validate_evaluation": "Validate evaluation",
+      "subsection_validated": "Evaluated subsection, awaiting for final validation",
+      "mandatory_fields": "All fields must be filled"
+    }
+  },
+  "measures": {
+    "placeholder_title": "Measure title",
+    "add": "Add an empty measure (otherwise, use the knowledge base)",
+    "edit": "Edit measure",
+    "remove": "Remove measure"
+  },
+  "knowledge_base": {
+    "title": "Knowledge base",
+    "search": "Search",
+    "add_measure": "Add",
+    "placeholder_add_measure": "Add this measure",
+    "add_measure_hint": "Also add a measure from the knowledge base.",
+    "filters": {
+      "title": "Filters",
+      "all": "All",
+      "definitions": "Definitions",
+      "organizational_measures": "Organizational measures",
+      "measures_on_data": "Measures on data",
+      "general_measures": "General measures",
+      "no_result": "No result found."
+    }
+  },
+  "comments": {
+    "comments_count": "comment(s)",
+    "new_comment": "Comment",
+    "placeholder_new_comment": "Leave a comment",
+    "comment": "Comment"
+  },
+  "questions": {
+    "edit": "Edit question",
+    "gauges": {
+      "undefined": "(Undefined)",
+      "negligible": "Negligible",
+      "limited": "Limited",
+      "important": "Important",
+      "maximal": "Maximum"
+    }
+  },
+  "evaluations": {
+    "title": "Evaluation",
+    "to_correct": "To correct",
+    "improvable": "Improvable",
+    "acceptable": "Acceptable",
+    "evaluation_comment": "Evaluation comment",
+    "action_plan_comment": "Action plan / corrective actions",
+    "placeholder_comment": "Enter  your comments.",
+    "gauges": {
+      "seriousness": "Taking into account the action plan, how do you re-evaluate the <span class='red-highlight'>seriousness of this risk</span> ({{value}})?",
+      "likelihood": "Taking into account the action plan, how do you re-evaluate the <span class='red-highlight'>likelihood of this risk</span> ({{value}})?",
+      "undefined": "(Undefined)",
+      "negligible": "Negligible",
+      "limited": "Limited",
+      "important": "Important",
+      "maximal": "Maximum"
+    }
+  },
+  "help": {
+    "title": "Help",
+    "soon": "Soonly available!"
+  },
+  "settings": {
+    "title": "Settings",
+    "content": "Please, provide the address (URL) of the remote server:",
+    "update": "Update URL"
+  },
+  "misc": {
+    "display": "Show / Hide"
+  },
+  "modals": {
+    "cancel": "Cancel",
+    "archive": "Archive",
+    "close": "Close",
+    "continue": "Continue",
+    "back_to_home": "Back to home",
+    "simple_pia_validation": {
+      "content": "The PIA has been validated."
+    },
+    "update_server_url": {
+      "content": "The server address has been updated."
+    },
+    "signed_pia_validation": {
+      "content": "<span class='strong'>The PIA is accepted</span><br>Finalize the validation of the PIA by attaching<br>the signed report by the person in charge.",
+      "download_pia": "Download<br>PIA report"
+    },
+    "abandon_pia": {
+      "content": "Are you sure you want to<br>give up this treatment?"
+    },
+    "refuse_pia": {
+      "content": "<span class='strong'>Rejected PIA,</span><br>Several fields must be corrected.<br>Return to evaluation mode<br>to make corrections."
+    },
+    "same_comment": {
+      "content": "<span class='strong'>Warning,</span><br>Please enter a comment different from the last recorded."
+    },
+    "not_enough_measures_to_remove": {
+      "content": "<span class='strong'>Warning,</span><br>At least one measure must be filled: no deletion possible."
+    },
+    "remove_measure": {
+      "content": "<span class='strong'>Warning,</span><br>Are you sure you want to <br>remove this measure?",
+      "remove": "Remove this <br>measure",
+      "keep": "Keep this <br>measure"
+    },
+    "ask_for_evaluation": {
+      "content": "<span class='strong'>Congratulations,</span><br>the subsection is now<br>available for evaluation."
+    },
+    "validate_evaluation": {
+      "content": "<span class='strong'>Congratulations,</span><br>waiting for global validation of the PIA."
+    },
+    "validate_evaluation_to_correct": {
+      "content": "Sorry,<br>Several fields must be corrected.<br>Return to edition mode<br>to make corrections."
+    },
+    "declare_measures": {
+      "content": "Sorry,<br>before evaluating risks,<br>you must report the<br>existing or planned measures.",
+      "declare": "Declare existing or planned measures"
+    },
+    "remove_pia": {
+      "content": "<span class='strong'>Warning,</span><br>Are you sure you want to<br>remove this PIA?",
+      "remove": "Remove this PIA"
+    },
+    "remove_attachment": {
+      "content": "<span class='strong'>Warning,</span><br>Are you sure you want to<br>remove this attachment?",
+      "keep": "Keep",
+      "remove": "Remove"
+    }
+  },
+  "summary": {
+    "previous_page": "Back to previous page",
+    "print": "Print"
+  },
+  "sections": {
+    "1": {
+      "title": "Context"
+    }
+  }
+}

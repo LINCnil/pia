@@ -2,10 +2,10 @@ import {Component, OnInit, OnDestroy, Input} from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
-import { ModalsService } from 'app/modals/modals.service';
 
 import { Pia } from '../entry/pia.model';
 
+import { ModalsService } from 'app/modals/modals.service';
 import { PiaService } from 'app/entry/pia.service';
 
 @Component({

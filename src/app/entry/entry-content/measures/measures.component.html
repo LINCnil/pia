@@ -2,15 +2,15 @@
   <form [formGroup]="measureForm">
     <div class="pia-measureBlock-title">
       <!-- TODO : get the accordeon orientation in synchronization with the opening/closing of the evaluation block -->
-      <button  class="pia-icons pia-icon-accordeon-up" type="button" (click)="displayMeasure($event)" title="Afficher / masquer"></button>
+      <button  class="pia-icons pia-icon-accordeon-up" type="button" (click)="displayMeasure($event)" title="{{ 'misc.display' | translate }}"></button>
       <textarea maxlength="120" rows="2" (keyup)="autoTextareaResize($event)" [attr.data-id]="measure.id" id="pia-measure-title-{{measure.id}}" formControlName="measureTitle"
-             (focusout)="measureTitleFocusOut($event)" placeholder="Titre de la mesure"></textarea>
+             (focusout)="measureTitleFocusOut($event)" placeholder="{{ 'measures.placeholder_title' | translate }}"></textarea>
     </div>
     <div class="pia-measureBlock-displayer fadeIn">
       <button type="button" class="btn pia-measureBlock-delete" *ngIf="displayDeleteButton"
-              (click)="removeMeasure(measure.id)" title="Supprimer"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+              (click)="removeMeasure(measure.id)" title="{{ 'measures.remove' | translate }}"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
       <button type="button" class="btn pia-measureBlock-edit" *ngIf="displayEditButton"
-              (click)="activateMeasureEdition()" title="Éditer"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+              (click)="activateMeasureEdition()" title="{{ 'measures.edit' | translate }}"><i class="fa fa-pencil" aria-hidden="true"></i></button>
       <div class="pia-measureBlock-content">
         <textarea (keyup)="autoTextareaResize($event)" [attr.data-id]="measure.id" id="pia-measure-content-{{measure.id}}" formControlName="measureContent"
                   (focusout)="measureContentFocusOut($event)" rows="8" cols="50"

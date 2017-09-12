@@ -21,6 +21,8 @@
     "@angular/platform-browser": "^4.3.3",
     "@angular/platform-browser-dynamic": "^4.3.3",
     "@angular/router": "^4.3.3",
+    "@ngx-translate/core": "^8.0.0",
+    "@ngx-translate/http-loader": "^1.0.2",
     "core-js": "^2.4.1",
     "font-awesome": "^4.7.0",
     "foundation-sites": "^6.3.1",

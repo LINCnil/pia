@@ -23,23 +23,23 @@
   <div class="pia-listsBlock-item-actions">
     <a (click)="editPia()" class="btn pia-tooltip">
       <i class="fa fa-pencil" aria-hidden="true"></i>
-      <span class="pia-tooltip-text">Éditer</span>
+      <span class="pia-tooltip-text">{{ 'homepage.lists.item.tools.edit' | translate }}</span>
     </a>
     <a href="javascript:;" class="btn pia-tooltip" onclick="alert('Bientôt disponible.');">
       <i class="fa fa-download" aria-hidden="true"></i>
-      <span class="pia-tooltip-text">Exporter</span>
+      <span class="pia-tooltip-text">{{ 'homepage.lists.item.tools.export' | translate }}</span>
     </a>
     <a href="javascript:;" class="btn pia-tooltip" onclick="alert('Bientôt disponible.');">
       <i class="fa fa-files-o" aria-hidden="true"></i>
-      <span class="pia-tooltip-text">Dupliquer</span>
+      <span class="pia-tooltip-text">{{ 'homepage.lists.item.tools.duplicate' | translate }}</span>
     </a>
     <a routerLink="/summary/{{pia.id}}/action_plan" class="btn pia-tooltip">
       <i class="fa fa-file-excel-o" aria-hidden="true"></i>
-      <span class="pia-tooltip-text">Afficher le plan d'action</span>
+      <span class="pia-tooltip-text">{{ 'homepage.lists.item.tools.action_plan' | translate }}</span>
     </a>
     <a (click)="removePia(pia.id)" class="btn pia-tooltip">
       <i class="fa fa-trash-o" aria-hidden="true"></i>
-      <span class="pia-tooltip-text">Supprimer</span>
+      <span class="pia-tooltip-text">{{ 'homepage.lists.item.tools.remove' | translate }}</span>
     </a>
   </div>
 </td>

@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { Renderer2 } from '@angular/core';
 import { Http } from '@angular/http';
+
+import { TranslateService } from '@ngx-translate/core';
 import { KnowledgeBaseService } from 'app/entry/knowledge-base/knowledge-base.service';
 
 @Component({
@@ -11,13 +13,28 @@ import { KnowledgeBaseService } from 'app/entry/knowledge-base/knowledge-base.se
 export class AppComponent {
   online = window.navigator.onLine;
 
-  constructor(private renderer: Renderer2, private http: Http, private _knowledgeBaseService: KnowledgeBaseService) {
-    this._knowledgeBaseService.loadData(this.http);
+  constructor(private _renderer: Renderer2,
+              private _http: Http,
+              private _knowledgeBaseService: KnowledgeBaseService,
+              private _translateService: TranslateService) {
+    this._knowledgeBaseService.loadData(this._http);
     const increaseContrast = localStorage.getItem('increaseContrast');
     if (increaseContrast === 'true') {
-      this.renderer.addClass(document.body, 'pia-contrast');
+      this._renderer.addClass(document.body, 'pia-contrast');
     } else {
-      this.renderer.removeClass(document.body, 'pia-contrast');
+      this._renderer.removeClass(document.body, 'pia-contrast');
+    }
+
+    // Translations system
+    this._translateService.addLangs(['en', 'fr']);
+    this._translateService.setDefaultLang('fr');
+    const language = localStorage.getItem('userLanguage');
+    if (language && language.length > 0) {
+      this._translateService.use(language);
+    } else {
+      const browserLang = this._translateService.getBrowserLang();
+      /* browerLang = 'en' even when FR ? Weird */
+      this._translateService.use(browserLang.match(/en|fr/) ? browserLang : 'fr');
     }
   }
 }

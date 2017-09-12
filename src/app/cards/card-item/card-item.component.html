@@ -18,30 +18,30 @@
           <div class="pia-cardsBlock-toolbar-edit">
             <a href="javascript:;" (click)="activateEdition()" class="btn pia-tooltip">
               <i class="fa fa-pencil" aria-hidden="true"></i>
-              <span class="pia-tooltip-text">Éditer</span>
+              <span class="pia-tooltip-text">{{ 'homepage.cards.item.tools.edit' | translate }}</span>
             </a>
           </div>
           <div class="pia-cardsBlock-toolbar-export">
             <a href="javascript:;" onclick="alert('Bientôt disponible.');" class="btn pia-tooltip">
               <i class="fa fa-download" aria-hidden="true"></i>
-              <span class="pia-tooltip-text">Exporter</span>
+              <span class="pia-tooltip-text">{{ 'homepage.cards.item.tools.export' | translate }}</span>
             </a>
           </div>
           <div class="pia-cardsBlock-toolbar-more">
-            <a href="javascript:;" class="btn pia-tooltip" title="Plus d'options">
+            <a href="javascript:;" class="btn pia-tooltip" title="{{ 'homepage.cards.item.tools.more_options' | translate }}">
               <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
               <ul class="pia-cardsBlock-toolbar-moreList">
                 <li>
                   <i class="fa fa-files-o" aria-hidden="true"></i>
-                  <a href="javascript:;" onclick="alert('Bientôt disponible.');">Dupliquer</a>
+                  <a href="javascript:;" onclick="alert('Bientôt disponible.');">{{ 'homepage.cards.item.tools.duplicate' | translate }}</a>
                 </li>
                 <li>
                   <i class="fa fa-file-excel-o" aria-hidden="true"></i>
-                  <a routerLink="/summary/{{_piaService.pia.id}}/action_plan">Afficher le<br>plan d'action</a>
+                  <a routerLink="/summary/{{_piaService.pia.id}}/action_plan" [innerHTML]="'homepage.cards.item.tools.action_plan' | translate"></a>
                 </li>
                 <li>
                   <i class="fa fa-trash-o" aria-hidden="true"></i>
-                  <a href="javascript:;" (click)="removePia(pia.id)">Supprimer</a>
+                  <a href="javascript:;" (click)="removePia(pia.id)">{{ 'homepage.cards.item.tools.remove' | translate }}</a>
                 </li>
               </ul>
             </a>
@@ -53,32 +53,32 @@
             [formGroup]="piaForm">
           <input type="hidden" formControlName="id">
           <div style="margin-top:20px;">
-              <label for="pia-edit-name">Nom du PIA</label>
+              <label for="pia-edit-name">{{ 'homepage.cards.pia_name' | translate }}</label>
               <input type="text" formControlName="name" required
-                     placeholder="Intitulé" id="pia-edit-name">
+                     placeholder="{{ 'homepage.cards.placeholder_pia_name' | translate }}" id="pia-edit-name">
           </div>
           <div>
-              <label for="pia-edit-author-name">Saisie</label>
+              <label for="pia-edit-author-name">{{ 'homepage.cards.author' | translate }}</label>
               <input type="text" formControlName="author_name" required
-                     placeholder="Prénom, nom" id="pia-edit-author-name">
+                     placeholder="{{ 'homepage.cards.placeholder_author' | translate }}" id="pia-edit-author-name">
           </div>
           <div>
-              <label for="pia-edit-evaluator-name">Évaluation</label>
+              <label for="pia-edit-evaluator-name">{{ 'homepage.cards.evaluation' | translate }}</label>
               <input type="text" formControlName="evaluator_name" required
-                     placeholder="Prénom, nom" id="pia-edit-evaluator-name">
+                     placeholder="{{ 'homepage.cards.placeholder_evaluation' | translate }}" id="pia-edit-evaluator-name">
           </div>
           <div>
-              <label for="pia-edit-validator-name">Validation</label>
+              <label for="pia-edit-validator-name">{{ 'homepage.cards.validation' | translate }}</label>
               <input type="text" formControlName="validator_name" required
-                     placeholder="Prénom, nom" id="pia-edit-validator-name">
+                     placeholder="{{ 'homepage.cards.placeholder_validation' | translate }}" id="pia-edit-validator-name">
           </div>
         <div class="pia-cardsBlock-item-date">
-            <div>Date</div>
+            <div>{{ 'homepage.cards.date' | translate }}</div>
             <time>{{ pia.created_at | date: 'dd/MM/yyyy' }}</time>
         </div>
         <div class="pia-cardsBlock-item-status">
             <div class="pia-cardsBlock-item-status-infos">
-                <div>Statut</div>
+                <div>{{ 'homepage.cards.status' | translate }}</div>
                 <div>{{ pia.getStatusName() }}</div>
             </div>
             <div class="pia-cardsBlock-item-status-progressBar">
@@ -87,10 +87,10 @@
             </div>
         </div>
         <div class="pia-cardsBlock-item-btn" [ngClass]="{'hide': editMode !== true}">
-          <button type="submit" [disabled]="piaForm.invalid" class="btn btn-green">Sauvegarder</button>
+          <button type="submit" [disabled]="piaForm.invalid" class="btn btn-green">{{ 'homepage.cards.item.save_pia' | translate }}</button>
         </div>
         <div class="pia-cardsBlock-item-btn" [ngClass]="{'hide': editMode !== false}">
-          <a routerLink="/entry/{{pia.id}}/section/1/item/1" class="btn btn-green">Éditer le PIA</a>
+          <a routerLink="/entry/{{pia.id}}/section/1/item/1" class="btn btn-green">{{ 'homepage.cards.item.edit_pia' | translate }}</a>
         </div>
       </form>
   </div>

@@ -26,12 +26,15 @@ export class EvaluationsComponent implements OnInit, AfterViewChecked, DoCheck {
   previousGauges = {x: 0, y: 0};
   previousReferenceTo: string;
   hasResizedContent = false;
+  riskName: any;
+
   constructor(private el: ElementRef, private _evaluationService: EvaluationService) { }
 
   ngOnInit() {
     // Prefix item
     this.reference_to = this.section.id + '.' + this.item.id;
     this.checkEvaluationValidation();
+     this.riskName = {value: this.item.title};
   }
 
   ngAfterViewChecked() {

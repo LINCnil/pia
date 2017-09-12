@@ -10,6 +10,7 @@ import { ModalsService } from 'app/modals/modals.service';
 import { PiaService } from 'app/entry/pia.service';
 import { EvaluationService } from 'app/entry/entry-content/evaluations/evaluations.service';
 import { PaginationService } from './pagination.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-entry-content',
@@ -32,7 +33,8 @@ export class EntryContentComponent implements OnInit, OnChanges {
               private _modalsService: ModalsService,
               private _piaService: PiaService,
               private _evaluationService: EvaluationService,
-              private _paginationService: PaginationService) {
+              private _paginationService: PaginationService,
+              private _translateService: TranslateService) {
   }
 
   ngOnInit() {

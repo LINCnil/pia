@@ -1,175 +1,131 @@
 <div class="pia-modalBlock" id="modal-simple-pia-validation">
   <div class="pia-modalBlock-content bounceIn">
-    <button type="button" class="pia-modalBlock-close btn" title="Fermer"><span (click)="_modalsService.closeModal()" class="pia-icons pia-icon-close-big"></span></button>
-    <p>
-      Le PIA vient d'être validé.
-    </p>
+    <button type="button" class="pia-modalBlock-close btn" title="{{ 'modals.close' | translate }}"><span (click)="_modalsService.closeModal()" class="pia-icons pia-icon-close-big"></span></button>
+    <p>{{ 'modals.simple_pia_validation.content' | translate }}</p>
     <span class="pia-icons pia-icon-happy"></span>
     <div class="pia-modalBlock-validate">
-      <button class="btn btn-green" type="button" (click)="returnToHomepage()">Retour à l'accueil</button>
+      <button class="btn btn-green" type="button" (click)="returnToHomepage()">{{ 'modals.back_to_home' | translate }}</button>
     </div>
   </div>
 </div>
 
 <div class="pia-modalBlock" id="modal-update-server-url">
   <div class="pia-modalBlock-content bounceIn">
-    <button type="button" class="pia-modalBlock-close btn" title="Fermer"><span (click)="_modalsService.closeModal()" class="pia-icons pia-icon-close-big"></span></button>
-    <p>
-      L'adresse du serveur à été mise à jour.
-    </p>
+    <button type="button" class="pia-modalBlock-close btn" title="{{ 'modals.close' | translate }}"><span (click)="_modalsService.closeModal()" class="pia-icons pia-icon-close-big"></span></button>
+    <p>{{ 'modals.update_server_url.content' | translate }}</p>
     <span class="pia-icons pia-icon-happy"></span>
     <div class="pia-modalBlock-validate">
-      <button class="btn btn-green" type="button" (click)="returnToHomepage()">Retour à l'accueil</button>
+      <button class="btn btn-green" type="button" (click)="returnToHomepage()">{{ 'modals.back_to_home' | translate }}</button>
     </div>
   </div>
 </div>
 
 <div class="pia-modalBlock" id="modal-signed-pia-validation">
   <div class="pia-modalBlock-content pia-modalBlock-acceptedPIA bounceIn">
-    <button type="button" class="pia-modalBlock-close btn" title="Fermer"><span (click)="_modalsService.closeModal()" class="pia-icons pia-icon-close-big"></span></button>
-    <p>
-      <span class="strong">Le PIA est accepté</span><br>
-      Finalisez la validation du PIA en attachant<br>
-      en pièce jointe le rapport signé par le responsable.
-    </p>
+    <button type="button" class="pia-modalBlock-close btn" title="{{ 'modals.close' | translate }}"><span (click)="_modalsService.closeModal()" class="pia-icons pia-icon-close-big"></span></button>
+    <p [innerHTML]="'modals.signed_pia_validation.content' | translate"></p>
     <span class="pia-icons pia-icon-happy"></span>
     <div class="pia-modalBlock-buttons-choice">
-      <a routerLink="/summary/{{_piaService.pia.id}}/pia">Télécharger<br>le rapport PIA</a>
+      <a routerLink="/summary/{{_piaService.pia.id}}/pia" [innerHTML]="'modals.signed_pia_validation.download_pia' | translate"></a>
     </div>
   </div>
 </div>
 
 <div class="pia-modalBlock" id="modal-abandon-pia">
   <div class="pia-modalBlock-content pia-modalBlock-abandonPIA bounceIn">
-    <button type="button" class="pia-modalBlock-close btn" title="Fermer"><span (click)="_modalsService.closeModal()" class="pia-icons pia-icon-close-big"></span></button>
-    <p>
-      Êtes-vous sûr de vouloir<br>
-      abandonner ce traitement ?
-    </p>
+    <button type="button" class="pia-modalBlock-close btn" title="{{ 'modals.close' | translate }}"><span (click)="_modalsService.closeModal()" class="pia-icons pia-icon-close-big"></span></button>
+    <p [innerHTML]="'modals.abandon_pia.content' | translate"></p>
     <div class="pia-modalBlock-buttons-choice">
-      <button class="btn btn-red" type="button" (click)="_modalsService.closeModal()">Annuler</button>
-      <button class="btn btn-red" type="button" (click)="_piaService.abandonTreatment()">Archiver</button>
+      <button class="btn btn-red" type="button" (click)="_modalsService.closeModal()">{{ 'modals.cancel' | translate }}</button>
+      <button class="btn btn-red" type="button" (click)="_piaService.abandonTreatment()">{{ 'modals.archive' | translate }}</button>
     </div>
   </div>
 </div>
 
 <div class="pia-modalBlock" id="modal-refuse-pia">
   <div class="pia-modalBlock-content bounceIn">
-    <button type="button" class="pia-modalBlock-close btn" title="Fermer"><span (click)="_modalsService.closeModal()" class="pia-icons pia-icon-close-big"></span></button>
-    <p>
-      <span class="strong">PIA refusé,</span><br>
-      Plusieurs champs doivent être corrigés.<br>
-      Retour au mode d'évaluation<br>
-      pour apporter des corrections.
-    </p>
+    <button type="button" class="pia-modalBlock-close btn" title="{{ 'modals.close' | translate }}"><span (click)="_modalsService.closeModal()" class="pia-icons pia-icon-close-big"></span></button>
+    <p [innerHTML]="'modals.refuse_pia.content' | translate"></p>
     <span class="pia-icons pia-icon-sad"></span>
     <div class="pia-modalBlock-validate">
-      <button class="btn btn-red" type="button" (click)="_modalsService.closeModal()">Continuer</button>
+      <button class="btn btn-red" type="button" (click)="_modalsService.closeModal()">{{ 'modals.continue' | translate }}</button>
     </div>
   </div>
 </div>
 
 <div class="pia-modalBlock" id="modal-same-comment">
   <div class="pia-modalBlock-content bounceIn">
-    <button type="button" class="pia-modalBlock-close btn" title="Fermer"><span (click)="_modalsService.closeModal()" data-dismiss="modal" class="pia-icons pia-icon-close-big"></span></button>
-    <p>
-      <span class="strong">Attention,</span><br>
-      Veuillez saisir un commentaire différent du dernier enregistré.
-    </p>
+    <button type="button" class="pia-modalBlock-close btn" title="{{ 'modals.close' | translate }}"><span (click)="_modalsService.closeModal()" data-dismiss="modal" class="pia-icons pia-icon-close-big"></span></button>
+    <p [innerHTML]="'modals.same_comment.content' | translate"></p>
     <span class="pia-icons pia-icon-sorry"></span>
     <div class="pia-modalBlock-validate">
-      <button class="btn btn-blue" type="button" (click)="_modalsService.closeModal()" data-dismiss="modal">Fermer</button>
+      <button class="btn btn-blue" type="button" (click)="_modalsService.closeModal()" data-dismiss="modal">{{ 'modals.close' | translate }}</button>
     </div>
   </div>
 </div>
 
 <div class="pia-modalBlock" id="not-enough-measures-to-remove">
   <div class="pia-modalBlock-content bounceIn">
-    <button type="button" class="pia-modalBlock-close btn" title="Fermer"><span (click)="_modalsService.closeModal()" data-dismiss="modal" class="pia-icons pia-icon-close-big"></span></button>
-    <p>
-      <span class="strong">Attention,</span><br>
-      Au moins une mesure doit être renseignée : suppression impossible.
-    </p>
+    <button type="button" class="pia-modalBlock-close btn" title="{{ 'modals.close' | translate }}"><span (click)="_modalsService.closeModal()" data-dismiss="modal" class="pia-icons pia-icon-close-big"></span></button>
+    <p [innerHTML]="'modals.not_enough_measures_to_remove.content' | translate"></p>
     <span class="pia-icons pia-icon-sorry"></span>
     <div class="pia-modalBlock-validate">
-      <button class="btn btn-blue" type="button" (click)="_modalsService.closeModal()" data-dismiss="modal">Fermer</button>
+      <button class="btn btn-blue" type="button" (click)="_modalsService.closeModal()" data-dismiss="modal">{{ 'modals.close' | translate }}</button>
     </div>
   </div>
 </div>
 
 <div class="pia-modalBlock" id="remove-measure">
   <div class="pia-modalBlock-content pia-modalBlock-removeMeasure bounceIn">
-    <button type="button" class="pia-modalBlock-close btn" title="Fermer"><span (click)="_modalsService.closeModal()" class="pia-icons pia-icon-close-big"></span></button>
-    <p>
-      <span class="strong">Attention,</span><br>
-      Êtes-vous sûr de vouloir<br>
-      supprimer cette mesure ?
-    </p>
+    <button type="button" class="pia-modalBlock-close btn" title="{{ 'modals.close' | translate }}"><span (click)="_modalsService.closeModal()" class="pia-icons pia-icon-close-big"></span></button>
+    <p [innerHTML]="'modals.remove_measure.content' | translate"></p>
     <span class="pia-icons pia-icon-sad"></span>
     <div class="pia-modalBlock-buttons-choice">
-      <button class="btn btn-red" (click)="_measuresService.removeMeasure()" type="button">Supprimer cette <br>mesure</button>
-      <button class="btn btn-red" type="button" (click)="_modalsService.closeModal()">Conserver cette <br>mesure</button>
+      <button class="btn btn-red" (click)="_measuresService.removeMeasure()" type="button" [innerHTML]="'modals.remove_measure.remove' | translate"></button>
+      <button class="btn btn-red" type="button" (click)="_modalsService.closeModal()" [innerHTML]="'modals.remove_measure.keep' | translate"></button>
     </div>
   </div>
 </div>
 
 <div class="pia-modalBlock" id="ask-for-evaluation">
   <div class="pia-modalBlock-content bounceIn">
-    <button type="button" class="pia-modalBlock-close btn" title="Fermer"><span (click)="_modalsService.closeModal()" class="pia-icons pia-icon-close-big"></span></button>
-    <p>
-      <span class="strong">Bravo,</span><br>
-      la partie est désormais<br>
-      disponible pour évaluation
-    </p>
+    <button type="button" class="pia-modalBlock-close btn" title="{{ 'modals.close' | translate }}"><span (click)="_modalsService.closeModal()" class="pia-icons pia-icon-close-big"></span></button>
+    <p [innerHTML]="'modals.ask_for_evaluation.content' | translate"></p>
     <span class="pia-icons pia-icon-happy"></span>
     <div class="pia-modalBlock-validate">
-      <button (click)="_modalsService.closeModal()" class="btn btn-green" type="button">Continuer</button>
+      <button (click)="_modalsService.closeModal()" class="btn btn-green" type="button">{{ 'modals.continue' | translate }}</button>
     </div>
   </div>
 </div>
 
 <div class="pia-modalBlock" id="validate-evaluation">
   <div class="pia-modalBlock-content bounceIn">
-    <button type="button" class="pia-modalBlock-close btn" title="Fermer"><span (click)="_modalsService.closeModal()" class="pia-icons pia-icon-close-big"></span></button>
-    <p>
-      <span class="strong">Bravo,</span><br>
-      en attente de la validation <br>
-      globale du PIA
-    </p>
+    <button type="button" class="pia-modalBlock-close btn" title="{{ 'modals.close' | translate }}"><span (click)="_modalsService.closeModal()" class="pia-icons pia-icon-close-big"></span></button>
+    <p [innerHTML]="'modals.validate_evaluation.content' | translate"></p>
     <span class="pia-icons pia-icon-happy"></span>
     <div class="pia-modalBlock-validate">
-      <button (click)="_modalsService.closeModal()" class="btn btn-green" type="button">Continuer</button>
+      <button (click)="_modalsService.closeModal()" class="btn btn-green" type="button">{{ 'modals.continue' | translate }}</button>
     </div>
   </div>
 </div>
 
 <div class="pia-modalBlock" style="background-color:transparent;" id="validate-evaluation-to-correct">
   <div class="pia-modalBlock-content pia-modalBlock-declareMeasuresForRisks bounceIn">
-    <button type="button" class="pia-modalBlock-close btn" title="Fermer"><span (click)="_modalsService.closeModal()" class="pia-icons pia-icon-close-big"></span></button>
-    <p>
-      Désolé,<br>
-      Plusieurs champs doivent être corrigés.<br>
-      Retour au mode d'édition<br>
-      pour apporter des corrections.
-    </p>
+    <button type="button" class="pia-modalBlock-close btn" title="{{ 'modals.close' | translate }}"><span (click)="_modalsService.closeModal()" class="pia-icons pia-icon-close-big"></span></button>
+    <p [innerHTML]="'modals.validate_evaluation_to_correct.content' | translate"></p>
     <span class="pia-icons pia-icon-sorry"></span>
     <div class="pia-modalBlock-validate">
-      <button (click)="_modalsService.closeModal()" class="btn btn-green" type="button">Continuer</button>
+      <button (click)="_modalsService.closeModal()" class="btn btn-green" type="button">{{ 'modals.continue' | translate }}</button>
     </div>
   </div>
 </div>
 
 <div class="pia-modalBlock" style="background-color:transparent;" id="pia-declare-measures">
   <div class="pia-modalBlock-content pia-modalBlock-declareMeasuresForRisks bounceIn">
-    <p>
-      Désolé,<br>
-      Avant d'évaluer les risques,<br>
-      vous devez déclarer les mesures<br>
-      existantes ou prévues
-    </p>
+    <p [innerHTML]="'modals.declare_measures.content' | translate"></p>
     <span class="pia-icons pia-icon-sorry"></span>
     <div class="pia-modalBlock-validate">
-      <a routerLink="/entry/{{_piaService.pia.id}}/section/3/item/1" (click)="_modalsService.closeModal()" type="button btn-blue" class="btn btn-green">Déclarer les mesures existantes ou prévues</a>
+      <a routerLink="/entry/{{_piaService.pia.id}}/section/3/item/1" (click)="_modalsService.closeModal()" type="button btn-blue" class="btn btn-green">{{ 'modals.declare_measures.declare' | translate }}</a>
     </div>
   </div>
 </div>
@@ -177,81 +133,74 @@
 
 <div class="pia-modalBlock" id="modal-remove-pia">
   <div class="pia-modalBlock-content pia-modalBlock-removePIA bounceIn">
-    <button type="button" class="pia-modalBlock-close btn" title="Fermer"><span (click)="_modalsService.closeModal()" class="pia-icons pia-icon-close-big"></span></button>
-    <p>
-      <span class="strong">Attention,</span><br>
-      Êtes-vous sûr de vouloir<br>
-      supprimer ce PIA ?
-    </p>
+    <button type="button" class="pia-modalBlock-close btn" title="{{ 'modals.close' | translate }}"><span (click)="_modalsService.closeModal()" class="pia-icons pia-icon-close-big"></span></button>
+    <p [innerHTML]="'modals.remove_pia.content' | translate"></p>
     <span class="pia-icons pia-icon-sad"></span>
     <div class="pia-modalBlock-buttons-choice">
-      <button class="btn btn-red" type="button" (click)="_modalsService.closeModal()">Annuler</button>
-      <button class="btn btn-red" (click)="_piaService.removePIA()" type="button">Supprimer ce PIA</button>
+      <button class="btn btn-red" type="button" (click)="_modalsService.closeModal()">{{ 'modals.cancel' | translate }}</button>
+      <button class="btn btn-red" (click)="_piaService.removePIA()" type="button">{{ 'modals.remove_pia.remove' | translate }}</button>
     </div>
   </div>
 </div>
 
 <div class="pia-modalBlock" id="modal-remove-attachment">
   <div class="pia-modalBlock-content pia-modalBlock-removeAttachment bounceIn">
-    <button type="button" class="pia-modalBlock-close btn" title="Fermer"><span (click)="_modalsService.closeModal()" class="pia-icons pia-icon-close-big"></span></button>
-    <p>
-      <span class="strong">Attention,</span><br>
-      Êtes-vous sûr de vouloir<br>
-      supprimer cette pièce jointe ?
-    </p>
+    <button type="button" class="pia-modalBlock-close btn" title="{{ 'modals.close' | translate }}"><span (click)="_modalsService.closeModal()" class="pia-icons pia-icon-close-big"></span></button>
+    <p [innerHTML]="'modals.remove_attachment.content' | translate"></p>
     <span class="pia-icons pia-icon-sad"></span>
     <div class="pia-modalBlock-buttons-choice">
-      <button class="btn btn-red" type="button" (click)="_modalsService.closeModal()">Conserver</button>
-      <button class="btn btn-red" (click)="_attachmentsService.removeAttachment()" type="button">Supprimer</button>
+      <button class="btn btn-red" type="button" (click)="_modalsService.closeModal()">{{ 'modals.remove_attachment.keep' | translate }}</button>
+      <button class="btn btn-red" (click)="_attachmentsService.removeAttachment()" type="button">{{ 'modals.remove_attachment.remove' | translate }}</button>
     </div>
   </div>
 </div>
 
-<!-- TODO : mettre leurs ids et les (click) adéquats -->
-<div class="pia-modalBlock">
-  <div class="pia-modalBlock-content bounceIn">
-    <button type="button" class="pia-modalBlock-close btn" title="Fermer"><span class="pia-icons pia-icon-close-big"></span></button>
-    <p>
-      <span class="strong">Attention,</span><br>
-      vous venez d'ajouter une mesure,<br>
-      <span class="red">" Sauvegarde de données ",</span><br>
-      n'oubliez pas de la mettre à jour dans<br>
-      la partie <span class="red">" Mesures existantes ou prévues "</span>
-    </p>
-    <div class="pia-modalBlock-validate">
-      <button class="btn btn-blue" type="button">Continuer</button>
+<!--
+  <div class="pia-modalBlock">
+    <div class="pia-modalBlock-content bounceIn">
+      <button type="button" class="pia-modalBlock-close btn" title="{{ 'modals.close' | translate }}"><span class="pia-icons pia-icon-close-big"></span></button>
+      <p>
+        <span class="strong">Attention,</span><br>
+        vous venez d'ajouter une mesure,<br>
+        <span class="red">" Sauvegarde de données ",</span><br>
+        n'oubliez pas de la mettre à jour dans<br>
+        la partie <span class="red">" Mesures existantes ou prévues "</span>
+      </p>
+      <div class="pia-modalBlock-validate">
+        <button class="btn btn-blue" type="button">{{ 'modals.continue' | translate }}</button>
+      </div>
     </div>
   </div>
-</div>
+-->
 
 <div class="pia-modalBlock" id="modal-list-new-pia">
   <div class="pia-modalBlock-content bounceIn">
-    <button type="button" class="pia-modalBlock-close btn" title="Fermer"><span (click)="_modalsService.closeModal()" class="pia-icons pia-icon-close"></span></button>
+    <button type="button" class="pia-modalBlock-close btn" title="{{ 'homepage.cards.title_close_creation' | translate }}"><span (click)="_modalsService.closeModal()" class="pia-icons pia-icon-close"></span></button>
     <form class="pia-cardsBlock-item-form" (ngSubmit)="onSubmit(piaForm)" [formGroup]="piaForm">
       <div>
-        <label for="name">Nom du PIA</label>
-        <input formControlName="name" type="text" placeholder="Intitulé" id="name" required>
+        <label for="name">{{ 'homepage.cards.pia_name' | translate }}</label>
+        <input formControlName="name" type="text" placeholder="{{ 'homepage.cards.placeholder_pia_name' | translate }}" id="name" required>
       </div>
       <div>
-        <label for="author_name">Saisie</label>
-        <input formControlName="author_name" type="text" placeholder="Prénom, nom" id="author_name" required>
+        <label for="author_name">{{ 'homepage.cards.author' | translate }}</label>
+        <input formControlName="author_name" type="text" placeholder="{{ 'homepage.cards.placeholder_author' | translate }}" id="author_name" required>
       </div>
       <div>
-        <label for="evaluator_name">Évaluation</label>
-        <input formControlName="evaluator_name" type="text" placeholder="Prénom, nom" id="evaluator_name" required>
+        <label for="evaluator_name">{{ 'homepage.cards.evaluation' | translate }}</label>
+        <input formControlName="evaluator_name" type="text" placeholder="{{ 'homepage.cards.placeholder_evaluation' | translate }}" id="evaluator_name" required>
       </div>
       <div>
-        <label for="validator_name">Validation</label>
-        <input formControlName="validator_name" type="text" placeholder="Prénom, nom" id="validator_name" required>
+        <label for="validator_name">{{ 'homepage.cards.validation' | translate }}</label>
+        <input formControlName="validator_name" type="text" placeholder="{{ 'homepage.cards.placeholder_validation' | translate }}" id="validator_name" required>
       </div>
       <div class="pia-cardsBlock-item-date" *ngIf="newPia">
-        <div>Date</div>
+        <div>{{ 'homepage.cards.date' | translate }}</div>
         <time>{{ newPia.created_at | date: 'dd/MM/yyyy'}}</time>
       </div>
       <div class="pia-cardsBlock-item-status">
         <div class="pia-cardsBlock-item-status-infos">
-          <div>Status</div>
-          <div>Création</div>
+          <div>{{ 'homepage.cards.status' | translate }}</div>
+          <div>{{ 'homepage.cards.creation_status' | translate }}</div>
         </div>
         <div class="pia-cardsBlock-item-status-progressBar">
           <div>0%</div>
@@ -260,7 +209,7 @@
         </div>
       </div>
       <div class="pia-cardsBlock-item-btn">
-        <button type="submit" [disabled]="piaForm.invalid" class="btn btn-green" id="pia-save-card-btn">Commencer</button>
+        <button type="submit" [disabled]="piaForm.invalid" class="btn btn-green" id="pia-save-card-btn">{{ 'homepage.cards.start' | translate }}</button>
       </div>
     </form>
   </div>

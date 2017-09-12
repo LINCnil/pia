@@ -1,7 +1,8 @@
 <div class="pia-commentsBlock-content fadeIn">
-  <div class="pia-commentsBlock-date">Commentaire {{title}} <time>le {{comment.created_at | date:"dd/MM/yyyy"}}</time></div>
-  <!-- <div class="pia-commentsBlock-edit">
-    <button class="btn" type="button" title="Éditer le commentaire"><i class="fa fa-pencil" aria-hidden="true"></i></button>
-  </div> -->
+  <div class="pia-commentsBlock-date">
+    {{ 'comments.comment' | translate }} {{title}}
+    <!-- TODO : display the correct comment date -->
+    <!--<time>le {{comment.created_at | date:"dd/MM/yyyy"}}</time>-->
+  </div>
   <textarea rows="3" disabled cols="50">{{comment.description}}</textarea>
 </div>

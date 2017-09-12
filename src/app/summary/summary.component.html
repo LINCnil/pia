@@ -1,10 +1,10 @@
 <app-header></app-header>
 <main class="container pia-mainContainerBlock">
   <div class="hide-for-print pia-summaryButtonsBlock">
-    <button onclick="window.history.back()" class="btn" title="Retour à la page précente">
+    <button onclick="window.history.back()" class="btn" title="{{ 'summary.previous_page' | translate }}">
       <i class="fa fa-chevron-left" aria-hidden="true"></i>
     </button>
-    <button onclick="print()" class="btn" title="Imprimer">
+    <button onclick="print()" class="btn" title="{{ 'summary.print' | translate }}">
       <i class="fa fa-print" aria-hidden="true"></i>
     </button>
   </div>

@@ -1,9 +1,15 @@
+@import '../../assets/stylesheets/variables';
+
 .pia {
   &-summaryButtonsBlock {
     button {
       margin: 0 5px;
       &:last-child {
         float: right;
+      }
+      i {
+        color: $pia-gray-dark;
+        font-size: 1.5rem;
       }
     }
   }

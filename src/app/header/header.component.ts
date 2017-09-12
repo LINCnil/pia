@@ -1,22 +1,30 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, DoCheck, OnInit } from '@angular/core';
 import { Renderer2 } from '@angular/core';
 import { environment } from '../../environments/environment';
+
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit {
-
+export class HeaderComponent implements OnInit, DoCheck {
   public increaseContrast: String;
   appVersion: string;
-  constructor(private renderer: Renderer2) {
+  selectedLanguage: string;
+
+  constructor(private renderer: Renderer2, private _translateService: TranslateService) {
     this.updateContrast();
   }
 
   ngOnInit() {
     this.appVersion = environment.version;
+    this.getUserLanguage();
+  }
+
+  ngDoCheck() {
+    this.getUserLanguage();
   }
 
   /**
@@ -26,6 +34,20 @@ export class HeaderComponent implements OnInit {
   changeContrast(event: any) {
     localStorage.setItem('increaseContrast', event.target.checked);
     this.updateContrast();
+  }
+
+  updateCurrentLanguage(selectedLanguage: string) {
+    localStorage.setItem('userLanguage', selectedLanguage);
+  }
+
+  getUserLanguage() {
+    const language = localStorage.getItem('userLanguage');
+    if (language && language.length > 0) {
+      this.selectedLanguage = language;
+    } else {
+      const browserLang = this._translateService.getBrowserLang();
+      this.selectedLanguage = browserLang.match(/en|fr/) ? browserLang : 'fr';
+    }
   }
 
   /**
