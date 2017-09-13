@@ -63,7 +63,7 @@ export class EntryComponent implements OnInit, OnDestroy, DoCheck {
   ngOnInit() {}
 
   ngDoCheck() {
-    if (this.measureToRemoveFromTags !== null && this.measureToRemoveFromTags.length > 0) {
+    if (this.measureToRemoveFromTags && this.measureToRemoveFromTags.length > 0) {
       const measureName = this.measureToRemoveFromTags;
       this.measureToRemoveFromTags = null;
 

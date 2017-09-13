@@ -195,4 +195,87 @@ export class PiaService {
       });
     });
   }
+
+  async import(file: any) {
+    const pia = new Pia();
+    const reader = new FileReader();
+    reader.readAsText(file, 'UTF-8');
+    reader.onload = (event: any) => {
+      const jsonFile = JSON.parse(event.target.result);
+      console.log(jsonFile);
+      pia.name = jsonFile.pia.name;
+      pia.author_name = jsonFile.pia.author_name;
+      pia.evaluator_name = jsonFile.pia.evaluator_name;
+      pia.validator_name = jsonFile.pia.validator_name;
+      pia.dpo_status = jsonFile.pia.dpo_status;
+      pia.dpo_opinion = jsonFile.pia.dpo_opinion;
+      pia.concerned_people_opinion = jsonFile.pia.concerned_people_opinion;
+      pia.concerned_people_status = jsonFile.pia.concerned_people_status;
+      pia.rejected_reason = jsonFile.pia.rejected_reason;
+      pia.applied_adjustements = jsonFile.pia.applied_adjustements;
+      pia.created_at = jsonFile.pia.created_at;
+      pia.status = jsonFile.pia.status;
+      pia.dpos_names = jsonFile.pia.dpos_names;
+      pia.people_names = jsonFile.pia.people_name;
+      pia.created_at = jsonFile.pia.created_at;
+      pia.updated_at = jsonFile.pia.updated_at;
+      pia.create().then((pia_id: number) => {
+        // Create answers
+        jsonFile.answers.forEach(answer => {
+          const answerModel = new Answer();
+          answerModel.pia_id = pia_id;
+          answerModel.reference_to = answer.reference_to;
+          answerModel.data = answer.data;
+          answerModel.created_at = answer.created_at;
+          answerModel.updated_at = answer.updated_at;
+          answerModel.create();
+        });
+        // Create measures
+        jsonFile.measures.forEach(measure => {
+          const measureModel = new Measure();
+          measureModel.title = measure.title;
+          measureModel.pia_id = pia_id;
+          measureModel.content = measure.content;
+          measureModel.placeholder = measure.placeholder;
+          measureModel.created_at = measure.created_at;
+          measureModel.updated_at = measure.updated_at;
+          measureModel.create();
+        });
+
+        // Create evaluations
+        jsonFile.evaluations.forEach(evaluation => {
+          const evaluationModel = new Evaluation();
+          evaluationModel.pia_id = pia_id;
+          evaluationModel.status = 0;
+          evaluationModel.pia_id = evaluation.pia_id;
+          evaluationModel.reference_to = evaluation.reference_to;
+          evaluationModel.action_plan_comment = evaluation.action_plan_comment;
+          evaluationModel.evaluation_comment = evaluation.evaluation_comment;
+          evaluationModel.evaluation_date = evaluation.evaluation_date;
+          evaluationModel.gauges = evaluation.gauges;
+          evaluationModel.estimated_evaluation_date = new Date(evaluation.estimated_evaluation_date);
+          evaluationModel.person_in_charge = evaluation.person_in_charge;
+          evaluationModel.global_status = 0;
+          evaluationModel.created_at = evaluation.created_at;
+          evaluationModel.updated_at = evaluation.updated_at;
+          evaluationModel.create();
+        });
+
+        // Create comments
+        jsonFile.comments.forEach(comment => {
+          const commentModel = new Comment();
+          commentModel.pia_id = pia_id;
+          commentModel.description = comment.description;
+          commentModel.pia_id = comment.pia_id;
+          commentModel.reference_to = comment.reference_to;
+          commentModel.for_measure = comment.for_measure;
+          commentModel.created_at = comment.created_at;
+          commentModel.updated_at = comment.updated_at;
+          commentModel.create();
+        });
+
+        location.reload();
+      });
+    }
+  }
 }
