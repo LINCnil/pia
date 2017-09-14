@@ -12,14 +12,14 @@
     <div class="small-12 medium-12 columns">
         <div *ngFor="let c of content">
           <div *ngIf="c.data.length > 0">
-            <h1>{{c.title}}</h1>
-            <h2 *ngIf="c.subtitle">{{c.subtitle}}</h2>
+            <h1>{{ c.title | translate }}</h1>
+            <h2 *ngIf="c.subtitle">{{ c.subtitle | translate }}</h2>
             <div *ngFor="let d of c.data">
-              <h3>{{d.title}}</h3>
+              <h3>{{ d.title | translate }}</h3>
               <p>
-                <ng-container *ngIf="d.type !== 'date'; else dateBlock">{{d.content}}</ng-container>
+                <ng-container *ngIf="d.type !== 'date'; else dateBlock">{{ d.content | translate }}</ng-container>
                 <ng-template #dateBlock>
-                  <time>{{d.content | date: 'dd/MM/yyyy'}}</time>
+                  <time>{{ d.content | date: 'dd/MM/yyyy' }}</time>
                 </ng-template>
               </p>
             </div>

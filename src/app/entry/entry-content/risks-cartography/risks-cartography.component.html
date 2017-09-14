@@ -2,34 +2,32 @@
   <div class="pia-entryContentBlock-content">
     <div class="pia-cartographyBlock">
       <div>
-        <div class="pia-cartographyBlock-gravity">Gravité du risque</div>
+        <div class="pia-cartographyBlock-gravity">{{ 'cartography.seriousness_axe' | translate }}</div>
         <div class="pia-cartographyBlock-graph">
           <div class="pia-cartographyBlock-ordinates">
-            <div>Maximale</div>
-            <div>Importante</div>
-            <div>Limitée</div>
-            <div>Négligeable</div>
+            <div>{{ 'cartography.maximal' | translate }}</div>
+            <div>{{ 'cartography.important' | translate }}</div>
+            <div>{{ 'cartography.limited' | translate }}</div>
+            <div>{{ 'cartography.negligible' | translate }}</div>
           </div>
           <canvas id="actionPlanCartography" width="400" height="400"></canvas>
         </div>
         <div class="pia-cartographyBlock-abscisses">
-          <div>Négligeable</div>
-          <div>Limitée</div>
-          <div>Importante</div>
-          <div>Maximale</div>
+          <div>{{ 'cartography.negligible' | translate }}</div>
+          <div>{{ 'cartography.limited' | translate }}</div>
+          <div>{{ 'cartography.important' | translate }}</div>
+          <div>{{ 'cartography.maximal' | translate }}</div>
         </div>
-        <div class="pia-cartographyBlock-probability">
-          Vraissemblance du risque
-        </div><!--
-        --><ul class="pia-cartographyBlock-legend">
-          <li>Mesures prévues ou existantes</li>
-          <li>Avec les mesures correctives mises en oeuvre</li>
-          <li>(A)ccès illégitime à des données</li>
-          <li>(M)odification non désirée de données</li>
-          <li>(D)isparition de données</li>
-        </ul>
+        <ul class="pia-cartographyBlock-legend">
+          <li>{{ 'cartography.legend1' | translate }}</li>
+          <li>{{ 'cartography.legend2' | translate }}</li>
+          <li>{{ 'cartography.legend3' | translate }}</li>
+          <li>{{ 'cartography.legend4' | translate }}</li>
+          <li>{{ 'cartography.legend5' | translate }}</li>
+        </ul><!--
+        --><div class="pia-cartographyBlock-probability">{{ 'cartography.likelihood_axe' | translate }}</div>
         <div class="pia-cartographyBlock-date">
-          <time>le {{pia.created_at | date: 'dd/MM/yyyy'}}</time>
+          <time>{{pia.created_at | date: 'dd/MM/yyyy'}}</time>
         </div>
       </div>
     </div>

@@ -40,7 +40,7 @@ export class SummaryComponent implements OnInit {
 
     this._attachmentsService.pia = this.pia;
     this._attachmentsService.listAttachments().then(() => {
-      const attachmentElement = { title: 'Pièces jointes', subtitle: null, data: [] };
+      const attachmentElement = { title: 'summary.attachments', subtitle: null, data: [] };
       this._attachmentsService.attachments.forEach((attachment) => {
         attachmentElement.data.push({ content: attachment.name });
       });
@@ -64,12 +64,12 @@ export class SummaryComponent implements OnInit {
   }
 
   showActionPlan() {
-    let el = { title: 'Principes fondamentaux', subtitle: null, data: [] };
+    let el = { title: 'summary.action_plan.fundamental_principles', subtitle: null, data: [] };
 
     if (this._actionPlanService.noPrinciplesActionPlan) {
       el.data.push({
         title: null,
-        content: 'Aucun plan d\'action enregistré.'
+        content: 'summary.action_plan.no_action_plan'
       });
     } else {
       this._actionPlanService.results.forEach((data: any) => {
@@ -80,13 +80,13 @@ export class SummaryComponent implements OnInit {
           });
           if (data.evaluation.estimated_evaluation_date) {
             el.data.push({
-              title: 'Date prévue de mise en œuvre',
+              title: 'summary.action_plan.implementation_date',
               content: data.evaluation.estimated_evaluation_date
             });
           }
           if (data.evaluation.person_in_charge) {
             el.data.push({
-              title: 'Responsable de la mise en œuvre',
+              title: 'summary.action_plan.implementation_responsible',
               content: data.evaluation.person_in_charge
             });
           }
@@ -95,11 +95,11 @@ export class SummaryComponent implements OnInit {
     }
     this.content.push(el);
 
-    el = { title: 'Mesures existantes ou prévues', subtitle: null, data: [] };
+    el = { title: 'summary.action_plan.measures', subtitle: null, data: [] };
     if (this._actionPlanService.noMeasuresActionPlan) {
       el.data.push({
         title: null,
-        content: 'Aucun plan d\'action enregistré.'
+        content: 'summary.action_plan.no_action_plan'
       });
     } else {
       this._actionPlanService.measures.forEach((data: any) => {
@@ -113,11 +113,11 @@ export class SummaryComponent implements OnInit {
     }
     this.content.push(el);
 
-    el = { title: 'Risques', subtitle: null, data: [] };
+    el = { title: 'summary.action_plan.risks', subtitle: null, data: [] };
     if (this._actionPlanService.noRisksActionPlan) {
       el.data.push({
         title: null,
-        content: 'Aucun plan d\'action enregistré.'
+        content: 'summary.action_plan.no_action_plan'
       });
     } else {
       if (this._actionPlanService.risks['3.2'] && this._actionPlanService.risks['3.2'].action_plan_comment) {
@@ -143,83 +143,83 @@ export class SummaryComponent implements OnInit {
   }
 
   private prepareHeader() {
-    const el = { title: 'Informations du PIA', data: [] };
+    const el = { title: 'summary.title', data: [] };
 
     if (this.pia.name && this.pia.name.length > 0) {
       el.data.push({
-        title: 'Nom du PIA',
+        title: 'summary.pia_name',
         content: this.pia.name
       });
     }
     if (this.pia.author_name && this.pia.author_name.length > 0) {
       el.data.push({
-        title: 'Nom de l\'auteur',
+        title: 'summary.pia_author',
         content: this.pia.author_name
       });
     }
     if (this.pia.evaluator_name && this.pia.evaluator_name.length > 0) {
       el.data.push({
-        title: 'Nom de l\'évaluateur',
+        title: 'summary.pia_assessor',
         content: this.pia.evaluator_name
       });
     }
     if (this.pia.validator_name && this.pia.validator_name.length > 0) {
       el.data.push({
-        title: 'Nom du validateur',
+        title: 'summary.pia_validator',
         content: this.pia.validator_name
       });
     }
     if (this.pia.dpos_names && this.pia.dpos_names.length > 0) {
       el.data.push({
-        title: 'Nom du DPO',
+        title: 'summary.dpo_name',
         content: this.pia.dpos_names
       });
     }
     if ( this.pia.dpo_status >= 0) {
       el.data.push({
-        title: 'Statut du DPO',
+        title: 'summary.dpo_status',
         content: this.pia.getOpinionsStatus(this.pia.dpo_status.toString())
       });
     }
     if (this.pia.dpo_opinion && this.pia.dpo_opinion.length > 0) {
       el.data.push({
-        title: 'Opinion du DPO',
+        title: 'summary.dpo_opinion',
         content: this.pia.dpo_opinion
       });
     }
     if (this.pia.people_names && this.pia.people_names.length > 0) {
       el.data.push({
-        title: 'Nom des personnes concernées',
+        title: 'summary.concerned_people_name',
         content: this.pia.people_names
       });
     }
     if (this.pia.concerned_people_status >= 0) {
       el.data.push({
-        title: 'Statut des personnes concernées',
+        title: 'summary.concerned_people_status',
         content: this.pia.getOpinionsStatus(this.pia.concerned_people_status.toString())
       });
     }
     if (this.pia.concerned_people_opinion && this.pia.concerned_people_opinion.length > 0) {
       el.data.push({
-        title: 'Opinion des personnes concernées',
+        title: 'summary.concerned_people_opinion',
         content: this.pia.concerned_people_opinion
       });
     }
     if (this.pia.applied_adjustements && this.pia.applied_adjustements.length > 0) {
       el.data.push({
-        title: 'Modifications apportées',
+        title: 'summary.modification_made',
         content: this.pia.applied_adjustements
       });
     }
     if (this.pia.rejected_reason && this.pia.rejected_reason.length > 0) {
       el.data.push({
-        title: 'Raison du refus',
+        title: 'summary.rejection_reason',
         content: this.pia.rejected_reason
       });
     }
     if (this.pia.created_at) {
       el.data.push({
-        title: 'Date de création',
+        title: 'summary.creation_date',
         type: 'date',
         content: this.pia.created_at
       });

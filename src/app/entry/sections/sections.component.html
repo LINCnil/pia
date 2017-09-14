@@ -1,13 +1,13 @@
 <div class="pia-sectionsBlock">
   <div class="pia-sectionBlock-header">
-    <h1 class="truncate" title="{{_piaService.pia.name}}">{{_piaService.pia.name}}</h1>
+    <h1 class="truncate" title="{{_piaService.pia.name}}">{{ _piaService.pia.name }}</h1>
     <a class="pia-icons pia-icon-close-big" routerLink="/home" title="{{ 'pia.sections.homepage_link' | translate }}"></a>
   </div>
 
   <div class="pia-sectionBlock-body">
     <div *ngFor="let dataSection of data?.sections">
       <div class="pia-sectionBlock-title">
-        {{ dataSection.title }}
+        {{ dataSection.title | translate }}
         <hr>
       </div>
       <ul class="pia-sectionBlock-list">
@@ -15,7 +15,7 @@
           <li *ngIf="!dataItem.hide">
             <a routerLink="/entry/{{_piaService.pia.id}}/section/{{dataSection.id}}/item/{{dataItem.id}}"
               [ngClass]="{'active': section.id == dataSection.id && item.id == dataItem.id}"
-              class="truncate">{{dataItem.title}}</a>
+              class="truncate">{{ dataItem.title | translate }}</a>
             <i class="fa"
                *ngIf="sidStatus"
                [ngClass]="{'fa-cog': sidStatus[dataSection.id.toString() + dataItem.id.toString()] === 1,

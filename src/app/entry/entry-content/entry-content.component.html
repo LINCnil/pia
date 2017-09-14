@@ -8,10 +8,10 @@
          aria-hidden="true"></i>
     </div>
     <div class="pia-entryContentBlock-header-title">
-      <h1 *ngIf="section.title">{{ section.title }}</h1>
-      <h2 *ngIf="item.title">{{ item.title }}</h2>
-      <h3 *ngIf="section.short_help">{{ section.short_help }}</h3>
-      <h4 *ngIf="item.short_help">{{ item.short_help }}</h4>
+      <h1 *ngIf="section.title">{{ section.title | translate }}</h1>
+      <h2 *ngIf="item.title">{{ item.title | translate }}</h2>
+      <h3 *ngIf="section.short_help">{{ section.short_help | translate }}</h3>
+      <h4 *ngIf="item.short_help">{{ item.short_help | translate }}</h4>
     </div>
     <a *ngIf="section.id === 4 && item.id === 2;else defaultBlock" routerLink="/summary/{{_piaService.pia.id}}/action_plan" class="btn pia-previewBlock">
       <span class="pia-icons pia-icon-preview"></span>
@@ -68,11 +68,11 @@
           class="pia-previousLink"
           routerLink="/entry/{{_piaService.pia.id}}/section/{{_paginationService.previousLink[0]}}/item/{{_paginationService.previousLink[1]}}">
           <i class="fa fa-angle-double-left" aria-hidden="true"></i>
-          {{_paginationService.previousLink[2]}}
+          {{ _paginationService.previousLink[2] | translate }}
       </a><a [ngClass]="{'mask': _paginationService.hasNextLink === false}"
           class="pia-nextLink"
           routerLink="/entry/{{_piaService.pia.id}}/section/{{_paginationService.nextLink[0]}}/item/{{_paginationService.nextLink[1]}}">
-          {{_paginationService.nextLink[2]}}
+          {{ _paginationService.nextLink[2] | translate }}
           <i class="fa fa-angle-double-right" aria-hidden="true"></i>
       </a>
     </div>

@@ -7,7 +7,7 @@
 <div class="pia-questionBlock" [ngClass]="{'approved': evaluation.status === 2 || evaluation.status === 3}" [attr.data-id]="question.id">
   <div class="pia-questionBlock-title">
     <button class="pia-icons pia-icon-accordeon-up" type="button" (click)="displayQuestion($event)" title="{{ 'misc.display' | translate }}"></button>
-    {{question.title}}
+    {{ question.title | translate }}
   </div>
   <div class="pia-questionBlock-displayer fadeIn">
     <button type="button" class="btn pia-questionBlock-edit"
@@ -38,12 +38,12 @@
             formControlName="list"
             [clearOnBlur]="true"
             [theme]="'foundation-theme'"
-            [placeholder]="question.placeholder + '&#10010;'"
+            [placeholder]="question.placeholder | translate"
             [editable]="false"
             [disabled]="_evaluationService.showValidationButton || _evaluationService.enableFinalValidation"
             [onlyFromAutocomplete]="true"
             (focusin)="questionContentFocusIn()"
-            [secondaryPlaceholder]="question.placeholder + '&#10010;'">
+            [secondaryPlaceholder]="question.placeholder | translate">
             <tag-input-dropdown
               [showDropdownIfEmpty]="true"
               [autocompleteItems]="userMeasures">
@@ -61,11 +61,11 @@
             [separatorKeyCodes]="[27, 13]"
             formControlName="list"
             [theme]="'foundation-theme'"
-            [placeholder]="question.placeholder + '&#10010;'"
+            [placeholder]="question.placeholder | translate"
             [editable]="true"
             (focusin)="questionContentFocusIn()"
             [disabled]="_evaluationService.showValidationButton || _evaluationService.enableFinalValidation"
-            [secondaryPlaceholder]="question.placeholder + '&#10010;'">
+            [secondaryPlaceholder]="question.placeholder | translate">
           </tag-input>
         </ng-template>
         <textarea
@@ -79,7 +79,7 @@
           cols="50"
           (focusout)="questionContentFocusOut()"
           (focusin)="questionContentFocusIn()"
-          placeholder="{{question.placeholder}}">
+          placeholder="{{ question.placeholder | translate }}">
         </textarea>
       </div>
     </form>

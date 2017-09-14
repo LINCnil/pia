@@ -3,7 +3,7 @@
     <div class="pia-knowledgeBaseBlock-item-accordion">
       <button class="btn" type="button" (click)="displayItem()" title="{{ 'misc.display' | translate }}"><span class="pia-icons pia-icon-accordeon-down"></span></button>
     </div><div class="pia-knowledgeBaseBlock-item-definition">
-      <p (click)="displayItem()">{{itemKb.category}}</p>
+      <p (click)="displayItem()">{{ itemKb.category | translate }}</p>
       <button *ngIf="itemKb.filters.startsWith('measure.') && itemKb.filters !== 'measure.definition' && !_evaluationService.showValidationButton && !_evaluationService.enableFinalValidation" class="btn" type="button" (click)="addNewMeasure()" title="{{ 'knowledge_base.placeholder_add_measure' | translate }}">
         <span class="pia-icons pia-icon-add"></span>
         <span>{{ 'knowledge_base.add_measure' | translate }}</span>
@@ -15,8 +15,8 @@
     </div>
   </div>
   <div class="pia-knowledgeBaseBlock-item-title">
-    <p (click)="displayItem()">{{itemKb.name}}</p>
+    <p (click)="displayItem()">{{ itemKb.name | translate }}</p>
   </div>
-  <div class="pia-knowledgeBaseBlock-item-content hide" [innerHTML]="itemKb.description">
+  <div class="pia-knowledgeBaseBlock-item-content hide" [innerHTML]="itemKb.description | translate">
   </div>
 </div>

@@ -2,23 +2,23 @@
   "sections": [
     {
       "id": 1,
-      "title": "Contexte",
-      "short_help": "Cette section vous permet d'obtenir une vision claire du(des) traitement(s) de données à caractère personnel considéré(s).",
+      "title": "sections.1.title",
+      "short_help": "sections.1.short_help",
       "items": [
         {
           "id": 1,
-          "title": "Vue d'ensemble",
+          "title": "sections.1.items.1.title",
           "evaluation_mode": "item",
-          "short_help": "Cette partie vous permet d'identifier et de présenter l'objet de l'étude.",
+          "short_help": "sections.1.items.1.short_help",
           "questions": [
             {
               "id": 111,
-              "title": "Quel est le traitement qui fait l'objet de l'étude ?",
+              "title": "sections.1.items.1.questions.1.title",
               "link_knowledge_base": [
                 "PIA_LGL_DESC",
                 "PIA_DEF_FIN"
               ],
-              "placeholder": "Présentez le traitement de manière synthétique : son nom, sa finalité, ses enjeux (apports attendus), son contexte d'utilisation, etc.",
+              "placeholder": "sections.1.items.1.questions.1.placeholder",
               "highlight_words": "",
               "answer_type": "text",
               "keywords": "",
@@ -26,13 +26,13 @@
             },
             {
               "id": 112,
-              "title": "Quelles sont les responsabilités liées au traitement ?",
+              "title": "sections.1.items.1.questions.2.title",
               "link_knowledge_base": [
                 "PIA_LGL_DESC",
                 "PIA_DEF_RT",
                 "PIA_DEF_ST"
               ],
-              "placeholder": "Décrivez les responsabilités des parties prenantes : le responsable du traitement, les potentiels sous-traitants et les potentiels co-responsables.",
+              "placeholder": "sections.1.items.1.questions.2.placeholder",
               "highlight_words": "",
               "answer_type": "text",
               "keywords": "",
@@ -40,11 +40,11 @@
             },
             {
               "id": 113,
-              "title": "Quels sont les référentiels applicables ?",
+              "title": "sections.1.items.1.questions.3.title",
               "link_knowledge_base": [
                 "PIA_LGL_DESC"
               ],
-              "placeholder": "Recensez les référentiels applicables au traitement, utiles ou à respecter, notamment les codes de conduite approuvés et certifications en matière de protection des données.",
+              "placeholder": "sections.1.items.1.questions.3.placeholder",
               "highlight_words": "",
               "answer_type": "text",
               "keywords": "",
@@ -54,20 +54,20 @@
         },
         {
           "id": 2,
-          "title": "Données, processus et supports",
+          "title": "sections.1.items.2.title",
           "evaluation_mode": "item",
-          "short_help": "Cette partie vous permet de délimiter et décrire le traitement considéré de manière détaillée.",
+          "short_help": "sections.1.items.2.short_help",
           "questions": [
             {
               "id": 121,
-              "title": "Quelles sont les données traitées ?",
+              "title": "sections.1.items.2.questions.1.title",
               "link_knowledge_base": [
                 "PIA_LGL_DATA",
                 "PIA_LGL_DEST",
                 "PIA_DEF_DCP",
                 "PIA_DEF_DEST"
               ],
-              "placeholder": "Listez les données collectées et traitées en indiquant les durées de conservation, les destinataires et les personnes pouvant y accèder.",
+              "placeholder": "sections.1.items.2.questions.1.placeholder",
               "highlight_words": "",
               "answer_type": "text",
               "keywords": "",
@@ -75,11 +75,11 @@
             },
       			{
       			  "id": 122,
-      			  "title": "Comment le cycle de vie des données se déroule-t-il (description fonctionnelle) ?",
+      			  "title": "sections.1.items.2.questions.2.title",
       			  "link_knowledge_base": [
                 "PIA_LGL_LCYC"
               ],
-      			  "placeholder": "Décrivez le cycle de vie des données (de leur collecte à leur destruction en passant par leur stockage, les différentes étapes de traitements, l'archivage, etc.), par exemple à l'aide d'un schéma des flux de données (vous pouvez l'ajouter en pièce jointe) et d'une description de chaque processus mis en œuvre.",
+      			  "placeholder": "sections.1.items.2.questions.2.placeholder",
       			  "highlight_words": "",
       			  "answer_type": "text",
       			  "keywords": "",
@@ -87,11 +87,11 @@
       			},
       			{
       			  "id": 123,
-      			  "title": "Quels sont les supports des données ?",
+      			  "title": "sections.1.items.2.questions.3.title",
       			  "link_knowledge_base": [
                 "PIA_LGL_SUPT"
               ],
-      			  "placeholder": "Listez les supports des données de votre traitement (systèmes informatiques, serveurs, logiciels, réseaux, personnes, supports papier, etc.).",
+      			  "placeholder": "sections.1.items.2.questions.3.placeholder",
       			  "highlight_words": "",
       			  "answer_type": "text",
       			  "keywords": "",
@@ -103,24 +103,24 @@
     },
     {
       "id": 2,
-      "title": "Principes fondamentaux",
-      "short_help": "Cette section vous permet de bâtir le dispositif de conformité aux principes de protection de la vie privée.",
+      "title": "sections.2.title",
+      "short_help": "sections.2.short_help",
       "items": [
         {
           "id": 1,
-          "title": "Proportionnalité et nécessité",
+          "title": "sections.2.items.1.title",
           "evaluation_mode": "question",
-          "short_help": "Cette partie vous permet de démontrer la légitimité de votre traitement et des données traitées.",
+          "short_help": "sections.2.items.2.short_help",
           "questions": [
             {
               "id": 211,
-              "title": "Les finalités du traitement sont-elles déterminées, explicites et légitimes ?",
-              "short_title": "Finalités",
+              "title": "sections.2.items.1.questions.1.title",
+              "short_title": "sections.2.items.1.questions.1.short_title",
               "link_knowledge_base": [
                 "PIA_LGL_FIN",
                 "PIA_DEF_FIN"
               ],
-              "placeholder": "Expliquez en quoi les finalités du traitement sont déterminées, explicites et légitimes.",
+              "placeholder": "sections.2.items.1.questions.1.placeholder",
               "highlight_words": "",
               "answer_type": "text",
               "keywords": "",
@@ -128,12 +128,12 @@
             },
             {
               "id": 212,
-              "title": "Quel(s) est(sont) les fondement(s) qui rend(ent) votre traitement licite ?",
-              "short_title": "Fondement",
+              "title": "sections.2.items.1.questions.2.title",
+              "short_title": "sections.2.items.1.questions.2.short_title",
               "link_knowledge_base": [
                 "PIA_LGL_FOND"
               ],
-              "placeholder": "Présentez le(s) fondement(s) de votre traitement (ex : consentement, exécution d'un contrat, obligation légale, intérêts vitaux, etc.).",
+              "placeholder": "sections.2.items.1.questions.2.placeholder",
               "highlight_words": "",
               "answer_type": "text",
               "keywords": "",
@@ -141,14 +141,14 @@
             },
             {
               "id": 213,
-              "title": "Les données collectées sont-elles adéquates, pertinentes et limitées à ce qui est nécessaire au regard des finalités pour lesquelles elles sont traitées (minimisation des données) ?",
-              "short_title": "Données adéquates",
+              "title": "sections.2.items.1.questions.3.title",
+              "short_title": "sections.2.items.1.questions.3.short_title",
               "link_knowledge_base": [
                 "PIA_LGL_MINI",
                 "PIA_DEF_MINC",
                 "PIA_DEF_MIND"
               ],
-              "placeholder": "Expliquez en quoi chaque donnée collectée est nécessaire aux finalités de votre traitement.",
+              "placeholder": "sections.2.items.1.questions.3.placeholder",
               "highlight_words": "",
               "answer_type": "text",
               "keywords": "",
@@ -156,12 +156,12 @@
             },
             {
               "id": 214,
-              "title": "Les données sont-elles exactes et tenues à jour ?",
-              "short_title": "Données exactes",
+              "title": "sections.2.items.1.questions.4.title",
+              "short_title": "sections.2.items.1.questions.4.short_title",
               "link_knowledge_base": [
                 "PIA_DEF_EXA"
               ],
-              "placeholder": "Décrivez les mesures prévues pour vous assurer de la qualité des données.",
+              "placeholder": "sections.2.items.1.questions.4.placeholder",
               "highlight_words": "",
               "answer_type": "text",
               "keywords": "",
@@ -169,12 +169,12 @@
             },
             {
               "id": 215,
-              "title": "Quelle est la durée de conservation des données ?",
-              "short_title": "Durée de conservation",
+              "title": "sections.2.items.1.questions.5.title",
+              "short_title": "sections.2.items.1.questions.5.short_title",
               "link_knowledge_base": [
                 "PIA_LGL_DUR"
               ],
-              "placeholder": "Expliquez en quoi la durée de conservation prévue pour chaque donnée est nécessaire à l'accomplissement des finalités de votre traitement, à défaut d'une autre obligation légale imposant une conservation spécifique.",
+              "placeholder": "sections.2.items.1.questions.5.placeholder",
               "highlight_words": "",
               "answer_type": "text",
               "keywords": "",
@@ -184,18 +184,18 @@
         },
         {
           "id": 2,
-          "title": "Mesures protectrices des droits",
+          "title": "sections.2.items.2.title",
           "evaluation_mode": "question",
-          "short_help": "Cette partie vous permet de démontrer que vous mettez en œuvre les moyens nécessaires pour permettre aux personnes concernées d'exercer leurs droits.",
+          "short_help": "sections.2.items.2.short_help",
           "questions": [
             {
               "id": 221,
-              "title": "Comment les personnes concernées sont-elles informées à propos du traitement ?",
-              "short_title": "Information des personnes",
+              "title": "sections.2.items.2.questions.1.title",
+              "short_title": "sections.2.items.2.questions.1.short_title",
               "link_knowledge_base": [
                 "PIA_LGL_INFO"
               ],
-              "placeholder": "Décrivez l'information qu'il est prévu d'apporter aux personnes concernées et les moyens choisis pour cette information.",
+              "placeholder": "sections.2.items.2.questions.1.placeholder",
               "highlight_words": "",
               "answer_type": "text",
               "keywords": "",
@@ -203,13 +203,13 @@
             },
             {
               "id": 222,
-              "title": "Comment le consentement des personnes concernées est-il obtenu ?",
-              "short_title": "Recueil du consentement",
+              "title": "sections.2.items.2.questions.2.title",
+              "short_title": "sections.2.items.2.questions.2.short_title",
               "link_knowledge_base": [
                 "PIA_LGL_CONS",
                 "PIA_DEF_CONS"
               ],
-              "placeholder": "Décrivez les modalités prévues pour obtenir le consentement des personnes concernées.",
+              "placeholder": "sections.2.items.2.questions.2.placeholder",
               "highlight_words": "",
               "answer_type": "text",
               "keywords": "",
@@ -217,15 +217,15 @@
             },
             {
               "id": 223,
-              "title": "Comment les personnes concernées peuvent-elles exercer leurs droit d'accès et droit à la portabilité ?",
-              "short_title": "Droit d'accès et à la portabilité",
+              "title": "sections.2.items.2.questions.3.title",
+              "short_title": "sections.2.items.2.questions.1.short_title",
               "link_knowledge_base": [
                 "PIA_LGL_ACC",
                 "PIA_LGL_PORT",
                 "PIA_DEF_ACC",
                 "PIA_DEF_PORT"
               ],
-              "placeholder": "Décrivez les modalités prévues pour permettre aux personnes concernées d'accéder à leurs données et de recevoir ou transmettre leurs données.",
+              "placeholder": "sections.2.items.2.questions.3.placeholder",
               "highlight_words": "",
               "answer_type": "text",
               "keywords": "",
@@ -233,15 +233,15 @@
             },
             {
               "id": 224,
-              "title": "Comment les personnes concernées peuvent-elles exercer leurs droit de rectification et droit à l'effacement (droit à l'oubli) ?",
-              "short_title": "Droit de rectification et d'effacement",
+              "title": "sections.2.items.2.questions.4.title",
+              "short_title": "sections.2.items.2.questions.4.short_title",
               "link_knowledge_base": [
                 "PIA_LGL_EFF",
                 "PIA_LGL_RECT",
                 "PIA_DEF_EFF",
                 "PIA_DEF_RECT"
               ],
-              "placeholder": "Décrivez les modalités prévues pour permettre aux personnes concernées de rectifier et d'effacer leurs données.",
+              "placeholder": "sections.2.items.2.questions.4.placeholder",
               "highlight_words": "",
               "answer_type": "text",
               "keywords": "",
@@ -249,13 +249,13 @@
             },
             {
               "id": 225,
-              "title": "Comment les personnes concernées peuvent-elles exercer leurs droit de limitation et droit d'opposition ?",
-              "short_title": "Droit de limitation et d'opposition",
+              "title": "sections.2.items.2.questions.5.title",
+              "short_title": "sections.2.items.2.questions.5.short_title",
               "link_knowledge_base": [
                 "PIA_LGL_LIM",
                 "PIA_DEF_LIM"
               ],
-              "placeholder": "Décrivez les modalités prévues pour permettre aux personnes concernées de limiter le traitement de leurs données et de s'opposer au traitement de leurs données.",
+              "placeholder": "sections.2.items.2.questions.5.placeholder",
               "highlight_words": "",
               "answer_type": "text",
               "keywords": "",
@@ -263,13 +263,13 @@
             },
             {
               "id": 226,
-              "title": "Les obligations des sous-traitants sont-elles clairement définies et contractualisées ?",
-              "short_title": "Sous-traitance",
+              "title": "sections.2.items.2.questions.6.title",
+              "short_title": "sections.2.items.2.questions.6.short_title",
               "link_knowledge_base": [
                 "PIA_LGL_ST",
                 "PIA_DEF_ST"
               ],
-              "placeholder": "Pour chaque sous-traitant, décrivez le périmètre de ses responsabilités et indiquez les références aux contrats, codes de conduite et certifications qui fixent ses obligations.",
+              "placeholder": "sections.2.items.2.questions.6.placeholder",
               "highlight_words": "",
               "answer_type": "text",
               "keywords": "",
@@ -277,12 +277,12 @@
             },
             {
               "id": 227,
-              "title": "En cas de transfert de données en dehors de l'Union européenne, les données sont-elles protégées de manière équivalente ?",
-              "short_title": "Transferts",
+              "title": "sections.2.items.2.questions.7.title",
+              "short_title": "sections.2.items.2.questions.7.short_title",
               "link_knowledge_base": [
                 "PIA_LGL_TRAN"
               ],
-              "placeholder": "Pour chaque pays en dehors de l'Union européenne où des données sont stockées ou traitées, identifiez-le et indiquez s'il est reconnu comme adéquat ou décrivez les clauses qui encadrent le transfert.",
+              "placeholder": "sections.2.items.2.questions.7.placeholder",
               "highlight_words": "",
               "answer_type": "text",
               "keywords": "",
@@ -294,33 +294,33 @@
     },
     {
       "id": 3,
-      "title": "Risques",
-      "short_help": "Cette section vous permet d'apprécier les risques sur la vie privée, compte tenu des mesures existantes ou prévues.",
+      "title": "sections.3.title",
+      "short_help": "sections.3.short_help",
       "items": [
         {
           "id": 1,
           "is_measure": true,
           "filter_by": "measure",
-          "title": "Mesures existantes ou prévues",
+          "title": "sections.3.items.1.title",
           "link_knowledge_base": [],
           "evaluation_mode": "question",
-          "short_help": "Cette partie vous permet de recenser les mesures (existantes ou prévues) contribuant à la sécurité des données."
+          "short_help": "sections.3.items.1.short_help"
         },
         {
           "id": 2,
-          "title": "Accès illégitime à des données",
+          "title": "sections.3.items.2.title",
           "evaluation_mode": "item",
           "evaluation_with_gauge": true,
-          "short_help": "Analysez les causes et conséquences d'un accès illégitime à des données, et estimez sa gravité et sa vraisemblance.",
+          "short_help": "sections.3.items.2.short_help",
           "questions": [
             {
               "id": 321,
-              "title": "Quels pourraient être les principaux impacts sur les personnes concernées si le risque se produisait ?",
+              "title": "sections.3.items.2.questions.1.title",
               "link_knowledge_base": [
                 "PIA_DEF_ACCI",
                 "PIA_DEF_IMP"
               ],
-              "placeholder": "Saisissez les impacts potentiels.",
+              "placeholder": "sections.3.items.2.questions.1.placeholder",
               "highlight_words": "impacts sur les personnes",
               "answer_type": "list",
               "keywords": "",
@@ -328,7 +328,7 @@
             },
             {
               "id": 322,
-              "title": "Quelles sont les principales menaces qui pourraient permettre la réalisation du risque ?",
+              "title": "sections.3.items.2.questions.2.title",
               "link_knowledge_base": [
                 "PIA_DEF_ACCI",
                 "PIA_DEF_MEN",
@@ -336,7 +336,7 @@
                 "PIA_EX_MENM",
                 "PIA_EX_MENI"
               ],
-              "placeholder": "Saisissez les menaces.",
+              "placeholder": "sections.3.items.2.questions.2.placeholder",
               "highlight_words": "menaces",
               "answer_type": "list",
               "keywords": "",
@@ -344,7 +344,7 @@
             },
             {
               "id": 323,
-              "title": "Quelles sources de risques pourraient-elles en être à l'origine ?",
+              "title": "sections.3.items.2.questions.3.title",
               "link_knowledge_base": [
                 "PIA_DEF_ACCI",
                 "PIA_DEF_SRC",
@@ -352,7 +352,7 @@
                 "PIA_EX_HUME",
                 "PIA_EX_NHUM"
               ],
-              "placeholder": "Saisissez les sources de risque.",
+              "placeholder": "sections.3.items.2.questions.3.placeholder",
               "highlight_words": "sources",
               "answer_type": "list",
               "keywords": "",
@@ -360,13 +360,13 @@
             },
             {
               "id": 324,
-              "title": "Quelles sont les mesures, parmi celles identifiées, qui contribuent à traiter le risque ?",
+              "title": "sections.3.items.2.questions.4.title",
               "is_measure": true,
               "link_knowledge_base": [
                 "PIA_DEF_ACCI",
                 "PIA_DEF_MES"
               ],
-              "placeholder": "Cliquez ici pour sélectionner les mesures contribuant à traiter ce risque.",
+              "placeholder": "sections.3.items.2.questions.4.placeholder",
               "highlight_words": "mesures",
               "answer_type": "list",
               "keywords": "",
@@ -374,7 +374,7 @@
             },
             {
               "id": 325,
-              "title": "Comment estimez-vous la gravité du risque, notamment en fonction des impacts potentiels et des mesures prévues ?",
+              "title": "sections.3.items.2.questions.5.title",
               "link_knowledge_base": [
                 "PIA_DEF_ACCI",
                 "PIA_DEF_IMP",
@@ -384,7 +384,7 @@
                 "PIA_EX_IMPI",
                 "PIA_EX_IMPM"
               ],
-              "placeholder": "Justifiez ici la gravité estimée.",
+              "placeholder": "sections.3.items.2.questions.5.placeholder",
               "highlight_words": "gravité du risque",
               "answer_type": "gauge",
               "cartography": "risk-access_x",
@@ -393,7 +393,7 @@
             },
             {
               "id": 326,
-              "title": "Comment estimez-vous la vraisemblance du risque, notamment au regard des menaces, des sources de risques et des mesures prévues ?",
+              "title": "sections.3.items.2.questions.6.title",
               "link_knowledge_base": [
                 "PIA_DEF_ACCI",
                 "PIA_DEF_VRA",
@@ -402,7 +402,7 @@
                 "PIA_EX_VRAI",
                 "PIA_EX_VRAM"
               ],
-              "placeholder": "Justifiez ici la vraisemblance estimée.",
+              "placeholder": "sections.3.items.2.questions.6.placeholder",
               "highlight_words": "vraissemblance du risque",
               "answer_type": "gauge",
               "cartography": "risk-access_y",
@@ -413,19 +413,19 @@
         },
         {
           "id": 3,
-          "title": "Modification non désirée de données",
+          "title": "sections.3.items.3.title",
           "evaluation_mode": "item",
           "evaluation_with_gauge": true,
-          "short_help": "Analysez les causes et conséquences d'une modification on désirée de données, et estimez sa gravité et sa vraisemblance.",
+          "short_help": "sections.3.items.3.short_help",
           "questions": [
             {
               "id": 331,
-              "title": "Quels pourraient être les principaux impacts sur les personnes concernées si le risque se produisait ?",
+              "title": "sections.3.items.3.questions.1.title",
               "link_knowledge_base": [
                 "PIA_DEF_MODI",
                 "PIA_DEF_IMP"
               ],
-              "placeholder": "Saisissez les impacts potentiels.",
+              "placeholder": "sections.3.items.3.questions.1.placeholder",
               "highlight_words": "impacts sur les personnes",
               "answer_type": "list",
               "keywords": "",
@@ -433,7 +433,7 @@
             },
             {
               "id": 332,
-              "title": "Quelles sont les principales menaces qui pourraient permettre la réalisation du risque ?",
+              "title": "sections.3.items.3.questions.2.title",
               "link_knowledge_base": [
                 "PIA_DEF_MODI",
                 "PIA_DEF_MEN",
@@ -441,7 +441,7 @@
                 "PIA_EX_MENM",
                 "PIA_EX_MENI"
               ],
-              "placeholder": "Saisissez les menaces.",
+              "placeholder": "sections.3.items.3.questions.2.placeholder",
               "highlight_words": "menaces",
               "answer_type": "list",
               "keywords": "",
@@ -449,7 +449,7 @@
             },
             {
               "id": 333,
-              "title": "Quelles sources de risques pourraient-elles en être à l'origine ?",
+              "title": "sections.3.items.3.questions.3.title",
               "link_knowledge_base": [
                 "PIA_DEF_MODI",
                 "PIA_DEF_SRC",
@@ -457,7 +457,7 @@
                 "PIA_EX_HUME",
                 "PIA_EX_NHUM"
               ],
-              "placeholder": "Saisissez les sources de risque.",
+              "placeholder": "sections.3.items.3.questions.3.placeholder",
               "highlight_words": "sources",
               "answer_type": "list",
               "keywords": "",
@@ -465,13 +465,13 @@
             },
             {
               "id": 334,
-              "title": "Quelles sont les mesures, parmi celles identifiées, qui contribuent à traiter le risque ?",
+              "title": "sections.3.items.3.questions.4.title",
               "is_measure": true,
               "link_knowledge_base": [
                 "PIA_DEF_MODI",
                 "PIA_DEF_MES"
                ],
-              "placeholder": "Cliquez ici pour sélectionner les mesures contribuant à traiter ce risque.",
+              "placeholder": "sections.3.items.3.questions.4.placeholder",
               "highlight_words": "mesures",
               "answer_type": "list",
               "keywords": "",
@@ -479,7 +479,7 @@
             },
             {
               "id": 335,
-              "title": "Comment estimez-vous la gravité du risque, notamment en fonction des impacts potentiels et des mesures prévues ?",
+              "title": "sections.3.items.3.questions.5.title",
               "link_knowledge_base": [
                 "PIA_DEF_MODI",
                 "PIA_DEF_GRV",
@@ -489,7 +489,7 @@
                 "PIA_EX_IMPI",
                 "PIA_EX_IMPM"
               ],
-              "placeholder": "Justifiez ici la gravité estimée.",
+              "placeholder": "sections.3.items.3.questions.5.placeholder",
               "highlight_words": "gravité du risque",
               "answer_type": "gauge",
               "cartography": "risk-change_x",
@@ -498,7 +498,7 @@
             },
             {
               "id": 336,
-              "title": "Comment estimez-vous la vraisemblance du risque, notamment au regard des menaces, des sources de risques et des mesures prévues ?",
+              "title": "sections.3.items.3.questions.6.title",
               "link_knowledge_base": [
                 "PIA_DEF_MODI",
                 "PIA_DEF_VRA",
@@ -507,7 +507,7 @@
                 "PIA_EX_VRAI",
                 "PIA_EX_VRAM"
               ],
-              "placeholder": "Justifiez ici la vraisemblance estimée.",
+              "placeholder": "sections.3.items.3.questions.6.placeholder",
               "highlight_words": "vraissemblance du risque",
               "answer_type": "gauge",
               "cartography": "risk-change_y",
@@ -518,19 +518,19 @@
         },
         {
           "id": 4,
-          "title": "Disparition de données",
+          "title": "sections.3.items.4.title",
           "evaluation_mode": "item",
           "evaluation_with_gauge": true,
-          "short_help": "Analysez les causes et conséquences d'une disparition de données, et estimez sa gravité et sa vraisemblance.",
+          "short_help": "sections.3.items.4.short_help",
           "questions": [
             {
               "id": 341,
-              "title": "Quels pourraient être les principaux impacts sur les personnes concernées si le risque se produisait ?",
+              "title": "sections.3.items.4.questions.1.title",
               "link_knowledge_base": [
                 "PIA_DEF_IND",
                 "PIA_DEF_IMP"
               ],
-              "placeholder": "Saisissez les impacts potentiels.",
+              "placeholder": "sections.3.items.4.questions.1.placeholder",
               "highlight_words": "impacts sur les personnes",
               "answer_type": "list",
               "keywords": "",
@@ -538,7 +538,7 @@
             },
             {
               "id": 342,
-              "title": "Quelles sont les principales menaces qui pourraient permettre la réalisation du risque ?",
+              "title": "sections.3.items.4.questions.2.title",
               "link_knowledge_base": [
                 "PIA_DEF_IND",
                 "PIA_DEF_MEN",
@@ -546,7 +546,7 @@
                 "PIA_EX_MENM",
                 "PIA_EX_MENI"
               ],
-              "placeholder": "Saisissez les menaces.",
+              "placeholder": "sections.3.items.4.questions.2.placeholder",
               "highlight_words": "menaces",
               "answer_type": "list",
               "keywords": "",
@@ -554,7 +554,7 @@
             },
             {
               "id": 343,
-              "title": "Quelles sources de risques pourraient-elles en être à l'origine ?",
+              "title": "sections.3.items.4.questions.3.title",
               "link_knowledge_base": [
                 "PIA_DEF_IND",
                 "PIA_DEF_SRC",
@@ -562,7 +562,7 @@
                 "PIA_EX_HUME",
                 "PIA_EX_NHUM"
               ],
-              "placeholder": "Saisissez les sources de risque.",
+              "placeholder": "sections.3.items.4.questions.3.placeholder",
               "highlight_words": "sources",
               "answer_type": "list",
               "keywords": "",
@@ -570,13 +570,13 @@
             },
             {
               "id": 344,
-              "title": "Quelles sont les mesures, parmi celles identifiées, qui contribuent à traiter le risque ?",
+              "title": "sections.3.items.4.questions.4.title",
               "is_measure": true,
               "link_knowledge_base": [
                 "PIA_DEF_IND",
                 "PIA_DEF_MES"
               ],
-              "placeholder": "Cliquez ici pour sélectionner les mesures contribuant à traiter ce risque.",
+              "placeholder": "sections.3.items.4.questions.4.placeholder",
               "highlight_words": "mesures",
               "answer_type": "list",
               "keywords": "",
@@ -584,7 +584,7 @@
             },
             {
               "id": 345,
-              "title": "Comment estimez-vous la gravité du risque, notamment en fonction des impacts potentiels et des mesures prévues ?",
+              "title": "sections.3.items.4.questions.5.title",
               "link_knowledge_base": [
                 "PIA_DEF_IND",
                 "PIA_DEF_GRV",
@@ -594,7 +594,7 @@
                 "PIA_EX_IMPI",
                 "PIA_EX_IMPM"
               ],
-              "placeholder": "Justifiez ici la gravité estimée.",
+              "placeholder": "sections.3.items.4.questions.5.placeholder",
               "highlight_words": "gravité du risque",
               "answer_type": "gauge",
               "cartography": "risk-disappearance_x",
@@ -603,7 +603,7 @@
             },
             {
               "id": 346,
-              "title": "Comment estimez-vous la vraisemblance du risque, notamment au regard des menaces, des sources de risques et des mesures prévues ?",
+              "title": "sections.3.items.4.questions.6.title",
               "link_knowledge_base": [
                 "PIA_DEF_IND",
                 "PIA_DEF_VRA",
@@ -612,7 +612,7 @@
                 "PIA_EX_VRAI",
                 "PIA_EX_VRAM"
               ],
-              "placeholder": "Justifiez ici la vraisemblance estimée.",
+              "placeholder": "sections.3.items.4.questions.6.placeholder",
               "highlight_words": "vraissemblance du risque",
               "answer_type": "gauge",
               "cartography": "risk-disappearance_y",
@@ -623,46 +623,46 @@
         },
         {
           "id": 5,
-          "title": "Vue d'ensemble des risques",
+          "title": "sections.3.items.5.title",
           "evaluation_mode": "",
-          "short_help": "Cette visualisation vous permet d’avoir une vue globale et synthétique de l’action des mesures sur les composants des risques qu’elles contribuent à traiter.",
+          "short_help": "sections.3.items.5.short_help",
           "type": ""
         }
       ]
     },
     {
       "id": 4,
-      "title": "Validation",
-      "short_help": "Cette section vous permet de préparer et de formaliser la validation du PIA.",
+      "title": "sections.4.title",
+      "short_help": "sections.4.short_help",
       "items": [
         {
           "id": 1,
-          "title": "Cartographie des risques",
+          "title": "sections.4.items.1.title",
           "evaluation_mode": "",
           "link_knowledge_base": [
             "PIA_VAL_CART"
           ],
-          "short_help": "Cette visualisation vous permet de comparer le positionnement des risques, entre eux et avant et après application des mesures complémentaires."
+          "short_help": "sections.4.items.1.short_help"
         },
         {
           "id": 2,
-          "title": "Plan d'action",
+          "title": "sections.4.items.2.title",
           "evaluation_mode": "",
           "link_knowledge_base": [
             "PIA_VAL_ACT"
           ],
-          "short_help": "Planifiez en détail la mise en œuvre des mesures complémentaires déterminées au cours du PIA."
+          "short_help": "sections.4.items.2.short_help"
         },
         {
           "id": 3,
-          "title": "Avis du DPO et des personnes concernées",
+          "title": "sections.4.items.3.title",
           "evaluation_mode": "",
           "link_knowledge_base": [
             "PIA_VAL_DPO",
             "PIA_VAL_CONC",
             "PIA_VAL_RT"
           ],
-          "short_help": "Présentez le conseil de la personne en charge des aspects informatique et libertés (délégué à la protection des données s'il existe + Présentez l'avis des personnes concernées ou de leurs représentants."
+          "short_help": "sections.4.items.3.short_help"
         },
         {
           "id": 4,

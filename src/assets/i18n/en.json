@@ -54,6 +54,7 @@
      "status": "Status",
      "creation_status": "Creation",
      "start": "Start",
+     "placeholder_start": "All fields must be filled",
      "item": {
         "tools": {
           "edit": "Edit",
@@ -113,7 +114,8 @@
     "placeholder_title": "Measure title",
     "add": "Add an empty measure (otherwise, use the knowledge base)",
     "edit": "Edit measure",
-    "remove": "Remove measure"
+    "remove": "Remove measure",
+    "default_placeholder": "Add measures to ensure data security."
   },
   "knowledge_base": {
     "title": "Knowledge base",
@@ -129,6 +131,492 @@
       "measures_on_data": "Measures on data",
       "general_measures": "General measures",
       "no_result": "No result found."
+    },
+    "category": {
+      "definition": "Definition",
+      "principle": "Principle",
+      "organizational_measure": "Organizational measure",
+      "measure_on_data": "Measure on data",
+      "general_measure": "General measure",
+      "example": "Example"
+    },
+    "slugs": {
+      "PIA_LGL_FOND": {
+        "name": "Translation in progress",
+        "description": "Translation in progress"
+      },
+      "PIA_LGL_ST": {
+        "name": "Translation in progress",
+        "description": "Translation in progress"
+      },
+      "PIA_LGL_TRAN": {
+        "name": "Translation in progress",
+        "description": "Translation in progress"
+      },
+      "PIA_LGL_DESC": {
+        "name": "Translation in progress",
+        "description": "Translation in progress"
+      },
+      "PIA_LGL_DATA": {
+        "name": "Translation in progress",
+        "description": "Translation in progress"
+      },
+      "PIA_LGL_LCYC": {
+        "name": "Translation in progress",
+        "description": "Translation in progress"
+      },
+      "PIA_LGL_SUPT": {
+        "name": "Translation in progress",
+        "description": "Translation in progress"
+      },
+      "PIA_LGL_FIN": {
+        "name": "Translation in progress",
+        "description": "Translation in progress"
+      },
+      "PIA_LGL_MINI": {
+        "name": "Translation in progress",
+        "description": "Translation in progress"
+      },
+      "PIA_LGL_DEST": {
+        "name": "Translation in progress",
+        "description": "Translation in progress"
+      },
+      "PIA_LGL_DUR": {
+        "name": "Translation in progress",
+        "description": "Translation in progress"
+      },
+      "PIA_LGL_INFO": {
+        "name": "Translation in progress",
+        "description": "Translation in progress"
+      },
+      "PIA_LGL_CONS": {
+        "name": "Translation in progress",
+        "description": "Translation in progress"
+      },
+      "PIA_LGL_ACC": {
+        "name": "Translation in progress",
+        "description": "Translation in progress"
+      },
+      "PIA_LGL_PORT": {
+        "name": "Translation in progress",
+        "description": "Translation in progress"
+      },
+      "PIA_LGL_RECT": {
+        "name": "Translation in progress",
+        "description": "Translation in progress"
+      },
+      "PIA_LGL_EFF": {
+        "name": "Translation in progress",
+        "description": "Translation in progress"
+      },
+      "PIA_LGL_LIM": {
+        "name": "Translation in progress",
+        "description": "Translation in progress"
+      },
+      "PIA_LGL_OPP": {
+        "name": "Translation in progress",
+        "description": "Translation in progress"
+      },
+      "PIA_VAL_DPO": {
+        "name": "Translation in progress",
+        "description": "Translation in progress"
+      },
+      "PIA_VAL_CONC": {
+        "name": "Translation in progress",
+        "description": "Translation in progress"
+      },
+      "PIA_VAL_RT": {
+        "name": "Translation in progress",
+        "description": "Translation in progress"
+      },
+      "PIA_TEC_CHIF": {
+        "name": "Translation in progress",
+        "description": "Translation in progress"
+      },
+      "PIA_TEC_ANO": {
+        "name": "Translation in progress",
+        "description": "Translation in progress"
+      },
+      "PIA_TEC_CLO": {
+        "name": "Translation in progress",
+        "description": "Translation in progress"
+      },
+      "PIA_TEC_CTLA": {
+        "name": "Translation in progress",
+        "description": "Translation in progress"
+      },
+      "PIA_TEC_LOG": {
+        "name": "Translation in progress",
+        "description": "Translation in progress"
+      },
+      "PIA_TEC_ARCH": {
+        "name": "Translation in progress",
+        "description": "Translation in progress"
+      },
+      "PIA_TEC_PAP": {
+        "name": "Translation in progress",
+        "description": "Translation in progress"
+      },
+      "PIA_TEC_MINI": {
+        "name": "Translation in progress",
+        "description": "Translation in progress"
+      },
+      "PIA_SEC_EXP": {
+        "name": "Translation in progress",
+        "description": "Translation in progress"
+      },
+      "PIA_SEC_MAL": {
+        "name": "Translation in progress",
+        "description": "Translation in progress"
+      },
+      "PIA_SEC_COMP": {
+        "name": "Translation in progress",
+        "description": "Translation in progress"
+      },
+      "PIA_SEC_WEB": {
+        "name": "Translation in progress",
+        "description": "Translation in progress"
+      },
+      "PIA_SEC_BKP": {
+        "name": "Translation in progress",
+        "description": "Translation in progress"
+      },
+      "PIA_SEC_MAIN": {
+        "name": "Translation in progress",
+        "description": "Translation in progress"
+      },
+      "PIA_SEC_CTR": {
+        "name": "Translation in progress",
+        "description": "Translation in progress"
+      },
+      "PIA_SEC_NET": {
+        "name": "Translation in progress",
+        "description": "Translation in progress"
+      },
+      "PIA_SEC_PHY": {
+        "name": "Translation in progress",
+        "description": "Translation in progress"
+      },
+      "PIA_SEC_LOG": {
+        "name": "Translation in progress",
+        "description": "Translation in progress"
+      },
+      "PIA_SEC_MAT": {
+        "name": "Translation in progress",
+        "description": "Translation in progress"
+      },
+      "PIA_SEC_SRC": {
+        "name": "Translation in progress",
+        "description": "Translation in progress"
+      },
+      "PIA_SEC_PROT": {
+        "name": "Translation in progress",
+        "description": "Translation in progress"
+      },
+      "PIA_ORG_ORG": {
+        "name": "Translation in progress",
+        "description": "Translation in progress"
+      },
+      "PIA_ORG_POL": {
+        "name": "Translation in progress",
+        "description": "Translation in progress"
+      },
+      "PIA_ORG_RMGT": {
+        "name": "Translation in progress",
+        "description": "Translation in progress"
+      },
+      "PIA_ORG_PBD": {
+        "name": "Translation in progress",
+        "description": "Translation in progress"
+      },
+      "PIA_ORG_VIOL": {
+        "name": "Translation in progress",
+        "description": "Translation in progress"
+      },
+      "PIA_ORG_PERS": {
+        "name": "Translation in progress",
+        "description": "Translation in progress"
+      },
+      "PIA_ORG_EXT": {
+        "name": "Translation in progress",
+        "description": "Translation in progress"
+      },
+      "PIA_ORG_AUD": {
+        "name": "Translation in progress",
+        "description": "Translation in progress"
+      },
+      "PIA_DEF_IMP": {
+        "name": "Translation in progress",
+        "description": "Translation in progress"
+      },
+      "PIA_DEF_EXA": {
+        "name": "Translation in progress",
+        "description": "Translation in progress"
+      },
+      "PIA_DEF_MES": {
+        "name": "Translation in progress",
+        "description": "Translation in progress"
+      },
+      "PIA_DEF_RT": {
+        "name": "Translation in progress",
+        "description": "Translation in progress"
+      },
+      "PIA_DEF_DCP": {
+        "name": "Translation in progress",
+        "description": "Translation in progress"
+      },
+      "PIA_DEF_DEST": {
+        "name": "Translation in progress",
+        "description": "Translation in progress"
+      },
+      "PIA_DEF_SUPT": {
+        "name": "Translation in progress",
+        "description": "Translation in progress"
+      },
+      "PIA_DEF_MINC": {
+        "name": "Translation in progress",
+        "description": "Translation in progress"
+      },
+      "PIA_DEF_MIND": {
+        "name": "Translation in progress",
+        "description": "Translation in progress"
+      },
+      "PIA_DEF_CONS": {
+        "name": "Translation in progress",
+        "description": "Translation in progress"
+      },
+      "PIA_DEF_ACC": {
+        "name": "Translation in progress",
+        "description": "Translation in progress"
+      },
+      "PIA_DEF_PORT": {
+        "name": "Translation in progress",
+        "description": "Translation in progress"
+      },
+      "PIA_DEF_RECT": {
+        "name": "Translation in progress",
+        "description": "Translation in progress"
+      },
+      "PIA_DEF_EFF": {
+        "name": "Translation in progress",
+        "description": "Translation in progress"
+      },
+      "PIA_DEF_LIM": {
+        "name": "Translation in progress",
+        "description": "Translation in progress"
+      },
+      "PIA_DEF_OPP": {
+        "name": "Translation in progress",
+        "description": "Translation in progress"
+      },
+      "PIA_DEF_CHIF": {
+        "name": "Translation in progress",
+        "description": "Translation in progress"
+      },
+      "PIA_DEF_VPN": {
+        "name": "Translation in progress",
+        "description": "Translation in progress"
+      },
+      "PIA_DEF_ANO": {
+        "name": "Translation in progress",
+        "description": "Translation in progress"
+      },
+      "PIA_DEF_PSEU": {
+        "name": "Translation in progress",
+        "description": "Translation in progress"
+      },
+      "PIA_DEF_CLO": {
+        "name": "Translation in progress",
+        "description": "Translation in progress"
+      },
+      "PIA_DEF_CTLA": {
+        "name": "Translation in progress",
+        "description": "Translation in progress"
+      },
+      "PIA_DEF_PROF": {
+        "name": "Translation in progress",
+        "description": "Translation in progress"
+      },
+      "PIA_DEF_PWD": {
+        "name": "Translation in progress",
+        "description": "Translation in progress"
+      },
+      "PIA_DEF_AUTH": {
+        "name": "Translation in progress",
+        "description": "Translation in progress"
+      },
+      "PIA_DEF_LOG": {
+        "name": "Translation in progress",
+        "description": "Translation in progress"
+      },
+      "PIA_DEF_ARCH": {
+        "name": "Translation in progress",
+        "description": "Translation in progress"
+      },
+      "PIA_DEF_MIN1": {
+        "name": "Translation in progress",
+        "description": "Translation in progress"
+      },
+      "PIA_DEF_MIN2": {
+        "name": "Translation in progress",
+        "description": "Translation in progress"
+      },
+      "PIA_DEF_SRC": {
+        "name": "Translation in progress",
+        "description": "Translation in progress"
+      },
+      "PIA_DEF_MEN": {
+        "name": "Translation in progress",
+        "description": "Translation in progress"
+      },
+      "PIA_DEF_MENA": {
+        "name": "Translation in progress",
+        "description": "Translation in progress"
+      },
+      "PIA_DEF_MENM": {
+        "name": "Translation in progress",
+        "description": "Translation in progress"
+      },
+      "PIA_DEF_MENI": {
+        "name": "Translation in progress",
+        "description": "Translation in progress"
+      },
+      "PIA_DEF_GRV": {
+        "name": "Translation in progress",
+        "description": "Translation in progress"
+      },
+      "PIA_DEF_VRA": {
+        "name": "Translation in progress",
+        "description": "Translation in progress"
+      },
+      "PIA_DEF_IND": {
+        "name": "Translation in progress",
+        "description": "Translation in progress"
+      },
+      "PIA_DEF_ACCI": {
+        "name": "Translation in progress",
+        "description": "Translation in progress"
+      },
+      "PIA_DEF_MODI": {
+        "name": "Translation in progress",
+        "description": "Translation in progress"
+      },
+      "PIA_DEF_PBDS": {
+        "name": "Translation in progress",
+        "description": "Translation in progress"
+      },
+      "PIA_DEF_PBDF": {
+        "name": "Translation in progress",
+        "description": "Translation in progress"
+      },
+      "PIA_DEF_VIOL": {
+        "name": "Translation in progress",
+        "description": "Translation in progress"
+      },
+      "PIA_DEF_EVT": {
+        "name": "Translation in progress",
+        "description": "Translation in progress"
+      },
+      "PIA_VAL_CART": {
+        "name": "Translation in progress",
+        "description": "Translation in progress"
+      },
+      "PIA_VAL_ACT": {
+        "name": "Translation in progress",
+        "description": "Translation in progress"
+      },
+      "PIA_DEF_ENJ": {
+        "name": "Translation in progress",
+        "description": "Translation in progress"
+      },
+      "PIA_DEF_ST": {
+        "name": "Translation in progress",
+        "description": "Translation in progress"
+      },
+      "PIA_DEF_RGPD": {
+        "name": "Translation in progress",
+        "description": "Translation in progress"
+      },
+      "PIA_DEF_PC": {
+        "name": "Translation in progress",
+        "description": "Translation in progress"
+      },
+      "PIA_DEF_FIN": {
+        "name": "Translation in progress",
+        "description": "Translation in progress"
+      },
+      "PIA_DEF_MIN3": {
+        "name": "Translation in progress",
+        "description": "Translation in progress"
+      },
+      "PIA_DEF_MIN4": {
+        "name": "Translation in progress",
+        "description": "Translation in progress"
+      },
+      "PIA_DEF_MIN5": {
+        "name": "Translation in progress",
+        "description": "Translation in progress"
+      },
+      "PIA_EX_DCPC": {
+        "name": "Translation in progress",
+        "description": "Translation in progress"
+      },
+      "PIA_EX_DCPS": {
+        "name": "Translation in progress",
+        "description": "Translation in progress"
+      },
+      "PIA_EX_DCPR": {
+        "name": "Translation in progress",
+        "description": "Translation in progress"
+      },
+      "PIA_EX_HUMI": {
+        "name": "Translation in progress",
+        "description": "Translation in progress"
+      },
+      "PIA_EX_HUME": {
+        "name": "Translation in progress",
+        "description": "Translation in progress"
+      },
+      "PIA_EX_NHUM": {
+        "name": "Translation in progress",
+        "description": "Translation in progress"
+      },
+      "PIA_EX_IMPN": {
+        "name": "Translation in progress",
+        "description": "Translation in progress"
+      },
+      "PIA_EX_IMPL": {
+        "name": "Translation in progress",
+        "description": "Translation in progress"
+      },
+      "PIA_EX_IMPI": {
+        "name": "Translation in progress",
+        "description": "Translation in progress"
+      },
+      "PIA_EX_IMPM": {
+        "name": "Translation in progress",
+        "description": "Translation in progress"
+      },
+      "PIA_EX_VRAN": {
+        "name": "Translation in progress",
+        "description": "Translation in progress"
+      },
+      "PIA_EX_VRAL": {
+        "name": "Translation in progress",
+        "description": "Translation in progress"
+      },
+      "PIA_EX_VRAI": {
+        "name": "Translation in progress",
+        "description": "Translation in progress"
+      },
+      "PIA_EX_VRAM": {
+        "name": "Translation in progress",
+        "description": "Translation in progress"
+      },
+      "PIA_EX_DC": {
+        "name": "Translation in progress",
+        "description": "Translation in progress"
+      }
     }
   },
   "comments": {
@@ -235,11 +723,316 @@
   },
   "summary": {
     "previous_page": "Back to previous page",
-    "print": "Print"
+    "print": "Print",
+    "title": "PIA information",
+    "pia_name": "PIA's name",
+    "pia_author": "Author's name",
+    "pia_assessor": "Assessor's name",
+    "pia_validator": "Validator's name",
+    "dpo_name": "DPO's name",
+    "dpo_status": "DPO's status",
+    "dpo_opinion": "DPO's opinion",
+    "concerned_people_name": "Concerned people opinions",
+    "concerned_people_status": "Concerned people statuses",
+    "concerned_people_opinion": "Concerned people opinions",
+    "modification_made": "Modifications made",
+    "rejection_reason": "Rejection reason",
+    "creation_date": "Creation date",
+    "attachments": "Attachments",
+    "action_plan": {
+      "fundamental_principles": "Fundamental principles",
+      "implementation_date": "Expected date of implementation",
+      "implementation_responsible": "Responsible for implementation",
+      "measures": "Existing or planned measures",
+      "risks": "Risks",
+      "no_action_plan": "No action plan recorded."
+    }
+  },
+  "errors": {
+    "title": "Page not found.",
+    "content": "You can upload a problem or request using the ticket manager<br>available at the following address: <a href='https://redmine.atnos.io' target='_blank'>https://redmine.atnos.io</a>"
+  },
+    "cartography": {
+    "negligible": "Negligible",
+    "limited": "Limited",
+    "important": "Important",
+    "maximal": "Maximum",
+    "seriousness_axe": "Risk seriousness",
+    "likelihood_axe": "Risk likelihood",
+    "legend1": "Planned or existing measures",
+    "legend2": "With the corrective measures implemented",
+    "legend3": "(I)llegitimate access to data",
+    "legend4": "(U)nwanted modification of data",
+    "legend5": "(D)ata disappearence"
+  },
+  "action_plan": {
+    "title": "Overview",
+    "principles": "Fundamental principles",
+    "measures": "Planned or existing measures",
+    "risks": "Risks",
+    "risk1": "Illegitimate access to data",
+    "risk2": "Unwanted modification of data",
+    "risk3": "Data disappearence",
+    "improvable_measures": "Improvable measures",
+    "acceptable_measures": "Acceptable measures",
+    "no_action_plan": "No action plan recorded.",
+    "edit": "Edit",
+    "placeholder_person_in_charge": "Implementation responsible"
+  },
+  "opinions": {
+    "edit": "Edit",
+    "content": ", consider that :",
+    "dpo_opinion": "DPO opinion",
+    "placeholder_dpo_name": "DPO name(s)",
+    "placeholder_dpo_opinion": "Specify the reasons for your choice.",
+    "people_opinion": "Concerned people opinion",
+    "placeholder_concerned_people_name": "Concerned people name(s)",
+    "placeholder_people_opinion": "Describe how the opinions were collected and what the analysis is. If the notices have not been sought, state the reasons.",
+    "treatment_ok": "The treatment could be implemented.",
+    "treatment_nok": "The treatment should not be used."
   },
   "sections": {
     "1": {
-      "title": "Context"
+      "title": "Context",
+      "short_help": "This section gives you a clear view of the treatment(s) of personal data in question.",
+      "items": {
+        "1": {
+          "title": "Overview",
+          "short_help": "This part allows you to identify and present the object of the study.",
+          "questions": {
+            "1": {
+              "title": "Translation in progress",
+              "placeholder": "Translation in progress"
+            },
+            "2": {
+              "title": "Translation in progress",
+              "placeholder": "Translation in progress"
+            },
+            "3": {
+              "title": "Translation in progress",
+              "placeholder": "Translation in progress"
+            }
+          }
+        },
+        "2": {
+          "title": "Data, processes and media",
+          "short_help": "This part allows you to delimit and describe the treatment considered in detail.",
+          "questions": {
+            "1": {
+              "title": "Translation in progress",
+              "placeholder": "Translation in progress"
+            },
+            "2": {
+              "title": "Translation in progress",
+              "placeholder": "Translation in progress"
+            },
+            "3": {
+              "title": "Translation in progress",
+              "placeholder": "Translation in progress"
+            }
+          }
+        }
+      }
+    },
+    "2": {
+      "title": "Fundamental principles",
+      "short_help": "This section allows you to build the compliance framework for privacy principles.",
+      "items": {
+        "1": {
+          "title": "Proportionality and necessity",
+          "short_help": "This part allows you to demonstrate the legitimacy of your treatment and the data processed.",
+          "questions": {
+            "1": {
+              "title": "Translation in progress",
+              "short_title": "Finality",
+              "placeholder": "Translation in progress"
+            },
+            "2": {
+              "title": "Translation in progress",
+              "short_title": "Fundament",
+              "placeholder": "Translation in progress"
+            },
+            "3": {
+              "title": "Translation in progress",
+              "short_title": "Adequate data",
+              "placeholder": "Translation in progress"
+            },
+            "4": {
+              "title": "Translation in progress",
+              "short_title": "Exact data",
+              "placeholder": "Translation in progress"
+            },
+            "5": {
+              "title": "Translation in progress",
+              "short_title": "Conversation duration",
+              "placeholder": "Translation in progress"
+            }
+          }
+        },
+        "2": {
+          "title": "Measures to protect rights",
+          "short_help": "This part allows you to demonstrate that you are implementing the necessary means to enable the persons concerned to exercise their rights.",
+          "questions": {
+            "1": {
+              "title": "Translation in progress",
+              "short_title": "Information of persons",
+              "placeholder": "Translation in progress"
+            },
+            "2": {
+              "title": "Translation in progress",
+              "short_title": "Collection of consent",
+              "placeholder": "Translation in progress"
+            },
+            "3": {
+              "title": "Translation in progress",
+              "short_title": "Right of access and portability",
+              "placeholder": "Translation in progress"
+            },
+            "4": {
+              "title": "Translation in progress",
+              "short_title": "Right of rectification and erasure",
+              "placeholder": "Translation in progress"
+            },
+            "5": {
+              "title": "Translation in progress",
+              "short_title": "Right of limitation and opposition",
+              "placeholder": "Translation in progress"
+            },
+            "6": {
+              "title": "Translation in progress",
+              "short_title": "Subcontracting",
+              "placeholder": "Translation in progress"
+            },
+            "7": {
+              "title": "Translation in progress",
+              "short_title": "Transfers",
+              "placeholder": "Translation in progress"
+            }
+          }
+        }
+      }
+    },
+    "3": {
+      "title": "Risks",
+      "short_help": "This section allows you to assess the risks to privacy, taking into account existing or planned measures.",
+      "items": {
+        "1": {
+          "title": "Planned or existing measures",
+          "short_help": "This section allows you to identify measures (existing or planned) that contribute to data security."
+        },
+        "2": {
+          "title": "Illegitimate access to data",
+          "short_help": "Analyze the causes and consequences of illegitimate access to data, and estimate its seriousness and likelihood.",
+          "questions": {
+            "1": {
+              "title": "What could be the main impacts on the people involved if the risk were to occur?",
+              "placeholder": "Enter the potential impacts \u002B"
+            },
+            "2": {
+              "title": "What are the main threats that could cause the risk to occur?",
+              "placeholder": "Enter threats \u002B"
+            },
+            "3": {
+              "title": "What sources of risk could be the source?",
+              "placeholder": "Enter the sources of risk \u002B"
+            },
+            "4": {
+              "title": "Which of the identified measures contribute to addressing the risk?",
+              "placeholder": "Click here to select measures which help to address this risk."
+            },
+            "5": {
+              "title": "How do you estimate the seriousness of the risk, particularly in terms of potential impacts and planned measures?",
+              "placeholder": "Justify here the estimated seriousness of the risk."
+            },
+            "6": {
+              "title": "How do you estimate the likelihood of the risk, particularly with regard to threats, sources of risk and planned measures?",
+              "placeholder": "Justify here the estimated likelihood."
+            }
+          }
+        },
+        "3": {
+          "title": "Unwanted modification of data",
+          "short_help": "Analyze the causes and consequences of an undesired change in data, and estimate its seriousness and likelihood.",
+          "questions": {
+            "1": {
+              "title": "What could be the main impacts on the people involved if the risk were to occur?",
+              "placeholder": "Enter the potential impacts \u002B"
+            },
+            "2": {
+              "title": "What are the main threats that could cause the risk to occur?",
+              "placeholder": "Enter threats \u002B"
+            },
+            "3": {
+              "title": "What sources of risk could be the source?",
+              "placeholder": "Enter the sources of risk \u002B"
+            },
+            "4": {
+              "title": "Which of the identified measures contribute to addressing the risk?",
+              "placeholder": "Click here to select measures which help to address this risk."
+            },
+            "5": {
+              "title": "How do you estimate the seriousness of the risk, particularly in terms of potential impacts and planned measures?",
+              "placeholder": "Justify here the estimated seriousness of the risk."
+            },
+            "6": {
+              "title": "How do you estimate the likelihood of the risk, particularly with regard to threats, sources of risk and planned measures?",
+              "placeholder": "Justify here the estimated likelihood."
+            }
+          }
+        },
+        "4": {
+          "title": "Data disappearence",
+          "short_help": "Analyze the causes and consequences of data loss, and estimate its seriousness and likelihood.",
+          "questions": {
+            "1": {
+              "title": "What could be the main impacts on the people involved if the risk were to occur?",
+              "placeholder": "Enter the potential impacts \u002B"
+            },
+            "2": {
+              "title": "What are the main threats that could cause the risk to occur?",
+              "placeholder": "Enter threats \u002B"
+            },
+            "3": {
+              "title": "What sources of risk could be the source?",
+              "placeholder": "Enter the sources of risk \u002B"
+            },
+            "4": {
+              "title": "Which of the identified measures contribute to addressing the risk?",
+              "placeholder": "Click here to select measures which help to address this risk."
+            },
+            "5": {
+              "title": "How do you estimate the seriousness of the risk, particularly in terms of potential impacts and planned measures?",
+              "placeholder": "Justify here the estimated seriousness of the risk."
+            },
+            "6": {
+              "title": "How do you estimate the likelihood of the risk, particularly with regard to threats, sources of risk and planned measures?",
+              "placeholder": "Justify here the estimated likelihood."
+            }
+          }
+        },
+        "5": {
+          "title": "Risks overview",
+          "short_help": "This visualization allows you to have a global and synthetic view of the action of the measurements on the components of the risks that they help to treat."
+        }
+      }
+    },
+    "4": {
+      "title": "Validation",
+      "short_help": "This section allows you to prepare and formalize the validation of the PIA.",
+      "items": {
+        "1": {
+          "title": "Risks mapping",
+          "short_help": "This visualization allows you to compare the positioning of the risks between them, before and after application of the complementary measures."
+        },
+        "2": {
+          "title": "Action plan",
+          "short_help": "Plan in detail the implementation of the additional measures identified during the PIA."
+        },
+        "3": {
+          "title": "DPO and concerned persons opinions",
+          "short_help": "Present the advice of the person in charge of data protection and privacy issues (data protection delegate if there is one). Present the views of the persons concerned or their representatives."
+        }
+      }
     }
   }
 }

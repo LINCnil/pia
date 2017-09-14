@@ -103,7 +103,7 @@ export class EntryComponent implements OnInit, OnDestroy, DoCheck {
     if (item.placeholder !== undefined) {
       this.measurePlaceholder = item.placeholder;
     } else {
-      this.measurePlaceholder = 'Ajoutez les mesures prises pour garantir la sécurité des données.';
+      this.measurePlaceholder = 'measures.default_placeholder';
     }
   }
 

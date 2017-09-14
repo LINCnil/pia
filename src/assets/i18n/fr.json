@@ -54,6 +54,7 @@
       "status": "Statut",
       "creation_status": "Création",
       "start": "Commencer",
+      "placeholder_start": "Tous les champs doivent être remplis",
       "item": {
         "tools": {
           "edit": "Éditer",
@@ -113,7 +114,8 @@
     "placeholder_title": "Titre de la mesure",
     "add": "Ajouter une mesure vide (sinon, utiliser la base de connaissance)",
     "edit": "Éditer la mesure",
-    "remove": "Supprimer la mesure"
+    "remove": "Supprimer la mesure",
+    "default_placeholder": "Ajoutez les mesures prises pour garantir la sécurité des données."
   },
   "knowledge_base": {
     "title": "Base de connaissances",
@@ -129,6 +131,492 @@
       "measures_on_data": "Mesures sur les données",
       "general_measures": "Mesures générales",
       "no_result": "Aucun résultat trouvé."
+    },
+    "category": {
+      "definition": "Définition",
+      "principle": "Principe",
+      "organizational_measure": "Mesure organisationnelle",
+      "measure_on_data": "Mesure sur les données",
+      "general_measure": "Mesure générale",
+      "example": "Exemple"
+    },
+    "slugs": {
+      "PIA_LGL_FOND": {
+        "name": "Fondement juridique",
+        "description": "- La personne concernée a consenti au traitement de ses données à caractère personnel pour une ou plusieurs finalités spécifiques <br> - Le traitement est nécessaire à l'exécution d'un contrat auquel la personne concernée est partie ou à l'exécution de mesures précontractuelles prises à la demande de celle-ci <br> - Le traitement est nécessaire au respect d'une obligation légale à laquelle le responsable du traitement est soumis <br> - Le traitement est nécessaire à la sauvegarde des intérêts vitaux de la personne concernée ou d'une autre personne physique <br> - Le traitement est nécessaire à l'exécution d'une mission d'intérêt public ou relevant de l'exercice de l'autorité publique dont est investi le responsable du traitement <br> - Le traitement est nécessaire aux fins des intérêts légitimes poursuivis par le responsable du traitement ou par un tiers, à moins que ne prévalent les intérêts ou les libertés et droits fondamentaux de la personne concernée qui exigent une protection des données à caractère personnel, notamment lorsque la personne concernée est un enfant. Se référer à l'<a target=\"_blank\" href='https://www.cnil.fr/fr/reglement-europeen-protection-donnees/chapitre2#Article6'>art. 6 du [RGPD]</a>"
+      },
+      "PIA_LGL_ST": {
+        "name": "Sous-traitance",
+        "description": "Un contrat de sous-traitance doit être conclu avec chacun des sous-traitants, précisant l’ensemble des éléments prévus à l’art. 28 du RGPD : durée, périmètre, finalité, des instructions de traitement documentées, l’autorisation préalable en cas de recours à un sous-traitant, mise à disposition de toute documentation apportant la preuve du respect du RGPD, notification dans les meilleurs délais de toute violation de données, etc."
+      },
+      "PIA_LGL_TRAN": {
+        "name": "Transferts",
+        "description": "En fonction du pays concerné, vous devrez justifier le choix d’un hébergement éloigné et indiquer les modalités d’encadrement juridique mises en œuvre afin d’assurer une protection adéquate aux données faisant l’objet d’un transfert transfrontalier. <br> C'est à dire : <br> - Dans un pays de l'Union Européenne <br> - Dans un pays reconnu adéquat par l'Union Européenne <br> - Autres pays <br> Conformément aux <a target=\"_blank\" href='https://www.cnil.fr/fr/reglement-europeen-protection-donnees/chapitre5#Article44'>articles 44 à 49 du [RGPD]</a>"
+      },
+      "PIA_LGL_DESC": {
+        "name": "Description du traitement",
+        "description": "Présenter le traitement considéré, les finalités et les enjeux de manière synthétique. Identifier le responsable du traitement et les éventuels sous-traitants. Recenser les référentiels applicables au traitement, utiles ou à respecter , notamment les codes de conduite approuvés<br>Cf. <a target=\"_blank\" href='https://www.cnil.fr/fr/reglement-europeen-protection-donnees/chapitre4#Article40'>art. 40 du [RGPD]</a>) <br>et certifications en matière de protection des données (cf. <a target=\"_blank\" href='https://www.cnil.fr/fr/reglement-europeen-protection-donnees/chapitre4#Article42'>art. 42 du [RGPD]</a>)."
+      },
+      "PIA_LGL_DATA": {
+        "name": "Données traitées",
+        "description": "Délimiter et décrire de manière détaillée les données personnelles concernées : informations sur la personne concernée, données renseignées par un tiers, données relevées, données calculées.<br>Il convient de prêter un attention particulière aux données considérées comme sensibles ou sensibles au sens du RGPD"
+      },
+      "PIA_LGL_LCYC": {
+        "name": "Cycle de vie des données",
+        "description": "Les étapes habituelles de la vie d'une donnée sont les suivantes : <strong>collecte, conservation, utilisation, transfert, destruction</strong>.<br>Veillez à inclure, pour chacune de ces étapes, la description détaillée du processus et des flux de données mis en oeuvre. Il est recommandé de joindre un schéma décrivant le traitement."
+      },
+      "PIA_LGL_SUPT": {
+        "name": "Support des données",
+        "description": "Les supports de DCP sont les composants du système d’information sur lesquels reposent les DCP. <br>A noter que les solutions de sécurité (produits, procédures, mesures…) ne sont pas des supports de DCP : il s’agit de mesures destinées à traiter les risques."
+      },
+      "PIA_LGL_FIN": {
+        "name": "Finalités de la collecte et de l'utilisation des données",
+        "description": "Les données doivent être collectées pour des finalités déterminées, explicites et légitimes et <strong>ne sont pas traitées ultérieurement de manière incompatible avec ces finalités</strong>."
+      },
+      "PIA_LGL_MINI": {
+        "name": "Minimisation des données",
+        "description": "Il est important de réduire la gravité des risques en minimisant le nombre de données à caractère personnel qui seront traitées, en se limitant au strict nécessaire au regard de la finalité définie (ne pas les collecter sinon). Ensuite, il est également possible de minimiser les données elles-mêmes, par des mesures destinées à réduire leur sensibilité (filtrage et retrait, réduction de la sensibilité par transformation, réduction du caractère identifiant des données, réduction de l'accumulation de données, restriction de l’accès aux données)"
+      },
+      "PIA_LGL_DEST": {
+        "name": "Destinataires",
+        "description": "Personne habilitée à obtenir communication de données enregistrées dans un fichier ou un traitement en raison de ses fonctions."
+      },
+      "PIA_LGL_DUR": {
+        "name": "Durée de conservation des données",
+        "description": "Une durée de conservation doit être définie pour chaque type de données et justifiée par les besoins du traitement et/ou des contraintes légales. On distingue ainsi les données courantes et les données archivées dont l’accès sera restreint aux seuls acteurs concernées. Un mécanisme de suppression doit être implémenté pour archiver les données courantes ou purger les données archivées à la fin de leur période de conservation. Les traces fonctionnelles devront également être purgées, tout comme les logs techniques qui ne pourront pas être conservés indéfiniment."
+      },
+      "PIA_LGL_INFO": {
+        "name": "Information de l'utilisateur du service au sujet de l'utilisation de ses données",
+        "description": "Décrire les mesures destinées à informer les utilisateurs du service de l'utilisation qui sera faite de leurs données."
+      },
+      "PIA_LGL_CONS": {
+        "name": "Recueil du consentement de l'utilisateur du service",
+        "description": "Vérifier que le traitement ne repose pas sur une autre base légale que le consentement, tel que prévu à l'article 6 du RGPD (obligation légale, sauvegarde de la vie, mission de service public, contrat ou mesures prises avec la personne, intérêt légitime) et décrire les mesures mises en oeuvre pour recueillir le consentement des utilisateurs."
+      },
+      "PIA_LGL_ACC": {
+        "name": "Information de l'utilisateur du service au sujet de son droit d'accès",
+        "description": "Vérifier que le traitement ne fait pas l’objet d’une exemption mentionnée dans l'article 15 du RGPD et décrire les mesures destinées à informer l'utilisateur du service de son droit d'accès et de la manière dont il peut l'exercer."
+      },
+      "PIA_LGL_PORT": {
+        "name": "Information de l'utilisateur du service au sujet de son droit à la portabilité",
+        "description": "Vérifier que le traitement ne fait pas l’objet d’une exemption mentionnée dans l'article 20 du RGPD et décrire les mesures destinées à informer l'utilisateur du service de son droit à la portabilité et de la manière dont il peut l'exercer."
+      },
+      "PIA_LGL_RECT": {
+        "name": "Information de l'utilisateur du service au sujet de son droit à la rectification",
+        "description": "Décrire les mesures destinées à informer l'utilisateur du service de son droit à la rectification et de la manière dont il peut l'exercer."
+      },
+      "PIA_LGL_EFF": {
+        "name": "Information de l'utilisateur du service au sujet de son droit à l'effacement (droit à l'oubli)",
+        "description": "Vérifier que le traitement ne fait pas l’objet d’une exemption mentionnée dans l'article 17 du RGPD et décrire les mesures destinées à informer l'utilisateur du service de son droit à l'effacement et de la manière dont il peut l'exercer."
+      },
+      "PIA_LGL_LIM": {
+        "name": "Information de l'utilisateur du service au sujet de son droit à la limitation",
+        "description": "Vérifier que le traitement ne fait pas l’objet d’une exception mentionnée dans l'article 21 du RGPD et décrire les mesures destinées à informer l'utilisateur du service de son droit à la limitation et de la manière dont il peut l'exercer."
+      },
+      "PIA_LGL_OPP": {
+        "name": "Information de l'utilisateur du service au sujet de son droit à l'opposition",
+        "description": "Vérifier que le traitement ne fait pas l’objet d’une exception mentionnée dans l'article 21 du RGPD et décrire les mesures destinées à informer l'utilisateur du service de son droit à l'opposition et de la manière dont il peut l'exercer."
+      },
+      "PIA_VAL_DPO": {
+        "name": "Avis du délégué à la protection des données",
+        "description": "L'article <a target=\"_blank\" href=https://www.cnil.fr/fr/reglement-europeen-protection-donnees/chapitre4#Article35>35-2 du RGPD</a>, dispose que le responsable de traitement demande conseil au délégué à la protection des données lors d'une analyse d'impact relative à la protection des données.<br><strong>Cet avis peut être défavorable à la mise en œuvre du traitement, sans pour autant contraindre la décision du responsable de traitement.</strong>"
+      },
+      "PIA_VAL_CONC": {
+        "name": "Avis des personnes concernées",
+        "description": "L'article <a target=\"_blank\" href=https://www.cnil.fr/fr/reglement-europeen-protection-donnees/chapitre4#Article35>35-9 du RGPD</a>, dispose que le responsable de traitement demande l'avis des personnes concernées le cas échéant.<br>Cet avis peut être recueilli par divers moyens, selon le contexte (étude interne ou externe concernant la finalité et les moyens du traitement, question aux représentants du personnel ou aux syndicats, enquête auprès des futurs clients du responsable de traitement.<br><strong>Si le responsable de traitement décide de passer outre</strong> l’avis des personnes concernées, il doit <strong>consigner la justification de sa décision.</strong><br>Si le responsable de traitement considère que <br>recueillir l’avis des personnes concernées n’est pas pertinent</strong>, il doit également en <strong>consigner la justification.</strong>"
+      },
+      "PIA_VAL_RT": {
+        "name": "Validation du responsable de traitement",
+        "description": "<strong>Le responsable de traitement décide formellement</strong> de l’acceptabilité des mesures choisies, des risques résiduels et du plan d'action, de manière argumentée, au regard des enjeux préalablement identifiés et de l'avis des parties prenantes. Le PIA peut ainsi être :<br>- validé ;<br>- à améliorer (expliquer en quoi) ;<br>- refusé (ainsi que le traitement considéré).<br>Le cas échéant, il conviendra de revoir les étapes précédentes pour que le PIA puisse être validé.<br><strong>Cette décision est celle du seul responsable de traitement</strong> et ne préjuge en rien de l’évaluation de conformité qui peut être faite, le cas échéant, par l'autorité de protection des données (en France, la CNIL), par exemple dans le cadre de formalités préalables ou de contrôles."
+      },
+      "PIA_TEC_CHIF": {
+        "name": "Chiffrement",
+        "description": "Moyens mis en œuvre pour : - <strong>assurer la confidentialité des données</strong> conservées (en base de données, dans des fichiers plats, dans les sauvegardes, etc.)<br>- gérer les clés de chiffrement (création, conservation, modification en cas de suspections de compromission, etc.). Détaillez les moyens de chiffrement employés pour les flux de données (VPN, TLS, etc.) intégrés dans le traitement."
+      },
+      "PIA_TEC_ANO": {
+        "name": "Anonymisation",
+        "description": "Description des mécanismes d’anonymisation, des garanties qu'ils apportent contre une réidentifcation éventuelles et à quelle fin ils sont mis en oeuvre."
+      },
+      "PIA_TEC_CLO": {
+        "name": "Cloisonnement",
+        "description": "Méthodes utilisées pour cloisonner le traitement."
+      },
+      "PIA_TEC_CTLA": {
+        "name": "Contrôle des accès logiques",
+        "description": "Description de la manière dont les profils utilisateurs sont définis et attribués. Il conviendra de détailler les moyens d’<strong>authentification</strong> mis en œuvre en précisant, entre autres, les règles applicables aux mots de passe (longueur minimale, structure obligatoire, durée de validité, nombre de tentatives infructueuses avant blocage du compte, etc.)."
+      },
+      "PIA_TEC_LOG": {
+        "name": "Journalisation",
+        "description": "Politiques de journalisation des événements et de conservation des traces qui en résultent."
+      },
+      "PIA_TEC_ARCH": {
+        "name": "Archivage",
+        "description": "Politique de conservation et gestion d’archives électroniques contenant des données à caractère personnel destinées à garantir leur valeur, notamment juridique, pendant toute la durée nécessaire."
+      },
+      "PIA_TEC_PAP": {
+        "name": "Sécurisation des documents papier",
+        "description": "Politiques concernat les documents papiers contenant des données sont utilisés dans le cadre du traitement, elles décrivent comment ils sont imprimés, stockés, détruits et échangés."
+      },
+      "PIA_TEC_MINI": {
+        "name": "Minimisation des données",
+        "description": "La sensibilité des données peut être réduite à l'aide des méthodes suivantes : filtrage et retrait, réduction de la sensibilité par transformation, réduction du caractère identifiant des données, réduction de l'accumulation de données, restriction de l’accès aux données"
+      },
+      "PIA_SEC_EXP": {
+        "name": "Sécurisation de l'exploitation",
+        "description": "Politiques (il conviendra de justifier de leur application) et moyens mis en oeuvre pour assurer <strong>la mises à jour des logiciels</strong> (systèmes d’exploitation, applications, etc.) et l'application des correctifs de sécurité."
+      },
+      "PIA_SEC_MAL": {
+        "name": "Lutte contre les logiciels malveillants",
+        "description": "Mesures destinées à protéger les accès vers des réseaux publics (Internet) ou non maîtrisés (partenaires), ainsi que les postes de travail et les serveurs contre les codes malveillants qui pourraient affecter la sécurité les données à caractère personnel. "
+      },
+      "PIA_SEC_COMP": {
+        "name": "Gestion des postes de travail",
+        "description": "Mesures prises afin de diminuer la possibilité que les caractéristiques des logiciels (systèmes d’exploitation,applications métiers, logiciels bureautiques, paramétrages…) ne soient exploitées pour porter atteinte aux données à caractère personnel."
+      },
+      "PIA_SEC_WEB": {
+        "name": "Protection des sites web",
+        "description": "Méthodes et moyens mis en place pour suivre les recommandations pour la sécurisation des sites web de l'ANSSI."
+      },
+      "PIA_SEC_BKP": {
+        "name": "Sauvegarde des données",
+        "description": "Existence d'une politique de sauvegarde, décrivant les objectifs du plan de sauvegarde ainsi que des procédures de conservation des bandes."
+      },
+      "PIA_SEC_MAIN": {
+        "name": "Maintenance",
+        "description": "Existence d'une politique de maintenance physique des équipements, précisant le recours éventue à la sous-traitance.<br>Elle devra encadrer la maintenance à distance des applications si elle est autorisée, et préciser les méthodes de gestion des matériels défectueux."
+      },
+      "PIA_SEC_CTR": {
+        "name": "Contrat de sous-traitance",
+        "description": "Les données à caractère personnel communiquées à ou gérées par des sous-traitants doivent bénéficier de garanties de sécurité. Prévoir dans les contrats liant l’organisme et les sous-traitants une clause spécifique couvrant la confidentialité des données personnelles confiées à ces derniers.<br>Prendre des dispositions (audits de sécurité, visite des installations, etc.) afin de s’assurer de l’effectivité des garanties offertes par le sous-traitant en matière de protection des données.<br>Cela inclut notamment :<br>- le chiffrement des données selon leur sensibilité ou à défaut l’existence de procédures garantissant que la société de prestation n’a pas accès aux données qui lui sont confiées ;<br>- le chiffrement de la liaison de données (ex : connexion de type https) ;<br>- des garanties en matière de protection du réseau, traçabilité (journaux, audits), gestion des habilitations, authentification, etc.<br>- Contractualiser les règles de gestion des incidents.<br>- Prévoir les conditions de restitution des données et de leur destruction en cas de rupture ou à la fin du contrat.<br>- Dans le cas de l’utilisation de fournisseur de cloud computing :<br>\t1. identifier clairement les données et les traitements qui passeront dans le cloud ;<br>\t2. définir ses propres exigences de sécurité technique et juridique ;<br>\t3. conduire une étude de risques afin d'identifier les mesures de sécurité appropriées ;<br>\t4. identifier le type de cloud pertinent pour le traitement envisagé ;<br>\t5. choisir un prestataire présentant des garanties suffisantes ;<br>\t6. revoir la politique de sécurité interne ;<br>\t7. surveiller les évolutions dans le temps."
+      },
+      "PIA_SEC_NET": {
+        "name": "Sécurisation des canaux informatiques",
+        "description": "En fonction du type de réseau sur lequel le traitement est mis en œuvre (isolé, privé, ou Internet), le responsable de traitement doit mettre en place des systèmes de protection adéquats : pare-feu, sondes de détection d'intrusion ou autres dispositifs actifs ou passifs sont chargés d'assurer la sécurité du réseau."
+      },
+      "PIA_SEC_PHY": {
+        "name": "Sécurité physique",
+        "description": "Afin d'assurer la sécurité des données, le responsable de traitement doit mettre en place un contrôle des accès physique aux locaux hébergeant le traitement (zonage, accompagnement des visiteurs, port de badge, portes verrouillées, etc.).<br>Indiquez s’il existe des moyens d’alerte en cas d’effraction."
+      },
+      "PIA_SEC_LOG": {
+        "name": "Traçabilité",
+        "description": "Afin de détecter et prévenir d'éventuelles violation de données, le responsable de traitement doit justifier des mesures mises en place pour être capable de détecter les incidents concernant des données à caractère personnel de façon précoce et de disposer d’éléments exploitables pour les étudier ou pour fournir des preuves dans le cadre d’enquêtes."
+      },
+      "PIA_SEC_MAT": {
+        "name": "Sécurisation des matériels",
+        "description": "Afin d'assurer la protection des données à caractère personnel, le responsable de traitement doit justifier des mesures prises pour diminuer la possibilité que les caractéristiques des matériels (serveurs, postes fixes, ordinateurs portables, périphériques, relais de communication, supports amovibles, etc.) soient exploitées pour porter atteinte aux données à caractère personnel."
+      },
+      "PIA_SEC_SRC": {
+        "name": "Eloignement des sources de risques",
+        "description": "Le responsable de traitement doit prendre des mesures pour éviter que des sources de risques, humaines ou non humaines, auxquelles il est possible de ne pas être confronté, portent atteinte aux données à caractère personnel."
+      },
+      "PIA_SEC_PROT": {
+        "name": "Protection contre les sources de risques non humaines",
+        "description": "Le responsable de traitement doit prendre des mesures pour réduire ou éviter les risques liés à des sources non humaines (phénomènes climatiques, incendie, dégât des eaux, accidents internes ou externes, animaux, etc.) qui pourraient affecter la sécurité des données à caractère personnel. "
+      },
+      "PIA_ORG_ORG": {
+        "name": "Organisation de la politique de protection de la vie privée",
+        "description": "Existence d'une politique encadrant l'organisation de la protection de la vie privée au sein de votre organisme."
+      },
+      "PIA_ORG_POL": {
+        "name": "Gérer la politique de protection de la vie privée",
+        "description": "Existence d'une politique définissant les méthodes de gestion de la base documentaire encadrant l'organisation de la protection de la vie privée au sein de votre organisme."
+      },
+      "PIA_ORG_RMGT": {
+        "name": "Gérer les risques",
+        "description": "Existence d'une politique définissant les processus destinés à maîtriser les risques que les traitements de l’organisme font peser sur les droits et libertés des personnes concernées."
+      },
+      "PIA_ORG_PBD": {
+        "name": "Intégrer la protection de la vie privée dans les projets",
+        "description": "Existence de procédures décrivant les méthodes destinées à assurer la prise en compte de la protection des données à caractère personnel dès l'initiation d'un nouveau projet."
+      },
+      "PIA_ORG_VIOL": {
+        "name": "Gérer les incidents de sécurité et les violations de données",
+        "description": "Existence d'une politique décrivant les processus opérationnels destinés à détecter et traiter les événements susceptibles d’affecter les libertés et la vie privée des personnes concernées."
+      },
+      "PIA_ORG_PERS": {
+        "name": "Gestion des personnels",
+        "description": "Existence d'un plan encadrant les <strong>mesures de sensibilisation</strong> prises à l’arrivée d’une personne dans sa fonction et d'une procédure décrivant les <strong>mesures prises au départ des personnes accédant aux données</strong>."
+      },
+      "PIA_ORG_EXT": {
+        "name": "Gestion des tiers accédant aux données.",
+        "description": "Existence d'une procédure régissant les les modalités et les mesures de sécurité mises en œuvre pour les tiers amenés à avoir accès aux données."
+      },
+      "PIA_ORG_AUD": {
+        "name": "Superviser le protection de la vie privée",
+        "description": "Existence d'une politique encadrant les processus qui assurent un contrôle régulier des traitements de données afin de vérifier leur conformité à la loi informatique et libertés ainsi que l’effectivité et l’adéquation des mesures prévues."
+      },
+      "PIA_DEF_IMP": {
+        "name": "Impact sur la personne concernée",
+        "description": "Conséquences que pourrait avoir l'accomplissement du risque sur la personne concernée."
+      },
+      "PIA_DEF_EXA": {
+        "name": "Qualité des données",
+        "description": "Le responsable de traitement a l'obligation de mettre en place des mesures pour maintenir la qualité des données : <br>- Vérification régulière de l’exactitude des données personnelles de l’utilisateur<br>- Invitation de l’utilisateur à contrôler et, si nécessaire, mettre à jour ses données<br>- Traçabilité des modifications des données"
+      },
+      "PIA_DEF_MES": {
+        "name": "Mesure",
+        "description": "A choisir parmi celles disponibles dans la section \"Mesures existantes ou prévues\", que vous pouvez compléter si nécessaire."
+      },
+      "PIA_DEF_RT": {
+        "name": "Responsable de traitement",
+        "description": "Le responsable d’un traitement de données à caractère personnel est, sauf désignation expresse par les dispositions législatives ou réglementaires relatives à ce traitement,la personne, l’autorité publique, le service ou l’organisme qui détermine ses finalités et ses moyens. En pratique et en général, il s’agit de la personne morale incarnée par son représentant légal.<br>Pour plus d'informations sur les obligations du responsable de traitement, se référer au <a target=\"_blank\" href='https://www.cnil.fr/fr/reglement-europeen-protection-donnees/chapitre4#Section1'>chap. IV du [RGPD]</a>"
+      },
+      "PIA_DEF_DCP": {
+        "name": "Données à caractère personnel (DCP)",
+        "description": "Toute information identifiant directement ou indirectement une personne physique."
+      },
+      "PIA_DEF_DEST": {
+        "name": "Destinataires des données",
+        "description": "Personne physique ou morale, l'autorité publique, le service ou tout autre organisme qui reçoit communication de données à caractère personnel, qu'il s'agisse ou non d'un tiers. Toutefois, les autorités publiques qui sont susceptibles de recevoir communication de données à caractère personnel dans le cadre d'une mission d'enquête particulière conformément au droit de l'Union ou au droit d'un État membre ne sont pas considérées comme des destinataires."
+      },
+      "PIA_DEF_SUPT": {
+        "name": "Typologie des supports de DCP",
+        "description": "<strong>Matériels et supports de données électroniques</strong> : ordinateurs, relais de communication, clés USB, disques durs...<br><strong>Logiciels</strong> : systèmes d’exploitation, messagerie, bases de données, applications métier...<br><strong>Canaux informatiques</strong> : câbles, WiFi, fibre optique<br><br><strong>Personnes</strong> : utilisateurs, administrateurs informatiques, décideurs...<br><strong>Supports papier</strong> : impressions, photocopies, documents manuscrits...<br><strong>Canaux de transmission papier</strong> : envoi postal, circuit de validation..."
+      },
+      "PIA_DEF_MINC": {
+        "name": "Minimisation de la collecte",
+        "description": "Réduire la gravité des risques en limitant la collecte des données à caractère personnel au strict nécessaire au regard d’une finalité définie."
+      },
+      "PIA_DEF_MIND": {
+        "name": "Minimisation des données elles-mêmes",
+        "description": "Réduire la gravité des risques en minimisant les données elles-mêmes, par des mesures destinées à réduire leur sensibilité. "
+      },
+      "PIA_DEF_CONS": {
+        "name": "Consentement de la personne concernée",
+        "description": "toute manifestation de volonté, libre, spécifique, éclairée et univoque par laquelle la personne concernée accepte, par une déclaration ou par un acte positif clair,<br>que des données à caractère personnel la concernant fassent l'objet d'un traitement."
+      },
+      "PIA_DEF_ACC": {
+        "name": "Droit d'accès",
+        "description": "La personne concernée a le droit d'obtenir du responsable du traitement la confirmation que des données à caractère personnel la concernant sont ou ne sont pas traitées et, lorsqu'elles le sont, l'accès auxdites données à caractère personnel ainsi que d'autres informations précisées à l'article 15 du RGPD <a=href https://www.cnil.fr/fr/reglement-europeen-protection-donnees/chapitre3#Article15>.<br>Il existe des particularités concernant l'accès au dossiers médicaux et l'exercice du droit d'accès par les titulaires de l'autorité parentale, pour les mineurs, ou le représentant légal, pour les personnes faisant l'objet d'une mesure de tutelle."
+      },
+      "PIA_DEF_PORT": {
+        "name": "Droit à la portabilité",
+        "description": "Le droit à la portabilité permet aux personnes d'obtenir et de réutiliser leur données pour leur propre usage ou bien dans le cadre de différents services numériques.<br>Ce droit facilite tout changement, transfert ou duplication de leurs données personnelles d'un environnement numérique à un autre sans que le responsable de traitement auquel les données avaient été communiquées puisse y faire obstacle.<br><strong>Il s'applique sous 3 conditions cumulatives :</strong><br>- Les données requises doivent faire l'objet d'un traitement automatique (excluant les fichiers sous format papier) et sur la base du consentement préalable de la personne concernée ou bien dans le cadre d'un accord préalablement contracté.<br>- Les données requises concernent la personne requérante et ont été fournies par elle. A cet égard, le G29 recommande aux responsables de traitement de ne pas adopter d'interprétation trop restrictive des données qui se rapportent au requérant, les données d'une tierce personne pouvant être incluses dans l'ensemble de données faisant l'objet d'une demande de portabilité : des fichiers d'appels téléphoniques contenant des numéros de téléphones ou bien des relevés de comptes en sont des exemples. Sont considérées comme données personnelles concernant le requérant celles qui ont été fournies par lui sciemment (lors de la souscription à un service en ligne par exemple) et aussi celles qui ont pu être collectées dans le cadre de l'usage d'autres utilisateurs (de ce même service).<br>- L'exercice de ce droit ne doit pas porter atteinte aux droits et libertés fondamentaux d'une tiers. En effet, si l'ensemble de données transmises sur la demande d'une personne contient des données personnelles relatives à un tiers, le responsable de traitement auquel ces données sont transférées ne peut en faire l'usage que sur un fondement légal approprié."
+      },
+      "PIA_DEF_RECT": {
+        "name": "Droit à la rectification",
+        "description": "La personne concernée a le droit d'obtenir du responsable du traitement, dans les meilleurs délais, la rectification des données à caractère personnel la concernant qui sont inexactes.<br>Compte tenu des finalités du traitement, la personne concernée a le droit d'obtenir que les données à caractère personnel incomplètes soient complétées, y compris en fournissant une déclaration complémentaire."
+      },
+      "PIA_DEF_EFF": {
+        "name": "Droit à l'effacement (droit à l'oubli)",
+        "description": "La personne concernée a le droit d'obtenir du responsable du traitement l'effacement, dans les meilleurs délais, de données à caractère personnel la concernant et le responsable du traitement a l'obligation d'effacer ces données à caractère personnel dans les meilleurs délais, lorsque l'un des motifs suivants s'applique:<br>- Les données ne sont plus nécessaires au regard des finalités de la collecte<br>- La personne retire le consentement sur lequel se fonde le traitement<br>- La personne s'oppose au traitement<br>- Les données ont fait l'objet d'un traitement illicite<br>- Les données à caractère personnel doivent être effacée pour respecter une obligation légale<br>- Les données ont été collectées alors que la personne était mineure"
+      },
+      "PIA_DEF_LIM": {
+        "name": "Droit à la limitation",
+        "description": "La personne concernée a le droit d'obtenir du responsable de traitement la limitation du traitement lorsqu'un des éléments suivants s'applique:<br>- L'exactitude des données est contestée par la personne concernée, pendant une durée permettant au responsable de traitement de mener des vérifications<br>- Le traitement est illicite mais la personne concernée ne souhaite pas l'effacement des données mais la limitation de leur utilisation<br>- Le responsable de traitement n'a plus besoin des données mais la personne concernée doit les conserver dans le cadre d'un recours en justice<br>- La personne concernée a exercé son droit d'opposition, pendant qu'il est établi si les motifs légitimes du responsable de traitement prévalent sur ceux de la personne concernée"
+      },
+      "PIA_DEF_OPP": {
+        "name": "Droit à l'opposition",
+        "description": "La personne concernée a le droit de s'opposer à tout moment, pour des raisons tenant à sa situation particulière, à un  traitement  des  données à  caractère personnel la  concernant lorsque:<br>- Le traitement est fondé sur la nécessité d'exécution d'une mission d'intérêt public ou relevant de l'exercice de l'autorité publique dont est investi le responsable de traitement<br>- Les données à caractère personnel sont traitées à des fins de prospection (l'opposition s'étend au profilage dans la mesure où il est lié à une telle prospection)<br>- Les données à caractère personnel sont traitées à des fins de recherche scientifique ou historique ou à des fins  statistiques, à moins que le traitement ne soit nécessaire à l'exécution d'une mission d'intérêt public.\n<br>Lorsque la personne concernée s'oppose au traitement à des fins de prospection, les données à caractère personnel ne sont plus traitées à ces fins. Au  plus  tard  au  moment de  la  première communication avec  la  personne concernée,  le droit d'opposition est  explicitement  porté  à  l'attention de  la  personne concernée  et  est présenté  clairement et séparément de toute autre information."
+      },
+      "PIA_DEF_CHIF": {
+        "name": "Chiffrement",
+        "description": "Le chiffrement d’un message permet de garantir que seuls l’émetteur et le(s) destinataire(s) légitime(s) d’un message en connaissent le contenu. C’est une sorte d’enveloppe scellée numérique. Une fois chiffré, faute d'avoir la clé spécifique, un message est inaccessible et illisible, que ce soit par les humains ou les machines.<br>Il existe deux grandes familles de chiffrement : le chiffrement symétrique et le chiffrement asymétrique.<br>- <strong>Le chiffrement symétrique</strong> permet de chiffrer et de déchiffrer un contenu avec la même clé, appelée alors la « clé secrète ». Le chiffrement symétrique est particulièrement rapide mais nécessite que l’émetteur et le destinataire se mettent d’accord sur une clé secrète commune ou se la transmettent par un autre canal. Celui-ci doit être choisi avec précautions, sans quoi la clé pourrait être récupérée par les mauvaises personnes, ce qui n’assurerait plus la confidentialité du message.<br>- <strong>Le chiffrement asymétrique</strong> suppose que le (futur) destinataire est muni d’une paire de clés (clé privée, clé publique) et qu’il a fait en sorte que les émetteurs potentiels aient accès à sa clé publique. Dans ce cas, l’émetteur utilise la clé publique du destinataire pour chiffrer le message tandis que le destinataire utilise sa clé privée pour le déchiffrer. Parmi ses avantages, la clé publique peut être connue de tous et publiée. Mais attention : il est nécessaire que les émetteurs aient confiance en l’origine de la clé publique, qu’ils soient sûrs qu’il s’agit bien de celle du destinataire. Autre point fort : plus besoin de partager une même clé secrète ! Le chiffrement asymétrique permet de s’en dispenser mais il est plus lent."
+      },
+      "PIA_DEF_VPN": {
+        "name": "VPN",
+        "description": "Virtual Private Network, en Français Réseau Privé Virtuel. Il s'agit d'un réseau informatique virtuel permettant d'établir une connexion directe entre deux machines appartenant à des réseaux distants, comme si elles étaient reliées directement entre elles par un câble dédié, garantissant ainsi l'identité des deux machines correspondantes. Il est en outre recommandé de chiffrer, en se reposant sur des algorithmes cryptographiques réputés forts, les données transitant par cette connexion, en particulier si elle traverse l'Internet, afin de garantir la confidentialité des échanges entre les deux réseaux."
+      },
+      "PIA_DEF_ANO": {
+        "name": "Anonymisation",
+        "description": "Le but d'une solution d'anonymisation est de faire perdre le caractère identifiant des données à caractère personnel. Une solution d’anonymisation doit être construite au cas par cas et adaptée aux usages prévus. Pour aider à évaluer une bonne solution d’anonymisation, le <a target=\"_blank\" href=http://ec.europa.eu/justice/data-protection/article-29/documentation/opinion-recommendation/files/2014/wp216_fr.pdf>G29</a> propose trois critères :<br>- <strong>L’individualisation : </strong>est-il toujours possible d’isoler un individu ?<br>- <strong>La corrélation : est-il possible de relier entre eux des ensembles de données distincts concernant un même individu ?<br>- <strong>L’inférence :</strong> peut-on déduire de l’information sur un individu ? <br>Ainsi : un ensemble de données pour lequel il n’est possible ni d’individualiser ni de corréler ni d’inférer est a priori anonyme ;<br>un ensemble de données pour lequel au moins un des trois critères n’est pas respecté ne pourra être considéré comme anonyme qu’à la suite d’une analyse détaillée des risques de ré-identification."
+      },
+      "PIA_DEF_PSEU": {
+        "name": "Pseudonymisation",
+        "description": "Méthode consistant à modifier les données de telle façon que celles-ci ne puissent plus être attribuées à une personne concernée précise sans avoir recours à des informations supplémentaires, pour autant que ces informations supplémentaires soient conservées séparément et soumises à des mesures techniques et organisationnelles afin de garantir que les données à caractère personnel ne sont pas attribuées à une personne physique identifiée ou identifiable.<br>La pseudonymisation réduit le risque de mise en corrélation d’un ensemble de données avec l’identité  originale d’une personne concernée; à ce titre, <strong>c’est une mesure de sécurité utile, mais non une méthode d'anonymisation.</strong>"
+      },
+      "PIA_DEF_CLO": {
+        "name": "Cloisonnement",
+        "description": "Ensemble de méthodes permettant de réduire la possibilité de corréler des données à caractère personnel et de provoquer une violation de l’ensemble des données.<br>On pourra par exemple réduire l'accès des personnes aux seules données qui leur sont utiles, séparer logiquement ou physiquement les données etc."
+      },
+      "PIA_DEF_CTLA": {
+        "name": "Contrôle d'accès logique",
+        "description": "Il consiste à limiter les risques que des personnes non autorisées accèdent aux données à caractère personnel par voie électronique.<br>Pour cela, il convient de :<br>- <strong>définir des profils d’habilitation</strong> dans les systèmes en séparant les tâches et les domaines de responsabilité, afin de limiter l’accès à des données à caractère personnel aux seuls utilisateurs dûment habilités<br>- <strong>supprimer les permissions d’accès des utilisateurs dès qu’ils ne sont plus habilités à accéder à un local ou à une ressource</strong>, ainsi qu’<strong>à la fin de leur période d’emploi.</strong>\n \t- <strong>réaliser une revue annuelle des privilèges</strong> afin d’identifier et de supprimer les comptes non utilisés, et de réaligner les privilèges sur les fonctions de chaque utilisateur.\n \t- <strong>documenter les procédures d’exploitation</strong>, les tenir à jour et les rendre disponibles à tous les utilisateurs concernés. Concrètement, toute action sur le système, qu’il s’agisse d’opérations d’administration ou de la simple utilisation d’une application, doit être expliquée dans des documents auxquels les utilisateurs peuvent se référer.<br>- <strong>rédiger  une charte informatique</strong> et lui donner une force contraignante (ex. annexion au règlement intérieur). "
+      },
+      "PIA_DEF_PROF": {
+        "name": "Profil",
+        "description": "Ensemble de données qui permet l'identification de l'utilisateur d'un système informatique et conditionnent la manière dont ce système se comporte pour cet utiisateur donné. Il s'agit par exemple de jeux d'autorisation, de ses préférences d'utilisation etc."
+      },
+      "PIA_DEF_PWD": {
+        "name": "Mot de passe",
+        "description": "Basée sur la gestion d’un secret, l’authentification par identifiant et mot de passe est un moyen simple et peu coûteux à déployer pour contrôler un accès. Toutefois, cette méthode d’authentification présente un niveau de sécurité faible.<br>Les exigences minimales de la CNIL en termes de taille et de complexité du mot de passe varient en fonction des mesures complémentaires mises en place pour fiabiliser le processus d’authentification :<br>ainsi, si une authentification est basée exclusivement sur un mot de passe, cela implique a minima l’utilisation d’un mot de passe complexe d’au moins 12 caractères composé de majuscules de minuscules, de chiffres et de<br>caractères spéciaux.  Des mesures complémentaires à la saisie d’un mot de passe (restrictions, d’accès, collecte d’autres donnée, support détenu en propre par l’utilisateur) permettent de réduire la longueur et la complexité du mot de passe, car ces mesures permettent d’assurer un niveau de sécurité équivalent au mot de passe seul."
+      },
+      "PIA_DEF_AUTH": {
+        "name": "Authentification",
+        "description": "L'authentification est une <strong>opération par laquelle l'utilisateur apporte la preuve de son identité</strong>, pour cela il existe plusieurs mécanismes catégorisés selon qu’ils font intervenir :<br>- ce que l’on sait, par exemple un mot de passe ;<br>- ce que l’on a, par exemple une carte à puce ;<br>- une caractéristique qui nous est propre, par exemple une empreinte digitale ou encore la manière de rédiger une signature manuscrite.<br>Pour rappel, la loi Informatique et Libertés subordonne l’utilisation de la biométrie à l’autorisation préalable de la CNIL<br><strong>L’authentification d’un utilisateur est qualifiée de forte lorsqu’elle a recours à une combinaison d’au moins deux de ces catégories.</strong>"
+      },
+      "PIA_DEF_LOG": {
+        "name": "Journalisation",
+        "description": "Dispositif permettant d’enregistrer les actions effectuées sur le système informatique afin d’<strong>être en mesure d’identifier a posteriori un accès frauduleux</strong> à des données personnelles, une utilisation abusive de telles données ou de déterminer l’origine d’un incident. Pour ce faire, le responsable d’un système informatique doit mettre en place un solution adaptée aux risques associés à son système. Ce dispositif doit <strong>enregistrer les évènements</strong> pertinents, <strong>garantir que ces enregistrements ne peuvent être altérés</strong>, et dans tous les cas <strong>conserver ces éléments pendant une durée non excessive.</strong>"
+      },
+      "PIA_DEF_ARCH": {
+        "name": "Archivage",
+        "description": "Les données qui ne sont plus utilisées au quotidien mais qui n’ont pas encore atteint leur durée limite de conservation, par exemple parce qu’elles sont conservées en cas de contentieux, devraient être archivées.<br>On distingue habituellement trois catégories d’archives :<br>- les bases actives (éventuellement appelées « archives courantes ») : il s'agit des données d'utilisation courante par les services en charge de la mise en œuvre du traitement ;<br>- les archives intermédiaires : il s'agit des données qui ne sont plus utilisées mais qui présentent encore un intérêt administratif pour l'organisme. Les données sont conservées sur support distinct et sont consultées de manière ponctuelle et motivée ;<br>- les archives définitives : il s'agit des données présentant un intérêt historique, scientifique ou statistique justifiant qu'elles ne fassent l'objet d'aucune destruction. Elles sont alors régies par le livre II du Code du patrimoine et non par la loi « informatique et libertés ».\n<br><strong>Les archives doivent être sécurisées et chiffrées</strong> si les données archivées sont des données sensibles, des données qui pourraient avoir des impacts graves sur les personnes concernées ou des données jugées confidentielles par l’entreprise."
+      },
+      "PIA_DEF_MIN1": {
+        "name": "Filtrage et retrait",
+        "description": "Lors de l'importation de données, différents types de métadonnées (par exemple, des données EXIF attachées avec un fichier d'image) peuvent être involontairement collectés.<br>Ces métadonnées doivent être identifiées et éliminées si elles ne sont pas nécessaires aux finalités spécifiées."
+      },
+      "PIA_DEF_MIN2": {
+        "name": "Réduction de la sensibilité par transformations",
+        "description": "Après réception de données sensibles, faisant partie d’un lot d’informations générales ou transmises à des fins statistiques uniquement, celles-ci peuvent être converties en une forme moins sensible ou pseudonymisée. Par exemple :<br>- si le système collecte l’adresse IP pour déterminer l'emplacement de l’utilisateur dans un but statistique, l’adresse IP peut être supprimées après déduction de la ville ou du quartier ;<br>- si le système reçoit des données vidéo à partir de caméras de surveillance, il peut reconnaître les personnes debout ou en mouvement dans la scène et les flouter ;<br>- si le système est un compteur intelligent, il peut agréger l'utilisation de l'énergie sur une certaine période, sans l’enregistrer en temps réel.<br>Le choix d'une méthode de la liste ci-dessus doit dépendre des menaces identifiées. Pour certains types de menaces sur la vie privée, la pseudonymisation sera plus appropriée que l'anonymisation (par exemple, s'il y a un besoin de traçabilité). En outre, certaines menaces sur la vie privée seront traitées par une combinaison de plusieurs méthodes."
+      },
+      "PIA_DEF_SRC": {
+        "name": "Source de risque",
+        "description": "Personne, interne ou externe à l'organisme, agissant de manière accidentelle ou délibérée (ex : administrateur informatique, utilisateur, attaquant externe, concurrent), ou source non humaine (ex : eau, matériaux dangereux, virus informatique non ciblé) qui peut être à l’origine d’un risque."
+      },
+      "PIA_DEF_MEN": {
+        "name": "Menace",
+        "description": "Mode opératoire composé d'une ou plusieurs actions unitaires sur des supports de données. La menace peut être utilisée, volontairement ou non, par des sources de risques, et peut alors provoquer un événement redouté."
+      },
+      "PIA_DEF_MENA": {
+        "name": "Menaces pouvant conduire à un accès illégitime aux données",
+        "description": "Menaces concernant : </strong><br>- <strong>Les matériels</strong>, utilisés de manière inadaptée, observés, modifiés ou perdus (utilisation d'un support contenant des données sensibles pour des raisons personnelles ou lors d'un transport pour lequel il n'est pas adapté, observation d'un écran, ajout d'un matériel destiné à récupérer des donnéesetc.)<br>- <strong>Les logiciels</strong>, utilisés de manière inadaptée, observés ou modifiés (élévation de privilèges, collecte de données de configuration, installation d'un outil de prise de main à distance, etc.)<br>- <strong>Les canaux informatiques</strong> qui sont observés (interception de flux réseau, etc.)<br>- <strong>Les personnes</strong>, observées, détournées ou perdues (divulgation involontaire, à la suite de pressions ou grâce à de l'hameçonnage, changement d'employeur, etc.)<br>- <strong>Les documents papier</strong>, observés ou perdus (photocopies, impressions oubliées, récupération de documents au rebut, vol de courrier, etc.)<br>- <strong>Les canaux papier</strong> qui sont observés"
+      },
+      "PIA_DEF_MENM": {
+        "name": "Menaces pouvant conduire à une modification illégitime aux données",
+        "description": "<strong>Menaces concernant : </strong><br>- <strong>Les matériels</strong> qui ont été modifiés (ajout d'un matériel incompatible, retraint d'un indispensable, etc.)<br>- <strong>Les logiciels</strong> utilisés de manière inadaptée ou modifiés (erreur de manipulation, modifications inopportunes, etc.)<br>- <strong>Les canaux informatiques</strong> qui sont utilisés de manière inadaptée (réémission de flux intercepté, etc.)<br>- <strong>Les personnes</strong> surchargées ou détournées (tâche non maîtrisée, pertubation des conditions de travail, influence, etc.)<br>- Les documents papier qui ont été modifiés (modification de document, remplacement par un faux, etc.)<br>- <strong>Les canaux papier</strong> qui ont été modifiés (échange de parapheur, envoi de courriers contradictoires, etc.)"
+      },
+      "PIA_DEF_MENI": {
+        "name": "Menaces pouvant conduire à une indisponibilité des données",
+        "description": "<strong>Menaces concernant : </strong><br>- <strong>Les matériels</strong> : utilisés de manière inadaptée, surchargés, modifiés, détériorés, perdus (stockage saturé, attaque DOS, modification menant à une panne,  incendie, vol ou perte, etc.)<br>- <strong>Les logiciels</strong> : utilisés de manière inadaptée, surchargés, modifiés, détériorés, perdus (effacement de données, injection de données, bombe logique, licence non renouvelée, etc.)<br>- <strong>Les canaux informatiques</strong> : surchargés, détériorés, perdus (téléchargement non autorisé, coupure d’accès Internet, etc.)<br>- <strong>Les personnes</strong> : surchargées, détériorées, perdues (mauvaise utilisation des compétences, absence, départ, etc.)<br>- <strong>Les documents papier</strong> : utilisés de manière inadaptée, détériorés, perdus (effacement, destruction, vol ou perte, etc.)<br>- <strong>Les canaux papier</strong> : détériorés, modifiés, perdus (grève des postes, changement de locaux, disparition d'un transporteur de documents, réorganisation, etc.)"
+      },
+      "PIA_DEF_GRV": {
+        "name": "Gravité",
+        "description": "La gravité représente l’ampleur d’un risque. Elle dépend essentiellement du caractère préjudiciable des impacts potentiels"
+      },
+      "PIA_DEF_VRA": {
+        "name": "Vraissemblance",
+        "description": "La vraisemblance traduit la possibilité qu’un risque se réalise. Elle dépend essentiellement des vulnérabilités des supports face aux menaces et des capacités des sources de risques à les exploiter."
+      },
+      "PIA_DEF_IND": {
+        "name": "Indisponibilité des données",
+        "description": "Des personnes non autorisées altèrent les données, causant la <strong>perte de l'intégrité</strong> de celles-ci et contrevenant ainsi à l'article <a target=\"_blank\" href=https://www.cnil.fr/fr/reglement-europeen-protection-donnees/chapitre4#Article32> 32-1 b) du RGPD</a>."
+      },
+      "PIA_DEF_ACCI": {
+        "name": "Accès illégitime aux données",
+        "description": "Des personnes non autorisées prennent connaissance des données, causant la <strong>perte de la confidentialité</strong> de celles-ci et contrevenant ainsi à l'article <a target=\"_blank\" href=https://www.cnil.fr/fr/reglement-europeen-protection-donnees/chapitre4#Article32> 32-1 b) du RGPD</a>."
+      },
+      "PIA_DEF_MODI": {
+        "name": "Modification illégitime des données",
+        "description": "Des personnes non autorisées altèrent les données, causant la <strong>perte de l'intégrité</strong> de celles-ci et contrevenant ainsi à l'article <a target=\"_blank\" href=https://www.cnil.fr/fr/reglement-europeen-protection-donnees/chapitre4#Article32> 32-1 b) du RGPD</a>."
+      },
+      "PIA_DEF_PBDS": {
+        "name": "Privacy By Design",
+        "description": "Ensemble de méthodes assurant la prise en compte de la protection des données à caractère personnel dès l'initiation d'un nouveau projet, notamment :<br>- Utiliser la démarche de gestion des risques de la CNIL dès l’élaboration d’un service ou la conception d’une application.<br>- Privilégier le recours à des labels de confiance dans les domaines de la SSI et « Informatique et libertés » (procédures, produits, systèmes de management, organismes, personnes, etc.).<br>- Privilégier le recours à des référentiels éprouvés et reconnus.<br>- Effectuer les formalités CNIL avant le lancement d’un nouveau traitement."
+      },
+      "PIA_DEF_PBDF": {
+        "name": "Privacy By Default",
+        "description": "Démarche consistant à permettre à l'utilisateur du service de profiter immédiatement, sans exiger d'action particulière de sa part, du plus haut niveau de protection possible pour ses données personnelles.<br>Il conviendra par exemple de régler les paramètres par défaut de façon à limiter au maximum la collecte et à protéger au mieux les données personnelles de l'utilisateur."
+      },
+      "PIA_DEF_VIOL": {
+        "name": "Violation de données",
+        "description": "Violation de la sécurité entraînant, de manière accidentelle ou illicite, la destruction, la perte, l'altération ou la divulgation non autorisée de données à caractère personnel transmises, conservées ou traitées d'une autre manière, ou l'accès non autorisé à de telles données."
+      },
+      "PIA_DEF_EVT": {
+        "name": "Qualification des violations de données",
+        "description": "On distingue quatre niveau de gravité:<br>- l'événement est une violation de données sans conséquence<br>- l'incident correspond à une violation de données avec des conséquences isolées<br>- le sinistre à une violation de données avec des conséquences immédiates importantes pour une ou plusieurs personnes<br>- la crise est une violation de données avec des conséquences importantes et à plus long terme sur une ou plusieurs personnes"
+      },
+      "PIA_VAL_CART": {
+        "name": "La cartographie des risques",
+        "description": "Ce graphique représente les risques engendrés par le traitement et les risques résiduels compte tenu de l’ensemble des mesures correctives. Il démontre que si les mesures complémentaires décrites dans le plan d'action sont correctement mises en œuvre, la vraissemblance et/ou la gravité des risques résiduels devraient réduire."
+      },
+      "PIA_VAL_ACT": {
+        "name": "Le plan d'action",
+        "description": "Le plan d'action est la description de la stratégie, des moyens et des effectifs à mettre en oeuvre pour que les mesures correctives définies entrent en fonction. Pour chaque tâche il convient de désigner un responsable et de définir des délais."
+      },
+      "PIA_DEF_ENJ": {
+        "name": "Enjeux du traitement",
+        "description": "Il s'agit des motivations menant à la mise en oeuvre du traitement, les bénéfices attendus (pour l’organisme, pour les personnes concernées, pour la société en général…)."
+      },
+      "PIA_DEF_ST": {
+        "name": "Sous-traitant",
+        "description": "Personne physique ou morale, autorité publique, service ou un autre organisme qui traite des données à caractère personnel pour le compte du responsable du traitement.<br>Le sous-traitant et toute personne agissant sous l'autorité du responsable du traitement ou sous celle du sous-traitant, qui a accès à des données à caractère personnel, ne peut pas traiter ces données, excepté sur instruction du responsable du traitement, à moins d'y être obligé par le droit de l'Union ou le droit d'un État membre."
+      },
+      "PIA_DEF_RGPD": {
+        "name": "RGPD (Règlement Général sur la Protection des Données)",
+        "description": "Règlement relatif à la protection des personnes physiques à l'égard du traitement des données à caractère personnel et à la libre circulation de ces données (<a target=\"_blank\" href=http://eur-lex.europa.eu/legal-content/FR/TXT/PDF/?uri=CELEX:32016R0679&from=DE>UE 2016-679</a>), adopté le 27 avril 2016 par l'Union Européenne, il entrera en application  le 25/08/2018, abrogeant la directive 95/46/CE."
+      },
+      "PIA_DEF_PC": {
+        "name": "Personne concernée",
+        "description": "Personne à laquelle se rapportent les données qui font l'objet du traitement."
+      },
+      "PIA_DEF_FIN": {
+        "name": "Finalité du traitement",
+        "description": "<strong>Objectif principal d’une application informatique de données personnelles</strong>.<br>Exemples de finalité : gestion des recrutements, gestion des clients, enquête de satisfaction, surveillance des locaux, etc."
+      },
+      "PIA_DEF_MIN3": {
+        "name": "Réduction du caractère identifiant des données",
+        "description": "Le système peut faire en sorte que :<br>- l’utilisateur peut utiliser une ressource ou un service sans risque de divulguer son identité (données anonymes) ;<br>- l’utilisateur peut utiliser une ressource ou un service sans divulguer son identité, mais reste identifiable et responsable de cette utilisation (données pseudonymes) ;<br>- l’utilisateur peut faire de multiples utilisations des ressources ou des services sans risque que ces utilisations puissent être reliées ensemble (données non corrélables) ;<br>- l’utilisateur peut utiliser une ressource ou un service sans risque que d’autres, en particulier des tiers, puissent être en mesure d'observer que la ressource ou le service est utilisé (non-observabilité).<br>Le choix d'une méthode de la liste ci-dessus doit dépendre des menaces identifiées. Pour certains types de menaces sur la vie privée, la pseudonymisation sera plus appropriée que l'anonymisation (par exemple, s'il y a un besoin de traçabilité). En outre, certaines menaces sur la vie privée seront traitées par une combinaison de plusieurs méthodes."
+      },
+      "PIA_DEF_MIN4": {
+        "name": "Réduction de l'accumulation de données",
+        "description": "Le système peut être structuré en parties indépendantes avec des fonctions de contrôle d'accès distinctes. Les données peuvent également être réparties entre ces sous-systèmes indépendants et contrôlées par chaque sous-système en utilisant différents mécanismes de contrôle d'accès. Si un sous-système est compromis, les impacts sur l’ensemble des données peuvent ainsi être réduits."
+      },
+      "PIA_DEF_MIN5": {
+        "name": "Restriction de l’accès aux données",
+        "description": "Le système peut limiter l'accès aux données selon le principe du « besoin d’en connaître ». Le système peut séparer les données sensibles et appliquer des politiques de contrôle d'accès spécifiques.<br>Le système peut aussi chiffrer les données sensibles pour protéger leur confidentialité lors de la transmission et du stockage. L’accès aux fichiers cachés temporaires qui sont produits au cours du traitement des données devrait également être protégé."
+      },
+      "PIA_EX_DCPC": {
+        "name": "Catégories de DCP courantes",
+        "description": "<strong>Données d’identification</strong> : état civil, age, nationalité, double nationalité, adresse postale, capacité juridique... <br><strong>Vie personnelle</strong> : situation maritale, nombre d’enfants, département de résidence, type d’habitation, situation de logement, ancienneté dans le logement, CSP... <br><strong>Vie professionnelle</strong> : emploi, type de contrat, CSP, nom de l’employeur, ancienneté dans l’emploi, chômage... <br><strong>Données de connexion</strong> : adresse IP, journaux d'événements...<br><strong>Données de localisation</strong> : déplacement, données GPS, GSM...<br><strong>Autre</strong> : numéro de téléphone, adresse électronique..."
+      },
+      "PIA_EX_DCPS": {
+        "name": "Catégories de DCP perçues comme sensibles",
+        "description": "Numéro de sécurité sociale (NIR), données biométriques, données bancaires..."
+      },
+      "PIA_EX_DCPR": {
+        "name": "Catégories de DCP sensibles au sens du RGDP",
+        "description": "Opinions philosophiques, politiques, religieuses, syndicales, vie sexuelle, données de santé, origine raciales ou ethniques, relatives à la santé ou à la vie sexuelle, infractions, condamnations, mesures de sécurité.<br>Se référer aux <a target=\"_blank\" href='https://www.cnil.fr/fr/reglement-europeen-protection-donnees/chapitre2#Article9'>art. 9</a> <br> et <a target=\"_blank\" href='https://www.cnil.fr/fr/reglement-europeen-protection-donnees/chapitre2#Article10'>art.10</a> du [RGPD]"
+      },
+      "PIA_EX_HUMI": {
+        "name": "Source humaine interne",
+        "description": "Il peut s'agir :<br>- d'un employé, malintentionné, utilisant sa proximité du système, ses compétences, ses privilèges et un temps disponible potentiellement élevés ou commettant une négligence due à un possible manque de formation et de sensibilisation.<br>- d'un utilisateur ou de son entourage, négligent ou malintentionné, ayant accès au service.<br>Ses motivations peuvent être multiples : maladresse, erreur, négligence, vengeance, volonté d’alerter, malveillance, appât du gain, espionnage"
+      },
+      "PIA_EX_HUME": {
+        "name": "Source humaine externe",
+        "description": "Il peut s'agir :<br>- d'un tiers malintentionné ou ignorant utilisant sa proximité physique pour accéder frauduleusement au service<br>- d'un attaquant ciblant un utilisateur en utilisant sa connaissance de l’utilisateur et de certaines des informations le concernant<br>- d'un attaquant ciblant une des sociétés en charge du traitement utilisant sa connaissance des sociétés pouvant permettre d’attenter à leur image<br>- d'un organisme tiers autorisé utilisant ses accès privilégiés pour accéder illégitimement à des informations. Les motivations peuvent être multiples : Jeu, nuisance, malveillance, vengeance, espionnage, appât du gain, acquisition de données en vue de les exploiter"
+      },
+      "PIA_EX_NHUM": {
+        "name": "Source non humaine",
+        "description": "Il peut s'agir d'un incident ou sinistre chez un des organismes en charge du traitement (coupure de courant, incendie, inondation, etc.)"
+      },
+      "PIA_EX_IMPN": {
+        "name": "Impact négligeable",
+        "description": "Les personnes concernées ne seront pas impactées ou pourraient connaître quelques désagréments, qu’elles surmonteront sans difficulté.<br>Exemples d'impacts :<br>- corporels : maux de tête passagers<br>- matériels : perte de temps pour réitérer des démarches ou pour attendre de les réaliser, réutilisation des données à des fins de publicité ciblée pour des produits de consommation courante, etc.,<br>- moraux : simple contrariété, sentiment d'atteinte à la vie privée sans préjudice réel (intrusion commerciale), etc."
+      },
+      "PIA_EX_IMPL": {
+        "name": "Impact limité",
+        "description": "Les personnes concernées pourraient connaître des désagréments significatifs, qu’elles pourront surmonter malgré quelques difficultés<br>Exemples d'impacts :<br>- corporels : affection physique mineure (ex. : maladie bénigne suite au non respect de contre-indications), diffamation donnant lieu à des représailles physiques etc.<br>- matériels : paiements non prévus (ex. : amendes erronées), refus d’accès à des services administratifs ou commerciaux, publicité ciblée en ligne sur un aspect vie privée que la personne souhaitait garder confidentiel , etc.<br>- moraux : affection psychologique mineure mais objective, sentiment d’atteinte à la vie privée sans préjudice irrémédiable, intimidation sur les réseaux sociaux etc."
+      },
+      "PIA_EX_IMPI": {
+        "name": "Impact Important",
+        "description": "Les personnes concernées pourraient connaître des conséquences significatives, qu’elles devraient pouvoir surmonter, mais avec des difficultés réelles et significatives<br>Exemples d'impacts :<br>- corporels : affection physique grave causant un préjudice à long terme (aggravation de l’état de santé suite à une mauvaise prise en charge, ou au non respect de contre-indications), ltération de l’intégrité corporelle, etc.<br>- matériels : détournements d’argent non indemnisé, opportunités ciblées, uniques et non récurrentes, perdues (prêt immobilier, études, stages ou emploi, interdiction d’examen), perte de logement, perte d’emploi, etc.<br>- moraux : Affection psychologique grave (dépression, phobie), sentiment d’atteinte à la vie privée et de préjudice irrémédiable, victime de chantage, cyberbullying et harcèlement moral, etc."
+      },
+      "PIA_EX_IMPM": {
+        "name": "Impact maximal",
+        "description": "Les personnes concernées pourraient connaître des conséquences significatives, voire irrémédiables, qu’elles pourraient ne pas surmonter<br>Exemples d'impacts :<br>- corporels : affection physique de longue durée ou permanente, altération définitive de l’intégrité physique, décès<br>- matériels : péril financier, dettes importantes, impossibilité de travailler, impossibilité de se reloger, perte de preuves dans le cadre d’un contentieux, perte d’accès à une infrastructure vitale (eau, électricité),etc.<br>- moraux : affection psychologique de longue durée ou permanente, sanction pénale, enlèvement, perte de lien familial, impossibilité d’ester en justice, changement de statut administratif et/ou perte d’autonomie juridique (tutelle), etc."
+      },
+      "PIA_EX_VRAN": {
+        "name": "Vraissemblance négligeable",
+        "description": "Il ne semble pas possible que les sources de risques retenues puissent réaliser la menace en s’appuyant sur les caractéristiques des supports (ex. : vol de supports papiers stockés dans un local de l’organisme dont l’accès est contrôlé par badge et code d’accès)."
+      },
+      "PIA_EX_VRAL": {
+        "name": "Vraissemblance limitée",
+        "description": "Il semble difficile pour les sources de risques retenues de réaliser la menace en s’appuyant sur les caractéristiques des supports (ex. : vol de supports papiers stockés dans un local de l’organisme dont l’accès est contrôlé par badge)."
+      },
+      "PIA_EX_VRAI": {
+        "name": "Vraissemblance importante",
+        "description": "il semble possible pour les sources de risques retenues de réaliser la menace en s’appuyant sur les caractéristiques des supports (ex. : vol de supports papiers stockés dans les bureaux d’un organisme dont l’accès est contrôlé par une personne à l’accueil)."
+      },
+      "PIA_EX_VRAM": {
+        "name": "Vraissemblance maximale",
+        "description": "il semble extrêmement facile pour les sources de risques retenues de réaliser la menace en s’appuyant sur les caractéristiques des supports (ex. : vol de supports papier stockés dans le hall public de l’organisme)."
+      },
+      "PIA_EX_DC": {
+        "name": "Données calculées",
+        "description": "Données pour un système de score, résultat de l’application du score... "
+      }
     }
   },
   "comments": {
@@ -235,11 +723,316 @@
   },
   "summary": {
     "previous_page": "Retour à la page précédente",
-    "print": "Imprimer"
+    "print": "Imprimer",
+    "title": "Informations du PIA",
+    "pia_name": "Nom du PIA",
+    "pia_author": "Nom de l'auteur",
+    "pia_assessor": "Nom de l'évaluateur",
+    "pia_validator": "Nom du validateur",
+    "dpo_name": "Nom du DPO",
+    "dpo_status": "Statut du DPO",
+    "dpo_opinion": "Opinion du DPO",
+    "concerned_people_name": "Noms des personnes concernées",
+    "concerned_people_status": "Statuts des personnes concernées",
+    "concerned_people_opinion": "Opinions des personnes concernées",
+    "modification_made": "Modifications apportées",
+    "rejection_reason": "Raison du refus",
+    "creation_date": "Date de création",
+    "attachments": "Pièces jointes",
+    "action_plan": {
+      "fundamental_principles": "Principes fondamentaux",
+      "implementation_date": "Date prévue de mise en œuvre",
+      "implementation_responsible": "Responsable de la mise en œuvre",
+      "measures": "Mesures existantes ou prévues",
+      "risks": "Risques",
+      "no_action_plan": "Aucun plan d'action enregistré."
+    }
+  },
+  "errors": {
+    "title": "Page introuvable.",
+    "content": "Vous pouvez remonter un problème ou une demande en utilisant le gestionnaire de tickets<br>disponible à l'adresse suivante : <a href='https://redmine.atnos.io' target='_blank'>https://redmine.atnos.io</a>"
+  },
+  "cartography": {
+    "negligible": "Négligeable",
+    "limited": "Limitée",
+    "important": "Importante",
+    "maximal": "Maximale",
+    "seriousness_axe": "Gravité du risque",
+    "likelihood_axe": "Vraissemblance du risque",
+    "legend1": "Mesures prévues ou existantes",
+    "legend2": "Avec les mesures correctives mises en oeuvre",
+    "legend3": "(A)ccès illégitime à des données",
+    "legend4": "(M)odification non désirée de données",
+    "legend5": "(D)isparition de données"
+  },
+  "action_plan": {
+    "title": "Vue d'ensemble",
+    "principles": "Principes fondamentaux",
+    "measures": "Mesures existantes ou prévues",
+    "risks": "Risques",
+    "risk1": "Accès illégitime à des données",
+    "risk2": "Modification non désirée de données",
+    "risk3": "Disparition de données",
+    "improvable_measures": "Mesures améliorables",
+    "acceptable_measures": "Mesures acceptables",
+    "no_action_plan": "Aucun plan d'action enregistré.",
+    "edit": "Éditer",
+    "placeholder_person_in_charge": "Responsable de la mise en oeuvre"
+  },
+  "opinions": {
+    "edit": "Éditer",
+    "content": ", considère(nt) que :",
+    "dpo_opinion": "Avis du DPO",
+    "placeholder_dpo_name": "Nom(s) du(des) DPO",
+    "placeholder_dpo_opinion": "Précisez les raisons de votre choix",
+    "people_opinion": "Avis des personnes concernées",
+    "placeholder_concerned_people_name": "Nom(s) de la(des) personne(s) concernée(s)",
+    "placeholder_people_opinion": "Décrivez comment les avis ont été collectés et quelle en est l'analyse. Dans le cas où les avis n'ont pas été recherchés, en préciser les raisons.",
+    "treatment_ok": "Le traitement pourrait être mis en oeuvre.",
+    "treatment_nok": "Le traitement ne devrait pas être mis en oeuvre."
   },
   "sections": {
     "1": {
-      "title": "Contexte"
+      "title": "Contexte",
+      "short_help": "Cette section vous permet d'obtenir une vision claire du(des) traitement(s) de données à caractère personnel considéré(s).",
+      "items": {
+        "1": {
+          "title": "Vue d'ensemble",
+          "short_help": "Cette partie vous permet d'identifier et de présenter l'objet de l'étude.",
+          "questions": {
+            "1": {
+              "title": "Quel est le traitement qui fait l'objet de l'étude ?",
+              "placeholder": "Présentez le traitement de manière synthétique : son nom, sa finalité, ses enjeux (apports attendus), son contexte d'utilisation, etc."
+            },
+            "2": {
+              "title": "Quelles sont les responsabilités liées au traitement ?",
+              "placeholder": "Décrivez les responsabilités des parties prenantes : le responsable du traitement, les potentiels sous-traitants et les potentiels co-responsables."
+            },
+            "3": {
+              "title": "Quels sont les référentiels applicables ?",
+              "placeholder": "Recensez les référentiels applicables au traitement, utiles ou à respecter, notamment les codes de conduite approuvés et certifications en matière de protection des données."
+            }
+          }
+        },
+        "2": {
+          "title": "Données, processus et supports",
+          "short_help": "Cette partie vous permet de délimiter et décrire le traitement considéré de manière détaillée.",
+          "questions": {
+            "1": {
+              "title": "Quelles sont les données traitées ?",
+              "placeholder": "Listez les données collectées et traitées en indiquant les durées de conservation, les destinataires et les personnes pouvant y accèder."
+            },
+            "2": {
+              "title": "Comment le cycle de vie des données se déroule-t-il (description fonctionnelle) ?",
+              "placeholder": "Décrivez le cycle de vie des données (de leur collecte à leur destruction en passant par leur stockage, les différentes étapes de traitements, l'archivage, etc.), par exemple à l'aide d'un schéma des flux de données (vous pouvez l'ajouter en pièce jointe) et d'une description de chaque processus mis en œuvre."
+            },
+            "3": {
+              "title": "Quels sont les supports des données ?",
+              "placeholder": "Listez les supports des données de votre traitement (systèmes informatiques, serveurs, logiciels, réseaux, personnes, supports papier, etc.)."
+            }
+          }
+        }
+      }
+    },
+    "2": {
+      "title": "Principes fondamentaux",
+      "short_help": "Cette section vous permet de bâtir le dispositif de conformité aux principes de protection de la vie privée.",
+      "items": {
+        "1": {
+          "title": "Proportionnalité et nécessité",
+          "short_help": "Cette partie vous permet de démontrer la légitimité de votre traitement et des données traitées.",
+          "questions": {
+            "1": {
+              "title": "Les finalités du traitement sont-elles déterminées, explicites et légitimes ?",
+              "short_title": "Finalités",
+              "placeholder": "Expliquez en quoi les finalités du traitement sont déterminées, explicites et légitimes."
+            },
+            "2": {
+              "title": "Quel(s) est(sont) les fondement(s) qui rend(ent) votre traitement licite ?",
+              "short_title": "Fondement",
+              "placeholder": "Présentez le(s) fondement(s) de votre traitement (ex : consentement, exécution d'un contrat, obligation légale, intérêts vitaux, etc.)."
+            },
+            "3": {
+              "title": "Les données collectées sont-elles adéquates, pertinentes et limitées à ce qui est nécessaire au regard des finalités pour lesquelles elles sont traitées (minimisation des données) ?",
+              "short_title": "Données adéquates",
+              "placeholder": "Expliquez en quoi chaque donnée collectée est nécessaire aux finalités de votre traitement."
+            },
+            "4": {
+              "title": "Les données sont-elles exactes et tenues à jour ?",
+              "short_title": "Données exactes",
+              "placeholder": "Décrivez les mesures prévues pour vous assurer de la qualité des données."
+            },
+            "5": {
+              "title": "Quelle est la durée de conservation des données ?",
+              "short_title": "Durée de conservation",
+              "placeholder": "Expliquez en quoi la durée de conservation prévue pour chaque donnée est nécessaire à l'accomplissement des finalités de votre traitement, à défaut d'une autre obligation légale imposant une conservation spécifique."
+            }
+          }
+        },
+        "2": {
+          "title": "Mesures protectrices des droits",
+          "short_help": "Cette partie vous permet de démontrer que vous mettez en œuvre les moyens nécessaires pour permettre aux personnes concernées d'exercer leurs droits.",
+          "questions": {
+            "1": {
+              "title": "Comment les personnes concernées sont-elles informées à propos du traitement ?",
+              "short_title": "Information des personnes",
+              "placeholder": "Décrivez l'information qu'il est prévu d'apporter aux personnes concernées et les moyens choisis pour cette information."
+            },
+            "2": {
+              "title": "Comment le consentement des personnes concernées est-il obtenu ?",
+              "short_title": "Recueil du consentement",
+              "placeholder": "Décrivez les modalités prévues pour obtenir le consentement des personnes concernées."
+            },
+            "3": {
+              "title": "Comment les personnes concernées peuvent-elles exercer leurs droit d'accès et droit à la portabilité ?",
+              "short_title": "Droit d'accès et à la portabilité",
+              "placeholder": "Décrivez les modalités prévues pour permettre aux personnes concernées d'accéder à leurs données et de recevoir ou transmettre leurs données."
+            },
+            "4": {
+              "title": "Comment les personnes concernées peuvent-elles exercer leurs droit de rectification et droit à l'effacement (droit à l'oubli) ?",
+              "short_title": "Droit de rectification et d'effacement",
+              "placeholder": "Décrivez les modalités prévues pour permettre aux personnes concernées de rectifier et d'effacer leurs données."
+            },
+            "5": {
+              "title": "Comment les personnes concernées peuvent-elles exercer leurs droit de limitation et droit d'opposition ?",
+              "short_title": "Droit de limitation et d'opposition",
+              "placeholder": "Décrivez les modalités prévues pour permettre aux personnes concernées de limiter le traitement de leurs données et de s'opposer au traitement de leurs données."
+            },
+            "6": {
+              "title": "Les obligations des sous-traitants sont-elles clairement définies et contractualisées ?",
+              "short_title": "Sous-traitance",
+              "placeholder": "Pour chaque sous-traitant, décrivez le périmètre de ses responsabilités et indiquez les références aux contrats, codes de conduite et certifications qui fixent ses obligations."
+            },
+            "7": {
+              "title": "En cas de transfert de données en dehors de l'Union européenne, les données sont-elles protégées de manière équivalente ?",
+              "short_title": "Transferts",
+              "placeholder": "Pour chaque pays en dehors de l'Union européenne où des données sont stockées ou traitées, identifiez-le et indiquez s'il est reconnu comme adéquat ou décrivez les clauses qui encadrent le transfert."
+            }
+          }
+        }
+      }
+    },
+    "3": {
+      "title": "Risques",
+      "short_help": "Cette section vous permet d'apprécier les risques sur la vie privée, compte tenu des mesures existantes ou prévues.",
+      "items": {
+        "1": {
+          "title": "Mesures existantes ou prévues",
+          "short_help": "Cette partie vous permet de recenser les mesures (existantes ou prévues) contribuant à la sécurité des données."
+        },
+        "2": {
+          "title": "Accès illégitime à des données",
+          "short_help": "Analysez les causes et conséquences d'un accès illégitime à des données, et estimez sa gravité et sa vraisemblance.",
+          "questions": {
+            "1": {
+              "title": "Quels pourraient être les principaux impacts sur les personnes concernées si le risque se produisait ?",
+              "placeholder": "Saisissez les impacts potentiels \u002B"
+            },
+            "2": {
+              "title": "Quelles sont les principales menaces qui pourraient permettre la réalisation du risque ?",
+              "placeholder": "Saisissez les menaces \u002B"
+            },
+            "3": {
+              "title": "Quelles sources de risques pourraient-elles en être à l'origine ?",
+              "placeholder": "Saisissez les sources de risques \u002B"
+            },
+            "4": {
+              "title": "Quelles sont les mesures, parmi celles identifiées, qui contribuent à traiter le risque ?",
+              "placeholder": "Cliquez ici pour sélectionner les mesures contribuant à traiter ce risque."
+            },
+            "5": {
+              "title": "Comment estimez-vous la gravité du risque, notamment en fonction des impacts potentiels et des mesures prévues ?",
+              "placeholder": "Justifiez ici la gravité estimée."
+            },
+            "6": {
+              "title": "Comment estimez-vous la vraisemblance du risque, notamment au regard des menaces, des sources de risques et des mesures prévues ?",
+              "placeholder": "Justifiez ici la vraisemblance estimée."
+            }
+          }
+        },
+        "3": {
+          "title": "Modification non désirées de données",
+          "short_help": "Analysez les causes et conséquences d'une modification non désirée de données, et estimez sa gravité et sa vraisemblance.",
+          "questions": {
+            "1": {
+              "title": "Quels pourraient être les principaux impacts sur les personnes concernées si le risque se produisait ?",
+              "placeholder": "Saisissez les impacts potentiels \u002B"
+            },
+            "2": {
+              "title": "Quelles sont les principales menaces qui pourraient permettre la réalisation du risque ?",
+              "placeholder": "Saisissez les menaces \u002B"
+            },
+            "3": {
+              "title": "Quelles sources de risques pourraient-elles en être à l'origine ?",
+              "placeholder": "Saisissez les sources de risques \u002B"
+            },
+            "4": {
+              "title": "Quelles sont les mesures, parmi celles identifiées, qui contribuent à traiter le risque ?",
+              "placeholder": "Cliquez ici pour sélectionner les mesures contribuant à traiter ce risque."
+            },
+            "5": {
+              "title": "Comment estimez-vous la gravité du risque, notamment en fonction des impacts potentiels et des mesures prévues ?",
+              "placeholder": "Justifiez ici la gravité estimée."
+            },
+            "6": {
+              "title": "Comment estimez-vous la vraisemblance du risque, notamment au regard des menaces, des sources de risques et des mesures prévues ?",
+              "placeholder": "Justifiez ici la vraisemblance estimée."
+            }
+          }
+        },
+        "4": {
+          "title": "Disparition de données",
+          "short_help": "Analysez les causes et conséquences d'une disparition de données, et estimez sa gravité et sa vraisemblance.",
+          "questions": {
+            "1": {
+              "title": "Quels pourraient être les principaux impacts sur les personnes concernées si le risque se produisait ?",
+              "placeholder": "Saisissez les impacts potentiels \u002B"
+            },
+            "2": {
+              "title": "Quelles sont les principales menaces qui pourraient permettre la réalisation du risque ?",
+              "placeholder": "Saisissez les menaces \u002B"
+            },
+            "3": {
+              "title": "Quelles sources de risques pourraient-elles en être à l'origine ?",
+              "placeholder": "Saisissez les sources de risques \u002B"
+            },
+            "4": {
+              "title": "Quelles sont les mesures, parmi celles identifiées, qui contribuent à traiter le risque ?",
+              "placeholder": "Cliquez ici pour sélectionner les mesures contribuant à traiter ce risque."
+            },
+            "5": {
+              "title": "Comment estimez-vous la gravité du risque, notamment en fonction des impacts potentiels et des mesures prévues ?",
+              "placeholder": "Justifiez ici la gravité estimée."
+            },
+            "6": {
+              "title": "Comment estimez-vous la vraisemblance du risque, notamment au regard des menaces, des sources de risques et des mesures prévues ?",
+              "placeholder": "Justifiez ici la vraisemblance estimée."
+            }
+          }
+        },
+        "5": {
+          "title": "Vue d'ensemble des risques",
+          "short_help": "Cette visualisation vous permet d’avoir une vue globale et synthétique de l’action des mesures sur les composants des risques qu’elles contribuent à traiter."
+        }
+      }
+    },
+    "4": {
+      "title": "Validation",
+      "short_help": "Cette section vous permet de préparer et de formaliser la validation du PIA.",
+      "items": {
+        "1": {
+          "title": "Cartographie des risques",
+          "short_help": "Cette visualisation vous permet de comparer le positionnement des risques entre eux, avant et après application des mesures complémentaires."
+        },
+        "2": {
+          "title": "Plan d'action",
+          "short_help": "Planifiez en détail la mise en œuvre des mesures complémentaires déterminées au cours du PIA."
+        },
+        "3": {
+          "title": "Avis du DPO et des personnes concernées",
+          "short_help": "Présentez le conseil de la personne en charge des aspects informatique et libertés (délégué à la protection des données s'il existe). Présentez l'avis des personnes concernées ou de leurs représentants."
+        }
+      }
     }
   }
 }
