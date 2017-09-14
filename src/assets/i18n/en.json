@@ -39,8 +39,10 @@
     },
     "cards": {
      "new_pia": "New PIA",
+     "placeholder_new_pia": "New PIA",
      "or": "or",
      "import_pia": "Import PIA",
+     "placeholder_import_pia": "Import PIA",
      "title_close_creation": "Close creation",
      "pia_name": "PIA's name",
      "placeholder_pia_name": "Title",
@@ -75,6 +77,7 @@
       "column_evaluation": "Evaluation",
       "column_validation": "Validation",
       "column_creation": "Creation",
+      "column_status": "Status",
       "column_progression": "Progression",
       "column_actions": "Actions",
       "item": {
@@ -89,6 +92,13 @@
     }
   },
   "pia": {
+    "statuses": {
+      "0": "Doing",
+      "1": "Rejected",
+      "2": "Simple validation",
+      "3": "Signed validation",
+      "4": "Archived"
+    },
     "header": {
       "preview": "Preview",
       "display_action_plan": "Display<br>action plan"
@@ -758,6 +768,8 @@
     "pia_author": "Author's name",
     "pia_assessor": "Assessor's name",
     "pia_validator": "Validator's name",
+    "content_choice_ok": "The treatment could be implemented.",
+    "content_choice_nok": "The treatment should not be used.",
     "dpo_name": "DPO's name",
     "dpo_status": "DPO's status",
     "dpo_opinion": "DPO's opinion",
@@ -768,6 +780,12 @@
     "rejection_reason": "Rejection reason",
     "creation_date": "Creation date",
     "attachments": "Attachments",
+    "gauges": {
+      "negligible": "Negligible",
+      "limited": "Limited",
+      "important": "Important",
+      "maximal": "Maximum"
+    },
     "action_plan": {
       "fundamental_principles": "Fundamental principles",
       "implementation_date": "Expected date of implementation",
@@ -792,7 +810,9 @@
     "legend2": "With the corrective measures implemented",
     "legend3": "(I)llegitimate access to data",
     "legend4": "(U)nwanted modification of data",
-    "legend5": "(D)ata disappearence"
+    "legend5": "(D)ata disappearence",
+    "risk1_access": "(I)",
+    "risk2_modification": "(U)"
   },
   "action_plan": {
     "title": "Overview",

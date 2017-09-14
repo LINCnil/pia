@@ -20,8 +20,6 @@ import { TranslateService } from '@ngx-translate/core';
 })
 
 export class EntryContentComponent implements OnInit, OnChanges {
-  @Input() measureName: string;
-  @Input() measurePlaceholder: string;
   @Input() section: { id: number, title: string, short_help: string, items: any };
   @Input() item: { id: number, title: string, evaluation_mode: string, short_help: string, questions: any };
   @Input() questions: any;
@@ -48,9 +46,6 @@ export class EntryContentComponent implements OnInit, OnChanges {
     this._piaService.getPIA().then((entry) => {
       this._evaluationService.setPia(this._piaService.pia);
       this._evaluationService.allowEvaluation();
-      if (this.measureName) {
-        this._measureService.addNewMeasure(this._piaService.pia, this.measureName, this.measurePlaceholder);
-      }
       this._paginationService.sectionId = parseInt(this._activatedRoute.snapshot.params['section_id'], 10);
       this._paginationService.itemId = parseInt(this._activatedRoute.snapshot.params['item_id'], 10);
       this._paginationService.checkForPreviousLink(this.data);

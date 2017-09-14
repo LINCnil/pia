@@ -62,7 +62,7 @@
             <div class="pia-newBlock-item-new-title">{{ 'homepage.cards.new_pia' | translate }}</div>
             <div class="pia-newBlock-item-new-btn">
               <i class="fa fa-folder-open" aria-hidden="true"></i>
-              <button class="btn" (click)="newPIA()" type="button" title="Nouveau PIA"><span class="pia-icons pia-icon-pia-plus"></span></button>
+              <button class="btn" (click)="newPIA()" type="button" title="{{ 'homepage.cards.placeholder_new_pia' | translate }}"><span class="pia-icons pia-icon-pia-plus"></span></button>
             </div>
           </div>
           <span>{{ 'homepage.cards.or' | translate }}</span>
@@ -70,7 +70,7 @@
             <div class="pia-newBlock-item-import-title">{{ 'homepage.cards.import_pia' | translate }}</div>
             <div class="pia-newBlock-item-import-btn">
               <i class="fa fa-upload" aria-hidden="true"></i>
-              <button class="btn" onclick="alert('Bientôt disponible.');" type="button" title="Importer PIA"><span class="pia-icons pia-icon-pia-plus"></span></button>
+              <button class="btn" onclick="alert('Bientôt disponible.');" type="button" title="{{ 'homepage.cards.placeholder_import_pia' | translate }}"><span class="pia-icons pia-icon-pia-plus"></span></button>
             </div>
           </div>
         </div>
@@ -170,6 +170,13 @@
                   <span>{{ 'homepage.lists.column_creation' | translate }}</span>
                   <i *ngIf="filter === 'created_at' && sortReverse === false" class="fa fa-caret-down"></i>
                   <i *ngIf="filter === 'created_at' && sortReverse === true" class="fa fa-caret-up"></i>
+                </a>
+              </th>
+              <th>
+                <a (click)="sortBy('status')">
+                  <span>{{ 'homepage.lists.column_status' | translate }}</span>
+                  <i *ngIf="filter === 'status' && sortReverse === false" class="fa fa-caret-down"></i>
+                  <i *ngIf="filter === 'status' && sortReverse === true" class="fa fa-caret-up"></i>
                 </a>
               </th>
               <th>

@@ -169,8 +169,6 @@ export class EvaluationsComponent implements OnInit, AfterViewChecked, DoCheck {
     this.el.nativeElement.querySelectorAll('.pia-evaluationBlock-buttons .btn').forEach((btn) => {
       btn.classList.remove('btn-active');
     });
-    // clickedBtn.classList.add('btn-active');
-    // clickedBtn.removeAttribute('disabled');
 
     // Displays content (action plan & comment fields).
     const content = this.el.nativeElement.querySelector('.pia-evaluationBlock-content');
@@ -205,14 +203,15 @@ export class EvaluationsComponent implements OnInit, AfterViewChecked, DoCheck {
         if (noEvaluationButtonsClicked || (commentValue && commentValue.length > 0)) {
           this.disableEvaluationButtons();
         }
+        this.displayEditButton = true;
       }
       // Disables comment field too if no action plan and comment is filled and isn't the next targeted element.
       if (!actionPlanValue && commentValue && commentValue.length > 0 && document.activeElement.id !== 'pia-evaluation-comment') {
         this.evaluationForm.controls['evaluationComment'].disable();
+        this.displayEditButton = true;
       }
       this.evaluation.update().then(() => {
         this._evaluationService.checkForFinalValidation(this.evaluation);
-        this.displayEditButton = true;
       });
     }, 1);
   }
@@ -245,14 +244,15 @@ export class EvaluationsComponent implements OnInit, AfterViewChecked, DoCheck {
         if (noEvaluationButtonsClicked || ((actionPlanValue && actionPlanValue.length > 0))) {
           this.disableEvaluationButtons();
         }
+        this.displayEditButton = true;
       }
       // Disables action plan field too if no comment and action plan is filled and isn't the next targeted element.
       if (!commentValue && actionPlanValue && actionPlanValue.length > 0 && document.activeElement.id !== 'pia-evaluation-action-plan') {
         this.evaluationForm.controls['actionPlanComment'].disable();
+        this.displayEditButton = true;
       }
       this.evaluation.update().then(() => {
         this._evaluationService.checkForFinalValidation(this.evaluation);
-        this.displayEditButton = true;
       });
     }, 1);
   }

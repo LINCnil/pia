@@ -1,7 +1,7 @@
 <div class="pia-entryContentBlock-content-details-blocks" *ngIf="data.evaluation && data.evaluation.action_plan_comment">
   <div class="pia-details-blocks-content">
     <div class="pia-details-blocks-content-title">
-      <h3>{{data.short_title}}</h3>
+      <h3>{{ data.short_title | translate }}</h3>
       <button type="button" class="btn" *ngIf="displayEditButton" (click)="activateActionPlanEdition()" title="{{ 'action_plan.edit' | translate }}"><i class="fa fa-pencil" aria-hidden="true"></i></button>
     </div>
     <p>

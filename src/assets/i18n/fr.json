@@ -39,8 +39,10 @@
     },
     "cards": {
       "new_pia": "Nouveau PIA",
+      "placeholder_new_pia": "Nouveau PIA",
       "or": "ou",
       "import_pia": "Importer PIA",
+      "placeholder_import_pia": "Importer PIA",
       "title_close_creation": "Fermer la création",
       "pia_name": "Nom du PIA",
       "placeholder_pia_name": "Intitulé",
@@ -75,6 +77,7 @@
       "column_evaluation": "Évaluation",
       "column_validation": "Validation",
       "column_creation": "Création",
+      "column_status": "Statut",
       "column_progression": "Progression",
       "column_actions": "Actions",
       "item": {
@@ -89,6 +92,13 @@
     }
   },
   "pia": {
+    "statuses": {
+      "0": "En cours",
+      "1": "Refusé",
+      "2": "Validation simple",
+      "3": "Validation avec signature",
+      "4": "Archivé"
+    },
     "header": {
       "preview": "Aperçu",
       "display_action_plan": "Afficher le<br>plan d'action"
@@ -758,6 +768,8 @@
     "pia_author": "Nom de l'auteur",
     "pia_assessor": "Nom de l'évaluateur",
     "pia_validator": "Nom du validateur",
+    "content_choice_ok": "Le traitement pourrait être mis en oeuvre.",
+    "content_choice_nok": "Le traitement ne devrait pas être mis en oeuvre.",
     "dpo_name": "Nom du DPO",
     "dpo_status": "Statut du DPO",
     "dpo_opinion": "Opinion du DPO",
@@ -768,6 +780,12 @@
     "rejection_reason": "Raison du refus",
     "creation_date": "Date de création",
     "attachments": "Pièces jointes",
+    "gauges": {
+      "negligible": "Négligeable",
+      "limited": "Limitée",
+      "important": "Importante",
+      "maximal": "Maximale"
+    },
     "action_plan": {
       "fundamental_principles": "Principes fondamentaux",
       "implementation_date": "Date prévue de mise en œuvre",
@@ -792,7 +810,9 @@
     "legend2": "Avec les mesures correctives mises en oeuvre",
     "legend3": "(A)ccès illégitime à des données",
     "legend4": "(M)odification non désirée de données",
-    "legend5": "(D)isparition de données"
+    "legend5": "(D)isparition de données",
+    "risk1_access": "(A)",
+    "risk2_modification": "(M)"
   },
   "action_plan": {
     "title": "Vue d'ensemble",

@@ -1,7 +1,10 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Http } from '@angular/http';
+
 import { Answer } from 'app/entry/entry-content/questions/answer.model';
 import { Evaluation } from 'app/entry/entry-content/evaluations/evaluation.model';
-import { Http } from '@angular/http';
+
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-risks-cartography',
@@ -16,10 +19,10 @@ export class RisksCartographyComponent implements OnInit {
   @Input() pia: any;
   dataJSON: any;
 
-  constructor(private http: Http) { }
+  constructor(private http: Http,
+              private _translateService: TranslateService) { }
 
   ngOnInit() {
-
     const positions = {
       x: {
         '1': 50,
@@ -170,7 +173,7 @@ export class RisksCartographyComponent implements OnInit {
         context.font = 'bold 1.1rem Roboto, Times, serif';
         context.fillStyle = '#333';
         try {
-          context.fillText('(A)',
+          context.fillText(this._translateService.instant('cartography.risk1_access'),
                       this.dataJSON['risk-access']['author'].x,
                       this.dataJSON['risk-access']['author'].y + 20);
         } catch (ex) {}
@@ -186,7 +189,7 @@ export class RisksCartographyComponent implements OnInit {
         context.font = 'bold 1.1rem Roboto, Times, serif';
         context.fillStyle = '#333';
         try {
-          context.fillText('(M)',
+          context.fillText(this._translateService.instant('cartography.risk2_modification'),
                       this.dataJSON['risk-change']['author'].x,
                       this.dataJSON['risk-change']['author'].y + 20);
         } catch (ex) {}

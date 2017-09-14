@@ -144,23 +144,23 @@ export class Pia extends ApplicationDb {
     switch (this.status) {
       case 0:
       {
-        return 'En cours';
+        return 'pia.statuses.0';
       }
       case 1:
       {
-        return 'Refusé';
+        return 'pia.statuses.1';
       }
       case 2:
       {
-        return 'Validé';
+        return 'pia.statuses.2';
       }
       case 3:
       {
-        return 'Validé avec signature';
+        return 'pia.statuses.3';
       }
       case 4:
       {
-        return 'Archivé';
+        return 'pia.statuses.4';
       }
     }
   }
@@ -169,11 +169,11 @@ export class Pia extends ApplicationDb {
       switch (status) {
         case '0':
         {
-          return 'Le traitement ne devrait pas être mis en oeuvre.';
+          return 'summary.content_choice_nok';
         }
         case '1':
         {
-          return 'Le traitement pourrait être mis en oeuvre.';
+          return 'summary.content_choice_ok';
         }
       }
     }
@@ -181,13 +181,13 @@ export class Pia extends ApplicationDb {
 
   getGaugeName(value: number) {
     if (value === 1) {
-      return 'Négligeable';
+      return 'summary.gauges.negligible';
     } else if (value === 2) {
-      return 'Limitée';
+      return 'summary.gauges.limited';
     } else if (value === 3) {
-      return 'Importante';
+      return 'summary.gauges.important';
     } else if (value === 4) {
-      return 'Maximale';
+      return 'summary.gauges.maximal';
     }
   }
 }

@@ -19,9 +19,6 @@ import { ModalsService } from 'app/modals/modals.service';
   providers: [PiaService]
 })
 export class EntryComponent implements OnInit, OnDestroy, DoCheck {
-
-  measureTitle: string;
-  measurePlaceholder: string;
   section: { id: number, title: string, short_help: string, items: any };
   item: { id: number, title: string, evaluation_mode: string, short_help: string, questions: any };
   data: { sections: any };
@@ -95,15 +92,6 @@ export class EntryComponent implements OnInit, OnDestroy, DoCheck {
           });
         });
       });
-    }
-  }
-
-  addNewMeasure(item) {
-    this.measureTitle = item.name;
-    if (item.placeholder !== undefined) {
-      this.measurePlaceholder = item.placeholder;
-    } else {
-      this.measurePlaceholder = 'measures.default_placeholder';
     }
   }
 

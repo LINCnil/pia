@@ -6,13 +6,16 @@ import { Measure } from './measure.model';
 
 import { ModalsService } from 'app/modals/modals.service';
 import { EvaluationService } from 'app/entry/entry-content/evaluations/evaluations.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Injectable()
 export class MeasureService {
   public behaviorSubject = new BehaviorSubject<string>(null);
   measures: any[];
+  measureToAdd: any;
 
-  constructor(private _modalsService: ModalsService,
+  constructor(private _translateService: TranslateService,
+              private _modalsService: ModalsService,
               private _evaluationService: EvaluationService) {}
 
   async listMeasures(pia_id: number) {
@@ -66,7 +69,8 @@ export class MeasureService {
     const newMeasureRecord = new Measure();
     newMeasureRecord.pia_id = pia.id;
     if (measureTitle) {
-      newMeasureRecord.title = measureTitle;
+      this._translateService.get(measureTitle).subscribe(val => this.measureToAdd = val);
+      newMeasureRecord.title = this.measureToAdd;
     }
     if (measurePlaceholder) {
       newMeasureRecord.placeholder = measurePlaceholder;

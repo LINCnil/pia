@@ -58,7 +58,6 @@ export class KnowledgeBaseComponent implements OnInit {
    * @param {Event} event any kind of event.
    */
   addNewMeasure(event) {
-    console.log(event);
     this._measureService.addNewMeasure(this._piaService.pia, event.name, event.placeholder);
   }
 

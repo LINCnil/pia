@@ -105,10 +105,8 @@ export class MeasuresComponent implements OnInit {
     // Waiting for document.activeElement update
     setTimeout(() => {
       if (this.measureForm.value.measureTitle !== undefined) {
-        console.log('moy?');
         this.measureModel.title = titleValue;
         const userText = titleValue.replace(/^\s+/, '').replace(/\s+$/, '');
-        console.log(userText);
         if (userText === '') {
           this.measureModel.title = '';
         }
