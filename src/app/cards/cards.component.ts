@@ -1,4 +1,4 @@
-import {Component, OnInit, OnDestroy, Input} from '@angular/core';
+import {Component, OnInit, ElementRef, OnDestroy, Input} from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
@@ -19,6 +19,7 @@ export class CardsComponent implements OnInit, OnDestroy {
   @Input() pia: any;
   newPia: Pia;
   piaForm: FormGroup;
+  importPiaForm: FormGroup;
   filter: string;
   sortReverse: boolean;
   viewStyle: { view: string }
@@ -26,6 +27,7 @@ export class CardsComponent implements OnInit, OnDestroy {
   paramsSubscribe: Subscription;
 
   constructor(private router: Router,
+              private el: ElementRef,
               private route: ActivatedRoute,
               private _modalsService: ModalsService,
               private _piaService: PiaService) { }
@@ -61,6 +63,9 @@ export class CardsComponent implements OnInit, OnDestroy {
     } else {
       this.viewOnCard();
     }
+    this.importPiaForm = new FormGroup({
+      import_file: new FormControl('', [])
+    });
   }
 
   /**
@@ -84,8 +89,12 @@ export class CardsComponent implements OnInit, OnDestroy {
   /**
    * Allows users to import a PIA.
    */
-  importPIA() {
-    // TODO import PIA
+  importPia(event?: any) {
+    if (event) {
+      this._piaService.import(event.target.files[0]);
+    } else {
+      this.el.nativeElement.querySelector('#import_file').click();
+    }
   }
 
   /**

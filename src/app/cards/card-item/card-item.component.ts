@@ -76,4 +76,8 @@ export class CardItemComponent implements OnInit {
     localStorage.setItem('pia-id', id);
     this._modalsService.openModal('modal-remove-pia');
   }
+
+  export(id: number) {
+    this._piaService.export(id);
+  }
 }

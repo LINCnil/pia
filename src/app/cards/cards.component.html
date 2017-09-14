@@ -43,13 +43,18 @@
         </div>
         <div *ngIf="viewStyle.view === 'list'" class="pia-filtersBlock-buttons">
           <button type="button" class="btn btn-green" (click)="_modalsService.openModal('modal-list-new-pia')"><i class="fa fa-folder-open" aria-hidden="true"></i>{{ 'homepage.filters.new_pia' | translate }}</button>
-          <button type="button" onclick="alert('Bientôt disponible.');" class="btn btn-green"><i class="fa fa-upload" aria-hidden="true"></i>{{ 'homepage.filters.import_pia' | translate }}</button>
+          <button type="button" (click)="importPia()" class="btn btn-green"><i class="fa fa-upload" aria-hidden="true"></i>{{ 'homepage.filters.import_pia' | translate }}</button>
         </div>
         <div class="pia-filtersBlock-hint" *ngIf="viewStyle.view === 'list' && _piaService.pias && _piaService.pias.length == 0">
           <div>
             <span class="pia-icons pia-icon-rocket-small"></span>
             <p [innerHTML]="'homepage.filters.list_rocket_content' | translate"></p>
           </div>
+        </div>
+        <div class="hide">
+            <form enctype="multipart/form-data" [formGroup]="importPiaForm">
+              <input type="file" formControlName="import_file" id="import_file" (change)="importPia($event)" class="hide">
+            </form>
         </div>
       </div>
     </div>
@@ -70,7 +75,7 @@
             <div class="pia-newBlock-item-import-title">{{ 'homepage.cards.import_pia' | translate }}</div>
             <div class="pia-newBlock-item-import-btn">
               <i class="fa fa-upload" aria-hidden="true"></i>
-              <button class="btn" onclick="alert('Bientôt disponible.');" type="button" title="{{ 'homepage.cards.placeholder_import_pia' | translate }}"><span class="pia-icons pia-icon-pia-plus"></span></button>
+              <button class="btn" (click)="importPia()" type="button" title="{{ 'homepage.cards.placeholder_import_pia' | translate }}"><span class="pia-icons pia-icon-pia-plus"></span></button>
             </div>
           </div>
         </div>

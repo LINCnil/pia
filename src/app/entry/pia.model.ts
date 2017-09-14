@@ -79,6 +79,7 @@ export class Pia extends ApplicationDb {
         rejected_reason: this.rejected_reason,
         applied_adjustements: this.applied_adjustements,
         created_at: this.created_at,
+        updated_at: this.updated_at,
         status: 0,
         dpos_names: this.dpos_names,
         people_names: this.people_names

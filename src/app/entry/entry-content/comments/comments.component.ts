@@ -35,7 +35,7 @@ export class CommentsComponent implements OnInit {
       commentsModel.reference_to = this.question.id;
     }
 
-    commentsModel.findAll().then((entries) => {
+    commentsModel.findAllByReference().then((entries) => {
       this.comments = entries;
       this.comments.reverse();
     });
