@@ -230,118 +230,147 @@
         "description": "<strong>Le responsable de traitement décide formellement</strong> de l’acceptabilité des mesures choisies, des risques résiduels et du plan d'action, de manière argumentée, au regard des enjeux préalablement identifiés et de l'avis des parties prenantes. Le PIA peut ainsi être :<br>- validé ;<br>- à améliorer (expliquer en quoi) ;<br>- refusé (ainsi que le traitement considéré).<br>Le cas échéant, il conviendra de revoir les étapes précédentes pour que le PIA puisse être validé.<br><strong>Cette décision est celle du seul responsable de traitement</strong> et ne préjuge en rien de l’évaluation de conformité qui peut être faite, le cas échéant, par l'autorité de protection des données (en France, la CNIL), par exemple dans le cadre de formalités préalables ou de contrôles."
       },
       "PIA_TEC_CHIF": {
+        "placeholder": "Décrivez ici les moyens cryptographiques mis en œuvre pour assurer la confidentialité et l'intégrité des données",
         "name": "Chiffrement",
         "description": "Moyens mis en œuvre pour : - <strong>assurer la confidentialité des données</strong> conservées (en base de données, dans des fichiers plats, dans les sauvegardes, etc.)<br>- gérer les clés de chiffrement (création, conservation, modification en cas de suspections de compromission, etc.). Détaillez les moyens de chiffrement employés pour les flux de données (VPN, TLS, etc.) intégrés dans le traitement."
       },
       "PIA_TEC_ANO": {
+        "placeholder": "Décrivez ici les mécanismes d’anonymisation mis en oeuvre",
         "name": "Anonymisation",
         "description": "Description des mécanismes d’anonymisation, des garanties qu'ils apportent contre une réidentifcation éventuelles et à quelle fin ils sont mis en oeuvre."
       },
       "PIA_TEC_CLO": {
+        "placeholder": "Indiquez ici si un cloisonnement du traitement est prévu, et comment il est réalisé.",
         "name": "Cloisonnement",
         "description": "Méthodes utilisées pour cloisonner le traitement."
       },
       "PIA_TEC_CTLA": {
+        "placeholder": "Indiquez ici comment les profils utilisateurs sont définis et attribués.",
         "name": "Contrôle des accès logiques",
         "description": "Description de la manière dont les profils utilisateurs sont définis et attribués. Il conviendra de détailler les moyens d’<strong>authentification</strong> mis en œuvre en précisant, entre autres, les règles applicables aux mots de passe (longueur minimale, structure obligatoire, durée de validité, nombre de tentatives infructueuses avant blocage du compte, etc.)."
       },
       "PIA_TEC_LOG": {
+        "placeholder": "Indiquez ici si des événements sont journalisés et la durée de conservation de ces traces.",
         "name": "Journalisation",
         "description": "Politiques de journalisation des événements et de conservation des traces qui en résultent."
       },
       "PIA_TEC_ARCH": {
+        "placeholder": "Indiquez ici l'ensemble des modalités de conservation et gestion d’archives électroniques contenant des données à caractère personnel.",
         "name": "Archivage",
         "description": "Politique de conservation et gestion d’archives électroniques contenant des données à caractère personnel destinées à garantir leur valeur, notamment juridique, pendant toute la durée nécessaire."
       },
       "PIA_TEC_PAP": {
+        "placeholder": "Indiquez ici les procédures concernant le cycle de vie des documents papier contenat des données à caractère personnel.",
         "name": "Sécurisation des documents papier",
         "description": "Politiques concernat les documents papiers contenant des données sont utilisés dans le cadre du traitement, elles décrivent comment ils sont imprimés, stockés, détruits et échangés."
       },
       "PIA_TEC_MINI": {
+        "placeholder":"Décrivez ici les méthodes mises en oeuvre pour réduire la sensibilité des données.",
         "name": "Minimisation des données",
         "description": "La sensibilité des données peut être réduite à l'aide des méthodes suivantes : filtrage et retrait, réduction de la sensibilité par transformation, réduction du caractère identifiant des données, réduction de l'accumulation de données, restriction de l’accès aux données"
       },
       "PIA_SEC_EXP": {
+        "placeholder": "Décrivez ici les moyens mis en oeuvre pour garantir la mise à jour et le niveau de sécurité des logiciels utilisés.",
         "name": "Sécurisation de l'exploitation",
         "description": "Politiques (il conviendra de justifier de leur application) et moyens mis en oeuvre pour assurer <strong>la mises à jour des logiciels</strong> (systèmes d’exploitation, applications, etc.) et l'application des correctifs de sécurité."
       },
       "PIA_SEC_MAL": {
+        "placeholder": "Décrivez ici les mesures de protection contre les codes malveillants lors d'accès à des réseaux d'un niveau de sécurité moindre.",
         "name": "Lutte contre les logiciels malveillants",
         "description": "Mesures destinées à protéger les accès vers des réseaux publics (Internet) ou non maîtrisés (partenaires), ainsi que les postes de travail et les serveurs contre les codes malveillants qui pourraient affecter la sécurité les données à caractère personnel. "
       },
       "PIA_SEC_COMP": {
+        "placeholder":"Décrivez ici les mesures prises afin de diminuer les risques d'attaques contre les logiciels exploités par le traitement.",
         "name": "Gestion des postes de travail",
         "description": "Mesures prises afin de diminuer la possibilité que les caractéristiques des logiciels (systèmes d’exploitation,applications métiers, logiciels bureautiques, paramétrages…) ne soient exploitées pour porter atteinte aux données à caractère personnel."
       },
       "PIA_SEC_WEB": {
+        "placeholder": "Décrivez ici les méthodes et moyens mis en oeuvres pour protéger les sites web.",
         "name": "Protection des sites web",
         "description": "Méthodes et moyens mis en place pour suivre les recommandations pour la sécurisation des sites web de l'ANSSI."
       },
       "PIA_SEC_BKP": {
+        "placeholder":"Indiquez ici comment les sauvegardes sont gérées et conservées.",
         "name": "Sauvegarde des données",
         "description": "Existence d'une politique de sauvegarde, décrivant les objectifs du plan de sauvegarde ainsi que des procédures de conservation des bandes."
       },
       "PIA_SEC_MAIN": {
+        "placeholder": "Décrivez ici comment est gérée la maintenance physique des équipements.",
         "name": "Maintenance",
         "description": "Existence d'une politique de maintenance physique des équipements, précisant le recours éventue à la sous-traitance.<br>Elle devra encadrer la maintenance à distance des applications si elle est autorisée, et préciser les méthodes de gestion des matériels défectueux."
       },
       "PIA_SEC_CTR": {
+        "placeholder":"Décrivez ici les garanties contractuelles assurant la protection des données à caractère personnel confiées à des sous traitant.",
         "name": "Contrat de sous-traitance",
         "description": "Les données à caractère personnel communiquées à ou gérées par des sous-traitants doivent bénéficier de garanties de sécurité. Prévoir dans les contrats liant l’organisme et les sous-traitants une clause spécifique couvrant la confidentialité des données personnelles confiées à ces derniers.<br>Prendre des dispositions (audits de sécurité, visite des installations, etc.) afin de s’assurer de l’effectivité des garanties offertes par le sous-traitant en matière de protection des données.<br>Cela inclut notamment :<br>- le chiffrement des données selon leur sensibilité ou à défaut l’existence de procédures garantissant que la société de prestation n’a pas accès aux données qui lui sont confiées ;<br>- le chiffrement de la liaison de données (ex : connexion de type https) ;<br>- des garanties en matière de protection du réseau, traçabilité (journaux, audits), gestion des habilitations, authentification, etc.<br>- Contractualiser les règles de gestion des incidents.<br>- Prévoir les conditions de restitution des données et de leur destruction en cas de rupture ou à la fin du contrat.<br>- Dans le cas de l’utilisation de fournisseur de cloud computing :<br>\t1. identifier clairement les données et les traitements qui passeront dans le cloud ;<br>\t2. définir ses propres exigences de sécurité technique et juridique ;<br>\t3. conduire une étude de risques afin d'identifier les mesures de sécurité appropriées ;<br>\t4. identifier le type de cloud pertinent pour le traitement envisagé ;<br>\t5. choisir un prestataire présentant des garanties suffisantes ;<br>\t6. revoir la politique de sécurité interne ;<br>\t7. surveiller les évolutions dans le temps."
       },
       "PIA_SEC_NET": {
+        "placeholder": "Indiquez ici sur quel type de réseau le traitement est mis en œuvre et les équipement assurant sa sécurisation.",
         "name": "Sécurisation des canaux informatiques",
         "description": "En fonction du type de réseau sur lequel le traitement est mis en œuvre (isolé, privé, ou Internet), le responsable de traitement doit mettre en place des systèmes de protection adéquats : pare-feu, sondes de détection d'intrusion ou autres dispositifs actifs ou passifs sont chargés d'assurer la sécurité du réseau."
       },
       "PIA_SEC_PHY": {
+        "placeholder":"Indiquez ici la manière dont est réalisé le contrôle d’accès physique aux locaux hébergeant le traitement.",
         "name": "Sécurité physique",
         "description": "Afin d'assurer la sécurité des données, le responsable de traitement doit mettre en place un contrôle des accès physique aux locaux hébergeant le traitement (zonage, accompagnement des visiteurs, port de badge, portes verrouillées, etc.).<br>Indiquez s’il existe des moyens d’alerte en cas d’effraction."
       },
       "PIA_SEC_LOG": {
+        "placeholder":"Décrivez ici les mesures mises en place pour être capable de détecter les incidents concernant des données à caractère personnel.",
         "name": "Traçabilité",
         "description": "Afin de détecter et prévenir d'éventuelles violation de données, le responsable de traitement doit justifier des mesures mises en place pour être capable de détecter les incidents concernant des données à caractère personnel de façon précoce et de disposer d’éléments exploitables pour les étudier ou pour fournir des preuves dans le cadre d’enquêtes."
       },
       "PIA_SEC_MAT": {
+        "placeholder":"Décrivez ici les méthodes et moyens mis en place pour limiter les risques d'attaques contre le matériel utilisés par le traitement.",
         "name": "Sécurisation des matériels",
         "description": "Afin d'assurer la protection des données à caractère personnel, le responsable de traitement doit justifier des mesures prises pour diminuer la possibilité que les caractéristiques des matériels (serveurs, postes fixes, ordinateurs portables, périphériques, relais de communication, supports amovibles, etc.) soient exploitées pour porter atteinte aux données à caractère personnel."
       },
       "PIA_SEC_SRC": {
+        "placeholder":"Décrivez les méthodes et moyens mis en place pour éviter les risques qui peuvent l'être.",
         "name": "Eloignement des sources de risques",
         "description": "Le responsable de traitement doit prendre des mesures pour éviter que des sources de risques, humaines ou non humaines, auxquelles il est possible de ne pas être confronté, portent atteinte aux données à caractère personnel."
       },
       "PIA_SEC_PROT": {
+        "placeholder":"Décrivez ici les mesures prises pour réduire ou éviter les risques liés à des sources non humaines.",
         "name": "Protection contre les sources de risques non humaines",
         "description": "Le responsable de traitement doit prendre des mesures pour réduire ou éviter les risques liés à des sources non humaines (phénomènes climatiques, incendie, dégât des eaux, accidents internes ou externes, animaux, etc.) qui pourraient affecter la sécurité des données à caractère personnel. "
       },
       "PIA_ORG_ORG": {
+        "placeholder":"Décrivez ici l'organisation de la protection de la vie privée au sein de votre organisme.",
         "name": "Organisation de la politique de protection de la vie privée",
         "description": "Existence d'une politique encadrant l'organisation de la protection de la vie privée au sein de votre organisme."
       },
       "PIA_ORG_POL": {
+        "placeholder":"Décrivez ici les méthodes de gestion de la base documentaire encadrant l'organisation de la protection de la vie privée au sein de votre organisme.",
         "name": "Gérer la politique de protection de la vie privée",
         "description": "Existence d'une politique définissant les méthodes de gestion de la base documentaire encadrant l'organisation de la protection de la vie privée au sein de votre organisme."
       },
       "PIA_ORG_RMGT": {
+        "placeholder":"Décrivez ici les processus destinés à maîtriser les risques que les traitements de l’organisme font peser sur les droits et libertés des personnes concernées.",
         "name": "Gérer les risques",
         "description": "Existence d'une politique définissant les processus destinés à maîtriser les risques que les traitements de l’organisme font peser sur les droits et libertés des personnes concernées."
       },
       "PIA_ORG_PBD": {
+        "placeholder":"Décrivez ici les méthodes assurant la prise en compte de la protection des données à caractère personnel dès l'initiation d'un nouveau projet.",
         "name": "Intégrer la protection de la vie privée dans les projets",
         "description": "Existence de procédures décrivant les méthodes destinées à assurer la prise en compte de la protection des données à caractère personnel dès l'initiation d'un nouveau projet."
       },
       "PIA_ORG_VIOL": {
+        "placeholder": "Décrivez ici les processus opérationnels destinés à détecter et traiter les événements susceptibles d’affecter les libertés et la vie privée des personnes concernées.",
         "name": "Gérer les incidents de sécurité et les violations de données",
         "description": "Existence d'une politique décrivant les processus opérationnels destinés à détecter et traiter les événements susceptibles d’affecter les libertés et la vie privée des personnes concernées."
       },
       "PIA_ORG_PERS": {
+        "placeholder":"Indiquez ici les mesures de gestion du personnel répondant aux problématiques informatique et libertés dans votre organisme.",
         "name": "Gestion des personnels",
         "description": "Existence d'un plan encadrant les <strong>mesures de sensibilisation</strong> prises à l’arrivée d’une personne dans sa fonction et d'une procédure décrivant les <strong>mesures prises au départ des personnes accédant aux données</strong>."
       },
       "PIA_ORG_EXT": {
+        "placeholder":"Indiquez ici, pour les tiers amenés à avoir accès aux données, les modalités et les mesures de sécurité mises en œuvre pour ces accès.",
         "name": "Gestion des tiers accédant aux données.",
         "description": "Existence d'une procédure régissant les les modalités et les mesures de sécurité mises en œuvre pour les tiers amenés à avoir accès aux données."
       },
       "PIA_ORG_AUD": {
+        "placeholder":"Décrivez ici les processus qui assurent un contrôle régulier des traitements de données.",
         "name": "Superviser le protection de la vie privée",
         "description": "Existence d'une politique encadrant les processus qui assurent un contrôle régulier des traitements de données afin de vérifier leur conformité à la loi informatique et libertés ainsi que l’effectivité et l’adéquation des mesures prévues."
       },
