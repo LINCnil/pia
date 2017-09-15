@@ -213,7 +213,6 @@ export class PiaService {
     pia.rejected_reason = data.pia.rejected_reason;
     pia.applied_adjustements = data.pia.applied_adjustements;
     pia.created_at = data.pia.created_at;
-    pia.status = data.pia.status;
     pia.dpos_names = data.pia.dpos_names;
     pia.people_names = data.pia.people_name;
     pia.created_at = new Date(data.pia.created_at);
@@ -251,8 +250,7 @@ export class PiaService {
       data.evaluations.forEach(evaluation => {
         const evaluationModel = new Evaluation();
         evaluationModel.pia_id = pia_id;
-        evaluationModel.status = 0;
-        evaluationModel.pia_id = evaluation.pia_id;
+        evaluationModel.status = evaluation.status;
         evaluationModel.reference_to = evaluation.reference_to;
         evaluationModel.action_plan_comment = evaluation.action_plan_comment;
         evaluationModel.evaluation_comment = evaluation.evaluation_comment;
@@ -273,7 +271,6 @@ export class PiaService {
         const commentModel = new Comment();
         commentModel.pia_id = pia_id;
         commentModel.description = comment.description;
-        commentModel.pia_id = comment.pia_id;
         commentModel.reference_to = comment.reference_to;
         commentModel.for_measure = comment.for_measure;
         commentModel.created_at = new Date(comment.created_at);

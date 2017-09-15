@@ -2,7 +2,7 @@ import { ApplicationDb } from '../../../application.db';
 
 export class Evaluation extends ApplicationDb {
   public id: number;
-  public status: number; // 0: pending, 1: toBeFixed, 2: improvable, 3: acceptable
+  public status = 0; // 0: pending, 1: toBeFixed, 2: improvable, 3: acceptable
   public reference_to: string;
   public action_plan_comment: string;
   public evaluation_comment: string;
@@ -20,7 +20,7 @@ export class Evaluation extends ApplicationDb {
     await this.getObjectStore();
     return new Promise((resolve, reject) => {
       this.objectStore.add({
-        status: 0,
+        status: this.status,
         pia_id: this.pia_id,
         reference_to: this.reference_to,
         action_plan_comment: this.action_plan_comment,
