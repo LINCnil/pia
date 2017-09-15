@@ -61,35 +61,36 @@ export class Evaluation extends ApplicationDb {
 
   /* Get an evaluation for a specific question or a specific measure */
   async getByReference(pia_id: number, reference_to: any) {
-    console.log(pia_id);
-    console.log(reference_to);
     this.pia_id = pia_id;
-    this.reference_to = reference_to;
-    await this.getObjectStore();
-    return new Promise((resolve, reject) => {
-      const index1 = this.objectStore.index('index1');
-      index1.get(IDBKeyRange.only([this.pia_id, this.reference_to])).onsuccess = (event: any) => {
-        const entry = event.target.result;
-        if (entry) {
-          this.id = entry.id;
-          this.status = entry.status;
-          this.pia_id = parseInt(entry.pia_id, 10);
-          this.reference_to = entry.reference_to;
-          this.action_plan_comment = entry.action_plan_comment;
-          this.evaluation_comment = entry.evaluation_comment;
-          this.evaluation_date = entry.evaluation_date;
-          this.gauges = entry.gauges;
-          this.estimated_evaluation_date = new Date(entry.estimated_evaluation_date);
-          this.person_in_charge = entry.person_in_charge;
-          this.global_status = entry.global_status;
-          this.created_at = new Date(entry.created_at);
-          this.updated_at = new Date(entry.updated_at);
-          resolve(this);
-        } else {
-          resolve(false);
+    if (this.pia_id) {
+      // TODO - Know why we must check for presence of pia_id
+      this.reference_to = reference_to;
+      await this.getObjectStore();
+      return new Promise((resolve, reject) => {
+        const index1 = this.objectStore.index('index1');
+        index1.get(IDBKeyRange.only([this.pia_id, this.reference_to])).onsuccess = (event: any) => {
+          const entry = event.target.result;
+          if (entry) {
+            this.id = entry.id;
+            this.status = entry.status;
+            this.pia_id = parseInt(entry.pia_id, 10);
+            this.reference_to = entry.reference_to;
+            this.action_plan_comment = entry.action_plan_comment;
+            this.evaluation_comment = entry.evaluation_comment;
+            this.evaluation_date = entry.evaluation_date;
+            this.gauges = entry.gauges;
+            this.estimated_evaluation_date = new Date(entry.estimated_evaluation_date);
+            this.person_in_charge = entry.person_in_charge;
+            this.global_status = entry.global_status;
+            this.created_at = new Date(entry.created_at);
+            this.updated_at = new Date(entry.updated_at);
+            resolve(this);
+          } else {
+            resolve(false);
+          }
         }
-      }
-    });
+      });
+    }
   }
 
   async get(id: number) {

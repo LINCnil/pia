@@ -28,7 +28,7 @@ export class EvaluationService {
               private _paginationService: PaginationService,
               private _router: Router) { }
 
-  setPia(pia: Pia) {
+  async setPia(pia: Pia) {
     this.pia = pia;
     this.measure.pia_id = pia.id;
   }
