@@ -16,6 +16,7 @@ export class ActionPlanService {
 
   listActionPlan() {
     this.results = [];
+    this.measures = [];
     const section = this.data.sections.filter((s) => {
       return s.id === 2;
     });
