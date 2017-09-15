@@ -1,18 +1,20 @@
-import { Component, ElementRef, OnInit, Input, Output, EventEmitter, AfterViewChecked, DoCheck } from '@angular/core';
+import { Component, ElementRef, OnInit, OnDestroy, Input, Output, EventEmitter, AfterViewChecked, DoCheck } from '@angular/core';
 import { FormArray, FormControl, FormGroup } from '@angular/forms';
+import { Subscription } from 'rxjs/Subscription';
 
 import { Evaluation } from './evaluation.model';
 import { Answer } from 'app/entry/entry-content/questions/answer.model';
 
 import { EvaluationService } from './evaluations.service';
+import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-evaluations',
   templateUrl: './evaluations.component.html',
   styleUrls: ['./evaluations.component.scss']
 })
-export class EvaluationsComponent implements OnInit, AfterViewChecked, DoCheck {
-
+export class EvaluationsComponent implements OnInit, AfterViewChecked, OnDestroy, DoCheck {
+  private subscription: Subscription;
   evaluationForm: FormGroup;
   @Input() item: any;
   @Input() pia: any;
@@ -28,15 +30,23 @@ export class EvaluationsComponent implements OnInit, AfterViewChecked, DoCheck {
   hasResizedContent = false;
   riskName: any;
 
-  constructor(private el: ElementRef, private _evaluationService: EvaluationService) { }
+  constructor(private el: ElementRef,
+              private _evaluationService: EvaluationService,
+              private _translateService: TranslateService) { }
 
   ngOnInit() {
     // Prefix item
     this.reference_to = this.section.id + '.' + this.item.id;
     this.checkEvaluationValidation();
-     this.riskName = {value: this.item.title};
+    this.riskName = {value: this._translateService.instant('sections.3.items.' + this.item.id + '.title')};
+    this.subscription = this._translateService.onLangChange.subscribe((event: LangChangeEvent) => {
+      this.riskName = {value: this._translateService.instant('sections.3.items.' + this.item.id + '.title')};
+    });
   }
 
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
+  }
   ngAfterViewChecked() {
     // Textareas auto resize
     const evaluationActionPlanTextarea = document.querySelector('.pia-evaluation-action-plan-' + this.evaluation.id);

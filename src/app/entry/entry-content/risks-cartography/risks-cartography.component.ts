@@ -1,28 +1,39 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, OnDestroy, Input } from '@angular/core';
 import { Http } from '@angular/http';
+import { Subscription } from 'rxjs/Subscription';
 
 import { Answer } from 'app/entry/entry-content/questions/answer.model';
 import { Evaluation } from 'app/entry/entry-content/evaluations/evaluation.model';
 
-import { TranslateService } from '@ngx-translate/core';
+import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-risks-cartography',
   templateUrl: './risks-cartography.component.html',
   styleUrls: ['./risks-cartography.component.scss']
 })
-export class RisksCartographyComponent implements OnInit {
-
+export class RisksCartographyComponent implements OnInit, OnDestroy {
+  private subscription: Subscription;
   questions: any[] = [];
   answer: Answer = new Answer();
   answersGauge: any[] = [];
   @Input() pia: any;
   dataJSON: any;
+  risk1Letter;
+  risk2Letter;
 
   constructor(private http: Http,
               private _translateService: TranslateService) { }
 
   ngOnInit() {
+    this.risk1Letter = this._translateService.instant('cartography.risk1_access');
+    this.risk2Letter = this._translateService.instant('cartography.risk2_modification');
+    this.subscription = this._translateService.onLangChange.subscribe((event: LangChangeEvent) => {
+      this.risk1Letter = this._translateService.instant('cartography.risk1_access');
+      this.risk2Letter = this._translateService.instant('cartography.risk2_modification');
+      this.loadCartography();
+    });
+
     const positions = {
       x: {
         '1': 50,
@@ -115,7 +126,9 @@ export class RisksCartographyComponent implements OnInit {
     });
   }
 
-
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
+  }
 
   /**
    * Loads the risks cartography with author and evalutor choices positioned as dots.
@@ -148,6 +161,9 @@ export class RisksCartographyComponent implements OnInit {
       const canvas = <HTMLCanvasElement>document.getElementById('actionPlanCartography');
       const context = canvas.getContext('2d');
 
+      // Clearing canvas if changing languages
+      context.clearRect(0, 0, canvas.width, canvas.height);
+
       // White grid creation
       context.beginPath();
       context.moveTo(0, 300);
@@ -173,7 +189,7 @@ export class RisksCartographyComponent implements OnInit {
         context.font = 'bold 1.1rem Roboto, Times, serif';
         context.fillStyle = '#333';
         try {
-          context.fillText(this._translateService.instant('cartography.risk1_access'),
+          context.fillText(this.risk1Letter,
                       this.dataJSON['risk-access']['author'].x,
                       this.dataJSON['risk-access']['author'].y + 20);
         } catch (ex) {}
@@ -189,7 +205,7 @@ export class RisksCartographyComponent implements OnInit {
         context.font = 'bold 1.1rem Roboto, Times, serif';
         context.fillStyle = '#333';
         try {
-          context.fillText(this._translateService.instant('cartography.risk2_modification'),
+          context.fillText(this.risk2Letter,
                       this.dataJSON['risk-change']['author'].x,
                       this.dataJSON['risk-change']['author'].y + 20);
         } catch (ex) {}
@@ -212,7 +228,10 @@ export class RisksCartographyComponent implements OnInit {
       }
 
       // Evaluator dots (blue)
-      if (this.dataJSON['risk-access']['evaluator'].x && this.dataJSON['risk-access']['evaluator'].y) {
+      if (this.dataJSON['risk-access']['author'].x &&
+          this.dataJSON['risk-access']['author'].y &&
+          this.dataJSON['risk-access']['evaluator'].x &&
+          this.dataJSON['risk-access']['evaluator'].y) {
         let diameter = 7;
         if (this.dataJSON['risk-access']['evaluator'].x === this.dataJSON['risk-access']['author'].x &&
             this.dataJSON['risk-access']['evaluator'].y === this.dataJSON['risk-access']['author'].y) {
@@ -224,9 +243,24 @@ export class RisksCartographyComponent implements OnInit {
         context.arc(this.dataJSON['risk-access']['evaluator'].x,
                     this.dataJSON['risk-access']['evaluator'].y, diameter, 0, Math.PI * 2, true);
         context.fill();
+      } else {
+        if (!this.dataJSON['risk-access']['evaluator'].x &&
+            !this.dataJSON['risk-access']['evaluator'].y &&
+            this.dataJSON['risk-access']['author'].x &&
+            this.dataJSON['risk-access']['author'].y) {
+          context.globalCompositeOperation = 'destination-over';
+          context.beginPath();
+          context.fillStyle = '#091C6B';
+          context.arc(this.dataJSON['risk-access']['author'].x,
+                      this.dataJSON['risk-access']['author'].y, 10, 0, Math.PI * 2, true);
+          context.fill();
+        }
       }
 
-      if (this.dataJSON['risk-change']['evaluator'].x && this.dataJSON['risk-change']['evaluator'].y) {
+      if (this.dataJSON['risk-change']['author'].x &&
+          this.dataJSON['risk-change']['author'].y &&
+          this.dataJSON['risk-change']['evaluator'].x &&
+          this.dataJSON['risk-change']['evaluator'].y) {
         let x = this.dataJSON['risk-change']['evaluator'].x;
         let y = this.dataJSON['risk-change']['evaluator'].y;
         let diameter = 7;
@@ -241,9 +275,24 @@ export class RisksCartographyComponent implements OnInit {
         context.fillStyle = '#091C6B';
         context.arc(x, y, diameter, 0, Math.PI * 2, true);
         context.fill();
+      } else {
+        if (!this.dataJSON['risk-change']['evaluator'].x &&
+            !this.dataJSON['risk-change']['evaluator'].y &&
+            this.dataJSON['risk-change']['author'].x &&
+            this.dataJSON['risk-change']['author'].y) {
+          context.globalCompositeOperation = 'destination-over';
+          context.beginPath();
+          context.fillStyle = '#091C6B';
+          context.arc(this.dataJSON['risk-change']['author'].x,
+                      this.dataJSON['risk-change']['author'].y, 10, 0, Math.PI * 2, true);
+          context.fill();
+        }
       }
 
-      if (this.dataJSON['risk-disappearance']['evaluator'].x && this.dataJSON['risk-disappearance']['evaluator'].y) {
+      if (this.dataJSON['risk-disappearance']['author'].x &&
+          this.dataJSON['risk-disappearance']['author'].y &&
+          this.dataJSON['risk-disappearance']['evaluator'].x &&
+          this.dataJSON['risk-disappearance']['evaluator'].y) {
         let x = this.dataJSON['risk-disappearance']['evaluator'].x;
         let y = this.dataJSON['risk-disappearance']['evaluator'].y;
         let diameter = 7;
@@ -258,6 +307,18 @@ export class RisksCartographyComponent implements OnInit {
         context.fillStyle = '#091C6B';
         context.arc(x, y, diameter, 0, Math.PI * 2, true);
         context.fill();
+      } else {
+        if (!this.dataJSON['risk-disappearance']['evaluator'].x &&
+            !this.dataJSON['risk-disappearance']['evaluator'].y &&
+            this.dataJSON['risk-disappearance']['author'].x &&
+            this.dataJSON['risk-disappearance']['author'].y) {
+          context.globalCompositeOperation = 'destination-over';
+          context.beginPath();
+          context.fillStyle = '#091C6B';
+          context.arc(this.dataJSON['risk-disappearance']['author'].x,
+                      this.dataJSON['risk-disappearance']['author'].y, 10, 0, Math.PI * 2, true);
+          context.fill();
+        }
       }
 
       // Gradient color definition for dotted lines

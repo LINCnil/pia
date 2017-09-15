@@ -61,6 +61,8 @@ export class Evaluation extends ApplicationDb {
 
   /* Get an evaluation for a specific question or a specific measure */
   async getByReference(pia_id: number, reference_to: any) {
+    console.log(pia_id);
+    console.log(reference_to);
     this.pia_id = pia_id;
     this.reference_to = reference_to;
     await this.getObjectStore();
