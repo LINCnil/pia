@@ -2,6 +2,7 @@ import { Component, Input, ElementRef, Renderer2, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ModalsService } from 'app/modals/modals.service';
 import { Measure } from './measure.model';
+import { Answer } from 'app/entry/entry-content/questions/answer.model';
 import { EvaluationService } from 'app/entry/entry-content/evaluations/evaluations.service';
 import { Evaluation } from 'app/entry/entry-content/evaluations/evaluation.model';
 
@@ -105,6 +106,7 @@ export class MeasuresComponent implements OnInit {
     // Waiting for document.activeElement update
     setTimeout(() => {
       if (this.measureForm.value.measureTitle !== undefined) {
+        const previousTitle = this.measureModel.title;
         this.measureModel.title = titleValue;
         const userText = titleValue.replace(/^\s+/, '').replace(/\s+$/, '');
         if (userText === '') {
@@ -113,6 +115,33 @@ export class MeasuresComponent implements OnInit {
         if (userText !== '' || this.measureModel.title === '') {
           this.measureModel.update().then(() => {
             this._evaluationService.allowEvaluation();
+            // Update tags
+            const answer = new Answer();
+            answer.getByReferenceAndPia(this.pia.id, 324).then(() => {
+              const index = answer.data.list.indexOf(previousTitle);
+              if (~index) {
+                answer.data.list[index] = this.measureModel.title;
+                answer.update();
+              }
+            });
+
+            const answer2 = new Answer();
+            answer2.getByReferenceAndPia(this.pia.id, 334).then(() => {
+              const index = answer2.data.list.indexOf(previousTitle);
+              if (~index) {
+                answer2.data.list[index] = this.measureModel.title;
+                answer2.update();
+              }
+            });
+
+            const answer3 = new Answer();
+            answer3.getByReferenceAndPia(this.pia.id, 344).then(() => {
+              const index = answer3.data.list.indexOf(previousTitle);
+              if (~index) {
+                answer3.data.list[index] = this.measureModel.title;
+                answer3.update();
+              }
+            });
           });
         }
         if (titleValue && titleValue.length > 0 && userText !== '' && document.activeElement.id !== 'pia-measure-content-' + this.measureModel.id) {
