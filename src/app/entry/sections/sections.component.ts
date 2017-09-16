@@ -19,7 +19,7 @@ export class SectionsComponent implements OnInit, OnChanges {
   @Input() section: { id: number, title: string, short_help: string, items: any };
   @Input() item: { id: number, title: string, evaluation_mode: string, short_help: string, questions: any };
   @Input() data: any;
-  @Input() sidStatus: any;
+  sidStatus: any;
   showValidationButton = false;
   showRefuseButton = false;
 
@@ -27,6 +27,7 @@ export class SectionsComponent implements OnInit, OnChanges {
   }
 
   ngOnInit() {
+    this._piaService.setSidStatus();
   }
 
   ngOnChanges() {

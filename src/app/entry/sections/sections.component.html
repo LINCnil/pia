@@ -17,10 +17,10 @@
               [ngClass]="{'active': section.id == dataSection.id && item.id == dataItem.id}"
               class="truncate">{{ dataItem.title | translate }}</a>
             <i class="fa"
-               *ngIf="sidStatus"
-               [ngClass]="{'fa-cog': sidStatus[dataSection.id.toString() + dataItem.id.toString()] === 1,
-                           'fa-pencil-square-o': !sidStatus[dataSection.id.toString() + dataItem.id.toString()],
-                           'fa-check-square-o': sidStatus[dataSection.id.toString() + dataItem.id.toString()] === 2,
+               *ngIf="_piaService.sidStatus"
+               [ngClass]="{'fa-cog': _piaService.sidStatus[dataSection.id.toString() + dataItem.id.toString()] === 1,
+                           'fa-pencil-square-o': !_piaService.sidStatus[dataSection.id.toString() + dataItem.id.toString()],
+                           'fa-check-square-o': _piaService.sidStatus[dataSection.id.toString() + dataItem.id.toString()] === 2,
                            'hide': dataSection.id === 4 || (dataSection.id === 3 && dataItem.id === 5)}"
                aria-hidden="true"></i>
           </li>

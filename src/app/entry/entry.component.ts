@@ -23,7 +23,6 @@ export class EntryComponent implements OnInit, OnDestroy, DoCheck {
   item: { id: number, title: string, evaluation_mode: string, short_help: string, questions: any };
   data: { sections: any };
   questions: any;
-  sidStatus: any;
   measureToRemoveFromTags: string;
   subscription: Subscription;
 
@@ -129,9 +128,6 @@ export class EntryComponent implements OnInit, OnDestroy, DoCheck {
             this._modalsService.openModal('pia-declare-measures');
           }
         }
-      });
-      this._piaService.setSidStatus().then(() => {
-        this.sidStatus = this._piaService.sidStatus;
       });
 
       this._actionPlanService.data = this.data;

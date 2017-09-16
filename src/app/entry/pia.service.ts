@@ -96,33 +96,33 @@ export class PiaService {
     const measure = new Measure();
     this.sidStatus = {};
     measure.pia_id = this.pia.id;
+
     // Check if there is at least one answer
-    answer.findAllByPia(this.pia.id).then((entries: any) => {
-      if (entries) {
-        entries.forEach(element => {
-          const ref = element.reference_to.toString().substr(0, 2);
-          if (!this.sidStatus[ref]) {
-            this.sidStatus[ref] = 1;
-          }
-        });
+    const [entries, measures]: any[] = await Promise.all([
+        answer.findAllByPia(this.pia.id),
+        measure.findAll()
+      ]);
+
+    for(let entry of entries) {
+      const ref = entry.reference_to.toString().substr(0, 2);
+      if (!this.sidStatus[ref]) {
+        this.sidStatus[ref] = 1;
       }
-      // Check if there is at least one measure
-      measure.findAll().then((measures: any) => {
-        if (measures && measures.length > 0) {
-          this.sidStatus['31'] = 1;
+    }
+
+    if (measures && measures.length > 0) {
+      this.sidStatus['31'] = 1;
+    }
+
+    for(let section of this.data.sections) {
+      for(let item of section.items) {
+        const result: any = await this._evaluationService.isItemIsValidated(section.id, item)
+        const ref = section.id.toString() + item.id.toString();
+        if (result && this.sidStatus[ref]) {
+          this.sidStatus[ref] = 2;
         }
-        this.data.sections.forEach(section => {
-          section.items.forEach(item => {
-            this._evaluationService.isItemIsValidated(section.id, item).then((result: boolean) => {
-              const ref = section.id.toString() + item.id.toString();
-              if (result && this.sidStatus[ref]) {
-                this.sidStatus[ref] = 2;
-              }
-            })
-          });
-        });
-      });
-    });
+      }
+    }
   }
 
   async cancelAllValidatedEvaluation() {
