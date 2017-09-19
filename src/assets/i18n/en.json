@@ -677,8 +677,11 @@
   "evaluations": {
     "title": "Evaluation",
     "to_correct": "To correct",
+    "placeholder_to_correct": "Translation in progress",
     "improvable": "Improvable",
+    "placeholder_improvable": "Translation in progress",
     "acceptable": "Acceptable",
+    "placeholder_acceptable": "Translation in progress",
     "evaluation_comment": "Evaluation comment",
     "action_plan_comment": "Action plan / corrective actions",
     "placeholder_comment": "Enter  your comments.",

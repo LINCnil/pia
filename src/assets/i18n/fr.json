@@ -677,8 +677,11 @@
   "evaluations": {
     "title": "Évaluation",
     "to_correct": "À corriger",
+    "placeholder_to_correct": "Les informations fournies ne sont pas suffisantes pour pouvoir les évaluer. Renvoyer en édition pour enrichir la proposition initiale.",
     "improvable": "Améliorable",
+    "placeholder_improvable": "En vue des informations fournies, des mesures additionnelles sont à ajouter afin d’améliorer la protection des données du traitement.",
     "acceptable": "Acceptable",
+    "placeholder_acceptable": "En vue des informations fournies, les mesures mises en œuvre sont suffisantes pour répondre aux exigences de protections des données.",
     "evaluation_comment": "Commentaire d'évaluation",
     "action_plan_comment": "Plan d'action / mesures correctives",
     "placeholder_comment": "Entrez vos commentaires.",
