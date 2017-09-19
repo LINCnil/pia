@@ -1,4 +1,5 @@
 export class ApplicationDb {
+  protected serverUrl: string;
   public pia_id: number;
   public reference_to: string;
   public created_at: Date;
@@ -10,6 +11,11 @@ export class ApplicationDb {
   constructor(dbVersion: number, tableName: string) {
     this.dbVersion = dbVersion;
     this.tableName = tableName;
+    if (localStorage.getItem('server_url')) {
+      this.serverUrl = localStorage.getItem('server_url');
+    } else {
+      this.serverUrl = null;
+    }
   }
 
   async initDb() {
@@ -83,37 +89,80 @@ export class ApplicationDb {
   async findAll() {
     const items = [];
     return new Promise((resolve, reject) => {
-      this.getObjectStore().then(() => {
-        this.objectStore.openCursor().onsuccess = (event: any) => {
-          const cursor = event.target.result;
-          if (cursor) {
-            items.push(cursor.value);
-            cursor.continue();
-          } else {
-            resolve(items);
+      if (this.serverUrl) {
+        fetch(this.getServerUrl()).then(function(response) {
+          return response.json();
+        }).then(function(result: any) {
+          resolve(result);
+        }).catch (function (error) {
+          console.error('Request failed', error);
+        });
+      } else {
+        this.getObjectStore().then(() => {
+          this.objectStore.openCursor().onsuccess = (event: any) => {
+            const cursor = event.target.result;
+            if (cursor) {
+              items.push(cursor.value);
+              cursor.continue();
+            } else {
+              resolve(items);
+            }
           }
-        }
-      });
+        });
+      }
     });
   }
 
   async find(id) {
     if (id) {
-      await this.getObjectStore();
       return new Promise((resolve, reject) => {
-        this.objectStore.get(id).onsuccess = (event: any) => {
-          resolve(event.target.result);
-        };
+        if (this.serverUrl) {
+          fetch(this.getServerUrl() + '/' + id).then(function(response) {
+            return response.json();
+          }).then(function(result: any) {
+            console.log(result);
+            resolve(result);
+          }).catch (function (error) {
+            console.error('Request failed', error);
+          });
+        } else {
+          this.getObjectStore().then(() => {
+            this.objectStore.get(id).onsuccess = (event: any) => {
+              resolve(event.target.result);
+            };
+          });
+        }
       });
     }
   }
 
   async delete(id) {
-    await this.getObjectStore();
     return new Promise((resolve, reject) => {
-      this.objectStore.delete(id).onsuccess = (event: any) => {
-        resolve();
-      };
+      if (this.serverUrl) {
+        fetch(this.getServerUrl() + '/' + id, {
+          method: 'DELETE'
+        }).then(function(response) {
+          return response;
+        }).then(function(item) {
+          resolve();
+        }).catch (function (error) {
+          console.error('Request failed', error);
+        });
+      } else {
+        this.getObjectStore().then(() => {
+          this.objectStore.delete(id).onsuccess = (event: any) => {
+            resolve();
+          };
+        });
+      }
     });
+  }
+
+  protected getServerUrl() {
+    if (this.tableName !== 'pia') {
+      return this.serverUrl + '/pias/' + this.pia_id + '/' + this.tableName + 's' ;
+    } else {
+      return this.serverUrl + '/pias';
+    }
   }
 }

@@ -50,10 +50,12 @@ export class QuestionsComponent implements OnInit {
         });
         this.questionForm.controls['gauge'].patchValue(this.answer.data.gauge);
         this.questionForm.controls['text'].patchValue(this.answer.data.text);
-        const dataList = this.answer.data.list.filter((l) => {
-          return (l && l.length > 0);
-        })
-        this.questionForm.controls['list'].patchValue(dataList);
+        if (this.answer.data.list) {
+          const dataList = this.answer.data.list.filter((l) => {
+            return (l && l.length > 0);
+          })
+          this.questionForm.controls['list'].patchValue(dataList);
+        }
         if (this.el.nativeElement.querySelector('.pia-gaugeBlock-background')) {
           this.el.nativeElement.querySelector('.pia-gaugeBlock-background').classList.
             add('pia-gaugeBlock-background-' + this.answer.data.gauge);

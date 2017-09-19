@@ -13,15 +13,17 @@ export class MeasureService {
   public behaviorSubject = new BehaviorSubject<string>(null);
   measures: any[];
   measureToAdd: any;
+  pia_id: number;
 
   constructor(private _translateService: TranslateService,
               private _modalsService: ModalsService,
               private _evaluationService: EvaluationService) {}
 
   async listMeasures(pia_id: number) {
+    this.pia_id = pia_id;
     return new Promise((resolve, reject) => {
       const measuresModel = new Measure();
-      measuresModel.pia_id = pia_id;
+      measuresModel.pia_id = this.pia_id;
       measuresModel.findAll().then((entries: any[]) => {
         this.measures = entries;
         resolve();
@@ -35,6 +37,7 @@ export class MeasureService {
   removeMeasure() {
     const measure_id = parseInt(localStorage.getItem('measure-id'), 10);
     const measure = new Measure();
+    measure.pia_id = this.pia_id;
 
     /* TODO : maybe move it after deletion has been completed, with a new measure Model */
     measure.get(measure_id).then(() => {

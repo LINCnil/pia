@@ -65,27 +65,48 @@ export class Pia extends ApplicationDb {
     if (this.created_at === undefined) {
       this.created_at = new Date();
     }
-    await this.getObjectStore();
+
+    const data = {
+      name: this.name,
+      author_name: this.author_name,
+      evaluator_name: this.evaluator_name,
+      validator_name: this.validator_name,
+      dpo_status: this.dpo_status,
+      dpo_opinion: this.dpo_opinion,
+      concerned_people_opinion: this.concerned_people_opinion,
+      concerned_people_status: this.concerned_people_status,
+      rejected_reason: this.rejected_reason,
+      applied_adjustements: this.applied_adjustements,
+      created_at: this.created_at,
+      updated_at: this.updated_at,
+      status: 0,
+      dpos_names: this.dpos_names,
+      people_names: this.people_names
+    };
+
     return new Promise((resolve, reject) => {
-      this.objectStore.add({
-        name: this.name,
-        author_name: this.author_name,
-        evaluator_name: this.evaluator_name,
-        validator_name: this.validator_name,
-        dpo_status: this.dpo_status,
-        dpo_opinion: this.dpo_opinion,
-        concerned_people_opinion: this.concerned_people_opinion,
-        concerned_people_status: this.concerned_people_status,
-        rejected_reason: this.rejected_reason,
-        applied_adjustements: this.applied_adjustements,
-        created_at: this.created_at,
-        updated_at: this.updated_at,
-        status: 0,
-        dpos_names: this.dpos_names,
-        people_names: this.people_names
-      }).onsuccess = (event: any) => {
-        resolve(event.target.result);
-      };
+      if (this.serverUrl) {
+        const formData = new FormData();
+        for(let d in data) {
+          formData.append('pia[' + d + ']', data[d]);
+        }
+        fetch(this.getServerUrl(), {
+          method: "POST",
+          body: formData
+        }).then((response) => {
+          return response.json();
+        }).then((result: any) => {
+          resolve(result.id);
+        }).catch ((error) => {
+          console.error('Request failed', error);
+        });
+      } else {
+        this.getObjectStore().then(() => {
+          this.objectStore.add(data).onsuccess = (event: any) => {
+            resolve(event.target.result);
+          };
+        });
+      }
     });
   }
 
@@ -106,11 +127,28 @@ export class Pia extends ApplicationDb {
         entry.dpos_names = this.dpos_names;
         entry.people_names = this.people_names;
         entry.updated_at = new Date();
-        this.getObjectStore().then(() => {
-          this.objectStore.put(entry).onsuccess = () => {
+        if (this.serverUrl) {
+          const formData = new FormData();
+          for(let d in entry) {
+            formData.append('pia[' + d + ']', entry[d]);
+          }
+          fetch(this.getServerUrl() + '/' + entry.id, {
+            method: "PATCH",
+            body: formData
+          }).then((response) => {
+            return response.json();
+          }).then((result: any) => {
             resolve();
-          };
-        });
+          }).catch ((error) => {
+            console.error('Request failed', error);
+          });
+        } else {
+          this.getObjectStore().then(() => {
+            this.objectStore.put(entry).onsuccess = () => {
+              resolve();
+            };
+          });
+        }
       });
     });
   }

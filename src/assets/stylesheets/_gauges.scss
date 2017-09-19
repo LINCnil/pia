@@ -137,7 +137,7 @@ input[type=range]:focus::-webkit-slider-runnable-track {
 
 input[type=range]::-moz-range-track {
   height: 5px;
-  background: #ddd;
+  background: transparent;
   border: none;
   border-radius: 3px;
 }

@@ -34,6 +34,7 @@ export class MeasuresComponent implements OnInit {
       measureTitle: new FormControl(),
       measureContent: new FormControl()
     });
+    this.measureModel.pia_id = this.pia.id;
     this.measureModel.get(this.measure.id).then(() => {
       if (this.measureModel) {
         this.evaluation.getByReference(this.pia.id, this.measure.id).then(() => {
@@ -105,6 +106,7 @@ export class MeasuresComponent implements OnInit {
 
     // Waiting for document.activeElement update
     setTimeout(() => {
+      this.measureModel.pia_id = this.pia.id;
       if (this.measureForm.value.measureTitle !== undefined) {
         const previousTitle = this.measureModel.title;
         this.measureModel.title = titleValue;
@@ -113,33 +115,40 @@ export class MeasuresComponent implements OnInit {
           this.measureModel.title = '';
         }
         if (userText !== '' || this.measureModel.title === '') {
+          console.log(this.measureModel);
           this.measureModel.update().then(() => {
             this._evaluationService.allowEvaluation();
             // Update tags
             const answer = new Answer();
             answer.getByReferenceAndPia(this.pia.id, 324).then(() => {
-              const index = answer.data.list.indexOf(previousTitle);
-              if (~index) {
-                answer.data.list[index] = this.measureModel.title;
-                answer.update();
+              if (answer.data && answer.data.list) {
+                const index = answer.data.list.indexOf(previousTitle);
+                if (~index) {
+                  answer.data.list[index] = this.measureModel.title;
+                  answer.update();
+                }
               }
             });
 
             const answer2 = new Answer();
             answer2.getByReferenceAndPia(this.pia.id, 334).then(() => {
-              const index = answer2.data.list.indexOf(previousTitle);
-              if (~index) {
-                answer2.data.list[index] = this.measureModel.title;
-                answer2.update();
+              if (answer2.data && answer2.data.list) {
+                const index = answer2.data.list.indexOf(previousTitle);
+                if (~index) {
+                  answer2.data.list[index] = this.measureModel.title;
+                  answer2.update();
+                }
               }
             });
 
             const answer3 = new Answer();
             answer3.getByReferenceAndPia(this.pia.id, 344).then(() => {
-              const index = answer3.data.list.indexOf(previousTitle);
-              if (~index) {
-                answer3.data.list[index] = this.measureModel.title;
-                answer3.update();
+              if (answer3.data && answer3.data.list) {
+                const index = answer3.data.list.indexOf(previousTitle);
+                if (~index) {
+                  answer3.data.list[index] = this.measureModel.title;
+                  answer3.update();
+                }
               }
             });
           });
@@ -173,6 +182,7 @@ export class MeasuresComponent implements OnInit {
 
     // Waiting for document.activeElement update
     setTimeout(() => {
+      this.measureModel.pia_id = this.pia.id;
       if (this.measureForm.value.measureContent !== undefined) {
         this.measureModel.content = contentValue;
         const userText = contentValue.replace(/^\s+/, '').replace(/\s+$/, '');

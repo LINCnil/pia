@@ -8,7 +8,6 @@
           <label for="server_url">{{ 'settings.content' | translate }}</label>
           <input type="text" id="server_url" formControlName="server_url">
           <button type="submit"
-                  [disabled]="setting.id === undefined"
                   class="btn btn-green"
                   ngClass="{'btn--processing': formProcessing}">
             {{ 'settings.update' | translate }}
