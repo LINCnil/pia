@@ -14,6 +14,8 @@ export class ActionPlanComponent implements OnInit {
   constructor(private _actionPlanService: ActionPlanService) { }
 
   ngOnInit() {
+    this._actionPlanService.pia = this.pia;
+    this._actionPlanService.data = this.data;
     this._actionPlanService.listActionPlan();
   }
 }
