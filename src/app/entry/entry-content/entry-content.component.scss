@@ -46,21 +46,23 @@
         margin-top: 20px;
       }
       h2 {
-        font-size: 1.4rem;
+        color: $pia-green;
+        font-size: 1.35rem;
         text-transform: uppercase;
         font-weight: 500;
       }
       h3 {
-        font-size: 1.1rem;
+        font-size: 1.2rem;
         font-weight: 400;
-        margin-top: 4px;
+        color: $pia-gray-dark;
+        margin-bottom: 10px;
       }
       h4 {
-        font-size: 1rem;
+        font-size: 1.2rem;
         font-weight: 400;
         font-style: italic;
-        margin-top: 4px;
         color: $pia-gray-dark;
+        margin-bottom: 10px;
       }
       div, h1 {
         display: inline-block;
@@ -87,7 +89,7 @@
           > div:first-child {
             background-color: $pia-blue;
           }
-          h1 {
+          h1, h2 {
             color: $pia-blue;
           }
         }
@@ -97,7 +99,7 @@
           > div:first-child {
             background-color: $pia-red;
           }
-          h1 {
+          h1, h2 {
             color: $pia-red;
           }
         }
@@ -107,7 +109,7 @@
           > div:first-child {
             background-color: $pia-dark-black;
           }
-          h1 {
+          h1, h2 {
             color: $pia-dark-black;
           }
         }

@@ -259,7 +259,7 @@ body.pia-contrast {
         div:first-child {
           background-color: $pia-green-dark;
         }
-        h1 {
+        h1, h2 {
           color: $pia-green-dark;
         }
       }
@@ -274,7 +274,7 @@ body.pia-contrast {
         div:first-child {
           background-color: $pia-red-dark !important;
         }
-        h1 {
+        h1, h2 {
           color: $pia-red-dark !important;
         }
       }

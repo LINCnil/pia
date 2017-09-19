@@ -42,12 +42,12 @@
     }
     &-user-choice {
       width: 100%;
-      z-index: 997;
+      z-index: 1;
       height: 10px;
       position: absolute;
       border-radius: 50px;
       left: 0;
-      top: 10px;
+      top: 7px;
       background-color: #999;
       background: linear-gradient(90deg, #fff, #fff);
       box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 1px 2px 0 rgba(0, 0, 0, 0.2);

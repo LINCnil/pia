@@ -9,8 +9,8 @@
     </div>
     <div class="pia-entryContentBlock-header-title">
       <h1 *ngIf="section.title">{{ section.title | translate }}</h1>
-      <h2 *ngIf="item.title">{{ item.title | translate }}</h2>
       <h3 *ngIf="section.short_help">{{ section.short_help | translate }}</h3>
+      <h2 *ngIf="item.title">{{ item.title | translate }}</h2>
       <h4 *ngIf="item.short_help">{{ item.short_help | translate }}</h4>
     </div>
     <a *ngIf="section.id === 4 && item.id === 2;else defaultBlock" routerLink="/summary/{{_piaService.pia.id}}/action_plan" class="btn pia-previewBlock">
