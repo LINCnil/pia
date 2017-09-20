@@ -6,6 +6,8 @@ import { Measure } from 'app/entry/entry-content/measures/measure.model';
 import { ActionPlanService } from 'app/entry/entry-content/action-plan//action-plan.service';
 import { ActivatedRoute, Params } from '@angular/router';
 
+import { TranslateService } from '@ngx-translate/core';
+
 @Component({
   selector: 'app-summary',
   templateUrl: './summary.component.html',
@@ -21,6 +23,7 @@ export class SummaryComponent implements OnInit {
   constructor(private route: ActivatedRoute,
               private _attachmentsService: AttachmentsService,
               private _actionPlanService: ActionPlanService,
+              private _translateService: TranslateService,
               private _piaService: PiaService) { }
 
   ngOnInit() {
@@ -103,10 +106,10 @@ export class SummaryComponent implements OnInit {
       });
     } else {
       this._actionPlanService.measures.forEach((data: any) => {
-        if (data.evaluation.action_plan_comment) {
+        if (data.action_plan_comment) {
           el.data.push({
             title: data.short_title,
-            content: data.evaluation.action_plan_comment
+            content: data.action_plan_comment
           });
         }
       });
@@ -257,20 +260,20 @@ export class SummaryComponent implements OnInit {
                 const answerModel = new Answer();
                 answerModel.getByReferenceAndPia(this.pia.id, question.id).then(() => {
                   if (answerModel.data) {
-                    let content = null;
+                    let content = [];
                     if (answerModel.data.gauge && answerModel.data.gauge > 0) {
-                      content = this.pia.getGaugeName(answerModel.data.gauge);
+                      content.push(this._translateService.instant(this.pia.getGaugeName(answerModel.data.gauge)));
                     }
                     if (answerModel.data.text && answerModel.data.text.length > 0) {
-                      content = answerModel.data.text;
+                      content.push(answerModel.data.text);
                     }
                     if (answerModel.data.list && answerModel.data.list.length > 0) {
-                      content = answerModel.data.list.join(', ');
+                      content.push(answerModel.data.list.join(', '));
                     }
-                    if (content) {
+                    if (content.length > 0) {
                       this.allData[ref]['questions'].push({
                         title: question.title,
-                        content: content
+                        content: content.join(', ')
                       });
                     }
                   }
