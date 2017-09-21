@@ -7,6 +7,20 @@
   &:last-child {
     text-transform: none;
   }
+  &-edit {
+    padding: 0 !important;
+    cursor: pointer;
+    &:hover {
+      background-color: $pia-gray;
+      color: $pia-white;
+    }
+    > a {
+      text-decoration: none;
+      display: block;
+      padding: 0 10px;
+      color: $pia-dark-black;
+    }
+  }
   &-actions {
     display: flex;
     justify-content: space-around;

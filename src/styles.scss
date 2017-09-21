@@ -25,6 +25,12 @@ $fa-font-path: "../node_modules/font-awesome/fonts";
 @import "./assets/stylesheets/editor";
 @import "./assets/stylesheets/print";
 
+@-moz-document url-prefix() {
+  .pia-gaugeBlock-user-choice {
+    z-index: -1 !important;
+  }
+}
+
 // Default styles
 html {
     font-size: 62.5%;

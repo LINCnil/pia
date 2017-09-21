@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, Input } from '@angular/core';
+import { Component, ViewChild, ElementRef, OnInit, Input } from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
 
 import {Pia} from 'app/entry/pia.model';
@@ -17,6 +17,8 @@ export class DPOPeopleOpinionsComponent implements OnInit {
   peopleForm: FormGroup;
   displayDpoEditButton = false;
   displayPeopleEditButton = false;
+  @ViewChild('DpoNames') private elementRef1: ElementRef;
+  @ViewChild('PeopleNames') private elementRef2: ElementRef;
 
   constructor(private el: ElementRef, private _piaService: PiaService) { }
 
@@ -188,4 +190,21 @@ export class DPOPeopleOpinionsComponent implements OnInit {
       }
     }
   }
+
+  checkDpoName() {
+    if (!this.DPOForm.controls['DPONames'].value) {
+      this.elementRef1.nativeElement.focus();
+      this.DPOForm.controls['DPOStatus'].disable();
+      this.DPOForm.controls['DPOOpinion'].disable();
+    }
+  }
+
+  checkConcernedPeopleName() {
+    if (!this.peopleForm.controls['peopleNames'].value) {
+      this.elementRef2.nativeElement.focus();
+      this.peopleForm.controls['peopleStatus'].patchValue(null);
+      this.peopleForm.controls['peopleOpinion'].patchValue(null);
+    }
+  }
+
 }
