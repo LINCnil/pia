@@ -10,50 +10,91 @@ export class Comment extends ApplicationDb {
   }
 
   async create() {
-    await this.getObjectStore();
+    const data = {
+          description: this.description,
+          pia_id: this.pia_id,
+          reference_to: this.reference_to,
+          for_measure: this.for_measure,
+          created_at: new Date()
+        }
     return new Promise((resolve, reject) => {
-      this.objectStore.add({
-        description: this.description,
-        pia_id: this.pia_id,
-        reference_to: this.reference_to,
-        for_measure: this.for_measure,
-        created_at: new Date()
-      }).onsuccess = (event: any) => {
-        resolve(event.target.result);
-      };
+      if (this.serverUrl) {
+        const formData = new FormData();
+        for(let d in data) {
+          formData.append('comment[' + d + ']', data[d]);
+        }
+        fetch(this.getServerUrl(), {
+          method: "POST",
+          body: formData
+        }).then((response) => {
+          return response.json();
+        }).then((result: any) => {
+          resolve(result.id);
+        }).catch((error) => {
+          console.error('Request failed', error);
+        });
+      } else {
+        this.getObjectStore().then(() => {
+          this.objectStore.add(data).onsuccess = (event: any) => {
+            resolve(event.target.result);
+          };
+        });
+      }
     });
   }
 
   async findAllByReference() {
     const items = [];
-    await this.getObjectStore();
     return new Promise((resolve, reject) => {
-      const index1 = this.objectStore.index('index1');
-      index1.openCursor(IDBKeyRange.only([this.pia_id, this.reference_to])).onsuccess = (event: any) => {
-        const cursor = event.target.result;
-        if (cursor) {
-          items.push(cursor.value);
-          cursor.continue();
-        } else {
-          resolve(items);
-        }
+      if (this.serverUrl) {
+        fetch(this.getServerUrl() + '?reference_to=' + this.reference_to).then((response) => {
+          return response.json();
+        }).then((result: any) => {
+          resolve(result);
+        }).catch((error) => {
+          console.error('Request failed', error);
+        });
+      } else {
+        this.getObjectStore().then(() => {
+          const index1 = this.objectStore.index('index1');
+          index1.openCursor(IDBKeyRange.only([this.pia_id, this.reference_to])).onsuccess = (event: any) => {
+            const cursor = event.target.result;
+            if (cursor) {
+              items.push(cursor.value);
+              cursor.continue();
+            } else {
+              resolve(items);
+            }
+          }
+        });
       }
     });
   }
 
   async findAll() {
     const items = [];
-    await this.getObjectStore();
     return new Promise((resolve, reject) => {
-      const index1 = this.objectStore.index('index2');
-      index1.openCursor(IDBKeyRange.only(this.pia_id)).onsuccess = (event: any) => {
-        const cursor = event.target.result;
-        if (cursor) {
-          items.push(cursor.value);
-          cursor.continue();
-        } else {
-          resolve(items);
-        }
+      if (this.serverUrl) {
+        fetch(this.getServerUrl()).then((response) => {
+          return response.json();
+        }).then((result: any) => {
+          resolve(result);
+        }).catch((error) => {
+          console.error('Request failed', error);
+        });
+      } else {
+        this.getObjectStore().then(() => {
+          const index1 = this.objectStore.index('index2');
+          index1.openCursor(IDBKeyRange.only(this.pia_id)).onsuccess = (event: any) => {
+            const cursor = event.target.result;
+            if (cursor) {
+              items.push(cursor.value);
+              cursor.continue();
+            } else {
+              resolve(items);
+            }
+          }
+        });
       }
     });
   }
