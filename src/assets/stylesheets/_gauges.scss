@@ -105,6 +105,7 @@ input[type=range] {
   /*required for proper track sizing in FF*/
   width: 100%;
   height: 15px;
+  background-color: transparent;
   &:disabled {
     background-color: transparent !important;
   }
