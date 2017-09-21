@@ -7,11 +7,11 @@
         <h2>{{ 'opinions.dpo_opinion' | translate }}</h2>
         <button type="button" class="btn pia-questionBlock-edit" *ngIf="displayDpoEditButton" (click)="activateDPOEdition()" title="{{ 'opinions.edit' | translate }}"><i class="fa fa-pencil" aria-hidden="true"></i></button>
       </div>
-      <form [formGroup]="DPOForm">
+      <form (click)="checkDpoName()" [formGroup]="DPOForm">
         <p>
           <span>
             <ng-container *ngIf="_piaService.pia.status < 2; else displayNames1">
-              <input type="text" class="DPOName" (change)="DPOFocusOutNames()" formControlName="DPONames" placeholder="{{ 'opinions.placeholder_dpo_name' | translate }}">
+              <input #DpoNames type="text" class="DPOName" (change)="DPOFocusOutNames()" formControlName="DPONames" placeholder="{{ 'opinions.placeholder_dpo_name' | translate }}">
             </ng-container>
             <ng-template #displayNames1>
               {{_piaService.pia.dpos_names}}
@@ -49,11 +49,11 @@
         <h2>{{ 'opinions.people_opinion' | translate }}</h2>
         <button type="button" class="btn pia-questionBlock-edit" *ngIf="displayPeopleEditButton" (click)="activatePeopleEdition()" title="'opinions.edit' | translate"><i class="fa fa-pencil" aria-hidden="true"></i></button>
       </div>
-      <form [formGroup]="peopleForm">
+      <form (click)="checkConcernedPeopleName()" [formGroup]="peopleForm">
         <p>
           <span>
             <ng-container *ngIf="this._piaService.pia.status < 2; else displayNames2">
-              <input type="text" class="DPOName" (change)="peopleFocusOutNames()" formControlName="peopleNames" placeholder="{{ 'opinions.placeholder_concerned_people_name' | translate }}">
+              <input #PeopleNames type="text" class="DPOName" (change)="peopleFocusOutNames()" formControlName="peopleNames" placeholder="{{ 'opinions.placeholder_concerned_people_name' | translate }}">
             </ng-container>
             <ng-template #displayNames2>
               {{_piaService.pia.people_names}}

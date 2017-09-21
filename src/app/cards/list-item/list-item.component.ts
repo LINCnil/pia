@@ -27,6 +27,10 @@ export class ListItemComponent implements OnInit {
     });
   }
 
+  editGeneralPiaData() {
+    // TODO enable row edition...
+  }
+
   editPia() {
     this.router.navigate(['entry', this.pia.id, 'section', 1, 'item', 1]);
   }

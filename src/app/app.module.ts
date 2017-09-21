@@ -124,7 +124,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     ErrorsComponent,
     ActionPlanImplementationComponent,
     ListItemComponent,
-    SummaryComponent,
+    SummaryComponent
   ],
   imports: [
     BrowserModule,
