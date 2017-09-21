@@ -2,7 +2,7 @@ import { RollbarService, RollbarErrorHandler, rollbarFactory } from './rollbar';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, ErrorHandler } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { AppComponent } from './app.component';
+import { AppComponent, SafeHtmlPipe } from './app.component';
 import { TagInputModule } from 'ngx-chips';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -51,7 +51,6 @@ import {
 import { environment } from '../environments/environment';
 import { ListItemComponent } from 'app/cards/list-item/list-item.component';
 import { SummaryComponent } from './summary/summary.component';
-
 
 const appRoutes: Routes = [
   { path: '', component: AuthenticationComponent },
@@ -125,6 +124,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     ActionPlanImplementationComponent,
     ListItemComponent,
     SummaryComponent,
+    SafeHtmlPipe
   ],
   imports: [
     BrowserModule,

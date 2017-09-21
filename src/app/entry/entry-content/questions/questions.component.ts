@@ -1,4 +1,4 @@
-import { Component, Input, ElementRef, OnInit, Renderer2 } from '@angular/core';
+import { Component, Input, ElementRef, OnInit, Renderer2, OnDestroy } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/map';
@@ -15,8 +15,8 @@ import { Evaluation } from 'app/entry/entry-content/evaluations/evaluation.model
   templateUrl: './questions.component.html',
   styleUrls: ['./questions.component.scss']
 })
-export class QuestionsComponent implements OnInit {
 
+export class QuestionsComponent implements OnInit, OnDestroy {
   userMeasures = [];
   @Input() question: any;
   @Input() item: any;
@@ -29,6 +29,8 @@ export class QuestionsComponent implements OnInit {
   measure: Measure = new Measure();
   reference_to: string;
   lastSelectedTag: string;
+  elementId: String;
+  editor: any;
 
   constructor(private el: ElementRef,
               private _knowledgeBaseService: KnowledgeBaseService,
@@ -37,6 +39,7 @@ export class QuestionsComponent implements OnInit {
               private renderer: Renderer2) { }
 
   ngOnInit() {
+    this.elementId = 'pia-question-content-' + this.question.id;
     this.questionForm = new FormGroup({
       gauge: new FormControl(0),
       text: new FormControl(),
@@ -88,7 +91,6 @@ export class QuestionsComponent implements OnInit {
         });
       }
     });
-
   }
 
   autoTextareaResize(event: any, textarea: HTMLElement) {
@@ -158,6 +160,7 @@ export class QuestionsComponent implements OnInit {
    * Disables question field + shows edit button + save data.
    */
   questionContentFocusOut() {
+    this.editor = null;
     const gaugeValue = parseInt(this.questionForm.value.gauge, 10);
     if (this.answer.id) {
       const userText = this.questionForm.value.text.replace(/^\s+/, '').replace(/\s+$/, '');
@@ -202,7 +205,7 @@ export class QuestionsComponent implements OnInit {
    * Show only knowledge base elements for this question
    */
   questionContentFocusIn() {
-    this._knowledgeBaseService.search('', '', this.question.link_knowledge_base);
+    this.loadEditor();
   }
 
   /**
@@ -310,6 +313,7 @@ export class QuestionsComponent implements OnInit {
     this.displayEditButton = false;
     this.questionForm.controls['text'].enable();
     this.questionForm.controls['gauge'].enable();
+    this.loadEditor();
   }
 
   /**
@@ -343,4 +347,34 @@ export class QuestionsComponent implements OnInit {
     this.reference_to = this.question.id; // this.section.id + '.' + this.item.id + '.' + this.question.id;
   }
 
+  loadEditor() {
+    this._knowledgeBaseService.placeholder = this.question.placeholder;
+    this._knowledgeBaseService.search('', '', this.question.link_knowledge_base);
+    tinymce.init({
+      branding: false,
+      menubar: false,
+      statusbar: false,
+      plugins: 'autoresize lists',
+      forced_root_block : 'div',
+      autoresize_bottom_margin: 20,
+      auto_focus: this.elementId,
+      autoresize_min_height: 30,
+      content_style: 'body {background-color:#eee!important;}' ,
+      selector: '#' + this.elementId,
+      toolbar: 'undo redo bold italic alignleft aligncenter alignright bullist numlist outdent indent',
+      skin_url: '/assets/skins/lightgray',
+      setup: editor => {
+        this.editor = editor;
+        editor.on('focusout', () => {
+          this.questionForm.controls['text'].patchValue(editor.getContent());
+          this.questionContentFocusOut();
+          tinymce.remove(this.editor);
+        });
+      },
+    });
+  }
+
+  ngOnDestroy() {
+    tinymce.remove(this.editor);
+  }
 }

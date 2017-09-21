@@ -1,9 +1,17 @@
-import { Component } from '@angular/core';
-import { Renderer2 } from '@angular/core';
+import { Component, Renderer2, Pipe, PipeTransform } from '@angular/core';
 import { Http } from '@angular/http';
+import { DomSanitizer } from '@angular/platform-browser';
 
 import { TranslateService } from '@ngx-translate/core';
 import { KnowledgeBaseService } from 'app/entry/knowledge-base/knowledge-base.service';
+
+@Pipe({ name: 'safeHtml'})
+export class SafeHtmlPipe implements PipeTransform  {
+  constructor(private sanitized: DomSanitizer) {}
+  transform(value) {
+    return this.sanitized.bypassSecurityTrustHtml(value);
+  }
+}
 
 @Component({
   selector: 'app-root',

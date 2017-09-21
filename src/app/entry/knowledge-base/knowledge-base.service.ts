@@ -10,6 +10,7 @@ export class KnowledgeBaseService {
   filter: string;
   linkKnowledgeBase: string[] = [];
   hasKnowledgeBaseData = true;
+  placeholder: String;
 
   loadData(http) {
     http.request('/assets/files/pia_knowledge-base.json').map(res => res.json()).subscribe(data => {

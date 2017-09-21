@@ -68,6 +68,7 @@
             [secondaryPlaceholder]="question.placeholder | translate">
           </tag-input>
         </ng-template>
+        <div [innerHTML]="questionForm.controls['text'].value | safeHtml" [ngClass]="{ 'hide': editor }"></div>
         <textarea
           (keyup)="autoTextareaResize($event)"
           *ngIf="question.answer_type == 'text' || question.answer_type == 'gauge'"
@@ -77,7 +78,7 @@
           name="pia-question"
           minRows="8"
           cols="50"
-          (focusout)="questionContentFocusOut()"
+          [ngClass]="{ 'hide': (!editor && questionForm.controls['text'].value) }"
           (focusin)="questionContentFocusIn()"
           placeholder="{{ question.placeholder | translate }}">
         </textarea>
@@ -88,5 +89,7 @@
   <!-- TODO : to show only after a first edition (when the current question is created in DB) -->
   <app-comments [pia]="pia" [question]="question" [questionId]="question.id"></app-comments>
 
-  <app-evaluations (evaluationEvent)="evaluationChange($event)" *ngIf="item.evaluation_mode === 'question' && (_evaluationService.showValidationButton || _evaluationService.enableFinalValidation || _evaluationService.someItemNeedToBeFixed)" [pia]="pia" [section]="section" [item]="item" [questionId]="question.id"></app-evaluations>
+  <app-evaluations (evaluationEvent)="evaluationChange($event)"
+                   *ngIf="item.evaluation_mode === 'question' && (_evaluationService.showValidationButton || _evaluationService.enableFinalValidation || _evaluationService.someItemNeedToBeFixed)"
+                   [pia]="pia" [section]="section" [item]="item" [questionId]="question.id"></app-evaluations>
 </div>
