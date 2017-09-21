@@ -65,6 +65,10 @@
           color: $pia-dark-black;
         }
       }
+      &Text {
+        min-height: 130px;
+        padding: 5px 12px;
+      }
     }
     &-date {
       display: inline-block;

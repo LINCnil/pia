@@ -182,7 +182,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
       }
     }
     if (this.questionForm.value.text && this.questionForm.value.text.length >= 0) {
-      const userText = this.questionForm.value.text.replace(/^\s+/, '').replace(/\s+$/, '');
+      const userText = this.questionForm.value.text.replace(/^\s+/, '').replace(/\s+$/, '').replace('<div>&nbsp;</div>', '');
       if (userText !== '') {
         if (!this.answer.id) {
           this.answer.pia_id = this.pia.id;
