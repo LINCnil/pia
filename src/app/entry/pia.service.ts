@@ -156,7 +156,7 @@ export class PiaService {
 
   duplicate(id: number) {
     this.exportData(id).then((data) => {
-      this.importData(data);
+      this.importData(data, 'COPY');
     });
   }
 
@@ -200,9 +200,9 @@ export class PiaService {
     });
   }
 
-  importData(data: any) {
+  importData(data: any, prefix: string) {
     const pia = new Pia();
-    pia.name = '(COPY) ' + data.pia.name;
+    pia.name = '(' + prefix + ') ' + data.pia.name;
     pia.author_name = data.pia.author_name;
     pia.evaluator_name = data.pia.evaluator_name;
     pia.validator_name = data.pia.validator_name;
@@ -300,7 +300,7 @@ export class PiaService {
     reader.readAsText(file, 'UTF-8');
     reader.onload = (event: any) => {
       const jsonFile = JSON.parse(event.target.result);
-      this.importData(jsonFile);
+      this.importData(jsonFile, 'IMPORT');
     }
   }
 }
