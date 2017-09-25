@@ -70,7 +70,6 @@
         </ng-template>
         <div class="pia-questionBlock-contentText" [innerHTML]="questionForm.controls['text'].value | safeHtml" [ngClass]="{ 'hide': editor || !questionForm.controls['text'].value }"></div>
         <textarea
-          (keyup)="autoTextareaResize($event)"
           *ngIf="question.answer_type == 'text' || question.answer_type == 'gauge'"
           [attr.data-id]="question.id"
           id="pia-question-content-{{question.id}}"

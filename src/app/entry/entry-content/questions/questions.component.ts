@@ -1,4 +1,4 @@
-import { Component, Input, ElementRef, OnInit, Renderer2, OnDestroy } from '@angular/core';
+import { Component, Input, ElementRef, OnInit, Renderer2, OnDestroy, NgZone } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/map';
@@ -36,6 +36,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
               private _knowledgeBaseService: KnowledgeBaseService,
               private _evaluationService: EvaluationService,
               private _modalsService: ModalsService,
+              private _ngZone: NgZone,
               private renderer: Renderer2) { }
 
   ngOnInit() {
@@ -170,31 +171,35 @@ export class QuestionsComponent implements OnInit, OnDestroy {
       if (userText !== '' || this.questionForm.value.text === '') {
         this.answer.data = { text: this.questionForm.value.text, gauge: this.answer.data.gauge, list: this.answer.data.list };
         this.answer.update().then(() => {
-          this._evaluationService.allowEvaluation();
-          if (this.questionForm.value.text !== '') {
-            this.displayEditButton = true;
-            this.questionForm.controls['text'].disable();
-          }
-          if (gaugeValue > 0) {
-            this.questionForm.controls['gauge'].disable();
-          }
+          this._ngZone.run(() => {
+            this._evaluationService.allowEvaluation();
+            if (this.questionForm.value.text !== '') {
+              this.displayEditButton = true;
+              this.questionForm.controls['text'].disable();
+            }
+            if (gaugeValue > 0) {
+              this.questionForm.controls['gauge'].disable();
+            }
+          });
         });
       }
     }
     if (this.questionForm.value.text && this.questionForm.value.text.length >= 0) {
-      const userText = this.questionForm.value.text.replace(/^\s+/, '').replace(/\s+$/, '').replace('<div>&nbsp;</div>', '');
+      const userText = this.questionForm.value.text.replace(/^\s+/, '').replace(/\s+$/, '');
       if (userText !== '') {
         if (!this.answer.id) {
           this.answer.pia_id = this.pia.id;
           this.answer.reference_to = this.reference_to;
           this.answer.data = { text: this.questionForm.value.text, gauge: 0, list: [] };
           this.answer.create().then(() => {
-            this._evaluationService.allowEvaluation();
-            this.displayEditButton = true;
-            this.questionForm.controls['text'].disable();
-            if (gaugeValue > 0) {
-              this.questionForm.controls['gauge'].disable();
-            }
+            this._ngZone.run(() => {
+              this._evaluationService.allowEvaluation();
+              this.displayEditButton = true;
+              this.questionForm.controls['text'].disable();
+              if (gaugeValue > 0) {
+                this.questionForm.controls['gauge'].disable();
+              }
+            });
           });
         }
       }
@@ -355,7 +360,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
       menubar: false,
       statusbar: false,
       plugins: 'autoresize lists',
-      forced_root_block : 'div',
+      forced_root_block : false,
       autoresize_bottom_margin: 20,
       auto_focus: this.elementId,
       autoresize_min_height: 30,
