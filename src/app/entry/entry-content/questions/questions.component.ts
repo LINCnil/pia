@@ -207,7 +207,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
   }
 
   /**
-   * Show only knowledge base elements for this question
+   * Load wysiwyg editor
    */
   questionContentFocusIn() {
     this.loadEditor();

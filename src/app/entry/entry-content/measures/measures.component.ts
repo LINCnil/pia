@@ -1,4 +1,4 @@
-import { Component, Input, ElementRef, Renderer2, OnInit } from '@angular/core';
+import { Component, Input, ElementRef, Renderer2, OnInit, OnDestroy, NgZone } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ModalsService } from 'app/modals/modals.service';
 import { Measure } from './measure.model';
@@ -11,12 +11,14 @@ import { Evaluation } from 'app/entry/entry-content/evaluations/evaluation.model
   templateUrl: './measures.component.html',
   styleUrls: ['./measures.component.scss']
 })
-export class MeasuresComponent implements OnInit {
+export class MeasuresComponent implements OnInit, OnDestroy {
 
   @Input() measure: Measure;
   @Input() item: any;
   @Input() section: any;
   @Input() pia: any;
+  editor: any;
+  elementId: String;
   evaluation: Evaluation = new Evaluation();
   displayEditButton = false;
   displayDeleteButton = true;
@@ -27,6 +29,7 @@ export class MeasuresComponent implements OnInit {
     private el: ElementRef,
     private _modalsService: ModalsService,
     private _evaluationService: EvaluationService,
+    private _ngZone: NgZone,
     private renderer: Renderer2) { }
 
   ngOnInit() {
@@ -36,6 +39,7 @@ export class MeasuresComponent implements OnInit {
     });
     this.measureModel.pia_id = this.pia.id;
     this.measureModel.get(this.measure.id).then(() => {
+      this.elementId = 'pia-measure-content-' + this.measure.id;
       if (this.measureModel) {
         this.evaluation.getByReference(this.pia.id, this.measure.id).then(() => {
           this.checkDisplayButtons();
@@ -153,7 +157,8 @@ export class MeasuresComponent implements OnInit {
             });
           });
         }
-        if (titleValue && titleValue.length > 0 && userText !== '' && document.activeElement.id !== 'pia-measure-content-' + this.measureModel.id) {
+        if (titleValue && titleValue.length > 0 && userText !== ''
+            && document.activeElement.id !== 'pia-measure-content-' + this.measureModel.id) {
           this.displayEditButton = true;
           this.measureForm.controls['measureTitle'].disable();
           // Disables content field if both fields are filled and content isn't the next targeted element.
@@ -176,7 +181,8 @@ export class MeasuresComponent implements OnInit {
    * Saves data from content field.
    * @param {event} event any event.
    */
-  measureContentFocusOut(event) {
+  measureContentFocusOut() {
+    this.editor = null;
     const titleValue = this.measureForm.value.measureTitle;
     const contentValue = this.measureForm.value.measureContent;
 
@@ -191,10 +197,13 @@ export class MeasuresComponent implements OnInit {
         }
         if (userText !== '' || this.measureModel.content === '') {
           this.measureModel.update().then(() => {
-            this._evaluationService.allowEvaluation();
+            this._ngZone.run(() => {
+              this._evaluationService.allowEvaluation();
+            });
           });
         }
-        if (contentValue && contentValue.length > 0 && userText !== '' && document.activeElement.id !== 'pia-measure-title-' + this.measureModel.id) {
+        if (contentValue && contentValue.length > 0 && userText !== ''
+            && document.activeElement.id !== 'pia-measure-title-' + this.measureModel.id) {
           this.displayEditButton = true;
           this.measureForm.controls['measureContent'].disable();
           // Disables title field if both fields are filled and title isn't the next targeted element.
@@ -217,6 +226,7 @@ export class MeasuresComponent implements OnInit {
   activateMeasureEdition() {
     this.displayEditButton = false;
     this.measureForm.enable();
+    this.loadEditor();
   }
 
   /**
@@ -259,4 +269,39 @@ export class MeasuresComponent implements OnInit {
     }
   }
 
+  /**
+   * Load wysiwyg editor
+   */
+  measureContentFocusIn() {
+    this.loadEditor();
+  }
+
+  loadEditor() {
+    tinymce.init({
+      branding: false,
+      menubar: false,
+      statusbar: false,
+      plugins: 'autoresize lists',
+      forced_root_block : false,
+      autoresize_bottom_margin: 20,
+      auto_focus: this.elementId,
+      autoresize_min_height: 30,
+      content_style: 'body {background-color:#eee!important;}' ,
+      selector: '#' + this.elementId,
+      toolbar: 'undo redo bold italic alignleft aligncenter alignright bullist numlist outdent indent',
+      skin_url: '/assets/skins/lightgray',
+      setup: editor => {
+        this.editor = editor;
+        editor.on('focusout', () => {
+          this.measureForm.controls['measureContent'].patchValue(editor.getContent());
+          this.measureContentFocusOut();
+          tinymce.remove(this.editor);
+        });
+      },
+    });
+  }
+
+  ngOnDestroy() {
+    tinymce.remove(this.editor);
+  }
 }
