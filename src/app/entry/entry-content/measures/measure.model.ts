@@ -25,7 +25,7 @@ export class Measure extends ApplicationDb {
           formData.append('measure[' + d + ']', data[d]);
         }
         fetch(this.getServerUrl(), {
-          method: "POST",
+          method: 'POST',
           body: formData
         }).then((response) => {
           return response.json();

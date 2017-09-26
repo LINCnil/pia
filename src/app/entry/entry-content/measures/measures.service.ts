@@ -75,6 +75,7 @@ export class MeasureService {
       this._translateService.get(measureTitle).subscribe(val => this.measureToAdd = val);
       newMeasureRecord.title = this.measureToAdd;
     }
+    newMeasureRecord.content = '';
     if (measurePlaceholder) {
       newMeasureRecord.placeholder = measurePlaceholder;
     } else {
