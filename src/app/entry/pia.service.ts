@@ -103,7 +103,7 @@ export class PiaService {
         measure.findAll()
       ]);
 
-    for(let entry of entries) {
+    for (let entry of entries) {
       const ref = entry.reference_to.toString().substr(0, 2);
       if (!this.sidStatus[ref]) {
         this.sidStatus[ref] = 1;
@@ -114,8 +114,8 @@ export class PiaService {
       this.sidStatus['31'] = 1;
     }
 
-    for(let section of this.data.sections) {
-      for(let item of section.items) {
+    for (let section of this.data.sections) {
+      for (let item of section.items) {
         const result: any = await this._evaluationService.isItemIsValidated(section.id, item)
         const ref = section.id.toString() + item.id.toString();
         if (result && this.sidStatus[ref]) {

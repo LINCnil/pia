@@ -86,6 +86,7 @@
                 <progress max="100" value="{{ pia.progress }}"></progress>
             </div>
         </div>
+        <div class="pia-cardsBlock-item-progressHint" *ngIf="pia.progress === 100 && pia.status === 0">(en attente de validation)</div>
         <div class="pia-cardsBlock-item-btn" [ngClass]="{'hide': editMode !== true}">
           <button type="submit" [disabled]="piaForm.invalid" class="btn btn-green">{{ 'homepage.cards.item.save_pia' | translate }}</button>
         </div>

@@ -19,8 +19,9 @@
 <td class="pia-listsBlock-item">{{ pia.validator_name }}</td>
 <td class="pia-listsBlock-item"><time>{{ pia.created_at | date: 'dd/MM/yyyy' }}</time></td>
 <td class="pia-listsBlock-item">{{ pia.getStatusName() | translate }}</td>
-<td class="pia-listsBlock-item">
+<td class="pia-listsBlock-item progress">
   <progress max="100" value="{{ pia.progress }}"></progress>
+  <div *ngIf="pia.progress === 100 && pia.status === 0">(en attente de validation)</div>
 </td>
 <td class="pia-listsBlock-item">
   <div class="pia-listsBlock-item-actions">

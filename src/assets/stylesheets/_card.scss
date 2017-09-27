@@ -9,209 +9,217 @@
     border: 1px solid #fff;
     background-color: #fff;
     &-title {
-        height: 23px;
+      height: 23px;
     }
     &-header-title {
-        border-bottom: 1px solid $pia-green;
-        color: $pia-green;
-        height: 20px;
-        margin-top: -30px;
-        margin-bottom: 10px;
-        font-weight: 500;
+      border-bottom: 1px solid $pia-green;
+      color: $pia-green;
+      height: 20px;
+      margin-top: -30px;
+      margin-bottom: 10px;
+      font-weight: 500;
     }
     &-item {
-        padding: 9px;
-        background-color: #fff;
-        padding-top: 6px;
-        height: 368px;
-        &-attachment {
-          display: inline-block;
+      padding: 9px;
+      background-color: #fff;
+      padding-top: 6px;
+      height: 368px;
+      &-attachment {
+        display: inline-block;
+        position: absolute;
+        vertical-align: middle;
+        left: 6px;
+        cursor: pointer;
+        ul {
+          display: none;
           position: absolute;
-          vertical-align: middle;
-          left: 6px;
-          cursor: pointer;
+          z-index: 999;
+          top: 18px;
+          left: 2px;
+          font-size: 1rem;
+          color: $pia-gray-dark;
+          background-color: #fff;
+          text-align: center;
+          min-width: 100px;
+          margin: 10px 0;
+          padding: 2px 4px;
+          box-shadow: 1px 1px 2px 1px rgba(214, 212, 214, 1);
+          li {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            border-bottom: 1px dotted $pia-gray-dark;
+            padding: 2px 0;
+            &:last-child {
+              border-bottom: none;
+            }
+          }
+        }
+        &:focus, &:hover, &:active {
           ul {
-            display: none;
-            position: absolute;
-            z-index: 999;
-            top: 18px;
-            left: 2px;
+            display: block;
+          }
+        }
+      }
+      &-status {
+        margin-top: 5px;
+        &-infos {
+          width: 150px;
+          div {
+            color: $pia-gray;
             font-size: 1rem;
-            color: $pia-gray-dark;
-            background-color: #fff;
-            text-align: center;
-            min-width: 100px;
-            margin: 10px 0;
-            padding: 2px 4px;
-            box-shadow: 1px 1px 2px 1px rgba(214, 212, 214, 1);
-            li {
-              list-style-type: none;
-              margin: 0;
-              padding: 0;
-              border-bottom: 1px dotted $pia-gray-dark;
-              padding: 2px 0;
-              &:last-child {
-                border-bottom: none;
-              }
-            }
-          }
-          &:focus, &:hover, &:active {
-            ul {
-              display: block;
+            margin-bottom: -1px;
+            font-style: italic;
+            &:last-child {
+              font-size: 1.45rem;
+              color: $pia-dark-black;
             }
           }
         }
-        &-status {
+        &-infos, &-progressBar {
+          display: inline-block;
+          vertical-align: top;
+        }
+        &-progressBar {
+          width: 100px;
+          text-align: right;
+          div {
+            color: $pia-green;
+            font-style: italic;
+            text-align: right;
+            font-size: 1rem;
+          }
+          progress {
+            width: 100%;
+            position: relative;
             margin-top: 5px;
-            &-infos {
-                width: 150px;
-                div {
-                    color: $pia-gray;
-                    font-size: 1rem;
-                    margin-bottom: -1px;
-                    font-style: italic;
-                    &:last-child {
-                        font-size: 1.45rem;
-                        color: $pia-dark-black;
-                    }
-                }
+            &:after {
+              position: absolute;
+              left: 0;
+              top: 50%;
+              content: '';
+              height: 12px;
+              width: 1px;
+              margin-top: -6px;
+              background-color: $pia-green;
             }
-            &-infos, &-progressBar {
-                display: inline-block;
-                vertical-align: top;
+            &:before {
+              position: absolute;
+              content: '';
+              left: 0;
+              right: 0;
+              top: 50%;
+              height: 1px;
+              background-color: $pia-green;
             }
-            &-progressBar {
-                width: 100px;
-                text-align: right;
-                div {
-                    color: $pia-green;
-                    font-style: italic;
-                    text-align: right;
-                    font-size: 1rem;
-                }
-                progress {
-                    width: 100%;
-                    position: relative;
-                    margin-top: 5px;
-                    &:after {
-                        position: absolute;
-                        left: 0;
-                        top: 50%;
-                        content: '';
-                        height: 12px;
-                        width: 1px;
-                        margin-top: -6px;
-                        background-color: $pia-green;
-                    }
-                    &:before {
-                        position: absolute;
-                        content: '';
-                        left: 0;
-                        right: 0;
-                        top: 50%;
-                        height: 1px;
-                        background-color: $pia-green;
-                    }
-                }
-                progress[value] {
-                    background-color: #fff;
-                    height: 12px;
-                    &::-webkit-progress-bar {
-                        background-color: #fff;
-                    }
-                    &::-webkit-progress-value {
-                        background-color: $pia-green;
-                    }
-                }
+          }
+          progress[value] {
+            background-color: #fff;
+            height: 12px;
+            &::-webkit-progress-bar {
+              background-color: #fff;
             }
-            &-refused {
-                color: $pia-red !important;
+            &::-webkit-progress-value {
+              background-color: $pia-green;
             }
+          }
         }
-        &-form {
-            div {
-                label {
-                    color: $pia-gray;
-                    font-size: 0.95rem;
-                    font-style: italic;
-                }
-                input {
-                    padding-bottom: 6px;
-                    display: block;
-                    border: 0;
-                    font-size: 1.4rem;
-                    color: $pia-dark-black;
-                    width: 100%;
-                    background-color: $pia-white;
-                    margin-top: -2px;
-                    &::placeholder {
-                        color: $pia-gray;
-                    }
-                }
-                &:first-child {
-                    input {
-                        margin-top: 0;
-                        font-size: 2.1rem;
-                        padding-bottom: 23px;
-                    }
-                }
-            }
-            &-attachment {
-                position: relative;
-                display: inline-block;
-                button {
-                    font-size: 1rem;
-                    color: $pia-gray;
-                    background-color: #fff;
-                    display: none;
-                    position: absolute;
-                    bottom: -14px;
-                    left: -50%;
-                    text-align: center;
-                    width: 78px;
-                    padding: 2px 4px;
-                    -webkit-box-shadow: 1px 1px 2px 1px rgba(204,202,204,1);
-                    -moz-box-shadow: 1px 1px 2px 1px rgba(204,202,204,1);
-                    box-shadow: 1px 1px 2px 1px rgba(204,202,204,1);
-                }
-                &:focus, &:hover, &:active {
-                    button {
-                        display: block;
-                    }
-                }
-            }
+        &-refused {
+          color: $pia-red !important;
         }
-        &-date {
-            div {
-                color: $pia-gray;
-                font-size: 1rem;
-                margin-bottom: -1px;
-                &:first-child {
-                    font-style: italic;
-                }
-            }
-            time {
-                font-size: 1.45rem;
-                color: $pia-dark-black;
-            }
-        }
-        &-btn {
-            border-top: 1px solid $pia-green;
-            padding-top: 21px;
-            margin-top: 21px;
-            text-align: center;
-            margin-bottom: 15px;
-            a, button {
-                border-radius: 20px;
-                border: 1px solid;
-                padding: 9px 20px;
-                display: inline-block;
-            }
-            a {
-              text-decoration: none;
-              padding: 5.5px 21px;
-            }
-        }
+      }
+      &-progressHint {
+        font-size: 1rem;
+        text-transform: none;
+        margin-top: -4px;
+        font-style: italic;
+        text-align: right;
+        margin-bottom: -11px;
+      }
+      &-form {
+          div {
+              label {
+                  color: $pia-gray;
+                  font-size: 0.95rem;
+                  font-style: italic;
+              }
+              input {
+                  padding-bottom: 6px;
+                  display: block;
+                  border: 0;
+                  font-size: 1.4rem;
+                  color: $pia-dark-black;
+                  width: 100%;
+                  background-color: $pia-white;
+                  margin-top: -2px;
+                  &::placeholder {
+                      color: $pia-gray;
+                  }
+              }
+              &:first-child {
+                  input {
+                      margin-top: 0;
+                      font-size: 2.1rem;
+                      padding-bottom: 23px;
+                  }
+              }
+          }
+          &-attachment {
+              position: relative;
+              display: inline-block;
+              button {
+                  font-size: 1rem;
+                  color: $pia-gray;
+                  background-color: #fff;
+                  display: none;
+                  position: absolute;
+                  bottom: -14px;
+                  left: -50%;
+                  text-align: center;
+                  width: 78px;
+                  padding: 2px 4px;
+                  -webkit-box-shadow: 1px 1px 2px 1px rgba(204,202,204,1);
+                  -moz-box-shadow: 1px 1px 2px 1px rgba(204,202,204,1);
+                  box-shadow: 1px 1px 2px 1px rgba(204,202,204,1);
+              }
+              &:focus, &:hover, &:active {
+                  button {
+                      display: block;
+                  }
+              }
+          }
+      }
+      &-date {
+          div {
+              color: $pia-gray;
+              font-size: 1rem;
+              margin-bottom: -1px;
+              &:first-child {
+                  font-style: italic;
+              }
+          }
+          time {
+              font-size: 1.45rem;
+              color: $pia-dark-black;
+          }
+      }
+      &-btn {
+          border-top: 1px solid $pia-green;
+          padding-top: 21px;
+          margin-top: 21px;
+          text-align: center;
+          margin-bottom: 15px;
+          a, button {
+              border-radius: 20px;
+              border: 1px solid;
+              padding: 9px 20px;
+              display: inline-block;
+          }
+          a {
+            text-decoration: none;
+            padding: 5.5px 21px;
+          }
+      }
     }
     &-toolbar {
         font-size: 1.45rem;

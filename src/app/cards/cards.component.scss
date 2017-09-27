@@ -303,8 +303,10 @@
 
 .app-list-item {
   display: table-row;
-
   &:nth-child(even) {
     background-color: rgba(62, 224, 149, 0.15);
+  }
+  &:hover {
+    background-color: rgba(62, 224, 149, 0.25);
   }
 }
