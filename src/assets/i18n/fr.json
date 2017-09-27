@@ -1,6 +1,6 @@
 {
   "authentication": {
-    "subtitle1": "Une plateforme pour creer <br> et administrer vos pia",
+    "subtitle1": "Une plateforme pour créer <br> et administrer vos pia",
     "subtitle2": "Accéder aux outils et glossaires"
   },
   "header": {
@@ -24,7 +24,7 @@
     "filters": {
       "list": "liste",
       "card": "carte",
-      "sort": "Trier les PIA",
+      "sort": "Trier",
       "sort_by": "par",
       "name": "Nom",
       "date": "Date",
@@ -34,8 +34,8 @@
       "validator": "Validateur",
       "new_pia": "Nouveau PIA",
       "import_pia": "Importer PIA",
-      "list_rocket_content": "Lancez-vous ! Pour commencer<br>un PIA, c'est par là.",
-      "card_rocket_content": "Lancez-vous !<br><br>Pour commencer<br>un PIA, c'est par là."
+      "list_rocket_content": "Lancez-vous ! Pour commencer<br>un PIA, cliquez sur le +",
+      "card_rocket_content": "Lancez-vous !<br><br>Pour commencer<br>un PIA, cliquez sur le +"
     },
     "cards": {
       "new_pia": "Nouveau PIA",
@@ -43,9 +43,9 @@
       "or": "ou",
       "import_pia": "Importer PIA",
       "placeholder_import_pia": "Importer PIA",
-      "title_close_creation": "Fermer la création",
-      "pia_name": "Nom du PIA",
-      "placeholder_pia_name": "Intitulé",
+      "title_close_creation": "Fermer",
+      "pia_name": "PIA",
+      "placeholder_pia_name": "Intitulé du PIA",
       "author": "Saisie",
       "placeholder_author": "Prénom, nom",
       "evaluation": "Évaluation",
@@ -59,14 +59,14 @@
       "placeholder_start": "Tous les champs doivent être remplis",
       "item": {
         "tools": {
-          "edit": "Éditer",
+          "edit": "Éditer les informations",
           "export": "Exporter",
           "more_options": "Plus d'options",
           "duplicate": "Dupliquer",
           "action_plan": "Afficher le<br>plan d'action",
           "remove": "Supprimer"
         },
-        "edit_pia": "Consulter le PIA",
+        "edit_pia": "Éditer le PIA",
         "save_pia": "Sauvegarder"
       }
     },
@@ -125,7 +125,7 @@
     "add": "Ajouter une mesure vide (sinon, utiliser la base de connaissance)",
     "edit": "Éditer la mesure",
     "remove": "Supprimer la mesure",
-    "default_placeholder": "Ajoutez les mesures prises pour garantir la sécurité des données."
+    "default_placeholder": "Décrivez les mesures existantes ou prévues pour garantir la sécurité des données."
   },
   "knowledge_base": {
     "title": "Base de connaissances",
@@ -139,7 +139,7 @@
       "definitions": "Définitions",
       "organizational_measures": "Mesures organisationnelles",
       "measures_on_data": "Mesures sur les données",
-      "general_measures": "Mesures générales",
+      "general_measures": "Mesures générales de sécurité du système",
       "no_result": "Aucun résultat trouvé."
     },
     "category": {
@@ -147,7 +147,7 @@
       "principle": "Principe",
       "organizational_measure": "Mesure organisationnelle",
       "measure_on_data": "Mesure sur les données",
-      "general_measure": "Mesure générale",
+      "general_measure": "Mesure générale de sécurité du système",
       "example": "Exemple"
     },
     "slugs": {
