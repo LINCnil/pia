@@ -97,7 +97,8 @@
       "1": "Refusé",
       "2": "Validation simple",
       "3": "Validation avec signature",
-      "4": "Archivé"
+      "4": "Archivé",
+      "5": "En attente de validation"
     },
     "header": {
       "preview": "Aperçu",

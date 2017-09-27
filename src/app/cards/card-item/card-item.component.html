@@ -79,14 +79,18 @@
         <div class="pia-cardsBlock-item-status">
             <div class="pia-cardsBlock-item-status-infos">
                 <div>{{ 'homepage.cards.status' | translate }}</div>
-                <div>{{ pia.getStatusName() | translate }}</div>
+                <div class="pendingValidation" *ngIf="pia.status === 0 && pia.progress === 100;else defaultStatuses">
+                  {{ 'pia.statuses.5' | translate }}
+                </div>
+                <ng-template #defaultStatuses>
+                  <div>{{ pia.getStatusName() | translate }}</div>
+                </ng-template>
             </div>
             <div class="pia-cardsBlock-item-status-progressBar">
                 <div>{{ pia.progress }}%</div>
                 <progress max="100" value="{{ pia.progress }}"></progress>
             </div>
         </div>
-        <div class="pia-cardsBlock-item-progressHint" *ngIf="pia.progress === 100 && pia.status === 0">(en attente de validation)</div>
         <div class="pia-cardsBlock-item-btn" [ngClass]="{'hide': editMode !== true}">
           <button type="submit" [disabled]="piaForm.invalid" class="btn btn-green">{{ 'homepage.cards.item.save_pia' | translate }}</button>
         </div>

@@ -87,11 +87,11 @@ export class Pia extends ApplicationDb {
     return new Promise((resolve, reject) => {
       if (this.serverUrl) {
         const formData = new FormData();
-        for(let d in data) {
+        for (let d in data) {
           formData.append('pia[' + d + ']', data[d]);
         }
         fetch(this.getServerUrl(), {
-          method: "POST",
+          method: 'POST',
           body: formData
         }).then((response) => {
           return response.json();
@@ -129,11 +129,11 @@ export class Pia extends ApplicationDb {
         entry.updated_at = new Date();
         if (this.serverUrl) {
           const formData = new FormData();
-          for(let d in entry) {
+          for (let d in entry) {
             formData.append('pia[' + d + ']', entry[d]);
           }
           fetch(this.getServerUrl() + '/' + entry.id, {
-            method: "PATCH",
+            method: 'PATCH',
             body: formData
           }).then((response) => {
             return response.json();

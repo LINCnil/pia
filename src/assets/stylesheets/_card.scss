@@ -75,6 +75,10 @@
               color: $pia-dark-black;
             }
           }
+          .pendingValidation {
+            margin-bottom: -20px;
+            padding-right: 12px;
+          }
         }
         &-infos, &-progressBar {
           display: inline-block;
@@ -127,14 +131,6 @@
         &-refused {
           color: $pia-red !important;
         }
-      }
-      &-progressHint {
-        font-size: 1rem;
-        text-transform: none;
-        margin-top: -4px;
-        font-style: italic;
-        text-align: right;
-        margin-bottom: -11px;
       }
       &-form {
           div {
