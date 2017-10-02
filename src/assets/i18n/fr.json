@@ -974,7 +974,7 @@
           "short_help": "Cette partie vous permet de recenser les mesures (existantes ou prévues) contribuant à la sécurité des données."
         },
         "2": {
-          "title": "Accès illégitime à des données",
+          "title": "Accès illégitime\nà des données",
           "short_help": "Analysez les causes et conséquences d'un accès illégitime à des données, et estimez sa gravité et sa vraisemblance.",
           "questions": {
             "1": {
@@ -1004,7 +1004,7 @@
           }
         },
         "3": {
-          "title": "Modification non désirées de données",
+          "title": "Modification non\ndésirées de données",
           "short_help": "Analysez les causes et conséquences d'une modification non désirée de données, et estimez sa gravité et sa vraisemblance.",
           "questions": {
             "1": {
@@ -1034,7 +1034,7 @@
           }
         },
         "4": {
-          "title": "Disparition de données",
+          "title": "Disparition\nde données",
           "short_help": "Analysez les causes et conséquences d'une disparition de données, et estimez sa gravité et sa vraisemblance.",
           "questions": {
             "1": {

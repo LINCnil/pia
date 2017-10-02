@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { ActivatedRoute, Router, Params } from '@angular/router';
 import { Http } from '@angular/http';
 
+import { AppDataService } from 'app/services/app-data.service';
 import { Pia } from './pia.model';
 import { Evaluation } from 'app/entry/entry-content/evaluations/evaluation.model';
 import { Answer } from 'app/entry/entry-content/questions/answer.model';
@@ -24,10 +25,10 @@ export class PiaService {
 
   constructor(private _router: Router, private route: ActivatedRoute,
               private _evaluationService: EvaluationService,
+              private _appDataService: AppDataService,
               private _modalsService: ModalsService, private http: Http) {
-                /* TODO : move the JSON loading */
-                this.http.request('/assets/files/pia_architecture.json').map(res => res.json()).subscribe(data => {
-                  this.data = data;
+                this._appDataService.getDataNav().then((dataNav) => {
+                  this.data = dataNav;
                 });
               }
 

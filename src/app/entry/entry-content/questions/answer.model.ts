@@ -18,17 +18,19 @@ export class Answer extends ApplicationDb {
     return new Promise((resolve, reject) => {
       if (this.serverUrl) {
         const formData = new FormData();
-        for(let d in data) {
+        for (const d in data) {
           if (d === 'data') {
-            for(let d2 in data[d]) {
-              formData.append('answer[data][' + d2 + ']', data[d][d2]);
+            for (const d2 in data[d]) {
+              if (data[d].hasOwnProperty(d2)) {
+                formData.append('answer[data][' + d2 + ']', data[d][d2]);
+              }
             }
           } else {
             formData.append('answer[' + d + ']', data[d]);
           }
         }
         fetch(this.getServerUrl(), {
-          method: "POST",
+          method: 'POST',
           body: formData
         }).then((response) => {
           return response.json();
@@ -56,11 +58,13 @@ export class Answer extends ApplicationDb {
         entry.updated_at = new Date();
         if (this.serverUrl) {
           const formData = new FormData();
-          for(let d in entry) {
-            formData.append('answer[' + d + ']', entry[d]);
+          for (const d in entry) {
+            if (entry.hasOwnProperty(d)) {
+              formData.append('answer[' + d + ']', entry[d]);
+            }
           }
           fetch(this.getServerUrl() + '/' + this.id, {
-            method: "PATCH",
+            method: 'PATCH',
             body: formData
           }).then((response) => {
             return response.json();

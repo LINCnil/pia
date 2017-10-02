@@ -11,6 +11,7 @@ import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
+import { AppDataService } from 'app/services/app-data.service';
 import { HeaderComponent } from './header/header.component';
 import { AuthenticationComponent } from './authentication/authentication.component';
 import { CardsComponent } from './cards/cards.component';
@@ -65,6 +66,7 @@ const appRoutes: Routes = [
 ];
 
 const providersList: any = [
+  AppDataService,
   MeasureService,
   ModalsService,
   AttachmentsService,
