@@ -100,7 +100,7 @@ export class OverviewRisksComponent implements OnInit {
               }
               this.svg.append('text').text(textProperty).attr('x', x + 5).attr('y', y + 15).style('fill', 'white');
               this.svg.append('rect').attr('x', x).attr('y', y).attr('width', '180px').attr('height', '20px')
-                  .attr('data-id', a.id).attr('data-links', links).attr('class', 'rect_action').on('click', function() {
+                  .attr('data-id', a.id).attr('data-to_links', links).attr('class', 'rect_action').on('click', function() {
                     let ids = new Array<string>();
                     const id = a.id;
                     const elements2: any = document.querySelectorAll('[data-rect-id]');
@@ -135,7 +135,7 @@ export class OverviewRisksComponent implements OnInit {
                           el3.classList.add('rect_1');
                       });
                       elements5.forEach(el3 => {
-                          ids.push(el3.dataset.links.split(','));
+                          ids.push(el3.dataset.to_links.split(','));
                       });
                       ids = ids.reduce(function(aa, bb) {
                           return aa.concat(bb);
@@ -169,29 +169,45 @@ export class OverviewRisksComponent implements OnInit {
           const x = 380;
           const g = this.svg.append('g').attr('data-right', id);
           g.on('click', function() {
+            const previousId = parseInt(localStorage.getItem('d3PreviousIdClicked2'), 10);
             const elements8: any = document.querySelectorAll('[data-right]');
             const elements9: any = document.querySelectorAll('[data-rect-id]');
             const elements10: any = document.querySelectorAll('path');
             const elements11: any = document.querySelectorAll('path[data-id$="' + id + '"]');
             const elements12: any = document.querySelectorAll('rect[data-links*="' + id + '"]');
-            elements8.forEach(el3 => {
-                el3.classList.add('right_c');
-            });
-            d3.select(this).attr('class', '');
-            elements9.forEach(el3 => {
-                el3.classList.remove('rect_1');
-                el3.classList.add('rect_2');
-            });
-            elements10.forEach(el3 => {
-                el3.classList.add('hide');
-            });
-            elements11.forEach(el3 => {
-                el3.classList.remove('hide');
-            });
-            elements12.forEach(el3 => {
-                el3.classList.remove('rect_2');
-                el3.classList.add('rect_1');
-            });
+            if (previousId && previousId > 0 && previousId === parseInt(id, 10)) {
+              localStorage.removeItem('d3PreviousIdClicked2');
+              elements8.forEach(el3 => {
+                el3.classList.remove('right_c');
+              });
+              elements9.forEach(el3 => {
+                  el3.classList.remove('rect_2');
+                  el3.classList.add('rect_1');
+              });
+              elements10.forEach(el3 => {
+                  el3.classList.remove('hide');
+              });
+            } else {
+              localStorage.setItem('d3PreviousIdClicked2', id);
+              elements8.forEach(el3 => {
+                  el3.classList.add('right_c');
+              });
+              d3.select(this).attr('class', '');
+              elements9.forEach(el3 => {
+                  el3.classList.remove('rect_1');
+                  el3.classList.add('rect_2');
+              });
+              elements10.forEach(el3 => {
+                  el3.classList.add('hide');
+              });
+              elements11.forEach(el3 => {
+                  el3.classList.remove('hide');
+              });
+              elements12.forEach(el3 => {
+                  el3.classList.remove('rect_2');
+                  el3.classList.add('rect_1');
+              });
+            }
           });
           const name = this._translateService.instant(item.title).split('\n');
           const name_1 = name[0];
