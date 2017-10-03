@@ -82,10 +82,11 @@ export class OverviewRisksComponent implements OnInit {
   private async initSvg() {
     const dataNav = await this._appDataService.getDataNav();
     this.svg = d3.select('svg');
+    this.svg.attr('viewBox', '0 0 590 800');
     let y = 20;
     for (const a of this.data) {
         let x = 10;
-        this.svg.append('text').attr('x', x).attr('y', y).text(a.name);
+        this.svg.append('text').attr('x', x).attr('y', y).text(a.name).attr('class', 'title');
         x += 20;
         y += 14;
         for (const property in a.tags) {
@@ -99,46 +100,63 @@ export class OverviewRisksComponent implements OnInit {
               }
               this.svg.append('text').text(textProperty).attr('x', x + 5).attr('y', y + 15).style('fill', 'white')
                   .attr('data-id', a.id).attr('data-links', links).on('click', function() {
+                    let ids = new Array<string>();
                     const id = a.id;
                     const elements2: any = document.querySelectorAll('[data-rect-id]');
-                    elements2.forEach(el3 => {
-                        el3.classList.remove('rect_1');
-                        el3.classList.add('rect_2');
-                    });
-                    const elements3: any = document.querySelectorAll('[data-right]')
-                    elements3.forEach(el3 => {
-                        el3.classList.add('right_c');
-                    });
+                    const elements3: any = document.querySelectorAll('[data-right]');
                     const elements4: any = document.querySelectorAll('[data-rect-id="' + id + '"]');
-                    elements4.forEach(el3 => {
-                        el3.classList.remove('rect_2');
-                        el3.classList.add('rect_1');
-                    });
-                    let ids = new Array<string>();
                     const elements5: any = document.querySelectorAll('[data-id="' + id + '"]');
-                    elements5.forEach(el3 => {
-                        ids.push(el3.dataset.links.split(','));
-                    });
-                    ids = ids.reduce(function(aa, bb) {
-                        return aa.concat(bb);
-                    }, []);
-                    const uniqLinks = Array.from(new Set(ids));
                     const elements6: any = document.querySelectorAll('path[data-id]');
-                    elements6.forEach(el1 => {
-                        el1.classList.add('hide');
-                    });
-                    for (const link of ids) {
-                        document.querySelector('[data-right="' + link + '"]').classList.remove('right_c');
-                        const pathElement: any = document.querySelectorAll('path[data-id="' + id + '-' + link + '"]');
-                        for (const path of pathElement) {
-                            path.classList.remove('hide');
-                        }
+                    const previousId = parseInt(localStorage.getItem('d3PreviousIdClicked'), 10);
+                    if (previousId && previousId > 0 && previousId === a.id) {
+                      localStorage.removeItem('d3PreviousIdClicked');
+                      elements2.forEach(el3 => {
+                          el3.classList.remove('rect_2');
+                          el3.classList.add('rect_1');
+                      });
+                      elements3.forEach(el3 => {
+                          el3.classList.remove('right_c');
+                      });
+                      elements6.forEach(el1 => {
+                          el1.classList.remove('hide');
+                      });
+                    } else {
+                      localStorage.setItem('d3PreviousIdClicked', a.id);
+                      elements2.forEach(el3 => {
+                          el3.classList.remove('rect_1');
+                          el3.classList.add('rect_2');
+                      });
+                      elements3.forEach(el3 => {
+                          el3.classList.add('right_c');
+                      });
+                      elements4.forEach(el3 => {
+                          el3.classList.remove('rect_2');
+                          el3.classList.add('rect_1');
+                      });
+                      elements5.forEach(el3 => {
+                          ids.push(el3.dataset.links.split(','));
+                      });
+                      ids = ids.reduce(function(aa, bb) {
+                          return aa.concat(bb);
+                      }, []);
+                      const uniqLinks = Array.from(new Set(ids));
+                      elements6.forEach(el1 => {
+                          el1.classList.add('hide');
+                      });
+                      for (const link of ids) {
+                          document.querySelector('[data-right="' + link + '"]').classList.remove('right_c');
+                          const pathElement: any = document.querySelectorAll('path[data-id="' + id + '-' + link + '"]');
+                          for (const path of pathElement) {
+                              path.classList.remove('hide');
+                          }
+                      }
                     }
                   });
               this.linkFromTo.push({x: x + 185, y: y + 10, from: a.id, to: links});
               y += 22;
             }
         }
+        this.svg.attr('viewBox', '0 0 590 ' + (y + 30).toString());
         y += 50;
     }
 
@@ -151,24 +169,24 @@ export class OverviewRisksComponent implements OnInit {
           const g = this.svg.append('g').attr('data-right', id);
           g.on('click', function() {
             const elements8: any = document.querySelectorAll('[data-right]');
+            const elements9: any = document.querySelectorAll('[data-rect-id]');
+            const elements10: any = document.querySelectorAll('path');
+            const elements11: any = document.querySelectorAll('path[data-id$="' + id + '"]');
+            const elements12: any = document.querySelectorAll('rect[data-links*="' + id + '"]');
             elements8.forEach(el3 => {
                 el3.classList.add('right_c');
             });
             d3.select(this).attr('class', '');
-            const elements9: any = document.querySelectorAll('[data-rect-id]');
             elements9.forEach(el3 => {
                 el3.classList.remove('rect_1');
                 el3.classList.add('rect_2');
             });
-            const elements10: any = document.querySelectorAll('path');
             elements10.forEach(el3 => {
                 el3.classList.add('hide');
             });
-            const elements11: any = document.querySelectorAll('path[data-id$="' + id + '"]');
             elements11.forEach(el3 => {
                 el3.classList.remove('hide');
             });
-            const elements12: any = document.querySelectorAll('rect[data-links*="' + id + '"]');
             elements12.forEach(el3 => {
                 el3.classList.remove('rect_2');
                 el3.classList.add('rect_1');
@@ -216,8 +234,8 @@ export class OverviewRisksComponent implements OnInit {
           const value = answerModel.data.gauge;
           const name = this._translateService.instant(question.highlight_words).split(' ')[0];
           y += 25;
-          g.append('text').attr('x', x).attr('y', y).text(name + ' : ' + gauges_value[value]);
-          y += 15;
+          g.append('text').attr('x', x).attr('y', y).text(name + ' : ' + gauges_value[value]).attr('class', 'gauges');
+          y += 10;
           g.append('line').attr('stroke-width', 4).style('stroke', '#eee').attr('x1', x)
             .attr('y1', y).attr('x2', x + 200).attr('y2', y);
           g.append('line').attr('stroke-width', 4).attr('class', 'progress_bar_' + value.toString())

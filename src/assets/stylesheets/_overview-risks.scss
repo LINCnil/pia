@@ -1,6 +1,13 @@
 app-overview-risks {
+  svg {
+    background-color: white;
+  }
   rect + text {
     cursor: pointer;
+  }
+  .title {
+    font-size: 1.3rem;
+    font-weight: bold;
   }
   .rect_1 {
     fill: #000;
@@ -10,12 +17,15 @@ app-overview-risks {
   }
   .c32 {
     fill: #FD4664;
+    font-weight: bold;
   }
   .c33 {
     fill: #3EE095;
+    font-weight: bold;
   }
   .c34 {
     fill: #091C6B;
+    font-weight: bold;
   }
   .path_32 {
     stroke: #FD4664;
@@ -34,6 +44,9 @@ app-overview-risks {
   }
   .right_c text {
     fill: #a7a7a7 !important;
+  }
+  .gauges {
+    text-transform: capitalize;
   }
   .right_c line.progress_bar_1,
   .right_c line.progress_bar_2,
