@@ -222,7 +222,8 @@ export class Pia extends ApplicationDb {
     }
   }
 
-  getGaugeName(value: number) {
+  getGaugeName(value: any) {
+    value = parseInt(value, 10);
     if (value === 1) {
       return 'summary.gauges.negligible';
     } else if (value === 2) {

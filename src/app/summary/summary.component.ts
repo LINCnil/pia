@@ -260,7 +260,7 @@ export class SummaryComponent implements OnInit {
                 const answerModel = new Answer();
                 answerModel.getByReferenceAndPia(this.pia.id, question.id).then(() => {
                   if (answerModel.data) {
-                    let content = [];
+                    const content = [];
                     if (answerModel.data.gauge && answerModel.data.gauge > 0) {
                       content.push(this._translateService.instant(this.pia.getGaugeName(answerModel.data.gauge)));
                     }
