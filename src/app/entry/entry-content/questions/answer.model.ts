@@ -60,7 +60,15 @@ export class Answer extends ApplicationDb {
           const formData = new FormData();
           for (const d in entry) {
             if (entry.hasOwnProperty(d)) {
-              formData.append('answer[' + d + ']', entry[d]);
+              if (entry[d] instanceof Object) {
+                for (const dd in entry[d]) {
+                  if (entry[d].hasOwnProperty(dd)) {
+                    formData.append('answer[' + d + '][' + dd + ']', entry[d][dd]);
+                  }
+                }
+              } else {
+                formData.append('answer[' + d + ']', entry[d]);
+              }
             }
           }
           fetch(this.getServerUrl() + '/' + this.id, {
