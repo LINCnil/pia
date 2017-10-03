@@ -71,6 +71,7 @@ export class MeasureService {
   addNewMeasure(pia: any, measureTitle?: string, measurePlaceholder?: string) {
     const newMeasureRecord = new Measure();
     newMeasureRecord.pia_id = pia.id;
+    newMeasureRecord.title = '';
     if (measureTitle) {
       this._translateService.get(measureTitle).subscribe(val => this.measureToAdd = val);
       newMeasureRecord.title = this.measureToAdd;

@@ -70,7 +70,7 @@ export class EvaluationService {
         const questionsIds = [];
         const answerTypeByQuestion = {};
         item.questions.forEach(question => {
-          questionsIds.push(question.id);
+          questionsIds.push(question.id.toString());
           answerTypeByQuestion[question.id] = question.answer_type;
         });
         this.answer.findAllByPia(this.pia.id).then((answers2: any) => {
@@ -83,7 +83,7 @@ export class EvaluationService {
             } else if (answerTypeByQuestion[answer.reference_to] === 'gauge') {
               contentOk = answer.data.text && answer.data.gauge && answer.data.text.length > 0 && answer.data.gauge > 0;
             }
-            return (contentOk && questionsIds.indexOf(answer.reference_to) >= 0);
+            return (contentOk && questionsIds.indexOf(answer.reference_to.toString()) >= 0);
           });
           if (checkNext) {
             this.enableEvaluation = answers.length === questionsIds.length ? true : false;
