@@ -68,7 +68,6 @@ export class Answer extends ApplicationDb {
 
   private setFormData(data) {
     const formData = new FormData();
-    console.log(data);
     for (const d in data) {
       if (data.hasOwnProperty(d)) {
         if (data[d] instanceof Object) {

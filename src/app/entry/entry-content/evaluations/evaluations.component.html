@@ -29,7 +29,6 @@
                   (focusout)="evaluationCommentFocusOut()" placeholder="{{ 'evaluations.placeholder_comment' | translate }}"></textarea>
       </div>
       <div *ngIf="item.evaluation_mode === 'item' && item.evaluation_with_gauge === true && evaluation.status === 2">
-        <!-- Evaluation gauges for "RISKS" -->
         <p class="pia-evaluationBlock-gauge" [innerHTML]="'evaluations.gauges.seriousness' | translate:riskName"></p>
         <div class="pia-gaugeBlock">
           <input type="range" (change)="checkGaugeChanges($event, 'x')" formControlName="gaugeX" min="0" max="4" step="1">

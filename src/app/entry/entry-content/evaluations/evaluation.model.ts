@@ -32,15 +32,9 @@ export class Evaluation extends ApplicationDb {
         };
     return new Promise((resolve, reject) => {
       if (this.serverUrl) {
-        const formData = new FormData();
-        for (const d in data) {
-          if (data.hasOwnProperty(d) && data[d]) {
-            formData.append('evaluation[' + d + ']', data[d]);
-          }
-        }
         fetch(this.getServerUrl(), {
           method: 'POST',
-          body: formData
+          body: this.setFormData(data)
         }).then((response) => {
           return response.json();
         }).then((result: any) => {
@@ -72,15 +66,9 @@ export class Evaluation extends ApplicationDb {
         entry.global_status = this.global_status;
         entry.updated_at = new Date();
         if (this.serverUrl) {
-          const formData = new FormData();
-          for (const d in entry) {
-            if (entry.hasOwnProperty(d) && entry[d]) {
-              formData.append('evaluation[' + d + ']', entry[d]);
-            }
-          }
           fetch(this.getServerUrl() + '/' + this.id, {
             method: 'PATCH',
-            body: formData
+            body: this.setFormData(entry)
           }).then((response) => {
             return response.json();
           }).then((result: any) => {
@@ -97,6 +85,24 @@ export class Evaluation extends ApplicationDb {
         }
       });
     });
+  }
+
+  private setFormData(data) {
+    const formData = new FormData();
+    for (const d in data) {
+      if (data.hasOwnProperty(d) && data[d]) {
+        if (data[d] instanceof Object) {
+          for (const dd in data[d]) {
+            if (data[d].hasOwnProperty(dd) && data[d][dd]) {
+              formData.append('evaluation[' + d + '][' + dd + ']', data[d][dd]);
+            }
+          }
+        } else {
+          formData.append('evaluation[' + d + ']', data[d]);
+        }
+      }
+    }
+    return formData;
   }
 
   /* Get an evaluation for a specific question or a specific measure */
