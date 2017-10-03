@@ -120,7 +120,6 @@ export class ApplicationDb {
           fetch(this.getServerUrl() + '/' + id).then(function(response) {
             return response.json();
           }).then(function(result: any) {
-            console.log(result);
             resolve(result);
           }).catch (function (error) {
             console.error('Request failed', error);
