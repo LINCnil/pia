@@ -34,89 +34,49 @@ export class OverviewRisksComponent implements OnInit {
 
   private async initData() {
     await this._piaService.getPIA();
-    let tags = {};
-    const impacts = [321, 331, 341];
-    for (const reference_to of impacts) {
-      const answerModel = new Answer();
-      await answerModel.getByReferenceAndPia(this._piaService.pia.id, reference_to);
-      if (answerModel.data && answerModel.data.list.length > 0) {
-        const list = answerModel.data.list;
-        for (const l of list) {
-          if (!tags[l]) {
-            tags[l] = [];
+    const dataTags = [
+      {
+        id: 1,
+        name: 'Impacts potentiels',
+        reference_to: [321, 331, 341]
+      },
+      {
+        id: 2,
+        name: 'Menaces',
+        reference_to: [322, 332, 342]
+      },
+      {
+        id: 3,
+        name: 'Sources',
+        reference_to: [323, 333, 343]
+      },
+      {
+        id: 4,
+        name: 'Mesures',
+        reference_to: [324, 334, 344]
+      }
+    ];
+    for (const dt of dataTags) {
+      const tags = {};
+      for (const reference_to of dt.reference_to) {
+        const answerModel = new Answer();
+        await answerModel.getByReferenceAndPia(this._piaService.pia.id, reference_to);
+        if (answerModel.data && answerModel.data.list.length > 0) {
+          const list = answerModel.data.list;
+          for (const l of list) {
+            if (!tags[l]) {
+              tags[l] = [];
+            }
+            tags[l].push(reference_to.toString().substring(0, 2));
           }
-          tags[l].push(reference_to.toString().substring(0, 2));
         }
       }
+      this.data.push({
+        id: dt.id,
+        name: dt.name,
+        tags: tags
+      });
     }
-    this.data.push({
-      id: 1,
-      name: 'Impacts potentiels',
-      tags: tags
-    });
-
-    tags = {};
-    const menaces = [322, 332, 342];
-    for (const reference_to of menaces) {
-      const answerModel = new Answer();
-      await answerModel.getByReferenceAndPia(this._piaService.pia.id, reference_to);
-      if (answerModel.data && answerModel.data.list.length > 0) {
-        const list = answerModel.data.list;
-        for (const l of list) {
-          if (!tags[l]) {
-            tags[l] = [];
-          }
-          tags[l].push(reference_to.toString().substring(0, 2));
-        }
-      }
-    }
-    this.data.push({
-      id: 2,
-      name: 'Menaces',
-      tags: tags
-    });
-
-    tags = {};
-    const sources = [323, 333, 343];
-    for (const reference_to of sources) {
-      const answerModel = new Answer();
-      await answerModel.getByReferenceAndPia(this._piaService.pia.id, reference_to);
-      if (answerModel.data && answerModel.data.list.length > 0) {
-        const list = answerModel.data.list;
-        for (const l of list) {
-          if (!tags[l]) {
-            tags[l] = [];
-          }
-          tags[l].push(reference_to.toString().substring(0, 2));
-        }
-      }
-    }
-    this.data.push({
-      id: 3,
-      name: 'Sources',
-      tags: tags
-    });
-
-    tags = {};
-    const mesures = [324, 334, 344];
-    for (const reference_to of mesures) {
-      const answerModel = new Answer();
-      await answerModel.getByReferenceAndPia(this._piaService.pia.id, reference_to);
-      if (answerModel.data && answerModel.data.list.length > 0) {
-        const list = answerModel.data.list;
-        for (const l of list) {
-          if (!tags[l]) {
-            tags[l] = [];
-          }
-          tags[l].push(reference_to.toString().substring(0, 2));
-        }
-      }
-    }
-    this.data.push({
-      id: 4,
-      name: 'Mesures',
-      tags: tags
-    });
   }
 
   private async initSvg() {
@@ -133,7 +93,11 @@ export class OverviewRisksComponent implements OnInit {
               const links = a.tags[property];
               this.svg.append('rect').attr('x', x).attr('y', y).attr('width', '180px').attr('height', '20px')
                   .attr('data-rect-id', a.id).attr('data-links', links).attr('class', 'rect_1');
-              this.svg.append('text').text(property).attr('x', x + 5).attr('y', y + 15).style('fill', 'white')
+              let textProperty = property;
+              if (property.length >= 30) {
+                textProperty = property.substring(0, 27) + '...';
+              }
+              this.svg.append('text').text(textProperty).attr('x', x + 5).attr('y', y + 15).style('fill', 'white')
                   .attr('data-id', a.id).attr('data-links', links).on('click', function() {
                     const id = a.id;
                     const elements2: any = document.querySelectorAll('[data-rect-id]');
@@ -150,7 +114,7 @@ export class OverviewRisksComponent implements OnInit {
                         el3.classList.remove('rect_2');
                         el3.classList.add('rect_1');
                     });
-                    let ids = [];
+                    let ids = new Array<string>();
                     const elements5: any = document.querySelectorAll('[data-id="' + id + '"]');
                     elements5.forEach(el3 => {
                         ids.push(el3.dataset.links.split(','));
@@ -158,7 +122,7 @@ export class OverviewRisksComponent implements OnInit {
                     ids = ids.reduce(function(aa, bb) {
                         return aa.concat(bb);
                     }, []);
-                    // const uniqLinks = [...new Set(ids)];
+                    const uniqLinks = Array.from(new Set(ids));
                     const elements6: any = document.querySelectorAll('path[data-id]');
                     elements6.forEach(el1 => {
                         el1.classList.add('hide');
