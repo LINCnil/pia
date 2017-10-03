@@ -33,11 +33,13 @@ export class Evaluation extends ApplicationDb {
     return new Promise((resolve, reject) => {
       if (this.serverUrl) {
         const formData = new FormData();
-        for(let d in data) {
-          formData.append('evaluation[' + d + ']', data[d]);
+        for (const d in data) {
+          if (data.hasOwnProperty(d) && data[d]) {
+            formData.append('evaluation[' + d + ']', data[d]);
+          }
         }
         fetch(this.getServerUrl(), {
-          method: "POST",
+          method: 'POST',
           body: formData
         }).then((response) => {
           return response.json();
@@ -71,11 +73,13 @@ export class Evaluation extends ApplicationDb {
         entry.updated_at = new Date();
         if (this.serverUrl) {
           const formData = new FormData();
-          for(let d in entry) {
-            formData.append('evaluation[' + d + ']', entry[d]);
+          for (const d in entry) {
+            if (entry.hasOwnProperty(d) && entry[d]) {
+              formData.append('evaluation[' + d + ']', entry[d]);
+            }
           }
           fetch(this.getServerUrl() + '/' + this.id, {
-            method: "PATCH",
+            method: 'PATCH',
             body: formData
           }).then((response) => {
             return response.json();

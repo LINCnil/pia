@@ -17,21 +17,9 @@ export class Answer extends ApplicationDb {
         };
     return new Promise((resolve, reject) => {
       if (this.serverUrl) {
-        const formData = new FormData();
-        for (const d in data) {
-          if (d === 'data') {
-            for (const d2 in data[d]) {
-              if (data[d].hasOwnProperty(d2)) {
-                formData.append('answer[data][' + d2 + ']', data[d][d2]);
-              }
-            }
-          } else {
-            formData.append('answer[' + d + ']', data[d]);
-          }
-        }
         fetch(this.getServerUrl(), {
           method: 'POST',
-          body: formData
+          body: this.setFormData(data)
         }).then((response) => {
           return response.json();
         }).then((result: any) => {
@@ -57,23 +45,9 @@ export class Answer extends ApplicationDb {
         entry.data = this.data;
         entry.updated_at = new Date();
         if (this.serverUrl) {
-          const formData = new FormData();
-          for (const d in entry) {
-            if (entry.hasOwnProperty(d)) {
-              if (entry[d] instanceof Object) {
-                for (const dd in entry[d]) {
-                  if (entry[d].hasOwnProperty(dd)) {
-                    formData.append('answer[' + d + '][' + dd + ']', entry[d][dd]);
-                  }
-                }
-              } else {
-                formData.append('answer[' + d + ']', entry[d]);
-              }
-            }
-          }
           fetch(this.getServerUrl() + '/' + this.id, {
             method: 'PATCH',
-            body: formData
+            body: this.setFormData(entry)
           }).then((response) => {
             return response.json();
           }).then((result: any) => {
@@ -90,6 +64,39 @@ export class Answer extends ApplicationDb {
         }
       });
     });
+  }
+
+  private setFormData(data) {
+    const formData = new FormData();
+    console.log(data);
+    for (const d in data) {
+      if (data.hasOwnProperty(d)) {
+        if (data[d] instanceof Object) {
+          for (const d2 in data[d]) {
+            if (data[d].hasOwnProperty(d2)) {
+              if (data[d][d2] instanceof Array) {
+                for (const d3 in data[d][d2]) {
+                  if (data[d].hasOwnProperty(d2)) {
+                    if (data[d][d2][d3]) {
+                      formData.append('answer[' + d + '][' + d2 + '][]', data[d][d2][d3]);
+                    }
+                  }
+                }
+              } else {
+                if (data[d][d2]) {
+                  formData.append('answer[' + d + '][' + d2 + ']', data[d][d2]);
+                }
+              }
+            }
+          }
+        } else {
+          if (data[d]) {
+            formData.append('answer[' + d + ']', data[d]);
+          }
+        }
+      }
+    }
+    return formData;
   }
 
   async get(id: number) {

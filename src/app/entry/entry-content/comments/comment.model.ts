@@ -20,11 +20,13 @@ export class Comment extends ApplicationDb {
     return new Promise((resolve, reject) => {
       if (this.serverUrl) {
         const formData = new FormData();
-        for(let d in data) {
-          formData.append('comment[' + d + ']', data[d]);
+        for (const d in data) {
+          if (data.hasOwnProperty(d) && data[d]) {
+            formData.append('comment[' + d + ']', data[d]);
+          }
         }
         fetch(this.getServerUrl(), {
-          method: "POST",
+          method: 'POST',
           body: formData
         }).then((response) => {
           return response.json();
