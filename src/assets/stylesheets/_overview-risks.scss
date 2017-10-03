@@ -2,8 +2,9 @@ app-overview-risks {
   svg {
     background-color: white;
   }
-  rect + text {
+  .rect_action {
     cursor: pointer;
+    fill: transparent;
   }
   .title {
     font-size: 1.3rem;
@@ -45,8 +46,11 @@ app-overview-risks {
   .right_c text {
     fill: #a7a7a7 !important;
   }
-  .gauges {
+  .gauge_prefix {
     text-transform: capitalize;
+  }
+  .gauge_bold {
+    font-weight: bold;
   }
   .right_c line.progress_bar_1,
   .right_c line.progress_bar_2,

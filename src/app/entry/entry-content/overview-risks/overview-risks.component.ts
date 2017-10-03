@@ -98,8 +98,9 @@ export class OverviewRisksComponent implements OnInit {
               if (property.length >= 30) {
                 textProperty = property.substring(0, 27) + '...';
               }
-              this.svg.append('text').text(textProperty).attr('x', x + 5).attr('y', y + 15).style('fill', 'white')
-                  .attr('data-id', a.id).attr('data-links', links).on('click', function() {
+              this.svg.append('text').text(textProperty).attr('x', x + 5).attr('y', y + 15).style('fill', 'white');
+              this.svg.append('rect').attr('x', x).attr('y', y).attr('width', '180px').attr('height', '20px')
+                  .attr('data-id', a.id).attr('data-links', links).attr('class', 'rect_action').on('click', function() {
                     let ids = new Array<string>();
                     const id = a.id;
                     const elements2: any = document.querySelectorAll('[data-rect-id]');
@@ -234,7 +235,8 @@ export class OverviewRisksComponent implements OnInit {
           const value = answerModel.data.gauge;
           const name = this._translateService.instant(question.highlight_words).split(' ')[0];
           y += 25;
-          g.append('text').attr('x', x).attr('y', y).text(name + ' : ' + gauges_value[value]).attr('class', 'gauges');
+          g.append('text').attr('x', x).attr('y', y).text(name + ' :').attr('class', 'gauge_prefix');
+          g.append('text').attr('x', x + (name.length * 7)).attr('y', y).text(gauges_value[value]).attr('class', 'gauge_bold');
           y += 10;
           g.append('line').attr('stroke-width', 4).style('stroke', '#eee').attr('x1', x)
             .attr('y1', y).attr('x2', x + 200).attr('y2', y);
