@@ -5,6 +5,7 @@ import { Answer } from 'app/entry/entry-content/questions/answer.model';
 import { Measure } from 'app/entry/entry-content/measures/measure.model';
 import { ActionPlanService } from 'app/entry/entry-content/action-plan//action-plan.service';
 import { ActivatedRoute, Params } from '@angular/router';
+import { AppDataService } from 'app/services/app-data.service';
 
 import { TranslateService } from '@ngx-translate/core';
 
@@ -19,20 +20,26 @@ export class SummaryComponent implements OnInit {
   content: any[];
   pia: any;
   allData: any[];
+  dataNav: any;
+  showPiaTpl: boolean;
 
   constructor(private route: ActivatedRoute,
               private _attachmentsService: AttachmentsService,
               private _actionPlanService: ActionPlanService,
               private _translateService: TranslateService,
+              private _appDataService: AppDataService,
               private _piaService: PiaService) { }
 
-  ngOnInit() {
+  async ngOnInit() {
     this.content = [];
+    this.dataNav = await this._appDataService.getDataNav();
     this._piaService.getPIA().then(() => {
       this.pia = this._piaService.pia;
       if (this.route.snapshot.params['type'] === 'pia') {
+        this.showPiaTpl = true;
         this.showPia();
       } else if (this.route.snapshot.params['type'] === 'action_plan') {
+        this.showPiaTpl = false;
         this.showActionPlan();
       }
     });
@@ -67,82 +74,9 @@ export class SummaryComponent implements OnInit {
   }
 
   showActionPlan() {
-    let el = { title: 'summary.action_plan.fundamental_principles', subtitle: null, data: [] };
-
-    if (this._actionPlanService.noPrinciplesActionPlan) {
-      el.data.push({
-        title: null,
-        content: 'summary.action_plan.no_action_plan'
-      });
-    } else {
-      this._actionPlanService.results.forEach((data: any) => {
-        if (data.evaluation.action_plan_comment) {
-          el.data.push({
-            title: data.short_title,
-            content: data.evaluation.action_plan_comment
-          });
-          if (data.evaluation.estimated_evaluation_date) {
-            el.data.push({
-              title: 'summary.action_plan.implementation_date',
-              content: data.evaluation.estimated_evaluation_date
-            });
-          }
-          if (data.evaluation.person_in_charge) {
-            el.data.push({
-              title: 'summary.action_plan.implementation_responsible',
-              content: data.evaluation.person_in_charge
-            });
-          }
-        }
-      });
-    }
-    this.content.push(el);
-
-    el = { title: 'summary.action_plan.measures', subtitle: null, data: [] };
-    if (this._actionPlanService.noMeasuresActionPlan) {
-      el.data.push({
-        title: null,
-        content: 'summary.action_plan.no_action_plan'
-      });
-    } else {
-      this._actionPlanService.measures.forEach((data: any) => {
-        if (data.action_plan_comment) {
-          el.data.push({
-            title: data.short_title,
-            content: data.action_plan_comment
-          });
-        }
-      });
-    }
-    this.content.push(el);
-
-    el = { title: 'summary.action_plan.risks', subtitle: null, data: [] };
-    if (this._actionPlanService.noRisksActionPlan) {
-      el.data.push({
-        title: null,
-        content: 'summary.action_plan.no_action_plan'
-      });
-    } else {
-      if (this._actionPlanService.risks['3.2'] && this._actionPlanService.risks['3.2'].action_plan_comment) {
-        el.data.push({
-          title: this._actionPlanService.risks['3.2'].short_title,
-          content: this._actionPlanService.risks['3.2'].action_plan_comment
-        });
-      }
-      if (this._actionPlanService.risks['3.3'] && this._actionPlanService.risks['3.3'].action_plan_comment) {
-        el.data.push({
-          title: this._actionPlanService.risks['3.3'].short_title,
-          content: this._actionPlanService.risks['3.3'].action_plan_comment
-        });
-      }
-      if (this._actionPlanService.risks['3.4'] && this._actionPlanService.risks['3.4'].action_plan_comment) {
-        el.data.push({
-          title: this._actionPlanService.risks['3.4'].short_title,
-          content: this._actionPlanService.risks['3.4'].action_plan_comment
-        });
-      }
-    }
-    this.content.push(el);
+    this._actionPlanService.data = this.dataNav;
+    this._actionPlanService.pia = this.pia;
+    this._actionPlanService.listActionPlan();
   }
 
   private prepareHeader() {

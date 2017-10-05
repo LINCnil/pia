@@ -7,12 +7,18 @@ export class ActionPlanService {
   data: any;
   pia: any;
   evaluationModel: Evaluation = new Evaluation();
-  risks = [];
+  risks = {
+    '3.2': null,
+    '3.3': null,
+    '3.4': null
+  };
   measures = [];
-  results: any;
-  noPrinciplesActionPlan = true;
-  noMeasuresActionPlan = true;
-  noRisksActionPlan = true;
+  results = [];
+  principlesActionPlanReady = false;
+  measuresActionPlanReady = false;
+  risksActionPlan32Ready = false;
+  risksActionPlan33Ready = false;
+  risksActionPlan34Ready = false;
 
   listActionPlan() {
     this.results = [];
@@ -27,12 +33,13 @@ export class ActionPlanService {
         evaluation.getByReference(this.pia.id, reference_to).then(() => {
           if (evaluation.status > 0) {
             if (evaluation.action_plan_comment && evaluation.action_plan_comment.length > 0) {
-              this.noPrinciplesActionPlan = false;
+              this.principlesActionPlanReady = true;
             }
             this.results.push({ status: evaluation.status, short_title: q.short_title,
-                                action_plan_comment: evaluation.action_plan_comment, evaluation: evaluation });
+                                                          action_plan_comment: evaluation.action_plan_comment, evaluation: evaluation });
           } else {
-            this.results.push({ status: null, short_title: q.short_title, action_plan_comment: null, evaluation: null });
+            this.results.push({ status: null, short_title: q.short_title,
+                                                          action_plan_comment: null, evaluation: null });
           }
         });
       });
@@ -48,7 +55,7 @@ export class ActionPlanService {
         evaluation2.getByReference(this.pia.id, reference_to).then(() => {
           if (evaluation2.status > 0) {
             if (evaluation2.action_plan_comment && evaluation2.action_plan_comment.length > 0) {
-              this.noMeasuresActionPlan = false;
+              this.measuresActionPlanReady = true;
             }
             this.measures.push({ name: m.title, status: evaluation2.status, action_plan_comment: evaluation2.action_plan_comment });
           } else {
@@ -62,7 +69,7 @@ export class ActionPlanService {
     evaluation3.getByReference(this.pia.id, '3.2').then(() => {
       if (evaluation3.status > 0) {
         if (evaluation3.action_plan_comment && evaluation3.action_plan_comment.length > 0) {
-          this.noRisksActionPlan = false;
+          this.risksActionPlan32Ready = true;
         }
         this.risks['3.2'] = { status: evaluation3.status, action_plan_comment: evaluation3.action_plan_comment };
       }
@@ -72,7 +79,7 @@ export class ActionPlanService {
     evaluation4.getByReference(this.pia.id, '3.3').then(() => {
       if (evaluation4.status > 0) {
         if (evaluation4.action_plan_comment && evaluation4.action_plan_comment.length > 0) {
-          this.noRisksActionPlan = false;
+          this.risksActionPlan33Ready = true;
         }
         this.risks['3.3'] = { status: evaluation4.status, action_plan_comment: evaluation4.action_plan_comment };
       }
@@ -82,7 +89,7 @@ export class ActionPlanService {
     evaluation5.getByReference(this.pia.id, '3.4').then(() => {
       if (evaluation5.status > 0) {
         if (evaluation5.action_plan_comment && evaluation5.action_plan_comment.length > 0) {
-          this.noRisksActionPlan = false;
+          this.risksActionPlan34Ready = true;
         }
         this.risks['3.4'] = { status: evaluation5.status, action_plan_comment: evaluation5.action_plan_comment };
       }

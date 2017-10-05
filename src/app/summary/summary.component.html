@@ -10,6 +10,7 @@
   </div>
   <div class="row">
     <div class="small-12 medium-12 columns">
+      <ng-container *ngIf="showPiaTpl; else actionPlan">
         <div *ngFor="let c of content">
           <div *ngIf="c.data.length > 0">
             <h1>{{ c.title | translate }}</h1>
@@ -23,6 +24,60 @@
             </div>
           </div>
         </div>
+      </ng-container>
+      <ng-template #actionPlan>
+        <div>
+          <h1>{{ 'summary.action_plan.fundamental_principles' | translate }}</h1>
+          <ng-container *ngIf="_actionPlanService.principlesActionPlanReady; else noFundamentalPrinciples">
+            <div *ngFor="let entry of _actionPlanService.results">
+              <h2 style="margin-bottom:2px;">{{ entry.short_title | translate }}</h2>
+              <div [innerHTML]="entry.action_plan_comment | translate"></div>
+              <div *ngIf="entry.evaluation && entry.evaluation.estimated_evaluation_date">
+                <strong>{{ 'summary.action_plan.implementation_date' | translate }}</strong>
+                {{ entry.evaluation.estimated_evaluation_date }}
+              </div>
+              <div *ngIf="entry.evaluation && entry.evaluation.person_in_charge">
+                <strong>
+                  {{ 'summary.action_plan.implementation_responsible' | translate }}
+                </strong>
+                {{ entry.evaluation.person_in_charge }}
+              </div>
+            </div>
+          </ng-container>
+          <ng-template #noFundamentalPrinciples>{{ 'summary.action_plan.no_action_plan' |  translate }}</ng-template>
+        </div>
+
+        <div>
+          <h1>{{ 'summary.action_plan.measures' | translate }}</h1>
+          <ng-container *ngIf="_actionPlanService.measuresActionPlanReady; else noMeasures">
+            <div *ngFor="let entry of _actionPlanService.measures">
+              <h2 style="margin-bottom:2px;">{{ entry.short_title | translate }}</h2>
+              <div [innerHTML]="entry.action_plan_comment | translate"></div>
+            </div>
+          </ng-container>
+          <ng-template #noMeasures>{{ 'summary.action_plan.no_action_plan' |  translate }}</ng-template>
+        </div>
+
+        <div>
+          <h1>{{ 'summary.action_plan.risks' | translate }}</h1>
+          <div *ngIf="_actionPlanService.risksActionPlan32Ready">
+            <h2 style="margin-bottom:2px;">{{ _actionPlanService.risks['3.2'].short_title | translate }}</h2>
+            <div [innerHTML]="_actionPlanService.risks['3.2'].action_plan_comment | translate"></div>
+          </div>
+          <div *ngIf="_actionPlanService.risksActionPlan33Ready">
+            <h2 style="margin-bottom:2px;">{{ _actionPlanService.risks['3.3'].short_title | translate }}</h2>
+            <div [innerHTML]="_actionPlanService.risks['3.3'].action_plan_comment | translate"></div>
+          </div>
+          <div *ngIf="_actionPlanService.risksActionPlan34Ready">
+            <h2 style="margin-bottom:2px;">{{ _actionPlanService.risks['3.4'].short_title | translate }}</h2>
+            <div [innerHTML]="_actionPlanService.risks['3.4'].action_plan_comment | translate"></div>
+          </div>
+          <div *ngIf="!_actionPlanService.risksActionPlan32Ready && !_actionPlanService.risksActionPlan33Ready && !_actionPlanService.risksActionPlan34Ready">
+            {{ 'summary.action_plan.no_action_plan' |  translate }}
+          </div>
+        </div>
+      </ng-template>
+
     </div>
   </div>
 </main>
