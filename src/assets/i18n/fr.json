@@ -64,6 +64,7 @@
           "more_options": "Plus d'options",
           "duplicate": "Dupliquer",
           "action_plan": "Afficher le<br>plan d'action",
+          "pia": "Afficher le<br>PIA",
           "remove": "Supprimer"
         },
         "edit_pia": "Éditer le PIA",
@@ -86,6 +87,7 @@
           "export": "Exporter",
           "duplicate": "Dupliquer",
           "action_plan": "Afficher le plan d'action",
+          "pia": "Afficher le PIA",
           "remove": "Supprimer"
         }
       }

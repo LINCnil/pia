@@ -40,6 +40,10 @@
                   <a routerLink="/summary/{{pia.id}}/action_plan" [innerHTML]="'homepage.cards.item.tools.action_plan' | translate"></a>
                 </li>
                 <li>
+                  <i class="fa fa-file-excel-o" aria-hidden="true"></i>
+                  <a routerLink="/summary/{{pia.id}}/pia" [innerHTML]="'homepage.cards.item.tools.pia' | translate"></a>
+                </li>
+                <li>
                   <i class="fa fa-trash-o" aria-hidden="true"></i>
                   <a href="javascript:;" (click)="removePia(pia.id)">{{ 'homepage.cards.item.tools.remove' | translate }}</a>
                 </li>

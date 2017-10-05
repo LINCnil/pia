@@ -64,6 +64,7 @@
           "more_options": "More options",
           "duplicate": "Duplicate",
           "action_plan": "Display<br>action plan",
+          "pia": "Display<br>PIA",
           "remove": "Delete"
         },
         "edit_pia": "Edit PIA",
@@ -86,6 +87,7 @@
           "export": "Export",
           "duplicate": "Duplicate",
           "action_plan": "Display action plan",
+          "pia": "Display PIA",
           "remove": "Delete"
         }
       }
