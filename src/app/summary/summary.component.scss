@@ -1,6 +1,9 @@
 @import '../../assets/stylesheets/variables';
 
 .pia {
+  &-summaryContainerBlock {
+    margin-bottom: 80px;
+  }
   &-summaryButtonsBlock {
     button {
       margin: 0 5px;

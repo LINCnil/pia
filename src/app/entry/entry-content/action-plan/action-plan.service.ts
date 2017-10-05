@@ -57,9 +57,10 @@ export class ActionPlanService {
             if (evaluation2.action_plan_comment && evaluation2.action_plan_comment.length > 0) {
               this.measuresActionPlanReady = true;
             }
-            this.measures.push({ name: m.title, status: evaluation2.status, action_plan_comment: evaluation2.action_plan_comment });
+            this.measures.push({ name: m.title, status: evaluation2.status, action_plan_comment: evaluation2.action_plan_comment,
+                                 evaluation: evaluation2 });
           } else {
-            this.measures.push({ name: m.title, status: null, action_plan_comment: null });
+            this.measures.push({ name: m.title, status: null, action_plan_comment: null, evaluation: null });
           }
         });
       });
@@ -71,7 +72,7 @@ export class ActionPlanService {
         if (evaluation3.action_plan_comment && evaluation3.action_plan_comment.length > 0) {
           this.risksActionPlan32Ready = true;
         }
-        this.risks['3.2'] = { status: evaluation3.status, action_plan_comment: evaluation3.action_plan_comment };
+        this.risks['3.2'] = { status: evaluation3.status, action_plan_comment: evaluation3.action_plan_comment, evaluation: evaluation3 };
       }
     });
 
@@ -81,7 +82,7 @@ export class ActionPlanService {
         if (evaluation4.action_plan_comment && evaluation4.action_plan_comment.length > 0) {
           this.risksActionPlan33Ready = true;
         }
-        this.risks['3.3'] = { status: evaluation4.status, action_plan_comment: evaluation4.action_plan_comment };
+        this.risks['3.3'] = { status: evaluation4.status, action_plan_comment: evaluation4.action_plan_comment, evaluation: evaluation4 };
       }
     });
 
@@ -91,7 +92,7 @@ export class ActionPlanService {
         if (evaluation5.action_plan_comment && evaluation5.action_plan_comment.length > 0) {
           this.risksActionPlan34Ready = true;
         }
-        this.risks['3.4'] = { status: evaluation5.status, action_plan_comment: evaluation5.action_plan_comment };
+        this.risks['3.4'] = { status: evaluation5.status, action_plan_comment: evaluation5.action_plan_comment, evaluation: evaluation5 };
       }
     });
   }

@@ -8,7 +8,7 @@ export class Evaluation extends ApplicationDb {
   public evaluation_comment: string;
   public evaluation_date: Date;
   public gauges: {x: number, y: number};
-  public estimated_evaluation_date: Date;
+  public estimated_implementation_date: Date;
   public person_in_charge: string;
   public global_status: number; // 0: pending, 1: Validate
 
@@ -25,7 +25,7 @@ export class Evaluation extends ApplicationDb {
           evaluation_comment: this.evaluation_comment,
           evaluation_date: this.evaluation_date,
           gauges: this.gauges,
-          estimated_evaluation_date: new Date(this.estimated_evaluation_date),
+          estimated_implementation_date: new Date(this.estimated_implementation_date),
           person_in_charge: this.person_in_charge,
           global_status: 0,
           created_at: new Date()
@@ -61,7 +61,7 @@ export class Evaluation extends ApplicationDb {
         entry.evaluation_comment = this.evaluation_comment;
         entry.evaluation_date = this.evaluation_date;
         entry.gauges = this.gauges;
-        entry.estimated_evaluation_date = new Date(this.estimated_evaluation_date);
+        entry.estimated_implementation_date = new Date(this.estimated_implementation_date);
         entry.person_in_charge = this.person_in_charge;
         entry.global_status = this.global_status;
         entry.updated_at = new Date();
@@ -91,7 +91,7 @@ export class Evaluation extends ApplicationDb {
     const formData = new FormData();
     for (const d in data) {
       if (data.hasOwnProperty(d) && data[d]) {
-        if (data[d] instanceof Object) {
+        if (d === 'gauges') {
           for (const dd in data[d]) {
             if (data[d].hasOwnProperty(dd) && data[d][dd]) {
               formData.append('evaluation[' + d + '][' + dd + ']', data[d][dd]);
@@ -125,7 +125,7 @@ export class Evaluation extends ApplicationDb {
               this.evaluation_comment = result.evaluation_comment;
               this.evaluation_date = result.evaluation_date;
               this.gauges = result.gauges;
-              this.estimated_evaluation_date = new Date(result.estimated_evaluation_date);
+              this.estimated_implementation_date = new Date(result.estimated_implementation_date);
               this.person_in_charge = result.person_in_charge;
               this.global_status = result.global_status;
               this.created_at = new Date(result.created_at);
@@ -151,7 +151,7 @@ export class Evaluation extends ApplicationDb {
                 this.evaluation_comment = entry.evaluation_comment;
                 this.evaluation_date = entry.evaluation_date;
                 this.gauges = entry.gauges;
-                this.estimated_evaluation_date = new Date(entry.estimated_evaluation_date);
+                this.estimated_implementation_date = new Date(entry.estimated_implementation_date);
                 this.person_in_charge = entry.person_in_charge;
                 this.global_status = entry.global_status;
                 this.created_at = new Date(entry.created_at);
@@ -179,7 +179,7 @@ export class Evaluation extends ApplicationDb {
         this.evaluation_comment = entry.evaluation_comment;
         this.evaluation_date = entry.evaluation_date;
         this.gauges = entry.gauges;
-        this.estimated_evaluation_date = new Date(entry.estimated_evaluation_date);
+        this.estimated_implementation_date = new Date(entry.estimated_implementation_date);
         this.person_in_charge = entry.person_in_charge;
         this.global_status = entry.global_status;
         this.created_at = new Date(entry.created_at);

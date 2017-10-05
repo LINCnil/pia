@@ -257,7 +257,7 @@ export class PiaService {
         evaluationModel.evaluation_comment = evaluation.evaluation_comment;
         evaluationModel.evaluation_date = new Date(evaluation.evaluation_date);
         evaluationModel.gauges = evaluation.gauges;
-        evaluationModel.estimated_evaluation_date = new Date(evaluation.estimated_evaluation_date);
+        evaluationModel.estimated_implementation_date = new Date(evaluation.estimated_implementation_date);
         evaluationModel.person_in_charge = evaluation.person_in_charge;
         evaluationModel.global_status = 0;
         evaluationModel.created_at = new Date(evaluation.created_at);
