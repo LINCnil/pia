@@ -10,25 +10,16 @@
         {{ dataSection.title | translate }}
         <hr>
       </div>
-      <ul class="pia-sectionBlock-list">
+      <ul class="pia-sectionBlock-list" *ngIf="_piaService.pia && section && item">
         <ng-container *ngFor="let dataItem of dataSection?.items">
           <li *ngIf="!dataItem.hide">
             <a routerLink="/entry/{{_piaService.pia.id}}/section/{{dataSection.id}}/item/{{dataItem.id}}"
               [ngClass]="{'active': section.id == dataSection.id && item.id == dataItem.id}"
               class="truncate">{{ dataItem.title | translate }}</a>
             <i class="fa"
-               *ngIf="_piaService.sidStatus"
-               [ngClass]="{'fa-cog': _piaService.sidStatus[dataSection.id.toString() + dataItem.id.toString()] === 1,
-                           'fa-pencil-square-o': !_piaService.sidStatus[dataSection.id.toString() + dataItem.id.toString()],
-                           'fa-check-square-o': _piaService.sidStatus[dataSection.id.toString() + dataItem.id.toString()] === 2,
-                           'hide': dataSection.id === 4 || (dataSection.id === 3 && dataItem.id === 5)}"
+               *ngIf="!_sidStatusService.noIconFor.includes(dataSection.id + '.' + dataItem.id)"
+               [ngClass]="_sidStatusService.sidStatusIcon[dataSection.id + '.' + dataItem.id] || _sidStatusService.defaultIcon"
                aria-hidden="true"></i>
-            <i class="fa"
-              *ngIf="dataSection.id === 4 && dataItem.id === 3"
-              [ngClass]="{'fa-cog': _piaService.pia.dpos_names && (!_piaService.pia.dpo_status || !_piaService.pia.dpo_opinion),
-                          'fa-pencil-square-o': !_piaService.pia.dpos_names,
-                          'fa-check-square-o': _piaService.pia.dpos_names && _piaService.pia.dpo_status && _piaService.pia.dpo_opinion}"
-              aria-hidden="true"></i>
           </li>
         </ng-container>
       </ul>

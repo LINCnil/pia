@@ -109,7 +109,6 @@ export class Evaluation extends ApplicationDb {
   async getByReference(pia_id: number, reference_to: any) {
     this.pia_id = pia_id;
     if (this.pia_id) {
-      // TODO - Know why we must check for presence of pia_id
       this.reference_to = reference_to;
       return new Promise((resolve, reject) => {
         if (this.serverUrl) {

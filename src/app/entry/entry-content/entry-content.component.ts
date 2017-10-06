@@ -12,6 +12,7 @@ import { PiaService } from 'app/entry/pia.service';
 import { EvaluationService } from 'app/entry/entry-content/evaluations/evaluations.service';
 import { PaginationService } from './pagination.service';
 import { TranslateService } from '@ngx-translate/core';
+import { SidStatusService } from 'app/services/sid-status.service';
 
 @Component({
   selector: 'app-entry-content',
@@ -32,6 +33,7 @@ export class EntryContentComponent implements OnInit, OnChanges {
               private _measureService: MeasureService,
               private _modalsService: ModalsService,
               private _piaService: PiaService,
+              private _sidStatusService: SidStatusService,
               private _evaluationService: EvaluationService,
               private _paginationService: PaginationService,
               private _translateService: TranslateService) {

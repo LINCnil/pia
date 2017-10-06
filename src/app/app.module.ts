@@ -18,6 +18,7 @@ import { CardsComponent } from './cards/cards.component';
 import { CardItemComponent } from './cards/card-item/card-item.component';
 import { EntryComponent } from './entry/entry.component';
 import { SectionsComponent } from './entry/sections/sections.component';
+import { SidStatusService } from 'app/services/sid-status.service';
 import { AttachmentsComponent } from './entry/attachments/attachments.component';
 import { EntryContentComponent } from './entry/entry-content/entry-content.component';
 import { KnowledgeBaseComponent } from './entry/knowledge-base/knowledge-base.component';
@@ -73,7 +74,8 @@ const providersList: any = [
   KnowledgeBaseService,
   EvaluationService,
   ActionPlanService,
-  PaginationService
+  PaginationService,
+  SidStatusService
 ];
 
 if (environment.rollbar_key.length > 0) {

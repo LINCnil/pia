@@ -2,11 +2,9 @@
   <header autoscroll="true" class="pia-entryContentBlock-header">
     <div>
       <i class="fa"
-         *ngIf="((section.id === 3 && item.id === 5) !== true && (section.id === 4 && (item.id === 1 || item.id === 2)) !== true)"
-         [ngClass]="{'fa-check-square-o': _evaluationService.enableFinalValidation,
-                     'fa-cog': _evaluationService.showValidationButton,
-                     'fa-pencil-square-o': !_evaluationService.enableFinalValidation && !_evaluationService.showValidationButton}"
-         aria-hidden="true"></i>
+        *ngIf="!_sidStatusService.noIconFor.includes(section.id + '.' + item.id)"
+        [ngClass]="_sidStatusService.sidStatusIcon[section.id + '.' + item.id] || _sidStatusService.defaultIcon"
+        aria-hidden="true"></i>
     </div>
     <div class="pia-entryContentBlock-header-title">
       <h1 *ngIf="section.title">{{ section.title | translate }}</h1>
