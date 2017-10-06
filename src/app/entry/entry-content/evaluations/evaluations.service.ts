@@ -285,7 +285,6 @@ export class EvaluationService {
         }
         const evaluation = new Evaluation();
         evaluation.globalStatusByReference(this.pia.id, reference_to).then((exist: boolean) => {
-          // TODO - This doesn't work
           if (exist) {
             count += 1;
             if (count === this.answers.length) {
