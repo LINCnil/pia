@@ -27,7 +27,6 @@ export class QuestionsComponent implements OnInit, OnDestroy {
   questionForm: FormGroup;
   answer: Answer = new Answer();
   measure: Measure = new Measure();
-  reference_to: string;
   lastSelectedTag: string;
   elementId: String;
   editor: any;
@@ -143,7 +142,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
       });
     } else {
       this.answer.pia_id = this.pia.id;
-      this.answer.reference_to = this.reference_to;
+      this.answer.reference_to = this.question.id;
       this.answer.data = { text: null, gauge: gaugeValue, list: [] };
       this.answer.create().then(() => {
         this._evaluationService.allowEvaluation();
@@ -162,8 +161,8 @@ export class QuestionsComponent implements OnInit, OnDestroy {
   questionContentFocusOut() {
     this.editor = null;
     const gaugeValue = parseInt(this.questionForm.value.gauge, 10);
+    const userText = this.questionForm.value.text.replace(/^\s+/, '').replace(/\s+$/, '');
     if (this.answer.id) {
-      const userText = this.questionForm.value.text.replace(/^\s+/, '').replace(/\s+$/, '');
       if (userText === '') {
         this.questionForm.value.text = '';
       }
@@ -182,25 +181,21 @@ export class QuestionsComponent implements OnInit, OnDestroy {
           });
         });
       }
-    }
-    if (this.questionForm.value.text && this.questionForm.value.text.length >= 0) {
-      const userText = this.questionForm.value.text.replace(/^\s+/, '').replace(/\s+$/, '');
-      if (userText !== '') {
-        if (!this.answer.id) {
-          this.answer.pia_id = this.pia.id;
-          this.answer.reference_to = this.reference_to;
-          this.answer.data = { text: this.questionForm.value.text, gauge: 0, list: [] };
-          this.answer.create().then(() => {
-            this._ngZone.run(() => {
-              this._evaluationService.allowEvaluation();
-              this.displayEditButton = true;
-              this.questionForm.controls['text'].disable();
-              if (gaugeValue > 0) {
-                this.questionForm.controls['gauge'].disable();
-              }
-            });
+    } else if (!this.answer.id && userText !== '') {
+      if (this.questionForm.value.text && this.questionForm.value.text.length >= 0) {
+        this.answer.pia_id = this.pia.id;
+        this.answer.reference_to = this.question.id;
+        this.answer.data = { text: this.questionForm.value.text, gauge: 0, list: [] };
+        this.answer.create().then(() => {
+          this._ngZone.run(() => {
+            this._evaluationService.allowEvaluation();
+            this.displayEditButton = true;
+            this.questionForm.controls['text'].disable();
+            if (gaugeValue > 0) {
+              this.questionForm.controls['gauge'].disable();
+            }
           });
-        }
+        });
       }
     }
   }
@@ -302,7 +297,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
       });
     } else {
       this.answer.pia_id = this.pia.id;
-      this.answer.reference_to = this.reference_to;
+      this.answer.reference_to = this.question.id;
       this.answer.data = { text: null, gauge: null, list: list };
       this.answer.create().then(() => {
         this._evaluationService.allowEvaluation();
