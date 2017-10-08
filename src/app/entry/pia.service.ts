@@ -174,6 +174,7 @@ export class PiaService {
         }
         answerModel.create();
       });
+
       // Create measures
       data.measures.forEach(measure => {
         const measureModel = new Measure();
@@ -222,17 +223,17 @@ export class PiaService {
         commentModel.create();
       });
 
-      location.reload();
+      this.pias.push(pia);
     });
   }
 
   export(id:  number) {
     const date = new Date().getTime();
     this.exportData(id).then((data) => {
-      const url = 'data:plain/text,' + JSON.stringify(data);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = date + '_export_pia_' + id + '.json';
+      const a = document.getElementById('pia-exportBlock');
+      const url = 'data:text/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(data));
+      a.setAttribute('href', url);
+      a.setAttribute('download', date + '_export_pia_' + id + '.json');
       a.click();
     });
   }

@@ -52,29 +52,31 @@ export class Attachment extends ApplicationDb {
 
   async findAll() {
     const items = [];
-    await this.getObjectStore();
-    return new Promise((resolve, reject) => {
-      if (this.serverUrl) {
-        fetch(this.getServerUrl()).then(function(response) {
-          return response.json();
-        }).then(function(result: any) {
-          resolve(result);
-        }).catch (function (error) {
-          console.error('Request failed', error);
-        });
-      } else {
-        const index1 = this.objectStore.index('index1');
-        index1.openCursor(IDBKeyRange.only(this.pia_id)).onsuccess = (event: any) => {
-          const cursor = event.target.result;
-          if (cursor) {
-            items.push(cursor.value);
-            cursor.continue();
-          } else {
-            resolve(items);
+    if (this.pia_id) {
+      await this.getObjectStore();
+      return new Promise((resolve, reject) => {
+        if (this.serverUrl) {
+          fetch(this.getServerUrl()).then(function(response) {
+            return response.json();
+          }).then(function(result: any) {
+            resolve(result);
+          }).catch (function (error) {
+            console.error('Request failed', error);
+          });
+        } else {
+          const index1 = this.objectStore.index('index1');
+          index1.openCursor(IDBKeyRange.only(this.pia_id)).onsuccess = (event: any) => {
+            const cursor = event.target.result;
+            if (cursor) {
+              items.push(cursor.value);
+              cursor.continue();
+            } else {
+              resolve(items);
+            }
           }
         }
-      }
-    });
+      });
+    }
   }
 
   async getSignedPia() {

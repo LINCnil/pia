@@ -7,13 +7,13 @@
   </div>
   <form [formGroup]="evaluationForm">
     <div class="pia-evaluationBlock-buttons">
-      <button class="btn btn-red" [ngClass]="{'btn-active': evaluation.status === 1}" [disabled]="evaluation.status === 1 || _evaluationService.enableFinalValidation || _evaluationService.someItemNeedToBeFixed" (click)="selectedButton($event, 1)" name="fix" type="submit" title="{{ 'evaluations.placeholder_to_correct' | translate }}">
+      <button class="btn btn-red" [ngClass]="{'btn-active': evaluation.status === 1}" [disabled]="evaluation.status !== 0 && (evaluation.status === 1 || _evaluationService.enableFinalValidation || _evaluationService.someItemNeedToBeFixed)" (click)="selectedButton($event, 1)" name="fix" type="submit" title="{{ 'evaluations.placeholder_to_correct' | translate }}">
         {{ 'evaluations.to_correct' | translate }}
       </button>
-      <button class="btn btn-blue" [ngClass]="{'btn-active': evaluation.status === 2}" [disabled]="evaluation.status === 2 || _evaluationService.enableFinalValidation || _evaluationService.someItemNeedToBeFixed" *ngIf="section.id !== 1" (click)="selectedButton($event, 2)" name="improvable" type="submit" title="{{ 'evaluations.placeholder_improvable' | translate }}">
+      <button class="btn btn-blue" [ngClass]="{'btn-active': evaluation.status === 2}" [disabled]="evaluation.status !== 0 && (evaluation.status === 2 || _evaluationService.enableFinalValidation || _evaluationService.someItemNeedToBeFixed)" *ngIf="section.id !== 1" (click)="selectedButton($event, 2)" name="improvable" type="submit" title="{{ 'evaluations.placeholder_improvable' | translate }}">
         {{ 'evaluations.improvable' | translate }}
       </button>
-      <button class="btn btn-green" [ngClass]="{'btn-active': evaluation.status === 3}" [disabled]="evaluation.status === 3 || _evaluationService.enableFinalValidation || _evaluationService.someItemNeedToBeFixed" (click)="selectedButton($event, 3)" name="acceptable" type="submit" title="{{ 'evaluations.placeholder_acceptable' | translate }}">
+      <button class="btn btn-green" [ngClass]="{'btn-active': evaluation.status === 3}" [disabled]="evaluation.status !== 0 && (evaluation.status === 3 || _evaluationService.enableFinalValidation || _evaluationService.someItemNeedToBeFixed)" (click)="selectedButton($event, 3)" name="acceptable" type="submit" title="{{ 'evaluations.placeholder_acceptable' | translate }}">
         {{ 'evaluations.acceptable' | translate }}
       </button>
     </div>
