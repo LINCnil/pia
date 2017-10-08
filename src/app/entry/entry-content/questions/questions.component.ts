@@ -46,10 +46,14 @@ export class QuestionsComponent implements OnInit, OnDestroy {
       text: new FormControl(),
       list: new FormControl()
     });
-    this.getReferenceTo();
-    this.answer.getByReferenceAndPia(this.pia.id, this.reference_to).then(() => {
+
+    this.answer.getByReferenceAndPia(this.pia.id, this.question.id).then(() => {
       if (this.answer.data) {
-        this.evaluation.getByReference(this.pia.id, this.answer.id).then(() => {
+        let evaluationRefTo: string = this.answer.id.toString();
+        if (this.item.evaluation_mode === 'item') {
+          evaluationRefTo = this.section.id + '.' + this.item.id;
+        }
+        this.evaluation.getByReference(this.pia.id, evaluationRefTo).then(() => {
           this.checkDisplayButtons();
         });
         this.questionForm.controls['gauge'].patchValue(this.answer.data.gauge);
@@ -112,13 +116,8 @@ export class QuestionsComponent implements OnInit, OnDestroy {
   }
 
   checkDisplayButtons() {
-    if (this._evaluationService.showValidationButton) {
-      this.displayEditButton = false;
-    }
-    if (this._evaluationService.enableFinalValidation) {
-      this.displayEditButton = false;
-    }
-    if (this.evaluation && this.evaluation.status === 1) {
+    this.displayEditButton = false;
+    if (this.evaluation && [0, 1].includes(this.evaluation.status)) {
       this.displayEditButton = true;
     }
   }
@@ -346,10 +345,6 @@ export class QuestionsComponent implements OnInit, OnDestroy {
         evaluationDisplayer.classList.add('hide');
       }
     }
-  }
-
-  private getReferenceTo() {
-    this.reference_to = this.question.id; // this.section.id + '.' + this.item.id + '.' + this.question.id;
   }
 
   loadEditor() {

@@ -157,7 +157,11 @@ export class OverviewRisksComponent implements OnInit {
               y += 22;
             }
         }
-        this.svg.attr('viewBox', '0 0 590 ' + (y + 30).toString());
+        let viewBoxHeight = y + 30;
+        if (viewBoxHeight < 600) {
+          viewBoxHeight = 600;
+        }
+        this.svg.attr('viewBox', '0 0 590 ' + viewBoxHeight);
         y += 50;
     }
 

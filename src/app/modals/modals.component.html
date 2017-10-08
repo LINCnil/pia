@@ -26,7 +26,7 @@
     <p [innerHTML]="'modals.signed_pia_validation.content' | translate"></p>
     <span class="pia-icons pia-icon-happy"></span>
     <div class="pia-modalBlock-buttons-choice">
-      <a routerLink="/summary/{{_piaService.pia.id}}/pia" [innerHTML]="'modals.signed_pia_validation.download_pia' | translate"></a>
+      <a routerLink="/summary/{{_piaService.pia.id}}/pia" class="btn btn-green" [innerHTML]="'modals.signed_pia_validation.download_pia' | translate"></a>
     </div>
   </div>
 </div>
@@ -125,7 +125,7 @@
     <p [innerHTML]="'modals.declare_measures.content' | translate"></p>
     <span class="pia-icons pia-icon-sorry"></span>
     <div class="pia-modalBlock-validate">
-      <a routerLink="/entry/{{_piaService.pia.id}}/section/3/item/1" (click)="_modalsService.closeModal()" type="button btn-blue" class="btn btn-green">{{ 'modals.declare_measures.declare' | translate }}</a>
+      <a routerLink="/entry/{{_piaService.pia.id}}/section/3/item/1" (click)="_modalsService.closeModal()" class="btn btn-green">{{ 'modals.declare_measures.declare' | translate }}</a>
     </div>
   </div>
 </div>

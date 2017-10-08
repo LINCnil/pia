@@ -119,7 +119,6 @@ export class MeasuresComponent implements OnInit, OnDestroy {
           this.measureModel.title = '';
         }
         if (userText !== '' || this.measureModel.title === '') {
-          console.log(this.measureModel);
           this.measureModel.update().then(() => {
             this._evaluationService.allowEvaluation();
             // Update tags

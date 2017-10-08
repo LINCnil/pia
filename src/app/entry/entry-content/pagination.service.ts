@@ -14,7 +14,7 @@ export class PaginationService {
     this.previousLink = [];
     this.nextLink = [];
     this.hasPreviousLink = !(sectionId === 1 && itemId === 1);
-    this.hasNextLink = !(sectionId === 4 && itemId === 3);
+    this.hasNextLink = !(sectionId === 4 && (itemId === 3 || itemId === 4 || itemId === 5));
 
     if (this.hasPreviousLink) {
       if (sectionId === 1) { // 1.2

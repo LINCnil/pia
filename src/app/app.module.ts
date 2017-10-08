@@ -27,6 +27,7 @@ import { AttachmentItemComponent } from './entry/attachments/attachment-item/att
 import { CommentsComponent } from './entry/entry-content/comments/comments.component';
 import { CommentItemComponent } from './entry/entry-content/comments/comment-item/comment-item.component';
 import { EvaluationsComponent } from './entry/entry-content/evaluations/evaluations.component';
+import { GlobalEvaluationService } from 'app/services/global-evaluation.service';
 import { QuestionsComponent } from './entry/entry-content/questions/questions.component';
 import { RisksCartographyComponent } from './entry/entry-content/risks-cartography/risks-cartography.component';
 import { ActionPlanComponent } from './entry/entry-content/action-plan/action-plan.component';
@@ -75,7 +76,8 @@ const providersList: any = [
   EvaluationService,
   ActionPlanService,
   PaginationService,
-  SidStatusService
+  SidStatusService,
+  GlobalEvaluationService
 ];
 
 if (environment.rollbar_key.length > 0) {

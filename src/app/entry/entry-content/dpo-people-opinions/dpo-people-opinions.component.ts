@@ -1,5 +1,6 @@
 import { Component, ViewChild, ElementRef, OnInit, Input } from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
+import { SidStatusService } from 'app/services/sid-status.service';
 
 import {Pia} from 'app/entry/pia.model';
 
@@ -20,7 +21,9 @@ export class DPOPeopleOpinionsComponent implements OnInit {
   @ViewChild('DpoNames') private elementRef1: ElementRef;
   @ViewChild('PeopleNames') private elementRef2: ElementRef;
 
-  constructor(private el: ElementRef, private _piaService: PiaService) { }
+  constructor(private el: ElementRef,
+              private _sidStatusService: SidStatusService,
+              private _piaService: PiaService) { }
 
   ngOnInit() {
     this.DPOForm = new FormGroup({
@@ -108,13 +111,17 @@ export class DPOPeopleOpinionsComponent implements OnInit {
       this.DPOForm.controls['DPONames'].patchValue(null);
       this.DPOForm.controls['DPOStatus'].patchValue(null);
     }
-    this._piaService.pia.update();
+    this._piaService.pia.update().then(() => {
+      this.checkIfDpoOk();
+    });
   }
   DPOFocusOutStatus() {
     if (this.DPOForm.value.DPOStatus && this.DPOForm.value.DPOStatus >= 0) {
       this._piaService.pia.dpo_status = parseInt(this.DPOForm.value.DPOStatus, 10);
       this.displayDpoEditButton = true;
-      this._piaService.pia.update();
+      this._piaService.pia.update().then(() => {
+        this.checkIfDpoOk();
+      });
       this.DPOForm.controls['DPOStatus'].disable();
     }
   }
@@ -122,8 +129,27 @@ export class DPOPeopleOpinionsComponent implements OnInit {
     if (this.DPOForm.value.DPOOpinion && this.DPOForm.value.DPOOpinion.length > 0) {
       this._piaService.pia.dpo_opinion = this.DPOForm.value.DPOOpinion;
       this.displayDpoEditButton = true;
-      this._piaService.pia.update();
+      this._piaService.pia.update().then(() => {
+        this.checkIfDpoOk();
+      });
       this.DPOForm.controls['DPOOpinion'].disable();
+    }
+  }
+
+  private checkIfDpoOk() {
+    if (this._piaService.pia.dpos_names
+        || this._piaService.pia.dpos_names
+        || this._piaService.pia.dpo_opinion) {
+          this._sidStatusService['itemStatus']['4.3'] = 1;
+          if (this._piaService.pia.dpos_names
+            && this._piaService.pia.dpos_names.length > 0
+            && this._piaService.pia.dpo_status >= 0
+            && this._piaService.pia.dpo_opinion
+            && this._piaService.pia.dpo_opinion.length > 0) {
+              this._sidStatusService['itemStatus']['4.3'] = 2;
+          }
+    } else {
+      this._sidStatusService['itemStatus']['4.3'] = 0;
     }
   }
 

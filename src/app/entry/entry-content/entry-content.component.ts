@@ -13,6 +13,7 @@ import { EvaluationService } from 'app/entry/entry-content/evaluations/evaluatio
 import { PaginationService } from './pagination.service';
 import { TranslateService } from '@ngx-translate/core';
 import { SidStatusService } from 'app/services/sid-status.service';
+import { GlobalEvaluationService } from 'app/services/global-evaluation.service';
 
 @Component({
   selector: 'app-entry-content',
@@ -34,6 +35,7 @@ export class EntryContentComponent implements OnInit, OnChanges {
               private _modalsService: ModalsService,
               private _piaService: PiaService,
               private _sidStatusService: SidStatusService,
+              private _globalEvaluationService: GlobalEvaluationService,
               private _evaluationService: EvaluationService,
               private _paginationService: PaginationService,
               private _translateService: TranslateService) {
@@ -56,11 +58,16 @@ export class EntryContentComponent implements OnInit, OnChanges {
                                           parseInt(this._activatedRoute.snapshot.params['item_id'], 10));
   }
 
+  prepareForEvaluation() {
+    this._evaluationService.prepareForEvaluation(this._piaService, this._sidStatusService, this.section, this.item);
+  }
+
   /**
    * Allows an user to validate evaluation for a section.
    */
   validateEvaluation() {
     this._evaluationService.validateAllEvaluation().then((valid: boolean) => {
+      this._sidStatusService.setSidStatus(this._piaService, this.section, this.item);
       this._router.navigate([
         'entry',
         this._piaService.pia.id,

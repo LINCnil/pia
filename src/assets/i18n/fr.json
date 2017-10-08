@@ -724,7 +724,7 @@
     },
     "signed_pia_validation": {
       "content": "<span class='strong'>Le PIA est accepté</span><br>Finalisez la validation du PIA en attachant<br>en pièce jointe le rapport signé par le responsable.",
-      "download_pia": "Télécharger<br>le rapport PIA"
+      "download_pia": "Télécharger le rapport PIA"
     },
     "abandon_pia": {
       "content": "Êtes-vous sûr de vouloir<br>abandonner ce traitement ?"

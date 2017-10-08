@@ -7,6 +7,7 @@ import { Answer } from 'app/entry/entry-content/questions/answer.model';
 
 import { EvaluationService } from './evaluations.service';
 import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
+import { GlobalEvaluationService } from 'app/services/global-evaluation.service';
 
 @Component({
   selector: 'app-evaluations',
@@ -32,6 +33,7 @@ export class EvaluationsComponent implements OnInit, AfterViewChecked, OnDestroy
 
   constructor(private el: ElementRef,
               private _evaluationService: EvaluationService,
+              private _globalEvaluationService: GlobalEvaluationService,
               private _translateService: TranslateService) { }
 
   ngOnInit() {
@@ -122,6 +124,7 @@ export class EvaluationsComponent implements OnInit, AfterViewChecked, OnDestroy
         this.displayEditButton = true;
         this.evaluationForm.controls['evaluationComment'].disable();
       }
+      this._globalEvaluationService.checkForFinalValidation(this.pia, this.section, this.item);
     });
 
     if (this.item.questions) {
@@ -138,9 +141,6 @@ export class EvaluationsComponent implements OnInit, AfterViewChecked, OnDestroy
       });
     }
     this._evaluationService.isAllEvaluationValidated();
-
-    // TODO THe line below doesn't work
-    this._evaluationService.checkForFinalValidation(this.evaluation);
   }
 
   /**
@@ -172,6 +172,7 @@ export class EvaluationsComponent implements OnInit, AfterViewChecked, OnDestroy
     this.evaluation.update().then(() => {
       // Pass the evaluation to the parent component
       this.evaluationEvent.emit(this.evaluation);
+      this._globalEvaluationService.checkForFinalValidation(this.pia, this.section, this.item);
     });
 
     // Disables active classes for all evaluation buttons.
@@ -183,7 +184,6 @@ export class EvaluationsComponent implements OnInit, AfterViewChecked, OnDestroy
     // Displays content (action plan & comment fields).
     const content = this.el.nativeElement.querySelector('.pia-evaluationBlock-content');
     content.classList.remove('hide');
-    this._evaluationService.checkForFinalValidation(this.evaluation);
   }
 
   /**
@@ -221,7 +221,7 @@ export class EvaluationsComponent implements OnInit, AfterViewChecked, OnDestroy
         this.displayEditButton = true;
       }
       this.evaluation.update().then(() => {
-        this._evaluationService.checkForFinalValidation(this.evaluation);
+        this._globalEvaluationService.checkForFinalValidation(this.pia, this.section, this.item);
       });
     }, 1);
   }
@@ -262,7 +262,7 @@ export class EvaluationsComponent implements OnInit, AfterViewChecked, OnDestroy
         this.displayEditButton = true;
       }
       this.evaluation.update().then(() => {
-        this._evaluationService.checkForFinalValidation(this.evaluation);
+        this._globalEvaluationService.checkForFinalValidation(this.pia, this.section, this.item);
       });
     }, 1);
   }
@@ -287,7 +287,7 @@ export class EvaluationsComponent implements OnInit, AfterViewChecked, OnDestroy
       this.evaluation.gauges['y'] = gaugeValueY;
     }
     this.evaluation.update().then(() => {
-      this._evaluationService.checkForFinalValidation(this.evaluation);
+      this._globalEvaluationService.checkForFinalValidation(this.pia, this.section, this.item);
       if (xOrY === 'x') {
         this.evaluationForm.controls['gaugeX'].disable();
         this.displayEditButton = true;

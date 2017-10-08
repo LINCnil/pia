@@ -21,7 +21,6 @@ export class PiaService {
   pia: Pia = new Pia();
   answer: Answer = new Answer();
   data: { sections: any };
-  sidStatus = {};
 
   constructor(private _router: Router, private route: ActivatedRoute,
               private _evaluationService: EvaluationService,
@@ -66,30 +65,6 @@ export class PiaService {
 
     localStorage.removeItem('pia-id');
     this._modalsService.closeModal();
-  }
-
-  async piaInGlobalValidation() {
-    return new Promise((resolve, reject) => {
-      // TODO - Count all evaluation_mode
-      let countEvaluationMode = 17;
-      const measure = new Measure();
-      measure.pia_id = this._evaluationService.pia.id;
-      const dpoAnswerOk = this._evaluationService.dpoAnswerOk();
-      measure.findAll().then((entries: any) => {
-        if (entries) {
-          countEvaluationMode += entries.length;
-        }
-        // Count all valid evaluation in DB with global_status === 1
-        const evaluation = new Evaluation();
-        evaluation.pia_id = this._evaluationService.pia.id;
-        evaluation.findAll().then((entries2: any) => {
-          const entriesWithGlobalStatus = entries2.filter((e) => {
-            return e.global_status === 1;
-          });
-          resolve((countEvaluationMode === entriesWithGlobalStatus.length) && dpoAnswerOk);
-        });
-      });
-    });
   }
 
   async cancelAllValidatedEvaluation() {
