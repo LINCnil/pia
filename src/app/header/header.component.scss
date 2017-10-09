@@ -1,6 +1,12 @@
 @import '../../assets/stylesheets/variables';
 
 .pia {
+  &-versionInfoBlock {
+    color: $pia-green;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+  }
   &-headerBlock {
     background-color: #fff;
     margin-bottom: 24px;
