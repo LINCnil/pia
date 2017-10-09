@@ -47,13 +47,6 @@ export class ModalsComponent implements OnInit {
   }
 
   /**
-   * Allows users to import a PIA.
-   */
-  importPIA() {
-    // TODO import PIA
-  }
-
-  /**
    * Save the newly created PIA.
    * Sends to the path associated to this new PIA.
    */

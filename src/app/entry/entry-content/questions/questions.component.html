@@ -1,9 +1,3 @@
-<!--
-    TODO : remove the 'approved' class by default (it's just to show what it does, here).
-    Add it only on questions which have been evaluated as 'improvable' or 'acceptable'.
-    In addition of this class, questions should be 'locked' (uneditable).
-    However, other questions ('to be fixed') don't get this special class and stay editable.
--->
 <div class="pia-questionBlock" [ngClass]="{'approved': evaluation.status === 2 || evaluation.status === 3}" [attr.data-id]="question.id">
   <div class="pia-questionBlock-title">
     <button class="pia-icons pia-icon-accordeon-up" type="button" (click)="displayQuestion($event)" title="{{ 'misc.display' | translate }}"></button>
@@ -85,8 +79,7 @@
     </form>
   </div>
 
-  <!-- TODO : to show only after a first edition (when the current question is created in DB) -->
-  <app-comments [pia]="pia" [question]="question" [questionId]="question.id"></app-comments>
+  <app-comments *ngIf="answer && answer.id" [pia]="pia" [question]="question" [questionId]="question.id" [answer]="answer"></app-comments>
 
   <app-evaluations (evaluationEvent)="evaluationChange($event)"
                    *ngIf="item.evaluation_mode === 'question' && (_evaluationService.showValidationButton || _evaluationService.enableFinalValidation || _evaluationService.someItemNeedToBeFixed)"

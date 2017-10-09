@@ -1,4 +1,3 @@
-
 <div class="pia-ValidationDPO">
   <div class="pia-entryContentBlock-content">
     <!-- DPO opinions -->
@@ -10,7 +9,7 @@
       <form (click)="checkDpoName()" [formGroup]="DPOForm">
         <p>
           <span>
-            <ng-container *ngIf="_piaService.pia.status < 2; else displayNames1">
+            <ng-container *ngIf="!_piaService.pia.status || _piaService.pia.status < 2; else displayNames1">
               <input #DpoNames type="text" class="DPOName" (change)="DPOFocusOutNames()" formControlName="DPONames" placeholder="{{ 'opinions.placeholder_dpo_name' | translate }}">
             </ng-container>
             <ng-template #displayNames1>
@@ -19,9 +18,7 @@
           </span>{{ 'opinions.content' | translate }}
         </p>
         <div class="pia-entryContentBlock-content-DPO-treatment">
-          <!-- ( ex : <div [ngClass]="_piaService.pia.dpo_status === 1 ? 'checked' : ''> -->
-            <!-- TODO : check why 'checked' here ? -->
-          <div class="checked">
+          <div>
             <input type="radio" id="treatment-1" [attr.dirty]="_piaService.pia.dpo_status === 1" [checked]="_piaService.pia.dpo_status === 1" (change)="DPOFocusOutStatus()" formControlName="DPOStatus" value="1">
             <label for="treatment-1">
               <i class="fa fa-circle" aria-hidden="true"></i>
@@ -52,7 +49,7 @@
       <form (click)="checkConcernedPeopleName()" [formGroup]="peopleForm">
         <p>
           <span>
-            <ng-container *ngIf="this._piaService.pia.status < 2; else displayNames2">
+            <ng-container *ngIf="!_piaService.pia.status || _piaService.pia.status < 2; else displayNames2">
               <input #PeopleNames type="text" class="DPOName" (change)="peopleFocusOutNames()" formControlName="peopleNames" placeholder="{{ 'opinions.placeholder_concerned_people_name' | translate }}">
             </ng-container>
             <ng-template #displayNames2>
@@ -61,7 +58,6 @@
           </span>{{ 'opinions.content' | translate }}
         </p>
         <div class="pia-entryContentBlock-content-DPO-treatment">
-          <!-- ( ex : <div [ngClass]="_piaService.pia.concerned_people_status === 1 ? 'checked' : ''> -->
           <div>
             <input type="radio" id="dpoAvis-1" [checked]="_piaService.pia.concerned_people_status == 1" (change)="peopleFocusOutStatus()" formControlName="peopleStatus" value="1">
             <label for="dpoAvis-1">

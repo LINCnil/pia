@@ -20,12 +20,19 @@ export class CommentsComponent implements OnInit {
   @Input() questionId: any;
   @Input() measureId: any;
   @Input() pia: any;
+  @Input() answer: any;
+  questionDate: Date;
 
   constructor(private el: ElementRef,
               private _measureService: MeasureService,
               private _modalsService: ModalsService) { }
 
   ngOnInit() {
+    if (this.answer.updated_at && this.answer.updated_at.toString() !== 'Invalid Date') {
+      this.questionDate = this.answer.updated_at;
+    } else if (this.answer.created_at && this.answer.created_at.toString() !== 'Invalid Date') {
+      this.questionDate = this.answer.created_at;
+    }
     this.comments = [];
     const commentsModel = new Comment();
     commentsModel.pia_id = this.pia.id;
@@ -91,7 +98,6 @@ export class CommentsComponent implements OnInit {
           this.comments.unshift(commentRecord);
           this.commentsForm.controls['description'].setValue('');
           this.toggleNewCommentBox();
-          // this.updateCommentsCounter();
           this.getCommentsAccordeonStatus();
         });
       }

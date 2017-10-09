@@ -10,12 +10,13 @@ export class Comment extends ApplicationDb {
   }
 
   async create() {
+    this.created_at = new Date();
     const data = {
           description: this.description,
           pia_id: this.pia_id,
           reference_to: this.reference_to,
           for_measure: this.for_measure,
-          created_at: new Date()
+          created_at: this.created_at
         }
     return new Promise((resolve, reject) => {
       if (this.serverUrl) {

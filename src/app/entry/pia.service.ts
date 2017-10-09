@@ -55,7 +55,6 @@ export class PiaService {
     const pia = new Pia();
     pia.delete(piaID);
 
-    /* TODO : refactor this... */
     // Deletes the PIA from the view.
     if (localStorage.getItem('homepageDisplayMode') && localStorage.getItem('homepageDisplayMode') === 'list') {
       document.querySelector('.app-list-item[data-id="' + piaID + '"]').remove();

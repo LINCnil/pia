@@ -62,7 +62,6 @@
 
     <p [ngClass]="{'hide': (section.id == 3 && item.id == 5) || section.id == 4}">{{ 'pia.footer.mandatory_fields' | translate }}</p>
 
-    <!-- TODO : pagination -->
     <div class="pia-entryContentBlock-footer-nav">
       <a [ngClass]="{'mask': _paginationService.hasPreviousLink === false}"
           class="pia-previousLink"

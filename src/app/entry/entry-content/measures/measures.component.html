@@ -1,7 +1,6 @@
 <div class="pia-measureBlock" [ngClass]="{'approved': evaluation.status === 2 || evaluation.status === 3}" [attr.data-id]="measure.id">
   <form [formGroup]="measureForm">
     <div class="pia-measureBlock-title">
-      <!-- TODO : get the accordeon orientation in synchronization with the opening/closing of the evaluation block -->
       <button  class="pia-icons pia-icon-accordeon-up" type="button" (click)="displayMeasure($event)" title="{{ 'misc.display' | translate }}"></button>
       <textarea maxlength="120"
                 rows="2"
@@ -31,7 +30,7 @@
     </div>
   </form>
 
-  <app-comments [pia]="pia" [measure]="measure" [measureId]="measure.id"></app-comments>
+  <app-comments [pia]="pia" [measure]="measure" [measureId]="measure.id" [answer]="measure"></app-comments>
 
   <app-evaluations *ngIf="item.evaluation_mode == 'question' && (_evaluationService.showValidationButton || _evaluationService.enableFinalValidation || _evaluationService.someItemNeedToBeFixed)"
                    (evaluationEvent)="evaluationChange($event)"

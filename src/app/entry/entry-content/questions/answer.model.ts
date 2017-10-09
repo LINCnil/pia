@@ -9,11 +9,12 @@ export class Answer extends ApplicationDb {
   }
 
   async create() {
+    this.created_at = new Date();
     const data = {
           pia_id: this.pia_id,
           reference_to: this.reference_to,
           data: this.data,
-          created_at: new Date()
+          created_at: this.created_at
         };
     return new Promise((resolve, reject) => {
       if (this.serverUrl) {
