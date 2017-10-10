@@ -4,6 +4,7 @@ import { Subscription } from 'rxjs/Subscription';
 
 import { Answer } from 'app/entry/entry-content/questions/answer.model';
 import { Evaluation } from 'app/entry/entry-content/evaluations/evaluation.model';
+import { AppDataService } from 'app/services/app-data.service';
 
 import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 
@@ -23,9 +24,10 @@ export class RisksCartographyComponent implements OnInit, OnDestroy {
   risk2Letter;
 
   constructor(private http: Http,
+              private _appDataService: AppDataService,
               private _translateService: TranslateService) { }
 
-  ngOnInit() {
+  async ngOnInit() {
     this.risk1Letter = this._translateService.instant('cartography.risk1_access');
     this.risk2Letter = this._translateService.instant('cartography.risk2_modification');
     this.subscription = this._translateService.onLangChange.subscribe((event: LangChangeEvent) => {
@@ -65,61 +67,60 @@ export class RisksCartographyComponent implements OnInit, OnDestroy {
       }
     };
 
-    this.http.request('/assets/files/pia_architecture.json').map(res => res.json()).subscribe(data => {
-      data.sections.forEach(section => {
-        section.items.forEach(item => {
-          if (item.questions) {
-            item.questions.forEach(question => {
-              if (question.answer_type === 'gauge') {
-                this.questions.push(question);
-              }
-            });
-          }
-        });
-      });
-      this.answer.getGaugeByPia(this.pia.id).then((entries: any) => {
-        this.answersGauge = entries.filter((entry) => {
-          return entry.data.gauge >= 0;
-        });
-        this.answersGauge.forEach(answer => {
-          const question: any = this.questions.filter((entry) => {
-            return entry.id === answer.reference_to;
+    const dataNav = await this._appDataService.getDataNav();
+    dataNav.sections.forEach(section => {
+      section.items.forEach(item => {
+        if (item.questions) {
+          item.questions.forEach(question => {
+            if (question.answer_type === 'gauge') {
+              this.questions.push(question);
+            }
           });
-          if (question[0]) {
-            const cartographyKey = question[0].cartography.split('_');
-            if (answer.data.gauge > 0) {
-              let axeValue;
-              axeValue = cartographyKey[1] === 'x' ? 'y' : 'x';
-              let pointPosition = positions[axeValue][answer.data.gauge];
-              if (cartographyKey[0] === 'risk-change') {
-                pointPosition -= 10;
-              } else if (cartographyKey[0] === 'risk-disappearance') {
-                pointPosition -= 20;
-              }
-              this.dataJSON[cartographyKey[0]]['author'][axeValue] =  pointPosition;
-            }
-          }
+        }
+      });
+    });
+    this.answer.getGaugeByPia(this.pia.id).then((entries: any) => {
+      this.answersGauge = entries.filter((entry) => {
+        return entry.data.gauge >= 0;
+      });
+      this.answersGauge.forEach(answer => {
+        const question: any = this.questions.filter((entry) => {
+          return entry.id === answer.reference_to;
         });
-        const evaluation = new Evaluation();
-        evaluation.getByReference(this.pia.id, '3.2').then(() => {
-          if (evaluation.gauges) {
-            this.dataJSON['risk-access']['evaluator']['y'] = positions['y'][evaluation.gauges['x']];
-            this.dataJSON['risk-access']['evaluator']['x'] = positions['x'][evaluation.gauges['y']];
-          }
-          const evaluation2 = new Evaluation();
-          evaluation2.getByReference(this.pia.id, '3.3').then(() => {
-            if (evaluation2.gauges) {
-              this.dataJSON['risk-change']['evaluator']['y'] = positions['y'][evaluation2.gauges['x']];
-              this.dataJSON['risk-change']['evaluator']['x'] = positions['x'][evaluation2.gauges['y']];
+        if (question[0]) {
+          const cartographyKey = question[0].cartography.split('_');
+          if (answer.data.gauge > 0) {
+            let axeValue;
+            axeValue = cartographyKey[1] === 'x' ? 'y' : 'x';
+            let pointPosition = positions[axeValue][answer.data.gauge];
+            if (cartographyKey[0] === 'risk-change') {
+              pointPosition -= 10;
+            } else if (cartographyKey[0] === 'risk-disappearance') {
+              pointPosition -= 20;
             }
-            const evaluation3 = new Evaluation();
-            evaluation3.getByReference(this.pia.id, '3.4').then(() => {
-              if (evaluation3.gauges) {
-                this.dataJSON['risk-disappearance']['evaluator']['y'] = positions['y'][evaluation3.gauges['x']];
-                this.dataJSON['risk-disappearance']['evaluator']['x'] = positions['x'][evaluation3.gauges['y']];
-              }
-              this.loadCartography();
-            });
+            this.dataJSON[cartographyKey[0]]['author'][axeValue] =  pointPosition;
+          }
+        }
+      });
+      const evaluation = new Evaluation();
+      evaluation.getByReference(this.pia.id, '3.2').then(() => {
+        if (evaluation.gauges) {
+          this.dataJSON['risk-access']['evaluator']['y'] = positions['y'][evaluation.gauges['x']];
+          this.dataJSON['risk-access']['evaluator']['x'] = positions['x'][evaluation.gauges['y']];
+        }
+        const evaluation2 = new Evaluation();
+        evaluation2.getByReference(this.pia.id, '3.3').then(() => {
+          if (evaluation2.gauges) {
+            this.dataJSON['risk-change']['evaluator']['y'] = positions['y'][evaluation2.gauges['x']];
+            this.dataJSON['risk-change']['evaluator']['x'] = positions['x'][evaluation2.gauges['y']];
+          }
+          const evaluation3 = new Evaluation();
+          evaluation3.getByReference(this.pia.id, '3.4').then(() => {
+            if (evaluation3.gauges) {
+              this.dataJSON['risk-disappearance']['evaluator']['y'] = positions['y'][evaluation3.gauges['x']];
+              this.dataJSON['risk-disappearance']['evaluator']['x'] = positions['x'][evaluation3.gauges['y']];
+            }
+            this.loadCartography();
           });
         });
       });

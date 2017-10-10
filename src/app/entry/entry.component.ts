@@ -11,6 +11,7 @@ import { MeasureService } from 'app/entry/entry-content/measures/measures.servic
 import { ActionPlanService } from 'app/entry/entry-content/action-plan//action-plan.service';
 import { PiaService } from 'app/entry/pia.service';
 import { ModalsService } from 'app/modals/modals.service';
+import { AppDataService } from 'app/services/app-data.service';
 
 @Component({
   selector: 'app-entry',
@@ -29,34 +30,33 @@ export class EntryComponent implements OnInit, OnDestroy, DoCheck {
   constructor(private route: ActivatedRoute,
               private http: Http,
               private _modalsService: ModalsService,
+              private _appDataService: AppDataService,
               private _evaluationService: EvaluationService,
               private _knowledgeBaseService: KnowledgeBaseService,
               private _piaService: PiaService,
               private _actionPlanService: ActionPlanService,
-              private _measureService: MeasureService) {
+              private _measureService: MeasureService) { }
+
+  async ngOnInit() {
     let sectionId = parseInt(this.route.snapshot.params['section_id'], 10);
     let itemId = parseInt(this.route.snapshot.params['item_id'], 10);
 
-    this.http.request('/assets/files/pia_architecture.json').map(res => res.json()).subscribe(data => {
-      this.data = data;
-      this.getSectionAndItem(sectionId, itemId);
-      this.route.params.subscribe(
-        (params: Params) => {
-          sectionId = parseInt(params['section_id'], 10);
-          itemId = parseInt(params['item_id'], 10);
-          this.getSectionAndItem(sectionId, itemId);
-          window.scroll(0, 0);
-        }
-      );
-    });
+    this.data = await this._appDataService.getDataNav();
+    this.getSectionAndItem(sectionId, itemId);
+    this.route.params.subscribe(
+      (params: Params) => {
+        sectionId = parseInt(params['section_id'], 10);
+        itemId = parseInt(params['item_id'], 10);
+        this.getSectionAndItem(sectionId, itemId);
+        window.scroll(0, 0);
+      }
+    );
 
     // Suscribe to measure service messages
     this.subscription = this._measureService.behaviorSubject.subscribe((val) => {
       this.measureToRemoveFromTags = val;
     });
   }
-
-  ngOnInit() {}
 
   ngDoCheck() {
     if (this.measureToRemoveFromTags && this.measureToRemoveFromTags.length > 0) {

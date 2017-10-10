@@ -93,8 +93,8 @@ if (environment.rollbar_key.length > 0) {
   );
 }
 
-export function HttpLoaderFactory(http: HttpClient) {
-    return new TranslateHttpLoader(http);
+export function createTranslateLoader(http: HttpClient) {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
 
 @NgModule({
@@ -139,16 +139,17 @@ export function HttpLoaderFactory(http: HttpClient) {
     HttpModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    RouterModule.forRoot(appRoutes),
+    RouterModule.forRoot(appRoutes, { useHash: true }),
     TagInputModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
-        useFactory: HttpLoaderFactory,
+        useFactory: (createTranslateLoader),
         deps: [HttpClient]
       }
     })
   ],
+  exports: [RouterModule],
   providers: providersList,
   bootstrap: [AppComponent]
 })

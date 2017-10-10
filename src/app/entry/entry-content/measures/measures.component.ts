@@ -288,7 +288,7 @@ export class MeasuresComponent implements OnInit, OnDestroy {
       content_style: 'body {background-color:#eee!important;}' ,
       selector: '#' + this.elementId,
       toolbar: 'undo redo bold italic alignleft aligncenter alignright bullist numlist outdent indent',
-      skin_url: '/assets/skins/lightgray',
+      skin_url: 'assets/skins/lightgray',
       setup: editor => {
         this.editor = editor;
         editor.on('focusout', () => {
