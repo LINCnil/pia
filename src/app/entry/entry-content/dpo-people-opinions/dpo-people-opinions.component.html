@@ -42,7 +42,7 @@
         </form>
       </ng-container>
       <ng-template #disableDpoBLock>
-        Merci de remplir les autres sections avant de pouvoir saisir l'avis du DPO.
+        {{ 'opinions.dpo_lock' | translate }}
       </ng-template>
     </div>
     <!-- Concerned people opinions -->
@@ -87,7 +87,7 @@
         </form>
       </ng-container>
       <ng-template #disableConcernedPeopleBLock>
-          Merci de remplir les autres sections avant de pouvoir saisir l'avis des personnes concernées.
+          {{ 'opinions.treatment_lock' | translate }}
         </ng-template>
     </div>
   </div>
