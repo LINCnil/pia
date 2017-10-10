@@ -118,14 +118,20 @@
             }
           }
           progress[value] {
-            background-color: #fff;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            background-color: transparent;
             height: 12px;
             &::-webkit-progress-bar {
-              background-color: #fff;
+              background-color: transparent;
             }
             &::-webkit-progress-value {
               background-color: $pia-green;
             }
+          }
+          progress[value]::-moz-progress-bar {
+            background-color: $pia-green;
           }
         }
         &-refused {

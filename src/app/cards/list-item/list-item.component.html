@@ -24,7 +24,11 @@
 <ng-template #defaultStatuses>
   <td>{{ pia.getStatusName() | translate }}</td>
 </ng-template>
-<td class="pia-listsBlock-item progress"><progress max="100" value="{{ pia.progress }}"></progress></td>
+<td class="pia-listsBlock-item progress">
+  <div class="pia-cardsBlock-item-status-progressBar">
+    <progress max="100" value="{{ pia.progress }}"></progress>
+  </div>
+</td>
 <td class="pia-listsBlock-item">
   <div class="pia-listsBlock-item-actions">
     <a href="javascript:;" (click)="editGeneralPiaData()" class="btn pia-tooltip">
