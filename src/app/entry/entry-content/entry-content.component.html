@@ -55,7 +55,7 @@
             [ngClass]="{'btn-active': _globalEvaluationService.enableValidation, 'hide': (section.id == 3 && item.id == 5) || section.id == 4 || !_evaluationService.showValidationButton}"
             [disabled]="!_globalEvaluationService.enableValidation" type="submit">{{ 'pia.footer.validate_evaluation' | translate }}</button>
     <button class="btn btn-pending-validation" disabled
-            *ngIf="_sidStatusService.itemStatus[section.id + '.' + item.id] === 2">
+            *ngIf="_sidStatusService.itemStatus[section.id + '.' + item.id] === 2 && (section.id + '.' + item.id !== '4.3')">
       <i class="fa fa-check-square-o" aria-hidden="true"></i>
       {{ 'pia.footer.subsection_validated' | translate }}
     </button>

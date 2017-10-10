@@ -37,6 +37,7 @@ export class DPOPeopleOpinionsComponent implements OnInit {
       peopleNames: new FormControl()
     });
     this._piaService.getPIA().then(() => {
+      this._sidStatusService.verificationForDpo(this._piaService);
       if (this._piaService.pia.dpos_names && this._piaService.pia.dpos_names.length > 0) {
         this.DPOForm.controls['DPONames'].patchValue(this._piaService.pia.dpos_names);
         this.DPOForm.controls['DPONames'].disable();

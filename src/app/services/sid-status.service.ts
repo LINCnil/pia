@@ -9,6 +9,7 @@ export class SidStatusService {
   defaultIcon = 'fa-pencil-square-o';
   enablePiaValidation = false;
   piaIsRefused = false;
+  enableDpoValidation = false;
   globalEvaluationService: GlobalEvaluationService;
 
   constructor() {
@@ -68,6 +69,20 @@ export class SidStatusService {
         this.enablePiaValidation = [0, 2, 3].includes(piaService.pia.status);
         this.piaIsRefused = [1, 4].includes(piaService.pia.status);
       }
+    });
+  }
+
+  verificationForDpo(piaService: any) {
+    piaService.getPIA().then(() => {
+      let valid = true;
+      for (const el in this.itemStatus) {
+        if (this.itemStatus.hasOwnProperty(el)) {
+          if (this.itemStatus[el] !== 2 && el !== '4.3') {
+            valid = false;
+          }
+        }
+      }
+      this.enableDpoValidation = valid;
     });
   }
 }
