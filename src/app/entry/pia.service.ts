@@ -156,11 +156,13 @@ export class PiaService {
     pia.created_at = data.pia.created_at;
     pia.dpos_names = data.pia.dpos_names;
     pia.people_names = data.pia.people_name;
+    pia.status = data.pia.status;
     pia.created_at = new Date(data.pia.created_at);
     if (data.pia.updated_at) {
       pia.updated_at = new Date(data.pia.updated_at);
     }
     pia.create().then((pia_id: number) => {
+      pia.id = pia_id;
       // Create answers
       data.answers.forEach(answer => {
         const answerModel = new Answer();
@@ -222,7 +224,9 @@ export class PiaService {
         commentModel.create();
       });
 
-      this.pias.push(pia);
+      pia.calculProgress().then(() => {
+        this.pias.push(pia);
+      });
     });
   }
 

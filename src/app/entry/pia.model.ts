@@ -17,6 +17,7 @@ export class Pia extends ApplicationDb {
   public dpos_names: string;
   public people_names: string;
   public progress: number;
+  public numberOfQuestions = 36; // TODO Auto calcul questions number
 
   constructor() {
     super(201707071818, 'pia');
@@ -27,8 +28,6 @@ export class Pia extends ApplicationDb {
    * Find all entries without conditions
    */
   async getAll() {
-    // TODO Auto calcul questions number
-    const numberOfQuestions = 36;
     const items = [];
     return new Promise((resolve, reject) => {
       this.findAll().then((entries: any) => {
@@ -52,11 +51,21 @@ export class Pia extends ApplicationDb {
           newPia.updated_at = new Date(element.updated_at);
           const answer = new Answer();
           answer.findAllByPia(element.id).then((answers: any) => {
-            newPia.progress = Math.round((100 / numberOfQuestions) * answers.length);
+            newPia.progress = Math.round((100 / this.numberOfQuestions) * answers.length);
             items.push(newPia);
           });
         });
         resolve(items);
+      });
+    });
+  }
+
+  async calculProgress() {
+    return new Promise((resolve, reject) => {
+      const answer = new Answer();
+      answer.findAllByPia(this.id).then((answers: any) => {
+        this.progress = Math.round((100 / this.numberOfQuestions) * answers.length);
+        resolve();
       });
     });
   }
@@ -177,6 +186,7 @@ export class Pia extends ApplicationDb {
           this.updated_at = new Date(entry.updated_at);
           this.dpos_names = entry.dpos_names;
           this.people_names = entry.people_names;
+          this.status = entry.status;
         }
         resolve();
       });
