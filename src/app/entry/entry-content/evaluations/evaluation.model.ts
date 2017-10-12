@@ -10,7 +10,7 @@ export class Evaluation extends ApplicationDb {
   public gauges: {x: number, y: number};
   public estimated_implementation_date: Date;
   public person_in_charge: string;
-  public global_status: number; // 0: pending, 1: Validate
+  public global_status = 0; // 0: pending, 1: Validate
 
   constructor() {
     super(201707071818, 'evaluation');
@@ -27,7 +27,7 @@ export class Evaluation extends ApplicationDb {
           gauges: this.gauges,
           estimated_implementation_date: new Date(this.estimated_implementation_date),
           person_in_charge: this.person_in_charge,
-          global_status: 0,
+          global_status: this.global_status,
           created_at: new Date()
         };
     return new Promise((resolve, reject) => {

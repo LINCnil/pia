@@ -97,7 +97,7 @@ export class PiaService {
 
   duplicate(id: number) {
     this.exportData(id).then((data) => {
-      this.importData(data, 'COPY');
+      this.importData(data, 'COPY', true);
     });
   }
 
@@ -141,7 +141,7 @@ export class PiaService {
     });
   }
 
-  importData(data: any, prefix: string) {
+  importData(data: any, prefix: string, resetGlobalStatus: boolean) {
     const pia = new Pia();
     pia.name = '(' + prefix + ') ' + data.pia.name;
     pia.author_name = data.pia.author_name;
@@ -200,7 +200,7 @@ export class PiaService {
         evaluationModel.gauges = evaluation.gauges;
         evaluationModel.estimated_implementation_date = new Date(evaluation.estimated_implementation_date);
         evaluationModel.person_in_charge = evaluation.person_in_charge;
-        evaluationModel.global_status = 0;
+        evaluationModel.global_status = resetGlobalStatus ? 0 : evaluation.global_status;
         evaluationModel.created_at = new Date(evaluation.created_at);
         if (evaluation.updated_at) {
           evaluationModel.updated_at = new Date(evaluation.updated_at);
@@ -237,12 +237,12 @@ export class PiaService {
     });
   }
 
-  async import(file: any) {
+  async import(file: any, ) {
     const reader = new FileReader();
     reader.readAsText(file, 'UTF-8');
     reader.onload = (event: any) => {
       const jsonFile = JSON.parse(event.target.result);
-      this.importData(jsonFile, 'IMPORT');
+      this.importData(jsonFile, 'IMPORT', false);
     }
   }
 }
