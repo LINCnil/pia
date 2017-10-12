@@ -55,6 +55,9 @@
       font-size: 1rem;
       color: $pia-gray;
     }
+    &-contentText {
+      min-height: 120px;
+    }
     &-content {
       background: rgba(62, 224, 149, 0.2);
       padding: 14px 16px 14px 16px;

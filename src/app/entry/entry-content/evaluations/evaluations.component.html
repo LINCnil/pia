@@ -20,8 +20,17 @@
     <div class="pia-evaluationBlock-content pia-evaluationBlock-measure-{{measureId}} pia-evaluationBlock-question-{{questionId}} fadeIn" [ngClass]="{'hide': evaluation.status <= 0}">
       <time class="pia-evaluationBlock-date">{{evaluation.created_at | date: 'dd/MM/yyyy'}}</time>
       <div class="pia-evaluationBlock-actionPlan fadeIn" *ngIf="evaluation.status === 2">
-        <label for="pia-evaluation-action-plan-{{evaluation.id}}">{{ 'evaluations.action_plan_comment' | translate }}</label>
-        <textarea (keyup)="autoTextareaResize($event)" class="pia-evaluation-action-plan-{{evaluation.id}}" rows="8" formControlName="actionPlanComment" name="pia-evaluation-action-plan" (focusout)="actionPlanCommentFocusOut()" cols="50" placeholder="{{ 'evaluations.placeholder_comment' | translate }}"></textarea>
+        <label for="pia-evaluation-action-plan-{{reference_to}}">{{ 'evaluations.action_plan_comment' | translate }}</label>
+        <div class="pia-evaluationBlock-contentText" [innerHTML]="evaluationForm.controls['actionPlanComment'].value | safeHtml" [ngClass]="{ 'hide': editor || !evaluationForm.controls['actionPlanComment'].value }"></div>
+        <textarea (keyup)="autoTextareaResize($event)"
+                  id="{{elementId}}"
+                  rows="8"
+                  formControlName="actionPlanComment"
+                  name="pia-evaluation-action-plan"
+                  (focusin)="actionPlanCommentFocusIn()"
+                  cols="50"
+                  [ngClass]="{ 'hide': (!editor && evaluationForm.controls['actionPlanComment'].value) }"
+                  placeholder="{{ 'evaluations.placeholder_comment' | translate }}"></textarea>
       </div>
       <div [ngClass]="{'hide': _evaluationService.enableFinalValidation && (!evaluation.evaluation_comment || evaluation.evaluation_comment.length <= 0)}">
         <label for="pia-evaluation-comment-{{evaluation.id}}">{{ 'evaluations.evaluation_comment' | translate }}</label>

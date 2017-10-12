@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, OnDestroy, Input, Output, EventEmitter, AfterViewChecked, DoCheck } from '@angular/core';
+import { Component, ElementRef, OnInit, OnDestroy, Input, Output, EventEmitter, AfterViewChecked, DoCheck, NgZone } from '@angular/core';
 import { FormArray, FormControl, FormGroup } from '@angular/forms';
 import { Subscription } from 'rxjs/Subscription';
 
@@ -30,10 +30,13 @@ export class EvaluationsComponent implements OnInit, AfterViewChecked, OnDestroy
   previousReferenceTo: string;
   hasResizedContent = false;
   riskName: any;
+  elementId: String;
+  editor: any;
 
   constructor(private el: ElementRef,
               private _evaluationService: EvaluationService,
               private _globalEvaluationService: GlobalEvaluationService,
+              private _ngZone: NgZone,
               private _translateService: TranslateService) { }
 
   ngOnInit() {
@@ -46,18 +49,15 @@ export class EvaluationsComponent implements OnInit, AfterViewChecked, OnDestroy
     });
   }
 
-  ngOnDestroy() {
-    this.subscription.unsubscribe();
-  }
   ngAfterViewChecked() {
     // Textareas auto resize
-    const evaluationActionPlanTextarea = document.querySelector('.pia-evaluation-action-plan-' + this.evaluation.id);
+    // const evaluationActionPlanTextarea = document.querySelector('.pia-evaluation-action-plan-' + this.evaluation.id);
     const evaluationCommentTextarea = document.querySelector('.pia-evaluation-comment-' + this.evaluation.id);
     if (!this.hasResizedContent && evaluationCommentTextarea) {
       this.hasResizedContent = true;
-      if (evaluationActionPlanTextarea) {
-        this.autoTextareaResize(null, evaluationActionPlanTextarea);
-      }
+      // if (evaluationActionPlanTextarea) {
+      //   this.autoTextareaResize(null, evaluationActionPlanTextarea);
+      // }
       if (evaluationCommentTextarea) {
         this.autoTextareaResize(null, evaluationCommentTextarea);
       }
@@ -83,6 +83,8 @@ export class EvaluationsComponent implements OnInit, AfterViewChecked, OnDestroy
         this.reference_to += '.' + this.questionId;
       }
     }
+
+    this.elementId = 'pia-evaluation-action-plan-' + this.reference_to.replace(/\./g, '-');
 
     this.evaluationForm = new FormGroup({
       actionPlanComment: new FormControl(),
@@ -186,6 +188,10 @@ export class EvaluationsComponent implements OnInit, AfterViewChecked, OnDestroy
     content.classList.remove('hide');
   }
 
+  actionPlanCommentFocusIn() {
+    this.loadEditor(true);
+  }
+
   /**
    * Disables action plan field when losing focus from it.
    * Disables inactive evaluation buttons (or does nothing if one has been clicked right after unfocus).
@@ -193,7 +199,8 @@ export class EvaluationsComponent implements OnInit, AfterViewChecked, OnDestroy
    * Saves data from action plan field.
    */
   actionPlanCommentFocusOut() {
-    const actionPlanValue = this.evaluationForm.value.actionPlanComment;
+    this.editor = null;
+    const actionPlanValue = this.evaluationForm.value.actionPlanComment.replace(/^\s+/, '').replace(/\s+$/, '');
     const commentValue = this.evaluationForm.value.evaluationComment;
     let noEvaluationButtonsClicked = true;
     const evaluationButtons: any = document.querySelectorAll('.pia-evaluationBlock-buttons button');
@@ -221,7 +228,9 @@ export class EvaluationsComponent implements OnInit, AfterViewChecked, OnDestroy
         this.displayEditButton = true;
       }
       this.evaluation.update().then(() => {
-        this._globalEvaluationService.checkForFinalValidation(this.pia, this.section, this.item);
+        this._ngZone.run(() => {
+          this._globalEvaluationService.checkForFinalValidation(this.pia, this.section, this.item);
+        });
       });
     }, 1);
   }
@@ -305,6 +314,7 @@ export class EvaluationsComponent implements OnInit, AfterViewChecked, OnDestroy
     this.displayEditButton = false;
     this.enableEvaluationButtons();
     this.evaluationForm.enable();
+    this.loadEditor();
   }
 
   /**
@@ -338,6 +348,36 @@ export class EvaluationsComponent implements OnInit, AfterViewChecked, OnDestroy
         textarea.style.height = (textarea.scrollHeight * 2 - textarea.clientHeight) + 'px';
 
     }
+  }
+
+  loadEditor(autofocus = false) {
+    tinymce.init({
+      branding: false,
+      menubar: false,
+      statusbar: false,
+      plugins: 'autoresize lists',
+      forced_root_block : false,
+      autoresize_bottom_margin: 20,
+      auto_focus: (autofocus ? this.elementId : ''),
+      autoresize_min_height: 30,
+      content_style: 'body {background-color:#eee!important;}' ,
+      selector: '#' + this.elementId,
+      toolbar: 'undo redo bold italic alignleft aligncenter alignright bullist numlist outdent indent',
+      skin_url: 'assets/skins/lightgray',
+      setup: editor => {
+        this.editor = editor;
+        editor.on('focusout', () => {
+          this.evaluationForm.controls['actionPlanComment'].patchValue(editor.getContent());
+          this.actionPlanCommentFocusOut();
+          tinymce.remove(this.editor);
+        });
+      },
+    });
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
+    tinymce.remove(this.editor);
   }
 
 }

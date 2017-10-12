@@ -131,6 +131,7 @@ export class EvaluationService {
 
   allAwsersIsInEvaluation(section: any, item: any) {
     this.someItemNeedToBeFixed = false;
+    this.showValidationButton = false;
     let reference_to = '';
     if (item.evaluation_mode === 'item') {
       reference_to = section.id + '.' + item.id;

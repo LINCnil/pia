@@ -160,6 +160,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
    */
   questionContentFocusOut() {
     this.editor = null;
+    this._knowledgeBaseService.placeholder = null;
     const gaugeValue = parseInt(this.questionForm.value.gauge, 10);
     const userText = this.questionForm.value.text.replace(/^\s+/, '').replace(/\s+$/, '');
     if (this.answer.id) {
