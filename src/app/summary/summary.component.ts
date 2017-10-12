@@ -76,7 +76,7 @@ export class SummaryComponent implements OnInit {
   showActionPlan() {
     this._actionPlanService.data = this.dataNav;
     this._actionPlanService.pia = this.pia;
-    this._actionPlanService.listActionPlan();
+    this._actionPlanService.listActionPlan(this._translateService);
   }
 
   private prepareHeader() {

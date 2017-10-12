@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Evaluation } from 'app/entry/entry-content/evaluations/evaluation.model';
 import { Measure } from 'app/entry/entry-content/measures/measure.model';
+import { TranslateService } from '@ngx-translate/core';
 
 @Injectable()
 export class ActionPlanService {
@@ -20,7 +21,7 @@ export class ActionPlanService {
   risksActionPlan33Ready = false;
   risksActionPlan34Ready = false;
 
-  listActionPlan() {
+  listActionPlan(translateService: TranslateService) {
     this.results = [];
     this.measures = [];
     const section = this.data.sections.filter((s) => {
@@ -57,10 +58,10 @@ export class ActionPlanService {
             if (evaluation2.action_plan_comment && evaluation2.action_plan_comment.length > 0) {
               this.measuresActionPlanReady = true;
             }
-            this.measures.push({ name: m.title, status: evaluation2.status, action_plan_comment: evaluation2.action_plan_comment,
-                                 evaluation: evaluation2 });
+            this.measures.push({ name: m.title, short_title: m.title, status: evaluation2.status,
+                                 action_plan_comment: evaluation2.action_plan_comment, evaluation: evaluation2 });
           } else {
-            this.measures.push({ name: m.title, status: null, action_plan_comment: null, evaluation: null });
+            this.measures.push({ name: m.title, short_title: null, status: null, action_plan_comment: null, evaluation: null });
           }
         });
       });
@@ -72,7 +73,8 @@ export class ActionPlanService {
         if (evaluation3.action_plan_comment && evaluation3.action_plan_comment.length > 0) {
           this.risksActionPlan32Ready = true;
         }
-        this.risks['3.2'] = { status: evaluation3.status, action_plan_comment: evaluation3.action_plan_comment, evaluation: evaluation3 };
+        this.risks['3.2'] = { status: evaluation3.status, short_title: translateService.instant('action_plan.risk1'),
+                              action_plan_comment: evaluation3.action_plan_comment, evaluation: evaluation3 };
       }
     });
 
@@ -82,7 +84,8 @@ export class ActionPlanService {
         if (evaluation4.action_plan_comment && evaluation4.action_plan_comment.length > 0) {
           this.risksActionPlan33Ready = true;
         }
-        this.risks['3.3'] = { status: evaluation4.status, action_plan_comment: evaluation4.action_plan_comment, evaluation: evaluation4 };
+        this.risks['3.3'] = { status: evaluation4.status, short_title: translateService.instant('action_plan.risk2'),
+                              action_plan_comment: evaluation4.action_plan_comment, evaluation: evaluation4 };
       }
     });
 
@@ -92,7 +95,8 @@ export class ActionPlanService {
         if (evaluation5.action_plan_comment && evaluation5.action_plan_comment.length > 0) {
           this.risksActionPlan34Ready = true;
         }
-        this.risks['3.4'] = { status: evaluation5.status, action_plan_comment: evaluation5.action_plan_comment, evaluation: evaluation5 };
+        this.risks['3.4'] = { status: evaluation5.status, short_title: translateService.instant('action_plan.risk3'),
+                              action_plan_comment: evaluation5.action_plan_comment, evaluation: evaluation5 };
       }
     });
   }
