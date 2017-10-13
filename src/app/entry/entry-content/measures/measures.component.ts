@@ -5,6 +5,7 @@ import { Measure } from './measure.model';
 import { Answer } from 'app/entry/entry-content/questions/answer.model';
 import { EvaluationService } from 'app/entry/entry-content/evaluations/evaluations.service';
 import { Evaluation } from 'app/entry/entry-content/evaluations/evaluation.model';
+import { KnowledgeBaseService } from 'app/entry/knowledge-base/knowledge-base.service';
 
 @Component({
   selector: 'app-measures',
@@ -29,6 +30,7 @@ export class MeasuresComponent implements OnInit, OnDestroy {
     private el: ElementRef,
     private _modalsService: ModalsService,
     private _evaluationService: EvaluationService,
+    private _knowledgeBaseService: KnowledgeBaseService,
     private _ngZone: NgZone,
     private renderer: Renderer2) { }
 
@@ -39,6 +41,7 @@ export class MeasuresComponent implements OnInit, OnDestroy {
     });
     this.measureModel.pia_id = this.pia.id;
     this.measureModel.get(this.measure.id).then(() => {
+      this._knowledgeBaseService.toHide.push(this.measure.title);
       this.elementId = 'pia-measure-content-' + this.measure.id;
       if (this.measureModel) {
         this.evaluation.getByReference(this.pia.id, this.measure.id).then(() => {

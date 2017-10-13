@@ -7,6 +7,7 @@ import { Measure } from './measure.model';
 import { ModalsService } from 'app/modals/modals.service';
 import { EvaluationService } from 'app/entry/entry-content/evaluations/evaluations.service';
 import { TranslateService } from '@ngx-translate/core';
+import { KnowledgeBaseService } from 'app/entry/knowledge-base/knowledge-base.service';
 
 @Injectable()
 export class MeasureService {
@@ -17,6 +18,7 @@ export class MeasureService {
 
   constructor(private _translateService: TranslateService,
               private _modalsService: ModalsService,
+              private _knowledgeBaseService: KnowledgeBaseService,
               private _evaluationService: EvaluationService) {}
 
   async listMeasures(pia_id: number) {
@@ -42,6 +44,7 @@ export class MeasureService {
     /* TODO : maybe move it after deletion has been completed, with a new measure Model */
     measure.get(measure_id).then(() => {
       this.behaviorSubject.next(measure.title);
+      this._knowledgeBaseService.toHide = this._knowledgeBaseService.toHide.filter(item => item !== measure.title);
     });
 
     /* Removing from DB */

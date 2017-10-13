@@ -13,6 +13,7 @@ export class KnowledgeBaseService {
   hasKnowledgeBaseData = true;
   placeholder: String;
   translateService: any;
+  toHide = [];
 
   loadData(http) {
     http.get('./assets/files/pia_knowledge-base.json').map(res => res.json()).subscribe(data => {

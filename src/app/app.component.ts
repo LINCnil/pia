@@ -19,8 +19,6 @@ export class SafeHtmlPipe implements PipeTransform  {
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  online = window.navigator.onLine;
-
   constructor(private _renderer: Renderer2,
               private _http: Http,
               private _knowledgeBaseService: KnowledgeBaseService,
