@@ -176,39 +176,31 @@ export class PiaService {
         answerModel.create();
       });
 
-      // Create measures
-      data.measures.forEach(measure => {
-        const measureModel = new Measure();
-        measureModel.title = measure.title;
-        measureModel.pia_id = pia_id;
-        measureModel.content = measure.content;
-        measureModel.placeholder = measure.placeholder;
-        measureModel.created_at = new Date(measure.created_at);
-        if (measure.updated_at) {
-          measureModel.updated_at = new Date(measure.updated_at);
-        }
-        measureModel.create();
-      });
-
-      // Create evaluations
-      data.evaluations.forEach(evaluation => {
-        const evaluationModel = new Evaluation();
-        evaluationModel.pia_id = pia_id;
-        evaluationModel.status = evaluation.status;
-        evaluationModel.reference_to = evaluation.reference_to;
-        evaluationModel.action_plan_comment = evaluation.action_plan_comment;
-        evaluationModel.evaluation_comment = evaluation.evaluation_comment;
-        evaluationModel.evaluation_date = new Date(evaluation.evaluation_date);
-        evaluationModel.gauges = evaluation.gauges;
-        evaluationModel.estimated_implementation_date = new Date(evaluation.estimated_implementation_date);
-        evaluationModel.person_in_charge = evaluation.person_in_charge;
-        evaluationModel.global_status = resetGlobalStatus ? 0 : evaluation.global_status;
-        evaluationModel.created_at = new Date(evaluation.created_at);
-        if (evaluation.updated_at) {
-          evaluationModel.updated_at = new Date(evaluation.updated_at);
-        }
-        evaluationModel.create();
-      });
+      if (data.measures.length > 0) {
+        let count = 0;
+        const oldIdToNewId = [];
+        // Create measures
+        data.measures.forEach(measure => {
+          const measureModel = new Measure();
+          measureModel.title = measure.title;
+          measureModel.pia_id = pia_id;
+          measureModel.content = measure.content;
+          measureModel.placeholder = measure.placeholder;
+          measureModel.created_at = new Date(measure.created_at);
+          if (measure.updated_at) {
+            measureModel.updated_at = new Date(measure.updated_at);
+          }
+          measureModel.create().then((id: number) => {
+            count++;
+            oldIdToNewId[measure.id] = id;
+            if (count === data.measures.length) {
+              this.importEvaluations(data, pia_id, resetGlobalStatus, oldIdToNewId);
+            }
+          });
+        });
+      } else {
+        this.importEvaluations(data, pia_id, resetGlobalStatus);
+      }
 
       // Create comments
       data.comments.forEach(comment => {
@@ -227,6 +219,35 @@ export class PiaService {
       pia.calculProgress().then(() => {
         this.pias.push(pia);
       });
+    });
+  }
+
+  private importEvaluations(data: any, pia_id: number, resetGlobalStatus: boolean, oldIdToNewId?: Array<any>) {
+    // Create evaluations
+    data.evaluations.forEach(evaluation => {
+      const evaluationModel = new Evaluation();
+      evaluationModel.pia_id = pia_id;
+      evaluationModel.status = evaluation.status;
+      let reference_to = evaluation.reference_to;
+      if (reference_to.startsWith('3.1') && oldIdToNewId) {
+        const ref = reference_to.split('.')
+        if (oldIdToNewId[ref[2]]) {
+          reference_to = '3.1.' + oldIdToNewId[ref[2]];
+        }
+      }
+      evaluationModel.reference_to = reference_to;
+      evaluationModel.action_plan_comment = evaluation.action_plan_comment;
+      evaluationModel.evaluation_comment = evaluation.evaluation_comment;
+      evaluationModel.evaluation_date = new Date(evaluation.evaluation_date);
+      evaluationModel.gauges = evaluation.gauges;
+      evaluationModel.estimated_implementation_date = new Date(evaluation.estimated_implementation_date);
+      evaluationModel.person_in_charge = evaluation.person_in_charge;
+      evaluationModel.global_status = resetGlobalStatus ? 0 : evaluation.global_status;
+      evaluationModel.created_at = new Date(evaluation.created_at);
+      if (evaluation.updated_at) {
+        evaluationModel.updated_at = new Date(evaluation.updated_at);
+      }
+      evaluationModel.create();
     });
   }
 
