@@ -11,12 +11,13 @@ export class Measure extends ApplicationDb {
   }
 
   async create() {
+    this.created_at = new Date();
     const data = {
         title: this.title,
         pia_id: this.pia_id,
         content: this.content,
         placeholder: this.placeholder,
-        created_at: new Date()
+        created_at: this.created_at
       };
     return new Promise((resolve, reject) => {
       if (this.serverUrl) {
@@ -56,7 +57,7 @@ export class Measure extends ApplicationDb {
             formData.append('measure[' + d + ']', entry[d]);
           }
           fetch(this.getServerUrl() + '/' + this.id, {
-            method: "PATCH",
+            method: 'PATCH',
             body: formData
           }).then((response) => {
             return response.json();
