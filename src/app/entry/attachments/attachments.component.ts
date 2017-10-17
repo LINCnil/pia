@@ -32,19 +32,20 @@ export class AttachmentsComponent implements OnInit {
 
   /**
    * Allows users to add attachments to a PIA.
+   * @memberof AttachmentsComponent
    */
   addAttachment() {
-    // This attachment is a simple attachment
     this._attachmentsService.pia_signed = 0;
-    const attachment: any = document.querySelector('[formcontrolname="attachment_file"]');
+    const attachment = <HTMLInputElement>document.querySelector('[formcontrolname="attachment_file"]');
     attachment.click();
   }
 
   /**
    * Allows users to upload an attachment for a specific PIA.
    * @param {event} event : any kind of event.
+   * @memberof AttachmentsComponent
    */
-  uploadAttachement(event: any) {
-    this._attachmentsService.upload(event.target.files[0]);
+  uploadAttachement(event: Event) {
+    this._attachmentsService.upload((<HTMLInputElement>event.target).files[0]);
   }
 }

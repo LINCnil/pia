@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Renderer2 } from "@angular/core";
+import { Renderer2 } from '@angular/core';
 
 @Component({
   selector: 'app-authentication',
@@ -17,6 +17,7 @@ export class AuthenticationComponent implements OnInit, OnDestroy {
 
   /**
    * Removes authentication class on component destruction, so that it is not shown on other pages.
+   * @memberof AuthenticationComponent
    */
   ngOnDestroy() {
     this.renderer.removeClass(document.body, 'pia-authentication');

@@ -44,16 +44,30 @@ export class ValidatePIAComponent implements OnInit {
     });
   }
 
+  /**
+   * Open the dialog box to select an attachment to upload
+   * @memberof ValidatePIAComponent
+   */
   addAttachment() {
     const attachment: any = document.querySelector('[formcontrolname="attachment_file"]');
     this._attachmentsService.pia_signed = 1;
     attachment.click();
   }
 
+  /**
+   * Download an attachment
+   * @param {number} id
+   * @memberof ValidatePIAComponent
+   */
   downloadAttachment(id: number) {
     this._attachmentsService.downloadAttachment(id);
   }
 
+  /**
+   * Destroy an attachment
+   * @param {number} id
+   * @memberof ValidatePIAComponent
+   */
   removeAttachment(id: number) {
     localStorage.setItem('attachment-id', id.toString());
     this._modalsService.openModal('modal-remove-attachment');
@@ -62,6 +76,7 @@ export class ValidatePIAComponent implements OnInit {
   /**
    * Checks if the form is valid (radio buttons all checked).
    * If so, enables validation buttons.
+   * @memberof ValidatePIAComponent
    */
   checkValidationFormStatus() {
     let allBtnChecked = true;
@@ -83,14 +98,17 @@ export class ValidatePIAComponent implements OnInit {
 
   /**
    * Locks radio buttons after click.
+   * @param {any} event
+   * @memberof ValidatePIAComponent
    */
-  lockStatus(event) {
+  lockStatus(event: any) {
     const clickedRadioButton = event.target || event.srcElement || event.currentTarget;
     clickedRadioButton.setAttribute('disabled', true);
   }
 
   /**
    * Allows users to make a simple validation of a PIA.
+   * @memberof ValidatePIAComponent
    */
   simplePIAValidation() {
     this._piaService.pia.status = 2;
@@ -101,6 +119,7 @@ export class ValidatePIAComponent implements OnInit {
 
   /**
    * Allows users to make a signed validation of a PIA.
+   * @memberof ValidatePIAComponent
    */
   signedPIAValidation() {
     this._piaService.pia.status = 3;

@@ -30,16 +30,26 @@ export class HeaderComponent implements OnInit, DoCheck {
   /**
    * Manually updates the contrast. Can be executed by users through header.
    * @param {any} event - Any kind of event
+   * @memberof HeaderComponent
    */
   changeContrast(event: any) {
     localStorage.setItem('increaseContrast', event.target.checked);
     this.updateContrast();
   }
 
+  /**
+   * Record the selected language
+   * @param {string} selectedLanguage
+   * @memberof HeaderComponent
+   */
   updateCurrentLanguage(selectedLanguage: string) {
     localStorage.setItem('userLanguage', selectedLanguage);
   }
 
+  /**
+   * Retrieve the selected language
+   * @memberof HeaderComponent
+   */
   getUserLanguage() {
     const language = localStorage.getItem('userLanguage');
     if (language && language.length > 0) {
@@ -52,6 +62,8 @@ export class HeaderComponent implements OnInit, DoCheck {
 
   /**
    * Updates colors contrast on the whole application for people with visual disabilities.
+   * @private
+   * @memberof HeaderComponent
    */
   private updateContrast() {
     this.increaseContrast = localStorage.getItem('increaseContrast');

@@ -133,31 +133,9 @@ export class RisksCartographyComponent implements OnInit, OnDestroy {
 
   /**
    * Loads the risks cartography with author and evalutor choices positioned as dots.
+   * @memberof RisksCartographyComponent
    */
   loadCartography() {
-
-      /* /!\ TO READ :
-      *
-      * Canvas size is 400 x 400
-      * Canvas has 4 lines and 4 columns (numbered from 1 to 4, from top to bottom and from left to right)
-      *
-      * 16 blocks, each having a size of 100 x 100
-      *
-      * /!\ Dots placement in a block is the following :
-      * dot x position : block x position + 20
-      * dot y position : block y position + 80
-      *
-      * Example with a block (line 3, column 3) :
-      * Block position is x = 200 and y = 200
-      * Then the dot position will be x = 220 and y = 280
-      *
-      * /!\  For texts under evaluation dots, they are displayed this way :
-      * text x position : dot x position
-      * text y position : dot y position + 20
-      * For the second text line (under first text), add 12 additionnal pixels to text y position
-      *
-      */
-
       // Instanciation of canvas context
       const canvas = <HTMLCanvasElement>document.getElementById('actionPlanCartography');
       const context = canvas.getContext('2d');
@@ -392,7 +370,16 @@ export class RisksCartographyComponent implements OnInit, OnDestroy {
       }
   }
 
-  canvasArrow(context, fromx, fromy, tox, toy) {
+  /**
+   * Draw an arrow between two point
+   * @param {CanvasRenderingContext2D} context
+   * @param {number} fromx
+   * @param {number} fromy
+   * @param {number} tox
+   * @param {number} toy
+   * @memberof RisksCartographyComponent
+   */
+  canvasArrow(context: CanvasRenderingContext2D, fromx: number, fromy: number, tox: number, toy: number) {
     const headlength = 16;
     const angle = Math.atan2(toy - fromy, tox - fromx);
     context.moveTo(fromx, fromy);

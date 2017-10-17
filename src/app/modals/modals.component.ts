@@ -40,6 +40,7 @@ export class ModalsComponent implements OnInit {
 
   /**
    * Returns to homepage (used on several modals).
+   * @memberof ModalsComponent
    */
   returnToHomepage() {
     this._modalsService.closeModal();
@@ -49,6 +50,7 @@ export class ModalsComponent implements OnInit {
   /**
    * Save the newly created PIA.
    * Sends to the path associated to this new PIA.
+   * @memberof ModalsComponent
    */
   onSubmit() {
     const pia = new Pia();

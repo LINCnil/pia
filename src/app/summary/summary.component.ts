@@ -45,6 +45,10 @@ export class SummaryComponent implements OnInit {
     });
   }
 
+  /**
+   * Prepare and display the PIA information
+   * @memberof SummaryComponent
+   */
   showPia() {
     this.prepareHeader();
 
@@ -73,12 +77,21 @@ export class SummaryComponent implements OnInit {
     });
   }
 
+  /**
+   * Prepare and display the ActionPlan information
+   * @memberof SummaryComponent
+   */
   showActionPlan() {
     this._actionPlanService.data = this.dataNav;
     this._actionPlanService.pia = this.pia;
     this._actionPlanService.listActionPlan(this._translateService);
   }
 
+  /**
+   * Get PIA information
+   * @private
+   * @memberof SummaryComponent
+   */
   private prepareHeader() {
     const el = { title: 'summary.title', data: [] };
 
@@ -164,6 +177,12 @@ export class SummaryComponent implements OnInit {
     this.content.push(el);
   }
 
+  /**
+   * Get information from the JSON file
+   * @returns {Promise}
+   * @private
+   * @memberof SummaryComponent
+   */
   private getJsonInfo() {
     this.allData = [];
     return new Promise((resolve, reject) => {

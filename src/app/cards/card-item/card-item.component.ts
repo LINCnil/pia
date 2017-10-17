@@ -45,6 +45,7 @@ export class CardItemComponent implements OnInit {
 
   /**
    * Enables or disables edition mode on PIA main fields.
+   * @memberof CardItemComponent
    */
   activateEdition() {
     this.editMode = !this.editMode;
@@ -55,6 +56,10 @@ export class CardItemComponent implements OnInit {
     }
   }
 
+  /**
+   * Update PIA informations
+   * @memberof CardItemComponent
+   */
   onSubmit() {
     const pia = new Pia();
     pia.id = this.piaForm.value.id;
@@ -71,12 +76,18 @@ export class CardItemComponent implements OnInit {
   /**
    * Deletes a PIA with a given id.
    * @param {string} id unique id of the PIA to be deleted.
+   * @memberof CardItemComponent
    */
   removePia(id: string) {
     localStorage.setItem('pia-id', id);
     this._modalsService.openModal('modal-remove-pia');
   }
 
+  /**
+   * Export a PIA in JSON format
+   * @param {number} id
+   * @memberof CardItemComponent
+   */
   export(id: number) {
     this._piaService.export(id);
   }

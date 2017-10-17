@@ -70,6 +70,12 @@ export class MeasuresComponent implements OnInit, OnDestroy {
     });
   }
 
+  /**
+   * Enable auto resizing on tetarea
+   * @param {*} event
+   * @param {HTMLElement} textarea
+   * @memberof MeasuresComponent
+   */
   autoTextareaResize(event: any, textarea: HTMLElement) {
     if (event) {
       textarea = event.target;
@@ -82,11 +88,20 @@ export class MeasuresComponent implements OnInit, OnDestroy {
     }
   }
 
-  evaluationChange(evaluation) {
+  /**
+   * Change evaluation
+   * @param {*} evaluation
+   * @memberof MeasuresComponent
+   */
+  evaluationChange(evaluation: any) {
     this.evaluation = evaluation;
     this.checkDisplayButtons();
   }
 
+  /**
+   * Show or hide the edit button
+   * @memberof MeasuresComponent
+   */
   checkDisplayButtons() {
     if (this._evaluationService.showValidationButton) {
       this.displayEditButton = false;
@@ -106,8 +121,9 @@ export class MeasuresComponent implements OnInit, OnDestroy {
    * Shows measure edit button.
    * Saves data from title field.
    * @param {event} event any event.
+   * @memberof MeasuresComponent
    */
-  measureTitleFocusOut(event) {
+  measureTitleFocusOut(event: Event) {
     const titleValue = this.measureForm.value.measureTitle;
     const contentValue = this.measureForm.value.measureContent;
 
@@ -181,7 +197,7 @@ export class MeasuresComponent implements OnInit, OnDestroy {
    * Disables content field when losing focus from it.
    * Shows measure edit button.
    * Saves data from content field.
-   * @param {event} event any event.
+   * @memberof MeasuresComponent
    */
   measureContentFocusOut() {
     this.editor = null;
@@ -224,6 +240,7 @@ export class MeasuresComponent implements OnInit, OnDestroy {
 
   /**
    * Enables or disables edition mode (fields) for measures.
+   * @memberof MeasuresComponent
    */
   activateMeasureEdition() {
     this.displayEditButton = false;
@@ -233,6 +250,8 @@ export class MeasuresComponent implements OnInit, OnDestroy {
 
   /**
    * Shows or hides a measure.
+   * @param {*} event
+   * @memberof MeasuresComponent
    */
   displayMeasure(event: any) {
     const accordeon = this.el.nativeElement.querySelector('.pia-measureBlock-title button');
@@ -260,24 +279,31 @@ export class MeasuresComponent implements OnInit, OnDestroy {
 
   /**
    * Allows an user to remove a measure.
+   * @param {string} measureId
+   * @memberof MeasuresComponent
    */
-  removeMeasure(measureID: string) {
+  removeMeasure(measureId: string) {
     const measuresCount = document.querySelectorAll('.pia-measureBlock');
     if (measuresCount && measuresCount.length <= 1) {
       this._modalsService.openModal('not-enough-measures-to-remove');
     } else {
-      localStorage.setItem('measure-id', measureID);
+      localStorage.setItem('measure-id', measureId);
       this._modalsService.openModal('remove-measure');
     }
   }
 
   /**
    * Load wysiwyg editor
+   * @memberof MeasuresComponent
    */
   measureContentFocusIn() {
     this.loadEditor();
   }
 
+  /**
+   * Load wysiwyg editor
+   * @memberof MeasuresComponent
+   */
   loadEditor() {
     tinymce.init({
       branding: false,

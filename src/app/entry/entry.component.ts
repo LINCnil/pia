@@ -94,7 +94,14 @@ export class EntryComponent implements OnInit, OnDestroy, DoCheck {
     }
   }
 
-  private getSectionAndItem(sectionId, itemId) {
+  /**
+   * Get the current Section and Item and initialize others information
+   * @private
+   * @param {number} sectionId
+   * @param {number} itemId
+   * @memberof EntryComponent
+   */
+  private getSectionAndItem(sectionId: number, itemId: number) {
     this.section = this.data['sections'].filter((section) => {
       return section.id === sectionId;
     })[0];

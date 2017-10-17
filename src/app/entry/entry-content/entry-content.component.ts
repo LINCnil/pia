@@ -58,12 +58,17 @@ export class EntryContentComponent implements OnInit, OnChanges {
                                           parseInt(this._activatedRoute.snapshot.params['item_id'], 10));
   }
 
+  /**
+   * Prepare entry for evaluation
+   * @memberof EntryContentComponent
+   */
   prepareForEvaluation() {
     this._evaluationService.prepareForEvaluation(this._piaService, this._sidStatusService, this.section, this.item);
   }
 
   /**
    * Allows an user to validate evaluation for a section.
+   * @memberof EntryContentComponent
    */
   validateEvaluation() {
     this._evaluationService.validateAllEvaluation().then((valid: boolean) => {

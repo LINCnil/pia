@@ -68,6 +68,7 @@ export class RefusePIAComponent implements OnInit {
 
   /**
    * Executes functionnalities when focusing rejection reason field.
+   * @memberof RefusePIAComponent
    */
   rejectionReasonFocus() {
     this.displayEditButton1 = false;
@@ -75,6 +76,7 @@ export class RefusePIAComponent implements OnInit {
 
   /**
    * Executes functionnalities when focusing modifications made field.
+   * @memberof RefusePIAComponent
    */
   modificationsMadeFocus() {
     this.displayEditButton2 = false;
@@ -82,16 +84,25 @@ export class RefusePIAComponent implements OnInit {
 
   /**
    * Enable rejection reason and modification made fields
+   * @memberof RefusePIAComponent
    */
   activateRejectionReasonEdition() {
     this.displayEditButton1 = false;
     this.rejectionReasonForm.controls['rejectionReason'].enable();
   }
 
+  /**
+   * Display the modal to abandon
+   * @memberof RefusePIAComponent
+   */
   abandon() {
     this._modalsService.openModal('modal-abandon-pia');
   }
 
+  /**
+   * Refuse the PIA and navigate to the root page of the PIA
+   * @memberof RefusePIAComponent
+   */
   refuse() {
     this._piaService.pia.status = 1;
     this._piaService.pia.update().then(() => {
@@ -104,6 +115,7 @@ export class RefusePIAComponent implements OnInit {
 
   /**
    * Executes functionnalities when losing focus from rejection reason field.
+   * @memberof RefusePIAComponent
    */
   rejectionReasonFocusOut() {
     const rejectionReasonValue = this.rejectionReasonForm.value.rejectionReason;
@@ -122,6 +134,7 @@ export class RefusePIAComponent implements OnInit {
 
   /**
    * Executes functionnalities when losing focus from modifications made field.
+   * @memberof RefusePIAComponent
    */
   modificationsMadeFocusOut() {
     const modificationsMadeValue = this.modificationsMadeForm.value.modificationsMade
@@ -146,6 +159,12 @@ export class RefusePIAComponent implements OnInit {
     this._piaService.pia.update();
   }
 
+  /**
+   * Enable auto resizing on tetarea
+   * @param {*} event
+   * @param {HTMLElement} textarea
+   * @memberof RefusePIAComponent
+   */
   autoTextareaResize(event: any, textarea: HTMLElement) {
     if (event) {
       textarea = event.target;

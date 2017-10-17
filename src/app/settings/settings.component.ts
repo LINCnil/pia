@@ -22,6 +22,10 @@ export class SettingsComponent implements OnInit {
     this.settingsForm.patchValue({ server_url: localStorage.getItem('server_url') });
   }
 
+  /**
+   * Record the URL of the server
+   * @memberof SettingsComponent
+   */
   onSubmit() {
     localStorage.setItem('server_url', this.settingsForm.value.server_url);
     this._modalsService.openModal('modal-update-server-url');
