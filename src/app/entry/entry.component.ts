@@ -149,7 +149,7 @@ export class EntryComponent implements OnInit, OnDestroy, DoCheck {
 
     this._knowledgeBaseService.q = null;
     this._knowledgeBaseService.loadByItem(this.item);
-
+    this._knowledgeBaseService.placeholder = null;
   }
 
   ngOnDestroy() {
