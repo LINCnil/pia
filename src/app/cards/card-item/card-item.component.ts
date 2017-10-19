@@ -58,16 +58,17 @@ export class CardItemComponent implements OnInit {
 
   /**
    * Update PIA informations
+   * @returns {Promise}
    * @memberof CardItemComponent
    */
   onSubmit() {
     const pia = new Pia();
-    pia.find(this.piaForm.value.id).then((entry: any) => {
-      entry.name = this.piaForm.value.name;
-      entry.author_name = this.piaForm.value.author_name;
-      entry.evaluator_name = this.piaForm.value.evaluator_name;
-      entry.validator_name = this.piaForm.value.validator_name;
-      entry.update();
+    pia.get(this.piaForm.value.id).then(() => {
+      pia.name = this.piaForm.value.name;
+      pia.author_name = this.piaForm.value.author_name;
+      pia.evaluator_name = this.piaForm.value.evaluator_name;
+      pia.validator_name = this.piaForm.value.validator_name;
+      pia.update();
       this.activateEdition();
     });
   }
