@@ -68,7 +68,7 @@
 
         <!-- Opinions searched or not searched -->
         <form style="margin-top:16px;" [formGroup]="searchedOpinionsForm">
-          <div class="pia-entryContentBlock-content-DPO-treatment">
+          <div class="pia-entryContentBlock-content-people-treatment">
             <div>
               <input type="radio"
               id="concerned-people-choice-searched"
@@ -115,7 +115,7 @@
               </ng-template>
             </span>{{ 'opinions.content' | translate }}
           </p>
-          <div class="pia-entryContentBlock-content-DPO-treatment">
+          <div class="pia-entryContentBlock-content-people-treatment">
             <div>
               <input type="radio" id="dpoAvis-1" [checked]="_piaService.pia.concerned_people_status == 1" (change)="peopleFocusOutStatus()" formControlName="peopleStatus" value="1">
               <label for="dpoAvis-1">
@@ -133,7 +133,7 @@
               </label>
             </div>
           </div>
-          <div class="pia-entryContentBlock-content-DPO-reasons">
+          <div class="pia-entryContentBlock-content-people-reasons">
             <textarea (keyup)="autoTextareaResize($event)" id="pia-opinions-people" rows="8" formControlName="peopleOpinion" (focusout)="peopleFocusOutOpinion()" cols="50" placeholder="{{ 'opinions.placeholder_people_opinion' | translate }}"></textarea>
           </div>
         </form>

@@ -85,7 +85,7 @@
             }
             &:last-child {
               input:checked + label {
-                background-color: $pia-red !important;
+                background-color: $pia-red;
               }
             }
           }
