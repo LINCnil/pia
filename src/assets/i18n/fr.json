@@ -35,7 +35,7 @@
       "new_pia": "Nouveau PIA",
       "import_pia": "Importer PIA",
       "list_rocket_content": "Lancez-vous ! Pour commencer<br>un PIA, cliquez sur le +",
-      "card_rocket_content": "Lancez-vous !<br><br>Pour commencer<br>un PIA, cliquez sur le +"
+      "card_rocket_content": "Lancez-vous !<br><br>Pour commencer<br>un PIA, cliquez<br> sur le +"
     },
     "cards": {
       "new_pia": "Nouveau PIA",
@@ -779,6 +779,10 @@
     "dpo_name": "Nom du DPO",
     "dpo_status": "Statut du DPO",
     "dpo_opinion": "Opinion du DPO",
+    "concerned_people_searched_opinion": "Recherche de l'avis des personnes concernées",
+    "people_search_status_ok": "L'avis des personnes concernées a été demandé.",
+    "people_search_status_nok": "L'avis des personnes concernées n'a pas été demandé.",
+    "concerned_people_unsearched_opinion_comment": "Raison pour laquelle l'avis des personnes concernées n'a pas été demandé",
     "concerned_people_name": "Noms des personnes concernées",
     "concerned_people_status": "Statuts des personnes concernées",
     "concerned_people_opinion": "Opinions des personnes concernées",
@@ -840,13 +844,14 @@
     "dpo_opinion": "Avis du DPO",
     "placeholder_dpo_name": "Nom(s) du(des) DPO",
     "placeholder_dpo_opinion": "Précisez les raisons de votre choix",
-    "dpo_lock": "Merci de remplir les autres sections avant de pouvoir saisir l'avis du DPO.",
+    "dpo_lock": "Veuillez remplir les autres sections avant de pouvoir saisir l'avis du DPO.",
     "people_opinion": "Avis des personnes concernées",
     "placeholder_concerned_people_name": "Nom(s) de la(des) personne(s) concernée(s)",
     "placeholder_people_opinion": "Décrivez comment les avis ont été collectés et quelle en est l'analyse. Dans le cas où les avis n'ont pas été recherchés, en préciser les raisons.",
+    "placeholder_search_content": "Justifier la raison pour laquelle l’avis des personnes concernées n’a pas été demandé.",
     "treatment_ok": "Le traitement pourrait être mis en oeuvre.",
     "treatment_nok": "Le traitement ne devrait pas être mis en oeuvre.",
-    "treatment_lock": "Merci de remplir les autres sections avant de pouvoir saisir l'avis des personnes concernées."
+    "treatment_lock": "Veuillez remplir les autres sections avant de pouvoir saisir l'avis des personnes concernées."
   },
   "sections": {
     "1": {

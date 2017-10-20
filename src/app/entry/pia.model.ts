@@ -12,6 +12,8 @@ export class Pia extends ApplicationDb {
   public dpo_opinion: string;
   public concerned_people_opinion: string;
   public concerned_people_status: number; // 0: NOK, 1: OK
+  public concerned_people_searched_opinion: boolean; // 0 : false, 1: true
+  public concerned_people_searched_content: string;
   public rejected_reason: string;
   public applied_adjustements: string;
   public dpos_names: string;
@@ -47,6 +49,8 @@ export class Pia extends ApplicationDb {
           newPia.status = element.status;
           newPia.dpos_names = element.dpos_names;
           newPia.people_names = element.people_names;
+          newPia.concerned_people_searched_opinion = element.concerned_people_searched_opinion;
+          newPia.concerned_people_searched_content = element.concerned_people_searched_content;
           newPia.created_at = new Date(element.created_at);
           newPia.updated_at = new Date(element.updated_at);
           const answer = new Answer();
@@ -90,7 +94,9 @@ export class Pia extends ApplicationDb {
       updated_at: this.updated_at,
       status: 0,
       dpos_names: this.dpos_names,
-      people_names: this.people_names
+      people_names: this.people_names,
+      concerned_people_searched_opinion: this.concerned_people_searched_opinion,
+      concerned_people_searched_content: this.concerned_people_searched_content
     };
 
     return new Promise((resolve, reject) => {
@@ -137,6 +143,8 @@ export class Pia extends ApplicationDb {
         entry.status = this.status;
         entry.dpos_names = this.dpos_names;
         entry.people_names = this.people_names;
+        entry.concerned_people_searched_opinion = this.concerned_people_searched_opinion;
+        entry.concerned_people_searched_content = this.concerned_people_searched_content;
         entry.updated_at = new Date();
         if (this.serverUrl) {
           const formData = new FormData();
@@ -186,7 +194,8 @@ export class Pia extends ApplicationDb {
           this.updated_at = new Date(entry.updated_at);
           this.dpos_names = entry.dpos_names;
           this.people_names = entry.people_names;
-          this.status = entry.status;
+          this.concerned_people_searched_opinion = entry.concerned_people_searched_opinion;
+          this.concerned_people_searched_content = entry.concerned_people_searched_content;
         }
         resolve();
       });
@@ -217,6 +226,15 @@ export class Pia extends ApplicationDb {
       }
     }
   }
+
+  getPeopleSearchStatus(status: boolean) {
+    if (status === true) {
+      return 'summary.people_search_status_ok';
+    } else {
+      return 'summary.people_search_status_nok';
+    }
+  }
+
   getOpinionsStatus(status: string) {
     if (status) {
       switch (status) {

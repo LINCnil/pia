@@ -151,11 +151,13 @@ export class PiaService {
     pia.dpo_opinion = data.pia.dpo_opinion;
     pia.concerned_people_opinion = data.pia.concerned_people_opinion;
     pia.concerned_people_status = data.pia.concerned_people_status;
+    pia.concerned_people_searched_opinion = data.pia.concerned_people_searched_opinion;
+    pia.concerned_people_searched_content = data.pia.concerned_people_searched_content;
     pia.rejected_reason = data.pia.rejected_reason;
     pia.applied_adjustements = data.pia.applied_adjustements;
     pia.created_at = data.pia.created_at;
     pia.dpos_names = data.pia.dpos_names;
-    pia.people_names = data.pia.people_name;
+    pia.people_names = data.pia.people_names;
     pia.status = data.pia.status;
     pia.created_at = new Date(data.pia.created_at);
     if (data.pia.updated_at) {

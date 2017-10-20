@@ -35,7 +35,7 @@
       "new_pia": "New PIA",
       "import_pia": "Import PIA",
       "list_rocket_content": "Get started ! To initiate <br>a PIA, click on the +",
-      "card_rocket_content": "Get started !<br><br>To initiate <br>a PIA, click on New PIA"
+      "card_rocket_content": "Get started !<br><br>To initiate a PIA,<br> click on New PIA"
     },
     "cards": {
      "new_pia": "New PIA",
@@ -779,6 +779,10 @@
     "dpo_name": "DPO's name",
     "dpo_status": "DPO's status",
     "dpo_opinion": "DPO's opinion",
+    "concerned_people_searched_opinion": "Search of concerned people opinion",
+    "people_search_status_ok": "Concerned people opinion was requested.",
+    "people_search_status_nok": "Concerned people opinion wasn't requested.",
+    "concerned_people_unsearched_opinion_comment": "Reason why concerned people opinion wasn't requested",
     "concerned_people_name": "Concerned people opinions",
     "concerned_people_status": "Concerned people statuses",
     "concerned_people_opinion": "Concerned people opinions",
@@ -840,13 +844,14 @@
     "dpo_opinion": "DPO opinion",
     "placeholder_dpo_name": "DPO name(s)",
     "placeholder_dpo_opinion": "Specify the reasons for your choice.",
-    "dpo_lock": "Please complete the other sections before you can enter the DPO opinion.",
+    "dpo_lock": "Please complete the other sections before you can fill the DPO opinion.",
     "people_opinion": "Concerned people opinion",
     "placeholder_concerned_people_name": "Concerned people name(s)",
     "placeholder_people_opinion": "Describe how the opinions were collected and what the analysis is. If the notices have not been sought, state the reasons.",
+    "placeholder_search_content": "Justify the reason why the opinion of the persons concerned has not been requested.",
     "treatment_ok": "The treatment could be implemented.",
     "treatment_nok": "The treatment should not be used.",
-    "treatment_lock": "Please complete the other sections before you can enter the opinions of the persons concerned."
+    "treatment_lock": "Please complete the other sections before you can fill the opinions of the persons concerned."
   },
   "sections": {
     "1": {

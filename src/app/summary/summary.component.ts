@@ -137,24 +137,47 @@ export class SummaryComponent implements OnInit {
         content: this.pia.dpo_opinion
       });
     }
-    if (this.pia.people_names && this.pia.people_names.length > 0) {
+
+    // Searched opinion for concerned people
+    if (this.pia.concerned_people_searched_opinion === true) {
       el.data.push({
-        title: 'summary.concerned_people_name',
-        content: this.pia.people_names
+        title: 'summary.concerned_people_searched_opinion',
+        content: this.pia.getPeopleSearchStatus(this.pia.concerned_people_searched_opinion)
       });
+      if (this.pia.people_names && this.pia.people_names.length > 0) {
+        el.data.push({
+          title: 'summary.concerned_people_name',
+          content: this.pia.people_names
+        });
+      }
+      if (this.pia.concerned_people_status >= 0) {
+        el.data.push({
+          title: 'summary.concerned_people_status',
+          content: this.pia.getOpinionsStatus(this.pia.concerned_people_status.toString())
+        });
+      }
+      if (this.pia.concerned_people_opinion && this.pia.concerned_people_opinion.length > 0) {
+        el.data.push({
+          title: 'summary.concerned_people_opinion',
+          content: this.pia.concerned_people_opinion
+        });
+      }
     }
-    if (this.pia.concerned_people_status >= 0) {
+
+    // Unsearched opinion for concerned people
+    if (this.pia.concerned_people_searched_opinion === false) {
       el.data.push({
-        title: 'summary.concerned_people_status',
-        content: this.pia.getOpinionsStatus(this.pia.concerned_people_status.toString())
+        title: 'summary.concerned_people_searched_opinion',
+        content: this.pia.getPeopleSearchStatus(this.pia.concerned_people_searched_opinion)
       });
+      if (this.pia.concerned_people_searched_content && this.pia.concerned_people_searched_content.length > 0) {
+        el.data.push({
+          title: 'summary.concerned_people_unsearched_opinion_comment',
+          content: this.pia.concerned_people_searched_content
+        });
+      }
     }
-    if (this.pia.concerned_people_opinion && this.pia.concerned_people_opinion.length > 0) {
-      el.data.push({
-        title: 'summary.concerned_people_opinion',
-        content: this.pia.concerned_people_opinion
-      });
-    }
+
     if (this.pia.applied_adjustements && this.pia.applied_adjustements.length > 0) {
       el.data.push({
         title: 'summary.modification_made',
