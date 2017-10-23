@@ -22,6 +22,8 @@ export class CommentsComponent implements OnInit {
   @Input() pia: any;
   @Input() answer: any;
   questionDate: Date;
+  newCommentDisplayer: boolean;
+  displayCommentValidateBtn: boolean;
 
   constructor(private el: ElementRef,
               private _measureService: MeasureService,
@@ -50,6 +52,7 @@ export class CommentsComponent implements OnInit {
     this.commentsForm = new FormGroup({
       description: new FormControl()
     });
+
   }
 
 
@@ -70,16 +73,27 @@ export class CommentsComponent implements OnInit {
       commentsList.classList.remove('close');
     }
     newCommentBox.classList.toggle('open');
+    this.displayCommentValidateBtn = !this.displayCommentValidateBtn;
   }
 
   /**
-   * Shows or hides the block which allows users to create a new comment.
+   * create a new comment
    * @memberof CommentsComponent
    */
-  newCommentFocusOut() {
+  newCommentOnChange(event) {
+    // Checks if the comment value exists.
+    if (event && event.length > 0) {
+      this.newCommentDisplayer = true;
+    } else {
+      this.newCommentDisplayer = false;
+    }
+  }
+  newCommentClickBtn() {
     // Checks if the comment value exists.
     if (this.commentsForm.value.description && this.commentsForm.value.description.length > 0) {
       // Checks if there are already comments and if so, checks if the last comment value is different from our current comment.
+
+      // add Btn status
       if (this.comments.length > 0 && this.comments[0].description === this.commentsForm.value.description) {
         this._modalsService.openModal('modal-same-comment');
       } else {
@@ -99,8 +113,8 @@ export class CommentsComponent implements OnInit {
           commentRecord.id = id;
           this.comments.unshift(commentRecord);
           this.commentsForm.controls['description'].setValue('');
-          this.toggleNewCommentBox();
           this.getCommentsAccordeonStatus();
+          this.newCommentDisplayer = false;
         });
       }
     }

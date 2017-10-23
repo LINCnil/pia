@@ -11,10 +11,11 @@
       </button>
         </div>
     </div>
-    <form [formGroup]="commentsForm" class="pia-commentsBlock-new fadeIn" (focusout)="newCommentFocusOut()">
-        <textarea formControlName="description" placeholder="{{ 'comments.placeholder_new_comment' | translate }}" rows="8" cols="50"></textarea>
-    </form>
     <div class="pia-commentsBlock-list close">
+      <form [formGroup]="commentsForm" class="pia-commentsBlock-new fadeIn">
+        <textarea formControlName="description" (ngModelChange)="newCommentOnChange($event)" placeholder="{{ 'comments.placeholder_new_comment' | translate }}" rows="8" cols="50"></textarea>
+      </form>
         <app-comment-item *ngFor="let comment of comments" [comment]="comment"></app-comment-item>
+      <button type="button" *ngIf="displayCommentValidateBtn" class="btn pia-commentBtnSubmit btn-green" [disabled]="!newCommentDisplayer" (click)="newCommentClickBtn()">Valider</button>
     </div>
 </div>
