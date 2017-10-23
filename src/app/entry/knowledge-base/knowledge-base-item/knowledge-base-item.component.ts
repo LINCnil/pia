@@ -2,6 +2,7 @@ import { Component, ElementRef, OnInit, Input, Output, EventEmitter } from '@ang
 import { Router, ActivatedRoute } from '@angular/router';
 import { KnowledgeBaseService } from '../knowledge-base.service';
 import { EvaluationService } from 'app/entry/entry-content/evaluations/evaluations.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-knowledge-base-item',
@@ -13,19 +14,25 @@ export class KnowledgeBaseItemComponent implements OnInit {
   @Input() item: any;
   @Input() itemKb: any;
   @Output() newMeasureEvent: EventEmitter<any> = new EventEmitter<any>();
+  titleKb: string;
 
   constructor(private el: ElementRef, private router: Router,
               private _knowledgeBaseService: KnowledgeBaseService,
               private _evaluationService: EvaluationService,
+              private _translateService: TranslateService,
               private activatedRoute: ActivatedRoute) {
     this.router = router;
   }
 
   ngOnInit() {
+    this._translateService.get(this.itemKb.name).subscribe((res: string) => {
+      this.titleKb = res;
+    });
   }
 
   /**
    * Shows or hides an help item.
+   * @memberof KnowledgeBaseItemComponent
    */
   displayItem() {
     const accordeon = this.el.nativeElement.querySelector('.pia-knowledgeBaseBlock-item-accordion button span');
@@ -44,25 +51,10 @@ export class KnowledgeBaseItemComponent implements OnInit {
   /**
    * Adds a measure to the PIA.
    * This is used mainly on "Mesures préventives et existantes" subsection.
+   * @memberof KnowledgeBaseItemComponent
    */
   addNewMeasure() {
     this.newMeasureEvent.emit(this.itemKb);
-  }
-
-  displayKb() {
-    return true;
-    // if (this.item) {
-    //   if (this.item.filter_by !== 'measure') {
-    //     return true;
-    //   } else {
-    //     if (this.itemKb && this.itemKb.filters.startsWith('measure.')
-    //         && (!this._knowledgeBaseService.filter || this._knowledgeBaseService.filter.length === 0)) {
-    //       return false;
-    //     } else {
-    //       return true;
-    //     }
-    //   }
-    // }
   }
 
 }

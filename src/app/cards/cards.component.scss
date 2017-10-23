@@ -6,7 +6,7 @@
     border: 1px solid $pia-gray;
   }
     &-item {
-        background: url("/assets/images/pia-bg.png") repeat center center;
+        background: url("../../assets/images/pia-bg.png") repeat center center;
         padding: 40px;
         padding-top: 32px;
         font-size: 1.9rem;
@@ -61,7 +61,7 @@
                 display: inline-block;
                 vertical-align: top;
                 color: $pia-blue;
-                font-size: 2rem;
+                font-size: 1.6rem;
                 line-height: 1.2;
                 margin-top: 58px;
                 margin-left: 14px;
@@ -303,8 +303,10 @@
 
 .app-list-item {
   display: table-row;
-
   &:nth-child(even) {
     background-color: rgba(62, 224, 149, 0.15);
+  }
+  &:hover {
+    background-color: rgba(62, 224, 149, 0.25);
   }
 }

@@ -1,6 +1,6 @@
 <div class="pia-modalBlock" id="modal-simple-pia-validation">
   <div class="pia-modalBlock-content bounceIn">
-    <button type="button" class="pia-modalBlock-close btn" title="{{ 'modals.close' | translate }}"><span (click)="_modalsService.closeModal()" class="pia-icons pia-icon-close-big"></span></button>
+    <button type="button" class="pia-modalBlock-close btn" title="{{ 'modals.close' | translate }}" (click)="_modalsService.closeModal()"><span class="pia-icons pia-icon-close-big"></span></button>
     <p>{{ 'modals.simple_pia_validation.content' | translate }}</p>
     <span class="pia-icons pia-icon-happy"></span>
     <div class="pia-modalBlock-validate">
@@ -11,7 +11,7 @@
 
 <div class="pia-modalBlock" id="modal-update-server-url">
   <div class="pia-modalBlock-content bounceIn">
-    <button type="button" class="pia-modalBlock-close btn" title="{{ 'modals.close' | translate }}"><span (click)="_modalsService.closeModal()" class="pia-icons pia-icon-close-big"></span></button>
+    <button type="button" class="pia-modalBlock-close btn" title="{{ 'modals.close' | translate }}" (click)="_modalsService.closeModal()"><span class="pia-icons pia-icon-close-big"></span></button>
     <p>{{ 'modals.update_server_url.content' | translate }}</p>
     <span class="pia-icons pia-icon-happy"></span>
     <div class="pia-modalBlock-validate">
@@ -22,18 +22,18 @@
 
 <div class="pia-modalBlock" id="modal-signed-pia-validation">
   <div class="pia-modalBlock-content pia-modalBlock-acceptedPIA bounceIn">
-    <button type="button" class="pia-modalBlock-close btn" title="{{ 'modals.close' | translate }}"><span (click)="_modalsService.closeModal()" class="pia-icons pia-icon-close-big"></span></button>
+    <button type="button" class="pia-modalBlock-close btn" title="{{ 'modals.close' | translate }}" (click)="_modalsService.closeModal()"><span class="pia-icons pia-icon-close-big"></span></button>
     <p [innerHTML]="'modals.signed_pia_validation.content' | translate"></p>
     <span class="pia-icons pia-icon-happy"></span>
     <div class="pia-modalBlock-buttons-choice">
-      <a routerLink="/summary/{{_piaService.pia.id}}/pia" [innerHTML]="'modals.signed_pia_validation.download_pia' | translate"></a>
+      <a routerLink="/summary/{{_piaService.pia.id}}/pia" class="btn btn-green" [innerHTML]="'modals.signed_pia_validation.download_pia' | translate"></a>
     </div>
   </div>
 </div>
 
 <div class="pia-modalBlock" id="modal-abandon-pia">
   <div class="pia-modalBlock-content pia-modalBlock-abandonPIA bounceIn">
-    <button type="button" class="pia-modalBlock-close btn" title="{{ 'modals.close' | translate }}"><span (click)="_modalsService.closeModal()" class="pia-icons pia-icon-close-big"></span></button>
+    <button type="button" class="pia-modalBlock-close btn" title="{{ 'modals.close' | translate }}" (click)="_modalsService.closeModal()"><span class="pia-icons pia-icon-close-big"></span></button>
     <p [innerHTML]="'modals.abandon_pia.content' | translate"></p>
     <div class="pia-modalBlock-buttons-choice">
       <button class="btn btn-red" type="button" (click)="_modalsService.closeModal()">{{ 'modals.cancel' | translate }}</button>
@@ -44,7 +44,7 @@
 
 <div class="pia-modalBlock" id="modal-refuse-pia">
   <div class="pia-modalBlock-content bounceIn">
-    <button type="button" class="pia-modalBlock-close btn" title="{{ 'modals.close' | translate }}"><span (click)="_modalsService.closeModal()" class="pia-icons pia-icon-close-big"></span></button>
+    <button type="button" class="pia-modalBlock-close btn" title="{{ 'modals.close' | translate }}" (click)="_modalsService.closeModal()"><span class="pia-icons pia-icon-close-big"></span></button>
     <p [innerHTML]="'modals.refuse_pia.content' | translate"></p>
     <span class="pia-icons pia-icon-sad"></span>
     <div class="pia-modalBlock-validate">
@@ -55,7 +55,7 @@
 
 <div class="pia-modalBlock" id="modal-same-comment">
   <div class="pia-modalBlock-content bounceIn">
-    <button type="button" class="pia-modalBlock-close btn" title="{{ 'modals.close' | translate }}"><span (click)="_modalsService.closeModal()" data-dismiss="modal" class="pia-icons pia-icon-close-big"></span></button>
+    <button type="button" class="pia-modalBlock-close btn" title="{{ 'modals.close' | translate }}" (click)="_modalsService.closeModal()"><span data-dismiss="modal" class="pia-icons pia-icon-close-big"></span></button>
     <p [innerHTML]="'modals.same_comment.content' | translate"></p>
     <span class="pia-icons pia-icon-sorry"></span>
     <div class="pia-modalBlock-validate">
@@ -66,7 +66,7 @@
 
 <div class="pia-modalBlock" id="not-enough-measures-to-remove">
   <div class="pia-modalBlock-content bounceIn">
-    <button type="button" class="pia-modalBlock-close btn" title="{{ 'modals.close' | translate }}"><span (click)="_modalsService.closeModal()" data-dismiss="modal" class="pia-icons pia-icon-close-big"></span></button>
+    <button type="button" class="pia-modalBlock-close btn" title="{{ 'modals.close' | translate }}" (click)="_modalsService.closeModal()"><span data-dismiss="modal" class="pia-icons pia-icon-close-big"></span></button>
     <p [innerHTML]="'modals.not_enough_measures_to_remove.content' | translate"></p>
     <span class="pia-icons pia-icon-sorry"></span>
     <div class="pia-modalBlock-validate">
@@ -77,7 +77,7 @@
 
 <div class="pia-modalBlock" id="remove-measure">
   <div class="pia-modalBlock-content pia-modalBlock-removeMeasure bounceIn">
-    <button type="button" class="pia-modalBlock-close btn" title="{{ 'modals.close' | translate }}"><span (click)="_modalsService.closeModal()" class="pia-icons pia-icon-close-big"></span></button>
+    <button type="button" class="pia-modalBlock-close btn" title="{{ 'modals.close' | translate }}" (click)="_modalsService.closeModal()"><span class="pia-icons pia-icon-close-big"></span></button>
     <p [innerHTML]="'modals.remove_measure.content' | translate"></p>
     <span class="pia-icons pia-icon-sad"></span>
     <div class="pia-modalBlock-buttons-choice">
@@ -89,7 +89,7 @@
 
 <div class="pia-modalBlock" id="ask-for-evaluation">
   <div class="pia-modalBlock-content bounceIn">
-    <button type="button" class="pia-modalBlock-close btn" title="{{ 'modals.close' | translate }}"><span (click)="_modalsService.closeModal()" class="pia-icons pia-icon-close-big"></span></button>
+    <button type="button" class="pia-modalBlock-close btn" title="{{ 'modals.close' | translate }}" (click)="_modalsService.closeModal()"><span class="pia-icons pia-icon-close-big"></span></button>
     <p [innerHTML]="'modals.ask_for_evaluation.content' | translate"></p>
     <span class="pia-icons pia-icon-happy"></span>
     <div class="pia-modalBlock-validate">
@@ -100,7 +100,7 @@
 
 <div class="pia-modalBlock" id="validate-evaluation">
   <div class="pia-modalBlock-content bounceIn">
-    <button type="button" class="pia-modalBlock-close btn" title="{{ 'modals.close' | translate }}"><span (click)="_modalsService.closeModal()" class="pia-icons pia-icon-close-big"></span></button>
+    <button type="button" class="pia-modalBlock-close btn" title="{{ 'modals.close' | translate }}" (click)="_modalsService.closeModal()"><span class="pia-icons pia-icon-close-big"></span></button>
     <p [innerHTML]="'modals.validate_evaluation.content' | translate"></p>
     <span class="pia-icons pia-icon-happy"></span>
     <div class="pia-modalBlock-validate">
@@ -111,7 +111,7 @@
 
 <div class="pia-modalBlock" style="background-color:transparent;" id="validate-evaluation-to-correct">
   <div class="pia-modalBlock-content pia-modalBlock-declareMeasuresForRisks bounceIn">
-    <button type="button" class="pia-modalBlock-close btn" title="{{ 'modals.close' | translate }}"><span (click)="_modalsService.closeModal()" class="pia-icons pia-icon-close-big"></span></button>
+    <button type="button" class="pia-modalBlock-close btn" title="{{ 'modals.close' | translate }}" (click)="_modalsService.closeModal()"><span class="pia-icons pia-icon-close-big"></span></button>
     <p [innerHTML]="'modals.validate_evaluation_to_correct.content' | translate"></p>
     <span class="pia-icons pia-icon-sorry"></span>
     <div class="pia-modalBlock-validate">
@@ -125,7 +125,7 @@
     <p [innerHTML]="'modals.declare_measures.content' | translate"></p>
     <span class="pia-icons pia-icon-sorry"></span>
     <div class="pia-modalBlock-validate">
-      <a routerLink="/entry/{{_piaService.pia.id}}/section/3/item/1" (click)="_modalsService.closeModal()" type="button btn-blue" class="btn btn-green">{{ 'modals.declare_measures.declare' | translate }}</a>
+      <a routerLink="/entry/{{_piaService.pia.id}}/section/3/item/1" (click)="_modalsService.closeModal()" class="btn btn-green">{{ 'modals.declare_measures.declare' | translate }}</a>
     </div>
   </div>
 </div>
@@ -133,7 +133,7 @@
 
 <div class="pia-modalBlock" id="modal-remove-pia">
   <div class="pia-modalBlock-content pia-modalBlock-removePIA bounceIn">
-    <button type="button" class="pia-modalBlock-close btn" title="{{ 'modals.close' | translate }}"><span (click)="_modalsService.closeModal()" class="pia-icons pia-icon-close-big"></span></button>
+    <button type="button" class="pia-modalBlock-close btn" title="{{ 'modals.close' | translate }}" (click)="_modalsService.closeModal()"><span class="pia-icons pia-icon-close-big"></span></button>
     <p [innerHTML]="'modals.remove_pia.content' | translate"></p>
     <span class="pia-icons pia-icon-sad"></span>
     <div class="pia-modalBlock-buttons-choice">
@@ -145,7 +145,7 @@
 
 <div class="pia-modalBlock" id="modal-remove-attachment">
   <div class="pia-modalBlock-content pia-modalBlock-removeAttachment bounceIn">
-    <button type="button" class="pia-modalBlock-close btn" title="{{ 'modals.close' | translate }}"><span (click)="_modalsService.closeModal()" class="pia-icons pia-icon-close-big"></span></button>
+    <button type="button" class="pia-modalBlock-close btn" title="{{ 'modals.close' | translate }}" (click)="_modalsService.closeModal()"><span class="pia-icons pia-icon-close-big"></span></button>
     <p [innerHTML]="'modals.remove_attachment.content' | translate"></p>
     <span class="pia-icons pia-icon-sad"></span>
     <div class="pia-modalBlock-buttons-choice">
@@ -175,7 +175,7 @@
 
 <div class="pia-modalBlock" id="modal-list-new-pia">
   <div class="pia-modalBlock-content bounceIn">
-    <button type="button" class="pia-modalBlock-close btn" title="{{ 'homepage.cards.title_close_creation' | translate }}"><span (click)="_modalsService.closeModal()" class="pia-icons pia-icon-close"></span></button>
+    <button type="button" class="pia-modalBlock-close btn" title="{{ 'homepage.cards.title_close_creation' | translate }}" (click)="_modalsService.closeModal()"><span class="pia-icons pia-icon-close"></span></button>
     <form class="pia-cardsBlock-item-form" (ngSubmit)="onSubmit(piaForm)" [formGroup]="piaForm">
       <div>
         <label for="name">{{ 'homepage.cards.pia_name' | translate }}</label>

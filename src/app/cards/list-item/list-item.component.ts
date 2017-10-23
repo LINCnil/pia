@@ -27,8 +27,10 @@ export class ListItemComponent implements OnInit {
     });
   }
 
-  editPia() {
-    this.router.navigate(['entry', this.pia.id, 'section', 1, 'item', 1]);
+  onFocusOut(attribute: string, event: any) {
+    const text = event.target.innerText;
+    this.pia[attribute] = text;
+    this.pia.update();
   }
 
   removePia(id: string) {

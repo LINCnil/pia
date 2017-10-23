@@ -9,6 +9,7 @@
       <input type="search" formControlName="q">
       <button class="btn" type="submit" title="{{ 'knowledge_base.search' | translate }}"><i class="fa fa-search" aria-hidden="true"></i></button>
     </form>
+    <div class="pia-knowledgeBaseBlock-placeholder">{{ _knowledgeBaseService.placeholder | translate }}</div>
   </div>
 
   <div class="pia-knowledgeBaseBlock-filters" *ngIf="item && item.filter_by === 'measure'">

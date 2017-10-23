@@ -5,7 +5,7 @@ export class PiaPage {
     return browser.get('/');
   }
 
-  getParagraphText() {
-    return element(by.css('app-root h1')).getText();
+  getButtonText() {
+    return element(by.css('.pia-authenticationBlock-enter a')).getText();
   }
 }

@@ -42,12 +42,12 @@
     }
     &-user-choice {
       width: 100%;
-      z-index: 997;
+      z-index: 1;
       height: 10px;
       position: absolute;
       border-radius: 50px;
       left: 0;
-      top: 10px;
+      top: 7px;
       background-color: #999;
       background: linear-gradient(90deg, #fff, #fff);
       box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 1px 2px 0 rgba(0, 0, 0, 0.2);
@@ -70,15 +70,15 @@
     }
     &-background-1 {
       width: calc(25% + 15px);
-      background: linear-gradient(90deg, $pia-green, #7fac85);
+      background: linear-gradient(90deg, $pia-green, #78b687);
     }
     &-background-2 {
       width: calc(50% + 10px);
-      background: linear-gradient(90deg, $pia-green, #7fac85);
+      background: linear-gradient(90deg, $pia-green, #a2947f);
     }
     &-background-3 {
       width: calc(75% + 3px);
-      background: linear-gradient(90deg, $pia-green, #b87f77);
+      background: linear-gradient(90deg, $pia-green, #d06f73);
     }
     &-background-4 {
       width: calc(99% + 2px);
@@ -105,6 +105,7 @@ input[type=range] {
   /*required for proper track sizing in FF*/
   width: 100%;
   height: 15px;
+  background-color: transparent;
   &:disabled {
     background-color: transparent !important;
   }
@@ -137,7 +138,7 @@ input[type=range]:focus::-webkit-slider-runnable-track {
 
 input[type=range]::-moz-range-track {
   height: 5px;
-  background: #ddd;
+  background: transparent;
   border: none;
   border-radius: 3px;
 }

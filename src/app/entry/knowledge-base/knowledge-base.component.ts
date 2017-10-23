@@ -4,6 +4,7 @@ import { Pia } from '../pia.model';
 import { MeasureService } from 'app/entry/entry-content/measures/measures.service';
 import { KnowledgeBaseService } from './knowledge-base.service';
 import { PiaService } from 'app/entry/pia.service';
+import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-knowledge-base',
@@ -19,6 +20,7 @@ export class KnowledgeBaseComponent implements OnInit {
   constructor(private _measureService: MeasureService,
               private _knowledgeBaseService: KnowledgeBaseService,
               private el: ElementRef,
+              private _translateService: TranslateService,
               private _piaService: PiaService) { }
 
   ngOnInit() {
@@ -45,6 +47,7 @@ export class KnowledgeBaseComponent implements OnInit {
   }
 
   onSubmit() {
+    this._knowledgeBaseService.translateService = this._translateService;
     this._knowledgeBaseService.q = this.searchForm.value.q;
     const filterBlock = this.el.nativeElement.querySelector('.pia-knowledgeBaseBlock-filters');
     if (filterBlock) {

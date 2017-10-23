@@ -2,7 +2,7 @@ import { RollbarService, RollbarErrorHandler, rollbarFactory } from './rollbar';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, ErrorHandler } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { AppComponent } from './app.component';
+import { AppComponent, SafeHtmlPipe } from './app.component';
 import { TagInputModule } from 'ngx-chips';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -11,12 +11,14 @@ import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
+import { AppDataService } from 'app/services/app-data.service';
 import { HeaderComponent } from './header/header.component';
 import { AuthenticationComponent } from './authentication/authentication.component';
 import { CardsComponent } from './cards/cards.component';
 import { CardItemComponent } from './cards/card-item/card-item.component';
 import { EntryComponent } from './entry/entry.component';
 import { SectionsComponent } from './entry/sections/sections.component';
+import { SidStatusService } from 'app/services/sid-status.service';
 import { AttachmentsComponent } from './entry/attachments/attachments.component';
 import { EntryContentComponent } from './entry/entry-content/entry-content.component';
 import { KnowledgeBaseComponent } from './entry/knowledge-base/knowledge-base.component';
@@ -25,6 +27,7 @@ import { AttachmentItemComponent } from './entry/attachments/attachment-item/att
 import { CommentsComponent } from './entry/entry-content/comments/comments.component';
 import { CommentItemComponent } from './entry/entry-content/comments/comment-item/comment-item.component';
 import { EvaluationsComponent } from './entry/entry-content/evaluations/evaluations.component';
+import { GlobalEvaluationService } from 'app/services/global-evaluation.service';
 import { QuestionsComponent } from './entry/entry-content/questions/questions.component';
 import { RisksCartographyComponent } from './entry/entry-content/risks-cartography/risks-cartography.component';
 import { ActionPlanComponent } from './entry/entry-content/action-plan/action-plan.component';
@@ -52,7 +55,6 @@ import { environment } from '../environments/environment';
 import { ListItemComponent } from 'app/cards/list-item/list-item.component';
 import { SummaryComponent } from './summary/summary.component';
 
-
 const appRoutes: Routes = [
   { path: '', component: AuthenticationComponent },
   { path: 'home', component: CardsComponent },
@@ -66,13 +68,16 @@ const appRoutes: Routes = [
 ];
 
 const providersList: any = [
+  AppDataService,
   MeasureService,
   ModalsService,
   AttachmentsService,
   KnowledgeBaseService,
   EvaluationService,
   ActionPlanService,
-  PaginationService
+  PaginationService,
+  SidStatusService,
+  GlobalEvaluationService
 ];
 
 if (environment.rollbar_key.length > 0) {
@@ -88,8 +93,8 @@ if (environment.rollbar_key.length > 0) {
   );
 }
 
-export function HttpLoaderFactory(http: HttpClient) {
-    return new TranslateHttpLoader(http);
+export function createTranslateLoader(http: HttpClient) {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
 
 @NgModule({
@@ -125,6 +130,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     ActionPlanImplementationComponent,
     ListItemComponent,
     SummaryComponent,
+    SafeHtmlPipe
   ],
   imports: [
     BrowserModule,
@@ -133,16 +139,17 @@ export function HttpLoaderFactory(http: HttpClient) {
     HttpModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    RouterModule.forRoot(appRoutes),
+    RouterModule.forRoot(appRoutes, { useHash: true }),
     TagInputModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
-        useFactory: HttpLoaderFactory,
+        useFactory: (createTranslateLoader),
         deps: [HttpClient]
       }
     })
   ],
+  exports: [RouterModule],
   providers: providersList,
   bootstrap: [AppComponent]
 })

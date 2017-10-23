@@ -23,7 +23,7 @@ export class ActionPlanImplementationComponent implements OnInit {
     });
     if (this.data.evaluation) {
       this.evaluation = this.data.evaluation;
-      const date = this.evaluation.estimated_evaluation_date;
+      const date = this.evaluation.estimated_implementation_date;
       if (date) {
         const month = (date.getMonth() + 1).toString();
         const finalMonth = (month.length === 1 ? '0' : '' ) + month;
@@ -51,7 +51,7 @@ export class ActionPlanImplementationComponent implements OnInit {
         if (personInCharge && personInCharge.length > 0) {
           this.actionPlanForm.controls['personInCharge'].disable();
         }
-        this.evaluation.estimated_evaluation_date = estimatedEvaluationDate;
+        this.evaluation.estimated_implementation_date = estimatedEvaluationDate;
         this.evaluation.update();
       }
       // Disables executive field too if no date, and executive is filled and isn't the next targeted element.

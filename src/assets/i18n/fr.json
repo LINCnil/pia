@@ -1,11 +1,11 @@
 {
   "authentication": {
-    "subtitle1": "Une plateforme pour creer <br> et administrer vos pia",
+    "subtitle1": "Une plateforme pour créer <br> et administrer vos pia",
     "subtitle2": "Accéder aux outils et glossaires"
   },
   "header": {
     "logo_title": "étude d'impact sur la vie privée",
-    "logo_subtitle": "(privacy impact assessment)",
+    "logo_subtitle": "privacy impact assessment",
     "homepage_link": "Accueil",
     "knowledge_base_link": "Base de connaissances",
     "pia_example_link": "Exemple de PIA",
@@ -24,7 +24,7 @@
     "filters": {
       "list": "liste",
       "card": "carte",
-      "sort": "Trier les PIA",
+      "sort": "Trier",
       "sort_by": "par",
       "name": "Nom",
       "date": "Date",
@@ -34,8 +34,8 @@
       "validator": "Validateur",
       "new_pia": "Nouveau PIA",
       "import_pia": "Importer PIA",
-      "list_rocket_content": "Lancez-vous ! Pour commencer<br>un PIA, c'est par là.",
-      "card_rocket_content": "Lancez-vous !<br><br>Pour commencer<br>un PIA, c'est par là."
+      "list_rocket_content": "Lancez-vous ! Pour commencer<br>un PIA, cliquez sur le +",
+      "card_rocket_content": "Lancez-vous !<br><br>Pour commencer<br>un PIA, cliquez<br> sur le +"
     },
     "cards": {
       "new_pia": "Nouveau PIA",
@@ -43,9 +43,9 @@
       "or": "ou",
       "import_pia": "Importer PIA",
       "placeholder_import_pia": "Importer PIA",
-      "title_close_creation": "Fermer la création",
-      "pia_name": "Nom du PIA",
-      "placeholder_pia_name": "Intitulé",
+      "title_close_creation": "Fermer",
+      "pia_name": "PIA",
+      "placeholder_pia_name": "Intitulé du PIA",
       "author": "Saisie",
       "placeholder_author": "Prénom, nom",
       "evaluation": "Évaluation",
@@ -59,11 +59,12 @@
       "placeholder_start": "Tous les champs doivent être remplis",
       "item": {
         "tools": {
-          "edit": "Éditer",
+          "edit": "Éditer les informations",
           "export": "Exporter",
           "more_options": "Plus d'options",
           "duplicate": "Dupliquer",
           "action_plan": "Afficher le<br>plan d'action",
+          "pia": "Afficher le<br>PIA",
           "remove": "Supprimer"
         },
         "edit_pia": "Éditer le PIA",
@@ -86,6 +87,7 @@
           "export": "Exporter",
           "duplicate": "Dupliquer",
           "action_plan": "Afficher le plan d'action",
+          "pia": "Afficher le PIA",
           "remove": "Supprimer"
         }
       }
@@ -97,7 +99,8 @@
       "1": "Refusé",
       "2": "Validation simple",
       "3": "Validation avec signature",
-      "4": "Archivé"
+      "4": "Archivé",
+      "5": "En attente de validation"
     },
     "header": {
       "preview": "Aperçu",
@@ -125,7 +128,7 @@
     "add": "Ajouter une mesure vide (sinon, utiliser la base de connaissance)",
     "edit": "Éditer la mesure",
     "remove": "Supprimer la mesure",
-    "default_placeholder": "Ajoutez les mesures prises pour garantir la sécurité des données."
+    "default_placeholder": "Décrivez les mesures existantes ou prévues pour garantir la sécurité des données."
   },
   "knowledge_base": {
     "title": "Base de connaissances",
@@ -139,7 +142,7 @@
       "definitions": "Définitions",
       "organizational_measures": "Mesures organisationnelles",
       "measures_on_data": "Mesures sur les données",
-      "general_measures": "Mesures générales",
+      "general_measures": "Mesures générales de sécurité du système",
       "no_result": "Aucun résultat trouvé."
     },
     "category": {
@@ -147,7 +150,7 @@
       "principle": "Principe",
       "organizational_measure": "Mesure organisationnelle",
       "measure_on_data": "Mesure sur les données",
-      "general_measure": "Mesure générale",
+      "general_measure": "Mesure générale de sécurité du système",
       "example": "Exemple"
     },
     "slugs": {
@@ -677,8 +680,11 @@
   "evaluations": {
     "title": "Évaluation",
     "to_correct": "À corriger",
+    "placeholder_to_correct": "Les informations fournies ne sont pas suffisantes pour pouvoir les évaluer. Renvoyer en édition pour enrichir la proposition initiale.",
     "improvable": "Améliorable",
+    "placeholder_improvable": "En vue des informations fournies, des mesures additionnelles sont à ajouter afin d’améliorer la protection des données du traitement.",
     "acceptable": "Acceptable",
+    "placeholder_acceptable": "En vue des informations fournies, les mesures mises en œuvre sont suffisantes pour répondre aux exigences de protections des données.",
     "evaluation_comment": "Commentaire d'évaluation",
     "action_plan_comment": "Plan d'action / mesures correctives",
     "placeholder_comment": "Entrez vos commentaires.",
@@ -718,7 +724,7 @@
     },
     "signed_pia_validation": {
       "content": "<span class='strong'>Le PIA est accepté</span><br>Finalisez la validation du PIA en attachant<br>en pièce jointe le rapport signé par le responsable.",
-      "download_pia": "Télécharger<br>le rapport PIA"
+      "download_pia": "Télécharger le rapport PIA"
     },
     "abandon_pia": {
       "content": "Êtes-vous sûr de vouloir<br>abandonner ce traitement ?"
@@ -773,6 +779,10 @@
     "dpo_name": "Nom du DPO",
     "dpo_status": "Statut du DPO",
     "dpo_opinion": "Opinion du DPO",
+    "concerned_people_searched_opinion": "Recherche de l'avis des personnes concernées",
+    "people_search_status_ok": "L'avis des personnes concernées a été demandé.",
+    "people_search_status_nok": "L'avis des personnes concernées n'a pas été demandé.",
+    "concerned_people_unsearched_opinion_comment": "Raison pour laquelle l'avis des personnes concernées n'a pas été demandé",
     "concerned_people_name": "Noms des personnes concernées",
     "concerned_people_status": "Statuts des personnes concernées",
     "concerned_people_opinion": "Opinions des personnes concernées",
@@ -834,11 +844,14 @@
     "dpo_opinion": "Avis du DPO",
     "placeholder_dpo_name": "Nom(s) du(des) DPO",
     "placeholder_dpo_opinion": "Précisez les raisons de votre choix",
+    "dpo_lock": "Veuillez remplir les autres sections avant de pouvoir saisir l'avis du DPO.",
     "people_opinion": "Avis des personnes concernées",
     "placeholder_concerned_people_name": "Nom(s) de la(des) personne(s) concernée(s)",
     "placeholder_people_opinion": "Décrivez comment les avis ont été collectés et quelle en est l'analyse. Dans le cas où les avis n'ont pas été recherchés, en préciser les raisons.",
+    "placeholder_search_content": "Justifier la raison pour laquelle l’avis des personnes concernées n’a pas été demandé.",
     "treatment_ok": "Le traitement pourrait être mis en oeuvre.",
-    "treatment_nok": "Le traitement ne devrait pas être mis en oeuvre."
+    "treatment_nok": "Le traitement ne devrait pas être mis en oeuvre.",
+    "treatment_lock": "Veuillez remplir les autres sections avant de pouvoir saisir l'avis des personnes concernées."
   },
   "sections": {
     "1": {
@@ -970,7 +983,7 @@
           "short_help": "Cette partie vous permet de recenser les mesures (existantes ou prévues) contribuant à la sécurité des données."
         },
         "2": {
-          "title": "Accès illégitime à des données",
+          "title": "Accès illégitime\nà des données",
           "short_help": "Analysez les causes et conséquences d'un accès illégitime à des données, et estimez sa gravité et sa vraisemblance.",
           "questions": {
             "1": {
@@ -1000,7 +1013,7 @@
           }
         },
         "3": {
-          "title": "Modification non désirées de données",
+          "title": "Modification non\ndésirées de données",
           "short_help": "Analysez les causes et conséquences d'une modification non désirée de données, et estimez sa gravité et sa vraisemblance.",
           "questions": {
             "1": {
@@ -1030,7 +1043,7 @@
           }
         },
         "4": {
-          "title": "Disparition de données",
+          "title": "Disparition\nde données",
           "short_help": "Analysez les causes et conséquences d'une disparition de données, et estimez sa gravité et sa vraisemblance.",
           "questions": {
             "1": {

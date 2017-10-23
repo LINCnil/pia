@@ -2,15 +2,14 @@
   <header autoscroll="true" class="pia-entryContentBlock-header">
     <div>
       <i class="fa"
-         [ngClass]="{'fa-check-square-o': _evaluationService.enableFinalValidation,
-                     'fa-pencil-square-o': _evaluationService.showValidationButton,
-                     'fa-cog': !_evaluationService.enableFinalValidation && !_evaluationService.showValidationButton}"
-         aria-hidden="true"></i>
+        *ngIf="!_sidStatusService.noIconFor.includes(section.id + '.' + item.id)"
+        [ngClass]="_sidStatusService.sidStatusIcon[_sidStatusService.itemStatus[section.id + '.' + item.id]]"
+        aria-hidden="true"></i>
     </div>
     <div class="pia-entryContentBlock-header-title">
       <h1 *ngIf="section.title">{{ section.title | translate }}</h1>
-      <h2 *ngIf="item.title">{{ item.title | translate }}</h2>
       <h3 *ngIf="section.short_help">{{ section.short_help | translate }}</h3>
+      <h2 *ngIf="item.title">{{ item.title | translate }}</h2>
       <h4 *ngIf="item.short_help">{{ item.short_help | translate }}</h4>
     </div>
     <a *ngIf="section.id === 4 && item.id === 2;else defaultBlock" routerLink="/summary/{{_piaService.pia.id}}/action_plan" class="btn pia-previewBlock">
@@ -47,22 +46,22 @@
   <app-dpo-people-opinions *ngIf="section.id == 4 && item.id == 3"></app-dpo-people-opinions>
 
   <footer class="pia-entryContentBlock-footer">
-    <button class="btn btn-green" (click)="_evaluationService.prepareForEvaluation()"
+    <button class="btn btn-green" (click)="prepareForEvaluation()"
             *ngIf="!_evaluationService.showValidationButton && !_evaluationService.enableFinalValidation"
             [ngClass]="{'btn-active': _evaluationService.enableEvaluation, 'hide': ((section.id == 3 && item.id == 5) || section.id == 4)}"
             [disabled]="!_evaluationService.enableEvaluation" type="submit">{{ 'pia.footer.ask_evaluation' | translate }}</button>
     <button class="btn btn-green" (click)="validateEvaluation()"
             *ngIf="_evaluationService.showValidationButton && !_evaluationService.enableFinalValidation"
-            [ngClass]="{'btn-active': _evaluationService.enableValidation, 'hide': (section.id == 3 && item.id == 5) || section.id == 4 || !_evaluationService.showValidationButton}"
-            [disabled]="!_evaluationService.enableValidation" type="submit">{{ 'pia.footer.validate_evaluation' | translate }}</button>
-    <button class="btn btn-pending-validation" [ngClass]="{'hide': (section.id == 3 && item.id == 5) || section.id == 4 || !_evaluationService.enableFinalValidation}" disabled type="submit">
+            [ngClass]="{'btn-active': _globalEvaluationService.enableValidation, 'hide': (section.id == 3 && item.id == 5) || section.id == 4 || !_evaluationService.showValidationButton}"
+            [disabled]="!_globalEvaluationService.enableValidation" type="submit">{{ 'pia.footer.validate_evaluation' | translate }}</button>
+    <button class="btn btn-pending-validation" disabled
+            *ngIf="_sidStatusService.itemStatus[section.id + '.' + item.id] === 2 && (section.id + '.' + item.id !== '4.3')">
       <i class="fa fa-check-square-o" aria-hidden="true"></i>
       {{ 'pia.footer.subsection_validated' | translate }}
     </button>
 
     <p [ngClass]="{'hide': (section.id == 3 && item.id == 5) || section.id == 4}">{{ 'pia.footer.mandatory_fields' | translate }}</p>
 
-    <!-- TODO : pagination -->
     <div class="pia-entryContentBlock-footer-nav">
       <a [ngClass]="{'mask': _paginationService.hasPreviousLink === false}"
           class="pia-previousLink"

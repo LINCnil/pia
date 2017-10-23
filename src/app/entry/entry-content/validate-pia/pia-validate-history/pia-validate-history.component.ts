@@ -20,6 +20,7 @@ export class PiaValidateHistoryComponent implements OnInit {
 
   /**
    * Shows or hides the validation history list.
+   * @memberof PiaValidateHistoryComponent
    */
   displayHistoryList() {
     const historyList = this.el.nativeElement.querySelector('.pia-validationHistoryBlock-content');
@@ -30,6 +31,7 @@ export class PiaValidateHistoryComponent implements OnInit {
 
   /**
    * Shows or hides the refuse list.
+   * @memberof PiaValidateHistoryComponent
    */
   displayRefuseList() {
     const refuseList = this.el.nativeElement.querySelector('.pia-validationHistoryBlock-refuse-content');
@@ -40,7 +42,8 @@ export class PiaValidateHistoryComponent implements OnInit {
 
   /**
    * Displays the validation history.
-   * @return true if the PIA is validated and that there was a rejection before this validation, false otherwise.
+   * @returns True if the PIA is validated and that there was a rejection before this validation, False otherwise.
+   * @memberof PiaValidateHistoryComponent
    */
   showValidationHistory() {
     return ((this._piaService.pia.status === 2 || this._piaService.pia.status === 3) &&
@@ -50,7 +53,8 @@ export class PiaValidateHistoryComponent implements OnInit {
 
   /**
    * Displays the rejection history.
-   * @return true if the PIA is refused, false otherwise.
+   * @returns {boolean} True if the PIA is refused, False otherwise.
+   * @memberof PiaValidateHistoryComponent
    */
   showRejectionHistory() {
     return (this._piaService.pia.status === 1);

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { ActivatedRoute, Router, Params } from '@angular/router';
 import { Http } from '@angular/http';
 
+import { AppDataService } from 'app/services/app-data.service';
 import { Pia } from './pia.model';
 import { Evaluation } from 'app/entry/entry-content/evaluations/evaluation.model';
 import { Answer } from 'app/entry/entry-content/questions/answer.model';
@@ -20,14 +21,13 @@ export class PiaService {
   pia: Pia = new Pia();
   answer: Answer = new Answer();
   data: { sections: any };
-  sidStatus = {};
 
   constructor(private _router: Router, private route: ActivatedRoute,
               private _evaluationService: EvaluationService,
+              private _appDataService: AppDataService,
               private _modalsService: ModalsService, private http: Http) {
-                /* TODO : move the JSON loading */
-                this.http.request('/assets/files/pia_architecture.json').map(res => res.json()).subscribe(data => {
-                  this.data = data;
+                this._appDataService.getDataNav().then((dataNav) => {
+                  this.data = dataNav;
                 });
               }
 
@@ -55,7 +55,6 @@ export class PiaService {
     const pia = new Pia();
     pia.delete(piaID);
 
-    /* TODO : refactor this... */
     // Deletes the PIA from the view.
     if (localStorage.getItem('homepageDisplayMode') && localStorage.getItem('homepageDisplayMode') === 'list') {
       document.querySelector('.app-list-item[data-id="' + piaID + '"]').remove();
@@ -65,64 +64,6 @@ export class PiaService {
 
     localStorage.removeItem('pia-id');
     this._modalsService.closeModal();
-  }
-
-  async piaInGlobalValidation() {
-    return new Promise((resolve, reject) => {
-      // TODO - Count all evaluation_mode
-      let countEvaluationMode = 17;
-      const measure = new Measure();
-      measure.pia_id = this._evaluationService.pia.id;
-      const dpoAnswerOk = this._evaluationService.dpoAnswerOk();
-      measure.findAll().then((entries: any) => {
-        if (entries) {
-          countEvaluationMode += entries.length;
-        }
-        // Count all valid evaluation in DB with global_status === 1
-        const evaluation = new Evaluation();
-        evaluation.pia_id = this._evaluationService.pia.id;
-        evaluation.findAll().then((entries2: any) => {
-          const entriesWithGlobalStatus = entries2.filter((e) => {
-            return e.global_status === 1;
-          });
-          resolve((countEvaluationMode === entriesWithGlobalStatus.length) && dpoAnswerOk);
-        });
-      });
-    });
-  }
-
-  async setSidStatus() {
-    const answer = new Answer();
-    const measure = new Measure();
-    this.sidStatus = {};
-    measure.pia_id = this.pia.id;
-
-    // Check if there is at least one answer
-    const [entries, measures]: any[] = await Promise.all([
-        answer.findAllByPia(this.pia.id),
-        measure.findAll()
-      ]);
-
-    for(let entry of entries) {
-      const ref = entry.reference_to.toString().substr(0, 2);
-      if (!this.sidStatus[ref]) {
-        this.sidStatus[ref] = 1;
-      }
-    }
-
-    if (measures && measures.length > 0) {
-      this.sidStatus['31'] = 1;
-    }
-
-    for(let section of this.data.sections) {
-      for(let item of section.items) {
-        const result: any = await this._evaluationService.isItemIsValidated(section.id, item)
-        const ref = section.id.toString() + item.id.toString();
-        if (result && this.sidStatus[ref]) {
-          this.sidStatus[ref] = 2;
-        }
-      }
-    }
   }
 
   async cancelAllValidatedEvaluation() {
@@ -156,7 +97,7 @@ export class PiaService {
 
   duplicate(id: number) {
     this.exportData(id).then((data) => {
-      this.importData(data);
+      this.importData(data, 'COPY', true);
     });
   }
 
@@ -200,9 +141,9 @@ export class PiaService {
     });
   }
 
-  importData(data: any) {
+  importData(data: any, prefix: string, resetGlobalStatus: boolean) {
     const pia = new Pia();
-    pia.name = '(COPY) ' + data.pia.name;
+    pia.name = '(' + prefix + ') ' + data.pia.name;
     pia.author_name = data.pia.author_name;
     pia.evaluator_name = data.pia.evaluator_name;
     pia.validator_name = data.pia.validator_name;
@@ -210,16 +151,20 @@ export class PiaService {
     pia.dpo_opinion = data.pia.dpo_opinion;
     pia.concerned_people_opinion = data.pia.concerned_people_opinion;
     pia.concerned_people_status = data.pia.concerned_people_status;
+    pia.concerned_people_searched_opinion = data.pia.concerned_people_searched_opinion;
+    pia.concerned_people_searched_content = data.pia.concerned_people_searched_content;
     pia.rejected_reason = data.pia.rejected_reason;
     pia.applied_adjustements = data.pia.applied_adjustements;
     pia.created_at = data.pia.created_at;
     pia.dpos_names = data.pia.dpos_names;
-    pia.people_names = data.pia.people_name;
+    pia.people_names = data.pia.people_names;
+    pia.status = data.pia.status;
     pia.created_at = new Date(data.pia.created_at);
     if (data.pia.updated_at) {
       pia.updated_at = new Date(data.pia.updated_at);
     }
     pia.create().then((pia_id: number) => {
+      pia.id = pia_id;
       // Create answers
       data.answers.forEach(answer => {
         const answerModel = new Answer();
@@ -232,39 +177,32 @@ export class PiaService {
         }
         answerModel.create();
       });
-      // Create measures
-      data.measures.forEach(measure => {
-        const measureModel = new Measure();
-        measureModel.title = measure.title;
-        measureModel.pia_id = pia_id;
-        measureModel.content = measure.content;
-        measureModel.placeholder = measure.placeholder;
-        measureModel.created_at = new Date(measure.created_at);
-        if (measure.updated_at) {
-          measureModel.updated_at = new Date(measure.updated_at);
-        }
-        measureModel.create();
-      });
 
-      // Create evaluations
-      data.evaluations.forEach(evaluation => {
-        const evaluationModel = new Evaluation();
-        evaluationModel.pia_id = pia_id;
-        evaluationModel.status = evaluation.status;
-        evaluationModel.reference_to = evaluation.reference_to;
-        evaluationModel.action_plan_comment = evaluation.action_plan_comment;
-        evaluationModel.evaluation_comment = evaluation.evaluation_comment;
-        evaluationModel.evaluation_date = new Date(evaluation.evaluation_date);
-        evaluationModel.gauges = evaluation.gauges;
-        evaluationModel.estimated_evaluation_date = new Date(evaluation.estimated_evaluation_date);
-        evaluationModel.person_in_charge = evaluation.person_in_charge;
-        evaluationModel.global_status = 0;
-        evaluationModel.created_at = new Date(evaluation.created_at);
-        if (evaluation.updated_at) {
-          evaluationModel.updated_at = new Date(evaluation.updated_at);
-        }
-        evaluationModel.create();
-      });
+      if (data.measures.length > 0) {
+        let count = 0;
+        const oldIdToNewId = [];
+        // Create measures
+        data.measures.forEach(measure => {
+          const measureModel = new Measure();
+          measureModel.title = measure.title;
+          measureModel.pia_id = pia_id;
+          measureModel.content = measure.content;
+          measureModel.placeholder = measure.placeholder;
+          measureModel.created_at = new Date(measure.created_at);
+          if (measure.updated_at) {
+            measureModel.updated_at = new Date(measure.updated_at);
+          }
+          measureModel.create().then((id: number) => {
+            count++;
+            oldIdToNewId[measure.id] = id;
+            if (count === data.measures.length) {
+              this.importEvaluations(data, pia_id, resetGlobalStatus, oldIdToNewId);
+            }
+          });
+        });
+      } else {
+        this.importEvaluations(data, pia_id, resetGlobalStatus);
+      }
 
       // Create comments
       data.comments.forEach(comment => {
@@ -280,27 +218,58 @@ export class PiaService {
         commentModel.create();
       });
 
-      location.reload();
+      pia.calculProgress().then(() => {
+        this.pias.push(pia);
+      });
+    });
+  }
+
+  private importEvaluations(data: any, pia_id: number, resetGlobalStatus: boolean, oldIdToNewId?: Array<any>) {
+    // Create evaluations
+    data.evaluations.forEach(evaluation => {
+      const evaluationModel = new Evaluation();
+      evaluationModel.pia_id = pia_id;
+      evaluationModel.status = evaluation.status;
+      let reference_to = evaluation.reference_to;
+      if (reference_to.startsWith('3.1') && oldIdToNewId) {
+        const ref = reference_to.split('.')
+        if (oldIdToNewId[ref[2]]) {
+          reference_to = '3.1.' + oldIdToNewId[ref[2]];
+        }
+      }
+      evaluationModel.reference_to = reference_to;
+      evaluationModel.action_plan_comment = evaluation.action_plan_comment;
+      evaluationModel.evaluation_comment = evaluation.evaluation_comment;
+      evaluationModel.evaluation_date = new Date(evaluation.evaluation_date);
+      evaluationModel.gauges = evaluation.gauges;
+      evaluationModel.estimated_implementation_date = new Date(evaluation.estimated_implementation_date);
+      evaluationModel.person_in_charge = evaluation.person_in_charge;
+      evaluationModel.global_status = resetGlobalStatus ? 0 : evaluation.global_status;
+      evaluationModel.created_at = new Date(evaluation.created_at);
+      if (evaluation.updated_at) {
+        evaluationModel.updated_at = new Date(evaluation.updated_at);
+      }
+      evaluationModel.create();
     });
   }
 
   export(id:  number) {
     const date = new Date().getTime();
     this.exportData(id).then((data) => {
-      const url = 'data:plain/text,' + JSON.stringify(data);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = date + '_export_pia_' + id + '.json';
+      const a = document.getElementById('pia-exportBlock');
+      const url = 'data:text/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(data));
+      a.setAttribute('href', url);
+      a.setAttribute('download', date + '_export_pia_' + id + '.json');
       a.click();
     });
   }
 
-  async import(file: any) {
+  async import(file: any, ) {
     const reader = new FileReader();
     reader.readAsText(file, 'UTF-8');
     reader.onload = (event: any) => {
       const jsonFile = JSON.parse(event.target.result);
-      this.importData(jsonFile);
+      this.importData(jsonFile, 'IMPORT', false);
     }
   }
 }

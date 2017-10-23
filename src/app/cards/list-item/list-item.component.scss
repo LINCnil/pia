@@ -4,6 +4,19 @@
   position: relative;
   padding: 0 10px;
   text-transform: capitalize;
+  cursor: pointer;
+  div[contenteditable] {
+    cursor: text;
+    &:focus, &:hover, &:active {
+      outline: 1px dotted $pia-green;
+    }
+    &:focus, &:active {
+      background-color: #fff;
+    }
+  }
+  &:last-child {
+    cursor: default;
+  }
   &:last-child {
     text-transform: none;
   }

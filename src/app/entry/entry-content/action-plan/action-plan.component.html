@@ -64,40 +64,38 @@
     <!-- Measures action plans -->
     <div class="pia-entryContentBlock-content-measures">
       <h2>{{ 'action_plan.measures' | translate }}</h2>
-      <div class="pia-entryContentBlock-content-details-blocks">
-        <div class="pia-details-blocks-content">
-          <div *ngIf="_actionPlanService.noMeasuresActionPlan; else listMeasuresActionPlanComment">
+      <div *ngIf="_actionPlanService.noMeasuresActionPlan; else listMeasuresActionPlanComment">
+        <div class="pia-entryContentBlock-content-details-blocks">
+          <div class="pia-details-blocks-content">
             {{ 'action_plan.no_action_plan' | translate }}
           </div>
-          <ng-template #listMeasuresActionPlanComment>
-            <div *ngFor="let m of _actionPlanService.measures">
-              {{m.action_plan_comment}}
-            </div>
-          </ng-template>
         </div>
       </div>
+      <ng-template #listMeasuresActionPlanComment>
+        <app-action-plan-implementation *ngFor="let data of _actionPlanService.measures" [data]="data"></app-action-plan-implementation>
+      </ng-template>
     </div>
     <!-- Risks action plans -->
     <div class="pia-entryContentBlock-content-risks">
       <h2>{{ 'action_plan.risks' | translate }}</h2>
-      <div class="pia-entryContentBlock-content-details-blocks">
-        <div class="pia-details-blocks-content">
-          <div *ngIf="_actionPlanService.noRisksActionPlan; else listRisksActionPlanComment">
+      <div *ngIf="_actionPlanService.noRisksActionPlan; else listRisksActionPlanComment">
+        <div class="pia-entryContentBlock-content-details-blocks">
+          <div class="pia-details-blocks-content">
             {{ 'action_plan.no_action_plan' | translate }}
           </div>
-          <ng-template #listRisksActionPlanComment>
-            <div *ngIf="_actionPlanService.risks['3.2']">
-              {{_actionPlanService.risks['3.2'].action_plan_comment}}
-            </div>
-            <div *ngIf="_actionPlanService.risks['3.3']">
-              {{_actionPlanService.risks['3.3'].action_plan_comment}}
-            </div>
-            <div *ngIf="_actionPlanService.risks['3.4']">
-              {{_actionPlanService.risks['3.4'].action_plan_comment}}
-            </div>
-          </ng-template>
         </div>
       </div>
+      <ng-template #listRisksActionPlanComment>
+        <div *ngIf="_actionPlanService.risks['3.2']">
+          <app-action-plan-implementation [data]="_actionPlanService.risks['3.2']"></app-action-plan-implementation>
+        </div>
+        <div *ngIf="_actionPlanService.risks['3.3']">
+          <app-action-plan-implementation [data]="_actionPlanService.risks['3.3']"></app-action-plan-implementation>
+        </div>
+        <div *ngIf="_actionPlanService.risks['3.4']">
+          <app-action-plan-implementation [data]="_actionPlanService.risks['3.4']"></app-action-plan-implementation>
+        </div>
+      </ng-template>
     </div>
   </div>
 </div>

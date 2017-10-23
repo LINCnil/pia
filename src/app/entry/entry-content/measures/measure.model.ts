@@ -11,18 +11,37 @@ export class Measure extends ApplicationDb {
   }
 
   async create() {
-    await this.getObjectStore();
-    return new Promise((resolve, reject) => {
-      const created_at = new Date();
-      this.objectStore.add({
+    this.created_at = new Date();
+    const data = {
         title: this.title,
         pia_id: this.pia_id,
         content: this.content,
         placeholder: this.placeholder,
-        created_at: new Date()
-      }).onsuccess = (event: any) => {
-        resolve(event.target.result);
+        created_at: this.created_at
       };
+    return new Promise((resolve, reject) => {
+      if (this.serverUrl) {
+        const formData = new FormData();
+        for(let d in data) {
+          formData.append('measure[' + d + ']', data[d]);
+        }
+        fetch(this.getServerUrl(), {
+          method: 'POST',
+          body: formData
+        }).then((response) => {
+          return response.json();
+        }).then((result: any) => {
+          resolve(result.id);
+        }).catch((error) => {
+          console.error('Request failed', error);
+        });
+      } else {
+        this.getObjectStore().then(() => {
+          this.objectStore.add(data).onsuccess = (event: any) => {
+            resolve(event.target.result);
+          };
+        });
+      }
     });
   }
 
@@ -32,11 +51,28 @@ export class Measure extends ApplicationDb {
         entry.title = this.title;
         entry.content = this.content;
         entry.updated_at = new Date();
-        this.getObjectStore().then(() => {
-          this.objectStore.put(entry).onsuccess = (event: any) => {
+        if (this.serverUrl) {
+          const formData = new FormData();
+          for(let d in entry) {
+            formData.append('measure[' + d + ']', entry[d]);
+          }
+          fetch(this.getServerUrl() + '/' + this.id, {
+            method: 'PATCH',
+            body: formData
+          }).then((response) => {
+            return response.json();
+          }).then((result: any) => {
             resolve();
-          };
-        });
+          }).catch((error) => {
+            console.error('Request failed', error);
+          });
+        } else {
+          this.getObjectStore().then(() => {
+            this.objectStore.put(entry).onsuccess = (event: any) => {
+              resolve();
+            };
+          });
+        }
       });
     });
   }
@@ -58,17 +94,28 @@ export class Measure extends ApplicationDb {
 
   async findAll() {
     const items = [];
-    await this.getObjectStore();
     return new Promise((resolve, reject) => {
-      const index1 = this.objectStore.index('index1');
-      index1.openCursor(IDBKeyRange.only(this.pia_id)).onsuccess = (event: any) => {
-        const cursor = event.target.result;
-        if (cursor) {
-          items.push(cursor.value);
-          cursor.continue();
-        } else {
-          resolve(items);
-        }
+      if (this.serverUrl) {
+        fetch(this.getServerUrl()).then((response) => {
+          return response.json();
+        }).then((result: any) => {
+          resolve(result);
+        }).catch((error) => {
+          console.error('Request failed', error);
+        });
+      } else {
+        this.getObjectStore().then(() => {
+          const index1 = this.objectStore.index('index1');
+          index1.openCursor(IDBKeyRange.only(this.pia_id)).onsuccess = (event: any) => {
+            const cursor = event.target.result;
+            if (cursor) {
+              items.push(cursor.value);
+              cursor.continue();
+            } else {
+              resolve(items);
+            }
+          }
+        });
       }
     });
   }

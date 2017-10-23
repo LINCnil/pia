@@ -12,11 +12,14 @@ export class Pia extends ApplicationDb {
   public dpo_opinion: string;
   public concerned_people_opinion: string;
   public concerned_people_status: number; // 0: NOK, 1: OK
+  public concerned_people_searched_opinion: boolean; // 0 : false, 1: true
+  public concerned_people_searched_content: string;
   public rejected_reason: string;
   public applied_adjustements: string;
   public dpos_names: string;
   public people_names: string;
   public progress: number;
+  public numberOfQuestions = 36; // TODO Auto calcul questions number
 
   constructor() {
     super(201707071818, 'pia');
@@ -27,8 +30,6 @@ export class Pia extends ApplicationDb {
    * Find all entries without conditions
    */
   async getAll() {
-    // TODO Auto calcul questions number
-    const numberOfQuestions = 36;
     const items = [];
     return new Promise((resolve, reject) => {
       this.findAll().then((entries: any) => {
@@ -48,11 +49,13 @@ export class Pia extends ApplicationDb {
           newPia.status = element.status;
           newPia.dpos_names = element.dpos_names;
           newPia.people_names = element.people_names;
+          newPia.concerned_people_searched_opinion = element.concerned_people_searched_opinion;
+          newPia.concerned_people_searched_content = element.concerned_people_searched_content;
           newPia.created_at = new Date(element.created_at);
           newPia.updated_at = new Date(element.updated_at);
           const answer = new Answer();
           answer.findAllByPia(element.id).then((answers: any) => {
-            newPia.progress = Math.round((100 / numberOfQuestions) * answers.length);
+            newPia.progress = Math.round((100 / this.numberOfQuestions) * answers.length);
             items.push(newPia);
           });
         });
@@ -61,31 +64,66 @@ export class Pia extends ApplicationDb {
     });
   }
 
+  async calculProgress() {
+    return new Promise((resolve, reject) => {
+      const answer = new Answer();
+      answer.findAllByPia(this.id).then((answers: any) => {
+        this.progress = Math.round((100 / this.numberOfQuestions) * answers.length);
+        resolve();
+      });
+    });
+  }
+
   async create() {
     if (this.created_at === undefined) {
       this.created_at = new Date();
     }
-    await this.getObjectStore();
+
+    const data = {
+      name: this.name,
+      author_name: this.author_name,
+      evaluator_name: this.evaluator_name,
+      validator_name: this.validator_name,
+      dpo_status: this.dpo_status,
+      dpo_opinion: this.dpo_opinion,
+      concerned_people_opinion: this.concerned_people_opinion,
+      concerned_people_status: this.concerned_people_status,
+      rejected_reason: this.rejected_reason,
+      applied_adjustements: this.applied_adjustements,
+      created_at: this.created_at,
+      updated_at: this.updated_at,
+      status: 0,
+      dpos_names: this.dpos_names,
+      people_names: this.people_names,
+      concerned_people_searched_opinion: this.concerned_people_searched_opinion,
+      concerned_people_searched_content: this.concerned_people_searched_content
+    };
+
     return new Promise((resolve, reject) => {
-      this.objectStore.add({
-        name: this.name,
-        author_name: this.author_name,
-        evaluator_name: this.evaluator_name,
-        validator_name: this.validator_name,
-        dpo_status: this.dpo_status,
-        dpo_opinion: this.dpo_opinion,
-        concerned_people_opinion: this.concerned_people_opinion,
-        concerned_people_status: this.concerned_people_status,
-        rejected_reason: this.rejected_reason,
-        applied_adjustements: this.applied_adjustements,
-        created_at: this.created_at,
-        updated_at: this.updated_at,
-        status: 0,
-        dpos_names: this.dpos_names,
-        people_names: this.people_names
-      }).onsuccess = (event: any) => {
-        resolve(event.target.result);
-      };
+      if (this.serverUrl) {
+        const formData = new FormData();
+        for (const d in data) {
+          if (data.hasOwnProperty(d)) {
+            formData.append('pia[' + d + ']', data[d]);
+          }
+        }
+        fetch(this.getServerUrl(), {
+          method: 'POST',
+          body: formData
+        }).then((response) => {
+          return response.json();
+        }).then((result: any) => {
+          resolve(result.id);
+        }).catch ((error) => {
+          console.error('Request failed', error);
+        });
+      } else {
+        this.getObjectStore().then(() => {
+          this.objectStore.add(data).onsuccess = (event: any) => {
+            resolve(event.target.result);
+          };
+        });
+      }
     });
   }
 
@@ -105,12 +143,33 @@ export class Pia extends ApplicationDb {
         entry.status = this.status;
         entry.dpos_names = this.dpos_names;
         entry.people_names = this.people_names;
+        entry.concerned_people_searched_opinion = this.concerned_people_searched_opinion;
+        entry.concerned_people_searched_content = this.concerned_people_searched_content;
         entry.updated_at = new Date();
-        this.getObjectStore().then(() => {
-          this.objectStore.put(entry).onsuccess = () => {
+        if (this.serverUrl) {
+          const formData = new FormData();
+          for (const d in entry) {
+            if (entry.hasOwnProperty(d)) {
+              formData.append('pia[' + d + ']', entry[d]);
+            }
+          }
+          fetch(this.getServerUrl() + '/' + entry.id, {
+            method: 'PATCH',
+            body: formData
+          }).then((response) => {
+            return response.json();
+          }).then((result: any) => {
             resolve();
-          };
-        });
+          }).catch ((error) => {
+            console.error('Request failed', error);
+          });
+        } else {
+          this.getObjectStore().then(() => {
+            this.objectStore.put(entry).onsuccess = () => {
+              resolve();
+            };
+          });
+        }
       });
     });
   }
@@ -135,6 +194,8 @@ export class Pia extends ApplicationDb {
           this.updated_at = new Date(entry.updated_at);
           this.dpos_names = entry.dpos_names;
           this.people_names = entry.people_names;
+          this.concerned_people_searched_opinion = entry.concerned_people_searched_opinion;
+          this.concerned_people_searched_content = entry.concerned_people_searched_content;
         }
         resolve();
       });
@@ -165,6 +226,15 @@ export class Pia extends ApplicationDb {
       }
     }
   }
+
+  getPeopleSearchStatus(status: boolean) {
+    if (status === true) {
+      return 'summary.people_search_status_ok';
+    } else {
+      return 'summary.people_search_status_nok';
+    }
+  }
+
   getOpinionsStatus(status: string) {
     if (status) {
       switch (status) {
@@ -180,7 +250,8 @@ export class Pia extends ApplicationDb {
     }
   }
 
-  getGaugeName(value: number) {
+  getGaugeName(value: any) {
+    value = parseInt(value, 10);
     if (value === 1) {
       return 'summary.gauges.negligible';
     } else if (value === 2) {

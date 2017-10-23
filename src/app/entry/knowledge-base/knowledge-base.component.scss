@@ -7,6 +7,10 @@
       text-align: center;
       color: $pia-gray;
     }
+    &-placeholder {
+      margin-top: 10px;
+      color: $pia-gray-dark;
+    }
     &-scroll {
       position: fixed;
       top: 0;

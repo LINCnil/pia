@@ -15,7 +15,6 @@ export class EvaluationService {
   section: any;
   item: any;
   enableEvaluation = false;
-  enableValidation = false;
   showValidationButton = false;
   enableFinalValidation = false;
   answers: any[] = [];
@@ -35,14 +34,13 @@ export class EvaluationService {
 
   allowEvaluation() {
     this.enableEvaluation = false;
-    this.enableValidation = false;
     this.showValidationButton = false;
     this.enableFinalValidation = false;
     this.answers = [];
     if (this.item) {
       this.setAnswers(this.item, true).then((answers: any) => {
         this.answers = answers;
-        this.allAwsersIsInEvaluation();
+        this.allAwsersIsInEvaluation(this.section, this.item);
       });
     }
   }
@@ -70,7 +68,7 @@ export class EvaluationService {
         const questionsIds = [];
         const answerTypeByQuestion = {};
         item.questions.forEach(question => {
-          questionsIds.push(question.id);
+          questionsIds.push(question.id.toString());
           answerTypeByQuestion[question.id] = question.answer_type;
         });
         this.answer.findAllByPia(this.pia.id).then((answers2: any) => {
@@ -83,7 +81,7 @@ export class EvaluationService {
             } else if (answerTypeByQuestion[answer.reference_to] === 'gauge') {
               contentOk = answer.data.text && answer.data.gauge && answer.data.text.length > 0 && answer.data.gauge > 0;
             }
-            return (contentOk && questionsIds.indexOf(answer.reference_to) >= 0);
+            return (contentOk && questionsIds.indexOf(answer.reference_to.toString()) >= 0);
           });
           if (checkNext) {
             this.enableEvaluation = answers.length === questionsIds.length ? true : false;
@@ -97,41 +95,46 @@ export class EvaluationService {
   /**
    * Allows an user to ask an evaluation for a section.
    */
-  async prepareForEvaluation() {
+  async prepareForEvaluation(piaService: any, sidStatusService: any, section: any, item: any) {
     // Creates evaluations according to evaluation_mode
     if (this.item.evaluation_mode === 'item') {
-      this.createEvaluationInDb(this.section.id + '.' + this.item.id).then(() => {
-        this.allAwsersIsInEvaluation();
+      this.createEvaluationInDb(section.id + '.' + item.id).then(() => {
+        sidStatusService.setSidStatus(piaService, section, item);
+        this.allAwsersIsInEvaluation(section, item);
       });
     } else {
       let count = 0;
+      const countAnswers = this.answers.length;
       this.answers.forEach((answer) => {
         return new Promise((resolve, reject) => {
           let reference_to = null;
-          reference_to = this.section.id + '.' + this.item.id + '.' + answer.reference_to;
-          if (this.item.is_measure) {
-            reference_to = this.section.id + '.' + this.item.id + '.' + answer;
+          reference_to = section.id + '.' + item.id + '.' + answer.reference_to;
+          if (item.is_measure) {
+            reference_to = section.id + '.' + item.id + '.' + answer;
           }
           this.createEvaluationInDb(reference_to).then(() => {
             count += 1;
             resolve();
           });
         }).then(() => {
-          if (count ===  this.answers.length) {
-            this.allAwsersIsInEvaluation();
+          if (count ===  countAnswers) {
+            sidStatusService.setSidStatus(piaService, section, item);
+            this.allAwsersIsInEvaluation(section, item);
           }
         });
       });
     }
-    this._router.navigate(['entry',this.pia.id, 'section', this._paginationService.nextLink[0], 'item', this._paginationService.nextLink[1]]);
+    this._router.navigate(['entry', this.pia.id, 'section', this._paginationService.nextLink[0], 'item',
+                           this._paginationService.nextLink[1]]);
     this._modalsService.openModal('ask-for-evaluation');
   }
 
-  allAwsersIsInEvaluation() {
+  allAwsersIsInEvaluation(section: any, item: any) {
     this.someItemNeedToBeFixed = false;
+    this.showValidationButton = false;
     let reference_to = '';
-    if (this.item.evaluation_mode === 'item') {
-      reference_to = this.section.id + '.' + this.item.id;
+    if (item.evaluation_mode === 'item') {
+      reference_to = section.id + '.' + item.id;
       const evaluation = new Evaluation();
       evaluation.getByReference(this.pia.id, reference_to).then((entry: any) => {
         if (entry !== false) {
@@ -148,12 +151,12 @@ export class EvaluationService {
     } else if (this.answers.length > 0) {
       let count = 0;
       this.answers.forEach((answer) => {
-        if (this.item.is_measure) {
+        if (item.is_measure) {
           // For measure
-          reference_to = this.section.id + '.' + this.item.id + '.' + answer;
+          reference_to = section.id + '.' + item.id + '.' + answer;
         } else {
           // For question
-          reference_to = this.section.id + '.' + this.item.id + '.' + answer.reference_to;
+          reference_to = section.id + '.' + item.id + '.' + answer.reference_to;
         }
         const evaluation = new Evaluation();
         evaluation.getByReference(this.pia.id, reference_to).then((entry: any) => {
@@ -187,26 +190,6 @@ export class EvaluationService {
         evaluation.delete(evaluation.id);
       }
     });
-  }
-
-  checkForFinalValidation(evaluation: any) {
-    this.enableValidation = true;
-    if (evaluation.status === 1) {
-      if (!evaluation.evaluation_comment || evaluation.evaluation_comment.length <= 0) {
-        this.enableValidation = false;
-      }
-    } else if (evaluation.status === 2) {
-      if (!evaluation.action_plan_comment || evaluation.action_plan_comment.length <= 0) {
-        this.enableValidation = false;
-      }
-      if (this.item.evaluation_mode === 'item' && this.item.evaluation_with_gauge === true) {
-        if (!evaluation.gauges || evaluation.gauges['x'] < 1 || evaluation.gauges['y'] < 1) {
-          this.enableValidation = false;
-        }
-      }
-    } else if (!evaluation.status) {
-      this.enableValidation = false;
-    }
   }
 
   async validateAllEvaluation() {
@@ -285,7 +268,6 @@ export class EvaluationService {
         }
         const evaluation = new Evaluation();
         evaluation.globalStatusByReference(this.pia.id, reference_to).then((exist: boolean) => {
-          // TODO - This doesn't work
           if (exist) {
             count += 1;
             if (count === this.answers.length) {
@@ -356,12 +338,14 @@ export class EvaluationService {
           evaluation.create().then(() => {
             resolve();
           });
-        } else {
+        } else if (evaluation.status === 0 || evaluation.status === 1) {
           this.someItemNeedToBeFixed = false;
           evaluation.status = 0;
           evaluation.update().then(() => {
             resolve();
           });
+        } else {
+          resolve();
         }
       });
     });

@@ -20,12 +20,19 @@ export class CommentsComponent implements OnInit {
   @Input() questionId: any;
   @Input() measureId: any;
   @Input() pia: any;
+  @Input() answer: any;
+  questionDate: Date;
 
   constructor(private el: ElementRef,
               private _measureService: MeasureService,
               private _modalsService: ModalsService) { }
 
   ngOnInit() {
+    if (this.answer.updated_at && this.answer.updated_at.toString() !== 'Invalid Date') {
+      this.questionDate = this.answer.updated_at;
+    } else if (this.answer.created_at && this.answer.created_at.toString() !== 'Invalid Date') {
+      this.questionDate = this.answer.created_at;
+    }
     this.comments = [];
     const commentsModel = new Comment();
     commentsModel.pia_id = this.pia.id;
@@ -47,7 +54,8 @@ export class CommentsComponent implements OnInit {
 
 
   /**
-   * Shows or hides the block which allows users to create a new comment.
+   * Shows or hide the block which allows users to create a new comment.
+   * @memberof CommentsComponent
    */
   toggleNewCommentBox() {
     const newCommentBox = this.el.nativeElement.querySelector('.pia-commentsBlock-new');
@@ -66,6 +74,7 @@ export class CommentsComponent implements OnInit {
 
   /**
    * Shows or hides the block which allows users to create a new comment.
+   * @memberof CommentsComponent
    */
   newCommentFocusOut() {
     // Checks if the comment value exists.
@@ -91,7 +100,6 @@ export class CommentsComponent implements OnInit {
           this.comments.unshift(commentRecord);
           this.commentsForm.controls['description'].setValue('');
           this.toggleNewCommentBox();
-          // this.updateCommentsCounter();
           this.getCommentsAccordeonStatus();
         });
       }
@@ -100,6 +108,7 @@ export class CommentsComponent implements OnInit {
 
   /**
    * Display comments list.
+   * @memberof CommentsComponent
    */
   displayCommentsList() {
     const commentsList = this.el.nativeElement.querySelector('.pia-commentsBlock-list');
@@ -111,7 +120,8 @@ export class CommentsComponent implements OnInit {
 
   /**
    * Returns a status about the comments number.
-   * @returns {Boolean} true if there are comments, false otherwise.
+   * @returns {Boolean} True if there are comments, False otherwise.
+   * @memberof CommentsComponent
    */
   getCommentsAccordeonStatus() {
     return this.comments.length > 0 ? true : false;

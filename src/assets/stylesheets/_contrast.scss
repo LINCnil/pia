@@ -49,6 +49,25 @@ body.pia-contrast {
     }
   }
 
+  /* risks overview */
+  .pia-risksOverviewBlock {
+    .rect_2 {
+      color: $pia-gray-dark;
+    }
+    .c32 {
+      fill: $pia-red-dark;
+    }
+    .path_32 {
+      stroke: $pia-red-dark;
+    }
+    .c33 {
+      fill: $pia-green-dark;
+    }
+    .path_33 {
+      stroke: $pia-green-dark;
+    }
+  }
+
   /* header */
   .pia-navigationBlock {
     &-company {
@@ -259,7 +278,7 @@ body.pia-contrast {
         div:first-child {
           background-color: $pia-green-dark;
         }
-        h1 {
+        h1, h2 {
           color: $pia-green-dark;
         }
       }
@@ -274,7 +293,7 @@ body.pia-contrast {
         div:first-child {
           background-color: $pia-red-dark !important;
         }
-        h1 {
+        h1, h2 {
           color: $pia-red-dark !important;
         }
       }
@@ -299,6 +318,11 @@ body.pia-contrast {
           p {
             color: $pia-gray-dark !important;
           }
+        }
+      }
+      &-nav {
+        a {
+          color: $pia-green-dark !important;
         }
       }
     }
@@ -635,8 +659,10 @@ body.pia-contrast {
         }
         &-treatment {
           > div {
-            input:checked + label {
-              background-color: $pia-green-dark !important;
+            &:first-child {
+              input:checked + label {
+                background-color: $pia-green-dark !important;
+              }
             }
             &:last-child {
               input:checked + label {

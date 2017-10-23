@@ -48,7 +48,6 @@
         margin: 10px 0;
         padding: 4px;
       }
-      // Simple questions
       textarea {
         resize: none;
         display: block;
@@ -65,6 +64,10 @@
           background-color: transparent;
           color: $pia-dark-black;
         }
+      }
+      &Text {
+        min-height: 130px;
+        padding: 5px 12px;
       }
     }
     &-date {

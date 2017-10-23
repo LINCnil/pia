@@ -1,22 +1,25 @@
-import { Component, Input, ElementRef, Renderer2, OnInit } from '@angular/core';
+import { Component, Input, ElementRef, Renderer2, OnInit, OnDestroy, NgZone } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ModalsService } from 'app/modals/modals.service';
 import { Measure } from './measure.model';
 import { Answer } from 'app/entry/entry-content/questions/answer.model';
 import { EvaluationService } from 'app/entry/entry-content/evaluations/evaluations.service';
 import { Evaluation } from 'app/entry/entry-content/evaluations/evaluation.model';
+import { KnowledgeBaseService } from 'app/entry/knowledge-base/knowledge-base.service';
 
 @Component({
   selector: 'app-measures',
   templateUrl: './measures.component.html',
   styleUrls: ['./measures.component.scss']
 })
-export class MeasuresComponent implements OnInit {
+export class MeasuresComponent implements OnInit, OnDestroy {
 
   @Input() measure: Measure;
   @Input() item: any;
   @Input() section: any;
   @Input() pia: any;
+  editor: any;
+  elementId: String;
   evaluation: Evaluation = new Evaluation();
   displayEditButton = false;
   displayDeleteButton = true;
@@ -27,6 +30,8 @@ export class MeasuresComponent implements OnInit {
     private el: ElementRef,
     private _modalsService: ModalsService,
     private _evaluationService: EvaluationService,
+    private _knowledgeBaseService: KnowledgeBaseService,
+    private _ngZone: NgZone,
     private renderer: Renderer2) { }
 
   ngOnInit() {
@@ -34,7 +39,10 @@ export class MeasuresComponent implements OnInit {
       measureTitle: new FormControl(),
       measureContent: new FormControl()
     });
+    this.measureModel.pia_id = this.pia.id;
     this.measureModel.get(this.measure.id).then(() => {
+      this._knowledgeBaseService.toHide.push(this.measure.title);
+      this.elementId = 'pia-measure-content-' + this.measure.id;
       if (this.measureModel) {
         this.evaluation.getByReference(this.pia.id, this.measure.id).then(() => {
           this.checkDisplayButtons();
@@ -62,6 +70,12 @@ export class MeasuresComponent implements OnInit {
     });
   }
 
+  /**
+   * Enable auto resizing on tetarea
+   * @param {*} event
+   * @param {HTMLElement} textarea
+   * @memberof MeasuresComponent
+   */
   autoTextareaResize(event: any, textarea: HTMLElement) {
     if (event) {
       textarea = event.target;
@@ -74,11 +88,20 @@ export class MeasuresComponent implements OnInit {
     }
   }
 
-  evaluationChange(evaluation) {
+  /**
+   * Change evaluation
+   * @param {*} evaluation
+   * @memberof MeasuresComponent
+   */
+  evaluationChange(evaluation: any) {
     this.evaluation = evaluation;
     this.checkDisplayButtons();
   }
 
+  /**
+   * Show or hide the edit button
+   * @memberof MeasuresComponent
+   */
   checkDisplayButtons() {
     if (this._evaluationService.showValidationButton) {
       this.displayEditButton = false;
@@ -98,13 +121,15 @@ export class MeasuresComponent implements OnInit {
    * Shows measure edit button.
    * Saves data from title field.
    * @param {event} event any event.
+   * @memberof MeasuresComponent
    */
-  measureTitleFocusOut(event) {
+  measureTitleFocusOut(event: Event) {
     const titleValue = this.measureForm.value.measureTitle;
     const contentValue = this.measureForm.value.measureContent;
 
     // Waiting for document.activeElement update
     setTimeout(() => {
+      this.measureModel.pia_id = this.pia.id;
       if (this.measureForm.value.measureTitle !== undefined) {
         const previousTitle = this.measureModel.title;
         this.measureModel.title = titleValue;
@@ -118,33 +143,40 @@ export class MeasuresComponent implements OnInit {
             // Update tags
             const answer = new Answer();
             answer.getByReferenceAndPia(this.pia.id, 324).then(() => {
-              const index = answer.data.list.indexOf(previousTitle);
-              if (~index) {
-                answer.data.list[index] = this.measureModel.title;
-                answer.update();
+              if (answer.data && answer.data.list) {
+                const index = answer.data.list.indexOf(previousTitle);
+                if (~index) {
+                  answer.data.list[index] = this.measureModel.title;
+                  answer.update();
+                }
               }
             });
 
             const answer2 = new Answer();
             answer2.getByReferenceAndPia(this.pia.id, 334).then(() => {
-              const index = answer2.data.list.indexOf(previousTitle);
-              if (~index) {
-                answer2.data.list[index] = this.measureModel.title;
-                answer2.update();
+              if (answer2.data && answer2.data.list) {
+                const index = answer2.data.list.indexOf(previousTitle);
+                if (~index) {
+                  answer2.data.list[index] = this.measureModel.title;
+                  answer2.update();
+                }
               }
             });
 
             const answer3 = new Answer();
             answer3.getByReferenceAndPia(this.pia.id, 344).then(() => {
-              const index = answer3.data.list.indexOf(previousTitle);
-              if (~index) {
-                answer3.data.list[index] = this.measureModel.title;
-                answer3.update();
+              if (answer3.data && answer3.data.list) {
+                const index = answer3.data.list.indexOf(previousTitle);
+                if (~index) {
+                  answer3.data.list[index] = this.measureModel.title;
+                  answer3.update();
+                }
               }
             });
           });
         }
-        if (titleValue && titleValue.length > 0 && userText !== '' && document.activeElement.id !== 'pia-measure-content-' + this.measureModel.id) {
+        if (titleValue && titleValue.length > 0 && userText !== ''
+            && document.activeElement.id !== 'pia-measure-content-' + this.measureModel.id) {
           this.displayEditButton = true;
           this.measureForm.controls['measureTitle'].disable();
           // Disables content field if both fields are filled and content isn't the next targeted element.
@@ -165,14 +197,16 @@ export class MeasuresComponent implements OnInit {
    * Disables content field when losing focus from it.
    * Shows measure edit button.
    * Saves data from content field.
-   * @param {event} event any event.
+   * @memberof MeasuresComponent
    */
-  measureContentFocusOut(event) {
+  measureContentFocusOut() {
+    this.editor = null;
     const titleValue = this.measureForm.value.measureTitle;
     const contentValue = this.measureForm.value.measureContent;
 
     // Waiting for document.activeElement update
     setTimeout(() => {
+      this.measureModel.pia_id = this.pia.id;
       if (this.measureForm.value.measureContent !== undefined) {
         this.measureModel.content = contentValue;
         const userText = contentValue.replace(/^\s+/, '').replace(/\s+$/, '');
@@ -181,10 +215,13 @@ export class MeasuresComponent implements OnInit {
         }
         if (userText !== '' || this.measureModel.content === '') {
           this.measureModel.update().then(() => {
-            this._evaluationService.allowEvaluation();
+            this._ngZone.run(() => {
+              this._evaluationService.allowEvaluation();
+            });
           });
         }
-        if (contentValue && contentValue.length > 0 && userText !== '' && document.activeElement.id !== 'pia-measure-title-' + this.measureModel.id) {
+        if (contentValue && contentValue.length > 0 && userText !== ''
+            && document.activeElement.id !== 'pia-measure-title-' + this.measureModel.id) {
           this.displayEditButton = true;
           this.measureForm.controls['measureContent'].disable();
           // Disables title field if both fields are filled and title isn't the next targeted element.
@@ -203,14 +240,18 @@ export class MeasuresComponent implements OnInit {
 
   /**
    * Enables or disables edition mode (fields) for measures.
+   * @memberof MeasuresComponent
    */
   activateMeasureEdition() {
     this.displayEditButton = false;
     this.measureForm.enable();
+    this.loadEditor();
   }
 
   /**
    * Shows or hides a measure.
+   * @param {*} event
+   * @memberof MeasuresComponent
    */
   displayMeasure(event: any) {
     const accordeon = this.el.nativeElement.querySelector('.pia-measureBlock-title button');
@@ -238,15 +279,57 @@ export class MeasuresComponent implements OnInit {
 
   /**
    * Allows an user to remove a measure.
+   * @param {string} measureId
+   * @memberof MeasuresComponent
    */
-  removeMeasure(measureID: string) {
+  removeMeasure(measureId: string) {
     const measuresCount = document.querySelectorAll('.pia-measureBlock');
     if (measuresCount && measuresCount.length <= 1) {
       this._modalsService.openModal('not-enough-measures-to-remove');
     } else {
-      localStorage.setItem('measure-id', measureID);
+      localStorage.setItem('measure-id', measureId);
       this._modalsService.openModal('remove-measure');
     }
   }
 
+  /**
+   * Load wysiwyg editor
+   * @memberof MeasuresComponent
+   */
+  measureContentFocusIn() {
+    this.loadEditor();
+  }
+
+  /**
+   * Load wysiwyg editor
+   * @memberof MeasuresComponent
+   */
+  loadEditor() {
+    tinymce.init({
+      branding: false,
+      menubar: false,
+      statusbar: false,
+      plugins: 'autoresize lists',
+      forced_root_block : false,
+      autoresize_bottom_margin: 20,
+      auto_focus: this.elementId,
+      autoresize_min_height: 30,
+      content_style: 'body {background-color:#eee!important;}' ,
+      selector: '#' + this.elementId,
+      toolbar: 'undo redo bold italic alignleft aligncenter alignright bullist numlist outdent indent',
+      skin_url: 'assets/skins/lightgray',
+      setup: editor => {
+        this.editor = editor;
+        editor.on('focusout', () => {
+          this.measureForm.controls['measureContent'].patchValue(editor.getContent());
+          this.measureContentFocusOut();
+          tinymce.remove(this.editor);
+        });
+      },
+    });
+  }
+
+  ngOnDestroy() {
+    tinymce.remove(this.editor);
+  }
 }

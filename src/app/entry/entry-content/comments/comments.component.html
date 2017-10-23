@@ -1,8 +1,9 @@
 <div class="pia-commentsBlock pia-commentsBlock-question-{{questionId}} pia-commentsBlock-measure-{{measureId}}">
     <div class="pia-commentsBlock-count">{{comments.length}} {{ 'comments.comments_count' | translate }}</div>
     <div class="pia-commentsBlock-infos">
-        <!-- TODO : display correct date for comments -->
-        <time datetime="2016-12-12" style="visibility:hidden;" class="pia-commentsBlock-date">le 12/12/2016</time>
+        <time class="pia-commentsBlock-date">
+          <span *ngIf="questionDate && questionDate.toString() !== 'Invalid Date'">le {{questionDate | date: 'dd/MM/yyyy'}}</span>
+        </time>
         <div class="pia-commentsBlock-btn">
             <button class="btn" type="button" (click)="toggleNewCommentBox()"><i class="fa fa-comment-o" aria-hidden="true"></i> {{ 'comments.new_comment' | translate }}</button>
             <button class="btn" (click)="displayCommentsList()" type="button" title="{{ 'misc.display' | translate }}">
