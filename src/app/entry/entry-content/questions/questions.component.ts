@@ -176,9 +176,9 @@ export class QuestionsComponent implements OnInit, OnDestroy {
               this.displayEditButton = true;
               this.questionForm.controls['text'].disable();
             }
-            if (gaugeValue > 0) {
+            /*if (gaugeValue > 0) {
               this.questionForm.controls['gauge'].disable();
-            }
+            }*/
           });
         });
       }
@@ -192,9 +192,9 @@ export class QuestionsComponent implements OnInit, OnDestroy {
             this._evaluationService.allowEvaluation();
             this.displayEditButton = true;
             this.questionForm.controls['text'].disable();
-            if (gaugeValue > 0) {
+            /*if (gaugeValue > 0) {
               this.questionForm.controls['gauge'].disable();
-            }
+            }*/
           });
         });
       }
