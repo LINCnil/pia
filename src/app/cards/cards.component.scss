@@ -221,6 +221,11 @@
 // Edit PIA
 .pia-editBlock {
   border-color: $pia-green;
+  button {
+    display: block;
+    margin-right: 0;
+    margin-left: auto;
+  }
 }
 
 // Cards flipper (New / Edit)
@@ -236,11 +241,6 @@
 }
 #cardsSwitch .back {
   transform: rotateY( 180deg );
-  .pia-icon-close {
-    position: absolute;
-    top: 6px;
-    right: 9px;
-  }
 }
 #cardsSwitch.flipped .back {
   transform: rotateY( 0deg );
@@ -309,4 +309,7 @@
   &:hover {
     background-color: rgba(62, 224, 149, 0.25);
   }
+}
+.pia-icon-close {
+  z-index: 1;
 }
