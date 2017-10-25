@@ -8,7 +8,6 @@
     &-item {
         background: url("../../assets/images/pia-bg.png") repeat center center;
         padding: 40px;
-        padding-top: 32px;
         font-size: 1.9rem;
         color: $pia-green;
         height: 368px;
@@ -190,7 +189,6 @@
           vertical-align: middle;
         }
         p {
-          margin: 0;
           margin-left: 10px;
           color: $pia-blue;
           font-size: 2rem;
@@ -300,7 +298,9 @@
     }
   }
 }
-
+.pia-cardsBlock-item-form input{
+  padding-bottom: 0;
+}
 .app-list-item {
   display: table-row;
   &:nth-child(even) {
@@ -312,4 +312,8 @@
 }
 .pia-icon-close {
   z-index: 1;
+}
+.pia-cardsBlock-item-btn button {
+  display: flex;
+  margin: auto;
 }
