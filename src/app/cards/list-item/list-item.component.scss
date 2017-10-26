@@ -31,8 +31,9 @@
   &-attachment {
     display: inline-block;
     position: absolute;
+    top: 5px;
     vertical-align: middle;
-    right: 0;
+    right: 3px;
     cursor: pointer;
     ul {
       display: none;
