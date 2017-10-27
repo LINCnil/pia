@@ -2,27 +2,40 @@
   <form [formGroup]="measureForm">
     <div class="pia-measureBlock-title">
       <button  class="pia-icons pia-icon-accordeon-up" type="button" (click)="displayMeasure($event)" title="{{ 'misc.display' | translate }}"></button>
-      <textarea maxlength="120"
-                rows="2"
-                (keyup)="autoTextareaResize($event)"
-                [attr.data-id]="measure.id"
-                id="pia-measure-title-{{measure.id}}"
-                formControlName="measureTitle"
-                (focusout)="measureTitleFocusOut($event)"
-                placeholder="{{ 'measures.placeholder_title' | translate }}"></textarea>
+
+      <!-- Measure title -->
+      <div (click)="measureTitleFocusIn()">
+        <textarea maxlength="120"
+                  rows="2"
+                  (keyup)="autoTextareaResize($event)"
+                  [attr.data-id]="measure.id"
+                  id="pia-measure-title-{{measure.id}}"
+                  formControlName="measureTitle"
+                  (focusout)="measureTitleFocusOut($event)"
+                  placeholder="{{ 'measures.placeholder_title' | translate }}"></textarea>
+      </div>
     </div>
+
     <div class="pia-measureBlock-displayer fadeIn">
-      <button type="button" class="btn pia-measureBlock-delete" *ngIf="displayDeleteButton"
-              (click)="removeMeasure(measure.id)" title="{{ 'measures.remove' | translate }}"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
-      <button type="button" class="btn pia-measureBlock-edit" *ngIf="displayEditButton"
-              (click)="activateMeasureEdition()" title="{{ 'measures.edit' | translate }}"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+      <button type="button"
+              class="btn pia-measureBlock-delete"
+              *ngIf="displayDeleteButton"
+              (click)="removeMeasure(measure.id)"
+              title="{{ 'measures.remove' | translate }}">
+        <i class="fa fa-trash-o" aria-hidden="true"></i>
+      </button>
+
+      <!-- Measure answer -->
       <div class="pia-measureBlock-content">
-        <div class="pia-measureBlock-contentText" [innerHTML]="measureForm.controls['measureContent'].value | safeHtml" [ngClass]="{ 'hide': editor || !measureForm.controls['measureContent'].value }"></div>
+        <div (click)="measureContentFocusIn()"
+              class="pia-measureBlock-contentText"
+              [innerHTML]="measureForm.controls['measureContent'].value | safeHtml"
+              [ngClass]="{ 'hide': editor || !measureForm.controls['measureContent'].value }"></div>
         <textarea [attr.data-id]="measure.id"
                   id="pia-measure-content-{{measure.id}}"
                   formControlName="measureContent"
                   (focusin)="measureContentFocusIn()"
-                  [ngClass]="{ 'hide': (!editor && measureForm.controls['measureContent'].value) }"
+                  [ngClass]="{ 'hide': (!editor && measureForm.controls['measureContent'].value && measureForm.controls['measureContent'].value.length > 0) }"
                   rows="8"
                   cols="50"
                   placeholder="{{ measure.placeholder | translate }}"></textarea>

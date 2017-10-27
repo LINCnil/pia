@@ -4,14 +4,15 @@
     <div class="pia-entryContentBlock-content-DPO">
       <div>
         <h2>{{ 'opinions.dpo_opinion' | translate }}</h2>
-        <button type="button" class="btn pia-questionBlock-edit" *ngIf="displayDpoEditButton && _sidStatusService.enableDpoValidation" (click)="activateDPOEdition()" title="{{ 'opinions.edit' | translate }}"><i class="fa fa-pencil" aria-hidden="true"></i></button>
       </div>
       <ng-container *ngIf="_sidStatusService.enableDpoValidation; else disableDpoBLock">
         <form (click)="checkDpoName()" [formGroup]="DPOForm">
           <p>
             <span>
               <ng-container *ngIf="!_piaService.pia.status || _piaService.pia.status < 2; else displayNames1">
-                <input #DpoNames type="text" class="DPOName" (change)="DPOFocusOutNames()" formControlName="DPONames" placeholder="{{ 'opinions.placeholder_dpo_name' | translate }}">
+                <div style="display:inline-block;" (click)="DpoNameFocusIn()">
+                  <input (focusout)="DpoNameFocusOut()" #DpoNames type="text" class="DPOName" formControlName="DPONames" placeholder="{{ 'opinions.placeholder_dpo_name' | translate }}">
+                </div>
               </ng-container>
               <ng-template #displayNames1>
                 {{_piaService.pia.dpos_names}}
@@ -24,7 +25,8 @@
                      id="treatment-1"
                      [attr.dirty]="_piaService.pia.dpo_status === 1"
                      [checked]="_piaService.pia.dpo_status === 1"
-                     (change)="DPOFocusOutStatus()"
+                     (click)="enableDpoStatusRadioButtons()"
+                     (change)="DpoStatusFocusOut()"
                      formControlName="DPOStatus"
                      value="1">
               <label for="treatment-1">
@@ -38,7 +40,8 @@
                      id="treatment-2"
                      [attr.dirty]="_piaService.pia.dpo_status === 0"
                      [checked]="_piaService.pia.dpo_status === 0"
-                     (change)="DPOFocusOutStatus()"
+                     (click)="enableDpoStatusRadioButtons()"
+                     (change)="DpoStatusFocusOut()"
                      formControlName="DPOStatus"
                      value="0">
               <label for="treatment-2">
@@ -48,8 +51,8 @@
               </label>
             </div>
           </div>
-          <div class="pia-entryContentBlock-content-DPO-reasons">
-            <textarea (keyup)="autoTextareaResize($event)" id="pia-opinions-dpo" formControlName="DPOOpinion" (focusout)="DPOFocusOutOpinion()" rows="8" cols="50" placeholder="{{ 'opinions.placeholder_dpo_opinion' | translate }}"></textarea>
+          <div (click)="DpoOpinionFocusIn()" class="pia-entryContentBlock-content-DPO-reasons">
+            <textarea (focusout)="DpoOpinionFocusOut()" (keyup)="autoTextareaResize($event)" id="pia-opinions-dpo" formControlName="DPOOpinion" rows="8" cols="50" placeholder="{{ 'opinions.placeholder_dpo_opinion' | translate }}"></textarea>
           </div>
         </form>
       </ng-container>

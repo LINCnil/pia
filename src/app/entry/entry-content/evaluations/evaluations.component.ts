@@ -25,7 +25,6 @@ export class EvaluationsComponent implements OnInit, AfterViewChecked, OnDestroy
   @Output() evaluationEvent = new EventEmitter<Evaluation>();
   evaluation: Evaluation;
   reference_to: string;
-  displayEditButton = false;
   previousGauges = {x: 0, y: 0};
   previousReferenceTo: string;
   hasResizedContent = false;
@@ -43,6 +42,8 @@ export class EvaluationsComponent implements OnInit, AfterViewChecked, OnDestroy
     // Prefix item
     this.reference_to = this.section.id + '.' + this.item.id;
     this.checkEvaluationValidation();
+
+    // Translations for risk names
     this.riskName = {value: this._translateService.instant('sections.3.items.' + this.item.id + '.title')};
     this.subscription = this._translateService.onLangChange.subscribe((event: LangChangeEvent) => {
       this.riskName = {value: this._translateService.instant('sections.3.items.' + this.item.id + '.title')};
@@ -50,14 +51,10 @@ export class EvaluationsComponent implements OnInit, AfterViewChecked, OnDestroy
   }
 
   ngAfterViewChecked() {
-    // Textareas auto resize
-    // const evaluationActionPlanTextarea = document.querySelector('.pia-evaluation-action-plan-' + this.evaluation.id);
+    // Evaluation comment textarea auto resize
     const evaluationCommentTextarea = document.querySelector('.pia-evaluation-comment-' + this.evaluation.id);
     if (!this.hasResizedContent && evaluationCommentTextarea) {
       this.hasResizedContent = true;
-      // if (evaluationActionPlanTextarea) {
-      //   this.autoTextareaResize(null, evaluationActionPlanTextarea);
-      // }
       if (evaluationCommentTextarea) {
         this.autoTextareaResize(null, evaluationCommentTextarea);
       }
@@ -95,37 +92,27 @@ export class EvaluationsComponent implements OnInit, AfterViewChecked, OnDestroy
 
     this.evaluation = new Evaluation();
     this.evaluation.getByReference(this.pia.id, this.reference_to).then(() => {
-      // Pass the evaluation to the parent component
+
       this.evaluationEvent.emit(this.evaluation);
 
       if (!this.evaluation.gauges) {
         this.evaluation.gauges = {x: 0, y: 0};
       }
+
       this.evaluationForm.controls['actionPlanComment'].patchValue(this.evaluation.action_plan_comment);
       this.evaluationForm.controls['evaluationComment'].patchValue(this.evaluation.evaluation_comment);
       if (this.evaluation.gauges) {
         this.evaluationForm.controls['gaugeX'].patchValue(this.evaluation.gauges['x']);
         this.evaluationForm.controls['gaugeY'].patchValue(this.evaluation.gauges['y']);
-        if (this.evaluation.gauges['x'] > 0) {
-          this.evaluationForm.controls['gaugeX'].disable();
-          this.displayEditButton = true;
-        }
-        if (this.evaluation.gauges['y'] > 0) {
-          this.evaluationForm.controls['gaugeY'].disable();
-          this.displayEditButton = true;
-        }
       } else {
         this.evaluationForm.controls['gaugeX'].patchValue(0);
         this.evaluationForm.controls['gaugeY'].patchValue(0);
       }
-      if (this.evaluation.action_plan_comment && this.evaluation.action_plan_comment.length > 0) {
-        this.displayEditButton = true;
-        this.evaluationForm.controls['actionPlanComment'].disable();
-      }
+
       if (this.evaluation.evaluation_comment && this.evaluation.evaluation_comment.length > 0) {
-        this.displayEditButton = true;
         this.evaluationForm.controls['evaluationComment'].disable();
       }
+
       this._globalEvaluationService.checkForFinalValidation(this.pia, this.section, this.item);
     });
 
@@ -145,42 +132,47 @@ export class EvaluationsComponent implements OnInit, AfterViewChecked, OnDestroy
     this._evaluationService.isAllEvaluationValidated();
   }
 
+  autoTextareaResize(event: any, textarea: any) {
+    if (event) {
+      textarea = event.target;
+    }
+    if (textarea.clientHeight < textarea.scrollHeight) {
+      textarea.style.height = textarea.scrollHeight + 'px';
+        textarea.style.height = (textarea.scrollHeight * 2 - textarea.clientHeight) + 'px';
+
+    }
+  }
+
   /**
-   * Executes various functionnalities when evaluating an item/question/section.
-   * (displaying edit button, displaying evaluation content with fields, switch value from action plan field to comment field, ...)
-   * @param {Event} event any event.
+   * Updates evaluation fields according to the selected button.
+   * @param {Event} event : any event.
+   * @param {number} status : the status of the evaluation (to be fixed, improvable, acceptable)
    */
   selectedButton(event, status: number) {
-    // Activates (or reactivates after a choice change) evaluation edition on all fields.
-    this.activateEvaluationEdition();
     this.evaluation.status = status;
 
+    // Action plan comment : hides action plan field + switchs its value to comment field + removes its value.
     if (status !== 2) {
-      // Hides action plan field + switchs its value to comment field + removes its value.
-      const evaluationPlanValue = this.evaluationForm.value.actionPlanComment;
-      const commentValue = this.evaluationForm.value.evaluationComment;
+      const evaluationPlanValue = this.evaluationForm.controls['actionPlanComment'].value;
+      const commentValue = this.evaluationForm.controls['evaluationComment'].value;
+
+      // Checks if there is an evaluation comment to concatenate it after the action plan value.
       if (evaluationPlanValue && evaluationPlanValue.length > 0) {
-        // Checks if there is an evaluation comment to concatenate it after the action plan value.
         if (commentValue && commentValue.length > 0) {
           this.evaluationForm.controls['evaluationComment'].setValue(evaluationPlanValue + '\n' + commentValue);
         } else {
           this.evaluationForm.controls['evaluationComment'].setValue(evaluationPlanValue);
         }
         this.evaluationForm.controls['actionPlanComment'].setValue('');
-        this.evaluation.evaluation_comment = this.evaluationForm.value.evaluationComment;
+        this.evaluation.evaluation_comment = this.evaluationForm.controls['evaluationComment'].value;
         this.evaluation.action_plan_comment = undefined;
       }
     }
+
     this.evaluation.update().then(() => {
       // Pass the evaluation to the parent component
       this.evaluationEvent.emit(this.evaluation);
       this._globalEvaluationService.checkForFinalValidation(this.pia, this.section, this.item);
-    });
-
-    // Disables active classes for all evaluation buttons.
-    // Adds an active class and removes previous disable attribute from the current button.
-    this.el.nativeElement.querySelectorAll('.pia-evaluationBlock-buttons .btn').forEach((btn) => {
-      btn.classList.remove('btn-active');
     });
 
     // Displays content (action plan & comment fields).
@@ -188,94 +180,92 @@ export class EvaluationsComponent implements OnInit, AfterViewChecked, OnDestroy
     content.classList.remove('hide');
   }
 
+  /**
+   * Loads editor (if not final validation) on action plan comment focus.
+   */
   actionPlanCommentFocusIn() {
-    this.loadEditor(true);
+    if (this._evaluationService.enableFinalValidation) {
+      return false;
+    } else {
+      this.loadEditor(true);
+    }
   }
 
   /**
-   * Disables action plan field when losing focus from it.
-   * Disables inactive evaluation buttons (or does nothing if one has been clicked right after unfocus).
-   * Shows evaluation edit button.
-   * Saves data from action plan field.
+   * Executes actions when losing focus from action plan comment.
    */
   actionPlanCommentFocusOut() {
     this.editor = null;
-    const actionPlanValue = this.evaluationForm.value.actionPlanComment.replace(/^\s+/, '').replace(/\s+$/, '');
-    const commentValue = this.evaluationForm.value.evaluationComment;
-    let noEvaluationButtonsClicked = true;
-    const evaluationButtons: any = document.querySelectorAll('.pia-evaluationBlock-buttons button');
-
-    // Waiting for document.activeElement update
-    setTimeout(() => {
-      this.evaluation.action_plan_comment = actionPlanValue;
-      if (actionPlanValue && actionPlanValue.length > 0 && document.activeElement.id !== 'pia-evaluation-comment') {
-        this.evaluationForm.controls['actionPlanComment'].disable();
-        evaluationButtons.forEach((btn) => {
-          noEvaluationButtonsClicked = (document.activeElement === btn);
-        });
-        // Disables comment field if both fields are filled and comment isn't the next targeted element.
-        if (commentValue && commentValue.length > 0) {
-          this.evaluationForm.controls['evaluationComment'].disable();
-        }
-        if (noEvaluationButtonsClicked || (commentValue && commentValue.length > 0)) {
-          this.disableEvaluationButtons();
-        }
-        this.displayEditButton = true;
-      }
-      // Disables comment field too if no action plan and comment is filled and isn't the next targeted element.
-      if (!actionPlanValue && commentValue && commentValue.length > 0 && document.activeElement.id !== 'pia-evaluation-comment') {
-        this.evaluationForm.controls['evaluationComment'].disable();
-        this.displayEditButton = true;
-      }
-      this.evaluation.update().then(() => {
-        this._ngZone.run(() => {
-          this._globalEvaluationService.checkForFinalValidation(this.pia, this.section, this.item);
-        });
+    let userText = this.evaluationForm.controls['actionPlanComment'].value;
+    if (userText) {
+      userText = userText.replace(/^\s+/, '').replace(/\s+$/, '');
+    }
+    this.evaluation.action_plan_comment = userText;
+    this.evaluation.update().then(() => {
+      this._ngZone.run(() => {
+        this._globalEvaluationService.checkForFinalValidation(this.pia, this.section, this.item);
       });
-    }, 1);
+    });
   }
 
   /**
-   * Disables comment field when losing focus from it.
-   * Disables inactive evaluation buttons (or does nothing if one has been clicked right after unfocus).
-   * Shows evaluation edit button.
-   * Saves data from comment field.
+   * Activates (or not) evaluation comment when focusing it.
    */
-  evaluationCommentFocusOut() {
-    const actionPlanValue = this.evaluationForm.value.actionPlanComment;
-    const commentValue = this.evaluationForm.value.evaluationComment;
-    let noEvaluationButtonsClicked = true;
-    const evaluationButtons: any = document.querySelectorAll('.pia-evaluationBlock-buttons button');
-    // Waiting for document.activeElement update
-    setTimeout(() => {
-      this.evaluation.evaluation_comment = commentValue;
-      if (commentValue && commentValue.length > 0 && document.activeElement.id !== 'pia-evaluation-action-plan') {
-        this.evaluationForm.controls['evaluationComment'].disable();
-        evaluationButtons.forEach((btn) => {
-          if (document.activeElement === btn) {
-            noEvaluationButtonsClicked = false;
-          }
-        });
-        // Disables action plan field if both fields are filled and action plan isn't the next targeted element.
-        if (actionPlanValue && actionPlanValue.length > 0) {
-          this.evaluationForm.controls['actionPlanComment'].disable();
-        }
-        if (noEvaluationButtonsClicked || ((actionPlanValue && actionPlanValue.length > 0))) {
-          this.disableEvaluationButtons();
-        }
-        this.displayEditButton = true;
-      }
-      // Disables action plan field too if no comment and action plan is filled and isn't the next targeted element.
-      if (!commentValue && actionPlanValue && actionPlanValue.length > 0 && document.activeElement.id !== 'pia-evaluation-action-plan') {
-        this.evaluationForm.controls['actionPlanComment'].disable();
-        this.displayEditButton = true;
-      }
-      this.evaluation.update().then(() => {
-        this._globalEvaluationService.checkForFinalValidation(this.pia, this.section, this.item);
-      });
-    }, 1);
+  evaluationCommentFocusIn() {
+    if (this._evaluationService.enableFinalValidation) {
+      return false;
+    } else {
+      this.evaluationForm.controls['evaluationComment'].enable();
+      const evaluationCommentField = <HTMLElement>document.querySelector('.pia-evaluation-comment-' + this.evaluation.id);
+      evaluationCommentField.focus();
+    }
+
   }
 
+  /**
+   * Executes actions when losing focus from evaluation comment.
+   */
+  evaluationCommentFocusOut() {
+    let userText = this.evaluationForm.controls['evaluationComment'].value;
+    if (userText) {
+      userText = userText.replace(/^\s+/, '').replace(/\s+$/, '');
+    }
+    this.evaluation.evaluation_comment = userText;
+    this.evaluation.update().then(() => {
+      this._globalEvaluationService.checkForFinalValidation(this.pia, this.section, this.item);
+      if (this.evaluationForm.value.evaluationComment && this.evaluationForm.value.evaluationComment.length > 0) {
+        this.evaluationForm.controls['evaluationComment'].disable();
+      }
+    });
+  }
+
+  /**
+   * Enables 'x' gauge.
+   */
+  enableGaugeX() {
+    if (this._evaluationService.enableFinalValidation) {
+      this.evaluationForm.controls['gaugeX'].disable();
+    } else {
+      this.evaluationForm.controls['gaugeX'].enable();
+    }
+  }
+
+  /**
+   * Enables 'y' gauge.
+   */
+  enableGaugeY() {
+    if (this._evaluationService.enableFinalValidation) {
+      this.evaluationForm.controls['gaugeY'].disable();
+    } else {
+      this.evaluationForm.controls['gaugeY'].enable();
+    }
+  }
+
+  /**
+   *
+   * @param event : any event.
+   * @param {string} xOrY : the current coordinate being processed (x or y).
+   */
   checkGaugeChanges(event: any, xOrY: string) {
     const value: string = event.target.value;
     const bgElement = event.target.parentNode.querySelector('.pia-gaugeBlock-background-' + xOrY);
@@ -297,59 +287,13 @@ export class EvaluationsComponent implements OnInit, AfterViewChecked, OnDestroy
     }
     this.evaluation.update().then(() => {
       this._globalEvaluationService.checkForFinalValidation(this.pia, this.section, this.item);
-      if (xOrY === 'x') {
-        this.evaluationForm.controls['gaugeX'].disable();
-        this.displayEditButton = true;
-      } else if (xOrY === 'y') {
-        this.evaluationForm.controls['gaugeY'].disable();
-        this.displayEditButton = true;
-      }
     });
   }
 
   /**
-   * Activates evaluation buttons and evaluation fields.
+   * Loads WYSIWYG editor for action plan comment.
+   * @param {boolean} autofocus boolean to autofocus or not.
    */
-  activateEvaluationEdition() {
-    this.displayEditButton = false;
-    this.enableEvaluationButtons();
-    this.evaluationForm.enable();
-    this.loadEditor();
-  }
-
-  /**
-   * Disables evaluation buttons except the active one.
-   */
-  disableEvaluationButtons() {
-    const evaluationButtons = this.el.nativeElement.querySelectorAll('.pia-evaluationBlock-buttons .btn');
-    evaluationButtons.forEach((btn) => {
-      if (!btn.classList.contains('btn-active')) {
-        btn.setAttribute('disabled', true);
-      }
-    });
-  }
-
-  /**
-   * Enables evaluation buttons except the active one.
-   */
-  enableEvaluationButtons() {
-    const evaluationButtons = this.el.nativeElement.querySelectorAll('.pia-evaluationBlock-buttons button');
-    evaluationButtons.forEach((btn) => {
-      btn.removeAttribute('disabled');
-    });
-  }
-
-  autoTextareaResize(event: any, textarea: any) {
-    if (event) {
-      textarea = event.target;
-    }
-    if (textarea.clientHeight < textarea.scrollHeight) {
-      textarea.style.height = textarea.scrollHeight + 'px';
-        textarea.style.height = (textarea.scrollHeight * 2 - textarea.clientHeight) + 'px';
-
-    }
-  }
-
   loadEditor(autofocus = false) {
     tinymce.init({
       branding: false,
@@ -357,9 +301,9 @@ export class EvaluationsComponent implements OnInit, AfterViewChecked, OnDestroy
       statusbar: false,
       plugins: 'autoresize lists',
       forced_root_block : false,
-      autoresize_bottom_margin: 20,
+      autoresize_bottom_margin: 30,
       auto_focus: (autofocus ? this.elementId : ''),
-      autoresize_min_height: 30,
+      autoresize_min_height: 40,
       content_style: 'body {background-color:#eee!important;}' ,
       selector: '#' + this.elementId,
       toolbar: 'undo redo bold italic alignleft aligncenter alignright bullist numlist outdent indent',
@@ -375,6 +319,9 @@ export class EvaluationsComponent implements OnInit, AfterViewChecked, OnDestroy
     });
   }
 
+  /**
+   * Destroys tinymce and unsubscribe.
+   */
   ngOnDestroy() {
     this.subscription.unsubscribe();
     tinymce.remove(this.editor);
