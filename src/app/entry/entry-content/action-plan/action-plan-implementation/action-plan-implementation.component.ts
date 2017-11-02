@@ -35,7 +35,7 @@ export class ActionPlanImplementationComponent implements OnInit {
         const month = (date.getMonth() + 1).toString();
         const finalMonth = (month.length === 1 ? '0' : '' ) + month;
         const finalDate =  date.getFullYear() + '-' + finalMonth + '-' + date.getDate();
-        this.actionPlanForm.controls['estimatedEvaluationDate'].patchValue(date);
+        this.actionPlanForm.controls['estimatedEvaluationDate'].patchValue(finalDate);
         this.actionPlanForm.controls['estimatedEvaluationDate'].disable();
       }
       if (this.evaluation.person_in_charge && this.evaluation.person_in_charge.length > 0) {

@@ -156,7 +156,7 @@
     "slugs": {
       "PIA_LGL_FOND": {
         "name": "Fondement juridique",
-        "description": "- La personne concernée a consenti au traitement de ses données à caractère personnel pour une ou plusieurs finalités spécifiques <br> - Le traitement est nécessaire à l'exécution d'un contrat auquel la personne concernée est partie ou à l'exécution de mesures précontractuelles prises à la demande de celle-ci <br> - Le traitement est nécessaire au respect d'une obligation légale à laquelle le responsable du traitement est soumis <br> - Le traitement est nécessaire à la sauvegarde des intérêts vitaux de la personne concernée ou d'une autre personne physique <br> - Le traitement est nécessaire à l'exécution d'une mission d'intérêt public ou relevant de l'exercice de l'autorité publique dont est investi le responsable du traitement <br> - Le traitement est nécessaire aux fins des intérêts légitimes poursuivis par le responsable du traitement ou par un tiers, à moins que ne prévalent les intérêts ou les libertés et droits fondamentaux de la personne concernée qui exigent une protection des données à caractère personnel, notamment lorsque la personne concernée est un enfant. Se référer à l'<a target=\"_blank\" href='https://www.cnil.fr/fr/reglement-europeen-protection-donnees/chapitre2#Article6'>art. 6 du [RGPD]</a>",
+        "description": "- La personne concernée a consenti au traitement de ses données à caractère personnel pour une ou plusieurs finalités spécifiques <br> - Le traitement est nécessaire à l'exécution d'un contrat auquel la personne concernée est partie ou à l'exécution de mesures précontractuelles prises à la demande de celle-ci <br> - Le traitement est nécessaire au respect d'une obligation légale à laquelle le responsable du traitement est soumis <br> - Le traitement est nécessaire à la sauvegarde des intérêts vitaux de la personne concernée ou d'une autre personne physique <br> - Le traitement est nécessaire à l'exécution d'une mission d'intérêt public ou relevant de l'exercice de l'autorité publique dont est investi le responsable du traitement <br> - Le traitement est nécessaire aux fins des intérêts légitimes poursuivis par le responsable du traitement ou par un tiers, à moins que ne prévalent les intérêts ou les libertés et droits fondamentaux de la personne concernée qui exigent une protection des données à caractère personnel, notamment lorsque la personne concernée est un enfant. Se référer à l'<a target=\"_blank\" href=\"https://www.cnil.fr/fr/reglement-europeen-protection-donnees/chapitre2#Article6\">art. 6 du [RGPD]</a>",
         "source": "PIA2 p4/WIKI Fondement_:_licéité_du_traitement,_interdiction_du_détournement_de_finalité"
       },
       "PIA_LGL_ST": {
@@ -166,12 +166,12 @@
       },
       "PIA_LGL_TRAN": {
         "name": "Transferts",
-        "description": "Détailler le lieu géographique de stockage des différentes données du traitement. En fonction du pays concerné, vous devrez justifier le choix d’un hébergement éloigné et indiquer les modalités d’encadrement juridique mises en œuvre afin d’assurer une protection adéquate aux données faisant l’objet d’un transfert transfrontalier. <br> C'est à dire : <br> - Dans un pays de l'Union Européenne <br> - Dans un pays reconnu adéquat par l'Union Européenne <br> - Autres pays <br> Conformément aux <a target=\"_blank\" href='https://www.cnil.fr/fr/reglement-europeen-protection-donnees/chapitre5#Article44'>articles 44 à 49 du [RGPD]</a>",
+        "description": "Détailler le lieu géographique de stockage des différentes données du traitement. En fonction du pays concerné, vous devrez justifier le choix d’un hébergement éloigné et indiquer les modalités d’encadrement juridique mises en œuvre afin d’assurer une protection adéquate aux données faisant l’objet d’un transfert transfrontalier. <br> C'est à dire : <br> - Dans un pays de l'Union Européenne <br> - Dans un pays reconnu adéquat par l'Union Européenne <br> - Autres pays <br> Conformément aux <a target=\"_blank\" href=\"https://www.cnil.fr/fr/reglement-europeen-protection-donnees/chapitre5#Article44\">articles 44 à 49 du [RGPD]</a>",
         "source": "WIKI Transferts_:_respect_des_obligations_en_mati%C3%A8re_de_transfert_de_donn%C3%A9es_en_dehors_de_l%E2%80%99Union_europ%C3%A9enne et PIAF Objets connectés p17"
       },
       "PIA_LGL_DESC": {
         "name": "Description du traitement",
-        "description": "Présenter le traitement considéré, les finalités et les enjeux de manière synthétique. Identifier le responsable du traitement et les éventuels sous-traitants. Recenser les référentiels applicables au traitement, utiles ou à respecter , notamment les codes de conduite approuvés<br>Cf. <a target=\"_blank\" href='https://www.cnil.fr/fr/reglement-europeen-protection-donnees/chapitre4#Article40'>art. 40 du [RGPD]</a>) <br>et certifications en matière de protection des données (cf. <a target=\"_blank\" href='https://www.cnil.fr/fr/reglement-europeen-protection-donnees/chapitre4#Article42'>art. 42 du [RGPD]</a>).",
+        "description": "Présenter le traitement considéré, les finalités et les enjeux de manière synthétique. Identifier le responsable du traitement et les éventuels sous-traitants. Recenser les référentiels applicables au traitement, utiles ou à respecter , notamment les codes de conduite approuvés<br>Cf. <a target=\"_blank\" href=\"https://www.cnil.fr/fr/reglement-europeen-protection-donnees/chapitre4#Article40\">art. 40 du [RGPD]</a>) <br>et certifications en matière de protection des données (cf. <a target=\"_blank\" href=\"https://www.cnil.fr/fr/reglement-europeen-protection-donnees/chapitre4#Article42\">art. 42 du [RGPD]</a>).",
         "source": "PIA1 p6"
       },
       "PIA_LGL_DATA": {
@@ -186,7 +186,7 @@
       },
       "PIA_LGL_FIN": {
         "name": "Finalités de la collecte et de l'utilisation des données",
-        "description": "Les données à caractère personnel doivent être collectées pour des finalités déterminées, explicites et légitimes et <strong>ne sont pas traitées ultérieurement de manière incompatible avec ces finalités</strong>; <br> Comme mentionné à l'<a target=\"_blank\" href='https://www.cnil.fr/fr/reglement-europeen-protection-donnees/chapitre2#Article5'>art. 5b du [RGPD]</a>",
+        "description": "Les données à caractère personnel doivent être collectées pour des finalités déterminées, explicites et légitimes et <strong>ne sont pas traitées ultérieurement de manière incompatible avec ces finalités</strong>; <br> Comme mentionné à l'<a target=\"_blank\" href=\"https://www.cnil.fr/fr/reglement-europeen-protection-donnees/chapitre2#Article5\">art. 5b du [RGPD]</a>",
         "source": "RGPD Art. 5b"
       },
       "PIA_LGL_MINI": {
@@ -196,8 +196,8 @@
       },
       "PIA_LGL_DEST": {
         "name": "Destinataires",
-        "description": "Personne physique ou morale, l'autorité publique, le service ou tout autre organisme qui reçoitcommunication de données à caractère personnel, qu'il s'agisse ou non d'un tiers. Comme mentionné à l'<a target=\"_blank\" href='https://www.cnil.fr/fr/reglement-europeen-protection-donnees/chapitre1#Article4'>art. 4.9 du [RGPD]</a>",
-        "source": "RGPD Art. 5.9"
+        "description": "Personne physique ou morale, l'autorité publique, le service ou tout autre organisme qui reçoit communication de données à caractère personnel, qu'il s'agisse ou non d'un tiers. Toutefois, les autorités publiques qui sont susceptibles de recevoir communication de données à caractère personnel dans le cadre d'une mission d'enquête particulière conformément au droit de l'Union ou au droit d'un État membre ne sont pas considérées comme des destinataires; le traitement de ces données par les autorités publiques en question est conforme aux règles applicables en matière de protection des données en fonction des finalités du traitement. Comme mentionné à l'<a target=\"_blank\" href=\"https://www.cnil.fr/fr/reglement-europeen-protection-donnees/chapitre1#Article4\">art. 4.9 du [RGPD]</a>",
+        "source": "RGPD Art. 4.9"
       },
       "PIA_LGL_DUR": {
         "name": "Durée de conservation des données",
@@ -211,22 +211,22 @@
       },
       "PIA_LGL_CONS": {
         "name": "Recueil du consentement de l'utilisateur du service",
-        "description": "Il s'agit de permettre un choix libre, spécifique et éclairé; vérifier que le traitement ne repose pas sur une autre base légale que le consentement, tel que prévu à l'article 6 du RGPD (obligation légale, sauvegarde de la vie, mission de service public, contrat ou mesures prises avec la personne, intérêt légitime).",
+        "description": "Il s'agit de permettre un choix libre, spécifique et éclairé; vérifier que le traitement ne repose pas sur une autre base légale que le consentement, tel que prévu à l'<a target=\"_blank\" href=\"https://www.cnil.fr/fr/reglement-europeen-protection-donnees/chapitre2#Article6\">article 6 du RGPD</a> (obligation légale, sauvegarde de la vie, mission de service public, contrat ou mesures prises avec la personne, intérêt légitime).",
         "source": "WIKI Recueil_du_consentement"
       },
       "PIA_VAL_DPO": {
         "name": "Avis du délégué à la protection des données",
-        "description": "L'article <a target=\"_blank\" href=https://www.cnil.fr/fr/reglement-europeen-protection-donnees/chapitre4#Article35>35-2 du RGPD</a>, dispose que le responsable de traitement demande conseil au délégué à la protection des données lors d'une analyse d'impact relative à la protection des données.<br><strong>Cet avis peut être défavorable à la mise en œuvre du traitement, sans pour autant contraindre la décision du responsable de traitement.</strong>",
+        "description": "L'article <a target=\"_blank\" href=\"https://www.cnil.fr/fr/reglement-europeen-protection-donnees/chapitre4#Article35\">35-2 du RGPD</a>, dispose que le responsable de traitement demande conseil au délégué à la protection des données lors d'une analyse d'impact relative à la protection des données.<br><strong>Cet avis peut être défavorable à la mise en œuvre du traitement, sans pour autant contraindre la décision du responsable de traitement.</strong>",
     		"source": "PIAF Objets connectés p36"
       },
       "PIA_VAL_CONC": {
         "name": "Avis des personnes concernées",
-        "description": "L'article <a target=\"_blank\" href=https://www.cnil.fr/fr/reglement-europeen-protection-donnees/chapitre4#Article35>35-9 du RGPD</a>, dispose que le responsable de traitement demande l'avis des personnes concernées le cas échéant.<br>Cet avis peut être recueilli par divers moyens, selon le contexte (étude interne ou externe concernant la finalité et les moyens du traitement, question aux représentants du personnel ou aux syndicats, enquête auprès des futurs clients du responsable de traitement.<br><strong>Si le responsable de traitement décide de passer outre</strong> l’avis des personnes concernées, il doit <strong>consigner la justification de sa décision.</strong><br>Si le responsable de traitement considère que <br>recueillir l’avis des personnes concernées n’est pas pertinent</strong>, il doit également en <strong>consigner la justification.</strong>",
+        "description": "L'article <a target=\"_blank\" href=\"https://www.cnil.fr/fr/reglement-europeen-protection-donnees/chapitre4#Article35\">35-9 du RGPD</a>, dispose que le responsable de traitement demande l'avis des personnes concernées le cas échéant.<br>Cet avis peut être recueilli par divers moyens, selon le contexte (étude interne ou externe concernant la finalité et les moyens du traitement, question aux représentants du personnel ou aux syndicats, enquête auprès des futurs clients du responsable de traitement.<br><strong>Si le responsable de traitement décide de passer outre</strong> l’avis des personnes concernées, il doit <strong>consigner la justification de sa décision.</strong><br>Si le responsable de traitement considère que <br>recueillir l’avis des personnes concernées n’est pas pertinent</strong>, il doit également en <strong>consigner la justification.</strong>",
     		"source": "PIAF Objets connectés p39"
       },
       "PIA_VAL_RT": {
         "name": "Validation du responsable de traitement",
-        "description": "<strong>Le responsable de traitement décide formellement</strong> de l’acceptabilité des mesures choisies, des risques résiduels et du plan d'action, de manière argumentée, au regard des enjeux préalablement identifiés et de l'avis des parties prenantes. Le PIA peut ainsi être :<br>- validé ;<br>- à améliorer (expliquer en quoi) ;<br>- refusé (ainsi que le traitement considéré).<br>Le cas échéant, il conviendra de revoir les étapes précédentes pour que le PIA puisse être validé.<br><strong>Cette décision est celle du seul responsable de traitement</strong> et ne préjuge en rien de l’évaluation de conformité qui peut être faite, le cas échéant, par l'autorité de protection des données (en France, la CNIL), par exemple dans le cadre de formalités préalables ou de contrôles.",
+        "description": "<strong>Le responsable de traitement décide formellement</strong> de l’acceptabilité des mesures choisies, des risques résiduels et du plan d'action, de manière argumentée, au regard des enjeux préalablement identifiés et de l'avis des parties prenantes. Le PIA peut ainsi être :<br>- validé ;<br>- à améliorer (expliquer en quoi) ;<br>- refusé (ainsi que le traitement considéré).<br>Le cas échéant, il conviendra de revoir les étapes précédentes pour que le PIA puisse être validé.<br>Cette décision ne préjuge en rien de l’évaluation de conformité qui peut être faite, le cas échéant, par l'autorité de protection des données (en France, la CNIL), par exemple dans le cadre de formalités préalables ou de contrôles.",
 		    "source": "PIAF Objets connectés p 40"
       },
       "PIA_TEC_ANO": {
@@ -244,7 +244,7 @@
       "PIA_TEC_CHIF": {
         "placeholder": "Décrivez ici les moyens cryptographiques mis en œuvre pour assurer la confidentialité et l'intégrité des données",
         "name": "Chiffrement",
-        "description": "Moyens mis en œuvre pour : <br> -<strong>assurer la confidentialité des données</strong> conservées (en base de données, dans des fichiers plats, dans les sauvegardes, etc.) ainsi que les modalités de gestion des clés de chiffrement (création, conservation, modification en cas de suspections de compromission, etc.). <br><br> Détaillez les moyens de chiffrement employés pour les flux de données (VPN, TLS, etc.) intégrés dans le traitement.",
+        "description": "Moyens mis en œuvre pour <strong>assurer la confidentialité des données</strong> conservées (en base de données, dans des fichiers plats, dans les sauvegardes, etc.) ainsi que les modalités de gestion des clés de chiffrement (création, conservation, modification en cas de suspections de compromission, etc.). <br><br> Détaillez les moyens de chiffrement employés pour les flux de données (VPN, TLS, etc.) intégrés dans le traitement.",
     		"source": "PIAF objets connectés p23"
       },
       "PIA_TEC_CTLA": {
@@ -269,7 +269,7 @@
         "placeholder": "Indiquez ici les procédures concernant le cycle de vie des documents papier contenant des données à caractère personnel.",
         "name": "Sécurisation des documents papier",
         "description": "Politiques concernant les documents papiers contenant des données sont utilisés dans le cadre du traitement. Elles décrivent comment ils sont imprimés, stockés, détruits et échangés.",
-    		"source": "PIAF Objets connectés"
+    		"source": "PIAF Objets connectés p21"
       },
       "PIA_TEC_MINI": {
         "placeholder":"Décrivez ici les méthodes mises en oeuvre pour réduire la sensibilité des données.",
@@ -382,7 +382,7 @@
       "PIA_ORG_VIOL": {
         "placeholder": "Décrivez ici les processus opérationnels destinés à détecter et traiter les événements susceptibles d’affecter les libertés et la vie privée des personnes concernées.",
         "name": "Gérer les incidents de sécurité et les violations de données",
-        "description": "Existance d’une organisation opérationnelle permettant de détecter et de traiter les événements susceptibles d’affecter les libertés et la vie privée des personnes concernées (définition des responsabilités, plan de réaction, qualifier les violations, etc.). ",
+        "description": "Existence d’une organisation opérationnelle permettant de détecter et de traiter les événements susceptibles d’affecter les libertés et la vie privée des personnes concernées (définition des responsabilités, plan de réaction, qualifier les violations, etc.). ",
         "source": "WIKI Gestion_des_incidents_et_des_violations_de_données"
       },
       "PIA_ORG_PERS": {
@@ -405,7 +405,7 @@
       },
       "PIA_DEF_EXA": {
         "name": "Qualité des données",
-        "description": "Les données à caractère personnel doivent être exactes et, si nécessaire, tenues à jour; toutes les mesures raisonnables doivent être prises pour que les données à caractère personnel qui sont inexactes, eu égard aux finalités pour lesquelles elles sont traitées, soient effacées ou rectifiées sans tarder (exactitude), conformément à l'<a target=\"_blank\" href='https://www.cnil.fr/fr/reglement-europeen-protection-donnees/chapitre2#Article5>article 5.1 d)</a>",
+        "description": "Les données à caractère personnel doivent être exactes et, si nécessaire, tenues à jour; toutes les mesures raisonnables doivent être prises pour que les données à caractère personnel qui sont inexactes, eu égard aux finalités pour lesquelles elles sont traitées, soient effacées ou rectifiées sans tarder (exactitude), conformément à l'<a target=\"_blank\" href=\"https://www.cnil.fr/fr/reglement-europeen-protection-donnees/chapitre2#Article5\">article 5.1 d)</a>.",
         "source": "RGPD Art. 5.1 d)"
       },
       "PIA_DEF_MES": {
@@ -415,7 +415,7 @@
       },
       "PIA_DEF_RT": {
         "name": "Responsable de traitement",
-        "description": "La personne physique ou morale, l'autorité publique, le service ou un autre organisme qui, seul ou conjointement avec d'autres, détermine les finalités et les moyens du traitement; lorsque les finalités et les moyens de ce traitement sont déterminés par le droit de l'Union ou le droit d'un État membre, le responsable du traitement peut être désigné ou les critères spécifiques applicables à sa désignation peuvent être prévus par le droit de l'Union ou par le droit d'un État membre.<br>Pour plus d'informations sur les obligations du responsable de traitement, se référer au <a target=\"_blank\" href='https://www.cnil.fr/fr/reglement-europeen-protection-donnees/chapitre4#Section1'>chap. IV du [RGPD]</a>",
+        "description": "La personne physique ou morale, l'autorité publique, le service ou un autre organisme qui, seul ou conjointement avec d'autres, détermine les finalités et les moyens du traitement; lorsque les finalités et les moyens de ce traitement sont déterminés par le droit de l'Union ou le droit d'un État membre, le responsable du traitement peut être désigné ou les critères spécifiques applicables à sa désignation peuvent être prévus par le droit de l'Union ou par le droit d'un État membre.<br>Pour plus d'informations sur les obligations du responsable de traitement, se référer au <a target=\"_blank\" href=\"https://www.cnil.fr/fr/reglement-europeen-protection-donnees/chapitre4#Section1\">chap. IV du [RGPD]</a>",
         "source": "RGPD Art. 4.7"
       },
       "PIA_DEF_DCP": {
@@ -450,12 +450,12 @@
       },
       "PIA_DEF_ACC": {
         "name": "Droit d'accès",
-        "description": "La personne concernée a le droit d'obtenir du responsable du traitement la confirmation que des données à caractère personnel la concernant sont ou ne sont pas traitées et, lorsqu'elles le sont, l'accès auxdites données à caractère personnel ainsi que d'autres informations précisées à l'<a target=\"_blank\" href=https://www.cnil.fr/fr/reglement-europeen-protection-donnees/chapitre3#Article15>article 15 du RGPD</a>.<br>Il existe des particularités concernant l'accès au dossiers médicaux, voir <a target=\"_blank\" href=https://www.legifrance.gouv.fr/affichTexte.do?cidTexte=JORFTEXT000000773559>Décret 2002-637</a>, et l'exercice du droit d'accès par les titulaires de l'autorité parentale, pour les mineurs, ou le représentant légal, pour les personnes faisant l'objet d'une mesure de tutelle voir <a target=\"_blank\" href=https://www.legifrance.gouv.fr/affichTexte.do?cidTexte=JORFTEXT000000886460>Article 58 de la loi Informatique et Libertés</a>.",
+        "description": "La personne concernée a le droit d'obtenir du responsable du traitement la confirmation que des données à caractère personnel la concernant sont ou ne sont pas traitées et, lorsqu'elles le sont, l'accès auxdites données à caractère personnel ainsi que d'autres informations précisées à l'<a target=\"_blank\" href=\"https://www.cnil.fr/fr/reglement-europeen-protection-donnees/chapitre3#Article15\">article 15 du RGPD</a>.<br>Il existe des particularités concernant l'accès au dossiers médicaux, voir <a target=\"_blank\" href=\"https://www.legifrance.gouv.fr/affichTexte.do?cidTexte=JORFTEXT000000773559\">Décret 2002-637</a>, et l'exercice du droit d'accès par les titulaires de l'autorité parentale, pour les mineurs, ou le représentant légal, pour les personnes faisant l'objet d'une mesure de tutelle voir <a target=\"_blank\" href=\"https://www.legifrance.gouv.fr/affichTexte.do?cidTexte=JORFTEXT000000886460\">Article 58 de la loi Informatique et Libertés</a>.",
     		"source":"RGPD Article 15 pour la définition et WIKI Exercice_des_droits_d’accès_et_à_la_portabilité pour les exceptions du droit Français"
       },
       "PIA_DEF_PORT": {
         "name": "Droit à la portabilité",
-        "description": "Les personnes concernées ont le droit de recevoir les données à caractère personnel les concernant qu'elles ont fournies à un responsable du traitement, dans un format structuré, couramment utilisé et lisible par machine, et ont le droit de transmettre ces données à un autre responsable du traitement sans que le responsable du traitement auquel les données à caractère personnel ont été communiquées y fasse obstacle sous les conditions décrites à l'<a target=\"_blank\" href=https://www.cnil.fr/fr/reglement-europeen-protection-donnees/chapitre3#Article20>Article 20 du RGPD</a>.",
+        "description": "Les personnes concernées ont le droit de recevoir les données à caractère personnel les concernant qu'elles ont fournies à un responsable du traitement, dans un format structuré, couramment utilisé et lisible par machine, et ont le droit de transmettre ces données à un autre responsable du traitement sans que le responsable du traitement auquel les données à caractère personnel ont été communiquées y fasse obstacle sous les conditions décrites à l'<a target=\"_blank\" href=\"https://www.cnil.fr/fr/reglement-europeen-protection-donnees/chapitre3#Article20\">Article 20 du RGPD</a>.",
     		"source": "RGPD Art. 20"
       },
       "PIA_DEF_RECT": {
@@ -465,17 +465,17 @@
       },
       "PIA_DEF_EFF": {
         "name": "Droit à l'effacement (droit à l'oubli)",
-        "description": "La personne concernée a le droit d'obtenir du responsable du traitement l'effacement, dans les meilleurs délais, de données à caractère personnel la concernant et le responsable du traitement a l'obligation d'effacer ces données à caractère personnel dans les meilleurs délais, conformément à l'<a target=\"_blank\" href=https://www.cnil.fr/fr/reglement-europeen-protection-donnees/chapitre3#Article17>article 17 du RGPD</a>",
+        "description": "La personne concernée a le droit d'obtenir du responsable du traitement l'effacement, dans les meilleurs délais, de données à caractère personnel la concernant et le responsable du traitement a l'obligation d'effacer ces données à caractère personnel dans les meilleurs délais, conformément à l'<a target=\"_blank\" href=\"https://www.cnil.fr/fr/reglement-europeen-protection-donnees/chapitre3#Article17\">article 17 du RGPD</a>",
     		"source": "RGPD Art. 17 (tronqué)"
       },
       "PIA_DEF_LIM": {
         "name": "Droit à la limitation",
-        "description": "La personne concernée a le droit d'obtenir du responsable de traitement la limitation du traitement conformément à l'<a target=\"_blank\" href=https://www.cnil.fr/fr/reglement-europeen-protection-donnees/chapitre3#Article18>article 18 du RGPD</a>",
+        "description": "La personne concernée a le droit d'obtenir du responsable de traitement la limitation du traitement conformément à l'<a target=\"_blank\" href=\"https://www.cnil.fr/fr/reglement-europeen-protection-donnees/chapitre3#Article18\">article 18 du RGPD</a>",
     		"source": "RGPD Art. 18 (tronqué)"
       },
       "PIA_DEF_OPP": {
         "name": "Droit à l'opposition",
-        "description": "La personne concernée a le droit de s'opposer à tout moment, pour des raisons tenant à sa situation particulière, à un  traitement  des  données à  caractère personnel la  concernant conformément à l'<a target=\"_blank\" href=https://www.cnil.fr/fr/reglement-europeen-protection-donnees/chapitre3#Article21>article 21 du RGPD</a>.",
+        "description": "La personne concernée a le droit de s'opposer à tout moment, pour des raisons tenant à sa situation particulière, à un  traitement  des  données à  caractère personnel la  concernant conformément à l'<a target=\"_blank\" href=\"https://www.cnil.fr/fr/reglement-europeen-protection-donnees/chapitre3#Article21\">article 21 du RGPD</a>.",
     		"source": "RGPD Art. 21 (tronqué)"
       },
       "PIA_DEF_CHIF": {
@@ -490,12 +490,12 @@
       },
       "PIA_DEF_ANO": {
         "name": "Anonymisation",
-        "description": "Le but d'une solution d'anonymisation est de faire perdre le caractère identifiant des données à caractère personnel. Une solution d’anonymisation doit être construite au cas par cas et adaptée aux usages prévus. Pour aider à évaluer une bonne solution d’anonymisation, le <a target=\"_blank\" href=http://ec.europa.eu/justice/data-protection/article-29/documentation/opinion-recommendation/files/2014/wp216_fr.pdf>G29</a> propose trois critères :<br>- <strong>L’individualisation : </strong>est-il toujours possible d’isoler un individu ?<br>- <strong>La corrélation : est-il possible de relier entre eux des ensembles de données distincts concernant un même individu ?<br>- <strong>L’inférence :</strong> peut-on déduire de l’information sur un individu ? <br>Ainsi : un ensemble de données pour lequel il n’est possible ni d’individualiser ni de corréler ni d’inférer est a priori anonyme ;<br>un ensemble de données pour lequel au moins un des trois critères n’est pas respecté ne pourra être considéré comme anonyme qu’à la suite d’une analyse détaillée des risques de ré-identification.",
+        "description": "Le but d'une solution d'anonymisation est de faire perdre le caractère identifiant des données à caractère personnel. Une solution d’anonymisation doit être construite au cas par cas et adaptée aux usages prévus. Pour aider à évaluer une bonne solution d’anonymisation, le <a target=\"_blank\" href=\"http://ec.europa.eu/justice/data-protection/article-29/documentation/opinion-recommendation/files/2014/wp216_fr.pdf\">G29</a> propose trois critères :<br>- <strong>L’individualisation : </strong>est-il toujours possible d’isoler un individu ?<br>- <strong>La corrélation : </strong>est-il possible de relier entre eux des ensembles de données distincts concernant un même individu ?<br>- <strong>L’inférence :</strong> peut-on déduire de l’information sur un individu ? <br>Ainsi : <strong>un ensemble de données pour lequel il n’est possible ni d’individualiser ni de corréler ni d’inférer est a priori anonyme</strong> ;<br>un ensemble de données pour lequel <strong>au moins un des trois critères n’est pas respecté </strong>ne pourra être considéré comme anonyme qu’à la suite d’une analyse détaillée des risques de ré-identification.",
     		"source": "WIKI pour la première phrase, site CNIL pour la description des recommandations du G29 https://www.cnil.fr/fr/le-g29-publie-un-avis-sur-les-techniques-danonymisation-0"
       },
       "PIA_DEF_PSEU": {
         "name": "Pseudonymisation",
-        "description": "Traitemetnt des données à caractère personnel de telle façon que celles-ci ne puissent plus être attribuées à une personne concernée précise sans avoir recours à des informations supplémentaires, pour autant que ces informations supplémentaires soient conservées séparément et soumises à des mesures techniques et organisationnelles afin de garantir que les données à caractère personnel ne sont pas attribuées à une personne physique identifiée ou identifiable.<br>La pseudonymisation réduit le risque de mise en corrélation d’un ensemble de données avec l’identité  originale d’une personne concernée; à ce titre, <strong>c’est une mesure de sécurité utile, mais non une méthode d'anonymisation.</strong>",
+        "description": "Traitement des données à caractère personnel de telle façon que celles-ci ne puissent plus être attribuées à une personne concernée précise sans avoir recours à des informations supplémentaires, pour autant que ces informations supplémentaires soient conservées séparément et soumises à des mesures techniques et organisationnelles afin de garantir que les données à caractère personnel ne sont pas attribuées à une personne physique identifiée ou identifiable.<br>La pseudonymisation réduit le risque de mise en corrélation d’un ensemble de données avec l’identité  originale d’une personne concernée; à ce titre, <strong>c’est une mesure de sécurité utile, mais non une méthode d'anonymisation.</strong>",
     		"source": "RGPD Art. 4.5 pour la définition, guidelines G29 p22 pour le distinction avec l'anonymisation http://ec.europa.eu/justice/data-protection/article-29/documentation/opinion-recommendation/files/2014/wp216_fr.pdf"
       },
       "PIA_DEF_CLO": {
@@ -555,7 +555,7 @@
       },
       "PIA_DEF_MENA": {
         "name": "Menaces pouvant conduire à un accès illégitime aux données",
-        "description": "Menaces concernant : </strong><br>- <strong>Les matériels</strong>, utilisés de manière inadaptée, observés, modifiés ou perdus (utilisation d'un support contenant des données sensibles pour des raisons personnelles ou lors d'un transport pour lequel il n'est pas adapté, observation d'un écran, ajout d'un matériel destiné à récupérer des donnéesetc.)<br>- <strong>Les logiciels</strong>, utilisés de manière inadaptée, observés ou modifiés (élévation de privilèges, collecte de données de configuration, installation d'un outil de prise de main à distance, etc.)<br>- <strong>Les canaux informatiques</strong> qui sont observés (interception de flux réseau, etc.)<br>- <strong>Les personnes</strong>, observées, détournées ou perdues (divulgation involontaire, à la suite de pressions ou grâce à de l'hameçonnage, changement d'employeur, etc.)<br>- <strong>Les documents papier</strong>, observés ou perdus (photocopies, impressions oubliées, récupération de documents au rebut, vol de courrier, etc.)<br>- <strong>Les canaux papier</strong> qui sont observés",
+        "description": "Menaces concernant : </strong><br>- <strong>Les matériels</strong>, utilisés de manière inadaptée, observés, modifiés ou perdus (utilisation d'un support contenant des données sensibles pour des raisons personnelles ou lors d'un transport pour lequel il n'est pas adapté, observation d'un écran, ajout d'un matériel destiné à récupérer des données etc.)<br>- <strong>Les logiciels</strong>, utilisés de manière inadaptée, observés ou modifiés (élévation de privilèges, collecte de données de configuration, installation d'un outil de prise de main à distance, etc.)<br>- <strong>Les canaux informatiques</strong> qui sont observés (interception de flux réseau, etc.)<br>- <strong>Les personnes</strong>, observées, détournées ou perdues (divulgation involontaire, à la suite de pressions ou grâce à de l'hameçonnage, changement d'employeur, etc.)<br>- <strong>Les documents papier</strong>, observés ou perdus (photocopies, impressions oubliées, récupération de documents au rebut, vol de courrier, etc.)<br>- <strong>Les canaux papier</strong> qui sont observés",
     		"source": "WIKI Menaces_pouvant_mener_à_un_accès_illégitime_à_des_données synthétisé"
       },
       "PIA_DEF_MENM": {
@@ -610,12 +610,12 @@
       },
       "PIA_DEF_ST": {
         "name": "Sous-traitant",
-        "description": "Personne physique ou morale, autorité publique, service ou un autre organisme qui traite des données à caractère personnel pour le compte du responsable du traitement <a target=\"_blank\" href=https://www.cnil.fr/fr/reglement-europeen-protection-donnees/chapitre1#Article4>Article 4.8 du RGPD</a>. <br>Le sous-traitant et toute personne agissant sous l'autorité du responsable du traitement ou sous celle du sous-traitant, qui a accès à des données à caractère personnel, ne peut pas traiter ces données, excepté sur instruction du responsable du traitement, à moins d'y être obligé par le droit de l'Union ou le droit d'un État membre <a target=\"_blank\" href=https://www.cnil.fr/fr/reglement-europeen-protection-donnees/chapitre4#Article29>Article 29 du RGPD</a>.",
+        "description": "Personne physique ou morale, autorité publique, service ou un autre organisme qui traite des données à caractère personnel pour le compte du responsable du traitement <a target=\"_blank\" href=\"https://www.cnil.fr/fr/reglement-europeen-protection-donnees/chapitre1#Article4\">Article 4.8 du RGPD</a>. <br>Le sous-traitant et toute personne agissant sous l'autorité du responsable du traitement ou sous celle du sous-traitant, qui a accès à des données à caractère personnel, ne peut pas traiter ces données, excepté sur instruction du responsable du traitement, à moins d'y être obligé par le droit de l'Union ou le droit d'un État membre <a target=\"_blank\" href=\"https://www.cnil.fr/fr/reglement-europeen-protection-donnees/chapitre4#Article29\">Article 29 du RGPD</a>.",
         "source": "RGPD articles 4.8 et 29"
       },
       "PIA_DEF_RGPD": {
         "name": "RGPD (Règlement Général sur la Protection des Données)",
-        "description": "Règlement relatif à la protection des personnes physiques à l'égard du traitement des données à caractère personnel et à la libre circulation de ces données (<a target=\"_blank\" href=http://eur-lex.europa.eu/legal-content/FR/TXT/PDF/?uri=CELEX:32016R0679&from=DE>UE 2016-679</a>), adopté le 27 avril 2016 par l'Union Européenne, il entrera en application  le 25/05/2018, abrogeant la directive 95/46/CE.",
+        "description": "Règlement relatif à la protection des personnes physiques à l'égard du traitement des données à caractère personnel et à la libre circulation de ces données (<a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/FR/TXT/PDF/?uri=CELEX:32016R0679&from=DE\">UE 2016-679</a>), adopté le 27 avril 2016 par l'Union Européenne, il entrera en application  le 25/05/2018, abrogeant la directive 95/46/CE.",
     		"source": "RGPD en-tête"
       },
       "PIA_DEF_PC": {
@@ -648,7 +648,7 @@
       },
       "PIA_EX_DCPR": {
         "name": "Catégories de DCP sensibles au sens légal",
-        "description": "Opinions philosophiques, politiques, religieuses, syndicales, vie sexuelle, données de santé, origine raciales ou ethniques, relatives à la santé ou à la vie sexuelle, infractions, condamnations, mesures de sécurité.<br>Se référer aux <a target=\"_blank\" href='https://www.cnil.fr/fr/reglement-europeen-protection-donnees/chapitre2#Article9'>art. 9</a> <br> et <a target=\"_blank\" href='https://www.cnil.fr/fr/reglement-europeen-protection-donnees/chapitre2#Article10'>art.10</a> du [RGPD]"
+        "description": "Opinions philosophiques, politiques, religieuses, syndicales, vie sexuelle, données de santé, origine raciales ou ethniques, relatives à la santé ou à la vie sexuelle, infractions, condamnations, mesures de sécurité.<br>Se référer aux <a target=\"_blank\" href=\"https://www.cnil.fr/fr/reglement-europeen-protection-donnees/chapitre2#Article9\">art. 9</a> <br> et <a target=\"_blank\" href=\"https://www.cnil.fr/fr/reglement-europeen-protection-donnees/chapitre2#Article10\">art.10</a> du [RGPD]"
       },
       "PIA_EX_HUMI": {
         "name": "Source humaine interne",
@@ -846,7 +846,7 @@
   },
   "errors": {
     "title": "Page introuvable.",
-    "content": "Vous pouvez remonter un problème ou une demande en utilisant le gestionnaire de tickets<br>disponible à l'adresse suivante : <a href='https://redmine.atnos.io' target='_blank'>https://redmine.atnos.io</a>"
+    "content": "Vous pouvez remonter un problème ou une demande en utilisant le gestionnaire de tickets<br>disponible à l'adresse suivante : <a href=\"https://redmine.atnos.io\" target=\"_blank\">https://redmine.atnos.io</a>"
   },
   "cartography": {
     "negligible": "Négligeable",
