@@ -4,10 +4,14 @@
             <div class="pia-entryContentBlock-content-subject">
                 <div class="pia-entryContentBlock-content-subject-title">
                     <h3>Motif du refus</h3>
-                    <button type="button" class="btn" *ngIf="displayEditButton1 && _piaService.pia.status !== 1" (click)="activateRejectionReasonEdition()" title="Éditer"><i class="fa fa-pencil" aria-hidden="true"></i></button>
                 </div>
-                <div class="pia-entryContentBlock-content-subject-textarea">
-                    <textarea (keyup)="autoTextareaResize($event)" id="pia-refuse-reason" rows="8" cols="50" formControlName="rejectionReason" (focus)="rejectionReasonFocus()" (focusout)="rejectionReasonFocusOut()"
+                <div (click)="rejectionReasonFocusIn()" class="pia-entryContentBlock-content-subject-textarea">
+                    <textarea (keyup)="autoTextareaResize($event)"
+                              id="pia-refuse-reason"
+                              rows="8"
+                              cols="50"
+                              formControlName="rejectionReason"
+                              (focusout)="rejectionReasonFocusOut()"
                               [disabled]="_piaService.pia.status === 1"
                               placeholder="Décrivez les motifs de refus de validation du PIA"></textarea>
                 </div>
@@ -17,10 +21,14 @@
             <div class="pia-entryContentBlock-content-subject">
                 <div class="pia-entryContentBlock-content-subject-title">
                     <h3>Modifications apportées</h3>
-                    <button type="button" class="btn" *ngIf="displayEditButton2" (click)="activateModificationsMadeEdition()" title="Éditer"><i class="fa fa-pencil" aria-hidden="true"></i></button>
                 </div>
-                <div class="pia-entryContentBlock-content-subject-textarea">
-                    <textarea (keyup)="autoTextareaResize($event)" id="pia-refuse-modifications" rows="8" cols="50" formControlName="modificationsMade" (focus)="modificationsMadeFocus()" (focusout)="modificationsMadeFocusOut()"
+                <div (click)="modificationsMadeFocusIn()" class="pia-entryContentBlock-content-subject-textarea">
+                    <textarea (focusout)="modificationsMadeFocusOut()"
+                              (keyup)="autoTextareaResize($event)"
+                              id="pia-refuse-modifications"
+                              rows="8"
+                              cols="50"
+                              formControlName="modificationsMade"
                               placeholder="Décrivez les modifications apportées au PIA"></textarea>
                 </div>
             </div>
@@ -34,6 +42,6 @@
             <button type="button" class="btn btn-red" [ngClass]="{'btn-active':  _piaService.pia.status === 1}" (click)="refuse()"
                     [disabled]="!showRejectionReasonButtons">Refuser le PIA</button>
         </div>
-        <a routerLink="/entry/{{_piaService.pia.id}}/section/4/item/4" *ngIf="_piaService.pia.status === 1" class="btn btn-green">Renvoyer pour validation</a>
+        <button style="display:block;border-radius:0;width:100%;" [disabled]="!showResendValidationButton" routerLink="/entry/{{_piaService.pia.id}}/section/4/item/4" *ngIf="_piaService.pia.status === 1" class="btn btn-green">Renvoyer pour validation</button>
     </div>
 </div>

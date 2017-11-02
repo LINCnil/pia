@@ -26,14 +26,6 @@ export class SidStatusService {
       piaService.getPIA().then(() => {
         // Special behaviour for DPO page
         if (sid === '4.3') {
-/*          if (piaService.pia.dpos_names) {
-            if (!piaService.pia.dpo_status || !piaService.pia.dpo_opinion) {
-              this.itemStatus[sid] = 1;
-            } else {
-              this.itemStatus[sid] = 2;
-            }
-          }*/
-
           if (piaService.pia.dpos_names
               || piaService.pia.dpo_status
               || piaService.pia.dpo_opinion
