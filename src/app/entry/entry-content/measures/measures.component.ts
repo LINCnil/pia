@@ -176,11 +176,13 @@ export class MeasuresComponent implements OnInit, OnDestroy {
    * @memberof MeasuresComponent
    */
   measureContentFocusIn() {
-    if (this._evaluationService.showValidationButton || this._evaluationService.enableFinalValidation) {
-      return false;
-    } else {
-      this.loadEditor();
-    }
+    setTimeout(() => {
+      if (this._evaluationService.showValidationButton || this._evaluationService.enableFinalValidation) {
+        return false;
+      } else {
+        this.loadEditor();
+      }
+    }, 1);
   }
 
   /**
@@ -190,6 +192,7 @@ export class MeasuresComponent implements OnInit, OnDestroy {
    * @memberof MeasuresComponent
    */
   measureContentFocusOut() {
+    this._knowledgeBaseService.placeholder = null;
     this.editor = null;
     let userText = this.measureForm.controls['measureContent'].value;
     if (userText) {
@@ -253,6 +256,7 @@ export class MeasuresComponent implements OnInit, OnDestroy {
    * @memberof MeasuresComponent
    */
   loadEditor() {
+    this._knowledgeBaseService.placeholder = this.measure.placeholder;
     tinymce.init({
       branding: false,
       menubar: false,

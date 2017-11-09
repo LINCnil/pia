@@ -136,6 +136,7 @@
     "title": "Knowledge base",
     "search": "Search",
     "add_measure": "Add",
+    "placeholder_help": "Entry aids",
     "placeholder_add_measure": "Add this measure",
     "add_measure_hint": "You can also add a measure from the knowledge base.",
     "filters": {

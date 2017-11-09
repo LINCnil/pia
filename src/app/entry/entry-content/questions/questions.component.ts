@@ -119,11 +119,13 @@ export class QuestionsComponent implements OnInit, OnDestroy {
    * Loads WYSIWYG editor.
    */
   questionContentFocusIn() {
-    if (this._evaluationService.showValidationButton || this._evaluationService.enableFinalValidation) {
-      return false;
-    } else {
-      this.loadEditor();
-    }
+    setTimeout(() => {
+      if (this._evaluationService.showValidationButton || this._evaluationService.enableFinalValidation) {
+        return false;
+      } else {
+        this.loadEditor();
+      }
+    }, 1);
   }
 
   /**
