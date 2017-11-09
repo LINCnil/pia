@@ -1,7 +1,9 @@
 {
   "authentication": {
     "subtitle1": "A platform to create <br> and manage your PIAs",
-    "subtitle2": "Access tools and glossaries"
+    "subtitle2": "Access tools and glossaries",
+    "start_app": "Go to the application",
+    "start": "Start"
   },
   "header": {
     "logo_title": "Privacy impact assessment",
@@ -378,18 +380,16 @@
         "description": "Translation in progress"
       },
       "PIA_ORG_EXT": {
-        "placeholder": "Translation in progress",
-        "name": "Translation in progress",
-        "description": "Translation in progress"
+        "placeholder": "Indicate here, for processors requiring access to data, the security controls and arrangements carried out as regards such access.",
+        "name": "Relations with third parties",
+        "description": "Existence of a policy and processes reducing the risk that legitimate access to personal data by third parties may pose to the data subjects' civil liberties and privacy.",
+        "source":  "PIA3 p48 - WIKI"
       },
       "PIA_ORG_AUD": {
-        "placeholder": "Translation in progress",
-        "name": "Translation in progress",
-        "description": "Translation in progress"
-      },
-      "PIA_DEF_IMP": {
-        "name": "Translation in progress",
-        "description": "Translation in progress"
+        "placeholder": "Indicate here whether the effectiveness and adequacy of privacy controls are monitored.",
+        "name": "Supervision",
+        "description": "Existence of a policy and processes to obtain an organization able to manage and control the protection of personal data held within it.",
+        "source":  "PIA3 p76 - WIKI"
       },
       "PIA_DEF_EXA": {
         "name": "Translation in progress",
@@ -516,76 +516,69 @@
         "description": "Translation in progress"
       },
       "PIA_DEF_MENM": {
-        "name": "Translation in progress",
-        "description": "Translation in progress"
+        "name": "Threats that can lead to an unwanted modification of personal data",
+        "description": "<strong>Threats regarding : </strong><br>- <strong>Hardware</strong> altered (addition of incompatible hardware resulting in malfunctions, removal of essential components, etc.)<br>- <strong>Software</strong> used inappropriately or altered (Unwanted modifications to data in databases, operator errors that modify data, etc.)<br>- <strong>Computer channels</strong> used inappropriately (resending of intercepted data, etc.)<br>- <strong>People</strong> overloaded or manipulates (assignment of staff to tasks beyond their abilities, stress or negative changes in working conditions, influence, etc.)<br>- Paper documents that have been altered (changes to figures in a file, replacement of an original by a forgery, etc.)<br>- <strong>Paper transmission channels</strong> that have been altered (change from one signature book to another, sending of multiple conflicting documents, etc.)",
+        "source": "PIAF Connected Objects p43 and 44, WIKI"
       },
       "PIA_DEF_MENI": {
-        "name": "Translation in progress",
-        "description": "Translation in progress"
+        "name": "Threats that can lead to a disappearance of personal data",
+        "description": "<strong>Threats regarding : </strong><br>- <strong>Hardware</strong> : used inappropriately, overloaded, altered, damaged, lost (storage unit full, processing capacity overload, addition of incompatible hardware resulting in malfunctions,  fire, theft or loss of an asset, etc.)<br>- <strong>Software</strong> : used inappropriately, overloaded, altered, damaged, lost (erasure of data, exceeding of database size, logic bomb, non-renewal of the licence for software used to access data, etc.)<br>- <strong>Computer channels</strong> : overloaded, altered, lost (unauthorised downloading, loss of Internet connection, etc.)<br>- <strong>People</strong> : overloaded, damaged, lost (poor use of skills, disease, retirement, etc.)<br>- <strong>Paper documents</strong> : used inappropriately, damaged, lost (erasure, aging of archived documents, theft or loss of documents, etc.)<br>- <strong>Paper transmission channels</strong> : overloaded, damaged, altered, lost (mail delivery halted by a strike, reassignment of offices or premises, loss of a document delivery company, reorganisation of paper transmission channels, etc.)",
+        "source": "PIAF Connected Objects p44 and 45, WIKI"
       },
       "PIA_DEF_GRV": {
-        "name": "Translation in progress",
-        "description": "Translation in progress"
+        "name": "Severity",
+        "description": "Severity represents the magnitude of a risk. It primarily depends on the prejudicial nature of the potential impacts.",
+        "source": "PIA1 page 6"
       },
       "PIA_DEF_VRA": {
-        "name": "Translation in progress",
-        "description": "Translation in progress"
-      },
-      "PIA_DEF_IND": {
-        "name": "Translation in progress",
-        "description": "Translation in progress"
-      },
-      "PIA_DEF_ACCI": {
-        "name": "Translation in progress",
-        "description": "Translation in progress"
-      },
-      "PIA_DEF_MODI": {
-        "name": "Translation in progress",
-        "description": "Translation in progress"
+        "name": "Likelihood",
+        "description": "likelihood expresses the possibility of a risk occurring. It primarily depends on the level of vulnerabilities of the supporting assets when under threat and the level of capabilities of the risk sources to exploit them.",
+        "source": "PIA1 page 6"
       },
       "PIA_DEF_PBDS": {
-        "name": "Translation in progress",
-        "description": "Translation in progress"
-      },
-      "PIA_DEF_PBDF": {
-        "name": "Translation in progress",
-        "description": "Translation in progress"
+        "name": "Privacy by design",
+        "description": "Measures taken to integrate the protection of personal data in all new processing operations (trusted names, guidelines, CNIL risk management, CNIL formalities).",
+        "source": "Mesures_US"
       },
       "PIA_DEF_VIOL": {
-        "name": "Translation in progress",
-        "description": "Translation in progress"
+        "name": "Personnal data breach",
+        "description": "Breach of security leading to the accidental or unlawful destruction, loss, alteration, unauthorised disclosure of, or access to, personal data transmitted, stored or otherwise processed.",
+        "source": "GDPR Art. 4.12"
       },
       "PIA_DEF_EVT": {
-        "name": "Translation in progress",
-        "description": "Translation in progress"
+        "name": "Categorization the personal data breaches",
+        "description": "- an event is a personal data breach without impacts <br>- an incident corresponds to a personal data breach with isolated impacts<br>- a damaging event is a personal data breach with significant, immediate impacts for one or more subjectsw<br>- a crisis is a personal data breach with significant, more long-term consequences for one or more subjects",
+        "source": "Mesures_US"
       },
       "PIA_VAL_CART": {
-        "name": "Translation in progress",
-        "description": "Translation in progress"
+        "name": "Mapping of risks",
+        "description": "Graph illustrating the good security practices, with a conformity value attributed to each on the basis of its assessment in previous steps.",
+        "source": "PIAF Connected Objects p34"
       },
       "PIA_VAL_ACT": {
-        "name": "Translation in progress",
-        "description": "Translation in progress"
+        "name": "Action plan",
+        "description": "corrective controls suggested by the assessor in previous steps, drawing up an action plan setting out, for each action, its manager, frequency, difficulty, cost and progress.",
+        "source": "None"
       },
       "PIA_DEF_ENJ": {
-        "name": "Translation in progress",
-        "description": "Translation in progress"
+        "name": "Stakes",
+        "description": "Expected benefits (for the organization, for the data subjects, for society in general, etc.).",
+        "source": "PIA1 p4 footnote 8"
       },
       "PIA_DEF_ST": {
-        "name": "Translation in progress",
-        "description": "Translation in progress"
+        "name": "Processor",
+        "description": "Natural or legal person, public authority, agency or other body which processes personal data on behalf of the controller, see <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 4.8 of [GDPR]</a>.<br>The processor and any person acting under the authority of the controller or of the processor, who has access to personal data, shall not process those data except on instructions from the controller, unless required to do so by Union or Member State law, see <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 29 of [GDPR]</a>.",
+        "source": "GDPR Art. 4.8 and 29"
       },
       "PIA_DEF_RGPD": {
-        "name": "Translation in progress",
-        "description": "Translation in progress"
+        "name": "GDPR (General Data Protection Regulation",
+        "description": "Regulation on the protection of natural persons with regard to the processing of personal data and on the free movement of such data, and repealing Directive 95/46/EC.",
+        "source": "GDPR title"
       },
       "PIA_DEF_PC": {
-        "name": "Translation in progress",
-        "description": "Translation in progress"
-      },
-      "PIA_DEF_FIN": {
-        "name": "Translation in progress",
-        "description": "Translation in progress"
+        "name": "Data subject",
+        "description": "Persons to whom the data covered by the processing relate.",
+        "source": "PIA1 p9"
       },
       "PIA_DEF_MIN3": {
         "name": "Translation in progress",
@@ -596,68 +589,120 @@
         "description": "Translation in progress"
       },
       "PIA_DEF_MIN5": {
-        "name": "Translation in progress",
-        "description": "Translation in progress"
+        "name": "Restricting data access",
+        "description": "The system can limit data access according to the \"need to know\" principle. The system can separate the sensitive data and apply specific access control policies. The system can also encrypt sensitive data to protect their confidentiality during transmission and storage. Access to temporary cookies which are produced during the data processing must also be protected.",
+        "source": "PIAF Connected objects p42 - WIKI"
       },
       "PIA_EX_DCPC": {
-        "name": "Translation in progress",
-        "description": "Translation in progress"
+        "name": "Common personnal data",
+        "description": "<strong>Identification data</strong> : Civil status, identity, age, etc. <br><strong>Personal life</strong> : living habits, marital status, etc. <br><strong>Professional life </strong> : résumé, education and professional training, awards, etc. <br><strong>Connection data </strong> : IP addresses, event logs, etc.<br><strong>Location data</strong> : travels, GPS data, GSM data, etc.<br><strong>Others</strong> : phone number, email address, etc.",
+        "source": "PIA2 old version - WIKI"
       },
       "PIA_EX_DCPS": {
-        "name": "Translation in progress",
-        "description": "Translation in progress"
+        "name": "Personnal data perceived as sensitive",
+        "description": "Social security number (NIR), biometric data, bank data",
+        "source": "PIA2 old version - WIKI"
       },
       "PIA_EX_DCPR": {
-        "name": "Translation in progress",
-        "description": "Translation in progress"
+        "name": "Legally sensitive personal data",
+        "description": "Philosophical, political, religious and trade-union views, sex life, health data, racial or ethnic origin, data concerning health or sex life, offenses, convictions, security measures, see <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 9 and 10 of [GDPR]</a>.",
+        "source": "PIA2 old version, GDPR Article 9 and 10 - WIKI"
       },
       "PIA_EX_HUMI": {
-        "name": "Translation in progress",
-        "description": "Translation in progress"
+        "name": "Internal human sources",
+        "description": "It could be either :<br>- a negligent or rogue employee, proximity of the system, skills, privileges and available time are potentially high, possible lack of training and awareness<br>- Negligent or rogue user or people around<br> Various motives are possible, including : clumsiness, error, negligence game, malicious intent, revenge, spying",
+        "source": "PIAF Connected objects p41 - WIKI"
       },
       "PIA_EX_HUME": {
         "name": "Translation in progress",
-        "description": "Translation in progress"
+        "description": "Il peut s'agir :<br>- Rogue person using physical proximity to gain illegitimate access to the service <br>- Hacker targeting a user by using knowledge of the user and some of the information concerning him/her<br>- Hacker targeting one of the companies using knowledge of the companies that can undermine their image<br>- Authorized third-party company using its privileged access to illegitimately access information . <br>Various motives are possible, including : clumsiness, error, negligence game, malicious intent, revenge, spying, desire to get hold of a large amount of data and to use them",
+        "source": "PIAF Connected objects p41 - WIKI"
       },
       "PIA_EX_NHUM": {
-        "name": "Translation in progress",
-        "description": "Translation in progress"
+        "name": "Non-human sources",
+        "description": "Incident or damage at one of the organization (power cut, fire, flood, etc.)",
+        "source": "PIAF Connected objects p41 - WIKI"
       },
       "PIA_EX_IMPN": {
-        "name": "Translation in progress",
-        "description": "Translation in progress"
+        "name": "Negligible impact",
+        "description": "Data subjects either will not be affected or may encounter a few inconveniences, which they will overcome without any problem.<br>Examples:<br>- physical : transient headaches<br>- material : loss of time in repeating formalities or waiting for them to be fulfilled, receipt of unsolicited mail (e.g.: spams), reuse of data published on websites for the purpose of targeted advertising , etc.,<br>- moral : mere annoyance, feeling of invasion of privacy without real or objective harm (commercial intrusion), etc.",
+        "source": "PIAF Connected Objects p41 - WIKI"
       },
       "PIA_EX_IMPL": {
-        "name": "Translation in progress",
-        "description": "Translation in progress"
+        "name": "Limited impact",
+        "description": "Data subjects may encounter significant inconveniences, which they will be able to overcome despite a few difficulties<br>Examples :<br>- physical : minor physical ailments (minor illness due to disregard of contraindications), defamation resulting in physical or psychological retaliation, etc.<br>- material : Unanticipated payments (fines imposed erroneously), denial of access to administrative or commercial services , Receipt of unsolicited targeted mailings likely to damage the reputation of data subjects, etc.<br>- moral : minor but objective psychological ailments, feeling of invasion of privacy without irreversible damage, intimidation on social networks, etc.",
+        "source": "PIAF Connected objects p41 - WIKI"
       },
       "PIA_EX_IMPI": {
-        "name": "Translation in progress",
-        "description": "Translation in progress"
+        "name": "Significant impact",
+        "description": "Data subjects may encounter significant consequences, which they should be able to overcome albeit with real and serious difficulties<br>Examples: <br>- physical : serious physical ailments causing long-term harm (worsening of health due to improper care, or disregard of contraindications), lteration of physical integrity for example following an assault, an accident at home, work, etc.<br>- material : misappropriation of money not compensated, targeted, unique and non-recurring, lost opportunities  (home loan, refusal of studies, internships or employment, examination ban), loss of housing, loss of employment, etc.<br>- moral : serious psychological ailments (depression, development of a phobia), feeling of invasion of privacy with irreversible damage, victim of blackmailing, cyberbullying and harassment, etc.",
+        "source": "PIAF Connected objects p41 - WIKI"
       },
       "PIA_EX_IMPM": {
-        "name": "Translation in progress",
-        "description": "Translation in progress"
+        "name": "Maximum impact",
+        "description": "Data subjects may encounter significant, or even irreversible, consequences, which they may not overcome<br>Examples :<br>- physical : long-term or permanent physical ailments, permanent impairment of physical integrity, death<br>- material : financial risk, substantial debts, inability to work, inability to relocate, loss of evidence in the context of litigation, loss of access to vital infrastructure (water, electricity), etc.<br>- moral : long-term or permanent psychological ailments, criminal penalty, abduction, loss of family ties, inability to sue, change of administrative status and/or loss of legal autonomy (guardianship), etc.",
+        "source": "PIAF Connected objects p41 - WIKI"
       },
       "PIA_EX_VRAN": {
-        "name": "Translation in progress",
-        "description": "Translation in progress"
+        "name": "Negligible likelihood",
+        "description": "It does not seem possible for the selected risk sources to materialize the threat by exploiting the properties of supporting assets (e.g.: theft of paper documents stored in a room protected by a badge reader and access code).",
+        "source": "PIAF Connected objects p44 - WIKI"
       },
       "PIA_EX_VRAL": {
-        "name": "Translation in progress",
-        "description": "Translation in progress"
+        "name": "Limited likelihood",
+        "description": "It seems difficult for the selected risk sources to materialize the threat by exploiting the properties of supporting assets (e.g.: theft of paper documents stored in a room protected by a badge reader).",
+        "source": "PIAF Connected objects p44 - WIKI"
       },
       "PIA_EX_VRAI": {
-        "name": "Translation in progress",
-        "description": "Translation in progress"
+        "name": "Significant likelihood",
+        "description": "It seems possible for the selected risk sources to materialize the threat by exploiting the properties of supporting assets (e.g.: theft of paper documents stored in offices that cannot be accessed without first checking in at the reception).",
+        "source": "PIAF Connected objects p44 - WIKI"
       },
       "PIA_EX_VRAM": {
-        "name": "Translation in progress",
-        "description": "Translation in progress"
+        "name": "Maximum likelihood",
+        "description": "It seems extremely easy for the selected risk sources to materialize the threat by exploiting the properties of supporting assets (e.g.: theft of paper documents stored in the public lobby).",
+        "source": "PIAF Connected objects p44 - WIKI"
       },
-      "PIA_EX_DC": {
-        "name": "Translation in progress",
-        "description": "Translation in progress"
+      "PIA_EX_MIND": {
+        "name": "Minimization of data themselves",
+        "description": "Reduce the severity of risks by minimizing the data themselves, by taking measures aimed at reducing their sensitivity.",
+        "source": "Mesures_US"
+      },
+      "PIA_DEF_ANO": {
+        "name": "Anonymization",
+        "description": "Process removing the identifying characteristics from personal data. To assess the robustness of an anonymization processes, see the <a target=\"_blank\" href=\"http://ec.europa.eu/justice/data-protection/article-29/documentation/opinion-recommendation/files/2014/wp216_en.pdf\">WP29 guidelines</a>.",
+        "source": "Mesures_US and G29 guidelines http://ec.europa.eu/justice/data-protection/article-29/documentation/opinion-recommendation/files/2014/wp216_en.pdf"
+      },
+      "PIA_SEC_CTR": {
+        "placeholder": "Describe here specific measures for processors (host, maintenance company, administrator, specialist service providers, etc.)",
+        "name": "Processing contracts",
+        "description": "Regulate the procurement relations via a contract signed intuitu personæ.<br>- Require the processor to forward its Information Systems Security Policy (PSSI) along with all supporting documents of its information security certifications and append said documents to the contract. Ensure that the measures pursuant to its PSSI comply with the CNIL's recommendations in this respect.<br>- Precisely determine and set, on a contractual basis, the operations that the processor will be required to carry out on personal data: <br> 1) The data to which it will have access or which will be transmitted to it.<br> 2) The operations it must carry out on the data.<br> 3) The duration for which it may store the data.<br> 4) Any recipients to which the data controller requires it to transmit the data.<br> 5) The operations to be carried out at the end of the service (permanent deletion of data or return of the data in the context of reversibility then destruction of data at the processor's).<br> 6) The security objectives set by the data controller. <br>- Determine, on a contractual basis, the division of responsibility regarding the legal processes aimed at allowing the data subjects to exercise their rights.<br>- Explicitly prohibit or regulate use of tier-2 processors.<br>- Clarify in the contract that compliance with the data protection obligations is a binding requirement of the contract.",
+        "source": "Mesures_US Procurement: identified and governed by a contract"
+      },
+      "PIA_DEF_CHIF": {
+        "name": "Encryption",
+        "description": "Measure making personal data unintelligible to anyone without access authorization (symmetric or asymmetric encryption, use of public algorithms known to be strong, authentication certificate, etc.).",
+        "source " : "Mesures_US Encryption"
+      },
+      "PIA_DEF_PWD": {
+        "name": "Password",
+        "description": "Passwords shall be composed of a minimum of eight characters; must be renewed if there is the least concern that they may have been compromised and, possibly, periodically (every six months or once a year) and must include a minimum of three of the four kinds of characters (capital letters, lower case letters, numerals and special characters); when a password is changed, the last five passwords may not be reused; the same password should not be used for different accesses; passwords should not be related to one's personal information (including name or date of birth.). Define a maximum number of attempts beyond which a warning is issued and authentication is blocked (temporarily or until it is manually unblocked).",
+        "source" : "Mesure_US"
+      },
+      "PIA_DEF_AUTH": {
+        "name": "Authentication",
+        "description": "Every person with legitimate access to personal data (employees, contracting parties and other third parties) should be identified by a unique identifier. Choose an authentication method to open sessions that is appropriate to the context, the risk level and the robustness expected. Recommendations: if the risks are not elevated, a password may be used; however, if the risks are higher, use a one-time password token but change the default activation password, or, when part of the password is sent by SMS, a card with a PIN code, an electronic certificate or any other form of strong authentication.",
+        "source": "Mesures_US Logical Access Control"
+      },
+      "PIA_DEF_LOG": {
+        "name": "Surveillance",
+        "description": "Set up a logging architecture to allow early detection of incidents involving personal data and to have information that can be used to analyze them or provide proof in connection with investigations.",
+        "source": "Mesures_US Surveillance"
+      },
+      "PIA_DEF_ARCH": {
+        "name": "Archiving",
+        "description": "Procedures preserving and managing the electronic archives containing the personal data intended to ensure their value (specifically, their legal value) throughout the entire period necessary (transfer, storage, migration, accessibility, elimination, archiving policy, protection of confidentiality, etc.).",
+        "source": "Mesures_USE Archiving"
       }
     }
   },

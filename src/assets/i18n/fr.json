@@ -1,10 +1,12 @@
 {
   "authentication": {
     "subtitle1": "Une plateforme pour créer <br> et administrer vos pia",
-    "subtitle2": "Accéder aux outils et glossaires"
+    "subtitle2": "Accéder aux outils et glossaires",
+    "start_app": "Accéder à l'application",
+    "start": "Commencer"
   },
   "header": {
-    "logo_title": "étude d'impact sur la vie privée",
+    "logo_title": "Analyse d'impact sur la protection des données",
     "logo_subtitle": "privacy impact assessment",
     "homepage_link": "Accueil",
     "knowledge_base_link": "Base de connaissances",
@@ -455,10 +457,6 @@
         "name": "Chiffrement",
         "description": "Le chiffrement d’un message permet de garantir que seuls l’émetteur et le(s) destinataire(s) légitime(s) d’un message en connaissent le contenu. C’est une sorte d’enveloppe scellée numérique. Une fois chiffré, faute d'avoir la clé spécifique, un message est inaccessible et illisible, que ce soit par les humains ou les machines.<br>Il existe deux grandes familles de chiffrement : le chiffrement symétrique et le chiffrement asymétrique.<br>- <strong>Le chiffrement symétrique</strong> permet de chiffrer et de déchiffrer un contenu avec la même clé, appelée alors la « clé secrète ». Le chiffrement symétrique est particulièrement rapide mais nécessite que l’émetteur et le destinataire se mettent d’accord sur une clé secrète commune ou se la transmettent par un autre canal. Celui-ci doit être choisi avec précautions, sans quoi la clé pourrait être récupérée par les mauvaises personnes, ce qui n’assurerait plus la confidentialité du message.<br>- <strong>Le chiffrement asymétrique</strong> suppose que le (futur) destinataire est muni d’une paire de clés (clé privée, clé publique) et qu’il a fait en sorte que les émetteurs potentiels aient accès à sa clé publique. Dans ce cas, l’émetteur utilise la clé publique du destinataire pour chiffrer le message tandis que le destinataire utilise sa clé privée pour le déchiffrer. Parmi ses avantages, la clé publique peut être connue de tous et publiée. Mais attention : il est nécessaire que les émetteurs aient confiance en l’origine de la clé publique, qu’ils soient sûrs qu’il s’agit bien de celle du destinataire. Autre point fort : plus besoin de partager une même clé secrète ! Le chiffrement asymétrique permet de s’en dispenser mais il est plus lent."
       },
-      "PIA_DEF_VPN": {
-        "name": "VPN",
-        "description": "Virtual Private Network, en Français Réseau Privé Virtuel. Il s'agit d'un réseau informatique virtuel permettant d'établir une connexion directe entre deux machines appartenant à des réseaux distants, comme si elles étaient reliées directement entre elles par un câble dédié, garantissant ainsi l'identité des deux machines correspondantes. Il est en outre recommandé de chiffrer, en se reposant sur des algorithmes cryptographiques réputés forts, les données transitant par cette connexion, en particulier si elle traverse l'Internet, afin de garantir la confidentialité des échanges entre les deux réseaux."
-      },
       "PIA_DEF_ANO": {
         "name": "Anonymisation",
         "description": "Le but d'une solution d'anonymisation est de faire perdre le caractère identifiant des données à caractère personnel. Une solution d’anonymisation doit être construite au cas par cas et adaptée aux usages prévus. Pour aider à évaluer une bonne solution d’anonymisation, le <a target=\"_blank\" href=http://ec.europa.eu/justice/data-protection/article-29/documentation/opinion-recommendation/files/2014/wp216_fr.pdf>G29</a> propose trois critères :<br>- <strong>L’individualisation : </strong>est-il toujours possible d’isoler un individu ?<br>- <strong>La corrélation : est-il possible de relier entre eux des ensembles de données distincts concernant un même individu ?<br>- <strong>L’inférence :</strong> peut-on déduire de l’information sur un individu ? <br>Ainsi : un ensemble de données pour lequel il n’est possible ni d’individualiser ni de corréler ni d’inférer est a priori anonyme ;<br>un ensemble de données pour lequel au moins un des trois critères n’est pas respecté ne pourra être considéré comme anonyme qu’à la suite d’une analyse détaillée des risques de ré-identification."
@@ -475,10 +473,6 @@
         "name": "Contrôle d'accès logique",
         "description": "Il consiste à limiter les risques que des personnes non autorisées accèdent aux données à caractère personnel par voie électronique.<br>Pour cela, il convient de :<br>- <strong>définir des profils d’habilitation</strong> dans les systèmes en séparant les tâches et les domaines de responsabilité, afin de limiter l’accès à des données à caractère personnel aux seuls utilisateurs dûment habilités<br>- <strong>supprimer les permissions d’accès des utilisateurs dès qu’ils ne sont plus habilités à accéder à un local ou à une ressource</strong>, ainsi qu’<strong>à la fin de leur période d’emploi.</strong>\n \t- <strong>réaliser une revue annuelle des privilèges</strong> afin d’identifier et de supprimer les comptes non utilisés, et de réaligner les privilèges sur les fonctions de chaque utilisateur.\n \t- <strong>documenter les procédures d’exploitation</strong>, les tenir à jour et les rendre disponibles à tous les utilisateurs concernés. Concrètement, toute action sur le système, qu’il s’agisse d’opérations d’administration ou de la simple utilisation d’une application, doit être expliquée dans des documents auxquels les utilisateurs peuvent se référer.<br>- <strong>rédiger  une charte informatique</strong> et lui donner une force contraignante (ex. annexion au règlement intérieur). "
       },
-      "PIA_DEF_PROF": {
-        "name": "Profil",
-        "description": "Ensemble de données qui permet l'identification de l'utilisateur d'un système informatique et conditionnent la manière dont ce système se comporte pour cet utiisateur donné. Il s'agit par exemple de jeux d'autorisation, de ses préférences d'utilisation etc."
-      },
       "PIA_DEF_PWD": {
         "name": "Mot de passe",
         "description": "Basée sur la gestion d’un secret, l’authentification par identifiant et mot de passe est un moyen simple et peu coûteux à déployer pour contrôler un accès. Toutefois, cette méthode d’authentification présente un niveau de sécurité faible.<br>Les exigences minimales de la CNIL en termes de taille et de complexité du mot de passe varient en fonction des mesures complémentaires mises en place pour fiabiliser le processus d’authentification :<br>ainsi, si une authentification est basée exclusivement sur un mot de passe, cela implique a minima l’utilisation d’un mot de passe complexe d’au moins 12 caractères composé de majuscules de minuscules, de chiffres et de<br>caractères spéciaux.  Des mesures complémentaires à la saisie d’un mot de passe (restrictions, d’accès, collecte d’autres donnée, support détenu en propre par l’utilisateur) permettent de réduire la longueur et la complexité du mot de passe, car ces mesures permettent d’assurer un niveau de sécurité équivalent au mot de passe seul."
@@ -493,7 +487,8 @@
       },
       "PIA_DEF_ARCH": {
         "name": "Archivage",
-        "description": "Les données qui ne sont plus utilisées au quotidien mais qui n’ont pas encore atteint leur durée limite de conservation, par exemple parce qu’elles sont conservées en cas de contentieux, devraient être archivées.<br>On distingue habituellement trois catégories d’archives :<br>- les bases actives (éventuellement appelées « archives courantes ») : il s'agit des données d'utilisation courante par les services en charge de la mise en œuvre du traitement ;<br>- les archives intermédiaires : il s'agit des données qui ne sont plus utilisées mais qui présentent encore un intérêt administratif pour l'organisme. Les données sont conservées sur support distinct et sont consultées de manière ponctuelle et motivée ;<br>- les archives définitives : il s'agit des données présentant un intérêt historique, scientifique ou statistique justifiant qu'elles ne fassent l'objet d'aucune destruction. Elles sont alors régies par le livre II du Code du patrimoine et non par la loi « informatique et libertés ».\n<br><strong>Les archives doivent être sécurisées et chiffrées</strong> si les données archivées sont des données sensibles, des données qui pourraient avoir des impacts graves sur les personnes concernées ou des données jugées confidentielles par l’entreprise."
+        "description": "Les données qui ne sont plus utilisées au quotidien mais qui n’ont pas encore atteint leur durée limite de conservation, par exemple parce qu’elles sont conservées en cas de contentieux, devraient être archivées.<br><br><strong>Les archives doivent être sécurisées </strong>notamment si les données archivées sont des données sensibles, ou des données qui pourraient avoir des impacts graves sur les personnes concernées.",
+        "source": "Guide Bleu 2017 p17"
       },
       "PIA_DEF_MIN1": {
         "name": "Filtrage et retrait",
@@ -517,7 +512,8 @@
       },
       "PIA_DEF_MENM": {
         "name": "Menaces pouvant conduire à une modification illégitime aux données",
-        "description": "<strong>Menaces concernant : </strong><br>- <strong>Les matériels</strong> qui ont été modifiés (ajout d'un matériel incompatible, retraint d'un indispensable, etc.)<br>- <strong>Les logiciels</strong> utilisés de manière inadaptée ou modifiés (erreur de manipulation, modifications inopportunes, etc.)<br>- <strong>Les canaux informatiques</strong> qui sont utilisés de manière inadaptée (réémission de flux intercepté, etc.)<br>- <strong>Les personnes</strong> surchargées ou détournées (tâche non maîtrisée, pertubation des conditions de travail, influence, etc.)<br>- Les documents papier qui ont été modifiés (modification de document, remplacement par un faux, etc.)<br>- <strong>Les canaux papier</strong> qui ont été modifiés (échange de parapheur, envoi de courriers contradictoires, etc.)"
+        "description": "<strong>Menaces concernant : </strong><br>- <strong>Les matériels</strong> qui ont été modifiés (ajout d'un matériel incompatible, retrait d'un indispensable, etc.)<br>- <strong>Les logiciels</strong> utilisés de manière inadaptée ou modifiés (erreur de manipulation, modifications inopportunes, etc.)<br>- <strong>Les canaux informatiques</strong> qui sont utilisés de manière inadaptée (réémission de flux intercepté, etc.)<br>- <strong>Les personnes</strong> surchargées ou détournées (tâche non maîtrisée, pertubation des conditions de travail, influence, etc.)<br>- Les documents papier qui ont été modifiés (modification de document, remplacement par un faux, etc.)<br>- <strong>Les canaux papier</strong> qui ont été modifiés (échange de parapheur, envoi de courriers contradictoires, etc.)",
+    		"source": "WIKI Menaces_pouvant_mener_à_une_modification_non_désirées_de_données"
       },
       "PIA_DEF_MENI": {
         "name": "Menaces pouvant conduire à une indisponibilité des données",
@@ -601,7 +597,8 @@
       },
       "PIA_EX_DCPC": {
         "name": "Catégories de DCP courantes",
-        "description": "<strong>Données d’identification</strong> : état civil, age, nationalité, double nationalité, adresse postale, capacité juridique... <br><strong>Vie personnelle</strong> : situation maritale, nombre d’enfants, département de résidence, type d’habitation, situation de logement, ancienneté dans le logement, CSP... <br><strong>Vie professionnelle</strong> : emploi, type de contrat, CSP, nom de l’employeur, ancienneté dans l’emploi, chômage... <br><strong>Données de connexion</strong> : adresse IP, journaux d'événements...<br><strong>Données de localisation</strong> : déplacement, données GPS, GSM...<br><strong>Autre</strong> : numéro de téléphone, adresse électronique..."
+        "description": "<strong>Données d’identification</strong> : état civil, age, nationalité, double nationalité, adresse postale, capacité juridique... <br><strong>Vie personnelle</strong> : situation maritale, nombre d’enfants, département de résidence, type d’habitation, situation de logement, ancienneté dans le logement, CSP... <br><strong>Vie professionnelle</strong> : emploi, type de contrat, CSP, nom de l’employeur, ancienneté dans l’emploi, chômage... <br><strong>Données de connexion</strong> : adresse IP, journaux d'événements...<br><strong>Données de localisation</strong> : déplacement, données GPS, GSM...<br><strong>Autre</strong> : numéro de téléphone, adresse électronique...",
+        "source": "WIKI Types_de_données"
       },
       "PIA_EX_DCPS": {
         "name": "Catégories de DCP perçues comme sensibles",
@@ -617,7 +614,7 @@
       },
       "PIA_EX_HUME": {
         "name": "Source humaine externe",
-        "description": "Il peut s'agir :<br>- d'un tiers malintentionné ou ignorant utilisant sa proximité physique pour accéder frauduleusement au service<br>- d'un attaquant ciblant un utilisateur en utilisant sa connaissance de l’utilisateur et de certaines des informations le concernant<br>- d'un attaquant ciblant une des sociétés en charge du traitement utilisant sa connaissance des sociétés pouvant permettre d’attenter à leur image<br>- d'un organisme tiers autorisé utilisant ses accès privilégiés pour accéder illégitimement à des informations. Les motivations peuvent être multiples : Jeu, nuisance, malveillance, vengeance, espionnage, appât du gain, acquisition de données en vue de les exploiter"
+        "description": "Il peut s'agir :<br>- d'un tiers malintentionné ou ignorant utilisant sa proximité physique pour accéder frauduleusement au service<br>- d'un attaquant ciblant un utilisateur en utilisant sa connaissance de l’utilisateur et de certaines des informations le concernant<br>- d'un attaquant ciblant une des sociétés en charge du traitement utilisant sa connaissance des sociétés pouvant permettre d’attenter à leur image<br>- d'un organisme tiers autorisé utilisant ses accès privilégiés pour accéder illégitimement à des informations. Les motivations peuvent être multiples : jeu, nuisance, malveillance, vengeance, espionnage, appât du gain, acquisition de données en vue de les exploiter"
       },
       "PIA_EX_NHUM": {
         "name": "Source non humaine",
@@ -629,7 +626,7 @@
       },
       "PIA_EX_IMPL": {
         "name": "Impact limité",
-        "description": "Les personnes concernées pourraient connaître des désagréments significatifs, qu’elles pourront surmonter malgré quelques difficultés<br>Exemples d'impacts :<br>- corporels : affection physique mineure (ex. : maladie bénigne suite au non respect de contre-indications), diffamation donnant lieu à des représailles physiques etc.<br>- matériels : paiements non prévus (ex. : amendes erronées), refus d’accès à des services administratifs ou commerciaux, publicité ciblée en ligne sur un aspect vie privée que la personne souhaitait garder confidentiel , etc.<br>- moraux : affection psychologique mineure mais objective, sentiment d’atteinte à la vie privée sans préjudice irrémédiable, intimidation sur les réseaux sociaux etc."
+        "description": "Les personnes concernées pourraient connaître des désagréments significatifs, qu’elles pourront surmonter malgré quelques difficultés<br>Exemples d'impacts :<br>- corporels : affection physique mineure (ex. : maladie bénigne suite au non respect de contre-indications), diffamation donnant lieu à des représailles physiques, etc.<br>- matériels : paiements non prévus (ex. : amendes erronées), refus d’accès à des services administratifs ou commerciaux, publicité ciblée en ligne sur un aspect vie privée que la personne souhaitait garder confidentiel , etc.<br>- moraux : affection psychologique mineure mais objective, sentiment d’atteinte à la vie privée sans préjudice irrémédiable, intimidation sur les réseaux sociaux, etc."
       },
       "PIA_EX_IMPI": {
         "name": "Impact Important",
