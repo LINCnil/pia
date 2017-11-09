@@ -1,5 +1,5 @@
-import { Component, OnInit, DoCheck } from '@angular/core';
-
+import { Component, OnInit, DoCheck, OnDestroy } from '@angular/core';
+import { Renderer2 } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
@@ -7,10 +7,12 @@ import { TranslateService } from '@ngx-translate/core';
   templateUrl: './authentication.component.html',
   styleUrls: ['./authentication.component.scss']
 })
-export class AuthenticationComponent implements OnInit, DoCheck {
+export class AuthenticationComponent implements OnInit, DoCheck, OnDestroy {
   selectedLanguage: string;
 
-  constructor(private _translateService: TranslateService) { }
+  constructor(private _renderer: Renderer2, private _translateService: TranslateService) {
+    this._renderer.addClass(document.body, 'pia-authentication');
+  }
 
   ngOnInit() {
     this.getUserLanguage();
@@ -18,6 +20,10 @@ export class AuthenticationComponent implements OnInit, DoCheck {
 
   ngDoCheck() {
     this.getUserLanguage();
+  }
+
+  ngOnDestroy() {
+    this._renderer.removeClass(document.body, 'pia-authentication');
   }
 
   /**
