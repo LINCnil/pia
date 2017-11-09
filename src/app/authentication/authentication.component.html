@@ -1,11 +1,41 @@
+<nav class="pia-navigationBlock">
+  <div class="container">
+    <div class="row">
+      <div class="small-12 medium-12 columns">
+        <ul class="pia-navigationBlock-list">
+          <li class="pia-navigationBlock-languages">
+            <a href="javascript:;">
+              <i class="fa fa-globe" aria-hidden="true"></i>
+            </a>
+            <ul>
+              <li [ngClass]="{'is_active': selectedLanguage === 'fr'}"
+                  (click)="updateCurrentLanguage('fr')">
+                <a (click)="_translateService.use('fr')">
+                  {{ 'header.languages.fr' | translate }}
+                </a>
+              </li>
+              <li [ngClass]="{'is_active': selectedLanguage === 'en'}"
+                  (click)="updateCurrentLanguage('en')">
+                <a (click)="_translateService.use('en')">
+                  {{ 'header.languages.en' | translate }}
+                </a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>
+
 <main class="container pia-authenticationBlock">
     <div class="row">
         <div class="small-12 medium-8 columns pia-authenticationBlock-logo">
             <div>
               <img src="assets/images/pia-auth-logo.png" alt="Logo PIA">
               <div>
-                <h1>analyse d'impact sur la <br> protection des données</h1>
-                <div>privacy impact assessment</div>
+                <h1 [innerHTML]="'authentication.title' | translate"></h1>
+                <div>{{ 'header.logo_subtitle' | translate }}</div>
               </div>
             </div>
             <div>
@@ -38,7 +68,7 @@
                 -->
                 <div class="pia-authenticationBlock-enter">
                     <div>{{ 'authentication.start_app' | translate }}</div>
-                    <!--<p class="pia-authenticationBlock-warning"></p>-->
+                    <p class="pia-authenticationBlock-warning" [innerHTML]="'authentication.description' | translate"></p>
                     <a routerLink="/home" class="btn btn-green">{{ 'authentication.start' | translate }}</a>
                 </div>
             </div>
