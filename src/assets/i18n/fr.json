@@ -1,8 +1,10 @@
 {
   "authentication": {
+    "title": "Analyse d'impact sur <br> la protection des données",
     "subtitle1": "Une plateforme pour créer <br> et administrer vos pia",
     "subtitle2": "Accéder aux outils et glossaires",
-    "start_app": "Accéder à l'application",
+    "start_app": "Accéder à l'outil PIA (Beta)",
+    "description": "Le logiciel PIA de la <strong>Commission Nationale Informatique et Liberté (CNIL)</strong> s'inscrit dans une démarche d'accompagnement des responsables de traitement dans la mise en œuvre des obligations du RGPD. Il accompagne la conduite d'une analyse d'impact relative à la protection des données et vise aussi à faciliter l'appropriation des guides PIA de la CNIL.",
     "start": "Commencer"
   },
   "header": {
