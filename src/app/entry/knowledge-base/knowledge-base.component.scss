@@ -10,6 +10,9 @@
     &-placeholder {
       margin-top: 10px;
       color: $pia-gray-dark;
+      > div:first-child {
+        font-weight: 600;
+      }
     }
     &-scroll {
       position: fixed;

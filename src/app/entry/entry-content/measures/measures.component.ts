@@ -200,6 +200,7 @@ export class MeasuresComponent implements OnInit, OnDestroy {
    * @memberof MeasuresComponent
    */
   measureContentFocusOut() {
+    this._knowledgeBaseService.placeholder = null;
     this.editor = null;
     const titleValue = this.measureForm.value.measureTitle;
     const contentValue = this.measureForm.value.measureContent;
@@ -305,6 +306,7 @@ export class MeasuresComponent implements OnInit, OnDestroy {
    * @memberof MeasuresComponent
    */
   loadEditor() {
+    this._knowledgeBaseService.placeholder = this.measure.placeholder;
     tinymce.init({
       branding: false,
       menubar: false,

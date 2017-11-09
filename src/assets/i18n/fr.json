@@ -136,6 +136,7 @@
     "title": "Base de connaissances",
     "search": "Rechercher",
     "add_measure": "Ajouter",
+    "placeholder_help": "Aide à la saisie",
     "placeholder_add_measure": "Ajouter cette mesure",
     "add_measure_hint": "Ajoutez aussi une mesure à partir de la base de connaissance.",
     "filters": {
