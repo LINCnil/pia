@@ -205,7 +205,9 @@ export class QuestionsComponent implements OnInit, OnDestroy {
    * Load wysiwyg editor
    */
   questionContentFocusIn() {
-    this.loadEditor();
+    setTimeout(() => {
+      this.loadEditor();
+    }, 1);
   }
 
   /**

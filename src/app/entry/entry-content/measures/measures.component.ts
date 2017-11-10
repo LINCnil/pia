@@ -298,7 +298,9 @@ export class MeasuresComponent implements OnInit, OnDestroy {
    * @memberof MeasuresComponent
    */
   measureContentFocusIn() {
-    this.loadEditor();
+    setTimeout(() => {
+      this.loadEditor();
+    }, 1);
   }
 
   /**
