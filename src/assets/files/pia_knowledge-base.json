@@ -898,17 +898,6 @@
     "link_tools": ""
   },
   {
-    "slug": "PIA_DEF_EVT",
-    "filters": "",
-    "category": "knowledge_base.category.definition",
-    "name": "knowledge_base.slugs.PIA_DEF_EVT.name",
-    "description": "knowledge_base.slugs.PIA_DEF_EVT.description",
-    "link_objectives": "",
-    "link_good_practices": "",
-    "link_notes": "",
-    "link_tools": ""
-  },
-    {
     "slug": "PIA_VAL_CART",
     "filters": "",
     "category": "knowledge_base.category.definition",
