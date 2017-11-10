@@ -55,17 +55,6 @@
     "link_tools": ""
   },
   {
-    "slug": "PIA_LGL_LCYC",
-    "filters": "",
-    "category": "knowledge_base.category.principle",
-    "name": "knowledge_base.slugs.PIA_LGL_LCYC.name",
-    "description": "knowledge_base.slugs.PIA_LGL_LCYC.description",
-    "link_objectives": "",
-    "link_good_practices": "",
-    "link_notes": "",
-    "link_tools": ""
-  },
-  {
     "slug": "PIA_LGL_SUPT",
     "filters": "",
     "category": "knowledge_base.category.principle",
@@ -137,72 +126,6 @@
     "category": "knowledge_base.category.principle",
     "name": "knowledge_base.slugs.PIA_LGL_CONS.name",
     "description": "knowledge_base.slugs.PIA_LGL_CONS.description",
-    "link_objectives": "",
-    "link_good_practices": "",
-    "link_notes": "",
-    "link_tools": ""
-  },
-  {
-    "slug": "PIA_LGL_ACC",
-    "filters": "",
-    "category": "knowledge_base.category.principle",
-    "name": "knowledge_base.slugs.PIA_LGL_ACC.name",
-    "description": "knowledge_base.slugs.PIA_LGL_ACC.description",
-    "link_objectives": "",
-    "link_good_practices": "",
-    "link_notes": "",
-    "link_tools": ""
-  },
-  {
-    "slug": "PIA_LGL_PORT",
-    "filters": "",
-    "category": "knowledge_base.category.principle",
-    "name": "knowledge_base.slugs.PIA_LGL_PORT.name",
-    "description": "knowledge_base.slugs.PIA_LGL_PORT.description",
-    "link_objectives": "",
-    "link_good_practices": "",
-    "link_notes": "",
-    "link_tools": ""
-  },
-  {
-    "slug": "PIA_LGL_RECT",
-    "filters": "",
-    "category": "knowledge_base.category.principle",
-    "name": "knowledge_base.slugs.PIA_LGL_RECT.name",
-    "description": "knowledge_base.slugs.PIA_LGL_RECT.description",
-    "link_objectives": "",
-    "link_good_practices": "",
-    "link_notes": "",
-    "link_tools": ""
-  },
-  {
-    "slug": "PIA_LGL_EFF",
-    "filters": "",
-    "category": "knowledge_base.category.principle",
-    "name": "knowledge_base.slugs.PIA_LGL_EFF.name",
-    "description": "knowledge_base.slugs.PIA_LGL_EFF.description",
-    "link_objectives": "",
-    "link_good_practices": "",
-    "link_notes": "",
-    "link_tools": ""
-  },
-  {
-    "slug": "PIA_LGL_LIM",
-    "filters": "",
-    "category": "knowledge_base.category.principle",
-    "name": "knowledge_base.slugs.PIA_LGL_LIM.name",
-    "description": "knowledge_base.slugs.PIA_LGL_LIM.description",
-    "link_objectives": "",
-    "link_good_practices": "",
-    "link_notes": "",
-    "link_tools": ""
-  },
-  {
-    "slug": "PIA_LGL_OPP",
-    "filters": "",
-    "category": "knowledge_base.category.principle",
-    "name": "knowledge_base.slugs.PIA_LGL_OPP.name",
-    "description": "knowledge_base.slugs.PIA_LGL_OPP.description",
     "link_objectives": "",
     "link_good_practices": "",
     "link_notes": "",
@@ -590,17 +513,6 @@
     "link_tools": ""
   },
   {
-    "slug": "PIA_DEF_IMP",
-    "filters": "",
-    "category": "knowledge_base.category.definition",
-    "name": "knowledge_base.slugs.PIA_DEF_IMP.name",
-    "description": "knowledge_base.slugs.PIA_DEF_IMP.description",
-    "link_objectives": "",
-    "link_good_practices": "",
-    "link_notes": "",
-    "link_tools": ""
-  },
-  {
     "slug": "PIA_DEF_EXA",
     "filters": "",
     "category": "knowledge_base.category.definition",
@@ -777,17 +689,6 @@
     "link_tools": ""
   },
   {
-    "slug": "PIA_DEF_VPN",
-    "filters": "measure.definition",
-    "category": "knowledge_base.category.definition",
-    "name": "knowledge_base.slugs.PIA_DEF_VPN.name",
-    "description": "knowledge_base.slugs.PIA_DEF_VPN.description",
-    "link_objectives": "",
-    "link_good_practices": "",
-    "link_notes": "",
-    "link_tools": ""
-  },
-  {
     "slug": "PIA_DEF_ANO",
     "filters": "measure.definition",
     "category": "knowledge_base.category.definition",
@@ -826,17 +727,6 @@
     "category": "knowledge_base.category.definition",
     "name": "knowledge_base.slugs.PIA_DEF_CTLA.name",
     "description": "knowledge_base.slugs.PIA_DEF_CTLA.description",
-    "link_objectives": "",
-    "link_good_practices": "",
-    "link_notes": "",
-    "link_tools": ""
-  },
-  {
-    "slug": "PIA_DEF_PROF",
-    "filters": "measure.definition",
-    "category": "knowledge_base.category.definition",
-    "name": "knowledge_base.slugs.PIA_DEF_PROF.name",
-    "description": "knowledge_base.slugs.PIA_DEF_PROF.description",
     "link_objectives": "",
     "link_good_practices": "",
     "link_notes": "",
@@ -986,55 +876,11 @@
     "link_tools": ""
   },
   {
-    "slug": "PIA_DEF_IND",
-    "filters": "",
-    "category": "knowledge_base.category.definition",
-    "name": "knowledge_base.slugs.PIA_DEF_IND.name",
-    "description": "knowledge_base.slugs.PIA_DEF_IND.description",
-    "link_objectives": "",
-    "link_good_practices": "",
-    "link_notes": "",
-    "link_tools": ""
-  },
-  {
-    "slug": "PIA_DEF_ACCI",
-    "filters": "",
-    "category": "knowledge_base.category.definition",
-    "name": "knowledge_base.slugs.PIA_DEF_ACCI.name",
-    "description": "knowledge_base.slugs.PIA_DEF_ACCI.description",
-    "link_objectives": "",
-    "link_good_practices": "",
-    "link_notes": "",
-    "link_tools": ""
-  },
-  {
-    "slug": "PIA_DEF_MODI",
-    "filters": "",
-    "category": "knowledge_base.category.definition",
-    "name": "knowledge_base.slugs.PIA_DEF_MODI.name",
-    "description": "knowledge_base.slugs.PIA_DEF_MODI.description",
-    "link_objectives": "",
-    "link_good_practices": "",
-    "link_notes": "",
-    "link_tools": ""
-  },
-  {
     "slug": "PIA_DEF_PBDS",
     "filters": "measure.definition",
     "category": "knowledge_base.category.definition",
     "name": "knowledge_base.slugs.PIA_DEF_PBDS.name",
     "description": "knowledge_base.slugs.PIA_DEF_PBDS.description",
-    "link_objectives": "",
-    "link_good_practices": "",
-    "link_notes": "",
-    "link_tools": ""
-  },
-  {
-    "slug": "PIA_DEF_PBDF",
-    "filters": "measure.definition",
-    "category": "knowledge_base.category.definition",
-    "name": "knowledge_base.slugs.PIA_DEF_PBDF.name",
-    "description": "knowledge_base.slugs.PIA_DEF_PBDF.description",
     "link_objectives": "",
     "link_good_practices": "",
     "link_notes": "",
@@ -1052,17 +898,6 @@
     "link_tools": ""
   },
   {
-    "slug": "PIA_DEF_EVT",
-    "filters": "",
-    "category": "knowledge_base.category.definition",
-    "name": "knowledge_base.slugs.PIA_DEF_EVT.name",
-    "description": "knowledge_base.slugs.PIA_DEF_EVT.description",
-    "link_objectives": "",
-    "link_good_practices": "",
-    "link_notes": "",
-    "link_tools": ""
-  },
-    {
     "slug": "PIA_VAL_CART",
     "filters": "",
     "category": "knowledge_base.category.definition",
@@ -1123,17 +958,6 @@
     "category": "knowledge_base.category.definition",
     "name": "knowledge_base.slugs.PIA_DEF_PC.name",
     "description": "knowledge_base.slugs.PIA_DEF_PC.description",
-    "link_objectives": "",
-    "link_good_practices": "",
-    "link_notes": "",
-    "link_tools": ""
-  },
-  {
-    "slug": "PIA_DEF_FIN",
-    "filters": "",
-    "category": "knowledge_base.category.definition",
-    "name": "knowledge_base.slugs.PIA_DEF_FIN.name",
-    "description": "knowledge_base.slugs.PIA_DEF_FIN.description",
     "link_objectives": "",
     "link_good_practices": "",
     "link_notes": "",

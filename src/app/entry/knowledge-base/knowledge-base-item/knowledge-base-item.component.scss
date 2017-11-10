@@ -21,19 +21,18 @@
           display: inline-block;
           vertical-align: top;
         }
-        button {
-          margin-top: 10px;
-          margin-right: 4px;
-        }
         > p {
           cursor: pointer;
           margin-top: 13px;
           margin-bottom: 0;
           color: $pia-red;
+          width: 80%;
         }
         button {
-          float: right;
-          margin-top: 5px;
+          position: absolute;
+          top: 5px;
+          right: 5px;
+          margin: 0;
           align-self: center;
           text-decoration: none;
           span {

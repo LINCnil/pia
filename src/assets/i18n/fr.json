@@ -1,10 +1,14 @@
 {
   "authentication": {
+    "title": "Analyse d'impact sur <br> la protection des données",
     "subtitle1": "Une plateforme pour créer <br> et administrer vos pia",
-    "subtitle2": "Accéder aux outils et glossaires"
+    "subtitle2": "Accéder aux outils et glossaires",
+    "start_app": "Accéder à l'outil PIA (Beta)",
+    "description": "Le logiciel PIA de la <strong>Commission Nationale Informatique et Liberté (CNIL)</strong> s'inscrit dans une démarche d'accompagnement des responsables de traitement dans la mise en œuvre des obligations du RGPD. Il accompagne la conduite d'une analyse d'impact relative à la protection des données et vise aussi à faciliter l'appropriation des guides PIA de la CNIL.",
+    "start": "Commencer"
   },
   "header": {
-    "logo_title": "étude d'impact sur la vie privée",
+    "logo_title": "Analyse d'impact sur la protection des données",
     "logo_subtitle": "privacy impact assessment",
     "homepage_link": "Accueil",
     "knowledge_base_link": "Base de connaissances",
@@ -134,6 +138,7 @@
     "title": "Base de connaissances",
     "search": "Rechercher",
     "add_measure": "Ajouter",
+    "placeholder_help": "Aide à la saisie",
     "placeholder_add_measure": "Ajouter cette mesure",
     "add_measure_hint": "Ajoutez aussi une mesure à partir de la base de connaissance.",
     "filters": {
@@ -156,7 +161,7 @@
     "slugs": {
       "PIA_LGL_FOND": {
         "name": "Fondement juridique",
-        "description": "- La personne concernée a consenti au traitement de ses données à caractère personnel pour une ou plusieurs finalités spécifiques <br> - Le traitement est nécessaire à l'exécution d'un contrat auquel la personne concernée est partie ou à l'exécution de mesures précontractuelles prises à la demande de celle-ci <br> - Le traitement est nécessaire au respect d'une obligation légale à laquelle le responsable du traitement est soumis <br> - Le traitement est nécessaire à la sauvegarde des intérêts vitaux de la personne concernée ou d'une autre personne physique <br> - Le traitement est nécessaire à l'exécution d'une mission d'intérêt public ou relevant de l'exercice de l'autorité publique dont est investi le responsable du traitement <br> - Le traitement est nécessaire aux fins des intérêts légitimes poursuivis par le responsable du traitement ou par un tiers, à moins que ne prévalent les intérêts ou les libertés et droits fondamentaux de la personne concernée qui exigent une protection des données à caractère personnel, notamment lorsque la personne concernée est un enfant. Se référer à l'<a target=\"_blank\" href=\"https://www.cnil.fr/fr/reglement-europeen-protection-donnees/chapitre2#Article6\">art. 6 du [RGPD]</a>",
+        "description": "- La personne concernée a consenti au traitement de ses données à caractère personnel pour une ou plusieurs finalités spécifiques <br> - Le traitement est nécessaire à l'exécution d'un contrat auquel la personne concernée est partie ou à l'exécution de mesures précontractuelles prises à la demande de celle-ci <br> - Le traitement est nécessaire au respect d'une obligation légale, définie par le droit de l’Union ou le droit de l’état membre auquel le responsable de traitement est soumis, à laquelle le responsable du traitement est soumis <br> - Le traitement est nécessaire à la sauvegarde des intérêts vitaux de la personne concernée ou d'une autre personne physique <br> - Le traitement est nécessaire à l'exécution d'une mission d'intérêt public ou relevant de l'exercice de l'autorité publique dont est investi le responsable du traitement <br> - Le traitement est nécessaire aux fins des intérêts légitimes poursuivis par le responsable du traitement ou par un tiers, à moins que ne prévalent les intérêts ou les libertés et droits fondamentaux de la personne concernée qui exigent une protection des données à caractère personnel, notamment lorsque la personne concernée est un enfant. Se référer à l'<a target=\"_blank\" href=\"https://www.cnil.fr/fr/reglement-europeen-protection-donnees/chapitre2#Article6\">art. 6 du [RGPD]</a>",
         "source": "PIA2 p4/WIKI Fondement_:_licéité_du_traitement,_interdiction_du_détournement_de_finalité"
       },
       "PIA_LGL_ST": {
@@ -166,7 +171,7 @@
       },
       "PIA_LGL_TRAN": {
         "name": "Transferts",
-        "description": "Détailler le lieu géographique de stockage des différentes données du traitement. En fonction du pays concerné, vous devrez justifier le choix d’un hébergement éloigné et indiquer les modalités d’encadrement juridique mises en œuvre afin d’assurer une protection adéquate aux données faisant l’objet d’un transfert transfrontalier. <br> C'est à dire : <br> - Dans un pays de l'Union Européenne <br> - Dans un pays reconnu adéquat par l'Union Européenne <br> - Autres pays <br> Conformément aux <a target=\"_blank\" href=\"https://www.cnil.fr/fr/reglement-europeen-protection-donnees/chapitre5#Article44\">articles 44 à 49 du [RGPD]</a>",
+        "description": "Détailler le lieu géographique de stockage des différentes données du traitement. En fonction du pays concerné, vous devrez justifier le choix d’un hébergement hors de l'Union Européenne et indiquer les modalités d’encadrement juridique mises en œuvre afin d’assurer une protection adéquate aux données faisant l’objet d’un transfert transfrontalier. <br> C'est à dire : <br> - Dans un pays de l'Union Européenne <br> - Dans un pays reconnu adéquat par l'Union Européenne <br> - Transfert aux Etats-Unis à une société adhérant Privacy Shield <br>- Autres pays <br> Conformément aux <a target=\"_blank\" href=\"https://www.cnil.fr/fr/reglement-europeen-protection-donnees/chapitre5#Article44\">articles 44 à 49 du [RGPD]</a>",
         "source": "WIKI Transferts_:_respect_des_obligations_en_mati%C3%A8re_de_transfert_de_donn%C3%A9es_en_dehors_de_l%E2%80%99Union_europ%C3%A9enne et PIAF Objets connectés p17"
       },
       "PIA_LGL_DESC": {
@@ -211,7 +216,7 @@
       },
       "PIA_LGL_CONS": {
         "name": "Recueil du consentement de l'utilisateur du service",
-        "description": "Il s'agit de permettre un choix libre, spécifique et éclairé; vérifier que le traitement ne repose pas sur une autre base légale que le consentement, tel que prévu à l'<a target=\"_blank\" href=\"https://www.cnil.fr/fr/reglement-europeen-protection-donnees/chapitre2#Article6\">article 6 du RGPD</a> (obligation légale, sauvegarde de la vie, mission de service public, contrat ou mesures prises avec la personne, intérêt légitime).",
+        "description": "Il s'agit de permettre un choix libre, spécifique et éclairé; vérifier que l'une des bases légales du traitement est le consentement, tel que prévu à l'<a target=\"_blank\" href=\"https://www.cnil.fr/fr/reglement-europeen-protection-donnees/chapitre2#Article6\">article 6 du RGPD</a> (obligation légale, sauvegarde de la vie, mission de service public, contrat ou mesures prises avec la personne, intérêt légitime).",
         "source": "WIKI Recueil_du_consentement"
       },
       "PIA_VAL_DPO": {
@@ -311,13 +316,13 @@
         "placeholder": "Décrivez ici comment est gérée la maintenance physique des équipements.",
         "name": "Maintenance",
         "description": "Existence d'une politique de maintenance physique des équipements, précisant le recours éventue à la sous-traitance.<br>Elle devra encadrer la maintenance à distance si elle est autorisée, et préciser les méthodes de gestion des matériels défectueux.",
-    		"source": "PIAF Objets connectés p25"
+        "source": "PIAF Objets connectés p25"
       },
       "PIA_SEC_CTR": {
         "placeholder":"Décrivez ici les garanties contractuelles assurant la protection des données à caractère personnel confiées à des sous traitant.",
         "name": "Contrat de sous-traitance",
-        "description": "Les données à caractère personnel communiquées à ou gérées par des sous-traitants doivent bénéficier de garanties de sécurité. Prévoir dans les contrats liant l’organisme et les sous-traitants une clause spécifique couvrant la confidentialité des données personnelles confiées à ces derniers.<br>Prendre des dispositions (audits de sécurité, visite des installations, etc.) afin de s’assurer de l’effectivité des garanties offertes par le sous-traitant en matière de protection des données.<br>Cela inclut notamment :<br>- le chiffrement des données selon leur sensibilité ou à défaut l’existence de procédures garantissant que la société de prestation n’a pas accès aux données qui lui sont confiées ;<br>- le chiffrement de la liaison de données (ex : connexion de type https) ;<br>- des garanties en matière de protection du réseau, traçabilité (journaux, audits), gestion des habilitations, authentification, etc.<br>- Contractualiser les règles de gestion des incidents.<br>- Prévoir les conditions de restitution des données et de leur destruction en cas de rupture ou à la fin du contrat.<br>- Dans le cas de l’utilisation de fournisseur de cloud computing :<br>\t1. identifier clairement les données et les traitements qui passeront dans le cloud ;<br>\t2. définir ses propres exigences de sécurité technique et juridique ;<br>\t3. conduire une étude de risques afin d'identifier les mesures de sécurité appropriées ;<br>\t4. identifier le type de cloud pertinent pour le traitement envisagé ;<br>\t5. choisir un prestataire présentant des garanties suffisantes ;<br>\t6. revoir la politique de sécurité interne ;<br>\t7. surveiller les évolutions dans le temps.",
-    		"source": "Guide Bleu 2017 p19 et https://www.cnil.fr/fr/cloud-computing-les-conseils-de-la-cnil-pour-les-entreprises-qui-utilisent-ces-nouveaux-services"
+        "description": "Les données à caractère personnel communiquées à ou gérées par des sous-traitants doivent bénéficier de garanties suffisantes. <strong>Faire appel uniquement à des sous-traitants présentant des garanties suffisantes</strong> (notamment en termes de connaissances spécialisées, de fiabilité et de ressources). Exiger la communication par le prestataire de sa politique de sécurité des systèmes d’information. <br>Prendre et documenter les moyens (audits de sécurité, visite des installations, etc.) permettant d’<strong>assurer l’effectivité des garanties offertes par le sous-traitant<strong> en matière de protection des données. Ces garanties incluent notamment :<br> - le chiffrement des données selon leur sensibilité ou à défaut l’existence de procédures garantissant que la société de prestation n’a pas accès aux données qui lui sont confiées<br>- le chiffrement des transmissions de données (ex : connexion de type HTTPS, VPN, etc.)<br>- des garanties en matière de protection du réseau, de traçabilité (journaux, audits), de gestion des habilitations, d’authentification, etc.<br><strong>Prévoir un contrat avec les sous-traitants</strong>, qui définit notamment l’objet, la durée, la finalité du traitement et les obligations des parties. S’assurer qu’il contient en particulier des dispositions fixant :<br>- leur obligation en matière de confidentialité des données personnelles confiées<br>- des contraintes minimales en matière d’authentification des utilisateurs<br>- les conditions de restitution et/ou de destruction des données en fin du contrat<br>- les règles de gestion et de notification des incidents. Celles-ci devraient comprendre une information du responsable de traitement en cas de découverte de faille de sécurité ou d’incident de sécurité et cela dans les plus brefs délais lorsqu’il s’agit d’une violation de données à caractère personnel.<br>- Dans le cas de l’utilisation de fournisseur de cloud computing :<br>\t1. identifier clairement les données et les traitements qui passeront dans le cloud ;<br>\t2. définir ses propres exigences de sécurité technique et juridique ;<br>\t3. conduire une étude de risques afin d'identifier les mesures de sécurité appropriées ;<br>\t4. identifier le type de cloud pertinent pour le traitement envisagé ;<br>\t5. choisir un prestataire présentant des garanties suffisantes ;<br>\t6. revoir la politique de sécurité interne ;<br>\t7. surveiller les évolutions dans le temps.",
+        "source": "Guide Bleu 2017 p19 et https://www.cnil.fr/fr/cloud-computing-les-conseils-de-la-cnil-pour-les-entreprises-qui-utilisent-ces-nouveaux-services"
       },
       "PIA_SEC_NET": {
         "placeholder": "Indiquez ici sur quel type de réseau le traitement est mis en œuvre et les équipement assurant sa sécurisation.",
@@ -376,7 +381,7 @@
       "PIA_ORG_PBD": {
         "placeholder":"Décrivez ici les méthodes assurant la prise en compte de la protection des données à caractère personnel dès l'initiation d'un nouveau projet.",
         "name": "Intégrer la protection de la vie privée dans les projets",
-        "description": "Existence de procédures décrivant les méthodes destinées à prendre en compte la protection des données à caractère personnel dans tout nouveau traitement (labels de confiance, référentiels, gestion de risques CNIL, formalités CNIL, etc.).",
+        "description": "Existence de procédures décrivant les méthodes destinées à prendre en compte la protection des données à caractère personnel dans tout nouveau traitement (labels de confiance, référentiels, gestion des risques pour la personne concernée selon la méthodologie CNIL ou une méthode interne, etc.).",
         "source": "WIKI Gestion_des_projets"
       },
       "PIA_ORG_VIOL": {
@@ -386,7 +391,7 @@
         "source": "WIKI Gestion_des_incidents_et_des_violations_de_données"
       },
       "PIA_ORG_PERS": {
-        "placeholder":"Indiquez ici les mesures de gestion du personnel répondant aux problématiques informatique et libertés dans votre organisme.",
+        "placeholder":"Indiquez ici les mesures de votre politique de ressource humaine répondant aux problématiques informatique et libertés dans votre organisme.",
         "name": "Gestion des personnels",
         "description": "Existence d'un plan encadrant les <strong>mesures de sensibilisation</strong> prises à l’arrivée d’une personne dans sa fonction et d'une procédure décrivant les <strong>mesures prises au départ des personnes accédant aux données</strong>.",
         "source": "PIAF Objets connectés p24"
@@ -399,8 +404,8 @@
       },
       "PIA_ORG_AUD": {
         "placeholder":"Décrivez ici les processus qui assurent un contrôle régulier des traitements de données.",
-        "name": "Superviser le protection de la vie privée",
-        "description": "Existence de mesures permettant de disposer d’une vision globale et à jour de l’état de protection des données et de la conformité à la loi informatique et libertés (contrôler la conformité des traitements, objectifs et indicateurs, responsabilités, etc.). ",
+        "name": "Superviser la protection de la vie privée",
+        "description": "Existence de mesures permettant de disposer d’une vision globale et à jour de l’état de protection des données et de la conformité au RGPD (contrôler la conformité des traitements, objectifs et indicateurs, responsabilités, etc.). ",
         "source":"WIKI Supervision"
       },
       "PIA_DEF_EXA": {
@@ -483,11 +488,6 @@
         "description": "Le chiffrement d’un message permet de garantir que seuls l’émetteur et le(s) destinataire(s) légitime(s) d’un message en connaissent le contenu. C’est une sorte d’enveloppe scellée numérique. Une fois chiffré, faute d'avoir la clé spécifique, un message est inaccessible et illisible, que ce soit par les humains ou les machines.<br>Il existe deux grandes familles de chiffrement : le chiffrement symétrique et le chiffrement asymétrique.<br>- <strong>Le chiffrement symétrique</strong> permet de chiffrer et de déchiffrer un contenu avec la même clé, appelée alors la « clé secrète ». Le chiffrement symétrique est particulièrement rapide mais nécessite que l’émetteur et le destinataire se mettent d’accord sur une clé secrète commune ou se la transmettent par un autre canal. Celui-ci doit être choisi avec précautions, sans quoi la clé pourrait être récupérée par les mauvaises personnes, ce qui n’assurerait plus la confidentialité du message.<br>- <strong>Le chiffrement asymétrique</strong> suppose que le (futur) destinataire est muni d’une paire de clés (clé privée, clé publique) et qu’il a fait en sorte que les émetteurs potentiels aient accès à sa clé publique. Dans ce cas, l’émetteur utilise la clé publique du destinataire pour chiffrer le message tandis que le destinataire utilise sa clé privée pour le déchiffrer. Parmi ses avantages, la clé publique peut être connue de tous et publiée. Mais attention : il est nécessaire que les émetteurs aient confiance en l’origine de la clé publique, qu’ils soient sûrs qu’il s’agit bien de celle du destinataire. Autre point fort : plus besoin de partager une même clé secrète ! Le chiffrement asymétrique permet de s’en dispenser mais il est plus lent.",
     		"source": "Guide Bleu 2017 p23 https://www.cnil.fr/fr/comprendre-les-grands-principes-de-la-cryptologie-et-du-chiffrement"
       },
-      "PIA_DEF_VPN": {
-        "name": "VPN",
-        "description": "Virtual Private Network, en Français Réseau Privé Virtuel. Il s'agit d'un réseau informatique virtuel permettant d'établir une connexion directe entre deux machines appartenant à des réseaux distants, comme si elles étaient reliées directement entre elles par un câble dédié, garantissant ainsi l'identité des deux machines correspondantes. Il est en outre recommandé de chiffrer, en se reposant sur des algorithmes cryptographiques réputés forts, les données transitant par cette connexion, en particulier si elle traverse l'Internet, afin de garantir la confidentialité des échanges entre les deux réseaux.",
-    		"source": "Aucune"
-      },
       "PIA_DEF_ANO": {
         "name": "Anonymisation",
         "description": "Le but d'une solution d'anonymisation est de faire perdre le caractère identifiant des données à caractère personnel. Une solution d’anonymisation doit être construite au cas par cas et adaptée aux usages prévus. Pour aider à évaluer une bonne solution d’anonymisation, le <a target=\"_blank\" href=\"http://ec.europa.eu/justice/data-protection/article-29/documentation/opinion-recommendation/files/2014/wp216_fr.pdf\">G29</a> propose trois critères :<br>- <strong>L’individualisation : </strong>est-il toujours possible d’isoler un individu ?<br>- <strong>La corrélation : </strong>est-il possible de relier entre eux des ensembles de données distincts concernant un même individu ?<br>- <strong>L’inférence :</strong> peut-on déduire de l’information sur un individu ? <br>Ainsi : <strong>un ensemble de données pour lequel il n’est possible ni d’individualiser ni de corréler ni d’inférer est a priori anonyme</strong> ;<br>un ensemble de données pour lequel <strong>au moins un des trois critères n’est pas respecté </strong>ne pourra être considéré comme anonyme qu’à la suite d’une analyse détaillée des risques de ré-identification.",
@@ -505,13 +505,8 @@
       },
       "PIA_DEF_CTLA": {
         "name": "Contrôle d'accès logique",
-        "description": "Il consiste à limiter les risques que des personnes non autorisées accèdent aux données à caractère personnel par voie électronique.<br>Pour cela, il convient de :<br>- <strong>définir des profils d’habilitation</strong> dans les systèmes en séparant les tâches et les domaines de responsabilité, afin de limiter l’accès des utilisateurs aux seules données strictement nécessaires à l’accomplissement de leurs missions. <br>- <strong>supprimer les permissions d’accès des utilisateurs dès qu’ils ne sont plus habilités à accéder à un local ou à une ressource informatique</strong>, ainsi qu’<strong>la fin de leur contrat.</strong> <br>- <strong> Réaliser une revue annuelle des habilitations</strong> afin d’identifier et de supprimer les comptes non utilisés et de réaligner les droits accordés sur les fonctions de chaque utilisateur. ",
+        "description": "Il consiste à limiter les risques que des personnes non autorisées accèdent aux données à caractère personnel sous forme numérique.<br>Pour cela, il convient de :<br>- <strong>définir des profils d’habilitation</strong> dans les systèmes en séparant les tâches et les domaines de responsabilité, afin de limiter l’accès des utilisateurs aux seules données strictement nécessaires à l’accomplissement de leurs missions. <br>- <strong>supprimer les permissions d’accès des utilisateurs dès qu’ils ne sont plus habilités à accéder à un local ou à une ressource informatique</strong>, ainsi qu’<strong>la fin de leur contrat.</strong> <br>- <strong> Réaliser une revue annuelle des habilitations</strong> afin d’identifier et de supprimer les comptes non utilisés et de réaligner les droits accordés sur les fonctions de chaque utilisateur. ",
     		"source": "WIKI Contrôle_des_accès_logiques et Guide Bleu 2017 p9 pour les précautions"
-      },
-      "PIA_DEF_PROF": {
-        "name": "Profil",
-        "description": "Ensemble de données qui permet l'identification de l'utilisateur d'un système informatique et conditionnent la manière dont ce système se comporte pour cet utiisateur donné. Il s'agit par exemple de jeux d'autorisation, de ses préférences d'utilisation etc.",
-    		"source": "Aucune"
       },
       "PIA_DEF_PWD": {
         "name": "Mot de passe",
@@ -530,7 +525,7 @@
       },
       "PIA_DEF_ARCH": {
         "name": "Archivage",
-        "description": "Les données qui ne sont plus utilisées au quotidien mais qi n’ont pas encore atteint leur durée limite de conservation, par exemple parce qu’elles sont conservées en cas de contentieux, devraient être archivées.<br><br><strong>Les archives doivent être sécurisées </strong>notamment si les données archivées sont des données sensibles, ou des données qui pourraient avoir des impacts graves sur les personnes concernées.",
+        "description": "Les données qui ne sont plus utilisées au quotidien mais qui n’ont pas encore atteint leur durée limite de conservation, par exemple parce qu’elles sont conservées en cas de contentieux, devraient être archivées.<br><br><strong>Les archives doivent être sécurisées </strong>notamment si les données archivées sont des données sensibles, ou des données qui pourraient avoir des impacts graves sur les personnes concernées.",
         "source": "Guide Bleu 2017 p17"
       },
       "PIA_DEF_MIN1": {
@@ -560,7 +555,7 @@
       },
       "PIA_DEF_MENM": {
         "name": "Menaces pouvant conduire à une modification illégitime aux données",
-        "description": "<strong>Menaces concernant : </strong><br>- <strong>Les matériels</strong> qui ont été modifiés (ajout d'un matériel incompatible, retraint d'un indispensable, etc.)<br>- <strong>Les logiciels</strong> utilisés de manière inadaptée ou modifiés (erreur de manipulation, modifications inopportunes, etc.)<br>- <strong>Les canaux informatiques</strong> qui sont utilisés de manière inadaptée (réémission de flux intercepté, etc.)<br>- <strong>Les personnes</strong> surchargées ou détournées (tâche non maîtrisée, pertubation des conditions de travail, influence, etc.)<br>- Les documents papier qui ont été modifiés (modification de document, remplacement par un faux, etc.)<br>- <strong>Les canaux papier</strong> qui ont été modifiés (échange de parapheur, envoi de courriers contradictoires, etc.)",
+        "description": "<strong>Menaces concernant : </strong><br>- <strong>Les matériels</strong> qui ont été modifiés (ajout d'un matériel incompatible, retrait d'un indispensable, etc.)<br>- <strong>Les logiciels</strong> utilisés de manière inadaptée ou modifiés (erreur de manipulation, modifications inopportunes, etc.)<br>- <strong>Les canaux informatiques</strong> qui sont utilisés de manière inadaptée (réémission de flux intercepté, etc.)<br>- <strong>Les personnes</strong> surchargées ou détournées (tâche non maîtrisée, pertubation des conditions de travail, influence, etc.)<br>- Les documents papier qui ont été modifiés (modification de document, remplacement par un faux, etc.)<br>- <strong>Les canaux papier</strong> qui ont été modifiés (échange de parapheur, envoi de courriers contradictoires, etc.)",
     		"source": "WIKI Menaces_pouvant_mener_à_une_modification_non_désirées_de_données"
       },
       "PIA_DEF_MENI": {
@@ -579,19 +574,14 @@
         "source": "PIA1 p12"
       },
       "PIA_DEF_PBDS": {
-        "name": "Privacy By Design",
-        "description": "Démarche consistant à prendre en compte la protection des données à caractère personnel dans tout nouveau traitement (labels de confiance, référentiels, gestion de risques CNIL, formalités CNIL, etc.), notamment :<br>- Utiliser la démarche de gestion des risques de la CNIL dès l’élaboration d’un service ou la conception d’une application.<br>- Privilégier le recours à des labels de confiance dans les domaines de la SSI et « Informatique et libertés » (procédures, produits, systèmes de management, organismes, personnes, etc.).<br>- Privilégier le recours à des référentiels éprouvés et reconnus.<br>- Effectuer les formalités CNIL avant le lancement d’un nouveau traitement.",
+        "name": "Gestion de projet",
+        "description": "Démarche consistant à prendre en compte la protection des données à caractère personnel dans tout nouveau traitement (labels de confiance, référentiels, gestion des risques pour la personne concernée selon la méthodologie de la CNIL ou une méthode interne, etc.), notamment :<br>- Utiliser la démarche de gestion des risques de la CNIL dès l’élaboration d’un service ou la conception d’une application.<br>- Privilégier le recours à des labels de confiance dans les domaines de la SSI et « Informatique et libertés » (procédures, produits, systèmes de management, organismes, personnes, etc.).<br>- Privilégier le recours à des référentiels éprouvés et reconnus.",
     		"source": "WIKI Gestion_des_projets - les recommandations ne sont pas citées"
       },
       "PIA_DEF_VIOL": {
         "name": "Violation de données",
         "description": "Violation de la sécurité entraînant, de manière accidentelle ou illicite, la destruction, la perte, l'altération, la divulgation non autorisée de données à caractère personnel transmises, conservées ou traitées d'une autre manière, ou l'accès non autorisé à de telles données.",
         "source": "RGPD Art. 4.12"
-      },
-      "PIA_DEF_EVT": {
-        "name": "Qualification des violations de données",
-        "description": "On distingue quatre niveau de gravité:<br>- l'événement est une violation de données sans conséquence<br>- l'incident correspond à une violation de données avec des conséquences isolées<br>- le sinistre à une violation de données avec des conséquences immédiates importantes pour une ou plusieurs personnes<br>- la crise est une violation de données avec des conséquences importantes et à plus long terme sur une ou plusieurs personnes",
-        "source": "WIKI Gestion_des_incidents_et_des_violations_de_données"
       },
       "PIA_VAL_CART": {
         "name": "La cartographie des risques",
@@ -639,15 +629,16 @@
         "source": "WIKI Minimisation_des_données_:_adéquates,_pertinentes_et_limitées"
       },
       "PIA_EX_DCPC": {
-        "name": "Catégories de DCP courantes",
-        "description": "<strong>Données d’identification</strong> : état civil, age, nationalité, double nationalité, adresse postale, capacité juridique... <br><strong>Vie personnelle</strong> : situation maritale, nombre d’enfants, département de résidence, type d’habitation, situation de logement, ancienneté dans le logement, CSP... <br><strong>Vie professionnelle</strong> : emploi, type de contrat, CSP, nom de l’employeur, ancienneté dans l’emploi, chômage... <br><strong>Données de connexion</strong> : adresse IP, journaux d'événements...<br><strong>Données de localisation</strong> : déplacement, données GPS, GSM...<br><strong>Autre</strong> : numéro de téléphone, adresse électronique..."
+        "name": "Données courantes",
+        "description": "<strong>Données d’identification</strong> : état civil, age, nationalité, double nationalité, adresse postale, capacité juridique... <br><strong>Vie personnelle</strong> : situation maritale, nombre d’enfants, département de résidence, type d’habitation, situation de logement, ancienneté dans le logement, CSP... <br><strong>Vie professionnelle</strong> : emploi, type de contrat, CSP, nom de l’employeur, ancienneté dans l’emploi, chômage... <br><strong>Données de connexion</strong> : adresse IP, journaux d'événements...<br><strong>Données de localisation</strong> : déplacement, données GPS, GSM...<br><strong>Autre</strong> : numéro de téléphone, adresse électronique...",
+        "source": "WIKI Types_de_données"
       },
       "PIA_EX_DCPS": {
-        "name": "Catégories de DCP perçues comme sensibles",
+        "name": "Données perçues comme sensibles",
         "description": "Numéro de sécurité sociale (NIR), données biométriques, données bancaires..."
       },
       "PIA_EX_DCPR": {
-        "name": "Catégories de DCP sensibles au sens légal",
+        "name": "Données d’infraction et données sensibles",
         "description": "Opinions philosophiques, politiques, religieuses, syndicales, vie sexuelle, données de santé, origine raciales ou ethniques, relatives à la santé ou à la vie sexuelle, infractions, condamnations, mesures de sécurité.<br>Se référer aux <a target=\"_blank\" href=\"https://www.cnil.fr/fr/reglement-europeen-protection-donnees/chapitre2#Article9\">art. 9</a> <br> et <a target=\"_blank\" href=\"https://www.cnil.fr/fr/reglement-europeen-protection-donnees/chapitre2#Article10\">art.10</a> du [RGPD]"
       },
       "PIA_EX_HUMI": {
@@ -656,7 +647,7 @@
       },
       "PIA_EX_HUME": {
         "name": "Source humaine externe",
-        "description": "Il peut s'agir :<br>- d'un tiers malintentionné ou ignorant utilisant sa proximité physique pour accéder frauduleusement au service<br>- d'un attaquant ciblant un utilisateur en utilisant sa connaissance de l’utilisateur et de certaines des informations le concernant<br>- d'un attaquant ciblant une des sociétés en charge du traitement utilisant sa connaissance des sociétés pouvant permettre d’attenter à leur image<br>- d'un organisme tiers autorisé utilisant ses accès privilégiés pour accéder illégitimement à des informations. Les motivations peuvent être multiples : Jeu, nuisance, malveillance, vengeance, espionnage, appât du gain, acquisition de données en vue de les exploiter"
+        "description": "Il peut s'agir :<br>- d'un tiers malintentionné ou ignorant utilisant sa proximité physique pour accéder frauduleusement au service<br>- d'un attaquant ciblant un utilisateur en utilisant sa connaissance de l’utilisateur et de certaines des informations le concernant<br>- d'un attaquant ciblant une des sociétés en charge du traitement utilisant sa connaissance des sociétés pouvant permettre d’attenter à leur image<br>- d'un organisme tiers autorisé utilisant ses accès privilégiés pour accéder illégitimement à des informations. Les motivations peuvent être multiples : jeu, nuisance, malveillance, vengeance, espionnage, appât du gain, acquisition de données en vue de les exploiter"
       },
       "PIA_EX_NHUM": {
         "name": "Source non humaine",
@@ -668,7 +659,7 @@
       },
       "PIA_EX_IMPL": {
         "name": "Impact limité",
-        "description": "Les personnes concernées pourraient connaître des désagréments significatifs, qu’elles pourront surmonter malgré quelques difficultés<br>Exemples d'impacts :<br>- corporels : affection physique mineure (ex. : maladie bénigne suite au non respect de contre-indications), diffamation donnant lieu à des représailles physiques etc.<br>- matériels : paiements non prévus (ex. : amendes erronées), refus d’accès à des services administratifs ou commerciaux, publicité ciblée en ligne sur un aspect vie privée que la personne souhaitait garder confidentiel , etc.<br>- moraux : affection psychologique mineure mais objective, sentiment d’atteinte à la vie privée sans préjudice irrémédiable, intimidation sur les réseaux sociaux etc."
+        "description": "Les personnes concernées pourraient connaître des désagréments significatifs, qu’elles pourront surmonter malgré quelques difficultés<br>Exemples d'impacts :<br>- corporels : affection physique mineure (ex. : maladie bénigne suite au non respect de contre-indications), diffamation donnant lieu à des représailles physiques, etc.<br>- matériels : paiements non prévus (ex. : amendes erronées), refus d’accès à des services administratifs ou commerciaux, publicité ciblée en ligne sur un aspect vie privée que la personne souhaitait garder confidentiel , etc.<br>- moraux : affection psychologique mineure mais objective, sentiment d’atteinte à la vie privée sans préjudice irrémédiable, intimidation sur les réseaux sociaux, etc."
       },
       "PIA_EX_IMPI": {
         "name": "Impact Important",
