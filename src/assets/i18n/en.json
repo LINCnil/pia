@@ -171,7 +171,7 @@
       },
       "PIA_LGL_TRAN": {
         "name": "Transfers",
-        "description": "Depending on the country in question, you will have to justify the choice of remote hosting and indicate the legal supervision arrangements implemented in order to ensure adequate protection of the data subject to a cross-border transfer. That is :<br>- European Union<br>- Country recognized as providing adequate protection by the EU<br>- Other country <br>See <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">art. 44 to 49 of [GDPR]</a>",
+        "description": "Depending on the country in question, you will have to justify the choice of remote hosting and indicate the legal supervision arrangements implemented in order to ensure adequate protection of the data subject to a cross-border transfer. That is :<br>- European Union<br>- Country recognized as providing adequate protection by the EU<br>- Transfer to the United States to a company which has joined the Privacy Shield<br>- Other country <br>See <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">art. 44 to 49 of [GDPR]</a>",
         "source": "PIAF Connected Objects p18"
       },
       "PIA_LGL_DESC": {
@@ -533,19 +533,14 @@
         "source": "PIA1 page 6"
       },
       "PIA_DEF_PBDS": {
-        "name": "Privacy by design",
-        "description": "Measures taken to integrate the protection of personal data in all new processing operations (trusted names, guidelines, CNIL risk management, CNIL formalities).",
+        "name": "Project Management",
+        "description": "Measures taken to integrate the protection of personal data in all new processing operations (trusted names, guidelines, CNIL methodology for risk management or other internal methodology).",
         "source": "Mesures_US"
       },
       "PIA_DEF_VIOL": {
         "name": "Personnal data breach",
         "description": "Breach of security leading to the accidental or unlawful destruction, loss, alteration, unauthorised disclosure of, or access to, personal data transmitted, stored or otherwise processed.",
         "source": "GDPR Art. 4.12"
-      },
-      "PIA_DEF_EVT": {
-        "name": "Categorization the personal data breaches",
-        "description": "- an event is a personal data breach without impacts <br>- an incident corresponds to a personal data breach with isolated impacts<br>- a damaging event is a personal data breach with significant, immediate impacts for one or more subjectsw<br>- a crisis is a personal data breach with significant, more long-term consequences for one or more subjects",
-        "source": "Mesures_US"
       },
       "PIA_VAL_CART": {
         "name": "Mapping of risks",
@@ -603,7 +598,7 @@
         "source": "PIA2 old version - WIKI"
       },
       "PIA_EX_DCPR": {
-        "name": "Legally sensitive personal data",
+        "name": "Convictions and sensitive personal data",
         "description": "Philosophical, political, religious and trade-union views, sex life, health data, racial or ethnic origin, data concerning health or sex life, offenses, convictions, security measures, see <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 9 and 10 of [GDPR]</a>.",
         "source": "PIA2 old version, GDPR Article 9 and 10 - WIKI"
       },
