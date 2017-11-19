@@ -141,7 +141,7 @@ export class PiaService {
     });
   }
 
-  importData(data: any, prefix: string, resetGlobalStatus: boolean) {
+  importData(data: any, prefix: string, is_duplicate: boolean) {
     const pia = new Pia();
     pia.name = '(' + prefix + ') ' + data.pia.name;
     pia.author_name = data.pia.author_name;
@@ -196,27 +196,29 @@ export class PiaService {
             count++;
             oldIdToNewId[measure.id] = id;
             if (count === data.measures.length) {
-              this.importEvaluations(data, pia_id, resetGlobalStatus, oldIdToNewId);
+              this.importEvaluations(data, pia_id, is_duplicate, oldIdToNewId);
             }
           });
         });
       } else {
-        this.importEvaluations(data, pia_id, resetGlobalStatus);
+        this.importEvaluations(data, pia_id, is_duplicate);
       }
 
-      // Create comments
-      data.comments.forEach(comment => {
-        const commentModel = new Comment();
-        commentModel.pia_id = pia_id;
-        commentModel.description = comment.description;
-        commentModel.reference_to = comment.reference_to;
-        commentModel.for_measure = comment.for_measure;
-        commentModel.created_at = new Date(comment.created_at);
-        if (comment.updated_at) {
-          commentModel.updated_at = new Date(comment.updated_at);
-        }
-        commentModel.create();
-      });
+      if (!is_duplicate) {
+        // Create comments
+        data.comments.forEach(comment => {
+          const commentModel = new Comment();
+          commentModel.pia_id = pia_id;
+          commentModel.description = comment.description;
+          commentModel.reference_to = comment.reference_to;
+          commentModel.for_measure = comment.for_measure;
+          commentModel.created_at = new Date(comment.created_at);
+          if (comment.updated_at) {
+            commentModel.updated_at = new Date(comment.updated_at);
+          }
+          commentModel.create();
+        });
+      }
 
       pia.calculProgress().then(() => {
         this.pias.push(pia);
@@ -224,33 +226,35 @@ export class PiaService {
     });
   }
 
-  private importEvaluations(data: any, pia_id: number, resetGlobalStatus: boolean, oldIdToNewId?: Array<any>) {
-    // Create evaluations
-    data.evaluations.forEach(evaluation => {
-      const evaluationModel = new Evaluation();
-      evaluationModel.pia_id = pia_id;
-      evaluationModel.status = evaluation.status;
-      let reference_to = evaluation.reference_to;
-      if (reference_to.startsWith('3.1') && oldIdToNewId) {
-        const ref = reference_to.split('.')
-        if (oldIdToNewId[ref[2]]) {
-          reference_to = '3.1.' + oldIdToNewId[ref[2]];
+  private importEvaluations(data: any, pia_id: number, is_duplicate: boolean, oldIdToNewId?: Array<any>) {
+    if (!is_duplicate) {
+      // Create evaluations
+      data.evaluations.forEach(evaluation => {
+        const evaluationModel = new Evaluation();
+        evaluationModel.pia_id = pia_id;
+        evaluationModel.status = evaluation.status;
+        let reference_to = evaluation.reference_to;
+        if (reference_to.startsWith('3.1') && oldIdToNewId) {
+          const ref = reference_to.split('.')
+          if (oldIdToNewId[ref[2]]) {
+            reference_to = '3.1.' + oldIdToNewId[ref[2]];
+          }
         }
-      }
-      evaluationModel.reference_to = reference_to;
-      evaluationModel.action_plan_comment = evaluation.action_plan_comment;
-      evaluationModel.evaluation_comment = evaluation.evaluation_comment;
-      evaluationModel.evaluation_date = new Date(evaluation.evaluation_date);
-      evaluationModel.gauges = evaluation.gauges;
-      evaluationModel.estimated_implementation_date = new Date(evaluation.estimated_implementation_date);
-      evaluationModel.person_in_charge = evaluation.person_in_charge;
-      evaluationModel.global_status = resetGlobalStatus ? 0 : evaluation.global_status;
-      evaluationModel.created_at = new Date(evaluation.created_at);
-      if (evaluation.updated_at) {
-        evaluationModel.updated_at = new Date(evaluation.updated_at);
-      }
-      evaluationModel.create();
-    });
+        evaluationModel.reference_to = reference_to;
+        evaluationModel.action_plan_comment = evaluation.action_plan_comment;
+        evaluationModel.evaluation_comment = evaluation.evaluation_comment;
+        evaluationModel.evaluation_date = new Date(evaluation.evaluation_date);
+        evaluationModel.gauges = evaluation.gauges;
+        evaluationModel.estimated_implementation_date = new Date(evaluation.estimated_implementation_date);
+        evaluationModel.person_in_charge = evaluation.person_in_charge;
+        evaluationModel.global_status = evaluation.global_status;
+        evaluationModel.created_at = new Date(evaluation.created_at);
+        if (evaluation.updated_at) {
+          evaluationModel.updated_at = new Date(evaluation.updated_at);
+        }
+        evaluationModel.create();
+      });
+    }
   }
 
   export(id:  number) {
@@ -264,7 +268,7 @@ export class PiaService {
     });
   }
 
-  async import(file: any, ) {
+  async import(file: any) {
     const reader = new FileReader();
     reader.readAsText(file, 'UTF-8');
     reader.onload = (event: any) => {
