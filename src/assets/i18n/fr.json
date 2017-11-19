@@ -585,7 +585,7 @@
       },
       "PIA_VAL_CART": {
         "name": "La cartographie des risques",
-        "description": "Ce graphique représente les risques engendrés par le traitement et les risques résiduels compte tenu de l’ensemble des mesures correctives. Il démontre que si les mesures complémentaires décrites dans le plan d'action sont correctement mises en œuvre, la vraissemblance et/ou la gravité des risques résiduels devraient réduire.",
+        "description": "Ce graphique représente les risques engendrés par le traitement et les risques résiduels compte tenu de l’ensemble des mesures correctives. Il démontre que si les mesures complémentaires décrites dans le plan d'action sont correctement mises en œuvre, la vraisemblance et/ou la gravité des risques résiduels devraient réduire.",
     		"source": "Aucune"
       },
       "PIA_VAL_ACT": {
@@ -720,7 +720,7 @@
     "placeholder_comment": "Entrez vos commentaires.",
     "gauges": {
       "seriousness": "Prenant en compte le plan d'action, comment ré-évaluez-vous la <span class='red-highlight'>gravité de ce risque</span> ({{value}}) ?",
-      "likelihood": "Prenant en compte le plan d'action, comment ré-évaluez-vous la <span class='red-highlight'>vraissemblance de ce risque</span> ({{value}}) ?",
+      "likelihood": "Prenant en compte le plan d'action, comment ré-évaluez-vous la <span class='red-highlight'>vraisemblance de ce risque</span> ({{value}}) ?",
       "undefined": "(Non définie)",
       "negligible": "Négligeable",
       "limited": "Limitée",
