@@ -5,6 +5,13 @@
   padding: 0 10px;
   text-transform: capitalize;
   cursor: pointer;
+  &:first-child {
+    div[contenteditable] {
+      vertical-align: middle;
+      display: inline-block;
+      width: 80%;
+    }
+  }
   div[contenteditable] {
     cursor: text;
     &:focus, &:hover, &:active {
@@ -29,11 +36,12 @@
     }
   }
   &-attachment {
-    display: inline-block;
-    position: absolute;
     vertical-align: middle;
-    right: 0;
+    display: inline-block;
+    width: 10%;
+    position: relative;
     cursor: pointer;
+    margin: auto 0 auto auto;
     ul {
       display: none;
       position: absolute;
