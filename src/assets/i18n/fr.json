@@ -21,7 +21,8 @@
       "title": "Outils",
       "settings": "Paramètres",
       "accessibility": "Accessibilité malvoyants (couleurs à contraste fort, adapté daltonisme)",
-      "help": "Aide"
+      "help": "Aide",
+      "about": "À propos"
     }
   },
   "homepage": {
@@ -731,6 +732,9 @@
   "help": {
     "title": "Aide",
     "soon": "Bientôt disponible"
+  },
+  "about": {
+    "title": "À propos"
   },
   "settings": {
     "title": "Paramètres",
