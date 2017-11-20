@@ -130,7 +130,7 @@
   },
   "measures": {
     "placeholder_title": "Titre de la mesure",
-    "add": "Ajouter une mesure vide (sinon, utiliser la base de connaissance)",
+    "add": "Créer une mesure (ou en ajouter une proposée dans la base de connaissance à droite)",
     "edit": "Éditer la mesure",
     "remove": "Supprimer la mesure",
     "default_placeholder": "Décrivez les mesures existantes ou prévues pour garantir la sécurité des données."
@@ -734,7 +734,10 @@
     "soon": "Bientôt disponible"
   },
   "about": {
-    "title": "À propos"
+    "title": "A propos de l'Outil PIA",
+    "version_number": "Numéro de version",
+    "description": "Cet outil est originellement conçu par la <a href=\"https://www.cnil.fr\">Commission Nationale Informatique et Liberté (CNIL)</a>, l’autorité de protection des données française, dans une volonté d’accompagnement des responsables de traitement dans leur démarche de conformité au RGPD.<br>Cet outil est libre et ouvert, sous licence GPLv3. Vous pouvez y contribuer en téléchargeant le code source, en le modifiant et en le redistribuant auprès de la communauté.",
+    "licences": "Licences des librairies :"
   },
   "settings": {
     "title": "Paramètres",

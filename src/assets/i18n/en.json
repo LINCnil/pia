@@ -743,7 +743,10 @@
     "soon": "Soonly available!"
   },
   "about": {
-    "title": "About"
+    "title": "About the Tool PIA",
+    "version_number": "Version number",
+    "description": "This tool is originally designed by the <a href=\"https://www.cnil.fr\">Commission Nationale Informatique et Liberté (CNIL)</a>, the French Data Protection Authority, to help data processor to be compliant with the GDPR.<br>This software is free and open. If you wish to get involved in this project, you are welcome to download the source code from Github, modify it and share it with the community.",
+    "licences": "Library licences:"
   },
   "settings": {
     "title": "Settings",
