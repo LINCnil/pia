@@ -54,6 +54,7 @@ import {
 import { environment } from '../environments/environment';
 import { ListItemComponent } from 'app/cards/list-item/list-item.component';
 import { SummaryComponent } from './summary/summary.component';
+import { AboutComponent } from './about/about.component';
 
 const appRoutes: Routes = [
   { path: '', component: AuthenticationComponent },
@@ -64,6 +65,7 @@ const appRoutes: Routes = [
   { path: 'entry/:id/section/:section_id/item/:item_id', component: EntryComponent },
   { path: 'settings', component: SettingsComponent },
   { path: 'help', component: HelpComponent },
+  { path: 'about', component: AboutComponent },
   { path: '**', component: ErrorsComponent }
 ];
 
@@ -130,7 +132,8 @@ export function createTranslateLoader(http: HttpClient) {
     ActionPlanImplementationComponent,
     ListItemComponent,
     SummaryComponent,
-    SafeHtmlPipe
+    SafeHtmlPipe,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
