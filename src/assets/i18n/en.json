@@ -736,6 +736,12 @@
       "limited": "Limited",
       "important": "Important",
       "maximal": "Maximum"
+    },
+    "status": {
+      "0": "Pending",
+      "1": "To correct",
+      "2": "Improvable",
+      "3": "Acceptable"
     }
   },
   "help": {
@@ -857,8 +863,10 @@
     "pia_author": "Author's name",
     "pia_assessor": "Assessor's name",
     "pia_validator": "Validator's name",
-    "content_choice_ok": "The treatment could be implemented.",
-    "content_choice_nok": "The treatment should not be used.",
+    "content_choice": {
+      "0": "The treatment could be implemented.",
+      "1": "The treatment should not be used."
+    },
     "dpo_name": "DPO's name",
     "dpo_status": "DPO's status",
     "dpo_opinion": "DPO's opinion",
@@ -874,10 +882,10 @@
     "creation_date": "Creation date",
     "attachments": "Attachments",
     "gauges": {
-      "negligible": "Negligible",
-      "limited": "Limited",
-      "important": "Important",
-      "maximal": "Maximum"
+      "1": "Negligible",
+      "2": "Limited",
+      "3": "Important",
+      "4": "Maximum"
     },
     "action_plan": {
       "fundamental_principles": "Fundamental principles",

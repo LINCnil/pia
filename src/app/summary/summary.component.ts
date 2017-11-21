@@ -3,6 +3,7 @@ import { PiaService } from 'app/entry/pia.service';
 import { AttachmentsService } from 'app/entry/attachments/attachments.service';
 import { Answer } from 'app/entry/entry-content/questions/answer.model';
 import { Measure } from 'app/entry/entry-content/measures/measure.model';
+import { Evaluation } from 'app/entry/entry-content/evaluations/evaluation.model';
 import { ActionPlanService } from 'app/entry/entry-content/action-plan//action-plan.service';
 import { ActivatedRoute, Params } from '@angular/router';
 import { AppDataService } from 'app/services/app-data.service';
@@ -52,6 +53,9 @@ export class SummaryComponent implements OnInit {
   showPia() {
     this.prepareHeader();
 
+    this._actionPlanService.data = this.dataNav;
+    this._actionPlanService.pia = this.pia;
+
     this._attachmentsService.pia = this.pia;
     this._attachmentsService.listAttachments().then(() => {
       const attachmentElement = { title: 'summary.attachments', subtitle: null, data: [] };
@@ -62,19 +66,27 @@ export class SummaryComponent implements OnInit {
     });
 
     this.getJsonInfo().then(() => {
-      this.allData.forEach((element, index) => {
-        const el = { title: element.sectionTitle, subtitle: element.itemTitle, data: [] };
-        if (element.questions.length > 0) {
-          element.questions.forEach(question => {
-            el.data.push({
-              title: question.title,
-              content: question.content
+      for (const index in this.allData) {
+        if (this.allData.hasOwnProperty(index)) {
+          const element = this.allData[index];
+          const el = { title: element.sectionTitle,
+                       subtitle: element.itemTitle,
+                       data: [],
+                       evaluation: element.evaluation ? element.evaluation : null };
+          if (element.questions.length > 0) {
+            element.questions.forEach(question => {
+              el.data.push({
+                title: question.title,
+                content: question.content,
+                evaluation: question.evaluation ? question.evaluation : null
+              });
             });
-          });
+          }
+          this.content.push(el);
         }
-        this.content.push(el);
-      });
+      }
     });
+    this._actionPlanService.listActionPlan(this._translateService);
   }
 
   /**
@@ -183,57 +195,94 @@ export class SummaryComponent implements OnInit {
    * @private
    * @memberof SummaryComponent
    */
-  private getJsonInfo() {
+  private async getJsonInfo() {
     this.allData = [];
     return new Promise((resolve, reject) => {
       if (this._piaService.data) {
-        this._piaService.data.sections.forEach((section) => {
-          section.items.forEach((item) => {
-            const ref = section.id.toString() + item.id.toString();
+        this._piaService.data.sections.forEach(async (section) => {
+          section.items.forEach(async (item) => {
+            const ref = section.id.toString() + '.' + item.id.toString();
+            let evaluation = null;
+            if (item.evaluation_mode === 'item') {
+              const evaluationModel = new Evaluation();
+              const exist = await evaluationModel.getByReference(this.pia.id, ref);
+              if (exist) {
+                evaluation = {
+                  'title': evaluationModel.getStatusName(),
+                  'action_plan_comment': evaluationModel.action_plan_comment,
+                  'evaluation_comment': evaluationModel.evaluation_comment
+                };
+              }
+            }
             this.allData[ref] = {
               sectionTitle: section.title,
               itemTitle: item.title,
+              evaluation: evaluation,
               questions: []
             }
             if (item.is_measure) {
               const measuresModel = new Measure();
               measuresModel.pia_id = this.pia.id;
-              measuresModel.findAll().then((entries: any) => {
-                entries.forEach((measure) => {
-                  if (measure.title !== undefined && measure.content !== undefined) {
-                    this.allData[ref]['questions'].push({
-                      title: measure.title,
-                      content: measure.content
-                    });
+              const entries: any = await measuresModel.findAll();
+              entries.forEach(async (measure) => {
+                if (measure.title !== undefined && measure.content !== undefined) {
+                  evaluation = null;
+                  if (item.evaluation_mode === 'question') {
+                    const evaluationModel = new Evaluation();
+                    const exist = await evaluationModel.getByReference(this.pia.id, ref + '.' + measure.id);
+                    if (exist) {
+                      evaluation = {
+                        'title': evaluationModel.getStatusName(),
+                        'action_plan_comment': evaluationModel.action_plan_comment,
+                        'evaluation_comment': evaluationModel.evaluation_comment
+                      };
+                    }
                   }
-                });
+                  this.allData[ref]['questions'].push({
+                    title: measure.title,
+                    content: measure.content,
+                    evaluation: evaluation,
+                  });
+                }
               });
             } else if (item.questions) {
-              item.questions.forEach((question) => {
+              item.questions.forEach(async (question) => {
                 const answerModel = new Answer();
-                answerModel.getByReferenceAndPia(this.pia.id, question.id).then(() => {
-                  if (answerModel.data) {
-                    const content = [];
-                    if (answerModel.data.gauge && answerModel.data.gauge > 0) {
-                      content.push(this._translateService.instant(this.pia.getGaugeName(answerModel.data.gauge)));
-                    }
-                    if (answerModel.data.text && answerModel.data.text.length > 0) {
-                      content.push(answerModel.data.text);
-                    }
-                    if (answerModel.data.list && answerModel.data.list.length > 0) {
-                      content.push(answerModel.data.list.join(', '));
-                    }
-                    if (content.length > 0) {
-                      this.allData[ref]['questions'].push({
-                        title: question.title,
-                        content: content.join(', ')
-                      });
-                    }
+                await answerModel.getByReferenceAndPia(this.pia.id, question.id);
+                if (answerModel.data) {
+                  const content = [];
+                  if (answerModel.data.gauge && answerModel.data.gauge > 0) {
+                    content.push(this._translateService.instant(this.pia.getGaugeName(answerModel.data.gauge)));
                   }
-                  if (section.id === 3 && item.id === 4) {
-                    resolve();
+                  if (answerModel.data.text && answerModel.data.text.length > 0) {
+                    content.push(answerModel.data.text);
                   }
-                });
+                  if (answerModel.data.list && answerModel.data.list.length > 0) {
+                    content.push(answerModel.data.list.join(', '));
+                  }
+                  if (content.length > 0) {
+                    evaluation = null;
+                    if (item.evaluation_mode === 'question') {
+                      const evaluationModel = new Evaluation();
+                      const exist = await evaluationModel.getByReference(this.pia.id, ref + '.' + question.id);
+                      if (exist) {
+                        evaluation = {
+                          'title': evaluationModel.getStatusName(),
+                          'action_plan_comment': evaluationModel.action_plan_comment,
+                          'evaluation_comment': evaluationModel.evaluation_comment
+                        };
+                      }
+                    }
+                    this.allData[ref]['questions'].push({
+                      title: question.title,
+                      content: content.join(', '),
+                      evaluation: evaluation
+                    });
+                  }
+                }
+                if (section.id === 3 && item.id === 4) {
+                  resolve();
+                }
               });
             }
           });

@@ -727,6 +727,12 @@
       "limited": "Limitée",
       "important": "Importante",
       "maximal": "Maximale"
+    },
+    "status": {
+      "0": "En attente",
+      "1": "À corriger",
+      "2": "Améliorable",
+      "3": "Acceptable"
     }
   },
   "help": {
@@ -848,8 +854,10 @@
     "pia_author": "Nom de l'auteur",
     "pia_assessor": "Nom de l'évaluateur",
     "pia_validator": "Nom du validateur",
-    "content_choice_ok": "Le traitement pourrait être mis en oeuvre.",
-    "content_choice_nok": "Le traitement ne devrait pas être mis en oeuvre.",
+    "content_choice":  {
+      "0": "Le traitement pourrait être mis en oeuvre.",
+      "1": "Le traitement ne devrait pas être mis en oeuvre."
+    },
     "dpo_name": "Nom du DPO",
     "dpo_status": "Statut du DPO",
     "dpo_opinion": "Opinion du DPO",
@@ -865,10 +873,10 @@
     "creation_date": "Date de création",
     "attachments": "Pièces jointes",
     "gauges": {
-      "negligible": "Négligeable",
-      "limited": "Limitée",
-      "important": "Importante",
-      "maximal": "Maximale"
+      "1": "Négligeable",
+      "2": "Limitée",
+      "3": "Importante",
+      "4": "Maximale"
     },
     "action_plan": {
       "fundamental_principles": "Principes fondamentaux",

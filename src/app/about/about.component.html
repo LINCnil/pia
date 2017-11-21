@@ -1,31 +1,35 @@
 <app-header></app-header>
 <main class="container pia-aboutBlock pia-mainContainerBlock">
   <div class="row">
-    <div class="small-12 medium-12 columns">
+    <div class="small-12 medium-6 medium-offset-3 columns">
+      <h1>{{ 'about.title' | translate }}</h1>
       <div class="pia-aboutBlock-piaLogo">
-        <h1>{{ 'about.title' | translate }}</h1>
-        {{ 'about.version_number' | translate }} : {{ appVersion }}
+        <div class="pia-aboutBlock-piaLogo-text">
+          {{ 'header.logo_title' | translate }}<br>
+          <span>{{ 'header.logo_subtitle' | translate }}</span>
+        </div>
+        <div class="pia-aboutBlock-piaLogo-version">{{ 'about.version_number' | translate }} : {{ appVersion }}</div>
       </div>
       <p class="pia-aboutBlock-cnilLogo" [innerHTML]="'about.description' | translate"></p>
     </div>
-    <div class="row">
-      <div class="small-12 medium-12 columns">
-        <h2>LICENCES</h2>
-        <p>
-          Licence GPLv3 : <a href="https://www.gnu.org/licenses/gpl.html">https://www.gnu.org/licenses/gpl.html</a><br>
-          {{ 'about.licences' | translate }} :
-        </p>
-        <ul>
-          <li>Angular-cli (GNU GPL Licence Version 3.0)</li>
-          <li>FontAwesome (SIL OFL Licence Version 1.1 et MIT Licence Version 4.0)</li>
-          <li>Foundation-Sites (MIT Licence Version 6.0)</li>
-          <li>Normalize (MIT Licence Version 7.0)</li>
-          <li>Ngx Chips (MIT Licence Version 1.2.9)</li>
-          <li>Rxjs (Apache Licence Version 2.0)</li>
-          <li>Tinymce (GNU GPL Licence Version 2.1)</li>
-          <li>D3 (BSD Licence Version 4.0)</li>
-        </ul>
-      </div>
+  </div>
+  <div class="row">
+    <div class="small-12 medium-6 medium-offset-3 columns">
+      <h2>LICENCES</h2>
+      <p>
+        Licence GPLv3 : <a href="https://www.gnu.org/licenses/gpl.html">https://www.gnu.org/licenses/gpl.html</a><br>
+        {{ 'about.licences' | translate }} :
+      </p>
+      <ul>
+        <li>Angular-cli (GNU GPL Licence Version 3.0)</li>
+        <li>FontAwesome (SIL OFL Licence Version 1.1 et MIT Licence Version 4.0)</li>
+        <li>Foundation-Sites (MIT Licence Version 6.0)</li>
+        <li>Normalize (MIT Licence Version 7.0)</li>
+        <li>Ngx Chips (MIT Licence Version 1.2.9)</li>
+        <li>Rxjs (Apache Licence Version 2.0)</li>
+        <li>Tinymce (GNU GPL Licence Version 2.1)</li>
+        <li>D3 (BSD Licence Version 4.0)</li>
+      </ul>
     </div>
   </div>
 </main>
