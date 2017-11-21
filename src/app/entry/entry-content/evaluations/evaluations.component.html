@@ -42,11 +42,11 @@
         <div class="pia-gaugeBlock">
           <input type="range" (change)="checkGaugeChanges($event, 'x')" formControlName="gaugeX" min="0" max="4" step="1">
           <div>
-            <div>{{ 'evaluations.gauges.undefined' | translate }}</div>
-            <div>{{ 'evaluations.gauges.negligible' | translate }}</div>
-            <div>{{ 'evaluations.gauges.limited' | translate }}</div>
-            <div>{{ 'evaluations.gauges.important' | translate }}</div>
-            <div>{{ 'evaluations.gauges.maximal' | translate }}</div>
+            <div>{{ 'evaluations.gauges.0' | translate }}</div>
+            <div>{{ 'evaluations.gauges.1' | translate }}</div>
+            <div>{{ 'evaluations.gauges.2' | translate }}</div>
+            <div>{{ 'evaluations.gauges.3' | translate }}</div>
+            <div>{{ 'evaluations.gauges.4' | translate }}</div>
           </div>
           <div class="pia-gaugeBlock-user-choice pia-gaugeBlock-user-choice-{{previousGauges.x}}"></div>
           <div *ngIf="evaluation.gauges" class="pia-gaugeBlock-background pia-gaugeBlock-background-x pia-gaugeBlock-background-{{evaluation.gauges['x']}}"></div>
@@ -56,11 +56,11 @@
         <div class="pia-gaugeBlock">
           <input type="range" (change)="checkGaugeChanges($event, 'y')" formControlName="gaugeY" min="0" max="4" step="1">
           <div>
-            <div>{{ 'evaluations.gauges.undefined' | translate }}</div>
-            <div>{{ 'evaluations.gauges.negligible' | translate }}</div>
-            <div>{{ 'evaluations.gauges.limited' | translate }}</div>
-            <div>{{ 'evaluations.gauges.important' | translate }}</div>
-            <div>{{ 'evaluations.gauges.maximal' | translate }}</div>
+            <div>{{ 'evaluations.gauges.0' | translate }}</div>
+            <div>{{ 'evaluations.gauges.1' | translate }}</div>
+            <div>{{ 'evaluations.gauges.2' | translate }}</div>
+            <div>{{ 'evaluations.gauges.3' | translate }}</div>
+            <div>{{ 'evaluations.gauges.4' | translate }}</div>
           </div>
           <div class="pia-gaugeBlock-user-choice pia-gaugeBlock-user-choice-{{previousGauges.y}}"></div>
           <div *ngIf="evaluation.gauges" class="pia-gaugeBlock-background pia-gaugeBlock-background-y pia-gaugeBlock-background-{{evaluation.gauges['y']}}"></div>

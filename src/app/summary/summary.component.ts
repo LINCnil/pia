@@ -210,7 +210,12 @@ export class SummaryComponent implements OnInit {
                 evaluation = {
                   'title': evaluationModel.getStatusName(),
                   'action_plan_comment': evaluationModel.action_plan_comment,
-                  'evaluation_comment': evaluationModel.evaluation_comment
+                  'evaluation_comment': evaluationModel.evaluation_comment,
+                  'gauges': {
+                    'riskName': { value: this._translateService.instant('sections.3.items.' + item.id + '.title') },
+                    'seriousness': evaluationModel.gauges ? evaluationModel.gauges.x : null,
+                    'likelihood': evaluationModel.gauges ? evaluationModel.gauges.y : null
+                  }
                 };
               }
             }
@@ -234,14 +239,19 @@ export class SummaryComponent implements OnInit {
                       evaluation = {
                         'title': evaluationModel.getStatusName(),
                         'action_plan_comment': evaluationModel.action_plan_comment,
-                        'evaluation_comment': evaluationModel.evaluation_comment
+                        'evaluation_comment': evaluationModel.evaluation_comment,
+                        'gauges': {
+                          'riskName': { value: this._translateService.instant('sections.3.items.' + item.id + '.title') },
+                          'seriousness': evaluationModel.gauges ? evaluationModel.gauges.x : null,
+                          'likelihood': evaluationModel.gauges ? evaluationModel.gauges.y : null
+                        }
                       };
                     }
                   }
                   this.allData[ref]['questions'].push({
                     title: measure.title,
                     content: measure.content,
-                    evaluation: evaluation,
+                    evaluation: evaluation
                   });
                 }
               });
@@ -269,7 +279,12 @@ export class SummaryComponent implements OnInit {
                         evaluation = {
                           'title': evaluationModel.getStatusName(),
                           'action_plan_comment': evaluationModel.action_plan_comment,
-                          'evaluation_comment': evaluationModel.evaluation_comment
+                          'evaluation_comment': evaluationModel.evaluation_comment,
+                          'gauges': {
+                            'riskName': { value: this._translateService.instant('sections.3.items.' + item.id + '.title') },
+                            'seriousness': evaluationModel.gauges ? evaluationModel.gauges.x : null,
+                            'likelihood': evaluationModel.gauges ? evaluationModel.gauges.y : null
+                          }
                         };
                       }
                     }

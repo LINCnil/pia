@@ -23,17 +23,33 @@
               </ng-template>
               <div *ngIf="d.evaluation">
                 <p>
-                  <strong>Évaluation : {{ d.evaluation.title | translate }}</strong><br>
+                  <strong>{{ 'evaluations.title' | translate }} : {{ d.evaluation.title | translate }}</strong><br>
                   <span *ngIf="d.evaluation.action_plan_comment">{{ 'evaluations.action_plan_comment' | translate }} : <span [innerHTML]="d.evaluation.action_plan_comment | safeHtml"></span><br></span>
-                  <span *ngIf="d.evaluation.evaluation_comment">{{ 'evaluations.evaluation_comment' | translate }} : {{ d.evaluation.evaluation_comment }}</span>
+                  <span *ngIf="d.evaluation.evaluation_comment">{{ 'evaluations.evaluation_comment' | translate }} : {{ d.evaluation.evaluation_comment }}</span><br>
+                  <span *ngIf="d.evaluation.gauges && d.evaluation.gauges.seriousness > 0">
+                      <span [innerHTML]="'evaluations.gauges.seriousness' | translate:d.evaluation.gauges.riskName"></span>
+                      {{ 'evaluations.gauges.' + d.evaluation.gauges.seriousness | translate }}
+                    </span><br>
+                    <span *ngIf="d.evaluation.gauges && d.evaluation.gauges.likelihood > 0">
+                      <span [innerHTML]="'evaluations.gauges.likelihood' | translate:d.evaluation.gauges.riskName"></span>
+                      {{ 'evaluations.gauges.' + d.evaluation.gauges.likelihood | translate }}
+                    </span>
                 </p>
               </div>
             </div>
             <div *ngIf="c.evaluation">
                 <p>
-                  <strong>Évaluation : {{ c.evaluation.title | translate }}</strong><br>
+                  <strong>{{ 'evaluations.title' | translate }} : {{ c.evaluation.title | translate }}</strong><br>
                   <span *ngIf="c.evaluation.action_plan_comment">{{ 'evaluations.action_plan_comment' | translate }} : <span [innerHTML]="c.evaluation.action_plan_comment | safeHtml"></span><br></span>
-                  <span *ngIf="c.evaluation.evaluation_comment">{{ 'evaluations.evaluation_comment' | translate }} : {{ c.evaluation.evaluation_comment }}</span>
+                  <span *ngIf="c.evaluation.evaluation_comment">{{ 'evaluations.evaluation_comment' | translate }} : {{ c.evaluation.evaluation_comment }}</span><br>
+                  <span *ngIf="c.evaluation.gauges && c.evaluation.gauges.seriousness > 0">
+                    <span [innerHTML]="'evaluations.gauges.seriousness' | translate:c.evaluation.gauges.riskName"></span>
+                    {{ 'evaluations.gauges.' + c.evaluation.gauges.seriousness | translate }}
+                  </span><br>
+                  <span *ngIf="c.evaluation.gauges && c.evaluation.gauges.likelihood > 0">
+                    <span [innerHTML]="'evaluations.gauges.likelihood' | translate:c.evaluation.gauges.riskName"></span>
+                    {{ 'evaluations.gauges.' + c.evaluation.gauges.likelihood | translate }}
+                  </span>
                 </p>
               </div>
           </div>
@@ -41,11 +57,12 @@
         <hr>
       </div>
       <div>
-        <h1>{{ 'summary.action_plan.fundamental_principles' | translate }}</h1>
+        <h1>{{ 'summary.action_plan.title' | translate }}</h1>
+        <h2>{{ 'summary.action_plan.fundamental_principles' | translate }}</h2>
         <ng-container *ngIf="_actionPlanService.principlesActionPlanReady; else noFundamentalPrinciples">
           <div *ngFor="let entry of _actionPlanService.results">
             <div *ngIf="entry.action_plan_comment">
-              <h2 style="margin-bottom:2px;">{{ entry.short_title | translate }}</h2>
+              <h3 style="margin-bottom:2px;">{{ entry.short_title | translate }}</h3>
               <div [innerHTML]="entry.action_plan_comment | translate | safeHtml"></div>
               <div *ngIf="entry.evaluation && entry.evaluation.estimated_implementation_date">
                 <strong>{{ 'summary.action_plan.implementation_date' | translate }}</strong>
@@ -64,10 +81,10 @@
       </div>
 
       <div>
-        <h1>{{ 'summary.action_plan.measures' | translate }}</h1>
+        <h2>{{ 'summary.action_plan.measures' | translate }}</h2>
         <ng-container *ngIf="_actionPlanService.measuresActionPlanReady; else noMeasures">
           <div *ngFor="let entry of _actionPlanService.measures">
-            <h2 style="margin-bottom:2px;">{{ entry.short_title | translate }}</h2>
+            <h3 style="margin-bottom:2px;">{{ entry.short_title | translate }}</h3>
             <div [innerHTML]="entry.action_plan_comment | translate | safeHtml"></div>
             <div *ngIf="entry.evaluation && entry.evaluation.estimated_implementation_date">
               <strong>{{ 'summary.action_plan.implementation_date' | translate }}</strong>

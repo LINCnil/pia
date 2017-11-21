@@ -13,11 +13,11 @@
       <div class="pia-gaugeBlock" *ngIf="question.answer_type == 'gauge'">
         <input type="range" (change)="checkGaugeChanges($event)" formControlName="gauge" min="0" max="4" step="1">
         <div>
-          <div>{{ 'questions.gauges.undefined' | translate }}</div>
-          <div>{{ 'questions.gauges.negligible' | translate }}</div>
-          <div>{{ 'questions.gauges.limited' | translate }}</div>
-          <div>{{ 'questions.gauges.important' | translate }}</div>
-          <div>{{ 'questions.gauges.maximum' | translate }}</div>
+          <div>{{ 'questions.gauges.0' | translate }}</div>
+          <div>{{ 'questions.gauges.1' | translate }}</div>
+          <div>{{ 'questions.gauges.2' | translate }}</div>
+          <div>{{ 'questions.gauges.3' | translate }}</div>
+          <div>{{ 'questions.gauges.4' | translate }}</div>
         </div>
         <div class="pia-gaugeBlock-background"></div>
       </div>

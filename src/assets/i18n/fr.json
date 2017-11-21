@@ -701,11 +701,11 @@
   "questions": {
     "edit": "Éditer la question",
     "gauges": {
-      "undefined": "(Non définie)",
-      "negligible": "Négligeable",
-      "limited": "Limitée",
-      "important": "Importante",
-      "maximum": "Maximale"
+      "0": "(Non définie)",
+      "1": "Négligeable",
+      "2": "Limitée",
+      "3": "Importante",
+      "4": "Maximale"
     }
   },
   "evaluations": {
@@ -722,11 +722,11 @@
     "gauges": {
       "seriousness": "Prenant en compte le plan d'action, comment ré-évaluez-vous la <span class='red-highlight'>gravité de ce risque</span> ({{value}}) ?",
       "likelihood": "Prenant en compte le plan d'action, comment ré-évaluez-vous la <span class='red-highlight'>vraisemblance de ce risque</span> ({{value}}) ?",
-      "undefined": "(Non définie)",
-      "negligible": "Négligeable",
-      "limited": "Limitée",
-      "important": "Importante",
-      "maximal": "Maximale"
+      "0": "(Non définie)",
+      "1": "Négligeable",
+      "2": "Limitée",
+      "3": "Importante",
+      "4": "Maximale"
     },
     "status": {
       "0": "En attente",
@@ -879,6 +879,7 @@
       "4": "Maximale"
     },
     "action_plan": {
+      "title": "Plan d'action",
       "fundamental_principles": "Principes fondamentaux",
       "implementation_date": "Date prévue de mise en œuvre",
       "implementation_responsible": "Responsable de la mise en œuvre",

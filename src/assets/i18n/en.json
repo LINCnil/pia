@@ -710,11 +710,11 @@
   "questions": {
     "edit": "Edit question",
     "gauges": {
-      "undefined": "(Undefined)",
-      "negligible": "Negligible",
-      "limited": "Limited",
-      "important": "Important",
-      "maximal": "Maximum"
+      "0": "(Undefined)",
+      "1": "Negligible",
+      "2": "Limited",
+      "3": "Important",
+      "4": "Maximum"
     }
   },
   "evaluations": {
@@ -731,11 +731,11 @@
     "gauges": {
       "seriousness": "Taking into account the action plan, how do you re-evaluate the <span class='red-highlight'>seriousness of this risk</span> ({{value}})?",
       "likelihood": "Taking into account the action plan, how do you re-evaluate the <span class='red-highlight'>likelihood of this risk</span> ({{value}})?",
-      "undefined": "(Undefined)",
-      "negligible": "Negligible",
-      "limited": "Limited",
-      "important": "Important",
-      "maximal": "Maximum"
+      "0": "(Undefined)",
+      "1": "Negligible",
+      "2": "Limited",
+      "3": "Important",
+      "4": "Maximum"
     },
     "status": {
       "0": "Pending",
@@ -888,6 +888,7 @@
       "4": "Maximum"
     },
     "action_plan": {
+      "title": "Action plan",
       "fundamental_principles": "Fundamental principles",
       "implementation_date": "Expected date of implementation",
       "implementation_responsible": "Responsible for implementation",
