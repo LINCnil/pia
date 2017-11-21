@@ -364,7 +364,7 @@
       "PIA_ORG_ORG": {
         "placeholder":"Décrivez ici l'organisation de la protection de la vie privée au sein de votre organisme.",
         "name": "Organisation de la politique de protection de la vie privée",
-        "description": "Existence d’une organisation apte à diriger et contrôler la protection des données à caractère personnel au sein de l’organisme (désignation d'un un CIL/DPO, création d'un comité de suivi, etc.).",
+        "description": "Existence d’une organisation apte à diriger et contrôler la protection des données à caractère personnel au sein de l’organisme (désignation d'un un CIL/DPD, création d'un comité de suivi, etc.).",
         "source": "WIKI Organisation"
       },
       "PIA_ORG_POL": {
@@ -773,7 +773,7 @@
           "content": "Actuellement, les icônes du menu de navigation de gauche ne se rafraîchissent pas après un refus de validation. Vous devez visiter de nouveau chaque section, vérifier les informations et évaluation en fonction des motifs du refus et demander une nouvelle fois une validation. Une fois toutes les sections revues, il sera possible de repasser le PIA pour validation."
         }
       },
-      "footer": "Si vous rencontrez d’autres problèmes ou si vous avez des suggestions d’amélioration, vous pouvez nous les faire remonter via ce formulaire [LIEN FORMULAIRE]."
+      "footer": "Si vous rencontrez d’autres problèmes ou si vous avez des suggestions d’amélioration, vous pouvez nous les faire remonter via ce formulaire <a href=\"https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia\">https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia</a>."
     }
   },
   "about": {
@@ -858,9 +858,9 @@
       "0": "Le traitement pourrait être mis en oeuvre.",
       "1": "Le traitement ne devrait pas être mis en oeuvre."
     },
-    "dpo_name": "Nom du DPO",
-    "dpo_status": "Statut du DPO",
-    "dpo_opinion": "Opinion du DPO",
+    "dpo_name": "Nom du DPD",
+    "dpo_status": "Statut du DPD",
+    "dpo_opinion": "Opinion du DPD",
     "concerned_people_searched_opinion": "Recherche de l'avis des personnes concernées",
     "people_search_status_ok": "L'avis des personnes concernées a été demandé.",
     "people_search_status_nok": "L'avis des personnes concernées n'a pas été demandé.",
@@ -923,10 +923,10 @@
   "opinions": {
     "edit": "Éditer",
     "content": ", considère(nt) que :",
-    "dpo_opinion": "Avis du DPO",
-    "placeholder_dpo_name": "Nom(s) du(des) DPO",
+    "dpo_opinion": "Avis du DPD",
+    "placeholder_dpo_name": "Nom(s) du(des) DPD",
     "placeholder_dpo_opinion": "Précisez les raisons de votre choix",
-    "dpo_lock": "Veuillez remplir les autres sections avant de pouvoir saisir l'avis du DPO.",
+    "dpo_lock": "Veuillez remplir les autres sections avant de pouvoir saisir l'avis du DPD.",
     "people_opinion": "Avis des personnes concernées",
     "placeholder_concerned_people_name": "Nom(s) de la(des) personne(s) concernée(s)",
     "placeholder_people_opinion": "Décrivez comment les avis ont été collectés et quelle en est l'analyse. Dans le cas où les avis n'ont pas été recherchés, en préciser les raisons.",
@@ -1173,7 +1173,7 @@
           "short_help": "Planifiez en détail la mise en œuvre des mesures complémentaires déterminées au cours du PIA."
         },
         "3": {
-          "title": "Avis du DPO et des personnes concernées",
+          "title": "Avis du DPD et des personnes concernées",
           "short_help": "Présentez le conseil de la personne en charge des aspects informatique et libertés (délégué à la protection des données s'il existe). Présentez l'avis des personnes concernées ou de leurs représentants."
         }
       }
