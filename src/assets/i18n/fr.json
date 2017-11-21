@@ -187,7 +187,7 @@
       },
       "PIA_LGL_SUPT": {
         "name": "Support des données",
-        "description": "Bien sur lequel reposent des données. Note : il peut s’agir de matériels, de logiciels, de canaux informatiques, de personnes, de supports papier ou de canaux de transmission papier. ",
+        "description": "Bien sur lequel reposent des données. Note : il peut s’agir de matériels, de logiciels, de canaux informatiques, de personnes, de supports papier ou de canaux de transmission papier.",
         "source": "PIA1 p12"
       },
       "PIA_LGL_FIN": {
@@ -292,7 +292,7 @@
       "PIA_SEC_MAL": {
         "placeholder": "Décrivez ici les mesures de protection contre les codes malveillants lors d'accès à des réseaux d'un niveau de sécurité moindre.",
         "name": "Lutte contre les logiciels malveillants",
-        "description": "Mesures destinées à protéger les accès vers des réseaux publics (Internet) ou non maîtrisés (partenaires), ainsi que les postes de travail et les serveurs contre les codes malveillants qui pourraient affecter la sécurité les données à caractère personnel. ",
+        "description": "Mesures destinées à protéger les accès vers des réseaux publics (Internet) ou non maîtrisés (partenaires), ainsi que les postes de travail et les serveurs contre les codes malveillants qui pourraient affecter la sécurité les données à caractère personnel.",
         "source": "WIKI Lutte_contre_les_logiciels_malveillants"
       },
       "PIA_SEC_COMP": {
@@ -376,7 +376,7 @@
       "PIA_ORG_RMGT": {
         "placeholder":"Décrivez ici les processus destinés à maîtriser les risques que les traitements de l’organisme font peser sur les droits et libertés des personnes concernées.",
         "name": "Gérer les risques",
-        "description": "Existence d'une politique définissant les processus destinés à maîtriser les risques que les traitements de l’organisme font peser sur les droits et libertés des personnes concernées (recensement des traitements de données à caractère personnel, des données, des supports, appréciation des risques, déterminer les mesures existantes ou prévues, etc.). ",
+        "description": "Existence d'une politique définissant les processus destinés à maîtriser les risques que les traitements de l’organisme font peser sur les droits et libertés des personnes concernées (recensement des traitements de données à caractère personnel, des données, des supports, appréciation des risques, déterminer les mesures existantes ou prévues, etc.).",
         "source": "WIKI Gestion_des_risques"
       },
       "PIA_ORG_PBD": {
@@ -388,7 +388,7 @@
       "PIA_ORG_VIOL": {
         "placeholder": "Décrivez ici les processus opérationnels destinés à détecter et traiter les événements susceptibles d’affecter les libertés et la vie privée des personnes concernées.",
         "name": "Gérer les incidents de sécurité et les violations de données",
-        "description": "Existence d’une organisation opérationnelle permettant de détecter et de traiter les événements susceptibles d’affecter les libertés et la vie privée des personnes concernées (définition des responsabilités, plan de réaction, qualifier les violations, etc.). ",
+        "description": "Existence d’une organisation opérationnelle permettant de détecter et de traiter les événements susceptibles d’affecter les libertés et la vie privée des personnes concernées (définition des responsabilités, plan de réaction, qualifier les violations, etc.).",
         "source": "WIKI Gestion_des_incidents_et_des_violations_de_données"
       },
       "PIA_ORG_PERS": {
@@ -400,13 +400,13 @@
       "PIA_ORG_EXT": {
         "placeholder":"Indiquez ici, pour les tiers amenés à avoir accès aux données, les modalités et les mesures de sécurité mises en œuvre pour ces accès.",
         "name": "Gestion des tiers accédant aux données.",
-        "description": "Existence d'une procédure visant à réduire les risques que les accès légitimes aux données par des tiers peuvent faire peser sur les libertés et la vie privée des personnes concernées (identification des tiers, contrat de sous-traitance, convention, BCR, etc.). ",
+        "description": "Existence d'une procédure visant à réduire les risques que les accès légitimes aux données par des tiers peuvent faire peser sur les libertés et la vie privée des personnes concernées (identification des tiers, contrat de sous-traitance, convention, BCR, etc.).",
         "source": "WIKI Relations_avec_les_tiers"
       },
       "PIA_ORG_AUD": {
         "placeholder":"Décrivez ici les processus qui assurent un contrôle régulier des traitements de données.",
         "name": "Superviser la protection de la vie privée",
-        "description": "Existence de mesures permettant de disposer d’une vision globale et à jour de l’état de protection des données et de la conformité au RGPD (contrôler la conformité des traitements, objectifs et indicateurs, responsabilités, etc.). ",
+        "description": "Existence de mesures permettant de disposer d’une vision globale et à jour de l’état de protection des données et de la conformité au RGPD (contrôler la conformité des traitements, objectifs et indicateurs, responsabilités, etc.).",
         "source":"WIKI Supervision"
       },
       "PIA_DEF_EXA": {
@@ -446,7 +446,7 @@
       },
       "PIA_DEF_MIND": {
         "name": "Minimisation des données elles-mêmes",
-        "description": "Réduire la gravité des risques en minimisant les données elles-mêmes, par des mesures destinées à réduire leur sensibilité. ",
+        "description": "Réduire la gravité des risques en minimisant les données elles-mêmes, par des mesures destinées à réduire leur sensibilité.",
         "source": "WIKI Minimisation_des_données_:_adéquates,_pertinentes_et_limitées"
       },
       "PIA_DEF_CONS": {
@@ -506,7 +506,7 @@
       },
       "PIA_DEF_CTLA": {
         "name": "Contrôle d'accès logique",
-        "description": "Il consiste à limiter les risques que des personnes non autorisées accèdent aux données à caractère personnel sous forme numérique.<br>Pour cela, il convient de :<br>- <strong>définir des profils d’habilitation</strong> dans les systèmes en séparant les tâches et les domaines de responsabilité, afin de limiter l’accès des utilisateurs aux seules données strictement nécessaires à l’accomplissement de leurs missions. <br>- <strong>supprimer les permissions d’accès des utilisateurs dès qu’ils ne sont plus habilités à accéder à un local ou à une ressource informatique</strong>, ainsi qu’<strong>la fin de leur contrat.</strong> <br>- <strong> Réaliser une revue annuelle des habilitations</strong> afin d’identifier et de supprimer les comptes non utilisés et de réaligner les droits accordés sur les fonctions de chaque utilisateur. ",
+        "description": "Il consiste à limiter les risques que des personnes non autorisées accèdent aux données à caractère personnel sous forme numérique.<br>Pour cela, il convient de :<br>- <strong>définir des profils d’habilitation</strong> dans les systèmes en séparant les tâches et les domaines de responsabilité, afin de limiter l’accès des utilisateurs aux seules données strictement nécessaires à l’accomplissement de leurs missions. <br>- <strong>supprimer les permissions d’accès des utilisateurs dès qu’ils ne sont plus habilités à accéder à un local ou à une ressource informatique</strong>, ainsi qu’<strong>la fin de leur contrat.</strong> <br>- <strong> Réaliser une revue annuelle des habilitations</strong> afin d’identifier et de supprimer les comptes non utilisés et de réaligner les droits accordés sur les fonctions de chaque utilisateur.",
     		"source": "WIKI Contrôle_des_accès_logiques et Guide Bleu 2017 p9 pour les précautions"
       },
       "PIA_DEF_PWD": {
@@ -688,7 +688,7 @@
       },
       "PIA_EX_DC": {
         "name": "Données calculées",
-        "description": "Données pour un système de score, résultat de l’application du score... "
+        "description": "Données pour un système de score, résultat de l’application du score..."
       }
     }
   },
@@ -731,7 +731,44 @@
   },
   "help": {
     "title": "Aide",
-    "soon": "Bientôt disponible"
+    "definition": {
+      "data1": {
+        "title": "Utiliser l'Outil PIA",
+        "content": "Contenu en cours d'écriture"
+      },
+      "data2": {
+        "title": "Bugs connus",
+        "qa1": {
+          "title": "Je rencontre des problèmes d’affichage, comme par exemple des icônes ne se rafraîchissant pas ou des éléments de l’interface manquants.",
+          "content": "Lorsque vous rencontrez des problèmes d’affichage, quitter l’application et relancer la. Cela permet en général de corriger ce type de problèmes. Vos données sont sauvegardées en temps réel, vous ne perdrez donc aucune information saisie."
+        },
+        "qa2": {
+          "title": "Je n’arrive pas à éditer les jauges de vraisemblance et gravité des risques",
+          "content": "Ce bug est connu et en cours de traitement. Si vous rencontrez ce problème indiquer dans le champ de justification le niveau de gravité ou vraisemblance que vous estimez, en plus de la justification de cette estimation."
+        },
+        "qa3": {
+          "title": "Je rencontre des problèmes à l’import d’un PIA",
+          "content": "Plusieurs bugs ont été observés lors de l’import d’un PIA, en particulier la disparition des jauges d’évaluation de la gravité et vraisemblance d’un risque. Dans ce cas référez-vous à la question précédente. Si vous ne voyez pas votre PIA apparaître sur le dashboard des PIAs, rafraichissez la page et celui-ci apparaitra."
+        },
+        "qa4": {
+          "title": "Lorsque je fais des copier-coller, mon texte apparait surligné",
+          "content": "Ceci est juste un bug d’affichage et ne compromet en rien les informations saisies dans le PIA. Ce problème sera corrigé rapidement."
+        },
+        "qa5": {
+          "title": "Je n’arrive pas à demander l’évaluation d’une partie",
+          "content": "Pour demander l’évaluation d’une partie, tous les champs doivent être remplis. Veuillez vérifier que cela est le cas. Lors de l’édition d’un risque, il est obligatoire d’indiquer au moins une mesure technique ou organisationnelle traitant le risque."
+        },
+        "qa6": {
+          "title": "Au changement de langue, les textes ne sont pas traduits",
+          "content": "Fermer le PIA que vous éditez et ouvrez-le de nouveau. Les contenus devraient alors apparaitre dans la langue sélectionnée."
+        },
+        "qa7": {
+          "title": "J’ai refusé de valider un PIA, mais ne sait pas quoi faire ensuite",
+          "content": "Actuellement, les icônes du menu de navigation de gauche ne se rafraîchissent pas après un refus de validation. Vous devez visiter de nouveau chaque section, vérifier les informations et évaluation en fonction des motifs du refus et demander une nouvelle fois une validation. Une fois toutes les sections revues, il sera possible de repasser le PIA pour validation."
+        }
+      },
+      "footer": "Si vous rencontrez d’autres problèmes ou si vous avez des suggestions d’amélioration, vous pouvez nous les faire remonter via ce formulaire [LIEN FORMULAIRE]."
+    }
   },
   "about": {
     "title": "A propos de l'Outil PIA",
