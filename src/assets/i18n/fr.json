@@ -586,11 +586,7 @@
       },
       "PIA_VAL_CART": {
         "name": "La cartographie des risques",
-<<<<<<< HEAD
-        "description": "Ce graphique représente les risques engendrés par le traitement et les risques résiduels compte tenu de l’ensemble des mesures correctives. Il démontre que si les mesures complémentaires décrites dans le plan d'action sont correctement mises en œuvre, la vraissemblance et/ou la gravité des risques résiduels devraient réduire.",
-=======
         "description": "Ce graphique représente les risques engendrés par le traitement et les risques résiduels compte tenu de l’ensemble des mesures correctives. Il démontre que si les mesures complémentaires décrites dans le plan d'action sont correctement mises en œuvre, la vraisemblance et/ou la gravité des risques résiduels devraient réduire.",
->>>>>>> develop
     		"source": "Aucune"
       },
       "PIA_VAL_ACT": {
@@ -600,11 +596,7 @@
       },
       "PIA_DEF_ENJ": {
         "name": "Enjeux du traitement",
-<<<<<<< HEAD
-        "description": "Il s'agit des motivations menant à la mise en oeuvre du traitement, les bénéfices attendus (pour l’organisme, pour les personnes concernées, pour la société en général…).",
-=======
         "description": "Il s'agit des motivations menant à la mise en oeuvre du traitement, les bénéfices attendus (pour l’organisme, pour les personnes concernées, pour la société en général…).",
->>>>>>> develop
     		"source": "PIA1 p6 (note 8 en bas de page)"
       },
       "PIA_DEF_ST": {
