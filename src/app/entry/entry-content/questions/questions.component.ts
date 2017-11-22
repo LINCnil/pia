@@ -138,6 +138,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
         this.questionForm.controls['gauge'].disable();
         if (this.questionForm.value.text && this.questionForm.value.text.length > 0) {
           this.questionForm.controls['text'].disable();
+          this.closeEditor();
         }
       });
     } else {
@@ -150,6 +151,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
         this.questionForm.controls['gauge'].disable();
         if (this.questionForm.value.text && this.questionForm.value.text.length > 0) {
           this.questionForm.controls['text'].disable();
+          this.closeEditor();
         }
       });
     }
@@ -159,8 +161,6 @@ export class QuestionsComponent implements OnInit, OnDestroy {
    * Disables question field + shows edit button + save data.
    */
   questionContentFocusOut() {
-    this.editor = null;
-    this._knowledgeBaseService.placeholder = null;
     const gaugeValue = parseInt(this.questionForm.value.gauge, 10);
     const userText = this.questionForm.value.text.replace(/^\s+/, '').replace(/\s+$/, '');
     if (this.answer.id) {
@@ -206,7 +206,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
    */
   questionContentFocusIn() {
     setTimeout(() => {
-      this.loadEditor();
+      this.loadEditor(true);
     }, 1);
   }
 
@@ -345,7 +345,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
     }
   }
 
-  loadEditor() {
+  loadEditor(focus = false) {
     this._knowledgeBaseService.placeholder = this.question.placeholder;
     this._knowledgeBaseService.search('', '', this.question.link_knowledge_base);
     tinymce.init({
@@ -355,7 +355,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
       plugins: 'autoresize lists',
       forced_root_block : false,
       autoresize_bottom_margin: 20,
-      auto_focus: this.elementId,
+      auto_focus: focus ? this.elementId : null,
       autoresize_min_height: 30,
       content_style: 'body {background-color:#eee!important;}' ,
       selector: '#' + this.elementId,
@@ -366,7 +366,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
         editor.on('focusout', () => {
           this.questionForm.controls['text'].patchValue(editor.getContent());
           this.questionContentFocusOut();
-          tinymce.remove(this.editor);
+          this.closeEditor();
         });
       },
     });
@@ -374,5 +374,11 @@ export class QuestionsComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     tinymce.remove(this.editor);
+  }
+
+  private closeEditor() {
+    this._knowledgeBaseService.placeholder = null;
+    tinymce.remove(this.editor);
+    this.editor = null;
   }
 }
