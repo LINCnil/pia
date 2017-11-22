@@ -773,7 +773,7 @@
           "content": "Actuellement, les icônes du menu de navigation de gauche ne se rafraîchissent pas après un refus de validation. Vous devez visiter de nouveau chaque section, vérifier les informations et évaluation en fonction des motifs du refus et demander une nouvelle fois une validation. Une fois toutes les sections revues, il sera possible de repasser le PIA pour validation."
         }
       },
-      "footer": "Si vous rencontrez d’autres problèmes ou si vous avez des suggestions d’amélioration, vous pouvez nous les faire remonter via ce formulaire <a href=\"https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia\">https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia</a>."
+      "footer": "Si vous rencontrez d’autres problèmes ou si vous avez des suggestions d’amélioration, vous pouvez nous les faire remonter via ce formulaire <a target=\"_blank\" href=\"https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia\">https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia</a>."
     }
   },
   "about": {
