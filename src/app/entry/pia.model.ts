@@ -203,27 +203,8 @@ export class Pia extends ApplicationDb {
   }
 
   getStatusName() {
-    switch (this.status) {
-      case 0:
-      {
-        return 'pia.statuses.0';
-      }
-      case 1:
-      {
-        return 'pia.statuses.1';
-      }
-      case 2:
-      {
-        return 'pia.statuses.2';
-      }
-      case 3:
-      {
-        return 'pia.statuses.3';
-      }
-      case 4:
-      {
-        return 'pia.statuses.4';
-      }
+    if (this.status >= 0) {
+      return `pia.statuses.${this.status}`;
     }
   }
 
@@ -237,29 +218,13 @@ export class Pia extends ApplicationDb {
 
   getOpinionsStatus(status: string) {
     if (status) {
-      switch (status) {
-        case '0':
-        {
-          return 'summary.content_choice_nok';
-        }
-        case '1':
-        {
-          return 'summary.content_choice_ok';
-        }
-      }
+      return `summary.content_choice.${status}`;
     }
   }
 
   getGaugeName(value: any) {
-    value = parseInt(value, 10);
-    if (value === 1) {
-      return 'summary.gauges.negligible';
-    } else if (value === 2) {
-      return 'summary.gauges.limited';
-    } else if (value === 3) {
-      return 'summary.gauges.important';
-    } else if (value === 4) {
-      return 'summary.gauges.maximal';
+    if (value) {
+      return `summary.gauges.${value}`;
     }
   }
 }

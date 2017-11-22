@@ -1,0 +1,15 @@
+@import '../../assets/stylesheets/variables';
+
+.pia-helpBlock {
+  h2 {
+    border-bottom: 1px solid $pia-gray;
+  }
+  ol {
+    li {
+      margin-bottom: 10px;
+      strong {
+        font-size: larger;
+      }
+    }
+  }
+}

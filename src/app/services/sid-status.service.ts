@@ -4,6 +4,7 @@ import { GlobalEvaluationService } from 'app/services/global-evaluation.service'
 @Injectable()
 export class SidStatusService {
   noIconFor: any;
+  specialIcon: any;
   sidStatusIcon: any;
   itemStatus: any;
   defaultIcon = 'fa-pencil-square-o';
@@ -14,6 +15,7 @@ export class SidStatusService {
 
   constructor() {
     this.noIconFor = ['3.5', '4.1', '4.2', '4.4', '4.5'];
+    this.specialIcon = { '3.5': 'fa-line-chart', '4.1': 'fa-line-chart', '4.2': 'fa-calendar-check-o' }
     this.sidStatusIcon = { 0: 'fa-pencil-square-o', 1: 'fa-cog', 2: 'fa-check-square-o' };
     this.itemStatus = {}; // 0: Null, 1: In evaluation, 2: Validated
     this.globalEvaluationService = new GlobalEvaluationService();

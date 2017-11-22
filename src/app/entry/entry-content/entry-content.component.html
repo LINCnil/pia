@@ -2,8 +2,13 @@
   <header autoscroll="true" class="pia-entryContentBlock-header">
     <div>
       <i class="fa"
-        *ngIf="!_sidStatusService.noIconFor.includes(section.id + '.' + item.id)"
+        *ngIf="!_sidStatusService.noIconFor.includes(section.id + '.' + item.id); else specialIcon"
         [ngClass]="_sidStatusService.sidStatusIcon[_sidStatusService.itemStatus[section.id + '.' + item.id]]"
+        aria-hidden="true"></i>
+      <i class="fa"
+        #specialIcon
+        *ngIf="_sidStatusService.specialIcon[section.id + '.' + item.id]"
+        [ngClass]="_sidStatusService.specialIcon[section.id + '.' + item.id]"
         aria-hidden="true"></i>
     </div>
     <div class="pia-entryContentBlock-header-title">
