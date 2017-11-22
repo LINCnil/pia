@@ -1,6 +1,9 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, ViewChild, ElementRef, OnInit, Input } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+
 import { Evaluation } from 'app/entry/entry-content/evaluations/evaluation.model';
+
+import { PiaService } from 'app/entry/pia.service';
 
 @Component({
   selector: 'app-action-plan-implementation',
@@ -14,7 +17,10 @@ export class ActionPlanImplementationComponent implements OnInit {
   actionPlanForm: FormGroup;
   displayEditButton = false;
 
-  constructor() { }
+  @ViewChild('estimatedEvaluationDate') private estimatedEvaluationDate: ElementRef;
+  @ViewChild('personInCharge') private personInCharge: ElementRef;
+
+  constructor(private _piaService: PiaService) { }
 
   ngOnInit() {
     this.actionPlanForm = new FormGroup({
@@ -25,77 +31,71 @@ export class ActionPlanImplementationComponent implements OnInit {
       this.evaluation = this.data.evaluation;
       const date = this.evaluation.estimated_implementation_date;
       if (date) {
+        // TODO : recheck this code... seems buggy.
         const month = (date.getMonth() + 1).toString();
         const finalMonth = (month.length === 1 ? '0' : '' ) + month;
         const finalDate =  date.getFullYear() + '-' + finalMonth + '-' + date.getDate();
         this.actionPlanForm.controls['estimatedEvaluationDate'].patchValue(finalDate);
+        this.actionPlanForm.controls['estimatedEvaluationDate'].disable();
       }
-      this.actionPlanForm.controls['personInCharge'].patchValue(this.evaluation.person_in_charge);
+      if (this.evaluation.person_in_charge && this.evaluation.person_in_charge.length > 0) {
+        this.actionPlanForm.controls['personInCharge'].patchValue(this.evaluation.person_in_charge);
+        this.actionPlanForm.controls['personInCharge'].disable();
+      }
     }
   }
 
+  /**
+   * Focuses estimated evaluation date field.
+   */
+  estimatedEvaluationDateFocusIn() {
+    if (this._piaService.pia.status >= 2) {
+      return false;
+    } else {
+      this.actionPlanForm.controls['estimatedEvaluationDate'].enable();
+      this.estimatedEvaluationDate.nativeElement.focus();
+    }
+  }
 
   /**
-   * Disables action plan fields and saves data.
+   * Updates estimated evaluation date field.
    */
   estimatedEvaluationDateFocusOut() {
-    const estimatedEvaluationDate = this.actionPlanForm.value.estimatedEvaluationDate;
-    const personInCharge = this.actionPlanForm.value.personInCharge;
-
-    // Waiting for document.activeElement update
-    setTimeout(() => {
-      if (estimatedEvaluationDate && estimatedEvaluationDate.length > 0) {
-        this.displayEditButton = true;
+    const userText = this.actionPlanForm.controls['estimatedEvaluationDate'].value;
+    this.evaluation.estimated_implementation_date = userText;
+    this.evaluation.update().then(() => {
+      if (userText && userText.length > 0) {
         this.actionPlanForm.controls['estimatedEvaluationDate'].disable();
-        // Disables executive field if both fields are filled and executive isn't the next targeted element.
-        if (personInCharge && personInCharge.length > 0) {
-          this.actionPlanForm.controls['personInCharge'].disable();
-        }
-        this.evaluation.estimated_implementation_date = estimatedEvaluationDate;
-        this.evaluation.update();
       }
-      // Disables executive field too if no date, and executive is filled and isn't the next targeted element.
-      if (!estimatedEvaluationDate && personInCharge && personInCharge.length > 0) {
-        this.displayEditButton = true;
-        this.actionPlanForm.controls['personInCharge'].disable();
-      }
-    }, 1);
+    });
+  }
+
+  /**
+   * Focuses estimated evaluation date field.
+   */
+  personInChargeFocusIn() {
+    if (this._piaService.pia.status >= 2) {
+      return false;
+    } else {
+      this.actionPlanForm.controls['personInCharge'].enable();
+      this.personInCharge.nativeElement.focus();
+    }
   }
 
   /**
    * Disables action plan fields and saves data.
    */
   personInChargeFocusOut() {
-    const estimatedEvaluationDate = this.actionPlanForm.value.estimatedEvaluationDate;
-    const personInCharge = this.actionPlanForm.value.personInCharge;
-
-    // Waiting for document.activeElement update
-    setTimeout(() => {
-      if (personInCharge && personInCharge.length > 0) {
-        this.displayEditButton = true;
+    let userText = this.actionPlanForm.controls['personInCharge'].value;
+    if (userText) {
+      userText = userText.replace(/^\s+/, '').replace(/\s+$/, '');
+    }
+    this.evaluation.person_in_charge = userText;
+    this.evaluation.update().then(() => {
+      if (userText && userText.length > 0) {
         this.actionPlanForm.controls['personInCharge'].disable();
-        // Disables date field if both fields are filled and date isn't the next targeted element.
-        if (estimatedEvaluationDate && estimatedEvaluationDate.length > 0) {
-          this.actionPlanForm.controls['estimatedEvaluationDate'].disable();
-        }
-        this.evaluation.person_in_charge = personInCharge;
-        this.evaluation.update();
       }
-      // Disables date field too if no executive, and estimatedEvaluationDate is filled and isn't the next targeted element.
-      if (!personInCharge && estimatedEvaluationDate && estimatedEvaluationDate.length > 0) {
-        this.displayEditButton = true;
-        this.actionPlanForm.controls['estimatedEvaluationDate'].disable();
-      }
-    }, 1);
-  }
-
-  /**
-   * Activates action plan fields.
-   */
-  activateActionPlanEdition() {
-    this.displayEditButton = false;
-    this.actionPlanForm.controls['estimatedEvaluationDate'].enable();
-    this.actionPlanForm.controls['personInCharge'].enable();
+    });
   }
 
 }

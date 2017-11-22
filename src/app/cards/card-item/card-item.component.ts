@@ -58,12 +58,12 @@ export class CardItemComponent implements OnInit {
 
   /**
    * Update PIA informations
+   * @returns {Promise}
    * @memberof CardItemComponent
    */
   onSubmit() {
     const pia = new Pia();
-    pia.id = this.piaForm.value.id;
-    pia.find(pia.id).then((entry: any) => {
+    pia.get(this.piaForm.value.id).then(() => {
       pia.name = this.piaForm.value.name;
       pia.author_name = this.piaForm.value.author_name;
       pia.evaluator_name = this.piaForm.value.evaluator_name;

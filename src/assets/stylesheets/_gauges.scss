@@ -111,13 +111,13 @@ input[type=range] {
   }
 }
 
-input[type=range]::-webkit-slider-runnable-track {
+input[type="range"]::-webkit-slider-runnable-track {
   height: 3px;
   background-color: #999;
   border: none;
   border-radius: 3px;
 }
-input[type=range]::-webkit-slider-thumb {
+input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none;
   border: 2px solid #fff;
   height: 22px;
@@ -129,10 +129,10 @@ input[type=range]::-webkit-slider-thumb {
   z-index: 999;
   cursor: pointer;
 }
-input[type=range]:focus {
+input[type="range"]:focus {
   outline: none;
 }
-input[type=range]:focus::-webkit-slider-runnable-track {
+input[type="range"]:focus::-webkit-slider-runnable-track {
   background: #ccc;
 }
 
@@ -178,4 +178,7 @@ input[type=range]::-ms-thumb {
   border-radius: 50%;
   background-color: transparent;
   margin-top: -10px;
+}
+input[type=range]::-moz-range-progress {
+
 }

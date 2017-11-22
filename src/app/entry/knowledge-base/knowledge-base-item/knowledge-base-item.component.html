@@ -20,7 +20,7 @@
     </div>
   </div>
   <div class="pia-knowledgeBaseBlock-item-title">
-    <p (click)="displayItem()">{{ titleKb }}</p>
+    <p (click)="displayItem()">{{ titleKb | translate }}</p>
   </div>
   <div class="pia-knowledgeBaseBlock-item-content hide" [innerHTML]="itemKb.description | translate">
   </div>

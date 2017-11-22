@@ -176,11 +176,14 @@ export class GlobalEvaluationService {
         status = true;
       }
     } else if (evaluation.status === 2) {
-      if (evaluation.action_plan_comment && evaluation.action_plan_comment.length > 0) {
-        status = true;
+      if (item.evaluation_mode === 'question') {
+        if (evaluation.action_plan_comment && evaluation.action_plan_comment.length > 0) {
+          status = true;
+        }
       }
       if (item.evaluation_mode === 'item' && item.evaluation_with_gauge === true) {
-        if (evaluation.gauges && evaluation.gauges['x'] > 0 && evaluation.gauges['y'] > 0) {
+        if (evaluation.gauges && evaluation.gauges['x'] > 0 && evaluation.gauges['y'] > 0
+            && evaluation.action_plan_comment && evaluation.action_plan_comment.length > 0) {
           status = true;
         }
       }

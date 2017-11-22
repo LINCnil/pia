@@ -1,8 +1,9 @@
-import { Injectable } from '@angular/core';
+import {ElementRef, Injectable, Output} from '@angular/core';
 import { Router } from '@angular/router';
 
 @Injectable()
 export class ModalsService {
+
 
   constructor(private router: Router) {}
 
@@ -19,10 +20,13 @@ export class ModalsService {
     } else {
       const header = document.querySelector('.pia-headerBlock');
       const container = document.querySelector('.pia-mainContainerBlock');
+
       header.classList.add('blur');
       container.classList.add('blur');
     }
-    document.getElementById(modal_id).classList.add('open');
+    const e = <HTMLElement>document.getElementById(modal_id);
+    e.classList.add('open');
+    (<HTMLButtonElement>e.querySelector('.get-focus')).focus();
   }
 
   /**

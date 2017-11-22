@@ -24,14 +24,56 @@ export class SidStatusService {
     if (!this.noIconFor.includes(sid)) {
       this.itemStatus[sid] = 0;
       piaService.getPIA().then(() => {
+        // Special behaviour for DPO page
         if (sid === '4.3') {
-          if (piaService.pia.dpos_names) {
-            if (!piaService.pia.dpo_status || !piaService.pia.dpo_opinion) {
-              this.itemStatus[sid] = 1;
-            } else {
-              this.itemStatus[sid] = 2;
-            }
+          if (piaService.pia.dpos_names
+              || piaService.pia.dpo_status
+              || piaService.pia.dpo_opinion
+              || piaService.pia.concerned_people_searched_opinion === true
+              || piaService.pia.concerned_people_searched_opinion === false) {
+                let dpoFilled = false;
+                let concernedPeopleOpinionSearchedFieldsFilled = false;
+                let concernedPeopleOpinionUnsearchedFieldsFilled = false;
+
+                // Edition enabled
+                this.itemStatus[sid] = 1;
+
+                // All DPO fields filled = OK
+                if (piaService.pia.dpos_names
+                  && piaService.pia.dpos_names.length > 0
+                  && piaService.pia.dpo_status >= 0
+                  && piaService.pia.dpo_opinion
+                  && piaService.pia.dpo_opinion.length > 0) {
+                    dpoFilled = true;
+                }
+
+                // Concerned people opinion unsearched + no search reason field filled = OK
+                if (piaService.pia.concerned_people_searched_opinion === false) {
+                  if (piaService.pia.concerned_people_searched_content
+                      && piaService.pia.concerned_people_searched_content.length > 0) {
+                        concernedPeopleOpinionUnsearchedFieldsFilled = true;
+                  }
+                }
+
+                // Concerned people opinion searched + name(s) + status + opinions = OK :
+                if (piaService.pia.concerned_people_searched_opinion === true) {
+                  if (piaService.pia.people_names
+                      && piaService.pia.people_names.length > 0
+                      && piaService.pia.concerned_people_status >= 0
+                      && piaService.pia.concerned_people_opinion
+                      && piaService.pia.concerned_people_opinion.length > 0) {
+                        concernedPeopleOpinionSearchedFieldsFilled = true;
+                  }
+                }
+
+                // Treatment which validates the subsection if everything is OK
+                // DPO filled + unsearched opinion scenario filled OR DPO filled + searched opinion scenario filled
+                if ((dpoFilled === true && concernedPeopleOpinionUnsearchedFieldsFilled === true)
+                    || (dpoFilled === true && concernedPeopleOpinionSearchedFieldsFilled === true)) {
+                  this.itemStatus[sid] = 2;
+                }
           }
+
           this.verification(piaService);
         } else {
           this.globalEvaluationService.isValidated(piaService.pia, sid, item).then((result: boolean) => {

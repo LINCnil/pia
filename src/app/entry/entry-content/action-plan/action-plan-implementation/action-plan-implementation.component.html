@@ -2,13 +2,16 @@
   <div class="pia-details-blocks-content">
     <div class="pia-details-blocks-content-title">
       <h3>{{ data.short_title | translate }}</h3>
-      <button type="button" class="btn" *ngIf="displayEditButton" (click)="activateActionPlanEdition()" title="{{ 'action_plan.edit' | translate }}"><i class="fa fa-pencil" aria-hidden="true"></i></button>
     </div>
     <div class="pia-details-blocks-content-comment" [innerHTML]="data.evaluation.action_plan_comment | safeHtml">
     </div>
     <form [formGroup]="actionPlanForm">
-      <input type="date" (focusout)="estimatedEvaluationDateFocusOut()" formControlName="estimatedEvaluationDate">
-      <input type="text" (focusout)="personInChargeFocusOut()" formControlName="personInCharge" placeholder="{{ 'action_plan.placeholder_person_in_charge' | translate }}">
+      <div (click)="estimatedEvaluationDateFocusIn()">
+        <input type="date" #estimatedEvaluationDate (focusout)="estimatedEvaluationDateFocusOut()" formControlName="estimatedEvaluationDate">
+      </div>
+      <div (click)="personInChargeFocusIn()">
+        <input type="text" #personInCharge (focusout)="personInChargeFocusOut()" formControlName="personInCharge" placeholder="{{ 'action_plan.placeholder_person_in_charge' | translate }}">
+      </div>
     </form>
   </div>
 </div>

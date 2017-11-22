@@ -21,7 +21,8 @@
       "title": "Tools",
       "settings": "Settings",
       "accessibility": "Visually impaired accessibility (high contrast colors, daltonism)",
-      "help": "Help"
+      "help": "Help",
+      "about": "About"
     }
   },
   "homepage": {
@@ -740,6 +741,9 @@
   "help": {
     "title": "Help",
     "soon": "Soonly available!"
+  },
+  "about": {
+    "title": "About"
   },
   "settings": {
     "title": "Settings",

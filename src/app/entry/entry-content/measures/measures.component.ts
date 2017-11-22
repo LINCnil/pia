@@ -21,7 +21,6 @@ export class MeasuresComponent implements OnInit, OnDestroy {
   editor: any;
   elementId: String;
   evaluation: Evaluation = new Evaluation();
-  displayEditButton = false;
   displayDeleteButton = true;
   measureForm: FormGroup;
   measureModel: Measure = new Measure();
@@ -49,29 +48,20 @@ export class MeasuresComponent implements OnInit, OnDestroy {
         });
         this.measureForm.controls['measureTitle'].patchValue(this.measureModel.title);
         this.measureForm.controls['measureContent'].patchValue(this.measureModel.content);
-        if (this.measureModel.title || this.measureModel.content) {
-          this.displayEditButton = true;
-        }
         if (this.measureModel.title) {
           this.measureForm.controls['measureTitle'].disable();
         }
-        if (this.measureModel.content) {
-          this.measureForm.controls['measureContent'].disable();
-        }
       }
+
       const measureTitleTextarea = document.getElementById('pia-measure-title-' + this.measure.id);
       if (measureTitleTextarea) {
         this.autoTextareaResize(null, measureTitleTextarea);
-      }
-      const measureContentTextarea = document.getElementById('pia-measure-content-' + this.measure.id);
-      if (measureContentTextarea) {
-        this.autoTextareaResize(null, measureContentTextarea);
       }
     });
   }
 
   /**
-   * Enable auto resizing on tetarea
+   * Enable auto resizing on measure title textarea
    * @param {*} event
    * @param {HTMLElement} textarea
    * @memberof MeasuresComponent
@@ -103,16 +93,22 @@ export class MeasuresComponent implements OnInit, OnDestroy {
    * @memberof MeasuresComponent
    */
   checkDisplayButtons() {
-    if (this._evaluationService.showValidationButton) {
-      this.displayEditButton = false;
+    if (this._evaluationService.showValidationButton || this._evaluationService.enableFinalValidation) {
       this.displayDeleteButton = false;
     }
-    if (this._evaluationService.enableFinalValidation) {
-      this.displayEditButton = false;
-      this.displayDeleteButton = false;
-    }
-    if (this.evaluation && this.evaluation.status === 1) {
-      this.displayEditButton = true;
+  }
+
+  /**
+   * Enables edition for measure title.
+   * @memberof MeasuresComponent
+   */
+  measureTitleFocusIn() {
+    if (this._evaluationService.showValidationButton || this._evaluationService.enableFinalValidation) {
+      return false;
+    } else {
+      this.measureForm.controls['measureTitle'].enable();
+      const measureTitleTextarea = document.getElementById('pia-measure-title-' + this.measure.id);
+      measureTitleTextarea.focus();
     }
   }
 
@@ -124,71 +120,67 @@ export class MeasuresComponent implements OnInit, OnDestroy {
    * @memberof MeasuresComponent
    */
   measureTitleFocusOut(event: Event) {
-    const titleValue = this.measureForm.value.measureTitle;
-    const contentValue = this.measureForm.value.measureContent;
+    let userText = this.measureForm.controls['measureTitle'].value;
+    if (userText) {
+      userText = userText.replace(/^\s+/, '').replace(/\s+$/, '');
+    }
+    this.measureModel.pia_id = this.pia.id;
+    const previousTitle = this.measureModel.title;
+    this.measureModel.title = userText;
+    this.measureModel.update().then(() => {
+      this._evaluationService.allowEvaluation();
 
-    // Waiting for document.activeElement update
-    setTimeout(() => {
-      this.measureModel.pia_id = this.pia.id;
-      if (this.measureForm.value.measureTitle !== undefined) {
-        const previousTitle = this.measureModel.title;
-        this.measureModel.title = titleValue;
-        const userText = titleValue.replace(/^\s+/, '').replace(/\s+$/, '');
-        if (userText === '') {
-          this.measureModel.title = '';
-        }
-        if (userText !== '' || this.measureModel.title === '') {
-          this.measureModel.update().then(() => {
-            this._evaluationService.allowEvaluation();
-            // Update tags
-            const answer = new Answer();
-            answer.getByReferenceAndPia(this.pia.id, 324).then(() => {
-              if (answer.data && answer.data.list) {
-                const index = answer.data.list.indexOf(previousTitle);
-                if (~index) {
-                  answer.data.list[index] = this.measureModel.title;
-                  answer.update();
-                }
-              }
-            });
-
-            const answer2 = new Answer();
-            answer2.getByReferenceAndPia(this.pia.id, 334).then(() => {
-              if (answer2.data && answer2.data.list) {
-                const index = answer2.data.list.indexOf(previousTitle);
-                if (~index) {
-                  answer2.data.list[index] = this.measureModel.title;
-                  answer2.update();
-                }
-              }
-            });
-
-            const answer3 = new Answer();
-            answer3.getByReferenceAndPia(this.pia.id, 344).then(() => {
-              if (answer3.data && answer3.data.list) {
-                const index = answer3.data.list.indexOf(previousTitle);
-                if (~index) {
-                  answer3.data.list[index] = this.measureModel.title;
-                  answer3.update();
-                }
-              }
-            });
-          });
-        }
-        if (titleValue && titleValue.length > 0 && userText !== ''
-            && document.activeElement.id !== 'pia-measure-content-' + this.measureModel.id) {
-          this.displayEditButton = true;
-          this.measureForm.controls['measureTitle'].disable();
-          // Disables content field if both fields are filled and content isn't the next targeted element.
-          if (contentValue && contentValue.length > 0) {
-            this.measureForm.controls['measureContent'].disable();
+      // Update tags
+      const answer = new Answer();
+      answer.getByReferenceAndPia(this.pia.id, 324).then(() => {
+        if (answer.data && answer.data.list) {
+          const index = answer.data.list.indexOf(previousTitle);
+          if (~index) {
+            answer.data.list[index] = this.measureModel.title;
+            answer.update();
           }
         }
-        // Disables content field too if no title and content is filled and isn't the next targeted element.
-        if (!titleValue && contentValue && contentValue.length > 0 && document.activeElement.id !== 'pia-measure-content') {
-          this.displayEditButton = true;
-          this.measureForm.controls['measureContent'].disable();
+      });
+
+      const answer2 = new Answer();
+      answer2.getByReferenceAndPia(this.pia.id, 334).then(() => {
+        if (answer2.data && answer2.data.list) {
+          const index = answer2.data.list.indexOf(previousTitle);
+          if (~index) {
+            answer2.data.list[index] = this.measureModel.title;
+            answer2.update();
+          }
         }
+      });
+
+      const answer3 = new Answer();
+      answer3.getByReferenceAndPia(this.pia.id, 344).then(() => {
+        if (answer3.data && answer3.data.list) {
+          const index = answer3.data.list.indexOf(previousTitle);
+          if (~index) {
+            answer3.data.list[index] = this.measureModel.title;
+            answer3.update();
+          }
+        }
+      });
+
+      if (this.measureForm.value.measureTitle && this.measureForm.value.measureTitle.length > 0) {
+        this.measureForm.controls['measureTitle'].disable();
+      }
+    });
+
+  }
+
+  /**
+   * Loads WYSIWYG editor for measure answer.
+   * @memberof MeasuresComponent
+   */
+  measureContentFocusIn() {
+    setTimeout(() => {
+      if (this._evaluationService.showValidationButton || this._evaluationService.enableFinalValidation) {
+        return false;
+      } else {
+        this.loadEditor();
       }
     }, 1);
   }
@@ -202,51 +194,17 @@ export class MeasuresComponent implements OnInit, OnDestroy {
   measureContentFocusOut() {
     this._knowledgeBaseService.placeholder = null;
     this.editor = null;
-    const titleValue = this.measureForm.value.measureTitle;
-    const contentValue = this.measureForm.value.measureContent;
-
-    // Waiting for document.activeElement update
-    setTimeout(() => {
-      this.measureModel.pia_id = this.pia.id;
-      if (this.measureForm.value.measureContent !== undefined) {
-        this.measureModel.content = contentValue;
-        const userText = contentValue.replace(/^\s+/, '').replace(/\s+$/, '');
-        if (userText === '') {
-          this.measureModel.content = '';
-        }
-        if (userText !== '' || this.measureModel.content === '') {
-          this.measureModel.update().then(() => {
-            this._ngZone.run(() => {
-              this._evaluationService.allowEvaluation();
-            });
-          });
-        }
-        if (contentValue && contentValue.length > 0 && userText !== ''
-            && document.activeElement.id !== 'pia-measure-title-' + this.measureModel.id) {
-          this.displayEditButton = true;
-          this.measureForm.controls['measureContent'].disable();
-          // Disables title field if both fields are filled and title isn't the next targeted element.
-          if (titleValue && titleValue.length > 0) {
-            this.measureForm.controls['measureTitle'].disable();
-          }
-        }
-        // Disables content field too if no title and content is filled and isn't the next targeted element.
-        if (!contentValue && contentValue && titleValue.length > 0 && document.activeElement.id !== 'pia-measure-title') {
-          this.displayEditButton = true;
-          this.measureForm.controls['measureTitle'].disable();
-        }
-      }
-    }, 1);
-  }
-
-  /**
-   * Enables or disables edition mode (fields) for measures.
-   * @memberof MeasuresComponent
-   */
-  activateMeasureEdition() {
-    this.displayEditButton = false;
-    this.measureForm.enable();
-    this.loadEditor();
+    let userText = this.measureForm.controls['measureContent'].value;
+    if (userText) {
+      userText = userText.replace(/^\s+/, '').replace(/\s+$/, '');
+    }
+    this.measureModel.pia_id = this.pia.id;
+    this.measureModel.content = userText;
+    this.measureModel.update().then(() => {
+      this._ngZone.run(() => {
+        this._evaluationService.allowEvaluation();
+      });
+    });
   }
 
   /**
@@ -294,15 +252,7 @@ export class MeasuresComponent implements OnInit, OnDestroy {
   }
 
   /**
-   * Load wysiwyg editor
-   * @memberof MeasuresComponent
-   */
-  measureContentFocusIn() {
-    this.loadEditor();
-  }
-
-  /**
-   * Load wysiwyg editor
+   * Loads wysiwyg editor.
    * @memberof MeasuresComponent
    */
   loadEditor() {
@@ -313,9 +263,9 @@ export class MeasuresComponent implements OnInit, OnDestroy {
       statusbar: false,
       plugins: 'autoresize lists',
       forced_root_block : false,
-      autoresize_bottom_margin: 20,
+      autoresize_bottom_margin: 30,
       auto_focus: this.elementId,
-      autoresize_min_height: 30,
+      autoresize_min_height: 40,
       content_style: 'body {background-color:#eee!important;}' ,
       selector: '#' + this.elementId,
       toolbar: 'undo redo bold italic alignleft aligncenter alignright bullist numlist outdent indent',
@@ -331,6 +281,9 @@ export class MeasuresComponent implements OnInit, OnDestroy {
     });
   }
 
+  /**
+   * Destroys editor.
+   */
   ngOnDestroy() {
     tinymce.remove(this.editor);
   }
