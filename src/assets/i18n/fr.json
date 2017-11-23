@@ -779,7 +779,7 @@
   "about": {
     "title": "A propos de l'Outil PIA",
     "version_number": "Numéro de version",
-    "description": "Cet outil est originellement conçu par la <a href=\"https://www.cnil.fr\">Commission Nationale Informatique et Liberté (CNIL)</a>, l’autorité de protection des données française, dans une volonté d’accompagnement des responsables de traitement dans leur démarche de conformité au RGPD.<br>Cet outil est libre et ouvert, sous licence GPLv3. Vous pouvez y contribuer en téléchargeant le code source, en le modifiant et en le redistribuant auprès de la communauté.",
+    "description": "Cet outil est originellement conçu par la <a target=\"_blank\" href=\"https://www.cnil.fr\">Commission Nationale Informatique et Liberté (CNIL)</a>, l’autorité de protection des données française, dans une volonté d’accompagnement des responsables de traitement dans leur démarche de conformité au RGPD.<br>Cet outil est libre et ouvert, sous licence GPLv3. Vous pouvez y contribuer en téléchargeant le code source, en le modifiant et en le redistribuant auprès de la communauté.",
     "licences": "Licences des librairies :"
   },
   "settings": {
@@ -890,7 +890,7 @@
   },
   "errors": {
     "title": "Page introuvable.",
-    "content": "Vous pouvez remonter un problème ou une demande en utilisant le gestionnaire de tickets<br>disponible à l'adresse suivante : <a href=\"https://redmine.atnos.io\" target=\"_blank\">https://redmine.atnos.io</a>"
+    "content": "Si vous rencontrez d’autres problèmes ou si vous avez des suggestions d’amélioration,<br>vous pouvez nous les faire remonter via ce formulaire : <a href=\"https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia\" target=\"_blank\">https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia</a>"
   },
   "cartography": {
     "negligible": "Négligeable",

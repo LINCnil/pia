@@ -788,7 +788,7 @@
   "about": {
     "title": "About the Tool PIA",
     "version_number": "Version number",
-    "description": "This tool is originally designed by the <a href=\"https://www.cnil.fr\">Commission Nationale Informatique et Liberté (CNIL)</a>, the French Data Protection Authority, to help data processor to be compliant with the GDPR.<br>This software is free and open. If you wish to get involved in this project, you are welcome to download the source code from Github, modify it and share it with the community.",
+    "description": "This tool is originally designed by the <a target=\"_blank\" href=\"https://www.cnil.fr\">Commission Nationale Informatique et Liberté (CNIL)</a>, the French Data Protection Authority, to help data processor to be compliant with the GDPR.<br>This software is free and open. If you wish to get involved in this project, you are welcome to download the source code from Github, modify it and share it with the community.",
     "licences": "Library licences:"
   },
   "about": {
@@ -902,7 +902,7 @@
   },
   "errors": {
     "title": "Page not found.",
-    "content": "You can upload a problem or request using the ticket manager<br>available at the following address: <a href='https://redmine.atnos.io' target='_blank'>https://redmine.atnos.io</a>"
+    "content": "If you encounter other problems or if you have suggestions for improvement,<br>you can send them back via this form: <a href=\"https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia\" target=\"_blank\">https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia</a>"
   },
     "cartography": {
     "negligible": "Negligible",
