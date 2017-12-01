@@ -570,7 +570,7 @@
         "source": "PIA1 p9"
       },
       "PIA_DEF_VRA": {
-        "name": "Vraissemblance",
+        "name": "Vraisemblance",
         "description": "La vraisemblance traduit la possibilité qu’un risque se réalise. Elle dépend essentiellement des vulnérabilités des supports face aux menaces et des capacités des sources de risques à les exploiter.",
         "source": "PIA1 p12"
       },
@@ -671,19 +671,19 @@
         "description": "Les personnes concernées pourraient connaître des conséquences significatives, voire irrémédiables, qu’elles pourraient ne pas surmonter<br>Exemples d'impacts :<br>- corporels : affection physique de longue durée ou permanente, altération définitive de l’intégrité physique, décès<br>- matériels : péril financier, dettes importantes, impossibilité de travailler, impossibilité de se reloger, perte de preuves dans le cadre d’un contentieux, perte d’accès à une infrastructure vitale (eau, électricité),etc.<br>- moraux : affection psychologique de longue durée ou permanente, sanction pénale, enlèvement, perte de lien familial, impossibilité d’ester en justice, changement de statut administratif et/ou perte d’autonomie juridique (tutelle), etc."
       },
       "PIA_EX_VRAN": {
-        "name": "Vraissemblance négligeable",
+        "name": "Vraisemblance négligeable",
         "description": "Il ne semble pas possible que les sources de risques retenues puissent réaliser la menace en s’appuyant sur les caractéristiques des supports (ex. : vol de supports papiers stockés dans un local de l’organisme dont l’accès est contrôlé par badge et code d’accès)."
       },
       "PIA_EX_VRAL": {
-        "name": "Vraissemblance limitée",
+        "name": "Vraisemblance limitée",
         "description": "Il semble difficile pour les sources de risques retenues de réaliser la menace en s’appuyant sur les caractéristiques des supports (ex. : vol de supports papiers stockés dans un local de l’organisme dont l’accès est contrôlé par badge)."
       },
       "PIA_EX_VRAI": {
-        "name": "Vraissemblance importante",
+        "name": "Vraisemblance importante",
         "description": "il semble possible pour les sources de risques retenues de réaliser la menace en s’appuyant sur les caractéristiques des supports (ex. : vol de supports papiers stockés dans les bureaux d’un organisme dont l’accès est contrôlé par une personne à l’accueil)."
       },
       "PIA_EX_VRAM": {
-        "name": "Vraissemblance maximale",
+        "name": "Vraisemblance maximale",
         "description": "il semble extrêmement facile pour les sources de risques retenues de réaliser la menace en s’appuyant sur les caractéristiques des supports (ex. : vol de supports papier stockés dans le hall public de l’organisme)."
       },
       "PIA_EX_DC": {
@@ -898,7 +898,7 @@
     "important": "Importante",
     "maximal": "Maximale",
     "seriousness_axe": "Gravité du risque",
-    "likelihood_axe": "Vraissemblance du risque",
+    "likelihood_axe": "Vraisemblance du risque",
     "legend1": "Mesures prévues ou existantes",
     "legend2": "Avec les mesures correctives mises en oeuvre",
     "legend3": "(A)ccès illégitime à des données",

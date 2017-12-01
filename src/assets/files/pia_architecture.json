@@ -403,7 +403,7 @@
                 "PIA_EX_VRAM"
               ],
               "placeholder": "sections.3.items.2.questions.6.placeholder",
-              "highlight_words": "vraissemblance du risque",
+              "highlight_words": "vraisemblance du risque",
               "answer_type": "gauge",
               "cartography": "risk-access_y",
               "keywords": "",
@@ -508,7 +508,7 @@
                 "PIA_EX_VRAM"
               ],
               "placeholder": "sections.3.items.3.questions.6.placeholder",
-              "highlight_words": "vraissemblance du risque",
+              "highlight_words": "vraisemblance du risque",
               "answer_type": "gauge",
               "cartography": "risk-change_y",
               "keywords": "",
@@ -613,7 +613,7 @@
                 "PIA_EX_VRAM"
               ],
               "placeholder": "sections.3.items.4.questions.6.placeholder",
-              "highlight_words": "vraissemblance du risque",
+              "highlight_words": "vraisemblance du risque",
               "answer_type": "gauge",
               "cartography": "risk-disappearance_y",
               "keywords": "",
