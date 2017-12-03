@@ -172,12 +172,12 @@
       },
       "PIA_LGL_TRAN": {
         "name": "Transfers",
-        "description": "Depending on the country in question, you will have to justify the choice of remote hosting and indicate the legal supervision arrangements implemented in order to ensure adequate protection of the data subject to a cross-border transfer. That is :<br>- European Union<br>- Country recognized as providing adequate protection by the EU<br>- Transfer to the United States to a company which has joined the Privacy Shield<br>- Other country <br>See <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">art. 44 to 49 of [GDPR]</a>",
+        "description": "Depending on the country in question, you will have to justify the choice of remote hosting and indicate the legal supervision arrangements implemented in order to ensure adequate protection of the data subject to a cross-border transfer. That is :<br>- European Union<br>- Country recognised as providing adequate protection by the EU<br>- Transfer to the United States to a company which has joined the Privacy Shield<br>- Other country <br>See <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">art. 44 to 49 of [GDPR]</a>",
         "source": "PIAF Connected Objects p18"
       },
       "PIA_LGL_DESC": {
         "name": "Processing's description",
-        "description": "Present a brief outline of the processing under consideration, its nature, scope, context, purposes and stakes. Identify the data controller and any processors. List the standardreferences applicable to the processing, which are necessary or must be complied with , not least the approved codes of conduct (see Art. 40 of the <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR]</a>) and certifications regarding data protection (see Art. 42 of the <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR]</a>)",
+        "description": "Present a brief outline of the processing under consideration, its nature, scope, context, purposes and stakes. Identify the data controller and any processors. List the standard references applicable to the processing, which are necessary or must be complied with , not least the approved codes of conduct (see Art. 40 of the <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR]</a>) and certifications regarding data protection (see Art. 42 of the <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR]</a>)",
         "source": "PIA1 p4"
       },
       "PIA_LGL_DATA": {
@@ -196,8 +196,8 @@
         "source": "GDPR art 5.1 b)"
       },
       "PIA_LGL_MINI": {
-        "name": "Data minimization",
-        "description": "It is important to reduce the severity of the risks by minimizing the number of personal data that will be processed, by limiting such data to what is strictly necessary for the purposes for which they are processed (otherwise they should not be collected). Then, it also becomes possible to minimize the data themselves, via controls aimed at reducing their sensitivity.",
+        "name": "Data minimisation",
+        "description": "It is important to reduce the severity of the risks by minimising the number of personal data that will be processed, by limiting such data to what is strictly necessary for the purposes for which they are processed (otherwise they should not be collected). Then, it also becomes possible to minimise the data themselves, via controls aimed at reducing their sensitivity.",
         "source": "PIAF Connected Objects p10 - WIKI"
       },
       "PIA_LGL_DEST": {
@@ -242,21 +242,21 @@
         "source": "PIAF Connected Objects p21"
       },
       "PIA_TEC_ANO": {
-        "placeholder": "Indicate here implemented anonymization mechanisms",
-        "name": "Anonymization",
-        "description": "Indicate here whether anonymization mechanisms are implemented, which ones and for what purpose. <br>Remember to clearly distinguish between anonymous and pseudonymous data.",
+        "placeholder": "Indicate here implemented anonymisation mechanisms",
+        "name": "anonymisation",
+        "description": "Indicate here whether anonymisation mechanisms are implemented, which ones and for what purpose. <br>Remember to clearly distinguish between anonymous and pseudonymous data.",
         "source": "PIAF Connected Objects p21"
       },
       "PIA_TEC_CLO": {
         "placeholder": "Indicate here if processing partitioning is planned, and how this is carried out.",
         "name": "Partitioning data",
-        "description": "Implementation of data partioning helps to reduce the possibility that personal data can be correlated and that a breach of allpersonal data may occur.",
+        "description": "Implementation of data partitioning helps to reduce the possibility that personal data can be correlated and that a breach of all personal data may occur.",
         "source": "PIAF Connected Objects p21"
       },
       "PIA_TEC_CTLA": {
-        "placeholder": "Indicate here whether thehow users' profiles are defined and attributed.",
+        "placeholder": "Indicate here how users profiles are defined and attributed.",
         "name": "Logical access control",
-        "description": "Methods to define and attribute users' profiles. Specify the <strong>authentication</strong> means implemented . Where applicable, specify the rules applicable to passwords (minimum length, required characters, validity duration, number of failed attempts before access to account is locked, etc.).",
+        "description": "Methods to define and attribute users profiles. Specify the <strong>authentication</strong> means implemented . Where applicable, specify the rules applicable to passwords (minimum length, required characters, validity duration, number of failed attempts before access to account is locked, etc.).",
         "source": "PIAF Connected Objects p21"
       },
       "PIA_TEC_LOG": {
@@ -268,7 +268,7 @@
       "PIA_TEC_ARCH": {
         "placeholder": "Indicate here whether mechanisms are implemented for integrity monitoring of stored data, which ones and for what purpose.",
         "name": "Archiving",
-        "description": "Where applicable, describe here the processes of archive management (delivery, storage, consultation, etc.) under your responsibility. Specify the archiving roles (offices of origin, transferring agencies, etc.) and the archiving policy.State if data may fall within the scope of public archives.",
+        "description": "Where applicable, describe here the processes of archive management (delivery, storage, consultation, etc.) under your responsibility. Specify the archiving roles (offices of origin, transferring agencies, etc.) and the archiving policy. State if data may fall within the scope of public archives.",
         "source": "PIAF Connected Objects p22 - WIKI"
       },
       "PIA_TEC_PAP": {
@@ -279,12 +279,12 @@
       },
       "PIA_TEC_MINI": {
         "placeholder": "Indicate here means implemented to reduce the severity of risks by limiting the amount of personal data",
-        "name": "Minimizing the amount of personal data",
+        "name": "Minimising the amount of personal data",
         "description": "The following methods could be used : Filtering and removal, Reducing sensitivity via conversion, Reducing the identifying nature of data, Reducing data accumulation, Restricting data access",
         "source": "PIAF Connected Objects p40"
       },
       "PIA_SEC_EXP": {
-        "placeholder": "Describe here how the software updates (operating systems, applications, etc.) and application of security corrective controlspatches are carried out.",
+        "placeholder": "Describe here how the software updates (operating systems, applications, etc.) and application of security corrective controls patches are carried out.",
         "name": "Operating security",
         "description": "Policies implemented to reduce the possibility and the impact of risks on assets supporting personal data.",
         "source": "PIAF Connected Objects p22 - WIKI"
@@ -332,7 +332,7 @@
         "source": "PIAF Connected Objects p23"
       },
       "PIA_SEC_LOG": {
-        "placeholder": "Indicate here means and controls implemented to reduce the possibility to expActt communications",
+        "placeholder": "Indicate here means and controls implemented to detect incidents concerning personal data",
         "name": "Monitoring network activity",
         "description": "Monitor intrusion detection systems and intrusion prevention systems in order to analyze network (wired networks, Wi-Fi, radio waves, fiber optics, etc.) traffic in real time and detect any suspicious activity suggestive of a cyber attack scenario.",
         "source": "PIA3 p67 - WIKI"
@@ -352,25 +352,25 @@
       "PIA_SEC_PROT": {
         "placeholder": "Indicate here means to avoid to limit non-human sources of risks.",
         "name": "Protecting against non-human sources of risks",
-        "description": "Policies describing the means of fire prevention, detection and fighting.Where applicable, indicate the means of preventing water damage.Also specify the means of power supply monitoring and relief.",
+        "description": "Policies describing the means of fire prevention, detection and fighting. Where applicable, indicate the means of preventing water damage.Also specify the means of power supply monitoring and relief.",
         "source": "PIAF Connected Objects p23 - WIKI"
       },
       "PIA_ORG_ORG": {
         "placeholder": "Indicate if the roles and responsibilities for data protection are defined.",
-        "name": "Organization",
+        "name": "Organisation",
         "description": "Specify whether a person is responsible for the enforcement of privacy laws and regulations. Specify whether there is a monitoring committee (or equivalent) responsible for the guidance and follow-up of actions concerning the protection of privacy.",
         "source": "PIAF Connected Objects p24 - WIKI"
       },
       "PIA_ORG_POL": {
         "placeholder": "Describe here the documentary base setting out data protection objectives and rules.",
         "name": "Policy",
-        "description": "Set out important aspects relating to data protection within a documentary base makingup the data protection policy and in a form suited to each type of content (risks, key principles to be followed, target objectives, rules to be applied, etc.) and each communication target (users, IT department, policymakers, etc.).",
+        "description": "Set out important aspects relating to data protection within a documentary base making up the data protection policy and in a form suited to each type of content (risks, key principles to be followed, target objectives, rules to be applied, etc.) and each communication target (users, IT department, policymakers, etc.).",
         "source": "PIA3 p78 - WIKI"
       },
       "PIA_ORG_RMGT": {
-        "placeholder": "Describe here processes to control the risks that processing operations performed by the organization pose on data protection and the privacy of data subjects.",
+        "placeholder": "Describe here processes to control the risks that processing operations performed by the organisation pose on data protection and the privacy of data subjects.",
         "name": "Managing privacy risks",
-        "description": "Policy describing processes to control the risks that processing operations performed by the organization pose on data protection and the privacy of data subjects (building a map of the risks, etc.).",
+        "description": "Policy describing processes to control the risks that processing operations performed by the organisation pose on data protection and the privacy of data subjects (building a map of the risks, etc.).",
         "source": "PIA3 p77 - WIKI"
       },
       "PIA_ORG_PBD": {
@@ -382,7 +382,7 @@
       "PIA_ORG_VIOL": {
         "placeholder": "Indicate here whether IT incidents are subject to a documented and tested management procedure.",
         "name": " Managing personal data violations",
-        "description": "Existence of an operational organization that can detect and treat incidents that may affect the data subjects' civil liberties and privacy.",
+        "description": "Existence of an operational organisation that can detect and treat incidents that may affect the data subjects' civil liberties and privacy.",
         "source": "PIAF Connected Objects p24 and PIA3 p36 - WIKI"
       },
       "PIA_ORG_PERS": {
@@ -400,7 +400,7 @@
       "PIA_ORG_AUD": {
         "placeholder": "Indicate here whether the effectiveness and adequacy of privacy controls are monitored.",
         "name": "Supervision",
-        "description": "Existence of a policy and processes to obtain an organization able to manage and control the protection of personal data held within it.",
+        "description": "Existence of a policy and processes to obtain an organisation able to manage and control the protection of personal data held within it.",
         "source":  "PIA3 p76 - WIKI"
       },
       "PIA_DEF_EXA": {
@@ -434,7 +434,7 @@
         "source": "PIA1 p10"
       },
       "PIA_DEF_MINC": {
-        "name": "Minimizing the amount of personal data",
+        "name": "Minimising the amount of personal data",
         "description": "Reduce the severity of risks by limiting the amount of personal data to what is strictly necessary to achieve a defined purpose, otherwise the data shall be not collected.",
         "source": ""
       },
@@ -445,7 +445,7 @@
       },
       "PIA_DEF_ACC": {
         "name": "Right of access",
-        "description": "The data subject shall have the right to obtain from the controller confirmation as to whether or not personal data concerning him or her are being processed, and, where that is the case, access to the personal data and the information describen in <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 15 of [GDPR]</a>",
+        "description": "The data subject shall have the right to obtain from the controller confirmation as to whether or not personal data concerning him or her are being processed, and, where that is the case, access to the personal data and the information described in <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 15 of [GDPR]</a>",
         "source":"GDPR Art. 15"
       },
       "PIA_DEF_PORT": {
@@ -475,17 +475,17 @@
       },
       "PIA_DEF_PSEU": {
         "name": "Pseudonymisation",
-        "description": "processing of personal data in such a manner that the personal data can no longer be attributed to a specific data subject without the use of additional information, provided that such additional information is kept separately and is subject to technical and organisational measures to ensure that the personal data are not attributed to an identified or identifiable natural person.<br>Pseudonymisation  reduces  the  linkability  of  a  dataset  with  the  original  identity  of  a  data subject; as such, it is a useful security measure but not a method of anonymisation.",
+        "description": "processing of personal data in such a manner that the personal data can no longer be attributed to a specific data subject without the use of additional information, provided that such additional information is kept separately and is subject to technical and organisational measures to ensure that the personal data are not attributed to an identified or identifiable natural person.<br>Pseudonymisation  reduces  the  link ability  of  a  dataset  with  the  original  identity  of  a  data subject; as such, it is a useful security measure but not a method of anonymisation.",
         "source" :"GDPR Art. 4.5 and guidelines G29 p22 http://ec.europa.eu/justice/data-protection/article-29/documentation/opinion-recommendation/files/2014/wp216_en.pdf"
       },
       "PIA_DEF_CLO": {
         "name": "Data partitioning",
-        "description": "Data organization methods that reduce the possibility that personal data can be correlated and that a breach of all personal data may occur. For instance, by identifying the personal data useful only to each business process and logically separating them.",
+        "description": "Data organisation methods that reduce the possibility that personal data can be correlated and that a breach of all personal data may occur. For instance, by identifying the personal data useful only to each business process and logically separating them.",
         "source": "PIA3 p19 - WIKI"
       },
       "PIA_DEF_CTLA": {
         "name": "Logical access controls",
-        "description": "Means implemented to limit the risks that unauthorized persons will access personal data electronically, it requires among other things to : <br>- <strong>Manage users' profiles</strong> by separating tasks and areas of responsibility (preferably in centralized fashion) to limit access to personal data exclusively to authorized users by applying need-to-know and least-privilege principles.<br>- <strong>Withdraw the rights of employees, contracting parties and other third parties when they are no longer authorized to access a premises or a resource</strong> or when their <strong>employment contract ends</strong>.",
+        "description": "Means implemented to limit the risks that unauthorized persons will access personal data electronically, it requires among other things to : <br>- <strong>Manage users' profiles</strong> by separating tasks and areas of responsibility (preferably in centralised fashion) to limit access to personal data exclusively to authorised users by applying need-to-know and least-privilege principles.<br>- <strong>Withdraw the rights of employees, contracting parties and other third parties when they are no longer authorised to access a premises or a resource</strong> or when their <strong>employment contract ends</strong>.",
         "source": "PIA3 p43 - WIKI"
       },
       "PIA_DEF_MIN1": {
@@ -495,7 +495,7 @@
       },
       "PIA_DEF_MIN2": {
         "name": "Reducing sensitivity via conversion",
-        "description": "Once sensitive data have been received, as part of a series of general information or transmitted for statistical purposes only, these can be converted into a less sensitive form or pseudonymized. For example : <br>- if the system collects the IP address to determine the user's location for a statistical purpose, the IP address can be deleted once the city or district has been deduced<br>- if the system receives video data from surveillance cameras, it can recognize people who are standing or moving in the scene and blur them<br>- if the system is a smart meter, it can aggregate the use of energy over a certain period, without recording it in real time",
+        "description": "Once sensitive data have been received, as part of a series of general information or transmitted for statistical purposes only, these can be converted into a less sensitive form or pseudonymity. For example : <br>- if the system collects the IP address to determine the user's location for a statistical purpose, the IP address can be deleted once the city or district has been deduced<br>- if the system receives video data from surveillance cameras, it can recognise people who are standing or moving in the scene and blur them<br>- if the system is a smart meter, it can aggregate the use of energy over a certain period, without recording it in real time",
         "source" : "PIAF Connected objects p42 - WIKI"
       },
       "PIA_DEF_SRC": {
@@ -539,7 +539,7 @@
         "source": "Mesures_US"
       },
       "PIA_DEF_VIOL": {
-        "name": "Personnal data breach",
+        "name": "Personal data breach",
         "description": "Breach of security leading to the accidental or unlawful destruction, loss, alteration, unauthorised disclosure of, or access to, personal data transmitted, stored or otherwise processed.",
         "source": "GDPR Art. 4.12"
       },
@@ -555,7 +555,7 @@
       },
       "PIA_DEF_ENJ": {
         "name": "Stakes",
-        "description": "Expected benefits (for the organization, for the data subjects, for society in general, etc.).",
+        "description": "Expected benefits (for the organisation, for the data subjects, for society in general, etc.).",
         "source": "PIA1 p4 footnote 8"
       },
       "PIA_DEF_ST": {
@@ -575,12 +575,12 @@
       },
       "PIA_DEF_MIN3": {
         "name": "Reducing the identifying nature of data",
-        "description": "The system can ensure that: <br>- the user can use a resource or service without the risk of disclosing his/her identity (anonymous data)<br>- the user can use a resource or service without the risk of disclosing his/her identity, but remain identifiable and responsible for this use (pseudonymous data)<br>- the user can make multiple uses of resources or services without the risk of these different uses being linked together (data cannot be correlated)<br>- the user can use a resource or service without the risk of others, third parties in particular, being able to observe that the resource or service is being used (non-observability)<br>The choice of a method from the list above must be made on the basis of the threats identified. For some types of threat to privacy, pseudonymization will be more appropriate than anonymization (for example, if there is a traceability need). In addition, some threats to privacy will be addressed using a combination of methods.",
+        "description": "The system can ensure that: <br>- the user can use a resource or service without the risk of disclosing his/her identity (anonymous data)<br>- the user can use a resource or service without the risk of disclosing his/her identity, but remain identifiable and responsible for this use (pseudonymous data)<br>- the user can make multiple uses of resources or services without the risk of these different uses being linked together (data cannot be correlated)<br>- the user can use a resource or service without the risk of others, third parties in particular, being able to observe that the resource or service is being used (non-observability)<br>The choice of a method from the list above must be made on the basis of the threats identified. For some types of threat to privacy, pseudonymization will be more appropriate than anonymisation (for example, if there is a traceability need). In addition, some threats to privacy will be addressed using a combination of methods.",
         "source" : "PIAF Connected objects p42 - WIKI"
       },
       "PIA_DEF_MIN4": {
         "name": "Reducing data accumulation",
-        "description": "The system can be organized into independent parts with separate access control functions. The data can also be divided between these independent sub-systems and controlled by each sub-system using different access control mechanisms. If a sub-system is compromised, the impacts on all of the data can thus be reduced.",
+        "description": "The system can be organised into independent parts with separate access control functions. The data can also be divided between these independent sub-systems and controlled by each sub-system using different access control mechanisms. If a sub-system is compromised, the impacts on all of the data can thus be reduced.",
         "source": "PIAF Connected objects p42 - WIKI"
       },
       "PIA_DEF_MIN5": {
@@ -589,12 +589,12 @@
         "source": "PIAF Connected objects p42 - WIKI"
       },
       "PIA_EX_DCPC": {
-        "name": "Common personnal data",
+        "name": "Common personal data",
         "description": "<strong>Identification data</strong> : Civil status, identity, age, etc. <br><strong>Personal life</strong> : living habits, marital status, etc. <br><strong>Professional life </strong> : résumé, education and professional training, awards, etc. <br><strong>Connection data </strong> : IP addresses, event logs, etc.<br><strong>Location data</strong> : travels, GPS data, GSM data, etc.<br><strong>Others</strong> : phone number, email address, etc.",
         "source": "PIA2 old version - WIKI"
       },
       "PIA_EX_DCPS": {
-        "name": "Personnal data perceived as sensitive",
+        "name": "Personal data perceived as sensitive",
         "description": "Social security number (NIR), biometric data, bank data",
         "source": "PIA2 old version - WIKI"
       },
@@ -609,13 +609,13 @@
         "source": "PIAF Connected objects p41 - WIKI"
       },
       "PIA_EX_HUME": {
-        "name": "Translation in progress",
-        "description": "Il peut s'agir :<br>- Rogue person using physical proximity to gain illegitimate access to the service <br>- Hacker targeting a user by using knowledge of the user and some of the information concerning him/her<br>- Hacker targeting one of the companies using knowledge of the companies that can undermine their image<br>- Authorized third-party company using its privileged access to illegitimately access information . <br>Various motives are possible, including : clumsiness, error, negligence game, malicious intent, revenge, spying, desire to get hold of a large amount of data and to use them",
+        "name": "External human sources",
+        "description": "It may be :<br>- A malicious person using physical proximity to gain illegitimate access to the service <br>- Hacker targeting a user by using knowledge of the user and some of the information concerning him/her<br>- Hacker targeting one of the companies using knowledge of the companies that can undermine their image<br>- Authorised third-party company using its privileged access to illegitimately access information . <br>Various motives are possible, including : clumsiness, error, negligence game, malicious intent, revenge, spying, desire to get hold of a large amount of data and to use them",
         "source": "PIAF Connected objects p41 - WIKI"
       },
       "PIA_EX_NHUM": {
         "name": "Non-human sources",
-        "description": "Incident or damage at one of the organization (power cut, fire, flood, etc.)",
+        "description": "Incident or damage at one of the organisation (power cut, fire, flood, etc.)",
         "source": "PIAF Connected objects p41 - WIKI"
       },
       "PIA_EX_IMPN": {
@@ -659,13 +659,13 @@
         "source": "PIAF Connected objects p44 - WIKI"
       },
       "PIA_EX_MIND": {
-        "name": "Minimization of data themselves",
-        "description": "Reduce the severity of risks by minimizing the data themselves, by taking measures aimed at reducing their sensitivity.",
+        "name": "Minimisation of data themselves",
+        "description": "Reduce the severity of risks by minimising the data themselves, by taking measures aimed at reducing their sensitivity.",
         "source": "Mesures_US"
       },
       "PIA_DEF_ANO": {
-        "name": "Anonymization",
-        "description": "Process removing the identifying characteristics from personal data. To assess the robustness of an anonymization processes, see the <a target=\"_blank\" href=\"http://ec.europa.eu/justice/data-protection/article-29/documentation/opinion-recommendation/files/2014/wp216_en.pdf\">WP29 guidelines</a>.",
+        "name": "anonymisation",
+        "description": "Process removing the identifying characteristics from personal data. To assess the robustness of an anonymisation processes, see the <a target=\"_blank\" href=\"http://ec.europa.eu/justice/data-protection/article-29/documentation/opinion-recommendation/files/2014/wp216_en.pdf\">WP29 guidelines</a>.",
         "source": "Mesures_US and G29 guidelines http://ec.europa.eu/justice/data-protection/article-29/documentation/opinion-recommendation/files/2014/wp216_en.pdf"
       },
       "PIA_SEC_CTR": {
@@ -863,7 +863,7 @@
     "legend2": "With the corrective measures implemented",
     "legend3": "(I)llegitimate access to data",
     "legend4": "(U)nwanted modification of data",
-    "legend5": "(D)ata disappearence",
+    "legend5": "(D)ata disappearance",
     "risk1_access": "(I)",
     "risk2_modification": "(U)"
   },
@@ -874,7 +874,7 @@
     "risks": "Risks",
     "risk1": "Illegitimate access to data",
     "risk2": "Unwanted modification of data",
-    "risk3": "Data disappearence",
+    "risk3": "Data disappearance",
     "improvable_measures": "Improvable measures",
     "acceptable_measures": "Acceptable measures",
     "no_action_plan": "No action plan recorded.",
@@ -1009,9 +1009,9 @@
               "placeholder": "For each processor, describe his responsibilities (duration, scope, purpose, documented processing instructions, prior authorisation) and provide the contracts, codes of conduct and certifications determining its missions and obligations."
             },
             "7": {
-              "title": "In the case of data transfer outside the European Union, are the data adequatly protected?",
+              "title": "In the case of data transfer outside the European Union, are the data adequately protected?",
               "short_title": "Transfers",
-              "placeholder": "For each country outside the European Union where data are stored or processed, name it and tell if it is acknowledged as offering an adequat level of data protection or describe the provisions concerning the transfer."
+              "placeholder": "For each country outside the European Union where data are stored or processed, name it and tell if it is acknowledged as offering an adequate level of data protection or describe the provisions concerning the transfer."
             }
           }
         }
@@ -1086,7 +1086,7 @@
           }
         },
         "4": {
-          "title": "Data disappearence",
+          "title": "Data disappearance",
           "short_help": "Analyze the causes and consequences of data loss, and estimate its seriousness and likelihood.",
           "questions": {
             "1": {
@@ -1117,17 +1117,17 @@
         },
         "5": {
           "title": "Risks overview",
-          "short_help": "This visualization allows you to have a global and synthetic view on the controls effects on the risks they adress."
+          "short_help": "This visualisation allows you to have a global and synthetic view on the controls effects on the risks they address."
         }
       }
     },
     "4": {
       "title": "Validation",
-      "short_help": "This section allows you to prepare and formalize the PIA validation.",
+      "short_help": "This section allows you to prepare and formalise the PIA validation.",
       "items": {
         "1": {
           "title": "Risk mapping",
-          "short_help": "This visualization allows you to compare the positioning of the risks between them, before and after application of the complementary controls."
+          "short_help": "This visualisation allows you to compare the positioning of the risks between them, before and after application of the complementary controls."
         },
         "2": {
           "title": "Action plan",
