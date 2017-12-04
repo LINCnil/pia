@@ -264,6 +264,10 @@ export class PiaService {
       const url = 'data:text/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(data));
       a.setAttribute('href', url);
       a.setAttribute('download', date + '_export_pia_' + id + '.json');
+      const event = new MouseEvent('click', {
+        view: window
+      });
+      a.dispatchEvent(event);
       a.click();
     });
   }

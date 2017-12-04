@@ -60,12 +60,16 @@ export class AttachmentsService {
 
   downloadAttachment(id: number) {
     const attachment = new Attachment();
+    attachment.pia_id = this.pia.id;
     attachment.find(id).then((entry: any) => {
-      const url = entry.file.replace('data:', 'data:' + entry.mime_type);
-      fetch(url).then(res => res.blob()).then(blob => {
-        const a = document.createElement('a');
+      fetch(entry.file).then(res => res.blob()).then(blob => {
+        const a = <any>document.createElement('a');
         a.href = window.URL.createObjectURL(blob);
         a.download = entry.name;
+        const event = new MouseEvent('click', {
+          view: window
+        });
+        a.dispatchEvent(event);
         a.click();
       });
     });
@@ -79,6 +83,7 @@ export class AttachmentsService {
 
     // Removes from DB.
     const attachment = new Attachment();
+    attachment.pia_id = this.pia.id;
     attachment.delete(attachmentId);
 
     // Deletes from the attachments array.
