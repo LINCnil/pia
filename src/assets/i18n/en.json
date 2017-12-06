@@ -243,7 +243,7 @@
       },
       "PIA_TEC_ANO": {
         "placeholder": "Indicate here implemented anonymisation mechanisms",
-        "name": "anonymisation",
+        "name": "Anonymisation",
         "description": "Indicate here whether anonymisation mechanisms are implemented, which ones and for what purpose. <br>Remember to clearly distinguish between anonymous and pseudonymous data.",
         "source": "PIAF Connected Objects p21"
       },
@@ -332,7 +332,7 @@
         "source": "PIAF Connected Objects p23"
       },
       "PIA_SEC_LOG": {
-        "placeholder": "Indicate here means and controls implemented to detect incidents concerning personal data",
+        "placeholder": "Indicate here means and controls implemented to detect incidents involving personal data",
         "name": "Monitoring network activity",
         "description": "Monitor intrusion detection systems and intrusion prevention systems in order to analyze network (wired networks, Wi-Fi, radio waves, fiber optics, etc.) traffic in real time and detect any suspicious activity suggestive of a cyber attack scenario.",
         "source": "PIA3 p67 - WIKI"
@@ -475,7 +475,7 @@
       },
       "PIA_DEF_PSEU": {
         "name": "Pseudonymisation",
-        "description": "processing of personal data in such a manner that the personal data can no longer be attributed to a specific data subject without the use of additional information, provided that such additional information is kept separately and is subject to technical and organisational measures to ensure that the personal data are not attributed to an identified or identifiable natural person.<br>Pseudonymisation  reduces  the  link ability  of  a  dataset  with  the  original  identity  of  a  data subject; as such, it is a useful security measure but not a method of anonymisation.",
+        "description": "processing of personal data in such a manner that the personal data can no longer be attributed to a specific data subject without the use of additional information, provided that such additional information is kept separately and is subject to technical and organisational measures to ensure that the personal data are not attributed to an identified or identifiable natural person.<br>Pseudonymisation  reduces  the  linkability  of  a  dataset  with  the  original  identity  of  a  data subject; as such, it is a useful security measure but not a method of anonymisation.",
         "source" :"GDPR Art. 4.5 and guidelines G29 p22 http://ec.europa.eu/justice/data-protection/article-29/documentation/opinion-recommendation/files/2014/wp216_en.pdf"
       },
       "PIA_DEF_CLO": {
@@ -495,7 +495,7 @@
       },
       "PIA_DEF_MIN2": {
         "name": "Reducing sensitivity via conversion",
-        "description": "Once sensitive data have been received, as part of a series of general information or transmitted for statistical purposes only, these can be converted into a less sensitive form or pseudonymity. For example : <br>- if the system collects the IP address to determine the user's location for a statistical purpose, the IP address can be deleted once the city or district has been deduced<br>- if the system receives video data from surveillance cameras, it can recognise people who are standing or moving in the scene and blur them<br>- if the system is a smart meter, it can aggregate the use of energy over a certain period, without recording it in real time",
+        "description": "Once sensitive data have been received, as part of a series of general information or transmitted for statistical purposes only, these can be converted into a less sensitive form or pseudonymised. For example : <br>- if the system collects the IP address to determine the user's location for a statistical purpose, the IP address can be deleted once the city or district has been deduced<br>- if the system receives video data from surveillance cameras, it can recognise people who are standing or moving in the scene and blur them<br>- if the system is a smart meter, it can aggregate the use of energy over a certain period, without recording it in real time",
         "source" : "PIAF Connected objects p42 - WIKI"
       },
       "PIA_DEF_SRC": {
@@ -605,12 +605,12 @@
       },
       "PIA_EX_HUMI": {
         "name": "Internal human sources",
-        "description": "It could be either :<br>- a negligent or rogue employee, proximity of the system, skills, privileges and available time are potentially high, possible lack of training and awareness<br>- Negligent or rogue user or people around<br> Various motives are possible, including : clumsiness, error, negligence game, malicious intent, revenge, spying",
+        "description": "It could be either:<br>- a negligent or rogue employee, proximity of the system, skills, privileges and available time are potentially high, possible lack of training and awareness<br>- Negligent or rogue user or people around<br> Various motives are possible, including : clumsiness, error, negligence game, malicious intent, revenge, spying",
         "source": "PIAF Connected objects p41 - WIKI"
       },
       "PIA_EX_HUME": {
         "name": "External human sources",
-        "description": "It may be :<br>- A malicious person using physical proximity to gain illegitimate access to the service <br>- Hacker targeting a user by using knowledge of the user and some of the information concerning him/her<br>- Hacker targeting one of the companies using knowledge of the companies that can undermine their image<br>- Authorised third-party company using its privileged access to illegitimately access information . <br>Various motives are possible, including : clumsiness, error, negligence game, malicious intent, revenge, spying, desire to get hold of a large amount of data and to use them",
+        "description": "It could be either:<br>- a rogue or naive neighbor, by having a physical proximity, hacking into the device's data;<br>- a hacker targeting a user by using the knowledge he/she has of the user and some of the information concerning him/her;<br>- a hacker targeting one of the companies by using the knowledge he/she has of the companies that can undermine their image;<br>- an authorised third party company using its privileged access to illegitimately access information.",
         "source": "PIAF Connected objects p41 - WIKI"
       },
       "PIA_EX_NHUM": {
@@ -664,7 +664,7 @@
         "source": "Mesures_US"
       },
       "PIA_DEF_ANO": {
-        "name": "anonymisation",
+        "name": "Anonymisation",
         "description": "Process removing the identifying characteristics from personal data. To assess the robustness of an anonymisation processes, see the <a target=\"_blank\" href=\"http://ec.europa.eu/justice/data-protection/article-29/documentation/opinion-recommendation/files/2014/wp216_en.pdf\">WP29 guidelines</a>.",
         "source": "Mesures_US and G29 guidelines http://ec.europa.eu/justice/data-protection/article-29/documentation/opinion-recommendation/files/2014/wp216_en.pdf"
       },
