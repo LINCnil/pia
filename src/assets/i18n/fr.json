@@ -302,7 +302,7 @@
         "source":"WIKI Gestion_des_postes_de_travail"
       },
       "PIA_SEC_WEB": {
-        "placeholder": "Décrivez ici les méthodes et moyens mis en oeuvres pour protéger les sites web.",
+        "placeholder": "Décrivez ici les méthodes et moyens mis en oeuvre pour protéger les sites web.",
         "name": "Protection des sites web",
         "description": "Méthodes et moyens mis en place pour diminuer la possibilité que les caractéristiques des sites web soient exploitées pour porter atteinte aux données à caractère personnel (référentiel général de sécurité, chiffrement TLS des flux, politique de dépôt de cookies, audits de sécurité, etc.).",
         "source": "WIKI Sécurité_des_sites_web"
@@ -326,13 +326,13 @@
         "source": "Guide Bleu 2017 p19 et https://www.cnil.fr/fr/cloud-computing-les-conseils-de-la-cnil-pour-les-entreprises-qui-utilisent-ces-nouveaux-services"
       },
       "PIA_SEC_NET": {
-        "placeholder": "Indiquez ici sur quel type de réseau le traitement est mis en œuvre et les équipement assurant sa sécurisation.",
+        "placeholder": "Indiquez ici sur quel type de réseau le traitement est mis en œuvre et les équipements assurant sa sécurisation.",
         "name": "Sécurisation des canaux informatiques",
         "description": "En fonction du type de réseau sur lequel le traitement est mis en œuvre (isolé, privé, ou Internet), le responsable de traitement doit mettre en place des systèmes de protection adéquats : pare-feu, sondes de détection d'intrusion ou autres dispositifs actifs ou passifs sont chargés d'assurer la sécurité du réseau.",
     		"source": "PIAF Objets connectés p25"
       },
       "PIA_SEC_PHY": {
-        "placeholder":"Indiquez ici la manière dont est réalisé le contrôle d’accès physique aux locaux hébergeant le traitement.",
+        "placeholder":"Indiquez ici la manière dont est réalisée le contrôle d’accès physique aux locaux hébergeant le traitement.",
         "name": "Sécurité physique",
         "description": "Existence d'un contrôle des accès physique aux locaux hébergeant le traitement (zonage, accompagnement des visiteurs, port de badge, portes verrouillées, etc.).<br>Indiquez s’il existe des moyens d’alerte en cas d’effraction.",
     		"source": "PIAF Objets connectés p25"
@@ -344,7 +344,7 @@
         "source": "WIKI Surveillance"
       },
       "PIA_SEC_MAT": {
-        "placeholder":"Décrivez ici les méthodes et moyens mis en place pour limiter les risques d'attaques contre le matériel utilisés par le traitement.",
+        "placeholder":"Décrivez ici les méthodes et moyens mis en place pour limiter les risques d'attaques contre le matériel utilisé par le traitement.",
         "name": "Sécurisation des matériels",
         "description": "Existence de mesures prises pour diminuer la possibilité que les caractéristiques des matériels (serveurs, postes fixes, ordinateurs portables, périphériques, relais de communication, supports amovibles, etc.) soient exploitées pour porter atteinte aux données à caractère personnel (inventaire, cloisonnement, redondance matérielle, limiter l'accès, etc.).",
         "source": "WIKI Sécurité_des_matériels"
