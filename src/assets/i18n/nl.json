@@ -411,7 +411,7 @@
       },
       "PIA_DEF_MES": {
         "name": "Maatregelen",
-        "description": "Te kiezen uit diegenen die beschikbaar zijn in sectie \ 'Geplande of bestaande maatregelen \', die u eventueel kunt invullen.",
+        "description": "Te kiezen uit diegenen die beschikbaar zijn in sectie \\'Geplande of bestaande maatregelen \\', die u eventueel kunt invullen.",
         "source": "Geen"
       },
       "PIA_DEF_RT": {
@@ -586,7 +586,7 @@
       },
       "PIA_DEF_MIN5": {
         "name": "Gegevenstoegang beperken",
-        "description": "Het systeem kan de gegevenstoegang beperken volgens het \ 'need to know \' -principe. Het systeem kan de gevoelige gegevens scheiden en specifieke toegangscontrolebeleid toepassen. Het systeem kan ook gevoelige gegevens coderen om hun vertrouwelijkheid tijdens verzending en opslag te beschermen. Toegang tot tijdelijke cookies die worden geproduceerd tijdens de gegevensverwerking moet ook worden beschermd.",
+        "description": "Het systeem kan de gegevenstoegang beperken volgens het \\'need to know \\' -principe. Het systeem kan de gevoelige gegevens scheiden en specifieke toegangscontrolebeleid toepassen. Het systeem kan ook gevoelige gegevens coderen om hun vertrouwelijkheid tijdens verzending en opslag te beschermen. Toegang tot tijdelijke cookies die worden geproduceerd tijdens de gegevensverwerking moet ook worden beschermd.",
         "source": "PIAF Connected objects p42 - WIKI"
       },
       "PIA_EX_DCPC": {

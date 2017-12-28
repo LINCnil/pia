@@ -15,7 +15,7 @@
     "pia_example_link": "PIA příklad",
     "languages": {
       "fr": "Francouzky",
-      "en": "Anglicky"
+      "en": "Anglicky",
       "cs": "Česky"
     },
     "tools": {
@@ -1011,7 +1011,7 @@
               "placeholder": "Překlad probíhá"
             },
             "3": {
-              "title": "Jsou shromážděná data přiměřená, relevantní a omezená na to, co je nezbytné ve vztahu k účelům, pro které jsou zpracovávány ("minimalizace dat")?",
+              "title": "Jsou shromážděná data přiměřená, relevantní a omezená na to, co je nezbytné ve vztahu k účelům, pro které jsou zpracovávány (\"minimalizace dat\")?",
               "short_title": "Přiměřená data",
               "placeholder": "Vysvětlete, proč jsou všechny shromážděné údaje nezbytné pro účely zpracování."
             },
