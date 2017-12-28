@@ -203,7 +203,7 @@
       },
       "PIA_LGL_DEST": {
         "name": "Ontvanger",
-        "description": "Natuurlijke of rechtspersoon, overheidsinstantie, agentschap of een andere instantie waaraan de persoonsgegevens worden verstrekt, ongeacht of deze derden zijn of niet. Overheidsinstanties die in het kader van een bepaald onderzoek persoonsgegevens kunnen ontvangen in overeenstemming met de wetgeving van de Unie of de lidstaten, worden echter niet als ontvangers beschouwd; de verwerking van die gegevens door die overheidsinstanties moet in overeenstemming zijn met de toepasselijke gegevensbeschermingsregels overeenkomstig de doeleinden van de verwerking. zie Art. 4.9 van de <a target=\"_blank\" href=\"http:http://eur-lex.europa.eu/legal-content/NL/TXT/HTML/?uri=CELEX:32016R0679&from=NL\">[GDPR]</a>",
+        "description": "Natuurlijke of rechtspersoon, overheidsinstantie, agentschap of een andere instantie waaraan de persoonsgegevens worden verstrekt, ongeacht of deze derden zijn of niet. Overheidsinstanties die in het kader van een bepaald onderzoek persoonsgegevens kunnen ontvangen in overeenstemming met de wetgeving van de Unie of de lidstaten, worden echter niet als ontvangers beschouwd; de verwerking van die gegevens door die overheidsinstanties moet in overeenstemming zijn met de toepasselijke gegevensbeschermingsregels overeenkomstig de doeleinden van de verwerking. zie Art. 4.9 van de <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/NL/TXT/HTML/?uri=CELEX:32016R0679&from=NL\">[GDPR]</a>",
         "source": "AVG art 4.9"
       },
       "PIA_LGL_DUR": {
