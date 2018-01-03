@@ -1,7 +1,6 @@
 import { RollbarService, RollbarErrorHandler, rollbarFactory } from './rollbar';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, ErrorHandler } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
 import { AppComponent, SafeHtmlPipe } from './app.component';
 import { TagInputModule } from 'ngx-chips';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -55,19 +54,7 @@ import { environment } from '../environments/environment';
 import { ListItemComponent } from 'app/cards/list-item/list-item.component';
 import { SummaryComponent } from './summary/summary.component';
 import { AboutComponent } from './about/about.component';
-
-const appRoutes: Routes = [
-  { path: '', component: AuthenticationComponent },
-  { path: 'home', component: CardsComponent },
-  { path: 'home/:view', component: CardsComponent },
-  { path: 'entry/:id', component: EntryComponent },
-  { path: 'summary/:id/:type', component: SummaryComponent },
-  { path: 'entry/:id/section/:section_id/item/:item_id', component: EntryComponent },
-  { path: 'settings', component: SettingsComponent },
-  { path: 'help', component: HelpComponent },
-  { path: 'about', component: AboutComponent },
-  { path: '**', component: ErrorsComponent }
-];
+import { AppRoutingModule } from 'app/app-routing.module';
 
 const providersList: any = [
   AppDataService,
@@ -137,12 +124,12 @@ export function createTranslateLoader(http: HttpClient) {
   ],
   imports: [
     BrowserModule,
+    AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
     HttpModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    RouterModule.forRoot(appRoutes, { useHash: true }),
     TagInputModule,
     TranslateModule.forRoot({
       loader: {
@@ -152,7 +139,7 @@ export function createTranslateLoader(http: HttpClient) {
       }
     })
   ],
-  exports: [RouterModule],
+  exports: [],
   providers: providersList,
   bootstrap: [AppComponent]
 })
