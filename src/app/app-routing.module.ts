@@ -8,12 +8,11 @@ import { HelpComponent } from 'app/help/help.component';
 import { AboutComponent } from 'app/about/about.component';
 import { ErrorsComponent } from 'app/errors/errors.component';
 import { CardsRoutingModule } from 'app/cards/cards-routing.module';
+import { EntryRoutingModule } from 'app/entry/entry-routing.module';
 
 const routes: Routes = [
   { path: '', component: AuthenticationComponent },
-  { path: 'entry/:id', component: EntryComponent },
   { path: 'summary/:id/:type', component: SummaryComponent },
-  { path: 'entry/:id/section/:section_id/item/:item_id', component: EntryComponent },
   { path: 'settings', component: SettingsComponent },
   { path: 'help', component: HelpComponent },
   { path: 'about', component: AboutComponent },
@@ -23,6 +22,7 @@ const routes: Routes = [
 @NgModule({
   imports: [
     CardsRoutingModule,
+    EntryRoutingModule,
     RouterModule.forRoot(routes, { useHash: true })
   ],
   exports: [RouterModule]
