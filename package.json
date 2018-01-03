@@ -27,7 +27,7 @@
     "d3": "^4.10.2",
     "font-awesome": "^4.7.0",
     "foundation-sites": "^6.3.1",
-    "ngx-chips": "^1.4.7",
+    "ngx-chips": "~1.5.11",
     "normalize.css": "^7.0.0",
     "rollbar": "^2.2.8",
     "rxjs": "^5.1.0",

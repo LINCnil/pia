@@ -3876,15 +3876,15 @@ negotiator@0.6.1:
   version "0.6.1"
   resolved "https://registry.yarnpkg.com/negotiator/-/negotiator-0.6.1.tgz#2b327184e8992101177b28563fb5e7102acd0ca9"
 
-ng2-material-dropdown@~0.8.2:
-  version "0.8.2"
-  resolved "https://registry.yarnpkg.com/ng2-material-dropdown/-/ng2-material-dropdown-0.8.2.tgz#2acd3f781030ef92bf31f05543d91148e68528ef"
+ng2-material-dropdown@0.8.0:
+  version "0.8.0"
+  resolved "https://registry.yarnpkg.com/ng2-material-dropdown/-/ng2-material-dropdown-0.8.0.tgz#9ad5757fbab2922a51216e3bf38e12d3a7964c60"
 
-ngx-chips@^1.4.7:
-  version "1.6.2"
-  resolved "https://registry.yarnpkg.com/ngx-chips/-/ngx-chips-1.6.2.tgz#7dfb4055582fcecaf2d22ba7ff21ab69b0f5641e"
+ngx-chips@~1.5.11:
+  version "1.5.11"
+  resolved "https://registry.yarnpkg.com/ngx-chips/-/ngx-chips-1.5.11.tgz#75112f7909c585ae059719b2b4c9c368aa938ae8"
   dependencies:
-    ng2-material-dropdown "~0.8.2"
+    ng2-material-dropdown "0.8.0"
 
 no-case@^2.2.0:
   version "2.3.2"
