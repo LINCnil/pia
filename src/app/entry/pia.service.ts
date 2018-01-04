@@ -74,7 +74,6 @@ export class PiaService {
         entries.forEach(element => {
           evaluation = new Evaluation();
           evaluation.get(element.id).then((entry: any) => {
-            /* TODO : entry.status = 0; */
             entry.global_status = 0;
             entry.update();
           });

@@ -96,6 +96,21 @@ export class SidStatusService {
     }
   }
 
+  removeSidStatus(piaService: any, section: any, item: any) {
+    const sid = section.id + '.' + item.id;
+    if (!this.noIconFor.includes(sid)) {
+      this.itemStatus[sid] = 0;
+      piaService.getPIA().then(() => {
+        // Special behaviour for DPO page
+        if (sid === '4.3') {
+          // Nothing to do
+        } else {
+          this.itemStatus[sid] = 0;
+        }
+      });
+    }
+  }
+
   verification(piaService: any) {
     this.enablePiaValidation = false;
     this.piaIsRefused = false;
@@ -128,5 +143,13 @@ export class SidStatusService {
       }
       this.enableDpoValidation = valid;
     });
+  }
+
+  refusePia() {
+    for (const el in this.itemStatus) {
+      if (this.itemStatus.hasOwnProperty(el)) {
+        this.itemStatus[el] = 1;
+      }
+    }
   }
 }

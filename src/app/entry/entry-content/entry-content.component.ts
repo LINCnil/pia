@@ -67,7 +67,7 @@ export class EntryContentComponent implements OnInit, OnChanges {
   }
 
   /**
-   * Allows an user to validate evaluation for a section.
+   * Allow an user to validate evaluation for a section.
    * @memberof EntryContentComponent
    */
   validateEvaluation() {
@@ -86,6 +86,24 @@ export class EntryContentComponent implements OnInit, OnChanges {
       } else {
         this._modalsService.openModal('validate-evaluation-to-correct');
       }
+    });
+  }
+
+  /**
+   * Allow an user to return in edit mode
+   * @memberof EntryContentComponent
+   */
+  cancelAskForEvaluation() {
+    this._evaluationService.cancelForEvaluation(this._piaService, this._sidStatusService, this.section, this.item);
+  }
+
+  /**
+   * Allow an user to cancel the validation
+   * @memberof EntryContentComponent
+   */
+  cancelValidateEvaluation() {
+    this._evaluationService.cancelValidation().then((valid: boolean) => {
+      this._sidStatusService.setSidStatus(this._piaService, this.section, this.item);
     });
   }
 
