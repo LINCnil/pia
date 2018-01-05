@@ -21,7 +21,8 @@
       "title": "Outils",
       "settings": "Paramètres",
       "accessibility": "Accessibilité malvoyants (couleurs à contraste fort, adapté daltonisme)",
-      "help": "Aide"
+      "help": "Aide",
+      "about": "À propos"
     }
   },
   "homepage": {
@@ -129,7 +130,7 @@
   },
   "measures": {
     "placeholder_title": "Titre de la mesure",
-    "add": "Ajouter une mesure vide (sinon, utiliser la base de connaissance)",
+    "add": "Créer une mesure (ou en ajouter une proposée dans la base de connaissance à droite)",
     "edit": "Éditer la mesure",
     "remove": "Supprimer la mesure",
     "default_placeholder": "Décrivez les mesures existantes ou prévues pour garantir la sécurité des données."
@@ -186,7 +187,7 @@
       },
       "PIA_LGL_SUPT": {
         "name": "Support des données",
-        "description": "Bien sur lequel reposent des données. Note : il peut s’agir de matériels, de logiciels, de canaux informatiques, de personnes, de supports papier ou de canaux de transmission papier. ",
+        "description": "Bien sur lequel reposent des données. Note : il peut s’agir de matériels, de logiciels, de canaux informatiques, de personnes, de supports papier ou de canaux de transmission papier.",
         "source": "PIA1 p12"
       },
       "PIA_LGL_FIN": {
@@ -291,7 +292,7 @@
       "PIA_SEC_MAL": {
         "placeholder": "Décrivez ici les mesures de protection contre les codes malveillants lors d'accès à des réseaux d'un niveau de sécurité moindre.",
         "name": "Lutte contre les logiciels malveillants",
-        "description": "Mesures destinées à protéger les accès vers des réseaux publics (Internet) ou non maîtrisés (partenaires), ainsi que les postes de travail et les serveurs contre les codes malveillants qui pourraient affecter la sécurité les données à caractère personnel. ",
+        "description": "Mesures destinées à protéger les accès vers des réseaux publics (Internet) ou non maîtrisés (partenaires), ainsi que les postes de travail et les serveurs contre les codes malveillants qui pourraient affecter la sécurité les données à caractère personnel.",
         "source": "WIKI Lutte_contre_les_logiciels_malveillants"
       },
       "PIA_SEC_COMP": {
@@ -363,7 +364,7 @@
       "PIA_ORG_ORG": {
         "placeholder":"Décrivez ici l'organisation de la protection de la vie privée au sein de votre organisme.",
         "name": "Organisation de la politique de protection de la vie privée",
-        "description": "Existence d’une organisation apte à diriger et contrôler la protection des données à caractère personnel au sein de l’organisme (désignation d'un un CIL/DPO, création d'un comité de suivi, etc.).",
+        "description": "Existence d’une organisation apte à diriger et contrôler la protection des données à caractère personnel au sein de l’organisme (désignation d'un un CIL/DPD, création d'un comité de suivi, etc.).",
         "source": "WIKI Organisation"
       },
       "PIA_ORG_POL": {
@@ -375,7 +376,7 @@
       "PIA_ORG_RMGT": {
         "placeholder":"Décrivez ici les processus destinés à maîtriser les risques que les traitements de l’organisme font peser sur les droits et libertés des personnes concernées.",
         "name": "Gérer les risques",
-        "description": "Existence d'une politique définissant les processus destinés à maîtriser les risques que les traitements de l’organisme font peser sur les droits et libertés des personnes concernées (recensement des traitements de données à caractère personnel, des données, des supports, appréciation des risques, déterminer les mesures existantes ou prévues, etc.). ",
+        "description": "Existence d'une politique définissant les processus destinés à maîtriser les risques que les traitements de l’organisme font peser sur les droits et libertés des personnes concernées (recensement des traitements de données à caractère personnel, des données, des supports, appréciation des risques, déterminer les mesures existantes ou prévues, etc.).",
         "source": "WIKI Gestion_des_risques"
       },
       "PIA_ORG_PBD": {
@@ -387,7 +388,7 @@
       "PIA_ORG_VIOL": {
         "placeholder": "Décrivez ici les processus opérationnels destinés à détecter et traiter les événements susceptibles d’affecter les libertés et la vie privée des personnes concernées.",
         "name": "Gérer les incidents de sécurité et les violations de données",
-        "description": "Existence d’une organisation opérationnelle permettant de détecter et de traiter les événements susceptibles d’affecter les libertés et la vie privée des personnes concernées (définition des responsabilités, plan de réaction, qualifier les violations, etc.). ",
+        "description": "Existence d’une organisation opérationnelle permettant de détecter et de traiter les événements susceptibles d’affecter les libertés et la vie privée des personnes concernées (définition des responsabilités, plan de réaction, qualifier les violations, etc.).",
         "source": "WIKI Gestion_des_incidents_et_des_violations_de_données"
       },
       "PIA_ORG_PERS": {
@@ -399,13 +400,13 @@
       "PIA_ORG_EXT": {
         "placeholder":"Indiquez ici, pour les tiers amenés à avoir accès aux données, les modalités et les mesures de sécurité mises en œuvre pour ces accès.",
         "name": "Gestion des tiers accédant aux données.",
-        "description": "Existence d'une procédure visant à réduire les risques que les accès légitimes aux données par des tiers peuvent faire peser sur les libertés et la vie privée des personnes concernées (identification des tiers, contrat de sous-traitance, convention, BCR, etc.). ",
+        "description": "Existence d'une procédure visant à réduire les risques que les accès légitimes aux données par des tiers peuvent faire peser sur les libertés et la vie privée des personnes concernées (identification des tiers, contrat de sous-traitance, convention, BCR, etc.).",
         "source": "WIKI Relations_avec_les_tiers"
       },
       "PIA_ORG_AUD": {
         "placeholder":"Décrivez ici les processus qui assurent un contrôle régulier des traitements de données.",
         "name": "Superviser la protection de la vie privée",
-        "description": "Existence de mesures permettant de disposer d’une vision globale et à jour de l’état de protection des données et de la conformité au RGPD (contrôler la conformité des traitements, objectifs et indicateurs, responsabilités, etc.). ",
+        "description": "Existence de mesures permettant de disposer d’une vision globale et à jour de l’état de protection des données et de la conformité au RGPD (contrôler la conformité des traitements, objectifs et indicateurs, responsabilités, etc.).",
         "source":"WIKI Supervision"
       },
       "PIA_DEF_EXA": {
@@ -445,7 +446,7 @@
       },
       "PIA_DEF_MIND": {
         "name": "Minimisation des données elles-mêmes",
-        "description": "Réduire la gravité des risques en minimisant les données elles-mêmes, par des mesures destinées à réduire leur sensibilité. ",
+        "description": "Réduire la gravité des risques en minimisant les données elles-mêmes, par des mesures destinées à réduire leur sensibilité.",
         "source": "WIKI Minimisation_des_données_:_adéquates,_pertinentes_et_limitées"
       },
       "PIA_DEF_CONS": {
@@ -505,7 +506,7 @@
       },
       "PIA_DEF_CTLA": {
         "name": "Contrôle d'accès logique",
-        "description": "Il consiste à limiter les risques que des personnes non autorisées accèdent aux données à caractère personnel sous forme numérique.<br>Pour cela, il convient de :<br>- <strong>définir des profils d’habilitation</strong> dans les systèmes en séparant les tâches et les domaines de responsabilité, afin de limiter l’accès des utilisateurs aux seules données strictement nécessaires à l’accomplissement de leurs missions. <br>- <strong>supprimer les permissions d’accès des utilisateurs dès qu’ils ne sont plus habilités à accéder à un local ou à une ressource informatique</strong>, ainsi qu’<strong>la fin de leur contrat.</strong> <br>- <strong> Réaliser une revue annuelle des habilitations</strong> afin d’identifier et de supprimer les comptes non utilisés et de réaligner les droits accordés sur les fonctions de chaque utilisateur. ",
+        "description": "Il consiste à limiter les risques que des personnes non autorisées accèdent aux données à caractère personnel sous forme numérique.<br>Pour cela, il convient de :<br>- <strong>définir des profils d’habilitation</strong> dans les systèmes en séparant les tâches et les domaines de responsabilité, afin de limiter l’accès des utilisateurs aux seules données strictement nécessaires à l’accomplissement de leurs missions. <br>- <strong>supprimer les permissions d’accès des utilisateurs dès qu’ils ne sont plus habilités à accéder à un local ou à une ressource informatique</strong>, ainsi qu’<strong>la fin de leur contrat.</strong> <br>- <strong> Réaliser une revue annuelle des habilitations</strong> afin d’identifier et de supprimer les comptes non utilisés et de réaligner les droits accordés sur les fonctions de chaque utilisateur.",
     		"source": "WIKI Contrôle_des_accès_logiques et Guide Bleu 2017 p9 pour les précautions"
       },
       "PIA_DEF_PWD": {
@@ -569,7 +570,7 @@
         "source": "PIA1 p9"
       },
       "PIA_DEF_VRA": {
-        "name": "Vraissemblance",
+        "name": "Vraisemblance",
         "description": "La vraisemblance traduit la possibilité qu’un risque se réalise. Elle dépend essentiellement des vulnérabilités des supports face aux menaces et des capacités des sources de risques à les exploiter.",
         "source": "PIA1 p12"
       },
@@ -585,7 +586,7 @@
       },
       "PIA_VAL_CART": {
         "name": "La cartographie des risques",
-        "description": "Ce graphique représente les risques engendrés par le traitement et les risques résiduels compte tenu de l’ensemble des mesures correctives. Il démontre que si les mesures complémentaires décrites dans le plan d'action sont correctement mises en œuvre, la vraissemblance et/ou la gravité des risques résiduels devraient réduire.",
+        "description": "Ce graphique représente les risques engendrés par le traitement et les risques résiduels compte tenu de l’ensemble des mesures correctives. Il démontre que si les mesures complémentaires décrites dans le plan d'action sont correctement mises en œuvre, la vraisemblance et/ou la gravité des risques résiduels devraient réduire.",
     		"source": "Aucune"
       },
       "PIA_VAL_ACT": {
@@ -670,24 +671,24 @@
         "description": "Les personnes concernées pourraient connaître des conséquences significatives, voire irrémédiables, qu’elles pourraient ne pas surmonter<br>Exemples d'impacts :<br>- corporels : affection physique de longue durée ou permanente, altération définitive de l’intégrité physique, décès<br>- matériels : péril financier, dettes importantes, impossibilité de travailler, impossibilité de se reloger, perte de preuves dans le cadre d’un contentieux, perte d’accès à une infrastructure vitale (eau, électricité),etc.<br>- moraux : affection psychologique de longue durée ou permanente, sanction pénale, enlèvement, perte de lien familial, impossibilité d’ester en justice, changement de statut administratif et/ou perte d’autonomie juridique (tutelle), etc."
       },
       "PIA_EX_VRAN": {
-        "name": "Vraissemblance négligeable",
+        "name": "Vraisemblance négligeable",
         "description": "Il ne semble pas possible que les sources de risques retenues puissent réaliser la menace en s’appuyant sur les caractéristiques des supports (ex. : vol de supports papiers stockés dans un local de l’organisme dont l’accès est contrôlé par badge et code d’accès)."
       },
       "PIA_EX_VRAL": {
-        "name": "Vraissemblance limitée",
+        "name": "Vraisemblance limitée",
         "description": "Il semble difficile pour les sources de risques retenues de réaliser la menace en s’appuyant sur les caractéristiques des supports (ex. : vol de supports papiers stockés dans un local de l’organisme dont l’accès est contrôlé par badge)."
       },
       "PIA_EX_VRAI": {
-        "name": "Vraissemblance importante",
+        "name": "Vraisemblance importante",
         "description": "il semble possible pour les sources de risques retenues de réaliser la menace en s’appuyant sur les caractéristiques des supports (ex. : vol de supports papiers stockés dans les bureaux d’un organisme dont l’accès est contrôlé par une personne à l’accueil)."
       },
       "PIA_EX_VRAM": {
-        "name": "Vraissemblance maximale",
+        "name": "Vraisemblance maximale",
         "description": "il semble extrêmement facile pour les sources de risques retenues de réaliser la menace en s’appuyant sur les caractéristiques des supports (ex. : vol de supports papier stockés dans le hall public de l’organisme)."
       },
       "PIA_EX_DC": {
         "name": "Données calculées",
-        "description": "Données pour un système de score, résultat de l’application du score... "
+        "description": "Données pour un système de score, résultat de l’application du score..."
       }
     }
   },
@@ -700,11 +701,11 @@
   "questions": {
     "edit": "Éditer la question",
     "gauges": {
-      "undefined": "(Non définie)",
-      "negligible": "Négligeable",
-      "limited": "Limitée",
-      "important": "Importante",
-      "maximum": "Maximale"
+      "0": "(Non définie)",
+      "1": "Négligeable",
+      "2": "Limitée",
+      "3": "Importante",
+      "4": "Maximale"
     }
   },
   "evaluations": {
@@ -720,17 +721,66 @@
     "placeholder_comment": "Entrez vos commentaires.",
     "gauges": {
       "seriousness": "Prenant en compte le plan d'action, comment ré-évaluez-vous la <span class='red-highlight'>gravité de ce risque</span> ({{value}}) ?",
-      "likelihood": "Prenant en compte le plan d'action, comment ré-évaluez-vous la <span class='red-highlight'>vraissemblance de ce risque</span> ({{value}}) ?",
-      "undefined": "(Non définie)",
-      "negligible": "Négligeable",
-      "limited": "Limitée",
-      "important": "Importante",
-      "maximal": "Maximale"
+      "likelihood": "Prenant en compte le plan d'action, comment ré-évaluez-vous la <span class='red-highlight'>vraisemblance de ce risque</span> ({{value}}) ?",
+      "0": "(Non définie)",
+      "1": "Négligeable",
+      "2": "Limitée",
+      "3": "Importante",
+      "4": "Maximale"
+    },
+    "status": {
+      "0": "En attente",
+      "1": "À corriger",
+      "2": "Améliorable",
+      "3": "Acceptable"
     }
   },
   "help": {
     "title": "Aide",
-    "soon": "Bientôt disponible"
+    "definition": {
+      "data1": {
+        "title": "Utiliser l'Outil PIA",
+        "content": "Contenu en cours d'écriture"
+      },
+      "data2": {
+        "title": "Bugs connus",
+        "qa1": {
+          "title": "Je rencontre des problèmes d’affichage, comme par exemple des icônes ne se rafraîchissant pas ou des éléments de l’interface manquants.",
+          "content": "Lorsque vous rencontrez des problèmes d’affichage, quitter l’application et relancer la. Cela permet en général de corriger ce type de problèmes. Vos données sont sauvegardées en temps réel, vous ne perdrez donc aucune information saisie."
+        },
+        "qa2": {
+          "title": "Je n’arrive pas à éditer les jauges de vraisemblance et gravité des risques",
+          "content": "Ce bug est connu et en cours de traitement. Si vous rencontrez ce problème indiquer dans le champ de justification le niveau de gravité ou vraisemblance que vous estimez, en plus de la justification de cette estimation."
+        },
+        "qa3": {
+          "title": "Je rencontre des problèmes à l’import d’un PIA",
+          "content": "Plusieurs bugs ont été observés lors de l’import d’un PIA, en particulier la disparition des jauges d’évaluation de la gravité et vraisemblance d’un risque. Dans ce cas référez-vous à la question précédente. Si vous ne voyez pas votre PIA apparaître sur le dashboard des PIAs, rafraichissez la page et celui-ci apparaitra."
+        },
+        "qa4": {
+          "title": "Lorsque je fais des copier-coller, mon texte apparait surligné",
+          "content": "Ceci est juste un bug d’affichage et ne compromet en rien les informations saisies dans le PIA. Ce problème sera corrigé rapidement."
+        },
+        "qa5": {
+          "title": "Je n’arrive pas à demander l’évaluation d’une partie",
+          "content": "Pour demander l’évaluation d’une partie, tous les champs doivent être remplis. Veuillez vérifier que cela est le cas. Lors de l’édition d’un risque, il est obligatoire d’indiquer au moins une mesure technique ou organisationnelle traitant le risque."
+        },
+        "qa6": {
+          "title": "Au changement de langue, les textes ne sont pas traduits",
+          "content": "Fermer le PIA que vous éditez et ouvrez-le de nouveau. Les contenus devraient alors apparaitre dans la langue sélectionnée."
+        },
+        "qa7": {
+          "title": "J’ai refusé de valider un PIA, mais ne sait pas quoi faire ensuite",
+          "content": "Actuellement, les icônes du menu de navigation de gauche ne se rafraîchissent pas après un refus de validation. Vous devez visiter de nouveau chaque section, vérifier les informations et évaluation en fonction des motifs du refus et demander une nouvelle fois une validation. Une fois toutes les sections revues, il sera possible de repasser le PIA pour validation."
+        }
+      },
+      "footer": "Si vous rencontrez d’autres problèmes ou si vous avez des suggestions d’amélioration, vous pouvez nous les faire remonter via ce formulaire <a target=\"_blank\" href=\"https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia\">https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia</a>."
+    }
+  },
+  "about": {
+    "title": "A propos de l'Outil PIA",
+    "version_number": "Numéro de version",
+    "description": "Cet outil est originellement conçu par la <a target=\"_blank\" href=\"https://www.cnil.fr\">Commission Nationale Informatique et Liberté (CNIL)</a>, l’autorité de protection des données française, dans une volonté d’accompagnement des responsables de traitement dans leur démarche de conformité au RGPD.<br>Cet outil est libre et ouvert, sous licence GPLv3. Vous pouvez y contribuer en téléchargeant le code source, en le modifiant et en le redistribuant auprès de la communauté.",
+    "licences": "Licences des librairies :"
   },
   "settings": {
     "title": "Paramètres",
@@ -804,11 +854,13 @@
     "pia_author": "Nom de l'auteur",
     "pia_assessor": "Nom de l'évaluateur",
     "pia_validator": "Nom du validateur",
-    "content_choice_ok": "Le traitement pourrait être mis en oeuvre.",
-    "content_choice_nok": "Le traitement ne devrait pas être mis en oeuvre.",
-    "dpo_name": "Nom du DPO",
-    "dpo_status": "Statut du DPO",
-    "dpo_opinion": "Opinion du DPO",
+    "content_choice":  {
+      "0": "Le traitement pourrait être mis en oeuvre.",
+      "1": "Le traitement ne devrait pas être mis en oeuvre."
+    },
+    "dpo_name": "Nom du DPD",
+    "dpo_status": "Statut du DPD",
+    "dpo_opinion": "Opinion du DPD",
     "concerned_people_searched_opinion": "Recherche de l'avis des personnes concernées",
     "people_search_status_ok": "L'avis des personnes concernées a été demandé.",
     "people_search_status_nok": "L'avis des personnes concernées n'a pas été demandé.",
@@ -821,12 +873,13 @@
     "creation_date": "Date de création",
     "attachments": "Pièces jointes",
     "gauges": {
-      "negligible": "Négligeable",
-      "limited": "Limitée",
-      "important": "Importante",
-      "maximal": "Maximale"
+      "1": "Négligeable",
+      "2": "Limitée",
+      "3": "Importante",
+      "4": "Maximale"
     },
     "action_plan": {
+      "title": "Plan d'action",
       "fundamental_principles": "Principes fondamentaux",
       "implementation_date": "Date prévue de mise en œuvre",
       "implementation_responsible": "Responsable de la mise en œuvre",
@@ -837,7 +890,7 @@
   },
   "errors": {
     "title": "Page introuvable.",
-    "content": "Vous pouvez remonter un problème ou une demande en utilisant le gestionnaire de tickets<br>disponible à l'adresse suivante : <a href=\"https://redmine.atnos.io\" target=\"_blank\">https://redmine.atnos.io</a>"
+    "content": "Si vous rencontrez d’autres problèmes ou si vous avez des suggestions d’amélioration,<br>vous pouvez nous les faire remonter via ce formulaire : <a href=\"https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia\" target=\"_blank\">https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia</a>"
   },
   "cartography": {
     "negligible": "Négligeable",
@@ -845,7 +898,7 @@
     "important": "Importante",
     "maximal": "Maximale",
     "seriousness_axe": "Gravité du risque",
-    "likelihood_axe": "Vraissemblance du risque",
+    "likelihood_axe": "Vraisemblance du risque",
     "legend1": "Mesures prévues ou existantes",
     "legend2": "Avec les mesures correctives mises en oeuvre",
     "legend3": "(A)ccès illégitime à des données",
@@ -871,10 +924,10 @@
   "opinions": {
     "edit": "Éditer",
     "content": ", considère(nt) que :",
-    "dpo_opinion": "Avis du DPO",
-    "placeholder_dpo_name": "Nom(s) du(des) DPO",
+    "dpo_opinion": "Avis du DPD",
+    "placeholder_dpo_name": "Nom(s) du(des) DPD",
     "placeholder_dpo_opinion": "Précisez les raisons de votre choix",
-    "dpo_lock": "Veuillez remplir les autres sections avant de pouvoir saisir l'avis du DPO.",
+    "dpo_lock": "Veuillez remplir les autres sections avant de pouvoir saisir l'avis du DPD.",
     "people_opinion": "Avis des personnes concernées",
     "placeholder_concerned_people_name": "Nom(s) de la(des) personne(s) concernée(s)",
     "placeholder_people_opinion": "Décrivez comment les avis ont été collectés et quelle en est l'analyse. Dans le cas où les avis n'ont pas été recherchés, en préciser les raisons.",
@@ -1121,7 +1174,7 @@
           "short_help": "Planifiez en détail la mise en œuvre des mesures complémentaires déterminées au cours du PIA."
         },
         "3": {
-          "title": "Avis du DPO et des personnes concernées",
+          "title": "Avis du DPD et des personnes concernées",
           "short_help": "Présentez le conseil de la personne en charge des aspects informatique et libertés (délégué à la protection des données s'il existe). Présentez l'avis des personnes concernées ou de leurs représentants."
         }
       }

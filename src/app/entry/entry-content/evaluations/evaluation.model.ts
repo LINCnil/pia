@@ -286,4 +286,8 @@ export class Evaluation extends ApplicationDb {
       }
     });
   }
+
+  getStatusName() {
+    return 'evaluations.status.' + this.status;
+  }
 }

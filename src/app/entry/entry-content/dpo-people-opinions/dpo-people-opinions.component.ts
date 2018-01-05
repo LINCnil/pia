@@ -144,7 +144,7 @@ export class DPOPeopleOpinionsComponent implements OnInit {
     }
     this._piaService.pia.update().then(() => {
       this.checkDpoName();
-      this.checkIfDpoOk();
+      this._sidStatusService.setSidStatus(this._piaService, { id: 4 }, { id: 3 });
       if (this.DPOForm.value.DPONames && this.DPOForm.value.DPONames.length > 0) {
         this.DPOForm.controls['DPONames'].disable();
       }
@@ -168,7 +168,7 @@ export class DPOPeopleOpinionsComponent implements OnInit {
   dpoStatusFocusOut() {
     this._piaService.pia.dpo_status = parseInt(this.DPOForm.value.DPOStatus, 10);
     this._piaService.pia.update().then(() => {
-      this.checkIfDpoOk();
+      this._sidStatusService.setSidStatus(this._piaService, { id: 4 }, { id: 3 });
     });
   }
 
@@ -194,7 +194,7 @@ export class DPOPeopleOpinionsComponent implements OnInit {
     }
     this._piaService.pia.dpo_opinion = userText;
     this._piaService.pia.update().then(() => {
-      this.checkIfDpoOk();
+      this._sidStatusService.setSidStatus(this._piaService, { id: 4 }, { id: 3 });
       if (userText && userText.length > 0) {
         this.DPOForm.controls['DPOOpinion'].disable();
       }
@@ -230,7 +230,7 @@ export class DPOPeopleOpinionsComponent implements OnInit {
         this.displayPeopleSearchContent = true;
       }
       this._piaService.pia.update().then(() => {
-        this.checkIfDpoOk();
+        this._sidStatusService.setSidStatus(this._piaService, { id: 4 }, { id: 3 });
       });
     }
   }
@@ -257,7 +257,7 @@ export class DPOPeopleOpinionsComponent implements OnInit {
     }
     this._piaService.pia.concerned_people_searched_content = userText;
     this._piaService.pia.update().then(() => {
-      this.checkIfDpoOk();
+      this._sidStatusService.setSidStatus(this._piaService, { id: 4 }, { id: 3 });
       if (userText && userText.length > 0) {
         this.searchedOpinionsForm.controls['searchContent'].disable();
       }
@@ -295,7 +295,7 @@ export class DPOPeopleOpinionsComponent implements OnInit {
     }
     this._piaService.pia.update().then(() => {
       this.checkConcernedPeopleName();
-      this.checkIfDpoOk();
+      this._sidStatusService.setSidStatus(this._piaService, { id: 4 }, { id: 3 });
       if (this.peopleForm.value.peopleNames && this.peopleForm.value.peopleNames.length > 0) {
         this.peopleForm.controls['peopleNames'].disable();
       }
@@ -320,7 +320,7 @@ export class DPOPeopleOpinionsComponent implements OnInit {
     if (this.peopleForm.value.peopleStatus && this.peopleForm.value.peopleStatus >= 0) {
       this._piaService.pia.concerned_people_status = parseInt(this.peopleForm.value.peopleStatus, 10);
       this._piaService.pia.update().then(() => {
-        this.checkIfDpoOk();
+        this._sidStatusService.setSidStatus(this._piaService, { id: 4 }, { id: 3 });
       });
     }
   }
@@ -347,7 +347,7 @@ export class DPOPeopleOpinionsComponent implements OnInit {
     }
     this._piaService.pia.concerned_people_opinion = userText;
     this._piaService.pia.update().then(() => {
-      this.checkIfDpoOk();
+      this._sidStatusService.setSidStatus(this._piaService, { id: 4 }, { id: 3 });
       if (userText && userText.length > 0) {
         this.peopleForm.controls['peopleOpinion'].disable();
       }
@@ -389,65 +389,4 @@ export class DPOPeopleOpinionsComponent implements OnInit {
       this.peopleForm.controls['peopleOpinion'].patchValue(null);
     }
   }
-
-  /**
-   * Checks is the dpo page is filled to validate its status.
-   */
-  private checkIfDpoOk() {
-    // Check if at least one field has been filled before executing anything
-    if (this._piaService.pia.dpos_names
-        || this._piaService.pia.dpo_status
-        || this._piaService.pia.dpo_opinion
-        || this._piaService.pia.concerned_people_searched_opinion === true
-        || this._piaService.pia.concerned_people_searched_opinion === false) {
-          let dpoFilled = false;
-          let concernedPeopleOpinionSearchedFieldsFilled = false;
-          let concernedPeopleOpinionUnsearchedFieldsFilled = false;
-
-          // Edition enabled
-          this._sidStatusService['itemStatus']['4.3'] = 1;
-
-          // All DPO fields filled = OK
-          if (this._piaService.pia.dpos_names
-            && this._piaService.pia.dpos_names.length > 0
-            && this._piaService.pia.dpo_status !== undefined
-            && this._piaService.pia.dpo_status !== null
-            && this._piaService.pia.dpo_opinion
-            && this._piaService.pia.dpo_opinion.length > 0) {
-              dpoFilled = true;
-          }
-
-          // Concerned people opinion unsearched + no search reason field filled = OK
-          if (this._piaService.pia.concerned_people_searched_opinion === false) {
-
-            if (this._piaService.pia.concerned_people_searched_content
-                && this._piaService.pia.concerned_people_searched_content.length > 0) {
-                  concernedPeopleOpinionUnsearchedFieldsFilled = true;
-            }
-          }
-
-          // Concerned people opinion searched + name(s) + status + opinions = OK :
-          if (this._piaService.pia.concerned_people_searched_opinion === true) {
-            if (this._piaService.pia.people_names
-                && this._piaService.pia.people_names.length > 0
-                && this._piaService.pia.concerned_people_status !== undefined
-                && this._piaService.pia.concerned_people_status !== null
-                && this._piaService.pia.concerned_people_opinion
-                && this._piaService.pia.concerned_people_opinion.length > 0) {
-                  concernedPeopleOpinionSearchedFieldsFilled = true;
-            }
-          }
-
-          // Treatment which validates the subsection if everything is OK
-          // DPO filled + unsearched opinion scenario filled OR DPO filled + searched opinion scenario filled
-          if ((dpoFilled === true && concernedPeopleOpinionUnsearchedFieldsFilled === true)
-              || (dpoFilled === true && concernedPeopleOpinionSearchedFieldsFilled === true)) {
-            this._sidStatusService['itemStatus']['4.3'] = 2;
-          }
-
-    } else {
-      this._sidStatusService['itemStatus']['4.3'] = 0;
-    }
-  }
-
 }

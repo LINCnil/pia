@@ -21,7 +21,8 @@
       "title": "Tools",
       "settings": "Settings",
       "accessibility": "Visually impaired accessibility (high contrast colors, daltonism)",
-      "help": "Help"
+      "help": "Help",
+      "about": "About"
     }
   },
   "homepage": {
@@ -618,22 +619,22 @@
         "source": "PIAF Connected objects p41 - WIKI"
       },
       "PIA_EX_IMPN": {
-        "name": "Negligible impact",
+        "name": "Negligible severity",
         "description": "Data subjects either will not be affected or may encounter a few inconveniences, which they will overcome without any problem.<br>Examples:<br>- physical : transient headaches<br>- material : loss of time in repeating formalities or waiting for them to be fulfilled, receipt of unsolicited mail (e.g.: spams), reuse of data published on websites for the purpose of targeted advertising , etc.,<br>- moral : mere annoyance, feeling of invasion of privacy without real or objective harm (commercial intrusion), etc.",
         "source": "PIAF Connected Objects p41 - WIKI"
       },
       "PIA_EX_IMPL": {
-        "name": "Limited impact",
+        "name": "Limited severity",
         "description": "Data subjects may encounter significant inconveniences, which they will be able to overcome despite a few difficulties<br>Examples :<br>- physical : minor physical ailments (minor illness due to disregard of contraindications), defamation resulting in physical or psychological retaliation, etc.<br>- material : Unanticipated payments (fines imposed erroneously), denial of access to administrative or commercial services , Receipt of unsolicited targeted mailings likely to damage the reputation of data subjects, etc.<br>- moral : minor but objective psychological ailments, feeling of invasion of privacy without irreversible damage, intimidation on social networks, etc.",
         "source": "PIAF Connected objects p41 - WIKI"
       },
       "PIA_EX_IMPI": {
-        "name": "Significant impact",
+        "name": "Significant severity",
         "description": "Data subjects may encounter significant consequences, which they should be able to overcome albeit with real and serious difficulties<br>Examples: <br>- physical : serious physical ailments causing long-term harm (worsening of health due to improper care, or disregard of contraindications), lteration of physical integrity for example following an assault, an accident at home, work, etc.<br>- material : misappropriation of money not compensated, targeted, unique and non-recurring, lost opportunities  (home loan, refusal of studies, internships or employment, examination ban), loss of housing, loss of employment, etc.<br>- moral : serious psychological ailments (depression, development of a phobia), feeling of invasion of privacy with irreversible damage, victim of blackmailing, cyberbullying and harassment, etc.",
         "source": "PIAF Connected objects p41 - WIKI"
       },
       "PIA_EX_IMPM": {
-        "name": "Maximum impact",
+        "name": "Maximum severity",
         "description": "Data subjects may encounter significant, or even irreversible, consequences, which they may not overcome<br>Examples :<br>- physical : long-term or permanent physical ailments, permanent impairment of physical integrity, death<br>- material : financial risk, substantial debts, inability to work, inability to relocate, loss of evidence in the context of litigation, loss of access to vital infrastructure (water, electricity), etc.<br>- moral : long-term or permanent psychological ailments, criminal penalty, abduction, loss of family ties, inability to sue, change of administrative status and/or loss of legal autonomy (guardianship), etc.",
         "source": "PIAF Connected objects p41 - WIKI"
       },
@@ -709,11 +710,11 @@
   "questions": {
     "edit": "Edit question",
     "gauges": {
-      "undefined": "(Undefined)",
-      "negligible": "Negligible",
-      "limited": "Limited",
-      "important": "Important",
-      "maximal": "Maximum"
+      "0": "(Undefined)",
+      "1": "Negligible",
+      "2": "Limited",
+      "3": "Important",
+      "4": "Maximum"
     }
   },
   "evaluations": {
@@ -730,16 +731,68 @@
     "gauges": {
       "seriousness": "Taking into account the action plan, how do you re-evaluate the <span class='red-highlight'>seriousness of this risk</span> ({{value}})?",
       "likelihood": "Taking into account the action plan, how do you re-evaluate the <span class='red-highlight'>likelihood of this risk</span> ({{value}})?",
-      "undefined": "(Undefined)",
-      "negligible": "Negligible",
-      "limited": "Limited",
-      "important": "Important",
-      "maximal": "Maximum"
+      "0": "(Undefined)",
+      "1": "Negligible",
+      "2": "Limited",
+      "3": "Important",
+      "4": "Maximum"
+    },
+    "status": {
+      "0": "Pending",
+      "1": "To correct",
+      "2": "Improvable",
+      "3": "Acceptable"
     }
   },
   "help": {
     "title": "Help",
-    "soon": "Soonly available!"
+    "definition": {
+      "data1": {
+        "title": "Use the PIA tool",
+        "content": "Content being written"
+      },
+      "data2": {
+        "title": "Known Issues",
+        "qa1": {
+          "title": "I get display issues such as icons being stuck in one state or missing elements from the interface",
+          "content": "When encountering those display issues, close the application and reload it. It usually fixes the issue. You won’t lose the information you have entered ; it is  automatically saved as you type."
+        },
+        "qa2": {
+          "title": "I can’t edit the gauges for evaluating the severity and likelihood of a risk",
+          "content": "This known issue is currently being fixed. If you encounter this problem, we recommend that you fill in the justification field of the estimated level of severity and / or likelihood. You will be able to edit the gauge once the bug is fixed."
+        },
+        "qa3": {
+          "title": "I encounter issues when importing a PIA",
+          "content": "Several bugs have been observed when importing a PIA, and in particular the level gauges for evaluating the severity and likelihood of a risk may disappear. In this case, please refer to the above mentioned issue. Besides, a PIA may not appear on the dashboard after importing it. This is a display issue and you just need to refresh the page."
+        },
+        "qa4": {
+          "title": "When I copy / paste text, it is highlighted.",
+          "content": "This is only a display bug and it has no effect on the text you enter in a field. This visual problem will be fixed soon."
+        },
+        "qa5": {
+          "title": "I can’t evaluate a section",
+          "content": "In order to evaluate a section, it is mandatory to fill in all the fields. Please check if this is the case. When editing a risk, you must have at least one technical or organizational measure that mitigates the risk in order to ask for an evaluation of the risk."
+        },
+        "qa6": {
+          "title": "When switching language, the texts are not translated",
+          "content": "Please close the PIA you are editing and re-open it. The content should then be displayed in the language you have selected."
+        },
+        "qa7": {
+          "title": "I have refused to validate a PIA but I don’t know what to do now",
+          "content": "For the moment, the navigation menu icons are not refreshed after refusing a PIA. You have to check each section and change the information and/or evaluation according to the reasons for refusing the PIA. Once all section have been reviewed, you should be able to request PIA validation again."
+        }
+      },
+      "footer": ""
+    }
+  },
+  "about": {
+    "title": "About the Tool PIA",
+    "version_number": "Version number",
+    "description": "This tool is originally designed by the <a target=\"_blank\" href=\"https://www.cnil.fr\">Commission Nationale Informatique et Liberté (CNIL)</a>, the French Data Protection Authority, to help data processor to be compliant with the GDPR.<br>This software is free and open. If you wish to get involved in this project, you are welcome to download the source code from Github, modify it and share it with the community.",
+    "licences": "Library licences:"
+  },
+  "about": {
+    "title": "About"
   },
   "settings": {
     "title": "Settings",
@@ -813,8 +866,10 @@
     "pia_author": "Author's name",
     "pia_assessor": "Assessor's name",
     "pia_validator": "Validator's name",
-    "content_choice_ok": "The treatment could be implemented.",
-    "content_choice_nok": "The treatment should not be used.",
+    "content_choice": {
+      "0": "The treatment could be implemented.",
+      "1": "The treatment should not be used."
+    },
     "dpo_name": "DPO's name",
     "dpo_status": "DPO's status",
     "dpo_opinion": "DPO's opinion",
@@ -830,12 +885,13 @@
     "creation_date": "Creation date",
     "attachments": "Attachments",
     "gauges": {
-      "negligible": "Negligible",
-      "limited": "Limited",
-      "important": "Important",
-      "maximal": "Maximum"
+      "1": "Negligible",
+      "2": "Limited",
+      "3": "Important",
+      "4": "Maximum"
     },
     "action_plan": {
+      "title": "Action plan",
       "fundamental_principles": "Fundamental principles",
       "implementation_date": "Expected date of implementation",
       "implementation_responsible": "Responsible for implementation",
@@ -846,7 +902,7 @@
   },
   "errors": {
     "title": "Page not found.",
-    "content": "You can upload a problem or request using the ticket manager<br>available at the following address: <a href='https://redmine.atnos.io' target='_blank'>https://redmine.atnos.io</a>"
+    "content": "If you encounter other problems or if you have suggestions for improvement,<br>you can send them back via this form: <a href=\"https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia\" target=\"_blank\">https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia</a>"
   },
     "cartography": {
     "negligible": "Negligible",

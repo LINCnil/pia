@@ -25,11 +25,13 @@ export class Attachment extends ApplicationDb {
     return new Promise((resolve, reject) => {
       if (this.serverUrl) {
         const formData = new FormData();
-        for(let d in data) {
-          formData.append('attachment[' + d + ']', data[d]);
+        for (const d in data) {
+          if (data.hasOwnProperty(d)) {
+            formData.append('attachment[' + d + ']', data[d]);
+          }
         }
         fetch(this.getServerUrl(), {
-          method: "POST",
+          method: 'POST',
           body: formData
         }).then(function(response) {
           return response.json();

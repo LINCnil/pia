@@ -129,6 +129,41 @@ export class EvaluationService {
     this._modalsService.openModal('ask-for-evaluation');
   }
 
+  /**
+   * Allow an user to cancel an evaluation for a section
+   * @memberof EvaluationService
+   */
+  async cancelForEvaluation(piaService: any, sidStatusService: any, section: any, item: any) {
+    // Creates evaluations according to evaluation_mode
+    if (this.item.evaluation_mode === 'item') {
+      this.deleteEvaluationInDb(section.id + '.' + item.id).then(() => {
+        sidStatusService.removeSidStatus(piaService, section, item);
+        this.allAwsersIsInEvaluation(section, item);
+      });
+    } else {
+      let count = 0;
+      const countAnswers = this.answers.length;
+      this.answers.forEach((answer) => {
+        return new Promise((resolve, reject) => {
+          let reference_to = null;
+          reference_to = section.id + '.' + item.id + '.' + answer.reference_to;
+          if (item.is_measure) {
+            reference_to = section.id + '.' + item.id + '.' + answer;
+          }
+          this.deleteEvaluationInDb(reference_to).then(() => {
+            count += 1;
+            resolve();
+          });
+        }).then(() => {
+          if (count ===  countAnswers) {
+            sidStatusService.removeSidStatus(piaService, section, item);
+            this.allAwsersIsInEvaluation(section, item);
+          }
+        });
+      });
+    }
+  }
+
   allAwsersIsInEvaluation(section: any, item: any) {
     this.someItemNeedToBeFixed = false;
     this.showValidationButton = false;
@@ -241,6 +276,47 @@ export class EvaluationService {
     });
   }
 
+  async cancelValidation() {
+    return new Promise((resolve, reject) => {
+      let reference_to = '';
+      if (this.item.evaluation_mode === 'item') {
+        reference_to = this.section.id + '.' + this.item.id;
+        const evaluation = new Evaluation();
+        evaluation.getByReference(this.pia.id, reference_to).then(() => {
+          evaluation.global_status = 0;
+          evaluation.update().then(() => {
+            this.showValidationButton = true;
+            this.enableFinalValidation = false;
+            resolve(true);
+          });
+        });
+      } else if (this.answers.length > 0) {
+        let count = 0;
+        this.answers.forEach((answer) => {
+          if (this.item.is_measure) {
+            // For measure
+            reference_to = this.section.id + '.' + this.item.id + '.' + answer;
+          } else {
+            // For question
+            reference_to = this.section.id + '.' + this.item.id + '.' + answer.reference_to;
+          }
+          const evaluation = new Evaluation();
+          evaluation.getByReference(this.pia.id, reference_to).then(() => {
+            evaluation.global_status = 0;
+            evaluation.update().then(() => {
+              count += 1;
+              if (count === this.answers.length) {
+                this.showValidationButton = true;
+                this.enableFinalValidation = false;
+                resolve(true);
+              }
+            });
+          });
+        });
+      }
+    });
+  }
+
   isAllEvaluationValidated() {
     this.isAllEvaluationValidated2(this.section.id, this.item);
   }
@@ -342,6 +418,21 @@ export class EvaluationService {
           this.someItemNeedToBeFixed = false;
           evaluation.status = 0;
           evaluation.update().then(() => {
+            resolve();
+          });
+        } else {
+          resolve();
+        }
+      });
+    });
+  }
+
+  private async deleteEvaluationInDb(reference_to: string) {
+    const evaluation = new Evaluation();
+    return new Promise((resolve, reject) => {
+      evaluation.getByReference(this.pia.id, reference_to).then((entry: any) => {
+        if (entry !== false) {
+          evaluation.delete(evaluation.id).then(() => {
             resolve();
           });
         } else {

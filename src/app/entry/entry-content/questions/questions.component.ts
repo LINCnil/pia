@@ -132,7 +132,6 @@ export class QuestionsComponent implements OnInit, OnDestroy {
    * Disables question field + shows edit button + save data.
    */
   questionContentFocusOut() {
-    this._knowledgeBaseService.placeholder = null;
     let userText = this.questionForm.controls['text'].value;
     if (userText) {
       userText = userText.replace(/^\s+/, '').replace(/\s+$/, '');
@@ -309,10 +308,9 @@ export class QuestionsComponent implements OnInit, OnDestroy {
       setup: editor => {
         this.editor = editor;
         editor.on('focusout', () => {
-          this.editor = null;
           this.questionForm.controls['text'].patchValue(editor.getContent());
           this.questionContentFocusOut();
-          tinymce.remove(this.editor);
+          this.closeEditor();
         });
       },
     });
@@ -323,5 +321,11 @@ export class QuestionsComponent implements OnInit, OnDestroy {
    */
   ngOnDestroy() {
     tinymce.remove(this.editor);
+  }
+
+  private closeEditor() {
+    this._knowledgeBaseService.placeholder = null;
+    tinymce.remove(this.editor);
+    this.editor = null;
   }
 }
