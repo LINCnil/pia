@@ -138,9 +138,9 @@ export class DPOPeopleOpinionsComponent implements OnInit {
       this._piaService.pia.dpos_names = null;
       this._piaService.pia.dpo_status = null;
       this._piaService.pia.dpo_opinion = null;
-      this.DPOForm.controls['DPOOpinion'].patchValue(null);
       this.DPOForm.controls['DPONames'].patchValue(null);
       this.DPOForm.controls['DPOStatus'].patchValue(null);
+      this.DPOForm.controls['DPOOpinion'].patchValue(null);
     }
     this._piaService.pia.update().then(() => {
       this.checkDpoName();
