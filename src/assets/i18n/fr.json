@@ -208,7 +208,7 @@
       "PIA_LGL_DUR": {
         "name": "Durée de conservation des données",
         "description": "Une durée de conservation doit être définie pour chaque type de données et justifiée par les besoins du traitement et/ou des contraintes légales. On distingue ainsi les données courantes et les données archivées dont l’accès sera restreint aux seuls acteurs concernées. Un mécanisme de suppression doit être implémenté pour archiver les données courantes ou purger les données archivées à la fin de leur période de conservation. Les traces fonctionnelles devront également être purgées, tout comme les logs techniques qui ne pourront pas être conservés indéfiniment.",
-        "source": "PIAF Objets conectés p10"
+        "source": "PIAF Objets connectés p10"
       },
       "PIA_LGL_INFO": {
         "name": "Information de l'utilisateur du service au sujet de l'utilisation de ses données",
@@ -302,7 +302,7 @@
         "source":"WIKI Gestion_des_postes_de_travail"
       },
       "PIA_SEC_WEB": {
-        "placeholder": "Décrivez ici les méthodes et moyens mis en oeuvres pour protéger les sites web.",
+        "placeholder": "Décrivez ici les méthodes et moyens mis en oeuvre pour protéger les sites web.",
         "name": "Protection des sites web",
         "description": "Méthodes et moyens mis en place pour diminuer la possibilité que les caractéristiques des sites web soient exploitées pour porter atteinte aux données à caractère personnel (référentiel général de sécurité, chiffrement TLS des flux, politique de dépôt de cookies, audits de sécurité, etc.).",
         "source": "WIKI Sécurité_des_sites_web"
@@ -316,7 +316,7 @@
       "PIA_SEC_MAIN": {
         "placeholder": "Décrivez ici comment est gérée la maintenance physique des équipements.",
         "name": "Maintenance",
-        "description": "Existence d'une politique de maintenance physique des équipements, précisant le recours éventue à la sous-traitance.<br>Elle devra encadrer la maintenance à distance si elle est autorisée, et préciser les méthodes de gestion des matériels défectueux.",
+        "description": "Existence d'une politique de maintenance physique des équipements, précisant le recours éventuel à la sous-traitance.<br>Elle devra encadrer la maintenance à distance si elle est autorisée, et préciser les méthodes de gestion des matériels défectueux.",
         "source": "PIAF Objets connectés p25"
       },
       "PIA_SEC_CTR": {
@@ -326,13 +326,13 @@
         "source": "Guide Bleu 2017 p19 et https://www.cnil.fr/fr/cloud-computing-les-conseils-de-la-cnil-pour-les-entreprises-qui-utilisent-ces-nouveaux-services"
       },
       "PIA_SEC_NET": {
-        "placeholder": "Indiquez ici sur quel type de réseau le traitement est mis en œuvre et les équipement assurant sa sécurisation.",
+        "placeholder": "Indiquez ici sur quel type de réseau le traitement est mis en œuvre et les équipements assurant sa sécurisation.",
         "name": "Sécurisation des canaux informatiques",
         "description": "En fonction du type de réseau sur lequel le traitement est mis en œuvre (isolé, privé, ou Internet), le responsable de traitement doit mettre en place des systèmes de protection adéquats : pare-feu, sondes de détection d'intrusion ou autres dispositifs actifs ou passifs sont chargés d'assurer la sécurité du réseau.",
     		"source": "PIAF Objets connectés p25"
       },
       "PIA_SEC_PHY": {
-        "placeholder":"Indiquez ici la manière dont est réalisé le contrôle d’accès physique aux locaux hébergeant le traitement.",
+        "placeholder":"Indiquez ici la manière dont est réalisée le contrôle d’accès physique aux locaux hébergeant le traitement.",
         "name": "Sécurité physique",
         "description": "Existence d'un contrôle des accès physique aux locaux hébergeant le traitement (zonage, accompagnement des visiteurs, port de badge, portes verrouillées, etc.).<br>Indiquez s’il existe des moyens d’alerte en cas d’effraction.",
     		"source": "PIAF Objets connectés p25"
@@ -344,7 +344,7 @@
         "source": "WIKI Surveillance"
       },
       "PIA_SEC_MAT": {
-        "placeholder":"Décrivez ici les méthodes et moyens mis en place pour limiter les risques d'attaques contre le matériel utilisés par le traitement.",
+        "placeholder":"Décrivez ici les méthodes et moyens mis en place pour limiter les risques d'attaques contre le matériel utilisé par le traitement.",
         "name": "Sécurisation des matériels",
         "description": "Existence de mesures prises pour diminuer la possibilité que les caractéristiques des matériels (serveurs, postes fixes, ordinateurs portables, périphériques, relais de communication, supports amovibles, etc.) soient exploitées pour porter atteinte aux données à caractère personnel (inventaire, cloisonnement, redondance matérielle, limiter l'accès, etc.).",
         "source": "WIKI Sécurité_des_matériels"
@@ -556,7 +556,7 @@
       },
       "PIA_DEF_MENM": {
         "name": "Menaces pouvant conduire à une modification illégitime aux données",
-        "description": "<strong>Menaces concernant : </strong><br>- <strong>Les matériels</strong> qui ont été modifiés (ajout d'un matériel incompatible, retrait d'un indispensable, etc.)<br>- <strong>Les logiciels</strong> utilisés de manière inadaptée ou modifiés (erreur de manipulation, modifications inopportunes, etc.)<br>- <strong>Les canaux informatiques</strong> qui sont utilisés de manière inadaptée (réémission de flux intercepté, etc.)<br>- <strong>Les personnes</strong> surchargées ou détournées (tâche non maîtrisée, pertubation des conditions de travail, influence, etc.)<br>- Les documents papier qui ont été modifiés (modification de document, remplacement par un faux, etc.)<br>- <strong>Les canaux papier</strong> qui ont été modifiés (échange de parapheur, envoi de courriers contradictoires, etc.)",
+        "description": "<strong>Menaces concernant : </strong><br>- <strong>Les matériels</strong> qui ont été modifiés (ajout d'un matériel incompatible, retrait d'un indispensable, etc.)<br>- <strong>Les logiciels</strong> utilisés de manière inadaptée ou modifiés (erreur de manipulation, modifications inopportunes, etc.)<br>- <strong>Les canaux informatiques</strong> qui sont utilisés de manière inadaptée (réémission de flux intercepté, etc.)<br>- <strong>Les personnes</strong> surchargées ou détournées (tâche non maîtrisée, perturbation des conditions de travail, influence, etc.)<br>- Les documents papier qui ont été modifiés (modification de document, remplacement par un faux, etc.)<br>- <strong>Les canaux papier</strong> qui ont été modifiés (échange de parapheur, envoi de courriers contradictoires, etc.)",
     		"source": "WIKI Menaces_pouvant_mener_à_une_modification_non_désirées_de_données"
       },
       "PIA_DEF_MENI": {
@@ -664,7 +664,7 @@
       },
       "PIA_EX_IMPI": {
         "name": "Impact Important",
-        "description": "Les personnes concernées pourraient connaître des conséquences significatives, qu’elles devraient pouvoir surmonter, mais avec des difficultés réelles et significatives<br>Exemples d'impacts :<br>- corporels : affection physique grave causant un préjudice à long terme (aggravation de l’état de santé suite à une mauvaise prise en charge, ou au non respect de contre-indications), ltération de l’intégrité corporelle, etc.<br>- matériels : détournements d’argent non indemnisé, opportunités ciblées, uniques et non récurrentes, perdues (prêt immobilier, études, stages ou emploi, interdiction d’examen), perte de logement, perte d’emploi, etc.<br>- moraux : Affection psychologique grave (dépression, phobie), sentiment d’atteinte à la vie privée et de préjudice irrémédiable, victime de chantage, cyberbullying et harcèlement moral, etc."
+        "description": "Les personnes concernées pourraient connaître des conséquences significatives, qu’elles devraient pouvoir surmonter, mais avec des difficultés réelles et significatives<br>Exemples d'impacts :<br>- corporels : affection physique grave causant un préjudice à long terme (aggravation de l’état de santé suite à une mauvaise prise en charge, ou au non respect de contre-indications), altération de l’intégrité corporelle, etc.<br>- matériels : détournements d’argent non indemnisé, opportunités ciblées, uniques et non récurrentes, perdues (prêt immobilier, études, stages ou emploi, interdiction d’examen), perte de logement, perte d’emploi, etc.<br>- moraux : Affection psychologique grave (dépression, phobie), sentiment d’atteinte à la vie privée et de préjudice irrémédiable, victime de chantage, cyberbullying et harcèlement moral, etc."
       },
       "PIA_EX_IMPM": {
         "name": "Impact maximal",
@@ -965,7 +965,7 @@
           "questions": {
             "1": {
               "title": "Quelles sont les données traitées ?",
-              "placeholder": "Listez les données collectées et traitées en indiquant les durées de conservation, les destinataires et les personnes pouvant y accèder."
+              "placeholder": "Listez les données collectées et traitées en indiquant les durées de conservation, les destinataires et les personnes pouvant y accéder."
             },
             "2": {
               "title": "Comment le cycle de vie des données se déroule-t-il (description fonctionnelle) ?",
