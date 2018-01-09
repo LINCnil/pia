@@ -6,7 +6,7 @@
       <p>Aprés lecture intégrale du PIA concernant le traitement des données liées à l'activité de <span class="blue">{{_piaService.pia.name}}</span></p>
       <form [formGroup]="validateForm" (change)="checkValidationFormStatus()" novalidate>
         <div class="pia-entryContentBlock-content-list-confirm" [ngClass]="{'validate': _piaService.pia.status > 1}">
-          <input type="checkbox" formControlName="validateStatus1" checked="checked" (click)="lockStatus($event)" id="checkbox-1" value="1">
+          <input type="checkbox" formControlName="validateStatus1" (click)="lockStatus($event)" id="checkbox-1" value="1">
           <label for="checkbox-1">
             <span class="pia-list-confirm-icon">
               <i class="fa fa-circle" aria-hidden="true"></i>
@@ -47,8 +47,8 @@
         </div>
         <div class="pia-entryContentBlock-content-btn-valid">
           <a routerLink="/entry/{{_piaService.pia.id}}/section/4/item/5" class="btn btn-red" title="Refuser la validation">Refuser la validation</a>
-          <button type="submit" class="btn btn-blue" [ngClass]="{'btn-active': _piaService.pia.status === 2}" (click)="simplePIAValidation()" id="pia-simple-validation" [disabled]="_piaService.pia.status <= 0" title="Validation simple">Validation simple</button>
-          <button type="submit" class="btn btn-red" [ngClass]="{'btn-active': _piaService.pia.status === 3}" (click)="signedPIAValidation()" id="pia-sign-validation" [disabled]="_piaService.pia.status <= 0" title="Faire signer le PIA par le responsable">Faire signer le PIA par le responsable</button>
+          <button type="submit" class="btn btn-blue" [ngClass]="{'btn-active': _piaService.pia.status === 2}" (click)="simplePIAValidation()" id="pia-simple-validation" [disabled]="_piaService.pia.status <= 1" title="Validation simple">Validation simple</button>
+          <button type="submit" class="btn btn-red" [ngClass]="{'btn-active': _piaService.pia.status === 3}" (click)="signedPIAValidation()" id="pia-sign-validation" [disabled]="_piaService.pia.status <= 1" title="Faire signer le PIA par le responsable">Faire signer le PIA par le responsable</button>
         </div>
         <p>Tous les champs doivent être cochés</p>
       </form>
