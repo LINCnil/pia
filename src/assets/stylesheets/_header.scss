@@ -49,14 +49,14 @@
           padding: 0;
           margin: 0;
           position: absolute;
+          padding-bottom: 8px;
           top: 28px;
           left: -1px;
+          min-width: 165px;
           color: $pia-blue;
-          width: 58px;
           box-shadow: 2px 2px 4px 1px rgba(181, 181, 181, 1);
           li {
-            text-align: center;
-            width: 58px;
+            text-align: left;
             color: #fff;
             cursor: pointer;
             a {
@@ -65,6 +65,7 @@
               font-weight: normal;
               text-decoration: none;
               color: $pia-blue;
+              padding: 0 8px;
             }
             &.is_active {
               background-color: $pia-blue !important;
@@ -72,6 +73,20 @@
                 color: $pia-white !important;
               }
             }
+          }
+          .englishTranslation {
+            padding-bottom: 5px;
+          }
+          .officialTranslations,
+          .unofficialTranslations {
+            font-weight: 600;
+            color: #393939;
+            list-style-type: none;
+            padding: 5px 8px;
+          }
+          .unofficialTranslations {
+            border-top: 1px solid #A7A7A7;
+            padding-bottom: 3px;
           }
         }
         &:hover {
@@ -146,8 +161,7 @@
           position: absolute;
           width: 185px;
           top: 28px;
-          left: -93px;
-          right: 0;
+          right: -1px;
           color: $pia-light-black;
           padding: 23px 6px 24px 10px;
           z-index: 999;
@@ -160,6 +174,9 @@
               padding-left: 5px;
               a {
                 cursor: pointer;
+                &:hover {
+                  font-weight: 500 !important;
+                }
               }
             }
           }
@@ -191,8 +208,11 @@
               padding: 0;
               margin-bottom: 0;
             }
-            a {
+            > a {
               cursor: pointer;
+              &:hover {
+                font-weight: 500 !important;
+              }
             }
           }
           a {

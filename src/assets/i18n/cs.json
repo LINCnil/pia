@@ -14,9 +14,13 @@
     "knowledge_base_link": "Znalostní báze",
     "pia_example_link": "PIA příklad",
     "languages": {
+      "official_translations": "Oficiální překlady",
+      "unofficial_translations": "Neoficiální překlady",
       "fr": "Francouzky",
       "en": "Anglicky",
-      "cs": "Česky"
+      "cs": "Česky",
+      "it": "Italský",
+      "nl": "Holandský"
     },
     "tools": {
       "title": "Nástroje",
@@ -41,7 +45,7 @@
       "new_pia": "Nová PIA",
       "import_pia": "Importovat PIA",
       "list_rocket_content": "Začínáme! Chcete-li zahájit PIA, klikněte na tlačítko +",
-      "card_rocket_content": "Začínáme! <br><br>Chcete-li iniciovat PIA, klikněte na Nová PIA"
+      "card_rocket_content": "Začínáme! <br><br>Chcete-li iniciovat PIA,<br> klikněte na Nová PIA"
     },
     "cards": {
      "new_pia": "Nová PIA",
@@ -792,9 +796,6 @@
     "description": "This tool is originally designed by the <a target=\"_blank\" href=\"https://www.cnil.fr\">Commission Nationale Informatique et Liberté (CNIL)</a>, the French Data Protection Authority, to help data processor to be compliant with the GDPR.<br>This software is free and open. If you wish to get involved in this project, you are welcome to download the source code from Github, modify it and share it with the community.",
     "licences": "Library licences:"
   },
-  "about": {
-    "title": "O nás"
-  },
   "settings": {
     "title": "Nastavení",
     "content": "Uveďte adresu (URL) vzdáleného serveru:",
@@ -868,8 +869,8 @@
     "pia_assessor": "Jméno Posuzovatele",
     "pia_validator": "Jméno Validátora",
     "content_choice": {
-      "0": "Úprava může být provedena.",
-      "1": "Úprava může být použita."
+      "0": "Léčba by neměla být prováděna.",
+      "1": "Léčba by mohla být provedena."
     },
     "dpo_name": "Jméno DPO Poběřence osobních údajů",
     "dpo_status": "Stav DPO Poběřence osobních údajů",

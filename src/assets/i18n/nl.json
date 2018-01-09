@@ -5,7 +5,7 @@
     "subtitle2": "Toegang tot hulpmiddelen en woordenlijsten",
     "start_app": "Toegang krijgen tot de PIA-software (Beta)",
     "description": "Deze software van de <strong> Franse autoriteit voor gegevensbescherming (CNIL) </strong> is bedoeld als richtlijn voor de gegevenscontrollers bij het samenstellen en aantonen van naleving van de GDPR. Het helpt om een gegevensbeschermingseffectbeoordeling goed uit te voeren door het gebruik van de door de CNIL ontwikkelde PIA-methode te vergemakkelijken.",
-    "start": "Start"
+    "start": "Beginnen"
   },
   "header": {
     "logo_title": "Privacy Impact Assessment",
@@ -14,9 +14,13 @@
     "knowledge_base_link": "Knowledge base",
     "pia_example_link": "PIA voorbeeld",
     "languages": {
-      "fr": "French",
-      "en": "English",
-	    "nl": "Nederlands"
+      "official_translations": "Officiële vertalingen",
+      "unofficial_translations": "Niet-officiële vertalingen",
+      "fr": "Frans",
+      "en": "Engels",
+      "cs": "Tsjechisch",
+      "it": "Italiaans",
+      "nl": "Nederlands"
     },
     "tools": {
       "title": "Tools",
@@ -61,7 +65,7 @@
      "date": "Datum",
      "status": "Status",
      "creation_status": "Creatie",
-     "start": "Start",
+     "start": "Beginnen",
      "placeholder_start": "Alle velden moeten worden ingevuld",
      "item": {
         "tools": {
@@ -792,9 +796,6 @@
     "description": "Deze tool is oorspronkelijk ontworpen door de <a target=\"_blank\" href=\"https://www.cnil.fr\"> Commission Nationale Informatique et Liberté (CNIL) </a>, de Franse autoriteit voor gegevensbescherming , om de dataprocessor te helpen voldoen aan de GDPR. <br> Deze software is gratis en open. Als u mee wilt doen aan dit project, kunt u de broncode downloaden van Github, wijzigen en delen met de community.",
     "licences": "Bibliotheeklicenties:"
   },
-  "about": {
-    "title": "Over"
-  },
   "settings": {
     "title": "Instellingen",
     "content": "Geef het adres (de URL) op van de externe server:",
@@ -868,8 +869,8 @@
     "pia_assessor": "Naam van de beoordelaar",
     "pia_validator": "Validator's naam",
     "content_choice": {
-      "0": "De behandeling zou kunnen worden geïmplementeerd.",
-      "1": "De behandeling mag niet worden gebruikt."
+      "0": "De behandeling mag niet worden gebruikt.",
+      "1": "De behandeling zou kunnen worden geïmplementeerd."
     },
     "dpo_name": "DPO's / FG naam",
     "dpo_status": "DPO's / FG status",

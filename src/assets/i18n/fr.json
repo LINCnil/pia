@@ -14,8 +14,13 @@
     "knowledge_base_link": "Base de connaissances",
     "pia_example_link": "Exemple de PIA",
     "languages": {
+      "official_translations": "Traductions officielles",
+      "unofficial_translations": "Traductions non-officielles",
       "fr": "Français",
-      "en": "Anglais"
+      "en": "Anglais",
+      "cs": "Tchèque",
+      "it": "Italien",
+      "nl": "Néerlandais"
     },
     "tools": {
       "title": "Outils",
@@ -849,14 +854,16 @@
   "summary": {
     "previous_page": "Retour à la page précédente",
     "print": "Imprimer",
+    "display_pia": "Afficher le PIA",
+    "display_action_plan": "Afficher le<br>plan d'action",
     "title": "Informations du PIA",
     "pia_name": "Nom du PIA",
     "pia_author": "Nom de l'auteur",
     "pia_assessor": "Nom de l'évaluateur",
     "pia_validator": "Nom du validateur",
     "content_choice":  {
-      "0": "Le traitement pourrait être mis en oeuvre.",
-      "1": "Le traitement ne devrait pas être mis en oeuvre."
+      "0": "Le traitement ne devrait pas être mis en oeuvre.",
+      "1": "Le traitement pourrait être mis en oeuvre."
     },
     "dpo_name": "Nom du DPD",
     "dpo_status": "Statut du DPD",

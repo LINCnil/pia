@@ -22,7 +22,7 @@
       <div [innerHTML]="'pia.header.display_action_plan' | translate"></div>
     </a>
     <ng-template #defaultBlock>
-      <a  routerLink="/summary/{{_piaService.pia.id}}/pia" class="btn pia-previewBlock">
+      <a routerLink="/summary/{{_piaService.pia.id}}/pia" class="btn pia-previewBlock">
         <span class="pia-icons pia-icon-preview"></span>
         <div>{{ 'pia.header.preview' | translate }}</div>
       </a>

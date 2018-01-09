@@ -14,8 +14,13 @@
         "knowledge_base_link": "Documentazione",
         "pia_example_link": "Esempio di PIA",
         "languages": {
+            "official_translations": "Traduzioni ufficiali",
+            "unofficial_translations": "Traduzioni non ufficiali",
             "fr": "Francese",
-            "en": "Inglese"
+            "en": "Inglese",
+            "cs": "Ceco",
+            "it": "Italiano",
+            "nl": "Olandese"
         },
         "tools": {
             "title": "Strumenti",
@@ -786,7 +791,10 @@
         }
     },
     "about": {
-        "title": "Informazioni"
+        "title": "Informazioni",
+        "version_number": "Numéro de version",
+        "description": "To be translated",
+        "licences": "To be translated"
     },
     "settings": {
         "title": "Impostazioni",
@@ -861,8 +869,8 @@
         "pia_assessor": "Nome assessore",
         "pia_validator": "Nome convalidatore",
         "content_choice": {
-            "0": "Il trattamento può essere implementato.",
-            "1": "Il trattamento no dovrebbe essere usato."
+            "0": "Il trattamento no dovrebbe essere usato.",
+            "1": "Il trattamento potrebbe essere implementato."
         },
         "dpo_name": "Nome DPO",
         "dpo_status": "Stato DPO",

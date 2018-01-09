@@ -5,7 +5,7 @@ import { Answer } from 'app/entry/entry-content/questions/answer.model';
 import { Measure } from 'app/entry/entry-content/measures/measure.model';
 import { Evaluation } from 'app/entry/entry-content/evaluations/evaluation.model';
 import { ActionPlanService } from 'app/entry/entry-content/action-plan//action-plan.service';
-import { ActivatedRoute, Params } from '@angular/router';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 import { AppDataService } from 'app/services/app-data.service';
 
 import { TranslateService } from '@ngx-translate/core';
@@ -36,21 +36,27 @@ export class SummaryComponent implements OnInit {
     this.dataNav = await this._appDataService.getDataNav();
     this._piaService.getPIA().then(() => {
       this.pia = this._piaService.pia;
-      if (this.route.snapshot.params['type'] === 'pia') {
-        this.showPiaTpl = true;
-        this.showPia();
-      } else if (this.route.snapshot.params['type'] === 'action_plan') {
-        this.showPiaTpl = false;
-        this.showActionPlan();
-      }
+      this.showPiaTpl = true;
+      this.showPia().then(() => {
+        if (this.route.snapshot.params['type'] === 'action_plan') {
+          this.showPiaTpl = false;
+        }
+      });
     });
+  }
+
+  /**
+   * Switch from Pia overview to action plan overview, and vice versa.
+   */
+  displayPiaSummary() {
+    this.showPiaTpl = !this.showPiaTpl;
   }
 
   /**
    * Prepare and display the PIA information
    * @memberof SummaryComponent
    */
-  showPia() {
+  async showPia() {
     this.prepareHeader();
 
     this._actionPlanService.data = this.dataNav;
@@ -131,6 +137,13 @@ export class SummaryComponent implements OnInit {
         content: this.pia.validator_name
       });
     }
+    if (this.pia.created_at) {
+      el.data.push({
+        title: 'summary.creation_date',
+        type: 'date',
+        content: this.pia.created_at
+      });
+    }
     if (this.pia.dpos_names && this.pia.dpos_names.length > 0) {
       el.data.push({
         title: 'summary.dpo_name',
@@ -202,13 +215,7 @@ export class SummaryComponent implements OnInit {
         content: this.pia.rejected_reason
       });
     }
-    if (this.pia.created_at) {
-      el.data.push({
-        title: 'summary.creation_date',
-        type: 'date',
-        content: this.pia.created_at
-      });
-    }
+
     this.content.push(el);
   }
 

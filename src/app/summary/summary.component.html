@@ -1,5 +1,7 @@
 <app-header></app-header>
 <main class="container pia-summaryContainerBlock">
+
+  <!-- Buttons -->
   <div class="hide-for-print pia-summaryButtonsBlock">
     <button onclick="window.history.back()" class="btn" title="{{ 'summary.previous_page' | translate }}">
       <i class="fa fa-chevron-left" aria-hidden="true"></i>
@@ -8,6 +10,19 @@
       <i class="fa fa-print" aria-hidden="true"></i>
     </button>
   </div>
+
+  <!-- Navigation links -->
+  <div class="hide-for-print pia-summaryLinksBlock">
+    <a *ngIf="showPiaTpl" (click)="displayPiaSummary()" routerLink="/summary/{{_piaService.pia.id}}/action_plan" class="btn pia-previewBlock">
+      <span class="pia-icons pia-icon-preview"></span>
+      <div [innerHTML]="'summary.display_action_plan' | translate"></div>
+    </a>
+    <a *ngIf="!showPiaTpl" (click)="displayPiaSummary()" routerLink="/summary/{{_piaService.pia.id}}/pia" class="btn pia-previewBlock">
+      <span class="pia-icons pia-icon-preview"></span>
+      <div>{{ 'summary.display_pia' | translate }}</div>
+    </a>
+  </div>
+
   <div class="row">
     <div class="small-12 medium-12 columns">
       <div *ngIf="showPiaTpl">
