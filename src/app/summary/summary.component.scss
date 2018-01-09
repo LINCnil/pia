@@ -3,21 +3,30 @@
 .pia {
   &-summaryContainerBlock {
     margin-bottom: 80px;
+    h1 {
+      color: $pia-blue;
+    }
   }
   &-summaryButtonsBlock {
     button {
       margin: 0 5px;
-      &:last-child {
-        float: right;
-      }
       i {
         color: $pia-gray-dark;
-        font-size: 1.5rem;
+        font-size: 1.7rem;
       }
     }
   }
-}
-
-  h1 {
-    color: $pia-blue;
+  &-summaryLinksBlock {
+    margin-top: 10px;
   }
+  &-previewBlock {
+    text-align: center;
+    text-decoration: none;
+    div {
+      display: inline-block;
+      vertical-align: middle;
+      font-size: 1.1rem;
+      color: $pia-green;
+    }
+  }
+}
