@@ -376,6 +376,8 @@ export class DPOPeopleOpinionsComponent implements OnInit {
       this.elementRef1.nativeElement.focus();
       this.DPOForm.controls['DPOStatus'].disable();
       this.DPOForm.controls['DPOOpinion'].disable();
+      this.DPOForm.controls['DPOStatus'].patchValue(null);
+      this.DPOForm.controls['DPOOpinion'].patchValue(null);
     }
   }
 
@@ -385,6 +387,8 @@ export class DPOPeopleOpinionsComponent implements OnInit {
   checkConcernedPeopleName() {
     if (!this.peopleForm.controls['peopleNames'].value) {
       this.elementRef2.nativeElement.focus();
+      this.peopleForm.controls['peopleStatus'].disable();
+      this.peopleForm.controls['peopleOpinion'].disable();
       this.peopleForm.controls['peopleStatus'].patchValue(null);
       this.peopleForm.controls['peopleOpinion'].patchValue(null);
     }
