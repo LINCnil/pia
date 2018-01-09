@@ -6,7 +6,7 @@
       <p>Aprés lecture intégrale du PIA concernant le traitement des données liées à l'activité de <span class="blue">{{_piaService.pia.name}}</span></p>
       <form [formGroup]="validateForm" (change)="checkValidationFormStatus()" novalidate>
         <div class="pia-entryContentBlock-content-list-confirm" [ngClass]="{'validate': _piaService.pia.status > 1}">
-          <input type="checkbox" formControlName="validateStatus1" checked="checked" (click)="lockStatus($event)" id="checkbox-1" value="1">
+          <input type="checkbox" formControlName="validateStatus1" (click)="lockStatus($event)" id="checkbox-1" value="1">
           <label for="checkbox-1">
             <span class="pia-list-confirm-icon">
               <i class="fa fa-circle" aria-hidden="true"></i>
