@@ -725,14 +725,14 @@
   "evaluations": {
     "title": "Hodnocení",
     "to_correct": "Opravit",
-    "placeholder_to_correct": "Překlad probíhá",
     "improvable": "Vylepšitelné",
-    "placeholder_improvable": "Překlad probíhá",
     "acceptable": "Přijatelné",
-    "placeholder_acceptable": "Překlad probíhá",
     "evaluation_comment": "Komentář k hodnocení",
     "action_plan_comment": "Akční plán/Nápravná opatření",
-    "placeholder_comment": "Zadejte své komentáře.",
+    "placeholder_to_correct": "to be translated",
+    "placeholder_improvable1": "to be translated",
+    "placeholder_improvable2": "to be translated",
+    "placeholder_acceptable": "to be translated",
     "gauges": {
       "seriousness": "Pokud vezmeme v úvahu akční plán, jak přehodnotit <span class='red-highlight'>závažnost tohoto rizika </span> ({{value}})?",
       "likelihood": "Pokud vezmeme v úvahu akční plán, jak přehodnotíte <span class='red-highlight'>pravděpodobnost tohoto rizika </span> ({{value}})?",

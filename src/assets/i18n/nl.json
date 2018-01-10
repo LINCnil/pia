@@ -725,14 +725,14 @@
   "evaluations": {
     "title": "Evaluatie",
     "to_correct": "Te corrigeren",
-    "placeholder_to_correct": "Vertaling wordt uitgevoerd",
     "improvable": "Verbeterbaar",
-    "placeholder_improvable": "Vertaling wordt uitgevoerd",
     "acceptable": "Aanvaardbaar",
-    "placeholder_acceptable": "Vertaling wordt uitgevoerd",
     "evaluation_comment": "Evaluatie commentaar",
     "action_plan_comment": "Actieplan / corrigerende maatregelen",
-    "placeholder_comment": "Voer uw opmerkingen in.",
+    "placeholder_to_correct": "to be translated",
+    "placeholder_improvable1": "to be translated",
+    "placeholder_improvable2": "to be translated",
+    "placeholder_acceptable": "to be translated",
     "gauges": {
       "seriousness": "Rekening houdend met het actieplan, hoe herevalueer je het <span class='red-highlight'>ernst van dit risico</span> ({{value}})?",
       "likelihood": "Rekening houdend met het actieplan, hoe herevalueer je de <span class='red-highlight'>waarschijnlijkheid van dit risico</span> ({{value}})?",
