@@ -1226,6 +1226,12 @@
                 "3": {
                     "title": "Pareri di DPO e soggetti interessati",
                     "short_help": "Presentare l'opinione delle persone responsabili della protezione dei dati e dei problemi di privacy (o eventuali delegati). Presentare anche le opinioni dei soggetti interessati o di loro rappresentanti."
+                },
+                "4": {
+                  "title": "to be translated"
+                },
+                "5": {
+                  "title": "to be translated"
                 }
             }
         }

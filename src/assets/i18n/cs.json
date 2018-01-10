@@ -1226,6 +1226,12 @@
         "3": {
           "title": "Názory DPO-Pověřence osobních údajů a dotčených osob",
           "short_help": "Prezentujte názory osoby zodpovědné za ochranu údajů a soukromí (delegát ochrany údajů, pokud existuje). Prezentujte názory subjektů údajů nebo jejich zástupců."
+        },
+        "4": {
+          "title": "to be translated"
+        },
+        "5": {
+          "title": "to be translated"
         }
       }
     }
