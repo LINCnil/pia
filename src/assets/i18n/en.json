@@ -801,6 +801,42 @@
     "content": "Please, provide the address (URL) of the remote server:",
     "update": "Update URL"
   },
+  "validation_page": {
+    "responsible": "to be translated",
+    "after_reading": "to be translated",
+    "confirmation1": "to be translated",
+    "confirmation2": "to be translated",
+    "confirmation3": "to be translated",
+    "confirmation4": "to be translated",
+    "button": {
+      "rejection": "Refuse<br>validation",
+      "simple_validation": "Simple validation",
+      "signed_validation": "Signed<br>validation"
+    },
+    "mandatory_fields": "All fields must be filled",
+    "waiting_for_signature": "Waiting for the PIA's signature",
+    "validated_pia_with_signature": "Validated",
+    "add_signed_pia": "Add the signed PIA",
+    "remove_attachment": "Remove the attachment",
+    "tools": {
+      "dashboard": "Dashboard",
+      "display_pia": "Display PIA",
+      "action_plan": "Action plan"
+    }
+  },
+  "rejection_page": {
+    "title": "Validation history",
+    "rejection_reason": "Rejection reason",
+    "rejection_reason_placeholder": "to be translated",
+    "applied_adjustments": "Applied adjustments",
+    "applied_adjustments_placeholder": "to be translated",
+    "previous_rejection": "Previous rejection",
+    "button": {
+      "abandon_treatment": "Give up the treatment",
+      "reject_pia": "Refuse PIA",
+      "send_for_validation": "Send for new validation"
+    }
+  },
   "misc": {
     "display": "Show / Hide"
   },
@@ -1190,6 +1226,12 @@
         "3": {
           "title": "DPO and concerned persons opinions",
           "short_help": "Present the advice of the person in charge of data protection and privacy issues (data protection delegate if there is one). Present the views of the data subjects or their representatives."
+        },
+        "4": {
+          "title": "Validate the PIA"
+        },
+        "5": {
+          "title": "Rejected PIA"
         }
       }
     }

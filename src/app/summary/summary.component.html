@@ -3,9 +3,9 @@
 
   <!-- Buttons -->
   <div class="hide-for-print pia-summaryButtonsBlock">
-    <button onclick="window.history.back()" class="btn" title="{{ 'summary.previous_page' | translate }}">
+    <a title="{{ 'summary.previous_page' | translate }}" routerLink="/entry/{{_piaService.pia.id}}/section/1/item/1" class="btn">
       <i class="fa fa-chevron-left" aria-hidden="true"></i>
-    </button>
+    </a>
     <button onclick="print()" class="btn" title="{{ 'summary.print' | translate }}">
       <i class="fa fa-print" aria-hidden="true"></i>
     </button>
