@@ -725,14 +725,14 @@
   "evaluations": {
     "title": "Evaluation",
     "to_correct": "To correct",
-    "placeholder_to_correct": "Translation in progress",
     "improvable": "Improvable",
-    "placeholder_improvable": "Translation in progress",
     "acceptable": "Acceptable",
-    "placeholder_acceptable": "Translation in progress",
     "evaluation_comment": "Evaluation comment",
     "action_plan_comment": "Action plan / corrective actions",
-    "placeholder_comment": "Enter  your comments.",
+    "placeholder_to_correct": "to be translated",
+    "placeholder_improvable1": "to be translated",
+    "placeholder_improvable2": "to be translated",
+    "placeholder_acceptable": "to be translated",
     "gauges": {
       "seriousness": "Taking into account the action plan, how do you re-evaluate the <span class='red-highlight'>seriousness of this risk</span> ({{value}})?",
       "likelihood": "Taking into account the action plan, how do you re-evaluate the <span class='red-highlight'>likelihood of this risk</span> ({{value}})?",
