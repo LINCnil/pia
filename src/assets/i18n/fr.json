@@ -792,6 +792,42 @@
     "content": "S'il vous plaît, veuillez fournir l'adresse (URL) du serveur distant :",
     "update": "Mettre à jour l'URL"
   },
+  "validation_page": {
+    "responsible": "Responsable de la validation du PIA : ",
+    "after_reading": "Après lecture intégrale du PIA concernant le traitement des données liées à l'activité de : ",
+    "confirmation1": "Je confirme que la description du contexte de mon traitement est conforme à la réalité.",
+    "confirmation2": "Je confirme avoir pris connaissance des risques existants en fonction des mesures actuellement mises en oeuvre ou prévues.",
+    "confirmation3": "Je valide les mesures correctives indiquées.",
+    "confirmation4": "Je m'engage à mettre en oeuvre dans les plus brefs délais les mesures correctives indiquées.",
+    "button": {
+      "rejection": "Refuser la validation",
+      "simple_validation": "Validation simple",
+      "signed_validation": "Faire signer le PIA par le responsable"
+    },
+    "mandatory_fields": "Tous les champs doivent être cochés",
+    "waiting_for_signature": "En attente de la signature du rapport PIA",
+    "validated_pia_with_signature": "Validé",
+    "add_signed_pia": "Ajouter le rapport PIA signé",
+    "remove_attachment": "Supprimer",
+    "tools": {
+      "dashboard": "Accueil",
+      "display_pia": "Afficher le PIA",
+      "action_plan": "Plan d'action"
+    }
+  },
+  "rejection_page": {
+    "title": "Historique de validation",
+    "rejection_reason": "Motif du refus",
+    "rejection_reason_placeholder": "Décrivez les motifs de refus de validation du PIA.",
+    "applied_adjustments": "Modifications apportées",
+    "applied_adjustments_placeholder": "Décrivez les modifications apportées au PIA.",
+    "previous_rejection": "Refus précédent",
+    "button": {
+      "abandon_treatment": "Abandonner le traitement",
+      "reject_pia": "Refuser le PIA",
+      "send_for_validation": "Renvoyer pour validation"
+    }
+  },
   "misc": {
     "display": "Afficher / Masquer"
   },
@@ -1183,6 +1219,12 @@
         "3": {
           "title": "Avis du DPD et des personnes concernées",
           "short_help": "Présentez le conseil de la personne en charge des aspects informatique et libertés (délégué à la protection des données s'il existe). Présentez l'avis des personnes concernées ou de leurs représentants."
+        },
+        "4": {
+          "title": "Valider le PIA"
+        },
+        "5": {
+          "title": "PIA refusé"
         }
       }
     }

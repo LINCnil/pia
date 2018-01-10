@@ -1,9 +1,9 @@
 <div class="container pia-validationBlock ">
   <div class="pia-entryContentBlock-content">
     <div class="pia-entryContentBlock-content-list">
-      <p>Le {{_piaService.pia.updated_at | date: 'dd/MM/yyyy'}},</p>
-      <p>Le Responsable de la validation du PIA <span class="blue">{{_piaService.pia.validator_name}}</span>.</p>
-      <p>Aprés lecture intégrale du PIA concernant le traitement des données liées à l'activité de <span class="blue">{{_piaService.pia.name}}</span></p>
+      <p>({{_piaService.pia.updated_at | date: 'dd/MM/yyyy'}})</p>
+      <p>{{ 'validation_page.responsible' | translate }}<span class="blue">{{_piaService.pia.validator_name}}</span>.</p>
+      <p>{{ 'validation_page.after_reading' | translate }}<span class="blue">{{_piaService.pia.name}}</span></p>
       <form [formGroup]="validateForm" (change)="checkValidationFormStatus()" novalidate>
         <div class="pia-entryContentBlock-content-list-confirm" [ngClass]="{'validate': _piaService.pia.status > 1}">
           <input type="checkbox" formControlName="validateStatus1" (click)="lockStatus($event)" id="checkbox-1" value="1">
@@ -12,7 +12,7 @@
               <i class="fa fa-circle" aria-hidden="true"></i>
               <i class="fa fa-check" aria-hidden="true"></i>
             </span>
-            <span class="pia-list-confirm-desc">Je confirme que la description du contexte de mon traitement est conforme à la réalité.</span>
+            <span class="pia-list-confirm-desc">{{ 'validation_page.confirmation1' | translate }}</span>
           </label>
         </div>
         <div class="pia-entryContentBlock-content-list-confirm" [ngClass]="{'validate': _piaService.pia.status > 1}">
@@ -22,7 +22,7 @@
               <i class="fa fa-circle" aria-hidden="true"></i>
               <i class="fa fa-check" aria-hidden="true"></i>
             </span>
-            <span class="pia-list-confirm-desc">Je confirme avoir pris connaissance des risques existants en fonction des mesures actuellement mises en oeuvre ou prévues.</span>
+            <span class="pia-list-confirm-desc">{{ 'validation_page.confirmation2' | translate }}</span>
           </label>
         </div>
         <div class="pia-entryContentBlock-content-list-confirm" [ngClass]="{'validate': _piaService.pia.status > 1}">
@@ -32,7 +32,7 @@
               <i class="fa fa-circle" aria-hidden="true"></i>
               <i class="fa fa-check" aria-hidden="true"></i>
             </span>
-            <span class="pia-list-confirm-desc">Je valide les mesures correctives indiquées.</span>
+            <span class="pia-list-confirm-desc">{{ 'validation_page.confirmation3' | translate }}</span>
           </label>
         </div>
         <div class="pia-entryContentBlock-content-list-confirm" [ngClass]="{'validate': _piaService.pia.status > 1}">
@@ -42,29 +42,29 @@
               <i class="fa fa-circle" aria-hidden="true"></i>
               <i class="fa fa-check" aria-hidden="true"></i>
             </span>
-            <span class="pia-list-confirm-desc">Je m’engage à mettre en oeuvre dans les plus brefs délais les mesures correctives indiquées.</span>
+            <span class="pia-list-confirm-desc">{{ 'validation_page.confirmation4' | translate }}</span>
           </label>
         </div>
         <div class="pia-entryContentBlock-content-btn-valid">
-          <a routerLink="/entry/{{_piaService.pia.id}}/section/4/item/5" class="btn btn-red" title="Refuser la validation">Refuser la validation</a>
-          <button type="submit" class="btn btn-blue" [ngClass]="{'btn-active': _piaService.pia.status === 2}" (click)="simplePIAValidation()" id="pia-simple-validation" [disabled]="_piaService.pia.status <= 1" title="Validation simple">Validation simple</button>
-          <button type="submit" class="btn btn-red" [ngClass]="{'btn-active': _piaService.pia.status === 3}" (click)="signedPIAValidation()" id="pia-sign-validation" [disabled]="_piaService.pia.status <= 1" title="Faire signer le PIA par le responsable">Faire signer le PIA par le responsable</button>
+          <a routerLink="/entry/{{_piaService.pia.id}}/section/4/item/5" class="btn btn-red" [innerHTML]="'validation_page.button.rejection' | translate"></a>
+          <button type="submit" class="btn btn-blue" [ngClass]="{'btn-active': _piaService.pia.status === 2}" (click)="simplePIAValidation()" id="pia-simple-validation" [disabled]="_piaService.pia.status <= 1">{{ 'validation_page.button.simple_validation' | translate }}</button>
+          <button type="submit" class="btn btn-red" [ngClass]="{'btn-active': _piaService.pia.status === 3}" (click)="signedPIAValidation()" id="pia-sign-validation" [disabled]="_piaService.pia.status <= 1" [innerHTML]="'validation_page.button.signed_validation' | translate"></button>
         </div>
-        <p>Tous les champs doivent être cochés</p>
+        <p>{{ 'validation_page.mandatory_fields' | translate }}</p>
       </form>
       <div class="pia-entryContentBlock-content-status" *ngIf="_piaService.pia.status === 3">
         <ng-container *ngIf="!_attachmentsService.attachment_signed; else piaSignedAndValidated">
-          <p>En attente de la signature du rapport PIA</p>
+          <p>{{ 'validation_page.waiting_for_signature' | translate }}</p>
           <i class="fa fa-cog" aria-hidden="true"></i>
         </ng-container>
         <ng-template #piaSignedAndValidated>
           <i class="fa fa fa-check-square-o" aria-hidden="true"></i>
-          <p>Validé</p>
+          <p>{{ 'validation_page.validated_pia_with_signature' | translate }}</p>
         </ng-template>
       </div>
     </div>
   </div>
-  <button type="button" (click)="addAttachment()" *ngIf="_piaService.pia.status === 3 && !_attachmentsService.attachment_signed" class="pia-entryContentBlock-submitAttachmentButton btn btn-red">Ajouter le rapport PIA signé</button>
+  <button type="button" (click)="addAttachment()" *ngIf="_piaService.pia.status === 3 && !_attachmentsService.attachment_signed" class="pia-entryContentBlock-submitAttachmentButton btn btn-red">{{ 'validation_page.add_signed_pia' | translate }}</button>
 
   <div>
     <app-pia-validate-history></app-pia-validate-history>
@@ -76,12 +76,12 @@
         <span class="pia-icons pia-icon-file-pdf-blue"></span>
         <a href="javascript:;" (click)="downloadAttachment(_attachmentsService.attachment_signed.id)">{{_attachmentsService.attachment_signed.name}}</a>
       </div>
-      <button *ngIf="_piaService.pia.status !== 4" type="button" class="btn" (click)="removeAttachment(_attachmentsService.attachment_signed.id)" title="Supprimer"><span class="pia-icons pia-icon-close"></span></button>
+      <button *ngIf="_piaService.pia.status !== 4" type="button" class="btn" (click)="removeAttachment(_attachmentsService.attachment_signed.id)" title="{{ 'validation_page.remove_attachment' | translate }}"><span class="pia-icons pia-icon-close"></span></button>
     </div>
     <div class="pia-entryContentBlock-footer-validationTools">
-      <a routerLink="/home"><i class="fa fa-home" aria-hidden="true" title="Accueil"></i><p>Accueil</p></a>
-      <a routerLink="/summary/{{_piaService.pia.id}}/pia" title="Télécharger le PIA"><i class="fa fa-download" aria-hidden="true"></i><p>Télécharger le PIA</p></a>
-      <a routerLink="/summary/{{_piaService.pia.id}}/action_plan" title="Plan d'action"><i class="fa fa-file-excel-o" aria-hidden="true"></i><p>Plan d'action</p></a>
+      <a routerLink="/home"><i class="fa fa-home" aria-hidden="true"></i><p>{{ 'validation_page.tools.dashboard' | translate }}</p></a>
+      <a routerLink="/summary/{{_piaService.pia.id}}/pia"><i class="fa fa-file-text-o" aria-hidden="true"></i><p>{{ 'validation_page.tools.display_pia' | translate }}</p></a>
+      <a routerLink="/summary/{{_piaService.pia.id}}/action_plan"><i class="fa fa-file-excel-o" aria-hidden="true"></i><p>{{ 'validation_page.tools.action_plan' | translate }}</p></a>
     </div>
   </div>
 </div>

@@ -7,6 +7,7 @@ import { Evaluation } from 'app/entry/entry-content/evaluations/evaluation.model
 import { ModalsService } from 'app/modals/modals.service';
 import { PiaService } from 'app/entry/pia.service';
 import { SidStatusService } from 'app/services/sid-status.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-refuse-pia',
@@ -25,6 +26,7 @@ export class RefusePIAComponent implements OnInit {
               private el: ElementRef,
               private _modalsService: ModalsService,
               private _sidStatusService: SidStatusService,
+              private _translateService: TranslateService,
               private _piaService: PiaService) { }
 
   ngOnInit() {

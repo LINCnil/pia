@@ -43,7 +43,10 @@
     display: inline-block;
     vertical-align: middle;
     margin-top: 8px;
-    button {
+    a {
+      text-decoration: none;
+    }
+    a, button {
       margin: 0 5px;
       i {
         color: $pia-gray-dark;

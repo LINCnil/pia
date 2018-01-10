@@ -801,6 +801,42 @@
     "content": "Please, provide the address (URL) of the remote server:",
     "update": "Update URL"
   },
+  "validation_page": {
+    "responsible": "to be translated",
+    "after_reading": "to be translated",
+    "confirmation1": "to be translated",
+    "confirmation2": "to be translated",
+    "confirmation3": "to be translated",
+    "confirmation4": "to be translated",
+    "button": {
+      "rejection": "to be translated",
+      "simple_validation": "to be translated",
+      "signed_validation": "to be translated"
+    },
+    "mandatory_fields": "to be translated",
+    "waiting_for_signature": "to be translated",
+    "validated_pia_with_signature": "to be translated",
+    "add_signed_pia": "to be translated",
+    "remove_attachment": "to be translated",
+    "tools": {
+      "dashboard": "to be translated",
+      "display_pia": "to be translated",
+      "action_plan": "to be translated"
+    }
+  },
+  "rejection_page": {
+    "title": "to be translated",
+    "rejection_reason": "to be translated",
+    "rejection_reason_placeholder": "to be translated",
+    "applied_adjustments": "to be translated",
+    "applied_adjustments_placeholder": "to be translated",
+    "previous_rejection": "to be translated",
+    "button": {
+      "abandon_treatment": "to be translated",
+      "reject_pia": "to be translated",
+      "send_for_validation": "to be translated"
+    }
+  },
   "misc": {
     "display": "Show / Hide"
   },
@@ -1190,6 +1226,12 @@
         "3": {
           "title": "DPO and concerned persons opinions",
           "short_help": "Present the advice of the person in charge of data protection and privacy issues (data protection delegate if there is one). Present the views of the data subjects or their representatives."
+        },
+        "4": {
+          "title": "to be translated"
+        },
+        "5": {
+          "title": "to be translated"
         }
       }
     }
