@@ -1067,7 +1067,7 @@
               "placeholder": "Décrivez l'information qu'il est prévu d'apporter aux personnes concernées et les moyens choisis pour cette information."
             },
             "2": {
-              "title": "Comment le consentement des personnes concernées est-il obtenu ?",
+              "title": "Si applicable, comment le consentement des personnes concernées est-il obtenu ?",
               "short_title": "Recueil du consentement",
               "placeholder": "Décrivez les modalités prévues pour obtenir le consentement des personnes concernées."
             },
@@ -1214,7 +1214,7 @@
         },
         "2": {
           "title": "Plan d'action",
-          "short_help": "Planifiez en détail la mise en œuvre des mesures complémentaires déterminées au cours du PIA."
+          "short_help": "Planifiez en détail la mise en œuvre des mesures complémentaires déterminées au cours du PIA. Cette partie est automatiquement mise à jour en fonction des évaluations faites de chaque élément composant l'analyse d'impact."
         },
         "3": {
           "title": "Avis du DPD et des personnes concernées",
