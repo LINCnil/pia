@@ -138,10 +138,19 @@ export class SidStatusService {
     });
   }
 
-  refusePia() {
+  refusePia(piaService: any) {
     for (const el in this.itemStatus) {
       if (this.itemStatus.hasOwnProperty(el)) {
         this.itemStatus[el] = 1;
+        piaService.pia.dpos_names = null;
+        piaService.pia.dpo_status = null;
+        piaService.pia.dpo_opinion = null;
+        piaService.pia.concerned_people_searched_opinion = null;
+        piaService.pia.concerned_people_searched_content = null;
+        piaService.pia.people_names = null;
+        piaService.pia.concerned_people_status = null;
+        piaService.pia.concerned_people_opinion = null;
+        piaService.pia.update();
       }
     }
   }
