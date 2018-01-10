@@ -444,7 +444,7 @@
         "source": ""
       },
       "PIA_DEF_CONS": {
-        "name": "consent",
+        "name": "Consent",
         "description": "Any freely given, specific, informed and unambiguous indication of the data subject's wishes by which he or she, by a statement or by a clear affirmative action, signifies agreement to the processing of personal data relating to him or her.<br>See <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 4.10 of [GDPR]</a>",
         "source": "GDPR Art. 4.10"
       },
@@ -480,7 +480,7 @@
       },
       "PIA_DEF_PSEU": {
         "name": "Pseudonymisation",
-        "description": "processing of personal data in such a manner that the personal data can no longer be attributed to a specific data subject without the use of additional information, provided that such additional information is kept separately and is subject to technical and organisational measures to ensure that the personal data are not attributed to an identified or identifiable natural person.<br>Pseudonymisation  reduces  the  linkability  of  a  dataset  with  the  original  identity  of  a  data subject; as such, it is a useful security measure but not a method of anonymisation.",
+        "description": "Processing of personal data in such a manner that the personal data can no longer be attributed to a specific data subject without the use of additional information, provided that such additional information is kept separately and is subject to technical and organisational measures to ensure that the personal data are not attributed to an identified or identifiable natural person.<br>Pseudonymisation  reduces  the  linkability  of  a  dataset  with  the  original  identity  of  a  data subject; as such, it is a useful security measure but not a method of anonymisation.",
         "source" :"GDPR Art. 4.5 and guidelines G29 p22 http://ec.europa.eu/justice/data-protection/article-29/documentation/opinion-recommendation/files/2014/wp216_en.pdf"
       },
       "PIA_DEF_CLO": {
@@ -490,7 +490,7 @@
       },
       "PIA_DEF_CTLA": {
         "name": "Logical access controls",
-        "description": "Means implemented to limit the risks that unauthorized persons will access personal data electronically, it requires among other things to : <br>- <strong>Manage users' profiles</strong> by separating tasks and areas of responsibility (preferably in centralised fashion) to limit access to personal data exclusively to authorised users by applying need-to-know and least-privilege principles.<br>- <strong>Withdraw the rights of employees, contracting parties and other third parties when they are no longer authorised to access a premises or a resource</strong> or when their <strong>employment contract ends</strong>.",
+        "description": "Means implemented to limit the risks that unauthorized persons will access personal data electronically, it requires among other things to : <br>- <strong>manage users' profiles</strong> by separating tasks and areas of responsibility (preferably in centralised fashion) to limit access to personal data exclusively to authorised users by applying need-to-know and least-privilege principles;<br>- <strong>withdraw the rights of employees, contracting parties and other third parties when they are no longer authorised to access a premises or a resource</strong> or when their <strong>employment contract ends</strong>.",
         "source": "PIA3 p43 - WIKI"
       },
       "PIA_DEF_MIN1": {
@@ -535,7 +535,7 @@
       },
       "PIA_DEF_VRA": {
         "name": "Likelihood",
-        "description": "likelihood expresses the possibility of a risk occurring. It primarily depends on the level of vulnerabilities of the supporting assets when under threat and the level of capabilities of the risk sources to exploit them.",
+        "description": "Likelihood expresses the possibility of a risk occurring. It primarily depends on the level of vulnerabilities of the supporting assets when under threat and the level of capabilities of the risk sources to exploit them.",
         "source": "PIA1 page 6"
       },
       "PIA_DEF_PBDS": {
@@ -610,7 +610,7 @@
       },
       "PIA_EX_HUMI": {
         "name": "Internal human sources",
-        "description": "It could be either:<br>- a negligent or rogue employee, proximity of the system, skills, privileges and available time are potentially high, possible lack of training and awareness<br>- Negligent or rogue user or people around<br> Various motives are possible, including : clumsiness, error, negligence game, malicious intent, revenge, spying",
+        "description": "It could be either:<br>- a negligent or rogue employee, proximity of the system, skills, privileges and available time are potentially high, possible lack of training and awareness<br>- negligent or rogue user, family member or friend having access to the service.<br> Various motives are possible, including : clumsiness, error, negligence game, malicious intent, revenge, spying",
         "source": "PIAF Connected objects p41 - WIKI"
       },
       "PIA_EX_HUME": {
@@ -624,23 +624,23 @@
         "source": "PIAF Connected objects p41 - WIKI"
       },
       "PIA_EX_IMPN": {
-        "name": "Negligible severity",
-        "description": "Data subjects either will not be affected or may encounter a few inconveniences, which they will overcome without any problem.<br>Examples:<br>- physical : transient headaches<br>- material : loss of time in repeating formalities or waiting for them to be fulfilled, receipt of unsolicited mail (e.g.: spams), reuse of data published on websites for the purpose of targeted advertising , etc.,<br>- moral : mere annoyance, feeling of invasion of privacy without real or objective harm (commercial intrusion), etc.",
+        "name": "Negligible impact",
+        "description": "Data subjects either will not be affected or may encounter a few inconveniences, which they will overcome without any problem. For example:<br>- physical : transient headaches;<br>- material : loss of time in repeating formalities or waiting for them to be fulfilled, receipt of unsolicited mail (e.g.: spams), reuse of data published on websites for the purpose of targeted advertising , etc.;<br>- moral : mere annoyance, feeling of invasion of privacy without real or objective harm (commercial intrusion), etc."
         "source": "PIAF Connected Objects p41 - WIKI"
       },
       "PIA_EX_IMPL": {
-        "name": "Limited severity",
-        "description": "Data subjects may encounter significant inconveniences, which they will be able to overcome despite a few difficulties<br>Examples :<br>- physical : minor physical ailments (minor illness due to disregard of contraindications), defamation resulting in physical or psychological retaliation, etc.<br>- material : Unanticipated payments (fines imposed erroneously), denial of access to administrative or commercial services , Receipt of unsolicited targeted mailings likely to damage the reputation of data subjects, etc.<br>- moral : minor but objective psychological ailments, feeling of invasion of privacy without irreversible damage, intimidation on social networks, etc.",
+        "name": "Limited impact",
+        "description": "Data subjects may encounter significant inconveniences, which they will be able to overcome despite a few difficulties. For example:<br>- physical : minor physical ailments (minor illness due to disregard of contraindications), defamation resulting in physical or psychological retaliation, etc.;<br>- material : unanticipated payments (fines imposed erroneously), denial of access to administrative or commercial services, receipt of unsolicited targeted mailings likely to damage the reputation of data subjects, etc.;<br>- moral : minor but objective psychological ailments, feeling of invasion of privacy without irreversible damage, intimidation on social networks, etc."
         "source": "PIAF Connected objects p41 - WIKI"
       },
       "PIA_EX_IMPI": {
-        "name": "Significant severity",
-        "description": "Data subjects may encounter significant consequences, which they should be able to overcome albeit with real and serious difficulties<br>Examples: <br>- physical : serious physical ailments causing long-term harm (worsening of health due to improper care, or disregard of contraindications), lteration of physical integrity for example following an assault, an accident at home, work, etc.<br>- material : misappropriation of money not compensated, targeted, unique and non-recurring, lost opportunities  (home loan, refusal of studies, internships or employment, examination ban), loss of housing, loss of employment, etc.<br>- moral : serious psychological ailments (depression, development of a phobia), feeling of invasion of privacy with irreversible damage, victim of blackmailing, cyberbullying and harassment, etc.",
+        "name": "Significant impact",
+        "description": "Data subjects may encounter significant consequences, which they should be able to overcome albeit with real and serious difficulties. For example: <br>- physical : serious physical ailments causing long-term harm (worsening of health due to improper care, or disregard of contraindications), lteration of physical integrity for example following an assault, an accident at home, work, etc.<br>- material : misappropriation of money not compensated, targeted, unique and non-recurring, lost opportunities  (home loan, refusal of studies, internships or employment, examination ban), loss of housing, loss of employment, etc.;<br>- moral : serious psychological ailments (depression, development of a phobia), feeling of invasion of privacy with irreversible damage, victim of blackmailing, cyberbullying and harassment, etc.",
         "source": "PIAF Connected objects p41 - WIKI"
       },
       "PIA_EX_IMPM": {
-        "name": "Maximum severity",
-        "description": "Data subjects may encounter significant, or even irreversible, consequences, which they may not overcome<br>Examples :<br>- physical : long-term or permanent physical ailments, permanent impairment of physical integrity, death<br>- material : financial risk, substantial debts, inability to work, inability to relocate, loss of evidence in the context of litigation, loss of access to vital infrastructure (water, electricity), etc.<br>- moral : long-term or permanent psychological ailments, criminal penalty, abduction, loss of family ties, inability to sue, change of administrative status and/or loss of legal autonomy (guardianship), etc.",
+        "name": "Maximum impact",
+        "description": "Data subjects may encounter significant, or even irreversible, consequences, which they may not overcome. For example:<br>- physical : long-term or permanent physical ailments, permanent impairment of physical integrity, death;<br>- material : financial risk, substantial debts, inability to work, inability to relocate, loss of evidence in the context of litigation, loss of access to vital infrastructure (water, electricity), etc.<br>- moral : long-term or permanent psychological ailments, criminal penalty, abduction, loss of family ties, inability to sue, change of administrative status and/or loss of legal autonomy (guardianship), etc.",
         "source": "PIAF Connected objects p41 - WIKI"
       },
       "PIA_EX_VRAN": {
@@ -676,7 +676,6 @@
       "PIA_SEC_CTR": {
         "placeholder": "Describe here specific measures for processors (host, maintenance company, administrator, specialist service providers, etc.)",
         "name": "Processing contracts",
-        "description": "Regulate the procurement relations via a contract signed intuitu personæ.<br>- Require the processor to forward its Information Systems Security Policy (PSSI) along with all supporting documents of its information security certifications and append said documents to the contract. Ensure that the measures pursuant to its PSSI comply with the CNIL's recommendations in this respect.<br>- Precisely determine and set, on a contractual basis, the operations that the processor will be required to carry out on personal data: <br> 1) The data to which it will have access or which will be transmitted to it.<br> 2) The operations it must carry out on the data.<br> 3) The duration for which it may store the data.<br> 4) Any recipients to which the data controller requires it to transmit the data.<br> 5) The operations to be carried out at the end of the service (permanent deletion of data or return of the data in the context of reversibility then destruction of data at the processor's).<br> 6) The security objectives set by the data controller. <br>- Determine, on a contractual basis, the division of responsibility regarding the legal processes aimed at allowing the data subjects to exercise their rights.<br>- Explicitly prohibit or regulate use of tier-2 processors.<br>- Clarify in the contract that compliance with the data protection obligations is a binding requirement of the contract.",
         "source": "Mesures_US Procurement: identified and governed by a contract"
       },
       "PIA_DEF_CHIF": {
@@ -729,10 +728,10 @@
     "acceptable": "Acceptable",
     "evaluation_comment": "Evaluation comment",
     "action_plan_comment": "Action plan / corrective actions",
-    "placeholder_to_correct": "to be translated",
-    "placeholder_improvable1": "to be translated",
+    "placeholder_to_correct": "The information provided are not sufficient to properly evaluate them. Send back to the editor to improve the original submission.",
+    "placeholder_improvable1": "According to the avalaible information, additional measures are to be implemented in order to improve the data protection of the processing.",
     "placeholder_improvable2": "Enter your comments.",
-    "placeholder_acceptable": "to be translated",
+    "placeholder_acceptable": "According to the avalaible information, the measures implemented are adequate to properly meet the requirements for protecting the data.",
     "gauges": {
       "seriousness": "Taking into account the action plan, how do you re-evaluate the <span class='red-highlight'>seriousness of this risk</span> ({{value}})?",
       "likelihood": "Taking into account the action plan, how do you re-evaluate the <span class='red-highlight'>likelihood of this risk</span> ({{value}})?",
@@ -802,12 +801,12 @@
     "update": "Update URL"
   },
   "validation_page": {
-    "responsible": "to be translated",
-    "after_reading": "to be translated",
-    "confirmation1": "to be translated",
-    "confirmation2": "to be translated",
-    "confirmation3": "to be translated",
-    "confirmation4": "to be translated",
+    "responsible": "The one in charge of validating the PIA: ",
+    "after_reading": "After reading the whole PIA on the data processing linked to the ",
+    "confirmation1": "I confirm that the description of the processing context is consistent with the reality.",
+    "confirmation2": "I confirm that I took note of the existing risks according to the planned or existing measures.",
+    "confirmation3": "I approve of the indicated corrective measures.",
+    "confirmation4": "I commit myself to implement as soon as possible the indicated corrective measures.",
     "button": {
       "rejection": "Refuse<br>validation",
       "simple_validation": "Simple validation",
@@ -1045,7 +1044,7 @@
             "2": {
               "title": "What are the legal basis making the processing lawful?",
               "short_title": "Legal basis",
-              "placeholder": "Translation in progress"
+              "placeholder": "Describe what is/are the legal basis of your processing (ex: consent, performance of a contract, compliance with a legal obligation, protecting the vital intests, etc.)"
             },
             "3": {
               "title": "Are the data collected adequate, relevant and limited to what is necessary in relation to the purposes for which they are processed ('data minimisation')?",
@@ -1074,7 +1073,7 @@
               "placeholder": "Describe what is the information given to the data subjects and what are the means to do it."
             },
             "2": {
-              "title": "How is the consent of data subjects obtained?",
+              "title": "If applicable, how is the consent of data subjects obtained?",
               "short_title": "Obtaining consent",
               "placeholder": "Describe the controls intended to ensure that users' consent has been obtained."
             },
@@ -1133,7 +1132,7 @@
             },
             "4": {
               "title": "Which of the identified controls contribute to addressing the risk?",
-              "placeholder": "Click here to select controls which address the risk."
+              "placeholder": "Click to select controls which address the risk."
             },
             "5": {
               "title": "How do you estimate the risk severity, especially according to potential impacts and planned controls?",
@@ -1221,7 +1220,7 @@
         },
         "2": {
           "title": "Action plan",
-          "short_help": "Plan in detail the implementation of the additional controls identified during the PIA."
+          "short_help": "Plan in detail the implementation of the additional controls identified during the PIA. The action plan is automatically updated when evaluating the different elements comprised in the PIA."
         },
         "3": {
           "title": "DPO and concerned persons opinions",
