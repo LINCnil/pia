@@ -5,6 +5,38 @@
     margin-bottom: 80px;
     h1 {
       color: $pia-blue;
+      border-bottom: 4px solid #091C6B;
+    }
+    h2 {
+      color: #393939;
+    }
+    h3 {
+      color: #091C6B;
+      margin: 2px 0;
+      font-weight: 500;
+    }
+    .databox,
+    .evaluationbox,
+    .actionplanbox {
+      margin: 8px 0;
+      border: 1px solid #b7b7b7;
+      padding: 6px;
+      background: #fff;
+      box-shadow: 1px 1px 3px 0px #c2c2c2;
+    }
+    .evaluationbox {
+      span {
+        font-weight: 500;
+      }
+    }
+    .actionplanbox {
+      h2 {
+        margin: 2px 0;
+        color: #393939;
+      }
+    }
+    .evaluationValue {
+      color: #FD4664;
     }
   }
   &-summaryButtonsBlock {
@@ -23,7 +55,8 @@
     }
   }
   &-summaryLinksBlock {
-    margin-top: 10px;
+    display: inline-block;
+    vertical-align: top;
   }
   &-previewBlock {
     text-align: center;
