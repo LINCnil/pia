@@ -129,7 +129,7 @@ export class SidStatusService {
       let valid = true;
       for (const el in this.itemStatus) {
         if (this.itemStatus.hasOwnProperty(el)) {
-          if (this.itemStatus[el] !== 2 && el !== '4.3') {
+          if (this.itemStatus[el] !== 2 && el === '4.3') {
             valid = false;
           }
         }
