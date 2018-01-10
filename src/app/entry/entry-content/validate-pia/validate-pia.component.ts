@@ -102,8 +102,12 @@ export class ValidatePIAComponent implements OnInit {
    * @memberof ValidatePIAComponent
    */
   lockStatus(event: any) {
-    const clickedRadioButton = event.target || event.srcElement || event.currentTarget;
-    clickedRadioButton.setAttribute('disabled', true);
+    if (this._piaService.pia.status > 1) {
+      return false;
+    } else {
+      const clickedRadioButton = event.target || event.srcElement || event.currentTarget;
+      clickedRadioButton.setAttribute('disabled', true);
+    }
   }
 
   /**
