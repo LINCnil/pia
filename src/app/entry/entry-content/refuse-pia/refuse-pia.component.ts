@@ -82,7 +82,7 @@ export class RefusePIAComponent implements OnInit {
     this._piaService.pia.status = 1;
     this._piaService.pia.update().then(() => {
       this._piaService.cancelAllValidatedEvaluation().then(() => {
-        this._sidStatusService.refusePia();
+        this._sidStatusService.refusePia(this._piaService);
         this.router.navigate(['entry', this._piaService.pia.id, 'section', 1, 'item', 1]);
         this._modalsService.openModal('modal-refuse-pia');
       });
