@@ -9,6 +9,8 @@ import { EvaluationService } from './evaluations.service';
 import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 import { GlobalEvaluationService } from 'app/services/global-evaluation.service';
 import { KnowledgeBaseService } from '../../knowledge-base/knowledge-base.service';
+import { SidStatusService } from 'app/services/sid-status.service';
+import { PiaService } from 'app/entry/pia.service';
 
 @Component({
   selector: 'app-evaluations',
@@ -39,8 +41,10 @@ export class EvaluationsComponent implements OnInit, AfterViewChecked, OnDestroy
               private _evaluationService: EvaluationService,
               private _globalEvaluationService: GlobalEvaluationService,
               private _ngZone: NgZone,
-              private _translateService: TranslateService,
-              private _knowledgeBaseService: KnowledgeBaseService) { }
+              private _knowledgeBaseService: KnowledgeBaseService,
+              private _sidStatusService: SidStatusService,
+              private _piaService: PiaService,
+              private _translateService: TranslateService) { }
 
   ngOnInit() {
     // Prefix item
@@ -213,6 +217,7 @@ export class EvaluationsComponent implements OnInit, AfterViewChecked, OnDestroy
     this.evaluation.update().then(() => {
       // Pass the evaluation to the parent component
       this.evaluationEvent.emit(this.evaluation);
+      this._sidStatusService.setSidStatus(this._piaService, this.section, this.item);
       this._globalEvaluationService.checkForFinalValidation(this.pia, this.section, this.item);
     });
 

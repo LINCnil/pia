@@ -101,6 +101,9 @@
               background-color: $pia-green;
             }
           }
+          .fa-pencil-square-o.pia-fa-valid, .fa-cog.pia-fa-valid, .fa-check-square-o {
+            color: $pia-green;
+          }
         }
         &:nth-child(2) {
           .pia-sectionBlock-title {
@@ -114,6 +117,9 @@
             &:focus, &:hover, &:active, &.active {
               background-color: $pia-blue;
             }
+          }
+          .fa-pencil-square-o.pia-fa-valid, .fa-cog.pia-fa-valid, .fa-check-square-o {
+            color: $pia-blue;
           }
         }
         &:nth-child(3) {
@@ -129,6 +135,9 @@
               background-color: $pia-red;
             }
           }
+          .fa-pencil-square-o.pia-fa-valid, .fa-cog.pia-fa-valid, .fa-check-square-o {
+            color: $pia-red;
+          }
         }
         &:last-child {
           .pia-sectionBlock-title {
@@ -143,6 +152,9 @@
             &:focus, &:hover, &:active, &.active {
               background-color: $pia-dark-black;
             }
+          }
+          .fa-cog.pia-fa-valid, .fa-check-square-o {
+            color: $pia-dark-black;
           }
         }
       }

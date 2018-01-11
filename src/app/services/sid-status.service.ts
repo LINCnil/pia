@@ -16,7 +16,13 @@ export class SidStatusService {
   constructor() {
     this.noIconFor = ['3.5', '4.1', '4.2', '4.4', '4.5'];
     this.specialIcon = { '3.5': 'fa-line-chart', '4.1': 'fa-line-chart', '4.2': 'fa-calendar-check-o' }
-    this.sidStatusIcon = { 0: 'fa-pencil-square-o', 1: 'fa-cog', 2: 'fa-check-square-o' };
+    this.sidStatusIcon = {
+      0: 'fa-pencil-square-o',
+      1: ['fa-pencil-square-o', 'pia-fa-valid'],
+      2: 'fa-cog',
+      3: ['fa-cog', 'pia-fa-valid'],
+      4: 'fa-check-square-o'
+    };
     this.itemStatus = {}; // 0: Null, 1: In evaluation, 2: Validated
     this.globalEvaluationService = new GlobalEvaluationService();
   }
@@ -67,17 +73,29 @@ export class SidStatusService {
           // DPO filled + unsearched opinion scenario filled OR DPO filled + searched opinion scenario filled
           if ((dpoFilled === true && concernedPeopleOpinionUnsearchedFieldsFilled === true)
               || (dpoFilled === true && concernedPeopleOpinionSearchedFieldsFilled === true)) {
-            this.itemStatus[sid] = 2;
+            this.itemStatus[sid] = 3;
+            if (piaService.pia.status > 1) {
+              this.itemStatus[sid] = 4;
+            }
           }
           this.verification(piaService);
         } else {
           this.globalEvaluationService.isValidated(piaService.pia, sid, item).then((result: boolean) => {
+            this.itemStatus[sid] = 0;
             if (result) {
-              this.itemStatus[sid] = 2;
+              this.itemStatus[sid] = 3;
+              if (piaService.pia.status > 1) {
+                this.itemStatus[sid] = 4;
+              }
             } else {
               this.globalEvaluationService.isInEvaluation(piaService.pia, sid, item).then((result2: boolean) => {
                 if (result2) {
                   this.itemStatus[sid] = 1;
+                  this.globalEvaluationService.validationStarted(piaService.pia, sid, item).then((valid: boolean) => {
+                    if (valid) {
+                      this.itemStatus[sid] = 2;
+                    }
+                  });
                 }
               });
             }
@@ -92,6 +110,7 @@ export class SidStatusService {
     const sid = section.id + '.' + item.id;
     if (!this.noIconFor.includes(sid)) {
       this.itemStatus[sid] = 0;
+      // TODO the code below isn't useful
       piaService.getPIA().then(() => {
         // Special behaviour for DPO page
         if (sid === '4.3') {
@@ -111,7 +130,7 @@ export class SidStatusService {
       let valid = true;
       for (const el in this.itemStatus) {
         if (this.itemStatus.hasOwnProperty(el)) {
-          if (this.itemStatus[el] !== 2) {
+          if (this.itemStatus[el] < 3) {
             valid = false;
           }
         }
@@ -120,6 +139,7 @@ export class SidStatusService {
         this.enablePiaValidation = [0, 2, 3].includes(piaService.pia.status);
         this.piaIsRefused = [1, 4].includes(piaService.pia.status);
       }
+      this.verificationForDpo(piaService);
     });
   }
 
@@ -128,8 +148,7 @@ export class SidStatusService {
       let valid = true;
       for (const el in this.itemStatus) {
         if (this.itemStatus.hasOwnProperty(el)) {
-          // If one subsection (different from DPO page) is in edition, it's false
-          if (this.itemStatus[el] !== 2 && el !== '4.3') {
+          if (this.itemStatus[el] !== 3 && el !== '4.3') {
             valid = false;
           }
         }
@@ -141,7 +160,7 @@ export class SidStatusService {
   refusePia(piaService: any) {
     for (const el in this.itemStatus) {
       if (this.itemStatus.hasOwnProperty(el)) {
-        this.itemStatus[el] = 1;
+        this.itemStatus[el] = 2;
       }
     }
     this.resetDpoPage(piaService);

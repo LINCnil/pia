@@ -108,6 +108,64 @@ export class GlobalEvaluationService {
     });
   }
 
+  async validationStarted(pia: any, sid: string, item: any) {
+    return new Promise((resolve, reject) => {
+      if (item.evaluation_mode === 'item') {
+        const evaluationModel = new Evaluation();
+        evaluationModel.getByReference(pia.id, sid).then(() => {
+          if (evaluationModel.status > 0) {
+            resolve(true);
+          }
+        });
+      } else if (item.is_measure) {
+        let count = 0;
+        let countValid = 0;
+        const measureModel = new Measure();
+        measureModel.pia_id = pia.id;
+        measureModel.findAll().then((measures: any) => {
+          measures.forEach(measure => {
+            const evaluationModel = new Evaluation();
+            evaluationModel.getByReference(pia.id, sid + '.' + measure.id).then(() => {
+              count += 1;
+              if (evaluationModel.status > 0) {
+                resolve(true);
+              }
+              if (evaluationModel && evaluationModel.id && evaluationModel.status !== 1) {
+                countValid += 1;
+              }
+              if (measures.length === count) {
+                resolve(false);
+              }
+            });
+          });
+        });
+      } else if (item.evaluation_mode === 'question') {
+        let count = 0;
+        let countValid = 0;
+        item.questions.forEach(question => {
+          const answerModel = new Answer();
+          answerModel.getByReferenceAndPia(pia.id, question.id).then(() => {
+            if (answerModel.id) {
+              const evaluationModel = new Evaluation();
+              evaluationModel.getByReference(pia.id, sid + '.' + answerModel.reference_to).then(() => {
+                count += 1;
+                if (evaluationModel.status > 0) {
+                  resolve(true);
+                }
+                if (evaluationModel && evaluationModel.id && evaluationModel.status !== 1) {
+                  countValid += 1;
+                }
+                if (item.questions.length === count) {
+                  resolve(false);
+                }
+              });
+            }
+          });
+        });
+      }
+    });
+  }
+
   async checkForFinalValidation(pia: any, section: any, item: any) {
     const sid = section.id + '.' + item.id;
     this.enableValidation = false;

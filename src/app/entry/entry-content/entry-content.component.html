@@ -60,7 +60,7 @@
             [ngClass]="{'btn-active': _globalEvaluationService.enableValidation, 'hide': (section.id == 3 && item.id == 5) || section.id == 4 || !_evaluationService.showValidationButton || !_globalEvaluationService.enableValidation}"
             [disabled]="!_globalEvaluationService.enableValidation" type="submit">{{ 'pia.footer.validate_evaluation' | translate }}</button>
     <button class="btn btn-pending-validation" disabled
-            *ngIf="_sidStatusService.itemStatus[section.id + '.' + item.id] === 2 && (section.id + '.' + item.id !== '4.3')">
+            *ngIf="_sidStatusService.itemStatus[section.id + '.' + item.id] === 3 && (section.id + '.' + item.id !== '4.3')">
       <i class="fa fa-check-square-o" aria-hidden="true"></i>
       {{ 'pia.footer.subsection_validated' | translate }}
     </button>
@@ -72,7 +72,7 @@
             [ngClass]="{'hide': (section.id == 3 && item.id == 5) || section.id == 4 || !_evaluationService.showValidationButton}">Annuler la demande d'évaluation</button>
 
     <button class="btn pia-cancelBtn" (click)="cancelValidateEvaluation()"
-            *ngIf="_sidStatusService.itemStatus[section.id + '.' + item.id] === 2 && (section.id + '.' + item.id !== '4.3')">Annuler la demande de validation</button>
+            *ngIf="_sidStatusService.itemStatus[section.id + '.' + item.id] === 3 && (section.id + '.' + item.id !== '4.3')">Annuler la demande de validation</button>
 
     <div class="pia-entryContentBlock-footer-nav">
       <a [ngClass]="{'mask': _paginationService.hasPreviousLink === false}"
