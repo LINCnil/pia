@@ -41,7 +41,6 @@ export class MeasureService {
     const measure = new Measure();
     measure.pia_id = this.pia_id;
 
-    /* TODO : maybe move it after deletion has been completed, with a new measure Model */
     measure.get(measure_id).then(() => {
       this.behaviorSubject.next(measure.title);
       this._knowledgeBaseService.toHide = this._knowledgeBaseService.toHide.filter(item => item !== measure.title);

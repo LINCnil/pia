@@ -31,7 +31,6 @@ export class ActionPlanImplementationComponent implements OnInit {
       this.evaluation = this.data.evaluation;
       const date = this.evaluation.estimated_implementation_date;
       if (date) {
-        // TODO : recheck this code... seems buggy.
         const month = (date.getMonth() + 1).toString();
         const finalMonth = (month.length === 1 ? '0' : '' ) + month;
         const finalDate =  date.getFullYear() + '-' + finalMonth + '-' + date.getDate();
