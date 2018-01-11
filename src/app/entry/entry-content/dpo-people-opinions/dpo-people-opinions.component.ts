@@ -44,8 +44,6 @@ export class DPOPeopleOpinionsComponent implements OnInit {
     });
 
     this._piaService.getPIA().then(() => {
-      this._sidStatusService.verificationForDpo(this._piaService);
-
       // DPO
       if (this._piaService.pia.dpos_names && this._piaService.pia.dpos_names.length > 0) {
         this.DPOForm.controls['DPONames'].patchValue(this._piaService.pia.dpos_names);
@@ -110,6 +108,10 @@ export class DPOPeopleOpinionsComponent implements OnInit {
       if (peopleTextarea) {
         this.autoTextareaResize(null, peopleTextarea);
       }
+
+      console.log('before')
+      this._sidStatusService.verificationForDpo(this._piaService);
+      console.log('after')
     });
   }
 
