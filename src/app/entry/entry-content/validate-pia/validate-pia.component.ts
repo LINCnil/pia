@@ -74,29 +74,6 @@ export class ValidatePIAComponent implements OnInit {
   }
 
   /**
-   * Checks if the form is valid (radio buttons all checked).
-   * If so, enables validation buttons.
-   * @memberof ValidatePIAComponent
-   */
-  checkValidationFormStatus() {
-    let allBtnChecked = true;
-    const radioButtons = document.querySelectorAll('.pia-entryContentBlock-content-list-confirm input');
-    const simpleValidationBtn = document.getElementById('pia-simple-validation');
-    const signValidationBtn = document.getElementById('pia-sign-validation');
-
-    [].forEach.call(radioButtons, function (currentRadioBtn) {
-      if (!currentRadioBtn.checked) {
-        allBtnChecked = false;
-      }
-    });
-
-    if (allBtnChecked) {
-      simpleValidationBtn.removeAttribute('disabled');
-      signValidationBtn.removeAttribute('disabled');
-    }
-  }
-
-  /**
    * Locks radio buttons after click.
    * @param {any} event
    * @memberof ValidatePIAComponent
@@ -107,6 +84,7 @@ export class ValidatePIAComponent implements OnInit {
     } else {
       const clickedRadioButton = event.target || event.srcElement || event.currentTarget;
       clickedRadioButton.setAttribute('disabled', true);
+      this.checkValidationFormStatus();
     }
   }
 
@@ -130,5 +108,27 @@ export class ValidatePIAComponent implements OnInit {
     this._piaService.pia.update().then(() => {
       this._modalsService.openModal('modal-signed-pia-validation');
     });
+  }
+
+  /**
+   * Checks if the form is valid (radio buttons all checked).
+   * If so, enables validation buttons.
+   * @memberof ValidatePIAComponent
+   */
+  private checkValidationFormStatus() {
+    let allBtnChecked = true;
+    const radioButtons = document.querySelectorAll('.pia-entryContentBlock-content-list-confirm input');
+    const simpleValidationBtn = document.getElementById('pia-simple-validation');
+    const signValidationBtn = document.getElementById('pia-sign-validation');
+
+    [].forEach.call(radioButtons, function (currentRadioBtn) {
+      if (!currentRadioBtn.checked) {
+        allBtnChecked = false;
+      }
+    });
+    if (allBtnChecked) {
+      simpleValidationBtn.removeAttribute('disabled');
+      signValidationBtn.removeAttribute('disabled');
+    }
   }
 }
