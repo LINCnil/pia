@@ -31,7 +31,7 @@
                     [theme]="'foundation-theme'"
                     [placeholder]="question.placeholder | translate"
                     [editable]="false"
-                    [disabled]="_evaluationService.showValidationButton || _evaluationService.enableFinalValidation"
+                    [disable]="_evaluationService.showValidationButton || _evaluationService.enableFinalValidation"
                     [onlyFromAutocomplete]="true"
                     (focusin)="questionContentFocusIn()"
                     [secondaryPlaceholder]="question.placeholder | translate">
@@ -49,9 +49,9 @@
                     formControlName="list"
                     [theme]="'foundation-theme'"
                     [placeholder]="question.placeholder | translate"
-                    [editable]="true"
                     (focusin)="questionContentFocusIn()"
-                    [disabled]="_evaluationService.showValidationButton || _evaluationService.enableFinalValidation"
+                    [editable]="true"
+                    [disable]="_evaluationService.showValidationButton || _evaluationService.enableFinalValidation"
                     [secondaryPlaceholder]="question.placeholder | translate">
           </tag-input>
         </ng-template>

@@ -74,15 +74,14 @@ export class SidStatusService {
           this.globalEvaluationService.isValidated(piaService.pia, sid, item).then((result: boolean) => {
             if (result) {
               this.itemStatus[sid] = 2;
-              this.verification(piaService);
             } else {
               this.globalEvaluationService.isInEvaluation(piaService.pia, sid, item).then((result2: boolean) => {
                 if (result2) {
                   this.itemStatus[sid] = 1;
-                  this.verification(piaService);
                 }
               });
             }
+            this.verification(piaService);
           });
         }
       });
@@ -129,7 +128,8 @@ export class SidStatusService {
       let valid = true;
       for (const el in this.itemStatus) {
         if (this.itemStatus.hasOwnProperty(el)) {
-          if (this.itemStatus[el] !== 2 && el === '4.3') {
+          // If one subsection (different from DPO page) is in edition, it's false
+          if (this.itemStatus[el] !== 2 && el !== '4.3') {
             valid = false;
           }
         }
@@ -142,16 +142,20 @@ export class SidStatusService {
     for (const el in this.itemStatus) {
       if (this.itemStatus.hasOwnProperty(el)) {
         this.itemStatus[el] = 1;
-        piaService.pia.dpos_names = null;
-        piaService.pia.dpo_status = null;
-        piaService.pia.dpo_opinion = null;
-        piaService.pia.concerned_people_searched_opinion = null;
-        piaService.pia.concerned_people_searched_content = null;
-        piaService.pia.people_names = null;
-        piaService.pia.concerned_people_status = null;
-        piaService.pia.concerned_people_opinion = null;
-        piaService.pia.update();
       }
     }
+    this.resetDpoPage(piaService);
+  }
+
+  private resetDpoPage(piaService: any) {
+    piaService.pia.dpos_names = null;
+    piaService.pia.dpo_status = null;
+    piaService.pia.dpo_opinion = null;
+    piaService.pia.concerned_people_searched_opinion = null;
+    piaService.pia.concerned_people_searched_content = null;
+    piaService.pia.people_names = null;
+    piaService.pia.concerned_people_status = null;
+    piaService.pia.concerned_people_opinion = null;
+    piaService.pia.update();
   }
 }
