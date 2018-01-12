@@ -141,7 +141,6 @@ export class DPOPeopleOpinionsComponent implements OnInit {
       this.DPOForm.controls['DPOOpinion'].patchValue(null);
     }
     this._piaService.pia.update().then(() => {
-      this.checkDpoName();
       this._sidStatusService.setSidStatus(this._piaService, { id: 4 }, { id: 3 });
       if (this.DPOForm.value.DPONames && this.DPOForm.value.DPONames.length > 0) {
         this.DPOForm.controls['DPONames'].disable();
@@ -292,7 +291,6 @@ export class DPOPeopleOpinionsComponent implements OnInit {
       this.peopleForm.controls['peopleStatus'].patchValue(null);
     }
     this._piaService.pia.update().then(() => {
-      this.checkConcernedPeopleName();
       this._sidStatusService.setSidStatus(this._piaService, { id: 4 }, { id: 3 });
       if (this.peopleForm.value.peopleNames && this.peopleForm.value.peopleNames.length > 0) {
         this.peopleForm.controls['peopleNames'].disable();
