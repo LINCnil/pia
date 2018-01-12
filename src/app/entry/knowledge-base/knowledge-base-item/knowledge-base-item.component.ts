@@ -25,7 +25,9 @@ export class KnowledgeBaseItemComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.titleKb = this.itemKb.name;
+    this._translateService.get(this.itemKb.name).subscribe(value => {
+        this.titleKb = value;
+    });
   }
 
   /**
