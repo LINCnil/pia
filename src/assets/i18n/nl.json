@@ -794,6 +794,9 @@
     "title": "Over de Tool PIA",
     "version_number": "Versienummer",
     "description": "Deze tool is oorspronkelijk ontworpen door de <a target=\"_blank\" href=\"https://www.cnil.fr\"> Commission Nationale Informatique et Liberté (CNIL) </a>, de Franse autoriteit voor gegevensbescherming , om de dataprocessor te helpen voldoen aan de GDPR. <br> Deze software is gratis en open. Als u mee wilt doen aan dit project, kunt u de broncode downloaden van Github, wijzigen en delen met de community.",
+    "translators": "To be translated",
+    "translators_name": "To be translated",
+    "contribute": "To be translated",
     "licences": "Bibliotheeklicenties:"
   },
   "settings": {
