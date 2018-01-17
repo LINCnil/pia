@@ -124,7 +124,19 @@
         "sections": {
             "homepage_link": "Torna alla bacheca",
             "validate_pia": "Convalida PIA",
-            "refuse_pia": "Rifiuta PIA"
+            "refuse_pia": "Rifiuta PIA",
+            "status": {
+              "evaluation": {
+                "title": "",
+                "content": "",
+                "cancel": ""
+              },
+              "validation": {
+                "title": "",
+                "content": "",
+                "cancel": ""
+              }
+            }
         },
         "footer": {
             "ask_evaluation": "Richiedi valutazione",

@@ -193,4 +193,12 @@
       color: $pia-green;
     }
   }
+
+  &-status-info {
+    position: relative;
+    margin-bottom: 10px;
+    background-color: #fff;
+    padding: 12px 32px;
+    box-shadow: 1px 1px 15px 1px #d2d2d2;
+  }
 }

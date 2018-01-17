@@ -124,7 +124,19 @@
     "sections": {
       "homepage_link": "Terug naar dashboard",
       "validate_pia": "Valideren PIA",
-      "refuse_pia": "Geweigerde PIA"
+      "refuse_pia": "Geweigerde PIA",
+      "status": {
+        "evaluation": {
+          "title": "",
+          "content": "",
+          "cancel": ""
+        },
+        "validation": {
+          "title": "",
+          "content": "",
+          "cancel": ""
+        }
+      }
     },
     "footer": {
       "ask_evaluation": "Vraag een beoordeling",

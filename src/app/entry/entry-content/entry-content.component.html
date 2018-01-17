@@ -29,6 +29,21 @@
     </ng-template>
   </header>
 
+  <div class="pia-status-info" *ngIf="_evaluationService.showValidationButton && !_globalEvaluationService.enableValidation" [ngClass]="{'hide': (section.id == 3 && item.id == 5) || section.id == 4 || !_evaluationService.showValidationButton}">
+    <strong>{{ 'pia.sections.status.evaluation.title' | translate }}</strong>
+    <p>
+      <span [innerHTML]="'pia.sections.status.evaluation.content' | translate"></span>
+      <a href="javascript:;" (click)="cancelAskForEvaluation()" [innerHTML]="'pia.sections.status.evaluation.cancel' | translate"></a>
+    </p>
+  </div>
+  <div class="pia-status-info" *ngIf="_sidStatusService.itemStatus[section.id + '.' + item.id] === 3 && (section.id + '.' + item.id !== '4.3')">
+    <strong>{{ 'pia.sections.status.validation.title' | translate }}</strong>
+    <p>
+      <span [innerHTML]="'pia.sections.status.validation.content' | translate"></span>
+      <a href="javascript:;" (click)="cancelValidateEvaluation()" [innerHTML]="'pia.sections.status.validation.cancel' | translate"></a>
+    </p>
+  </div>
+
   <ng-container *ngIf="item.is_measure; else appQuestions">
     <button (click)="_measureService.addNewMeasure(_piaService.pia)" class="btn btn-white btn-addMeasure" type="button"
             *ngIf="!_evaluationService.showValidationButton && !_evaluationService.enableFinalValidation"><span class="pia-icons pia-icon-add"></span> {{ 'measures.add' | translate }}</button>
