@@ -263,10 +263,13 @@ export class EvaluationsComponent implements OnInit, AfterViewChecked, OnDestroy
     if (this._evaluationService.enableFinalValidation) {
       return false;
     } else {
-      this._knowledgeBaseService.placeholder = this.comment_placeholder;
-      this.evaluationForm.controls['evaluationComment'].enable();
-      const evaluationCommentField = <HTMLElement>document.querySelector('.pia-evaluation-comment-' + this.evaluation.id);
-      evaluationCommentField.focus();
+      this.editor = true;
+      setTimeout(() => {
+        this._knowledgeBaseService.placeholder = this.comment_placeholder;
+        this.evaluationForm.controls['evaluationComment'].enable();
+        const evaluationCommentField = <HTMLElement>document.querySelector('.pia-evaluation-comment-' + this.evaluation.id);
+        evaluationCommentField.focus();
+      }, 1);
     }
 
   }
@@ -275,6 +278,7 @@ export class EvaluationsComponent implements OnInit, AfterViewChecked, OnDestroy
    * Executes actions when losing focus from evaluation comment.
    */
   evaluationCommentFocusOut() {
+    this.editor = false;
     this._knowledgeBaseService.placeholder = null;
     let userText = this.evaluationForm.controls['evaluationComment'].value;
     if (userText) {
