@@ -36,6 +36,7 @@ export class EvaluationsComponent implements OnInit, AfterViewChecked, OnDestroy
   riskName: any;
   elementId: String;
   editor: any;
+  editorEvaluationComment: any;
 
   constructor(private el: ElementRef,
               private _evaluationService: EvaluationService,
@@ -263,7 +264,7 @@ export class EvaluationsComponent implements OnInit, AfterViewChecked, OnDestroy
     if (this._evaluationService.enableFinalValidation) {
       return false;
     } else {
-      this.editor = true;
+      this.editorEvaluationComment = true;
       setTimeout(() => {
         this._knowledgeBaseService.placeholder = this.comment_placeholder;
         this.evaluationForm.controls['evaluationComment'].enable();
@@ -278,7 +279,7 @@ export class EvaluationsComponent implements OnInit, AfterViewChecked, OnDestroy
    * Executes actions when losing focus from evaluation comment.
    */
   evaluationCommentFocusOut() {
-    this.editor = false;
+    this.editorEvaluationComment = false;
     this._knowledgeBaseService.placeholder = null;
     let userText = this.evaluationForm.controls['evaluationComment'].value;
     if (userText) {

@@ -36,7 +36,7 @@
 
       <div [ngClass]="{'hide': _evaluationService.enableFinalValidation && (!evaluation.evaluation_comment || evaluation.evaluation_comment.length <= 0)}">
         <label for="pia-evaluation-comment-{{evaluation.id}}">{{ 'evaluations.evaluation_comment' | translate }}</label>
-        <div (click)="evaluationCommentFocusIn()" class="pia-evaluationBlock-contentText" [innerHTML]="evaluationForm.controls['evaluationComment'].value | safeHtml" [ngClass]="{ 'hide': editor || !evaluationForm.controls['evaluationComment'].value }"></div>
+        <div (click)="evaluationCommentFocusIn()" class="pia-evaluationBlock-contentText" [innerHTML]="evaluationForm.controls['evaluationComment'].value | safeHtml" [ngClass]="{ 'hide': editorEvaluationComment || !evaluationForm.controls['evaluationComment'].value }"></div>
         <textarea (keyup)="autoTextareaResize($event)"
                   class="pia-evaluation-comment-{{evaluation.id}}"
                   rows="8"
@@ -45,7 +45,7 @@
                   formControlName="evaluationComment"
                   name="pia-evaluation-comment"
                   (focusout)="evaluationCommentFocusOut()"
-                  [ngClass]="{ 'hide': (!editor && evaluationForm.controls['evaluationComment'].value && evaluationForm.controls['evaluationComment'].value.length > 0) }"
+                  [ngClass]="{ 'hide': (!editorEvaluationComment && evaluationForm.controls['evaluationComment'].value && evaluationForm.controls['evaluationComment'].value.length > 0) }"
                   [attr.placeholder]="comment_placeholder"></textarea>
       </div>
 
