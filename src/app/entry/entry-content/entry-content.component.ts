@@ -54,8 +54,30 @@ export class EntryContentComponent implements OnInit, OnChanges {
 
     this._evaluationService.setPia(this._piaService.pia);
     this._evaluationService.allowEvaluation();
-    this._paginationService.setPagination(parseInt(this._activatedRoute.snapshot.params['section_id'], 10),
-                                          parseInt(this._activatedRoute.snapshot.params['item_id'], 10));
+
+    const sectionId = parseInt(this._activatedRoute.snapshot.params['section_id'], 10);
+    const itemId = parseInt(this._activatedRoute.snapshot.params['item_id'], 10);
+
+    this._paginationService.setPagination(sectionId, itemId);
+
+    // Redirect users accessing validation page if requirements not met
+    /* TODO make it works for refusal PIA status + */
+    if (sectionId === 4 && itemId === 4) {
+      console.log(this._sidStatusService.enablePiaValidation);
+      if ((!this._sidStatusService.enablePiaValidation && !this._sidStatusService.piaIsRefused)
+      || (this._sidStatusService.piaIsRefused && !this._piaService.pia.applied_adjustements)) {
+        this._router.navigate(['entry', this._piaService.pia.id, 'section', 1, 'item', 1])
+      }
+    }
+
+    // Redirect users accessing refusal page if requirements not met
+    if (sectionId === 4 && itemId === 5) {
+      console.log(this._sidStatusService.enablePiaValidation);
+      if (!this._sidStatusService.enablePiaValidation && !this._sidStatusService.piaIsRefused) {
+        this._router.navigate(['entry', this._piaService.pia.id, 'section', 1, 'item', 1])
+      }
+    }
+
   }
 
   /**

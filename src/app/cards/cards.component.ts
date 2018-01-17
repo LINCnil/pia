@@ -84,7 +84,6 @@ export class CardsComponent implements OnInit, OnDestroy {
   reversePIA() {
     const cardsToSwitchReverse = document.getElementById('cardsSwitch');
     cardsToSwitchReverse.classList.remove('flipped');
-    console.log('ok');
   }
 
   /**
