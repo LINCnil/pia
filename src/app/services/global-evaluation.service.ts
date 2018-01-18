@@ -13,7 +13,7 @@ export class GlobalEvaluationService {
       if (item.evaluation_mode === 'item') {
         const evaluationModel = new Evaluation();
         evaluationModel.getByReference(pia.id, sid).then(() => {
-          resolve(evaluationModel && evaluationModel.id && evaluationModel.status > 0);
+          resolve(evaluationModel && evaluationModel.id && evaluationModel.status >= 0);
         });
       } else if (item.is_measure) {
         let count = 0;
@@ -25,7 +25,7 @@ export class GlobalEvaluationService {
             const evaluationModel = new Evaluation();
             evaluationModel.getByReference(pia.id, sid + '.' + measure.id).then(() => {
               count += 1;
-              if (evaluationModel && evaluationModel.id && evaluationModel.status > 0) {
+              if (evaluationModel && evaluationModel.id && evaluationModel.status >= 0) {
                 countValid += 1;
               }
               if (measures.length === count) {
@@ -44,7 +44,7 @@ export class GlobalEvaluationService {
               const evaluationModel = new Evaluation();
               evaluationModel.getByReference(pia.id, sid + '.' + answerModel.reference_to).then(() => {
                 count += 1;
-                if (evaluationModel && evaluationModel.id && evaluationModel.status > 0) {
+                if (evaluationModel && evaluationModel.id && evaluationModel.status >= 0) {
                   countValid += 1;
                 }
                 if (item.questions.length === count) {

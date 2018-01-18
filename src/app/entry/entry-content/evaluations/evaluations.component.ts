@@ -183,6 +183,7 @@ export class EvaluationsComponent implements OnInit, AfterViewChecked, OnDestroy
    * @param {number} status : the status of the evaluation (to be fixed, improvable, acceptable)
    */
   selectedButton(event, status: number) {
+    this.evaluation.global_status = 0;
     this.evaluation.status = status;
 
     // Action plan comment : hides action plan field + switchs its value to comment field + removes its value.
@@ -231,7 +232,8 @@ export class EvaluationsComponent implements OnInit, AfterViewChecked, OnDestroy
    * Loads editor (if not final validation) on action plan comment focus.
    */
   actionPlanCommentFocusIn() {
-    if (this._evaluationService.enableFinalValidation) {
+    if ((!this._evaluationService.showValidationButton && !this._evaluationService.enableFinalValidation)
+        || this._sidStatusService.itemStatus[this.section.id + '.' + this.item.id] === 3) {
       return false;
     } else {
       this._knowledgeBaseService.placeholder =  this._translateService.instant('evaluations.placeholder_improvable1');
@@ -261,7 +263,8 @@ export class EvaluationsComponent implements OnInit, AfterViewChecked, OnDestroy
    * Activates (or not) evaluation comment when focusing it.
    */
   evaluationCommentFocusIn() {
-    if (this._evaluationService.enableFinalValidation) {
+    if ((!this._evaluationService.showValidationButton && !this._evaluationService.enableFinalValidation)
+        || this._sidStatusService.itemStatus[this.section.id + '.' + this.item.id] === 3) {
       return false;
     } else {
       this.editorEvaluationComment = true;

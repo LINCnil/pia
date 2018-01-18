@@ -29,14 +29,14 @@
     </ng-template>
   </header>
 
-  <div class="pia-status-info" *ngIf="_evaluationService.showValidationButton && !_globalEvaluationService.enableValidation" [ngClass]="{'hide': (section.id == 3 && item.id == 5) || section.id == 4 || !_evaluationService.showValidationButton}">
+  <div class="pia-status-info" *ngIf="_evaluationService.showValidationButton && !_globalEvaluationService.enableValidation && (section.id != 3 && item.id != 5) && section.id != 4">
     <strong>{{ 'pia.sections.status.evaluation.title' | translate }}</strong>
     <p>
       <span [innerHTML]="'pia.sections.status.evaluation.content' | translate"></span>
       <a href="javascript:;" (click)="cancelAskForEvaluation()" [innerHTML]="'pia.sections.status.evaluation.cancel' | translate"></a>
     </p>
   </div>
-  <div class="pia-status-info" *ngIf="_sidStatusService.itemStatus[section.id + '.' + item.id] === 3 && (section.id + '.' + item.id !== '4.3')">
+  <div class="pia-status-info" *ngIf="_sidStatusService.itemStatus[section.id + '.' + item.id] === 3 && section.id !== 4">
     <strong>{{ 'pia.sections.status.validation.title' | translate }}</strong>
     <p>
       <span [innerHTML]="'pia.sections.status.validation.content' | translate"></span>
