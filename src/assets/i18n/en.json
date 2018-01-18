@@ -124,7 +124,19 @@
     "sections": {
       "homepage_link": "Back to dashboard",
       "validate_pia": "Validate PIA",
-      "refuse_pia": "Refused PIA"
+      "refuse_pia": "Refused PIA",
+      "status": {
+        "evaluation": {
+          "title": "",
+          "content": "",
+          "cancel": ""
+        },
+        "validation": {
+          "title": "",
+          "content": "",
+          "cancel": ""
+        }
+      }
     },
     "footer": {
       "ask_evaluation": "Ask for review",
@@ -709,7 +721,8 @@
     "comments_count": "comment(s)",
     "new_comment": "Comment",
     "placeholder_new_comment": "Leave a comment",
-    "comment": "Comment"
+    "comment": "Comment",
+    "send": "Send"
   },
   "questions": {
     "edit": "Edit question",

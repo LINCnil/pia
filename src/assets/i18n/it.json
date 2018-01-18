@@ -124,7 +124,19 @@
         "sections": {
             "homepage_link": "Torna alla bacheca",
             "validate_pia": "Convalida PIA",
-            "refuse_pia": "Rifiuta PIA"
+            "refuse_pia": "Rifiuta PIA",
+            "status": {
+              "evaluation": {
+                "title": "",
+                "content": "",
+                "cancel": ""
+              },
+              "validation": {
+                "title": "",
+                "content": "",
+                "cancel": ""
+              }
+            }
         },
         "footer": {
             "ask_evaluation": "Richiedi valutazione",
@@ -710,7 +722,8 @@
         "comments_count": "commenti",
         "new_comment": "Commento",
         "placeholder_new_comment": "Lascia un commento",
-        "comment": "Commenta"
+        "comment": "Commenta",
+        "send": "Send"
     },
     "questions": {
         "edit": "Modifica domanda",

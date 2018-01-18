@@ -124,7 +124,19 @@
     "sections": {
       "homepage_link": "Zpět na Hlavní panel",
       "validate_pia": "Ověřit PIA",
-      "refuse_pia": "Odmítnutá PIA"
+      "refuse_pia": "Odmítnutá PIA",
+      "status": {
+        "evaluation": {
+          "title": "",
+          "content": "",
+          "cancel": ""
+        },
+        "validation": {
+          "title": "",
+          "content": "",
+          "cancel": ""
+        }
+      }
     },
     "footer": {
       "ask_evaluation": "Požádat o kontrolu",
@@ -710,7 +722,8 @@
     "comments_count": "komentář(e)",
     "new_comment": "Komentář",
     "placeholder_new_comment": "Zanechat komentář",
-    "comment": "Komentář"
+    "comment": "Komentář",
+    "send": "Send"
   },
   "questions": {
     "edit": "Upravit otázku",

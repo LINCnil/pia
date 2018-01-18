@@ -124,7 +124,19 @@
     "sections": {
       "homepage_link": "Retourner à l'accueil",
       "validate_pia": "Valider le PIA",
-      "refuse_pia": "PIA refusé"
+      "refuse_pia": "PIA refusé",
+      "status": {
+        "evaluation": {
+          "title": "En attente d'évaluation",
+          "content": "L'évaluation de cette partie n'a pas encore commencé. Si vous souhaitez modifier les contenus en mode édition, il faut",
+          "cancel": "annuler la demande d'évaluation."
+        },
+        "validation": {
+          "title": "En attente de validation",
+          "content": "L'évaluation de cette partie est terminée et en attente de validation finale de l'analyse. Si vous souhaitez modifier les évaluations, il faut",
+          "cancel": "annuler la demande de validation."
+        }
+      }
     },
     "footer": {
       "ask_evaluation": "Demander l'évaluation",
@@ -701,7 +713,8 @@
     "comments_count": "commentaire(s)",
     "new_comment": "Commenter",
     "placeholder_new_comment": "Laissez un commentaire",
-    "comment": "Commentaire"
+    "comment": "Commentaire",
+    "send": "Envoyer"
   },
   "questions": {
     "edit": "Éditer la question",

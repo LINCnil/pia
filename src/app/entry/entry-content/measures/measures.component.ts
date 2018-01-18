@@ -19,7 +19,7 @@ export class MeasuresComponent implements OnInit, OnDestroy {
   @Input() section: any;
   @Input() pia: any;
   editor: any;
-  elementId: String;
+  elementId: string;
   evaluation: Evaluation = new Evaluation();
   displayDeleteButton = true;
   measureForm: FormGroup;
@@ -129,6 +129,9 @@ export class MeasuresComponent implements OnInit, OnDestroy {
     this.measureModel.title = userText;
     this.measureModel.update().then(() => {
       this._evaluationService.allowEvaluation();
+      if (previousTitle !== this.measureModel.title) {
+        this._knowledgeBaseService.removeItemIfPresent(this.measureModel.title, previousTitle);
+      }
 
       // Update tags
       const answer = new Answer();
