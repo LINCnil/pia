@@ -721,7 +721,8 @@
     "comments_count": "comment(s)",
     "new_comment": "Comment",
     "placeholder_new_comment": "Leave a comment",
-    "comment": "Comment"
+    "comment": "Comment",
+    "send": "Send"
   },
   "questions": {
     "edit": "Edit question",

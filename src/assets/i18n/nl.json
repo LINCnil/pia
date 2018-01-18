@@ -722,7 +722,8 @@
     "comments_count": "reactie (s)",
     "new_comment": "Commentaar",
     "placeholder_new_comment": "Laat een reactie achter",
-    "comment": "Commentaar"
+    "comment": "Commentaar",
+    "send": "Send"
   },
   "questions": {
     "edit": "Vraag bewerken",

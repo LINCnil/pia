@@ -713,7 +713,8 @@
     "comments_count": "commentaire(s)",
     "new_comment": "Commenter",
     "placeholder_new_comment": "Laissez un commentaire",
-    "comment": "Commentaire"
+    "comment": "Commentaire",
+    "send": "Envoyer"
   },
   "questions": {
     "edit": "Éditer la question",

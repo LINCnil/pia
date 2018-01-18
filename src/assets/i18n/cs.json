@@ -722,7 +722,8 @@
     "comments_count": "komentář(e)",
     "new_comment": "Komentář",
     "placeholder_new_comment": "Zanechat komentář",
-    "comment": "Komentář"
+    "comment": "Komentář",
+    "send": "Send"
   },
   "questions": {
     "edit": "Upravit otázku",
