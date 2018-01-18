@@ -145,10 +145,6 @@ export class EvaluationsComponent implements OnInit, AfterViewChecked, OnDestroy
         this.evaluationForm.controls['gaugeY'].patchValue(0);
       }
 
-      if (this.evaluation.evaluation_comment && this.evaluation.evaluation_comment.length > 0) {
-        this.evaluationForm.controls['evaluationComment'].disable();
-      }
-
       this._globalEvaluationService.checkForFinalValidation(this.pia, this.section, this.item);
     });
 
@@ -165,6 +161,7 @@ export class EvaluationsComponent implements OnInit, AfterViewChecked, OnDestroy
         });
       });
     }
+    this._evaluationService.setPia(this.pia); // Sometimes this._evaluationService.pia is empty
     this._evaluationService.isAllEvaluationValidated();
   }
 

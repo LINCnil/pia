@@ -1,4 +1,6 @@
-<div class="pia-evaluationBlock" [ngClass]="{'pia-evaluationBlock-shadowed pia-evaluationBlock-self-padding': item.evaluation_mode === 'item'}">
+<div class="pia-evaluationBlock"
+      *ngIf="_evaluationService.enableEvaluation && _sidStatusService.itemStatus[this.section.id + '.' + this.item.id]"
+      [ngClass]="{'pia-evaluationBlock-shadowed pia-evaluationBlock-self-padding': item.evaluation_mode === 'item'}">
   <div class="pia-evaluationBlock-title">{{ 'evaluations.title' | translate }}</div>
 
   <form [formGroup]="evaluationForm">

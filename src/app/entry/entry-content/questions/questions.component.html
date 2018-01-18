@@ -79,6 +79,6 @@
   <app-comments *ngIf="answer && answer.id" [pia]="pia" [question]="question" [questionId]="question.id" [answer]="answer"></app-comments>
 
   <app-evaluations (evaluationEvent)="evaluationChange($event)"
-                   *ngIf="item.evaluation_mode === 'question' && (_evaluationService.showValidationButton || _evaluationService.enableFinalValidation || _evaluationService.someItemNeedToBeFixed)"
+                   *ngIf="item.evaluation_mode === 'question'"
                    [pia]="pia" [section]="section" [item]="item" [questionId]="question.id"></app-evaluations>
 </div>
