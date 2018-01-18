@@ -40,12 +40,12 @@
         <label for="pia-evaluation-action-plan-{{reference_to}}">{{ 'evaluations.action_plan_comment' | translate }}</label>
         <div (click)="actionPlanCommentFocusIn()" class="pia-evaluationBlock-contentText" [innerHTML]="evaluationForm.controls['actionPlanComment'].value | safeHtml" [ngClass]="{ 'hide': editor || !evaluationForm.controls['actionPlanComment'].value }"></div>
         <textarea (keyup)="autoTextareaResize($event)"
-                  id="{{elementId}}"
+                  id="{{actionPlanCommentElementId}}"
                   rows="8"
+                  cols="50"
                   formControlName="actionPlanComment"
                   name="pia-evaluation-action-plan"
                   (focusin)="actionPlanCommentFocusIn()"
-                  cols="50"
                   [ngClass]="{ 'hide': (!editor && evaluationForm.controls['actionPlanComment'].value && evaluationForm.controls['actionPlanComment'].value.length > 0) }"
                   placeholder="{{ 'evaluations.placeholder_improvable1' | translate }}"></textarea>
       </div>
@@ -54,13 +54,12 @@
         <label for="pia-evaluation-comment-{{evaluation.id}}">{{ 'evaluations.evaluation_comment' | translate }}</label>
         <div (click)="evaluationCommentFocusIn()" class="pia-evaluationBlock-contentText" [innerHTML]="evaluationForm.controls['evaluationComment'].value | safeHtml" [ngClass]="{ 'hide': editorEvaluationComment || !evaluationForm.controls['evaluationComment'].value }"></div>
         <textarea (keyup)="autoTextareaResize($event)"
-                  class="pia-evaluation-comment-{{evaluation.id}}"
+                  id="{{evaluationCommentElementId}}"
                   rows="8"
                   cols="50"
-                  (focusin)="evaluationCommentFocusIn()"
                   formControlName="evaluationComment"
                   name="pia-evaluation-comment"
-                  (focusout)="evaluationCommentFocusOut()"
+                  (focusin)="evaluationCommentFocusIn()"
                   [ngClass]="{ 'hide': (!editorEvaluationComment && evaluationForm.controls['evaluationComment'].value && evaluationForm.controls['evaluationComment'].value.length > 0) }"
                   [attr.placeholder]="comment_placeholder"></textarea>
       </div>
