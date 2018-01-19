@@ -21,7 +21,6 @@ export class EvaluationService {
   answer: Answer = new Answer();
   measure: Measure = new Measure();
   pia: Pia;
-  someItemNeedToBeFixed = false;
 
   constructor(private _modalsService: ModalsService,
               private _paginationService: PaginationService,
@@ -165,7 +164,6 @@ export class EvaluationService {
   }
 
   allAwsersIsInEvaluation(section: any, item: any) {
-    this.someItemNeedToBeFixed = false;
     this.showValidationButton = false;
     let reference_to = '';
     if (item.evaluation_mode === 'item') {
@@ -175,7 +173,6 @@ export class EvaluationService {
         if (entry !== false) {
           if (entry.status === 1) {
             this.showValidationButton = false;
-            this.someItemNeedToBeFixed = true;
           } else {
             this.showValidationButton = true;
           }
@@ -196,9 +193,7 @@ export class EvaluationService {
         const evaluation = new Evaluation();
         evaluation.getByReference(this.pia.id, reference_to).then((entry: any) => {
           if (entry !== false) {
-            if (entry.status === 1) {
-              this.someItemNeedToBeFixed = true;
-            } else {
+            if (entry.status !== 1) {
               count += 1;
             }
             this.showValidationButton = (count === this.answers.length);
@@ -415,7 +410,6 @@ export class EvaluationService {
             resolve();
           });
         } else if (evaluation.status === 0 || evaluation.status === 1) {
-          this.someItemNeedToBeFixed = false;
           evaluation.status = 0;
           evaluation.update().then(() => {
             resolve();
