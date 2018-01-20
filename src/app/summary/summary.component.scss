@@ -9,18 +9,21 @@
     }
     h2 {
       color: #393939;
+      margin-bottom: 3px;
     }
     h3 {
       color: #091C6B;
       margin: 2px 0;
       font-weight: 500;
     }
+    .evaluationbox p {
+      margin-top: 0;
+    }
     .databox,
-    .evaluationbox,
     .actionplanbox {
-      margin: 8px 0;
+      margin: 0 0 8px 0;
       border: 1px solid #b7b7b7;
-      padding: 6px;
+      padding: 6px 16px;
       background: #fff;
       box-shadow: 1px 1px 3px 0px #c2c2c2;
     }

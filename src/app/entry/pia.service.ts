@@ -159,12 +159,14 @@ export class PiaService {
     pia.people_names = data.pia.people_names;
     if (is_duplicate) {
       pia.status = 0;
+      pia.created_at = new Date();
+      pia.updated_at = null;
     } else {
       pia.status = data.pia.status;
-    }
-    pia.created_at = new Date(data.pia.created_at);
-    if (data.pia.updated_at) {
-      pia.updated_at = new Date(data.pia.updated_at);
+      pia.created_at = new Date(data.pia.created_at);
+      if (data.pia.updated_at) {
+        pia.updated_at = new Date(data.pia.updated_at);
+      }
     }
     pia.create().then((pia_id: number) => {
       pia.id = pia_id;
