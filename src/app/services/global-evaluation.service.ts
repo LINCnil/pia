@@ -7,6 +7,7 @@ import { Evaluation } from 'app/entry/entry-content/evaluations/evaluation.model
 export class GlobalEvaluationService {
 
   enableValidation = false;
+  itemToFix = {}
 
   async isInEvaluation(pia: any, sid: string, item: any) {
     return new Promise((resolve, reject) => {
@@ -173,7 +174,7 @@ export class GlobalEvaluationService {
       if (item.evaluation_mode === 'item') {
         const evaluationModel = new Evaluation();
         evaluationModel.getByReference(pia.id, sid).then(() => {
-          this.enableValidation = this.checkEvaluationStatus(item, evaluationModel);
+          this.enableValidation = this.checkEvaluationStatus(section, item, evaluationModel);
           resolve();
         });
       } else if (item.is_measure) {
@@ -187,7 +188,7 @@ export class GlobalEvaluationService {
             evaluationModel.getByReference(pia.id, sid + '.' + measure.id).then(() => {
               count += 1;
               if (evaluationModel && evaluationModel.id) {
-                const status = this.checkEvaluationStatus(item, evaluationModel);
+                const status = this.checkEvaluationStatus(section, item, evaluationModel);
                 if (status) {
                   countValid += 1;
                 }
@@ -210,7 +211,7 @@ export class GlobalEvaluationService {
               evaluationModel.getByReference(pia.id, sid + '.' + answerModel.reference_to).then(() => {
                 count += 1;
                 if (evaluationModel && evaluationModel.id) {
-                  const status = this.checkEvaluationStatus(item, evaluationModel);
+                  const status = this.checkEvaluationStatus(section, item, evaluationModel);
                   if (status) {
                     countValid += 1;
                   }
@@ -227,13 +228,60 @@ export class GlobalEvaluationService {
     });
   }
 
-  private checkEvaluationStatus(item: any, evaluation: any) {
+  async itemStatusVerification(pia: any, section: any, item: any) {
+    const sid = section.id + '.' + item.id;
+    this.itemToFix[section.id + '.' + item.id] = false;
+    return new Promise((resolve, reject) => {
+      if (item.evaluation_mode === 'item') {
+        const evaluationModel = new Evaluation();
+        evaluationModel.getByReference(pia.id, sid).then(() => {
+          if (evaluationModel.status === 1) {
+            this.itemToFix[section.id + '.' + item.id] = true;
+            resolve();
+          }
+        });
+      } else if (item.is_measure) {
+        const measureModel = new Measure();
+        measureModel.pia_id = pia.id;
+        measureModel.findAll().then((measures: any) => {
+          measures.forEach(measure => {
+            const evaluationModel = new Evaluation();
+            evaluationModel.getByReference(pia.id, sid + '.' + measure.id).then(() => {
+              if (evaluationModel.status === 1) {
+                this.itemToFix[section.id + '.' + item.id] = true;
+                resolve();
+              }
+            });
+          });
+        });
+      } else if (item.evaluation_mode === 'question') {
+        item.questions.forEach(question => {
+          const answerModel = new Answer();
+          answerModel.getByReferenceAndPia(pia.id, question.id).then(() => {
+            if (answerModel.id) {
+              const evaluationModel = new Evaluation();
+              evaluationModel.getByReference(pia.id, sid + '.' + answerModel.reference_to).then(() => {
+                if (evaluationModel.status === 1) {
+                  this.itemToFix[section.id + '.' + item.id] = true;
+                  resolve();
+                }
+              });
+            }
+          });
+        });
+      }
+    });
+  }
+
+  private checkEvaluationStatus(section: any, item: any, evaluation: any) {
     let status = false;
     if (evaluation.status === 1) {
+      this.itemToFix[section.id + '.' + item.id] = true;
       if (evaluation.evaluation_comment && evaluation.evaluation_comment.length > 0) {
         status = true;
       }
     } else if (evaluation.status === 2) {
+      this.itemToFix[section.id + '.' + item.id] = false;
       if (item.evaluation_mode === 'question') {
         if (evaluation.action_plan_comment && evaluation.action_plan_comment.length > 0) {
           status = true;
@@ -246,6 +294,7 @@ export class GlobalEvaluationService {
         }
       }
     } else if (evaluation.status === 3) {
+      this.itemToFix[section.id + '.' + item.id] = false;
       status = true;
     }
     return status;

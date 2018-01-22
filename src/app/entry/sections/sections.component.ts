@@ -9,6 +9,7 @@ import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 
 import { PiaService } from 'app/entry/pia.service';
+import { GlobalEvaluationService } from 'app/services/global-evaluation.service';
 
 @Component({
   selector: 'app-sections',
@@ -27,6 +28,7 @@ export class SectionsComponent implements OnInit, OnChanges {
   constructor(private _piaService: PiaService,
               private _appDataService: AppDataService,
               private _sidStatusService: SidStatusService,
+              private _globalEvaluationService: GlobalEvaluationService,
               private _evaluationService: EvaluationService) {
   }
 
@@ -35,6 +37,7 @@ export class SectionsComponent implements OnInit, OnChanges {
     this.data.sections.forEach((section: any) => {
       section.items.forEach((item: any) => {
         this._sidStatusService.setSidStatus(this._piaService, section, item);
+        this._globalEvaluationService.itemStatusVerification(this._piaService.pia, section, item);
       });
     });
   }
