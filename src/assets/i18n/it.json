@@ -119,7 +119,19 @@
 		"sections": {
 			"homepage_link": "Torna al pannello di controllo",
 			"validate_pia": "Valida PIA",
-			"refuse_pia": "Rifiuta PIA"
+      "refuse_pia": "Rifiuta PIA",
+      "status": {
+        "evaluation": {
+          "title": "",
+          "content": "",
+          "cancel": ""
+        },
+        "validation": {
+          "title": "",
+          "content": "",
+          "cancel": ""
+        }
+      }
 		},
 		"footer": {
 			"ask_evaluation": "Richiedi una revisione",
@@ -705,7 +717,8 @@
 			"comments_count": "commenti",
 			"new_comment": "Commento",
 			"placeholder_new_comment": "Lascia un commento",
-			"comment": "Commenta"
+      "comment": "Commenta",
+      "send": "Send"
 		},
 		"questions": {
 			"edit": "Modifica domanda",
@@ -786,7 +799,13 @@
 			}
 		},
 		"about": {
-			"title": "Informazioni"
+      "title": "Informazioni",
+      "version_number": "To be translated",
+      "description": "To be translated",
+      "translators": "To be translated",
+      "translators_name": "To be translated",
+      "contribute": "To be translated",
+      "licences": "To be translated:"
 		},
 		"settings": {
 			"title": "Impostazioni",
