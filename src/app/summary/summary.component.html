@@ -26,6 +26,21 @@
   <div class="row">
     <div class="small-12 medium-12 columns">
       <div *ngIf="showPiaTpl">
+
+        <div *ngFor="let c of content">
+          <div *ngIf="c.data.length > 0">
+            <h1>{{ c.title | translate }}</h1>
+            <h2 *ngIf="c.subtitle">{{ c.subtitle | translate }}</h2>
+            <div class="databox" *ngFor="let d of c.data">
+              <h3>{{ d.title | translate }}</h3>
+              <div style="font-weight:500;" *ngIf="d.type !== 'date'; else dateBlock" [innerHTML]="d.content | translate | safeHtml"></div>
+              <ng-template #dateBlock>
+                <time style="font-weight:500;" *ngIf="d.content.toString() !== 'Invalid Date'">{{ d.content | date: 'dd/MM/yyyy' }}</time>
+              </ng-template>
+            </div>
+          </div>
+        </div>
+
         <div *ngFor="let section of _piaService.data.sections">
           <div *ngIf="section.id !== 4">
             <h1>{{ section.title | translate }}</h1>
@@ -36,9 +51,7 @@
                   <div *ngIf="item.is_measure">
                     <div *ngFor="let measure of allData[section.id][item.id]">
                       <h3>{{ measure.title }}</h3>
-                      <div>
-                        {{ measure.content }}
-                      </div>
+                      <div [innerHTML]="measure.content | translate | safeHtml"></div>
                       <div class="evaluationbox" *ngIf="allData[section.id][item.id].evaluation">
                         <p>
                           <strong class="evaluationValue">{{ 'evaluations.title' | translate }} : {{ allData[section.id][item.id].evaluation.title | translate }}</strong>
@@ -67,9 +80,7 @@
                   <div *ngIf="item.questions">
                     <div *ngFor="let question of item.questions">
                       <h3>{{ question.title | translate }}</h3>
-                      <div>
-                        {{ allData[section.id][item.id][question.id].content }}
-                      </div>
+                      <div [innerHTML]="allData[section.id][item.id][question.id].content | translate | safeHtml"></div>
                       <div class="evaluationbox" *ngIf="allData[section.id][item.id][question.id].evaluation">
                         <p>
                           <strong class="evaluationValue">{{ 'evaluations.title' | translate }} : {{ allData[section.id][item.id][question.id].evaluation.title | translate }}</strong>
@@ -120,18 +131,11 @@
                     </p>
                   </div>
                 </div>
-
-
-
               </div>
             </div>
           </div>
         </div>
       </div>
-
-
-
-
 
       <div>
         <h1>{{ 'summary.action_plan.title' | translate }}</h1>
@@ -244,8 +248,6 @@
           </div>
         </div>
       </div>
-
-
 
     </div>
   </div>
