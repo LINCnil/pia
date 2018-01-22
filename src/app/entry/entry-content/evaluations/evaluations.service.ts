@@ -101,7 +101,7 @@ export class EvaluationService {
     if (this.item.evaluation_mode === 'item') {
       this.createEvaluationInDb(section.id + '.' + item.id).then(() => {
         sidStatusService.setSidStatus(piaService, section, item);
-        this._globalEvaluationService.checkForFinalValidation(piaService.pia, section, item);
+        this._globalEvaluationService.itemStatusVerification(piaService.pia, section, item);
         this.allAwsersIsInEvaluation(section, item);
       });
     } else {
@@ -121,7 +121,7 @@ export class EvaluationService {
         }).then(() => {
           if (count ===  countAnswers) {
             sidStatusService.setSidStatus(piaService, section, item);
-            this._globalEvaluationService.checkForFinalValidation(piaService.pia, section, item);
+            this._globalEvaluationService.itemStatusVerification(piaService.pia, section, item);
             this.allAwsersIsInEvaluation(section, item);
           }
         });
