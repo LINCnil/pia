@@ -18,7 +18,7 @@
               class="truncate">{{ dataItem.title | translate }}</a>
             <i class="fa"
                *ngIf="!_sidStatusService.noIconFor.includes(dataSection.id + '.' + dataItem.id)"
-               [ngClass]="_sidStatusService.sidStatusIcon[_sidStatusService.itemStatus[dataSection.id + '.' + dataItem.id]]"
+               [ngClass]="_globalEvaluationService.itemToFix[dataSection.id + '.' + dataItem.id] ? 'fa-pencil-square-o' : _sidStatusService.sidStatusIcon[_sidStatusService.itemStatus[dataSection.id + '.' + dataItem.id]]"
                aria-hidden="true"></i>
           </li>
         </ng-container>

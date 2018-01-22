@@ -8,6 +8,7 @@ import { Pia } from 'app/entry/pia.model';
 
 import { PaginationService } from 'app/entry/entry-content/pagination.service';
 import { ModalsService } from 'app/modals/modals.service';
+import { GlobalEvaluationService } from 'app/services/global-evaluation.service';
 
 @Injectable()
 export class EvaluationService {
@@ -24,6 +25,7 @@ export class EvaluationService {
 
   constructor(private _modalsService: ModalsService,
               private _paginationService: PaginationService,
+              private _globalEvaluationService: GlobalEvaluationService,
               private _router: Router) { }
 
   async setPia(pia: Pia) {
@@ -99,6 +101,7 @@ export class EvaluationService {
     if (this.item.evaluation_mode === 'item') {
       this.createEvaluationInDb(section.id + '.' + item.id).then(() => {
         sidStatusService.setSidStatus(piaService, section, item);
+        this._globalEvaluationService.checkForFinalValidation(piaService.pia, section, item);
         this.allAwsersIsInEvaluation(section, item);
       });
     } else {
@@ -118,6 +121,7 @@ export class EvaluationService {
         }).then(() => {
           if (count ===  countAnswers) {
             sidStatusService.setSidStatus(piaService, section, item);
+            this._globalEvaluationService.checkForFinalValidation(piaService.pia, section, item);
             this.allAwsersIsInEvaluation(section, item);
           }
         });

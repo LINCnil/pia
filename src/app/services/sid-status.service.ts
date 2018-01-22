@@ -93,11 +93,7 @@ export class SidStatusService {
                   this.itemStatus[sid] = 1;
                   this.globalEvaluationService.validationStarted(piaService.pia, sid, item).then((valid: boolean) => {
                     if (valid) {
-                      if (this.globalEvaluationService.itemEvaluationToFix[sid]) {
-                        this.itemStatus[sid] = 0;
-                      } else {
-                        this.itemStatus[sid] = 2;
-                      }
+                      this.itemStatus[sid] = 2;
                     }
                   });
                 }
