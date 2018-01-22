@@ -4,15 +4,15 @@
     "subtitle1": "Platform tworzenia <br> i zarządzania PIA",
     "subtitle2": "Narzędzia i słowniki",
     "start_app": "Aplikacja PIA (Beta)",
-    "description": "Aplikacja <strong>francuskiego orhanu nadzorczego CNIL</strong> ma na celu pomóc administratorom danych osiągnąć i wykazać zgodność z RODO. It helps to properly carry out a data protection impact assessment by facilitating the use of the PIA method developed by the CNIL.",
+    "description": "Aplikacja <strong>francuskiego organu nadzorczego CNIL</strong> ma na celu pomóc administratorom danych osiągnąć i wykazać zgodność z RODO. It helps to properly carry out a data protection impact assessment by facilitating the use of the PIA method developed by the CNIL.",
     "start": "Start"
   },
   "header": {
-    "logo_title": "Privacy impact assessment",
-    "logo_subtitle": "",
-    "homepage_link": "Dashboard",
-    "knowledge_base_link": "Knowledge base",
-    "pia_example_link": "PIA example",
+    "logo_title": "Analiza skutków dla ochrony danych",
+    "logo_subtitle": "Privacy impact assessment",
+    "homepage_link": "Powitanie",
+    "knowledge_base_link": "Baza wiedzy",
+    "pia_example_link": "Przykład PIA",
     "languages": {
       "official_translations": "To be translated",
       "unofficial_translations": "To be translated",
@@ -23,108 +23,108 @@
       "nl": "To be translated"
     },
     "tools": {
-      "title": "Tools",
-      "settings": "Settings",
-      "accessibility": "Visually impaired accessibility (high contrast colors, daltonism)",
-      "help": "Help",
-      "about": "About"
+      "title": "Narzędzia",
+      "settings": "Ustawienia",
+      "accessibility": "Dostępność dla osób słabowidziących (kolory o mocnym kontraście, dopasowane do daltonizmu)",
+      "help": "Pomoc",
+      "about": "O aplikacji"
     }
   },
   "homepage": {
     "filters": {
-      "list": "list",
-      "card": "card",
-      "sort": "Sort",
-      "sort_by": "by",
-      "name": "Name",
-      "date": "Date",
-      "status": "Status",
-      "author": "Author",
-      "assessor": "Reviewer",
-      "validator": "Validator",
-      "new_pia": "New PIA",
+      "list": "lista",
+      "card": "karta",
+      "sort": "Sortowanie",
+      "sort_by": "według",
+      "name": "Nazwiska",
+      "date": "Daty",
+      "status": "Statusu",
+      "author": "Autora",
+      "assessor": "Oceniającego",
+      "validator": "Zatwierdzającego",
+      "new_pia": "Nowa PIA",
       "import_pia": "Import PIA",
-      "list_rocket_content": "Get started ! To initiate <br>a PIA, click on the +",
-      "card_rocket_content": "Get started !<br><br>To initiate a PIA,<br> click on New PIA"
+      "list_rocket_content": "Zaczynajmy ! By rozpocząć <br>PIA, prosimy kliknąć +",
+      "card_rocket_content": "Zaczynajmy !<br><br>By rozpocząć PIA,<br> należy kliknąć Nowa PIA"
     },
     "cards": {
-     "new_pia": "New PIA",
-     "placeholder_new_pia": "New PIA",
+     "new_pia": "Nowa PIA",
+     "placeholder_new_pia": "Nowa PIA",
      "or": "or",
      "import_pia": "Import PIA",
      "placeholder_import_pia": "Import PIA",
-     "title_close_creation": "Close",
+     "title_close_creation": "Zamknięcie",
      "pia_name": "PIA",
-     "placeholder_pia_name": "PIA's title",
-     "author": "Editing",
-     "placeholder_author": "Firstname, lastname",
-     "evaluation": "Review",
-     "placeholder_evaluation": "Firstname, lastname",
-     "validation": "Validation",
-     "placeholder_validation": "Firstname, lastname",
-     "date": "Date",
+     "placeholder_pia_name": "Tytuł PIA",
+     "author": "Edytowanie",
+     "placeholder_author": "Imię, nazwisko",
+     "evaluation": "Ocena",
+     "placeholder_evaluation": "Imię, nazwisko",
+     "validation": "Zatwierdzenie",
+     "placeholder_validation": "Imię, nazwisko",
+     "date": "Data",
      "status": "Status",
-     "creation_status": "Creation",
+     "creation_status": "Utworzenie",
      "start": "Start",
-     "placeholder_start": "All fields must be filled",
+     "placeholder_start": "Należy wypełnić wszystkie pola",
      "item": {
         "tools": {
-          "edit": "Edit information",
-          "export": "Export",
-          "more_options": "More options",
-          "duplicate": "Duplicate",
-          "action_plan": "Display<br>action plan",
-          "pia": "Display<br>PIA",
-          "remove": "Delete"
+          "edit": "Edytowanie informacji",
+          "export": "Eksport",
+          "more_options": "Więcej opcji",
+          "duplicate": "Duplikacja",
+          "action_plan": "Wyświetlenie<br>planu działania",
+          "pia": "Wyświetlenie<br>PIA",
+          "remove": "Usunięcie"
         },
-        "edit_pia": "Edit PIA",
-        "save_pia": "Save"
+        "edit_pia": "Edycja PIA",
+        "save_pia": "Zapisanie"
       }
     },
     "lists": {
       "column_pia": "PIA",
-      "column_updated_at": "Last opened",
-      "column_author": "Editing",
-      "column_evaluation": "Review",
-      "column_validation": "Validation",
-      "column_creation": "Created",
+      "column_updated_at": "Data otwarcia",
+      "column_author": "Edytowanie",
+      "column_evaluation": "Ocena",
+      "column_validation": "Zatwierdzenie",
+      "column_creation": "Utworzenie",
       "column_status": "Status",
-      "column_progression": "Progress",
-      "column_actions": "Actions",
+      "column_progression": "Postęp",
+      "column_actions": "Działania",
       "item": {
         "tools": {
-          "edit": "Edit",
-          "export": "Export",
-          "duplicate": "Duplicate",
-          "action_plan": "Display action plan",
-          "pia": "Display PIA",
-          "remove": "Delete"
+          "edit": "Edycja",
+          "export": "Eksport",
+          "duplicate": "Duplikacja",
+          "action_plan": "Wyświetlenie planu działania",
+          "pia": "Wyświetlenie PIA",
+          "remove": "Usunięcie"
         }
       }
     }
   },
   "pia": {
     "statuses": {
-      "0": "In progress",
-      "1": "Rejected",
-      "2": "Simple validation",
-      "3": "Signed validation",
-      "4": "Archived",
-      "5": "Waiting for validation"
+      "0": "W toku",
+      "1": "Odrzucona",
+      "2": "Zatwierdzenie proste",
+      "3": "Zatwierdzenie podpisane",
+      "4": "Zarchiwizowana",
+      "5": "Czeka na potwierdzenie"
     },
     "header": {
-      "preview": "Preview",
-      "display_action_plan": "Display<br>action plan"
+      "preview": "Przegląd",
+      "display_action_plan": "Wyświetlenie<br>planu działania"
     },
     "attachments": {
-      "title": "Attachments",
-      "add": "Add",
-      "remove": "Remove"
+      "title": "Załączniki",
+      "add": "Dodanie",
+      "remove": "Usunięcie"
     },
     "sections": {
-      "homepage_link": "Back to dashboard",
-      "validate_pia": "Validate PIA",
-      "refuse_pia": "Refused PIA",
+      "homepage_link": "Powrót do powitania",
+      "validate_pia": "Zatwierdzenie PIA",
+      "refuse_pia": "Odrzucona PIA",
       "status": {
         "evaluation": {
           "title": "",
@@ -139,364 +139,364 @@
       }
     },
     "footer": {
-      "ask_evaluation": "Ask for review",
-      "validate_evaluation": "Validate review",
-      "subsection_validated": "Subsection reviewed, awaiting final validation",
-      "mandatory_fields": "All fields must be filled"
+      "ask_evaluation": "Skierowanie do oceny",
+      "validate_evaluation": "Zatwierdzenie oceny",
+      "subsection_validated": "Część ocenione, czeka na końcowe zatwierdzeni",
+      "mandatory_fields": "Należy wypełnić wszystkie pola"
     }
   },
   "measures": {
-    "placeholder_title": "Measure title",
-    "add": "Add an empty measure (otherwise, use the knowledge base)",
-    "edit": "Edit measure",
-    "remove": "Delete measure",
-    "default_placeholder": "Describe the existing or intended measures to ensure data security."
+    "placeholder_title": "Nazwa środka ochrony",
+    "add": "Utworzenie środka (lub dodanie środka z bazy wiedzy po prawej)",
+    "edit": "Edycja środka",
+    "remove": "Usunięcie środka",
+    "default_placeholder": "Należy opisać istniejące lub planowane środki dla zapewnienia bezpieczeństwa danych."
   },
   "knowledge_base": {
-    "title": "Knowledge base",
-    "search": "Search",
-    "add_measure": "Add",
-    "placeholder_help": "Entry aids",
-    "placeholder_add_measure": "Add this measure",
-    "add_measure_hint": "You can also add a measure from the knowledge base.",
+    "title": "Baza wiedzy",
+    "search": "Szukanie",
+    "add_measure": "Dodanie",
+    "placeholder_help": "Pomoc",
+    "placeholder_add_measure": "Dodanie środka",
+    "add_measure_hint": "Mozna dodać środek ochrony z bazy wiedzy.",
     "filters": {
-      "title": "Filters",
-      "all": "All",
-      "definitions": "Definitions",
-      "organizational_measures": "Organisational controls",
-      "measures_on_data": "Logical security controls",
-      "general_measures": "Physical Security controls",
-      "no_result": "No result found."
+      "title": "Filtry",
+      "all": "Wszystkie",
+      "definitions": "Definicje",
+      "organizational_measures": "Środki organizacyjne",
+      "measures_on_data": "Środki ochrony logicznej",
+      "general_measures": "Środki ochrony fizycznej",
+      "no_result": "Nie znaleziono."
     },
     "category": {
-      "definition": "Definition",
-      "principle": "Principle",
-      "organizational_measure": "Organisational control",
-      "measure_on_data": "Logical security control",
-      "general_measure": "Physical Security control",
-      "example": "Example"
+      "definition": "Definicja",
+      "principle": "Zasada",
+      "organizational_measure": "Środek organizacyjny",
+      "measure_on_data": "Środek ochrony logicznej",
+      "general_measure": "Środek ochrony fizycznej",
+      "example": "Przykład"
     },
     "slugs": {
       "PIA_LGL_FOND": {
-        "name": "Justification of lawfulness",
-        "description": "- The data subject has given consent  to the processing of his or her personal data for one or more specific purposes <br>- Processing is necessary for the performance of a contract to which the data subject is party or in order to take steps at the request of the data subject prior to entering into a contract <br>-Processing is necessary for compliance with a legal obligation to which the controller is subject <br>- Processing is necessary in order to protect the vital interests of the data subject or of another natural person <br>- Processing is necessary for the performance of a task carried out in the public interest or in the exercise of official authority vested in the controller <br>- Processing is necessary for the purposes of the legitimate interests pursued by the controller or by a third party, except where such interests are overridden by the interests or fundamental rights and freedoms of the data subject which require protection of personal data, in particular where the data subject is a child<br> See <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">art. 6 of [GDPR]</a> ",
+        "name": "Podstawa prawna",
+        "description": "- Osoba, której dane dotyczą, wyraziła zgodę na przetwarzanie swoich danych osobowych w jednym lub większej liczbie określonych celów <br> - Przetwarzanie jest niezbędne do wykonania umowy, której stroną jest osoba, której dane dotyczą, lub do podjęcia działań na żądanie osoby, której dane dotyczą, przed zawarciem umowy <br> - Przetwarzanie jest niezbędne do wypełnienia obowiązku prawnego ciążącego na administratorze <br> - Przetwarzanie jest niezbędne do ochrony żywotnych interesów osoby, której dane dotyczą, lub innej osoby fizycznej <br> - Przetwarzanie jest niezbędne do wykonania zadania realizowanego w interesie publicznym lub w ramach sprawowania władzy publicznej powierzonej administratorowi <br> - Przetwarzanie jest niezbędne do celów wynikających z prawnie uzasadnionych interesów realizowanych przez administratora lub przez stronę trzecią, z wyjątkiem sytuacji, w których nadrzędny charakter wobec tych interesów mają interesy lub podstawowe prawa i wolności osoby, której dane dotyczą, wymagające ochrony danych osobowych, w szczególności gdy osoba, której dane dotyczą, jest dzieckiem. Należy zapoznać się z art. 6 Rozporządzenia 2016/679.",
         "source": "PIA2 p4"
       },
       "PIA_LGL_ST": {
-        "name": "Subcontracting",
-        "description": "A processing contract must be signed with each processor, setting out all of the aspects stipulated in Art. 28 of the [GDPR]: duration, scope, purpose, documented processing instructions, prior authorisation where a processor is engaged, provision of any documentation providing evidence of compliance with the [GDPR], prompt notification of any data breach, etc.",
+        "name": "Powierzenie przetwarzania",
+        "description": "Z każdym z podmiotów przetwarzających należy zawrzeć umowę o powierzeniu przetwarzania doprecyzowującą wszystkie elementy przewidziane w artykule 28 RODO: czas trwania, zasięg, udokumentowane instrukcje przetwarzania, wcześniejsze upoważnienie na wypadek korzystania z podmiotu przetwarzającego, udostępnienie całej dokumentacji udowadniającej przestrzeganie RODO, zgłaszanie niezwłocznie każdego naruszenia ochrony danych, itd.",
         "source": "PIA2 p10"
       },
       "PIA_LGL_TRAN": {
-        "name": "Transfers",
-        "description": "Depending on the country in question, you will have to justify the choice of remote hosting and indicate the legal supervision arrangements implemented in order to ensure adequate protection of the data subject to a cross-border transfer. That is :<br>- European Union<br>- Country recognised as providing adequate protection by the EU<br>- Transfer to the United States to a company which has joined the Privacy Shield<br>- Other country <br>See <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">art. 44 to 49 of [GDPR]</a>",
+        "name": "Przekazywanie danych",
+        "description": "Należy szczegółowo określić położenie geograficzne miejsca składowania poszczególnych danych podlegających przetwarzaniu. W zależności od danego państwa, należy uzasadnić wybór umieszczenia poza Unią Europejską oraz wskazać procedury ram prawnych wprowadzone w celu zapewnienia odpowiedniej ochrony danych będących przedmiotem transferu transgranicznego.<br> To znaczy:<br>- W państwie Unii Europejskiej<br>- W państwie uznanym jako adekwatny przez Unię Europejską<br>- Przekazywanie do Stanów Zjednoczonych do spółki handlowej, która przystąpiła do Privacy Shield<br>- Inne państwa <br>Zgodnie z artykułami 44-49 RODO.",
         "source": "PIAF Connected Objects p18"
       },
       "PIA_LGL_DESC": {
-        "name": "Processing's description",
-        "description": "Present a brief outline of the processing under consideration, its nature, scope, context, purposes and stakes. Identify the data controller and any processors. List the standard references applicable to the processing, which are necessary or must be complied with , not least the approved codes of conduct (see Art. 40 of the <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR]</a>) and certifications regarding data protection (see Art. 42 of the <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR]</a>)",
+        "name": "Opis przetwarzania",
+        "description": "Należy w sposób syntetyczny opisać rozważane przetwarzanie, jego cele i wyzwania. Należy zidentyfikować administratora danych i ewentualne podmioty przetwarzające. Należy spisać zasady odnoszące się do tego przetwarzania, przydatne lub wymagające przestrzegania, w tym zatwierdzone kodeksy postępowania (art. 40 RODO) oraz certyfikacje w zakresie ochrony danych (art. 42 RODO).",
         "source": "PIA1 p4"
       },
       "PIA_LGL_DATA": {
-        "name": "Data and processes",
-        "description": "Define and describe the scope in detail:<br>- the personal data concerned, their recipients and storage durations<br>- description of the processes and personal data supporting assets for the entire personal data life cycle (from collection to erasure).",
+        "name": "Przetwarzane dane",
+        "description": "Należy szczegółowo określić i opisać zasięg: <br> - rozpatrywane dane osobowe, ich odbiorcy oraz czas przechowywania ;<br> - opis procesów i nośników danych dla całego cyklu życia danych (od ich zebrania aż do ich usunięcia).",
         "source": "PIA1 p6"
       },
       "PIA_LGL_SUPT": {
-        "name": "Supporting asset",
-        "description": "Asset on which personal data rely. Note: this may be hardware, software, networks, people, paper or paper transmission channels.",
+        "name": "Aktywa wspomagające",
+        "description": "Aktywa, które wspomagają dane. Uwaga : to może być sprzęt, oprogramowanie, kanały informatyczne, osoby, nośniki papierowe bądź kanały przesyłu papieru.",
         "source": "PIA1 p10"
       },
       "PIA_LGL_FIN": {
-        "name": "Principles relating to processing of personal data",
-        "description": "Personal data shall be collected for specified, explicit and legitimate purposes and <strong>not further processed in a manner that is incompatible with those purposes.</strong> <br>See <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 5.1 b) of [GDPR]</a>",
+        "name": "Cele zbierania i wykorzystania danych osobowych",
+        "description": "Dane osobowe powinny być zbierane w konkretnych, wyraźnych i prawnie uzasadnionych celach i <strong> nieprzetwarzane dalej w sposób niezgodny z tymi celami</strong>; <br> Tak jak zapisano w art. 5b RODO.",
         "source": "GDPR art 5.1 b)"
       },
       "PIA_LGL_MINI": {
-        "name": "Data minimisation",
-        "description": "It is important to reduce the severity of the risks by minimising the number of personal data that will be processed, by limiting such data to what is strictly necessary for the purposes for which they are processed (otherwise they should not be collected). Then, it also becomes possible to minimise the data themselves, via controls aimed at reducing their sensitivity.",
+        "name": "Minimalizacja danych",
+        "description": "Należy zmniejszyć istotność ryzyka ograniczając zbieranie danych osobowych do absolutnie niezbędnych dla danego celu; unikając zbierania danych niepotrzebnych, korzystania z danych bez związku z celem oraz nadmiernych skutków dla osób.",
         "source": "PIAF Connected Objects p10 - WIKI"
       },
       "PIA_LGL_DEST": {
-        "name": "Recipient",
-        "description": "Natural or legal person, public authority, agency or another body, to which the personal data are disclosed, whether a third party or not. However, public authorities which may receive personal data in the framework of a particular inquiry in accordance with Union or Member State law shall not be regarded as recipients; the processing of those data by those public authorities shall be in compliance with the applicable data protection rules according to the purposes of the processing. see Art. 4.9 of the <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR]</a>",
+        "name": "Odbiorcy",
+        "description": "Osoba fizyczna lub prawna, organ publiczny, jednostka lub inny podmiot, któremu ujawnia się dane osobowe, niezależnie od tego, czy jest stroną trzecią. Organy publiczne, które mogą otrzymywać dane osobowe w ramach konkretnego postępowania zgodnie z prawem Unii lub prawem państwa członkowskiego, nie są jednak uznawane za odbiorców; przetwarzanie tych danych przez te organy publiczne musi być zgodne z przepisami o ochronie danych mającymi zastosowanie stosownie do celów przetwarzania (art. 4 pkt 9 RODO).",
         "source": "GDPR art 4.9"
       },
       "PIA_LGL_DUR": {
-        "name": "Storage Durations",
-        "description": "A storage duration must be defined for each type of data and justified by the legal requirements and/or processing needs. Thus a distinction is made between common data and archived data, to which access will be limited to only the stakeholders concerned. An erasure mechanism must be implemented to archive common data or purge archived data at the end of their storage duration. Functional traces will also have to be purged, as will technical logs which may not be stored indefinitely",
+        "name": "Czas przechowywania danych",
+        "description": "Należy zdefiniować czas przechowywania każdego rodzaju danych i uzasadnić ten czas potrzebami przetwarzania i/lub wymogami prawnymi. W ten sposób rozróżnia się dane bieżące i dane zarchiwizowane, do których dostęp będzie zawężony tylko do stosownych aktorów. Należy wdrożyć mechanizm usuwania w celu archiwizacji danych bieżących bądź wyczyścić dane zarchiwizowane na koniec okresu przechowywania. Należy także wyczyścić ślady użytkowe, takie jak logi techniczne, których nie można przechowywać w nieskończoność.",
         "source": "PIAF Connected Objects p12"
       },
       "PIA_LGL_INFO": {
-        "name": "Informing data subjects",
-        "description": "Ensure that the subjects are informed. Confirm that the processing is not covered by an exception and is not subject to specific conditions.",
+        "name": "Informowanie osób, których dane dotyczą",
+        "description": "Należy zagwarantować informowanie osób, by uniknąć zbierania danych bez ich wiedzy. Należy upewnić się, że przetwarzanie nie jest objęte wyjątkiem lub nie podlega szczególnym warunkom.",
         "source": "PIA3 p8 - WIKI"
       },
       "PIA_LGL_CONS": {
-        "name": "Consent",
-        "description": "Allow data subjects to make a free, specific and informed choice. Determine whether the processing relies on a legal basis other than consent pursuant to Art. 6 of the <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR]</a>",
+        "name": "Zgoda",
+        "description": "Należy umożliwić osobom, których dane dotyczą, dokonanie dobrowolnego, konkretnego i świadomego wyboru. Należy sprawdzić, czy podstawą prawną przetwarzania nie jest zgoda, zgodnie z artykułem 6 RODO (obowiązek prawny, ochrona życia, zadanie służby publicznej, umowa lub działania na żądanie osoby, której dane dotyczą, interes prawny).",
         "source": "PIA3 p11 - WIKI"
       },
       "PIA_VAL_DPO": {
-        "name": "DPO's opinion",
-        "description": "The controller shall seek the advice of the data protection officer, where designated, when carrying out a data protection impact assessment. See Art. 39.2 of the <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR]</a><br> <strong>This view may be against the processing being implemented, without restricting the decision of the data controller for all that</strong>.",
+        "name": "Opinia IOD",
+        "description": "Zgodnie z artykułem 35 ust.2 RODO, administrator konsultuje się z inspektorem ochrony danych w trakcie oceny skutków dla ochrony danych.<br><strong>Ta opinia może być niekorzystna dla wdrożenia przetwarzania, co jednak nie ogranicza decyzji administratora.</strong>.",
         "source": "GDPR Art. 39.2 and PIAF Connected Objects p37"
       },
       "PIA_VAL_CONC": {
-        "name": "Data subject's opinion",
-        "description": "Where appropriate, the controller shall seek the views of data subjects or their representatives on the intended processing, without prejudice to the protection of commercial or public interests or the security of processing operations. See Art. 39.2 of the <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR]</a><br>These views may be gathered by diverse means, depending on the context (internal or external study on the processing methods and purpose, question for the attention of staff representatives or trade unions, survey among future customers of the data processor). <strong>Where the data controller decides to go against the views of the data subjects</strong>, he must note down <strong>the justification for this decision</strong>. Where the data controller considers that <strong>gathering the views of the data subjects is not relevant, he must also note down the justification thereof</strong>.",
+        "name": "Opinia osób, których dane dotyczą",
+        "description": "Zgodnie z art. 35 ust.9 administrator administrator zasięga opinii osób, których dane dotyczą, gdy ma to zastosowanie.<br>Te opinie można zebrać w różny sposób, w zależności od kontekstu (badanie wewnętrzne lub zewnętrzne dotyczące celu i sposobów przetwarzania, pytanie do przedstawicieli pracowników lub związków zawodowych, ankieta wśród przyszłych klientów administratora).<strong>Jeżeli administrator postanowi pominąć opinie zainteresowanych</strong>, powinien udokumentować <strong>uzasadnienie swojej decyzji.</strong>. Jeżeli administrator uzna, że <strong>zebranie opinii zainteresowanych nie jest istotne, to także powinien udokumentować uzasadnienie</strong>.",
         "source": "GDPR Art. 39.9 and PIAF Connected Objects p38"
       },
       "PIA_VAL_RT": {
-        "name": "Formal validation",
-        "description": "Decide on whether the selected controls, residual risks and action plan are acceptable, with justifications, in view of the previously identified stakes and views of the stakeholders. In this way, the PIA may be:<br>- validated<br>- conditional on improvement (explain in what way)<br>- refused (along with the processing under consideration). Where necessary, repeat the previous steps so that the PIA can be validated. This decision does not prejudge the compliance assessment which may be carried out, where applicable, by the Data Protection Authority (the CNIL in France), as part of preliminary formalities or checks for example.",
+        "name": "Formalne zatwierdzenie",
+        "description": "<strong>Administrator formalnie decyduje</strong> o dopuszczalności wybranych środków, ryzyku szczątkowym i planie działania, podając argumenty, pod kątem uprzednio zidentyfikowanych wyzwań i opinii zainteresowanych stron. PIA może zatem :<br>- zatwierdzić ;<br>- poprawić (wyjaśnić co) ;<br>- odrzucić (podobnie jak rozważane przetwarzanie).<br>W przeciwnym wypadku należy dokonać przeglądu poprzednich etapów, by można było zatwierdzić PIA.<br>Ta decyzja nie przesądza w żadnym stopniu o ocenie zgodności, której może dokonać, w razie potrzeby, organ nadzorczy ochrony danych osobowych, na przykład w ramach wcześniejszych formalności lub kontroli.",
         "source": "PIAF Connected Objects p40"
       },
       "PIA_TEC_CHIF": {
-        "placeholder": "Describe here the means implemented for ensuring the confidentiality of data",
-        "name": "Encryption",
-        "description": "Means implemented for <strong>ensuring the confidentiality</strong> of data stored (in the database, in flat files, backups, etc.), as well as the procedure for managing encryption keys (creation, storage, change in the event of suspected cases of data compromise, etc.).<br> Describe the encryption means employed for data flows (VPN, TLS, etc.) implemented in the processing.",
+        "placeholder": "Należy opisać środki kryptograficzne wprowadzone w celu zapewnienia poufności i integralności danych",
+        "name": "Szyfrowanie",
+        "description": "Środki wprowadzone w celu <strong>zapewnienia poufności danych</strong> przechowywanych (w bazie danych, w plikach prostych, w kopiach, itp.) jak również procedury zarządzania kluczami szyfrującymi (tworzenie, przechowywanie, modyfikowanie w razie podejrzenie kompromitacji, itd.). <br>Należy szczegółowo opisać środki szyfrowania stosowane przy przepływach danych (VPN, TLS, itd.) następujących w trakcie przetwarzania.",
         "source": "PIAF Connected Objects p21"
       },
       "PIA_TEC_ANO": {
-        "placeholder": "Indicate here implemented anonymisation mechanisms",
-        "name": "Anonymisation",
-        "description": "Indicate here whether anonymisation mechanisms are implemented, which ones and for what purpose. <br>Remember to clearly distinguish between anonymous and pseudonymous data.",
+        "placeholder": "Należy opisać wprowadzone mechanizmy anonimizacji",
+        "name": "Anonimizacja",
+        "description": "Należy wskazać, czy wdrożono mechanizmy anonimizacji, które i w jakim celu. <br>Należy pamiętać o rozróźnieniu danych zanonimizowanych i poddanych pseudonimizacji.",
         "source": "PIAF Connected Objects p21"
       },
       "PIA_TEC_CLO": {
-        "placeholder": "Indicate here if processing partitioning is planned, and how this is carried out.",
-        "name": "Partitioning data",
-        "description": "Implementation of data partitioning helps to reduce the possibility that personal data can be correlated and that a breach of all personal data may occur.",
+        "placeholder": "Należy wskazać, czy przewiduje się partycjonowanie przetwarzania i jak będzie realizowane.",
+        "name": "Partycjonowanie danych",
+        "description": "Wdrożenie partycjonowania pomaga ograniczyć prawdopodobieństwo, że dane osobowe będzie można powiązać ze sobą oraz że dojdzie do naruszenia wszystkich danych.",
         "source": "PIAF Connected Objects p21"
       },
       "PIA_TEC_CTLA": {
-        "placeholder": "Indicate here how users profiles are defined and attributed.",
-        "name": "Logical access control",
-        "description": "Methods to define and attribute users profiles. Specify the <strong>authentication</strong> means implemented . Where applicable, specify the rules applicable to passwords (minimum length, required characters, validity duration, number of failed attempts before access to account is locked, etc.).",
+        "placeholder": "Należy opisać, jak są definiowane i przydzielane profile użytkowników.",
+        "name": "Kontrola dostępu logicznego",
+        "description": "Opis sposobu, w jaki profile użytkowników są definiowane i przydzielane. Należy szczegółowo opisać wprowadzone środki <strong>uwierzytelniania</strong> uściślając, gdy ma to zastosowanie, reguły stosowane dla haseł (minimalna długość, obowiązkowa składnia, okres ważności, liczba nieudanych prób przed blokadą konta, itd.).",
         "source": "PIAF Connected Objects p21"
       },
       "PIA_TEC_LOG": {
-        "placeholder": "Indicate here whether events are logged and how long these traces are stored for.",
-        "name": "Traceability (logging)",
-        "description": "Policies that define traceability and log management.",
+        "placeholder": "Należy wskazać, czy zdarzenia są zapisywane w dziennikach oraz okres przechowywania tych zapisów.",
+        "name": "Dzienniki systemowe (logi)",
+        "description": "Polityki tworzenia logów zdarzeń i przechowywania pozostawianych zapisów.",
         "source": "PIAF Connected Objects p22"
       },
       "PIA_TEC_ARCH": {
-        "placeholder": "Indicate here whether mechanisms are implemented for integrity monitoring of stored data, which ones and for what purpose.",
-        "name": "Archiving",
-        "description": "Where applicable, describe here the processes of archive management (delivery, storage, consultation, etc.) under your responsibility. Specify the archiving roles (offices of origin, transferring agencies, etc.) and the archiving policy. State if data may fall within the scope of public archives.",
+        "placeholder": "Należy opisać wszystkie procedury przechowywania i zarządzania archiwami elektronicznymi zawierającymi dane osobowe.",
+        "name": "Archiwizacja",
+        "description": "Polityka przechowywania i zarządzania archiwami elektronicznymi zawierającymi dane osobowe mającymi zagwarantować jakość tych danych, w tym prawną, podczas całego wymaganego okresu (deponowanie, składowanie, migracja, dostępność, eliminowanie, polityka archiwizacji, ochrona poufności, itd.).",
         "source": "PIAF Connected Objects p22 - WIKI"
       },
       "PIA_TEC_PAP": {
-        "placeholder": "Indicate here whether mechanisms are implemented for integrity monitoring of paper documents, which ones and for what purpose.",
-        "name": "Paper document security",
-        "description": "Where paper documents containing data are used during the processing, indicate here how they are printed, stored, destroyed and exchanged.",
+        "placeholder": "Należy opisać procedury dotyczące cyklu życia dokumentów papierowych zawierających dane osobowe.",
+        "name": "Zabezpieczenie dokumentów papierowych",
+        "description": "Polityki opisujące, jak w trakcie przetwarzania drukowane, przechowywane, niszczone i wymieniane są dokumenty papierowe zawierające dane osobowe.",
         "source": "PIAF Connected Objects p22"
       },
       "PIA_TEC_MINI": {
-        "placeholder": "Indicate here means implemented to reduce the severity of risks by limiting the amount of personal data",
-        "name": "Minimising the amount of personal data",
-        "description": "The following methods could be used : Filtering and removal, Reducing sensitivity via conversion, Reducing the identifying nature of data, Reducing data accumulation, Restricting data access",
+        "placeholder": "Należy opisać metody ograniczania ryzyka poprzez ograniczanie zakresu danych",
+        "name": "Minimalizacja danych osobowych",
+        "description": "Można wykorzystać następujące sposoby: filtrowanie i usunięcie, ograniczenie wrażliwości poprzez konwersję, ograniczenie charakteru identyfikacyjnego danych, ograniczenie gromadzenia danych, ograniczenie dostępu do danych.",
         "source": "PIAF Connected Objects p40"
       },
       "PIA_SEC_EXP": {
-        "placeholder": "Describe here how the software updates (operating systems, applications, etc.) and application of security corrective controls patches are carried out.",
-        "name": "Operating security",
-        "description": "Policies implemented to reduce the possibility and the impact of risks on assets supporting personal data.",
+        "placeholder": "Należy opisać środki wprowadzone dla zagwarantowania aktualizacji i poziomu bezpieczeństwa wykorzystanego oprogramowania.",
+        "name": "Zabezpieczenie eksploatacji",
+        "description": "Polityki pozwalające ograniczyć prawdopodobieństwo i istotność ryzyk dotyczących narzędzi wykorzystywanych w trakcie eksploatacji (należy dokumentować procedury eksploatacyjne, wykaz i aktualizację oprogramowania i materiałów, korygowanie podatności, duplikowanie danych, ograniczenie dostępu fizycznego do sprzętu, itd.).",
         "source": "PIAF Connected Objects p22 - WIKI"
       },
       "PIA_SEC_MAL": {
-        "placeholder": "Describe here the controls implemented to reduce risks while accessing less secure networks.",
-        "name": "Clamping down on malicious software",
-        "description": "Controls implemented on workstations and servers to protect them from malicious software while accessing less secure networks.",
+        "placeholder": "Należy opisać środki ochrony przed kodem złośliwym w czasie dostępu do sieci o niskim poziomie bezpieczeństwa.",
+        "name": "Zwalczanie złośliwego oprogramowania",
+        "description": "Środki ochrony wdrożone na stacjach roboczych i serwerach w celu ich ochrony przed złośliwym oprogramowaniem w trakcie korzystania z sieci słabo zabezpieczonych.",
         "source": "PIAF Connected Objects p22 - WIKI"
       },
       "PIA_SEC_COMP": {
-        "placeholder": "Describe here the controls implemented on workstations",
-        "name": "Managing workstations",
-        "description": "Controls implemented on workstations (automatic locking, regular updates, configuration, physical security, etc.) to reduce the possibility to exploit software properties (operating systems, business applications etc.) to adversely affect personal data.",
+        "placeholder": "Należy opisać środki ochrony wdrożone na stacjach roboczych.",
+        "name": "Zarządzanie stacjami roboczymi",
+        "description": "Środki wdrożone na stacjach roboczych (automatyczna blokada, regularne aktualizacje, konfiguracja, bezpieczeństwo fizyczne, itd.) w celu ograniczenia prawdopodobieństwa, że właściwości oprogramowania (systemy operacyjne, aplikacje biznesowe, oprogramowanie biurowe, parametryzacje itp.) zostaną wykorzystane do naruszenia danych osobowych.",
         "source": "PIAF Connected Objects p22 - WIKI"
       },
       "PIA_SEC_WEB": {
-        "placeholder": "Indicate here controls implemented to protect websites.",
-        "name": "Website security",
-        "description": "Implementation of ANSSI's Recommendations for securing websites.",
+        "placeholder": "Należy opisać środki wprowadzone w celu ochrony stron www.",
+        "name": "Bezpieczeństwo stron www",
+        "description": "Wdrożenie rekomendacji dotyczących bezpieczeństwa stron www.",
         "source": "PIAF Connected Objects p22 - WIKI"
       },
       "PIA_SEC_BKP": {
-        "placeholder": "Indicate here how backups are managed. Clarify whether they are stored in a safe place.",
-        "name": "Backups",
-        "description": "Policies and means implemented to ensure the availability and/or integrity of the personal data, while maintaining their confidentiality.",
+        "placeholder": "Należy opisać, w jaki sposób kopie zapasowe są zarządzane. Należy wyjaśnić, czy są przechowywane w bezpiecznym miejscu.",
+        "name": "Kopie zapasowe",
+        "description": "Polityki kopii zapasowych i środki pozwalające zapewnić dostępność i/lub integralność danych osobowych, jak również ich poufność (regularność kopii zapasowych, szyfrowanie kanału transmisji danych, test integralności, itd.).",
         "source": "PIAF Connected Objects p23 & PIA3 p27  - WIKI"
       },
       "PIA_SEC_MAIN": {
-        "placeholder": "Describe here how physical maintenance of hardware is managed",
-        "name": "Maintenance",
-        "description": "Policies describing how physical maintenance of hardware is managed, stating whether this is contracted out.<br> Indicate whether the remote maintenance of apps is authorized, and according to what arrangements. Specify whether defective equipment is managed in a specific manner.",
+        "placeholder": "Należy opisać, w jaki sposób zarządza się konserwacją fizyczną sprzętu.",
+        "name": "Konserwacja",
+        "description": "Polityka konserwacji fizycznej sprzętu, określającej ewentualne skorzystanie z podwykonawców.<br>Powinna regulować konserwację zdalną, jeżeli jest dozwolona, oraz określać metody postępowania ze sprzętem wadliwym.",
         "source": "PIAF Connected Objects p23"
       },
       "PIA_SEC_NET": {
-        "placeholder": "Indicate here the security controls of network on which the processing is carried out",
-        "name": "Network security",
-        "description": "Depending on the type of network on which the processing is carried out (isolated, private or Internet). Specify which firewall system, intrusion detection systems or other active or passive devices are in charge of ensuring network security.",
+        "placeholder": "Należy opisać, w jakiej sieci odbywa się przetwarzanie oraz za pomocą jakiego sprzętu została zabezpieczona.",
+        "name": "Bezpieczeństwo sieci",
+        "description": "W zależności od rodzaju sieci, w której odbywa się przetwarzanie (izolowana, prywatna czy internet), administrator powinien wdrożyć odpowiednie systemy ochrony: zapora ogniowa, system wykrywania włamania lub inne urządzenia aktywne lub pasywne, które mają za zadanie zapewnić bezpieczeństwo sieci.",
         "source": "PIAF Connected Objects p23"
       },
       "PIA_SEC_PHY": {
-        "placeholder": "Indicate here how physical access control is carried out regarding the premises accommodating the processing.",
-        "name": "Physical access control",
-        "description": "Policies to ensure physical security (zoning, escorting of visitors, wearing of passes, locked doors and so on).Indicate whether there are warning procedures in place in the event of a break-in.",
+        "placeholder": "Należy opisać, jak realizowana jest kontrola dostępu fizycznego do miejsc, w których odbywa się przetwarzanie.",
+        "name": "Kontrola dostępu fizycznego",
+        "description": "Polityki kontroli dostępu fizycznego do pomieszczeń, w których odbywa się przetwarzanie (wyznaczanie stref, towarzyszenie gościom, noszenie identyfikatorów, zamykane drzwi, itd.). <br> Należy wskazać, czy wdrożono procedury alarmowania o włamaniu.",
         "source": "PIAF Connected Objects p23"
       },
       "PIA_SEC_LOG": {
-        "placeholder": "Indicate here means and controls implemented to detect incidents involving personal data",
-        "name": "Monitoring network activity",
-        "description": "Monitor intrusion detection systems and intrusion prevention systems in order to analyze network (wired networks, Wi-Fi, radio waves, fiber optics, etc.) traffic in real time and detect any suspicious activity suggestive of a cyber attack scenario.",
+        "placeholder": "Należy opisać środki wdrożone w celu umożliwienia wykrycia incydentów dotyczących danych osobowych.",
+        "name": "Monitorowanie aktywności sieci",
+        "description": "Środki wdrożone w celu umożliwienia wczesnego wykrywania incydentów dotyczących danych osobowych i analizy ruchu w sieciach (sieci kablowe, Wi-Fi, radiolinie, światłowody, itd.) w czasie rzeczywistym w celu wykrycia aktywności sugerującej cyberatak.",
         "source": "PIA3 p67 - WIKI"
       },
       "PIA_SEC_MAT": {
-        "placeholder": "Indicate here the controls bearing on the physical security of servers and workstations",
-        "name": "Hardware security",
-        "description": "Indicate here the controls bearing on the physical security of servers and workstations (secure storage, security cables, confidentiality filters, secure erasure prior to scrapping, etc.).",
+        "placeholder": "Należy opisać środki wdrożone w celu ograniczenia ryzyka ataku na sprzęt wykorzystywany do przetwarzania.",
+        "name": "Zabezpieczenie sprzętu (hardware)",
+        "description": "Środki wdrożone w celu ograniczenia prawdopodobieństwa, że właściwości sprzętu (serwerów, stacji roboczych, urządzeń mobilnych, peryferyjnych, przełączników, itd.) zostaną wykorzystane w celu naruszenia danych osobowych (spis inwentaryzacyjny, partycjonowanie, redundancja sprzętowa, ograniczenie dostępu, itd.).",
         "source": "PIAF Connected Objects p23 - WIKI"
       },
       "PIA_SEC_SRC": {
-        "placeholder": "Indicate here whether the implantation area is subject to environmental disasters",
-        "name": "Avoiding sources of risk",
-        "description": "Documentation on implantation area, which should not be subject to environmental disasters (flood zone, proximity to chemical industries, earthquake or volcanic zone, etc.).Specify if dangerous products are stored in the same area.",
+        "placeholder": "Należy wskazać, czy obszar przetwarzania znajduje się w strefie klęsk żywiołowych.",
+        "name": "Unikanie źródeł ryzyka",
+        "description": "Środki, które pozwolą zapobiec, by źródła ryzyka, których można uniknąć, mogły naruszyć dane osobowe (niebezpieczne produkty, niebezpieczne strefy geograficzne, przekazywanie danych osobowych poza UE, itd.).",
         "source": "PIAF Connected Objects p23 - WIKI"
       },
       "PIA_SEC_PROT": {
-        "placeholder": "Indicate here means to avoid to limit non-human sources of risks.",
-        "name": "Protecting against non-human sources of risks",
-        "description": "Policies describing the means of fire prevention, detection and fighting. Where applicable, indicate the means of preventing water damage.Also specify the means of power supply monitoring and relief.",
+        "placeholder": "Nalezy opisać środki wdrożone w celu ograniczenia lub uniknięcia nieosobowych źródeł ryzyka.",
+        "name": "Ochrona przed nieosobowymi źródłami ryzyka",
+        "description": "Środki wdrożone w celu ograniczenia lub uniknięcia nieosobowych źródeł ryzyka (zjawiska pogodowe, pożar, zalanie, wypadki wewnętrzne lub zewnętrzne, zwierzęta, zasilanie, itd.), które mogą naruszyć dane osobowe.",
         "source": "PIAF Connected Objects p23 - WIKI"
       },
       "PIA_ORG_ORG": {
-        "placeholder": "Indicate if the roles and responsibilities for data protection are defined.",
-        "name": "Organisation",
-        "description": "Specify whether a person is responsible for the enforcement of privacy laws and regulations. Specify whether there is a monitoring committee (or equivalent) responsible for the guidance and follow-up of actions concerning the protection of privacy.",
+        "placeholder": "Nalezy wskazać, czy określono role i odpowiedzialności za ochronę danych osobowych.",
+        "name": "Organizacja",
+        "description": "Istnienie struktury organizacyjnej zdolnej do kierowania i nadzorowania ochrony danych osobowych (wyznaczenie IOD, powołanie komitetu monitorującego, itd.).",
         "source": "PIAF Connected Objects p24 - WIKI"
       },
       "PIA_ORG_POL": {
-        "placeholder": "Describe here the documentary base setting out data protection objectives and rules.",
-        "name": "Policy",
-        "description": "Set out important aspects relating to data protection within a documentary base making up the data protection policy and in a form suited to each type of content (risks, key principles to be followed, target objectives, rules to be applied, etc.) and each communication target (users, IT department, policymakers, etc.).",
+        "placeholder": "Należy opisać dokumentację wyznaczającą cele i zasady ochrony danych osobowych.",
+        "name": "Polityka ochrony danych osobowych",
+        "description": "Administrator powinien dysponować dokumentacją wyznaczającą formalnie cele i zasady, które będą stosowane dla ochrony danych osobowych (plan działania, regularne przeglądy polityki, ryzyka, itd.) oraz adresatów (użytkownicy, dział IT, itd.).",
         "source": "PIA3 p78 - WIKI"
       },
       "PIA_ORG_RMGT": {
-        "placeholder": "Describe here processes to control the risks that processing operations performed by the organisation pose on data protection and the privacy of data subjects.",
-        "name": "Managing privacy risks",
-        "description": "Policy describing processes to control the risks that processing operations performed by the organisation pose on data protection and the privacy of data subjects (building a map of the risks, etc.).",
+        "placeholder": "Należy opisać procesy kontroli ryzyka, że czynności przetwarzania mogą wpłynąć na prawa i wolności osób, których dane dotyczą.",
+        "name": "Zarządzanie ryzykiem",
+        "description": "Polityka wyznaczająca proces kontroli ryzyka, że czynności przetwarzania w organizacji mogą wpłynąć na prawa i wolności osób, których dane dotyczą (rejestr czynności przetwarzania danych osobowych, danych, nośników, ocena ryzyka, ustalenie istniejących i planowanych środków, itd.).",
         "source": "PIA3 p77 - WIKI"
       },
       "PIA_ORG_PBD": {
-        "placeholder": "Describe here how privacy protection is integrated in projects",
-        "name": "Integrating privacy protection in projects",
-        "description": "Existence of a policy designed integrate the protection of personal data in all new processing operations.",
+        "placeholder": "Nalezy opisać, w jaki sposób ochrona prywatności jest uwzględniana w projektach.",
+        "name": "Uwzględnianie ochrony prywatności w projektach",
+        "description": "Wprowadzenie procedur opisujących metody uwzględniania ochrony danych osobowych w przypadku każdej nowej czynności przetwarzania.",
         "source": "PIA3 p79 - WIKI"
       },
       "PIA_ORG_VIOL": {
-        "placeholder": "Indicate here whether IT incidents are subject to a documented and tested management procedure.",
-        "name": " Managing personal data violations",
-        "description": "Existence of an operational organisation that can detect and treat incidents that may affect the data subjects' civil liberties and privacy.",
+        "placeholder": "Należy wskazać, czy wdrożono udokumentowaną i przetestowaną procedurę zarządzania incydentami IT.",
+        "name": " Zarządzanie naruszeniami ochrony danych osobowych",
+        "description": "Wprowadzenie operacyjnej struktury organizacyjnej pozwalającej wykrywać i obsługiwać zdarzenia, które mogą mieć wpływ na prawa i wolności osób, których dane dotyczą (określenie odpowiedzialności, plan reagowania, klasyfikacja naruszeń, itd.).",
         "source": "PIAF Connected Objects p24 and PIA3 p36 - WIKI"
       },
       "PIA_ORG_PERS": {
-        "placeholder": "Indicate here what awareness-raising controls are carried out with regard to employees.",
-        "name": "Personnel management",
-        "description": "Existence of a policy describing awareness-raising controls are carried out with regard to a new recruit and what controls are carried out when persons who have been accessing data leave their job.",
+        "placeholder": "Nalezy wskazać, jakie działania uświadamiające są podejmowane w stosunku do pracowników.",
+        "name": "Zarządzanie pracownikami",
+        "description": "Wprowadzenie planu wyznaczającego <strong>sposoby uświadamiania</strong> podejmowane w stosunku do nowego pracownika oraz procedury opisującej <strong>środki podejmowane w stosunku do osób odchodzących z pracy</strong>.",
         "source": "PIAF Connected Objects p24"
       },
       "PIA_ORG_EXT": {
-        "placeholder": "Indicate here, for processors requiring access to data, the security controls and arrangements carried out as regards such access.",
-        "name": "Relations with third parties",
-        "description": "Existence of a policy and processes reducing the risk that legitimate access to personal data by third parties may pose to the data subjects' civil liberties and privacy.",
+        "placeholder": "Należy określić wdrożone procedury i środki odnoszące się do dostępu stron trzecich do danych osobowych w razie potrzeby.",
+        "name": "Relacje ze stronami trzecimi",
+        "description": "Wprowadzenie procedury mającej na celu ograniczenie ryzyka, że dozwolony dostęp stron trzecich do danych osobowych może mieć wpływ na prawa i wolności osób, których dane dotyczą (identyfikacja stron trzecich, umowy powierzenia, porozumienia, BCR, itd.).",
         "source":  "PIA3 p48 - WIKI"
       },
       "PIA_ORG_AUD": {
-        "placeholder": "Indicate here whether the effectiveness and adequacy of privacy controls are monitored.",
-        "name": "Supervision",
-        "description": "Existence of a policy and processes to obtain an organisation able to manage and control the protection of personal data held within it.",
+        "placeholder": "Należy wskazać, czy skuteczność i adekwatność mechanizmów kontrolnych dotyczących prywatności są monitorowane.",
+        "name": "Nadzór",
+        "description": "Wprowadzenie środków pozwalających uzyskiwać całościową i aktualną wizję stanu ochrony danych i zgodności z RODO (kontrola zgodności czynności przetwarzania, celów i wskaźników, zakresy odpowiedzialności, itd.).",
         "source":  "PIA3 p76 - WIKI"
       },
       "PIA_DEF_EXA": {
-        "name": "Quality of data",
-        "description": "Personal data shall be accurate and, where necessary, kept up to date; every reasonable step must be taken to ensure that personal data that are inaccurate, having regard to the purposes for which they are processed, are erased or rectified without delay (‘accuracy’). <br>See <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 5.1 d) of [GDPR]</a>",
-        "source": "GDPR Art. 5.1 d)"
+        "name": "Jakość danych",
+        "description": "Dane osobowe muszą być prawidłowe i w razie potrzeby uaktualniane; należy podjąć wszelkie rozsądne działania, aby dane osobowe, które są nieprawidłowe w świetle celów ich przetwarzania, zostały niezwłocznie usunięte lub sprostowane („prawidłowość”). <br><a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/PL/TXT/HTML/?uri=CELEX:32016R0679&from=PL\">Art. 5.1 d) [RODO]</a>",
+        "source": "RODO Art. 5.1 d)"
       },
       "PIA_DEF_MES": {
-        "name": "Measures",
-        "description": "To be chosen among those available in section \"Planned or existing measures\", which you may complete if needed.",
-        "source": "None"
+        "name": "Środki",
+        "description": "Należy wybrać spośród tych wymienionych w sekcji \"Środki planowane lub istniejące\", które można uzupełnić w razie potrzeby.",
+        "source": "Brak"
       },
       "PIA_DEF_RT": {
-        "name": "Controller",
-        "description": "Natural or legal person, public authority, agency or other body which, alone or jointly with others, determines the purposes and means of the processing of personal data; where the purposes and means of such processing are determined by Union or Member State law, the controller or the specific criteria for its nomination may be provided for by Union or Member State law.<br>See <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 4.7 of [GDPR]</a>",
-        "source": "GDPR Art. 4.7"
+        "name": "Administrator",
+        "description": "Osoba fizyczna lub prawna, organ publiczny, jednostka lub inny podmiot, który samodzielnie lub wspólnie z innymi ustala cele i sposoby przetwarzania danych osobowych; jeżeli cele i sposoby takiego przetwarzania są określone w prawie Unii lub w prawie państwa członkowskiego, to również w prawie Unii lub w prawie państwa członkowskiego może zostać wyznaczony administrator lub mogą zostać określone konkretne kryteria jego wyznaczania.<br><a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/PL/TXT/HTML/?uri=CELEX:32016R0679&from=PL\">Art. 4.7 [RODO]</a>",
+        "source": "RODO Art. 4.7"
       },
       "PIA_DEF_DCP": {
-        "name": "Personal data",
-        "description": "Any information relating to an identified or identifiable natural person (‘data subject’); an identifiable natural person is one who can be identified, directly or indirectly, in particular by reference to an identifier such as a name, an identification number, location data, an online identifier or to one or more factors specific to the physical, physiological, genetic, mental, economic, cultural or social identity of that natural person. <br>See <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 4.1 of [GDPR]</a>",
-        "source": "GDPR Art 4.1"
+        "name": "Dane osobowe",
+        "description": "Informacje o zidentyfikowanej lub możliwej do zidentyfikowania osobie fizycznej („osobie, której dane dotyczą”); możliwa do zidentyfikowania osoba fizyczna to osoba, którą można bezpośrednio lub pośrednio zidentyfikować, w szczególności na podstawie identyfikatora takiego jak imię i nazwisko, numer identyfikacyjny, dane o lokalizacji, identyfikator internetowy lub jeden bądź kilka szczególnych czynników określających fizyczną, fizjologiczną, genetyczną, psychiczną, ekonomiczną, kulturową lub społeczną tożsamość osoby fizycznej. <br><a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/PL/TXT/HTML/?uri=CELEX:32016R0679&from=PL\">Art. 4.1 [RODO]</a>",
+        "source": "RODO Art 4.1"
       },
       "PIA_DEF_DEST": {
-        "name": "Recipient",
-        "description": "Natural or legal person, public authority, agency or another body, to which the personal data are disclosed, whether a third party or not. However, public authorities which may receive personal data in the framework of a particular inquiry in accordance with Union or Member State law shall not be regarded as recipients; the processing of those data by those public authorities shall be in compliance with the applicable data protection rules according to the purposes of the processing. <br>See <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 4.9 of [GDPR]</a>",
-        "source": "GDPR Art. 4.9"
+        "name": "Odbiorca",
+        "description": "Osoba fizyczna lub prawna, organ publiczny, jednostka lub inny podmiot, któremu ujawnia się dane osobowe, niezależnie od tego, czy jest stroną trzecią. Organy publiczne, które mogą otrzymywać dane osobowe w ramach konkretnego postępowania zgodnie z prawem Unii lub prawem państwa członkowskiego, nie są jednak uznawane za odbiorców; przetwarzanie tych danych przez te organy publiczne musi być zgodne z przepisami o ochronie danych mającymi zastosowanie stosownie do celów przetwarzania. <br><a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/PL/TXT/HTML/?uri=CELEX:32016R0679&from=PL\">Art. 4.9 [RODO]</a>",
+        "source": "RODO Art. 4.9"
       },
       "PIA_DEF_SUPT": {
-        "name": "Supporting assets",
-        "description": "Asset on which personal data rely. This may be hardware, software, networks, people, paper or paper transmission channels",
+        "name": "Zasoby wspierające",
+        "description": "<strong>Sprzęt i nośniki danych osobowych</strong> : komputery, przekaźniki, klucze USB, dyski twarde...<br><strong>Oprogramowanie</strong> : systemy eksploatacyjne, komunikatory, bazy danych, aplikacje biznesowe...<br><strong>Kanały informacyjne</strong> : kable, WiFi, światłowody<br><br><strong>Osoby</strong> : użytkownicy, administratorzy systemów, decydenci...<br><strong>Nośniki papierowe</strong> : wydruki, fotokopie, rękopisy...<br><strong>Kanały przesyłania papieru</strong> : poczta, obieg dokumentów...",
         "source": "PIA1 p10"
       },
       "PIA_DEF_MINC": {
-        "name": "Minimising the amount of personal data",
-        "description": "Reduce the severity of risks by limiting the amount of personal data to what is strictly necessary to achieve a defined purpose, otherwise the data shall be not collected.",
+        "name": "Minimalizacja danych osobowych",
+        "description": "Ograniczenie istotności ryzyka poprzez ograniczenie danych osobowych do tego, co absolutnie niezbędne do wyznaczonego celu, w przeciwnym wypadku dane nie powinny być zbierane.",
         "source": ""
       },
       "PIA_DEF_CONS": {
-        "name": "consent",
-        "description": "Any freely given, specific, informed and unambiguous indication of the data subject's wishes by which he or she, by a statement or by a clear affirmative action, signifies agreement to the processing of personal data relating to him or her.<br>See <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 4.10 of [GDPR]</a>",
-        "source": "GDPR Art. 4.10"
+        "name": "Zgoda",
+        "description": "Dobrowolne, konkretne, świadome i jednoznaczne okazanie woli, którym osoba, której dane dotyczą, w formie oświadczenia lub wyraźnego działania potwierdzającego, przyzwala na przetwarzanie dotyczących jej danych osobowych.<br><a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/PL/TXT/HTML/?uri=CELEX:32016R0679&from=PL\">Art. 4.11 [RODO]</a>",
+        "source": "RODO Art. 4.11"
       },
       "PIA_DEF_ACC": {
-        "name": "Right of access",
-        "description": "The data subject shall have the right to obtain from the controller confirmation as to whether or not personal data concerning him or her are being processed, and, where that is the case, access to the personal data and the information described in <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 15 of [GDPR]</a>",
-        "source":"GDPR Art. 15"
+        "name": "Prawo dostępu",
+        "description": "Osoba, której dane dotyczą, jest uprawniona do uzyskania od administratora potwierdzenia, czy przetwarzane są dane osobowe jej dotyczące, a jeżeli ma to miejsce, jest uprawniona do uzyskania dostępu do nich oraz informacji opisanych w <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 15 [RODO]</a>",
+        "source":"RODO Art. 15"
       },
       "PIA_DEF_PORT": {
-        "name": "Right to data portability",
-        "description": " The data subject shall have the right to receive the personal data concerning him or her, which he or she has provided to a controller, in a structured, commonly used and machine-readable format and have the right to transmit those data to another controller without hindrance from the controller to which the personal data have been provided, see <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 20 of [GDPR]</a>",
-        "source": "GDPR Art. 20"
+        "name": "Prawo do przenoszenia danych",
+        "description": " Osoba, której dane dotyczą, ma prawo otrzymać w ustrukturyzowanym, powszechnie używanym formacie nadającym się do odczytu maszynowego dane osobowe jej dotyczące, które dostarczyła administratorowi, oraz ma prawo przesłać te dane osobowe innemu administratorowi bez przeszkód ze strony administratora, któremu dostarczono te dane osobowe - <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/PL/TXT/HTML/?uri=CELEX:32016R0679&from=PL\">Art. 20 [RODO]</a>",
+        "source": "RODO Art. 20"
       },
       "PIA_DEF_RECT": {
-        "name": "Right to rectification",
-        "description": "The data subject shall have the right to obtain from the controller without undue delay the rectification of inaccurate personal data concerning him or her. Taking into account the purposes of the processing, the data subject shall have the right to have incomplete personal data completed, including by means of providing a supplementary statement.",
-        "source": "GDPR Art. 16"
+        "name": "Prawo do sprostowania danych",
+        "description": "Osoba, której dane dotyczą, ma prawo żądania od administratora niezwłocznego sprostowania dotyczących jej danych osobowych, które są nieprawidłowe. Z uwzględnieniem celów przetwarzania, osoba, której dane dotyczą, ma prawo żądania uzupełnienia niekompletnych danych osobowych, w tym poprzez przedstawienie dodatkowego oświadczenia - <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/PL/TXT/HTML/?uri=CELEX:32016R0679&from=PL\">Art. 16 [RODO]</a>",
+        "source": "RODO Art. 16"
       },
       "PIA_DEF_EFF": {
-        "name": "Right to erasure",
-        "description": " The data subject shall have the right to obtain from the controller the erasure of personal data concerning him or her without undue delay and the controller shall have the obligation to erase personal data without undue delay, see <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 17 of [GDPR]</a>",
-        "source" : "GDPR Art. 17"
+        "name": "Prawo do usunięcia danych",
+        "description": "Osoba, której dane dotyczą, ma prawo żądania od administratora niezwłocznego usunięcia dotyczących jej danych osobowych, a administrator ma obowiązek bez zbędnej zwłoki usunąć dane osobowe - <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/PL/TXT/HTML/?uri=CELEX:32016R0679&from=PL\">Art. 17 [RODO]</a>",
+        "source" : "RODO Art. 17"
       },
       "PIA_DEF_LIM": {
         "name": "Right to restricting of processing",
-        "description": "The data subject shall have the right to obtain from the controller restriction of processing, see <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 18 of [GDPR]</a>",
-        "source": "GDPR Art. 18"
+        "description": "Osoba, której dane dotyczą, ma prawo żądania od administratora ograniczenia przetwarzania - <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/PL/TXT/HTML/?uri=CELEX:32016R0679&from=PL\">Art. 18 [RODO]</a>",
+        "source": "RODO Art. 18"
       },
       "PIA_DEF_OPP": {
-        "name": "Right to object",
-        "description": "The data subject shall have the right to object, on grounds relating to his or her particular situation, at any time to processing of personal data concerning him or her, pursuant to <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 21 of [GDPR]</a>",
-        "source": "GDPR Art. 21"
+        "name": "Prawo do sprzeciwu",
+        "description": "Osoba, której dane dotyczą, ma prawo w dowolnym momencie wnieść sprzeciw – z przyczyn związanych z jej szczególną sytuacją – wobec przetwarzania dotyczących jej danych osobowych, zgodnie z <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/PL/TXT/HTML/?uri=CELEX:32016R0679&from=PL\">Art. 21 [RODO]</a>",
+        "source": "RODO Art. 21"
       },
       "PIA_DEF_PSEU": {
-        "name": "Pseudonymisation",
-        "description": "processing of personal data in such a manner that the personal data can no longer be attributed to a specific data subject without the use of additional information, provided that such additional information is kept separately and is subject to technical and organisational measures to ensure that the personal data are not attributed to an identified or identifiable natural person.<br>Pseudonymisation  reduces  the  linkability  of  a  dataset  with  the  original  identity  of  a  data subject; as such, it is a useful security measure but not a method of anonymisation.",
-        "source" :"GDPR Art. 4.5 and guidelines G29 p22 http://ec.europa.eu/justice/data-protection/article-29/documentation/opinion-recommendation/files/2014/wp216_en.pdf"
+        "name": "Pseudonimizacja",
+        "description": "Przetworzenie danych osobowych w taki sposób, by nie można ich było już przypisać konkretnej osobie, której dane dotyczą, bez użycia dodatkowych informacji, pod warunkiem że takie dodatkowe informacje są przechowywane osobno i są objęte środkami technicznymi i organizacyjnymi uniemożliwiającymi ich przypisanie zidentyfikowanej lub możliwej do zidentyfikowania osobie fizycznej.<br>Pseudonimizacja ogranicza możliwość powiązania zbioru danych z oryginalną tożsamością osoby, której dane dotyczą; jest to przydatny środek bezpieczeństwa ale nie metoda anonimizacji.",
+        "source" :"RODO Art. 4.5 oraz wytyczne str. 22 http://ec.europa.eu/justice/data-protection/article-29/documentation/opinion-recommendation/files/2014/wp216_en.pdf"
       },
       "PIA_DEF_CLO": {
-        "name": "Data partitioning",
+        "name": "Partycjonowanie danych",
         "description": "Data organisation methods that reduce the possibility that personal data can be correlated and that a breach of all personal data may occur. For instance, by identifying the personal data useful only to each business process and logically separating them.",
         "source": "PIA3 p19 - WIKI"
       },
