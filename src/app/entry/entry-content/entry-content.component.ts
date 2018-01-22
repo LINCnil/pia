@@ -63,7 +63,6 @@ export class EntryContentComponent implements OnInit, OnChanges {
     // Redirect users accessing validation page if requirements not met
     /* TODO make it works for refusal PIA status + */
     if (sectionId === 4 && itemId === 4) {
-      console.log(this._sidStatusService.enablePiaValidation);
       if ((!this._sidStatusService.enablePiaValidation && !this._sidStatusService.piaIsRefused)
       || (this._sidStatusService.piaIsRefused && !this._piaService.pia.applied_adjustements)) {
         this._router.navigate(['entry', this._piaService.pia.id, 'section', 1, 'item', 1])
@@ -72,7 +71,6 @@ export class EntryContentComponent implements OnInit, OnChanges {
 
     // Redirect users accessing refusal page if requirements not met
     if (sectionId === 4 && itemId === 5) {
-      console.log(this._sidStatusService.enablePiaValidation);
       if (!this._sidStatusService.enablePiaValidation && !this._sidStatusService.piaIsRefused) {
         this._router.navigate(['entry', this._piaService.pia.id, 'section', 1, 'item', 1])
       }

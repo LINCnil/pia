@@ -7,6 +7,7 @@ import { Evaluation } from 'app/entry/entry-content/evaluations/evaluation.model
 export class GlobalEvaluationService {
 
   enableValidation = false;
+  itemEvaluationToFix = {};
 
   async isInEvaluation(pia: any, sid: string, item: any) {
     return new Promise((resolve, reject) => {
@@ -109,11 +110,15 @@ export class GlobalEvaluationService {
   }
 
   async validationStarted(pia: any, sid: string, item: any) {
+    this.itemEvaluationToFix[sid] = false;
     return new Promise((resolve, reject) => {
       if (item.evaluation_mode === 'item') {
         const evaluationModel = new Evaluation();
         evaluationModel.getByReference(pia.id, sid).then(() => {
           if (evaluationModel.status > 0) {
+            if (evaluationModel.status === 1) {
+              this.itemEvaluationToFix[sid] = true;
+            }
             resolve(true);
           }
         });
