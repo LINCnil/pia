@@ -749,14 +749,14 @@
   },
   # begin english
   "help": {
-    "title": "Help",
+    "title": "Hilfe",
     "definition": {
       "data1": {
-        "title": "Use the PIA tool",
-        "content": "Content being written"
+        "title": "Verwenden Sie das PIA-Tool",
+        "content": "Inhalt in Bearbeitung"
       },
       "data2": {
-        "title": "Known Issues",
+        "title": "Bekannte Probleme",
         "qa1": {
           "title": "I get display issues such as icons being stuck in one state or missing elements from the interface",
           "content": "When encountering those display issues, close the application and reload it. It usually fixes the issue. You won’t lose the information you have entered ; it is  automatically saved as you type."
