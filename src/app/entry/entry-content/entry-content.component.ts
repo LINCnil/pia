@@ -49,6 +49,7 @@ export class EntryContentComponent implements OnInit, OnChanges {
   }
 
   async ngOnChanges() {
+    this._evaluationService.showValidationButton = false;
     this._paginationService.dataNav = await this._appDataService.getDataNav();
     await this._piaService.getPIA();
 
