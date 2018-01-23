@@ -39,15 +39,14 @@ export class EvaluationService {
     this.enableFinalValidation = false;
     this.answers = [];
     if (this.item) {
-      this.setAnswers(this.item, true).then((answers: any) => {
-        this.answers = answers;
+      this.setAnswers(this.item, true).then(() => {
         this.allAwsersIsInEvaluation(this.section, this.item);
       });
     }
   }
 
   private async setAnswers(item, checkNext?) {
-    let answers = [];
+    this.answers = [];
     return new Promise((resolve, reject) => {
       if (item.is_measure) {
         // For measures
@@ -55,13 +54,13 @@ export class EvaluationService {
           if (measures.length > 0) {
             measures.forEach(measure => {
               if (measure.title && measure.title.length > 0 && measure.content && measure.content.length > 0) {
-                answers.push(measure.id);
+                this.answers.push(measure.id);
               }
             });
             if (checkNext) {
-              this.enableEvaluation = answers.length === measures.length ? true : false;
+              this.enableEvaluation = this.answers.length === measures.length;
             }
-            resolve(answers);
+            resolve();
           }
         });
       } else if (item.questions) {
@@ -73,7 +72,7 @@ export class EvaluationService {
           answerTypeByQuestion[question.id] = question.answer_type;
         });
         this.answer.findAllByPia(this.pia.id).then((answers2: any) => {
-          answers = answers2.filter((answer) => {
+          this.answers = answers2.filter((answer) => {
             let contentOk = false;
             if (answerTypeByQuestion[answer.reference_to] === 'text'  ) {
               contentOk = answer.data.text && answer.data.text.length > 0;
@@ -85,9 +84,9 @@ export class EvaluationService {
             return (contentOk && questionsIds.indexOf(answer.reference_to.toString()) >= 0);
           });
           if (checkNext) {
-            this.enableEvaluation = answers.length === questionsIds.length ? true : false;
+            this.enableEvaluation = this.answers.length === questionsIds.length;
           }
-          resolve(answers);
+          resolve();
         });
       }
     });
@@ -115,7 +114,7 @@ export class EvaluationService {
             reference_to = section.id + '.' + item.id + '.' + answer;
           }
           this.createEvaluationInDb(reference_to).then(() => {
-            count += 1;
+            count++;
             resolve();
           });
         }).then(() => {
@@ -154,7 +153,7 @@ export class EvaluationService {
             reference_to = section.id + '.' + item.id + '.' + answer;
           }
           this.deleteEvaluationInDb(reference_to).then(() => {
-            count += 1;
+            count++;
             resolve();
           });
         }).then(() => {
@@ -259,7 +258,7 @@ export class EvaluationService {
             if (evaluation.status > 1) {
               evaluation.global_status = 1;
               evaluation.update().then(() => {
-                count += 1;
+                count++;
                 if (count === this.answers.length) {
                   this.showValidationButton = false;
                   this.enableFinalValidation = true;
@@ -303,7 +302,7 @@ export class EvaluationService {
           evaluation.getByReference(this.pia.id, reference_to).then(() => {
             evaluation.global_status = 0;
             evaluation.update().then(() => {
-              count += 1;
+              count++;
               if (count === this.answers.length) {
                 this.showValidationButton = true;
                 this.enableFinalValidation = false;
@@ -344,7 +343,7 @@ export class EvaluationService {
         const evaluation = new Evaluation();
         evaluation.globalStatusByReference(this.pia.id, reference_to).then((exist: boolean) => {
           if (exist) {
-            count += 1;
+            count++;
             if (count === this.answers.length) {
               this.showValidationButton = false;
               this.enableFinalValidation = true;

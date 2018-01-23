@@ -82,6 +82,7 @@ export class Measure extends ApplicationDb {
     return new Promise((resolve, reject) => {
       this.find(this.id).then((entry: any) => {
         this.pia_id = parseInt(entry.pia_id, 10);
+        this.reference_to = entry.reference_to;
         this.title = entry.title;
         this.content = entry.content;
         this.placeholder = entry.placeholder;

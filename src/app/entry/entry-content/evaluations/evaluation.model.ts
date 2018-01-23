@@ -3,7 +3,6 @@ import { ApplicationDb } from '../../../application.db';
 export class Evaluation extends ApplicationDb {
   public id: number;
   public status = 0; // 0: pending, 1: toBeFixed, 2: improvable, 3: acceptable
-  public reference_to: string;
   public action_plan_comment: string;
   public evaluation_comment: string;
   public evaluation_date: Date;

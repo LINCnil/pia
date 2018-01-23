@@ -29,7 +29,7 @@
     </ng-template>
   </header>
 
-  <div class="pia-status-info" *ngIf="_evaluationService.showValidationButton && !_globalEvaluationService.enableValidation && (section.id != 3 && item.id != 5) && section.id != 4">
+  <div class="pia-status-info" *ngIf="_evaluationService.showValidationButton && !_globalEvaluationService.enableValidation && section.id + '.' + item.id !== '3.5' && section.id != 4">
     <strong>{{ 'pia.sections.status.evaluation.title' | translate }}</strong>
     <p>
       <span [innerHTML]="'pia.sections.status.evaluation.content' | translate"></span>
