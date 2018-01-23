@@ -749,38 +749,37 @@
     "title": "Hilfe",
     "definition": {
       "data1": {
-        "title": "Verwenden Sie das PIA-Tool",
-        "content": "Inhalt in Bearbeitung"
+        "title": "Verwenden Sie das DSFA-Tool",
+        "content": "Inhalt ist in Bearbeitung"
       },
       "data2": {
         "title": "Bekannte Probleme",
         "qa1": {
-          "title": "I get display issues such as icons being stuck in one state or missing elements from the interface",
-          "content": "When encountering those display issues, close the application and reload it. It usually fixes the issue. You won’t lose the information you have entered ; it is  automatically saved as you type."
+          "title": "Ich bekomme Probleme mit der Anzeige, z. B. dass Symbole in einem Status hängen bleiben oder Elemente der Schnittstelle fehlen",
+          "content": "Schließen Sie die Anwendung, wenn diese Anzeigeprobleme auftreten, und laden Sie sie erneut. Normalerweise behebt es das Problem. Die on Ihnen eingegebenen Informationen gehen nicht verloren; Diese werden automatisch während der Eingabe gespeichert."
         },
         "qa2": {
-          "title": "I can’t edit the gauges for evaluating the severity and likelihood of a risk",
-          "content": "This known issue is currently being fixed. If you encounter this problem, we recommend that you fill in the justification field of the estimated level of severity and / or likelihood. You will be able to edit the gauge once the bug is fixed."
+          "title": "Ich kann die Skala nicht bearbeiten, um den Schweregrad und die Wahrscheinlichkeit eines Risikos zu bewerten",
+          "content": "Dieses bekannte Problem wird derzeit behoben. Wenn Sie auf dieses Problem stoßen, empfehlen wir, dass Sie das Begründungsfeld des geschätzten Schweregrads und / oder der Wahrscheinlichkeit ausfüllen. Sie können die Skala bearbeiten, sobald der Fehler behoben ist."
         },
         "qa3": {
-          "title": "I encounter issues when importing a PIA",
-          "content": "Several bugs have been observed when importing a PIA, and in particular the level gauges for evaluating the severity and likelihood of a risk may disappear. In this case, please refer to the above mentioned issue. Besides, a PIA may not appear on the dashboard after importing it. This is a display issue and you just need to refresh the page."
+          "title": "Beim Importieren einer DSFA treten Probleme auf",
+          "content": "Beim Import einee DSFA wurden mehrere Fehler beobachtet, und insbesondere die Skalen für die Bewertung der Schwere und Wahrscheinlichkeit eines Risikos können verschwinden. Bitte beachten Sie in diesem Fall das oben genannte Problem. Außerdem wird eine DSFA nach dem Importieren möglicherweise nicht auf der Übersicht angezeigt. Dies ist ein Anzeigeproblem und Sie müssen nur die Seite aktualisieren."
         },
         "qa4": {
-          "title": "When I copy / paste text, it is highlighted.",
-          "content": "This is only a display bug and it has no effect on the text you enter in a field. This visual problem will be fixed soon."
+          "title": "Wenn ich Text kopiere / einfüge, wird er markiert.",
+          "content": "Dies ist nur ein Anzeigefehler und hat keine Auswirkung auf den Text, den Sie in ein Feld eingeben. Dieses visuelle Problem wird bald behoben sein."
         },
         "qa5": {
-          "title": "I can’t evaluate a section",
-          "content": "In order to evaluate a section, it is mandatory to fill in all the fields. Please check if this is the case. When editing a risk, you must have at least one technical or organizational measure that mitigates the risk in order to ask for an evaluation of the risk."
-        },
+          "title": "Ich kann einen Abschnitt nicht bewerten",
+          "content": "Um einen Abschnitt auszuwerten, müssen alle Felder ausgefüllt werden. Bitte prüfen Sie, ob dies der Fall ist. Wenn Sie ein Risiko bearbeiten, müssen Sie mindestens eine technische oder organisatorische Maßnahme haben, die das Risiko mindert, um nach einer Risikobewertung zu fragen. "        },
         "qa6": {
-          "title": "When switching language, the texts are not translated",
-          "content": "Please close the PIA you are editing and re-open it. The content should then be displayed in the language you have selected."
+          "title": "Beim Wechseln der Sprache werden die Texte nicht übersetzt",
+          "content": "Bitte schließen Sie die DSFA, die Sie bearbeiten, und öffnen Sie sie erneut. Der Inhalt sollte dann in der von Ihnen gewählten Sprache angezeigt werden."
         },
         "qa7": {
-          "title": "I have refused to validate a PIA but I don’t know what to do now",
-          "content": "For the moment, the navigation menu icons are not refreshed after refusing a PIA. You have to check each section and change the information and/or evaluation according to the reasons for refusing the PIA. Once all section have been reviewed, you should be able to request PIA validation again."
+          "title": "Ich habe mich geweigert, eine DSFA zu validieren, aber ich weiß nicht, was ich jetzt tun soll",
+          "content": "Im Moment werden die Navigationsmenüsymbole nicht aktualisiert, nachdem eine DSFA abgelehnt wurde. Sie müssen jeden Abschnitt überprüfen und die Informationen und / oder Bewertungen entsprechend den Gründen für die Verweigerung der DSFA ändern. Sobald alle Abschnitte überprüft wurden, sollten Sie die DSFA-Validierung erneut anfordern können."
         }
       },
       "footer": ""
