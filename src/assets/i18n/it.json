@@ -14,8 +14,12 @@
 		"knowledge_base_link": "Archivio",
 		"pia_example_link": "Esempio PIA",
 		"languages": {
-			"fr": "Francese",
-			"en": "Inglese"
+			"fr": "Français",
+      "en": "English",
+      "cs": "Česky",
+      "it": "Italiaans",
+      "nl": "Nederlands",
+      "pl": "Polski"
 		},
 		"tools": {
 			"title": "Strumenti",
