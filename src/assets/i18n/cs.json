@@ -16,12 +16,12 @@
     "languages": {
       "official_translations": "Oficiální překlady",
       "unofficial_translations": "Neoficiální překlady",
-      "fr": "Francouzky",
-      "en": "Anglicky",
+      "fr": "Français",
+      "en": "English",
       "cs": "Česky",
-      "it": "Italský",
-      "nl": "Holandský",
-      "pl": "To be translated"
+      "it": "Italiaans",
+      "nl": "Nederlands",
+      "pl": "Polski"
     },
     "tools": {
       "title": "Nástroje",
