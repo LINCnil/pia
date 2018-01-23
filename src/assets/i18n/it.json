@@ -16,12 +16,12 @@
 		"languages": {
       "official_translations": "Officiële vertalingen",
       "unofficial_translations": "Niet-officiële vertalingen",
-			"fr": "Francese",
-			"en": "Inglese",
-      "cs": "Tsjechisch",
+			"fr": "Français",
+      "en": "English",
+      "cs": "Česky",
       "it": "Italiaans",
       "nl": "Nederlands",
-      "pl": "To be translated"
+      "pl": "Polski"
 		},
 		"tools": {
 			"title": "Strumenti",
