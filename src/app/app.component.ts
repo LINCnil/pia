@@ -40,7 +40,7 @@ export class AppComponent {
     } else {
       const browserLang = this._translateService.getBrowserLang();
       /* browerLang = 'en' even when FR ? Weird */
-      this._translateService.use(browserLang.match(/en|fr/) ? browserLang : 'fr');
+      this._translateService.use(browserLang.match(/en|fr|de/) ? browserLang : 'fr');
     }
   }
 }

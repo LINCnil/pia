@@ -45,7 +45,7 @@ export class AuthenticationComponent implements OnInit, DoCheck, OnDestroy {
       this.selectedLanguage = language;
     } else {
       const browserLang = this._translateService.getBrowserLang();
-      this.selectedLanguage = browserLang.match(/en|fr/) ? browserLang : 'fr';
+      this.selectedLanguage = browserLang.match(/en|fr|de/) ? browserLang : 'fr';
     }
   }
 }
