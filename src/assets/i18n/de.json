@@ -4,7 +4,7 @@
     "subtitle1": "Eine Plattform zum Erstellen <br> und Verwalten Ihrer DSFAs",
     "subtitle2": "Zugriff auf Tools und Glossare",
     "start_app": "Zugriff auf die PIA-Software (Beta)",
-    "description": "Diese Software der <strong>französischen Datenschutzbehörde (CNIL)</strong> soll den Datenverantwortlichen bei der Erstellung und dem Nachweis der Einhaltung der DSGVO helfen. Sie hilft bei der Durchführung einer Datenschutz-Folgenabschätzung, indem sie die Verwendung der von der CNIL entwickelten PIA-Methode erleichtert.",
+    "description": "Diese Software der <strong>französischen Datenschutzbehörde (CNIL)</strong> soll den Datenverantwortlichen bei der Erstellung und dem Nachweis der Einhaltung der DS-GVO helfen. Sie hilft bei der Durchführung einer Datenschutz-Folgenabschätzung, indem sie die Verwendung der von der CNIL entwickelten PIA-Methode erleichtert.",
     "start": "Starten"
   },
   "header": {
@@ -786,76 +786,76 @@
     }
   },
   "about": {
-    "title": "About the Tool PIA",
-    "version_number": "Version number",
-    "description": "This tool is originally designed by the <a target=\"_blank\" href=\"https://www.cnil.fr\">Commission Nationale Informatique et Liberté (CNIL)</a>, the French Data Protection Authority, to help data processor to be compliant with the GDPR.<br>This software is free and open. If you wish to get involved in this project, you are welcome to download the source code from Github, modify it and share it with the community.",
-    "licences": "Library licences:"
+    "title": "Über das Werkzeug PIA",
+    "version_number": "Versionsnummer",
+    "description": "Dieses Tool wurde ursprünglich von der französischen Datenschutzbehörde <a target=\"_blank\" href=\"https://www.cnil.fr\"> Nationale Kommission für Informatik und Freiheit (CNIL) </a> entwickelt, um dem Datenverarbeiter zu helfen, mit der DS-GVO konform zu sein. <br> Diese Software ist kostenlos und offen.Wenn Sie sich an diesem Projekt beteiligen möchten, können Sie den Quellcode von Github herunterladen, ändern und mit anderen in der Community teilen.",
+    "licences": "Bibliothekslizenzen:"
   },
   "about": {
     "title": "Über"
   },
   "settings": {
-    "title": "Settings",
-    "content": "Please, provide the address (URL) of the remote server:",
-    "update": "Update URL"
+    "title": "Einstellungen",
+    "content": "Bitte geben Sie die Adresse (URL) des Remote-Servers an:",
+    "update": "URL aktualisieren"
   },
   "misc": {
-    "display": "Show / Hide"
+    "display": "Anzeigen / Ausblenden"
   },
   "modals": {
-    "cancel": "Cancel",
-    "archive": "Archive",
-    "close": "Close",
-    "continue": "Continue",
-    "back_to_home": "Back to home",
+    "cancel": "Abbrechen",
+    "archive": "Archivieren",
+    "close": "Schließen",
+    "continue": "Fortsetzen",
+    "back_to_home": "Zurück zur Startseite",
     "simple_pia_validation": {
-      "content": "The PIA has been validated."
+      "content": "Die DSFA wurde bestätigt."
     },
     "update_server_url": {
-      "content": "The server address has been updated."
+      "content": "Die Serveradresse wurde aktualisiert."
     },
     "signed_pia_validation": {
-      "content": "<span class='strong'>The PIA is accepted</span><br>Finalize the validation of the PIA by attaching<br>the signed report by the person in charge.",
-      "download_pia": "Download PIA report"
+      "content": "<span class = 'strong'> Die DSFA wird akzeptiert </ span> <br> Schließen Sie die Bestätigung der DSFA ab, indem Sie den unterschriebenen Bericht an die zuständige Person anhängen. ",
+      "download_pia": "Laden Sie den DSFA-Bericht herunter"
     },
     "abandon_pia": {
-      "content": "Are you sure you want to<br>give up this treatment?"
+      "content": "Sind Sie sicher, dass Sie diese Verarbeitung aufgeben wollen?"
     },
     "refuse_pia": {
-      "content": "<span class='strong'>Rejected PIA,</span><br>Several fields must be corrected.<br>Return to evaluation mode<br>to make corrections."
+      "content": "<span class = 'strong'> Abgelehnte DSFA, </ span> <br> Mehrere Felder müssen korrigiert werden. <br> Zum Auswertungsmodus zurückkehren, um Korrekturen vorzunehmen."
     },
     "same_comment": {
-      "content": "<span class='strong'>Warning,</span><br>Please enter a comment different from the last recorded."
+      "content": "<span class = 'strong'> Warnung, </ span> <br> Bitte geben Sie einen anderen Kommentar als den zuletzt aufgezeichneten ein."
     },
     "not_enough_measures_to_remove": {
-      "content": "<span class='strong'>Warning,</span><br>At least one measure must be filled: no deletion possible."
+      "content": "<span class = 'strong'> Warnung, </ span> <br> Mindestens eine Maßnahme muss gefüllt sein: keine Löschung möglich."
     },
     "remove_measure": {
-      "content": "<span class='strong'>Warning,</span><br>Are you sure you want to <br>remove this measure?",
-      "remove": "Remove this <br>measure",
-      "keep": "Keep this <br>measure"
+      "content": "<span class = 'strong'> Warnung, </ span> <br> Sind Sie sicher, dass Sie diese Maßnahme entfernen möchten?",
+      "remove": "Entfernen Sie <br> diese Maßnahme",
+      "keep": "Behalten Sie <br> diese Maßnahme"
     },
     "ask_for_evaluation": {
-      "content": "<span class='strong'>Congratulations,</span><br>the subsection is now<br>available for evaluation."
+      "content": "<span class = 'strong'> Herzlichen Glückwunsch, </ span> <br> der Unterabschnitt steht jetzt zur Auswertung zur Verfügung."
     },
     "validate_evaluation": {
-      "content": "<span class='strong'>Congratulations,</span><br>waiting for global validation of the PIA."
+      "content": "<span class = 'strong'> Herzlichen Glückwunsch, </ span> <br> warten Sie auf die globale Bestätigung der DSFA."
     },
     "validate_evaluation_to_correct": {
-      "content": "Sorry,<br>Several fields must be corrected.<br>Return to edition mode<br>to make corrections."
+      "content": "Sorry, <br> Mehrere Felder müssen korrigiert werden. <br> Zum Bearbeitungsmodus zurückkehren und Korrekturen vornehmen."
     },
     "declare_measures": {
-      "content": "Sorry,<br>before evaluating risks,<br>you must report the<br>existing or planned measures.",
-      "declare": "Declare existing or planned measures"
+      "content": "Sorry, <br> bevor Sie Risiken bewerten, <br> müssen Sie die bestehenden oder geplanten Maßnahmen melden.",
+      "declare": "Benennen Sie bestehende oder geplante Maßnahmen"
     },
     "remove_pia": {
-      "content": "<span class='strong'>Warning,</span><br>Are you sure you want to<br>remove this PIA?",
-      "remove": "Remove this PIA"
+      "content": "<span class = 'strong'> Warnung, </ span> <br> Möchten Sie diese DSFA wirklich entfernen?",
+      "remove": "Diese DSFA entfernen"
     },
     "remove_attachment": {
-      "content": "<span class='strong'>Warning,</span><br>Are you sure you want to<br>remove this attachment?",
-      "keep": "Keep",
-      "remove": "Remove"
+      "content": "<span class = 'strong'> Warnung, </ span> <br> Sind Sie sicher, dass Sie diesen Anhang entfernen möchten?",
+      "keep": "Behalten",
+      "remove": "Entfernen"
     }
   },
   "summary": {
@@ -1168,27 +1168,26 @@
           }
         },
         "5": {
-          "title": "Risks overview",
-          "short_help": "This visualisation allows you to have a global and synthetic view on the controls effects on the risks they address."
+          "title": "Risikoübersicht",
+          "short_help": "Diese Visualisierung ermöglicht Ihnen eine globale und synthetische Sicht auf die Auswirkungen der Kontrollen auf die von ihnen ausgehenden Risiken."
         }
       }
     },
     "4": {
-      "title": "Validation",
-      "short_help": "This section allows you to prepare and formalise the PIA validation.",
+      "title": "Bestätigung",
+      "short_help": "In diesem Abschnitt können Sie die DSFA-Bestätigung vorbereiten und formalisieren.",
       "items": {
         "1": {
-          "title": "Risk mapping",
-          "short_help": "This visualisation allows you to compare the positioning of the risks between them, before and after application of the complementary controls."
+          "title": "Risikokartierung",
+          "short_help": "Diese Visualisierung ermöglicht es Ihnen, die Positionierung der Risiken vor und nach der Anwendung der ergänzenden Kontrollen zu vergleichen."
         },
         "2": {
-          "title": "Action plan",
-          "short_help": "Plan in detail the implementation of the additional controls identified during the PIA."
+          "title": "Aktionsplan",
+          "short_help": "Planen Sie detailliert die Implementierung der zusätzlichen Kontrollen, die während der DSFA identifiziert wurden."
         },
         "3": {
-          "title": "DPO and concerned persons opinions",
-          "short_help": "Present the advice of the person in charge of data protection and privacy issues (data protection delegate if there is one). Present the views of the data subjects or their representatives."
-        }
+          "title": "Meinungen des Datenschutzbeauftragte und der Betroffenen",
+          "short_help": "Holen Sie den Rat des Datenschutzbeauftragten ein. Präsentieren Sie die Ansichten der betroffenen Personen oder ihrer Vertreter."        }
       }
     }
   }
