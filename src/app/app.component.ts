@@ -32,14 +32,14 @@ export class AppComponent {
     }
 
     // Translations system
-    this._translateService.addLangs(['en', 'cs', 'it', 'nl', 'fr']);
+    this._translateService.addLangs(['en', 'cs', 'it', 'nl', 'fr', 'pl']);
     this._translateService.setDefaultLang('fr');
     const language = localStorage.getItem('userLanguage');
     if (language && language.length > 0) {
       this._translateService.use(language);
     } else {
       const browserLang = this._translateService.getBrowserLang();
-      this._translateService.use(browserLang.match(/en|cs|it|nl|fr/) ? browserLang : 'fr');
+      this._translateService.use(browserLang.match(/en|cs|it|nl|fr|pl/) ? browserLang : 'fr');
     }
   }
 }
