@@ -721,19 +721,19 @@
     }
   },
   "evaluations": {
-    "title": "Evaluation",
-    "to_correct": "To correct",
-    "placeholder_to_correct": "Translation in progress",
-    "improvable": "Improvable",
-    "placeholder_improvable": "Translation in progress",
-    "acceptable": "Acceptable",
-    "placeholder_acceptable": "Translation in progress",
-    "evaluation_comment": "Evaluation comment",
-    "action_plan_comment": "Action plan / corrective actions",
-    "placeholder_comment": "Enter  your comments.",
+    "title": "Auswertung",
+    "to_correct": "zu berichtigen",
+    "placeholder_to_correct": "Die bereitgestellten Informationen sind nicht ausreichend, um sie zu bewerten. Zur Bearbeitung zurückkehren, um den ursprünglichen Vorschlag anzureichern.",
+    "improvable": "verbesserungsfähig",
+    "placeholder_improvable": "Angesichts der bereitgestellten Informationen müssen zusätzliche Maßnahmen hinzugefügt werden, um den Schutz der verarbeiteten Daten zu verbessern.",
+    "acceptable": "tragbar",
+    "placeholder_acceptable": "Angesichts der zur Verfügung gestellten Informationen reichen die durchgeführten Maßnahmen aus, um die Datenschutzanforderungen zu erfüllen.",
+    "evaluation_comment": "Bewertungskommentar",
+    "action_plan_comment": "Aktionsplan / Korrekturmaßnahmen",
+    "placeholder_comment": "Geben Sie Ihre Kommentare ein.",
     "gauges": {
-      "seriousness": "Taking into account the action plan, how do you re-evaluate the <span class='red-highlight'>seriousness of this risk</span> ({{value}})?",
-      "likelihood": "Taking into account the action plan, how do you re-evaluate the <span class='red-highlight'>likelihood of this risk</span> ({{value}})?",
+      "seriousness": "Wie bewerten Sie unter Berücksichtigung des Aktionsplans die <span class = 'red-highlight'> Höhe dieses Risikos </ span> ({{value}})?",
+      "likelihood": "Unter Berücksichtigung des Aktionsplans, wie bewerten Sie die <span class = 'red-highlight'> Wahrscheinlichkeit dieses Risikos </ span> ({{value}}) erneut?",
       "0": "(Nicht definiert)",
       "1": "Unerheblich",
       "2": "Begrenzt",
@@ -742,11 +742,12 @@
     },
     "status": {
       "0": "Pending",
-      "1": "To correct",
-      "2": "Improvable",
-      "3": "Acceptable"
+      "1": "zu korrigieren",
+      "2": "verbesserungsfähig",
+      "3": "tragbar"
     }
   },
+  # begin english
   "help": {
     "title": "Help",
     "definition": {
