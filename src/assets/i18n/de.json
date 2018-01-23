@@ -160,7 +160,6 @@
       "general_measure": "Physische Sicherheitsmaßnahme",
       "example": "Beispiel"
     },
-    # begin english
     "slugs": {
       "PIA_LGL_FOND": {
         "name": "Justification of lawfulness",
@@ -703,7 +702,6 @@
       }
     }
   },
-  # end english
   "comments": {
     "comments_count": "Kommentar(e)",
     "new_comment": "Kommentieren",
@@ -714,14 +712,14 @@
     "edit": "Frage bearbeiten",
     "gauges": {
       "0": "(Nicht definiert)",
-      "1": "Unerheblich",
+      "1": "Vernachlässigbar",
       "2": "Begrenzt",
-      "3": "Wichtig",
+      "3": "Wesentlich",
       "4": "Maximal"
     }
   },
   "evaluations": {
-    "title": "Auswertung",
+    "title": "Bewertung",
     "to_correct": "zu berichtigen",
     "placeholder_to_correct": "Die bereitgestellten Informationen sind nicht ausreichend, um sie zu bewerten. Zur Bearbeitung zurückkehren, um den ursprünglichen Vorschlag anzureichern.",
     "improvable": "verbesserungsfähig",
@@ -735,9 +733,9 @@
       "seriousness": "Wie bewerten Sie unter Berücksichtigung des Aktionsplans die <span class = 'red-highlight'> Höhe dieses Risikos </ span> ({{value}})?",
       "likelihood": "Unter Berücksichtigung des Aktionsplans, wie bewerten Sie die <span class = 'red-highlight'> Wahrscheinlichkeit dieses Risikos </ span> ({{value}}) erneut?",
       "0": "(Nicht definiert)",
-      "1": "Unerheblich",
+      "1": "Vernachlässigbar",
       "2": "Begrenzt",
-      "3": "Wichtig",
+      "3": "Wesentlich",
       "4": "Maximal"
     },
     "status": {
@@ -747,7 +745,6 @@
       "3": "tragbar"
     }
   },
-  # begin english
   "help": {
     "title": "Hilfe",
     "definition": {
