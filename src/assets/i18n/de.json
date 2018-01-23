@@ -160,6 +160,7 @@
       "general_measure": "Physische Sicherheitsmaßnahme",
       "example": "Beispiel"
     },
+    # begin english
     "slugs": {
       "PIA_LGL_FOND": {
         "name": "Justification of lawfulness",
@@ -702,20 +703,21 @@
       }
     }
   },
+  # end english
   "comments": {
     "comments_count": "Kommentar(e)",
-    "new_comment": "Comment",
+    "new_comment": "Kommentieren",
     "placeholder_new_comment": "Hinterlasse einen Kommentar",
-    "comment": "Comment"
+    "comment": "Kommentar"
   },
   "questions": {
-    "edit": "Edit question",
+    "edit": "Frage bearbeiten",
     "gauges": {
-      "0": "(Undefined)",
-      "1": "Negligible",
-      "2": "Limited",
-      "3": "Important",
-      "4": "Maximum"
+      "0": "(Nicht definiert)",
+      "1": "Unerheblich",
+      "2": "Begrenzt",
+      "3": "Wichtig",
+      "4": "Maximal"
     }
   },
   "evaluations": {
@@ -732,11 +734,11 @@
     "gauges": {
       "seriousness": "Taking into account the action plan, how do you re-evaluate the <span class='red-highlight'>seriousness of this risk</span> ({{value}})?",
       "likelihood": "Taking into account the action plan, how do you re-evaluate the <span class='red-highlight'>likelihood of this risk</span> ({{value}})?",
-      "0": "(Undefined)",
-      "1": "Negligible",
-      "2": "Limited",
-      "3": "Important",
-      "4": "Maximum"
+      "0": "(Nicht definiert)",
+      "1": "Unerheblich",
+      "2": "Begrenzt",
+      "3": "Wichtig",
+      "4": "Maximal"
     },
     "status": {
       "0": "Pending",
@@ -793,7 +795,7 @@
     "licences": "Library licences:"
   },
   "about": {
-    "title": "About"
+    "title": "Über"
   },
   "settings": {
     "title": "Settings",
