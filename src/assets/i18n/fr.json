@@ -17,11 +17,11 @@
       "official_translations": "Traductions officielles",
       "unofficial_translations": "Traductions non-officielles",
       "fr": "Français",
-      "en": "Anglais",
-      "cs": "Tchèque",
-      "it": "Italien",
-      "nl": "Néerlandais",
-      "pl": "Polonais"
+      "en": "English",
+      "cs": "Česky",
+      "it": "Italiaans",
+      "nl": "Nederlands",
+      "pl": "Polski"
     },
     "tools": {
       "title": "Outils",
