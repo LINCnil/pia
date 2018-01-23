@@ -14,8 +14,12 @@
     "knowledge_base_link": "Knowledge base",
     "pia_example_link": "PIA example",
     "languages": {
-      "fr": "French",
-      "en": "English"
+      "fr": "Français",
+      "en": "English",
+      "cs": "Česky",
+      "it": "Italiaans",
+      "nl": "Nederlands",
+      "pl": "Polski"
     },
     "tools": {
       "title": "Tools",
