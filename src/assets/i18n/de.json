@@ -130,35 +130,35 @@
     }
   },
   "measures": {
-    "placeholder_title": "Measure title",
+    "placeholder_title": "Maßnahmentitel",
     "add": "Fügen Sie eine leere Maßnahme hinzu (verwenden Sie andernfalls die Wissensbasis)",
     "edit": "Maßnahme bearbeiten",
     "remove": "Maßnahme löschen",
     "default_placeholder": "Beschreiben Sie die bestehenden oder beabsichtigten Maßnahmen zur Gewährleistung der Datensicherheit."
   },
   "knowledge_base": {
-    "title": "Knowledge base",
-    "search": "Search",
-    "add_measure": "Add",
-    "placeholder_help": "Entry aids",
-    "placeholder_add_measure": "Add this measure",
-    "add_measure_hint": "You can also add a measure from the knowledge base.",
+    "title": "Wissensbasis",
+    "search": "Suche",
+    "add_measure": "Hinzufügen",
+    "placeholder_help": "Eingabehilfen",
+    "placeholder_add_measure": "Füge diese Maßnahme hinzu",
+    "add_measure_hint": "Sie können auch eine Maßnahme aus der Wissensdatenbank hinzufügen.",
     "filters": {
-      "title": "Filters",
-      "all": "All",
-      "definitions": "Definitions",
-      "organizational_measures": "Organisational controls",
-      "measures_on_data": "Logical security controls",
-      "general_measures": "Physical Security controls",
-      "no_result": "No result found."
+      "title": "Filter",
+      "all": "Alle",
+      "definitions": "Definitionen",
+      "organizational_measures": "Organisationsmaßnahmen",
+      "measures_on_data": "Logische Sicherheitsmaßnahmen",
+      "general_measures": "Physische Sicherheitsmaßnahmen",
+      "no_result": "Keine Einträge gefunden."
     },
     "category": {
       "definition": "Definition",
-      "principle": "Principle",
-      "organizational_measure": "Organisational control",
-      "measure_on_data": "Logical security control",
-      "general_measure": "Physical Security control",
-      "example": "Example"
+      "principle": "Prinzip",
+      "organizational_measure": "Organisationsmaßnahme",
+      "measure_on_data": "Logische Sicherheitsmaßnahme",
+      "general_measure": "Physische Sicherheitsmaßnahme",
+      "example": "Beispiel"
     },
     "slugs": {
       "PIA_LGL_FOND": {
@@ -703,9 +703,9 @@
     }
   },
   "comments": {
-    "comments_count": "comment(s)",
+    "comments_count": "Kommentar(e)",
     "new_comment": "Comment",
-    "placeholder_new_comment": "Leave a comment",
+    "placeholder_new_comment": "Hinterlasse einen Kommentar",
     "comment": "Comment"
   },
   "questions": {
