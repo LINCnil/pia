@@ -16,12 +16,12 @@
     "languages": {
       "official_translations": "Official translations",
       "unofficial_translations": "Unofficial translations",
-      "fr": "French",
+      "fr": "Français",
       "en": "English",
-      "cs": "Czech",
-      "it": "Italian",
-      "nl": "Dutch",
-      "pl": "To be translated"
+      "cs": "Česky",
+      "it": "Italiaans",
+      "nl": "Nederlands",
+      "pl": "Polski"
     },
     "tools": {
       "title": "Tools",
