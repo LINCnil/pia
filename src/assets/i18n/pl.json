@@ -14,8 +14,14 @@
     "knowledge_base_link": "Baza wiedzy",
     "pia_example_link": "Przykład PIA",
     "languages": {
-      "fr": "French",
-      "en": "English"
+      "official_translations": "Traductions officielles",
+      "unofficial_translations": "Traductions non-officielles",
+      "fr": "Français",
+      "en": "English",
+      "cs": "Česky",
+      "it": "Italiaans",
+      "nl": "Nederlands",
+      "pl": "Polski"
     },
     "tools": {
       "title": "Narzędzia",
