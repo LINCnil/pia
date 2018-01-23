@@ -14,6 +14,8 @@
     "knowledge_base_link": "Base de connaissances",
     "pia_example_link": "Exemple de PIA",
     "languages": {
+      "official_translations": "Traductions officielles",
+      "unofficial_translations": "Traductions non-officielles",
       "fr": "Français",
       "en": "English",
       "cs": "Česky",
