@@ -14,7 +14,9 @@
 		"knowledge_base_link": "Archivio",
 		"pia_example_link": "Esempio PIA",
 		"languages": {
-			"fr": "Français",
+			"official_translations": "Traductions officielles",
+      "unofficial_translations": "Traductions non-officielles",
+      "fr": "Français",
       "en": "English",
       "cs": "Česky",
       "it": "Italiaans",
