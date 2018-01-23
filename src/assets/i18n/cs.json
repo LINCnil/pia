@@ -14,9 +14,12 @@
     "knowledge_base_link": "Znalostní báze",
     "pia_example_link": "PIA příklad",
     "languages": {
-      "fr": "Francouzky",
-      "en": "Anglicky",
-      "cs": "Česky"
+      "fr": "Français",
+      "en": "English",
+      "cs": "Česky",
+      "it": "Italiaans",
+      "nl": "Nederlands",
+      "pl": "Polski"
     },
     "tools": {
       "title": "Nástroje",
