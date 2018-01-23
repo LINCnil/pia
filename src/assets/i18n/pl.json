@@ -497,128 +497,128 @@
       },
       "PIA_DEF_CLO": {
         "name": "Partycjonowanie danych",
-        "description": "Data organisation methods that reduce the possibility that personal data can be correlated and that a breach of all personal data may occur. For instance, by identifying the personal data useful only to each business process and logically separating them.",
+        "description": "Zestaw metod pozwalających ograniczyć prawdopodobieństwo korelacji danych osobowych i doprowadzenia do naruszenia wszystkich danych osobowych.<br>Można np. zidentyfikować dane osobowe potrzebne dla każdego procesu biznesowego i je logicznie rozdzielić, itd.",
         "source": "PIA3 p19 - WIKI"
       },
       "PIA_DEF_CTLA": {
-        "name": "Logical access controls",
-        "description": "Means implemented to limit the risks that unauthorized persons will access personal data electronically, it requires among other things to : <br>- <strong>Manage users' profiles</strong> by separating tasks and areas of responsibility (preferably in centralised fashion) to limit access to personal data exclusively to authorised users by applying need-to-know and least-privilege principles.<br>- <strong>Withdraw the rights of employees, contracting parties and other third parties when they are no longer authorised to access a premises or a resource</strong> or when their <strong>employment contract ends</strong>.",
+        "name": "Kontrola dostępu logicznego",
+        "description": "Należy ograniczyć ryzyko, że osoby nieupoważnione uzyskają dostęp do danych osobowych w postaci elektronicznej.<br>W tym celu należy :<br>- <strong>zdefiniować profile użytkowników</strong> w systemach rozdzielając zadania i zakresy odpowiedzialności, by ograniczyć dostęp użytkowników wyłącznie do danych osobowych ściśle niezbędnych do wykonania swoich obowiązków. <br>- <strong>usuwać uprawnienia użytkownikom, gdy tylko nie są już upoważnieni do dostępu do danego pomieszczenia lub zasobu informatycznego</strong>, jak również <strong>na koniec ich umowy o pracę lub kontraktu.</strong> <br>- <strong> dokonywać co roku przeglądu upoważnień</strong> w celu identyfikacji i usunięcia kont nieużywanych oraz dostosowania przyznanych praw do funkcji każdego użytkownika.",
         "source": "PIA3 p43 - WIKI"
       },
       "PIA_DEF_MIN1": {
-        "name": "Filtering and removal",
-        "description": "When data are being imported, different types of metadata (such as EXIF data with an image file attached) can unintentionally be collected. <br>Such metadata must be identified and eliminated if they are unnecessary for the purposes specified.",
+        "name": "Filtrowanie i usuwanie",
+        "description": "W przypadku importu danych, różne rodzaje metadanych (takie jak dane EXIF dołączone do pliku graficznego) mogą być zbierane nieumyślnie.<br>Te metadane należy zidentyfikować i usunąć, jeżeli nie są niezbędne dla wyznaczonych celów przetwarzania.",
         "source" : "PIAF Connected objects p42 - WIKI"
       },
       "PIA_DEF_MIN2": {
-        "name": "Reducing sensitivity via conversion",
-        "description": "Once sensitive data have been received, as part of a series of general information or transmitted for statistical purposes only, these can be converted into a less sensitive form or pseudonymised. For example : <br>- if the system collects the IP address to determine the user's location for a statistical purpose, the IP address can be deleted once the city or district has been deduced<br>- if the system receives video data from surveillance cameras, it can recognise people who are standing or moving in the scene and blur them<br>- if the system is a smart meter, it can aggregate the use of energy over a certain period, without recording it in real time",
+        "name": "Zmniejszenie wrażliwości poprzez konwersję",
+        "description": "Po otrzymaniu danych wrażliwych, wchodzących w skład zestawu informacji ogólnych lub przesłanych jedynie dla celów statystycznych, można je zamienić w postać mniej wrażliwą bądź spseudonimizowaną. Na przykład:<br>- jeżeli system zbiera adresy IP w celu ustalenia lokalizacji użytkownika dla celów statystycznych, można usuwać adres IP po ustaleniu miesta lub dzielnicy;<br>- jeżeli system otrzymuje dane wideo z kamer monitoringu, można rozpoznać osoby stojące lub będące w ruchu i je zamazać;<br>- jeżeli system jest licznikiem inteligentnym, może agregować zużycie energii elektrycznej w okreslonym czasie, bez zapisów w czasie rzeczywistym.",
         "source" : "PIAF Connected objects p42 - WIKI"
       },
       "PIA_DEF_SRC": {
-        "name": "Risk source",
-        "description": "Person or non-human source that can cause a risk. This source may act accidentally or deliberately.",
+        "name": "Źródło ryzyka",
+        "description": "Osoba, z wewnątrz lub zewnątrz organizacji, działająca w sposób niezamierzony lub świadomy (np. administrator IT, użytkownik, osoba atakująca z zewnątrz, konkurencja) lub źródło nieosobowe (np. woda, materiały niebezpieczne, wirus komputerowy), które mogą stanowić ryzyko.",
         "source": "PIA1 p11 - WIKI"
       },
       "PIA_DEF_MEN": {
-        "name": "Threat",
-        "description": "Procedure comprising one or more individual actions on data supporting assets. It is used, intentionally or otherwise, by risk sources and may cause a feared event.",
+        "name": "Zagrożenie",
+        "description": "Tryb działania składający się z jednego lub kilku pojedynczych oddziaływań na nośniki danych. Zagrożenie może zostać wykorzystane, świadomie lub nie, przez źródła ryzyka i może wtedy doprowadzić do niepożądanego zdarzenia.",
         "source": "PIA1 p12 - WIKI"
       },
       "PIA_DEF_MENA": {
-        "name": "Threats that can lead to an illegitimate access",
-        "description": "Threats regarding: - <strong>Hardware</strong>, used inappropriately, observed, altered, lost (use or transportation of sensitive hardware for personal purposes, watching a person's screen without their knowledge while on the train, tracking by a hardware-based key logger, etc.)<br> - <strong>Software</strong>, used inappropriately, observed, altered (raising of privileges, collection of configuration data, infection by malicious code, etc.)<br>- <strong>Computer channels</strong> observed (Interception of Ethernet traffic, etc.)<br>- <strong>People</strong>, observed, manipulated, lost (Unintentional disclosure of information, social engineering, assignment changes)<br>- <strong>Paper documents</strong> observed, lost (reading, theft of mail, etc.)<br>- <strong>Paper transmission channels</strong> observed (reading of signature books in circulation, etc.)",
+        "name": "Zagrożenia, które mogą doprowadzić do nieuprawnionego dostępu",
+        "description": "<strong>Zagrożenia dotyczące:</strong><br>- <strong>Sprzętu</strong> wykorzystywanego w sposób niewłaściwy, obserwowanego, modyfikowanego lub zgubionego (korzystanie z nośnika zawierającego dane wrażliwe dla własnych celów lub nieprzystosowanego do danego sposobu transportu, obserwowanie ekranu bez wiedzy zainteresowanego, podłączenie key-loggera, itp.)<br>- <strong>Oprogramowania</strong>, wykorzystywanego w sposób niewłaściwy, obserwowanego, modyfikowanego (zwiększenie przywilejów, zbieranie danych konfiguracyjnych, zainfekowanie złośliwym kodem, itp.)<br>- <strong>Kanałów informatycznych</strong> obserwowanych (podsłuch ruchu w sieci, itp.)<br>- <strong>Osób</strong> obserwowanych, manipulowanych lub zagubionych (nieumyślne ujawnienie informacji, social engineering, zmiana pracodawcy, itp.)<br>- <strong>Dokumentów papierowych</strong>, obserwowanych lub zgubionych (fotokopie, zapomniane wydruki, kradzież poczty, itp.)<br>- <strong>Kanałów przesyłu papieru</strong> obserwowanych.",
         "source": "PIAF Connected objects p44 and 45"
       },
       "PIA_DEF_MENM": {
-        "name": "Threats that can lead to an unwanted modification of personal data",
-        "description": "<strong>Threats regarding : </strong><br>- <strong>Hardware</strong> altered (addition of incompatible hardware resulting in malfunctions, removal of essential components, etc.)<br>- <strong>Software</strong> used inappropriately or altered (Unwanted modifications to data in databases, operator errors that modify data, etc.)<br>- <strong>Computer channels</strong> used inappropriately (resending of intercepted data, etc.)<br>- <strong>People</strong> overloaded or manipulates (assignment of staff to tasks beyond their abilities, stress or negative changes in working conditions, influence, etc.)<br>- Paper documents that have been altered (changes to figures in a file, replacement of an original by a forgery, etc.)<br>- <strong>Paper transmission channels</strong> that have been altered (change from one signature book to another, sending of multiple conflicting documents, etc.)",
+        "name": "Zagrożenia, które mogą doprowadzić do niepożądanej modyfikacji danych osobowych",
+        "description": "<strong>Zagrożenia dotyczące:</strong><br>- <strong>Sprzętu</strong> zmodyfikowanego (podłączenie sprzętu niekompatybilnego, odłączenie sprzętu niezbędnego do pracy, itp.)<br>- <strong>Oprogramowania</strong> wykorzystywanego w sposób niewłaściwy lub zmodyfikowanego (błąd przetwarzania, nieodpowiednie modyfikacje, itp.)<br>- <strong>Kanałów informatycznych</strong> wykorzystywanych niewłaściwie (ponowne wysłanie przechwyconej transmisji, itp.)<br>- <strong>Osób</strong> przepracowanych lub manipulowanych (obowiązki przerastające kompetencje, stres lub negatywne zmiany w miejscu pracy, negatywny wpływ, itp.)<br>- <strong>Dokumentów papierowych</strong> zmodyfikowanych (modyfikacja dokumentu, podmiana na fałszywy, itp.)<br>- <strong>Kanałów przesyłu papieru</strong> zmodyfikowanych (zamiana podpisów, wysłanie wielu sprzecznych dokumentów, itp.)",
         "source": "PIAF Connected Objects p43 and 44, WIKI"
       },
       "PIA_DEF_MENI": {
-        "name": "Threats that can lead to a disappearance of personal data",
-        "description": "<strong>Threats regarding : </strong><br>- <strong>Hardware</strong> : used inappropriately, overloaded, altered, damaged, lost (storage unit full, processing capacity overload, addition of incompatible hardware resulting in malfunctions,  fire, theft or loss of an asset, etc.)<br>- <strong>Software</strong> : used inappropriately, overloaded, altered, damaged, lost (erasure of data, exceeding of database size, logic bomb, non-renewal of the licence for software used to access data, etc.)<br>- <strong>Computer channels</strong> : overloaded, altered, lost (unauthorised downloading, loss of Internet connection, etc.)<br>- <strong>People</strong> : overloaded, damaged, lost (poor use of skills, disease, retirement, etc.)<br>- <strong>Paper documents</strong> : used inappropriately, damaged, lost (erasure, aging of archived documents, theft or loss of documents, etc.)<br>- <strong>Paper transmission channels</strong> : overloaded, damaged, altered, lost (mail delivery halted by a strike, reassignment of offices or premises, loss of a document delivery company, reorganisation of paper transmission channels, etc.)",
+        "name": "Zagrożenia, które mogą doprowadzić do braku dostępności danych osobowych",
+        "description": "<strong>Zagrożenia dotyczące:</strong><br>- <strong>Sprzętu</strong> niewłaściwie wykorzystywanego, przeciążonego, zmienionego, uszkodzonego, utraconego (zapełnienie jednostki pamięci, atak DDOS, modyfikacja doprowadzająca do awarii, pożar, kradzież lub utrata, itp.)<br>- <strong>Oprogramowania</strong> niewłaściwie wykorzystywanego, przeciążonego, zmienionego, uszkodzonego, utraconego (skasowanie danych, bomba logiczna, nieodnowiona licencja, itp.)<br>- <strong>Kanałów informatycznych</strong> przeciążonych, zmienionych, utraconych (nieupoważnione pobieranie, utrata połączenia z internetem, itp.)<br>- <strong>Osób</strong> przepracowanych, osłabionych, utraconych (kiepskie wykorzystanie kompetencji, choroba, emerytura, itp.)<br>- <strong>Dokumentów papierowych</strong> niewłaściwie wykorzystywanych, uszkodzonych, utraconych (usunięcie, starzenie się archiwów, kradzież lub utrata dokumentów, itp.)<br>- <strong>Kanałów przesyłu papieru</strong> przeciążonych, uszkodzonych, utraconych (strajk poczty, zmiana lokalizacji, zaginięcie przesyłki, reorganizacja, itp.)",
         "source": "PIAF Connected Objects p44 and 45, WIKI"
       },
       "PIA_DEF_GRV": {
-        "name": "Severity",
-        "description": "Severity represents the magnitude of a risk. It primarily depends on the prejudicial nature of the potential impacts.",
+        "name": "Istotność",
+        "description": "Istotność oznacza zakres ryzyka. Przede wszystkim zależy od szkodliwego charakteru potencjalnych skutków.",
         "source": "PIA1 page 6"
       },
       "PIA_DEF_VRA": {
-        "name": "Likelihood",
-        "description": "likelihood expresses the possibility of a risk occurring. It primarily depends on the level of vulnerabilities of the supporting assets when under threat and the level of capabilities of the risk sources to exploit them.",
+        "name": "Prawdopodobieństwo",
+        "description": "Prawdopodobieństwo oznacza możliwość ziszczenia się ryzyka. Przede wszystkim zależy od podatności zasobów na zagrożenia oraz zdolności źródeł ryzyka do ich wykorzystania.",
         "source": "PIA1 page 6"
       },
       "PIA_DEF_PBDS": {
-        "name": "Project Management",
-        "description": "Measures taken to integrate the protection of personal data in all new processing operations (trusted names, guidelines, CNIL methodology for risk management or other internal methodology).",
+        "name": "Zarządzanie projektami",
+        "description": "Działania podejmowane, by uwzględnić ochronę danych osobowych w każdej nowej czynności przetwarzania (znaki zaufania, wytyczne, metodologia CNIL zarządzania ryzykiem).",
         "source": "Mesures_US"
       },
       "PIA_DEF_VIOL": {
-        "name": "Personal data breach",
-        "description": "Breach of security leading to the accidental or unlawful destruction, loss, alteration, unauthorised disclosure of, or access to, personal data transmitted, stored or otherwise processed.",
-        "source": "GDPR Art. 4.12"
+        "name": "Naruszenie ochrony danych",
+        "description": "Naruszenie ochrony prowadzące do przypadkowego lub nielegalnego zniszczenia, utraty, zmiany, nieuprawnionego ujawnienia danych osobowych przesyłanych, przechowywanych bądź przetwarzanych w dowolny inny sposób.",
+        "source": "RODO Art. 4.12"
       },
       "PIA_VAL_CART": {
-        "name": "Mapping of risks",
-        "description": "Graph illustrating the good security practices, with a conformity value attributed to each on the basis of its assessment in previous steps.",
-        "source": "PIAF Connected Objects p34"
+        "name": "Mapowanie ryzyka",
+        "description": "Wykres przedstawiający ryzyka generowane przez czynność przetwarzania oraz ryzyko szczątkowe po podjęciu wszystkich działań naprawczych. Wykazuje, że prawidłowe wdrożenie środków opisanych w planie działania może prowadzić do ograniczenia prawdopodobieństwa i/lub istotności ryzyka.",
+        "source": "Brak"
       },
       "PIA_VAL_ACT": {
-        "name": "Action plan",
-        "description": "corrective controls suggested by the assessor in previous steps, drawing up an action plan setting out, for each action, its manager, frequency, difficulty, cost and progress.",
-        "source": "None"
+        "name": "Plan działania",
+        "description": "Plan działania stanowi opis strategii, środków i pracowników, z których należy skorzystać, by zdefiniowane środki zapobiegawcze zaczęły działać. Dla każdego zadania należy wyznaczyć osobę odpowiedzialną, koszty, trudności i postęp.",
+        "source": "Brak"
       },
       "PIA_DEF_ENJ": {
-        "name": "Stakes",
-        "description": "Expected benefits (for the organisation, for the data subjects, for society in general, etc.).",
-        "source": "PIA1 p4 footnote 8"
+        "name": "Stawki przetwarzania",
+        "description": "Motywacje, które doprowadziły do wdrożenia czynności przetwarzania, oczekiwane korzyści (dla organizcji, dla osób, których dane dotyczą, dla społeczeństwa, itd.).",
+        "source": "PIA1 p4 przypis 8"
       },
       "PIA_DEF_ST": {
-        "name": "Processor",
-        "description": "Natural or legal person, public authority, agency or other body which processes personal data on behalf of the controller, see <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 4.8 of [GDPR]</a>.<br>The processor and any person acting under the authority of the controller or of the processor, who has access to personal data, shall not process those data except on instructions from the controller, unless required to do so by Union or Member State law, see <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 29 of [GDPR]</a>.",
-        "source": "GDPR Art. 4.8 and 29"
+        "name": "Podmiot przetwarzający",
+        "description": "Osoba fizyczna lub prawna, organ publiczny, jednostka lub inny podmiot, który przetwarza dane osobowe w imieniu administratora <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/PL/TXT/HTML/?uri=CELEX:32016R0679&from=PL\">Art. 4.8 [RODO]</a>.<br>Podmiot przetwarzający oraz każda osoba działająca z upoważnienia administratora lub podmiotu przetwarzającego i mająca dostęp do danych osobowych przetwarzają je wyłącznie na polecenie administratora, chyba że wymaga tego prawo Unii lub prawo państwa członkowskiego <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/PL/TXT/HTML/?uri=CELEX:32016R0679&from=PL\">Art. 29 [RODO]</a>.",
+        "source": "RODO Art. 4.8 i 29"
       },
       "PIA_DEF_RGPD": {
-        "name": "GDPR (General Data Protection Regulation",
-        "description": "Regulation on the protection of natural persons with regard to the processing of personal data and on the free movement of such data, and repealing Directive 95/46/EC.",
-        "source": "GDPR title"
+        "name": "RODO (Ogólne Rozporządzenie o Ochronie Danych)",
+        "description": "Rozporządzenie w sprawie ochrony osób fizycznych w związku z przetwarzaniem danych osobowych i w sprawie swobodnego przepływu takich danych oraz uchylenia dyrektywy 95/46/WE.",
+        "source": "RODO tytuł"
       },
       "PIA_DEF_PC": {
-        "name": "Data subject",
-        "description": "Persons to whom the data covered by the processing relate.",
+        "name": "Osoba, której dane dotyczą",
+        "description": "Osoba, której dotyczą dane podlegające przetwarzaniu.",
         "source": "PIA1 p9"
       },
       "PIA_DEF_MIN3": {
-        "name": "Reducing the identifying nature of data",
-        "description": "The system can ensure that: <br>- the user can use a resource or service without the risk of disclosing his/her identity (anonymous data)<br>- the user can use a resource or service without the risk of disclosing his/her identity, but remain identifiable and responsible for this use (pseudonymous data)<br>- the user can make multiple uses of resources or services without the risk of these different uses being linked together (data cannot be correlated)<br>- the user can use a resource or service without the risk of others, third parties in particular, being able to observe that the resource or service is being used (non-observability)<br>The choice of a method from the list above must be made on the basis of the threats identified. For some types of threat to privacy, pseudonymization will be more appropriate than anonymisation (for example, if there is a traceability need). In addition, some threats to privacy will be addressed using a combination of methods.",
+        "name": "Ograniczenie charakteru identyfikacyjnego danych",
+        "description": "System może zapewnić, że: <br>- użytkownik skorzysta z zasobu lub usługi bez ryzyka ujawnienia swojej tożsamości (dane anonimowe);<br>- użytkownik skorzysta z zasobu lub usługi bez ryzyka ujawnienia swojej tożsamości, lecz będzie identyfikowalny i odpowiedzialny za skorzystanie z nich (dane pseudonimowe)<br>- użytkownik skorzysta wielokrotnie z zasobów i usług bez ryzyka powiązania tych różnych zastosowań (danych nie można skorelować)<br>- użytkownik skorzysta z zasobu lub usługi bez ryzyka, że inni, w szczególności strony trzecie, będą mogły obserwować, do czego zasób lub usługa są wykorzystywane (nieobserwowalność)<br>Wybór metody z powyższej listy powinien zależeć od zidentyfikowanych zagrożeń. Dla niektórych zagrożeń dla prywatności, pseudonimizacja będzie bardziej stosowna niż anonimizacja (np. jeżeli jest potrzeba prześledzenia korzystania). Ponadto, obsługa niektórych zagrożeń dla prywatności będzie wymagała kombinacji kilku metod.",
         "source" : "PIAF Connected objects p42 - WIKI"
       },
       "PIA_DEF_MIN4": {
-        "name": "Reducing data accumulation",
-        "description": "The system can be organised into independent parts with separate access control functions. The data can also be divided between these independent sub-systems and controlled by each sub-system using different access control mechanisms. If a sub-system is compromised, the impacts on all of the data can thus be reduced.",
+        "name": "Ograniczenie kumulacji danych",
+        "description": "System można tak zorganizować, by składał się z niezależnych części z oddzielnymi funkcjami kontroli dostępu. Dane można także podzielić pomiędzy te niezależne podsystemy, zaś każdy podsystem może je kontrolować korzystając z różnych mechanizmów kontroli dostępu. Jeżeli podsystem zostanie naruszony, można w ten sposób ograniczyć skutki dla całości danych.",
         "source": "PIAF Connected objects p42 - WIKI"
       },
       "PIA_DEF_MIN5": {
-        "name": "Restricting data access",
-        "description": "The system can limit data access according to the \"need to know\" principle. The system can separate the sensitive data and apply specific access control policies. The system can also encrypt sensitive data to protect their confidentiality during transmission and storage. Access to temporary cookies which are produced during the data processing must also be protected.",
+        "name": "Ograniczenie dostępu do danych",
+        "description": "System może ograniczać dostęp do danych zgodnie z zasadą "wiedzy koniecznej". System może rozdzielać dane wrażliwe i zastosować określone polityki kontroli dostępu. System może także szyfrować dane wrażliwe, by chronić ich poufność w czasie transmisji i przechowywania. Nalezy także chronić dostęp do tymczasowych plików ciasteczek (cookies) generowanych w trakcie przetwarzania.",
         "source": "PIAF Connected objects p42 - WIKI"
       },
       "PIA_EX_DCPC": {
-        "name": "Common personal data",
-        "description": "<strong>Identification data</strong> : Civil status, identity, age, etc. <br><strong>Personal life</strong> : living habits, marital status, etc. <br><strong>Professional life </strong> : résumé, education and professional training, awards, etc. <br><strong>Connection data </strong> : IP addresses, event logs, etc.<br><strong>Location data</strong> : travels, GPS data, GSM data, etc.<br><strong>Others</strong> : phone number, email address, etc.",
+        "name": "Zwykłe dane osobowe",
+        "description": "<strong>Dane identyfikacyjne</strong> : stan cywilny, wiek, narodowość, adres pocztowy, itd. <br><strong>Życie osobiste</strong> : stan cywilny, liczba dzieci, rodzaj mieszkania, długość zamieszkania w danym miejscu, itd. <br><strong>Życie zawodowe</strong> : zawód, wykształcenie i kompetencje zawodowe, miejsce pracy, długość stażu pracy, bezrobocie, itd. <br><strong>Dane połączeniowe</strong> : adresy IP, logi zdarzeń, itd.<br><strong>Dane lokalizacyjne</strong> : podróże, dane GP, dane GSM, itd.<br><strong>Inne</strong> : numer telefonu, adres email, itd.",
         "source": "PIA2 old version - WIKI"
       },
       "PIA_EX_DCPS": {
-        "name": "Personal data perceived as sensitive",
-        "description": "Social security number (NIR), biometric data, bank data",
+        "name": "Dane osobowe uważane za wrażliwe",
+        "description": "PESEL, dane biometryczne, dane bankowe",
         "source": "PIA2 old version - WIKI"
       },
       "PIA_EX_DCPR": {
-        "name": "Convictions and sensitive personal data",
-        "description": "Philosophical, political, religious and trade-union views, sex life, health data, racial or ethnic origin, data concerning health or sex life, offenses, convictions, security measures, see <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 9 and 10 of [GDPR]</a>.",
-        "source": "PIA2 old version, GDPR Article 9 and 10 - WIKI"
+        "name": "Skazania i dane wrażliwe",
+        "description": "Poglądy filozoficzne, polityczne, religijne i związkowe, życie seksualne, dane zdrowotne, pochodzenia rasowego lub etnicznego, dotyczące wykroczeń, skazań, środki bezpieczeństwa - <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/PL/TXT/HTML/?uri=CELEX:32016R0679&from=PL\">Art. 9 i 10 [RODO]</a>.",
+        "source": "PIA2 old version, RODO Art. 9 i 10 - WIKI"
       },
       "PIA_EX_HUMI": {
         "name": "Internal human sources",
