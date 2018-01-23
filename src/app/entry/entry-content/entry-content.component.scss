@@ -195,6 +195,16 @@
   }
 
   &-status-info {
+    strong {
+      text-transform: uppercase;
+    }
+    a {
+      color: #FD4664;
+    }
+    p {
+      margin-bottom: 0;
+    }
+    color: #686868;
     position: relative;
     margin-bottom: 10px;
     background-color: #fff;

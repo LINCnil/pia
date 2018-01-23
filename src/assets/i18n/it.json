@@ -14,8 +14,14 @@
 		"knowledge_base_link": "Archivio",
 		"pia_example_link": "Esempio PIA",
 		"languages": {
+      "official_translations": "Officiële vertalingen",
+      "unofficial_translations": "Niet-officiële vertalingen",
 			"fr": "Francese",
-			"en": "Inglese"
+			"en": "Inglese",
+      "cs": "Tsjechisch",
+      "it": "Italiaans",
+      "nl": "Nederlands",
+      "pl": "To be translated"
 		},
 		"tools": {
 			"title": "Strumenti",

@@ -12,6 +12,9 @@
         .DPOName {
           background-color: #F5F5F5;
           border: none;
+          &:disabled {
+            cursor: pointer;
+          }
         }
         .pia-questionBlock-edit {
           i {
@@ -107,6 +110,7 @@
             &:disabled {
               background-color: transparent;
               color: $pia-dark-black;
+              cursor: pointer;
             }
           }
         }
