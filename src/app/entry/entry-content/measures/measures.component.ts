@@ -43,7 +43,8 @@ export class MeasuresComponent implements OnInit, OnDestroy {
       this._knowledgeBaseService.toHide.push(this.measure.title);
       this.elementId = 'pia-measure-content-' + this.measure.id;
       if (this.measureModel) {
-        this.evaluation.getByReference(this.pia.id, this.measure.id).then(() => {
+        const ref = this.section.id + '.' + this.item.id + '.' + this.measure.id;
+        this.evaluation.getByReference(this.pia.id, ref).then(() => {
           this.checkDisplayButtons();
         });
         this.measureForm.controls['measureTitle'].patchValue(this.measureModel.title);

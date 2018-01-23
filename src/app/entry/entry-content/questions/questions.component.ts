@@ -38,6 +38,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
               private renderer: Renderer2) { }
 
   ngOnInit() {
+    this._evaluationService.showValidationButton = false;
     this.elementId = 'pia-question-content-' + this.question.id;
     this.questionForm = new FormGroup({
       gauge: new FormControl(0),

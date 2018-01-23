@@ -603,7 +603,7 @@
       },
       "PIA_DEF_MIN5": {
         "name": "Ograniczenie dostępu do danych",
-        "description": "System może ograniczać dostęp do danych zgodnie z zasadą "wiedzy koniecznej". System może rozdzielać dane wrażliwe i zastosować określone polityki kontroli dostępu. System może także szyfrować dane wrażliwe, by chronić ich poufność w czasie transmisji i przechowywania. Nalezy także chronić dostęp do tymczasowych plików ciasteczek (cookies) generowanych w trakcie przetwarzania.",
+        "description": "System może ograniczać dostęp do danych zgodnie z zasadą \"wiedzy koniecznej\". System może rozdzielać dane wrażliwe i zastosować określone polityki kontroli dostępu. System może także szyfrować dane wrażliwe, by chronić ich poufność w czasie transmisji i przechowywania. Nalezy także chronić dostęp do tymczasowych plików ciasteczek (cookies) generowanych w trakcie przetwarzania.",
         "source": "PIAF Connected objects p42 - WIKI"
       },
       "PIA_EX_DCPC": {
