@@ -21,7 +21,7 @@
     "tools": {
       "title": "Tools",
       "settings": "Einstellungen",
-      "accessibility": "Unterstützung für Sehbehinderte (kontrastreiche Farben, Rot-Grün-Sehschwäche)",
+      "accessibility": "Unterstützung für Sehbehinderte (kontrastreiche Farben, bei Rot-Grün-Sehschwäche)",
       "help": "Hilfe",
       "about": "Über"
     }
@@ -53,11 +53,11 @@
       "pia_name": "DSFA",
       "placeholder_pia_name": "DSFA-Titel",
       "author": "Bearbeitung",
-      "placeholder_author": "Vorname Nachname",
+      "placeholder_author": "Vorname, Nachname",
       "evaluation": "Überprüfung",
-      "placeholder_evaluation": "Vorname Nachname",
+      "placeholder_evaluation": "Vorname, Nachname",
       "validation": "Bestätigung",
-      "placeholder_validation": "Vorname Nachname",
+      "placeholder_validation": "Vorname, Nachname",
       "date": "Datum",
       "status": "Status",
       "creation_status": "Anlegen",
@@ -106,7 +106,7 @@
       "2": "Einfache Bestätigung",
       "3": "Signierte Bestätigung",
       "4": "Archiviert",
-      "5": "Warte auf Bestätigung"
+      "5": "Wartet auf Bestätigung"
     },
     "header": {
       "preview": "Vorschau",
@@ -125,7 +125,7 @@
     "footer": {
       "ask_evaluation": "Bitte um Überprüfung",
       "validate_evaluation": "Bestätigen Sie die Überprüfung",
-      "subsection_validated": "Unterabschnitt überprüft, wartet auf endgültige Validierung",
+      "subsection_validated": "Unterabschnitt überprüft, wartet auf endgültige Bestätigung",
       "mandatory_fields": "Es müssen alle Felder ausgefüllt sein"
     }
   },
@@ -778,8 +778,8 @@
           "content": "Bitte schließen Sie die DSFA, die Sie bearbeiten, und öffnen Sie sie erneut. Der Inhalt sollte dann in der von Ihnen gewählten Sprache angezeigt werden."
         },
         "qa7": {
-          "title": "Ich habe mich geweigert, eine DSFA zu validieren, aber ich weiß nicht, was ich jetzt tun soll",
-          "content": "Im Moment werden die Navigationsmenüsymbole nicht aktualisiert, nachdem eine DSFA abgelehnt wurde. Sie müssen jeden Abschnitt überprüfen und die Informationen und / oder Bewertungen entsprechend den Gründen für die Verweigerung der DSFA ändern. Sobald alle Abschnitte überprüft wurden, sollten Sie die DSFA-Validierung erneut anfordern können."
+          "title": "Ich habe mich geweigert, eine DSFA zu bestätigen, aber ich weiß nicht, was ich jetzt tun soll",
+          "content": "Im Moment werden die Navigationsmenüsymbole nicht aktualisiert, nachdem eine DSFA abgelehnt wurde. Sie müssen jeden Abschnitt überprüfen und die Informationen und / oder Bewertungen entsprechend den Gründen für die Verweigerung der DSFA ändern. Sobald alle Abschnitte überprüft wurden, sollten Sie die DSFA-Bestätigung erneut anfordern können."
         }
       },
       "footer": ""
