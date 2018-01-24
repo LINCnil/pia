@@ -163,12 +163,12 @@
     "slugs": {
       "PIA_LGL_FOND": {
         "name": "Rechtsgrundlage",
-        "description": "- Die betroffene Person hat der Verarbeitung ihrer personenbezogenen Daten für einen oder mehrere bestimmte Zwecke zugestimmt. - Die Verarbeitung ist für die Erfüllung eines Vertrags erforderlich, an dem die betroffene Person beteiligt ist, oder um Schritte bei der betroffenen Person zu unternehmen Antrag der betroffenen Person vor Abschluss eines Vertrags - Verarbeitung ist zur Einhaltung einer rechtlichen Verpflichtung erforderlich, der der für die Verarbeitung Verantwortliche unterliegt <br> <br> Die Verarbeitung ist erforderlich, um die wesentlichen Interessen der betroffenen Person oder der Betroffenen zu schützen andere natürliche Person <br> - Die Verarbeitung ist für die Wahrnehmung einer Aufgabe erforderlich, die im öffentlichen Interesse oder in Ausübung hoheitlicher Befugnisse des für die Verarbeitung Verantwortlichen durchgeführt wird. - Die Verarbeitung ist erforderlich im Sinne der berechtigten Interessen der oder durch Dritte, es sei denn, diese Interessen werden von den Interessen oder Grundrechten und -freiheiten der betroffenen Person außer Kraft gesetzt, die den Schutz personenbezogener Daten erfordern, insbesondere wenn d Ein Thema ist ein Kind <br> Siehe <a target = \"_ blank \" href = \"http://eur-lex.europa.eu/legal-content/DE/TXT/HTML/?uri=CELEX:32016R0679&from = DE \"> Art. 6 von [DS-GVO] </a> ",
+        "description": "- Die betroffene Person hat der Verarbeitung ihrer personenbezogenen Daten für einen oder mehrere bestimmte Zwecke zugestimmt. - Die Verarbeitung ist für die Erfüllung eines Vertrags erforderlich, an dem die betroffene Person beteiligt ist, oder um Schritte bei der betroffenen Person zu unternehmen Antrag der betroffenen Person vor Abschluss eines Vertrags - Verarbeitung ist zur Einhaltung einer rechtlichen Verpflichtung erforderlich, der der für die Verarbeitung Verantwortliche unterliegt <br> <br> Die Verarbeitung ist erforderlich, um die wesentlichen Interessen der betroffenen Person oder der Betroffenen zu schützen andere natürliche Person <br> - Die Verarbeitung ist für die Wahrnehmung einer Aufgabe erforderlich, die im öffentlichen Interesse oder in Ausübung hoheitlicher Befugnisse des für die Verarbeitung Verantwortlichen durchgeführt wird. - Die Verarbeitung ist erforderlich im Sinne der berechtigten Interessen der oder durch Dritte, es sei denn, diese Interessen werden von den Interessen oder Grundrechten und -freiheiten der betroffenen Person außer Kraft gesetzt, die den Schutz personenbezogener Daten erfordern, insbesondere wenn d Ein Thema ist ein Kind <br> Siehe <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/DE/TXT/HTML/?uri=CELEX:32016R0679&from=DE\"> Art. 6 der [DS-GVO] </a>",
         "source": "PIA2 p4"
       },
       "PIA_LGL_ST": {
         "name": "Auftragsverarbeitung",
-        "description": "Mit jedem Verarbeiter muss ein Verarbeitungsvertrag unterzeichnet werden, in dem alle in Art. 28 der [DSGVO]: Dauer, Umfang, Zweck, dokumentierte Verarbeitungsanweisungen, vorherige Genehmigung, wenn ein Auftragsverarbeiter beauftragt wird, Bereitstellung von Unterlagen, die Nachweise für die Einhaltung der [DSGVO] erbringen, unverzügliche Meldung von Datenverletzungen usw. ",
+        "description": "Mit jedem Verarbeiter muss ein Verarbeitungsvertrag unterzeichnet werden, in dem alle in Art. 28 der [DS-GVO]: Dauer, Umfang, Zweck, dokumentierte Verarbeitungsanweisungen, vorherige Genehmigung, wenn ein Auftragsverarbeiter beauftragt wird, Bereitstellung von Unterlagen, die Nachweise für die Einhaltung der [DS-GVO] erbringen, unverzügliche Meldung von Datenverletzungen usw. ",
         "source": "PIA2 p10"
       },
       "PIA_LGL_TRAN": {
@@ -238,31 +238,31 @@
       },
       "PIA_TEC_CHIF": {
         "placeholder": "Beschreiben Sie hier die Mittel, die zur Gewährleistung der Vertraulichkeit von Daten implementiert wurden",
-        "name": "Encryption",
+        "name": "Verschlüsselung",
         "description": "Means implemented for <strong>ensuring the confidentiality</strong> of data stored (in the database, in flat files, backups, etc.), as well as the procedure for managing encryption keys (creation, storage, change in the event of suspected cases of data compromise, etc.).<br> Describe the encryption means employed for data flows (VPN, TLS, etc.) implemented in the processing.",
         "source": "PIAF Connected Objects p21"
       },
       "PIA_TEC_ANO": {
         "placeholder": "Geben Sie hier die implementierten Anonymisierungsmechanismen an",
-        "name": "Anonymisation",
+        "name": "Anonymisierung",
         "description": "Indicate here whether anonymisation mechanisms are implemented, which ones and for what purpose. <br>Remember to clearly distinguish between anonymous and pseudonymous data.",
         "source": "PIAF Connected Objects p21"
       },
       "PIA_TEC_CLO": {
-        "placeholder": "Geben Sie hier an, ob eine getrennte Verarbeitung geplant ist und wie dies durchgeführt wird.",
-        "name": "Partitioning data",
-        "description": "Implementation of data partitioning helps to reduce the possibility that personal data can be correlated and that a breach of all personal data may occur.",
+        "placeholder": "Geben Sie hier an, ob eine Aufteilung der Verarbeitung geplant ist und wie sie erreicht wird.",
+        "name": "Aufteilung der Verabeitung",
+        "description": "Eine Aufteilung der Verabeitung trägt dazu bei, die Wahrscheinlichkeit zu verringern, dass personenbezogene Daten in Korrelation gesetzt werden und alle persönlichen Daten verletzt werden.",
         "source": "PIAF Connected Objects p21"
       },
       "PIA_TEC_CTLA": {
-        "placeholder": "Indicate here how users profiles are defined and attributed.",
-        "name": "Logical access control",
+        "placeholder": "Geben Sie hier an, wie Benutzerprofile definiert und zugeordnet werden.",
+        "name": "Logische Zugriffskontrolle",
         "description": "Methods to define and attribute users profiles. Specify the <strong>authentication</strong> means implemented . Where applicable, specify the rules applicable to passwords (minimum length, required characters, validity duration, number of failed attempts before access to account is locked, etc.).",
         "source": "PIAF Connected Objects p21"
       },
       "PIA_TEC_LOG": {
-        "placeholder": "Indicate here whether events are logged and how long these traces are stored for.",
-        "name": "Traceability (logging)",
+        "placeholder": "Geben Sie hier an, ob Ereignisse protokolliert werden und wie lange diese Aufzeichnungen gespeichert werden.",
+        "name": "Rückverfolgbarkeit (Protokollierung)",
         "description": "Policies that define traceability and log management.",
         "source": "PIAF Connected Objects p22"
       },
