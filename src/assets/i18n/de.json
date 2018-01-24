@@ -14,13 +14,13 @@
     "knowledge_base_link": "Wissensbasis",
     "pia_example_link": "Beispiel DSFA",
     "languages": {
-      "fr": "Franzözisch",
+      "fr": "Französisch",
       "en": "Englisch",
       "de": "Deutsch"
     },
     "tools": {
       "title": "Tools",
-      "settings": "EInstellungen",
+      "settings": "Einstellungen",
       "accessibility": "Unterstützung für Sehbehinderte (kontrastreiche Farben, Rot-Grün-Sehschwäche)",
       "help": "Hilfe",
       "about": "Über"
@@ -67,7 +67,7 @@
         "tools": {
           "edit": "Informationen bearbeiten",
           "export": "Exportieren",
-          "more_options": "Weitere ODuplictptionen",
+          "more_options": "Weitere Optionen",
           "duplicate": "Kopieren",
           "action_plan": "Aktionsplan<br>anzeigen",
           "pia": "DSFA<br>anzeigen",
@@ -739,7 +739,7 @@
       "4": "Maximal"
     },
     "status": {
-      "0": "unbewertet",
+      "0": "unerledigt",
       "1": "zu korrigieren",
       "2": "verbesserungsfähig",
       "3": "tragbar"
@@ -764,7 +764,7 @@
         },
         "qa3": {
           "title": "Beim Importieren einer DSFA treten Probleme auf",
-          "content": "Beim Import einee DSFA wurden mehrere Fehler beobachtet, und insbesondere die Skalen für die Bewertung der Schwere und Wahrscheinlichkeit eines Risikos können verschwinden. Bitte beachten Sie in diesem Fall das oben genannte Problem. Außerdem wird eine DSFA nach dem Importieren möglicherweise nicht auf der Übersicht angezeigt. Dies ist ein Anzeigeproblem und Sie müssen nur die Seite aktualisieren."
+          "content": "Beim Import einer DSFA wurden mehrere Fehler beobachtet, und insbesondere die Skalen für die Bewertung der Schwere und Wahrscheinlichkeit eines Risikos können verschwinden. Bitte beachten Sie in diesem Fall das oben genannte Problem. Außerdem wird eine DSFA nach dem Importieren möglicherweise nicht auf der Übersicht angezeigt. Dies ist ein Anzeigeproblem und Sie müssen nur die Seite aktualisieren."
         },
         "qa4": {
           "title": "Wenn ich Text kopiere / einfüge, wird er markiert.",
@@ -788,7 +788,7 @@
   "about": {
     "title": "Über das Werkzeug PIA",
     "version_number": "Versionsnummer",
-    "description": "Dieses Tool wurde ursprünglich von der französischen Datenschutzbehörde <a target=\"_blank\" href=\"https://www.cnil.fr\"> Nationale Kommission für Informatik und Freiheit (CNIL) </a> entwickelt, um dem Datenverarbeiter zu helfen, mit der DS-GVO konform zu sein. <br> Diese Software ist kostenlos und offen.Wenn Sie sich an diesem Projekt beteiligen möchten, können Sie den Quellcode von Github herunterladen, ändern und mit anderen in der Community teilen.",
+    "description": "Dieses Tool wurde ursprünglich von der französischen Datenschutzbehörde <a target=\"_blank\" href=\"https://www.cnil.fr\"> Nationale Kommission für Informatik und Freiheit (CNIL) </a> entwickelt, um dem Datenverarbeiter zu helfen, mit der DS-GVO konform zu sein. <br> Diese Software ist kostenlos und offen. Wenn Sie sich an diesem Projekt beteiligen möchten, können Sie den Quellcode von Github herunterladen, ändern und mit anderen in der Community teilen.",
     "licences": "Bibliothekslizenzen:"
   },
   "about": {
@@ -861,7 +861,7 @@
   "summary": {
     "previous_page": "Zurück zur vorherigen Seite",
     "print": "Drucken",
-    "title": "Iinformation zur DSFA",
+    "title": "Information zur DSFA",
     "pia_name": "DSFA",
     "pia_author": "Name des Autors",
     "pia_assessor": "Name des Prüfers",
@@ -910,7 +910,7 @@
     "important": "Wesentlich",
     "maximal": "Maximal",
     "seriousness_axe": "Schwere des Risikos",
-    "likelihood_axe": "EIntrittswahrscheinlichkeit des Risikos",
+    "likelihood_axe": "Eintrittswahrscheinlichkeit des Risikos",
     "legend1": "Geplante oder bestehende Maßnahmen",
     "legend2": "Mit den eingeleiteten Korrekturmaßnahmen",
     "legend3": "(I)llegitimer Zugriff auf Daten",
@@ -951,22 +951,22 @@
   "sections": {
     "1": {
       "title": "Kontext",
-      "short_help": "Dieser Abschnitt gibt Ihnen einen Überblick über die Verabeitung (en) der betreffenden personenbezogenen Daten.",
+      "short_help": "Dieser Abschnitt gibt Ihnen einen Überblick über die Verarbeitung (en) der betreffenden personenbezogenen Daten.",
       "items": {
         "1": {
           "title": "Überblick",
           "short_help": "Dieser Teil ermöglicht es Ihnen, das Objekt der Untersuchung zu identifizieren und zu beschreiben",
           "1": {
-            "title": "Welche Vearbeitung wird in Betracht gezogen?",
+            "title": "Welche Verarbeitung wird in Betracht gezogen?",
             "placeholder": "Geben Sie einen kurzen Überblick über die Verarbeitung: Name, Zweck, Einsatz, Nutzungskontext usw."
           },
           "2": {
             "title": "Welche Verantwortlichkeiten sind mit der Verarbeitung betraut?",
-            "placeholder": "Beschreiben Sie die Verantwortlichkeiten der Beteiligten,: des Verantwortlichen, der möglichen Auftragsvrarbeiter und der gemeinsam Verantwortlichen."
+            "placeholder": "Beschreiben Sie die Verantwortlichkeiten der Beteiligten,: des Verantwortlichen, der möglichen Auftragsverarbeiter und der gemeinsam Verantwortlichen."
           },
           "3": {
             "title": "Gibt es Normen oder Standards für die Verarbeitung?",
-            "placeholder": "Nennen Sie die relevanten Standards für die Verarbeitung, insbesondere die anerkannten Richtlinien für den Verhaltenskodex (Codes of conduct) und die Datenschutzzertifizierung."
+            "placeholder": "Nennen Sie die relevanten Standards für die Verarbeitung, insbesondere die anerkannten Richtlinien für den Verhaltenskodex (codes of conduct) und die Datenschutzzertifizierung."
           }
         }
       },
@@ -983,7 +983,7 @@
             "placeholder": "Präsentieren und beschreiben Sie, wie das Produkt in der Regel funktioniert (von der Datensammlung bis zur Datenlöschung, den verschiedenen Verarbeitungsstufen, Speicherung, etc.) und verwenden Sie zum Beispiel ein Diagramm der Datenflüsse (fügen Sie es als Anhang hinzu) und eine detaillierte Beschreibung des Prozesse durchgeführt."
           },
           "3": {
-            "title": "Wie wird die Datenverabeitung unterstützt?",
+            "title": "Wie wird die Datenverarbeitung unterstützt?",
             "placeholder": "Listen Sie die unterstützenden Mittel auf (Betriebssysteme, Geschäftsanwendungen, Datenbankverwaltungssysteme, Office-Suites, Protokolle, Konfigurationen usw.)."
           }
         }
@@ -1047,7 +1047,7 @@
           "4": {
             "title": "Wie können betroffene Personen ihr Recht auf Berichtigung und Löschung ausüben?",
             "short_title": "Recht auf Berichtigung und Löschung",
-            "placeholder": "Beschreiben Sie dieRegelungen, mit denen betroffene Personen ihre Daten berichtigen und löschen können."
+            "placeholder": "Beschreiben Sie die Regelungen, mit denen betroffene Personen ihre Daten berichtigen und löschen können."
           },
           "5": {
             "title": "Wie können betroffene Personen ihre Rechte auf Einschränkung oder Widerspruch der Verarbeitung ausüben?",
@@ -1062,7 +1062,7 @@
           "7": {
             "title": "Werden die Daten bei Datenübertragungen außerhalb der Europäischen Union angemessen geschützt?",
             "short_title": "Datenübertragungen ",
-            "placeholder": "Indentifizieren sie jedes Land außerhalb der Europäischen Union, in dem Daten gespeichert oder verarbeitet werden, und geben Sie an, ob es anerkanntermaßen ein angemessenes Datenschutzniveau bietet oder beschreiben Sie die Vertragsbedingungen, die den Transfer regeln.."
+            "placeholder": "Identifizieren sie jedes Land außerhalb der Europäischen Union, in dem Daten gespeichert oder verarbeitet werden, und geben Sie an, ob es anerkanntermaßen ein angemessenes Datenschutzniveau bietet oder beschreiben Sie die Vertragsbedingungen, die den Transfer regeln.."
           }
         }
       }
@@ -1081,7 +1081,7 @@
         "short_help": "Analysieren Sie die Ursachen und Folgen von illegitimen Zugriffen auf Daten und schätzen Sie deren Schweregrad und Wahrscheinlichkeit ein.",
         "questions": {
           "1": {
-            "title": "Was könnten die wesetntlichen Auswirkungen für die betroffenen Personen sein, wenn das Risiko eintritt?",
+            "title": "Was könnten die wesenttlichen Auswirkungen für die betroffenen Personen sein, wenn das Risiko eintritt?",
             "placeholder": "Geben Sie die möglichen Auswirkungen ein \u002B"
           },
           "2": {
@@ -1093,8 +1093,8 @@
             "placeholder": "Geben Sie die Risikoquellen \u002B ein"
           },
           "4": {
-            "title": "Welche der identifizierten Regeluingen tragen zur Bewältigung des Risikos bei?",
-            "placeholder": "Klicken Sie hier, um Regeliungen auszuwählen, die das Risiko adressieren."
+            "title": "Welche der identifizierten Regelungen tragen zur Bewältigung des Risikos bei?",
+            "placeholder": "Klicken Sie hier, um Regelungen auszuwählen, die das Risiko adressieren."
           },
           "5": {
             "title": "Wie schätzen Sie den Risikoschweregrad ein, insbesondere nach möglichen Auswirkungen und geplanten Regelungen?",
@@ -1111,7 +1111,7 @@
         "short_help": "Analysieren Sie die Ursachen und Folgen einer unerwünschten Veränderung der Daten und schätzen Sie deren Schweregrad und Wahrscheinlichkeit ein.",
         "questions": {
           "1": {
-            "title": "Was könnten die wesetntlichen Auswirkungen für die betroffenen Personen sein, wenn das Risiko eintritt?",
+            "title": "Was könnten die wesenttlichen Auswirkungen für die betroffenen Personen sein, wenn das Risiko eintritt?",
             "placeholder": "Geben Sie die potenziellen Auswirkungen ein \u002B"
           },
           "2": {
@@ -1123,8 +1123,8 @@
             "placeholder": "Geben Sie die Risikoquellen \u002B ein"
           },
           "4": {
-            "title": "Welche der identifizierten Regeluingen tragen zur Bewältigung des Risikos bei?",
-            "placeholder": "Klicken Sie hier, um Regeliungen auszuwählen, die das Risiko adressieren."
+            "title": "Welche der identifizierten Regelungen tragen zur Bewältigung des Risikos bei?",
+            "placeholder": "Klicken Sie hier, um Regelungen auszuwählen, die das Risiko adressieren."
           },
           "5": {
             "title": "Wie schätzen Sie den Risikoschweregrad ein, insbesondere nach möglichen Auswirkungen und geplanten Regelungen?",
@@ -1141,8 +1141,8 @@
         "short_help": "Analysieren Sie die Ursachen und Folgen von Datenverlusten und schätzen Sie deren Schweregrad und Wahrscheinlichkeit ein.",
         "questions": {
           "1": {
-            "title": "Was könnten die wesetntlichen Auswirkungen für die betroffenen Personen sein, wenn das Risiko eintritt?",
-            "placeholder": "Enter the potential impacts \u002B"
+            "title": "Was könnten die wesenttlichen Auswirkungen für die betroffenen Personen sein, wenn das Risiko eintritt?",
+            "placeholder": "Geben Sie die potenziellen Auswirkungen ein \u002B"
           },
           "2": {
             "title": "Was sind die Hauptbedrohungen, die zu dem Risiko führen könnten?",
@@ -1153,8 +1153,8 @@
             "placeholder": "Geben Sie die Risikoquellen ein \u002B"
           },
           "4": {
-            "title": "Welche der identifizierten Regeluingen tragen zur Bewältigung des Risikos bei?",
-            "placeholder": "Klicken Sie hier, um Regeliungen auszuwählen, die das Risiko adressieren."
+            "title": "Welche der identifizierten Regelungen tragen zur Bewältigung des Risikos bei?",
+            "placeholder": "Klicken Sie hier, um Regelungen auszuwählen, die das Risiko adressieren."
           },
           "5": {
             "title": "Wie schätzen Sie den Risikoschweregrad ein, insbesondere nach möglichen Auswirkungen und geplanten Regelungen?",
@@ -1186,7 +1186,7 @@
       },
       "3": {
         "title": "Auffassungen des Datenschutzbeauftragte und der Betroffenen",
-        "short_help": "Holen Sie den Rat des Datenschutzbeauftragten ein. Präsentieren Sie die Ansichten der betroffenen Personen oder ihrer Vertreter."
+        "short_help": "Holen Sie den Rat des Datenschutzbeauftragten ein. Präsentieren Sie die Ansichten der betroffenen Personen oder ihren Vertreter."
       }
     }
   }
