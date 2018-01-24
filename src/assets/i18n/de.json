@@ -162,107 +162,107 @@
     },
     "slugs": {
       "PIA_LGL_FOND": {
-        "name": "Rechtsgrundlage",
-        "description": "- Die betroffene Person hat der Verarbeitung ihrer personenbezogenen Daten für einen oder mehrere bestimmte Zwecke zugestimmt. - Die Verarbeitung ist für die Erfüllung eines Vertrags erforderlich, an dem die betroffene Person beteiligt ist, oder um Schritte bei der betroffenen Person zu unternehmen Antrag der betroffenen Person vor Abschluss eines Vertrags - Verarbeitung ist zur Einhaltung einer rechtlichen Verpflichtung erforderlich, der der für die Verarbeitung Verantwortliche unterliegt <br> <br> Die Verarbeitung ist erforderlich, um die wesentlichen Interessen der betroffenen Person oder der Betroffenen zu schützen andere natürliche Person <br> - Die Verarbeitung ist für die Wahrnehmung einer Aufgabe erforderlich, die im öffentlichen Interesse oder in Ausübung hoheitlicher Befugnisse des für die Verarbeitung Verantwortlichen durchgeführt wird. - Die Verarbeitung ist erforderlich im Sinne der berechtigten Interessen der oder durch Dritte, es sei denn, diese Interessen werden von den Interessen oder Grundrechten und -freiheiten der betroffenen Person außer Kraft gesetzt, die den Schutz personenbezogener Daten erfordern, insbesondere wenn d Ein Thema ist ein Kind <br> Siehe <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/DE/TXT/HTML/?uri=CELEX:32016R0679&from=DE\"> Art. 6 der [DS-GVO] </a>",
+        "name": "Justification of lawfulness",
+        "description": "- The data subject has given consent  to the processing of his or her personal data for one or more specific purposes <br>- Processing is necessary for the performance of a contract to which the data subject is party or in order to take steps at the request of the data subject prior to entering into a contract <br>-Processing is necessary for compliance with a legal obligation to which the controller is subject <br>- Processing is necessary in order to protect the vital interests of the data subject or of another natural person <br>- Processing is necessary for the performance of a task carried out in the public interest or in the exercise of official authority vested in the controller <br>- Processing is necessary for the purposes of the legitimate interests pursued by the controller or by a third party, except where such interests are overridden by the interests or fundamental rights and freedoms of the data subject which require protection of personal data, in particular where the data subject is a child<br> See <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">art. 6 of [GDPR]</a> ",
         "source": "PIA2 p4"
       },
       "PIA_LGL_ST": {
-        "name": "Auftragsverarbeitung",
-        "description": "Mit jedem Verarbeiter muss ein Verarbeitungsvertrag unterzeichnet werden, in dem alle in Art. 28 der [DS-GVO]: Dauer, Umfang, Zweck, dokumentierte Verarbeitungsanweisungen, vorherige Genehmigung, wenn ein Auftragsverarbeiter beauftragt wird, Bereitstellung von Unterlagen, die Nachweise für die Einhaltung der [DS-GVO] erbringen, unverzügliche Meldung von Datenverletzungen usw. ",
+        "name": "Subcontracting",
+        "description": "A processing contract must be signed with each processor, setting out all of the aspects stipulated in Art. 28 of the [GDPR]: duration, scope, purpose, documented processing instructions, prior authorisation where a processor is engaged, provision of any documentation providing evidence of compliance with the [GDPR], prompt notification of any data breach, etc.",
         "source": "PIA2 p10"
       },
       "PIA_LGL_TRAN": {
-        "name": "Datenübertragung",
+        "name": "Transfers",
         "description": "Depending on the country in question, you will have to justify the choice of remote hosting and indicate the legal supervision arrangements implemented in order to ensure adequate protection of the data subject to a cross-border transfer. That is :<br>- European Union<br>- Country recognised as providing adequate protection by the EU<br>- Transfer to the United States to a company which has joined the Privacy Shield<br>- Other country <br>See <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">art. 44 to 49 of [GDPR]</a>",
         "source": "PIAF Connected Objects p18"
       },
       "PIA_LGL_DESC": {
-        "name": "Die Beschreibung der Verarbeitung",
+        "name": "Processing's description",
         "description": "Present a brief outline of the processing under consideration, its nature, scope, context, purposes and stakes. Identify the data controller and any processors. List the standard references applicable to the processing, which are necessary or must be complied with , not least the approved codes of conduct (see Art. 40 of the <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR]</a>) and certifications regarding data protection (see Art. 42 of the <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR]</a>)",
         "source": "PIA1 p4"
       },
       "PIA_LGL_DATA": {
-        "name": "Daten und Prozesse",
+        "name": "Data and processes",
         "description": "Define and describe the scope in detail:<br>- the personal data concerned, their recipients and storage durations<br>- description of the processes and personal data supporting assets for the entire personal data life cycle (from collection to erasure).",
         "source": "PIA1 p6"
       },
       "PIA_LGL_SUPT": {
-        "name": "Unterstützende Mittel",
+        "name": "Supporting asset",
         "description": "Asset on which personal data rely. Note: this may be hardware, software, networks, people, paper or paper transmission channels.",
         "source": "PIA1 p10"
       },
       "PIA_LGL_FIN": {
-        "name": "Grundsätze in Bezug auf die Verarbeitung personenbezogener Daten",
+        "name": "Principles relating to processing of personal data",
         "description": "Personal data shall be collected for specified, explicit and legitimate purposes and <strong>not further processed in a manner that is incompatible with those purposes.</strong> <br>See <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 5.1 b) of [GDPR]</a>",
         "source": "GDPR art 5.1 b)"
       },
       "PIA_LGL_MINI": {
-        "name": "Datenminimierung",
+        "name": "Data minimisation",
         "description": "It is important to reduce the severity of the risks by minimising the number of personal data that will be processed, by limiting such data to what is strictly necessary for the purposes for which they are processed (otherwise they should not be collected). Then, it also becomes possible to minimise the data themselves, via controls aimed at reducing their sensitivity.",
         "source": "PIAF Connected Objects p10 - WIKI"
       },
       "PIA_LGL_DEST": {
-        "name": "Empfänger",
+        "name": "Recipient",
         "description": "Natural or legal person, public authority, agency or another body, to which the personal data are disclosed, whether a third party or not. However, public authorities which may receive personal data in the framework of a particular inquiry in accordance with Union or Member State law shall not be regarded as recipients; the processing of those data by those public authorities shall be in compliance with the applicable data protection rules according to the purposes of the processing. see Art. 4.9 of the <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR]</a>",
         "source": "GDPR art 4.9"
       },
       "PIA_LGL_DUR": {
-        "name": "Speicherdauer",
-        "description": "Für jede Art von Daten muss eine Aufbewahrungsfrist festgelegt werden, die durch die Erfordernisse der Verarbeitung und / oder der rechtlichen Beschränkungen gerechtfertigt ist. Daher wird zwischen aktuellen Daten und archivierten Daten unterschieden, deren Zugriff auf die betroffenen Akteure beschränkt ist. Ein Löschmechanismus muss implementiert werden, um allgemeine Daten zu archivieren oder archivierte Daten am Ende ihrer Aufbewahrungsfrist zu löschen. Funktionale Datenspuren müssen ebenfalls aufgeräumt werden ebenso wie technische Protokolle, die nicht unbegrenzt aufbewahrt werden dürfen.",
+        "name": "Storage Durations",
+        "description": "A storage duration must be defined for each type of data and justified by the legal requirements and/or processing needs. Thus a distinction is made between common data and archived data, to which access will be limited to only the stakeholders concerned. An erasure mechanism must be implemented to archive common data or purge archived data at the end of their storage duration. Functional traces will also have to be purged, as will technical logs which may not be stored indefinitely",
         "source": "PIAF Connected Objects p12"
       },
       "PIA_LGL_INFO": {
-        "name": "Information der Betroffenen",
-        "description": "Stellen Sie sicher, dass die Betroffenen informiert sind. Bestätigen Sie, dass die Verarbeitung nicht durch eine Ausnahme abgedeckt ist und nicht bestimmten Bedingungen unterliegt.",
+        "name": "Informing data subjects",
+        "description": "Ensure that the subjects are informed. Confirm that the processing is not covered by an exception and is not subject to specific conditions.",
         "source": "PIA3 p8 - WIKI"
       },
       "PIA_LGL_CONS": {
-        "name": "Einwilligung",
+        "name": "Consent",
         "description": "Allow data subjects to make a free, specific and informed choice. Determine whether the processing relies on a legal basis other than consent pursuant to Art. 6 of the <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR]</a>",
         "source": "PIA3 p11 - WIKI"
       },
       "PIA_VAL_DPO": {
-        "name": "Gutachten des DSB",
+        "name": "DPO's opinion",
         "description": "The controller shall seek the advice of the data protection officer, where designated, when carrying out a data protection impact assessment. See Art. 39.2 of the <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR]</a><br> <strong>This view may be against the processing being implemented, without restricting the decision of the data controller for all that</strong>.",
         "source": "GDPR Art. 39.2 and PIAF Connected Objects p37"
       },
       "PIA_VAL_CONC": {
-        "name": "Auffassung der Betroffenen",
+        "name": "Data subject's opinion",
         "description": "Where appropriate, the controller shall seek the views of data subjects or their representatives on the intended processing, without prejudice to the protection of commercial or public interests or the security of processing operations. See Art. 39.2 of the <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR]</a><br>These views may be gathered by diverse means, depending on the context (internal or external study on the processing methods and purpose, question for the attention of staff representatives or trade unions, survey among future customers of the data processor). <strong>Where the data controller decides to go against the views of the data subjects</strong>, he must note down <strong>the justification for this decision</strong>. Where the data controller considers that <strong>gathering the views of the data subjects is not relevant, he must also note down the justification thereof</strong>.",
         "source": "GDPR Art. 39.9 and PIAF Connected Objects p38"
       },
       "PIA_VAL_RT": {
-        "name": "Formale Bestätigung",
+        "name": "Formal validation",
         "description": "Decide on whether the selected controls, residual risks and action plan are acceptable, with justifications, in view of the previously identified stakes and views of the stakeholders. In this way, the PIA may be:<br>- validated<br>- conditional on improvement (explain in what way)<br>- refused (along with the processing under consideration). Where necessary, repeat the previous steps so that the PIA can be validated. This decision does not prejudge the compliance assessment which may be carried out, where applicable, by the Data Protection Authority (the CNIL in France), as part of preliminary formalities or checks for example.",
         "source": "PIAF Connected Objects p40"
       },
       "PIA_TEC_CHIF": {
-        "placeholder": "Beschreiben Sie hier die Mittel, die zur Gewährleistung der Vertraulichkeit von Daten implementiert wurden",
-        "name": "Verschlüsselung",
+        "placeholder": "Describe here the means implemented for ensuring the confidentiality of data",
+        "name": "Encryption",
         "description": "Means implemented for <strong>ensuring the confidentiality</strong> of data stored (in the database, in flat files, backups, etc.), as well as the procedure for managing encryption keys (creation, storage, change in the event of suspected cases of data compromise, etc.).<br> Describe the encryption means employed for data flows (VPN, TLS, etc.) implemented in the processing.",
         "source": "PIAF Connected Objects p21"
       },
       "PIA_TEC_ANO": {
-        "placeholder": "Geben Sie hier die implementierten Anonymisierungsmechanismen an",
-        "name": "Anonymisierung",
+        "placeholder": "Indicate here implemented anonymisation mechanisms",
+        "name": "Anonymisation",
         "description": "Indicate here whether anonymisation mechanisms are implemented, which ones and for what purpose. <br>Remember to clearly distinguish between anonymous and pseudonymous data.",
         "source": "PIAF Connected Objects p21"
       },
       "PIA_TEC_CLO": {
-        "placeholder": "Geben Sie hier an, ob eine Aufteilung der Verarbeitung geplant ist und wie sie erreicht wird.",
-        "name": "Aufteilung der Verabeitung",
-        "description": "Eine Aufteilung der Verabeitung trägt dazu bei, die Wahrscheinlichkeit zu verringern, dass personenbezogene Daten in Korrelation gesetzt werden und alle persönlichen Daten verletzt werden.",
+        "placeholder": "Indicate here if processing partitioning is planned, and how this is carried out.",
+        "name": "Partitioning data",
+        "description": "Implementation of data partitioning helps to reduce the possibility that personal data can be correlated and that a breach of all personal data may occur.",
         "source": "PIAF Connected Objects p21"
       },
       "PIA_TEC_CTLA": {
-        "placeholder": "Geben Sie hier an, wie Benutzerprofile definiert und zugeordnet werden.",
-        "name": "Logische Zugriffskontrolle",
+        "placeholder": "Indicate here how users profiles are defined and attributed.",
+        "name": "Logical access control",
         "description": "Methods to define and attribute users profiles. Specify the <strong>authentication</strong> means implemented . Where applicable, specify the rules applicable to passwords (minimum length, required characters, validity duration, number of failed attempts before access to account is locked, etc.).",
         "source": "PIAF Connected Objects p21"
       },
       "PIA_TEC_LOG": {
-        "placeholder": "Geben Sie hier an, ob Ereignisse protokolliert werden und wie lange diese Aufzeichnungen gespeichert werden.",
-        "name": "Rückverfolgbarkeit (Protokollierung)",
+        "placeholder": "Indicate here whether events are logged and how long these traces are stored for.",
+        "name": "Traceability (logging)",
         "description": "Policies that define traceability and log management.",
         "source": "PIAF Connected Objects p22"
       },
@@ -396,13 +396,13 @@
         "placeholder": "Indicate here, for processors requiring access to data, the security controls and arrangements carried out as regards such access.",
         "name": "Relations with third parties",
         "description": "Existence of a policy and processes reducing the risk that legitimate access to personal data by third parties may pose to the data subjects' civil liberties and privacy.",
-        "source": "PIA3 p48 - WIKI"
+        "source":  "PIA3 p48 - WIKI"
       },
       "PIA_ORG_AUD": {
         "placeholder": "Indicate here whether the effectiveness and adequacy of privacy controls are monitored.",
         "name": "Supervision",
         "description": "Existence of a policy and processes to obtain an organisation able to manage and control the protection of personal data held within it.",
-        "source": "PIA3 p76 - WIKI"
+        "source":  "PIA3 p76 - WIKI"
       },
       "PIA_DEF_EXA": {
         "name": "Quality of data",
@@ -447,7 +447,7 @@
       "PIA_DEF_ACC": {
         "name": "Right of access",
         "description": "The data subject shall have the right to obtain from the controller confirmation as to whether or not personal data concerning him or her are being processed, and, where that is the case, access to the personal data and the information described in <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 15 of [GDPR]</a>",
-        "source": "GDPR Art. 15"
+        "source":"GDPR Art. 15"
       },
       "PIA_DEF_PORT": {
         "name": "Right to data portability",
@@ -462,7 +462,7 @@
       "PIA_DEF_EFF": {
         "name": "Right to erasure",
         "description": " The data subject shall have the right to obtain from the controller the erasure of personal data concerning him or her without undue delay and the controller shall have the obligation to erase personal data without undue delay, see <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 17 of [GDPR]</a>",
-        "source": "GDPR Art. 17"
+        "source" : "GDPR Art. 17"
       },
       "PIA_DEF_LIM": {
         "name": "Right to restricting of processing",
@@ -477,7 +477,7 @@
       "PIA_DEF_PSEU": {
         "name": "Pseudonymisation",
         "description": "processing of personal data in such a manner that the personal data can no longer be attributed to a specific data subject without the use of additional information, provided that such additional information is kept separately and is subject to technical and organisational measures to ensure that the personal data are not attributed to an identified or identifiable natural person.<br>Pseudonymisation  reduces  the  linkability  of  a  dataset  with  the  original  identity  of  a  data subject; as such, it is a useful security measure but not a method of anonymisation.",
-        "source": "GDPR Art. 4.5 and guidelines G29 p22 http://ec.europa.eu/justice/data-protection/article-29/documentation/opinion-recommendation/files/2014/wp216_en.pdf"
+        "source" :"GDPR Art. 4.5 and guidelines G29 p22 http://ec.europa.eu/justice/data-protection/article-29/documentation/opinion-recommendation/files/2014/wp216_en.pdf"
       },
       "PIA_DEF_CLO": {
         "name": "Data partitioning",
@@ -492,12 +492,12 @@
       "PIA_DEF_MIN1": {
         "name": "Filtering and removal",
         "description": "When data are being imported, different types of metadata (such as EXIF data with an image file attached) can unintentionally be collected. <br>Such metadata must be identified and eliminated if they are unnecessary for the purposes specified.",
-        "source": "PIAF Connected objects p42 - WIKI"
+        "source" : "PIAF Connected objects p42 - WIKI"
       },
       "PIA_DEF_MIN2": {
         "name": "Reducing sensitivity via conversion",
         "description": "Once sensitive data have been received, as part of a series of general information or transmitted for statistical purposes only, these can be converted into a less sensitive form or pseudonymised. For example : <br>- if the system collects the IP address to determine the user's location for a statistical purpose, the IP address can be deleted once the city or district has been deduced<br>- if the system receives video data from surveillance cameras, it can recognise people who are standing or moving in the scene and blur them<br>- if the system is a smart meter, it can aggregate the use of energy over a certain period, without recording it in real time",
-        "source": "PIAF Connected objects p42 - WIKI"
+        "source" : "PIAF Connected objects p42 - WIKI"
       },
       "PIA_DEF_SRC": {
         "name": "Risk source",
@@ -577,7 +577,7 @@
       "PIA_DEF_MIN3": {
         "name": "Reducing the identifying nature of data",
         "description": "The system can ensure that: <br>- the user can use a resource or service without the risk of disclosing his/her identity (anonymous data)<br>- the user can use a resource or service without the risk of disclosing his/her identity, but remain identifiable and responsible for this use (pseudonymous data)<br>- the user can make multiple uses of resources or services without the risk of these different uses being linked together (data cannot be correlated)<br>- the user can use a resource or service without the risk of others, third parties in particular, being able to observe that the resource or service is being used (non-observability)<br>The choice of a method from the list above must be made on the basis of the threats identified. For some types of threat to privacy, pseudonymization will be more appropriate than anonymisation (for example, if there is a traceability need). In addition, some threats to privacy will be addressed using a combination of methods.",
-        "source": "PIAF Connected objects p42 - WIKI"
+        "source" : "PIAF Connected objects p42 - WIKI"
       },
       "PIA_DEF_MIN4": {
         "name": "Reducing data accumulation",
@@ -678,12 +678,12 @@
       "PIA_DEF_CHIF": {
         "name": "Encryption",
         "description": "Measure making personal data unintelligible to anyone without access authorization (symmetric or asymmetric encryption, use of public algorithms known to be strong, authentication certificate, etc.).",
-        "source ": "Mesures_US Encryption"
+        "source " : "Mesures_US Encryption"
       },
       "PIA_DEF_PWD": {
         "name": "Password",
         "description": "Passwords shall be composed of a minimum of eight characters; must be renewed if there is the least concern that they may have been compromised and, possibly, periodically (every six months or once a year) and must include a minimum of three of the four kinds of characters (capital letters, lower case letters, numerals and special characters); when a password is changed, the last five passwords may not be reused; the same password should not be used for different accesses; passwords should not be related to one's personal information (including name or date of birth.). Define a maximum number of attempts beyond which a warning is issued and authentication is blocked (temporarily or until it is manually unblocked).",
-        "source": "Mesure_US"
+        "source" : "Mesure_US"
       },
       "PIA_DEF_AUTH": {
         "name": "Authentication",
