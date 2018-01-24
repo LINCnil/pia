@@ -40,8 +40,8 @@
       "validator": "Bestätigt von",
       "new_pia": "Neue DSFA",
       "import_pia": "DSFA importieren",
-      "list_rocket_content": "Fangen Sie an! Klicken Sie auf das +-Zeichen, um einen DSFA anzulegen",
-      "card_rocket_content": "Fangen Sie an!<br><br>Um eine DSFA anzulegen,<br> klicken Sie auf Neue DSFA"
+      "list_rocket_content": "Fangen Sie an! Klicken Sie auf das \"+\"-Zeichen, um eine DSFA anzulegen",
+      "card_rocket_content": "Fangen Sie an!<br><br>Um eine DSFA anzulegen,<br> klicken Sie auf \"Neue DSFA\""
     },
     "cards": {
       "new_pia": "Neue DSFA",
@@ -162,94 +162,94 @@
     },
     "slugs": {
       "PIA_LGL_FOND": {
-        "name": "Justification of lawfulness",
-        "description": "- The data subject has given consent  to the processing of his or her personal data for one or more specific purposes <br>- Processing is necessary for the performance of a contract to which the data subject is party or in order to take steps at the request of the data subject prior to entering into a contract <br>-Processing is necessary for compliance with a legal obligation to which the controller is subject <br>- Processing is necessary in order to protect the vital interests of the data subject or of another natural person <br>- Processing is necessary for the performance of a task carried out in the public interest or in the exercise of official authority vested in the controller <br>- Processing is necessary for the purposes of the legitimate interests pursued by the controller or by a third party, except where such interests are overridden by the interests or fundamental rights and freedoms of the data subject which require protection of personal data, in particular where the data subject is a child<br> See <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">art. 6 of [GDPR]</a> ",
+        "name": "Rechtsgrundlage",
+        "description": "- Die betroffene Person hat der Verarbeitung ihrer personenbezogenen Daten für einen oder mehrere bestimmte Zwecke zugestimmt. - Die Verarbeitung ist für die Erfüllung eines Vertrags erforderlich, an dem die betroffene Person beteiligt ist, oder um Schritte bei der betroffenen Person zu unternehmen Antrag der betroffenen Person vor Abschluss eines Vertrags - Verarbeitung ist zur Einhaltung einer rechtlichen Verpflichtung erforderlich, der der für die Verarbeitung Verantwortliche unterliegt <br> <br> Die Verarbeitung ist erforderlich, um die wesentlichen Interessen der betroffenen Person oder der Betroffenen zu schützen andere natürliche Person <br> - Die Verarbeitung ist für die Wahrnehmung einer Aufgabe erforderlich, die im öffentlichen Interesse oder in Ausübung hoheitlicher Befugnisse des für die Verarbeitung Verantwortlichen durchgeführt wird. - Die Verarbeitung ist erforderlich im Sinne der berechtigten Interessen der oder durch Dritte, es sei denn, diese Interessen werden von den Interessen oder Grundrechten und -freiheiten der betroffenen Person außer Kraft gesetzt, die den Schutz personenbezogener Daten erfordern, insbesondere wenn d Ein Thema ist ein Kind <br> Siehe <a target = \"_ blank \" href = \"http://eur-lex.europa.eu/legal-content/DE/TXT/HTML/?uri=CELEX:32016R0679&from = DE \"> Art. 6 von [DS-GVO] </a> ",
         "source": "PIA2 p4"
       },
       "PIA_LGL_ST": {
-        "name": "Subcontracting",
-        "description": "A processing contract must be signed with each processor, setting out all of the aspects stipulated in Art. 28 of the [GDPR]: duration, scope, purpose, documented processing instructions, prior authorisation where a processor is engaged, provision of any documentation providing evidence of compliance with the [GDPR], prompt notification of any data breach, etc.",
+        "name": "Auftragsverarbeitung",
+        "description": "Mit jedem Verarbeiter muss ein Verarbeitungsvertrag unterzeichnet werden, in dem alle in Art. 28 der [DSGVO]: Dauer, Umfang, Zweck, dokumentierte Verarbeitungsanweisungen, vorherige Genehmigung, wenn ein Auftragsverarbeiter beauftragt wird, Bereitstellung von Unterlagen, die Nachweise für die Einhaltung der [DSGVO] erbringen, unverzügliche Meldung von Datenverletzungen usw. ",
         "source": "PIA2 p10"
       },
       "PIA_LGL_TRAN": {
-        "name": "Transfers",
+        "name": "Datenübertragung",
         "description": "Depending on the country in question, you will have to justify the choice of remote hosting and indicate the legal supervision arrangements implemented in order to ensure adequate protection of the data subject to a cross-border transfer. That is :<br>- European Union<br>- Country recognised as providing adequate protection by the EU<br>- Transfer to the United States to a company which has joined the Privacy Shield<br>- Other country <br>See <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">art. 44 to 49 of [GDPR]</a>",
         "source": "PIAF Connected Objects p18"
       },
       "PIA_LGL_DESC": {
-        "name": "Processing's description",
+        "name": "Die Beschreibung der Verarbeitung",
         "description": "Present a brief outline of the processing under consideration, its nature, scope, context, purposes and stakes. Identify the data controller and any processors. List the standard references applicable to the processing, which are necessary or must be complied with , not least the approved codes of conduct (see Art. 40 of the <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR]</a>) and certifications regarding data protection (see Art. 42 of the <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR]</a>)",
         "source": "PIA1 p4"
       },
       "PIA_LGL_DATA": {
-        "name": "Data and processes",
+        "name": "Daten und Prozesse",
         "description": "Define and describe the scope in detail:<br>- the personal data concerned, their recipients and storage durations<br>- description of the processes and personal data supporting assets for the entire personal data life cycle (from collection to erasure).",
         "source": "PIA1 p6"
       },
       "PIA_LGL_SUPT": {
-        "name": "Supporting asset",
+        "name": "Unterstützende Mittel",
         "description": "Asset on which personal data rely. Note: this may be hardware, software, networks, people, paper or paper transmission channels.",
         "source": "PIA1 p10"
       },
       "PIA_LGL_FIN": {
-        "name": "Principles relating to processing of personal data",
+        "name": "Grundsätze in Bezug auf die Verarbeitung personenbezogener Daten",
         "description": "Personal data shall be collected for specified, explicit and legitimate purposes and <strong>not further processed in a manner that is incompatible with those purposes.</strong> <br>See <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 5.1 b) of [GDPR]</a>",
         "source": "GDPR art 5.1 b)"
       },
       "PIA_LGL_MINI": {
-        "name": "Data minimisation",
+        "name": "Datenminimierung",
         "description": "It is important to reduce the severity of the risks by minimising the number of personal data that will be processed, by limiting such data to what is strictly necessary for the purposes for which they are processed (otherwise they should not be collected). Then, it also becomes possible to minimise the data themselves, via controls aimed at reducing their sensitivity.",
         "source": "PIAF Connected Objects p10 - WIKI"
       },
       "PIA_LGL_DEST": {
-        "name": "Recipient",
+        "name": "Empfänger",
         "description": "Natural or legal person, public authority, agency or another body, to which the personal data are disclosed, whether a third party or not. However, public authorities which may receive personal data in the framework of a particular inquiry in accordance with Union or Member State law shall not be regarded as recipients; the processing of those data by those public authorities shall be in compliance with the applicable data protection rules according to the purposes of the processing. see Art. 4.9 of the <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR]</a>",
         "source": "GDPR art 4.9"
       },
       "PIA_LGL_DUR": {
-        "name": "Storage Durations",
-        "description": "A storage duration must be defined for each type of data and justified by the legal requirements and/or processing needs. Thus a distinction is made between common data and archived data, to which access will be limited to only the stakeholders concerned. An erasure mechanism must be implemented to archive common data or purge archived data at the end of their storage duration. Functional traces will also have to be purged, as will technical logs which may not be stored indefinitely",
+        "name": "Speicherdauer",
+        "description": "Für jede Art von Daten muss eine Aufbewahrungsfrist festgelegt werden, die durch die Erfordernisse der Verarbeitung und / oder der rechtlichen Beschränkungen gerechtfertigt ist. Daher wird zwischen aktuellen Daten und archivierten Daten unterschieden, deren Zugriff auf die betroffenen Akteure beschränkt ist. Ein Löschmechanismus muss implementiert werden, um allgemeine Daten zu archivieren oder archivierte Daten am Ende ihrer Aufbewahrungsfrist zu löschen. Funktionale Datenspuren müssen ebenfalls aufgeräumt werden ebenso wie technische Protokolle, die nicht unbegrenzt aufbewahrt werden dürfen.",
         "source": "PIAF Connected Objects p12"
       },
       "PIA_LGL_INFO": {
-        "name": "Informing data subjects",
-        "description": "Ensure that the subjects are informed. Confirm that the processing is not covered by an exception and is not subject to specific conditions.",
+        "name": "Information der Betroffenen",
+        "description": "Stellen Sie sicher, dass die Betroffenen informiert sind. Bestätigen Sie, dass die Verarbeitung nicht durch eine Ausnahme abgedeckt ist und nicht bestimmten Bedingungen unterliegt.",
         "source": "PIA3 p8 - WIKI"
       },
       "PIA_LGL_CONS": {
-        "name": "Consent",
+        "name": "Einwilligung",
         "description": "Allow data subjects to make a free, specific and informed choice. Determine whether the processing relies on a legal basis other than consent pursuant to Art. 6 of the <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR]</a>",
         "source": "PIA3 p11 - WIKI"
       },
       "PIA_VAL_DPO": {
-        "name": "DPO's opinion",
+        "name": "Gutachten des DSB",
         "description": "The controller shall seek the advice of the data protection officer, where designated, when carrying out a data protection impact assessment. See Art. 39.2 of the <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR]</a><br> <strong>This view may be against the processing being implemented, without restricting the decision of the data controller for all that</strong>.",
         "source": "GDPR Art. 39.2 and PIAF Connected Objects p37"
       },
       "PIA_VAL_CONC": {
-        "name": "Data subject's opinion",
+        "name": "Auffassung der Betroffenen",
         "description": "Where appropriate, the controller shall seek the views of data subjects or their representatives on the intended processing, without prejudice to the protection of commercial or public interests or the security of processing operations. See Art. 39.2 of the <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR]</a><br>These views may be gathered by diverse means, depending on the context (internal or external study on the processing methods and purpose, question for the attention of staff representatives or trade unions, survey among future customers of the data processor). <strong>Where the data controller decides to go against the views of the data subjects</strong>, he must note down <strong>the justification for this decision</strong>. Where the data controller considers that <strong>gathering the views of the data subjects is not relevant, he must also note down the justification thereof</strong>.",
         "source": "GDPR Art. 39.9 and PIAF Connected Objects p38"
       },
       "PIA_VAL_RT": {
-        "name": "Formal validation",
+        "name": "Formale Bestätigung",
         "description": "Decide on whether the selected controls, residual risks and action plan are acceptable, with justifications, in view of the previously identified stakes and views of the stakeholders. In this way, the PIA may be:<br>- validated<br>- conditional on improvement (explain in what way)<br>- refused (along with the processing under consideration). Where necessary, repeat the previous steps so that the PIA can be validated. This decision does not prejudge the compliance assessment which may be carried out, where applicable, by the Data Protection Authority (the CNIL in France), as part of preliminary formalities or checks for example.",
         "source": "PIAF Connected Objects p40"
       },
       "PIA_TEC_CHIF": {
-        "placeholder": "Describe here the means implemented for ensuring the confidentiality of data",
+        "placeholder": "Beschreiben Sie hier die Mittel, die zur Gewährleistung der Vertraulichkeit von Daten implementiert wurden",
         "name": "Encryption",
         "description": "Means implemented for <strong>ensuring the confidentiality</strong> of data stored (in the database, in flat files, backups, etc.), as well as the procedure for managing encryption keys (creation, storage, change in the event of suspected cases of data compromise, etc.).<br> Describe the encryption means employed for data flows (VPN, TLS, etc.) implemented in the processing.",
         "source": "PIAF Connected Objects p21"
       },
       "PIA_TEC_ANO": {
-        "placeholder": "Indicate here implemented anonymisation mechanisms",
+        "placeholder": "Geben Sie hier die implementierten Anonymisierungsmechanismen an",
         "name": "Anonymisation",
         "description": "Indicate here whether anonymisation mechanisms are implemented, which ones and for what purpose. <br>Remember to clearly distinguish between anonymous and pseudonymous data.",
         "source": "PIAF Connected Objects p21"
       },
       "PIA_TEC_CLO": {
-        "placeholder": "Indicate here if processing partitioning is planned, and how this is carried out.",
+        "placeholder": "Geben Sie hier an, ob eine getrennte Verarbeitung geplant ist und wie dies durchgeführt wird.",
         "name": "Partitioning data",
         "description": "Implementation of data partitioning helps to reduce the possibility that personal data can be correlated and that a breach of all personal data may occur.",
         "source": "PIAF Connected Objects p21"
@@ -396,13 +396,13 @@
         "placeholder": "Indicate here, for processors requiring access to data, the security controls and arrangements carried out as regards such access.",
         "name": "Relations with third parties",
         "description": "Existence of a policy and processes reducing the risk that legitimate access to personal data by third parties may pose to the data subjects' civil liberties and privacy.",
-        "source":  "PIA3 p48 - WIKI"
+        "source": "PIA3 p48 - WIKI"
       },
       "PIA_ORG_AUD": {
         "placeholder": "Indicate here whether the effectiveness and adequacy of privacy controls are monitored.",
         "name": "Supervision",
         "description": "Existence of a policy and processes to obtain an organisation able to manage and control the protection of personal data held within it.",
-        "source":  "PIA3 p76 - WIKI"
+        "source": "PIA3 p76 - WIKI"
       },
       "PIA_DEF_EXA": {
         "name": "Quality of data",
@@ -447,7 +447,7 @@
       "PIA_DEF_ACC": {
         "name": "Right of access",
         "description": "The data subject shall have the right to obtain from the controller confirmation as to whether or not personal data concerning him or her are being processed, and, where that is the case, access to the personal data and the information described in <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 15 of [GDPR]</a>",
-        "source":"GDPR Art. 15"
+        "source": "GDPR Art. 15"
       },
       "PIA_DEF_PORT": {
         "name": "Right to data portability",
@@ -462,7 +462,7 @@
       "PIA_DEF_EFF": {
         "name": "Right to erasure",
         "description": " The data subject shall have the right to obtain from the controller the erasure of personal data concerning him or her without undue delay and the controller shall have the obligation to erase personal data without undue delay, see <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 17 of [GDPR]</a>",
-        "source" : "GDPR Art. 17"
+        "source": "GDPR Art. 17"
       },
       "PIA_DEF_LIM": {
         "name": "Right to restricting of processing",
@@ -477,7 +477,7 @@
       "PIA_DEF_PSEU": {
         "name": "Pseudonymisation",
         "description": "processing of personal data in such a manner that the personal data can no longer be attributed to a specific data subject without the use of additional information, provided that such additional information is kept separately and is subject to technical and organisational measures to ensure that the personal data are not attributed to an identified or identifiable natural person.<br>Pseudonymisation  reduces  the  linkability  of  a  dataset  with  the  original  identity  of  a  data subject; as such, it is a useful security measure but not a method of anonymisation.",
-        "source" :"GDPR Art. 4.5 and guidelines G29 p22 http://ec.europa.eu/justice/data-protection/article-29/documentation/opinion-recommendation/files/2014/wp216_en.pdf"
+        "source": "GDPR Art. 4.5 and guidelines G29 p22 http://ec.europa.eu/justice/data-protection/article-29/documentation/opinion-recommendation/files/2014/wp216_en.pdf"
       },
       "PIA_DEF_CLO": {
         "name": "Data partitioning",
@@ -492,12 +492,12 @@
       "PIA_DEF_MIN1": {
         "name": "Filtering and removal",
         "description": "When data are being imported, different types of metadata (such as EXIF data with an image file attached) can unintentionally be collected. <br>Such metadata must be identified and eliminated if they are unnecessary for the purposes specified.",
-        "source" : "PIAF Connected objects p42 - WIKI"
+        "source": "PIAF Connected objects p42 - WIKI"
       },
       "PIA_DEF_MIN2": {
         "name": "Reducing sensitivity via conversion",
         "description": "Once sensitive data have been received, as part of a series of general information or transmitted for statistical purposes only, these can be converted into a less sensitive form or pseudonymised. For example : <br>- if the system collects the IP address to determine the user's location for a statistical purpose, the IP address can be deleted once the city or district has been deduced<br>- if the system receives video data from surveillance cameras, it can recognise people who are standing or moving in the scene and blur them<br>- if the system is a smart meter, it can aggregate the use of energy over a certain period, without recording it in real time",
-        "source" : "PIAF Connected objects p42 - WIKI"
+        "source": "PIAF Connected objects p42 - WIKI"
       },
       "PIA_DEF_SRC": {
         "name": "Risk source",
@@ -577,7 +577,7 @@
       "PIA_DEF_MIN3": {
         "name": "Reducing the identifying nature of data",
         "description": "The system can ensure that: <br>- the user can use a resource or service without the risk of disclosing his/her identity (anonymous data)<br>- the user can use a resource or service without the risk of disclosing his/her identity, but remain identifiable and responsible for this use (pseudonymous data)<br>- the user can make multiple uses of resources or services without the risk of these different uses being linked together (data cannot be correlated)<br>- the user can use a resource or service without the risk of others, third parties in particular, being able to observe that the resource or service is being used (non-observability)<br>The choice of a method from the list above must be made on the basis of the threats identified. For some types of threat to privacy, pseudonymization will be more appropriate than anonymisation (for example, if there is a traceability need). In addition, some threats to privacy will be addressed using a combination of methods.",
-        "source" : "PIAF Connected objects p42 - WIKI"
+        "source": "PIAF Connected objects p42 - WIKI"
       },
       "PIA_DEF_MIN4": {
         "name": "Reducing data accumulation",
@@ -678,12 +678,12 @@
       "PIA_DEF_CHIF": {
         "name": "Encryption",
         "description": "Measure making personal data unintelligible to anyone without access authorization (symmetric or asymmetric encryption, use of public algorithms known to be strong, authentication certificate, etc.).",
-        "source " : "Mesures_US Encryption"
+        "source ": "Mesures_US Encryption"
       },
       "PIA_DEF_PWD": {
         "name": "Password",
         "description": "Passwords shall be composed of a minimum of eight characters; must be renewed if there is the least concern that they may have been compromised and, possibly, periodically (every six months or once a year) and must include a minimum of three of the four kinds of characters (capital letters, lower case letters, numerals and special characters); when a password is changed, the last five passwords may not be reused; the same password should not be used for different accesses; passwords should not be related to one's personal information (including name or date of birth.). Define a maximum number of attempts beyond which a warning is issued and authentication is blocked (temporarily or until it is manually unblocked).",
-        "source" : "Mesure_US"
+        "source": "Mesure_US"
       },
       "PIA_DEF_AUTH": {
         "name": "Authentication",
@@ -739,7 +739,7 @@
       "4": "Maximal"
     },
     "status": {
-      "0": "Pending",
+      "0": "unbewertet",
       "1": "zu korrigieren",
       "2": "verbesserungsfähig",
       "3": "tragbar"
@@ -859,335 +859,334 @@
     }
   },
   "summary": {
-    "previous_page": "Back to previous page",
-    "print": "Print",
-    "title": "PIA information",
-    "pia_name": "PIA",
-    "pia_author": "Author's name",
-    "pia_assessor": "Assessor's name",
-    "pia_validator": "Validator's name",
+    "previous_page": "Zurück zur vorherigen Seite",
+    "print": "Drucken",
+    "title": "Iinformation zur DSFA",
+    "pia_name": "DSFA",
+    "pia_author": "Name des Autors",
+    "pia_assessor": "Name des Prüfers",
+    "pia_validator": "Name des Bestätigers",
     "content_choice": {
-      "0": "The treatment could be implemented.",
-      "1": "The treatment should not be used."
+      "0": "Die Verarbeitung könnte umgesetzt werden.",
+      "1": "Die Verarbeitung sollte nicht durchgeführt werden."
     },
-    "dpo_name": "DPO's name",
-    "dpo_status": "DPO's status",
-    "dpo_opinion": "DPO's opinion",
-    "concerned_people_searched_opinion": "Search of concerned people opinion",
-    "people_search_status_ok": "Concerned people opinion was requested.",
-    "people_search_status_nok": "Concerned people opinion wasn't requested.",
-    "concerned_people_unsearched_opinion_comment": "Reason why concerned people opinion wasn't requested",
-    "concerned_people_name": "Concerned people opinions",
-    "concerned_people_status": "Concerned people statuses",
-    "concerned_people_opinion": "Concerned people opinions",
-    "modification_made": "Modifications made",
-    "rejection_reason": "Rejection reason",
-    "creation_date": "Creation date",
-    "attachments": "Attachments",
+    "dpo_name": "Name des DSBs",
+    "dpo_status": "Feststellung des DSBs",
+    "dpo_opinion": "Gutachten des DSBs",
+    "concerned_people_searched_opinion": "Einholung der Meinung der Betroffenen",
+    "people_search_status_ok": "Meinung der Betroffenen wurde eingeholt.",
+    "people_search_status_nok": "Meinung der Betroffenen wurde nicht eingeholt.",
+    "concerned_people_unsearched_opinion_comment": "Grund, warum die Meinung der Betroffenen nicht gefragt wurde",
+    "concerned_people_name": "Namen der Betroffenen",
+    "concerned_people_status": "Feststellungen der Betroffenen",
+    "concerned_people_opinion": "Aufassungen der Betroffenen",
+    "modification_made": "Vorgenommene Änderungen",
+    "rejection_reason": "Ablehnungsgrund",
+    "creation_date": "Erstellungsdatum",
+    "attachments": "Anlagen",
     "gauges": {
-      "1": "Negligible",
-      "2": "Limited",
-      "3": "Important",
-      "4": "Maximum"
+      "1": "Vernachlässigbar",
+      "2": "Begrenzt",
+      "3": "Wesentlich",
+      "4": "Maximal"
     },
     "action_plan": {
-      "title": "Action plan",
-      "fundamental_principles": "Fundamental principles",
-      "implementation_date": "Expected date of implementation",
-      "implementation_responsible": "Responsible for implementation",
-      "measures": "Existing or planned measures",
-      "risks": "Risks",
-      "no_action_plan": "No action plan recorded."
+      "title": "Aktionsplan",
+      "fundamental_principles": "Fundamentale Prinzipien",
+      "implementation_date": "Voraussichtliches Datum der Umsetzung",
+      "implementation_responsible": "Verantwortlich für die Umsetzung",
+      "measures": "Bestehende oder geplante Maßnahmen",
+      "risks": "Risiken",
+      "no_action_plan": "Kein Aktionsplan festgelegt."
     }
   },
   "errors": {
-    "title": "Page not found.",
-    "content": "If you encounter other problems or if you have suggestions for improvement,<br>you can send them back via this form: <a href=\"https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia\" target=\"_blank\">https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia</a>"
+    "title": "Seite nicht gefunden.",
+    "content": "Wenn Sie auf andere Probleme stoßen oder Verbesserungsvorschläge haben, können Sie diese über das folgende Formular zurücksenden: <a href=\"https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia\" target=\"_blank\">https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia</a>"
   },
   "cartography": {
-    "negligible": "Negligible",
-    "limited": "Limited",
-    "important": "Important",
-    "maximal": "Maximum",
-    "seriousness_axe": "Risk seriousness",
-    "likelihood_axe": "Risk likelihood",
-    "legend1": "Planned or existing measures",
-    "legend2": "With the corrective measures implemented",
-    "legend3": "(I)llegitimate access to data",
-    "legend4": "(U)nwanted modification of data",
-    "legend5": "(D)ata disappearance",
+    "negligible": "Vernachlässigbar",
+    "limited": "Begrenzt",
+    "important": "Wesentlich",
+    "maximal": "Maximal",
+    "seriousness_axe": "Schwere des Risikos",
+    "likelihood_axe": "EIntrittswahrscheinlichkeit des Risikos",
+    "legend1": "Geplante oder bestehende Maßnahmen",
+    "legend2": "Mit den eingeleiteten Korrekturmaßnahmen",
+    "legend3": "(I)llegitimer Zugriff auf Daten",
+    "legend4": "(U)nerwünschte Änderung von Daten",
+    "legend5": "(D)atenverlust",
     "risk1_access": "(I)",
     "risk2_modification": "(U)"
   },
   "action_plan": {
-    "title": "Overview",
-    "principles": "Fundamental principles",
-    "measures": "Planned or existing measures",
-    "risks": "Risks",
-    "risk1": "Illegitimate access to data",
-    "risk2": "Unwanted modification of data",
-    "risk3": "Data disappearance",
-    "improvable_measures": "Improvable measures",
-    "acceptable_measures": "Acceptable measures",
-    "no_action_plan": "No action plan recorded.",
-    "edit": "Edit",
-    "placeholder_person_in_charge": "Implementation responsible"
+    "title": "Übersicht",
+    "principles": "Fundamentale Prinzipien",
+    "measures": "Geplante oder bestehende Maßnahmen",
+    "risks": "Risiken",
+    "risk1": "Illegitimer Zugriff auf Daten",
+    "risk2": "Unerwünschte Änderung von Daten",
+    "risk3": "Datenverlust",
+    "improvable_measures": "Verbesserbare Maßnahmen",
+    "acceptable_measures": "Akzeptable Maßnahmen",
+    "no_action_plan": "Kein Aktionsplan festgelegt.",
+    "edit": "Kein Aktionsplan festgelegt",
+    "placeholder_person_in_charge": "Umsetzungsverantwortlich"
   },
   "opinions": {
-    "edit": "Edit",
-    "content": ", consider that :",
-    "dpo_opinion": "DPO opinion",
-    "placeholder_dpo_name": "DPO name(s)",
-    "placeholder_dpo_opinion": "Specify the reasons for your choice.",
-    "dpo_lock": "Please complete the other sections before you can fill the DPO opinion.",
-    "people_opinion": "Concerned people opinion",
-    "placeholder_concerned_people_name": "Concerned people name(s)",
-    "placeholder_people_opinion": "Describe how the opinions were collected and what the analysis is. If the notices have not been sought, state the reasons.",
-    "placeholder_search_content": "Justify the reason why the opinion of the persons concerned has not been requested.",
-    "treatment_ok": "The treatment could be implemented.",
-    "treatment_nok": "The treatment should not be used.",
-    "treatment_lock": "Please complete the other sections before you can fill the opinions of the persons concerned."
+    "edit": "Bearbeiten",
+    "content": ", berücksichtige das:",
+    "dpo_opinion": "Gutachten des DSB",
+    "placeholder_dpo_name": "Name des DSB",
+    "placeholder_dpo_opinion": "Geben Sie die Gründe für Ihre Auswahl an.",
+    "dpo_lock": "Bitte füllen Sie die anderen Abschnitte aus, bevor Sie das DSB-Gutachten ausfüllen können.",
+    "people_opinion": "Auffassung der Betroffenen",
+    "placeholder_concerned_people_name": "Namen der Betroffenen",
+    "placeholder_people_opinion": "Beschreiben Sie, wie die Auffassungen gesammelt wurden und was das Ergebnis der Analyse ist.. Falls keine Stellungnahmen eingeholt wurden, geben Sie die Gründe an.",
+    "placeholder_search_content": "Begründen Sie, warum die Auffassung der Betroffenen nicht angeholt wurde",
+    "treatment_ok": "Die Verarbeitung könnte umgesetzt werden.",
+    "treatment_nok": "DieVerarbeitung sollte nicht verwendet werden.",
+    "treatment_lock": "Bitte füllen Sie die anderen Abschnitte aus, bevor Sie die Auffassungen der betroffenen Personen ausfüllen können."
   },
   "sections": {
     "1": {
-      "title": "Context",
-      "short_help": "This section gives you a clear view of the treatment(s) of personal data in question.",
+      "title": "Kontext",
+      "short_help": "Dieser Abschnitt gibt Ihnen einen Überblick über die Verabeitung (en) der betreffenden personenbezogenen Daten.",
       "items": {
         "1": {
-          "title": "Overview",
-          "short_help": "This part allows you to identify and present the object of the study.",
-          "questions": {
-            "1": {
-              "title": "Which is the processing under consideration?",
-              "placeholder": "Present a brief outline of the processing: its name, purposes, stakes, context of use, etc."
-            },
-            "2": {
-              "title": "What are the responsibilities linked to the processing?",
-              "placeholder": "Describe the responsabilities of the stakeholders: the data controller, the possible data processors and joint controllers."
-            },
-            "3": {
-              "title": "Are there standards applicable to the processing?",
-              "placeholder": "List the relevant standards applicable to the processing, especially approved codes of conduct and data protection certifications."
-            }
+          "title": "Überblick",
+          "short_help": "Dieser Teil ermöglicht es Ihnen, das Objekt der Untersuchung zu identifizieren und zu beschreiben",
+          "1": {
+            "title": "Welche Vearbeitung wird in Betracht gezogen?",
+            "placeholder": "Geben Sie einen kurzen Überblick über die Verarbeitung: Name, Zweck, Einsatz, Nutzungskontext usw."
+          },
+          "2": {
+            "title": "Welche Verantwortlichkeiten sind mit der Verarbeitung betraut?",
+            "placeholder": "Beschreiben Sie die Verantwortlichkeiten der Beteiligten,: des Verantwortlichen, der möglichen Auftragsvrarbeiter und der gemeinsam Verantwortlichen."
+          },
+          "3": {
+            "title": "Gibt es Normen oder Standards für die Verarbeitung?",
+            "placeholder": "Nennen Sie die relevanten Standards für die Verarbeitung, insbesondere die anerkannten Richtlinien für den Verhaltenskodex (Codes of conduct) und die Datenschutzzertifizierung."
           }
-        },
-        "2": {
-          "title": "Data, processes and supporting assets",
-          "short_help": "This part allows you to define and describe the scope of the processing in detail.",
-          "questions": {
-            "1": {
-              "title": "What are the data processed?",
-              "placeholder": "List the data collected and processed. Define for each the storage durations, the recipients and persons with access thereto."
-            },
-            "2": {
-              "title": "How does the life cycle of data and processes work?",
-              "placeholder": "Present and describe how the product generally works (from the data collection to the data destruction, the different processing stages, storage, etc.), using for example a diagram of data flows (add it as an attachment) and a detailed description of the processes carried out."
-            },
-            "3": {
-              "title": "What are the data supporting assets?",
-              "placeholder": "List the data supporting assets (operating systems, business applications, database management systems, office suites, protocols, configurations, etc.)"
-            }
+        }
+      },
+      "2": {
+        "title": "Daten, Prozesse und Unterstützung",
+        "short_help": "In diesem Teil können Sie den Umfang der Verarbeitung detailliert definieren und beschreiben.",
+        "questions": {
+          "1": {
+            "title": "Welche Daten werden verarbeitetet?",
+            "placeholder": "Listen Sie die gesammelten und verarbeiteten Daten auf. Definieren Sie je Datenkategorie die Speicherdauer ,die Empfänger und die zugriffsberechtigten Personen."
+          },
+          "2": {
+            "title": "Wie funktioniert der Lebenszyklus von Daten und Prozessen?",
+            "placeholder": "Präsentieren und beschreiben Sie, wie das Produkt in der Regel funktioniert (von der Datensammlung bis zur Datenlöschung, den verschiedenen Verarbeitungsstufen, Speicherung, etc.) und verwenden Sie zum Beispiel ein Diagramm der Datenflüsse (fügen Sie es als Anhang hinzu) und eine detaillierte Beschreibung des Prozesse durchgeführt."
+          },
+          "3": {
+            "title": "Wie wird die Datenverabeitung unterstützt?",
+            "placeholder": "Listen Sie die unterstützenden Mittel auf (Betriebssysteme, Geschäftsanwendungen, Datenbankverwaltungssysteme, Office-Suites, Protokolle, Konfigurationen usw.)."
           }
         }
       }
-    },
-    "2": {
-      "title": "Fundamental principles",
-      "short_help": "This section allows you to build the compliance framework for privacy principles.",
-      "items": {
-        "1": {
-          "title": "Proportionality and necessity",
-          "short_help": "This part allows you to demonstrate the legitimacy of your treatment and of the data processed.",
-          "questions": {
-            "1": {
-              "title": "Are the processing purposes specified, explicit and legitimate?",
-              "short_title": "Purposes",
-              "placeholder": "Explain why the processing purposes are specified, explicit and legitimate."
-            },
-            "2": {
-              "title": "What are the legal basis making the processing lawful?",
-              "short_title": "Legal basis",
-              "placeholder": "Translation in progress"
-            },
-            "3": {
-              "title": "Are the data collected adequate, relevant and limited to what is necessary in relation to the purposes for which they are processed ('data minimisation')?",
-              "short_title": "Adequate data",
-              "placeholder": "Explain why each of the data collected is necessary for the purposes of your processing."
-            },
-            "4": {
-              "title": "Are the data accurate and kept up to date?",
-              "short_title": "Data accuracy",
-              "placeholder": "Describe which are the steps taken to ensure the quality of the data."
-            },
-            "5": {
-              "title": "What are the storage duration of the data?",
-              "short_title": "Storage duration",
-              "placeholder": "Explain why the storage durations are justified by legal requirements and/or processing needs."
-            }
+    }
+  },
+  "2": {
+    "title": "Fundamentale Prinzipien",
+    "short_help": "In diesem Abschnitt können Sie das Compliance-Framework für Datenschutzgrundsätze erstellen.",
+    "items": {
+      "1": {
+        "title": "Verhältnismäßigkeit und Notwendigkeit",
+        "short_help": "In diesem Teil können Sie die Rechtmäßigkeit Ihrer Verarbeitung und der verarbeiteten Daten nachweisen.",
+        "questions": {
+          "1": {
+            "title": "Sind die Verarbeitungszwecke eindeutig und legitim?",
+            "short_title": "Zwecke",
+            "placeholder": "Erklären Sie, warum die Verarbeitungszwecke bestimmt, eindeutig und legitim sind."
+          },
+          "2": {
+            "title": "Auf welcher Rechtsgrundlage erfolgt die rechtmäßige Verarbeitung?",
+            "short_title": "Rechtsgrundlage",
+            "placeholder": "Beschreiben Sie die Grundlage(n) Ihrer Verarbeitung (z. B. Zustimmung, Vertragserfüllung, rechtliche Verpflichtung, lebenswichtige Interessen usw.)."
+          },
+          "3": {
+            "title": "Sind die erhobenen Daten angemessen, relevant und auf das für die Datenverarbeitung Notwendige beschränkt?",
+            "short_title": "Angemessenheit der Daten",
+            "placeholder": "Erläutern Sie, warum alle Daten für Ihre Verarbeitung benötigt werden."
+          },
+          "4": {
+            "title": "Sind die Daten korrekt und auf dem neuesten Stand?",
+            "short_title": "Datengenauigkeit",
+            "placeholder": "Beschreiben Sie, welche Schritte unternommen wurden, um die Qualität der Daten sicherzustellen."
+          },
+          "5": {
+            "title": "Welche Speicherdauer haben die Daten?",
+            "short_title": "Speicherdauer",
+            "placeholder": "Erklären Sie, warum die Speicherdauer durch gesetzliche Anforderungen und / oder Verarbeitungsbedürfnisse gerechtfertigt ist."
           }
-        },
-        "2": {
-          "title": "Controls to protect the personal rights of data subjects",
-          "short_help": "This part allows you to demonstrate that you are implementing the necessary means to enable the persons concerned to exercise their rights.",
-          "questions": {
-            "1": {
-              "title": "How are the data subjects informed on the processing?",
-              "short_title": "Information for the data subjects",
-              "placeholder": "Describe what is the information given to the data subjects and what are the means to do it."
-            },
-            "2": {
-              "title": "How is the consent of data subjects obtained?",
-              "short_title": "Obtaining consent",
-              "placeholder": "Describe the controls intended to ensure that users' consent has been obtained."
-            },
-            "3": {
-              "title": "How can data subjects exercise their rights of access and to data portability?",
-              "short_title": "Right of access and to data portability",
-              "placeholder": "Describe the controls intended for enabling data subjects to access, receive and transmit their data."
-            },
-            "4": {
-              "title": "How can data subjects exercise their rights to rectification and erasure?",
-              "short_title": "Right to rectification and erasure",
-              "placeholder": "Describe the controls intended for enabling data subjects to rectify and erase their data."
-            },
-            "5": {
-              "title": "How can data subjects exercise their rights to restriction and to object?",
-              "short_title": "Right to restriction and to object",
-              "placeholder": "Describe the controls intended for enabling data subjects to restrict and to object to the processing of their data."
-            },
-            "6": {
-              "title": "Are the obligations of the processors clearly identified and governed by a contract?",
-              "short_title": "Subcontracting",
-              "placeholder": "For each processor, describe his responsibilities (duration, scope, purpose, documented processing instructions, prior authorisation) and provide the contracts, codes of conduct and certifications determining its missions and obligations."
-            },
-            "7": {
-              "title": "In the case of data transfer outside the European Union, are the data adequately protected?",
-              "short_title": "Transfers",
-              "placeholder": "For each country outside the European Union where data are stored or processed, name it and tell if it is acknowledged as offering an adequate level of data protection or describe the provisions concerning the transfer."
-            }
+        }
+      },
+      "2": {
+        "title": "Regelungen zum Schutz der Persönlichkeitsrechte der betroffenen Personen",
+        "short_help": "In diesem Teil können Sie nachweisen, dass Sie die notwendigen Mittel einsetzen, um den betroffenen Personen die Ausübung ihrer Rechte zu ermöglichen.",
+        "questions": {
+          "1": {
+            "title": "Wie werden die betroffenen Personen über die Verarbeitung informiert?",
+            "short_title": "Information der Betroffenen",
+            "placeholder": "Beschreiben Sie, welche Informationen den betroffenen Personen zur Verfügung gestellt werden und welche Mittel dafür zur Verfügung stehen."
+          },
+          "2": {
+            "title": "Wie erfolgt die Zustimmung der betroffenen Personen?",
+            "short_title": "Einholung der Zustimmung",
+            "placeholder": "Beschreiben Sie die Regelungen, die sicherstellen sollen, dass die Zustimmung der Betroffenen eingeholt wurde."
+          },
+          "3": {
+            "title": "Wie können Betroffene ihre Recht auf Auskunft und Datenübertragbarkeit ausüben?",
+            "short_title": " Recht auf Auskunft und Datenübertragbarkeit",
+            "placeholder": "Beschreiben Sie die Regelungen, mit denen betroffene Personen ihre Daten abrufen, erhalten und übertragen können."
+          },
+          "4": {
+            "title": "Wie können betroffene Personen ihr Recht auf Berichtigung und Löschung ausüben?",
+            "short_title": "Recht auf Berichtigung und Löschung",
+            "placeholder": "Beschreiben Sie dieRegelungen, mit denen betroffene Personen ihre Daten berichtigen und löschen können."
+          },
+          "5": {
+            "title": "Wie können betroffene Personen ihre Rechte auf Einschränkung oder Widerspruch der Verarbeitung ausüben?",
+            "short_title": "Recht auf Einschränkung und auf Widerspruch",
+            "placeholder": "Beschreiben Sie die Regelungen, mit denen betroffene Personen die Verarbeitung ihrer Daten einschränken und ablehnen können."
+          },
+          "6": {
+            "title": "Sind die Verpflichtungen der Auftragsverarbeiter klar definiert und vertraglich geregelt?",
+            "short_title": " Auftragsverarbeitung",
+            "placeholder": "Beschreiben Sie für jeden Auftragsverarbeiter seine Verantwortlichkeiten (Dauer, Umfang, Zweck, dokumentierte Verarbeitungsanweisungen, vorherige Genehmigung) und stellen Sie die Verträge, Verhaltenskodizes (codes of conduct) und Zertifizierungen bereit, die seine Aufgaben und Verpflichtungen bestimmen.."
+          },
+          "7": {
+            "title": "Werden die Daten bei Datenübertragungen außerhalb der Europäischen Union angemessen geschützt?",
+            "short_title": "Datenübertragungen ",
+            "placeholder": "Indentifizieren sie jedes Land außerhalb der Europäischen Union, in dem Daten gespeichert oder verarbeitet werden, und geben Sie an, ob es anerkanntermaßen ein angemessenes Datenschutzniveau bietet oder beschreiben Sie die Vertragsbedingungen, die den Transfer regeln.."
           }
         }
       }
-    },
-    "3": {
-      "title": "Risks",
-      "short_help": "This section allows you to assess the privacy risks, taking into account existing or planned controls.",
-      "items": {
-        "1": {
-          "title": "Planned or existing measures",
-          "short_help": "This section allows you to identify controls (existing or planned) that contribute to data security."
-        },
-        "2": {
-          "title": "Illegitimate access to data",
-          "short_help": "Analyze the causes and consequences of illegitimate access to data, and estimate its severity and likelihood.",
-          "questions": {
-            "1": {
-              "title": "What could be the main impacts on the data subjects if the risk were to occur?",
-              "placeholder": "Enter the potential impacts \u002B"
-            },
-            "2": {
-              "title": "What are the main threats that could lead to the risk?",
-              "placeholder": "Enter the threats \u002B"
-            },
-            "3": {
-              "title": "What are the risk sources?",
-              "placeholder": "Enter the risk sources \u002B"
-            },
-            "4": {
-              "title": "Which of the identified controls contribute to addressing the risk?",
-              "placeholder": "Click here to select controls which address the risk."
-            },
-            "5": {
-              "title": "How do you estimate the risk severity, especially according to potential impacts and planned controls?",
-              "placeholder": "Justify here the estimated severity of the risk."
-            },
-            "6": {
-              "title": "How do you estimate the likelihood of the risk, especially in respect of threats, sources of risk and planned controls?",
-              "placeholder": "Justify here the estimated likelihood."
-            }
+    }
+  },
+  "3": {
+    "title": "Risiken",
+    "short_help": "In diesem Abschnitt können Sie die Datenschutzrisiken unter Berücksichtigung bestehender oder geplanter Regelungen bewerten.",
+    "items": {
+      "1": {
+        "title": "Geplante oder bestehende Maßnahmen",
+        "short_help": "In diesem Abschnitt können Sie Regelungen (vorhanden oder geplant) identifizieren, die zur Datensicherheit beitragen."
+      },
+      "2": {
+        "title": "Illegitimer Zugang zu Daten",
+        "short_help": "Analysieren Sie die Ursachen und Folgen von illegitimen Zugriffen auf Daten und schätzen Sie deren Schweregrad und Wahrscheinlichkeit ein.",
+        "questions": {
+          "1": {
+            "title": "Was könnten die wesetntlichen Auswirkungen für die betroffenen Personen sein, wenn das Risiko eintritt?",
+            "placeholder": "Geben Sie die möglichen Auswirkungen ein \u002B"
+          },
+          "2": {
+            "title": "Was sind die Hauptbedrohungen, die zu dem Risiko führen könnten?",
+            "placeholder": "Geben Sie die Bedrohungen ein \u002B"
+          },
+          "3": {
+            "title": "Was sind die Risikoquellen?",
+            "placeholder": "Geben Sie die Risikoquellen \u002B ein"
+          },
+          "4": {
+            "title": "Welche der identifizierten Regeluingen tragen zur Bewältigung des Risikos bei?",
+            "placeholder": "Klicken Sie hier, um Regeliungen auszuwählen, die das Risiko adressieren."
+          },
+          "5": {
+            "title": "Wie schätzen Sie den Risikoschweregrad ein, insbesondere nach möglichen Auswirkungen und geplanten Regelungen?",
+            "placeholder": "Begründen Sie hier die geschätzte Schwere des Risikos."
+          },
+          "6": {
+            "title": "Wie schätzen Sie die Wahrscheinlichkeit des Risikos ein, insbesondere in Bezug auf Bedrohungen, Risikoquellen und geplante Regelungen?",
+            "placeholder": "Begründen Sie hier die geschätzte Wahrscheinlichkeit."
           }
-        },
-        "3": {
-          "title": "Unwanted modification of data",
-          "short_help": "Analyze the causes and consequences of an undesired change in data, and estimate its seriousness and likelihood.",
-          "questions": {
-            "1": {
-              "title": "What could be the main impacts on the data subjects if the risk were to occur?",
-              "placeholder": "Enter the potential impacts \u002B"
-            },
-            "2": {
-              "title": "What are the main threats that could lead to the risk?",
-              "placeholder": "Enter the threats \u002B"
-            },
-            "3": {
-              "title": "What are the risk sources?",
-              "placeholder": "Enter the risk sources \u002B"
-            },
-            "4": {
-              "title": "Which of the identified controls contribute to addressing the risk?",
-              "placeholder": "Click here to select controls which address the risk."
-            },
-            "5": {
-              "title": "How do you estimate the risk severity, especially according to potential impacts and planned controls?",
-              "placeholder": "Justify here the estimated severity of the risk."
-            },
-            "6": {
-              "title": "How do you estimate the likelihood of the risk, especially in respect of threats, sources of risk and planned controls?",
-              "placeholder": "Justify here the estimated likelihood."
-            }
-          }
-        },
-        "4": {
-          "title": "Data disappearance",
-          "short_help": "Analyze the causes and consequences of data loss, and estimate its seriousness and likelihood.",
-          "questions": {
-            "1": {
-              "title": "What could be the main impacts on the data subjects if the risk were to occur?",
-              "placeholder": "Enter the potential impacts \u002B"
-            },
-            "2": {
-              "title": "What are the main threats that could lead to the risk?",
-              "placeholder": "Enter the threats \u002B"
-            },
-            "3": {
-              "title": "What are the risk sources?",
-              "placeholder": "Enter the risk sources \u002B"
-            },
-            "4": {
-              "title": "Which of the identified controls contribute to addressing the risk?",
-              "placeholder": "Click here to select controls which address the risk."
-            },
-            "5": {
-              "title": "How do you estimate the risk severity, especially according to potential impacts and planned controls?",
-              "placeholder": "Justify here the estimated severity of the risk."
-            },
-            "6": {
-              "title": "How do you estimate the likelihood of the risk, especially in respect of threats, sources of risk and planned controls?",
-              "placeholder": "Justify here the estimated likelihood."
-            }
-          }
-        },
-        "5": {
-          "title": "Risikoübersicht",
-          "short_help": "Diese Visualisierung ermöglicht Ihnen eine globale und synthetische Sicht auf die Auswirkungen der Kontrollen auf die von ihnen ausgehenden Risiken."
         }
+      },
+      "3": {
+        "title": "Unerwünschte Änderung von Daten",
+        "short_help": "Analysieren Sie die Ursachen und Folgen einer unerwünschten Veränderung der Daten und schätzen Sie deren Schweregrad und Wahrscheinlichkeit ein.",
+        "questions": {
+          "1": {
+            "title": "Was könnten die wesetntlichen Auswirkungen für die betroffenen Personen sein, wenn das Risiko eintritt?",
+            "placeholder": "Geben Sie die potenziellen Auswirkungen ein \u002B"
+          },
+          "2": {
+            "title": "Was sind die Hauptbedrohungen, die zu dem Risiko führen könnten?",
+            "placeholder": "Geben Sie die Bedrohungen ein \u002B"
+          },
+          "3": {
+            "title": "Was sind die Risikoquellen?",
+            "placeholder": "Geben Sie die Risikoquellen \u002B ein"
+          },
+          "4": {
+            "title": "Welche der identifizierten Regeluingen tragen zur Bewältigung des Risikos bei?",
+            "placeholder": "Klicken Sie hier, um Regeliungen auszuwählen, die das Risiko adressieren."
+          },
+          "5": {
+            "title": "Wie schätzen Sie den Risikoschweregrad ein, insbesondere nach möglichen Auswirkungen und geplanten Regelungen?",
+            "placeholder": "Begründen Sie hier die geschätzte Schwere des Risikos."
+          },
+          "6": {
+            "title": "Wie schätzen Sie die Wahrscheinlichkeit des Risikos ein, insbesondere in Bezug auf Bedrohungen, Risikoquellen und geplante Regelungen?",
+            "placeholder": "Begründen Sie hier die geschätzte Wahrscheinlichkeit."
+          }
+        }
+      },
+      "4": {
+        "title": "Datenverlust",
+        "short_help": "Analysieren Sie die Ursachen und Folgen von Datenverlusten und schätzen Sie deren Schweregrad und Wahrscheinlichkeit ein.",
+        "questions": {
+          "1": {
+            "title": "Was könnten die wesetntlichen Auswirkungen für die betroffenen Personen sein, wenn das Risiko eintritt?",
+            "placeholder": "Enter the potential impacts \u002B"
+          },
+          "2": {
+            "title": "Was sind die Hauptbedrohungen, die zu dem Risiko führen könnten?",
+            "placeholder": "Geben Sie die Bedrohungen ein \u002B"
+          },
+          "3": {
+            "title": "Was sind die Risikoquellen?",
+            "placeholder": "Geben Sie die Risikoquellen ein \u002B"
+          },
+          "4": {
+            "title": "Welche der identifizierten Regeluingen tragen zur Bewältigung des Risikos bei?",
+            "placeholder": "Klicken Sie hier, um Regeliungen auszuwählen, die das Risiko adressieren."
+          },
+          "5": {
+            "title": "Wie schätzen Sie den Risikoschweregrad ein, insbesondere nach möglichen Auswirkungen und geplanten Regelungen?",
+            "placeholder": "Begründen Sie hier die geschätzte Schwere des Risikos."
+          },
+          "6": {
+            "title": "Wie schätzen Sie die Wahrscheinlichkeit des Risikos ein, insbesondere in Bezug auf Bedrohungen, Risikoquellen und geplante Regelungen?",
+            "placeholder": "Begründen Sie hier die geschätzte Wahrscheinlichkeit."
+          }
+        }
+      },
+      "5": {
+        "title": "Risikoübersicht",
+        "short_help": "Diese Visualisierung ermöglicht Ihnen eine globale und synthetische Sicht auf die Auswirkungen der Kontrollen auf die von ihnen ausgehenden Risiken."
       }
-    },
-    "4": {
-      "title": "Bestätigung",
-      "short_help": "In diesem Abschnitt können Sie die DSFA-Bestätigung vorbereiten und formalisieren.",
-      "items": {
-        "1": {
-          "title": "Risikokartierung",
-          "short_help": "Diese Visualisierung ermöglicht es Ihnen, die Positionierung der Risiken vor und nach der Anwendung der ergänzenden Kontrollen zu vergleichen."
-        },
-        "2": {
-          "title": "Aktionsplan",
-          "short_help": "Planen Sie detailliert die Implementierung der zusätzlichen Kontrollen, die während der DSFA identifiziert wurden."
-        },
-        "3": {
-          "title": "Meinungen des Datenschutzbeauftragte und der Betroffenen",
-          "short_help": "Holen Sie den Rat des Datenschutzbeauftragten ein. Präsentieren Sie die Ansichten der betroffenen Personen oder ihrer Vertreter."        }
+    }
+  },
+  "4": {
+    "title": "Bestätigung",
+    "short_help": "In diesem Abschnitt können Sie die DSFA-Bestätigung vorbereiten und formalisieren.",
+    "items": {
+      "1": {
+        "title": "Risikokartierung",
+        "short_help": "Diese Visualisierung ermöglicht es Ihnen, die Positionierung der Risiken vor und nach der Anwendung der ergänzenden Kontrollen zu vergleichen."
+      },
+      "2": {
+        "title": "Aktionsplan",
+        "short_help": "Planen Sie detailliert die Implementierung der zusätzlichen Kontrollen, die während der DSFA identifiziert wurden."
+      },
+      "3": {
+        "title": "Auffassungen des Datenschutzbeauftragte und der Betroffenen",
+        "short_help": "Holen Sie den Rat des Datenschutzbeauftragten ein. Präsentieren Sie die Ansichten der betroffenen Personen oder ihrer Vertreter."
       }
     }
   }
