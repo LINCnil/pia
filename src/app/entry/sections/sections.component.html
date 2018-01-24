@@ -15,10 +15,11 @@
           <li *ngIf="!dataItem.hide">
             <a routerLink="/entry/{{_piaService.pia.id}}/section/{{dataSection.id}}/item/{{dataItem.id}}"
               [ngClass]="{'active': section.id == dataSection.id && item.id == dataItem.id}"
-              class="truncate">{{ dataItem.title | translate }}</a>
+              class="truncate">
+              {{ dataItem.title | translate }}</a>
             <i class="fa"
-               *ngIf="!_sidStatusService.noIconFor.includes(dataSection.id + '.' + dataItem.id)"
-               [ngClass]="_globalEvaluationService.itemToFix[dataSection.id + '.' + dataItem.id] ? 'fa-pencil-square-o' : _sidStatusService.sidStatusIcon[_sidStatusService.itemStatus[dataSection.id + '.' + dataItem.id]]"
+               *ngIf="_sidStatusService.sidStatusIcon[_sidStatusService.itemStatus[dataSection.id + '.' + dataItem.id]]"
+               [ngClass]="_sidStatusService.sidStatusIcon[_sidStatusService.itemStatus[dataSection.id + '.' + dataItem.id]]"
                aria-hidden="true"></i>
           </li>
         </ng-container>

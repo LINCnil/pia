@@ -31,7 +31,7 @@
                     [theme]="'foundation-theme'"
                     [placeholder]="question.placeholder | translate"
                     [editable]="false"
-                    [disable]="_evaluationService.showValidationButton || _evaluationService.enableFinalValidation"
+                    [disable]="!_globalEvaluationService.answerEditionEnabled"
                     [onlyFromAutocomplete]="true"
                     (focusin)="questionContentFocusIn()"
                     [secondaryPlaceholder]="question.placeholder | translate">
@@ -51,7 +51,7 @@
                     [placeholder]="question.placeholder | translate"
                     (focusin)="questionContentFocusIn()"
                     [editable]="true"
-                    [disable]="_evaluationService.showValidationButton || _evaluationService.enableFinalValidation"
+                    [disable]="!_globalEvaluationService.answerEditionEnabled"
                     [secondaryPlaceholder]="question.placeholder | translate">
           </tag-input>
         </ng-template>

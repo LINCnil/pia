@@ -39,7 +39,7 @@ export class PiaService {
     return new Promise((resolve, reject) => {
       const piaId = parseInt(this.route.snapshot.params['id'], 10);
       this.pia.get(piaId).then(() => {
-        this._evaluationService.setPia(this.pia);
+        // this._evaluationService.setPia(this.pia);
         resolve();
       });
     });

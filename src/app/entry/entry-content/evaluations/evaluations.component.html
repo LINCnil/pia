@@ -1,5 +1,5 @@
 <div class="pia-evaluationBlock"
-      *ngIf="_evaluationService.enableEvaluation && _sidStatusService.itemStatus[this.section.id + '.' + this.item.id]"
+      *ngIf="_globalEvaluationService.status === 3 || _globalEvaluationService.status === 4 || _globalEvaluationService.status === 5 || _globalEvaluationService.status === 6"
       [ngClass]="{'pia-evaluationBlock-shadowed pia-evaluationBlock-self-padding': item.evaluation_mode === 'item'}">
   <div class="pia-evaluationBlock-title">{{ 'evaluations.title' | translate }}</div>
 
@@ -9,7 +9,7 @@
     <div class="pia-evaluationBlock-buttons">
       <button class="btn btn-red"
               [ngClass]="{'btn-active': evaluation.status === 1}"
-              [disabled]="evaluation.status === 1 || ((!_evaluationService.showValidationButton && !_evaluationService.enableFinalValidation) || _sidStatusService.itemStatus[this.section.id + '.' + this.item.id] === 3)"
+              [disabled]="evaluation.status === 1 || !_globalEvaluationService.evaluationEditionEnabled"
               (click)="selectedButton($event, 1)"
               name="fix"
               type="submit">
@@ -17,7 +17,7 @@
       </button>
       <button class="btn btn-blue"
               [ngClass]="{'btn-active': evaluation.status === 2}"
-              [disabled]="evaluation.status === 2 || ((!_evaluationService.showValidationButton && !_evaluationService.enableFinalValidation) || _sidStatusService.itemStatus[this.section.id + '.' + this.item.id] === 3)"
+              [disabled]="evaluation.status === 2 || !_globalEvaluationService.evaluationEditionEnabled"
               *ngIf="section.id !== 1"
               (click)="selectedButton($event, 2)"
               name="improvable"
@@ -26,7 +26,7 @@
       </button>
       <button class="btn btn-green"
               [ngClass]="{'btn-active': evaluation.status === 3}"
-              [disabled]="evaluation.status === 3 || ((!_evaluationService.showValidationButton && !_evaluationService.enableFinalValidation) || _sidStatusService.itemStatus[this.section.id + '.' + this.item.id] === 3)"
+              [disabled]="evaluation.status === 3 || !_globalEvaluationService.evaluationEditionEnabled"
               (click)="selectedButton($event, 3)"
               name="acceptable"
               type="submit">

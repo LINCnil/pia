@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, OnChanges } from '@angular/core';
+import { Component, OnInit, Input, Output } from '@angular/core';
 import { Evaluation } from 'app/entry/entry-content/evaluations/evaluation.model';
 import { EvaluationService } from 'app/entry/entry-content/evaluations/evaluations.service';
 import { AppDataService } from 'app/services/app-data.service';
@@ -17,7 +17,7 @@ import { GlobalEvaluationService } from 'app/services/global-evaluation.service'
   styleUrls: ['./sections.component.scss'],
   providers: [PiaService]
 })
-export class SectionsComponent implements OnInit, OnChanges {
+export class SectionsComponent implements OnInit {
 
   @Input() section: { id: number, title: string, short_help: string, items: any };
   @Input() item: { id: number, title: string, evaluation_mode: string, short_help: string, questions: any };
@@ -33,16 +33,12 @@ export class SectionsComponent implements OnInit, OnChanges {
   }
 
   async ngOnInit() {
+    await this._piaService.getPIA();
     this.data = await this._appDataService.getDataNav();
     this.data.sections.forEach((section: any) => {
       section.items.forEach((item: any) => {
         this._sidStatusService.setSidStatus(this._piaService, section, item);
-        this._globalEvaluationService.itemStatusVerification(this._piaService.pia, section, item);
       });
     });
-  }
-
-  ngOnChanges() {
-    this._sidStatusService.verification(this._piaService);
   }
 }
