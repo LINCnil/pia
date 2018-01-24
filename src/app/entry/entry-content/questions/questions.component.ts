@@ -164,7 +164,6 @@ export class QuestionsComponent implements OnInit, OnDestroy {
    * @param {event} event any event.
    */
   onAdd(event) {
-    console.log(event);
     if (event && event.value.length > 0) {
       let list = [];
       if (this.answer.id) {

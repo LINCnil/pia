@@ -22,8 +22,8 @@ export class SectionsComponent implements OnInit {
   @Input() section: { id: number, title: string, short_help: string, items: any };
   @Input() item: { id: number, title: string, evaluation_mode: string, short_help: string, questions: any };
   data: { sections: any };
-  showValidationButton = false;
-  showRefuseButton = false;
+  enablePiaValidation = false;
+  piaIsRefused = false;
 
   constructor(private _piaService: PiaService,
               private _appDataService: AppDataService,

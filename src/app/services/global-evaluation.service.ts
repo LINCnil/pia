@@ -15,6 +15,8 @@ export class GlobalEvaluationService {
   public answerEditionEnabled = false;
   public evaluationEditionEnabled = false;
   public reference_to: string;
+  public enablePiaValidation: boolean;
+  public piaIsRefused: boolean;
   private questionsOrMeasures: Array<any>;
   private answersOrMeasures: Array<Answer|Measure>;
   private evaluations: Array<Evaluation>;
@@ -25,7 +27,7 @@ export class GlobalEvaluationService {
     this.status = 0;
     this.reference_to = this.section.id + '.' + this.item.id;
     return new Promise(async (resolve, reject) => {
-      if (this.item.evaluation_mode) {
+      if (this.item.evaluation_mode === 'item' || this.item.evaluation_mode === 'question') {
         await this.answersVerification();
         await this.evaluationsVerification();
         this.verification();
@@ -37,6 +39,12 @@ export class GlobalEvaluationService {
             status: this.status
           });
         }
+      } else if (this.reference_to === '4.3') {
+        this.dpoValidation();
+        this.behaviorSubject.next({
+          reference_to: this.reference_to,
+          status: this.status
+        });
       }
       resolve({ reference_to: this.reference_to, status: this.status });
     });
@@ -153,6 +161,52 @@ export class GlobalEvaluationService {
           });
         });
       });
+    }
+  }
+
+  private dpoValidation() {
+    let dpoFilled = false;
+    let concernedPeopleOpinionSearchedFieldsFilled = false;
+    let concernedPeopleOpinionUnsearchedFieldsFilled = false;
+
+    // Edition enabled
+    this.status = 0;
+
+    // All DPO fields filled = OK
+    if (this.pia.dpos_names && this.pia.dpos_names.length > 0 && (this.pia.dpo_status === 0 || this.pia.dpo_status === 1)
+        && this.pia.dpo_opinion && this.pia.dpo_opinion.length > 0) {
+        dpoFilled = true;
+    }
+
+    // Concerned people opinion unsearched + no search reason field filled = OK
+    if (this.pia.concerned_people_searched_opinion === false) {
+      if (this.pia.concerned_people_searched_content && this.pia.concerned_people_searched_content.length > 0) {
+        concernedPeopleOpinionUnsearchedFieldsFilled = true;
+      }
+    }
+
+    // Concerned people opinion searched + name(s) + status + opinions = OK :
+    if (this.pia.concerned_people_searched_opinion === true) {
+      if (this.pia.people_names && this.pia.people_names.length > 0
+          && (this.pia.concerned_people_status === 0 || this.pia.concerned_people_status === 1)
+          && this.pia.concerned_people_opinion && this.pia.concerned_people_opinion.length > 0) {
+            concernedPeopleOpinionSearchedFieldsFilled = true;
+      }
+    }
+
+    // Treatment which validates the subsection if everything is OK
+    // DPO filled + unsearched opinion scenario filled OR DPO filled + searched opinion scenario filled
+    if ((dpoFilled === true && concernedPeopleOpinionUnsearchedFieldsFilled === true)
+        || (dpoFilled === true && concernedPeopleOpinionSearchedFieldsFilled === true)) {
+      this.status = 7;
+      this.enablePiaValidation = [0, 2, 3].includes(this.pia.status);
+      this.piaIsRefused = [1, 4].includes(this.pia.status);
+      if (this.pia.status > 1) {
+        this.status = 8;
+      }
+    } else {
+      this.enablePiaValidation = false;
+      this.piaIsRefused = false;
     }
   }
 
@@ -349,18 +403,22 @@ export class GlobalEvaluationService {
         });
       } else {
         this.questionsOrMeasures = this.item.questions;
-        this.item.questions.forEach((question: any) => {
-          const answerModel = new Answer();
-          answerModel.getByReferenceAndPia(this.pia.id, question.id).then((result: boolean) => {
-            count++;
-            if (result) {
-              this.answersOrMeasures.push(answerModel);
-            }
-            if (count === this.item.questions.length) {
-              resolve();
-            }
+        if (this.item.questions) {
+          this.item.questions.forEach((question: any) => {
+            const answerModel = new Answer();
+            answerModel.getByReferenceAndPia(this.pia.id, question.id).then((result: boolean) => {
+              count++;
+              if (result) {
+                this.answersOrMeasures.push(answerModel);
+              }
+              if (count === this.item.questions.length) {
+                resolve();
+              }
+            });
           });
-        });
+        } else {
+          resolve();
+        }
       }
     });
   }

@@ -68,17 +68,26 @@ export class PiaService {
 
   async cancelAllValidatedEvaluation() {
     return new Promise((resolve, reject) => {
+      let count = 0;
       let evaluation = new Evaluation();
       evaluation.pia_id = this._evaluationService.pia.id;
       evaluation.findAll().then((entries: any) => {
-        entries.forEach(element => {
-          evaluation = new Evaluation();
-          evaluation.get(element.id).then((entry: any) => {
-            entry.global_status = 0;
-            entry.update();
+        if (entries && entries.length > 0) {
+          entries.forEach(element => {
+            evaluation = new Evaluation();
+            evaluation.get(element.id).then((entry: any) => {
+              entry.global_status = 0;
+              entry.update().then(() => {
+                count++;
+                if (count === entries.length) {
+                  resolve();
+                }
+              });
+            });
           });
-        });
-        resolve();
+        } else {
+          resolve();
+        }
       });
     });
   }
