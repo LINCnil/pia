@@ -14,7 +14,7 @@ import { TranslateService } from '@ngx-translate/core';
 export class PiaValidateHistoryComponent implements OnInit {
 
   constructor(private el: ElementRef,
-              private _piaService: PiaService,
+              protected _piaService: PiaService,
               private _translateService: TranslateService) { }
 
   ngOnInit() {

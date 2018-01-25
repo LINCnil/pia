@@ -50,7 +50,7 @@
     <!-- Principles action plans -->
     <div class="pia-entryContentBlock-content-fundamental">
       <h2>{{ 'action_plan.principles' | translate }}</h2>
-      <div *ngIf="_actionPlanService.noPrinciplesActionPlan; else listPrinciplesActionPlanComment">
+      <div *ngIf="!_actionPlanService.principlesActionPlanReady; else listPrinciplesActionPlanComment">
         <div class="pia-entryContentBlock-content-details-blocks">
           <div class="pia-details-blocks-content">
             <div>{{ 'action_plan.no_action_plan' | translate }}</div>
@@ -64,7 +64,7 @@
     <!-- Measures action plans -->
     <div class="pia-entryContentBlock-content-measures">
       <h2>{{ 'action_plan.measures' | translate }}</h2>
-      <div *ngIf="_actionPlanService.noMeasuresActionPlan; else listMeasuresActionPlanComment">
+      <div *ngIf="!_actionPlanService.measuresActionPlanReady; else listMeasuresActionPlanComment">
         <div class="pia-entryContentBlock-content-details-blocks">
           <div class="pia-details-blocks-content">
             {{ 'action_plan.no_action_plan' | translate }}
@@ -78,7 +78,7 @@
     <!-- Risks action plans -->
     <div class="pia-entryContentBlock-content-risks">
       <h2>{{ 'action_plan.risks' | translate }}</h2>
-      <div *ngIf="_actionPlanService.noRisksActionPlan; else listRisksActionPlanComment">
+      <div *ngIf="!_actionPlanService.risksActionPlan32Ready && !_actionPlanService.risksActionPlan33Ready && !_actionPlanService.risksActionPlan34Ready; else listRisksActionPlanComment">
         <div class="pia-entryContentBlock-content-details-blocks">
           <div class="pia-details-blocks-content">
             {{ 'action_plan.no_action_plan' | translate }}

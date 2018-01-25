@@ -23,21 +23,21 @@ import { GlobalEvaluationService } from 'app/services/global-evaluation.service'
 })
 
 export class EntryContentComponent implements OnInit, OnChanges {
-  @Input() section: { id: number, title: string, short_help: string, items: any };
-  @Input() item: { id: number, title: string, evaluation_mode: string, short_help: string, questions: any };
+  @Input() section: any;
+  @Input() item: any;
   @Input() questions: any;
   @Input() data: any;
 
   constructor(private _router: Router,
               private _appDataService: AppDataService,
               private _activatedRoute: ActivatedRoute,
-              private _measureService: MeasureService,
+              protected _measureService: MeasureService,
               private _modalsService: ModalsService,
-              private _piaService: PiaService,
-              private _sidStatusService: SidStatusService,
-              private _globalEvaluationService: GlobalEvaluationService,
+              protected _piaService: PiaService,
+              protected _sidStatusService: SidStatusService,
+              protected _globalEvaluationService: GlobalEvaluationService,
               private _evaluationService: EvaluationService,
-              private _paginationService: PaginationService,
+              protected _paginationService: PaginationService,
               private _translateService: TranslateService) {
   }
 

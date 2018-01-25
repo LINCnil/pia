@@ -26,7 +26,7 @@ export class SummaryComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
               private _attachmentsService: AttachmentsService,
-              private _actionPlanService: ActionPlanService,
+              protected _actionPlanService: ActionPlanService,
               private _translateService: TranslateService,
               private _appDataService: AppDataService,
               protected _piaService: PiaService) { }

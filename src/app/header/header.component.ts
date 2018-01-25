@@ -10,11 +10,11 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit, DoCheck {
-  public increaseContrast: String;
+  public increaseContrast: string;
   appVersion: string;
   selectedLanguage: string;
 
-  constructor(private renderer: Renderer2, private _translateService: TranslateService) {
+  constructor(private renderer: Renderer2, protected _translateService: TranslateService) {
     this.updateContrast();
   }
 

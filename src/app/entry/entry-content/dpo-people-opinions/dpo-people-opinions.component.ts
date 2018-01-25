@@ -26,7 +26,7 @@ export class DPOPeopleOpinionsComponent implements OnInit {
 
   constructor(private el: ElementRef,
               private _sidStatusService: SidStatusService,
-              private _piaService: PiaService) { }
+              protected _piaService: PiaService) { }
 
   ngOnInit() {
     this.DPOForm = new FormGroup({

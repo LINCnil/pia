@@ -27,7 +27,7 @@ export class RefusePIAComponent implements OnInit {
               private _modalsService: ModalsService,
               private _sidStatusService: SidStatusService,
               private _translateService: TranslateService,
-              private _piaService: PiaService) { }
+              protected _piaService: PiaService) { }
 
   ngOnInit() {
     this.rejectionReasonForm = new FormGroup({
