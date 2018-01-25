@@ -8,6 +8,7 @@ import { ModalsService } from 'app/modals/modals.service';
 import { EvaluationService } from 'app/entry/entry-content/evaluations/evaluations.service';
 import { TranslateService } from '@ngx-translate/core';
 import { KnowledgeBaseService } from 'app/entry/knowledge-base/knowledge-base.service';
+import { GlobalEvaluationService } from 'app/services/global-evaluation.service';
 
 @Injectable()
 export class MeasureService {
@@ -19,6 +20,7 @@ export class MeasureService {
   constructor(private _translateService: TranslateService,
               private _modalsService: ModalsService,
               private _knowledgeBaseService: KnowledgeBaseService,
+              private _globalEvaluationService: GlobalEvaluationService,
               private _evaluationService: EvaluationService) {}
 
   async listMeasures(pia_id: number) {
@@ -48,8 +50,8 @@ export class MeasureService {
 
     /* Removing from DB */
     measure.delete(measure_id).then(() => {
-      this._evaluationService.remove(measure_id);
-      this._evaluationService.allowEvaluation();
+      // this._evaluationService.remove(measure_id);
+      // this._evaluationService.allowEvaluation();
     });
 
     /* Removing the measure from the view */
@@ -85,7 +87,8 @@ export class MeasureService {
       newMeasureRecord.placeholder = 'measures.default_placeholder';
     }
     newMeasureRecord.create().then((entry: number) => {
-      this._evaluationService.allowEvaluation();
+      // this._evaluationService.allowEvaluation();
+      this._globalEvaluationService.validate();
       newMeasureRecord.id = entry;
       this.measures.unshift(newMeasureRecord);
     });

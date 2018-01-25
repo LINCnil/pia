@@ -23,21 +23,21 @@ import { GlobalEvaluationService } from 'app/services/global-evaluation.service'
 })
 
 export class EntryContentComponent implements OnInit, OnChanges {
-  @Input() section: { id: number, title: string, short_help: string, items: any };
-  @Input() item: { id: number, title: string, evaluation_mode: string, short_help: string, questions: any };
+  @Input() section: any;
+  @Input() item: any;
   @Input() questions: any;
   @Input() data: any;
 
   constructor(private _router: Router,
               private _appDataService: AppDataService,
               private _activatedRoute: ActivatedRoute,
-              private _measureService: MeasureService,
+              protected _measureService: MeasureService,
               private _modalsService: ModalsService,
-              private _piaService: PiaService,
-              private _sidStatusService: SidStatusService,
-              private _globalEvaluationService: GlobalEvaluationService,
+              protected _piaService: PiaService,
+              protected _sidStatusService: SidStatusService,
+              protected _globalEvaluationService: GlobalEvaluationService,
               private _evaluationService: EvaluationService,
-              private _paginationService: PaginationService,
+              protected _paginationService: PaginationService,
               private _translateService: TranslateService) {
   }
 
@@ -52,8 +52,8 @@ export class EntryContentComponent implements OnInit, OnChanges {
     this._paginationService.dataNav = await this._appDataService.getDataNav();
     await this._piaService.getPIA();
 
-    this._evaluationService.setPia(this._piaService.pia);
-    this._evaluationService.allowEvaluation();
+    // this._evaluationService.setPia(this._piaService.pia);
+    // this._evaluationService.allowEvaluation();
 
     const sectionId = parseInt(this._activatedRoute.snapshot.params['section_id'], 10);
     const itemId = parseInt(this._activatedRoute.snapshot.params['item_id'], 10);
@@ -62,19 +62,19 @@ export class EntryContentComponent implements OnInit, OnChanges {
 
     // Redirect users accessing validation page if requirements not met
     /* TODO make it works for refusal PIA status + */
-    if (sectionId === 4 && itemId === 4) {
-      if ((!this._sidStatusService.enablePiaValidation && !this._sidStatusService.piaIsRefused)
-      || (this._sidStatusService.piaIsRefused && !this._piaService.pia.applied_adjustements)) {
-        this._router.navigate(['entry', this._piaService.pia.id, 'section', 1, 'item', 1])
-      }
-    }
+    // if (sectionId === 4 && itemId === 4) {
+    //   if ((!this._globalEvaluationService.enablePiaValidation && !this._globalEvaluationService.piaIsRefused)
+    //   || (this._globalEvaluationService.piaIsRefused && !this._piaService.pia.applied_adjustements)) {
+    //     this._router.navigate(['entry', this._piaService.pia.id, 'section', 1, 'item', 1])
+    //   }
+    // }
 
-    // Redirect users accessing refusal page if requirements not met
-    if (sectionId === 4 && itemId === 5) {
-      if (!this._sidStatusService.enablePiaValidation && !this._sidStatusService.piaIsRefused) {
-        this._router.navigate(['entry', this._piaService.pia.id, 'section', 1, 'item', 1])
-      }
-    }
+    // // Redirect users accessing refusal page if requirements not met
+    // if (sectionId === 4 && itemId === 5) {
+    //   if (!this._globalEvaluationService.enablePiaValidation && !this._globalEvaluationService.piaIsRefused) {
+    //     this._router.navigate(['entry', this._piaService.pia.id, 'section', 1, 'item', 1])
+    //   }
+    // }
 
   }
 
@@ -83,7 +83,15 @@ export class EntryContentComponent implements OnInit, OnChanges {
    * @memberof EntryContentComponent
    */
   prepareForEvaluation() {
-    this._evaluationService.prepareForEvaluation(this._piaService, this._sidStatusService, this.section, this.item);
+    this._globalEvaluationService.prepareForEvaluation().then(() => {
+      this._router.navigate([
+        'entry', this._piaService.pia.id, 'section',
+        this._paginationService.nextLink[0], 'item',
+        this._paginationService.nextLink[1]
+      ]);
+      this._modalsService.openModal('ask-for-evaluation');
+    });
+    // this._evaluationService.prepareForEvaluation(this._piaService, this._sidStatusService, this.section, this.item);
   }
 
   /**
@@ -91,8 +99,7 @@ export class EntryContentComponent implements OnInit, OnChanges {
    * @memberof EntryContentComponent
    */
   validateEvaluation() {
-    this._evaluationService.validateAllEvaluation().then((valid: boolean) => {
-      this._sidStatusService.setSidStatus(this._piaService, this.section, this.item);
+    this._globalEvaluationService.validateAllEvaluation().then((toFix: boolean) => {
       this._router.navigate([
         'entry',
         this._piaService.pia.id,
@@ -101,10 +108,10 @@ export class EntryContentComponent implements OnInit, OnChanges {
         'item',
         this._paginationService.nextLink[1]
       ]);
-      if (valid) {
-        this._modalsService.openModal('validate-evaluation');
-      } else {
+      if (toFix) {
         this._modalsService.openModal('validate-evaluation-to-correct');
+      } else {
+        this._modalsService.openModal('validate-evaluation');
       }
     });
   }
@@ -114,7 +121,8 @@ export class EntryContentComponent implements OnInit, OnChanges {
    * @memberof EntryContentComponent
    */
   cancelAskForEvaluation() {
-    this._evaluationService.cancelForEvaluation(this._piaService, this._sidStatusService, this.section, this.item);
+    this._globalEvaluationService.cancelForEvaluation();
+    // this._evaluationService.cancelForEvaluation(this._piaService, this._sidStatusService, this.section, this.item);
   }
 
   /**
@@ -122,9 +130,10 @@ export class EntryContentComponent implements OnInit, OnChanges {
    * @memberof EntryContentComponent
    */
   cancelValidateEvaluation() {
-    this._evaluationService.cancelValidation().then((valid: boolean) => {
-      this._sidStatusService.setSidStatus(this._piaService, this.section, this.item);
-    });
+    this._globalEvaluationService.cancelValidation();
+    // this._evaluationService.cancelValidation().then((valid: boolean) => {
+    //   this._sidStatusService.setSidStatus(this._piaService, this.section, this.item);
+    // });
   }
 
 }

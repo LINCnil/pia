@@ -3,6 +3,7 @@ import { ApplicationDb } from '../../../application.db';
 export class Answer extends ApplicationDb {
   public id: number;
   public data: { text: string, gauge: number, list: string[] };
+  public answer_type: string;
 
   constructor() {
     super(201707071818, 'answer');
@@ -127,8 +128,10 @@ export class Answer extends ApplicationDb {
             this.data = result.data;
             this.created_at = new Date(result.created_at);
             this.updated_at = new Date(result.updated_at);
+            resolve(true);
+          } else {
+            resolve(false);
           }
-          resolve();
         }).catch ((error) => {
           console.error('Request failed', error);
         });
@@ -143,8 +146,10 @@ export class Answer extends ApplicationDb {
               this.data = entry.data;
               this.created_at = new Date(entry.created_at);
               this.updated_at = new Date(entry.updated_at);
+              resolve(true);
+            } else {
+              resolve(false);
             }
-            resolve();
           }
         });
       }

@@ -26,7 +26,7 @@ export class SummaryComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
               private _attachmentsService: AttachmentsService,
-              private _actionPlanService: ActionPlanService,
+              protected _actionPlanService: ActionPlanService,
               private _translateService: TranslateService,
               private _appDataService: AppDataService,
               protected _piaService: PiaService) { }
@@ -130,7 +130,7 @@ export class SummaryComponent implements OnInit {
         content: this.pia.dpos_names
       });
     }
-    if ( this.pia.dpo_status >= 0) {
+    if (this.pia.dpo_status && this.pia.dpo_status.length > 0) {
       el.data.push({
         title: 'summary.dpo_status',
         content: this.pia.getOpinionsStatus(this.pia.dpo_status.toString())

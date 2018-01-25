@@ -16,6 +16,7 @@ export class DPOPeopleOpinionsComponent implements OnInit {
   DPOForm: FormGroup;
   searchedOpinionsForm: FormGroup;
   peopleForm: FormGroup;
+  disableDpoValidation: boolean;
   displayDpoEditButton = false;
   displayPeopleEditButton = false;
   displayPeopleOpinions = false;
@@ -25,7 +26,7 @@ export class DPOPeopleOpinionsComponent implements OnInit {
 
   constructor(private el: ElementRef,
               private _sidStatusService: SidStatusService,
-              private _piaService: PiaService) { }
+              protected _piaService: PiaService) { }
 
   ngOnInit() {
     this.DPOForm = new FormGroup({
@@ -109,6 +110,13 @@ export class DPOPeopleOpinionsComponent implements OnInit {
         this.autoTextareaResize(null, peopleTextarea);
       }
     });
+
+    this.disableDpoValidation = false;
+    for (const el in this._sidStatusService.itemStatus) {
+      if (this._sidStatusService.itemStatus.hasOwnProperty(el) && this._sidStatusService.itemStatus[el] < 7 && el !== '4.3') {
+        this.disableDpoValidation = true;
+      }
+    }
   }
 
   /* DPO methods */

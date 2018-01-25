@@ -22,7 +22,7 @@ export class CardItemComponent implements OnInit {
 
   constructor(private router: Router,
               private _modalsService: ModalsService,
-              private _piaService: PiaService) {
+              protected _piaService: PiaService) {
     this.editMode = false;
   }
 

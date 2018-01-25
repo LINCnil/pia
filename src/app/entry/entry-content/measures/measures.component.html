@@ -19,7 +19,7 @@
     <div class="pia-measureBlock-displayer fadeIn">
       <button type="button"
               class="btn pia-measureBlock-delete"
-              *ngIf="displayDeleteButton"
+              *ngIf="_globalEvaluationService.answerEditionEnabled"
               (click)="removeMeasure(measure.id)"
               title="{{ 'measures.remove' | translate }}">
         <i class="fa fa-trash-o" aria-hidden="true"></i>

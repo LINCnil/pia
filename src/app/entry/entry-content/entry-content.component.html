@@ -2,7 +2,7 @@
   <header autoscroll="true" class="pia-entryContentBlock-header">
     <div>
       <i class="fa"
-        *ngIf="!_sidStatusService.noIconFor.includes(section.id + '.' + item.id); else specialIcon"
+        *ngIf="_sidStatusService.sidStatusIcon[_sidStatusService.itemStatus[section.id + '.' + item.id]]; else specialIcon"
         [ngClass]="_sidStatusService.sidStatusIcon[_sidStatusService.itemStatus[section.id + '.' + item.id]]"
         aria-hidden="true"></i>
       <i class="fa"
@@ -29,14 +29,14 @@
     </ng-template>
   </header>
 
-  <div class="pia-status-info" *ngIf="_evaluationService.showValidationButton && !_globalEvaluationService.enableValidation && section.id + '.' + item.id !== '3.5' && section.id != 4">
+  <div class="pia-status-info" *ngIf="_globalEvaluationService.status === 4">
     <strong>{{ 'pia.sections.status.evaluation.title' | translate }}</strong>
     <p>
       <span [innerHTML]="'pia.sections.status.evaluation.content' | translate"></span>
       <a href="javascript:;" (click)="cancelAskForEvaluation()" [innerHTML]="'pia.sections.status.evaluation.cancel' | translate"></a>
     </p>
   </div>
-  <div class="pia-status-info" *ngIf="_sidStatusService.itemStatus[section.id + '.' + item.id] === 3 && section.id !== 4">
+  <div class="pia-status-info" *ngIf="_globalEvaluationService.status === 7">
     <strong>{{ 'pia.sections.status.validation.title' | translate }}</strong>
     <p>
       <span [innerHTML]="'pia.sections.status.validation.content' | translate"></span>
@@ -45,8 +45,12 @@
   </div>
 
   <ng-container *ngIf="item.is_measure; else appQuestions">
-    <button (click)="_measureService.addNewMeasure(_piaService.pia)" class="btn btn-white btn-addMeasure" type="button"
-            *ngIf="!_evaluationService.showValidationButton && !_evaluationService.enableFinalValidation"><span class="pia-icons pia-icon-add"></span> {{ 'measures.add' | translate }}</button>
+    <button (click)="_measureService.addNewMeasure(_piaService.pia)"
+            class="btn btn-white btn-addMeasure" type="button"
+            *ngIf="_globalEvaluationService.answerEditionEnabled">
+      <span class="pia-icons pia-icon-add"></span>
+      {{ 'measures.add' | translate }}
+    </button>
     <app-measures *ngFor="let measure of _measureService.measures" [measure]="measure" [pia]="_piaService.pia" [section]="section" [item]="item"></app-measures>
   </ng-container>
   <ng-template #appQuestions>
@@ -66,17 +70,18 @@
   <app-dpo-people-opinions *ngIf="section.id == 4 && item.id == 3"></app-dpo-people-opinions>
 
   <footer class="pia-entryContentBlock-footer">
-    <div *ngIf="section.id + '.' + item.id !== '3.5' && section.id != 4">
+    <div *ngIf="_globalEvaluationService.status > 0">
       <button class="btn btn-green" (click)="prepareForEvaluation()"
-              *ngIf="!_evaluationService.showValidationButton && !_evaluationService.enableFinalValidation"
-              [ngClass]="{'btn-active': _evaluationService.enableEvaluation}"
-              [disabled]="!_evaluationService.enableEvaluation" type="submit">{{ 'pia.footer.ask_evaluation' | translate }}</button>
+              *ngIf="_globalEvaluationService.status === 1 || _globalEvaluationService.status === 2 || _globalEvaluationService.status === 3"
+              [ngClass]="{'btn-active': _globalEvaluationService.status === 2 || _globalEvaluationService.status === 3}"
+              [disabled]="_globalEvaluationService.status === 1" type="submit">{{ 'pia.footer.ask_evaluation' | translate }}</button>
       <button class="btn btn-green" (click)="validateEvaluation()"
-              *ngIf="_evaluationService.showValidationButton && !_evaluationService.enableFinalValidation && _sidStatusService.itemStatus[section.id + '.' + item.id] !== 3"
-              [ngClass]="{'btn-active': _globalEvaluationService.enableValidation}"
-              [disabled]="!_globalEvaluationService.enableValidation" type="submit">{{ 'pia.footer.validate_evaluation' | translate }}</button>
-      <button class="btn btn-pending-validation" disabled
-              *ngIf="_sidStatusService.itemStatus[section.id + '.' + item.id] === 3">
+              *ngIf="_globalEvaluationService.status === 5 || _globalEvaluationService.status === 6"
+              [ngClass]="{'btn-active': _globalEvaluationService.status === 6}"
+              [disabled]="_globalEvaluationService.status === 5" type="submit">{{ 'pia.footer.validate_evaluation' | translate }}</button>
+      <button class="btn btn-pending-validation"
+              disabled
+              *ngIf="_globalEvaluationService.status === 7">
         <i class="fa fa-check-square-o" aria-hidden="true"></i>
         {{ 'pia.footer.subsection_validated' | translate }}
       </button>
@@ -84,11 +89,9 @@
       <p>{{ 'pia.footer.mandatory_fields' | translate }}</p>
 
       <button class="btn pia-cancelBtn" (click)="cancelAskForEvaluation()"
-              *ngIf="_evaluationService.showValidationButton && !_globalEvaluationService.enableValidation"
-              [ngClass]="{'hide': !_evaluationService.showValidationButton}">Annuler la demande d'évaluation</button>
-
+              *ngIf="_globalEvaluationService.status === 4">Annuler la demande d'évaluation</button>
       <button class="btn pia-cancelBtn" (click)="cancelValidateEvaluation()"
-              *ngIf="_sidStatusService.itemStatus[section.id + '.' + item.id] === 3">Annuler la demande de validation</button>
+              *ngIf="_globalEvaluationService.status === 7">Annuler la demande de validation</button>
     </div>
 
     <div class="pia-entryContentBlock-footer-nav">

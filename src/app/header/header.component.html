@@ -76,7 +76,7 @@
                 <fieldset>
                   <legend><a routerLink="/settings">{{ 'header.tools.settings' | translate }}</a></legend>
                   <div>
-                    <input type="checkbox" name="pia-accessibility" id="pia-accessibility" [checked]="increaseContrast == 'true'" (change)="changeContrast($event)">
+                    <input type="checkbox" name="pia-accessibility" id="pia-accessibility" [checked]="increaseContrast === 'true'" (change)="changeContrast($event)">
                     <label for="pia-accessibility">{{ 'header.tools.accessibility' | translate }}</label>
                   </div>
                   <div>

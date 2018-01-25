@@ -41,7 +41,7 @@ export class EvaluationsComponent implements OnInit, AfterViewChecked, OnDestroy
 
   constructor(private el: ElementRef,
               private _evaluationService: EvaluationService,
-              private _globalEvaluationService: GlobalEvaluationService,
+              protected _globalEvaluationService: GlobalEvaluationService,
               private _ngZone: NgZone,
               private _knowledgeBaseService: KnowledgeBaseService,
               private _sidStatusService: SidStatusService,
@@ -145,7 +145,7 @@ export class EvaluationsComponent implements OnInit, AfterViewChecked, OnDestroy
         this.evaluationForm.controls['gaugeY'].patchValue(0);
       }
 
-      this._globalEvaluationService.checkForFinalValidation(this.pia, this.section, this.item);
+      // this._globalEvaluationService.checkForFinalValidation(this.pia, this.section, this.item);
     });
 
     if (this.item.questions) {
@@ -161,8 +161,8 @@ export class EvaluationsComponent implements OnInit, AfterViewChecked, OnDestroy
         });
       });
     }
-    this._evaluationService.setPia(this.pia); // Sometimes this._evaluationService.pia is empty
-    this._evaluationService.isAllEvaluationValidated();
+    // this._evaluationService.setPia(this.pia); // Sometimes this._evaluationService.pia is empty
+    // this._evaluationService.isAllEvaluationValidated();
   }
 
   autoTextareaResize(event: any, textarea: any) {
@@ -218,8 +218,9 @@ export class EvaluationsComponent implements OnInit, AfterViewChecked, OnDestroy
     this.evaluation.update().then(() => {
       // Pass the evaluation to the parent component
       this.evaluationEvent.emit(this.evaluation);
-      this._sidStatusService.setSidStatus(this._piaService, this.section, this.item);
-      this._globalEvaluationService.checkForFinalValidation(this.pia, this.section, this.item);
+      this._globalEvaluationService.validate();
+      // this._sidStatusService.setSidStatus(this._piaService, this.section, this.item);
+      // this._globalEvaluationService.checkForFinalValidation(this.pia, this.section, this.item);
     });
 
     // Displays content (action plan & comment fields).
@@ -231,7 +232,7 @@ export class EvaluationsComponent implements OnInit, AfterViewChecked, OnDestroy
    * Loads editor (if not final validation) on action plan comment focus.
    */
   actionPlanCommentFocusIn() {
-    if (!this.commentDisabled()) {
+    if (this._globalEvaluationService.evaluationEditionEnabled) {
       this._knowledgeBaseService.placeholder =  this._translateService.instant('evaluations.placeholder_improvable1');
       this.loadEditor('actionPlanComment', true);
     }
@@ -250,7 +251,8 @@ export class EvaluationsComponent implements OnInit, AfterViewChecked, OnDestroy
     this.evaluation.action_plan_comment = userText;
     this.evaluation.update().then(() => {
       this._ngZone.run(() => {
-        this._globalEvaluationService.checkForFinalValidation(this.pia, this.section, this.item);
+        this._globalEvaluationService.validate();
+        // this._globalEvaluationService.checkForFinalValidation(this.pia, this.section, this.item);
       });
     });
   }
@@ -259,7 +261,7 @@ export class EvaluationsComponent implements OnInit, AfterViewChecked, OnDestroy
    * Activates (or not) evaluation comment when focusing it.
    */
   evaluationCommentFocusIn() {
-    if (!this.commentDisabled()) {
+    if (this._globalEvaluationService.evaluationEditionEnabled) {
       this._knowledgeBaseService.placeholder = this.comment_placeholder;
       this.loadEditor('evaluationComment', true);
     }
@@ -279,7 +281,8 @@ export class EvaluationsComponent implements OnInit, AfterViewChecked, OnDestroy
     this.evaluation.evaluation_comment = userText;
     this.evaluation.update().then(() => {
       this._ngZone.run(() => {
-        this._globalEvaluationService.checkForFinalValidation(this.pia, this.section, this.item);
+        this._globalEvaluationService.validate();
+        // this._globalEvaluationService.checkForFinalValidation(this.pia, this.section, this.item);
       });
     });
   }
@@ -288,10 +291,10 @@ export class EvaluationsComponent implements OnInit, AfterViewChecked, OnDestroy
    * Enables 'x' gauge.
    */
   enableGaugeX() {
-    if (this._evaluationService.enableFinalValidation) {
-      this.evaluationForm.controls['gaugeX'].disable();
-    } else {
+    if (this._globalEvaluationService.evaluationEditionEnabled) {
       this.evaluationForm.controls['gaugeX'].enable();
+    } else {
+      this.evaluationForm.controls['gaugeX'].disable();
     }
   }
 
@@ -299,10 +302,10 @@ export class EvaluationsComponent implements OnInit, AfterViewChecked, OnDestroy
    * Enables 'y' gauge.
    */
   enableGaugeY() {
-    if (this._evaluationService.enableFinalValidation) {
-      this.evaluationForm.controls['gaugeY'].disable();
-    } else {
+    if (this._globalEvaluationService.evaluationEditionEnabled) {
       this.evaluationForm.controls['gaugeY'].enable();
+    } else {
+      this.evaluationForm.controls['gaugeY'].disable();
     }
   }
 
@@ -331,7 +334,8 @@ export class EvaluationsComponent implements OnInit, AfterViewChecked, OnDestroy
       this.evaluation.gauges['y'] = gaugeValueY;
     }
     this.evaluation.update().then(() => {
-      this._globalEvaluationService.checkForFinalValidation(this.pia, this.section, this.item);
+      this._globalEvaluationService.validate();
+      // this._globalEvaluationService.checkForFinalValidation(this.pia, this.section, this.item);
     });
   }
 
@@ -386,10 +390,4 @@ export class EvaluationsComponent implements OnInit, AfterViewChecked, OnDestroy
     tinymce.remove(this.editor);
     tinymce.remove(this.editorEvaluationComment);
   }
-
-  private commentDisabled() {
-    return (!this._evaluationService.showValidationButton && !this._evaluationService.enableFinalValidation)
-            || this._sidStatusService.itemStatus[this.section.id + '.' + this.item.id] === 3;
-  }
-
 }
