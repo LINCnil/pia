@@ -31,7 +31,7 @@
                     [theme]="'foundation-theme'"
                     [placeholder]="question.placeholder | translate"
                     [editable]="false"
-                    [disabled]="_evaluationService.showValidationButton || _evaluationService.enableFinalValidation"
+                    [disable]="!_globalEvaluationService.answerEditionEnabled"
                     [onlyFromAutocomplete]="true"
                     (focusin)="questionContentFocusIn()"
                     [secondaryPlaceholder]="question.placeholder | translate">
@@ -49,9 +49,9 @@
                     formControlName="list"
                     [theme]="'foundation-theme'"
                     [placeholder]="question.placeholder | translate"
-                    [editable]="true"
                     (focusin)="questionContentFocusIn()"
-                    [disabled]="_evaluationService.showValidationButton || _evaluationService.enableFinalValidation"
+                    [editable]="true"
+                    [disable]="!_globalEvaluationService.answerEditionEnabled"
                     [secondaryPlaceholder]="question.placeholder | translate">
           </tag-input>
         </ng-template>
@@ -79,6 +79,6 @@
   <app-comments *ngIf="answer && answer.id" [pia]="pia" [question]="question" [questionId]="question.id" [answer]="answer"></app-comments>
 
   <app-evaluations (evaluationEvent)="evaluationChange($event)"
-                   *ngIf="item.evaluation_mode === 'question' && (_evaluationService.showValidationButton || _evaluationService.enableFinalValidation || _evaluationService.someItemNeedToBeFixed)"
+                   *ngIf="item.evaluation_mode === 'question'"
                    [pia]="pia" [section]="section" [item]="item" [questionId]="question.id"></app-evaluations>
 </div>

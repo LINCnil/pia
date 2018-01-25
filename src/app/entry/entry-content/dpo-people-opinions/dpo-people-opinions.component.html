@@ -5,7 +5,7 @@
       <div>
         <h2>{{ 'opinions.dpo_opinion' | translate }}</h2>
       </div>
-      <ng-container *ngIf="_sidStatusService.enableDpoValidation; else disableDpoBLock">
+      <ng-container *ngIf="!disableDpoValidation; else disableDpoBLock">
         <form (click)="checkDpoName()" [formGroup]="DPOForm">
           <p>
             <span>
@@ -68,7 +68,7 @@
       <div>
         <h2>{{ 'opinions.people_opinion' | translate }}</h2>
       </div>
-      <ng-container *ngIf="_sidStatusService.enableDpoValidation; else disableConcernedPeopleBLock">
+      <ng-container *ngIf="!disableDpoValidation; else disableConcernedPeopleBLock">
 
         <!-- Opinions searched or not searched -->
         <form style="margin-top:16px;" [formGroup]="searchedOpinionsForm">
@@ -113,7 +113,7 @@
         <form style="margin-top:30px;" *ngIf="displayPeopleOpinions" (click)="checkConcernedPeopleName()" [formGroup]="peopleForm">
           <p>
             <span>
-              <ng-container *ngIf="_sidStatusService.enableDpoValidation && (!_piaService.pia.status || _piaService.pia.status < 2); else displayNames2">
+              <ng-container *ngIf="!_piaService.pia.status || _piaService.pia.status < 2; else displayNames2">
                 <div style="display:inline-block;" (click)="concernedPeopleNameFocusIn()">
                   <input #PeopleNames type="text" class="DPOName" (change)="concernedPeopleNameFocusOut()" formControlName="peopleNames" placeholder="{{ 'opinions.placeholder_concerned_people_name' | translate }}">
                 </div>

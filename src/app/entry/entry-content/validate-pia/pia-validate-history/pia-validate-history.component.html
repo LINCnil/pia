@@ -1,33 +1,33 @@
 <div *ngIf="showValidationHistory()" class="pia-validationHistoryBlock">
   <div class="pia-validationHistoryBlock-title">
-    <p>Historique de validation</p>
+    <p>{{ 'rejection_page.title' | translate }}</p>
     <div>
-      <button class="btn pia-historyBlock-btn" type="button" (click)="displayHistoryList()" title="Afficher / masquer"><span class="pia-icons pia-icon-accordeon-up"></span></button>
+      <button class="btn pia-historyBlock-btn" type="button" (click)="displayHistoryList()" title="{{ 'misc.display' | translate }}"><span class="pia-icons pia-icon-accordeon-up"></span></button>
     </div>
   </div>
   <div class="pia-validationHistoryBlock-content">
     <article>
-      <time>le {{_piaService.pia.updated_at | date: 'dd/MM/yyyy'}}</time>
-      <h4>Motif du refus</h4>
+      <time>{{_piaService.pia.updated_at | date: 'dd/MM/yyyy'}}</time>
+      <h4>{{ 'rejection_page.rejection_reason' | translate }}</h4>
       <p>{{_piaService.pia.rejected_reason}}</p>
-      <h4>Modifications apportées</h4>
+      <h4>{{ 'rejection_page.applied_adjustments' | translate }}</h4>
       <p>{{_piaService.pia.applied_adjustements}}</p>
     </article>
   </div>
 </div>
 <div *ngIf="showRejectionHistory()" class="pia-validationHistoryBlock-refuse">
   <div class="pia-validationHistoryBlock-refuse-title">
-    <p>Refus Précédent</p>
+    <p>{{ 'rejection_page.previous_rejection' | translate }}</p>
     <div>
-      <button class="btn pia-refuseBlock-btn " type="button" (click)="displayRefuseList()" title="Afficher / masquer"><span class="pia-icons pia-icon-accordeon-up"></span></button>
+      <button class="btn pia-refuseBlock-btn " type="button" (click)="displayRefuseList()" title="{{ 'misc.display' | translate }}"><span class="pia-icons pia-icon-accordeon-up"></span></button>
     </div>
   </div>
   <div class="pia-validationHistoryBlock-refuse-content">
     <article>
-      <time>le {{_piaService.pia.updated_at | date: 'dd/MM/yyyy'}}</time>
-      <h4>Motif du refus</h4>
+      <time>{{_piaService.pia.updated_at | date: 'dd/MM/yyyy'}}</time>
+      <h4>{{ 'rejection_page.rejection_reason' | translate }}</h4>
       <p>{{_piaService.pia.rejected_reason}}</p>
-      <h4>Modifications apportées</h4>
+      <h4>{{ 'rejection_page.applied_adjustments' | translate }}</h4>
       <p>{{_piaService.pia.applied_adjustements}}</p>
     </article>
   </div>

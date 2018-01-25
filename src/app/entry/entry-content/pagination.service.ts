@@ -13,7 +13,7 @@ export class PaginationService {
   setPagination(sectionId: number, itemId: number) {
     this.previousLink = [];
     this.nextLink = [];
-    this.hasPreviousLink = !(sectionId === 1 && itemId === 1);
+    this.hasPreviousLink = !(sectionId === 1 && itemId === 1) && !(sectionId === 4 && itemId === 4) && !(sectionId === 4 && itemId === 5);
     this.hasNextLink = !(sectionId === 4 && (itemId === 3 || itemId === 4 || itemId === 5));
 
     if (this.hasPreviousLink) {

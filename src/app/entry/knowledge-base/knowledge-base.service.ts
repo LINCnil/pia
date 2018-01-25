@@ -84,6 +84,16 @@ export class KnowledgeBaseService {
     }
   }
 
+  removeItemIfPresent(newItemTitle: string, previousItemTitle: string) {
+    if (!this.toHide.includes(newItemTitle)) {
+      this.toHide.push(newItemTitle);
+      if (this.toHide.includes(previousItemTitle)) {
+        const index = this.toHide.indexOf(previousItemTitle);
+        this.toHide.splice(index, 1);
+      }
+    }
+  }
+
   private specificSearch() {
     if (this.q && this.q.length > 0) {
       const re = new RegExp(this.q, 'i');

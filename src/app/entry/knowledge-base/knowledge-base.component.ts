@@ -18,7 +18,7 @@ export class KnowledgeBaseComponent implements OnInit {
   @Output() newMeasureEvent: EventEmitter<any> = new EventEmitter<any>();
 
   constructor(private _measureService: MeasureService,
-              private _knowledgeBaseService: KnowledgeBaseService,
+              protected _knowledgeBaseService: KnowledgeBaseService,
               private el: ElementRef,
               private _translateService: TranslateService,
               private _piaService: PiaService) { }

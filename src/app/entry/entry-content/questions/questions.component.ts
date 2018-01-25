@@ -9,6 +9,7 @@ import { Measure } from '../measures/measure.model';
 import { EvaluationService } from 'app/entry/entry-content/evaluations/evaluations.service';
 import { ModalsService } from 'app/modals/modals.service';
 import { Evaluation } from 'app/entry/entry-content/evaluations/evaluation.model';
+import {GlobalEvaluationService} from '../../../services/global-evaluation.service';
 
 @Component({
   selector: 'app-questions',
@@ -35,9 +36,12 @@ export class QuestionsComponent implements OnInit, OnDestroy {
               private _evaluationService: EvaluationService,
               private _modalsService: ModalsService,
               private _ngZone: NgZone,
+              protected _globalEvaluationService: GlobalEvaluationService,
               private renderer: Renderer2) { }
 
   ngOnInit() {
+    this._globalEvaluationService.answerEditionEnabled = true;
+    // this._evaluationService.showValidationButton = false;
     this.elementId = 'pia-question-content-' + this.question.id;
     this.questionForm = new FormGroup({
       gauge: new FormControl(0),
@@ -84,10 +88,10 @@ export class QuestionsComponent implements OnInit, OnDestroy {
   }
 
   enableGauge() {
-    if (this._evaluationService.showValidationButton || this._evaluationService.enableFinalValidation) {
-      this.questionForm.controls['gauge'].disable();
-    } else {
+    if (this._globalEvaluationService.answerEditionEnabled) {
       this.questionForm.controls['gauge'].enable();
+    } else {
+      this.questionForm.controls['gauge'].disable();
     }
   }
 
@@ -103,14 +107,14 @@ export class QuestionsComponent implements OnInit, OnDestroy {
     if (this.answer.id) {
       this.answer.data = { text: this.answer.data.text, gauge: gaugeValue, list: this.answer.data.list };
       this.answer.update().then(() => {
-        this._evaluationService.allowEvaluation();
+        // this._evaluationService.allowEvaluation();
       });
     } else {
       this.answer.pia_id = this.pia.id;
       this.answer.reference_to = this.question.id;
       this.answer.data = { text: null, gauge: gaugeValue, list: [] };
       this.answer.create().then(() => {
-        this._evaluationService.allowEvaluation();
+        // this._evaluationService.allowEvaluation();
       });
     }
   }
@@ -119,13 +123,9 @@ export class QuestionsComponent implements OnInit, OnDestroy {
    * Loads WYSIWYG editor.
    */
   questionContentFocusIn() {
-    setTimeout(() => {
-      if (this._evaluationService.showValidationButton || this._evaluationService.enableFinalValidation) {
-        return false;
-      } else {
-        this.loadEditor();
-      }
-    }, 1);
+    if (this._globalEvaluationService.answerEditionEnabled) {
+      this.loadEditor();
+    }
   }
 
   /**
@@ -140,7 +140,8 @@ export class QuestionsComponent implements OnInit, OnDestroy {
       this.answer.data = { text: userText, gauge: this.answer.data.gauge, list: this.answer.data.list };
       this.answer.update().then(() => {
         this._ngZone.run(() => {
-          this._evaluationService.allowEvaluation();
+          this._globalEvaluationService.validate();
+          // this._evaluationService.allowEvaluation();
         });
       });
     } else if (!this.answer.id && userText !== '') {
@@ -150,7 +151,8 @@ export class QuestionsComponent implements OnInit, OnDestroy {
         this.answer.data = { text: this.questionForm.value.text, gauge: 0, list: [] };
         this.answer.create().then(() => {
           this._ngZone.run(() => {
-            this._evaluationService.allowEvaluation();
+            this._globalEvaluationService.validate();
+            // this._evaluationService.allowEvaluation();
           });
         });
       }
@@ -247,14 +249,14 @@ export class QuestionsComponent implements OnInit, OnDestroy {
     if (this.answer.id) {
       this.answer.data = { text: this.answer.data.text, gauge: this.answer.data.gauge, list: list };
       this.answer.update().then(() => {
-        this._evaluationService.allowEvaluation();
+        // this._evaluationService.allowEvaluation();
       });
     } else {
       this.answer.pia_id = this.pia.id;
       this.answer.reference_to = this.question.id;
       this.answer.data = { text: null, gauge: null, list: list };
       this.answer.create().then(() => {
-        this._evaluationService.allowEvaluation();
+        // this._evaluationService.allowEvaluation();
       });
     }
   }

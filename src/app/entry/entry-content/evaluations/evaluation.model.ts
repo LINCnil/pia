@@ -3,14 +3,13 @@ import { ApplicationDb } from '../../../application.db';
 export class Evaluation extends ApplicationDb {
   public id: number;
   public status = 0; // 0: pending, 1: toBeFixed, 2: improvable, 3: acceptable
-  public reference_to: string;
   public action_plan_comment: string;
   public evaluation_comment: string;
   public evaluation_date: Date;
   public gauges: {x: number, y: number};
   public estimated_implementation_date: Date;
   public person_in_charge: string;
-  public global_status = 0; // 0: pending, 1: Validate
+  public global_status = 0; // 0: No evaluation, 1: Evaluation started, 2: Evaluation completed
 
   constructor() {
     super(201707071818, 'evaluation');
@@ -248,7 +247,7 @@ export class Evaluation extends ApplicationDb {
     });
   }
 
-  async globalStatusByReference(pia_id: number, reference_to: any) {
+  async globalStatusByReference(pia_id: number, reference_to: any, global_status: number) {
     this.pia_id = pia_id;
     return new Promise((resolve, reject) => {
       if (this.serverUrl) {
@@ -256,11 +255,7 @@ export class Evaluation extends ApplicationDb {
           return response.json();
         }).then((result: any) => {
           if (result) {
-            if (result.global_status === 1) {
-              resolve(true);
-            } else {
-              resolve(false);
-            }
+            resolve((result.global_status === global_status));
           } else {
             resolve(false);
           }
@@ -273,11 +268,7 @@ export class Evaluation extends ApplicationDb {
           index1.get(IDBKeyRange.only([this.pia_id, reference_to])).onsuccess = (event: any) => {
             const entry = event.target.result;
             if (entry) {
-              if (entry.global_status === 1) {
-                resolve(true);
-              } else {
-                resolve(false);
-              }
+              resolve((entry.global_status === global_status));
             } else {
               resolve(false);
             }

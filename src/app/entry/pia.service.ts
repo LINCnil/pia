@@ -39,7 +39,7 @@ export class PiaService {
     return new Promise((resolve, reject) => {
       const piaId = parseInt(this.route.snapshot.params['id'], 10);
       this.pia.get(piaId).then(() => {
-        this._evaluationService.setPia(this.pia);
+        // this._evaluationService.setPia(this.pia);
         resolve();
       });
     });
@@ -68,18 +68,26 @@ export class PiaService {
 
   async cancelAllValidatedEvaluation() {
     return new Promise((resolve, reject) => {
+      let count = 0;
       let evaluation = new Evaluation();
       evaluation.pia_id = this._evaluationService.pia.id;
       evaluation.findAll().then((entries: any) => {
-        entries.forEach(element => {
-          evaluation = new Evaluation();
-          evaluation.get(element.id).then((entry: any) => {
-            /* TODO : entry.status = 0; */
-            entry.global_status = 0;
-            entry.update();
+        if (entries && entries.length > 0) {
+          entries.forEach(element => {
+            evaluation = new Evaluation();
+            evaluation.get(element.id).then((entry: any) => {
+              entry.global_status = 0;
+              entry.update().then(() => {
+                count++;
+                if (count === entries.length) {
+                  resolve();
+                }
+              });
+            });
           });
-        });
-        resolve();
+        } else {
+          resolve();
+        }
       });
     });
   }
@@ -158,10 +166,16 @@ export class PiaService {
     pia.created_at = data.pia.created_at;
     pia.dpos_names = data.pia.dpos_names;
     pia.people_names = data.pia.people_names;
-    pia.status = data.pia.status;
-    pia.created_at = new Date(data.pia.created_at);
-    if (data.pia.updated_at) {
-      pia.updated_at = new Date(data.pia.updated_at);
+    if (is_duplicate) {
+      pia.status = 0;
+      pia.created_at = new Date();
+      pia.updated_at = null;
+    } else {
+      pia.status = data.pia.status;
+      pia.created_at = new Date(data.pia.created_at);
+      if (data.pia.updated_at) {
+        pia.updated_at = new Date(data.pia.updated_at);
+      }
     }
     pia.create().then((pia_id: number) => {
       pia.id = pia_id;

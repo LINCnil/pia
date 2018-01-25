@@ -667,7 +667,7 @@
         {
           "id": 4,
           "hide": true,
-          "title": "Valider le PIA",
+          "title": "sections.4.items.4.title",
           "evaluation_mode": "",
           "link_knowledge_base": "",
           "short_help": ""
@@ -675,7 +675,7 @@
         {
           "id": 5,
           "hide": true,
-          "title": "PIA refusé",
+          "title": "sections.4.items.5.title",
           "evaluation_mode": "",
           "link_knowledge_base": "",
           "short_help": ""

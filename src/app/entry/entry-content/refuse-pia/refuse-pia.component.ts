@@ -6,6 +6,8 @@ import { Evaluation } from 'app/entry/entry-content/evaluations/evaluation.model
 
 import { ModalsService } from 'app/modals/modals.service';
 import { PiaService } from 'app/entry/pia.service';
+import { SidStatusService } from 'app/services/sid-status.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-refuse-pia',
@@ -23,7 +25,9 @@ export class RefusePIAComponent implements OnInit {
   constructor(private router: Router,
               private el: ElementRef,
               private _modalsService: ModalsService,
-              private _piaService: PiaService) { }
+              private _sidStatusService: SidStatusService,
+              private _translateService: TranslateService,
+              protected _piaService: PiaService) { }
 
   ngOnInit() {
     this.rejectionReasonForm = new FormGroup({
@@ -78,8 +82,10 @@ export class RefusePIAComponent implements OnInit {
     this._piaService.pia.status = 1;
     this._piaService.pia.update().then(() => {
       this._piaService.cancelAllValidatedEvaluation().then(() => {
-        this.router.navigate(['entry', this._piaService.pia.id, 'section', 1, 'item', 1]);
-        this._modalsService.openModal('modal-refuse-pia');
+        this._sidStatusService.refusePia(this._piaService).then(() => {
+          this.router.navigate(['entry', this._piaService.pia.id, 'section', 1, 'item', 1]);
+          this._modalsService.openModal('modal-refuse-pia');
+        });
       });
     });
   }

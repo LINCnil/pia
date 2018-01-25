@@ -120,7 +120,19 @@
     "sections": {
       "homepage_link": "Retourner à l'accueil",
       "validate_pia": "Valider le PIA",
-      "refuse_pia": "PIA refusé"
+      "refuse_pia": "PIA refusé",
+      "status": {
+        "evaluation": {
+          "title": "En attente d'évaluation",
+          "content": "L'évaluation de cette partie n'a pas encore commencé. Si vous souhaitez modifier les contenus en mode édition, il faut",
+          "cancel": "annuler la demande d'évaluation."
+        },
+        "validation": {
+          "title": "En attente de validation",
+          "content": "L'évaluation de cette partie est terminée et en attente de validation finale de l'analyse. Si vous souhaitez modifier les évaluations, il faut",
+          "cancel": "annuler la demande de validation."
+        }
+      }
     },
     "footer": {
       "ask_evaluation": "Demander l'évaluation",
@@ -697,7 +709,8 @@
     "comments_count": "commentaire(s)",
     "new_comment": "Commenter",
     "placeholder_new_comment": "Laissez un commentaire",
-    "comment": "Commentaire"
+    "comment": "Commentaire",
+    "send": "Envoyer"
   },
   "questions": {
     "edit": "Éditer la question",
@@ -712,14 +725,14 @@
   "evaluations": {
     "title": "Évaluation",
     "to_correct": "À corriger",
-    "placeholder_to_correct": "Les informations fournies ne sont pas suffisantes pour pouvoir les évaluer. Renvoyer en édition pour enrichir la proposition initiale.",
     "improvable": "Améliorable",
-    "placeholder_improvable": "En vue des informations fournies, des mesures additionnelles sont à ajouter afin d’améliorer la protection des données du traitement.",
     "acceptable": "Acceptable",
-    "placeholder_acceptable": "En vue des informations fournies, les mesures mises en œuvre sont suffisantes pour répondre aux exigences de protections des données.",
     "evaluation_comment": "Commentaire d'évaluation",
     "action_plan_comment": "Plan d'action / mesures correctives",
-    "placeholder_comment": "Entrez vos commentaires.",
+    "placeholder_to_correct": "Entrez vos commentaires pour expliquer pourquoi les informations fournies ne sont pas suffisantes pour pouvoir les évaluer. Cette partie sera renvoyée en édition pour enrichir la proposition initiale.",
+    "placeholder_improvable1": "Entrez vos commentaires pour expliquer quelles mesures additionnelles sont à ajouter afin d'améliorer la protection des données du traitement.",
+    "placeholder_improvable2": "Entrez vos commentaires.",
+    "placeholder_acceptable": "Entrer vos commentaires pour expliquer en quoi les mesures mises en œuvre sont suffisantes pour répondre aux exigences de protections des données.",
     "gauges": {
       "seriousness": "Prenant en compte le plan d'action, comment ré-évaluez-vous la <span class='red-highlight'>gravité de ce risque</span> ({{value}}) ?",
       "likelihood": "Prenant en compte le plan d'action, comment ré-évaluez-vous la <span class='red-highlight'>vraisemblance de ce risque</span> ({{value}}) ?",
@@ -781,12 +794,51 @@
     "title": "A propos de l'Outil PIA",
     "version_number": "Numéro de version",
     "description": "Cet outil est originellement conçu par la <a target=\"_blank\" href=\"https://www.cnil.fr\">Commission Nationale Informatique et Liberté (CNIL)</a>, l’autorité de protection des données française, dans une volonté d’accompagnement des responsables de traitement dans leur démarche de conformité au RGPD.<br>Cet outil est libre et ouvert, sous licence GPLv3. Vous pouvez y contribuer en téléchargeant le code source, en le modifiant et en le redistribuant auprès de la communauté.",
+    "translators": "L’outil est actuellement disponible en cinq langues. Les versions française et anglaise sont fournies par la CNIL. Les autres versions sont le résultat des contributions des personnes suivantes :",
+    "translators_name": "<ul><li>Néerlandais : Ruud van Driel, Manuel d’Orso ;</li><li>Tchèque : Jiří Grohmann, Manuel d’Orso ;</li><li>Italien : Manuel d’Orso, Gianluca Markos.</li></ul>",
+    "contribute": "Si vous souhaitez contribuer à votre tour à la traduction de l’outil ou à l’amélioration de celles déjà proposées, nous vous invitons à <a href=\"https://github.com/LINCnil/pia/tree/master/src/assets/i18n\" target=\"_blank\">lire la page décrivant les étapes à suivre</a>.",
     "licences": "Licences des librairies :"
   },
   "settings": {
     "title": "Paramètres",
     "content": "S'il vous plaît, veuillez fournir l'adresse (URL) du serveur distant :",
     "update": "Mettre à jour l'URL"
+  },
+  "validation_page": {
+    "responsible": "Responsable de la validation du PIA : ",
+    "after_reading": "Après lecture intégrale du PIA concernant le traitement des données liées à l'activité de : ",
+    "confirmation1": "Je confirme que la description du contexte de mon traitement est conforme à la réalité.",
+    "confirmation2": "Je confirme avoir pris connaissance des risques existants en fonction des mesures actuellement mises en oeuvre ou prévues.",
+    "confirmation3": "Je valide les mesures correctives indiquées.",
+    "confirmation4": "Je m'engage à mettre en oeuvre dans les plus brefs délais les mesures correctives indiquées.",
+    "button": {
+      "rejection": "Refuser la validation",
+      "simple_validation": "Validation simple",
+      "signed_validation": "Faire signer le PIA par le responsable"
+    },
+    "mandatory_fields": "Tous les champs doivent être cochés",
+    "waiting_for_signature": "En attente de la signature du rapport PIA",
+    "validated_pia_with_signature": "Validé",
+    "add_signed_pia": "Ajouter le rapport PIA signé",
+    "remove_attachment": "Supprimer",
+    "tools": {
+      "dashboard": "Accueil",
+      "display_pia": "Afficher le PIA",
+      "action_plan": "Plan d'action"
+    }
+  },
+  "rejection_page": {
+    "title": "Historique de validation",
+    "rejection_reason": "Motif du refus",
+    "rejection_reason_placeholder": "Décrivez les motifs de refus de validation du PIA.",
+    "applied_adjustments": "Modifications apportées",
+    "applied_adjustments_placeholder": "Décrivez les modifications apportées au PIA.",
+    "previous_rejection": "Refus précédent",
+    "button": {
+      "abandon_treatment": "Abandonner le traitement",
+      "reject_pia": "Refuser le PIA",
+      "send_for_validation": "Renvoyer pour validation"
+    }
   },
   "misc": {
     "display": "Afficher / Masquer"
@@ -850,14 +902,16 @@
   "summary": {
     "previous_page": "Retour à la page précédente",
     "print": "Imprimer",
+    "display_pia": "Afficher le PIA",
+    "display_action_plan": "Afficher le<br>plan d'action",
     "title": "Informations du PIA",
     "pia_name": "Nom du PIA",
     "pia_author": "Nom de l'auteur",
     "pia_assessor": "Nom de l'évaluateur",
     "pia_validator": "Nom du validateur",
     "content_choice":  {
-      "0": "Le traitement pourrait être mis en oeuvre.",
-      "1": "Le traitement ne devrait pas être mis en oeuvre."
+      "0": "Le traitement ne devrait pas être mis en oeuvre.",
+      "1": "Le traitement pourrait être mis en oeuvre."
     },
     "dpo_name": "Nom du DPD",
     "dpo_status": "Statut du DPD",
@@ -1025,7 +1079,7 @@
               "placeholder": "Décrivez l'information qu'il est prévu d'apporter aux personnes concernées et les moyens choisis pour cette information."
             },
             "2": {
-              "title": "Comment le consentement des personnes concernées est-il obtenu ?",
+              "title": "Si applicable, comment le consentement des personnes concernées est-il obtenu ?",
               "short_title": "Recueil du consentement",
               "placeholder": "Décrivez les modalités prévues pour obtenir le consentement des personnes concernées."
             },
@@ -1172,11 +1226,17 @@
         },
         "2": {
           "title": "Plan d'action",
-          "short_help": "Planifiez en détail la mise en œuvre des mesures complémentaires déterminées au cours du PIA."
+          "short_help": "Planifiez en détail la mise en œuvre des mesures complémentaires déterminées au cours du PIA. Cette partie est automatiquement mise à jour en fonction des évaluations faites de chaque élément composant l'analyse d'impact."
         },
         "3": {
           "title": "Avis du DPD et des personnes concernées",
           "short_help": "Présentez le conseil de la personne en charge des aspects informatique et libertés (délégué à la protection des données s'il existe). Présentez l'avis des personnes concernées ou de leurs représentants."
+        },
+        "4": {
+          "title": "Valider le PIA"
+        },
+        "5": {
+          "title": "PIA refusé"
         }
       }
     }
