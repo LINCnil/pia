@@ -22,12 +22,10 @@ export class SectionsComponent implements OnInit {
   @Input() section: { id: number, title: string, short_help: string, items: any };
   @Input() item: { id: number, title: string, evaluation_mode: string, short_help: string, questions: any };
   data: { sections: any };
-  enablePiaValidation = false;
-  piaIsRefused = false;
 
-  constructor(private _piaService: PiaService,
+  constructor(protected _piaService: PiaService,
               private _appDataService: AppDataService,
-              private _sidStatusService: SidStatusService,
+              protected _sidStatusService: SidStatusService,
               private _globalEvaluationService: GlobalEvaluationService,
               private _evaluationService: EvaluationService) {
   }
