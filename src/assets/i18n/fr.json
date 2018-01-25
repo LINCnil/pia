@@ -15,8 +15,12 @@
     "pia_example_link": "Exemple de PIA",
     "languages": {
       "fr": "Français",
-      "en": "Anglais",
-      "de": "Allemand"
+      "en": "English",
+      "cs": "Česky",
+      "it": "Italiaans",
+      "nl": "Nederlands",
+      "pl": "Polski",
+      "de": "Deutsch"
     },
     "tools": {
       "title": "Outils",
