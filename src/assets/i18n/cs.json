@@ -14,10 +14,6 @@
     "knowledge_base_link": "Znalostní báze",
     "pia_example_link": "PIA příklad",
     "languages": {
-<<<<<<< HEAD
-      "fr": "Francouzky",
-      "en": "Anglicky",
-      "cs": "Česky"
 =======
       "official_translations": "Oficiální překlady",
       "unofficial_translations": "Neoficiální překlady",
@@ -26,8 +22,8 @@
       "cs": "Česky",
       "it": "Italiaans",
       "nl": "Nederlands",
-      "pl": "Polski"
->>>>>>> remotes/origin-cnil/master
+      "pl": "Polski",
+      "de": "Deutsch"
     },
     "tools": {
       "title": "Nástroje",

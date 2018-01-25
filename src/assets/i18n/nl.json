@@ -14,15 +14,11 @@
     "knowledge_base_link": "Knowledge base",
     "pia_example_link": "PIA voorbeeld",
     "languages": {
-<<<<<<< HEAD
-      "fr": "French",
-=======
       "official_translations": "Officiële vertalingen",
       "unofficial_translations": "Niet-officiële vertalingen",
       "fr": "Français",
->>>>>>> remotes/origin-cnil/master
       "en": "English",
-	    "nl": "Nederlands"
+	  "nl": "Nederlands"
     },
     "tools": {
       "title": "Tools",

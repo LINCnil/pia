@@ -21,12 +21,6 @@
                   {{ 'header.languages.en' | translate }}
                 </a>
               </li>
-<<<<<<< HEAD
-              <li [ngClass]="{'is_active': selectedLanguage === 'de'}"
-                  (click)="updateCurrentLanguage('de')">
-                <a (click)="_translateService.use('de')">
-                  {{ 'header.languages.de' | translate }}
-=======
               <li class="unofficialTranslations">{{ 'header.languages.unofficial_translations' | translate }}</li>
               <li [ngClass]="{'is_active': selectedLanguage === 'it'}"
                   (click)="updateCurrentLanguage('it')">
@@ -50,7 +44,12 @@
                   (click)="updateCurrentLanguage('pl')">
                 <a (click)="_translateService.use('pl')">
                   {{ 'header.languages.pl' | translate }}
->>>>>>> remotes/origin-cnil/master
+                </a>
+              </li>
+              <li [ngClass]="{'is_active': selectedLanguage === 'de'}"
+                  (click)="updateCurrentLanguage('de')">
+                <a (click)="_translateService.use('de')">
+                  {{ 'header.languages.de' | translate }}
                 </a>
               </li>
             </ul>

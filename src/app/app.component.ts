@@ -32,19 +32,14 @@ export class AppComponent {
     }
 
     // Translations system
-    this._translateService.addLangs(['en', 'cs', 'it', 'nl', 'fr', 'pl']);
+    this._translateService.addLangs(['en', 'cs', 'it', 'nl', 'fr', 'pl', 'de']);
     this._translateService.setDefaultLang('fr');
     const language = localStorage.getItem('userLanguage');
     if (language && language.length > 0) {
       this._translateService.use(language);
     } else {
       const browserLang = this._translateService.getBrowserLang();
-<<<<<<< HEAD
-      /* browerLang = 'en' even when FR ? Weird */
-      this._translateService.use(browserLang.match(/en|fr|de/) ? browserLang : 'fr');
-=======
-      this._translateService.use(browserLang.match(/en|cs|it|nl|fr|pl/) ? browserLang : 'fr');
->>>>>>> remotes/origin-cnil/master
+      this._translateService.use(browserLang.match(/en|cs|it|nl|fr|pl|de/) ? browserLang : 'fr');
     }
   }
 }

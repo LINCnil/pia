@@ -14,13 +14,9 @@
     "knowledge_base_link": "Knowledge base",
     "pia_example_link": "PIA example",
     "languages": {
-<<<<<<< HEAD
-      "fr": "French",
-=======
       "official_translations": "Official translations",
       "unofficial_translations": "Unofficial translations",
       "fr": "Français",
->>>>>>> remotes/origin-cnil/master
       "en": "English",
       "de": "German"
     },

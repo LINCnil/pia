@@ -14,8 +14,14 @@
     "knowledge_base_link": "Wissensbasis",
     "pia_example_link": "Beispiel DSFA",
     "languages": {
-      "fr": "Französisch",
-      "en": "Englisch",
+      "official_translations": "To be translated",
+      "unofficial_translations": "To be translated",
+      "fr": "Français",
+      "en": "English",
+      "cs": "Česky",
+      "it": "Italiaans",
+      "nl": "Nederlands",
+      "pl": "Polski",
       "de": "Deutsch"
     },
     "tools": {

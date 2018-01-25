@@ -14,10 +14,6 @@
     "knowledge_base_link": "Baza wiedzy",
     "pia_example_link": "Przykład PIA",
     "languages": {
-<<<<<<< HEAD
-      "fr": "French",
-      "en": "English"
-=======
       "official_translations": "To be translated",
       "unofficial_translations": "To be translated",
       "fr": "Français",
@@ -26,7 +22,6 @@
       "it": "Italiaans",
       "nl": "Nederlands",
       "pl": "Polski"
->>>>>>> remotes/origin-cnil/master
     },
     "tools": {
       "title": "Narzędzia",
