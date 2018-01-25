@@ -40,6 +40,12 @@
                   {{ 'header.languages.cs' | translate }}
                 </a>
               </li>
+              <li [ngClass]="{'is_active': selectedLanguage === 'pl'}"
+                  (click)="updateCurrentLanguage('pl')">
+                <a (click)="_translateService.use('pl')">
+                  {{ 'header.languages.pl' | translate }}
+                </a>
+              </li>
             </ul>
           </li>
         </ul>
