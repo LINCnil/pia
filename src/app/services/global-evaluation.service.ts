@@ -24,7 +24,6 @@ export class GlobalEvaluationService {
   public behaviorSubject = new BehaviorSubject<Object>({});
 
   async validate(callSubject = true) {
-    this.status = 0;
     this.reference_to = this.section.id + '.' + this.item.id;
     return new Promise(async (resolve, reject) => {
       if (this.item.evaluation_mode === 'item' || this.item.evaluation_mode === 'question') {
@@ -45,6 +44,8 @@ export class GlobalEvaluationService {
           reference_to: this.reference_to,
           status: this.status
         });
+      } else {
+        this.status = 0;
       }
       resolve({ reference_to: this.reference_to, status: this.status });
     });
@@ -168,10 +169,6 @@ export class GlobalEvaluationService {
     let dpoFilled = false;
     let concernedPeopleOpinionSearchedFieldsFilled = false;
     let concernedPeopleOpinionUnsearchedFieldsFilled = false;
-
-    // Edition enabled
-    this.status = 0;
-
     // All DPO fields filled = OK
     if (this.pia.dpos_names && this.pia.dpos_names.length > 0 && (this.pia.dpo_status === 0 || this.pia.dpo_status === 1)
         && this.pia.dpo_opinion && this.pia.dpo_opinion.length > 0) {
@@ -207,6 +204,7 @@ export class GlobalEvaluationService {
     } else {
       this.enablePiaValidation = false;
       this.piaIsRefused = false;
+      this.status = 0;
     }
   }
 
@@ -311,6 +309,8 @@ export class GlobalEvaluationService {
       }
     } else if (this.answersOrMeasures.length > 0) {
       this.status = 1;
+    } else {
+      this.status = 0;
     }
   }
 

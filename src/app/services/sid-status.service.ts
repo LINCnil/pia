@@ -32,7 +32,9 @@ export class SidStatusService {
     this.piaIsRefused = false;
     this.enableDpoValidation = false;
     this._globalEvaluationService.behaviorSubject.subscribe((obj: { reference_to: string, status: number }) => {
-      this.itemStatus[obj.reference_to] = obj.status;
+      if (obj.reference_to && obj.status > 0) {
+        this.itemStatus[obj.reference_to] = obj.status;
+      }
     });
   }
 

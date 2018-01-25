@@ -117,7 +117,6 @@ export class DPOPeopleOpinionsComponent implements OnInit {
         this.disableDpoValidation = true;
       }
     }
-    // this._sidStatusService.setSidStatus(this._piaService, { id: 4 }, { id: 3 });
   }
 
   /* DPO methods */
