@@ -30,17 +30,18 @@ export class ActionPlanImplementationComponent implements OnInit {
     if (this.data.evaluation) {
       this.evaluation = this.data.evaluation;
       const date = this.evaluation.estimated_implementation_date;
-      if (date) {
-        // TODO : recheck this code... seems buggy.
+      if (date.toString() !== 'Invalid Date') {
         const month = (date.getMonth() + 1).toString();
         const finalMonth = (month.length === 1 ? '0' : '' ) + month;
         const finalDate =  date.getFullYear() + '-' + finalMonth + '-' + date.getDate();
         this.actionPlanForm.controls['estimatedEvaluationDate'].patchValue(finalDate);
-        this.actionPlanForm.controls['estimatedEvaluationDate'].disable();
+        // TODO Unable to FocusIn with Firefox
+        // this.actionPlanForm.controls['estimatedEvaluationDate'].disable();
       }
       if (this.evaluation.person_in_charge && this.evaluation.person_in_charge.length > 0) {
         this.actionPlanForm.controls['personInCharge'].patchValue(this.evaluation.person_in_charge);
-        this.actionPlanForm.controls['personInCharge'].disable();
+        // TODO Unable to FocusIn with Firefox
+        // this.actionPlanForm.controls['personInCharge'].disable();
       }
     }
   }
@@ -62,10 +63,11 @@ export class ActionPlanImplementationComponent implements OnInit {
    */
   estimatedEvaluationDateFocusOut() {
     const userText = this.actionPlanForm.controls['estimatedEvaluationDate'].value;
-    this.evaluation.estimated_implementation_date = userText;
+    this.evaluation.estimated_implementation_date = new Date(userText);
     this.evaluation.update().then(() => {
       if (userText && userText.length > 0) {
-        this.actionPlanForm.controls['estimatedEvaluationDate'].disable();
+        // TODO Unable to FocusIn with Firefox
+        // this.actionPlanForm.controls['estimatedEvaluationDate'].disable();
       }
     });
   }
@@ -93,7 +95,8 @@ export class ActionPlanImplementationComponent implements OnInit {
     this.evaluation.person_in_charge = userText;
     this.evaluation.update().then(() => {
       if (userText && userText.length > 0) {
-        this.actionPlanForm.controls['personInCharge'].disable();
+        // TODO Unable to FocusIn with Firefox
+        // this.actionPlanForm.controls['personInCharge'].disable();
       }
     });
   }

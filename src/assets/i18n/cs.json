@@ -14,8 +14,8 @@
     "knowledge_base_link": "Znalostní báze",
     "pia_example_link": "PIA příklad",
     "languages": {
-      "official_translations": "Traductions officielles",
-      "unofficial_translations": "Traductions non-officielles",
+      "official_translations": "Oficiální překlady",
+      "unofficial_translations": "Neoficiální překlady",
       "fr": "Français",
       "en": "English",
       "cs": "Česky",
@@ -46,7 +46,7 @@
       "new_pia": "Nová PIA",
       "import_pia": "Importovat PIA",
       "list_rocket_content": "Začínáme! Chcete-li zahájit PIA, klikněte na tlačítko +",
-      "card_rocket_content": "Začínáme! <br><br>Chcete-li iniciovat PIA, klikněte na Nová PIA"
+      "card_rocket_content": "Začínáme! <br><br>Chcete-li iniciovat PIA,<br> klikněte na Nová PIA"
     },
     "cards": {
      "new_pia": "Nová PIA",
@@ -125,7 +125,19 @@
     "sections": {
       "homepage_link": "Zpět na Hlavní panel",
       "validate_pia": "Ověřit PIA",
-      "refuse_pia": "Odmítnutá PIA"
+      "refuse_pia": "Odmítnutá PIA",
+      "status": {
+        "evaluation": {
+          "title": "",
+          "content": "",
+          "cancel": ""
+        },
+        "validation": {
+          "title": "",
+          "content": "",
+          "cancel": ""
+        }
+      }
     },
     "footer": {
       "ask_evaluation": "Požádat o kontrolu",
@@ -711,7 +723,8 @@
     "comments_count": "komentář(e)",
     "new_comment": "Komentář",
     "placeholder_new_comment": "Zanechat komentář",
-    "comment": "Komentář"
+    "comment": "Komentář",
+    "send": "Send"
   },
   "questions": {
     "edit": "Upravit otázku",
@@ -726,14 +739,14 @@
   "evaluations": {
     "title": "Hodnocení",
     "to_correct": "Opravit",
-    "placeholder_to_correct": "Překlad probíhá",
     "improvable": "Vylepšitelné",
-    "placeholder_improvable": "Překlad probíhá",
     "acceptable": "Přijatelné",
-    "placeholder_acceptable": "Překlad probíhá",
     "evaluation_comment": "Komentář k hodnocení",
     "action_plan_comment": "Akční plán/Nápravná opatření",
-    "placeholder_comment": "Zadejte své komentáře.",
+    "placeholder_to_correct": "to be translated",
+    "placeholder_improvable1": "to be translated",
+    "placeholder_improvable2": "to be translated",
+    "placeholder_acceptable": "to be translated",
     "gauges": {
       "seriousness": "Pokud vezmeme v úvahu akční plán, jak přehodnotit <span class='red-highlight'>závažnost tohoto rizika </span> ({{value}})?",
       "likelihood": "Pokud vezmeme v úvahu akční plán, jak přehodnotíte <span class='red-highlight'>pravděpodobnost tohoto rizika </span> ({{value}})?",
@@ -795,15 +808,51 @@
     "title": "O nástroji PIA",
     "version_number": "Číslo verze",
     "description": "This tool is originally designed by the <a target=\"_blank\" href=\"https://www.cnil.fr\">Commission Nationale Informatique et Liberté (CNIL)</a>, the French Data Protection Authority, to help data processor to be compliant with the GDPR.<br>This software is free and open. If you wish to get involved in this project, you are welcome to download the source code from Github, modify it and share it with the community.",
+    "translators": "The PIA software is currently available in five languages. The French and English versions are provided by the CNIL. The others versions result from the contributions of the following individuals:",
+    "translators_name": "<ul><li>Dutch: Ruud van Driel, Manuel d’Orso ;</li><li>Czech: Jiří Grohmann, Manuel d’Orso ;</li><li>Italian: Manuel d’Orso, Gianluca Markos.</li></ul>",
+    "contribute": "If you wish to contribute to the translation of the software in another language or improve the existing translations, we recommend you to <a href=\"https://github.com/LINCnil/pia/tree/master/src/assets/i18n\" target=\"_blank\">read the page describing the steps to follow</a>.",
     "licences": "Library licences:"
-  },
-  "about": {
-    "title": "O nás"
   },
   "settings": {
     "title": "Nastavení",
     "content": "Uveďte adresu (URL) vzdáleného serveru:",
     "update": "Aktualizovat URL"
+  },
+  "validation_page": {
+    "responsible": "to be translated",
+    "after_reading": "to be translated",
+    "confirmation1": "to be translated",
+    "confirmation2": "to be translated",
+    "confirmation3": "to be translated",
+    "confirmation4": "to be translated",
+    "button": {
+      "rejection": "to be translated",
+      "simple_validation": "to be translated",
+      "signed_validation": "to be translated"
+    },
+    "mandatory_fields": "to be translated",
+    "waiting_for_signature": "to be translated",
+    "validated_pia_with_signature": "to be translated",
+    "add_signed_pia": "to be translated",
+    "remove_attachment": "to be translated",
+    "tools": {
+      "dashboard": "to be translated",
+      "display_pia": "to be translated",
+      "action_plan": "to be translated"
+    }
+  },
+  "rejection_page": {
+    "title": "to be translated",
+    "rejection_reason": "to be translated",
+    "rejection_reason_placeholder": "to be translated",
+    "applied_adjustments": "to be translated",
+    "applied_adjustments_placeholder": "to be translated",
+    "previous_rejection": "to be translated",
+    "button": {
+      "abandon_treatment": "to be translated",
+      "reject_pia": "to be translated",
+      "send_for_validation": "to be translated"
+    }
   },
   "misc": {
     "display": "Zobrazit / Skrýt"
@@ -873,8 +922,8 @@
     "pia_assessor": "Jméno Posuzovatele",
     "pia_validator": "Jméno Validátora",
     "content_choice": {
-      "0": "Úprava může být provedena.",
-      "1": "Úprava může být použita."
+      "0": "Léčba by neměla být prováděna.",
+      "1": "Léčba by mohla být provedena."
     },
     "dpo_name": "Jméno DPO Poběřence osobních údajů",
     "dpo_status": "Stav DPO Poběřence osobních údajů",
@@ -1194,6 +1243,12 @@
         "3": {
           "title": "Názory DPO-Pověřence osobních údajů a dotčených osob",
           "short_help": "Prezentujte názory osoby zodpovědné za ochranu údajů a soukromí (delegát ochrany údajů, pokud existuje). Prezentujte názory subjektů údajů nebo jejich zástupců."
+        },
+        "4": {
+          "title": "to be translated"
+        },
+        "5": {
+          "title": "to be translated"
         }
       }
     }

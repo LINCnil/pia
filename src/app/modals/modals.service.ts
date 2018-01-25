@@ -26,14 +26,17 @@ export class ModalsService {
     }
     const e = <HTMLElement>document.getElementById(modal_id);
     e.classList.add('open');
-    (<HTMLButtonElement>e.querySelector('.get-focus')).focus();
+    const gf = (<HTMLButtonElement>e.querySelector('.get-focus'));
+    if (gf) {
+      gf.focus();
+    }
   }
 
   /**
    * Closes the current opened modal.
    */
   closeModal() {
-    const modal = document.querySelector('[class="pia-modalBlock open"]');
+    const modal = document.querySelector('.pia-modalBlock.open');
     const mainContent = document.querySelector('.pia-entryContentBlock');
     if (mainContent) {
       mainContent.classList.remove('blur-content');

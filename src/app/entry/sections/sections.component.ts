@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, OnChanges } from '@angular/core';
+import { Component, OnInit, Input, Output } from '@angular/core';
 import { Evaluation } from 'app/entry/entry-content/evaluations/evaluation.model';
 import { EvaluationService } from 'app/entry/entry-content/evaluations/evaluations.service';
 import { AppDataService } from 'app/services/app-data.service';
@@ -9,6 +9,7 @@ import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 
 import { PiaService } from 'app/entry/pia.service';
+import { GlobalEvaluationService } from 'app/services/global-evaluation.service';
 
 @Component({
   selector: 'app-sections',
@@ -16,30 +17,26 @@ import { PiaService } from 'app/entry/pia.service';
   styleUrls: ['./sections.component.scss'],
   providers: [PiaService]
 })
-export class SectionsComponent implements OnInit, OnChanges {
+export class SectionsComponent implements OnInit {
 
   @Input() section: { id: number, title: string, short_help: string, items: any };
   @Input() item: { id: number, title: string, evaluation_mode: string, short_help: string, questions: any };
   data: { sections: any };
-  showValidationButton = false;
-  showRefuseButton = false;
 
-  constructor(private _piaService: PiaService,
+  constructor(protected _piaService: PiaService,
               private _appDataService: AppDataService,
-              private _sidStatusService: SidStatusService,
+              protected _sidStatusService: SidStatusService,
+              private _globalEvaluationService: GlobalEvaluationService,
               private _evaluationService: EvaluationService) {
   }
 
   async ngOnInit() {
+    await this._piaService.getPIA();
     this.data = await this._appDataService.getDataNav();
     this.data.sections.forEach((section: any) => {
       section.items.forEach((item: any) => {
         this._sidStatusService.setSidStatus(this._piaService, section, item);
       });
     });
-  }
-
-  ngOnChanges() {
-    this._sidStatusService.verification(this._piaService);
   }
 }

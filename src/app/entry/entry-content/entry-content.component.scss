@@ -171,12 +171,17 @@
     }
   }
 
+  &-cancelBtn {
+    color: $pia-red;
+  }
+
   &-previewBlock {
     position: absolute;
     top: 0;
     right: 0;
     padding: 12px;
     padding-right: 20px;
+    text-decoration: none;
     span {
       display: block;
       margin: 0 auto;
@@ -187,5 +192,23 @@
       text-align: center;
       color: $pia-green;
     }
+  }
+
+  &-status-info {
+    strong {
+      text-transform: uppercase;
+    }
+    a {
+      color: #FD4664;
+    }
+    p {
+      margin-bottom: 0;
+    }
+    color: #686868;
+    position: relative;
+    margin-bottom: 10px;
+    background-color: #fff;
+    padding: 12px 32px;
+    box-shadow: 1px 1px 15px 1px #d2d2d2;
   }
 }

@@ -5,7 +5,7 @@
     "subtitle2": "Toegang tot hulpmiddelen en woordenlijsten",
     "start_app": "Toegang krijgen tot de PIA-software (Beta)",
     "description": "Deze software van de <strong> Franse autoriteit voor gegevensbescherming (CNIL) </strong> is bedoeld als richtlijn voor de gegevenscontrollers bij het samenstellen en aantonen van naleving van de GDPR. Het helpt om een gegevensbeschermingseffectbeoordeling goed uit te voeren door het gebruik van de door de CNIL ontwikkelde PIA-methode te vergemakkelijken.",
-    "start": "Start"
+    "start": "Beginnen"
   },
   "header": {
     "logo_title": "Privacy Impact Assessment",
@@ -14,8 +14,8 @@
     "knowledge_base_link": "Knowledge base",
     "pia_example_link": "PIA voorbeeld",
     "languages": {
-      "official_translations": "Traductions officielles",
-      "unofficial_translations": "Traductions non-officielles",
+      "official_translations": "Officiële vertalingen",
+      "unofficial_translations": "Niet-officiële vertalingen",
       "fr": "Français",
       "en": "English",
       "cs": "Česky",
@@ -66,7 +66,7 @@
      "date": "Datum",
      "status": "Status",
      "creation_status": "Creatie",
-     "start": "Start",
+     "start": "Beginnen",
      "placeholder_start": "Alle velden moeten worden ingevuld",
      "item": {
         "tools": {
@@ -125,7 +125,19 @@
     "sections": {
       "homepage_link": "Terug naar dashboard",
       "validate_pia": "Valideren PIA",
-      "refuse_pia": "Geweigerde PIA"
+      "refuse_pia": "Geweigerde PIA",
+      "status": {
+        "evaluation": {
+          "title": "",
+          "content": "",
+          "cancel": ""
+        },
+        "validation": {
+          "title": "",
+          "content": "",
+          "cancel": ""
+        }
+      }
     },
     "footer": {
       "ask_evaluation": "Vraag een beoordeling",
@@ -711,7 +723,8 @@
     "comments_count": "reactie (s)",
     "new_comment": "Commentaar",
     "placeholder_new_comment": "Laat een reactie achter",
-    "comment": "Commentaar"
+    "comment": "Commentaar",
+    "send": "Send"
   },
   "questions": {
     "edit": "Vraag bewerken",
@@ -726,14 +739,14 @@
   "evaluations": {
     "title": "Evaluatie",
     "to_correct": "Te corrigeren",
-    "placeholder_to_correct": "Vertaling wordt uitgevoerd",
     "improvable": "Verbeterbaar",
-    "placeholder_improvable": "Vertaling wordt uitgevoerd",
     "acceptable": "Aanvaardbaar",
-    "placeholder_acceptable": "Vertaling wordt uitgevoerd",
     "evaluation_comment": "Evaluatie commentaar",
     "action_plan_comment": "Actieplan / corrigerende maatregelen",
-    "placeholder_comment": "Voer uw opmerkingen in.",
+    "placeholder_to_correct": "to be translated",
+    "placeholder_improvable1": "to be translated",
+    "placeholder_improvable2": "to be translated",
+    "placeholder_acceptable": "to be translated",
     "gauges": {
       "seriousness": "Rekening houdend met het actieplan, hoe herevalueer je het <span class='red-highlight'>ernst van dit risico</span> ({{value}})?",
       "likelihood": "Rekening houdend met het actieplan, hoe herevalueer je de <span class='red-highlight'>waarschijnlijkheid van dit risico</span> ({{value}})?",
@@ -795,15 +808,51 @@
     "title": "Over de Tool PIA",
     "version_number": "Versienummer",
     "description": "Deze tool is oorspronkelijk ontworpen door de <a target=\"_blank\" href=\"https://www.cnil.fr\"> Commission Nationale Informatique et Liberté (CNIL) </a>, de Franse autoriteit voor gegevensbescherming , om de dataprocessor te helpen voldoen aan de GDPR. <br> Deze software is gratis en open. Als u mee wilt doen aan dit project, kunt u de broncode downloaden van Github, wijzigen en delen met de community.",
+    "translators": "To be translated",
+    "translators_name": "To be translated",
+    "contribute": "To be translated",
     "licences": "Bibliotheeklicenties:"
-  },
-  "about": {
-    "title": "Over"
   },
   "settings": {
     "title": "Instellingen",
     "content": "Geef het adres (de URL) op van de externe server:",
     "update": "URL bijwerken"
+  },
+  "validation_page": {
+    "responsible": "to be translated",
+    "after_reading": "to be translated",
+    "confirmation1": "to be translated",
+    "confirmation2": "to be translated",
+    "confirmation3": "to be translated",
+    "confirmation4": "to be translated",
+    "button": {
+      "rejection": "to be translated",
+      "simple_validation": "to be translated",
+      "signed_validation": "to be translated"
+    },
+    "mandatory_fields": "to be translated",
+    "waiting_for_signature": "to be translated",
+    "validated_pia_with_signature": "to be translated",
+    "add_signed_pia": "to be translated",
+    "remove_attachment": "to be translated",
+    "tools": {
+      "dashboard": "to be translated",
+      "display_pia": "to be translated",
+      "action_plan": "to be translated"
+    }
+  },
+  "rejection_page": {
+    "title": "to be translated",
+    "rejection_reason": "to be translated",
+    "rejection_reason_placeholder": "to be translated",
+    "applied_adjustments": "to be translated",
+    "applied_adjustments_placeholder": "to be translated",
+    "previous_rejection": "to be translated",
+    "button": {
+      "abandon_treatment": "to be translated",
+      "reject_pia": "to be translated",
+      "send_for_validation": "to be translated"
+    }
   },
   "misc": {
     "display": "Laten zien / verbergen"
@@ -873,8 +922,8 @@
     "pia_assessor": "Naam van de beoordelaar",
     "pia_validator": "Validator's naam",
     "content_choice": {
-      "0": "De behandeling zou kunnen worden geïmplementeerd.",
-      "1": "De behandeling mag niet worden gebruikt."
+      "0": "De behandeling mag niet worden gebruikt.",
+      "1": "De behandeling zou kunnen worden geïmplementeerd."
     },
     "dpo_name": "DPO's / FG naam",
     "dpo_status": "DPO's / FG status",
@@ -1194,6 +1243,12 @@
         "3": {
           "title": "Menningen van DPO / FG en betrokken personen",
           "short_help": "Presenteer het advies van de persoon die verantwoordelijk is voor gegevensbescherming en privacykwesties (afgevaardigde gegevensbescherming indien aanwezig). Presenteer de standpunten van de betrokkenen of hun vertegenwoordigers."
+        },
+        "4": {
+          "title": "to be translated"
+        },
+        "5": {
+          "title": "to be translated"
         }
       }
     }

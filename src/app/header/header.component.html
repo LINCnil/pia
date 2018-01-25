@@ -27,16 +27,42 @@
                 <i class="fa fa-globe" aria-hidden="true"></i>
               </a>
               <ul>
+                <li class="officialTranslations">{{ 'header.languages.official_translations' | translate }}</li>
                 <li [ngClass]="{'is_active': selectedLanguage === 'fr'}"
                     (click)="updateCurrentLanguage('fr')">
                   <a (click)="_translateService.use('fr')">
                     {{ 'header.languages.fr' | translate }}
                   </a>
                 </li>
-                <li [ngClass]="{'is_active': selectedLanguage === 'en'}"
+                <li class="englishTranslation" [ngClass]="{'is_active': selectedLanguage === 'en'}"
                     (click)="updateCurrentLanguage('en')">
                   <a (click)="_translateService.use('en')">
                     {{ 'header.languages.en' | translate }}
+                  </a>
+                </li>
+                <li class="unofficialTranslations">{{ 'header.languages.unofficial_translations' | translate }}</li>
+                <li [ngClass]="{'is_active': selectedLanguage === 'it'}"
+                    (click)="updateCurrentLanguage('it')">
+                  <a (click)="_translateService.use('it')">
+                    {{ 'header.languages.it' | translate }}
+                  </a>
+                </li>
+                <li [ngClass]="{'is_active': selectedLanguage === 'nl'}"
+                    (click)="updateCurrentLanguage('nl')">
+                  <a (click)="_translateService.use('nl')">
+                    {{ 'header.languages.nl' | translate }}
+                  </a>
+                </li>
+                <li [ngClass]="{'is_active': selectedLanguage === 'cs'}"
+                    (click)="updateCurrentLanguage('cs')">
+                  <a (click)="_translateService.use('cs')">
+                    {{ 'header.languages.cs' | translate }}
+                  </a>
+                </li>
+                <li [ngClass]="{'is_active': selectedLanguage === 'pl'}"
+                    (click)="updateCurrentLanguage('pl')">
+                  <a (click)="_translateService.use('pl')">
+                    {{ 'header.languages.pl' | translate }}
                   </a>
                 </li>
               </ul>
@@ -50,7 +76,7 @@
                 <fieldset>
                   <legend><a routerLink="/settings">{{ 'header.tools.settings' | translate }}</a></legend>
                   <div>
-                    <input type="checkbox" name="pia-accessibility" id="pia-accessibility" [checked]="increaseContrast == 'true'" (change)="changeContrast($event)">
+                    <input type="checkbox" name="pia-accessibility" id="pia-accessibility" [checked]="increaseContrast === 'true'" (change)="changeContrast($event)">
                     <label for="pia-accessibility">{{ 'header.tools.accessibility' | translate }}</label>
                   </div>
                   <div>

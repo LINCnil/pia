@@ -12,6 +12,7 @@ import { ActionPlanService } from 'app/entry/entry-content/action-plan//action-p
 import { PiaService } from 'app/entry/pia.service';
 import { ModalsService } from 'app/modals/modals.service';
 import { AppDataService } from 'app/services/app-data.service';
+import { GlobalEvaluationService } from '../services/global-evaluation.service';
 
 @Component({
   selector: 'app-entry',
@@ -35,6 +36,7 @@ export class EntryComponent implements OnInit, OnDestroy, DoCheck {
               private _knowledgeBaseService: KnowledgeBaseService,
               private _piaService: PiaService,
               private _actionPlanService: ActionPlanService,
+              private _globalEvaluationService: GlobalEvaluationService,
               private _measureService: MeasureService) { }
 
   async ngOnInit() {
@@ -42,7 +44,7 @@ export class EntryComponent implements OnInit, OnDestroy, DoCheck {
     let itemId = parseInt(this.route.snapshot.params['item_id'], 10);
 
     this.data = await this._appDataService.getDataNav();
-    this.getSectionAndItem(sectionId, itemId);
+    //this.getSectionAndItem(sectionId, itemId);
     this.route.params.subscribe(
       (params: Params) => {
         sectionId = parseInt(params['section_id'], 10);
@@ -113,6 +115,9 @@ export class EntryComponent implements OnInit, OnDestroy, DoCheck {
     this._evaluationService.section = this.section;
     this._evaluationService.item = this.item;
 
+    this._globalEvaluationService.section = this.section;
+    this._globalEvaluationService.item = this.item;
+
     this.questions = [];
     if (this.item['questions']) {
       this.item['questions'].forEach(question => {
@@ -121,6 +126,9 @@ export class EntryComponent implements OnInit, OnDestroy, DoCheck {
     }
 
     this._piaService.getPIA().then(() => {
+      this._globalEvaluationService.pia = this._piaService.pia;
+      this._globalEvaluationService.validate();
+      this._evaluationService.pia = this._piaService.pia;
       this._measureService.listMeasures(this._piaService.pia.id).then(() => {
         let displayModal = true;
         if ((this.section.id === 3) && (this.item.id === 2 || this.item.id === 3 || this.item.id === 4)) {

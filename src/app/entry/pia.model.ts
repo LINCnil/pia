@@ -33,32 +33,34 @@ export class Pia extends ApplicationDb {
     const items = [];
     return new Promise((resolve, reject) => {
       this.findAll().then((entries: any) => {
-        entries.forEach(element => {
-          const newPia = new Pia();
-          newPia.id = element.id;
-          newPia.name = element.name;
-          newPia.author_name = element.author_name;
-          newPia.evaluator_name = element.evaluator_name;
-          newPia.validator_name = element.validator_name;
-          newPia.dpo_status = element.dpo_status;
-          newPia.dpo_opinion = element.dpo_opinion;
-          newPia.concerned_people_opinion = element.concerned_people_opinion;
-          newPia.concerned_people_status = element.concerned_people_status;
-          newPia.rejected_reason = element.rejected_reason;
-          newPia.applied_adjustements = element.applied_adjustements;
-          newPia.status = element.status;
-          newPia.dpos_names = element.dpos_names;
-          newPia.people_names = element.people_names;
-          newPia.concerned_people_searched_opinion = element.concerned_people_searched_opinion;
-          newPia.concerned_people_searched_content = element.concerned_people_searched_content;
-          newPia.created_at = new Date(element.created_at);
-          newPia.updated_at = new Date(element.updated_at);
-          const answer = new Answer();
-          answer.findAllByPia(element.id).then((answers: any) => {
-            newPia.progress = Math.round((100 / this.numberOfQuestions) * answers.length);
-            items.push(newPia);
+        if (entries && entries.length > 0) {
+          entries.forEach(element => {
+            const newPia = new Pia();
+            newPia.id = element.id;
+            newPia.name = element.name;
+            newPia.author_name = element.author_name;
+            newPia.evaluator_name = element.evaluator_name;
+            newPia.validator_name = element.validator_name;
+            newPia.dpo_status = element.dpo_status;
+            newPia.dpo_opinion = element.dpo_opinion;
+            newPia.concerned_people_opinion = element.concerned_people_opinion;
+            newPia.concerned_people_status = element.concerned_people_status;
+            newPia.rejected_reason = element.rejected_reason;
+            newPia.applied_adjustements = element.applied_adjustements;
+            newPia.status = element.status;
+            newPia.dpos_names = element.dpos_names;
+            newPia.people_names = element.people_names;
+            newPia.concerned_people_searched_opinion = element.concerned_people_searched_opinion;
+            newPia.concerned_people_searched_content = element.concerned_people_searched_content;
+            newPia.created_at = new Date(element.created_at);
+            newPia.updated_at = new Date(element.updated_at);
+            const answer = new Answer();
+            answer.findAllByPia(element.id).then((answers: any) => {
+              newPia.progress = Math.round((100 / this.numberOfQuestions) * answers.length);
+              items.push(newPia);
+            });
           });
-        });
+        }
         resolve(items);
       });
     });

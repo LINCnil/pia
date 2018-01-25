@@ -6,6 +6,7 @@ import { Answer } from 'app/entry/entry-content/questions/answer.model';
 import { EvaluationService } from 'app/entry/entry-content/evaluations/evaluations.service';
 import { Evaluation } from 'app/entry/entry-content/evaluations/evaluation.model';
 import { KnowledgeBaseService } from 'app/entry/knowledge-base/knowledge-base.service';
+import { GlobalEvaluationService } from 'app/services/global-evaluation.service';
 
 @Component({
   selector: 'app-measures',
@@ -19,13 +20,14 @@ export class MeasuresComponent implements OnInit, OnDestroy {
   @Input() section: any;
   @Input() pia: any;
   editor: any;
-  elementId: String;
+  elementId: string;
   evaluation: Evaluation = new Evaluation();
   displayDeleteButton = true;
   measureForm: FormGroup;
   measureModel: Measure = new Measure();
 
   constructor(
+    protected _globalEvaluationService: GlobalEvaluationService,
     private el: ElementRef,
     private _modalsService: ModalsService,
     private _evaluationService: EvaluationService,
@@ -43,9 +45,6 @@ export class MeasuresComponent implements OnInit, OnDestroy {
       this._knowledgeBaseService.toHide.push(this.measure.title);
       this.elementId = 'pia-measure-content-' + this.measure.id;
       if (this.measureModel) {
-        this.evaluation.getByReference(this.pia.id, this.measure.id).then(() => {
-          this.checkDisplayButtons();
-        });
         this.measureForm.controls['measureTitle'].patchValue(this.measureModel.title);
         this.measureForm.controls['measureContent'].patchValue(this.measureModel.content);
         if (this.measureModel.title) {
@@ -85,17 +84,6 @@ export class MeasuresComponent implements OnInit, OnDestroy {
    */
   evaluationChange(evaluation: any) {
     this.evaluation = evaluation;
-    this.checkDisplayButtons();
-  }
-
-  /**
-   * Show or hide the edit button
-   * @memberof MeasuresComponent
-   */
-  checkDisplayButtons() {
-    if (this._evaluationService.showValidationButton || this._evaluationService.enableFinalValidation) {
-      this.displayDeleteButton = false;
-    }
   }
 
   /**
@@ -103,9 +91,7 @@ export class MeasuresComponent implements OnInit, OnDestroy {
    * @memberof MeasuresComponent
    */
   measureTitleFocusIn() {
-    if (this._evaluationService.showValidationButton || this._evaluationService.enableFinalValidation) {
-      return false;
-    } else {
+    if (this._globalEvaluationService.answerEditionEnabled) {
       this.measureForm.controls['measureTitle'].enable();
       const measureTitleTextarea = document.getElementById('pia-measure-title-' + this.measure.id);
       measureTitleTextarea.focus();
@@ -128,7 +114,10 @@ export class MeasuresComponent implements OnInit, OnDestroy {
     const previousTitle = this.measureModel.title;
     this.measureModel.title = userText;
     this.measureModel.update().then(() => {
-      this._evaluationService.allowEvaluation();
+      // this._evaluationService.allowEvaluation();
+      if (previousTitle !== this.measureModel.title) {
+        this._knowledgeBaseService.removeItemIfPresent(this.measureModel.title, previousTitle);
+      }
 
       // Update tags
       const answer = new Answer();
@@ -167,6 +156,8 @@ export class MeasuresComponent implements OnInit, OnDestroy {
       if (this.measureForm.value.measureTitle && this.measureForm.value.measureTitle.length > 0) {
         this.measureForm.controls['measureTitle'].disable();
       }
+
+      this._globalEvaluationService.validate();
     });
 
   }
@@ -176,13 +167,9 @@ export class MeasuresComponent implements OnInit, OnDestroy {
    * @memberof MeasuresComponent
    */
   measureContentFocusIn() {
-    setTimeout(() => {
-      if (this._evaluationService.showValidationButton || this._evaluationService.enableFinalValidation) {
-        return false;
-      } else {
-        this.loadEditor();
-      }
-    }, 1);
+    if (this._globalEvaluationService.answerEditionEnabled) {
+      this.loadEditor();
+    }
   }
 
   /**
@@ -202,7 +189,8 @@ export class MeasuresComponent implements OnInit, OnDestroy {
     this.measureModel.content = userText;
     this.measureModel.update().then(() => {
       this._ngZone.run(() => {
-        this._evaluationService.allowEvaluation();
+        // this._evaluationService.allowEvaluation();
+        this._globalEvaluationService.validate();
       });
     });
   }

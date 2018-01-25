@@ -3,6 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { KnowledgeBaseService } from '../knowledge-base.service';
 import { EvaluationService } from 'app/entry/entry-content/evaluations/evaluations.service';
 import { TranslateService } from '@ngx-translate/core';
+import { GlobalEvaluationService } from 'app/services/global-evaluation.service';
 
 @Component({
   selector: 'app-knowledge-base-item',
@@ -20,12 +21,15 @@ export class KnowledgeBaseItemComponent implements OnInit {
               private _knowledgeBaseService: KnowledgeBaseService,
               private _evaluationService: EvaluationService,
               private _translateService: TranslateService,
+              protected _globalEvaluationService: GlobalEvaluationService,
               private activatedRoute: ActivatedRoute) {
     this.router = router;
   }
 
   ngOnInit() {
-    this.titleKb = this.itemKb.name;
+    this._translateService.get(this.itemKb.name).subscribe(value => {
+        this.titleKb = value;
+    });
   }
 
   /**

@@ -46,6 +46,7 @@
         &:disabled {
           background-color: transparent;
           color: $pia-dark-black;
+          cursor: pointer;
         }
       }
     }
@@ -83,6 +84,7 @@
       &Text {
         min-height: 130px;
         padding: 5px 12px;
+        cursor: pointer;
       }
     }
     &-date {

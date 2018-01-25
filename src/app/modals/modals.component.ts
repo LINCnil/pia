@@ -21,10 +21,10 @@ export class ModalsComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private _modalsService: ModalsService,
-    private _piaService: PiaService,
-    private _measuresService: MeasureService,
-    private _attachmentsService: AttachmentsService
+    protected _modalsService: ModalsService,
+    protected _piaService: PiaService,
+    protected _measuresService: MeasureService,
+    protected _attachmentsService: AttachmentsService
   ) { }
 
   ngOnInit() {
