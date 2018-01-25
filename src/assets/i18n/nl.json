@@ -18,7 +18,12 @@
       "unofficial_translations": "Niet-officiële vertalingen",
       "fr": "Français",
       "en": "English",
-	  "nl": "Nederlands"
+	    "nl": "Nederlands",
+      "cs": "Česky",
+      "it": "Italiaans",
+      "nl": "Nederlands",
+      "pl": "Polski",
+      "de": "Duits"
     },
     "tools": {
       "title": "Tools",

@@ -14,7 +14,6 @@
     "knowledge_base_link": "Znalostní báze",
     "pia_example_link": "PIA příklad",
     "languages": {
-=======
       "official_translations": "Oficiální překlady",
       "unofficial_translations": "Neoficiální překlady",
       "fr": "Français",
@@ -23,7 +22,7 @@
       "it": "Italiaans",
       "nl": "Nederlands",
       "pl": "Polski",
-      "de": "Deutsch"
+      "de": "Němec"
     },
     "tools": {
       "title": "Nástroje",
