@@ -952,6 +952,22 @@
     "title": "Page introuvable.",
     "content": "Si vous rencontrez d’autres problèmes ou si vous avez des suggestions d’amélioration,<br>vous pouvez nous les faire remonter via ce formulaire : <a href=\"https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia\" target=\"_blank\">https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia</a>"
   },
+  "overview-risks": {
+    "potential_impacts": "Impacts potentiels",
+    "threat": "Menaces",
+    "sources": "Sources",
+    "measures": "Mesures",
+    "negligible": "Négligeable",
+    "limited": "Limitée",
+    "important": "Importante",
+    "maximal": "Maximale",
+    "risk-access_x": "Gravité",
+    "risk-access_y": "Vraisemblance",
+    "risk-change_x": "Gravité",
+    "risk-change_y": "Vraisemblance",
+    "risk-disappearance_x": "Gravité",
+    "risk-disappearance_y": "Vraisemblance"
+  },
   "cartography": {
     "negligible": "Négligeable",
     "limited": "Limitée",
