@@ -910,6 +910,22 @@
     "title": "Seite nicht gefunden.",
     "content": "Wenn Sie auf andere Probleme stoßen oder Verbesserungsvorschläge haben, können Sie diese über das folgende Formular zurücksenden: <a href=\"https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia\" target=\"_blank\">https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia</a>"
   },
+  "overview-risks": {
+    "potential_impacts": "Potential impacts",
+    "threat": "Threat",
+    "sources": "Sources",
+    "measures": "Measures",
+    "negligible": "Negligible",
+    "limited": "Limited",
+    "important": "Important",
+    "maximal": "Maximal",
+    "risk-access_x": "Severity",
+    "risk-access_y": "Likelihood",
+    "risk-change_x": "Severity",
+    "risk-change_y": "Likelihood",
+    "risk-disappearance_x": "Severity",
+    "risk-disappearance_y": "Likelihood"
+  },
   "cartography": {
     "negligible": "Vernachlässigbar",
     "limited": "Begrenzt",
