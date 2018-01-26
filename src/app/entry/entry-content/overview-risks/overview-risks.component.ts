@@ -37,22 +37,22 @@ export class OverviewRisksComponent implements OnInit {
     const dataTags = [
       {
         id: 1,
-        name: 'Impacts potentiels',
+        name: this._translateService.instant('overview-risks.potential_impacts'),
         reference_to: [321, 331, 341]
       },
       {
         id: 2,
-        name: 'Menaces',
+        name: this._translateService.instant('overview-risks.threat'),
         reference_to: [322, 332, 342]
       },
       {
         id: 3,
-        name: 'Sources',
+        name: this._translateService.instant('overview-risks.sources'),
         reference_to: [323, 333, 343]
       },
       {
         id: 4,
-        name: 'Mesures',
+        name: this._translateService.instant('overview-risks.measures'),
         reference_to: [324, 334, 344]
       }
     ];
@@ -245,7 +245,12 @@ export class OverviewRisksComponent implements OnInit {
   private async parseQuestions(questionGauges, g, x, y) {
     let i = 0;
     const data = [];
-    const gauges_value = { 1: 'Négligeable', 2: 'Limitée', 3: 'Importante', 4: 'Maximale' };
+    const gauges_value = {
+      1: this._translateService.instant('overview-risks.negligible'),
+      2: this._translateService.instant('overview-risks.limited'),
+      3: this._translateService.instant('overview-risks.important'),
+      4: this._translateService.instant('overview-risks.maximal')
+    };
     return new Promise((resolve, reject) => {
       questionGauges.forEach(async question => {
         i++;
@@ -253,7 +258,7 @@ export class OverviewRisksComponent implements OnInit {
         await answerModel.getByReferenceAndPia(this._piaService.pia.id, question.id);
         if (answerModel.data && answerModel.data.gauge > 0) {
           const value = answerModel.data.gauge;
-          const name = this._translateService.instant(question.highlight_words).split(' ')[0];
+          const name = this._translateService.instant('overview-risks.' + question.cartography);
           y += 25;
           g.append('text').attr('x', x).attr('y', y).text(name + ' :').attr('class', 'gauge_prefix');
           g.append('text').attr('x', x + (name.length * 7)).attr('y', y).text(gauges_value[value]).attr('class', 'gauge_bold');
