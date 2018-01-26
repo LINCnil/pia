@@ -533,17 +533,17 @@
       },
       "PIA_DEF_MENM": {
         "name": "Zagrożenia, które mogą doprowadzić do niepożądanej modyfikacji danych osobowych",
-        "description": "<strong>Zagrożenia dotyczące:</strong><br>- <strong>Sprzętu</strong> zmodyfikowanego (podłączenie sprzętu niekompatybilnego, odłączenie sprzętu niezbędnego do pracy, itp.)<br>- <strong>Oprogramowania</strong> wykorzystywanego w sposób niewłaściwy lub zmodyfikowanego (błąd przetwarzania, nieodpowiednie modyfikacje, itp.)<br>- <strong>Kanałów informatycznych</strong> wykorzystywanych niewłaściwie (ponowne wysłanie przechwyconej transmisji, itp.)<br>- <strong>Osób</strong> przepracowanych lub manipulowanych (obowiązki przerastające kompetencje, stres lub negatywne zmiany w miejscu pracy, negatywny wpływ, itp.)<br>- <strong>Dokumentów papierowych</strong> zmodyfikowanych (modyfikacja dokumentu, podmiana na fałszywy, itp.)<br>- <strong>Kanałów przesyłu papieru</strong> zmodyfikowanych (zamiana podpisów, wysłanie wielu sprzecznych dokumentów, itp.)",
+        "description": "<strong>Zagrożenia dotyczące:</strong><br>- <strong>Sprzętu</strong> zmodyfikowanego (podłączenie sprzętu niekompatybilnego, odłączenie sprzętu niezbędnego do pracy, itp.)<br>- <strong>Oprogramowania</strong> wykorzystywanego w sposób niewłaściwy lub zmodyfikowanego (błąd przetwarzania, nieodpowiednie modyfikacje, itp.)<br>- <strong>Kanałów informatycznych</strong> wykorzystywanych niewłaściwie (ponowne wysłanie przechwyconej transmisji, itp.)<br>- <strong>Osób</strong> przepracowanych lub manipulowanych (obowiązki przerastające kompetencje, stres lub negatywne zmiany w miejscu pracy, negatywny wpływ, itp.)<br>- <strong>Dokumentów papierowych</strong> zmodyfikowanych (modyfikacja dokumentu, podmiana na fałszywy, itp.)<br>- <strong>Kanałów przesyłu papieru</strong> zmodyfikowanych (zamiana podpisów, wysłanie wielu sprzecznych dokumentów, itp.).",
         "source": "PIAF Connected Objects p43 and 44, WIKI"
       },
       "PIA_DEF_MENI": {
         "name": "Zagrożenia, które mogą doprowadzić do braku dostępności danych osobowych",
-        "description": "<strong>Zagrożenia dotyczące:</strong><br>- <strong>Sprzętu</strong> niewłaściwie wykorzystywanego, przeciążonego, zmienionego, uszkodzonego, utraconego (zapełnienie jednostki pamięci, atak DDOS, modyfikacja doprowadzająca do awarii, pożar, kradzież lub utrata, itp.)<br>- <strong>Oprogramowania</strong> niewłaściwie wykorzystywanego, przeciążonego, zmienionego, uszkodzonego, utraconego (skasowanie danych, bomba logiczna, nieodnowiona licencja, itp.)<br>- <strong>Kanałów informatycznych</strong> przeciążonych, zmienionych, utraconych (nieupoważnione pobieranie, utrata połączenia z internetem, itp.)<br>- <strong>Osób</strong> przepracowanych, osłabionych, utraconych (kiepskie wykorzystanie kompetencji, choroba, emerytura, itp.)<br>- <strong>Dokumentów papierowych</strong> niewłaściwie wykorzystywanych, uszkodzonych, utraconych (usunięcie, starzenie się archiwów, kradzież lub utrata dokumentów, itp.)<br>- <strong>Kanałów przesyłu papieru</strong> przeciążonych, uszkodzonych, utraconych (strajk poczty, zmiana lokalizacji, zaginięcie przesyłki, reorganizacja, itp.)",
+        "description": "<strong>Zagrożenia dotyczące:</strong><br>- <strong>Sprzętu</strong> niewłaściwie wykorzystywanego, przeciążonego, zmienionego, uszkodzonego, utraconego (zapełnienie jednostki pamięci, atak DDOS, modyfikacja doprowadzająca do awarii, pożar, kradzież lub utrata, itp.)<br>- <strong>Oprogramowania</strong> niewłaściwie wykorzystywanego, przeciążonego, zmienionego, uszkodzonego, utraconego (skasowanie danych, bomba logiczna, nieodnowiona licencja, itp.)<br>- <strong>Kanałów informatycznych</strong> przeciążonych, zmienionych, utraconych (nieupoważnione pobieranie, utrata połączenia z internetem, itp.)<br>- <strong>Osób</strong> przepracowanych, osłabionych, utraconych (kiepskie wykorzystanie kompetencji, choroba, emerytura, itp.)<br>- <strong>Dokumentów papierowych</strong> niewłaściwie wykorzystywanych, uszkodzonych, utraconych (usunięcie, starzenie się archiwów, kradzież lub utrata dokumentów, itp.)<br>- <strong>Kanałów przesyłu papieru</strong> przeciążonych, uszkodzonych, utraconych (strajk poczty, zmiana lokalizacji, zaginięcie przesyłki, reorganizacja, itp.).",
         "source": "PIAF Connected Objects p44 and 45, WIKI"
       },
       "PIA_DEF_GRV": {
         "name": "Istotność",
-        "description": "Istotność oznacza zakres ryzyka. Przede wszystkim zależy od szkodliwego charakteru potencjalnych skutków.",
+        "description": "Istotność oznacza wielkość ryzyka. Przede wszystkim zależy od szkodliwego charakteru potencjalnych skutków.",
         "source": "PIA1 page 6"
       },
       "PIA_DEF_VRA": {
@@ -564,12 +564,12 @@
       "PIA_VAL_CART": {
         "name": "Mapowanie ryzyka",
         "description": "Wykres przedstawiający ryzyka generowane przez czynność przetwarzania oraz ryzyko szczątkowe po podjęciu wszystkich działań naprawczych. Wykazuje, że prawidłowe wdrożenie środków opisanych w planie działania może prowadzić do ograniczenia prawdopodobieństwa i/lub istotności ryzyka.",
-        "source": "Brak"
+        "source": "PIAF Connected Objects p34"
       },
       "PIA_VAL_ACT": {
         "name": "Plan działania",
         "description": "Plan działania stanowi opis strategii, środków i pracowników, z których należy skorzystać, by zdefiniowane środki zapobiegawcze zaczęły działać. Dla każdego zadania należy wyznaczyć osobę odpowiedzialną, koszty, trudności i postęp.",
-        "source": "Brak"
+        "source": "None"
       },
       "PIA_DEF_ENJ": {
         "name": "Stawki przetwarzania",
@@ -584,7 +584,7 @@
       "PIA_DEF_RGPD": {
         "name": "RODO (Ogólne Rozporządzenie o Ochronie Danych)",
         "description": "Rozporządzenie w sprawie ochrony osób fizycznych w związku z przetwarzaniem danych osobowych i w sprawie swobodnego przepływu takich danych oraz uchylenia dyrektywy 95/46/WE.",
-        "source": "RODO tytuł"
+        "source": "Tytuł RODO"
       },
       "PIA_DEF_PC": {
         "name": "Osoba, której dane dotyczą",
@@ -612,14 +612,14 @@
         "source": "PIA2 old version - WIKI"
       },
       "PIA_EX_DCPS": {
-        "name": "Dane osobowe uważane za wrażliwe",
-        "description": "PESEL, dane biometryczne, dane bankowe",
+        "name": "Dane osobowe postrzegane jako wrażliwe",
+        "description": "Numer PESEL, dane biometryczne, dane bankowe",
         "source": "PIA2 old version - WIKI"
       },
       "PIA_EX_DCPR": {
         "name": "Skazania i dane wrażliwe",
         "description": "Poglądy filozoficzne, polityczne, religijne i związkowe, życie seksualne, dane zdrowotne, pochodzenia rasowego lub etnicznego, dotyczące wykroczeń, skazań, środki bezpieczeństwa - <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/PL/TXT/HTML/?uri=CELEX:32016R0679&from=PL\">Art. 9 i 10 [RODO]</a>.",
-        "source": "PIA2 old version, RODO Art. 9 i 10 - WIKI"
+        "source": "PIA2 old version, GDPR Article 9 and 10 - WIKI"
       },
       "PIA_EX_HUMI": {
         "name": "Internal human sources",
