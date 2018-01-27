@@ -14,8 +14,8 @@
     "knowledge_base_link": "Wissensbasis",
     "pia_example_link": "Beispiel DSFA",
     "languages": {
-      "official_translations": "To be translated",
-      "unofficial_translations": "To be translated",
+      "official_translations": "Offizielle Übersetzungen",
+      "unofficial_translations": "Inoffizielle Übersetzungen",
       "fr": "Français",
       "en": "English",
       "cs": "Česky",
@@ -137,7 +137,7 @@
   },
   "measures": {
     "placeholder_title": "Maßnahmentitel",
-    "add": "Fügen Sie eine leere Maßnahme hinzu (verwenden Sie andernfalls die Wissensbasis)",
+    "add": "Erstellen Sie eine Maßnahme (oder fügen Sie eine aus der Wissensbasis auf der rechten Seite hinzu)",
     "edit": "Maßnahme bearbeiten",
     "remove": "Maßnahme löschen",
     "default_placeholder": "Beschreiben Sie die bestehenden oder beabsichtigten Maßnahmen zur Gewährleistung der Datensicherheit."
@@ -193,7 +193,7 @@
         "source": "PIA1 p6"
       },
       "PIA_LGL_SUPT": {
-        "name": "Unterstützung der Verabeitung",
+        "name": "Unterstützung der Verarbeitung",
         "description": "Asset on which personal data rely. Note: this may be hardware, software, networks, people, paper or paper transmission channels.",
         "source": "PIA1 p10"
       },
@@ -218,7 +218,7 @@
         "source": "PIAF Connected Objects p12"
       },
       "PIA_LGL_INFO": {
-        "name": "Information des Betroffenen",
+        "name": "Information der Betroffenen",
         "description": "Ensure that the subjects are informed. Confirm that the processing is not covered by an exception and is not subject to specific conditions.",
         "source": "PIA3 p8 - WIKI"
       },
@@ -273,25 +273,25 @@
         "source": "PIAF Connected Objects p22"
       },
       "PIA_TEC_ARCH": {
-        "placeholder": "Geben Sie hier an, ob Mechanismen zur Integritätsprüfung von gespeicherten Daten implementiert sind, welche sind diese und für welchen Zweck.",
+        "placeholder": "Geben Sie hier an, ob Mechanismen zur Integritätsprüfung von gespeicherten Daten implementiert sind. Welche sind diese und welchem Zweck dienen Sie?",
         "name": "Archivierung",
         "description": "Where applicable, describe here the processes of archive management (delivery, storage, consultation, etc.) under your responsibility. Specify the archiving roles (offices of origin, transferring agencies, etc.) and the archiving policy. State if data may fall within the scope of public archives.",
         "source": "PIAF Connected Objects p22 - WIKI"
       },
       "PIA_TEC_PAP": {
-        "placeholder": "Geben Sie hier an, ob Mechanismen zur Integritätsprüfung von Papierdokumenten implementiert sind, welche sind diese und für welchen Zweck.",
+        "placeholder": "Geben Sie hier an, ob Mechanismen zur Integritätsprüfung von Papierdokumenten implementiert sind. Welche sind diese und welchem Zweck dienen Sie?",
         "name": "Papierdokumentensicherheit",
         "description": "Where paper documents containing data are used during the processing, indicate here how they are printed, stored, destroyed and exchanged.",
         "source": "PIAF Connected Objects p22"
       },
       "PIA_TEC_MINI": {
-        "placeholder": "Geben Sie hier an, welche Maßnahmen Sie implementiert haben, um durch Datenminimierung personenbezogener Daten die Schwere der Risiken zu reduzieren.",
+        "placeholder": "Geben Sie hier an, welche Maßnahmen Sie implementiert haben, um den Schweregrad der Risiken durch Datenminimierung personenbezogener Daten zu reduzieren.",
         "name": "Datenminimierung",
         "description": "The following methods could be used : Filtering and removal, Reducing sensitivity via conversion, Reducing the identifying nature of data, Reducing data accumulation, Restricting data access",
         "source": "PIAF Connected Objects p40"
       },
       "PIA_SEC_EXP": {
-        "placeholder": "Beschreiben Sie hier, wie die Softwareaktualisierungen (Betriebssysteme, Anwendungen usw.) und die Anwendung von Patches zur Sicherheitskorrektur durchgeführt werden.",
+        "placeholder": "Beschreiben Sie hier, wie Softwareaktualisierungen (Betriebssysteme, Anwendungen usw.) und Patches zur Sicherheitskorrektur durchgeführt werden.",
         "name": "Betriebssicherheit",
         "description": "Policies implemented to reduce the possibility and the impact of risks on assets supporting personal data.",
         "source": "PIAF Connected Objects p22 - WIKI"
@@ -315,7 +315,7 @@
         "source": "PIAF Connected Objects p22 - WIKI"
       },
       "PIA_SEC_BKP": {
-        "placeholder": "Geben Sie hier an, wie Datensicherungen verwaltet werden. Stellen Sie klar, ob sie an einem sicheren Ort aufbewahrt werden.",
+        "placeholder": "Geben Sie hier an, wie Datensicherungen verwaltet werden. Stellen Sie sicher, dass sie an einem sicheren Ort aufbewahrt werden.",
         "name": "Datensicherungen",
         "description": "Policies and means implemented to ensure the availability and/or integrity of the personal data, while maintaining their confidentiality.",
         "source": "PIAF Connected Objects p23 & PIA3 p27  - WIKI"
@@ -501,7 +501,7 @@
         "source" : "PIAF Connected objects p42 - WIKI"
       },
       "PIA_DEF_MIN2": {
-        "name": "Verringerung der Sensiblität durch Datentransformation",
+        "name": "Verringerung der Sensiblität der Daten durch Datentransformation",
         "description": "Once sensitive data have been received, as part of a series of general information or transmitted for statistical purposes only, these can be converted into a less sensitive form or pseudonymised. For example : <br>- if the system collects the IP address to determine the user's location for a statistical purpose, the IP address can be deleted once the city or district has been deduced<br>- if the system receives video data from surveillance cameras, it can recognise people who are standing or moving in the scene and blur them<br>- if the system is a smart meter, it can aggregate the use of energy over a certain period, without recording it in real time",
         "source" : "PIAF Connected objects p42 - WIKI"
       },
@@ -546,7 +546,7 @@
         "source": "Mesures_US"
       },
       "PIA_DEF_VIOL": {
-        "name": "Verletzung personenbezogner Daten",
+        "name": "Verletzung personenbezogener Daten",
         "description": "Breach of security leading to the accidental or unlawful destruction, loss, alteration, unauthorised disclosure of, or access to, personal data transmitted, stored or otherwise processed.",
         "source": "GDPR Art. 4.12"
       },
