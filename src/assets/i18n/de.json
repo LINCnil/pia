@@ -1,21 +1,21 @@
 {
   "authentication": {
-    "title": "Privacy impact assessment",
-    "subtitle1": "A platform to create <br> and manage your PIAs",
-    "subtitle2": "Access tools and glossaries",
-    "start_app": "Access the PIA's software (Beta)",
-    "description": "This software by the <strong>French Data Protection Authority (CNIL)</strong> is meant to guide the data controllers in building and demonstrating compliance to the GDPR. It helps to properly carry out a data protection impact assessment by facilitating the use of the PIA method developed by the CNIL.",
-    "start": "Start"
+    "title": "Datenschutz-Folgenabschätzung",
+    "subtitle1": "Eine Plattform zum Erstellen <br> und Verwalten Ihrer DSFAs",
+    "subtitle2": "Zugriff auf Tools und Glossare",
+    "start_app": "Zugriff auf die PIA-Software (Beta)",
+    "description": "Diese Software der <strong>französischen Datenschutzbehörde (CNIL)</strong> soll den Datenverantwortlichen bei der Erstellung und dem Nachweis der Einhaltung der DS-GVO helfen. Sie hilft bei der Durchführung einer Datenschutz-Folgenabschätzung, indem sie die Verwendung der von der CNIL entwickelten PIA-Methode erleichtert.",
+    "start": "Starten"
   },
   "header": {
-    "logo_title": "Privacy impact assessment",
+    "logo_title": "Datenschutz-Folgenabschätzung",
     "logo_subtitle": "",
-    "homepage_link": "Dashboard",
-    "knowledge_base_link": "Knowledge base",
-    "pia_example_link": "PIA example",
+    "homepage_link": "Übersicht",
+    "knowledge_base_link": "Wissensbasis",
+    "pia_example_link": "Beispiel DSFA",
     "languages": {
-      "official_translations": "Official translations",
-      "unofficial_translations": "Unofficial translations",
+      "official_translations": "To be translated",
+      "unofficial_translations": "To be translated",
       "fr": "Français",
       "en": "English",
       "cs": "Česky",
@@ -26,157 +26,145 @@
     },
     "tools": {
       "title": "Tools",
-      "settings": "Settings",
-      "accessibility": "Visually impaired accessibility (high contrast colors, daltonism)",
-      "help": "Help",
-      "about": "About"
+      "settings": "Einstellungen",
+      "accessibility": "Unterstützung für Sehbehinderte (kontrastreiche Farben, bei Rot-Grün-Sehschwäche)",
+      "help": "Hilfe",
+      "about": "Über"
     }
   },
   "homepage": {
     "filters": {
-      "list": "list",
-      "card": "card",
-      "sort": "Sort",
-      "sort_by": "by",
+      "list": "Liste",
+      "card": "Karte",
+      "sort": "Sortieren",
+      "sort_by": "nach",
       "name": "Name",
-      "date": "Date",
+      "date": "Datum",
       "status": "Status",
-      "author": "Author",
-      "assessor": "Reviewer",
-      "validator": "Validator",
-      "new_pia": "New PIA",
-      "import_pia": "Import PIA",
-      "list_rocket_content": "Get started ! To initiate <br>a PIA, click on the +",
-      "card_rocket_content": "Get started !<br><br>To initiate a PIA,<br> click on New PIA"
+      "author": "Erstellt von",
+      "assessor": "Überprüft von",
+      "validator": "Bestätigt von",
+      "new_pia": "Neue DSFA",
+      "import_pia": "DSFA importieren",
+      "list_rocket_content": "Fangen Sie an! Klicken Sie auf das \"+\"-Zeichen, um eine DSFA anzulegen",
+      "card_rocket_content": "Fangen Sie an!<br><br>Um eine DSFA anzulegen,<br> klicken Sie auf \"Neue DSFA\""
     },
     "cards": {
-      "new_pia": "New PIA",
-      "placeholder_new_pia": "New PIA",
-      "or": "or",
-      "import_pia": "Import PIA",
-      "placeholder_import_pia": "Import PIA",
-      "title_close_creation": "Close",
-      "pia_name": "PIA",
-      "placeholder_pia_name": "PIA's title",
-      "author": "Editing",
-      "placeholder_author": "Firstname, lastname",
-      "evaluation": "Review",
-      "placeholder_evaluation": "Firstname, lastname",
-      "validation": "Validation",
-      "placeholder_validation": "Firstname, lastname",
-      "date": "Date",
+      "new_pia": "Neue DSFA",
+      "placeholder_new_pia": "Neue DSFA",
+      "or": "oder",
+      "import_pia": "DSFA importieren",
+      "placeholder_import_pia": "DSFA importieren",
+      "title_close_creation": "Schließen",
+      "pia_name": "DSFA",
+      "placeholder_pia_name": "DSFA-Titel",
+      "author": "Bearbeitung",
+      "placeholder_author": "Vorname, Nachname",
+      "evaluation": "Überprüfung",
+      "placeholder_evaluation": "Vorname, Nachname",
+      "validation": "Bestätigung",
+      "placeholder_validation": "Vorname, Nachname",
+      "date": "Datum",
       "status": "Status",
-      "creation_status": "Creation",
+      "creation_status": "Anlegen",
       "start": "Start",
-      "placeholder_start": "All fields must be filled",
+      "placeholder_start": "Es müssen alle Felder ausgefüllt sein",
       "item": {
         "tools": {
-          "edit": "Edit information",
-          "export": "Export",
-          "more_options": "More options",
-          "duplicate": "Duplicate",
-          "action_plan": "Display<br>action plan",
-          "pia": "Display<br>PIA",
-          "remove": "Delete"
+          "edit": "Informationen bearbeiten",
+          "export": "Exportieren",
+          "more_options": "Weitere Optionen",
+          "duplicate": "Kopieren",
+          "action_plan": "Aktionsplan<br>anzeigen",
+          "pia": "DSFA<br>anzeigen",
+          "remove": "Löschen"
         },
-        "edit_pia": "Edit PIA",
-        "save_pia": "Save"
+        "edit_pia": "DSFA bearbeiten",
+        "save_pia": "Speichern"
       }
     },
     "lists": {
-      "column_pia": "PIA",
-      "column_updated_at": "Last opened",
-      "column_author": "Editing",
-      "column_evaluation": "Review",
-      "column_validation": "Validation",
-      "column_creation": "Created",
+      "column_pia": "DSFA",
+      "column_updated_at": "Zuletzt geöffnet",
+      "column_author": "Bearbeitet von",
+      "column_evaluation": "Überprüft von",
+      "column_validation": "Bestätigt von",
+      "column_creation": "Erstellt",
       "column_status": "Status",
-      "column_progression": "Progress",
-      "column_actions": "Actions",
+      "column_progression": "Fortschritt",
+      "column_actions": "Aktionen",
       "item": {
         "tools": {
-          "edit": "Edit",
-          "export": "Export",
-          "duplicate": "Duplicate",
-          "action_plan": "Display action plan",
-          "pia": "Display PIA",
-          "remove": "Delete"
+          "edit": "Bearbeiten",
+          "export": "Exportieren",
+          "duplicate": "Kopieren",
+          "action_plan": "Aktionsplan anzeigen",
+          "pia": "DSFA anzeigen",
+          "remove": "Löschen"
         }
       }
     }
   },
   "pia": {
     "statuses": {
-      "0": "In progress",
-      "1": "Rejected",
-      "2": "Simple validation",
-      "3": "Signed validation",
-      "4": "Archived",
-      "5": "Waiting for validation"
+      "0": "In Bearbeitung",
+      "1": "Abgelehnt",
+      "2": "Einfache Bestätigung",
+      "3": "Signierte Bestätigung",
+      "4": "Archiviert",
+      "5": "Wartet auf Bestätigung"
     },
     "header": {
-      "preview": "Preview",
-      "display_action_plan": "Display<br>action plan"
+      "preview": "Vorschau",
+      "display_action_plan": "Aktionsplan<br>anzeigen"
     },
     "attachments": {
-      "title": "Attachments",
-      "add": "Add",
-      "remove": "Remove"
+      "title": "Anlagen",
+      "add": "Hinzufügen",
+      "remove": "Löschen"
     },
     "sections": {
-      "homepage_link": "Back to dashboard",
-      "validate_pia": "Validate PIA",
-      "refuse_pia": "Refused PIA",
-      "status": {
-        "evaluation": {
-          "title": "",
-          "content": "",
-          "cancel": ""
-        },
-        "validation": {
-          "title": "",
-          "content": "",
-          "cancel": ""
-        }
-      }
+      "homepage_link": "Zurück zur Übersicht",
+      "validate_pia": "DSFA bestätigen",
+      "refuse_pia": "DSFA zurückweisen"
     },
     "footer": {
-      "ask_evaluation": "Ask for review",
-      "validate_evaluation": "Validate review",
-      "subsection_validated": "Subsection reviewed, awaiting final validation",
-      "mandatory_fields": "All fields must be filled"
+      "ask_evaluation": "Bitte um Überprüfung",
+      "validate_evaluation": "Bestätigen Sie die Überprüfung",
+      "subsection_validated": "Unterabschnitt überprüft, wartet auf endgültige Bestätigung",
+      "mandatory_fields": "Es müssen alle Felder ausgefüllt sein"
     }
   },
   "measures": {
-    "placeholder_title": "Measure title",
-    "add": "Add an empty measure (otherwise, use the knowledge base)",
-    "edit": "Edit measure",
-    "remove": "Delete measure",
-    "default_placeholder": "Describe the existing or intended measures to ensure data security."
+    "placeholder_title": "Maßnahmentitel",
+    "add": "Fügen Sie eine leere Maßnahme hinzu (verwenden Sie andernfalls die Wissensbasis)",
+    "edit": "Maßnahme bearbeiten",
+    "remove": "Maßnahme löschen",
+    "default_placeholder": "Beschreiben Sie die bestehenden oder beabsichtigten Maßnahmen zur Gewährleistung der Datensicherheit."
   },
   "knowledge_base": {
-    "title": "Knowledge base",
-    "search": "Search",
-    "add_measure": "Add",
-    "placeholder_help": "Entry aids",
-    "placeholder_add_measure": "Add this measure",
-    "add_measure_hint": "You can also add a measure from the knowledge base.",
+    "title": "Wissensbasis",
+    "search": "Suche",
+    "add_measure": "Hinzufügen",
+    "placeholder_help": "Eingabehilfen",
+    "placeholder_add_measure": "Füge diese Maßnahme hinzu",
+    "add_measure_hint": "Sie können auch eine Maßnahme aus der Wissensdatenbank hinzufügen.",
     "filters": {
-      "title": "Filters",
-      "all": "All",
-      "definitions": "Definitions",
-      "organizational_measures": "Organisational controls",
-      "measures_on_data": "Logical security controls",
-      "general_measures": "Physical Security controls",
-      "no_result": "No result found."
+      "title": "Filter",
+      "all": "Alle",
+      "definitions": "Definitionen",
+      "organizational_measures": "Organisationsmaßnahmen",
+      "measures_on_data": "Logische Sicherheitsmaßnahmen",
+      "general_measures": "Physische Sicherheitsmaßnahmen",
+      "no_result": "Keine Einträge gefunden."
     },
     "category": {
       "definition": "Definition",
-      "principle": "Principle",
-      "organizational_measure": "Organisational control",
-      "measure_on_data": "Logical security control",
-      "general_measure": "Physical Security control",
-      "example": "Example"
+      "principle": "Prinzip",
+      "organizational_measure": "Organisationsmaßnahme",
+      "measure_on_data": "Logische Sicherheitsmaßnahme",
+      "general_measure": "Physische Sicherheitsmaßnahme",
+      "example": "Beispiel"
     },
     "slugs": {
       "PIA_LGL_FOND": {
@@ -458,7 +446,7 @@
         "source": ""
       },
       "PIA_DEF_CONS": {
-        "name": "Consent",
+        "name": "consent",
         "description": "Any freely given, specific, informed and unambiguous indication of the data subject's wishes by which he or she, by a statement or by a clear affirmative action, signifies agreement to the processing of personal data relating to him or her.<br>See <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 4.10 of [GDPR]</a>",
         "source": "GDPR Art. 4.10"
       },
@@ -494,7 +482,7 @@
       },
       "PIA_DEF_PSEU": {
         "name": "Pseudonymisation",
-        "description": "Processing of personal data in such a manner that the personal data can no longer be attributed to a specific data subject without the use of additional information, provided that such additional information is kept separately and is subject to technical and organisational measures to ensure that the personal data are not attributed to an identified or identifiable natural person.<br>Pseudonymisation  reduces  the  linkability  of  a  dataset  with  the  original  identity  of  a  data subject; as such, it is a useful security measure but not a method of anonymisation.",
+        "description": "processing of personal data in such a manner that the personal data can no longer be attributed to a specific data subject without the use of additional information, provided that such additional information is kept separately and is subject to technical and organisational measures to ensure that the personal data are not attributed to an identified or identifiable natural person.<br>Pseudonymisation  reduces  the  linkability  of  a  dataset  with  the  original  identity  of  a  data subject; as such, it is a useful security measure but not a method of anonymisation.",
         "source" :"GDPR Art. 4.5 and guidelines G29 p22 http://ec.europa.eu/justice/data-protection/article-29/documentation/opinion-recommendation/files/2014/wp216_en.pdf"
       },
       "PIA_DEF_CLO": {
@@ -504,7 +492,7 @@
       },
       "PIA_DEF_CTLA": {
         "name": "Logical access controls",
-        "description": "Means implemented to limit the risks that unauthorized persons will access personal data electronically, it requires among other things to : <br>- <strong>manage users' profiles</strong> by separating tasks and areas of responsibility (preferably in centralised fashion) to limit access to personal data exclusively to authorised users by applying need-to-know and least-privilege principles;<br>- <strong>withdraw the rights of employees, contracting parties and other third parties when they are no longer authorised to access a premises or a resource</strong> or when their <strong>employment contract ends</strong>.",
+        "description": "Means implemented to limit the risks that unauthorized persons will access personal data electronically, it requires among other things to : <br>- <strong>Manage users' profiles</strong> by separating tasks and areas of responsibility (preferably in centralised fashion) to limit access to personal data exclusively to authorised users by applying need-to-know and least-privilege principles.<br>- <strong>Withdraw the rights of employees, contracting parties and other third parties when they are no longer authorised to access a premises or a resource</strong> or when their <strong>employment contract ends</strong>.",
         "source": "PIA3 p43 - WIKI"
       },
       "PIA_DEF_MIN1": {
@@ -549,7 +537,7 @@
       },
       "PIA_DEF_VRA": {
         "name": "Likelihood",
-        "description": "Likelihood expresses the possibility of a risk occurring. It primarily depends on the level of vulnerabilities of the supporting assets when under threat and the level of capabilities of the risk sources to exploit them.",
+        "description": "likelihood expresses the possibility of a risk occurring. It primarily depends on the level of vulnerabilities of the supporting assets when under threat and the level of capabilities of the risk sources to exploit them.",
         "source": "PIA1 page 6"
       },
       "PIA_DEF_PBDS": {
@@ -624,7 +612,7 @@
       },
       "PIA_EX_HUMI": {
         "name": "Internal human sources",
-        "description": "It could be either:<br>- a negligent or rogue employee, proximity of the system, skills, privileges and available time are potentially high, possible lack of training and awareness<br>- negligent or rogue user, family member or friend having access to the service.<br> Various motives are possible, including : clumsiness, error, negligence game, malicious intent, revenge, spying",
+        "description": "It could be either:<br>- a negligent or rogue employee, proximity of the system, skills, privileges and available time are potentially high, possible lack of training and awareness<br>- Negligent or rogue user or people around<br> Various motives are possible, including : clumsiness, error, negligence game, malicious intent, revenge, spying",
         "source": "PIAF Connected objects p41 - WIKI"
       },
       "PIA_EX_HUME": {
@@ -638,23 +626,23 @@
         "source": "PIAF Connected objects p41 - WIKI"
       },
       "PIA_EX_IMPN": {
-        "name": "Negligible impact",
-        "description": "Data subjects either will not be affected or may encounter a few inconveniences, which they will overcome without any problem. For example:<br>- physical : transient headaches;<br>- material : loss of time in repeating formalities or waiting for them to be fulfilled, receipt of unsolicited mail (e.g.: spams), reuse of data published on websites for the purpose of targeted advertising , etc.;<br>- moral : mere annoyance, feeling of invasion of privacy without real or objective harm (commercial intrusion), etc.",
+        "name": "Negligible severity",
+        "description": "Data subjects either will not be affected or may encounter a few inconveniences, which they will overcome without any problem.<br>Examples:<br>- physical : transient headaches<br>- material : loss of time in repeating formalities or waiting for them to be fulfilled, receipt of unsolicited mail (e.g.: spams), reuse of data published on websites for the purpose of targeted advertising , etc.,<br>- moral : mere annoyance, feeling of invasion of privacy without real or objective harm (commercial intrusion), etc.",
         "source": "PIAF Connected Objects p41 - WIKI"
       },
       "PIA_EX_IMPL": {
-        "name": "Limited impact",
-        "description": "Data subjects may encounter significant inconveniences, which they will be able to overcome despite a few difficulties. For example:<br>- physical : minor physical ailments (minor illness due to disregard of contraindications), defamation resulting in physical or psychological retaliation, etc.;<br>- material : unanticipated payments (fines imposed erroneously), denial of access to administrative or commercial services, receipt of unsolicited targeted mailings likely to damage the reputation of data subjects, etc.;<br>- moral : minor but objective psychological ailments, feeling of invasion of privacy without irreversible damage, intimidation on social networks, etc.",
+        "name": "Limited severity",
+        "description": "Data subjects may encounter significant inconveniences, which they will be able to overcome despite a few difficulties<br>Examples :<br>- physical : minor physical ailments (minor illness due to disregard of contraindications), defamation resulting in physical or psychological retaliation, etc.<br>- material : Unanticipated payments (fines imposed erroneously), denial of access to administrative or commercial services , Receipt of unsolicited targeted mailings likely to damage the reputation of data subjects, etc.<br>- moral : minor but objective psychological ailments, feeling of invasion of privacy without irreversible damage, intimidation on social networks, etc.",
         "source": "PIAF Connected objects p41 - WIKI"
       },
       "PIA_EX_IMPI": {
-        "name": "Significant impact",
-        "description": "Data subjects may encounter significant consequences, which they should be able to overcome albeit with real and serious difficulties. For example: <br>- physical : serious physical ailments causing long-term harm (worsening of health due to improper care, or disregard of contraindications), lteration of physical integrity for example following an assault, an accident at home, work, etc.<br>- material : misappropriation of money not compensated, targeted, unique and non-recurring, lost opportunities  (home loan, refusal of studies, internships or employment, examination ban), loss of housing, loss of employment, etc.;<br>- moral : serious psychological ailments (depression, development of a phobia), feeling of invasion of privacy with irreversible damage, victim of blackmailing, cyberbullying and harassment, etc.",
+        "name": "Significant severity",
+        "description": "Data subjects may encounter significant consequences, which they should be able to overcome albeit with real and serious difficulties<br>Examples: <br>- physical : serious physical ailments causing long-term harm (worsening of health due to improper care, or disregard of contraindications), lteration of physical integrity for example following an assault, an accident at home, work, etc.<br>- material : misappropriation of money not compensated, targeted, unique and non-recurring, lost opportunities  (home loan, refusal of studies, internships or employment, examination ban), loss of housing, loss of employment, etc.<br>- moral : serious psychological ailments (depression, development of a phobia), feeling of invasion of privacy with irreversible damage, victim of blackmailing, cyberbullying and harassment, etc.",
         "source": "PIAF Connected objects p41 - WIKI"
       },
       "PIA_EX_IMPM": {
-        "name": "Maximum impact",
-        "description": "Data subjects may encounter significant, or even irreversible, consequences, which they may not overcome. For example:<br>- physical : long-term or permanent physical ailments, permanent impairment of physical integrity, death;<br>- material : financial risk, substantial debts, inability to work, inability to relocate, loss of evidence in the context of litigation, loss of access to vital infrastructure (water, electricity), etc.<br>- moral : long-term or permanent psychological ailments, criminal penalty, abduction, loss of family ties, inability to sue, change of administrative status and/or loss of legal autonomy (guardianship), etc.",
+        "name": "Maximum severity",
+        "description": "Data subjects may encounter significant, or even irreversible, consequences, which they may not overcome<br>Examples :<br>- physical : long-term or permanent physical ailments, permanent impairment of physical integrity, death<br>- material : financial risk, substantial debts, inability to work, inability to relocate, loss of evidence in the context of litigation, loss of access to vital infrastructure (water, electricity), etc.<br>- moral : long-term or permanent psychological ailments, criminal penalty, abduction, loss of family ties, inability to sue, change of administrative status and/or loss of legal autonomy (guardianship), etc.",
         "source": "PIAF Connected objects p41 - WIKI"
       },
       "PIA_EX_VRAN": {
@@ -690,6 +678,7 @@
       "PIA_SEC_CTR": {
         "placeholder": "Describe here specific measures for processors (host, maintenance company, administrator, specialist service providers, etc.)",
         "name": "Processing contracts",
+        "description": "Regulate the procurement relations via a contract signed intuitu personæ.<br>- Require the processor to forward its Information Systems Security Policy (PSSI) along with all supporting documents of its information security certifications and append said documents to the contract. Ensure that the measures pursuant to its PSSI comply with the CNIL's recommendations in this respect.<br>- Precisely determine and set, on a contractual basis, the operations that the processor will be required to carry out on personal data: <br> 1) The data to which it will have access or which will be transmitted to it.<br> 2) The operations it must carry out on the data.<br> 3) The duration for which it may store the data.<br> 4) Any recipients to which the data controller requires it to transmit the data.<br> 5) The operations to be carried out at the end of the service (permanent deletion of data or return of the data in the context of reversibility then destruction of data at the processor's).<br> 6) The security objectives set by the data controller. <br>- Determine, on a contractual basis, the division of responsibility regarding the legal processes aimed at allowing the data subjects to exercise their rights.<br>- Explicitly prohibit or regulate use of tier-2 processors.<br>- Clarify in the contract that compliance with the data protection obligations is a binding requirement of the contract.",
         "source": "Mesures_US Procurement: identified and governed by a contract"
       },
       "PIA_DEF_CHIF": {
@@ -720,552 +709,506 @@
     }
   },
   "comments": {
-    "comments_count": "comment(s)",
-    "new_comment": "Comment",
-    "placeholder_new_comment": "Leave a comment",
-    "comment": "Comment",
-    "send": "Send"
+    "comments_count": "Kommentar(e)",
+    "new_comment": "Kommentieren",
+    "placeholder_new_comment": "Hinterlasse einen Kommentar",
+    "comment": "Kommentar"
   },
   "questions": {
-    "edit": "Edit question",
+    "edit": "Frage bearbeiten",
     "gauges": {
-      "0": "(Undefined)",
-      "1": "Negligible",
-      "2": "Limited",
-      "3": "Important",
-      "4": "Maximum"
+      "0": "(Nicht definiert)",
+      "1": "Vernachlässigbar",
+      "2": "Begrenzt",
+      "3": "Wesentlich",
+      "4": "Maximal"
     }
   },
   "evaluations": {
-    "title": "Evaluation",
-    "to_correct": "To correct",
-    "improvable": "Improvable",
-    "acceptable": "Acceptable",
-    "evaluation_comment": "Evaluation comment",
-    "action_plan_comment": "Action plan / corrective actions",
-    "placeholder_to_correct": "The information provided are not sufficient to properly evaluate them. Send back to the editor to improve the original submission.",
-    "placeholder_improvable1": "According to the available information, additional measures are to be implemented in order to improve the data protection of the processing.",
-    "placeholder_improvable2": "Enter your comments.",
-    "placeholder_acceptable": "According to the available information, the measures implemented are adequate to properly meet the requirements for protecting the data.",
+    "title": "Bewertung",
+    "to_correct": "zu berichtigen",
+    "placeholder_to_correct": "Die bereitgestellten Informationen sind nicht ausreichend, um sie zu bewerten. Zur Bearbeitung zurückkehren, um den ursprünglichen Vorschlag anzureichern.",
+    "improvable": "verbesserungsfähig",
+    "placeholder_improvable": "Angesichts der bereitgestellten Informationen müssen zusätzliche Maßnahmen hinzugefügt werden, um den Schutz der verarbeiteten Daten zu verbessern.",
+    "acceptable": "tragbar",
+    "placeholder_acceptable": "Angesichts der zur Verfügung gestellten Informationen reichen die durchgeführten Maßnahmen aus, um die Datenschutzanforderungen zu erfüllen.",
+    "evaluation_comment": "Bewertungskommentar",
+    "action_plan_comment": "Aktionsplan / Korrekturmaßnahmen",
+    "placeholder_comment": "Geben Sie Ihre Kommentare ein.",
     "gauges": {
-      "seriousness": "Taking into account the action plan, how do you re-evaluate the <span class='red-highlight'>seriousness of this risk</span> ({{value}})?",
-      "likelihood": "Taking into account the action plan, how do you re-evaluate the <span class='red-highlight'>likelihood of this risk</span> ({{value}})?",
-      "0": "(Undefined)",
-      "1": "Negligible",
-      "2": "Limited",
-      "3": "Important",
-      "4": "Maximum"
+      "seriousness": "Wie bewerten Sie unter Berücksichtigung des Aktionsplans die <span class = 'red-highlight'> Höhe dieses Risikos </ span> ({{value}})?",
+      "likelihood": "Unter Berücksichtigung des Aktionsplans, wie bewerten Sie die <span class = 'red-highlight'> Wahrscheinlichkeit dieses Risikos </ span> ({{value}}) erneut?",
+      "0": "(Nicht definiert)",
+      "1": "Vernachlässigbar",
+      "2": "Begrenzt",
+      "3": "Wesentlich",
+      "4": "Maximal"
     },
     "status": {
-      "0": "Pending",
-      "1": "To correct",
-      "2": "Improvable",
-      "3": "Acceptable"
+      "0": "unerledigt",
+      "1": "zu korrigieren",
+      "2": "verbesserungsfähig",
+      "3": "tragbar"
     }
   },
   "help": {
-    "title": "Help",
+    "title": "Hilfe",
     "definition": {
       "data1": {
-        "title": "Use the PIA tool",
-        "content": "Content being written"
+        "title": "Verwenden Sie das DSFA-Tool",
+        "content": "Inhalt ist in Bearbeitung"
       },
       "data2": {
-        "title": "Known Issues",
+        "title": "Bekannte Probleme",
         "qa1": {
-          "title": "I get display issues such as icons being stuck in one state or missing elements from the interface",
-          "content": "When encountering those display issues, close the application and reload it. It usually fixes the issue. You won’t lose the information you have entered ; it is  automatically saved as you type."
+          "title": "Ich bekomme Probleme mit der Anzeige, z. B. dass Symbole in einem Status hängen bleiben oder Elemente der Schnittstelle fehlen",
+          "content": "Schließen Sie die Anwendung, wenn diese Anzeigeprobleme auftreten, und laden Sie sie erneut. Normalerweise behebt es das Problem. Die on Ihnen eingegebenen Informationen gehen nicht verloren; Diese werden automatisch während der Eingabe gespeichert."
         },
         "qa2": {
-          "title": "I can’t edit the gauges for evaluating the severity and likelihood of a risk",
-          "content": "This known issue is currently being fixed. If you encounter this problem, we recommend that you fill in the justification field of the estimated level of severity and / or likelihood. You will be able to edit the gauge once the bug is fixed."
+          "title": "Ich kann die Skala nicht bearbeiten, um den Schweregrad und die Wahrscheinlichkeit eines Risikos zu bewerten",
+          "content": "Dieses bekannte Problem wird derzeit behoben. Wenn Sie auf dieses Problem stoßen, empfehlen wir, dass Sie das Begründungsfeld des geschätzten Schweregrads und / oder der Wahrscheinlichkeit ausfüllen. Sie können die Skala bearbeiten, sobald der Fehler behoben ist."
         },
         "qa3": {
-          "title": "I encounter issues when importing a PIA",
-          "content": "Several bugs have been observed when importing a PIA, and in particular the level gauges for evaluating the severity and likelihood of a risk may disappear. In this case, please refer to the above mentioned issue. Besides, a PIA may not appear on the dashboard after importing it. This is a display issue and you just need to refresh the page."
+          "title": "Beim Importieren einer DSFA treten Probleme auf",
+          "content": "Beim Import einer DSFA wurden mehrere Fehler beobachtet, und insbesondere die Skalen für die Bewertung der Schwere und Wahrscheinlichkeit eines Risikos können verschwinden. Bitte beachten Sie in diesem Fall das oben genannte Problem. Außerdem wird eine DSFA nach dem Importieren möglicherweise nicht auf der Übersicht angezeigt. Dies ist ein Anzeigeproblem und Sie müssen nur die Seite aktualisieren."
         },
         "qa4": {
-          "title": "When I copy / paste text, it is highlighted.",
-          "content": "This is only a display bug and it has no effect on the text you enter in a field. This visual problem will be fixed soon."
+          "title": "Wenn ich Text kopiere / einfüge, wird er markiert.",
+          "content": "Dies ist nur ein Anzeigefehler und hat keine Auswirkung auf den Text, den Sie in ein Feld eingeben. Dieses visuelle Problem wird bald behoben sein."
         },
         "qa5": {
-          "title": "I can’t evaluate a section",
-          "content": "In order to evaluate a section, it is mandatory to fill in all the fields. Please check if this is the case. When editing a risk, you must have at least one technical or organizational measure that mitigates the risk in order to ask for an evaluation of the risk."
-        },
+          "title": "Ich kann einen Abschnitt nicht bewerten",
+          "content": "Um einen Abschnitt auszuwerten, müssen alle Felder ausgefüllt werden. Bitte prüfen Sie, ob dies der Fall ist. Wenn Sie ein Risiko bearbeiten, müssen Sie mindestens eine technische oder organisatorische Maßnahme haben, die das Risiko mindert, um nach einer Risikobewertung zu fragen. "        },
         "qa6": {
-          "title": "When switching language, the texts are not translated",
-          "content": "Please close the PIA you are editing and re-open it. The content should then be displayed in the language you have selected."
+          "title": "Beim Wechseln der Sprache werden die Texte nicht übersetzt",
+          "content": "Bitte schließen Sie die DSFA, die Sie bearbeiten, und öffnen Sie sie erneut. Der Inhalt sollte dann in der von Ihnen gewählten Sprache angezeigt werden."
         },
         "qa7": {
-          "title": "I have refused to validate a PIA but I don’t know what to do now",
-          "content": "For the moment, the navigation menu icons are not refreshed after refusing a PIA. You have to check each section and change the information and/or evaluation according to the reasons for refusing the PIA. Once all section have been reviewed, you should be able to request PIA validation again."
+          "title": "Ich habe mich geweigert, eine DSFA zu bestätigen, aber ich weiß nicht, was ich jetzt tun soll",
+          "content": "Im Moment werden die Navigationsmenüsymbole nicht aktualisiert, nachdem eine DSFA abgelehnt wurde. Sie müssen jeden Abschnitt überprüfen und die Informationen und / oder Bewertungen entsprechend den Gründen für die Verweigerung der DSFA ändern. Sobald alle Abschnitte überprüft wurden, sollten Sie die DSFA-Bestätigung erneut anfordern können."
         }
       },
       "footer": ""
     }
   },
   "about": {
-    "title": "About the Tool PIA",
-    "version_number": "Version number",
-    "description": "This tool is originally designed by the <a target=\"_blank\" href=\"https://www.cnil.fr\">Commission Nationale Informatique et Liberté (CNIL)</a>, the French Data Protection Authority, to help data processor to be compliant with the GDPR.<br>This software is free and open. If you wish to get involved in this project, you are welcome to download the source code from Github, modify it and share it with the community.",
-    "translators": "The PIA software is currently available in five languages. The French and English versions are provided by the CNIL. The others versions result from the contributions of the following individuals:",
-    "translators_name": "<ul><li>Dutch: Ruud van Driel, Manuel d’Orso ;</li><li>Czech: Jiří Grohmann, Manuel d’Orso ;</li><li>Italian: Manuel d’Orso, Gianluca Markos.</li><li>Polish: Joanna Karczewska</li></ul>",
-    "contribute": "If you wish to contribute to the translation of the software in another language or improve the existing translations, we recommend you to <a href=\"https://github.com/LINCnil/pia/tree/master/src/assets/i18n\" target=\"_blank\">read the page describing the steps to follow</a>.",
-    "licences": "Library licences:"
+    "title": "Über das Werkzeug PIA",
+    "version_number": "Versionsnummer",
+    "description": "Dieses Tool wurde ursprünglich von der französischen Datenschutzbehörde <a target=\"_blank\" href=\"https://www.cnil.fr\"> Nationale Kommission für Informatik und Freiheit (CNIL) </a> entwickelt, um dem Datenverarbeiter zu helfen, mit der DS-GVO konform zu sein. <br> Diese Software ist kostenlos und offen. Wenn Sie sich an diesem Projekt beteiligen möchten, können Sie den Quellcode von Github herunterladen, ändern und mit anderen in der Community teilen.",
+    "licences": "Bibliothekslizenzen:"
+  },
+  "about": {
+    "title": "Über"
   },
   "settings": {
-    "title": "Settings",
-    "content": "Please, provide the address (URL) of the remote server:",
-    "update": "Update URL"
-  },
-  "validation_page": {
-    "responsible": "The one in charge of validating the PIA: ",
-    "after_reading": "After reading the whole PIA on the data processing linked to the ",
-    "confirmation1": "I confirm that the description of the processing context is consistent with the reality.",
-    "confirmation2": "I confirm that I took note of the existing risks according to the planned or existing measures.",
-    "confirmation3": "I approve of the indicated corrective measures.",
-    "confirmation4": "I commit myself to implement as soon as possible the indicated corrective measures.",
-    "button": {
-      "rejection": "Refuse<br>validation",
-      "simple_validation": "Simple validation",
-      "signed_validation": "Signed<br>validation"
-    },
-    "mandatory_fields": "All fields must be filled",
-    "waiting_for_signature": "Waiting for the PIA's signature",
-    "validated_pia_with_signature": "Validated",
-    "add_signed_pia": "Add the signed PIA",
-    "remove_attachment": "Remove the attachment",
-    "tools": {
-      "dashboard": "Dashboard",
-      "display_pia": "Display PIA",
-      "action_plan": "Action plan"
-    }
-  },
-  "rejection_page": {
-    "title": "Validation history",
-    "rejection_reason": "Rejection reason",
-    "rejection_reason_placeholder": "to be translated",
-    "applied_adjustments": "Applied adjustments",
-    "applied_adjustments_placeholder": "to be translated",
-    "previous_rejection": "Previous rejection",
-    "button": {
-      "abandon_treatment": "Give up the treatment",
-      "reject_pia": "Refuse PIA",
-      "send_for_validation": "Send for new validation"
-    }
+    "title": "Einstellungen",
+    "content": "Bitte geben Sie die Adresse (URL) des Remote-Servers an:",
+    "update": "URL aktualisieren"
   },
   "misc": {
-    "display": "Show / Hide"
+    "display": "Anzeigen / Ausblenden"
   },
   "modals": {
-    "cancel": "Cancel",
-    "archive": "Archive",
-    "close": "Close",
-    "continue": "Continue",
-    "back_to_home": "Back to home",
+    "cancel": "Abbrechen",
+    "archive": "Archivieren",
+    "close": "Schließen",
+    "continue": "Fortsetzen",
+    "back_to_home": "Zurück zur Startseite",
     "simple_pia_validation": {
-      "content": "The PIA has been validated."
+      "content": "Die DSFA wurde bestätigt."
     },
     "update_server_url": {
-      "content": "The server address has been updated."
+      "content": "Die Serveradresse wurde aktualisiert."
     },
     "signed_pia_validation": {
-      "content": "<span class='strong'>The PIA is accepted</span><br>Finalize the validation of the PIA by attaching<br>the signed report by the person in charge.",
-      "download_pia": "Download PIA report"
+      "content": "<span class = 'strong'> Die DSFA wird akzeptiert </ span> <br> Schließen Sie die Bestätigung der DSFA ab, indem Sie den unterschriebenen Bericht an die zuständige Person anhängen. ",
+      "download_pia": "Laden Sie den DSFA-Bericht herunter"
     },
     "abandon_pia": {
-      "content": "Are you sure you want to<br>give up this treatment?"
+      "content": "Sind Sie sicher, dass Sie diese Verarbeitung aufgeben wollen?"
     },
     "refuse_pia": {
-      "content": "<span class='strong'>Rejected PIA,</span><br>Several fields must be corrected.<br>Return to evaluation mode<br>to make corrections."
+      "content": "<span class = 'strong'> Abgelehnte DSFA, </ span> <br> Mehrere Felder müssen korrigiert werden. <br> Zum Auswertungsmodus zurückkehren, um Korrekturen vorzunehmen."
     },
     "same_comment": {
-      "content": "<span class='strong'>Warning,</span><br>Please enter a comment different from the last recorded."
+      "content": "<span class = 'strong'> Warnung, </ span> <br> Bitte geben Sie einen anderen Kommentar als den zuletzt aufgezeichneten ein."
     },
     "not_enough_measures_to_remove": {
-      "content": "<span class='strong'>Warning,</span><br>At least one measure must be filled: no deletion possible."
+      "content": "<span class = 'strong'> Warnung, </ span> <br> Mindestens eine Maßnahme muss gefüllt sein: keine Löschung möglich."
     },
     "remove_measure": {
-      "content": "<span class='strong'>Warning,</span><br>Are you sure you want to <br>remove this measure?",
-      "remove": "Remove this <br>measure",
-      "keep": "Keep this <br>measure"
+      "content": "<span class = 'strong'> Warnung, </ span> <br> Sind Sie sicher, dass Sie diese Maßnahme entfernen möchten?",
+      "remove": "Entfernen Sie <br> diese Maßnahme",
+      "keep": "Behalten Sie <br> diese Maßnahme"
     },
     "ask_for_evaluation": {
-      "content": "<span class='strong'>Congratulations,</span><br>the subsection is now<br>available for evaluation."
+      "content": "<span class = 'strong'> Herzlichen Glückwunsch, </ span> <br> der Unterabschnitt steht jetzt zur Auswertung zur Verfügung."
     },
     "validate_evaluation": {
-      "content": "<span class='strong'>Congratulations,</span><br>waiting for global validation of the PIA."
+      "content": "<span class = 'strong'> Herzlichen Glückwunsch, </ span> <br> warten Sie auf die globale Bestätigung der DSFA."
     },
     "validate_evaluation_to_correct": {
-      "content": "Sorry,<br>Several fields must be corrected.<br>Return to edition mode<br>to make corrections."
+      "content": "Sorry, <br> Mehrere Felder müssen korrigiert werden. <br> Zum Bearbeitungsmodus zurückkehren und Korrekturen vornehmen."
     },
     "declare_measures": {
-      "content": "Sorry,<br>before evaluating risks,<br>you must report the<br>existing or planned measures.",
-      "declare": "Declare existing or planned measures"
+      "content": "Sorry, <br> bevor Sie Risiken bewerten, <br> müssen Sie die bestehenden oder geplanten Maßnahmen melden.",
+      "declare": "Benennen Sie bestehende oder geplante Maßnahmen"
     },
     "remove_pia": {
-      "content": "<span class='strong'>Warning,</span><br>Are you sure you want to<br>remove this PIA?",
-      "remove": "Remove this PIA"
+      "content": "<span class = 'strong'> Warnung, </ span> <br> Möchten Sie diese DSFA wirklich entfernen?",
+      "remove": "Diese DSFA entfernen"
     },
     "remove_attachment": {
-      "content": "<span class='strong'>Warning,</span><br>Are you sure you want to<br>remove this attachment?",
-      "keep": "Keep",
-      "remove": "Remove"
+      "content": "<span class = 'strong'> Warnung, </ span> <br> Sind Sie sicher, dass Sie diesen Anhang entfernen möchten?",
+      "keep": "Behalten",
+      "remove": "Entfernen"
     }
   },
   "summary": {
-    "previous_page": "Back to previous page",
-    "print": "Print",
-    "title": "PIA information",
-    "pia_name": "PIA",
-    "pia_author": "Author's name",
-    "pia_assessor": "Assessor's name",
-    "pia_validator": "Validator's name",
+    "previous_page": "Zurück zur vorherigen Seite",
+    "print": "Drucken",
+    "title": "Information zur DSFA",
+    "pia_name": "DSFA",
+    "pia_author": "Name des Autors",
+    "pia_assessor": "Name des Prüfers",
+    "pia_validator": "Name des Bestätigers",
     "content_choice": {
-      "0": "The treatment should not be used.",
-      "1": "The treatment could be implemented."
+      "0": "Die Verarbeitung könnte umgesetzt werden.",
+      "1": "Die Verarbeitung sollte nicht durchgeführt werden."
     },
-    "dpo_name": "DPO's name",
-    "dpo_status": "DPO's status",
-    "dpo_opinion": "DPO's opinion",
-    "concerned_people_searched_opinion": "Search of concerned people opinion",
-    "people_search_status_ok": "Concerned people opinion was requested.",
-    "people_search_status_nok": "Concerned people opinion wasn't requested.",
-    "concerned_people_unsearched_opinion_comment": "Reason why concerned people opinion wasn't requested",
-    "concerned_people_name": "Concerned people opinions",
-    "concerned_people_status": "Concerned people statuses",
-    "concerned_people_opinion": "Concerned people opinions",
-    "modification_made": "Modifications made",
-    "rejection_reason": "Rejection reason",
-    "creation_date": "Creation date",
-    "attachments": "Attachments",
+    "dpo_name": "Name des DSBs",
+    "dpo_status": "Feststellung des DSBs",
+    "dpo_opinion": "Gutachten des DSBs",
+    "concerned_people_searched_opinion": "Einholung der Meinung der Betroffenen",
+    "people_search_status_ok": "Meinung der Betroffenen wurde eingeholt.",
+    "people_search_status_nok": "Meinung der Betroffenen wurde nicht eingeholt.",
+    "concerned_people_unsearched_opinion_comment": "Grund, warum die Meinung der Betroffenen nicht gefragt wurde",
+    "concerned_people_name": "Namen der Betroffenen",
+    "concerned_people_status": "Feststellungen der Betroffenen",
+    "concerned_people_opinion": "Aufassungen der Betroffenen",
+    "modification_made": "Vorgenommene Änderungen",
+    "rejection_reason": "Ablehnungsgrund",
+    "creation_date": "Erstellungsdatum",
+    "attachments": "Anlagen",
     "gauges": {
-      "1": "Negligible",
-      "2": "Limited",
-      "3": "Important",
-      "4": "Maximum"
+      "1": "Vernachlässigbar",
+      "2": "Begrenzt",
+      "3": "Wesentlich",
+      "4": "Maximal"
     },
     "action_plan": {
-      "title": "Action plan",
-      "fundamental_principles": "Fundamental principles",
-      "implementation_date": "Expected date of implementation",
-      "implementation_responsible": "Responsible for implementation",
-      "measures": "Existing or planned measures",
-      "risks": "Risks",
-      "no_action_plan": "No action plan recorded."
+      "title": "Aktionsplan",
+      "fundamental_principles": "Fundamentale Prinzipien",
+      "implementation_date": "Voraussichtliches Datum der Umsetzung",
+      "implementation_responsible": "Verantwortlich für die Umsetzung",
+      "measures": "Bestehende oder geplante Maßnahmen",
+      "risks": "Risiken",
+      "no_action_plan": "Kein Aktionsplan festgelegt."
     }
   },
   "errors": {
-    "title": "Page not found.",
-    "content": "If you encounter other problems or if you have suggestions for improvement,<br>you can send them back via this form: <a href=\"https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia\" target=\"_blank\">https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia</a>"
+    "title": "Seite nicht gefunden.",
+    "content": "Wenn Sie auf andere Probleme stoßen oder Verbesserungsvorschläge haben, können Sie diese über das folgende Formular zurücksenden: <a href=\"https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia\" target=\"_blank\">https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia</a>"
   },
   "overview-risks": {
-    "potential_impacts": "Potential impacts",
-    "threat": "Threat",
-    "sources": "Sources",
-    "measures": "Measures",
-    "negligible": "Negligible",
-    "limited": "Limited",
-    "important": "Important",
+    "potential_impacts": "Mögliche Auswirkungen",
+    "threat": "Bedrohung",
+    "sources": "Ursachen",
+    "measures": "Maßnahmen",
+    "negligible": "Vernachlässigbar",
+    "limited": "Begrenzt",
+    "important": "Wesentlich",
     "maximal": "Maximal",
-    "risk-access_x": "Severity",
-    "risk-access_y": "Likelihood",
-    "risk-change_x": "Severity",
-    "risk-change_y": "Likelihood",
-    "risk-disappearance_x": "Severity",
-    "risk-disappearance_y": "Likelihood"
+    "risk-access_x": "Schwere",
+    "risk-access_y": "Eintrittswahrscheinlichkeit",
+    "risk-change_x": "Schwere",
+    "risk-change_y": "Eintrittswahrscheinlichkeit",
+    "risk-disappearance_x": "Schwere",
+    "risk-disappearance_y": "Eintrittswahrscheinlichkeit"
   },
   "cartography": {
-    "negligible": "Negligible",
-    "limited": "Limited",
-    "important": "Important",
-    "maximal": "Maximum",
-    "seriousness_axe": "Risk seriousness",
-    "likelihood_axe": "Risk likelihood",
-    "legend1": "Planned or existing measures",
-    "legend2": "With the corrective measures implemented",
-    "legend3": "(I)llegitimate access to data",
-    "legend4": "(U)nwanted modification of data",
-    "legend5": "(D)ata disappearance",
+    "negligible": "Vernachlässigbar",
+    "limited": "Begrenzt",
+    "important": "Wesentlich",
+    "maximal": "Maximal",
+    "seriousness_axe": "Schwere des Risikos",
+    "likelihood_axe": "Eintrittswahrscheinlichkeit des Risikos",
+    "legend1": "Geplante oder bestehende Maßnahmen",
+    "legend2": "Mit den eingeleiteten Korrekturmaßnahmen",
+    "legend3": "(I)llegitimer Zugriff auf Daten",
+    "legend4": "(U)nerwünschte Änderung von Daten",
+    "legend5": "(D)atenverlust",
     "risk1_access": "(I)",
     "risk2_modification": "(U)"
   },
   "action_plan": {
-    "title": "Overview",
-    "principles": "Fundamental principles",
-    "measures": "Planned or existing measures",
-    "risks": "Risks",
-    "risk1": "Illegitimate access to data",
-    "risk2": "Unwanted modification of data",
-    "risk3": "Data disappearance",
-    "improvable_measures": "Improvable measures",
-    "acceptable_measures": "Acceptable measures",
-    "no_action_plan": "No action plan recorded.",
-    "edit": "Edit",
-    "placeholder_person_in_charge": "Implementation responsible"
+    "title": "Übersicht",
+    "principles": "Fundamentale Prinzipien",
+    "measures": "Geplante oder bestehende Maßnahmen",
+    "risks": "Risiken",
+    "risk1": "Illegitimer Zugriff auf Daten",
+    "risk2": "Unerwünschte Änderung von Daten",
+    "risk3": "Datenverlust",
+    "improvable_measures": "Verbesserbare Maßnahmen",
+    "acceptable_measures": "Akzeptable Maßnahmen",
+    "no_action_plan": "Kein Aktionsplan festgelegt.",
+    "edit": "Kein Aktionsplan festgelegt",
+    "placeholder_person_in_charge": "Umsetzungsverantwortlich"
   },
   "opinions": {
-    "edit": "Edit",
-    "content": ", consider that :",
-    "dpo_opinion": "DPO opinion",
-    "placeholder_dpo_name": "DPO name(s)",
-    "placeholder_dpo_opinion": "Specify the reasons for your choice.",
-    "dpo_lock": "Please complete the other sections before you can fill the DPO opinion.",
-    "people_opinion": "Concerned people opinion",
-    "placeholder_concerned_people_name": "Concerned people name(s)",
-    "placeholder_people_opinion": "Describe how the opinions were collected and what the analysis is. If the notices have not been sought, state the reasons.",
-    "placeholder_search_content": "Justify the reason why the opinion of the persons concerned has not been requested.",
-    "treatment_ok": "The treatment could be implemented.",
-    "treatment_nok": "The treatment should not be used.",
-    "treatment_lock": "Please complete the other sections before you can fill the opinions of the persons concerned."
+    "edit": "Bearbeiten",
+    "content": ", berücksichtige das:",
+    "dpo_opinion": "Gutachten des DSB",
+    "placeholder_dpo_name": "Name des DSB",
+    "placeholder_dpo_opinion": "Geben Sie die Gründe für Ihre Auswahl an.",
+    "dpo_lock": "Bitte füllen Sie die anderen Abschnitte aus, bevor Sie das DSB-Gutachten ausfüllen können.",
+    "people_opinion": "Auffassung der Betroffenen",
+    "placeholder_concerned_people_name": "Namen der Betroffenen",
+    "placeholder_people_opinion": "Beschreiben Sie, wie die Auffassungen gesammelt wurden und was das Ergebnis der Analyse ist.. Falls keine Stellungnahmen eingeholt wurden, geben Sie die Gründe an.",
+    "placeholder_search_content": "Begründen Sie, warum die Auffassung der Betroffenen nicht angeholt wurde",
+    "treatment_ok": "Die Verarbeitung könnte umgesetzt werden.",
+    "treatment_nok": "DieVerarbeitung sollte nicht verwendet werden.",
+    "treatment_lock": "Bitte füllen Sie die anderen Abschnitte aus, bevor Sie die Auffassungen der betroffenen Personen ausfüllen können."
   },
   "sections": {
     "1": {
-      "title": "Context",
-      "short_help": "This section gives you a clear view of the treatment(s) of personal data in question.",
+      "title": "Kontext",
+      "short_help": "Dieser Abschnitt gibt Ihnen einen Überblick über die Verarbeitung (en) der betreffenden personenbezogenen Daten.",
       "items": {
         "1": {
-          "title": "Overview",
-          "short_help": "This part allows you to identify and present the object of the study.",
-          "questions": {
-            "1": {
-              "title": "Which is the processing under consideration?",
-              "placeholder": "Present a brief outline of the processing: its name, purposes, stakes, context of use, etc."
-            },
-            "2": {
-              "title": "What are the responsibilities linked to the processing?",
-              "placeholder": "Describe the responsabilities of the stakeholders: the data controller, the possible data processors and joint controllers."
-            },
-            "3": {
-              "title": "Are there standards applicable to the processing?",
-              "placeholder": "List the relevant standards applicable to the processing, especially approved codes of conduct and data protection certifications."
-            }
+          "title": "Überblick",
+          "short_help": "Dieser Teil ermöglicht es Ihnen, das Objekt der Untersuchung zu identifizieren und zu beschreiben",
+          "1": {
+            "title": "Welche Verarbeitung wird in Betracht gezogen?",
+            "placeholder": "Geben Sie einen kurzen Überblick über die Verarbeitung: Name, Zweck, Einsatz, Nutzungskontext usw."
+          },
+          "2": {
+            "title": "Welche Verantwortlichkeiten sind mit der Verarbeitung betraut?",
+            "placeholder": "Beschreiben Sie die Verantwortlichkeiten der Beteiligten,: des Verantwortlichen, der möglichen Auftragsverarbeiter und der gemeinsam Verantwortlichen."
+          },
+          "3": {
+            "title": "Gibt es Normen oder Standards für die Verarbeitung?",
+            "placeholder": "Nennen Sie die relevanten Standards für die Verarbeitung, insbesondere die anerkannten Richtlinien für den Verhaltenskodex (codes of conduct) und die Datenschutzzertifizierung."
           }
-        },
-        "2": {
-          "title": "Data, processes and supporting assets",
-          "short_help": "This part allows you to define and describe the scope of the processing in detail.",
-          "questions": {
-            "1": {
-              "title": "What are the data processed?",
-              "placeholder": "List the data collected and processed. Define for each the storage durations, the recipients and persons with access thereto."
-            },
-            "2": {
-              "title": "How does the life cycle of data and processes work?",
-              "placeholder": "Present and describe how the product generally works (from the data collection to the data destruction, the different processing stages, storage, etc.), using for example a diagram of data flows (add it as an attachment) and a detailed description of the processes carried out."
-            },
-            "3": {
-              "title": "What are the data supporting assets?",
-              "placeholder": "List the data supporting assets (operating systems, business applications, database management systems, office suites, protocols, configurations, etc.)"
-            }
+        }
+      },
+      "2": {
+        "title": "Daten, Prozesse und Unterstützung",
+        "short_help": "In diesem Teil können Sie den Umfang der Verarbeitung detailliert definieren und beschreiben.",
+        "questions": {
+          "1": {
+            "title": "Welche Daten werden verarbeitetet?",
+            "placeholder": "Listen Sie die gesammelten und verarbeiteten Daten auf. Definieren Sie je Datenkategorie die Speicherdauer ,die Empfänger und die zugriffsberechtigten Personen."
+          },
+          "2": {
+            "title": "Wie funktioniert der Lebenszyklus von Daten und Prozessen?",
+            "placeholder": "Präsentieren und beschreiben Sie, wie das Produkt in der Regel funktioniert (von der Datensammlung bis zur Datenlöschung, den verschiedenen Verarbeitungsstufen, Speicherung, etc.) und verwenden Sie zum Beispiel ein Diagramm der Datenflüsse (fügen Sie es als Anhang hinzu) und eine detaillierte Beschreibung des Prozesse durchgeführt."
+          },
+          "3": {
+            "title": "Wie wird die Datenverarbeitung unterstützt?",
+            "placeholder": "Listen Sie die unterstützenden Mittel auf (Betriebssysteme, Geschäftsanwendungen, Datenbankverwaltungssysteme, Office-Suites, Protokolle, Konfigurationen usw.)."
           }
         }
       }
-    },
-    "2": {
-      "title": "Fundamental principles",
-      "short_help": "This section allows you to build the compliance framework for privacy principles.",
-      "items": {
-        "1": {
-          "title": "Proportionality and necessity",
-          "short_help": "This part allows you to demonstrate the legitimacy of your treatment and of the data processed.",
-          "questions": {
-            "1": {
-              "title": "Are the processing purposes specified, explicit and legitimate?",
-              "short_title": "Purposes",
-              "placeholder": "Explain why the processing purposes are specified, explicit and legitimate."
-            },
-            "2": {
-              "title": "What are the legal basis making the processing lawful?",
-              "short_title": "Legal basis",
-              "placeholder": "Describe what is/are the legal basis of your processing (ex: consent, performance of a contract, compliance with a legal obligation, protecting the vital intests, etc.)"
-            },
-            "3": {
-              "title": "Are the data collected adequate, relevant and limited to what is necessary in relation to the purposes for which they are processed ('data minimisation')?",
-              "short_title": "Adequate data",
-              "placeholder": "Explain why each of the data collected is necessary for the purposes of your processing."
-            },
-            "4": {
-              "title": "Are the data accurate and kept up to date?",
-              "short_title": "Data accuracy",
-              "placeholder": "Describe which are the steps taken to ensure the quality of the data."
-            },
-            "5": {
-              "title": "What are the storage duration of the data?",
-              "short_title": "Storage duration",
-              "placeholder": "Explain why the storage durations are justified by legal requirements and/or processing needs."
-            }
+    }
+  },
+  "2": {
+    "title": "Fundamentale Prinzipien",
+    "short_help": "In diesem Abschnitt können Sie das Compliance-Framework für Datenschutzgrundsätze erstellen.",
+    "items": {
+      "1": {
+        "title": "Verhältnismäßigkeit und Notwendigkeit",
+        "short_help": "In diesem Teil können Sie die Rechtmäßigkeit Ihrer Verarbeitung und der verarbeiteten Daten nachweisen.",
+        "questions": {
+          "1": {
+            "title": "Sind die Verarbeitungszwecke eindeutig und legitim?",
+            "short_title": "Zwecke",
+            "placeholder": "Erklären Sie, warum die Verarbeitungszwecke bestimmt, eindeutig und legitim sind."
+          },
+          "2": {
+            "title": "Auf welcher Rechtsgrundlage erfolgt die rechtmäßige Verarbeitung?",
+            "short_title": "Rechtsgrundlage",
+            "placeholder": "Beschreiben Sie die Grundlage(n) Ihrer Verarbeitung (z. B. Zustimmung, Vertragserfüllung, rechtliche Verpflichtung, lebenswichtige Interessen usw.)."
+          },
+          "3": {
+            "title": "Sind die erhobenen Daten angemessen, relevant und auf das für die Datenverarbeitung Notwendige beschränkt?",
+            "short_title": "Angemessenheit der Daten",
+            "placeholder": "Erläutern Sie, warum alle Daten für Ihre Verarbeitung benötigt werden."
+          },
+          "4": {
+            "title": "Sind die Daten korrekt und auf dem neuesten Stand?",
+            "short_title": "Datengenauigkeit",
+            "placeholder": "Beschreiben Sie, welche Schritte unternommen wurden, um die Qualität der Daten sicherzustellen."
+          },
+          "5": {
+            "title": "Welche Speicherdauer haben die Daten?",
+            "short_title": "Speicherdauer",
+            "placeholder": "Erklären Sie, warum die Speicherdauer durch gesetzliche Anforderungen und / oder Verarbeitungsbedürfnisse gerechtfertigt ist."
           }
-        },
-        "2": {
-          "title": "Controls to protect the personal rights of data subjects",
-          "short_help": "This part allows you to demonstrate that you are implementing the necessary means to enable the persons concerned to exercise their rights.",
-          "questions": {
-            "1": {
-              "title": "How are the data subjects informed on the processing?",
-              "short_title": "Information for the data subjects",
-              "placeholder": "Describe what is the information given to the data subjects and what are the means to do it."
-            },
-            "2": {
-              "title": "If applicable, how is the consent of data subjects obtained?",
-              "short_title": "Obtaining consent",
-              "placeholder": "Describe the controls intended to ensure that users' consent has been obtained."
-            },
-            "3": {
-              "title": "How can data subjects exercise their rights of access and to data portability?",
-              "short_title": "Right of access and to data portability",
-              "placeholder": "Describe the controls intended for enabling data subjects to access, receive and transmit their data."
-            },
-            "4": {
-              "title": "How can data subjects exercise their rights to rectification and erasure?",
-              "short_title": "Right to rectification and erasure",
-              "placeholder": "Describe the controls intended for enabling data subjects to rectify and erase their data."
-            },
-            "5": {
-              "title": "How can data subjects exercise their rights to restriction and to object?",
-              "short_title": "Right to restriction and to object",
-              "placeholder": "Describe the controls intended for enabling data subjects to restrict and to object to the processing of their data."
-            },
-            "6": {
-              "title": "Are the obligations of the processors clearly identified and governed by a contract?",
-              "short_title": "Subcontracting",
-              "placeholder": "For each processor, describe his responsibilities (duration, scope, purpose, documented processing instructions, prior authorisation) and provide the contracts, codes of conduct and certifications determining its missions and obligations."
-            },
-            "7": {
-              "title": "In the case of data transfer outside the European Union, are the data adequately protected?",
-              "short_title": "Transfers",
-              "placeholder": "For each country outside the European Union where data are stored or processed, name it and tell if it is acknowledged as offering an adequate level of data protection or describe the provisions concerning the transfer."
-            }
+        }
+      },
+      "2": {
+        "title": "Regelungen zum Schutz der Persönlichkeitsrechte der betroffenen Personen",
+        "short_help": "In diesem Teil können Sie nachweisen, dass Sie die notwendigen Mittel einsetzen, um den betroffenen Personen die Ausübung ihrer Rechte zu ermöglichen.",
+        "questions": {
+          "1": {
+            "title": "Wie werden die betroffenen Personen über die Verarbeitung informiert?",
+            "short_title": "Information der Betroffenen",
+            "placeholder": "Beschreiben Sie, welche Informationen den betroffenen Personen zur Verfügung gestellt werden und welche Mittel dafür zur Verfügung stehen."
+          },
+          "2": {
+            "title": "Wie erfolgt die Zustimmung der betroffenen Personen?",
+            "short_title": "Einholung der Zustimmung",
+            "placeholder": "Beschreiben Sie die Regelungen, die sicherstellen sollen, dass die Zustimmung der Betroffenen eingeholt wurde."
+          },
+          "3": {
+            "title": "Wie können Betroffene ihre Recht auf Auskunft und Datenübertragbarkeit ausüben?",
+            "short_title": " Recht auf Auskunft und Datenübertragbarkeit",
+            "placeholder": "Beschreiben Sie die Regelungen, mit denen betroffene Personen ihre Daten abrufen, erhalten und übertragen können."
+          },
+          "4": {
+            "title": "Wie können betroffene Personen ihr Recht auf Berichtigung und Löschung ausüben?",
+            "short_title": "Recht auf Berichtigung und Löschung",
+            "placeholder": "Beschreiben Sie die Regelungen, mit denen betroffene Personen ihre Daten berichtigen und löschen können."
+          },
+          "5": {
+            "title": "Wie können betroffene Personen ihre Rechte auf Einschränkung oder Widerspruch der Verarbeitung ausüben?",
+            "short_title": "Recht auf Einschränkung und auf Widerspruch",
+            "placeholder": "Beschreiben Sie die Regelungen, mit denen betroffene Personen die Verarbeitung ihrer Daten einschränken und ablehnen können."
+          },
+          "6": {
+            "title": "Sind die Verpflichtungen der Auftragsverarbeiter klar definiert und vertraglich geregelt?",
+            "short_title": " Auftragsverarbeitung",
+            "placeholder": "Beschreiben Sie für jeden Auftragsverarbeiter seine Verantwortlichkeiten (Dauer, Umfang, Zweck, dokumentierte Verarbeitungsanweisungen, vorherige Genehmigung) und stellen Sie die Verträge, Verhaltenskodizes (codes of conduct) und Zertifizierungen bereit, die seine Aufgaben und Verpflichtungen bestimmen.."
+          },
+          "7": {
+            "title": "Werden die Daten bei Datenübertragungen außerhalb der Europäischen Union angemessen geschützt?",
+            "short_title": "Datenübertragungen ",
+            "placeholder": "Identifizieren sie jedes Land außerhalb der Europäischen Union, in dem Daten gespeichert oder verarbeitet werden, und geben Sie an, ob es anerkanntermaßen ein angemessenes Datenschutzniveau bietet oder beschreiben Sie die Vertragsbedingungen, die den Transfer regeln.."
           }
         }
       }
-    },
-    "3": {
-      "title": "Risks",
-      "short_help": "This section allows you to assess the privacy risks, taking into account existing or planned controls.",
-      "items": {
-        "1": {
-          "title": "Planned or existing measures",
-          "short_help": "This section allows you to identify controls (existing or planned) that contribute to data security."
-        },
-        "2": {
-          "title": "Illegitimate access to data",
-          "short_help": "Analyze the causes and consequences of illegitimate access to data, and estimate its severity and likelihood.",
-          "questions": {
-            "1": {
-              "title": "What could be the main impacts on the data subjects if the risk were to occur?",
-              "placeholder": "Enter the potential impacts \u002B"
-            },
-            "2": {
-              "title": "What are the main threats that could lead to the risk?",
-              "placeholder": "Enter the threats \u002B"
-            },
-            "3": {
-              "title": "What are the risk sources?",
-              "placeholder": "Enter the risk sources \u002B"
-            },
-            "4": {
-              "title": "Which of the identified controls contribute to addressing the risk?",
-              "placeholder": "Click to select controls which address the risk."
-            },
-            "5": {
-              "title": "How do you estimate the risk severity, especially according to potential impacts and planned controls?",
-              "placeholder": "Justify here the estimated severity of the risk."
-            },
-            "6": {
-              "title": "How do you estimate the likelihood of the risk, especially in respect of threats, sources of risk and planned controls?",
-              "placeholder": "Justify here the estimated likelihood."
-            }
+    }
+  },
+  "3": {
+    "title": "Risiken",
+    "short_help": "In diesem Abschnitt können Sie die Datenschutzrisiken unter Berücksichtigung bestehender oder geplanter Regelungen bewerten.",
+    "items": {
+      "1": {
+        "title": "Geplante oder bestehende Maßnahmen",
+        "short_help": "In diesem Abschnitt können Sie Regelungen (vorhanden oder geplant) identifizieren, die zur Datensicherheit beitragen."
+      },
+      "2": {
+        "title": "Illegitimer Zugang zu Daten",
+        "short_help": "Analysieren Sie die Ursachen und Folgen von illegitimen Zugriffen auf Daten und schätzen Sie deren Schweregrad und Wahrscheinlichkeit ein.",
+        "questions": {
+          "1": {
+            "title": "Was könnten die wesenttlichen Auswirkungen für die betroffenen Personen sein, wenn das Risiko eintritt?",
+            "placeholder": "Geben Sie die möglichen Auswirkungen ein \u002B"
+          },
+          "2": {
+            "title": "Was sind die Hauptbedrohungen, die zu dem Risiko führen könnten?",
+            "placeholder": "Geben Sie die Bedrohungen ein \u002B"
+          },
+          "3": {
+            "title": "Was sind die Risikoquellen?",
+            "placeholder": "Geben Sie die Risikoquellen \u002B ein"
+          },
+          "4": {
+            "title": "Welche der identifizierten Regelungen tragen zur Bewältigung des Risikos bei?",
+            "placeholder": "Klicken Sie hier, um Regelungen auszuwählen, die das Risiko adressieren."
+          },
+          "5": {
+            "title": "Wie schätzen Sie den Risikoschweregrad ein, insbesondere nach möglichen Auswirkungen und geplanten Regelungen?",
+            "placeholder": "Begründen Sie hier die geschätzte Schwere des Risikos."
+          },
+          "6": {
+            "title": "Wie schätzen Sie die Wahrscheinlichkeit des Risikos ein, insbesondere in Bezug auf Bedrohungen, Risikoquellen und geplante Regelungen?",
+            "placeholder": "Begründen Sie hier die geschätzte Wahrscheinlichkeit."
           }
-        },
-        "3": {
-          "title": "Unwanted modification of data",
-          "short_help": "Analyze the causes and consequences of an undesired change in data, and estimate its seriousness and likelihood.",
-          "questions": {
-            "1": {
-              "title": "What could be the main impacts on the data subjects if the risk were to occur?",
-              "placeholder": "Enter the potential impacts \u002B"
-            },
-            "2": {
-              "title": "What are the main threats that could lead to the risk?",
-              "placeholder": "Enter the threats \u002B"
-            },
-            "3": {
-              "title": "What are the risk sources?",
-              "placeholder": "Enter the risk sources \u002B"
-            },
-            "4": {
-              "title": "Which of the identified controls contribute to addressing the risk?",
-              "placeholder": "Click here to select controls which address the risk."
-            },
-            "5": {
-              "title": "How do you estimate the risk severity, especially according to potential impacts and planned controls?",
-              "placeholder": "Justify here the estimated severity of the risk."
-            },
-            "6": {
-              "title": "How do you estimate the likelihood of the risk, especially in respect of threats, sources of risk and planned controls?",
-              "placeholder": "Justify here the estimated likelihood."
-            }
-          }
-        },
-        "4": {
-          "title": "Data disappearance",
-          "short_help": "Analyze the causes and consequences of data loss, and estimate its seriousness and likelihood.",
-          "questions": {
-            "1": {
-              "title": "What could be the main impacts on the data subjects if the risk were to occur?",
-              "placeholder": "Enter the potential impacts \u002B"
-            },
-            "2": {
-              "title": "What are the main threats that could lead to the risk?",
-              "placeholder": "Enter the threats \u002B"
-            },
-            "3": {
-              "title": "What are the risk sources?",
-              "placeholder": "Enter the risk sources \u002B"
-            },
-            "4": {
-              "title": "Which of the identified controls contribute to addressing the risk?",
-              "placeholder": "Click here to select controls which address the risk."
-            },
-            "5": {
-              "title": "How do you estimate the risk severity, especially according to potential impacts and planned controls?",
-              "placeholder": "Justify here the estimated severity of the risk."
-            },
-            "6": {
-              "title": "How do you estimate the likelihood of the risk, especially in respect of threats, sources of risk and planned controls?",
-              "placeholder": "Justify here the estimated likelihood."
-            }
-          }
-        },
-        "5": {
-          "title": "Risks overview",
-          "short_help": "This visualisation allows you to have a global and synthetic view on the controls effects on the risks they address."
         }
+      },
+      "3": {
+        "title": "Unerwünschte Änderung von Daten",
+        "short_help": "Analysieren Sie die Ursachen und Folgen einer unerwünschten Veränderung der Daten und schätzen Sie deren Schweregrad und Wahrscheinlichkeit ein.",
+        "questions": {
+          "1": {
+            "title": "Was könnten die wesenttlichen Auswirkungen für die betroffenen Personen sein, wenn das Risiko eintritt?",
+            "placeholder": "Geben Sie die potenziellen Auswirkungen ein \u002B"
+          },
+          "2": {
+            "title": "Was sind die Hauptbedrohungen, die zu dem Risiko führen könnten?",
+            "placeholder": "Geben Sie die Bedrohungen ein \u002B"
+          },
+          "3": {
+            "title": "Was sind die Risikoquellen?",
+            "placeholder": "Geben Sie die Risikoquellen \u002B ein"
+          },
+          "4": {
+            "title": "Welche der identifizierten Regelungen tragen zur Bewältigung des Risikos bei?",
+            "placeholder": "Klicken Sie hier, um Regelungen auszuwählen, die das Risiko adressieren."
+          },
+          "5": {
+            "title": "Wie schätzen Sie den Risikoschweregrad ein, insbesondere nach möglichen Auswirkungen und geplanten Regelungen?",
+            "placeholder": "Begründen Sie hier die geschätzte Schwere des Risikos."
+          },
+          "6": {
+            "title": "Wie schätzen Sie die Wahrscheinlichkeit des Risikos ein, insbesondere in Bezug auf Bedrohungen, Risikoquellen und geplante Regelungen?",
+            "placeholder": "Begründen Sie hier die geschätzte Wahrscheinlichkeit."
+          }
+        }
+      },
+      "4": {
+        "title": "Datenverlust",
+        "short_help": "Analysieren Sie die Ursachen und Folgen von Datenverlusten und schätzen Sie deren Schweregrad und Wahrscheinlichkeit ein.",
+        "questions": {
+          "1": {
+            "title": "Was könnten die wesenttlichen Auswirkungen für die betroffenen Personen sein, wenn das Risiko eintritt?",
+            "placeholder": "Geben Sie die potenziellen Auswirkungen ein \u002B"
+          },
+          "2": {
+            "title": "Was sind die Hauptbedrohungen, die zu dem Risiko führen könnten?",
+            "placeholder": "Geben Sie die Bedrohungen ein \u002B"
+          },
+          "3": {
+            "title": "Was sind die Risikoquellen?",
+            "placeholder": "Geben Sie die Risikoquellen ein \u002B"
+          },
+          "4": {
+            "title": "Welche der identifizierten Regelungen tragen zur Bewältigung des Risikos bei?",
+            "placeholder": "Klicken Sie hier, um Regelungen auszuwählen, die das Risiko adressieren."
+          },
+          "5": {
+            "title": "Wie schätzen Sie den Risikoschweregrad ein, insbesondere nach möglichen Auswirkungen und geplanten Regelungen?",
+            "placeholder": "Begründen Sie hier die geschätzte Schwere des Risikos."
+          },
+          "6": {
+            "title": "Wie schätzen Sie die Wahrscheinlichkeit des Risikos ein, insbesondere in Bezug auf Bedrohungen, Risikoquellen und geplante Regelungen?",
+            "placeholder": "Begründen Sie hier die geschätzte Wahrscheinlichkeit."
+          }
+        }
+      },
+      "5": {
+        "title": "Risikoübersicht",
+        "short_help": "Diese Visualisierung ermöglicht Ihnen eine globale und synthetische Sicht auf die Auswirkungen der Kontrollen auf die von ihnen ausgehenden Risiken."
       }
-    },
-    "4": {
-      "title": "Validation",
-      "short_help": "This section allows you to prepare and formalise the PIA validation.",
-      "items": {
-        "1": {
-          "title": "Risk mapping",
-          "short_help": "This visualisation allows you to compare the positioning of the risks between them, before and after application of the complementary controls."
-        },
-        "2": {
-          "title": "Action plan",
-          "short_help": "Plan in detail the implementation of the additional controls identified during the PIA. The action plan is automatically updated when evaluating the different elements comprised in the PIA."
-        },
-        "3": {
-          "title": "DPO and concerned persons opinions",
-          "short_help": "Present the advice of the person in charge of data protection and privacy issues (data protection delegate if there is one). Present the views of the data subjects or their representatives."
-        },
-        "4": {
-          "title": "Validate the PIA"
-        },
-        "5": {
-          "title": "Rejected PIA"
-        }
+    }
+  },
+  "4": {
+    "title": "Bestätigung",
+    "short_help": "In diesem Abschnitt können Sie die DSFA-Bestätigung vorbereiten und formalisieren.",
+    "items": {
+      "1": {
+        "title": "Risikokartierung",
+        "short_help": "Diese Visualisierung ermöglicht es Ihnen, die Positionierung der Risiken vor und nach der Anwendung der ergänzenden Kontrollen zu vergleichen."
+      },
+      "2": {
+        "title": "Aktionsplan",
+        "short_help": "Planen Sie detailliert die Implementierung der zusätzlichen Kontrollen, die während der DSFA identifiziert wurden."
+      },
+      "3": {
+        "title": "Auffassungen des Datenschutzbeauftragte und der Betroffenen",
+        "short_help": "Holen Sie den Rat des Datenschutzbeauftragten ein. Präsentieren Sie die Ansichten der betroffenen Personen oder ihren Vertreter."
       }
     }
   }
