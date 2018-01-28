@@ -1,4 +1,4 @@
-version: '2'
+version: '3'
 services:
  pia:
     container_name: pia-frontend
@@ -10,3 +10,7 @@ services:
     volumes:
       - .:/home/app/pia
       - /home/app/pia/node_modules
+networks:
+  default:
+    external:
+      name: piaback_default
