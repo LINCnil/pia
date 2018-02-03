@@ -19,4 +19,4 @@ WORKDIR $APP_DIR
 
 EXPOSE 4200 49152
 
-CMD ["npm", "start", "--host=0.0.0.0"]
+CMD ["yarn", "start", "--host=0.0.0.0"]
