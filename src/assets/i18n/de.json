@@ -236,17 +236,17 @@
       },
       "PIA_LGL_CONS": {
         "name": "Erfassung der Einwilligung des Nutzers eines Dienstes",
-        "description": "Es geht darum, eine freie, spezifische und informierte Wahl zu ermöglichen. Stellen Sie fest, ob die Verarbeitung auf einer anderen Rechtsgrundlage als der Zustimmung gemäß Art. 6 der <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/DE/TXT/HTML/?uri=CELEX:32016R0679&from=DE\">[DS-GVO]</a> erfolgt.",
+        "description": "Es geht darum, eine freie, spezifische und informierte Wahl zu ermöglichen. Stellen Sie fest, ob die Verarbeitung auf einer anderen Rechtsgrundlage als der Zustimmung gemäß <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/DE/TXT/HTML/?uri=CELEX:32016R0679&from=DE\">Art. 6 der [DS-GVO]</a> erfolgt.",
         "source": "WIKI Recueil_du_consentement"
       },
       "PIA_VAL_DPO": {
         "name": "Stellungnahme des DSB",
-        "description": "Der Verantwortliche hat bei der Durchführung einer Datenschutz-Folgenabschätzung den Rat des Datenschutzbeauftragten einzuholen. Siehe Art. 35 Abs 2. der <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/DE/TXT/HTML/?uri=CELEX:32016R0679&from=DE\">[DS-GVO]</a><br> <strong>Seine Stellungnahme kann sich gegen die Durchführung der Verarbeitung aussprechen, ohne den Entscheidungsspielraum des Verantwortlichen zu beschränken</strong>.",
+        "description": "Der Verantwortliche hat bei der Durchführung einer Datenschutz-Folgenabschätzung den Rat des Datenschutzbeauftragten einzuholen. Siehe <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/DE/TXT/HTML/?uri=CELEX:32016R0679&from=DE\">Art. 35 Abs 2. der [DS-GVO]</a><br> <strong>Seine Stellungnahme kann sich gegen die Durchführung der Verarbeitung aussprechen, ohne den Entscheidungsspielraum des Verantwortlichen zu beschränken</strong>.",
         "source": "DS-GVO Art. 35.2 and PIAF Connected Objects p36"
       },
       "PIA_VAL_CONC": {
         "name": "Stellungnahme der Betroffenen",
-        "description": "Der Verantwortliche holt gegebenenfalls die Ansichten der betroffenen Personen oder ihrer Vertreter über die beabsichtigte Verarbeitung, unbeschadet des Schutzes der gewerblichen oder öffentlichen Interessen oder der Sicherheit der Verarbeitungsvorgänge ein. Siehe Art. 35 Abs. 9 der <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/DE/TXT/HTML/?uri=CELEX:32016R0679&from=DE\">[DS-GVO]</a><br>Diese Stellungnahme kann auf verschiedene Weise erhoben werden, je nach Kontext (interne oder externe Studie über den Zweck und die Mittel der Verarbeitung, die Frage an die Mitarbeitervertretung, die Untersuchung der künftigen Kunden des Verantwortlichen).<br><strong>Entscheidet der Verantwortliche</strong> gegen die Meinung der betroffenen Personen, so muss er <strong>die Begründung seiner Entscheidung dokumentieren.</strong><br>Ist der Verantwortliche der Auffassung, dass die<br>die Einholung der Stellungnahme der betroffenen Personen nicht erforderlich ist, so Sie muss er auch hier <strong>die Begründung dokumentieren.</strong>.",
+        "description": "Der Verantwortliche holt gegebenenfalls die Ansichten der betroffenen Personen oder ihrer Vertreter über die beabsichtigte Verarbeitung, unbeschadet des Schutzes der gewerblichen oder öffentlichen Interessen oder der Sicherheit der Verarbeitungsvorgänge ein. Siehe <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/DE/TXT/HTML/?uri=CELEX:32016R0679&from=DE\">Art. 35 Abs. 9 der [DS-GVO]</a><br>Diese Stellungnahme kann auf verschiedene Weise erhoben werden, je nach Kontext (interne oder externe Studie über den Zweck und die Mittel der Verarbeitung, die Frage an die Mitarbeitervertretung, die Untersuchung der künftigen Kunden des Verantwortlichen).<br><strong>Entscheidet der Verantwortliche</strong> gegen die Meinung der betroffenen Personen, so muss er <strong>die Begründung seiner Entscheidung dokumentieren.</strong><br>Ist der Verantwortliche der Auffassung, dass die<br>die Einholung der Stellungnahme der betroffenen Personen nicht erforderlich ist, so Sie muss er auch hier <strong>die Begründung dokumentieren.</strong>.",
         "source": "DS-GVO Art. 35.9 and PIAF Connected Objects p39"
       },
       "PIA_VAL_RT": {
@@ -261,7 +261,7 @@
       },
       "PIA_VAL_ACT": {
         "name": "Aktionsplan",
-        "description": "Dies sind die Beweggründe für die Umsetzung der Verarbeitung, die erwarteten Vorteile (für die Organisation, für die betroffenen Personen, für die Gesellschaft im Allgemeinen...).",
+        "description": "Der Aktionsplan ist die Beschreibung der Strategie, der Ressourcen und des Personals, die umgesetzt werden müssen, damit die festgelegten Korrekturmaßnahmen wirksam werden. Für jede Aufgabe ist es notwendig, einen Verantwortlichen zu benennen und Fristen zu setzen.",
         "source": "keine"
       },
       "PIA_TEC_ANO": {
