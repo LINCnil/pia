@@ -743,10 +743,10 @@
     "acceptable": "Přijatelné",
     "evaluation_comment": "Komentář k hodnocení",
     "action_plan_comment": "Akční plán/Nápravná opatření",
-    "placeholder_to_correct": "to be translated",
-    "placeholder_improvable1": "to be translated",
-    "placeholder_improvable2": "to be translated",
-    "placeholder_acceptable": "to be translated",
+    "placeholder_to_correct": "TO BE TRANSLATED - Entrez vos commentaires pour expliquer pourquoi les informations fournies ne sont pas suffisantes pour pouvoir les évaluer. Cette partie sera renvoyée en édition pour enrichir la proposition initiale.",
+    "placeholder_improvable1": "TO BE TRANSLATED - Entrez vos commentaires pour expliquer quelles mesures additionnelles sont à ajouter afin d'améliorer la protection des données du traitement.",
+    "placeholder_improvable2": "TO BE TRANSLATED - Entrez vos commentaires.",
+    "placeholder_acceptable": "TO BE TRANSLATED - Entrer vos commentaires pour expliquer en quoi les mesures mises en œuvre sont suffisantes pour répondre aux exigences de protections des données.",
     "gauges": {
       "seriousness": "Pokud vezmeme v úvahu akční plán, jak přehodnotit <span class='red-highlight'>závažnost tohoto rizika </span> ({{value}})?",
       "likelihood": "Pokud vezmeme v úvahu akční plán, jak přehodnotíte <span class='red-highlight'>pravděpodobnost tohoto rizika </span> ({{value}})?",
@@ -819,39 +819,39 @@
     "update": "Aktualizovat URL"
   },
   "validation_page": {
-    "responsible": "to be translated",
-    "after_reading": "to be translated",
-    "confirmation1": "to be translated",
-    "confirmation2": "to be translated",
-    "confirmation3": "to be translated",
-    "confirmation4": "to be translated",
+    "responsible": "TO BE TRANSLATED - Responsable de la validation du PIA : ",
+    "after_reading": "TO BE TRANSLATED - Après lecture intégrale du PIA concernant le traitement des données liées à l'activité de : ",
+    "confirmation1": "TO BE TRANSLATED - Je confirme que la description du contexte de mon traitement est conforme à la réalité.",
+    "confirmation2": "TO BE TRANSLATED - Je confirme avoir pris connaissance des risques existants en fonction des mesures actuellement mises en oeuvre ou prévues.",
+    "confirmation3": "TO BE TRANSLATED - Je valide les mesures correctives indiquées.",
+    "confirmation4": "TO BE TRANSLATED - Je m'engage à mettre en oeuvre dans les plus brefs délais les mesures correctives indiquées.",
     "button": {
-      "rejection": "to be translated",
-      "simple_validation": "to be translated",
-      "signed_validation": "to be translated"
+      "rejection": "TO BE TRANSLATED - Refuser la validation",
+      "simple_validation": "TO BE TRANSLATED - Validation simple",
+      "signed_validation": "TO BE TRANSLATED - Faire signer le PIA par le responsable"
     },
-    "mandatory_fields": "to be translated",
-    "waiting_for_signature": "to be translated",
-    "validated_pia_with_signature": "to be translated",
-    "add_signed_pia": "to be translated",
-    "remove_attachment": "to be translated",
+    "mandatory_fields": "TO BE TRANSLATED - Tous les champs doivent être cochés",
+    "waiting_for_signature": "TO BE TRANSLATED - En attente de la signature du rapport PIA",
+    "validated_pia_with_signature": "TO BE TRANSLATED - Validé",
+    "add_signed_pia": "TO BE TRANSLATED - Ajouter le rapport PIA signé",
+    "remove_attachment": "TO BE TRANSLATED - Supprimer",
     "tools": {
-      "dashboard": "to be translated",
-      "display_pia": "to be translated",
-      "action_plan": "to be translated"
+      "dashboard": "TO BE TRANSLATED - Accueil",
+      "display_pia": "TO BE TRANSLATED - Afficher le PIA",
+      "action_plan": "TO BE TRANSLATED - Plan d'action"
     }
   },
   "rejection_page": {
-    "title": "to be translated",
-    "rejection_reason": "to be translated",
-    "rejection_reason_placeholder": "to be translated",
-    "applied_adjustments": "to be translated",
-    "applied_adjustments_placeholder": "to be translated",
-    "previous_rejection": "to be translated",
+    "title": "TO BE TRANSLATED - Historique de validation",
+    "rejection_reason": "TO BE TRANSLATED - Motif du refus",
+    "rejection_reason_placeholder": "TO BE TRANSLATED - Décrivez les motifs de refus de validation du PIA.",
+    "applied_adjustments": "TO BE TRANSLATED - Modifications apportées",
+    "applied_adjustments_placeholder": "TO BE TRANSLATED - Décrivez les modifications apportées au PIA.",
+    "previous_rejection": "TO BE TRANSLATED - Refus précédent",
     "button": {
-      "abandon_treatment": "to be translated",
-      "reject_pia": "to be translated",
-      "send_for_validation": "to be translated"
+      "abandon_treatment": "TO BE TRANSLATED - Abandonner le traitement",
+      "reject_pia": "TO BE TRANSLATED - Refuser le PIA",
+      "send_for_validation": "TO BE TRANSLATED - Renvoyer pour validation"
     }
   },
   "misc": {
@@ -916,6 +916,16 @@
   "summary": {
     "previous_page": "Zpět na předchozí stránku",
     "print": "Tisk",
+    "display_pia": "TO BE TRANSLATED - Afficher le PIA",
+    "display_action_plan": "TO BE TRANSLATED - Afficher le<br>plan d'action",
+    "display_filters": {
+      "title": "TO BE TRANSLATED - Filtres d'affichage",
+      "main_content": "TO BE TRANSLATED - Afficher la section \"Informations du PIA\"",
+      "context_content": "TO BE TRANSLATED - Afficher la section \"Contexte\"",
+      "principles_content": "TO BE TRANSLATED - Afficher la section \"Principes fondamentaux\"",
+      "risks_content": "TO BE TRANSLATED - Afficher la section \"Risques\"",
+      "action_plan_content": "TO BE TRANSLATED - Afficher le plan d'action"
+    },
     "title": "Informace PIA",
     "pia_name": "PIA",
     "pia_author": "Jméno Autora",

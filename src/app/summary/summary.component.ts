@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit } from '@angular/core';
 import { PiaService } from 'app/entry/pia.service';
 import { AttachmentsService } from 'app/entry/attachments/attachments.service';
 import { Answer } from 'app/entry/entry-content/questions/answer.model';
@@ -23,8 +23,12 @@ export class SummaryComponent implements OnInit {
   allData: Object;
   dataNav: any;
   showPiaTpl: boolean;
+  displayFilters: boolean;
+  displayMainPiaData: boolean;
+  displayActionPlan: boolean;
 
-  constructor(private route: ActivatedRoute,
+  constructor(private el: ElementRef,
+              private route: ActivatedRoute,
               private _attachmentsService: AttachmentsService,
               protected _actionPlanService: ActionPlanService,
               private _translateService: TranslateService,
@@ -34,22 +38,75 @@ export class SummaryComponent implements OnInit {
   async ngOnInit() {
     this.content = [];
     this.dataNav = await this._appDataService.getDataNav();
+    this.displayMainPiaData = true;
+    this.displayActionPlan = true;
     this._piaService.getPIA().then(() => {
       this.pia = this._piaService.pia;
       this.showPiaTpl = true;
       this.showPia().then(() => {
         if (this.route.snapshot.params['type'] === 'action_plan') {
           this.showPiaTpl = false;
+          this.displayFilters = false;
+        } else {
+          this.displayFilters = true;
         }
       });
     });
   }
 
   /**
+   * Display or hide the main Pia data
+   */
+  displayMainContent() {
+    this.displayMainPiaData = !this.displayMainPiaData;
+  }
+
+  /**
+   * Display or hide the main Pia data
+   */
+  displayContextContent() {
+    const contextSection = this.el.nativeElement.querySelector('.section-1');
+    contextSection.classList.toggle('hide');
+  }
+
+  /**
+   * Display or hide the main Pia data
+   */
+  displayFundamentalPrinciplesContent() {
+    const fundamentalPrinciplesSection = this.el.nativeElement.querySelector('.section-2');
+    fundamentalPrinciplesSection.classList.toggle('hide');
+  }
+
+  /**
+   * Display or hide the main Pia data
+   */
+  displayRisksContent() {
+    const risksSection = this.el.nativeElement.querySelector('.section-3');
+    risksSection.classList.toggle('hide');
+  }
+
+  /**
+   * Display or hide the action plan
+   */
+  displayActionPlanContent() {
+    this.displayActionPlan = !this.displayActionPlan;
+  }
+
+  /**
    * Switch from Pia overview to action plan overview, and vice versa.
    */
   displayPiaSummary() {
+    const filtersBlock = this.el.nativeElement.querySelector('.pia-summaryFiltersBlock');
+    const displayFilters = this.el.nativeElement.querySelector('.pia-summaryFiltersBlock input');
+    if (displayFilters) {
+      [].forEach.call(displayFilters, function (filter) {
+        filter.checked = true;
+      });
+    }
     this.showPiaTpl = !this.showPiaTpl;
+    this.displayFilters = !this.displayFilters;
+    this.displayMainPiaData = true;
+    this.displayActionPlan = true;
   }
 
   /**
