@@ -909,12 +909,20 @@
     "print": "Imprimer",
     "display_pia": "Afficher le PIA",
     "display_action_plan": "Afficher le<br>plan d'action",
+    "display_filters": {
+      "title": "Filtres d'affichage",
+      "main_content": "Afficher la section \"Informations du PIA\"",
+      "context_content": "Afficher la section \"Contexte\"",
+      "principles_content": "Afficher la section \"Principes fondamentaux\"",
+      "risks_content": "Afficher la section \"Risques\"",
+      "action_plan_content": " Afficher le plan d'action"
+    },
     "title": "Informations du PIA",
     "pia_name": "Nom du PIA",
     "pia_author": "Nom de l'auteur",
     "pia_assessor": "Nom de l'évaluateur",
     "pia_validator": "Nom du validateur",
-    "content_choice":  {
+    "content_choice": {
       "0": "Le traitement ne devrait pas être mis en oeuvre.",
       "1": "Le traitement pourrait être mis en oeuvre."
     },
