@@ -22,7 +22,7 @@ export class ApplicationDb {
     return new Promise((resolve, reject) => {
       const request = window.indexedDB.open(this.tableName, this.dbVersion);
       request.onerror = (event: any) => {
-        console.error('Error');
+        console.error(event);
       };
       request.onsuccess = (event: any) => {
         resolve(event.target.result);
@@ -99,6 +99,9 @@ export class ApplicationDb {
         });
       } else {
         this.getObjectStore().then(() => {
+          this.objectStore.openCursor().onerror = (event: any) => {
+            console.error(event);
+          };
           this.objectStore.openCursor().onsuccess = (event: any) => {
             const cursor = event.target.result;
             if (cursor) {
@@ -126,6 +129,9 @@ export class ApplicationDb {
           });
         } else {
           this.getObjectStore().then(() => {
+            this.objectStore.get(id).onerror = (event: any) => {
+              console.error(event);
+            };
             this.objectStore.get(id).onsuccess = (event: any) => {
               resolve(event.target.result);
             };
@@ -149,6 +155,9 @@ export class ApplicationDb {
         });
       } else {
         this.getObjectStore().then(() => {
+          this.objectStore.delete(id).onerror = (event: any) => {
+            console.error(event);
+          };
           this.objectStore.delete(id).onsuccess = (event: any) => {
             resolve();
           };
