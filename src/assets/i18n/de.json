@@ -916,9 +916,9 @@
       "0": "Die Verarbeitung könnte umgesetzt werden.",
       "1": "Die Verarbeitung sollte nicht durchgeführt werden."
     },
-    "dpo_name": "Name des DSBs",
-    "dpo_status": "Feststellung des DSBs",
-    "dpo_opinion": "Gutachten des DSBs",
+    "dpo_name": "Name des DSB",
+    "dpo_status": "Feststellung des DSB",
+    "dpo_opinion": "Gutachten des DSB",
     "concerned_people_searched_opinion": "Einholung der Meinung der Betroffenen",
     "people_search_status_ok": "Meinung der Betroffenen wurde eingeholt.",
     "people_search_status_nok": "Meinung der Betroffenen wurde nicht eingeholt.",
