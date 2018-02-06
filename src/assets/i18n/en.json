@@ -128,14 +128,14 @@
       "refuse_pia": "Refused PIA",
       "status": {
         "evaluation": {
-          "title": "",
-          "content": "",
-          "cancel": ""
+          "title": "TO BE TRANSLATED : En attente d'évaluation",
+          "content": "TO BE TRANSLATED : L'évaluation de cette partie n'a pas encore commencé. Si vous souhaitez modifier les contenus en mode édition, il faut",
+          "cancel": "TO BE TRANSLATED : annuler la demande d'évaluation."
         },
         "validation": {
-          "title": "",
-          "content": "",
-          "cancel": ""
+          "title": "TO BE TRANSLATED : En attente de validation",
+          "content": "TO BE TRANSLATED : L'évaluation de cette partie est terminée et en attente de validation finale de l'analyse. Si vous souhaitez modifier les évaluations, il faut",
+          "cancel": "TO BE TRANSLATED : annuler la demande de validation."
         }
       }
     },
@@ -843,9 +843,9 @@
   "rejection_page": {
     "title": "Validation history",
     "rejection_reason": "Rejection reason",
-    "rejection_reason_placeholder": "to be translated",
+    "rejection_reason_placeholder": "Describe rejection reasons for the validation of this PIA.",
     "applied_adjustments": "Applied adjustments",
-    "applied_adjustments_placeholder": "to be translated",
+    "applied_adjustments_placeholder": "Describe the applied adjustments to this PIA.",
     "previous_rejection": "Previous rejection",
     "button": {
       "abandon_treatment": "Give up the treatment",
