@@ -121,10 +121,11 @@ export class Pia extends ApplicationDb {
         });
       } else {
         this.getObjectStore().then(() => {
-          this.objectStore.add(data).onerror = (event: any) => {
+          const evt = this.objectStore.add(data);
+          evt.onerror = (event: any) => {
             console.error(event);
           }
-          this.objectStore.add(data).onsuccess = (event: any) => {
+          evt.onsuccess = (event: any) => {
             resolve(event.target.result);
           };
         });
@@ -170,10 +171,11 @@ export class Pia extends ApplicationDb {
           });
         } else {
           this.getObjectStore().then(() => {
-            this.objectStore.put(entry).onerror = (event: any) => {
+            const evt = this.objectStore.put(entry);
+            evt.onerror = (event: any) => {
               console.error(event);
             }
-            this.objectStore.put(entry).onsuccess = () => {
+            evt.onsuccess = () => {
               resolve();
             };
           });

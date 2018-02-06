@@ -43,10 +43,11 @@ export class Evaluation extends ApplicationDb {
         });
       } else {
         this.getObjectStore().then(() => {
-          this.objectStore.add(data).onerror = (event: any) => {
+          const evt = this.objectStore.add(data);
+          evt.onerror = (event: any) => {
             console.error(event);
           }
-          this.objectStore.add(data).onsuccess = (event: any) => {
+          evt.onsuccess = (event: any) => {
             resolve(event.target.result);
           };
         });
@@ -80,10 +81,11 @@ export class Evaluation extends ApplicationDb {
           });
         } else {
           this.getObjectStore().then(() => {
-            this.objectStore.put(entry).onerror = (event: any) => {
+            const evt = this.objectStore.put(entry);
+            evt.onerror = (event: any) => {
               console.error(event);
             }
-            this.objectStore.put(entry).onsuccess = () => {
+            evt.onsuccess = () => {
               resolve();
             };
           });
@@ -144,10 +146,11 @@ export class Evaluation extends ApplicationDb {
         } else {
           this.getObjectStore().then(() => {
             const index1 = this.objectStore.index('index1');
-            index1.get(IDBKeyRange.only([this.pia_id, this.reference_to])).onerror = (event: any) => {
+            const evt = index1.get(IDBKeyRange.only([this.pia_id, this.reference_to]));
+            evt.onerror = (event: any) => {
               console.error(event);
             }
-            index1.get(IDBKeyRange.only([this.pia_id, this.reference_to])).onsuccess = (event: any) => {
+            evt.onsuccess = (event: any) => {
               const entry = event.target.result;
               if (entry) {
                 this.id = entry.id;
@@ -210,10 +213,11 @@ export class Evaluation extends ApplicationDb {
       } else {
         this.getObjectStore().then(() => {
           const index1 = this.objectStore.index('index2');
-          index1.openCursor(IDBKeyRange.only(this.pia_id)).onerror = (event: any) => {
+          const evt = index1.openCursor(IDBKeyRange.only(this.pia_id));
+          evt.onerror = (event: any) => {
             console.error(event);
           }
-          index1.openCursor(IDBKeyRange.only(this.pia_id)).onsuccess = (event: any) => {
+          evt.onsuccess = (event: any) => {
             const cursor = event.target.result;
             if (cursor) {
               items.push(cursor.value);
@@ -246,10 +250,11 @@ export class Evaluation extends ApplicationDb {
       } else {
         this.getObjectStore().then(() => {
           const index1 = this.objectStore.index('index1');
-          index1.get(IDBKeyRange.only([this.pia_id, this.reference_to])).onerror = (event: any) => {
+          const evt = index1.get(IDBKeyRange.only([this.pia_id, this.reference_to]));
+          evt.onerror = (event: any) => {
             console.error(event);
           }
-          index1.get(IDBKeyRange.only([this.pia_id, this.reference_to])).onsuccess = (event: any) => {
+          evt.onsuccess = (event: any) => {
             const entry = event.target.result;
             if (entry) {
               resolve(true);
@@ -280,10 +285,11 @@ export class Evaluation extends ApplicationDb {
       } else {
         this.getObjectStore().then(() => {
           const index1 = this.objectStore.index('index1');
-          index1.get(IDBKeyRange.only([this.pia_id, reference_to])).onerror = (event: any) => {
+          const evt = index1.get(IDBKeyRange.only([this.pia_id, reference_to]));
+          evt.onerror = (event: any) => {
             console.error(event);
           }
-          index1.get(IDBKeyRange.only([this.pia_id, reference_to])).onsuccess = (event: any) => {
+          evt.onsuccess = (event: any) => {
             const entry = event.target.result;
             if (entry) {
               resolve((entry.global_status === global_status));

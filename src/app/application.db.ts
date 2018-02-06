@@ -99,10 +99,11 @@ export class ApplicationDb {
         });
       } else {
         this.getObjectStore().then(() => {
-          this.objectStore.openCursor().onerror = (event: any) => {
+          const evt = this.objectStore.openCursor();
+          evt.onerror = (event: any) => {
             console.error(event);
           };
-          this.objectStore.openCursor().onsuccess = (event: any) => {
+          evt.onsuccess = (event: any) => {
             const cursor = event.target.result;
             if (cursor) {
               items.push(cursor.value);
@@ -129,10 +130,11 @@ export class ApplicationDb {
           });
         } else {
           this.getObjectStore().then(() => {
-            this.objectStore.get(id).onerror = (event: any) => {
+            const evt = this.objectStore.get(id);
+            evt.onerror = (event: any) => {
               console.error(event);
             };
-            this.objectStore.get(id).onsuccess = (event: any) => {
+            evt.onsuccess = (event: any) => {
               resolve(event.target.result);
             };
           });
@@ -155,10 +157,11 @@ export class ApplicationDb {
         });
       } else {
         this.getObjectStore().then(() => {
-          this.objectStore.delete(id).onerror = (event: any) => {
+          const evt = this.objectStore.delete(id);
+          evt.onerror = (event: any) => {
             console.error(event);
           };
-          this.objectStore.delete(id).onsuccess = (event: any) => {
+          evt.onsuccess = (event: any) => {
             resolve();
           };
         });
