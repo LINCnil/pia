@@ -37,6 +37,9 @@ export class Measure extends ApplicationDb {
         });
       } else {
         this.getObjectStore().then(() => {
+          this.objectStore.add(data).onerror = (event: any) => {
+            console.error(event);
+          }
           this.objectStore.add(data).onsuccess = (event: any) => {
             resolve(event.target.result);
           };
@@ -68,6 +71,9 @@ export class Measure extends ApplicationDb {
           });
         } else {
           this.getObjectStore().then(() => {
+            this.objectStore.put(entry).onerror = (event: any) => {
+              console.error(event);
+            }
             this.objectStore.put(entry).onsuccess = (event: any) => {
               resolve();
             };
@@ -107,6 +113,9 @@ export class Measure extends ApplicationDb {
       } else {
         this.getObjectStore().then(() => {
           const index1 = this.objectStore.index('index1');
+          index1.openCursor(IDBKeyRange.only(this.pia_id)).onerror = (event: any) => {
+            console.error(event);
+          }
           index1.openCursor(IDBKeyRange.only(this.pia_id)).onsuccess = (event: any) => {
             const cursor = event.target.result;
             if (cursor) {

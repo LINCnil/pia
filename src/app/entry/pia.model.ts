@@ -121,6 +121,9 @@ export class Pia extends ApplicationDb {
         });
       } else {
         this.getObjectStore().then(() => {
+          this.objectStore.add(data).onerror = (event: any) => {
+            console.error(event);
+          }
           this.objectStore.add(data).onsuccess = (event: any) => {
             resolve(event.target.result);
           };
@@ -167,6 +170,9 @@ export class Pia extends ApplicationDb {
           });
         } else {
           this.getObjectStore().then(() => {
+            this.objectStore.put(entry).onerror = (event: any) => {
+              console.error(event);
+            }
             this.objectStore.put(entry).onsuccess = () => {
               resolve();
             };
