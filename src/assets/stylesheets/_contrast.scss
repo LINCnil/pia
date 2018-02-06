@@ -516,6 +516,9 @@ body.pia-contrast {
       .pia-icon-accordeon-down {
         background-position: -341px -166px;
       }
+      .green-highlight {
+        color: $pia-green-dark;
+      }
     }
     &-edit {
       color: $pia-gray-dark;
@@ -672,6 +675,9 @@ body.pia-contrast {
       }
       .pia-green {
         background-color: $pia-green-dark !important;
+      }
+      .pia-blue {
+        background-color: $pia-blue !important;
       }
       .pia-red {
         background-color: $pia-red-dark !important;

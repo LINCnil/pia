@@ -1152,27 +1152,27 @@
           "short_help": "Analyze the causes and consequences of illegitimate access to data, and estimate its severity and likelihood.",
           "questions": {
             "1": {
-              "title": "What could be the main impacts on the data subjects if the risk were to occur?",
+              "title": "What could be the main <span class='green-highlight'>impacts on the data subjects</span> if the risk were to occur?",
               "placeholder": "Enter the potential impacts \u002B"
             },
             "2": {
-              "title": "What are the main threats that could lead to the risk?",
+              "title": "What are the main <span class='green-highlight'>threats</span> that could lead to the risk?",
               "placeholder": "Enter the threats \u002B"
             },
             "3": {
-              "title": "What are the risk sources?",
+              "title": "What are the risk <span class='green-highlight'>sources</span>?",
               "placeholder": "Enter the risk sources \u002B"
             },
             "4": {
-              "title": "Which of the identified controls contribute to addressing the risk?",
+              "title": "Which of the identified <span class='green-highlight'>controls</span> contribute to addressing the risk?",
               "placeholder": "Click to select controls which address the risk."
             },
             "5": {
-              "title": "How do you estimate the risk severity, especially according to potential impacts and planned controls?",
+              "title": "How do you estimate the <span class='green-highlight'>risk severity</span>, especially according to potential impacts and planned controls?",
               "placeholder": "Justify here the estimated severity of the risk."
             },
             "6": {
-              "title": "How do you estimate the likelihood of the risk, especially in respect of threats, sources of risk and planned controls?",
+              "title": "How do you estimate the <span class='green-highlight'>likelihood of the risk</span>, especially in respect of threats, sources of risk and planned controls?",
               "placeholder": "Justify here the estimated likelihood."
             }
           }
@@ -1182,27 +1182,27 @@
           "short_help": "Analyze the causes and consequences of an undesired change in data, and estimate its seriousness and likelihood.",
           "questions": {
             "1": {
-              "title": "What could be the main impacts on the data subjects if the risk were to occur?",
+              "title": "What could be the main <span class='green-highlight'>impacts on the data subjects</span> if the risk were to occur?",
               "placeholder": "Enter the potential impacts \u002B"
             },
             "2": {
-              "title": "What are the main threats that could lead to the risk?",
+              "title": "What are the main <span class='green-highlight'>threats</span> that could lead to the risk?",
               "placeholder": "Enter the threats \u002B"
             },
             "3": {
-              "title": "What are the risk sources?",
+              "title": "What are the risk <span class='green-highlight'>sources</span>?",
               "placeholder": "Enter the risk sources \u002B"
             },
             "4": {
-              "title": "Which of the identified controls contribute to addressing the risk?",
+              "title": "Which of the identified <span class='green-highlight'>controls</span> contribute to addressing the risk?",
               "placeholder": "Click here to select controls which address the risk."
             },
             "5": {
-              "title": "How do you estimate the risk severity, especially according to potential impacts and planned controls?",
+              "title": "How do you estimate the <span class='green-highlight'>risk severity</span>, especially according to potential impacts and planned controls?",
               "placeholder": "Justify here the estimated severity of the risk."
             },
             "6": {
-              "title": "How do you estimate the likelihood of the risk, especially in respect of threats, sources of risk and planned controls?",
+              "title": "How do you estimate the <span class='green-highlight'>likelihood of the risk</span>, especially in respect of threats, sources of risk and planned controls?",
               "placeholder": "Justify here the estimated likelihood."
             }
           }
@@ -1212,27 +1212,27 @@
           "short_help": "Analyze the causes and consequences of data loss, and estimate its seriousness and likelihood.",
           "questions": {
             "1": {
-              "title": "What could be the main impacts on the data subjects if the risk were to occur?",
+              "title": "What could be the main <span class='green-highlight'>impacts on the data subjects</span> if the risk were to occur?",
               "placeholder": "Enter the potential impacts \u002B"
             },
             "2": {
-              "title": "What are the main threats that could lead to the risk?",
+              "title": "What are the main <span class='green-highlight'>threats</span> that could lead to the risk?",
               "placeholder": "Enter the threats \u002B"
             },
             "3": {
-              "title": "What are the risk sources?",
+              "title": "What are the risk <span class='green-highlight'>sources</span>?",
               "placeholder": "Enter the risk sources \u002B"
             },
             "4": {
-              "title": "Which of the identified controls contribute to addressing the risk?",
+              "title": "Which of the identified <span class='green-highlight'>controls</span> contribute to addressing the risk?",
               "placeholder": "Click here to select controls which address the risk."
             },
             "5": {
-              "title": "How do you estimate the risk severity, especially according to potential impacts and planned controls?",
+              "title": "How do you estimate the <span class='green-highlight'>risk severity</span>, especially according to potential impacts and planned controls?",
               "placeholder": "Justify here the estimated severity of the risk."
             },
             "6": {
-              "title": "How do you estimate the likelihood of the risk, especially in respect of threats, sources of risk and planned controls?",
+              "title": "How do you estimate the <span class='green-highlight'>likelihood of the risk</span>, especially in respect of threats, sources of risk and planned controls?",
               "placeholder": "Justify here the estimated likelihood."
             }
           }
