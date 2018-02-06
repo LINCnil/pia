@@ -67,7 +67,11 @@ export class Attachment extends ApplicationDb {
           });
         } else {
           const index1 = this.objectStore.index('index1');
-          index1.openCursor(IDBKeyRange.only(this.pia_id)).onsuccess = (event: any) => {
+          const evt = index1.openCursor(IDBKeyRange.only(this.pia_id));
+          evt.onerror = (event: any) => {
+            console.error(event);
+          }
+          evt.onsuccess = (event: any) => {
             const cursor = event.target.result;
             if (cursor) {
               items.push(cursor.value);
@@ -94,7 +98,11 @@ export class Attachment extends ApplicationDb {
         });
       } else {
         const index2 = this.objectStore.index('index2');
-        index2.get(IDBKeyRange.only([this.pia_id, 1])).onsuccess = (event: any) => {
+        const evt = index2.get(IDBKeyRange.only([this.pia_id, 1]));
+        evt.onerror = (event: any) => {
+          console.error(event);
+        }
+        evt.onsuccess = (event: any) => {
           const entry = event.target.result;
           resolve(entry);
         }
