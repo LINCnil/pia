@@ -265,7 +265,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
    * Shows or hides a question.
    */
   displayQuestion(event: any) {
-    const accordeon = this.el.nativeElement.querySelector('.pia-questionBlock-title button');
+    const accordeon = this.el.nativeElement.querySelector('.pia-accordeon');
     accordeon.classList.toggle('pia-icon-accordeon-down');
     const displayer = this.el.nativeElement.querySelector('.pia-questionBlock-displayer');
     displayer.classList.toggle('close');
