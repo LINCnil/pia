@@ -84,7 +84,8 @@ body.pia-contrast {
       form {
         border-color: $pia-gray-dark !important;
         fieldset {
-          > div:first-of-type {
+          > div:nth-child(2),
+          > div:nth-child(3) {
             border-bottom-color: $pia-gray-dark !important;
           }
         }
@@ -247,6 +248,11 @@ body.pia-contrast {
   }
 
   /* "List" display mode */
+  .pia-filtersBlock {
+    .pia-icon-rocket-small {
+      background-position: -495px -273px;
+    }
+  }
   .pia-listsBlock-item {
     progress {
       appearance: none;
@@ -273,6 +279,11 @@ body.pia-contrast {
 
   /* entry-content */
   .pia-entryContentBlock {
+    .pia-status-info {
+      a {
+        color: $pia-red-dark !important;
+      }
+    }
     &-section1 {
       .pia-entryContentBlock-header {
         div:first-child {
@@ -301,6 +312,9 @@ body.pia-contrast {
     &-footer {
       p {
         color: $pia-gray-dark !important;
+      }
+      .pia-cancelBtn {
+        color: $pia-red-dark !important;
       }
       &-measures {
         button:first-child {
@@ -365,9 +379,6 @@ body.pia-contrast {
           border-top: solid 1px $pia-gray-dark  !important;
           color: $pia-gray-dark !important;
         }
-        .fa-cog, .fa-pencil-square-o {
-          color: $pia-gray-dark !important;
-        }
       }
     }
     &-body {
@@ -382,6 +393,25 @@ body.pia-contrast {
               background-color: $pia-green-dark !important;
             }
           }
+          i {
+            &.fa-pencil-square-o.pia-fa-valid,
+            &.fa-cog.pia-fa-valid,
+            &.fa-check-square-o {
+              color: $pia-green-dark !important;
+            }
+            &.fa-cog,
+            &.fa-pencil-square-o {
+              color: $pia-gray-dark;
+            }
+          }
+        }
+        &:nth-child(2) {
+          i {
+            &.fa-cog,
+            &.fa-pencil-square-o {
+              color: $pia-gray-dark;
+            }
+          }
         }
         &:nth-child(3) {
           .pia-sectionBlock-title {
@@ -391,6 +421,17 @@ body.pia-contrast {
           a {
             &:focus, &:hover, &:active, &.active {
               background-color: $pia-red-dark !important;
+            }
+          }
+          i {
+            &.fa-pencil-square-o.pia-fa-valid,
+            &.fa-cog.pia-fa-valid,
+            &.fa-check-square-o {
+              color: $pia-red-dark !important;
+            }
+            &.fa-cog,
+            &.fa-pencil-square-o {
+              color: $pia-gray-dark;
             }
           }
         }
@@ -533,6 +574,9 @@ body.pia-contrast {
         color: $pia-red-dark;
       }
     }
+    textarea::placeholder {
+      color: $pia-gray-dark !important;
+    }
   }
 
   /* modals */
@@ -620,6 +664,12 @@ body.pia-contrast {
   /* action plan */
   .pia-actionPlanGraphBlock {
     &-item {
+      .pia-list {
+        color: $pia-gray-dark !important;
+      }
+      .pia-box {
+        background-color: $pia-gray-dark !important;
+      }
       .pia-green {
         background-color: $pia-green-dark !important;
       }
@@ -679,7 +729,47 @@ body.pia-contrast {
   .pia-summaryContainerBlock {
     .evaluationValue,
     .red-highlight {
-      color: #C40288 !important;
+      color: $pia-red-dark !important;
+    }
+  }
+
+  /* Text editor */
+  .mce-tinymce.mce-container.mce-panel {
+    > div {
+      border-bottom: 2px solid $pia-green-dark !important;
+    }
+  }
+  .mce-container-body {
+    .mce-flow-layout {
+      background-color: $pia-green-dark !important;
+      &:before {
+        border-bottom: 16px solid $pia-green-dark !important;
+      }
+      .mce-widget, .mce-btn {
+        background-color: $pia-green-dark !important;
+      }
+    }
+  }
+  app-editor{
+    border-bottom: $pia-green-dark solid 0.3rem !important;
+  }
+
+  /* Gauges */
+  .pia-gaugeBlock {
+    &-background {
+      background: linear-gradient(90deg, $pia-green-dark, $pia-green-dark);
+    }
+    &-background-1 {
+      background: linear-gradient(90deg, $pia-green-dark, #41534c);
+    }
+    &-background-2 {
+      background: linear-gradient(90deg, $pia-green-dark, #6b3960);
+    }
+    &-background-3 {
+      background: linear-gradient(90deg, $pia-green-dark, #961f73);
+    }
+    &-background-4 {
+      background: linear-gradient(90deg, $pia-green-dark, $pia-red-dark);
     }
   }
 
