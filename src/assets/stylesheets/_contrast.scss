@@ -435,6 +435,13 @@ body.pia-contrast {
             }
           }
         }
+        &:nth-child(4) {
+          i {
+            &.fa-pencil-square-o {
+              color: $pia-gray-dark;
+            }
+          }
+        }
       }
     }
   }
