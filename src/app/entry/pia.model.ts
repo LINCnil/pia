@@ -118,12 +118,14 @@ export class Pia extends ApplicationDb {
           resolve(result.id);
         }).catch ((error) => {
           console.error('Request failed', error);
+          reject();
         });
       } else {
         this.getObjectStore().then(() => {
           const evt = this.objectStore.add(data);
           evt.onerror = (event: any) => {
             console.error(event);
+            reject(Error(event));
           }
           evt.onsuccess = (event: any) => {
             resolve(event.target.result);
@@ -168,12 +170,14 @@ export class Pia extends ApplicationDb {
             resolve();
           }).catch ((error) => {
             console.error('Request failed', error);
+            reject();
           });
         } else {
           this.getObjectStore().then(() => {
             const evt = this.objectStore.put(entry);
             evt.onerror = (event: any) => {
               console.error(event);
+              reject(Error(event));
             }
             evt.onsuccess = () => {
               resolve();

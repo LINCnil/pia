@@ -39,6 +39,7 @@ export class Attachment extends ApplicationDb {
           resolve(result.id);
         }).catch (function (error) {
           console.error('Request failed', error);
+          reject();
         });
       } else {
         const evt = this.objectStore.add(data);
@@ -47,6 +48,7 @@ export class Attachment extends ApplicationDb {
         };
         evt.onerror = (event: any) => {
           console.error(event);
+          reject(Error(event));
         }
       }
     });
@@ -64,12 +66,14 @@ export class Attachment extends ApplicationDb {
             resolve(result);
           }).catch (function (error) {
             console.error('Request failed', error);
+            reject();
           });
         } else {
           const index1 = this.objectStore.index('index1');
           const evt = index1.openCursor(IDBKeyRange.only(this.pia_id));
           evt.onerror = (event: any) => {
             console.error(event);
+            reject(Error(event));
           }
           evt.onsuccess = (event: any) => {
             const cursor = event.target.result;
@@ -95,12 +99,14 @@ export class Attachment extends ApplicationDb {
           resolve(result);
         }).catch (function (error) {
           console.error('Request failed', error);
+          reject();
         });
       } else {
         const index2 = this.objectStore.index('index2');
         const evt = index2.get(IDBKeyRange.only([this.pia_id, 1]));
         evt.onerror = (event: any) => {
           console.error(event);
+          reject(Error(event));
         }
         evt.onsuccess = (event: any) => {
           const entry = event.target.result;

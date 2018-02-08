@@ -40,12 +40,14 @@ export class Evaluation extends ApplicationDb {
           resolve(result.id);
         }).catch((error) => {
           console.error('Request failed', error);
+          reject();
         });
       } else {
         this.getObjectStore().then(() => {
           const evt = this.objectStore.add(data);
           evt.onerror = (event: any) => {
             console.error(event);
+            reject(Error(event));
           }
           evt.onsuccess = (event: any) => {
             resolve(event.target.result);
@@ -78,12 +80,14 @@ export class Evaluation extends ApplicationDb {
             resolve();
           }).catch((error) => {
             console.error('Request failed', error);
+            reject();
           });
         } else {
           this.getObjectStore().then(() => {
             const evt = this.objectStore.put(entry);
             evt.onerror = (event: any) => {
               console.error(event);
+              reject(Error(event));
             }
             evt.onsuccess = () => {
               resolve();
@@ -142,6 +146,7 @@ export class Evaluation extends ApplicationDb {
             }
           }).catch((error) => {
             console.error('Request failed', error);
+            reject();
           });
         } else {
           this.getObjectStore().then(() => {
@@ -149,6 +154,7 @@ export class Evaluation extends ApplicationDb {
             const evt = index1.get(IDBKeyRange.only([this.pia_id, this.reference_to]));
             evt.onerror = (event: any) => {
               console.error(event);
+              reject(Error(event));
             }
             evt.onsuccess = (event: any) => {
               const entry = event.target.result;
@@ -209,6 +215,7 @@ export class Evaluation extends ApplicationDb {
           resolve(result);
         }).catch((error) => {
           console.error('Request failed', error);
+          reject();
         });
       } else {
         this.getObjectStore().then(() => {
@@ -216,6 +223,7 @@ export class Evaluation extends ApplicationDb {
           const evt = index1.openCursor(IDBKeyRange.only(this.pia_id));
           evt.onerror = (event: any) => {
             console.error(event);
+            reject(Error(event));
           }
           evt.onsuccess = (event: any) => {
             const cursor = event.target.result;
@@ -246,6 +254,7 @@ export class Evaluation extends ApplicationDb {
           }
         }).catch((error) => {
           console.error('Request failed', error);
+          reject();
         });
       } else {
         this.getObjectStore().then(() => {
@@ -253,6 +262,7 @@ export class Evaluation extends ApplicationDb {
           const evt = index1.get(IDBKeyRange.only([this.pia_id, this.reference_to]));
           evt.onerror = (event: any) => {
             console.error(event);
+            reject(Error(event));
           }
           evt.onsuccess = (event: any) => {
             const entry = event.target.result;
@@ -281,6 +291,7 @@ export class Evaluation extends ApplicationDb {
           }
         }).catch((error) => {
           console.error('Request failed', error);
+          reject();
         });
       } else {
         this.getObjectStore().then(() => {
@@ -288,6 +299,7 @@ export class Evaluation extends ApplicationDb {
           const evt = index1.get(IDBKeyRange.only([this.pia_id, reference_to]));
           evt.onerror = (event: any) => {
             console.error(event);
+            reject(Error(event));
           }
           evt.onsuccess = (event: any) => {
             const entry = event.target.result;
