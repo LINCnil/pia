@@ -23,9 +23,9 @@ export class SectionsComponent implements OnInit {
   @Input() item: { id: number, title: string, evaluation_mode: string, short_help: string, questions: any };
   data: { sections: any };
 
-  constructor(protected _piaService: PiaService,
+  constructor(public _piaService: PiaService,
               private _appDataService: AppDataService,
-              protected _sidStatusService: SidStatusService,
+              public _sidStatusService: SidStatusService,
               private _globalEvaluationService: GlobalEvaluationService,
               private _evaluationService: EvaluationService) {
   }

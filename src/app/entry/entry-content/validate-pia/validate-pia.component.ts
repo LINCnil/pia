@@ -21,10 +21,10 @@ export class ValidatePIAComponent implements OnInit {
 
   constructor(private el: ElementRef,
               private _modalsService: ModalsService,
-              protected _attachmentsService: AttachmentsService,
+              public _attachmentsService: AttachmentsService,
               private _actionPlanService: ActionPlanService,
               private _translateService: TranslateService,
-              protected _piaService: PiaService ) {
+              public _piaService: PiaService ) {
   }
 
   ngOnInit() {

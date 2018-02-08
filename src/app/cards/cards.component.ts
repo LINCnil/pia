@@ -29,8 +29,8 @@ export class CardsComponent implements OnInit, OnDestroy {
   constructor(private router: Router,
               private el: ElementRef,
               private route: ActivatedRoute,
-              protected _modalsService: ModalsService,
-              protected _piaService: PiaService) { }
+              public _modalsService: ModalsService,
+              public _piaService: PiaService) { }
 
   ngOnInit() {
     const pia = new Pia();

@@ -12,7 +12,7 @@ export class ActionPlanComponent implements OnInit {
   @Input() pia: any;
   @Input() data: any;
 
-  constructor(protected _actionPlanService: ActionPlanService,
+  constructor(public _actionPlanService: ActionPlanService,
               private _translateService: TranslateService) { }
 
   ngOnInit() {

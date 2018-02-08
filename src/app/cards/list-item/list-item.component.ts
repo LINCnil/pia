@@ -16,7 +16,7 @@ export class ListItemComponent implements OnInit {
 
   constructor(private router: Router,
               private route: ActivatedRoute,
-              protected _piaService: PiaService,
+              public _piaService: PiaService,
               private _modalsService: ModalsService) { }
 
   ngOnInit() {

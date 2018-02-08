@@ -31,13 +31,13 @@ export class EntryContentComponent implements OnInit, OnChanges {
   constructor(private _router: Router,
               private _appDataService: AppDataService,
               private _activatedRoute: ActivatedRoute,
-              protected _measureService: MeasureService,
+              public _measureService: MeasureService,
               private _modalsService: ModalsService,
-              protected _piaService: PiaService,
-              protected _sidStatusService: SidStatusService,
-              protected _globalEvaluationService: GlobalEvaluationService,
+              public _piaService: PiaService,
+              public _sidStatusService: SidStatusService,
+              public _globalEvaluationService: GlobalEvaluationService,
               private _evaluationService: EvaluationService,
-              protected _paginationService: PaginationService,
+              public _paginationService: PaginationService,
               private _translateService: TranslateService) {
   }
 
