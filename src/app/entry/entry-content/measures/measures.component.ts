@@ -27,7 +27,7 @@ export class MeasuresComponent implements OnInit, OnDestroy {
   measureModel: Measure = new Measure();
 
   constructor(
-    protected _globalEvaluationService: GlobalEvaluationService,
+    public _globalEvaluationService: GlobalEvaluationService,
     private el: ElementRef,
     private _modalsService: ModalsService,
     private _evaluationService: EvaluationService,
@@ -65,7 +65,7 @@ export class MeasuresComponent implements OnInit, OnDestroy {
    * @param {HTMLElement} textarea
    * @memberof MeasuresComponent
    */
-  autoTextareaResize(event: any, textarea: HTMLElement) {
+  autoTextareaResize(event: any, textarea?: HTMLElement) {
     if (event) {
       textarea = event.target;
     }

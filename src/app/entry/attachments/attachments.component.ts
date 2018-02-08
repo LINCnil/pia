@@ -19,7 +19,7 @@ export class AttachmentsComponent implements OnInit {
   dispplayAttachmentButton = false;
 
   constructor(private activatedRoute: ActivatedRoute,
-              protected _attachmentsService: AttachmentsService) { }
+              public _attachmentsService: AttachmentsService) { }
 
   ngOnInit() {
     this.attachmentForm = new FormGroup({

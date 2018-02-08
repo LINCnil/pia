@@ -10,7 +10,7 @@ import { TranslateService } from '@ngx-translate/core';
 export class AuthenticationComponent implements OnInit, DoCheck, OnDestroy {
   selectedLanguage: string;
 
-  constructor(private _renderer: Renderer2, protected _translateService: TranslateService) {
+  constructor(private _renderer: Renderer2, public _translateService: TranslateService) {
     this._renderer.addClass(document.body, 'pia-authentication');
   }
 

@@ -14,7 +14,7 @@ export class HeaderComponent implements OnInit, DoCheck {
   appVersion: string;
   selectedLanguage: string;
 
-  constructor(private renderer: Renderer2, protected _translateService: TranslateService) {
+  constructor(private renderer: Renderer2, public _translateService: TranslateService) {
     this.updateContrast();
   }
 

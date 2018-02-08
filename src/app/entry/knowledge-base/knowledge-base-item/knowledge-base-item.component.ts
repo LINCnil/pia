@@ -21,7 +21,7 @@ export class KnowledgeBaseItemComponent implements OnInit {
               private _knowledgeBaseService: KnowledgeBaseService,
               private _evaluationService: EvaluationService,
               private _translateService: TranslateService,
-              protected _globalEvaluationService: GlobalEvaluationService,
+              public _globalEvaluationService: GlobalEvaluationService,
               private activatedRoute: ActivatedRoute) {
     this.router = router;
   }
