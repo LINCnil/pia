@@ -35,12 +35,14 @@ export class Comment extends ApplicationDb {
           resolve(result.id);
         }).catch((error) => {
           console.error('Request failed', error);
+          reject();
         });
       } else {
         this.getObjectStore().then(() => {
           const evt = this.objectStore.add(data);
           evt.onerror = (event: any) => {
             console.error(event);
+            reject(Error(event));
           }
           evt.onsuccess = (event: any) => {
             resolve(event.target.result);
@@ -60,6 +62,7 @@ export class Comment extends ApplicationDb {
           resolve(result);
         }).catch((error) => {
           console.error('Request failed', error);
+          reject();
         });
       } else {
         this.getObjectStore().then(() => {
@@ -67,6 +70,7 @@ export class Comment extends ApplicationDb {
           const evt = index1.openCursor(IDBKeyRange.only([this.pia_id, this.reference_to]));
           evt.onerror = (event: any) => {
             console.error(event);
+            reject(Error(event));
           }
           evt.onsuccess = (event: any) => {
             const cursor = event.target.result;
@@ -92,6 +96,7 @@ export class Comment extends ApplicationDb {
           resolve(result);
         }).catch((error) => {
           console.error('Request failed', error);
+          reject();
         });
       } else {
         this.getObjectStore().then(() => {
@@ -99,6 +104,7 @@ export class Comment extends ApplicationDb {
           const evt = index1.openCursor(IDBKeyRange.only(this.pia_id));
           evt.onerror = (event: any) => {
             console.error(event);
+            reject(Error(event));
           }
           evt.onsuccess = (event: any) => {
             const cursor = event.target.result;
