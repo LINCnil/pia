@@ -1,0 +1,16 @@
+version: '3'
+services:
+ pia:
+    container_name: pia-frontend
+    build: .
+    command: "yarn start -- --host=0.0.0.0"
+    ports:
+      - 4200:4200
+      - 49152:49152
+    volumes:
+      - .:/home/app/pia
+      - /home/app/pia/node_modules
+networks:
+  default:
+    external:
+      name: piaback_default

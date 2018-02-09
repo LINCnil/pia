@@ -22,7 +22,8 @@
       "it": "Italiaans",
       "nl": "Nederlands",
       "pl": "Polski",
-      "de": "Deutsch"
+      "de": "Deutsch",
+      "es": "Español"
     },
     "tools": {
       "title": "Tools",
@@ -798,7 +799,7 @@
     "version_number": "Versionsnummer",
     "description": "Dieses Tool wurde ursprünglich von der französischen Datenschutzbehörde <a target=\"_blank\" href=\"https://www.cnil.fr\"> Nationale Kommission für Informatik und Freiheit (CNIL) </a> entwickelt, um dem Verantwortlichen zu helfen, mit der DS-GVO konform zu sein.<br>Diese Software ist kostenlos und offen. Wenn Sie sich an diesem Projekt beteiligen möchten, können Sie den Quellcode von Github herunterladen, ändern und mit anderen in der Community teilen.",
     "translators": "Das Tool ist derzeit in sieben Sprachen verfügbar. Die französische und die englische Version werden von der CNIL bereitgestellt. Die anderen Versionen sind das Ergebnis der Beiträge der folgenden Personen:",
-    "translators_name": "<ul><li>Niederländisch: Ruud van Driel, Manuel d'Orso;</li><li>Tschechisch: Jirí Grohmann, Manuel d'Orso;</li><li>Italienisch: Manuel d'Orso, Gianluca Markos;</li><li>Polnisch: Joanna Karczewska</li> <li>Deutsch: Kosmas Schütz</li></ul>",
+    "translators_name": "<ul><li>Niederländisch: Ruud van Driel, Manuel d'Orso;</li><li>Tschechisch: Jirí Grohmann, Manuel d'Orso;</li><li>Italienisch: Manuel d'Orso, Gianluca Markos;</li><li>Polnisch: Joanna Karczewska</li> <li>Deutsch: Kosmas Schütz</li><li>Spanisch: ylachgar</li></ul>",
     "contribute": "Wenn Sie zur Übersetzung des Tools oder zur Verbesserung der bereits vorgeschlagenen beitragen möchten, laden wir Sie ein, <a href=\"https://github.com/LINCnil/pia/tree/master/src/assets/i18n\" target=\"_blank\">die Seite mit den folgenden Schritten zu lesen</a>.",
     "licences": "Bibliothekslizenzen:"
   },
