@@ -828,8 +828,7 @@
     "confirmation3": "Zatwierdzam wskazane środki naprawcze.",
     "confirmation4": "Deklaruję, że wskazane środki naprawcze zostaną wdrożone w najkrótszm mozliwym czasie.",
     "button": {
-      "rejection": "Odmowa zatwierdzenia
-      ",
+      "rejection": "Odmowa zatwierdzenia",
       "simple_validation": "Proste zatwierdzenie",
       "signed_validation": "PIA musi podpisać osoba odpowiedzialna"
     },
