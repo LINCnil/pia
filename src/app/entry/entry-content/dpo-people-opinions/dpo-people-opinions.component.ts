@@ -26,7 +26,7 @@ export class DPOPeopleOpinionsComponent implements OnInit {
 
   constructor(private el: ElementRef,
               private _sidStatusService: SidStatusService,
-              protected _piaService: PiaService) { }
+              public _piaService: PiaService) { }
 
   ngOnInit() {
     this.DPOForm = new FormGroup({
@@ -360,7 +360,7 @@ export class DPOPeopleOpinionsComponent implements OnInit {
 
   /* Misc methods */
 
-  autoTextareaResize(event: any, textarea: HTMLElement) {
+  autoTextareaResize(event: any, textarea?: HTMLElement) {
     if (event) {
       textarea = event.target;
     }

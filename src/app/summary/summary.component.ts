@@ -30,10 +30,10 @@ export class SummaryComponent implements OnInit {
   constructor(private el: ElementRef,
               private route: ActivatedRoute,
               private _attachmentsService: AttachmentsService,
-              protected _actionPlanService: ActionPlanService,
+              public _actionPlanService: ActionPlanService,
               private _translateService: TranslateService,
               private _appDataService: AppDataService,
-              protected _piaService: PiaService) { }
+              public _piaService: PiaService) { }
 
   async ngOnInit() {
     this.content = [];

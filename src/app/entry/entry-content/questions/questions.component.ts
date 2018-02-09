@@ -36,7 +36,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
               private _evaluationService: EvaluationService,
               private _modalsService: ModalsService,
               private _ngZone: NgZone,
-              protected _globalEvaluationService: GlobalEvaluationService,
+              public _globalEvaluationService: GlobalEvaluationService,
               private renderer: Renderer2) { }
 
   ngOnInit() {
