@@ -32,7 +32,7 @@ export class AppComponent {
     }
 
     // Translations system
-    this._translateService.addLangs(['en', 'cs', 'it', 'nl', 'fr', 'pl', 'de', 'es']);
+    this._translateService.addLangs(['en', 'cz', 'it', 'nl', 'fr', 'pl', 'de', 'es']);
     this._translateService.setDefaultLang('fr');
     const language = localStorage.getItem('userLanguage');
     if (language && language.length > 0) {
