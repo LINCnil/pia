@@ -18,7 +18,7 @@
       "unofficial_translations": "Inoffizielle Übersetzungen",
       "fr": "Français",
       "en": "English",
-      "cs": "Česky",
+      "cz": "Česky",
       "it": "Italiaans",
       "nl": "Nederlands",
       "pl": "Polski",
@@ -184,7 +184,7 @@
         "name": "Rechtmäßigkeit der Verarbeitung",
         "description": "Die Verarbeitung ist nur rechtmäßig, wenn mindestens eine der nachstehenden Bedingungen erfüllt ist:<br>Die betroffene Person hat ihre Einwilligung zu der Verarbeitung der sie betreffenden personenbezogenen Daten für einen oder mehrere bestimmte Zwecke gegeben;<br>die Verarbeitung ist für die Erfüllung eines Vertrags, dessen Vertragspartei die betroffene Person ist, oder zur Durchführung vorvertraglicher Maßnahmen erforderlich, die auf Anfrage der betroffenen Person erfolgen;<br>die Verarbeitung ist zur Erfüllung einer rechtlichen Verpflichtung erforderlich, der der Verantwortliche unterliegt;<br>die Verarbeitung ist erforderlich, um lebenswichtige Interessen der betroffenen Person oder einer anderen natürlichen Person zu schützen;<br>die Verarbeitung ist für die Wahrnehmung einer Aufgabe erforderlich, die im öffentlichen Interesse liegt oder in Ausübung öffentlicher Gewalt erfolgt, die dem Verantwortlichen übertragen wurde;<br>die Verarbeitung ist zur Wahrung der berechtigten Interessen des Verantwortlichen oder eines Dritten erforderlich, sofern nicht die Interessen oder Grundrechte und Grundfreiheiten der betroffenen Person, die den Schutz personenbezogener Daten erfordern, überwiegen, insbesondere dann, wenn es sich bei der betroffenen Person um ein Kind handelt.<br>Siehe <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/DE/TXT/HTML/?uri=CELEX:32016R0679&from=DE\">Art. 6 der [DS-GVO]</a>",
         "source": "PIA2 p4/WIKI Fondement_:_licéité_du_traitement,_interdiction_du_détournement_de_finalité"
-    },
+      },
       "PIA_LGL_ST": {
         "name": "Auftragsverarbeitung",
         "description": "Mit jedem Auftragsverarbeiter muss ein Auftragsverarbeitungsvertrag unterzeichnet werden, der alle in Art. 28 der DS-GVO genannte Aspekte darlegt: Dauer, Umfang, Zweck, dokumentierte Verarbeitungsanweisungen, vorherige Genehmigung, wenn ein Subunternehmer beschäftigt wird, Bereitstellung von Dokumentationen zum Nachweis der Einhaltung der DS-GVO, unverzügliche Benachrichtigung über Datenschutzverletzungen usw..",
@@ -471,7 +471,8 @@
       },
       "PIA_DEF_MINC": {
         "name": "Datenminimierung",
-        "description": "Verringerung der Schwere von Risiken, indem die Erfassung personenbezogener Daten auf das begrenzt wird, was für einen bestimmten Zweck unbedingt erforderlich ist; Vermeiden Sie die Sammlung unnötiger Daten, die Verwendung von Daten, die nichts mit dem Zweck zu tun haben, und die exzessive Auswirkungen auf Einzelpersonen haben können."
+        "description": "Verringerung der Schwere von Risiken, indem die Erfassung personenbezogener Daten auf das begrenzt wird, was für einen bestimmten Zweck unbedingt erforderlich ist; Vermeiden Sie die Sammlung unnötiger Daten, die Verwendung von Daten, die nichts mit dem Zweck zu tun haben, und die exzessive Auswirkungen auf Einzelpersonen haben können.",
+        "source": "WIKI Minimisation_des_données_:_adéquates,_pertinentes_et_limitées"
       },
       "PIA_DEF_MIND": {
         "name": "Minimierung der Daten selbst",
@@ -547,7 +548,8 @@
         "name": "Authentifizierung",
         "description": "Die Authentifizierung ist eine <strong>Operation, durch die der Benutzer seine Identität beweist</strong>. Dafür gibt es mehrere Mechanismen, nach denen Sie eingeordnet sind:<br>-was wir wissen, zum Beispiel ein Passwort;<br>- was man hat, zum Beispiel eine Smartcard;<br>- ein Merkmal, das für uns einzigartig ist, zum Beispiel ein Fingerabdruck oder die Möglichkeit, eine handschriftliche Unterschrift zu leisten.<br>Zur Erinnerung: nach der DS-GVO ist die  Verwendung der Biometrie nur aufgrund eines gesetzlichen Erlaubnistatbestands zulässig.<br><strong>Die Authentifizierung eines Benutzers ist als stark gekennzeichnet, wenn eine Kombination aus mindestens zwei dieser Kategorien verwendet wird.</strong>",
         "source": "Guide Bleu p7"
-      },  "PIA_DEF_LOG": {
+      },
+      "PIA_DEF_LOG": {
         "name": "Protokollierung",
         "description": "Aufzeichnung von Aktionen, die auf dem Computersystem ausgeführt werden, um <strong>betrügerischen Zugriff</strong> oder <strong>Missbrauch</strong> von persönlichen Daten zu identifizieren oder die Herkunft eines Vorfalls. Einige der auf Computersystemen ausgeführten Aktionen sollten aufgezeichnet werden. Zu diesem Zweck muss ein Trace- und Incident-Management-System eingerichtet werden. Es sollte <strong>relevante Ereignisse aufzeichnen</strong>und <strong>sicherstellen, dass diese Datensätze nicht manipuliert werden können.</strong> In jedem Fall sollten Sie <strong>diese Datensätze nur für einen gewissen Zeitraum und nicht exzessiv lange aufbewahrt werden.</strong>",
         "source": "Guide Bleu 2017 p10"
@@ -619,7 +621,8 @@
       },
       "PIA_DEF_ST": {
         "name": "Auftragsverarbeiter",
-        "description": "Natürliche oder juristische Personen, Behörden, Dienste oder andere Stellen, die personenbezogene Daten im Auftrag des für die Verarbeitung Verantwortlichen verarbeiten, gemäß <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/DE/TXT/HTML/?uri=CELEX:32016R0679&from=DE\">Art. 4.8 der [DS-GVO]</a><br>Der Auftragsverarbeiter und jede Person, die unter der Aufsicht des für die Verarbeitung Verantwortlichen oder des Auftragsverarbeiters handelt und Zugang zu personenbezogenen Daten hat, können diese Daten nur auf Anweisung der für die Daten Verantwortlichen verarbeiten. Es sei denn, dies ist durch das Unionsrecht oder das Recht eines Mitgliedstaats vorgeschrieben, gemäß <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/DE/TXT/HTML/?uri=CELEX:32016R0679&from=DE\">Art. 29 der [DS-GVO]</a>."
+        "description": "Natürliche oder juristische Personen, Behörden, Dienste oder andere Stellen, die personenbezogene Daten im Auftrag des für die Verarbeitung Verantwortlichen verarbeiten, gemäß <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/DE/TXT/HTML/?uri=CELEX:32016R0679&from=DE\">Art. 4.8 der [DS-GVO]</a><br>Der Auftragsverarbeiter und jede Person, die unter der Aufsicht des für die Verarbeitung Verantwortlichen oder des Auftragsverarbeiters handelt und Zugang zu personenbezogenen Daten hat, können diese Daten nur auf Anweisung der für die Daten Verantwortlichen verarbeiten. Es sei denn, dies ist durch das Unionsrecht oder das Recht eines Mitgliedstaats vorgeschrieben, gemäß <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/DE/TXT/HTML/?uri=CELEX:32016R0679&from=DE\">Art. 29 der [DS-GVO]</a>.",
+        "source": "DS-GVO Art. 4.8 und 29"
       },
       "PIA_DEF_RGPD": {
         "name": "DS-GVO (Datenschutz-Grundverordnung)",
