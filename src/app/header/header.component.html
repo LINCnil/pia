@@ -53,16 +53,28 @@
                     {{ 'header.languages.nl' | translate }}
                   </a>
                 </li>
-                <li [ngClass]="{'is_active': selectedLanguage === 'cs'}"
-                    (click)="updateCurrentLanguage('cs')">
-                  <a (click)="_translateService.use('cs')">
-                    {{ 'header.languages.cs' | translate }}
+                <li [ngClass]="{'is_active': selectedLanguage === 'cz'}"
+                    (click)="updateCurrentLanguage('cz')">
+                  <a (click)="_translateService.use('cz')">
+                    {{ 'header.languages.cz' | translate }}
                   </a>
                 </li>
                 <li [ngClass]="{'is_active': selectedLanguage === 'pl'}"
                     (click)="updateCurrentLanguage('pl')">
                   <a (click)="_translateService.use('pl')">
                     {{ 'header.languages.pl' | translate }}
+                  </a>
+                </li>
+                <li [ngClass]="{'is_active': selectedLanguage === 'de'}"
+                    (click)="updateCurrentLanguage('de')">
+                  <a (click)="_translateService.use('de')">
+                    {{ 'header.languages.de' | translate }}
+                  </a>
+                </li>
+                <li [ngClass]="{'is_active': selectedLanguage === 'es'}"
+                    (click)="updateCurrentLanguage('es')">
+                  <a (click)="_translateService.use('es')">
+                    {{ 'header.languages.es' | translate }}
                   </a>
                 </li>
               </ul>
