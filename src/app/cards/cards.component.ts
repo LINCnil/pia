@@ -33,17 +33,7 @@ export class CardsComponent implements OnInit, OnDestroy {
               public _piaService: PiaService) { }
 
   ngOnInit() {
-    const pia = new Pia();
-    pia.getAll().then((data: any[]) => {
-      this._piaService.pias = data;
-      this.filter = localStorage.getItem('sort');
-      if (this.filter && this.filter.length > 0) {
-        this.sortBy(this.filter);
-        this.sortReverse = false;
-      } else {
-        this.sortBy('udpated_at');
-      }
-    });
+    this.refreshContent();
     this.piaForm = new FormGroup({
       name: new FormControl(),
       author_name: new FormControl(),
@@ -137,15 +127,32 @@ export class CardsComponent implements OnInit, OnDestroy {
     this.viewStyle.view = 'list';
     localStorage.setItem('homepageDisplayMode', this.viewStyle.view);
     this.router.navigate(['home', 'list']);
+    this.refreshContent();
   }
 
   viewOnCard() {
     this.viewStyle.view = 'card';
     localStorage.setItem('homepageDisplayMode', this.viewStyle.view);
     this.router.navigate(['home', 'card']);
+    this.refreshContent();
   }
 
   ngOnDestroy() {
     this.paramsSubscribe.unsubscribe();
+  }
+
+  refreshContent() {
+    const pia = new Pia();
+    pia.getAll().then((data: any[]) => {
+      this._piaService.pias = data;
+      this.filter = localStorage.getItem('sort');
+      if (this.filter && this.filter.length > 0) {
+        this.sortBy(this.filter);
+        this.sortReverse = false;
+      } else {
+        // TODO what is this ?
+        this.sortBy('udpated_at');
+      }
+    });
   }
 }
