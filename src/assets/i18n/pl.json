@@ -72,7 +72,6 @@
       "placeholder_start": "Należy wypełnić wszystkie pola",
       "item": {
         "tools": {
-          "edit": "Edytowanie informacji",
           "export": "Eksport",
           "more_options": "Więcej opcji",
           "duplicate": "Duplikacja",
@@ -80,8 +79,7 @@
           "pia": "Wyświetlenie<br>PIA",
           "remove": "Usunięcie"
         },
-        "edit_pia": "Edycja PIA",
-        "save_pia": "Zapisanie"
+        "edit_pia": "Edycja PIA"
       }
     },
     "lists": {

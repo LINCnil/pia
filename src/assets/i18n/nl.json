@@ -72,7 +72,6 @@
       "placeholder_start": "Alle velden moeten worden ingevuld",
       "item": {
         "tools": {
-          "edit": "Aanpassen informatie",
           "export": "Exporteren",
           "more_options": "Meer opties",
           "duplicate": "Dupliceren",
@@ -80,8 +79,7 @@
           "pia": "Toon<br>PIA",
           "remove": "Verwijderen"
         },
-        "edit_pia": "Aanpassen PIA",
-        "save_pia": "Opslaan"
+        "edit_pia": "Aanpassen PIA"
       }
     },
     "lists": {

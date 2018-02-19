@@ -72,7 +72,6 @@
       "placeholder_start": "All fields must be filled",
       "item": {
         "tools": {
-          "edit": "Edit information",
           "export": "Export",
           "more_options": "More options",
           "duplicate": "Duplicate",
@@ -80,8 +79,7 @@
           "pia": "Display<br>PIA",
           "remove": "Delete"
         },
-        "edit_pia": "Edit PIA",
-        "save_pia": "Save"
+        "edit_pia": "Edit PIA"
       }
     },
     "lists": {

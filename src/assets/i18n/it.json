@@ -72,7 +72,6 @@
 			"placeholder_start": "Tutti i campi sono obbligatori",
 			"item": {
 				"tools": {
-					"edit": "Modifica informazioni",
 					"export": "Esporta",
 					"more_options": "Più opzioni",
 					"duplicate": "Crea una copia",
@@ -80,8 +79,7 @@
 					"pia": "Mostra<br>PIA",
 					"remove": "Cancella"
 				},
-				"edit_pia": "Modifica PIA",
-				"save_pia": "Salva"
+				"edit_pia": "Modifica PIA"
 			}
 		},
 		"lists": {
