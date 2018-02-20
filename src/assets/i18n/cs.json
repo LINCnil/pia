@@ -70,7 +70,6 @@
       "placeholder_start": "Všechna pole musí být vyplněna",
       "item": {
         "tools": {
-          "edit": "Upravit informace",
           "export": "Exportovat",
           "more_options": "Více voleb",
           "duplicate": "Duplikovat",
@@ -78,8 +77,7 @@
           "pia": "Zobrazit<br>PIA",
           "remove": "Odstranit"
         },
-        "edit_pia": "Upravit PIA",
-        "save_pia": "Uložit"
+        "edit_pia": "Upravit PIA"
       }
     },
     "lists": {
