@@ -741,14 +741,14 @@
   "evaluations": {
     "title": "Valutazione",
     "to_correct": "Da correggere",
-    "placeholder_to_correct": "Le informazioni fornite non sono sufficienti per valutarle. Torna a modificare per arricchire la proposta iniziale",
     "improvable": " Migliorabile",
-    "placeholder_improvable": "Alla luce delle informazioni fornite, è necessario aggiungere ulteriori misure per migliorare la protezione dei dati del trattamento",
     "acceptable": "Accettabile",
-    "placeholder_acceptable": "Alla luce delle informazioni fornite, le misure implementate sono sufficienti per soddisfare i requisiti di protezione dei dati",
     "evaluation_comment": "Commento di valutazione",
     "action_plan_comment": "Piano d'azione / azioni correttive",
-    "placeholder_comment": "Inserisci i tuoi commenti",
+    "placeholder_to_correct": "Le informazioni fornite non sono sufficienti per valutarle. Torna a modificare per arricchire la proposta iniziale",
+    "placeholder_improvable1": "Alla luce delle informazioni fornite, è necessario aggiungere ulteriori misure per migliorare la protezione dei dati del trattamento.",
+    "placeholder_improvable2": "Inserisci i tuoi commenti",
+    "placeholder_acceptable": "Alla luce delle informazioni fornite, le misure implementate sono sufficienti per soddisfare i requisiti di protezione dei dati",
     "gauges": {
       "seriousness": "Prendere in considerazione il piano d'azione, come valuti la <span class='red-highlight'>serietà di questo rischio</span> ({{value}})?",
       "likelihood": "Prendendo in considerazione il piano d'azione, come rivaluti la <span class='red-highlight'>probabilità di questo rischio</span> ({{value}})?",
@@ -820,6 +820,42 @@
     "content": "Inserisci un indirizzo (URL) del server remoto:",
     "update": "Aggiorna URL"
   },
+  "validation_page": {
+    "responsible": "TO BE TRANSLATED - Responsable de la validation du PIA : ",
+    "after_reading": "TO BE TRANSLATED - Après lecture intégrale du PIA concernant le traitement des données liées à l'activité de : ",
+    "confirmation1": "TO BE TRANSLATED - Je confirme que la description du contexte de mon traitement est conforme à la réalité.",
+    "confirmation2": "TO BE TRANSLATED - Je confirme avoir pris connaissance des risques existants en fonction des mesures actuellement mises en oeuvre ou prévues.",
+    "confirmation3": "TO BE TRANSLATED - Je valide les mesures correctives indiquées.",
+    "confirmation4": "TO BE TRANSLATED - Je m'engage à mettre en oeuvre dans les plus brefs délais les mesures correctives indiquées.",
+    "button": {
+      "rejection": "TO BE TRANSLATED - Refuser la validation",
+      "simple_validation": "TO BE TRANSLATED - Validation simple",
+      "signed_validation": "TO BE TRANSLATED - Faire signer le PIA par le responsable"
+    },
+    "mandatory_fields": "TO BE TRANSLATED - Tous les champs doivent être cochés",
+    "waiting_for_signature": "TO BE TRANSLATED - En attente de la signature du rapport PIA",
+    "validated_pia_with_signature": "TO BE TRANSLATED - Validé",
+    "add_signed_pia": "TO BE TRANSLATED - Ajouter le rapport PIA signé",
+    "remove_attachment": "TO BE TRANSLATED - Supprimer",
+    "tools": {
+      "dashboard": "TO BE TRANSLATED - Accueil",
+      "display_pia": "TO BE TRANSLATED - Afficher le PIA",
+      "action_plan": "TO BE TRANSLATED - Plan d'action"
+    }
+  },
+  "rejection_page": {
+    "title": "TO BE TRANSLATED - Historique de validation",
+    "rejection_reason": "TO BE TRANSLATED - Motif du refus",
+    "rejection_reason_placeholder": "TO BE TRANSLATED - Décrivez les motifs de refus de validation du PIA.",
+    "applied_adjustments": "TO BE TRANSLATED - Modifications apportées",
+    "applied_adjustments_placeholder": "TO BE TRANSLATED - Décrivez les modifications apportées au PIA.",
+    "previous_rejection": "TO BE TRANSLATED - Refus précédent",
+    "button": {
+      "abandon_treatment": "TO BE TRANSLATED - Abandonner le traitement",
+      "reject_pia": "TO BE TRANSLATED - Refuser le PIA",
+      "send_for_validation": "TO BE TRANSLATED - Renvoyer pour validation"
+    }
+  },
   "misc": {
     "display": "Mostra / Nascondi"
   },
@@ -882,6 +918,16 @@
   "summary": {
     "previous_page": "Torna alla pagina precedente",
     "print": "Stampa",
+    "display_pia": "TO BE TRANSLATED - Afficher le PIA",
+    "display_action_plan": "TO BE TRANSLATED - Afficher le<br>plan d'action",
+    "display_filters": {
+      "title": "TO BE TRANSLATED - Filtres d'affichage",
+      "main_content": "TO BE TRANSLATED - Afficher la section \"Informations du PIA\"",
+      "context_content": "TO BE TRANSLATED - Afficher la section \"Contexte\"",
+      "principles_content": "TO BE TRANSLATED - Afficher la section \"Principes fondamentaux\"",
+      "risks_content": "TO BE TRANSLATED - Afficher la section \"Risques\"",
+      "action_plan_content": "TO BE TRANSLATED - Afficher le plan d'action"
+    },
     "title": "Informazioni sul PIA",
     "pia_name": "PIA",
     "pia_author": "Nome autore",

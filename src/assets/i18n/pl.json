@@ -918,6 +918,16 @@
   "summary": {
     "previous_page": "Powrót do poprzedniej strony",
     "print": "Drukowanie",
+    "display_pia": "TO BE TRANSLATED - Afficher le PIA",
+    "display_action_plan": "TO BE TRANSLATED - Afficher le<br>plan d'action",
+    "display_filters": {
+      "title": "TO BE TRANSLATED - Filtres d'affichage",
+      "main_content": "TO BE TRANSLATED - Afficher la section \"Informations du PIA\"",
+      "context_content": "TO BE TRANSLATED - Afficher la section \"Contexte\"",
+      "principles_content": "TO BE TRANSLATED - Afficher la section \"Principes fondamentaux\"",
+      "risks_content": "TO BE TRANSLATED - Afficher la section \"Risques\"",
+      "action_plan_content": "TO BE TRANSLATED - Afficher le plan d'action"
+    },
     "title": "Informacje o PIA",
     "pia_name": "Nazwa PIA",
     "pia_author": "Nazwisko autora",
