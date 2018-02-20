@@ -170,6 +170,14 @@ export class PiaService {
       pia.status = 0;
       pia.created_at = new Date();
       pia.updated_at = new Date();
+      pia.dpos_names = null;
+      pia.dpo_status = null;
+      pia.dpo_opinion = null;
+      pia.concerned_people_searched_opinion = null;
+      pia.concerned_people_searched_content = null;
+      pia.people_names = null;
+      pia.concerned_people_status = null;
+      pia.concerned_people_opinion = null;
     } else {
       pia.status = data.pia.status;
       pia.created_at = new Date(data.pia.created_at);
