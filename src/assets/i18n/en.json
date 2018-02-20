@@ -866,10 +866,10 @@
       "content": "The PIA has been validated."
     },
     "completed_edition": {
-      "content": "TO BE TRANSLATED - "
+      "content": "The PIA has been fully edited, it has to be reviewed."
     },
     "completed_evaluation": {
-      "content": "TO BE TRANSLATED - "
+      "content": "The PIA has been fully reviewed, it has to be validated."
     },
     "update_server_url": {
       "content": "The server address has been updated."
