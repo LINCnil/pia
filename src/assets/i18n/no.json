@@ -1,58 +1,55 @@
 {
   "authentication": {
-    "title": "Privacy impact assessment",
-    "subtitle1": "A platform to create <br> and manage your PIAs",
-    "subtitle2": "Access tools and glossaries",
-    "start_app": "Access the PIA's software (Beta)",
-    "description": "This software by the <strong>French Data Protection Authority (CNIL)</strong> is meant to guide the data controllers in building and demonstrating compliance to the GDPR. It helps to properly carry out a data protection impact assessment by facilitating the use of the PIA method developed by the CNIL.",
+    "title": "Vurdering av personvernkonsekvenser",
+    "subtitle1": "Et program for å opprette <br> og administrere DPIA",
+    "subtitle2": "Tilgang til verktøy og ordlister",
+    "start_app": "Tilgang til PIA's programvare (Beta)",
+    "description": "Denne programvaren fra den <strong>franske databeskyttelsesmyndigheten (CNIL)</strong> er ment å hjelpe databehandlingsansvarlig å behandle personopplysninger i overenstemmelse med GDPR. Programvaren er ment som en hjelp i vurderingen av personvernkonsekvenser (DPIA) gjennom å fasilitere for bruk av PIA-metodikken utviklet av CNIL.",
     "start": "Start"
   },
   "header": {
-    "logo_title": "Privacy impact assessment",
-    "logo_subtitle": "",
-    "homepage_link": "Dashboard",
-    "knowledge_base_link": "Knowledge base",
-    "pia_example_link": "PIA example",
+    "logo_title": "DPIA",
+    "logo_subtitle": "Vurdering av personvernkonsekvenser",
+    "homepage_link": "Hovedside",
+    "knowledge_base_link": "Kunnskapsdatabase",
+    "pia_example_link": "Eksempel på vurdering av personvernkonsekvenser",
     "languages": {
-      "official_translation": "Original version",
-      "cnil_translations": "CNIL provided translations",
-      "community_translations": "Community provided translations",
-      "fr": "Français",
-      "en": "English",
-      "cz": "Česky",
-      "it": "Italiaans",
-      "nl": "Nederlands",
-      "pl": "Polski",
-      "de": "Deutsch",
-      "es": "Español"
+      "official_translations": "Offisielle oversettelser",
+      "unofficial_translations": "Uoffisielle oversettelser",
+      "fr": "Fransk",
+      "en": "Engelsk",
+      "cs": "Tjekkisk",
+      "it": "Italiensk",
+      "nl": "Nederlandsk",
+      "pl": "Polsk"
     },
     "tools": {
-      "title": "Tools",
-      "settings": "Settings",
+      "title": "Verktøy",
+      "settings": "Innstillinger",
       "accessibility": "Visually impaired accessibility (high contrast colors, daltonism)",
-      "help": "Help",
-      "about": "About"
+      "help": "Hjelp",
+      "about": "Om"
     }
   },
   "homepage": {
     "filters": {
-      "list": "list",
-      "card": "card",
-      "sort": "Sort",
-      "sort_by": "by",
-      "name": "Name",
-      "date": "Date",
+      "list": "liste",
+      "card": "kort",
+      "sort": "Sorter",
+      "sort_by": "etter",
+      "name": "Navn",
+      "date": "Dato",
       "status": "Status",
-      "author": "Author",
-      "assessor": "Reviewer",
-      "validator": "Validator",
-      "new_pia": "New PIA",
-      "import_pia": "Import PIA",
-      "list_rocket_content": "Get started ! To initiate <br>a PIA, click on the +",
-      "card_rocket_content": "Get started !<br><br>To initiate a PIA,<br> click on New PIA"
+      "author": "Forfatter",
+      "assessor": "Saksbehandler",
+      "validator": "Ansvarlig",
+      "new_pia": "Ny DPIA",
+      "import_pia": "Importer DPIA",
+      "list_rocket_content": "Kom i gang ! For å starte <br>en DPIA, klikk på +",
+      "card_rocket_content": "Kom i gang !<br><br>For å starte en DPIA,<br> klikk på Ny DPIA"
     },
     "cards": {
-      "new_pia": "New PIA",
+      "new_pia": "Ny PIA",
       "placeholder_new_pia": "New PIA",
       "or": "or",
       "import_pia": "Import PIA",
@@ -116,9 +113,7 @@
     },
     "header": {
       "preview": "Preview",
-      "display_action_plan": "Display<br>action plan",
-      "edition": "Edition",
-      "evaluation": "Evaluation"
+      "display_action_plan": "Display<br>action plan"
     },
     "attachments": {
       "title": "Attachments",
@@ -813,8 +808,8 @@
     "version_number": "Version number",
     "description": "This tool is originally designed by the <a target=\"_blank\" href=\"https://www.cnil.fr\">Commission Nationale Informatique et Liberté (CNIL)</a>, the French Data Protection Authority, to help data processor to be compliant with the GDPR.<br>This software is free and open. If you wish to get involved in this project, you are welcome to download the source code from Github, modify it and share it with the community.",
     "translators": "The PIA software is currently available in five languages. The French and English versions are provided by the CNIL. The others versions result from the contributions of the following individuals:",
-    "translators_name": "<ul><li>Dutch: Ruud van Driel, Manuel d’Orso ;</li><li>Czech: Jiří Grohmann, Manuel d’Orso ;</li><li>Italian: Manuel d’Orso, Gianluca Markos.</li><li>Polish: Joanna Karczewska</li><li>German: Kosmas Schütz</li><li>Spanish: ylachgar</li></ul>",
-    "contribute": "If you wish to contribute to the translation of the software in another language or improve the existing translations, we recommend you to <a href=\"https://github.com/LINCnil/pia/tree/master/src/assets/i18n\" target=\"_blank\">read the page describing the steps to follow</a>.",
+    "translators_name": "<ul><li>Dutch: Ruud van Driel, Manuel d’Orso ;</li><li>Czech: Jiří Grohmann, Manuel d’Orso ;</li><li>Italian: Manuel d’Orso, Gianluca Markos ;</li><li>Polish: Joanna Karczewska.</li></ul>",
+    "contribute": "If you wish to contribute to the translation of the software in another language or improve the existing translations, we recommend you to read <a href=\"https://github.com/LINCnil/pia/tree/master/src/assets/i18n\" target=\"_blank\">this page</a> describing the steps to follow.",
     "licences": "Library licences:"
   },
   "settings": {
@@ -869,12 +864,6 @@
     "back_to_home": "Back to home",
     "simple_pia_validation": {
       "content": "The PIA has been validated."
-    },
-    "completed_edition": {
-      "content": "The PIA has been fully edited, it has to be reviewed."
-    },
-    "completed_evaluation": {
-      "content": "The PIA has been fully reviewed, it has to be validated."
     },
     "update_server_url": {
       "content": "The server address has been updated."

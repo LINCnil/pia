@@ -14,8 +14,9 @@
     "knowledge_base_link": "Znalostní báze",
     "pia_example_link": "PIA příklad",
     "languages": {
-      "official_translations": "Oficiální překlady",
-      "unofficial_translations": "Neoficiální překlady",
+      "official_translation": "TO BE TRANSLATED - Original version",
+      "cnil_translations": "TO BE TRANSLATED - CNIL provided translations",
+      "community_translations": "TO BE TRANSLATED - Community provided translations",
       "fr": "Français",
       "en": "English",
       "cz": "Česky",

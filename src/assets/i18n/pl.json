@@ -14,16 +14,17 @@
     "knowledge_base_link": "Baza wiedzy",
     "pia_example_link": "Przykład PIA",
     "languages": {
-      "official_translations": "Do przetłumaczenia",
-      "unofficial_translations": "Do przetłumaczenia",
-      "fr": "Francuski",
-      "en": "Angielski",
-      "cz": "Czeski",
-      "it": "Włoski",
-      "nl": "Holenderski",
+      "official_translation": "TO BE TRANSLATED - Original version",
+      "cnil_translations": "TO BE TRANSLATED - CNIL provided translations",
+      "community_translations": "TO BE TRANSLATED - Community provided translations",
+      "fr": "Français",
+      "en": "English",
+      "cs": "Česky",
+      "it": "Italiaans",
+      "nl": "Nederlands",
       "pl": "Polski",
-      "de": "Niemiecki",
-      "es": "Hiszpański"
+      "de": "Deutsch",
+      "es": "Español"
     },
     "tools": {
       "title": "Narzędzia",
