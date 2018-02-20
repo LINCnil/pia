@@ -89,9 +89,17 @@ export class EntryContentComponent implements OnInit, OnChanges {
         this._paginationService.nextLink[0], 'item',
         this._paginationService.nextLink[1]
       ]);
+
+      /*
+      is_pia_fully_edited = piaFullyEdited();
+      if (is_pia_fully_edited) {
+        this._modalsService.openModal('completed-edition');
+      } else {
+        this._modalsService.openModal('ask-for-evaluation');
+      }
+      */
       this._modalsService.openModal('ask-for-evaluation');
     });
-    // this._evaluationService.prepareForEvaluation(this._piaService, this._sidStatusService, this.section, this.item);
   }
 
   /**
@@ -113,6 +121,18 @@ export class EntryContentComponent implements OnInit, OnChanges {
       } else {
         this._modalsService.openModal('validate-evaluation');
       }
+
+      // Voir quoi faire de 'toFix' et sa modale
+
+      /*
+      is_pia_fully_evaluated = piaFullyEvaluted();
+      if (is_pia_fully_evaluated) {
+        this._modalsService.openModal('completed-evaluation');
+      } else {
+        this._modalsService.openModal('ask-for-evaluation');
+      }
+      */
+
     });
   }
 
