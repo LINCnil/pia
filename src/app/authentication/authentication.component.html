@@ -8,20 +8,21 @@
               <i class="fa fa-globe" aria-hidden="true"></i>
             </a>
             <ul>
-              <li class="officialTranslations">{{ 'header.languages.official_translations' | translate }}</li>
+              <li class="officialTranslation">{{ 'header.languages.official_translation' | translate }}</li>
               <li [ngClass]="{'is_active': selectedLanguage === 'fr'}"
                   (click)="updateCurrentLanguage('fr')">
                 <a (click)="_translateService.use('fr')">
                   {{ 'header.languages.fr' | translate }}
                 </a>
               </li>
+              <li class="cnilTranslations">{{ 'header.languages.cnil_translations' | translate }}</li>
               <li class="englishTranslation" [ngClass]="{'is_active': selectedLanguage === 'en'}"
                   (click)="updateCurrentLanguage('en')">
                 <a (click)="_translateService.use('en')">
                   {{ 'header.languages.en' | translate }}
                 </a>
               </li>
-              <li class="unofficialTranslations">{{ 'header.languages.unofficial_translations' | translate }}</li>
+              <li class="communityTranslations">{{ 'header.languages.community_translations' | translate }}</li>
               <li [ngClass]="{'is_active': selectedLanguage === 'it'}"
                   (click)="updateCurrentLanguage('it')">
                 <a (click)="_translateService.use('it')">
