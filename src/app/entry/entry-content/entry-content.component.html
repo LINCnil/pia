@@ -44,7 +44,7 @@
       <a href="javascript:;" (click)="cancelAskForEvaluation()" [innerHTML]="'pia.sections.status.evaluation.cancel' | translate"></a>
     </p>
   </div>
-  <div class="pia-status-info" *ngIf="_globalEvaluationService.status === 7">
+  <div class="pia-status-info" *ngIf="_globalEvaluationService.status === 7 && !(section.id == 4 && item.id == 3)">
     <strong>{{ 'pia.sections.status.validation.title' | translate }}</strong>
     <p>
       <span [innerHTML]="'pia.sections.status.validation.content' | translate"></span>
@@ -89,7 +89,7 @@
               [disabled]="_globalEvaluationService.status === 5" type="submit">{{ 'pia.footer.validate_evaluation' | translate }}</button>
       <button class="btn btn-pending-validation"
               disabled
-              *ngIf="_globalEvaluationService.status === 7">
+              *ngIf="_globalEvaluationService.status === 7 && !(section.id == 4 && item.id == 3)">
         <i class="fa fa-check-square-o" aria-hidden="true"></i>
         {{ 'pia.footer.subsection_validated' | translate }}
       </button>
@@ -99,7 +99,7 @@
       <button class="btn pia-cancelBtn" (click)="cancelAskForEvaluation()"
               *ngIf="_globalEvaluationService.status === 4">{{ 'pia.sections.status.evaluation.cancel_button' | translate }}</button>
       <button class="btn pia-cancelBtn" (click)="cancelValidateEvaluation()"
-              *ngIf="_globalEvaluationService.status === 7">{{ 'pia.sections.status.validation.cancel_button' | translate }}</button>
+              *ngIf="_globalEvaluationService.status === 7 && !(section.id == 4 && item.id == 3)">{{ 'pia.sections.status.validation.cancel_button' | translate }}</button>
     </div>
 
     <div class="pia-entryContentBlock-footer-nav">
