@@ -126,14 +126,16 @@
       "refuse_pia": "Refused PIA",
       "status": {
         "evaluation": {
-          "title": "TO BE TRANSLATED : En attente d'évaluation",
-          "content": "TO BE TRANSLATED : L'évaluation de cette partie n'a pas encore commencé. Si vous souhaitez modifier les contenus en mode édition, il faut",
-          "cancel": "TO BE TRANSLATED : annuler la demande d'évaluation."
+          "title": "Waiting for review.",
+          "content": "This part has not yet been reviewed. If you wish to edit the content submitted for review you have to ",
+          "cancel": "cancel the review request.",
+          "cancel_button": "Cancel the review request"
         },
         "validation": {
-          "title": "TO BE TRANSLATED : En attente de validation",
-          "content": "TO BE TRANSLATED : L'évaluation de cette partie est terminée et en attente de validation finale de l'analyse. Si vous souhaitez modifier les évaluations, il faut",
-          "cancel": "TO BE TRANSLATED : annuler la demande de validation."
+          "title": "Waiting for validation.",
+          "content": "This part has been reviewed and is waiting for the overall PIA validation. If you wish to change the review, you have to ",
+          "cancel": "cancel the validation request.",
+          "cancel_button": "Cancel the validation request"
         }
       }
     },

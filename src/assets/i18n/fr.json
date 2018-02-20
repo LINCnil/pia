@@ -128,12 +128,14 @@
         "evaluation": {
           "title": "En attente d'évaluation",
           "content": "L'évaluation de cette partie n'a pas encore commencé. Si vous souhaitez modifier les contenus en mode édition, il faut",
-          "cancel": "annuler la demande d'évaluation."
+          "cancel": "annuler la demande d'évaluation.",
+          "cancel_button": "Annuler la demande d'évaluation"
         },
         "validation": {
           "title": "En attente de validation",
           "content": "L'évaluation de cette partie est terminée et en attente de validation finale de l'analyse. Si vous souhaitez modifier les évaluations, il faut",
-          "cancel": "annuler la demande de validation."
+          "cancel": "annuler la demande de validation.",
+          "cancel_button": "Annuler la demande de validation"
         }
       }
     },
