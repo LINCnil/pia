@@ -115,7 +115,9 @@
     },
     "header": {
       "preview": "Voorbeeld",
-      "display_action_plan": "Toon<br>actie plan"
+      "display_action_plan": "Toon<br>actie plan",
+      "edition": "TO BE TRANSLATED - Edition",
+      "evaluation": "TO BE TRANSLATED - Evaluation"
     },
     "attachments": {
       "title": "Bijlagen",

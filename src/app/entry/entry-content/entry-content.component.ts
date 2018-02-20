@@ -27,7 +27,6 @@ export class EntryContentComponent implements OnInit, OnChanges {
   @Input() item: any;
   @Input() questions: any;
   @Input() data: any;
-  sectionsLength: {};
 
   constructor(private _router: Router,
               private _appDataService: AppDataService,
@@ -39,13 +38,7 @@ export class EntryContentComponent implements OnInit, OnChanges {
               public _globalEvaluationService: GlobalEvaluationService,
               private _evaluationService: EvaluationService,
               public _paginationService: PaginationService,
-              private _translateService: TranslateService) {
-                this.sectionsLength = {
-                  1: 2,
-                  2: 2,
-                  3: 4
-                }
-  }
+              private _translateService: TranslateService) { }
 
   ngOnInit() {
     this._piaService.getPIA().then(() => {
@@ -65,7 +58,6 @@ export class EntryContentComponent implements OnInit, OnChanges {
     const itemId = parseInt(this._activatedRoute.snapshot.params['item_id'], 10);
 
     this._paginationService.setPagination(sectionId, itemId);
-    this.setSectionProgress(sectionId, itemId);
 
     // Redirect users accessing validation page if requirements not met
     /* TODO make it works for refusal PIA status + */
@@ -82,47 +74,6 @@ export class EntryContentComponent implements OnInit, OnChanges {
     //     this._router.navigate(['entry', this._piaService.pia.id, 'section', 1, 'item', 1])
     //   }
     // }
-
-  }
-
-  /**
-   * Sets the adequate progress according to the section and the statuses of items in it.
-   * @param sectionId : the ID of the current section.
-   * @param itemId : the ID of the current subsection (item).
-   */
-  setSectionProgress(sectionId: number, itemId: number) {
-    console.log("Section ID : " + sectionId)
-    console.log("Current section length : " + this.sectionsLength[sectionId]);
-
-    let i = 1;
-    let subsectionsInEdition = 0;
-    let subsectionsInEvaluation = 0;
-    while (i <= this.sectionsLength[sectionId]) {
-      if (this._sidStatusService.itemStatus.hasOwnProperty([sectionId + '.' + i])) {
-        // Count the number of subsections in edition
-        if (this._sidStatusService.itemStatus[sectionId + '.' + i] < 4) {
-          subsectionsInEdition += 1;
-        }
-
-        // Count the number of subsections in evaluation
-        if (this._sidStatusService.itemStatus[sectionId + '.' + i] < 4) {
-          subsectionsInEdition += 1;
-        }
-      }
-      i++;
-    }
-
-    console.log(subsectionsInEdition);
-
-
-
-
-
-      /*for (const el in this._sidStatusService.itemStatus) {
-        if (this._sidStatusService.itemStatus.hasOwnProperty(el)) {
-
-        }
-      }*/
   }
 
   /**

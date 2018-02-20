@@ -115,7 +115,9 @@
     },
     "header": {
       "preview": "Preview",
-      "display_action_plan": "Display<br>action plan"
+      "display_action_plan": "Display<br>action plan",
+      "edition": "Edition",
+      "evaluation": "Evaluation"
     },
     "attachments": {
       "title": "Attachments",
