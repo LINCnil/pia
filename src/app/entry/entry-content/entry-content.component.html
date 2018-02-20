@@ -89,9 +89,9 @@
       <p>{{ 'pia.footer.mandatory_fields' | translate }}</p>
 
       <button class="btn pia-cancelBtn" (click)="cancelAskForEvaluation()"
-              *ngIf="_globalEvaluationService.status === 4">Annuler la demande d'évaluation</button>
+              *ngIf="_globalEvaluationService.status === 4">{{ 'pia.sections.status.evaluation.cancel_button' | translate }}</button>
       <button class="btn pia-cancelBtn" (click)="cancelValidateEvaluation()"
-              *ngIf="_globalEvaluationService.status === 7">Annuler la demande de validation</button>
+              *ngIf="_globalEvaluationService.status === 7">{{ 'pia.sections.status.validation.cancel_button' | translate }}</button>
     </div>
 
     <div class="pia-entryContentBlock-footer-nav">
