@@ -155,6 +155,28 @@
   </div>
 </div>
 
+<div class="pia-modalBlock" id="completed-edition">
+  <div class="pia-modalBlock-content bounceIn">
+    <button tabindex="2" type="button" class="pia-modalBlock-close btn" title="{{ 'modals.close' | translate }}" (click)="_modalsService.closeModal()"><span class="pia-icons pia-icon-close-big"></span></button>
+    <p>{{ 'modals.completed_edition.content' | translate }}</p>
+    <span class="pia-icons pia-icon-happy"></span>
+    <div class="pia-modalBlock-validate">
+      <button tabindex="1" class="btn btn-green get-focus" type="button" (click)="_modalsService.closeModal()">{{ 'modals.continue' | translate }}</button>
+    </div>
+  </div>
+</div>
+
+<div class="pia-modalBlock" id="completed-evaluation">
+  <div class="pia-modalBlock-content bounceIn">
+    <button tabindex="2" type="button" class="pia-modalBlock-close btn" title="{{ 'modals.close' | translate }}" (click)="_modalsService.closeModal()"><span class="pia-icons pia-icon-close-big"></span></button>
+    <p>{{ 'modals.completed_evaluation.content' | translate }}</p>
+    <span class="pia-icons pia-icon-happy"></span>
+    <div class="pia-modalBlock-validate">
+      <button tabindex="1" class="btn btn-green get-focus" type="button" (click)="_modalsService.closeModal()">{{ 'modals.continue' | translate }}</button>
+    </div>
+  </div>
+</div>
+
 <!--
   <div class="pia-modalBlock">
     <div class="pia-modalBlock-content bounceIn">
