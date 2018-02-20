@@ -113,7 +113,9 @@
 		},
 		"header": {
 			"preview": "Anteprima",
-			"display_action_plan": "Mostra<br>il piano d'azione"
+			"display_action_plan": "Mostra<br>il piano d'azione",
+      "edition": "TO BE TRANSLATED - Edition",
+      "evaluation": "TO BE TRANSLATED - Evaluation"
 		},
 		"attachments": {
 			"title": "Allegati",

@@ -13,7 +13,7 @@
       background-color: #fff;
       position: relative;
       box-shadow: 1px 1px 15px 1px rgba(210,210,210,1);
-      div:first-child {
+      > div:first-child {
         width: 74px;
         background-color: $pia-green;
         position: relative;
@@ -81,6 +81,22 @@
           font-size: 1.8rem;
           vertical-align: -1px;
         }
+      }
+      &-progress {
+          background-color: transparent;
+          display: block;
+          top: 60%;
+          left: 0;
+          right: 0;
+          position: absolute;
+          font-size: 1rem;
+          color: #fff;
+          text-align: center;
+          div {
+            display: block;
+            background-color: transparent;
+            min-height: inherit;
+          }
       }
     }
     &-section {

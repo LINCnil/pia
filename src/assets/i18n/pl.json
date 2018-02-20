@@ -113,7 +113,9 @@
     },
     "header": {
       "preview": "Przegląd",
-      "display_action_plan": "Wyświetlenie<br>planu działania"
+      "display_action_plan": "Wyświetlenie<br>planu działania",
+      "edition": "TO BE TRANSLATED - Edition",
+      "evaluation": "TO BE TRANSLATED - Evaluation"
     },
     "attachments": {
       "title": "Załączniki",

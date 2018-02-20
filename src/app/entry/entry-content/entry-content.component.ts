@@ -38,8 +38,7 @@ export class EntryContentComponent implements OnInit, OnChanges {
               public _globalEvaluationService: GlobalEvaluationService,
               private _evaluationService: EvaluationService,
               public _paginationService: PaginationService,
-              private _translateService: TranslateService) {
-  }
+              private _translateService: TranslateService) { }
 
   ngOnInit() {
     this._piaService.getPIA().then(() => {
@@ -75,7 +74,6 @@ export class EntryContentComponent implements OnInit, OnChanges {
     //     this._router.navigate(['entry', this._piaService.pia.id, 'section', 1, 'item', 1])
     //   }
     // }
-
   }
 
   /**

@@ -113,7 +113,9 @@
     },
     "header": {
       "preview": "Náhled",
-      "display_action_plan": "Zobrazit<br> akční plán"
+      "display_action_plan": "Zobrazit<br> akční plán",
+      "edition": "TO BE TRANSLATED - Edition",
+      "evaluation": "TO BE TRANSLATED - Evaluation"
     },
     "attachments": {
       "title": "Přílohy",
