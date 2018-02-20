@@ -130,12 +130,12 @@
         "evaluation": {
           "title": "En attente d'évaluation",
           "content": "L'évaluation de cette partie n'a pas encore commencé. Si vous souhaitez modifier les contenus en mode édition, il faut",
-          "cancel": "Annuler la demande d'évaluation."
+          "cancel": "annuler la demande d'évaluation."
         },
         "validation": {
           "title": "En attente de validation",
           "content": "L'évaluation de cette partie est terminée et en attente de validation finale de l'analyse. Si vous souhaitez modifier les évaluations, il faut",
-          "cancel": "Annuler la demande de validation."
+          "cancel": "annuler la demande de validation."
         }
       }
     },
@@ -858,10 +858,10 @@
       "content": "Le PIA vient d'être validé."
     },
     "completed_edition": {
-      "content": "L'édition du PIA est complétée en intégralité,<br>vous pouvez commencer (ou finir) d'évaluer les différentes sections."
+      "content": "L'intégralité de l'analyse a été complétée, le PIA doit désormais être évalué."
     },
     "completed_evaluation": {
-      "content": "L'évaluation du PIA est complétée en intégralité,<br>vous pouvez désormais passer à la validation de votre PIA."
+      "content": "L'intégralité de l'analyse a été évaluée, le PIA doit désormais être validé."
     },
     "update_server_url": {
       "content": "L'adresse du serveur à été mise à jour."
