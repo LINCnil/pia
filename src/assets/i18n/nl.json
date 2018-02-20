@@ -866,6 +866,12 @@
     "simple_pia_validation": {
       "content": "De PIA is gevalideerd."
     },
+    "completed_edition": {
+      "content": "TO BE TRANSLATED - The PIA has been fully edited, it has to be reviewed."
+    },
+    "completed_evaluation": {
+      "content": "TO BE TRANSLATED - The PIA has been fully reviewed, it has to be validated."
+    },
     "update_server_url": {
       "content": "Het serveradres is bijgewerkt."
     },

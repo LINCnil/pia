@@ -89,9 +89,19 @@ export class EntryContentComponent implements OnInit, OnChanges {
         this._paginationService.nextLink[0], 'item',
         this._paginationService.nextLink[1]
       ]);
-      this._modalsService.openModal('ask-for-evaluation');
+
+      let isPiaFullyEdited = true;
+      for (const el in this._sidStatusService.itemStatus) {
+        if (this._sidStatusService.itemStatus.hasOwnProperty(el) && this._sidStatusService.itemStatus[el] < 4 && el !== '4.3') {
+          isPiaFullyEdited = false;
+        }
+      }
+      if (isPiaFullyEdited) {
+        this._modalsService.openModal('completed-edition');
+      } else {
+        this._modalsService.openModal('ask-for-evaluation');
+      }
     });
-    // this._evaluationService.prepareForEvaluation(this._piaService, this._sidStatusService, this.section, this.item);
   }
 
   /**
@@ -108,11 +118,21 @@ export class EntryContentComponent implements OnInit, OnChanges {
         'item',
         this._paginationService.nextLink[1]
       ]);
-      if (toFix) {
+
+      let isPiaFullyEvaluated = true;
+      for (const el in this._sidStatusService.itemStatus) {
+        if (this._sidStatusService.itemStatus.hasOwnProperty(el) && this._sidStatusService.itemStatus[el] !== 7 && el !== '4.3') {
+          isPiaFullyEvaluated = false;
+        }
+      }
+      if (isPiaFullyEvaluated) {
+        this._modalsService.openModal('completed-evaluation');
+      } else if (toFix) {
         this._modalsService.openModal('validate-evaluation-to-correct');
       } else {
         this._modalsService.openModal('validate-evaluation');
       }
+
     });
   }
 

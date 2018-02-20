@@ -866,6 +866,12 @@
     "simple_pia_validation": {
       "content": "Il PIA è stato convalidato"
     },
+    "completed_edition": {
+      "content": "TO BE TRANSLATED - The PIA has been fully edited, it has to be reviewed."
+    },
+    "completed_evaluation": {
+      "content": "TO BE TRANSLATED - The PIA has been fully reviewed, it has to be validated."
+    },
     "update_server_url": {
       "content": "L'indirizzo del server è stato aggiornato."
     },
