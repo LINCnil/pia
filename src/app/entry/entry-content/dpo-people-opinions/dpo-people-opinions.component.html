@@ -5,7 +5,7 @@
       <div>
         <h2>{{ 'opinions.dpo_opinion' | translate }}</h2>
       </div>
-      <ng-container *ngIf="!disableDpoValidation; else disableDpoBLock">
+      <ng-container *ngIf="_sidStatusService.enableDpoValidation; else disableDpoBLock">
         <form (click)="checkDpoName()" [formGroup]="DPOForm">
           <p>
             <span>
@@ -68,7 +68,7 @@
       <div>
         <h2>{{ 'opinions.people_opinion' | translate }}</h2>
       </div>
-      <ng-container *ngIf="!disableDpoValidation; else disableConcernedPeopleBLock">
+      <ng-container *ngIf="_sidStatusService.enableDpoValidation; else disableConcernedPeopleBLock">
 
         <!-- Opinions searched or not searched -->
         <form style="margin-top:16px;" [formGroup]="searchedOpinionsForm">
