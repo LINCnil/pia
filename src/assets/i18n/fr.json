@@ -860,10 +860,10 @@
       "content": "Le PIA vient d'être validé."
     },
     "completed_edition": {
-      "content": "L'édition du PIA est complétée en intégralité,<br>vous pouvez commencer (ou finir) d'évaluer les différentes sections."
+      "content": "L'intégralité de l'analyse a été complétée, le PIA doit désormais être évalué."
     },
     "completed_evaluation": {
-      "content": "L'évaluation du PIA est complétée en intégralité,<br>vous pouvez désormais passer à la validation de votre PIA."
+      "content": "L'intégralité de l'analyse a été évaluée, le PIA doit désormais être validé."
     },
     "update_server_url": {
       "content": "L'adresse du serveur à été mise à jour."

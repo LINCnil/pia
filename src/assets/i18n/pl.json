@@ -868,6 +868,12 @@
     "simple_pia_validation": {
       "content": "PIA została zatwierdzona."
     },
+    "completed_edition": {
+      "content": "L'intégralité de l'analyse a été complétée, le PIA doit désormais être évalué."
+    },
+    "completed_evaluation": {
+      "content": "L'intégralité de l'analyse a été évaluée, le PIA doit désormais être validé."
+    },
     "update_server_url": {
       "content": "Adres serwera został zaktualizowany."
     },
