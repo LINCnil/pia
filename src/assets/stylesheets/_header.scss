@@ -49,10 +49,9 @@
           padding: 0;
           margin: 0;
           position: absolute;
-          padding-bottom: 8px;
           top: 28px;
           left: -1px;
-          min-width: 165px;
+          min-width: 200px;
           color: $pia-blue;
           box-shadow: 2px 2px 4px 1px rgba(181, 181, 181, 1);
           li {
@@ -74,17 +73,16 @@
               }
             }
           }
-          .englishTranslation {
-            padding-bottom: 5px;
-          }
-          .officialTranslations,
-          .unofficialTranslations {
+          .officialTranslation,
+          .cnilTranslations,
+          .communityTranslations {
             font-weight: 600;
             color: #393939;
             list-style-type: none;
             padding: 5px 8px;
           }
-          .unofficialTranslations {
+          .cnilTranslations,
+          .communityTranslations {
             border-top: 1px solid #A7A7A7;
             padding-bottom: 3px;
           }
