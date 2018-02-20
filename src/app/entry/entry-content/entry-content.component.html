@@ -82,11 +82,11 @@
       <button class="btn btn-green" (click)="prepareForEvaluation()"
               *ngIf="_globalEvaluationService.status === 1 || _globalEvaluationService.status === 2 || _globalEvaluationService.status === 3"
               [ngClass]="{'btn-active': _globalEvaluationService.status === 2 || _globalEvaluationService.status === 3}"
-              [disabled]="_globalEvaluationService.status === 1" type="submit">{{ 'pia.footer.ask_evaluation' | translate }}</button>
+              [disabled]="_globalEvaluationService.status === 1">{{ 'pia.footer.ask_evaluation' | translate }}</button>
       <button class="btn btn-green" (click)="validateEvaluation()"
               *ngIf="_globalEvaluationService.status === 5 || _globalEvaluationService.status === 6"
               [ngClass]="{'btn-active': _globalEvaluationService.status === 6}"
-              [disabled]="_globalEvaluationService.status === 5" type="submit">{{ 'pia.footer.validate_evaluation' | translate }}</button>
+              [disabled]="_globalEvaluationService.status === 5">{{ 'pia.footer.validate_evaluation' | translate }}</button>
       <button class="btn btn-pending-validation"
               disabled
               *ngIf="_globalEvaluationService.status === 7 && !(section.id == 4 && item.id == 3)">
