@@ -169,7 +169,7 @@ export class PiaService {
     if (is_duplicate) {
       pia.status = 0;
       pia.created_at = new Date();
-      pia.updated_at = null;
+      pia.updated_at = new Date();
       pia.dpos_names = null;
       pia.dpo_status = null;
       pia.dpo_opinion = null;

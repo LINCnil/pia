@@ -14,8 +14,9 @@
 		"knowledge_base_link": "Archivio",
 		"pia_example_link": "Esempio PIA",
 		"languages": {
-      "official_translations": "Officiële vertalingen",
-      "unofficial_translations": "Niet-officiële vertalingen",
+      "official_translation": "TO BE TRANSLATED - Original version",
+      "cnil_translations": "TO BE TRANSLATED - CNIL provided translations",
+      "community_translations": "TO BE TRANSLATED - Community provided translations",
 			"fr": "Français",
       "en": "English",
       "cs": "Česky",
