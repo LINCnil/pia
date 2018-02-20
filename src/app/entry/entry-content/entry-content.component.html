@@ -10,13 +10,12 @@
         *ngIf="_sidStatusService.specialIcon[section.id + '.' + item.id]"
         [ngClass]="_sidStatusService.specialIcon[section.id + '.' + item.id]"
         aria-hidden="true"></i>
-        <!--<div *ngIf="!= 4.1 || 4.2 || 4.3 || 3.5" class="pia-entryContentBlock-header-progress">-->
         <div class="pia-entryContentBlock-header-progress">
-          <div>
-            Édition
+          <div *ngIf="_sidStatusService.itemStatus[section.id + '.' + item.id] < 4">
+            {{ 'pia.header.edition' | translate }}
           </div>
-          <div>
-            1 / {{sectionsLength[section.id]}}
+          <div *ngIf="_sidStatusService.itemStatus[section.id + '.' + item.id] === 7">
+            {{ 'pia.header.evaluation' | translate }}
           </div>
         </div>
     </div>
