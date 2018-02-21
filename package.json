@@ -23,6 +23,7 @@
     "@angular/router": "^4.4.3",
     "@ngx-translate/core": "^8.0.0",
     "@ngx-translate/http-loader": "^1.0.2",
+    "angular2-markdown": "^2.2.3",
     "core-js": "^2.4.1",
     "d3": "^4.10.2",
     "font-awesome": "^4.7.0",
