@@ -199,3 +199,49 @@ tag-input-form {
 @-moz-keyframes cssload-spin {
 	100%{ -moz-transform: rotate(360deg); transform: rotate(360deg); }
 }
+.pia-markdown {
+  line-height: 1.7rem;
+  td, th {
+    font-weight: 400;
+    text-align: left;
+    &:last-of-type {
+      text-align: justify;
+      padding: 0 15px;
+      vertical-align: top;
+    }
+  }
+  table {
+    margin: 15px;
+  }
+  h2 {
+    background-color: $pia-blue;
+    font-size: 2.2rem!important;
+    line-height: 2.2rem;
+    padding: 12px;
+    max-width: 620px;
+    margin: 0 12px;
+    color: $white;
+    display: block;
+    font-weight: 400;
+  }
+  h3 {
+    padding: 12px;
+    font-size: 2rem;
+    line-height: 2rem;
+    font-weight: 400;
+    margin: 0 12px;
+  }
+  tr th:first-child {
+    box-shadow: 1px 1px 15px 1px #d2d2d2;
+    padding: 15px;
+    background-color: white;
+  }
+  img {
+    max-width: 650px!important;
+
+
+  }
+  .pia-markdown {
+    //position: fixed!important;
+  }
+}
