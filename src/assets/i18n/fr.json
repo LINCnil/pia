@@ -831,6 +831,8 @@
     "validated_pia_with_signature": "Validé",
     "add_signed_pia": "Ajouter le rapport PIA signé",
     "remove_attachment": "Supprimer",
+    "latest_signed_attachment": "Dernière pièce jointe signée",
+    "signed_attachments_history": "Historique des pièces jointes signées",
     "tools": {
       "dashboard": "Accueil",
       "display_pia": "Afficher le PIA",

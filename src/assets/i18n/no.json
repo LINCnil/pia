@@ -834,6 +834,8 @@
     "validated_pia_with_signature": "Validated",
     "add_signed_pia": "Add the signed PIA",
     "remove_attachment": "Remove the attachment",
+    "latest_signed_attachment": "TO BE TRANSLATED - Last signed attachment",
+    "signed_attachments_history": "TO BE TRANSLATED - Signed attachments history",
     "tools": {
       "dashboard": "Dashboard",
       "display_pia": "Display PIA",
