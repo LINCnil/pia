@@ -115,7 +115,7 @@ export class DPOPeopleOpinionsComponent implements OnInit {
    * Focuses dpo name.
    */
   dpoNameFocusIn() {
-    if (this._piaService.pia.status >= 2) {
+    if (this._piaService.pia.status >= 2 || this._piaService.pia.is_example === 1) {
       return false;
     } else {
       this.DPOForm.controls['DPONames'].enable();
@@ -150,7 +150,7 @@ export class DPOPeopleOpinionsComponent implements OnInit {
    * Enables dpo status radio buttons.
    */
   enableDpoStatusRadioButtons() {
-    if (this._piaService.pia.status >= 2) {
+    if (this._piaService.pia.status >= 2 || this._piaService.pia.is_example === 1) {
       return false;
     } else {
       this.DPOForm.controls['DPOStatus'].enable();
@@ -171,7 +171,7 @@ export class DPOPeopleOpinionsComponent implements OnInit {
    * Focuses dpo opinion.
    */
   dpoOpinionFocusIn() {
-    if (this._piaService.pia.status >= 2) {
+    if (this._piaService.pia.status >= 2 || this._piaService.pia.is_example === 1) {
       return false;
     } else {
       this.DPOForm.controls['DPOOpinion'].enable();
@@ -203,7 +203,7 @@ export class DPOPeopleOpinionsComponent implements OnInit {
    * Enables concerned people searched or unsearched radio buttons.
    */
   enableConcernedPeopleSearchedOpinionRadioButtons() {
-    if (this._piaService.pia.status >= 2) {
+    if (this._piaService.pia.status >= 2 || this._piaService.pia.is_example === 1) {
       return false;
     } else {
       this.searchedOpinionsForm.controls['searchStatus'].enable();
@@ -234,7 +234,7 @@ export class DPOPeopleOpinionsComponent implements OnInit {
    * Focuses concerned people search content.
    */
   peopleSearchContentFocusIn() {
-    if (this._piaService.pia.status >= 2) {
+    if (this._piaService.pia.status >= 2 || this._piaService.pia.is_example === 1) {
       return false;
     } else {
       this.searchedOpinionsForm.controls['searchContent'].enable();
@@ -265,7 +265,7 @@ export class DPOPeopleOpinionsComponent implements OnInit {
    * Focuses concerned people name.
    */
   concernedPeopleNameFocusIn() {
-    if (this._piaService.pia.status >= 2) {
+    if (this._piaService.pia.status >= 2 || this._piaService.pia.is_example === 1) {
       return false;
     } else {
       this.peopleForm.controls['peopleNames'].enable();
@@ -300,7 +300,7 @@ export class DPOPeopleOpinionsComponent implements OnInit {
    * Enables concerned people status radio buttons.
    */
   enableConcernedPeopleStatusRadioButtons() {
-    if (this._piaService.pia.status >= 2) {
+    if (this._piaService.pia.status >= 2 || this._piaService.pia.is_example === 1) {
       return false;
     } else {
       this.peopleForm.controls['peopleStatus'].enable();
@@ -323,7 +323,7 @@ export class DPOPeopleOpinionsComponent implements OnInit {
    * Focuses concerned people opinion field.
    */
   concernedPeopleOpinionFocusIn() {
-    if (this._piaService.pia.status >= 2) {
+    if (this._piaService.pia.status >= 2 || this._piaService.pia.is_example === 1) {
       return false;
     } else {
       this.peopleForm.controls['peopleOpinion'].enable();

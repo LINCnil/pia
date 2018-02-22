@@ -149,7 +149,7 @@ export class PiaService {
     });
   }
 
-  importData(data: any, prefix: string, is_duplicate: boolean) {
+  async importData(data: any, prefix: string, is_duplicate: boolean, is_example?: boolean) {
     const pia = new Pia();
     pia.name = '(' + prefix + ') ' + data.pia.name;
     pia.author_name = data.pia.author_name;
@@ -166,6 +166,12 @@ export class PiaService {
     pia.created_at = data.pia.created_at;
     pia.dpos_names = data.pia.dpos_names;
     pia.people_names = data.pia.people_names;
+
+    /* Set this PIA as the example PIA */
+    if (is_example) {
+      pia.is_example = 1;
+    }
+
     if (is_duplicate) {
       pia.status = 0;
       pia.created_at = new Date();
@@ -185,6 +191,7 @@ export class PiaService {
         pia.updated_at = new Date(data.pia.updated_at);
       }
     }
+
     pia.create().then((pia_id: number) => {
       pia.id = pia_id;
       // Create answers

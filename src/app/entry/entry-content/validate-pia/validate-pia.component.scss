@@ -218,3 +218,10 @@
     }
   }
 }
+
+.disabled-validation {
+  pointer-events: none;
+  &[disabled] {
+    pointer-events: none;
+  }
+}

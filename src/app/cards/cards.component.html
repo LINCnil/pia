@@ -45,7 +45,7 @@
           <button type="button" class="btn btn-green" (click)="_modalsService.openModal('modal-list-new-pia')"><i class="fa fa-folder-open" aria-hidden="true"></i>{{ 'homepage.filters.new_pia' | translate }}</button>
           <button type="button" (click)="importPia()" class="btn btn-green"><i class="fa fa-upload" aria-hidden="true"></i>{{ 'homepage.filters.import_pia' | translate }}</button>
         </div>
-        <div class="pia-filtersBlock-hint" *ngIf="viewStyle.view === 'list' && _piaService.pias && _piaService.pias.length == 0">
+        <div class="pia-filtersBlock-hint" *ngIf="viewStyle.view === 'list' && _piaService.pias && _piaService.pias.length === 0">
           <div>
             <span class="pia-icons pia-icon-rocket-small"></span>
             <p [innerHTML]="'homepage.filters.list_rocket_content' | translate"></p>
@@ -121,7 +121,7 @@
             </form>
           </div>
         </div>
-        <div class="pia-newBlock-hint" *ngIf="_piaService.pias && _piaService.pias.length == 0" id="pia-rocket">
+        <div class="pia-newBlock-hint" *ngIf="_piaService.pias && _piaService.pias.length === 0" id="pia-rocket">
           <span class="pia-icons pia-icon-small-arrow"></span>
           <div>
             <span class="pia-icons pia-icon-rocket"></span>
@@ -198,7 +198,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr class="app-list-item" [attr.data-id]="pia.id" *ngFor="let pia of _piaService.pias;let i=index" [pia]="pia"></tr>
+            <tr class="app-list-item" [ngClass]="{'pia-exampleBlock': pia.is_example === 1}" [attr.data-id]="pia.id" *ngFor="let pia of _piaService.pias;let i=index" [pia]="pia"></tr>
           </tbody>
         </table>
       </div>
