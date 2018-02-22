@@ -104,23 +104,48 @@ export class CardsComponent implements OnInit, OnDestroy {
   /**
    * Asort items created on PIA
    */
-  sortBy(sort: string) {
-    this.sortReverse = !this.sortReverse;
-    this.filter = sort;
-    localStorage.setItem('sort', sort);
-    if (sort === 'name' || sort === 'author_name' || sort === 'evaluator_name' || sort === 'validator_name'
-        || sort === 'created_at' || sort === 'status' || sort === 'progress') {
+  sortBy(selectedValue: string) {
+    const previousValue = localStorage.getItem('sort');
+    this.filter = selectedValue;
+    localStorage.setItem('sort', selectedValue);
+
+    // Sorting dates (date)
+    if (selectedValue === 'updated_at' || selectedValue === 'created_at') {
       if (this.sortReverse === true) {
-        this._piaService.pias = this._piaService.pias.sort((a, b) => {
-          return (a[sort] > b[sort]) ? 1 : 0 ;
+        this._piaService.pias.sort(function (a, b) {
+            a = new Date(a[selectedValue]);
+            b = new Date(b[selectedValue]);
+            return a > b ? -1 : a < b ? 1 : 0;
         });
       } else {
-        this._piaService.pias.reverse();
+        this._piaService.pias.sort(function (a, b) {
+            a = new Date(a[selectedValue]);
+            b = new Date(b[selectedValue]);
+            return a < b ? -1 : a > b ? 1 : 0;
+        });
+      }
+    } else if (selectedValue === 'progress' || selectedValue === 'status') { // Sorting statuses or progresses (int)
+      if (this.sortReverse === true) {
+        this._piaService.pias = this._piaService.pias.sort((a, b) => {
+          if (a.progress === b.progress) { return 0; }
+          if (a.progress > b.progress) { return 1; } else { return -1; }
+        });
+      } else {
+        this._piaService.pias = this._piaService.pias.sort((a, b) => {
+          if (a.progress === b.progress) { return 0; }
+          if (a.progress < b.progress) { return 1; } else { return -1; }
+        });
+      }
+    } else { // Sorting other values (string)
+      if (this.sortReverse === true) {
+        this._piaService.pias.sort((a, b ) => a[selectedValue].localeCompare(b[selectedValue]));
+      } else {
+        this._piaService.pias.sort((a, b ) => b[selectedValue].localeCompare(a[selectedValue]));
       }
     }
-    if (sort === 'updated_at') {
-      this._piaService.pias.reverse();
-    }
+
+    this.sortReverse = !this.sortReverse;
+
   }
 
   viewOnList() {
@@ -145,14 +170,20 @@ export class CardsComponent implements OnInit, OnDestroy {
     const pia = new Pia();
     pia.getAll().then((data: any[]) => {
       this._piaService.pias = data;
+      this.sortReverse = true;
       this.filter = localStorage.getItem('sort');
-      if (this.filter && this.filter.length > 0) {
+
+      /*TODO : make the sort work on init or when switching display mode (card/list).
+      Desactivated for now because it doesn't work.
+      When enabled, it just display the arrow top/bottom but doesn't sort.
+      Maybe we have to store in localStorage the 'sortReverse' value and
+      use it to get the sort sense (top/bottom) */
+
+      /*if (this.filter && this.filter.length > 0) {
         this.sortBy(this.filter);
-        this.sortReverse = false;
       } else {
-        // TODO what is this ?
-        this.sortBy('udpated_at');
-      }
+        this.sortBy('updated_at');
+      }*/
     });
   }
 }
