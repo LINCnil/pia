@@ -905,7 +905,7 @@
       "content": "<span class='strong'>Brawo</span><br>Sekcja jest obecnie<br>dostępna do oceny."
     },
     "validate_evaluation": {
-      "content": "<span class='strong'>Brawo</span><br>Czeka na zatwierdzenie<br>globalnej oceny PIA."
+      "content": "TO BE TRANSLATED - <span class='strong'>Congratulations,</span><br>you've finished evaluating this section.<br>Others parts of the PIA has to be evaluated as well in order to be able to validate the PIA."
     },
     "validate_evaluation_to_correct": {
       "content": "Niestety<br>Kilka pól wymaga poprawek.<br>Powrót do trybu edycji<br>w celu naniesienia poprawek."

@@ -905,7 +905,7 @@
       "content": "<span class='strong'>Gratulujeme,</span><br>subsekce je nyní<br>k dispozici k hodnocení."
     },
     "validate_evaluation": {
-      "content": "<span class='strong'>Gratulujeme,</span><br>čeká na globální ověření PIA."
+      "content": "TO BE TRANSLATED - <span class='strong'>Congratulations,</span><br>you've finished evaluating this section.<br>Others parts of the PIA has to be evaluated as well in order to be able to validate the PIA."
     },
     "validate_evaluation_to_correct": {
       "content": "Sorry,<br>Několik polí musí být opraveno.<br>Návrat do edice režimu a opravy."

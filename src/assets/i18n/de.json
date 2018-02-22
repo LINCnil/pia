@@ -887,7 +887,7 @@
       "content": "<span class = 'strong'>Herzlichen Glückwunsch, </span><br> der Unterabschnitt steht jetzt zur Auswertung zur Verfügung."
     },
     "validate_evaluation": {
-      "content": "<span class = 'strong'>Herzlichen Glückwunsch, </span><br> warten Sie auf die globale Bestätigung der DSFA."
+      "content": "TO BE TRANSLATED - <span class='strong'>Congratulations,</span><br>you've finished evaluating this section.<br>Others parts of the PIA has to be evaluated as well in order to be able to validate the PIA."
     },
     "validate_evaluation_to_correct": {
       "content": "Sorry,<br>Mehrere Felder müssen korrigiert werden.<br>Zum Bearbeitungsmodus zurückkehren und Korrekturen vornehmen."

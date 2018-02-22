@@ -896,7 +896,7 @@
       "content": "<span class='strong'>Bravo,</span><br>la partie est désormais<br>disponible pour évaluation"
     },
     "validate_evaluation": {
-      "content": "<span class='strong'>Bravo,</span><br>en attente de la validation <br>globale du PIA"
+      "content": "<span class='strong'>Bravo,</span><br>vous avez terminé l’évaluation de cette partie.<br>Les autres parties doivent aussi être évaluées pour accéder à la validation du PIA."
     },
     "validate_evaluation_to_correct": {
       "content": "Désolé,<br>Plusieurs champs doivent être corrigés.<br>Retour au mode d'édition<br>pour apporter des corrections."

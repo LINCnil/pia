@@ -905,7 +905,7 @@
       "content": "<span class='strong'>Congratulazioni,</span><br>la sottosezione è <br> disponibile per la convalida."
     },
     "validate_evaluation": {
-      "content": "<span class='strong'>Congratulazioni,</span><br>rimani in attesa della convalida del PIA."
+      "content": "TO BE TRANSLATED - <span class='strong'>Congratulations,</span><br>you've finished evaluating this section.<br>Others parts of the PIA has to be evaluated as well in order to be able to validate the PIA."
     },
     "validate_evaluation_to_correct": {
       "content": "Spiacente,<br>Diversi campi devono essere corretti.<br>Torna alla modalità modifica<br>per fare correzioni."
