@@ -33,6 +33,14 @@ export class CardsComponent implements OnInit, OnDestroy {
               public _piaService: PiaService) { }
 
   ngOnInit() {
+    this.sortOrder = localStorage.getItem('sortOrder');
+    this.sortValue = localStorage.getItem('sortValue');
+    if (!this.sortOrder || !this.sortValue) {
+      this.sortOrder = 'up';
+      this.sortValue = 'updated_at';
+      localStorage.setItem('sortOrder', this.sortOrder);
+      localStorage.setItem('sortValue', this.sortValue);
+    }
     this.refreshContent();
     this.piaForm = new FormGroup({
       name: new FormControl(),
