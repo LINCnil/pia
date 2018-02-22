@@ -839,6 +839,8 @@
     "validated_pia_with_signature": "Validated",
     "add_signed_pia": "Add the signed PIA",
     "remove_attachment": "Remove the attachment",
+    "latest_signed_attachment": "Last signed attachment",
+    "signed_attachments_history": "Signed attachments history",
     "tools": {
       "dashboard": "Dashboard",
       "display_pia": "Display PIA",

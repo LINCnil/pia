@@ -39,7 +39,10 @@ export class ValidatePIAComponent implements OnInit {
       this.validateForm.controls['validateStatus2'].patchValue(this._piaService.pia.status > 1);
       this.validateForm.controls['validateStatus3'].patchValue(this._piaService.pia.status > 1);
       this.validateForm.controls['validateStatus4'].patchValue(this._piaService.pia.status > 1);
-      this._attachmentsService.setSignedPia();
+
+      /* this._attachmentsService.getSignedAttachmentsList(); */
+      this._attachmentsService.updateSignedAttachmentsList();
+
       this._actionPlanService.listActionPlan(this._translateService);
     });
   }

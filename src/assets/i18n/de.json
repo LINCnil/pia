@@ -828,6 +828,8 @@
     "validated_pia_with_signature": "Bestätigt",
     "add_signed_pia": "Fügen Sie die unterschriebene DSFA hinzu",
     "remove_attachment": "Löschen",
+    "latest_signed_attachment": "TO BE TRANSLATED - Last signed attachment",
+    "signed_attachments_history": "TO BE TRANSLATED - Signed attachments history",
     "tools": {
       "dashboard": "Übersicht",
       "display_pia": "DSFA anzeigen",

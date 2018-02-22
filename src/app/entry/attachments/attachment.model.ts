@@ -6,6 +6,7 @@ export class Attachment extends ApplicationDb {
   public name: string;
   public mime_type: string;
   public pia_signed = 0;
+  public history_comment: string;
 
   constructor() {
     super(201708291502, 'attachment');
@@ -19,6 +20,7 @@ export class Attachment extends ApplicationDb {
           pia_id: this.pia_id,
           pia_signed: this.pia_signed,
           file: this.file,
+          history_comment: this.history_comment,
           created_at: this.created_at
         };
     await this.getObjectStore();
@@ -89,30 +91,4 @@ export class Attachment extends ApplicationDb {
     }
   }
 
-  async getSignedPia() {
-    await this.getObjectStore();
-    return new Promise((resolve, reject) => {
-      if (this.serverUrl) {
-        fetch(this.getServerUrl() + '/signed').then(function(response) {
-          return response.json();
-        }).then(function(result: any) {
-          resolve(result);
-        }).catch (function (error) {
-          console.error('Request failed', error);
-          reject();
-        });
-      } else {
-        const index2 = this.objectStore.index('index2');
-        const evt = index2.get(IDBKeyRange.only([this.pia_id, 1]));
-        evt.onerror = (event: any) => {
-          console.error(event);
-          reject(Error(event));
-        }
-        evt.onsuccess = (event: any) => {
-          const entry = event.target.result;
-          resolve(entry);
-        }
-      }
-    });
-  }
 }

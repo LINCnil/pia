@@ -840,6 +840,8 @@
     "validated_pia_with_signature": "Zatwierdzony",
     "add_signed_pia": "Dodać podpisany raport PIA",
     "remove_attachment": "Do usunięcia",
+    "latest_signed_attachment": "TO BE TRANSLATED - Last signed attachment",
+    "signed_attachments_history": "TO BE TRANSLATED - Signed attachments history",
     "tools": {
       "dashboard": "Powitanie",
       "display_pia": "Wyświetlenie PIA",

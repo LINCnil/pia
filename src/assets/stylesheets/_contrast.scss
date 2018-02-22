@@ -323,6 +323,18 @@ body.pia-contrast {
           }
         }
       }
+      &-validationAttachments {
+        > div:first-child {
+          > div {
+            border: 1px solid $pia-gray-dark !important;
+          }
+        }
+        &-history {
+          > div {
+            border: 1px solid $pia-gray-dark !important;
+          }
+        }
+      }
       // footer for validation page
       &-validationTools {
         > a, button {
