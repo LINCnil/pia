@@ -44,6 +44,7 @@ export class HeaderComponent implements OnInit, DoCheck {
    */
   updateCurrentLanguage(selectedLanguage: string) {
     localStorage.setItem('userLanguage', selectedLanguage);
+    this._translateService.use(selectedLanguage);
   }
 
   /**
@@ -56,7 +57,7 @@ export class HeaderComponent implements OnInit, DoCheck {
       this.selectedLanguage = language;
     } else {
       const browserLang = this._translateService.getBrowserLang();
-      this.selectedLanguage = browserLang.match(/en|cs|it|nl|fr|pl|de|es/) ? browserLang : 'fr';
+      this.selectedLanguage = browserLang.match(/en|cs|it|nl|fr|pl|de|es|es-cnil/) ? browserLang : 'fr';
     }
   }
 
