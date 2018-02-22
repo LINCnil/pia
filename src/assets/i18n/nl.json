@@ -905,7 +905,7 @@
       "content": "<span class='strong'>Gefeliciteerd, </span> <br> de subsectie is nu beschikbaar voor evaluatie."
     },
     "validate_evaluation": {
-      "content": "<span class='strong'>Gefeliciteerd, </span> <br> wachten op wereldwijde validatie van de PIA."
+      "content": "TO BE TRANSLATED - <span class='strong'>Congratulations,</span><br>you've finished evaluating this section.<br>Others parts of the PIA has to be evaluated as well in order to be able to validate the PIA."
     },
     "validate_evaluation_to_correct": {
       "content": "Sorry, maar er zijn meerdere velden die moeten worden gecorrigeerd. <br> Keer terug naar de bewerkingsmodus om correcties aan te brengen."

@@ -893,7 +893,7 @@
       "content": "<span class='strong'>Congratulations,</span><br>the subsection is now<br>available for evaluation."
     },
     "validate_evaluation": {
-      "content": "<span class='strong'>Congratulations,</span><br>waiting for global validation of the PIA."
+      "content": "TO BE TRANSLATED - <span class='strong'>Congratulations,</span><br>you've finished evaluating this section.<br>Others parts of the PIA has to be evaluated as well in order to be able to validate the PIA."
     },
     "validate_evaluation_to_correct": {
       "content": "Sorry,<br>Several fields must be corrected.<br>Return to edition mode<br>to make corrections."
