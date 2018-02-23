@@ -304,7 +304,6 @@ export class PiaService {
         view: window
       });
       a.dispatchEvent(event);
-      a.click();
     });
   }
 
