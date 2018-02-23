@@ -91,7 +91,7 @@ export class SidStatusService {
     this.enableDpoValidation = false;
     let count = 0;
     for (const el in this.itemStatus) {
-      if (this.itemStatus.hasOwnProperty(el) && this.itemStatus[el] === 7 && el !== '4.3') {
+      if (this.itemStatus.hasOwnProperty(el) && this.itemStatus[el] >= 7 && el !== '4.3') {
         count++;
       }
     }
