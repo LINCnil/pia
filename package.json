@@ -23,10 +23,12 @@
     "@angular/router": "^4.4.3",
     "@ngx-translate/core": "^8.0.0",
     "@ngx-translate/http-loader": "^1.0.2",
+    "angular2-markdown": "^2.2.3",
     "core-js": "^2.4.1",
     "d3": "^4.10.2",
     "font-awesome": "^4.7.0",
     "foundation-sites": "^6.3.1",
+    "markdown": "^0.5.0",
     "ngx-chips": "~1.5.11",
     "normalize.css": "^7.0.0",
     "rollbar": "^2.2.8",
@@ -50,9 +52,9 @@
     "karma-jasmine": "~1.1.0",
     "karma-jasmine-html-reporter": "^0.2.2",
     "protractor": "~5.1.2",
+    "source-map-explorer": "^1.5.0",
     "ts-node": "^3.3.0",
     "tslint": "^5.5.0",
-    "typescript": "~2.4.2",
-    "source-map-explorer": "^1.5.0"
+    "typescript": "~2.4.2"
   }
 }
