@@ -211,6 +211,10 @@
           }
       }
       &-btn {
+          position: absolute;
+          bottom: 12px;
+          left: 9px;
+          right: 9px;
           border-top: 1px solid $pia-green;
           padding-top: 21px;
           margin-top: 21px;

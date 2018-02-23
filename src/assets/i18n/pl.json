@@ -80,7 +80,8 @@
           "pia": "Wyświetlenie<br>PIA",
           "remove": "Usunięcie"
         },
-        "edit_pia": "Edycja PIA"
+        "edit_pia": "Edycja PIA",
+        "consult_pia": "TO BE TRANSLATED - Consult PIA"
       }
     },
     "lists": {
@@ -95,6 +96,7 @@
       "column_actions": "Działania",
       "item": {
         "tools": {
+          "consult": "TO BE TRANSLATED - Consult",
           "edit": "Edycja",
           "export": "Eksport",
           "duplicate": "Duplikacja",

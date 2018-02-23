@@ -80,7 +80,8 @@
           "pia": "Display<br>PIA",
           "remove": "Delete"
         },
-        "edit_pia": "Edit PIA"
+        "edit_pia": "Edit PIA",
+        "consult_pia": "Consult PIA"
       }
     },
     "lists": {
@@ -95,6 +96,7 @@
       "column_actions": "Actions",
       "item": {
         "tools": {
+          "consult": "Consult",
           "edit": "Edit",
           "export": "Export",
           "duplicate": "Duplicate",

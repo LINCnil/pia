@@ -80,7 +80,8 @@
 					"pia": "Mostra<br>PIA",
 					"remove": "Cancella"
 				},
-				"edit_pia": "Modifica PIA"
+				"edit_pia": "Modifica PIA",
+        "consult_pia": "TO BE TRANSLATED - Consult PIA"
 			}
 		},
 		"lists": {
@@ -95,6 +96,7 @@
 			"column_actions": "Azioni",
 			"item": {
 				"tools": {
+          "consult": "TO BE TRANSLATED - Consult",
 					"edit": "Modifica",
 					"export": "Esporta",
 					"duplicate": "Crea una copia",

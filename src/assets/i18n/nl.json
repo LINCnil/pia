@@ -80,7 +80,8 @@
           "pia": "Toon<br>PIA",
           "remove": "Verwijderen"
         },
-        "edit_pia": "Aanpassen PIA"
+        "edit_pia": "Aanpassen PIA",
+        "consult_pia": "TO BE TRANSLATED - Consult PIA"
       }
     },
     "lists": {
@@ -95,6 +96,7 @@
       "column_actions": "Acties",
       "item": {
         "tools": {
+          "consult": "TO BE TRANSLATED - Consult",
           "edit": "Aanpassen",
           "export": "Exporteren",
           "duplicate": "Dupliceren",

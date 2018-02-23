@@ -80,7 +80,8 @@
           "pia": "Zobrazit<br>PIA",
           "remove": "Odstranit"
         },
-        "edit_pia": "Upravit PIA"
+        "edit_pia": "Upravit PIA",
+        "consult_pia": "TO BE TRANSLATED - Consult PIA"
       }
     },
     "lists": {
@@ -95,6 +96,7 @@
       "column_actions": "Akce",
       "item": {
         "tools": {
+          "consult": "TO BE TRANSLATED - Consult",
           "edit": "Upravit",
           "export": "Exportovat",
           "duplicate": "Duplikovat",
