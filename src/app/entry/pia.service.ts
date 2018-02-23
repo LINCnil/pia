@@ -275,9 +275,13 @@ export class PiaService {
         evaluationModel.reference_to = reference_to;
         evaluationModel.action_plan_comment = evaluation.action_plan_comment;
         evaluationModel.evaluation_comment = evaluation.evaluation_comment;
-        evaluationModel.evaluation_date = new Date(evaluation.evaluation_date);
+        if (evaluation.evaluation_date) {
+          evaluationModel.evaluation_date = new Date(evaluation.evaluation_date);
+        }
         evaluationModel.gauges = evaluation.gauges;
-        evaluationModel.estimated_implementation_date = new Date(evaluation.estimated_implementation_date);
+        if (evaluation.estimated_implementation_date) {
+          evaluationModel.estimated_implementation_date = new Date(evaluation.estimated_implementation_date);
+        }
         evaluationModel.person_in_charge = evaluation.person_in_charge;
         evaluationModel.global_status = evaluation.global_status;
         evaluationModel.created_at = new Date(evaluation.created_at);
