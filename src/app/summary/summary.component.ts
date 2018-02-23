@@ -123,7 +123,10 @@ export class SummaryComponent implements OnInit {
     this._attachmentsService.listAttachments().then(() => {
       const attachmentElement = { title: 'summary.attachments', subtitle: null, data: [] };
       this._attachmentsService.attachments.forEach((attachment) => {
-        attachmentElement.data.push({ content: attachment.name });
+        attachmentElement.data.push({
+          content: attachment.name,
+          comment: attachment.comment
+        });
       });
       this.content.push(attachmentElement);
     });
