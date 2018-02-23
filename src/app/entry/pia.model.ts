@@ -36,6 +36,9 @@ export class Pia extends ApplicationDb {
       this.findAll().then((entries: any) => {
         if (entries && entries.length > 0) {
           entries.forEach(element => {
+            if (element.is_example && element.is_example === 1) {
+              return;
+            }
             const newPia = new Pia();
             newPia.id = element.id;
             newPia.name = element.name;
