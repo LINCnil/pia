@@ -14,6 +14,7 @@ import { PaginationService } from './pagination.service';
 import { TranslateService } from '@ngx-translate/core';
 import { SidStatusService } from 'app/services/sid-status.service';
 import { GlobalEvaluationService } from 'app/services/global-evaluation.service';
+import { KnowledgeBaseService } from 'app/entry/knowledge-base/knowledge-base.service';
 
 @Component({
   selector: 'app-entry-content',
@@ -38,9 +39,14 @@ export class EntryContentComponent implements OnInit, OnChanges {
               public _globalEvaluationService: GlobalEvaluationService,
               private _evaluationService: EvaluationService,
               public _paginationService: PaginationService,
-              private _translateService: TranslateService) { }
+              private _translateService: TranslateService,
+              private _knowledgeBaseService: KnowledgeBaseService) { }
 
   ngOnInit() {
+    // Reset measures no longer addable from KB when switching PIA
+    this._knowledgeBaseService.toHide = [];
+
+    // Update the last edited date for this PIA
     this._piaService.getPIA().then(() => {
       this._piaService.pia.updated_at = new Date();
       this._piaService.pia.update();
