@@ -39,11 +39,11 @@
                     {{ 'header.languages.en' | translate }}
                   </a>
                 </li>
-                <li [ngClass]="{'is_active': selectedLanguage === 'es-cnil'}">
+                <!--<li [ngClass]="{'is_active': selectedLanguage === 'es-cnil'}">
                   <a href="javascript:;" (click)="updateCurrentLanguage('es-cnil')">
                     {{ 'header.languages.es' | translate }}
                   </a>
-                </li>
+                </li>-->
                 <li class="communityTranslations">{{ 'header.languages.community_translations' | translate }}</li>
                 <li [ngClass]="{'is_active': selectedLanguage === 'cz'}">
                   <a href="javascript:;" (click)="updateCurrentLanguage('cz')">
