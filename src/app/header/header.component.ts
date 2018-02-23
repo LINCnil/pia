@@ -23,7 +23,7 @@ export class HeaderComponent implements OnInit, DoCheck {
   constructor(private _router: Router,
               private renderer: Renderer2,
               private _translateService: TranslateService,
-              private _piaService: PiaService,
+              public _piaService: PiaService,
               private _modalsService: ModalsService,
               private _http: Http) {
     this.updateContrast();
