@@ -14,8 +14,9 @@
     "knowledge_base_link": "Wissensbasis",
     "pia_example_link": "Beispiel DSFA",
     "languages": {
-      "official_translations": "Offizielle Übersetzungen",
-      "unofficial_translations": "Inoffizielle Übersetzungen",
+      "official_translation": "TO BE TRANSLATED - Original version",
+      "cnil_translations": "TO BE TRANSLATED - CNIL provided translations",
+      "community_translations": "TO BE TRANSLATED - Community provided translations",
       "fr": "Français",
       "en": "English",
       "cz": "Česky",
@@ -81,7 +82,7 @@
           "remove": "Löschen"
         },
         "edit_pia": "DSFA bearbeiten",
-        "save_pia": "Speichern"
+        "consult_pia": "TO BE TRANSLATED - Consult PIA"
       }
     },
     "lists": {
@@ -96,6 +97,7 @@
       "column_actions": "Aktionen",
       "item": {
         "tools": {
+          "consult": "TO BE TRANSLATED - Consult",
           "edit": "Bearbeiten",
           "export": "Exportieren",
           "duplicate": "Kopieren",

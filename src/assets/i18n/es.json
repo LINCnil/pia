@@ -14,8 +14,9 @@
     "knowledge_base_link": "Base de conocimientos",
     "pia_example_link": "Ejemplo de PIA",
     "languages": {
-      "official_translations": "Traducciones oficiales",
-      "unofficial_translations": "Traducciones no oficiales",
+      "official_translation": "TO BE TRANSLATED - Original version",
+      "cnil_translations": "TO BE TRANSLATED - CNIL provided translations",
+      "community_translations": "TO BE TRANSLATED - Community provided translations",
       "fr": "Français",
       "en": "English",
       "cz": "Česky",
@@ -81,7 +82,7 @@
           "remove": "Borrar"
         },
         "edit_pia": "Corrija el PIA",
-        "save_pia": "Guardar"
+        "consult_pia": "TO BE TRANSLATED - Consult PIA"
       }
     },
     "lists": {
@@ -96,6 +97,7 @@
       "column_actions": "Acciones",
       "item": {
         "tools": {
+          "consult": "TO BE TRANSLATED - Consult",
           "edit": "Corrija",
           "export": "Exportar",
           "duplicate": "Duplicar",

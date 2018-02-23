@@ -108,7 +108,8 @@
             </div>
         </div>
         <div class="pia-cardsBlock-item-btn">
-          <a routerLink="/entry/{{pia.id}}/section/1/item/1" class="btn btn-green">{{ 'homepage.cards.item.edit_pia' | translate }}</a>
+          <a *ngIf="pia.status === 0" routerLink="/entry/{{pia.id}}/section/1/item/1" class="btn btn-green">{{ 'homepage.cards.item.edit_pia' | translate }}</a>
+          <a *ngIf="pia.status > 0" routerLink="/entry/{{pia.id}}/section/1/item/1" class="btn btn-green">{{ 'homepage.cards.item.consult_pia' | translate }}</a>
         </div>
       </form>
   </div>

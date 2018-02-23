@@ -146,7 +146,7 @@ export class CardsComponent implements OnInit, OnDestroy {
     this.sortValue = localStorage.getItem('sortValue');
     setTimeout(() => {
       this.sortPia();
-    }, 1000);
+    }, 200);
   }
 
   private sortPia() {
