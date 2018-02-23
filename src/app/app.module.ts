@@ -1,7 +1,7 @@
 import { RollbarService, RollbarErrorHandler, rollbarFactory } from 'app/rollbar';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, ErrorHandler } from '@angular/core';
-import { AppComponent, SafeHtmlPipe } from 'app/app.component';
+import { AppComponent, SafeHtmlPipe, Nl2brPipe } from 'app/app.component';
 import { TagInputModule } from 'ngx-chips';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -121,6 +121,7 @@ export function createTranslateLoader(http: HttpClient) {
     ListItemComponent,
     SummaryComponent,
     SafeHtmlPipe,
+    Nl2brPipe,
     AboutComponent
   ],
   imports: [

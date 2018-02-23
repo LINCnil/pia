@@ -66,7 +66,8 @@
               <h2 *ngIf="c.subtitle">{{ c.subtitle | translate }}</h2>
               <div class="databox" *ngFor="let d of c.data">
                 <h3>{{ d.title | translate }}</h3>
-                <div style="font-weight:500;" *ngIf="d.type !== 'date'; else dateBlock" [innerHTML]="d.content | translate | safeHtml"></div>
+                <div style="font-weight:500;" [ngClass]="{ 'pia-attachment-removed': d.comment && d.comment.length > 0 }" *ngIf="d.type !== 'date'; else dateBlock" [innerHTML]="d.content | translate | safeHtml"></div>
+                <div *ngIf="d.type !== 'date' && d.comment && d.comment.length > 0" [innerHTML]="d.comment | nl2br | safeHtml"></div>
                 <ng-template #dateBlock>
                   <time style="font-weight:500;" *ngIf="d.content.toString() !== 'Invalid Date'">{{ d.content | date: 'dd/MM/yyyy' }}</time>
                 </ng-template>

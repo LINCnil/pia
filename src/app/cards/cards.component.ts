@@ -20,8 +20,8 @@ export class CardsComponent implements OnInit, OnDestroy {
   newPia: Pia;
   piaForm: FormGroup;
   importPiaForm: FormGroup;
-  filter: string;
-  sortReverse: boolean;
+  sortOrder: string;
+  sortValue: string;
   viewStyle: { view: string }
   view: 'card';
   paramsSubscribe: Subscription;
@@ -33,6 +33,14 @@ export class CardsComponent implements OnInit, OnDestroy {
               public _piaService: PiaService) { }
 
   ngOnInit() {
+    this.sortOrder = localStorage.getItem('sortOrder');
+    this.sortValue = localStorage.getItem('sortValue');
+    if (!this.sortOrder || !this.sortValue) {
+      this.sortOrder = 'up';
+      this.sortValue = 'updated_at';
+      localStorage.setItem('sortOrder', this.sortOrder);
+      localStorage.setItem('sortValue', this.sortValue);
+    }
     this.refreshContent();
     this.piaForm = new FormGroup({
       name: new FormControl(),
@@ -104,23 +112,12 @@ export class CardsComponent implements OnInit, OnDestroy {
   /**
    * Asort items created on PIA
    */
-  sortBy(sort: string) {
-    this.sortReverse = !this.sortReverse;
-    this.filter = sort;
-    localStorage.setItem('sort', sort);
-    if (sort === 'name' || sort === 'author_name' || sort === 'evaluator_name' || sort === 'validator_name'
-        || sort === 'created_at' || sort === 'status' || sort === 'progress') {
-      if (this.sortReverse === true) {
-        this._piaService.pias = this._piaService.pias.sort((a, b) => {
-          return (a[sort] > b[sort]) ? 1 : 0 ;
-        });
-      } else {
-        this._piaService.pias.reverse();
-      }
-    }
-    if (sort === 'updated_at') {
-      this._piaService.pias.reverse();
-    }
+  sortBy(fieldToSort: string) {
+    this.sortValue = fieldToSort;
+    this.sortOrder = this.sortOrder === 'down' ? 'up' : 'down';
+    this.sortPia();
+    localStorage.setItem('sortValue', this.sortValue);
+    localStorage.setItem('sortOrder', this.sortOrder);
   }
 
   viewOnList() {
@@ -141,18 +138,40 @@ export class CardsComponent implements OnInit, OnDestroy {
     this.paramsSubscribe.unsubscribe();
   }
 
-  refreshContent() {
+  async refreshContent() {
     const pia = new Pia();
-    pia.getAll().then((data: any[]) => {
-      this._piaService.pias = data;
-      this.filter = localStorage.getItem('sort');
-      if (this.filter && this.filter.length > 0) {
-        this.sortBy(this.filter);
-        this.sortReverse = false;
+    const data: any = await pia.getAll();
+    this._piaService.pias = data;
+    this.sortOrder = localStorage.getItem('sortOrder');
+    this.sortValue = localStorage.getItem('sortValue');
+    setTimeout(() => {
+      this.sortPia();
+    }, 1000);
+  }
+
+  private sortPia() {
+    this._piaService.pias.sort((a, b) => {
+      let firstValue = a[this.sortValue];
+      let secondValue = b[this.sortValue];
+      if (this.sortValue === 'updated_at' || this.sortValue === 'created_at') {
+        firstValue = new Date(a[this.sortValue]);
+        secondValue = new Date(b[this.sortValue]);
+      }
+      if (this.sortValue === 'name' || this.sortValue === 'author_name' ||
+          this.sortValue === 'evaluator_name' || this.sortValue === 'validator_name') {
+        return firstValue.localeCompare(secondValue);
       } else {
-        // TODO what is this ?
-        this.sortBy('udpated_at');
+        if (firstValue < secondValue) {
+          return -1;
+        }
+        if (firstValue > secondValue) {
+          return 1;
+        }
+        return 0;
       }
     });
+    if (this.sortOrder === 'up') {
+      this._piaService.pias.reverse();
+    }
   }
 }
