@@ -82,12 +82,7 @@ export class EntryContentComponent implements OnInit, OnChanges {
    */
   prepareForEvaluation() {
     this._globalEvaluationService.prepareForEvaluation().then(() => {
-      this._router.navigate([
-        'entry', this._piaService.pia.id, 'section',
-        this._paginationService.nextLink[0], 'item',
-        this._paginationService.nextLink[1]
-      ]);
-
+      this.goToNextSectionItem(0, 4);
       let isPiaFullyEdited = true;
       for (const el in this._sidStatusService.itemStatus) {
         if (this._sidStatusService.itemStatus.hasOwnProperty(el) && this._sidStatusService.itemStatus[el] < 4 && el !== '4.3') {
@@ -108,15 +103,7 @@ export class EntryContentComponent implements OnInit, OnChanges {
    */
   validateEvaluation() {
     this._globalEvaluationService.validateAllEvaluation().then((toFix: boolean) => {
-      this._router.navigate([
-        'entry',
-        this._piaService.pia.id,
-        'section',
-        this._paginationService.nextLink[0],
-        'item',
-        this._paginationService.nextLink[1]
-      ]);
-
+      this.goToNextSectionItem(5, 7);
       let isPiaFullyEvaluated = true;
       for (const el in this._sidStatusService.itemStatus) {
         if (this._sidStatusService.itemStatus.hasOwnProperty(el) && this._sidStatusService.itemStatus[el] !== 7 && el !== '4.3') {
@@ -130,8 +117,49 @@ export class EntryContentComponent implements OnInit, OnChanges {
       } else {
         this._modalsService.openModal('validate-evaluation');
       }
-
     });
+  }
+
+  /**
+   * Get next item to go
+   * @private
+   * @param {number} status_start
+   * @param {number} status_end
+   * @memberof EntryContentComponent
+   */
+  private goToNextSectionItem(status_start: number, status_end: number) {
+    let goto_section = null;
+    let goto_item = null;
+
+    const itemStatus = Object.keys(this._sidStatusService.itemStatus).sort().reduce(
+      (r, k) => (r[k] = this._sidStatusService.itemStatus[k], r), {}
+    );
+
+    for (const el in itemStatus) {
+      if (this._sidStatusService.itemStatus.hasOwnProperty(el) &&
+          this._sidStatusService.itemStatus[el] >= status_start &&
+          this._sidStatusService.itemStatus[el] < status_end &&
+          el !== '4.3') {
+        const reference_to = el.split('.');
+        goto_section = reference_to[0];
+        goto_item = reference_to[1];
+        break;
+      }
+    }
+
+    if (!goto_section || !goto_item) {
+      goto_section = this._paginationService.nextLink[0];
+      goto_item = this._paginationService.nextLink[1];
+    }
+
+    this._router.navigate([
+      'entry',
+      this._piaService.pia.id,
+      'section',
+      goto_section,
+      'item',
+      goto_item
+    ]);
   }
 
   /**
