@@ -1,5 +1,11 @@
 @import '../../assets/stylesheets/variables';
 .pia-helpBlock {
+  li.active > a {
+    background-color: $pia-blue;
+    width: 100%;
+    border-radius: 3px;
+    color: #fff!important;
+  }
   h2 {
     border-bottom: 1px solid $pia-gray;
   }
@@ -94,6 +100,8 @@
   &-help-section-scroll {
     position: fixed;
     top:0;
+    overflow: auto;
+    bottom: 0;
   }
 }
 // Validate block styles
@@ -118,3 +126,4 @@
     }
   }
 }
+

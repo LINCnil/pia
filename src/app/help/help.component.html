@@ -1,6 +1,4 @@
 <app-header></app-header>
-<link rel="icon" type="image/x-icon" href="favicon.ico">
-<link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/themes/prism.min.css" rel="stylesheet" />
 <main class="container pia-helpBlock pia-mainContainerBlock">
   <div class="row">
     <!-- Left sidebar (ancres) -->
@@ -8,15 +6,17 @@
       <aside class="pia-leftSidebarBlock pia-help-section">
         <div class="pia-sectionBlock-header">
           <h1>Tutoriel</h1>
-          <a _ngcontent-c9="" class="pia-icons pia-icon-close-big" routerlink="/home" ng-reflect-router-link="/home" title="Retourner à l'accueil" href="#/home"></a>
+          <a class="pia-icons pia-icon-close-big" routerlink="/home" title="Retourner à l'accueil" href="#/home"></a>
         </div>
-        <div *ngFor="let list of titleLists;">
+        <div *ngFor="let data of tableOfTitles">
           <div class="pia-sectionBlock-title">
-            {{ list }}
+            {{data[0]}}
             <hr>
           </div>
           <ul class="pia-sectionBlock-list">
-            <li *ngFor="let sublist of subtitleLists;"><a id="{{ currentAnchorId }}" href="{{ sublist }}" (click)="getAnchor($event);">{{ sublist }}</a></li>
+            <li *ngFor="let subTitle of data[1];" [ngClass]="{ 'active': subTitle === activeElement }">
+              <a href="javascript:;" (click)="getAnchor($event, subTitle);">{{ subTitle }}</a>
+            </li>
           </ul>
         </div>
       </aside>
