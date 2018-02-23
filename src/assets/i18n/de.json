@@ -734,14 +734,14 @@
   "evaluations": {
     "title": "Bewertung",
     "to_correct": "zu berichtigen",
-    "placeholder_to_correct": "Die bereitgestellten Informationen sind nicht ausreichend, um sie zu bewerten. Zur Bearbeitung zurückkehren, um den ursprünglichen Vorschlag anzureichern.",
     "improvable": "verbesserungsfähig",
-    "placeholder_improvable": "Angesichts der bereitgestellten Informationen müssen zusätzliche Maßnahmen hinzugefügt werden, um den Schutz der verarbeiteten Daten zu verbessern.",
     "acceptable": "tragbar",
-    "placeholder_acceptable": "Angesichts der zur Verfügung gestellten Informationen reichen die durchgeführten Maßnahmen aus, um die Datenschutzanforderungen zu erfüllen.",
     "evaluation_comment": "Bewertungskommentar",
     "action_plan_comment": "Aktionsplan / Korrekturmaßnahmen",
-    "placeholder_comment": "Geben Sie Ihre Kommentare ein.",
+    "placeholder_to_correct": "TO BE TRANSLATED - The information provided are not sufficient to properly evaluate them. Send back to the editor to improve the original submission.",
+    "placeholder_improvable1": "TO BE TRANSLATED - According to the available information, additional measures are to be implemented in order to improve the data protection of the processing.",
+    "placeholder_improvable2": "TO BE TRANSLATED - Enter your comments.",
+    "placeholder_acceptable": "TO BE TRANSLATED - According to the available information, the measures implemented are adequate to properly meet the requirements for protecting the data.",
     "gauges": {
       "seriousness": "Wie bewerten Sie unter Berücksichtigung des Aktionsplans die <span class = 'red-highlight'> Höhe dieses Risikos </span> ({{value}})?",
       "likelihood": "Unter Berücksichtigung des Aktionsplans, wie bewerten Sie die <span class = 'red-highlight'> Wahrscheinlichkeit dieses Risikos </span> ({{value}}) erneut?",
