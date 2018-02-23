@@ -85,7 +85,7 @@
                 <div class="databox">
                   <div *ngIf="item.is_measure">
                     <div *ngFor="let measure of allData[section.id][item.id]">
-                      <h3>{{ measure.title }}</h3>
+                      <h3 [innerHTML]="measure.title"></h3>
                       <div [innerHTML]="measure.content | translate | safeHtml"></div>
                       <div class="evaluationbox" *ngIf="allData[section.id][item.id].evaluation">
                         <p>
@@ -114,7 +114,7 @@
                   </div>
                   <div *ngIf="item.questions">
                     <div *ngFor="let question of item.questions">
-                      <h3>{{ question.title | translate }}</h3>
+                      <h3 [innerHTML]="question.title | translate"></h3>
                       <div [innerHTML]="allData[section.id][item.id][question.id].content | translate | safeHtml"></div>
                       <div class="evaluationbox" *ngIf="allData[section.id][item.id][question.id].evaluation">
                         <p>
@@ -151,7 +151,7 @@
                         <br>
                       </span>
                       <span *ngIf="allData[section.id][item.id]['evaluation_item'].evaluation_comment">
-                        {{ 'evaluations.evaluation_comment' | translate }} : {{ allData[section.id][item.id]['evaluation_item'].evaluation_comment }}
+                        {{ 'evaluations.evaluation_comment' | translate }} : <span [innerHTML]="allData[section.id][item.id]['evaluation_item'].evaluation_comment | safeHtml"></span>
                         <br>
                       </span>
                       <span *ngIf="allData[section.id][item.id]['evaluation_item'].gauges && allData[section.id][item.id]['evaluation_item'].gauges.seriousness > 0">

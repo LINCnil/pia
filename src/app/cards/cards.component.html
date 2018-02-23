@@ -187,7 +187,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr class="app-list-item" [attr.data-id]="pia.id" *ngFor="let pia of _piaService.pias;let i=index" [pia]="pia"></tr>
+            <tr class="app-list-item" [ngClass]="{'pia-exampleBlock': pia.is_example === 1}" [attr.data-id]="pia.id" *ngFor="let pia of _piaService.pias;let i=index" [pia]="pia"></tr>
           </tbody>
         </table>
       </div>

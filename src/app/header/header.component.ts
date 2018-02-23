@@ -1,8 +1,14 @@
 import { Component, DoCheck, OnInit } from '@angular/core';
 import { Renderer2 } from '@angular/core';
 import { environment } from '../../environments/environment';
+import { Http } from '@angular/http';
+import { Router } from '@angular/router';
+
+import { Pia } from 'app/entry/pia.model';
 
 import { TranslateService } from '@ngx-translate/core';
+import { PiaService } from 'app/entry/pia.service';
+import { ModalsService } from 'app/modals/modals.service';
 
 @Component({
   selector: 'app-header',
@@ -14,7 +20,12 @@ export class HeaderComponent implements OnInit, DoCheck {
   appVersion: string;
   selectedLanguage: string;
 
-  constructor(private renderer: Renderer2, public _translateService: TranslateService) {
+  constructor(private _router: Router,
+              private renderer: Renderer2,
+              private _translateService: TranslateService,
+              private _piaService: PiaService,
+              private _modalsService: ModalsService,
+              private _http: Http) {
     this.updateContrast();
   }
 
@@ -73,5 +84,27 @@ export class HeaderComponent implements OnInit, DoCheck {
     } else {
       this.renderer.removeClass(document.body, 'pia-contrast');
     }
+  }
+
+  importPiaExample() {
+    return new Promise((resolve, reject) => {
+      const pia = new Pia();
+      pia.getPiaExample().then((entry: any) => {
+        if (entry) {
+          this._router.navigate(['entry', entry.id, 'section', 1, 'item', 1]);
+        } else {
+          this._http.get('./assets/files/2018-02-21-pia-example.json').map(res => res.json()).subscribe(data => {
+            this._piaService.importData(data, 'EXAMPLE', false, true).then(() => {
+              pia.getPiaExample().then((entry2: any) => {
+                this._router.navigate(['entry', entry2.id, 'section', 1, 'item', 1]);
+              });
+            });
+
+            resolve();
+          });
+        }
+      });
+
+    });
   }
 }
