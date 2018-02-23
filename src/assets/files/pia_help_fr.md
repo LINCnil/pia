@@ -1,47 +1,35 @@
-## Introdution
+## Introduction
 
-### Titre 1
+### La methode PIA
 | ![Logo](../assets/images/help/en/pia-dashboard-duplic.jpg) | Phasellus id dolor sed massa malesuada tincidunt. <br> Quisque et tellus venenatis, maximus metus sed, blandit felis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis |
 |---|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 
-### Titre 2
+### Editer le PIA
 | ![Logo](../assets/images/help/en/pia-dashboard-duplic.jpg) | Phasellus id dolor sed massa malesuada tincidunt. Quisque et tellus venenatis, maximus metus sed, blandit felis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis |
 |---|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 
-
-### Titre 3
+### Evaluer le PIA
 | ![Logo](../assets/images/help/en/pia-dashboard-duplic.jpg) | Phasellus id dolor sed massa malesuada tincidunt. Quisque et tellus venenatis, maximus metus sed, blandit felis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis |
 |---|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 
-
-### Titre 4
+### Valider le PIA
 | ![Logo](../assets/images/help/en/pia-dashboard-duplic.jpg) | Phasellus id dolor sed massa malesuada tincidunt. Quisque et tellus venenatis, maximus metus sed, blandit felis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis |
 |---|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 
-### Titre 5
+## Gerer ses PIA
+
+### Tableau de bord des PIA
 | ![Logo](../assets/images/help/en/pia-dashboard-duplic.jpg) | Phasellus id dolor sed massa malesuada tincidunt. Quisque et tellus venenatis, maximus metus sed, blandit felis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis |
 |---|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 
-## test
-
-### Titre 6
+### Dupliquer un PIA
 | ![Logo](../assets/images/help/en/pia-dashboard-duplic.jpg) | Phasellus id dolor sed massa malesuada tincidunt. Quisque et tellus venenatis, maximus metus sed, blandit felis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis |
 |---|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 
-### Titre 7
+### Exporter un PIA
 | ![Logo](../assets/images/help/en/pia-dashboard-duplic.jpg) | Phasellus id dolor sed massa malesuada tincidunt. Quisque et tellus venenatis, maximus metus sed, blandit felis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis |
 |---|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 
-
-### Titre 8
-| ![Logo](../assets/images/help/en/pia-dashboard-duplic.jpg) | Phasellus id dolor sed massa malesuada tincidunt. Quisque et tellus venenatis, maximus metus sed, blandit felis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis |
-|---|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-
-
-### Titre 9
-| ![Logo](../assets/images/help/en/pia-dashboard-duplic.jpg) | Phasellus id dolor sed massa malesuada tincidunt. Quisque et tellus venenatis, maximus metus sed, blandit felis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis |
-|---|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-
-### Titre 10
+### Exporter un rapport PIA
 | ![Logo](../assets/images/help/en/pia-dashboard-duplic.jpg) | Phasellus id dolor sed massa malesuada tincidunt. Quisque et tellus venenatis, maximus metus sed, blandit felis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis |
 |---|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
