@@ -823,20 +823,20 @@
     "update": "Update URL"
   },
   "validation_page": {
-    "responsible": "The one in charge of validating the PIA: ",
-    "after_reading": "After reading the whole PIA on the data processing linked to the ",
-    "confirmation1": "I confirm that the description of the processing context is consistent with the reality.",
-    "confirmation2": "I confirm that I took note of the existing risks according to the planned or existing measures.",
-    "confirmation3": "I approve of the indicated corrective measures.",
-    "confirmation4": "I commit myself to implement as soon as possible the indicated corrective measures.",
+    "responsible": "Person accountable for validating the PIA: ",
+    "after_reading": "After reading full PIA relating to the data processing linked to ",
+    "confirmation1": "I attest that the context of the processing described in the PIA is consistent with the reality.",
+    "confirmation2": "I attest that I am aware of the risks depending on the existing or planned measures.",
+    "confirmation3": "I ratify the corrective actions indicated in the action plan.",
+    "confirmation4": "I commit to implement as quickly as possible the indicated corrective actions.",
     "button": {
-      "rejection": "Refuse<br>validation",
-      "simple_validation": "Simple validation",
-      "signed_validation": "Signed<br>validation"
+      "rejection": "Reject PIA",
+      "simple_validation": "Approve PIA <br>(direct)",
+      "signed_validation": "Approve PIA <br>(signed)"
     },
-    "mandatory_fields": "All fields must be filled",
-    "waiting_for_signature": "Waiting for the PIA's signature",
-    "validated_pia_with_signature": "Validated",
+    "mandatory_fields": "All boxes must be checked",
+    "waiting_for_signature": "Pending signed PIA",
+    "validated_pia_with_signature": "Approved",
     "add_signed_pia": "Add the signed PIA",
     "remove_attachment": "Remove the attachment",
     "latest_signed_attachment": "Last signed attachment",
@@ -849,15 +849,15 @@
   },
   "rejection_page": {
     "title": "Validation history",
-    "rejection_reason": "Rejection reason",
-    "rejection_reason_placeholder": "Describe rejection reasons for the validation of this PIA.",
-    "applied_adjustments": "Applied adjustments",
-    "applied_adjustments_placeholder": "Describe the applied adjustments to this PIA.",
-    "previous_rejection": "Previous rejection",
+    "rejection_reason": "Refusal reason",
+    "rejection_reason_placeholder": "Describe the reasons for refusing the PIA.",
+    "applied_adjustments": "Adjustments proposed",
+    "applied_adjustments_placeholder": "Describe the changes brought to the PIA.",
+    "previous_rejection": "Previous refusal",
     "button": {
-      "abandon_treatment": "Give up the treatment",
-      "reject_pia": "Refuse PIA",
-      "send_for_validation": "Send for new validation"
+      "abandon_treatment": "Abandon processing",
+      "reject_pia": "Reject PIA",
+      "send_for_validation": "Resend for approval"
     }
   },
   "misc": {
@@ -1266,7 +1266,7 @@
         }
       }
     },
-    "4": {
+     "4": {
       "title": "Validation",
       "short_help": "This section allows you to prepare and formalise the PIA validation.",
       "items": {

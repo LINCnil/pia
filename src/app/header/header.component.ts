@@ -44,6 +44,7 @@ export class HeaderComponent implements OnInit, DoCheck {
    */
   updateCurrentLanguage(selectedLanguage: string) {
     localStorage.setItem('userLanguage', selectedLanguage);
+    this._translateService.use(selectedLanguage);
   }
 
   /**

@@ -33,6 +33,7 @@ export class AuthenticationComponent implements OnInit, DoCheck, OnDestroy {
    */
   updateCurrentLanguage(selectedLanguage: string) {
     localStorage.setItem('userLanguage', selectedLanguage);
+    this._translateService.use(selectedLanguage);
   }
 
   /**

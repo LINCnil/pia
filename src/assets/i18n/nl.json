@@ -824,41 +824,41 @@
     "update": "URL bijwerken"
   },
   "validation_page": {
-    "responsible": "TO BE TRANSLATED - Responsable de la validation du PIA : ",
-    "after_reading": "TO BE TRANSLATED - Après lecture intégrale du PIA concernant le traitement des données liées à l'activité de : ",
-    "confirmation1": "TO BE TRANSLATED - Je confirme que la description du contexte de mon traitement est conforme à la réalité.",
-    "confirmation2": "TO BE TRANSLATED - Je confirme avoir pris connaissance des risques existants en fonction des mesures actuellement mises en oeuvre ou prévues.",
-    "confirmation3": "TO BE TRANSLATED - Je valide les mesures correctives indiquées.",
-    "confirmation4": "TO BE TRANSLATED - Je m'engage à mettre en oeuvre dans les plus brefs délais les mesures correctives indiquées.",
+    "responsible": "TO BE TRANSLATED - Person accountable for validating the PIA: ",
+    "after_reading": "TO BE TRANSLATED - After reading full PIA relating to the data processing linked to ",
+    "confirmation1": "TO BE TRANSLATED - I attest that the context of the processing described in the PIA is consistent with the reality.",
+    "confirmation2": "TO BE TRANSLATED - I attest that I am aware of the risks depending on the existing or planned measures.",
+    "confirmation3": "TO BE TRANSLATED - I ratify the corrective actions indicated in the action plan.",
+    "confirmation4": "TO BE TRANSLATED - I commit to implement as quickly as possible the indicated corrective actions.",
     "button": {
-      "rejection": "TO BE TRANSLATED - Refuser la validation",
-      "simple_validation": "TO BE TRANSLATED - Validation simple",
-      "signed_validation": "TO BE TRANSLATED - Faire signer le PIA par le responsable"
+      "rejection": "TO BE TRANSLATED - Reject PIA",
+      "simple_validation": "TO BE TRANSLATED - Approve PIA <br>(direct)",
+      "signed_validation": "TO BE TRANSLATED - Approve PIA <br>(signed)"
     },
-    "mandatory_fields": "TO BE TRANSLATED - Tous les champs doivent être cochés",
-    "waiting_for_signature": "TO BE TRANSLATED - En attente de la signature du rapport PIA",
-    "validated_pia_with_signature": "TO BE TRANSLATED - Validé",
-    "add_signed_pia": "TO BE TRANSLATED - Ajouter le rapport PIA signé",
-    "remove_attachment": "TO BE TRANSLATED - Supprimer",
+    "mandatory_fields": "TO BE TRANSLATED - All boxes must be checked",
+    "waiting_for_signature": "TO BE TRANSLATED - Pending signed PIA",
+    "validated_pia_with_signature": "TO BE TRANSLATED - Approved",
+    "add_signed_pia": "TO BE TRANSLATED - Add the signed PIA",
+    "remove_attachment": "TO BE TRANSLATED - Remove the attachment",
     "latest_signed_attachment": "TO BE TRANSLATED - Last signed attachment",
     "signed_attachments_history": "TO BE TRANSLATED - Signed attachments history",
     "tools": {
-      "dashboard": "TO BE TRANSLATED - Accueil",
-      "display_pia": "TO BE TRANSLATED - Afficher le PIA",
-      "action_plan": "TO BE TRANSLATED - Plan d'action"
+      "dashboard": "TO BE TRANSLATED - Dashboard",
+      "display_pia": "TO BE TRANSLATED - Display PIA",
+      "action_plan": "TO BE TRANSLATED - Action plan"
     }
   },
   "rejection_page": {
-    "title": "TO BE TRANSLATED - Historique de validation",
-    "rejection_reason": "TO BE TRANSLATED - Motif du refus",
-    "rejection_reason_placeholder": "TO BE TRANSLATED - Décrivez les motifs de refus de validation du PIA.",
-    "applied_adjustments": "TO BE TRANSLATED - Modifications apportées",
-    "applied_adjustments_placeholder": "TO BE TRANSLATED - Décrivez les modifications apportées au PIA.",
-    "previous_rejection": "TO BE TRANSLATED - Refus précédent",
+    "title": "TO BE TRANSLATED - Validation history",
+    "rejection_reason": "TO BE TRANSLATED - Refusal reason",
+    "rejection_reason_placeholder": "TO BE TRANSLATED - Describe the reasons for refusing the PIA.",
+    "applied_adjustments": "TO BE TRANSLATED - Adjustments proposed",
+    "applied_adjustments_placeholder": "TO BE TRANSLATED - Describe the changes brought to the PIA.",
+    "previous_rejection": "TO BE TRANSLATED - Previous refusal",
     "button": {
-      "abandon_treatment": "TO BE TRANSLATED - Abandonner le traitement",
-      "reject_pia": "TO BE TRANSLATED - Refuser le PIA",
-      "send_for_validation": "TO BE TRANSLATED - Renvoyer pour validation"
+      "abandon_treatment": "TO BE TRANSLATED - Abandon processing",
+      "reject_pia": "TO BE TRANSLATED - Reject PIA",
+      "send_for_validation": "TO BE TRANSLATED - Resend for approval"
     }
   },
   "misc": {
@@ -929,15 +929,15 @@
   "summary": {
     "previous_page": "Terug naar de vorige pagina",
     "print": "Print",
-    "display_pia": "TO BE TRANSLATED - Afficher le PIA",
-    "display_action_plan": "TO BE TRANSLATED - Afficher le<br>plan d'action",
+    "display_pia": "TO BE TRANSLATED - Display PIA",
+    "display_action_plan": "TO BE TRANSLATED - Display<br>action plan",
     "display_filters": {
-      "title": "TO BE TRANSLATED - Filtres d'affichage",
-      "main_content": "TO BE TRANSLATED - Afficher la section \"Informations du PIA\"",
-      "context_content": "TO BE TRANSLATED - Afficher la section \"Contexte\"",
-      "principles_content": "TO BE TRANSLATED - Afficher la section \"Principes fondamentaux\"",
-      "risks_content": "TO BE TRANSLATED - Afficher la section \"Risques\"",
-      "action_plan_content": "TO BE TRANSLATED - Afficher le plan d'action"
+      "title": "TO BE TRANSLATED - Filters",
+      "main_content": "TO BE TRANSLATED - Display \"PIA information\"",
+      "context_content": "TO BE TRANSLATED - Display \"Context\"",
+      "principles_content": "TO BE TRANSLATED - Display \"Fundamental principles\"",
+      "risks_content": "TO BE TRANSLATED - Display \"Risks\"",
+      "action_plan_content": "TO BE TRANSLATED - Display action plan"
     },
     "title": "PIA informatie",
     "pia_name": "PIA",
@@ -1284,10 +1284,10 @@
           "short_help": "Presenteer het advies van de persoon die verantwoordelijk is voor gegevensbescherming en privacykwesties (afgevaardigde gegevensbescherming indien aanwezig). Presenteer de standpunten van de betrokkenen of hun vertegenwoordigers."
         },
         "4": {
-          "title": "to be translated"
+          "title": "TO BE TRANSLATED - Validate the PIA"
         },
         "5": {
-          "title": "to be translated"
+          "title": "TO BE TRANSLATED - Rejected PIA"
         }
       }
     }
