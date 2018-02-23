@@ -3,7 +3,7 @@ import { Answer } from 'app/entry/entry-content/questions/answer.model';
 
 export class Pia extends ApplicationDb {
   public id: number;
-  public status: number; // 0: doing, 1: refused, 2: simple_validation, 3: signed_validation, 4: archived
+  public status = 0; // 0: doing, 1: refused, 2: simple_validation, 3: signed_validation, 4: archived
   public name: string;
   public author_name: string;
   public evaluator_name: string;
@@ -99,7 +99,7 @@ export class Pia extends ApplicationDb {
       applied_adjustements: this.applied_adjustements,
       created_at: this.created_at,
       updated_at: this.updated_at,
-      status: 0,
+      status: this.status,
       is_example: this.is_example,
       dpos_names: this.dpos_names,
       people_names: this.people_names,
