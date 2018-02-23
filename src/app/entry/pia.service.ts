@@ -170,7 +170,7 @@ export class PiaService {
     pia.dpos_names = data.pia.dpos_names;
     pia.people_names = data.pia.people_names;
 
-    /* Set this PIA as the example PIA */
+    /* Set this PIA as the example PIA if needed, else default value affected on creation */
     if (is_example) {
       pia.is_example = 1;
     }

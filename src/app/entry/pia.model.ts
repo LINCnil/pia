@@ -19,7 +19,7 @@ export class Pia extends ApplicationDb {
   public dpos_names: string;
   public people_names: string;
   public progress: number;
-  public is_example: number;
+  public is_example = 0;
   public numberOfQuestions = 36; // TODO Auto calcul questions number
 
   constructor() {
