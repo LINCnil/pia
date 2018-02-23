@@ -42,8 +42,12 @@ export class AttachmentsService {
         // If we have some signed attachments :
         if (this.signedAttachments && this.signedAttachments.length > 0) {
           this.signedAttachments.reverse(); // Reverse array (latest signed attachment at first)
-          this.attachment_signed = this.signedAttachments[0]; // Store the latest signed attachment
-          this.signedAttachments.splice(0, 1); // Remove it from the signed attachments array so that we get the oldest
+          if (this.signedAttachments[0] && this.signedAttachments[0].file && this.signedAttachments[0].file.length > 0) {
+             // Store the latest signed attachment only if file isn't empty
+            this.attachment_signed = this.signedAttachments[0];
+             // Remove it from the signed attachments array so that we get the oldest
+            this.signedAttachments.splice(0, 1);
+          }
         }
         resolve();
       });
@@ -61,7 +65,7 @@ export class AttachmentsService {
       attachment.mime_type = attachment_file.type;
       attachment.pia_id = this.pia.id;
       attachment.pia_signed = this.pia_signed;
-      attachment.history_comment = '';
+      attachment.comment = '';
       attachment.create().then((id: number) => {
         attachment.id = id;
         this.attachments.unshift(attachment);
@@ -97,25 +101,30 @@ export class AttachmentsService {
   /**
    * Allows an user to remove a PIA.
    */
-  removeAttachment() {
-    const attachmentId = parseInt(localStorage.getItem('attachment-id'), 10);
+  removeAttachment(comment: string) {
+    if (comment && comment.length > 0) {
+      const attachmentId = parseInt(localStorage.getItem('attachment-id'), 10);
 
-    // Removes from DB.
-    const attachment = new Attachment();
-    attachment.pia_id = this.pia.id;
-    attachment.delete(attachmentId);
+      // Remove from DB by erasing only the "file" field
+      const attachment = new Attachment();
+      attachment.id = attachmentId;
+      attachment.remove(comment);
 
-    // Deletes from the attachments array.
-    const index = this.attachments.findIndex(p => p.id === attachmentId);
-    if (index !== -1) {
-      this.attachments.splice(index, 1);
+      // Deletes from the attachments array.
+      const index = this.attachments.findIndex(p => p.id === attachmentId);
+      if (index !== -1) {
+        this.attachments.splice(index, 1);
+      }
+      if (this.attachment_signed && this.attachment_signed.id === attachmentId) {
+        this.attachment_signed.comment = comment;
+        this.attachment_signed.file = null;
+        this.signedAttachments.unshift(this.attachment_signed);
+        this.attachment_signed = null;
+      }
+
+      localStorage.removeItem('attachment-id');
+      this._modalsService.closeModal();
     }
-    if (this.attachment_signed && this.attachment_signed.id === attachmentId) {
-      this.attachment_signed = null;
-    }
-
-    localStorage.removeItem('attachment-id');
-    this._modalsService.closeModal();
   }
 
 }

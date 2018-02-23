@@ -77,9 +77,9 @@
   <div class="pia-entryContentBlock-footer">
 
     <!-- Attachments block -->
-    <div class="pia-entryContentBlock-footer-validationAttachments" *ngIf="_piaService.pia.status === 3 && _attachmentsService.attachment_signed">
+    <div class="pia-entryContentBlock-footer-validationAttachments" *ngIf="_piaService.pia.status === 3 && (_attachmentsService.attachment_signed || (_attachmentsService.signedAttachments && _attachmentsService.signedAttachments.length > 0))">
       <!-- Last signed attachment -->
-      <div>
+      <div *ngIf="_attachmentsService.attachment_signed">
         <h2>{{ 'validation_page.latest_signed_attachment' | translate }}</h2>
         <div>
           <span class="pia-icons pia-icon-file-pdf-blue"></span>
@@ -93,10 +93,11 @@
         <h2>{{ 'validation_page.signed_attachments_history' | translate }}</h2>
         <div *ngFor="let signed_attachment of _attachmentsService.signedAttachments;let i=index">
           <span class="pia-icons pia-icon-file-pdf-blue"></span>
-          <a href="javascript:;" (click)="downloadAttachment(signed_attachment.id)">{{signed_attachment.name}}</a>
-          <div>
-            <div>TODO : signed_attachment.history_comment</div>
-          </div>
+          <a href="javascript:;" (click)="downloadAttachment(signed_attachment.id)" *ngIf="signed_attachment.file && signed_attachment.file.length > 0; else signedAttachmentName">{{signed_attachment.name}}</a>
+          <ng-template #signedAttachmentName>
+            <span><del>{{signed_attachment.name}}</del></span>
+          </ng-template>
+          <div *ngIf="signed_attachment.comment" [innerHTML]="signed_attachment.comment|nl2br"></div>
         </div>
       </div>
     </div>

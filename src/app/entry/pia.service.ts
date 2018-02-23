@@ -150,6 +150,9 @@ export class PiaService {
   }
 
   importData(data: any, prefix: string, is_duplicate: boolean) {
+    if (!('pia' in data) || !('dbVersion' in data.pia)) {
+      return;
+    }
     const pia = new Pia();
     pia.name = '(' + prefix + ') ' + data.pia.name;
     pia.author_name = data.pia.author_name;
