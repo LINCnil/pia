@@ -12,7 +12,7 @@ import { PiaService } from 'app/entry/pia.service';
   selector: 'app-cards',
   templateUrl: './cards.component.html',
   styleUrls: ['./cards.component.scss'],
-  providers: [PiaService],
+  providers: [PiaService]
 })
 
 export class CardsComponent implements OnInit, OnDestroy {

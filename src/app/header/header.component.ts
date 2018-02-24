@@ -13,7 +13,8 @@ import { ModalsService } from 'app/modals/modals.service';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  styleUrls: ['./header.component.scss'],
+  providers: [PiaService],
 })
 export class HeaderComponent implements OnInit, DoCheck {
   public increaseContrast: string;
