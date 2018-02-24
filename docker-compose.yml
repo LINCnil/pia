@@ -1,7 +1,7 @@
 version: '3'
 services:
  pia:
-    container_name: pia-frontend
+    container_name: pia-develop-front
     build: .
     command: "yarn start -- --host=0.0.0.0"
     ports:

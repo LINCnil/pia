@@ -739,7 +739,7 @@
     "action_plan_comment": "Aktionsplan / Korrekturmaßnahmen",
     "placeholder_to_correct": "Die bereitgestellten Informationen sind nicht ausreichend, um sie zu bewerten. Zur Bearbeitung zurückkehren, um den ursprünglichen Vorschlag anzureichern.",
     "placeholder_improvable1": "Angesichts der bereitgestellten Informationen müssen zusätzliche Maßnahmen hinzugefügt werden, um den Schutz der verarbeiteten Daten zu verbessern.",
-    "placeholder_improvable2": "Geben Sie Ihre Kommentare ein"
+    "placeholder_improvable2": "Geben Sie Ihre Kommentare ein",
     "placeholder_acceptable": "Angesichts der zur Verfügung gestellten Informationen reichen die durchgeführten Maßnahmen aus, um die Datenschutzanforderungen zu erfüllen.",
     "gauges": {
       "seriousness": "Wie bewerten Sie unter Berücksichtigung des Aktionsplans die <span class = 'red-highlight'> Höhe dieses Risikos </span> ({{value}})?",
