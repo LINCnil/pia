@@ -27,7 +27,7 @@ export class RefusePIAComponent implements OnInit {
               private _modalsService: ModalsService,
               private _sidStatusService: SidStatusService,
               private _translateService: TranslateService,
-              protected _piaService: PiaService) { }
+              public _piaService: PiaService) { }
 
   ngOnInit() {
     this.rejectionReasonForm = new FormGroup({
@@ -168,7 +168,7 @@ export class RefusePIAComponent implements OnInit {
    * @param {HTMLElement} textarea
    * @memberof RefusePIAComponent
    */
-  autoTextareaResize(event: any, textarea: HTMLElement) {
+  autoTextareaResize(event: any, textarea?: HTMLElement) {
     if (event) {
       textarea = event.target;
     }

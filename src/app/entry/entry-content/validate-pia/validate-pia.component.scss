@@ -126,30 +126,55 @@
     }
     &-footer {
       &-validationAttachments {
-        display: flex;
         margin: 10px 0;
-        justify-content: space-between;
         box-shadow: 2px 1px 18px 1px #c2c2c2;
         background-color: #fff;
         padding: 10px 24px;
+        h2 {
+          color: $pia-dark-black;
+        }
         button {
           padding: 0;
           width: auto;
         }
-        div {
-          align-self: center;
+        > div {
           font-weight: 500;
           color: $pia-blue;
-        }
-        i {
+          span, a {
+            display: inline-block;
+            vertical-align: middle;
+          }
+          button {
+            float: right;
+          }
+          i {
           align-self: center;
           color: $pia-gray;
           font-size: 16px;
+          }
+          a {
+            text-decoration: none;
+            align-self: center;
+            color: $pia-blue;
+          }
+          &:first-child {
+            > div {
+              border: 1px solid $pia-gray;
+              padding: 6px;
+            }
+          }
         }
-        a {
-          text-decoration: none;
-          align-self: center;
-          color: $pia-blue;
+        &-history {
+          > div {
+            margin: 12px 0;
+            border: 1px solid $pia-gray;
+            padding: 6px;
+            > div {
+              margin-top: 6px;
+              color: $pia-gray-dark;
+              font-size: 1.2rem;
+            }
+          }
         }
       }
       &-validationTools {
@@ -191,5 +216,12 @@
       border-radius: 0;
       margin: 1rem 0;
     }
+  }
+}
+
+.disabled-validation {
+  pointer-events: none;
+  &[disabled] {
+    pointer-events: none;
   }
 }

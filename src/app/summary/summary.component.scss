@@ -71,4 +71,30 @@
       color: $pia-green;
     }
   }
+  &-summaryFiltersBlock {
+    margin-top: 10px;
+    fieldset {
+      padding: 0;
+      border: none;
+      legend {
+        border-bottom: 4px solid #091C6B;
+        color: #091C6B;
+        font-size: 2.25rem;
+        font-weight: 600;
+        width: 100%;
+        margin-bottom: 4px;
+      }
+      input {
+        margin-right: 4px;
+        vertical-align: -2px;
+      }
+      label {
+        color: #121921;
+        font-size: 1.4rem;
+      }
+    }
+  }
+  &-attachment-removed {
+    text-decoration: line-through;
+  }
 }

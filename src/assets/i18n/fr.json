@@ -14,8 +14,9 @@
     "knowledge_base_link": "Base de connaissances",
     "pia_example_link": "Exemple de PIA",
     "languages": {
-      "official_translations": "Traductions officielles",
-      "unofficial_translations": "Traductions non-officielles",
+      "official_translation": "Version originelle",
+      "cnil_translations": "Traductions fournies par la CNIL",
+      "community_translations": "Traductions fournies par la communauté",
       "fr": "Français",
       "en": "English",
       "cz": "Česky",
@@ -72,7 +73,6 @@
       "placeholder_start": "Tous les champs doivent être remplis",
       "item": {
         "tools": {
-          "edit": "Éditer les informations",
           "export": "Exporter",
           "more_options": "Plus d'options",
           "duplicate": "Dupliquer",
@@ -81,7 +81,7 @@
           "remove": "Supprimer"
         },
         "edit_pia": "Éditer le PIA",
-        "save_pia": "Sauvegarder"
+        "consult_pia": "Consulter le PIA"
       }
     },
     "lists": {
@@ -96,6 +96,7 @@
       "column_actions": "Actions",
       "item": {
         "tools": {
+          "consult": "Consulter",
           "edit": "Éditer",
           "export": "Exporter",
           "duplicate": "Dupliquer",
@@ -117,7 +118,9 @@
     },
     "header": {
       "preview": "Aperçu",
-      "display_action_plan": "Afficher le<br>plan d'action"
+      "display_action_plan": "Afficher le<br>plan d'action",
+      "edition": "Édition",
+      "evaluation": "Évaluation"
     },
     "attachments": {
       "title": "Pièces jointes",
@@ -132,12 +135,14 @@
         "evaluation": {
           "title": "En attente d'évaluation",
           "content": "L'évaluation de cette partie n'a pas encore commencé. Si vous souhaitez modifier les contenus en mode édition, il faut",
-          "cancel": "annuler la demande d'évaluation."
+          "cancel": "annuler la demande d'évaluation.",
+          "cancel_button": "Annuler la demande d'évaluation"
         },
         "validation": {
           "title": "En attente de validation",
           "content": "L'évaluation de cette partie est terminée et en attente de validation finale de l'analyse. Si vous souhaitez modifier les évaluations, il faut",
-          "cancel": "annuler la demande de validation."
+          "cancel": "annuler la demande de validation.",
+          "cancel_button": "Annuler la demande de validation"
         }
       }
     },
@@ -828,6 +833,8 @@
     "validated_pia_with_signature": "Validé",
     "add_signed_pia": "Ajouter le rapport PIA signé",
     "remove_attachment": "Supprimer",
+    "latest_signed_attachment": "Dernière pièce jointe signée",
+    "signed_attachments_history": "Historique des pièces jointes signées",
     "tools": {
       "dashboard": "Accueil",
       "display_pia": "Afficher le PIA",
@@ -859,6 +866,12 @@
     "simple_pia_validation": {
       "content": "Le PIA vient d'être validé."
     },
+    "completed_edition": {
+      "content": "L'intégralité de l'analyse a été complétée, le PIA doit désormais être évalué."
+    },
+    "completed_evaluation": {
+      "content": "L'intégralité de l'analyse a été évaluée, le PIA doit désormais être validé."
+    },
     "update_server_url": {
       "content": "L'adresse du serveur à été mise à jour."
     },
@@ -887,7 +900,7 @@
       "content": "<span class='strong'>Bravo,</span><br>la partie est désormais<br>disponible pour évaluation"
     },
     "validate_evaluation": {
-      "content": "<span class='strong'>Bravo,</span><br>en attente de la validation <br>globale du PIA"
+      "content": "<span class='strong'>Bravo,</span><br>vous avez terminé l’évaluation de cette partie.<br>Les autres parties doivent aussi être évaluées pour accéder à la validation du PIA."
     },
     "validate_evaluation_to_correct": {
       "content": "Désolé,<br>Plusieurs champs doivent être corrigés.<br>Retour au mode d'édition<br>pour apporter des corrections."
@@ -911,12 +924,20 @@
     "print": "Imprimer",
     "display_pia": "Afficher le PIA",
     "display_action_plan": "Afficher le<br>plan d'action",
+    "display_filters": {
+      "title": "Filtres d'affichage",
+      "main_content": "Afficher la section \"Informations du PIA\"",
+      "context_content": "Afficher la section \"Contexte\"",
+      "principles_content": "Afficher la section \"Principes fondamentaux\"",
+      "risks_content": "Afficher la section \"Risques\"",
+      "action_plan_content": " Afficher le plan d'action"
+    },
     "title": "Informations du PIA",
     "pia_name": "Nom du PIA",
     "pia_author": "Nom de l'auteur",
     "pia_assessor": "Nom de l'évaluateur",
     "pia_validator": "Nom du validateur",
-    "content_choice":  {
+    "content_choice": {
       "0": "Le traitement ne devrait pas être mis en oeuvre.",
       "1": "Le traitement pourrait être mis en oeuvre."
     },
@@ -1148,27 +1169,27 @@
           "short_help": "Analysez les causes et conséquences d'un accès illégitime à des données, et estimez sa gravité et sa vraisemblance.",
           "questions": {
             "1": {
-              "title": "Quels pourraient être les principaux impacts sur les personnes concernées si le risque se produisait ?",
+              "title": "Quels pourraient être les principaux <span class='green-highlight'>impacts sur les personnes concernées</span> si le risque se produisait ?",
               "placeholder": "Saisissez les impacts potentiels \u002B"
             },
             "2": {
-              "title": "Quelles sont les principales menaces qui pourraient permettre la réalisation du risque ?",
+              "title": "Quelles sont les principales <span class='green-highlight'>menaces</span> qui pourraient permettre la réalisation du risque ?",
               "placeholder": "Saisissez les menaces \u002B"
             },
             "3": {
-              "title": "Quelles sources de risques pourraient-elles en être à l'origine ?",
+              "title": "Quelles <span class='green-highlight'>sources</span> de risques pourraient-elles en être à l'origine ?",
               "placeholder": "Saisissez les sources de risques \u002B"
             },
             "4": {
-              "title": "Quelles sont les mesures, parmi celles identifiées, qui contribuent à traiter le risque ?",
+              "title": "Quelles sont les <span class='green-highlight'>mesures</span>, parmi celles identifiées, qui contribuent à traiter le risque ?",
               "placeholder": "Cliquez ici pour sélectionner les mesures contribuant à traiter ce risque."
             },
             "5": {
-              "title": "Comment estimez-vous la gravité du risque, notamment en fonction des impacts potentiels et des mesures prévues ?",
+              "title": "Comment estimez-vous la <span class='green-highlight'>gravité du risque</span>, notamment en fonction des impacts potentiels et des mesures prévues ?",
               "placeholder": "Justifiez ici la gravité estimée."
             },
             "6": {
-              "title": "Comment estimez-vous la vraisemblance du risque, notamment au regard des menaces, des sources de risques et des mesures prévues ?",
+              "title": "Comment estimez-vous la <span class='green-highlight'>vraisemblance du risque</span>, notamment au regard des menaces, des sources de risques et des mesures prévues ?",
               "placeholder": "Justifiez ici la vraisemblance estimée."
             }
           }
@@ -1178,27 +1199,27 @@
           "short_help": "Analysez les causes et conséquences d'une modification non désirée de données, et estimez sa gravité et sa vraisemblance.",
           "questions": {
             "1": {
-              "title": "Quels pourraient être les principaux impacts sur les personnes concernées si le risque se produisait ?",
+              "title": "Quels pourraient être les principaux <span class='green-highlight'>impacts sur les personnes concernées</span> si le risque se produisait ?",
               "placeholder": "Saisissez les impacts potentiels \u002B"
             },
             "2": {
-              "title": "Quelles sont les principales menaces qui pourraient permettre la réalisation du risque ?",
+              "title": "Quelles sont les principales <span class='green-highlight'>menaces</span> qui pourraient permettre la réalisation du risque ?",
               "placeholder": "Saisissez les menaces \u002B"
             },
             "3": {
-              "title": "Quelles sources de risques pourraient-elles en être à l'origine ?",
+              "title": "Quelles <span class='green-highlight'>sources</span> de risques pourraient-elles en être à l'origine ?",
               "placeholder": "Saisissez les sources de risques \u002B"
             },
             "4": {
-              "title": "Quelles sont les mesures, parmi celles identifiées, qui contribuent à traiter le risque ?",
+              "title": "Quelles sont les <span class='green-highlight'>mesures</span>, parmi celles identifiées, qui contribuent à traiter le risque ?",
               "placeholder": "Cliquez ici pour sélectionner les mesures contribuant à traiter ce risque."
             },
             "5": {
-              "title": "Comment estimez-vous la gravité du risque, notamment en fonction des impacts potentiels et des mesures prévues ?",
+              "title": "Comment estimez-vous la <span class='green-highlight'>gravité du risque</span>, notamment en fonction des impacts potentiels et des mesures prévues ?",
               "placeholder": "Justifiez ici la gravité estimée."
             },
             "6": {
-              "title": "Comment estimez-vous la vraisemblance du risque, notamment au regard des menaces, des sources de risques et des mesures prévues ?",
+              "title": "Comment estimez-vous la <span class='green-highlight'>vraisemblance du risque</span>, notamment au regard des menaces, des sources de risques et des mesures prévues ?",
               "placeholder": "Justifiez ici la vraisemblance estimée."
             }
           }
@@ -1208,27 +1229,27 @@
           "short_help": "Analysez les causes et conséquences d'une disparition de données, et estimez sa gravité et sa vraisemblance.",
           "questions": {
             "1": {
-              "title": "Quels pourraient être les principaux impacts sur les personnes concernées si le risque se produisait ?",
+              "title": "Quels pourraient être les principaux <span class='green-highlight'>impacts sur les personnes concernées</span> si le risque se produisait ?",
               "placeholder": "Saisissez les impacts potentiels \u002B"
             },
             "2": {
-              "title": "Quelles sont les principales menaces qui pourraient permettre la réalisation du risque ?",
+              "title": "Quelles sont les principales <span class='green-highlight'>menaces</span> qui pourraient permettre la réalisation du risque ?",
               "placeholder": "Saisissez les menaces \u002B"
             },
             "3": {
-              "title": "Quelles sources de risques pourraient-elles en être à l'origine ?",
+              "title": "Quelles <span class='green-highlight'>sources</span> de risques pourraient-elles en être à l'origine ?",
               "placeholder": "Saisissez les sources de risques \u002B"
             },
             "4": {
-              "title": "Quelles sont les mesures, parmi celles identifiées, qui contribuent à traiter le risque ?",
+              "title": "Quelles sont les <span class='green-highlight'>mesures</span>, parmi celles identifiées, qui contribuent à traiter le risque ?",
               "placeholder": "Cliquez ici pour sélectionner les mesures contribuant à traiter ce risque."
             },
             "5": {
-              "title": "Comment estimez-vous la gravité du risque, notamment en fonction des impacts potentiels et des mesures prévues ?",
+              "title": "Comment estimez-vous la <span class='green-highlight'>gravité du risque</span>, notamment en fonction des impacts potentiels et des mesures prévues ?",
               "placeholder": "Justifiez ici la gravité estimée."
             },
             "6": {
-              "title": "Comment estimez-vous la vraisemblance du risque, notamment au regard des menaces, des sources de risques et des mesures prévues ?",
+              "title": "Comment estimez-vous la <span class='green-highlight'>vraisemblance du risque</span>, notamment au regard des menaces, des sources de risques et des mesures prévues ?",
               "placeholder": "Justifiez ici la vraisemblance estimée."
             }
           }

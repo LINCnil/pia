@@ -152,11 +152,14 @@
                   font-size: 1.4rem;
                   color: $pia-dark-black;
                   width: 100%;
-                  background-color: $pia-white;
                   margin-top: -2px;
                   height: 22px;
                   &::placeholder {
                       color: $pia-gray;
+                  }
+                  &:hover {
+                    outline: 1px dotted #3EE095;
+                    cursor: text;
                   }
               }
               &:first-child {
@@ -208,6 +211,10 @@
           }
       }
       &-btn {
+          position: absolute;
+          bottom: 12px;
+          left: 9px;
+          right: 9px;
           border-top: 1px solid $pia-green;
           padding-top: 21px;
           margin-top: 21px;
@@ -295,4 +302,8 @@
             }
         }
     }
+}
+
+.pia-exampleBlock {
+  display: none !important;
 }

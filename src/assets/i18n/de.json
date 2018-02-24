@@ -14,8 +14,9 @@
     "knowledge_base_link": "Wissensbasis",
     "pia_example_link": "Beispiel DSFA",
     "languages": {
-      "official_translations": "Offizielle Übersetzungen",
-      "unofficial_translations": "Inoffizielle Übersetzungen",
+      "official_translation": "Originalversion",
+      "cnil_translations": "Von der CNIL bereitgestellte Übersetzungen",
+      "community_translations": "Von der Community bereitgestellte Übersetzungen",
       "fr": "Français",
       "en": "English",
       "cz": "Česky",
@@ -81,8 +82,7 @@
           "remove": "Löschen"
         },
         "edit_pia": "DSFA bearbeiten",
-        "save_pia": "Speichern"
-      }
+        "consult_pia": "DSFA besprechen"
     },
     "lists": {
       "column_pia": "DSFA",
@@ -96,6 +96,7 @@
       "column_actions": "Aktionen",
       "item": {
         "tools": {
+          "consult": "Besprechen",
           "edit": "Bearbeiten",
           "export": "Exportieren",
           "duplicate": "Kopieren",
@@ -732,14 +733,14 @@
   "evaluations": {
     "title": "Bewertung",
     "to_correct": "zu berichtigen",
-    "placeholder_to_correct": "Die bereitgestellten Informationen sind nicht ausreichend, um sie zu bewerten. Zur Bearbeitung zurückkehren, um den ursprünglichen Vorschlag anzureichern.",
     "improvable": "verbesserungsfähig",
-    "placeholder_improvable": "Angesichts der bereitgestellten Informationen müssen zusätzliche Maßnahmen hinzugefügt werden, um den Schutz der verarbeiteten Daten zu verbessern.",
     "acceptable": "tragbar",
-    "placeholder_acceptable": "Angesichts der zur Verfügung gestellten Informationen reichen die durchgeführten Maßnahmen aus, um die Datenschutzanforderungen zu erfüllen.",
     "evaluation_comment": "Bewertungskommentar",
     "action_plan_comment": "Aktionsplan / Korrekturmaßnahmen",
-    "placeholder_comment": "Geben Sie Ihre Kommentare ein.",
+    "placeholder_to_correct": "Die bereitgestellten Informationen sind nicht ausreichend, um sie zu bewerten. Zur Bearbeitung zurückkehren, um den ursprünglichen Vorschlag anzureichern.",
+    "placeholder_improvable1": "Angesichts der bereitgestellten Informationen müssen zusätzliche Maßnahmen hinzugefügt werden, um den Schutz der verarbeiteten Daten zu verbessern.",
+    "placeholder_improvable2": "Geben Sie Ihre Kommentare ein"
+    "placeholder_acceptable": "Angesichts der zur Verfügung gestellten Informationen reichen die durchgeführten Maßnahmen aus, um die Datenschutzanforderungen zu erfüllen.",
     "gauges": {
       "seriousness": "Wie bewerten Sie unter Berücksichtigung des Aktionsplans die <span class = 'red-highlight'> Höhe dieses Risikos </span> ({{value}})?",
       "likelihood": "Unter Berücksichtigung des Aktionsplans, wie bewerten Sie die <span class = 'red-highlight'> Wahrscheinlichkeit dieses Risikos </span> ({{value}}) erneut?",
@@ -827,24 +828,26 @@
     "waiting_for_signature": "Warten auf die Unterschrift der DSFA",
     "validated_pia_with_signature": "Bestätigt",
     "add_signed_pia": "Fügen Sie die unterschriebene DSFA hinzu",
-    "remove_attachment": "Löschen",
+    "remove_attachment": "Anhang löschen",
+    "latest_signed_attachment": "Zuletzt signierter Anhang",
+    "signed_attachments_history": "Historie signierter Anhänge",
     "tools": {
       "dashboard": "Übersicht",
       "display_pia": "DSFA anzeigen",
       "action_plan": "Aktionsplan"
     }
   },
-  "rejection_page": {
-    "title": "Bestätigungshistorie",
-    "rejection_reason": "Grund für die Ablehnung",
-    "rejection_reason_placeholder": "Beschreiben Sie die Gründe für die Verweigerung der Bestätigung dieser DSFA.",
-    "applied_adjustments": "Vorgenommene Änderungen",
-    "applied_adjustments_placeholder": "Beschreibe die Änderungen, die an der DSFA vorgenommen wurden.",
-    "previous_rejection": "Vorherige Ablehnung",
-    "button": {
-      "abandon_treatment": "Aufgabe der Verarbeitung",
-      "reject_pia": "DSFA zurückweisen",
-      "send_for_validation": "Zurück zur Bestätigung"
+    "rejection_page": {
+      "title": "Bestätigungshistorie",
+      "rejection_reason": "Grund für die Ablehnung",
+      "rejection_reason_placeholder": "Beschreiben Sie die Gründe für die Verweigerung der Bestätigung dieser DSFA.",
+      "applied_adjustments": "Vorgenommene Änderungen",
+      "applied_adjustments_placeholder": "Beschreibe die Änderungen, die an der DSFA vorgenommen wurden.",
+      "previous_rejection": "Vorherige Ablehnung",
+      "button": {
+        "abandon_treatment": "Aufgabe der Verarbeitung",
+        "reject_pia": "DSFA zurückweisen",
+        "send_for_validation": "Zurück zur Bestätigung"
     }
   },
   "misc": {
@@ -911,6 +914,14 @@
     "print": "Drucken",
     "display_pia": "Sehen Sie sich die PIA an",
     "display_action_plan": "Sehen Sie sich den<br>Aktionsplan an",
+    "display_filters": {
+      "title": "Filter",
+      "main_content": "\"DSFA Information\" anzeigen",
+      "context_content": "\"Kontext\" anzeigen",
+      "principles_content": "\"Fundamentale Prinzipien\" anzeigen",
+      "risks_content": "\"Risiken\" anzeigen",
+      "action_plan_content": "\"Aktionsplan\" anzeigen"
+    },
     "title": "Information zur DSFA",
     "pia_name": "DSFA",
     "pia_author": "Name des Autors",

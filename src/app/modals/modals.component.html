@@ -147,10 +147,36 @@
   <div class="pia-modalBlock-content pia-modalBlock-removeAttachment bounceIn">
     <button tabindex="3" type="button" class="pia-modalBlock-close btn" title="{{ 'modals.close' | translate }}" (click)="_modalsService.closeModal()"><span class="pia-icons pia-icon-close-big"></span></button>
     <p [innerHTML]="'modals.remove_attachment.content' | translate"></p>
+    <form [formGroup]="removeAttachmentForm" class="pia-remove-attachment-comment">
+      <label for="pia-remove-attachment-comment">Commentaire</label>
+      <textarea id="pia-remove-attachment-comment" (focusout)="attachmentCommentFocusOut()" formControlName="comment"></textarea>
+    </form>
     <span class="pia-icons pia-icon-sad"></span>
     <div class="pia-modalBlock-buttons-choice">
       <button tabindex="1" class="btn btn-red get-focus" type="button" (click)="_modalsService.closeModal()">{{ 'modals.remove_attachment.keep' | translate }}</button>
-      <button tabindex="2" class="btn btn-red" (click)="_attachmentsService.removeAttachment()" type="button">{{ 'modals.remove_attachment.remove' | translate }}</button>
+      <button tabindex="2" class="btn btn-red" [disabled]="enableSubmit" (click)="_attachmentsService.removeAttachment(removeAttachmentForm.controls['comment'].value)" type="button">{{ 'modals.remove_attachment.remove' | translate }}</button>
+    </div>
+  </div>
+</div>
+
+<div class="pia-modalBlock" id="completed-edition">
+  <div class="pia-modalBlock-content bounceIn">
+    <button tabindex="2" type="button" class="pia-modalBlock-close btn" title="{{ 'modals.close' | translate }}" (click)="_modalsService.closeModal()"><span class="pia-icons pia-icon-close-big"></span></button>
+    <p>{{ 'modals.completed_edition.content' | translate }}</p>
+    <span class="pia-icons pia-icon-happy"></span>
+    <div class="pia-modalBlock-validate">
+      <button tabindex="1" class="btn btn-green get-focus" type="button" (click)="_modalsService.closeModal()">{{ 'modals.continue' | translate }}</button>
+    </div>
+  </div>
+</div>
+
+<div class="pia-modalBlock" id="completed-evaluation">
+  <div class="pia-modalBlock-content bounceIn">
+    <button tabindex="2" type="button" class="pia-modalBlock-close btn" title="{{ 'modals.close' | translate }}" (click)="_modalsService.closeModal()"><span class="pia-icons pia-icon-close-big"></span></button>
+    <p>{{ 'modals.completed_evaluation.content' | translate }}</p>
+    <span class="pia-icons pia-icon-happy"></span>
+    <div class="pia-modalBlock-validate">
+      <button tabindex="1" class="btn btn-green get-focus" type="button" (click)="_modalsService.closeModal()">{{ 'modals.continue' | translate }}</button>
     </div>
   </div>
 </div>
@@ -176,7 +202,7 @@
 <div class="pia-modalBlock" id="modal-list-new-pia">
   <div class="pia-modalBlock-content bounceIn">
     <button tabindex="1" type="button" class="pia-modalBlock-close btn" title="{{ 'homepage.cards.title_close_creation' | translate }}" (click)="_modalsService.closeModal()"><span class="pia-icons pia-icon-close"></span></button>
-    <form class="pia-cardsBlock-item-form" (ngSubmit)="onSubmit(piaForm)" [formGroup]="piaForm">
+    <form class="pia-cardsBlock-item-form" (ngSubmit)="onSubmit()" [formGroup]="piaForm">
       <div>
         <label for="name">{{ 'homepage.cards.pia_name' | translate }}</label>
         <input formControlName="name" type="text" placeholder="{{ 'homepage.cards.placeholder_pia_name' | translate }}" id="name" required>

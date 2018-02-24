@@ -4,11 +4,11 @@
   <div class="row">
     <div class="small-12 medium-12 columns">
       <div class="pia-filtersBlock">
-        <button class="pia-filtersBlock-switch btn" type="button" *ngIf="viewStyle.view == 'list'" (click)="viewOnCard()">
+        <button class="pia-filtersBlock-switch btn" type="button" *ngIf="viewStyle.view === 'list'" (click)="viewOnCard()">
           <i class="fa fa-list" aria-hidden="true"></i>
           <div>{{ 'homepage.filters.card' | translate }}</div>
         </button>
-        <button class="pia-filtersBlock-switch btn" type="button" *ngIf="viewStyle.view == 'card'" (click)="viewOnList()">
+        <button class="pia-filtersBlock-switch btn" type="button" *ngIf="viewStyle.view === 'card'" (click)="viewOnList()">
           <i class="fa fa-list" aria-hidden="true"></i>
           <div>{{ 'homepage.filters.list' | translate }}</div>
         </button>
@@ -20,22 +20,22 @@
           <div class="pia-filtersBlock-filters-list">
             <span>{{ 'homepage.filters.sort_by' | translate }}</span>
             <ul>
-              <li [ngClass]="{'active': filter == 'name'}">
+              <li [ngClass]="{'active': sortValue === 'name'}">
                 <a (click)="sortBy('name');">{{ 'homepage.filters.name' | translate }}</a>
               </li>
-              <li [ngClass]="{'active': filter == 'created_at'}">
+              <li [ngClass]="{'active': sortValue === 'created_at'}">
                 <a (click)="sortBy('created_at');">{{ 'homepage.filters.date' | translate }}</a>
               </li>
-              <li [ngClass]="{'active': filter == 'status'}">
+              <li [ngClass]="{'active': sortValue === 'status'}">
                 <a (click)="sortBy('status');">{{ 'homepage.filters.status' | translate }}</a>
               </li>
-              <li [ngClass]="{'active': filter == 'author_name'}">
+              <li [ngClass]="{'active': sortValue === 'author_name'}">
                 <a (click)="sortBy('author_name');">{{ 'homepage.filters.author' | translate }}</a>
               </li>
-              <li [ngClass]="{'active': filter == 'evaluator_name'}">
+              <li [ngClass]="{'active': sortValue === 'evaluator_name'}">
                 <a (click)="sortBy('evaluator_name');">{{ 'homepage.filters.assessor' | translate }}</a>
               </li>
-              <li [ngClass]="{'active': filter == 'validator_name'}">
+              <li [ngClass]="{'active': sortValue === 'validator_name'}">
                 <a (click)="sortBy('validator_name');">{{ 'homepage.filters.validator' | translate }}</a>
               </li>
             </ul>
@@ -45,7 +45,7 @@
           <button type="button" class="btn btn-green" (click)="_modalsService.openModal('modal-list-new-pia')"><i class="fa fa-folder-open" aria-hidden="true"></i>{{ 'homepage.filters.new_pia' | translate }}</button>
           <button type="button" (click)="importPia()" class="btn btn-green"><i class="fa fa-upload" aria-hidden="true"></i>{{ 'homepage.filters.import_pia' | translate }}</button>
         </div>
-        <div class="pia-filtersBlock-hint" *ngIf="viewStyle.view === 'list' && _piaService.pias && _piaService.pias.length == 0">
+        <div class="pia-filtersBlock-hint" *ngIf="viewStyle.view === 'list' && _piaService.pias && _piaService.pias.length === 0">
           <div>
             <span class="pia-icons pia-icon-rocket-small"></span>
             <p [innerHTML]="'homepage.filters.list_rocket_content' | translate"></p>
@@ -121,7 +121,7 @@
             </form>
           </div>
         </div>
-        <div class="pia-newBlock-hint" *ngIf="_piaService.pias && _piaService.pias.length == 0" id="pia-rocket">
+        <div class="pia-newBlock-hint" *ngIf="_piaService.pias && _piaService.pias.length === 0" id="pia-rocket">
           <span class="pia-icons pia-icon-small-arrow"></span>
           <div>
             <span class="pia-icons pia-icon-rocket"></span>
@@ -139,57 +139,46 @@
               <th>
                 <a (click)="sortBy('name')">
                   <span>{{ 'homepage.lists.column_pia' | translate }}</span>
-                  <i *ngIf="filter === 'name' && sortReverse === false" class="fa fa-caret-down"></i>
-                  <i *ngIf="filter === 'name' && sortReverse === true" class="fa fa-caret-up"></i>
+                  <i *ngIf="sortValue === 'name'" class="fa fa-caret-{{sortOrder}}"></i>
                 </a>
               </th>
               <th>
                 <a (click)="sortBy('updated_at')">
                   <span>{{ 'homepage.lists.column_updated_at' | translate }}</span>
-                  <i *ngIf="filter === 'updated_at' && sortReverse === false" class="fa fa-caret-down"></i>
-                  <i *ngIf="filter === 'updated_at' && sortReverse === true" class="fa fa-caret-up"></i>
+                  <i *ngIf="sortValue === 'updated_at'" class="fa fa-caret-{{sortOrder}}"></i>
                 </a>
               </th>
               <th>
                 <a (click)="sortBy('author_name')">
                   <span>{{ 'homepage.lists.column_author' | translate }}</span>
-                  <i *ngIf="filter === 'author_name' && sortReverse === false" class="fa fa-caret-down"></i>
-                  <i *ngIf="filter === 'author_name' && sortReverse === true" class="fa fa-caret-up"></i>
+                  <i *ngIf="sortValue === 'author_name'" class="fa fa-caret-{{sortOrder}}"></i>
                 </a>
               </th>
               <th>
                 <a (click)="sortBy('evaluator_name')">
                   <span>{{ 'homepage.lists.column_evaluation' | translate }}</span>
-                  <i *ngIf="filter === 'evaluator_name' && sortReverse === false" class="fa fa-caret-down"></i>
-                  <i *ngIf="filter === 'evaluator_name' && sortReverse === true" class="fa fa-caret-up"></i>
+                  <i *ngIf="sortValue === 'evaluator_name'" class="fa fa-caret-{{sortOrder}}"></i>
                 </a>
               </th>
               <th>
                 <a (click)="sortBy('validator_name')">
                   <span>{{ 'homepage.lists.column_validation' | translate }}</span>
-                  <i *ngIf="filter === 'validator_name' && sortReverse === false" class="fa fa-caret-down"></i>
-                  <i *ngIf="filter === 'validator_name' && sortReverse === true" class="fa fa-caret-up"></i>
+                  <i *ngIf="sortValue === 'validator_name'" class="fa fa-caret-{{sortOrder}}"></i>
                 </a>
               </th>
               <th>
                 <a (click)="sortBy('created_at')">
                   <span>{{ 'homepage.lists.column_creation' | translate }}</span>
-                  <i *ngIf="filter === 'created_at' && sortReverse === false" class="fa fa-caret-down"></i>
-                  <i *ngIf="filter === 'created_at' && sortReverse === true" class="fa fa-caret-up"></i>
+                  <i *ngIf="sortValue === 'created_at'" class="fa fa-caret-{{sortOrder}}"></i>
                 </a>
               </th>
               <th>
-                <a (click)="sortBy('status')">
-                  <span>{{ 'homepage.lists.column_status' | translate }}</span>
-                  <i *ngIf="filter === 'status' && sortReverse === false" class="fa fa-caret-down"></i>
-                  <i *ngIf="filter === 'status' && sortReverse === true" class="fa fa-caret-up"></i>
-                </a>
+                <span>{{ 'homepage.lists.column_status' | translate }}</span>
               </th>
               <th>
                 <a (click)="sortBy('progress')">
                   <span>{{ 'homepage.lists.column_progression' | translate }}</span>
-                  <i *ngIf="filter === 'progress' && sortReverse === false" class="fa fa-caret-down"></i>
-                  <i *ngIf="filter === 'progress' && sortReverse === true" class="fa fa-caret-up"></i>
+                  <i *ngIf="sortValue === 'progress'" class="fa fa-caret-{{sortOrder}}"></i>
                 </a>
               </th>
               <th>
@@ -198,7 +187,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr class="app-list-item" [attr.data-id]="pia.id" *ngFor="let pia of _piaService.pias;let i=index" [pia]="pia"></tr>
+            <tr class="app-list-item" [ngClass]="{'pia-exampleBlock': pia.is_example === 1}" [attr.data-id]="pia.id" *ngFor="let pia of _piaService.pias;let i=index" [pia]="pia"></tr>
           </tbody>
         </table>
       </div>

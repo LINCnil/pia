@@ -5,11 +5,19 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { TranslateService } from '@ngx-translate/core';
 import { KnowledgeBaseService } from 'app/entry/knowledge-base/knowledge-base.service';
 
-@Pipe({ name: 'safeHtml'})
+@Pipe({ name: 'safeHtml' })
 export class SafeHtmlPipe implements PipeTransform  {
   constructor(private sanitized: DomSanitizer) {}
   transform(value) {
     return this.sanitized.bypassSecurityTrustHtml(value);
+  }
+}
+
+@Pipe({ name: 'nl2br' })
+export class Nl2brPipe implements PipeTransform  {
+  constructor() {}
+  transform(value) {
+    return value.replace(/\n/g, '<br>');
   }
 }
 

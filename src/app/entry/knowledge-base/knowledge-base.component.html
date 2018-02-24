@@ -5,7 +5,7 @@
   </div>
 
   <div class="pia-knowledgeBaseBlock-searchForm">
-    <form (ngSubmit)="onSubmit(searchForm)" [formGroup]="searchForm">
+    <form (ngSubmit)="onSubmit()" [formGroup]="searchForm">
       <input type="search" formControlName="q">
       <button class="btn" type="submit" title="{{ 'knowledge_base.search' | translate }}"><i class="fa fa-search" aria-hidden="true"></i></button>
     </form>

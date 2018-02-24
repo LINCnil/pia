@@ -20,14 +20,15 @@ export class ApplicationDb {
 
   async initDb() {
     return new Promise((resolve, reject) => {
-      const request = window.indexedDB.open(this.tableName, this.dbVersion);
-      request.onerror = (event: any) => {
-        console.error('Error');
+      const evt = window.indexedDB.open(this.tableName, this.dbVersion);
+      evt.onerror = (event: any) => {
+        console.error(event);
+        reject(Error(event));
       };
-      request.onsuccess = (event: any) => {
+      evt.onsuccess = (event: any) => {
         resolve(event.target.result);
       };
-      request.onupgradeneeded = (event: any) => {
+      evt.onupgradeneeded = (event: any) => {
         let objectStore = null;
         if (event.oldVersion !== 0) {
           objectStore =  event.target.transaction.objectStore(this.tableName);
@@ -65,6 +66,11 @@ export class ApplicationDb {
                 objectStore.createIndex('index2', 'pia_id', { unique: false });
               }
             }
+            if (this.dbVersion === 201802221337) {
+              if (this.tableName === 'pia') {
+                objectStore.createIndex('index3', 'is_example', { unique: false });
+              }
+            }
           }
         }
       };
@@ -96,10 +102,16 @@ export class ApplicationDb {
           resolve(result);
         }).catch (function (error) {
           console.error('Request failed', error);
+          reject();
         });
       } else {
         this.getObjectStore().then(() => {
-          this.objectStore.openCursor().onsuccess = (event: any) => {
+          const evt = this.objectStore.openCursor();
+          evt.onerror = (event: any) => {
+            console.error(event);
+            reject(Error(event));
+          };
+          evt.onsuccess = (event: any) => {
             const cursor = event.target.result;
             if (cursor) {
               items.push(cursor.value);
@@ -123,10 +135,16 @@ export class ApplicationDb {
             resolve(result);
           }).catch (function (error) {
             console.error('Request failed', error);
+            reject();
           });
         } else {
           this.getObjectStore().then(() => {
-            this.objectStore.get(id).onsuccess = (event: any) => {
+            const evt = this.objectStore.get(id);
+            evt.onerror = (event: any) => {
+              console.error(event);
+              reject(Error(event));
+            };
+            evt.onsuccess = (event: any) => {
               resolve(event.target.result);
             };
           });
@@ -146,10 +164,16 @@ export class ApplicationDb {
           resolve();
         }).catch (function (error) {
           console.error('Request failed', error);
+          reject();
         });
       } else {
         this.getObjectStore().then(() => {
-          this.objectStore.delete(id).onsuccess = (event: any) => {
+          const evt = this.objectStore.delete(id);
+          evt.onerror = (event: any) => {
+            console.error(event);
+            reject(Error(event));
+          };
+          evt.onsuccess = (event: any) => {
             resolve();
           };
         });

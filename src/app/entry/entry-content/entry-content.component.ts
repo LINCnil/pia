@@ -14,6 +14,7 @@ import { PaginationService } from './pagination.service';
 import { TranslateService } from '@ngx-translate/core';
 import { SidStatusService } from 'app/services/sid-status.service';
 import { GlobalEvaluationService } from 'app/services/global-evaluation.service';
+import { KnowledgeBaseService } from 'app/entry/knowledge-base/knowledge-base.service';
 
 @Component({
   selector: 'app-entry-content',
@@ -31,17 +32,21 @@ export class EntryContentComponent implements OnInit, OnChanges {
   constructor(private _router: Router,
               private _appDataService: AppDataService,
               private _activatedRoute: ActivatedRoute,
-              protected _measureService: MeasureService,
+              public _measureService: MeasureService,
               private _modalsService: ModalsService,
-              protected _piaService: PiaService,
-              protected _sidStatusService: SidStatusService,
-              protected _globalEvaluationService: GlobalEvaluationService,
+              public _piaService: PiaService,
+              public _sidStatusService: SidStatusService,
+              public _globalEvaluationService: GlobalEvaluationService,
               private _evaluationService: EvaluationService,
-              protected _paginationService: PaginationService,
-              private _translateService: TranslateService) {
-  }
+              public _paginationService: PaginationService,
+              private _translateService: TranslateService,
+              private _knowledgeBaseService: KnowledgeBaseService) { }
 
   ngOnInit() {
+    // Reset measures no longer addable from KB when switching PIA
+    this._knowledgeBaseService.toHide = [];
+
+    // Update the last edited date for this PIA
     this._piaService.getPIA().then(() => {
       this._piaService.pia.updated_at = new Date();
       this._piaService.pia.update();
@@ -75,7 +80,6 @@ export class EntryContentComponent implements OnInit, OnChanges {
     //     this._router.navigate(['entry', this._piaService.pia.id, 'section', 1, 'item', 1])
     //   }
     // }
-
   }
 
   /**
@@ -84,14 +88,19 @@ export class EntryContentComponent implements OnInit, OnChanges {
    */
   prepareForEvaluation() {
     this._globalEvaluationService.prepareForEvaluation().then(() => {
-      this._router.navigate([
-        'entry', this._piaService.pia.id, 'section',
-        this._paginationService.nextLink[0], 'item',
-        this._paginationService.nextLink[1]
-      ]);
-      this._modalsService.openModal('ask-for-evaluation');
+      this.goToNextSectionItem(0, 4);
+      let isPiaFullyEdited = true;
+      for (const el in this._sidStatusService.itemStatus) {
+        if (this._sidStatusService.itemStatus.hasOwnProperty(el) && this._sidStatusService.itemStatus[el] < 4 && el !== '4.3') {
+          isPiaFullyEdited = false;
+        }
+      }
+      if (isPiaFullyEdited) {
+        this._modalsService.openModal('completed-edition');
+      } else {
+        this._modalsService.openModal('ask-for-evaluation');
+      }
     });
-    // this._evaluationService.prepareForEvaluation(this._piaService, this._sidStatusService, this.section, this.item);
   }
 
   /**
@@ -100,20 +109,63 @@ export class EntryContentComponent implements OnInit, OnChanges {
    */
   validateEvaluation() {
     this._globalEvaluationService.validateAllEvaluation().then((toFix: boolean) => {
-      this._router.navigate([
-        'entry',
-        this._piaService.pia.id,
-        'section',
-        this._paginationService.nextLink[0],
-        'item',
-        this._paginationService.nextLink[1]
-      ]);
-      if (toFix) {
+      this.goToNextSectionItem(5, 7);
+      let isPiaFullyEvaluated = true;
+      for (const el in this._sidStatusService.itemStatus) {
+        if (this._sidStatusService.itemStatus.hasOwnProperty(el) && this._sidStatusService.itemStatus[el] !== 7 && el !== '4.3') {
+          isPiaFullyEvaluated = false;
+        }
+      }
+      if (isPiaFullyEvaluated) {
+        this._modalsService.openModal('completed-evaluation');
+      } else if (toFix) {
         this._modalsService.openModal('validate-evaluation-to-correct');
       } else {
         this._modalsService.openModal('validate-evaluation');
       }
     });
+  }
+
+  /**
+   * Get next item to go
+   * @private
+   * @param {number} status_start
+   * @param {number} status_end
+   * @memberof EntryContentComponent
+   */
+  private goToNextSectionItem(status_start: number, status_end: number) {
+    let goto_section = null;
+    let goto_item = null;
+
+    const itemStatus = Object.keys(this._sidStatusService.itemStatus).sort().reduce(
+      (r, k) => (r[k] = this._sidStatusService.itemStatus[k], r), {}
+    );
+
+    for (const el in itemStatus) {
+      if (this._sidStatusService.itemStatus.hasOwnProperty(el) &&
+          this._sidStatusService.itemStatus[el] >= status_start &&
+          this._sidStatusService.itemStatus[el] < status_end &&
+          el !== '4.3') {
+        const reference_to = el.split('.');
+        goto_section = reference_to[0];
+        goto_item = reference_to[1];
+        break;
+      }
+    }
+
+    if (!goto_section || !goto_item) {
+      goto_section = this._paginationService.nextLink[0];
+      goto_item = this._paginationService.nextLink[1];
+    }
+
+    this._router.navigate([
+      'entry',
+      this._piaService.pia.id,
+      'section',
+      goto_section,
+      'item',
+      goto_item
+    ]);
   }
 
   /**

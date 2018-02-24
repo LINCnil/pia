@@ -94,6 +94,7 @@ export class ActionPlanImplementationComponent implements OnInit {
     }
     this.evaluation.person_in_charge = userText;
     this.evaluation.update().then(() => {
+      this.actionPlanForm.controls['personInCharge'].disable();
       if (userText && userText.length > 0) {
         // TODO Unable to FocusIn with Firefox
         // this.actionPlanForm.controls['personInCharge'].disable();

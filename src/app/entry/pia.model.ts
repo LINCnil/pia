@@ -3,7 +3,7 @@ import { Answer } from 'app/entry/entry-content/questions/answer.model';
 
 export class Pia extends ApplicationDb {
   public id: number;
-  public status: number; // 0: doing, 1: refused, 2: simple_validation, 3: signed_validation, 4: archived
+  public status = 0; // 0: doing, 1: refused, 2: simple_validation, 3: signed_validation, 4: archived
   public name: string;
   public author_name: string;
   public evaluator_name: string;
@@ -19,10 +19,11 @@ export class Pia extends ApplicationDb {
   public dpos_names: string;
   public people_names: string;
   public progress: number;
+  public is_example = 0;
   public numberOfQuestions = 36; // TODO Auto calcul questions number
 
   constructor() {
-    super(201707071818, 'pia');
+    super(201802221337, 'pia');
     this.created_at = new Date();
   }
 
@@ -35,6 +36,9 @@ export class Pia extends ApplicationDb {
       this.findAll().then((entries: any) => {
         if (entries && entries.length > 0) {
           entries.forEach(element => {
+            if (element.is_example && element.is_example === 1) {
+              return;
+            }
             const newPia = new Pia();
             newPia.id = element.id;
             newPia.name = element.name;
@@ -52,6 +56,7 @@ export class Pia extends ApplicationDb {
             newPia.people_names = element.people_names;
             newPia.concerned_people_searched_opinion = element.concerned_people_searched_opinion;
             newPia.concerned_people_searched_content = element.concerned_people_searched_content;
+            newPia.is_example = element.is_example;
             newPia.created_at = new Date(element.created_at);
             newPia.updated_at = new Date(element.updated_at);
             const answer = new Answer();
@@ -94,7 +99,8 @@ export class Pia extends ApplicationDb {
       applied_adjustements: this.applied_adjustements,
       created_at: this.created_at,
       updated_at: this.updated_at,
-      status: 0,
+      status: this.status,
+      is_example: this.is_example,
       dpos_names: this.dpos_names,
       people_names: this.people_names,
       concerned_people_searched_opinion: this.concerned_people_searched_opinion,
@@ -118,10 +124,16 @@ export class Pia extends ApplicationDb {
           resolve(result.id);
         }).catch ((error) => {
           console.error('Request failed', error);
+          reject();
         });
       } else {
         this.getObjectStore().then(() => {
-          this.objectStore.add(data).onsuccess = (event: any) => {
+          const evt = this.objectStore.add(data);
+          evt.onerror = (event: any) => {
+            console.error(event);
+            reject(Error(event));
+          }
+          evt.onsuccess = (event: any) => {
             resolve(event.target.result);
           };
         });
@@ -143,6 +155,7 @@ export class Pia extends ApplicationDb {
         entry.rejected_reason = this.rejected_reason;
         entry.applied_adjustements = this.applied_adjustements;
         entry.status = this.status;
+        entry.is_example = this.is_example;
         entry.dpos_names = this.dpos_names;
         entry.people_names = this.people_names;
         entry.concerned_people_searched_opinion = this.concerned_people_searched_opinion;
@@ -164,10 +177,16 @@ export class Pia extends ApplicationDb {
             resolve();
           }).catch ((error) => {
             console.error('Request failed', error);
+            reject();
           });
         } else {
           this.getObjectStore().then(() => {
-            this.objectStore.put(entry).onsuccess = () => {
+            const evt = this.objectStore.put(entry);
+            evt.onerror = (event: any) => {
+              console.error(event);
+              reject(Error(event));
+            }
+            evt.onsuccess = () => {
               resolve();
             };
           });
@@ -182,6 +201,7 @@ export class Pia extends ApplicationDb {
       this.find(this.id).then((entry: any) => {
         if (entry) {
           this.status = entry.status;
+          this.is_example = entry.is_example;
           this.name = entry.name;
           this.author_name = entry.author_name;
           this.evaluator_name = entry.evaluator_name;
@@ -201,6 +221,57 @@ export class Pia extends ApplicationDb {
         }
         resolve();
       });
+    });
+  }
+
+  async getPiaExample() {
+    return new Promise((resolve, reject) => {
+      if (this.serverUrl) {
+        fetch(this.getServerUrl()).then((response) => {
+          return response.json();
+        }).then((result: any) => {
+          resolve(result);
+        }).catch((error) => {
+          console.error('Request failed', error);
+          reject();
+        });
+      } else {
+        this.getObjectStore().then(() => {
+          const index3 = this.objectStore.index('index3');
+          const evt = index3.get(IDBKeyRange.only(1));
+          evt.onerror = (event: any) => {
+            console.error(event);
+            reject(Error(event));
+          }
+          evt.onsuccess = (event: any) => {
+              const entry = event.target.result;
+              if (entry) {
+                this.id = entry.id;
+                this.status = entry.status;
+                this.is_example = entry.is_example;
+                this.name = entry.name;
+                this.author_name = entry.author_name;
+                this.evaluator_name = entry.evaluator_name;
+                this.validator_name = entry.validator_name;
+                this.dpo_status = entry.dpo_status;
+                this.dpo_opinion = entry.dpo_opinion;
+                this.concerned_people_opinion = entry.concerned_people_opinion;
+                this.concerned_people_status = entry.concerned_people_status;
+                this.rejected_reason = entry.rejected_reason;
+                this.applied_adjustements = entry.applied_adjustements;
+                this.created_at = new Date(entry.created_at);
+                this.updated_at = new Date(entry.updated_at);
+                this.dpos_names = entry.dpos_names;
+                this.people_names = entry.people_names;
+                this.concerned_people_searched_opinion = entry.concerned_people_searched_opinion;
+                this.concerned_people_searched_content = entry.concerned_people_searched_content;
+                resolve(entry);
+              } else {
+                resolve(false);
+              }
+            }
+        });
+      }
     });
   }
 
