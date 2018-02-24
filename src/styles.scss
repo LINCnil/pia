@@ -201,12 +201,15 @@ tag-input-form {
 }
 .pia-markdown {
   line-height: 1.7rem;
+  thead {
+    display: none;
+  }
   td, th {
     font-weight: 400;
     text-align: left;
     &:last-of-type {
       text-align: justify;
-      padding: 0 15px;
+      padding: 15px;
       vertical-align: top;
     }
   }
@@ -221,6 +224,9 @@ tag-input-form {
     display: block;
     font-weight: 400;
   }
+  table + h2 {
+    margin-top: 50px;
+  }
   h3 {
     padding: 17px 12px 5px 12px;
     font-size: 1.7rem;
@@ -229,17 +235,17 @@ tag-input-form {
     color: $pia-gray-dark;
     margin: 0 12px;
   }
-  tr th:first-child {
-    box-shadow: 1px 1px 15px 1px #d2d2d2;
+  p {
+    max-width: 610px;
+  }
+  tr td {
     padding: 15px;
-    background-color: white;
+    border: none !important;
+    &:first-child {
+      box-shadow: 1px 1px 15px 1px #d2d2d2;
+    }
   }
   img {
     max-width: 650px!important;
-
-
-  }
-  .pia-markdown {
-    //position: fixed!important;
   }
 }
