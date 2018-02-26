@@ -19,7 +19,6 @@
                 "PIA_DEF_FIN"
               ],
               "placeholder": "sections.1.items.1.questions.1.placeholder",
-              "highlight_words": "",
               "answer_type": "text",
               "keywords": "",
               "active": true
@@ -33,7 +32,6 @@
                 "PIA_DEF_ST"
               ],
               "placeholder": "sections.1.items.1.questions.2.placeholder",
-              "highlight_words": "",
               "answer_type": "text",
               "keywords": "",
               "active": true
@@ -45,7 +43,6 @@
                 "PIA_LGL_DESC"
               ],
               "placeholder": "sections.1.items.1.questions.3.placeholder",
-              "highlight_words": "",
               "answer_type": "text",
               "keywords": "",
               "active": true
@@ -68,7 +65,6 @@
                 "PIA_DEF_DEST"
               ],
               "placeholder": "sections.1.items.2.questions.1.placeholder",
-              "highlight_words": "",
               "answer_type": "text",
               "keywords": "",
               "active": true
@@ -80,7 +76,6 @@
                 "PIA_LGL_LCYC"
               ],
       			  "placeholder": "sections.1.items.2.questions.2.placeholder",
-      			  "highlight_words": "",
       			  "answer_type": "text",
       			  "keywords": "",
       			  "active": true
@@ -92,7 +87,6 @@
                 "PIA_LGL_SUPT"
               ],
       			  "placeholder": "sections.1.items.2.questions.3.placeholder",
-      			  "highlight_words": "",
       			  "answer_type": "text",
       			  "keywords": "",
       			  "active": true
@@ -121,7 +115,6 @@
                 "PIA_DEF_FIN"
               ],
               "placeholder": "sections.2.items.1.questions.1.placeholder",
-              "highlight_words": "",
               "answer_type": "text",
               "keywords": "",
               "active": true
@@ -134,7 +127,6 @@
                 "PIA_LGL_FOND"
               ],
               "placeholder": "sections.2.items.1.questions.2.placeholder",
-              "highlight_words": "",
               "answer_type": "text",
               "keywords": "",
               "active": true
@@ -149,7 +141,6 @@
                 "PIA_DEF_MIND"
               ],
               "placeholder": "sections.2.items.1.questions.3.placeholder",
-              "highlight_words": "",
               "answer_type": "text",
               "keywords": "",
               "active": true
@@ -162,7 +153,6 @@
                 "PIA_DEF_EXA"
               ],
               "placeholder": "sections.2.items.1.questions.4.placeholder",
-              "highlight_words": "",
               "answer_type": "text",
               "keywords": "",
               "active": true
@@ -175,7 +165,6 @@
                 "PIA_LGL_DUR"
               ],
               "placeholder": "sections.2.items.1.questions.5.placeholder",
-              "highlight_words": "",
               "answer_type": "text",
               "keywords": "",
               "active": true
@@ -196,7 +185,6 @@
                 "PIA_LGL_INFO"
               ],
               "placeholder": "sections.2.items.2.questions.1.placeholder",
-              "highlight_words": "",
               "answer_type": "text",
               "keywords": "",
               "active": true
@@ -210,7 +198,6 @@
                 "PIA_DEF_CONS"
               ],
               "placeholder": "sections.2.items.2.questions.2.placeholder",
-              "highlight_words": "",
               "answer_type": "text",
               "keywords": "",
               "active": true
@@ -226,7 +213,6 @@
                 "PIA_DEF_PORT"
               ],
               "placeholder": "sections.2.items.2.questions.3.placeholder",
-              "highlight_words": "",
               "answer_type": "text",
               "keywords": "",
               "active": true
@@ -242,7 +228,6 @@
                 "PIA_DEF_RECT"
               ],
               "placeholder": "sections.2.items.2.questions.4.placeholder",
-              "highlight_words": "",
               "answer_type": "text",
               "keywords": "",
               "active": true
@@ -256,7 +241,6 @@
                 "PIA_DEF_LIM"
               ],
               "placeholder": "sections.2.items.2.questions.5.placeholder",
-              "highlight_words": "",
               "answer_type": "text",
               "keywords": "",
               "active": true
@@ -270,7 +254,6 @@
                 "PIA_DEF_ST"
               ],
               "placeholder": "sections.2.items.2.questions.6.placeholder",
-              "highlight_words": "",
               "answer_type": "text",
               "keywords": "",
               "active": true
@@ -283,7 +266,6 @@
                 "PIA_LGL_TRAN"
               ],
               "placeholder": "sections.2.items.2.questions.7.placeholder",
-              "highlight_words": "",
               "answer_type": "text",
               "keywords": "",
               "active": true
@@ -321,7 +303,6 @@
                 "PIA_DEF_IMP"
               ],
               "placeholder": "sections.3.items.2.questions.1.placeholder",
-              "highlight_words": "impacts sur les personnes",
               "answer_type": "list",
               "keywords": "",
               "active": true
@@ -337,7 +318,6 @@
                 "PIA_EX_MENI"
               ],
               "placeholder": "sections.3.items.2.questions.2.placeholder",
-              "highlight_words": "menaces",
               "answer_type": "list",
               "keywords": "",
               "active": true
@@ -353,7 +333,6 @@
                 "PIA_EX_NHUM"
               ],
               "placeholder": "sections.3.items.2.questions.3.placeholder",
-              "highlight_words": "sources",
               "answer_type": "list",
               "keywords": "",
               "active": true
@@ -367,7 +346,6 @@
                 "PIA_DEF_MES"
               ],
               "placeholder": "sections.3.items.2.questions.4.placeholder",
-              "highlight_words": "mesures",
               "answer_type": "list",
               "keywords": "",
               "active": true
@@ -385,7 +363,6 @@
                 "PIA_EX_IMPM"
               ],
               "placeholder": "sections.3.items.2.questions.5.placeholder",
-              "highlight_words": "gravité du risque",
               "answer_type": "gauge",
               "cartography": "risk-access_x",
               "keywords": "",
@@ -403,7 +380,6 @@
                 "PIA_EX_VRAM"
               ],
               "placeholder": "sections.3.items.2.questions.6.placeholder",
-              "highlight_words": "vraisemblance du risque",
               "answer_type": "gauge",
               "cartography": "risk-access_y",
               "keywords": "",
@@ -426,7 +402,6 @@
                 "PIA_DEF_IMP"
               ],
               "placeholder": "sections.3.items.3.questions.1.placeholder",
-              "highlight_words": "impacts sur les personnes",
               "answer_type": "list",
               "keywords": "",
               "active": true
@@ -442,7 +417,6 @@
                 "PIA_EX_MENI"
               ],
               "placeholder": "sections.3.items.3.questions.2.placeholder",
-              "highlight_words": "menaces",
               "answer_type": "list",
               "keywords": "",
               "active": true
@@ -458,7 +432,6 @@
                 "PIA_EX_NHUM"
               ],
               "placeholder": "sections.3.items.3.questions.3.placeholder",
-              "highlight_words": "sources",
               "answer_type": "list",
               "keywords": "",
               "active": true
@@ -472,7 +445,6 @@
                 "PIA_DEF_MES"
                ],
               "placeholder": "sections.3.items.3.questions.4.placeholder",
-              "highlight_words": "mesures",
               "answer_type": "list",
               "keywords": "",
               "active": true
@@ -490,7 +462,6 @@
                 "PIA_EX_IMPM"
               ],
               "placeholder": "sections.3.items.3.questions.5.placeholder",
-              "highlight_words": "gravité du risque",
               "answer_type": "gauge",
               "cartography": "risk-change_x",
               "keywords": "",
@@ -508,7 +479,6 @@
                 "PIA_EX_VRAM"
               ],
               "placeholder": "sections.3.items.3.questions.6.placeholder",
-              "highlight_words": "vraisemblance du risque",
               "answer_type": "gauge",
               "cartography": "risk-change_y",
               "keywords": "",
@@ -531,7 +501,6 @@
                 "PIA_DEF_IMP"
               ],
               "placeholder": "sections.3.items.4.questions.1.placeholder",
-              "highlight_words": "impacts sur les personnes",
               "answer_type": "list",
               "keywords": "",
               "active": true
@@ -547,7 +516,6 @@
                 "PIA_EX_MENI"
               ],
               "placeholder": "sections.3.items.4.questions.2.placeholder",
-              "highlight_words": "menaces",
               "answer_type": "list",
               "keywords": "",
               "active": true
@@ -563,7 +531,6 @@
                 "PIA_EX_NHUM"
               ],
               "placeholder": "sections.3.items.4.questions.3.placeholder",
-              "highlight_words": "sources",
               "answer_type": "list",
               "keywords": "",
               "active": true
@@ -577,7 +544,6 @@
                 "PIA_DEF_MES"
               ],
               "placeholder": "sections.3.items.4.questions.4.placeholder",
-              "highlight_words": "mesures",
               "answer_type": "list",
               "keywords": "",
               "active": true
@@ -595,7 +561,6 @@
                 "PIA_EX_IMPM"
               ],
               "placeholder": "sections.3.items.4.questions.5.placeholder",
-              "highlight_words": "gravité du risque",
               "answer_type": "gauge",
               "cartography": "risk-disappearance_x",
               "keywords": "",
@@ -613,7 +578,6 @@
                 "PIA_EX_VRAM"
               ],
               "placeholder": "sections.3.items.4.questions.6.placeholder",
-              "highlight_words": "vraisemblance du risque",
               "answer_type": "gauge",
               "cartography": "risk-disappearance_y",
               "keywords": "",

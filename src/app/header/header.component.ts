@@ -1,26 +1,45 @@
 import { Component, DoCheck, OnInit } from '@angular/core';
 import { Renderer2 } from '@angular/core';
 import { environment } from '../../environments/environment';
+import { Http } from '@angular/http';
+import { Router } from '@angular/router';
+
+import { Pia } from 'app/entry/pia.model';
 
 import { TranslateService } from '@ngx-translate/core';
+import { PiaService } from 'app/entry/pia.service';
+import { ModalsService } from 'app/modals/modals.service';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  styleUrls: ['./header.component.scss'],
+  providers: [PiaService],
 })
 export class HeaderComponent implements OnInit, DoCheck {
   public increaseContrast: string;
   appVersion: string;
   selectedLanguage: string;
+  headerForHome: boolean;
 
-  constructor(private renderer: Renderer2, protected _translateService: TranslateService) {
+  constructor(private _router: Router,
+              private renderer: Renderer2,
+              private _translateService: TranslateService,
+              public _piaService: PiaService,
+              private _modalsService: ModalsService,
+              private _http: Http) {
     this.updateContrast();
   }
 
   ngOnInit() {
     this.appVersion = environment.version;
     this.getUserLanguage();
+
+    // Set the visibility for the PIA example button according to the current url
+    this.headerForHome = (this._router.url === '/home/card' ||
+                          this._router.url === '/home/list' ||
+                          this._router.url === '/about' ||
+                          this._router.url === '/settings') ? true : false;
   }
 
   ngDoCheck() {
@@ -44,6 +63,7 @@ export class HeaderComponent implements OnInit, DoCheck {
    */
   updateCurrentLanguage(selectedLanguage: string) {
     localStorage.setItem('userLanguage', selectedLanguage);
+    this._translateService.use(selectedLanguage);
   }
 
   /**
@@ -72,5 +92,27 @@ export class HeaderComponent implements OnInit, DoCheck {
     } else {
       this.renderer.removeClass(document.body, 'pia-contrast');
     }
+  }
+
+  importPiaExample() {
+    return new Promise((resolve, reject) => {
+      const pia = new Pia();
+      pia.getPiaExample().then((entry: any) => {
+        if (entry) {
+          this._router.navigate(['entry', entry.id, 'section', 1, 'item', 1]);
+        } else {
+          this._http.get('./assets/files/2018-02-21-pia-example.json').map(res => res.json()).subscribe(data => {
+            this._piaService.importData(data, 'EXAMPLE', false, true).then(() => {
+              pia.getPiaExample().then((entry2: any) => {
+                this._router.navigate(['entry', entry2.id, 'section', 1, 'item', 1]);
+              });
+            });
+
+            resolve();
+          });
+        }
+      });
+
+    });
   }
 }

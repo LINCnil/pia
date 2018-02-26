@@ -41,7 +41,7 @@ export class EvaluationsComponent implements OnInit, AfterViewChecked, OnDestroy
 
   constructor(private el: ElementRef,
               private _evaluationService: EvaluationService,
-              protected _globalEvaluationService: GlobalEvaluationService,
+              public _globalEvaluationService: GlobalEvaluationService,
               private _ngZone: NgZone,
               private _knowledgeBaseService: KnowledgeBaseService,
               private _sidStatusService: SidStatusService,
@@ -165,7 +165,7 @@ export class EvaluationsComponent implements OnInit, AfterViewChecked, OnDestroy
     // this._evaluationService.isAllEvaluationValidated();
   }
 
-  autoTextareaResize(event: any, textarea: any) {
+  autoTextareaResize(event: any, textarea?: any) {
     if (event) {
       textarea = event.target;
     }

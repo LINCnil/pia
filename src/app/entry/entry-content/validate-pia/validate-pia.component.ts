@@ -21,10 +21,10 @@ export class ValidatePIAComponent implements OnInit {
 
   constructor(private el: ElementRef,
               private _modalsService: ModalsService,
-              protected _attachmentsService: AttachmentsService,
+              public _attachmentsService: AttachmentsService,
               private _actionPlanService: ActionPlanService,
               private _translateService: TranslateService,
-              protected _piaService: PiaService ) {
+              public _piaService: PiaService ) {
   }
 
   ngOnInit() {
@@ -39,7 +39,10 @@ export class ValidatePIAComponent implements OnInit {
       this.validateForm.controls['validateStatus2'].patchValue(this._piaService.pia.status > 1);
       this.validateForm.controls['validateStatus3'].patchValue(this._piaService.pia.status > 1);
       this.validateForm.controls['validateStatus4'].patchValue(this._piaService.pia.status > 1);
-      this._attachmentsService.setSignedPia();
+
+      /* this._attachmentsService.getSignedAttachmentsList(); */
+      this._attachmentsService.updateSignedAttachmentsList();
+
       this._actionPlanService.listActionPlan(this._translateService);
     });
   }
@@ -79,7 +82,7 @@ export class ValidatePIAComponent implements OnInit {
    * @memberof ValidatePIAComponent
    */
   lockStatus(event: any) {
-    if (this._piaService.pia.status > 1) {
+    if (this._piaService.pia.status > 1  || this._piaService.pia.is_example === 1) {
       return false;
     } else {
       const clickedRadioButton = event.target || event.srcElement || event.currentTarget;

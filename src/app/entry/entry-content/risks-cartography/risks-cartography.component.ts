@@ -161,7 +161,11 @@ export class RisksCartographyComponent implements OnInit, OnDestroy {
       if (this.dataJSON['risk-access']['author'].x && this.dataJSON['risk-access']['author'].y) {
         // Author dots (red)
         context.beginPath();
-        context.fillStyle = '#FD4664';
+        if (localStorage.getItem('increaseContrast') === 'true') {
+          context.fillStyle = '#C40288';
+        } else {
+          context.fillStyle = '#FD4664';
+        }
         context.arc(this.dataJSON['risk-access']['author'].x + 8,
                     this.dataJSON['risk-access']['author'].y, 7, 0, Math.PI * 2, true);
         context.fill();
@@ -177,7 +181,11 @@ export class RisksCartographyComponent implements OnInit, OnDestroy {
 
       if (this.dataJSON['risk-change']['author'].x && this.dataJSON['risk-change']['author'].y) {
         context.beginPath();
-        context.fillStyle = '#FD4664';
+        if (localStorage.getItem('increaseContrast') === 'true') {
+          context.fillStyle = '#C40288';
+        } else {
+          context.fillStyle = '#FD4664';
+        }
         context.arc(this.dataJSON['risk-change']['author'].x,
                     this.dataJSON['risk-change']['author'].y, 7, 0, Math.PI * 2, true);
         context.fill();
@@ -193,7 +201,11 @@ export class RisksCartographyComponent implements OnInit, OnDestroy {
 
       if (this.dataJSON['risk-disappearance']['author'].x && this.dataJSON['risk-disappearance']['author'].y) {
         context.beginPath();
-        context.fillStyle = '#FD4664';
+        if (localStorage.getItem('increaseContrast') === 'true') {
+          context.fillStyle = '#C40288';
+        } else {
+          context.fillStyle = '#FD4664';
+        }
         context.arc(this.dataJSON['risk-disappearance']['author'].x - 8,
                     this.dataJSON['risk-disappearance']['author'].y, 7, 0, Math.PI * 2, true);
         context.fill();

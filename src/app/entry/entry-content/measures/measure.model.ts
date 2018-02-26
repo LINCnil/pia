@@ -34,10 +34,16 @@ export class Measure extends ApplicationDb {
           resolve(result.id);
         }).catch((error) => {
           console.error('Request failed', error);
+          reject();
         });
       } else {
         this.getObjectStore().then(() => {
-          this.objectStore.add(data).onsuccess = (event: any) => {
+          const evt = this.objectStore.add(data);
+          evt.onerror = (event: any) => {
+            console.error(event);
+            reject(Error(event));
+          }
+          evt.onsuccess = (event: any) => {
             resolve(event.target.result);
           };
         });
@@ -65,10 +71,16 @@ export class Measure extends ApplicationDb {
             resolve();
           }).catch((error) => {
             console.error('Request failed', error);
+            reject();
           });
         } else {
           this.getObjectStore().then(() => {
-            this.objectStore.put(entry).onsuccess = (event: any) => {
+            const evt = this.objectStore.put(entry);
+            evt.onerror = (event: any) => {
+              console.error(event);
+              reject(Error(event));
+            }
+            evt.onsuccess = (event: any) => {
               resolve();
             };
           });
@@ -103,11 +115,17 @@ export class Measure extends ApplicationDb {
           resolve(result);
         }).catch((error) => {
           console.error('Request failed', error);
+          reject();
         });
       } else {
         this.getObjectStore().then(() => {
           const index1 = this.objectStore.index('index1');
-          index1.openCursor(IDBKeyRange.only(this.pia_id)).onsuccess = (event: any) => {
+          const evt = index1.openCursor(IDBKeyRange.only(this.pia_id));
+          evt.onerror = (event: any) => {
+            console.error(event);
+            reject(Error(event));
+          }
+          evt.onsuccess = (event: any) => {
             const cursor = event.target.result;
             if (cursor) {
               items.push(cursor.value);

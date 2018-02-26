@@ -36,7 +36,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
               private _evaluationService: EvaluationService,
               private _modalsService: ModalsService,
               private _ngZone: NgZone,
-              protected _globalEvaluationService: GlobalEvaluationService,
+              public _globalEvaluationService: GlobalEvaluationService,
               private renderer: Renderer2) { }
 
   ngOnInit() {
@@ -249,6 +249,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
     if (this.answer.id) {
       this.answer.data = { text: this.answer.data.text, gauge: this.answer.data.gauge, list: list };
       this.answer.update().then(() => {
+        this._globalEvaluationService.validate();
         // this._evaluationService.allowEvaluation();
       });
     } else {
@@ -256,6 +257,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
       this.answer.reference_to = this.question.id;
       this.answer.data = { text: null, gauge: null, list: list };
       this.answer.create().then(() => {
+        this._globalEvaluationService.validate();
         // this._evaluationService.allowEvaluation();
       });
     }
@@ -265,7 +267,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
    * Shows or hides a question.
    */
   displayQuestion(event: any) {
-    const accordeon = this.el.nativeElement.querySelector('.pia-questionBlock-title button');
+    const accordeon = this.el.nativeElement.querySelector('.pia-accordeon');
     accordeon.classList.toggle('pia-icon-accordeon-down');
     const displayer = this.el.nativeElement.querySelector('.pia-questionBlock-displayer');
     displayer.classList.toggle('close');

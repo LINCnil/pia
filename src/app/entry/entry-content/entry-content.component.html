@@ -10,6 +10,14 @@
         *ngIf="_sidStatusService.specialIcon[section.id + '.' + item.id]"
         [ngClass]="_sidStatusService.specialIcon[section.id + '.' + item.id]"
         aria-hidden="true"></i>
+        <div class="pia-entryContentBlock-header-progress">
+          <div *ngIf="_sidStatusService.itemStatus[section.id + '.' + item.id] < 4">
+            {{ 'pia.header.edition' | translate }}
+          </div>
+          <div *ngIf="_sidStatusService.itemStatus[section.id + '.' + item.id] === 7">
+            {{ 'pia.header.evaluation' | translate }}
+          </div>
+        </div>
     </div>
     <div class="pia-entryContentBlock-header-title">
       <h1 *ngIf="section.title">{{ section.title | translate }}</h1>
@@ -29,14 +37,14 @@
     </ng-template>
   </header>
 
-  <div class="pia-status-info" *ngIf="_globalEvaluationService.status === 4">
+  <div class="pia-status-info" *ngIf="_globalEvaluationService.status === 4 && _piaService.pia.is_example === 0">
     <strong>{{ 'pia.sections.status.evaluation.title' | translate }}</strong>
     <p>
       <span [innerHTML]="'pia.sections.status.evaluation.content' | translate"></span>
       <a href="javascript:;" (click)="cancelAskForEvaluation()" [innerHTML]="'pia.sections.status.evaluation.cancel' | translate"></a>
     </p>
   </div>
-  <div class="pia-status-info" *ngIf="_globalEvaluationService.status === 7">
+  <div class="pia-status-info" *ngIf="_globalEvaluationService.status === 7 && _piaService.pia.is_example === 0 && !(section.id == 4 && item.id == 3)">
     <strong>{{ 'pia.sections.status.validation.title' | translate }}</strong>
     <p>
       <span [innerHTML]="'pia.sections.status.validation.content' | translate"></span>
@@ -74,14 +82,14 @@
       <button class="btn btn-green" (click)="prepareForEvaluation()"
               *ngIf="_globalEvaluationService.status === 1 || _globalEvaluationService.status === 2 || _globalEvaluationService.status === 3"
               [ngClass]="{'btn-active': _globalEvaluationService.status === 2 || _globalEvaluationService.status === 3}"
-              [disabled]="_globalEvaluationService.status === 1" type="submit">{{ 'pia.footer.ask_evaluation' | translate }}</button>
+              [disabled]="_globalEvaluationService.status === 1">{{ 'pia.footer.ask_evaluation' | translate }}</button>
       <button class="btn btn-green" (click)="validateEvaluation()"
               *ngIf="_globalEvaluationService.status === 5 || _globalEvaluationService.status === 6"
               [ngClass]="{'btn-active': _globalEvaluationService.status === 6}"
-              [disabled]="_globalEvaluationService.status === 5" type="submit">{{ 'pia.footer.validate_evaluation' | translate }}</button>
+              [disabled]="_globalEvaluationService.status === 5">{{ 'pia.footer.validate_evaluation' | translate }}</button>
       <button class="btn btn-pending-validation"
               disabled
-              *ngIf="_globalEvaluationService.status === 7">
+              *ngIf="_globalEvaluationService.status === 7 && !(section.id == 4 && item.id == 3)">
         <i class="fa fa-check-square-o" aria-hidden="true"></i>
         {{ 'pia.footer.subsection_validated' | translate }}
       </button>
@@ -89,9 +97,9 @@
       <p>{{ 'pia.footer.mandatory_fields' | translate }}</p>
 
       <button class="btn pia-cancelBtn" (click)="cancelAskForEvaluation()"
-              *ngIf="_globalEvaluationService.status === 4">Annuler la demande d'évaluation</button>
+              *ngIf="_piaService.pia.is_example === 0 && _globalEvaluationService.status === 4">{{ 'pia.sections.status.evaluation.cancel_button' | translate }}</button>
       <button class="btn pia-cancelBtn" (click)="cancelValidateEvaluation()"
-              *ngIf="_globalEvaluationService.status === 7">Annuler la demande de validation</button>
+              *ngIf="_piaService.pia.is_example === 0 && _globalEvaluationService.status === 7 && !(section.id == 4 && item.id == 3)">{{ 'pia.sections.status.validation.cancel_button' | translate }}</button>
     </div>
 
     <div class="pia-entryContentBlock-footer-nav">

@@ -5,17 +5,17 @@
           <span *ngIf="questionDate && questionDate.toString() !== 'Invalid Date'">{{questionDate | date: 'dd/MM/yyyy'}}</span>
         </time>
         <div class="pia-commentsBlock-btn">
-            <button class="btn" type="button" (click)="toggleNewCommentBox()"><i class="fa fa-comment-o" aria-hidden="true"></i> {{ 'comments.new_comment' | translate }}</button>
-            <button class="btn" (click)="displayCommentsList()" type="button" title="{{ 'misc.display' | translate }}">
-      <span class="pia-icons pia-icon-accordeon-down"></span>
-      </button>
+          <button class="btn" type="button" (click)="toggleNewCommentBox()"><i class="fa fa-comment-o" aria-hidden="true"></i> {{ 'comments.new_comment' | translate }}</button>
+          <button class="btn" (click)="displayCommentsList()" type="button" title="{{ 'misc.display' | translate }}">
+          <span class="pia-icons pia-icon-accordeon-down"></span>
+          </button>
         </div>
     </div>
     <div class="pia-commentsBlock-list close">
       <form [formGroup]="commentsForm" class="pia-commentsBlock-new fadeIn">
         <textarea formControlName="description" (ngModelChange)="newCommentOnChange($event)" placeholder="{{ 'comments.placeholder_new_comment' | translate }}" rows="8" cols="50"></textarea>
       </form>
-      <button type="button" *ngIf="displayCommentValidateBtn" class="btn pia-commentBtnSubmit btn-green" [disabled]="!newCommentDisplayer" (click)="newCommentClickBtn()">{{ 'comments.send' | translate }}</button>
+      <button type="button" *ngIf="displayCommentValidateBtn && this.pia.is_example === 0" class="btn pia-commentBtnSubmit btn-green" [disabled]="!newCommentDisplayer" (click)="newCommentClickBtn()">{{ 'comments.send' | translate }}</button>
       <app-comment-item *ngFor="let comment of comments" [comment]="comment"></app-comment-item>
     </div>
 </div>

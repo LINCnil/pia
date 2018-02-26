@@ -8,54 +8,52 @@
               <i class="fa fa-globe" aria-hidden="true"></i>
             </a>
             <ul>
-              <li class="officialTranslations">{{ 'header.languages.official_translations' | translate }}</li>
-              <li [ngClass]="{'is_active': selectedLanguage === 'fr'}"
-                  (click)="updateCurrentLanguage('fr')">
-                <a (click)="_translateService.use('fr')">
+              <li class="officialTranslation">{{ 'header.languages.official_translation' | translate }}</li>
+              <li [ngClass]="{'is_active': selectedLanguage === 'fr'}">
+                <a href="javascript:;" (click)="updateCurrentLanguage('fr')">
                   {{ 'header.languages.fr' | translate }}
                 </a>
               </li>
-              <li class="englishTranslation" [ngClass]="{'is_active': selectedLanguage === 'en'}"
-                  (click)="updateCurrentLanguage('en')">
-                <a (click)="_translateService.use('en')">
+              <li class="cnilTranslations">{{ 'header.languages.cnil_translations' | translate }}</li>
+              <li class="englishTranslation" [ngClass]="{'is_active': selectedLanguage === 'en'}">
+                <a href="javascript:;" (click)="updateCurrentLanguage('en')">
                   {{ 'header.languages.en' | translate }}
                 </a>
               </li>
-              <li class="unofficialTranslations">{{ 'header.languages.unofficial_translations' | translate }}</li>
-              <li [ngClass]="{'is_active': selectedLanguage === 'it'}"
-                  (click)="updateCurrentLanguage('it')">
-                <a (click)="_translateService.use('it')">
-                  {{ 'header.languages.it' | translate }}
+              <!--<li [ngClass]="{'is_active': selectedLanguage === 'es-cnil'}">
+                <a href="javascript:;" (click)="updateCurrentLanguage('es-cnil')">
+                  {{ 'header.languages.es' | translate }}
                 </a>
-              </li>
-              <li [ngClass]="{'is_active': selectedLanguage === 'nl'}"
-                  (click)="updateCurrentLanguage('nl')">
-                <a (click)="_translateService.use('nl')">
-                  {{ 'header.languages.nl' | translate }}
-                </a>
-              </li>
-              <li [ngClass]="{'is_active': selectedLanguage === 'cz'}"
-                  (click)="updateCurrentLanguage('cz')">
-                <a (click)="_translateService.use('cz')">
+              </li>-->
+              <li class="communityTranslations">{{ 'header.languages.community_translations' | translate }}</li>
+              <li [ngClass]="{'is_active': selectedLanguage === 'cz'}">
+                <a href="javascript:;" (click)="updateCurrentLanguage('cz')">
                   {{ 'header.languages.cz' | translate }}
                 </a>
               </li>
-              <li [ngClass]="{'is_active': selectedLanguage === 'pl'}"
-                  (click)="updateCurrentLanguage('pl')">
-                <a (click)="_translateService.use('pl')">
-                  {{ 'header.languages.pl' | translate }}
-                </a>
-              </li>
-              <li [ngClass]="{'is_active': selectedLanguage === 'de'}"
-                  (click)="updateCurrentLanguage('de')">
-                <a (click)="_translateService.use('de')">
+              <li [ngClass]="{'is_active': selectedLanguage === 'de'}">
+                <a href="javascript:;" (click)="updateCurrentLanguage('de')">
                   {{ 'header.languages.de' | translate }}
                 </a>
               </li>
-              <li [ngClass]="{'is_active': selectedLanguage === 'es'}"
-                  (click)="updateCurrentLanguage('es')">
-                <a (click)="_translateService.use('es')">
+              <li [ngClass]="{'is_active': selectedLanguage === 'es'}">
+                <a href="javascript:;" (click)="updateCurrentLanguage('es')">
                   {{ 'header.languages.es' | translate }}
+                </a>
+              </li>
+              <li [ngClass]="{'is_active': selectedLanguage === 'it'}">
+                <a href="javascript:;" (click)="updateCurrentLanguage('it')">
+                  {{ 'header.languages.it' | translate }}
+                </a>
+              </li>
+              <li [ngClass]="{'is_active': selectedLanguage === 'nl'}">
+                <a href="javascript:;" (click)="updateCurrentLanguage('nl')">
+                  {{ 'header.languages.nl' | translate }}
+                </a>
+              </li>
+              <li [ngClass]="{'is_active': selectedLanguage === 'pl'}">
+                <a href="javascript:;" (click)="updateCurrentLanguage('pl')">
+                  {{ 'header.languages.pl' | translate }}
                 </a>
               </li>
             </ul>

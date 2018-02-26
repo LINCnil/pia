@@ -18,13 +18,15 @@ export class ModalsComponent implements OnInit {
   @Input() pia: any;
   newPia: Pia;
   piaForm: FormGroup;
+  removeAttachmentForm: FormGroup;
+  enableSubmit = true;
 
   constructor(
     private router: Router,
-    protected _modalsService: ModalsService,
-    protected _piaService: PiaService,
-    protected _measuresService: MeasureService,
-    protected _attachmentsService: AttachmentsService
+    public _modalsService: ModalsService,
+    public _piaService: PiaService,
+    public _measuresService: MeasureService,
+    public _attachmentsService: AttachmentsService
   ) { }
 
   ngOnInit() {
@@ -34,6 +36,9 @@ export class ModalsComponent implements OnInit {
       author_name: new FormControl(),
       evaluator_name: new FormControl(),
       validator_name: new FormControl()
+    });
+    this.removeAttachmentForm = new FormGroup({
+      comment: new FormControl()
     });
     this.newPia = new Pia();
   }
@@ -60,5 +65,12 @@ export class ModalsComponent implements OnInit {
     pia.validator_name = this.piaForm.value.validator_name;
     const p = pia.create();
     p.then((id) => this.router.navigate(['entry', id, 'section', 1, 'item', 1]));
+  }
+
+  attachmentCommentFocusOut() {
+    if (this.removeAttachmentForm.controls['comment'].value &&
+        this.removeAttachmentForm.controls['comment'].value.length > 0) {
+      this.enableSubmit = false;
+    }
   }
 }

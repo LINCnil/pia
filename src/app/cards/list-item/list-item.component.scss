@@ -3,7 +3,6 @@
 .pia-listsBlock-item {
   position: relative;
   padding: 0 10px;
-  text-transform: capitalize;
   cursor: pointer;
   &:first-child {
     div[contenteditable] {
@@ -23,9 +22,6 @@
   }
   &:last-child {
     cursor: default;
-  }
-  &:last-child {
-    text-transform: none;
   }
   &-actions {
     display: flex;

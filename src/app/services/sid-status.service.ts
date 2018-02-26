@@ -34,6 +34,7 @@ export class SidStatusService {
     this._globalEvaluationService.behaviorSubject.subscribe((obj: { reference_to: string, status: number }) => {
       if (obj.reference_to && obj.status > 0) {
         this.itemStatus[obj.reference_to] = obj.status;
+        this.verifEnableDpo();
       }
     });
   }
@@ -52,6 +53,7 @@ export class SidStatusService {
           this.piaIsRefused = globalEvaluationService.piaIsRefused;
         }
         this.itemStatus[obj.reference_to] = obj.status;
+        this.verifEnableDpo();
       });
     }
   }
@@ -83,6 +85,19 @@ export class SidStatusService {
       this.resetDpoPage(piaService);
       resolve();
     });
+  }
+
+  verifEnableDpo() {
+    this.enableDpoValidation = false;
+    let count = 0;
+    for (const el in this.itemStatus) {
+      if (this.itemStatus.hasOwnProperty(el) && this.itemStatus[el] >= 7 && el !== '4.3') {
+        count++;
+      }
+    }
+    if (count === Object.keys(this.itemStatus).length - 1) {
+      this.enableDpoValidation = true;
+    }
   }
 
   private resetDpoPage(piaService: any) {

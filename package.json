@@ -1,6 +1,6 @@
 {
   "name": "pia",
-  "version": "0.0.1",
+  "version": "1.6.0",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
@@ -28,6 +28,7 @@
     "font-awesome": "^4.7.0",
     "foundation-sites": "^6.3.1",
     "ngx-chips": "~1.5.11",
+    "ngx-markdown": "^1.5.1",
     "normalize.css": "^7.0.0",
     "rollbar": "^2.2.8",
     "rxjs": "^5.1.0",
@@ -50,6 +51,7 @@
     "karma-jasmine": "~1.1.0",
     "karma-jasmine-html-reporter": "^0.2.2",
     "protractor": "~5.1.2",
+    "source-map-explorer": "^1.5.0",
     "ts-node": "^3.3.0",
     "tslint": "^5.5.0",
     "typescript": "~2.4.2"
