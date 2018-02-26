@@ -81,7 +81,7 @@ First step in order to properly carry out a PIA, the edition phase will usually 
 
 | | |
 | --- | --- |
-| ![Logo](../assets/images/help/en/2018-02-23 01 Edit 07 - Editer un risque - jauge.png) ![Logo](../assets/images/help/en/2018-02-23 01 Edit 06 - Editer un risque -mesure.png) ![Logo](../assets/images/help/en/2018-02-23 01 Edit 05 - Editer un risque - tag.png) | To edit a risk, you have to enter as a tag, in the corresponding field, each impact, threat, source and measure linked to the considered risk. Regarding the measures, you can only enter the ones previously saved in the section "Planned or existing measures". If you wish to add a new measure, you should do it in the aforementioned section. To indicate the risk severity and likelihood, slide the cursor on the gauge to the corresponding estimated level. You also have to justify this estimation according to the elements previously entered. |
+| ![Logo](../assets/images/help/en/2018-02-23 01 Edit 05 - Editer un risque - tag.png) ![Logo](../assets/images/help/en/2018-02-23 01 Edit 06 - Editer un risque -mesure.png) ![Logo](../assets/images/help/en/2018-02-23 01 Edit 07 - Editer un risque - jauge.png) | To edit a risk, you have to enter as a tag, in the corresponding field, each impact, threat, source and measure linked to the considered risk. Regarding the measures, you can only enter the ones previously saved in the section "Planned or existing measures". If you wish to add a new measure, you should do it in the aforementioned section. To indicate the risk severity and likelihood, slide the cursor on the gauge to the corresponding estimated level. You also have to justify this estimation according to the elements previously entered. |
 
 ### Risk overview
 
