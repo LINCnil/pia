@@ -1,7 +1,7 @@
 import { RollbarService, RollbarErrorHandler, rollbarFactory } from 'app/rollbar';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, ErrorHandler } from '@angular/core';
-import { AppComponent, SafeHtmlPipe } from 'app/app.component';
+import { AppComponent, SafeHtmlPipe, Nl2brPipe } from 'app/app.component';
 import { TagInputModule } from 'ngx-chips';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -56,6 +56,7 @@ import { SummaryComponent } from 'app/summary/summary.component';
 import { AboutComponent } from 'app/about/about.component';
 import { AppRoutingModule } from 'app/app-routing.module';
 import { CardsRoutingModule } from 'app/cards/cards-routing.module';
+import { MarkdownModule } from 'ngx-markdown';
 
 const providersList: any = [
   AppDataService,
@@ -121,6 +122,7 @@ export function createTranslateLoader(http: HttpClient) {
     ListItemComponent,
     SummaryComponent,
     SafeHtmlPipe,
+    Nl2brPipe,
     AboutComponent
   ],
   imports: [
@@ -138,7 +140,8 @@ export function createTranslateLoader(http: HttpClient) {
         useFactory: (createTranslateLoader),
         deps: [HttpClient]
       }
-    })
+    }),
+    MarkdownModule.forRoot(),
   ],
   exports: [],
   providers: providersList,

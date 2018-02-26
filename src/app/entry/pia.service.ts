@@ -59,7 +59,7 @@ export class PiaService {
     if (localStorage.getItem('homepageDisplayMode') && localStorage.getItem('homepageDisplayMode') === 'list') {
       document.querySelector('.app-list-item[data-id="' + piaID + '"]').remove();
     } else {
-      document.querySelector('.pia-cardsBlock.pia-doingBlock[data-id="' + piaID + '"]').remove();
+      document.querySelector('.pia-cardsBlock.pia[data-id="' + piaID + '"]').remove();
     }
 
     localStorage.removeItem('pia-id');
@@ -149,7 +149,10 @@ export class PiaService {
     });
   }
 
-  importData(data: any, prefix: string, is_duplicate: boolean) {
+  async importData(data: any, prefix: string, is_duplicate: boolean, is_example?: boolean) {
+    if (!('pia' in data) || !('dbVersion' in data.pia)) {
+      return;
+    }
     const pia = new Pia();
     pia.name = '(' + prefix + ') ' + data.pia.name;
     pia.author_name = data.pia.author_name;
@@ -166,10 +169,24 @@ export class PiaService {
     pia.created_at = data.pia.created_at;
     pia.dpos_names = data.pia.dpos_names;
     pia.people_names = data.pia.people_names;
+
+    /* Set this PIA as the example PIA if needed, else default value affected on creation */
+    if (is_example) {
+      pia.is_example = 1;
+    }
+
     if (is_duplicate) {
       pia.status = 0;
       pia.created_at = new Date();
-      pia.updated_at = null;
+      pia.updated_at = new Date();
+      pia.dpos_names = null;
+      pia.dpo_status = null;
+      pia.dpo_opinion = null;
+      pia.concerned_people_searched_opinion = null;
+      pia.concerned_people_searched_content = null;
+      pia.people_names = null;
+      pia.concerned_people_status = null;
+      pia.concerned_people_opinion = null;
     } else {
       pia.status = data.pia.status;
       pia.created_at = new Date(data.pia.created_at);
@@ -177,6 +194,7 @@ export class PiaService {
         pia.updated_at = new Date(data.pia.updated_at);
       }
     }
+
     pia.create().then((pia_id: number) => {
       pia.id = pia_id;
       // Create answers
@@ -257,9 +275,13 @@ export class PiaService {
         evaluationModel.reference_to = reference_to;
         evaluationModel.action_plan_comment = evaluation.action_plan_comment;
         evaluationModel.evaluation_comment = evaluation.evaluation_comment;
-        evaluationModel.evaluation_date = new Date(evaluation.evaluation_date);
+        if (evaluation.evaluation_date) {
+          evaluationModel.evaluation_date = new Date(evaluation.evaluation_date);
+        }
         evaluationModel.gauges = evaluation.gauges;
-        evaluationModel.estimated_implementation_date = new Date(evaluation.estimated_implementation_date);
+        if (evaluation.estimated_implementation_date) {
+          evaluationModel.estimated_implementation_date = new Date(evaluation.estimated_implementation_date);
+        }
         evaluationModel.person_in_charge = evaluation.person_in_charge;
         evaluationModel.global_status = evaluation.global_status;
         evaluationModel.created_at = new Date(evaluation.created_at);
@@ -282,7 +304,6 @@ export class PiaService {
         view: window
       });
       a.dispatchEvent(event);
-      a.click();
     });
   }
 

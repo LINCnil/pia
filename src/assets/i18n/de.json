@@ -14,8 +14,9 @@
     "knowledge_base_link": "Wissensbasis",
     "pia_example_link": "Beispiel DSFA",
     "languages": {
-      "official_translations": "Offizielle Übersetzungen",
-      "unofficial_translations": "Inoffizielle Übersetzungen",
+      "official_translation": "TO BE TRANSLATED - Original version",
+      "cnil_translations": "TO BE TRANSLATED - CNIL provided translations",
+      "community_translations": "TO BE TRANSLATED - Community provided translations",
       "fr": "Français",
       "en": "English",
       "cz": "Česky",
@@ -81,7 +82,7 @@
           "remove": "Löschen"
         },
         "edit_pia": "DSFA bearbeiten",
-        "save_pia": "Speichern"
+        "consult_pia": "TO BE TRANSLATED - Consult PIA"
       }
     },
     "lists": {
@@ -96,6 +97,7 @@
       "column_actions": "Aktionen",
       "item": {
         "tools": {
+          "consult": "TO BE TRANSLATED - Consult",
           "edit": "Bearbeiten",
           "export": "Exportieren",
           "duplicate": "Kopieren",
@@ -732,14 +734,14 @@
   "evaluations": {
     "title": "Bewertung",
     "to_correct": "zu berichtigen",
-    "placeholder_to_correct": "Die bereitgestellten Informationen sind nicht ausreichend, um sie zu bewerten. Zur Bearbeitung zurückkehren, um den ursprünglichen Vorschlag anzureichern.",
     "improvable": "verbesserungsfähig",
-    "placeholder_improvable": "Angesichts der bereitgestellten Informationen müssen zusätzliche Maßnahmen hinzugefügt werden, um den Schutz der verarbeiteten Daten zu verbessern.",
     "acceptable": "tragbar",
-    "placeholder_acceptable": "Angesichts der zur Verfügung gestellten Informationen reichen die durchgeführten Maßnahmen aus, um die Datenschutzanforderungen zu erfüllen.",
     "evaluation_comment": "Bewertungskommentar",
     "action_plan_comment": "Aktionsplan / Korrekturmaßnahmen",
-    "placeholder_comment": "Geben Sie Ihre Kommentare ein.",
+    "placeholder_to_correct": "TO BE TRANSLATED - The information provided are not sufficient to properly evaluate them. Send back to the editor to improve the original submission.",
+    "placeholder_improvable1": "TO BE TRANSLATED - According to the available information, additional measures are to be implemented in order to improve the data protection of the processing.",
+    "placeholder_improvable2": "TO BE TRANSLATED - Enter your comments.",
+    "placeholder_acceptable": "TO BE TRANSLATED - According to the available information, the measures implemented are adequate to properly meet the requirements for protecting the data.",
     "gauges": {
       "seriousness": "Wie bewerten Sie unter Berücksichtigung des Aktionsplans die <span class = 'red-highlight'> Höhe dieses Risikos </span> ({{value}})?",
       "likelihood": "Unter Berücksichtigung des Aktionsplans, wie bewerten Sie die <span class = 'red-highlight'> Wahrscheinlichkeit dieses Risikos </span> ({{value}}) erneut?",
@@ -812,39 +814,41 @@
     "update": "URL aktualisieren"
   },
   "validation_page": {
-    "responsible": "Verantwortlich für die Bestätigung der PIA: ",
-    "after_reading": "Nach vollständiger Lektüre der PIA bezüglich der Verarbeitung von Daten bezüglich der Aktivität von:",
-    "confirmation1": "Ich bestätige, dass die Beschreibung meines Verarbeitunskontextes der Realität entspricht.",
-    "confirmation2": "Ich bestätige, dass ich die bestehenden Risiken nach den aktuell durchgeführten oder geplanten Maßnahmen gelesen habe.",
-    "confirmation3": "Ich bestätige die angegebenen Korrekturmaßnahmen.",
-    "confirmation4": "Ich verpflichte mich, die angegebenen Korrekturmaßnahmen so schnell wie möglich umzusetzen.",
+    "responsible": "TO BE TRANSLATED - Person accountable for validating the PIA: ",
+    "after_reading": "TO BE TRANSLATED - After reading full PIA relating to the data processing linked to ",
+    "confirmation1": "TO BE TRANSLATED - I attest that the context of the processing described in the PIA is consistent with the reality.",
+    "confirmation2": "TO BE TRANSLATED - I attest that I am aware of the risks depending on the existing or planned measures.",
+    "confirmation3": "TO BE TRANSLATED - I ratify the corrective actions indicated in the action plan.",
+    "confirmation4": "TO BE TRANSLATED - I commit to implement as quickly as possible the indicated corrective actions.",
     "button": {
-      "rejection": "Bestätigung verweigern",
-      "simple_validation": "Einfache Bestätigung",
-      "signed_validation": "Lassen Sie den Verantwortlichen die DSFA unterzeichnen"
+      "rejection": "TO BE TRANSLATED - Reject PIA",
+      "simple_validation": "TO BE TRANSLATED - Approve PIA <br>(direct)",
+      "signed_validation": "TO BE TRANSLATED - Approve PIA <br>(signed)"
     },
-    "mandatory_fields": "Alle Felder müssen markiert sein",
-    "waiting_for_signature": "Warten auf die Unterschrift der DSFA",
-    "validated_pia_with_signature": "Bestätigt",
-    "add_signed_pia": "Fügen Sie die unterschriebene DSFA hinzu",
-    "remove_attachment": "Löschen",
+    "mandatory_fields": "TO BE TRANSLATED - All boxes must be checked",
+    "waiting_for_signature": "TO BE TRANSLATED - Pending signed PIA",
+    "validated_pia_with_signature": "TO BE TRANSLATED - Approved",
+    "add_signed_pia": "TO BE TRANSLATED - Add the signed PIA",
+    "remove_attachment": "TO BE TRANSLATED - Remove the attachment",
+    "latest_signed_attachment": "TO BE TRANSLATED - Last signed attachment",
+    "signed_attachments_history": "TO BE TRANSLATED - Signed attachments history",
     "tools": {
-      "dashboard": "Übersicht",
-      "display_pia": "DSFA anzeigen",
-      "action_plan": "Aktionsplan"
+      "dashboard": "TO BE TRANSLATED - Dashboard",
+      "display_pia": "TO BE TRANSLATED - Display PIA",
+      "action_plan": "TO BE TRANSLATED - Action plan"
     }
   },
   "rejection_page": {
-    "title": "Bestätigungshistorie",
-    "rejection_reason": "Grund für die Ablehnung",
-    "rejection_reason_placeholder": "Beschreiben Sie die Gründe für die Verweigerung der Bestätigung dieser DSFA.",
-    "applied_adjustments": "Vorgenommene Änderungen",
-    "applied_adjustments_placeholder": "Beschreibe die Änderungen, die an der DSFA vorgenommen wurden.",
-    "previous_rejection": "Vorherige Ablehnung",
+    "title": "TO BE TRANSLATED - Validation history",
+    "rejection_reason": "TO BE TRANSLATED - Refusal reason",
+    "rejection_reason_placeholder": "TO BE TRANSLATED - Describe the reasons for refusing the PIA.",
+    "applied_adjustments": "TO BE TRANSLATED - Adjustments proposed",
+    "applied_adjustments_placeholder": "TO BE TRANSLATED - Describe the changes brought to the PIA.",
+    "previous_rejection": "TO BE TRANSLATED - Previous refusal",
     "button": {
-      "abandon_treatment": "Aufgabe der Verarbeitung",
-      "reject_pia": "DSFA zurückweisen",
-      "send_for_validation": "Zurück zur Bestätigung"
+      "abandon_treatment": "TO BE TRANSLATED - Abandon processing",
+      "reject_pia": "TO BE TRANSLATED - Reject PIA",
+      "send_for_validation": "TO BE TRANSLATED - Resend for approval"
     }
   },
   "misc": {
@@ -887,7 +891,7 @@
       "content": "<span class = 'strong'>Herzlichen Glückwunsch, </span><br> der Unterabschnitt steht jetzt zur Auswertung zur Verfügung."
     },
     "validate_evaluation": {
-      "content": "<span class = 'strong'>Herzlichen Glückwunsch, </span><br> warten Sie auf die globale Bestätigung der DSFA."
+      "content": "TO BE TRANSLATED - <span class='strong'>Congratulations,</span><br>you've finished evaluating this section.<br>Others parts of the PIA has to be evaluated as well in order to be able to validate the PIA."
     },
     "validate_evaluation_to_correct": {
       "content": "Sorry,<br>Mehrere Felder müssen korrigiert werden.<br>Zum Bearbeitungsmodus zurückkehren und Korrekturen vornehmen."
@@ -911,6 +915,14 @@
     "print": "Drucken",
     "display_pia": "Sehen Sie sich die PIA an",
     "display_action_plan": "Sehen Sie sich den<br>Aktionsplan an",
+    "display_filters": {
+      "title": "TO BE TRANSLATED - Filters",
+      "main_content": "TO BE TRANSLATED - Display \"PIA information\"",
+      "context_content": "TO BE TRANSLATED - Display \"Context\"",
+      "principles_content": "TO BE TRANSLATED - Display \"Fundamental principles\"",
+      "risks_content": "TO BE TRANSLATED - Display \"Risks\"",
+      "action_plan_content": "TO BE TRANSLATED - Display action plan"
+    },
     "title": "Information zur DSFA",
     "pia_name": "DSFA",
     "pia_author": "Name des Autors",
@@ -1256,10 +1268,10 @@
           "short_help": "Holen Sie den Rat des Datenschutzbeauftragten ein. Präsentieren Sie die Ansichten der betroffenen Personen oder ihren Vertreter."
         },
         "4": {
-          "title": "Bestätigen Sie die DSFA"
+          "title": "TO BE TRANSLATED - Validate the PIA"
         },
         "5": {
-          "title": "DSFA wird zurückgewiesen"
+          "title": "TO BE TRANSLATED - Rejected PIA"
         }
       }
     }

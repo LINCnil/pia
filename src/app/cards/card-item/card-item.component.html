@@ -1,5 +1,4 @@
-<div class="pia-cardsBlock" [ngClass]="{'pia-archiveBlock': pia.status > 1, 'pia-doingBlock': pia.status < 2}" [attr.data-id]="pia.id">
-
+<div class="pia-cardsBlock pia" [ngClass]="{'pia-exampleBlock': pia.is_example === 1, 'pia-archiveBlock': pia.status > 1, 'pia-doingBlock': pia.status < 2}" [attr.data-id]="pia.id">
     <div class="pia-cardsBlock-header-title" *ngIf="pia.id !== null">
       <span *ngIf="!previousPia || previousPia.status !== pia.status">{{ pia.getStatusName() | translate }}</span>
     </div>
@@ -15,12 +14,6 @@
         </ul>
       </div>
       <div class="pia-cardsBlock-toolbar">
-          <div class="pia-cardsBlock-toolbar-edit">
-            <a href="javascript:;" (click)="activateEdition()" class="btn pia-tooltip">
-              <i class="fa fa-pencil" aria-hidden="true"></i>
-              <span class="pia-tooltip-text">{{ 'homepage.cards.item.tools.edit' | translate }}</span>
-            </a>
-          </div>
           <div class="pia-cardsBlock-toolbar-export">
             <a href="javascript:;" (click)="export(pia.id)" class="btn pia-tooltip">
               <i class="fa fa-download" aria-hidden="true"></i>
@@ -53,28 +46,47 @@
       </div>
 
       <form class="pia-cardsBlock-item-form"
-            (ngSubmit)="onSubmit(f)"
             [formGroup]="piaForm">
           <input type="hidden" formControlName="id">
-          <div style="margin-top:20px;">
+          <div (click)="piaNameFocusIn()" style="margin-top:20px;">
               <label for="pia-edit-name">{{ 'homepage.cards.pia_name' | translate }}</label>
-              <input type="text" formControlName="name" required
-                     placeholder="{{ 'homepage.cards.placeholder_pia_name' | translate }}" id="pia-edit-name">
+              <input type="text"
+                     #piaName
+                     formControlName="name"
+                     required
+                     placeholder="{{ 'homepage.cards.placeholder_pia_name' | translate }}"
+                     id="pia-edit-name"
+                     (focusout)="piaNameFocusOut()">
           </div>
-          <div>
+          <div (click)="piaAuthorNameFocusIn()">
               <label for="pia-edit-author-name">{{ 'homepage.cards.author' | translate }}</label>
-              <input type="text" formControlName="author_name" required
-                     placeholder="{{ 'homepage.cards.placeholder_author' | translate }}" id="pia-edit-author-name">
+              <input type="text"
+                     #piaAuthorName
+                     formControlName="author_name"
+                     required
+                     placeholder="{{ 'homepage.cards.placeholder_author' | translate }}"
+                     id="pia-edit-author-name"
+                     (focusout)="piaAuthorNameFocusOut()">
           </div>
-          <div>
+          <div (click)="piaEvaluatorNameFocusIn()">
               <label for="pia-edit-evaluator-name">{{ 'homepage.cards.evaluation' | translate }}</label>
-              <input type="text" formControlName="evaluator_name" required
-                     placeholder="{{ 'homepage.cards.placeholder_evaluation' | translate }}" id="pia-edit-evaluator-name">
+              <input type="text"
+                     #piaEvaluatorName
+                     formControlName="evaluator_name"
+                     required
+                     placeholder="{{ 'homepage.cards.placeholder_evaluation' | translate }}"
+                     id="pia-edit-evaluator-name"
+                     (focusout)="piaEvaluatorNameFocusOut()">
           </div>
-          <div>
+          <div (click)="piaValidatorNameFocusIn()">
               <label for="pia-edit-validator-name">{{ 'homepage.cards.validation' | translate }}</label>
-              <input type="text" formControlName="validator_name" required
-                     placeholder="{{ 'homepage.cards.placeholder_validation' | translate }}" id="pia-edit-validator-name">
+              <input type="text"
+                     #piaValidatorName
+                     formControlName="validator_name"
+                     required
+                     placeholder="{{ 'homepage.cards.placeholder_validation' | translate }}"
+                     id="pia-edit-validator-name"
+                     (focusout)="piaValidatorNameFocusOut()">
           </div>
         <div class="pia-cardsBlock-item-date">
             <div>{{ 'homepage.cards.date' | translate }}</div>
@@ -95,11 +107,9 @@
                 <progress max="100" value="{{ pia.progress }}"></progress>
             </div>
         </div>
-        <div class="pia-cardsBlock-item-btn" [ngClass]="{'hide': editMode !== true}">
-          <button type="submit" [disabled]="piaForm.invalid" class="btn btn-green">{{ 'homepage.cards.item.save_pia' | translate }}</button>
-        </div>
-        <div class="pia-cardsBlock-item-btn" [ngClass]="{'hide': editMode !== false}">
-          <a routerLink="/entry/{{pia.id}}/section/1/item/1" class="btn btn-green">{{ 'homepage.cards.item.edit_pia' | translate }}</a>
+        <div class="pia-cardsBlock-item-btn">
+          <a *ngIf="pia.status === 0" routerLink="/entry/{{pia.id}}/section/1/item/1" class="btn btn-green">{{ 'homepage.cards.item.edit_pia' | translate }}</a>
+          <a *ngIf="pia.status > 0" routerLink="/entry/{{pia.id}}/section/1/item/1" class="btn btn-green">{{ 'homepage.cards.item.consult_pia' | translate }}</a>
         </div>
       </form>
   </div>

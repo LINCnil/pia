@@ -1,44 +1,29 @@
 <app-header></app-header>
 <main class="container pia-helpBlock pia-mainContainerBlock">
   <div class="row">
-    <div class="small-12 medium-12 columns">
-      <h1>{{ 'help.title' | translate }}</h1>
-      <!--
-      <h2>{{ 'help.definition.data1.title' | translate }}</h2>
-      <p>{{ 'help.definition.data1.content' | translate }}</p>
-      -->
-      <h2>{{ 'help.definition.data2.title' | translate }}</h2>
-      <ol>
-        <li>
-          <strong>{{ 'help.definition.data2.qa1.title' | translate }}</strong><br>
-          {{ 'help.definition.data2.qa1.content' | translate }}
-        </li>
-        <li>
-          <strong>{{ 'help.definition.data2.qa2.title' | translate }}</strong><br>
-          {{ 'help.definition.data2.qa2.content' | translate }}
-        </li>
-        <li>
-          <strong>{{ 'help.definition.data2.qa3.title' | translate }}</strong><br>
-          {{ 'help.definition.data2.qa3.content' | translate }}
-        </li>
-        <li>
-          <strong>{{ 'help.definition.data2.qa4.title' | translate }}</strong><br>
-          {{ 'help.definition.data2.qa4.content' | translate }}
-        </li>
-        <li>
-          <strong>{{ 'help.definition.data2.qa5.title' | translate }}</strong><br>
-          {{ 'help.definition.data2.qa5.content' | translate }}
-        </li>
-        <li>
-          <strong>{{ 'help.definition.data2.qa6.title' | translate }}</strong><br>
-          {{ 'help.definition.data2.qa6.content' | translate }}
-        </li>
-        <li>
-          <strong>{{ 'help.definition.data2.qa7.title' | translate }}</strong><br>
-          {{ 'help.definition.data2.qa7.content' | translate }}
-        </li>
-      </ol>
-      <p [innerHTML]="'help.definition.footer' | translate"></p>
+    <!-- Left sidebar (ancres) -->
+    <div class="small-12 medium-3 columns">
+      <aside class="pia-leftSidebarBlock pia-help-section">
+        <div class="pia-sectionBlock-header">
+          <h1>{{ 'help.title' | translate }}</h1>
+          <a class="pia-icons pia-icon-close-big" routerlink="/home" title="{{ 'pia.sections.homepage_link' | translate }}" href="#/home"></a>
+        </div>
+        <div *ngFor="let data of tableOfTitles">
+          <div class="pia-sectionBlock-title">
+            {{data[0]}}
+            <hr>
+          </div>
+          <ul class="pia-sectionBlock-list">
+            <li *ngFor="let subTitle of data[1];" [ngClass]="{ 'active': subTitle === activeElement }">
+              <a href="javascript:;" (click)="getAnchor($event, subTitle);">{{ subTitle }}</a>
+            </li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+    <!-- Main md content -->
+    <div class="small-12 medium-9 columns">
+      <markdown [src]="file" class="pia-markdown"></markdown>
     </div>
   </div>
 </main>

@@ -8,6 +8,7 @@ import { ModalsService } from 'app/modals/modals.service';
 export class AttachmentsService {
 
   attachments: any[];
+  signedAttachments: any[] = [];
   attachment_signed: any;
   pia: any;
   pia_signed = 0;
@@ -26,12 +27,28 @@ export class AttachmentsService {
     });
   }
 
-  async setSignedPia() {
-    const attachment = new Attachment();
-    attachment.pia_id = this.pia.id;
+  async updateSignedAttachmentsList() {
     return new Promise((resolve, reject) => {
-      attachment.getSignedPia().then((entry: any) => {
-        this.attachment_signed = entry;
+      this.signedAttachments = [];
+      const attachment = new Attachment();
+      attachment.pia_id = this.pia.id;
+      attachment.findAll().then((data: any[]) => {
+        // Store all signed attachments if they are not yet stored
+        data.forEach(a => {
+          if (a.pia_signed && a.pia_signed === 1) {
+            this.signedAttachments.push(a);
+          }
+        });
+        // If we have some signed attachments :
+        if (this.signedAttachments && this.signedAttachments.length > 0) {
+          this.signedAttachments.reverse(); // Reverse array (latest signed attachment at first)
+          if (this.signedAttachments[0] && this.signedAttachments[0].file && this.signedAttachments[0].file.length > 0) {
+             // Store the latest signed attachment only if file isn't empty
+            this.attachment_signed = this.signedAttachments[0];
+             // Remove it from the signed attachments array so that we get the oldest
+            this.signedAttachments.splice(0, 1);
+          }
+        }
         resolve();
       });
     });
@@ -48,12 +65,18 @@ export class AttachmentsService {
       attachment.mime_type = attachment_file.type;
       attachment.pia_id = this.pia.id;
       attachment.pia_signed = this.pia_signed;
+      attachment.comment = '';
       attachment.create().then((id: number) => {
         attachment.id = id;
         this.attachments.unshift(attachment);
         if (attachment.pia_signed === 1) {
+          // Add the last previous signed attachment in the signed attachments array
+          this.signedAttachments.unshift(this.attachment_signed);
+          // Allocate the new one
           this.attachment_signed = attachment;
         }
+        // To refresh signed attachments on validation page
+        this.updateSignedAttachmentsList();
       });
     }
   }
@@ -78,25 +101,30 @@ export class AttachmentsService {
   /**
    * Allows an user to remove a PIA.
    */
-  removeAttachment() {
-    const attachmentId = parseInt(localStorage.getItem('attachment-id'), 10);
+  removeAttachment(comment: string) {
+    if (comment && comment.length > 0) {
+      const attachmentId = parseInt(localStorage.getItem('attachment-id'), 10);
 
-    // Removes from DB.
-    const attachment = new Attachment();
-    attachment.pia_id = this.pia.id;
-    attachment.delete(attachmentId);
+      // Remove from DB by erasing only the "file" field
+      const attachment = new Attachment();
+      attachment.id = attachmentId;
+      attachment.remove(comment);
 
-    // Deletes from the attachments array.
-    const index = this.attachments.findIndex(p => p.id === attachmentId);
-    if (index !== -1) {
-      this.attachments.splice(index, 1);
+      // Deletes from the attachments array.
+      const index = this.attachments.findIndex(p => p.id === attachmentId);
+      if (index !== -1) {
+        this.attachments.splice(index, 1);
+      }
+      if (this.attachment_signed && this.attachment_signed.id === attachmentId) {
+        this.attachment_signed.comment = comment;
+        this.attachment_signed.file = null;
+        this.signedAttachments.unshift(this.attachment_signed);
+        this.attachment_signed = null;
+      }
+
+      localStorage.removeItem('attachment-id');
+      this._modalsService.closeModal();
     }
-    if (this.attachment_signed && this.attachment_signed.id === attachmentId) {
-      this.attachment_signed = null;
-    }
-
-    localStorage.removeItem('attachment-id');
-    this._modalsService.closeModal();
   }
 
 }

@@ -14,8 +14,9 @@
     "knowledge_base_link": "Knowledge base",
     "pia_example_link": "PIA example",
     "languages": {
-      "official_translations": "Official translations",
-      "unofficial_translations": "Unofficial translations",
+      "official_translation": "Original version",
+      "cnil_translations": "CNIL provided translations",
+      "community_translations": "Community provided translations",
       "fr": "Français",
       "en": "English",
       "cz": "Česky",
@@ -72,7 +73,6 @@
       "placeholder_start": "All fields must be filled",
       "item": {
         "tools": {
-          "edit": "Edit information",
           "export": "Export",
           "more_options": "More options",
           "duplicate": "Duplicate",
@@ -81,7 +81,7 @@
           "remove": "Delete"
         },
         "edit_pia": "Edit PIA",
-        "save_pia": "Save"
+        "consult_pia": "Consult PIA"
       }
     },
     "lists": {
@@ -96,6 +96,7 @@
       "column_actions": "Actions",
       "item": {
         "tools": {
+          "consult": "Consult",
           "edit": "Edit",
           "export": "Export",
           "duplicate": "Duplicate",
@@ -117,7 +118,9 @@
     },
     "header": {
       "preview": "Preview",
-      "display_action_plan": "Display<br>action plan"
+      "display_action_plan": "Display<br>action plan",
+      "edition": "Edition",
+      "evaluation": "Evaluation"
     },
     "attachments": {
       "title": "Attachments",
@@ -130,14 +133,16 @@
       "refuse_pia": "Refused PIA",
       "status": {
         "evaluation": {
-          "title": "",
-          "content": "",
-          "cancel": ""
+          "title": "Waiting for review.",
+          "content": "This part has not yet been reviewed. If you wish to edit the content submitted for review you have to ",
+          "cancel": "cancel the review request.",
+          "cancel_button": "Cancel the review request"
         },
         "validation": {
-          "title": "",
-          "content": "",
-          "cancel": ""
+          "title": "Waiting for validation.",
+          "content": "This part has been reviewed and is waiting for the overall PIA validation. If you wish to change the review, you have to ",
+          "cancel": "cancel the validation request.",
+          "cancel_button": "Cancel the validation request"
         }
       }
     },
@@ -820,22 +825,24 @@
     "update": "Update URL"
   },
   "validation_page": {
-    "responsible": "The one in charge of validating the PIA: ",
-    "after_reading": "After reading the whole PIA on the data processing linked to the ",
-    "confirmation1": "I confirm that the description of the processing context is consistent with the reality.",
-    "confirmation2": "I confirm that I took note of the existing risks according to the planned or existing measures.",
-    "confirmation3": "I approve of the indicated corrective measures.",
-    "confirmation4": "I commit myself to implement as soon as possible the indicated corrective measures.",
+    "responsible": "Person accountable for validating the PIA: ",
+    "after_reading": "After reading full PIA relating to the data processing linked to ",
+    "confirmation1": "I attest that the context of the processing described in the PIA is consistent with the reality.",
+    "confirmation2": "I attest that I am aware of the risks depending on the existing or planned measures.",
+    "confirmation3": "I ratify the corrective actions indicated in the action plan.",
+    "confirmation4": "I commit to implement as quickly as possible the indicated corrective actions.",
     "button": {
-      "rejection": "Refuse<br>validation",
-      "simple_validation": "Simple validation",
-      "signed_validation": "Signed<br>validation"
+      "rejection": "Reject PIA",
+      "simple_validation": "Approve PIA <br>(direct)",
+      "signed_validation": "Approve PIA <br>(signed)"
     },
-    "mandatory_fields": "All fields must be filled",
-    "waiting_for_signature": "Waiting for the PIA's signature",
-    "validated_pia_with_signature": "Validated",
+    "mandatory_fields": "All boxes must be checked",
+    "waiting_for_signature": "Pending signed PIA",
+    "validated_pia_with_signature": "Approved",
     "add_signed_pia": "Add the signed PIA",
     "remove_attachment": "Remove the attachment",
+    "latest_signed_attachment": "Last signed attachment",
+    "signed_attachments_history": "Signed attachments history",
     "tools": {
       "dashboard": "Dashboard",
       "display_pia": "Display PIA",
@@ -844,15 +851,15 @@
   },
   "rejection_page": {
     "title": "Validation history",
-    "rejection_reason": "Rejection reason",
-    "rejection_reason_placeholder": "to be translated",
-    "applied_adjustments": "Applied adjustments",
-    "applied_adjustments_placeholder": "to be translated",
-    "previous_rejection": "Previous rejection",
+    "rejection_reason": "Refusal reason",
+    "rejection_reason_placeholder": "Describe the reasons for refusing the PIA.",
+    "applied_adjustments": "Adjustments proposed",
+    "applied_adjustments_placeholder": "Describe the changes brought to the PIA.",
+    "previous_rejection": "Previous refusal",
     "button": {
-      "abandon_treatment": "Give up the treatment",
-      "reject_pia": "Refuse PIA",
-      "send_for_validation": "Send for new validation"
+      "abandon_treatment": "Abandon processing",
+      "reject_pia": "Reject PIA",
+      "send_for_validation": "Resend for approval"
     }
   },
   "misc": {
@@ -866,6 +873,12 @@
     "back_to_home": "Back to home",
     "simple_pia_validation": {
       "content": "The PIA has been validated."
+    },
+    "completed_edition": {
+      "content": "The PIA has been fully edited, it has to be reviewed."
+    },
+    "completed_evaluation": {
+      "content": "The PIA has been fully reviewed, it has to be validated."
     },
     "update_server_url": {
       "content": "The server address has been updated."
@@ -895,7 +908,7 @@
       "content": "<span class='strong'>Congratulations,</span><br>the subsection is now<br>available for evaluation."
     },
     "validate_evaluation": {
-      "content": "<span class='strong'>Congratulations,</span><br>waiting for global validation of the PIA."
+      "content": "<span class='strong'>Congratulations,</span><br>you've finished evaluating this section.<br>Others parts of the PIA has to be evaluated as well in order to be able to validate the PIA."
     },
     "validate_evaluation_to_correct": {
       "content": "Sorry,<br>Several fields must be corrected.<br>Return to edition mode<br>to make corrections."
@@ -917,6 +930,16 @@
   "summary": {
     "previous_page": "Back to previous page",
     "print": "Print",
+    "display_pia": "Display PIA",
+    "display_action_plan": "Display<br>action plan",
+    "display_filters": {
+      "title": "Display filters",
+      "main_content": "Display section \"PIA information\"",
+      "context_content": "Display section \"Context\"",
+      "principles_content": "Display section \"Fundamental principles\"",
+      "risks_content": "Display section \"Risks\"",
+      "action_plan_content": "Display action plan"
+    },
     "title": "PIA information",
     "pia_name": "PIA",
     "pia_author": "Author's name",
@@ -962,7 +985,7 @@
   },
   "overview-risks": {
     "potential_impacts": "Potential impacts",
-    "threat": "Threat",
+    "threat": "Threats",
     "sources": "Sources",
     "measures": "Measures",
     "negligible": "Negligible",
@@ -1154,27 +1177,27 @@
           "short_help": "Analyze the causes and consequences of illegitimate access to data, and estimate its severity and likelihood.",
           "questions": {
             "1": {
-              "title": "What could be the main impacts on the data subjects if the risk were to occur?",
+              "title": "What could be the main <span class='green-highlight'>impacts on the data subjects</span> if the risk were to occur?",
               "placeholder": "Enter the potential impacts \u002B"
             },
             "2": {
-              "title": "What are the main threats that could lead to the risk?",
+              "title": "What are the main <span class='green-highlight'>threats</span> that could lead to the risk?",
               "placeholder": "Enter the threats \u002B"
             },
             "3": {
-              "title": "What are the risk sources?",
+              "title": "What are the risk <span class='green-highlight'>sources</span>?",
               "placeholder": "Enter the risk sources \u002B"
             },
             "4": {
-              "title": "Which of the identified controls contribute to addressing the risk?",
+              "title": "Which of the identified <span class='green-highlight'>controls</span> contribute to addressing the risk?",
               "placeholder": "Click to select controls which address the risk."
             },
             "5": {
-              "title": "How do you estimate the risk severity, especially according to potential impacts and planned controls?",
+              "title": "How do you estimate the <span class='green-highlight'>risk severity</span>, especially according to potential impacts and planned controls?",
               "placeholder": "Justify here the estimated severity of the risk."
             },
             "6": {
-              "title": "How do you estimate the likelihood of the risk, especially in respect of threats, sources of risk and planned controls?",
+              "title": "How do you estimate the <span class='green-highlight'>likelihood of the risk</span>, especially in respect of threats, sources of risk and planned controls?",
               "placeholder": "Justify here the estimated likelihood."
             }
           }
@@ -1184,27 +1207,27 @@
           "short_help": "Analyze the causes and consequences of an undesired change in data, and estimate its seriousness and likelihood.",
           "questions": {
             "1": {
-              "title": "What could be the main impacts on the data subjects if the risk were to occur?",
+              "title": "What could be the main <span class='green-highlight'>impacts on the data subjects</span> if the risk were to occur?",
               "placeholder": "Enter the potential impacts \u002B"
             },
             "2": {
-              "title": "What are the main threats that could lead to the risk?",
+              "title": "What are the main <span class='green-highlight'>threats</span> that could lead to the risk?",
               "placeholder": "Enter the threats \u002B"
             },
             "3": {
-              "title": "What are the risk sources?",
+              "title": "What are the risk <span class='green-highlight'>sources</span>?",
               "placeholder": "Enter the risk sources \u002B"
             },
             "4": {
-              "title": "Which of the identified controls contribute to addressing the risk?",
+              "title": "Which of the identified <span class='green-highlight'>controls</span> contribute to addressing the risk?",
               "placeholder": "Click here to select controls which address the risk."
             },
             "5": {
-              "title": "How do you estimate the risk severity, especially according to potential impacts and planned controls?",
+              "title": "How do you estimate the <span class='green-highlight'>risk severity</span>, especially according to potential impacts and planned controls?",
               "placeholder": "Justify here the estimated severity of the risk."
             },
             "6": {
-              "title": "How do you estimate the likelihood of the risk, especially in respect of threats, sources of risk and planned controls?",
+              "title": "How do you estimate the <span class='green-highlight'>likelihood of the risk</span>, especially in respect of threats, sources of risk and planned controls?",
               "placeholder": "Justify here the estimated likelihood."
             }
           }
@@ -1214,27 +1237,27 @@
           "short_help": "Analyze the causes and consequences of data loss, and estimate its seriousness and likelihood.",
           "questions": {
             "1": {
-              "title": "What could be the main impacts on the data subjects if the risk were to occur?",
+              "title": "What could be the main <span class='green-highlight'>impacts on the data subjects</span> if the risk were to occur?",
               "placeholder": "Enter the potential impacts \u002B"
             },
             "2": {
-              "title": "What are the main threats that could lead to the risk?",
+              "title": "What are the main <span class='green-highlight'>threats</span> that could lead to the risk?",
               "placeholder": "Enter the threats \u002B"
             },
             "3": {
-              "title": "What are the risk sources?",
+              "title": "What are the risk <span class='green-highlight'>sources</span>?",
               "placeholder": "Enter the risk sources \u002B"
             },
             "4": {
-              "title": "Which of the identified controls contribute to addressing the risk?",
+              "title": "Which of the identified <span class='green-highlight'>controls</span> contribute to addressing the risk?",
               "placeholder": "Click here to select controls which address the risk."
             },
             "5": {
-              "title": "How do you estimate the risk severity, especially according to potential impacts and planned controls?",
+              "title": "How do you estimate the <span class='green-highlight'>risk severity</span>, especially according to potential impacts and planned controls?",
               "placeholder": "Justify here the estimated severity of the risk."
             },
             "6": {
-              "title": "How do you estimate the likelihood of the risk, especially in respect of threats, sources of risk and planned controls?",
+              "title": "How do you estimate the <span class='green-highlight'>likelihood of the risk</span>, especially in respect of threats, sources of risk and planned controls?",
               "placeholder": "Justify here the estimated likelihood."
             }
           }
@@ -1245,7 +1268,7 @@
         }
       }
     },
-    "4": {
+     "4": {
       "title": "Validation",
       "short_help": "This section allows you to prepare and formalise the PIA validation.",
       "items": {
