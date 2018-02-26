@@ -23,12 +23,12 @@ export class HelpComponent implements OnInit, OnDestroy {
     this.tableOfTitles = [];
     const language = this._translateService.currentLang;
     let fileTranslation = language  === 'fr' ? 'fr' : 'en';
-    this.file = `/assets/files/pia_help_${fileTranslation}.md`;
+    this.file = `./assets/files/pia_help_${fileTranslation}.md`;
 
 
     this.helpSubscription = this._translateService.onLangChange.subscribe((event: LangChangeEvent) => {
       fileTranslation = event['lang'] === 'fr' ? 'fr' : 'en';
-      this.file = `/assets/files/pia_help_${fileTranslation}.md`;
+      this.file = `./assets/files/pia_help_${fileTranslation}.md`;
       this.tableOfTitles = [];
       this.getSectionList();
     });
