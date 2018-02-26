@@ -6,7 +6,7 @@ L'accueil vous permet de gérer de façon globale vos PIA et vous permet notamme
 
 | | |
 | --- | --- |
-| ![Logo](../assets/images/help/en/2018-02-23 00 Dashboard 00 - Editer Info PIA.png) | Pour éditer les informations présentes au niveau de l'accueil au sujet d'un PIA, cliquez directement sur les champs à éditer et entrez le texte que vous souhaitez |
+| ![Logo](../assets/images/help/en/2018-02-23 00 Dashboard 00 - Editer Info PIA.png) | Pour éditer les informations présentes au niveau de l'accueil au sujet d'un PIA, cliquez directement sur les champs à éditer et entrez le texte que vous souhaitez. |
 
 ### Dupliquer un PIA
 
@@ -38,7 +38,7 @@ L'accueil vous permet de gérer de façon globale vos PIA et vous permet notamme
 
 | | |
 | --- | --- |
-| ![Logo](../assets/images/help/en/2018-02-23 00 Dashboard 05 - Imprimer Rapport.png) | Pour imprimer le rapport de l'analyse d'impact, suivez la marche à suivre de "Exporter le rapport PIA" et cliquez sur l'icône d'impression |
+| ![Logo](../assets/images/help/en/2018-02-23 00 Dashboard 05 - Imprimer Rapport.png) | Pour imprimer le rapport de l'analyse d'impact, suivez la marche à suivre de "Exporter le rapport PIA" et cliquez sur l'icône d'impression. |
 
 
 ## Edition du PIA
@@ -84,7 +84,7 @@ Première étape pour réaliser son PIA, l'édition s'appuiera généralement su
 
 | | |
 | --- | --- |
-| ![Logo](../assets/images/help/en/2018-02-23 01 Edit 07 - Editer un risque - jauge.png) ![Logo](../assets/images/help/en/2018-02-23 01 Edit 06 - Editer un risque -mesure.png) ![Logo](../assets/images/help/en/2018-02-23 01 Edit 05 - Editer un risque - tag.png) | Pour éditer un risque, vous devez indiquer sous forme de tag, dans les zones correspondantes, les impacts, menaces, sources et mesures liées au risque étudié. En ce qui concerne les mesures, vous pouvez seulement sélectionner celles entrées dans la partie "Mesures existantes ou prévues". Si vous souhaitez ajouter une nouvelle mesure, vous devez le faire dans cette partie. Pour indiquer la vraisemblance et la gravité du risque, faites glisser le curseur de jauge correspondant au niveau estimé. Il est aussi nécessaire de justifier votre estimation en fonction des éléments précédemment saisis. |
+| ![Logo](../assets/images/help/en/2018-02-23 01 Edit 05 - Editer un risque - tag.png) ![Logo](../assets/images/help/en/2018-02-23 01 Edit 06 - Editer un risque -mesure.png) ![Logo](../assets/images/help/en/2018-02-23 01 Edit 07 - Editer un risque - jauge.png) | Pour éditer un risque, vous devez indiquer sous forme de tag, dans les zones correspondantes, les impacts, menaces, sources et mesures liées au risque étudié. En ce qui concerne les mesures, vous pouvez seulement sélectionner celles entrées dans la partie "Mesures existantes ou prévues". Si vous souhaitez ajouter une nouvelle mesure, vous devez le faire dans cette partie. Pour indiquer la vraisemblance et la gravité du risque, faites glisser le curseur de jauge correspondant au niveau estimé. Il est aussi nécessaire de justifier votre estimation en fonction des éléments précédemment saisis. |
 
 ### Vue d'ensemble des risques
 
