@@ -20,6 +20,7 @@ export class HeaderComponent implements OnInit, DoCheck {
   public increaseContrast: string;
   appVersion: string;
   selectedLanguage: string;
+  headerForHome: boolean;
 
   constructor(private _router: Router,
               private renderer: Renderer2,
@@ -33,6 +34,12 @@ export class HeaderComponent implements OnInit, DoCheck {
   ngOnInit() {
     this.appVersion = environment.version;
     this.getUserLanguage();
+
+    // Set the visibility for the PIA example button according to the current url
+    this.headerForHome = (this._router.url === '/home/card' ||
+                          this._router.url === '/home/list' ||
+                          this._router.url === '/about' ||
+                          this._router.url === '/settings') ? true : false;
   }
 
   ngDoCheck() {

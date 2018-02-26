@@ -12,7 +12,7 @@ L'accueil vous permet de gérer de façon globale vos PIA et vous permet notamme
 
 | | |
 | --- | --- |
-| ![Logo](../assets/images/help/en/2018-02-23 00 Dashboard 01 - Dupliquer PIA.png) | Pour dupliquer un PIA, pouvant vous servir de modèle pour un ensemble de traitements : <ul><li>* En vue carte, allez au-dessus des trois points (" ... ") en haut à droite de la carte PIA, et cliquez sur " Dupliquer " ;</li><li>* En vue liste, cliquez sur l'icône dupliquer.</li></ul> |
+| ![Logo](../assets/images/help/en/2018-02-23 00 Dashboard 01 - Dupliquer PIA.png) | Pour dupliquer un PIA, pouvant vous servir de modèle pour un ensemble de traitements : <ul><li>* En vue carte, allez au-dessus des trois points ("...") en haut à droite de la carte PIA, et cliquez sur "Dupliquer" ;</li><li>* En vue liste, cliquez sur l'icône "Dupliquer".</li></ul> |
 
 ### Exporter un PIA
 
@@ -25,20 +25,20 @@ L'accueil vous permet de gérer de façon globale vos PIA et vous permet notamme
 
 | | |
 | --- | --- |
-| ![Logo](../assets/images/help/en/2018-02-23 00 Dashboard 03 - Importer PIA.png) | Pour importer un PIA :<ul><li>En vue carte, cliquez sur le plus (" + ")  correspondant à " Importer un PIA " de la carte de création de PIA. Une fenêtre s'ouvrira. Choisissez le fichier json que vous souhaitez importer.</li><li>En vue liste, cliquez sur l'icône " Importer PIA ". Une fenêtre s'ouvrira. Choisissez le fichier json que vous souhaitez importer. Attention, tout format autre que du json n'est pas supporté par l'application et, par conséquent, ne pourra être importé dans l'outil.</li></ul> |
+| ![Logo](../assets/images/help/en/2018-02-23 00 Dashboard 03 - Importer PIA.png) | Pour importer un PIA :<ul><li>En vue carte, cliquez sur le plus ("+")  correspondant à "Importer un PIA" de la carte de création de PIA. Une fenêtre s'ouvrira. Choisissez le fichier json que vous souhaitez importer.</li><li>En vue liste, cliquez sur l'icône "Importer PIA". Une fenêtre s'ouvrira. Choisissez le fichier json que vous souhaitez importer. Attention, tout format autre que du json n'est pas supporté par l'application et, par conséquent, ne pourra être importé dans l'outil.</li></ul> |
         
 
 ### Exporter le rapport PIA
 
 | | |
 | --- | --- |
-| ![Logo](../assets/images/help/en/2018-02-23 00 Dashboard 04 - Exporter Rappor2018-02-23 00 Dashboard t.png) | Pour exporter le rapport de l'analyse d'impact : <ul><li>En vue carte, allez au-dessus des trois points (" ... ") en haut à droite de la carte PIA, et cliquez sur " Afficher le PIA " ou " Afficher le plan d'action " ;</li><li>En vue liste, cliquez sur l'icône " Afficher le PIA " ou " Afficher le plan d'action ".</li></ul>
+| ![Logo](../assets/images/help/en/2018-02-23 00 Dashboard 04 - Exporter Rappor2018-02-23 00 Dashboard t.png) | Pour exporter le rapport de l'analyse d'impact : <ul><li>En vue carte, allez au-dessus des trois points ("...") en haut à droite de la carte PIA, et cliquez sur "Afficher le PIA" ou "Afficher le plan d'action" ;</li><li>En vue liste, cliquez sur l'icône "Afficher le PIA" ou "Afficher le plan d'action".</li></ul>
 
 ### Imprimer le rapport PIA
 
 | | |
 | --- | --- |
-| ![Logo](../assets/images/help/en/2018-02-23 00 Dashboard 05 - Imprimer Rapport.png) | Pour imprimer le rapport de l'analyse d'impact, suivez la marche à suivre de " Exporter le rapport PIA " et cliquez sur l'icône d'impression |
+| ![Logo](../assets/images/help/en/2018-02-23 00 Dashboard 05 - Imprimer Rapport.png) | Pour imprimer le rapport de l'analyse d'impact, suivez la marche à suivre de "Exporter le rapport PIA" et cliquez sur l'icône d'impression |
 
 
 ## Edition du PIA
@@ -48,7 +48,7 @@ Première étape pour réaliser son PIA, l'édition s'appuiera généralement su
 
 | | |
 | --- | --- |
-| ![Logo](../assets/images/help/en/2018-02-23 01 Edit 01 - CrÇer PIA.png) | Pour créer un PIA :<ul><li>En vue carte, cliquez sur le plus (" + ") correspondant à " Nouveau PIA " de la carte de création de PIA. Cliquez sur " Commencer " ;</li><li>En vue liste, cliquez sur le bouton " Nouveau PIA ". Cliquez sur " Commencez ".</li></ul>Veillez à remplir tous les champs, cela est nécessaire pour pouvoir accéder au reste de l'analyse. Les informations entrées au moment de la création d'un PIA peuvent être modifiées par la suite au niveau de l'accueil. |
+| ![Logo](../assets/images/help/en/2018-02-23 01 Edit 01 - CrÇer PIA.png) | Pour créer un PIA :<ul><li>En vue carte, cliquez sur le plus ("+") correspondant à "Nouveau PIA" de la carte de création de PIA. Cliquez sur "Commencer" ;</li><li>En vue liste, cliquez sur le bouton "Nouveau PIA". Cliquez sur "Commencer".</li></ul>Veillez à remplir tous les champs, cela est nécessaire pour pouvoir accéder au reste de l'analyse. Les informations entrées au moment de la création d'un PIA peuvent être modifiées par la suite au niveau de l'accueil. |
 
 ### Remplir et éditer un champ
 
@@ -60,7 +60,7 @@ Première étape pour réaliser son PIA, l'édition s'appuiera généralement su
 
 | | |
 | --- | --- |
-| ![Logo](../assets/images/help/en/2018-02-23 01 Edit 02 - Remplir un champ.png) | Pour ajouter un commentaire, cliquez sur " Commenter " puis saisissez votre commentaire dans le champ apparaissant. Veillez à cliquer sur " Envoyer mon commentaire " pour que celui-ci soit enregistré. |
+| ![Logo](../assets/images/help/en/2018-02-23 01 Edit 02 - Remplir un champ.png) | Pour ajouter un commentaire, cliquez sur "Commenter" puis saisissez votre commentaire dans le champ apparaissant. Veillez à cliquer sur "Envoyer mon commentaire" pour que celui-ci soit enregistré. |
 
 ### Utilisation de la base de connaissances
 
@@ -72,19 +72,19 @@ Première étape pour réaliser son PIA, l'édition s'appuiera généralement su
 
 | | |
 | --- | --- |
-| ![Logo](../assets/images/help/en/2018-02-23 01 Edit 11 - Ajout de piäce-jointe.png) | Pour ajouter une pièce-jointe, cliquer sur " Ajouter " dans l'encart de pièce-jointes présent sous le menu de navigation du PIA à gauche. |
+| ![Logo](../assets/images/help/en/2018-02-23 01 Edit 11 - Ajout de piäce-jointe.png) | Pour ajouter une pièce-jointe, cliquer sur "Ajouter" dans l'encart de pièce-jointes présent sous le menu de navigation du PIA à gauche. |
 
 ### Ajout des mesures
 
 | | |
 | --- | --- |
-| ![Logo](../assets/images/help/en/2018-02-23 01 Edit 04 - Ajout de mesures.png) | Pour ajouter une mesure, vous pouvez :<ul><li>Ajouter manuellement une nouvelle mesure en cliquant sur le bouton  " Ajouter une mesure vide " ;</li><li>Ajouter de façon automatique une mesure présente dans la base de connaissance en cliquant sur le plus (" + ").</li></ul> |
+| ![Logo](../assets/images/help/en/2018-02-23 01 Edit 04 - Ajout de mesures.png) | Pour ajouter une mesure, vous pouvez :<ul><li>Ajouter manuellement une nouvelle mesure en cliquant sur le bouton  "Ajouter une mesure vide" ;</li><li>Ajouter de façon automatique une mesure présente dans la base de connaissance en cliquant sur le plus ("+").</li></ul> |
 
 ### Editer un risque
 
 | | |
 | --- | --- |
-| ![Logo](../assets/images/help/en/2018-02-23 01 Edit 07 - Editer un risque - jauge.png) ![Logo](../assets/images/help/en/2018-02-23 01 Edit 06 - Editer un risque -mesure.png) ![Logo](../assets/images/help/en/2018-02-23 01 Edit 05 - Editer un risque - tag.png) | Pour éditer un risque, vous devez indiquer sous forme de tag, dans les zones correspondantes, les impacts, menaces, sources et mesures liées au risque étudié. En ce qui concerne les mesures, vous pouvez seulement sélectionner celles entrées dans la partie " Mesures existantes ou prévues ". Si vous souhaitez ajouter une nouvelle mesure, vous devez le faire dans cette partie. Pour indiquer la vraisemblance et la gravité du risque, faites glisser le curseur de jauge correspondant au niveau estimé. Il est aussi nécessaire de justifier votre estimation en fonction des éléments précédemment saisis. |
+| ![Logo](../assets/images/help/en/2018-02-23 01 Edit 07 - Editer un risque - jauge.png) ![Logo](../assets/images/help/en/2018-02-23 01 Edit 06 - Editer un risque -mesure.png) ![Logo](../assets/images/help/en/2018-02-23 01 Edit 05 - Editer un risque - tag.png) | Pour éditer un risque, vous devez indiquer sous forme de tag, dans les zones correspondantes, les impacts, menaces, sources et mesures liées au risque étudié. En ce qui concerne les mesures, vous pouvez seulement sélectionner celles entrées dans la partie "Mesures existantes ou prévues". Si vous souhaitez ajouter une nouvelle mesure, vous devez le faire dans cette partie. Pour indiquer la vraisemblance et la gravité du risque, faites glisser le curseur de jauge correspondant au niveau estimé. Il est aussi nécessaire de justifier votre estimation en fonction des éléments précédemment saisis. |
 
 ### Vue d'ensemble des risques
 
@@ -95,23 +95,23 @@ Première étape pour réaliser son PIA, l'édition s'appuiera généralement su
 ## Evaluation du PIA
 Second étape du PIA, l'évaluation sera réalisée par le DPO, conjointement avec le RSSI. L'évaluation peut porter sur une section entière ou bien sur chacune des questions composant une section. Soit deux ou trois options d'évaluation sont possibles.
 
-### " A corriger "
+### "A corriger"
 
 | | |
 | --- | --- |
-| ![Logo](../assets/images/help/en/2018-02-23 02 Eval 01 - A corriger.png) | L'option " à corriger " signifie que les informations fournies au cours de la phase d'édition sont insuffisantes ou non recevables pour pouvoir évaluer la partie ou question correspondante. En choisissant cette évaluation, la section sera renvoyée en édition. |
+| ![Logo](../assets/images/help/en/2018-02-23 02 Eval 01 - A corriger.png) | L'option "à corriger" signifie que les informations fournies au cours de la phase d'édition sont insuffisantes ou non recevables pour pouvoir évaluer la partie ou question correspondante. En choisissant cette évaluation, la section sera renvoyée en édition. |
 
-### " Améliorable "
-
-| | |
-| --- | --- |
-| ![Logo](../assets/images/help/en/2018-02-23 02 Eval 02 - Ameliorable.png) | L'option " améliorable " signifie que les informations fournies au cours de la phase d'édition sont correctes mais la mise en œuvre peut être améliorée au moyen de mesures correctrices. L'évaluateur devra donc indiquer quelles sont ces mesures correctrices qui seront automatiquement ajoutées au plan d'action. |
-
-### " Acceptable "
+### "Améliorable"
 
 | | |
 | --- | --- |
-| ![Logo](../assets/images/help/en/2018-02-23 02 Eval 03 - Acceptable.png) | L'option " acceptable " signifie que les informations fournies au cours de la phase d'édition assurent la conformité du traitement et permettent de garantir une protection optimale des données personnelles. |
+| ![Logo](../assets/images/help/en/2018-02-23 02 Eval 02 - Ameliorable.png) | L'option "améliorable" signifie que les informations fournies au cours de la phase d'édition sont correctes mais la mise en œuvre peut être améliorée au moyen de mesures correctrices. L'évaluateur devra donc indiquer quelles sont ces mesures correctrices qui seront automatiquement ajoutées au plan d'action. |
+
+### "Acceptable"
+
+| | |
+| --- | --- |
+| ![Logo](../assets/images/help/en/2018-02-23 02 Eval 03 - Acceptable.png) | L'option "acceptable" signifie que les informations fournies au cours de la phase d'édition assurent la conformité du traitement et permettent de garantir une protection optimale des données personnelles. |
 
 ### Avis du DPO et des personnes concernées
 
@@ -139,16 +139,16 @@ Etape finale du PIA, la validation sera faite par le responsable de traitement. 
 
 | | |
 | --- | --- |
-| ![Logo](../assets/images/help/en/2018-02-23 03 Validation 03 - Refus Validation.png) | Pour refuser la validation d'un PIA, cliquez sur " Refuser la Validation ". Vous devrez expliquer le motif de votre refus. Vous aurez ensuite la possibilité de soit abandonner le traitement, cas dans lequel le PIA sera archivé sans possibilité de modification ultérieure, soit renvoyer le PIA en évaluation. Ce sera à l'évaluateur de prendre en compte les remarques du validateur et d'effectuer les modifications nécessaires à l'analyse d'impact. |
+| ![Logo](../assets/images/help/en/2018-02-23 03 Validation 03 - Refus Validation.png) | Pour refuser la validation d'un PIA, cliquez sur "Refuser la Validation". Vous devrez expliquer le motif de votre refus. Vous aurez ensuite la possibilité de soit abandonner le traitement, cas dans lequel le PIA sera archivé sans possibilité de modification ultérieure, soit renvoyer le PIA en évaluation. Ce sera à l'évaluateur de prendre en compte les remarques du validateur et d'effectuer les modifications nécessaires à l'analyse d'impact. |
 
 ### Validation avec signature
 
 | | |
 | --- | --- |
-| ![Logo](../assets/images/help/en/2018-02-23 03 Validation 04 - Validation avec signature.png) | Pour effectuer une validation avec signature, cliquez sur le bouton " Faire signer le PIA par le responsable de traitement ", imprimez le rapport, faites-le signer par le responsable de traitement, puis ajoutez-le en pièce-jointe au PIA. |
+| ![Logo](../assets/images/help/en/2018-02-23 03 Validation 04 - Validation avec signature.png) | Pour effectuer une validation avec signature, cliquez sur le bouton "Faire signer le PIA par le responsable de traitement", imprimez le rapport, faites-le signer par le responsable de traitement, puis ajoutez-le en pièce-jointe au PIA. |
 
 ### Validation simple du PIA
 
 | | |
 | --- | --- |
-| ![Logo](../assets/images/help/en/2018-02-23 03 Validation 05 - Validation simple.png) | Pour effectuer une validation simple, cliquez sur " Validation Simple ". Le PIA sera directement validé. Cette option de validation est à utiliser lorsqu'un traitement est similaire un autre traitement ayant subi une validation avec signature. |
+| ![Logo](../assets/images/help/en/2018-02-23 03 Validation 05 - Validation simple.png) | Pour effectuer une validation simple, cliquez sur "Validation Simple". Le PIA sera directement validé. Cette option de validation est à utiliser lorsqu'un traitement est similaire un autre traitement ayant subi une validation avec signature. |
