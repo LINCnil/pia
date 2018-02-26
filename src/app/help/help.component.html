@@ -5,8 +5,8 @@
     <div class="small-12 medium-3 columns">
       <aside class="pia-leftSidebarBlock pia-help-section">
         <div class="pia-sectionBlock-header">
-          <h1>Tutoriel</h1>
-          <a class="pia-icons pia-icon-close-big" routerlink="/home" title="Retourner à l'accueil" href="#/home"></a>
+          <h1>{{ 'help.title' | translate }}</h1>
+          <a class="pia-icons pia-icon-close-big" routerlink="/home" title="{{ 'pia.sections.homepage_link' | translate }}" href="#/home"></a>
         </div>
         <div *ngFor="let data of tableOfTitles">
           <div class="pia-sectionBlock-title">
