@@ -93,7 +93,6 @@ export class AttachmentsService {
           view: window
         });
         a.dispatchEvent(event);
-        a.click();
       });
     });
   }
