@@ -926,6 +926,9 @@
       "content": "<span class='strong'>Uwaga</span><br>Czy na pewno chcą Państwo<br>usunąć ten załącznik ?",
       "keep": "Zachowanie",
       "remove": "Usunięcie"
+    },
+    "modal-select-text-pia": {
+      "content": "TO BE TRANSLATED - The content of pia has been copied on your clipboard"
     }
   },
   "summary": {
@@ -933,6 +936,7 @@
     "print": "Drukowanie",
     "display_pia": "TO BE TRANSLATED - Display PIA",
     "display_action_plan": "TO BE TRANSLATED - Display<br>action plan",
+    "copy_to_clipboard": "TO BE TRANSLATED - Copy to clipboard",
     "display_filters": {
       "title": "TO BE TRANSLATED - Filters",
       "main_content": "TO BE TRANSLATED - Display \"PIA information\"",

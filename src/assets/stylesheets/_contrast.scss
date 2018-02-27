@@ -749,13 +749,15 @@ body.pia-contrast {
       }
     }
   }
-
   /* Summary */
   .pia-summaryContainerBlock {
     .evaluationValue,
     .red-highlight {
       color: $pia-red-dark !important;
     }
+  }
+  .pia-summaryCopyBlock button {
+    background-color: $pia-green-dark!important;
   }
 
   /* Text editor */

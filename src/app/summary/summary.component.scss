@@ -61,6 +61,10 @@
     display: inline-block;
     vertical-align: top;
   }
+  &-summaryCopyBlock {
+    display: flex;
+   justify-content: flex-end;
+  }
   &-previewBlock {
     text-align: center;
     text-decoration: none;
@@ -100,9 +104,8 @@
 
 }
 .btn-select-all {
-  max-width: 150px;
-  width: 100%;
-  padding: 8px 15px;
+  display: block;
+  padding: 10px 12px;
   color: $pia-white;
   background-color: $pia-green;
   border-radius: 15px;
