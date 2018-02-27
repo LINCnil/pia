@@ -915,6 +915,9 @@
       "content": "<span class = 'strong'> Warnung, </span><br>Sind Sie sicher, dass Sie diesen Anhang entfernen möchten?",
       "keep": "Behalten",
       "remove": "Entfernen"
+    },
+    "modal-select-text-pia": {
+      "content": "TO BE TRANSLATED - The content of pia has been copied on your clipboard"
     }
   },
   "summary": {
@@ -922,6 +925,7 @@
     "print": "Drucken",
     "display_pia": "Sehen Sie sich die PIA an",
     "display_action_plan": "Sehen Sie sich den<br>Aktionsplan an",
+    "copy_to_clipboard": "TO BE TRANSLATED - Copy to clipboard",
     "display_filters": {
       "title": "Filter",
       "main_content": "\"Information zur DSFA\" anzeigen",

@@ -22,8 +22,8 @@
       <div>{{ 'summary.display_pia' | translate }}</div>
     </a>
   </div>
-  <div class="pia-summaryLinksBlock">
-  <button class="btn btn-select-all" (click)="getTextSelection()">Sélectionner tout le texte</button>
+  <div class="pia-summaryCopyBlock">
+  <button class="btn btn-select-all" (click)="getTextSelection()">{{ 'summary.copy_to_clipboard' | translate }}</button>
   </div>
   <!-- Customize content filters -->
   <div *ngIf="displayFilters" class="row">
