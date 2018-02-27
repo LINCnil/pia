@@ -21,11 +21,16 @@ export class ModalsService {
       const header = document.querySelector('.pia-headerBlock');
       const container = document.querySelector('.pia-mainContainerBlock');
 
+
       header.classList.add('blur');
       container.classList.add('blur');
     }
+    console.log(modal_id);
     const e = <HTMLElement>document.getElementById(modal_id);
+
     e.classList.add('open');
+    console.log( e);
+    console.log(modal_id)
     const gf = (<HTMLButtonElement>e.querySelector('.get-focus'));
     if (gf) {
       gf.focus();

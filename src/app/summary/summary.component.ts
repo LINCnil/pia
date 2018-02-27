@@ -9,6 +9,8 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 import { AppDataService } from 'app/services/app-data.service';
 
 import { TranslateService } from '@ngx-translate/core';
+import {element} from 'protractor';
+import {ModalsService} from '../modals/modals.service';
 
 @Component({
   selector: 'app-summary',
@@ -33,7 +35,8 @@ export class SummaryComponent implements OnInit {
               public _actionPlanService: ActionPlanService,
               private _translateService: TranslateService,
               private _appDataService: AppDataService,
-              public _piaService: PiaService) { }
+              public _piaService: PiaService,
+              private _modalService: ModalsService) { }
 
   async ngOnInit() {
     this.content = [];
@@ -343,4 +346,17 @@ export class SummaryComponent implements OnInit {
       resolve(evaluation);
     });
   }
+  getTextSelection() {
+    const select = document.getElementById('force-select-all');
+    select.focus();
+    const range = document.createRange();
+    range.selectNodeContents(select);
+    const sel = window.getSelection();
+    sel.removeAllRanges();
+    sel.addRange(range);
+    document.execCommand('Copy', false, range);
+    document.execCommand('SelectText', false , range);
+    this._modalService.openModal('modal-select-text-pia');
+  }
 }
+
