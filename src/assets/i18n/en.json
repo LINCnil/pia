@@ -926,7 +926,7 @@
       "keep": "Keep",
       "remove": "Remove"
     },
-    "modal-select-text-pia": {
+    "modal_select_text_pia": {
       "content": "The content of pia has been copied on your clipboard"
     }
   },

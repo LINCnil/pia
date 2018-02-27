@@ -872,7 +872,7 @@
     "completed_evaluation": {
       "content": "L'intégralité de l'analyse a été évaluée, le PIA doit désormais être validé."
     },
-    "modal-select-text-pia": {
+    "modal_select_text_pia": {
       "content": "Le contenu du Rapport Pia a été copié dans votre presse-papier"
     },
     "update_server_url": {
