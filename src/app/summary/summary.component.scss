@@ -97,4 +97,25 @@
   &-attachment-removed {
     text-decoration: line-through;
   }
+
+}
+.btn-select-all {
+  max-width: 150px;
+  width: 100%;
+  padding: 8px 15px;
+  color: $pia-white;
+  background-color: $pia-green;
+  border-radius: 15px;
+}
+.force-select-all {
+  -webkit-user-select: all;
+  -moz-user-select: all;
+  -ms-user-select: all;
+  user-select: all;
+}
+.unselectable {
+  -webkit-user-select: none!important;
+  -moz-user-select: none!important;
+  -ms-user-select: none!important;
+  user-select: none!important;
 }
