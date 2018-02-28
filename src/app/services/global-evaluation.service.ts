@@ -441,10 +441,15 @@ export class GlobalEvaluationService {
    * @memberof GlobalEvaluationService
    */
   private answerIsValid(answer: Answer) {
-    if (answer.data.text && answer.data.text.length > 0 ||
-        answer.data.list && answer.data.list.length > 0 ||
-        answer.data.text && answer.data.gauge && answer.data.text.length > 0 && answer.data.gauge > 0) {
-      return true;
+    if (answer.data.gauge !== null && answer.data.gauge !== undefined && answer.data.gauge >= 0) {
+      if (answer.data.text && answer.data.gauge && answer.data.text.length > 0 && answer.data.gauge > 0) {
+        return true;
+      }
+    } else {
+      if ((answer.data.list && answer.data.list.length > 0) ||
+          (answer.data.text && answer.data.text.length > 0)) {
+        return true;
+      }
     }
     return false;
   }
