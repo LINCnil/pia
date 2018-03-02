@@ -45,6 +45,7 @@ import { AttachmentsService } from 'app/entry/attachments/attachments.service';
 import { KnowledgeBaseService } from 'app/entry/knowledge-base/knowledge-base.service';
 import { EvaluationService } from 'app/entry/entry-content/evaluations/evaluations.service';
 import { PaginationService } from 'app/entry/entry-content/pagination.service';
+import { LanguagesService } from 'app/services/languages.service';
 import { OverviewRisksComponent } from 'app/entry/entry-content/overview-risks/overview-risks.component';
 import { ErrorsComponent } from 'app/errors/errors.component';
 import {
@@ -68,6 +69,7 @@ const providersList: any = [
   ActionPlanService,
   PaginationService,
   SidStatusService,
+  LanguagesService,
   GlobalEvaluationService
 ];
 
