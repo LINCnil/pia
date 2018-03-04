@@ -125,7 +125,7 @@ Letzter Schritt der DSFA ist die Bestätigung  durch den Verantwortlichen. Der R
 
 | | |
 | --- | --- |
-| ![Logo](./assets/images/help/en/2018-02-23 03 Validation 01 - Cartographie des risques.png) | Die Risikokartierung visualisiert die Risikoentwicklung gemäß den vom Prüfer vorgeschlagenen Korrekturmaßnahmen im Vergleich zur bestehenden Situation. |
+| ![Logo](./assets/images/help/en/2018-02-23 03 Validation 01 - Cartographie des risques.png) | Die Risikokartierung visualisiert die Risikoentwicklung gemäß den von den Prüfern vorgeschlagenen Korrekturmaßnahmen im Vergleich zur bestehenden Situation. |
 
 ### Aktionsplan
 
