@@ -131,13 +131,13 @@ Letzter Schritt der DSFA ist die Bestätigung  durch den Verantwortlichen. Der R
 
 | | |
 | --- | --- |
-| ![Logo](./assets/images/help/en/2018-02-23 03 Validation 02 - Plan Action.png) | Der Aktionsplan fasst alle Korrekturmaßnahmen, die während der Bewertungsphase vom Prüfer angegeben wurden zusammen. Die Visualisierung oben auf der Seite hilft, schnell zu verstehen, welche Punkte in der Verarbeitung zu verbessern sind. Für jede Korrekturmaßnahme im Aktionsplan können Sie ein Fälligkeitsdatum und eine verantwortliche Person für die Implementierung festlegen. |
+| ![Logo](./assets/images/help/en/2018-02-23 03 Validation 02 - Plan Action.png) | Der Aktionsplan fasst alle Korrekturmaßnahmen, die während der Bewertungsphase von den Prüfern angegeben wurden, zusammen. Die Visualisierung oben auf der Seite hilft schnell zu verstehen, welche Punkte in der Verarbeitung zu verbessern sind. Für jede Korrekturmaßnahme im Aktionsplan können Sie ein Fälligkeitsdatum und eine verantwortliche Person für die Umsetzung festlegen. |
 
 ### DSFA zurückweisen
 
 | | |
 | --- | --- |
-| ![Logo](./assets/images/help/en/2018-02-23 03 Validation 03 - Refus Validation.png) | Wenn Sie der Ansicht sind, dass die DSFA zu riskant oder unvollständig ist, können Sie sie ablehnen, indem Sie auf "DSFA zurückweisen" klicken. Sie sollten anschließend den Grund für die Ablehnung erklären. Sie können dann entweder die Verarbeitung abbrechen, in diesem Fall wird die DSFA archiviert, ohne dass sie später bearbeitet werden kann, oder Sie können sie an den Prüfer zurücksenden. Er wird die Kommentare des für die Verarbeitung Verantwortlichen berücksichtigen müssen, um die erforderlichen Änderungen in der DSFA vorzuschlagen. |
+| ![Logo](./assets/images/help/en/2018-02-23 03 Validation 03 - Refus Validation.png) | Wenn Sie der Ansicht sind, dass die DSFA zu riskant oder unvollständig ist, können Sie sie ablehnen, indem Sie auf "DSFA zurückweisen" klicken. Sie sollten anschließend den Grund für die Ablehnung erklären. Sie können dann entweder die Verarbeitung abbrechen, in diesem Fall wird die DSFA archiviert, ohne dass sie später bearbeitet werden kann, oder Sie können sie an die Prüfer zurücksenden. Sie werden die Kommentare des für die Verarbeitung Verantwortlichen berücksichtigen müssen, um die erforderlichen Änderungen in der DSFA vorzuschlagen. |
 
 ### DSFA bestätigen (mit Unterschrift)
 
