@@ -57,9 +57,6 @@ export class EntryContentComponent implements OnInit, OnChanges {
     this._paginationService.dataNav = await this._appDataService.getDataNav();
     await this._piaService.getPIA();
 
-    // this._evaluationService.setPia(this._piaService.pia);
-    // this._evaluationService.allowEvaluation();
-
     const sectionId = parseInt(this._activatedRoute.snapshot.params['section_id'], 10);
     const itemId = parseInt(this._activatedRoute.snapshot.params['item_id'], 10);
 
@@ -83,7 +80,7 @@ export class EntryContentComponent implements OnInit, OnChanges {
   }
 
   /**
-   * Prepare entry for evaluation
+   * Prepare entry for evaluation.
    * @memberof EntryContentComponent
    */
   prepareForEvaluation() {
@@ -127,10 +124,10 @@ export class EntryContentComponent implements OnInit, OnChanges {
   }
 
   /**
-   * Get next item to go
+   * Get next item to go.
    * @private
-   * @param {number} status_start
-   * @param {number} status_end
+   * @param {number} status_start - From status.
+   * @param {number} status_end - To status.
    * @memberof EntryContentComponent
    */
   private goToNextSectionItem(status_start: number, status_end: number) {
@@ -169,23 +166,19 @@ export class EntryContentComponent implements OnInit, OnChanges {
   }
 
   /**
-   * Allow an user to return in edit mode
+   * Allow an user to return in edit mode.
    * @memberof EntryContentComponent
    */
   cancelAskForEvaluation() {
     this._globalEvaluationService.cancelForEvaluation();
-    // this._evaluationService.cancelForEvaluation(this._piaService, this._sidStatusService, this.section, this.item);
   }
 
   /**
-   * Allow an user to cancel the validation
+   * Allow an user to cancel the validation.
    * @memberof EntryContentComponent
    */
   cancelValidateEvaluation() {
     this._globalEvaluationService.cancelValidation();
-    // this._evaluationService.cancelValidation().then((valid: boolean) => {
-    //   this._sidStatusService.setSidStatus(this._piaService, this.section, this.item);
-    // });
   }
 
 }

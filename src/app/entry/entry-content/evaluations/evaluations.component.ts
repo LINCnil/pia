@@ -17,6 +17,7 @@ import { PiaService } from 'app/entry/pia.service';
   templateUrl: './evaluations.component.html',
   styleUrls: ['./evaluations.component.scss']
 })
+
 export class EvaluationsComponent implements OnInit, AfterViewChecked, OnDestroy, DoCheck {
   private riskSubscription: Subscription;
   private placeholderSubscription: Subscription;
@@ -94,6 +95,18 @@ export class EvaluationsComponent implements OnInit, AfterViewChecked, OnDestroy
     }
   }
 
+  ngOnDestroy() {
+    this.riskSubscription.unsubscribe();
+    this.placeholderSubscription.unsubscribe();
+    tinymce.remove(this.editor);
+    tinymce.remove(this.editorEvaluationComment);
+  }
+
+  /**
+   * Check the evaluation validation.
+   * @private
+   * @memberof EvaluationsComponent
+   */
   private checkEvaluationValidation() {
     if (this.item.evaluation_mode === 'question') {
       // Measure evaluation update
@@ -144,8 +157,6 @@ export class EvaluationsComponent implements OnInit, AfterViewChecked, OnDestroy
         this.evaluationForm.controls['gaugeX'].patchValue(0);
         this.evaluationForm.controls['gaugeY'].patchValue(0);
       }
-
-      // this._globalEvaluationService.checkForFinalValidation(this.pia, this.section, this.item);
     });
 
     if (this.item.questions) {
@@ -161,10 +172,14 @@ export class EvaluationsComponent implements OnInit, AfterViewChecked, OnDestroy
         });
       });
     }
-    // this._evaluationService.setPia(this.pia); // Sometimes this._evaluationService.pia is empty
-    // this._evaluationService.isAllEvaluationValidated();
   }
 
+  /**
+   * Auto textearea resize
+   * @param {*} event - Any Event.
+   * @param {*} [textarea] - Any textarea element.
+   * @memberof EvaluationsComponent
+   */
   autoTextareaResize(event: any, textarea?: any) {
     if (event) {
       textarea = event.target;
@@ -178,8 +193,9 @@ export class EvaluationsComponent implements OnInit, AfterViewChecked, OnDestroy
 
   /**
    * Updates evaluation fields according to the selected button.
-   * @param {Event} event : any event.
-   * @param {number} status : the status of the evaluation (to be fixed, improvable, acceptable)
+   * @param {Event} event - Any event.
+   * @param {number} status - The status of the evaluation (to be fixed, improvable, acceptable).
+   * @memberof EvaluationsComponent
    */
   selectedButton(event, status: number) {
     this.evaluation.global_status = 0;
@@ -219,8 +235,6 @@ export class EvaluationsComponent implements OnInit, AfterViewChecked, OnDestroy
       // Pass the evaluation to the parent component
       this.evaluationEvent.emit(this.evaluation);
       this._globalEvaluationService.validate();
-      // this._sidStatusService.setSidStatus(this._piaService, this.section, this.item);
-      // this._globalEvaluationService.checkForFinalValidation(this.pia, this.section, this.item);
     });
 
     // Displays content (action plan & comment fields).
@@ -230,6 +244,7 @@ export class EvaluationsComponent implements OnInit, AfterViewChecked, OnDestroy
 
   /**
    * Loads editor (if not final validation) on action plan comment focus.
+   * @memberof EvaluationsComponent
    */
   actionPlanCommentFocusIn() {
     if (this._globalEvaluationService.evaluationEditionEnabled) {
@@ -240,6 +255,7 @@ export class EvaluationsComponent implements OnInit, AfterViewChecked, OnDestroy
 
   /**
    * Executes actions when losing focus from action plan comment.
+   * @memberof EvaluationsComponent
    */
   actionPlanCommentFocusOut() {
     this._knowledgeBaseService.placeholder = null;
@@ -259,6 +275,7 @@ export class EvaluationsComponent implements OnInit, AfterViewChecked, OnDestroy
 
   /**
    * Activates (or not) evaluation comment when focusing it.
+   * @memberof EvaluationsComponent
    */
   evaluationCommentFocusIn() {
     if (this._globalEvaluationService.evaluationEditionEnabled) {
@@ -270,6 +287,7 @@ export class EvaluationsComponent implements OnInit, AfterViewChecked, OnDestroy
 
   /**
    * Executes actions when losing focus from evaluation comment.
+   * @memberof EvaluationsComponent
    */
   evaluationCommentFocusOut() {
     this._knowledgeBaseService.placeholder = null;
@@ -289,6 +307,7 @@ export class EvaluationsComponent implements OnInit, AfterViewChecked, OnDestroy
 
   /**
    * Enables 'x' gauge.
+   * @memberof EvaluationsComponent
    */
   enableGaugeX() {
     if (this._globalEvaluationService.evaluationEditionEnabled) {
@@ -300,6 +319,7 @@ export class EvaluationsComponent implements OnInit, AfterViewChecked, OnDestroy
 
   /**
    * Enables 'y' gauge.
+   * @memberof EvaluationsComponent
    */
   enableGaugeY() {
     if (this._globalEvaluationService.evaluationEditionEnabled) {
@@ -310,9 +330,10 @@ export class EvaluationsComponent implements OnInit, AfterViewChecked, OnDestroy
   }
 
   /**
-   *
-   * @param event : any event.
-   * @param {string} xOrY : the current coordinate being processed (x or y).
+   * Check gauge changes.
+   * @param {*} event - Any Event.
+   * @param {string} xOrY - The current coordinate being processed (x or y).
+   * @memberof EvaluationsComponent
    */
   checkGaugeChanges(event: any, xOrY: string) {
     const value: string = event.target.value;
@@ -341,7 +362,9 @@ export class EvaluationsComponent implements OnInit, AfterViewChecked, OnDestroy
 
   /**
    * Loads WYSIWYG editor for action plan comment.
-   * @param {boolean} autofocus boolean to autofocus or not.
+   * @param {any} field - Field to load the editor.
+   * @param {boolean} [autofocus=false] - Boolean to autofocus or not.
+   * @memberof EvaluationsComponent
    */
   loadEditor(field, autofocus = false) {
     let elementId = this.actionPlanCommentElementId;
@@ -379,15 +402,5 @@ export class EvaluationsComponent implements OnInit, AfterViewChecked, OnDestroy
         });
       },
     });
-  }
-
-  /**
-   * Destroys tinymce and unsubscribe.
-   */
-  ngOnDestroy() {
-    this.riskSubscription.unsubscribe();
-    this.placeholderSubscription.unsubscribe();
-    tinymce.remove(this.editor);
-    tinymce.remove(this.editorEvaluationComment);
   }
 }

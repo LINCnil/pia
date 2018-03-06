@@ -59,10 +59,14 @@ export class MeasuresComponent implements OnInit, OnDestroy {
     });
   }
 
+  ngOnDestroy() {
+    tinymce.remove(this.editor);
+  }
+
   /**
-   * Enable auto resizing on measure title textarea
-   * @param {*} event
-   * @param {HTMLElement} textarea
+   * Enable auto resizing on measure title textarea.
+   * @param {*} event - Any Event.
+   * @param {HTMLElement} textarea - Any textarea.
    * @memberof MeasuresComponent
    */
   autoTextareaResize(event: any, textarea?: HTMLElement) {
@@ -78,8 +82,8 @@ export class MeasuresComponent implements OnInit, OnDestroy {
   }
 
   /**
-   * Change evaluation
-   * @param {*} evaluation
+   * Change evaluation.
+   * @param {*} evaluation - Any Evaluation.
    * @memberof MeasuresComponent
    */
   evaluationChange(evaluation: any) {
@@ -102,7 +106,7 @@ export class MeasuresComponent implements OnInit, OnDestroy {
    * Disables title field when losing focus from it.
    * Shows measure edit button.
    * Saves data from title field.
-   * @param {event} event any event.
+   * @param {event} event - Any Event.
    * @memberof MeasuresComponent
    */
   measureTitleFocusOut(event: Event) {
@@ -197,7 +201,7 @@ export class MeasuresComponent implements OnInit, OnDestroy {
 
   /**
    * Shows or hides a measure.
-   * @param {*} event
+   * @param {*} event - Any Event.
    * @memberof MeasuresComponent
    */
   displayMeasure(event: any) {
@@ -226,7 +230,7 @@ export class MeasuresComponent implements OnInit, OnDestroy {
 
   /**
    * Allows an user to remove a measure.
-   * @param {string} measureId
+   * @param {string} measureId - A measure id.
    * @memberof MeasuresComponent
    */
   removeMeasure(measureId: string) {
@@ -267,12 +271,5 @@ export class MeasuresComponent implements OnInit, OnDestroy {
         });
       },
     });
-  }
-
-  /**
-   * Destroys editor.
-   */
-  ngOnDestroy() {
-    tinymce.remove(this.editor);
   }
 }

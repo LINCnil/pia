@@ -10,6 +10,11 @@ export class AppDataService {
     this.loadArchitecture();
   }
 
+  /**
+   * Get the navigation data.
+   * @returns {Object}
+   * @memberof AppDataService
+   */
   async getDataNav() {
     if (!this.dataNav.sections) {
       await this.loadArchitecture();
@@ -17,6 +22,12 @@ export class AppDataService {
     return this.dataNav;
   }
 
+  /**
+   * Load the architecture JSON file.
+   * @private
+   * @returns {Promise}
+   * @memberof AppDataService
+   */
   private async loadArchitecture() {
     return new Promise((resolve, reject) => {
       this.http.get('./assets/files/pia_architecture.json').map(res => res.json()).subscribe(data => {

@@ -50,6 +50,16 @@ export class HelpComponent implements OnInit, OnDestroy {
     this.getSectionList();
   }
 
+  ngOnDestroy() {
+    this.helpSubscription.unsubscribe();
+  }
+
+  /**
+   * Jump to the title/subtitle clicked.
+   * @param {any} event - Any Event.
+   * @param {any} text - The title or subtitle.
+   * @memberof HelpComponent
+   */
   getAnchor(event, text) {
     event.preventDefault();
     this.activeElement = text;
@@ -60,6 +70,10 @@ export class HelpComponent implements OnInit, OnDestroy {
     }
   }
 
+  /**
+   * Parse the file to get all title and subtitle.
+   * @memberof HelpComponent
+   */
   getSectionList() {
     this.http.get(this.file).subscribe(data => {
       const fileMd = data.text().toString();
@@ -80,12 +94,5 @@ export class HelpComponent implements OnInit, OnDestroy {
         this.tableOfTitles.push(tt);
       }
     });
-  }
-
-    /**
-   * Destroys help subscriber.
-   */
-  ngOnDestroy() {
-    this.helpSubscription.unsubscribe();
   }
 }

@@ -44,7 +44,6 @@ export class EntryComponent implements OnInit, OnDestroy, DoCheck {
     let itemId = parseInt(this.route.snapshot.params['item_id'], 10);
 
     this.data = await this._appDataService.getDataNav();
-    //this.getSectionAndItem(sectionId, itemId);
     this.route.params.subscribe(
       (params: Params) => {
         sectionId = parseInt(params['section_id'], 10);
@@ -96,11 +95,15 @@ export class EntryComponent implements OnInit, OnDestroy, DoCheck {
     }
   }
 
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
+  }
+
   /**
-   * Get the current Section and Item and initialize others information
+   * Get the current Section and Item and initialize others information.
    * @private
-   * @param {number} sectionId
-   * @param {number} itemId
+   * @param {number} sectionId - The section id.
+   * @param {number} itemId - The item id.
    * @memberof EntryComponent
    */
   private getSectionAndItem(sectionId: number, itemId: number) {
@@ -158,9 +161,5 @@ export class EntryComponent implements OnInit, OnDestroy, DoCheck {
     this._knowledgeBaseService.q = null;
     this._knowledgeBaseService.loadByItem(this.item);
     this._knowledgeBaseService.placeholder = null;
-  }
-
-  ngOnDestroy() {
-    this.subscription.unsubscribe();
   }
 }

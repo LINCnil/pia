@@ -109,10 +109,9 @@ export class DPOPeopleOpinionsComponent implements OnInit {
     });
   }
 
-  /* DPO methods */
-
   /**
    * Focuses dpo name.
+   * @memberof DPOPeopleOpinionsComponent
    */
   dpoNameFocusIn() {
     if (this._piaService.pia.status >= 2 || this._piaService.pia.is_example === 1) {
@@ -125,6 +124,7 @@ export class DPOPeopleOpinionsComponent implements OnInit {
 
   /**
    * Disables DPO fields (status + opinion) and saves data.
+   * @memberof DPOPeopleOpinionsComponent
    */
   dpoNameFocusOut() {
     if (this.DPOForm.value.DPONames && this.DPOForm.value.DPONames.length > 0) {
@@ -148,6 +148,7 @@ export class DPOPeopleOpinionsComponent implements OnInit {
 
   /**
    * Enables dpo status radio buttons.
+   * @memberof DPOPeopleOpinionsComponent
    */
   enableDpoStatusRadioButtons() {
     if (this._piaService.pia.status >= 2 || this._piaService.pia.is_example === 1) {
@@ -159,6 +160,7 @@ export class DPOPeopleOpinionsComponent implements OnInit {
 
   /**
    * Updates dpo status.
+   * @memberof DPOPeopleOpinionsComponent
    */
   dpoStatusFocusOut() {
     this._piaService.pia.dpo_status = parseInt(this.DPOForm.value.DPOStatus, 10);
@@ -169,6 +171,7 @@ export class DPOPeopleOpinionsComponent implements OnInit {
 
   /**
    * Focuses dpo opinion.
+   * @memberof DPOPeopleOpinionsComponent
    */
   dpoOpinionFocusIn() {
     if (this._piaService.pia.status >= 2 || this._piaService.pia.is_example === 1) {
@@ -181,6 +184,7 @@ export class DPOPeopleOpinionsComponent implements OnInit {
 
   /**
    * Updates dpo opinion.
+   * @memberof DPOPeopleOpinionsComponent
    */
   dpoOpinionFocusOut() {
     let userText = this.DPOForm.controls['DPOOpinion'].value;
@@ -196,11 +200,9 @@ export class DPOPeopleOpinionsComponent implements OnInit {
     });
   }
 
-
-  /* Concerned people opinion searched or unsearched methods */
-
   /**
    * Enables concerned people searched or unsearched radio buttons.
+   * @memberof DPOPeopleOpinionsComponent
    */
   enableConcernedPeopleSearchedOpinionRadioButtons() {
     if (this._piaService.pia.status >= 2 || this._piaService.pia.is_example === 1) {
@@ -212,6 +214,7 @@ export class DPOPeopleOpinionsComponent implements OnInit {
 
   /**
    * Updates concerned people searched or unsearched opinion.
+   * @memberof DPOPeopleOpinionsComponent
    */
   searchedOpinionsFocusOut() {
     if (this.searchedOpinionsForm.value.searchStatus) {
@@ -232,6 +235,7 @@ export class DPOPeopleOpinionsComponent implements OnInit {
 
   /**
    * Focuses concerned people search content.
+   * @memberof DPOPeopleOpinionsComponent
    */
   peopleSearchContentFocusIn() {
     if (this._piaService.pia.status >= 2 || this._piaService.pia.is_example === 1) {
@@ -244,6 +248,7 @@ export class DPOPeopleOpinionsComponent implements OnInit {
 
   /**
    * Updates concerned people search content.
+   * @memberof DPOPeopleOpinionsComponent
    */
   peopleSearchContentFocusOut() {
     let userText = this.searchedOpinionsForm.controls['searchContent'].value;
@@ -259,10 +264,9 @@ export class DPOPeopleOpinionsComponent implements OnInit {
     });
   }
 
-  /* Concerned people methods */
-
   /**
    * Focuses concerned people name.
+   * @memberof DPOPeopleOpinionsComponent
    */
   concernedPeopleNameFocusIn() {
     if (this._piaService.pia.status >= 2 || this._piaService.pia.is_example === 1) {
@@ -275,6 +279,7 @@ export class DPOPeopleOpinionsComponent implements OnInit {
 
   /**
    * Updates concerned people name.
+   * @memberof DPOPeopleOpinionsComponent
    */
   concernedPeopleNameFocusOut() {
     if (this.peopleForm.value.peopleNames && this.peopleForm.value.peopleNames.length > 0) {
@@ -298,6 +303,7 @@ export class DPOPeopleOpinionsComponent implements OnInit {
 
   /**
    * Enables concerned people status radio buttons.
+   * @memberof DPOPeopleOpinionsComponent
    */
   enableConcernedPeopleStatusRadioButtons() {
     if (this._piaService.pia.status >= 2 || this._piaService.pia.is_example === 1) {
@@ -309,6 +315,7 @@ export class DPOPeopleOpinionsComponent implements OnInit {
 
   /**
    * Updates concerned people status.
+   * @memberof DPOPeopleOpinionsComponent
    */
   concernedPeopleStatusFocusOut() {
     if (this.peopleForm.value.peopleStatus && this.peopleForm.value.peopleStatus >= 0) {
@@ -321,6 +328,7 @@ export class DPOPeopleOpinionsComponent implements OnInit {
 
   /**
    * Focuses concerned people opinion field.
+   * @memberof DPOPeopleOpinionsComponent
    */
   concernedPeopleOpinionFocusIn() {
     if (this._piaService.pia.status >= 2 || this._piaService.pia.is_example === 1) {
@@ -333,6 +341,7 @@ export class DPOPeopleOpinionsComponent implements OnInit {
 
   /**
    * Updates concerned people opinion.
+   * @memberof DPOPeopleOpinionsComponent
    */
   concernedPeopleopinionFocusOut() {
     let userText = this.peopleForm.controls['peopleOpinion'].value;
@@ -348,8 +357,12 @@ export class DPOPeopleOpinionsComponent implements OnInit {
     });
   }
 
-  /* Misc methods */
-
+  /**
+   * Auto textarea resize.
+   * @param {*} event - Any Event.
+   * @param {HTMLElement} [textarea] - Textarea HTML element.
+   * @memberof DPOPeopleOpinionsComponent
+   */
   autoTextareaResize(event: any, textarea?: HTMLElement) {
     if (event) {
       textarea = event.target;
@@ -364,6 +377,7 @@ export class DPOPeopleOpinionsComponent implements OnInit {
 
   /**
    * Checks if dpo name is filled to enable other fields.
+   * @memberof DPOPeopleOpinionsComponent
    */
   checkDpoName() {
     if (!this.DPOForm.controls['DPONames'].value) {
@@ -377,6 +391,7 @@ export class DPOPeopleOpinionsComponent implements OnInit {
 
   /**
    * Checks if concerned people name is filled to enable other fields.
+   * @memberof DPOPeopleOpinionsComponent
    */
   checkConcernedPeopleName() {
     if (!this.peopleForm.controls['peopleNames'].value) {

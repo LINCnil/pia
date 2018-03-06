@@ -66,8 +66,13 @@ export class CardsComponent implements OnInit, OnDestroy {
     });
   }
 
+  ngOnDestroy() {
+    this.paramsSubscribe.unsubscribe();
+  }
+
   /**
    * Creates a new PIA card and adds a flip effect to go switch between new PIA and edit PIA events.
+   * @memberof CardsComponent
    */
   newPIA() {
     this.newPia = new Pia();
@@ -79,13 +84,19 @@ export class CardsComponent implements OnInit, OnDestroy {
     }
   }
 
+  /**
+   * Inverse the order of the list.
+   * @memberof CardsComponent
+   */
   reversePIA() {
     const cardsToSwitchReverse = document.getElementById('cardsSwitch');
     cardsToSwitchReverse.classList.remove('flipped');
   }
 
   /**
-   * Allows users to import a PIA.
+   * Import a new PIA.
+   * @param {*} [event] - Any Event.
+   * @memberof CardsComponent
    */
   importPia(event?: any) {
     if (event) {
@@ -98,6 +109,7 @@ export class CardsComponent implements OnInit, OnDestroy {
   /**
    * Save the newly created PIA.
    * Sends to the path associated to this new PIA.
+   * @memberof CardsComponent
    */
   onSubmit() {
     const pia = new Pia();
@@ -110,7 +122,9 @@ export class CardsComponent implements OnInit, OnDestroy {
   }
 
   /**
-   * Asort items created on PIA
+   * Asort items created on PIA.
+   * @param {string} fieldToSort - Field to sort.
+   * @memberof CardsComponent
    */
   sortBy(fieldToSort: string) {
     this.sortValue = fieldToSort;
@@ -120,6 +134,10 @@ export class CardsComponent implements OnInit, OnDestroy {
     localStorage.setItem('sortOrder', this.sortOrder);
   }
 
+  /**
+   * Display elements in list view.
+   * @memberof CardsComponent
+   */
   viewOnList() {
     this.viewStyle.view = 'list';
     localStorage.setItem('homepageDisplayMode', this.viewStyle.view);
@@ -127,6 +145,10 @@ export class CardsComponent implements OnInit, OnDestroy {
     this.refreshContent();
   }
 
+  /**
+   * Display elements in card view.
+   * @memberof CardsComponent
+   */
   viewOnCard() {
     this.viewStyle.view = 'card';
     localStorage.setItem('homepageDisplayMode', this.viewStyle.view);
@@ -134,10 +156,10 @@ export class CardsComponent implements OnInit, OnDestroy {
     this.refreshContent();
   }
 
-  ngOnDestroy() {
-    this.paramsSubscribe.unsubscribe();
-  }
-
+  /**
+   * Refresh the list.
+   * @memberof CardsComponent
+   */
   async refreshContent() {
     const pia = new Pia();
     const data: any = await pia.getAll();
@@ -149,6 +171,11 @@ export class CardsComponent implements OnInit, OnDestroy {
     }, 200);
   }
 
+  /**
+   * Define how to sort the list.
+   * @private
+   * @memberof CardsComponent
+   */
   private sortPia() {
     this._piaService.pias.sort((a, b) => {
       let firstValue = a[this.sortValue];

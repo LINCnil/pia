@@ -17,12 +17,12 @@ export class AttachmentItemComponent implements OnInit {
 
   constructor(private _modalsService: ModalsService, private _attachmentsService: AttachmentsService) { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
   /**
    * Deletes an attachment with a given id.
-   * @param {string} id unique id of the attachment to be deleted.
+   * @param {string} id - Unique id of the attachment to be deleted.
+   * @memberof AttachmentItemComponent
    */
   removeAttachment(id: string) {
     localStorage.setItem('attachment-id', id);
@@ -31,7 +31,8 @@ export class AttachmentItemComponent implements OnInit {
 
   /**
    * Allows an user to download a specific attachment.
-   * @param {number} id the unique id of the attachment.
+   * @param {number} id - The unique id of the attachment.
+   * @memberof AttachmentItemComponent
    */
   downloadAttachment(id: number) {
     this._attachmentsService.downloadAttachment(id);
@@ -39,7 +40,8 @@ export class AttachmentItemComponent implements OnInit {
 
   /**
    * Checks if the add attachments button has to be shown, according to the PIA status.
-   * @return true if the PIA isn't validated (simple or signed validation), false otherwise.
+   * @return {boolean} - True if the PIA isn't validated (simple or signed validation), false otherwise.
+   * @memberof AttachmentItemComponent
    */
   showAddAttachmentButton() {
     return (this.pia.status !== 2 && this.pia.status !== 3);
