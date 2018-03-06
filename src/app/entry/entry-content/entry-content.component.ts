@@ -9,7 +9,6 @@ import { AppDataService } from 'app/services/app-data.service';
 import { MeasureService } from 'app/entry/entry-content/measures/measures.service';
 import { ModalsService } from 'app/modals/modals.service';
 import { PiaService } from 'app/entry/pia.service';
-import { EvaluationService } from 'app/entry/entry-content/evaluations/evaluations.service';
 import { PaginationService } from './pagination.service';
 import { TranslateService } from '@ngx-translate/core';
 import { SidStatusService } from 'app/services/sid-status.service';
@@ -37,7 +36,6 @@ export class EntryContentComponent implements OnInit, OnChanges {
               public _piaService: PiaService,
               public _sidStatusService: SidStatusService,
               public _globalEvaluationService: GlobalEvaluationService,
-              private _evaluationService: EvaluationService,
               public _paginationService: PaginationService,
               private _translateService: TranslateService,
               private _knowledgeBaseService: KnowledgeBaseService) { }

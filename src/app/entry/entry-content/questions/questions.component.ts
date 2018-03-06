@@ -6,7 +6,6 @@ import 'rxjs/add/operator/filter';
 import { KnowledgeBaseService } from '../../knowledge-base/knowledge-base.service';
 import { Answer } from './answer.model';
 import { Measure } from '../measures/measure.model';
-import { EvaluationService } from 'app/entry/entry-content/evaluations/evaluations.service';
 import { ModalsService } from 'app/modals/modals.service';
 import { Evaluation } from 'app/entry/entry-content/evaluations/evaluation.model';
 import {GlobalEvaluationService} from '../../../services/global-evaluation.service';
@@ -33,7 +32,6 @@ export class QuestionsComponent implements OnInit, OnDestroy {
 
   constructor(private el: ElementRef,
               private _knowledgeBaseService: KnowledgeBaseService,
-              private _evaluationService: EvaluationService,
               private _modalsService: ModalsService,
               private _ngZone: NgZone,
               public _globalEvaluationService: GlobalEvaluationService,
@@ -41,7 +39,6 @@ export class QuestionsComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this._globalEvaluationService.answerEditionEnabled = true;
-    // this._evaluationService.showValidationButton = false;
     this.elementId = 'pia-question-content-' + this.question.id;
     this.questionForm = new FormGroup({
       gauge: new FormControl(0),
@@ -125,14 +122,12 @@ export class QuestionsComponent implements OnInit, OnDestroy {
     if (this.answer.id) {
       this.answer.data = { text: this.answer.data.text, gauge: gaugeValue, list: this.answer.data.list };
       this.answer.update().then(() => {
-        // this._evaluationService.allowEvaluation();
       });
     } else {
       this.answer.pia_id = this.pia.id;
       this.answer.reference_to = this.question.id;
       this.answer.data = { text: null, gauge: gaugeValue, list: [] };
       this.answer.create().then(() => {
-        // this._evaluationService.allowEvaluation();
       });
     }
   }
@@ -161,7 +156,6 @@ export class QuestionsComponent implements OnInit, OnDestroy {
       this.answer.update().then(() => {
         this._ngZone.run(() => {
           this._globalEvaluationService.validate();
-          // this._evaluationService.allowEvaluation();
         });
       });
     } else if (!this.answer.id && userText !== '') {
@@ -172,7 +166,6 @@ export class QuestionsComponent implements OnInit, OnDestroy {
         this.answer.create().then(() => {
           this._ngZone.run(() => {
             this._globalEvaluationService.validate();
-            // this._evaluationService.allowEvaluation();
           });
         });
       }
@@ -285,7 +278,6 @@ export class QuestionsComponent implements OnInit, OnDestroy {
       this.answer.data = { text: this.answer.data.text, gauge: this.answer.data.gauge, list: list };
       this.answer.update().then(() => {
         this._globalEvaluationService.validate();
-        // this._evaluationService.allowEvaluation();
       });
     } else {
       this.answer.pia_id = this.pia.id;
@@ -293,7 +285,6 @@ export class QuestionsComponent implements OnInit, OnDestroy {
       this.answer.data = { text: null, gauge: null, list: list };
       this.answer.create().then(() => {
         this._globalEvaluationService.validate();
-        // this._evaluationService.allowEvaluation();
       });
     }
   }

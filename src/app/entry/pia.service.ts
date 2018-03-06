@@ -11,7 +11,6 @@ import { Comment } from 'app/entry/entry-content/comments/comment.model';
 import { Attachment } from 'app/entry/attachments/attachment.model';
 
 import { ModalsService } from 'app/modals/modals.service';
-import { EvaluationService } from 'app/entry/entry-content/evaluations/evaluations.service';
 import { ActionPlanService } from 'app/entry/entry-content/action-plan//action-plan.service';
 
 @Injectable()
@@ -23,7 +22,6 @@ export class PiaService {
   data: { sections: any };
 
   constructor(private _router: Router, private route: ActivatedRoute,
-              private _evaluationService: EvaluationService,
               private _appDataService: AppDataService,
               private _modalsService: ModalsService, private http: Http) {
                 this._appDataService.getDataNav().then((dataNav) => {
@@ -40,7 +38,6 @@ export class PiaService {
     return new Promise((resolve, reject) => {
       const piaId = parseInt(this.route.snapshot.params['id'], 10);
       this.pia.get(piaId).then(() => {
-        // this._evaluationService.setPia(this.pia);
         resolve();
       });
     });
@@ -77,7 +74,6 @@ export class PiaService {
     return new Promise((resolve, reject) => {
       let count = 0;
       let evaluation = new Evaluation();
-      evaluation.pia_id = this._evaluationService.pia.id;
       evaluation.findAll().then((entries: any) => {
         if (entries && entries.length > 0) {
           entries.forEach(element => {

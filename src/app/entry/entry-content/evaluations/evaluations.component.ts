@@ -5,7 +5,6 @@ import { Subscription } from 'rxjs/Subscription';
 import { Evaluation } from './evaluation.model';
 import { Answer } from 'app/entry/entry-content/questions/answer.model';
 
-import { EvaluationService } from './evaluations.service';
 import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 import { GlobalEvaluationService } from 'app/services/global-evaluation.service';
 import { KnowledgeBaseService } from '../../knowledge-base/knowledge-base.service';
@@ -41,7 +40,6 @@ export class EvaluationsComponent implements OnInit, AfterViewChecked, OnDestroy
   editorEvaluationComment: any;
 
   constructor(private el: ElementRef,
-              private _evaluationService: EvaluationService,
               public _globalEvaluationService: GlobalEvaluationService,
               private _ngZone: NgZone,
               private _knowledgeBaseService: KnowledgeBaseService,

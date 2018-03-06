@@ -5,7 +5,6 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Measure } from './measure.model';
 
 import { ModalsService } from 'app/modals/modals.service';
-import { EvaluationService } from 'app/entry/entry-content/evaluations/evaluations.service';
 import { TranslateService } from '@ngx-translate/core';
 import { KnowledgeBaseService } from 'app/entry/knowledge-base/knowledge-base.service';
 import { GlobalEvaluationService } from 'app/services/global-evaluation.service';
@@ -20,8 +19,7 @@ export class MeasureService {
   constructor(private _translateService: TranslateService,
               private _modalsService: ModalsService,
               private _knowledgeBaseService: KnowledgeBaseService,
-              private _globalEvaluationService: GlobalEvaluationService,
-              private _evaluationService: EvaluationService) {}
+              private _globalEvaluationService: GlobalEvaluationService) {}
 
   /**
    * List the measures.
@@ -94,7 +92,6 @@ export class MeasureService {
       newMeasureRecord.placeholder = 'measures.default_placeholder';
     }
     newMeasureRecord.create().then((entry: number) => {
-      // this._evaluationService.allowEvaluation();
       this._globalEvaluationService.validate();
       newMeasureRecord.id = entry;
       this.measures.unshift(newMeasureRecord);

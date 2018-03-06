@@ -5,7 +5,6 @@ import { Subscription } from 'rxjs/Subscription';
 
 import { Answer } from 'app/entry/entry-content/questions/answer.model';
 
-import { EvaluationService } from 'app/entry/entry-content/evaluations/evaluations.service';
 import { KnowledgeBaseService } from 'app/entry/knowledge-base/knowledge-base.service';
 import { MeasureService } from 'app/entry/entry-content/measures/measures.service';
 import { ActionPlanService } from 'app/entry/entry-content/action-plan//action-plan.service';
@@ -32,7 +31,6 @@ export class EntryComponent implements OnInit, OnDestroy, DoCheck {
               private http: Http,
               private _modalsService: ModalsService,
               private _appDataService: AppDataService,
-              private _evaluationService: EvaluationService,
               private _knowledgeBaseService: KnowledgeBaseService,
               private _piaService: PiaService,
               private _actionPlanService: ActionPlanService,
@@ -114,10 +112,6 @@ export class EntryComponent implements OnInit, OnDestroy, DoCheck {
       return item.id === itemId;
     })[0];
 
-    // Set elements for evaluation verification on each page.
-    this._evaluationService.section = this.section;
-    this._evaluationService.item = this.item;
-
     this._globalEvaluationService.section = this.section;
     this._globalEvaluationService.item = this.item;
 
@@ -131,7 +125,6 @@ export class EntryComponent implements OnInit, OnDestroy, DoCheck {
     this._piaService.getPIA().then(() => {
       this._globalEvaluationService.pia = this._piaService.pia;
       this._globalEvaluationService.validate();
-      this._evaluationService.pia = this._piaService.pia;
       this._measureService.listMeasures(this._piaService.pia.id).then(() => {
         let displayModal = true;
         if ((this.section.id === 3) && (this.item.id === 2 || this.item.id === 3 || this.item.id === 4)) {

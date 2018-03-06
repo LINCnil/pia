@@ -43,7 +43,6 @@ import { MeasureService } from 'app/entry/entry-content/measures/measures.servic
 import { ModalsService } from 'app/modals/modals.service';
 import { AttachmentsService } from 'app/entry/attachments/attachments.service';
 import { KnowledgeBaseService } from 'app/entry/knowledge-base/knowledge-base.service';
-import { EvaluationService } from 'app/entry/entry-content/evaluations/evaluations.service';
 import { PaginationService } from 'app/entry/entry-content/pagination.service';
 import { OverviewRisksComponent } from 'app/entry/entry-content/overview-risks/overview-risks.component';
 import { ErrorsComponent } from 'app/errors/errors.component';
@@ -64,7 +63,6 @@ const providersList: any = [
   ModalsService,
   AttachmentsService,
   KnowledgeBaseService,
-  EvaluationService,
   ActionPlanService,
   PaginationService,
   SidStatusService,
