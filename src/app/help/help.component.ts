@@ -22,12 +22,15 @@ export class HelpComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.tableOfTitles = [];
     const language = this._translateService.currentLang;
-    let fileTranslation = language  === 'fr' ? 'fr' : 'en';
+    // let fileTranslation = language  === 'fr' ? 'fr' : 'en' ;
+    let fileTranslation = language;
     this.file = `./assets/files/pia_help_${fileTranslation}.md`;
 
 
     this.helpSubscription = this._translateService.onLangChange.subscribe((event: LangChangeEvent) => {
-      fileTranslation = event['lang'] === 'fr' ? 'fr' : 'en';
+      //fileTranslation = event['lang'] === 'fr' ? 'fr' : 'en';
+
+      fileTranslation = event['lang'];
       this.file = `./assets/files/pia_help_${fileTranslation}.md`;
       this.tableOfTitles = [];
       this.getSectionList();

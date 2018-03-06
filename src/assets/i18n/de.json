@@ -14,9 +14,9 @@
     "knowledge_base_link": "Wissensbasis",
     "pia_example_link": "Beispiel DSFA",
     "languages": {
-      "official_translation": "TO BE TRANSLATED - Original version",
-      "cnil_translations": "TO BE TRANSLATED - CNIL provided translations",
-      "community_translations": "TO BE TRANSLATED - Community provided translations",
+      "official_translation": "Originalversion",
+      "cnil_translations": "Von der CNIL bereitgestellte Übersetzungen",
+      "community_translations": "Von der Community bereitgestellte Übersetzungen",
       "fr": "Français",
       "en": "English",
       "cz": "Česky",
@@ -24,7 +24,8 @@
       "nl": "Nederlands",
       "pl": "Polski",
       "de": "Deutsch",
-      "es": "Español"
+      "es": "Español",
+      "no": "Norsk"
     },
     "tools": {
       "title": "Tools",
@@ -82,7 +83,7 @@
           "remove": "Löschen"
         },
         "edit_pia": "DSFA bearbeiten",
-        "consult_pia": "TO BE TRANSLATED - Consult PIA"
+        "consult_pia": "DSFA besprechen"
       }
     },
     "lists": {
@@ -97,7 +98,7 @@
       "column_actions": "Aktionen",
       "item": {
         "tools": {
-          "consult": "TO BE TRANSLATED - Consult",
+          "consult": "Besprechen",
           "edit": "Bearbeiten",
           "export": "Exportieren",
           "duplicate": "Kopieren",
@@ -665,15 +666,15 @@
         "description": "Weltanschauliche, politische, religiöse, gewerkschaftliche Überzeugungen und Beziehungen, Sexualleben, Gesundheitsdaten, Rasse oder ethnische Herkunft, Straftaten, Sicherheitsauflagen.<br>Siehe <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/DE/TXT/HTML/?uri=CELEX:32016R0679&from=DE\"> Art. 9 und 10 der [DS-GVO]</a>."
       },
       "PIA_EX_HUMI": {
-        "name": "Interne menschliche Datenquellen",
+        "name": "Interne menschliche Risikoquellen",
         "description": "Das kann sein:<br>- ein bösartiger Mitarbeiter, der seine / ihre Nähe zum System, seine Fähigkeiten, Privilegien und möglicherweise ausreichend verfügbare Zeit nutzt oder aufgrund eines möglichen Mangels an Schulung und Bewusstsein nachlässig ist.<br>- ein Benutzer oder sein Umfeld, fahrlässig oder böswillig, mit Zugang zu den Diensten.<br>Seine Motivationen können vielfältig sein: Ungeschicklichkeit, Fehler, Nachlässigkeit, Rache, Bereitschaft zu warnen, Böswilligkeit, Gier, Spionage."
       },
       "PIA_EX_HUME": {
-        "name": "Externe menschliche Datenquellen",
+        "name": "Externe menschliche Risikoquellen",
         "description": "Das kann sein:<br>- ein böswilliger oder unwissender Dritter, der seine physische Nähe nutzt, um betrügerisch auf den Dienst zuzugreifen<br>- ein Angreifer, der einen Benutzer mit seinen Kenntnissen über den Benutzer und einige der Informationen über ihn zum Ziel nimmt<br>- ein Angreifer, der eine der Firmen, die für die Verarbeitung verantwortlich sind, mit seinem Wissen über Unternehmen angreift, um den Ruf des Unternehmens zu schädigen<br>- eine autorisierte dritte Partei, die ihren privilegierten Zugang zu illegalem Zugang zu Informationen nutzt.<br>Die Motive können vielfältig sein:<br>Glücksspiel, Verärgerung, Böswilligkeit, Rache, Spionage, Gier, Erwerb von Daten, um sie auszunutzen."
       },
       "PIA_EX_NHUM": {
-        "name": "Nichtmenschliche Datenquellen",
+        "name": "Nichtmenschliche Risikoquellen",
         "description": "Dies kann ein Vorfall oder eine Katastrophe in einer der für die Verarbeitung verantwortlichen Organisationen sein (Stromausfall, Feuer, Überschwemmung usw.)"
       },
       "PIA_EX_IMPN": {
@@ -738,10 +739,10 @@
     "acceptable": "tragbar",
     "evaluation_comment": "Bewertungskommentar",
     "action_plan_comment": "Aktionsplan / Korrekturmaßnahmen",
-    "placeholder_to_correct": "TO BE TRANSLATED - The information provided are not sufficient to properly evaluate them. Send back to the editor to improve the original submission.",
-    "placeholder_improvable1": "TO BE TRANSLATED - According to the available information, additional measures are to be implemented in order to improve the data protection of the processing.",
-    "placeholder_improvable2": "TO BE TRANSLATED - Enter your comments.",
-    "placeholder_acceptable": "TO BE TRANSLATED - According to the available information, the measures implemented are adequate to properly meet the requirements for protecting the data.",
+    "placeholder_to_correct": "Die bereitgestellten Informationen sind nicht ausreichend, um sie zu bewerten. Zur Bearbeitung zurückkehren, um den ursprünglichen Vorschlag anzureichern.",
+    "placeholder_improvable1": "Angesichts der bereitgestellten Informationen müssen zusätzliche Maßnahmen hinzugefügt werden, um den Schutz der verarbeiteten Daten zu verbessern.",
+    "placeholder_improvable2": "Geben Sie Ihre Kommentare ein.",
+    "placeholder_acceptable": "Angesichts der zur Verfügung gestellten Informationen reichen die durchgeführten Maßnahmen aus, um die Datenschutzanforderungen zu erfüllen.",
     "gauges": {
       "seriousness": "Wie bewerten Sie unter Berücksichtigung des Aktionsplans die <span class = 'red-highlight'> Höhe dieses Risikos </span> ({{value}})?",
       "likelihood": "Unter Berücksichtigung des Aktionsplans, wie bewerten Sie die <span class = 'red-highlight'> Wahrscheinlichkeit dieses Risikos </span> ({{value}}) erneut?",
@@ -804,7 +805,7 @@
     "version_number": "Versionsnummer",
     "description": "Dieses Tool wurde ursprünglich von der französischen Datenschutzbehörde <a target=\"_blank\" href=\"https://www.cnil.fr\"> Nationale Kommission für Informatik und Freiheit (CNIL) </a> entwickelt, um dem Verantwortlichen zu helfen, mit der DS-GVO konform zu sein.<br>Diese Software ist kostenlos und offen. Wenn Sie sich an diesem Projekt beteiligen möchten, können Sie den Quellcode von Github herunterladen, ändern und mit anderen in der Community teilen.",
     "translators": "Das Tool ist derzeit in sieben Sprachen verfügbar. Die französische und die englische Version werden von der CNIL bereitgestellt. Die anderen Versionen sind das Ergebnis der Beiträge der folgenden Personen:",
-    "translators_name": "<ul><li>Niederländisch: Ruud van Driel, Manuel d'Orso;</li><li>Tschechisch: Jirí Grohmann, Manuel d'Orso;</li><li>Italienisch: Manuel d'Orso, Gianluca Markos;</li><li>Polnisch: Joanna Karczewska</li> <li>Deutsch: Kosmas Schütz</li><li>Spanisch: ylachgar</li></ul>",
+    "translators_name": "<ul><li>Niederländisch: Ruud van Driel, Manuel d'Orso;</li><li>Tschechisch: Jirí Grohmann, Manuel d'Orso;</li><li>Italienisch: Manuel d'Orso, Gianluca Markos;</li><li>Polnisch: Joanna Karczewska</li> <li>Deutsch: Kosmas Schütz</li><li>Spanisch: ylachgar</li><li>Norwegisch: PVOhmn</li></ul>",
     "contribute": "Wenn Sie zur Übersetzung des Tools oder zur Verbesserung der bereits vorgeschlagenen beitragen möchten, laden wir Sie ein, <a href=\"https://github.com/LINCnil/pia/tree/master/src/assets/i18n\" target=\"_blank\">die Seite mit den folgenden Schritten zu lesen</a>.",
     "licences": "Bibliothekslizenzen:"
   },
@@ -814,41 +815,41 @@
     "update": "URL aktualisieren"
   },
   "validation_page": {
-    "responsible": "TO BE TRANSLATED - Person accountable for validating the PIA: ",
-    "after_reading": "TO BE TRANSLATED - After reading full PIA relating to the data processing linked to ",
-    "confirmation1": "TO BE TRANSLATED - I attest that the context of the processing described in the PIA is consistent with the reality.",
-    "confirmation2": "TO BE TRANSLATED - I attest that I am aware of the risks depending on the existing or planned measures.",
-    "confirmation3": "TO BE TRANSLATED - I ratify the corrective actions indicated in the action plan.",
-    "confirmation4": "TO BE TRANSLATED - I commit to implement as quickly as possible the indicated corrective actions.",
+    "responsible": "Verantwortlich für die Bestätigung der PIA: ",
+    "after_reading": "Nach vollständiger Lektüre der PIA bezüglich der Verarbeitung von Daten bezüglich der Aktivität von:",
+    "confirmation1": "Ich bestätige, dass die Beschreibung meines Verarbeitunskontextes der Realität entspricht.",
+    "confirmation2": "Ich bestätige, dass ich die bestehenden Risiken nach den aktuell durchgeführten oder geplanten Maßnahmen gelesen habe.",
+    "confirmation3": "Ich bestätige die angegebenen Korrekturmaßnahmen.",
+    "confirmation4": "Ich verpflichte mich, die angegebenen Korrekturmaßnahmen so schnell wie möglich umzusetzen.",
     "button": {
-      "rejection": "TO BE TRANSLATED - Reject PIA",
-      "simple_validation": "TO BE TRANSLATED - Approve PIA <br>(direct)",
-      "signed_validation": "TO BE TRANSLATED - Approve PIA <br>(signed)"
+      "rejection": "Bestätigung verweigern",
+      "simple_validation": "Einfache Bestätigung",
+      "signed_validation": "Lassen Sie den Verantwortlichen die DSFA unterzeichnen"
     },
-    "mandatory_fields": "TO BE TRANSLATED - All boxes must be checked",
-    "waiting_for_signature": "TO BE TRANSLATED - Pending signed PIA",
-    "validated_pia_with_signature": "TO BE TRANSLATED - Approved",
-    "add_signed_pia": "TO BE TRANSLATED - Add the signed PIA",
-    "remove_attachment": "TO BE TRANSLATED - Remove the attachment",
-    "latest_signed_attachment": "TO BE TRANSLATED - Last signed attachment",
-    "signed_attachments_history": "TO BE TRANSLATED - Signed attachments history",
+    "mandatory_fields": "Alle Felder müssen markiert sein",
+    "waiting_for_signature": "Warten auf die Unterschrift der DSFA",
+    "validated_pia_with_signature": "Bestätigt",
+    "add_signed_pia": "Fügen Sie die unterschriebene DSFA hinzu",
+    "remove_attachment": "Anhang löschen",
+    "latest_signed_attachment": "Letzter hinzugefügter Anhang",
+    "signed_attachments_history": "Historie der hinzugefügten Anhänge",
     "tools": {
-      "dashboard": "TO BE TRANSLATED - Dashboard",
-      "display_pia": "TO BE TRANSLATED - Display PIA",
-      "action_plan": "TO BE TRANSLATED - Action plan"
+      "dashboard": "Übersicht",
+      "display_pia": "DSFA anzeigen",
+      "action_plan": "Aktionsplan"
     }
   },
   "rejection_page": {
-    "title": "TO BE TRANSLATED - Validation history",
-    "rejection_reason": "TO BE TRANSLATED - Refusal reason",
-    "rejection_reason_placeholder": "TO BE TRANSLATED - Describe the reasons for refusing the PIA.",
-    "applied_adjustments": "TO BE TRANSLATED - Adjustments proposed",
-    "applied_adjustments_placeholder": "TO BE TRANSLATED - Describe the changes brought to the PIA.",
-    "previous_rejection": "TO BE TRANSLATED - Previous refusal",
+    "title": "Bestätigungshistorie",
+    "rejection_reason": "Grund für die Ablehnung",
+    "rejection_reason_placeholder": "Beschreiben Sie die Gründe für die Verweigerung der Bestätigung dieser DSFA.",
+    "applied_adjustments": "Vorgenommene Änderungen",
+    "applied_adjustments_placeholder": "Beschreibe die Änderungen, die an der DSFA vorgenommen wurden.",
+    "previous_rejection": "Vorherige Ablehnung",
     "button": {
-      "abandon_treatment": "TO BE TRANSLATED - Abandon processing",
-      "reject_pia": "TO BE TRANSLATED - Reject PIA",
-      "send_for_validation": "TO BE TRANSLATED - Resend for approval"
+      "abandon_treatment": "Aufgabe der Verarbeitung",
+      "reject_pia": "DSFA zurückweisen",
+      "send_for_validation": "Zurück zur Bestätigung"
     }
   },
   "misc": {
@@ -891,7 +892,7 @@
       "content": "<span class = 'strong'>Herzlichen Glückwunsch, </span><br> der Unterabschnitt steht jetzt zur Auswertung zur Verfügung."
     },
     "validate_evaluation": {
-      "content": "TO BE TRANSLATED - <span class='strong'>Congratulations,</span><br>you've finished evaluating this section.<br>Others parts of the PIA has to be evaluated as well in order to be able to validate the PIA."
+      "content": "<span class = 'strong'>Herzlichen Glückwunsch, </span><br> warten Sie auf die globale Bestätigung der DSFA."
     },
     "validate_evaluation_to_correct": {
       "content": "Sorry,<br>Mehrere Felder müssen korrigiert werden.<br>Zum Bearbeitungsmodus zurückkehren und Korrekturen vornehmen."
@@ -916,12 +917,12 @@
     "display_pia": "Sehen Sie sich die PIA an",
     "display_action_plan": "Sehen Sie sich den<br>Aktionsplan an",
     "display_filters": {
-      "title": "TO BE TRANSLATED - Filters",
-      "main_content": "TO BE TRANSLATED - Display \"PIA information\"",
-      "context_content": "TO BE TRANSLATED - Display \"Context\"",
-      "principles_content": "TO BE TRANSLATED - Display \"Fundamental principles\"",
-      "risks_content": "TO BE TRANSLATED - Display \"Risks\"",
-      "action_plan_content": "TO BE TRANSLATED - Display action plan"
+      "title": "Filter",
+      "main_content": "\"Information zur DSFA\" anzeigen",
+      "context_content": "\"Kontext\" anzeigen",
+      "principles_content": "\"Fundamentale Prinzipien\" anzeigen",
+      "risks_content": "\"Risiken\" anzeigen",
+      "action_plan_content": "\"Aktionsplan\" anzeigen"
     },
     "title": "Information zur DSFA",
     "pia_name": "DSFA",
@@ -1268,10 +1269,10 @@
           "short_help": "Holen Sie den Rat des Datenschutzbeauftragten ein. Präsentieren Sie die Ansichten der betroffenen Personen oder ihren Vertreter."
         },
         "4": {
-          "title": "TO BE TRANSLATED - Validate the PIA"
+          "title": "Bestätigen Sie die DSFA"
         },
         "5": {
-          "title": "TO BE TRANSLATED - Rejected PIA"
+          "title": "DSFA wird zurückgewiesen"
         }
       }
     }
