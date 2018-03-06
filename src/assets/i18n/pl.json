@@ -24,7 +24,8 @@
       "nl": "Nederlands",
       "pl": "Polski",
       "de": "Deutsch",
-      "es": "Español"
+      "es": "Español",
+      "no": "Norsk"
     },
     "tools": {
       "title": "Narzędzia",
@@ -816,7 +817,7 @@
     "version_number": "Numer wersji",
     "description": "To narzędzie zostało pierwotnie opracowane przez <a target=\"_blank\" href=\"https://www.cnil.fr\">Commission Nationale Informatique et Liberté (CNIL)</a>, francuski organ nadzorczy ochrony danych, dla wsparcia administratorów danych w ich staraniach o zgodność z RODO.<br>To narzędzie jest wolne i otwarte. Można uczestniczyć w pracy nad nim pobierając kod źródłowy z Github, modyfikując go i rozpowszechniając wśród zainteresowanych.",
     "translators": "Aplikacja PIA jest obecnie dostępna w pięciu językach. CNIL opracowała wersję francuską i angielską. Pozostałe wersje stanowią wynik pracy następujących osób:",
-    "translators_name": "<ul><li>Holenderska: Ruud van Driel, Manuel d’Orso ;</li><li>Czeska: Jiří Grohmann, Manuel d’Orso ;</li><li>Włoska: Manuel d’Orso, Gianluca Markos.</li><li>Polska: Joanna Karczewska</li></ul>",
+    "translators_name": "<ul><li>Holenderska: Ruud van Driel, Manuel d’Orso ;</li><li>Czeska: Jiří Grohmann, Manuel d’Orso ;</li><li>Włoska: Manuel d’Orso, Gianluca Markos.</li><li>Polska: Joanna Karczewska</li><li>Niemiecki: Kosmas Schütz</li><li>Hiszpański: ylachgar</li><li>Norweski: PVOhmn</li></ul>",
     "contribute": "W razie zainteresowania tłumaczeniem na inny język lub w celu poprawienia obecnych tłumaczeń, polecamy <a href=\"https://github.com/LINCnil/pia/tree/master/src/assets/i18n\" target=\"_blank\">zapoznanie się ze stroną opisującą, co należy w tym celu zrobić</a>.",
     "licences": "Licencje bibliotek:"
   },
