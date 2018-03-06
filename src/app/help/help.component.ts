@@ -29,6 +29,7 @@ export class HelpComponent implements OnInit, OnDestroy {
 
     this.helpSubscription = this._translateService.onLangChange.subscribe((event: LangChangeEvent) => {
       //fileTranslation = event['lang'] === 'fr' ? 'fr' : 'en';
+
       fileTranslation = event['lang'];
       this.file = `./assets/files/pia_help_${fileTranslation}.md`;
       this.tableOfTitles = [];
