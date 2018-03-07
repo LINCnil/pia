@@ -441,17 +441,28 @@ export class GlobalEvaluationService {
    * @memberof GlobalEvaluationService
    */
   private answerIsValid(answer: Answer) {
-    if (answer.data.gauge !== null && answer.data.gauge !== undefined && answer.data.gauge >= 0) {
-      if (answer.data.text && answer.data.gauge && answer.data.text.length > 0 && answer.data.gauge > 0) {
-        return true;
-      }
-    } else {
-      if ((answer.data.list && answer.data.list.length > 0) ||
-          (answer.data.text && answer.data.text.length > 0)) {
-        return true;
+    let valid = false;
+    const gauge = answer.data.gauge;
+    const text = answer.data.text;
+    const list = answer.data.list;
+
+    // First we need to find the answer_type
+    const question = this.item.questions.filter((q) => {
+      return q.id === answer.reference_to;
+    });
+
+    if (question.length === 1) {
+      const answer_type = question[0].answer_type;
+      if (answer_type === 'gauge') {
+        valid = text && text.length > 0 && gauge > 0;
+      } else if (answer_type === 'list') {
+        valid = list && list.length > 0;
+      } else if (answer_type === 'text') {
+        valid = text && text.length > 0;
       }
     }
-    return false;
+
+    return valid;
   }
 
   /**

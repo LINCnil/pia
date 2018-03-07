@@ -16,7 +16,7 @@ import { ActionPlanService } from 'app/entry/entry-content/action-plan//action-p
 @Injectable()
 export class PiaService {
 
-  pias: any[];
+  pias = [];
   pia: Pia = new Pia();
   answer: Answer = new Answer();
   data: { sections: any };
