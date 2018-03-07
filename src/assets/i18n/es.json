@@ -185,7 +185,7 @@
     "slugs": {
       "PIA_LGL_FOND": {
         "name": "Justificación de la legalidad",
-        "description": "-El interesado ha dado su consentimiento al tratamiento de sus datos personales para uno o más propósitos específicos<br>-Es necesario para la ejecución de un contrato en el que el interesado sea parte o para tomar medidas a petición del interesado antes de entrar en un contrato<br>-Es necesario para el cumplimiento de una obligación legal para que el controlador está sujeto<br>-Es necesario para proteger a los intereses vitales del interesado o de otra persona natural<br>-Es necesario para el desempeño de una misión de interés público o en el ejercicio del poder público conferido al responsable del<br>-Procesamiento es necesario para los propósitos de los intereses legítimos perseguidos por el controlador o por un tercero, excepto donde tales intereses son reemplazadas por los intereses o derechos y libertades fundamentales del interesado que requieran protección de datos personales, en particular donde el interesado es un niño<br>Ver <;a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:32016R0679&from=ES\">;art. 6 de [GDPR]<;/a>;",
+        "description": "-El interesado ha dado su consentimiento al tratamiento de sus datos personales para uno o más propósitos específicos<br>-Es necesario para la ejecución de un contrato en el que el interesado sea parte o para tomar medidas a petición del interesado antes de entrar en un contrato<br>-Es necesario para el cumplimiento de una obligación legal para que el controlador está sujeto<br>-Es necesario para proteger a los intereses vitales del interesado o de otra persona natural<br>-Es necesario para el desempeño de una misión de interés público o en el ejercicio del poder público conferido al responsable del<br>-Procesamiento es necesario para los propósitos de los intereses legítimos perseguidos por el controlador o por un tercero, excepto donde tales intereses son reemplazadas por los intereses o derechos y libertades fundamentales del interesado que requieran protección de datos personales, en particular donde el interesado es un niño<br>Ver <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:32016R0679&from=ES\">art. 6 de [GDPR]</a>",
         "source": "PIA2 p4"
       },
       "PIA_LGL_ST": {
@@ -195,12 +195,12 @@
       },
       "PIA_LGL_TRAN": {
         "name": "Transferencias",
-        "description": "Dependiendo del país en la pregunta, usted tendrá que justificar la opción del telecontrol que recibe e indicar los arreglos legales de la supervisión puestos en ejecución para asegurar la protección adecuada de los datos conforme a una transferencia fronteriza. Eso es:<br>- Unión Europea<br>- reconocido como abastecimiento de la protección adecuada por la transferencia de EU<br>- a los Estados Unidos a una compañía que ha ensamblado la Privacy Shield<br>- el otro país<br>Ver<;a target=\" _blank \" href= \"http://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:32016R0679&from=ES\">;art. 44 a 49 de [GDPR]<;/a>;",
+        "description": "Dependiendo del país en la pregunta, usted tendrá que justificar la opción del telecontrol que recibe e indicar los arreglos legales de la supervisión puestos en ejecución para asegurar la protección adecuada de los datos conforme a una transferencia fronteriza. Eso es:<br>- Unión Europea<br>- reconocido como abastecimiento de la protección adecuada por la transferencia de EU<br>- a los Estados Unidos a una compañía que ha ensamblado la Privacy Shield<br>- el otro país<br>Ver<a target=\" _blank \" href= \"http://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:32016R0679&from=ES\">art. 44 a 49 de [GDPR]</a>",
         "source": "PIAF Connected Objects p18"
       },
       "PIA_LGL_DESC": {
         "name": "Descripción del proceso",
-        "description": "Presente un breve resumen del procesamiento que se está considerando, su naturaleza, alcance, contexto, propósitos y riesgos. Identifica el controlador de datos y cualquier procesador. Enumere las referencias estándar aplicables al procesamiento, que son necesarias o deben cumplirse, no menos los códigos de conducta aprobados (ver Art. 40 de la <;a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:32016R0679&from=ES\">;[GDPR]<;/a> ) y las certificaciones relacionadas con la protección de datos (ver Art. 42 de la <;a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:32016R0679&from=ES\">;[GDPR] ]<;/a>;) ",
+        "description": "Presente un breve resumen del procesamiento que se está considerando, su naturaleza, alcance, contexto, propósitos y riesgos. Identifica el controlador de datos y cualquier procesador. Enumere las referencias estándar aplicables al procesamiento, que son necesarias o deben cumplirse, no menos los códigos de conducta aprobados (ver Art. 40 de la <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:32016R0679&from=ES\">[GDPR]</a> ) y las certificaciones relacionadas con la protección de datos (ver Art. 42 de la <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:32016R0679&from=ES\">[GDPR] ]</a>) ",
         "source": "PIA1 p4"
       },
       "PIA_LGL_DATA": {
@@ -215,7 +215,7 @@
       },
       "PIA_LGL_FIN": {
         "name": "Principios relacionados con el procesamiento de datos personales",
-        "description": "Los datos personales se recopilarán con fines específicos, explícitos y legítimos y <;strong>;no se procesarán de manera incompatible con esos propósitos.<;/strong>; <br>Ver <;a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:32016R0679&from=ES\">;Art. 5.1 b) de [GDPR]<;/a>;",
+        "description": "Los datos personales se recopilarán con fines específicos, explícitos y legítimos y <strong>no se procesarán de manera incompatible con esos propósitos.</strong> <br>Ver <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:32016R0679&from=ES\">Art. 5.1 b) de [GDPR]</a>",
         "source": "GDPR art 5.1 b)"
       },
       "PIA_LGL_MINI": {
@@ -225,7 +225,7 @@
       },
       "PIA_LGL_DEST": {
         "name": "Destinatario",
-        "description": "Persona física o jurídica, autoridad pública, agencia u otro organismo al que se divulgan los datos personales, ya sea un tercero o no. No obstante, las autoridades públicas que puedan recibir datos personales en el marco de una investigación particular de conformidad con la legislación de la Unión o del Estado miembro no se considerarán destinatarias. el procesamiento de esos datos por parte de esas autoridades públicas deberá cumplir con las reglas de protección de datos aplicables de acuerdo con los fines del procesamiento. ver Art. 4.9 de la <;a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:32016R0679&from=ES\">;[GDPR]<;/a>;",
+        "description": "Persona física o jurídica, autoridad pública, agencia u otro organismo al que se divulgan los datos personales, ya sea un tercero o no. No obstante, las autoridades públicas que puedan recibir datos personales en el marco de una investigación particular de conformidad con la legislación de la Unión o del Estado miembro no se considerarán destinatarias. el procesamiento de esos datos por parte de esas autoridades públicas deberá cumplir con las reglas de protección de datos aplicables de acuerdo con los fines del procesamiento. ver Art. 4.9 de la <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:32016R0679&from=ES\">[GDPR]</a>",
         "source": "GDPR art 4.9"
       },
       "PIA_LGL_DUR": {
@@ -240,17 +240,17 @@
       },
       "PIA_LGL_CONS": {
         "name": "Consentimiento",
-        "description": "Allow data subjects to make a free, specific and informed choice. Determinar si el procesamiento se basa en una base legal que no sea el consentimiento de conformidad con el art. 6 de <;a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:32016R0679&from=ES\">;[GDPR]<;/a>;",
+        "description": "Allow data subjects to make a free, specific and informed choice. Determinar si el procesamiento se basa en una base legal que no sea el consentimiento de conformidad con el art. 6 de <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:32016R0679&from=ES\">[GDPR]</a>",
         "source": "PIA3 p11 - WIKI"
       },
       "PIA_VAL_DPO": {
         "name": "Opinión de DPO",
-        "description": "El controlador deberá solicitar el asesoramiento del oficial de protección de datos, cuando esté designado, cuando realice una evaluación de impacto de protección de datos. Ver Art. 39.2 de la <;a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:32016R0679&from=ES\">;[GDPR]<;/a>; <br> <;strong>;Esta vista puede estar en contra del procesamiento que se está implementando, sin restringir la decisión del controlador de datos para todo eso<;/strong>; ",
+        "description": "El controlador deberá solicitar el asesoramiento del oficial de protección de datos, cuando esté designado, cuando realice una evaluación de impacto de protección de datos. Ver Art. 39.2 de la <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:32016R0679&from=ES\">[GDPR]</a> <br> <strong>Esta vista puede estar en contra del procesamiento que se está implementando, sin restringir la decisión del controlador de datos para todo eso</strong> ",
         "source": "GDPR Art. 39.2 and PIAF Connected Objects p37"
       },
       "PIA_VAL_CONC": {
         "name": "Opinión del interesado",
-        "description": "Cuando corresponda, el responsable del tratamiento recabará las opiniones de los interesados ​​o sus representantes sobre el procesamiento previsto, sin perjuicio de la protección de los intereses comerciales o públicos o la seguridad de las operaciones de procesamiento. Ver Art. 39.2 de la <;a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:32016R0679&from=ES\">;[GDPR]<;/a>; <br> Estos puntos de vista pueden reunirse por diversos medios, dependiendo del contexto (estudio interno o externo sobre los métodos de procesamiento y el propósito, la pregunta para la atención de los representantes del personal o los sindicatos, la encuesta entre los futuros clientes del procesador de datos). <;strong>;Donde el controlador de datos decide ir en contra de las opiniones de los interesados<;/strong>;, debe anotar <;strong>;la justificación de esta decisión<;/strong>;. Cuando el controlador de datos considere que <;strong>;reuniendo las opiniones de los sujetos de los datos es no relevante, él debe también anotar la justificación de los mismos<;/strong>;. ",
+        "description": "Cuando corresponda, el responsable del tratamiento recabará las opiniones de los interesados ​​o sus representantes sobre el procesamiento previsto, sin perjuicio de la protección de los intereses comerciales o públicos o la seguridad de las operaciones de procesamiento. Ver Art. 39.2 de la <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:32016R0679&from=ES\">[GDPR]</a> <br> Estos puntos de vista pueden reunirse por diversos medios, dependiendo del contexto (estudio interno o externo sobre los métodos de procesamiento y el propósito, la pregunta para la atención de los representantes del personal o los sindicatos, la encuesta entre los futuros clientes del procesador de datos). <strong>Donde el controlador de datos decide ir en contra de las opiniones de los interesados</strong>, debe anotar <strong>la justificación de esta decisión</strong>. Cuando el controlador de datos considere que <strong>reuniendo las opiniones de los sujetos de los datos es no relevante, él debe también anotar la justificación de los mismos</strong>. ",
         "source": "GDPR Art. 39.9 and PIAF Connected Objects p38"
       },
       "PIA_VAL_RT": {
@@ -261,7 +261,7 @@
       "PIA_TEC_CHIF": {
         "placeholder": "Describir aquí los medios implementados para garantizar la confidencialidad de los datos",
         "name": "Cifrado",
-        "description": "Medios para <;strong>;asegurar la confidencialidad<;/strong>; de los datos almacenados (en la base de datos, archivos planos, copias de seguridad, etc.), así como el procedimiento para la gestión de claves de cifrado (creación, almacenamiento, cambio en caso de sospecha de compromiso de los datos, etcetera.).<br>Describir los medios de cifrado empleados para flujos de datos (VPN, TLS, etc.) implementados en el proceso. ",
+        "description": "Medios para <strong>asegurar la confidencialidad</strong> de los datos almacenados (en la base de datos, archivos planos, copias de seguridad, etc.), así como el procedimiento para la gestión de claves de cifrado (creación, almacenamiento, cambio en caso de sospecha de compromiso de los datos, etcetera.).<br>Describir los medios de cifrado empleados para flujos de datos (VPN, TLS, etc.) implementados en el proceso. ",
         "source": "PIAF Connected Objects p21"
       },
       "PIA_TEC_ANO": {
@@ -279,7 +279,7 @@
       "PIA_TEC_CTLA": {
         "placeholder": "Indicate here how users profiles are defined and attributed.",
         "name": "Control de acceso lógico",
-        "description": "Métodos para definir y para atribuir perfiles de usuarios. Especifique los medios de <;strong>;autenticación<;/strong>; puestos en ejecución. Cuando sea aplicable, especifique las reglas aplicables a las contraseñas (longitud mínima, caracteres requeridos, duración de la validez, número de tentativas falladas antes de que el acceso a la cuenta sea bloqueado, etc.).",
+        "description": "Métodos para definir y para atribuir perfiles de usuarios. Especifique los medios de <strong>autenticación</strong> puestos en ejecución. Cuando sea aplicable, especifique las reglas aplicables a las contraseñas (longitud mínima, caracteres requeridos, duración de la validez, número de tentativas falladas antes de que el acceso a la cuenta sea bloqueado, etc.).",
         "source": "PIAF Connected Objects p21"
       },
       "PIA_TEC_LOG": {
@@ -428,7 +428,7 @@
       },
       "PIA_DEF_EXA": {
         "name": "Calidad de los datos",
-        "description": "Datos de carácter personal deberán ser exactos y, donde sea necesario, actualizados; cada paso razonable se debe asegurar que sus datos personales son inexactos, teniendo en cuenta los propósitos para los cuales se procesan, son borrados o rectificados sin demora ('precisión'). <br>Ver <;a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:32016R0679&from=ES\">;Art. 5,1 d) de [GDPR]<;/a>;",
+        "description": "Datos de carácter personal deberán ser exactos y, donde sea necesario, actualizados; cada paso razonable se debe asegurar que sus datos personales son inexactos, teniendo en cuenta los propósitos para los cuales se procesan, son borrados o rectificados sin demora ('precisión'). <br>Ver <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:32016R0679&from=ES\">Art. 5,1 d) de [GDPR]</a>",
         "source": "GDPR Art. 5.1 d)"
       },
       "PIA_DEF_MES": {
@@ -438,17 +438,17 @@
       },
       "PIA_DEF_RT": {
         "name": "Responsable del tratamiento",
-        "description": "la persona física o jurídica, autoridad pública, servicio u otro organismo que, solo o junto con otros, determine los fines y medios del tratamiento; si el Derecho de la Unión o de los Estados miembros determina los fines y medios del tratamiento, el responsable del tratamiento o los criterios específicos para su nombramiento podrá establecerlos el Derecho de la Unión o de los Estados miembros.<br>Ver <;a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:32016R0679&from=ES\">;Art. 4.7 de [GDPR]<;/a>;",
+        "description": "la persona física o jurídica, autoridad pública, servicio u otro organismo que, solo o junto con otros, determine los fines y medios del tratamiento; si el Derecho de la Unión o de los Estados miembros determina los fines y medios del tratamiento, el responsable del tratamiento o los criterios específicos para su nombramiento podrá establecerlos el Derecho de la Unión o de los Estados miembros.<br>Ver <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:32016R0679&from=ES\">Art. 4.7 de [GDPR]</a>",
         "source": "GDPR Art. 4.7"
       },
       "PIA_DEF_DCP": {
         "name": "Datos personales",
-        "description": "oda información sobre una persona física identificada o identificable («el interesado»); se considerará persona física identificable toda persona cuya identidad pueda determinarse, directa o indirectamente, en particular mediante un identificador, como por ejemplo un nombre, un número de identificación, datos de localización, un identificador en línea o uno o varios elementos propios de la identidad física, fisiológica, genética, psíquica, económica, cultural o social de dicha persona. <br>Ver <;a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:32016R0679&from=ES\">;Art. 4.1 [GDPR]<;/a>;",
+        "description": "oda información sobre una persona física identificada o identificable («el interesado»); se considerará persona física identificable toda persona cuya identidad pueda determinarse, directa o indirectamente, en particular mediante un identificador, como por ejemplo un nombre, un número de identificación, datos de localización, un identificador en línea o uno o varios elementos propios de la identidad física, fisiológica, genética, psíquica, económica, cultural o social de dicha persona. <br>Ver <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:32016R0679&from=ES\">Art. 4.1 [GDPR]</a>",
         "source": "GDPR Art 4.1"
       },
       "PIA_DEF_DEST": {
         "name": "Destinatario",
-        "description": "La persona física o jurídica, autoridad pública, servicio u otro organismo al que se comuniquen datos personales, se trate o no de un tercero. No obstante, no se considerarán destinatarios las autoridades públicas que puedan recibir datos personales en el marco de una investigación concreta de conformidad con el Derecho de la Unión o de los Estados miembros; el tratamiento de tales datos por dichas autoridades públicas será conforme con las normas en materia de protección de datos aplicables a los fines del tratamiento. <br>Ver <;a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:32016R0679&from=ES\">;Art. 4.9 de [GDPR]<;/a>;",
+        "description": "La persona física o jurídica, autoridad pública, servicio u otro organismo al que se comuniquen datos personales, se trate o no de un tercero. No obstante, no se considerarán destinatarios las autoridades públicas que puedan recibir datos personales en el marco de una investigación concreta de conformidad con el Derecho de la Unión o de los Estados miembros; el tratamiento de tales datos por dichas autoridades públicas será conforme con las normas en materia de protección de datos aplicables a los fines del tratamiento. <br>Ver <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:32016R0679&from=ES\">Art. 4.9 de [GDPR]</a>",
         "source": "GDPR Art. 4.9"
       },
       "PIA_DEF_SUPT": {
@@ -463,17 +463,17 @@
       },
       "PIA_DEF_CONS": {
         "name": "El consentimiento",
-        "description": "toda manifestación de voluntad libre, específica, informada e inequívoca por la que el interesado acepta, ya sea mediante una declaración o una clara acción afirmativa, el tratamiento de datos personales que le conciernen.<br>Ver <;a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:32016R0679&from=ES\">;Art. 4.10 de [GDPR]<;/a>;",
+        "description": "toda manifestación de voluntad libre, específica, informada e inequívoca por la que el interesado acepta, ya sea mediante una declaración o una clara acción afirmativa, el tratamiento de datos personales que le conciernen.<br>Ver <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:32016R0679&from=ES\">Art. 4.10 de [GDPR]</a>",
         "source": "GDPR Art. 4.10"
       },
       "PIA_DEF_ACC": {
         "name": "Derecho de acceso",
-        "description": "El interesado tendrá derecho a obtener la confirmación del responsable del tratamiento en cuanto a si se procesan datos personales sobre él o ella y, cuando es el caso, el acceso a los datos personales y la información descrita en <;a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:32016R0679&from=ES\">;arte. 15 de [GDPR]<;/a>;",
+        "description": "El interesado tendrá derecho a obtener la confirmación del responsable del tratamiento en cuanto a si se procesan datos personales sobre él o ella y, cuando es el caso, el acceso a los datos personales y la información descrita en <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:32016R0679&from=ES\">arte. 15 de [GDPR]</a>",
         "source":"GDPR Art. 15"
       },
       "PIA_DEF_PORT": {
         "name": "Derecho a la portabilidad de datos",
-        "description": " El interesado tendrá derecho a recibir los datos personales sobre él o ella, que él o ella ha proporcionado a un responsable del tratamiento, en un formato estructurado, comúnmente usado y legible por la máquina y tener el derecho para transmitir esos datos a otro controlador sin estorbo el controlador al que se han proporcionado los datos personales, ver <;a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:32016R0679&from=ES\">;Art. 20 de [GDPR]<;/a>;",
+        "description": " El interesado tendrá derecho a recibir los datos personales sobre él o ella, que él o ella ha proporcionado a un responsable del tratamiento, en un formato estructurado, comúnmente usado y legible por la máquina y tener el derecho para transmitir esos datos a otro controlador sin estorbo el controlador al que se han proporcionado los datos personales, ver <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:32016R0679&from=ES\">Art. 20 de [GDPR]</a>",
         "source": "GDPR Art. 20"
       },
       "PIA_DEF_RECT": {
@@ -483,17 +483,17 @@
       },
       "PIA_DEF_EFF": {
         "name": "Derecho de supresión",
-        "description": " El interesado tendrá derecho a obtener del control de la supresión de datos de carácter personal relativos a él o ella sin demora y el regulador tendrá la obligación de borrar datos personales sin demora, ver <;a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:32016R0679&from=ES\">;Art. 17 [GDPR]<;/a>;",
+        "description": " El interesado tendrá derecho a obtener del control de la supresión de datos de carácter personal relativos a él o ella sin demora y el regulador tendrá la obligación de borrar datos personales sin demora, ver <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:32016R0679&from=ES\">Art. 17 [GDPR]</a>",
         "source" : "GDPR Art. 17"
       },
       "PIA_DEF_LIM": {
         "name": "Derecho a la limitación del tratamiento",
-        "description": "El interesado tendrá derecho a obtener del responsable del tratamiento la limitación del tratamiento de los datos, ver <;a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:32016R0679&from=ES\">;Art. 18 [GDPR]<;/a>;",
+        "description": "El interesado tendrá derecho a obtener del responsable del tratamiento la limitación del tratamiento de los datos, ver <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:32016R0679&from=ES\">Art. 18 [GDPR]</a>",
         "source": "GDPR Art. 18"
       },
       "PIA_DEF_OPP": {
         "name": "Derecho de oposición",
-        "description": "El interesado tendrá derecho a oponerse, por motivos referentes a su situación particular, en cualquier momento al tratamiento de datos personales sobre él o ella, en virtud de <;a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:32016R0679&from=ES\">;Art. 21 de [GDPR]<;/a>;",
+        "description": "El interesado tendrá derecho a oponerse, por motivos referentes a su situación particular, en cualquier momento al tratamiento de datos personales sobre él o ella, en virtud de <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:32016R0679&from=ES\">Art. 21 de [GDPR]</a>",
         "source": "GDPR Art. 21"
       },
       "PIA_DEF_PSEU": {
@@ -508,7 +508,7 @@
       },
       "PIA_DEF_CTLA": {
         "name": "Controles de acceso lógico",
-        "description": "Medios para limitar los riesgos que personas no autorización a las personas electrónicamente tendrá acceso datos de carácter personal, se requiere entre otras cosas: <br>- <;strong>;gestión de perfiles de los usuarios<;/strong>; mediante la separación de tareas y áreas de responsabilidad (preferiblemente de manera centralizada) para limitar el acceso a los datos personales exclusivamente para usuarios autorizados mediante la aplicación de la necesidad de conocer y menos privilegios principios;<br>- <;strong>;retirar los derechos de los empleados, contratación de las partes y terceros cuando ellos ya no están autorizados a acceder a un local o un recurso<;/strong>; o cuando su <;strong>;contrato de trabajo termina<;/strong>;. ",
+        "description": "Medios para limitar los riesgos que personas no autorización a las personas electrónicamente tendrá acceso datos de carácter personal, se requiere entre otras cosas: <br>- <strong>gestión de perfiles de los usuarios</strong> mediante la separación de tareas y áreas de responsabilidad (preferiblemente de manera centralizada) para limitar el acceso a los datos personales exclusivamente para usuarios autorizados mediante la aplicación de la necesidad de conocer y menos privilegios principios;<br>- <strong>retirar los derechos de los empleados, contratación de las partes y terceros cuando ellos ya no están autorizados a acceder a un local o un recurso</strong> o cuando su <strong>contrato de trabajo termina</strong>. ",
         "source": "PIA3 p43 - WIKI"
       },
       "PIA_DEF_MIN1": {
@@ -533,12 +533,12 @@
       },
       "PIA_DEF_MENA": {
         "name": "Las amenazas que pueden conducir a un acceso ilegítimo",
-        "description": "Las amenazas en relación con: - <;strong>;Hardware<;/strong>;, utilizado inadecuadamente, observa, alterado, perdido (uso o transporte de equipos sensibles para fines personales, mirando la pantalla de una persona sin su conocimiento, mientras que en el tren, sigue por un registrador de claves basado en hardware, etcetera.)<br>- <;strong>;Software<;/strong>;, utilizado inadecuadamente, observado, alterado (aumento de privilegios, colección de datos de configuración, infección por código malicioso, etcetera).<br>- <;strong>;Canales de ordenador<;/strong>; observado (interceptación de Ethernet tráfico, etcetera.)<br>- <;strong>;Personas<;/strong>;, observar, manipular, perdida (divulgación involuntaria de información, ingeniería social, cambios de asignación)<br>- <;strong>;Documentos en papel<;/strong>; observado, perdido (lectura, robo de correo, etcetera.)<br>- <;strong>;Canales de transmisión de papel<;/strong>; observado (lectura de libros de autor en la circulación, etcetera.) ",
+        "description": "Las amenazas en relación con: - <strong>Hardware</strong>, utilizado inadecuadamente, observa, alterado, perdido (uso o transporte de equipos sensibles para fines personales, mirando la pantalla de una persona sin su conocimiento, mientras que en el tren, sigue por un registrador de claves basado en hardware, etcetera.)<br>- <strong>Software</strong>, utilizado inadecuadamente, observado, alterado (aumento de privilegios, colección de datos de configuración, infección por código malicioso, etcetera).<br>- <strong>Canales de ordenador</strong> observado (interceptación de Ethernet tráfico, etcetera.)<br>- <strong>Personas</strong>, observar, manipular, perdida (divulgación involuntaria de información, ingeniería social, cambios de asignación)<br>- <strong>Documentos en papel</strong> observado, perdido (lectura, robo de correo, etcetera.)<br>- <strong>Canales de transmisión de papel</strong> observado (lectura de libros de autor en la circulación, etcetera.) ",
         "source": "PIAF Connected objects p44 and 45"
       },
       "PIA_DEF_MENM": {
         "name": "Las amenazas que pueden conducir a una modificación no deseada de los datos personales",
-        "description": "<;strong>;Las amenazas con respecto a:<;/strong>; <br>-Alteración de <;strong>;hardware<;/strong>; (además de hardware incompatible, resultando en fallos de funcionamiento, retiro de componentes esenciales, etcetera.)<br>- <;strong>;Software<;/strong>; utilizado indebidamente o modificado (modificaciones no deseadas a los datos en bases de datos, errores de operador que modifican datos, etcetera.)<br>- <;strong>;Canales de ordenador<;/strong>; utilizado inadecuadamente (reenvío de datos interceptados, etcetera).<br>- <;strong>;Sobrecarga o manipula (asignación de personal para tareas más allá de sus capacidades, estrés o cambios negativos en las condiciones de trabajo, influencia, etcetera.)<;/strong>;<br>-Documentos que han sido alterados (cambios de figuras en un archivo, sustitución de un original de una falsificación, etcetera.)<br>- <;strong>;Canales de transmisión de papel</strong> que han sido alteradas (cambio de libro de una firmas a otra, envío de múltiples documentos contradictorios, etcetera.) ",
+        "description": "<strong>Las amenazas con respecto a:</strong> <br>-Alteración de <strong>hardware</strong> (además de hardware incompatible, resultando en fallos de funcionamiento, retiro de componentes esenciales, etcetera.)<br>- <strong>Software</strong> utilizado indebidamente o modificado (modificaciones no deseadas a los datos en bases de datos, errores de operador que modifican datos, etcetera.)<br>- <strong>Canales de ordenador</strong> utilizado inadecuadamente (reenvío de datos interceptados, etcetera).<br>- <strong>Sobrecarga o manipula (asignación de personal para tareas más allá de sus capacidades, estrés o cambios negativos en las condiciones de trabajo, influencia, etcetera.)</strong><br>-Documentos que han sido alterados (cambios de figuras en un archivo, sustitución de un original de una falsificación, etcetera.)<br>- <strong>Canales de transmisión de papel</strong> que han sido alteradas (cambio de libro de una firmas a otra, envío de múltiples documentos contradictorios, etcetera.) ",
         "source": "PIAF Connected Objects p43 and 44, WIKI"
       },
       "PIA_DEF_MENI": {
@@ -868,53 +868,60 @@
     "archive": "Archivar",
     "close": "Cerrar",
     "continue": "Continuar",
+    "start_evaluation": "TO BE TRANSLATED - Start review",
     "back_to_home": "Volver a inicio",
     "simple_pia_validation": {
       "content": "Se ha validado la PIA."
+    },
+    "completed_edition": {
+      "content": "TO BE TRANSLATED - The PIA has been fully edited, it has to be reviewed."
+    },
+    "completed_evaluation": {
+      "content": "TO BE TRANSLATED - The PIA has been fully reviewed, it has to be validated."
     },
     "update_server_url": {
       "content": "Se ha actualizado la dirección del servidor"
     },
     "signed_pia_validation": {
-      "content": "<; span class = 'strong'>; Se acepta la PIA <; / span>;<br>Finalice la validación de la PIA adjuntando<br>el informe firmado por la persona a cargo.",
+      "content": "Se acepta la PIA<br>Finalice la validación de la PIA adjuntando<br>el informe firmado por la persona a cargo.",
       "download_pia": "Descargar el PIA report"
     },
     "abandon_pia": {
       "content": "¿Es usted seguro usted desea ascendente to<br>give este tratamiento?"
     },
     "refuse_pia": {
-      "content": "<; span class = 'strong'>; Rechazó PIA, <; / span>;<br>Varios campos deben corregirse.<br>Volver al modo de evaluación<br>para realizar correcciones."
+      "content": "Rechazó PIA,<br>Varios campos deben corregirse.<br>Volver al modo de evaluación<br>para realizar correcciones."
     },
     "same_comment": {
-      "content": "<; span class = 'strong'>; Advertencia, <; / span>;<br>Ingrese un comentario diferente al último registrado."
+      "content": "Advertencia,<br>Ingrese un comentario diferente al último registrado."
     },
     "not_enough_measures_to_remove": {
       "content": "<span class = 'strong'> Advertencia, </ span> <br> Se debe completar al menos una medida: no es posible la eliminación."
     },
     "remove_measure": {
-      "content": "<; span class = 'strong'>; Advertencia, <; / span>;<br>¿Está seguro de que quiere<br>eliminar esta medida?",
+      "content": "Advertencia,<br>¿Está seguro de que quiere<br>eliminar esta medida?",
       "remove": "Eliminar esto<br>medida",
       "keep": "Mantener este<br>medida"
     },
     "ask_for_evaluation": {
-      "content": "<; span class = 'strong'>; Felicitaciones, <; / span>;<br>la subsección ahora es<br>está disponible para evaluación."
+      "content": "Felicitaciones,<br>la subsección ahora es<br>está disponible para evaluación."
     },
     "validate_evaluation": {
       "content": "TO BE TRANSLATED - <span class='strong'>Congratulations,</span><br>you've finished evaluating this section.<br>Others parts of the PIA has to be evaluated as well in order to be able to validate the PIA."
     },
     "validate_evaluation_to_correct": {
-      "content": "Lo siento,<br>Se deben corregir varios campos. <; Br>; Volver al modo de edición<br>para realizar correcciones"
+      "content": "Lo siento,<br>Se deben corregir varios campos. <br> Volver al modo de edición<br>para realizar correcciones"
     },
     "declare_measures": {
       "content": "Lo siento, <br> antes de evaluar los riesgos, <br> debe informar las medidas existentes o planificadas",
       "declare": "Declare las medidas existentes o previstas"
     },
     "remove_pia": {
-      "content": "<; span class = 'strong'>; Advertencia, <; / span>;<br>¿Está seguro de que quiere<br>eliminar este PIA?",
+      "content": "Advertencia,<br>¿Está seguro de que quiere<br>eliminar este PIA?",
       "remove": "Eliminar este PIA"
     },
     "remove_attachment": {
-      "content": "<; span class = 'strong'>; Advertencia, <; / span>;<br>¿Está seguro de que quiere<br>eliminar este archivo adjunto?",
+      "content": "Advertencia,<br>¿Está seguro de que quiere<br>eliminar este archivo adjunto?",
       "keep": "Mantener",
       "remove": "Eliminar"
     }

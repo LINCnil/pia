@@ -10,6 +10,12 @@ export class PaginationService {
 
   constructor() { }
 
+  /**
+   * Set the pagination.
+   * @param {number} sectionId - The section id.
+   * @param {number} itemId - The item id.
+   * @memberof PaginationService
+   */
   setPagination(sectionId: number, itemId: number) {
     this.previousLink = [];
     this.nextLink = [];

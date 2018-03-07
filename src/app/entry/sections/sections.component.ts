@@ -1,6 +1,5 @@
 import { Component, OnInit, Input, Output } from '@angular/core';
 import { Evaluation } from 'app/entry/entry-content/evaluations/evaluation.model';
-import { EvaluationService } from 'app/entry/entry-content/evaluations/evaluations.service';
 import { AppDataService } from 'app/services/app-data.service';
 import { SidStatusService } from 'app/services/sid-status.service';
 import { Measure } from 'app/entry/entry-content/measures/measure.model';
@@ -26,8 +25,7 @@ export class SectionsComponent implements OnInit {
   constructor(public _piaService: PiaService,
               private _appDataService: AppDataService,
               public _sidStatusService: SidStatusService,
-              private _globalEvaluationService: GlobalEvaluationService,
-              private _evaluationService: EvaluationService) {
+              private _globalEvaluationService: GlobalEvaluationService) {
   }
 
   async ngOnInit() {

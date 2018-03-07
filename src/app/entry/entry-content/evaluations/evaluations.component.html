@@ -37,7 +37,8 @@
     <div class="pia-evaluationBlock-content pia-evaluationBlock-measure-{{measureId}} pia-evaluationBlock-question-{{questionId}} fadeIn" [ngClass]="{'hide': evaluation.status <= 0}">
       <time class="pia-evaluationBlock-date">{{evaluation.created_at | date: 'dd/MM/yyyy'}}</time>
 
-      <!-- Fields -->
+      <!-- Evaluation fields -->
+      <!-- Action plan evaluation : special action plan comment field -->
       <div class="pia-evaluationBlock-actionPlan fadeIn" *ngIf="evaluation.status === 2">
         <label for="pia-evaluation-action-plan-{{reference_to}}">{{ 'evaluations.action_plan_comment' | translate }}</label>
         <div (click)="actionPlanCommentFocusIn()" class="pia-evaluationBlock-contentText" [innerHTML]="evaluationForm.controls['actionPlanComment'].value | safeHtml" [ngClass]="{ 'hide': editor || !evaluationForm.controls['actionPlanComment'].value }"></div>
@@ -52,7 +53,8 @@
                   placeholder="{{ 'evaluations.placeholder_improvable1' | translate }}"></textarea>
       </div>
 
-      <div [ngClass]="{'hide': _evaluationService.enableFinalValidation && (!evaluation.evaluation_comment || evaluation.evaluation_comment.length <= 0)}">
+      <!-- All evaluations : comment field -->
+      <div [ngClass]="{'hide': _globalEvaluationService.status >= 7 && (!evaluation.evaluation_comment || evaluation.evaluation_comment.length <= 0)}">
         <label for="pia-evaluation-comment-{{evaluation.id}}">{{ 'evaluations.evaluation_comment' | translate }}</label>
         <div (click)="evaluationCommentFocusIn()" class="pia-evaluationBlock-contentText" [innerHTML]="evaluationForm.controls['evaluationComment'].value | safeHtml" [ngClass]="{ 'hide': editorEvaluationComment || !evaluationForm.controls['evaluationComment'].value }"></div>
         <textarea (keyup)="autoTextareaResize($event)"

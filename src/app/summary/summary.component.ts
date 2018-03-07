@@ -55,14 +55,16 @@ export class SummaryComponent implements OnInit {
   }
 
   /**
-   * Display or hide the main Pia data
+   * Display or hide the main Pia data.
+   * @memberof SummaryComponent
    */
   displayMainContent() {
     this.displayMainPiaData = !this.displayMainPiaData;
   }
 
   /**
-   * Display or hide the main Pia data
+   * Display or hide the main Pia data.
+   * @memberof SummaryComponent
    */
   displayContextContent() {
     const contextSection = this.el.nativeElement.querySelector('.section-1');
@@ -70,7 +72,8 @@ export class SummaryComponent implements OnInit {
   }
 
   /**
-   * Display or hide the main Pia data
+   * Display or hide the main Pia data.
+   * @memberof SummaryComponent
    */
   displayFundamentalPrinciplesContent() {
     const fundamentalPrinciplesSection = this.el.nativeElement.querySelector('.section-2');
@@ -78,7 +81,8 @@ export class SummaryComponent implements OnInit {
   }
 
   /**
-   * Display or hide the main Pia data
+   * Display or hide the main Pia data.
+   * @memberof SummaryComponent
    */
   displayRisksContent() {
     const risksSection = this.el.nativeElement.querySelector('.section-3');
@@ -86,7 +90,8 @@ export class SummaryComponent implements OnInit {
   }
 
   /**
-   * Display or hide the action plan
+   * Display or hide the action plan.
+   * @memberof SummaryComponent
    */
   displayActionPlanContent() {
     this.displayActionPlan = !this.displayActionPlan;
@@ -94,6 +99,7 @@ export class SummaryComponent implements OnInit {
 
   /**
    * Switch from Pia overview to action plan overview, and vice versa.
+   * @memberof SummaryComponent
    */
   displayPiaSummary() {
     const filtersBlock = this.el.nativeElement.querySelector('.pia-summaryFiltersBlock');
@@ -110,7 +116,7 @@ export class SummaryComponent implements OnInit {
   }
 
   /**
-   * Prepare and display the PIA information
+   * Prepare and display the PIA information.
    * @memberof SummaryComponent
    */
   async showPia() {
@@ -136,7 +142,7 @@ export class SummaryComponent implements OnInit {
   }
 
   /**
-   * Prepare and display the ActionPlan information
+   * Prepare and display the ActionPlan information.
    * @memberof SummaryComponent
    */
   showActionPlan() {
@@ -146,7 +152,7 @@ export class SummaryComponent implements OnInit {
   }
 
   /**
-   * Get PIA information
+   * Get PIA information.
    * @private
    * @memberof SummaryComponent
    */
@@ -258,8 +264,9 @@ export class SummaryComponent implements OnInit {
 
     this.content.push(el);
   }
+
   /**
-   * Get information from the JSON file
+   * Get information from the JSON file.
    * @returns {Promise}
    * @private
    * @memberof SummaryComponent
@@ -323,6 +330,15 @@ export class SummaryComponent implements OnInit {
     });
   }
 
+  /**
+   * Get an evaluation by reference.
+   * @private
+   * @param {string} section_id - The section id.
+   * @param {string} item_id - The item id.
+   * @param {string} ref - The reference.
+   * @returns {Promise}
+   * @memberof SummaryComponent
+   */
   private async getEvaluation(section_id: string, item_id: string, ref: string) {
     return new Promise(async (resolve, reject) => {
       let evaluation = null;

@@ -871,6 +871,7 @@
     "archive": "Archive",
     "close": "Close",
     "continue": "Continue",
+    "start_evaluation": "Start review",
     "back_to_home": "Back to home",
     "simple_pia_validation": {
       "content": "The PIA has been validated."
