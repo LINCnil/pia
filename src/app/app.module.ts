@@ -55,7 +55,6 @@ import { SummaryComponent } from 'app/summary/summary.component';
 import { AboutComponent } from 'app/about/about.component';
 import { AppRoutingModule } from 'app/app-routing.module';
 import { CardsRoutingModule } from 'app/cards/cards-routing.module';
-import { MarkdownModule } from 'ngx-markdown';
 
 const providersList: any = [
   AppDataService,
@@ -138,8 +137,7 @@ export function createTranslateLoader(http: HttpClient) {
         useFactory: (createTranslateLoader),
         deps: [HttpClient]
       }
-    }),
-    MarkdownModule.forRoot(),
+    })
   ],
   exports: [],
   providers: providersList,

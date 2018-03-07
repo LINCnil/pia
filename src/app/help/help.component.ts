@@ -11,7 +11,7 @@ import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 })
 export class HelpComponent implements OnInit, OnDestroy {
   public tableOfTitles = [];
-  public file;
+  public content;
   private currentAnchorId: string
   public activeElement: string;
   private helpSubscription: Subscription;
@@ -20,17 +20,24 @@ export class HelpComponent implements OnInit, OnDestroy {
               private _translateService: TranslateService) {}
 
   ngOnInit() {
-    this.tableOfTitles = [];
     const language = this._translateService.currentLang;
     let fileTranslation = language  === 'fr' ? 'fr' : 'en';
-    this.file = `./assets/files/pia_help_${fileTranslation}.md`;
+    let file = `./assets/files/pia_help_${fileTranslation}.html`;
+
+
+    this.http.get(file).map(res => res.text()).subscribe(data => {
+      this.content = data;
+      this.getSectionList();
+    });
 
 
     this.helpSubscription = this._translateService.onLangChange.subscribe((event: LangChangeEvent) => {
       fileTranslation = event['lang'] === 'fr' ? 'fr' : 'en';
-      this.file = `./assets/files/pia_help_${fileTranslation}.md`;
-      this.tableOfTitles = [];
-      this.getSectionList();
+      file = `./assets/files/pia_help_${fileTranslation}.html`;
+      this.http.get(file).map(res => res.text()).subscribe(data => {
+        this.content = data;
+        this.getSectionList();
+      });
     });
 
     window.onscroll = function(ev) {
@@ -47,7 +54,6 @@ export class HelpComponent implements OnInit, OnDestroy {
         }
       }
     };
-    this.getSectionList();
   }
 
   ngOnDestroy() {
@@ -63,11 +69,12 @@ export class HelpComponent implements OnInit, OnDestroy {
   getAnchor(event, text) {
     event.preventDefault();
     this.activeElement = text;
-    const cleanTarget = text.trim().toLowerCase().replace(/"/g, '').replace(/\W/g, '-').replace(/-{2}/g, '-');
-    const element = document.getElementById(cleanTarget);
-    if (element) {
-      element.scrollIntoView();
-    }
+    const allSubtitles = document.querySelectorAll('h3');
+    [].forEach.call(allSubtitles, (el, i) => {
+      if (el.innerText === this.activeElement) {
+        el.scrollIntoView();
+      }
+    });
   }
 
   /**
@@ -75,24 +82,22 @@ export class HelpComponent implements OnInit, OnDestroy {
    * @memberof HelpComponent
    */
   getSectionList() {
-    this.http.get(this.file).subscribe(data => {
-      const fileMd = data.text().toString();
-      const lines = fileMd.split('\n');
-      let tt = [];
-      lines.forEach((line) => {
-        line = line.trim();
-        if (line.startsWith('###')) {
-          tt[1].push(line.replace(/#/g, '').trim());
-        } else if (line.startsWith('##')) {
-          if (tt.length > 0) {
-            this.tableOfTitles.push(tt);
-          }
-          tt = [line.replace(/#/g, '').trim(), []];
+    this.tableOfTitles = [];
+    const lines = this.content.split('\n');
+    let tt = [];
+    lines.forEach((line) => {
+      line = line.trim();
+      if (line.startsWith('<h3>')) {
+        tt[1].push(line.replace(/<(\/?)h3>/g, '').trim());
+      } else if (line.startsWith('<h2>')) {
+        if (tt.length > 0) {
+          this.tableOfTitles.push(tt);
         }
-      });
-      if (tt.length > 0) {
-        this.tableOfTitles.push(tt);
+        tt = [line.replace(/<(\/?)h2>/g, '').trim(), []];
       }
     });
+    if (tt.length > 0) {
+      this.tableOfTitles.push(tt);
+    }
   }
 }
