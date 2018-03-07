@@ -48,7 +48,7 @@ export class HeaderComponent implements OnInit, DoCheck {
 
   /**
    * Manually updates the contrast. Can be executed by users through header.
-   * @param {any} event - Any kind of event
+   * @param {any} event - Any kind of event.
    * @memberof HeaderComponent
    */
   changeContrast(event: any) {
@@ -57,7 +57,7 @@ export class HeaderComponent implements OnInit, DoCheck {
   }
 
   /**
-   * Record the selected language
+   * Record the selected language.
    * @param {string} selectedLanguage
    * @memberof HeaderComponent
    */
@@ -67,7 +67,7 @@ export class HeaderComponent implements OnInit, DoCheck {
   }
 
   /**
-   * Retrieve the selected language
+   * Retrieve the selected language.
    * @memberof HeaderComponent
    */
   getUserLanguage() {
@@ -94,6 +94,11 @@ export class HeaderComponent implements OnInit, DoCheck {
     }
   }
 
+  /**
+   * Import PIA example.
+   * @returns {Promise}
+   * @memberof HeaderComponent
+   */
   importPiaExample() {
     return new Promise((resolve, reject) => {
       const pia = new Pia();
@@ -112,7 +117,6 @@ export class HeaderComponent implements OnInit, DoCheck {
           });
         }
       });
-
     });
   }
 }

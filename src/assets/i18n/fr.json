@@ -863,6 +863,7 @@
     "archive": "Archiver",
     "close": "Fermer",
     "continue": "Continuer",
+    "start_evaluation": "Commencer l'évaluation",
     "back_to_home": "Retour à l'accueil",
     "simple_pia_validation": {
       "content": "Le PIA vient d'être validé."

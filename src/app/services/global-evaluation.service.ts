@@ -23,6 +23,12 @@ export class GlobalEvaluationService {
 
   public behaviorSubject = new BehaviorSubject<Object>({});
 
+  /**
+   * Verifications for answers and evaluations.
+   * @param {boolean} [callSubject=true]
+   * @returns {Promise}
+   * @memberof GlobalEvaluationService
+   */
   async validate(callSubject = true) {
     this.reference_to = this.section.id + '.' + this.item.id;
     return new Promise(async (resolve, reject) => {
@@ -51,6 +57,11 @@ export class GlobalEvaluationService {
     });
   }
 
+  /**
+   * Prepare all evaluations for the current item, it depends on "evaluation_mode".
+   * @returns {Promise}
+   * @memberof GlobalEvaluationService
+   */
   async prepareForEvaluation() {
     return new Promise(async (resolve, reject) => {
       if (this.item.evaluation_mode === 'item') {
@@ -72,6 +83,11 @@ export class GlobalEvaluationService {
     });
   }
 
+  /**
+   * Validate all evaluations.
+   * @returns {Promise}
+   * @memberof GlobalEvaluationService
+   */
   async validateAllEvaluation() {
     return new Promise((resolve, reject) => {
       if (this.item.evaluation_mode === 'item') {
@@ -121,6 +137,10 @@ export class GlobalEvaluationService {
     });
   }
 
+  /**
+   * Cancel evaluation and return in edit mode.
+   * @memberof GlobalEvaluationService
+   */
   cancelForEvaluation() {
     if (this.item.evaluation_mode === 'item') {
       this.deleteEvaluationInDb(this.reference_to).then(() => {
@@ -139,6 +159,10 @@ export class GlobalEvaluationService {
     }
   }
 
+  /**
+   * Cancel validation and return in evaluation mode.
+   * @memberof GlobalEvaluationService
+   */
   cancelValidation() {
     if (this.item.evaluation_mode === 'item') {
       const evaluation = new Evaluation();
@@ -165,6 +189,11 @@ export class GlobalEvaluationService {
     }
   }
 
+  /**
+   * Verification for DPD fields.
+   * @private
+   * @memberof GlobalEvaluationService
+   */
   private dpoValidation() {
     let dpoFilled = false;
     let concernedPeopleOpinionSearchedFieldsFilled = false;
@@ -208,6 +237,13 @@ export class GlobalEvaluationService {
     }
   }
 
+  /**
+   * Get the reference.
+   * @private
+   * @param {any} answerOrMeasure - Any Answer or Measure.
+   * @returns {string} - The reference.
+   * @memberof GlobalEvaluationService
+   */
   private getAnswerReferenceTo(answerOrMeasure) {
     let reference_to = this.reference_to;
     if (this.item.is_measure) {
@@ -220,6 +256,13 @@ export class GlobalEvaluationService {
     return reference_to;
   }
 
+  /**
+   * Create a new evaluation or udpate it.
+   * @private
+   * @param {string} [new_reference_to] - The reference.
+   * @returns {Promise}
+   * @memberof GlobalEvaluationService
+   */
   private async createOrUpdateEvaluation(new_reference_to?: string) {
     return new Promise((resolve, reject) => {
       const reference_to = new_reference_to ? new_reference_to : this.reference_to;
@@ -243,6 +286,11 @@ export class GlobalEvaluationService {
     });
   }
 
+  /**
+   * Do a global verification.
+   * @private
+   * @memberof GlobalEvaluationService
+   */
   private verification() {
     if (!this.answersOrMeasures) {
       return;
@@ -314,6 +362,13 @@ export class GlobalEvaluationService {
     }
   }
 
+  /**
+   * The evaluation need to be fixed?
+   * @private
+   * @param {Evaluation} evaluation - An Evaluation.
+   * @returns {boolean}
+   * @memberof GlobalEvaluationService
+   */
   private evaluationsToBeFixed(evaluation: Evaluation) {
     if (evaluation.status === 1 && evaluation.global_status === 1) {
       return true;
@@ -321,6 +376,13 @@ export class GlobalEvaluationService {
     return false;
   }
 
+  /**
+   * The evaluation is started?
+   * @private
+   * @param {Evaluation} evaluation - An Evaluation.
+   * @returns {boolean}
+   * @memberof GlobalEvaluationService
+   */
   private evaluationStarted(evaluation: Evaluation) {
     if (evaluation.status > 0) {
       return true;
@@ -328,6 +390,13 @@ export class GlobalEvaluationService {
     return false;
   }
 
+  /**
+   * The evaluation is completed?
+   * @private
+   * @param {Evaluation} evaluation - An Evaluation.
+   * @returns {boolean}
+   * @memberof GlobalEvaluationService
+   */
   private evaluationCompleted(evaluation: Evaluation) {
     if (evaluation.status > 1 && evaluation.global_status === 2) {
       return true;
@@ -335,6 +404,13 @@ export class GlobalEvaluationService {
     return false;
   }
 
+  /**
+   * The evaluation isn't started?
+   * @private
+   * @param {Evaluation} evaluation - An Evaluation.
+   * @returns {boolean}
+   * @memberof GlobalEvaluationService
+   */
   private evaluationNotStarted(evaluation: Evaluation) {
     if (evaluation.status === 0) {
       return true;
@@ -342,6 +418,13 @@ export class GlobalEvaluationService {
     return false;
   }
 
+  /**
+   * Is the measure valid?
+   * @private
+   * @param {Measure} measure - A Measure.
+   * @returns {boolean}
+   * @memberof GlobalEvaluationService
+   */
   private measureIsValid(measure: Measure) {
     if (measure.content && measure.content.length > 0 ||
         measure.title && measure.title.length > 0) {
@@ -350,15 +433,45 @@ export class GlobalEvaluationService {
     return false;
   }
 
+  /**
+   * Is the answer valid?
+   * @private
+   * @param {Answer} answer - An Answer.
+   * @returns {boolean}
+   * @memberof GlobalEvaluationService
+   */
   private answerIsValid(answer: Answer) {
-    if (answer.data.text && answer.data.text.length > 0 ||
-        answer.data.list && answer.data.list.length > 0 ||
-        answer.data.text && answer.data.gauge && answer.data.text.length > 0 && answer.data.gauge > 0) {
-      return true;
+    let valid = false;
+    const gauge = answer.data.gauge;
+    const text = answer.data.text;
+    const list = answer.data.list;
+
+    // First we need to find the answer_type
+    const question = this.item.questions.filter((q) => {
+      return q.id === answer.reference_to;
+    });
+
+    if (question.length === 1) {
+      const answer_type = question[0].answer_type;
+      if (answer_type === 'gauge') {
+        valid = text && text.length > 0 && gauge > 0;
+      } else if (answer_type === 'list') {
+        valid = list && list.length > 0;
+      } else if (answer_type === 'text') {
+        valid = text && text.length > 0;
+      }
     }
-    return false;
+
+    return valid;
   }
 
+  /**
+   * Is the evaluation valid?
+   * @private
+   * @param {Evaluation} evaluation - An Evaluation.
+   * @returns {boolean}
+   * @memberof GlobalEvaluationService
+   */
   private evaluationIsValid(evaluation: Evaluation) {
     if (evaluation.status === 1) {
       return evaluation.evaluation_comment && evaluation.evaluation_comment.length > 0;
@@ -378,6 +491,12 @@ export class GlobalEvaluationService {
     return false;
   }
 
+  /**
+   * Verification for all answers.
+   * @private
+   * @returns {Promise}
+   * @memberof GlobalEvaluationService
+   */
   private async answersVerification() {
     let count = 0;
     this.answersOrMeasures = [];
@@ -423,6 +542,12 @@ export class GlobalEvaluationService {
     });
   }
 
+  /**
+   * Verification for all evaluations.
+   * @private
+   * @returns {Promise}
+   * @memberof GlobalEvaluationService
+   */
   private async evaluationsVerification() {
     let count = 0;
     this.evaluations = [];
@@ -478,6 +603,13 @@ export class GlobalEvaluationService {
     });
   }
 
+  /**
+   * Delete evaluation in database.
+   * @private
+   * @param {string} reference_to - The reference.
+   * @returns {Promise}
+   * @memberof GlobalEvaluationService
+   */
   private async deleteEvaluationInDb(reference_to: string) {
     const evaluation = new Evaluation();
     return new Promise((resolve, reject) => {
@@ -493,10 +625,18 @@ export class GlobalEvaluationService {
     });
   }
 
+  /**
+   * Set answer edition by status.
+   * @memberof GlobalEvaluationService
+   */
   setAnswerEditionEnabled() {
     this.answerEditionEnabled = [0, 1, 2, 3].includes(this.status);
   }
 
+  /**
+   * Set evaluation edition by status.
+   * @memberof GlobalEvaluationService
+   */
   setEvaluationEditionEnabled() {
     this.evaluationEditionEnabled = [4, 5, 6].includes(this.status);
   }

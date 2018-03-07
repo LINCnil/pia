@@ -52,9 +52,7 @@ export class CommentsComponent implements OnInit {
     this.commentsForm = new FormGroup({
       description: new FormControl()
     });
-
   }
-
 
   /**
    * Shows or hide the block which allows users to create a new comment.
@@ -77,7 +75,7 @@ export class CommentsComponent implements OnInit {
   }
 
   /**
-   * create a new comment
+   * Display the comment field.
    * @memberof CommentsComponent
    */
   newCommentOnChange(event) {
@@ -88,6 +86,11 @@ export class CommentsComponent implements OnInit {
       this.newCommentDisplayer = false;
     }
   }
+
+  /**
+   * Create a new comment.
+   * @memberof CommentsComponent
+   */
   newCommentClickBtn() {
     // Checks if the comment value exists.
     if (this.commentsForm.value.description && this.commentsForm.value.description.length > 0) {
@@ -134,7 +137,7 @@ export class CommentsComponent implements OnInit {
 
   /**
    * Returns a status about the comments number.
-   * @returns {Boolean} True if there are comments, False otherwise.
+   * @returns {Boolean} - True if there are comments, False otherwise.
    * @memberof CommentsComponent
    */
   getCommentsAccordeonStatus() {

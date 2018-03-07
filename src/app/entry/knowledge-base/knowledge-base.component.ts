@@ -46,6 +46,10 @@ export class KnowledgeBaseComponent implements OnInit {
     };
   }
 
+  /**
+   * New knowledgebase search query.
+   * @memberof KnowledgeBaseComponent
+   */
   onSubmit() {
     this._knowledgeBaseService.translateService = this._translateService;
     this._knowledgeBaseService.q = this.searchForm.value.q;
@@ -58,7 +62,8 @@ export class KnowledgeBaseComponent implements OnInit {
 
   /**
    * Allows an user to add a new measure (with its title and its placeholder) through the knowledge base.
-   * @param {Event} event any kind of event.
+   * @param {Event} event - Any kind of event.
+   * @memberof KnowledgeBaseComponent
    */
   addNewMeasure(event) {
     this._measureService.addNewMeasure(this._piaService.pia, event.name, event.placeholder);
