@@ -39,6 +39,13 @@ export class SidStatusService {
     });
   }
 
+  /**
+   * Set status by reference.
+   * @param {*} piaService - The PIA Service.
+   * @param {*} section - The section.
+   * @param {*} item - The item.
+   * @memberof SidStatusService
+   */
   setSidStatus(piaService: any, section: any, item: any) {
     const reference_to = section.id + '.' + item.id;
     // We need to instanciate a new instance of GLobalEvaluationService
@@ -58,6 +65,13 @@ export class SidStatusService {
     }
   }
 
+  /**
+   * Reset all statuses.
+   * @param {*} piaService - The PIA Service.
+   * @param {*} section - The section.
+   * @param {*} item - The item.
+   * @memberof SidStatusService
+   */
   removeSidStatus(piaService: any, section: any, item: any) {
     const sid = section.id + '.' + item.id;
     if (!this.noIconFor.includes(sid)) {
@@ -74,6 +88,12 @@ export class SidStatusService {
     }
   }
 
+  /**
+   * Update PIA status to refused.
+   * @param {*} piaService - The PIA Service.
+   * @returns {Promise}
+   * @memberof SidStatusService
+   */
   async refusePia(piaService: any) {
     this.enablePiaValidation = false;
     return new Promise((resolve, reject) => {
@@ -87,6 +107,10 @@ export class SidStatusService {
     });
   }
 
+  /**
+   * Verification to enable the DPD page fields.
+   * @memberof SidStatusService
+   */
   verifEnableDpo() {
     this.enableDpoValidation = false;
     let count = 0;
@@ -100,6 +124,12 @@ export class SidStatusService {
     }
   }
 
+  /**
+   * Erase all contents on the DPD page.
+   * @private
+   * @param {*} piaService - The PIA Service.
+   * @memberof SidStatusService
+   */
   private resetDpoPage(piaService: any) {
     piaService.pia.dpos_names = null;
     piaService.pia.dpo_status = null;

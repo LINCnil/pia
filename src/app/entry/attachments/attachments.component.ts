@@ -46,7 +46,7 @@ export class AttachmentsComponent implements OnInit {
 
   /**
    * Allows users to upload an attachment for a specific PIA.
-   * @param {event} event : any kind of event.
+   * @param {event} event - Any kind of event.
    * @memberof AttachmentsComponent
    */
   uploadAttachement(event: Event) {

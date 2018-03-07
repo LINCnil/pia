@@ -21,6 +21,11 @@ export class ActionPlanService {
   risksActionPlan33Ready = false;
   risksActionPlan34Ready = false;
 
+  /**
+   * Get action plan.
+   * @param {TranslateService} translateService - The translate service.
+   * @memberof ActionPlanService
+   */
   listActionPlan(translateService: TranslateService) {
     this.results = [];
     this.measures = [];

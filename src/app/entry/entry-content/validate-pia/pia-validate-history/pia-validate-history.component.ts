@@ -45,7 +45,7 @@ export class PiaValidateHistoryComponent implements OnInit {
 
   /**
    * Displays the validation history.
-   * @returns True if the PIA is validated and that there was a rejection before this validation, False otherwise.
+   * @returns {boolean} - True if the PIA is validated and that there was a rejection before this validation, False otherwise.
    * @memberof PiaValidateHistoryComponent
    */
   showValidationHistory() {
@@ -56,7 +56,7 @@ export class PiaValidateHistoryComponent implements OnInit {
 
   /**
    * Displays the rejection history.
-   * @returns {boolean} True if the PIA is refused, False otherwise.
+   * @returns {boolean} - True if the PIA is refused, False otherwise.
    * @memberof PiaValidateHistoryComponent
    */
   showRejectionHistory() {
