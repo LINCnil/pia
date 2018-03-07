@@ -67,7 +67,7 @@ export class RefusePIAComponent implements OnInit {
   }
 
   /**
-   * Display the modal to abandon
+   * Display the modal to abandon.
    * @memberof RefusePIAComponent
    */
   abandon() {
@@ -75,7 +75,7 @@ export class RefusePIAComponent implements OnInit {
   }
 
   /**
-   * Refuse the PIA and navigate to the root page of the PIA
+   * Refuse the PIA and navigate to the root page of the PIA.
    * @memberof RefusePIAComponent
    */
   refuse() {
@@ -92,6 +92,7 @@ export class RefusePIAComponent implements OnInit {
 
   /**
    * Focuses rejection reason field.
+   * @memberof RefusePIAComponent
    */
   rejectionReasonFocusIn() {
     if (this._piaService.pia.status === 1) {
@@ -124,6 +125,7 @@ export class RefusePIAComponent implements OnInit {
 
   /**
    * Focuses modification made field.
+   * @memberof RefusePIAComponent
    */
   modificationsMadeFocusIn() {
     if (this._piaService.pia.status !== 1) {
@@ -164,8 +166,8 @@ export class RefusePIAComponent implements OnInit {
 
   /**
    * Enable auto resizing on tetarea
-   * @param {*} event
-   * @param {HTMLElement} textarea
+   * @param {*} event - Any Event.
+   * @param {HTMLElement} textarea - Texarea element.
    * @memberof RefusePIAComponent
    */
   autoTextareaResize(event: any, textarea?: HTMLElement) {

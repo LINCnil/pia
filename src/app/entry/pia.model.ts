@@ -28,7 +28,9 @@ export class Pia extends ApplicationDb {
   }
 
   /**
-   * Find all entries without conditions
+   * Find all entries without conditions.
+   * @returns {Promise}
+   * @memberof Pia
    */
   async getAll() {
     const items = [];
@@ -71,6 +73,11 @@ export class Pia extends ApplicationDb {
     });
   }
 
+  /**
+   * Calcul percent of progress bar.
+   * @returns {Promise}
+   * @memberof Pia
+   */
   async calculProgress() {
     return new Promise((resolve, reject) => {
       const answer = new Answer();
@@ -81,6 +88,11 @@ export class Pia extends ApplicationDb {
     });
   }
 
+  /**
+   * Create a new PIA.
+   * @returns {Promise}
+   * @memberof Pia
+   */
   async create() {
     if (this.created_at === undefined) {
       this.created_at = new Date();
@@ -141,6 +153,11 @@ export class Pia extends ApplicationDb {
     });
   }
 
+  /**
+   * Update a PIA.
+   * @returns {Promise}
+   * @memberof Pia
+   */
   async update() {
     return new Promise((resolve, reject) => {
       this.find(this.id).then((entry: any) => {
@@ -195,6 +212,12 @@ export class Pia extends ApplicationDb {
     });
   }
 
+  /**
+   * Get a PIA.
+   * @param {number} id - The PIA id.
+   * @returns {Promise}
+   * @memberof Pia
+   */
   async get(id: number) {
     this.id = id;
     return new Promise((resolve, reject) => {
@@ -224,6 +247,11 @@ export class Pia extends ApplicationDb {
     });
   }
 
+  /**
+   * Get the PIA example.
+   * @returns {Promise}
+   * @memberof Pia
+   */
   async getPiaExample() {
     return new Promise((resolve, reject) => {
       if (this.serverUrl) {
@@ -275,12 +303,23 @@ export class Pia extends ApplicationDb {
     });
   }
 
+  /**
+   * Get the status of the PIA.
+   * @returns {string} - Locale for translation.
+   * @memberof Pia
+   */
   getStatusName() {
     if (this.status >= 0) {
       return `pia.statuses.${this.status}`;
     }
   }
 
+  /**
+   * Get people status.
+   * @param {boolean} status - The people search status.
+   * @returns {string} - Locale for translation.
+   * @memberof Pia
+   */
   getPeopleSearchStatus(status: boolean) {
     if (status === true) {
       return 'summary.people_search_status_ok';
@@ -289,12 +328,24 @@ export class Pia extends ApplicationDb {
     }
   }
 
+  /**
+   * Get opinion status.
+   * @param {string} status - The opinion status.
+   * @returns {string} - Locale for translation.
+   * @memberof Pia
+   */
   getOpinionsStatus(status: string) {
     if (status) {
       return `summary.content_choice.${status}`;
     }
   }
 
+  /**
+   * Get gauge name.
+   * @param {*} value - The gauge value.
+   * @returns {string} - Locale for translation.
+   * @memberof Pia
+   */
   getGaugeName(value: any) {
     if (value) {
       return `summary.gauges.${value}`;

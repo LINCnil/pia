@@ -23,7 +23,7 @@ export class SettingsComponent implements OnInit {
   }
 
   /**
-   * Record the URL of the server
+   * Record the URL of the server.
    * @memberof SettingsComponent
    */
   onSubmit() {

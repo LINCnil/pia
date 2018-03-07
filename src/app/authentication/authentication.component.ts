@@ -27,8 +27,8 @@ export class AuthenticationComponent implements OnInit, DoCheck, OnDestroy {
   }
 
   /**
-   * Record the selected language
-   * @param {string} selectedLanguage
+   * Record the selected language.
+   * @param {string} selectedLanguage - The selected language.
    * @memberof HeaderComponent
    */
   updateCurrentLanguage(selectedLanguage: string) {

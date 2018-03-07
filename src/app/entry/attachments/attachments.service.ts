@@ -13,9 +13,13 @@ export class AttachmentsService {
   pia: any;
   pia_signed = 0;
 
-  constructor(private _modalsService: ModalsService) {
-  }
+  constructor(private _modalsService: ModalsService) { }
 
+  /**
+   * List all attachments.
+   * @returns {Promise}
+   * @memberof AttachmentsService
+   */
   async listAttachments() {
     return new Promise((resolve, reject) => {
       const attachment = new Attachment();
@@ -27,6 +31,11 @@ export class AttachmentsService {
     });
   }
 
+  /**
+   * Update all signed attachement.
+   * @returns {Promise}
+   * @memberof AttachmentsService
+   */
   async updateSignedAttachmentsList() {
     return new Promise((resolve, reject) => {
       this.signedAttachments = [];
@@ -54,6 +63,11 @@ export class AttachmentsService {
     });
   }
 
+  /**
+   * Upload a new attachment.
+   * @param {*} attachment_file - The attachment file.
+   * @memberof AttachmentsService
+   */
   upload(attachment_file: any) {
     const file = new Blob([attachment_file]);
     const reader = new FileReader();
@@ -81,6 +95,11 @@ export class AttachmentsService {
     }
   }
 
+  /**
+   * Download an attachment by id.
+   * @param {number} id - Id of the attachment.
+   * @memberof AttachmentsService
+   */
   downloadAttachment(id: number) {
     const attachment = new Attachment();
     attachment.pia_id = this.pia.id;
@@ -100,6 +119,8 @@ export class AttachmentsService {
 
   /**
    * Allows an user to remove a PIA.
+   * @param {string} comment - Comment to justify deletion.
+   * @memberof AttachmentsService
    */
   removeAttachment(comment: string) {
     if (comment && comment.length > 0) {
