@@ -937,8 +937,8 @@
     "pia_assessor": "Name des Prüfers",
     "pia_validator": "Name des Bestätigers",
     "content_choice": {
-      "0": "Die Verarbeitung könnte umgesetzt werden.",
-      "1": "Die Verarbeitung sollte nicht durchgeführt werden."
+      "0": "Die Verarbeitung sollte nicht durchgeführt werden.",
+      "1": "Die Verarbeitung kann umgesetzt werden."
     },
     "dpo_name": "Name des DSB",
     "dpo_status": "Feststellung des DSB",
