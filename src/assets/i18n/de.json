@@ -665,15 +665,15 @@
         "description": "Weltanschauliche, politische, religiöse, gewerkschaftliche Überzeugungen und Beziehungen, Sexualleben, Gesundheitsdaten, Rasse oder ethnische Herkunft, Straftaten, Sicherheitsauflagen.<br>Siehe <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/DE/TXT/HTML/?uri=CELEX:32016R0679&from=DE\"> Art. 9 und 10 der [DS-GVO]</a>."
       },
       "PIA_EX_HUMI": {
-        "name": "Interne menschliche Datenquellen",
+        "name": "Interne menschliche Risikoquellen",
         "description": "Das kann sein:<br>- ein bösartiger Mitarbeiter, der seine / ihre Nähe zum System, seine Fähigkeiten, Privilegien und möglicherweise ausreichend verfügbare Zeit nutzt oder aufgrund eines möglichen Mangels an Schulung und Bewusstsein nachlässig ist.<br>- ein Benutzer oder sein Umfeld, fahrlässig oder böswillig, mit Zugang zu den Diensten.<br>Seine Motivationen können vielfältig sein: Ungeschicklichkeit, Fehler, Nachlässigkeit, Rache, Bereitschaft zu warnen, Böswilligkeit, Gier, Spionage."
       },
       "PIA_EX_HUME": {
-        "name": "Externe menschliche Datenquellen",
+        "name": "Externe menschliche Risikoquellen",
         "description": "Das kann sein:<br>- ein böswilliger oder unwissender Dritter, der seine physische Nähe nutzt, um betrügerisch auf den Dienst zuzugreifen<br>- ein Angreifer, der einen Benutzer mit seinen Kenntnissen über den Benutzer und einige der Informationen über ihn zum Ziel nimmt<br>- ein Angreifer, der eine der Firmen, die für die Verarbeitung verantwortlich sind, mit seinem Wissen über Unternehmen angreift, um den Ruf des Unternehmens zu schädigen<br>- eine autorisierte dritte Partei, die ihren privilegierten Zugang zu illegalem Zugang zu Informationen nutzt.<br>Die Motive können vielfältig sein:<br>Glücksspiel, Verärgerung, Böswilligkeit, Rache, Spionage, Gier, Erwerb von Daten, um sie auszunutzen."
       },
       "PIA_EX_NHUM": {
-        "name": "Nichtmenschliche Datenquellen",
+        "name": "Nichtmenschliche Risikoquellen",
         "description": "Dies kann ein Vorfall oder eine Katastrophe in einer der für die Verarbeitung verantwortlichen Organisationen sein (Stromausfall, Feuer, Überschwemmung usw.)"
       },
       "PIA_EX_IMPN": {
@@ -936,8 +936,8 @@
     "pia_assessor": "Name des Prüfers",
     "pia_validator": "Name des Bestätigers",
     "content_choice": {
-      "0": "Die Verarbeitung könnte umgesetzt werden.",
-      "1": "Die Verarbeitung sollte nicht durchgeführt werden."
+      "0": "Die Verarbeitung sollte nicht durchgeführt werden.",
+      "1": "Die Verarbeitung kann umgesetzt werden."
     },
     "dpo_name": "Name des DSB",
     "dpo_status": "Feststellung des DSB",
