@@ -859,16 +859,16 @@
     "archive": "Archivieren",
     "close": "Schließen",
     "continue": "Fortsetzen",
-    "start_evaluation": "TO BE TRANSLATED - Start review",
+    "start_evaluation": "Beginnen Sie die Überprüfung",
     "back_to_home": "Zurück zur Startseite",
     "simple_pia_validation": {
       "content": "Die DSFA wurde bestätigt."
     },
     "completed_edition": {
-      "content": "TO BE TRANSLATED - The PIA has been fully edited, it has to be reviewed."
+      "content": "Die DSFA wurde vollständig bearbeitet, sie muss überprüft werden."
     },
     "completed_evaluation": {
-      "content": "TO BE TRANSLATED - The PIA has been fully reviewed, it has to be validated."
+      "content": "Die DSFA wurde vollständig überprüft, sie muss bestätigt werden."
     },
     "update_server_url": {
       "content": "Die Serveradresse wurde aktualisiert."
