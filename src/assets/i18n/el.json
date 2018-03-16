@@ -611,96 +611,96 @@
       },
       "PIA_DEF_MIN5": {
         "name": "Περιορισμός πρόσβασης στα προσωπικά δεδομένα",
-        "description": "Το σύστημα μπορεί να περιορίσει την πρόσβαση σε δεδομένα σύμφωνα με την αρχή «πρέπει να γνωρίζουμε». Το σύστημα μπορεί να διαχωρίσει τα ευαίσθητα δεδομένα και να εφαρμόσει συγκεκριμένες πολιτικές ελέγχου πρόσβασης. Το σύστημα μπορεί επίσης να κρυπτογραφήσει ευαίσθητα δεδομένα για να προστατεύσει την εμπιστευτικότητα τους κατά τη μεταφορά και αποθήκευση. Η πρόσβαση σε προσωρινά cookies που παράγονται κατά τη διάρκεια της επεξεργασίας δεδομένων πρέπει επίσης να προστατεύεται.",
+        "description": "Το σύστημα μπορεί να περιορίσει την πρόσβαση σε δεδομένα σύμφωνα με την αρχή του «απολύτως απαραίτητου της γνώσης». Το σύστημα μπορεί να διαχωρίσει τα ευαίσθητα προσωπικά δεδομένα και να εφαρμόσει συγκεκριμένες πολιτικές ελέγχου πρόσβασης. Το σύστημα μπορεί επίσης να κρυπτογραφήσει ευαίσθητα προσωπικά δεδομένα για να προστατεύσει την εμπιστευτικότητα τους κατά τη μεταφορά και αποθήκευση. Η πρόσβαση σε προσωρινά cookies που παράγονται κατά τη διάρκεια της επεξεργασίας προσωπικών δεδομένων πρέπει επίσης να προστατεύεται.",
         "source": "PIAF Connected objects p42 - WIKI"
       },
       "PIA_EX_DCPC": {
-        "name": "Common personal data",
-        "description": "<strong>Identification data</strong> : Civil status, identity, age, etc. <br><strong>Personal life</strong> : living habits, marital status, etc. <br><strong>Professional life </strong> : résumé, education and professional training, awards, etc. <br><strong>Connection data </strong> : IP addresses, event logs, etc.<br><strong>Location data</strong> : travels, GPS data, GSM data, etc.<br><strong>Others</strong> : phone number, email address, etc.",
+        "name": "Συνηθισμένα προσωπικά δεδομένα",
+        "description": "<strong>Στοιχεία αναγνώρισης</strong>: Οικογενειακή κατάσταση, ταυτότητα, ηλικία, κ.λπ. <br><strong>Προσωπική ζωή</strong>: συνήθειες διαβίωσης, οικογενειακή κατάσταση, κλπ. <br><strong>Επαγγελματική ζωή</strong>: βιογραφικό σημείωμα, εκπαίδευση και επαγγελματική κατάρτιση, βραβεία, κλπ. <br><strong>Δεδομένα σύνδεσης </strong>: Διευθύνσεις IP, αρχεία καταγραφής συμβάντων, κ.λπ.<br><strong>Δεδομένα τοποθεσίας</strong>: ταξίδια, δεδομένα GPS, δεδομένα GSM, κ.λπ.<br><strong>Άλλα</strong>: αριθμός τηλεφώνου, διεύθυνση ηλεκτρονικού ταχυδρομείου, κ.λπ.",
         "source": "PIA2 old version - WIKI"
       },
       "PIA_EX_DCPS": {
-        "name": "Personal data perceived as sensitive",
-        "description": "Social security number (NIR), biometric data, bank data",
+        "name": "Προσωπικά δεδομένα που θεωρούνται ευαίσθητα",
+        "description": "Βιομετρικά δεδομένα, τραπεζικά δεδομένα",
         "source": "PIA2 old version - WIKI"
       },
       "PIA_EX_DCPR": {
-        "name": "Convictions and sensitive personal data",
-        "description": "Philosophical, political, religious and trade-union views, sex life, health data, racial or ethnic origin, data concerning health or sex life, offenses, convictions, security measures, see <a target=\"_blank\" href=\"https://eur-lex.europa.eu/legal-content/EL/TXT/HTML/?uri=CELEX:32016R0679&from=EL\">Άρθ. 9 and 10 του [ΓΚΔΠ]</a>.",
-        "source": "PIA2 old version, GDPR Article 9 and 10 - WIKI"
+        "name": "Καταδίκες και ευαίσθητα προσωπικά δεδομένα",
+        "description": "Φιλοσοφικές, πολιτικές, θρησκευτικές και συνδικαλιστικές απόψεις, σεξουαλική ζωή, δεδομένα για την υγεία, φυλετική ή εθνοτική καταγωγή, δεδομένα σχετικά με την υγεία ή τη σεξουαλική ζωή, αδικήματα, καταδίκες, μέτρα ασφαλείας, βλέπετε <a target=\"_blank\" href=\"https://eur-lex.europa.eu/legal-content/EL/TXT/HTML/?uri=CELEX:32016R0679&from=EL\">Άρθ. 9 and 10 του [ΓΚΔΠ]</a>.",
+        "source": "PIA2 old version, ΓΚΠΔ Άρθρο 9 και 10 - WIKI"
       },
       "PIA_EX_HUMI": {
-        "name": "Internal human sources",
-        "description": "It could be either:<br>- a negligent or rogue employee, proximity του system, skills, privileges and available time are potentially high, possible lack of training and awareness<br>- negligent or rogue user, family member or friend having access to the service.<br> Various motives are possible, including : clumsiness, error, negligence game, malicious intent, revenge, spying",
+        "name": "Εσωτερικές ανθρώπινες πηγές",
+        "description": "Μπορεί να είναι είτε:<br>- ένας κακόβουλος υπάλληλος, που χρησιμοποιεί την εγγύτητά του στο σύστημα, τις δεξιότητές του, τα προνόμια και τον ενδεχομένως υπερβολικό διαθέσιμο χρόνο του, ή ένας αμελής υπάλληλος λόγω έλλειψης κατάρτισης και ευαισθητοποίησης<br>- ένας αμελής ή κακόβουλος χρήστης, μέλος της οικογένειας ή φίλος του που έχει πρόσβαση στην υπηρεσία.<br> Τα κίνητρά του μπορεί να είναι πολλαπλά: αδεξιότητα, σφάλμα, αμέλεια, δόλος, εκδίκηση, κατασκοπεία",
         "source": "PIAF Connected objects p41 - WIKI"
       },
       "PIA_EX_HUME": {
-        "name": "External human sources",
-        "description": "It could be either:<br>- a rogue or naive neighbor, by having a physical proximity, hacking into the device's data;<br>- a hacker targeting a user by using the knowledge he/she has του user and some του information concerning him/her;<br>- a hacker targeting one του companies by using the knowledge he/she has του companies that can undermine their image;<br>- an authorised third party company using its privileged access to illegitimately access information.",
+        "name": "Εξωτερικές ανθρώπινες πηγές",
+        "description": "Μπορεί να είναι είτε:<br>- ένας κακόβουλος ή αφελής τρίτος, που, χρησιμοποιεί την φυσική εγγύτητά του για να αποκτήσει πρόσβαση στα δεδομένα της συσκευής·<br>- ένας εισβολέας που στοχεύει έναν χρήστη χρησιμοποιώντας τις γνώσεις που έχει για τον χρήστη και μερικές πληροφορίες που τον αφορούν·<br>- ένας εισβολέας που στοχεύει μία από τις εταιρείες που είναι υπεύθυνες για την επεξεργασία, χρησιμοποιώντας τις γνώσεις που έχει για τις εταιρείες αυτές για να επιτεθεί στη φήμη τους·<br>- ένας εξουσιοδοτημένος τρίτος που χρησιμοποιεί την προνομιακή του πρόσβαση για να αποκτήσει παράνομη πρόσβαση σε πληροφορίες.<br> Τα κίνητρα μπορεί να είναι πολλαπλά: τυχερά παιχνίδια, ενόχληση, δόλος, εκδίκηση, κατασκοπεία, απληστία, απόκτηση δεδομένων για την εκμετάλλευσή τους.",
         "source": "PIAF Connected objects p41 - WIKI"
       },
       "PIA_EX_NHUM": {
-        "name": "Non-human sources",
-        "description": "Incident or damage at one του organisation (power cut, fire, flood, etc.)",
+        "name": "Μη ανθρώπινες πηγές",
+        "description": "Περιστατικό ή ζημιά σε έναν οργανισμό (διακοπή ρεύματος, πυρκαγιά, πλημμύρα, κ.λπ.)",
         "source": "PIAF Connected objects p41 - WIKI"
       },
       "PIA_EX_IMPN": {
-        "name": "Negligible impact",
-        "description": "Data subjects either will not be affected or may encounter a few inconveniences, which they will overcome without any problem. For example:<br>- physical : transient headaches;<br>- material : loss of time in repeating formalities or waiting for them to be fulfilled, receipt of unsolicited mail (e.g.: spams), reuse of data published on websites for the purpose of targeted advertising , etc.;<br>- moral : mere annoyance, feeling of invasion of privacy without real or objective harm (commercial intrusion), etc.",
+        "name": "Αμελητέος αντίκτυπος",
+        "description": "Τα υποκείμενα δεδομένων είτε δεν θα επηρεαστούν είτε ενδέχεται να αντιμετωπίσουν μερικές ενοχλήσεις, τις οποίες θα ξεπεράσουν χωρίς κανένα πρόβλημα. Για παράδειγμα:<br>- σωματικές: παροδικοί πονοκέφαλοι·<br>- υλικές: απώλεια χρόνου σε επαναλαμβανόμενες διατυπώσεις ή αναμονή για την συμπλήρωσή τους, παραλαβή ανεπιθύμητης αλληλογραφίας (π.χ. spam), επαναχρησιμοποίηση δεδομένων που δημοσιεύονται σε δικτυακούς τόπους με σκοπό τη στοχευμένη διαφήμιση, κλπ.·<br>- ηθικές: απλή ενόχληση, αίσθηση εισβολής στην ιδιωτική ζωή χωρίς πραγματική ή αντικειμενική βλάβη (εμπορική εισβολή), κλπ.",
         "source": "PIAF Connected Objects p41 - WIKI"
       },
       "PIA_EX_IMPL": {
-        "name": "Limited impact",
-        "description": "Data subjects may encounter significant inconveniences, which they will be able to overcome despite a few difficulties. For example:<br>- physical : minor physical ailments (minor illness due to disregard of contraindications), defamation resulting in physical or psychological retaliation, etc.;<br>- material : unanticipated payments (fines imposed erroneously), denial of access to administrative or commercial services, receipt of unsolicited targeted mailings likely to damage the reputation of data subjects, etc.;<br>- moral : minor but objective psychological ailments, feeling of invasion of privacy without irreversible damage, intimidation on social networks, etc.",
+        "name": "Περιορισμένος αντίκτυπος",
+        "description": "Τα υποκείμενα των δεδομένων ενδέχεται να αντιμετωπίσουν σημαντικές ενοχλήσεις, τις οποίες θα μπορέσουν να ξεπεράσουν σε πείσμα ορισμένων δυσκολιών. Για παράδειγμα:<br>- σωματικές: μικρές σωματικές παθήσεις (ελάσσονες ασθένειες που οφείλονται στην παράβλεψη αντενδείξεων), δυσφήμιση που προκαλεί σωματικά ή ψυχολογικά αντίποινα κλπ.·<br>- υλικές: απρόβλεπτες πληρωμές (πρόστιμα που έχουν επιβληθεί εσφαλμένα), άρνηση πρόσβασης σε διοικητικές ή εμπορικές υπηρεσίες, λήψη ανεπιθύμητων στοχευμένων αποστολών που ενδέχεται να βλάψουν τη φήμη των υποκειμένων των δεδομένων, κ.λπ.·<br>- ηθικές: ελάσσονος σημασίας αλλά αντικειμενικές ψυχολογικές ασθένειες, αίσθηση εισβολής στην ιδιωτική ζωή χωρίς ανεπανόρθωτες ζημιές, εκφοβισμός σε κοινωνικά δίκτυα, κ.λπ.",
         "source": "PIAF Connected objects p41 - WIKI"
       },
       "PIA_EX_IMPI": {
-        "name": "Significant impact",
-        "description": "Data subjects may encounter significant consequences, which they should be able to overcome albeit with real and serious difficulties. For example: <br>- physical : serious physical ailments causing long-term harm (worsening of health due to improper care, or disregard of contraindications), lteration of physical integrity for example following an assault, an accident at home, work, etc.<br>- material : misappropriation of money not compensated, targeted, unique and non-recurring, lost opportunities  (home loan, refusal of studies, internships or employment, examination ban), loss of housing, loss of employment, etc.;<br>- moral : serious psychological ailments (depression, development of a phobia), feeling of invasion of privacy with irreversible damage, victim of blackmailing, cyberbullying and harassment, etc.",
+        "name": "Σημαντικός αντίκτυπος",
+        "description": "Τα υποκείμενα των δεδομένων ενδέχεται να αντιμετωπίσουν σημαντικές συνέπειες, τις οποίες θα πρέπει να μπορούν να ξεπεράσουν, αν και με πραγματικές και σοβαρές δυσκολίες. Για παράδειγμα:<br>- σωματικές: σοβαρές σωματικές παθήσεις που προκαλούν μακροχρόνια βλάβη (επιδείνωση της υγείας λόγω ακατάλληλης φροντίδας ή παράβλεψης αντενδείξεων), αλλοίωση της σωματικής ακεραιότητας π.χ. μετά από επίθεση, ατύχημα στο σπίτι, στην εργασία, κ.λπ.·<br>- υλικές: κατάχρηση χρημάτων που δεν αποζημιώνονται, στοχοθετημένες, μοναδικές και μη επαναλαμβανόμενες, χαμένες ευκαιρίες (στεγαστικό δάνειο, άρνηση σπουδών, πρακτική άσκηση ή απασχόληση, απαγόρευση εξέτασης), απώλεια στέγης, απώλεια απασχόλησης, κ.λπ.·<br>- ηθικές: σοβαρές ψυχολογικές ασθένειες (κατάθλιψη, ανάπτυξη φοβίας), αίσθηση εισβολής στην ιδιωτική ζωή με μη αναστρέψιμες βλάβες, θύμα εκβιασμού, παρενόχληση στον κυβερνοχώρο και παρενόχληση, κ.λπ.",
         "source": "PIAF Connected objects p41 - WIKI"
       },
       "PIA_EX_IMPM": {
-        "name": "Maximum impact",
-        "description": "Data subjects may encounter significant, or even irreversible, consequences, which they may not overcome. For example:<br>- physical : long-term or permanent physical ailments, permanent impairment of physical integrity, death;<br>- material : financial risk, substantial debts, inability to work, inability to relocate, loss of evidence in the context of litigation, loss of access to vital infrastructure (water, electricity), etc.<br>- moral : long-term or permanent psychological ailments, criminal penalty, abduction, loss of family ties, inability to sue, change of administrative status and/or loss of legal autonomy (guardianship), etc.",
+        "name": "Μέγιστος αντίκτυπος",
+        "description": "Τα υποκείμενα των δεδομένων ενδέχεται να αντιμετωπίσουν σημαντικές ή ακόμη και μη αναστρέψιμες συνέπειες, τις οποίες ενδέχεται να μην υπερνικήσουν. Για παράδειγμα:<br>- σωματικές: μακροχρόνιες ή μόνιμες σωματικές παθήσεις, μόνιμη βλάβη της σωματικής ακεραιότητας, θάνατος·<br>- υλικές: χρηματοοικονομικός κίνδυνος, σημαντικά χρέη, ανικανότητα προς εργασία, αδυναμία μετεγκατάστασης, απώλεια αποδεικτικών στοιχείων στο πλαίσιο δικαστικών διαδικασιών, απώλεια πρόσβασης σε ζωτικής σημασίας υποδομές (νερό, ηλεκτρική ενέργεια), κ.λπ.·<br>- ηθικές: μακροχρόνιες ή μόνιμες ψυχολογικές παθήσεις, ποινική κύρωση, απαγωγή, απώλεια οικογενειακών δεσμών, αδυναμία να ασκήσει αγωγή, αλλαγή διοικητικού καθεστώτος ή / και απώλεια νομικής αυτονομίας (κηδεμονία), κλπ.",
         "source": "PIAF Connected objects p41 - WIKI"
       },
       "PIA_EX_VRAN": {
-        "name": "Negligible likelihood",
-        "description": "It does not seem possible for the selected risk sources to materialize the threat by exploiting the properties of supporting assets (e.g.: theft of paper documents stored in a room protected by a badge reader and access code).",
+        "name": "Αμελητέα πιθανότητα",
+        "description": "Δεν φαίνεται δυνατόν οι επιλεγμένες πηγές κινδύνου να υλοποιήσουν την απειλή με την εκμετάλλευση των ιδιοτήτων των υποστηρικτικών περιουσιακών στοιχείων (π.χ.: κλοπή έντυπων εγγράφων αποθηκευμένων σε δωμάτιο που προστατεύεται από συσκευή ανάγνωσης αναγνωριστικής κονκάρδας και κωδικό πρόσβασης).",
         "source": "PIAF Connected objects p44 - WIKI"
       },
       "PIA_EX_VRAL": {
-        "name": "Limited likelihood",
-        "description": "It seems difficult for the selected risk sources to materialize the threat by exploiting the properties of supporting assets (e.g.: theft of paper documents stored in a room protected by a badge reader).",
+        "name": "Περιορισμένη πιθανότητα",
+        "description": "Φαίνεται δύσκολο για τις επιλεγμένες πηγές κινδύνου να υλοποιήσουν την απειλή με την εκμετάλλευση των ιδιοτήτων των υποστηρικτικών περιουσιακών στοιχείων (π.χ.: κλοπή έντυπων εγγράφων αποθηκευμένων σε δωμάτιο που προστατεύεται από συσκευή ανάγνωσης αναγνωριστικής κονκάρδας).",
         "source": "PIAF Connected objects p44 - WIKI"
       },
       "PIA_EX_VRAI": {
-        "name": "Significant likelihood",
-        "description": "It seems possible for the selected risk sources to materialize the threat by exploiting the properties of supporting assets (e.g.: theft of paper documents stored in offices that cannot be accessed without first checking in at the reception).",
+        "name": "Σημαντική πιθανότητα",
+        "description": "Φαίνεται ότι οι επιλεγμένες πηγές κινδύνου μπορούν να υλοποιήσουν την απειλή με την εκμετάλλευση των ιδιοτήτων των υποστηρικτικών περιουσιακών στοιχείων (π.χ. κλοπή έντυπων εγγράφων που είναι αποθηκευμένα σε γραφεία που δεν είναι προσβάσιμα αν δεν γίνει πρώτα έλεγχος στην υποδοχή).",
         "source": "PIAF Connected objects p44 - WIKI"
       },
       "PIA_EX_VRAM": {
-        "name": "Maximum likelihood",
-        "description": "It seems extremely easy for the selected risk sources to materialize the threat by exploiting the properties of supporting assets (e.g.: theft of paper documents stored in the public lobby).",
+        "name": "Μέγιστη πιθανότητα",
+        "description": "Φαίνεται εξαιρετικά εύκολο για τις επιλεγμένες πηγές κινδύνου να υλοποιήσουν την απειλή με την εκμετάλλευση των ιδιοτήτων των υποστηρικτικών περιουσιακών στοιχείων (π.χ. κλοπή έντυπων εγγράφων αποθηκευμένων στον χώρο αναμονής).",
         "source": "PIAF Connected objects p44 - WIKI"
       },
       "PIA_EX_MIND": {
-        "name": "Minimisation of data themselves",
-        "description": "Reduce the severity of risks by minimising the data themselves, by taking measures aimed at reducing their sensitivity.",
+        "name": "Ελαχιστοποίηση των ίδιων των προσωπικών δεδομένων",
+        "description": "Μειώστε τη σοβαρότητα των κινδύνων ελαχιστοποιώντας τα ίδια τα προσωπικά δεδομένα, λαμβάνοντας μέτρα που αποσκοπούν στη μείωση της ευαισθησίας τους.",
         "source": "Mesures_US"
       },
       "PIA_DEF_ANO": {
-        "name": "Anonymisation",
-        "description": "Process removing the identifying characteristics from personal data. To assess the robustness of an anonymisation processes, see the <a target=\"_blank\" href=\"https://ec.europa.eu/justice/data-protection/article-29/documentation/opinion-recommendation/files/2014/wp216_en.pdf\">WP29 guidelines</a>.",
+        "name": "Ανωνυμοποίηση",
+        "description": "Διαδικασία αφαίρεσης των χαρακτηριστικών ταυτοποίησης από προσωπικά δεδομένα. Για να αξιολογήσετε την ανθεκτικότητα των διαδικασιών ανωνυμοποίησης, ανατρέξτε στις <a target=\"_blank\" href=\"https://ec.europa.eu/justice/data-protection/article-29/documentation/opinion-recommendation/files/2014/wp216_en.pdf\">κατευθυντήριες γραμμές της ΟΕ29</a>.",
         "source": "Mesures_US and G29 guidelines https://ec.europa.eu/justice/data-protection/article-29/documentation/opinion-recommendation/files/2014/wp216_en.pdf"
       },
       "PIA_SEC_CTR": {
-        "placeholder": "Describe here specific measures for processors (host, maintenance company, administrator, specialist service providers, etc.)",
-        "name": "Processing contracts",
+        "placeholder": "Περιγράψτε εδώ συγκεκριμένα μέτρα για τους εκτελούντες την επεξεργασία (κεντρικός υπολογιστής, εταιρεία συντήρησης, διαχειριστής, ειδικοί πάροχοι υπηρεσιών, κ.λπ.)",
+        "name": "Συμβάσεις επεξεργασίας",
         "source": "Mesures_US Procurement: identified and governed by a contract"
       },
       "PIA_DEF_CHIF": {
-        "name": "Encryption",
+        "name": "Κρυπτογράφηση",
         "description": "Measure making personal data unintelligible to anyone without access authorization (symmetric or asymmetric encryption, use of public algorithms known to be strong, authentication certificate, etc.).",
         "source " : "Mesures_US Encryption"
       },
