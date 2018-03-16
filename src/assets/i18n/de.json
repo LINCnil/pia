@@ -1002,8 +1002,8 @@
     "legend3": "(I)llegitimer Zugriff auf Daten",
     "legend4": "(U)nerwünschte Änderung von Daten",
     "legend5": "(D)atenverlust",
-    "risk1_access": "(A)",
-    "risk2_modification": "(M)"
+    "risk1_access": "(I)",
+    "risk2_modification": "(U)"
   },
   "action_plan": {
     "title": "Übersicht",
