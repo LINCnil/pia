@@ -615,7 +615,7 @@
       },
       "PIA_EX_DCPC": {
         "name": "Common personal data",
-        "description": "<strong>Identification data</strong>: Civil status, identity, age, etc. <br><strong>Personal life</strong>: living habits, marital status, etc. <br><strong>Professional life </strong>: résumé, education and professional training, awards, etc. <br><strong>Connection data </strong>: IP addresses, event logs, etc.<br><strong>Location data</strong>: travels, GPS data, GSM data, etc.<br><strong>Others</strong>: phone number, email address, etc.",
+        "description": "<strong>Identification data</strong>: Civil status, identity, age, etc. <br><strong>Personal life</strong>: living habits, marital status, etc. <br><strong>Professional life</strong>: résumé, education and professional training, awards, etc. <br><strong>Connection data </strong>: IP addresses, event logs, etc.<br><strong>Location data</strong>: travels, GPS data, GSM data, etc.<br><strong>Others</strong>: phone number, email address, etc.",
         "source": "PIA2 old version - WIKI"
       },
       "PIA_EX_DCPS": {
@@ -630,17 +630,17 @@
       },
       "PIA_EX_HUMI": {
         "name": "Internal human sources",
-        "description": "It could be either:<br>- a negligent or rogue employee, proximity of the system, skills, privileges and available time are potentially high, possible lack of training and awareness<br>- negligent or rogue user, family member or friend having access to the service.<br> Various motives are possible, including: clumsiness, error, negligence game, malicious intent, revenge, spying",
+        "description": "It could be either:<br>- a malicious employee, using his proximity to the system, his skills, his privileges and potentially too much available time or a negligent employee due to a possible lack of training and awareness<br> - a negligent or rogue user, their family members or friends, having access to the service. <br> Various motivations are possible: clumsiness, error, negligence, malice, revenge, greed, spying",
         "source": "PIAF Connected objects p41 - WIKI"
       },
       "PIA_EX_HUME": {
         "name": "External human sources",
-        "description": "It could be either:<br>- a rogue or naive neighbor, by having a physical proximity, hacking into the device's data;<br>- a hacker targeting a user by using the knowledge he/she has of the user and some of the information concerning him/her;<br>- a hacker targeting one of the companies by using the knowledge he/she has of the companies that can undermine their image;<br>- an authorised third party company using its privileged access to illegitimately access information.",
+        "description": "It could be either:<br>- a rogue or naive third party, who uses his physical proximity to hack into the device's data;<br>- a hacker targeting a user by using the knowledge he/she has of the user and some of the information concerning him/her;<br>- a hacker targeting one of the companies responsible with processing by using the knowledge he/she has of the companies in order to undermine their image;<br>- an authorised third party using its privileged access to illegitimately access information.<br> Various motivations are possible: gambling, annoyance, malice, revenge, espionage, greed, acquisition of data to exploit it.",
         "source": "PIAF Connected objects p41 - WIKI"
       },
       "PIA_EX_NHUM": {
         "name": "Non-human sources",
-        "description": "Incident or damage at one of the organisation (power cut, fire, flood, etc.)",
+        "description": "Incident or damage at one of the organisations (power cut, fire, flood, etc.)",
         "source": "PIAF Connected objects p41 - WIKI"
       },
       "PIA_EX_IMPN": {
@@ -655,7 +655,7 @@
       },
       "PIA_EX_IMPI": {
         "name": "Significant impact",
-        "description": "Data subjects may encounter significant consequences, which they should be able to overcome albeit with real and serious difficulties. For example: <br>- physical: serious physical ailments causing long-term harm (worsening of health due to improper care, or disregard of contraindications), lteration of physical integrity for example following an assault, an accident at home, work, etc.<br>- material: misappropriation of money not compensated, targeted, unique and non-recurring, lost opportunities  (home loan, refusal of studies, internships or employment, examination ban), loss of housing, loss of employment, etc.;<br>- moral: serious psychological ailments (depression, development of a phobia), feeling of invasion of privacy with irreversible damage, victim of blackmailing, cyberbullying and harassment, etc.",
+        "description": "Data subjects may encounter significant consequences, which they should be able to overcome albeit with real and serious difficulties. For example: <br>- physical: serious physical ailments causing long-term harm (worsening of health due to improper care, or disregard of contraindications), alteration of physical integrity for example following an assault, an accident at home, work, etc.;<br>- material: misappropriation of money not compensated, targeted, unique and non-recurring, lost opportunities  (home loan, refusal of studies, internships or employment, examination ban), loss of housing, loss of employment, etc.;<br>- moral: serious psychological ailments (depression, development of a phobia), feeling of invasion of privacy with irreversible damage, victim of blackmailing, cyberbullying and harassment, etc.",
         "source": "PIAF Connected objects p41 - WIKI"
       },
       "PIA_EX_IMPM": {
@@ -690,7 +690,7 @@
       },
       "PIA_DEF_ANO": {
         "name": "Anonymisation",
-        "description": "Process removing the identifying characteristics from personal data. To assess the robustness of an anonymisation processes, see the <a target=\"_blank\" href=\"https://ec.europa.eu/justice/data-protection/article-29/documentation/opinion-recommendation/files/2014/wp216_en.pdf\">WP29 guidelines</a>.",
+        "description": "Process that removes the identifying characteristics from personal data. To assess the robustness of an anonymisation processes, see the <a target=\"_blank\" href=\"https://cnpd.public.lu/content/dam/cnpd/fr/publications/groupe-art29/wp216_en.pdf\">WP29 guidelines</a>.",
         "source": "Mesures_US and G29 guidelines https://ec.europa.eu/justice/data-protection/article-29/documentation/opinion-recommendation/files/2014/wp216_en.pdf"
       },
       "PIA_SEC_CTR": {
@@ -804,7 +804,7 @@
         },
         "qa7": {
           "title": "I have refused to validate a PIA but I don’t know what to do now",
-          "content": "For the moment, the navigation menu icons are not refreshed after refusing a PIA. You have to check each section and change the information and/or evaluation according to the reasons for refusing the PIA. Once all section have been reviewed, you should be able to request PIA validation again."
+          "content": "For the moment, the navigation menu icons are not refreshed after refusing a PIA. You have to check each section and change the information and/or evaluation according to the reasons for refusing the PIA. Once all sections have been reviewed, you should be able to request PIA validation again."
         }
       },
       "footer": ""
@@ -889,7 +889,7 @@
       "download_pia": "Download PIA report"
     },
     "abandon_pia": {
-      "content": "Are you sure you want to<br>give up this treatment?"
+      "content": "Are you sure you want to<br>give up this processing?"
     },
     "refuse_pia": {
       "content": "<span class='strong'>Rejected PIA,</span><br>Several fields must be corrected.<br>Return to evaluation mode<br>to make corrections."
@@ -909,10 +909,10 @@
       "content": "<span class='strong'>Congratulations,</span><br>the subsection is now<br>available for evaluation."
     },
     "validate_evaluation": {
-      "content": "<span class='strong'>Congratulations,</span><br>you've finished evaluating this section.<br>Others parts of the PIA has to be evaluated as well in order to be able to validate the PIA."
+      "content": "<span class='strong'>Congratulations,</span><br>you've finished evaluating this section.<br>Other parts of the PIA have to be evaluated as well in order to be able to validate the PIA."
     },
     "validate_evaluation_to_correct": {
-      "content": "Sorry,<br>Several fields must be corrected.<br>Return to edition mode<br>to make corrections."
+      "content": "Sorry,<br>Several fields must be corrected.<br>Return to editing mode<br>to make corrections."
     },
     "declare_measures": {
       "content": "Sorry,<br>before evaluating risks,<br>you must report the<br>existing or planned measures.",
@@ -947,8 +947,8 @@
     "pia_assessor": "Assessor's name",
     "pia_validator": "Validator's name",
     "content_choice": {
-      "0": "The treatment should not be used.",
-      "1": "The treatment could be implemented."
+      "0": "The processing should not be implemented.",
+      "1": "The processing could be implemented."
     },
     "dpo_name": "DPO's name",
     "dpo_status": "DPO's status",
@@ -957,9 +957,9 @@
     "people_search_status_ok": "Concerned people opinion was requested.",
     "people_search_status_nok": "Concerned people opinion wasn't requested.",
     "concerned_people_unsearched_opinion_comment": "Reason why concerned people opinion wasn't requested",
-    "concerned_people_name": "Concerned people opinions",
-    "concerned_people_status": "Concerned people statuses",
-    "concerned_people_opinion": "Concerned people opinions",
+    "concerned_people_name": "Names of the people concerned",
+    "concerned_people_status": "Statuses of the people concerned",
+    "concerned_people_opinion": "Opinions of the people concerned",
     "modification_made": "Modifications made",
     "rejection_reason": "Rejection reason",
     "creation_date": "Creation date",
@@ -1027,7 +1027,7 @@
     "acceptable_measures": "Acceptable measures",
     "no_action_plan": "No action plan recorded.",
     "edit": "Edit",
-    "placeholder_person_in_charge": "Implementation responsible"
+    "placeholder_person_in_charge": "Person responsible for the implementatio"
   },
   "opinions": {
     "edit": "Edit",
@@ -1038,16 +1038,16 @@
     "dpo_lock": "Please complete the other sections before you can fill the DPO opinion.",
     "people_opinion": "Concerned people opinion",
     "placeholder_concerned_people_name": "Concerned people name(s)",
-    "placeholder_people_opinion": "Describe how the opinions were collected and what the analysis is. If the notices have not been sought, state the reasons.",
+    "placeholder_people_opinion": "Describe how the opinions were collected and what the analysis is. If the opinions have not been sought, state the reasons.",
     "placeholder_search_content": "Justify the reason why the opinion of the persons concerned has not been requested.",
-    "treatment_ok": "The treatment could be implemented.",
-    "treatment_nok": "The treatment should not be used.",
+    "treatment_ok": "The processing could be implemented.",
+    "treatment_nok": "The processing should not be implemented.",
     "treatment_lock": "Please complete the other sections before you can fill the opinions of the persons concerned."
   },
   "sections": {
     "1": {
       "title": "Context",
-      "short_help": "This section gives you a clear view of the treatment(s) of personal data in question.",
+      "short_help": "This section gives you a clear view of the processing of personal data in question.",
       "items": {
         "1": {
           "title": "Overview",
@@ -1077,7 +1077,7 @@
             },
             "2": {
               "title": "How does the life cycle of data and processes work?",
-              "placeholder": "Present and describe how the product generally works (from the data collection to the data destruction, the different processing stages, storage, etc.), using for example a diagram of data flows (add it as an attachment) and a detailed description of the processes carried out."
+              "placeholder": "Present and describe how the processing generally works (from the data collection to the data destruction, the different processing stages, storage, etc.), using for example a diagram of data flows (add it as an attachment) and a detailed description of the processes carried out."
             },
             "3": {
               "title": "What are the data supporting assets?",
@@ -1093,7 +1093,7 @@
       "items": {
         "1": {
           "title": "Proportionality and necessity",
-          "short_help": "This part allows you to demonstrate the legitimacy of your treatment and of the data processed.",
+          "short_help": "This part allows you to demonstrate the legitimacy of your processing and of the data processed.",
           "questions": {
             "1": {
               "title": "Are the processing purposes specified, explicit and legitimate?",
@@ -1103,7 +1103,7 @@
             "2": {
               "title": "What are the legal basis making the processing lawful?",
               "short_title": "Legal basis",
-              "placeholder": "Describe what is/are the legal basis of your processing (ex: consent, performance of a contract, compliance with a legal obligation, protecting the vital intests, etc.)"
+              "placeholder": "Describe what is/are the legal basis of your processing (ex: consent, performance of a contract, compliance with a legal obligation, protecting the vital interests, etc.)"
             },
             "3": {
               "title": "Are the data collected adequate, relevant and limited to what is necessary in relation to the purposes for which they are processed ('data minimisation')?",
