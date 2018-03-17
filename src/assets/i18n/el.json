@@ -248,12 +248,12 @@
       },
       "PIA_VAL_DPO": {
         "name": "Γνώμη του ΥΠΔ",
-        "description": "Ο υπεύθυνος επεξεργασίας ζητά τη συμβουλή του υπευθύνου προστασίας δεδομένων, εφόσον αυτός έχει οριστεί, κατά την εκτέλεση της εκτίμησης αντικτύπου των επιπτώσεων στην προστασία των προσωπικών δεδομένων. Βλέπετε Άρθ. 39 παρ. 2 του <a target=\"_blank\" href=\"https://eur-lex.europa.eu/legal-content/EL/TXT/HTML/?uri=CELEX:32016R0679&from=EL\">[ΓΚΠΔ]</a><br> <strong>Αυτή η άποψη μπορεί να είναι αντίθετη με την υλοποίηση της επεξεργασίας, χωρίς να περιορίζεται η απόφαση του υπεύθυνου επεξεργασίας για όλα αυτά</strong>.",
+        "description": "Ο υπεύθυνος επεξεργασίας ζητά τη συμβουλή του υπευθύνου προστασίας δεδομένων, εφόσον αυτός έχει οριστεί, κατά την εκτέλεση της εκτίμησης αντικτύπου των επιπτώσεων στην προστασία των προσωπικών δεδομένων. Βλέπετε Άρθ. 39 παρ. 2 του <a target=\"_blank\" href=\"https://eur-lex.europa.eu/legal-content/EL/TXT/HTML/?uri=CELEX:32016R0679&from=EL\">[ΓΚΠΔ]</a><br> <strong>Αυτή η γνώμη μπορεί να είναι αντίθετη με την υλοποίηση της επεξεργασίας, χωρίς να περιορίζεται η απόφαση του υπεύθυνου επεξεργασίας για όλα αυτά</strong>.",
         "source": "ΓΚΠΔ Άρθ. 39.2 and PIAF Connected Objects p37"
       },
       "PIA_VAL_CONC": {
         "name": "Γνώμη του υποκειμένου των δεδομένων",
-        "description": "Όπου ενδείκνυται, ο υπεύθυνος επεξεργασίας αναζητεί τις απόψεις των υποκειμένων των δεδομένων ή των εκπροσώπων τους σχετικά με την προβλεπόμενη επεξεργασία, χωρίς προκατάληψη για την προστασία των εμπορικών ή δημόσιων συμφερόντων ή την ασφάλεια των εργασιών επεξεργασίας. Βλέπετε Άρθ. 39.2 του <a target=\"_blank\" href=\"https://eur-lex.europa.eu/legal-content/EL/TXT/HTML/?uri=CELEX:32016R0679&from=EL\">[ΓΚΠΔ]</a><br>Αυτές οι απόψεις μπορούν να συγκεντρωθούν με ποικίλα μέσα, ανάλογα με το πλαίσιο (εσωτερική ή εξωτερική μελέτη των μεθόδων και του σκοπού της επεξεργασίας, ερώτηση που απευθύνεται στους εκπροσώπους του προσωπικού ή των συνδικάτων, έρευνα μεταξύ μελλοντικών πελατών του εκτελούντα την επεξεργασία). <strong>Όπου ο υπεύθυνος επεξεργασίας αποφασίζει να αντιταχθεί στις απόψεις των υποκειμένων των δεδομένων</strong>, πρέπει να σημειώσει <strong>την αιτιολόγηση αυτής της απόφασης</ strong>. Όταν ο υπεύθυνος επεξεργασίας θεωρεί ότι η  <strong>συγκέντρωση των απόψεων των υποκειμένων των δεδομένων δεν είναι σχετική, πρέπει επίσης να σημειώσει την αιτιολόγησή σχετικά με αυτό</strong>.",
+        "description": "Όπου ενδείκνυται, ο υπεύθυνος επεξεργασίας αναζητεί τις γνώμες των υποκειμένων των δεδομένων ή των εκπροσώπων τους σχετικά με την προβλεπόμενη επεξεργασία, χωρίς προκατάληψη για την προστασία των εμπορικών ή δημόσιων συμφερόντων ή την ασφάλεια των εργασιών επεξεργασίας. Βλέπετε Άρθ. 39.2 του <a target=\"_blank\" href=\"https://eur-lex.europa.eu/legal-content/EL/TXT/HTML/?uri=CELEX:32016R0679&from=EL\">[ΓΚΠΔ]</a><br>Αυτές οι γνώμες μπορούν να συγκεντρωθούν με ποικίλα μέσα, ανάλογα με το πλαίσιο (εσωτερική ή εξωτερική μελέτη των μεθόδων και του σκοπού της επεξεργασίας, ερώτηση που απευθύνεται στους εκπροσώπους του προσωπικού ή των συνδικάτων, έρευνα μεταξύ μελλοντικών πελατών του εκτελούντα την επεξεργασία). <strong>Όπου ο υπεύθυνος επεξεργασίας αποφασίζει να αντιταχθεί στις γνώμες των υποκειμένων των δεδομένων</strong>, πρέπει να σημειώσει <strong>την αιτιολόγηση αυτής της απόφασης</ strong>. Όταν ο υπεύθυνος επεξεργασίας θεωρεί ότι η  <strong>συγκέντρωση των απόψεων των υποκειμένων των δεδομένων δεν είναι σχετική, πρέπει επίσης να σημειώσει την αιτιολόγησή σχετικά με αυτό</strong>.",
         "source": "ΓΚΠΔ Άρθ. 39.9 and PIAF Connected Objects p38"
       },
       "PIA_VAL_RT": {
@@ -535,7 +535,7 @@
         "source": "PIA1 p12 - WIKI"
       },
       "PIA_DEF_MENA": {
-        "name": "Απειλές που μπορούν να οδηγήσουν σε παράνομη πρόσβαση",
+        "name": "Απειλές που μπορούν να οδηγήσουν σε αθέμιτη πρόσβαση",
         "description": "Απειλές σχετικά με: - <strong>Τεχνολογικό υλικό</ strong>, που χρησιμοποιείται ακατάλληλα, βρίσκεται υπό παρακολούθηση, έχει δεχθεί τροποποίηση, έχει χαθεί (χρήση ή μεταφορά ευαίσθητου τεχνολογικού υλικού για προσωπικούς σκοπούς, παρακολούθηση της οθόνης ενός ατόμου χωρίς τη γνώση τους ενώ βρίσκεστε σε αμαξοστοιχία, παρακολούθηση μέσω ενος καταγραφέα πληκτρολόγησης που βασίζεται σε τεχνολογικό υλικό, κλπ.)<br> - <strong>Λογισμικό </strong>, που χρησιμοποιείται ακατάλληλα, βρίσκεται υπό παρακολούθηση, έχει δεχθεί τροποποίηση (αύξηση προνομίων, συλλογή δεδομένων διαμόρφωσης, μόλυνση από κακόβουλο κώδικα, κ.λπ.)<br>- <strong>Δίαυλοι υπολογιστών</strong> που παρακολουθούνται (Παρακολούθηση της κίνησης Ethernet, κ.λπ.)<br> - <strong>Άτομα</ strong> που παρακολουθούνται, χειραγωγούνται, εκλείπουν (ακούσια αποκάλυψη πληροφοριών, κοινωνική μηχανική, αλλαγή θέσης ή εργοδότη, κ.λπ.)<br>- <strong>Έντυπα έγγραφα</strong> που παρατηρούνται, έχουν χαθεί (ανάγνωση, κλοπή αλληλογραφίας, φωτοτυπίες, ξεχασμένες εκτυπώσεις, ανάκτηση απορριφθέντων εγγράφων, κλπ.)<br>- <strong>Κανάλια μετάδοσης χαρτιού</strong> που παρακολουθούνται (ανάγνωση βιβλίων υπογραφών σε κυκλοφορία, κ.λπ.)",
         "source": "PIAF Connected objects p44 and 45"
       },
@@ -626,7 +626,7 @@
       },
       "PIA_EX_DCPR": {
         "name": "Καταδίκες και ευαίσθητα προσωπικά δεδομένα",
-        "description": "Φιλοσοφικές, πολιτικές, θρησκευτικές και συνδικαλιστικές απόψεις, σεξουαλική ζωή, δεδομένα για την υγεία, φυλετική ή εθνοτική καταγωγή, δεδομένα σχετικά με την υγεία ή τη σεξουαλική ζωή, αδικήματα, καταδίκες, μέτρα ασφαλείας, βλέπετε <a target=\"_blank\" href=\"https://eur-lex.europa.eu/legal-content/EL/TXT/HTML/?uri=CELEX:32016R0679&from=EL\">Άρθ. 9 and 10 του [ΓΚΔΠ]</a>.",
+        "description": "Φιλοσοφικές, πολιτικές, θρησκευτικές και συνδικαλιστικές γνώμες, σεξουαλική ζωή, δεδομένα για την υγεία, φυλετική ή εθνοτική καταγωγή, δεδομένα σχετικά με την υγεία ή τη σεξουαλική ζωή, αδικήματα, καταδίκες, μέτρα ασφαλείας, βλέπετε <a target=\"_blank\" href=\"https://eur-lex.europa.eu/legal-content/EL/TXT/HTML/?uri=CELEX:32016R0679&from=EL\">Άρθ. 9 and 10 του [ΓΚΔΠ]</a>.",
         "source": "PIA2 old version, ΓΚΠΔ Άρθρο 9 και 10 - WIKI"
       },
       "PIA_EX_HUMI": {
@@ -636,7 +636,7 @@
       },
       "PIA_EX_HUME": {
         "name": "Εξωτερικές ανθρώπινες πηγές",
-        "description": "Μπορεί να είναι είτε:<br>- ένας κακόβουλος ή αφελής τρίτος, που, χρησιμοποιεί την φυσική εγγύτητά του για να αποκτήσει πρόσβαση στα δεδομένα της συσκευής·<br>- ένας εισβολέας που στοχεύει έναν χρήστη χρησιμοποιώντας τις γνώσεις που έχει για τον χρήστη και μερικές πληροφορίες που τον αφορούν·<br>- ένας εισβολέας που στοχεύει μία από τις εταιρείες που είναι υπεύθυνες για την επεξεργασία, χρησιμοποιώντας τις γνώσεις που έχει για τις εταιρείες αυτές για να επιτεθεί στη φήμη τους·<br>- ένας εξουσιοδοτημένος τρίτος που χρησιμοποιεί την προνομιακή του πρόσβαση για να αποκτήσει παράνομη πρόσβαση σε πληροφορίες.<br> Τα κίνητρα μπορεί να είναι πολλαπλά: τυχερά παιχνίδια, ενόχληση, δόλος, εκδίκηση, κατασκοπεία, απληστία, απόκτηση δεδομένων για την εκμετάλλευσή τους.",
+        "description": "Μπορεί να είναι είτε:<br>- ένας κακόβουλος ή αφελής τρίτος, που, χρησιμοποιεί την φυσική εγγύτητά του για να αποκτήσει πρόσβαση στα δεδομένα της συσκευής·<br>- ένας εισβολέας που στοχεύει έναν χρήστη χρησιμοποιώντας τις γνώσεις που έχει για τον χρήστη και μερικές πληροφορίες που τον αφορούν·<br>- ένας εισβολέας που στοχεύει μία από τις εταιρείες που είναι υπεύθυνες για την επεξεργασία, χρησιμοποιώντας τις γνώσεις που έχει για τις εταιρείες αυτές για να επιτεθεί στη φήμη τους·<br>- ένας εξουσιοδοτημένος τρίτος που χρησιμοποιεί την προνομιακή του πρόσβαση για να αποκτήσει αθέμιτη πρόσβαση σε πληροφορίες.<br> Τα κίνητρα μπορεί να είναι πολλαπλά: τυχερά παιχνίδια, ενόχληση, δόλος, εκδίκηση, κατασκοπεία, απληστία, απόκτηση δεδομένων για την εκμετάλλευσή τους.",
         "source": "PIAF Connected objects p41 - WIKI"
       },
       "PIA_EX_NHUM": {
@@ -701,596 +701,596 @@
       },
       "PIA_DEF_CHIF": {
         "name": "Κρυπτογράφηση",
-        "description": "Measure making personal data unintelligible to anyone without access authorization (symmetric or asymmetric encryption, use of public algorithms known to be strong, authentication certificate, etc.).",
+        "description": "Μέτρο που καθιστά τα προσωπικά δεδομένα ακατανόητα σε οποιονδήποτε χωρίς άδεια πρόσβασης (συμμετρική ή ασύμμετρη κρυπτογράφηση, χρήση δημόσιων αλγορίθμων που είναι γνωστό ότι είναι ισχυροί, πιστοποιητικό ελέγχου ταυτότητας, κ.λπ.).",
         "source " : "Mesures_US Encryption"
       },
       "PIA_DEF_PWD": {
-        "name": "Password",
-        "description": "Passwords shall be composed of a minimum of eight characters; must be renewed if there is the least concern that they may have been compromised and, possibly, periodically (every six months or once a year) and must include a minimum of three του four kinds of characters (capital letters, lower case letters, numerals and special characters); when a password is changed, the last five passwords may not be reused; the same password should not be used for different accesses; passwords should not be related to one's personal information (including name or date of birth.). Define a maximum number of attempts beyond which a warning is issued and authentication is blocked (temporarily or until it is manually unblocked).",
+        "name": "Κωδικός πρόσβασης",
+        "description": "Οι κωδικοί πρόσβασης αποτελούνται από τουλάχιστον οκτώ χαρακτήρες· πρέπει να ανανεώνονται εάν υπάρχει η ελάχιστη ανησυχία ότι ενδέχεται να έχουν τεθεί σε κίνδυνο και, ενδεχομένως, περιοδικά (κάθε έξι μήνες ή μία φορά το χρόνο) και πρέπει να περιλαμβάνουν τουλάχιστον τρία από τα τέσσερα είδη χαρακτήρων (κεφαλαία γράμματα, μικρά γράμματα, αριθμούς και ειδικούς χαρακτήρες). Όταν αλλάξει ένας κωδικός πρόσβασης, οι τελευταίοι πέντε κωδικοί πρόσβασης δεν επιτρέπεται να επαναχρησιμοποιηθούν· ο ίδιος κωδικός πρόσβασης δεν πρέπει να χρησιμοποιείται για διαφορετικές προσβάσεις· οι κωδικοί πρόσβασης δεν πρέπει να σχετίζονται με τα προσωπικά σας στοιχεία (συμπεριλαμβανομένου του ονόματος ή της ημερομηνίας γέννησης.). Καθορίστε έναν μέγιστο αριθμό προσπαθειών πέραν του οποίου εκδίδεται μια προειδοποίηση και αποκλείεται ο έλεγχος ταυτότητας (προσωρινά ή μέχρι να ξεκλειδωθεί χειροκίνητα)",
         "source" : "Mesure_US"
       },
       "PIA_DEF_AUTH": {
-        "name": "Authentication",
-        "description": "Every person with legitimate access to personal data (employees, contracting parties and other third parties) should be identified by a unique identifier. Choose an authentication method to open sessions that is appropriate to the context, the risk level and the robustness expected. Recommendations: if the risks are not elevated, a password may be used; however, if the risks are higher, use a one-time password token but change the default activation password, or, when part του password is sent by SMS, a card with a PIN code, an electronic certificate or any other form of strong authentication.",
+        "name": "Πιστοποίηση ταυτότητας",
+        "description": "Κάθε πρόσωπο με νόμιμη πρόσβαση σε προσωπικά δεδομένα (εργαζόμενοι, συμβαλλόμενα μέρη και άλλα τρίτα μέρη) θα πρέπει να αναγνωρίζεται με ένα μοναδικό αναγνωριστικό. Επιλέξτε μια μέθοδο ελέγχου ταυτότητας για να ανοίξετε τις περιόδους σύνδεσης που είναι κατάλληλες για το περιβάλλον, το επίπεδο κινδύνου και την αναμενόμενη αντοχή. Συστάσεις: Εάν οι κίνδυνοι δεν είναι αυξημένοι, μπορεί να χρησιμοποιηθεί ένας κωδικός πρόσβασης. Ωστόσο, εάν οι κίνδυνοι είναι υψηλότεροι, χρησιμοποιήστε ένα κωδικό μίας χρήσης για κωδικό πρόσβασης αλλά αλλάξτε τον προεπιλεγμένο κωδικό ενεργοποίησης ή όταν αποστέλλεται με SMS ένα μέρος του κωδικού, μια κάρτα με κωδικό PIN, ηλεκτρονικό πιστοποιητικό ή οποιαδήποτε άλλη μορφή ισχυρής πιστοποίησης ταυτότητας.",
         "source": "Mesures_US Logical Access Control"
       },
       "PIA_DEF_LOG": {
-        "name": "Surveillance",
-        "description": "Set up a logging architecture to allow early detection of incidents involving personal data and to have information that can be used to analyze them or provide proof in connection with investigations.",
+        "name": "Παρακολούθηση",
+        "description": "Ορίστε μια αρχιτεκτονική καταγραφής που θα επιτρέψει την έγκαιρη ανίχνευση περιστατικών που αφορούν δεδομένα προσωπικού χαρακτήρα και θα έχει πληροφορίες που μπορούν να χρησιμοποιηθούν για την ανάλυσή τους ή για την παροχή αποδείξεων σε σχέση με έρευνες.",
         "source": "Mesures_US Surveillance"
       },
       "PIA_DEF_ARCH": {
-        "name": "Archiving",
-        "description": "Procedures preserving and managing the electronic archives containing the personal data intended to ensure their value (specifically, their legal value) throughout the entire period necessary (transfer, storage, migration, accessibility, elimination, archiving policy, protection of confidentiality, etc.).",
+        "name": "Αρχειοθέτηση",
+        "description": "Διαδικασίες διατήρησης και διαχείρισης των ηλεκτρονικών αρχείων που περιέχουν τα προσωπικά δεδομένα που αποσκοπούν στη διασφάλιση της αξίας τους (συγκεκριμένα, της νομικής τους αξίας) καθόλη τη διάρκεια της αναγκαίας περιόδου (μεταφορά, αποθήκευση, μετανάστευση, διαθεσιμότητα, εξάλειψη, πολιτική αρχειοθέτησης, προστασία εχεμύθειας, κ.λπ.",
         "source": "Mesures_USE Archiving"
       }
     }
   },
   "comments": {
-    "comments_count": "comment(s)",
-    "new_comment": "Comment",
-    "placeholder_new_comment": "Leave a comment",
-    "comment": "Comment",
-    "send": "Send"
+    "comments_count": "σχόλιο/α",
+    "new_comment": "Σχόλιο",
+    "placeholder_new_comment": "Αφήστε ένα σχόλιο",
+    "comment": "Σχόλιο",
+    "send": "Αποστολή"
   },
   "questions": {
-    "edit": "Edit question",
+    "edit": "Επεξεργασία ερωτήματος",
     "gauges": {
-      "0": "(Undefined)",
-      "1": "Negligible",
-      "2": "Limited",
-      "3": "Important",
-      "4": "Maximum"
+      "0": "(Απροσδιόριστο)",
+      "1": "Αμελητέο",
+      "2": "Περιορισμένο",
+      "3": "Σημαντικό",
+      "4": "Μέγιστο"
     }
   },
   "evaluations": {
-    "title": "Evaluation",
-    "to_correct": "To correct",
-    "improvable": "Improvable",
-    "acceptable": "Acceptable",
-    "evaluation_comment": "Evaluation comment",
-    "action_plan_comment": "Action plan / corrective actions",
-    "placeholder_to_correct": "The information provided are not sufficient to properly evaluate them. Send back to the editor to improve the original submission.",
-    "placeholder_improvable1": "According to the available information, additional measures are to be implemented in order to improve the data protection του processing.",
-    "placeholder_improvable2": "Enter your comments.",
-    "placeholder_acceptable": "According to the available information, the measures implemented are adequate to properly meet the requirements for protecting the data.",
+    "title": "Αξιολόγηση",
+    "to_correct": "Προς διόρθωση",
+    "improvable": "Δεκτικό βελτίωσης",
+    "acceptable": "Αποδεκτό",
+    "evaluation_comment": "Σχόλιο αξιολόγησης",
+    "action_plan_comment": "Σχέδιο δράσης / διορωθτικές ενέργειες",
+    "placeholder_to_correct": "Οι παρεχόμενες πληροφορίες δεν επαρκούν για την ορθή αξιολόγηση τους. Επιστρέψτε στο πρόγραμμα επεξεργασίας για να βελτιώσετε την αρχική υποβολή.",
+    "placeholder_improvable1": "Σύμφωνα με τις διαθέσιμες πληροφορίες, πρέπει να εφαρμοστούν πρόσθετα μέτρα προκειμένου να βελτιωθεί η προστασία των δεδομένων της επεξεργασίας.",
+    "placeholder_improvable2": "Εισάγετε τα σχόλιά σας.",
+    "placeholder_acceptable": "Σύμφωνα με τις διαθέσιμες πληροφορίες, τα μέτρα που εφαρμόζονται είναι επαρκή ώστε να πληρούν σωστά τις απαιτήσεις για την προστασία των δεδομένων.",
     "gauges": {
-      "seriousness": "Taking into account the action plan, how do you re-evaluate the <span class='red-highlight'>seriousness of this risk</span> ({{value}})?",
-      "likelihood": "Taking into account the action plan, how do you re-evaluate the <span class='red-highlight'>likelihood of this risk</span> ({{value}})?",
-      "0": "(Undefined)",
-      "1": "Negligible",
-      "2": "Limited",
-      "3": "Important",
-      "4": "Maximum"
+      "seriousness": "Λαμβάνοντας υπόψη το σχέδιο δράσης, πώς επαναξιολογείτε τη <span class='red-highlight'>σοβαρότητα αυτού του κινδύνου</span> ({{value}});",
+      "likelihood": "Λαμβάνοντας υπόψη το σχέδιο δράσης, πώς επαναξιολογείτε την <span class='red-highlight'>πιθανότητα αυτού του κινδύνου</span> ({{value}});",
+      "0": "(Απροσδιόριστη)",
+      "1": "Αμελητέα",
+      "2": "Περιορισμένη",
+      "3": "Σημαντική",
+      "4": "Μέγιστη"
     },
     "status": {
-      "0": "Pending",
-      "1": "To correct",
-      "2": "Improvable",
-      "3": "Acceptable"
+      "0": "Εκκρεμής",
+      "1": "Προς διόρθωση",
+      "2": "Δεκτικό βελτίωσης",
+      "3": "Αποδεκτό"
     }
   },
   "help": {
-    "title": "Help",
+    "title": "Βοήθεια",
     "definition": {
       "data1": {
-        "title": "Use the PIA tool",
-        "content": "Content being written"
+        "title": "Χρησιμοποιείστε το εργαλείο ΑΕ",
+        "content": "Καταγραφή περιεχομένου"
       },
       "data2": {
-        "title": "Known Issues",
+        "title": "Γνωστά Προβλήματα",
         "qa1": {
-          "title": "I get display issues such as icons being stuck in one state or missing elements from the interface",
-          "content": "When encountering those display issues, close the application and reload it. It usually fixes the issue. You won’t lose the information you have entered ; it is  automatically saved as you type."
+          "title": "Παρουσιάζονται ζητήματα εμφάνισης στην οθόνη, όπως εικονίδια που έχουν κολλήσει σε μια κατάσταση ή στοιχεία που λείπουν από τη διεπαφή",
+          "content": "Όταν αντιμετωπίζετε αυτά τα ζητήματα εμφάνισης στην οθόνη, κλείστε την εφαρμογή και φορτώστε την ξανά. Αυτό συνήθως διορθώνει το πρόβλημα. Δεν θα χάσετε τις πληροφορίες που έχετε εισάγει· αποθηκεύονται αυτόματα καθώς πληκτρολογείτε."
         },
         "qa2": {
-          "title": "I can’t edit the gauges for evaluating the severity and likelihood of a risk",
-          "content": "This known issue is currently being fixed. If you encounter this problem, we recommend that you fill in the justification field του estimated level of severity and / or likelihood. You will be able to edit the gauge once the bug is fixed."
+          "title": "Δεν μπορώ να επεξεργαστώ τους δείκτες μέτρησης για την αξιολόγηση της σοβαρότητας και της πιθανότητας ενός κινδύνου",
+          "content": "Αυτό το γνωστό πρόβλημα επιδιορθώνεται επί του παρόντος. Εάν αντιμετωπίσετε αυτό το πρόβλημα, σας συνιστούμε να συμπληρώσετε το πεδίο αιτιολόγησης για το εκτιμώμενο επίπεδο σοβαρότητας ή / και πιθανότητας. Θα μπορείτε να επεξεργαστείτε τον δείκτη μόλις επιδιορθωθεί το σφάλμα του προγράμματος."
         },
         "qa3": {
-          "title": "I encounter issues when importing a PIA",
-          "content": "Several bugs have been observed when importing a PIA, and in particular the level gauges for evaluating the severity and likelihood of a risk may disappear. In this case, please refer to the above mentioned issue. Besides, a PIA may not appear on the dashboard after importing it. This is a display issue and you just need to refresh the page."
+          "title": "Αντιμετωπίζω προβλήματα κατά την εισαγωγή μια ΑΕ",
+          "content": "Αρκετά σφάλματα έχουν παρατηρηθεί κατά την εισαγωγή μιας PIA και, ειδικότερα, οι δείκτες στάθμης για την αξιολόγηση της σοβαρότητας και της πιθανότητας κινδύνου μπορεί να εξαφανιστούν. Σε αυτή την περίπτωση, ανατρέξτε στο παραπάνω θέμα. Εκτός αυτού, ενδέχεται μια ΑΕ να μην εμφανίζεται στον Πίνακα Ελέγχου μετά την εισαγωγή της. Αυτό είναι ένα ζήτημα εμφάνισης και απλά πρέπει να ανανεώσετε τη σελίδα."
         },
         "qa4": {
-          "title": "When I copy / paste text, it is highlighted.",
-          "content": "This is only a display bug and it has no effect on the text you enter in a field. This visual problem will be fixed soon."
+          "title": "Όταν αντιγράφω / επικολλάω κείμενο, επισημαίνεται.",
+          "content": "Αυτό είναι μόνο ένα σφάλμα εμφάνισης και δεν έχει καμία επίδραση στο κείμενο που εισάγετε σε ένα πεδίο. Αυτό το οπτικό πρόβλημα θα επιδιορθωθεί σύντομα."
         },
         "qa5": {
-          "title": "I can’t evaluate a section",
-          "content": "In order to evaluate a section, it is mandatory to fill in all the fields. Please check if this is the case. When editing a risk, you must have at least one technical or organizational measure that mitigates the risk in order to ask for an evaluation του risk."
+          "title": "Δεν μπορώ να αξιολογήσω ένα τμήμα",
+          "content": "Για να αξιολογήσετε ένα τμήμα, είναι υποχρεωτικό να συμπληρώσετε όλα τα πεδία. Ελέγξτε αν αυτό όντως έχει γίνει. Κατά την επεξεργασία ενός κινδύνου, πρέπει να έχετε τουλάχιστον ένα τεχνικό ή οργανωτικό μέτρο που μετριάζει τον κίνδυνο για να ζητήσετε αξιολόγηση του κινδύνου."
         },
         "qa6": {
-          "title": "When switching language, the texts are not translated",
-          "content": "Please close the PIA you are editing and re-open it. The content should then be displayed in the language you have selected."
+          "title": "Όταν αλλάζε τε γλώσσα, τα κείμενα δεν εμφανίζονται μεταφρασμένα",
+          "content": "Παρακαλούμε κλείστε την ΕΑ που επεξεργάζεστε και ανοίξτε την εκ νέου. Το περιεχόμενο θα πρέπει στη συνέχεια να εμφανίζεται στη γλώσσα που έχετε επιλέξει."
         },
         "qa7": {
-          "title": "I have refused to validate a PIA but I don’t know what to do now",
-          "content": "For the moment, the navigation menu icons are not refreshed after refusing a PIA. You have to check each section and change the information and/or evaluation according to the reasons for refusing the PIA. Once all section have been reviewed, you should be able to request PIA validation again."
+          "title": "Έχω αρνηθεί να επικυρώσω μια ΕΑ αλλά δεν ξέρω τι να κάνω τώρα",
+          "content": "Προς το παρόν, τα εικονίδια του μενού περιήγησης δεν ανανεώνονται μετά την απόρριψη μιας ΕΑ. Πρέπει να ελέγξετε κάθε τμήμα και να αλλάξετε τις πληροφορίες και / ή την αξιολόγηση σύμφωνα με τους λόγους απόρριψης της ΕΑ. Αφού επανεξεταστούν όλες οι ενότητες, θα πρέπει να μπορείτε να ζητήσετε ξανά την επικύρωση της ΕΑ."
         }
       },
       "footer": ""
     }
   },
   "about": {
-    "title": "About the Tool PIA",
-    "version_number": "Version number",
-    "description": "This tool is originally designed by the <a target=\"_blank\" href=\"https://www.cnil.fr\">Commission Nationale Informatique et Liberté (CNIL)</a>, the French Data Protection Authority, to help data processor to be compliant with the GDPR.<br>This software is free and open. If you wish to get involved in this project, you are welcome to download the source code from Github, modify it and share it with the community.",
-    "translators": "The PIA software is currently available in five languages. The French and English versions are provided by the CNIL. The others versions result from the contributions του following individuals:",
-    "translators_name": "<ul><li>Dutch: Ruud van Driel, Manuel d’Orso ;</li><li>Czech: Jiří Grohmann, Manuel d’Orso ;</li><li>Italian: Manuel d’Orso, Gianluca Markos.</li><li>Polish: Joanna Karczewska</li><li>German: Kosmas Schütz</li><li>Spanish: ylachgar</li></ul>",
-    "contribute": "If you wish to contribute to the translation του software in another language or improve the existing translations, we recommend you to <a href=\"https://github.com/LINCnil/pia/tree/master/src/assets/i18n\" target=\"_blank\">read the page describing the steps to follow</a>.",
-    "licences": "Library licences:"
+    "title": "Σχτικά με το εργαλέιο ΕΑ",
+    "version_number": "Αριθμός έκδοσης",
+    "description": "Αυτό το εργαλείο σχεδιάστηκε αρχικά από την <a target=\"_blank\" href=\"https://www.cnil.fr\">Commission Nationale Informatique et Liberté (CNIL)</a>, τη γαλλική Αρχή Προστασίας Δεδομένων, για να βοηθήσει τον υπεύθυνο επεξεργασίας προσωπικών δεδομένων να συμμορφωθεί με τον GDPR.<br>Αυτό το λογισμικό είναι ελεύθερο και ανοιχτό. Αν θέλετε να συμμετάσχετε σε αυτό το έργο, μπορείτε να κατεβάσετε τον πηγαίο κώδικα από το Github, να τον τροποποιήσετε και να τον μοιραστείτε με την κοινότητα.",
+    "translators": "Το λογισμικό PIA διατίθεται επί του παρόντος σε έξι γλώσσες. Η γαλλική και η αγγλική εκδοχή παρέχονται από το CNIL. Οι άλλες εκδοχές προκύπτουν από τις συνεισφορές των ακόλουθων ατόμων:",
+    "translators_name": "<ul><li>Dutch: Ruud van Driel, Manuel d’Orso ;</li><li>Czech: Jiří Grohmann, Manuel d’Orso ;</li><li>Italian: Manuel d’Orso, Gianluca Markos.</li><li>Polish: Joanna Karczewska</li><li>German: Kosmas Schütz</li><li>Spanish: ylachgar</li><li>Greek: <a target=\"_blank\" href=\"https://tzellis.gr\">Dimitris Tzellis</a></li></ul>",
+    "contribute": "Αν θέλετε να συμβάλλετε στη μετάφραση του λογισμικού σε άλλη γλώσσα ή να βελτιώσετε τις υπάρχουσες μεταφράσεις, σας συνιστούμε <a href=\"https://github.com/LINCnil/pia/tree/master/src/assets/i18n\" target=\"_blank\">να διαβάσετε τη σελίδα που περιγράφει τα βήματα που πρέπει να ακολουθήσετε</a>.",
+    "licences": "Άδειες βιβλιοθήκης:"
   },
   "settings": {
-    "title": "Settings",
-    "content": "Please, provide the address (URL) του remote server:",
-    "update": "Update URL"
+    "title": "Ρυθμίσεις",
+    "content": "Παρακαλώ, καταχωρίστε τη διεύθυνση (URL) του απομακρυσμένου διακομιστή:",
+    "update": "Ανανεώστε το URL"
   },
   "validation_page": {
-    "responsible": "Person accountable for validating the PIA: ",
-    "after_reading": "After reading full PIA relating to the data processing linked to ",
-    "confirmation1": "I attest that the context του processing described in the PIA is consistent with the reality.",
-    "confirmation2": "I attest that I am aware του risks depending on the existing or planned measures.",
-    "confirmation3": "I ratify the corrective actions indicated in the action plan.",
-    "confirmation4": "I commit to implement as quickly as possible the indicated corrective actions.",
+    "responsible": "Άτομο υπεύθυνο για την επικύρωση της ΕΑ: ",
+    "after_reading": "Μετά την ανάγνωση της πλήρους ΕΑ που σχετίζεται με την επεξεργασία δεδομένων που συνδέεται με ",
+    "confirmation1": "Βεβαιώνω ότι το πλαίσιο της επεξεργασίας προσωπικών δεδομένων που περιγράφεται στην ΕΑ είναι συνεπές με την πραγματικότητα.",
+    "confirmation2": "Βεβαιώνω ότι γνωρίζω τους κινδύνους ανάλογα με τα υπάρχοντα ή τα προγραμματισμένα μέτρα.",
+    "confirmation3": "Επικυρώνω τα διορθωτικά μέτρα που αναφέρονται στο σχέδιο δράσης.",
+    "confirmation4": "Δεσμεύομαι να υλοποιήσω το συντομότερο δυνατόν τις υποδεδειγμένες διορθωτικές ενέργειες.",
     "button": {
-      "rejection": "Reject PIA",
-      "simple_validation": "Approve PIA <br>(direct)",
-      "signed_validation": "Approve PIA <br>(signed)"
+      "rejection": "Απόρριψη ΕΑ",
+      "simple_validation": "Έγκριση ΕΑ <br>(άμεση)",
+      "signed_validation": "Έγκριση ΕΑ <br>(υπογεγραμμένη)"
     },
     "mandatory_fields": "Όλα τα κουτιά πρέπει να συμπληρωθούν",
-    "waiting_for_signature": "Pending signed PIA",
-    "validated_pia_with_signature": "Approved",
-    "add_signed_pia": "Add the signed PIA",
-    "remove_attachment": "Remove the attachment",
-    "latest_signed_attachment": "Last signed attachment",
-    "signed_attachments_history": "Signed attachments history",
+    "waiting_for_signature": "Εκκρεμεί υπογραφή EA",
+    "validated_pia_with_signature": "Εγκρίθηκε",
+    "add_signed_pia": "Προσθήκη υπογεγραμμένης ΕΑ",
+    "remove_attachment": "Αφαίρεση συνημμένου",
+    "latest_signed_attachment": "Τελευταίο υπογεγραμμένο συνημμένο",
+    "signed_attachments_history": "Ιστορικό υπογεγραμμένων συνημμένων",
     "tools": {
-      "dashboard": "Dashboard",
-      "display_pia": "Display PIA",
-      "action_plan": "Action plan"
+      "dashboard": "Πίνακας Ελέγχου",
+      "display_pia": "Εμφάνιση ΕΑ",
+      "action_plan": "Σχέδιο δράσης"
     }
   },
   "rejection_page": {
-    "title": "Validation history",
-    "rejection_reason": "Refusal reason",
-    "rejection_reason_placeholder": "Describe the reasons for refusing the PIA.",
-    "applied_adjustments": "Adjustments proposed",
-    "applied_adjustments_placeholder": "Describe the changes brought to the PIA.",
-    "previous_rejection": "Previous refusal",
+    "title": "Ιστορικό Επικυρώσεων",
+    "rejection_reason": "Αιτιολογία απόρριψης",
+    "rejection_reason_placeholder": "Περιγράψτε τις αιτίες για την απόρριψη της ΕΑ",
+    "applied_adjustments": "Προτεινόμενες προσαρμογές",
+    "applied_adjustments_placeholder": "Περιγράψτε τις αλλαγές που έγιναν στην ΕΑ.",
+    "previous_rejection": "Προηγούμενη άρνηση",
     "button": {
-      "abandon_treatment": "Abandon processing",
-      "reject_pia": "Reject PIA",
-      "send_for_validation": "Resend for approval"
+      "abandon_treatment": "Εγκατάλειψη επεξεργασίας",
+      "reject_pia": "Απόρριψη ΕΑ",
+      "send_for_validation": "Επανάληψη αποστολής για έγκριση"
     }
   },
   "misc": {
-    "display": "Show / Hide"
+    "display": "Εμφάνιση / Απόκρυψη"
   },
   "modals": {
-    "cancel": "Cancel",
-    "archive": "Archive",
-    "close": "Close",
-    "continue": "Continue",
-    "start_evaluation": "Start review",
-    "back_to_home": "Back to home",
+    "cancel": "Ακύρωση",
+    "archive": "Αρχειοθέτηση",
+    "close": "Κλείσιμο",
+    "continue": "Συνέχεια",
+    "start_evaluation": "Έναρξη αξιολόγησης",
+    "back_to_home": "Επιστροφή στην αρχή",
     "simple_pia_validation": {
-      "content": "The PIA has been validated."
+      "content": "Η ΕΑ επικυρώθηκε."
     },
     "completed_edition": {
-      "content": "The PIA has been fully edited, it has to be reviewed."
+      "content": "Έχει ολοκληρωθεί η επεξεργασία της ΕΑ, πρέπει να αξιολογηθεί."
     },
     "completed_evaluation": {
-      "content": "The PIA has been fully reviewed, it has to be validated."
+      "content": "Έχει ολοκληρωθεί η αξιολόγηση της ΕΑ, πρέπει να επικυρωθεί."
     },
     "update_server_url": {
-      "content": "The server address has been updated."
+      "content": "Η διεύθυνση του διακομιστή έχει ενημερωθεί."
     },
     "signed_pia_validation": {
-      "content": "<span class='strong'>The PIA is accepted</span><br>Finalize the validation του PIA by attaching<br>the signed report by the person in charge.",
-      "download_pia": "Download PIA report"
+      "content": "<span class='strong'>Η ΕΑ έχει γίνει αποδεκτή</span><br>Ολοκληρώστε την επικύρωση της ΕΑ επισυνάπτοντας<br>την υπογεγραμμένη αναφορά του υπευθύνου.",
+      "download_pia": "Κατεβάστε την αναφορά της ΕΑ"
     },
     "abandon_pia": {
-      "content": "Are you sure you want to<br>give up this treatment?"
+      "content": "Είστε βέβαιοι ότι θέλετε να <br>παραιτηθεί από αυτή την επεξεργασία?"
     },
     "refuse_pia": {
-      "content": "<span class='strong'>Rejected PIA,</span><br>Several fields must be corrected.<br>Return to evaluation mode<br>to make corrections."
+      "content": "<span class='strong'>Απορριφθείσα ΕΑ,</span><br>Αρκετά πεδία πρέπει να διορθωθούν.<br>Επιστροφή στη λειτουργία αξιολόγησης<br>για να κάνετε διορθώσεις."
     },
     "same_comment": {
-      "content": "<span class='strong'>Warning,</span><br>Please enter a comment different from the last recorded."
+      "content": "<span class='strong'>Προσοχή,</span><br> παρακαλώ εισάγετε ένα σχόλιο διαφορετικό από το τελευταίο."
     },
     "not_enough_measures_to_remove": {
-      "content": "<span class='strong'>Warning,</span><br>At least one measure must be filled: no deletion possible."
+      "content": "<span class='strong'>Προσοχή,</span><br>Πρέπει να συμπληρωθεί τουλάχιστον ένα μέτρο: δεν είναι δυνατή η διαγραφή."
     },
     "remove_measure": {
-      "content": "<span class='strong'>Warning,</span><br>Are you sure you want to <br>remove this measure?",
-      "remove": "Remove this <br>measure",
-      "keep": "Keep this <br>measure"
+      "content": "<span class='strong'>Προσοχή,</span><br>Είστε βέβαιοι ότι θέλετε να  <br>καταργήσετε αυτό το μέτρο;",
+      "remove": "Κατάργηση αυτού του <br>μέτρου",
+      "keep": "Διατήρηση αυτού του <br>μέτρου"
     },
     "ask_for_evaluation": {
-      "content": "<span class='strong'>Congratulations,</span><br>the subsection is now<br>available for evaluation."
+      "content": "<span class='strong'>Συγχαρητήρια,</span><br>η υποενότητα είναι τώρα<br>διαθέσιμη για αξιολόγηση."
     },
     "validate_evaluation": {
-      "content": "<span class='strong'>Congratulations,</span><br>you've finished evaluating this section.<br>Others parts του PIA has to be evaluated as well in order to be able to validate the PIA."
+      "content": "<span class='strong'>Συγχαρητήρια,</span><br>ολοκληρώσατε την αξιολόγηση αυτής της ενότητας.<br>Άλλα τμήματα της ΕΑ πρέπει επίσης να αξιολογηθούν για να είναι δυνατή η επικύρωση της ΕΑ."
     },
     "validate_evaluation_to_correct": {
-      "content": "Sorry,<br>Several fields must be corrected.<br>Return to edition mode<br>to make corrections."
+      "content": "Συγγνώμη,<br>Αρκετά πεδία πρέπει να διορθωθούν.<br>Επιστροφή στη λειτουργία επεξεργασίας<br> για να κάνετε διορθώσεις."
     },
     "declare_measures": {
-      "content": "Sorry,<br>before evaluating risks,<br>you must report the<br>existing or planned measures.",
-      "declare": "Declare existing or planned measures"
+      "content": "Συγγνώμη,<br>πριν από την αξιολόγηση των κινδύνων,<br>πρέπει να αναφέρετε τα<br>υφιστάμενα ή προγραμματισμένα μέτρα.",
+      "declare": "Δηλώστε τα υφιστάμενα ή προγραμματισμένα μέτρα"
     },
     "remove_pia": {
-      "content": "<span class='strong'>Warning,</span><br>Are you sure you want to<br>remove this PIA?",
-      "remove": "Remove this PIA"
+      "content": "<span class='strong'>Προσοχή,</span><br>Είστε βέβαιοι ότι θέλετε να <br>αφαιρέσετε αυτη την ΕΑ;",
+      "remove": "Αφαίρεση αυτής της ΕΑ"
     },
     "remove_attachment": {
-      "content": "<span class='strong'>Warning,</span><br>Are you sure you want to<br>remove this attachment?",
-      "keep": "Keep",
-      "remove": "Remove"
+      "content": "<span class='strong'>Προσοχή,</span><br>Είστε βέβαιοι ότι θέλετε να <br>αφαιρέσετε αυτό το συνημμένο;",
+      "keep": "Διατήρηση",
+      "remove": "Αφαίρεση"
     }
   },
   "summary": {
-    "previous_page": "Back to previous page",
-    "print": "Print",
-    "display_pia": "Display PIA",
-    "display_action_plan": "Display<br>action plan",
+    "previous_page": "Επιστροφή στην προηγούμενη σελίδα",
+    "print": "Εκτύπωση",
+    "display_pia": "Εμφάνιση ΕΑ",
+    "display_action_plan": "Εμφάνιση<br>σχεδίου δρασης",
     "display_filters": {
-      "title": "Display filters",
-      "main_content": "Display section \"PIA information\"",
-      "context_content": "Display section \"Context\"",
-      "principles_content": "Display section \"Fundamental principles\"",
-      "risks_content": "Display section \"Risks\"",
-      "action_plan_content": "Display action plan"
+      "title": "Εμφάνιση φίλτρων",
+      "main_content": "Εμφάνιση τμήματος \"Πληροφορίες ΕΑ\"",
+      "context_content": "Εμφάνιση τμήματος \"Γενικό πλαίσιο\"",
+      "principles_content": "Εμφάνιση τμήματος \"Θεμελιώσεις αρχές\"",
+      "risks_content": "Εμφάνιση τμήματος \"Κίνδυνοι\"",
+      "action_plan_content": "Εμφάνιση σχεδίου δράσης"
     },
-    "title": "PIA information",
-    "pia_name": "PIA",
-    "pia_author": "Author's name",
-    "pia_assessor": "Assessor's name",
-    "pia_validator": "Validator's name",
+    "title": "Πληροφορίες ΕΑ",
+    "pia_name": "ΕΑ",
+    "pia_author": "Όνομα συντάκτη",
+    "pia_assessor": "Όνομα αξιολογητή",
+    "pia_validator": "Όνομα επικυρωτή",
     "content_choice": {
-      "0": "The treatment should not be used.",
-      "1": "The treatment could be implemented."
+      "0": "Η επεξεργασία δεν πρέπει να διεξάγεται.",
+      "1": "Η επεξεργασία θα μπορούσε να διεξαχθεί."
     },
-    "dpo_name": "DPO's name",
-    "dpo_status": "DPO's status",
-    "dpo_opinion": "DPO's opinion",
-    "concerned_people_searched_opinion": "Search of concerned people opinion",
-    "people_search_status_ok": "Concerned people opinion was requested.",
-    "people_search_status_nok": "Concerned people opinion wasn't requested.",
-    "concerned_people_unsearched_opinion_comment": "Reason why concerned people opinion wasn't requested",
-    "concerned_people_name": "Concerned people opinions",
-    "concerned_people_status": "Concerned people statuses",
-    "concerned_people_opinion": "Concerned people opinions",
-    "modification_made": "Modifications made",
-    "rejection_reason": "Rejection reason",
-    "creation_date": "Creation date",
-    "attachments": "Attachments",
+    "dpo_name": "Όνομα του ΥΠΔ",
+    "dpo_status": "Καθεστώς του ΥΠΔ",
+    "dpo_opinion": "Γνώμη του ΥΠΔ",
+    "concerned_people_searched_opinion": "Αναζήτηση της γνώμης των ενδιαφερόμενων ανθρώπων",
+    "people_search_status_ok": "Ζητήθηκε η γνώμη των ενδιαφερόμενων.",
+    "people_search_status_nok": "Δεν ζητήθηκε η γνώμη των ενδιαφερόμενων.",
+    "concerned_people_unsearched_opinion_comment": "Ο λόγος για τον οποίο δεν ζητήθηκε η γνώμη των πολιτών",
+    "concerned_people_name": "Ονόματα των ενδιαφερομένων",
+    "concerned_people_status": "Καθεστώς των ενδιαφερομένων",
+    "concerned_people_opinion": "Γνώμες των ενδιαφερομένων",
+    "modification_made": "Τροποποιήσεις που έγιναν",
+    "rejection_reason": "Λόγος απόρριψης",
+    "creation_date": "Ημερομηνία δημιουργίας",
+    "attachments": "Συνημμένα",
     "gauges": {
-      "1": "Negligible",
-      "2": "Limited",
-      "3": "Important",
-      "4": "Maximum"
+      "1": "Αμελητέο",
+      "2": "Περιορισμένο",
+      "3": "Σημαντικό",
+      "4": "Μέγιστο"
     },
     "action_plan": {
-      "title": "Action plan",
-      "fundamental_principles": "Fundamental principles",
-      "implementation_date": "Expected date of implementation",
-      "implementation_responsible": "Responsible for implementation",
-      "measures": "Existing or planned measures",
-      "risks": "Risks",
-      "no_action_plan": "No action plan recorded."
+      "title": "Σχέδιο δράσης",
+      "fundamental_principles": "Θεμελιώδεις αρχές",
+      "implementation_date": "Αναμενόμενη ημερομηνία εφαρμογής",
+      "implementation_responsible": "Υπεύθυνος εφαρμογής",
+      "measures": "Υφιστάμενα ή προγραμματισμένα μέτρα",
+      "risks": "Κίνδυνοι",
+      "no_action_plan": "Δεν καταγράφηκε κανένα σχέδιο δράσης."
     }
   },
   "errors": {
-    "title": "Page not found.",
-    "content": "If you encounter other problems or if you have suggestions for improvement,<br>you can send them back via this form: <a href=\"https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia\" target=\"_blank\">https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia</a>"
+    "title": "Η σελίδα δεν βρέθηκε.",
+    "content": "Εάν αντιμετωπίζετε άλλα προβλήματα ή εάν έχετε προτάσεις για βελτίωση,<br>μπορείτε να τα στείλετε ξανά μέσω αυτής της φόρμας: <a href=\"https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia\" target=\"_blank\">https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia</a>"
   },
   "overview-risks": {
-    "potential_impacts": "Potential impacts",
-    "threat": "Threats",
-    "sources": "Sources",
-    "measures": "Measures",
-    "negligible": "Negligible",
-    "limited": "Limited",
-    "important": "Important",
-    "maximal": "Maximal",
-    "risk-access_x": "Severity",
-    "risk-access_y": "Likelihood",
-    "risk-change_x": "Severity",
-    "risk-change_y": "Likelihood",
-    "risk-disappearance_x": "Severity",
-    "risk-disappearance_y": "Likelihood"
+    "potential_impacts": "Πιθανές επιπτώσεις",
+    "threat": "Απειλές",
+    "sources": "Πηγές",
+    "measures": "Μέτρα",
+    "negligible": "Αμελητέο",
+    "limited": "Περιορισμένο",
+    "important": "Σημαντικός",
+    "maximal": "Μέγιστο",
+    "risk-access_x": "Σοβαρότητα",
+    "risk-access_y": "Πιθανότητα",
+    "risk-change_x": "Σοβαρότητα",
+    "risk-change_y": "Πιθανότητα",
+    "risk-disappearance_x": "Σοβαρότητα",
+    "risk-disappearance_y": "Πιθανότητα"
   },
   "cartography": {
-    "negligible": "Negligible",
-    "limited": "Limited",
-    "important": "Important",
-    "maximal": "Maximum",
-    "seriousness_axe": "Risk seriousness",
-    "likelihood_axe": "Risk likelihood",
-    "legend1": "Planned or existing measures",
-    "legend2": "With the corrective measures implemented",
-    "legend3": "(I)llegitimate access to data",
-    "legend4": "(U)nwanted modification of data",
-    "legend5": "(D)ata disappearance",
-    "risk1_access": "(I)",
-    "risk2_modification": "(U)"
+    "negligible": "Αμελητέο",
+    "limited": "Περιορισμένο",
+    "important": "Σημαντικό",
+    "maximal": "Μέγιστο",
+    "seriousness_axe": "Σοβαρότητα κινδύνου",
+    "likelihood_axe": "Πιθανότητα κινδύνου",
+    "legend1": "Προγραμματισμένα ή υπάρχοντα μέτρα",
+    "legend2": "Με εφαρμοσμένα τα διορθωτικά μέτρα",
+    "legend3": "(Α)θέμιτη πρόσβαση στα προσωπικά δεδομένα",
+    "legend4": "(Μ)η επιθύμητη τροποποίηση των προσωπικών δεδομένων",
+    "legend5": "(Ε)ξαφάνιση προσωπικών δεδομένων",
+    "risk1_access": "(Α)",
+    "risk2_modification": "(Μ)"
   },
   "action_plan": {
-    "title": "Overview",
-    "principles": "Fundamental principles",
-    "measures": "Planned or existing measures",
-    "risks": "Risks",
-    "risk1": "Illegitimate access to data",
-    "risk2": "Unwanted modification of data",
-    "risk3": "Data disappearance",
-    "improvable_measures": "Improvable measures",
-    "acceptable_measures": "Acceptable measures",
-    "no_action_plan": "No action plan recorded.",
-    "edit": "Edit",
-    "placeholder_person_in_charge": "Implementation responsible"
+    "title": "Επισκόπηση",
+    "principles": "Θεμελιώδεις αρχές",
+    "measures": "Προγραμματισμένα ή υπάρχοντα μέτρα",
+    "risks": "Κίνδυνοι",
+    "risk1": "Αθέμιτη πρόσβαση στα προσωπικά δεδομένα",
+    "risk2": "Ανεπιθύμητη τροποποίηση των προσωπικών δεδομένων",
+    "risk3": "Εξαφάνιση προσωπικών δεδομένων",
+    "improvable_measures": "Μέτρα δεκτικά βελτίωσης",
+    "acceptable_measures": "Μέτρα αποδεκτά",
+    "no_action_plan": "Δεν καταγράφηκε κανένα σχέδιο δράσης.",
+    "edit": "Επεξεργασία",
+    "placeholder_person_in_charge": "Υπεύθυνος εφαρμογής"
   },
   "opinions": {
-    "edit": "Edit",
-    "content": ", consider that :",
-    "dpo_opinion": "DPO opinion",
-    "placeholder_dpo_name": "DPO name(s)",
-    "placeholder_dpo_opinion": "Specify the reasons for your choice.",
-    "dpo_lock": "Please complete the other sections before you can fill the DPO opinion.",
-    "people_opinion": "Concerned people opinion",
-    "placeholder_concerned_people_name": "Concerned people name(s)",
-    "placeholder_people_opinion": "Describe how the opinions were collected and what the analysis is. If the notices have not been sought, state the reasons.",
-    "placeholder_search_content": "Justify the reason why the opinion του persons concerned has not been requested.",
-    "treatment_ok": "The treatment could be implemented.",
-    "treatment_nok": "The treatment should not be used.",
-    "treatment_lock": "Please complete the other sections before you can fill the opinions του persons concerned."
+    "edit": "Επεξεργασία",
+    "content": ", λαμβάνοντας υπόψη :",
+    "dpo_opinion": "γνώμη του ΥΠΔ",
+    "placeholder_dpo_name": "όνομα/ονόματα ΥΠΔ",
+    "placeholder_dpo_opinion": "Καθορίστε τους λόγους για την επιλογή σας.",
+    "dpo_lock": "Συμπληρώστε τα υπόλοιπα τμήματα για να μπορέσετε να συμπληρώσετε τη γνώμη του ΥΠΔ.",
+    "people_opinion": "Γνώμη των ενδιαφερόμενων",
+    "placeholder_concerned_people_name": "Όνομα/ονόματα των ενδιαφερόμενων",
+    "placeholder_people_opinion": "Περιγράψτε τον τρόπο συλλογής των γνωμών και την ανάλυση. Εάν δεν έχουν ζητηθεί οι γνώμες, δηλώστε τους λόγους.",
+    "placeholder_search_content": "Αιτιολογήστε τον λόγο για τον οποίο δεν ζητήθηκε η γνώμη των ενδιαφερομένων.",
+    "treatment_ok": "Η επεξεργασία μπορεί να διεξαχθεί.",
+    "treatment_nok": "Η επεξεργασία δεν μπορεί να διεξαχθεί.",
+    "treatment_lock": "Παρακαλώ ολοκληρώστε τα υπόλοιπα τμήματα πρωτού συμπληρώσετε τις γνώμες των ενδιαφερομένων."
   },
   "sections": {
     "1": {
-      "title": "Context",
-      "short_help": "This section gives you a clear view του treatment(s) of personal data in question.",
+      "title": "Γενικό πλαίσιο",
+      "short_help": "Αυτή η ενότητα σας παρέχει μια σαφή εικόνα της επεξεργασίας των εν λόγω προσωπικών δεδομένων.",
       "items": {
         "1": {
-          "title": "Overview",
-          "short_help": "This part allows you to identify and present the object του study.",
+          "title": "Επισκόπηση",
+          "short_help": "Αυτό το τμήμα σας επιτρέπει να προσδιορίσετε και να παρουσιάσετε το αντικείμενο της μελέτης.",
           "questions": {
             "1": {
-              "title": "Which is the processing under consideration?",
-              "placeholder": "Present a brief outline του processing: its name, purposes, stakes, context of use, etc."
+              "title": "Ποια είναι η υπό εξέταση επεξεργασία;",
+              "placeholder": "Παρουσιάστε ένα σύντομο περίγραμμα της επεξεργασίας: το όνομά του, τους σκοπούς, τα διακυβεύματα, το πλαίσιο χρήσης, κ.λπ.."
             },
             "2": {
-              "title": "What are the responsibilities linked to the processing?",
-              "placeholder": "Describe the responsabilities του stakeholders: the data controller, the possible data processors and joint controllers."
+              "title": "Ποιες είναι οι ευθύνες που συνδέονται με την επεξεργασία;",
+              "placeholder": "Περιγράψτε τις ευθύνες των ενδιαφερομένων: τον υπεύθυνο επεξεργασίας, τους πιθανούς εκτελούντες την επεξεργασία και τους από κοινού υπεύθυνους επεξεργασίας."
             },
             "3": {
-              "title": "Are there standards applicable to the processing?",
-              "placeholder": "List the relevant standards applicable to the processing, especially approved codes of conduct and data protection certifications."
+              "title": "Υπάρχουν πρότυπα που ισχύουν για την επεξεργασία;",
+              "placeholder": "Αναφέρατε τα σχετικά πρότυπα που ισχύουν για την επεξεργασία, ειδικά εγκεκριμένους κώδικες δεοντολογίας και πιστοποιήσεις προστασίας δεδομένων."
             }
           }
         },
         "2": {
-          "title": "Data, processes and supporting assets",
-          "short_help": "This part allows you to define and describe the scope του processing in detail.",
+          "title": "Δεδομένα, διαδικασίες και υποστηρικτικά περιουσιακά στοιχεία",
+          "short_help": "Αυτό το τμήμα σας επιτρέπει να ορίσετε και να περιγράψετε λεπτομερώς το αντικείμενο της επεξεργασίας.",
           "questions": {
             "1": {
-              "title": "What are the data processed?",
-              "placeholder": "List the data collected and processed. Define for each the storage durations, the recipients and persons with access thereto."
+              "title": "Ποιά προσωπικά δεδομενα δέχονται επεξεργασία;",
+              "placeholder": "Καταγράψτε τα δεδομένα που συλλέγονται και επεξεργάζονται. Καθορίστε για κάθε ένα την διάρκεια αποθήκευσης, τους αποδέκτες και τα άτομα που έχουν πρόσβαση σε αυτά."
             },
             "2": {
-              "title": "How does the life cycle of data and processes work?",
-              "placeholder": "Present and describe how the product generally works (from the data collection to the data destruction, the different processing stages, storage, etc.), using for example a diagram of data flows (add it as an attachment) and a detailed description του processes carried out."
+              "title": "Πώς λειτουργεί ο κύκλος ζωής των δεδομένων και των διαδικασιών;",
+              "placeholder": "Παρουσιάστε και περιγράψτε τον κύκλο ζωής των δεδομένων (από τη συλλογή δεδομένων έως την καταστροφή δεδομένων, τα διάφορα στάδια επεξεργασίας, την αρχειοθέτηση, κ.λπ.), για παράδειγμα, χρησιμοποιώντας ένα διάγραμμα ροών δεδομένων (προσθέστε το ως συνημμένο) και μια λεπτομερή περιγραφή των διαδικασιών διεξήχθη."
             },
             "3": {
-              "title": "What are the data supporting assets?",
-              "placeholder": "List the data supporting assets (operating systems, business applications, database management systems, office suites, protocols, configurations, etc.)"
+              "title": "Ποια είναι τα περιουσιακά στοιχεία που υποστηρίζουν τα δεδομένα;",
+              "placeholder": "Καταχωρίστε τα τα περιουσιακά στοιχεία που υποστηρίζουν τα δεδομένα (λειτουργικά συστήματα, επιχειρηματικές εφαρμογές, συστήματα διαχείρισης βάσεων δεδομένων, σουίτες γραφείου, πρωτόκολλα, διαμορφώσεις, κ.λπ.)"
             }
           }
         }
       }
     },
     "2": {
-      "title": "Fundamental principles",
-      "short_help": "This section allows you to build the compliance framework for privacy principles.",
+      "title": "Θεμελιώδεις αρχές",
+      "short_help": "Αυτή η ενότητα σάς επιτρέπει να δημιουργήσετε το πλαίσιο συμμόρφωσης για τις αρχές απορρήτου.",
       "items": {
         "1": {
-          "title": "Proportionality and necessity",
-          "short_help": "This part allows you to demonstrate the legitimacy of your treatment and του data processed.",
+          "title": "Αναλογικότητα και αναγκαιότητα",
+          "short_help": "Αυτό το τμήμα σας επιτρέπει να αποδείξετε τη νομιμότητα της επεξεργασίας σας και των δεδομένων που υποβάλλονται σε επεξεργασία.",
           "questions": {
             "1": {
-              "title": "Are the processing purposes specified, explicit and legitimate?",
-              "short_title": "Purposes",
-              "placeholder": "Explain why the processing purposes are specified, explicit and legitimate."
+              "title": "Είναι σαφείς, ρητοί και νόμιμοι οι σκοποί επεξεργασίας;",
+              "short_title": "Σκοποί",
+              "placeholder": "Εξηγήστε γιατί οι σκοποί της επεξεργασίας, είναι σαφείς, ρητοί και νόμιμοι."
             },
             "2": {
-              "title": "What are the legal basis making the processing lawful?",
-              "short_title": "Legal basis",
-              "placeholder": "Describe what is/are the legal basis of your processing (ex: consent, performance of a contract, compliance with a legal obligation, protecting the vital intests, etc.)"
+              "title": "Ποια είναι η νομική βάση που καθιστά την επεξεργασίας νόμιμη;",
+              "short_title": "Νομική βάση",
+              "placeholder": "Περιγράψτε ποια είναι η νομική βάση της επεξεργασίας σας (π.χ.: συγκατάθεση, εκτέλεση συμβολαίου, συμμόρφωση με νομική υποχρέωση, προστασία ζωτικών συμφερόντων, κ.λπ.)"
             },
             "3": {
-              "title": "Are the data collected adequate, relevant and limited to what is necessary in relation to the purposes for which they are processed ('data minimisation')?",
-              "short_title": "Adequate data",
-              "placeholder": "Explain why each του data collected is necessary for the purposes of your processing."
+              "title": "Τα προσωπικά δεδομένα που συλλέγονται είναι επαρκή, συναφή και περιορίζονται σε όσα είναι απαραίτητα σε σχέση με τους σκοπούς για τους οποίους υποβάλλονται σε επεξεργασία («ελαχιστοποίηση των δεδομένων»);",
+              "short_title": "Επαρκή δεδομένα",
+              "placeholder": "Εξηγήστε γιατί κάθε ένα από τα δεδομένα που συλλέγονται είναι απαραίτητο για τους σκοπούς της επεξεργασίας σας."
             },
             "4": {
-              "title": "Are the data accurate and kept up to date?",
-              "short_title": "Data accuracy",
-              "placeholder": "Describe which are the steps taken to ensure the quality του data."
+              "title": "Τα δεδομένα είναι ακριβή και ενημερωμένα;",
+              "short_title": "Ακρίβεια δεδομένων",
+              "placeholder": "Περιγράψτε ποια είναι τα μέτρα που έχουν ληφθεί για τη διασφάλιση της ποιότητας των δεδομένων."
             },
             "5": {
-              "title": "What are the storage duration του data?",
-              "short_title": "Storage duration",
-              "placeholder": "Explain why the storage durations are justified by legal requirements and/or processing needs."
+              "title": "Ποια είναι η διάρκεια αποθήκευσης των δεδομένων;",
+              "short_title": "Διάρκεια αποθήκευσης",
+              "placeholder": "Εξηγήστε γιατί οι διάρκειες αποθήκευσης δικαιολογούνται από τις νομικές απαιτήσεις ή / και τις ανάγκες της επεξεργασίας."
             }
           }
         },
         "2": {
-          "title": "Controls to protect the personal rights of data subjects",
-          "short_help": "This part allows you to demonstrate that you are implementing the necessary means to enable the persons concerned to exercise their rights.",
+          "title": "Ρυθμιστικά για την προστασία των προσωπικών δικαιωμάτων των υποκειμένων των δεδομένων",
+          "short_help": "Αυτό το τμήμα σας επιτρέπει να αποδείξετε ότι εφαρμόζετε τα απαραίτητα μέσα που θα επιτρέψουν στα ενδιαφερόμενα άτομα να ασκήσουν τα δικαιώματά τους.",
           "questions": {
             "1": {
-              "title": "How are the data subjects informed on the processing?",
-              "short_title": "Information for the data subjects",
-              "placeholder": "Describe what is the information given to the data subjects and what are the means to do it."
+              "title": "Πώς ενημερώνονται τα υποκείμενα των δεδομένων σχετικά με την επεξεργασία;",
+              "short_title": "Πληροφορίες για τα υποκείμενα των δεδομένων",
+              "placeholder": "Περιγράψτε ποιες είναι οι πληροφορίες που δίνονται στα υποκείμενα των δεδομένων και ποια είναι τα μέσα για να γίνει αυτό."
             },
             "2": {
-              "title": "If applicable, how is the consent of data subjects obtained?",
-              "short_title": "Obtaining consent",
-              "placeholder": "Describe the controls intended to ensure that users' consent has been obtained."
+              "title": "Εάν ισχύει, πώς επιτυγχάνεται η συγκατάθεση των υποκειμένων των δεδομένων;",
+              "short_title": "Λήψη συγκατάθεσης",
+              "placeholder": "Περιγράψτε τα ρυμθιστικά ποιες είναι οι πληροφορίες που δίνονται στα πρόσωπα στα οποία αναφέρονται τα δεδομένα και ποια είναι τα μέσα για την επίτευξη των στόχων αυτών."
             },
             "3": {
-              "title": "How can data subjects exercise their rights of access and to data portability?",
-              "short_title": "Right of access and to data portability",
-              "placeholder": "Describe the controls intended for enabling data subjects to access, receive and transmit their data."
+              "title": "Πώς μπορούν τα υποκείμενα δεδομένων να ασκήσουν τα δικαιώματά τους πρόσβασης και φορητότητας προσωπικών δεδομένων;",
+              "short_title": "Δικαίωμα στην πρόσβασης και φορητότητας",
+              "placeholder": "Περιγράψτε τα ρυθμιστικά που προορίζονται για να επιτρέψετε στα υποκείμενα δεδομένων να έχουν πρόσβαση, να λαμβάνουν και να διαβιβάζουν τα δεδομένα τους."
             },
             "4": {
-              "title": "How can data subjects exercise their rights to rectification and erasure?",
-              "short_title": "Right to rectification and erasure",
-              "placeholder": "Describe the controls intended for enabling data subjects to rectify and erase their data."
+              "title": "Πώς μπορούν τα υποκείμενα δεδομένων να ασκήσουν τα δικαιώματά τους διόρθωσης και διαγραφής;",
+              "short_title": "Δικαίωμα διόρθωσης και διαγραφής",
+              "placeholder": "Περιγράψτε τους ελέγχους που προορίζονται για να επιτρέψετε στα υποκείμενα δεδομένων να διορθώνουν και να διαγράφουν τα δεδομένα τους."
             },
             "5": {
-              "title": "How can data subjects exercise their rights to restriction and to object?",
-              "short_title": "Right to restriction and to object",
-              "placeholder": "Describe the controls intended for enabling data subjects to restrict and to object to the processing τουir data."
+              "title": "Πώς μπορούν τα υποκείμενα δεδομένων να ασκήσουν τα δικαιώματά τους περιορισμού και εναντίωσης;",
+              "short_title": "Δικαίωμα περιορισμού και εναντίωσης",
+              "placeholder": "Περιγράψτε τα ρυθμιστικά που προορίζονται να επιτρέψουν στα υποκείμενα των δεδομένων να περιορίζουν και να αντιτίθενται στην επεξεργασία των δεδομένων τους."
             },
             "6": {
-              "title": "Are the obligations του processors clearly identified and governed by a contract?",
-              "short_title": "Subcontracting",
-              "placeholder": "For each processor, describe his responsibilities (duration, scope, purpose, documented processing instructions, prior authorisation) and provide the contracts, codes of conduct and certifications determining its missions and obligations."
+              "title": "Οι υποχρεώσεις των εκτελούντων την επεξεργασία προσδιορίζονται σαφώς και διέπονται από σύμβαση;",
+              "short_title": "Υπεργολαβία",
+              "placeholder": "Για κάθε εκτελούντα την επεξεργασία, περιγράψτε τις ευθύνες του (διάρκεια, πεδίο εφαρμογής, σκοπό, τεκμηριωμένες οδηγίες επεξεργασίας, προηγούμενη έγκριση) και προσκομίστε τις συμβάσεις, τους κώδικες δεοντολογία και τις πιστοποιήσεις που καθορίζουν τις αποστολές και τις υποχρεώσεις του."
             },
             "7": {
-              "title": "In the case of data transfer outside the European Union, are the data adequately protected?",
-              "short_title": "Transfers",
-              "placeholder": "For each country outside the European Union where data are stored or processed, name it and tell if it is acknowledged as offering an adequate level of data protection or describe the provisions concerning the transfer."
+              "title": "Σε περίπτωση μεταφοράς δεδομένων εκτός της Ευρωπαϊκής Ένωσης, τα προσωπικά δεδομένα προστατεύονται επαρκώς;",
+              "short_title": "Μεταφορές",
+              "placeholder": "Για κάθε χώρα εκτός της Ευρωπαϊκής Ένωσης όπου αποθηκεύονται ή υποβάλλονται σε επεξεργασία δεδομένα, ονομάστε την και δηλώστε εάν αναγνωρίζεται ότι προσφέρει επαρκές επίπεδο προστασίας δεδομένων ή περιγράψτε τις προβλέψεις που αφορούν στη μεταφορά."
             }
           }
         }
       }
     },
     "3": {
-      "title": "Risks",
-      "short_help": "This section allows you to assess the privacy risks, taking into account existing or planned controls.",
+      "title": "Κίνδυνοι",
+      "short_help": "Αυτή η ενότητα σάς επιτρέπει να αξιολογήσετε τους κινδύνους που αφορούν την ιδιωτική ζωή, λαμβάνοντας υπόψη υπάρχοντα ή προγραμματισμένα ρυθμιστικά.",
       "items": {
         "1": {
-          "title": "Planned or existing measures",
-          "short_help": "This section allows you to identify controls (existing or planned) that contribute to data security."
+          "title": "Προγραμματισμένα ή υπάρχοντα μέτρα",
+          "short_help": "Αυτή η ενότητα σάς επιτρέπει να εντοπίσετε ρυθμιστικά (υπάρχοντα ή προγραμματισμένα) που συμβάλλουν στην ασφάλεια των δεδομένων."
         },
         "2": {
-          "title": "Illegitimate access to data",
-          "short_help": "Analyze the causes and consequences of illegitimate access to data, and estimate its severity and likelihood.",
+          "title": "Αθέμιτη πρόσβαση στα δεδομένα",
+          "short_help": "Αναλύστε τα αίτια και τις συνέπειες της αθέμιτης πρόσβασης στα προσωπικά δεδομένα και εκτιμήστε τη σοβαρότητα και την πιθανότητα της.",
           "questions": {
             "1": {
-              "title": "What could be the main <span class='green-highlight'>impacts on the data subjects</span> if the risk were to occur?",
-              "placeholder": "Enter the potential impacts \u002B"
+              "title": "Ποιες θα μπορούσαν να είναι οι κύριες <span class='green-highlight'>επιπτώσεις στα υποκείμενα δεδομένων</span>αν επέρχονταν ο κίνδυνος;",
+              "placeholder": "Καταχωρίστε τις πιθανές επιπτώσεις \u002B"
             },
             "2": {
-              "title": "What are the main <span class='green-highlight'>threats</span> that could lead to the risk?",
-              "placeholder": "Enter the threats \u002B"
+              "title": "Ποιες είναι οι κύριες <span class='green-highlight'>απειλές</span> που θα μπορούσαν να οδηγήσουν στην επέλευση του κινδύνου;",
+              "placeholder": "Καταχωρίστε τις απειλές \u002B"
             },
             "3": {
-              "title": "What are the risk <span class='green-highlight'>sources</span>?",
-              "placeholder": "Enter the risk sources \u002B"
+              "title": "Ποιές είναι οι <span class='green-highlight'>πηγές</span> κινδύνου;",
+              "placeholder": "Καταχωρίστε τις πηγές κινδύνου \u002B"
             },
             "4": {
-              "title": "Which του identified <span class='green-highlight'>controls</span> contribute to addressing the risk?",
-              "placeholder": "Click to select controls which address the risk."
+              "title": "Ποιοι από τα εντοπισθέντα <span class='green-highlight'>ρυθμιστικά</span> συμβάλλουν στην αντιμετώπιση του κινδύνου;",
+              "placeholder": "Κάντε κλικ για να επιλέξετε ρυθμιστικά που αφορούν στον κίνδυνο."
             },
             "5": {
-              "title": "How do you estimate the <span class='green-highlight'>risk severity</span>, especially according to potential impacts and planned controls?",
-              "placeholder": "Justify here the estimated severity του risk."
+              "title": "Πώς υπολογίζετε τη <span class='green-highlight'>σοβαρότητα του κινδύνου</span>, ειδικά ανάλογα με τις πιθανές επιπτώσεις και τα προγραμματισμένα ρυθμιστικά;",
+              "placeholder": "Αιτιολογήστε εδώ την εκτιμώμενη σοβαρότητα του κινδύνου."
             },
             "6": {
-              "title": "How do you estimate the <span class='green-highlight'>likelihood του risk</span>, especially in respect of threats, sources of risk and planned controls?",
-              "placeholder": "Justify here the estimated likelihood."
+              "title": "Πώς υπολογίζετε την <span class='green-highlight'>πιθανότητα του κινδύνου</span>, ειδικά ανάλογα με τις πιθανές επιπτώσεις και τα προγραμματισμένα ρυθμιστικά;",
+              "placeholder": "Αιτιολογήστε εδώ την εκτιμώμενη πιθανότητα επέλευσης του κινδύνου."
             }
           }
         },
         "3": {
-          "title": "Unwanted modification of data",
-          "short_help": "Analyze the causes and consequences of an undesired change in data, and estimate its seriousness and likelihood.",
+          "title": "Ανεπιθύμητη τροποποίηση των δεδομένων",
+          "short_help": "Αναλύστε τα αίτια και τις συνέπειες μιας ανεπιθύμητης αλλαγής των δεδομένων και εκτιμήστε τη σοβαρότητα και την πιθανότητά της.",
           "questions": {
             "1": {
-              "title": "What could be the main <span class='green-highlight'>impacts on the data subjects</span> if the risk were to occur?",
-              "placeholder": "Enter the potential impacts \u002B"
+              "title": "Ποιές θα μπορούσαν να είναι οι κύριες <span class='green-highlight'>επιπτώσεις στα υποκείμενα των δεδομένων</span> σε περίπτωσης επέλευσης του κινδύνου;",
+              "placeholder": "Καταχωρίστε τις πιθανές επιπτώσεις \u002B"
             },
             "2": {
-              "title": "What are the main <span class='green-highlight'>threats</span> that could lead to the risk?",
-              "placeholder": "Enter the threats \u002B"
+              "title": "Ποιες είναι οι κύριες <span class='green-highlight'>απειλές</span> που θα μπορούσαν να οδηγήσουν στην επέλευση του κινδύνου;",
+              "placeholder": "Καταχωρίστε τις απειλές \u002B"
             },
             "3": {
-              "title": "What are the risk <span class='green-highlight'>sources</span>?",
-              "placeholder": "Enter the risk sources \u002B"
+              "title": "Ποιές είναι οι <span class='green-highlight'>πηγές</span> κινδύνου;",
+              "placeholder": "Καταχωρίστε τις πηγές κινδύνου \u002B"
             },
             "4": {
-              "title": "Which του identified <span class='green-highlight'>controls</span> contribute to addressing the risk?",
-              "placeholder": "Click here to select controls which address the risk."
+              "title": "Ποιά από τα προσδιορισθέντα <span class='green-highlight'>ρυθμιστικά</span> συμβάλλουν στην αντιμετώπιση του κινδύνου;",
+              "placeholder": "Κάντε κλικ εδώ για να επιλέξετε τα ρυθμιστικά που αφορούν στον κίνδυνο."
             },
             "5": {
-              "title": "How do you estimate the <span class='green-highlight'>risk severity</span>, especially according to potential impacts and planned controls?",
-              "placeholder": "Justify here the estimated severity του risk."
+              "title": "Πώς εκτιμάτε την <span class='green-highlight'>σοβαρότητα του κινδύνου</span>, ιδίως ανάλογα με τις πιθανές επιπτώσεις και τα προγραμματισμένα ρυθμιστικά;",
+              "placeholder": "Αιτιολογήστε εδώ την εκτιμώμενη σοβαρότητα του κινδύνου."
             },
             "6": {
-              "title": "How do you estimate the <span class='green-highlight'>likelihood του risk</span>, especially in respect of threats, sources of risk and planned controls?",
-              "placeholder": "Justify here the estimated likelihood."
+              "title": "Πώς εκτιμάτε την <span class='green-highlight'>πιθανότητα του κινδύνου</span>, ιδίως σε σχέση με τις απειλές, τις πηγές κινδύνου καιτα προγραμματισμένα ρυθμιστικά;",
+              "placeholder": "Αιτιολογήστε εδώ την εκτιμώμενη πιθανότητα επέλευσης του κινδύνου."
             }
           }
         },
         "4": {
-          "title": "Data disappearance",
-          "short_help": "Analyze the causes and consequences of data loss, and estimate its seriousness and likelihood.",
+          "title": "Εξαφάνιση δεδομένων",
+          "short_help": "Αναλύστε τα αίτια και τις συνέπειες της απώλειας δεδομένων και εκτιμήστε τη σοβαρότητα και την πιθανότητά τους.",
           "questions": {
             "1": {
-              "title": "What could be the main <span class='green-highlight'>impacts on the data subjects</span> if the risk were to occur?",
-              "placeholder": "Enter the potential impacts \u002B"
+              "title": "Ποιές θα μπορούσαν να είναι οι κύριες <span class='green-highlight'>επιπτώσεις στα υποκείμενα των δεδομένων</span>σε περίπτωσης επέλευσης του κινδύνου;",
+              "placeholder": "Καταχωρίστε τις πιθανές επιπτώσεις \u002B"
             },
             "2": {
-              "title": "What are the main <span class='green-highlight'>threats</span> that could lead to the risk?",
-              "placeholder": "Enter the threats \u002B"
+              "title": "Ποιές είναι οι κύριες <span class='green-highlight'>απειλές</span>που θα μπορούσαν να οδηγήσουν στην επέλευση του κινδύνου;",
+              "placeholder": "Καταχωρίστε τις απειλές \u002B"
             },
             "3": {
-              "title": "What are the risk <span class='green-highlight'>sources</span>?",
-              "placeholder": "Enter the risk sources \u002B"
+              "title": "Ποιές είναι οι <span class='green-highlight'>πηγές</span> κινδύνου;",
+              "placeholder": "Καταχωρίστε τις πηγές κινδύνου \u002B"
             },
             "4": {
-              "title": "Which του identified <span class='green-highlight'>controls</span> contribute to addressing the risk?",
-              "placeholder": "Click here to select controls which address the risk."
+              "title": "Ποιά από τα προσδιορισθέντα <span class='green-highlight'>ρυθμιστικά</span> contribute to addressing the risk?",
+              "placeholder": "Κάντε κλικ εδώ για να επιλέξετε τα ρυθμιστικά που αφορούν στον κίνδυνο."
             },
             "5": {
-              "title": "How do you estimate the <span class='green-highlight'>risk severity</span>, especially according to potential impacts and planned controls?",
-              "placeholder": "Justify here the estimated severity του risk."
+              "title": "Πώς εκτιμάτε την <span class='green-highlight'>σοβαρότητα του κινδύνου</span>, ιδίως ανάλογα με τις πιθανές επιπτώσεις και τα προγραμματισμένα ρυθμιστικά;",
+              "placeholder": "Αιτιολογήστε εδώ την εκτιμώμενη σοβαρότητα του κινδύνου."
             },
             "6": {
-              "title": "How do you estimate the <span class='green-highlight'>likelihood του risk</span>, especially in respect of threats, sources of risk and planned controls?",
-              "placeholder": "Justify here the estimated likelihood."
+              "title": "Πώς εκτιμάτε την <span class='green-highlight'>πιθανότητα του κινδύνου</span>, ιδίως σε σχέση με τις απειλές, τις πηγές κινδύνου καιτα προγραμματισμένα ρυθμιστικά;",
+              "placeholder": "Αιτιολογήστε εδώ την εκτιμώμενη πιθανότητα επέλευσης του κινδύνου."
             }
           }
         },
         "5": {
-          "title": "Risks overview",
-          "short_help": "This visualisation allows you to have a global and synthetic view on the controls effects on the risks they address."
+          "title": "Επιθεώρηση κινδύνων",
+          "short_help": "Αυτή η απεικόνιση σας παρέχει μια σφαιρική και ηλεκτρονική άποψη των επιπτώσεων των μέτρων στους κινδύνους που προέρχονται από την επεξεργασία. "
         }
       }
     },
      "4": {
-      "title": "Validation",
-      "short_help": "This section allows you to prepare and formalise the PIA validation.",
+      "title": "Επικύρωση",
+      "short_help": "Αυτή η ενότητα σάς επιτρέπει να προετοιμάσετε και να επισημοποιήσετε την επικύρωση της ΕΑ.",
       "items": {
         "1": {
-          "title": "Risk mapping",
-          "short_help": "This visualisation allows you to compare the positioning του risks between them, before and after application του complementary controls."
+          "title": "Χαρτογράφηση κινδύνων",
+          "short_help": "Αυτή η απεικόνιση σας επιτρέπει να έχετε μια συνολική και συνθετική άποψη των κινδύνων, πριν και μετά την εφαρμογή των συμπληρωματικών ρυμθιστικών."
         },
         "2": {
-          "title": "Action plan",
-          "short_help": "Plan in detail the implementation του additional controls identified during the PIA. The action plan is automatically updated when evaluating the different elements comprised in the PIA."
+          "title": "Σχέδιο δράσης",
+          "short_help": "Σχεδιάστε λεπτομερώς την εφαρμογή των πρόσθετων ρυθμιστικών που εντοπίστηκαν κατά τη διάρκεια της ΕΑ. Το σχέδιο δράσης ενημερώνεται αυτόματα κατά την αξιολόγηση των διαφόρων στοιχείων που περιλαμβάνονται στην ΕΑ."
         },
         "3": {
-          "title": "DPO and concerned persons opinions",
-          "short_help": "Present the advice του person in charge of data protection and privacy issues (data protection delegate if there is one). Present the views του data subjects or their representatives."
+          "title": "Γνώμες ΥΠΔ και ενδιαφερόμενων προσώπων",
+          "short_help": "Παρουσιάστε τις συμβουλές του υπεύθυνου προστασίας δεδομένων και προστασίας της ιδιωτικής ζωής (εκπρόσωπος προστασίας δεδομένων εάν υπάρχει). Παρουσιάστε τις απόψεις των υποκειμένων των δεδομένων ή των εκπροσώπων τους."
         },
         "4": {
           "title": "Επικυρώστε την ΕΑ"
         },
         "5": {
-          "title": "Απορριφθείσα EA"
+          "title": "Απορριφθείσα ΕΑ"
         }
       }
     }
