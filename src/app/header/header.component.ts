@@ -76,7 +76,7 @@ export class HeaderComponent implements OnInit, DoCheck {
       this.selectedLanguage = language;
     } else {
       const browserLang = this._translateService.getBrowserLang();
-      this.selectedLanguage = browserLang.match(/en|cs|it|nl|fr|pl|de|es/) ? browserLang : 'fr';
+      this.selectedLanguage = browserLang.match(/en|cs|it|nl|no|fr|pl|de|es|el/) ? browserLang : 'fr';
     }
   }
 
