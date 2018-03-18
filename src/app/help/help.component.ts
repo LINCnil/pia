@@ -29,6 +29,9 @@ export class HelpComponent implements OnInit, OnDestroy {
       case "it":
         fileTranslation="it";
         break;
+      case "de":
+        fileTranslation="de";
+        break;
       default:
         fileTranslation="en";			    		
     }
@@ -48,6 +51,9 @@ export class HelpComponent implements OnInit, OnDestroy {
           break;
         case "it":
           fileTranslation="it";
+          break;
+        case "de":
+          fileTranslation="de";
           break;
         default:
           fileTranslation="en";			    		
