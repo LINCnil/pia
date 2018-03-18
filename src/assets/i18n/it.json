@@ -4,7 +4,7 @@
 		"subtitle1": "Una piattaforma per creare <br> e gestire le tue PIA",
 		"subtitle2": "Accesso ai tool e glossari",
 		"start_app": "Accedi al software PIA (Beta)",
-		"description": " Questo software creato dall' <strong> autorità francese per la protezione dei dati (CNIL) </ strong> ha lo scopo di guidare i Titolari del trattamento dei dati nell'adeguamento della conformità col GDPR. Aiuta a svolgere correttamente una valutazione dell'impatto sulla protezione dei dati facilitando l'uso del metodo sviluppato dalla CNIL per affrontare la PIA",
+		"description": "Questo software creato dall'<strong>Autorità Francese per la Protezione dei Dati (CNIL)</ strong> ha lo scopo di guidare i Titolari del trattamento dei dati nell'adeguamento della conformità col GDPR. Aiuta a svolgere correttamente una valutazione dell'impatto sulla protezione dei dati facilitando l'uso del metodo sviluppato dalla CNIL per affrontare la PIA",
 		"start": "Avvio"
 	},
 	"header": {
@@ -14,17 +14,17 @@
 		"knowledge_base_link": "Archivio",
 		"pia_example_link": "Esempio PIA",
 		"languages": {
-      "official_translation": "TO BE TRANSLATED - Original version",
-      "cnil_translations": "TO BE TRANSLATED - CNIL provided translations",
-      "community_translations": "TO BE TRANSLATED - Community provided translations",
+			"official_translation": "Versione originale",
+			"cnil_translations": "Traduzioni fornite dal CNIL",
+			"community_translations": "Traduzione della comunità",
 			"fr": "Français",
-      "en": "English",
-      "cz": "Česky",
-      "it": "Italiaans",
-      "nl": "Nederlands",
-      "pl": "Polski",
-      "de": "Deutsch",
-      "es": "Español"
+			"en": "English",
+			"cz": "Česky",
+			"it": "Italiano",
+			"nl": "Nederlands",
+			"pl": "Polski",
+			"de": "Deutsch",
+			"es": "Español"
 		},
 		"tools": {
 			"title": "Strumenti",
@@ -36,8 +36,8 @@
 	},
 	"homepage": {
 		"filters": {
-			"list": "Lista",
-			"card": "Tabella",
+			"list": "Schede",
+			"card": "Elenco",
 			"sort": "Ordina",
 			"sort_by": "per",
 			"name": "Nome",
@@ -54,18 +54,18 @@
 		"cards": {
 			"new_pia": "Nuova PIA",
 			"placeholder_new_pia": "Nuova PIA",
-			"or": "or",
+			"or": "oppure",
 			"import_pia": "Importa PIA",
 			"placeholder_import_pia": "Importa PIA",
 			"title_close_creation": "Chiudi",
 			"pia_name": "PIA",
 			"placeholder_pia_name": "Titolo della PIA",
 			"author": "Autore",
-			"placeholder_author": "TO BE TRANSLATED - Firstname, lastname",
+			"placeholder_author": "Nome, Cognome",
 			"evaluation": "Revisore",
-			"placeholder_evaluation": "TO BE TRANSLATED - Firstname, lastname",
+			"placeholder_evaluation": "Nome, Cognome",
 			"validation": "Validatore",
-			"placeholder_validation": "TO BE TRANSLATED - Firstname, lastname",
+			"placeholder_validation": "Nome, Cognome",
 			"date": "Data",
 			"status": "Stato",
 			"creation_status": "Inizializzazione",
@@ -76,12 +76,12 @@
 					"export": "Esporta",
 					"more_options": "Più opzioni",
 					"duplicate": "Crea una copia",
-					"action_plan": "Mostra<br>il piano d'azione",
-					"pia": "Mostra<br>PIA",
+					"action_plan": "Mostra il<br>piano d'azione",
+					"pia": "Mostra PIA",
 					"remove": "Cancella"
 				},
 				"edit_pia": "Modifica PIA",
-        "consult_pia": "TO BE TRANSLATED - Consult PIA"
+				"consult_pia": "Consulta PIA"
 			}
 		},
 		"lists": {
@@ -96,7 +96,7 @@
 			"column_actions": "Azioni",
 			"item": {
 				"tools": {
-          "consult": "TO BE TRANSLATED - Consult",
+					"consult": "Consultazione",
 					"edit": "Modifica",
 					"export": "Esporta",
 					"duplicate": "Crea una copia",
@@ -119,8 +119,8 @@
 		"header": {
 			"preview": "Anteprima",
 			"display_action_plan": "Mostra<br>il piano d'azione",
-      "edition": "TO BE TRANSLATED - Edition",
-      "evaluation": "TO BE TRANSLATED - Evaluation"
+			"edition": "Modifica",
+			"evaluation": "Valutazione"
 		},
 		"attachments": {
 			"title": "Allegati",
@@ -130,21 +130,21 @@
 		"sections": {
 			"homepage_link": "Torna al pannello di controllo",
 			"validate_pia": "Valida PIA",
-      "refuse_pia": "Rifiuta PIA",
-      "status": {
-        "evaluation": {
-          "title": "TO BE TRANSLATED - Waiting for review.",
-          "content": "TO BE TRANSLATED - This part has not yet been reviewed. If you wish to edit the content submitted for review you have to ",
-          "cancel": "TO BE TRANSLATED - cancel the review request.",
-          "cancel_button": "TO BE TRANSLATED - Cancel the review request"
-        },
-        "validation": {
-          "title": "TO BE TRANSLATED - Waiting for validation.",
-          "content": "TO BE TRANSLATED - This part has been reviewed and is waiting for the overall PIA validation. If you wish to change the review, you have to ",
-          "cancel": "TO BE TRANSLATED - cancel the validation request.",
-          "cancel_button": "TO BE TRANSLATED - Cancel the validation request"
-        }
-      }
+			"refuse_pia": "Rifiuta PIA",
+			"status": {
+				"evaluation": {
+					"title": "In attesa di revisione.",
+					"content": "Questa parte non è ancora stata sottoposta a revisione. Se desiderate modificare i contenuti sottopost a revisione dovete ",
+					"cancel": "cancellare la richiesta di revisione.",
+					"cancel_button": "Cancellare la richiesta di revisione"
+				},
+				"validation": {
+					"title": "In attesa di validazione.",
+					"content": "Questa parte è stata rivista ed è inattesa della validazione generale della PIA. Se volete modificare la revisione dovete ",
+					"cancel": "cancellare la richiesta di validazione.",
+					"cancel_button": "Cancellare la richiesta di validazione"
+				}
+			}
 		},
 		"footer": {
 			"ask_evaluation": "Richiedi una revisione",
@@ -257,13 +257,13 @@
 			},
 			"PIA_VAL_RT": {
 				"name": "Convalida formale",
-				"description": "<strong>Il titolare del trattamento decide formalmente</strong> sull'accettabilità delle misure prescelte, dei rischi residui e del piano d'azione, in modo ben motivato, in relazione alle questioni precedentemente identificate e al parere degli stakeholder. Il PIA può essere: <br> - validato <br> - condizionato al miglioramento (spiegare come) <br> - rifiutato (insieme con il trattamento in considerazione). <br> La presente decisione non pregiudica la valutazione della conformità che può essere effettuata, se necessario, dall'autorità per la protezione dei dati, ad esempio come parte delle formalità preliminari o dei controlli.",
+				"description": "<strong>Il titolare del trattamento decide formalmente</strong> sull'accettabilità delle misure prescelte, dei rischi residui e del piano d'azione, in modo ben motivato, in relazione alle questioni precedentemente identificate e al parere delle parti interessate (stakeholder). Il PIA può essere: <br> - validato <br> - condizionato al miglioramento (spiegare come) <br> - rifiutato (insieme con il trattamento in considerazione). <br> La presente decisione non pregiudica la valutazione della conformità che può essere effettuata, se necessario, dall'autorità per la protezione dei dati, ad esempio come parte delle formalità preliminari o dei controlli.",
 				"source": "PIAF Oggetti Connessi p40"
 			},
 			"PIA_TEC_CHIF": {
 				"placeholder": "Descrivi qui i mezzi implementati per assicurare la confidenzialità dei dati",
 				"name": "Crittografia",
-				"description": "I mezzi implementati per <strong>assicurare la confidenzialit༯strong> dei dati archiviati (in database, file, backup etc.), così come le procedure per gestire chiavi crittografiche (creazione, archiviazione, aggiornamento in caso di compromissione etc.).<br> Descrivi i mezzi crittografici impiegati per i flussi di dati (VPN, TLS, etc.) implementati nel trattamento.",
+				"description": "I mezzi implementati per <strong>assicurare la confidenzialità</strong> dei dati archiviati (in database, file, backup etc.), così come le procedure per gestire chiavi crittografiche (creazione, archiviazione, aggiornamento in caso di compromissione etc.).<br> Descrivi i mezzi crittografici impiegati per i flussi di dati (VPN, TLS, etc.) implementati nel trattamento.",
 				"source": "PIAF Oggetti Connessi p21"
 			},
 			"PIA_TEC_ANO": {
@@ -311,7 +311,7 @@
 			"PIA_SEC_EXP": {
 				"placeholder": "Descrivi qui come si aggiorna il software (sistemi operativi, applicazioni etc.) e come sono effettuati di controlli di sicurezza e patch.",
 				"name": "Vulnerabilità",
-				"description": "Politiche volte a limitare la probabilità e la gravità dei rischi per le risorse utilizzate durante l'operatività e procedure operative documentali, inventario e aggiornaemnto di software e hardware, affrontare vulnerabilitଠduplicare i dati, limitare l'accesso fisico al materiale etc.).",
+				"description": "Politiche volte a limitare la probabilità e la gravità dei rischi per le risorse utilizzate durante l'operatività e procedure operative documentali, inventario e aggiornaemnto di software e hardware, affrontare vulnerabilità, duplicare i dati, limitare l'accesso fisico al materiale etc.).",
 				"source": "PIAF Oggetti Connessi p22 - WIKI"
 			},
 			"PIA_SEC_MAL": {
@@ -323,7 +323,7 @@
 			"PIA_SEC_COMP": {
 				"placeholder": "Descrivi qui i controlli implementati sulle postazioni",
 				"name": "Gestione postazioni",
-				"description": "Misure adottate per ridurre la possibilità che le caratteristiche del software (sistemi operativi, applicazioni aziendali, software per ufficio, impostazioni etc.) vengano sfruttate per danneggiare i dati personali (aggiornamenti, protezione fisica e accesso, lavoro su uno spazio di rete di backup, controlli di integritଠlogging etc.).",
+				"description": "Misure adottate per ridurre la possibilità che le caratteristiche del software (sistemi operativi, applicazioni aziendali, software per ufficio, impostazioni etc.) vengano sfruttate per danneggiare i dati personali (aggiornamenti, protezione fisica e accesso, lavoro su uno spazio di rete di backup, controlli di integrità, logging etc.).",
 				"source": "PIAF Oggetti Connessi p22 - WIKI"
 			},
 			"PIA_SEC_WEB": {
@@ -455,12 +455,17 @@
 			},
 			"PIA_DEF_SUPT": {
 				"name": "Risorse di supporto",
-				"description": "Risorse sulle quali i dati perosnali fanno affidamento. Possono essere hardware, software, reti, persone, cartaceo o mezzi di trasmissione cartacei",
+				"description": "Risorse sulle quali i dati personali fanno affidamento. Possono essere hardware, software, reti, persone, cartaceo o mezzi di trasmissione cartacei",
 				"source": "PIA1 p10"
 			},
 			"PIA_DEF_MINC": {
 				"name": "Minimizzare la quantità di dati personali",
 				"description": "Ridurre la gravità dei rischi limitando la raccolta di dati personali a ciò che è strettamente necessario in relazione a uno scopo definito. Per evitare la raccolta di dati non necessari evitare l'uso di dati che non sono correlati allo scopo e con impatti eccessivi sulle persone.",
+				"source": ""
+			},
+			"PIA_DEF_MIND": {
+				"name": "Minimizzare la quantità di dati",
+				"description": "Ridurre la gravità dei rischi limitando la quantità dei dati raccolti, adottando misure per ridurre la loro sensibilità.",
 				"source": ""
 			},
 			"PIA_DEF_CONS": {
@@ -470,7 +475,7 @@
 			},
 			"PIA_DEF_ACC": {
 				"name": "Diritto di accesso",
-				"description": "L'interessato ha diritto di ottenere dal titolare del trattamento che i dati personali relativi sono o non sono elaborati e, quando lo sono, accesso a tali dati personali e altre informazioni specificate nell' <a target=\"_blank\" href=\"http://www.garanteprivacy.it/documents/10160/0/Regolamento+UE+2016+679.+Con+riferimenti+ai+considerando\">Art. 15 del [GDPR]</a>, ed esercitare il diritto di accesso da parte dei titolari di potestࡧenitoriale per i minori, o rappresentante legale",
+				"description": "L'interessato ha diritto di ottenere dal titolare del trattamento che i dati personali relativi sono o non sono elaborati e, quando lo sono, accesso a tali dati personali e altre informazioni specificate nell' <a target=\"_blank\" href=\"http://www.garanteprivacy.it/documents/10160/0/Regolamento+UE+2016+679.+Con+riferimenti+ai+considerando\">Art. 15 del [GDPR]</a>, ed esercitare il diritto di accesso da parte dei titolari di potestà genitoriale per i minori, o rappresentante legale",
 				"source": "GDPR Art. 15"
 			},
 			"PIA_DEF_PORT": {
@@ -485,7 +490,7 @@
 			},
 			"PIA_DEF_EFF": {
 				"name": "Diritto di eliminazione",
-				"description": "L'interessato ha il diritto di ottenere dal titolare del trattamento la cancellazione, il pi񠰲esto possibile, dei suoi dati personali e il titolare del trattamento 衴enuto a cancellare tali dati personali appena possibile in conformità con l' <a target=\"_blank\" href=\"http://www.garanteprivacy.it/documents/10160/0/Regolamento+UE+2016+679.+Con+riferimenti+ai+considerando\">Art. 17 del [GDPR]</a>",
+				"description": "L'interessato ha il diritto di ottenere dal titolare del trattamento la cancellazione, il più presto possibile, dei suoi dati personali e il titolare del trattamento è tenuto a cancellare tali dati personali appena possibile in conformità con l' <a target=\"_blank\" href=\"http://www.garanteprivacy.it/documents/10160/0/Regolamento+UE+2016+679.+Con+riferimenti+ai+considerando\">Art. 17 del [GDPR]</a>",
 				"source": "GDPR Art. 17"
 			},
 			"PIA_DEF_LIM": {
@@ -555,7 +560,7 @@
 			},
 			"PIA_DEF_VRA": {
 				"name": "Probabilità",
-				"description": "La probabilità esprime la possibilità che un rischio si realizzi. Dipende principalmente dal livello di vulnerabilità delle risorse di supporto quando sottoposte alle minacce e dal livello di capacitࡤelle fonti di rischio a sfruttarle.",
+				"description": "La probabilità esprime la possibilità che un rischio si realizzi. Dipende principalmente dal livello di vulnerabilità delle risorse di supporto quando sottoposte alle minacce e dal livello di capacità delle fonti di rischio a sfruttarle.",
 				"source": "PIA1 pg 6"
 			},
 			"PIA_DEF_PBDS": {
@@ -670,17 +675,17 @@
 			},
 			"PIA_EX_VRAL": {
 				"name": "Probabilità limitata",
-				"description": " Basandosi sugli asset organizzativi sembra difficile che le fonti di rischio considerate possano creare una minaccia (ad esempio il furto di supporti cartacei conservati in un locale dell'organizzazione il cui accesso è controllato da badge e codice d'accesso).",
+				"description": "Basandosi sugli asset organizzativi sembra difficile che le fonti di rischio considerate possano creare una minaccia (ad esempio il furto di supporti cartacei conservati in un locale dell'organizzazione il cui accesso è controllato da badge e codice d'accesso).",
 				"source": "PIAF Oggetti Connessi p44 - WIKI"
 			},
 			"PIA_EX_VRAI": {
 				"name": "Probabilità significativa",
-				"description": " Basandosi sugli asset organizzativi sembra possibile che le fonti di rischio considerate possano creare una minaccia (ad esempio: il furto di supporti cartacei conservati negli uffici di un'organizzazione il cui accesso è controllato da una persona alla reception).",
+				"description": "Basandosi sugli asset organizzativi sembra possibile che le fonti di rischio considerate possano creare una minaccia (ad esempio: il furto di supporti cartacei conservati negli uffici di un'organizzazione il cui accesso è controllato da una persona alla reception).",
 				"source": "PIAF Oggetti Connessi p44 - WIKI"
 			},
 			"PIA_EX_VRAM": {
 				"name": "Probabilità massima",
-				"description": " Basandosi sugli asset organizzativi sembra estremamente facile che le fonti di rischio considerate possano creare una minaccia (ad esempio il furto di supporti cartacei conservati nella sala pubblica dell'organizzazione).",
+				"description": "Basandosi sugli asset organizzativi sembra estremamente facile che le fonti di rischio considerate possano creare una minaccia (ad esempio il furto di supporti cartacei conservati nella sala pubblica dell'organizzazione).",
 				"source": "PIAF Oggetti Connessi p44 - WIKI"
 			},
 			"PIA_EX_MIND": {
@@ -693,606 +698,606 @@
 				"description": " Processo di rimozione delle caratteristiche identificative dai dati personali. Per valutare la robustezza dei processi di anonimizzazione, consultare <a target=\"_blank\" href=\"http://ec.europa.eu/justice/data-protection/article-29/documentation/opinion-recommendation/files/2014/wp216_it.pdf\"> Linee guida WP29 </a>.",
 				"source": " Mesures_US and linee guida G29 http://ec.europa.eu/justice/data-protection/article-29/documentation/opinion-recommendation/files/2014/wp216_it.pdf"
 			},
-      "PIA_SEC_CTR": {
-        "placeholder": "Descrivere qui le misure specifiche per gli incaricati (hosting, società di manutenzione, amministratore, gestori di servizi specialistici etc.)",
-        "name": "Contratti di trattamento",
-        "description": "Regolare i rapporti di approvvigionamento (es. responsabile trattamento dati, responsabile protezione dei dati, servizi cloud, ecc) tramite un contratto firmato intuitu personae<br> - Richiedere al fornitore di inoltrare la sua politica di sicurezza dei sistemi informativi insieme a tutti i documenti di supporto delle sue certificazioni di sicurezza delle informazioni e allegare tali documenti al contratto. Garantire che le misure siano conformi alla propria politica di sicurezza ed alle raccomandazioni dell'autorità garante. <br> - Determinare e fissare in modo preciso, su base contrattuale, le operazioni che il responsabile del trattamento potrà eseguire sui dati personali: <br> 1) I dati a cui avrà accesso o che gli saranno trasmessi. <br> 2) Le operazioni che deve eseguire sui dati. <br> 3) La durata per la quale può memorizzare i dati. <Br > 4) Tutti i destinatari a cui il responsabile del trattamento potrà trasmettere i dati. <br> 5) Le operazioni da eseguire al termine del servizio (cancellazione permanente dei dati o restituzione dei dati nel contesto della reversibilità quindi distruzione di dati). <br> 6) Gli obiettivi di sicurezza stabiliti dal titolare del trattamento. <br> - Determinare, su base contrattuale, la ripartizione delle responsabilità in merito ai processi legali volti a consentire agli interessati di esercitare i propri diritti. <br> <br> Esplicitamente vietare o regolare l'utilizzo di fornitori di secondo livello. <br> <br> - Chiarire nel contratto che il rispetto degli obblighi di protezione dei dati è un requisito vincolante del contratto. ",
-        "source": "Mesures_US Procurement: identificate e gestite da un contratto"
-      },
-      "PIA_DEF_CHIF": {
-        "name": "Crittografia",
-        "description": " Misura che rende i dati personali incomprensibili a chiunque non abbia un'autorizzazione di accesso (crittografia simmetrica o asimmetrica, uso di algoritmi pubblici noti per essere robusti, certificato di autenticazione, ecc.). La crittografia di un messaggio garantisce che solo il mittente e il suo destinatario legittimo conoscano il contenuto del messaggio. Non avendo la chiave specifica il messaggio è inaccessibile e illeggibile, sia da esseri umani che da macchine. <br> Ci sono due grandi famiglie di crittografia: simmetrica e asimmetrica. <br> - <strong> la crittografia simmetrica </strong> per cifrare e decifrare il contenuto con la stessa chiave. È molto veloce ma richiede che il mittente e il destinatario concordino una chiave segreta comune o la scambino attraverso un altro canale, che deve essere scelto con attenzione per evitare che la chiave potrebbe essere recuperata dalle persone sbagliate, il che non garantirebbe più riservatezza del messaggio.<br> - <strong> la crittografia asimmetrica </strong> suppone che il destinatario abbia una coppia di chiavi (chiave privata e pubblica) e fa in modo che il potenziale mittente abbia accesso alla sua chiave pubblica. In questo caso il mittente utilizza la chiave pubblica del destinatario per crittografare il messaggio, mentre il destinatario usa la sua chiave privata per decrittografarlo. Tra i suoi vantaggi c'衩l fatto che la chiave pubblica può essere conosciuta da tutti e pubblicata. Ma attenzione: è necessario che i trasmettitori abbiano fiducia nell'origine della chiave pubblica, che siano sicure che sia effettivamente quella del destinatario. Un altro punto di forza: non è necessario condividere la stessa chiave. ",
-        "source ": "Mesures_US Crittografia"
-      },
-      "PIA_DEF_PWD": {
-        "name": "Password",
-        "description": "Le password devono essere composte da un minimo di otto caratteri, devono essere rinnovate periodicamente (ogni sei mesi o una voltaall'anno)e ogni volta che c'è la minima preoccupazione che possano essere state compromesse e devono includere un minimo di tre o quattro tipi di caratteri (lettere maiuscole,lettere minuscole, numeri e caratterispeciali), quando una password viene modificata, le ultime cinque password non possono essere riutilizzate, la stessa password non deve essere utilizzata per accessi diversi;non deve essere correlata alle informazioni personali dell'utente(incluso nome o data di nascita). Definire un numero massimo di tentativi oltre i quali viene emesso un avviso e l'autenticazione è bloccata (temporaneamente o fino a quando non viene sbloccata manualmente).",
-        "source": "Mesure_US"
-      },
-      "PIA_DEF_AUTH": {
-        "name": "Autenticazione",
-        "description": "L'autenticazione è un'operazione <strong> con cui l'utente fornisce la prova dell'identità </strong>, per questo esistono diversi meccanismi classificati a seconda che coinvolgano: <br> - che cosa sappiamo, ad esempio una password; <br> - cosa abbiamo, ad esempio una smart card; <br> - una caratteristica della nostra persona, ad esempio un'impronta digitale o il modo di scrivere di una firma autografa. <br> Come promemoria il GDPR rende l'uso della biometria soggetto a autorizzazione preventiva da parte dell' autorità garante. <br> <strong> L'autenticazione di un utente è qualificata come forte quando utilizza una combinazione di almeno due di queste categorie. </strong>",
-        "source": "Mesures_US Logical Access Control"
-      },
-      "PIA_DEF_LOG": {
-        "name": "Sorveglianza",
-        "description": " Configurare un'architettura di registrazione degli accessi e delle operazioni alle infrastrutture informatiche e fisiche per consentire l'individuazione precoce di incidenti che coinvolgono dati personali e disporre di informazioni che possono essere utilizzate per le analisi tecniche o per fornire prove in relazione alle indagini. </ strong> In ogni caso, <strong> non conservare questi record per un periodo di tempo. eccessivo. </ strong> ",
-        "source": "Mesures_US Surveillance"
-      },
-      "PIA_DEF_ARCH": {
-        "name": "Archiviazione",
-        "description": "Procedure che preservano e gestiscono gli archivi elettronici contenenti i dati personali destinati a garantire il loro valore (in particolare, il loro valore legale) per tutto il periodo necessario (trasferimento, archiviazione, migrazione, accessibilità, eliminazione, politica di archiviazione, protezione, ecc.). I dati che non vengono più uilizzati su base giornaliera ma non hanno ancora raggiunto il periodo di conservazione massimo, ad esempio perché conservato in caso di contezioso, devono essere archiviati. <strong> Gli archivi devono essere sicuri </strong>, soprattutto se i dati archiviati sono dati sensibili o che potrebbero avere gravi ripercussioni sugli interessati.",
-        "source": "Mesures_USE Archiving"
-      }
-    }
-  },
-  "comments": {
-    "comments_count": "commenti",
-    "new_comment": "Commento",
-    "placeholder_new_comment": "Lascia un commento",
-    "comment": "Commenta",
-    "send": "Send"
-  },
-  "questions": {
-    "edit": "Modifica domanda",
-    "gauges": {
-      "0": "(Indefinito)",
-      "1": "Trascurabile",
-      "2": "Limitato",
-      "3": "Importante",
-      "4": "Massimo"
-    }
-  },
-  "evaluations": {
-    "title": "Valutazione",
-    "to_correct": "Da correggere",
-    "improvable": " Migliorabile",
-    "acceptable": "Accettabile",
-    "evaluation_comment": "Commento di valutazione",
-    "action_plan_comment": "Piano d'azione / azioni correttive",
-    "placeholder_to_correct": "Le informazioni fornite non sono sufficienti per valutarle. Torna a modificare per arricchire la proposta iniziale",
-    "placeholder_improvable1": "Alla luce delle informazioni fornite, è necessario aggiungere ulteriori misure per migliorare la protezione dei dati del trattamento.",
-    "placeholder_improvable2": "Inserisci i tuoi commenti",
-    "placeholder_acceptable": "Alla luce delle informazioni fornite, le misure implementate sono sufficienti per soddisfare i requisiti di protezione dei dati",
-    "gauges": {
-      "seriousness": "Prendere in considerazione il piano d'azione, come valuti la <span class='red-highlight'>serietà di questo rischio</span> ({{value}})?",
-      "likelihood": "Prendendo in considerazione il piano d'azione, come rivaluti la <span class='red-highlight'>probabilità di questo rischio</span> ({{value}})?",
-      "0": "(Indefinito)",
-      "1": "Trascurabile",
-      "2": "Limitato",
-      "3": "Importante",
-      "4": "Massimo"
-    },
-    "status": {
-      "0": "In sospeso",
-      "1": "Da correggere",
-      "2": "Non provabile",
-      "3": "Accettabile"
-    }
-  },
-  "help": {
-    "title": "Aiuto",
-    "definition": {
-      "data1": {
-        "title": "Uso dello strumento PIA",
-        "content":"aggiornamenti in corso"
-      },
-      "data2": {
-        "title": "Problemi noti",
-        "qa1": {
-          "title": "Visualizzo errori come icone bloccate in uno stato o elementi mancanti dall'interfaccia",
-          "content": "Quando incontri questi errori di visualizzazione, chiudi l'applicazione e ricaricala. Di solito risolve il problema. Non perderai dati inseriti; sono automaticamente salvati mentre scrivi."
-        },
-        "qa2": {
-          "title": "Non posso modificare i gradi di valutazione della severità probabilità del rischio",
-          "content": "Questo problema noto è in corso di risoluzione. Se incontri questo problema, ti consigliamo di riempire il campo libero di livello stimato di severità, probabilità. Sarai in grado di modificare il grado una volta risolto il bug."
-        },
-        "qa3": {
-          "title": "Incontro problemi di importazione di PIA",
-          "content": "Sono stati osservati diversi bug di importazione, in particolare dei gradi di valutazione di severità probabilità del rischio che scompaiono. In questo caso fai riferimento alla problematica sopra. In più un PIA può non comparire sulla bacheca dopo l'importazione. Questo è un problema di visualizzazione e puoi semplicemente ricaricare la pagina."
-        },
-        "qa4": {
-          "title": "Quando faccio copia/incolla il testo evidenziato.",
-          "content": "Questo è solo un problema di visualizzazione e non ha effetti sul testo inserito. Il problema verrà isolto a breve."
-        },
-        "qa5": {
-          "title": "Non posso valutare una sezione",
-          "content": "Per valutare una sezione, è obbligatorio riempire tutti i campi. Controlla che tu l'abbia fatto. Quando modifichi un rischio, devi avere almeno una misura tecnica o organizzativa che mitighi quel rischio per richiedere una valutazione del rischio."
-        },
-        "qa6": {
-          "title": "Se cambio lingua, il testo non è tradotto",
-          "content": "Chiudi e riavvia l'pplicazione. Il contenuto dovrebbe essere mostrato nella lingua selezionata."
-        },
-        "qa7": {
-          "title": "Ho rifiutato di convalidare un PIA e non so cosa fare",
-          "content": "Per il momento, le icone di navigazione del menu non sono ricaricate dopo aver rifiutato un PIA. Devi controllare ogni sezione e cambiare le informazioni e/o la valutazione in accordo con le ragioni di rifiuto del PIA. Una volta che tutte le sezioni saranno revisionate, sarai in grado di richiedere una convalida PIA di nuovo."
-        }
-      },
-      "footer": "Se incontri problemi o se hai suggerimenti per miglioramenti puoi spedirli tramite questo modulo <a target=\\\"_blank\\\" href=\"https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia\\\">https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia</a>"
-    }
-  },
-  "about": {
-    "title": "Informazioni",
-    "version_number": "Version number",
-    "description": "This tool is originally designed by the <a target=\"_blank\" href=\"https://www.cnil.fr\">Commission Nationale Informatique et Liberté (CNIL)</a>, the French Data Protection Authority, to help data processor to be compliant with the GDPR.<br>This software is free and open. If you wish to get involved in this project, you are welcome to download the source code from Github, modify it and share it with the community.",
-    "translators": "The PIA software is currently available in five languages. The French and English versions are provided by the CNIL. The others versions result from the contributions of the following individuals:",
-    "translators_name": "<ul><li>Dutch: Ruud van Driel, Manuel d’Orso ;</li><li>Czech: Jiří Grohmann, Manuel d’Orso ;</li><li>Italian: Manuel d’Orso, Gianluca Markos.</li><li>Polish: Joanna Karczewska</li><li>German: Kosmas Schütz</li><li>Spanish: ylachgar</li></ul>",
-    "contribute": "If you wish to contribute to the translation of the software in another language or improve the existing translations, we recommend you to <a href=\"https://github.com/LINCnil/pia/tree/master/src/assets/i18n\" target=\"_blank\">read the page describing the steps to follow</a>.",
-    "licences": "Library licences:"
-  },
-  "settings": {
-    "title": "Impostazioni",
-    "content": "Inserisci un indirizzo (URL) del server remoto:",
-    "update": "Aggiorna URL"
-  },
-  "validation_page": {
-    "responsible": "TO BE TRANSLATED - Person accountable for validating the PIA: ",
-    "after_reading": "TO BE TRANSLATED - After reading full PIA relating to the data processing linked to ",
-    "confirmation1": "TO BE TRANSLATED - I attest that the context of the processing described in the PIA is consistent with the reality.",
-    "confirmation2": "TO BE TRANSLATED - I attest that I am aware of the risks depending on the existing or planned measures.",
-    "confirmation3": "TO BE TRANSLATED - I ratify the corrective actions indicated in the action plan.",
-    "confirmation4": "TO BE TRANSLATED - I commit to implement as quickly as possible the indicated corrective actions.",
-    "button": {
-      "rejection": "TO BE TRANSLATED - Reject PIA",
-      "simple_validation": "TO BE TRANSLATED - Approve PIA <br>(direct)",
-      "signed_validation": "TO BE TRANSLATED - Approve PIA <br>(signed)"
-    },
-    "mandatory_fields": "TO BE TRANSLATED - All boxes must be checked",
-    "waiting_for_signature": "TO BE TRANSLATED - Pending signed PIA",
-    "validated_pia_with_signature": "TO BE TRANSLATED - Approved",
-    "add_signed_pia": "TO BE TRANSLATED - Add the signed PIA",
-    "remove_attachment": "TO BE TRANSLATED - Remove the attachment",
-    "latest_signed_attachment": "TO BE TRANSLATED - Last signed attachment",
-    "signed_attachments_history": "TO BE TRANSLATED - Signed attachments history",
-    "tools": {
-      "dashboard": "TO BE TRANSLATED - Dashboard",
-      "display_pia": "TO BE TRANSLATED - Display PIA",
-      "action_plan": "TO BE TRANSLATED - Action plan"
-    }
-  },
-  "rejection_page": {
-    "title": "TO BE TRANSLATED - Validation history",
-    "rejection_reason": "TO BE TRANSLATED - Refusal reason",
-    "rejection_reason_placeholder": "TO BE TRANSLATED - Describe the reasons for refusing the PIA.",
-    "applied_adjustments": "TO BE TRANSLATED - Adjustments proposed",
-    "applied_adjustments_placeholder": "TO BE TRANSLATED - Describe the changes brought to the PIA.",
-    "previous_rejection": "TO BE TRANSLATED - Previous refusal",
-    "button": {
-      "abandon_treatment": "TO BE TRANSLATED - Abandon processing",
-      "reject_pia": "TO BE TRANSLATED - Reject PIA",
-      "send_for_validation": "TO BE TRANSLATED - Resend for approval"
-    }
-  },
-  "misc": {
-    "display": "Mostra / Nascondi"
-  },
-  "modals": {
-    "cancel": "Annulla",
-    "archive": "Archivia",
-    "close": "Chiudi",
-    "continue": "Continua",
-    "start_evaluation": "TO BE TRANSLATED - Start review",
-    "back_to_home": "Torna alla home",
-    "simple_pia_validation": {
-      "content": "Il PIA è stato convalidato"
-    },
-    "completed_edition": {
-      "content": "TO BE TRANSLATED - The PIA has been fully edited, it has to be reviewed."
-    },
-    "completed_evaluation": {
-      "content": "TO BE TRANSLATED - The PIA has been fully reviewed, it has to be validated."
-    },
-    "update_server_url": {
-      "content": "L'indirizzo del server è stato aggiornato."
-    },
-    "signed_pia_validation": {
-      "content": "<span class='strong'>Il PIA è accettato</span><br>Termina il PIA allegando<br>il report firmato della persona titolare.",
-      "download_pia": "Scarica report PIA"
-    },
-    "abandon_pia": {
-      "content": "Sei sicuro di voler <br> terminare il trattamento?"
-    },
-    "refuse_pia": {
-      "content": "<span class='strong'>PIA rifiutato,</span><br>Diversi campi devono essere corretti.<br>Torna alla modalità convalida<br>per fare le correzioni."
-    },
-    "same_comment": {
-      "content": "<span class='strong'>Attenzione,</span><br>Inserisci un commento diverso dall'ultimo inserito."
-    },
-    "not_enough_measures_to_remove": {
-      "content": "<span class='strong'>Attenzione, </span><br>Almeno una misura deve essere riempita: non è possibile cancellare."
-    },
-    "remove_measure": {
-      "content": "<span class='strong'>Attenzione,</span><br>Sei sicuro di voler <br> cancellare questa misura?",
-      "remove": "Cancella questa <br>misura",
-      "keep": "Mantieni questa <br> misura"
-    },
-    "ask_for_evaluation": {
-      "content": "<span class='strong'>Congratulazioni,</span><br>la sottosezione è <br> disponibile per la convalida."
-    },
-    "validate_evaluation": {
-      "content": "TO BE TRANSLATED - <span class='strong'>Congratulations,</span><br>you've finished evaluating this section.<br>Others parts of the PIA has to be evaluated as well in order to be able to validate the PIA."
-    },
-    "validate_evaluation_to_correct": {
-      "content": "Spiacente,<br>Diversi campi devono essere corretti.<br>Torna alla modalità modifica<br>per fare correzioni."
-    },
-    "declare_measures": {
-      "content": "Spiacente, <br>prima di valutare rischi,<br>devi riportare le<br>misure esistenti o pianificate.",
-      "declare": "Dichiara misure esistenti o pianificate"
-    },
-    "remove_pia": {
-      "content": "<span class='strong'>Attenzione,</span><br>Sei sicuro di voler<br>cancellare questo PIA?",
-      "remove": "Cancella questo PIA"
-    },
-    "remove_attachment": {
-      "content": "<span class='strong'>Attenzione,</span><br>Sei sicuro di voler<br>cancellare questo allegato?",
-      "keep": "Mantieni",
-      "remove": "Cancella"
-    }
-  },
-  "summary": {
-    "previous_page": "Torna alla pagina precedente",
-    "print": "Stampa",
-    "display_pia": "TO BE TRANSLATED - Display PIA",
-    "display_action_plan": "TO BE TRANSLATED - Display<br>action plan",
-    "display_filters": {
-      "title": "TO BE TRANSLATED - Filters",
-      "main_content": "TO BE TRANSLATED - Display \"PIA information\"",
-      "context_content": "TO BE TRANSLATED - Display \"Context\"",
-      "principles_content": "TO BE TRANSLATED - Display \"Fundamental principles\"",
-      "risks_content": "TO BE TRANSLATED - Display \"Risks\"",
-      "action_plan_content": "TO BE TRANSLATED - Display action plan"
-    },
-    "title": "Informazioni sul PIA",
-    "pia_name": "PIA",
-    "pia_author": "Nome autore",
-    "pia_assessor": "Nome assessore",
-    "pia_validator": "Nome convalidatore",
-    "content_choice": {
-      "0": "Il trattamento può essere implementato.",
-      "1": "Il trattamento non dovrebbe essere effettuato."
-    },
-    "dpo_name": "Nome DPO",
-    "dpo_status": "Stato DPO",
-    "dpo_opinion": "Parere DPO",
-    "concerned_people_searched_opinion": "Ricerca del parere di persone interessate",
-    "people_search_status_ok": "È richiesto il parere di persone interessate.",
-    "people_search_status_nok": "Non è richiesto il parere di persone interessate.",
-    "concerned_people_unsearched_opinion_comment": "Motivazione per cui il parere delle persone interessate non stato richiesto",
-    "concerned_people_name": "Pareri delle persone interessate",
-    "concerned_people_status": "Stato delle persone interessate",
-    "concerned_people_opinion": "Pareri delle persone interessate",
-    "modification_made": "Modifiche fatte",
-    "rejection_reason": "Motivo del rifiuto",
-    "creation_date": "Data di creazione",
-    "attachments": "Allegati",
-    "gauges": {
-      "1": "Trascurabile",
-      "2": "Limitata",
-      "3": "Importante",
-      "4": "Massima"
-    },
-    "action_plan": {
-      "title": "Piano d'azione",
-      "fundamental_principles": "Principi fondamentali",
-      "implementation_date": "Data prevista di implementazione",
-      "implementation_responsible": "Responsabile dell'implementazione",
-      "measures": "Controlli esistenti o pianificati",
-      "risks": "Rischi",
-      "no_action_plan": "Nessun piano d'azione registrato."
-    }
-  },
-  "errors": {
-    "title": "Pagina non trovata.",
-    "content": "Se incontri altri problemi o se hai suggerimenti per miglioramenti, <br> puoi inviarli con questo modulo: <a href=\"https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia\" target=\"_blank\">https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia</a>"
-  },
-  "overview-risks": {
-    "potential_impacts": "Potential impacts",
-    "threat": "Threat",
-    "sources": "Sources",
-    "measures": "Measures",
-    "negligible": "Trascurabile",
-    "limited": "Limitata",
-    "important": "Importante",
-    "maximal": "Massima",
-    "risk-access_x": "Severity",
-    "risk-access_y": "Likelihood",
-    "risk-change_x": "Severity",
-    "risk-change_y": "Likelihood",
-    "risk-disappearance_x": "Severity",
-    "risk-disappearance_y": "Likelihood"
-  },
-  "cartography": {
-    "negligible": "Trascurabile",
-    "limited": "Limitata",
-    "important": "Importante",
-    "maximal": "Massima",
-    "seriousness_axe": "Serietà del rischio",
-    "likelihood_axe": "Probabilità del rischio",
-    "legend1": "Misure pianificate o esistenti",
-    "legend2": "Misure correttive implementate",
-    "legend3": "Accesso ai dati illegittimo",
-    "legend4": "Modifiche dei dati non volute",
-    "legend5": "Dati scomparsi",
-    "risk1_access": "(I)",
-    "risk2_modification": "(U)"
-  },
-  "action_plan": {
-    "title": "Panoramica",
-    "principles": "Principi fondamentali",
-    "measures": "Controlli pianificati o esistenti",
-    "risks": "Rischi",
-    "risk1": "Accesso illegittimo ai dati",
-    "risk2": "Modifiche dei dati non volute",
-    "risk3": "Dati scomparsi",
-    "improvable_measures": "Controlli migliorabili",
-    "acceptable_measures": "Controlli accettabili",
-    "no_action_plan": "Nessun piano d'azione registrato",
-    "edit": "Modifica",
-    "placeholder_person_in_charge": "Responsabile dell'implementazione"
-  },
-  "opinions": {
-    "edit": "Modifica",
-    "content": ", considera che :",
-    "dpo_opinion": "Parere DPO",
-    "placeholder_dpo_name": "Nome/i DPO",
-    "placeholder_dpo_opinion": "Specifica le motivazioni per la tua scelta.",
-    "dpo_lock": "Completa le altre sezioni prima di riempire il parere del DPO.",
-    "people_opinion": "Parere delle persone interessate",
-    "placeholder_concerned_people_name": "Nome/i delle persone interessate",
-    "placeholder_people_opinion": "Descrivi come le opinioni sono raccolte e quale è l'analisi. Se gli avvisi non sono stati richiesti, specifica il motivo.",
-    "placeholder_search_content": "Motiva perchè il parere delle persone interessate non è stato richiesto.",
-    "treatment_ok": "Il trattamento puè essere implementato.",
-    "treatment_nok": "Il trattamento non dovrebbe essere eseguito.",
-    "treatment_lock": "Completa le altre sezioni prima dөnserire il parere delle persone interessate."
-  },
-  "sections": {
-    "1": {
-      "title": "Contesto",
-      "short_help": "Questa sezione offre una visuale chiara del trattamento di dati personali in questione.",
-      "items": {
-        "1": {
-          "title": "Panoramica",
-          "short_help": "Questa parte permette di identificare e presentare l'oggetto dello studio.",
-          "questions": {
-            "1": {
-              "title": "Quale è il trattamento in considerazione?",
-              "placeholder": "Presenta un breve sunto del trattmento: nome, scopo, finalità, contesto di uso, etc."
-            },
-            "2": {
-              "title": "Quali sono le responsabilità legate al trattamento?",
-              "placeholder": "Descrivi le responsabilità degli stakeholder: il titolare del trattamento, gli eventuali responsabili interni e co-incaricati."
-            },
-            "3": {
-              "title": "Ci sono standard applicabili al trattamento?",
-              "placeholder": "Elenca gli standard rilevanti applicabili al trattamento, specialmente i codici di condotta e le certificazioni di protezione dati."
-            }
-          }
-        },
-        "2": {
-          "title": "Dati, processi e risorse di supporto",
-          "short_help": "Questa parte permette di definire e descrivere lo scopo del trattamento nel dettaglio.",
-          "questions": {
-            "1": {
-              "title": "Quali sono i dati trattati?",
-              "placeholder": "Elenca i dati raccolti e trattati. Definisci per ognuno la durata dell'archiviazione, i destinatari e le persone con accesso."
-            },
-            "2": {
-              "title": "Com'è il ciclo di vita del trattamento dei dati?",
-              "placeholder": "Presenta e descrivi come funziona il processo (dalla raccolta alla distruzione, i passaggi del trattamento, archiviazione etc.), usando per esempio un diagramma di flusso dei dati (come allegato) e una dettagliata descrizione del processi effettuati."
-            },
-            "3": {
-              "title": "Quali sono le risorse di supporto ai dati?",
-              "placeholder": "Elenca le risorse che ospitano i dati (sistemi operativi, applicazioni aziendali, database management systems, pacchetti office, protocolli, configurazioni etc.)"
-            }
-          }
-        }
-      }
-    },
-    "2": {
-      "title": "Principi Fondamentali",
-      "short_help": "Questa sezione permette di generare lo schema di adeguamento secondo i principi considerati.",
-      "items": {
-        "1": {
-          "title": "Proporzionalità, necessità",
-          "short_help": "Questa sezione permette di dimostrare la legittimità del trattamento e dei dati trattati.",
-          "questions": {
-            "1": {
-              "title": "Gli scopi del trattamento sono specifici, espliciti e legittimi?",
-              "short_title": "Finalità",
-              "placeholder": "Spiegare perché le finalità del trattamento sono specifiche, esplicite e legittime."
-            },
-            "2": {
-              "title": "Quali sono le basi legali che rendono il trattamento legittimo?",
-              "short_title": "Basi legali",
-              "placeholder": "Presentare le basi del trattamento (ad esempio consenso, esecuzione di un contratto, obbligo legale, interessi vitali etc.)"
-            },
-            "3": {
-              "title": "I dati raccolti sono adeguati, rilevanti e limitati a quanto è necessario in relazione alle finalità per cui sono stati trattati (minimizzazione dei dati)?",
-              "short_title": "Dati adeguati",
-              "placeholder": "Spiegare perchè ogni dato raccolto è necessario per le finalità del trattamento."
-            },
-            "4": {
-              "title": "I dati sono accurati e mantenuti aggiornati?",
-              "short_title": "Accuratezza dei dati",
-              "placeholder": "Descrivere quali sono i passaggi intrapresi per assicurare la qualità dei dati."
-            },
-            "5": {
-              "title": "Quale è la durata della conservazione dei dati?",
-              "short_title": "Durata dell'archiviazione",
-              "placeholder": "Spiegare perchè a durata dell'archiviazione giustificata da requisiti legali e/o necessità i trattamento."
-            }
-          }
-        },
-        "2": {
-          "title": "Controlli per proteggere i diritti personali dei soggetti interessati",
-          "short_help": "Questa sezione permette di dimostrare lөmplementazione dei mezzi necessari per abilitare le persone interessate ad esercitare i loro diritti.",
-          "questions": {
-            "1": {
-              "title": " I soggetti interessati come sono informati del trattamento?",
-              "short_title": "Informazioni per i soggetti interessati",
-              "placeholder": "Descrivere quali informazioni sono date ai soggetti interessati e con quali mezzi."
-            },
-            "2": {
-              "title": "Come si ottiene il consenso dei soggetti interessati?",
-              "short_title": "Ottenere il consenso",
-              "placeholder": "Descrivere i controlli intesi ad assicurare che il consenso dell'utente sia ottenuto."
-            },
-            "3": {
-              "title": "I soggetti interessati come esercitano i loro diritti di acceso alla portabilità dei dati?",
-              "short_title": "Diritti di accesso e alla portabilità dei dati",
-              "placeholder": "Descrivere i controlli intesi a permettere ai soggetti interessati di accedere, ricevere e trasmettere i loro dati."
-            },
-            "4": {
-              "title": "Come i soggetti interessati esercitano i loro diritti alla rettifica e alla cancellazione?",
-              "short_title": "Diritto di rettifica e cancellazione",
-              "placeholder": "Descrivere i controlli intesi ad abilitare i soggetti interessati a rettificare ed eliminare i loro dati."
-            },
-            "5": {
-              "title": " i soggetti interessati come esercitano il loro diritto di restrizione e obiezione?",
-              "short_title": "Diritto di restrizione e obiezione",
-              "placeholder": "Descrivere i controlli intesi ad abilitare i soggetti interessati a restringere e obiettare il trattamento dei loro dati."
-            },
-            "6": {
-              "title": "Gli obblighi dei responsabili del trattamento sono chiaramente identificati e governati da un contratto?",
-              "short_title": "Subappalto",
-              "placeholder": "Per ogni responsabile del trattamento, descrivere le sue responsabilità, durata, finalità, scopo, istruzioni documentate, previa autorizzazione) e fornire i contratti, codici di condotta e certificazioni determinanti le missioni e gli obblighi."
-            },
-            "7": {
-              "title": "Nel caso di trasferimento di dati fuori dall'Unione Europea, i dati sono adeguatamente protetti?",
-              "short_title": "Trasferimenti",
-              "placeholder": "Per ogni nazione fuori dall'Unione Europea dove i dati sono archiviati e processati, indicare e descrivere se sono riconosciuti come offerenti di un livello adeguato di protezione dei dati o descrivere la fornitura di servizi concernenti il trasferimento."
-            }
-          }
-        }
-      }
-    },
-    "3": {
-      "title": "Rischi",
-      "short_help": "Questa sezione permette di valutare i rischi della privacy, prendendo in considerazione controlli esistenti o pianificati.",
-      "items": {
-        "1": {
-          "title": "Controlli esistenti o pianificati",
-          "short_help": "Questa sezione permette di identificare i controlli (esistenti o pianificati) che contribuiscono alla sicurezza dei dati"
-        },
-        "2": {
-          "title": "Accesso illegittimo ai dati",
-          "short_help": "Analizzare le cause e le conseguenze di accesso illegittimo ai dati, e stimare la gravità e la probabilità,",
-          "questions": {
-            "1": {
-              "title": "Quale potrebbe essere l'impatto sui soggetti interessati se il rischio si dovesse realizzare?",
-              "placeholder": "Inserire possibili rischi"
-            },
-            "2": {
-              "title": "Quali sono le principali minacce che potrebbero concretizzare il rischio?",
-              "placeholder": "Inserire le minacce"
-            },
-            "3": {
-              "title": "Quali sono le fonti di rischio?",
-              "placeholder": "Inserire le fonti di rischio"
-            },
-            "4": {
-              "title": "Quali dei controlli identificati contribuiscono a gestire il rischio?",
-              "placeholder": "Clicca qui per selezionare i controlli che gestiscono il rischio."
-            },
-            "5": {
-              "title": "Come stimeresti la gravità del rischio, specialmente riguardo i potenziali impatti e i controlli pianificati?",
-              "placeholder": "Giustificare qui la gravità stimata del rischio."
-            },
-            "6": {
-              "title": "Come stimeresti la probabilità del rischio, specialmente riguardo le minacce, fonti di rischio e i controlli pianificati?",
-              "placeholder": "Giustificare qui la probabilità stimata."
-            }
-          }
-        },
-        "3": {
-          "title": "Modifiche indesiderate dei dati",
-          "short_help": "Analizzare le cause e le conseguenze di modifiche indesiderate ai dati, e stimare la gravità la probabilità dell'evento.",
-          "questions": {
-            "1": {
-              "title": "Quali impatti ci sarebbero sui soggetti interessati se il rischio si dovesse concretizzare?",
-              "placeholder": "Inserire i potenziali rischi"
-            },
-            "2": {
-              "title": "Quali sono le principali minacce che possono portare al rischio?",
-              "placeholder": "Inserire le minacce"
-            },
-            "3": {
-              "title": "Quali sono le fonti di rischio?",
-              "placeholder": "Inserire le fonti di rischio"
-            },
-            "4": {
-              "title": "Quali dei controlli identificati contribuiscono a gestire il rischio?",
-              "placeholder": "Cliccare per selezionare i controlli che gestiscono il rischio."
-            },
-            "5": {
-              "title": "Come stimeresti la gravità del rischio, in particolare riguardo l'impatto potenziale e i controlli pianificati?",
-              "placeholder": "Giustificare qui la gravità stimata del rischio."
-            },
-            "6": {
-              "title": "Come stimeresti la probabilità del rischio, specialmente riguardo minacce, fonti di rischio e controlli pianificati?",
-              "placeholder": "Giustificare qui la probabilità stimata."
-            }
-          }
-        },
-        "4": {
-          "title": "Scomparsa di dati",
-          "short_help": "Analizzare le cause e le conseguenze della perdita di dati e stimare la gravità, la probabilità dell'evento.",
-          "questions": {
-            "1": {
-              "title": "Quale potrebbe essere l'impatto sui soggetti interessati se il rischio dovesse realizzarsi?",
-              "placeholder": "Inserire i potenziali impatti"
-            },
-            "2": {
-              "title": "Quali sono le minacce che potrebbero portare al rischio?",
-              "placeholder": "Inserire le minacce"
-            },
-            "3": {
-              "title": "Quali sono le fonti di rischio?",
-              "placeholder": "Inserire le fonti di rischio"
-            },
-            "4": {
-              "title": "Quali dei controlli identificati contribuisce a gestire il rischio?",
-              "placeholder": "Cliccare qui per selezionare i controlli che gestiscono il rischio."
-            },
-            "5": {
-              "title": "Come stimeresti la gravitàel rischio, specialmente riguardo il potenziale impatto e i controlli pianificati?",
-              "placeholder": "Giustificare la gravità stimata del rischio."
-            },
-            "6": {
-              "title": "Come stimeresti la probabilità del rischio, specialmente rispetto le minacce, fonti di rischio e i controlli pianficati?",
-              "placeholder": "Giustificare qui la probabilità stimata."
-            }
-          }
-        },
-        "5": {
-          "title": "Panoramica del rischio",
-          "short_help": "Questa visualizzazione permette di avere una visuale globale e sintetica degli effetti dei controlli sui rischi che gestiscono."
-        }
-      }
-    },
-    "4": {
-      "title": "Convalida",
-      "short_help": "Questa sezione permette di preparare e formalizzare la convalida PIA.",
-      "items": {
-        "1": {
-          "title": "Mappatura del rischio",
-          "short_help": "Questa visualizzazione permette di comparare il posizionamento del rischio prima e dopo l'applicazione dei controlli complementari."
-        },
-        "2": {
-          "title": "Piano d'azione",
-          "short_help": "Pianificare in dettaglio l'implementazione di controlli aggiuntivi identificati durante il PIA."
-        },
-        "3": {
-          "title": "Pareri di DPO e soggetti interessati",
-          "short_help": "Presentare l'opinione delle persone responsabili della protezione dei dati e dei problemi di privacy (o eventuali delegati). Presentare anche le opinioni dei soggetti interessati o di loro rappresentanti."
-        },
-        "4": {
-          "title": "TO BE TRANSLATED - Validate the PIA"
-        },
-        "5": {
-          "title": "TO BE TRANSLATED - Rejected PIA"
-        }
-      }
-    }
-  }
+			"PIA_SEC_CTR": {
+			  "placeholder": "Descrivere qui le misure specifiche per gli incaricati (hosting, società di manutenzione, amministratore, gestori di servizi specialistici etc.)",
+			  "name": "Contratti di trattamento",
+			  "description": "Regolare i rapporti di approvvigionamento (es. responsabile trattamento dati, responsabile protezione dei dati, servizi cloud, ecc) tramite un contratto firmato intuitu personae<br> - Richiedere al fornitore di inoltrare la sua politica di sicurezza dei sistemi informativi insieme a tutti i documenti di supporto delle sue certificazioni di sicurezza delle informazioni e allegare tali documenti al contratto. Garantire che le misure siano conformi alla propria politica di sicurezza ed alle raccomandazioni dell'autorità garante. <br> - Determinare e fissare in modo preciso, su base contrattuale, le operazioni che il responsabile del trattamento potrà eseguire sui dati personali: <br> 1) I dati a cui avrà accesso o che gli saranno trasmessi. <br> 2) Le operazioni che deve eseguire sui dati. <br> 3) La durata per la quale può memorizzare i dati. <Br > 4) Tutti i destinatari a cui il responsabile del trattamento potrà trasmettere i dati. <br> 5) Le operazioni da eseguire al termine del servizio (cancellazione permanente dei dati o restituzione dei dati nel contesto della reversibilità quindi distruzione di dati). <br> 6) Gli obiettivi di sicurezza stabiliti dal titolare del trattamento. <br> - Determinare, su base contrattuale, la ripartizione delle responsabilità in merito ai processi legali volti a consentire agli interessati di esercitare i propri diritti. <br> <br> Esplicitamente vietare o regolare l'utilizzo di fornitori di secondo livello. <br> <br> - Chiarire nel contratto che il rispetto degli obblighi di protezione dei dati è un requisito vincolante del contratto. ",
+			  "source": "Mesures_US Procurement: identificate e gestite da un contratto"
+			},
+			"PIA_DEF_CHIF": {
+			  "name": "Crittografia",
+			  "description": "Misura che rende i dati personali incomprensibili a chiunque non abbia un'autorizzazione di accesso (crittografia simmetrica o asimmetrica, uso di algoritmi pubblici noti per essere robusti, certificato di autenticazione, ecc.). La crittografia di un messaggio garantisce che solo il mittente e il suo destinatario legittimo conoscano il contenuto del messaggio. Non avendo la chiave specifica il messaggio è inaccessibile e illeggibile, sia da esseri umani che da macchine. <br> Ci sono due grandi famiglie di crittografia: simmetrica e asimmetrica. <br> - <strong> la crittografia simmetrica </strong> per cifrare e decifrare il contenuto con la stessa chiave. È molto veloce ma richiede che il mittente e il destinatario concordino una chiave segreta comune o la scambino attraverso un altro canale, che deve essere scelto con attenzione per evitare che la chiave potrebbe essere recuperata dalle persone sbagliate, il che non garantirebbe più riservatezza del messaggio.<br> - <strong> la crittografia asimmetrica </strong> suppone che il destinatario abbia una coppia di chiavi (chiave privata e pubblica) e fa in modo che il potenziale mittente abbia accesso alla sua chiave pubblica. In questo caso il mittente utilizza la chiave pubblica del destinatario per crittografare il messaggio, mentre il destinatario usa la sua chiave privata per decrittografarlo. Tra i suoi vantaggi c'衩l fatto che la chiave pubblica può essere conosciuta da tutti e pubblicata. Ma attenzione: è necessario che i trasmettitori abbiano fiducia nell'origine della chiave pubblica, che siano sicure che sia effettivamente quella del destinatario. Un altro punto di forza: non è necessario condividere la stessa chiave. ",
+			  "source ": "Mesures_US Crittografia"
+			},
+			"PIA_DEF_PWD": {
+			  "name": "Password",
+			  "description": "Le password devono essere composte da un minimo di otto caratteri, devono essere rinnovate periodicamente (ogni sei mesi o una voltaall'anno)e ogni volta che c'è la minima preoccupazione che possano essere state compromesse e devono includere un minimo di tre o quattro tipi di caratteri (lettere maiuscole,lettere minuscole, numeri e caratterispeciali), quando una password viene modificata, le ultime cinque password non possono essere riutilizzate, la stessa password non deve essere utilizzata per accessi diversi;non deve essere correlata alle informazioni personali dell'utente(incluso nome o data di nascita). Definire un numero massimo di tentativi oltre i quali viene emesso un avviso e l'autenticazione è bloccata (temporaneamente o fino a quando non viene sbloccata manualmente).",
+			  "source": "Mesure_US"
+			},
+			"PIA_DEF_AUTH": {
+			  "name": "Autenticazione",
+			  "description": "L'autenticazione è un'operazione <strong> con cui l'utente fornisce la prova dell'identità </strong>, per questo esistono diversi meccanismi classificati a seconda che coinvolgano: <br> - che cosa sappiamo, ad esempio una password; <br> - cosa abbiamo, ad esempio una smart card; <br> - una caratteristica della nostra persona, ad esempio un'impronta digitale o il modo di scrivere di una firma autografa. <br> Come promemoria il GDPR rende l'uso della biometria soggetto a autorizzazione preventiva da parte dell' autorità garante. <br> <strong> L'autenticazione di un utente è qualificata come forte quando utilizza una combinazione di almeno due di queste categorie. </strong>",
+			  "source": "Mesures_US Logical Access Control"
+			},
+			"PIA_DEF_LOG": {
+			  "name": "Sorveglianza",
+			  "description": " Configurare un'architettura di registrazione degli accessi e delle operazioni alle infrastrutture informatiche e fisiche per consentire l'individuazione precoce di incidenti che coinvolgono dati personali e disporre di informazioni che possono essere utilizzate per le analisi tecniche o per fornire prove in relazione alle indagini. </ strong> In ogni caso, <strong> non conservare questi record per un periodo di tempo. eccessivo. </ strong> ",
+			  "source": "Mesures_US Surveillance"
+			},
+			"PIA_DEF_ARCH": {
+			  "name": "Archiviazione",
+			  "description": "Procedure che preservano e gestiscono gli archivi elettronici contenenti i dati personali destinati a garantire il loro valore (in particolare, il loro valore legale) per tutto il periodo necessario (trasferimento, archiviazione, migrazione, accessibilità, eliminazione, politica di archiviazione, protezione, ecc.). I dati che non vengono più uilizzati su base giornaliera ma non hanno ancora raggiunto il periodo di conservazione massimo, ad esempio perché conservato in caso di contezioso, devono essere archiviati. <strong> Gli archivi devono essere sicuri </strong>, soprattutto se i dati archiviati sono dati sensibili o che potrebbero avere gravi ripercussioni sugli interessati.",
+			  "source": "Mesures_USE Archiving"
+			}
+		}
+	},
+	"comments": {
+		"comments_count": "commenti",
+		"new_comment": "Commento",
+		"placeholder_new_comment": "Lascia un commento",
+		"comment": "Commenta",
+		"send": "Send"
+	},
+	"questions": {
+		"edit": "Modifica domanda",
+		"gauges": {
+			"0": "(Indefinito)",
+			"1": "Trascurabile",
+			"2": "Limitato",
+			"3": "Importante",
+			"4": "Massimo"
+		}
+	},
+	"evaluations": {
+		"title": "Valutazione",
+		"to_correct": "Da correggere",
+		"improvable": " Migliorabile",
+		"acceptable": "Accettabile",
+		"evaluation_comment": "Commento di valutazione",
+		"action_plan_comment": "Piano d'azione / azioni correttive",
+		"placeholder_to_correct": "Le informazioni fornite non sono sufficienti per valutarle. Torna a modificare per arricchire la proposta iniziale",
+		"placeholder_improvable1": "Alla luce delle informazioni fornite, è necessario aggiungere ulteriori misure per migliorare la protezione dei dati del trattamento.",
+		"placeholder_improvable2": "Inserisci i tuoi commenti",
+		"placeholder_acceptable": "Alla luce delle informazioni fornite, le misure implementate sono sufficienti per soddisfare i requisiti di protezione dei dati",
+		"gauges": {
+			"seriousness": "Prendere in considerazione il piano d'azione, come valuti la <span class='red-highlight'>serietà di questo rischio</span> ({{value}})?",
+			"likelihood": "Prendendo in considerazione il piano d'azione, come rivaluti la <span class='red-highlight'>probabilità di questo rischio</span> ({{value}})?",
+			"0": "(Indefinito)",
+			"1": "Trascurabile",
+			"2": "Limitato",
+			"3": "Importante",
+			"4": "Massimo"
+		},
+		"status": {
+			"0": "In sospeso",
+			"1": "Da correggere",
+			"2": "Non provabile",
+			"3": "Accettabile"
+		}
+	},
+	"help": {
+		"title": "Aiuto",
+		"definition": {
+			"data1": {
+				"title": "Uso dello strumento PIA",
+				"content":"Aggiornamenti in corso"
+			},
+			"data2": {
+				"title": "Problemi noti",
+				"qa1": {
+					"title": "Visualizzo errori come icone bloccate in uno stato o elementi mancanti dall'interfaccia",
+					"content": "Quando incontri questi errori di visualizzazione, chiudi l'applicazione e ricaricala. Di solito risolve il problema. Non perderai dati inseriti; sono automaticamente salvati mentre scrivi."
+				},
+				"qa2": {
+					"title": "Non posso modificare i gradi di valutazione della severità probabilità del rischio",
+					"content": "Questo problema noto è in corso di risoluzione. Se incontri questo problema, ti consigliamo di riempire il campo libero di livello stimato di severità, probabilità. Sarai in grado di modificare il grado una volta risolto il bug."
+				},
+				"qa3": {
+					"title": "Incontro problemi di importazione di PIA",
+					"content": "Sono stati osservati diversi bug di importazione, in particolare dei gradi di valutazione di severità probabilità del rischio che scompaiono. In questo caso fai riferimento alla problematica sopra. In più un PIA può non comparire sulla bacheca dopo l'importazione. Questo è un problema di visualizzazione e puoi semplicemente ricaricare la pagina."
+				},
+				"qa4": {
+					"title": "Quando faccio copia/incolla il testo evidenziato.",
+					"content": "Questo è solo un problema di visualizzazione e non ha effetti sul testo inserito. Il problema verrà isolto a breve."
+				},
+				"qa5": {
+					"title": "Non posso valutare una sezione",
+					"content": "Per valutare una sezione, è obbligatorio riempire tutti i campi. Controlla che tu l'abbia fatto. Quando modifichi un rischio, devi avere almeno una misura tecnica o organizzativa che mitighi quel rischio per richiedere una valutazione del rischio."
+				},
+				"qa6": {
+					"title": "Se cambio lingua, il testo non è tradotto",
+					"content": "Chiudi e riavvia l'applicazione. Il contenuto dovrebbe essere mostrato nella lingua selezionata."
+				},
+				"qa7": {
+					"title": "Ho rifiutato di convalidare un PIA e non so cosa fare",
+					"content": "Per il momento, le icone di navigazione del menu non sono ricaricate dopo aver rifiutato un PIA. Devi controllare ogni sezione e cambiare le informazioni e/o la valutazione in accordo con le ragioni di rifiuto del PIA. Una volta che tutte le sezioni saranno revisionate, sarai in grado di richiedere una convalida PIA di nuovo."
+				}
+			},
+			"footer": "Se incontri problemi o se hai suggerimenti per miglioramenti puoi spedirli tramite questo modulo <a target=\\\"_blank\\\" href=\"https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia\\\">https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia</a>"
+		}
+	},
+	"about": {
+		"title": "Informazioni",
+		"version_number": "Version number",
+		"description": "Questo tool è stato originariamente creato da <a target=\"_blank\" href=\"https://www.cnil.fr\">Commission Nationale Informatique et Liberté (CNIL)</a>, l'Autorità Francese di Protezione dei Dati, per aiutare i Titolari del trattamento ad essere conformi al GDPR.<br>Questo è un software libero e aperto. Se desiderate essere coinvolti nel progetto siete benvenuti: scaricate il software da Github, modificatelo e condividete le vostre modifiche con la comunità.",
+		"translators": "Il software Pia è attualmente disponibile in nove lingue. La lingua inglese e francese sono fornite dal CNIL. Le altre traduzioni sono il risultato del contributo delle seguenti persone:",
+		"translators_name": "<ul><li>Olandese: Ruud van Driel, Manuel d’Orso ;</li><li>Cecoslovacco: Jiří Grohmann, Manuel d’Orso ;</li><li>Italiano: Manuel d’Orso, Gianluca Markos, Romolo Manfredini.</li><li>Polacco: Joanna Karczewska</li><li>Tedesco: Kosmas Schütz</li><li>Spagnolo: ylachgar</li></ul>",
+		"contribute": "Se volete contribuire ad altre traduzioni del software o migliorare le traduzioni esistenti, vi invitiamo a <a href=\"https://github.com/LINCnil/pia/tree/master/src/assets/i18n\" target=\"_blank\">leggere la pagina con le apposite istruzioni</a>.",
+		"licences": "Licenze software:"
+	},
+	"settings": {
+		"title": "Impostazioni",
+		"content": "Inserisci un indirizzo (URL) del server remoto:",
+		"update": "Aggiorna URL"
+	},
+	"validation_page": {
+		"responsible": "Persona responsabile per la validazione della PIA: ",
+		"after_reading": "TO BE TRANSLATED - After reading full PIA relating to the data processing linked to ",
+		"confirmation1": "TO BE TRANSLATED - I attest that the context of the processing described in the PIA is consistent with the reality.",
+		"confirmation2": "TO BE TRANSLATED - I attest that I am aware of the risks depending on the existing or planned measures.",
+		"confirmation3": "TO BE TRANSLATED - I ratify the corrective actions indicated in the action plan.",
+		"confirmation4": "TO BE TRANSLATED - I commit to implement as quickly as possible the indicated corrective actions.",
+		"button": {
+			"rejection": "Rifiuta la PIA",
+			"simple_validation": "Approva la PIA <br>(direttamente)",
+			"signed_validation": "Approva PIA <br>(firmata)"
+		},
+		"mandatory_fields": "Tutte le spunte devono essere marcate",
+		"waiting_for_signature": "In attesa di PIA firmata",
+		"validated_pia_with_signature": "Approvata",
+		"add_signed_pia": "Aggiungi la PIA firmata",
+		"remove_attachment": "Rimuovere l'allegato",
+		"latest_signed_attachment": "Ultimo allegato firmato",
+		"signed_attachments_history": "Storia degli allegati firmati",
+		"tools": {
+			"dashboard": "Pannello di controllo",
+			"display_pia": "Mostra PIA",
+			"action_plan": "Piano di azione"
+		}
+	},
+	"rejection_page": {
+		"title": "Storia delle validazioni",
+		"rejection_reason": "Motivo del rifiuto",
+		"rejection_reason_placeholder": "Descrivere le ragioni del rifiuto della PIA.",
+		"applied_adjustments": "Modifiche proposte",
+		"applied_adjustments_placeholder": "Descrivere le modifiche apportate alla PIA.",
+		"previous_rejection": "Rifiuti precedenti",
+		"button": {
+			"abandon_treatment": "Abbandonare l'elaborazione",
+			"reject_pia": "Rifiutare la PIA",
+			"send_for_validation": "Reinviare per l'approvazione"
+		}
+	},
+	"misc": {
+		"display": "Mostra / Nascondi"
+	},
+	"modals": {
+		"cancel": "Annulla",
+		"archive": "Archivia",
+		"close": "Chiudi",
+		"continue": "Continua",
+		"start_evaluation": "Iniziare la revisione",
+		"back_to_home": "Torna alla home",
+		"simple_pia_validation": {
+			"content": "Il PIA è stato convalidato"
+		},
+		"completed_edition": {
+			"content": "La PIA è stata modificata, deve essere revisionata."
+		},
+		"completed_evaluation": {
+			"content": "La PIA è stata revisionata, deve essere validata."
+		},
+		"update_server_url": {
+			"content": "L'indirizzo del server è stato aggiornato."
+		},
+		"signed_pia_validation": {
+			"content": "<span class='strong'>Il PIA è accettato</span><br>Termina il PIA allegando<br>il report firmato della persona titolare.",
+			"download_pia": "Scarica report PIA"
+		},
+		"abandon_pia": {
+			"content": "Sei sicuro di voler <br> terminare il trattamento?"
+		},
+		"refuse_pia": {
+			"content": "<span class='strong'>PIA rifiutato,</span><br>Diversi campi devono essere corretti.<br>Torna alla modalità convalida<br>per fare le correzioni."
+		},
+		"same_comment": {
+			"content": "<span class='strong'>Attenzione,</span><br>Inserisci un commento diverso dall'ultimo inserito."
+		},
+		"not_enough_measures_to_remove": {
+			"content": "<span class='strong'>Attenzione, </span><br>Almeno una misura deve essere riempita: non è possibile cancellare."
+		},
+		"remove_measure": {
+			"content": "<span class='strong'>Attenzione,</span><br>Sei sicuro di voler <br> cancellare questa misura?",
+			"remove": "Cancella questa <br>misura",
+			"keep": "Mantieni questa <br> misura"
+		},
+		"ask_for_evaluation": {
+			"content": "<span class='strong'>Congratulazioni,</span><br>la sottosezione è <br> disponibile per la convalida."
+		},
+		"validate_evaluation": {
+			"content": "<span class='strong'>Congratulazioni,</span><br>avete finito di validare la sezione.<br>Altre parti della PIA devono essere valutate per completare la validazione della PIA."
+		},
+		"validate_evaluation_to_correct": {
+			"content": "Spiacente,<br>Diversi campi devono essere corretti.<br>Torna alla modalità modifica<br>per fare correzioni."
+		},
+		"declare_measures": {
+			"content": "Spiacente, <br>prima di valutare rischi,<br>devi riportare le<br>misure esistenti o pianificate.",
+			"declare": "Dichiara misure esistenti o pianificate"
+		},
+		"remove_pia": {
+			"content": "<span class='strong'>Attenzione,</span><br>Sei sicuro di voler<br>cancellare questo PIA?",
+			"remove": "Cancella questo PIA"
+		},
+		"remove_attachment": {
+			"content": "<span class='strong'>Attenzione,</span><br>Sei sicuro di voler<br>cancellare questo allegato?",
+			"keep": "Mantieni",
+			"remove": "Cancella"
+		}
+	},
+	"summary": {
+		"previous_page": "Torna alla pagina precedente",
+		"print": "Stampa",
+		"display_pia": "Mostra la PIA",
+		"display_action_plan": "Mostra il<br>piano di azione",
+		"display_filters": {
+			"title": "Filtri",
+			"main_content": "Mostra le \"Informazioni sulla PIA\"",
+			"context_content": "Mostra il \"Contesto\"",
+			"principles_content": "Mostra i \"Principi Fondamentali\"",
+			"risks_content": "Mostra i \"Rischi\"",
+			"action_plan_content": "Mostra il piano di azione"
+		},
+		"title": "Informazioni sul PIA",
+		"pia_name": "PIA",
+		"pia_author": "Nome autore",
+		"pia_assessor": "Nome assessore",
+		"pia_validator": "Nome convalidatore",
+		"content_choice": {
+			"0": "Il trattamento può essere implementato.",
+			"1": "Il trattamento non dovrebbe essere effettuato."
+		},
+		"dpo_name": "Nome DPO",
+		"dpo_status": "Stato DPO",
+		"dpo_opinion": "Parere DPO",
+		"concerned_people_searched_opinion": "Ricerca del parere di persone interessate",
+		"people_search_status_ok": "È richiesto il parere di persone interessate.",
+		"people_search_status_nok": "Non è richiesto il parere di persone interessate.",
+		"concerned_people_unsearched_opinion_comment": "Motivazione per cui il parere delle persone interessate non stato richiesto",
+		"concerned_people_name": "Pareri delle persone interessate",
+		"concerned_people_status": "Stato delle persone interessate",
+		"concerned_people_opinion": "Pareri delle persone interessate",
+		"modification_made": "Modifiche fatte",
+		"rejection_reason": "Motivo del rifiuto",
+		"creation_date": "Data di creazione",
+		"attachments": "Allegati",
+		"gauges": {
+			"1": "Trascurabile",
+			"2": "Limitata",
+			"3": "Importante",
+			"4": "Massima"
+		},
+		"action_plan": {
+			"title": "Piano d'azione",
+			"fundamental_principles": "Principi fondamentali",
+			"implementation_date": "Data prevista di implementazione",
+			"implementation_responsible": "Responsabile dell'implementazione",
+			"measures": "Controlli esistenti o pianificati",
+			"risks": "Rischi",
+			"no_action_plan": "Nessun piano d'azione registrato."
+		}
+	},
+	"errors": {
+		"title": "Pagina non trovata.",
+		"content": "Se incontri altri problemi o se hai suggerimenti per miglioramenti, <br> puoi inviarli con questo modulo: <a href=\"https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia\" target=\"_blank\">https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia</a>"
+	},
+	"overview-risks": {
+		"potential_impacts": "Impatti potenziali",
+		"threat": "Pericoli",
+		"sources": "Sorgenti",
+		"measures": "Misure",
+		"negligible": "Trascurabile",
+		"limited": "Limitata",
+		"important": "Importante",
+		"maximal": "Massima",
+		"risk-access_x": "Severità",
+		"risk-access_y": "Probabilità",
+		"risk-change_x": "Severità",
+		"risk-change_y": "Probabilità",
+		"risk-disappearance_x": "Severità",
+		"risk-disappearance_y": "Probabilità"
+	},
+	"cartography": {
+		"negligible": "Trascurabile",
+		"limited": "Limitata",
+		"important": "Importante",
+		"maximal": "Massima",
+		"seriousness_axe": "Serietà del rischio",
+		"likelihood_axe": "Probabilità del rischio",
+		"legend1": "Misure pianificate o esistenti",
+		"legend2": "Misure correttive implementate",
+		"legend3": "Accesso ai dati illegittimo",
+		"legend4": "Modifiche dei dati non volute",
+		"legend5": "Dati scomparsi",
+		"risk1_access": "(I)",
+		"risk2_modification": "(U)"
+	},
+	"action_plan": {
+		"title": "Panoramica",
+		"principles": "Principi fondamentali",
+		"measures": "Controlli pianificati o esistenti",
+		"risks": "Rischi",
+		"risk1": "Accesso illegittimo ai dati",
+		"risk2": "Modifiche dei dati non volute",
+		"risk3": "Dati scomparsi",
+		"improvable_measures": "Controlli migliorabili",
+		"acceptable_measures": "Controlli accettabili",
+		"no_action_plan": "Nessun piano d'azione registrato",
+		"edit": "Modifica",
+		"placeholder_person_in_charge": "Responsabile dell'implementazione"
+	},
+	"opinions": {
+		"edit": "Modifica",
+		"content": ", considera che :",
+		"dpo_opinion": "Parere DPO",
+		"placeholder_dpo_name": "Nome/i DPO",
+		"placeholder_dpo_opinion": "Specifica le motivazioni per la tua scelta.",
+		"dpo_lock": "Completa le altre sezioni prima di riempire il parere del DPO.",
+		"people_opinion": "Parere delle persone interessate",
+		"placeholder_concerned_people_name": "Nome/i delle persone interessate",
+		"placeholder_people_opinion": "Descrivi come le opinioni sono raccolte e quale è l'analisi. Se gli avvisi non sono stati richiesti, specifica il motivo.",
+		"placeholder_search_content": "Motiva perchè il parere delle persone interessate non è stato richiesto.",
+		"treatment_ok": "Il trattamento puè essere implementato.",
+		"treatment_nok": "Il trattamento non dovrebbe essere eseguito.",
+		"treatment_lock": "Completa le altre sezioni prima dөnserire il parere delle persone interessate."
+	},
+	"sections": {
+		"1": {
+			"title": "Contesto",
+			"short_help": "Questa sezione offre una visuale chiara del trattamento di dati personali in questione.",
+			"items": {
+				"1": {
+					"title": "Panoramica",
+					"short_help": "Questa parte permette di identificare e presentare l'oggetto dello studio.",
+					"questions": {
+						"1": {
+							"title": "Quale è il trattamento in considerazione?",
+							"placeholder": "Presenta un breve sunto del trattmento: nome, scopo, finalità, contesto di uso, etc."
+						},
+						"2": {
+							"title": "Quali sono le responsabilità legate al trattamento?",
+							"placeholder": "Descrivi le responsabilità delle parti interessate: il titolare del trattamento, gli eventuali responsabili interni e co-incaricati."
+						},
+						"3": {
+							"title": "Ci sono standard applicabili al trattamento?",
+							"placeholder": "Elenca gli standard rilevanti applicabili al trattamento, specialmente i codici di condotta e le certificazioni di protezione dati."
+						}
+					}
+				},
+				"2": {
+					"title": "Dati, processi e risorse di supporto",
+					"short_help": "Questa parte permette di definire e descrivere lo scopo del trattamento nel dettaglio.",
+					"questions": {
+						"1": {
+							"title": "Quali sono i dati trattati?",
+							"placeholder": "Elenca i dati raccolti e trattati. Definisci per ognuno la durata dell'archiviazione, i destinatari e le persone con accesso."
+						},
+						"2": {
+							"title": "Com'è il ciclo di vita del trattamento dei dati?",
+							"placeholder": "Presenta e descrivi come funziona il processo (dalla raccolta alla distruzione, i passaggi del trattamento, archiviazione etc.), usando per esempio un diagramma di flusso dei dati (come allegato) e una dettagliata descrizione del processi effettuati."
+						},
+						"3": {
+							"title": "Quali sono le risorse di supporto ai dati?",
+							"placeholder": "Elenca le risorse che ospitano i dati (sistemi operativi, applicazioni aziendali, database management systems, pacchetti office, protocolli, configurazioni etc.)"
+						}
+					}
+				}
+			}
+		},
+		"2": {
+			"title": "Principi Fondamentali",
+			"short_help": "Questa sezione permette di generare lo schema di adeguamento secondo i principi considerati.",
+			"items": {
+				"1": {
+			    	"title": "Proporzionalità, necessità",
+			    	"short_help": "Questa sezione permette di dimostrare la legittimità del trattamento e dei dati trattati.",
+			    	"questions": {
+				        "1": {
+				        	"title": "Gli scopi del trattamento sono specifici, espliciti e legittimi?",
+				        	"short_title": "Finalità",
+				        	"placeholder": "Spiegare perché le finalità del trattamento sono specifiche, esplicite e legittime."
+				        },
+				        "2": {
+							"title": "Quali sono le basi legali che rendono il trattamento legittimo?",
+							"short_title": "Basi legali",
+							"placeholder": "Presentare le basi del trattamento (ad esempio consenso, esecuzione di un contratto, obbligo legale, interessi vitali etc.)"
+				        },
+						"3": {
+							"title": "I dati raccolti sono adeguati, rilevanti e limitati a quanto è necessario in relazione alle finalità per cui sono stati trattati (minimizzazione dei dati)?",
+							"short_title": "Dati adeguati",
+							"placeholder": "Spiegare perchè ogni dato raccolto è necessario per le finalità del trattamento."
+						},
+						"4": {
+							"title": "I dati sono accurati e mantenuti aggiornati?",
+							"short_title": "Accuratezza dei dati",
+							"placeholder": "Descrivere quali sono i passaggi intrapresi per assicurare la qualità dei dati."
+						},
+						"5": {
+							"title": "Quale è la durata della conservazione dei dati?",
+							"short_title": "Durata dell'archiviazione",
+							"placeholder": "Spiegare perchè a durata dell'archiviazione giustificata da requisiti legali e/o necessità i trattamento."
+						}
+					}
+				},
+			    "2": {
+					"title": "Controlli per proteggere i diritti personali dei soggetti interessati",
+					"short_help": "Questa sezione permette di dimostrare lөmplementazione dei mezzi necessari per abilitare le persone interessate ad esercitare i loro diritti.",
+					"questions": {
+						"1": {
+							"title": " I soggetti interessati come sono informati del trattamento?",
+							"short_title": "Informazioni per i soggetti interessati",
+							"placeholder": "Descrivere quali informazioni sono date ai soggetti interessati e con quali mezzi."
+						},
+						"2": {
+							"title": "Come si ottiene il consenso dei soggetti interessati?",
+							"short_title": "Ottenere il consenso",
+							"placeholder": "Descrivere i controlli intesi ad assicurare che il consenso dell'utente sia ottenuto."
+						},
+						"3": {
+							"title": "I soggetti interessati come esercitano i loro diritti di acceso alla portabilità dei dati?",
+							"short_title": "Diritti di accesso e alla portabilità dei dati",
+							"placeholder": "Descrivere i controlli intesi a permettere ai soggetti interessati di accedere, ricevere e trasmettere i loro dati."
+						},
+						"4": {
+							"title": "Come i soggetti interessati esercitano i loro diritti alla rettifica e alla cancellazione?",
+							"short_title": "Diritto di rettifica e cancellazione",
+							"placeholder": "Descrivere i controlli intesi ad abilitare i soggetti interessati a rettificare ed eliminare i loro dati."
+						},
+						"5": {
+							"title": " i soggetti interessati come esercitano il loro diritto di restrizione e obiezione?",
+							"short_title": "Diritto di restrizione e obiezione",
+							"placeholder": "Descrivere i controlli intesi ad abilitare i soggetti interessati a restringere e obiettare il trattamento dei loro dati."
+						},
+						"6": {
+							"title": "Gli obblighi dei responsabili del trattamento sono chiaramente identificati e governati da un contratto?",
+							"short_title": "Subappalto",
+							"placeholder": "Per ogni responsabile del trattamento, descrivere le sue responsabilità, durata, finalità, scopo, istruzioni documentate, previa autorizzazione) e fornire i contratti, codici di condotta e certificazioni determinanti le missioni e gli obblighi."
+						},
+						"7": {
+							"title": "Nel caso di trasferimento di dati fuori dall'Unione Europea, i dati sono adeguatamente protetti?",
+							"short_title": "Trasferimenti",
+							"placeholder": "Per ogni nazione fuori dall'Unione Europea dove i dati sono archiviati e processati, indicare e descrivere se sono riconosciuti come offerenti di un livello adeguato di protezione dei dati o descrivere la fornitura di servizi concernenti il trasferimento."
+						}
+					}
+				}
+			}
+		},
+		"3": {
+			"title": "Rischi",
+			"short_help": "Questa sezione permette di valutare i rischi della privacy, prendendo in considerazione controlli esistenti o pianificati.",
+			"items": {
+				"1": {
+					"title": "Controlli esistenti o pianificati",
+					"short_help": "Questa sezione permette di identificare i controlli (esistenti o pianificati) che contribuiscono alla sicurezza dei dati"
+				},
+				"2": {
+					"title": "Accesso illegittimo ai dati",
+					"short_help": "Analizzare le cause e le conseguenze di accesso illegittimo ai dati, e stimare la gravità e la probabilità,",
+					"questions": {
+						"1": {
+							"title": "Quale potrebbe essere l'impatto sui soggetti interessati se il rischio si dovesse realizzare?",
+							"placeholder": "Inserire possibili rischi"
+						},
+						"2": {
+							"title": "Quali sono le principali minacce che potrebbero concretizzare il rischio?",
+							"placeholder": "Inserire le minacce"
+						},
+						"3": {
+							"title": "Quali sono le fonti di rischio?",
+							"placeholder": "Inserire le fonti di rischio"
+						},
+						"4": {
+							"title": "Quali dei controlli identificati contribuiscono a gestire il rischio?",
+							"placeholder": "Clicca qui per selezionare i controlli che gestiscono il rischio."
+						},
+						"5": {
+							"title": "Come stimeresti la gravità del rischio, specialmente riguardo i potenziali impatti e i controlli pianificati?",
+							"placeholder": "Giustificare qui la gravità stimata del rischio."
+						},
+						"6": {
+							"title": "Come stimeresti la probabilità del rischio, specialmente riguardo le minacce, fonti di rischio e i controlli pianificati?",
+							"placeholder": "Giustificare qui la probabilità stimata."
+						}
+					}
+				},
+				"3": {
+					"title": "Modifiche indesiderate dei dati",
+					"short_help": "Analizzare le cause e le conseguenze di modifiche indesiderate ai dati, e stimare la gravità la probabilità dell'evento.",
+					"questions": {
+						"1": {
+							"title": "Quali impatti ci sarebbero sui soggetti interessati se il rischio si dovesse concretizzare?",
+							"placeholder": "Inserire i potenziali rischi"
+						},
+						"2": {
+							"title": "Quali sono le principali minacce che possono portare al rischio?",
+							"placeholder": "Inserire le minacce"
+						},
+						"3": {
+							"title": "Quali sono le fonti di rischio?",
+							"placeholder": "Inserire le fonti di rischio"
+						},
+						"4": {
+							"title": "Quali dei controlli identificati contribuiscono a gestire il rischio?",
+							"placeholder": "Cliccare per selezionare i controlli che gestiscono il rischio."
+						},
+						"5": {
+							"title": "Come stimeresti la gravità del rischio, in particolare riguardo l'impatto potenziale e i controlli pianificati?",
+							"placeholder": "Giustificare qui la gravità stimata del rischio."
+						},
+						"6": {
+							"title": "Come stimeresti la probabilità del rischio, specialmente riguardo minacce, fonti di rischio e controlli pianificati?",
+							"placeholder": "Giustificare qui la probabilità stimata."
+						}
+					}
+				},
+				"4": {
+					"title": "Scomparsa di dati",
+					"short_help": "Analizzare le cause e le conseguenze della perdita di dati e stimare la gravità, la probabilità dell'evento.",
+					"questions": {
+						"1": {
+							"title": "Quale potrebbe essere l'impatto sui soggetti interessati se il rischio dovesse realizzarsi?",
+							"placeholder": "Inserire i potenziali impatti"
+						},
+						"2": {
+							"title": "Quali sono le minacce che potrebbero portare al rischio?",
+							"placeholder": "Inserire le minacce"
+						},
+						"3": {
+							"title": "Quali sono le fonti di rischio?",
+							"placeholder": "Inserire le fonti di rischio"
+						},
+						"4": {
+							"title": "Quali dei controlli identificati contribuisce a gestire il rischio?",
+							"placeholder": "Cliccare qui per selezionare i controlli che gestiscono il rischio."
+						},
+						"5": {
+							"title": "Come stimeresti la gravità del rischio, specialmente riguardo il potenziale impatto e i controlli pianificati?",
+							"placeholder": "Giustificare la gravità stimata del rischio."
+						},
+						"6": {
+							"title": "Come stimeresti la probabilità del rischio, specialmente rispetto le minacce, fonti di rischio e i controlli pianficati?",
+							"placeholder": "Giustificare qui la probabilità stimata."
+						}
+					}
+				},
+				"5": {
+					"title": "Panoramica del rischio",
+					"short_help": "Questa visualizzazione permette di avere una visuale globale e sintetica degli effetti dei controlli sui rischi che gestiscono."
+				}
+			}
+		},
+		"4": {
+			"title": "Convalida",
+			"short_help": "Questa sezione permette di preparare e formalizzare la convalida PIA.",
+			"items": {
+				"1": {
+					"title": "Mappatura del rischio",
+					"short_help": "Questa visualizzazione permette di comparare il posizionamento del rischio prima e dopo l'applicazione dei controlli complementari."
+				},
+				"2": {
+					"title": "Piano d'azione",
+					"short_help": "Pianificare in dettaglio l'implementazione di controlli aggiuntivi identificati durante il PIA."
+				},
+				"3": {
+					"title": "Pareri di DPO e soggetti interessati",
+					"short_help": "Presentare l'opinione delle persone responsabili della protezione dei dati e dei problemi di privacy (o eventuali delegati). Presentare anche le opinioni dei soggetti interessati o di loro rappresentanti."
+				},
+				"4": {
+					"title": "Convalidare PIA"
+				},
+				"5": {
+					"title": "PIA rifiutate"
+				}
+			}
+		}
+	}
 }
