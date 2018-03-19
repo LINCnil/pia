@@ -927,6 +927,9 @@
       "content": "<span class='strong'>Warning,</span><br>Are you sure you want to<br>remove this attachment?",
       "keep": "Keep",
       "remove": "Remove"
+    },
+    "modal_select_text_pia": {
+      "content": "The content of pia has been copied on your clipboard"
     }
   },
   "summary": {
@@ -934,6 +937,7 @@
     "print": "Print",
     "display_pia": "Display PIA",
     "display_action_plan": "Display<br>action plan",
+    "copy_to_clipboard": "Copy to clipboard",
     "display_filters": {
       "title": "Display filters",
       "main_content": "Display section \"PIA information\"",

@@ -181,23 +181,16 @@
   </div>
 </div>
 
-<!--
-  <div class="pia-modalBlock">
-    <div class="pia-modalBlock-content bounceIn">
-      <button type="button" class="pia-modalBlock-close btn" title="{{ 'modals.close' | translate }}"><span class="pia-icons pia-icon-close-big"></span></button>
-      <p>
-        <span class="strong">Attention,</span><br>
-        vous venez d'ajouter une mesure,<br>
-        <span class="red">" Sauvegarde de données ",</span><br>
-        n'oubliez pas de la mettre à jour dans<br>
-        la partie <span class="red">" Mesures existantes ou prévues "</span>
-      </p>
-      <div class="pia-modalBlock-validate">
-        <button class="btn btn-blue" type="button">{{ 'modals.continue' | translate }}</button>
-      </div>
+<div class="pia-modalBlock" id="modal-select-text-pia">
+  <div class="pia-modalBlock-content bounceIn">
+    <button tabindex="2" type="button" class="pia-modalBlock-close btn" title="{{ 'modals.close' | translate }}" (click)="_modalsService.closeModal()"><span class="pia-icons pia-icon-close-big"></span></button>
+    <p>{{ 'modals.modal_select_text_pia.content' | translate }}</p>
+    <span class="pia-icons pia-icon-happy"></span>
+    <div class="pia-modalBlock-validate">
+      <button tabindex="1" class="btn btn-green get-focus" type="button" (click)="_modalsService.closeModal()">{{ 'modals.continue' | translate }}</button>
     </div>
   </div>
--->
+</div>
 
 <div class="pia-modalBlock" id="modal-list-new-pia">
   <div class="pia-modalBlock-content bounceIn">

@@ -928,6 +928,9 @@
       "content": "<span class='strong'>Waarschuwing, </span> <br> Weet u zeker dat u deze bijlage wilt verwijderen?",
       "keep": "Aanhouden",
       "remove": "Verwijderen"
+    },
+    "modal_select_text_pia": {
+      "content": "TO BE TRANSLATED - The content of pia has been copied on your clipboard"
     }
   },
   "summary": {
@@ -935,6 +938,7 @@
     "print": "Print",
     "display_pia": "TO BE TRANSLATED - Display PIA",
     "display_action_plan": "TO BE TRANSLATED - Display<br>action plan",
+    "copy_to_clipboard": "TO BE TRANSLATED - Copy to clipboard",
     "display_filters": {
       "title": "TO BE TRANSLATED - Filters",
       "main_content": "TO BE TRANSLATED - Display \"PIA information\"",

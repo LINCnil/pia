@@ -874,6 +874,9 @@
     "completed_evaluation": {
       "content": "L'intégralité de l'analyse a été évaluée, le PIA doit désormais être validé."
     },
+    "modal_select_text_pia": {
+      "content": "Le contenu du Rapport Pia a été copié dans votre presse-papier"
+    },
     "update_server_url": {
       "content": "L'adresse du serveur à été mise à jour."
     },
@@ -926,6 +929,7 @@
     "print": "Imprimer",
     "display_pia": "Afficher le PIA",
     "display_action_plan": "Afficher le<br>plan d'action",
+    "copy_to_clipboard": "Copier dans le presse-papier",
     "display_filters": {
       "title": "Filtres d'affichage",
       "main_content": "Afficher la section \"Informations du PIA\"",
