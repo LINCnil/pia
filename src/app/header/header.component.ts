@@ -28,7 +28,7 @@ export class HeaderComponent implements OnInit {
               public _piaService: PiaService,
               private _modalsService: ModalsService,
               private _http: Http,
-              private _languagesService: LanguagesService) {
+              public _languagesService: LanguagesService) {
     this.updateContrast();
   }
 
