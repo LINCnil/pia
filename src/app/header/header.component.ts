@@ -9,6 +9,7 @@ import { Pia } from 'app/entry/pia.model';
 import { TranslateService } from '@ngx-translate/core';
 import { PiaService } from 'app/entry/pia.service';
 import { ModalsService } from 'app/modals/modals.service';
+import { LanguagesService } from 'app/services/languages.service';
 
 @Component({
   selector: 'app-header',
@@ -16,10 +17,9 @@ import { ModalsService } from 'app/modals/modals.service';
   styleUrls: ['./header.component.scss'],
   providers: [PiaService],
 })
-export class HeaderComponent implements OnInit, DoCheck {
+export class HeaderComponent implements OnInit {
   public increaseContrast: string;
   appVersion: string;
-  selectedLanguage: string;
   headerForHome: boolean;
 
   constructor(private _router: Router,
@@ -27,23 +27,20 @@ export class HeaderComponent implements OnInit, DoCheck {
               private _translateService: TranslateService,
               public _piaService: PiaService,
               private _modalsService: ModalsService,
-              private _http: Http) {
+              private _http: Http,
+              private _languagesService: LanguagesService) {
     this.updateContrast();
   }
 
   ngOnInit() {
     this.appVersion = environment.version;
-    this.getUserLanguage();
 
     // Set the visibility for the PIA example button according to the current url
     this.headerForHome = (this._router.url === '/home/card' ||
                           this._router.url === '/home/list' ||
                           this._router.url === '/about' ||
+                          this._router.url === '/help' ||
                           this._router.url === '/settings') ? true : false;
-  }
-
-  ngDoCheck() {
-    this.getUserLanguage();
   }
 
   /**
@@ -54,30 +51,6 @@ export class HeaderComponent implements OnInit, DoCheck {
   changeContrast(event: any) {
     localStorage.setItem('increaseContrast', event.target.checked);
     this.updateContrast();
-  }
-
-  /**
-   * Record the selected language.
-   * @param {string} selectedLanguage
-   * @memberof HeaderComponent
-   */
-  updateCurrentLanguage(selectedLanguage: string) {
-    localStorage.setItem('userLanguage', selectedLanguage);
-    this._translateService.use(selectedLanguage);
-  }
-
-  /**
-   * Retrieve the selected language.
-   * @memberof HeaderComponent
-   */
-  getUserLanguage() {
-    const language = localStorage.getItem('userLanguage');
-    if (language && language.length > 0) {
-      this.selectedLanguage = language;
-    } else {
-      const browserLang = this._translateService.getBrowserLang();
-      this.selectedLanguage = browserLang.match(/en|cs|it|nl|no|fr|pl|de|es|el/) ? browserLang : 'fr';
-    }
   }
 
   /**
@@ -112,7 +85,6 @@ export class HeaderComponent implements OnInit, DoCheck {
                 this._router.navigate(['entry', entry2.id, 'section', 1, 'item', 1]);
               });
             });
-
             resolve();
           });
         }
