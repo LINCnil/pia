@@ -1,8 +1,8 @@
 <app-header></app-header>
-<main class="container pia-summaryContainerBlock">
+<main class="container pia-summaryContainerBlock pia-mainContainerBlock">
 
   <!-- Buttons -->
-  <div class="pia-summaryButtonsBlock">
+  <div class="pia-summaryButtonsBlock unselectable">
     <a title="{{ 'summary.previous_page' | translate }}" routerLink="/entry/{{_piaService.pia.id}}/section/1/item/1" class="btn hide-for-print">
       <i class="fa fa-chevron-left" aria-hidden="true"></i>
     </a>
@@ -12,23 +12,25 @@
   </div>
 
   <!-- Navigation links -->
-  <div class="pia-summaryLinksBlock">
+  <div class="pia-summaryLinksBlock unselectable">
     <a *ngIf="showPiaTpl" (click)="displayPiaSummary()" routerLink="/summary/{{_piaService.pia.id}}/action_plan" class="btn pia-previewBlock hide-for-print">
       <span class="pia-icons pia-icon-preview"></span>
       <div [innerHTML]="'summary.display_action_plan' | translate"></div>
     </a>
-    <a *ngIf="!showPiaTpl" (click)="displayPiaSummary()" routerLink="/summary/{{_piaService.pia.id}}/pia" class="btn pia-previewBlock hide-for-print">
+    <a *ngIf="!showPiaTpl" (click)="displayPiaSummary()" routerLink="/summary/{{_piaService.pia.id}}/pia" class="btn  pia-previewBlock hide-for-print">
       <span class="pia-icons pia-icon-preview"></span>
       <div>{{ 'summary.display_pia' | translate }}</div>
     </a>
   </div>
-
+  <div class="pia-summaryCopyBlock">
+  <button class="btn btn-select-all" (click)="getTextSelection()">{{ 'summary.copy_to_clipboard' | translate }}</button>
+  </div>
   <!-- Customize content filters -->
   <div *ngIf="displayFilters" class="row">
    <div class="small-12 medium-12 columns">
       <form class="pia-summaryFiltersBlock hide-for-print">
         <fieldset>
-          <legend>{{ 'summary.display_filters.title' | translate }}</legend>
+          <legend class="unselectable">{{ 'summary.display_filters.title' | translate }}</legend>
           <div>
             <input type="checkbox" name="displayer-pia-main-content" id="displayer-pia-main-content" [checked]="true" (change)="displayMainContent()">
             <label for="displayer-pia-main-content">{{ 'summary.display_filters.main_content' | translate }}</label>
@@ -53,19 +55,18 @@
       </form>
     </div>
    </div>
-
-  <div class="row">
+  <div class="row force-select-all" id="force-select-all">
     <div class="small-12 medium-12 columns">
-      <div *ngIf="showPiaTpl && allData">
+      <div *ngIf="showPiaTpl && allData" ng-class="{'text-success': model.copied, 'text-danger': !model.copied}" ng-copy="events.onCopy($event)">
 
         <!-- Main PIA data -->
-        <div class="fadeIn" *ngIf="displayMainPiaData">
+        <div class="fadeIn force-select-all" *ngIf="displayMainPiaData">
           <div *ngFor="let c of content">
             <div *ngIf="c.data.length > 0">
               <h1>{{ c.title | translate }}</h1>
               <h2 *ngIf="c.subtitle">{{ c.subtitle | translate }}</h2>
               <div class="databox" *ngFor="let d of c.data">
-                <h3>{{ d.title | translate }}</h3>
+                <h3 id="select">{{ d.title | translate }}</h3>
                 <div style="font-weight:500;" [ngClass]="{ 'pia-attachment-removed': d.comment && d.comment.length > 0 }" *ngIf="d.type !== 'date'; else dateBlock" [innerHTML]="d.content | translate | safeHtml"></div>
                 <div *ngIf="d.type !== 'date' && d.comment && d.comment.length > 0" [innerHTML]="d.comment | nl2br | safeHtml"></div>
                 <ng-template #dateBlock>
@@ -75,10 +76,9 @@
             </div>
           </div>
         </div>
-
         <div *ngFor="let section of _piaService.data.sections">
           <div class="fadeIn section-{{section.id}}" *ngIf="section.id !== 4">
-            <h1>{{ section.title | translate }}</h1>
+            <h1 >{{ section.title | translate }}</h1>
             <div *ngFor="let item of section.items">
               <div *ngIf="item.evaluation_mode !== ''">
                 <h2>{{ item.title | translate }}</h2>
@@ -285,7 +285,8 @@
           </div>
         </div>
       </div>
-
     </div>
   </div>
 </main>
+
+<app-modals></app-modals>
