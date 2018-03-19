@@ -20,8 +20,9 @@
       "fr": "Français",
       "en": "English",
       "cz": "Česky",
-      "it": "Italiaans",
+      "it": "Italiano",
       "nl": "Nederlands",
++     "no": "Nynorsk",
       "pl": "Polski",
       "de": "Deutsch",
       "es": "Español",
@@ -129,44 +130,44 @@
       "remove": "Αφαίρεση"
     },
     "sections": {
-      "homepage_link": "Επιστροφή στον πίνακα ενδείξεων",
-      "validate_pia": "Επικυρώστε ΕΑ",
+      "homepage_link": "Επιστροφή στον πίνακα ελέγχου",
+      "validate_pia": "Επικύρωση ΕΑ",
       "refuse_pia": "Απορριφθείσες ΕΑ",
       "status": {
         "evaluation": {
           "title": "Σε αναμονή ελέγχου.",
           "content": "Αυτό το τμήμα δεν έχει ακόμη ελεγχθεί. Αν επιθυμείτε να επεξεργαστείτε το περιεχόμενο που έχει υποβληθεί για έλεγχο, πρέπει να ",
           "cancel": "ακυρώσετε το αίτημα ελέγχου.",
-          "cancel_button": "Ακυρώστε το αίτημα ελέγχου"
+          "cancel_button": "Ακύρωση αιτήματος ελέγχου"
         },
         "validation": {
           "title": "Σε αναμονή επικύρωσης.",
           "content": "Αυτό το τμήμα έχει ελεγχθεί και αναμένει την συνολική επικύρωση της ΕΑ. Αν επιθυμείτε να αλλάξετε τον έλεγχο, πρέπει να ",
           "cancel": "ακυρώσετε το αίτημα επικύρωσης.",
-          "cancel_button": "Ακυρώστε το αίτημα επικύρωσης"
+          "cancel_button": "Ακύρωση αιτήματος επικύρωσης"
         }
       }
     },
     "footer": {
-      "ask_evaluation": "Αιτηθείτε έλεγχο",
-      "validate_evaluation": "Επικυρώστε έλεγχο",
+      "ask_evaluation": "Αίτηση ελέγχου",
+      "validate_evaluation": "Επικύρωση ελέγχου",
       "subsection_validated": "Το υποτμήμα ελέγχθηκε, σε αναμονή τελικής επικύρωσης",
       "mandatory_fields": "Όλα τα πεδία πρέπει να συμπληρωθούν"
     }
   },
   "measures": {
     "placeholder_title": "Τίτλος μέτρου",
-    "add": "Προσθέστε ένα μέτρο (ειδάλλως, χρησιμοποιείστε την γνωσιακή βάση)",
-    "edit": "Επεξεργαστείτε το μέτρο",
-    "remove": "Διαγράψτε το μέτρο",
+    "add": "Προσθήκη ενός μέτρου (ειδάλλως, χρησιμοποιείστε τη γνωσιακή βάση)",
+    "edit": "Επεξεργασία μέτρου",
+    "remove": "Διαγραφή μέτρου",
     "default_placeholder": "Περιγράψτε τα υφιστάμενα ή προοριζόμενα μέτρα για να εξασφαλίσετε την ασφάλεια των προσωπικών δεδομένων."
   },
   "knowledge_base": {
     "title": "Γνωσιακή βάση",
     "search": "Αναζήτηση",
-    "add_measure": "Προσθέστε",
+    "add_measure": "Προσθήκη",
     "placeholder_help": "Βοηθήματα εισόδου",
-    "placeholder_add_measure": "Προσθέστε αυτό το μέτρο",
+    "placeholder_add_measure": "Προσθήκη αυτού του μέτρου",
     "add_measure_hint": "Μπορείτε επίσης να προσθέσετε ένα μέτρο από τη γνωσιακή βάση.",
     "filters": {
       "title": "Φίλτρα",
@@ -816,14 +817,14 @@
     "version_number": "Αριθμός έκδοσης",
     "description": "Αυτό το εργαλείο σχεδιάστηκε αρχικά από την <a target=\"_blank\" href=\"https://www.cnil.fr\">Commission Nationale Informatique et Liberté (CNIL)</a>, τη γαλλική Αρχή Προστασίας Δεδομένων, για να βοηθήσει τον υπεύθυνο επεξεργασίας προσωπικών δεδομένων να συμμορφωθεί με τον ΓΚΠΔ.<br>Αυτό το λογισμικό είναι ελεύθερο και ανοιχτό. Αν θέλετε να συμμετάσχετε σε αυτό το έργο, μπορείτε να κατεβάσετε τον πηγαίο κώδικα από το Github, να τον τροποποιήσετε και να τον μοιραστείτε με την κοινότητα.",
     "translators": "Το λογισμικό PIA διατίθεται επί του παρόντος σε έξι γλώσσες. Η γαλλική και η αγγλική εκδοχή παρέχονται από το CNIL. Οι άλλες εκδοχές προκύπτουν από τις συνεισφορές των ακόλουθων ατόμων:",
-    "translators_name": "<ul><li>Dutch: Ruud van Driel, Manuel d’Orso ;</li><li>Czech: Jiří Grohmann, Manuel d’Orso ;</li><li>Italian: Manuel d’Orso, Gianluca Markos.</li><li>Polish: Joanna Karczewska</li><li>German: Kosmas Schütz</li><li>Spanish: ylachgar</li><li>Greek: <a target=\"_blank\" href=\"https://tzellis.gr\">Dimitris Tzellis</a></li></ul>",
+    "translators_name": "<ul><li>Dutch: Ruud van Driel, Manuel d’Orso ;</li><li>Czech: Jiří Grohmann, Manuel d’Orso ;</li><li>Italian: Manuel d’Orso, Gianluca Markos, Romolo Manfredini.</li><li>Polish: Joanna Karczewska</li><li>German: Kosmas Schütz</li><li>Spanish: ylachgar</li><li>Greek: <a target=\"_blank\" href=\"https://tzellis.gr\">Dimitris Tzellis</a></li></ul>",
     "contribute": "Αν θέλετε να συμβάλλετε στη μετάφραση του λογισμικού σε άλλη γλώσσα ή να βελτιώσετε τις υπάρχουσες μεταφράσεις, σας συνιστούμε <a href=\"https://github.com/LINCnil/pia/tree/master/src/assets/i18n\" target=\"_blank\">να διαβάσετε τη σελίδα που περιγράφει τα βήματα που πρέπει να ακολουθήσετε</a>.",
     "licences": "Άδειες βιβλιοθήκης:"
   },
   "settings": {
     "title": "Ρυθμίσεις",
     "content": "Παρακαλώ, καταχωρίστε τη διεύθυνση (URL) του απομακρυσμένου διακομιστή:",
-    "update": "Ανανεώστε το URL"
+    "update": "Ανανέωση του URL"
   },
   "validation_page": {
     "responsible": "Άτομο υπεύθυνο για την επικύρωση της ΕΑ: ",
@@ -851,7 +852,7 @@
     }
   },
   "rejection_page": {
-    "title": "Ιστορικό Επικυρώσεων",
+    "title": "Ιστορικό επικυρώσεων",
     "rejection_reason": "Αιτιολογία απόρριψης",
     "rejection_reason_placeholder": "Περιγράψτε τις αιτίες για την απόρριψη της ΕΑ",
     "applied_adjustments": "Προτεινόμενες προσαρμογές",
@@ -1287,7 +1288,7 @@
           "short_help": "Παρουσιάστε τις συμβουλές του υπεύθυνου προστασίας δεδομένων και προστασίας της ιδιωτικής ζωής (εκπρόσωπος προστασίας δεδομένων εάν υπάρχει). Παρουσιάστε τις απόψεις των υποκειμένων των δεδομένων ή των εκπροσώπων τους."
         },
         "4": {
-          "title": "Επικυρώστε την ΕΑ"
+          "title": "Επικύρωση της ΕΑ"
         },
         "5": {
           "title": "Απορριφθείσα ΕΑ"
