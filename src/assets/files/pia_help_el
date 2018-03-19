@@ -1,10 +1,10 @@
-<h2>Manage your PIA</h2>
+<h2>Διαχειριστείτε την ΕΑ σας</h2>
 
 <p>
-  Through the dashboard, you can manage globally all of your PIA by allowing you to do several actions such as duplicate or export a PIA.
+  Μέσω του πίνακα ελέγχου, μπορείτε να διαχειριστείτε οικουμενικά όλη την ΕΑ σας, επιτρέποντάς σας να κάνετε διάφορες ενέργειες όπως την αντιγραφή ή την εξαγωγή μιας ΕΑ.
 </p>
 
-<h3>Editing information relating to a PIA</h3>
+<h3>Επεξεργασία πληροφοριών σχετικά με μια ΕΑ</h3>
 
 <table>
   <tr>
@@ -12,12 +12,12 @@
       <img src="./assets/images/help/en/2018-02-23 00 Dashboard 00 - Editer Info PIA.png" alt="">
     </td>
     <td>
-      To edit the information displayed on a PIA in the dashboard, click on the text you want to edit and enter your text.
+      Για να επεξεργαστείτε τις πληροφορίες που εμφανίζονται σε μια ΕΑ στον πίνακα ελέγχου, κάντε κλικ στο κείμενο που θέλετε να επεξεργαστείτε και εισάγετε το κείμενό σας.
     </td>
   </tr>
 </table>
 
-<h3>Duplicate a PIA</h3>
+<h3>Αντιγραφή μιας ΕΑ</h3>
 
 <table>
   <tr>
@@ -25,12 +25,12 @@
       <img src="./assets/images/help/en/2018-02-23 00 Dashboard 01 - Dupliquer PIA.png" alt="">
     </td>
     <td>
-      To duplicate a PIA, which could be used as a template for several of your processing operations:<ul><li>In card view, hover the dots at the top right of the card you wish to duplicate and click on "Duplicate";</li><li>In list view, click on the "Duplicate" icon.</li></ul>
+      Για να αντιγράψετε μια ΕΑ, η οποία θα μπορούσε να χρησιμοποιηθεί ως πρότυπο για πολλές από τις εργασίες επεξεργασίας σας:<ul><li>Στην προβολή καρτών, τοποθετήστε τις κουκκίδες στο πάνω δεξιά μέρος της κάρτας που θέλετε να αντιγράψετε και κάντε κλικ στο "Αντιγραφή"·</li><li>Στην προβολή λίστας, κάντε κλικ στο εικονίδιο "Αντιγραφή".</li></ul>
     </td>
   </tr>
 </table>
 
-<h3>Export a PIA</h3>
+<h3>Εξαγωγή μιας ΕΑ</h3>
 
 <table>
   <tr>
@@ -38,12 +38,12 @@
       <img src="./assets/images/help/en/2018-02-23 00 Dashboard 02 - Exporter PIA.png" alt="">
     </td>
     <td>
-      To export a PIA ( json format) click on the export icon. In doing so, you can share a PIA with your colleagues or associates as they'll be able to import it their PIA software.
+      Για να εξάγετε μια ΕΑ (μορφή json) κάντε κλικ στο εικονίδιο εξαγωγής. Με αυτόν τον τρόπο, μπορείτε να μοιραστείτε μια ΕΑ με τους συναδέλφους ή τους συνεργάτες σας, καθώς θα μπορούν να την εισάγουν στο λογισμικό τους για ΕΑ.
     </td>
   </tr>
 </table>
 
-<h3>Import a PIA</h3>
+<h3>Εισαγωγή μιας ΕΑ</h3>
 
 <table>
   <tr>
@@ -51,12 +51,12 @@
       <img src="./assets/images/help/en/2018-02-23 00 Dashboard 03 - Importer PIA.png" alt="">
     </td>
     <td>
-      To import a PIA: <ul><li>In card view, click on the plus ("+") associated with "Import PIA" on the PIA creation card. A window will appear. Select the PIA (json file) you wish to import;</li><li>In list view, click on the "Import PIA" icon. A window will appear. Select the PIA (json file) you wish to import. Note that any other file format is not supported by the PIA software and therefore won't be imported in the tool.</li></ul>
+      Για την εισαγωγή μιας ΕΑ: <ul><li>Στην προβολή καρτών, κάντε κλικ στο συν ("+") που σχετίζεται με την "Εισαγωγή ΕΑ" στην κάρτα δημιουργίας ΕΑ. Θα εμφανιστεί ένα παράθυρο. Επιλέξτε το αρχείο ΕΑ (αρχείο json) που θέλετε να εισάγετε·</li><li>Στην προβολή λίστας, κάντε κλικ στο εικονίδιο "Εισαγωγή ΕΑ". Θα εμφανιστεί ένα παράθυρο. Επιλέξτε το αρχείο ΕΑ (αρχείο json) που θέλετε να εισάγετε. Ας σημειωθεί ότι οποιαδήποτε άλλη μορφή αρχείου δεν υποστηρίζεται από το λογισμικό ΕΑ και επομένως δεν θα εισαχθεί στο εργαλείο.</li></ul>
     </td>
   </tr>
 </table>
 
-<h3>Export the PIA report</h3>
+<h3>Εξαγωγή της αναφοράς ΕΑ</h3>
 
 <table>
   <tr>
@@ -64,12 +64,12 @@
       <img src="./assets/images/help/en/2018-02-23 00 Dashboard 04 - Exporter Rappor2018-02-23 00 Dashboard t.png" alt="">
     </td>
     <td>
-      To export the PIA report:<ul><li>In card view, hover the dots ("…") at the top right of the card you wish to duplicate and click on "Display PIA" or "Display action plan";</li><li>In list view, click on the "Display PIA" or "Display action plan" icon.</li></ul>
+      Για την εξαγωγή της αναφοράς ΕΑ:<ul><li>Στην προβολή καρτών, τοποθετήστε τις κουκκίδες ("…") στην επάνω δεξιά γωνία της κάρτας που θέλετε να αντιγράψετε και κάντε κλικ στο "Εμφάνιση ΕΑ" ή "Εμφάνιση σχεδίου δράσης"·</li><li>Στην προβολή λίστας, κάντε κλικ στο εικονίδιο "Εμφάνιση ΕΑ" ή "Εμφάνιση σχεδίου δράσης".</li></ul>
     </td>
   </tr>
 </table>
 
-<h3>Print the PIA report</h3>
+<h3>Εκτύπωση της αναφοράς ΕΑ</h3>
 
 <table>
   <tr>
@@ -77,18 +77,18 @@
       <img src="./assets/images/help/en/2018-02-23 00 Dashboard 05 - Imprimer Rapport.png" alt="">
     </td>
     <td>
-      To print the PIA report, follow the steps described in "Export the PIA report" and click on the print icon.
+      Για εκτύπωση της αναφοράς ΕΑ, ακολουθήστε τα βήματα που περιγράφονται στην ενότητα "Εξαγωγή της αναφοράς ΕΑ" και κάντε κλικ στο εικονίδιο εκτύπωσης.
     </td>
   </tr>
 </table>
 
-<h2>Edit your PIA</h2>
+<h2>Επεξεργασία της ΕΑ</h2>
 
 <p>
-  First step in order to properly carry out a PIA, the edition phase will usually be filled by the individuals in charge of the practical implementation of the processing (marketing department, project team, IT department…).
+  Πρώτο βήμα για την σωστή διεξαγωγή μιας ΕΑ· η φάση της έκδοσης θα καλύπτεται συνήθως από τα άτομα που είναι υπεύθυνα για την πρακτική εφαρμογή της επεξεργασίας (τμήμα μάρκετινγκ, ομάδα έργου, τμήμα πληροφορικής …).
 </p>
 
-<h3>Create a PIA</h3>
+<h3>Δημιουργία μιας ΕΑ</h3>
 
 <table>
   <tr>
@@ -96,12 +96,12 @@
       <img src="./assets/images/help/en/2018-02-23 01 Edit 01 - CrÇer PIA.png" alt="">
     </td>
     <td>
-      To create a PIA:<ul><li>In card view, click on the plus ("+") associated with "Create PIA" on the PIA creation card. Click on the "Start" button;</li><li>In list view, click on the "Create PIA" button. Click on the "Start" button.</li></ul>It is mandatory to fill all the fields in order to be able to edit the PIA. The information first entered when creating a PIA can be edited anytime in the dashboard.
+      Για τη δημιουργία μιας ΕΑ:<ul><li>Στην προβολή καρτών, κάντε κλικ στο συν ("+") που σχετίζεται με το "Δημιουργία ΕΑ" στην κάρτα δημιουργίας ΕΑ. Κάντε κλικ στο κουμπί "Έναρξη"·</li><li>Στην προβολή λίστας, κάντε κλικ στο κουμπί "Δημιουργία ΕΑ". Κάντε κλικ στο κουμπί "Έναρξη".</li></ul>Είναι υποχρεωτικό να συμπληρώσετε όλα τα πεδία για να μπορείτε να επεξεργαστείτε την ΕΑ. Οι πληροφορίες που εισάγονται πρώτα κατά τη δημιουργία μιας ΕΑ μπορούν να τροποποιηθούν ανά πάσα στιγμή στον πίνακα ελέγχου.
     </td>
   </tr>
 </table>
 
-<h3>Edit a text field</h3>
+<h3>Επεξεργαστείτε ένα πεδίο κειμένου</h3>
 
 <table>
   <tr>
@@ -109,12 +109,12 @@
       <img src="./assets/images/help/en/2018-02-23 01 Edit 02 - Remplir un champ.png" alt="">
     </td>
     <td>
-      To fill a text field, click on the greyed text area under the question you wish to answer. The placeholder text previously displayed in this text area is automatically reported in the knowledge base column. You can format the text that you enter by using the toolbar appearing under the text field. To edit a field where some text has already been entered, click on this text to activate the edition of the text field.
+      Για να συμπληρώσετε ένα πεδίο κειμένου, κάντε κλικ στην περιοχή κειμένου με γκρι χρώμα κάτω από την ερώτηση που θέλετε να απαντήσετε. Το συμβολικό κράτησης θέσης κείμενο που εμφανίστηκε προηγουμένως σε αυτήν την περιοχή κειμένου αναφέρεται αυτόματα στη στήλη της βάσης γνώσεων. Μπορείτε να μορφοποιήσετε το κείμενο που εισάγετε χρησιμοποιώντας τη γραμμή εργαλείων που εμφανίζεται κάτω από το πεδίο κειμένου. Για να επεξεργαστείτε ένα πεδίο όπου έχει ήδη εισαχθεί κάποιο κείμενο, κάντε κλικ σε αυτό το κείμενο για να ενεργοποιήσετε την επεξεργασία του πεδίου κειμένου.
     </td>
   </tr>
 </table>
 
-<h3>Add comments</h3>
+<h3>Προσθέστε σχόλια</h3>
 
 <table>
   <tr>
@@ -122,12 +122,12 @@
       <img src="./assets/images/help/en/2018-02-23 01 Edit 02 - Remplir un champ.png" alt="">
     </td>
     <td>
-      To publish a comment, click on "Comment" and enter your comment in the field that appears. Then click on "Send" in order to save it.
+      Για να δημοσιεύσετε ένα σχόλιο, κάντε κλικ στο "Σχόλιο" και εισάγετε το σχόλιό σας στο πεδίο που εμφανίζεται. Στη συνέχεια, κάντε κλικ στο "Αποστολή" για να το αποθηκεύσετε.
     </td>
   </tr>
 </table>
 
-<h3>Using the knowledge base</h3>
+<h3>Χρησιμοποιώντας τη βάση γνώσεων</h3>
 
 <table>
   <tr>
@@ -135,12 +135,12 @@
       <img src="./assets/images/help/en/2018-02-23 01 Edit 09 - Base de Connaissances - filter.png" alt="">
     </td>
     <td>
-      The knowledge base includes the essential information you need to carry out a PIA. It available at every moment while editing a PIA and is automatically filtered according to the question you are answering. You can also manually search the knowledge base using the search bar associated with it.
+      Η βάση γνώσεων περιλαμβάνει τις ουσιώδεις πληροφορίες που χρειάζεστε για να πραγματοποιήσετε μια ΕΑ. Είναι διαθέσιμη ανα πάσα στιγμή κατά την επεξεργασία μιας ΕΑ και φιλτράρεται αυτόματα σύμφωνα με την ερώτηση που απαντάτε. Μπορείτε επίσης να αναζητήσετε με μη αυτόματο τρόπο τη βάση γνώσεων χρησιμοποιώντας τη γραμμή αναζήτησης που σχετίζεται με αυτήν.
     </td>
   </tr>
 </table>
 
-<h3>Add attachments</h3>
+<h3>Προσθήκη συνημμένων</h3>
 
 <table>
   <tr>
@@ -148,12 +148,12 @@
       <img src="./assets/images/help/en/2018-02-23 01 Edit 11 - Ajout de piäce-jointe.png" alt="">
     </td>
     <td>
-      To add an attachment, click on "Add" in the attachment area displayed under the browsing menu on the left.
+      Για να προσθέσετε ένα συνημμένο, κάντε κλικ στο "Προσθήκη" στην περιοχή συνημμένων που εμφανίζεται κάτω από το μενού περιήγησης στα αριστερά.
     </td>
   </tr>
 </table>
 
-<h3>Add measures</h3>
+<h3>Προσθήκη μέτρων</h3>
 
 <table>
   <tr>
@@ -161,12 +161,12 @@
       <img src="./assets/images/help/en/2018-02-23 01 Edit 04 - Ajout de mesures.png" alt="">
     </td>
     <td>
-      To add a measure, you can either: <ul><li>Manually add a new measure by clicking on "Add an empty measure";</li><li>Automatically add a measure available in the knowledge base by clicking on the plus ("+") associated with it.</li></ul>
+      Για την προσθήκη μέτρων μπορείτε είτε: <ul><li>Να προσθέσετε ένα μέτρο μη αυτόματα, κάνοντας κλικ στο "Προσθήκη ενός άδειου μέτρου";</li><li>Να προσθέσετε αυτόματα ένα μέτρο που είναι διαθέσιμο στη βάση γνώσεων, κάνοντας κλικ στο συν ("+") που σχετίζεται με αυτό.</li></ul>
     </td>
   </tr>
 </table>
 
-<h3>Edit a risk</h3>
+<h3>Επεξεργασία ενός κινδύνου</h3>
 
 <table>
   <tr>
@@ -176,12 +176,12 @@
       <img src="./assets/images/help/en/2018-02-23 01 Edit 07 - Editer un risque - jauge.png" alt="">
     </td>
     <td>
-      To edit a risk, you have to enter as a tag, in the corresponding field, each impact, threat, source and measure linked to the considered risk. Regarding the measures, you can only enter the ones previously saved in the section "Planned or existing measures". If you wish to add a new measure, you should do it in the aforementioned section. To indicate the risk severity and likelihood, slide the cursor on the gauge to the corresponding estimated level. You also have to justify this estimation according to the elements previously entered.
+      Για να επεξεργαστείτε έναν κίνδυνο, πρέπει να εισάγετε ως ετικέτα, στο αντίστοιχο πεδίο, κάθε αντίκτυπο, απειλή, πηγή και μέτρο που συνδέεται με τον εν λόγω κίνδυνο. Όσον αφορά στα μέτρα, μπορείτε να εισαγάγετε μόνο αυτά που προηγουμένως αποθηκεύτηκαν στην ενότητα "Προγραμματισμένα ή υπάρχοντα μέτρα". Αν θέλετε να προσθέσετε ένα νέο μέτρο, θα πρέπει να το κάνετε στην προαναφερθείσα ενότητα. Για να υποδείξετε τη σοβαρότητα και την πιθανότητα κινδύνου, σύρετε τον κέρσορα στο μετρητή στο αντίστοιχο εκτιμώμενο επίπεδο. Πρέπει επίσης να δικαιολογήσετε αυτήν την εκτίμηση σύμφωνα με τα στοιχεία που είχαν καταχωριστεί προηγουμένως.
     </td>
   </tr>
 </table>
 
-<h3>Risk overview</h3>
+<h3>Επισκόπηση κινδύνου</h3>
 
 <table>
   <tr>
@@ -189,18 +189,18 @@
       <img src="./assets/images/help/en/2018-02-23 01 Edit 08 - Vue d_ensemble des risques.png" alt="">
     </td>
     <td>
-      The risk overview gives you a quick and easy way to understand the risks linked to the processing and the factors influencing it. You can filter the visualisation by clicking on the different categories (impact, threat, source, measure) or risks.
+      Η επισκόπηση κινδύνου σας παρέχει έναν γρήγορο και εύκολο τρόπο κατανόησης των κινδύνων που συνδέονται με την επεξεργασία και των παραγόντων που την επηρεάζουν. Μπορείτε να φιλτράρετε την απεικόνιση κάνοντας κλικ στις διάφορες κατηγορίες (αντίκτυπος, απειλή, πηγή, μέτρο) ή τους κινδύνους.
     </td>
   </tr>
 </table>
 
-<h2>Evaluate a PIA</h2>
+<h2>Αξιολόγηση μιας ΕΑ</h2>
 
 <p>
-  Second step of the PIA, the evaluation will be carried out by the DPO together with the CISO. The evaluation can be made on an entire section or each question of a section. Either two or three evaluation option are available.
+  Το δεύτερο βήμα της ΕΑ· η αξιολόγηση θα διεξαχθεί από τον ΥΠΔ μαζί με τον Υπεύθυνο Ασφαλείας Πληροφοριακών Συστημάτων (CISO). Η αξιολόγηση μπορεί να γίνει σε ολόκληρο το τμήμα ή σε κάθε ερώτηση ενός τμήματος. Υπάρχουν δύο ή τρεις επιλογές αξιολόγησης.
 </p>
 
-<h3>"To correct"</h3>
+<h3>"Προς διόρθωση"</h3>
 
 <table>
   <tr>
@@ -208,12 +208,12 @@
       <img src="./assets/images/help/en/2018-02-23 02 Eval 01 - A corriger.png" alt="">
     </td>
     <td>
-      The "to correct" option means that the information provided during the edition phase are not sufficient to be able to be evaluated. By choosing this evaluation, the section will be sent back in edition.
+      Η επιλογή "προς διόρθωση" σημαίνει ότι οι πληροφορίες που παρέχονται κατά τη διάρκεια της φάσης επεξεργασίας δεν επαρκούν για να μπορέσουν να αξιολογηθούν. Επιλέγοντας αυτή την αξιολόγηση, η ενότητα θα αποσταλεί εκ νέου σε επεξεργασία.
     </td>
   </tr>
 </table>
 
-<h3>"Improvable"</h3>
+<h3>"Βελτιώσιμη"</h3>
 
 <table>
   <tr>
@@ -221,12 +221,12 @@
       <img src="./assets/images/help/en/2018-02-23 02 Eval 02 - Ameliorable.png" alt="">
     </td>
     <td>
-      The "improvable" evaluation means that the information provided during the edition phase are sufficient but some corrective actions has to be taken to improve the conformity or security of the processing. By choosing this evaluation, it is mandatory to describe those corrective actions that will be automatically added to the action plan.
+      Η "βελτιωμένη" επιλογή σημαίνει ότι οι πληροφορίες που παρέχονται κατά τη διάρκεια της φάσης επεξεργασίας είναι επαρκείς, αλλά πρέπει να ληφθούν ορισμένες διορθωτικές ενέργειες για να βελτιωθεί η συμμόρφωση ή η ασφάλεια της επεξεργασίας. Επιλέγοντας αυτή την αξιολόγηση, είναι υποχρεωτική η περιγραφή των διορθωτικών ενεργειών που θα προστεθούν αυτόματα στο σχέδιο δράσης.
     </td>
   </tr>
 </table>
 
-<h3>"Acceptable"</h3>
+<h3>"Αποδεκτή"</h3>
 
 <table>
   <tr>
@@ -234,12 +234,12 @@
       <img src="./assets/images/help/en/2018-02-23 02 Eval 03 - Acceptable.png" alt="">
     </td>
     <td>
-      The "acceptable" evaluation means that the information provided during the edition phase are sufficient and that the processing is compliant and protects optimally the personal data.
+      Η "αποδεκτή" επιλογή σημαίνει ότι οι πληροφορίες που παρέχονται κατά τη διάρκεια της φάσης επεξεργασίας είναι επαρκείς και ότι η επεξεργασία προσωπικών δεδομένων είναι σύμφωνη με τον Κανονισμό και προτατεύει άριστα τα προσωπικά δεδομένα.
     </td>
   </tr>
 </table>
 
-<h3>DPO and concerned persons opinions</h3>
+<h3>Γνώμες του ΥΠΔ και των ενδιαφερόμενων</h3>
 
 <table>
   <tr>
@@ -247,18 +247,18 @@
       <img src="./assets/images/help/en/2018-02-23 02 Eval 04 - Avis du DPO.png" alt="">
     </td>
     <td>
-      This section allows the DPO to say if the processing should be implemented or not and justify it. This section also allows to indicate if the opinion of the concerned persons has been sought or not and to justify the reasons behind this choice as well as the answers of the concerned persons where required.
+      Αυτή η ενότητα επιτρέπει στον ΥΠΔ να δηλώσει εάν η επεξεργασία πρέπει να υλοποιηθεί ή όχι και να το δικαιολογήσει. Το τμήμα αυτό επιτρέπει επίσης να διευκρινιστεί αν έχει αναζητηθεί η γνώμη των ενδιαφερόμενων ή όχι και να δικαιολογηθούν οι λόγοι πίσω από αυτή την επιλογή καθώς και οι απαντήσεις των ενδιαφερόμενων όπου απαιτείται.
     </td>
   </tr>
 </table>
 
-<h2>Validate a PIA </h2>
+<h2>Επικύρωση μιας ΕΑ</h2>
 
 <p>
-  Final step of the PIA, the validation will be done by the data controller. The risk overview and the risk mapping are two tools to help him quickly understand the risks associated with his processing and which actions have to be taken to improve it. According to his analysis, he has three ways to validate the PIA.
+  Το τελικό βήμα της ΕΑ· η επικύρωση θα γίνει από τον υπεύθυνο επεξεργασίας. Η χαρτογράφηση των κινδύνων και το σχέδιο δράσης αποτελούν δύο εργαλεία που τον βοηθούν να κατανοεί γρήγορα τους κινδύνους που συνδέονται με την επεξεργασία του και τις ενέργειες που πρέπει να αναληφθούν για τη βελτίωσή της. Με βάση την ανάλυσή της, είναι διαθέσιμοι τρεις τρόποι επικύρωσης της ΕΑ.
 </p>
 
-<h3>Risk mapping</h3>
+<h3>Χαρτογράφηση κινδύνων</h3>
 
 <table>
   <tr>
@@ -266,12 +266,12 @@
       <img src="./assets/images/help/en/2018-02-23 03 Validation 01 - Cartographie des risques.png" alt="">
     </td>
     <td>
-      The risk mapping visualises the risk evolution according to the corrective actions proposed by the evaluator compared to the existing situation.
+      Η χαρτογράφηση κινδύνων απεικονίζει την εξέλιξη του κινδύνου σύμφωνα με τις διορθωτικές ενέργειες που πρότεινε ο αξιολογητής σε σύγκριση με την υπάρχουσα κατάσταση.
     </td>
   </tr>
 </table>
 
-<h3>Action plan</h3>
+<h3>Σχέδιο δράσης</h3>
 
 <table>
   <tr>
@@ -279,12 +279,12 @@
       <img src="./assets/images/help/en/2018-02-23 03 Validation 02 - Plan Action.png" alt="">
     </td>
     <td>
-      The action plan centralises all the corrective actions indicated during the evaluation phase by the evaluator. A visualisation at the top of the page helps to quickly understand which the points to improve in the processing are. For each corrective actions in the action plan, you can set a due date and a person responsible for implementing it.
+      Το σχέδιο δράσης συγκεντρώνει όλες τα διορθωτικά μέτρα που υποδείχθηκαν κατά τη φάση αξιολόγησης από τον αξιολογητή. Η απεικόνιση στην κορυφή της σελίδας βοηθάει να καταλάβετε γρήγορα ποια είναι τα σημεία που θα βελτιώσουν την επεξεργασία. Για κάθε διορθωτικό μέτρο στο σχέδιο δράσης, μπορείτε να ορίσετε ημερομηνία εφαρμογής και υπεύθυνο για την υλοποίησή του.
     </td>
   </tr>
 </table>
 
-<h3>Reject PIA</h3>
+<h3>Απόρριψη ΕΑ</h3>
 
 <table>
   <tr>
@@ -292,12 +292,12 @@
       <img src="./assets/images/help/en/2018-02-23 03 Validation 03 - Refus Validation.png" alt="">
     </td>
     <td>
-      If you consider the PIA is too risky or incomplete, you can reject it by clicking on "Reject PIA". You should afterward explain the reason for refusing it. You will then be able to either abandon the processing, in which case the PIA will be archived with no possibility to edit it later, or send it back to the evaluator. She will have to take into account the comments of the data controller in order to propose the necessary changes in the PIA.
+      Αν θεωρείτε ότι η ΕΑ είναι υπερβολικά επικίνδυνη ή ελλιπής, μπορείτε να την απορρίψετε κάνοντας κλικ στο "Απόρριψη ΕΑ". Θα πρέπει αργότερα να εξηγήσετε τον λόγο για τον οποίο την απορρίψατε. Στη συνέχεια, θα μπορείτε είτε να εγκαταλείψετε την επεξεργασία, οπότε η ΕΑ θα αρχειοθετηθεί χωρίς δυνατότητα μεταγενέστερης τροποποιήσης, είτε να στείλετε την ΕΑ ξανά στον αξιολογητή. Εναπόκειται στον αξιολογητή να λάβει υπόψη τις παρατηρήσεις του υπεύθυνου επεξεργασίας προκειμένου να προτείνει τις απαραίτητες αλλαγές στην ΕΑ.
     </td>
   </tr>
 </table>
 
-<h3>Approve PIA (signed)</h3>
+<h3>Έγκριση ΕΑ (υπογεγραμμένη)</h3>
 
 <table>
   <tr>
@@ -305,12 +305,12 @@
       <img src="./assets/images/help/en/2018-02-23 03 Validation 04 - Validation avec signature.png" alt="">
     </td>
     <td>
-      You can approve a PIA by uploading a signed copy of the PIA report in the software. Choose the "Approve PIA (signed)" button, print the report, sign it and add it to the PIA software as an attachment of the considered PIA.
+      Μπορείτε να εγκρίνετε μια ΕΑ φορτώνοντας ένα υπογεγραμμένο αντίγραφο της έκθεσης ΕΑ στο λογισμικό. Επιλέξτε το κουμπί "Έγκριση ΕΑ (υπογεγραμμένη)", εκτυπώστε την αναφορά, υπογράψτε την και προσθέστε την στο λογισμικό ΕΑ ως προσάρτημα της εν λόγω ΕΑ.
     </td>
   </tr>
 </table>
 
-<h3>Approve PIA (direct)</h3>
+<h3>Έγκριση ΕΑ (άμεση)</h3>
 
 <table>
   <tr>
@@ -318,7 +318,7 @@
       <img src="./assets/images/help/en/2018-02-23 03 Validation 05 - Validation simple.png" alt="">
     </td>
     <td>
-      A simplified approval process is available. To use it, click on the "Approve PIA (direct)" button. This validation option should be used for processing similar to ones already approved with a signed approval process.
+      Υπάρχει μια απλοοποιημένη διαδικασία έγκρισης. Για να τη χρησιμοποιήσετε, κάντε κλικ στο κουμπί "Έγκριση ΕΑ (άμεση)". Αυτή η επιλογή επικύρωσης θα πρέπει να χρησιμοποιείται για επεξεργασία παρόμοια με εκείνη που έχει ήδη εγκριθεί με υπογεγραμμένη διαδικασία έγκρισης.
     </td>
   </tr>
 </table>
