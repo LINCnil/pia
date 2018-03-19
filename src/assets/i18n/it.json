@@ -940,8 +940,8 @@
     "previous_page": "Torna alla pagina precedente",
     "print": "Stampa",
     "display_pia": "Mostra la PIA",
-    "copy_to_clipboard": "Copia negli appunti",
     "display_action_plan": "Mostra il<br>piano di azione",
+    "copy_to_clipboard": "Copia negli appunti",
     "display_filters": {
       "title": "Filtri",
       "main_content": "Mostra le \"Informazioni sulla PIA\"",
