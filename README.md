@@ -13,7 +13,12 @@ Run `ng generate component component-name` to generate a new component. You can 
 ## Build
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-Use `ng build --prod --build-optimizer --sourcemaps` for a production build.
+
+## Build for production
+
+First you need to rename the file `src/environments/environment.prod.ts.example` to `src/environments/environment.prod.ts`.
+Then set the version number inside this file.
+And use the command `ng build --prod --build-optimizer --sourcemaps` for a production build.
 
 ## Running unit tests
 

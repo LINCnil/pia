@@ -3,7 +3,6 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { ModalsService } from 'app/modals/modals.service';
 import { Measure } from './measure.model';
 import { Answer } from 'app/entry/entry-content/questions/answer.model';
-import { EvaluationService } from 'app/entry/entry-content/evaluations/evaluations.service';
 import { Evaluation } from 'app/entry/entry-content/evaluations/evaluation.model';
 import { KnowledgeBaseService } from 'app/entry/knowledge-base/knowledge-base.service';
 import { GlobalEvaluationService } from 'app/services/global-evaluation.service';
@@ -30,7 +29,6 @@ export class MeasuresComponent implements OnInit, OnDestroy {
     public _globalEvaluationService: GlobalEvaluationService,
     private el: ElementRef,
     private _modalsService: ModalsService,
-    private _evaluationService: EvaluationService,
     private _knowledgeBaseService: KnowledgeBaseService,
     private _ngZone: NgZone,
     private renderer: Renderer2) { }
@@ -59,10 +57,14 @@ export class MeasuresComponent implements OnInit, OnDestroy {
     });
   }
 
+  ngOnDestroy() {
+    tinymce.remove(this.editor);
+  }
+
   /**
-   * Enable auto resizing on measure title textarea
-   * @param {*} event
-   * @param {HTMLElement} textarea
+   * Enable auto resizing on measure title textarea.
+   * @param {*} event - Any Event.
+   * @param {HTMLElement} textarea - Any textarea.
    * @memberof MeasuresComponent
    */
   autoTextareaResize(event: any, textarea?: HTMLElement) {
@@ -78,8 +80,8 @@ export class MeasuresComponent implements OnInit, OnDestroy {
   }
 
   /**
-   * Change evaluation
-   * @param {*} evaluation
+   * Change evaluation.
+   * @param {*} evaluation - Any Evaluation.
    * @memberof MeasuresComponent
    */
   evaluationChange(evaluation: any) {
@@ -102,7 +104,7 @@ export class MeasuresComponent implements OnInit, OnDestroy {
    * Disables title field when losing focus from it.
    * Shows measure edit button.
    * Saves data from title field.
-   * @param {event} event any event.
+   * @param {event} event - Any Event.
    * @memberof MeasuresComponent
    */
   measureTitleFocusOut(event: Event) {
@@ -114,7 +116,6 @@ export class MeasuresComponent implements OnInit, OnDestroy {
     const previousTitle = this.measureModel.title;
     this.measureModel.title = userText;
     this.measureModel.update().then(() => {
-      // this._evaluationService.allowEvaluation();
       if (previousTitle !== this.measureModel.title) {
         this._knowledgeBaseService.removeItemIfPresent(this.measureModel.title, previousTitle);
       }
@@ -189,7 +190,6 @@ export class MeasuresComponent implements OnInit, OnDestroy {
     this.measureModel.content = userText;
     this.measureModel.update().then(() => {
       this._ngZone.run(() => {
-        // this._evaluationService.allowEvaluation();
         this._globalEvaluationService.validate();
       });
     });
@@ -197,7 +197,7 @@ export class MeasuresComponent implements OnInit, OnDestroy {
 
   /**
    * Shows or hides a measure.
-   * @param {*} event
+   * @param {*} event - Any Event.
    * @memberof MeasuresComponent
    */
   displayMeasure(event: any) {
@@ -226,7 +226,7 @@ export class MeasuresComponent implements OnInit, OnDestroy {
 
   /**
    * Allows an user to remove a measure.
-   * @param {string} measureId
+   * @param {string} measureId - A measure id.
    * @memberof MeasuresComponent
    */
   removeMeasure(measureId: string) {
@@ -267,12 +267,5 @@ export class MeasuresComponent implements OnInit, OnDestroy {
         });
       },
     });
-  }
-
-  /**
-   * Destroys editor.
-   */
-  ngOnDestroy() {
-    tinymce.remove(this.editor);
   }
 }

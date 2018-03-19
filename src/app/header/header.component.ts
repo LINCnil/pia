@@ -45,7 +45,7 @@ export class HeaderComponent implements OnInit {
 
   /**
    * Manually updates the contrast. Can be executed by users through header.
-   * @param {any} event - Any kind of event
+   * @param {any} event - Any kind of event.
    * @memberof HeaderComponent
    */
   changeContrast(event: any) {
@@ -67,6 +67,11 @@ export class HeaderComponent implements OnInit {
     }
   }
 
+  /**
+   * Import PIA example.
+   * @returns {Promise}
+   * @memberof HeaderComponent
+   */
   importPiaExample() {
     return new Promise((resolve, reject) => {
       const pia = new Pia();

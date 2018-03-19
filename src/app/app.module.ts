@@ -43,7 +43,6 @@ import { MeasureService } from 'app/entry/entry-content/measures/measures.servic
 import { ModalsService } from 'app/modals/modals.service';
 import { AttachmentsService } from 'app/entry/attachments/attachments.service';
 import { KnowledgeBaseService } from 'app/entry/knowledge-base/knowledge-base.service';
-import { EvaluationService } from 'app/entry/entry-content/evaluations/evaluations.service';
 import { PaginationService } from 'app/entry/entry-content/pagination.service';
 import { LanguagesService } from 'app/services/languages.service';
 import { OverviewRisksComponent } from 'app/entry/entry-content/overview-risks/overview-risks.component';
@@ -57,7 +56,6 @@ import { SummaryComponent } from 'app/summary/summary.component';
 import { AboutComponent } from 'app/about/about.component';
 import { AppRoutingModule } from 'app/app-routing.module';
 import { CardsRoutingModule } from 'app/cards/cards-routing.module';
-import { MarkdownModule } from 'ngx-markdown';
 
 const providersList: any = [
   AppDataService,
@@ -65,7 +63,6 @@ const providersList: any = [
   ModalsService,
   AttachmentsService,
   KnowledgeBaseService,
-  EvaluationService,
   ActionPlanService,
   PaginationService,
   SidStatusService,
@@ -142,8 +139,7 @@ export function createTranslateLoader(http: HttpClient) {
         useFactory: (createTranslateLoader),
         deps: [HttpClient]
       }
-    }),
-    MarkdownModule.forRoot(),
+    })
   ],
   exports: [],
   providers: providersList,

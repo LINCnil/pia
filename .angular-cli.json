@@ -35,8 +35,7 @@
         "../node_modules/tinymce/tinymce.js",
         "../node_modules/tinymce/themes/modern/theme.js",
         "../node_modules/tinymce/plugins/lists/plugin.js",
-        "../node_modules/tinymce/plugins/autoresize/plugin.js",
-        "../node_modules/marked/lib/marked.js"
+        "../node_modules/tinymce/plugins/autoresize/plugin.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {

@@ -67,6 +67,10 @@ export class ModalsComponent implements OnInit {
     p.then((id) => this.router.navigate(['entry', id, 'section', 1, 'item', 1]));
   }
 
+  /**
+   * Focuses out from the comment attachment field.
+   * @memberof ModalsComponent
+   */
   attachmentCommentFocusOut() {
     if (this.removeAttachmentForm.controls['comment'].value &&
         this.removeAttachmentForm.controls['comment'].value.length > 0) {

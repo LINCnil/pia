@@ -383,12 +383,12 @@ export class RisksCartographyComponent implements OnInit, OnDestroy {
   }
 
   /**
-   * Draw an arrow between two point
-   * @param {CanvasRenderingContext2D} context
-   * @param {number} fromx
-   * @param {number} fromy
-   * @param {number} tox
-   * @param {number} toy
+   * Draw an arrow between two point.
+   * @param {CanvasRenderingContext2D} context - The context.
+   * @param {number} fromx - From the position X.
+   * @param {number} fromy - From the position Y.
+   * @param {number} tox - To the position X.
+   * @param {number} toy - To the position Y.
    * @memberof RisksCartographyComponent
    */
   canvasArrow(context: CanvasRenderingContext2D, fromx: number, fromy: number, tox: number, toy: number) {

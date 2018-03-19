@@ -24,8 +24,7 @@ export class ValidatePIAComponent implements OnInit {
               public _attachmentsService: AttachmentsService,
               private _actionPlanService: ActionPlanService,
               private _translateService: TranslateService,
-              public _piaService: PiaService ) {
-  }
+              public _piaService: PiaService ) { }
 
   ngOnInit() {
     this.validateForm = new FormGroup({
@@ -40,9 +39,7 @@ export class ValidatePIAComponent implements OnInit {
       this.validateForm.controls['validateStatus3'].patchValue(this._piaService.pia.status > 1);
       this.validateForm.controls['validateStatus4'].patchValue(this._piaService.pia.status > 1);
 
-      /* this._attachmentsService.getSignedAttachmentsList(); */
       this._attachmentsService.updateSignedAttachmentsList();
-
       this._actionPlanService.listActionPlan(this._translateService);
     });
   }
@@ -59,7 +56,7 @@ export class ValidatePIAComponent implements OnInit {
 
   /**
    * Download an attachment
-   * @param {number} id
+   * @param {number} id - Attachment id.
    * @memberof ValidatePIAComponent
    */
   downloadAttachment(id: number) {
@@ -68,7 +65,7 @@ export class ValidatePIAComponent implements OnInit {
 
   /**
    * Destroy an attachment
-   * @param {number} id
+   * @param {number} id - Attachment id.
    * @memberof ValidatePIAComponent
    */
   removeAttachment(id: number) {
@@ -78,7 +75,7 @@ export class ValidatePIAComponent implements OnInit {
 
   /**
    * Locks radio buttons after click.
-   * @param {any} event
+   * @param {any} event - Any Event.
    * @memberof ValidatePIAComponent
    */
   lockStatus(event: any) {

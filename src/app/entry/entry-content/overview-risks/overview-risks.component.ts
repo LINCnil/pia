@@ -32,6 +32,11 @@ export class OverviewRisksComponent implements OnInit {
     });
   }
 
+  /**
+   * Initialize the data.
+   * @private
+   * @memberof OverviewRisksComponent
+   */
   private async initData() {
     await this._piaService.getPIA();
     const dataTags = [
@@ -79,6 +84,11 @@ export class OverviewRisksComponent implements OnInit {
     }
   }
 
+  /**
+   * Initialize the SVG.
+   * @private
+   * @memberof OverviewRisksComponent
+   */
   private async initSvg() {
     const dataNav = await this._appDataService.getDataNav();
     this.svg = d3.select('svg');
@@ -242,6 +252,16 @@ export class OverviewRisksComponent implements OnInit {
     });
   }
 
+  /**
+   * Parse the questions.
+   * @private
+   * @param {any} questionGauges - Any questions gauges.
+   * @param {any} g - SVG element.
+   * @param {any} x - Position X.
+   * @param {any} y - Position Y.
+   * @returns {Promise}
+   * @memberof OverviewRisksComponent
+   */
   private async parseQuestions(questionGauges, g, x, y) {
     let i = 0;
     const data = [];
