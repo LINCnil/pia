@@ -882,6 +882,9 @@
     "completed_evaluation": {
       "content": "TO BE TRANSLATED - The PIA has been fully reviewed, it has to be validated."
     },
+    "modal_select_text_pia": {
+      "content": "TO BE TRANSLATED - The content of pia has been copied on your clipboard"
+    },
     "update_server_url": {
       "content": "Adresa serveru byla aktualizována."
     },
@@ -934,6 +937,7 @@
     "print": "Tisk",
     "display_pia": "TO BE TRANSLATED - Display PIA",
     "display_action_plan": "TO BE TRANSLATED - Display<br>action plan",
+    "copy_to_clipboard": "TO BE TRANSLATED - Copy to clipboard",
     "display_filters": {
       "title": "TO BE TRANSLATED - Filters",
       "main_content": "TO BE TRANSLATED - Display \"PIA information\"",
