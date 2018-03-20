@@ -36,6 +36,11 @@
                   {{ 'header.languages.de' | translate }}
                 </a>
               </li>
+              <li [ngClass]="{'is_active': _languagesService.selectedLanguage === 'el'}">
+                <a href="javascript:;" (click)="_languagesService.updateCurrentLanguage('el')">
+                  {{ 'header.languages.el' | translate }}
+                </a>
+              </li>
               <li [ngClass]="{'is_active': _languagesService.selectedLanguage === 'es'}">
                 <a href="javascript:;" (click)="_languagesService.updateCurrentLanguage('es')">
                   {{ 'header.languages.es' | translate }}
