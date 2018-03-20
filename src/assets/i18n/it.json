@@ -823,7 +823,7 @@
     "version_number": "Version number",
     "description": "Questo tool è stato originariamente creato da <a target=\"_blank\" href=\"https://www.cnil.fr\">Commission Nationale Informatique et Liberté (CNIL)</a>, l'Autorità Francese di Protezione dei Dati, per aiutare i Titolari del trattamento ad essere conformi al GDPR.<br>Questo è un software libero e aperto. Se desiderate essere coinvolti nel progetto siete benvenuti: scaricate il software da Github, modificatelo e condividete le vostre modifiche con la comunità.",
     "translators": "Il software Pia è attualmente disponibile in nove lingue. La lingua inglese e francese sono fornite dal CNIL. Le altre traduzioni sono il risultato del contributo delle seguenti persone:",
-    "translators_name": "<ul><li>Olandese: Ruud van Driel, Manuel d’Orso ;</li><li>Cecoslovacco: Jiří Grohmann, Manuel d’Orso ;</li><li>Italiano: Manuel d’Orso, Gianluca Markos, Romolo Manfredini.</li><li>Polacco: Joanna Karczewska</li><li>Tedesco: Kosmas Schütz</li><li>Spagnolo: ylachgar</li><li>Greek: Dimitris Tzellis</li><li>Norwegian: PVOhmn</li></ul>",
+    "translators_name": "<ul><li>Olandese: Ruud van Driel, Manuel d’Orso ;</li><li>Cecoslovacco: Jiří Grohmann, Manuel d’Orso ;</li><li>Italiano: Manuel d’Orso, Gianluca Markos, Romolo Manfredini ;</li><li>Polacco: Joanna Karczewska</li><li>Tedesco: Kosmas Schütz</li><li>Spagnolo: ylachgar</li><li>Norvegese: PVOhmn</li><li>Greco: Dimitris Tzellis</li></ul>",
     "contribute": "Se volete contribuire ad altre traduzioni del software o migliorare le traduzioni esistenti, vi invitiamo a <a href=\"https://github.com/LINCnil/pia/tree/master/src/assets/i18n\" target=\"_blank\">leggere la pagina con le apposite istruzioni</a>.",
     "licences": "Licenze software:"
   },
