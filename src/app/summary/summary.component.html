@@ -11,45 +11,38 @@
     </button>
   </div>
 
-  <!-- Navigation links -->
-  <div class="pia-summaryLinksBlock unselectable">
-    <a *ngIf="showPiaTpl" (click)="displayPiaSummary()" routerLink="/summary/{{_piaService.pia.id}}/action_plan" class="btn pia-previewBlock hide-for-print">
-      <span class="pia-icons pia-icon-preview"></span>
-      <div [innerHTML]="'summary.display_action_plan' | translate"></div>
-    </a>
-    <a *ngIf="!showPiaTpl" (click)="displayPiaSummary()" routerLink="/summary/{{_piaService.pia.id}}/pia" class="btn  pia-previewBlock hide-for-print">
-      <span class="pia-icons pia-icon-preview"></span>
-      <div>{{ 'summary.display_pia' | translate }}</div>
-    </a>
-  </div>
+  <!-- Copy to clipboard block -->
   <div class="pia-summaryCopyBlock">
-  <button class="btn btn-select-all" (click)="getTextSelection()">{{ 'summary.copy_to_clipboard' | translate }}</button>
+    <button class="btn btn-select-all" (click)="getTextSelection()">{{ 'summary.copy_to_clipboard' | translate }}</button>
   </div>
+
   <!-- Customize content filters -->
-  <div *ngIf="displayFilters" class="row">
+  <div class="row">
    <div class="small-12 medium-12 columns">
       <form class="pia-summaryFiltersBlock hide-for-print">
         <fieldset>
           <legend class="unselectable">{{ 'summary.display_filters.title' | translate }}</legend>
-          <div>
-            <input type="checkbox" name="displayer-pia-main-content" id="displayer-pia-main-content" [checked]="true" (change)="displayMainContent()">
-            <label for="displayer-pia-main-content">{{ 'summary.display_filters.main_content' | translate }}</label>
-          </div>
-          <div>
-            <input type="checkbox" name="displayer-pia-section-1" id="displayer-pia-main-1" [checked]="true" (change)="displayContextContent()">
-            <label for="displayer-pia-main-1">{{ 'summary.display_filters.context_content' | translate }}</label>
-          </div>
-          <div>
-            <input type="checkbox" name="displayer-pia-section-2" id="displayer-pia-section-2" [checked]="true" (change)="displayFundamentalPrinciplesContent()">
-            <label for="displayer-pia-section-2">{{ 'summary.display_filters.principles_content' | translate }}</label>
-          </div>
-          <div>
-            <input type="checkbox" name="displayer-pia-section-3" id="displayer-pia-section-3" [checked]="true" (change)="displayRisksContent()">
-            <label for="displayer-pia-section-3">{{ 'summary.display_filters.risks_content' | translate }}</label>
-          </div>
-          <div>
-            <input type="checkbox" name="displayer-pia-action-plan" id="displayer-pia-action-plan" [checked]="true" (change)="displayActionPlanContent()">
-            <label for="displayer-pia-action-plan">{{ 'summary.display_filters.action_plan_content' | translate }}</label>
+          <div class="databox">
+            <div>
+              <input type="checkbox" name="displayer-pia-main-content" id="displayer-pia-main-content" [checked]="displayOnlyActionPlan ? false : true" (change)="toggleMainContent()">
+              <label for="displayer-pia-main-content">{{ 'summary.display_filters.main_content' | translate }}</label>
+            </div>
+            <div>
+              <input type="checkbox" name="displayer-pia-section-1" id="displayer-pia-main-1" [checked]="displayOnlyActionPlan ? false : true" (change)="toggleContextContent()">
+              <label for="displayer-pia-main-1">{{ 'summary.display_filters.context_content' | translate }}</label>
+            </div>
+            <div>
+              <input type="checkbox" name="displayer-pia-section-2" id="displayer-pia-section-2" [checked]="displayOnlyActionPlan ? false : true" (change)="toggleFundamentalPrinciplesContent()">
+              <label for="displayer-pia-section-2">{{ 'summary.display_filters.principles_content' | translate }}</label>
+            </div>
+            <div>
+              <input type="checkbox" name="displayer-pia-section-3" id="displayer-pia-section-3" [checked]="displayOnlyActionPlan ? false : true" (change)="toggleRisksContent()">
+              <label for="displayer-pia-section-3">{{ 'summary.display_filters.risks_content' | translate }}</label>
+            </div>
+            <div>
+              <input type="checkbox" name="displayer-pia-action-plan" id="displayer-pia-action-plan" [checked]="true" (change)="toggleActionPlanContent()">
+              <label for="displayer-pia-action-plan">{{ 'summary.display_filters.action_plan_content' | translate }}</label>
+            </div>
           </div>
         </fieldset>
       </form>
@@ -57,8 +50,8 @@
    </div>
   <div class="row force-select-all" id="force-select-all">
     <div class="small-12 medium-12 columns">
-      <div *ngIf="showPiaTpl && allData" ng-class="{'text-success': model.copied, 'text-danger': !model.copied}" ng-copy="events.onCopy($event)">
 
+      <div *ngIf="allData" ng-class="{'text-success': model.copied, 'text-danger': !model.copied}" ng-copy="events.onCopy($event)">
         <!-- Main PIA data -->
         <div class="fadeIn force-select-all" *ngIf="displayMainPiaData">
           <div *ngFor="let c of content">
@@ -82,40 +75,46 @@
             <div *ngFor="let item of section.items">
               <div *ngIf="item.evaluation_mode !== ''">
                 <h2>{{ item.title | translate }}</h2>
-                <div class="databox">
-                  <div *ngIf="item.is_measure">
+                <div>
+
+                  <!-- Filled measures -->
+                  <div class="databox" *ngIf="item.is_measure">
                     <div *ngFor="let measure of allData[section.id][item.id]">
-                      <h3 [innerHTML]="measure.title"></h3>
-                      <div [innerHTML]="measure.content | translate | safeHtml"></div>
-                      <div class="evaluationbox" *ngIf="allData[section.id][item.id].evaluation">
-                        <p>
-                          <strong class="evaluationValue">{{ 'evaluations.title' | translate }} : {{ allData[section.id][item.id].evaluation.title | translate }}</strong>
-                          <br>
-                          <span *ngIf="allData[section.id][item.id].evaluation.action_plan_comment">
-                            {{ 'evaluations.action_plan_comment' | translate }} : <span [innerHTML]="allData[section.id][item.id].evaluation.action_plan_comment | safeHtml"></span>
+                      <div *ngIf="measure.title && measure.content">
+                        <h3 [innerHTML]="measure.title"></h3>
+                        <div *ngIf="measure.content" [innerHTML]="measure.content | translate | safeHtml"></div>
+                        <div class="evaluationbox" *ngIf="allData[section.id][item.id].evaluation">
+                          <p>
+                            <strong class="evaluationValue">{{ 'evaluations.title' | translate }} : {{ allData[section.id][item.id].evaluation.title | translate }}</strong>
                             <br>
-                          </span>
-                          <span *ngIf="allData[section.id][item.id].evaluation.evaluation_comment">
-                            {{ 'evaluations.evaluation_comment' | translate }} : {{ allData[section.id][item.id].evaluation.evaluation_comment }}
-                            <br>
-                          </span>
-                          <span *ngIf="allData[section.id][item.id].evaluation.gauges && allData[section.id][item.id].evaluation.gauges.seriousness > 0">
-                            <span [innerHTML]="'evaluations.gauges.seriousness' | translate:allData[section.id][item.id].evaluation.gauges.riskName"></span>
-                            {{ 'evaluations.gauges.' + allData[section.id][item.id].evaluation.gauges.seriousness | translate }}
-                            <br>
-                          </span>
-                          <span *ngIf="allData[section.id][item.id].evaluation.gauges && allData[section.id][item.id].evaluation.gauges.likelihood > 0">
-                            <span [innerHTML]="'evaluations.gauges.likelihood' | translate:allData[section.id][item.id].evaluation.gauges.riskName"></span>
-                            {{ 'evaluations.gauges.' + allData[section.id][item.id].evaluation.gauges.likelihood | translate }}
-                          </span>
-                        </p>
+                            <span *ngIf="allData[section.id][item.id].evaluation.action_plan_comment">
+                              {{ 'evaluations.action_plan_comment' | translate }} : <span [innerHTML]="allData[section.id][item.id].evaluation.action_plan_comment | safeHtml"></span>
+                              <br>
+                            </span>
+                            <span *ngIf="allData[section.id][item.id].evaluation.evaluation_comment">
+                              {{ 'evaluations.evaluation_comment' | translate }} : {{ allData[section.id][item.id].evaluation.evaluation_comment }}
+                              <br>
+                            </span>
+                            <span *ngIf="allData[section.id][item.id].evaluation.gauges && allData[section.id][item.id].evaluation.gauges.seriousness > 0">
+                              <span [innerHTML]="'evaluations.gauges.seriousness' | translate:allData[section.id][item.id].evaluation.gauges.riskName"></span>
+                              {{ 'evaluations.gauges.' + allData[section.id][item.id].evaluation.gauges.seriousness | translate }}
+                              <br>
+                            </span>
+                            <span *ngIf="allData[section.id][item.id].evaluation.gauges && allData[section.id][item.id].evaluation.gauges.likelihood > 0">
+                              <span [innerHTML]="'evaluations.gauges.likelihood' | translate:allData[section.id][item.id].evaluation.gauges.riskName"></span>
+                              {{ 'evaluations.gauges.' + allData[section.id][item.id].evaluation.gauges.likelihood | translate }}
+                            </span>
+                          </p>
+                        </div>
                       </div>
                     </div>
                   </div>
-                  <div *ngIf="item.questions">
+
+                  <!-- Questions & filled/unfilled answers -->
+                  <div class="databox" *ngIf="item.questions">
                     <div *ngFor="let question of item.questions">
                       <h3 [innerHTML]="question.title | translate"></h3>
-                      <div [innerHTML]="allData[section.id][item.id][question.id].content | translate | safeHtml"></div>
+                      <div *ngIf="allData[section.id][item.id][question.id].content" [innerHTML]="allData[section.id][item.id][question.id].content | translate | safeHtml"></div>
                       <div class="evaluationbox" *ngIf="allData[section.id][item.id][question.id].evaluation">
                         <p>
                           <strong class="evaluationValue">{{ 'evaluations.title' | translate }} : {{ allData[section.id][item.id][question.id].evaluation.title | translate }}</strong>
@@ -165,7 +164,9 @@
                       </span>
                     </p>
                   </div>
+
                 </div>
+
               </div>
             </div>
           </div>

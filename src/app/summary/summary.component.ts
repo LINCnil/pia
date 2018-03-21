@@ -1,16 +1,18 @@
 import { Component, ElementRef, OnInit } from '@angular/core';
-import { PiaService } from 'app/entry/pia.service';
-import { AttachmentsService } from 'app/entry/attachments/attachments.service';
+import { Router, ActivatedRoute, Params } from '@angular/router';
+import { Subscription } from 'rxjs/Subscription';
+import {element} from 'protractor';
+
 import { Answer } from 'app/entry/entry-content/questions/answer.model';
 import { Measure } from 'app/entry/entry-content/measures/measure.model';
 import { Evaluation } from 'app/entry/entry-content/evaluations/evaluation.model';
-import { ActionPlanService } from 'app/entry/entry-content/action-plan//action-plan.service';
-import { Router, ActivatedRoute, Params } from '@angular/router';
-import { AppDataService } from 'app/services/app-data.service';
 
+import { ActionPlanService } from 'app/entry/entry-content/action-plan//action-plan.service';
+import { AppDataService } from 'app/services/app-data.service';
 import { TranslateService } from '@ngx-translate/core';
-import {element} from 'protractor';
-import {ModalsService} from '../modals/modals.service';
+import { ModalsService } from '../modals/modals.service';
+import { PiaService } from 'app/entry/pia.service';
+import { AttachmentsService } from 'app/entry/attachments/attachments.service';
 
 @Component({
   selector: 'app-summary',
@@ -24,10 +26,10 @@ export class SummaryComponent implements OnInit {
   pia: any;
   allData: Object;
   dataNav: any;
-  showPiaTpl: boolean;
-  displayFilters: boolean;
   displayMainPiaData: boolean;
   displayActionPlan: boolean;
+  summarySubscription: Subscription;
+  displayOnlyActionPlan: boolean;
 
   constructor(private el: ElementRef,
               private route: ActivatedRoute,
@@ -39,19 +41,24 @@ export class SummaryComponent implements OnInit {
               private _modalService: ModalsService) { }
 
   async ngOnInit() {
+    this.summarySubscription = this.route.queryParams.subscribe(params => {
+      this.displayOnlyActionPlan = params['displayOnlyActionPlan'];
+    });
+
     this.content = [];
     this.dataNav = await this._appDataService.getDataNav();
-    this.displayMainPiaData = true;
-    this.displayActionPlan = true;
+
     this._piaService.getPIA().then(() => {
       this.pia = this._piaService.pia;
-      this.showPiaTpl = true;
+      this.displayMainPiaData = true;
+      this.displayActionPlan = true;
       this.showPia().then(() => {
-        if (this.route.snapshot.params['type'] === 'action_plan') {
-          this.showPiaTpl = false;
-          this.displayFilters = false;
-        } else {
-          this.displayFilters = true;
+        // Disable all filters (except action plan) if displaying only action plan
+        if (this.displayOnlyActionPlan) {
+          this.toggleMainContent();
+          this.toggleContextContent();
+          this.toggleFundamentalPrinciplesContent();
+          this.toggleRisksContent();
         }
       });
     });
@@ -61,7 +68,7 @@ export class SummaryComponent implements OnInit {
    * Display or hide the main Pia data.
    * @memberof SummaryComponent
    */
-  displayMainContent() {
+  toggleMainContent() {
     this.displayMainPiaData = !this.displayMainPiaData;
   }
 
@@ -69,57 +76,45 @@ export class SummaryComponent implements OnInit {
    * Display or hide the main Pia data.
    * @memberof SummaryComponent
    */
-  displayContextContent() {
-    const contextSection = this.el.nativeElement.querySelector('.section-1');
-    contextSection.classList.toggle('hide');
+  toggleContextContent() {
+    setTimeout(() => {
+      const contextSection = this.el.nativeElement.querySelector('.section-1');
+      contextSection.classList.toggle('hide');
+    }, 100);
   }
 
   /**
    * Display or hide the main Pia data.
    * @memberof SummaryComponent
    */
-  displayFundamentalPrinciplesContent() {
-    const fundamentalPrinciplesSection = this.el.nativeElement.querySelector('.section-2');
-    fundamentalPrinciplesSection.classList.toggle('hide');
+  toggleFundamentalPrinciplesContent() {
+    setTimeout(() => {
+      const fundamentalPrinciplesSection = this.el.nativeElement.querySelector('.section-2');
+      fundamentalPrinciplesSection.classList.toggle('hide');
+    }, 100);
   }
 
   /**
    * Display or hide the main Pia data.
    * @memberof SummaryComponent
    */
-  displayRisksContent() {
-    const risksSection = this.el.nativeElement.querySelector('.section-3');
-    risksSection.classList.toggle('hide');
+  toggleRisksContent() {
+    setTimeout(() => {
+      const risksSection = this.el.nativeElement.querySelector('.section-3');
+      risksSection.classList.toggle('hide');
+    }, 100);
   }
 
   /**
    * Display or hide the action plan.
    * @memberof SummaryComponent
    */
-  displayActionPlanContent() {
+  toggleActionPlanContent() {
     this.displayActionPlan = !this.displayActionPlan;
   }
 
   /**
-   * Switch from Pia overview to action plan overview, and vice versa.
-   * @memberof SummaryComponent
-   */
-  displayPiaSummary() {
-    const filtersBlock = this.el.nativeElement.querySelector('.pia-summaryFiltersBlock');
-    const displayFilters = this.el.nativeElement.querySelector('.pia-summaryFiltersBlock input');
-    if (displayFilters) {
-      [].forEach.call(displayFilters, function (filter) {
-        filter.checked = true;
-      });
-    }
-    this.showPiaTpl = !this.showPiaTpl;
-    this.displayFilters = !this.displayFilters;
-    this.displayMainPiaData = true;
-    this.displayActionPlan = true;
-  }
-
-  /**
-   * Prepare and display the PIA information.
+   * Prepare and display the PIA information
    * @memberof SummaryComponent
    */
   async showPia() {
@@ -281,6 +276,8 @@ export class SummaryComponent implements OnInit {
       section.items.forEach(async (item) => {
         this.allData[section.id][item.id] = {}
         const ref = section.id.toString() + '.' + item.id.toString();
+
+        // Measure
         if (item.is_measure) {
           this.allData[section.id][item.id] = []
           const measuresModel = new Measure();
@@ -299,11 +296,13 @@ export class SummaryComponent implements OnInit {
               }
             }
           });
-        } else if (item.questions) {
+        } else if (item.questions) { // Question
           item.questions.forEach(async (question) => {
             this.allData[section.id][item.id][question.id] = {}
             const answerModel = new Answer();
             await answerModel.getByReferenceAndPia(this.pia.id, question.id);
+
+            /* An answer exists */
             if (answerModel.data) {
               const content = [];
               if (answerModel.data.gauge && answerModel.data.gauge > 0) {

@@ -86,15 +86,25 @@
         font-size: 2.25rem;
         font-weight: 600;
         width: 100%;
-        margin-bottom: 4px;
+        margin-bottom: 16px;
       }
       input {
+        cursor: pointer;
         margin-right: 4px;
         vertical-align: -2px;
       }
       label {
+        cursor: pointer;
         color: #121921;
         font-size: 1.4rem;
+        &:focus, &:hover, &:active {
+          font-weight: 500;
+        }
+      }
+      .databox {
+        > div {
+          padding: 3px 0;
+        }
       }
     }
   }
