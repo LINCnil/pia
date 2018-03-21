@@ -1,3 +1,4 @@
+///<reference path="../entry/entry-content/action-plan/action-plan.service.ts"/>
 import { Component, ElementRef, OnInit } from '@angular/core';
 import { PiaService } from 'app/entry/pia.service';
 import { AttachmentsService } from 'app/entry/attachments/attachments.service';
@@ -9,6 +10,7 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 import { AppDataService } from 'app/services/app-data.service';
 
 import { TranslateService } from '@ngx-translate/core';
+import {Angular2Csv} from 'angular2-csv';
 
 @Component({
   selector: 'app-summary',
@@ -26,6 +28,7 @@ export class SummaryComponent implements OnInit {
   displayFilters: boolean;
   displayMainPiaData: boolean;
   displayActionPlan: boolean;
+
 
   constructor(private el: ElementRef,
               private route: ActivatedRoute,
@@ -358,5 +361,30 @@ export class SummaryComponent implements OnInit {
       }
       resolve(evaluation);
     });
+  }
+  /**
+   * Get a csv document.
+   * @protected
+   * @returns {Object}
+   * @memberof Angular2Csv
+   */
+  protected async download() {
+    const options = {
+      fieldSeparator: ',',
+      quoteStrings: '"',
+      decimalseparator: '.',
+      showLabels: true,
+      showTitle: false,
+      useBom: false,
+      headers: [
+        this._translateService.instant('summary.csv_section'),
+        this._translateService.instant('summary.csv_title_object'),
+        this._translateService.instant('summary.csv_comments'),
+        this._translateService.instant('summary.csv_implement_date'),
+        this._translateService.instant('summary.csv_people_in_charge')
+      ]
+    }
+    new Angular2Csv(this._actionPlanService.csvRows,
+      this._translateService.instant('summary.csv_file_title'), options);
   }
 }
