@@ -935,7 +935,10 @@
   "summary": {
     "previous_page": "Powrót do poprzedniej strony",
     "print": "Drukowanie",
+<<<<<<< 5140368e9f3e4882f3901dc9a2f58cc0cfdb25e5
     "copy_to_clipboard": "TO BE TRANSLATED - Copy to clipboard",
+=======
+>>>>>>> merge fix
     "display_filters": {
       "title": "TO BE TRANSLATED - Filters",
       "main_content": "TO BE TRANSLATED - Display \"PIA information\"",

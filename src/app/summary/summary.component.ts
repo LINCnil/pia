@@ -114,7 +114,33 @@ export class SummaryComponent implements OnInit {
   }
 
   /**
+<<<<<<< 5140368e9f3e4882f3901dc9a2f58cc0cfdb25e5
    * Prepare and display the PIA information
+=======
+<<<<<<< a48ddb896d5c0e0d5af42c485979dd428d95a42a
+   * Switch from Pia overview to action plan overview, and vice versa.
+   * @memberof SummaryComponent
+   */
+  displayPiaSummary() {
+    const filtersBlock = this.el.nativeElement.querySelector('.pia-summaryFiltersBlock');
+    const displayFilters = this.el.nativeElement.querySelector('.pia-summaryFiltersBlock input');
+    if (displayFilters) {
+      [].forEach.call(displayFilters, function (filter) {
+        filter.checked = true;
+      });
+    }
+    this.showPiaTpl = !this.showPiaTpl;
+    this.displayFilters = !this.displayFilters;
+    this.displayMainPiaData = true;
+    this.displayActionPlan = true;
+  }
+
+  /**
+   * Prepare and display the PIA information.
+=======
+   * Prepare and display the PIA information
+>>>>>>> close trello#259 (action plan summary rework)
+>>>>>>> merge fix
    * @memberof SummaryComponent
    */
   async showPia() {

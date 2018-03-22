@@ -21,7 +21,7 @@
    <div class="small-12 medium-12 columns">
       <form class="pia-summaryFiltersBlock hide-for-print">
         <fieldset>
-          <legend class="unselectable">{{ 'summary.display_filters.title' | translate }}</legend>
+          <legend  class="unselectable">{{ 'summary.display_filters.title' | translate }}</legend>
           <div class="databox">
             <div>
               <input type="checkbox" name="displayer-pia-main-content" id="displayer-pia-main-content" [checked]="displayOnlyActionPlan ? false : true" (change)="toggleMainContent()">
@@ -50,7 +50,6 @@
    </div>
   <div class="row force-select-all" id="force-select-all">
     <div class="small-12 medium-12 columns">
-
       <div *ngIf="allData" ng-class="{'text-success': model.copied, 'text-danger': !model.copied}" ng-copy="events.onCopy($event)">
         <!-- Main PIA data -->
         <div class="fadeIn force-select-all" *ngIf="displayMainPiaData">
