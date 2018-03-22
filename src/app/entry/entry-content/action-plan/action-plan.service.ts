@@ -114,7 +114,7 @@ export class ActionPlanService {
    */
   getCsv() {
     if (this.results && this.results.length > 0) {
-      this.csvRows.push({ title: this._translateService.instant('summary.csv_fundamental') });
+      this.csvRows.push({ title: this._translateService.instant('action_plan.principles') });
       this.results.forEach(data => {
         if (data && data.length > 0) {
           this.csvRows.push({ blank: '',
@@ -127,7 +127,7 @@ export class ActionPlanService {
     }
 
     if (this.measures && this.measures.length > 0) {
-      this.csvRows.push({ title: this._translateService.instant('summary.csv_measures') });
+      this.csvRows.push({ title: this._translateService.instant('action_plan.measures') });
       this.measures.forEach(data => {
         if (data && data.length > 0) {
           this.csvRows.push({ blank: '',
@@ -140,7 +140,7 @@ export class ActionPlanService {
     }
 
     if (this.risks['3.2']) {
-      this.csvRows.push({ title: this._translateService.instant('action_plan.risk1') });
+      this.csvRows.push({ title: this._translateService.instant('action_plan.risks') });
       this.csvRows.push({ blank: '',
                           short_title: this._translateService.instant('action_plan.risk1'),
                           action_plan_comment: this.filterText(this.risks['3.2'].action_plan_comment),
