@@ -2,6 +2,8 @@ import { Component, ElementRef, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
 import {element} from 'protractor';
+import * as html2canvas from 'html2canvas';
+import { saveSvgAsPng } from 'save-svg-as-png';
 
 import { Answer } from 'app/entry/entry-content/questions/answer.model';
 import { Measure } from 'app/entry/entry-content/measures/measure.model';
@@ -30,6 +32,8 @@ export class SummaryComponent implements OnInit {
   displayActionPlan: boolean;
   summarySubscription: Subscription;
   displayOnlyActionPlan: boolean;
+  displayRisksOverview: boolean;
+  displayRisksCartography: boolean;
 
   constructor(private el: ElementRef,
               private route: ActivatedRoute,
@@ -52,6 +56,8 @@ export class SummaryComponent implements OnInit {
       this.pia = this._piaService.pia;
       this.displayMainPiaData = true;
       this.displayActionPlan = true;
+      this.displayRisksOverview = true;
+      this.displayRisksCartography = true;
       this.showPia().then(() => {
         // Disable all filters (except action plan) if displaying only action plan
         if (this.displayOnlyActionPlan) {
@@ -59,9 +65,42 @@ export class SummaryComponent implements OnInit {
           this.toggleContextContent();
           this.toggleFundamentalPrinciplesContent();
           this.toggleRisksContent();
+          this.toggleRisksOverviewContent();
+          this.toggleRisksCartographyContent();
         }
       });
     });
+  }
+
+  getImages() {
+    this.getRisksOverviewImg();
+    this.getRisksCartographyImg();
+  }
+
+  getRisksOverviewImg() {
+    setTimeout(() => {
+        const mysvg = document.getElementById('risksOverviewSvg');
+        saveSvgAsPng(mysvg, 'risksOverview.png', {
+          backgroundColor: 'white',
+          scale: 1.4,
+          encoderOptions: 1,
+          width: 760});
+    }, 500);
+  }
+
+  getRisksCartographyImg() {
+    html2canvas(document.querySelector('#risksCartographyImg'), {scale: 1.4}).then(canvas => {
+      const img = canvas.toDataURL();
+      this.downloadURI(img, 'risksCartography.png');
+    });
+  }
+
+  downloadURI(uri, name) {
+    const link = document.createElement('a');
+    link.download = name;
+    link.href = uri;
+    document.body.appendChild(link);
+    link.click();
   }
 
   /**
@@ -114,33 +153,36 @@ export class SummaryComponent implements OnInit {
   }
 
   /**
+<<<<<<< 0ae06e0374fee8a5670cf393f83c6c1491de2856
 <<<<<<< 5140368e9f3e4882f3901dc9a2f58cc0cfdb25e5
    * Prepare and display the PIA information
 =======
 <<<<<<< a48ddb896d5c0e0d5af42c485979dd428d95a42a
    * Switch from Pia overview to action plan overview, and vice versa.
+=======
+   * Display or hide the risks overview for the current PIA.
+>>>>>>> WIP graphs in summary
    * @memberof SummaryComponent
    */
-  displayPiaSummary() {
-    const filtersBlock = this.el.nativeElement.querySelector('.pia-summaryFiltersBlock');
-    const displayFilters = this.el.nativeElement.querySelector('.pia-summaryFiltersBlock input');
-    if (displayFilters) {
-      [].forEach.call(displayFilters, function (filter) {
-        filter.checked = true;
-      });
-    }
-    this.showPiaTpl = !this.showPiaTpl;
-    this.displayFilters = !this.displayFilters;
-    this.displayMainPiaData = true;
-    this.displayActionPlan = true;
+  toggleRisksOverviewContent() {
+    this.displayRisksOverview = !this.displayRisksOverview;
   }
 
   /**
-   * Prepare and display the PIA information.
-=======
+   * Display or hide the risks cartography for the current PIA.
+   * @memberof SummaryComponent
+   */
+  toggleRisksCartographyContent() {
+    this.displayRisksCartography = !this.displayRisksCartography;
+  }
+
+  /**
    * Prepare and display the PIA information
+<<<<<<< 0ae06e0374fee8a5670cf393f83c6c1491de2856
 >>>>>>> close trello#259 (action plan summary rework)
 >>>>>>> merge fix
+=======
+>>>>>>> WIP graphs in summary
    * @memberof SummaryComponent
    */
   async showPia() {

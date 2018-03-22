@@ -914,23 +914,28 @@
     "remove_attachment": {
       "content": "<span class = 'strong'> Warnung, </span><br>Sind Sie sicher, dass Sie diesen Anhang entfernen möchten?",
       "keep": "Behalten",
-      "remove": "Entfernen"
+      "remove": "Entfernen",
+      "comment": "TO BE TRANSLATED - Comment"
     },
     "modal_select_text_pia": {
-      "content": "TO BE TRANSLATED - The content of pia has been copied on your clipboard"
+      "content": "TO BE TRANSLATED - The content of pia has been copied on your clipboard."
     }
   },
   "summary": {
     "previous_page": "Zurück zur vorherigen Seite",
     "print": "Drucken",
     "copy_to_clipboard": "TO BE TRANSLATED - Copy to clipboard",
+    "download_risks_overview": "TO BE TRANSLATED - Save risks overview as an image",
+    "download_risks_cartography": "TO BE TRANSLATED - Save risk mapping as an image",
     "display_filters": {
       "title": "Filter",
       "main_content": "\"Information zur DSFA\" anzeigen",
       "context_content": "\"Kontext\" anzeigen",
       "principles_content": "\"Fundamentale Prinzipien\" anzeigen",
       "risks_content": "\"Risiken\" anzeigen",
-      "action_plan_content": "\"Aktionsplan\" anzeigen"
+      "action_plan_content": "\"Aktionsplan\" anzeigen",
+      "risks_overview_content": "TO BE TRANSLATED - Display risks overview",
+      "risks_cartography_content": "TO BE TRANSLATED - Display risk mapping"
     },
     "title": "Information zur DSFA",
     "pia_name": "DSFA",
@@ -969,7 +974,9 @@
       "measures": "Bestehende oder geplante Maßnahmen",
       "risks": "Risiken",
       "no_action_plan": "Kein Aktionsplan festgelegt."
-    }
+    },
+    "risks_overview_title": "TO BE TRANSLATED - Risks overview",
+    "risks_cartography_title": "TO BE TRANSLATED - Risk mapping"
   },
   "errors":{
     "title": "Seite nicht gefunden.",

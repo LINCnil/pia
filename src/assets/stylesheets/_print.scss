@@ -2,4 +2,14 @@
   .hide-for-print {
     display: none;
   }
+  .pia-summaryRisksOverviewBlock {
+    > div {
+      width: 75% !important;
+    }
+  }
+  .pia-summaryRisksCartographyBlock {
+    > div {
+      width: 100% !important;
+    }
+  }
 }

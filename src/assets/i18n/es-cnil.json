@@ -915,25 +915,28 @@
     "remove_attachment": {
       "content": "<span class='strong'>Atención,</span><br>¿Está seguro de que desea <br>eliminar este documento adjunto?",
       "keep": "Conservar",
-      "remove": "Eliminar"
+      "remove": "Eliminar",
+      "comment": "TO BE TRANSLATED - Comment"
     },
     "modal_select_text_pia": {
-      "content": "TO BE TRANSLATED - The content of pia has been copied on your clipboard"
+      "content": "TO BE TRANSLATED - The content of pia has been copied on your clipboard."
     }
   },
   "summary": {
     "previous_page": "Volver a la página anterior",
     "print": "Imprimir",
-    "display_pia": "TO BE TRANSLATED - Display PIA",
-    "display_action_plan": "TO BE TRANSLATED - Display<br>action plan",
     "copy_to_clipboard": "TO BE TRANSLATED - Copy to clipboard",
+    "download_risks_overview": "TO BE TRANSLATED - Save risks overview as an image",
+    "download_risks_cartography": "TO BE TRANSLATED - Save risk mapping as an image",
     "display_filters": {
       "title": "TO BE TRANSLATED - Display filters",
       "main_content": "TO BE TRANSLATED - Display section \"PIA information\"",
       "context_content": "TO BE TRANSLATED - Display section \"Context\"",
       "principles_content": "TO BE TRANSLATED - Display section \"Fundamental principles\"",
       "risks_content": "TO BE TRANSLATED - Display section \"Risks\"",
-      "action_plan_content": "TO BE TRANSLATED - Display action plan"
+      "action_plan_content": "TO BE TRANSLATED - Display action plan",
+      "risks_overview_content": "TO BE TRANSLATED - Display risks overview",
+      "risks_cartography_content": "TO BE TRANSLATED - Display risk mapping"
     },
     "title": "Informaciones del PIA",
     "pia_name": "Nombre del PIA",
@@ -972,7 +975,9 @@
       "measures": "Medidas existentes o previstas",
       "risks": "Riesgos",
       "no_action_plan": "No se ha registrado ningún plan de acción."
-    }
+    },
+    "risks_overview_title": "TO BE TRANSLATED - Risks overview",
+    "risks_cartography_title": "TO BE TRANSLATED - Risk mapping"
   },
   "errors": {
     "title": "Página no encontrada.",

@@ -148,10 +148,9 @@
     <button tabindex="3" type="button" class="pia-modalBlock-close btn" title="{{ 'modals.close' | translate }}" (click)="_modalsService.closeModal()"><span class="pia-icons pia-icon-close-big"></span></button>
     <p [innerHTML]="'modals.remove_attachment.content' | translate"></p>
     <form [formGroup]="removeAttachmentForm" class="pia-remove-attachment-comment">
-      <label for="pia-remove-attachment-comment">Commentaire</label>
+      <label for="pia-remove-attachment-comment">{{ 'modals.remove_attachment.comment' | translate }}</label>
       <textarea id="pia-remove-attachment-comment" (focusout)="attachmentCommentFocusOut()" formControlName="comment"></textarea>
     </form>
-    <span class="pia-icons pia-icon-sad"></span>
     <div class="pia-modalBlock-buttons-choice">
       <button tabindex="1" class="btn btn-red get-focus" type="button" (click)="_modalsService.closeModal()">{{ 'modals.remove_attachment.keep' | translate }}</button>
       <button tabindex="2" class="btn btn-red" [disabled]="enableSubmit" (click)="_attachmentsService.removeAttachment(removeAttachmentForm.controls['comment'].value)" type="button">{{ 'modals.remove_attachment.remove' | translate }}</button>

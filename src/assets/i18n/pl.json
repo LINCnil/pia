@@ -926,26 +926,38 @@
     "remove_attachment": {
       "content": "<span class='strong'>Uwaga</span><br>Czy na pewno chcą Państwo<br>usunąć ten załącznik ?",
       "keep": "Zachowanie",
+<<<<<<< 0ae06e0374fee8a5670cf393f83c6c1491de2856
       "remove": "Usunięcie"
     },
     "modal_select_text_pia": {
       "content": "TO BE TRANSLATED - The content of pia has been copied on your clipboard"
+=======
+      "remove": "Usunięcie",
+      "comment": "TO BE TRANSLATED - Comment"
+>>>>>>> WIP graphs in summary
     }
   },
   "summary": {
     "previous_page": "Powrót do poprzedniej strony",
     "print": "Drukowanie",
+<<<<<<< 0ae06e0374fee8a5670cf393f83c6c1491de2856
 <<<<<<< 5140368e9f3e4882f3901dc9a2f58cc0cfdb25e5
     "copy_to_clipboard": "TO BE TRANSLATED - Copy to clipboard",
 =======
 >>>>>>> merge fix
+=======
+    "download_risks_overview": "TO BE TRANSLATED - Save risks overview as an image",
+    "download_risks_cartography": "TO BE TRANSLATED - Save risk mapping as an image",
+>>>>>>> WIP graphs in summary
     "display_filters": {
       "title": "TO BE TRANSLATED - Filters",
       "main_content": "TO BE TRANSLATED - Display \"PIA information\"",
       "context_content": "TO BE TRANSLATED - Display \"Context\"",
       "principles_content": "TO BE TRANSLATED - Display \"Fundamental principles\"",
       "risks_content": "TO BE TRANSLATED - Display \"Risks\"",
-      "action_plan_content": "TO BE TRANSLATED - Display action plan"
+      "action_plan_content": "TO BE TRANSLATED - Display action plan",
+      "risks_overview_content": "TO BE TRANSLATED - Display risks overview",
+      "risks_cartography_content": "TO BE TRANSLATED - Display risk mapping"
     },
     "title": "Informacje o PIA",
     "pia_name": "Nazwa PIA",
@@ -984,7 +996,9 @@
       "measures": "Środki istniejące lub przewidziane",
       "risks": "Ryzyka",
       "no_action_plan": "Brak zarejestrowanego planu działania."
-    }
+    },
+    "risks_overview_title": "TO BE TRANSLATED - Risks overview",
+    "risks_cartography_title": "TO BE TRANSLATED - Risk mapping"
   },
   "errors": {
     "title": "Brak strony.",

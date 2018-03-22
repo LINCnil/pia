@@ -873,9 +873,6 @@
     "completed_evaluation": {
       "content": "L'intégralité de l'analyse a été évaluée, le PIA doit désormais être validé."
     },
-    "modal_select_text_pia": {
-      "content": "Le contenu du Rapport Pia a été copié dans votre presse-papier"
-    },
     "update_server_url": {
       "content": "L'adresse du serveur à été mise à jour."
     },
@@ -920,20 +917,28 @@
     "remove_attachment": {
       "content": "<span class='strong'>Attention,</span><br>Êtes-vous sûr de vouloir<br>supprimer cette pièce jointe ?",
       "keep": "Conserver",
-      "remove": "Supprimer"
+      "remove": "Supprimer",
+      "comment": "Commentaire"
+    },
+    "modal_select_text_pia": {
+      "content": "Le contenu du Rapport Pia a été copié dans votre presse-papier."
     }
   },
   "summary": {
     "previous_page": "Retour à la page précédente",
     "print": "Imprimer",
     "copy_to_clipboard": "Copier dans le presse-papier",
+    "download_risks_overview": "Enregistrer une image de la vue d'ensemble des risques",
+    "download_risks_cartography": "Enregistrer une image de la cartographie des risques",
     "display_filters": {
       "title": "Filtres d'affichage",
       "main_content": "Afficher la section \"Informations du PIA\"",
       "context_content": "Afficher la section \"Contexte\"",
       "principles_content": "Afficher la section \"Principes fondamentaux\"",
       "risks_content": "Afficher la section \"Risques\"",
-      "action_plan_content": " Afficher le plan d'action"
+      "action_plan_content": " Afficher le plan d'action",
+      "risks_overview_content": "Afficher la vue d'ensemble des risques",
+      "risks_cartography_content": "Afficher la cartographie des risques"
     },
     "title": "Informations du PIA",
     "pia_name": "Nom du PIA",
@@ -972,7 +977,9 @@
       "measures": "Mesures existantes ou prévues",
       "risks": "Risques",
       "no_action_plan": "Aucun plan d'action enregistré."
-    }
+    },
+    "risks_overview_title": "Vue d'ensemble des risques",
+    "risks_cartography_title": "Cartographie des risques"
   },
   "errors": {
     "title": "Page introuvable.",

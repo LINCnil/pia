@@ -101,9 +101,13 @@
           font-weight: 500;
         }
       }
+
       .databox {
         > div {
           padding: 3px 0;
+          > div {
+            padding: 10px 0;
+          }
         }
       }
     }
@@ -111,7 +115,17 @@
   &-attachment-removed {
     text-decoration: line-through;
   }
-
+  &-summaryRisksOverviewBlock,
+  &-summaryRisksCartographyBlock {
+    > div {
+      vertical-align: top;
+      width: 50%;
+      margin: 0 auto;
+    }
+  }
+  &-summaryRisksOverviewBlock > div {
+    box-shadow: 1px 1px 15px 1px #d2d2d2;
+  }
 }
 .btn-select-all {
   display: block;
@@ -132,3 +146,5 @@
   -ms-user-select: none!important;
   user-select: none!important;
 }
+
+.pagebreak { page-break-before: always; }

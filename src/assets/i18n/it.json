@@ -926,23 +926,28 @@
     "remove_attachment": {
       "content": "<span class='strong'>Attenzione,</span><br>Sei sicuro di voler<br>cancellare questo allegato?",
       "keep": "Mantieni",
-      "remove": "Cancella"
+      "remove": "Cancella",
+      "comment": "TO BE TRANSLATED - Comment"
     },
     "modal_select_text_pia": {
-      "content": "TO BE TRANSLATED - The content of pia has been copied on your clipboard"
+      "content": "TO BE TRANSLATED - The content of pia has been copied on your clipboard."
     }
   },
   "summary": {
     "previous_page": "Torna alla pagina precedente",
     "print": "Stampa",
     "copy_to_clipboard": "TO BE TRANSLATED - Copy to clipboard",
+    "download_risks_overview": "TO BE TRANSLATED - Save risks overview as an image",
+    "download_risks_cartography": "TO BE TRANSLATED - Save risk mapping as an image",
     "display_filters": {
       "title": "TO BE TRANSLATED - Filters",
       "main_content": "TO BE TRANSLATED - Display \"PIA information\"",
       "context_content": "TO BE TRANSLATED - Display \"Context\"",
       "principles_content": "TO BE TRANSLATED - Display \"Fundamental principles\"",
       "risks_content": "TO BE TRANSLATED - Display \"Risks\"",
-      "action_plan_content": "TO BE TRANSLATED - Display action plan"
+      "action_plan_content": "TO BE TRANSLATED - Display action plan",
+      "risks_overview_content": "TO BE TRANSLATED - Display risks overview",
+      "risks_cartography_content": "TO BE TRANSLATED - Display risk mapping"
     },
     "title": "Informazioni sul PIA",
     "pia_name": "PIA",
@@ -981,7 +986,9 @@
       "measures": "Controlli esistenti o pianificati",
       "risks": "Rischi",
       "no_action_plan": "Nessun piano d'azione registrato."
-    }
+    },
+    "risks_overview_title": "TO BE TRANSLATED - Risks overview",
+    "risks_cartography_title": "TO BE TRANSLATED - Risk mapping"
   },
   "errors": {
     "title": "Pagina non trovata.",
