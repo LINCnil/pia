@@ -37,6 +37,7 @@
     </ng-template>
   </header>
 
+  <!-- Back to edition -->
   <div class="pia-status-info" *ngIf="_globalEvaluationService.status === 4 && _piaService.pia.is_example === 0">
     <strong>{{ 'pia.sections.status.evaluation.title' | translate }}</strong>
     <p>
@@ -44,6 +45,8 @@
       <a href="javascript:;" (click)="cancelAskForEvaluation()" [innerHTML]="'pia.sections.status.evaluation.cancel' | translate"></a>
     </p>
   </div>
+
+  <!-- Back to evaluation -->
   <div class="pia-status-info" *ngIf="_globalEvaluationService.status === 7 && _piaService.pia.is_example === 0 && !(section.id == 4 && item.id == 3)">
     <strong>{{ 'pia.sections.status.validation.title' | translate }}</strong>
     <p>

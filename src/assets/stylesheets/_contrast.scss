@@ -612,6 +612,30 @@ body.pia-contrast {
     .pia-icon-close-big {
       background-position: -323px -86px;
     }
+
+    /* Icons' colors */
+    .icon-green {
+      color: $pia-green-dark !important;
+    }
+    .icon-red {
+      color: $pia-red-dark !important;
+    }
+    .icon-gray {
+      color: $pia-gray-dark !important;
+    }
+  }
+  #modal-abandon-pia {
+    p {
+      color: $pia-red-dark !important;
+    }
+    .abandonText {
+      color: $pia-gray-dark !important;
+    }
+  }
+  #modal-refuse-pia {
+    p {
+      color: $pia-red-dark !important;
+    }
   }
 
   /* PIA validation page */
