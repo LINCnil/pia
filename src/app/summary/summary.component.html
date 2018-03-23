@@ -12,8 +12,8 @@
   </div>
 
   <!-- Copy to clipboard block -->
-  <div class="pia-summaryCopyBlock">
-    <button class="btn btn-select-all" (click)="getTextSelection()">{{ 'summary.copy_to_clipboard' | translate }}</button>
+  <div class="pia-summaryCopyBlock hide-for-print">
+    <button class="btn btn-select-all hide-for-print" (click)="getTextSelection()">{{ 'summary.copy_to_clipboard' | translate }}</button>
   </div>
 
   <!-- Customize content filters -->
@@ -83,7 +83,7 @@
           </div>
         </div>
         <div *ngFor="let section of _piaService.data.sections">
-          <div class="fadeIn section-{{section.id}}" *ngIf="section.id !== 4">
+          <div class="fadeIn section-{{section.id}} pagebreak" *ngIf="section.id !== 4">
             <h1 >{{ section.title | translate }}</h1>
             <div *ngFor="let item of section.items">
               <div *ngIf="item.evaluation_mode !== ''">
