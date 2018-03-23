@@ -130,6 +130,25 @@
   </div>
 </div>
 
+<div class="pia-modalBlock" style="background-color:transparent;" id="pia-action-plan-no-evaluation">
+  <div class="pia-modalBlock-content pia-modalBlock-haveEvaluationsForActionPlan bounceIn">
+    <p [innerHTML]="'modals.action_plan_no_evaluation.content' | translate"></p>
+    <span class="pia-icons pia-icon-sorry"></span>
+    <div class="pia-modalBlock-validate">
+      <button tabindex="1" class="btn btn-blue get-focus" type="button" (click)="_modalsService.closeModal()" data-dismiss="modal">{{ 'modals.close' | translate }}</button>
+    </div>
+  </div>
+</div>
+
+<div class="pia-modalBlock" style="background-color:transparent;" id="pia-dpo-missing-evaluations">
+  <div class="pia-modalBlock-content pia-modalBlock-allEvaluationsForDpo bounceIn">
+    <p [innerHTML]="'modals.dpo_missing_evaluations.content' | translate"></p>
+    <span class="pia-icons pia-icon-sorry"></span>
+    <div class="pia-modalBlock-validate">
+      <button tabindex="1" class="btn btn-blue get-focus" type="button" (click)="_modalsService.closeModal()" data-dismiss="modal">{{ 'modals.close' | translate }}</button>
+    </div>
+  </div>
+</div>
 
 <div class="pia-modalBlock" id="modal-remove-pia">
   <div class="pia-modalBlock-content pia-modalBlock-removePIA bounceIn">

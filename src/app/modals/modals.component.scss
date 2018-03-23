@@ -82,7 +82,9 @@
         }
       }
     }
-    &-declareMeasuresForRisks {
+    &-declareMeasuresForRisks,
+    &-haveEvaluationsForActionPlan,
+    &-allEvaluationsForDpo {
       .pia-modalBlock-validate {
         button {
           padding-left: 16px;

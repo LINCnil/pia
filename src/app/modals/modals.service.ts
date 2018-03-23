@@ -13,7 +13,9 @@ export class ModalsService {
    * @memberof ModalsService
    */
   openModal(modal_id: string) {
-    if (modal_id === 'pia-declare-measures') {
+    if (modal_id === 'pia-declare-measures' ||
+        modal_id === 'pia-action-plan-no-evaluation' ||
+        modal_id === 'pia-dpo-missing-evaluations') {
       const mainContent = document.querySelector('.pia-entryContentBlock');
       if (mainContent) {
         mainContent.classList.add('blur-content');
@@ -21,17 +23,11 @@ export class ModalsService {
     } else {
       const header = document.querySelector('.pia-headerBlock');
       const container = document.querySelector('.pia-mainContainerBlock');
-
-
       header.classList.add('blur');
       container.classList.add('blur');
     }
-    console.log(modal_id);
     const e = <HTMLElement>document.getElementById(modal_id);
-
     e.classList.add('open');
-    console.log( e);
-    console.log(modal_id)
     const gf = (<HTMLButtonElement>e.querySelector('.get-focus'));
     if (gf) {
       gf.focus();

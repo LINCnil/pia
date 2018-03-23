@@ -126,6 +126,8 @@ export class EntryComponent implements OnInit, OnDestroy, DoCheck {
       this._globalEvaluationService.pia = this._piaService.pia;
       this._globalEvaluationService.validate();
       this._measureService.listMeasures(this._piaService.pia.id).then(() => {
+
+        /* Modal for risks if no measures yet */
         let displayModal = true;
         if ((this.section.id === 3) && (this.item.id === 2 || this.item.id === 3 || this.item.id === 4)) {
           if (this._measureService.measures.length > 0) {
@@ -139,6 +141,19 @@ export class EntryComponent implements OnInit, OnDestroy, DoCheck {
             this._modalsService.openModal('pia-declare-measures');
           }
         }
+
+        /* Modal for action plan if no evaluations yet */
+        // TODO
+        if (this.section.id === 4 && this.item.id === 2) {
+          this._modalsService.openModal('pia-action-plan-no-evaluation');
+        }
+
+        /* Modal for dpo page if all evaluations are not done yet */
+        // TODO
+        if (this.section.id === 4 && this.item.id === 3) {
+          this._modalsService.openModal('pia-dpo-missing-evaluations');
+        }
+
       });
 
       this._actionPlanService.data = this.data;
