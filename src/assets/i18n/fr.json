@@ -908,7 +908,7 @@
       "content": "Désolé,<br>Plusieurs champs doivent être corrigés.<br>Retour au mode d'édition<br>pour apporter des corrections."
     },
     "declare_measures": {
-      "content": "Désolé,<br>Avant d'évaluer les risques,<br>vous devez déclarer les mesures<br>existantes ou prévues",
+      "content": "Avant d'évaluer les risques,<br>vous devez déclarer les mesures<br>existantes ou prévues.",
       "declare": "Déclarer les mesures existantes ou prévues"
     },
     "remove_pia": {

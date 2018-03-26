@@ -147,7 +147,7 @@
 <div class="pia-modalBlock" style="background-color:transparent;" id="pia-declare-measures">
   <div class="pia-modalBlock-content pia-modalBlock-declareMeasuresForRisks bounceIn">
     <p [innerHTML]="'modals.declare_measures.content' | translate"></p>
-    <span class="pia-icons pia-icon-sorry"></span>
+    <i class="fa fa-arrow-left icon-blue" aria-hidden="true"></i>
     <div class="pia-modalBlock-validate">
       <a routerLink="/entry/{{_piaService.pia.id}}/section/3/item/1" (click)="_modalsService.closeModal()" class="btn btn-green get-focus">{{ 'modals.declare_measures.declare' | translate }}</a>
     </div>

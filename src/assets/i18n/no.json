@@ -914,7 +914,7 @@
       "content": "Sorry,<br>Several fields must be corrected.<br>Return to edition mode<br>to make corrections."
     },
     "declare_measures": {
-      "content": "Sorry,<br>before evaluating risks,<br>you must report the<br>existing or planned measures.",
+      "content": "Before evaluating risks,<br>you must report the<br>existing or planned measures.",
       "declare": "Declare existing or planned measures"
     },
     "remove_pia": {

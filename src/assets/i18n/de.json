@@ -905,7 +905,7 @@
       "content": "Sorry,<br>Mehrere Felder müssen korrigiert werden.<br>Zum Bearbeitungsmodus zurückkehren und Korrekturen vornehmen."
     },
     "declare_measures": {
-      "content": "Sorry,<br>bevor Sie Risiken bewerten,<br>müssen Sie die bestehenden oder geplanten Maßnahmen melden.",
+      "content": "Bevor Sie Risiken bewerten,<br>müssen Sie die bestehenden oder geplanten Maßnahmen melden.",
       "declare": "Benennen Sie bestehende oder geplante Maßnahmen"
     },
     "remove_pia": {

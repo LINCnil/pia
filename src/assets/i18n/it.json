@@ -917,7 +917,7 @@
       "content": "Spiacente,<br>Diversi campi devono essere corretti.<br>Torna alla modalità modifica<br>per fare correzioni."
     },
     "declare_measures": {
-      "content": "Spiacente, <br>prima di valutare rischi,<br>devi riportare le<br>misure esistenti o pianificate.",
+      "content": "Prima di valutare rischi,<br>devi riportare le<br>misure esistenti o pianificate.",
       "declare": "Dichiara misure esistenti o pianificate"
     },
     "remove_pia": {

@@ -917,7 +917,7 @@
       "content": "Sorry,<br>Několik polí musí být opraveno.<br>Návrat do edice režimu a opravy."
     },
     "declare_measures": {
-      "content": "Je nám líto,<br>než vyhodnotíte rizika,<br>musíte ohlásit stávající<br>nebo plánovaná opatření.",
+      "content": "Než vyhodnotíte rizika,<br>musíte ohlásit stávající<br>nebo plánovaná opatření.",
       "declare": "Oznámit stávající nebo plánovaná opatření"
     },
     "remove_pia": {

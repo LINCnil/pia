@@ -915,7 +915,7 @@
       "content": "Lo siento,<br>Se deben corregir varios campos. <br> Volver al modo de edición<br>para realizar correcciones"
     },
     "declare_measures": {
-      "content": "Lo siento, <br> antes de evaluar los riesgos, <br> debe informar las medidas existentes o planificadas",
+      "content": "Antes de evaluar los riesgos, <br> debe informar las medidas existentes o planificadas.",
       "declare": "Declare las medidas existentes o previstas"
     },
     "remove_pia": {
