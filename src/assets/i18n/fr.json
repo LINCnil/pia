@@ -874,7 +874,7 @@
       "content": "L'intégralité de l'analyse a été évaluée, le PIA doit désormais être validé."
     },
     "modal_select_text_pia": {
-      "content": "Le contenu du Rapport Pia a été copié dans votre presse-papier"
+      "content": "Le contenu du Rapport Pia a été copié dans votre presse-papier."
     },
     "update_server_url": {
       "content": "L'adresse du serveur à été mise à jour."
@@ -921,6 +921,14 @@
       "content": "<span class='strong'>Attention,</span><br>Êtes-vous sûr de vouloir<br>supprimer cette pièce jointe ?",
       "keep": "Conserver",
       "remove": "Supprimer"
+    },
+    "action_plan_no_evaluation": {
+      "content": "Veuillez commencer l'évaluation de l'analyse pour génerer le plan d'actions.",
+      "review_section": "Évaluer une section"
+    },
+    "dpo_missing_evaluations": {
+      "content": "Veuillez compléter l'évaluation de l'analyse pour accéder à la page des DPO.",
+      "review_section": "Évaluer une section"
     }
   },
   "summary": {

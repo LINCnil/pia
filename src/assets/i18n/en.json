@@ -928,7 +928,15 @@
       "remove": "Remove"
     },
     "modal_select_text_pia": {
-      "content": "The content of pia has been copied on your clipboard"
+      "content": "The content of pia has been copied on your clipboard."
+    },
+    "action_plan_no_evaluation": {
+      "content": "You need to begin the review of the analysis to create the action plan.",
+      "review_section": "Review a section"
+    },
+    "dpo_missing_evaluations": {
+      "content": "You need to complete the review of the analysis to access the DPO page.",
+      "review_section": "Review a section"
     }
   },
   "summary": {
