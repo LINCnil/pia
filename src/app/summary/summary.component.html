@@ -44,14 +44,14 @@
               <label for="displayer-pia-action-plan">{{ 'summary.display_filters.action_plan_content' | translate }}</label>
             </div>
             <div>
-              <input type="checkbox" name="displayer-pia-risks-overview" id="displayer-pia-risks-overview" [checked]="true" (change)="toggleRisksOverviewContent()">
+              <input type="checkbox" name="displayer-pia-risks-overview" id="displayer-pia-risks-overview" [checked]="displayRisksOverview ? true : false" (change)="toggleRisksOverviewContent()">
               <label for="displayer-pia-risks-overview">{{ 'summary.display_filters.risks_overview_content' | translate }}</label>
               <div *ngIf="displayRisksOverview">
                 <button class="btn btn-green" (click)="getRisksOverviewImg()">{{ 'summary.download_risks_overview' | translate }}</button>
               </div>
             </div>
             <div>
-              <input type="checkbox" name="displayer-pia-risks-cartography" id="displayer-risks-cartography" [checked]="true" (change)="toggleRisksCartographyContent()">
+              <input type="checkbox" name="displayer-pia-risks-cartography" id="displayer-risks-cartography" [checked]="displayRisksCartography ? true : false" (change)="toggleRisksCartographyContent()">
               <label for="displayer-risks-cartography">{{ 'summary.display_filters.risks_cartography_content' | translate }}</label>
               <div *ngIf="displayRisksCartography">
                 <button class="btn btn-green" (click)="getRisksCartographyImg()">{{ 'summary.download_risks_cartography' | translate }}</button>
