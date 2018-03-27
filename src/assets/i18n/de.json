@@ -917,7 +917,7 @@
       "remove": "Entfernen"
     },
     "modal_select_text_pia": {
-      "content": "TO BE TRANSLATED - The content of pia has been copied on your clipboard"
+      "content": "Der Inhalt der DSFA wurde in die Zwischenablage kopiert"
     }
   },
   "summary": {
@@ -925,7 +925,7 @@
     "print": "Drucken",
     "display_pia": "Sehen Sie sich die PIA an",
     "display_action_plan": "Sehen Sie sich den<br>Aktionsplan an",
-    "copy_to_clipboard": "TO BE TRANSLATED - Copy to clipboard",
+    "copy_to_clipboard": "In die Zwischenablage kopieren",
     "display_filters": {
       "title": "Filter",
       "main_content": "\"Information zur DSFA\" anzeigen",
@@ -1005,8 +1005,8 @@
     "legend3": "(I)llegitimer Zugriff auf Daten",
     "legend4": "(U)nerwünschte Änderung von Daten",
     "legend5": "(D)atenverlust",
-    "risk1_access": "(A)",
-    "risk2_modification": "(M)"
+    "risk1_access": "(I)",
+    "risk2_modification": "(U)"
   },
   "action_plan": {
     "title": "Übersicht",
