@@ -4,7 +4,7 @@
     "subtitle1": "Una piattaforma per creare <br> e gestire le tue PIA",
     "subtitle2": "Accesso ai tool e glossari",
     "start_app": "Accedi al software PIA (Beta)",
-    "description": "Questo software creato dall'<strong>Autorità Francese per la Protezione dei Dati (CNIL)</ strong> ha lo scopo di guidare i Titolari del trattamento dei dati nell'adeguamento della conformità col GDPR. Aiuta a svolgere correttamente una valutazione dell'impatto sulla protezione dei dati facilitando l'uso del metodo sviluppato dalla CNIL per affrontare la PIA",
+    "description": " Questo software creato dall' <strong> autorità francese per la protezione dei dati (CNIL) </ strong> ha lo scopo di guidare i Titolari del trattamento dei dati nell'adeguamento della conformità col GDPR. Aiuta a svolgere correttamente una valutazione dell'impatto sulla protezione dei dati facilitando l'uso del metodo sviluppato dalla CNIL per affrontare la PIA",
     "start": "Avvio"
   },
   "header": {
@@ -16,17 +16,15 @@
     "languages": {
       "official_translation": "Versione originale",
       "cnil_translations": "Traduzioni fornite dal CNIL",
-      "community_translations": "Traduzione della comunità",
+      "community_translations": "Traduzioni fornite dalla community",
       "fr": "Français",
       "en": "English",
       "cz": "Česky",
-      "it": "Italiano",
+      "it": "Italiaans",
       "nl": "Nederlands",
-      "no": "Nynorsk",
       "pl": "Polski",
       "de": "Deutsch",
-      "es": "Español",
-      "el": "Ελληνικά"
+      "es": "Español"
     },
     "tools": {
       "title": "Strumenti",
@@ -38,8 +36,8 @@
   },
   "homepage": {
     "filters": {
-      "list": "Schede",
-      "card": "Elenco",
+      "list": "Lista",
+      "card": "Tabella",
       "sort": "Ordina",
       "sort_by": "per",
       "name": "Nome",
@@ -56,7 +54,7 @@
     "cards": {
       "new_pia": "Nuova PIA",
       "placeholder_new_pia": "Nuova PIA",
-      "or": "oppure",
+      "or": "or",
       "import_pia": "Importa PIA",
       "placeholder_import_pia": "Importa PIA",
       "title_close_creation": "Chiudi",
@@ -78,8 +76,8 @@
           "export": "Esporta",
           "more_options": "Più opzioni",
           "duplicate": "Crea una copia",
-          "action_plan": "Mostra il<br>piano d'azione",
-          "pia": "Mostra PIA",
+          "action_plan": "Mostra<br>il piano d'azione",
+          "pia": "Mostra<br>PIA",
           "remove": "Cancella"
         },
         "edit_pia": "Modifica PIA",
@@ -98,7 +96,7 @@
       "column_actions": "Azioni",
       "item": {
         "tools": {
-          "consult": "Consultazione",
+          "consult": "Consulta",
           "edit": "Modifica",
           "export": "Esporta",
           "duplicate": "Crea una copia",
@@ -121,8 +119,8 @@
     "header": {
       "preview": "Anteprima",
       "display_action_plan": "Mostra<br>il piano d'azione",
-      "edition": "Modifica",
-      "evaluation": "Valutazione"
+      "edition": "TO BE TRANSLATED - Edition",
+      "evaluation": "TO BE TRANSLATED - Evaluation"
     },
     "attachments": {
       "title": "Allegati",
@@ -136,15 +134,15 @@
       "status": {
         "evaluation": {
           "title": "In attesa di revisione.",
-          "content": "Questa parte non è ancora stata sottoposta a revisione. Se desiderate modificare i contenuti sottopost a revisione dovete ",
-          "cancel": "cancellare la richiesta di revisione.",
-          "cancel_button": "Cancellare la richiesta di revisione"
+          "content": "Questa sezione non è stata ancora oggetto di revisione. Se vuoi modificarne il contentuo occorre ",
+          "cancel": "annullare la richiesta di revisione.",
+          "cancel_button": "Annulla la richiesta di revisione"
         },
         "validation": {
           "title": "In attesa di validazione.",
-          "content": "Questa parte è stata rivista ed è inattesa della validazione generale della PIA. Se volete modificare la revisione dovete ",
-          "cancel": "cancellare la richiesta di validazione.",
-          "cancel_button": "Cancellare la richiesta di validazione"
+          "content": "Questa sezione ha subito una revisione ed è in attesa della validazione generale del PIA. Se vuoi modificare l'esito della revisione ",
+          "cancel": "occorre cancellare la richiesta di validazione.",
+          "cancel_button": "Cancella la richiesta di validazione"
         }
       }
     },
@@ -259,13 +257,13 @@
       },
       "PIA_VAL_RT": {
         "name": "Convalida formale",
-        "description": "<strong>Il titolare del trattamento decide formalmente</strong> sull'accettabilità delle misure prescelte, dei rischi residui e del piano d'azione, in modo ben motivato, in relazione alle questioni precedentemente identificate e al parere delle parti interessate (stakeholder). Il PIA può essere: <br> - validato <br> - condizionato al miglioramento (spiegare come) <br> - rifiutato (insieme con il trattamento in considerazione). <br> La presente decisione non pregiudica la valutazione della conformità che può essere effettuata, se necessario, dall'autorità per la protezione dei dati, ad esempio come parte delle formalità preliminari o dei controlli.",
+        "description": "<strong>Il titolare del trattamento decide formalmente</strong> sull'accettabilità delle misure prescelte, dei rischi residui e del piano d'azione, in modo ben motivato, in relazione alle questioni precedentemente identificate e al parere degli stakeholder. Il PIA può essere: <br> - validato <br> - condizionato al miglioramento (spiegare come) <br> - rifiutato (insieme con il trattamento in considerazione). <br> La presente decisione non pregiudica la valutazione della conformità che può essere effettuata, se necessario, dall'autorità per la protezione dei dati, ad esempio come parte delle formalità preliminari o dei controlli.",
         "source": "PIAF Oggetti Connessi p40"
       },
       "PIA_TEC_CHIF": {
         "placeholder": "Descrivi qui i mezzi implementati per assicurare la confidenzialità dei dati",
         "name": "Crittografia",
-        "description": "I mezzi implementati per <strong>assicurare la confidenzialità</strong> dei dati archiviati (in database, file, backup etc.), così come le procedure per gestire chiavi crittografiche (creazione, archiviazione, aggiornamento in caso di compromissione etc.).<br> Descrivi i mezzi crittografici impiegati per i flussi di dati (VPN, TLS, etc.) implementati nel trattamento.",
+        "description": "I mezzi implementati per <strong>assicurare la confidenzialit༯strong> dei dati archiviati (in database, file, backup etc.), così come le procedure per gestire chiavi crittografiche (creazione, archiviazione, aggiornamento in caso di compromissione etc.).<br> Descrivi i mezzi crittografici impiegati per i flussi di dati (VPN, TLS, etc.) implementati nel trattamento.",
         "source": "PIAF Oggetti Connessi p21"
       },
       "PIA_TEC_ANO": {
@@ -313,7 +311,7 @@
       "PIA_SEC_EXP": {
         "placeholder": "Descrivi qui come si aggiorna il software (sistemi operativi, applicazioni etc.) e come sono effettuati di controlli di sicurezza e patch.",
         "name": "Vulnerabilità",
-        "description": "Politiche volte a limitare la probabilità e la gravità dei rischi per le risorse utilizzate durante l'operatività e procedure operative documentali, inventario e aggiornaemnto di software e hardware, affrontare vulnerabilità, duplicare i dati, limitare l'accesso fisico al materiale etc.).",
+        "description": "Politiche volte a limitare la probabilità e la gravità dei rischi per le risorse utilizzate durante l'operatività e procedure operative documentali, inventario e aggiornaemnto di software e hardware, affrontare vulnerabilitଠduplicare i dati, limitare l'accesso fisico al materiale etc.).",
         "source": "PIAF Oggetti Connessi p22 - WIKI"
       },
       "PIA_SEC_MAL": {
@@ -325,7 +323,7 @@
       "PIA_SEC_COMP": {
         "placeholder": "Descrivi qui i controlli implementati sulle postazioni",
         "name": "Gestione postazioni",
-        "description": "Misure adottate per ridurre la possibilità che le caratteristiche del software (sistemi operativi, applicazioni aziendali, software per ufficio, impostazioni etc.) vengano sfruttate per danneggiare i dati personali (aggiornamenti, protezione fisica e accesso, lavoro su uno spazio di rete di backup, controlli di integrità, logging etc.).",
+        "description": "Misure adottate per ridurre la possibilità che le caratteristiche del software (sistemi operativi, applicazioni aziendali, software per ufficio, impostazioni etc.) vengano sfruttate per danneggiare i dati personali (aggiornamenti, protezione fisica e accesso, lavoro su uno spazio di rete di backup, controlli di integritଠlogging etc.).",
         "source": "PIAF Oggetti Connessi p22 - WIKI"
       },
       "PIA_SEC_WEB": {
@@ -457,17 +455,12 @@
       },
       "PIA_DEF_SUPT": {
         "name": "Risorse di supporto",
-        "description": "Risorse sulle quali i dati personali fanno affidamento. Possono essere hardware, software, reti, persone, cartaceo o mezzi di trasmissione cartacei",
+        "description": "Risorse sulle quali i dati perosnali fanno affidamento. Possono essere hardware, software, reti, persone, cartaceo o mezzi di trasmissione cartacei",
         "source": "PIA1 p10"
       },
       "PIA_DEF_MINC": {
         "name": "Minimizzare la quantità di dati personali",
         "description": "Ridurre la gravità dei rischi limitando la raccolta di dati personali a ciò che è strettamente necessario in relazione a uno scopo definito. Per evitare la raccolta di dati non necessari evitare l'uso di dati che non sono correlati allo scopo e con impatti eccessivi sulle persone.",
-        "source": ""
-      },
-      "PIA_DEF_MIND": {
-        "name": "Minimizzare la quantità di dati",
-        "description": "Ridurre la gravità dei rischi limitando la quantità dei dati raccolti, adottando misure per ridurre la loro sensibilità.",
         "source": ""
       },
       "PIA_DEF_CONS": {
@@ -477,7 +470,7 @@
       },
       "PIA_DEF_ACC": {
         "name": "Diritto di accesso",
-        "description": "L'interessato ha diritto di ottenere dal titolare del trattamento che i dati personali relativi sono o non sono elaborati e, quando lo sono, accesso a tali dati personali e altre informazioni specificate nell' <a target=\"_blank\" href=\"http://www.garanteprivacy.it/documents/10160/0/Regolamento+UE+2016+679.+Con+riferimenti+ai+considerando\">Art. 15 del [GDPR]</a>, ed esercitare il diritto di accesso da parte dei titolari di potestà genitoriale per i minori, o rappresentante legale",
+        "description": "L'interessato ha diritto di ottenere dal titolare del trattamento che i dati personali relativi sono o non sono elaborati e, quando lo sono, accesso a tali dati personali e altre informazioni specificate nell' <a target=\"_blank\" href=\"http://www.garanteprivacy.it/documents/10160/0/Regolamento+UE+2016+679.+Con+riferimenti+ai+considerando\">Art. 15 del [GDPR]</a>, ed esercitare il diritto di accesso da parte dei titolari di potestࡧenitoriale per i minori, o rappresentante legale",
         "source": "GDPR Art. 15"
       },
       "PIA_DEF_PORT": {
@@ -492,7 +485,7 @@
       },
       "PIA_DEF_EFF": {
         "name": "Diritto di eliminazione",
-        "description": "L'interessato ha il diritto di ottenere dal titolare del trattamento la cancellazione, il più presto possibile, dei suoi dati personali e il titolare del trattamento è tenuto a cancellare tali dati personali appena possibile in conformità con l' <a target=\"_blank\" href=\"http://www.garanteprivacy.it/documents/10160/0/Regolamento+UE+2016+679.+Con+riferimenti+ai+considerando\">Art. 17 del [GDPR]</a>",
+        "description": "L'interessato ha il diritto di ottenere dal titolare del trattamento la cancellazione, il pi񠰲esto possibile, dei suoi dati personali e il titolare del trattamento 衴enuto a cancellare tali dati personali appena possibile in conformità con l' <a target=\"_blank\" href=\"http://www.garanteprivacy.it/documents/10160/0/Regolamento+UE+2016+679.+Con+riferimenti+ai+considerando\">Art. 17 del [GDPR]</a>",
         "source": "GDPR Art. 17"
       },
       "PIA_DEF_LIM": {
@@ -562,7 +555,7 @@
       },
       "PIA_DEF_VRA": {
         "name": "Probabilità",
-        "description": "La probabilità esprime la possibilità che un rischio si realizzi. Dipende principalmente dal livello di vulnerabilità delle risorse di supporto quando sottoposte alle minacce e dal livello di capacità delle fonti di rischio a sfruttarle.",
+        "description": "La probabilità esprime la possibilità che un rischio si realizzi. Dipende principalmente dal livello di vulnerabilità delle risorse di supporto quando sottoposte alle minacce e dal livello di capacitࡤelle fonti di rischio a sfruttarle.",
         "source": "PIA1 pg 6"
       },
       "PIA_DEF_PBDS": {
@@ -677,17 +670,17 @@
       },
       "PIA_EX_VRAL": {
         "name": "Probabilità limitata",
-        "description": "Basandosi sugli asset organizzativi sembra difficile che le fonti di rischio considerate possano creare una minaccia (ad esempio il furto di supporti cartacei conservati in un locale dell'organizzazione il cui accesso è controllato da badge e codice d'accesso).",
+        "description": " Basandosi sugli asset organizzativi sembra difficile che le fonti di rischio considerate possano creare una minaccia (ad esempio il furto di supporti cartacei conservati in un locale dell'organizzazione il cui accesso è controllato da badge e codice d'accesso).",
         "source": "PIAF Oggetti Connessi p44 - WIKI"
       },
       "PIA_EX_VRAI": {
         "name": "Probabilità significativa",
-        "description": "Basandosi sugli asset organizzativi sembra possibile che le fonti di rischio considerate possano creare una minaccia (ad esempio: il furto di supporti cartacei conservati negli uffici di un'organizzazione il cui accesso è controllato da una persona alla reception).",
+        "description": " Basandosi sugli asset organizzativi sembra possibile che le fonti di rischio considerate possano creare una minaccia (ad esempio: il furto di supporti cartacei conservati negli uffici di un'organizzazione il cui accesso è controllato da una persona alla reception).",
         "source": "PIAF Oggetti Connessi p44 - WIKI"
       },
       "PIA_EX_VRAM": {
         "name": "Probabilità massima",
-        "description": "Basandosi sugli asset organizzativi sembra estremamente facile che le fonti di rischio considerate possano creare una minaccia (ad esempio il furto di supporti cartacei conservati nella sala pubblica dell'organizzazione).",
+        "description": " Basandosi sugli asset organizzativi sembra estremamente facile che le fonti di rischio considerate possano creare una minaccia (ad esempio il furto di supporti cartacei conservati nella sala pubblica dell'organizzazione).",
         "source": "PIAF Oggetti Connessi p44 - WIKI"
       },
       "PIA_EX_MIND": {
@@ -708,7 +701,7 @@
       },
       "PIA_DEF_CHIF": {
         "name": "Crittografia",
-        "description": "Misura che rende i dati personali incomprensibili a chiunque non abbia un'autorizzazione di accesso (crittografia simmetrica o asimmetrica, uso di algoritmi pubblici noti per essere robusti, certificato di autenticazione, ecc.). La crittografia di un messaggio garantisce che solo il mittente e il suo destinatario legittimo conoscano il contenuto del messaggio. Non avendo la chiave specifica il messaggio è inaccessibile e illeggibile, sia da esseri umani che da macchine. <br> Ci sono due grandi famiglie di crittografia: simmetrica e asimmetrica. <br> - <strong> la crittografia simmetrica </strong> per cifrare e decifrare il contenuto con la stessa chiave. È molto veloce ma richiede che il mittente e il destinatario concordino una chiave segreta comune o la scambino attraverso un altro canale, che deve essere scelto con attenzione per evitare che la chiave potrebbe essere recuperata dalle persone sbagliate, il che non garantirebbe più riservatezza del messaggio.<br> - <strong> la crittografia asimmetrica </strong> suppone che il destinatario abbia una coppia di chiavi (chiave privata e pubblica) e fa in modo che il potenziale mittente abbia accesso alla sua chiave pubblica. In questo caso il mittente utilizza la chiave pubblica del destinatario per crittografare il messaggio, mentre il destinatario usa la sua chiave privata per decrittografarlo. Tra i suoi vantaggi c'衩l fatto che la chiave pubblica può essere conosciuta da tutti e pubblicata. Ma attenzione: è necessario che i trasmettitori abbiano fiducia nell'origine della chiave pubblica, che siano sicure che sia effettivamente quella del destinatario. Un altro punto di forza: non è necessario condividere la stessa chiave. ",
+        "description": " Misura che rende i dati personali incomprensibili a chiunque non abbia un'autorizzazione di accesso (crittografia simmetrica o asimmetrica, uso di algoritmi pubblici noti per essere robusti, certificato di autenticazione, ecc.). La crittografia di un messaggio garantisce che solo il mittente e il suo destinatario legittimo conoscano il contenuto del messaggio. Non avendo la chiave specifica il messaggio è inaccessibile e illeggibile, sia da esseri umani che da macchine. <br> Ci sono due grandi famiglie di crittografia: simmetrica e asimmetrica. <br> - <strong> la crittografia simmetrica </strong> per cifrare e decifrare il contenuto con la stessa chiave. È molto veloce ma richiede che il mittente e il destinatario concordino una chiave segreta comune o la scambino attraverso un altro canale, che deve essere scelto con attenzione per evitare che la chiave potrebbe essere recuperata dalle persone sbagliate, il che non garantirebbe più riservatezza del messaggio.<br> - <strong> la crittografia asimmetrica </strong> suppone che il destinatario abbia una coppia di chiavi (chiave privata e pubblica) e fa in modo che il potenziale mittente abbia accesso alla sua chiave pubblica. In questo caso il mittente utilizza la chiave pubblica del destinatario per crittografare il messaggio, mentre il destinatario usa la sua chiave privata per decrittografarlo. Tra i suoi vantaggi c'衩l fatto che la chiave pubblica può essere conosciuta da tutti e pubblicata. Ma attenzione: è necessario che i trasmettitori abbiano fiducia nell'origine della chiave pubblica, che siano sicure che sia effettivamente quella del destinatario. Un altro punto di forza: non è necessario condividere la stessa chiave. ",
         "source ": "Mesures_US Crittografia"
       },
       "PIA_DEF_PWD": {
@@ -782,7 +775,7 @@
     "definition": {
       "data1": {
         "title": "Uso dello strumento PIA",
-        "content":"Aggiornamenti in corso"
+        "content":"aggiornamenti in corso"
       },
       "data2": {
         "title": "Problemi noti",
@@ -808,7 +801,7 @@
         },
         "qa6": {
           "title": "Se cambio lingua, il testo non è tradotto",
-          "content": "Chiudi e riavvia l'applicazione. Il contenuto dovrebbe essere mostrato nella lingua selezionata."
+          "content": "Chiudi e riavvia l'pplicazione. Il contenuto dovrebbe essere mostrato nella lingua selezionata."
         },
         "qa7": {
           "title": "Ho rifiutato di convalidare un PIA e non so cosa fare",
@@ -821,11 +814,11 @@
   "about": {
     "title": "Informazioni",
     "version_number": "Version number",
-    "description": "Questo tool è stato originariamente creato da <a target=\"_blank\" href=\"https://www.cnil.fr\">Commission Nationale Informatique et Liberté (CNIL)</a>, l'Autorità Francese di Protezione dei Dati, per aiutare i Titolari del trattamento ad essere conformi al GDPR.<br>Questo è un software libero e aperto. Se desiderate essere coinvolti nel progetto siete benvenuti: scaricate il software da Github, modificatelo e condividete le vostre modifiche con la comunità.",
-    "translators": "Il software Pia è attualmente disponibile in nove lingue. La lingua inglese e francese sono fornite dal CNIL. Le altre traduzioni sono il risultato del contributo delle seguenti persone:",
-    "translators_name": "<ul><li>Olandese: Ruud van Driel, Manuel d’Orso ;</li><li>Cecoslovacco: Jiří Grohmann, Manuel d’Orso ;</li><li>Italiano: Manuel d’Orso, Gianluca Markos, Romolo Manfredini ;</li><li>Polacco: Joanna Karczewska</li><li>Tedesco: Kosmas Schütz</li><li>Spagnolo: ylachgar</li><li>Norvegese: PVOhmn</li><li>Greco: Dimitris Tzellis</li></ul>",
-    "contribute": "Se volete contribuire ad altre traduzioni del software o migliorare le traduzioni esistenti, vi invitiamo a <a href=\"https://github.com/LINCnil/pia/tree/master/src/assets/i18n\" target=\"_blank\">leggere la pagina con le apposite istruzioni</a>.",
-    "licences": "Licenze software:"
+    "description": "This tool is originally designed by the <a target=\"_blank\" href=\"https://www.cnil.fr\">Commission Nationale Informatique et Liberté (CNIL)</a>, the French Data Protection Authority, to help data processor to be compliant with the GDPR.<br>This software is free and open. If you wish to get involved in this project, you are welcome to download the source code from Github, modify it and share it with the community.",
+    "translators": "The PIA software is currently available in five languages. The French and English versions are provided by the CNIL. The others versions result from the contributions of the following individuals:",
+    "translators_name": "<ul><li>Dutch: Ruud van Driel, Manuel d’Orso ;</li><li>Czech: Jiří Grohmann, Manuel d’Orso ;</li><li>Italian: Manuel d’Orso, Gianluca Markos.</li><li>Polish: Joanna Karczewska</li><li>German: Kosmas Schütz</li><li>Spanish: ylachgar</li></ul>",
+    "contribute": "If you wish to contribute to the translation of the software in another language or improve the existing translations, we recommend you to <a href=\"https://github.com/LINCnil/pia/tree/master/src/assets/i18n\" target=\"_blank\">read the page describing the steps to follow</a>.",
+    "licences": "Library licences:"
   },
   "settings": {
     "title": "Impostazioni",
@@ -833,41 +826,41 @@
     "update": "Aggiorna URL"
   },
   "validation_page": {
-    "responsible": "Persona responsabile per la validazione della PIA: ",
-    "after_reading": "Dopo aver letto l'intero PIA relativo al trattamento dei dati collegato a ",
-    "confirmation1": "Attesto che il contesto del trattamento descritto nel PIA è coerente con la realtà.",
-    "confirmation2": "Attesto di essere a conoscenza dei rischi che dipendono dalle misure esistenti o previste.",
-    "confirmation3": "Ratifico le azioni correttive indicate nel piano d'azione.",
-    "confirmation4": "Mi impegno ad attuare il più rapidamente possibile le azioni correttive indicate",
+    "responsible": "Persona responsabile della validazione PIA: ",
+    "after_reading": "Dopo aver preso completa visione del PIA relativo al trattamento in oggetto: ",
+    "confirmation1": "confermo che la descrizione del contesto afferente al trattamento ivi riportata è aderente alla realtà;",
+    "confirmation2": "confermo di essere consapevole dei rischi associati alle misure di protezione indicate come esistenti o pianificate ivi descritte;",
+    "confirmation3": "approvo le azioni correttive indicate nel piano di azione ivi riportato;",
+    "confirmation4": "mi impegno a mettere in atto le azioni correttive indicate al più presto.",
     "button": {
-      "rejection": "Rifiuta la PIA",
-      "simple_validation": "Approva la PIA <br>(direttamente)",
-      "signed_validation": "Approva PIA <br>(firmata)"
+      "rejection": "Respingere PIA",
+      "simple_validation": "Approvare PIA <br>(diretta)",
+      "signed_validation": "Approve PIA <br>(firmata)"
     },
-    "mandatory_fields": "Tutte le spunte devono essere marcate",
-    "waiting_for_signature": "In attesa di PIA firmata",
+    "mandatory_fields": "Tutte le spunte devono essere selezionate",
+    "waiting_for_signature": "PIA in attesa di firma",
     "validated_pia_with_signature": "Approvata",
-    "add_signed_pia": "Aggiungi la PIA firmata",
-    "remove_attachment": "Rimuovere l'allegato",
+    "add_signed_pia": "Aggiungere PIA firmato",
+    "remove_attachment": "Rimuovere allegato",
     "latest_signed_attachment": "Ultimo allegato firmato",
-    "signed_attachments_history": "Storia degli allegati firmati",
+    "signed_attachments_history": "Cronologia allegati firmati",
     "tools": {
-      "dashboard": "Pannello di controllo",
-      "display_pia": "Mostra PIA",
-      "action_plan": "Piano di azione"
+      "dashboard": "Dashboard",
+      "display_pia": "Visualizza PIA",
+      "action_plan": "Piano d'azione"
     }
   },
   "rejection_page": {
-    "title": "Storia delle validazioni",
-    "rejection_reason": "Motivo del rifiuto",
-    "rejection_reason_placeholder": "Descrivere le ragioni del rifiuto della PIA.",
+    "title": "Cronologia validazione",
+    "rejection_reason": "Motivazioni della mancata approvazione",
+    "rejection_reason_placeholder": "Descrivere le motivazioni per la mancata approvazione del PIA.",
     "applied_adjustments": "Modifiche proposte",
-    "applied_adjustments_placeholder": "Descrivere le modifiche apportate alla PIA.",
-    "previous_rejection": "Rifiuti precedenti",
+    "applied_adjustments_placeholder": "Descrivere le modifice effettuate al PIA.",
+    "previous_rejection": "Mancata approvazione precedente",
     "button": {
-      "abandon_treatment": "Abbandonare l'elaborazione",
-      "reject_pia": "Rifiutare la PIA",
-      "send_for_validation": "Reinviare per l'approvazione"
+      "abandon_treatment": "Abbandonare il trattamento",
+      "reject_pia": "Respingere PIA",
+      "send_for_validation": "Richiedere nuova approvazione"
     }
   },
   "misc": {
@@ -878,16 +871,16 @@
     "archive": "Archivia",
     "close": "Chiudi",
     "continue": "Continua",
-    "start_evaluation": "Iniziare la revisione",
+    "start_evaluation": "Inizia la revisione",
     "back_to_home": "Torna alla home",
     "simple_pia_validation": {
       "content": "Il PIA è stato convalidato"
     },
     "completed_edition": {
-      "content": "La PIA è stata modificata, deve essere revisionata."
+      "content": "PIA compilata completamente, deve essere sottoposta a revisione."
     },
     "completed_evaluation": {
-      "content": "La PIA è stata revisionata, deve essere validata."
+      "content": "Revisione PIA completata, deve essere sottoposta a validazione."
     },
     "update_server_url": {
       "content": "L'indirizzo del server è stato aggiornato."
@@ -917,7 +910,7 @@
       "content": "<span class='strong'>Congratulazioni,</span><br>la sottosezione è <br> disponibile per la convalida."
     },
     "validate_evaluation": {
-      "content": "<span class='strong'>Congratulazioni,</span><br>avete finito di validare la sezione.<br>Altre parti della PIA devono essere valutate per completare la validazione della PIA."
+      "content": "<span class='strong'>Complimenti,</span><br>hai completato revisione della sezione.<br>Anche altre sezioni devono subire una revisione per poter validare il PIA."
     },
     "validate_evaluation_to_correct": {
       "content": "Spiacente,<br>Diversi campi devono essere corretti.<br>Torna alla modalità modifica<br>per fare correzioni."
@@ -939,16 +932,15 @@
   "summary": {
     "previous_page": "Torna alla pagina precedente",
     "print": "Stampa",
-    "display_pia": "Mostra la PIA",
-    "display_action_plan": "Mostra il<br>piano di azione",
-    "copy_to_clipboard": "Copia negli appunti",
+    "display_pia": "Visualizza PIA",
+    "display_action_plan": "Visualizza<br>piano d'azione",
     "display_filters": {
       "title": "Filtri",
-      "main_content": "Mostra le \"Informazioni sulla PIA\"",
-      "context_content": "Mostra il \"Contesto\"",
-      "principles_content": "Mostra i \"Principi Fondamentali\"",
-      "risks_content": "Mostra i \"Rischi\"",
-      "action_plan_content": "Mostra il piano di azione"
+      "main_content": "Visualizza \"Informazioni sul PIA\"",
+      "context_content": "Visualizza \"Contesto\"",
+      "principles_content": "Visualizza \"Principi fondamentali\"",
+      "risks_content": "Visualizza \"Rischi\"",
+      "action_plan_content": "Visualizza piano d'azione"
     },
     "title": "Informazioni sul PIA",
     "pia_name": "PIA",
@@ -994,20 +986,20 @@
     "content": "Se incontri altri problemi o se hai suggerimenti per miglioramenti, <br> puoi inviarli con questo modulo: <a href=\"https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia\" target=\"_blank\">https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia</a>"
   },
   "overview-risks": {
-    "potential_impacts": "Impatti potenziali",
-    "threat": "Pericoli",
-    "sources": "Sorgenti",
-    "measures": "Misure",
+    "potential_impacts": "Potential impacts",
+    "threat": "Threat",
+    "sources": "Sources",
+    "measures": "Measures",
     "negligible": "Trascurabile",
     "limited": "Limitata",
     "important": "Importante",
     "maximal": "Massima",
-    "risk-access_x": "Severità",
-    "risk-access_y": "Probabilità",
-    "risk-change_x": "Severità",
-    "risk-change_y": "Probabilità",
-    "risk-disappearance_x": "Severità",
-    "risk-disappearance_y": "Probabilità"
+    "risk-access_x": "Severity",
+    "risk-access_y": "Likelihood",
+    "risk-change_x": "Severity",
+    "risk-change_y": "Likelihood",
+    "risk-disappearance_x": "Severity",
+    "risk-disappearance_y": "Likelihood"
   },
   "cartography": {
     "negligible": "Trascurabile",
@@ -1068,7 +1060,7 @@
             },
             "2": {
               "title": "Quali sono le responsabilità legate al trattamento?",
-              "placeholder": "Descrivi le responsabilità delle parti interessate: il titolare del trattamento, gli eventuali responsabili interni e co-incaricati."
+              "placeholder": "Descrivi le responsabilità degli stakeholder: il titolare del trattamento, gli eventuali responsabili interni e co-incaricati."
             },
             "3": {
               "title": "Ci sono standard applicabili al trattamento?",
@@ -1263,7 +1255,7 @@
               "placeholder": "Cliccare qui per selezionare i controlli che gestiscono il rischio."
             },
             "5": {
-              "title": "Come stimeresti la gravità del rischio, specialmente riguardo il potenziale impatto e i controlli pianificati?",
+              "title": "Come stimeresti la gravitàel rischio, specialmente riguardo il potenziale impatto e i controlli pianificati?",
               "placeholder": "Giustificare la gravità stimata del rischio."
             },
             "6": {
@@ -1295,10 +1287,10 @@
           "short_help": "Presentare l'opinione delle persone responsabili della protezione dei dati e dei problemi di privacy (o eventuali delegati). Presentare anche le opinioni dei soggetti interessati o di loro rappresentanti."
         },
         "4": {
-          "title": "Convalidare PIA"
+          "title": "Validazione PIA"
         },
         "5": {
-          "title": "PIA rifiutate"
+          "title": "Respingere PIA"
         }
       }
     }
