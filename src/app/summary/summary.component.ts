@@ -124,7 +124,6 @@ export class SummaryComponent implements OnInit {
    */
   async showPia() {
     this.prepareHeader();
-
     this._actionPlanService.data = this.dataNav;
     this._actionPlanService.pia = this.pia;
 
@@ -287,16 +286,17 @@ export class SummaryComponent implements OnInit {
           measuresModel.pia_id = this.pia.id;
           const entries: any = await measuresModel.findAll();
           entries.forEach(async (measure) => {
+            /* Completed measures */
             if (measure.title !== undefined && measure.content !== undefined) {
+              let evaluation = null;
+              if (item.evaluation_mode === 'question') {
+                evaluation = await this.getEvaluation(section.id, item.id, ref + '.' + measure.id);
+              }
               this.allData[section.id][item.id].push({
                 title: measure.title,
                 content: measure.content,
-                evaluation: null
+                evaluation: evaluation
               })
-              if (item.evaluation_mode === 'question') {
-                const evaluation = await this.getEvaluation(section.id, item.id, ref + '.' + measure.id);
-                this.allData[section.id][item.id].evaluation = evaluation;
-              }
             }
           });
         } else if (item.questions) {

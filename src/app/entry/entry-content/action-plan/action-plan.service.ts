@@ -29,6 +29,11 @@ export class ActionPlanService {
   listActionPlan(translateService: TranslateService) {
     this.results = [];
     this.measures = [];
+    this.principlesActionPlanReady = false;
+    this.measuresActionPlanReady = false;
+    this.risksActionPlan32Ready = false;
+    this.risksActionPlan33Ready = false;
+    this.risksActionPlan34Ready = false;
     const section = this.data.sections.filter((s) => {
       return s.id === 2;
     });
@@ -41,11 +46,17 @@ export class ActionPlanService {
             if (evaluation.action_plan_comment && evaluation.action_plan_comment.length > 0) {
               this.principlesActionPlanReady = true;
             }
-            this.results.push({ status: evaluation.status, short_title: q.short_title,
-                                                          action_plan_comment: evaluation.action_plan_comment, evaluation: evaluation });
+            this.results.push({ status: evaluation.status,
+                                short_title: q.short_title,
+                                action_plan_comment: evaluation.action_plan_comment,
+                                evaluation_comment: evaluation.evaluation_comment,
+                                evaluation: evaluation });
           } else {
-            this.results.push({ status: null, short_title: q.short_title,
-                                                          action_plan_comment: null, evaluation: null });
+            this.results.push({ status: null,
+                                short_title: q.short_title,
+                                action_plan_comment: null,
+                                evaluation_comment: null,
+                                evaluation: null });
           }
         });
       });
@@ -63,10 +74,19 @@ export class ActionPlanService {
             if (evaluation2.action_plan_comment && evaluation2.action_plan_comment.length > 0) {
               this.measuresActionPlanReady = true;
             }
-            this.measures.push({ name: m.title, short_title: m.title, status: evaluation2.status,
-                                 action_plan_comment: evaluation2.action_plan_comment, evaluation: evaluation2 });
+            this.measures.push({ name: m.title,
+                                short_title: m.title,
+                                status: evaluation2.status,
+                                action_plan_comment: evaluation2.action_plan_comment,
+                                evaluation_comment: evaluation2.evaluation_comment,
+                                evaluation: evaluation2 });
           } else {
-            this.measures.push({ name: m.title, short_title: null, status: null, action_plan_comment: null, evaluation: null });
+            this.measures.push({ name: m.title,
+                                short_title: null,
+                                status: null,
+                                action_plan_comment: null,
+                                evaluation_comment: null,
+                                evaluation: null });
           }
         });
       });
@@ -78,8 +98,11 @@ export class ActionPlanService {
         if (evaluation3.action_plan_comment && evaluation3.action_plan_comment.length > 0) {
           this.risksActionPlan32Ready = true;
         }
-        this.risks['3.2'] = { status: evaluation3.status, short_title: translateService.instant('action_plan.risk1'),
-                              action_plan_comment: evaluation3.action_plan_comment, evaluation: evaluation3 };
+        this.risks['3.2'] = { status: evaluation3.status,
+                              short_title: translateService.instant('action_plan.risk1'),
+                              action_plan_comment: evaluation3.action_plan_comment,
+                              evaluation_comment: evaluation3.evaluation_comment,
+                              evaluation: evaluation3 };
       }
     });
 
@@ -89,8 +112,11 @@ export class ActionPlanService {
         if (evaluation4.action_plan_comment && evaluation4.action_plan_comment.length > 0) {
           this.risksActionPlan33Ready = true;
         }
-        this.risks['3.3'] = { status: evaluation4.status, short_title: translateService.instant('action_plan.risk2'),
-                              action_plan_comment: evaluation4.action_plan_comment, evaluation: evaluation4 };
+        this.risks['3.3'] = { status: evaluation4.status,
+                              short_title: translateService.instant('action_plan.risk2'),
+                              action_plan_comment: evaluation4.action_plan_comment,
+                              evaluation_comment: evaluation4.evaluation_comment,
+                              evaluation: evaluation4 };
       }
     });
 
@@ -100,8 +126,11 @@ export class ActionPlanService {
         if (evaluation5.action_plan_comment && evaluation5.action_plan_comment.length > 0) {
           this.risksActionPlan34Ready = true;
         }
-        this.risks['3.4'] = { status: evaluation5.status, short_title: translateService.instant('action_plan.risk3'),
-                              action_plan_comment: evaluation5.action_plan_comment, evaluation: evaluation5 };
+        this.risks['3.4'] = { status: evaluation5.status,
+                              short_title: translateService.instant('action_plan.risk3'),
+                              action_plan_comment: evaluation5.action_plan_comment,
+                              evaluation_comment: evaluation5.evaluation_comment,
+                              evaluation: evaluation5 };
       }
     });
   }
