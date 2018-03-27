@@ -936,7 +936,6 @@
     "print": "Print",
     "display_pia": "Display PIA",
     "display_action_plan": "Display<br>action plan",
-<<<<<<< HEAD
     "copy_to_clipboard": "Copy to clipboard",
     "csv_comments": "Comments",
     "csv_section": "Section",
@@ -946,14 +945,6 @@
     "csv_file_title": "Action Plan",
     "csv_fundamental": "Fundamental principles",
     "csv_measures": "Measures",
-=======
-    "csv_comments": "TO BE TRANSLATED - Display Commentaires",
-    "csv_section": "TO BE TRANSLATED - Display Section",
-    "csv_title_object": "TO BE TRANSLATED - Display Titre de l'objet concerné",
-    "csv_implement_date": "TO BE TRANSLATED - Date d'implémentation estimée",
-    "csv_people_in_charge": "TO BE TRANSLATED - Responsable de la mise en oeuvre",
-    "csv_file_title": "TO BE TRANSLATED - Plan d'action",
->>>>>>> add translate and check csv state
     "display_filters": {
       "title": "Display filters",
       "main_content": "Display section \"PIA information\"",

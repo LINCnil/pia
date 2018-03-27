@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Evaluation } from 'app/entry/entry-content/evaluations/evaluation.model';
 import { Measure } from 'app/entry/entry-content/measures/measure.model';
 import { TranslateService } from '@ngx-translate/core';
+import { LanguagesService } from 'app/services/languages.service'
 
 @Injectable()
 export class ActionPlanService {
@@ -22,7 +23,7 @@ export class ActionPlanService {
   risksActionPlan34Ready = false;
   csvRows = [];
 
-  constructor(private _translateService: TranslateService) { }
+  constructor(private _translateService: TranslateService, private _languagesService: LanguagesService) { }
 
   /**
    * Get action plan.
@@ -113,10 +114,11 @@ export class ActionPlanService {
    * @memberof ActionPlanService
    */
   getCsv() {
+    this.csvRows = [];
     if (this.results && this.results.length > 0) {
       this.csvRows.push({ title: this._translateService.instant('action_plan.principles') });
       this.results.forEach(data => {
-        if (data && data.length > 0) {
+        if (data) {
           this.csvRows.push({ blank: '',
                               short_title: data.short_title ? this._translateService.instant(data.short_title) : '',
                               action_plan_comment: this.filterText(data.action_plan_comment),
@@ -129,9 +131,9 @@ export class ActionPlanService {
     if (this.measures && this.measures.length > 0) {
       this.csvRows.push({ title: this._translateService.instant('action_plan.measures') });
       this.measures.forEach(data => {
-        if (data && data.length > 0) {
+        if (data) {
           this.csvRows.push({ blank: '',
-                              short_title: data.title ? this._translateService.instant(data.title) : '',
+                              short_title: data.short_title ? this._translateService.instant(data.short_title) : '',
                               action_plan_comment: this.filterText(data.action_plan_comment),
                               evaluation_date: this.filterText(data.estimated_implementation_date),
                               evaluation_charge: this.filterText(data.person_in_charge) });
@@ -172,7 +174,7 @@ export class ActionPlanService {
       if (isDate) {
         const date = Date.parse(data);
         if (date !== NaN) {
-          const locale = localStorage.getItem('userLanguage');
+          const locale = this._languagesService.selectedLanguage;
           const newDate = new Date(date);
           data = new Intl.DateTimeFormat(locale).format(newDate);
         }
