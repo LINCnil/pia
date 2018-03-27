@@ -140,7 +140,7 @@ export class SummaryComponent implements OnInit {
     });
 
     this.getJsonInfo();
-    this._actionPlanService.listActionPlan(this._translateService);
+    this._actionPlanService.listActionPlan();
   }
 
   /**
@@ -150,7 +150,37 @@ export class SummaryComponent implements OnInit {
   showActionPlan() {
     this._actionPlanService.data = this.dataNav;
     this._actionPlanService.pia = this.pia;
-    this._actionPlanService.listActionPlan(this._translateService);
+    this._actionPlanService.listActionPlan();
+  }
+
+  /**
+   * Get a csv document.
+   * @protected
+   * @returns {Object}
+   * @memberof Angular2Csv
+   */
+  public async download() {
+    const options = {
+      fieldSeparator: ';',
+      quoteStrings: '"',
+      decimalseparator: '.',
+      showLabels: true,
+      showTitle: false,
+      useBom: true,
+      headers: [
+        this._translateService.instant('summary.csv_section'),
+        this._translateService.instant('summary.csv_title_object'),
+        this._translateService.instant('summary.csv_comments'),
+        this._translateService.instant('summary.csv_implement_date'),
+        this._translateService.instant('summary.csv_people_in_charge')
+      ]
+    }
+
+    this._actionPlanService.getCsv();
+
+    return new Angular2Csv(this._actionPlanService.csvRows,
+                           this._translateService.instant('summary.csv_file_title'),
+                           options);
   }
 
   /**
@@ -377,32 +407,6 @@ export class SummaryComponent implements OnInit {
     document.execCommand('Copy', false, range);
     document.execCommand('SelectText', false , range);
     this._modalService.openModal('modal-select-text-pia');
-  }
-
-  /**
-   * Get a csv document.
-   * @protected
-   * @returns {Object}
-   * @memberof Angular2Csv
-   */
-  protected async download() {
-    const options = {
-      fieldSeparator: ',',
-      quoteStrings: '"',
-      decimalseparator: '.',
-      showLabels: true,
-      showTitle: false,
-      useBom: false,
-      headers: [
-        this._translateService.instant('summary.csv_section'),
-        this._translateService.instant('summary.csv_title_object'),
-        this._translateService.instant('summary.csv_comments'),
-        this._translateService.instant('summary.csv_implement_date'),
-        this._translateService.instant('summary.csv_people_in_charge')
-      ]
-    }
-    new Angular2Csv(this._actionPlanService.csvRows,
-      this._translateService.instant('summary.csv_file_title'), options);
   }
 }
 

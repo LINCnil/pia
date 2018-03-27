@@ -40,7 +40,7 @@ export class ValidatePIAComponent implements OnInit {
       this.validateForm.controls['validateStatus4'].patchValue(this._piaService.pia.status > 1);
 
       this._attachmentsService.updateSignedAttachmentsList();
-      this._actionPlanService.listActionPlan(this._translateService);
+      this._actionPlanService.listActionPlan();
     });
   }
 
