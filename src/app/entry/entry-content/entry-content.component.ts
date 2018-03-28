@@ -83,7 +83,6 @@ export class EntryContentComponent implements OnInit, OnChanges {
    */
   prepareForEvaluation() {
     this._globalEvaluationService.prepareForEvaluation().then(() => {
-      this.goToNextSectionItem(0, 4);
       let isPiaFullyEdited = true;
       for (const el in this._sidStatusService.itemStatus) {
         if (this._sidStatusService.itemStatus.hasOwnProperty(el) && this._sidStatusService.itemStatus[el] < 4 && el !== '4.3') {
@@ -91,8 +90,10 @@ export class EntryContentComponent implements OnInit, OnChanges {
         }
       }
       if (isPiaFullyEdited) {
+        this.goToNextSectionItem(4, 5);
         this._modalsService.openModal('completed-edition');
       } else {
+        this.goToNextSectionItem(0, 4);
         this._modalsService.openModal('ask-for-evaluation');
       }
     });
