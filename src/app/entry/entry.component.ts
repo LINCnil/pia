@@ -11,6 +11,7 @@ import { ActionPlanService } from 'app/entry/entry-content/action-plan//action-p
 import { PiaService } from 'app/entry/pia.service';
 import { ModalsService } from 'app/modals/modals.service';
 import { AppDataService } from 'app/services/app-data.service';
+import { SidStatusService } from 'app/services/sid-status.service';
 import { GlobalEvaluationService } from '../services/global-evaluation.service';
 
 @Component({
@@ -31,6 +32,7 @@ export class EntryComponent implements OnInit, OnDestroy, DoCheck {
               private http: Http,
               private _modalsService: ModalsService,
               private _appDataService: AppDataService,
+              private _sidStatusService: SidStatusService,
               private _knowledgeBaseService: KnowledgeBaseService,
               private _piaService: PiaService,
               private _actionPlanService: ActionPlanService,
@@ -143,12 +145,12 @@ export class EntryComponent implements OnInit, OnDestroy, DoCheck {
         }
 
         /* Modal for action plan if no evaluations yet */
-        if (this.section.id === 4 && this.item.id === 2) {
+        if (this.section.id === 4 && this.item.id === 2 && !this._sidStatusService.enableDpoValidation) {
           this._modalsService.openModal('pia-action-plan-no-evaluation');
         }
 
         /* Modal for dpo page if all evaluations are not done yet */
-        if (this.section.id === 4 && this.item.id === 3) {
+        if (this.section.id === 4 && this.item.id === 3 && !this._sidStatusService.enableDpoValidation) {
           this._modalsService.openModal('pia-dpo-missing-evaluations');
         }
 
