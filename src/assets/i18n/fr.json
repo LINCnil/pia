@@ -918,7 +918,7 @@
     "remove_attachment": {
       "content": "<span class='strong'>Attention,</span><br>Êtes-vous sûr de vouloir<br>supprimer cette pièce jointe ?",
       "keep": "Conserver",
-      "remove": "Supprimer"
+      "remove": "Supprimer",
       "comment": "Commentaires"
     },
     "action_plan_no_evaluation": {
