@@ -939,7 +939,7 @@
     "dpo_missing_evaluations": {
       "content": "You need to complete the review of the analysis to access the DPO page.",
       "review_section": "Review a section"
-    }
+    },
     "back_to_edition": {
       "content": "This section has been sent back for editing.<br> Several fields must be corrected<br> to enable its proper review."
     },
