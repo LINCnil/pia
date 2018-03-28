@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Evaluation } from 'app/entry/entry-content/evaluations/evaluation.model';
 import { Measure } from 'app/entry/entry-content/measures/measure.model';
 import { TranslateService } from '@ngx-translate/core';
+import { LanguagesService } from 'app/services/languages.service'
 
 @Injectable()
 export class ActionPlanService {
@@ -20,13 +21,15 @@ export class ActionPlanService {
   risksActionPlan32Ready = false;
   risksActionPlan33Ready = false;
   risksActionPlan34Ready = false;
+  csvRows = [];
+
+  constructor(private _translateService: TranslateService, private _languagesService: LanguagesService) { }
 
   /**
    * Get action plan.
-   * @param {TranslateService} translateService - The translate service.
    * @memberof ActionPlanService
    */
-  listActionPlan(translateService: TranslateService) {
+  listActionPlan() {
     this.results = [];
     this.measures = [];
     this.principlesActionPlanReady = false;
@@ -133,5 +136,85 @@ export class ActionPlanService {
                               evaluation: evaluation5 };
       }
     });
+  }
+
+  /**
+   * Generate CSV contents
+   * @memberof ActionPlanService
+   */
+  getCsv() {
+    this.csvRows = [];
+    if (this.results && this.results.length > 0) {
+      this.csvRows.push({ title: this._translateService.instant('action_plan.principles') });
+      this.results.forEach(data => {
+        if (data) {
+          this.csvRows.push({ blank: '',
+                              short_title: data.short_title ? this._translateService.instant(data.short_title) : '',
+                              action_plan_comment: this.filterText(data.action_plan_comment),
+                              evaluation_date: this.filterText(data.estimated_implementation_date),
+                              evaluation_charge: this.filterText(data.person_in_charge) });
+        }
+      });
+    }
+
+    if (this.measures && this.measures.length > 0) {
+      this.csvRows.push({ title: this._translateService.instant('action_plan.measures') });
+      this.measures.forEach(data => {
+        if (data) {
+          this.csvRows.push({ blank: '',
+                              short_title: data.short_title ? this._translateService.instant(data.short_title) : '',
+                              action_plan_comment: this.filterText(data.action_plan_comment),
+                              evaluation_date: this.filterText(data.estimated_implementation_date),
+                              evaluation_charge: this.filterText(data.person_in_charge) });
+        }
+      });
+    }
+
+    if (this.risks['3.2']) {
+      this.csvRows.push({ title: this._translateService.instant('action_plan.risks') });
+      this.csvRows.push({ blank: '',
+                          short_title: this._translateService.instant('action_plan.risk1'),
+                          action_plan_comment: this.filterText(this.risks['3.2'].action_plan_comment),
+                          evaluation_date: this.filterText(this.risks['3.2'].estimated_implementation_date),
+                          evaluation_charge: this.filterText(this.risks['3.2'].person_in_charge) });
+    }
+
+    if (this.risks['3.3']) {
+      this.csvRows.push({ title: this._translateService.instant('action_plan.risk2') });
+      this.csvRows.push({ blank: '',
+                          short_title: this._translateService.instant('action_plan.risk2'),
+                          action_plan_comment: this.filterText(this.risks['3.3'].action_plan_comment),
+                          evaluation_date: this.filterText(this.risks['3.3'].estimated_implementation_date),
+                          evaluation_charge: this.filterText(this.risks['3.3'].person_in_charge) });
+    }
+
+    if (this.risks['3.4']) {
+      this.csvRows.push({ title: this._translateService.instant('action_plan.risk3') });
+      this.csvRows.push({ blank: '',
+                          short_title: this._translateService.instant('action_plan.risk3'),
+                          action_plan_comment: this.filterText(this.risks['3.4'].action_plan_comment),
+                          evaluation_date: this.filterText(this.risks['3.4'].estimated_implementation_date),
+                          evaluation_charge: this.filterText(this.risks['3.4'].person_in_charge) });
+    }
+  }
+
+  private filterText(data: string, isDate = false) {
+    if (data && data.length > 0) {
+      if (isDate) {
+        const date = Date.parse(data);
+        if (date !== NaN) {
+          const locale = this._languagesService.selectedLanguage;
+          const newDate = new Date(date);
+          data = new Intl.DateTimeFormat(locale).format(newDate);
+        }
+      } else {
+        const divElement = document.createElement('div');
+        divElement.innerHTML = data;
+        data = divElement.innerText;
+      }
+    } else {
+      data = '';
+    }
+    return data;
   }
 }
