@@ -16,9 +16,6 @@
       margin: 2px 0;
       font-weight: 500;
     }
-    .evaluationbox p {
-      margin-top: 0;
-    }
     .databox,
     .actionplanbox {
       margin: 0 0 8px 0;
@@ -28,8 +25,16 @@
       box-shadow: 1px 1px 3px 0px #c2c2c2;
     }
     .evaluationbox {
-      span {
-        font-weight: 500;
+      p {
+        border: 0.5px dotted $pia-gray;
+        padding: 6px;
+        margin-top: 0;
+        > span {
+          font-weight: 500;
+          span {
+            font-weight: 400;
+          }
+        }
       }
     }
     .actionplanbox {
@@ -39,7 +44,7 @@
       }
     }
     .evaluationValue {
-      color: #FD4664;
+      color: $pia-dark-black;
     }
   }
   &-summaryButtonsBlock {
@@ -86,22 +91,46 @@
         font-size: 2.25rem;
         font-weight: 600;
         width: 100%;
-        margin-bottom: 4px;
+        margin-bottom: 16px;
       }
       input {
+        cursor: pointer;
         margin-right: 4px;
         vertical-align: -2px;
       }
       label {
+        cursor: pointer;
         color: #121921;
         font-size: 1.4rem;
+        &:focus, &:hover, &:active {
+          font-weight: 500;
+        }
+      }
+
+      .databox {
+        > div {
+          padding: 3px 0;
+          > div {
+            padding: 10px 0;
+          }
+        }
       }
     }
   }
   &-attachment-removed {
     text-decoration: line-through;
   }
-
+  &-summaryRisksOverviewBlock,
+  &-summaryRisksCartographyBlock {
+    > div {
+      vertical-align: top;
+      width: 50%;
+      margin: 0 auto;
+    }
+  }
+  &-summaryRisksOverviewBlock > div {
+    box-shadow: 1px 1px 15px 1px #d2d2d2;
+  }
 }
 .btn-select-all {
   display: block;
@@ -122,3 +151,5 @@
   -ms-user-select: none!important;
   user-select: none!important;
 }
+
+.pagebreak { page-break-before: always; }
