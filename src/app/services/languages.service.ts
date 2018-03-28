@@ -42,5 +42,4 @@ export class LanguagesService {
     this._translateService.use(selectedLanguage);
     this.selectedLanguage = selectedLanguage;
   }
-
 }

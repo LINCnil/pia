@@ -7,10 +7,9 @@ import { Evaluation } from 'app/entry/entry-content/evaluations/evaluation.model
 import { ActionPlanService } from 'app/entry/entry-content/action-plan//action-plan.service';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { AppDataService } from 'app/services/app-data.service';
-
 import { TranslateService } from '@ngx-translate/core';
-import {element} from 'protractor';
-import {ModalsService} from '../modals/modals.service';
+import { ModalsService } from '../modals/modals.service';
+import { Angular2Csv } from 'angular2-csv';
 
 @Component({
   selector: 'app-summary',
@@ -141,7 +140,7 @@ export class SummaryComponent implements OnInit {
     });
 
     this.getJsonInfo();
-    this._actionPlanService.listActionPlan(this._translateService);
+    this._actionPlanService.listActionPlan();
   }
 
   /**
@@ -151,7 +150,37 @@ export class SummaryComponent implements OnInit {
   showActionPlan() {
     this._actionPlanService.data = this.dataNav;
     this._actionPlanService.pia = this.pia;
-    this._actionPlanService.listActionPlan(this._translateService);
+    this._actionPlanService.listActionPlan();
+  }
+
+  /**
+   * Get a csv document.
+   * @protected
+   * @returns {Object}
+   * @memberof Angular2Csv
+   */
+  public async download() {
+    const options = {
+      fieldSeparator: ';',
+      quoteStrings: '"',
+      decimalseparator: '.',
+      showLabels: true,
+      showTitle: false,
+      useBom: true,
+      headers: [
+        this._translateService.instant('summary.csv_section'),
+        this._translateService.instant('summary.csv_title_object'),
+        this._translateService.instant('summary.csv_comments'),
+        this._translateService.instant('summary.csv_implement_date'),
+        this._translateService.instant('summary.csv_people_in_charge')
+      ]
+    }
+
+    this._actionPlanService.getCsv();
+
+    return new Angular2Csv(this._actionPlanService.csvRows,
+                           this._translateService.instant('summary.csv_file_title'),
+                           options);
   }
 
   /**
@@ -362,6 +391,11 @@ export class SummaryComponent implements OnInit {
       resolve(evaluation);
     });
   }
+  
+  /**
+   * Select all text from page.
+   * @memberof Angular2Csv
+   */
   getTextSelection() {
     const select = document.getElementById('force-select-all');
     select.focus();
