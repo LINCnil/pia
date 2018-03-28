@@ -939,8 +939,9 @@
     "download_risks_cartography": "Enregistrer une image de la cartographie des risques",
     "csv_section": "Section",
     "csv_title_object": "Titre de l'objet concerné",
-    "csv_comments": "Commentaires",
-    "csv_file_title": "Plan d'action",
+    "csv_action_plan_comment": "Commentaires du plan d'actions",
+    "csv_evaluation_comment": "Commentaires d'évaluation",
+    "csv_file_title": "plan-d-action",
     "csv_implement_date": "Date d'implémentation estimée",
     "csv_people_in_charge": "Responsable de la mise en oeuvre",
     "display_filters": {

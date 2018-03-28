@@ -221,7 +221,8 @@ export class SummaryComponent implements OnInit {
       headers: [
         this._translateService.instant('summary.csv_section'),
         this._translateService.instant('summary.csv_title_object'),
-        this._translateService.instant('summary.csv_comments'),
+        this._translateService.instant('summary.csv_action_plan_comment'),
+        this._translateService.instant('summary.csv_evaluation_comment'),
         this._translateService.instant('summary.csv_implement_date'),
         this._translateService.instant('summary.csv_people_in_charge')
       ]
@@ -447,7 +448,7 @@ export class SummaryComponent implements OnInit {
       resolve(evaluation);
     });
   }
-  
+
   /**
    * Select all text from page.
    * @memberof Angular2Csv

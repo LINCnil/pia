@@ -26,12 +26,8 @@ export class ModalsService {
       header.classList.add('blur');
       container.classList.add('blur');
     }
-    console.log(modal_id);
     const e = <HTMLElement>document.getElementById(modal_id);
-
     e.classList.add('open');
-    console.log( e);
-    console.log(modal_id)
     const gf = (<HTMLButtonElement>e.querySelector('.get-focus'));
     if (gf) {
       gf.focus();
