@@ -3,11 +3,13 @@ import { FormControl, FormGroup } from '@angular/forms';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/filter';
-import { KnowledgeBaseService } from '../../knowledge-base/knowledge-base.service';
+
 import { Answer } from './answer.model';
 import { Measure } from '../measures/measure.model';
-import { ModalsService } from 'app/modals/modals.service';
 import { Evaluation } from 'app/entry/entry-content/evaluations/evaluation.model';
+
+import { KnowledgeBaseService } from '../../knowledge-base/knowledge-base.service';
+import { ModalsService } from 'app/modals/modals.service';
 import {GlobalEvaluationService} from '../../../services/global-evaluation.service';
 
 @Component({

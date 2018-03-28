@@ -96,6 +96,9 @@ export class SummaryComponent implements OnInit {
     }, 500);
   }
 
+  /**
+   * Download risks overview as an image
+   */
   getRisksOverviewImg() {
     setTimeout(() => {
         const mysvg = document.getElementById('risksOverviewSvg');
@@ -109,6 +112,9 @@ export class SummaryComponent implements OnInit {
     }, 500);
   }
 
+  /**
+   * Download risks cartography as an image
+   */
   getRisksCartographyImg() {
     setTimeout(() => {
       const risksCartographyImg = document.querySelector('#risksCartographyImg');
@@ -123,6 +129,11 @@ export class SummaryComponent implements OnInit {
     }, 500);
   }
 
+  /**
+   * Generate an url to download risks cartography
+   * @param uri the image/canvas as dataURL
+   * @param name name of the image
+   */
   downloadURI(uri, name) {
     const link = document.createElement('a');
     link.download = name;
