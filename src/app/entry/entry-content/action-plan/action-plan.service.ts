@@ -147,10 +147,11 @@ export class ActionPlanService {
     if (this.results && this.results.length > 0) {
       this.csvRows.push({ title: this._translateService.instant('action_plan.principles') });
       this.results.forEach(data => {
-        if (data) {
+        if (data && data.action_plan_comment && data.action_plan_comment.length > 0) {
           this.csvRows.push({ blank: '',
                               short_title: data.short_title ? this._translateService.instant(data.short_title) : '',
                               action_plan_comment: this.filterText(data.action_plan_comment),
+                              evaluation_comment: this.filterText(data.evaluation_comment),
                               evaluation_date: this.filterText(data.estimated_implementation_date),
                               evaluation_charge: this.filterText(data.person_in_charge) });
         }
@@ -160,10 +161,11 @@ export class ActionPlanService {
     if (this.measures && this.measures.length > 0) {
       this.csvRows.push({ title: this._translateService.instant('action_plan.measures') });
       this.measures.forEach(data => {
-        if (data) {
+        if (data && data.action_plan_comment && data.action_plan_comment.length > 0) {
           this.csvRows.push({ blank: '',
                               short_title: data.short_title ? this._translateService.instant(data.short_title) : '',
                               action_plan_comment: this.filterText(data.action_plan_comment),
+                              evaluation_comment: this.filterText(data.evaluation_comment),
                               evaluation_date: this.filterText(data.estimated_implementation_date),
                               evaluation_charge: this.filterText(data.person_in_charge) });
         }
@@ -175,6 +177,7 @@ export class ActionPlanService {
       this.csvRows.push({ blank: '',
                           short_title: this._translateService.instant('action_plan.risk1'),
                           action_plan_comment: this.filterText(this.risks['3.2'].action_plan_comment),
+                          evaluation_comment: this.filterText(this.risks['3.2'].evaluation_comment),
                           evaluation_date: this.filterText(this.risks['3.2'].estimated_implementation_date),
                           evaluation_charge: this.filterText(this.risks['3.2'].person_in_charge) });
     }
@@ -184,6 +187,7 @@ export class ActionPlanService {
       this.csvRows.push({ blank: '',
                           short_title: this._translateService.instant('action_plan.risk2'),
                           action_plan_comment: this.filterText(this.risks['3.3'].action_plan_comment),
+                          evaluation_comment: this.filterText(this.risks['3.3'].evaluation_comment),
                           evaluation_date: this.filterText(this.risks['3.3'].estimated_implementation_date),
                           evaluation_charge: this.filterText(this.risks['3.3'].person_in_charge) });
     }
@@ -193,6 +197,7 @@ export class ActionPlanService {
       this.csvRows.push({ blank: '',
                           short_title: this._translateService.instant('action_plan.risk3'),
                           action_plan_comment: this.filterText(this.risks['3.4'].action_plan_comment),
+                          evaluation_comment: this.filterText(this.risks['3.4'].evaluation_comment),
                           evaluation_date: this.filterText(this.risks['3.4'].estimated_implementation_date),
                           evaluation_charge: this.filterText(this.risks['3.4'].person_in_charge) });
     }
