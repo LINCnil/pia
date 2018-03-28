@@ -26,7 +26,7 @@ export class RisksCartographyComponent implements OnInit, OnDestroy {
   constructor(private http: Http,
               private _appDataService: AppDataService,
               private _translateService: TranslateService,
-              private _piaService: PiaService) { }
+              public _piaService: PiaService) { }
 
   async ngOnInit() {
     this.risk1Letter = this._translateService.instant('cartography.risk1_access');
