@@ -1030,9 +1030,9 @@
     "likelihood_axe": "Eintrittswahrscheinlichkeit des Risikos",
     "legend1": "Geplante oder bestehende Maßnahmen",
     "legend2": "Mit den eingeleiteten Korrekturmaßnahmen",
-    "legend3": "(I)llegitimer Zugriff auf Daten",
-    "legend4": "(U)nerwünschte Änderung von Daten",
-    "legend5": "(D)atenverlust",
+    "legend3": "(A) Illegitimer Zugriff auf Daten",
+    "legend4": "(M) Unerwünschte Änderung von Daten",
+    "legend5": "(D) Datenverlust",
     "risk1_access": "(A)",
     "risk2_modification": "(M)"
   },
