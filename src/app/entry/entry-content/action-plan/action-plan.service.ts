@@ -102,7 +102,7 @@ export class ActionPlanService {
           this.risksActionPlan32Ready = true;
         }
         this.risks['3.2'] = { status: evaluation3.status,
-                              short_title: translateService.instant('action_plan.risk1'),
+                              short_title: this._translateService.instant('action_plan.risk1'),
                               action_plan_comment: evaluation3.action_plan_comment,
                               evaluation_comment: evaluation3.evaluation_comment,
                               evaluation: evaluation3 };
@@ -116,7 +116,7 @@ export class ActionPlanService {
           this.risksActionPlan33Ready = true;
         }
         this.risks['3.3'] = { status: evaluation4.status,
-                              short_title: translateService.instant('action_plan.risk2'),
+                              short_title: this._translateService.instant('action_plan.risk2'),
                               action_plan_comment: evaluation4.action_plan_comment,
                               evaluation_comment: evaluation4.evaluation_comment,
                               evaluation: evaluation4 };
@@ -130,7 +130,7 @@ export class ActionPlanService {
           this.risksActionPlan34Ready = true;
         }
         this.risks['3.4'] = { status: evaluation5.status,
-                              short_title: translateService.instant('action_plan.risk3'),
+                              short_title: this._translateService.instant('action_plan.risk3'),
                               action_plan_comment: evaluation5.action_plan_comment,
                               evaluation_comment: evaluation5.evaluation_comment,
                               evaluation: evaluation5 };
