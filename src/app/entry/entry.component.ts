@@ -143,13 +143,11 @@ export class EntryComponent implements OnInit, OnDestroy, DoCheck {
         }
 
         /* Modal for action plan if no evaluations yet */
-        // TODO
         if (this.section.id === 4 && this.item.id === 2) {
           this._modalsService.openModal('pia-action-plan-no-evaluation');
         }
 
         /* Modal for dpo page if all evaluations are not done yet */
-        // TODO
         if (this.section.id === 4 && this.item.id === 3) {
           this._modalsService.openModal('pia-dpo-missing-evaluations');
         }
