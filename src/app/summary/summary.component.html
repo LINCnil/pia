@@ -14,45 +14,52 @@
     </a>
   </div>
 
-  <!-- Navigation links -->
-  <div class="pia-summaryLinksBlock unselectable">
-    <a *ngIf="showPiaTpl" (click)="displayPiaSummary()" routerLink="/summary/{{_piaService.pia.id}}/action_plan" class="btn pia-previewBlock hide-for-print">
-      <span class="pia-icons pia-icon-preview"></span>
-      <div [innerHTML]="'summary.display_action_plan' | translate"></div>
-    </a>
-    <a *ngIf="!showPiaTpl" (click)="displayPiaSummary()" routerLink="/summary/{{_piaService.pia.id}}/pia" class="btn  pia-previewBlock hide-for-print">
-      <span class="pia-icons pia-icon-preview"></span>
-      <div>{{ 'summary.display_pia' | translate }}</div>
-    </a>
+  <!-- Copy to clipboard block -->
+  <div class="pia-summaryCopyBlock hide-for-print">
+    <button class="btn btn-select-all hide-for-print" (click)="getTextSelection()">{{ 'summary.copy_to_clipboard' | translate }}</button>
   </div>
-  <div class="pia-summaryCopyBlock">
-  <button class="btn btn-select-all" (click)="getTextSelection()">{{ 'summary.copy_to_clipboard' | translate }}</button>
-  </div>
+
   <!-- Customize content filters -->
-  <div *ngIf="displayFilters" class="row">
+  <div class="row">
    <div class="small-12 medium-12 columns">
       <form class="pia-summaryFiltersBlock hide-for-print">
         <fieldset>
-          <legend class="unselectable">{{ 'summary.display_filters.title' | translate }}</legend>
-          <div>
-            <input type="checkbox" name="displayer-pia-main-content" id="displayer-pia-main-content" [checked]="true" (change)="displayMainContent()">
-            <label for="displayer-pia-main-content">{{ 'summary.display_filters.main_content' | translate }}</label>
-          </div>
-          <div>
-            <input type="checkbox" name="displayer-pia-section-1" id="displayer-pia-main-1" [checked]="true" (change)="displayContextContent()">
-            <label for="displayer-pia-main-1">{{ 'summary.display_filters.context_content' | translate }}</label>
-          </div>
-          <div>
-            <input type="checkbox" name="displayer-pia-section-2" id="displayer-pia-section-2" [checked]="true" (change)="displayFundamentalPrinciplesContent()">
-            <label for="displayer-pia-section-2">{{ 'summary.display_filters.principles_content' | translate }}</label>
-          </div>
-          <div>
-            <input type="checkbox" name="displayer-pia-section-3" id="displayer-pia-section-3" [checked]="true" (change)="displayRisksContent()">
-            <label for="displayer-pia-section-3">{{ 'summary.display_filters.risks_content' | translate }}</label>
-          </div>
-          <div>
-            <input type="checkbox" name="displayer-pia-action-plan" id="displayer-pia-action-plan" [checked]="true" (change)="displayActionPlanContent()">
-            <label for="displayer-pia-action-plan">{{ 'summary.display_filters.action_plan_content' | translate }}</label>
+          <legend  class="unselectable">{{ 'summary.display_filters.title' | translate }}</legend>
+          <div class="databox">
+            <div>
+              <input type="checkbox" name="displayer-pia-main-content" id="displayer-pia-main-content" [checked]="displayOnlyActionPlan ? false : true" (change)="toggleMainContent()">
+              <label for="displayer-pia-main-content">{{ 'summary.display_filters.main_content' | translate }}</label>
+            </div>
+            <div>
+              <input type="checkbox" name="displayer-pia-section-1" id="displayer-pia-main-1" [checked]="displayOnlyActionPlan ? false : true" (change)="toggleContextContent()">
+              <label for="displayer-pia-main-1">{{ 'summary.display_filters.context_content' | translate }}</label>
+            </div>
+            <div>
+              <input type="checkbox" name="displayer-pia-section-2" id="displayer-pia-section-2" [checked]="displayOnlyActionPlan ? false : true" (change)="toggleFundamentalPrinciplesContent()">
+              <label for="displayer-pia-section-2">{{ 'summary.display_filters.principles_content' | translate }}</label>
+            </div>
+            <div>
+              <input type="checkbox" name="displayer-pia-section-3" id="displayer-pia-section-3" [checked]="displayOnlyActionPlan ? false : true" (change)="toggleRisksContent()">
+              <label for="displayer-pia-section-3">{{ 'summary.display_filters.risks_content' | translate }}</label>
+            </div>
+            <div>
+              <input type="checkbox" name="displayer-pia-action-plan" id="displayer-pia-action-plan" [checked]="true" (change)="toggleActionPlanContent()">
+              <label for="displayer-pia-action-plan">{{ 'summary.display_filters.action_plan_content' | translate }}</label>
+            </div>
+            <div>
+              <input type="checkbox" name="displayer-pia-risks-overview" id="displayer-pia-risks-overview" [checked]="displayRisksOverview ? true : false" (change)="toggleRisksOverviewContent()">
+              <label for="displayer-pia-risks-overview">{{ 'summary.display_filters.risks_overview_content' | translate }}</label>
+              <div *ngIf="displayRisksOverview">
+                <button class="btn btn-green" (click)="getRisksOverviewImg()">{{ 'summary.download_risks_overview' | translate }}</button>
+              </div>
+            </div>
+            <div>
+              <input type="checkbox" name="displayer-pia-risks-cartography" id="displayer-risks-cartography" [checked]="displayRisksCartography ? true : false" (change)="toggleRisksCartographyContent()">
+              <label for="displayer-risks-cartography">{{ 'summary.display_filters.risks_cartography_content' | translate }}</label>
+              <div *ngIf="displayRisksCartography">
+                <button class="btn btn-green" (click)="getRisksCartographyImg()">{{ 'summary.download_risks_cartography' | translate }}</button>
+              </div>
+            </div>
           </div>
         </fieldset>
       </form>
@@ -61,8 +68,7 @@
   <!--<div class="row force-select-all" id="force-select-all">-->
   <div class="row" id="force-select-all">
     <div class="small-12 medium-12 columns">
-      <div *ngIf="showPiaTpl && allData" ng-class="{'text-success': model.copied, 'text-danger': !model.copied}" ng-copy="events.onCopy($event)">
-
+      <div *ngIf="allData" ng-class="{'text-success': model.copied, 'text-danger': !model.copied}" ng-copy="events.onCopy($event)">
         <!-- Main PIA data -->
         <!--<div class="fadeIn force-select-all" *ngIf="displayMainPiaData">-->
         <div class="fadeIn" *ngIf="displayMainPiaData">
@@ -82,7 +88,7 @@
           </div>
         </div>
         <div *ngFor="let section of _piaService.data.sections">
-          <div class="fadeIn section-{{section.id}}" *ngIf="section.id !== 4">
+          <div class="fadeIn section-{{section.id}} pagebreak" *ngIf="section.id !== 4">
             <h1 >{{ section.title | translate }}</h1>
             <div *ngFor="let item of section.items">
               <div *ngIf="item.evaluation_mode !== ''">
@@ -172,7 +178,9 @@
                       </span>
                     </p>
                   </div>
+
                 </div>
+
               </div>
             </div>
           </div>
@@ -180,7 +188,7 @@
       </div>
 
       <!-- Action plan summary -->
-      <div class="fadeIn" *ngIf="displayActionPlan">
+      <div class="fadeIn pagebreak" *ngIf="displayActionPlan">
         <div>
           <h1>{{ 'summary.action_plan.title' | translate }}</h1>
 
@@ -374,6 +382,23 @@
       </div>
     </div>
   </div>
+
+  <!-- Risks overview -->
+  <div class="pia-summaryRisksOverviewBlock pagebreak" *ngIf="displayRisksOverview">
+    <h1>{{ 'summary.risks_overview_title' |  translate }}</h1>
+    <div class="risksOverview">
+      <div class="app-overview-risks"></div>
+    </div>
+  </div>
+
+  <!-- Risks cartography -->
+  <div class="pia-summaryRisksCartographyBlock pagebreak" *ngIf="displayRisksCartography">
+    <h1>{{ 'summary.risks_cartography_title' |  translate }}</h1>
+    <div>
+      <div class="app-risks-cartography"></div>
+    </div>
+  </div>
+
 </main>
 
 <app-modals></app-modals>

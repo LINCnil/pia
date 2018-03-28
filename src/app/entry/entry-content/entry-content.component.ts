@@ -169,6 +169,7 @@ export class EntryContentComponent implements OnInit, OnChanges {
    */
   cancelAskForEvaluation() {
     this._globalEvaluationService.cancelForEvaluation();
+    this._modalsService.openModal('back-to-edition');
   }
 
   /**
@@ -177,6 +178,7 @@ export class EntryContentComponent implements OnInit, OnChanges {
    */
   cancelValidateEvaluation() {
     this._globalEvaluationService.cancelValidation();
+    this._modalsService.openModal('back-to-evaluation');
   }
 
 }

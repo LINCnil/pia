@@ -837,7 +837,7 @@
     "signed_attachments_history": "Historique des pièces jointes signées",
     "tools": {
       "dashboard": "Accueil",
-      "display_pia": "Afficher le PIA",
+      "display_pia": "Afficher le rapport",
       "action_plan": "Plan d'action"
     }
   },
@@ -865,29 +865,27 @@
     "start_evaluation": "Commencer l'évaluation",
     "back_to_home": "Retour à l'accueil",
     "simple_pia_validation": {
-      "content": "Le PIA vient d'être validé."
+      "content": "Vous venez de valider l'analyse."
     },
     "completed_edition": {
-      "content": "L'intégralité de l'analyse a été complétée, le PIA doit désormais être évalué."
+      "content": "Toutes les parties sont éditées.<br>L'analyse doit maintenant être évaluée."
     },
     "completed_evaluation": {
-      "content": "L'intégralité de l'analyse a été évaluée, le PIA doit désormais être validé."
-    },
-    "modal_select_text_pia": {
-      "content": "Le contenu du Rapport Pia a été copié dans votre presse-papier"
+      "content": "Toutes les parties sont évaluées.<br>L'analyse peut être validée."
     },
     "update_server_url": {
       "content": "L'adresse du serveur à été mise à jour."
     },
     "signed_pia_validation": {
-      "content": "<span class='strong'>Le PIA est accepté</span><br>Finalisez la validation du PIA en attachant<br>en pièce jointe le rapport signé par le responsable.",
-      "download_pia": "Télécharger le rapport PIA"
+      "content": "Pour finaliser la validation de l'analyse,<br>attachez en pièce-jointe le rapport signé.",
+      "download_pia": "Afficher le rapport"
     },
     "abandon_pia": {
-      "content": "Êtes-vous sûr de vouloir<br>abandonner ce traitement ?"
+      "content": "Souhaitez-vous abandonner<br>le traitement ?",
+      "additional_text": "L'archivage n'est pas définitif et vous pouvez<br>reprendre l'analyse plus tard si besoin."
     },
     "refuse_pia": {
-      "content": "<span class='strong'>PIA refusé,</span><br>Plusieurs champs doivent être corrigés.<br>Retour au mode d'évaluation<br>pour apporter des corrections."
+      "content": "Suite à votre refus, l'analyse est<br> renvoyée en évaluation pour effectuer<br>les modifications nécessaires."
     },
     "same_comment": {
       "content": "<span class='strong'>Attention,</span><br>Veuillez saisir un commentaire différent du dernier enregistré."
@@ -901,16 +899,16 @@
       "keep": "Conserver cette <br>mesure"
     },
     "ask_for_evaluation": {
-      "content": "<span class='strong'>Bravo,</span><br>la partie est désormais<br>disponible pour évaluation"
+      "content": "La partie est disponible<br>pour évaluation."
     },
     "validate_evaluation": {
-      "content": "<span class='strong'>Bravo,</span><br>vous avez terminé l’évaluation de cette partie.<br>Les autres parties doivent aussi être évaluées pour accéder à la validation du PIA."
+      "content": "La partie est prête pour<br>la validation de l'analyse."
     },
     "validate_evaluation_to_correct": {
       "content": "Désolé,<br>Plusieurs champs doivent être corrigés.<br>Retour au mode d'édition<br>pour apporter des corrections."
     },
     "declare_measures": {
-      "content": "Désolé,<br>Avant d'évaluer les risques,<br>vous devez déclarer les mesures<br>existantes ou prévues",
+      "content": "Avant d'évaluer les risques,<br>vous devez déclarer les mesures<br>existantes ou prévues.",
       "declare": "Déclarer les mesures existantes ou prévues"
     },
     "remove_pia": {
@@ -920,15 +918,25 @@
     "remove_attachment": {
       "content": "<span class='strong'>Attention,</span><br>Êtes-vous sûr de vouloir<br>supprimer cette pièce jointe ?",
       "keep": "Conserver",
-      "remove": "Supprimer"
+      "remove": "Supprimer",
+      "comment": "Commentaire"
+    },
+    "modal_select_text_pia": {
+      "content": "Le contenu du Rapport Pia a été copié dans votre presse-papier."
+    },
+    "back_to_edition": {
+      "content": "La partie est renvoyée en édition,<br>des informations doivent être ajoutées<br>pour permettre son évaluation."
+    },
+    "back_to_evaluation": {
+      "content": "La partie est renvoyée en évaluation,<br>des informations doivent être réévaluées<br>pour permettre sa validation."
     }
   },
   "summary": {
     "previous_page": "Retour à la page précédente",
     "print": "Imprimer",
-    "display_pia": "Afficher le PIA",
-    "display_action_plan": "Afficher le<br>plan d'action",
     "copy_to_clipboard": "Copier dans le presse-papier",
+    "download_risks_overview": "Enregistrer une image de la vue d'ensemble des risques",
+    "download_risks_cartography": "Enregistrer une image de la cartographie des risques",
     "csv_section": "Section",
     "csv_title_object": "Titre de l'objet concerné",
     "csv_comments": "Commentaires",
@@ -941,7 +949,9 @@
       "context_content": "Afficher la section \"Contexte\"",
       "principles_content": "Afficher la section \"Principes fondamentaux\"",
       "risks_content": "Afficher la section \"Risques\"",
-      "action_plan_content": " Afficher le plan d'action"
+      "action_plan_content": " Afficher le plan d'action",
+      "risks_overview_content": "Afficher la vue d'ensemble des risques",
+      "risks_cartography_content": "Afficher la cartographie des risques"
     },
     "title": "Informations du PIA",
     "pia_name": "Nom du PIA",
@@ -980,7 +990,9 @@
       "measures": "Mesures existantes ou prévues",
       "risks": "Risques",
       "no_action_plan": "Aucun plan d'action enregistré."
-    }
+    },
+    "risks_overview_title": "Vue d'ensemble des risques",
+    "risks_cartography_title": "Cartographie des risques"
   },
   "errors": {
     "title": "Page introuvable.",
