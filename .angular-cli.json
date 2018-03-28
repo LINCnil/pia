@@ -32,6 +32,7 @@
         "styles.scss"
       ],
       "scripts": [
+        "../node_modules/save-svg-as-png/saveSvgAsPng.js",
         "../node_modules/tinymce/tinymce.js",
         "../node_modules/tinymce/themes/modern/theme.js",
         "../node_modules/tinymce/plugins/lists/plugin.js",
