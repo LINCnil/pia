@@ -943,8 +943,6 @@
     "csv_implement_date": "Estimated implementation date",
     "csv_people_in_charge": "Person in charge",
     "csv_file_title": "Action Plan",
-    "csv_fundamental": "Fundamental principles",
-    "csv_measures": "Measures",
     "display_filters": {
       "title": "Display filters",
       "main_content": "Display section \"PIA information\"",
