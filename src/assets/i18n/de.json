@@ -918,37 +918,36 @@
       "comment": "Kommentieren"
     },
     "action_plan_no_evaluation": {
-      "content": "TO BE TRANSLATED - You need to begin the review of the analysis to create the action plan.",
-      "review_section": "TO BE TRANSLATED - Review a section"
+      "content": "Sie müssen mit der Überprüfung der Analyse beginnen, um den Aktionsplan zu erstellen.",
+      "review_section": "Überprüfen Sie einen Abschnitt"
     },
     "dpo_missing_evaluations": {
-      "content": "TO BE TRANSLATED - You need to complete the review of the analysis to access the DPO page.",
-      "review_section": "TO BE TRANSLATED - Review a section"
+      "content": "Sie müssen die Überprüfung der Analyse abschließen, um auf die DSB-Seite zugreifen zu können.",
+      "review_section": "Überprüfen Sie einen Abschnitt"
     },
     "modal_select_text_pia": {
-      "content": "TO BE TRANSLATED - The content of the PIA has been copied to clipboard."
+      "content": "Der Inhalt der DSFA wurde in die Zwischenablage kopiert."
     },
     "back_to_edition": {
-      "content": "TO BE TRANSLATED - This section has been sent back for editing.<br> Several fields must be corrected<br> to enable its proper review."
+      "content": "Dieser Abschnitt wurde zur Bearbeitung zurückgeschickt.<br>Einige Felder müssen korrigiert werden,<br>damit sie ordnungsgemäß überprüft werden können."
     },
     "back_to_evaluation": {
-      "content": "TO BE TRANSLATED - This section has been sent back for review.<br> Several fields must be reviewed<br> to enable its proper validation."
-      "content": "Der Inhalt der DSFA wurde in die Zwischenablage kopiert"
+      "content": "Dieser Abschnitt wurde zur Überprüfung zurückgeschickt.<br>Einige Felder müssen überprüft werden,<br>um ihre ordnungsgemäße Validierung zu ermöglichen."
     }
   },
   "summary": {
     "previous_page": "Zurück zur vorherigen Seite",
     "print": "Drucken",
-    "copy_to_clipboard": "TO BE TRANSLATED - Copy to clipboard",
-    "download_risks_overview": "TO BE TRANSLATED - Save risks overview as an image",
-    "download_risks_cartography": "TO BE TRANSLATED - Save risk mapping as an image",
-    "csv_action_plan_comment": "TO BE TRANSLATED - Action plan comment",
-    "csv_evaluation_comment": "TO BE TRANSLATED - Evaluation comment",
-    "csv_section": "TO BE TRANSLATED - Section",
-    "csv_title_object": "TO BE TRANSLATED - Title",
-    "csv_implement_date": "TO BE TRANSLATED - Estimated implementation date",
-    "csv_people_in_charge": "TO BE TRANSLATED - Person in charge",
-    "csv_file_title": "TO BE TRANSLATED - action-plan",
+    "copy_to_clipboard": "In die Zwischenablage kopieren",
+    "download_risks_overview": "Speichern Sie die Risikoübersicht als Bild",
+    "download_risks_cartography": "Speichern Sie das Risikokartierung als Bild",
+    "csv_action_plan_comment": "Aktionsplankommentar",
+    "csv_evaluation_comment": "Bewertungskommentar",
+    "csv_section": "Abschnitt",
+    "csv_title_object": "Title",
+    "csv_implement_date": "Geschätztes Umsetzungsdatum",
+    "csv_people_in_charge": "Verantwortlicher",
+    "csv_file_title": "Aktionsplan",
     "display_filters": {
       "title": "Filter",
       "main_content": "\"Information zur DSFA\" anzeigen",
@@ -956,8 +955,8 @@
       "principles_content": "\"Fundamentale Prinzipien\" anzeigen",
       "risks_content": "\"Risiken\" anzeigen",
       "action_plan_content": "\"Aktionsplan\" anzeigen",
-      "risks_overview_content": "TO BE TRANSLATED - Display risks overview",
-      "risks_cartography_content": "TO BE TRANSLATED - Display risk mapping"
+      "risks_overview_content": "Risikoübersicht anzeigen",
+      "risks_cartography_content": "Risikokartierung anzeigen"
     },
     "title": "Information zur DSFA",
     "pia_name": "DSFA",
@@ -997,8 +996,8 @@
       "risks": "Risiken",
       "no_action_plan": "Kein Aktionsplan festgelegt."
     },
-    "risks_overview_title": "TO BE TRANSLATED - Risks overview",
-    "risks_cartography_title": "TO BE TRANSLATED - Risk mapping"
+    "risks_overview_title": "Risikokübersicht",
+    "risks_cartography_title": "Risikokartierung"
   },
   "errors":{
     "title": "Seite nicht gefunden.",
