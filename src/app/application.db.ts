@@ -96,7 +96,10 @@ export class ApplicationDb {
     const items = [];
     return new Promise((resolve, reject) => {
       if (this.serverUrl) {
-        fetch(this.getServerUrl()).then(function(response) {
+        fetch(this.getServerUrl(), {
+          mode: 'cors',
+          credentials : 'include'
+        }).then(function(response) {
           return response.json();
         }).then(function(result: any) {
           resolve(result);
@@ -129,7 +132,10 @@ export class ApplicationDb {
     if (id) {
       return new Promise((resolve, reject) => {
         if (this.serverUrl) {
-          fetch(this.getServerUrl() + '/' + id).then(function(response) {
+          fetch(this.getServerUrl() + '/' + id, {
+            mode: 'cors',
+            credentials : 'include'
+          }).then(function(response) {
             return response.json();
           }).then(function(result: any) {
             resolve(result);
@@ -157,7 +163,9 @@ export class ApplicationDb {
     return new Promise((resolve, reject) => {
       if (this.serverUrl) {
         fetch(this.getServerUrl() + '/' + id, {
-          method: 'DELETE'
+          method: 'DELETE',
+          mode: 'cors',
+          credentials : 'include'
         }).then(function(response) {
           return response;
         }).then(function(item) {
