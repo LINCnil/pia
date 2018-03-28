@@ -86,8 +86,13 @@ export class PaginationService {
     }
 
     if (!goto_section || !goto_item) {
-      goto_section = this.nextLink[0];
-      goto_item = this.nextLink[1];
+      if (this.nextLink[0] && this.nextLink[1] && this.nextLink[0] !== 4 && this.nextLink[1] !== 3) {
+        goto_section = this.nextLink[0];
+        goto_item = this.nextLink[1];
+      } else {
+        goto_section = 1;
+        goto_item = 1;
+      }
     }
 
     return [goto_section, goto_item];
