@@ -74,6 +74,7 @@ export class PiaService {
     return new Promise((resolve, reject) => {
       let count = 0;
       let evaluation = new Evaluation();
+      evaluation.pia_id = this.pia.id;
       evaluation.findAll().then((entries: any) => {
         if (entries && entries.length > 0) {
           entries.forEach(element => {
