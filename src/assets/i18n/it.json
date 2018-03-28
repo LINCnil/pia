@@ -946,6 +946,12 @@
     "copy_to_clipboard": "TO BE TRANSLATED - Copy to clipboard",
     "download_risks_overview": "TO BE TRANSLATED - Save risks overview as an image",
     "download_risks_cartography": "TO BE TRANSLATED - Save risk mapping as an image",
+    "csv_comments": "TO BE TRANSLATED - Comments",
+    "csv_section": "TO BE TRANSLATED - Section",
+    "csv_title_object": "TO BE TRANSLATED - Title",
+    "csv_implement_date": "TO BE TRANSLATED - Estimated implementation date",
+    "csv_people_in_charge": "TO BE TRANSLATED - Person in charge",
+    "csv_file_title": "TO BE TRANSLATED - Action Plan",
     "display_filters": {
       "title": "TO BE TRANSLATED - Filters",
       "main_content": "TO BE TRANSLATED - Display \"PIA information\"",

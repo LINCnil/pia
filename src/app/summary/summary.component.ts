@@ -4,6 +4,7 @@ import { Subscription } from 'rxjs/Subscription';
 import {element} from 'protractor';
 import * as html2canvas from 'html2canvas';
 import { saveSvgAsPng } from 'save-svg-as-png';
+import { Angular2Csv } from 'angular2-csv';
 
 import { Answer } from 'app/entry/entry-content/questions/answer.model';
 import { Measure } from 'app/entry/entry-content/measures/measure.model';
@@ -153,15 +154,7 @@ export class SummaryComponent implements OnInit {
   }
 
   /**
-<<<<<<< 0ae06e0374fee8a5670cf393f83c6c1491de2856
-<<<<<<< 5140368e9f3e4882f3901dc9a2f58cc0cfdb25e5
-   * Prepare and display the PIA information
-=======
-<<<<<<< a48ddb896d5c0e0d5af42c485979dd428d95a42a
-   * Switch from Pia overview to action plan overview, and vice versa.
-=======
    * Display or hide the risks overview for the current PIA.
->>>>>>> WIP graphs in summary
    * @memberof SummaryComponent
    */
   toggleRisksOverviewContent() {
@@ -178,16 +171,10 @@ export class SummaryComponent implements OnInit {
 
   /**
    * Prepare and display the PIA information
-<<<<<<< 0ae06e0374fee8a5670cf393f83c6c1491de2856
->>>>>>> close trello#259 (action plan summary rework)
->>>>>>> merge fix
-=======
->>>>>>> WIP graphs in summary
    * @memberof SummaryComponent
    */
   async showPia() {
     this.prepareHeader();
-
     this._actionPlanService.data = this.dataNav;
     this._actionPlanService.pia = this.pia;
 
@@ -204,7 +191,7 @@ export class SummaryComponent implements OnInit {
     });
 
     this.getJsonInfo();
-    this._actionPlanService.listActionPlan(this._translateService);
+    this._actionPlanService.listActionPlan();
   }
 
   /**
@@ -214,7 +201,37 @@ export class SummaryComponent implements OnInit {
   showActionPlan() {
     this._actionPlanService.data = this.dataNav;
     this._actionPlanService.pia = this.pia;
-    this._actionPlanService.listActionPlan(this._translateService);
+    this._actionPlanService.listActionPlan();
+  }
+
+  /**
+   * Get a csv document.
+   * @protected
+   * @returns {Object}
+   * @memberof Angular2Csv
+   */
+  public async download() {
+    const options = {
+      fieldSeparator: ';',
+      quoteStrings: '"',
+      decimalseparator: '.',
+      showLabels: true,
+      showTitle: false,
+      useBom: true,
+      headers: [
+        this._translateService.instant('summary.csv_section'),
+        this._translateService.instant('summary.csv_title_object'),
+        this._translateService.instant('summary.csv_comments'),
+        this._translateService.instant('summary.csv_implement_date'),
+        this._translateService.instant('summary.csv_people_in_charge')
+      ]
+    }
+
+    this._actionPlanService.getCsv();
+
+    return new Angular2Csv(this._actionPlanService.csvRows,
+                           this._translateService.instant('summary.csv_file_title'),
+                           options);
   }
 
   /**
@@ -352,16 +369,17 @@ export class SummaryComponent implements OnInit {
           measuresModel.pia_id = this.pia.id;
           const entries: any = await measuresModel.findAll();
           entries.forEach(async (measure) => {
+            /* Completed measures */
             if (measure.title !== undefined && measure.content !== undefined) {
+              let evaluation = null;
+              if (item.evaluation_mode === 'question') {
+                evaluation = await this.getEvaluation(section.id, item.id, ref + '.' + measure.id);
+              }
               this.allData[section.id][item.id].push({
                 title: measure.title,
                 content: measure.content,
-                evaluation: null
+                evaluation: evaluation
               })
-              if (item.evaluation_mode === 'question') {
-                const evaluation = await this.getEvaluation(section.id, item.id, ref + '.' + measure.id);
-                this.allData[section.id][item.id].evaluation = evaluation;
-              }
             }
           });
         } else if (item.questions) { // Question
@@ -429,6 +447,11 @@ export class SummaryComponent implements OnInit {
       resolve(evaluation);
     });
   }
+  
+  /**
+   * Select all text from page.
+   * @memberof Angular2Csv
+   */
   getTextSelection() {
     const select = document.getElementById('force-select-all');
     select.focus();

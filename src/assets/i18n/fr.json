@@ -937,6 +937,12 @@
     "copy_to_clipboard": "Copier dans le presse-papier",
     "download_risks_overview": "Enregistrer une image de la vue d'ensemble des risques",
     "download_risks_cartography": "Enregistrer une image de la cartographie des risques",
+    "csv_section": "Section",
+    "csv_title_object": "Titre de l'objet concerné",
+    "csv_comments": "Commentaires",
+    "csv_file_title": "Plan d'action",
+    "csv_implement_date": "Date d'implémentation estimée",
+    "csv_people_in_charge": "Responsable de la mise en oeuvre",
     "display_filters": {
       "title": "Filtres d'affichage",
       "main_content": "Afficher la section \"Informations du PIA\"",

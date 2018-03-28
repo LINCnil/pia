@@ -945,6 +945,12 @@
     "copy_to_clipboard": "Copy to clipboard",
     "download_risks_overview": "Save risks overview as an image",
     "download_risks_cartography": "Save risk mapping as an image",
+    "csv_comments": "Comments",
+    "csv_section": "Section",
+    "csv_title_object": "Title",
+    "csv_implement_date": "Estimated implementation date",
+    "csv_people_in_charge": "Person in charge",
+    "csv_file_title": "Action Plan",
     "display_filters": {
       "title": "Display filters",
       "main_content": "Display section \"PIA information\"",

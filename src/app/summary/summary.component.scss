@@ -16,9 +16,6 @@
       margin: 2px 0;
       font-weight: 500;
     }
-    .evaluationbox p {
-      margin-top: 0;
-    }
     .databox,
     .actionplanbox {
       margin: 0 0 8px 0;
@@ -28,8 +25,16 @@
       box-shadow: 1px 1px 3px 0px #c2c2c2;
     }
     .evaluationbox {
-      span {
-        font-weight: 500;
+      p {
+        border: 0.5px dotted $pia-gray;
+        padding: 6px;
+        margin-top: 0;
+        > span {
+          font-weight: 500;
+          span {
+            font-weight: 400;
+          }
+        }
       }
     }
     .actionplanbox {
@@ -39,7 +44,7 @@
       }
     }
     .evaluationValue {
-      color: #FD4664;
+      color: $pia-dark-black;
     }
   }
   &-summaryButtonsBlock {
