@@ -876,14 +876,14 @@
       "content": "Die Serveradresse wurde aktualisiert."
     },
     "signed_pia_validation": {
-      "content": "<span class = 'strong'>Die DSFA wird akzeptiert</span><br>Schließen Sie die Bestätigung der DSFA ab, indem Sie den unterschriebenen Bericht an die zuständige Person anhängen.",
+      "content": "Schließen Sie die Bestätigung der DSFA ab, indem Sie den unterschriebenen Bericht anhängen.",
       "download_pia": "Laden Sie die DSFA herunter"
     },
     "abandon_pia": {
       "content": "Sind Sie sicher, dass Sie diese Verarbeitung aufgeben wollen?"
     },
     "refuse_pia": {
-      "content": "<span class = 'strong'>Abgelehnte DSFA, </span><br>Mehrere Felder müssen korrigiert werden.<br>Zum Auswertungsmodus zurückkehren, um Korrekturen vorzunehmen."
+      "content": "Wenn Sie die PIA abgelehnt haben, wird sie zur Überprüfung zurückgeschickt, um die erforderlichen Änderungen vorzunehmen."
     },
     "same_comment": {
       "content": "<span class = 'strong'>Warnung, </span><br>Bitte geben Sie einen anderen Kommentar als den zuletzt aufgezeichneten ein."
@@ -897,16 +897,16 @@
       "keep": "Behalten Sie<br>diese Maßnahme"
     },
     "ask_for_evaluation": {
-      "content": "<span class = 'strong'>Herzlichen Glückwunsch, </span><br> der Unterabschnitt steht jetzt zur Auswertung zur Verfügung."
+      "content": "Der Unterabschnitt steht jetzt zur Auswertung zur Verfügung."
     },
     "validate_evaluation": {
-      "content": "<span class = 'strong'>Herzlichen Glückwunsch, </span><br> warten Sie auf die globale Bestätigung der DSFA."
+      "content": "Dieser Abschnitt ist bereit für die Bestätigung der DSFA."
     },
     "validate_evaluation_to_correct": {
       "content": "Sorry,<br>Mehrere Felder müssen korrigiert werden.<br>Zum Bearbeitungsmodus zurückkehren und Korrekturen vornehmen."
     },
     "declare_measures": {
-      "content": "Sorry,<br>bevor Sie Risiken bewerten,<br>müssen Sie die bestehenden oder geplanten Maßnahmen melden.",
+      "content": "Bevor Sie Risiken bewerten,<br>müssen Sie die bestehenden oder geplanten Maßnahmen melden.",
       "declare": "Benennen Sie bestehende oder geplante Maßnahmen"
     },
     "remove_pia": {
@@ -916,25 +916,49 @@
     "remove_attachment": {
       "content": "<span class = 'strong'> Warnung, </span><br>Sind Sie sicher, dass Sie diesen Anhang entfernen möchten?",
       "keep": "Behalten",
-      "remove": "Entfernen"
+      "remove": "Entfernen",
+      "comment": "Kommentieren"
+    },
+    "action_plan_no_evaluation": {
+      "content": "Sie müssen mit der Überprüfung der Analyse beginnen, um den Aktionsplan zu erstellen.",
+      "review_section": "Überprüfen Sie einen Abschnitt"
+    },
+    "dpo_missing_evaluations": {
+      "content": "Sie müssen die Überprüfung der Analyse abschließen, um auf die DSB-Seite zugreifen zu können.",
+      "review_section": "Überprüfen Sie einen Abschnitt"
     },
     "modal_select_text_pia": {
-      "content": "Der Inhalt der DSFA wurde in die Zwischenablage kopiert"
+      "content": "Der Inhalt der DSFA wurde in die Zwischenablage kopiert."
+    },
+    "back_to_edition": {
+      "content": "Dieser Abschnitt wurde zur Bearbeitung zurückgeschickt.<br>Einige Felder müssen korrigiert werden,<br>damit sie ordnungsgemäß überprüft werden können."
+    },
+    "back_to_evaluation": {
+      "content": "Dieser Abschnitt wurde zur Überprüfung zurückgeschickt.<br>Einige Felder müssen überprüft werden,<br>um ihre ordnungsgemäße Validierung zu ermöglichen."
     }
   },
   "summary": {
     "previous_page": "Zurück zur vorherigen Seite",
     "print": "Drucken",
-    "display_pia": "Sehen Sie sich die PIA an",
-    "display_action_plan": "Sehen Sie sich den<br>Aktionsplan an",
     "copy_to_clipboard": "In die Zwischenablage kopieren",
+    "download_risks_overview": "Speichern Sie die Risikoübersicht als Bild",
+    "download_risks_cartography": "Speichern Sie das Risikokartierung als Bild",
+    "csv_action_plan_comment": "Aktionsplankommentar",
+    "csv_evaluation_comment": "Bewertungskommentar",
+    "csv_section": "Abschnitt",
+    "csv_title_object": "Title",
+    "csv_implement_date": "Geschätztes Umsetzungsdatum",
+    "csv_people_in_charge": "Verantwortlicher",
+    "csv_file_title": "Aktionsplan",
     "display_filters": {
       "title": "Filter",
       "main_content": "\"Information zur DSFA\" anzeigen",
       "context_content": "\"Kontext\" anzeigen",
       "principles_content": "\"Fundamentale Prinzipien\" anzeigen",
       "risks_content": "\"Risiken\" anzeigen",
-      "action_plan_content": "\"Aktionsplan\" anzeigen"
+      "action_plan_content": "\"Aktionsplan\" anzeigen",
+      "risks_overview_content": "Risikoübersicht anzeigen",
+      "risks_cartography_content": "Risikokartierung anzeigen"
     },
     "title": "Information zur DSFA",
     "pia_name": "DSFA",
@@ -973,7 +997,9 @@
       "measures": "Bestehende oder geplante Maßnahmen",
       "risks": "Risiken",
       "no_action_plan": "Kein Aktionsplan festgelegt."
-    }
+    },
+    "risks_overview_title": "Risikokübersicht",
+    "risks_cartography_title": "Risikokartierung"
   },
   "errors":{
     "title": "Seite nicht gefunden.",
@@ -1007,8 +1033,8 @@
     "legend3": "(I)llegitimer Zugriff auf Daten",
     "legend4": "(U)nerwünschte Änderung von Daten",
     "legend5": "(D)atenverlust",
-    "risk1_access": "(I)",
-    "risk2_modification": "(U)"
+    "risk1_access": "(A)",
+    "risk2_modification": "(M)"
   },
   "action_plan": {
     "title": "Übersicht",

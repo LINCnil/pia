@@ -47,7 +47,7 @@
         </div>
         <div class="pia-entryContentBlock-content-btn-valid">
           <a [ngClass]="{'disabled-validation': _piaService.pia.is_example === 1}" routerLink="/entry/{{_piaService.pia.id}}/section/4/item/5" class="btn btn-red" [innerHTML]="'validation_page.button.rejection' | translate"></a>
-          <button type="submit" class="btn btn-blue" [ngClass]="{'btn-active': _piaService.pia.status === 2, 'disabled-validation': _piaService.pia.is_example === 1}" (click)="simplePIAValidation()" id="pia-simple-validation" [disabled]="_piaService.pia.status <= 1">{{ 'validation_page.button.simple_validation' | translate }}</button>
+          <button type="submit" class="btn btn-blue" [ngClass]="{'btn-active': _piaService.pia.status === 2, 'disabled-validation': _piaService.pia.is_example === 1}" (click)="simplePIAValidation()" id="pia-simple-validation" [disabled]="_piaService.pia.status <= 1" [innerHTML]="'validation_page.button.simple_validation' | translate"></button>
           <button type="submit" class="btn btn-red" [ngClass]="{'btn-active': _piaService.pia.status === 3, 'disabled-validation': _piaService.pia.is_example === 1}" (click)="signedPIAValidation()" id="pia-sign-validation" [disabled]="_piaService.pia.status <= 1" [innerHTML]="'validation_page.button.signed_validation' | translate"></button>
         </div>
         <p>{{ 'validation_page.mandatory_fields' | translate }}</p>
@@ -105,8 +105,8 @@
     <!-- Links and tools block -->
     <div class="pia-entryContentBlock-footer-validationTools">
       <a routerLink="/home"><i class="fa fa-home" aria-hidden="true"></i><p>{{ 'validation_page.tools.dashboard' | translate }}</p></a>
-      <a routerLink="/summary/{{_piaService.pia.id}}/pia"><i class="fa fa-file-text-o" aria-hidden="true"></i><p>{{ 'validation_page.tools.display_pia' | translate }}</p></a>
-      <a routerLink="/summary/{{_piaService.pia.id}}/action_plan"><i class="fa fa-file-excel-o" aria-hidden="true"></i><p>{{ 'validation_page.tools.action_plan' | translate }}</p></a>
+      <a routerLink="/summary/{{_piaService.pia.id}}"><i class="fa fa-file-text-o" aria-hidden="true"></i><p>{{ 'validation_page.tools.display_pia' | translate }}</p></a>
+      <a routerLink="/summary/{{_piaService.pia.id}}" [queryParams]="{ displayOnlyActionPlan: true }"><i class="fa fa-file-excel-o" aria-hidden="true"></i><p>{{ 'validation_page.tools.action_plan' | translate }}</p></a>
     </div>
 
   </div>
