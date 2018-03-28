@@ -930,8 +930,16 @@
       "comment": "Comment"
     },
     "modal_select_text_pia": {
-      "content": "The content of pia has been copied on your clipboard."
+      "content": "TO BE TRANSLATED - The content of the PIA has been copied to clipboard."
     },
+    "action_plan_no_evaluation": {
+      "content": "You need to begin the review of the analysis to create the action plan.",
+      "review_section": "Review a section"
+    },
+    "dpo_missing_evaluations": {
+      "content": "You need to complete the review of the analysis to access the DPO page.",
+      "review_section": "Review a section"
+    }
     "back_to_edition": {
       "content": "This section has been sent back for editing.<br> Several fields must be corrected<br> to enable its proper review."
     },

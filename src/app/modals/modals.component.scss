@@ -82,7 +82,9 @@
         }
       }
     }
-    &-declareMeasuresForRisks {
+    &-declareMeasuresForRisks,
+    &-haveEvaluationsForActionPlan,
+    &-allEvaluationsForDpo {
       .pia-modalBlock-validate {
         button {
           padding-left: 16px;
@@ -159,6 +161,16 @@
   }
 }
 
+#pia-action-plan-no-evaluation,
+#pia-dpo-missing-evaluations {
+  .pia-modalBlock-validate {
+    margin-top: 12px;
+  }
+  .icon-blue {
+    font-size: 9rem;
+  }
+}
+
 #ask-for-evaluation {
   .icon-green {
     margin-left: 14px;
@@ -228,3 +240,4 @@
 .icon-blue {
   color: $pia-blue;
 }
+

@@ -9,7 +9,7 @@ import { AppDataService } from 'app/services/app-data.service';
 import { MeasureService } from 'app/entry/entry-content/measures/measures.service';
 import { ModalsService } from 'app/modals/modals.service';
 import { PiaService } from 'app/entry/pia.service';
-import { PaginationService } from './pagination.service';
+import { PaginationService } from 'app/entry/entry-content/pagination.service';
 import { TranslateService } from '@ngx-translate/core';
 import { SidStatusService } from 'app/services/sid-status.service';
 import { GlobalEvaluationService } from 'app/services/global-evaluation.service';
@@ -123,44 +123,22 @@ export class EntryContentComponent implements OnInit, OnChanges {
   }
 
   /**
-   * Get next item to go.
+   * Go to next item.
    * @private
    * @param {number} status_start - From status.
    * @param {number} status_end - To status.
    * @memberof EntryContentComponent
    */
   private goToNextSectionItem(status_start: number, status_end: number) {
-    let goto_section = null;
-    let goto_item = null;
-
-    const itemStatus = Object.keys(this._sidStatusService.itemStatus).sort().reduce(
-      (r, k) => (r[k] = this._sidStatusService.itemStatus[k], r), {}
-    );
-
-    for (const el in itemStatus) {
-      if (this._sidStatusService.itemStatus.hasOwnProperty(el) &&
-          this._sidStatusService.itemStatus[el] >= status_start &&
-          this._sidStatusService.itemStatus[el] < status_end &&
-          el !== '4.3') {
-        const reference_to = el.split('.');
-        goto_section = reference_to[0];
-        goto_item = reference_to[1];
-        break;
-      }
-    }
-
-    if (!goto_section || !goto_item) {
-      goto_section = this._paginationService.nextLink[0];
-      goto_item = this._paginationService.nextLink[1];
-    }
+    const goto_section_item = this._paginationService.getNextSectionItem(status_start, status_end)
 
     this._router.navigate([
       'entry',
       this._piaService.pia.id,
       'section',
-      goto_section,
+      goto_section_item[0],
       'item',
-      goto_item
+      goto_section_item[1]
     ]);
   }
 

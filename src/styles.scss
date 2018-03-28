@@ -103,7 +103,7 @@ input {
   filter: blur(3px);
 }
 
-// Special blur (used on a "RISKS" modal)
+// Special blur (used for special modals (risks/action plan/dpo)
 .blur-content {
   &:after {
     cursor: not-allowed;

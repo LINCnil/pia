@@ -919,8 +919,16 @@
       "remove": "Eliminar",
       "comment": "TO BE TRANSLATED - Comment"
     },
+    "action_plan_no_evaluation": {
+      "content": "TO BE TRANSLATED - You need to begin the review of the analysis to create the action plan.",
+      "review_section": "TO BE TRANSLATED - Review a section"
+    },
+    "dpo_missing_evaluations": {
+      "content": "TO BE TRANSLATED - You need to complete the review of the analysis to access the DPO page.",
+      "review_section": "TO BE TRANSLATED - Review a section"
+    },
     "modal_select_text_pia": {
-      "content": "TO BE TRANSLATED - The content of pia has been copied on your clipboard."
+      "content": "TO BE TRANSLATED - The content of the PIA has been copied to clipboard."
     },
     "back_to_edition": {
       "content": "TO BE TRANSLATED - This section has been sent back for editing.<br> Several fields must be corrected<br> to enable its proper review."
