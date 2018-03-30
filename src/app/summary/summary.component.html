@@ -9,9 +9,10 @@
     <button onclick="print()" class="btn hide-for-print" title="{{ 'summary.print' | translate }}">
       <i class="fa fa-print" aria-hidden="true"></i>
     </button>
-    <a (click)="download()" class="btn" title="">
+    <a (click)="download()" title="{{ 'summary.download_csv' | translate }}" class="btn hide-for-print" title="">
       <i class="fa fa-2x fa-file-excel-o"></i>
     </a>
+    <button class="btn btn-green hide-for-print" (click)="downloadAllGraphsAsImages()">{{ 'summary.download_images' | translate }}</button>
   </div>
 
   <!-- Copy to clipboard block -->
@@ -24,7 +25,7 @@
    <div class="small-12 medium-12 columns">
       <form class="pia-summaryFiltersBlock hide-for-print">
         <fieldset>
-          <legend  class="unselectable">{{ 'summary.display_filters.title' | translate }}</legend>
+          <legend class="unselectable">{{ 'summary.display_filters.title' | translate }}</legend>
           <div class="databox">
             <div>
               <input type="checkbox" name="displayer-pia-main-content" id="displayer-pia-main-content" [checked]="displayOnlyActionPlan ? false : true" (change)="toggleMainContent()">
@@ -49,16 +50,10 @@
             <div>
               <input type="checkbox" name="displayer-pia-risks-overview" id="displayer-pia-risks-overview" [checked]="displayRisksOverview ? true : false" (change)="toggleRisksOverviewContent()">
               <label for="displayer-pia-risks-overview">{{ 'summary.display_filters.risks_overview_content' | translate }}</label>
-              <div *ngIf="displayRisksOverview">
-                <button class="btn btn-green" (click)="getRisksOverviewImg()">{{ 'summary.download_risks_overview' | translate }}</button>
-              </div>
             </div>
             <div>
               <input type="checkbox" name="displayer-pia-risks-cartography" id="displayer-risks-cartography" [checked]="displayRisksCartography ? true : false" (change)="toggleRisksCartographyContent()">
               <label for="displayer-risks-cartography">{{ 'summary.display_filters.risks_cartography_content' | translate }}</label>
-              <div *ngIf="displayRisksCartography">
-                <button class="btn btn-green" (click)="getRisksCartographyImg()">{{ 'summary.download_risks_cartography' | translate }}</button>
-              </div>
             </div>
           </div>
         </fieldset>
@@ -191,6 +186,53 @@
       <div class="fadeIn pagebreak" *ngIf="displayActionPlan">
         <div>
           <h1>{{ 'summary.action_plan.title' | translate }}</h1>
+
+          <!-- Action plan graph -->
+          <div class="pia-entryContentBlock-content pia-actionPlanGraphBlock unselectable" id="actionPlanOverviewImg">
+            <h2>{{ 'action_plan.title' | translate }}</h2>
+            <div class="row">
+              <div class="medium-6 columns pia-actionPlanGraphBlock-left">
+                <h3>{{ 'action_plan.principles' | translate }}</h3>
+                <div class="pia-actionPlanGraphBlock-item" *ngFor="let r of _actionPlanService.results">
+                  <span class="pia-list">{{ r.short_title | translate }}</span>
+                  <span class="pia-box" [ngClass]="{'pia-blue': r.status === 2, 'pia-red': r.status === 1}"></span>
+                  <span class="pia-box" [ngClass]="{'pia-green': r.status === 3, 'pia-red': r.status === 1}"></span>
+                </div>
+              </div>
+              <div class="medium-6 columns pia-actionPlanGraphBlock-right">
+                <h3>{{ 'action_plan.measures' | translate }}</h3>
+                <div class="pia-actionPlanGraphBlock-right-measures">
+                  <div class="pia-actionPlanGraphBlock-right-measures-scroll" *ngIf="_actionPlanService.measures">
+                    <div *ngFor="let measure of _actionPlanService.measures" class="pia-actionPlanGraphBlock-item">
+                      <span class="pia-box" [ngClass]="{'pia-blue': measure.status === 2, 'pia-red': measure.status === 1}"></span>
+                      <span class="pia-box" [ngClass]="{'pia-green': measure.status === 3, 'pia-red': measure.status === 1}"></span>
+                      <span class="pia-list">{{ measure.name }}</span>
+                    </div>
+                  </div>
+                </div>
+                <h3>{{ 'action_plan.risks' | translate }}</h3>
+                <div class="pia-actionPlanGraphBlock-item">
+                  <span class="pia-box" [ngClass]="{'pia-blue': _actionPlanService.risks['3.2'] && _actionPlanService.risks['3.2']['status'] === 2, 'pia-red': _actionPlanService.risks['3.2'] && _actionPlanService.risks['3.2']['status'] === 1}"></span>
+                  <span class="pia-box" [ngClass]="{'pia-green': _actionPlanService.risks['3.2'] && _actionPlanService.risks['3.2']['status'] === 3, 'pia-red': _actionPlanService.risks['3.2'] && _actionPlanService.risks['3.2']['status'] === 1}"></span>
+                  <span class="pia-list">{{ 'action_plan.risk1' | translate }}</span>
+                </div>
+                <div class="pia-actionPlanGraphBlock-item">
+                  <span class="pia-box" [ngClass]="{'pia-blue': _actionPlanService.risks['3.3'] && _actionPlanService.risks['3.3']['status'] === 2, 'pia-red': _actionPlanService.risks['3.3'] && _actionPlanService.risks['3.3']['status'] === 1}"></span>
+                  <span class="pia-box" [ngClass]="{'pia-green': _actionPlanService.risks['3.3'] && _actionPlanService.risks['3.3']['status'] === 3, 'pia-red': _actionPlanService.risks['3.3'] && _actionPlanService.risks['3.3']['status'] === 1}"></span>
+                  <span class="pia-list">{{ 'action_plan.risk2' | translate }}</span>
+                </div>
+                <div class="pia-actionPlanGraphBlock-item">
+                  <span class="pia-box" [ngClass]="{'pia-blue': _actionPlanService.risks['3.4'] && _actionPlanService.risks['3.4']['status'] === 2, 'pia-red': _actionPlanService.risks['3.4'] && _actionPlanService.risks['3.4']['status'] === 1}"></span>
+                  <span class="pia-box" [ngClass]="{'pia-green': _actionPlanService.risks['3.4'] && _actionPlanService.risks['3.4']['status'] === 3, 'pia-red': _actionPlanService.risks['3.4'] && _actionPlanService.risks['3.4']['status'] === 1}"></span>
+                  <span class="pia-list">{{ 'action_plan.risk3' | translate }}</span>
+                </div>
+              </div>
+              <div class="pia-legend">
+                <p>{{ 'action_plan.improvable_measures' | translate }}</p>
+                <p>{{ 'action_plan.acceptable_measures' | translate }}</p>
+              </div>
+            </div>
+          </div>
 
           <!-- Action plan for fundamental principles -->
           <div>
