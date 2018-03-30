@@ -20,7 +20,10 @@ import { AttachmentsService } from 'app/entry/attachments/attachments.service';
 @Component({
   selector: 'app-summary',
   templateUrl: './summary.component.html',
-  styleUrls: ['./summary.component.scss'],
+  styleUrls: [
+    './summary.component.scss',
+    '../entry/entry-content/action-plan/action-plan.component.scss'
+  ],
   providers: [PiaService]
 })
 export class SummaryComponent implements OnInit {
@@ -73,27 +76,51 @@ export class SummaryComponent implements OnInit {
     });
   }
 
-  getImages() {
+  downloadAllGraphsAsImages() {
+    this.getActionPlanOverviewImg();
     this.getRisksOverviewImg();
     this.getRisksCartographyImg();
+  }
+
+  getActionPlanOverviewImg() {
+    setTimeout(() => {
+      const actionPlanOverviewImg = document.querySelector('#actionPlanOverviewImg');
+      if (actionPlanOverviewImg) {
+        html2canvas(actionPlanOverviewImg, {scale: 1.4}).then(canvas => {
+          if (canvas) {
+            const img = canvas.toDataURL();
+            this.downloadURI(img, 'actionPlanOverview.png');
+          }
+        });
+      }
+    }, 500);
   }
 
   getRisksOverviewImg() {
     setTimeout(() => {
         const mysvg = document.getElementById('risksOverviewSvg');
-        saveSvgAsPng(mysvg, 'risksOverview.png', {
-          backgroundColor: 'white',
-          scale: 1.4,
-          encoderOptions: 1,
-          width: 760});
+        if (mysvg) {
+          saveSvgAsPng(mysvg, 'risksOverview.png', {
+            backgroundColor: 'white',
+            scale: 1.4,
+            encoderOptions: 1,
+            width: 760});
+        }
     }, 500);
   }
 
   getRisksCartographyImg() {
-    html2canvas(document.querySelector('#risksCartographyImg'), {scale: 1.4}).then(canvas => {
-      const img = canvas.toDataURL();
-      this.downloadURI(img, 'risksCartography.png');
-    });
+    setTimeout(() => {
+      const risksCartographyImg = document.querySelector('#risksCartographyImg');
+      if (risksCartographyImg) {
+        html2canvas(risksCartographyImg, {scale: 1.4}).then(canvas => {
+          if (canvas) {
+            const img = canvas.toDataURL();
+            this.downloadURI(img, 'risksCartography.png');
+          }
+        });
+      }
+    }, 500);
   }
 
   downloadURI(uri, name) {
@@ -454,6 +481,10 @@ export class SummaryComponent implements OnInit {
    * @memberof Angular2Csv
    */
   getTextSelection() {
+    const actionPlanOverview = document.getElementById('actionPlanOverviewImg');
+    if (actionPlanOverview) {
+      actionPlanOverview.classList.toggle('hide');
+    }
     const select = document.getElementById('force-select-all');
     select.focus();
     const range = document.createRange();
@@ -464,6 +495,9 @@ export class SummaryComponent implements OnInit {
     document.execCommand('Copy', false, range);
     document.execCommand('SelectText', false , range);
     this._modalService.openModal('modal-select-text-pia');
+    if (actionPlanOverview) {
+      actionPlanOverview.classList.toggle('hide');
+    }
   }
 }
 
