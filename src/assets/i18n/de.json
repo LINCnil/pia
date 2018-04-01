@@ -50,8 +50,8 @@
       "validator": "Bestätigt von",
       "new_pia": "Neue DSFA",
       "import_pia": "DSFA importieren",
-      "list_rocket_content": "Fangen Sie an! Klicken Sie auf das \"+\"-Zeichen, um eine DSFA anzulegen",
-      "card_rocket_content": "Fangen Sie an!<br>Um eine DSFA anzulegen,<br>klicken Sie auf \"Neue DSFA\""
+      "list_rocket_content": "Fangen Sie an! Um eine DSFA anzulegen, klicken Sie auf \"Neue DSFA\"",
+      "card_rocket_content": "Für eine neue DSFA,<br> klicken Sie auf \"+\""
     },
     "cards": {
       "new_pia": "Neue DSFA",
