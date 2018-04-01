@@ -1,4 +1,4 @@
-import {Component, OnInit, ElementRef, OnDestroy, Input} from '@angular/core';
+import {Component, OnInit, ElementRef, OnDestroy, Input, Renderer2} from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
@@ -7,6 +7,9 @@ import { Pia } from '../entry/pia.model';
 
 import { ModalsService } from 'app/modals/modals.service';
 import { PiaService } from 'app/entry/pia.service';
+
+import { TranslateService } from '@ngx-translate/core';
+import { LanguagesService } from 'app/services/languages.service';
 
 @Component({
   selector: 'app-cards',
@@ -30,7 +33,9 @@ export class CardsComponent implements OnInit, OnDestroy {
               private el: ElementRef,
               private route: ActivatedRoute,
               public _modalsService: ModalsService,
-              public _piaService: PiaService) { }
+              public _piaService: PiaService,
+              public _translateService: TranslateService,
+              public _languagesService: LanguagesService) { }
 
   ngOnInit() {
     this.sortOrder = localStorage.getItem('sortOrder');

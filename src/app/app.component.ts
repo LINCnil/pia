@@ -42,6 +42,5 @@ export class AppComponent {
     // Languages initialization
     this._languagesService.initLanguages();
     this._languagesService.getOrSetCurrentLanguage();
-
   }
 }

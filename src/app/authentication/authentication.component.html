@@ -26,14 +26,19 @@
                 </a>
               </li>-->
               <li class="communityTranslations">{{ 'header.languages.community_translations' | translate }}</li>
-              <li [ngClass]="{'is_active': _languagesService.selectedLanguage === 'cz'}">
-                <a href="javascript:;" (click)="_languagesService.updateCurrentLanguage('cz')">
-                  {{ 'header.languages.cz' | translate }}
+              <li [ngClass]="{'is_active': _languagesService.selectedLanguage === 'cs'}">
+                <a href="javascript:;" (click)="_languagesService.updateCurrentLanguage('cs')">
+                  {{ 'header.languages.cs' | translate }}
                 </a>
               </li>
               <li [ngClass]="{'is_active': _languagesService.selectedLanguage === 'de'}">
                 <a href="javascript:;" (click)="_languagesService.updateCurrentLanguage('de')">
                   {{ 'header.languages.de' | translate }}
+                </a>
+              </li>
+              <li [ngClass]="{'is_active': _languagesService.selectedLanguage === 'el'}">
+                <a href="javascript:;" (click)="_languagesService.updateCurrentLanguage('el')">
+                  {{ 'header.languages.el' | translate }}
                 </a>
               </li>
               <li [ngClass]="{'is_active': _languagesService.selectedLanguage === 'es'}">
@@ -49,6 +54,11 @@
               <li [ngClass]="{'is_active': _languagesService.selectedLanguage === 'nl'}">
                 <a href="javascript:;" (click)="_languagesService.updateCurrentLanguage('nl')">
                   {{ 'header.languages.nl' | translate }}
+                </a>
+              </li>
+              <li [ngClass]="{'is_active': _languagesService.selectedLanguage === 'nn'}">
+                <a href="javascript:;" (click)="_languagesService.updateCurrentLanguage('nn')">
+                  {{ 'header.languages.nn' | translate }}
                 </a>
               </li>
               <li [ngClass]="{'is_active': _languagesService.selectedLanguage === 'pl'}">
