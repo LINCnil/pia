@@ -7,6 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { registerLocaleData } from '@angular/common';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
@@ -56,6 +57,28 @@ import { SummaryComponent } from 'app/summary/summary.component';
 import { AboutComponent } from 'app/about/about.component';
 import { AppRoutingModule } from 'app/app-routing.module';
 import { CardsRoutingModule } from 'app/cards/cards-routing.module';
+
+import localeEN from '@angular/common/locales/en';
+import localeFR from '@angular/common/locales/fr';
+import localeCS from '@angular/common/locales/cs';
+import localeDE from '@angular/common/locales/de';
+import localeEL from '@angular/common/locales/el';
+import localeES from '@angular/common/locales/es';
+import localeIT from '@angular/common/locales/it';
+import localeNL from '@angular/common/locales/nl';
+import localeNN from '@angular/common/locales/nn';
+import localePL from '@angular/common/locales/pl';
+
+registerLocaleData(localeEN);
+registerLocaleData(localeFR);
+registerLocaleData(localeCS);
+registerLocaleData(localeDE);
+registerLocaleData(localeEL);
+registerLocaleData(localeES);
+registerLocaleData(localeIT);
+registerLocaleData(localeNL);
+registerLocaleData(localeNN);
+registerLocaleData(localePL);
 
 const providersList: any = [
   AppDataService,

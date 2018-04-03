@@ -19,12 +19,14 @@
       "community_translations": "Von der Community bereitgestellte Übersetzungen",
       "fr": "Français",
       "en": "English",
-      "cz": "Česky",
-      "it": "Italiaans",
+      "cs": "Česky",
+      "it": "Italiano",
       "nl": "Nederlands",
       "pl": "Polski",
       "de": "Deutsch",
-      "es": "Español"
+      "es": "Español",
+      "no": "Norsk",
+      "el": "Ελληνικά"
     },
     "tools": {
       "title": "Tools",
@@ -48,8 +50,8 @@
       "validator": "Bestätigt von",
       "new_pia": "Neue DSFA",
       "import_pia": "DSFA importieren",
-      "list_rocket_content": "Fangen Sie an! Klicken Sie auf das \"+\"-Zeichen, um eine DSFA anzulegen",
-      "card_rocket_content": "Fangen Sie an!<br>Um eine DSFA anzulegen,<br>klicken Sie auf \"Neue DSFA\""
+      "list_rocket_content": "Fangen Sie an! Um eine DSFA anzulegen, klicken Sie auf \"Neue DSFA\"",
+      "card_rocket_content": "Für eine neue DSFA,<br> klicken Sie auf \"+\""
     },
     "cards": {
       "new_pia": "Neue DSFA",
@@ -804,7 +806,7 @@
     "version_number": "Versionsnummer",
     "description": "Dieses Tool wurde ursprünglich von der französischen Datenschutzbehörde <a target=\"_blank\" href=\"https://www.cnil.fr\"> Nationale Kommission für Informatik und Freiheit (CNIL) </a> entwickelt, um dem Verantwortlichen zu helfen, mit der DS-GVO konform zu sein.<br>Diese Software ist kostenlos und offen. Wenn Sie sich an diesem Projekt beteiligen möchten, können Sie den Quellcode von Github herunterladen, ändern und mit anderen in der Community teilen.",
     "translators": "Das Tool ist derzeit in sieben Sprachen verfügbar. Die französische und die englische Version werden von der CNIL bereitgestellt. Die anderen Versionen sind das Ergebnis der Beiträge der folgenden Personen:",
-    "translators_name": "<ul><li>Niederländisch: Ruud van Driel, Manuel d'Orso;</li><li>Tschechisch: Jirí Grohmann, Manuel d'Orso;</li><li>Italienisch: Manuel d'Orso, Gianluca Markos;</li><li>Polnisch: Joanna Karczewska</li> <li>Deutsch: Kosmas Schütz</li><li>Spanisch: ylachgar</li></ul>",
+    "translators_name": "<ul><li>Holländisch: Ruud van Driel, Manuel d'Orso;</li><li>Tschechisch: Jirí Grohmann, Manuel d'Orso;</li><li>Italienisch: Manuel d'Orso, Gianluca Markos, Romolo Manfredini ;</li><li>Polnisch: Joanna Karczewska</li> <li>Deutsch: Kosmas Schütz</li><li>Spanisch: ylachgar</li><li>Norwegisch: PVOhmn</li><li>Griechisch: Dimitris Tzellis</li></ul>",
     "contribute": "Wenn Sie zur Übersetzung des Tools oder zur Verbesserung der bereits vorgeschlagenen beitragen möchten, laden wir Sie ein, <a href=\"https://github.com/LINCnil/pia/tree/master/src/assets/i18n\" target=\"_blank\">die Seite mit den folgenden Schritten zu lesen</a>.",
     "licences": "Bibliothekslizenzen:"
   },
@@ -834,7 +836,7 @@
     "signed_attachments_history": "Historie der hinzugefügten Anhänge",
     "tools": {
       "dashboard": "Übersicht",
-      "display_pia": "TO BE TRANSLATED - Display report",
+      "display_pia": "DSFA anzeigen",
       "action_plan": "Aktionsplan"
     }
   },
@@ -862,27 +864,26 @@
     "start_evaluation": "Beginnen Sie die Überprüfung",
     "back_to_home": "Zurück zur Startseite",
     "simple_pia_validation": {
-      "content": "TO BE TRANSLATED - You have approved the PIA."
+      "content": "Die DSFA wurde bestätigt."
     },
     "completed_edition": {
-      "content": "TO BE TRANSLATED - The PIA has been fully edited and has to be reviewed."
+      "content": "Die DSFA wurde vollständig bearbeitet, sie muss überprüft werden."
     },
     "completed_evaluation": {
-      "content": "TO BE TRANSLATED - The PIA has been fully reviewed and can be validated."
+      "content": "Die DSFA wurde vollständig überprüft, sie muss bestätigt werden."
     },
     "update_server_url": {
       "content": "Die Serveradresse wurde aktualisiert."
     },
     "signed_pia_validation": {
-      "content": "TO BE TRANSLATED - To approve the PIA, attach the signed report.",
-      "download_pia": "TO BE TRANSLATED - Download report"
+      "content": "Schließen Sie die Bestätigung der DSFA ab, indem Sie den unterschriebenen Bericht anhängen.",
+      "download_pia": "Laden Sie die DSFA herunter"
     },
     "abandon_pia": {
-      "content": "TO BE TRANSLATED - Do you wish to give up the processing?",
-      "additional_text": "TO BE TRANSLATED - Archiving is not definitive and the PIA can go back to it if needed."
+      "content": "Sind Sie sicher, dass Sie diese Verarbeitung aufgeben wollen?"
     },
     "refuse_pia": {
-      "content": "TO BE TRANSLATED - As you have rejected the PIA, it is sent back for review to make the required changes."
+      "content": "Wenn Sie die PIA abgelehnt haben, wird sie zur Überprüfung zurückgeschickt, um die erforderlichen Änderungen vorzunehmen."
     },
     "same_comment": {
       "content": "<span class = 'strong'>Warnung, </span><br>Bitte geben Sie einen anderen Kommentar als den zuletzt aufgezeichneten ein."
@@ -896,10 +897,10 @@
       "keep": "Behalten Sie<br>diese Maßnahme"
     },
     "ask_for_evaluation": {
-      "content": "TO BE TRANSLATED - This section is ready to be reviewed."
+      "content": "Der Unterabschnitt steht jetzt zur Auswertung zur Verfügung."
     },
     "validate_evaluation": {
-      "content": "TO BE TRANSLATED - This section is ready for validating the PIA."
+      "content": "Dieser Abschnitt ist bereit für die Bestätigung der DSFA."
     },
     "validate_evaluation_to_correct": {
       "content": "Sorry,<br>Mehrere Felder müssen korrigiert werden.<br>Zum Bearbeitungsmodus zurückkehren und Korrekturen vornehmen."
@@ -916,39 +917,39 @@
       "content": "<span class = 'strong'> Warnung, </span><br>Sind Sie sicher, dass Sie diesen Anhang entfernen möchten?",
       "keep": "Behalten",
       "remove": "Entfernen",
-      "comment": "TO BE TRANSLATED - Comment"
+      "comment": "Kommentieren"
     },
     "action_plan_no_evaluation": {
-      "content": "TO BE TRANSLATED - You need to begin the review of the analysis to create the action plan.",
-      "review_section": "TO BE TRANSLATED - Review a section"
+      "content": "Sie müssen mit der Überprüfung der Analyse beginnen, um den Aktionsplan zu erstellen.",
+      "review_section": "Überprüfen Sie einen Abschnitt"
     },
     "dpo_missing_evaluations": {
-      "content": "TO BE TRANSLATED - You need to complete the review of the analysis to access the DPO page.",
-      "review_section": "TO BE TRANSLATED - Review a section"
+      "content": "Sie müssen die Überprüfung der Analyse abschließen, um auf die DSB-Seite zugreifen zu können.",
+      "review_section": "Überprüfen Sie einen Abschnitt"
     },
     "modal_select_text_pia": {
-      "content": "TO BE TRANSLATED - The content of the PIA has been copied to clipboard."
+      "content": "Der Inhalt der DSFA wurde in die Zwischenablage kopiert."
     },
     "back_to_edition": {
-      "content": "TO BE TRANSLATED - This section has been sent back for editing.<br> Several fields must be corrected<br> to enable its proper review."
+      "content": "Dieser Abschnitt wurde zur Bearbeitung zurückgeschickt.<br>Einige Felder müssen korrigiert werden,<br>damit sie ordnungsgemäß überprüft werden können."
     },
     "back_to_evaluation": {
-      "content": "TO BE TRANSLATED - This section has been sent back for review.<br> Several fields must be reviewed<br> to enable its proper validation."
+      "content": "Dieser Abschnitt wurde zur Überprüfung zurückgeschickt.<br>Einige Felder müssen überprüft werden,<br>um ihre ordnungsgemäße Validierung zu ermöglichen."
     }
   },
   "summary": {
     "previous_page": "Zurück zur vorherigen Seite",
     "print": "Drucken",
-    "copy_to_clipboard": "TO BE TRANSLATED - Copy to clipboard",
-    "download_images": "TO BE TRANSLATED - Download images",
-    "download_csv": "TO BE TRANSLATED - Download a CSV export",
-    "csv_action_plan_comment": "TO BE TRANSLATED - Action plan comment",
-    "csv_evaluation_comment": "TO BE TRANSLATED - Evaluation comment",
-    "csv_section": "TO BE TRANSLATED - Section",
-    "csv_title_object": "TO BE TRANSLATED - Title",
-    "csv_implement_date": "TO BE TRANSLATED - Estimated implementation date",
-    "csv_people_in_charge": "TO BE TRANSLATED - Person in charge",
-    "csv_file_title": "TO BE TRANSLATED - action-plan",
+    "copy_to_clipboard": "In die Zwischenablage kopieren",
+    "download_risks_overview": "Speichern Sie die Risikoübersicht als Bild",
+    "download_risks_cartography": "Speichern Sie das Risikokartierung als Bild",
+    "csv_action_plan_comment": "Aktionsplankommentar",
+    "csv_evaluation_comment": "Bewertungskommentar",
+    "csv_section": "Abschnitt",
+    "csv_title_object": "Title",
+    "csv_implement_date": "Geschätztes Umsetzungsdatum",
+    "csv_people_in_charge": "Verantwortlicher",
+    "csv_file_title": "Aktionsplan",
     "display_filters": {
       "title": "Filter",
       "main_content": "\"Information zur DSFA\" anzeigen",
@@ -956,8 +957,8 @@
       "principles_content": "\"Fundamentale Prinzipien\" anzeigen",
       "risks_content": "\"Risiken\" anzeigen",
       "action_plan_content": "\"Aktionsplan\" anzeigen",
-      "risks_overview_content": "TO BE TRANSLATED - Display risks overview",
-      "risks_cartography_content": "TO BE TRANSLATED - Display risk mapping"
+      "risks_overview_content": "Risikoübersicht anzeigen",
+      "risks_cartography_content": "Risikokartierung anzeigen"
     },
     "title": "Information zur DSFA",
     "pia_name": "DSFA",
@@ -997,8 +998,8 @@
       "risks": "Risiken",
       "no_action_plan": "Kein Aktionsplan festgelegt."
     },
-    "risks_overview_title": "TO BE TRANSLATED - Risks overview",
-    "risks_cartography_title": "TO BE TRANSLATED - Risk mapping"
+    "risks_overview_title": "Risikokübersicht",
+    "risks_cartography_title": "Risikokartierung"
   },
   "errors":{
     "title": "Seite nicht gefunden.",
@@ -1029,9 +1030,9 @@
     "likelihood_axe": "Eintrittswahrscheinlichkeit des Risikos",
     "legend1": "Geplante oder bestehende Maßnahmen",
     "legend2": "Mit den eingeleiteten Korrekturmaßnahmen",
-    "legend3": "(I)llegitimer Zugriff auf Daten",
-    "legend4": "(U)nerwünschte Änderung von Daten",
-    "legend5": "(D)atenverlust",
+    "legend3": "(A) Illegitimer Zugriff auf Daten",
+    "legend4": "(M) Unerwünschte Änderung von Daten",
+    "legend5": "(D) Datenverlust",
     "risk1_access": "(A)",
     "risk2_modification": "(M)"
   },

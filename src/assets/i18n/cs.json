@@ -1,18 +1,18 @@
 {
   "authentication": {
-    "title": "Vurdering av personvernkonsekvenser",
-    "subtitle1": "Et program for å opprette <br> og administrere PIA",
-    "subtitle2": "Tilgang til verktøy og ordlister",
-    "start_app": "Tilgang til PIAs programvare (Beta)",
-    "description": "Denne programvaren fra den <strong>franske databeskyttelsesmyndigheten (CNIL)</strong> er ment å hjelpe databehandlingsansvarlig å behandle personopplysninger i overenstemmelse med GDPR. Programvaren er ment som en hjelp i vurderingen av personvernkonsekvenser (DPIA) gjennom å fasilitere for bruk av PIA-metodikken utviklet av CNIL.",
+    "title": "Posouzení dopadů na soukromí",
+    "subtitle1": "Platforma pro vytváření a správu vašich PIA",
+    "subtitle2": "Přístupové nástroje a glosáře",
+    "start_app": "Přístup k softwaru PIA (Beta)",
+    "description": "Tento software od <strong>Francouzského Úřadu pro Ochranu Údajů (CNIL)</strong> je určen k tomu, aby vedl Správce údajů při vytváření a prokazování shody s GDPR. Pomáhá správně provádět hodnocení dopadu ochrany údajů usnadněním používání metody PIA vyvinuté CNIL.",
     "start": "Start"
   },
   "header": {
-    "logo_title": "PIA",
-    "logo_subtitle": "Vurdering av personvernkonsekvenser",
-    "homepage_link": "Hovedside",
-    "knowledge_base_link": "Kunnskapsdatabase",
-    "pia_example_link": "Eksempel på vurdering av personvernkonsekvenser",
+    "logo_title": "Posouzení dopadů na soukromí",
+    "logo_subtitle": "",
+    "homepage_link": "Hlavní panel",
+    "knowledge_base_link": "Znalostní báze",
+    "pia_example_link": "PIA příklad",
     "languages": {
       "official_translation": "TO BE TRANSLATED - Original version",
       "cnil_translations": "TO BE TRANSLATED - CNIL provided translations",
@@ -29,180 +29,182 @@
       "el": "Ελληνικά"
     },
     "tools": {
-      "title": "Verktøy",
-      "settings": "Innstillinger",
-      "accessibility": "Tilgjengelighet for synshemmede (høykontrastfarger, daltonisme)",
-      "help": "Hjelp",
-      "about": "Om"
+      "title": "Nástroje",
+      "settings": "Nsatavení",
+      "accessibility": "Dostupnost pro zrakově postižené (barvy s vysokým kontrastem, daltonismem)",
+      "help": "Nápověda",
+      "about": "O nás"
     }
   },
   "homepage": {
     "filters": {
-      "list": "liste",
-      "card": "kort",
-      "sort": "Sorter",
-      "sort_by": "etter",
-      "name": "Navn",
-      "date": "Dato",
-      "status": "Status",
-      "author": "Forfatter",
-      "assessor": "Saksbehandler",
-      "validator": "Ansvarlig",
-      "new_pia": "Ny PIA",
-      "import_pia": "Importer PIA",
-      "list_rocket_content": "Kom i gang ! For å starte <br>en PIA, klikk på +",
-      "card_rocket_content": "Kom i gang !<br><br>For å starte en PIA,<br> klikk på Ny PIA"
+      "list": "seznam",
+      "card": "karta",
+      "sort": "Seřadit",
+      "sort_by": "podle",
+      "name": "Názvu",
+      "date": "Datumu",
+      "status": "Stavu",
+      "author": "Autora",
+      "assessor": "Posuzovatel",
+      "validator": "Validátora",
+      "new_pia": "Nová PIA",
+      "import_pia": "Importovat PIA",
+      "list_rocket_content": "Začínáme! Chcete-li zahájit PIA, klikněte na tlačítko +",
+      "card_rocket_content": "Začínáme! <br><br>Chcete-li iniciovat PIA,<br> klikněte na Nová PIA"
     },
     "cards": {
-      "new_pia": "Ny PIA",
-      "placeholder_new_pia": "Ny PIA",
-      "or": "or",
-      "import_pia": "Importer PIA",
-      "placeholder_import_pia": "Importer PIA",
-      "title_close_creation": "Lukk",
+      "new_pia": "Nová PIA",
+      "placeholder_new_pia": "Nová PIA",
+      "or": "nebo",
+      "import_pia": "Importovat PIA",
+      "placeholder_import_pia": "Importovat PIA",
+      "title_close_creation": "Zavřít",
       "pia_name": "PIA",
-      "placeholder_pia_name": "PIA-tittel",
-      "author": "Forfatter",
-      "placeholder_author": "Fornavn, etternavn",
-      "evaluation": "Saksbehandling",
-      "placeholder_evaluation": "Fornavn, etternavn",
-      "validation": "Forankring",
-      "placeholder_validation": "Fornavn, etternavn",
-      "date": "Dato",
-      "status": "Status",
-      "creation_status": "Opprettelse",
+      "placeholder_pia_name": "PIA název",
+      "author": "Upravil",
+      "placeholder_author": "Křestní jméno, Příjmení",
+      "evaluation": "Posouzení",
+      "placeholder_evaluation": "Křestní jméno, Příjmení",
+      "validation": "Validation",
+      "placeholder_validation": "Křestní jméno, Příjmení",
+      "date": "Datum",
+      "status": "Stav",
+      "creation_status": "Vytvořeno",
       "start": "Start",
-      "placeholder_start": "Alle felt må fylles ut",
+      "placeholder_start": "Všechna pole musí být vyplněna",
       "item": {
         "tools": {
-          "export": "Eksporter",
-          "more_options": "Flere valg",
-          "duplicate": "Dupliser",
-          "action_plan": "Vis<br>handlingsplan",
-          "pia": "Vis<br>PIA",
-          "remove": "Slett"
+          "export": "Exportovat",
+          "more_options": "Více voleb",
+          "duplicate": "Duplikovat",
+          "action_plan": "Zobrazit<br>akční plán",
+          "pia": "Zobrazit<br>PIA",
+          "remove": "Odstranit"
         },
-        "edit_pia": "Regiger PIA",
+        "edit_pia": "Upravit PIA",
         "consult_pia": "TO BE TRANSLATED - Consult PIA"
       }
     },
     "lists": {
       "column_pia": "PIA",
-      "column_updated_at": "Sist åpnet",
-      "column_author": "Rediger",
-      "column_evaluation": "Evaluer",
-      "column_validation": "Valider",
-      "column_creation": "Opprettet",
-      "column_status": "Status",
-      "column_progression": "Fremgang",
-      "column_actions": "Handlinger",
+      "column_updated_at": "Naposledy otevřeno",
+      "column_author": "Úpravy",
+      "column_evaluation": "Posouzení",
+      "column_validation": "Validace",
+      "column_creation": "Vytvořeno",
+      "column_status": "Stav",
+      "column_progression": "Postup",
+      "column_actions": "Akce",
       "item": {
         "tools": {
           "consult": "TO BE TRANSLATED - Consult",
-          "edit": "Rediger",
-          "export": "Eksporter",
-          "duplicate": "Dupliser",
-          "action_plan": "Vis handlingsplan",
-          "pia": "Vis PIA",
-          "remove": "Slett"
+          "edit": "Upravit",
+          "export": "Exportovat",
+          "duplicate": "Duplikovat",
+          "action_plan": "Zobrazit akční plán",
+          "pia": "Zobrazit PIA",
+          "remove": "Odstranit"
         }
       }
     }
   },
   "pia": {
     "statuses": {
-      "0": "Pågår",
-      "1": "Avvist",
-      "2": "Enkel validering",
-      "3": "Signert validation",
-      "4": "Arkrivert",
-      "5": "Avventer validering"
+      "0": "Probíhá",
+      "1": "Odmítnuto",
+      "2": "Jednoduché ověření",
+      "3": "Podepsané ověření",
+      "4": "Archivováno",
+      "5": "Čekání na ověření"
     },
     "header": {
-      "preview": "Forhåndsvis",
-      "display_action_plan": "Vis<br>handlingsplan"
+      "preview": "Náhled",
+      "display_action_plan": "Zobrazit<br> akční plán",
+      "edition": "TO BE TRANSLATED - Edition",
+      "evaluation": "TO BE TRANSLATED - Evaluation"
     },
     "attachments": {
-      "title": "Vedlegg",
-      "add": "Legg til",
-      "remove": "Fjern"
+      "title": "Přílohy",
+      "add": "Přidat",
+      "remove": "Odebrat"
     },
     "sections": {
-      "homepage_link": "Tilbake til hovedside",
-      "validate_pia": "Valider PIA",
-      "refuse_pia": "Avvist PIA",
+      "homepage_link": "Zpět na Hlavní panel",
+      "validate_pia": "Ověřit PIA",
+      "refuse_pia": "Odmítnutá PIA",
       "status": {
         "evaluation": {
-          "title": "Avventer saksbehandling",
-          "content": "Denne delen har ennå ikke blitt saksbehandlet. Hvis du ønsker å redigere innholdet som sendes til saksbehandling, må du ",
-          "cancel": "avbryte forespørselen om saksbehandling.",
-          "cancel_button": "Avbryt forespørsel om saksbehandling"
+          "title": "TO BE TRANSLATED - Waiting for review.",
+          "content": "TO BE TRANSLATED - This part has not yet been reviewed. If you wish to edit the content submitted for review you have to ",
+          "cancel": "TO BE TRANSLATED - cancel the review request.",
+          "cancel_button": "TO BE TRANSLATED - Cancel the review request"
         },
         "validation": {
-          "title": "Avventer validering.",
-          "content": "Denne delen har blitt saksbehandlet og venter på den generelle PIA-valideringen. Hvis du ønsker å endre saksbehandlingen, må du ",
-          "cancel": "avbryte forespørselen om validering.",
-          "cancel_button": "Avbryt forespørsel om validering"
+          "title": "TO BE TRANSLATED - Waiting for validation.",
+          "content": "TO BE TRANSLATED - This part has been reviewed and is waiting for the overall PIA validation. If you wish to change the review, you have to ",
+          "cancel": "TO BE TRANSLATED - cancel the validation request.",
+          "cancel_button": "TO BE TRANSLATED - Cancel the validation request"
         }
       }
     },
     "footer": {
-      "ask_evaluation": "Forespør saksbehandling",
-      "validate_evaluation": "Valider saksbehandling",
-      "subsection_validated": "Underavsnitt saksbehandlet. Avventer endelig validering",
-      "mandatory_fields": "Alle felter må fylles ut"
+      "ask_evaluation": "Požádat o kontrolu",
+      "validate_evaluation": "Ověřit kontrolu",
+      "subsection_validated": "Subsekce schválená, čeká na konečné ověření",
+      "mandatory_fields": "Všechna pole musí být vyplněna"
     }
   },
   "measures": {
-    "placeholder_title": "Tittel på tiltak",
-    "add": "Legg til et tiltak (eller bruk kunnskapsbasen)",
-    "edit": "Rediger tiltak",
-    "remove": "Slett tiltak",
-    "default_placeholder": "Beskriv eksisterende eller tiltenkte tiltak for å sikre informasjonssikkerheten."
+    "placeholder_title": "Název opatření",
+    "add": "Přidat prázdné opatření (jinak použijte znalostní bázi)",
+    "edit": "Upravit opatření",
+    "remove": "Odstranit opatření",
+    "default_placeholder": "Popište existující nebo plánovaná opatření k zajištění bezpečnosti dat."
   },
   "knowledge_base": {
-    "title": "kunnskapsbase",
-    "search": "Søk",
-    "add_measure": "Legg til",
-    "placeholder_help": "Hjelpemiddel",
-    "placeholder_add_measure": "Legg til dette tiltaket",
-    "add_measure_hint": "Du kan også legge til tiltak fra kunnskapsbasen.",
+    "title": "Znalostní báze",
+    "search": "Vyhledat",
+    "add_measure": "Přidat",
+    "placeholder_help": "Vstupní pomůcky",
+    "placeholder_add_measure": "Přidat toto opatření",
+    "add_measure_hint": "Můžete také přidat opatření z databáze znalostí.",
     "filters": {
-      "title": "Filtre",
-      "all": "Alle",
-      "definitions": "Definisjoner",
-      "organizational_measures": "Styringssystemer",
-      "measures_on_data": "Teknisk informasjonssikkerhet",
-      "general_measures": "Fysisk informasjonssikkerhet",
-      "no_result": "Ingen resultater funnet."
+      "title": "Filtry",
+      "all": "Vše",
+      "definitions": "Definice",
+      "organizational_measures": "Organizační kontroly",
+      "measures_on_data": "Logické bezpečnostní prvky",
+      "general_measures": "Kontroly fyzické bezpečnosti",
+      "no_result": "Nebyl nalezen žádný výsledek."
     },
     "category": {
-      "definition": "Definisjon",
-      "principle": "Prinsipp",
-      "organizational_measure": "Styringssystemer",
-      "measure_on_data": "Teknisk informasjonssikkerhet",
-      "general_measure": "Fysisk informasjonssikkerhet",
-      "example": "Eksempel"
+      "definition": "Definice",
+      "principle": "Zásada",
+      "organizational_measure": "Organizační kontrola",
+      "measure_on_data": "Logická bezpečnostní kontrola",
+      "general_measure": "Fyzická bezpečnostní kontrola",
+      "example": "Příklad"
     },
     "slugs": {
       "PIA_LGL_FOND": {
-        "name": "Behandlingsgrunnlag",
-        "description": "- Den registrerte har gitt uttrykkelig samtykke til behandling av slike personopplysninger for ett eller flere spesifikke formål <br>- Behandlingen er nødvendig for å oppfylle en avtale som den registrerte er part i, eller for å gjennomføre tiltak på den registrertes anmodning før en avtaleinngåelse <br>- Behandlingen er nødvendig for å oppfylle en rettslig forpliktelse som påhviler den behandlingsansvarlige <br>- Behandlingen er nødvendig for å verne den registrertes eller en annen fysisk persons vitale interesser <br>- Behandlingen er nødvendig for å utføre en oppgave i allmennhetens interesse eller utøve offentlig myndighet som den behandlingsansvarlige er pålagt <br>- Behandlingen er nødvendig for formål knyttet til de berettigede interessene som forfølges av den behandlingsansvarlige eller en tredjepart, med mindre den registrertes interesser eller grunnleggende rettigheter og friheter går foran og krever vern av personopplysninger, særlig dersom den registrerte er et barn<br> Se <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR] artikkel 6</a> ",
+        "name": "Justification of lawfulness",
+        "description": "- The data subject has given consent  to the processing of his or her personal data for one or more specific purposes <br>- Processing is necessary for the performance of a contract to which the data subject is party or in order to take steps at the request of the data subject prior to entering into a contract <br>-Processing is necessary for compliance with a legal obligation to which the controller is subject <br>- Processing is necessary in order to protect the vital interests of the data subject or of another natural person <br>- Processing is necessary for the performance of a task carried out in the public interest or in the exercise of official authority vested in the controller <br>- Processing is necessary for the purposes of the legitimate interests pursued by the controller or by a third party, except where such interests are overridden by the interests or fundamental rights and freedoms of the data subject which require protection of personal data, in particular where the data subject is a child<br> See <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/CS/TXT/HTML/?uri=CELEX:32016R0679&from=CS\">art. 6 of [GDPR]</a> ",
         "source": "PIA2 p4"
       },
       "PIA_LGL_ST": {
-        "name": "Underleverandører",
-        "description": "I tråd med artikkel 28 i [GDPR] skal det inngås en databehandleravtale med enhver databehandler, der varighet, omfang, formål, behandlingsinstrukser, forhåndsgodkjenning av databehandlere, overenstemmelse med [GDPR], avvikshåndtering, etc. dokumenteres",
+        "name": "Subcontracting",
+        "description": "A processing contract must be signed with each processor, setting out all of the aspects stipulated in Art. 28 of the [GDPR]: duration, scope, purpose, documented processing instructions, prior authorisation where a processor is engaged, provision of any documentation providing evidence of compliance with the [GDPR], prompt notification of any data breach, etc.",
         "source": "PIA2 p10"
       },
       "PIA_LGL_TRAN": {
-        "name": "Utlevering",
-        "description": "Depending on the country in question, you will have to justify the choice of remote hosting and indicate the legal supervision arrangements implemented in order to ensure adequate protection of the data subject to a cross-border transfer. That is :<br>- European Union<br>- Country recognised as providing adequate protection by the EU<br>- Transfer to the United States to a company which has joined the Privacy Shield<br>- Other country <br>See <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">art. 44 to 49 of [GDPR]</a>",
+        "name": "Transfers",
+        "description": "Depending on the country in question, you will have to justify the choice of remote hosting and indicate the legal supervision arrangements implemented in order to ensure adequate protection of the data subject to a cross-border transfer. That is :<br>- European Union<br>- Country recognised as providing adequate protection by the EU<br>- Transfer to the United States to a company which has joined the Privacy Shield<br>- Other country <br>See <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/CS/TXT/HTML/?uri=CELEX:32016R0679&from=CS\">art. 44 to 49 of [GDPR]</a>",
         "source": "PIAF Connected Objects p18"
       },
       "PIA_LGL_DESC": {
         "name": "Processing's description",
-        "description": "Present a brief outline of the processing under consideration, its nature, scope, context, purposes and stakes. Identify the data controller and any processors. List the standard references applicable to the processing, which are necessary or must be complied with , not least the approved codes of conduct (see Art. 40 of the <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR]</a>) and certifications regarding data protection (see Art. 42 of the <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR]</a>)",
+        "description": "Present a brief outline of the processing under consideration, its nature, scope, context, purposes and stakes. Identify the data controller and any processors. List the standard references applicable to the processing, which are necessary or must be complied with , not least the approved codes of conduct (see Art. 40 of the <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/CS/TXT/HTML/?uri=CELEX:32016R0679&from=CS\">[GDPR]</a>) and certifications regarding data protection (see Art. 42 of the <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/CS/TXT/HTML/?uri=CELEX:32016R0679&from=CS\">[GDPR]</a>)",
         "source": "PIA1 p4"
       },
       "PIA_LGL_DATA": {
@@ -217,7 +219,7 @@
       },
       "PIA_LGL_FIN": {
         "name": "Principles relating to processing of personal data",
-        "description": "Personal data shall be collected for specified, explicit and legitimate purposes and <strong>not further processed in a manner that is incompatible with those purposes.</strong> <br>See <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 5.1 b) of [GDPR]</a>",
+        "description": "Personal data shall be collected for specified, explicit and legitimate purposes and <strong>not further processed in a manner that is incompatible with those purposes.</strong> <br>See <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/CS/TXT/HTML/?uri=CELEX:32016R0679&from=CS\">Art. 5.1 b) of [GDPR]</a>",
         "source": "GDPR art 5.1 b)"
       },
       "PIA_LGL_MINI": {
@@ -227,7 +229,7 @@
       },
       "PIA_LGL_DEST": {
         "name": "Recipient",
-        "description": "Natural or legal person, public authority, agency or another body, to which the personal data are disclosed, whether a third party or not. However, public authorities which may receive personal data in the framework of a particular inquiry in accordance with Union or Member State law shall not be regarded as recipients; the processing of those data by those public authorities shall be in compliance with the applicable data protection rules according to the purposes of the processing. see Art. 4.9 of the <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR]</a>",
+        "description": "Natural or legal person, public authority, agency or another body, to which the personal data are disclosed, whether a third party or not. However, public authorities which may receive personal data in the framework of a particular inquiry in accordance with Union or Member State law shall not be regarded as recipients; the processing of those data by those public authorities shall be in compliance with the applicable data protection rules according to the purposes of the processing. see Art. 4.9 of the <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/CS/TXT/HTML/?uri=CELEX:32016R0679&from=CS\">[GDPR]</a>",
         "source": "GDPR art 4.9"
       },
       "PIA_LGL_DUR": {
@@ -242,17 +244,17 @@
       },
       "PIA_LGL_CONS": {
         "name": "Consent",
-        "description": "Allow data subjects to make a free, specific and informed choice. Determine whether the processing relies on a legal basis other than consent pursuant to Art. 6 of the <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR]</a>",
+        "description": "Allow data subjects to make a free, specific and informed choice. Determine whether the processing relies on a legal basis other than consent pursuant to Art. 6 of the <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/CS/TXT/HTML/?uri=CELEX:32016R0679&from=CS\">[GDPR]</a>",
         "source": "PIA3 p11 - WIKI"
       },
       "PIA_VAL_DPO": {
         "name": "DPO's opinion",
-        "description": "The controller shall seek the advice of the data protection officer, where designated, when carrying out a data protection impact assessment. See Art. 39.2 of the <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR]</a><br> <strong>This view may be against the processing being implemented, without restricting the decision of the data controller for all that</strong>.",
+        "description": "The controller shall seek the advice of the data protection officer, where designated, when carrying out a data protection impact assessment. See Art. 39.2 of the <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/CS/TXT/HTML/?uri=CELEX:32016R0679&from=CS\">[GDPR]</a><br> <strong>This view may be against the processing being implemented, without restricting the decision of the data controller for all that</strong>.",
         "source": "GDPR Art. 39.2 and PIAF Connected Objects p37"
       },
       "PIA_VAL_CONC": {
         "name": "Data subject's opinion",
-        "description": "Where appropriate, the controller shall seek the views of data subjects or their representatives on the intended processing, without prejudice to the protection of commercial or public interests or the security of processing operations. See Art. 39.2 of the <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR]</a><br>These views may be gathered by diverse means, depending on the context (internal or external study on the processing methods and purpose, question for the attention of staff representatives or trade unions, survey among future customers of the data processor). <strong>Where the data controller decides to go against the views of the data subjects</strong>, he must note down <strong>the justification for this decision</strong>. Where the data controller considers that <strong>gathering the views of the data subjects is not relevant, he must also note down the justification thereof</strong>.",
+        "description": "Where appropriate, the controller shall seek the views of data subjects or their representatives on the intended processing, without prejudice to the protection of commercial or public interests or the security of processing operations. See Art. 39.2 of the <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/CS/TXT/HTML/?uri=CELEX:32016R0679&from=CS\">[GDPR]</a><br>These views may be gathered by diverse means, depending on the context (internal or external study on the processing methods and purpose, question for the attention of staff representatives or trade unions, survey among future customers of the data processor). <strong>Where the data controller decides to go against the views of the data subjects</strong>, he must note down <strong>the justification for this decision</strong>. Where the data controller considers that <strong>gathering the views of the data subjects is not relevant, he must also note down the justification thereof</strong>.",
         "source": "GDPR Art. 39.9 and PIAF Connected Objects p38"
       },
       "PIA_VAL_RT": {
@@ -430,7 +432,7 @@
       },
       "PIA_DEF_EXA": {
         "name": "Quality of data",
-        "description": "Personal data shall be accurate and, where necessary, kept up to date; every reasonable step must be taken to ensure that personal data that are inaccurate, having regard to the purposes for which they are processed, are erased or rectified without delay (‘accuracy’). <br>See <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 5.1 d) of [GDPR]</a>",
+        "description": "Personal data shall be accurate and, where necessary, kept up to date; every reasonable step must be taken to ensure that personal data that are inaccurate, having regard to the purposes for which they are processed, are erased or rectified without delay (‘accuracy’). <br>See <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/CS/TXT/HTML/?uri=CELEX:32016R0679&from=CS\">Art. 5.1 d) of [GDPR]</a>",
         "source": "GDPR Art. 5.1 d)"
       },
       "PIA_DEF_MES": {
@@ -440,17 +442,17 @@
       },
       "PIA_DEF_RT": {
         "name": "Controller",
-        "description": "Natural or legal person, public authority, agency or other body which, alone or jointly with others, determines the purposes and means of the processing of personal data; where the purposes and means of such processing are determined by Union or Member State law, the controller or the specific criteria for its nomination may be provided for by Union or Member State law.<br>See <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 4.7 of [GDPR]</a>",
+        "description": "Natural or legal person, public authority, agency or other body which, alone or jointly with others, determines the purposes and means of the processing of personal data; where the purposes and means of such processing are determined by Union or Member State law, the controller or the specific criteria for its nomination may be provided for by Union or Member State law.<br>See <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/CS/TXT/HTML/?uri=CELEX:32016R0679&from=CS\">Art. 4.7 of [GDPR]</a>",
         "source": "GDPR Art. 4.7"
       },
       "PIA_DEF_DCP": {
         "name": "Personal data",
-        "description": "Any information relating to an identified or identifiable natural person (‘data subject’); an identifiable natural person is one who can be identified, directly or indirectly, in particular by reference to an identifier such as a name, an identification number, location data, an online identifier or to one or more factors specific to the physical, physiological, genetic, mental, economic, cultural or social identity of that natural person. <br>See <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 4.1 of [GDPR]</a>",
+        "description": "Any information relating to an identified or identifiable natural person (‘data subject’); an identifiable natural person is one who can be identified, directly or indirectly, in particular by reference to an identifier such as a name, an identification number, location data, an online identifier or to one or more factors specific to the physical, physiological, genetic, mental, economic, cultural or social identity of that natural person. <br>See <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/CS/TXT/HTML/?uri=CELEX:32016R0679&from=CS\">Art. 4.1 of [GDPR]</a>",
         "source": "GDPR Art 4.1"
       },
       "PIA_DEF_DEST": {
         "name": "Recipient",
-        "description": "Natural or legal person, public authority, agency or another body, to which the personal data are disclosed, whether a third party or not. However, public authorities which may receive personal data in the framework of a particular inquiry in accordance with Union or Member State law shall not be regarded as recipients; the processing of those data by those public authorities shall be in compliance with the applicable data protection rules according to the purposes of the processing. <br>See <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 4.9 of [GDPR]</a>",
+        "description": "Natural or legal person, public authority, agency or another body, to which the personal data are disclosed, whether a third party or not. However, public authorities which may receive personal data in the framework of a particular inquiry in accordance with Union or Member State law shall not be regarded as recipients; the processing of those data by those public authorities shall be in compliance with the applicable data protection rules according to the purposes of the processing. <br>See <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/CS/TXT/HTML/?uri=CELEX:32016R0679&from=CS\">Art. 4.9 of [GDPR]</a>",
         "source": "GDPR Art. 4.9"
       },
       "PIA_DEF_SUPT": {
@@ -464,18 +466,18 @@
         "source": ""
       },
       "PIA_DEF_CONS": {
-        "name": "Consent",
-        "description": "Any freely given, specific, informed and unambiguous indication of the data subject's wishes by which he or she, by a statement or by a clear affirmative action, signifies agreement to the processing of personal data relating to him or her.<br>See <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 4.10 of [GDPR]</a>",
+        "name": "consent",
+        "description": "Any freely given, specific, informed and unambiguous indication of the data subject's wishes by which he or she, by a statement or by a clear affirmative action, signifies agreement to the processing of personal data relating to him or her.<br>See <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/CS/TXT/HTML/?uri=CELEX:32016R0679&from=CS\">Art. 4.10 of [GDPR]</a>",
         "source": "GDPR Art. 4.10"
       },
       "PIA_DEF_ACC": {
         "name": "Right of access",
-        "description": "The data subject shall have the right to obtain from the controller confirmation as to whether or not personal data concerning him or her are being processed, and, where that is the case, access to the personal data and the information described in <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 15 of [GDPR]</a>",
+        "description": "The data subject shall have the right to obtain from the controller confirmation as to whether or not personal data concerning him or her are being processed, and, where that is the case, access to the personal data and the information described in <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/CS/TXT/HTML/?uri=CELEX:32016R0679&from=CS\">Art. 15 of [GDPR]</a>",
         "source":"GDPR Art. 15"
       },
       "PIA_DEF_PORT": {
         "name": "Right to data portability",
-        "description": " The data subject shall have the right to receive the personal data concerning him or her, which he or she has provided to a controller, in a structured, commonly used and machine-readable format and have the right to transmit those data to another controller without hindrance from the controller to which the personal data have been provided, see <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 20 of [GDPR]</a>",
+        "description": " The data subject shall have the right to receive the personal data concerning him or her, which he or she has provided to a controller, in a structured, commonly used and machine-readable format and have the right to transmit those data to another controller without hindrance from the controller to which the personal data have been provided, see <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/CS/TXT/HTML/?uri=CELEX:32016R0679&from=CS\">Art. 20 of [GDPR]</a>",
         "source": "GDPR Art. 20"
       },
       "PIA_DEF_RECT": {
@@ -485,22 +487,22 @@
       },
       "PIA_DEF_EFF": {
         "name": "Right to erasure",
-        "description": " The data subject shall have the right to obtain from the controller the erasure of personal data concerning him or her without undue delay and the controller shall have the obligation to erase personal data without undue delay, see <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 17 of [GDPR]</a>",
+        "description": " The data subject shall have the right to obtain from the controller the erasure of personal data concerning him or her without undue delay and the controller shall have the obligation to erase personal data without undue delay, see <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/CS/TXT/HTML/?uri=CELEX:32016R0679&from=CS\">Art. 17 of [GDPR]</a>",
         "source" : "GDPR Art. 17"
       },
       "PIA_DEF_LIM": {
         "name": "Right to restricting of processing",
-        "description": "The data subject shall have the right to obtain from the controller restriction of processing, see <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 18 of [GDPR]</a>",
+        "description": "The data subject shall have the right to obtain from the controller restriction of processing, see <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/CS/TXT/HTML/?uri=CELEX:32016R0679&from=CS\">Art. 18 of [GDPR]</a>",
         "source": "GDPR Art. 18"
       },
       "PIA_DEF_OPP": {
         "name": "Right to object",
-        "description": "The data subject shall have the right to object, on grounds relating to his or her particular situation, at any time to processing of personal data concerning him or her, pursuant to <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 21 of [GDPR]</a>",
+        "description": "The data subject shall have the right to object, on grounds relating to his or her particular situation, at any time to processing of personal data concerning him or her, pursuant to <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/CS/TXT/HTML/?uri=CELEX:32016R0679&from=CS\">Art. 21 of [GDPR]</a>",
         "source": "GDPR Art. 21"
       },
       "PIA_DEF_PSEU": {
         "name": "Pseudonymisation",
-        "description": "Processing of personal data in such a manner that the personal data can no longer be attributed to a specific data subject without the use of additional information, provided that such additional information is kept separately and is subject to technical and organisational measures to ensure that the personal data are not attributed to an identified or identifiable natural person.<br>Pseudonymisation  reduces  the  linkability  of  a  dataset  with  the  original  identity  of  a  data subject; as such, it is a useful security measure but not a method of anonymisation.",
+        "description": "processing of personal data in such a manner that the personal data can no longer be attributed to a specific data subject without the use of additional information, provided that such additional information is kept separately and is subject to technical and organisational measures to ensure that the personal data are not attributed to an identified or identifiable natural person.<br>Pseudonymisation  reduces  the  linkability  of  a  dataset  with  the  original  identity  of  a  data subject; as such, it is a useful security measure but not a method of anonymisation.",
         "source" :"GDPR Art. 4.5 and guidelines G29 p22 http://ec.europa.eu/justice/data-protection/article-29/documentation/opinion-recommendation/files/2014/wp216_en.pdf"
       },
       "PIA_DEF_CLO": {
@@ -510,7 +512,7 @@
       },
       "PIA_DEF_CTLA": {
         "name": "Logical access controls",
-        "description": "Means implemented to limit the risks that unauthorized persons will access personal data electronically, it requires among other things to : <br>- <strong>manage users' profiles</strong> by separating tasks and areas of responsibility (preferably in centralised fashion) to limit access to personal data exclusively to authorised users by applying need-to-know and least-privilege principles;<br>- <strong>withdraw the rights of employees, contracting parties and other third parties when they are no longer authorised to access a premises or a resource</strong> or when their <strong>employment contract ends</strong>.",
+        "description": "Means implemented to limit the risks that unauthorized persons will access personal data electronically, it requires among other things to : <br>- <strong>Manage users' profiles</strong> by separating tasks and areas of responsibility (preferably in centralised fashion) to limit access to personal data exclusively to authorised users by applying need-to-know and least-privilege principles.<br>- <strong>Withdraw the rights of employees, contracting parties and other third parties when they are no longer authorised to access a premises or a resource</strong> or when their <strong>employment contract ends</strong>.",
         "source": "PIA3 p43 - WIKI"
       },
       "PIA_DEF_MIN1": {
@@ -555,7 +557,7 @@
       },
       "PIA_DEF_VRA": {
         "name": "Likelihood",
-        "description": "Likelihood expresses the possibility of a risk occurring. It primarily depends on the level of vulnerabilities of the supporting assets when under threat and the level of capabilities of the risk sources to exploit them.",
+        "description": "likelihood expresses the possibility of a risk occurring. It primarily depends on the level of vulnerabilities of the supporting assets when under threat and the level of capabilities of the risk sources to exploit them.",
         "source": "PIA1 page 6"
       },
       "PIA_DEF_PBDS": {
@@ -585,7 +587,7 @@
       },
       "PIA_DEF_ST": {
         "name": "Processor",
-        "description": "Natural or legal person, public authority, agency or other body which processes personal data on behalf of the controller, see <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 4.8 of [GDPR]</a>.<br>The processor and any person acting under the authority of the controller or of the processor, who has access to personal data, shall not process those data except on instructions from the controller, unless required to do so by Union or Member State law, see <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 29 of [GDPR]</a>.",
+        "description": "Natural or legal person, public authority, agency or other body which processes personal data on behalf of the controller, see <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/CS/TXT/HTML/?uri=CELEX:32016R0679&from=CS\">Art. 4.8 of [GDPR]</a>.<br>The processor and any person acting under the authority of the controller or of the processor, who has access to personal data, shall not process those data except on instructions from the controller, unless required to do so by Union or Member State law, see <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/CS/TXT/HTML/?uri=CELEX:32016R0679&from=CS\">Art. 29 of [GDPR]</a>.",
         "source": "GDPR Art. 4.8 and 29"
       },
       "PIA_DEF_RGPD": {
@@ -625,12 +627,12 @@
       },
       "PIA_EX_DCPR": {
         "name": "Convictions and sensitive personal data",
-        "description": "Philosophical, political, religious and trade-union views, sex life, health data, racial or ethnic origin, data concerning health or sex life, offenses, convictions, security measures, see <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 9 and 10 of [GDPR]</a>.",
+        "description": "Philosophical, political, religious and trade-union views, sex life, health data, racial or ethnic origin, data concerning health or sex life, offenses, convictions, security measures, see <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/CS/TXT/HTML/?uri=CELEX:32016R0679&from=CS\">Art. 9 and 10 of [GDPR]</a>.",
         "source": "PIA2 old version, GDPR Article 9 and 10 - WIKI"
       },
       "PIA_EX_HUMI": {
         "name": "Internal human sources",
-        "description": "It could be either:<br>- a negligent or rogue employee, proximity of the system, skills, privileges and available time are potentially high, possible lack of training and awareness<br>- negligent or rogue user, family member or friend having access to the service.<br> Various motives are possible, including : clumsiness, error, negligence game, malicious intent, revenge, spying",
+        "description": "It could be either:<br>- a negligent or rogue employee, proximity of the system, skills, privileges and available time are potentially high, possible lack of training and awareness<br>- Negligent or rogue user or people around<br> Various motives are possible, including : clumsiness, error, negligence game, malicious intent, revenge, spying",
         "source": "PIAF Connected objects p41 - WIKI"
       },
       "PIA_EX_HUME": {
@@ -644,23 +646,23 @@
         "source": "PIAF Connected objects p41 - WIKI"
       },
       "PIA_EX_IMPN": {
-        "name": "Negligible impact",
-        "description": "Data subjects either will not be affected or may encounter a few inconveniences, which they will overcome without any problem. For example:<br>- physical : transient headaches;<br>- material : loss of time in repeating formalities or waiting for them to be fulfilled, receipt of unsolicited mail (e.g.: spams), reuse of data published on websites for the purpose of targeted advertising , etc.;<br>- moral : mere annoyance, feeling of invasion of privacy without real or objective harm (commercial intrusion), etc.",
+        "name": "Negligible severity",
+        "description": "Data subjects either will not be affected or may encounter a few inconveniences, which they will overcome without any problem.<br>Examples:<br>- physical : transient headaches<br>- material : loss of time in repeating formalities or waiting for them to be fulfilled, receipt of unsolicited mail (e.g.: spams), reuse of data published on websites for the purpose of targeted advertising , etc.,<br>- moral : mere annoyance, feeling of invasion of privacy without real or objective harm (commercial intrusion), etc.",
         "source": "PIAF Connected Objects p41 - WIKI"
       },
       "PIA_EX_IMPL": {
-        "name": "Limited impact",
-        "description": "Data subjects may encounter significant inconveniences, which they will be able to overcome despite a few difficulties. For example:<br>- physical : minor physical ailments (minor illness due to disregard of contraindications), defamation resulting in physical or psychological retaliation, etc.;<br>- material : unanticipated payments (fines imposed erroneously), denial of access to administrative or commercial services, receipt of unsolicited targeted mailings likely to damage the reputation of data subjects, etc.;<br>- moral : minor but objective psychological ailments, feeling of invasion of privacy without irreversible damage, intimidation on social networks, etc.",
+        "name": "Limited severity",
+        "description": "Data subjects may encounter significant inconveniences, which they will be able to overcome despite a few difficulties<br>Examples :<br>- physical : minor physical ailments (minor illness due to disregard of contraindications), defamation resulting in physical or psychological retaliation, etc.<br>- material : Unanticipated payments (fines imposed erroneously), denial of access to administrative or commercial services , Receipt of unsolicited targeted mailings likely to damage the reputation of data subjects, etc.<br>- moral : minor but objective psychological ailments, feeling of invasion of privacy without irreversible damage, intimidation on social networks, etc.",
         "source": "PIAF Connected objects p41 - WIKI"
       },
       "PIA_EX_IMPI": {
-        "name": "Significant impact",
-        "description": "Data subjects may encounter significant consequences, which they should be able to overcome albeit with real and serious difficulties. For example: <br>- physical : serious physical ailments causing long-term harm (worsening of health due to improper care, or disregard of contraindications), lteration of physical integrity for example following an assault, an accident at home, work, etc.<br>- material : misappropriation of money not compensated, targeted, unique and non-recurring, lost opportunities  (home loan, refusal of studies, internships or employment, examination ban), loss of housing, loss of employment, etc.;<br>- moral : serious psychological ailments (depression, development of a phobia), feeling of invasion of privacy with irreversible damage, victim of blackmailing, cyberbullying and harassment, etc.",
+        "name": "Significant severity",
+        "description": "Data subjects may encounter significant consequences, which they should be able to overcome albeit with real and serious difficulties<br>Examples: <br>- physical : serious physical ailments causing long-term harm (worsening of health due to improper care, or disregard of contraindications), lteration of physical integrity for example following an assault, an accident at home, work, etc.<br>- material : misappropriation of money not compensated, targeted, unique and non-recurring, lost opportunities  (home loan, refusal of studies, internships or employment, examination ban), loss of housing, loss of employment, etc.<br>- moral : serious psychological ailments (depression, development of a phobia), feeling of invasion of privacy with irreversible damage, victim of blackmailing, cyberbullying and harassment, etc.",
         "source": "PIAF Connected objects p41 - WIKI"
       },
       "PIA_EX_IMPM": {
-        "name": "Maximum impact",
-        "description": "Data subjects may encounter significant, or even irreversible, consequences, which they may not overcome. For example:<br>- physical : long-term or permanent physical ailments, permanent impairment of physical integrity, death;<br>- material : financial risk, substantial debts, inability to work, inability to relocate, loss of evidence in the context of litigation, loss of access to vital infrastructure (water, electricity), etc.<br>- moral : long-term or permanent psychological ailments, criminal penalty, abduction, loss of family ties, inability to sue, change of administrative status and/or loss of legal autonomy (guardianship), etc.",
+        "name": "Maximum severity",
+        "description": "Data subjects may encounter significant, or even irreversible, consequences, which they may not overcome<br>Examples :<br>- physical : long-term or permanent physical ailments, permanent impairment of physical integrity, death<br>- material : financial risk, substantial debts, inability to work, inability to relocate, loss of evidence in the context of litigation, loss of access to vital infrastructure (water, electricity), etc.<br>- moral : long-term or permanent psychological ailments, criminal penalty, abduction, loss of family ties, inability to sue, change of administrative status and/or loss of legal autonomy (guardianship), etc.",
         "source": "PIAF Connected objects p41 - WIKI"
       },
       "PIA_EX_VRAN": {
@@ -696,6 +698,7 @@
       "PIA_SEC_CTR": {
         "placeholder": "Describe here specific measures for processors (host, maintenance company, administrator, specialist service providers, etc.)",
         "name": "Processing contracts",
+        "description": "Regulate the procurement relations via a contract signed intuitu persona.<br>- Require the processor to forward its Information Systems Security Policy (PSSI) along with all supporting documents of its information security certifications and append said documents to the contract. Ensure that the measures pursuant to its PSSI comply with the CNIL's recommendations in this respect.<br>- Precisely determine and set, on a contractual basis, the operations that the processor will be required to carry out on personal data: <br> 1) The data to which it will have access or which will be transmitted to it.<br> 2) The operations it must carry out on the data.<br> 3) The duration for which it may store the data.<br> 4) Any recipients to which the data controller requires it to transmit the data.<br> 5) The operations to be carried out at the end of the service (permanent deletion of data or return of the data in the context of reversibility then destruction of data at the processor's).<br> 6) The security objectives set by the data controller. <br>- Determine, on a contractual basis, the division of responsibility regarding the legal processes aimed at allowing the data subjects to exercise their rights.<br>- Explicitly prohibit or regulate use of tier-2 processors.<br>- Clarify in the contract that compliance with the data protection obligations is a binding requirement of the contract.",
         "source": "Mesures_US Procurement: identified and governed by a contract"
       },
       "PIA_DEF_CHIF": {
@@ -726,58 +729,58 @@
     }
   },
   "comments": {
-    "comments_count": "comment(s)",
-    "new_comment": "Comment",
-    "placeholder_new_comment": "Leave a comment",
-    "comment": "Comment",
+    "comments_count": "komentář(e)",
+    "new_comment": "Komentář",
+    "placeholder_new_comment": "Zanechat komentář",
+    "comment": "Komentář",
     "send": "Send"
   },
   "questions": {
-    "edit": "Edit question",
+    "edit": "Upravit otázku",
     "gauges": {
-      "0": "(Undefined)",
-      "1": "Negligible",
-      "2": "Limited",
-      "3": "Important",
-      "4": "Maximum"
+      "0": "(Nedefinováno)",
+      "1": "Zanedbatelné",
+      "2": "Omezeno",
+      "3": "Důležité",
+      "4": "Maximální"
     }
   },
   "evaluations": {
-    "title": "Evaluation",
-    "to_correct": "To correct",
-    "improvable": "Improvable",
-    "acceptable": "Acceptable",
-    "evaluation_comment": "Evaluation comment",
-    "action_plan_comment": "Action plan / corrective actions",
+    "title": "Hodnocení",
+    "to_correct": "Opravit",
+    "improvable": "Vylepšitelné",
+    "acceptable": "Přijatelné",
+    "evaluation_comment": "Komentář k hodnocení",
+    "action_plan_comment": "Akční plán/Nápravná opatření",
     "placeholder_to_correct": "TO BE TRANSLATED - The information provided are not sufficient to properly evaluate them. Send back to the editor to improve the original submission.",
     "placeholder_improvable1": "TO BE TRANSLATED - According to the available information, additional measures are to be implemented in order to improve the data protection of the processing.",
     "placeholder_improvable2": "TO BE TRANSLATED - Enter your comments.",
     "placeholder_acceptable": "TO BE TRANSLATED - According to the available information, the measures implemented are adequate to properly meet the requirements for protecting the data.",
     "gauges": {
-      "seriousness": "Taking into account the action plan, how do you re-evaluate the <span class='red-highlight'>seriousness of this risk</span> ({{value}})?",
-      "likelihood": "Taking into account the action plan, how do you re-evaluate the <span class='red-highlight'>likelihood of this risk</span> ({{value}})?",
-      "0": "(Undefined)",
-      "1": "Negligible",
-      "2": "Limited",
-      "3": "Important",
-      "4": "Maximum"
+      "seriousness": "Pokud vezmeme v úvahu akční plán, jak přehodnotit <span class='red-highlight'>závažnost tohoto rizika </span> ({{value}})?",
+      "likelihood": "Pokud vezmeme v úvahu akční plán, jak přehodnotíte <span class='red-highlight'>pravděpodobnost tohoto rizika </span> ({{value}})?",
+      "0": "(Nedefinováno)",
+      "1": "Zanedbatelné",
+      "2": "Omezené",
+      "3": "Důležité",
+      "4": "Maximální"
     },
     "status": {
-      "0": "Pending",
-      "1": "To correct",
-      "2": "Improvable",
-      "3": "Acceptable"
+      "0": "Čeká",
+      "1": "Opravit",
+      "2": "Vylepšit",
+      "3": "Přijato"
     }
   },
   "help": {
-    "title": "Help",
+    "title": "Nápověda",
     "definition": {
       "data1": {
-        "title": "Use the PIA tool",
-        "content": "Content being written"
+        "title": "Použít nástroj PIA",
+        "content": "Obsah je psán"
       },
       "data2": {
-        "title": "Known Issues",
+        "title": "Známé problémy",
         "qa1": {
           "title": "I get display issues such as icons being stuck in one state or missing elements from the interface",
           "content": "When encountering those display issues, close the application and reload it. It usually fixes the issue. You won’t lose the information you have entered ; it is  automatically saved as you type."
@@ -811,18 +814,18 @@
     }
   },
   "about": {
-    "title": "About the Tool PIA",
-    "version_number": "Version number",
+    "title": "O nástroji PIA",
+    "version_number": "Číslo verze",
     "description": "This tool is originally designed by the <a target=\"_blank\" href=\"https://www.cnil.fr\">Commission Nationale Informatique et Liberté (CNIL)</a>, the French Data Protection Authority, to help data processor to be compliant with the GDPR.<br>This software is free and open. If you wish to get involved in this project, you are welcome to download the source code from Github, modify it and share it with the community.",
     "translators": "The PIA software is currently available in five languages. The French and English versions are provided by the CNIL. The others versions result from the contributions of the following individuals:",
-    "translators_name": "<ul><li>Dutch: Ruud van Driel, Manuel d’Orso ;</li><li>Czech: Jiří Grohmann, Manuel d’Orso ;</li><li>Italian: Manuel d’Orso, Gianluca Markos, Romolo Manfredini ;</li><li>Polish: Joanna Karczewska.</li><li>German: Kosmas Schütz</li><li>Spanish: ylachgar</li><li>Norwegian: PVOhmn</li><li>Greek: Dimitris Tzellis</li></ul>",
-    "contribute": "If you wish to contribute to the translation of the software in another language or improve the existing translations, we recommend you to read <a href=\"https://github.com/LINCnil/pia/tree/master/src/assets/i18n\" target=\"_blank\">this page</a> describing the steps to follow.",
+    "translators_name": "<ul><li>Dutch: Ruud van Driel, Manuel d’Orso ;</li><li>Czech: Jiří Grohmann, Manuel d’Orso ;</li><li>Italian: Manuel d’Orso, Gianluca Markos, Romolo Manfredini ;</li><li>Polish: Joanna Karczewska</li><li>German: Kosmas Schütz</li><li>Spanish: ylachgar</li><li>Norwegian: PVOhmn</li><li>Greek: Dimitris Tzellis</li></ul>",
+    "contribute": "If you wish to contribute to the translation of the software in another language or improve the existing translations, we recommend you to <a href=\"https://github.com/LINCnil/pia/tree/master/src/assets/i18n\" target=\"_blank\">read the page describing the steps to follow</a>.",
     "licences": "Library licences:"
   },
   "settings": {
-    "title": "Settings",
-    "content": "Please, provide the address (URL) of the remote server:",
-    "update": "Update URL"
+    "title": "Nastavení",
+    "content": "Uveďte adresu (URL) vzdáleného serveru:",
+    "update": "Aktualizovat URL"
   },
   "validation_page": {
     "responsible": "TO BE TRANSLATED - Person accountable for validating the PIA: ",
@@ -863,15 +866,15 @@
     }
   },
   "misc": {
-    "display": "Show / Hide"
+    "display": "Zobrazit / Skrýt"
   },
   "modals": {
-    "cancel": "Cancel",
-    "archive": "Archive",
-    "close": "Close",
-    "continue": "Continue",
+    "cancel": "Zrušit",
+    "archive": "Archivovat",
+    "close": "Zavřít",
+    "continue": "Pokračovat",
     "start_evaluation": "TO BE TRANSLATED - Start review",
-    "back_to_home": "Back to home",
+    "back_to_home": "Zpět na úvod",
     "simple_pia_validation": {
       "content": "TO BE TRANSLATED - You have approved the PIA."
     },
@@ -882,11 +885,11 @@
       "content": "TO BE TRANSLATED - The PIA has been fully reviewed and can be validated."
     },
     "update_server_url": {
-      "content": "The server address has been updated."
+      "content": "Adresa serveru byla aktualizována."
     },
     "signed_pia_validation": {
       "content": "TO BE TRANSLATED - To approve the PIA, attach the signed report.",
-      "download_pia": "Download report"
+      "download_pia": "Stáhnout zprávu"
     },
     "abandon_pia": {
       "content": "TO BE TRANSLATED - Do you wish to give up the processing?",
@@ -896,15 +899,15 @@
       "content": "TO BE TRANSLATED - As you have rejected the PIA, it is sent back for review to make the required changes."
     },
     "same_comment": {
-      "content": "<span class='strong'>Warning,</span><br>Please enter a comment different from the last recorded."
+      "content": "<span class='strong'>Upozornění,</span><br>Prosím zadejte komentář odlišný od posledního zaznamenaného."
     },
     "not_enough_measures_to_remove": {
-      "content": "<span class='strong'>Warning,</span><br>At least one measure must be filled: no deletion possible."
+      "content": "<span class='strong'>Upozornění,</span><br>Musí být vyplněno alespoň jedno opatření: není možné smazání."
     },
     "remove_measure": {
-      "content": "<span class='strong'>Warning,</span><br>Are you sure you want to <br>remove this measure?",
-      "remove": "Remove this <br>measure",
-      "keep": "Keep this <br>measure"
+      "content": "<span class='strong'>Upozornění,</span><br>Opravdu chcete odstranit toto opatření?",
+      "remove": "Odebrat toto <br>opatření",
+      "keep": "Ponechat toto <br>opatření"
     },
     "ask_for_evaluation": {
       "content": "TO BE TRANSLATED - This section is ready to be reviewed."
@@ -913,20 +916,20 @@
       "content": "TO BE TRANSLATED - This section is ready for validating the PIA."
     },
     "validate_evaluation_to_correct": {
-      "content": "Sorry,<br>Several fields must be corrected.<br>Return to edition mode<br>to make corrections."
+      "content": "Sorry,<br>Několik polí musí být opraveno.<br>Návrat do edice režimu a opravy."
     },
     "declare_measures": {
-      "content": "Before evaluating risks,<br>you must report the<br>existing or planned measures.",
-      "declare": "Declare existing or planned measures"
+      "content": "Než vyhodnotíte rizika,<br>musíte ohlásit stávající<br>nebo plánovaná opatření.",
+      "declare": "Oznámit stávající nebo plánovaná opatření"
     },
     "remove_pia": {
-      "content": "<span class='strong'>Warning,</span><br>Are you sure you want to<br>remove this PIA?",
-      "remove": "Remove this PIA"
+      "content": "<span class='strong'>Upozornění,</span><br>Opravdu chcete<br>odstranit toto PIA?",
+      "remove": "Odstranit tuto PIA"
     },
     "remove_attachment": {
       "content": "<span class='strong'>Warning,</span><br>Are you sure you want to<br>remove this attachment?",
-      "keep": "Keep",
-      "remove": "Remove",
+      "keep": "Ponechat",
+      "remove": "Odebrat",
       "comment": "TO BE TRANSLATED - Comment"
     },
     "action_plan_no_evaluation": {
@@ -948,8 +951,8 @@
     }
   },
   "summary": {
-    "previous_page": "Back to previous page",
-    "print": "Print",
+    "previous_page": "Zpět na předchozí stránku",
+    "print": "Tisk",
     "copy_to_clipboard": "TO BE TRANSLATED - Copy to clipboard",
     "download_images": "TO BE TRANSLATED - Download images",
     "download_csv": "TO BE TRANSLATED - Download a CSV export",
@@ -970,49 +973,49 @@
       "risks_overview_content": "TO BE TRANSLATED - Display risks overview",
       "risks_cartography_content": "TO BE TRANSLATED - Display risk mapping"
     },
-    "title": "PIA information",
+    "title": "Informace PIA",
     "pia_name": "PIA",
-    "pia_author": "Author's name",
-    "pia_assessor": "Assessor's name",
-    "pia_validator": "Validator's name",
+    "pia_author": "Jméno Autora",
+    "pia_assessor": "Jméno Posuzovatele",
+    "pia_validator": "Jméno Validátora",
     "content_choice": {
-      "0": "The treatment should not be used.",
-      "1": "The treatment could be implemented."
+      "0": "Léčba by neměla být prováděna.",
+      "1": "Léčba by mohla být provedena."
     },
-    "dpo_name": "DPO's name",
-    "dpo_status": "DPO's status",
-    "dpo_opinion": "DPO's opinion",
-    "concerned_people_searched_opinion": "Search of concerned people opinion",
-    "people_search_status_ok": "Concerned people opinion was requested.",
-    "people_search_status_nok": "Concerned people opinion wasn't requested.",
-    "concerned_people_unsearched_opinion_comment": "Reason why concerned people opinion wasn't requested",
-    "concerned_people_name": "Concerned people opinions",
-    "concerned_people_status": "Concerned people statuses",
-    "concerned_people_opinion": "Concerned people opinions",
-    "modification_made": "Modifications made",
-    "rejection_reason": "Rejection reason",
-    "creation_date": "Creation date",
-    "attachments": "Attachments",
+    "dpo_name": "Jméno DPO Poběřence osobních údajů",
+    "dpo_status": "Stav DPO Poběřence osobních údajů",
+    "dpo_opinion": "Stanovisko DPO Poběřence osobních údajů",
+    "concerned_people_searched_opinion": "Hledání názoru dotčených osob",
+    "people_search_status_ok": "Požaduje se názor zainteresovaných osob.",
+    "people_search_status_nok": "Nebyli požadovány názory zainteresovaných osob.",
+    "concerned_people_unsearched_opinion_comment": "Důvod, proč nebyl požadován zájem osob",
+    "concerned_people_name": "Jména dotčených osob",
+    "concerned_people_status": "Stavy dotčených osob",
+    "concerned_people_opinion": "Názory dotčených osob",
+    "modification_made": "Provedené úpravy",
+    "rejection_reason": "Důvod odmítnutí",
+    "creation_date": "Datum vytvoření",
+    "attachments": "Přílohy",
     "gauges": {
-      "1": "Negligible",
-      "2": "Limited",
-      "3": "Important",
-      "4": "Maximum"
+      "1": "Zanedbatelné",
+      "2": "Omezené",
+      "3": "Důležité",
+      "4": "Maximální"
     },
     "action_plan": {
-      "title": "Action plan",
-      "fundamental_principles": "Fundamental principles",
-      "implementation_date": "Expected date of implementation",
-      "implementation_responsible": "Responsible for implementation",
-      "measures": "Existing or planned measures",
-      "risks": "Risks",
-      "no_action_plan": "No action plan recorded."
+      "title": "Akční plán",
+      "fundamental_principles": "Základní principy",
+      "implementation_date": "Předpokládaný datum implementace",
+      "implementation_responsible": "Odpovědný za implementaci",
+      "measures": "Stávající nebo plánovaná opatření",
+      "risks": "Rizika",
+      "no_action_plan": "Nebyl zaznamenán žádný akční plán."
     },
     "risks_overview_title": "TO BE TRANSLATED - Risks overview",
     "risks_cartography_title": "TO BE TRANSLATED - Risk mapping"
   },
   "errors": {
-    "title": "Page not found.",
+    "title": "Stránka nebyla nalezena.",
     "content": "If you encounter other problems or if you have suggestions for improvement,<br>you can send them back via this form: <a href=\"https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia\" target=\"_blank\">https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia</a>"
   },
   "overview-risks": {
@@ -1020,10 +1023,10 @@
     "threat": "Threat",
     "sources": "Sources",
     "measures": "Measures",
-    "negligible": "Negligible",
-    "limited": "Limited",
-    "important": "Important",
-    "maximal": "Maximal",
+    "negligible": "Zanedbatelné",
+    "limited": "Omezené",
+    "important": "Důležité",
+    "maximal": "Maximální",
     "risk-access_x": "Severity",
     "risk-access_y": "Likelihood",
     "risk-change_x": "Severity",
@@ -1032,289 +1035,289 @@
     "risk-disappearance_y": "Likelihood"
   },
   "cartography": {
-    "negligible": "Negligible",
-    "limited": "Limited",
-    "important": "Important",
-    "maximal": "Maximum",
-    "seriousness_axe": "Risk seriousness",
-    "likelihood_axe": "Risk likelihood",
-    "legend1": "Planned or existing measures",
-    "legend2": "With the corrective measures implemented",
-    "legend3": "(I)llegitimate access to data",
-    "legend4": "(U)nwanted modification of data",
-    "legend5": "(D)ata disappearance",
-    "risk1_access": "(I)",
-    "risk2_modification": "(U)"
+    "negligible": "Zanedbatelné",
+    "limited": "Omezené",
+    "important": "Důležité",
+    "maximal": "Maximální",
+    "seriousness_axe": "Vážnost rizika",
+    "likelihood_axe": "Pravděpodobnost rizika",
+    "legend1": "Plánovaná nebo stávající opatření",
+    "legend2": "S prováděnými nápravnými opatřeními",
+    "legend3": "(NPU) Nelegitimní přístup k údajům",
+    "legend4": "(NMD) Nežádoucí modifikace dat",
+    "legend5": "(ZD) Ztráta dat",
+    "risk1_access": "(NPU)",
+    "risk2_modification": "(NMD)"
   },
   "action_plan": {
-    "title": "Overview",
-    "principles": "Fundamental principles",
-    "measures": "Planned or existing measures",
-    "risks": "Risks",
-    "risk1": "Illegitimate access to data",
-    "risk2": "Unwanted modification of data",
-    "risk3": "Data disappearance",
-    "improvable_measures": "Improvable measures",
-    "acceptable_measures": "Acceptable measures",
-    "no_action_plan": "No action plan recorded.",
-    "edit": "Edit",
-    "placeholder_person_in_charge": "Implementation responsible"
+    "title": "Přehled",
+    "principles": "Základní zásady",
+    "measures": "Plánovaná nebo stávající opatření",
+    "risks": "Rizika",
+    "risk1": "Nelegitimní přístup k údajům",
+    "risk2": "Nežádoucí modifikace dat",
+    "risk3": "Ztráta dat",
+    "improvable_measures": "Opravitelná opatření",
+    "acceptable_measures": "Přijatelná opatření",
+    "no_action_plan": "Nebyl zaznamenán žádný akční plán.",
+    "edit": "Upravit",
+    "placeholder_person_in_charge": "Zodpovědná implementace"
   },
   "opinions": {
-    "edit": "Edit",
-    "content": ", consider that :",
-    "dpo_opinion": "DPO opinion",
-    "placeholder_dpo_name": "DPO name(s)",
-    "placeholder_dpo_opinion": "Specify the reasons for your choice.",
-    "dpo_lock": "Please complete the other sections before you can fill the DPO opinion.",
-    "people_opinion": "Concerned people opinion",
-    "placeholder_concerned_people_name": "Concerned people name(s)",
-    "placeholder_people_opinion": "Describe how the opinions were collected and what the analysis is. If the notices have not been sought, state the reasons.",
-    "placeholder_search_content": "Justify the reason why the opinion of the persons concerned has not been requested.",
-    "treatment_ok": "The treatment could be implemented.",
-    "treatment_nok": "The treatment should not be used.",
-    "treatment_lock": "Please complete the other sections before you can fill the opinions of the persons concerned."
+    "edit": "Upravit",
+    "content": ", zvažte, že :",
+    "dpo_opinion": "Stanovisko  DPO Pověřence osobních údajů",
+    "placeholder_dpo_name": "Jméno(a) DPO Pověřence osobních údajů",
+    "placeholder_dpo_opinion": "Zadejte důvody pro váš výběr.",
+    "dpo_lock": "Vyplňte prosím další části, než budete moci vyplnit stanoviska DPO Pověřence osobních údajů.",
+    "people_opinion": "Názor dotčených osob",
+    "placeholder_concerned_people_name": "Jméno(a) dotčených osob",
+    "placeholder_people_opinion": "Popište, jak byly stanoviska shromážděny a jaká je analýza. Pokud nebyly požadovány stanoviska, uveďte důvody.",
+    "placeholder_search_content": "Uveďte důvod, proč nebylo vyžádáno stanovisko dotčených osob.",
+    "treatment_ok": "Úprava může být implementována",
+    "treatment_nok": "Úprava nemůže být použita.",
+    "treatment_lock": "Vyplňte prosím další části, než budete moci naplnit stanoviska dotčených osob."
   },
   "sections": {
     "1": {
-      "title": "Context",
-      "short_help": "This section gives you a clear view of the treatment(s) of personal data in question.",
+      "title": "Kontext",
+      "short_help": "Tato část poskytuje jasný přehled o zacházení s dotyčnými osobními údaji.",
       "items": {
         "1": {
-          "title": "Overview",
-          "short_help": "This part allows you to identify and present the object of the study.",
+          "title": "Přehled",
+          "short_help": "Tato část umožňuje identifikovat a prezentovat předmět studie.",
           "questions": {
             "1": {
-              "title": "Which is the processing under consideration?",
-              "placeholder": "Present a brief outline of the processing: its name, purposes, stakes, context of use, etc."
+              "title": "Které zpracování se zvažuje?",
+              "placeholder": "Uveďte stručný popis zpracování: jeho název, účely, důvody, kontext použití atd."
             },
             "2": {
-              "title": "What are the responsibilities linked to the processing?",
-              "placeholder": "Describe the responsabilities of the stakeholders: the data controller, the possible data processors and joint controllers."
+              "title": "Jaké jsou odpovědnosti spojené se zpracováním?",
+              "placeholder": "Popište odpovědnosti zúčastněných stran: správce údajů, případné zpracovatele dat a společní správci."
             },
             "3": {
-              "title": "Are there standards applicable to the processing?",
-              "placeholder": "List the relevant standards applicable to the processing, especially approved codes of conduct and data protection certifications."
+              "title": "Existují platné normy pro zpracování?",
+              "placeholder": "Seznam příslušných norem platných pro zpracování, zejména schválených kodexů chování a osvědčení o ochraně údajů."
             }
           }
         },
         "2": {
-          "title": "Data, processes and supporting assets",
-          "short_help": "This part allows you to define and describe the scope of the processing in detail.",
+          "title": "Data, procesy a podpůrná aktiva",
+          "short_help": "Tato část umožňuje podrobně definovat a popsat rozsah zpracování.",
           "questions": {
             "1": {
-              "title": "What are the data processed?",
-              "placeholder": "List the data collected and processed. Define for each the storage durations, the recipients and persons with access thereto."
+              "title": "Jaké údaje zpracováváte?",
+              "placeholder": "Seznam shromážděných a zpracovávaných dat. Definujte pro každou dobu trvání úložiště, příjemce a osoby s přístupem k němu."
             },
             "2": {
-              "title": "How does the life cycle of data and processes work?",
-              "placeholder": "Present and describe how the product generally works (from the data collection to the data destruction, the different processing stages, storage, etc.), using for example a diagram of data flows (add it as an attachment) and a detailed description of the processes carried out."
+              "title": "Jak funguje životní cyklus dat a procesů?",
+              "placeholder": "Prezentujte a popište, jak produkt obecně funguje (od sběru dat až po smazání dat, různé fáze zpracování, úložiště atd.), například pomocí diagramu datových toků (přidejte jej jako přílohu) a podrobný popis provedených procesů."
             },
             "3": {
-              "title": "What are the data supporting assets?",
-              "placeholder": "List the data supporting assets (operating systems, business applications, database management systems, office suites, protocols, configurations, etc.)"
+              "title": "Jaká jsou Podpůrná aktiva pro data?",
+              "placeholder": "Seznam Podpůrných aktiv, pro data (operační systémy, obchodní aplikace, systémy pro správu databází, kancelářské sady, protokoly, konfigurace apod.)"
             }
           }
         }
       }
     },
     "2": {
-      "title": "Fundamental principles",
-      "short_help": "This section allows you to build the compliance framework for privacy principles.",
+      "title": "Základní zásady",
+      "short_help": "Tato část umožňuje vytvořit rámec souladu se zásadami ochrany osobních údajů.",
       "items": {
         "1": {
-          "title": "Proportionality and necessity",
-          "short_help": "This part allows you to demonstrate the legitimacy of your treatment and of the data processed.",
+          "title": "Proporcionalita a nezbytnost",
+          "short_help": "Tato část vám umožňuje prokázat legitimitu vašich účelů a zpracovávaných dat.",
           "questions": {
             "1": {
-              "title": "Are the processing purposes specified, explicit and legitimate?",
-              "short_title": "Purposes",
-              "placeholder": "Explain why the processing purposes are specified, explicit and legitimate."
+              "title": "Jsou procesy specifikovány, explicitní a legitimní?",
+              "short_title": "Účely",
+              "placeholder": "Vysvětlete, proč jsou účely zpracování specifikovány, explicitní a legitimní."
             },
             "2": {
-              "title": "What are the legal basis making the processing lawful?",
-              "short_title": "Legal basis",
-              "placeholder": "Describe what is/are the legal basis of your processing (ex: consent, performance of a contract, compliance with a legal obligation, protecting the vital intests, etc.)"
+              "title": "Jaké jsou právní základy pro zákonné zpracování?",
+              "short_title": "Právní základ",
+              "placeholder": "Překlad probíhá"
             },
             "3": {
-              "title": "Are the data collected adequate, relevant and limited to what is necessary in relation to the purposes for which they are processed ('data minimisation')?",
-              "short_title": "Adequate data",
-              "placeholder": "Explain why each of the data collected is necessary for the purposes of your processing."
+              "title": "Jsou shromážděná data přiměřená, relevantní a omezená na to, co je nezbytné ve vztahu k účelům, pro které jsou zpracovávány (\"minimalizace dat\")?",
+              "short_title": "Přiměřená data",
+              "placeholder": "Vysvětlete, proč jsou všechny shromážděné údaje nezbytné pro účely zpracování."
             },
             "4": {
-              "title": "Are the data accurate and kept up to date?",
-              "short_title": "Data accuracy",
-              "placeholder": "Describe which are the steps taken to ensure the quality of the data."
+              "title": "Jsou data přesná a aktuální?",
+              "short_title": "Přesnost dat",
+              "placeholder": "Popište, jaké jsou kroky k zajištění kvality dat."
             },
             "5": {
-              "title": "What are the storage duration of the data?",
-              "short_title": "Storage duration",
-              "placeholder": "Explain why the storage durations are justified by legal requirements and/or processing needs."
+              "title": "Jaká je doba uložení dat?",
+              "short_title": "Doba ukládání",
+              "placeholder": "Vysvětlete, podle čeho je doba skladování odůvodněna, jakými zákonnými požadavky a/nebo požadavky na zpracování."
             }
           }
         },
         "2": {
-          "title": "Controls to protect the personal rights of data subjects",
-          "short_help": "This part allows you to demonstrate that you are implementing the necessary means to enable the persons concerned to exercise their rights.",
+          "title": "Kontroly na ochranu osobních práv subjektů údajů",
+          "short_help": "Tato část vám umožňuje prokázat, že provádíte potřebné prostředky, které umožňují dotčeným osobám vykonávat svá práva.",
           "questions": {
             "1": {
-              "title": "How are the data subjects informed on the processing?",
-              "short_title": "Information for the data subjects",
-              "placeholder": "Describe what is the information given to the data subjects and what are the means to do it."
+              "title": "Jak jsou subjekty údajů informovány o zpracování?",
+              "short_title": "Informace pro subjekty údajů",
+              "placeholder": "Popište, jaké jsou informace poskytnuté osobám údajů a jaké jsou prostředky k jejich provedení."
             },
             "2": {
-              "title": "If applicable, how is the consent of data subjects obtained?",
-              "short_title": "Obtaining consent",
-              "placeholder": "Describe the controls intended to ensure that users' consent has been obtained."
+              "title": "Jak jste získaly souhlas subjektů údajů?",
+              "short_title": "Získání souhlasu",
+              "placeholder": "Popište kontrolní prvky určené k zajištění souhlasu uživatelů."
             },
             "3": {
-              "title": "How can data subjects exercise their rights of access and to data portability?",
-              "short_title": "Right of access and to data portability",
-              "placeholder": "Describe the controls intended for enabling data subjects to access, receive and transmit their data."
+              "title": "Jak mohou subjekty údajů uplatňovat svá práva na přístup a přenositelnost dat?",
+              "short_title": "Právo na přístup a přenositelnost dat",
+              "placeholder": "Popište kontrolní prvky určené k tomu, aby subjekty údajů mohly přistupovat, přijímat a přenášet svá data."
             },
             "4": {
-              "title": "How can data subjects exercise their rights to rectification and erasure?",
-              "short_title": "Right to rectification and erasure",
-              "placeholder": "Describe the controls intended for enabling data subjects to rectify and erase their data."
+              "title": "Jak mohou subjekty údajů uplatňovat svá práva na opravu a vymazání?",
+              "short_title": "Právo na opravu a vymazání",
+              "placeholder": "Popište kontrolní prvky určené k tomu, aby si subjekty údajů mohly opravit a vymazat data."
             },
             "5": {
-              "title": "How can data subjects exercise their rights to restriction and to object?",
-              "short_title": "Right to restriction and to object",
-              "placeholder": "Describe the controls intended for enabling data subjects to restrict and to object to the processing of their data."
+              "title": "Jak mohou subjekty údajů uplatňovat svá práva na omezení a námitky?",
+              "short_title": "Právo na omezení a námitku",
+              "placeholder": "Popište kontrolní prvky určené k tomu, aby subjekty údajů, mohly omezit a namítnout zpracování jejich dat."
             },
             "6": {
-              "title": "Are the obligations of the processors clearly identified and governed by a contract?",
-              "short_title": "Subcontracting",
-              "placeholder": "For each processor, describe his responsibilities (duration, scope, purpose, documented processing instructions, prior authorisation) and provide the contracts, codes of conduct and certifications determining its missions and obligations."
+              "title": "Jsou povinnosti zpracovatelů jasně identifikovány a řízeny smlouvou?",
+              "short_title": "Subdodávky",
+              "placeholder": "Pro každého zpracovatele popište jeho odpovědnosti (trvání, rozsah, účel, zdokumentované pokyny pro zpracování, předchozí povolení) a uveďte smlouvy, kodexy chování a certifikace, které určují jeho poslání a povinnosti."
             },
             "7": {
-              "title": "In the case of data transfer outside the European Union, are the data adequately protected?",
-              "short_title": "Transfers",
-              "placeholder": "For each country outside the European Union where data are stored or processed, name it and tell if it is acknowledged as offering an adequate level of data protection or describe the provisions concerning the transfer."
+              "title": "V případě přenosu dat mimo Evropskou unii jsou údaje dostatečně chráněny?",
+              "short_title": "Převody",
+              "placeholder": "Pro každou zemi mimo Evropskou unii, kde jsou data uložena nebo zpracovávána, pojmenujte ji a ujistěte se, že je uznáváno jako nabízející odpovídající úroveň ochrany údajů nebo popište ustanovení týkající se převodu."
             }
           }
         }
       }
     },
     "3": {
-      "title": "Risks",
-      "short_help": "This section allows you to assess the privacy risks, taking into account existing or planned controls.",
+      "title": "Rizika",
+      "short_help": "Tato část vám umožňuje zhodnotit rizika týkající se ochrany osobních údajů s přihlédnutím k existujícím nebo plánovaným kontrolám.",
       "items": {
         "1": {
-          "title": "Planned or existing measures",
-          "short_help": "This section allows you to identify controls (existing or planned) that contribute to data security."
+          "title": "Plánovaná nebo stávající opatření",
+          "short_help": "Tato část umožňuje identifikovat kontrolní prvky (existující nebo plánované), které přispívají k zabezpečení dat."
         },
         "2": {
-          "title": "Illegitimate access to data",
-          "short_help": "Analyze the causes and consequences of illegitimate access to data, and estimate its severity and likelihood.",
+          "title": "Nelegitimní přístup k údajům",
+          "short_help": "Analyzujte příčiny a důsledky nezákonného přístupu k datům a odhadněte jejich závažnost a pravděpodobnost.",
           "questions": {
             "1": {
-              "title": "What could be the main <span class='green-highlight'>impacts on the data subjects</span> if the risk were to occur?",
-              "placeholder": "Enter the potential impacts \u002B"
+              "title": "Jaké by mohly být hlavní dopady na subjekty údajů, pokud by k takovému riziku došlo?",
+              "placeholder": "Zadejte potenciální dopady \u002B"
             },
             "2": {
-              "title": "What are the main <span class='green-highlight'>threats</span> that could lead to the risk?",
-              "placeholder": "Enter the threats \u002B"
+              "title": "Jaké jsou hlavní hrozby, které by mohly vést k riziku?",
+              "placeholder": "Zadejte hrozby \u002B"
             },
             "3": {
-              "title": "What are the risk <span class='green-highlight'>sources</span>?",
-              "placeholder": "Enter the risk sources \u002B"
+              "title": "Jaké jsou zdroje rizika?",
+              "placeholder": "Zadejte zdroje rizika \u002B"
             },
             "4": {
-              "title": "Which of the identified <span class='green-highlight'>controls</span> contribute to addressing the risk?",
-              "placeholder": "Click to select controls which address the risk."
+              "title": "Která z identifikovaných kontrol přispívá k řešení rizika?",
+              "placeholder": "Klikněte zde pro výběr ovládacích prvků, které řeší riziko."
             },
             "5": {
-              "title": "How do you estimate the <span class='green-highlight'>risk severity</span>, especially according to potential impacts and planned controls?",
-              "placeholder": "Justify here the estimated severity of the risk."
+              "title": "Jak odhadujete závažnost rizika, zejména podle možných dopadů a plánovaných kontrol?",
+              "placeholder": "Zde odůvodněte odhadovanou závažnost rizika."
             },
             "6": {
-              "title": "How do you estimate the <span class='green-highlight'>likelihood of the risk</span>, especially in respect of threats, sources of risk and planned controls?",
-              "placeholder": "Justify here the estimated likelihood."
+              "title": "Jak odhadujete pravděpodobnost rizika, zejména pokud jde o hrozby, zdroje rizika a plánované kontroly?",
+              "placeholder": "Zde odůvodněte odhadovanou pravděpodobnost."
             }
           }
         },
         "3": {
-          "title": "Unwanted modification of data",
-          "short_help": "Analyze the causes and consequences of an undesired change in data, and estimate its seriousness and likelihood.",
+          "title": "Nežádoucí modifikace dat",
+          "short_help": "Analyzujte příčiny a důsledky nežádoucí modifikace dat a odhadněte jejich závažnost a pravděpodobnost.",
           "questions": {
             "1": {
-              "title": "What could be the main <span class='green-highlight'>impacts on the data subjects</span> if the risk were to occur?",
-              "placeholder": "Enter the potential impacts \u002B"
+              "title": "Jaké by mohly být hlavní dopady na subjekty údajů, pokud by k takovému riziku došlo?",
+              "placeholder": "Zadejte potenciální dopady \u002B"
             },
             "2": {
-              "title": "What are the main <span class='green-highlight'>threats</span> that could lead to the risk?",
-              "placeholder": "Enter the threats \u002B"
+              "title": "Jaké jsou hlavní hrozby, které by mohly vést k riziku?",
+              "placeholder": "Zadejte hrozby \u002B"
             },
             "3": {
-              "title": "What are the risk <span class='green-highlight'>sources</span>?",
-              "placeholder": "Enter the risk sources \u002B"
+              "title": "Jaké jsou zdroje rizika?",
+              "placeholder": "Zadejte zdroje rizika \u002B"
             },
             "4": {
-              "title": "Which of the identified <span class='green-highlight'>controls</span> contribute to addressing the risk?",
-              "placeholder": "Click here to select controls which address the risk."
+              "title": "Která z identifikovaných kontrol přispívá k řešení rizika?",
+              "placeholder": "Klikněte zde pro výběr ovládacích prvků, které řeší riziko."
             },
             "5": {
-              "title": "How do you estimate the <span class='green-highlight'>risk severity</span>, especially according to potential impacts and planned controls?",
-              "placeholder": "Justify here the estimated severity of the risk."
+              "title": "Jak odhadujete závažnost rizika, zejména podle možných dopadů a plánovaných kontrol?",
+              "placeholder": "Zde odůvodněte odhadovanou závažnost rizika."
             },
             "6": {
-              "title": "How do you estimate the <span class='green-highlight'>likelihood of the risk</span>, especially in respect of threats, sources of risk and planned controls?",
-              "placeholder": "Justify here the estimated likelihood."
+              "title": "Jak odhadujete pravděpodobnost rizika, zejména pokud jde o hrozby, zdroje rizika a plánované kontroly?",
+              "placeholder": "Zde odůvodněte odhadovanou pravděpodobnost."
             }
           }
         },
         "4": {
-          "title": "Data disappearance",
-          "short_help": "Analyze the causes and consequences of data loss, and estimate its seriousness and likelihood.",
+          "title": "Ztráta dat",
+          "short_help": "Analyzujte příčiny a důsledky ztráty dat a odhadněte jejich závažnost a pravděpodobnost.",
           "questions": {
             "1": {
-              "title": "What could be the main <span class='green-highlight'>impacts on the data subjects</span> if the risk were to occur?",
-              "placeholder": "Enter the potential impacts \u002B"
+              "title": "Jaké by mohly být hlavní dopady na subjekty údajů, pokud by k takovému riziku došlo?",
+              "placeholder": "Zadejte potenciální dopady \u002B"
             },
             "2": {
-              "title": "What are the main <span class='green-highlight'>threats</span> that could lead to the risk?",
-              "placeholder": "Enter the threats \u002B"
+              "title": "Jaké jsou hlavní hrozby, které by mohly vést k riziku?",
+              "placeholder": "Zadejte hrozby \u002B"
             },
             "3": {
-              "title": "What are the risk <span class='green-highlight'>sources</span>?",
-              "placeholder": "Enter the risk sources \u002B"
+              "title": "Jaké jsou zdroje rizika?",
+              "placeholder": "Zadejte zdroje rizika \u002B"
             },
             "4": {
-              "title": "Which of the identified <span class='green-highlight'>controls</span> contribute to addressing the risk?",
-              "placeholder": "Click here to select controls which address the risk."
+              "title": "Která z identifikovaných kontrol přispívá k řešení rizika?",
+              "placeholder": "Klikněte zde pro výběr ovládacích prvků, které řeší riziko."
             },
             "5": {
-              "title": "How do you estimate the <span class='green-highlight'>risk severity</span>, especially according to potential impacts and planned controls?",
-              "placeholder": "Justify here the estimated severity of the risk."
+              "title": "Jak odhadujete závažnost rizika, zejména podle možných dopadů a plánovaných kontrol?",
+              "placeholder": "Zde odůvodněte odhadovanou závažnost rizika."
             },
             "6": {
-              "title": "How do you estimate the <span class='green-highlight'>likelihood of the risk</span>, especially in respect of threats, sources of risk and planned controls?",
-              "placeholder": "Justify here the estimated likelihood."
+              "title": "Jak odhadujete pravděpodobnost rizika, zejména pokud jde o hrozby, zdroje rizika a plánované kontroly?",
+              "placeholder": "Zde odůvodněte odhadovanou pravděpodobnost."
             }
           }
         },
         "5": {
-          "title": "Risks overview",
-          "short_help": "This visualisation allows you to have a global and synthetic view on the controls effects on the risks they address."
+          "title": "Přehled rizik",
+          "short_help": "Tato vizualizace vám umožní mít globální a syntetický pohled na kontrolní prvky vlivu na rizika, která řeší."
         }
       }
     },
     "4": {
-      "title": "Validation",
-      "short_help": "This section allows you to prepare and formalise the PIA validation.",
+      "title": "Validace",
+      "short_help": "Tato část vám umožňuje připravit a formalizovat ověření PIA.",
       "items": {
         "1": {
-          "title": "Risk mapping",
-          "short_help": "This visualisation allows you to compare the positioning of the risks between them, before and after application of the complementary controls."
+          "title": "Mapování rizik",
+          "short_help": "Tato vizualizace umožňuje porovnat umístění rizik mezi nimi před a po aplikaci doplňkových kontrolních prvků."
         },
         "2": {
-          "title": "Action plan",
-          "short_help": "Plan in detail the implementation of the additional controls identified during the PIA. The action plan is automatically updated when evaluating the different elements comprised in the PIA."
+          "title": "Akční plán",
+          "short_help": "Naplánujte podrobně implementaci dalších kontrolních prvků zjištěných během PIA."
         },
         "3": {
-          "title": "DPO and concerned persons opinions",
-          "short_help": "Present the advice of the person in charge of data protection and privacy issues (data protection delegate if there is one). Present the views of the data subjects or their representatives."
+          "title": "Názory DPO-Pověřence osobních údajů a dotčených osob",
+          "short_help": "Prezentujte názory osoby zodpovědné za ochranu údajů a soukromí (delegát ochrany údajů, pokud existuje). Prezentujte názory subjektů údajů nebo jejich zástupců."
         },
         "4": {
           "title": "TO BE TRANSLATED - Validate the PIA"
