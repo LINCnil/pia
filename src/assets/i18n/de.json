@@ -1036,11 +1036,11 @@
     "likelihood_axe": "Eintrittswahrscheinlichkeit des Risikos",
     "legend1": "Geplante oder bestehende Maßnahmen",
     "legend2": "Mit den eingeleiteten Korrekturmaßnahmen",
-    "legend3": "(A) Unrechtmäßiger Zugriff auf Daten",
-    "legend4": "(M) Unerwünschte Veränderung von Daten",
+    "legend3": "(Z) Unrechtmäßiger Zugriff auf Daten",
+    "legend4": "(V) Unerwünschte Veränderung von Daten",
     "legend5": "(D) Datenverlust",
-    "risk1_access": "(A)",
-    "risk2_modification": "(M)"
+    "risk1_access": "(Z)",
+    "risk2_modification": "(V)"
   },
   "action_plan": {
     "title": "Übersicht",
