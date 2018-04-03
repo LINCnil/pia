@@ -19,7 +19,7 @@ export class Pia extends ApplicationDb {
   public dpos_names: string;
   public people_names: string;
   public progress: number;
-  public is_example = 0;
+  public is_example = false;
   public numberOfQuestions = 36; // TODO Auto calcul questions number
 
   constructor() {
@@ -38,7 +38,7 @@ export class Pia extends ApplicationDb {
       this.findAll().then((entries: any) => {
         if (entries && entries.length > 0) {
           entries.forEach(element => {
-            if (element.is_example && element.is_example === 1) {
+            if (element.is_example && element.is_example) {
               return;
             }
             const newPia = new Pia();
@@ -255,7 +255,7 @@ export class Pia extends ApplicationDb {
   async getPiaExample() {
     return new Promise((resolve, reject) => {
       if (this.serverUrl) {
-        fetch(this.getServerUrl()).then((response) => {
+        fetch(this.getServerUrl() + '/' + 'example').then((response) => {
           return response.json();
         }).then((result: any) => {
           resolve(result);
