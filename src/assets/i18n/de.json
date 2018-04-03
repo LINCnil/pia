@@ -75,7 +75,6 @@
       "placeholder_start": "Es müssen alle Felder ausgefüllt sein",
       "item": {
         "tools": {
-          "edit": "Informationen bearbeiten",
           "export": "Exportieren",
           "more_options": "Weitere Optionen",
           "duplicate": "Kopieren",
@@ -121,7 +120,9 @@
     },
     "header": {
       "preview": "Vorschau",
-      "display_action_plan": "Aktionsplan<br>anzeigen"
+      "display_action_plan": "Aktionsplan<br>anzeigen",
+      "edition": "Bearbeitung",
+      "evaluation": "Auswertung"
     },
     "attachments": {
       "title": "Anlagen",
@@ -136,12 +137,14 @@
         "evaluation": {
           "title": "Warten auf Überprüfung",
           "content": "Die Überprüfung dieses Teils hat noch nicht begonnen. Wenn Sie den Inhalt im Bearbeitungsmodus bearbeiten möchten, müssen Sie ",
-          "cancel": "die Überprüfungssanfrage zurückziehen."
+          "cancel": "die Überprüfungssanfrage zurückziehen.",
+          "cancel_button": "Die Überprüfungssanfrage zurückziehen"
         },
         "validation": {
           "title": "Warten auf Bestätigung",
           "content": "Die Bewertung dieses Teils ist abgeschlossen und wartet auf die endgültige Bestätigung der Analyse. Wenn Sie die Bewertungen ändern möchten, müssen Sie",
-          "cancel": "die Bestätigungsanfrage zurückziehen."
+          "cancel": "die Bestätigungsanfrage zurückziehen.",
+          "cancel_button": "Die Bestätigungsanfrage zurückziehen"
         }
       }
     },
@@ -806,7 +809,7 @@
     "version_number": "Versionsnummer",
     "description": "Dieses Tool wurde ursprünglich von der französischen Datenschutzbehörde <a target=\"_blank\" href=\"https://www.cnil.fr\"> Nationale Kommission für Informatik und Freiheit (CNIL) </a> entwickelt, um dem Verantwortlichen zu helfen, mit der DS-GVO konform zu sein.<br>Diese Software ist kostenlos und offen. Wenn Sie sich an diesem Projekt beteiligen möchten, können Sie den Quellcode von Github herunterladen, ändern und mit anderen in der Community teilen.",
     "translators": "Das Tool ist derzeit in sieben Sprachen verfügbar. Die französische und die englische Version werden von der CNIL bereitgestellt. Die anderen Versionen sind das Ergebnis der Beiträge der folgenden Personen:",
-    "translators_name": "<ul><li>Niederländisch: Ruud van Driel, Manuel d'Orso;</li><li>Tschechisch: Jirí Grohmann, Manuel d'Orso;</li><li>Italienisch: Manuel d'Orso, Gianluca Markos;</li><li>Polnisch: Joanna Karczewska</li> <li>Deutsch: Kosmas Schütz</li><li>Spanisch: ylachgar</li><li>Norwegisch: PVOhmn</li></ul>",
+    "translators_name": "<ul><li>Niederländisch: Ruud van Driel, Manuel d'Orso;</li><li>Tschechisch: Jirí Grohmann, Manuel d'Orso;</li><li>Italienisch: Manuel d'Orso, Gianluca Markos;</li><li>Polnisch: Joanna Karczewska</li> <li>Deutsch: Kosmas Schütz, Corina Scheiter;</li><li>Spanisch: ylachgar</li><li>Norwegisch: PVOhmn</li><li>Griechisch: Dimitris Tzellis</li></ul>",
     "contribute": "Wenn Sie zur Übersetzung des Tools oder zur Verbesserung der bereits vorgeschlagenen beitragen möchten, laden wir Sie ein, <a href=\"https://github.com/LINCnil/pia/tree/master/src/assets/i18n\" target=\"_blank\">die Seite mit den folgenden Schritten zu lesen</a>.",
     "licences": "Bibliothekslizenzen:"
   },
@@ -880,10 +883,11 @@
       "download_pia": "Laden Sie die DSFA herunter"
     },
     "abandon_pia": {
-      "content": "Sind Sie sicher, dass Sie diese Verarbeitung aufgeben wollen?"
+      "content": "Sind Sie sicher, dass Sie diese Verarbeitung aufgeben wollen?",
+      "additional_text": "Die Archivierung ist nicht endgültig. Sie können die Analyse später bei Bedarf fortsetzen."
     },
     "refuse_pia": {
-      "content": "<span class = 'strong'>Abgelehnte DSFA, </span><br>Mehrere Felder müssen korrigiert werden.<br>Zum Überprüfungsmodus zurückkehren, um Korrekturen vorzunehmen."
+      "content": "Nach Ihrer Ablehnung wird vom  Analyse-<br>in den Überprüfungsmodus zurückgesetzt,<br>um die notwendigen Änderungen vorzunehmen."
     },
     "same_comment": {
       "content": "<span class = 'strong'>Warnung, </span><br>Bitte geben Sie einen anderen Kommentar als den zuletzt angegebenen ein."
@@ -897,16 +901,16 @@
       "keep": "Behalten Sie<br>diese Maßnahme"
     },
     "ask_for_evaluation": {
-      "content": "<span class = 'strong'>Herzlichen Glückwunsch, </span><br> der Unterabschnitt steht jetzt zur Überprüfung zur Verfügung."
+      "content": "Der Unterabschnitt steht jetzt zur Überprüfung bereit."
     },
     "validate_evaluation": {
-      "content": "<span class = 'strong'>Herzlichen Glückwunsch, </span><br> warten Sie auf die globale Bestätigung der DSFA."
+      "content": "Der Unterabschnitt steht jetzt zur Bestätigung der Analyse bereit."
     },
     "validate_evaluation_to_correct": {
-      "content": "Sorry,<br>Mehrere Felder müssen korrigiert werden.<br>Zum Bearbeitungsmodus zurückkehren und Korrekturen vornehmen."
+      "content": "Entschuldigung,<br>mehrere Felder müssen korrigiert werden.<br>Zum Bearbeitungsmodus zurückkehren und Korrekturen vornehmen."
     },
     "declare_measures": {
-      "content": "Sorry,<br>bevor Sie Risiken bewerten,<br>müssen Sie die bestehenden oder geplanten Maßnahmen melden.",
+      "content": "Entschuldigung,<br>bevor Sie Risiken bewerten,<br>müssen Sie die bestehenden oder geplanten Maßnahmen melden.",
       "declare": "Benennen Sie bestehende oder geplante Maßnahmen"
     },
     "remove_pia": {
@@ -925,7 +929,9 @@
     },
     "dpo_missing_evaluations": {
       "content": "Sie müssen die Überprüfung der Analyse abschließen, um auf die DSB-Seite zugreifen zu können.",
-      "review_section": "Überprüfen Sie einen Abschnitt"
+      "review_section": "Überprüfen Sie einen Abschnitt",
+      "remove": "Entfernen",
+      "comment": "Kommentieren"
     },
     "modal_select_text_pia": {
       "content": "Der Inhalt der DSFA wurde in die Zwischenablage kopiert."
