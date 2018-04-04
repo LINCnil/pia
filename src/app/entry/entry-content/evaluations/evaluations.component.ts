@@ -201,7 +201,7 @@ export class EvaluationsComponent implements OnInit, AfterViewChecked, OnDestroy
 
     // Action plan comment : hides action plan field + switchs its value to comment field + removes its value.
     if (status !== 2) {
-      let evaluationPlanValue = this.evaluationForm.controls['actionPlanComment'].value;
+      const evaluationPlanValue = this.evaluationForm.controls['actionPlanComment'].value;
       const commentValue = this.evaluationForm.controls['evaluationComment'].value;
 
       // Sets up the adequate placeholder for comment
