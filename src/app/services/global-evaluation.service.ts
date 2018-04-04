@@ -301,13 +301,6 @@ export class GlobalEvaluationService {
       } else {
         return this.measureIsValid(answerOrMeasure);
       }
-      // TODO Need to use the code below instead of the one above. For this we need in all the findAll()
-      // methods to return an instance of the class instead of a simple json.
-      // if (answerOrMeasure instanceof Answer) {
-      //   return this.answerIsValid(answerOrMeasure);
-      // } else if (answerOrMeasure instanceof Measure) {
-      //   return this.measureIsValid(answerOrMeasure);
-      // }
     });
     if (this.answersOrMeasures.length > 0 && answersOrMeasuresValid.length === this.questionsOrMeasures.length) {
       if (this.evaluations.length === 0) {
@@ -448,7 +441,7 @@ export class GlobalEvaluationService {
 
     // First we need to find the answer_type
     const question = this.item.questions.filter((q) => {
-      return q.id === answer.reference_to;
+      return parseInt(q.id, 10) === parseInt(answer.reference_to, 10);
     });
 
     if (question.length === 1) {

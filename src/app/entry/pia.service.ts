@@ -196,7 +196,7 @@ export class PiaService {
 
     /* Set this PIA as the example PIA if needed, else default value affected on creation */
     if (is_example) {
-      pia.is_example = 1;
+      pia.is_example = true;
     }
 
     if (is_duplicate) {

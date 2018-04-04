@@ -38,7 +38,7 @@
   </header>
 
   <!-- Back to edition -->
-  <div class="pia-status-info" *ngIf="_globalEvaluationService.status === 4 && _piaService.pia.is_example === 0">
+  <div class="pia-status-info" *ngIf="_globalEvaluationService.status === 4 && !_piaService.pia.is_example">
     <strong>{{ 'pia.sections.status.evaluation.title' | translate }}</strong>
     <p>
       <span [innerHTML]="'pia.sections.status.evaluation.content' | translate"></span>
@@ -47,7 +47,7 @@
   </div>
 
   <!-- Back to evaluation -->
-  <div class="pia-status-info" *ngIf="_globalEvaluationService.status === 7 && _piaService.pia.is_example === 0 && !(section.id == 4 && item.id == 3)">
+  <div class="pia-status-info" *ngIf="_globalEvaluationService.status === 7 && !_piaService.pia.is_example && !(section.id == 4 && item.id == 3)">
     <strong>{{ 'pia.sections.status.validation.title' | translate }}</strong>
     <p>
       <span [innerHTML]="'pia.sections.status.validation.content' | translate"></span>
@@ -104,9 +104,9 @@
       <p>{{ 'pia.footer.mandatory_fields' | translate }}</p>
 
       <button class="btn pia-cancelBtn" (click)="cancelAskForEvaluation()"
-              *ngIf="_piaService.pia.is_example === 0 && _globalEvaluationService.status === 4">{{ 'pia.sections.status.evaluation.cancel_button' | translate }}</button>
+              *ngIf="!_piaService.pia.is_example && _globalEvaluationService.status === 4">{{ 'pia.sections.status.evaluation.cancel_button' | translate }}</button>
       <button class="btn pia-cancelBtn" (click)="cancelValidateEvaluation()"
-              *ngIf="_piaService.pia.is_example === 0 && _globalEvaluationService.status === 7 && !(section.id == 4 && item.id == 3)">{{ 'pia.sections.status.validation.cancel_button' | translate }}</button>
+              *ngIf="!_piaService.pia.is_example && _globalEvaluationService.status === 7 && !(section.id == 4 && item.id == 3)">{{ 'pia.sections.status.validation.cancel_button' | translate }}</button>
     </div>
 
     <div class="pia-entryContentBlock-footer-nav">
