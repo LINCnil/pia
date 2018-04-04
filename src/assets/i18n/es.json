@@ -26,7 +26,8 @@
       "de": "Deutsch",
       "es": "Español",
       "no": "Norsk",
-      "el": "Ελληνικά"
+      "el": "Ελληνικά",
+      "pt": "Português"
     },
     "tools": {
       "title": "Herramientas",
@@ -816,7 +817,7 @@
     "version_number": "Número de versión",
     "description": "Esta herramienta es diseñada originalmente por la CNIL, la autoridad francesa de la protección de los datos, ayudar al informático a ser obediente con el software de GDPR.<br>This está libre y abierto. Si usted desea conseguir implicado en este proyecto, usted es agradable descargar el código de fuente de Github, lo modifica y lo comparte con la comunidad.",
     "translators": "El software del PIA es actualmente disponible en cinco idiomas. Las versiones francesas e inglesas son proporcionadas por el CNIL. El otros las versiones resultan de las contribuciones de los individuos siguientes:",
-    "translators_name": "<ul><li>Dutch: Ruud van Driel, Manuel d’Orso ;</li><li>Czech: Jiří Grohmann, Manuel d’Orso ;</li><li>Italian: Manuel d’Orso, Gianluca Markos, Romolo Manfredini, Andrea Latino, Marco Coppotelli ;</li><li>Polish: Joanna Karczewska</li><li>German: Kosmas Schütz, Corina Scheiter ;</li><li>Spanish: ylachgar</li><li>Norwegian: PVOhmn</li><li>Griego: Dimitris Tzellis</li></ul>",
+    "translators_name": "<ul><li>Dutch: Ruud van Driel, Manuel d’Orso ;</li><li>Czech: Jiří Grohmann, Manuel d’Orso ;</li><li>Italian: Manuel d’Orso, Gianluca Markos, Romolo Manfredini, Andrea Latino, Antonio Caselli ;</li><li>Polish: Joanna Karczewska</li><li>German: Kosmas Schütz, Corina Scheiter ;</li><li>Spanish: ylachgar</li><li>Norwegian: PVOhmn</li><li>Griego: Dimitris Tzellis</li><li>Portuguese: rubenlavrador</li></ul>",
     "contribute": "Si usted desea contribuir a la traducción del software en otra idioma mejorar las traducciones existentes, le recomendamos al <a href=\"https://github.com/LINCnil/pia/tree/master/src/assets/i18n\" target=\"_blank\">leer la página que describe los pasos</a>.",
     "licences": "Library licenses:"
   },
