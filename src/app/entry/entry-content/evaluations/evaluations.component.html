@@ -48,6 +48,7 @@
                   cols="50"
                   formControlName="actionPlanComment"
                   name="pia-evaluation-action-plan"
+                  [attr.disabled]="_globalEvaluationService.evaluationEditionEnabled ? null : true"
                   (focusin)="actionPlanCommentFocusIn()"
                   [ngClass]="{ 'hide': ((!editor && evaluationForm.controls['actionPlanComment'].value && evaluationForm.controls['actionPlanComment'].value.length > 0) || _globalEvaluationService.status >= 7) }"
                   placeholder="{{ 'evaluations.placeholder_improvable1' | translate }}"></textarea>
@@ -63,6 +64,7 @@
                   cols="50"
                   formControlName="evaluationComment"
                   name="pia-evaluation-comment"
+                  [attr.disabled]="_globalEvaluationService.evaluationEditionEnabled ? null : true"
                   (focusin)="evaluationCommentFocusIn()"
                   [ngClass]="{ 'hide': ((!editorEvaluationComment && evaluationForm.controls['evaluationComment'].value && evaluationForm.controls['evaluationComment'].value.length > 0) || _globalEvaluationService.status >= 7) }"
                   [attr.placeholder]="comment_placeholder"></textarea>

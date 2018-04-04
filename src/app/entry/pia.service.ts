@@ -212,7 +212,10 @@ export class PiaService {
       pia.concerned_people_status = null;
       pia.concerned_people_opinion = null;
     } else {
-      pia.status = data.pia.status;
+      pia.status = parseInt(data.pia.status, 10);
+      if (Number.isNaN(pia.status)) {
+        pia.status = 0;
+      }
       pia.created_at = new Date(data.pia.created_at);
       if (data.pia.updated_at) {
         pia.updated_at = new Date(data.pia.updated_at);
