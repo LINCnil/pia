@@ -68,6 +68,7 @@ import localeIT from '@angular/common/locales/it';
 import localeNL from '@angular/common/locales/nl';
 import localeNN from '@angular/common/locales/nn';
 import localePL from '@angular/common/locales/pl';
+import localePT from '@angular/common/locales/pt';
 
 registerLocaleData(localeEN);
 registerLocaleData(localeFR);
@@ -79,6 +80,7 @@ registerLocaleData(localeIT);
 registerLocaleData(localeNL);
 registerLocaleData(localeNN);
 registerLocaleData(localePL);
+registerLocaleData(localePT);
 
 const providersList: any = [
   AppDataService,
