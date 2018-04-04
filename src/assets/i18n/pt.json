@@ -1267,13 +1267,13 @@
           }
         },
         "5": {
-          "title": "Vista geral dos Riscos
+          "title": "Vista geral dos Riscos",
           "short_help": "This visualisation allows you to have a global and synthetic view on the controls effects on the risks they address."
         }
       }
     },
      "4": {
-      "title": "Validação
+      "title": "Validação",
       "short_help": "This section allows you to prepare and formalise the PIA validation.",
       "items": {
         "1": {
