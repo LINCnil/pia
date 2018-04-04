@@ -318,8 +318,8 @@ export class RisksCartographyComponent implements OnInit, OnDestroy {
       const grad = context.createLinearGradient(50, 50, 150, 150);
 
       // Dotted lines params
-      context.setLineDash([0.1, 1.8]);
-      context.lineWidth = 0.6;
+      context.setLineDash([2, 2]);
+      context.lineWidth = 2;
 
       // Dotted lines
       if (this.dataJSON['risk-access']['author'].x && this.dataJSON['risk-access']['author'].y &&
