@@ -1042,11 +1042,11 @@
     "likelihood_axe": "Probabilidad del riesgo",
     "legend1": "Planificado o existente medidas",
     "legend2": "Medidas correctivas implementadas",
-    "legend3": "(I) acceso ilegítimo a los datos ",
-    "legend4": "(U) modificación no deseada de datos",
-    "legend5": "(D) desaparición de datos",
-    "risk1_access": "(I)",
-    "risk2_modification": "(U)",
+    "legend3": "(A)cceso ilegítimo a los datos ",
+    "legend4": "(M)odificación no deseada de datos",
+    "legend5": "(D)esaparición de datos",
+    "risk1_access": "(A)",
+    "risk2_modification": "(M)",
     "risk3_disappearance": "(D)"
   },
   "action_plan": {

@@ -1044,12 +1044,12 @@
     "likelihood_axe": "Prawdopodobieństwo ryzyka",
     "legend1": "Środki istniejące lub przewidziane",
     "legend2": "Z wdrożonymi środkami naprawczymi",
-    "legend3": "(D)ostęp nieupoważniony do danych",
+    "legend3": "(O)stęp nieupoważniony do danych",
     "legend4": "(M)odyfikacja niepożądana danych",
-    "legend5": "(Z)niknięcie danych",
-    "risk1_access": "(D)",
+    "legend5": "(N)niknięcie danych",
+    "risk1_access": "(O)",
     "risk2_modification": "(M)",
-    "risk3_disappearance": "(Z)"
+    "risk3_disappearance": "(N)"
   },
   "action_plan": {
     "title": "Przegląd",
