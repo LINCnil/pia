@@ -26,7 +26,8 @@
       "de": "Deutsch",
       "es": "Español",
       "no": "Norsk",
-      "el": "Ελληνικά"
+      "el": "Ελληνικά",
+      "pt": "Português"
     },
     "tools": {
       "title": "Herramientas",
@@ -816,7 +817,7 @@
     "version_number": "Número de versión",
     "description": "Esta herramienta es diseñada originalmente por la CNIL, la autoridad francesa de la protección de los datos, ayudar al informático a ser obediente con el software de GDPR.<br>This está libre y abierto. Si usted desea conseguir implicado en este proyecto, usted es agradable descargar el código de fuente de Github, lo modifica y lo comparte con la comunidad.",
     "translators": "El software del PIA es actualmente disponible en cinco idiomas. Las versiones francesas e inglesas son proporcionadas por el CNIL. El otros las versiones resultan de las contribuciones de los individuos siguientes:",
-    "translators_name": "<ul><li>Dutch: Ruud van Driel, Manuel d’Orso ;</li><li>Czech: Jiří Grohmann, Manuel d’Orso ;</li><li>Italian: Manuel d’Orso, Gianluca Markos, Romolo Manfredini ;</li><li>Polish: Joanna Karczewska</li><li>German: Kosmas Schütz</li><li>Spanish: ylachgar</li><li>Norwegian: PVOhmn</li><li>Griego: Dimitris Tzellis</li></ul>",
+    "translators_name": "<ul><li>Dutch: Ruud van Driel, Manuel d’Orso ;</li><li>Czech: Jiří Grohmann, Manuel d’Orso ;</li><li>Italian: Manuel d’Orso, Gianluca Markos, Romolo Manfredini, Andrea Latino, Antonio Caselli ;</li><li>Polish: Joanna Karczewska</li><li>German: Kosmas Schütz, Corina Scheiter ;</li><li>Spanish: ylachgar</li><li>Norwegian: PVOhmn</li><li>Griego: Dimitris Tzellis</li><li>Portuguese: rubenlavrador</li></ul>",
     "contribute": "Si usted desea contribuir a la traducción del software en otra idioma mejorar las traducciones existentes, le recomendamos al <a href=\"https://github.com/LINCnil/pia/tree/master/src/assets/i18n\" target=\"_blank\">leer la página que describe los pasos</a>.",
     "licences": "Library licenses:"
   },
@@ -1041,11 +1042,12 @@
     "likelihood_axe": "Probabilidad del riesgo",
     "legend1": "Planificado o existente medidas",
     "legend2": "Medidas correctivas implementadas",
-    "legend3": "(I) acceso ilegítimo a los datos ",
-    "legend4": "(U) modificación no deseada de datos",
-    "legend5": "(D) desaparición de datos",
-    "risk1_access": "(I)",
-    "risk2_modification": "(U)"
+    "legend3": "(A)cceso ilegítimo a los datos ",
+    "legend4": "(M)odificación no deseada de datos",
+    "legend5": "(D)esaparición de datos",
+    "risk1_access": "(A)",
+    "risk2_modification": "(M)",
+    "risk3_disappearance": "(D)"
   },
   "action_plan": {
     "title": "Descripción General",

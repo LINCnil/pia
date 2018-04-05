@@ -1,4 +1,4 @@
-<div class="pia-cardsBlock pia" [ngClass]="{'pia-exampleBlock': pia.is_example === 1, 'pia-archiveBlock': pia.status > 1, 'pia-doingBlock': pia.status < 2}" [attr.data-id]="pia.id">
+<div class="pia-cardsBlock pia" [ngClass]="{'pia-exampleBlock': pia.is_example, 'pia-archiveBlock': pia.status > 1, 'pia-doingBlock': pia.status < 2}" [attr.data-id]="pia.id">
     <div class="pia-cardsBlock-header-title" *ngIf="pia.id !== null">
       <span *ngIf="!previousPia || previousPia.status !== pia.status">{{ pia.getStatusName() | translate }}</span>
     </div>
