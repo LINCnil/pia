@@ -1016,7 +1016,8 @@
     "legend4": "(Μ)η επιθύμητη τροποποίηση των προσωπικών δεδομένων",
     "legend5": "(Ε)ξαφάνιση προσωπικών δεδομένων",
     "risk1_access": "(Α)",
-    "risk2_modification": "(Μ)"
+    "risk2_modification": "(Μ)",
+    "risk3_disappearance": "(E)"
   },
   "action_plan": {
     "title": "Επισκόπηση",

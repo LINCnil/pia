@@ -1041,7 +1041,8 @@
 		"legend4":"(M)odifiche indesiderate dei dati",
 		"legend5":"(P)erdita di dati",
 		"risk1_access":"(A)",
-		"risk2_modification":"(M)"
+		"risk2_modification":"(M)",
+    "risk3_disappearance": "(P)"
 	},
 	"action_plan":{
 		"title":"Panoramica",

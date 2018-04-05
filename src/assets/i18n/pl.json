@@ -1048,7 +1048,8 @@
     "legend4": "(M)odyfikacja niepożądana danych",
     "legend5": "(Z)niknięcie danych",
     "risk1_access": "(D)",
-    "risk2_modification": "(M)"
+    "risk2_modification": "(M)",
+    "risk3_disappearance": "(Z)"
   },
   "action_plan": {
     "title": "Przegląd",

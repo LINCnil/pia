@@ -1041,7 +1041,8 @@
     "legend4": "(V) Unerwünschte Veränderung von Daten",
     "legend5": "(D) Datenverlust",
     "risk1_access": "(Z)",
-    "risk2_modification": "(V)"
+    "risk2_modification": "(V)",
+    "risk3_disappearance": "(D)"
   },
   "action_plan": {
     "title": "Übersicht",

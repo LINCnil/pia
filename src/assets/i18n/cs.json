@@ -1048,7 +1048,8 @@
     "legend4": "(NMD) Nežádoucí modifikace dat",
     "legend5": "(ZD) Ztráta dat",
     "risk1_access": "(NPU)",
-    "risk2_modification": "(NMD)"
+    "risk2_modification": "(NMD)",
+    "risk3_disappearance": "(ZD)"
   },
   "action_plan": {
     "title": "Přehled",

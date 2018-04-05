@@ -1016,7 +1016,8 @@
     "legend4": "(U)nwanted modification of data",
     "legend5": "(D)ata disappearance",
     "risk1_access": "(I)",
-    "risk2_modification": "(U)"
+    "risk2_modification": "(U)",
+    "risk3_disappearance": "(D)"
   },
   "action_plan": {
     "title": "Overview",
