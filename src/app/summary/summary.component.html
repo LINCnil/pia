@@ -201,8 +201,8 @@
               </div>
               <div class="medium-6 columns pia-actionPlanGraphBlock-right">
                 <h3>{{ 'action_plan.measures' | translate }}</h3>
-                <div class="pia-actionPlanGraphBlock-right-measures">
-                  <div class="pia-actionPlanGraphBlock-right-measures-scroll" *ngIf="_actionPlanService.measures">
+                <div class="pia-actionPlanGraphBlock-right-measures summaryMode">
+                  <div class="pia-actionPlanGraphBlock-right-measures-scroll summaryMode" *ngIf="_actionPlanService.measures">
                     <div *ngFor="let measure of _actionPlanService.measures" class="pia-actionPlanGraphBlock-item">
                       <span class="pia-box" [ngClass]="{'pia-blue': measure.status === 2, 'pia-red': measure.status === 1}"></span>
                       <span class="pia-box" [ngClass]="{'pia-green': measure.status === 3, 'pia-red': measure.status === 1}"></span>
