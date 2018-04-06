@@ -263,7 +263,7 @@
       "PIA_TEC_CHIF": {
         "placeholder": "Descreva aqui os meios implementados para garantir a confidencialidade dos dados",
         "name": "Encriptação",
-        "description": "Meios implementados para <strong>assegurar a confidencialidade</strong> dos dados guardados (no banco de dados, em arquivos simples, backups, etc.), bem como o procedimento para gerenciar chaves de criptografia (criação, armazenamento, alteração no caso de casos suspeitos de comprometimento de dados, etc.).<br> Descrever os meios de criptografia empregados nos fluxos de dados (VPN, TLS, etc.) implementados no tratamento.",
+        "description": "Meios implementados para <strong>assegurar a confidencialidade</strong> dos dados guardados (no banco de dados, em arquivos simples, backups, etc.), bem como o procedimento para gerir chaves de criptografia (criação, armazenamento, alteração no caso de casos suspeitos de comprometimento de dados, etc.).<br> Descrever os meios de criptografia empregados nos fluxos de dados (VPN, TLS, etc.) implementados no tratamento.",
         "source": "PIAF Connected Objects p21"
       },
       "PIA_TEC_ANO": {
@@ -287,13 +287,13 @@
       "PIA_TEC_LOG": {
         "placeholder": "Indique aqui se os eventos são registados e por quanto tempo esses rastreamentos são armazenados.",
         "name": "Rastreabilidade (logging)",
-        "description": "Políticas que definem a rastreabilidade e o gerenciamento de log.",
+        "description": "Políticas que definem a rastreabilidade e o gestão de log.",
         "source": "PIAF Connected Objects p22"
       },
       "PIA_TEC_ARCH": {
         "placeholder": "Indique aqui se os mecanismos são implementados para o monitoramento da integridade dos dados armazenados, quais e para que finalidade.",
         "name": "Arquivamento",
-        "description": "Se for aplicável, descreva aqui os processos de gerenciamento de arquivo (entrega, armazenamento, consulta, etc.) sob sua responsabilidade. Especifique as funções de arquivamento (escritórios de origem, agências de transferência etc.) e a política de arquivamento. Informar se os dados podem estar no âmbito dos arquivos públicos.",
+        "description": "Se for aplicável, descreva aqui os processos de gestão de arquivo (entrega, armazenamento, consulta, etc.) sob sua responsabilidade. Especifique as funções de arquivamento (escritórios de origem, agências de transferência etc.) e a política de arquivamento. Informar se os dados podem estar no âmbito dos arquivos públicos.",
         "source": "PIAF Connected Objects p22 - WIKI"
       },
       "PIA_TEC_PAP": {
@@ -315,31 +315,31 @@
         "source": "PIAF Connected Objects p22 - WIKI"
       },
       "PIA_SEC_MAL": {
-        "placeholder": "Describe here the controls implemented to reduce risks while accessing less secure networks.",
-        "name": "Clamping down on malicious software",
-        "description": "Controls implemented on workstations and servers to protect them from malicious software while accessing less secure networks.",
+        "placeholder": "Descreva aqui os controlos implementados para reduzir os riscos ao acessar redes menos seguras.",
+        "name": "Comprimir o software malicioso",
+        "description": "Controlos implementados em estações de trabalho e servidores para protegê-los de softwares mal-intencionados enquanto acessam redes menos seguras.",
         "source": "PIAF Connected Objects p22 - WIKI"
       },
       "PIA_SEC_COMP": {
-        "placeholder": "Describe here the controls implemented on workstations",
-        "name": "Managing workstations",
-        "description": "Controls implemented on workstations (automatic locking, regular updates, configuration, physical security, etc.) to reduce the possibility to exploit software properties (operating systems, business applications etc.) to adversely affect personal data.",
+        "placeholder": "Descreva aqui os controlos implementados nas estações de trabalho",
+        "name": "Gestão de estações de trabalho",
+        "description": "Controles implementados em estações de trabalho (bloqueio automático, atualizações regulares, configuração, segurança física, etc.) para reduzir a possibilidade de explorar propriedades de software (sistemas operacionais, aplicativos de negócios, etc.) para afetar adversamente os dados pessoais.",
         "source": "PIAF Connected Objects p22 - WIKI"
       },
       "PIA_SEC_WEB": {
-        "placeholder": "Indicate here controls implemented to protect websites.",
-        "name": "Website security",
-        "description": "Implementation of ANSSI's Recommendations for securing websites.",
+        "placeholder": "Indique aqui os controlos implementados para proteger websites.",
+        "name": "Segurança do website",
+        "description": "Implementação das Recomendações da ANSSI para proteger websites.",
         "source": "PIAF Connected Objects p22 - WIKI"
       },
       "PIA_SEC_BKP": {
-        "placeholder": "Indicate here how backups are managed. Clarify whether they are stored in a safe place.",
+        "placeholder": "Indique aqui como os backups são geridos. Esclareça se eles estão armazenados em um local seguro.",
         "name": "Backups",
-        "description": "Policies and means implemented to ensure the availability and/or integrity of the personal data, while maintaining their confidentiality.",
+        "description": "Políticas e meios implementados para garantir a disponibilidade e/ou integridade dos dados pessoais, mantendo sua confidencialidade.",
         "source": "PIAF Connected Objects p23 & PIA3 p27  - WIKI"
       },
       "PIA_SEC_MAIN": {
-        "placeholder": "Describe here how physical maintenance of hardware is managed",
+        "placeholder": "Descreva aqui como a manutenção física do hardware é gerida",
         "name": "Maintenance",
         "description": "Policies describing how physical maintenance of hardware is managed, stating whether this is contracted out.<br> Indicate whether the remote maintenance of apps is authorized, and according to what arrangements. Specify whether defective equipment is managed in a specific manner.",
         "source": "PIAF Connected Objects p23"
