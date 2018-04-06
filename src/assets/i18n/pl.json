@@ -141,7 +141,7 @@
         "validation": {
           "title": "Czeka na zatwierdzenie.",
           "content": "Ta część została oceniona i czeka na końcowe zatwierdzenie PIA. Jeżeli zachodzi potrzeba zmiany oceny, należy ",
-          "cancel": ""anulować prośbę o zatwierdzenie.",
+          "cancel": "anulować prośbę o zatwierdzenie.",
           "cancel_button": "Anulowanie prośby o zatwierdzenie"
         }
       }
