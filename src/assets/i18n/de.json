@@ -826,7 +826,7 @@
     "button": {
       "rejection": "Bestätigung ablehnen",
       "simple_validation": "Einfache Bestätigung",
-      "signed_validation": "Lassen Sie den Verantwortlichen die DSFA unterschreiben"
+      "signed_validation": "Unterschriebene Bestätigung"
     },
     "mandatory_fields": "Alle Felder müssen markiert sein",
     "waiting_for_signature": "Warten auf die Unterschrift der DSFA",
