@@ -136,7 +136,7 @@
       "refuse_pia": "Odrzucona PIA",
       "status": {
         "evaluation": {
-          "title": "Czeka na ocenę",
+          "title": "Czeka na ocenę.",
           "content": "Jeszcze nie dokonano oceny tej części. Jeżeli zachodzi potrzeba zmiany treści przedstawionej do oceny, należy ",
           "cancel": "anulować prośbę o ocenę.",
           "cancel_button": "Anulowanie prośby o ocenę."
@@ -414,7 +414,7 @@
         "source": "PIAF Connected Objects p24 and PIA3 p36 - WIKI"
       },
       "PIA_ORG_PERS": {
-        "placeholder": "Nalezy wskazać, jakie działania uświadamiające są podejmowane w stosunku do pracowników.",
+        "placeholder": "Należy wskazać, jakie działania uświadamiające są podejmowane w stosunku do pracowników.",
         "name": "Zarządzanie pracownikami",
         "description": "Wprowadzenie planu wyznaczającego <strong>sposoby uświadamiania</strong> podejmowane w stosunku do nowego pracownika oraz procedury opisującej <strong>środki podejmowane w stosunku do osób odchodzących z pracy</strong>.",
         "source": "PIAF Connected Objects p24"
@@ -819,7 +819,7 @@
     "version_number": "Numer wersji",
     "description": "To narzędzie zostało pierwotnie opracowane przez <a target=\"_blank\" href=\"https://www.cnil.fr\">Commission Nationale Informatique et Liberté (CNIL)</a>, francuski organ nadzorczy ochrony danych, dla wsparcia administratorów danych w ich staraniach o zgodność z RODO.<br>To narzędzie jest wolne i otwarte. Można uczestniczyć w pracy nad nim pobierając kod źródłowy z Github, modyfikując go i rozpowszechniając wśród zainteresowanych.",
     "translators": "Aplikacja PIA jest obecnie dostępna w pięciu językach. CNIL opracowała wersję francuską i angielską. Pozostałe wersje stanowią wynik pracy następujących osób:",
-    "translators_name": "<ul><li>Holenderska: Ruud van Driel, Manuel d’Orso ;</li><li>Czeska: Jiří Grohmann, Manuel d’Orso ;</li><li>Włoska: Manuel d’Orso, Gianluca Markos, Romolo Manfredini, Andrea Latino, Antonio Caselli ;</li><li>Polska: Joanna Karczewska</li><li>Niemiecki: Kosmas Schütz, Corina Scheiter ;</li><li>Hiszpański: ylachgar</li><li>Norweski: PVOhmn</li><li>Grecki: Dimitris Tzellis</li><li>Portuguese: rubenlavrador</li></ul>",
+    "translators_name": "<ul><li>Holenderska: Ruud van Driel, Manuel d’Orso ;</li><li>Czeska: Jiří Grohmann, Manuel d’Orso ;</li><li>Włoska: Manuel d’Orso, Gianluca Markos, Romolo Manfredini, Andrea Latino, Antonio Caselli ;</li><li>Polska: Joanna Karczewska</li><li>Niemiecki: Kosmas Schütz, Corina Scheiter ;</li><li>Hiszpański: ylachgar</li><li>Norweski: PVOhmn</li><li>Grecki: Dimitris Tzellis</li><li>Portuguese: rubenlavrador, bagois ;</li></ul>",
     "contribute": "W razie zainteresowania tłumaczeniem na inny język lub w celu poprawienia obecnych tłumaczeń, polecamy <a href=\"https://github.com/LINCnil/pia/tree/master/src/assets/i18n\" target=\"_blank\">zapoznanie się ze stroną opisującą, co należy w tym celu zrobić</a>.",
     "licences": "Licencje bibliotek:"
   },
