@@ -44,7 +44,7 @@
       "date": "Date",
       "status": "Status",
       "author": "Author",
-      "assessor": "Assessor",
+      "assessor": "Reviewer",
       "validator": "Validator",
       "new_pia": "New PIA",
       "import_pia": "Import PIA",
@@ -263,7 +263,7 @@
       "PIA_TEC_CHIF": {
         "placeholder": "Describe here the means implemented for ensuring the confidentiality of data",
         "name": "Encryption",
-        "description": "Means implemented for <strong>ensuring the confidentiality</strong> of data stored (in the database, in flat files, backups, etc.), as well as the procedure for managing encryption keys (creation, storage, change in the event of suspected cases of data compromise, etc.).<br>Describe the encryption means employed for data flows (VPN, TLS, etc.) implemented in the processing.",
+        "description": "Means implemented for <strong>ensuring the confidentiality</strong> of data stored (in the database, in flat files, backups, etc.), as well as the procedure for managing encryption keys (creation, storage, change in the event of suspected cases of data compromise, etc.). <br>Describe the encryption means employed for data flows (VPN, TLS, etc.) implemented in the processing.",
         "source": "PIAF Connected Objects p21"
       },
       "PIA_TEC_ANO": {
@@ -369,15 +369,15 @@
         "source": "PIAF Connected Objects p23 - WIKI"
       },
       "PIA_SEC_SRC": {
-        "placeholder": "Indicate here the methods and the means that have been put in place in order to avoid risks that may exist",
+        "placeholder": "Indicate here the means and the methods that have been implemented to avoid risks.",
         "name": "Avoiding sources of risk",
-        "description": "Existence of measures to prevent human or non-human sources of risk to the detriment of personal data (dangerous products, dangerous geographical areas, data transfer outside the EU, etc.).",
+        "description": "Existence of measures to prevent human or non-human sources of risk that may affect the personal data (dangerous products, dangerous geographical areas, data transfer outside the EU, etc.).",
         "source": "PIAF Connected Objects p23 - WIKI"
       },
       "PIA_SEC_PROT": {
         "placeholder": "Indicate here the means to avoid to limit non-human sources of risks.",
         "name": "Protecting against non-human sources of risks",
-        "description": "Existence of measures to reduce or avoid risks related to non-human sources (climatic phenomena, fire, water damage, internal or external accidents, animals, etc.) which could affect the security of personal data (preventive measures, detection, protection, etc.).",
+        "description": "Existence of measures to reduce or avoid risks related to non-human sources (climatic phenomena, fire, water damage, internal or external accidents, animals, etc.) which could affect the security of personal data (preventive measures, detection, protection, etc.)",
         "source": "PIAF Connected Objects p23 - WIKI"
       },
       "PIA_ORG_ORG": {
@@ -401,7 +401,7 @@
       "PIA_ORG_PBD": {
         "placeholder": "Describe here how privacy protection is integrated in projects",
         "name": "Integrating privacy protection in projects",
-        "description": "Existence of procedures describing the methods to take into account the protection of personal data in any new processing (certifications, standards, risk management for the data subject according to the CNIL methodology or an internal method, etc.).",
+        "description": "Existence of a policy designed to integrate the protection of personal data in all new processing operations.",
         "source": "PIA3 p79 - WIKI"
       },
       "PIA_ORG_VIOL": {
@@ -630,12 +630,12 @@
       },
       "PIA_EX_HUMI": {
         "name": "Internal human sources",
-        "description": "It could be either:<br>- a malicious employee, using his proximity to the system, his skills, his privileges and potentially too much available time or a negligent employee due to a possible lack of training and awareness<br> - a negligent or rogue user, their family members or friends, having access to the service. <br> Various motivations are possible: clumsiness, error, negligence, malice, revenge, greed, spying",
+        "description": "It could be either:<br>- a negligent or rogue employee, proximity of the system, skills, privileges and available time are potentially high, possible lack of training and awareness<br>- negligent or rogue user, family member or friend having access to the service.<br> Various motives are possible, including : clumsiness, error, negligence game, malicious intent, revenge, spying.",
         "source": "PIAF Connected objects p41 - WIKI"
       },
       "PIA_EX_HUME": {
         "name": "External human sources",
-        "description": "It could be either:<br>- a rogue or naive third party, who uses his physical proximity to hack into the device's data;<br>- a hacker targeting a user by using the knowledge he/she has of the user and some of the information concerning him/her;<br>- a hacker targeting one of the companies responsible with processing by using the knowledge he/she has of the companies in order to undermine their image;<br>- an authorised third party using its privileged access to illegitimately access information.<br> Various motivations are possible: gambling, annoyance, malice, revenge, espionage, greed, acquisition of data to exploit it.",
+        "description": "It could be either:<br>- a rogue or naive neighbor, by having a physical proximity, hacking into the device's data;<br>- a hacker targeting a user by using the knowledge he/she has of the user and some of the information concerning him/her;<br>- a hacker targeting one of the companies by using the knowledge he/she has of the companies that can undermine their image;<br>- an authorised third party company using its privileged access to illegitimately access information.",
         "source": "PIAF Connected objects p41 - WIKI"
       },
       "PIA_EX_NHUM": {
@@ -690,7 +690,7 @@
       },
       "PIA_DEF_ANO": {
         "name": "Anonymisation",
-        "description": "Process that removes the identifying characteristics from personal data. To assess the robustness of an anonymisation processes, see the <a target=\"_blank\" href=\"https://cnpd.public.lu/content/dam/cnpd/fr/publications/groupe-art29/wp216_en.pdf\">WP29 guidelines</a>.",
+        "description": "Process removing the identifying characteristics from personal data. To assess the robustness of an anonymisation processes, see the <a target=\"_blank\" href=\"https://cnpd.public.lu/content/dam/cnpd/fr/publications/groupe-art29/wp216_en.pdf\">WP29 guidelines</a>.",
         "source": "Mesures_US and G29 guidelines https://ec.europa.eu/justice/data-protection/article-29/documentation/opinion-recommendation/files/2014/wp216_en.pdf"
       },
       "PIA_SEC_CTR": {
@@ -957,9 +957,9 @@
     "people_search_status_ok": "Concerned people opinion was requested.",
     "people_search_status_nok": "Concerned people opinion wasn't requested.",
     "concerned_people_unsearched_opinion_comment": "Reason why concerned people opinion wasn't requested",
-    "concerned_people_name": "Names of the people concerned",
-    "concerned_people_status": "Statuses of the people concerned",
-    "concerned_people_opinion": "Opinions of the people concerned",
+    "concerned_people_name": "Names of the data subjects",
+    "concerned_people_status": "Statuses of the data subjects",
+    "concerned_people_opinion": "Opinions of the data subjects",
     "modification_made": "Modifications made",
     "rejection_reason": "Rejection reason",
     "creation_date": "Creation date",
