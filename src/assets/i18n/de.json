@@ -276,7 +276,7 @@
       "PIA_TEC_ANO": {
         "placeholder": "Geben Sie hier die implementierten Anonymisierungsmechanismen an",
         "name": "Anonymisierung",
-        "description": " Beschreibung der Mechanismen der Anonymisierung, wie sie ausgestaltet sind und zu welchem Zweck sie umgesetzt werden und wie sie eine mögliche Reidentifikation verhindern. Beachten Sie den Unterschied zwischen Anonymisierung und Pseudonymisierung ",
+        "description": "Beschreibung der Mechanismen der Anonymisierung, wie sie ausgestaltet sind und zu welchem Zweck sie umgesetzt werden und wie sie eine mögliche Reidentifikation verhindern. Beachten Sie den Unterschied zwischen Anonymisierung und Pseudonymisierung ",
         "source": "keine"
       },
       "PIA_TEC_CLO": {
@@ -829,7 +829,7 @@
     "button": {
       "rejection": "Bestätigung ablehnen",
       "simple_validation": "Einfache Bestätigung",
-      "signed_validation": "Lassen Sie den Verantwortlichen die DSFA unterschreiben"
+      "signed_validation": "Unterschriebene Bestätigung"
     },
     "mandatory_fields": "Alle Felder müssen markiert sein",
     "waiting_for_signature": "Warten auf die Unterschrift der DSFA",
