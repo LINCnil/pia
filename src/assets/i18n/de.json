@@ -151,7 +151,7 @@
     },
     "footer": {
       "ask_evaluation": "Bitte um Überprüfung",
-      "validate_evaluation": "Bestätigen Sie die Überprüfung",
+      "validate_evaluation": "Bitte um Bestätigung",
       "subsection_validated": "Unterabschnitt überprüft, wartet auf endgültige Bestätigung",
       "mandatory_fields": "Es müssen alle Felder ausgefüllt sein"
     }
@@ -276,7 +276,7 @@
       "PIA_TEC_ANO": {
         "placeholder": "Geben Sie hier die implementierten Anonymisierungsmechanismen an",
         "name": "Anonymisierung",
-        "description": " Beschreibung der Mechanismen der Anonymisierung, wie sie ausgestaltet sind und zu welchem Zweck sie umgesetzt werden und wie sie eine mögliche Reidentifikation verhindern. Beachten Sie den Unterschied zwischen Anonymisierung und Pseudonymisierung ",
+        "description": "Beschreibung der Mechanismen der Anonymisierung, wie sie ausgestaltet sind und zu welchem Zweck sie umgesetzt werden und wie sie eine mögliche Reidentifikation verhindern. Beachten Sie den Unterschied zwischen Anonymisierung und Pseudonymisierung ",
         "source": "keine"
       },
       "PIA_TEC_CLO": {
@@ -294,7 +294,7 @@
       "PIA_TEC_CTLA": {
         "placeholder": "Geben Sie hier an, wie Benutzerprofile definiert und zugeordnet werden.",
         "name": "Logische Zugriffskontrolle",
-        "description": "Beschreiben Sie die Definition und Zuweisung von Benutzerprofilen, Rollen und Rechten. Zudem ist es erforderlich, die verwendeten<strong>Authentifizierungsmethoden</strong> detailliert zu spezifizieren und gegebenenfalls die für Kennwörter geltenden Regeln anzugeben (Mindestlänge, obligatorische Struktur, Gültigkeitsdauer, Anzahl der erfolglosen Versuche bevor das Konto gesperrt wird, etc.).",
+        "description": "Beschreiben Sie die Definition und Zuweisung von Benutzerprofilen, Rollen und Rechten. Zudem ist es erforderlich, die verwendeten <strong>Authentifizierungsmethoden</strong> detailliert zu spezifizieren und gegebenenfalls die für Kennwörter geltenden Regeln anzugeben (Mindestlänge, obligatorische Struktur, Gültigkeitsdauer, Anzahl der erfolglosen Versuche bevor das Konto gesperrt wird, etc.).",
         "source": "PIAF Connected Objects p21"
       },
       "PIA_TEC_LOG": {
@@ -539,7 +539,7 @@
       },
       "PIA_DEF_CLO": {
         "name": "Datentrennung",
-        "description": " Methoden zur Reduzierung der Möglichkeiten, personenbezogene Daten zu korrelieren und eine Kompromittierung aller gespeicherten Daten zu verhindern, indem beispielsweise die spezifischen Daten der jeweiligen Geschäftsprozesses identifiziert und logisch getrennt werden.",
+        "description": "Methoden zur Reduzierung der Möglichkeiten, personenbezogene Daten zu korrelieren und eine Kompromittierung aller gespeicherten Daten zu verhindern, indem beispielsweise die spezifischen Daten der jeweiligen Geschäftsprozesses identifiziert und logisch getrennt werden.",
         "source": "WIKI Cloisonnement_des_données_(par_rapport_au_reste_du_système_d’information)"
       },
       "PIA_DEF_CTLA": {
@@ -584,7 +584,7 @@
       },
       "PIA_DEF_MEN": {
         "name": "Bedrohung",
-        "description": "Vorgang, der ein oder mehrere Operationen in datenverarbeitenden Systemen gefährdet. Die Bedrohung kann absichtlich oder unabsichtlich durch Risikoquellen genutzt werden und kann ein schadhaftes Ereignis auslösen.",
+        "description": "Vorgang, der die datenverarbeitenden Systeme und gespeicherten Daten gefährdet und zu Schäden für den Betroffenen führen kann. Die Bedrohung kann absichtlich oder unabsichtlich durch Risikoquellen genutzt werden und kann ein schadhaftes Ereignis auslösen.",
         "source": "PIA1 p11"
       },
       "PIA_DEF_MENA": {
@@ -664,10 +664,10 @@
       },
       "PIA_EX_DCPS": {
         "name": "Sensible Daten",
-        "description": "Sozialversicherungsnummer, biometrische Daten, Bankdaten"
+        "description": " Weltanschauliche, politische, religiöse, gewerkschaftliche Überzeugungen und Beziehungen, Sexualleben, Gesundheitsdaten, Rasse oder ethnische Herkunft, Straftaten, Sicherheitsauflagen.<br>Siehe <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/DE/TXT/HTML/?uri=CELEX:32016R0679&from=DE\"> Art. 9 und 10 der [DS-GVO]</a>."
       },
       "PIA_EX_DCPR": {
-        "name": "Besondere Kategorien personenbezogener Daten",
+        "name": "Besondere Kategorien personenbezogener Daten ",
         "description": "Weltanschauliche, politische, religiöse, gewerkschaftliche Überzeugungen und Beziehungen, Sexualleben, Gesundheitsdaten, Rasse oder ethnische Herkunft, Straftaten, Sicherheitsauflagen.<br>Siehe <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/DE/TXT/HTML/?uri=CELEX:32016R0679&from=DE\"> Art. 9 und 10 der [DS-GVO]</a>."
       },
       "PIA_EX_HUMI": {
@@ -683,35 +683,35 @@
         "description": "Dies kann ein Vorfall oder eine Katastrophe in einer der für die Verarbeitung verantwortlichen Organisationen sein (Stromausfall, Feuer, Überschwemmung, technische Fehler usw.)"
       },
       "PIA_EX_IMPN": {
-        "name": "Schweregrad: vernachlässigbar",
+        "name": "Schweregrad: geringfügig",
         "description": "Die Betroffenen werden nicht gar nicht beeinträchtigt oder haben einige temporäre Unannehmlichkeiten, die sie ohne Schwierigkeiten überwinden können.<br> Beispiele für Auswirkungen:<br> - Körperlich: flüchtige Kopfschmerzen<br>- materiell: Zeitverschwendung, durch Wiederholung von Formalitäten oder durch Warten auf deren Durchführung, Empfang von Spam-Mails, Verwendung öffentlich zugänglicher Daten für gezielte Werbung etc.,<br>- psychisch: einfaches Ärgernis, Gefühl des Eindringens ins Privatleben ohne wirklichen Schaden (Werbung) usw."
       },
       "PIA_EX_IMPL": {
-        "name": "Schweregrad: begrenzt",
+        "name": "Schweregrad: überschaubar",
         "description": "Die Betroffenen können deutliche Unannehmlichkeiten erfahren, die sie jedoch trotz einiger Schwierigkeiten überwinden können.<br>Beispiele für Auswirkungen:<br>- körperlich: geringfügige körperliche Beeinträchtigung (z. B. leichte Erkrankung nach Nichteinhaltung von Kontraindikationen), üble Nachrede, die physische und psychische Auswirkungen hat.<br>- materiell: ungeplante Zahlungen (z. B. unberechtigte Bußgelder), Verweigerung des Zugangs zu administrativen oder kommerziellen Dienstleistungen, gezielte Online-Werbung zu einem ein Aspekt, der seitens des Betroffenen vertraulich bleiben sollte, etc.<br>- psychisch: geringe aber objektiv verstellbare psychische Beeinträchtigung, Gefühl der Verletzung der Privatsphäre ohne irreparablen Schaden, Einschüchterung in sozialen Netzwerken, etc."
       },
       "PIA_EX_IMPI": {
-        "name": "Schweregrad: wesentlich",
+        "name": "Schweregrad: substantiell",
         "description": "Die Betroffenen können erhebliche Konsequenzen erleiden, die sie nur mit erheblichen Schwierigkeiten überwinden können.<br>Beispiele für Auswirkungen:<br>- körperlich: ernsthafte körperliche Beeinträchtigung, die zu langfristigem Schaden führen (Verschlimmerung von Gesundheitszustand aufgrund von schlechter Pflege, oder Nichteinhaltung von Kontraindikationen), Verletzung der körperlichen Unversehrtheit, etc.<br>- materiell: nicht kompensierbarer Verlust von Geldern, Verlust einzigartiger und nicht wiederkehrender Möglichkeiten (Hypothek, Studien, Praktika oder Beschäftigung, Prüfungsverbot), Verlust der Wohnung, Verlust des Arbeitsplatzes, etc.<br>- psychisch: schwere psychische Störung (Depression, Phobie), Gefühl der irreparablen Beeinträchtigung der Privatsphäre, Opfer von Erpressung, Cybermobbing und Mobbing usw."
       },
       "PIA_EX_IMPM": {
-        "name": "Schweregrad: maximal",
+        "name": "Schweregrad: groß",
         "description": "Die Betroffenen können erhebliche und auch nicht rückgängig zu machende Folgen erleiden.<br>Beispiele für Auswirkungen:<br>- körperlich: dauerhafte oder längerfristige körperliche Beeinträchtigung, dauerhafte Beeinträchtigung der körperlichen Unversehrtheit, Tod<br>- materiell: finanzielles Risiko, hohe Verschuldung, Arbeitsunfähigkeit, Unfähigkeit umzuziehen, Verlust von Beweisen bei Rechtsstreitigkeiten, Verlust des Zugangs zu lebenswichtiger Infrastruktur (Wasser, Strom), etc.<br >- psychisch: langfristige oder dauerhafte psychische Beeinträchtigung, strafrechtliche Sanktion, Entführung, Verlust der Familienbande, Unmöglichkeit, vor Gericht zu erscheinen, Änderung des Verwaltungsstatus und / oder Verlust der rechtlichen Autonomie (Vormundschaft) usw."
       },
       "PIA_EX_VRAN": {
-        "name": "Eintrittswahrscheinlichkeit: vernachlässigbar",
+        "name": "Eintrittswahrscheinlichkeit: geringfügig",
         "description": " Für die ausgewählten Risikoquellen scheint es nicht möglich, einen Schaden der Betroffenen zu verursachen (z.B. Diebstahl von Papierdokumenten aus einem Raum, dessen Zutritt mit Kartenleser und Zugangscode geschützt ist)."
       },
       "PIA_EX_VRAL": {
-        "name": "Eintrittswahrscheinlichkeit: begrenzt",
+        "name": "Eintrittswahrscheinlichkeit: überschaubar",
         "description": "Für die ausgewählten Risikoquellen scheint es schwer möglich, einen Schaden für den Betroffenen zu verursachen (z.B. Diebstahl von Papierdokumenten aus einem Raum, dessen Zutritt mit Kartenleser geschützt ist)."
       },
       "PIA_EX_VRAI": {
-        "name": "Eintrittswahrscheinlichkeit: wesentlich",
+        "name": "Eintrittswahrscheinlichkeit: substantiell",
         "description": "Für die ausgewählten Risikoquellen scheint es möglich, einen Schaden für den Betroffenen zu verursachen (z.B. Diebstahl von Papierdokumenten, die in den Büros einer Organisation gespeichert sind, deren Zugang von einer Person an der Rezeption kontrolliert wird)."
       },
       "PIA_EX_VRAM": {
-        "name": "Eintrittswahrscheinlichkeit: maximal",
+        "name": "Eintrittswahrscheinlichkeit: groß",
         "description": "Für die ausgewählten Risikoquellen scheint es sehr einfach, einen Schaden für den Betroffenen zu verursachen (z.B. Diebstahl von Papierdokumenten in der öffentlichen Lobby aufbewahrt werden)."
       },
       "PIA_EX_DC": {
@@ -731,10 +731,10 @@
     "edit": "Frage bearbeiten",
     "gauges": {
       "0": "(Nicht definiert)",
-      "1": "Vernachlässigbar",
-      "2": "Begrenzt",
-      "3": "Wesentlich",
-      "4": "Maximal"
+      "1": "Geringfügig",
+      "2": "Überschaubar",
+      "3": "Substantiell",
+      "4": "Groß"
     }
   },
   "evaluations": {
@@ -752,10 +752,10 @@
       "seriousness": "Wie bewerten Sie unter Berücksichtigung des Aktionsplans die <span class = 'red-highlight'> Höhe dieses Risikos </span> ({{value}})?",
       "likelihood": "Unter Berücksichtigung des Aktionsplans, wie bewerten Sie die <span class = 'red-highlight'> Wahrscheinlichkeit dieses Risikos </span> ({{value}}) erneut?",
       "0": "(Nicht definiert)",
-      "1": "Vernachlässigbar",
-      "2": "Begrenzt",
-      "3": "Wesentlich",
-      "4": "Maximal"
+      "1": "Geringfügig",
+      "2": "Überschaubar",
+      "3": "Substantiell",
+      "4": "Groß"
     },
     "status": {
       "0": "unerledigt",
@@ -820,16 +820,16 @@
     "update": "URL aktualisieren"
   },
   "validation_page": {
-    "responsible": "Verantwortlich für die Bestätigung der PIA: ",
-    "after_reading": "Nach vollständiger Durchsicht der PIA bezüglich der Verarbeitung von Daten im Rahmen von:",
-    "confirmation1": "Bestätige ich, dass die Kontextes der Datenverarbeitung, so wie er in der DSFA beschrieben wurde, der Realität entspricht.",
-    "confirmation2": "Bestätige ich, dass mir die nach den aktuell durchgeführten oder geplanten Maßnahmen verbleibenden Risiken bewusst sind.",
+    "responsible": "Verantwortlich für die Bestätigung der DSFA: ",
+    "after_reading": "Nach vollständiger Durchsicht der DSFA bezüglich der Verarbeitung von Daten im Rahmen von:",
+    "confirmation1": "Bestätige ich, dass der Kontext der Datenverarbeitung, so wie er in der DSFA beschrieben wurde, der Realität entspricht.",
+    "confirmation2": "Bestätige ich, dass mir die nach den aktuell umgesetzten oder geplanten Maßnahmen verbleibenden Risiken bewusst sind.",
     "confirmation3": "Billige ich die angegebenen Korrekturmaßnahmen.",
     "confirmation4": "Verpflichte ich mich, die angegebenen Korrekturmaßnahmen so schnell wie möglich umzusetzen.",
     "button": {
       "rejection": "Bestätigung ablehnen",
       "simple_validation": "Einfache Bestätigung",
-      "signed_validation": "Lassen Sie den Verantwortlichen die DSFA unterschreiben"
+      "signed_validation": "Unterschriebene Bestätigung"
     },
     "mandatory_fields": "Alle Felder müssen markiert sein",
     "waiting_for_signature": "Warten auf die Unterschrift der DSFA",
@@ -853,7 +853,7 @@
     "previous_rejection": "Vorherige Ablehnung",
     "button": {
       "abandon_treatment": "Aufgabe der Verarbeitung",
-      "reject_pia": "DSFA zurückweisen",
+      "reject_pia": "DSFA ablehnen",
       "send_for_validation": "Zurück zur Bestätigung"
     }
   },
@@ -888,7 +888,7 @@
       "additional_text": "Die Archivierung ist nicht endgültig. Sie können die Analyse später bei Bedarf fortsetzen."
     },
     "refuse_pia": {
-      "content": "Nach Ihrer Ablehnung wird vom  Analyse-<br>in den Überprüfungsmodus zurückgesetzt,<br>um die notwendigen Änderungen vorzunehmen."
+      "content": "Nach Ihrer Ablehnung wird vom Analyse-<br>in den Überprüfungsmodus zurückgesetzt,<br>um die notwendigen Änderungen vorzunehmen."
     },
     "same_comment": {
       "content": "<span class = 'strong'>Warnung, </span><br>Bitte geben Sie einen anderen Kommentar als den zuletzt angegebenen ein."
@@ -991,10 +991,10 @@
     "creation_date": "Bearbeitungsdatum",
     "attachments": "Anlagen",
     "gauges": {
-      "1": "Vernachlässigbar",
-      "2": "Begrenzt",
-      "3": "Wesentlich",
-      "4": "Maximal"
+      "1": "Geringfügig",
+      "2": "Überschaubar",
+      "3": "Substantiell",
+      "4": "Groß"
     },
     "action_plan": {
       "title": "Aktionsplan",
@@ -1017,10 +1017,10 @@
     "threat": "Bedrohung",
     "sources": "Ursachen",
     "measures": "Maßnahmen",
-    "negligible": "Vernachlässigbar",
-    "limited": "Begrenzt",
-    "important": "Wesentlich",
-    "maximal": "Maximal",
+    "negligible": "Geringfügig",
+    "limited": "Überschaubar",
+    "important": "Substantiell",
+    "maximal": "Groß",
     "risk-access_x": "Schweregrad",
     "risk-access_y": "Eintrittswahrscheinlichkeit",
     "risk-change_x": "Schweregrad",
@@ -1029,10 +1029,10 @@
     "risk-disappearance_y": "Eintrittswahrscheinlichkeit"
   },
   "cartography": {
-    "negligible": "Vernachlässigbar",
-    "limited": "Begrenzt",
-    "important": "Wesentlich",
-    "maximal": "Maximal",
+    "negligible": "Geringfügig",
+    "limited": "Überschaubar",
+    "important": "Substantiell",
+    "maximal": "Groß",
     "seriousness_axe": "Schweregrad des Risikos",
     "likelihood_axe": "Eintrittswahrscheinlichkeit des Risikos",
     "legend1": "Geplante oder bestehende Maßnahmen",
@@ -1060,7 +1060,7 @@
   },
   "opinions": {
     "edit": "Bearbeiten",
-    "content": ", ist der Ansicht dass:",
+    "content": ", ist folgender Ansicht:",
     "dpo_opinion": "Stellungnahme des DSB",
     "placeholder_dpo_name": "Name des DSB",
     "placeholder_dpo_opinion": "Geben Sie die Gründe für Ihre Entscheidung an.",
@@ -1188,7 +1188,7 @@
             "7": {
               "title": "Soweit Datenübermittlungen in Länder außerhalb der Europäischen Union stattfinden, werden die Daten angemessen geschützt?",
               "short_title": "Übermittlung in Drittländer",
-              "placeholder": "Listen Sie jedes Land außerhalb der Europäischen Union, in dem Daten gespeichert oder verarbeitet werden, und geben Sie an, ob es anerkanntermaßen ein angemessenes Datenschutzniveau bietet oder beschreiben Sie die (Vertrags-)Bedingungen, die den Transfer regeln."
+              "placeholder": "Listen Sie jedes Land außerhalb der Europäischen Union, in dem Daten gespeichert oder verarbeitet werden und geben Sie an, ob dieses anerkanntermaßen ein angemessenes Datenschutzniveau bietet oder beschreiben Sie die (Vertrags-)Bedingungen, die den Transfer regeln."
             }
           }
         }
