@@ -766,6 +766,12 @@
   },
   "help": {
     "title": "Aide",
+    "infografics": {
+      "title": "Vue d'esemble des obligations et de la méthode",
+      "display": "Afficher la carte de processus",
+      "hide": "Masquer la carte de processus",
+      "file": "./assets/files/171002_fiche_risque_fr_cmjk.pdf"
+    },
     "definition": {
       "data1": {
         "title": "Utiliser l'Outil PIA",

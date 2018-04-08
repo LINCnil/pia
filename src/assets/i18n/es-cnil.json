@@ -764,6 +764,12 @@
   },
   "help": {
     "title": "Ayuda",
+    "infografics": {
+      "title": "TO BE TRANSLATED - An overview of the requirements and methodology",
+      "display": "TO BE TRANSLATED - Show process map",
+      "hide": "TO BE TRANSLATED - Hide process map",
+      "file": "./assets/files/171019_fiche_risque_en_cmjk.pdf"
+    },
     "definition": {
       "data1": {
         "title": "Utilizar la Herramienta PIA",
