@@ -22,6 +22,24 @@
       </aside>
     </div>
     <div class="small-12 medium-9 columns">
+
+      <div>
+        <h2>{{ 'help.infografics.title' | translate }}</h2>
+        <button class="btn btn-blue" (click)="toggleInfograficsContent($event.target)" value="true">
+          {{ 'help.infografics.display' | translate }}
+        </button>
+        <p hidden id="infografics_file">{{ 'help.infografics.file' | translate }}</p>
+        <p hidden id="infografics_display">{{ 'help.infografics.display' | translate }}</p>
+        <p hidden id="infografics_hide">{{ 'help.infografics.hide' | translate }}</p>
+        <p id="myText"></p>
+      </div>
+      <div *ngIf="displayInfografics">
+        <pdf-viewer [src]="pdfSrc"
+                    [original-size]="true"
+                    [fit-to-page]="true">
+        </pdf-viewer>
+      </div>
+      <h1></h1>
       <div class="pia-helpBlock-content" [innerHTML]="content"></div>
     </div>
   </div>

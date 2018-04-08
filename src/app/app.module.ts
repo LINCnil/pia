@@ -10,6 +10,7 @@ import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { registerLocaleData } from '@angular/common';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { PdfViewerModule } from 'ng2-pdf-viewer';
 
 import { AppDataService } from 'app/services/app-data.service';
 import { HeaderComponent } from 'app/header/header.component';
@@ -151,6 +152,7 @@ export function createTranslateLoader(http: HttpClient) {
   ],
   imports: [
     BrowserModule,
+    PdfViewerModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
