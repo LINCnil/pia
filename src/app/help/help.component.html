@@ -28,6 +28,7 @@
         <button class="btn btn-blue" (click)="toggleInfograficsContent($event.target)" value="true">
           {{ 'help.infografics.display' | translate }}
         </button>
+        <button class="btn btn-blue" (click)="printPdf()">{{ 'help.infografics.download' | translate }}</button>
         <p hidden id="infografics_file">{{ 'help.infografics.file' | translate }}</p>
         <p hidden id="infografics_display">{{ 'help.infografics.display' | translate }}</p>
         <p hidden id="infografics_hide">{{ 'help.infografics.hide' | translate }}</p>

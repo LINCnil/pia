@@ -770,6 +770,7 @@
       "title": "Vue d'esemble des obligations et de la méthode",
       "display": "Afficher la carte de processus",
       "hide": "Masquer la carte de processus",
+      "download": "Télécharger la carte du processus",
       "file": "./assets/files/171002_fiche_risque_fr_cmjk.pdf"
     },
     "definition": {
