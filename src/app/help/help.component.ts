@@ -111,12 +111,9 @@ export class HelpComponent implements OnInit, OnDestroy {
     var el2 = document.getElementById('infografics_file');
     var el3 = document.getElementById('infografics_display');
     var el4 = document.getElementById('infografics_hide');
-    var el5 = document.getElementById('myText');
 
     this.pdfSrc = el2.textContent;
     this.displayInfografics = !this.displayInfografics;
-
-     el5.textContent = el4.textContent;
 
     if (el.value == "false") {
       el.textContent = el3.textContent;
