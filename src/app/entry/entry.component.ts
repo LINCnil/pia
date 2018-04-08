@@ -1,6 +1,6 @@
 import { Component, OnInit, Output, OnDestroy, DoCheck } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
-import { Http } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
 import { Subscription } from 'rxjs/Subscription';
 
 import { Answer } from 'app/entry/entry-content/questions/answer.model';
@@ -29,7 +29,7 @@ export class EntryComponent implements OnInit, OnDestroy, DoCheck {
   subscription: Subscription;
 
   constructor(private route: ActivatedRoute,
-              private http: Http,
+              private http: HttpClient,
               private _modalsService: ModalsService,
               private _appDataService: AppDataService,
               private _sidStatusService: SidStatusService,
