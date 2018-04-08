@@ -31,7 +31,7 @@
     },
     "tools": {
       "title": "Nástroje",
-      "settings": "Nsatavení",
+      "settings": "Nastavení",
       "accessibility": "Dostupnost pro zrakově postižené (barvy s vysokým kontrastem, daltonismem)",
       "help": "Nápověda",
       "about": "O nás"
@@ -989,9 +989,9 @@
       "0": "Léčba by neměla být prováděna.",
       "1": "Léčba by mohla být provedena."
     },
-    "dpo_name": "Jméno DPO Poběřence osobních údajů",
-    "dpo_status": "Stav DPO Poběřence osobních údajů",
-    "dpo_opinion": "Stanovisko DPO Poběřence osobních údajů",
+    "dpo_name": "Jméno DPO Pověřence osobních údajů",
+    "dpo_status": "Stav DPO Pověřence osobních údajů",
+    "dpo_opinion": "Stanovisko DPO Pověřence osobních údajů",
     "concerned_people_searched_opinion": "Hledání názoru dotčených osob",
     "people_search_status_ok": "Požaduje se názor zainteresovaných osob.",
     "people_search_status_nok": "Nebyli požadovány názory zainteresovaných osob.",
