@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Http } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
 import { Subscription } from 'rxjs/Subscription';
 
 import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
@@ -18,7 +18,7 @@ export class HelpComponent implements OnInit, OnDestroy {
   public pdfSrc: string = '/pdf-test.pdf';
   public displayInfografics: boolean;
 
-  constructor(private http: Http,
+  constructor(private http: HttpClient,
               private _translateService: TranslateService) {}
 
   ngOnInit() {
@@ -27,7 +27,7 @@ export class HelpComponent implements OnInit, OnDestroy {
     let fileTranslation = language;
     let file = `./assets/files/pia_help_${fileTranslation}.html`;
 
-    this.http.get(file).map(res => res.text()).subscribe(data => {
+    this.http.get(file, { responseType: 'text' }).subscribe(data => {
       this.content = data;
       this.getSectionList();
     });
@@ -36,7 +36,7 @@ export class HelpComponent implements OnInit, OnDestroy {
       // fileTranslation = event['lang'] === 'fr' ? 'fr' : 'en';
       fileTranslation = event['lang'];
       file = `./assets/files/pia_help_${fileTranslation}.html`;
-      this.http.get(file).map(res => res.text()).subscribe(data => {
+      this.http.get(file, { responseType: 'text' }).subscribe(data => {
         this.content = data;
         this.getSectionList();
       });

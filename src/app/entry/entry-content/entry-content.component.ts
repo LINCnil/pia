@@ -1,6 +1,6 @@
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Component, OnInit, Input, OnChanges } from '@angular/core';
-import { Http } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
 import 'rxjs/add/operator/map'
 
 import { Evaluation } from 'app/entry/entry-content/evaluations/evaluation.model';

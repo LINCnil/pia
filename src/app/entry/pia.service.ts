@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRoute, Router, Params } from '@angular/router';
-import { Http } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
 
 import { AppDataService } from 'app/services/app-data.service';
 import { Pia } from './pia.model';
@@ -23,7 +23,7 @@ export class PiaService {
 
   constructor(private _router: Router, private route: ActivatedRoute,
               private _appDataService: AppDataService,
-              private _modalsService: ModalsService, private http: Http) {
+              private _modalsService: ModalsService, private http: HttpClient) {
                 this._appDataService.getDataNav().then((dataNav) => {
                   this.data = dataNav;
                 });

@@ -1,7 +1,7 @@
 import { Component, DoCheck, OnInit } from '@angular/core';
 import { Renderer2 } from '@angular/core';
 import { environment } from '../../environments/environment';
-import { Http } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 
 import { Pia } from 'app/entry/pia.model';
@@ -27,7 +27,7 @@ export class HeaderComponent implements OnInit {
               private _translateService: TranslateService,
               public _piaService: PiaService,
               private _modalsService: ModalsService,
-              private _http: Http,
+              private _http: HttpClient,
               public _languagesService: LanguagesService) {
     this.updateContrast();
   }
@@ -79,7 +79,7 @@ export class HeaderComponent implements OnInit {
         if (entry) {
           this._router.navigate(['entry', entry.id, 'section', 1, 'item', 1]);
         } else {
-          this._http.get('./assets/files/2018-02-21-pia-example.json').map(res => res.json()).subscribe(data => {
+          this._http.get('./assets/files/2018-02-21-pia-example.json' ).subscribe(data => {
             this._piaService.importData(data, 'EXAMPLE', false, true).then(() => {
               pia.getPiaExample().then((entry2: any) => {
                 this._router.navigate(['entry', entry2.id, 'section', 1, 'item', 1]);
