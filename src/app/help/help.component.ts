@@ -1,8 +1,8 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Subscription } from 'rxjs/Subscription';
-
 import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
+import { saveAs } from 'file-saver/FileSaver';
 
 @Component({
   selector: 'app-help',
@@ -101,6 +101,19 @@ export class HelpComponent implements OnInit, OnDestroy {
     if (tt.length > 0) {
       this.tableOfTitles.push(tt);
     }
+  }
+
+  printPdf() {
+    var data = document.getElementById('infografics_file');
+    var blob : any;
+
+    this.http.get(data.textContent, { responseType: 'arraybuffer' } )
+      .subscribe((file: ArrayBuffer) => {
+        var mediaType = 'application/pdf';
+        var blob = new Blob([file], {type: mediaType});
+        var filename = 'Infografics DPIA.pdf';
+        saveAs(blob, filename);
+      });
   }
 
   /**

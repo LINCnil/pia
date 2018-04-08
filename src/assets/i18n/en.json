@@ -778,6 +778,7 @@
       "title": "An overview of the requirements and methodology",
       "display": "Show process map",
       "hide": "Hide process map",
+      "download": "Download process map",
       "file": "./assets/files/171019_fiche_risque_en_cmjk.pdf"
     },
     "definition": {
