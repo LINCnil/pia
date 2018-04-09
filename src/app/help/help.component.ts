@@ -2,7 +2,6 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Subscription } from 'rxjs/Subscription';
 import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
-import { saveAs } from 'file-saver/FileSaver';
 
 @Component({
   selector: 'app-help',
@@ -112,7 +111,13 @@ export class HelpComponent implements OnInit, OnDestroy {
         var mediaType = 'application/pdf';
         var blob = new Blob([file], {type: mediaType});
         var filename = 'Infografics DPIA.pdf';
-        saveAs(blob, filename);
+        const a = <any>document.createElement('a');
+        a.href = window.URL.createObjectURL(blob);
+        a.download = filename;
+        const event = new MouseEvent('click', {
+          view: window
+        });
+        a.dispatchEvent(event);
       });
   }
 
