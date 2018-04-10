@@ -1,4 +1,4 @@
-<div class="pia-cardsBlock pia" [ngClass]="{'pia-exampleBlock': pia.is_example === 1, 'pia-archiveBlock': pia.status > 1, 'pia-doingBlock': pia.status < 2}" [attr.data-id]="pia.id">
+<div class="pia-cardsBlock pia" [ngClass]="{'pia-exampleBlock': pia.is_example, 'pia-archiveBlock': pia.status > 1, 'pia-doingBlock': pia.status < 2}" [attr.data-id]="pia.id">
     <div class="pia-cardsBlock-header-title" *ngIf="pia.id !== null">
       <span *ngIf="!previousPia || previousPia.status !== pia.status">{{ pia.getStatusName() | translate }}</span>
     </div>
@@ -30,11 +30,11 @@
                 </li>
                 <li>
                   <i class="fa fa-calendar-check-o" aria-hidden="true"></i>
-                  <a routerLink="/summary/{{pia.id}}/action_plan" [innerHTML]="'homepage.cards.item.tools.action_plan' | translate"></a>
+                  <a routerLink="/summary/{{pia.id}}" [queryParams]="{ displayOnlyActionPlan: true }" [innerHTML]="'homepage.cards.item.tools.action_plan' | translate"></a>
                 </li>
                 <li>
                   <i class="fa fa-file-text-o" aria-hidden="true"></i>
-                  <a routerLink="/summary/{{pia.id}}/pia" [innerHTML]="'homepage.cards.item.tools.pia' | translate"></a>
+                  <a routerLink="/summary/{{pia.id}}" [innerHTML]="'homepage.cards.item.tools.pia' | translate"></a>
                 </li>
                 <li>
                   <i class="fa fa-trash-o" aria-hidden="true"></i>

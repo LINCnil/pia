@@ -23,7 +23,6 @@ $fa-font-path: "../node_modules/font-awesome/fonts";
 @import "./assets/stylesheets/action-plan";
 @import "./assets/stylesheets/contrast";
 @import "./assets/stylesheets/editor";
-@import "./assets/stylesheets/overview-risks";
 @import "./assets/stylesheets/print";
 @import "./assets/stylesheets/header";
 
@@ -101,10 +100,10 @@ input {
 
 // Main blur (used on modals)
 .blur {
-  filter: blur(1.5px);
+  filter: blur(3px);
 }
 
-// Special blur (used on a "RISKS" modal)
+// Special blur (used for special modals (risks/action plan/dpo)
 .blur-content {
   &:after {
     cursor: not-allowed;
