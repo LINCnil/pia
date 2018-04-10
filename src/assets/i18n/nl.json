@@ -846,7 +846,7 @@
     "signed_attachments_history": "TO BE TRANSLATED - Signed attachments history",
     "tools": {
       "dashboard": "TO BE TRANSLATED - Dashboard",
-      "display_pia": "TO BE TRANSLATED - Display PIA",
+      "display_pia": "TO BE TRANSLATED - Display report",
       "action_plan": "TO BE TRANSLATED - Action plan"
     }
   },
@@ -874,26 +874,27 @@
     "start_evaluation": "TO BE TRANSLATED - Start review",
     "back_to_home": "Terug naar begin",
     "simple_pia_validation": {
-      "content": "De PIA is gevalideerd."
+      "content": "TO BE TRANSLATED - You have approved the PIA."
     },
     "completed_edition": {
-      "content": "TO BE TRANSLATED - The PIA has been fully edited, it has to be reviewed."
+      "content": "TO BE TRANSLATED - The PIA has been fully edited and has to be reviewed."
     },
     "completed_evaluation": {
-      "content": "TO BE TRANSLATED - The PIA has been fully reviewed, it has to be validated."
+      "content": "TO BE TRANSLATED - The PIA has been fully reviewed and can be validated."
     },
     "update_server_url": {
       "content": "Het serveradres is bijgewerkt."
     },
     "signed_pia_validation": {
-      "content": "<span class='strong'>De PIA is geaccepteerd </span> <br> Voltooi de validatie van de PIA door het bijgevoegde rapport van de verantwoordelijke persoon bij te voegen.",
-      "download_pia": "Download PIA-rapport"
+      "content": "TO BE TRANSLATED - To approve the PIA, attach the signed report.",
+      "download_pia": "Download rapport"
     },
     "abandon_pia": {
-      "content": "Weet je zeker dat je deze beoordeling wilt opgeven?"
+      "content": "TO BE TRANSLATED - Do you wish to give up the processing?",
+      "additional_text": "TO BE TRANSLATED - Archiving is not definitive and the PIA can go back to it if needed."
     },
     "refuse_pia": {
-      "content": "<span class='strong'>Rejected PIA, </span> <br> Verschillende velden moeten worden gecorrigeerd. <br> Keer terug naar de evaluatiemodus <br> om correcties aan te brengen."
+      "content": "TO BE TRANSLATED - As you have rejected the PIA, it is sent back for review to make the required changes."
     },
     "same_comment": {
       "content": "<span class='strong'>Waarschuwing, </span> <br> Voer een andere opmerking in dan de laatst opgenomen."
@@ -907,16 +908,16 @@
       "keep": "Bewaar deze <br> maatregel"
     },
     "ask_for_evaluation": {
-      "content": "<span class='strong'>Gefeliciteerd, </span> <br> de subsectie is nu beschikbaar voor evaluatie."
+      "content": "TO BE TRANSLATED - This section is ready to be reviewed."
     },
     "validate_evaluation": {
-      "content": "TO BE TRANSLATED - <span class='strong'>Congratulations,</span><br>you've finished evaluating this section.<br>Others parts of the PIA has to be evaluated as well in order to be able to validate the PIA."
+      "content": "TO BE TRANSLATED - This section is ready for validating the PIA."
     },
     "validate_evaluation_to_correct": {
       "content": "Sorry, maar er zijn meerdere velden die moeten worden gecorrigeerd. <br> Keer terug naar de bewerkingsmodus om correcties aan te brengen."
     },
     "declare_measures": {
-      "content": "Sorry, en voordat u risico's evalueert, <br> moet u de bestaande of geplande maatregelen melden.",
+      "content": "En voordat u risico's evalueert, <br> moet u de bestaande of geplande maatregelen melden.",
       "declare": "Declareer bestaande of geplande maatregelen"
     },
     "remove_pia": {
@@ -926,25 +927,49 @@
     "remove_attachment": {
       "content": "<span class='strong'>Waarschuwing, </span> <br> Weet u zeker dat u deze bijlage wilt verwijderen?",
       "keep": "Aanhouden",
-      "remove": "Verwijderen"
+      "remove": "Verwijderen",
+      "comment": "TO BE TRANSLATED - Comment"
+    },
+    "action_plan_no_evaluation": {
+      "content": "TO BE TRANSLATED - You need to begin the review of the analysis to create the action plan.",
+      "review_section": "TO BE TRANSLATED - Review a section"
+    },
+    "dpo_missing_evaluations": {
+      "content": "TO BE TRANSLATED - You need to complete the review of the analysis to access the DPO page.",
+      "review_section": "TO BE TRANSLATED - Review a section"
     },
     "modal_select_text_pia": {
-      "content": "TO BE TRANSLATED - The content of pia has been copied on your clipboard"
+      "content": "TO BE TRANSLATED - The content of the PIA has been copied to clipboard."
+    },
+    "back_to_edition": {
+      "content": "TO BE TRANSLATED - This section has been sent back for editing.<br> Several fields must be corrected<br> to enable its proper review."
+    },
+    "back_to_evaluation": {
+      "content": "TO BE TRANSLATED - This section has been sent back for review.<br> Several fields must be reviewed<br> to enable its proper validation."
     }
   },
   "summary": {
     "previous_page": "Terug naar de vorige pagina",
     "print": "Print",
-    "display_pia": "TO BE TRANSLATED - Display PIA",
-    "display_action_plan": "TO BE TRANSLATED - Display<br>action plan",
     "copy_to_clipboard": "TO BE TRANSLATED - Copy to clipboard",
+    "download_images": "TO BE TRANSLATED - Download images",
+    "download_csv": "TO BE TRANSLATED - Download a CSV export",
+    "csv_action_plan_comment": "TO BE TRANSLATED - Action plan comment",
+    "csv_evaluation_comment": "TO BE TRANSLATED - Evaluation comment",
+    "csv_section": "TO BE TRANSLATED - Section",
+    "csv_title_object": "TO BE TRANSLATED - Title",
+    "csv_implement_date": "TO BE TRANSLATED - Estimated implementation date",
+    "csv_people_in_charge": "TO BE TRANSLATED - Person in charge",
+    "csv_file_title": "TO BE TRANSLATED - action-plan",
     "display_filters": {
       "title": "TO BE TRANSLATED - Filters",
       "main_content": "TO BE TRANSLATED - Display \"PIA information\"",
       "context_content": "TO BE TRANSLATED - Display \"Context\"",
       "principles_content": "TO BE TRANSLATED - Display \"Fundamental principles\"",
       "risks_content": "TO BE TRANSLATED - Display \"Risks\"",
-      "action_plan_content": "TO BE TRANSLATED - Display action plan"
+      "action_plan_content": "TO BE TRANSLATED - Display action plan",
+      "risks_overview_content": "TO BE TRANSLATED - Display risks overview",
+      "risks_cartography_content": "TO BE TRANSLATED - Display risk mapping"
     },
     "title": "PIA informatie",
     "pia_name": "PIA",
@@ -983,7 +1008,9 @@
       "measures": "Bestaande of geplande maatregelen",
       "risks": "Risico's",
       "no_action_plan": "Geen actieplan vastgelegd."
-    }
+    },
+    "risks_overview_title": "TO BE TRANSLATED - Risks overview",
+    "risks_cartography_title": "TO BE TRANSLATED - Risk mapping"
   },
   "errors": {
     "title": "Pagina niet gevonden.",

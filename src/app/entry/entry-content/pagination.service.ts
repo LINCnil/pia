@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { SidStatusService } from 'app/services/sid-status.service';
 
 @Injectable()
 export class PaginationService {
@@ -8,7 +9,7 @@ export class PaginationService {
   nextLink: any[] = []; // sectionId, itemId, itemTitle
   dataNav: any;
 
-  constructor() { }
+  constructor(private _sidStatusService: SidStatusService) { }
 
   /**
    * Set the pagination.
@@ -57,4 +58,43 @@ export class PaginationService {
     }
   }
 
+  /**
+   * Get next item to go.
+   * @private
+   * @param {number} status_start - From status.
+   * @param {number} status_end - To status.
+   * @memberof EntryContentComponent
+   */
+  getNextSectionItem(status_start: number, status_end: number) {
+    let goto_section = null;
+    let goto_item = null;
+
+    const itemStatus = Object.keys(this._sidStatusService.itemStatus).sort().reduce(
+      (r, k) => (r[k] = this._sidStatusService.itemStatus[k], r), {}
+    );
+
+    for (const el in itemStatus) {
+      if (this._sidStatusService.itemStatus.hasOwnProperty(el) &&
+          this._sidStatusService.itemStatus[el] >= status_start &&
+          this._sidStatusService.itemStatus[el] < status_end &&
+          el !== '4.3') {
+        const reference_to = el.split('.');
+        goto_section = reference_to[0];
+        goto_item = reference_to[1];
+        break;
+      }
+    }
+
+    if (!goto_section || !goto_item) {
+      if (this.nextLink[0] && this.nextLink[1] && this.nextLink[0] !== 4 && this.nextLink[1] !== 3) {
+        goto_section = this.nextLink[0];
+        goto_item = this.nextLink[1];
+      } else {
+        goto_section = 1;
+        goto_item = 1;
+      }
+    }
+
+    return [goto_section, goto_item];
+  }
 }

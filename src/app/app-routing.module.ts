@@ -13,7 +13,7 @@ import { EntryRoutingModule } from 'app/entry/entry-routing.module';
 
 const routes: Routes = [
   { path: '', component: AuthenticationComponent },
-  { path: 'summary/:id/:type', component: SummaryComponent },
+  { path: 'summary/:id', component: SummaryComponent },
   { path: 'settings', component: SettingsComponent },
   { path: 'help', component: HelpComponent },
   { path: 'about', component: AboutComponent },

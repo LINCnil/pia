@@ -43,6 +43,11 @@
           bottom: 0;
           right: 0;
         }
+        &.summaryMode {
+          &:after {
+            display: none;
+          }
+        }
       }
       &-measures-scroll {
         display: block;
@@ -50,6 +55,10 @@
         overflow-y: scroll;
         > div:last-child {
           margin-bottom: 14px;
+        }
+        &.summaryMode {
+          height: initial;
+          overflow-y: initial;
         }
       }
       .pia-actionPlanGraphBlock-item {
