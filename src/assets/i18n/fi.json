@@ -16,7 +16,7 @@
     "languages": {
       "official_translations": "Viralliset käännökset",
       "cnil_translations": "CNIL:n tarjoamat käännökset",
-      "unofficial_translations": "Epäviralliset käännökset",
+      "community_translations": "Epäviralliset käännökset",
       "fr": "Français",
       "en": "English",
       "cz": "Česky",
