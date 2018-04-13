@@ -35,8 +35,7 @@
       </div>
       <div *ngIf="displayInfografics">
         <pdf-viewer [src]="pdfSrc"
-                    [original-size]="true"
-                    [fit-to-page]="true">
+                    [zoom]="1.5">
         </pdf-viewer>
       </div>
       <h1></h1>
