@@ -24,7 +24,11 @@
       "nl": "Nederlands",
       "pl": "Polski",
       "de": "Deutsch",
-      "es": "Español"
+      "es": "Español",
+      "no": "Norsk",
+      "el": "Ελληνικά",
+      "pt": "Português",
+      "fi": "Suomalainen"
     },
     "tools": {
       "title": "Työkalut",
@@ -767,6 +771,13 @@
   },
   "help": {
     "title": "Ohje",
+    "infografics": {
+      "title": "TO BE TRANSLATED - An overview of the requirements and methodology",
+      "display": "TO BE TRANSLATED - Show process map",
+      "hide": "TO BE TRANSLATED - Hide process map",
+      "download": "TO BE TRANSLATED - Download process map",
+      "file": "./assets/files/180409_fiche_risque_en_cmjk.pdf"
+    },
     "definition": {
       "data1": {
         "title": "Käytä tietosuojaa koskevan vaikutustenarvioinnin työkalua",
@@ -811,7 +822,7 @@
     "version_number": "Versio",
     "description": "Ranskan tietosuojaviranomainen, <a target=\"_blank\" href=\"https://www.cnil.fr\">Commission Nationale Informatique et Liberté (CNIL)</a>, kehitti tämän työkalun auttamaan rekisterinpitäjiä täyttämään yleisen tietosuoja-asetuksen vaatimukset.<br>Ohjelmisto on ilmainen ja sen lähdekoodi on avointa. Jos haluat osallistua projektiin, voit ladata sen lähdekoodin Githubista, muokata sitä ja jakaa sen yhteisön kanssa.",
     "translators": "Vaikutustenarviointiohjelmisto on tällä hetkellä saatavilla viidellä kielellä. CNIL on laatinut työkalun ranskan- ja englanninkieliset versiot. Muut kieliversiot ovat seuraavien yksilöiden työn tulosta:",
-    "translators_name": "<ul><li>Hollanti: Ruud van Driel, Manuel d’Orso</li><li>Tšekki: Jiří Grohmann, Manuel d’Orso</li><li>Italia: Manuel d’Orso, Gianluca Markos</li><li>Puola: Joanna Karczewska</li><li>Saksa: Kosmas Schütz</li><li>Espanja: ylachgar</li></ul>",
+    "translators_name": "<ul><li>Dutch: Ruud van Driel, Manuel d’Orso ;</li><li>Czech: Jiří Grohmann, Manuel d’Orso ;</li><li>Italian: Manuel d’Orso, Gianluca Markos, Romolo Manfredini, Andrea Latino, Antonio Caselli ;</li><li>Polish: Joanna Karczewska</li><li>German: Kosmas Schütz, Corina Scheiter ;</li><li>Spanish: ylachgar</li><li>Norwegian: PVOhmn</li><li>Greek: Dimitris Tzellis</li><li>Portuguese: rubenlavrador, bagois ;</li><li>Finnish: DPA Finland</li></ul>",
     "contribute": "Jos haluat osallistua ohjelmiston kääntämiseen tai olemassa olevien käännösten parantamiseen, lue <a href=\"https://github.com/LINCnil/pia/tree/master/src/assets/i18n\" target=\"_blank\">ohjeet tältä sivulta</a>.",
     "licences": "Kirjastolisenssit:"
   },
@@ -990,7 +1001,8 @@
     "legend4": "(E)i-toivottu tietojen muuttaminen",
     "legend5": "(T)ietojen katoaminen",
     "risk1_access": "(L)",
-    "risk2_modification": "(E)"
+    "risk2_modification": "(E)",
+    "risk3_disappearance": "(T)"
   },
   "action_plan": {
     "title": "Yleiskatsaus",
