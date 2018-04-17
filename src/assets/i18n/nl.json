@@ -14,9 +14,9 @@
     "knowledge_base_link": "Knowledge base",
     "pia_example_link": "PIA voorbeeld",
     "languages": {
-      "official_translation": "TO BE TRANSLATED - Original version",
-      "cnil_translations": "TO BE TRANSLATED - CNIL provided translations",
-      "community_translations": "TO BE TRANSLATED - Community provided translations",
+      "official_translation": "Originele versie",
+      "cnil_translations": "Vertalingen door CNIL",
+      "community_translations": "Vertalingen door community",
       "fr": "Français",
       "en": "English",
       "cs": "Česky",
@@ -85,7 +85,7 @@
           "remove": "Verwijderen"
         },
         "edit_pia": "Aanpassen PIA",
-        "consult_pia": "TO BE TRANSLATED - Consult PIA"
+        "consult_pia": "PIA Raadplegen"
       }
     },
     "lists": {
@@ -100,7 +100,7 @@
       "column_actions": "Acties",
       "item": {
         "tools": {
-          "consult": "TO BE TRANSLATED - Consult",
+          "consult": "Raadplegen",
           "edit": "Aanpassen",
           "export": "Exporteren",
           "duplicate": "Dupliceren",
@@ -123,8 +123,8 @@
     "header": {
       "preview": "Voorbeeld",
       "display_action_plan": "Toon<br>actie plan",
-      "edition": "TO BE TRANSLATED - Edition",
-      "evaluation": "TO BE TRANSLATED - Evaluation"
+      "edition": "Editie",
+      "evaluation": "Evaluatie"
     },
     "attachments": {
       "title": "Bijlagen",
@@ -137,16 +137,16 @@
       "refuse_pia": "Geweigerde PIA",
       "status": {
         "evaluation": {
-          "title": "TO BE TRANSLATED - Waiting for review.",
-          "content": "TO BE TRANSLATED - This part has not yet been reviewed. If you wish to edit the content submitted for review you have to ",
-          "cancel": "TO BE TRANSLATED - cancel the review request.",
-          "cancel_button": "TO BE TRANSLATED - Cancel the review request"
+          "title": "Wachten op review.",
+          "content": "Dit onderdeel is nog niet gereviewed. Indien je dit inhoud, die ingediend is voor rewiew, wenst aan te passen moet je ",
+          "cancel": "TO BE TRANSLATED - de review verzoek annuleren.",
+          "cancel_button": "TO BE TRANSLATED - Annuleer review verzoek"
         },
         "validation": {
-          "title": "TO BE TRANSLATED - Waiting for validation.",
-          "content": "TO BE TRANSLATED - This part has been reviewed and is waiting for the overall PIA validation. If you wish to change the review, you have to ",
-          "cancel": "TO BE TRANSLATED - cancel the validation request.",
-          "cancel_button": "TO BE TRANSLATED - Cancel the validation request"
+          "title": "Wachten op validatie.",
+          "content": "Dit onderdeel is gereviewed en wacht op de algmene PIA validatie. Indien je de review wenst aan te passen moet je ",
+          "cancel": "TO BE TRANSLATED - het validatieverzoek annuleren.",
+          "cancel_button": "TO BE TRANSLATED - Annuleer het validatieverzoek"
         }
       }
     },
@@ -172,7 +172,7 @@
     "placeholder_add_measure": "Voeg deze maatregel toe",
     "add_measure_hint": "U kunt ook een meetregel uit de kennisbank toevoegen.",
     "filters": {
-      "title": "TO BE TRANSLATED - Filters",
+      "title": "Filters",
       "all": "Allemaal",
       "definitions": "Definities",
       "organizational_measures": "Organisatorische maatregelen",
@@ -776,13 +776,6 @@
   },
   "help": {
     "title": "Help",
-    "infografics": {
-      "title": "TO BE TRANSLATED - An overview of the requirements and methodology",
-      "display": "TO BE TRANSLATED - Show process map",
-      "hide": "TO BE TRANSLATED - Hide process map",
-      "download": "TO BE TRANSLATED - Download process map",
-      "file": "./assets/files/180409_fiche_risque_en_cmjk.pdf"
-    },
     "definition": {
       "data1": {
         "title": "Gebruik de PIA-tool",
@@ -827,7 +820,7 @@
     "version_number": "Versienummer",
     "description": "Deze tool is oorspronkelijk ontworpen door de <a target=\"_blank\" href=\"https://www.cnil.fr\"> Commission Nationale Informatique et Liberté (CNIL) </a>, de Franse autoriteit voor gegevensbescherming , om de dataprocessor te helpen voldoen aan de GDPR. <br> Deze software is gratis en open. Als u mee wilt doen aan dit project, kunt u de broncode downloaden van Github, wijzigen en delen met de community.",
     "translators": "The PIA software is currently available in five languages. The French and English versions are provided by the CNIL. The others versions result from the contributions of the following individuals:",
-    "translators_name": "<ul><li>Dutch: Ruud van Driel, Manuel d’Orso ;</li><li>Czech: Jiří Grohmann, Manuel d’Orso ;</li><li>Italian: Manuel d’Orso, Gianluca Markos, Romolo Manfredini, Andrea Latino, Antonio Caselli ;</li><li>Polish: Joanna Karczewska</li><li>German: Kosmas Schütz, Corina Scheiter ;</li><li>Spanish: ylachgar</li><li>Norwegian: PVOhmn</li><li>Greek: Dimitris Tzellis</li><li>Portuguese: rubenlavrador, bagois ;</li><li>Finnish: DPA Finland</li></ul>",
+    "translators_name": "<ul><li>Dutch: Ruud van Driel, Manuel d’Orso, Louis De Jaeger ;</li><li>Czech: Jiří Grohmann, Manuel d’Orso ;</li><li>Italian: Manuel d’Orso, Gianluca Markos.</li><li>Polish: Joanna Karczewska</li><li>German: Kosmas Schütz</li><li>Spanish: ylachgar</li></ul>",
     "contribute": "If you wish to contribute to the translation of the software in another language or improve the existing translations, we recommend you to <a href=\"https://github.com/LINCnil/pia/tree/master/src/assets/i18n\" target=\"_blank\">read the page describing the steps to follow</a>.",
     "licences": "Bibliotheeklicenties:"
   },
@@ -837,41 +830,41 @@
     "update": "URL bijwerken"
   },
   "validation_page": {
-    "responsible": "TO BE TRANSLATED - Person accountable for validating the PIA: ",
-    "after_reading": "TO BE TRANSLATED - After reading full PIA relating to the data processing linked to ",
-    "confirmation1": "TO BE TRANSLATED - I attest that the context of the processing described in the PIA is consistent with the reality.",
-    "confirmation2": "TO BE TRANSLATED - I attest that I am aware of the risks depending on the existing or planned measures.",
+    "responsible": "Persoon verantwoordelijke voor validatie van de PIA: ",
+    "after_reading": "Na het lezen van de volledige betreffende de data verwerking gelinkt aan ",
+    "confirmation1": "Erken ik dat de context van de verwerking beschreven in de PIA consistent is met de werkelijkheid.",
+    "confirmation2": "Erken ik dat ik bewust ben van de risico's gebaseerd op de bestaande en de te implementeren maatregelen.",
     "confirmation3": "TO BE TRANSLATED - I ratify the corrective actions indicated in the action plan.",
     "confirmation4": "TO BE TRANSLATED - I commit to implement as quickly as possible the indicated corrective actions.",
     "button": {
-      "rejection": "TO BE TRANSLATED - Reject PIA",
-      "simple_validation": "TO BE TRANSLATED - Approve PIA <br>(direct)",
-      "signed_validation": "TO BE TRANSLATED - Approve PIA <br>(signed)"
+      "rejection": "Weiger PIA",
+      "simple_validation": "PIA Goedkeuren <br>(direct)",
+      "signed_validation": "PIA Goedkeuren <br>(ondertekenen)"
     },
-    "mandatory_fields": "TO BE TRANSLATED - All boxes must be checked",
-    "waiting_for_signature": "TO BE TRANSLATED - Pending signed PIA",
-    "validated_pia_with_signature": "TO BE TRANSLATED - Approved",
-    "add_signed_pia": "TO BE TRANSLATED - Add the signed PIA",
-    "remove_attachment": "TO BE TRANSLATED - Remove the attachment",
-    "latest_signed_attachment": "TO BE TRANSLATED - Last signed attachment",
-    "signed_attachments_history": "TO BE TRANSLATED - Signed attachments history",
+    "mandatory_fields": "Alle checkboxen moeten aangevinkt zijn",
+    "waiting_for_signature": "Wachten op ondertekende PIA",
+    "validated_pia_with_signature": "Goedgekeurd",
+    "add_signed_pia": "Voeg de ondertekende PIA toe",
+    "remove_attachment": "Verwijder de bijlage",
+    "latest_signed_attachment": "Laatst ondertekende bijlage",
+    "signed_attachments_history": "Ondertekende bijlage's historie",
     "tools": {
-      "dashboard": "TO BE TRANSLATED - Dashboard",
-      "display_pia": "TO BE TRANSLATED - Display report",
-      "action_plan": "TO BE TRANSLATED - Action plan"
+      "dashboard": "Dashboard",
+      "display_pia": "Toon PIA",
+      "action_plan": "Actieplan"
     }
   },
   "rejection_page": {
-    "title": "TO BE TRANSLATED - Validation history",
-    "rejection_reason": "TO BE TRANSLATED - Refusal reason",
-    "rejection_reason_placeholder": "TO BE TRANSLATED - Describe the reasons for refusing the PIA.",
-    "applied_adjustments": "TO BE TRANSLATED - Adjustments proposed",
-    "applied_adjustments_placeholder": "TO BE TRANSLATED - Describe the changes brought to the PIA.",
-    "previous_rejection": "TO BE TRANSLATED - Previous refusal",
+    "title": "TValidatie geschiedenis",
+    "rejection_reason": "Reden voor weigering",
+    "rejection_reason_placeholder": "Beschrijf de reden voor weigering van de PIA.",
+    "applied_adjustments": "Voorgestelde aanpassingen",
+    "applied_adjustments_placeholder": "Beschrijf de aanpassingen uitgevoerd aan de PIA.",
+    "previous_rejection": "Vorige weigering",
     "button": {
-      "abandon_treatment": "TO BE TRANSLATED - Abandon processing",
-      "reject_pia": "TO BE TRANSLATED - Reject PIA",
-      "send_for_validation": "TO BE TRANSLATED - Resend for approval"
+      "abandon_treatment": "Verlaat verwerking",
+      "reject_pia": "Weiger PIA",
+      "send_for_validation": "Opnieuw versturen voor goedkeuring"
     }
   },
   "misc": {
@@ -882,30 +875,29 @@
     "archive": "Archief",
     "close": "Afsluiten",
     "continue": "Vervolgen",
-    "start_evaluation": "TO BE TRANSLATED - Start review",
+    "start_evaluation": "Start review",
     "back_to_home": "Terug naar begin",
     "simple_pia_validation": {
-      "content": "TO BE TRANSLATED - You have approved the PIA."
+      "content": "De PIA is gevalideerd."
     },
     "completed_edition": {
-      "content": "TO BE TRANSLATED - The PIA has been fully edited and has to be reviewed."
+      "content": "De PIA is volledig bewerkt, en moet opnieuw gevalideerd worden."
     },
     "completed_evaluation": {
-      "content": "TO BE TRANSLATED - The PIA has been fully reviewed and can be validated."
+      "content": "De PIA is volledig gereviewed, en moet nog goedgekeurd worden."
     },
     "update_server_url": {
       "content": "Het serveradres is bijgewerkt."
     },
     "signed_pia_validation": {
-      "content": "TO BE TRANSLATED - To approve the PIA, attach the signed report.",
-      "download_pia": "Download rapport"
+      "content": "<span class='strong'>De PIA is geaccepteerd </span> <br> Voltooi de validatie van de PIA door het bijgevoegde rapport van de verantwoordelijke persoon bij te voegen.",
+      "download_pia": "Download PIA-rapport"
     },
     "abandon_pia": {
-      "content": "TO BE TRANSLATED - Do you wish to give up the processing?",
-      "additional_text": "TO BE TRANSLATED - Archiving is not definitive and the PIA can go back to it if needed."
+      "content": "Weet je zeker dat je deze beoordeling wilt opgeven?"
     },
     "refuse_pia": {
-      "content": "TO BE TRANSLATED - As you have rejected the PIA, it is sent back for review to make the required changes."
+      "content": "<span class='strong'>Rejected PIA, </span> <br> Verschillende velden moeten worden gecorrigeerd. <br> Keer terug naar de evaluatiemodus <br> om correcties aan te brengen."
     },
     "same_comment": {
       "content": "<span class='strong'>Waarschuwing, </span> <br> Voer een andere opmerking in dan de laatst opgenomen."
@@ -919,16 +911,16 @@
       "keep": "Bewaar deze <br> maatregel"
     },
     "ask_for_evaluation": {
-      "content": "TO BE TRANSLATED - This section is ready to be reviewed."
+      "content": "<span class='strong'>Gefeliciteerd, </span> <br> de subsectie is nu beschikbaar voor evaluatie."
     },
     "validate_evaluation": {
-      "content": "TO BE TRANSLATED - This section is ready for validating the PIA."
+      "content": "TO BE TRANSLATED - <span class='strong'>Congratulations,</span><br>you've finished evaluating this section.<br>Others parts of the PIA has to be evaluated as well in order to be able to validate the PIA."
     },
     "validate_evaluation_to_correct": {
       "content": "Sorry, maar er zijn meerdere velden die moeten worden gecorrigeerd. <br> Keer terug naar de bewerkingsmodus om correcties aan te brengen."
     },
     "declare_measures": {
-      "content": "En voordat u risico's evalueert, <br> moet u de bestaande of geplande maatregelen melden.",
+      "content": "Sorry, en voordat u risico's evalueert, <br> moet u de bestaande of geplande maatregelen melden.",
       "declare": "Declareer bestaande of geplande maatregelen"
     },
     "remove_pia": {
@@ -938,25 +930,7 @@
     "remove_attachment": {
       "content": "<span class='strong'>Waarschuwing, </span> <br> Weet u zeker dat u deze bijlage wilt verwijderen?",
       "keep": "Aanhouden",
-      "remove": "Verwijderen",
-      "comment": "TO BE TRANSLATED - Comment"
-    },
-    "action_plan_no_evaluation": {
-      "content": "TO BE TRANSLATED - You need to begin the review of the analysis to create the action plan.",
-      "review_section": "TO BE TRANSLATED - Review a section"
-    },
-    "dpo_missing_evaluations": {
-      "content": "TO BE TRANSLATED - You need to complete the review of the analysis to access the DPO page.",
-      "review_section": "TO BE TRANSLATED - Review a section"
-    },
-    "modal_select_text_pia": {
-      "content": "TO BE TRANSLATED - The content of the PIA has been copied to clipboard."
-    },
-    "back_to_edition": {
-      "content": "TO BE TRANSLATED - This section has been sent back for editing.<br> Several fields must be corrected<br> to enable its proper review."
-    },
-    "back_to_evaluation": {
-      "content": "TO BE TRANSLATED - This section has been sent back for review.<br> Several fields must be reviewed<br> to enable its proper validation."
+      "remove": "Verwijderen"
     }
   },
   "summary": {
@@ -973,12 +947,12 @@
     "csv_people_in_charge": "TO BE TRANSLATED - Person in charge",
     "csv_file_title": "TO BE TRANSLATED - action-plan",
     "display_filters": {
-      "title": "TO BE TRANSLATED - Filters",
-      "main_content": "TO BE TRANSLATED - Display \"PIA information\"",
-      "context_content": "TO BE TRANSLATED - Display \"Context\"",
-      "principles_content": "TO BE TRANSLATED - Display \"Fundamental principles\"",
-      "risks_content": "TO BE TRANSLATED - Display \"Risks\"",
-      "action_plan_content": "TO BE TRANSLATED - Display action plan",
+      "title": "Filters",
+      "main_content": "Toon \"PIA informatie\"",
+      "context_content": "Toon \"Context\"",
+      "principles_content": "TToon \"Fundamentale principes\"",
+      "risks_content": "Toon \"Risico's\"",
+      "action_plan_content": "Toon Actieplan",
       "risks_overview_content": "TO BE TRANSLATED - Display risks overview",
       "risks_cartography_content": "TO BE TRANSLATED - Display risk mapping"
     },
@@ -1019,9 +993,7 @@
       "measures": "Bestaande of geplande maatregelen",
       "risks": "Risico's",
       "no_action_plan": "Geen actieplan vastgelegd."
-    },
-    "risks_overview_title": "TO BE TRANSLATED - Risks overview",
-    "risks_cartography_title": "TO BE TRANSLATED - Risk mapping"
+    }
   },
   "errors": {
     "title": "Pagina niet gevonden.",
@@ -1052,12 +1024,11 @@
     "likelihood_axe": "Risico waarschijnlijkheid",
     "legend1": "Geplande of bestaande maatregelen",
     "legend2": "Met de geïmplementeerde corrigerende maatregelen",
-    "legend3": "(T) Onwettige toegang tot gegevens",
-    "legend4": "(W) Ongewenste wijziging van data",
-    "legend5": "(V) Gegevens verdwijnen",
-    "risk1_access": "(T)",
-    "risk2_modification": "(W)",
-    "risk3_disappearance": "(V)"
+    "legend3": "(I)Onwettige toegang tot gegevens",
+    "legend4": "(U)Ongewenste wijziging van data",
+    "legend5": "(D)Gegevens verdwijnen",
+    "risk1_access": "(I)",
+    "risk2_modification": "(U)"
   },
   "action_plan": {
     "title": "Overzicht",
@@ -1326,14 +1297,14 @@
           "short_help": "Plan in detail de implementatie van de extra controles die geïdentificeerd tijdens de PIA."
         },
         "3": {
-          "title": "Meningen van DPO / FG en betrokken personen",
+          "title": "Menningen van DPO / FG en betrokken personen",
           "short_help": "Presenteer het advies van de persoon die verantwoordelijk is voor gegevensbescherming en privacykwesties (afgevaardigde gegevensbescherming indien aanwezig). Presenteer de standpunten van de betrokkenen of hun vertegenwoordigers."
         },
         "4": {
-          "title": "TO BE TRANSLATED - Validate the PIA"
+          "title": "Valideer de PIA"
         },
         "5": {
-          "title": "TO BE TRANSLATED - Rejected PIA"
+          "title": "Weiger de PIA"
         }
       }
     }
