@@ -1,22 +1,22 @@
 {
   "authentication": {
     "title": "Privacy impact assessment",
-    "subtitle1": "Platform tworzenia <br> i zarządzania PIA",
+    "subtitle1": "Platforma tworzenia <br> i zarządzania PIA",
     "subtitle2": "Narzędzia i słowniki",
     "start_app": "Aplikacja PIA (Beta)",
     "description": "Aplikacja <strong>francuskiego organu nadzorczego CNIL</strong> ma na celu pomóc administratorom danych osiągnąć i wykazać zgodność z RODO. Pomaga należycie przeprowadzić ocenę skutków dla ochrony danych, ułatwiając skorzystanie z metodologii PIA opracowanej przez CNIL.",
     "start": "Start"
   },
   "header": {
-    "logo_title": "Analiza skutków dla ochrony danych",
+    "logo_title": "Ocena skutków dla ochrony danych",
     "logo_subtitle": "Privacy impact assessment",
-    "homepage_link": "Powitanie",
+    "homepage_link": "Strona główna",
     "knowledge_base_link": "Baza wiedzy",
     "pia_example_link": "Przykład PIA",
     "languages": {
-      "official_translation": "Wersja oryginalna",
-      "cnil_translations": "Wersje przetłumaczone przez CNIL",
-      "community_translations": "Wersja przetłumaczone przez społeczność",
+      "official_translation": "Oficjalne tłumaczenie",
+      "cnil_translations": "Tłumaczenia przygotowane przez CNIL",
+      "community_translations": "Tłumaczenia przygotowane przez społeczność",
       "fr": "Français",
       "en": "English",
       "cs": "Česky",
@@ -52,8 +52,8 @@
       "validator": "Zatwierdzającego",
       "new_pia": "Nowa PIA",
       "import_pia": "Import PIA",
-      "list_rocket_content": "Zaczynajmy ! By rozpocząć <br>PIA, prosimy kliknąć +",
-      "card_rocket_content": "Zaczynajmy !<br><br>By rozpocząć PIA,<br> należy kliknąć Nowa PIA"
+      "list_rocket_content": "Zaczynajmy! By rozpocząć <br>PIA, prosimy kliknąć +",
+      "card_rocket_content": "Zaczynajmy!<br><br>By rozpocząć PIA,<br> należy kliknąć Nowa PIA"
     },
     "cards": {
       "new_pia": "Nowa PIA",
@@ -124,7 +124,7 @@
       "preview": "Przegląd",
       "display_action_plan": "Wyświetlenie<br>planu działania",
       "edition": "Edycja",
-      "evaluation": "Ocena"
+      "evaluation": "Ewaluacja"
     },
     "attachments": {
       "title": "Załączniki",
@@ -137,16 +137,16 @@
       "refuse_pia": "Odrzucona PIA",
       "status": {
         "evaluation": {
-          "title": "Czeka na ocenę.",
-          "content": "Jeszcze nie dokonano oceny tej części. Jeżeli zachodzi potrzeba zmiany treści przedstawionej do oceny, należy ",
-          "cancel": "anulować prośbę o ocenę.",
-          "cancel_button": "Anulowanie prośby o ocenę."
+          "title": "Oczekiwanie na ocenę.",
+          "content": "Jeszcze nie dokonano oceny tej części. Jeżeli zachodzi potrzeba zmiany treści przedstawionej do oceny,",
+          "cancel": "anuluj prośbę o ocenę.",
+          "cancel_button": "Anuluj prośbę o ocenę"
         },
         "validation": {
-          "title": "Czeka na zatwierdzenie.",
-          "content": "Ta część została oceniona i czeka na końcowe zatwierdzenie PIA. Jeżeli zachodzi potrzeba zmiany oceny, należy ",
-          "cancel": "anulować prośbę o zatwierdzenie.",
-          "cancel_button": "Anulowanie prośby o zatwierdzenie"
+          "title": "Oczekiwanie na zatwierdzenie.",
+          "content": "Ta część została oceniona i czeka na końcowe zatwierdzenie PIA. Jeśli chcesz wyedytować przegląd ",
+          "cancel": "anuluj prośbę o zatwierdzenie.",
+          "cancel_button": "Anuluj prośbę o zatwierdzenie"
         }
       }
     },
@@ -222,7 +222,7 @@
       "PIA_LGL_FIN": {
         "name": "Cele zbierania i wykorzystania danych osobowych",
         "description": "Dane osobowe powinny być zbierane w konkretnych, wyraźnych i prawnie uzasadnionych celach i <strong> nieprzetwarzane dalej w sposób niezgodny z tymi celami</strong>; <br> Tak jak zapisano w art. 5b RODO.",
-        "source": "GDPR art 5.1 b)"
+        "source": "RODO art 5.1 b)"
       },
       "PIA_LGL_MINI": {
         "name": "Minimalizacja danych",
@@ -232,7 +232,7 @@
       "PIA_LGL_DEST": {
         "name": "Odbiorcy",
         "description": "Osoba fizyczna lub prawna, organ publiczny, jednostka lub inny podmiot, któremu ujawnia się dane osobowe, niezależnie od tego, czy jest stroną trzecią. Organy publiczne, które mogą otrzymywać dane osobowe w ramach konkretnego postępowania zgodnie z prawem Unii lub prawem państwa członkowskiego, nie są jednak uznawane za odbiorców; przetwarzanie tych danych przez te organy publiczne musi być zgodne z przepisami o ochronie danych mającymi zastosowanie stosownie do celów przetwarzania (art. 4 pkt 9 RODO).",
-        "source": "GDPR art 4.9"
+        "source": "RODO art 4.9"
       },
       "PIA_LGL_DUR": {
         "name": "Czas przechowywania danych",
@@ -252,16 +252,16 @@
       "PIA_VAL_DPO": {
         "name": "Opinia IOD",
         "description": "Zgodnie z artykułem 35 ust.2 RODO, administrator konsultuje się z inspektorem ochrony danych w trakcie oceny skutków dla ochrony danych.<br><strong>Ta opinia może być niekorzystna dla wdrożenia przetwarzania, co jednak nie ogranicza decyzji administratora.</strong>.",
-        "source": "GDPR Art. 39.2 and PIAF Connected Objects p37"
+        "source": "RODO Art. 39.2 and PIAF Connected Objects p37"
       },
       "PIA_VAL_CONC": {
         "name": "Opinia osób, których dane dotyczą",
         "description": "Zgodnie z art. 35 ust.9 administrator zasięga opinii osób, których dane dotyczą, gdy ma to zastosowanie.<br>Te opinie można zebrać w różny sposób, w zależności od kontekstu (badanie wewnętrzne lub zewnętrzne dotyczące celu i sposobów przetwarzania, pytanie do przedstawicieli pracowników lub związków zawodowych, ankieta wśród przyszłych klientów administratora).<strong>Jeżeli administrator postanowi pominąć opinie zainteresowanych</strong>, powinien udokumentować <strong>uzasadnienie swojej decyzji.</strong>. Jeżeli administrator uzna, że <strong>zebranie opinii zainteresowanych nie jest istotne, to także powinien udokumentować uzasadnienie</strong>.",
-        "source": "GDPR Art. 39.9 and PIAF Connected Objects p38"
+        "source": "RODO Art. 39.9 and PIAF Connected Objects p38"
       },
       "PIA_VAL_RT": {
         "name": "Formalne zatwierdzenie",
-        "description": "<strong>Administrator formalnie decyduje</strong> o dopuszczalności wybranych środków, ryzyku szczątkowym i planie działania, podając argumenty, pod kątem uprzednio zidentyfikowanych wyzwań i opinii zainteresowanych stron. PIA może zatem :<br>- zatwierdzić ;<br>- poprawić (wyjaśnić co) ;<br>- odrzucić (podobnie jak rozważane przetwarzanie).<br>W przeciwnym wypadku należy dokonać przeglądu poprzednich etapów, by można było zatwierdzić PIA.<br>Ta decyzja nie przesądza w żadnym stopniu o ocenie zgodności, której może dokonać, w razie potrzeby, organ nadzorczy ochrony danych osobowych, na przykład w ramach wcześniejszych formalności lub kontroli.",
+        "description": "<strong>Administrator formalnie decyduje</strong> o dopuszczalności wybranych środków, ryzyku szczątkowym i planie działania, podając argumenty, pod kątem uprzednio zidentyfikowanych wyzwań i opinii zainteresowanych stron. PIA może zatem:<br>- zatwierdzić ;<br>- poprawić (wyjaśnić co) ;<br>- odrzucić (podobnie jak rozważane przetwarzanie).<br>W przeciwnym wypadku należy dokonać przeglądu poprzednich etapów, by można było zatwierdzić PIA.<br>Ta decyzja nie przesądza w żadnym stopniu o ocenie zgodności, której może dokonać, w razie potrzeby, organ nadzorczy ochrony danych osobowych, na przykład w ramach wcześniejszych formalności lub kontroli.",
         "source": "PIAF Connected Objects p40"
       },
       "PIA_TEC_CHIF": {
@@ -415,7 +415,7 @@
         "source": "PIAF Connected Objects p24 and PIA3 p36 - WIKI"
       },
       "PIA_ORG_PERS": {
-        "placeholder": "Należy wskazać, jakie działania uświadamiające są podejmowane w stosunku do pracowników.",
+        "placeholder": "Nalezy wskazać, jakie działania uświadamiające są podejmowane w stosunku do pracowników.",
         "name": "Zarządzanie pracownikami",
         "description": "Wprowadzenie planu wyznaczającego <strong>sposoby uświadamiania</strong> podejmowane w stosunku do nowego pracownika oraz procedury opisującej <strong>środki podejmowane w stosunku do osób odchodzących z pracy</strong>.",
         "source": "PIAF Connected Objects p24"
@@ -459,7 +459,7 @@
       },
       "PIA_DEF_SUPT": {
         "name": "Zasoby wspierające",
-        "description": "<strong>Sprzęt i nośniki danych osobowych</strong> : komputery, przekaźniki, klucze USB, dyski twarde...<br><strong>Oprogramowanie</strong> : systemy eksploatacyjne, komunikatory, bazy danych, aplikacje biznesowe...<br><strong>Kanały informacyjne</strong> : kable, WiFi, światłowody<br><br><strong>Osoby</strong> : użytkownicy, administratorzy systemów, decydenci...<br><strong>Nośniki papierowe</strong> : wydruki, fotokopie, rękopisy...<br><strong>Kanały przesyłania papieru</strong> : poczta, obieg dokumentów...",
+        "description": "<strong>Sprzęt i nośniki danych osobowych</strong>: komputery, przekaźniki, klucze USB, dyski twarde...<br><strong>Oprogramowanie</strong>: systemy eksploatacyjne, komunikatory, bazy danych, aplikacje biznesowe...<br><strong>Kanały informacyjne</strong>: kable, WiFi, światłowody<br><br><strong>Osoby</strong>: użytkownicy, administratorzy systemów, decydenci...<br><strong>Nośniki papierowe</strong>: wydruki, fotokopie, rękopisy...<br><strong>Kanały przesyłania papieru</strong>: poczta, obieg dokumentów...",
         "source": "PIA1 p10"
       },
       "PIA_DEF_MINC": {
@@ -490,7 +490,7 @@
       "PIA_DEF_EFF": {
         "name": "Prawo do usunięcia danych",
         "description": "Osoba, której dane dotyczą, ma prawo żądania od administratora niezwłocznego usunięcia dotyczących jej danych osobowych, a administrator ma obowiązek bez zbędnej zwłoki usunąć dane osobowe - <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/PL/TXT/HTML/?uri=CELEX:32016R0679&from=PL\">Art. 17 [RODO]</a>",
-        "source" : "RODO Art. 17"
+        "source": "RODO Art. 17"
       },
       "PIA_DEF_LIM": {
         "name": "Right to restricting of processing",
@@ -505,7 +505,7 @@
       "PIA_DEF_PSEU": {
         "name": "Pseudonimizacja",
         "description": "Przetworzenie danych osobowych w taki sposób, by nie można ich było już przypisać konkretnej osobie, której dane dotyczą, bez użycia dodatkowych informacji, pod warunkiem że takie dodatkowe informacje są przechowywane osobno i są objęte środkami technicznymi i organizacyjnymi uniemożliwiającymi ich przypisanie zidentyfikowanej lub możliwej do zidentyfikowania osobie fizycznej.<br>Pseudonimizacja ogranicza możliwość powiązania zbioru danych z oryginalną tożsamością osoby, której dane dotyczą; jest to przydatny środek bezpieczeństwa ale nie metoda anonimizacji.",
-        "source" :"RODO Art. 4.5 oraz wytyczne str. 22 http://ec.europa.eu/justice/data-protection/article-29/documentation/opinion-recommendation/files/2014/wp216_en.pdf"
+        "source":"RODO Art. 4.5 oraz wytyczne str. 22 http://ec.europa.eu/justice/data-protection/article-29/documentation/opinion-recommendation/files/2014/wp216_en.pdf"
       },
       "PIA_DEF_CLO": {
         "name": "Partycjonowanie danych",
@@ -514,18 +514,18 @@
       },
       "PIA_DEF_CTLA": {
         "name": "Kontrola dostępu logicznego",
-        "description": "Należy ograniczyć ryzyko, że osoby nieupoważnione uzyskają dostęp do danych osobowych w postaci elektronicznej.<br>W tym celu należy :<br>- <strong>zdefiniować profile użytkowników</strong> w systemach rozdzielając zadania i zakresy odpowiedzialności, by ograniczyć dostęp użytkowników wyłącznie do danych osobowych ściśle niezbędnych do wykonania swoich obowiązków. <br>- <strong>usuwać uprawnienia użytkownikom, gdy tylko nie są już upoważnieni do dostępu do danego pomieszczenia lub zasobu informatycznego</strong>, jak również <strong>na koniec ich umowy o pracę lub kontraktu.</strong> <br>- <strong> dokonywać co roku przeglądu upoważnień</strong> w celu identyfikacji i usunięcia kont nieużywanych oraz dostosowania przyznanych praw do funkcji każdego użytkownika.",
+        "description": "Należy ograniczyć ryzyko, że osoby nieupoważnione uzyskają dostęp do danych osobowych w postaci elektronicznej.<br>W tym celu należy:<br>- <strong>zdefiniować profile użytkowników</strong> w systemach rozdzielając zadania i zakresy odpowiedzialności, by ograniczyć dostęp użytkowników wyłącznie do danych osobowych ściśle niezbędnych do wykonania swoich obowiązków. <br>- <strong>usuwać uprawnienia użytkownikom, gdy tylko nie są już upoważnieni do dostępu do danego pomieszczenia lub zasobu informatycznego</strong>, jak również <strong>na koniec ich umowy o pracę lub kontraktu.</strong> <br>- <strong> dokonywać co roku przeglądu upoważnień</strong> w celu identyfikacji i usunięcia kont nieużywanych oraz dostosowania przyznanych praw do funkcji każdego użytkownika.",
         "source": "PIA3 p43 - WIKI"
       },
       "PIA_DEF_MIN1": {
         "name": "Filtrowanie i usuwanie",
         "description": "W przypadku importu danych, różne rodzaje metadanych (takie jak dane EXIF dołączone do pliku graficznego) mogą być zbierane nieumyślnie.<br>Te metadane należy zidentyfikować i usunąć, jeżeli nie są niezbędne dla wyznaczonych celów przetwarzania.",
-        "source" : "PIAF Connected objects p42 - WIKI"
+        "source": "PIAF Connected objects p42 - WIKI"
       },
       "PIA_DEF_MIN2": {
         "name": "Zmniejszenie wrażliwości poprzez konwersję",
         "description": "Po otrzymaniu danych wrażliwych, wchodzących w skład zestawu informacji ogólnych lub przesłanych jedynie dla celów statystycznych, można je zamienić w postać mniej wrażliwą bądź spseudonimizowaną. Na przykład:<br>- jeżeli system zbiera adresy IP w celu ustalenia lokalizacji użytkownika dla celów statystycznych, można usuwać adres IP po ustaleniu miasta lub dzielnicy;<br>- jeżeli system otrzymuje dane wideo z kamer monitoringu, można rozpoznać osoby stojące lub będące w ruchu i je zamazać;<br>- jeżeli system jest licznikiem inteligentnym, może agregować zużycie energii elektrycznej w okreslonym czasie, bez zapisów w czasie rzeczywistym.",
-        "source" : "PIAF Connected objects p42 - WIKI"
+        "source": "PIAF Connected objects p42 - WIKI"
       },
       "PIA_DEF_SRC": {
         "name": "Źródło ryzyka",
@@ -605,7 +605,7 @@
       "PIA_DEF_MIN3": {
         "name": "Ograniczenie charakteru identyfikacyjnego danych",
         "description": "System może zapewnić, że: <br>- użytkownik skorzysta z zasobu lub usługi bez ryzyka ujawnienia swojej tożsamości (dane anonimowe);<br>- użytkownik skorzysta z zasobu lub usługi bez ryzyka ujawnienia swojej tożsamości, lecz będzie identyfikowalny i odpowiedzialny za skorzystanie z nich (dane spseudonimizowane)<br>- użytkownik skorzysta wielokrotnie z zasobów i usług bez ryzyka powiązania tych różnych zastosowań (danych nie można skorelować)<br>- użytkownik skorzysta z zasobu lub usługi bez ryzyka, że inni, w szczególności strony trzecie, będą mogły obserwować, do czego zasób lub usługa są wykorzystywane (nieobserwowalność)<br>Wybór metody z powyższej listy powinien zależeć od zidentyfikowanych zagrożeń. Dla niektórych zagrożeń dla prywatności, pseudonimizacja będzie bardziej stosowna niż anonimizacja (np. jeżeli jest potrzeba prześledzenia korzystania). Ponadto, obsługa niektórych zagrożeń dla prywatności będzie wymagała kombinacji kilku metod.",
-        "source" : "PIAF Connected objects p42 - WIKI"
+        "source": "PIAF Connected objects p42 - WIKI"
       },
       "PIA_DEF_MIN4": {
         "name": "Ograniczenie kumulacji danych",
@@ -619,7 +619,7 @@
       },
       "PIA_EX_DCPC": {
         "name": "Zwykłe dane osobowe",
-        "description": "<strong>Dane identyfikacyjne</strong> : stan cywilny, wiek, narodowość, adres pocztowy, itd. <br><strong>Życie osobiste</strong> : stan cywilny, liczba dzieci, rodzaj mieszkania, długość zamieszkania w danym miejscu, itd. <br><strong>Życie zawodowe</strong> : zawód, wykształcenie i kompetencje zawodowe, miejsce pracy, długość stażu pracy, bezrobocie, itd. <br><strong>Dane połączeniowe</strong> : adresy IP, logi zdarzeń, itd.<br><strong>Dane lokalizacyjne</strong> : podróże, dane GP, dane GSM, itd.<br><strong>Inne</strong> : numer telefonu, adres email, itd.",
+        "description": "<strong>Dane identyfikacyjne</strong>: stan cywilny, wiek, narodowość, adres pocztowy, itd. <br><strong>Życie osobiste</strong>: stan cywilny, liczba dzieci, rodzaj mieszkania, długość zamieszkania w danym miejscu, itd. <br><strong>Życie zawodowe</strong>: zawód, wykształcenie i kompetencje zawodowe, miejsce pracy, długość stażu pracy, bezrobocie, itd. <br><strong>Dane połączeniowe</strong>: adresy IP, logi zdarzeń, itd.<br><strong>Dane lokalizacyjne</strong>: podróże, dane GP, dane GSM, itd.<br><strong>Inne</strong>: numer telefonu, adres email, itd.",
         "source": "PIA2 old version - WIKI"
       },
       "PIA_EX_DCPS": {
@@ -649,7 +649,7 @@
       },
       "PIA_EX_IMPN": {
         "name": "Skutki pomijalne",
-        "description": "Osoby, których dane dotyczą, nie poniosą żadnych skutków lub doznają drobnych niedogodności, z którymi sobie poradzą bez problemu.<br>Przykłady skutków :<br>- fizyczne: przemijający ból głowy<br>- materialne: strata czasu na ponowne dopełnienie formalności lub czekanie na ich dopełnienie, ponowne wykorzystanie danych ze stron internetowych dla marketingu ukierunkowanego, itd.,<br>- moralne: drobna przykrość, uczucie naruszenia prywatności bez poczucia realnej krzywdy (natrętność handlowa), etc.",
+        "description": "Osoby, których dane dotyczą, nie poniosą żadnych skutków lub doznają drobnych niedogodności, z którymi sobie poradzą bez problemu.<br>Przykłady skutków:<br>- fizyczne: przemijający ból głowy<br>- materialne: strata czasu na ponowne dopełnienie formalności lub czekanie na ich dopełnienie, ponowne wykorzystanie danych ze stron internetowych dla marketingu ukierunkowanego, itd.,<br>- moralne: drobna przykrość, uczucie naruszenia prywatności bez poczucia realnej krzywdy (natrętność handlowa), etc.",
         "source": "PIAF Connected Objects p41 - WIKI"
       },
       "PIA_EX_IMPL": {
@@ -694,7 +694,7 @@
       },
       "PIA_DEF_ANO": {
         "name": "Anonimizacja",
-        "description": "Celem anonimizacji jest wyeliminowanie możliwości identyfikacji danych osobowych. Sposób anonimizacji należy opracować za każdym razem od nowa uwzględniając określone zastosowanie. W celu oceny właściwego sposobu anonimizacji, wytyczna <a target=\"_blank\" href=\"http://ec.europa.eu/justice/data-protection/article-29/documentation/opinion-recommendation/files/2014/wp216_pl.pdf\">G29</a> proponuje trzy kryteria :<br>- <strong>Wyodrębnienie : </strong>czy jest możliwość wydzielenia określonej osoby fizycznej ?<br>- <strong>Możliwość tworzenia powiązań : </strong>czy jest możliwe powiązanie ze sobą zestawów odrębnych zestawów danych dotyczących tej samej osoby fizycznej ?<br>- <strong>Wnioskowanie :</strong> czy można wydedukować informacje dotyczące określonej osoby fizycznej ? <br>Zatem : <strong>zestaw danych, z którego nie można ani wyodrębnić ani utworzyć powiązań ani wnioskować, jest a priori anonimowy</strong> ;<br>zestaw danych, w przypadku którego <strong>co najmniej jedno z trzech kryteriów nie jest spełnione </strong>będzie można uznać za anonimowe tylko w wyniku szczegółowej analizy ryzyka ponownej identyfikacji.",
+        "description": "Celem anonimizacji jest wyeliminowanie możliwości identyfikacji danych osobowych. Sposób anonimizacji należy opracować za każdym razem od nowa uwzględniając określone zastosowanie. W celu oceny właściwego sposobu anonimizacji, wytyczne <a target=\"_blank\" href=\"http://ec.europa.eu/justice/data-protection/article-29/documentation/opinion-recommendation/files/2014/wp216_pl.pdf\">G29</a> proponuje trzy kryteria:<br>- <strong>Wyodrębnienie: </strong>czy jest możliwość wydzielenia określonej osoby fizycznej?<br>- <strong>Możliwość tworzenia powiązań: </strong>czy jest możliwe powiązanie ze sobą zestawów odrębnych zestawów danych dotyczących tej samej osoby fizycznej?<br>- <strong>Wnioskowanie:</strong> czy można wydedukować informacje dotyczące określonej osoby fizycznej? <br>Zatem: <strong>zestaw danych, z którego nie można ani wyodrębnić ani utworzyć powiązań ani wnioskować, jest a priori anonimowy</strong>;<br>zestaw danych, w przypadku którego <strong>co najmniej jedno z trzech kryteriów nie jest spełnione </strong>będzie można uznać za anonimowe tylko w wyniku szczegółowej analizy ryzyka ponownej identyfikacji.",
         "source": "Mesures_US and G29 guidelines http://ec.europa.eu/justice/data-protection/article-29/documentation/opinion-recommendation/files/2014/wp216_pl.pdf"
       },
       "PIA_SEC_CTR": {
@@ -706,12 +706,12 @@
       "PIA_DEF_CHIF": {
         "name": "Szyfrowanie",
         "description": "Szyfrowanie wiadomości pozwala zapewnić, że jedynie nadawca i prawowity odbiorca będą znali jej treść. Po zaszyfrowaniu żaden człowiek ani maszyna nie odczyta wiadomości bez znajomości klucza (szyfrowanie symetryczne lub asymetryczne, korzystanie z publicznych algorytmów uznanych za sile, certyfikat uwierzytelniający, itd.).",
-        "source " : "Mesures_US Encryption"
+        "source ": "Mesures_US Encryption"
       },
       "PIA_DEF_PWD": {
         "name": "Hasło",
         "description": "Uwierzytelnianie za pomocą nazwy i hasła użytkownika stanowi prosty i tani sposób kontroli dostępu. Jednakże dla wyższego poziomu ochrony zaleca się m.in., by:<br>wymagano hasła złożonego z co najmniej 8 znaków obejmujących duże i małe litery oraz cyfry i znaki specjalne;<br>przy zmianie hasła - uniemożliwiać skorzystanie z ostatnich pięciu haseł;<br> używać różnych haseł do różnych dostępów;<br>hasła nie były powiązane z danymi osobistymi (np. data urodzenia własna czy dziecka.<br>Należy określić maksymalną liczbę nieudanych prób logowania się przed zablokowaniem konta użytkownika.",
-        "source" : "Mesure_US"
+        "source": "Mesure_US"
       },
       "PIA_DEF_AUTH": {
         "name": "Identyfikacja",
@@ -735,7 +735,7 @@
     "new_comment": "Komentarz",
     "placeholder_new_comment": "Można wpisać komentarz",
     "comment": "Komentarz",
-    "send": "Wysłanie"
+    "send": "Wstaw komentarz"
   },
   "questions": {
     "edit": "Edycja pytania",
@@ -759,8 +759,8 @@
     "placeholder_improvable2": "Można wpisać komentarz.",
     "placeholder_acceptable": "Można wpisać komentarz wyjaśniający, w jakim zakresie wdrożone środki są wystarczające dla spełnienia wymagań dotyczących ochrony danych osobowych.",
     "gauges": {
-      "seriousness": "Biorąc pod uwagę plan działania, jak można ponownie ocenić <span class='red-highlight'>istotność tego ryzyka</span> ({{value}}) ?",
-      "likelihood": "Biorąc pod uwagę plan działania, jak można ponownie ocenić <span class='red-highlight'>prawdopodobieństwo tego ryzyka</span> ({{value}}) ?",
+      "seriousness": "Biorąc pod uwagę plan działania, jak można ponownie ocenić <span class='red-highlight'>istotność tego ryzyka</span> ({{value}})?",
+      "likelihood": "Biorąc pod uwagę plan działania, jak można ponownie ocenić <span class='red-highlight'>prawdopodobieństwo tego ryzyka</span> ({{value}})?",
       "0": "(Niezdefiniowane)",
       "1": "Pomijalne",
       "2": "Ograniczone",
@@ -815,7 +815,7 @@
           "content": "Należy zamknąć i ponownie otworzyć edytowaną PIA. Zawartość powinna wyświetlić się w wybranym języku."
         },
         "qa7": {
-          "title": "Co dalej po odmowie zatwierdzenia PIA ?",
+          "title": "Co dalej po odmowie zatwierdzenia PIA?",
           "content": "Obecnie ikony menu nawigacji nie są odświeżane po odmowie zatwierdzenia. Należy ponownie sprawdzić informacje i ocenę w każdej sekcji pod kątem powodów odmowy i poprosić o nową ocenę. Po przeglądzie wszystkich sekcji, będzie można ponownie wystąpic o zatwierdzenie danej oceny PIA."
         }
       },
@@ -827,7 +827,7 @@
     "version_number": "Numer wersji",
     "description": "To narzędzie zostało pierwotnie opracowane przez <a target=\"_blank\" href=\"https://www.cnil.fr\">Commission Nationale Informatique et Liberté (CNIL)</a>, francuski organ nadzorczy ochrony danych, dla wsparcia administratorów danych w ich staraniach o zgodność z RODO.<br>To narzędzie jest wolne i otwarte. Można uczestniczyć w pracy nad nim pobierając kod źródłowy z Github, modyfikując go i rozpowszechniając wśród zainteresowanych.",
     "translators": "Aplikacja PIA jest obecnie dostępna w pięciu językach. CNIL opracowała wersję francuską i angielską. Pozostałe wersje stanowią wynik pracy następujących osób:",
-    "translators_name": "<ul><li>Holenderska: Ruud van Driel, Manuel d’Orso, Louis De Jaeger ;</li><li>Czeska: Jiří Grohmann, Manuel d’Orso ;</li><li>Włoska: Manuel d’Orso, Gianluca Markos, Romolo Manfredini, Andrea Latino, Antonio Caselli ;</li><li>Polska: Joanna Karczewska</li><li>Niemiecki: Kosmas Schütz, Corina Scheiter ;</li><li>Hiszpański: ylachgar</li><li>Norweski: PVOhmn</li><li>Grecki: Dimitris Tzellis</li><li>Portugalski: rubenlavrador, bagois ;</li><li>Fiński: DPA Finland</li></ul>",
+    "translators_name": "<ul><li>Holenderska: Ruud van Driel, Manuel d’Orso, Louis De Jaeger ;</li><li>Czeska: Jiří Grohmann, Manuel d’Orso ;</li><li>Włoska: Manuel d’Orso, Gianluca Markos, Romolo Manfredini, Andrea Latino, Antonio Caselli ;</li><li>Polska: Joanna Karczewska, Michal Mazur ;</li><li>Niemiecki: Kosmas Schütz, Corina Scheiter ;</li><li>Hiszpański: ylachgar</li><li>Norweski: PVOhmn</li><li>Grecki: Dimitris Tzellis</li><li>Portugalski: rubenlavrador, bagois ;</li><li>Fiński: DPA Finland</li></ul>",
     "contribute": "W razie zainteresowania tłumaczeniem na inny język lub w celu poprawienia obecnych tłumaczeń, polecamy <a href=\"https://github.com/LINCnil/pia/tree/master/src/assets/i18n\" target=\"_blank\">zapoznanie się ze stroną opisującą, co należy w tym celu zrobić</a>.",
     "licences": "Licencje bibliotek:"
   },
@@ -838,47 +838,47 @@
   },
   "validation_page": {
     "responsible": "Osoba odpowiedzialna za zatwierdzenie PIA: ",
-    "after_reading": "Po zapoznaniu się z całą PIA odnoszącą się do przetwarzania danych związanych z czynnością : ",
-    "confirmation1": "Potwierdzam, że opis kontekstu przetwarzania przedstawiony w PIA jest zgodny z rzeczywistością.",
+    "after_reading": "Po całościowym zapoznaniu się z PIA odnoszącą się do przetwarzania danych związanych z czynnością:",
+    "confirmation1": "Potwierdzam, że kontekst przetwarzania opisany w PIA jest zgodny z rzeczywistością.",
     "confirmation2": "Potwierdzam, że mam świadomość ryzyk zależnych od obecnych bądź planowanych środków ochrony.",
     "confirmation3": "Zatwierdzam środki naprawcze wskazane w planie działania.",
-    "confirmation4": "Zobowiązuję się do jak najszybszego wdrożenia wskazanych środków naprawczych.",
+    "confirmation4": "Zobowiazuję się do jak najszybszego wdrożenia wskazanych środków naprawczych.",
     "button": {
-      "rejection": "Odrzucenie PIA",
-      "simple_validation": "Zwykłe zatwierdzenie PIA",
-      "signed_validation": "Skierowanie PIA do podpisu przez osobę odpowiedzialną"
+      "rejection": "Odrzuć PIA",
+      "simple_validation": "Zatwierdź PIA",
+      "signed_validation": "Zatwierdź PIA i podpisz"
     },
     "mandatory_fields": "Należy zaznaczyć wszystkie pola",
-    "waiting_for_signature": "Raport PIA czeka na podpis",
-    "validated_pia_with_signature": "Zatwierdzona",
-    "add_signed_pia": "Należy załączyć podpisany raport PIA",
-    "remove_attachment": "Usunięcie załącznika",
+    "waiting_for_signature": "Oczekiwanie na podpisanie PIA",
+    "validated_pia_with_signature": "Zaakceptowane",
+    "add_signed_pia": "Załącz podpisane PIA",
+    "remove_attachment": "Usuń załącznik",
     "latest_signed_attachment": "Ostatni podpisany załącznik",
     "signed_attachments_history": "Historia podpisanych załączników",
     "tools": {
-      "dashboard": "Powitanie",
-      "display_pia": "Wyświetlenie PIA",
+      "dashboard": "Panel główny",
+      "display_pia": "Wyświetl PIA",
       "action_plan": "Plan działania"
     }
   },
   "rejection_page": {
     "title": "Historia zatwierdzania",
-    "rejection_reason": "Powód odmowy zatwierdzenia",
-    "rejection_reason_placeholder": "Należy podać powody odmowy zatwierdzenia PIA.",
+    "rejection_reason": "Uzasadnienie odmowy",
+    "rejection_reason_placeholder": "Opisz powody odmowy zatwierdzenia PIA.",
     "applied_adjustments": "Wniesione zmiany",
-    "applied_adjustments_placeholder": "Należy opisać zmiany wniesione do PIA.",
+    "applied_adjustments_placeholder": "Opisz zmiany wprowadzone do PIA.",
     "previous_rejection": "Poprzednia odmowa",
     "button": {
-      "abandon_treatment": "Zrezygnowanie z przetwarzania",
+      "abandon_treatment": "Odstąpienie od przetwarzania",
       "reject_pia": "Odrzucenie PIA",
-      "send_for_validation": "Wysłanie do ponownego zatwierdzenia"
+      "send_for_validation": "Wyślij ponownie do zatwierdzenia"
     }
   },
   "misc": {
     "display": "Pokazanie / Ukrycie"
   },
   "modals": {
-    "cancel": "Anulowanie",
+    "cancel": "Anuluj",
     "archive": "Archiwizacja",
     "close": "Zamknięcie",
     "continue": "Dalsza praca",
@@ -901,7 +901,7 @@
       "download_pia": "Pobranie raportu PIA"
     },
     "abandon_pia": {
-      "content": "Czy na pewno chcą Państwo<br>zrezygnować z tego przetwarzania ?",
+      "content": "Czy na pewno chcą Państwo<br>zrezygnować z tego przetwarzania?",
       "additional_text": "TO BE TRANSLATED - Archiving is not definitive and the PIA can go back to it if needed."
     },
     "refuse_pia": {
@@ -914,15 +914,15 @@
       "content": "<span class='strong'>Uwaga</span><br>Należy opisać co najmniej jeden środek: usunięcie niemożliwe."
     },
     "remove_measure": {
-      "content": "<span class='strong'>Uwaga</span><br>Czy na pewno<br>ten środek ma być usunięty ?",
+      "content": "Czy na pewno ten środek ma być usunięty?",
       "remove": "Usunięcie <br>środka",
       "keep": "Zachowanie <br>środka"
     },
     "ask_for_evaluation": {
-      "content": "<span class='strong'>Brawo</span><br>Sekcja jest obecnie<br>dostępna do oceny."
+      "content": "Sekcja jest obecnie<br>dostępna do oceny."
     },
     "validate_evaluation": {
-      "content": "<span class='strong'>Gratulacje,</span><br>ocena tej sekcji została zakończona.<br>Należy także ocenić pozostałe sekcje, by móc zatwierdzić PIA."
+      "content": "<span class='strong'>Gratulacje,</span><br>ocena tej sekcji została zakończona.<br>Pozostałe części PIA również muszą zostać ocenione, aby móc zatwierdzić PIA"
     },
     "validate_evaluation_to_correct": {
       "content": "Niestety<br>Kilka pól wymaga poprawek.<br>Powrót do trybu edycji<br>w celu naniesienia poprawek."
@@ -932,11 +932,11 @@
       "declare": "Deklarowane środki istniejące lub przewidziane"
     },
     "remove_pia": {
-      "content": "<span class='strong'>Uwaga</span><br>Czy na pewno chcą Państwo<br>usunąć tę PIA ?",
-      "remove": "Usunięcie PIA"
+      "content": "Czy na pewno usunąć?",
+      "remove": "Usuń PIA"
     },
     "remove_attachment": {
-      "content": "<span class='strong'>Uwaga</span><br>Czy na pewno chcą Państwo<br>usunąć ten załącznik ?",
+      "content": "<span class='strong'>Uwaga</span><br>Czy na pewno chcą Państwo<br>usunąć ten załącznik?",
       "keep": "Zachowanie",
       "remove": "Usunięcie",
       "comment": "TO BE TRANSLATED - Comment"
@@ -974,10 +974,10 @@
     "csv_file_title": "TO BE TRANSLATED - action-plan",
     "display_filters": {
       "title": "Filtry",
-      "main_content": "Wyświetlenie sekcji \"Informacje o PIA\"",
-      "context_content": "Wyświetlenie sekcji \"Kontekst\"",
-      "principles_content": "Wyświetlenie sekcji \"Zasady fundamentalne\"",
-      "risks_content": "Wyświetlenie sekcji \"Ryzyka\"",
+      "main_content": "Wyświetlenie sekcji \"informacje o PIA\"",
+      "context_content": "Wyświetlenie sekcji \"kontekst\"",
+      "principles_content": "Wyświetlenie sekcji \"podstaowe zasady\"",
+      "risks_content": "Wyświetlenie sekcji \"ryzyka\"",
       "action_plan_content": "Wyświetlenie planu działania",
       "risks_overview_content": "TO BE TRANSLATED - Display risks overview",
       "risks_cartography_content": "TO BE TRANSLATED - Display risk mapping"
@@ -1075,7 +1075,7 @@
   },
   "opinions": {
     "edit": "Edycja",
-    "content": ", uważa(ją), że :",
+    "content": ", uważa(ją), że:",
     "dpo_opinion": "Opinia IOD",
     "placeholder_dpo_name": "Nazwisko(a) IOD",
     "placeholder_dpo_opinion": "Należy podać powody wyboru.",
@@ -1095,10 +1095,10 @@
       "items": {
         "1": {
           "title": "Przegląd",
-          "short_help": "Ta sekcja pozwala zidentyfikować i przedstawić przedmiot badania.",
+          "short_help": "Ta sekcja pozwala zidentyfikować i przedstawić przedmiot oceny.",
           "questions": {
             "1": {
-              "title": "Jakie przetwarzanie stanowi przedmiot badania?",
+              "title": "Jakie przetwarzanie stanowi przedmiot oceny?",
               "placeholder": "Należy przedstawić syntetyczny opis przetwarzania: jego nazwę, cele, wyzwania (co wniesie), kontekst wykorzystania, itd."
             },
             "2": {
@@ -1140,14 +1140,14 @@
           "short_help": "Ta sekcja pozwala wykazać legalność przetwarzania i przetwarzanych danych.",
           "questions": {
             "1": {
-              "title": "Czy cele przetwarzania są ustalone, wyraźne i zgodne z prawem?",
+              "title": "Czy cele przetwarzania są konkretne, wyraźne i prawnie usprawiedliwione?",
               "short_title": "Cele",
-              "placeholder": "Należy wyjaśnić, w jakim sensie cele przetwarzania są ustalone, wyraźne i zgodne z prawem."
+              "placeholder": "Należy uzasadnić, że dane osobowe zbierane są w konkretnych, wyraźnych i prawnie usprawiedliwionych celach."
             },
             "2": {
               "title": "Jakie są podstawy prawne, które określają zgodność przetwarzania z prawem?",
               "short_title": "Podstawa prawna",
-              "placeholder": "Należy przedstawić podstawę(y) prawną(e) przetwarzania (np.: zgoda, wykonanie umowy, obowiązek prawny, żywotne interesy, itd.)."
+              "placeholder": "Należy przedstawić podstawy prawne przetwarzania (np.: zgoda, wykonanie umowy, obowiązek prawny, żywotne interesy, itd.)."
             },
             "3": {
               "title": "Czy zbierane dane są adekwatne, stosowne oraz ograniczone do tego, co niezbędne do celów, w których są przetwarzane (minimalizacja danych)?",
