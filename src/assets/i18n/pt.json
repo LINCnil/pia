@@ -28,7 +28,8 @@
       "no": "Norsk",
       "el": "Ελληνικά",
       "pt": "Português",
-      "fi": "Suomalainen"
+      "fi": "Suomalainen",
+      "ro": "Românesc"
     },
     "tools": {
       "title": "Ferramentas",
@@ -826,7 +827,7 @@
     "version_number": "Número da versão",
     "description": "Esta ferramenta é originalmente desenhada pelo <a target=\"_blank\" href=\"https://www.cnil.fr\">Comissão Nacional da Informática e Liberdade (CNIL)</a>, Autoridade Francesa de Proteção de Dados, para ajudar o processador de dados a ser compatível com o GDPR.<br>Este software é gratuito e aberto. Se você deseja se envolver neste projeto, você pode baixar o código fonte do Github, modificá-lo e compartilhá-lo com a comunidade.",
     "translators": "O software PIA está atualmente disponível em cinco idiomas. As versões francesa e inglesa são fornecidas pelo CNIL. As outras versões resultam das contribuições dos seguintes indivíduos:",
-    "translators_name": "<ul><li>Dutch: Ruud van Driel, Manuel d’Orso, Louis De Jaeger ;</li><li>Czech: Jiří Grohmann, Manuel d’Orso ;</li><li>Italian: Manuel d’Orso, Gianluca Markos, Romolo Manfredini, Andrea Latino, Antonio Caselli ;</li><li>Polish: Joanna Karczewska, Michał Mazur ;</li><li>German: Kosmas Schütz, Corina Scheiter ;</li><li>Spanish: ylachgar</li><li>Norwegian: PVOhmn</li><li>Greek: Dimitris Tzellis</li><li>Portuguese: rubenlavrador, bagois ;</li><li>Finnish: DPA Finland</li></ul>",
+    "translators_name": "<ul><li>Dutch: Ruud van Driel, Manuel d’Orso, Louis De Jaeger ;</li><li>Czech: Jiří Grohmann, Manuel d’Orso ;</li><li>Italian: Manuel d’Orso, Gianluca Markos, Romolo Manfredini, Andrea Latino, Antonio Caselli ;</li><li>Polish: Joanna Karczewska, Michał Mazur ;</li><li>German: Kosmas Schütz, Corina Scheiter ;</li><li>Spanish: ylachgar</li><li>Norwegian: PVOhmn</li><li>Greek: Dimitris Tzellis</li><li>Portuguese: rubenlavrador, bagois ;</li><li>Finnish: DPA Finland</li><li>Romanian: oddox</li></ul>",
     "contribute": "Se você deseja contribuir com a tradução do software em outro idioma ou melhorar as traduções existentes, recomendamos que você <a href=\"https://github.com/LINCnil/pia/tree/master/src/assets/i18n\" target=\"_blank\">leia a página descrevendo os passos a seguir</a>.",
     "licences": "Licensas das bibliotecas:"
   },
