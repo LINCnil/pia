@@ -28,7 +28,8 @@
       "no": "Norsk",
       "el": "Ελληνικά",
       "pt": "Português",
-      "fi": "Suomalainen"
+      "fi": "Suomalainen",
+      "ro": "Română"
     },
     "tools": {
       "title": "Työkalut",
@@ -191,13 +192,13 @@
         "source": "PIA2 p4"
       },
       "PIA_LGL_ST": {
-        "name": "Alihankinta",
-        "description": "Jokaisen henkilötietoja käsittelevän alihankkijan on allekirjoitettava henkilötietojen käsittelysopimus, jossa määritellään kaikki 28 artiklassa  [GDPR] määrätyt seikat: käsittelyn kesto, mittakaava, tarkoitus, kirjalliset käsittelyohjeet, ennakkohyväksyntä, mahdollisten [GDPR-asetuksen] vaatimusten mukaisuuden osoittavien asiakirjojen toimittaminen, tietomurroista ilmoittaminen jne.",
+        "name": "Käsittely rekisterinpitäjän lukuun",
+        "description": "Jokaisen rekisterinpitäjän lukuun henkilötietoja käsittelevän käsittelijän on allekirjoitettava kirjallinen sopimus, jossa määritellään kaikki 28 artiklassa{j} [GDPR] määrätyt seikat: käsittelyn kohde ja kesto, käsittelyn luonne ja tarkoitus, henkilötietojen tyyppi ja rekisteröityjen ryhmät, rekisterinpitäjän velvollisuudet ja oikeudet, rekisterinpitäjän kirjalliset käsittelyohjeet, osoitusvelvollisuutta koskevien asiakirjojen toimittaminen, tietoturvaloukkauksista ilmoittaminen jne.",
         "source": "PIA2 p10"
       },
       "PIA_LGL_TRAN": {
-        "name": "Tietojen siirrot",
-        "description": "Maasta riippuen voi olla tarpeen perustella tietojen sijaintipaikan valinta ja kuvata lakisääteiset valvontajärjestelyt, joilla taataan rajan yli siirrettävien tietojen riittävä suojaus. Maaryhmät ovat:<br>- Euroopan unioni<br>- Maat, joiden tietosuojatason riittävyyden EU on vahvistanut<br>- Tietojen siirto Yhdysvalloissa sijaitsevalle yritykselle, joka on liittynyt Privacy Shield -järjestelyyn<br>- Muu valtio <br>Ks. <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">44–49 artikla , [GDPR]</a>",
+        "name": "Kansainväliset tietojen siirrot",
+        "description": "Riippuen siitä, mihin maahan siirrät tiedot, sinun on perusteltava valintasi ja osoitettava rekisteröidyn oikeuksien suojaamiseksi tarvittavat suojatoimet ja niiden toteutumisen valvonta. Maaryhmät ovat:<br>- Euroopan unioni<br>- Maat, joiden tietosuojatason riittävyyden EU on vahvistanut<br>- Tietojen siirto Yhdysvalloissa sijaitsevalle yritykselle, joka on liittynyt Privacy Shield -järjestelyyn<br>- Muu valtio <br>Ks. <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">44–49 artikla , [GDPR]</a>",
         "source": "PIAF Connected Objects p18"
       },
       "PIA_LGL_DESC": {
@@ -222,42 +223,42 @@
       },
       "PIA_LGL_MINI": {
         "name": "Tietojen minimointi",
-        "description": "Henkilötietojen käsittelyyn liittyvien riskien vakavuutta tulee vähentää minimoimalla käsiteltävien henkilötietojen määrä rajoittamalla käsiteltävät henkilötiedot sellaisiin tietoihin, joiden käsittely on ehdottoman välttämätöntä käsittelyn tarkoituksen toteutumisella (muita henkilötietoja ei tule kerätä). Tällöin on mahdollista minimoida myös itse henkilötiedot vähentämällä niiden arkaluontoisuutta.",
+        "description": "Henkilötietojen käsittelyyn liittyviä riskejä tulee vähentää minimoimalla käsiteltävien henkilötietojen määrä eli rajoittamalla käsiteltävät henkilötiedot sellaisiin tietoihin, joiden käsittely on välttämätöntä käsittelyn tarkoituksen toteutumisella (muita henkilötietoja ei tule kerätä). Henkilötietojen arkaluonteisuutta on mahdollista vähentää minimoinnin avulla.",
         "source": "PIAF Connected Objects p10 - WIKI"
       },
       "PIA_LGL_DEST": {
         "name": "Vastaanottaja",
-        "description": "Luonnollinen henkilö tai oikeushenkilö, viranomainen, virasto tai muu elin, jolle henkilötietoja luovutetaan, oli kyseessä kolmas osapuoli tai ei. Viranomaisia, jotka mahdollisesti saavat henkilötietoja tietyn tutkimuksen puitteissa unionin oikeuden tai jäsenvaltion lainsäädännön mukaisesti ei kuitenkaan pidetä vastaanottajina; näiden viranomaisten on käsiteltävä kyseisiä tietoja sovellettavia tietosuojasääntöjä noudattaen käsittelyn tarkoitusten mukaisesti. Ks. 4 artiklan 9 kohta, [GDPR]).",
+        "description": "Luonnollinen henkilö tai oikeushenkilö, viranomainen, virasto tai muu elin, jolle henkilötietoja luovutetaan, oli kyseessä kolmas osapuoli tai ei. Viranomaisia, joille luovutetaan henkilötietoja määrätyn, unionin oikeuteen tai jäsenvaltion lainsäädäntöön perustuvan selvitystyön tekemiseksi, ei pidetä tietosuoja-asetuksen määritelmän mukaisina vastaanottajina. Viranomaisten on käsiteltävä tietoja käsittelyn tarkoitusten mukaisesti ja tietosuojasääntöjä noudattaen. Ks. 4 artiklan 9 kohta, [GDPR]).",
         "source": "Yleisen tietosuoja-asetuksen 4 artiklan 9 kohta"
       },
       "PIA_LGL_DUR": {
         "name": "Säilytysajat",
-        "description": "Jokaiselle kerättyjen henkilötietojen tyypille on määriteltävä säilytysaika, joka on perusteltava lainsäädännön vaatimuksilla ja/tai käsittelytarpeilla. Näin erotellaan yhteiset tiedot arkistoiduista tiedoista, joihin vain asiaankuuluvilla sidosryhmillä on pääsy. Yhteisten tietojen arkistointiin ja arkistoitujen tietojen tuhoamiseen säilytysajan päätteeksi on laadittava poistomekanismit. Myös tietojen jäljet ja tekniset lokit on poistettava säilytysajan päättyessä.",
+        "description": "Jokaiselle kerättyjen henkilötietojen tyypille on määriteltävä säilytysaika, joka on perusteltava lainsäädännön vaatimuksilla ja/tai käsittelytarpeilla. Näin erotellaan alkuperäiseen käyttötarkoitukseen kerätyt tiedot niistä tiedoista, joita on säilytettävä pidemmän aikaa lainsäädännön perusteella. Tiedot on tuhottava määritetyn säilytysajan jälkeen. Määritä, miten tiedot poistetaan tarpeellisuusvaatimuksen ja määritettyjen säilytysaikojen mukaisesti.",
         "source": "PIAF Connected Objects p12"
       },
       "PIA_LGL_INFO": {
-        "name": "Rekisteröidyille ilmoittaminen",
-        "description": "Pidä huoli, että rekisteröidyille on ilmoitettu heidän henkilötietojensa keräämisestä. Varmista, ettei käsittelyä koske erityisehtoja tai poikkeuksia.",
+        "name": "Rekisteröityjen informointi",
+        "description": "Pidä huoli, että rekisteröityjä informoidaan heidän henkilötietojensa keräämisestä ja käsittelystä. Varmista, ettei informoinnin osalta ole säädetty poikkeuksia.",
         "source": "PIA3 p8 - WIKI"
       },
       "PIA_LGL_CONS": {
         "name": "Suostumus",
-        "description": "Anna rekisteröityjen tehdä vapaaehtoinen, nimenomainen ja tietoon perustuva päätös henkilötietojensa luovuttamisesta. Selvitä, nojautuuko henkilötietojen käsittely muuhun oikeusperusteeseen kuin 6 artiklaan, <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR].</a>",
+        "description": "Suostumuksen tulee olla vapaaehtoinen, yksilöity, tietoinen ja yksiselitteinen tahdonilmaisu, jolla rekisteröity hyväksyy henkilötietojensa käsittelyn. Selvitä, nojautuuko henkilötietojen käsittely muuhun oikeusperusteeseen kuin 6 artiklaan, <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR].</a>",
         "source": "PIA3 p11 - WIKI"
       },
       "PIA_VAL_DPO": {
         "name": "Tietosuojavastaavan mielipide",
-        "description": "Jos organisaatiolle on nimetty tietosuojavastaava, rekisterinpitäjän tulee pyytää tämän neuvoa tietosuojaa koskevan vaikutustenarvioinnin tekemisessä. Ks. 39 artiklan 2 kohta, <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR]</a><br> <strong>Tietosuojavastaavan näkemys voi olla, ettei tietoja tulisi käsitellä, mutta se ei velvoita rekisterinpitäjää</strong>.",
+        "description": "Jos organisaatiolle on nimetty tietosuojavastaava, rekisterinpitäjän tulee pyytää tämän neuvoa tietosuojaa koskevan vaikutustenarvioinnin tekemisessä. Ks. 39 artiklan 2 kohta, <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR]</a><br> <strong>Tietosuojavastaavan eriävä näkemys henkilötietojen käsittelystä tulee dokumentoida</strong>.",
         "source": "Yleisen tietosuoja-asetuksen 39 artiklan 2 kohta ja PIAF Connected Objects s. 37"
       },
       "PIA_VAL_CONC": {
         "name": "Rekisteröidyn mielipide",
-        "description": "Rekisterinpitäjän tulee pyrkiä selvittämään rekisteröityjen tai heidän edustajiensa mielipide suunnitellusta henkilötietojen käsittelystä, kuitenkaan kaupallisia tai julkisia etuja tai käsittelytoiminnan turvallisuutta rajoittamatta. Ks. 39 artiklan  2 kohta, <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR]</a><br>Mielipiteet voidaan selvittää lukuisilla eri tavoilla asiayhteydestä riippuen (sisäinen tai ulkoinen selvitys henkilötietojen käsittelyn menetelmistä ja tarkoituksesta, henkilökunnan tai ammattiliiton edustajille suunnattu kysely, henkilötietojen käsittelijän tuleville asiakkaille suunnattu kysely). <strong>Jos rekisterinpitäjä päättää toimia vastoin rekisteröityjen mielipidettä</strong>, päätöksen perustelut <strong>on kirjattava</strong>. Jos rekisterinpitäjä ei pidä <strong>rekisteröityjen mielipiteiden selvittämistä oleellisena, myös tämän päätöksen perustelut on kirjattava</strong>.",
+        "description": "Rekisterinpitäjän tulee pyrkiä selvittämään rekisteröityjen tai heidän edustajiensa mielipide suunnitellusta henkilötietojen käsittelystä. Ks. 39 artiklan  2 kohta, <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR]</a><br>Mielipiteet voidaan selvittää lukuisilla eri tavoilla asiayhteydestä riippuen (sisäinen tai ulkoinen selvitys henkilötietojen käsittelyn menetelmistä ja tarkoituksesta, henkilökunnan tai ammattiliiton edustajille suunnattu kysely, henkilötietojen käsittelijän tuleville asiakkaille suunnattu kysely). <strong>Jos rekisterinpitäjä päättää toimia vastoin rekisteröityjen mielipidettä</strong>, päätöksen perustelut <strong>on kirjattava</strong>. Jos rekisterinpitäjä ei pidä <strong>rekisteröityjen mielipiteiden selvittämistä oleellisena, myös tämän päätöksen perustelut on kirjattava</strong>.",
         "source": "Yleisen tietosuoja-asetuksen 39 artiklan 9 kohta ja PIAF Connected Objects s. 38"
       },
       "PIA_VAL_RT": {
         "name": "Virallinen validointi",
-        "description": "Arvioi, ovatko valitut suojausmenetelmät, jäännösriskit ja toimintasuunnitelma perustellusti hyväksyttäviä suhteessa aikaisemmin tunnistettuihin intresseihin ja sidosryhmien mielipiteisiin. Tässä suhteessa vaikutustenarviointi voidaan:<br>- validoida<br>- hyväksyä ehdollisesti, jos siihen tehdään parannuksia (määriteltävä)<br>- hylätä (yhdessä suunnitellun henkilötietojen käsittelyn kanssa) Toista ne aikaisemmat vaiheet, joita vaikutustenarvioinnin validointi edellyttää. Tämä päätös ei vaikuta tietosuojaviranomaisen (Ranskassa CNIL) mahdollisesti suorittamaan vaatimustenmukaisuusarviointiin, esimerkiksi ennakkomuodollisuuksien tai -tarkastusten yhteydessä.",
+        "description": "Arvioi, ovatko valitut suojausmenetelmät, jäännösriskit ja toimintasuunnitelma perustellusti hyväksyttäviä suhteessa aikaisemmin tunnistettuihin intresseihin ja sidosryhmien mielipiteisiin. Tässä suhteessa vaikutustenarviointi voidaan:<br>- validoida<br>- hyväksyä ehdollisesti, jos siihen tehdään parannuksia (määriteltävä)<br>- hylätä (yhdessä suunnitellun henkilötietojen käsittelyn kanssa) Toista ne aikaisemmat vaiheet, joita vaikutustenarvioinnin validointi edellyttää. Tämä päätös ei vaikuta tietosuojaviranomaisen mahdollisesti suorittamaan vaatimustenmukaisuusarviointiin.",
         "source": "PIAF Connected Objects s. 40"
       },
       "PIA_TEC_CHIF": {
@@ -267,19 +268,19 @@
         "source": "PIAF Connected Objects s. 21"
       },
       "PIA_TEC_ANO": {
-        "placeholder": "Kuvaa käytetyt anonymisoimismenetelmät tässä .",
-        "name": "Anonymisoiminen",
-        "description": "Kuvaile mahdollisesti käytetyt anonymisoimismenetelmät ja niiden tarkoitus tässä. <br>Muista tehdä selvä ero anonymisoidun ja pseudonymisoidun tiedon välille.",
+        "placeholder": "Kuvaa käytetyt anonymisointimenetelmät tässä .",
+        "name": "Anonymisointi",
+        "description": "Kuvaile mahdollisesti käytetyt anonymisointimenetelmät ja niiden tarkoitus tässä. <br>Muista tehdä selvä ero anonymisoidun ja pseudonymisoidun tiedon välille.",
         "source": "PIAF Connected Objects s. 21"
       },
       "PIA_TEC_CLO": {
-        "placeholder": "Ilmoita tässä, aiotaanko henkilötietojen käsittely jakaa ja kuinka se toteutetaan.",
-        "name": "Henkilötietojen jakaminen",
-        "description": "Tietojen jakaminen pienentää henkilötietojen yhdistelemisen ja kaikkia henkilötietoja  koskevan tietomurron mahdollisuutta.",
+        "placeholder": "Ilmoita tässä, aiotaanko henkilötietojen käsittely hajauttaa ja kuinka se toteutetaan.",
+        "name": "Henkilötietojen hajauttaminen",
+        "description": "Tietojen hajauttaminen pienentää henkilötietojen yhdistelemisen ja kaikkia henkilötietoja  koskevan tietomurron mahdollisuutta.",
         "source": "PIAF Connected Objects s. 21"
       },
       "PIA_TEC_CTLA": {
-        "placeholder": "Kuvaile käyttäjäprofiilien määrittely ja ominaisuudet tässä.",
+        "placeholder": "Kuvaile eri käsittelijöiden roolit, käyttäjäprofiilien määrittely ja ominaisuudet tässä.",
         "name": "Looginen pääsynvalvonta",
         "description": "Käyttäjäprofiilien ja niiden ominaisuuksien määrittelyn menetelmät. Määrittele käytetyt <strong>todentamismenetelmät</strong>. Määrittele tarvittaessa salasanoja koskevat säännöt (vähimmäispituus, edellytetyt merkit, voimassaoloaika, epäonnistuneiden kirjautumisyritysten sallittu määrä ennen tilin lukitsemista jne.).",
         "source": "PIAF Connected Objects s. 21"
@@ -293,7 +294,7 @@
       "PIA_TEC_ARCH": {
         "placeholder": "Kuvaile tässä säilytettävien tietojen eheyden valvontamekanismit ja niiden tarkoitus.",
         "name": "Arkistointi",
-        "description": "Kuvaile tässä vastuualueellenne kuuluvat arkistonhallinnan prosessit (toimitus, varastointi, tietojenhaku jne.). Määrittele arkistoinnin roolit (tietoja toimittavat virastot, tietoja siirtävät virastot jne.) ja toimintaohjeet. Ilmoita, voiko osa henkilötiedoista kuulua julkisten arkistojen piiriin.",
+        "description": "Kuvaile tässä arkistonhallinnan prosessit (toimitus, varastointi, tietojenhaku jne.). Määrittele arkistoinnin roolit (tietoja toimittavat virastot, tietoja siirtävät virastot jne.) ja toimintaohjeet. Ilmoita, siirretäänkö tietoja muihin arkistoihin.",
         "source": "PIAF Connected Objects s. 22 - WIKI"
       },
       "PIA_TEC_PAP": {
@@ -329,7 +330,7 @@
       "PIA_SEC_WEB": {
         "placeholder": "Kuvaa tässä verkkosivujen suojauskeinot.",
         "name": "Verkkosivujen turvallisuus",
-        "description": "Ranskan kyberturvallisuusvirasto ANSSI:n verkkosivujen suojaamista koskevien suositusten toteuttaminen.",
+        "description": "Kyberturvallisuuskeskuksen ja Viestintäviraston ohjeistusten soveltaminen.",
         "source": "PIAF Connected Objects s. 22 - WIKI"
       },
       "PIA_SEC_BKP": {
@@ -383,7 +384,7 @@
       "PIA_ORG_ORG": {
         "placeholder": "Onko tietosuojaan liittyvät roolit ja vastuut määritelty?",
         "name": "Organisaatio",
-        "description": "Onko tietosuojalakien ja -asetusten noudattamiselle määritelty vastuuhenkilöä? Onko organisaatiossa yksityisyyden suojaan liittyvistä ohjeista ja seurannasta vastaavaa valvontakomiteaa (tai vastaavaa)?",
+        "description": "Onko tietosuojalakien ja -asetusten noudattamiselle määritelty vastuuhenkilöä? Onko organisaatiossa yksityisyyden suojaan liittyvistä ohjeista ja seurannasta vastaavaa valvontaryhmää tai henkilöä?",
         "source": "PIAF Connected Objects s. 24 - WIKI"
       },
       "PIA_ORG_POL": {
@@ -394,7 +395,7 @@
       },
       "PIA_ORG_RMGT": {
         "placeholder": "Kuvaile tässä prosessit, joilla hallitaan riskejä, joita organisaation suorittama henkilötietojen käsittely aiheuttaa rekisteröityjen yksityisyydelle ja tietosuojalle.",
-        "name": "Yksityisyysriskit",
+        "name": "Tietosuojariskien hallinta",
         "description": "Toimintaohje, jossa kuvaillaan prosessit, joilla hallitaan riskejä, joita organisaation suorittama henkilötietojen käsittely aiheuttaa rekisteröityjen yksityisyydelle ja tietosuojalle (riskikartoitus jne.).",
         "source": "PIA3 s. 77 - WIKI"
       },
@@ -419,7 +420,7 @@
       "PIA_ORG_EXT": {
         "placeholder": "Kuvaile tässä ne turvatoimenpiteet ja järjestelyt, joita sovelletaan henkilötietoja käsitteleviin työntekijöihin.",
         "name": "Suhteet kolmansiin osapuoliin",
-        "description": "Onko organisaatiolla toimintaohjetta ja prosesseja, joilla pienennetään riskiä, jota kolmansien osapuolten käyttöoikeudet henkilötietoihin voivat aiheuttaa rekisteröityjen perusoikeuksille ja yksityisyydelle?",
+        "description": "Onko organisaatiolla toimintaohjetta ja prosesseja, joilla pienennetään riskiä, jota henkilötietojen luovutukset kolmansille osapuolille voivat aiheuttaa (esim. käyttöehdot)?",
         "source":  "PIA3 s. 48 - WIKI"
       },
       "PIA_ORG_AUD": {
@@ -450,7 +451,7 @@
       },
       "PIA_DEF_DEST": {
         "name": "Vastaanottaja",
-        "description": "Luonnollinen henkilö tai oikeushenkilö, viranomainen, virasto tai muu elin, jolle henkilötietoja luovutetaan, oli kyseessä kolmas osapuoli tai ei. Viranomaisia, jotka mahdollisesti saavat henkilötietoja tietyn tutkimuksen puitteissa unionin oikeuden tai jäsenvaltion lainsäädännön mukaisesti ei kuitenkaan pidetä vastaanottajina; näiden viranomaisten on käsiteltävä kyseisiä tietoja sovellettavia tietosuojasääntöjä noudattaen käsittelyn tarkoitusten mukaisesti. <br>Ks. <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">4 artiklan 9 kohta, [GDPR]</a>",
+        "description": "Luonnollinen henkilö tai oikeushenkilö, viranomainen, virasto tai muu elin, jolle henkilötietoja luovutetaan, oli kyseessä kolmas osapuoli tai ei. Viranomaisia, joille luovutetaan henkilötietoja määrätyn, unionin oikeuteen tai jäsenvaltion lainsäädäntöön perustuvan selvitystyön tekemiseksi, ei pidetä tietosuoja-asetuksen määritelmän mukaisina vastaanottajina. Viranomaisten on käsiteltävä tietoja käsittelyn tarkoitusten mukaisesti ja tietosuojasääntöjä noudattaen. <br>Ks. <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">4 artiklan 9 kohta, [GDPR]</a>",
         "source": "Yleisen tietosuoja-asetuksen  4 artiklan 9 kohta"
       },
       "PIA_DEF_SUPT": {
@@ -499,27 +500,27 @@
         "source": "Yleisen tietosuoja-asetuksen  21 artikla"
       },
       "PIA_DEF_PSEU": {
-        "name": "Pseudonymisoiminen",
-        "description": "Henkilötietojen käsitteleminen siten, että henkilötietoja ei voida enää yhdistää tiettyyn rekisteröityyn käyttämättä lisätietoja, edellyttäen että tällaiset lisätiedot säilytetään erillään ja niihin sovelletaan teknisiä ja organisatorisia toimenpiteitä, joilla varmistetaan, ettei henkilötietojen yhdistämistä tunnistettuun tai tunnistettavissa olevaan luonnolliseen henkilöön tapahdu.<br>Pseudonymisoiminen vähentää tietojoukon liitettävyyttä rekisteröidyn alkuperäiseen henkilöllisyyteen ja on näin ollen hyödyllinen suojatoimenpide, muttei anonymisoi tietoja.",
-        "source" :"Yleisen tietosuoja-asetuksen  4 artiklan 5 kohta ja ohje G29, s. 22 http://ec.europa.eu/justice/data-protection/article-29/documentation/opinion-recommendation/files/2014/wp216_en.pdf"
+        "name": "Pseudonymisointi",
+        "description": "Henkilötietojen käsitteleminen siten, että henkilötietoja ei voida enää yhdistää tiettyyn rekisteröityyn käyttämättä lisätietoja, edellyttäen että tällaiset lisätiedot säilytetään erillään ja niihin sovelletaan teknisiä ja organisatorisia toimenpiteitä, joilla varmistetaan, ettei henkilötietojen yhdistämistä tunnistettuun tai tunnistettavissa olevaan luonnolliseen henkilöön tapahdu.<br>Pseudonymisointi vähentää tietojoukon liitettävyyttä rekisteröidyn alkuperäiseen henkilöllisyyteen ja on näin ollen hyödyllinen suojatoimenpide, muttei anonymisoi tietoja.",
+        "source" :"Yleisen tietosuoja-asetuksen  4 artiklan 5 kohta ja ohje G29, s. 22 http://ec.europa.eu/justice/article-29/documentation/opinion-recommendation/files/2014/wp216_fi.pdf"
       },
       "PIA_DEF_CLO": {
-        "name": "Henkilötietojen jakaminen",
-        "description": "Tietojen järjestämismenetelmiä, jotka pienentävät henkilötietojen yhdistelemisen ja kaikkia henkilötietoja  koskevan tietomurron mahdollisuutta. Esimerkki jakamisesta olisi vain kunkin liiketoimintaprosessin kannalta hyödyllisten henkilötietojen määritteleminen ja looginen erottaminen muista tiedoista.",
+        "name": "Henkilötietojen hajauttaminen",
+        "description": "Tietojen järjestämismenetelmiä, jotka pienentävät henkilötietojen yhdistelemisen ja kaikkia henkilötietoja  koskevan tietoturvaloukkauksen mahdollisuutta. Esimerkki hajauttamisesta olisi vain kunkin liiketoimintaprosessin kannalta hyödyllisten henkilötietojen määritteleminen ja looginen erottaminen muista tiedoista.",
         "source": "PIA3 s. 19 - WIKI"
       },
       "PIA_DEF_CTLA": {
-        "name": "Looginen pääsynvalvonta",
-        "description": "Keinot, joilla rajoitetaan henkilötietojen luvattoman sähköisen käytön riskiä. Se edellyttää muun muassa: <br>- <strong>käyttäjäprofiilien hallintaa</strong> tehtävien ja vastuualueiden (mieluiten keskitetyn) avulla, joilla rajoitetaan henkilötietojen käyttöoikeudet valtuutetuille käyttäjille tietojen tarpeellisuuden ja pienimmän oikeuden periaatteiden mukaisesti, ja<br>- <strong>henkilöstön, alihankkijoiden ja muiden kolmansien osapuolten oikeuksien peruuttamista, kun heillä ei enää ole oikeutta käyttää tiloja tai resurssia</strong> tai kun <strong>heidän työsopimuksensa päättyy</strong>.",
+        "name": "Pääsynvalvonta",
+        "description": "Keinot, joilla rajoitetaan henkilötietojen luvattoman käytön riskiä. Se edellyttää muun muassa: <br>- <strong>käyttäjäprofiilien hallintaa</strong> tehtävien ja vastuualueiden (mieluiten keskitetyn) avulla, joilla rajoitetaan henkilötietojen käyttöoikeudet määritetyille käyttäjille työtehtävien mukaan, ja<br>- <strong>henkilöstön, rekisterinpitäjän lukuun toimivien käsittelijöiden ja kolmansien osapuolten oikeuksien peruuttamista, kun heillä ei enää ole oikeutta käyttää tiloja tai resurssia</strong> tai kun <strong>heidän työsopimuksensa päättyy</strong>.",
         "source": "PIA3 s. 43 - WIKI"
       },
       "PIA_DEF_MIN1": {
         "name": "Suodatus ja poistaminen",
-        "description": "Tietojen tuomisen yhteydessä voi tallentua tahattomasti metadataa (kuten EXIF-dataa kuvaliitteiden yhteydessä). <br>Tällainen metadata on tunnistettava ja poistettava, jos se ei ole välttämätöntä tietojen käsittelyn määriteltyä tarkoitusta varten.",
+        "description": "Tietojen tuomisen yhteydessä voi tallentua tahattomasti metadataa. <br>Tällainen metadata on tunnistettava ja poistettava, jos se ei ole välttämätöntä tietojen käsittelyn määriteltyä tarkoitusta varten.",
         "source" : "PIAF Connected Objects s. 42 - WIKI"
       },
       "PIA_DEF_MIN2": {
-        "name": "Tietojen arkaluonteisuuden vähentäminen muuntamalla",
+        "name": "Tietojen arkaluonteisuuden vähentäminen",
         "description": "Yleisten tietojen osana tai yksinomaan tilastollisia tarkoituksia varten saadut arkaluonteiset tiedot voidaan muuntaa vähemmän arkaluonteiseen muotoon tai pseudonymisoida. Esimerkiksi: <br>- Jos järjestelmä tallentaa IP-osoitteen käyttäjän sijainnin määrittelemiseksi tilastoja varten, IP-osoite voidaan poistaa, kun kaupunki tai kaupunginosa on määritelty<br>- Videotietoja valvontakameroista vastaanottava järjestelmä voi tunnistaa kuvassa seisovat tai liikkuvat ihmiset ja sumentaa heidät tunnistamattomiksi<br>- Älykäs kulutusmittari voi koostaa tietyn aikavälin energiankulutustiedot tallentamatta niitä reaaliaikaisesti",
         "source" : "PIAF Connected Objects s. 42 - WIKI"
       },
@@ -530,7 +531,7 @@
       },
       "PIA_DEF_MEN": {
         "name": "Uhka",
-        "description": "Menettely, joka koostuu yhdestä tai useammasta tietojen käsittelyyn käytettäviin resursseihin kohdistuvasta toimesta. Toimet ovat riskitekijän tahallisesti tai tahattomasti tekemiä, ja ne voivat aiheuttaa ei-toivotun tapahtuman.",
+        "description": "Menettely, joka on ristiriidassa yhden tai useamman tietoturvamenettelyn kanssa. Riskitekijät, jotka voivat aiheuttaa tahallisesti tai tahattomasti ei-toivotun tapahtuman.",
         "source": "PIA1 s. 12 - WIKI"
       },
       "PIA_DEF_MENA": {
@@ -560,7 +561,7 @@
       },
       "PIA_DEF_PBDS": {
         "name": "Projektinhallinta",
-        "description": "Toimenpiteet, joilla henkilötietojen suojaus toteutetaan kaikissa uusissa käsittelyoperaatioissa (luotetut henkilöt, ohjeet, CNIL:n riskienhallintamenetelmät tai muut sisäiset käytänteet).",
+        "description": "Toimenpiteet, joilla henkilötietojen suojaus toteutetaan kaikissa uusissa käsittelyoperaatioissa (luotetut henkilöt, ohjeet, riskienhallintamenetelmät tai muut sisäiset käytänteet).",
         "source": "Mesures_US"
       },
       "PIA_DEF_VIOL": {
@@ -600,7 +601,7 @@
       },
       "PIA_DEF_MIN3": {
         "name": "Tietojen tunnistettavuuden vähentäminen",
-        "description": "Järjestelmä voi varmistaa, että: <br>- käyttäjä voi käyttää resursseja tai palveluita ilman vaaraa hänen henkilöllisyytensä paljastumisesta (anonyymit tiedot)<br>- käyttäjä voi käyttää resursseja tai palveluita ilman vaaraa hänen henkilöllisyytensä paljastumisesta, mutta olla kuitenkin tunnistettavissa ja vastuussa käytöstä (pseudonymisoidut tiedot)<br>- käyttäjä voi käyttää useita resursseja tai palveluita ilman, että käyttökertoja voi liittää toisiinsa (tietoja ei voi yhdistellä)<br>- käyttäjä voi käyttää resursseja tai palveluita ilman, että muut tahot ja erityisesti kolmannet osapuolet voivat havaita, että resurssia tai palvelua käytetään (havaitsemattomuus)<br>Yllä olevasta listasta tulee valita tunnistettujen uhkien mukaiset menetelmät. Pseudonymisoiminen sopii joihinkin yksityisyyteen kohdistuviin uhkiin paremmin kuin anonymisoiminen (esimerkiksi jos käytön on oltava jäljitettävissä). Jotkut yksityisyyteen kohdistuvat uhat vaativat usean menetelmän yhdistelmää.",
+        "description": "Järjestelmä voi varmistaa, että: <br>- käyttäjä voi käyttää resursseja tai palveluita ilman vaaraa hänen henkilöllisyytensä paljastumisesta (anonyymit tiedot)<br>- käyttäjä voi käyttää resursseja tai palveluita ilman vaaraa hänen henkilöllisyytensä paljastumisesta, mutta olla kuitenkin tunnistettavissa ja vastuussa käytöstä (pseudonymisoidut tiedot)<br>- käyttäjä voi käyttää useita resursseja tai palveluita ilman, että käyttökertoja voi liittää toisiinsa (tietoja ei voi yhdistellä)<br>- käyttäjä voi käyttää resursseja tai palveluita ilman, että muut tahot ja erityisesti kolmannet osapuolet voivat havaita, että resurssia tai palvelua käytetään (havaitsemattomuus)<br>Yllä olevasta listasta tulee valita tunnistettujen uhkien mukaiset menetelmät. Pseudonymisointi sopii joihinkin yksityisyyteen kohdistuviin uhkiin paremmin kuin anonymisointi (esimerkiksi jos käytön on oltava jäljitettävissä). Jotkut yksityisyyteen kohdistuvat uhat vaativat usean menetelmän yhdistelmää.",
         "source" : "PIAF Connected Objects s. 42 - WIKI"
       },
       "PIA_DEF_MIN4": {
@@ -610,7 +611,7 @@
       },
       "PIA_DEF_MIN5": {
         "name": "Tietojen käyttöoikeuksien rajoittaminen",
-        "description": "Järjestelmä voi rajoittaa tietojen käyttöoikeudet käyttäjille, jotka tarvitsevat tietoja. Järjestelmä kykenee erottelemaan arkaluonteiset tiedot ja soveltamaan niihin erillisiä pääsynvalvontakäytänteitä. Järjestelmä pystyy suojelemaan arkaluonteisten tietojen luottamuksellisuutta siirron ja varastoinnin aikana salaamalla tiedot. Myös henkilötietojen käsittelyn yhteydessä syntyvät väliaikaiset evästeet on suojattava.",
+        "description": "Järjestelmä voi rajoittaa tietojen käyttöoikeudet käyttäjille, jotka tarvitsevat tietoja. Järjestelmä kykenee erottelemaan erityiset henkilötietoryhmät ja soveltamaan niihin erillisiä pääsynvalvontakäytänteitä. Järjestelmä pystyy suojelemaan erityisten henkilötietoryhmien luottamuksellisuutta siirron ja varastoinnin aikana salaamalla tiedot. Myös henkilötietojen käsittelyn yhteydessä syntyvät väliaikaiset evästeet on suojattava.",
         "source": "PIAF Connected Objects s. 42 - WIKI"
       },
       "PIA_EX_DCPC": {
@@ -619,13 +620,13 @@
         "source": "PIA2:n vanha versio - WIKI"
       },
       "PIA_EX_DCPS": {
-        "name": "Arkaluonteisena pidettävät henkilötiedot",
+        "name": "Erityistä suojaamista edellyttävät henkilötiedot",
         "description": "Henkilötunnus, biometriset tiedot, pankkitiedot",
         "source": "PIA2:n vanha versio - WIKI"
       },
       "PIA_EX_DCPR": {
-        "name": "Tuomiot ja arkaluonteiset henkilötiedot",
-        "description": "Filosofinen, poliittinen ja uskonnollinen vakaumus, ammattiliiton jäsenyys, seksuaalielämä, terveystiedot, rodullinen tai etninen alkuperä, terveyttä ja seksuaalielämää koskevat tiedot, rikokset, tuomiot, suojaamiskeinot; ks. <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">9 ja  10 artikla, [GDPR]</a>.",
+        "name": "Rikkomuksia ja tuomioita sekä erityisiä henkilötietoryhmiä koskevat tiedot",
+        "description": "Filosofinen, poliittinen ja uskonnollinen vakaumus, ammattiliiton jäsenyys, seksuaalinen käyttäytyminen ja suuntautuminen, terveystiedot, rodullinen tai etninen alkuperä, terveyttä ja seksuaalielämää koskevat tiedot, rikostuomioita ja rikkomuksia tai niihin liittyviin turvaamistoimiin liittyvät henkilötiedot; ks. <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">9 ja  10 artikla, [GDPR]</a>.",
         "source": "PIA2:n vanha versio, 9 ja 10 artikla, GDPR - WIKI"
       },
       "PIA_EX_HUMI": {
@@ -650,17 +651,17 @@
       },
       "PIA_EX_IMPL": {
         "name": "Rajoitettu vaikutus",
-        "description": "Rekisteröidyille voi aiheutua merkittävää vaivaa, josta he voivat kuitenkin selvitä kohtuullisin vaikeuksin. Esimerkiksi:<br>- Fyysinen: lievät fyysiset vaivat (vasta-aiheiden huomiotta jättämisen aiheuttama lievä sairaus), herjaus josta seuraa fyysinen tai psykologinen kosto jne.<br>- Aineellinen: odottamattomat maksut (virheellisesti määrätyt sakot), hallinnollisten tai kaupallisten palveluiden käytön epääminen, rekisteröidyn mainetta todennäköisesti vahingoittavien ei-toivottujen ja kohdennettujen sähköpostien saaminen jne.<br>- Henkinen: lievät mutta objektiivisesti todetut psykiatriset häiriöt, yksityisyyden loukkauksen tunne ilman peruuttamatonta vahinkoa, uhkailu sosiaalisissa verkostoissa jne.",
+        "description": "Rekisteröidyille voi aiheutua merkittävää vaivaa, josta he voivat kuitenkin selvitä kohtuullisin vaikeuksin. Esimerkiksi:<br>- Fyysinen: lievät fyysiset vaivat, herjaus josta seuraa fyysinen tai psykologinen kosto jne.<br>- Aineellinen: odottamattomat maksut (virheellisesti määrätyt sakot), hallinnollisten tai kaupallisten palveluiden käytön epääminen, rekisteröidyn mainetta todennäköisesti vahingoittavien ei-toivottujen ja kohdennettujen sähköpostien saaminen jne.<br>- Henkinen: lievät mutta objektiivisesti todetut psykiatriset häiriöt, yksityisyyden loukkauksen tunne ilman peruuttamatonta vahinkoa, uhkailu sosiaalisissa verkostoissa jne.",
         "source": "PIAF Connected Objects s. 41 - WIKI"
       },
       "PIA_EX_IMPI": {
         "name": "Merkittävä vaikutus",
-        "description": "Rekisteröidyille voi aiheutua vakavia seurauksia, joista he selviytyvät vain todellisten ja vakavien vaikeuksien jälkeen. Esimerkiksi: <br>- Fyysinen: vakava fyysinen sairaus, joka aiheuttaa pitkäaikaista vahinkoa (terveyden heikkeneminen väärän hoidon tai vasta-aiheiden huomioimatta jättämisen seurauksena), fyysisistä vammoista toipuminen esim. pahoinpitelyn, onnettomuuden tai työtapaturman jälkeen jne.<br>- Aineellinen: korvaamatta jäävä varojen kavallus, rekisteröidyn ainutlaatuisten ja kertaluonteisten mahdollisuuksien menetykset (asuntolaina, opiskelu-, harjoittelu- tai työpaikan epääminen, kokeesta tai tentistä sulkeminen), asunnon menetys, työpaikan menetys jne.;<br>- Henkinen: vakavat psykiatriset häiriöt (masennus, fobia), tunne yksityisyyden loukkauksesta ja peruuttamatonta vahinkoa, joutuminen kiristyksen, kyberkiusaamisen tai häirinnän uhriksi jne.",
+        "description": "Rekisteröidyille voi aiheutua vakavia seurauksia, joista he selviytyvät vain todellisten ja vakavien vaikeuksien jälkeen. Esimerkiksi: <br>- Fyysinen: vakava fyysinen sairaus, joka aiheuttaa pitkäaikaista vahinkoa (terveyden heikkeneminen väärän hoidon seurauksena), fyysisistä vammoista toipuminen esim. pahoinpitelyn, onnettomuuden tai työtapaturman jälkeen jne.<br>- Aineellinen: korvaamatta jäävä varojen kavallus, rekisteröidyn ainutlaatuisten ja kertaluonteisten mahdollisuuksien menetykset (asuntolaina, opiskelu-, harjoittelu- tai työpaikan epääminen, kokeesta tai tentistä sulkeminen), asunnon menetys, työpaikan menetys jne.;<br>- Henkinen: vakavat psykiatriset häiriöt (masennus, fobia), tunne yksityisyyden loukkauksesta ja peruuttamatonta vahinkoa, joutuminen kiristyksen, kyberkiusaamisen tai häirinnän uhriksi jne.",
         "source": "PIAF Connected Objects s. 41 - WIKI"
       },
       "PIA_EX_IMPM": {
         "name": "Suurin vaikutus",
-        "description": "Rekisteröidyille voi aiheutua merkittäviä, jopa peruuttamattomia, seurauksia, joista he eivät välttämättä selviä. Esimerkiksi:<br>- Fyysinen: pitkittyneet tai pysyvät fyysiset sairaudet, pysyvä toimintakyvyn aleneminen, kuolema<br>- Aineellinen: taloudelliset riskit, merkittävät velat, työkyvyttömyys, liikkuvuuden menetys, todistusaineiston menetys oikeuskäsittelyssä, elintärkeän infrastruktuurin (vesi, sähkö) käytön estyminen jne.<br>- Henkinen: pitkittyneet tai pysyvät psykiatriset häiriöt, rikostuomio, kaapatuksi joutuminen, perhesiteiden katkeaminen, haastekyvyttömyys, hallinnollisen statuksen muutos ja/tai laillisen itsemääräämisoikeuden menetys (holhous) jne.",
+        "description": "Rekisteröidyille voi aiheutua merkittäviä, jopa peruuttamattomia, seurauksia, joista he eivät välttämättä selviä. Esimerkiksi:<br>- Fyysinen: pitkittyneet tai pysyvät fyysiset sairaudet, pysyvä toimintakyvyn aleneminen, kuolema<br>- Aineellinen: taloudelliset riskit, merkittävät velat, työkyvyttömyys, liikkuvuuden menetys, todistusaineiston menetys oikeuskäsittelyssä, elintärkeän infrastruktuurin (vesi, sähkö) käytön estyminen jne.<br>- Henkinen: pitkittyneet tai pysyvät psykiatriset häiriöt, rikostuomio, kaapatuksi joutuminen, perhesiteiden katkeaminen, oikeustoimikelvottomuus ja/tai laillisen itsemääräämisoikeuden menetys (holhous) jne.",
         "source": "PIAF Connected Objects s. 41 - WIKI"
       },
       "PIA_EX_VRAN": {
@@ -689,9 +690,9 @@
         "source": "Mesures_US"
       },
       "PIA_DEF_ANO": {
-        "name": "Anonymisoiminen",
-        "description": "Tunnistetietojen poistaminen henkilötiedoista. Anonymisoimisprosessien riittävyyttä voi arvioida ohjeen <a target=\"_blank\" href=\"http://ec.europa.eu/justice/data-protection/article-29/documentation/opinion-recommendation/files/2014/wp216_en.pdf\">WP29 avulla</a>.",
-        "source": "Mesures_US ja ohje G29 http://ec.europa.eu/justice/data-protection/article-29/documentation/opinion-recommendation/files/2014/wp216_en.pdf"
+        "name": "Anonymisointi",
+        "description": "Tunnistetietojen poistaminen henkilötiedoista. Anonymisointiprosessien riittävyyttä voi arvioida <a target=\"_blank\" href=\"http://ec.europa.eu/justice/data-protection/article-29/documentation/opinion-recommendation/files/2014/wp216_fi.pdf\">WP29:n ohjeen</a> avulla.",
+        "source": "Mesures_US ja ohje G29 http://ec.europa.eu/justice/data-protection/article-29/documentation/opinion-recommendation/files/2014/wp216_fi.pdf"
       },
       "PIA_SEC_CTR": {
         "placeholder": "Kuvaile tässä henkilötietojen käsittelijöihin sovellettavat toimenpiteet (isäntäpalvelin, huoltoyhtiö, pääkäyttäjä, erikoistuneet palveluntarjoajat jne.)",
@@ -710,7 +711,7 @@
       },
       "PIA_DEF_AUTH": {
         "name": "Todentaminen",
-        "description": "Jokainen henkilö, jolla on käyttöoikeudet henkilötietoihin (työntekijät, alihankkijat ja muut kolmannet osapuolet) tulee tunnistaa yksilöllisellä tunnisteella. Valitse asiayhteyden, riskitason ja vaadittavan vahvuuden mukainen todentamismenetelmä, jolla käyttäjät kirjautuvat istuntoon. Suositukset: jos riskitaso ei ole kohonnut, salasanan käyttö on mahdollista. Korkeampien riskien tapauksessa tulee kuitenkin käyttää käyttäjän itse valitseman salasanan lisäksi kertakäyttöisiä salasanoja tai tekstiviestillä lähetettävää salasanaa, PIN-koodikorttia, sähköistä sertifikaattia tai muuta vahvan todentamisen menetelmää.",
+        "description": "Jokainen henkilö, jolla on käyttöoikeudet henkilötietoihin (työntekijät, rekisterinpitäjän lukuun toimivat käsittelijät ja kolmannet osapuolet) tulee tunnistaa yksilöllisellä tunnisteella. Valitse asiayhteyden, riskitason ja vaadittavan vahvuuden mukainen todentamismenetelmä, jolla käyttäjät kirjautuvat istuntoon. Suositukset: jos riskitaso ei ole kohonnut, salasanan käyttö on mahdollista. Korkeampien riskien tapauksessa tulee kuitenkin käyttää käyttäjän itse valitseman salasanan lisäksi kertakäyttöisiä salasanoja tai tekstiviestillä lähetettävää salasanaa, PIN-koodikorttia, sähköistä sertifikaattia tai muuta vahvan todentamisen menetelmää.",
         "source": "Mesures_US Logical Access Control"
       },
       "PIA_DEF_LOG": {
@@ -821,8 +822,8 @@
     "title": "Tietoa tietosuojaa koskevasta vaikutustenarviointityökalusta",
     "version_number": "Versio",
     "description": "Ranskan tietosuojaviranomainen, <a target=\"_blank\" href=\"https://www.cnil.fr\">Commission Nationale Informatique et Liberté (CNIL)</a>, kehitti tämän työkalun auttamaan rekisterinpitäjiä täyttämään yleisen tietosuoja-asetuksen vaatimukset.<br>Ohjelmisto on ilmainen ja sen lähdekoodi on avointa. Jos haluat osallistua projektiin, voit ladata sen lähdekoodin Githubista, muokata sitä ja jakaa sen yhteisön kanssa.",
-    "translators": "Vaikutustenarviointiohjelmisto on tällä hetkellä saatavilla viidellä kielellä. CNIL on laatinut työkalun ranskan- ja englanninkieliset versiot. Muut kieliversiot ovat seuraavien yksilöiden työn tulosta:",
-    "translators_name": "<ul><li>Dutch: Ruud van Driel, Manuel d’Orso, Louis De Jaeger ;</li><li>Czech: Jiří Grohmann, Manuel d’Orso ;</li><li>Italian: Manuel d’Orso, Gianluca Markos, Romolo Manfredini, Andrea Latino, Antonio Caselli ;</li><li>Polish: Joanna Karczewska, Michał Mazur ;</li><li>German: Kosmas Schütz, Corina Scheiter ;</li><li>Spanish: ylachgar</li><li>Norwegian: PVOhmn</li><li>Greek: Dimitris Tzellis</li><li>Portuguese: rubenlavrador, bagois ;</li><li>Finnish: DPA Finland</li></ul>",
+    "translators": "Vaikutustenarviointiohjelmisto on tällä hetkellä saatavilla viidellä kielellä. CNIL on laatinut työkalun ranskan- ja englanninkieliset versiot. Muut kieliversiot ovat seuraavien henkilöiden työn tulosta:",
+    "translators_name": "<ul><li>Hollanti: Ruud van Driel, Manuel d’Orso</li><li>Tšekki: Jiří Grohmann, Manuel d’Orso</li><li>Italia: Manuel d’Orso, Gianluca Markos</li><li>Puola: Joanna Karczewska, Michał Mazur ;</li><li>Saksa: Kosmas Schütz, Corina Scheiter ;</li><li>Espanja: ylachgar</li><li>Norja: PVOhmn</li><li>Kreikkalainen: Dimitris Tzellis</li><li>Portugali: rubenlavrador, bagois ;</li><li>Suomalainen: DPA Finland</li><li>Romanialainen: oddox</li></ul>",
     "contribute": "Jos haluat osallistua ohjelmiston kääntämiseen tai olemassa olevien käännösten parantamiseen, lue <a href=\"https://github.com/LINCnil/pia/tree/master/src/assets/i18n\" target=\"_blank\">ohjeet tältä sivulta</a>.",
     "licences": "Kirjastolisenssit:"
   },
@@ -1078,7 +1079,7 @@
     },
     "2": {
       "title": "Perusperiaatteet",
-      "short_help": "Tässä osiossa voit laatia yksityisyyden suojan periaatteita koskevan vaatimustenmukaisuuskehyksen.",
+      "short_help": "Tässä osiossa voit laatia yksityisyyden suojan periaatteita koskevan vaatimustenmukaisuuskehikon.",
       "items": {
         "1": {
           "title": "Suhteellisuus ja tarpeellisuus",
@@ -1112,8 +1113,8 @@
           }
         },
         "2": {
-          "title": "Rekisteröityjen henkilökohtaisten oikeuksien turvaamiskeinot",
-          "short_help": "Tässä osassa voit osoittaa, että asianosaisille henkilöille tarjotaan tarvittavat keinot heidän oikeuksiensa käyttämiseen.",
+          "title": "Rekisteröityjen oikeuksien turvaamiskeinot",
+          "short_help": "Tässä osassa voit osoittaa, että rekisteröidyille tarjotaan tarvittavat keinot heidän oikeuksiensa käyttämiseen.",
           "questions": {
             "1": {
               "title": "Kuinka rekisteröidyille ilmoitetaan henkilötietojen käsittelystä?",
@@ -1123,7 +1124,7 @@
             "2": {
               "title": "Kuinka rekisteröityjen suostumus hankitaan, jos se on tarpeen?",
               "short_title": "Suostumuksen hankkiminen",
-              "placeholder": "Kuvaile varotoimet, joilla varmistetaan, että käyttäjien suostumus on hankittu."
+              "placeholder": "Kuvaile varotoimet, joilla varmistetaan, että rekisteröityjen suostumus on hankittu."
             },
             "3": {
               "title": "Kuinka rekisteröidyt voivat käyttää oikeuksiaan saada pääsy henkilötietoihin ja siirtää tiedot järjestelmästä toiseen?",
@@ -1146,7 +1147,7 @@
               "placeholder": "Kuvaile jokaisen henkilötietojen käsittelijän vastuut (kesto, laajuus, tarkoitus, kirjalliset käsittelyohjeet, ennakkolupa) ja liitä sopimukset, käytännesäännöt ja sertifioinnit, joissa käsittelijöiden tehtävät ja velvoitteet on määritelty."
             },
             "7": {
-              "title": "Onko mahdollisesti Euroopan unionin ulkopuolelle siirrettävät tiedot suojattu asianmukaisesti?",
+              "title": "Onko Euroopan unionin ulkopuolelle siirrettävät tiedot suojattu asianmukaisesti?",
               "short_title": "Tietojen siirrot",
               "placeholder": "Nimeä jokainen Euroopan unionin ulkopuolien valtio, jossa henkilötietoja säilytetään tai käsitellään ja ilmoita, onko komissio päättänyt, että se tarjoaa riittävän tietosuojan tai kuvaile tietojen siirtoa koskevat ehdot."
             }
@@ -1268,11 +1269,11 @@
         },
         "2": {
           "title": "Toimintasuunnitelma",
-          "short_help": "Suunnittele tietosuojaa koskevan vaikutustenarvioinnin laatimisen aikana määriteltyjen lisäsuojaustoimien toteutus yksityiskohtaisesti. Toimintasuunnitelma päivittyy automaattisesti, kun tietosuojaa koskevan vaikutustenarvioinnin eri elementtejä arvioidaan."
+          "short_help": "Suunnittele vaikutustenarvioinnissa tunnistettujen tarpeellisten lisäsuojatoimenpiteiden toteuttaminen käytännössä. Toimintasuunnitelma päivittyy automaattisesti, kun tietosuojaa koskevan vaikutustenarvioinnin eri elementtejä arvioidaan."
         },
         "3": {
-          "title": "Tietosuojavaltuutetun ja asianomaisten mielipiteet",
-          "short_help": "Esitä tietosuojasta ja yksityisyyden suojasta vastaavan henkilön (tietosuojavaltuutetun, jos sellainen on nimetty) suositukset. Esitä rekisteröityjen tai heidän edustajiensa mielipiteet."
+          "title": "Tietosuojavastaavan ja asianomaisten mielipiteet",
+          "short_help": "Esitä tietosuojasta ja yksityisyyden suojasta vastaavan henkilön (tai tietosuojaryhmän, jos sellainen on nimetty) suositukset. Esitä rekisteröityjen tai heidän edustajiensa mielipiteet."
         },
         "4": {
           "title": "Validoi tietosuojaa koskeva vaikutustenarviointi"
