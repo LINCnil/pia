@@ -1,18 +1,18 @@
 {
   "authentication": {
-    "title": "Privacy impact assessment",
-    "subtitle1": "A platform to create <br> and manage your PIAs",
-    "subtitle2": "Access tools and glossaries",
-    "start_app": "Access the PIA's software (Beta)",
-    "description": "This software by the <strong>French Data Protection Authority (CNIL)</strong> is meant to guide the data controllers in building and demonstrating compliance to the GDPR. It helps to properly carry out a data protection impact assessment by facilitating the use of the PIA method developed by the CNIL.",
+    "title": "Analiza a impactului asupra vietii private",
+    "subtitle1": "O platforma pentru crearea si <br >administrarea analizelor de impact",
+    "subtitle2": "Instrumente si definitii",
+    "start_app": "Porniti analiza de impact (Beta)",
+    "description": "Aceasta aplicatie creata de  <strong>Autoritatea de Supraveghere a Republicii Franceze (CNIL)</strong> are ca scop ghidarea operatorilor de date in procesul de documentare si implementare GDPR. Ajuta la analize de impact conduse corect folosind metoda de analiza dezoltata de Autoritatea Francesa - by the CNIL.",
     "start": "Start"
   },
   "header": {
-    "logo_title": "Privacy impact assessment",
+    "logo_title": "Analiza de impact",
     "logo_subtitle": "",
-    "homepage_link": "Dashboard",
+    "homepage_link": "Panou central",
     "knowledge_base_link": "Knowledge base",
-    "pia_example_link": "PIA example",
+    "pia_example_link": "Exemplu AIVP",
     "languages": {
       "official_translation": "Original version",
       "cnil_translations": "CNIL provided translations",
@@ -29,113 +29,113 @@
       "el": "Ελληνικά",
       "pt": "Português",
       "fi": "Suomalainen",
-      "ro": "Românesc"
+      "ro": "Romana"
     },
     "tools": {
-      "title": "Tools",
-      "settings": "Settings",
-      "accessibility": "Visually impaired accessibility (high contrast colors, daltonism)",
-      "help": "Help",
-      "about": "About"
+      "title": "Unelte",
+      "settings": "Setari",
+      "accessibility": "Vizualizare pentru persoane cu defect de vedere (culori cu contrast puternic, daltonism)",
+      "help": "Ajutor",
+      "about": "Despre"
     }
   },
   "homepage": {
     "filters": {
-      "list": "list",
+      "list": "lista",
       "card": "card",
-      "sort": "Sort",
-      "sort_by": "by",
-      "name": "Name",
-      "date": "Date",
+      "sort": "Sortare",
+      "sort_by": "dupa",
+      "name": "Nume",
+      "date": "Data",
       "status": "Status",
-      "author": "Author",
-      "assessor": "Reviewer",
+      "author": "Autor",
+      "assessor": "Revizor",
       "validator": "Validator",
-      "new_pia": "New PIA",
-      "import_pia": "Import PIA",
-      "list_rocket_content": "Get started ! To initiate <br>a PIA, click on the +",
-      "card_rocket_content": "Get started !<br><br>To initiate a PIA,<br> click on New PIA"
+      "new_pia": "AIVP nou",
+      "import_pia": "Importa AIVP",
+      "list_rocket_content": "Porneste ! Pentru a crea o <br>AIVP noua, click pe +",
+      "card_rocket_content": "Porneste !<br><br>Pentru a crea o noua  AIVP,<br> click pe AIVP noua"
     },
     "cards": {
-      "new_pia": "New PIA",
-      "placeholder_new_pia": "New PIA",
-      "or": "or",
-      "import_pia": "Import PIA",
-      "placeholder_import_pia": "Import PIA",
-      "title_close_creation": "Close",
-      "pia_name": "PIA",
-      "placeholder_pia_name": "PIA's title",
-      "author": "Editing",
-      "placeholder_author": "Firstname, lastname",
-      "evaluation": "Review",
-      "placeholder_evaluation": "Firstname, lastname",
-      "validation": "Validation",
-      "placeholder_validation": "Firstname, lastname",
-      "date": "Date",
+      "new_pia": "AIVP noua",
+      "placeholder_new_pia": "AIVP noua",
+      "or": "ori",
+      "import_pia": "Importa AIVP",
+      "placeholder_import_pia": "Importa AIVP",
+      "title_close_creation": "Inchide",
+      "pia_name": "AIVP",
+      "placeholder_pia_name": "Titlu AIVP",
+      "author": "Editare",
+      "placeholder_author": "Prenume, Nume",
+      "evaluation": "Revizuire",
+      "placeholder_evaluation": "Prenume, Nume",
+      "validation": "Validare",
+      "placeholder_validation": "Prenume, Nume",
+      "date": "Data",
       "status": "Status",
-      "creation_status": "Creation",
+      "creation_status": "Creare",
       "start": "Start",
-      "placeholder_start": "All fields must be filled",
+      "placeholder_start": "Toate campurile trebuie completate",
       "item": {
         "tools": {
-          "export": "Export",
-          "more_options": "More options",
-          "duplicate": "Duplicate",
-          "action_plan": "Display<br>action plan",
-          "pia": "Display<br>PIA",
-          "remove": "Delete"
+          "edit": "Editare informatii",
+          "export": "Exporta",
+          "more_options": "Mai multe optiuni",
+          "duplicate": "Duplicare",
+          "action_plan": "Afiseaza<br>plan de actiune",
+          "pia": "Afiseaza<br>AIVP",
+          "remove": "Sterge"
         },
-        "edit_pia": "Edit PIA",
-        "consult_pia": "Consult PIA"
+        "edit_pia": "Editare AIVP",
+        "save_pia": "Salvare"
       }
     },
     "lists": {
-      "column_pia": "PIA",
-      "column_updated_at": "Last opened",
-      "column_author": "Editing",
-      "column_evaluation": "Review",
-      "column_validation": "Validation",
-      "column_creation": "Created",
+      "column_pia": "AIVP",
+      "column_updated_at": "Deschisa ultima data",
+      "column_author": "Editare",
+      "column_evaluation": "Revizuire",
+      "column_validation": "Validare",
+      "column_creation": "Creata",
       "column_status": "Status",
-      "column_progression": "Progress",
-      "column_actions": "Actions",
+      "column_progression": "Progres",
+      "column_actions": "Actioni",
       "item": {
         "tools": {
-          "consult": "Consult",
-          "edit": "Edit",
+          "edit": "Editare",
           "export": "Export",
-          "duplicate": "Duplicate",
-          "action_plan": "Display action plan",
-          "pia": "Display PIA",
-          "remove": "Delete"
+          "duplicate": "Duplicare",
+          "action_plan": "Afiseaza plan de actiune",
+          "pia": "Afiseaza AIVP",
+          "remove": "Sterge"
         }
       }
     }
   },
   "pia": {
     "statuses": {
-      "0": "In progress",
-      "1": "Rejected",
-      "2": "Simple validation",
-      "3": "Signed validation",
-      "4": "Archived",
-      "5": "Waiting for validation"
+      "0": "In lucru",
+      "1": "Respinsa",
+      "2": "Validare simpla ",
+      "3": "Validare semnata",
+      "4": "Arhivata",
+      "5": "In asteptarea validarii"
     },
     "header": {
-      "preview": "Preview",
-      "display_action_plan": "Display<br>action plan",
+      "preview": "Previzualizare",
+      "display_action_plan": "Afiseaza<br>plan de actiune",
       "edition": "Edition",
       "evaluation": "Evaluation"
     },
     "attachments": {
-      "title": "Attachments",
-      "add": "Add",
-      "remove": "Remove"
+      "title": "Atasamente",
+      "add": "Adauga",
+      "remove": "Sterge"
     },
     "sections": {
-      "homepage_link": "Back to dashboard",
-      "validate_pia": "Validate PIA",
-      "refuse_pia": "Refused PIA",
+      "homepage_link": "Inapoi la Panoul de Control",
+      "validate_pia": "Validare AIVP",
+      "refuse_pia": "AIVP refuzata",
       "status": {
         "evaluation": {
           "title": "Waiting for review.",
@@ -152,630 +152,630 @@
       }
     },
     "footer": {
-      "ask_evaluation": "Ask for review",
-      "validate_evaluation": "Validate review",
-      "subsection_validated": "Subsection reviewed, awaiting final validation",
-      "mandatory_fields": "All fields must be filled"
+      "ask_evaluation": "Cere revizuire",
+      "validate_evaluation": "Validare revizuire",
+      "subsection_validated": "Subsectiune revizuita, in asteptarea revizuirii finale",
+      "mandatory_fields": "Toate campurile trebuie completate"
     }
   },
   "measures": {
-    "placeholder_title": "Measure title",
-    "add": "Add an empty measure (otherwise, use the knowledge base)",
-    "edit": "Edit measure",
-    "remove": "Delete measure",
-    "default_placeholder": "Describe the existing or intended measures to ensure data security."
+    "placeholder_title": "Titlu masura",
+    "add": "Adauga o masura generica (sau foloseste Documentatia)",
+    "edit": "Editeaza masura",
+    "remove": "Sterge masura",
+    "default_placeholder": "Descrie masura de securitate actuala sau care urmeaza sa fie implementata."
   },
   "knowledge_base": {
-    "title": "Knowledge base",
-    "search": "Search",
-    "add_measure": "Add",
-    "placeholder_help": "Entry aids",
-    "placeholder_add_measure": "Add this measure",
-    "add_measure_hint": "You can also add a measure from the knowledge base.",
+    "title": "Documentatie",
+    "search": "Cauta",
+    "add_measure": "Adauga",
+    "placeholder_help": "Ajutor intrare",
+    "placeholder_add_measure": "Adauga masura",
+    "add_measure_hint": "Puteti adauga si o masura din Documentatie.",
     "filters": {
-      "title": "Filters",
-      "all": "All",
-      "definitions": "Definitions",
-      "organizational_measures": "Organisational controls",
-      "measures_on_data": "Logical security controls",
-      "general_measures": "Physical Security controls",
-      "no_result": "No result found."
+      "title": "Filtre",
+      "all": "Toate",
+      "definitions": "Definitii",
+      "organizational_measures": "Controale organizationale",
+      "measures_on_data": "Controale logice de securitate",
+      "general_measures": "Controale fizice de securitate",
+      "no_result": "Nu s-a gasit niciun rezultat"
     },
     "category": {
-      "definition": "Definition",
-      "principle": "Principle",
-      "organizational_measure": "Organisational control",
-      "measure_on_data": "Logical security control",
-      "general_measure": "Physical Security control",
-      "example": "Example"
+      "definition": "Definitie",
+      "principle": "Principiu",
+      "organizational_measure": "Control organizational",
+      "measure_on_data": "Control logic de securitate",
+      "general_measure": "Control fizic de securitate",
+      "example": "Exemplu"
     },
     "slugs": {
       "PIA_LGL_FOND": {
-        "name": "Justification of lawfulness",
-        "description": "- The data subject has given consent  to the processing of his or her personal data for one or more specific purposes <br>- Processing is necessary for the performance of a contract to which the data subject is party or in order to take steps at the request of the data subject prior to entering into a contract <br>-Processing is necessary for compliance with a legal obligation to which the controller is subject <br>- Processing is necessary in order to protect the vital interests of the data subject or of another natural person <br>- Processing is necessary for the performance of a task carried out in the public interest or in the exercise of official authority vested in the controller <br>- Processing is necessary for the purposes of the legitimate interests pursued by the controller or by a third party, except where such interests are overridden by the interests or fundamental rights and freedoms of the data subject which require protection of personal data, in particular where the data subject is a child<br> See <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">art. 6 of [GDPR]</a> ",
+        "name": "Justificare a legalitatii",
+        "description": "- Subiectul si-a dat consimtamantul pentru procesarea datelor sale personale pentru unul sau mai multe scopuri specifice <br>- Procesarea este necesara pentru indeplinirea unui contract la care subiectul este parte sau anterior pentru pasii necesari a se finaliza un contract la care subiectul va fi parte <br>-Procesare este necesara datorita unei cerinte legale a operatorului <br>- Procesarea este necesara pentru a apara un interes vital al subiectului sau al altei persoane <br>- Procesarea este necesara pentru prestarea unui serviciu in interes public sau in serviciul unei autoritati publice incredintate operatorului <br>- Procesaea este justificata de scopuri legitime ale operatorului sau ale unei terte parti, cu exceptia cazului in care aceste interese contravin drepturilor si libertatilor fundamentale ale individului, care necesita protectie, in special cand subiectul este cun copil<br> Vezi <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">art. 6 of [GDPR]</a> ",
         "source": "PIA2 p4"
       },
       "PIA_LGL_ST": {
-        "name": "Subcontracting",
-        "description": "A processing contract must be signed with each processor, setting out all of the aspects stipulated in Art. 28 of the [GDPR]: duration, scope, purpose, documented processing instructions, prior authorisation where a processor is engaged, provision of any documentation providing evidence of compliance with the [GDPR], prompt notification of any data breach, etc.",
+        "name": "Subcontractarea",
+        "description": "Un contract de procesare a datelor trebuie semnat cu orice procesator, mentionand toate aspectele stipulate in Art. 28 din[GDPR]: durata, domeniu, scop, instructiuni scrise si documentate de procesare, autorizatie pealabila cand exista un procesator nou, furnizarea oricaror documente care sa ateste respectarea [GDPR], notificarea prompta a oricarei încalcari a datelor etc.",
         "source": "PIA2 p10"
       },
       "PIA_LGL_TRAN": {
-        "name": "Transfers",
-        "description": "Depending on the country in question, you will have to justify the choice of remote hosting and indicate the legal supervision arrangements implemented in order to ensure adequate protection of the data subject to a cross-border transfer. That is :<br>- European Union<br>- Country recognised as providing adequate protection by the EU<br>- Transfer to the United States to a company which has joined the Privacy Shield<br>- Other country <br>See <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">art. 44 to 49 of [GDPR]</a>",
+        "name": "Transferuri",
+        "description": "In functie de tara destinatie, va trebui sa justificati alegerea gazduirii de la distanta si sa indicati masurile de supraveghere juridica puse în aplicare pentru a asigura o protectie adecvata a datelor care fac obiectul unei tranzactii transfrontaliere. Aceasta este : tara recunoscuta de <br>- Uniunea Europeana <br>- ca asigurand protectie adecvata <br>- Transfer catre o companie din Statele Unite care a aderat la Protectia Vietii Private.<br>- Alta tara <br>Vezi<a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">de la art. 44 ls 49 of [GDPR]</a>",
         "source": "PIAF Connected Objects p18"
       },
       "PIA_LGL_DESC": {
-        "name": "Processing's description",
-        "description": "Present a brief outline of the processing under consideration, its nature, scope, context, purposes and stakes. Identify the data controller and any processors. List the standard references applicable to the processing, which are necessary or must be complied with , not least the approved codes of conduct (see Art. 40 of the <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR]</a>) and certifications regarding data protection (see Art. 42 of the <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR]</a>)",
+        "name": "Descrierea procesarii",
+        "description": "Introduceti o scurta prezentare a procesarii de fata, natura ei, domeniul, contextul, scopul si beneficiarii. Identificati operatorul si procesatorii. Enumerati cerintele standard aplicabile procesarii, care sunt necesare sau trebuie sa fie respectate, si nu în ultimul rând codurile de conduita aprobate. (Vezi Art. 40 of the <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR]</a>) si certificarile cu privire la protectia datelor personale (vezi Art. 42 din <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR]</a>)",
         "source": "PIA1 p4"
       },
       "PIA_LGL_DATA": {
-        "name": "Data and processes",
-        "description": "Define and describe the scope in detail:<br>- the personal data concerned, their recipients and storage durations<br>- description of the processes and personal data supporting assets for the entire personal data life cycle (from collection to erasure).",
+        "name": "Date si procese",
+        "description": "Definiti si descrieti in detaliu domeniul datelor<br>- datele, destinatarii, durata stocarii,<br>- descrierea proceselor description of the processes si mijloacele care asigura ciclul de viata al datelor personale (de la colectare la stergere).",
         "source": "PIA1 p6"
       },
       "PIA_LGL_SUPT": {
-        "name": "Supporting asset",
-        "description": "Asset on which personal data rely. Note: this may be hardware, software, networks, people, paper or paper transmission channels.",
+        "name": "Suportul datelor",
+        "description": "Suportul unde exista datele. Nota: acesta poate fi hardware, software, retele, oameni, hartie.",
         "source": "PIA1 p10"
       },
       "PIA_LGL_FIN": {
-        "name": "Principles relating to processing of personal data",
-        "description": "Personal data shall be collected for specified, explicit and legitimate purposes and <strong>not further processed in a manner that is incompatible with those purposes.</strong> <br>See <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 5.1 b) of [GDPR]</a>",
+        "name": "Principii cu privire la procesarea datelor cu caracter personal",
+        "description": "Datele personale trebuie prelucrate pentru scopuri specifice, explicite, in scopuri legitime si <strong> sa nu fie procesate mai departe intr-o maniera incompatibila cu acestea.</strong> <br>Vezi <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 5.1 b) din [GDPR]</a>",
         "source": "GDPR art 5.1 b)"
       },
       "PIA_LGL_MINI": {
-        "name": "Data minimisation",
-        "description": "It is important to reduce the severity of the risks by minimising the number of personal data that will be processed, by limiting such data to what is strictly necessary for the purposes for which they are processed (otherwise they should not be collected). Then, it also becomes possible to minimise the data themselves, via controls aimed at reducing their sensitivity.",
+        "name": "Minimizarea datelor",
+        "description": "Este important sa sa scada riscul scazand cantitatea si numarul de date personale procesate la valori strict necesare pentru scopurile prelucrarii (altfel nu ar trebui colectate). Apoi, devine, de asemenea, posibila minimizarea datelor în sine, prin intermediul unor controale menite sa reduca sensibilitatea acestora.",
         "source": "PIAF Connected Objects p10 - WIKI"
       },
       "PIA_LGL_DEST": {
-        "name": "Recipient",
-        "description": "Natural or legal person, public authority, agency or another body, to which the personal data are disclosed, whether a third party or not. However, public authorities which may receive personal data in the framework of a particular inquiry in accordance with Union or Member State law shall not be regarded as recipients; the processing of those data by those public authorities shall be in compliance with the applicable data protection rules according to the purposes of the processing. see Art. 4.9 of the <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR]</a>",
+        "name": "Destinatarul",
+        "description": "Persoana, autoritatea publica, agentia sau alt organism cartre care datele personale sunt dezvaluite terta parte sau nu. In orice caz autoritatile publice care primesc date cu caracter personal în cadrul unei anchete specifice în conformitate cu legislatia Uniunii sau a statului membru nu sunt considerate destinatari; prelucrarea acestor date de catre autoritati ar trebui sa fie conforma cu regulile specifice scopului prelucrarii. vezi Art. 4.9 din <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR]</a>",
         "source": "GDPR art 4.9"
       },
       "PIA_LGL_DUR": {
-        "name": "Storage Durations",
-        "description": "A storage duration must be defined for each type of data and justified by the legal requirements and/or processing needs. Thus a distinction is made between common data and archived data, to which access will be limited to only the stakeholders concerned. An erasure mechanism must be implemented to archive common data or purge archived data at the end of their storage duration. Functional traces will also have to be purged, as will technical logs which may not be stored indefinitely",
-        "source": "PIAF Connected Objects p12"
+        "name": "Perioada de stocare",
+        "description": "Durata de stocare trebuie definită pentru fiecare tip de date și justificată de cerințele legale și / sau de necesitățile de procesare. Astfel, se face o distincție între datele comune și datele arhivate, la care accesul se va limita doar la părțile interesate în cauză. Trebuie să fie implementat un mecanism de ștergere pentru arhivarea datelor comune sau pentru curățarea datelor arhivate la sfârșitul duratei de stocare. De asemenea, trebuie să fie curățate urmele funcționale, precum și înregistrările tehnice care nu pot fi stocate pe o perioadă nedeterminată",
+        "source": "Obiecte conectate la PIAF p12"
       },
       "PIA_LGL_INFO": {
-        "name": "Informing data subjects",
-        "description": "Ensure that the subjects are informed. Confirm that the processing is not covered by an exception and is not subject to specific conditions.",
+        "name": "Informarea persoanelor vizate",
+        "description": "Asigurați-vă că persoanele sunt informate. Confirmați că prelucrarea nu este acoperită de o excepție și nu este supusă unor condiții specifice.",
         "source": "PIA3 p8 - WIKI"
       },
       "PIA_LGL_CONS": {
-        "name": "Consent",
-        "description": "Allow data subjects to make a free, specific and informed choice. Determine whether the processing relies on a legal basis other than consent pursuant to Art. 6 of the <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR]</a>",
+        "name": "Consimțământ",
+        "description": "Permiteți persoanelor vizate să facă o alegere liberă, specifică și informată. Stabiliți dacă prelucrarea se bazează pe un temei juridic altul decât consimțământul în temeiul art. 6 din < target =\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR]</a>",
         "source": "PIA3 p11 - WIKI"
       },
       "PIA_VAL_DPO": {
-        "name": "DPO's opinion",
-        "description": "The controller shall seek the advice of the data protection officer, where designated, when carrying out a data protection impact assessment. See Art. 39.2 of the <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR]</a><br> <strong>This view may be against the processing being implemented, without restricting the decision of the data controller for all that</strong>.",
-        "source": "GDPR Art. 39.2 and PIAF Connected Objects p37"
+        "name": "Avizul RPD",
+        "description": "Operatorul solicită consilierea responsabilului cu protecția datelor, atunci când este desemnat, atunci când efectuează o evaluare a impactului privind protecția datelor. Vezi Art. 39.2 din <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR]</a><br> <strong> Acest aviz poate fi împotriva prelucrării implementate, fără a restricționa decizia operatorului de date pentru toate </strong>.",
+        "source": "GDPR Art. 39.2 și Obiecte conectate la PIAF p37"
       },
       "PIA_VAL_CONC": {
-        "name": "Data subject's opinion",
-        "description": "Where appropriate, the controller shall seek the views of data subjects or their representatives on the intended processing, without prejudice to the protection of commercial or public interests or the security of processing operations. See Art. 39.2 of the <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR]</a><br>These views may be gathered by diverse means, depending on the context (internal or external study on the processing methods and purpose, question for the attention of staff representatives or trade unions, survey among future customers of the data processor). <strong>Where the data controller decides to go against the views of the data subjects</strong>, he must note down <strong>the justification for this decision</strong>. Where the data controller considers that <strong>gathering the views of the data subjects is not relevant, he must also note down the justification thereof</strong>.",
-        "source": "GDPR Art. 39.9 and PIAF Connected Objects p38"
+        "name": "Opinia persoanei vizate",
+        "description": "După caz, operatorul solicită opiniile persoanelor vizate sau reprezentanților acestora cu privire la prelucrarea intenționată, fără a aduce atingere protecției intereselor comerciale sau publice sau securității operațiunilor de prelucrare. Vezi Art. 39.2 din <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR]</a><br>Aceste opinii pot fi colectate prin diverse mijloace, în funcție de context (studiu intern sau extern privind metodele și scopul prelucrării, întrebarea adresată reprezentanților personalului sau sindicatelor, sondaj în rândul viitorilor clienți ai procesorului de date). <strong>În cazul în care operatorul de date decide să se opună opiniilor persoanelor vizate</strong>, trebuie să noteze <strong>justificarea pentru această decizie</strong>. În cazul în care operatorul de date consideră că <strong>colectarea opiniilor persoanelor vizate nu este relevantă, el trebuie, de asemenea, să noteze justificarea</strong>.",
+        "source": "GDPR Art. 39.9 și obiecte conectate la PIAF p38"
       },
       "PIA_VAL_RT": {
-        "name": "Formal validation",
-        "description": "Decide on whether the selected controls, residual risks and action plan are acceptable, with justifications, in view of the previously identified stakes and views of the stakeholders. In this way, the PIA may be:<br>- validated<br>- conditional on improvement (explain in what way)<br>- refused (along with the processing under consideration). Where necessary, repeat the previous steps so that the PIA can be validated. This decision does not prejudge the compliance assessment which may be carried out, where applicable, by the Data Protection Authority (the CNIL in France), as part of preliminary formalities or checks for example.",
-        "source": "PIAF Connected Objects p40"
+        "name": "Validare oficială",
+        "description": "Decideți dacă controalele selectate, riscurile reziduale și planul de acțiune sunt acceptabile, cu justificări, ținând seama de mizele și punctele de vedere identificate anterior ale părților interesate. Astfel, PIA poate fi:<br>- validată<br>- condiționată de îmbunătățire (explicați în ce mod)<br>- refuzată (împreună cu prelucrarea în cauză). Dacă este necesar, repetați pașii anteriori, astfel încât PIA să poată fi validată. Prezenta decizie nu aduce atingere evaluării conformității care poate fi efectuată, după caz, de către Autoritatea pentru Protecția Datelor (CNIL în Franța), ca parte a formalităților sau controalelor preliminare, de exemplu.",
+        "source": "Obiecte conectate la PIAF p40"
       },
       "PIA_TEC_CHIF": {
-        "placeholder": "Describe here the means implemented for ensuring the confidentiality of data",
-        "name": "Encryption",
-        "description": "Means implemented for <strong>ensuring the confidentiality</strong> of data stored (in the database, in flat files, backups, etc.), as well as the procedure for managing encryption keys (creation, storage, change in the event of suspected cases of data compromise, etc.).<br> Describe the encryption means employed for data flows (VPN, TLS, etc.) implemented in the processing.",
-        "source": "PIAF Connected Objects p21"
+        "placeholder": "Descrieți aici mijloacele implementate pentru asigurarea confidențialității datelor",
+        "name": "Criptarea",
+        "description": "Mijloace implementate pentru <strong>asigurarea confidențialității</ strong> datelor stocate (în baza de date, în fișiere plate, copii de rezervă etc.), precum și procedura de gestionare a cheilor de criptare (crearea, stocarea, schimbarea în cazurile de compromitere a datelor etc.). <br> Descrieți mijloacele de criptare utilizate pentru fluxurile de date (VPN, TLS etc.) implementate în procesul de procesare.",
+        "source": "Obiecte conectate la PIAF p21"
       },
       "PIA_TEC_ANO": {
-        "placeholder": "Indicate here implemented anonymisation mechanisms",
-        "name": "Anonymisation",
-        "description": "Indicate here whether anonymisation mechanisms are implemented, which ones and for what purpose. <br>Remember to clearly distinguish between anonymous and pseudonymous data.",
-        "source": "PIAF Connected Objects p21"
+        "placeholder": "Indicați aici mecanismele de anonimat implementate",
+        "name": "Anonimat",
+        "description": "Indicați aici dacă sunt implementate mecanismele de anonimat, care dintre ele și în ce scop. <br> Nu uitați să distingeți clar datele anonime și datele sub pseudonim.",
+        "source": "Obiecte conectate la PIAF p21"
       },
       "PIA_TEC_CLO": {
-        "placeholder": "Indicate here if processing partitioning is planned, and how this is carried out.",
-        "name": "Partitioning data",
-        "description": "Implementation of data partitioning helps to reduce the possibility that personal data can be correlated and that a breach of all personal data may occur.",
-        "source": "PIAF Connected Objects p21"
+        "placeholder": "Indicați aici dacă este planificată procesarea partiționării și modul în care aceasta este efectuată.",
+        "name": "Datele de partiționare",
+        "description": " Implementarea partiționării datelor contribuie la reducerea posibilității corelării datelor cu caracter personal și a încălcării tuturor datelor cu caracter personal.",
+        "source": "Obiecte conectate la PIAF p21"
       },
       "PIA_TEC_CTLA": {
-        "placeholder": "Indicate here how users profiles are defined and attributed.",
-        "name": "Logical access control",
-        "description": "Methods to define and attribute users profiles. Specify the <strong>authentication</strong> means implemented . Where applicable, specify the rules applicable to passwords (minimum length, required characters, validity duration, number of failed attempts before access to account is locked, etc.).",
-        "source": "PIAF Connected Objects p21"
+        "placeholder": "Indicați aici cum sunt definite și atribuite profilurile utilizatorilor. ",
+        "name": "Controlul accesului logic",
+        "description": "Metode de definire și atribuire a profilurilor utilizatorilor. Specificați <strong> modul de autentificare</ strong> implementat. Dacă este cazul, specificați regulile aplicabile parolelor (lungimea minimă, caracterele necesare, durata valabilității, numărul de încercări eșuate înainte ca accesul la cont să fie blocat etc.).",
+        "source": "Obiecte conectate la PIAF p21"
       },
       "PIA_TEC_LOG": {
-        "placeholder": "Indicate here whether events are logged and how long these traces are stored for.",
-        "name": "Traceability (logging)",
-        "description": "Policies that define traceability and log management.",
-        "source": "PIAF Connected Objects p22"
+        "placeholder": "Indicați aici dacă evenimentele sunt înregistrate și cât timp sunt stocate aceste urme.",
+        "name": "Trasabilitate (logare)",
+        "description": "Politici care defines trasabilitatea și gestionarea înregistrării.",
+        "source": "Obiecte conectate la PIAF p22"
       },
       "PIA_TEC_ARCH": {
-        "placeholder": "Indicate here whether mechanisms are implemented for integrity monitoring of stored data, which ones and for what purpose.",
-        "name": "Archiving",
-        "description": "Where applicable, describe here the processes of archive management (delivery, storage, consultation, etc.) under your responsibility. Specify the archiving roles (offices of origin, transferring agencies, etc.) and the archiving policy. State if data may fall within the scope of public archives.",
-        "source": "PIAF Connected Objects p22 - WIKI"
+        "placeholder": "Indicați aici dacă sunt implementate mecanisme de monitorizare a integrității datelor stocate, care dintre ele și în ce scop.",
+        "name": "Arhivare",
+        "description": "Dacă este cazul, descrieți aici procesele de gestionare a arhivelor (livrare, stocare, consultare etc.) aflate sub responsabilitatea dvs. Specificați rolurile de arhivare (birourile de origine, agențiile de transfer etc.) și politica de arhivare. Menționați dacă datele ar putea intra sub incidența arhivelor publice.",
+        "source": "Obiecte conectate la PIAF p22 - WIKI"
       },
       "PIA_TEC_PAP": {
-        "placeholder": "Indicate here whether mechanisms are implemented for integrity monitoring of paper documents, which ones and for what purpose.",
-        "name": "Paper document security",
-        "description": "Where paper documents containing data are used during the processing, indicate here how they are printed, stored, destroyed and exchanged.",
-        "source": "PIAF Connected Objects p22"
+        "placeholder": " Indicați aici dacă sunt implementate mecanisme de monitorizare a integrității documentelor pe suport de hârtie, care dintre ele și în ce scop.",
+        "name": "Siguranța documentelor imprimate",
+        "description": "În cazul în care documentele imprimate care conțin date sunt utilizate în timpul procesării, indicați aici modul în care sunt imprimate, stocate, distruse și schimbate.",
+        "source": " Obiecte conectate la p22"
       },
       "PIA_TEC_MINI": {
-        "placeholder": "Indicate here means implemented to reduce the severity of risks by limiting the amount of personal data",
-        "name": "Minimising the amount of personal data",
-        "description": "The following methods could be used : Filtering and removal, Reducing sensitivity via conversion, Reducing the identifying nature of data, Reducing data accumulation, Restricting data access",
-        "source": "PIAF Connected Objects p40"
+        "placeholder": "Indicați aici mijloacele implementate pentru a reduce severitatea riscurilor prin limitarea cantității de date cu caracter personal",
+        "name": " Minimizarea cantității de date cu caracter personal",
+        "description": "S-ar putea utiliza următoarele metode: Filtrarea și eliminarea, Reducerea sensibilității prin conversie, Reducerea naturii identificatoare a datelor, Reducerea acumulării de date, Restricționarea accesului la date",
+        "source": "Obiecte conectate la PIAF p40"
       },
       "PIA_SEC_EXP": {
-        "placeholder": "Describe here how the software updates (operating systems, applications, etc.) and application of security corrective controls patches are carried out.",
-        "name": "Operating security",
-        "description": "Policies implemented to reduce the possibility and the impact of risks on assets supporting personal data.",
-        "source": "PIAF Connected Objects p22 - WIKI"
+        "placeholder": "Descrieți aici cum se efectuează actualizarea software-ului (sisteme de operare, aplicații etc.) și aplicarea de patch-uri și controale corective de securitate.",
+        "name": "Securitatea operațională",
+        "description": "Politicile puse în aplicare pentru a reduce posibilitatea și impactul riscurilor asupra activelor care susțin datele cu caracter personal.",
+        "source": "Obiecte conectate la PIAF p22 - WIKI"
       },
       "PIA_SEC_MAL": {
-        "placeholder": "Describe here the controls implemented to reduce risks while accessing less secure networks.",
-        "name": "Clamping down on malicious software",
-        "description": "Controls implemented on workstations and servers to protect them from malicious software while accessing less secure networks.",
-        "source": "PIAF Connected Objects p22 - WIKI"
+        "placeholder": "Descrieți aici controalele implementate pentru a reduce riscurile în timpul accesării rețelelor mai puțin sigure.",
+        "name": "Întreruperea software-ului virusat",
+        "description": "Controale efectuate asupra stațiilor de lucru și a serverelor pentru protejarea acestora împotriva software-ului virusat în timpul accesării rețelelor mai puțin sigure.",
+        "source": "Obiecte conectate la PIAF p22 - WIKI"
       },
       "PIA_SEC_COMP": {
-        "placeholder": "Describe here the controls implemented on workstations",
-        "name": "Managing workstations",
-        "description": "Controls implemented on workstations (automatic locking, regular updates, configuration, physical security, etc.) to reduce the possibility to exploit software properties (operating systems, business applications etc.) to adversely affect personal data.",
-        "source": "PIAF Connected Objects p22 - WIKI"
+        "placeholder": "Descrieți aici controalele efectuate asupra stațiilor de lucru",
+        "name": "Gestionarea stațiilor de lucru",
+        "description": "Controale efectuate asupra stațiilor de lucru (blocare automată, actualizări regulate, configurare, securitate fizică etc.) pentru a reduce posibilitatea de a exploata proprietățile software (sisteme de operare, aplicații de afaceri etc.) care afectează negativ datele personale.",
+        "source": "Obiecte conectate la PIAF p22 - WIKI"
       },
       "PIA_SEC_WEB": {
-        "placeholder": "Indicate here controls implemented to protect websites.",
-        "name": "Website security",
-        "description": "Implementation of ANSSI's Recommendations for securing websites.",
-        "source": "PIAF Connected Objects p22 - WIKI"
+        "placeholder": "Indicați aici controalele efecutate pentru protejarea site-urilor web.",
+        "name": "Protecția site-ului web",
+        "description": "Implementarea recomandărilor ANSSI pentru securizarea site-urilor web.",
+        "source": "Obiecte conectate la PIAF p22 - WIKI"
       },
       "PIA_SEC_BKP": {
-        "placeholder": "Indicate here how backups are managed. Clarify whether they are stored in a safe place.",
-        "name": "Backups",
-        "description": "Policies and means implemented to ensure the availability and/or integrity of the personal data, while maintaining their confidentiality.",
-        "source": "PIAF Connected Objects p23 & PIA3 p27  - WIKI"
+        "placeholder": "Indicați aici modul în care sunt gestionate copiile de rezervă. Clarificați dacă sunt stocate într-un loc sigur.",
+        "name": "Copii de rezervă",
+        "description": "Politicile și mijloacele puse în aplicare pentru a asigura disponibilitatea și/sau integritatea datelor cu caracter personal, păstrând în același timp confidențialitatea acestora.",
+        "source": "Obiecte conectate la PIAF p23 & PIA3 p27  - WIKI"
       },
       "PIA_SEC_MAIN": {
-        "placeholder": "Describe here how physical maintenance of hardware is managed",
-        "name": "Maintenance",
-        "description": "Policies describing how physical maintenance of hardware is managed, stating whether this is contracted out.<br> Indicate whether the remote maintenance of apps is authorized, and according to what arrangements. Specify whether defective equipment is managed in a specific manner.",
-        "source": "PIAF Connected Objects p23"
+        "placeholder": "Descrieți aici modul în care se gestionează mentenanța hardware-ului ",
+        "name": "Mentenanță",
+        "description": "Politici care descriu modul în care este gestionată mentenanța hardware-ului, precizând dacă aceasta este contractată.<br> Indicați dacă este autorizată întreținerea de la distanță a aplicațiilor și în funcție de ce modalități. Specificați dacă echipamentul defect este gestionat într-un mod specific.",
+        "source": "Obiecte conectate la PIAF p23"
       },
       "PIA_SEC_NET": {
-        "placeholder": "Indicate here the security controls of network on which the processing is carried out",
-        "name": "Network security",
-        "description": "Depending on the type of network on which the processing is carried out (isolated, private or Internet). Specify which firewall system, intrusion detection systems or other active or passive devices are in charge of ensuring network security.",
-        "source": "PIAF Connected Objects p23"
+        "placeholder": " Indicați aici controalele de securitate ale rețelei pe care se efectuează procesarea.",
+        "name": "Securitatea rețelei",
+        "description": "Depinde de tipul de rețea pe care se efectuează procesarea (izolată, privată sau Internet). Specificați ce sistem de firewall, sisteme de detectare a intruziunilor sau alte dispozitive active sau pasive sunt responsabile pentru asigurarea securității rețelei.",
+        "source": "Obiecte conectate la PIAF p23"
       },
       "PIA_SEC_PHY": {
-        "placeholder": "Indicate here how physical access control is carried out regarding the premises accommodating the processing.",
-        "name": "Physical access control",
-        "description": "Policies to ensure physical security (zoning, escorting of visitors, wearing of passes, locked doors and so on).Indicate whether there are warning procedures in place in the event of a break-in.",
-        "source": "PIAF Connected Objects p23"
+        "placeholder": "Indicați aici modul în care se efectuează controlul accesului fizic în ceea ce privește locațiile care se ocupă de prelucrare.",
+        "name": "Controlul accesului fizic",
+        "description": "Politici care să asigure securitatea fizică (zonare, escortarea vizitatorilor, purtarea permiselor de trecere, ușile încuiate etc.).Indicați dacă există proceduri de avertizare în cazul unei întreruperi.",
+        "source": "Obiecte conectate la PIAF p23"
       },
       "PIA_SEC_LOG": {
-        "placeholder": "Indicate here means and controls implemented to detect incidents involving personal data",
-        "name": "Monitoring network activity",
-        "description": "Monitor intrusion detection systems and intrusion prevention systems in order to analyze network (wired networks, Wi-Fi, radio waves, fiber optics, etc.) traffic in real time and detect any suspicious activity suggestive of a cyber attack scenario.",
+        "placeholder": "Indicați aici mijloacele și controalele puse în aplicare pentru a detecta incidentele care implică date cu caracter personal",
+        "name": "Monitorizarea activității rețelei",
+        "description": "Monitorizați sistemele de detectare a intruziunilor și sistemele de prevenire a intruziunilor pentru a analiza în timp real traficul în rețea (rețele prin cablu, Wi-Fi, unde radio, fibră optică etc.) și detectați orice activitate suspectă care sugerează un scenariu de atac cibernetic.",
         "source": "PIA3 p67 - WIKI"
       },
       "PIA_SEC_MAT": {
-        "placeholder": "Indicate here the controls bearing on the physical security of servers and workstations",
-        "name": "Hardware security",
-        "description": "Indicate here the controls bearing on the physical security of servers and workstations (secure storage, security cables, confidentiality filters, secure erasure prior to scrapping, etc.).",
-        "source": "PIAF Connected Objects p23 - WIKI"
+        "placeholder": "Indicați aici controalele referitoare la securitatea fizică a serverelor și a stațiilor de lucru",
+        "name": "Securitate hardware",
+        "description": "Indicați aici controalele referitoare la securitatea fizică a serverelor și a stațiilor de lucru (stocare sigură, cabluri de securitate, filtre de confidențialitate, ștergere sigură înainte de rebutare etc.).",
+        "source": "Obiecte conectate la PIAF p23 - WIKI"
       },
       "PIA_SEC_SRC": {
-        "placeholder": "Indicate here whether the implantation area is subject to environmental disasters",
-        "name": "Avoiding sources of risk",
-        "description": "Documentation on implantation area, which should not be subject to environmental disasters (flood zone, proximity to chemical industries, earthquake or volcanic zone, etc.).Specify if dangerous products are stored in the same area.",
-        "source": "PIAF Connected Objects p23 - WIKI"
+        "placeholder": "Indicați aici dacă zona de implantare este supusă unor dezastre naturale",
+        "name": "Evitarea surselor de risc",
+        "description": "Documentația privind zona de implantare, care nu ar trebui să fie supusă dezastrelor naturale (zonă de inundații, apropierea de industria chimică, cutremur sau zonă vulcanică etc.) Specificați dacă produsele periculoase sunt stocate în aceeași zonă.",
+        "source": "Obiecte conectate la PIAF p23 - WIKI"
       },
       "PIA_SEC_PROT": {
-        "placeholder": "Indicate here means to avoid to limit non-human sources of risks.",
-        "name": "Protecting against non-human sources of risks",
-        "description": "Policies describing the means of fire prevention, detection and fighting. Where applicable, indicate the means of preventing water damage.Also specify the means of power supply monitoring and relief.",
-        "source": "PIAF Connected Objects p23 - WIKI"
+        "placeholder": "Indicați aici modalitățile de evitare sau limitare a surselor de risc non-umane.",
+        "name": "Protejarea împotriva riscurilor non-umane",
+        "description": "Politici care descriu modalitățile de prevenire a focului, detectare și combatere a incendiilor. Dacă este cazul, indicați modalitățile de prevenire a daunelor provocate de apă. De asemenea, specificați mijloacele de monitorizare și facilitare a alimentării cu energie electrică.",
+        "source": "Obiecte conectate la PIAF p23 - WIKI"
       },
       "PIA_ORG_ORG": {
-        "placeholder": "Indicate if the roles and responsibilities for data protection are defined.",
-        "name": "Organisation",
-        "description": "Specify whether a person is responsible for the enforcement of privacy laws and regulations. Specify whether there is a monitoring committee (or equivalent) responsible for the guidance and follow-up of actions concerning the protection of privacy.",
-        "source": "PIAF Connected Objects p24 - WIKI"
+        "placeholder": "Indicați dacă rolurile și responsabilitățile pentru protecția datelor sunt definite.",
+        "name": "Organizare",
+        "description": "Specificați dacă o persoană este responsabilă de aplicarea legilor și regulamentelor privind confidențialitatea. Specificați dacă există un comitet de monitorizare (sau similar) responsabil cu îndrumarea și urmărirea acțiunilor privind protecția confidențialității.",
+        "source": "Obiecte conectate la PIAF p24 - WIKI"
       },
       "PIA_ORG_POL": {
-        "placeholder": "Describe here the documentary base setting out data protection objectives and rules.",
-        "name": "Policy",
-        "description": "Set out important aspects relating to data protection within a documentary base making up the data protection policy and in a form suited to each type of content (risks, key principles to be followed, target objectives, rules to be applied, etc.) and each communication target (users, IT department, policymakers, etc.).",
+        "placeholder": " Descrieți aici baza documentară care stabilește obiectivele și regulile privind protecția datelor.",
+        "name": "Politică",
+        "description": "Stabiliți aspectele importante legate de protecția datelor în cadrul unei baze documentare care alcătuiește politica de protecție a datelor și într-o formă adaptată fiecărui tip de conținut (riscuri, principii-cheie care trebuie urmate, obiective țintă, reguli care trebuie aplicate etc.) și fiecare obiectiv de comunicare (utilizatori, departament IT, factori de decizie politică etc.) ",
         "source": "PIA3 p78 - WIKI"
       },
       "PIA_ORG_RMGT": {
-        "placeholder": "Describe here processes to control the risks that processing operations performed by the organisation pose on data protection and the privacy of data subjects.",
-        "name": "Managing privacy risks",
-        "description": "Policy describing processes to control the risks that processing operations performed by the organisation pose on data protection and the privacy of data subjects (building a map of the risks, etc.).",
+        "placeholder": "Descrieți aici procesele pentru a controla riscurile pe care operațiunile de procesare efectuate de organizație le prezintă în ceea ce privește protecția datelor și confidențialitatea persoanelor vizate.",
+        "name": "Gestionarea riscurilor de confidențialitate",
+        "description": "Politică care descrie procese pentru a controla riscurile pe care operațiunile de prelucrare efectuate de organizație le prezintă pentru protecția datelor și confidențialitatea persoanelor vizate (construirea unei hărți a riscurilor etc.).",
         "source": "PIA3 p77 - WIKI"
       },
       "PIA_ORG_PBD": {
-        "placeholder": "Describe here how privacy protection is integrated in projects",
-        "name": "Integrating privacy protection in projects",
-        "description": "Existence of a policy designed integrate the protection of personal data in all new processing operations.",
+        "placeholder": "Descrieți aici modul în care protecția confidențialității este integrată în proiecte",
+        "name": "Integrarea protecției confidențialității în proiecte",
+        "description": "Existența unei politici concepute să integreze protecția datelor cu caracter personal în toate operațiunile de procesare noi.",
         "source": "PIA3 p79 - WIKI"
       },
       "PIA_ORG_VIOL": {
-        "placeholder": "Indicate here whether IT incidents are subject to a documented and tested management procedure.",
-        "name": " Managing personal data violations",
-        "description": "Existence of an operational organisation that can detect and treat incidents that may affect the data subjects' civil liberties and privacy.",
-        "source": "PIAF Connected Objects p24 and PIA3 p36 - WIKI"
+        "placeholder": "Indicați aici dacă incidentele IT sunt supuse unei proceduri de management documentate și testate.",
+        "name": " Gestionarea încălcărilor datelor cu caracter personal",
+        "description": "Existența unei organizații operaționale care poate detecta și trata incidentele care pot afecta libertățile civile și viața privată a persoanelor vizate.",
+        "source": "Obiecte conectate la PIAF p24 și PIA3 p36 - WIKI"
       },
       "PIA_ORG_PERS": {
-        "placeholder": "Indicate here what awareness-raising controls are carried out with regard to employees.",
-        "name": "Personnel management",
-        "description": "Existence of a policy describing awareness-raising controls are carried out with regard to a new recruit and what controls are carried out when persons who have been accessing data leave their job.",
-        "source": "PIAF Connected Objects p24"
+        "placeholder": "Indicați aici ce controale de conștientizare sunt realizate cu privire la angajați.",
+        "name": "Gestionarea personalului",
+        "description": "Existența unei politici care descrie ce controale de conștientizare se efectuează în ceea ce privește un nou recrut și ce controale se efectuează atunci când persoanele care au avut acces la date părăsește locul de muncă.",
+        "source": "Obiecte conectate la PIAF p24"
       },
       "PIA_ORG_EXT": {
-        "placeholder": "Indicate here, for processors requiring access to data, the security controls and arrangements carried out as regards such access.",
-        "name": "Relations with third parties",
-        "description": "Existence of a policy and processes reducing the risk that legitimate access to personal data by third parties may pose to the data subjects' civil liberties and privacy.",
+        "placeholder": "Menționați aici, pentru procesatorii care necesită acces la date, controalele de securitate și acțiunile introduse privitor la acest acces.",
+        "name": "Relațiile cu terții",
+        "description": "Existența unei politici și procese care reduc riscul ca accesul legitim la datele personale de către terți să poată reprezenta libertățile civile și confidențialitatea persoanelor vizate.",
         "source":  "PIA3 p48 - WIKI"
       },
       "PIA_ORG_AUD": {
-        "placeholder": "Indicate here whether the effectiveness and adequacy of privacy controls are monitored.",
-        "name": "Supervision",
-        "description": "Existence of a policy and processes to obtain an organisation able to manage and control the protection of personal data held within it.",
+        "placeholder": "Indicați aici dacă eficacitatea și adecvarea controalelor de confidențialitate sunt monitorizate.",
+        "name": "Supraveghere",
+        "description": "Existența unor politici și procese pentru a obține o organizație capabilă să gestioneze și să controleze protecția datelor personale deținute în cadrul acesteia.",
         "source":  "PIA3 p76 - WIKI"
       },
       "PIA_DEF_EXA": {
-        "name": "Quality of data",
-        "description": "Personal data shall be accurate and, where necessary, kept up to date; every reasonable step must be taken to ensure that personal data that are inaccurate, having regard to the purposes for which they are processed, are erased or rectified without delay (‘accuracy’). <br>See <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 5.1 d) of [GDPR]</a>",
+        "name": "Calitatea datelor",
+        "description": "Datele personale trebuie să fie corecte și, dacă este necesar, să fie actualizate; trebuie luate toate măsurile rezonabile pentru a se asigura că datele personale care sunt inexacte, având în vedere scopurile pentru care sunt prelucrate, sunt șterse sau rectificate fără întârziere (‘acuratețe’). <br>Vezi <target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 5.1 d) of [GDPR]</a>",
         "source": "GDPR Art. 5.1 d)"
       },
       "PIA_DEF_MES": {
-        "name": "Measures",
-        "description": "To be chosen among those available in section \"Planned or existing measures\", which you may complete if needed.",
-        "source": "None"
+        "name": "Măsuri",
+        "description": "De ales dintre cele disponibile în secțiunea \"Măsuri planificate sau existente\", pe care le puteți completa, dacă este necesar.",
+        "source": "Nici unul"
       },
       "PIA_DEF_RT": {
-        "name": "Controller",
-        "description": "Natural or legal person, public authority, agency or other body which, alone or jointly with others, determines the purposes and means of the processing of personal data; where the purposes and means of such processing are determined by Union or Member State law, the controller or the specific criteria for its nomination may be provided for by Union or Member State law.<br>See <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 4.7 of [GDPR]</a>",
+        "name": "Operator",
+        "description": "Persoană fizică sau juridică, autoritate publică, agenție sau alt organism care, singur sau împreună cu alții, stabilește scopurile și mijloacele de prelucrare a datelor personale; în cazul în care scopurile și mijloacele unei asemenea prelucrări sunt stabilite de legislația Uniunii sau a statului membru, operatorul sau criteriile specifice de numire a acestuia pot fi prevăzute de legislația Uniunii sau a statului membru.<br>Vezi <target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 4.7 of [GDPR]</a>",
         "source": "GDPR Art. 4.7"
       },
       "PIA_DEF_DCP": {
-        "name": "Personal data",
-        "description": "Any information relating to an identified or identifiable natural person (‘data subject’); an identifiable natural person is one who can be identified, directly or indirectly, in particular by reference to an identifier such as a name, an identification number, location data, an online identifier or to one or more factors specific to the physical, physiological, genetic, mental, economic, cultural or social identity of that natural person. <br>See <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 4.1 of [GDPR]</a>",
+        "name": "Date personale",
+        "description": "Orice informație referitoare la o persoană fizică identificată sau identificabilă (‘persoana vizată’); o persoană fizică identificabilă este una care poate fi identificată, direct sau indirect, în special prin referire la un identificator cum ar fi un nume, un număr de identificare, date despre localizare, un identificator online sau unul sau mai mulți factori specifici fizic, fiziologic, genetic, mental, economic, cultural sau social al acelei persoane fizice.<br>Vezi <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 4.1 of [GDPR]</a>",
         "source": "GDPR Art 4.1"
       },
       "PIA_DEF_DEST": {
-        "name": "Recipient",
-        "description": "Natural or legal person, public authority, agency or another body, to which the personal data are disclosed, whether a third party or not. However, public authorities which may receive personal data in the framework of a particular inquiry in accordance with Union or Member State law shall not be regarded as recipients; the processing of those data by those public authorities shall be in compliance with the applicable data protection rules according to the purposes of the processing. <br>See <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 4.9 of [GDPR]</a>",
+        "name": "Destinatar",
+        "description": "Persoană fizică sau juridică, autoritate publică, agenție sau alt organism, căruia i se dezvăluie datele personale, indiferent dacă este vorba de o terță parte sau nu. Cu toate acestea, autoritățile publice care pot primi date cu caracter personal în cadrul unei anchete anume în conformitate cu legislația Uniunii sau a statelor membre nu sunt considerate destinatari; prelucrarea acestor date de către autoritățile publice respective trebuie să fie în conformitate cu normele aplicabile privind protecția datelor în conformitate cu scopurile procesării.<br>Vezi <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 4.9 of [GDPR]</a>",
         "source": "GDPR Art. 4.9"
       },
       "PIA_DEF_SUPT": {
-        "name": "Supporting assets",
-        "description": "Asset on which personal data rely. This may be hardware, software, networks, people, paper or paper transmission channels",
+        "name": "Bunuri de suport",
+        "description": "Bunuri pe care se bazează datele personale. Acestea pot fi hardware, software, rețele, oameni, hârtie sau canalele de transmitere a hârtiei",
         "source": "PIA1 p10"
       },
       "PIA_DEF_MINC": {
-        "name": "Minimising the amount of personal data",
-        "description": "Reduce the severity of risks by limiting the amount of personal data to what is strictly necessary to achieve a defined purpose, otherwise the data shall be not collected.",
+        "name": "Minimizarea cantității datelor personale",
+        "description": "Reduceți severitatea riscurilor prin limitarea cantității de date cu caracter personal la ceea ce este strict necesar pentru atingerea unui obiectiv definit, altfel datele nu vor fi colectate.",
         "source": ""
       },
       "PIA_DEF_CONS": {
-        "name": "Consent",
-        "description": "Any freely given, specific, informed and unambiguous indication of the data subject's wishes by which he or she, by a statement or by a clear affirmative action, signifies agreement to the processing of personal data relating to him or her.<br>See <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 4.10 of [GDPR]</a>",
+        "name": "Acord",
+        "description": "Orice indicație liberă, specifică, informată și lipsită de ambiguitate a dorințelor persoanei vizate prin care el sau ea, printr-o declarație sau printr-o acțiune clară și afirmativă, își exprimă acordul cu privire la prelucrarea datelor cu caracter personal care îi privesc.<br>Vezi <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 4.10 of [GDPR]</a>",
         "source": "GDPR Art. 4.10"
       },
       "PIA_DEF_ACC": {
-        "name": "Right of access",
-        "description": "The data subject shall have the right to obtain from the controller confirmation as to whether or not personal data concerning him or her are being processed, and, where that is the case, access to the personal data and the information described in <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 15 of [GDPR]</a>",
+        "name": "Dreptul la acces",
+        "description": " Persoana vizată are dreptul să obțină de la operator o confirmare cu privire la faptul că datele personale care o privesc sunt prelucrate sau nu și, dacă este cazul, accesul la datele cu caracter personal și informațiile descrise în <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 15 of [GDPR]</a>",
         "source":"GDPR Art. 15"
       },
       "PIA_DEF_PORT": {
-        "name": "Right to data portability",
-        "description": " The data subject shall have the right to receive the personal data concerning him or her, which he or she has provided to a controller, in a structured, commonly used and machine-readable format and have the right to transmit those data to another controller without hindrance from the controller to which the personal data have been provided, see <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 20 of [GDPR]</a>",
+        "name": "Dreptul la portabilitatea datelor",
+        "description": " Persoana vizată are dreptul de a primi datele personale care o privesc, pe care le-a furnizat unui operator, într-un format structurat, utilizat în mod obișnuit și care poate fi citit de mașină, și are dreptul să transmită aceste date unui alt operator fără vreun obstacol din partea operatorului căruia i-au fost furnizate datele cu caracter personal, vezi <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 20 of [GDPR]</a>",
         "source": "GDPR Art. 20"
       },
       "PIA_DEF_RECT": {
-        "name": "Right to rectification",
-        "description": "The data subject shall have the right to obtain from the controller without undue delay the rectification of inaccurate personal data concerning him or her. Taking into account the purposes of the processing, the data subject shall have the right to have incomplete personal data completed, including by means of providing a supplementary statement.",
+        "name": "Dreptul la rectificare",
+        "description": "Persoana vizată are dreptul de a obține de la operator, fără întârzieri nejustificate, rectificarea datelor personale care o privesc. Ținând cont de scopurile prelucrării, persoana vizată are dreptul de a completa datele personale incomplete, inclusiv prin furnizarea unei declarații suplimentare.",
         "source": "GDPR Art. 16"
       },
       "PIA_DEF_EFF": {
-        "name": "Right to erasure",
-        "description": " The data subject shall have the right to obtain from the controller the erasure of personal data concerning him or her without undue delay and the controller shall have the obligation to erase personal data without undue delay, see <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 17 of [GDPR]</a>",
+        "name": "Dreptul la ștergerea datelor",
+        "description": " Persoana vizată are dreptul să obțină de la operator ștergerea datelor personale care o privesc fără întârzieri nejustificate, iar operatorul are obligația de a șterge fără întârziere datele personale,vezi <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 17 of [GDPR]</a>",
         "source" : "GDPR Art. 17"
       },
       "PIA_DEF_LIM": {
-        "name": "Right to restricting of processing",
-        "description": "The data subject shall have the right to obtain from the controller restriction of processing, see <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 18 of [GDPR]</a>",
+        "name": "Dreptul la restricționarea prelucrării",
+        "description": " Persoana vizată are dreptul de a obține de la operator o restricție privind prelucrarea, vezi <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 18 of [GDPR]</a>",
         "source": "GDPR Art. 18"
       },
       "PIA_DEF_OPP": {
-        "name": "Right to object",
-        "description": "The data subject shall have the right to object, on grounds relating to his or her particular situation, at any time to processing of personal data concerning him or her, pursuant to <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 21 of [GDPR]</a>",
+        "name": "Dreptul de opoziție",
+        "description": " Persoana vizată are dreptul de a se opune, în orice moment, din motive legate de situația sa particulară, prelucrării datelor cu caracter personal care o privesc, în conformitate cu <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 21 of [GDPR]</a>",
         "source": "GDPR Art. 21"
       },
       "PIA_DEF_PSEU": {
-        "name": "Pseudonymisation",
-        "description": "Processing of personal data in such a manner that the personal data can no longer be attributed to a specific data subject without the use of additional information, provided that such additional information is kept separately and is subject to technical and organisational measures to ensure that the personal data are not attributed to an identified or identifiable natural person.<br>Pseudonymisation  reduces  the  linkability  of  a  dataset  with  the  original  identity  of  a  data subject; as such, it is a useful security measure but not a method of anonymisation.",
-        "source" :"GDPR Art. 4.5 and guidelines G29 p22 http://ec.europa.eu/justice/data-protection/article-29/documentation/opinion-recommendation/files/2014/wp216_en.pdf"
+        "name": "Pseudonimizare",
+        "description": "Prelucrarea datelor personale astfel încât acestea să nu mai fie atribuite unei anumite persoane vizate fără utilizarea unor informații suplimentare, cu condiția ca aceste informații suplimentare să fie păstrate separat și să facă obiectul unor măsuri tehnice și organizatorice care să asigure că datele personale nu sunt atribuite unei persoane fizice identificate sau identificabile.<br>Pseudonimizarea reduce legătura unui set de date cu identitatea originală a unei personae vizate; ca atare, este o măsură utilă de securitate, dar nu o metodă de anonimizare.",
+        "source" :"GDPR Art. 4.5 și linii directoare G29 p22 http://ec.europa.eu/justice/data-protection/article-29/documentation/opinion-recommendation/files/2014/wp216_en.pdf"
       },
       "PIA_DEF_CLO": {
-        "name": "Data partitioning",
-        "description": "Data organisation methods that reduce the possibility that personal data can be correlated and that a breach of all personal data may occur. For instance, by identifying the personal data useful only to each business process and logically separating them.",
+        "name": "Separarea datelor",
+        "description": "Metode de organizare a datelor care reduc posibilitatea corelării datelor personale și a încălcării tuturor datelor cu caracter personal. De exemplu, prin identificarea datelor personale utile numai pentru fiecare proces de afaceri și separarea logică a acestora.",
         "source": "PIA3 p19 - WIKI"
       },
       "PIA_DEF_CTLA": {
-        "name": "Logical access controls",
-        "description": "Means implemented to limit the risks that unauthorized persons will access personal data electronically, it requires among other things to : <br>- <strong>manage users' profiles</strong> by separating tasks and areas of responsibility (preferably in centralised fashion) to limit access to personal data exclusively to authorised users by applying need-to-know and least-privilege principles;<br>- <strong>withdraw the rights of employees, contracting parties and other third parties when they are no longer authorised to access a premises or a resource</strong> or when their <strong>employment contract ends</strong>.",
-        "source": "PIA3 p43 - WIKI"
+        "name": "Controale de acces locic",
+        "description": " Mijloacele implementate pentru a limita riscurile ca persoanele neautorizate să acceseze datele personale în format electronic, necesită, printre altele: <br>- <strong> gestionarea profilurile utilizatorilor</ strong> separând sarcinile și domeniile de responsabilitate (de preferință în mod centralizat) limitarea accesului la datele personale exclusiv la utilizatorii autorizați prin aplicarea principiilor ”trebuie cunoscute” și ”privilegiile minime”;<br>- <strong>retragerea drepturilor angajaților, ale părților contractante și ale altor părți terțe atunci când nu mai sunt autorizate să acceseze un spațiu sau o resursă</ strong> sau atunci când se încheie contractul <strong> de muncă</ strong>. ",
+"source": "PIA3 p43 - WIKI"
       },
       "PIA_DEF_MIN1": {
-        "name": "Filtering and removal",
-        "description": "When data are being imported, different types of metadata (such as EXIF data with an image file attached) can unintentionally be collected. <br>Such metadata must be identified and eliminated if they are unnecessary for the purposes specified.",
-        "source" : "PIAF Connected objects p42 - WIKI"
+        "name": "Filtrarea și eliminarea",
+        "description": "Când se importă date, pot fi colectate neintenționat diferite tipuri de metadate (cum ar fi datele EXIF cu un fișier imagine atașat). <br>Aceste metadate trebuie identificate și eliminate dacă nu sunt necesare în scopurile specificate.",
+        "source" : "Obiecte conectate la PIAF p42 - WIKI"
       },
       "PIA_DEF_MIN2": {
-        "name": "Reducing sensitivity via conversion",
-        "description": "Once sensitive data have been received, as part of a series of general information or transmitted for statistical purposes only, these can be converted into a less sensitive form or pseudonymised. For example : <br>- if the system collects the IP address to determine the user's location for a statistical purpose, the IP address can be deleted once the city or district has been deduced<br>- if the system receives video data from surveillance cameras, it can recognise people who are standing or moving in the scene and blur them<br>- if the system is a smart meter, it can aggregate the use of energy over a certain period, without recording it in real time",
-        "source" : "PIAF Connected objects p42 - WIKI"
+        "name": "Reducerea sensibilității prin conversie",
+        "description": "Odată ce datele sensibile au fost primite, ca parte a unei serii de informații generale sau transmise numai în scopuri statistice, acestea pot fi transformate într-o formă mai puțin sensibilă sau pseudonimizate. De exemplu: <br> - dacă sistemul colectează adresa IP pentru a determina locația utilizatorului în scop statistic, adresa IP poate fi ștearsă odată ce orașul sau cartierul a fost identificat<br>- dacă sistemul primește date video de la camerele de supraveghere, poate recunoaște oamenii care stau sau se mișcă în cadru și îi pot blura<br>- dacă sistemul este un contor inteligent, poate agrega utilizarea energiei într-o anumită perioadă, fără a o înregistra în timp real",
+        "source" : "Obiecte conectate la PIAF p42 - WIKI"
       },
       "PIA_DEF_SRC": {
-        "name": "Risk source",
-        "description": "Person or non-human source that can cause a risk. This source may act accidentally or deliberately.",
+        "name": "Sursa de risc",
+        "description": "Persoană sau sursă non-umană care poate provoca un risc. Această sursă poate acționa accidental sau în mod deliberat.",
         "source": "PIA1 p11 - WIKI"
       },
       "PIA_DEF_MEN": {
-        "name": "Threat",
-        "description": "Procedure comprising one or more individual actions on data supporting assets. It is used, intentionally or otherwise, by risk sources and may cause a feared event.",
+        "name": "Amenințare",
+        "description": "Procedură care cuprinde una sau mai multe acțiuni individuale privind datele despre bunurile de suport. Este folosit, în mod intenționat sau altfel, de sursele de risc și poate provoca un eveniment temut.",
         "source": "PIA1 p12 - WIKI"
       },
       "PIA_DEF_MENA": {
-        "name": "Threats that can lead to an illegitimate access",
-        "description": "Threats regarding: - <strong>Hardware</strong>, used inappropriately, observed, altered, lost (use or transportation of sensitive hardware for personal purposes, watching a person's screen without their knowledge while on the train, tracking by a hardware-based key logger, etc.)<br> - <strong>Software</strong>, used inappropriately, observed, altered (raising of privileges, collection of configuration data, infection by malicious code, etc.)<br>- <strong>Computer channels</strong> observed (Interception of Ethernet traffic, etc.)<br>- <strong>People</strong>, observed, manipulated, lost (Unintentional disclosure of information, social engineering, assignment changes)<br>- <strong>Paper documents</strong> observed, lost (reading, theft of mail, etc.)<br>- <strong>Paper transmission channels</strong> observed (reading of signature books in circulation, etc.)",
-        "source": "PIAF Connected objects p44 and 45"
+        "name": "Amenințări care pot duce la acces nelegitim",
+        "description": " Amenințări cu privire la: - <strong>Hardware</strong>, utilizat necorespunzător, supravegheat, modificat, pierdut (utilizarea sau transportul hardware-ului sensibil în scopuri personale, vizionarea ecranului persoanei fără știrea acesteia în timpul activității, urmărirea de către un keylogger bazat pe hardware, etc.)<br> - <strong>Software</strong>, utilizat nepotrivit, supravegheat, modificat (creșterea privilegiilor, colectarea datelor de configurare, infectarea printr-un cod virusat,etc.)<br>- <strong> Canalele computer-ului</strong> supravegheate (Interceptarea traficului Ethernet, etc.)<br>- <strong>Persoane</strong>, supravegheate, manipulate, pierdute (dezvăluirea neintenționată a informațiilor, inginerie social, modificări de atribuire)<br>- <strong> Documente pe support de hârtie</strong> supravegheate, pierdute (citire, furt de e-mail etc.)<br>- <strong>Canalele de transmitere a hârtiei</strong> supravegheate (citirea registrelor cu semnături în circulație, etc.)",
+        "source": "Obiecte conectate la PIAF p44 și 45"
       },
       "PIA_DEF_MENM": {
-        "name": "Threats that can lead to an unwanted modification of personal data",
-        "description": "<strong>Threats regarding : </strong><br>- <strong>Hardware</strong> altered (addition of incompatible hardware resulting in malfunctions, removal of essential components, etc.)<br>- <strong>Software</strong> used inappropriately or altered (Unwanted modifications to data in databases, operator errors that modify data, etc.)<br>- <strong>Computer channels</strong> used inappropriately (resending of intercepted data, etc.)<br>- <strong>People</strong> overloaded or manipulates (assignment of staff to tasks beyond their abilities, stress or negative changes in working conditions, influence, etc.)<br>- Paper documents that have been altered (changes to figures in a file, replacement of an original by a forgery, etc.)<br>- <strong>Paper transmission channels</strong> that have been altered (change from one signature book to another, sending of multiple conflicting documents, etc.)",
-        "source": "PIAF Connected Objects p43 and 44, WIKI"
+        "name": "Amenințări care pot duce la o modificare nedorită a datelor cu caracter personal",
+        "description": "<strong>Amenințări legate de: </strong><br>- <strong>Hardware</strong> modificat (adăugarea de hardware incompatibil care duce la defecțiuni, eliminarea componentelor esențiale etc.)<br>- <strong>Software</strong> folosit necorespunzător sau modificat (Modificări nedorite ale datelor din baze de date, erori ale operatorilor care modifică date, etc.)<br>- <strong>Canale de computere</strong> utilizate necorespunzător (respingerea datelor interceptate, etc.)<br>- <strong> Oameni</strong> supraîncărcați sau manipulați (alocarea de personal pentru sarcini care depășesc abilitățile acestuia, stres sau schimbări negative în condițiile de muncă, influență, etc.)<br>- Documentele pe support de hârtie ce au fost modificate (schimbări ale figurilor dintr-un fișier, înlocuirea unui original cu un fals, etc.)<br>- <strong>Canalele de transmitere a hârtiei</strong> care au fost modificate (mutarea de la un registru de semnături la altul, trimiterea mai multor documente contradictorii, etc. )“,
+        "source": "Obiecte conectate la PIAF p43 și 44, WIKI"
       },
       "PIA_DEF_MENI": {
-        "name": "Threats that can lead to a disappearance of personal data",
-        "description": "<strong>Threats regarding : </strong><br>- <strong>Hardware</strong> : used inappropriately, overloaded, altered, damaged, lost (storage unit full, processing capacity overload, addition of incompatible hardware resulting in malfunctions,  fire, theft or loss of an asset, etc.)<br>- <strong>Software</strong> : used inappropriately, overloaded, altered, damaged, lost (erasure of data, exceeding of database size, logic bomb, non-renewal of the licence for software used to access data, etc.)<br>- <strong>Computer channels</strong> : overloaded, altered, lost (unauthorised downloading, loss of Internet connection, etc.)<br>- <strong>People</strong> : overloaded, damaged, lost (poor use of skills, disease, retirement, etc.)<br>- <strong>Paper documents</strong> : used inappropriately, damaged, lost (erasure, aging of archived documents, theft or loss of documents, etc.)<br>- <strong>Paper transmission channels</strong> : overloaded, damaged, altered, lost (mail delivery halted by a strike, reassignment of offices or premises, loss of a document delivery company, reorganisation of paper transmission channels, etc.)",
-        "source": "PIAF Connected Objects p44 and 45, WIKI"
+        "name": "Amenințări care pot duce la dispariția datelor cu caracter personal",
+        "description": "<strong> Amenințări legate de: </strong><br>- <strong>Hardware</strong> : utilizat necorespunzător, supraîncărcat, modificat, pierdut, (unitatea de stocare plină, capacitatea de procesare supraîncărcată, adăugarea unui hardware incompatibil care generează defecțiuni, incendiu, furt sau pierderea unui bun, etc.)<br>- <strong>Software</strong> : utilizat necorespunzător, supraîncărcat, modificat, deteriorat, pierdut (ștergerea datelor, depășirea mărimii bazei de date, bomba logică, nereînnoirea licenței pentru software-ul folosit pentru accesarea datelor etc.)<br>- <strong>Canale de calculatoare</strong>: supraîncărcate, modificate, pierdute (descărcarea neautorizată, pierderea conexiunii la Internet etc.) <br>- <strong> Oameni</strong>: supraîncărcați, deteriorați, pierduți (nevalorificarea competențelor, boală, pensionare etc.)<br>- <strong>Documente pe suport de hârtie</strong> : folosite necorespunzător, deteriorare, pierdute (ștergere, învechirea documentelor arhivate, furt sau pierderea documentelor etc.)<br>- <strong>Canale de transmitere a hârtiei</strong> : supraîncărcate, deteriorate, modificate, pierdute (livrarea de corespondență oprită de o grevă, schimbarea birourilor sau a sediilor, pierderea unor documente livrate de companie, reorganizarea canalelor de transmitere a hârtiei etc.) ",
+ "source": "Obiecte conectate la PIAF p44 și 45, WIKI"
       },
       "PIA_DEF_GRV": {
-        "name": "Severity",
-        "description": "Severity represents the magnitude of a risk. It primarily depends on the prejudicial nature of the potential impacts.",
-        "source": "PIA1 page 6"
+        "name": "Severitate",
+        "description": "Severitatea reprezintă magnitudinea unui risc. Depinde în primul rând de natura prejudiciabilă a impactului potențial.",
+        "source": "PIA1 pag. 6"
       },
       "PIA_DEF_VRA": {
-        "name": "Likelihood",
-        "description": "Likelihood expresses the possibility of a risk occurring. It primarily depends on the level of vulnerabilities of the supporting assets when under threat and the level of capabilities of the risk sources to exploit them.",
-        "source": "PIA1 page 6"
+        "name": "Probabilitate",
+        "description": "Probabilitatea exprimă posibilitatea producerii unui risc. Depinde în primul rând de nivelul de vulnerabilitate al bunurilor de suport în caz de amenințare și de nivelul capabilităților surselor de risc pentru a le exploata.",
+        "source": "PIA1 pag. 6"
       },
       "PIA_DEF_PBDS": {
-        "name": "Project Management",
-        "description": "Measures taken to integrate the protection of personal data in all new processing operations (trusted names, guidelines, CNIL methodology for risk management or other internal methodology).",
-        "source": "Mesures_US"
+        "name": "Gestionarea proiectelor",
+        "description": "Măsurile luate pentru integrarea protecției datelor cu caracter personal în toate operațiunile de prelucrare noi (nume de încredere, linii directoare, metodologie CNIL pentru gestionarea riscurilor sau altă metodologie internă).",
+        "source": " Mesures_US"
       },
       "PIA_DEF_VIOL": {
-        "name": "Personal data breach",
-        "description": "Breach of security leading to the accidental or unlawful destruction, loss, alteration, unauthorised disclosure of, or access to, personal data transmitted, stored or otherwise processed.",
+        "name": "Încălcarea datelor cu caracter personal",
+        "description": "Încălcarea securității care duce la distrugerea, pierderea, modificarea, dezvăluirea în mod ilegal sau accidental sau accesul la datele personale transmise, stocate sau prelucrate în alt mod.",
         "source": "GDPR Art. 4.12"
       },
       "PIA_VAL_CART": {
-        "name": "Mapping of risks",
-        "description": "Graph illustrating the good security practices, with a conformity value attributed to each on the basis of its assessment in previous steps.",
-        "source": "PIAF Connected Objects p34"
+        "name": "Maparea riscurilor",
+        "description": " Graficul care ilustrează bunele practici de securitate, cu o valoare de conformitate atribuită fiecăruia pe baza evaluării sale în etapele anterioare.",
+        "source": "Obiecte conectate la PIAF p34"
       },
       "PIA_VAL_ACT": {
-        "name": "Action plan",
-        "description": "corrective controls suggested by the assessor in previous steps, drawing up an action plan setting out, for each action, its manager, frequency, difficulty, cost and progress.",
-        "source": "None"
+        "name": "Plan de acțiune",
+        "description": "controalele corective sugerate de evaluator în etapele anterioare, elaborarea unui plan de acțiune care să stabilească, pentru fiecare acțiune, managerul, frecvența, dificultatea, costul și progresul.",
+        "source": "Nici unul"
       },
       "PIA_DEF_ENJ": {
-        "name": "Stakes",
-        "description": "Expected benefits (for the organisation, for the data subjects, for society in general, etc.).",
-        "source": "PIA1 p4 footnote 8"
+        "name": "Interese financiare",
+        "description": " Beneficiile preconizate (pentru organizație, pentru persoanele vizate, pentru societate în general, etc.).",
+        "source": "PIA1 p4 notă de subsol 8"
       },
       "PIA_DEF_ST": {
-        "name": "Processor",
-        "description": "Natural or legal person, public authority, agency or other body which processes personal data on behalf of the controller, see <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 4.8 of [GDPR]</a>.<br>The processor and any person acting under the authority of the controller or of the processor, who has access to personal data, shall not process those data except on instructions from the controller, unless required to do so by Union or Member State law, see <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 29 of [GDPR]</a>.",
-        "source": "GDPR Art. 4.8 and 29"
+        "name": "Prelucrător",
+        "description": "Persoană fizică sau juridică, autoritate publică, agenție sau alt organism care prelucrează date cu caracter personal în numele operatorului, a se vedea <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 4,8 of [GDPR]</a>.<br>Prelucrătorul și orice persoană care acționează sub autoritatea operatorului sau a prelucrătorului, care are acces la datele cu caracter personal, nu le prelucrează cu excepția instrucțiunilor operatorului, cu excepția cazului în care care trebuie să facă acest lucru prin legislația Uniunii sau a statelor membre, vezi <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 29 of [GDPR]</a>.",
+        "source": "RGPD Art. 4.8 și 29"
       },
       "PIA_DEF_RGPD": {
-        "name": "GDPR (General Data Protection Regulation",
-        "description": "Regulation on the protection of natural persons with regard to the processing of personal data and on the free movement of such data, and repealing Directive 95/46/EC.",
-        "source": "GDPR title"
+        "name": "RGPD (Regulamentul General privind Protecția Datelor",
+        "description": " Regulamentul privind protecția persoanelor fizice cu privire la prelucrarea datelor cu caracter personal și libera circulație a acestor date și abrogarea Directivei 95/46/CE.",
+        "source": "titlul RGPD"
       },
       "PIA_DEF_PC": {
-        "name": "Data subject",
-        "description": "Persons to whom the data covered by the processing relate.",
+        "name": "Persoană vizată",
+        "description": " Persoanele ale căror date fac obiectul prelucrării.",
         "source": "PIA1 p9"
       },
       "PIA_DEF_MIN3": {
-        "name": "Reducing the identifying nature of data",
-        "description": "The system can ensure that: <br>- the user can use a resource or service without the risk of disclosing his/her identity (anonymous data)<br>- the user can use a resource or service without the risk of disclosing his/her identity, but remain identifiable and responsible for this use (pseudonymous data)<br>- the user can make multiple uses of resources or services without the risk of these different uses being linked together (data cannot be correlated)<br>- the user can use a resource or service without the risk of others, third parties in particular, being able to observe that the resource or service is being used (non-observability)<br>The choice of a method from the list above must be made on the basis of the threats identified. For some types of threat to privacy, pseudonymization will be more appropriate than anonymisation (for example, if there is a traceability need). In addition, some threats to privacy will be addressed using a combination of methods.",
-        "source" : "PIAF Connected objects p42 - WIKI"
+        "name": "Reducerea identificării datelor",
+        "description": "Sistemul poate asigura următoarele: <br>-  utilizatorul poate utiliza o resursă sau un serviciu fără riscul de a-și dezvălui identitatea (date anonime)<br>- utilizatorul poate utiliza o resursă sau un serviciu fără riscul de a-și dezvălui identitatea, dar rămâne identificabil și responsabil pentru această utilizare (date pseudonime)<br>- utilizatorul poate face mai multe utilizări ale resurselor sau serviciilor fără riscul ca aceste utilizări diferite să fie legate între ele (datele nu pot fi corelate)<br>- utilizatorul poate folosi o resursă sau un serviciu fără riscul altora, în special al terților, și poate observa că resursa sau serviciul este utilizat (caracter neobservabil)<br>Alegerea unei metode din lista de mai sus trebuie făcută pe baza amenințărilor identificate. Pentru anumite tipuri de amenințări la datele confidențiale, pseudonimizarea va fi mai potrivită decât anonimizarea (de exemplu, dacă există o nevoie de trasabilitate). În plus, anumite amenințări la datele confidențiale vor fi direcționate printr-o combinație de metode.",
+        "source" : "Obiecte conectate la PIAF p42 - WIKI"
       },
       "PIA_DEF_MIN4": {
-        "name": "Reducing data accumulation",
-        "description": "The system can be organised into independent parts with separate access control functions. The data can also be divided between these independent sub-systems and controlled by each sub-system using different access control mechanisms. If a sub-system is compromised, the impacts on all of the data can thus be reduced.",
-        "source": "PIAF Connected objects p42 - WIKI"
+        "name": "Reducerea acumulării de date",
+        "description": "Sistemul poate fi organizat în părți independente cu funcții separate de control al accesului. Datele pot fi, de asemenea, împărțite între aceste sub-sisteme independente și controlate de fiecare subsistem folosind diferite mecanisme de control al accesului. Dacă un subsistem este compromis, impactul asupra tuturor datelor poate fi astfel redus.",
+        "source": "Obiecte conectate la PIAF p42 - WIKI"
       },
       "PIA_DEF_MIN5": {
-        "name": "Restricting data access",
-        "description": "The system can limit data access according to the \"need to know\" principle. The system can separate the sensitive data and apply specific access control policies. The system can also encrypt sensitive data to protect their confidentiality during transmission and storage. Access to temporary cookies which are produced during the data processing must also be protected.",
-        "source": "PIAF Connected objects p42 - WIKI"
+        "name": "Restricționare accesului la date",
+        "description": "Sistemul poate limita accesul la date în conformitate cu principiul \"trebuie cunoscute\". Sistemul poate separa datele sensibile și poate aplica politici specifice de control al accesului. De asemenea, sistemul poate cripta datele sensibile pentru a-și proteja confidențialitatea în timpul transmiterii și stocării. Accesul la cookie-urile temporare produse în timpul procesării datelor trebuie, de asemenea, protejat.",
+        "source": "Obiecte conectate la PIAF p42 - WIKI"
       },
       "PIA_EX_DCPC": {
-        "name": "Common personal data",
-        "description": "<strong>Identification data</strong> : Civil status, identity, age, etc. <br><strong>Personal life</strong> : living habits, marital status, etc. <br><strong>Professional life </strong> : résumé, education and professional training, awards, etc. <br><strong>Connection data </strong> : IP addresses, event logs, etc.<br><strong>Location data</strong> : travels, GPS data, GSM data, etc.<br><strong>Others</strong> : phone number, email address, etc.",
-        "source": "PIA2 old version - WIKI"
+        "name": "Date personale comune",
+        "description": "<strong>Date de identificare</strong> : stare civilă, identitate, vârstă, etc. <br><strong>Viață personală</strong> : stiluri de viață, statut marital, etc. <br><strong>Activitate profesională </strong> : CV, educație și formare profesională, burse, etc. <br><strong>Date de conectare </strong> : adrese IP, jurnal de evenimente, etc.<br><strong>Date de localizare</strong> : călătorii, date GPS, date GSM, etc.<br><strong>Altele</strong> : număr de telefon, adresă de e-mail, etc.",
+        "source": "Versiunea veche PIA2 - WIKI"
       },
       "PIA_EX_DCPS": {
-        "name": "Personal data perceived as sensitive",
-        "description": "Social security number (NIR), biometric data, bank data",
-        "source": "PIA2 old version - WIKI"
+        "name": "Date personale percepute ca sensibile",
+        "description": "Numărul de securitate socială (NIR), datele biometrice, datele bancare",
+        "source": "Versiunea veche PIA2 - WIKI"
       },
       "PIA_EX_DCPR": {
-        "name": "Convictions and sensitive personal data",
-        "description": "Philosophical, political, religious and trade-union views, sex life, health data, racial or ethnic origin, data concerning health or sex life, offenses, convictions, security measures, see <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 9 and 10 of [GDPR]</a>.",
-        "source": "PIA2 old version, GDPR Article 9 and 10 - WIKI"
+        "name": "Condamnări și date personale sensibile",
+        "description": "Opinii filosofice, politice, religioase și sindicale, viața sexuală, date privind sănătatea, rasă sau origine etnică, date privind sănătatea sau viața sexuală, infracțiuni, condamnări, măsuri de securitate, vezi <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 9 and 10 of [GDPR]</a>.",
+        "source": "Versiunea veche PIA2, RGPD Articolele 9 și 10 - WIKI"
       },
       "PIA_EX_HUMI": {
-        "name": "Internal human sources",
-        "description": "It could be either:<br>- a negligent or rogue employee, proximity of the system, skills, privileges and available time are potentially high, possible lack of training and awareness<br>- negligent or rogue user, family member or friend having access to the service.<br> Various motives are possible, including : clumsiness, error, negligence game, malicious intent, revenge, spying",
-        "source": "PIAF Connected objects p41 - WIKI"
+        "name": "Surse umane interne",
+        "description": "Poate să fie:<br>- un angajat neglijent sau necinstit, proximitatea sistemului, aptitudini, privilegiile și timpul disponibil sunt potential ridicate, posibilă lipsă de instruire și conștientizare<br>- utilizator neglijent sau necinstit, membru al familiei sau prieten care are acces la serviciu.<br> Sunt posibile diferite motive, printre care: neîndemânare, eroare, joc de neglijență, intenții rău intenționate, răzbunare, spionaj",
+        "source": "Obiecte conectate la PIAF p41 - WIKI"
       },
       "PIA_EX_HUME": {
-        "name": "External human sources",
-        "description": "It could be either:<br>- a rogue or naive neighbor, by having a physical proximity, hacking into the device's data;<br>- a hacker targeting a user by using the knowledge he/she has of the user and some of the information concerning him/her;<br>- a hacker targeting one of the companies by using the knowledge he/she has of the companies that can undermine their image;<br>- an authorised third party company using its privileged access to illegitimately access information.",
-        "source": "PIAF Connected objects p41 - WIKI"
+        "name": "Surse umane externe",
+        "description": "Poate fi:<br>- un vecin necinstit sau naiv, având o proximitate fizică, piratarea datelor din dispozitiv;<br>- un hacker care vizează un utilizator prin utilizarea cunoștințelor pe care le are asupra utilizatorului și a unor informații despre acesta; > - un hacker care vizează una dintre companii utilizând cunoștințele pe care le are asupra companiilor și care le pot submina imaginea;<br>- o companie terță autorizată care utilizează accesul privilegiat la accesul nelegitim la informații.",
+        "source": "Obiecte conectate la PIAF p41 - WIKI"
       },
       "PIA_EX_NHUM": {
-        "name": "Non-human sources",
-        "description": "Incident or damage at one of the organisation (power cut, fire, flood, etc.)",
-        "source": "PIAF Connected objects p41 - WIKI"
+        "name": "Surse non-umane",
+        "description": " Incidente sau daune la una din organizații (căderi de curent, incendiu, inundații etc.) ",
+        "source": "Obiecte conectate la PIAF p41 - WIKI"
       },
       "PIA_EX_IMPN": {
-        "name": "Negligible impact",
-        "description": "Data subjects either will not be affected or may encounter a few inconveniences, which they will overcome without any problem. For example:<br>- physical : transient headaches;<br>- material : loss of time in repeating formalities or waiting for them to be fulfilled, receipt of unsolicited mail (e.g.: spams), reuse of data published on websites for the purpose of targeted advertising , etc.;<br>- moral : mere annoyance, feeling of invasion of privacy without real or objective harm (commercial intrusion), etc.",
-        "source": "PIAF Connected Objects p41 - WIKI"
+        "name": "Impact neglijabil",
+        "description": " Persoanele vizate fie nu vor fi afectate, fie pot întâmpina câteva inconveniente, pe care le vor depăși fără probleme. De exemplu:<br>- fizic: dureri de cap temporare;<br>- materiale: pierderea timpului în repetarea formalităților sau așteptarea îndeplinirii acestora, primirea de mesaje nesolicitate (de ex. Spam-uri), reutilizarea datelor publicate pe site-uri în scopul unei publicități direcționate etc.;<br>-  impact: simplul disconfort, senzația de invazie a datelor confidențiale fără daune reale sau obiective (intruziune comercială) etc.",
+        "source": "Obiecte conectate la PIAF p41 - WIKI"
       },
       "PIA_EX_IMPL": {
-        "name": "Limited impact",
-        "description": "Data subjects may encounter significant inconveniences, which they will be able to overcome despite a few difficulties. For example:<br>- physical : minor physical ailments (minor illness due to disregard of contraindications), defamation resulting in physical or psychological retaliation, etc.;<br>- material : unanticipated payments (fines imposed erroneously), denial of access to administrative or commercial services, receipt of unsolicited targeted mailings likely to damage the reputation of data subjects, etc.;<br>- moral : minor but objective psychological ailments, feeling of invasion of privacy without irreversible damage, intimidation on social networks, etc.",
-        "source": "PIAF Connected objects p41 - WIKI"
+        "name": "Impact limitat",
+        "description": "Persoanele vizate pot întâmpina inconveniente semnificative, pe care le vor putea depăși în ciuda câtorva dificultăți. De exemplu:<br>- fizic: afecțiuni fizice minore (boală minoră din cauza ignorării contraindicațiilor), defăimare care are ca rezultat represalii fizice sau psihologice, etc.;<br>-materiale: plăți neașteptate (amenzi aplicate în mod eronat), refuzul accesului la servicii administrative sau comerciale, primirea unor e-mailuri direcționate nesolicitate, care ar putea deteriora reputația persoanelor vizate etc. .;<br>- moral: afecțiuni psihice minore, dar obiective, sentimentul de invazie a datelor confidențiale fără daune ireversibile, intimidarea pe rețelele sociale etc.",
+        "source": "Obiecte conectate la PIAF p41 - WIKI"
       },
       "PIA_EX_IMPI": {
-        "name": "Significant impact",
-        "description": "Data subjects may encounter significant consequences, which they should be able to overcome albeit with real and serious difficulties. For example: <br>- physical : serious physical ailments causing long-term harm (worsening of health due to improper care, or disregard of contraindications), lteration of physical integrity for example following an assault, an accident at home, work, etc.<br>- material : misappropriation of money not compensated, targeted, unique and non-recurring, lost opportunities  (home loan, refusal of studies, internships or employment, examination ban), loss of housing, loss of employment, etc.;<br>- moral : serious psychological ailments (depression, development of a phobia), feeling of invasion of privacy with irreversible damage, victim of blackmailing, cyberbullying and harassment, etc.",
-        "source": "PIAF Connected objects p41 - WIKI"
+        "name": "Impact semnificativ",
+        "description": "Persoanele vizate pot întâmpina consecințe semnificative, pe care ar trebui să le poată depăși, deși cu dificultăți reale și grave. De exemplu: <br>- fizic: afecțiuni fizice grave care provoacă vătămări pe termen lung (agravarea sănătății datorită îngrijirii necorespunzătoare sau ignorarea contraindicațiilor), alterarea integrității fizice, de exemplu, după un asalt, un accident la domiciliu, muncă etc.<br>- material: deturnarea de bani necompensate, vizată, unică și nerecurentă, oportunități pierdute (împrumut de locuință, refuzul studiilor, stagii sau angajare, interzicerea examinării), pierderea locuințelor, pierderea locurilor de muncă etc .;<br>- moral: afecțiuni psihologice grave (depresie, dezvoltarea unei fobii), sentimentul invaziei vieții private cu daune ireversibile, victima șantajului, hărțuirea cibernetică și hărțuirea etc.",
+        "source": "Obiecte conectate la PIAF p41 - WIKI"
       },
       "PIA_EX_IMPM": {
-        "name": "Maximum impact",
-        "description": "Data subjects may encounter significant, or even irreversible, consequences, which they may not overcome. For example:<br>- physical : long-term or permanent physical ailments, permanent impairment of physical integrity, death;<br>- material : financial risk, substantial debts, inability to work, inability to relocate, loss of evidence in the context of litigation, loss of access to vital infrastructure (water, electricity), etc.<br>- moral : long-term or permanent psychological ailments, criminal penalty, abduction, loss of family ties, inability to sue, change of administrative status and/or loss of legal autonomy (guardianship), etc.",
-        "source": "PIAF Connected objects p41 - WIKI"
+        "name": "Impact maxim",
+        "description": "Persoanele vizate pot întâmpina consecințe semnificative sau chiar ireversibile, pe care nu le pot depăși. De exemplu:<br>- fizic: afecțiuni fizice pe termen lung sau permanente, afectarea permanentă a integrității fizice, moartea;<br>- material: risc financiar, datorii substanțiale, incapacitate de muncă, incapacitate de mutare, pierdere de probe în contextul litigiilor, pierderea accesului la o infrastructură vitală (apă, electricitate) etc.<br>- moral: afecțiuni psihologice pe termen lung sau permanent, pedeapsa penală, răpiri, pierderea legăturilor de familie, incapacitatea de a da în judecată, schimbarea statutului administrativ și/sau pierderea autonomiei juridice (tutela) etc.",
+        "source": "Obiecte conectate la PIAF p41 - WIKI"
       },
       "PIA_EX_VRAN": {
-        "name": "Negligible likelihood",
-        "description": "It does not seem possible for the selected risk sources to materialize the threat by exploiting the properties of supporting assets (e.g.: theft of paper documents stored in a room protected by a badge reader and access code).",
-        "source": "PIAF Connected objects p44 - WIKI"
+        "name": "Probabilitate neglijabilă",
+        "description": "Nu pare posibil ca sursele de risc selectate să materializeze amenințarea prin exploatarea proprietăților bunurilor de suport (de exemplu: furtul documentelor de hârtie stocate într-o cameră protejată de un cititor de legitimații și codul de acces).",
+        "source": "Obiecte conectate la PIAF p44 - WIKI"
       },
       "PIA_EX_VRAL": {
-        "name": "Limited likelihood",
-        "description": "It seems difficult for the selected risk sources to materialize the threat by exploiting the properties of supporting assets (e.g.: theft of paper documents stored in a room protected by a badge reader).",
-        "source": "PIAF Connected objects p44 - WIKI"
+        "name": "Probabilitate limitată",
+        "description": "Pare dificil pentru sursele de risc selectate să materializeze amenințarea prin exploatarea proprietăților bunurilor de suport (de exemplu: furtul documentelor de hârtie stocate într-o cameră protejată de un cititor de legitimații)",
+        "source": "Obiecte conectate la PIAF p44 - WIKI"
       },
       "PIA_EX_VRAI": {
-        "name": "Significant likelihood",
-        "description": "It seems possible for the selected risk sources to materialize the threat by exploiting the properties of supporting assets (e.g.: theft of paper documents stored in offices that cannot be accessed without first checking in at the reception).",
-        "source": "PIAF Connected objects p44 - WIKI"
+        "name": "Probabilitate semnificativă",
+        "description": "Pare să fie posibil ca sursele de risc selectate să materializeze amenințarea prin exploatarea proprietăților bunurilor de suport (de exemplu: furtul documentelor de hârtie stocate în birouri care nu pot fi accesate fără a fi mai întâi verificate la recepție)",
+        "source": "Obiecte conectate la PIAF p44 - WIKI"
       },
       "PIA_EX_VRAM": {
-        "name": "Maximum likelihood",
-        "description": "It seems extremely easy for the selected risk sources to materialize the threat by exploiting the properties of supporting assets (e.g.: theft of paper documents stored in the public lobby).",
-        "source": "PIAF Connected objects p44 - WIKI"
+        "name": "Probabilitate maximă",
+        "description": "Se pare că este extrem de ușor ca sursele de risc selectate să materializeze amenințarea prin exploatarea proprietăților bunurilor de suport (de exemplu: furtul documentelor de hârtie stocate în anticamera publică).",
+        "source": "Obiecte conectate la PIAF p44 - WIKI"
       },
       "PIA_EX_MIND": {
-        "name": "Minimisation of data themselves",
-        "description": "Reduce the severity of risks by minimising the data themselves, by taking measures aimed at reducing their sensitivity.",
-        "source": "Mesures_US"
+        "name": "Minimizarea datelor",
+        "description": "Reduceți severitatea riscurilor minimizând datele, luând măsuri care vizează reducerea sensibilității acestora.",
+        "source": " Mesures_US"
       },
       "PIA_DEF_ANO": {
-        "name": "Anonymisation",
-        "description": "Process removing the identifying characteristics from personal data. To assess the robustness of an anonymisation processes, see the <a target=\"_blank\" href=\"http://ec.europa.eu/justice/data-protection/article-29/documentation/opinion-recommendation/files/2014/wp216_en.pdf\">WP29 guidelines</a>.",
-        "source": "Mesures_US and G29 guidelines http://ec.europa.eu/justice/data-protection/article-29/documentation/opinion-recommendation/files/2014/wp216_en.pdf"
+        "name": "Anonimizare",
+        "description": " Procesul de eliminare a caracteristicilor de identificare din datele personale. Pentru a evalua robustețea proceselor de anonimizare, vezi <a target=\"_blank\" href=\"http://ec.europa.eu/justice/data-protection/article-29/documentation/opinion-recommendation/files/2014/wp216_en.pdf\">WP29 guidelines</a>.",
+        "source": " Mesures_US și liniile directoare G29 http://ec.europa.eu/justice/data-protection/article-29/documentation/opinion-recommendation/files/2014/wp216_en.pdf"
       },
       "PIA_SEC_CTR": {
-        "placeholder": "Describe here specific measures for processors (host, maintenance company, administrator, specialist service providers, etc.)",
-        "name": "Processing contracts",
-        "source": "Mesures_US Procurement: identified and governed by a contract"
+        "placeholder": "Descrieți aici măsurile specifice pentru prelucrători (gazdă, companie de mentenanță, administrator, furnizori de servicii specializate etc.)",
+        "name": "Contracte de prelucrare",
+        "source": "Mesures_US Achiziții: identificate și guvernate de un contract"
       },
       "PIA_DEF_CHIF": {
-        "name": "Encryption",
-        "description": "Measure making personal data unintelligible to anyone without access authorization (symmetric or asymmetric encryption, use of public algorithms known to be strong, authentication certificate, etc.).",
-        "source " : "Mesures_US Encryption"
+        "name": "Criptare",
+        "description": "Măsură prin care datele personale sunt indescifrabile pentru cineva fără autorizație de acces (criptarea simetrică sau asimetrică, utilizarea algoritmilor publici cunoscuți ca fiind puternici, certificatul de autentificare etc.).",
+        "source " : "Mesures_US Criptare"
       },
       "PIA_DEF_PWD": {
-        "name": "Password",
-        "description": "Passwords shall be composed of a minimum of eight characters; must be renewed if there is the least concern that they may have been compromised and, possibly, periodically (every six months or once a year) and must include a minimum of three of the four kinds of characters (capital letters, lower case letters, numerals and special characters); when a password is changed, the last five passwords may not be reused; the same password should not be used for different accesses; passwords should not be related to one's personal information (including name or date of birth.). Define a maximum number of attempts beyond which a warning is issued and authentication is blocked (temporarily or until it is manually unblocked).",
+        "name": "Parolă",
+        "description": "Parolele trebuie să fie compuse din cel puțin opt caractere; trebuie să fie reînnoite dacă există cel puțin îngrijorarea că acestea ar fi putut fi compromise și, eventual, periodic (la fiecare șase luni sau o dată pe an) și trebuie să includă cel puțin trei din cele patru tipuri de caractere (majuscule, litere mici, cifre și caractere speciale); când se modifică o parolă, ultimele cinci parole nu pot fi reutilizate; aceeași parolă nu ar trebui utilizată pentru accesări diferite; parolele nu trebuie să aibă legătură cu informațiile personale (inclusiv numele sau data nașterii). Definiți un număr maxim de încercări dincolo de care se emite un avertisment și autentificarea este blocată (temporar sau până când este deblocată manual).",
         "source" : "Mesure_US"
       },
       "PIA_DEF_AUTH": {
-        "name": "Authentication",
-        "description": "Every person with legitimate access to personal data (employees, contracting parties and other third parties) should be identified by a unique identifier. Choose an authentication method to open sessions that is appropriate to the context, the risk level and the robustness expected. Recommendations: if the risks are not elevated, a password may be used; however, if the risks are higher, use a one-time password token but change the default activation password, or, when part of the password is sent by SMS, a card with a PIN code, an electronic certificate or any other form of strong authentication.",
-        "source": "Mesures_US Logical Access Control"
+        "name": "Autentificare",
+        "description": "Fiecare persoană care are acces legitim la datele cu caracter personal (angajați, părți contractante și alte părți terțe) trebuie identificată printr-un identificator unic. Alegeți o metodă de autentificare pentru a deschide sesiunile care sunt adecvate contextului, nivelului de risc și robusteții așteptate. Recomandări: dacă riscurile nu sunt ridicate, poate fi utilizată o parolă; cu toate acestea, dacă riscurile sunt mai mari, utilizați un simbol de parolă unică, dar schimbați parola de activare prestabilită sau când o parolă este trimisă prin SMS, un card cu cod PIN, un certificat electronic sau orice altă formă de autentificare puternică.",
+        "source": "Mesures_US Controlul Accesului Logic"
       },
       "PIA_DEF_LOG": {
-        "name": "Surveillance",
-        "description": "Set up a logging architecture to allow early detection of incidents involving personal data and to have information that can be used to analyze them or provide proof in connection with investigations.",
-        "source": "Mesures_US Surveillance"
+        "name": "Supraveghere",
+        "description": " Creați o arhitectură de înregistrare care să permită detectarea timpurie a incidentelor care implică date cu caracter personal și să aveți informații care să poată fi utilizate pentru a le analiza sau a furniza dovezi în legătură cu investigațiile.",
+        "source": "Mesures_US Supraveghere"
       },
       "PIA_DEF_ARCH": {
-        "name": "Archiving",
-        "description": "Procedures preserving and managing the electronic archives containing the personal data intended to ensure their value (specifically, their legal value) throughout the entire period necessary (transfer, storage, migration, accessibility, elimination, archiving policy, protection of confidentiality, etc.).",
-        "source": "Mesures_USE Archiving"
+        "name": "Arhivare",
+        "description": "Proceduri de păstrare și gestionare a arhivelor electronice care conțin date cu caracter personal destinate să asigure valoarea acestora (în mod specific valoarea juridică) pe întreaga perioadă necesară (transfer, stocare, migrare, accesibilitate, eliminare, politică de arhivare, protecția confidențialității etc.).",
+        "source": "Mesures_USE Arhivare"
       }
     }
   },
   "comments": {
-    "comments_count": "comment(s)",
-    "new_comment": "Comment",
-    "placeholder_new_comment": "Leave a comment",
-    "comment": "Comment",
-    "send": "Send"
+    "comments_count": "comentariu(i)",
+    "new_comment": "Comentariu",
+    "placeholder_new_comment": "Lăsați un comentariu",
+    "comment": "Comentariu",
+    "send": "Trimiteți"
   },
   "questions": {
-    "edit": "Edit question",
+    "edit": "Editați întrebarea",
     "gauges": {
-      "0": "(Undefined)",
-      "1": "Negligible",
-      "2": "Limited",
+      "0": "(Nedefinit)",
+      "1": "Neglijabil",
+      "2": "Limitat",
       "3": "Important",
-      "4": "Maximum"
+      "4": "Maxim"
     }
   },
   "evaluations": {
-    "title": "Evaluation",
-    "to_correct": "To correct",
-    "improvable": "Improvable",
-    "acceptable": "Acceptable",
-    "evaluation_comment": "Evaluation comment",
-    "action_plan_comment": "Action plan / corrective actions",
-    "placeholder_to_correct": "The information provided are not sufficient to properly evaluate them. Send back to the editor to improve the original submission.",
-    "placeholder_improvable1": "According to the available information, additional measures are to be implemented in order to improve the data protection of the processing.",
-    "placeholder_improvable2": "Enter your comments.",
-    "placeholder_acceptable": "According to the available information, the measures implemented are adequate to properly meet the requirements for protecting the data.",
+    "title": "Evaluare",
+    "to_correct": "De corectat",
+    "improvable": "Perfectibil",
+    "acceptable": "Acceptabil",
+    "evaluation_comment": "Mesaj de evaluare",
+    "action_plan_comment": "Plan de acțiune / acțiuni corective",
+    "placeholder_to_correct": "Informațiile furnizate nu sunt suficiente pentru a putea fi evaluate în mod corespunzător. Trimiteți înapoi la editor pentru a îmbunătăți prezentarea inițială.",
+    "placeholder_improvable1": "Conform informațiilor disponibile, trebuie puse în aplicare măsuri suplimentare pentru a îmbunătăți protecția datelor de prelucrare.",
+    "placeholder_improvable2": "Introduceți comentariile dvs.",
+    "placeholder_acceptable": "Conform informațiilor disponibile, măsurile implementate sunt adecvate pentru a îndeplini în mod adecvat cerințele de protecție a datelor.",
     "gauges": {
-      "seriousness": "Taking into account the action plan, how do you re-evaluate the <span class='red-highlight'>seriousness of this risk</span> ({{value}})?",
-      "likelihood": "Taking into account the action plan, how do you re-evaluate the <span class='red-highlight'>likelihood of this risk</span> ({{value}})?",
-      "0": "(Undefined)",
-      "1": "Negligible",
-      "2": "Limited",
+      "seriousness": " Luând în considerare planul de acțiune, cum reevaluați <span class='red-highlight'>seriousness of this risk</span> ({{value}})?",
+      "likelihood": " Luând în considerare planul de acțiune, cum reevaluați <span class='red-highlight'>likelihood of this risk</span> ({{value}})?",
+      "0": "(Nedefinit)",
+      "1": "Neglijabil",
+      "2": "Limitat",
       "3": "Important",
-      "4": "Maximum"
+      "4": "Maxim"
     },
     "status": {
-      "0": "Pending",
-      "1": "To correct",
-      "2": "Improvable",
-      "3": "Acceptable"
+      "0": "În așteptare",
+      "1": "De corectat",
+      "2": "Perfectibil",
+      "3": "Acceptabil"
     }
   },
   "help": {
-    "title": "Help",
+    "title": "Ajutor",
     "infografics": {
       "title": "An overview of the requirements and methodology",
       "display": "Show process map",
@@ -785,555 +785,503 @@
     },
     "definition": {
       "data1": {
-        "title": "Use the PIA tool",
-        "content": "Content being written"
+        "title": "Utilizați instrumentul PIA",
+        "content": "Conținutul este în curs de scriere"
       },
       "data2": {
-        "title": "Known Issues",
+        "title": "Probleme cunoscute",
         "qa1": {
-          "title": "I get display issues such as icons being stuck in one state or missing elements from the interface",
-          "content": "When encountering those display issues, close the application and reload it. It usually fixes the issue. You won’t lose the information you have entered ; it is  automatically saved as you type."
+          "title": "Probleme de afișare, precum pictograme blocate într-o singură stare sau elemente lipsă din interfață",
+          "content": "Când întâmpinați aceste probleme de afișare, închideți aplicația și reîncărcați-o. De obicei, rezolvă problema. Nu veți pierde informațiile pe care le-ați introdus; salvarea se face automat pe măsură ce tastați."
         },
         "qa2": {
-          "title": "I can’t edit the gauges for evaluating the severity and likelihood of a risk",
-          "content": "This known issue is currently being fixed. If you encounter this problem, we recommend that you fill in the justification field of the estimated level of severity and / or likelihood. You will be able to edit the gauge once the bug is fixed."
+          "title": "Imposibil de editat indicatorul pentru evaluarea severității și probabilității unui risc",
+          "content": "Această problemă cunoscută este în curs de rezolvare. Dacă întâmpinați această problemă, vă recomandăm să completați câmpul de justificare a nivelului estimat de severitate și / sau probabilitate. Veți putea edita indicatorul odată ce eroarea este rezolvată."
         },
         "qa3": {
-          "title": "I encounter issues when importing a PIA",
-          "content": "Several bugs have been observed when importing a PIA, and in particular the level gauges for evaluating the severity and likelihood of a risk may disappear. In this case, please refer to the above mentioned issue. Besides, a PIA may not appear on the dashboard after importing it. This is a display issue and you just need to refresh the page."
+          "title": "ProbIeme de import PIA",
+          "content": "Mai multe erori au fost observate la importarea unui PIA și, în special, pot să dispară indicatoarele de nivel pentru evaluarea severității și probabilității unui risc. În acest caz, vă rugăm să consultați problema de mai sus. În plus, este posibil ca un PIA să nu apară pe tabloul de bord după ce a fost importat. Aceasta este o problemă de afișare și trebuie doar să actualizați pagina."
         },
         "qa4": {
-          "title": "When I copy / paste text, it is highlighted.",
-          "content": "This is only a display bug and it has no effect on the text you enter in a field. This visual problem will be fixed soon."
+          "title": "La copiere și lipire textul este evidențiat.",
+          "content": " Aceasta este doar o eroare de afișare și nu are nici un efect asupra textului pe care îl introduceți într-un câmp. Această problemă vizuală va fi rezolvată în curând."
         },
         "qa5": {
-          "title": "I can’t evaluate a section",
-          "content": "In order to evaluate a section, it is mandatory to fill in all the fields. Please check if this is the case. When editing a risk, you must have at least one technical or organizational measure that mitigates the risk in order to ask for an evaluation of the risk."
+          "title": "Secțiune imposibil de evaluat",
+          "content": "Pentru a evalua o secțiune, este obligatoriu să completați toate câmpurile. Verificați dacă este cazul. La editarea unui risc, trebuie să aveți cel puțin o măsură tehnică sau organizatorică care să atenueze riscul pentru a cere o evaluare a riscului."
         },
         "qa6": {
-          "title": "When switching language, the texts are not translated",
-          "content": "Please close the PIA you are editing and re-open it. The content should then be displayed in the language you have selected."
+          "title": "Când comutați limba, textele nu sunt traduse",
+          "content": " Închideți PIA pe care îl editați și deschideți-l din nou. Conținutul trebuie apoi afișat în limba pe care ați selectat-o."
         },
         "qa7": {
-          "title": "I have refused to validate a PIA but I don’t know what to do now",
-          "content": "For the moment, the navigation menu icons are not refreshed after refusing a PIA. You have to check each section and change the information and/or evaluation according to the reasons for refusing the PIA. Once all section have been reviewed, you should be able to request PIA validation again."
+          "title": "Am refuzat să validez un PIA, dar nu știu ce să fac acum",
+          "content": "Pentru moment, pictogramele meniului de navigare nu sunt reactualizate după refuzul unui PIA. Trebuie să verificați fiecare secțiune și să modificați informațiile și/sau evaluarea în funcție de motivele pentru refuzarea unui PIA. Odată ce toate secțiunile au fost revizuite, ar trebui să puteți solicita din nou validarea PIA."
         }
       },
       "footer": ""
     }
   },
   "about": {
-    "title": "About the Tool PIA",
-    "version_number": "Version number",
-    "description": "This tool is originally designed by the <a target=\"_blank\" href=\"https://www.cnil.fr\">Commission Nationale Informatique et Liberté (CNIL)</a>, the French Data Protection Authority, to help data processor to be compliant with the GDPR.<br>This software is free and open. If you wish to get involved in this project, you are welcome to download the source code from Github, modify it and share it with the community.",
-    "translators": "The PIA software is currently available in five languages. The French and English versions are provided by the CNIL. The others versions result from the contributions of the following individuals:",
-    "translators_name": "<ul><li>Dutch: Ruud van Driel, Manuel d’Orso, Louis De Jaeger ;</li><li>Czech: Jiří Grohmann, Manuel d’Orso ;</li><li>Italian: Manuel d’Orso, Gianluca Markos, Romolo Manfredini, Andrea Latino, Antonio Caselli ;</li><li>Polish: Joanna Karczewska, Michał Mazur ;</li><li>German: Kosmas Schütz, Corina Scheiter ;</li><li>Spanish: ylachgar</li><li>Norwegian: PVOhmn</li><li>Greek: Dimitris Tzellis</li><li>Portuguese: rubenlavrador, bagois ;</li><li>Finnish: DPA Finland</li><li>Romanian: oddox</li></ul>",
-    "contribute": "If you wish to contribute to the translation of the software in another language or improve the existing translations, we recommend you to <a href=\"https://github.com/LINCnil/pia/tree/master/src/assets/i18n\" target=\"_blank\">read the page describing the steps to follow</a>.",
-    "licences": "Library licences:"
+    "title": "Despre instrumental PIA",
+    "version_number": "Numărul versiunii",
+    "description": "Acest instrument a fost inițial proiectat de către <a target=\"_blank\" href=\"https://www.cnil.fr\">Commission Nationale Informatique et Liberté (CNIL)</a>, Autoritatea Franceză pentru Protecția Datelor, pentru a ajuta procesorul de date să fie compatibil cu RGPD.<br>Acest soft este gratuit și deschis. Dacă doriți să vă implicați în acest proiect, puteți să descărcați codul sursă de la Github, să îl modificați și să îl distribuiți comunității.",
+    "translators": "Softul PIA este disponibil în prezent în cinci limbi. Versiunile în limba franceză și engleză sunt furnizate de CNIL. Celelalte versiuni provin din contribuțiile următoarelor persoane:",
+    "translators_name": "<ul><li>Olandeză: Ruud van Driel, Manuel d’Orso ;</li><li>Cehă: Jirí Grohmann, Manuel d’Orso ;</li><li>Italiană: Manuel d’Orso, Gianluca Markos.</li><li>Poloneză: Joanna Karczewska, Michał Mazur ;</li><li>Germană: Kosmas Schütz, Corina Scheiter ;</li><li>Spaniolă: ylachgar</li><li>Norvegian: PVOhmn</li><li>Greacă: Dimitris Tzellis</li><li>Portugheză: rubenlavrador, bagois ;</li><li>Finlandeză: DPA Finland</li><li>Română: oddox</li></ul>",
+    "contribute": " Dacă doriți să contribuiți la traducerea softului într-o altă limbă sau să îmbunătățiți traducerile existente, vă recomandăm următoarele <a href=\"https://github.com/LINCnil/pia/tree/master/src/assets/i18n\" target=\"_blank\"> citiți pagina care descrie pașii următori</a>.",
+    "licences": "Biblioteca de licențe:"
   },
   "settings": {
-    "title": "Settings",
-    "content": "Please, provide the address (URL) of the remote server:",
-    "update": "Update URL"
+    "title": "Setări",
+    "content": " Vă rugăm să furnizați adresa (URL-ul) serverului de la distanță:",
+    "update": "Actualizați URL"
   },
   "validation_page": {
-    "responsible": "Person accountable for validating the PIA: ",
-    "after_reading": "After reading full PIA relating to the data processing linked to ",
-    "confirmation1": "I attest that the context of the processing described in the PIA is consistent with the reality.",
-    "confirmation2": "I attest that I am aware of the risks depending on the existing or planned measures.",
-    "confirmation3": "I ratify the corrective actions indicated in the action plan.",
-    "confirmation4": "I commit to implement as quickly as possible the indicated corrective actions.",
+    "responsible": "Persoana care se ocupă de validarea PIA: ",
+    "after_reading": " După citirea întregului PIA cu privire la procesarea datelor legate de ",
+    "confirmation1": "Confirm că descrierea contextului de procesare este în concordanță cu realitatea.",
+    "confirmation2": "Confirm că am luat act de riscurile existente în funcție de măsurile planificate sau existente.",
+    "confirmation3": "Aprob măsurile corrective indicate.",
+    "confirmation4": "Mă angajez să pun în aplicare cât mai curând posibil măsurile corective indicate.",
     "button": {
-      "rejection": "Reject PIA",
-      "simple_validation": "Approve PIA <br>(direct)",
-      "signed_validation": "Approve PIA <br>(signed)"
+      "rejection": "Refuzați<br>validarea",
+      "simple_validation": "Validare simplă",
+      "signed_validation": "Validare<br>semnată"
     },
-    "mandatory_fields": "All boxes must be checked",
-    "waiting_for_signature": "Pending signed PIA",
-    "validated_pia_with_signature": "Approved",
-    "add_signed_pia": "Add the signed PIA",
-    "remove_attachment": "Remove the attachment",
-    "latest_signed_attachment": "Last signed attachment",
-    "signed_attachments_history": "Signed attachments history",
+    "mandatory_fields": "Toate câmpurile trebuie să fie completate",
+    "waiting_for_signature": "În așteptarea semnării PIA",
+    "validated_pia_with_signature": "Validat",
+    "add_signed_pia": "Adăugați PIA semnată",
+    "remove_attachment": "Eliminați fișierul atașat",
     "tools": {
-      "dashboard": "Dashboard",
-      "display_pia": "Display report",
-      "action_plan": "Action plan"
+      "dashboard": "Tablou de bord",
+      "display_pia": "Afișare PIA",
+      "action_plan": "Plan de acțiun"
     }
   },
   "rejection_page": {
-    "title": "Validation history",
-    "rejection_reason": "Refusal reason",
-    "rejection_reason_placeholder": "Describe the reasons for refusing the PIA.",
-    "applied_adjustments": "Adjustments proposed",
-    "applied_adjustments_placeholder": "Describe the changes brought to the PIA.",
-    "previous_rejection": "Previous refusal",
+    "title": "Istoricul validării",
+    "rejection_reason": "Motivul respingerii",
+    "rejection_reason_placeholder": "de tradus",
+    "applied_adjustments": "Ajustări aplicate",
+    "applied_adjustments_placeholder": "de tradus",
+    "previous_rejection": "Respingerea anterioară",
     "button": {
-      "abandon_treatment": "Abandon processing",
-      "reject_pia": "Reject PIA",
-      "send_for_validation": "Resend for approval"
+      "abandon_treatment": "Renunță la prelucrare",
+      "reject_pia": "Refuzați PIA",
+      "send_for_validation": " Trimiteți o nouă validare "
     }
   },
   "misc": {
-    "display": "Show / Hide"
+    "display": "Arată / Ascunde"
   },
   "modals": {
-    "cancel": "Cancel",
-    "archive": "Archive",
-    "close": "Close",
-    "continue": "Continue",
-    "start_evaluation": "Start review",
-    "back_to_home": "Back to home",
+    "cancel": "Anulați",
+    "archive": "Arhivați",
+    "close": "Închideți",
+    "continue": "Continuați",
+    "back_to_home": "Înapoi la pagina de start",
     "simple_pia_validation": {
-      "content": "You have approved the PIA."
-    },
-    "completed_edition": {
-      "content": "The PIA has been fully edited and has to be reviewed."
-    },
-    "completed_evaluation": {
-      "content": "The PIA has been fully reviewed and can be validated."
+      "content": "PIA a fost validat."
     },
     "update_server_url": {
-      "content": "The server address has been updated."
+      "content": "Adresa serverului a fost actualizată."
     },
     "signed_pia_validation": {
-      "content": "To approve the PIA, attach the signed report.",
-      "download_pia": "Download report"
+      "content": "<span class='strong'>PIA acceptat</span><br>Finalizați validarea PIA prin atașarea<br>raportului semnat de persoana responsabilă.",
+      "download_pia": "Descărcați raportul PIA"
     },
     "abandon_pia": {
-      "content": "Do you wish to give up the processing?",
-      "additional_text": "Archiving is not definitive and the PIA can go back to it if needed."
+      "content": "Sigur doriți<br>să renunțați la această prelucrare?"
     },
     "refuse_pia": {
-      "content": "As you have rejected the PIA, it is sent back for review to make the required changes."
+      "content": "<span class='strong'>PIA respins,</span><br> Câteva câmpuri trebuie corectate.<br>Întoarceți-vă la modul de evaluare<br>pentru a face corecții."
     },
     "same_comment": {
-      "content": "<span class='strong'>Warning,</span><br>Please enter a comment different from the last recorded."
+      "content": "<span class='strong'>Avertisment,</span><br>Introduceți un comentariu diferit de ultimul înregistrat."
     },
     "not_enough_measures_to_remove": {
-      "content": "<span class='strong'>Warning,</span><br>At least one measure must be filled: no deletion possible."
+      "content": "<span class='strong'>Avertisment,</span><br>Trebuie să completați cel puțin o măsură: nu este posibilă ștergerea."
     },
     "remove_measure": {
-      "content": "<span class='strong'>Warning,</span><br>Are you sure you want to <br>remove this measure?",
-      "remove": "Remove this <br>measure",
-      "keep": "Keep this <br>measure"
+      "content": "<span class='strong'>Avertisment,</span><br>Sigur doriți<br>să eliminați această măsură?",
+      "remove": "Eliminați această <br>măsură",
+      "keep": "Păstrează această <br>măsură"
     },
     "ask_for_evaluation": {
-      "content": "This section is ready to be reviewed."
+      "content": "<span class='strong'>Felicitări,</span><br>acum subsecțiunea este<br>valabilă pentru evaluare."
     },
     "validate_evaluation": {
-      "content": "This section is ready for validating the PIA."
+      "content": "<span class='strong'>Felicitări,</span><br>validare globală a PIA în așteptare."
     },
     "validate_evaluation_to_correct": {
-      "content": "Sorry,<br>Several fields must be corrected.<br>Return to edition mode<br>to make corrections."
+      "content": "Ne pare rău,<br>Câteva câmpuri trebuie corectate.<br>Reveniți la modul de editare<br>pentru a face corectări."
     },
     "declare_measures": {
-      "content": "Before evaluating risks,<br>you must report the<br>existing or planned measures.",
-      "declare": "Declare existing or planned measures"
+      "content": "Ne pare rău,<br>înainte de evaluarea riscurilor,<br>trebuie să raportați<br>măsurile existente sau planificate.",
+      "declare": "Declarați măsurile existente sau planificate"
     },
     "remove_pia": {
-      "content": "<span class='strong'>Warning,</span><br>Are you sure you want to<br>remove this PIA?",
-      "remove": "Remove this PIA"
+      "content": "<span class='strong'>Avertisment,</span><br>Sigur doriți<br>să eliminați acest PIA?",
+      "remove": "Eliminați acest PIA"
     },
     "remove_attachment": {
-      "content": "<span class='strong'>Warning,</span><br>Are you sure you want to<br>remove this attachment?",
-      "keep": "Keep",
-      "remove": "Remove",
-      "comment": "Comment"
-    },
-    "modal_select_text_pia": {
-      "content": "TO BE TRANSLATED - The content of the PIA has been copied to clipboard."
-    },
-    "action_plan_no_evaluation": {
-      "content": "You need to begin the review of the analysis to create the action plan.",
-      "review_section": "Review a section"
-    },
-    "dpo_missing_evaluations": {
-      "content": "You need to complete the review of the analysis to access the DPO page.",
-      "review_section": "Review a section"
-    },
-    "back_to_edition": {
-      "content": "This section has been sent back for editing.<br> Several fields must be corrected<br> to enable its proper review."
-    },
-    "back_to_evaluation": {
-      "content": "This section has been sent back for review.<br> Several fields must be reviewed<br> to enable its proper validation."
+      "content": "<span class='strong'>Avertisment,</span><br>Sigur doriți<br>să eliminați acest fișier atașat?",
+      "keep": "Păstrați",
+      "remove": "Eliminați"
     }
   },
   "summary": {
-    "previous_page": "Back to previous page",
-    "print": "Print",
-    "copy_to_clipboard": "Copy to clipboard",
-    "download_images": "Download images",
-    "download_csv": "Download a CSV export",
-    "csv_action_plan_comment": "Action plan comment",
-    "csv_evaluation_comment": "Evaluation comment",
-    "csv_section": "Section",
-    "csv_title_object": "Title",
-    "csv_implement_date": "Estimated implementation date",
-    "csv_people_in_charge": "Person in charge",
-    "csv_file_title": "action-plan",
-    "display_filters": {
-      "title": "Display filters",
-      "main_content": "Display section \"PIA information\"",
-      "context_content": "Display section \"Context\"",
-      "principles_content": "Display section \"Fundamental principles\"",
-      "risks_content": "Display section \"Risks\"",
-      "action_plan_content": "Display action plan",
-      "risks_overview_content": "Display risks overview",
-      "risks_cartography_content": "Display risk mapping"
-    },
-    "title": "PIA information",
+    "previous_page": "Înapoi la pagina anterioară",
+    "print": "Imprimați",
+    "title": "Informații despre PIA",
     "pia_name": "PIA",
-    "pia_author": "Author's name",
-    "pia_assessor": "Assessor's name",
-    "pia_validator": "Validator's name",
+    "pia_author": "Numele autorului",
+    "pia_assessor": "Numele evaluatorului",
+    "pia_validator": "Numele validatorului",
     "content_choice": {
-      "0": "The treatment should not be used.",
-      "1": "The treatment could be implemented."
+      "0": "Această prelucrare nu trebuie utilizată.",
+      "1": "Prelucrarea ar putea fi implementată."
     },
-    "dpo_name": "DPO's name",
-    "dpo_status": "DPO's status",
-    "dpo_opinion": "DPO's opinion",
-    "concerned_people_searched_opinion": "Search of concerned people opinion",
-    "people_search_status_ok": "Concerned people opinion was requested.",
-    "people_search_status_nok": "Concerned people opinion wasn't requested.",
-    "concerned_people_unsearched_opinion_comment": "Reason why concerned people opinion wasn't requested",
-    "concerned_people_name": "Concerned people opinions",
-    "concerned_people_status": "Concerned people statuses",
-    "concerned_people_opinion": "Concerned people opinions",
-    "modification_made": "Modifications made",
-    "rejection_reason": "Rejection reason",
-    "creation_date": "Creation date",
-    "attachments": "Attachments",
+    "dpo_name": "Numele RPD",
+    "dpo_status": "Starea RPD",
+    "dpo_opinion": "Avizul RPD",
+    "concerned_people_searched_opinion": "Căutați avizul persoanelor interesați",
+    "people_search_status_ok": "S-a solicitat avizul persoanelor interesate.",
+    "people_search_status_nok": "Avizul persoanelor interesate nu a fost solicitat.",
+    "concerned_people_unsearched_opinion_comment": "Motivul pentru care avizul persoanelor interesate nu a fost solicitat",
+    "concerned_people_name": "Avizele persoanelor intereste",
+    "concerned_people_status": "Stările persoanelor interesate",
+    "concerned_people_opinion": "Avizele persoanelor intereste",
+    "modification_made": "Modificări efectuate",
+    "rejection_reason": "Motivul respingerii",
+    "creation_date": "Data creării",
+    "attachments": "Fișiere atașate",
     "gauges": {
-      "1": "Negligible",
-      "2": "Limited",
+      "1": "Neglijabil",
+      "2": "Limitat",
       "3": "Important",
-      "4": "Maximum"
+      "4": "Maxim"
     },
     "action_plan": {
-      "title": "Action plan",
-      "fundamental_principles": "Fundamental principles",
-      "implementation_date": "Expected date of implementation",
-      "implementation_responsible": "Responsible for implementation",
-      "measures": "Existing or planned measures",
-      "risks": "Risks",
-      "no_action_plan": "No action plan recorded."
-    },
-    "risks_overview_title": "Risks overview",
-    "risks_cartography_title": "Risk mapping"
+      "title": "Plan de acțiune",
+      "fundamental_principles": "Principii fundamentale",
+      "implementation_date": "Data prevăzută pentru implementare",
+      "implementation_responsible": "Responsabilul pentru implementare",
+      "measures": "Măsuri existente sau planificate",
+      "risks": "Riscuri",
+      "no_action_plan": "Nu a fost înregistrat niciun plan de acțiune."
+    }
   },
   "errors": {
-    "title": "Page not found.",
-    "content": "If you encounter other problems or if you have suggestions for improvement,<br>you can send them back via this form: <a href=\"https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia\" target=\"_blank\">https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia</a>"
+    "title": "Pagina nu a fost gasită.",
+    "content": "Dacă întâmpinați alte probleme sau dacă aveți sugestii de îmbunătățire,<br>le puteți trimite prin acest formular: <a href=\"https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia\" target=\"_blank\">https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia</a>"
   },
   "overview-risks": {
-    "potential_impacts": "Potential impacts",
-    "threat": "Threats",
-    "sources": "Sources",
-    "measures": "Measures",
-    "negligible": "Negligible",
-    "limited": "Limited",
+    "potential_impacts": "Impactul potențial",
+    "threat": "Amenințare",
+    "sources": "Surse",
+    "measures": "Măsuri",
+    "negligible": "Neglijabil",
+    "limited": "Limitat",
     "important": "Important",
     "maximal": "Maximal",
-    "risk-access_x": "Severity",
-    "risk-access_y": "Likelihood",
-    "risk-change_x": "Severity",
-    "risk-change_y": "Likelihood",
-    "risk-disappearance_x": "Severity",
-    "risk-disappearance_y": "Likelihood"
+    "risk-access_x": "Severitate",
+    "risk-access_y": "Probabilitate",
+    "risk-change_x": "Severitate",
+    "risk-change_y": "Probabilitate",
+    "risk-disappearance_x": "Severitate",
+    "risk-disappearance_y": "Probabilitate"
   },
   "cartography": {
-    "negligible": "Negligible",
-    "limited": "Limited",
+    "negligible": "Neglijabil",
+    "limited": "Limitat",
     "important": "Important",
-    "maximal": "Maximum",
-    "seriousness_axe": "Risk seriousness",
-    "likelihood_axe": "Risk likelihood",
-    "legend1": "Planned or existing measures",
-    "legend2": "With the corrective measures implemented",
-    "legend3": "(I)llegitimate access to data",
-    "legend4": "(U)nwanted modification of data",
-    "legend5": "(D)ata disappearance",
+    "maximal": "Maxim",
+    "seriousness_axe": "Gravitatea riscului",
+    "likelihood_axe": "Probabilitatea riscului",
+    "legend1": "Măsuri planificate sau existente",
+    "legend2": "Prin măsurile corective implementate",
+    "legend3": "(I)Acces nelegitim la date",
+    "legend4": "(U)modificarea nedorită a datelor ",
+    "legend5": "(D)dispariția datelor",
     "risk1_access": "(I)",
-    "risk2_modification": "(U)",
-    "risk3_disappearance": "(D)"
+    "risk2_modification": "(U)"
   },
   "action_plan": {
-    "title": "Overview",
-    "principles": "Fundamental principles",
-    "measures": "Planned or existing measures",
-    "risks": "Risks",
-    "risk1": "Illegitimate access to data",
-    "risk2": "Unwanted modification of data",
-    "risk3": "Data disappearance",
-    "improvable_measures": "Improvable measures",
-    "acceptable_measures": "Acceptable measures",
-    "no_action_plan": "No action plan recorded.",
-    "edit": "Edit",
-    "placeholder_person_in_charge": "Implementation responsible"
+    "title": "Prezentare generală",
+    "principles": "Principii fundamentale",
+    "measures": "Măsuri planificate sau existente",
+    "risks": "Riscuri",
+    "risk1": "Acces nelegitim la date",
+    "risk2": "Modificarea nedorită a datelor",
+    "risk3": "Dispariția datelor",
+    "improvable_measures": "Măsuri de îmbunătățire",
+    "acceptable_measures": "Măsuri acceptabile",
+    "no_action_plan": "Nu a fost înregistrat niciun plan de acțiune.",
+    "edit": "Editați",
+    "placeholder_person_in_charge": "Responsabilul pentru implementare"
   },
   "opinions": {
-    "edit": "Edit",
-    "content": ", consider that :",
-    "dpo_opinion": "DPO opinion",
-    "placeholder_dpo_name": "DPO name(s)",
-    "placeholder_dpo_opinion": "Specify the reasons for your choice.",
-    "dpo_lock": "Please complete the other sections before you can fill the DPO opinion.",
-    "people_opinion": "Concerned people opinion",
-    "placeholder_concerned_people_name": "Concerned people name(s)",
-    "placeholder_people_opinion": "Describe how the opinions were collected and what the analysis is. If the notices have not been sought, state the reasons.",
-    "placeholder_search_content": "Justify the reason why the opinion of the persons concerned has not been requested.",
-    "treatment_ok": "The treatment could be implemented.",
-    "treatment_nok": "The treatment should not be used.",
-    "treatment_lock": "Please complete the other sections before you can fill the opinions of the persons concerned."
-  },
+    "edit": "Editați",
+    "content": ", consider că :",
+    "dpo_opinion": "Avizul RPD",
+    "placeholder_dpo_name": "Numele RPD",
+    "placeholder_dpo_opinion": "Specificați motivele pentru alegerea dvs.",
+    "dpo_lock": "Vă rugăm să completați celelalte secțiuni înainte de a putea completa avizul RPD.",
+    "people_opinion": "Avizul persoanelor interesate",
+    "placeholder_concerned_people_name": "Numele persoanelor interesate",
+    "placeholder_people_opinion": "Descrieți cum au fost colectate avizele și care este rezultatul. Dacă avizele nu au fost solicitate, menționați motivele.",
+    "placeholder_search_content": "Justificați motivul pentru care avizul persoanei interesate nu a fost solicitat.",
+    "treatment_ok": "Prelucrarea ar putea fi implementată",
+    "treatment_nok": "Prelucrarea nu trebuie utilizată",
+    "treatment_lock": "Vă rugăm să completați celelalte secțiuni înainte de a putea completa avizele persoanelor interesate."
+},
   "sections": {
     "1": {
       "title": "Context",
-      "short_help": "This section gives you a clear view of the treatment(s) of personal data in question.",
+      "short_help": "Această secțiune vă oferă o viziune clară asupra prelucrării (prelucrărilor) datelor personale în cauză.",
       "items": {
         "1": {
-          "title": "Overview",
-          "short_help": "This part allows you to identify and present the object of the study.",
+          "title": "Prezentare generală",
+          "short_help": "Această parte vă permite să identificați și să prezentați obiectul studiului.",
           "questions": {
             "1": {
-              "title": "Which is the processing under consideration?",
-              "placeholder": "Present a brief outline of the processing: its name, purposes, stakes, context of use, etc."
+              "title": "Care este prelucrarea în curs de examinare?",
+              "placeholder": "Prezentați pe scurt prelucrarea: numele, scopurile, interesele financiare, contextul de utilizare etc."
             },
             "2": {
-              "title": "What are the responsibilities linked to the processing?",
-              "placeholder": "Describe the responsabilities of the stakeholders: the data controller, the possible data processors and joint controllers."
+              "title": "Care sunt responsabilitățile legate de prelucrare?",
+              "placeholder": "Descrieți responsabilitățile părților interesate: operatorul de date, eventualii prelucrători de date și operatorii comuni".
             },
             "3": {
-              "title": "Are there standards applicable to the processing?",
-              "placeholder": "List the relevant standards applicable to the processing, especially approved codes of conduct and data protection certifications."
+              "title": "Există standarde aplicabile procesării?",
+              "placeholder": "Listați standardele relevante aplicabile procesării, în special codurile de conduită aprobate și certificările de protecție a datelor."
             }
           }
         },
         "2": {
-          "title": "Data, processes and supporting assets",
-          "short_help": "This part allows you to define and describe the scope of the processing in detail.",
-          "questions": {
+          "title": "Date, prelucrări și bunuri de suport",
+          "short_help": "Această parte vă permite să definiți și să descrieți în detaliu scopul prelucrării.",          "questions": {
             "1": {
-              "title": "What are the data processed?",
-              "placeholder": "List the data collected and processed. Define for each the storage durations, the recipients and persons with access thereto."
+              "title": "Care sunt datele procesate?",
+              "placeholder": "Listați datele colectate și procesate. Definiți pentru fiecare perioadă de stocare, destinatarii și persoanele care au acces la acestea."
             },
             "2": {
-              "title": "How does the life cycle of data and processes work?",
-              "placeholder": "Present and describe how the product generally works (from the data collection to the data destruction, the different processing stages, storage, etc.), using for example a diagram of data flows (add it as an attachment) and a detailed description of the processes carried out."
-            },
+              "title": "Cum funcționează ciclul de viață al datelor și proceselor?",
+              "placeholder": "Prezentați și descrieți modul în care produsul funcționează în general (de la colectarea datelor până la distrugerea datelor, diferitele etape de procesare, stocare etc.), utilizând de exemplu o diagramă a fluxurilor de date (adăugați-o ca fișier atașat) și o descriere detaliată a procesele efectuate. "
+},
             "3": {
-              "title": "What are the data supporting assets?",
-              "placeholder": "List the data supporting assets (operating systems, business applications, database management systems, office suites, protocols, configurations, etc.)"
+              "title": "Care sunt datele privind bunurile de suport?",
+              "placeholder": "Listați datele privind bunurile de suport (sisteme de operare, aplicații de afaceri, sisteme de gestionare a bazelor de date, aplicații office suite, protocoale, configurații etc.)"
             }
           }
         }
       }
     },
     "2": {
-      "title": "Fundamental principles",
-      "short_help": "This section allows you to build the compliance framework for privacy principles.",
+      "title": "Principii fundamentale",
+      "short_help": "Această secțiune vă permite să construiți cadrul de conformitate pentru principiile confidențialității.",
       "items": {
         "1": {
-          "title": "Proportionality and necessity",
-          "short_help": "This part allows you to demonstrate the legitimacy of your treatment and of the data processed.",
+          "title": "Proporționalitatea și necesitatea",
+          "short_help": "Această parte vă permite să demonstrați legitimitatea prelucrării dumneavoastră și a datelor procesate.",
           "questions": {
             "1": {
-              "title": "Are the processing purposes specified, explicit and legitimate?",
-              "short_title": "Purposes",
-              "placeholder": "Explain why the processing purposes are specified, explicit and legitimate."
+              "title": "Scopurile de procesare sunt specificate, explicite și legitime?",
+              "short_title": "Scopuri",
+              "placeholder": "Explicați de ce scopurile de procesare sunt specificate, explicite și legitime."
             },
             "2": {
-              "title": "What are the legal basis making the processing lawful?",
-              "short_title": "Legal basis",
-              "placeholder": "Describe what is/are the legal basis of your processing (ex: consent, performance of a contract, compliance with a legal obligation, protecting the vital intests, etc.)"
+              "title": "Care sunt temeiurile legale care fac ca prelucrarea să fie legală?",
+              "short_title": "Temeiuri legale",
+              "placeholder": "Descrieți care este temeiul juridic al procesării dvs. (ex: consimțământul, executarea unui contract, respectarea unei obligații legale, protejarea intereselor vitale etc.)"
             },
             "3": {
-              "title": "Are the data collected adequate, relevant and limited to what is necessary in relation to the purposes for which they are processed ('data minimisation')?",
-              "short_title": "Adequate data",
-              "placeholder": "Explain why each of the data collected is necessary for the purposes of your processing."
+              "title": "Datele colectate sunt adecvate, relevante și limitate la ceea ce este necesar în raport cu scopurile pentru care sunt prelucrate ('minimizarea datelor')?",
+              "short_title": "Date adecvate",
+              "placeholder": "Explicați de ce fiecare dintre datele colectate este necesară în scopul procesării dvs."
             },
             "4": {
-              "title": "Are the data accurate and kept up to date?",
-              "short_title": "Data accuracy",
-              "placeholder": "Describe which are the steps taken to ensure the quality of the data."
+              "title": "Sunt datele corecte și actualizate?",
+              "short_title": "Acuratețea datelor",
+              "placeholder": "Descrieți care sunt etapele urmate pentru a asigura calitatea datelor."
             },
             "5": {
-              "title": "What are the storage duration of the data?",
-              "short_title": "Storage duration",
-              "placeholder": "Explain why the storage durations are justified by legal requirements and/or processing needs."
+              "title": "Care este durata de stocare a datelor?",
+              "short_title": "Durata de stocare",
+              "placeholder": "Explicați de ce duratele de stocare sunt justificate de cerințele legale și/sau de necesitățile de procesare".
             }
           }
         },
         "2": {
-          "title": "Controls to protect the personal rights of data subjects",
-          "short_help": "This part allows you to demonstrate that you are implementing the necessary means to enable the persons concerned to exercise their rights.",
+          "title": "Controale pentru a proteja drepturile personale ale persoanelor vizate",
+          "short_help": "Această parte vă permite să demonstrați că implementați mijloacele necesare pentru a permite persoanelor în cauză să își exercite drepturile.",
           "questions": {
             "1": {
-              "title": "How are the data subjects informed on the processing?",
-              "short_title": "Information for the data subjects",
-              "placeholder": "Describe what is the information given to the data subjects and what are the means to do it."
+              "title": "Cum sunt informate persoanele vizate cu privire la procesare?",
+              "short_title": "Informații pentru persoanele vizate",
+              "placeholder": "Descrieți care sunt informațiile furnizate persoanelor vizate și care sunt mijloacele de realizare a acestora."
             },
             "2": {
-              "title": "If applicable, how is the consent of data subjects obtained?",
-              "short_title": "Obtaining consent",
-              "placeholder": "Describe the controls intended to ensure that users' consent has been obtained."
+              "title": "Dacă este cazul, cum este obținut consimțământul persoanelor vizate?",
+              "short_title": "Obținerea consimțământului",
+              "placeholder": "Descrieți controalele destinate să asigure obținerea consimțământului utilizatorilor."
             },
             "3": {
-              "title": "How can data subjects exercise their rights of access and to data portability?",
-              "short_title": "Right of access and to data portability",
-              "placeholder": "Describe the controls intended for enabling data subjects to access, receive and transmit their data."
+              "title": "Cum pot persoanele vizate să își exercite drepturile de acces și portabilitatea datelor?",
+              "short_title": "Dreptul de acces și portabilitatea datelor",
+              "placeholder": "Descrieți comenzile care permit persoanelor vizate să acceseze, să primească și să transmită datele lor".
             },
             "4": {
-              "title": "How can data subjects exercise their rights to rectification and erasure?",
-              "short_title": "Right to rectification and erasure",
-              "placeholder": "Describe the controls intended for enabling data subjects to rectify and erase their data."
+              "title": "Cum pot persoanele vizate să își exercite dreptul la rectificare și ștergere?",
+              "short_title": "Dreptul la rectificare și ștergere",
+              "placeholder": "Descrieți comenzile care permit persoanelor vizate să rectifice și să șteargă datele lor".
             },
             "5": {
-              "title": "How can data subjects exercise their rights to restriction and to object?",
-              "short_title": "Right to restriction and to object",
-              "placeholder": "Describe the controls intended for enabling data subjects to restrict and to object to the processing of their data."
+              "title": "Cum pot persoanele vizate să își exercite drepturile la restricționare și la opoziție?",
+              "short_title": "Dreptul la restricționare și la opoziție",
+              "placeholder": "Descrieți comenzile care permit persoanelor vizate să restricționeze și să obiecteze față de prelucrarea datelor lor".
             },
             "6": {
-              "title": "Are the obligations of the processors clearly identified and governed by a contract?",
-              "short_title": "Subcontracting",
-              "placeholder": "For each processor, describe his responsibilities (duration, scope, purpose, documented processing instructions, prior authorisation) and provide the contracts, codes of conduct and certifications determining its missions and obligations."
+              "title": "Obligațiile prelucrătorilor sunt identificate în mod clar și guvernate de un contract?",
+              "short_title": "Subcontractarea",
+              "placeholder": "Pentru fiecare prelucrător, descrieți responsabilitățile acestuia (durata, domeniul de aplicare, scopul, instrucțiunile documentate de procesare, autorizația prealabilă) și furnizați contractele, codurile de conduită și certificările care determină misiunile și obligațiile sale".
             },
             "7": {
-              "title": "In the case of data transfer outside the European Union, are the data adequately protected?",
-              "short_title": "Transfers",
-              "placeholder": "For each country outside the European Union where data are stored or processed, name it and tell if it is acknowledged as offering an adequate level of data protection or describe the provisions concerning the transfer."
+              "title": "În cazul transferului de date în afara Uniunii Europene, datele sunt protejate în mod corespunzător?", "
+              "short_title": "Transferuri",
+              "placeholder": "Denumiți fiecare țară din afara Uniunii Europene unde datele sunt stocate sau prelucrate, și menționați dacă este recunoscută ca oferind un nivel adecvat de protecție a datelor sau descrieți dispozițiile referitoare la transfer".
             }
           }
         }
       }
     },
     "3": {
-      "title": "Risks",
-      "short_help": "This section allows you to assess the privacy risks, taking into account existing or planned controls.",
+      "title": "Riscuri",
+      "short_help": "Această secțiune vă permite să evaluați riscurile de confidențialitate, luând în considerare controalele existente sau planificate.",
       "items": {
         "1": {
-          "title": "Planned or existing measures",
-          "short_help": "This section allows you to identify controls (existing or planned) that contribute to data security."
+          "title": "Măsuri planificate sau existente";
+          "short_help": "Această secțiune vă permite să identificați controalele (existente sau planificate) care contribuie la protejarea datelor."
         },
         "2": {
-          "title": "Illegitimate access to data",
-          "short_help": "Analyze the causes and consequences of illegitimate access to data, and estimate its severity and likelihood.",
+          "title": "Accesul nelegitim la date",
+          "short_help": "Analizați cauzele și consecințele accesului nelegitim la date și estimați gravitatea și probabilitatea acestora",
           "questions": {
             "1": {
-              "title": "What could be the main <span class='green-highlight'>impacts on the data subjects</span> if the risk were to occur?",
-              "placeholder": "Enter the potential impacts \u002B"
+              "title": "Care ar putea fi impactul principal asupra persoanelor vizate în cazul în care ar exista riscul?",
+              "placeholder": " Introduceți impactul potențial \u002B"
             },
             "2": {
-              "title": "What are the main <span class='green-highlight'>threats</span> that could lead to the risk?",
-              "placeholder": "Enter the threats \u002B"
+              "title": "Care sunt principalele amenințări care ar putea duce la risc?",
+              "placeholder": "Introduceți amenințările \u002B"
             },
             "3": {
-              "title": "What are the risk <span class='green-highlight'>sources</span>?",
-              "placeholder": "Enter the risk sources \u002B"
+              "title": "Care sunt sursele de risc?",
+              "placeholder": "Introduceți sursele de risc \u002B"
             },
             "4": {
-              "title": "Which of the identified <span class='green-highlight'>controls</span> contribute to addressing the risk?",
-              "placeholder": "Click to select controls which address the risk."
+              "title": "Care dintre controalele identificate contribuie la rezolvarea riscului?",
+              "placeholder": "Faceți clic pentru a selecta controalele care rezolvă riscul."
             },
             "5": {
-              "title": "How do you estimate the <span class='green-highlight'>risk severity</span>, especially according to potential impacts and planned controls?",
-              "placeholder": "Justify here the estimated severity of the risk."
+              "title": "Cum estimați severitatea riscului, în special în funcție de impactul potențial și de controalele planificate?",
+              "placeholder": "Justificați aici gravitatea estimată a riscului".
             },
             "6": {
-              "title": "How do you estimate the <span class='green-highlight'>likelihood of the risk</span>, especially in respect of threats, sources of risk and planned controls?",
-              "placeholder": "Justify here the estimated likelihood."
+              "title": "Cum estimați probabilitatea riscului, în special în ceea ce privește amenințările, sursele de risc și controalele planificate?",
+              "placeholder": "Justificați aici probabilitatea estimată."
             }
           }
         },
         "3": {
-          "title": "Unwanted modification of data",
-          "short_help": "Analyze the causes and consequences of an undesired change in data, and estimate its seriousness and likelihood.",
+          "title": "Modificarea nedorită a datelor",
+          "short_help": "Analizați cauzele și consecințele unei schimbări nedorite a datelor și estimați gravitatea și probabilitatea acestora",
           "questions": {
             "1": {
-              "title": "What could be the main <span class='green-highlight'>impacts on the data subjects</span> if the risk were to occur?",
-              "placeholder": "Enter the potential impacts \u002B"
+              "title": "Care ar putea fi impactul principal asupra persoanelor vizate în cazul în care ar exista riscul?",
+              "placeholder": "Introduceți impactul potențial \u002B"
             },
             "2": {
-              "title": "What are the main <span class='green-highlight'>threats</span> that could lead to the risk?",
-              "placeholder": "Enter the threats \u002B"
+              "title": "Care sunt principalele amenințări care ar putea duce la risc?",
+              "placeholder": "Introduceți amenințările \u002B"
             },
             "3": {
-              "title": "What are the risk <span class='green-highlight'>sources</span>?",
-              "placeholder": "Enter the risk sources \u002B"
+              "title": "Care sunt sursele de risc?",
+              "placeholder": "Introduceți sursele de risc \u002B"
             },
             "4": {
-              "title": "Which of the identified <span class='green-highlight'>controls</span> contribute to addressing the risk?",
-              "placeholder": "Click here to select controls which address the risk."
+              "title": "Care dintre controalele identificate contribuie la rezolvarea riscului?",
+              "placeholder": "Faceți clic aici pentru a selecta controalele care rezolvă riscul."
             },
             "5": {
-              "title": "How do you estimate the <span class='green-highlight'>risk severity</span>, especially according to potential impacts and planned controls?",
-              "placeholder": "Justify here the estimated severity of the risk."
+              "title": "Cum estimați gravitatea riscului, în special în funcție de impactul potențial și de controalele planificate?",
+              "placeholder": "Justificați aici gravitatea estimată a riscului".
             },
             "6": {
-              "title": "How do you estimate the <span class='green-highlight'>likelihood of the risk</span>, especially in respect of threats, sources of risk and planned controls?",
-              "placeholder": "Justify here the estimated likelihood."
+              "title": "Cum estimați probabilitatea riscului, în special în ceea ce privește amenințările, sursele de risc și controalele planificate?",
+              "placeholder": "Justificați aici probabilitatea estimată."
             }
           }
         },
         "4": {
-          "title": "Data disappearance",
-          "short_help": "Analyze the causes and consequences of data loss, and estimate its seriousness and likelihood.",
+          "title": "Dispariția datelor",
+          "short_help": "Analizați cauzele și consecințele pierderii datelor și evaluați gravitatea și probabilitatea acestora",
           "questions": {
             "1": {
-              "title": "What could be the main <span class='green-highlight'>impacts on the data subjects</span> if the risk were to occur?",
-              "placeholder": "Enter the potential impacts \u002B"
+              "title": "Care ar putea fi impactul principal asupra persoanelor vizate în cazul în care ar exista riscul?",
+              "placeholder": "Introduceți impactul potențial \u002B"
             },
             "2": {
-              "title": "What are the main <span class='green-highlight'>threats</span> that could lead to the risk?",
-              "placeholder": "Enter the threats \u002B"
+              "title": "Care sunt principalele amenințări care ar putea duce la risc?",
+              "placeholder": "Introduceți amenințările \u002B"
             },
             "3": {
-              "title": "What are the risk <span class='green-highlight'>sources</span>?",
-              "placeholder": "Enter the risk sources \u002B"
+              "title": "Care sunt sursele de risc?",
+              "placeholder": "Introduceți sursele de risc \u002B"
             },
             "4": {
-              "title": "Which of the identified <span class='green-highlight'>controls</span> contribute to addressing the risk?",
-              "placeholder": "Click here to select controls which address the risk."
+              "title": "Care dintre controalele identificate contribuie la rezolvarea riscului?",
+              "placeholder": "Faceți clic aici pentru a selecta controalele care rezolvă riscul."
             },
             "5": {
-              "title": "How do you estimate the <span class='green-highlight'>risk severity</span>, especially according to potential impacts and planned controls?",
-              "placeholder": "Justify here the estimated severity of the risk."
+              "title": "Cum estimați gravitatea riscului, în special în funcție de impactul potențial și de controalele planificate?",
+              "placeholder": "Justificați aici gravitatea estimată a riscului".
             },
             "6": {
-              "title": "How do you estimate the <span class='green-highlight'>likelihood of the risk</span>, especially in respect of threats, sources of risk and planned controls?",
-              "placeholder": "Justify here the estimated likelihood."
+              "title": "Cum estimați probabilitatea riscului, în special în ceea ce privește amenințările, sursele de risc și controalele planificate?",
+              "placeholder": "Justificați aici probabilitatea estimată."
             }
           }
         },
         "5": {
-          "title": "Risks overview",
-          "short_help": "This visualisation allows you to have a global and synthetic view on the controls effects on the risks they address."
+          "title": "Privire de ansamblu asupra riscurilor",
+          "short_help": "Această vizualizare vă permite să aveți o viziune globală și sintetică asupra efectelor de control asupra riscurilor pe care le abordează".
         }
       }
     },
-     "4": {
-      "title": "Validation",
-      "short_help": "This section allows you to prepare and formalise the PIA validation.",
+    "4": {
+      "title": "Validare",
+      "short_help": "Această secțiune vă permite să pregătiți și să formalizați validarea PIA.",
       "items": {
         "1": {
-          "title": "Risk mapping",
-          "short_help": "This visualisation allows you to compare the positioning of the risks between them, before and after application of the complementary controls."
+          "title": "Maparea riscului",
+          "short_help": "Această vizualizare vă permite să comparați poziționarea riscurilor între ele înainte și după aplicarea controalelor complementare".
         },
         "2": {
-          "title": "Action plan",
-          "short_help": "Plan in detail the implementation of the additional controls identified during the PIA. The action plan is automatically updated when evaluating the different elements comprised in the PIA."
+          "title": "Planul de acțiune",
+          "short_help": "Planificați în detaliu punerea în aplicare a controalelor suplimentare identificate în timpul PIA. Planul de acțiune este actualizat automat atunci când se evaluează diferitele elemente incluse în PIA."
         },
         "3": {
-          "title": "DPO and concerned persons opinions",
-          "short_help": "Present the advice of the person in charge of data protection and privacy issues (data protection delegate if there is one). Present the views of the data subjects or their representatives."
+          "title": "Avizele din partea RPD și a persoanelor vizate",
+          "short_help": "Prezentați avizul persoanei responsabile cu protecția datelor și problemele de confidențialitate (delegatul pentru protecția datelor, dacă există). Prezentați punctele de vedere ale persoanelor vizate sau ale reprezentanților acestora."
         },
         "4": {
-          "title": "Validate the PIA"
+          "title": "Validați PIA"
         },
         "5": {
-          "title": "Rejected PIA"
+          "title": "PIA respins"
         }
       }
     }
