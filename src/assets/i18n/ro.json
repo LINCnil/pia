@@ -29,7 +29,7 @@
       "el": "Ελληνικά",
       "pt": "Português",
       "fi": "Suomalainen",
-      "ro": "Romana"
+      "ro": "Română"
     },
     "tools": {
       "title": "Unelte",
@@ -78,7 +78,6 @@
       "placeholder_start": "Toate campurile trebuie completate",
       "item": {
         "tools": {
-          "edit": "Editare informatii",
           "export": "Exporta",
           "more_options": "Mai multe optiuni",
           "duplicate": "Duplicare",
@@ -87,7 +86,7 @@
           "remove": "Sterge"
         },
         "edit_pia": "Editare AIVP",
-        "save_pia": "Salvare"
+        "consult_pia": "Consult PIA"
       }
     },
     "lists": {
@@ -102,7 +101,8 @@
       "column_actions": "Actioni",
       "item": {
         "tools": {
-          "edit": "Editare",
+          "consult": "Consult",
+          "edit": "Edit",
           "export": "Export",
           "duplicate": "Duplicare",
           "action_plan": "Afiseaza plan de actiune",
@@ -545,7 +545,7 @@
       },
       "PIA_DEF_MENM": {
         "name": "Amenințări care pot duce la o modificare nedorită a datelor cu caracter personal",
-        "description": "<strong>Amenințări legate de: </strong><br>- <strong>Hardware</strong> modificat (adăugarea de hardware incompatibil care duce la defecțiuni, eliminarea componentelor esențiale etc.)<br>- <strong>Software</strong> folosit necorespunzător sau modificat (Modificări nedorite ale datelor din baze de date, erori ale operatorilor care modifică date, etc.)<br>- <strong>Canale de computere</strong> utilizate necorespunzător (respingerea datelor interceptate, etc.)<br>- <strong> Oameni</strong> supraîncărcați sau manipulați (alocarea de personal pentru sarcini care depășesc abilitățile acestuia, stres sau schimbări negative în condițiile de muncă, influență, etc.)<br>- Documentele pe support de hârtie ce au fost modificate (schimbări ale figurilor dintr-un fișier, înlocuirea unui original cu un fals, etc.)<br>- <strong>Canalele de transmitere a hârtiei</strong> care au fost modificate (mutarea de la un registru de semnături la altul, trimiterea mai multor documente contradictorii, etc. )“,
+        "description": "<strong>Amenințări legate de: </strong><br>- <strong>Hardware</strong> modificat (adăugarea de hardware incompatibil care duce la defecțiuni, eliminarea componentelor esențiale etc.)<br>- <strong>Software</strong> folosit necorespunzător sau modificat (Modificări nedorite ale datelor din baze de date, erori ale operatorilor care modifică date, etc.)<br>- <strong>Canale de computere</strong> utilizate necorespunzător (respingerea datelor interceptate, etc.)<br>- <strong> Oameni</strong> supraîncărcați sau manipulați (alocarea de personal pentru sarcini care depășesc abilitățile acestuia, stres sau schimbări negative în condițiile de muncă, influență, etc.)<br>- Documentele pe support de hârtie ce au fost modificate (schimbări ale figurilor dintr-un fișier, înlocuirea unui original cu un fals, etc.)<br>- <strong>Canalele de transmitere a hârtiei</strong> care au fost modificate (mutarea de la un registru de semnături la altul, trimiterea mai multor documente contradictorii, etc. )",
         "source": "Obiecte conectate la PIAF p43 și 44, WIKI"
       },
       "PIA_DEF_MENI": {
@@ -853,6 +853,8 @@
     "validated_pia_with_signature": "Validat",
     "add_signed_pia": "Adăugați PIA semnată",
     "remove_attachment": "Eliminați fișierul atașat",
+    "latest_signed_attachment": "Last signed attachment",
+    "signed_attachments_history": "Signed attachments history",
     "tools": {
       "dashboard": "Tablou de bord",
       "display_pia": "Afișare PIA",
@@ -880,9 +882,16 @@
     "archive": "Arhivați",
     "close": "Închideți",
     "continue": "Continuați",
+    "start_evaluation": "Start review",
     "back_to_home": "Înapoi la pagina de start",
     "simple_pia_validation": {
       "content": "PIA a fost validat."
+    },
+    "completed_edition": {
+      "content": "The PIA has been fully edited and has to be reviewed."
+    },
+    "completed_evaluation": {
+      "content": "The PIA has been fully reviewed and can be validated."
     },
     "update_server_url": {
       "content": "Adresa serverului a fost actualizată."
@@ -892,7 +901,8 @@
       "download_pia": "Descărcați raportul PIA"
     },
     "abandon_pia": {
-      "content": "Sigur doriți<br>să renunțați la această prelucrare?"
+      "content": "Sigur doriți<br>să renunțați la această prelucrare?",
+      "additional_text": "Archiving is not definitive and the PIA can go back to it if needed."
     },
     "refuse_pia": {
       "content": "<span class='strong'>PIA respins,</span><br> Câteva câmpuri trebuie corectate.<br>Întoarceți-vă la modul de evaluare<br>pentru a face corecții."
@@ -928,12 +938,50 @@
     "remove_attachment": {
       "content": "<span class='strong'>Avertisment,</span><br>Sigur doriți<br>să eliminați acest fișier atașat?",
       "keep": "Păstrați",
-      "remove": "Eliminați"
+      "remove": "Eliminați",
+      "comment": "Comment"
+    },
+    "modal_select_text_pia": {
+      "content": "TO BE TRANSLATED - The content of the PIA has been copied to clipboard."
+    },
+    "action_plan_no_evaluation": {
+      "content": "You need to begin the review of the analysis to create the action plan.",
+      "review_section": "Review a section"
+    },
+    "dpo_missing_evaluations": {
+      "content": "You need to complete the review of the analysis to access the DPO page.",
+      "review_section": "Review a section"
+    },
+    "back_to_edition": {
+      "content": "This section has been sent back for editing.<br> Several fields must be corrected<br> to enable its proper review."
+    },
+    "back_to_evaluation": {
+      "content": "This section has been sent back for review.<br> Several fields must be reviewed<br> to enable its proper validation."
     }
   },
   "summary": {
     "previous_page": "Înapoi la pagina anterioară",
     "print": "Imprimați",
+    "copy_to_clipboard": "Copy to clipboard",
+    "download_images": "Download images",
+    "download_csv": "Download a CSV export",
+    "csv_action_plan_comment": "Action plan comment",
+    "csv_evaluation_comment": "Evaluation comment",
+    "csv_section": "Section",
+    "csv_title_object": "Title",
+    "csv_implement_date": "Estimated implementation date",
+    "csv_people_in_charge": "Person in charge",
+    "csv_file_title": "action-plan",
+    "display_filters": {
+      "title": "Display filters",
+      "main_content": "Display section \"PIA information\"",
+      "context_content": "Display section \"Context\"",
+      "principles_content": "Display section \"Fundamental principles\"",
+      "risks_content": "Display section \"Risks\"",
+      "action_plan_content": "Display action plan",
+      "risks_overview_content": "Display risks overview",
+      "risks_cartography_content": "Display risk mapping"
+    },
     "title": "Informații despre PIA",
     "pia_name": "PIA",
     "pia_author": "Numele autorului",
@@ -971,7 +1019,9 @@
       "measures": "Măsuri existente sau planificate",
       "risks": "Riscuri",
       "no_action_plan": "Nu a fost înregistrat niciun plan de acțiune."
-    }
+    },
+    "risks_overview_title": "Risks overview",
+    "risks_cartography_title": "Risk mapping"
   },
   "errors": {
     "title": "Pagina nu a fost gasită.",
@@ -1002,11 +1052,12 @@
     "likelihood_axe": "Probabilitatea riscului",
     "legend1": "Măsuri planificate sau existente",
     "legend2": "Prin măsurile corective implementate",
-    "legend3": "(I)Acces nelegitim la date",
-    "legend4": "(U)modificarea nedorită a datelor ",
-    "legend5": "(D)dispariția datelor",
-    "risk1_access": "(I)",
-    "risk2_modification": "(U)"
+    "legend3": "(A) Acces nelegitim la date",
+    "legend4": "(M) Modificarea nedorită a datelor ",
+    "legend5": "(D) Dispariția datelor",
+    "risk1_access": "(A)",
+    "risk2_modification": "(M)",
+    "risk3_disappearance": "(D)"
   },
   "action_plan": {
     "title": "Prezentare generală",
@@ -1052,7 +1103,7 @@
             },
             "2": {
               "title": "Care sunt responsabilitățile legate de prelucrare?",
-              "placeholder": "Descrieți responsabilitățile părților interesate: operatorul de date, eventualii prelucrători de date și operatorii comuni".
+              "placeholder": "Descrieți responsabilitățile părților interesate: operatorul de date, eventualii prelucrători de date și operatorii comuni"
             },
             "3": {
               "title": "Există standarde aplicabile procesării?",
@@ -1062,7 +1113,8 @@
         },
         "2": {
           "title": "Date, prelucrări și bunuri de suport",
-          "short_help": "Această parte vă permite să definiți și să descrieți în detaliu scopul prelucrării.",          "questions": {
+          "short_help": "Această parte vă permite să definiți și să descrieți în detaliu scopul prelucrării.",
+          "questions": {
             "1": {
               "title": "Care sunt datele procesate?",
               "placeholder": "Listați datele colectate și procesate. Definiți pentru fiecare perioadă de stocare, destinatarii și persoanele care au acces la acestea."
@@ -1110,7 +1162,7 @@
             "5": {
               "title": "Care este durata de stocare a datelor?",
               "short_title": "Durata de stocare",
-              "placeholder": "Explicați de ce duratele de stocare sunt justificate de cerințele legale și/sau de necesitățile de procesare".
+              "placeholder": "Explicați de ce duratele de stocare sunt justificate de cerințele legale și/sau de necesitățile de procesare"
             }
           }
         },
@@ -1131,27 +1183,27 @@
             "3": {
               "title": "Cum pot persoanele vizate să își exercite drepturile de acces și portabilitatea datelor?",
               "short_title": "Dreptul de acces și portabilitatea datelor",
-              "placeholder": "Descrieți comenzile care permit persoanelor vizate să acceseze, să primească și să transmită datele lor".
+              "placeholder": "Descrieți comenzile care permit persoanelor vizate să acceseze, să primească și să transmită datele lor"
             },
             "4": {
               "title": "Cum pot persoanele vizate să își exercite dreptul la rectificare și ștergere?",
               "short_title": "Dreptul la rectificare și ștergere",
-              "placeholder": "Descrieți comenzile care permit persoanelor vizate să rectifice și să șteargă datele lor".
+              "placeholder": "Descrieți comenzile care permit persoanelor vizate să rectifice și să șteargă datele lor"
             },
             "5": {
               "title": "Cum pot persoanele vizate să își exercite drepturile la restricționare și la opoziție?",
               "short_title": "Dreptul la restricționare și la opoziție",
-              "placeholder": "Descrieți comenzile care permit persoanelor vizate să restricționeze și să obiecteze față de prelucrarea datelor lor".
+              "placeholder": "Descrieți comenzile care permit persoanelor vizate să restricționeze și să obiecteze față de prelucrarea datelor lor"
             },
             "6": {
               "title": "Obligațiile prelucrătorilor sunt identificate în mod clar și guvernate de un contract?",
               "short_title": "Subcontractarea",
-              "placeholder": "Pentru fiecare prelucrător, descrieți responsabilitățile acestuia (durata, domeniul de aplicare, scopul, instrucțiunile documentate de procesare, autorizația prealabilă) și furnizați contractele, codurile de conduită și certificările care determină misiunile și obligațiile sale".
+              "placeholder": "Pentru fiecare prelucrător, descrieți responsabilitățile acestuia (durata, domeniul de aplicare, scopul, instrucțiunile documentate de procesare, autorizația prealabilă) și furnizați contractele, codurile de conduită și certificările care determină misiunile și obligațiile sale"
             },
             "7": {
-              "title": "În cazul transferului de date în afara Uniunii Europene, datele sunt protejate în mod corespunzător?", "
+              "title": "În cazul transferului de date în afara Uniunii Europene, datele sunt protejate în mod corespunzător?",
               "short_title": "Transferuri",
-              "placeholder": "Denumiți fiecare țară din afara Uniunii Europene unde datele sunt stocate sau prelucrate, și menționați dacă este recunoscută ca oferind un nivel adecvat de protecție a datelor sau descrieți dispozițiile referitoare la transfer".
+              "placeholder": "Denumiți fiecare țară din afara Uniunii Europene unde datele sunt stocate sau prelucrate, și menționați dacă este recunoscută ca oferind un nivel adecvat de protecție a datelor sau descrieți dispozițiile referitoare la transfer"
             }
           }
         }
@@ -1162,7 +1214,7 @@
       "short_help": "Această secțiune vă permite să evaluați riscurile de confidențialitate, luând în considerare controalele existente sau planificate.",
       "items": {
         "1": {
-          "title": "Măsuri planificate sau existente";
+          "title": "Măsuri planificate sau existente",
           "short_help": "Această secțiune vă permite să identificați controalele (existente sau planificate) care contribuie la protejarea datelor."
         },
         "2": {
@@ -1187,7 +1239,7 @@
             },
             "5": {
               "title": "Cum estimați severitatea riscului, în special în funcție de impactul potențial și de controalele planificate?",
-              "placeholder": "Justificați aici gravitatea estimată a riscului".
+              "placeholder": "Justificați aici gravitatea estimată a riscului"
             },
             "6": {
               "title": "Cum estimați probabilitatea riscului, în special în ceea ce privește amenințările, sursele de risc și controalele planificate?",
@@ -1217,7 +1269,7 @@
             },
             "5": {
               "title": "Cum estimați gravitatea riscului, în special în funcție de impactul potențial și de controalele planificate?",
-              "placeholder": "Justificați aici gravitatea estimată a riscului".
+              "placeholder": "Justificați aici gravitatea estimată a riscului"
             },
             "6": {
               "title": "Cum estimați probabilitatea riscului, în special în ceea ce privește amenințările, sursele de risc și controalele planificate?",
@@ -1247,7 +1299,7 @@
             },
             "5": {
               "title": "Cum estimați gravitatea riscului, în special în funcție de impactul potențial și de controalele planificate?",
-              "placeholder": "Justificați aici gravitatea estimată a riscului".
+              "placeholder": "Justificați aici gravitatea estimată a riscului"
             },
             "6": {
               "title": "Cum estimați probabilitatea riscului, în special în ceea ce privește amenințările, sursele de risc și controalele planificate?",
@@ -1257,7 +1309,7 @@
         },
         "5": {
           "title": "Privire de ansamblu asupra riscurilor",
-          "short_help": "Această vizualizare vă permite să aveți o viziune globală și sintetică asupra efectelor de control asupra riscurilor pe care le abordează".
+          "short_help": "Această vizualizare vă permite să aveți o viziune globală și sintetică asupra efectelor de control asupra riscurilor pe care le abordează"
         }
       }
     },
@@ -1267,7 +1319,7 @@
       "items": {
         "1": {
           "title": "Maparea riscului",
-          "short_help": "Această vizualizare vă permite să comparați poziționarea riscurilor între ele înainte și după aplicarea controalelor complementare".
+          "short_help": "Această vizualizare vă permite să comparați poziționarea riscurilor între ele înainte și după aplicarea controalelor complementare"
         },
         "2": {
           "title": "Planul de acțiune",
