@@ -56,6 +56,9 @@ import { SummaryComponent } from 'app/summary/summary.component';
 import { AboutComponent } from 'app/about/about.component';
 import { AppRoutingModule } from 'app/app-routing.module';
 import { CardsRoutingModule } from 'app/cards/cards-routing.module';
+import { AuthenticationService } from 'app/services/authentication.service';
+import { AuthenticationGuardService } from 'app/services/authentication-guard.service';
+import { AuthenticationCallbackComponent } from 'app/authentication-callback/authentication-callback.component';
 
 const providersList: any = [
   AppDataService,
@@ -67,7 +70,9 @@ const providersList: any = [
   PaginationService,
   SidStatusService,
   LanguagesService,
-  GlobalEvaluationService
+  GlobalEvaluationService,
+  AuthenticationService,
+  AuthenticationGuardService
 ];
 
 if (environment.rollbar_key.length > 0) {
@@ -122,7 +127,8 @@ export function createTranslateLoader(http: HttpClient) {
     SummaryComponent,
     SafeHtmlPipe,
     Nl2brPipe,
-    AboutComponent
+    AboutComponent,
+    AuthenticationCallbackComponent
   ],
   imports: [
     BrowserModule,

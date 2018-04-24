@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes, RouterModule, CanActivate } from '@angular/router';
 
 import { AuthenticationComponent } from 'app/authentication/authentication.component';
 import { SummaryComponent } from 'app/summary/summary.component';
@@ -10,22 +10,27 @@ import { ErrorsComponent } from 'app/errors/errors.component';
 
 import { CardsRoutingModule } from 'app/cards/cards-routing.module';
 import { EntryRoutingModule } from 'app/entry/entry-routing.module';
+//import { ProfileComponent } from './profile/profile.component';
+import { AuthenticationGuardService } from 'app/services/authentication-guard.service';
+import { AuthenticationCallbackComponent } from 'app/authentication-callback/authentication-callback.component';
 
 const routes: Routes = [
   { path: '', component: AuthenticationComponent },
   { path: 'summary/:id', component: SummaryComponent },
-  { path: 'settings', component: SettingsComponent },
+  { path: 'settings', component: SettingsComponent, canActivate: [AuthenticationGuardService] },
   { path: 'help', component: HelpComponent },
   { path: 'about', component: AboutComponent },
-  { path: '**', component: ErrorsComponent }
+  { path: '**', component: ErrorsComponent },
+  { path: 'auth-callback', component: AuthenticationCallbackComponent }
 ];
 
 @NgModule({
   imports: [
     CardsRoutingModule,
     EntryRoutingModule,
-    RouterModule.forRoot(routes, { useHash: true })
+    RouterModule.forRoot(routes, { useHash: true }),
   ],
   exports: [RouterModule]
 })
+
 export class AppRoutingModule { }
