@@ -3,6 +3,7 @@ import {Component, ElementRef, OnInit} from '@angular/core';
 import { Pia } from 'app/entry/pia.model';
 
 import { PiaService } from 'app/entry/pia.service';
+import { LanguagesService } from '../../../../services/languages.service';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
@@ -15,7 +16,8 @@ export class PiaValidateHistoryComponent implements OnInit {
 
   constructor(private el: ElementRef,
               public _piaService: PiaService,
-              private _translateService: TranslateService) { }
+              public _translateService: TranslateService,
+              public _languagesService: LanguagesService) { }
 
   ngOnInit() {
     this._piaService.getPIA();

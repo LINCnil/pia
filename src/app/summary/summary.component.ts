@@ -17,6 +17,8 @@ import { ModalsService } from '../modals/modals.service';
 import { PiaService } from 'app/entry/pia.service';
 import { AttachmentsService } from 'app/entry/attachments/attachments.service';
 
+import { LanguagesService } from '../services/languages.service';
+
 @Component({
   selector: 'app-summary',
   templateUrl: './summary.component.html',
@@ -46,7 +48,8 @@ export class SummaryComponent implements OnInit {
               private _translateService: TranslateService,
               private _appDataService: AppDataService,
               public _piaService: PiaService,
-              private _modalService: ModalsService) { }
+              private _modalService: ModalsService,
+              public _languagesService: LanguagesService) { }
 
   async ngOnInit() {
     this.summarySubscription = this.route.queryParams.subscribe(params => {

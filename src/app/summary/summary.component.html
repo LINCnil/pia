@@ -76,7 +76,7 @@
                 <div style="font-weight:500;" [ngClass]="{ 'pia-attachment-removed': d.comment && d.comment.length > 0 }" *ngIf="d.type !== 'date'; else dateBlock" [innerHTML]="d.content | translate | safeHtml"></div>
                 <div *ngIf="d.type !== 'date' && d.comment && d.comment.length > 0" [innerHTML]="d.comment | nl2br | safeHtml"></div>
                 <ng-template #dateBlock>
-                  <time style="font-weight:500;" *ngIf="d.content.toString() !== 'Invalid Date'">{{ d.content | date: 'dd/MM/yyyy' }}</time>
+                  <time style="font-weight:500;" *ngIf="d.content.toString() !== 'Invalid Date'">{{ d.content | date:'mediumDate':'': _languagesService.selectedLanguage }}</time>
                 </ng-template>
               </div>
             </div>
@@ -252,7 +252,7 @@
                     </div>
                     <div *ngIf="entry.evaluation && entry.evaluation.estimated_implementation_date && entry.evaluation.estimated_implementation_date .toString() !== 'Invalid Date'">
                       <strong>{{ 'summary.action_plan.implementation_date' | translate }} : </strong>
-                      <time>{{ entry.evaluation.estimated_implementation_date | date: 'dd/MM/yyyy' }}</time>
+                      <time>{{ entry.evaluation.estimated_implementation_date | date:'mediumDate':'': _languagesService.selectedLanguage }}</time>
                     </div>
                     <div *ngIf="entry.evaluation && entry.evaluation.person_in_charge">
                       <strong>{{ 'summary.action_plan.implementation_responsible' | translate }} : </strong>
@@ -288,7 +288,7 @@
                   </div>
                   <div *ngIf="entry.evaluation && entry.evaluation.estimated_implementation_date && entry.evaluation.estimated_implementation_date.toString() !== 'Invalid Date'">
                     <strong>{{ 'summary.action_plan.implementation_date' | translate }} : </strong>
-                    <time>{{ entry.evaluation.estimated_implementation_date | date: 'dd/MM/yyyy' }}</time>
+                    <time>{{ entry.evaluation.estimated_implementation_date | date:'mediumDate':'': _languagesService.selectedLanguage }}</time>
                   </div>
                   <div *ngIf="entry.evaluation && entry.evaluation.person_in_charge">
                     <strong>{{ 'summary.action_plan.implementation_responsible' | translate }} : </strong>
@@ -321,7 +321,7 @@
               <!-- Estimated implementation date & implementation responsible -->
               <div class="estimated-implementation-date" *ngIf="_actionPlanService.risks['3.2'].evaluation && _actionPlanService.risks['3.2'].evaluation.estimated_implementation_date && _actionPlanService.risks['3.2'].evaluation.estimated_implementation_date.toString() !== 'Invalid Date'">
                 <strong>{{ 'summary.action_plan.implementation_date' | translate }} : </strong>
-                <time>{{ _actionPlanService.risks['3.2'].evaluation.estimated_implementation_date | date: 'dd/MM/yyyy' }}</time>
+                <time>{{ _actionPlanService.risks['3.2'].evaluation.estimated_implementation_date | date:'mediumDate':'': _languagesService.selectedLanguage }}</time>
               </div>
               <div class="implementation-responsible" *ngIf="_actionPlanService.risks['3.2'].evaluation && _actionPlanService.risks['3.2'].evaluation.person_in_charge && _actionPlanService.risks['3.2'].evaluation.person_in_charge.length > 0">
                 <strong>{{ 'summary.action_plan.implementation_responsible' | translate }} : </strong>
@@ -356,7 +356,7 @@
               <!-- Estimated implementation date & implementation responsible -->
               <div class="estimated-implementation-date" *ngIf="_actionPlanService.risks['3.3'].evaluation && _actionPlanService.risks['3.3'].evaluation.estimated_implementation_date && _actionPlanService.risks['3.3'].evaluation.estimated_implementation_date.toString() !== 'Invalid Date'">
                 <strong>{{ 'summary.action_plan.implementation_date' | translate }} : </strong>
-                <time>{{ _actionPlanService.risks['3.3'].evaluation.estimated_implementation_date | date: 'dd/MM/yyyy' }}</time>
+                <time>{{ _actionPlanService.risks['3.3'].evaluation.estimated_implementation_date | date:'mediumDate':'': _languagesService.selectedLanguage }}</time>
               </div>
               <div class="implementation-responsible" *ngIf="_actionPlanService.risks['3.3'].evaluation && _actionPlanService.risks['3.3'].evaluation.person_in_charge && _actionPlanService.risks['3.3'].evaluation.person_in_charge.length > 0">
                 <strong>{{ 'summary.action_plan.implementation_responsible' | translate }} : </strong>
@@ -391,7 +391,7 @@
               <!-- Estimated implementation date & implementation responsible -->
               <div class="estimated-implementation-date" *ngIf="_actionPlanService.risks['3.4'].evaluation && _actionPlanService.risks['3.4'].evaluation.estimated_implementation_date && _actionPlanService.risks['3.4'].evaluation.estimated_implementation_date.toString() !== 'Invalid Date'">
                 <strong>{{ 'summary.action_plan.implementation_date' | translate }} : </strong>
-                <time>{{ _actionPlanService.risks['3.4'].evaluation.estimated_implementation_date | date: 'dd/MM/yyyy' }}</time>
+                <time>{{ _actionPlanService.risks['3.4'].evaluation.estimated_implementation_date | date:'mediumDate':'': _languagesService.selectedLanguage }}</time>
               </div>
               <div class="implementation-responsible" *ngIf="_actionPlanService.risks['3.4'].evaluation && _actionPlanService.risks['3.4'].evaluation.person_in_charge && _actionPlanService.risks['3.4'].evaluation.person_in_charge.length > 0">
                 <strong>{{ 'summary.action_plan.implementation_responsible' | translate }} : </strong>

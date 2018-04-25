@@ -5,6 +5,7 @@ import { Subscription } from 'rxjs/Subscription';
 import { Evaluation } from './evaluation.model';
 import { Answer } from 'app/entry/entry-content/questions/answer.model';
 
+import { LanguagesService } from '../../../services/languages.service';
 import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 import { GlobalEvaluationService } from 'app/services/global-evaluation.service';
 import { KnowledgeBaseService } from '../../knowledge-base/knowledge-base.service';
@@ -45,7 +46,8 @@ export class EvaluationsComponent implements OnInit, AfterViewChecked, OnDestroy
               private _knowledgeBaseService: KnowledgeBaseService,
               private _sidStatusService: SidStatusService,
               private _piaService: PiaService,
-              private _translateService: TranslateService) { }
+              private _translateService: TranslateService,
+              public _languagesService: LanguagesService) { }
 
   ngOnInit() {
     // Prefix item

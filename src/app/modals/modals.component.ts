@@ -8,6 +8,9 @@ import { AttachmentsService } from 'app/entry/attachments/attachments.service';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Pia } from '../entry/pia.model';
 
+import { LanguagesService } from '../services/languages.service';
+import { TranslateService } from '@ngx-translate/core';
+
 @Component({
   selector: 'app-modals',
   templateUrl: './modals.component.html',
@@ -26,8 +29,9 @@ export class ModalsComponent implements OnInit {
     public _modalsService: ModalsService,
     public _piaService: PiaService,
     public _measuresService: MeasureService,
-    public _attachmentsService: AttachmentsService
-  ) { }
+    public _attachmentsService: AttachmentsService,
+    public _translateService: TranslateService,
+    public _languagesService: LanguagesService) { }
 
   ngOnInit() {
     this._piaService.getPIA();
