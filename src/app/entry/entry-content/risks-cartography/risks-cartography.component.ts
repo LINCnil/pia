@@ -7,6 +7,7 @@ import { Evaluation } from 'app/entry/entry-content/evaluations/evaluation.model
 
 import { PiaService } from 'app/entry/pia.service';
 import { AppDataService } from 'app/services/app-data.service';
+import { LanguagesService } from '../../../services/languages.service';
 import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 
 @Component({
@@ -27,6 +28,7 @@ export class RisksCartographyComponent implements OnInit, OnDestroy {
   constructor(private http: HttpClient,
               private _appDataService: AppDataService,
               private _translateService: TranslateService,
+              public _languagesService: LanguagesService,
               public _piaService: PiaService) { }
 
   async ngOnInit() {

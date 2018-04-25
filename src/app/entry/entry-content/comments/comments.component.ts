@@ -6,6 +6,9 @@ import { Comment } from './comment.model';
 import { MeasureService } from 'app/entry/entry-content/measures/measures.service';
 import { ModalsService } from 'app/modals/modals.service';
 
+import { LanguagesService } from '../../../services/languages.service';
+import { TranslateService } from '@ngx-translate/core';
+
 @Component({
   selector: 'app-comments',
   templateUrl: './comments.component.html',
@@ -27,7 +30,9 @@ export class CommentsComponent implements OnInit {
 
   constructor(private el: ElementRef,
               private _measureService: MeasureService,
-              private _modalsService: ModalsService) { }
+              private _modalsService: ModalsService,
+              public _translateService: TranslateService,
+              public _languagesService: LanguagesService) { }
 
   ngOnInit() {
     if (this.answer.updated_at && this.answer.updated_at.toString() !== 'Invalid Date') {

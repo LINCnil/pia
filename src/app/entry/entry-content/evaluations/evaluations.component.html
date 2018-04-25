@@ -35,7 +35,7 @@
     </div>
 
     <div class="pia-evaluationBlock-content pia-evaluationBlock-measure-{{measureId}} pia-evaluationBlock-question-{{questionId}} fadeIn" [ngClass]="{'hide': evaluation.status <= 0}">
-      <time class="pia-evaluationBlock-date">{{evaluation.created_at | date: 'dd/MM/yyyy'}}</time>
+      <time class="pia-evaluationBlock-date">{{evaluation.created_at | date:'mediumDate':'': _languagesService.selectedLanguage }}</time>
 
       <!-- Evaluation fields -->
       <!-- Action plan evaluation : special action plan comment field -->
