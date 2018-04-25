@@ -64,11 +64,13 @@ import localeCS from '@angular/common/locales/cs';
 import localeDE from '@angular/common/locales/de';
 import localeEL from '@angular/common/locales/el';
 import localeES from '@angular/common/locales/es';
+import localeFI from '@angular/common/locales/fi';
 import localeIT from '@angular/common/locales/it';
 import localeNL from '@angular/common/locales/nl';
 import localeNN from '@angular/common/locales/nn';
 import localePL from '@angular/common/locales/pl';
 import localePT from '@angular/common/locales/pt';
+import localeRO from '@angular/common/locales/ro';
 
 registerLocaleData(localeEN);
 registerLocaleData(localeFR);
@@ -76,11 +78,13 @@ registerLocaleData(localeCS);
 registerLocaleData(localeDE);
 registerLocaleData(localeEL);
 registerLocaleData(localeES);
+registerLocaleData(localeFI);
 registerLocaleData(localeIT);
 registerLocaleData(localeNL);
 registerLocaleData(localeNN);
 registerLocaleData(localePL);
 registerLocaleData(localePT);
+registerLocaleData(localeRO);
 
 const providersList: any = [
   AppDataService,
