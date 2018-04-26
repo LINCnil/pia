@@ -24,7 +24,7 @@ export class Pia extends ApplicationDb {
 
   constructor() {
     super(201802221337, 'pia');
-    this.created_at = new Date();
+    //this.created_at = new Date();
   }
 
   /**
@@ -59,8 +59,8 @@ export class Pia extends ApplicationDb {
             newPia.concerned_people_searched_opinion = element.concerned_people_searched_opinion;
             newPia.concerned_people_searched_content = element.concerned_people_searched_content;
             newPia.is_example = element.is_example;
-            newPia.created_at = new Date(element.created_at);
-            newPia.updated_at = new Date(element.updated_at);
+            //newPia.created_at = new Date(element.created_at);
+            //newPia.updated_at = new Date(element.updated_at);
             const answer = new Answer();
             answer.findAllByPia(element.id).then((answers: any) => {
               newPia.progress = Math.round((100 / this.numberOfQuestions) * answers.length);
@@ -95,7 +95,7 @@ export class Pia extends ApplicationDb {
    */
   async create() {
     if (this.created_at === undefined) {
-      this.created_at = new Date();
+      //this.created_at = new Date();
     }
 
     const data = {
@@ -109,8 +109,8 @@ export class Pia extends ApplicationDb {
       concerned_people_status: this.concerned_people_status,
       rejected_reason: this.rejected_reason,
       applied_adjustements: this.applied_adjustements,
-      created_at: this.created_at,
-      updated_at: this.updated_at,
+      //created_at: this.created_at,
+      //updated_at: this.updated_at,
       status: this.status,
       is_example: this.is_example,
       dpos_names: this.dpos_names,
@@ -352,6 +352,3 @@ export class Pia extends ApplicationDb {
     }
   }
 }
-
-
-

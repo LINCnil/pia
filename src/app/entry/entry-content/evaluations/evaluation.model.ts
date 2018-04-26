@@ -27,7 +27,7 @@ export class Evaluation extends ApplicationDb {
           estimated_implementation_date: new Date(this.estimated_implementation_date),
           person_in_charge: this.person_in_charge,
           global_status: this.global_status,
-          created_at: new Date()
+          //created_at: new Date()
         };
     return new Promise((resolve, reject) => {
       if (this.serverUrl) {

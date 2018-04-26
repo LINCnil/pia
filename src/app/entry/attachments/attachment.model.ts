@@ -21,7 +21,7 @@ export class Attachment extends ApplicationDb {
           pia_signed: this.pia_signed,
           file: this.file,
           comment: this.comment,
-          created_at: this.created_at
+          //created_at: this.created_at
         };
     await this.getObjectStore();
     return new Promise((resolve, reject) => {
