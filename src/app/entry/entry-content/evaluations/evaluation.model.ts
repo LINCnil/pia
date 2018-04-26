@@ -72,7 +72,7 @@ export class Evaluation extends ApplicationDb {
         entry.updated_at = new Date();
         if (this.serverUrl) {
           fetch(this.getServerUrl() + '/' + this.id, {
-            method: 'PATCH',
+            method: 'POST',
             body: this.setFormData(entry)
           }).then((response) => {
             return response.json();

@@ -63,7 +63,7 @@ export class Measure extends ApplicationDb {
             formData.append('measure[' + d + ']', entry[d]);
           }
           fetch(this.getServerUrl() + '/' + this.id, {
-            method: 'PATCH',
+            method: 'POST',
             body: formData
           }).then((response) => {
             return response.json();

@@ -70,7 +70,7 @@ export class Attachment extends ApplicationDb {
             }
           }
           fetch(this.getServerUrl() + '/' + entry.id, {
-            method: 'PATCH',
+            method: 'POST',
             body: formData
           }).then((response) => {
             return response.json();

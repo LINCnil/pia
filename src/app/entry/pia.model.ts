@@ -186,7 +186,7 @@ export class Pia extends ApplicationDb {
             }
           }
           fetch(this.getServerUrl() + '/' + entry.id, {
-            method: 'PATCH',
+            method: 'POST',
             body: formData
           }).then((response) => {
             return response.json();
