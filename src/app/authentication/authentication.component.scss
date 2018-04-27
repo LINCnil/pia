@@ -1,6 +1,7 @@
 @import '../../assets/stylesheets/variables';
 
 .pia-authenticationBlock {
+    display: flex;
     padding-top: 110px;
     &-warning {
       color: white;
@@ -62,7 +63,7 @@
         width: 280px;
         box-shadow: 0 0 50px #aaa;
     }
-    &-register, &-enter {
+    &-enter {
         background-color: #fff;
         font-size: 1.4rem;
         padding: 10px;
@@ -89,7 +90,6 @@
         }
     }
     &-enter {
-        background-color: $pia-blue;
         margin-top: 10%;
         > div {
             color: #fff;
@@ -97,7 +97,6 @@
         }
     }
     &-login {
-        background-color: $pia-blue;
         padding-bottom: 10px;
         fieldset {
             border: none;
@@ -108,7 +107,7 @@
         legend {
             margin: 0;
             font-size: 1.3rem;
-            color: #fff;
+            color: $pia-green;
             padding-top: 12px;
             padding-left: 15px;
             font-weight: 500;
@@ -117,7 +116,7 @@
             padding-top: 10px;
             display: block;
             margin: auto;
-            color: #fff;
+            color: $pia-green;
             font-size: 1rem;
         }
         input {
@@ -135,7 +134,7 @@
                 padding-top: 1px;
             }
         }
-        button[type="submit"] {
+        button {
             display: block;
             margin-top: 20px;
             margin-left: auto;
@@ -155,7 +154,7 @@
             padding-top: 8px;
             text-decoration: none;
             font-size: 0.9rem;
-            color: #fff;
+            color: $pia-green;
             cursor: pointer;
         }
     }

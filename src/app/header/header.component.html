@@ -20,9 +20,14 @@
           <ul class="pia-navigationBlock-list">
             <!--<li>
               <a href="#">{{ 'header.knowledge_base_link' | translate }}</a>
-            </li>--><li>
+            </li>-->
+            <li>
               <a *ngIf="_languagesService.selectedLanguage === 'fr' && headerForHome" href="javascript:;" (click)="importPiaExample()">{{ 'header.pia_example_link' | translate }}</a>
-            </li><li class="pia-navigationBlock-languages">
+            </li>
+            <li>
+              <a *ngIf="true" href="javascript:;" (click)="importPiaExample()"><i class="fa fa-user"></i></a>
+            </li>
+            <!-- <li class="pia-navigationBlock-languages">
               <a href="javascript:;">
                 <i class="fa fa-globe" aria-hidden="true"></i>
               </a>
@@ -39,11 +44,6 @@
                     {{ 'header.languages.en' | translate }}
                   </a>
                 </li>
-                <!--<li [ngClass]="{'is_active': _languagesService.selectedLanguage === 'es-cnil'}">
-                  <a href="javascript:;" (click)="_languagesService.updateCurrentLanguage('es-cnil')">
-                    {{ 'header.languages.es' | translate }}
-                  </a>
-                </li>-->
                 <li class="communityTranslations">{{ 'header.languages.community_translations' | translate }}</li>
                 <li [ngClass]="{'is_active': _languagesService.selectedLanguage === 'cz'}">
                   <a href="javascript:;" (click)="_languagesService.updateCurrentLanguage('cz')">
@@ -76,7 +76,8 @@
                   </a>
                 </li>
               </ul>
-            </li><li class="pia-navigationBlock-company">
+            </li> -->
+            <li class="pia-navigationBlock-company">
               <a href="javascript:;">
                 <i class="fa fa-user" style="display:none;" aria-hidden="true"></i>
                 {{ 'header.tools.title' | translate }}

@@ -1,29 +1,30 @@
 import { Injectable } from '@angular/core';
 import { UserManager, UserManagerSettings, User } from 'oidc-client';
-//import { JwtHelperService } from '@auth0/angular-jwt';
 
 @Injectable()
 export class AuthenticationService {
-  private manager = new UserManager(getClientSettings());
+  private manager = new UserManager({
+    authority: 'https://samples.auth0.com/authorize',
+    client_id: 'kbyuFDidLLm280LIwVFiazOqjO3ty8KH',
+    redirect_uri: 'http://localhost:4200/auth-callback',
+    post_logout_redirect_uri: 'http://localhost:4200/',
+    response_type:"id_token token",
+    scope:"openid profile api1",
+    filterProtocolClaims: true,
+    loadUserInfo: true
+  });
+
   private user: User = null;
 
   constructor() {
     this.manager.getUser().then(user => {
         this.user = user;
     });
-  } 
-
-  public isAuthenticated(): boolean {
-  	//const jwtHelper = new JwtHelperService();
-    const token = localStorage.getItem('token');
-
-    //return !jwtHelper.isTokenExpired(token);
-    return false;
   }
 
-  public isLoggedIn(): boolean {
-    return this.user != null && !this.user.expired;
-	}
+  public isAuthenticated(): boolean {
+  	return this.user != null && !this.user.expired;
+  }
 
 	public getProfile(): any {
     return this.user.profile;
@@ -34,7 +35,8 @@ export class AuthenticationService {
 	}
 
 	public startAuthentication(): Promise<void> {
-    return this.manager.signinRedirect();
+    //return this.manager.signinRedirect();
+    return this.completeAuthentication();
 	}
 
 	public completeAuthentication(): Promise<void> {
@@ -43,17 +45,4 @@ export class AuthenticationService {
     });
 	}
 
-}
-
-export function getClientSettings(): UserManagerSettings {
-  return {
-    authority: 'https://samples.auth0.com/authorize',
-    client_id: 'kbyuFDidLLm280LIwVFiazOqjO3ty8KH',
-    redirect_uri: 'http://localhost:4200/auth-callback',
-    post_logout_redirect_uri: 'http://localhost:4200/',
-    response_type:"id_token token",
-    scope:"openid profile api1",
-    filterProtocolClaims: true,
-    loadUserInfo: true
-  };
 }

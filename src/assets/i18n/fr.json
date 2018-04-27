@@ -5,7 +5,14 @@
     "subtitle2": "Accéder aux outils et glossaires",
     "start_app": "Accéder à l'outil PIA (Beta)",
     "description": "Le logiciel PIA de la <strong>Commission Nationale Informatique et Liberté (CNIL)</strong> s'inscrit dans une démarche d'accompagnement des responsables de traitement dans la mise en œuvre des obligations du RGPD. Il accompagne la conduite d'une analyse d'impact relative à la protection des données et vise aussi à faciliter l'appropriation des guides PIA de la CNIL.",
-    "start": "Commencer"
+    "start": "Commencer",
+    "forgotten_password": "Mot de passe oublié",
+    "form": {
+      "legend": "S'identifier",
+      "username": "identifiant",
+      "password": "Mot de passe",
+      "submit": "Se connecter"
+    }
   },
   "header": {
     "logo_title": "Analyse d'impact sur la protection des données",
