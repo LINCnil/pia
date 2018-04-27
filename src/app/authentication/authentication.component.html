@@ -1,114 +1,24 @@
-<nav class="pia-navigationBlock">
-  <div class="container">
-    <div class="row">
-      <div class="small-12 medium-12 columns">
-        <ul class="pia-navigationBlock-list">
-          <li class="pia-navigationBlock-languages">
-            <a href="javascript:;">
-              <i class="fa fa-globe" aria-hidden="true"></i>
-            </a>
-            <ul>
-              <li class="officialTranslation">{{ 'header.languages.official_translation' | translate }}</li>
-              <li [ngClass]="{'is_active': _languagesService.selectedLanguage === 'fr'}">
-                <a href="javascript:;" (click)="_languagesService.updateCurrentLanguage('fr')">
-                  {{ 'header.languages.fr' | translate }}
-                </a>
-              </li>
-              <li class="cnilTranslations">{{ 'header.languages.cnil_translations' | translate }}</li>
-              <li class="englishTranslation" [ngClass]="{'is_active': _languagesService.selectedLanguage === 'en'}">
-                <a href="javascript:;" (click)="_languagesService.updateCurrentLanguage('en')">
-                  {{ 'header.languages.en' | translate }}
-                </a>
-              </li>
-              <!--<li [ngClass]="{'is_active': _languagesService.selectedLanguage === 'es-cnil'}">
-                <a href="javascript:;" (click)="_languagesService.updateCurrentLanguage('es-cnil')">
-                  {{ 'header.languages.es' | translate }}
-                </a>
-              </li>-->
-              <li class="communityTranslations">{{ 'header.languages.community_translations' | translate }}</li>
-              <li [ngClass]="{'is_active': _languagesService.selectedLanguage === 'cz'}">
-                <a href="javascript:;" (click)="_languagesService.updateCurrentLanguage('cz')">
-                  {{ 'header.languages.cz' | translate }}
-                </a>
-              </li>
-              <li [ngClass]="{'is_active': _languagesService.selectedLanguage === 'de'}">
-                <a href="javascript:;" (click)="_languagesService.updateCurrentLanguage('de')">
-                  {{ 'header.languages.de' | translate }}
-                </a>
-              </li>
-              <li [ngClass]="{'is_active': _languagesService.selectedLanguage === 'es'}">
-                <a href="javascript:;" (click)="_languagesService.updateCurrentLanguage('es')">
-                  {{ 'header.languages.es' | translate }}
-                </a>
-              </li>
-              <li [ngClass]="{'is_active': _languagesService.selectedLanguage === 'it'}">
-                <a href="javascript:;" (click)="_languagesService.updateCurrentLanguage('it')">
-                  {{ 'header.languages.it' | translate }}
-                </a>
-              </li>
-              <li [ngClass]="{'is_active': _languagesService.selectedLanguage === 'nl'}">
-                <a href="javascript:;" (click)="_languagesService.updateCurrentLanguage('nl')">
-                  {{ 'header.languages.nl' | translate }}
-                </a>
-              </li>
-              <li [ngClass]="{'is_active': _languagesService.selectedLanguage === 'pl'}">
-                <a href="javascript:;" (click)="_languagesService.updateCurrentLanguage('pl')">
-                  {{ 'header.languages.pl' | translate }}
-                </a>
-              </li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</nav>
-
-
+<app-header></app-header>
 
 <main class="container pia-authenticationBlock">
     <div class="row">
-        <div class="small-12 medium-8 columns pia-authenticationBlock-logo">
-            <div>
-              <img src="assets/images/pia-auth-logo.png" alt="Logo PIA">
-              <div>
-                <h1 [innerHTML]="'authentication.title' | translate"></h1>
-                <div>{{ 'header.logo_subtitle' | translate }}</div>
-              </div>
-            </div>
-            <div>
-                <h2 [innerHTML]="'authentication.subtitle1' | translate"></h2>
-                <p>{{ 'authentication.subtitle2' | translate }}</p>
-            </div>
-        </div>
-        <div class="small-12 medium-4 columns">
+        <div class="small-12 columns">
             <div class="pia-authenticationBlock-auth">
-                
-                <div class="pia-authenticationBlock-register">
-                    <div>Créer un compte</div>
-                    <a href="#" class="btn btn-green">Créer</a>
-                </div>
                 <form class="pia-authenticationBlock-login">
                     <fieldset>
                         <legend>S'identifier</legend>
                         <div>
                             <label for="pia-account-login">Login</label>
-                            <input type="text" value="anonymous" id="pia-account-login">
+                            <input type="text" id="pia-account-login">
                         </div>
                         <div>
                             <label for="pia-account-password">Mot de passe</label>
-                            <input type="password" value="anonymous" id="pia-account-password">
+                            <input type="password" id="pia-account-password">
                         </div>
-                        <button type="submit" class="btn btn-green">Connecter</button>
+                        <button routerLink="/home" type="submit" class="btn btn-green">{{ 'Se connecter' | translate }}</button>
                         <a href="#">Mot de passe oublié ?</a>
                     </fieldset>
                 </form>
-                
-                <div class="pia-authenticationBlock-enter">
-                    <div>{{ 'authentication.start_app' | translate }}</div>
-                    <p class="pia-authenticationBlock-warning" [innerHTML]="'authentication.description' | translate"></p>
-                    <a routerLink="/home" class="btn btn-green">{{ 'authentication.start' | translate }}</a>
-                </div>
             </div>
         </div>
     </div>
