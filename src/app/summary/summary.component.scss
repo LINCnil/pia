@@ -5,21 +5,21 @@
     margin-bottom: 80px;
     h1 {
       color: $pia-blue;
-      border-bottom: 4px solid #091C6B;
+      border-bottom: 4px solid $pia-blue;
     }
     h2 {
       color: #393939;
       margin-bottom: 3px;
     }
     h3 {
-      color: #091C6B;
+      color: $pia-light-black;
       margin: 2px 0;
       font-weight: 500;
     }
     .databox,
     .actionplanbox {
       margin: 0 0 8px 0;
-      border: 1px solid #b7b7b7;
+      border: 1px solid $pia-gray;
       padding: 6px 16px;
       background: #fff;
       box-shadow: 1px 1px 3px 0px #c2c2c2;
@@ -40,7 +40,7 @@
     .actionplanbox {
       h2 {
         margin: 2px 0;
-        color: #393939;
+        color: $pia-light-black;
       }
     }
     .evaluationValue {
@@ -86,8 +86,8 @@
       padding: 0;
       border: none;
       legend {
-        border-bottom: 4px solid #091C6B;
-        color: #091C6B;
+        border-bottom: 4px solid $pia-blue;
+        color: $pia-blue;
         font-size: 2.25rem;
         font-weight: 600;
         width: 100%;
@@ -100,7 +100,7 @@
       }
       label {
         cursor: pointer;
-        color: #121921;
+        color: $pia-blue;
         font-size: 1.4rem;
         &:focus, &:hover, &:active {
           font-weight: 500;
