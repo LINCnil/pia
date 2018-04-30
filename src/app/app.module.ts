@@ -57,6 +57,8 @@ import { AboutComponent } from 'app/about/about.component';
 import { AppRoutingModule } from 'app/app-routing.module';
 import { CardsRoutingModule } from 'app/cards/cards-routing.module';
 
+import { ApiModule } from '@api/api.module';
+
 const providersList: any = [
   AppDataService,
   MeasureService,
@@ -133,6 +135,7 @@ export function createTranslateLoader(http: HttpClient) {
     HttpClientModule,
     BrowserAnimationsModule,
     TagInputModule,
+    ApiModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
