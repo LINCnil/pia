@@ -1,7 +1,10 @@
 import { Component } from '@angular/core';
+import { Router, CanActivate } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { LanguagesService } from 'app/services/languages.service';
+import { AuthenticationService } from 'app/services/authentication.service';
 import { User } from 'app/authentication/user.model';
+
 
 @Component({
   selector: 'app-authentication',
@@ -9,19 +12,15 @@ import { User } from 'app/authentication/user.model';
   styleUrls: ['./authentication.component.scss']
 })
 export class AuthenticationComponent{
-  private form;
-  private model;
+  private user = new User(0, '', '');
 
-  constructor(
-              public _translateService: TranslateService,
-              public _languagesService: LanguagesService) {
-  }
+  constructor(public authService: AuthenticationService, public router: Router) {}
 
-  submitted = false;
 
-  onSubmit() { 
-    this.submitted = true; 
-    console.log(this.model);
+  onSubmit() {
+    this.authService.authenticate(this.user).then(() => {
+    	this.router.navigate(['home']);
+    });
   }
 
 }

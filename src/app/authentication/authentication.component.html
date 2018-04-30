@@ -8,15 +8,14 @@
                     <fieldset>
                         <legend>{{ 'authentication.form.legend' | translate }}</legend>
                         <div>
-                            <label for="authentication-login">{{ 'authentication.form.username' | translate }}</label>
-                            <input id="authentication-username" type="text"  [(ngModel)]="model.username" required>
+                            <label for="authentication-username">{{ 'authentication.form.username' | translate }}</label>
+                            <input id="authentication-username" type="text"  [(ngModel)]="user.username" name="username" required>
                         </div>
                         <div>
                             <label for="authentication-password">{{ 'authentication.form.password' | translate }}</label>
-                            <input id="authentication-password" type="password" #password formControlName="password" required>
+                            <input id="authentication-password" type="password" [(ngModel)]="user.password" name="password" required>
                         </div>
-                        <button type="submit" [disabled]="form.invalid" class="btn btn-green" id="authentication-submit" title="{{ 'homepage.cards.placeholder_start' | translate }}">{{ 'authentication.form.submit' | translate }}</button>
-                        <!-- <button routerLink="/home" type="submit" class="btn btn-green">Se connecter</button> -->
+                        <button type="submit" [disabled]="!authForm.valid" class="btn btn-green" id="authentication-submit" title="{{ 'homepage.cards.placeholder_start' | translate }}">{{ 'authentication.form.submit' | translate }}</button>
                         <a href="#">{{ 'authentication.forgotten_password' | translate }}</a>
                     </fieldset>
                 </form>

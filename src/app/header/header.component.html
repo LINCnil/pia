@@ -25,9 +25,12 @@
               <a *ngIf="_languagesService.selectedLanguage === 'fr' && headerForHome" href="javascript:;" (click)="importPiaExample()">{{ 'header.pia_example_link' | translate }}</a>
             </li>
             <li>
-              <a *ngIf="true" href="javascript:;" (click)="importPiaExample()"><i class="fa fa-user"></i></a>
+              <a *ngIf="profile" href="javascript:;">
+                <i class="fa fa-user"></i>
+                <span>{{ profile.username }}</span>
+              </a>
             </li>
-            <!-- <li class="pia-navigationBlock-languages">
+            <li class="pia-navigationBlock-languages">
               <a href="javascript:;">
                 <i class="fa fa-globe" aria-hidden="true"></i>
               </a>
@@ -76,7 +79,7 @@
                   </a>
                 </li>
               </ul>
-            </li> -->
+            </li>
             <li class="pia-navigationBlock-company">
               <a href="javascript:;">
                 <i class="fa fa-user" style="display:none;" aria-hidden="true"></i>

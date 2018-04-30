@@ -20,6 +20,7 @@ import { AuthenticationService } from 'app/services/authentication.service'
 })
 export class HeaderComponent implements OnInit {
   public increaseContrast: string;
+  private profile;
   appVersion: string;
   headerForHome: boolean;
 
@@ -32,6 +33,7 @@ export class HeaderComponent implements OnInit {
               public _languagesService: LanguagesService,
               private authService: AuthenticationService) {
     this.updateContrast();
+    this.profile = this.authService.getProfile();
   }
 
   ngOnInit() {
