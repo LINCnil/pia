@@ -5,6 +5,7 @@ export class Evaluation extends BaseModel {
 
   public id: any;
   public pia_id: any;
+  public reference_to: string;
   public status = 0; // 0: pending, 1: toBeFixed, 2: improvable, 3: acceptable
   public action_plan_comment: string;
   public evaluation_comment: string;
