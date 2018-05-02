@@ -15,4 +15,8 @@ export class Evaluation extends BaseModel {
   public person_in_charge: string;
   public global_status = 0; // 0: No evaluation, 1: Evaluation started, 2: Evaluation completed
 
+
+  public getStatusLabel():string {
+      return this.status >= 0 ? `evaluation.statuses.${this.status}`: '';
+  }
 }

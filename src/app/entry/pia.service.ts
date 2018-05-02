@@ -9,15 +9,15 @@ import { ActionPlanService } from 'app/entry/entry-content/action-plan//action-p
 //new imports
 
 import { Observable } from 'rxjs/Rx';
-
-import { PiaModel, AnswerModel, CommentModel, EvaluationModel, MeasureModel, AttachmentModel } from '@api/api.models';
-import { PiaApi, AnswerApi, CommentApi, EvaluationApi, MeasureApi, AttachmentApi } from '@api/api.services';
+import {BehaviorSubject} from 'rxjs/BehaviorSubject';
+import { PiaModel, AnswerModel, CommentModel, EvaluationModel, MeasureModel, AttachmentModel } from '@api/models';
+import { PiaApi, AnswerApi, CommentApi, EvaluationApi, MeasureApi, AttachmentApi } from '@api/services';
 
 @Injectable()
 export class PiaService {
 
   pias = [];
-  pia: PiaModel = new PiaModel();
+  pia:PiaModel = new PiaModel();
   answer: AnswerModel = new AnswerModel();
   data: { sections: any };
 
@@ -34,11 +34,10 @@ export class PiaService {
     private measureApi: MeasureApi,
     private attachmentApi: AttachmentApi
   ) {
-
+    this.getPIA();//temp hack
     this._appDataService.getDataNav().then((dataNav) => {
       this.data = dataNav;
     });
-
   }
 
   /**
@@ -46,7 +45,7 @@ export class PiaService {
    * @return {Promise}
    * @memberof PiaService
    */
-  async getPIA() {
+  getPIA() {
 
     return new Promise((resolve, reject) => {
       const piaId = parseInt(this.route.snapshot.params['id'], 10);
@@ -54,7 +53,7 @@ export class PiaService {
         return;
       }
       this.piaApi.get(piaId).subscribe((thePia: PiaModel) => {
-        this.pia = thePia;
+        this.pia.fromJson(thePia);
         resolve(this.pia);
       });
     });
@@ -68,7 +67,7 @@ export class PiaService {
     const piaID = parseInt(localStorage.getItem('pia-id'), 10);
 
     // Removes from DB.
-    this.piaApi.deleteById(piaID);
+    this.piaApi.deleteById(piaID).subscribe();
 
     // Deletes the PIA from the view.
     if (localStorage.getItem('homepageDisplayMode') && localStorage.getItem('homepageDisplayMode') === 'list') {
@@ -227,7 +226,7 @@ export class PiaService {
         if (answer.updated_at) {
           answerModel.updated_at = new Date(answer.updated_at);
         }
-        this.answerApi.create(answerModel);
+        this.answerApi.create(answerModel).subscribe();
       });
 
       if (data.measures.length > 0) {
@@ -268,7 +267,7 @@ export class PiaService {
           if (comment.updated_at) {
             commentModel.updated_at = new Date(comment.updated_at);
           }
-          this.commentApi.create(commentModel);
+          this.commentApi.create(commentModel).subscribe();
         });
       }
       this.piaApi.computeProgress(pia)
@@ -316,7 +315,7 @@ export class PiaService {
         if (evaluation.updated_at) {
           evaluationModel.updated_at = new Date(evaluation.updated_at);
         }
-        this.evaluationApi.create(evaluationModel);
+        this.evaluationApi.create(evaluationModel).subscribe();
 
       });
     }

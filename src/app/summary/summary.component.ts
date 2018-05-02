@@ -1,14 +1,10 @@
 import { Component, ElementRef, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
-import {element} from 'protractor';
+import { element } from 'protractor';
 import * as html2canvas from 'html2canvas';
 import { saveSvgAsPng } from 'save-svg-as-png';
 import { Angular2Csv } from 'angular2-csv';
-
-import { Answer } from 'app/entry/entry-content/questions/answer.model';
-import { Measure } from 'app/entry/entry-content/measures/measure.model';
-import { Evaluation } from 'app/entry/entry-content/evaluations/evaluation.model';
 
 import { ActionPlanService } from 'app/entry/entry-content/action-plan//action-plan.service';
 import { AppDataService } from 'app/services/app-data.service';
@@ -16,6 +12,10 @@ import { TranslateService } from '@ngx-translate/core';
 import { ModalsService } from '../modals/modals.service';
 import { PiaService } from 'app/entry/pia.service';
 import { AttachmentsService } from 'app/entry/attachments/attachments.service';
+
+//new import
+import { EvaluationModel, AnswerModel, MeasureModel } from '@api/models';
+import { EvaluationApi, AnswerApi, MeasureApi } from '@api/services';
 
 @Component({
   selector: 'app-summary',
@@ -40,13 +40,16 @@ export class SummaryComponent implements OnInit {
   displayRisksCartography: boolean;
 
   constructor(private el: ElementRef,
-              private route: ActivatedRoute,
-              private _attachmentsService: AttachmentsService,
-              public _actionPlanService: ActionPlanService,
-              private _translateService: TranslateService,
-              private _appDataService: AppDataService,
-              public _piaService: PiaService,
-              private _modalService: ModalsService) { }
+    private route: ActivatedRoute,
+    private _attachmentsService: AttachmentsService,
+    public _actionPlanService: ActionPlanService,
+    private _translateService: TranslateService,
+    private _appDataService: AppDataService,
+    public _piaService: PiaService,
+    private _modalService: ModalsService,
+    private evaluationApi: EvaluationApi,
+    private answerApi: AnswerApi,
+    private measureApi: MeasureApi) { }
 
   async ngOnInit() {
     this.summarySubscription = this.route.queryParams.subscribe(params => {
@@ -86,7 +89,7 @@ export class SummaryComponent implements OnInit {
     setTimeout(() => {
       const actionPlanOverviewImg = document.querySelector('#actionPlanOverviewImg');
       if (actionPlanOverviewImg) {
-        html2canvas(actionPlanOverviewImg, {scale: 1.4}).then(canvas => {
+        html2canvas(actionPlanOverviewImg, { scale: 1.4 }).then(canvas => {
           if (canvas) {
             const img = canvas.toDataURL();
             this.downloadURI(img, 'actionPlanOverview.png');
@@ -98,14 +101,15 @@ export class SummaryComponent implements OnInit {
 
   getRisksOverviewImg() {
     setTimeout(() => {
-        const mysvg = document.getElementById('risksOverviewSvg');
-        if (mysvg) {
-          saveSvgAsPng(mysvg, 'risksOverview.png', {
-            backgroundColor: 'white',
-            scale: 1.4,
-            encoderOptions: 1,
-            width: 760});
-        }
+      const mysvg = document.getElementById('risksOverviewSvg');
+      if (mysvg) {
+        saveSvgAsPng(mysvg, 'risksOverview.png', {
+          backgroundColor: 'white',
+          scale: 1.4,
+          encoderOptions: 1,
+          width: 760
+        });
+      }
     }, 500);
   }
 
@@ -113,7 +117,7 @@ export class SummaryComponent implements OnInit {
     setTimeout(() => {
       const risksCartographyImg = document.querySelector('#risksCartographyImg');
       if (risksCartographyImg) {
-        html2canvas(risksCartographyImg, {scale: 1.4}).then(canvas => {
+        html2canvas(risksCartographyImg, { scale: 1.4 }).then(canvas => {
           if (canvas) {
             const img = canvas.toDataURL();
             this.downloadURI(img, 'risksCartography.png');
@@ -258,8 +262,8 @@ export class SummaryComponent implements OnInit {
     this._actionPlanService.getCsv();
 
     return new Angular2Csv(this._actionPlanService.csvRows,
-                           this._translateService.instant('summary.csv_file_title'),
-                           options);
+      this._translateService.instant('summary.csv_file_title'),
+      options);
   }
 
   /**
@@ -392,10 +396,10 @@ export class SummaryComponent implements OnInit {
 
         // Measure
         if (item.is_measure) {
-          this.allData[section.id][item.id] = []
-          const measuresModel = new Measure();
-          measuresModel.pia_id = this.pia.id;
-          const entries: any = await measuresModel.findAll();
+          this.allData[section.id][item.id] = [];
+
+          const entries: any = await this.measureApi.getAll(this.pia.id).toPromise();
+
           entries.forEach(async (measure) => {
             /* Completed measures */
             if (measure.title !== undefined && measure.content !== undefined) {
@@ -412,9 +416,9 @@ export class SummaryComponent implements OnInit {
           });
         } else if (item.questions) { // Question
           item.questions.forEach(async (question) => {
-            this.allData[section.id][item.id][question.id] = {}
-            const answerModel = new Answer();
-            await answerModel.getByReferenceAndPia(this.pia.id, question.id);
+            this.allData[section.id][item.id][question.id] = {};
+            const answerModel = await this.answerApi.getByRef(this.pia.id, question.id).toPromise();
+
 
             /* An answer exists */
             if (answerModel.data) {
@@ -458,21 +462,22 @@ export class SummaryComponent implements OnInit {
   private async getEvaluation(section_id: string, item_id: string, ref: string) {
     return new Promise(async (resolve, reject) => {
       let evaluation = null;
-      const evaluationModel = new Evaluation();
-      const exist = await evaluationModel.getByReference(this.pia.id, ref);
-      if (exist) {
-        evaluation = {
-          'title': evaluationModel.getStatusName(),
-          'action_plan_comment': evaluationModel.action_plan_comment,
-          'evaluation_comment': evaluationModel.evaluation_comment,
-          'gauges': {
-            'riskName': { value: this._translateService.instant('sections.' + section_id + '.items.' + item_id + '.title') },
-            'seriousness': evaluationModel.gauges ? evaluationModel.gauges.x : null,
-            'likelihood': evaluationModel.gauges ? evaluationModel.gauges.y : null
-          }
-        };
-      }
-      resolve(evaluation);
+
+      this.evaluationApi.getByRef(this.pia.id, ref).subscribe((theEval: EvaluationModel) => {
+        if (theEval) {
+          evaluation = {
+            'title': theEval.getStatusLabel(),
+            'action_plan_comment': theEval.action_plan_comment,
+            'evaluation_comment': theEval.evaluation_comment,
+            'gauges': {
+              'riskName': { value: this._translateService.instant('sections.' + section_id + '.items.' + item_id + '.title') },
+              'seriousness': theEval.gauges ? theEval.gauges.x : null,
+              'likelihood': theEval.gauges ? theEval.gauges.y : null
+            }
+          };
+        }
+        resolve(evaluation);
+      });
     });
   }
 
@@ -493,7 +498,7 @@ export class SummaryComponent implements OnInit {
     sel.removeAllRanges();
     sel.addRange(range);
     document.execCommand('Copy', false, range);
-    document.execCommand('SelectText', false , range);
+    document.execCommand('SelectText', false, range);
     this._modalService.openModal('modal-select-text-pia');
     if (actionPlanOverview) {
       actionPlanOverview.classList.toggle('hide');

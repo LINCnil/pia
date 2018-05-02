@@ -6,7 +6,7 @@ import {Pia} from 'app/entry/pia.model';
 import { PiaService } from 'app/entry/pia.service';
 
 //new import
-import {PiaModel} from '@api/api.models';
+import {PiaModel} from '@api/models';
 
 @Component({
   selector: 'app-dpo-people-opinions',

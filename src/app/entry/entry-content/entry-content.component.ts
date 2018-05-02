@@ -18,7 +18,7 @@ import { KnowledgeBaseService } from 'app/entry/knowledge-base/knowledge-base.se
 @Component({
   selector: 'app-entry-content',
   templateUrl: './entry-content.component.html',
-  styleUrls: ['./entry-content.component.scss'],
+  styleUrls: ['./entry-content.component.scss']
 })
 
 export class EntryContentComponent implements OnInit, OnChanges {
@@ -39,10 +39,9 @@ export class EntryContentComponent implements OnInit, OnChanges {
               private _translateService: TranslateService,
               private _knowledgeBaseService: KnowledgeBaseService) { }
 
-  ngOnInit() {
+  async ngOnInit() {
     // Reset measures no longer addable from KB when switching PIA
     this._knowledgeBaseService.toHide = [];
-
     // Update the last edited date for this PIA
     this._piaService.getPIA().then(() => {
       this._piaService.pia.updated_at = new Date();

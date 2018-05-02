@@ -3,8 +3,6 @@ import { ActivatedRoute, Params } from '@angular/router';
 import { Http } from '@angular/http';
 import { Subscription } from 'rxjs/Subscription';
 
-import { Answer } from 'app/entry/entry-content/questions/answer.model';
-
 import { KnowledgeBaseService } from 'app/entry/knowledge-base/knowledge-base.service';
 import { MeasureService } from 'app/entry/entry-content/measures/measures.service';
 import { ActionPlanService } from 'app/entry/entry-content/action-plan//action-plan.service';
@@ -15,8 +13,8 @@ import { SidStatusService } from 'app/services/sid-status.service';
 import { GlobalEvaluationService } from '../services/global-evaluation.service';
 
 //new import
-import { PiaModel } from '@api/api.models';
-import { PiaApi } from '@api/api.services';
+import { PiaModel,AnswerModel } from '@api/models';
+import { PiaApi,AnswerApi } from '@api/services';
 
 
 
@@ -43,7 +41,9 @@ export class EntryComponent implements OnInit, OnDestroy, DoCheck {
     private _piaService: PiaService,
     private _actionPlanService: ActionPlanService,
     private _globalEvaluationService: GlobalEvaluationService,
-    private _measureService: MeasureService
+    private _measureService: MeasureService,
+    private answerApi:AnswerApi
+
   ) { }
 
   async ngOnInit() {
@@ -89,12 +89,13 @@ export class EntryComponent implements OnInit, OnDestroy, DoCheck {
       // For each of these questions, get their respective answer
       listQuestions.forEach(questionsSet => {
         questionsSet.forEach(q => {
-          const answer = new Answer();
-          answer.getByReferenceAndPia(this._piaService.pia.id, q.id).then(() => {
-            if (answer.data && answer.data.list.length > 0 && answer.data.list.includes(measureName)) {
-              const index = answer.data.list.indexOf(measureName);
-              answer.data.list.splice(index, 1);
-              answer.update();
+
+            this.answerApi.getByRef(this._piaService.pia.id, q.id).subscribe((theAnswer:AnswerModel) => {
+            if (theAnswer.data && theAnswer.data.list.length > 0 && theAnswer.data.list.includes(measureName)) {
+              const index = theAnswer.data.list.indexOf(measureName);
+              theAnswer.data.list.splice(index, 1);
+              this.answerApi.update(theAnswer).subscribe();
+
             }
           });
         });

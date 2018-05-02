@@ -11,8 +11,8 @@ import { Evaluation } from 'app/entry/entry-content/evaluations/evaluation.model
 import { GlobalEvaluationService } from '../../../services/global-evaluation.service';
 
 //new imports
-import { AnswerModel, EvaluationModel, MeasureModel} from '@api/api.models';
-import { AnswerApi, EvaluationApi, MeasureApi } from '@api/api.services';
+import { AnswerModel, EvaluationModel, MeasureModel} from '@api/models';
+import { AnswerApi, EvaluationApi, MeasureApi } from '@api/services';
 
 @Component({
   selector: 'app-questions',
@@ -45,9 +45,10 @@ export class QuestionsComponent implements OnInit, OnDestroy {
     private measureApi: MeasureApi
   ) { }
 
-  ngOnInit() {
+  async ngOnInit() {
     this._globalEvaluationService.answerEditionEnabled = true;
     this.elementId = 'pia-question-content-' + this.question.id;
+
     this.questionForm = new FormGroup({
       gauge: new FormControl(0),
       text: new FormControl(),

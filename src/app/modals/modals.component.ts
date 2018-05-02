@@ -6,7 +6,9 @@ import { MeasureService } from 'app/entry/entry-content/measures/measures.servic
 import { PiaService } from 'app/entry/pia.service';
 import { AttachmentsService } from 'app/entry/attachments/attachments.service';
 import { FormControl, FormGroup } from '@angular/forms';
-import { Pia } from '../entry/pia.model';
+
+import { PiaModel } from '@api/models';
+import { PiaApi } from '@api/services';
 
 @Component({
   selector: 'app-modals',
@@ -16,7 +18,7 @@ import { Pia } from '../entry/pia.model';
 })
 export class ModalsComponent implements OnInit {
   @Input() pia: any;
-  newPia: Pia;
+  newPia: PiaModel;
   piaForm: FormGroup;
   removeAttachmentForm: FormGroup;
   enableSubmit = true;
@@ -26,7 +28,8 @@ export class ModalsComponent implements OnInit {
     public _modalsService: ModalsService,
     public _piaService: PiaService,
     public _measuresService: MeasureService,
-    public _attachmentsService: AttachmentsService
+    public _attachmentsService: AttachmentsService,
+    private piaApi:PiaApi
   ) { }
 
   ngOnInit() {
@@ -40,7 +43,7 @@ export class ModalsComponent implements OnInit {
     this.removeAttachmentForm = new FormGroup({
       comment: new FormControl()
     });
-    this.newPia = new Pia();
+    this.newPia = new PiaModel();
   }
 
   /**
@@ -58,13 +61,15 @@ export class ModalsComponent implements OnInit {
    * @memberof ModalsComponent
    */
   onSubmit() {
-    const pia = new Pia();
+    const pia = new PiaModel();
     pia.name = this.piaForm.value.name;
     pia.author_name = this.piaForm.value.author_name;
     pia.evaluator_name = this.piaForm.value.evaluator_name;
     pia.validator_name = this.piaForm.value.validator_name;
-    const p = pia.create();
-    p.then((id) => this.router.navigate(['entry', id, 'section', 1, 'item', 1]));
+
+    this.piaApi.create(pia).subscribe((newPia:PiaModel)=>{
+      this.router.navigate(['entry', newPia.id, 'section', 1, 'item', 1]);
+    });
   }
 
   /**

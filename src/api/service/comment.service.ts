@@ -24,6 +24,10 @@ export class CommentService extends BaseService<Comment> {
     return this.httpGetOne(this.routing.one, {piaId: piaId, id: id });
   }
 
+  public getAllByRef(piaId: any, ref: any): Observable<Comment[]> {
+    return this.httpGetAll(this.routing.all, { piaId: piaId }, { reference_to: ref });
+  }
+
   public update(model: Comment): Observable<Comment> {
     return this.httpPut(this.routing.one, {piaId: model.pia_id, id: model.id }, model);
   }

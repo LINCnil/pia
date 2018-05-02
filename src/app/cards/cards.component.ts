@@ -1,4 +1,4 @@
-import {Component, OnInit, ElementRef, OnDestroy, Input} from '@angular/core';
+import { Component, OnInit, ElementRef, OnDestroy, Input } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
@@ -7,6 +7,9 @@ import { Pia } from '../entry/pia.model';
 
 import { ModalsService } from 'app/modals/modals.service';
 import { PiaService } from 'app/entry/pia.service';
+
+import { PiaModel } from '@api/models';
+import { PiaApi } from '@api/services';
 
 @Component({
   selector: 'app-cards',
@@ -27,14 +30,17 @@ export class CardsComponent implements OnInit, OnDestroy {
   paramsSubscribe: Subscription;
 
   constructor(private router: Router,
-              private el: ElementRef,
-              private route: ActivatedRoute,
-              public _modalsService: ModalsService,
-              public _piaService: PiaService) { }
+    private el: ElementRef,
+    private route: ActivatedRoute,
+    public _modalsService: ModalsService,
+    public _piaService: PiaService,
+    private piaApi:PiaApi
+  ) { }
 
   ngOnInit() {
     this.sortOrder = localStorage.getItem('sortOrder');
     this.sortValue = localStorage.getItem('sortValue');
+
     if (!this.sortOrder || !this.sortValue) {
       this.sortOrder = 'up';
       this.sortValue = 'updated_at';
@@ -112,13 +118,14 @@ export class CardsComponent implements OnInit, OnDestroy {
    * @memberof CardsComponent
    */
   onSubmit() {
-    const pia = new Pia();
+    const pia = new PiaModel();
     pia.name = this.piaForm.value.name;
     pia.author_name = this.piaForm.value.author_name;
     pia.evaluator_name = this.piaForm.value.evaluator_name;
     pia.validator_name = this.piaForm.value.validator_name;
-    const p = pia.create();
-    p.then((id) => this.router.navigate(['entry', id, 'section', 1, 'item', 1]));
+    const p = this.piaApi.create(pia).subscribe((newPia:PiaModel) => {
+      this.router.navigate(['entry', newPia.id, 'section', 1, 'item', 1]);
+    });
   }
 
   /**
@@ -161,8 +168,7 @@ export class CardsComponent implements OnInit, OnDestroy {
    * @memberof CardsComponent
    */
   async refreshContent() {
-    const pia = new Pia();
-    const data: any = await pia.getAll();
+    const data: any = await this.piaApi.getAll().toPromise();
     this._piaService.pias = data;
     this.sortOrder = localStorage.getItem('sortOrder');
     this.sortValue = localStorage.getItem('sortValue');
@@ -185,7 +191,7 @@ export class CardsComponent implements OnInit, OnDestroy {
         secondValue = new Date(b[this.sortValue]);
       }
       if (this.sortValue === 'name' || this.sortValue === 'author_name' ||
-          this.sortValue === 'evaluator_name' || this.sortValue === 'validator_name') {
+        this.sortValue === 'evaluator_name' || this.sortValue === 'validator_name') {
         return firstValue.localeCompare(secondValue);
       } else {
         if (firstValue < secondValue) {

@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 
-import { Attachment } from './attachment.model';
-
 import { ModalsService } from 'app/modals/modals.service';
+
+import { AttachmentModel } from '@api/models';
+import { AttachmentApi } from '@api/services';
 
 @Injectable()
 export class AttachmentsService {
@@ -13,7 +14,10 @@ export class AttachmentsService {
   pia: any;
   pia_signed = 0;
 
-  constructor(private _modalsService: ModalsService) { }
+  constructor(
+    private _modalsService: ModalsService,
+    private attachmentApi: AttachmentApi
+  ) { }
 
   /**
    * List all attachments.
@@ -22,10 +26,8 @@ export class AttachmentsService {
    */
   async listAttachments() {
     return new Promise((resolve, reject) => {
-      const attachment = new Attachment();
-      attachment.pia_id = this.pia.id;
-      attachment.findAll().then((data: any[]) => {
-        this.attachments = data;
+      this.attachmentApi.getAll(this.pia.id).subscribe((entries: AttachmentModel[]) => {
+        this.attachments = entries;
         resolve();
       });
     });
@@ -39,11 +41,10 @@ export class AttachmentsService {
   async updateSignedAttachmentsList() {
     return new Promise((resolve, reject) => {
       this.signedAttachments = [];
-      const attachment = new Attachment();
-      attachment.pia_id = this.pia.id;
-      attachment.findAll().then((data: any[]) => {
+
+      this.attachmentApi.getAll(this.pia.id).subscribe((entries: AttachmentModel[]) => {
         // Store all signed attachments if they are not yet stored
-        data.forEach(a => {
+        entries.forEach(a => {
           if (a.pia_signed && a.pia_signed === 1) {
             this.signedAttachments.push(a);
           }
@@ -52,9 +53,9 @@ export class AttachmentsService {
         if (this.signedAttachments && this.signedAttachments.length > 0) {
           this.signedAttachments.reverse(); // Reverse array (latest signed attachment at first)
           if (this.signedAttachments[0] && this.signedAttachments[0].file && this.signedAttachments[0].file.length > 0) {
-             // Store the latest signed attachment only if file isn't empty
+            // Store the latest signed attachment only if file isn't empty
             this.attachment_signed = this.signedAttachments[0];
-             // Remove it from the signed attachments array so that we get the oldest
+            // Remove it from the signed attachments array so that we get the oldest
             this.signedAttachments.splice(0, 1);
           }
         }
@@ -73,15 +74,16 @@ export class AttachmentsService {
     const reader = new FileReader();
     reader.readAsDataURL(file);
     reader.onloadend = () => {
-      const attachment = new Attachment();
+      const attachment = new AttachmentModel();
       attachment.file = reader.result;
       attachment.name = attachment_file.name;
       attachment.mime_type = attachment_file.type;
       attachment.pia_id = this.pia.id;
       attachment.pia_signed = this.pia_signed;
       attachment.comment = '';
-      attachment.create().then((id: number) => {
-        attachment.id = id;
+
+      this.attachmentApi.create(attachment).subscribe((newAttachment: AttachmentModel) => {
+        attachment.fromJson(newAttachment);
         this.attachments.unshift(attachment);
         if (attachment.pia_signed === 1) {
           // Add the last previous signed attachment in the signed attachments array
@@ -92,6 +94,7 @@ export class AttachmentsService {
         // To refresh signed attachments on validation page
         this.updateSignedAttachmentsList();
       });
+
     }
   }
 
@@ -101,9 +104,7 @@ export class AttachmentsService {
    * @memberof AttachmentsService
    */
   downloadAttachment(id: number) {
-    const attachment = new Attachment();
-    attachment.pia_id = this.pia.id;
-    attachment.find(id).then((entry: any) => {
+    this.attachmentApi.get(this.pia.id, id).subscribe((entry: any) => {
       fetch(entry.file).then(res => res.blob()).then(blob => {
         const a = <any>document.createElement('a');
         a.href = window.URL.createObjectURL(blob);
@@ -126,9 +127,7 @@ export class AttachmentsService {
       const attachmentId = parseInt(localStorage.getItem('attachment-id'), 10);
 
       // Remove from DB by erasing only the "file" field
-      const attachment = new Attachment();
-      attachment.id = attachmentId;
-      attachment.remove(comment);
+      this.attachmentApi.deleteById(this.pia.id, attachmentId).subscribe();
 
       // Deletes from the attachments array.
       const index = this.attachments.findIndex(p => p.id === attachmentId);
