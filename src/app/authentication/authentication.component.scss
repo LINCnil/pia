@@ -98,6 +98,14 @@
     }
     &-login {
         padding-bottom: 10px;
+        .error {
+            color: $pia-red;
+            font-weight: 500;
+            font-size: 1.5rem;
+            width: 100%;
+            text-align: center;
+        }
+
         fieldset {
             border: none;
             margin: 0;
@@ -105,11 +113,11 @@
 
         }
         legend {
-            margin: 0;
+            width: 100%;
+            text-align: center;
             font-size: 1.3rem;
-            color: $pia-green;
+            color: $pia-blue;
             padding-top: 12px;
-            padding-left: 15px;
             font-weight: 500;
         }
         label {

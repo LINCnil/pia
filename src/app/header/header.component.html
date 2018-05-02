@@ -3,8 +3,7 @@
   <div class="pia-logoBlock container">
     <div class="row">
       <div class="small-12 medium-12 columns">
-        <a routerLink="/home"><img src="assets/images/pia-logo.jpg" alt="Logo PIA"></a>
-        <div>{{ 'header.logo_title' | translate }}<br><span>{{ 'header.logo_subtitle' | translate }}</span></div>
+        <a id="logo" routerLink="/home"><img src="assets/images/pialab.png" alt="Logo PIA lab"></a> 
       </div>
     </div>
   </div>
@@ -24,11 +23,18 @@
             <li>
               <a *ngIf="_languagesService.selectedLanguage === 'fr' && headerForHome" href="javascript:;" (click)="importPiaExample()">{{ 'header.pia_example_link' | translate }}</a>
             </li>
-            <li>
-              <a *ngIf="profile" href="javascript:;">
-                <i class="fa fa-user"></i>
+            <li *ngIf="profile" class="pia-navigationBlock-profile">
+              <a href="javascript:;">
+                <i class="fa fa-user" aria-hidden="true"></i>
                 <span>{{ profile.username }}</span>
               </a>
+              <ul id="user-block">
+                <li class="profile">
+                  <legend class="user-name">{{ profile.firstname }}  {{ profile.lastname }}</legend>
+                  <p class="user-email">{{ profile.email }}</p>
+                </li>
+                <li class="logout"><a routerLink="/logout" class="btn btn-blue" href="javascript:;">{{ 'authentication.logout' | translate }}</a></li>
+              </ul>
             </li>
             <li class="pia-navigationBlock-languages">
               <a href="javascript:;">

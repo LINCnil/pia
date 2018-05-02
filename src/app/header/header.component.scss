@@ -34,3 +34,28 @@
     }
   }
 }
+
+#logo img{
+  height: 46px;
+}
+
+#user-block {
+  padding: 10px;
+  .logout {
+    width: 100%;
+    text-align: center;
+    border-top: 1px solid $pia-gray;
+    padding-top: 20px;
+    padding-bottom: 10px;
+  }
+  .profile {
+    .user-name {
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1.4rem;
+    }
+    .user-email {
+      padding-top: 10px;
+    }
+  }
+}

@@ -33,7 +33,6 @@ export class HeaderComponent implements OnInit {
               public _languagesService: LanguagesService,
               private authService: AuthenticationService) {
     this.updateContrast();
-    this.profile = this.authService.getProfile();
   }
 
   ngOnInit() {
@@ -45,6 +44,8 @@ export class HeaderComponent implements OnInit {
                           this._router.url === '/about' ||
                           this._router.url === '/help' ||
                           this._router.url === '/settings') ? true : false;
+
+    this.profile = this.authService.getProfile();
   }
 
   /**

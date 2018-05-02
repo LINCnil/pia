@@ -46,6 +46,10 @@ export class AuthenticationService {
     return this.user;
   }
 
+  public logout() {
+    this.user = null;
+  }
+
  //  public isAuthenticated(): boolean {
  //  	return this.user != null && !this.user.expired;
  //  }

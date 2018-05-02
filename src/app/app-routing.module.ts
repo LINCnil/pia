@@ -10,12 +10,12 @@ import { ErrorsComponent } from 'app/errors/errors.component';
 
 import { CardsRoutingModule } from 'app/cards/cards-routing.module';
 import { EntryRoutingModule } from 'app/entry/entry-routing.module';
-//import { ProfileComponent } from './profile/profile.component';
 import { AuthenticationGuardService } from 'app/services/authentication-guard.service';
-import { AuthenticationCallbackComponent } from 'app/authentication-callback/authentication-callback.component';
+//import { AuthenticationCallbackComponent } from 'app/authentication-callback/authentication-callback.component';
 
 const routes: Routes = [
   { path: '', component: AuthenticationComponent },
+  { path: 'logout', component: AuthenticationComponent },
   { path: 
     'summary/:id', 
     component: SummaryComponent , 
@@ -29,7 +29,7 @@ const routes: Routes = [
   { path: 'help', component: HelpComponent },
   { path: 'about', component: AboutComponent },
   { path: '**', component: ErrorsComponent },
-  { path: 'auth-callback', component: AuthenticationCallbackComponent }
+  //{ path: 'auth-callback', component: AuthenticationCallbackComponent }
 ];
 
 @NgModule({
