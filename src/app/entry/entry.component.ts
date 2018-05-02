@@ -14,6 +14,12 @@ import { AppDataService } from 'app/services/app-data.service';
 import { SidStatusService } from 'app/services/sid-status.service';
 import { GlobalEvaluationService } from '../services/global-evaluation.service';
 
+//new import
+import { PiaModel } from '@api/api.models';
+import { PiaApi } from '@api/api.services';
+
+
+
 @Component({
   selector: 'app-entry',
   templateUrl: './entry.component.html',
@@ -29,15 +35,16 @@ export class EntryComponent implements OnInit, OnDestroy, DoCheck {
   subscription: Subscription;
 
   constructor(private route: ActivatedRoute,
-              private http: Http,
-              private _modalsService: ModalsService,
-              private _appDataService: AppDataService,
-              private _sidStatusService: SidStatusService,
-              private _knowledgeBaseService: KnowledgeBaseService,
-              private _piaService: PiaService,
-              private _actionPlanService: ActionPlanService,
-              private _globalEvaluationService: GlobalEvaluationService,
-              private _measureService: MeasureService) { }
+    private http: Http,
+    private _modalsService: ModalsService,
+    private _appDataService: AppDataService,
+    private _sidStatusService: SidStatusService,
+    private _knowledgeBaseService: KnowledgeBaseService,
+    private _piaService: PiaService,
+    private _actionPlanService: ActionPlanService,
+    private _globalEvaluationService: GlobalEvaluationService,
+    private _measureService: MeasureService
+  ) { }
 
   async ngOnInit() {
     let sectionId = parseInt(this.route.snapshot.params['section_id'], 10);
@@ -68,11 +75,11 @@ export class EntryComponent implements OnInit, OnDestroy, DoCheck {
       const itemsQuestions = [];
       this._piaService.data.sections.forEach(section => {
         section.items.forEach(item => {
-            if (item.questions) {
-              itemsQuestions.push(item.questions.filter((question) => {
-                return (question.answer_type === 'list' && question.is_measure === true);
-              }));
-            }
+          if (item.questions) {
+            itemsQuestions.push(item.questions.filter((question) => {
+              return (question.answer_type === 'list' && question.is_measure === true);
+            }));
+          }
         });
       });
 
@@ -161,8 +168,8 @@ export class EntryComponent implements OnInit, OnDestroy, DoCheck {
     });
 
     // Update on knowledge base (scroll / content / search field)
-    const knowledgeBaseScroll  = document.querySelector('.pia-knowledgeBaseBlock-list');
-    const knowledgeBaseContent  = <HTMLInputElement>document.querySelector('.pia-knowledgeBaseBlock-searchForm input');
+    const knowledgeBaseScroll = document.querySelector('.pia-knowledgeBaseBlock-list');
+    const knowledgeBaseContent = <HTMLInputElement>document.querySelector('.pia-knowledgeBaseBlock-searchForm input');
     knowledgeBaseScroll.scrollTop = 0;
     knowledgeBaseContent.value = '';
 

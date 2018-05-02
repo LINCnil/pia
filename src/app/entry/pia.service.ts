@@ -3,13 +3,6 @@ import { ActivatedRoute, Router, Params } from '@angular/router';
 import { Http } from '@angular/http';
 
 import { AppDataService } from 'app/services/app-data.service';
-import { Pia } from 'app/entry/pia.model';
-import { Evaluation } from 'app/entry/entry-content/evaluations/evaluation.model';
-import { Answer } from 'app/entry/entry-content/questions/answer.model';
-import { Measure } from 'app/entry/entry-content/measures/measure.model';
-import { Comment } from 'app/entry/entry-content/comments/comment.model';
-import { Attachment } from 'app/entry/attachments/attachment.model';
-
 import { ModalsService } from 'app/modals/modals.service';
 import { ActionPlanService } from 'app/entry/entry-content/action-plan//action-plan.service';
 
@@ -17,20 +10,8 @@ import { ActionPlanService } from 'app/entry/entry-content/action-plan//action-p
 
 import { Observable } from 'rxjs/Rx';
 
-import { Pia as PiaModel } from '@api/model/pia.model';
-import { Answer as AnswerModel } from '@api/model/answer.model';
-import { Comment as CommentModel } from '@api/model/comment.model';
-import { Evaluation as EvaluationModel } from '@api/model/evaluation.model';
-import { Measure as MeasureModel } from '@api/model/measure.model';
-import { Attachment as AttachmentModel } from '@api/model/attachment.model';
-
-import { PiaService as PiaApi } from '@api/service/pia.service';
-import { AnswerService as AnswerApi } from '@api/service/answer.service';
-import { CommentService as CommentApi } from '@api/service/comment.service';
-import { EvaluationService as EvaluationApi } from '@api/service/evaluation.service';
-import { MeasureService as MeasureApi } from '@api/service/measure.service';
-import { AttachmentService as AttachmentApi } from '@api/service/attachment.service';
-
+import { PiaModel, AnswerModel, CommentModel, EvaluationModel, MeasureModel, AttachmentModel } from '@api/api.models';
+import { PiaApi, AnswerApi, CommentApi, EvaluationApi, MeasureApi, AttachmentApi } from '@api/api.services';
 
 @Injectable()
 export class PiaService {
@@ -57,6 +38,7 @@ export class PiaService {
     this._appDataService.getDataNav().then((dataNav) => {
       this.data = dataNav;
     });
+
   }
 
   /**
@@ -69,10 +51,11 @@ export class PiaService {
     return new Promise((resolve, reject) => {
       const piaId = parseInt(this.route.snapshot.params['id'], 10);
       if (!piaId) {
-        reject();
+        return;
       }
-      this.piaApi.get(piaId).subscribe(() => {
-        resolve();
+      this.piaApi.get(piaId).subscribe((thePia: PiaModel) => {
+        this.pia = thePia;
+        resolve(this.pia);
       });
     });
   }
@@ -132,7 +115,8 @@ export class PiaService {
    */
   abandonTreatment() {
     this.pia.status = 4;
-    this.piaApi.update(this.pia).subscribe(() => {
+    this.piaApi.update(this.pia).subscribe((updatedPia: PiaModel) => {
+      this.pia.fromJson(updatedPia);
       this._modalsService.closeModal();
       this._router.navigate(['home']);
     });
@@ -169,12 +153,12 @@ export class PiaService {
         }
         Observable
           .forkJoin(
-            this.answerApi.getAll(id),
-            this.measureApi.getAll(id),
-            this.evaluationApi.getAll(id),
-            this.commentApi.getAll(id),
-            //this.attachmentApi.getAll(id),
-          )
+          this.answerApi.getAll(id),
+          this.measureApi.getAll(id),
+          this.evaluationApi.getAll(id),
+          this.commentApi.getAll(id),
+          //this.attachmentApi.getAll(id),
+        )
           .subscribe((values) => {
             data.answers = values[0];
             data.measures = values[1];
@@ -369,5 +353,12 @@ export class PiaService {
       const jsonFile = JSON.parse(event.target.result);
       this.importData(jsonFile, 'IMPORT', false);
     }
+  }
+
+  public saveCurrentPia(): Observable<PiaModel> {
+    return this.piaApi.update(this.pia).map((updatedPia: PiaModel) => {
+      this.pia = updatedPia;
+      return this.pia;
+    });
   }
 }

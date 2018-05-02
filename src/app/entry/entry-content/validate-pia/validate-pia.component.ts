@@ -94,7 +94,7 @@ export class ValidatePIAComponent implements OnInit {
    */
   simplePIAValidation() {
     this._piaService.pia.status = 2;
-    this._piaService.pia.update().then(() => {
+    this._piaService.saveCurrentPia().subscribe(() => {
       this._modalsService.openModal('modal-simple-pia-validation');
     });
   }
@@ -105,7 +105,7 @@ export class ValidatePIAComponent implements OnInit {
    */
   signedPIAValidation() {
     this._piaService.pia.status = 3;
-    this._piaService.pia.update().then(() => {
+    this._piaService.saveCurrentPia().subscribe(() => {
       this._modalsService.openModal('modal-signed-pia-validation');
     });
   }

@@ -19,7 +19,6 @@ import { KnowledgeBaseService } from 'app/entry/knowledge-base/knowledge-base.se
   selector: 'app-entry-content',
   templateUrl: './entry-content.component.html',
   styleUrls: ['./entry-content.component.scss'],
-  providers: [PiaService]
 })
 
 export class EntryContentComponent implements OnInit, OnChanges {
@@ -47,7 +46,8 @@ export class EntryContentComponent implements OnInit, OnChanges {
     // Update the last edited date for this PIA
     this._piaService.getPIA().then(() => {
       this._piaService.pia.updated_at = new Date();
-      this._piaService.pia.update();
+      this._piaService.saveCurrentPia();
+
     });
   }
 

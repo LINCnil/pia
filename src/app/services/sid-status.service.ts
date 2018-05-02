@@ -1,6 +1,10 @@
 import { Injectable } from '@angular/core';
 import { GlobalEvaluationService } from 'app/services/global-evaluation.service';
 import { Subject } from 'rxjs/Subject';
+//new imports
+import { EvaluationService as EvaluationApi } from '@api/service/evaluation.service';
+import { AnswerService as AnswerApi } from '@api/service/answer.service';
+import { MeasureService as MeasureApi } from '@api/service/measure.service';
 
 @Injectable()
 export class SidStatusService {
@@ -14,7 +18,13 @@ export class SidStatusService {
   enableDpoValidation: boolean;
   public subject = new Subject();
 
-  constructor(private _globalEvaluationService: GlobalEvaluationService) {
+  constructor(
+    private _globalEvaluationService: GlobalEvaluationService,
+    //next services have to be injected because GlobalEvaluationService is instantiated in  this class...
+    private evaluationApi:EvaluationApi,
+    private answerApi:AnswerApi,
+    private measureApi:MeasureApi
+  ) {
     this.specialIcon = { '3.5': 'fa-line-chart', '4.1': 'fa-line-chart', '4.2': 'fa-calendar-check-o' }
     this.sidStatusIcon = {
       0: 'fa-pencil-square-o',
@@ -49,7 +59,7 @@ export class SidStatusService {
   setSidStatus(piaService: any, section: any, item: any) {
     const reference_to = section.id + '.' + item.id;
     // We need to instanciate a new instance of GLobalEvaluationService
-    const globalEvaluationService = new GlobalEvaluationService();
+    const globalEvaluationService = new GlobalEvaluationService(this.evaluationApi, this.answerApi, this.measureApi);
     globalEvaluationService.pia = piaService.pia;
     globalEvaluationService.section = section;
     globalEvaluationService.item = item;
@@ -153,7 +163,7 @@ export class SidStatusService {
     piaService.pia.people_names = null;
     piaService.pia.concerned_people_status = null;
     piaService.pia.concerned_people_opinion = null;
-    piaService.pia.update();
+    piaService.saveCurrentPia();
     this.enableDpoValidation = false;
   }
 }

@@ -18,22 +18,22 @@ export class BaseService<T extends BaseModel> {
 
   protected httpGetAll(routeTpl: string, params: any = {}, query: any = {}): Observable<T[]> {
     let route = this.buildRoute(routeTpl, params);
-    return this.http.get(route, query).map(res => this.mapToCollection(res, this.modelClass));
+    return this.http.get(route, {params:query}).map(res => this.mapToCollection(res, this.modelClass));
   }
 
   protected httpGetOne(routeTpl: string, params: any = {}, query: any = {}): Observable<T> {
     let route = this.buildRoute(routeTpl, params);
-    return this.http.get(route, query).map(res => this.mapToModel(res, this.modelClass));
+    return this.http.get(route, {params:query}).map(res => this.mapToModel(res, this.modelClass));
   }
 
   protected httpPut(routeTpl: string, params: any = {}, model: T, query: any = {}): Observable<T> {
     let route = this.buildRoute(routeTpl, params);
-    return this.http.put(route, model.toJson(), query).map(res => this.mapToModel(res, this.modelClass));
+    return this.http.put(route, model.toJson(), {params:query}).map(res => this.mapToModel(res, this.modelClass));
   }
 
   protected httpPost(routeTpl: string, params: any = {}, model: T, query: any = {}): Observable<T> {
     let route = this.buildRoute(routeTpl, params);
-    return this.http.post(route, model.toJson(), query).map(res => this.mapToModel(res, this.modelClass));
+    return this.http.post(route, model.toJson(), {params:query}).map(res => this.mapToModel(res, this.modelClass));
   }
 
 
