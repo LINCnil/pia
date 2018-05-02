@@ -59,6 +59,8 @@ import { CardsRoutingModule } from 'app/cards/cards-routing.module';
 import { AuthenticationService } from 'app/services/authentication.service';
 import { AuthenticationGuardService } from 'app/services/authentication-guard.service';
 import { AuthenticationCallbackComponent } from 'app/authentication-callback/authentication-callback.component';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { TokenInterceptor } from 'app/services/token.interceptor';
 
 const providersList: any = [
   AppDataService,
@@ -72,7 +74,12 @@ const providersList: any = [
   LanguagesService,
   GlobalEvaluationService,
   AuthenticationService,
-  AuthenticationGuardService
+  AuthenticationGuardService,
+  {
+    provide: HTTP_INTERCEPTORS,
+    useClass: TokenInterceptor,
+    multi: true
+  }
 ];
 
 if (environment.rollbar_key.length > 0) {

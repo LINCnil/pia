@@ -25,6 +25,8 @@ export class AuthenticationComponent implements OnInit {
     	}
     	
     	this.router.navigate(['home']);
+    }, () => {
+      this.error = true
     });
   }
 

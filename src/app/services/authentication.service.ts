@@ -16,7 +16,9 @@ export class AuthenticationService {
   //   loadUserInfo: true
   // });
 
-  private user: User = null;
+  private user = null;
+  private readonly clientId = '1_qx9fur5ljc0gs8g8sooc04w8ckokw80048w4k0sw8ww4cwckc'; 
+  private readonly clientSecret = '2ymtnacjy740880ssogco8kggcssgw0os0048kgww0sc08owkw';
 
   constructor(private http: HttpClient) {
     // this.manager.getUser().then(user => {
@@ -25,14 +27,24 @@ export class AuthenticationService {
   }
 
   public authenticate(user: User) {
-    var query = '?username=' + user.username + '&password=' + user.password;
+    var query = '?client_id=' + this.clientId + 
+                '&client_secret=' + this.clientSecret +
+                '&grant_type=password' +
+                '&username=' + user.username +
+                '&password=' + user.password
+    ;
 
     return new Promise((resolve, reject) => {
-      this.http.get('http://localhost:3001/users' + query).subscribe(
+      this.http.get('http://localhost:8000/oauth/v2/token' + query).subscribe(
         data => {
-          this.user = data[0];
+          console.log(data);
+          this.user = data;
+          localStorage.setItem('token', this.getToken());
         },
-        err  => { console.error(err); },
+        err  => { 
+          console.error(err);
+          reject(); 
+        },
         ()   => { resolve(this.user); }
       );
     });
@@ -44,6 +56,10 @@ export class AuthenticationService {
 
   public getProfile() {
     return this.user;
+  }
+
+  public getToken() {
+    return this.user.access_token;
   }
 
   public logout() {
