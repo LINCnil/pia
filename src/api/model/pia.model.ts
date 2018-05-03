@@ -21,7 +21,7 @@ export class Pia extends BaseModel {
   public progress: number;
   public is_example = false;
 
-  public numberOfQuestions = 36; // TODO Auto calcul questions number
+  public numberOfQuestions = 36; // TODO Auto compute questions number
 
 
   public getStatusLabel(): string {

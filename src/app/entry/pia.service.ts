@@ -171,7 +171,7 @@ export class PiaService {
   }
 
   /**
-   * Allow an user to import a PIA.
+   * Allows a user to import a PIA.
    * @param {*} data - Data PIA.
    * @param {string} prefix - A title prefix.
    * @param {boolean} is_duplicate - Is a duplicate PIA?
