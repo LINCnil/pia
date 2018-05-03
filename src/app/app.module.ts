@@ -62,6 +62,8 @@ import { AuthenticationCallbackComponent } from 'app/authentication-callback/aut
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptor } from 'app/services/token.interceptor';
 
+import { ApiModule } from '@api/api.module';
+
 const providersList: any = [
   AppDataService,
   MeasureService,
@@ -146,6 +148,7 @@ export function createTranslateLoader(http: HttpClient) {
     HttpClientModule,
     BrowserAnimationsModule,
     TagInputModule,
+    ApiModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

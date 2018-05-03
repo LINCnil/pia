@@ -17,7 +17,7 @@ export class Measure extends ApplicationDb {
         pia_id: this.pia_id,
         content: this.content,
         placeholder: this.placeholder,
-        created_at: this.created_at
+        //created_at: this.created_at
       };
     return new Promise((resolve, reject) => {
       if (this.serverUrl) {
@@ -63,7 +63,7 @@ export class Measure extends ApplicationDb {
             formData.append('measure[' + d + ']', entry[d]);
           }
           fetch(this.getServerUrl() + '/' + this.id, {
-            method: 'PATCH',
+            method: 'POST',
             body: formData
           }).then((response) => {
             return response.json();

@@ -3,8 +3,8 @@ import { ActivatedRoute, Router, Params } from '@angular/router';
 import { Http } from '@angular/http';
 
 import { AppDataService } from 'app/services/app-data.service';
-import { Pia } from './pia.model';
-import { Evaluation } from 'app/entry/entry-content/evaluations/evaluation.model';
+import { Pia } from '@api/model/pia.model';
+import { Evaluation } from '@api/model/evaluation.model';
 import { Answer } from 'app/entry/entry-content/questions/answer.model';
 import { Measure } from 'app/entry/entry-content/measures/measure.model';
 import { Comment } from 'app/entry/entry-content/comments/comment.model';
@@ -12,6 +12,8 @@ import { Attachment } from 'app/entry/attachments/attachment.model';
 
 import { ModalsService } from 'app/modals/modals.service';
 import { ActionPlanService } from 'app/entry/entry-content/action-plan//action-plan.service';
+import { PiaService as PiaApi } from '@api/service/pia.service';
+import { EvaluationService as EvaluationApi } from '@api/service/evaluation.service';
 
 @Injectable()
 export class PiaService {
@@ -21,13 +23,20 @@ export class PiaService {
   answer: Answer = new Answer();
   data: { sections: any };
 
-  constructor(private _router: Router, private route: ActivatedRoute,
-              private _appDataService: AppDataService,
-              private _modalsService: ModalsService, private http: Http) {
-                this._appDataService.getDataNav().then((dataNav) => {
-                  this.data = dataNav;
-                });
-              }
+  constructor(
+    private _router: Router,
+    private route: ActivatedRoute,
+    private _appDataService: AppDataService,
+    private _modalsService: ModalsService,
+    private http: Http,
+    private piaApi: PiaApi,
+    private evaluationApi: EvaluationApi
+  ) {
+
+    this._appDataService.getDataNav().then((dataNav) => {
+      this.data = dataNav;
+    });
+  }
 
   /**
    * Get the PIA.
@@ -35,9 +44,13 @@ export class PiaService {
    * @memberof PiaService
    */
   async getPIA() {
+
     return new Promise((resolve, reject) => {
       const piaId = parseInt(this.route.snapshot.params['id'], 10);
-      this.pia.get(piaId).then(() => {
+      if (!piaId) {
+        return;
+      }
+      this.piaApi.get(piaId).subscribe(() => {
         resolve();
       });
     });
@@ -51,8 +64,7 @@ export class PiaService {
     const piaID = parseInt(localStorage.getItem('pia-id'), 10);
 
     // Removes from DB.
-    const pia = new Pia();
-    pia.delete(piaID);
+    this.piaApi.deleteById(piaID);
 
     // Deletes the PIA from the view.
     if (localStorage.getItem('homepageDisplayMode') && localStorage.getItem('homepageDisplayMode') === 'list') {
@@ -73,21 +85,18 @@ export class PiaService {
   async cancelAllValidatedEvaluation() {
     return new Promise((resolve, reject) => {
       let count = 0;
-      let evaluation = new Evaluation();
-      evaluation.pia_id = this.pia.id;
-      evaluation.findAll().then((entries: any) => {
+
+      this.evaluationApi.getAll(this.pia.id).subscribe((entries: any) => {
         if (entries && entries.length > 0) {
           entries.forEach(element => {
-            evaluation = new Evaluation();
-            evaluation.get(element.id).then((entry: any) => {
-              entry.global_status = 0;
-              entry.update().then(() => {
+            element.global_status = 0;
+            this.evaluationApi.update(element)
+              .subscribe(() => {
                 count++;
                 if (count === entries.length) {
                   resolve();
                 }
               });
-            });
           });
         } else {
           resolve();
@@ -102,7 +111,7 @@ export class PiaService {
    */
   abandonTreatment() {
     this.pia.status = 4;
-    this.pia.update().then(() => {
+    this.piaApi.update(this.pia).subscribe(() => {
       this._modalsService.closeModal();
       this._router.navigate(['home']);
     });
@@ -137,7 +146,8 @@ export class PiaService {
       comment.pia_id = id;
       // const attachment = new Attachment();
       // attachment.pia_id = id;
-      pia.get(id).then(() => {
+      this.piaApi.get(id)
+        .subscribe(() => {
         const data = {
           pia: pia,
           answers: null,
@@ -147,15 +157,18 @@ export class PiaService {
         }
         answer.findAllByPia(id).then((answers) => {
           data['answers'] = answers;
+
           measure.findAll().then((measures) => {
             data['measures'] = measures;
-            evaluation.findAll().then((evaluations) => {
+
+            this.evaluationApi.getAll(id).subscribe((evaluations) => {
               data['evaluations'] = evaluations;
+
               comment.findAll().then((comments) => {
                 data['comments'] = comments;
                 // attachment.findAll().then((attachments) => {
-                  // data['attachments'] = attachments;
-                  resolve(data);
+                // data['attachments'] = attachments;
+                resolve(data);
                 // });
               });
             });
@@ -174,7 +187,7 @@ export class PiaService {
    * @memberof PiaService
    */
   async importData(data: any, prefix: string, is_duplicate: boolean, is_example?: boolean) {
-    if (!('pia' in data) || !('dbVersion' in data.pia)) {
+    if (!('pia' in data) || !('dbVersion' in data.pia)) {
       return;
     }
     const pia = new Pia();
@@ -221,13 +234,13 @@ export class PiaService {
         pia.updated_at = new Date(data.pia.updated_at);
       }
     }
-
-    pia.create().then((pia_id: number) => {
-      pia.id = pia_id;
+    this.piaApi.create(pia)
+    .subscribe((newPia:Pia) => {
+      pia.id = newPia.id;
       // Create answers
       data.answers.forEach(answer => {
         const answerModel = new Answer();
-        answerModel.pia_id = pia_id;
+        answerModel.pia_id = newPia.id;
         answerModel.reference_to = answer.reference_to;
         answerModel.data = answer.data;
         answerModel.created_at = new Date(answer.created_at);
@@ -244,7 +257,7 @@ export class PiaService {
         data.measures.forEach(measure => {
           const measureModel = new Measure();
           measureModel.title = measure.title;
-          measureModel.pia_id = pia_id;
+          measureModel.pia_id = newPia.id;
           measureModel.content = measure.content;
           measureModel.placeholder = measure.placeholder;
           measureModel.created_at = new Date(measure.created_at);
@@ -255,19 +268,19 @@ export class PiaService {
             count++;
             oldIdToNewId[measure.id] = id;
             if (count === data.measures.length) {
-              this.importEvaluations(data, pia_id, is_duplicate, oldIdToNewId);
+              this.importEvaluations(data, newPia.id, is_duplicate, oldIdToNewId);
             }
           });
         });
       } else {
-        this.importEvaluations(data, pia_id, is_duplicate);
+        this.importEvaluations(data, newPia.id, is_duplicate);
       }
 
       if (!is_duplicate) {
         // Create comments
         data.comments.forEach(comment => {
           const commentModel = new Comment();
-          commentModel.pia_id = pia_id;
+          commentModel.pia_id = newPia.id;
           commentModel.description = comment.description;
           commentModel.reference_to = comment.reference_to;
           commentModel.for_measure = comment.for_measure;
@@ -278,7 +291,7 @@ export class PiaService {
           commentModel.create();
         });
       }
-
+      this.piaApi.calculProgress(pia)
       pia.calculProgress().then(() => {
         this.pias.push(pia);
       });
@@ -334,7 +347,7 @@ export class PiaService {
    * @param {number} id - The PIA id.
    * @memberof PiaService
    */
-  export(id:  number) {
+  export(id: number) {
     const date = new Date().getTime();
     this.exportData(id).then((data) => {
       const a = document.getElementById('pia-exportBlock');
