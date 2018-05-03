@@ -48,7 +48,7 @@ export class PiaService extends BaseService<Pia> {
   }
 
   public deleteById(id: any): Observable<Pia> {
-    return this.httpGetOne(this.routing.one, { id: id });
+    return this.httpDelete(this.routing.one, { id: id });
   }
 
   public delete(model: Pia): Observable<Pia> {

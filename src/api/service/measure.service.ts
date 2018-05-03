@@ -37,7 +37,7 @@ export class MeasureService extends BaseService<Measure> {
   }
 
   public deleteById(piaId: any, id: any): Observable<Measure> {
-    return this.httpGetOne(this.routing.one, { piaId: piaId, id: id });
+    return this.httpDelete(this.routing.one, { piaId: piaId, id: id });
   }
 
   public delete(model: Measure): Observable<Measure> {

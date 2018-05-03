@@ -6,10 +6,10 @@ import { User } from 'app/authentication/user.model';
 export class AuthenticationService {
   private user = null;
   // test values
-  private readonly clientId = '1_qx9fur5ljc0gs8g8sooc04w8ckokw80048w4k0sw8ww4cwckc';
-  private readonly clientSecret = '2ymtnacjy740880ssogco8kggcssgw0os0048kgww0sc08owkw';
+  private readonly clientId = '4_3w5oauyhyosggw00kwggc444s4wwk0o4sgg0k4c4wks8kg0cc0';
+  private readonly clientSecret = '25jw4beivse88soc84os0o44ssgc0gsgcoosgokw0kwkkokckg';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   public authenticate(user: User) {
     const query = '?client_id=' + this.clientId +

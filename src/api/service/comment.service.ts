@@ -37,7 +37,7 @@ export class CommentService extends BaseService<Comment> {
   }
 
   public deleteById(piaId: any, id: any): Observable<Comment> {
-    return this.httpGetOne(this.routing.one, {piaId: piaId, id: id });
+    return this.httpDelete(this.routing.one, {piaId: piaId, id: id });
   }
 
   public delete(model: Comment): Observable<Comment> {

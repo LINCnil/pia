@@ -65,7 +65,6 @@ export class PiaService {
    */
   removePIA() {
     const piaID = parseInt(localStorage.getItem('pia-id'), 10);
-
     // Removes from DB.
     this.piaApi.deleteById(piaID).subscribe();
 

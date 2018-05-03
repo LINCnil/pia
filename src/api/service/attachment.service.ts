@@ -33,7 +33,7 @@ export class AttachmentService extends BaseService<Attachment> {
   }
 
   public deleteById(piaId: any, id: any): Observable<Attachment> {
-    return this.httpGetOne(this.routing.one, {piaId: piaId, id: id });
+    return this.httpDelete(this.routing.one, {piaId: piaId, id: id });
   }
 
   public delete(model: Attachment): Observable<Attachment> {

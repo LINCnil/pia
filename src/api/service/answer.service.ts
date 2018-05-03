@@ -37,7 +37,7 @@ export class AnswerService extends BaseService<Answer> {
   }
 
   public deleteById(piaId: any, id: any): Observable<Answer> {
-    return this.httpGetOne(this.routing.one, { piaId: piaId, id: id });
+    return this.httpDelete(this.routing.one, { piaId: piaId, id: id });
   }
 
   public delete(model: Answer): Observable<Answer> {
