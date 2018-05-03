@@ -2,45 +2,45 @@
 import { BaseService } from '@api/service/base.service';
 import { Observable } from "rxjs/Observable";
 import { Http } from '@angular/http';
-import { Answer } from '@api/model/answer.model';
+import { Measure } from '@api/model/measure.model';
 import { Injectable } from '@angular/core';
 import { BaseModel } from '@api/model/base.model';
 
 @Injectable()
-export class AnswerService extends BaseService<Answer> {
+export class MeasureService extends BaseService<Measure> {
 
-  protected modelClass = Answer;
+  protected modelClass = Measure;
 
   protected routing: any = {
-    all: '/pias/{piaId}/answers',
-    one: '/pias/{piaId}/answers/{id}'
+    all: '/pias/{piaId}/measures',
+    one: '/pias/{piaId}/measures/{id}'
   };
 
-  public getAll(piaId: any): Observable<Answer[]> {
+  public getAll(piaId: any): Observable<Measure[]> {
     return this.httpGetAll(this.routing.all, { piaId: piaId });
   }
 
-  public get(piaId: any, id: any): Observable<Answer> {
+  public get(piaId: any, id: any): Observable<Measure> {
     return this.httpGetOne(this.routing.one, { piaId: piaId, id: id });
   }
 
-  public getByRef(piaId: any, ref: any): Observable<Answer> {
+  public getByRef(piaId: any, ref: any): Observable<Measure> {
     return this.httpGetOne(this.routing.all, { piaId: piaId }, { reference_to: ref });
   }
 
-  public update(model: Answer): Observable<Answer> {
+  public update(model: Measure): Observable<Measure> {
     return this.httpPut(this.routing.one, { piaId: model.pia_id, id: model.id }, model);
   }
 
-  public create(model: Answer): Observable<Answer> {
+  public create(model: Measure): Observable<Measure> {
     return this.httpPost(this.routing.all, { piaId: model.pia_id }, model);
   }
 
-  public deleteById(piaId: any, id: any): Observable<Answer> {
+  public deleteById(piaId: any, id: any): Observable<Measure> {
     return this.httpGetOne(this.routing.one, { piaId: piaId, id: id });
   }
 
-  public delete(model: Answer): Observable<Answer> {
+  public delete(model: Measure): Observable<Measure> {
     return this.deleteById(model.pia_id, model.id);
   }
 }

@@ -3,8 +3,6 @@ import { ActivatedRoute, Params } from '@angular/router';
 import { Http } from '@angular/http';
 import { Subscription } from 'rxjs/Subscription';
 
-import { Answer } from 'app/entry/entry-content/questions/answer.model';
-
 import { KnowledgeBaseService } from 'app/entry/knowledge-base/knowledge-base.service';
 import { MeasureService } from 'app/entry/entry-content/measures/measures.service';
 import { ActionPlanService } from 'app/entry/entry-content/action-plan//action-plan.service';
@@ -13,6 +11,12 @@ import { ModalsService } from 'app/modals/modals.service';
 import { AppDataService } from 'app/services/app-data.service';
 import { SidStatusService } from 'app/services/sid-status.service';
 import { GlobalEvaluationService } from '../services/global-evaluation.service';
+
+//new import
+import { PiaModel,AnswerModel } from '@api/models';
+import { PiaApi,AnswerApi } from '@api/services';
+
+
 
 @Component({
   selector: 'app-entry',
@@ -29,15 +33,18 @@ export class EntryComponent implements OnInit, OnDestroy, DoCheck {
   subscription: Subscription;
 
   constructor(private route: ActivatedRoute,
-              private http: Http,
-              private _modalsService: ModalsService,
-              private _appDataService: AppDataService,
-              private _sidStatusService: SidStatusService,
-              private _knowledgeBaseService: KnowledgeBaseService,
-              private _piaService: PiaService,
-              private _actionPlanService: ActionPlanService,
-              private _globalEvaluationService: GlobalEvaluationService,
-              private _measureService: MeasureService) { }
+    private http: Http,
+    private _modalsService: ModalsService,
+    private _appDataService: AppDataService,
+    private _sidStatusService: SidStatusService,
+    private _knowledgeBaseService: KnowledgeBaseService,
+    private _piaService: PiaService,
+    private _actionPlanService: ActionPlanService,
+    private _globalEvaluationService: GlobalEvaluationService,
+    private _measureService: MeasureService,
+    private answerApi:AnswerApi
+
+  ) { }
 
   async ngOnInit() {
     let sectionId = parseInt(this.route.snapshot.params['section_id'], 10);
@@ -68,11 +75,11 @@ export class EntryComponent implements OnInit, OnDestroy, DoCheck {
       const itemsQuestions = [];
       this._piaService.data.sections.forEach(section => {
         section.items.forEach(item => {
-            if (item.questions) {
-              itemsQuestions.push(item.questions.filter((question) => {
-                return (question.answer_type === 'list' && question.is_measure === true);
-              }));
-            }
+          if (item.questions) {
+            itemsQuestions.push(item.questions.filter((question) => {
+              return (question.answer_type === 'list' && question.is_measure === true);
+            }));
+          }
         });
       });
 
@@ -82,12 +89,13 @@ export class EntryComponent implements OnInit, OnDestroy, DoCheck {
       // For each of these questions, get their respective answer
       listQuestions.forEach(questionsSet => {
         questionsSet.forEach(q => {
-          const answer = new Answer();
-          answer.getByReferenceAndPia(this._piaService.pia.id, q.id).then(() => {
-            if (answer.data && answer.data.list.length > 0 && answer.data.list.includes(measureName)) {
-              const index = answer.data.list.indexOf(measureName);
-              answer.data.list.splice(index, 1);
-              answer.update();
+
+            this.answerApi.getByRef(this._piaService.pia.id, q.id).subscribe((theAnswer:AnswerModel) => {
+            if (theAnswer.data && theAnswer.data.list.length > 0 && theAnswer.data.list.includes(measureName)) {
+              const index = theAnswer.data.list.indexOf(measureName);
+              theAnswer.data.list.splice(index, 1);
+              this.answerApi.update(theAnswer).subscribe();
+
             }
           });
         });
@@ -161,8 +169,8 @@ export class EntryComponent implements OnInit, OnDestroy, DoCheck {
     });
 
     // Update on knowledge base (scroll / content / search field)
-    const knowledgeBaseScroll  = document.querySelector('.pia-knowledgeBaseBlock-list');
-    const knowledgeBaseContent  = <HTMLInputElement>document.querySelector('.pia-knowledgeBaseBlock-searchForm input');
+    const knowledgeBaseScroll = document.querySelector('.pia-knowledgeBaseBlock-list');
+    const knowledgeBaseContent = <HTMLInputElement>document.querySelector('.pia-knowledgeBaseBlock-searchForm input');
     knowledgeBaseScroll.scrollTop = 0;
     knowledgeBaseContent.value = '';
 

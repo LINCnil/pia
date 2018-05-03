@@ -8,7 +8,11 @@ import { Answer } from './answer.model';
 import { Measure } from '../measures/measure.model';
 import { ModalsService } from 'app/modals/modals.service';
 import { Evaluation } from 'app/entry/entry-content/evaluations/evaluation.model';
-import {GlobalEvaluationService} from '../../../services/global-evaluation.service';
+import { GlobalEvaluationService } from '../../../services/global-evaluation.service';
+
+//new imports
+import { AnswerModel, EvaluationModel, MeasureModel} from '@api/models';
+import { AnswerApi, EvaluationApi, MeasureApi } from '@api/services';
 
 @Component({
   selector: 'app-questions',
@@ -22,37 +26,46 @@ export class QuestionsComponent implements OnInit, OnDestroy {
   @Input() item: any;
   @Input() section: any;
   @Input() pia: any;
-  evaluation: Evaluation = new Evaluation();
+  evaluation: EvaluationModel = new EvaluationModel();
   questionForm: FormGroup;
-  answer: Answer = new Answer();
-  measure: Measure = new Measure();
+  answer: AnswerModel = new AnswerModel();
+  measure: MeasureModel = new MeasureModel();
   lastSelectedTag: string;
   elementId: String;
   editor: any;
 
   constructor(private el: ElementRef,
-              private _knowledgeBaseService: KnowledgeBaseService,
-              private _modalsService: ModalsService,
-              private _ngZone: NgZone,
-              public _globalEvaluationService: GlobalEvaluationService,
-              private renderer: Renderer2) { }
+    private _knowledgeBaseService: KnowledgeBaseService,
+    private _modalsService: ModalsService,
+    private _ngZone: NgZone,
+    public _globalEvaluationService: GlobalEvaluationService,
+    private renderer: Renderer2,
+    private answerApi: AnswerApi,
+    private evaluationApi: EvaluationApi,
+    private measureApi: MeasureApi
+  ) { }
 
-  ngOnInit() {
+  async ngOnInit() {
     this._globalEvaluationService.answerEditionEnabled = true;
     this.elementId = 'pia-question-content-' + this.question.id;
+
     this.questionForm = new FormGroup({
       gauge: new FormControl(0),
       text: new FormControl(),
       list: new FormControl()
     });
-
-    this.answer.getByReferenceAndPia(this.pia.id, this.question.id).then(() => {
+    this.answerApi.getByRef(this.pia.id, this.question.id).subscribe((theAnswer: AnswerModel) => {
+      this.answer = theAnswer;
       if (this.answer.data) {
         let evaluationRefTo: string = this.answer.id.toString();
         if (this.item.evaluation_mode === 'item') {
           evaluationRefTo = this.section.id + '.' + this.item.id;
         }
-        this.evaluation.getByReference(this.pia.id, evaluationRefTo);
+
+        this.evaluationApi.getByRef(this.pia.id, evaluationRefTo).subscribe((theEval: EvaluationModel) => {
+          this.evaluation = theEval;
+        });
+
         this.questionForm.controls['gauge'].patchValue(this.answer.data.gauge);
         this.questionForm.controls['text'].patchValue(this.answer.data.text);
         if (this.answer.data.list) {
@@ -69,7 +82,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
     });
 
     this.measure.pia_id = this.pia.id;
-    this.measure.findAll().then((entries: any[]) => {
+    this.measureApi.getAll(this.pia.id).subscribe((entries: MeasureModel[]) => {
       if (entries) {
         entries.forEach(entry => {
           if (entry.title) {
@@ -79,6 +92,13 @@ export class QuestionsComponent implements OnInit, OnDestroy {
       }
     });
   }
+
+  ngOnChanges(changes) {
+        // only run when property "data" changed
+        if (changes['pia']) {
+            //console.log(this.pia);
+        }
+    }
 
   ngOnDestroy() {
     tinymce.remove(this.editor);
@@ -121,7 +141,8 @@ export class QuestionsComponent implements OnInit, OnDestroy {
     const gaugeValue = parseInt(this.questionForm.value.gauge, 10);
     if (this.answer.id) {
       this.answer.data = { text: this.answer.data.text, gauge: gaugeValue, list: this.answer.data.list };
-      this.answer.update().then(() => {
+      this.answerApi.update(this.answer).subscribe((updatedAnswer:AnswerModel) => {
+        this.answer = updatedAnswer;
         this._ngZone.run(() => {
           this._globalEvaluationService.validate();
         });
@@ -130,7 +151,8 @@ export class QuestionsComponent implements OnInit, OnDestroy {
       this.answer.pia_id = this.pia.id;
       this.answer.reference_to = this.question.id;
       this.answer.data = { text: null, gauge: gaugeValue, list: [] };
-      this.answer.create().then(() => {
+      this.answerApi.create(this.answer).subscribe((createdAnswer:AnswerModel) => {
+        this.answer = createdAnswer;
         this._ngZone.run(() => {
           this._globalEvaluationService.validate();
         });
@@ -159,7 +181,8 @@ export class QuestionsComponent implements OnInit, OnDestroy {
     }
     if (this.answer.id) {
       this.answer.data = { text: userText, gauge: this.answer.data.gauge, list: this.answer.data.list };
-      this.answer.update().then(() => {
+      this.answerApi.update(this.answer).subscribe((updatedAnswer:AnswerModel) => {
+        this.answer = updatedAnswer;
         this._ngZone.run(() => {
           this._globalEvaluationService.validate();
         });
@@ -170,7 +193,8 @@ export class QuestionsComponent implements OnInit, OnDestroy {
         this.answer.reference_to = this.question.id;
         const gaugeValueForCurrentQuestion = this.question.answer_type === 'gauge' ? 0 : null;
         this.answer.data = { text: this.questionForm.value.text, gauge: gaugeValueForCurrentQuestion, list: [] };
-        this.answer.create().then(() => {
+        this.answerApi.create(this.answer).subscribe((createdAnswer:AnswerModel) => {
+          this.answer = createdAnswer;
           this._ngZone.run(() => {
             this._globalEvaluationService.validate();
           });
@@ -283,14 +307,17 @@ export class QuestionsComponent implements OnInit, OnDestroy {
   private createOrUpdateList(list: string[]) {
     if (this.answer.id) {
       this.answer.data = { text: this.answer.data.text, gauge: this.answer.data.gauge, list: list };
-      this.answer.update().then(() => {
+
+      this.answerApi.update(this.answer).subscribe((updatedAnswer:AnswerModel) => {
+        this.answer = updatedAnswer;
         this._globalEvaluationService.validate();
       });
     } else {
       this.answer.pia_id = this.pia.id;
       this.answer.reference_to = this.question.id;
       this.answer.data = { text: null, gauge: null, list: list };
-      this.answer.create().then(() => {
+      this.answerApi.create(this.answer).subscribe((updatedAnswer:AnswerModel) => {
+        this.answer = updatedAnswer;
         this._globalEvaluationService.validate();
       });
     }
@@ -337,11 +364,11 @@ export class QuestionsComponent implements OnInit, OnDestroy {
       menubar: false,
       statusbar: false,
       plugins: 'autoresize lists',
-      forced_root_block : false,
+      forced_root_block: false,
       autoresize_bottom_margin: 30,
       auto_focus: this.elementId,
       autoresize_min_height: 40,
-      content_style: 'body {background-color:#eee!important;}' ,
+      content_style: 'body {background-color:#eee!important;}',
       selector: '#' + this.elementId,
       toolbar: 'undo redo bold italic alignleft aligncenter alignright bullist numlist outdent indent',
       skin_url: 'assets/skins/lightgray',

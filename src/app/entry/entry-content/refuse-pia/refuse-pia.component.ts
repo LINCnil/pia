@@ -23,11 +23,11 @@ export class RefusePIAComponent implements OnInit {
   modificationsMadeForm: FormGroup;
 
   constructor(private router: Router,
-              private el: ElementRef,
-              private _modalsService: ModalsService,
-              private _sidStatusService: SidStatusService,
-              private _translateService: TranslateService,
-              public _piaService: PiaService) { }
+    private el: ElementRef,
+    private _modalsService: ModalsService,
+    private _sidStatusService: SidStatusService,
+    private _translateService: TranslateService,
+    public _piaService: PiaService) { }
 
   ngOnInit() {
     this.rejectionReasonForm = new FormGroup({
@@ -45,7 +45,7 @@ export class RefusePIAComponent implements OnInit {
       }
 
       if (this._piaService.pia.applied_adjustements && this._piaService.pia.rejected_reason
-          && this._piaService.pia.applied_adjustements.length > 0 && this._piaService.pia.rejected_reason.length > 0) {
+        && this._piaService.pia.applied_adjustements.length > 0 && this._piaService.pia.rejected_reason.length > 0) {
         this.modificationsMadeForm.controls['modificationsMade'].patchValue(this._piaService.pia.applied_adjustements);
         this.modificationsMadeForm.controls['modificationsMade'].disable();
         if (this._piaService.pia.status === 1) {
@@ -80,7 +80,7 @@ export class RefusePIAComponent implements OnInit {
    */
   refuse() {
     this._piaService.pia.status = 1;
-    this._piaService.pia.update().then(() => {
+    this._piaService.saveCurrentPia().subscribe(() => {
       this._piaService.cancelAllValidatedEvaluation().then(() => {
         this._sidStatusService.refusePia(this._piaService).then(() => {
           this.router.navigate(['entry', this._piaService.pia.id, 'section', 1, 'item', 1]);
@@ -113,7 +113,7 @@ export class RefusePIAComponent implements OnInit {
       userText = userText.replace(/^\s+/, '').replace(/\s+$/, '');
     }
     this._piaService.pia.rejected_reason = userText;
-    this._piaService.pia.update().then(() => {
+    this._piaService.saveCurrentPia().subscribe(() => {
       if (userText && userText.length > 0) {
         this.rejectionReasonForm.controls['rejectionReason'].disable();
         this.showRejectionReasonButtons = true;
@@ -147,7 +147,7 @@ export class RefusePIAComponent implements OnInit {
       userText = userText.replace(/^\s+/, '').replace(/\s+$/, '');
     }
     this._piaService.pia.applied_adjustements = userText;
-    this._piaService.pia.update().then(() => {
+    this._piaService.saveCurrentPia().subscribe(() => {
       if (userText && userText.length > 0) {
         this.modificationsMadeForm.controls['modificationsMade'].disable();
         this.showResendValidationButton = true;

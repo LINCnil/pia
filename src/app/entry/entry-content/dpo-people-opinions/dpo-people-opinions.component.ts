@@ -3,8 +3,10 @@ import {FormControl, FormGroup} from '@angular/forms';
 import { SidStatusService } from 'app/services/sid-status.service';
 
 import {Pia} from 'app/entry/pia.model';
-
 import { PiaService } from 'app/entry/pia.service';
+
+//new import
+import {PiaModel} from '@api/models';
 
 @Component({
   selector: 'app-dpo-people-opinions',
@@ -138,7 +140,7 @@ export class DPOPeopleOpinionsComponent implements OnInit {
       this.DPOForm.controls['DPOStatus'].patchValue(null);
       this.DPOForm.controls['DPOOpinion'].patchValue(null);
     }
-    this._piaService.pia.update().then(() => {
+    this._piaService.saveCurrentPia().subscribe((updatedPia:PiaModel) => {
       this._sidStatusService.setSidStatus(this._piaService, { id: 4 }, { id: 3 });
       if (this.DPOForm.value.DPONames && this.DPOForm.value.DPONames.length > 0) {
         this.DPOForm.controls['DPONames'].disable();
@@ -164,7 +166,7 @@ export class DPOPeopleOpinionsComponent implements OnInit {
    */
   dpoStatusFocusOut() {
     this._piaService.pia.dpo_status = parseInt(this.DPOForm.value.DPOStatus, 10);
-    this._piaService.pia.update().then(() => {
+    this._piaService.saveCurrentPia().subscribe((updatedPia:PiaModel) => {
       this._sidStatusService.setSidStatus(this._piaService, { id: 4 }, { id: 3 });
     });
   }
@@ -192,7 +194,7 @@ export class DPOPeopleOpinionsComponent implements OnInit {
       userText = userText.replace(/^\s+/, '').replace(/\s+$/, '');
     }
     this._piaService.pia.dpo_opinion = userText;
-    this._piaService.pia.update().then(() => {
+    this._piaService.saveCurrentPia().subscribe((updatedPia:PiaModel) => {
       this._sidStatusService.setSidStatus(this._piaService, { id: 4 }, { id: 3 });
       if (userText && userText.length > 0) {
         this.DPOForm.controls['DPOOpinion'].disable();
@@ -227,7 +229,7 @@ export class DPOPeopleOpinionsComponent implements OnInit {
         this.displayPeopleOpinions = false;
         this.displayPeopleSearchContent = true;
       }
-      this._piaService.pia.update().then(() => {
+      this._piaService.saveCurrentPia().subscribe((updatedPia:PiaModel) => {
         this._sidStatusService.setSidStatus(this._piaService, { id: 4 }, { id: 3 });
       });
     }
@@ -256,7 +258,7 @@ export class DPOPeopleOpinionsComponent implements OnInit {
       userText = userText.replace(/^\s+/, '').replace(/\s+$/, '');
     }
     this._piaService.pia.concerned_people_searched_content = userText;
-    this._piaService.pia.update().then(() => {
+    this._piaService.saveCurrentPia().subscribe((updatedPia:PiaModel) => {
       this._sidStatusService.setSidStatus(this._piaService, { id: 4 }, { id: 3 });
       if (userText && userText.length > 0) {
         this.searchedOpinionsForm.controls['searchContent'].disable();
@@ -293,7 +295,8 @@ export class DPOPeopleOpinionsComponent implements OnInit {
       this.peopleForm.controls['peopleNames'].patchValue(null);
       this.peopleForm.controls['peopleStatus'].patchValue(null);
     }
-    this._piaService.pia.update().then(() => {
+
+    this._piaService.saveCurrentPia().subscribe((updatedPia:PiaModel) => {
       this._sidStatusService.setSidStatus(this._piaService, { id: 4 }, { id: 3 });
       if (this.peopleForm.value.peopleNames && this.peopleForm.value.peopleNames.length > 0) {
         this.peopleForm.controls['peopleNames'].disable();
@@ -320,7 +323,7 @@ export class DPOPeopleOpinionsComponent implements OnInit {
   concernedPeopleStatusFocusOut() {
     if (this.peopleForm.value.peopleStatus && this.peopleForm.value.peopleStatus >= 0) {
       this._piaService.pia.concerned_people_status = parseInt(this.peopleForm.value.peopleStatus, 10);
-      this._piaService.pia.update().then(() => {
+      this._piaService.saveCurrentPia().subscribe((updatedPia:PiaModel) => {
         this._sidStatusService.setSidStatus(this._piaService, { id: 4 }, { id: 3 });
       });
     }
@@ -349,7 +352,7 @@ export class DPOPeopleOpinionsComponent implements OnInit {
       userText = userText.replace(/^\s+/, '').replace(/\s+$/, '');
     }
     this._piaService.pia.concerned_people_opinion = userText;
-    this._piaService.pia.update().then(() => {
+    this._piaService.saveCurrentPia().subscribe((updatedPia:PiaModel) => {
       this._sidStatusService.setSidStatus(this._piaService, { id: 4 }, { id: 3 });
       if (userText && userText.length > 0) {
         this.peopleForm.controls['peopleOpinion'].disable();

@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { EntryComponent } from 'app/entry/entry.component';
 import { AuthenticationGuardService } from 'app/services/authentication-guard.service';
 
+
 const routes: Routes = [
   { 
   	path: 'entry/:id',
