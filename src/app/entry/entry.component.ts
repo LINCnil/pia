@@ -13,8 +13,8 @@ import { SidStatusService } from 'app/services/sid-status.service';
 import { GlobalEvaluationService } from '../services/global-evaluation.service';
 
 //new import
-import { PiaModel,AnswerModel } from '@api/models';
-import { PiaApi,AnswerApi } from '@api/services';
+import { PiaModel, AnswerModel } from '@api/models';
+import { PiaApi, AnswerApi } from '@api/services';
 
 
 
@@ -42,7 +42,7 @@ export class EntryComponent implements OnInit, OnDestroy, DoCheck {
     private _actionPlanService: ActionPlanService,
     private _globalEvaluationService: GlobalEvaluationService,
     private _measureService: MeasureService,
-    private answerApi:AnswerApi
+    private answerApi: AnswerApi
 
   ) { }
 
@@ -90,7 +90,7 @@ export class EntryComponent implements OnInit, OnDestroy, DoCheck {
       listQuestions.forEach(questionsSet => {
         questionsSet.forEach(q => {
 
-            this.answerApi.getByRef(this._piaService.pia.id, q.id).subscribe((theAnswer:AnswerModel) => {
+            this.answerApi.getByRef(this._piaService.pia.id, q.id).subscribe((theAnswer: AnswerModel) => {
             if (theAnswer.data && theAnswer.data.list.length > 0 && theAnswer.data.list.includes(measureName)) {
               const index = theAnswer.data.list.indexOf(measureName);
               theAnswer.data.list.splice(index, 1);

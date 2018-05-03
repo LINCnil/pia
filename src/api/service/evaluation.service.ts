@@ -1,6 +1,6 @@
 
 import { BaseService } from '@api/service/base.service';
-import { Observable } from "rxjs/Observable";
+import { Observable } from 'rxjs/Observable';
 import { Http} from '@angular/http';
 import { Evaluation } from '@api/model/evaluation.model';
 import { Injectable } from '@angular/core';
@@ -16,16 +16,16 @@ export class EvaluationService extends BaseService<Evaluation> {
     one: '/pias/{piaId}/evaluations/{id}'
   };
 
-  public getAll(piaId:any): Observable<Evaluation[]> {
+  public getAll(piaId: any): Observable<Evaluation[]> {
     return this.httpGetAll(this.routing.all, {piaId: piaId});
   }
 
-  public get(piaId:any, id: any): Observable<Evaluation> {
+  public get(piaId: any, id: any): Observable<Evaluation> {
     return this.httpGetOne(this.routing.one, {piaId: piaId, id: id });
   }
 
-  public getByRef(piaId:any, ref: any): Observable<Evaluation> {
-    return this.httpGetOne(this.routing.all, {piaId: piaId}, {reference_to:ref});
+  public getByRef(piaId: any, ref: any): Observable<Evaluation> {
+    return this.httpGetOne(this.routing.all, {piaId: piaId}, {reference_to: ref});
   }
 
   public update(model: Evaluation): Observable<Evaluation> {
@@ -36,8 +36,8 @@ export class EvaluationService extends BaseService<Evaluation> {
     return this.httpPost(this.routing.all, {piaId: model.pia_id}, model);
   }
 
-  public deleteById(piaId:any, id: any): Observable<Evaluation> {
-    return this.httpGetOne(this.routing.one, {piaId:piaId, id: id });
+  public deleteById(piaId: any, id: any): Observable<Evaluation> {
+    return this.httpGetOne(this.routing.one, {piaId: piaId, id: id });
   }
 
   public delete(model: Evaluation): Observable<Evaluation> {

@@ -42,7 +42,7 @@ export class CardItemComponent implements OnInit {
       validator_name: new FormControl({ value: this.pia.validator_name, disabled: false })
     });
 
-    this.attachmentApi.getAll(this.pia.id).subscribe((entries:AttachmentModel[]) => {
+    this.attachmentApi.getAll(this.pia.id).subscribe((entries: AttachmentModel[]) => {
       this.attachments = entries;
     });
 
@@ -68,7 +68,7 @@ export class CardItemComponent implements OnInit {
     }
     if (userText !== '') {
 
-      this.piaApi.get(this.piaForm.value.id).subscribe((thePia:PiaModel) => {
+      this.piaApi.get(this.piaForm.value.id).subscribe((thePia: PiaModel) => {
         thePia.name = this.piaForm.value.name;
         this.piaApi.update(thePia).subscribe();
       });
@@ -93,7 +93,7 @@ export class CardItemComponent implements OnInit {
       userText = userText.replace(/^\s+/, '').replace(/\s+$/, '');
     }
     if (userText !== '') {
-      this.piaApi.get(this.piaForm.value.id).subscribe((thePia:PiaModel) => {
+      this.piaApi.get(this.piaForm.value.id).subscribe((thePia: PiaModel) => {
         thePia.author_name = this.piaForm.value.author_name;
         this.piaApi.update(thePia).subscribe();
       });
@@ -118,7 +118,7 @@ export class CardItemComponent implements OnInit {
       userText = userText.replace(/^\s+/, '').replace(/\s+$/, '');
     }
     if (userText !== '') {
-      this.piaApi.get(this.piaForm.value.id).subscribe((thePia:PiaModel) => {
+      this.piaApi.get(this.piaForm.value.id).subscribe((thePia: PiaModel) => {
         thePia.evaluator_name = this.piaForm.value.evaluator_name;
         this.piaApi.update(thePia).subscribe();
       });
@@ -143,7 +143,7 @@ export class CardItemComponent implements OnInit {
       userText = userText.replace(/^\s+/, '').replace(/\s+$/, '');
     }
     if (userText !== '') {
-      this.piaApi.get(this.piaForm.value.id).subscribe((thePia:PiaModel) => {
+      this.piaApi.get(this.piaForm.value.id).subscribe((thePia: PiaModel) => {
         thePia.validator_name = this.piaForm.value.validator_name;
         this.piaApi.update(thePia).subscribe();
       });

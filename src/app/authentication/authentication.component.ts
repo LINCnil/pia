@@ -11,23 +11,26 @@ import { User } from 'app/authentication/user.model';
   styleUrls: ['./authentication.component.scss']
 })
 export class AuthenticationComponent implements OnInit {
-  private user = new User('', '');
-  private error = false;
+  public user = new User('', '');
+  public error = false;
 
   constructor(public authService: AuthenticationService, public router: Router) {}
 
   onSubmit() {
-    this.authService.authenticate(this.user).then(user => {
-    	if(user === undefined) {
-    		this.error = true;
+    this.authService.authenticate(this.user).then(
+      user => {
+      	if (user === undefined) {
+      		this.error = true;
 
-    		return;
-    	}
-    	
-    	this.router.navigate(['home']);
-    }, () => {
-      this.error = true
-    });
+      		return;
+      	}
+
+      	this.router.navigate(['home']);
+      },
+      () => {
+        this.error = true
+      }
+    );
   }
 
   ngOnInit() {

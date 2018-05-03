@@ -23,7 +23,7 @@ export class ActionPlanImplementationComponent implements OnInit {
   @ViewChild('estimatedEvaluationDate') private estimatedEvaluationDate: ElementRef;
   @ViewChild('personInCharge') private personInCharge: ElementRef;
 
-  constructor(private _piaService: PiaService, private evaluationApi:EvaluationApi) { }
+  constructor(private _piaService: PiaService, private evaluationApi: EvaluationApi) { }
 
   ngOnInit() {
     this.actionPlanForm = new FormGroup({
@@ -70,7 +70,7 @@ export class ActionPlanImplementationComponent implements OnInit {
     const userText = this.actionPlanForm.controls['estimatedEvaluationDate'].value;
     this.evaluation.estimated_implementation_date = new Date(userText);
 
-    this.evaluationApi.update(this.evaluation).subscribe((updatedEval:EvaluationModel) => {
+    this.evaluationApi.update(this.evaluation).subscribe((updatedEval: EvaluationModel) => {
       this.evaluation.fromJson(updatedEval);
       if (userText && userText.length > 0) {
         // TODO Unable to FocusIn with Firefox
@@ -102,7 +102,7 @@ export class ActionPlanImplementationComponent implements OnInit {
       userText = userText.replace(/^\s+/, '').replace(/\s+$/, '');
     }
     this.evaluation.person_in_charge = userText;
-    this.evaluationApi.update(this.evaluation).subscribe((updatedEval:EvaluationModel) => {
+    this.evaluationApi.update(this.evaluation).subscribe((updatedEval: EvaluationModel) => {
       this.evaluation.fromJson(updatedEval);
       this.actionPlanForm.controls['personInCharge'].disable();
       if (userText && userText.length > 0) {

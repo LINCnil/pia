@@ -21,7 +21,7 @@ export class MeasureService {
     private _modalsService: ModalsService,
     private _knowledgeBaseService: KnowledgeBaseService,
     private _globalEvaluationService: GlobalEvaluationService,
-    private measureApi:MeasureApi) { }
+    private measureApi: MeasureApi) { }
 
   /**
    * List the measures.
@@ -32,7 +32,7 @@ export class MeasureService {
   async listMeasures(pia_id: number) {
     this.pia_id = pia_id;
     return new Promise((resolve, reject) => {
-      this.measureApi.getAll(this.pia_id).subscribe((entries: MeasureModel[])=>{
+      this.measureApi.getAll(this.pia_id).subscribe((entries: MeasureModel[]) => {
         this.measures = entries;
         resolve();
       });
@@ -46,7 +46,7 @@ export class MeasureService {
   removeMeasure() {
     const measure_id = parseInt(localStorage.getItem('measure-id'), 10);
 
-    this.measureApi.get(this.pia_id, measure_id).subscribe((newMeasure:MeasureModel)=>{
+    this.measureApi.get(this.pia_id, measure_id).subscribe((newMeasure: MeasureModel) => {
       this.behaviorSubject.next(newMeasure.title);
       this._knowledgeBaseService.toHide = this._knowledgeBaseService.toHide.filter(item => item !== newMeasure.title);
     });

@@ -17,7 +17,7 @@ import { PiaApi, AnswerApi, CommentApi, EvaluationApi, MeasureApi, AttachmentApi
 export class PiaService {
 
   pias = [];
-  pia:PiaModel = new PiaModel();
+  pia: PiaModel = new PiaModel();
   answer: AnswerModel = new AnswerModel();
   data: { sections: any };
 
@@ -34,7 +34,7 @@ export class PiaService {
     private measureApi: MeasureApi,
     private attachmentApi: AttachmentApi
   ) {
-    this.getPIA();//temp hack
+    this.getPIA(); //temp hack
     this._appDataService.getDataNav().then((dataNav) => {
       this.data = dataNav;
     });

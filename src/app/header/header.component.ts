@@ -10,7 +10,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { PiaService } from 'app/entry/pia.service';
 import { ModalsService } from 'app/modals/modals.service';
 import { LanguagesService } from 'app/services/languages.service';
-import { AuthenticationService } from 'app/services/authentication.service' 
+import { AuthenticationService } from 'app/services/authentication.service'
 
 @Component({
   selector: 'app-header',
@@ -20,7 +20,7 @@ import { AuthenticationService } from 'app/services/authentication.service'
 })
 export class HeaderComponent implements OnInit {
   public increaseContrast: string;
-  private profile;
+  public profile;
   appVersion: string;
   headerForHome: boolean;
 

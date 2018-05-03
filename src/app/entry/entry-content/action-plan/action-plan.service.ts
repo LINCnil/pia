@@ -31,7 +31,7 @@ export class ActionPlanService {
     private _translateService: TranslateService,
     private _languagesService: LanguagesService,
     private evaluationApi: EvaluationApi,
-    private measureApi:MeasureApi) { }
+    private measureApi: MeasureApi) { }
 
   /**
    * Get action plan.

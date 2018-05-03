@@ -21,9 +21,9 @@ export class SidStatusService {
   constructor(
     private _globalEvaluationService: GlobalEvaluationService,
     //next services have to be injected because GlobalEvaluationService is instantiated in  this class...
-    private evaluationApi:EvaluationApi,
-    private answerApi:AnswerApi,
-    private measureApi:MeasureApi
+    private evaluationApi: EvaluationApi,
+    private answerApi: AnswerApi,
+    private measureApi: MeasureApi
   ) {
     this.specialIcon = { '3.5': 'fa-line-chart', '4.1': 'fa-line-chart', '4.2': 'fa-calendar-check-o' }
     this.sidStatusIcon = {

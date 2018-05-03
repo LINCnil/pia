@@ -16,15 +16,15 @@ import { AuthenticationGuardService } from 'app/services/authentication-guard.se
 const routes: Routes = [
   { path: '', component: AuthenticationComponent },
   { path: 'logout', component: AuthenticationComponent },
-  { path: 
-    'summary/:id', 
-    component: SummaryComponent , 
-    canActivate: [AuthenticationGuardService] 
+  { path:
+    'summary/:id',
+    component: SummaryComponent ,
+    canActivate: [AuthenticationGuardService]
   },
-  { 
-    path: 'settings', 
-    component: SettingsComponent, 
-    canActivate: [AuthenticationGuardService] 
+  {
+    path: 'settings',
+    component: SettingsComponent,
+    canActivate: [AuthenticationGuardService]
   },
   { path: 'help', component: HelpComponent },
   { path: 'about', component: AboutComponent },

@@ -1,6 +1,6 @@
 
 import { BaseService } from '@api/service/base.service';
-import { Observable } from "rxjs/Observable";
+import { Observable } from 'rxjs/Observable';
 import { Http} from '@angular/http';
 import { Attachment } from '@api/model/attachment.model';
 import { Injectable } from '@angular/core';
@@ -16,11 +16,11 @@ export class AttachmentService extends BaseService<Attachment> {
     one: '/pias/{piaId}/attachments/{id}'
   };
 
-  public getAll(piaId:any): Observable<Attachment[]> {
+  public getAll(piaId: any): Observable<Attachment[]> {
     return this.httpGetAll(this.routing.all, {piaId: piaId});
   }
 
-  public get(piaId:any, id: any): Observable<Attachment> {
+  public get(piaId: any, id: any): Observable<Attachment> {
     return this.httpGetOne(this.routing.one, {piaId: piaId, id: id });
   }
 
@@ -32,8 +32,8 @@ export class AttachmentService extends BaseService<Attachment> {
     return this.httpPost(this.routing.all, {piaId: model.pia_id}, model);
   }
 
-  public deleteById(piaId:any, id: any): Observable<Attachment> {
-    return this.httpGetOne(this.routing.one, {piaId:piaId, id: id });
+  public deleteById(piaId: any, id: any): Observable<Attachment> {
+    return this.httpGetOne(this.routing.one, {piaId: piaId, id: id });
   }
 
   public delete(model: Attachment): Observable<Attachment> {

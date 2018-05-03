@@ -45,7 +45,7 @@ export class MeasuresComponent implements OnInit, OnDestroy {
       measureContent: new FormControl()
     });
 
-    this.measureApi.get(this.pia.id, this.measure.id).subscribe((theMeasure:MeasureModel) => {
+    this.measureApi.get(this.pia.id, this.measure.id).subscribe((theMeasure: MeasureModel) => {
       this.measureModel.fromJson(theMeasure);
       this._knowledgeBaseService.toHide.push(this.measure.title);
       this.elementId = 'pia-measure-content-' + this.measure.id;
@@ -122,14 +122,14 @@ export class MeasuresComponent implements OnInit, OnDestroy {
     this.measureModel.pia_id = this.pia.id;
     const previousTitle = this.measureModel.title;
     this.measureModel.title = userText;
-    this.measureApi.update(this.measureModel).subscribe((updatedMeasure:MeasureModel) => {
+    this.measureApi.update(this.measureModel).subscribe((updatedMeasure: MeasureModel) => {
       this.measureModel.fromJson(updatedMeasure);
       if (previousTitle !== this.measureModel.title) {
         this._knowledgeBaseService.removeItemIfPresent(this.measureModel.title, previousTitle);
       }
 
       // Update tags
-      this.answerApi.getByRef(this.pia.id, 324).subscribe((theAnswer:AnswerModel) => {
+      this.answerApi.getByRef(this.pia.id, 324).subscribe((theAnswer: AnswerModel) => {
         if (theAnswer.data && theAnswer.data.list) {
           const index = theAnswer.data.list.indexOf(previousTitle);
           if (~index) {
@@ -139,7 +139,7 @@ export class MeasuresComponent implements OnInit, OnDestroy {
         }
       });
 
-      this.answerApi.getByRef(this.pia.id, 334).subscribe((theAnswer2:AnswerModel) => {
+      this.answerApi.getByRef(this.pia.id, 334).subscribe((theAnswer2: AnswerModel) => {
         if (theAnswer2.data && theAnswer2.data.list) {
           const index = theAnswer2.data.list.indexOf(previousTitle);
           if (~index) {
@@ -149,7 +149,7 @@ export class MeasuresComponent implements OnInit, OnDestroy {
         }
       });
 
-      this.answerApi.getByRef(this.pia.id, 344).subscribe((theAnswer3:AnswerModel) => {
+      this.answerApi.getByRef(this.pia.id, 344).subscribe((theAnswer3: AnswerModel) => {
         if (theAnswer3.data && theAnswer3.data.list) {
           const index = theAnswer3.data.list.indexOf(previousTitle);
           if (~index) {
@@ -194,7 +194,7 @@ export class MeasuresComponent implements OnInit, OnDestroy {
     }
     this.measureModel.pia_id = this.pia.id;
     this.measureModel.content = userText;
-    this.measureApi.update(this.measureModel).subscribe((updatedMeasure:MeasureModel) => {
+    this.measureApi.update(this.measureModel).subscribe((updatedMeasure: MeasureModel) => {
       this.measureModel.fromJson(updatedMeasure);
       this._ngZone.run(() => {
         this._globalEvaluationService.validate();

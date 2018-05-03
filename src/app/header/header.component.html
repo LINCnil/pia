@@ -33,7 +33,11 @@
                   <legend class="user-name">{{ profile.firstname }}  {{ profile.lastname }}</legend>
                   <p class="user-email">{{ profile.email }}</p>
                 </li>
-                <li class="logout"><a routerLink="/logout" class="btn btn-blue" href="javascript:;">{{ 'authentication.logout' | translate }}</a></li>
+                <li class="logout">
+                  <a routerLink="/logout" class="btn btn-blue" href="javascript:;">
+                    {{ 'authentication.logout' | translate }}
+                  </a>
+                </li>
               </ul>
             </li>
             <li class="pia-navigationBlock-languages">

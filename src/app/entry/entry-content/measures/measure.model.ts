@@ -22,7 +22,7 @@ export class Measure extends ApplicationDb {
     return new Promise((resolve, reject) => {
       if (this.serverUrl) {
         const formData = new FormData();
-        for(let d in data) {
+        for (const d in data) {
           formData.append('measure[' + d + ']', data[d]);
         }
         fetch(this.getServerUrl(), {
@@ -59,7 +59,7 @@ export class Measure extends ApplicationDb {
         entry.updated_at = new Date();
         if (this.serverUrl) {
           const formData = new FormData();
-          for(let d in entry) {
+          for (const d in entry) {
             formData.append('measure[' + d + ']', entry[d]);
           }
           fetch(this.getServerUrl() + '/' + this.id, {

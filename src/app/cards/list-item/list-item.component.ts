@@ -5,7 +5,7 @@ import { Attachment } from 'app/entry/attachments/attachment.model';
 import { ModalsService } from 'app/modals/modals.service';
 import { PiaService } from 'app/entry/pia.service';
 
-import {PiaModel,AttachmentModel} from '@api/models';
+import {PiaModel, AttachmentModel} from '@api/models';
 import {PiaApi, AttachmentApi} from '@api/services';
 
 @Component({
@@ -21,12 +21,12 @@ export class ListItemComponent implements OnInit {
               private route: ActivatedRoute,
               public _piaService: PiaService,
               private _modalsService: ModalsService,
-              private piaApi:PiaApi,
-              private attachmentApi:AttachmentApi,
+              private piaApi: PiaApi,
+              private attachmentApi: AttachmentApi,
             ) { }
 
   ngOnInit() {
-    this.attachmentApi.getAll(this.pia.id).subscribe((entries: AttachmentModel[])=>{
+    this.attachmentApi.getAll(this.pia.id).subscribe((entries: AttachmentModel[]) => {
         this.attachments = entries;
     });
 

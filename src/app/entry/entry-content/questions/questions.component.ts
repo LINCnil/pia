@@ -141,7 +141,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
     const gaugeValue = parseInt(this.questionForm.value.gauge, 10);
     if (this.answer.id) {
       this.answer.data = { text: this.answer.data.text, gauge: gaugeValue, list: this.answer.data.list };
-      this.answerApi.update(this.answer).subscribe((updatedAnswer:AnswerModel) => {
+      this.answerApi.update(this.answer).subscribe((updatedAnswer: AnswerModel) => {
         this.answer = updatedAnswer;
         this._ngZone.run(() => {
           this._globalEvaluationService.validate();
@@ -151,7 +151,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
       this.answer.pia_id = this.pia.id;
       this.answer.reference_to = this.question.id;
       this.answer.data = { text: null, gauge: gaugeValue, list: [] };
-      this.answerApi.create(this.answer).subscribe((createdAnswer:AnswerModel) => {
+      this.answerApi.create(this.answer).subscribe((createdAnswer: AnswerModel) => {
         this.answer = createdAnswer;
         this._ngZone.run(() => {
           this._globalEvaluationService.validate();
@@ -181,7 +181,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
     }
     if (this.answer.id) {
       this.answer.data = { text: userText, gauge: this.answer.data.gauge, list: this.answer.data.list };
-      this.answerApi.update(this.answer).subscribe((updatedAnswer:AnswerModel) => {
+      this.answerApi.update(this.answer).subscribe((updatedAnswer: AnswerModel) => {
         this.answer = updatedAnswer;
         this._ngZone.run(() => {
           this._globalEvaluationService.validate();
@@ -193,7 +193,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
         this.answer.reference_to = this.question.id;
         const gaugeValueForCurrentQuestion = this.question.answer_type === 'gauge' ? 0 : null;
         this.answer.data = { text: this.questionForm.value.text, gauge: gaugeValueForCurrentQuestion, list: [] };
-        this.answerApi.create(this.answer).subscribe((createdAnswer:AnswerModel) => {
+        this.answerApi.create(this.answer).subscribe((createdAnswer: AnswerModel) => {
           this.answer = createdAnswer;
           this._ngZone.run(() => {
             this._globalEvaluationService.validate();
@@ -308,7 +308,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
     if (this.answer.id) {
       this.answer.data = { text: this.answer.data.text, gauge: this.answer.data.gauge, list: list };
 
-      this.answerApi.update(this.answer).subscribe((updatedAnswer:AnswerModel) => {
+      this.answerApi.update(this.answer).subscribe((updatedAnswer: AnswerModel) => {
         this.answer = updatedAnswer;
         this._globalEvaluationService.validate();
       });
@@ -316,7 +316,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
       this.answer.pia_id = this.pia.id;
       this.answer.reference_to = this.question.id;
       this.answer.data = { text: null, gauge: null, list: list };
-      this.answerApi.create(this.answer).subscribe((updatedAnswer:AnswerModel) => {
+      this.answerApi.create(this.answer).subscribe((updatedAnswer: AnswerModel) => {
         this.answer = updatedAnswer;
         this._globalEvaluationService.validate();
       });

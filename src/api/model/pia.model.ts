@@ -24,7 +24,7 @@ export class Pia extends BaseModel {
   public numberOfQuestions = 36; // TODO Auto calcul questions number
 
 
-  public getStatusLabel():string {
-      return this.status >= 0 ? `pia.statuses.${this.status}`: '';
+  public getStatusLabel(): string {
+      return this.status >= 0 ? `pia.statuses.${this.status}` : '';
   }
 }

@@ -4,15 +4,15 @@ import { CardsComponent } from 'app/cards/cards.component';
 import { AuthenticationGuardService } from 'app/services/authentication-guard.service';
 
 const routes: Routes = [
-  { 
+  {
   	path: 'home',
   	component: CardsComponent,
-  	canActivate: [AuthenticationGuardService] 
+  	canActivate: [AuthenticationGuardService]
   },
-  { 
+  {
   	path: 'home/:view',
   	component: CardsComponent,
-  	canActivate: [AuthenticationGuardService] 
+  	canActivate: [AuthenticationGuardService]
   }
 ];
 

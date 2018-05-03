@@ -5,15 +5,15 @@ import { AuthenticationGuardService } from 'app/services/authentication-guard.se
 
 
 const routes: Routes = [
-  { 
+  {
   	path: 'entry/:id',
   	component: EntryComponent,
-  	canActivate: [AuthenticationGuardService] 
+  	canActivate: [AuthenticationGuardService]
   },
   {
   	path: 'entry/:id/section/:section_id/item/:item_id',
   	component: EntryComponent,
-  	canActivate: [AuthenticationGuardService] 
+  	canActivate: [AuthenticationGuardService]
   },
 ];
 

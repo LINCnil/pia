@@ -41,7 +41,7 @@ export class CommentsComponent implements OnInit {
     this.comments = [];
     const ref_to = this.measure ? this.measure.id : this.question.id;
 
-    this.commentApi.getAllByRef(this.pia.id, ref_to).subscribe((entries:CommentModel[]) => {
+    this.commentApi.getAllByRef(this.pia.id, ref_to).subscribe((entries: CommentModel[]) => {
       this.comments = entries;
       this.comments.reverse();
     });
