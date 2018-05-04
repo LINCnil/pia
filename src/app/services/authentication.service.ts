@@ -26,8 +26,8 @@ export class AuthenticationService {
   public isAuthenticated(): boolean {
     const token = localStorage.getItem('token');
 
-    if (!this.user) {
-      if (!token) {
+    if(!this.user) {
+      if(!token) {
         return false;
       }
 
@@ -41,11 +41,11 @@ export class AuthenticationService {
     const expiry = Moment(this.user.expires_at, 'DD MMMM, YYYY HH:mm');
     const remainder = Moment.duration(expiry.diff(Moment())).as('seconds');
 
-    if (remainder < 10) {
+    if(remainder <= 10) {
       return false;
     }
 
-    if (remainder < 300) {
+    if(remainder < 300) {
       this.refreshToken();
     }
 
@@ -93,14 +93,8 @@ export class AuthenticationService {
     return this.fetchToken(query);
   }
 
-  protected isTokenExpired(): boolean {
-    const now = new Date();
-
-    return false;
-  }
-
   protected setExpiryDate() {
-    const expiry = Moment();
+    let expiry = Moment();
 
     this.user.expires_at = expiry.seconds(expiry.seconds() + this.user.expires_in);
   }
