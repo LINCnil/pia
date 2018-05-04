@@ -40,7 +40,7 @@ export class AuthenticationService {
     const expiry = Moment(this.user.expires_at, 'DD MMMM, YYYY HH:mm');
     const remainder = Moment.duration(expiry.diff(Moment())).as('seconds');
 
-    if (remainder <= 10) {
+    if (!remainder || remainder <= 10) {
       return false;
     }
 
