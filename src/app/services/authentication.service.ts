@@ -1,20 +1,19 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { environment } from 'environments/environment';
 import { User } from 'app/authentication/user.model';
 import * as Moment from 'moment';
 
 @Injectable()
 export class AuthenticationService {
   private user = null;
-  // test values
-  private readonly clientId = '4_3w5oauyhyosggw00kwggc444s4wwk0o4sgg0k4c4wks8kg0cc0';
-  private readonly clientSecret = '25jw4beivse88soc84os0o44ssgc0gsgcoosgokw0kwkkokckg';
+  private readonly apiSettings = environment.api;
 
   constructor(private http: HttpClient) {}
 
   public authenticate(user: User) {
-    const query = '?client_id=' + this.clientId +
-                '&client_secret=' + this.clientSecret +
+    const query = '?client_id=' + this.apiSettings.client_id +
+                '&client_secret=' + this.apiSettings.client_secret +
                 '&grant_type=password' +
                 '&username=' + user.username +
                 '&password=' + user.password
@@ -26,8 +25,8 @@ export class AuthenticationService {
   public isAuthenticated(): boolean {
     const token = localStorage.getItem('token');
 
-    if(!this.user) {
-      if(!token) {
+    if (!this.user) {
+      if (!token) {
         return false;
       }
 
@@ -41,11 +40,11 @@ export class AuthenticationService {
     const expiry = Moment(this.user.expires_at, 'DD MMMM, YYYY HH:mm');
     const remainder = Moment.duration(expiry.diff(Moment())).as('seconds');
 
-    if(remainder <= 10) {
+    if (remainder <= 10) {
       return false;
     }
 
-    if(remainder < 300) {
+    if (remainder < 300) {
       this.refreshToken();
     }
 
@@ -65,7 +64,7 @@ export class AuthenticationService {
 
   protected fetchToken(query: string) {
     return new Promise((resolve, reject) => {
-      this.http.get('http://localhost:8000/oauth/v2/token' + query).subscribe(
+      this.http.get(this.apiSettings.host + this.apiSettings.token_path + query).subscribe(
         data => {
           this.user = data;
           this.setExpiryDate();
@@ -84,8 +83,8 @@ export class AuthenticationService {
   }
 
   protected refreshToken() {
-    const query = '?client_id=' + this.clientId +
-                '&client_secret=' + this.clientSecret +
+    const query = '?client_id=' + this.apiSettings.client_id +
+                '&client_secret=' + this.apiSettings.client_secret +
                 '&grant_type=refresh_token' +
                 '&refresh_token=' + this.user.refresh_token
     ;
@@ -94,7 +93,7 @@ export class AuthenticationService {
   }
 
   protected setExpiryDate() {
-    let expiry = Moment();
+    const expiry = Moment();
 
     this.user.expires_at = expiry.seconds(expiry.seconds() + this.user.expires_in);
   }

@@ -4,13 +4,13 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import * as UrlTemplate from 'url-template';
 import { Injectable } from '@angular/core';
+import { environment } from 'environments/environment';
 
 @Injectable()
 export class BaseService<T extends BaseModel> {
-
   protected modelClass: any;
   protected routing: any;
-
+  protected host = environment.api.host;
 
   constructor(protected http: HttpClient) { }
 
@@ -41,7 +41,7 @@ export class BaseService<T extends BaseModel> {
 
 
   protected buildRoute(route: string, params: any = {}): string {
-    const tpl = UrlTemplate.parse('http://127.0.0.1:8000' + route);
+    const tpl = UrlTemplate.parse(this.host + route);
     return tpl.expand(params);
   }
 
