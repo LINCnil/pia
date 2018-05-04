@@ -8,6 +8,7 @@ import * as Moment from 'moment';
 export class AuthenticationService {
   private user = null;
   private readonly apiSettings = environment.api;
+  private readonly dateFormat = environment.date_format;
 
   constructor(private http: HttpClient) {}
 
@@ -37,7 +38,7 @@ export class AuthenticationService {
       }
     }
 
-    const expiry = Moment(this.user.expires_at, 'DD MMMM, YYYY HH:mm');
+    const expiry = Moment(this.user.expires_at, this.dateFormat);
     const remainder = Moment.duration(expiry.diff(Moment())).as('seconds');
 
     if (!remainder || remainder <= 10) {
@@ -95,7 +96,9 @@ export class AuthenticationService {
   protected setExpiryDate() {
     const expiry = Moment();
 
-    this.user.expires_at = expiry.seconds(expiry.seconds() + this.user.expires_in);
+    this.user.expires_at = expiry.seconds(expiry.seconds() + this.user.expires_in)
+      .format(this.dateFormat)
+    ;
   }
 
 }
