@@ -17,6 +17,6 @@ export class Evaluation extends BaseModel {
 
 
   public getStatusLabel(): string {
-      return this.status >= 0 ? `evaluation.statuses.${this.status}` : '';
+      return this.status >= 0 ? `evaluations.status.${this.status}` : '';
   }
 }
