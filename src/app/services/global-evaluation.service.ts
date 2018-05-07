@@ -1,9 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
-import { Answer } from '../entry/entry-content/questions/answer.model';
-import { Evaluation } from '../entry/entry-content/evaluations/evaluation.model';
-import { Measure } from '../entry/entry-content/measures/measure.model';
-import { Pia } from '../entry/pia.model';
+import { PiaService } from 'app/entry/pia.service';
 import { Observable } from 'rxjs/Observable';
 
 // new imports
@@ -22,7 +19,7 @@ export class GlobalEvaluationService {
   public pia: PiaModel;
   public section: any;
   public item: any;
-  public status: number;
+  public status: number = 0;
   public answerEditionEnabled = false;
   public evaluationEditionEnabled = false;
   public reference_to: string;
@@ -38,7 +35,7 @@ export class GlobalEvaluationService {
   constructor(
     private evaluationApi: EvaluationApi,
     private answerApi: AnswerApi,
-    private measureApi: MeasureApi
+    private measureApi: MeasureApi,
   ) { }
 
   /**
@@ -131,7 +128,7 @@ export class GlobalEvaluationService {
         let count = 0;
         let toFix = false;
         this.answersOrMeasures.forEach((answerOrMeasure) => {
-          const evaluation = new Evaluation();
+
           this.evaluationApi.getByRef(this.pia.id, this.getAnswerReferenceTo(answerOrMeasure))
             .subscribe(async (theEval: EvaluationModel) => {
               if (theEval.status > 0) {
@@ -366,6 +363,7 @@ export class GlobalEvaluationService {
             }
           }
         } else {
+
           const evaluationsNotStarted: Array<EvaluationModel> = this.evaluations.filter((evaluation: EvaluationModel) => {
             return this.evaluationNotStarted(evaluation);
           });
@@ -576,6 +574,7 @@ export class GlobalEvaluationService {
       if (this.item.evaluation_mode === 'item') {
 
         this.evaluationApi.getByRef(this.pia.id, this.reference_to).subscribe((theEval: EvaluationModel) => {
+          
           this.evaluations = theEval ? [theEval] : [];
           resolve();
         });

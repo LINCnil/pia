@@ -37,32 +37,32 @@ export class RefusePIAComponent implements OnInit {
       modificationsMade: new FormControl()
     });
 
-    this._piaService.getPIA().then(() => {
-      if (this._piaService.pia.rejected_reason && this._piaService.pia.rejected_reason.length > 0) {
-        this.rejectionReasonForm.controls['rejectionReason'].patchValue(this._piaService.pia.rejected_reason);
-        this.rejectionReasonForm.controls['rejectionReason'].disable();
-        this.showRejectionReasonButtons = true;
-      }
 
-      if (this._piaService.pia.applied_adjustements && this._piaService.pia.rejected_reason
-        && this._piaService.pia.applied_adjustements.length > 0 && this._piaService.pia.rejected_reason.length > 0) {
-        this.modificationsMadeForm.controls['modificationsMade'].patchValue(this._piaService.pia.applied_adjustements);
-        this.modificationsMadeForm.controls['modificationsMade'].disable();
-        if (this._piaService.pia.status === 1) {
-          this.showResendValidationButton = true;
-        }
-      }
+    if (this._piaService.pia.rejected_reason && this._piaService.pia.rejected_reason.length > 0) {
+      this.rejectionReasonForm.controls['rejectionReason'].patchValue(this._piaService.pia.rejected_reason);
+      this.rejectionReasonForm.controls['rejectionReason'].disable();
+      this.showRejectionReasonButtons = true;
+    }
 
-      // Textareas auto resize
-      const rejectionTextarea = document.getElementById('pia-refuse-reason');
-      if (rejectionTextarea) {
-        this.autoTextareaResize(null, rejectionTextarea);
+    if (this._piaService.pia.applied_adjustements && this._piaService.pia.rejected_reason
+      && this._piaService.pia.applied_adjustements.length > 0 && this._piaService.pia.rejected_reason.length > 0) {
+      this.modificationsMadeForm.controls['modificationsMade'].patchValue(this._piaService.pia.applied_adjustements);
+      this.modificationsMadeForm.controls['modificationsMade'].disable();
+      if (this._piaService.pia.status === 1) {
+        this.showResendValidationButton = true;
       }
-      const modificationsTextarea = document.getElementById('pia-refuse-modifications');
-      if (modificationsTextarea) {
-        this.autoTextareaResize(null, modificationsTextarea);
-      }
-    });
+    }
+
+    // Textareas auto resize
+    const rejectionTextarea = document.getElementById('pia-refuse-reason');
+    if (rejectionTextarea) {
+      this.autoTextareaResize(null, rejectionTextarea);
+    }
+    const modificationsTextarea = document.getElementById('pia-refuse-modifications');
+    if (modificationsTextarea) {
+      this.autoTextareaResize(null, modificationsTextarea);
+    }
+
 
   }
 

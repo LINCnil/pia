@@ -22,7 +22,7 @@ import { PiaApi, AnswerApi } from '@api/services';
   selector: 'app-entry',
   templateUrl: './entry.component.html',
   styleUrls: ['./entry.component.scss'],
-  providers: [PiaService]
+  providers: []
 })
 export class EntryComponent implements OnInit, OnDestroy, DoCheck {
   section: { id: number, title: string, short_help: string, items: any };
@@ -51,6 +51,7 @@ export class EntryComponent implements OnInit, OnDestroy, DoCheck {
     let itemId = parseInt(this.route.snapshot.params['item_id'], 10);
 
     this.data = await this._appDataService.getDataNav();
+
     this.route.params.subscribe(
       (params: Params) => {
         sectionId = parseInt(params['section_id'], 10);
@@ -90,7 +91,7 @@ export class EntryComponent implements OnInit, OnDestroy, DoCheck {
       listQuestions.forEach(questionsSet => {
         questionsSet.forEach(q => {
 
-            this.answerApi.getByRef(this._piaService.pia.id, q.id).subscribe((theAnswer: AnswerModel) => {
+          this.answerApi.getByRef(this._piaService.pia.id, q.id).subscribe((theAnswer: AnswerModel) => {
             if (theAnswer.data && theAnswer.data.list.length > 0 && theAnswer.data.list.includes(measureName)) {
               const index = theAnswer.data.list.indexOf(measureName);
               theAnswer.data.list.splice(index, 1);
@@ -132,41 +133,41 @@ export class EntryComponent implements OnInit, OnDestroy, DoCheck {
       });
     }
 
-    this._piaService.getPIA().then(() => {
-      this._globalEvaluationService.pia = this._piaService.pia;
-      this._globalEvaluationService.validate();
-      this._measureService.listMeasures(this._piaService.pia.id).then(() => {
 
-        /* Modal for risks if no measures yet */
-        let displayModal = true;
-        if ((this.section.id === 3) && (this.item.id === 2 || this.item.id === 3 || this.item.id === 4)) {
-          if (this._measureService.measures.length > 0) {
-            this._measureService.measures.forEach(element => {
-              if (element.title && element.title.length > 0) {
-                displayModal = false;
-              }
-            });
-          }
-          if (displayModal) {
-            this._modalsService.openModal('pia-declare-measures');
-          }
+    this._globalEvaluationService.pia = this._piaService.pia;
+    this._globalEvaluationService.validate();
+    this._measureService.listMeasures(this._piaService.pia.id).then(() => {
+
+      /* Modal for risks if no measures yet */
+      let displayModal = true;
+      if ((this.section.id === 3) && (this.item.id === 2 || this.item.id === 3 || this.item.id === 4)) {
+        if (this._measureService.measures.length > 0) {
+          this._measureService.measures.forEach(element => {
+            if (element.title && element.title.length > 0) {
+              displayModal = false;
+            }
+          });
         }
-
-        /* Modal for action plan if no evaluations yet */
-        if (this.section.id === 4 && this.item.id === 2 && !this._sidStatusService.verifEnableActionPlan()) {
-          this._modalsService.openModal('pia-action-plan-no-evaluation');
+        if (displayModal) {
+          this._modalsService.openModal('pia-declare-measures');
         }
+      }
 
-        /* Modal for dpo page if all evaluations are not done yet */
-        if (this.section.id === 4 && this.item.id === 3 && !this._sidStatusService.enableDpoValidation) {
-          this._modalsService.openModal('pia-dpo-missing-evaluations');
-        }
+      /* Modal for action plan if no evaluations yet */
+      if (this.section.id === 4 && this.item.id === 2 && !this._sidStatusService.verifEnableActionPlan()) {
+        this._modalsService.openModal('pia-action-plan-no-evaluation');
+      }
 
-      });
+      /* Modal for dpo page if all evaluations are not done yet */
+      if (this.section.id === 4 && this.item.id === 3 && !this._sidStatusService.enableDpoValidation) {
+        this._modalsService.openModal('pia-dpo-missing-evaluations');
+      }
 
-      this._actionPlanService.data = this.data;
-      this._actionPlanService.pia = this._piaService.pia;
     });
+
+    this._actionPlanService.data = this.data;
+    this._actionPlanService.pia = this._piaService.pia;
+
 
     // Update on knowledge base (scroll / content / search field)
     const knowledgeBaseScroll = document.querySelector('.pia-knowledgeBaseBlock-list');

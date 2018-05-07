@@ -15,7 +15,7 @@ import { PiaApi } from '@api/services';
   selector: 'app-cards',
   templateUrl: './cards.component.html',
   styleUrls: ['./cards.component.scss'],
-  providers: [PiaService]
+  providers: []
 })
 
 export class CardsComponent implements OnInit, OnDestroy {

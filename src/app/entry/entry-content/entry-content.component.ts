@@ -39,20 +39,15 @@ export class EntryContentComponent implements OnInit, OnChanges {
               private _translateService: TranslateService,
               private _knowledgeBaseService: KnowledgeBaseService) { }
 
-  async ngOnInit() {
+  ngOnInit() {
     // Reset measures no longer addable from KB when switching PIA
     this._knowledgeBaseService.toHide = [];
-    // Update the last edited date for this PIA
-    this._piaService.getPIA().then(() => {
-      this._piaService.pia.updated_at = new Date();
-      this._piaService.saveCurrentPia();
-
-    });
+    //Make this._globalEvaluationService.pia available for all entry-content/*
+    this._globalEvaluationService.pia = this._piaService.pia;
   }
 
   async ngOnChanges() {
     this._paginationService.dataNav = await this._appDataService.getDataNav();
-    await this._piaService.getPIA();
 
     const sectionId = parseInt(this._activatedRoute.snapshot.params['section_id'], 10);
     const itemId = parseInt(this._activatedRoute.snapshot.params['item_id'], 10);

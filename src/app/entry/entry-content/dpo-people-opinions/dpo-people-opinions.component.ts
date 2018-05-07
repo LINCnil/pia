@@ -12,7 +12,7 @@ import {PiaModel} from '@api/models';
   selector: 'app-dpo-people-opinions',
   templateUrl: './dpo-people-opinions.component.html',
   styleUrls: ['./dpo-people-opinions.component.scss'],
-  providers: [PiaService]
+  providers: []
 })
 export class DPOPeopleOpinionsComponent implements OnInit {
   DPOForm: FormGroup;
@@ -43,7 +43,7 @@ export class DPOPeopleOpinionsComponent implements OnInit {
       peopleNames: new FormControl()
     });
 
-    this._piaService.getPIA().then(() => {
+
       // DPO
       if (this._piaService.pia.dpos_names && this._piaService.pia.dpos_names.length > 0) {
         this.DPOForm.controls['DPONames'].patchValue(this._piaService.pia.dpos_names);
@@ -108,7 +108,7 @@ export class DPOPeopleOpinionsComponent implements OnInit {
       if (peopleTextarea) {
         this.autoTextareaResize(null, peopleTextarea);
       }
-    });
+    
   }
 
   /**

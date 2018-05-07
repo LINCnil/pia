@@ -16,7 +16,7 @@ import { AuthenticationService } from 'app/services/authentication.service'
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
-  providers: [PiaService],
+  providers: [],
 })
 export class HeaderComponent implements OnInit {
   public increaseContrast: string;

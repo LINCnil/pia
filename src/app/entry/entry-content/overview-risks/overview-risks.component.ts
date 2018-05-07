@@ -9,7 +9,7 @@ import * as d3 from 'd3';
   selector: `.app-overview-risks`,
   templateUrl: './overview-risks.component.html',
   styleUrls: ['./overview-risks.component.scss'],
-  providers: [PiaService]
+  providers: []
 })
 export class OverviewRisksComponent implements OnInit {
   data = [];
@@ -37,7 +37,7 @@ export class OverviewRisksComponent implements OnInit {
    * @memberof OverviewRisksComponent
    */
   private async initData() {
-    await this._piaService.getPIA();
+
     const dataTags = [
       {
         id: 1,

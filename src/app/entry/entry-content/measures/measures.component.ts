@@ -1,9 +1,6 @@
 import { Component, Input, ElementRef, Renderer2, OnInit, OnDestroy, NgZone } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ModalsService } from 'app/modals/modals.service';
-import { Measure } from './measure.model';
-import { Answer } from 'app/entry/entry-content/questions/answer.model';
-import { Evaluation } from 'app/entry/entry-content/evaluations/evaluation.model';
 import { KnowledgeBaseService } from 'app/entry/knowledge-base/knowledge-base.service';
 import { GlobalEvaluationService } from 'app/services/global-evaluation.service';
 
@@ -17,7 +14,7 @@ import { EvaluationApi, AnswerApi, MeasureApi } from '@api/services';
 })
 export class MeasuresComponent implements OnInit, OnDestroy {
 
-  @Input() measure: Measure;
+  @Input() measure: MeasureModel;
   @Input() item: any;
   @Input() section: any;
   @Input() pia: any;
@@ -49,7 +46,7 @@ export class MeasuresComponent implements OnInit, OnDestroy {
       this.measureModel.fromJson(theMeasure);
       this._knowledgeBaseService.toHide.push(this.measure.title);
       this.elementId = 'pia-measure-content-' + this.measure.id;
-      if (this.measureModel) {
+      if (this.measureModel !== null) {
         this.measureForm.controls['measureTitle'].patchValue(this.measureModel.title);
         this.measureForm.controls['measureContent'].patchValue(this.measureModel.content);
         if (this.measureModel.title) {

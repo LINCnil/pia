@@ -25,7 +25,7 @@ export class MeasureService extends BaseService<Measure> {
   }
 
   public getByRef(piaId: any, ref: any): Observable<Measure> {
-    return this.httpGetOne(this.routing.all, { piaId: piaId }, { reference_to: ref });
+    return this.httpGetFirst(this.routing.all, { piaId: piaId }, { reference_to: ref });
   }
 
   public update(model: Measure): Observable<Measure> {

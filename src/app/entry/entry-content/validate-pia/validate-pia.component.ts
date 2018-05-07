@@ -11,7 +11,7 @@ import { TranslateService } from '@ngx-translate/core';
   selector: 'app-validate-pia',
   templateUrl: './validate-pia.component.html',
   styleUrls: ['./validate-pia.component.scss'],
-  providers: [PiaService]
+  providers: []
 })
 export class ValidatePIAComponent implements OnInit {
 
@@ -20,11 +20,11 @@ export class ValidatePIAComponent implements OnInit {
   attachment: any;
 
   constructor(private el: ElementRef,
-              private _modalsService: ModalsService,
-              public _attachmentsService: AttachmentsService,
-              private _actionPlanService: ActionPlanService,
-              private _translateService: TranslateService,
-              public _piaService: PiaService ) { }
+    private _modalsService: ModalsService,
+    public _attachmentsService: AttachmentsService,
+    private _actionPlanService: ActionPlanService,
+    private _translateService: TranslateService,
+    public _piaService: PiaService) { }
 
   ngOnInit() {
     this.validateForm = new FormGroup({
@@ -33,15 +33,15 @@ export class ValidatePIAComponent implements OnInit {
       validateStatus3: new FormControl(),
       validateStatus4: new FormControl()
     });
-    this._piaService.getPIA().then(() => {
-      this.validateForm.controls['validateStatus1'].patchValue(this._piaService.pia.status > 1);
-      this.validateForm.controls['validateStatus2'].patchValue(this._piaService.pia.status > 1);
-      this.validateForm.controls['validateStatus3'].patchValue(this._piaService.pia.status > 1);
-      this.validateForm.controls['validateStatus4'].patchValue(this._piaService.pia.status > 1);
 
-      this._attachmentsService.updateSignedAttachmentsList();
-      this._actionPlanService.listActionPlan();
-    });
+    this.validateForm.controls['validateStatus1'].patchValue(this._piaService.pia.status > 1);
+    this.validateForm.controls['validateStatus2'].patchValue(this._piaService.pia.status > 1);
+    this.validateForm.controls['validateStatus3'].patchValue(this._piaService.pia.status > 1);
+    this.validateForm.controls['validateStatus4'].patchValue(this._piaService.pia.status > 1);
+
+    this._attachmentsService.updateSignedAttachmentsList();
+    this._actionPlanService.listActionPlan();
+
   }
 
   /**
@@ -79,7 +79,7 @@ export class ValidatePIAComponent implements OnInit {
    * @memberof ValidatePIAComponent
    */
   lockStatus(event: any) {
-    if (this._piaService.pia.status > 1  || this._piaService.pia.is_example) {
+    if (this._piaService.pia.status > 1 || this._piaService.pia.is_example) {
       return false;
     } else {
       const clickedRadioButton = event.target || event.srcElement || event.currentTarget;
@@ -121,7 +121,7 @@ export class ValidatePIAComponent implements OnInit {
     const simpleValidationBtn = document.getElementById('pia-simple-validation');
     const signValidationBtn = document.getElementById('pia-sign-validation');
 
-    [].forEach.call(radioButtons, function (currentRadioBtn) {
+    [].forEach.call(radioButtons, function(currentRadioBtn) {
       if (!currentRadioBtn.checked) {
         allBtnChecked = false;
       }

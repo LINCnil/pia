@@ -133,7 +133,10 @@ export class EvaluationsComponent implements OnInit, AfterViewChecked, OnDestroy
 
     this.evaluation = new EvaluationModel();
     this.evaluationApi.getByRef(this.pia.id, this.reference_to).subscribe((theEval: EvaluationModel) => {
-      this.evaluation.fromJson(theEval);
+      if(theEval){
+        this.evaluation.fromJson(theEval);
+      }
+
       // Translation for comment's placeholder
       if (this.evaluation.status) {
         if (this.evaluation.status === 1) {

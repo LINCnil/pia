@@ -24,7 +24,7 @@ import { EvaluationApi, AnswerApi, MeasureApi } from '@api/services';
     './summary.component.scss',
     '../entry/entry-content/action-plan/action-plan.component.scss'
   ],
-  providers: [PiaService]
+  providers: []
 })
 export class SummaryComponent implements OnInit {
 
