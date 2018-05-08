@@ -171,7 +171,7 @@ export class EvaluationsComponent implements OnInit, AfterViewChecked, OnDestroy
       });
       questions.forEach(question => {
         this.answerApi.getByRef(this.pia.id, question.id).subscribe((theAnswer: AnswerModel) => {
-          if (theAnswer.data) {
+          if (theAnswer && theAnswer.data) {
             this.previousGauges[question.cartography.split('_')[1]] = theAnswer.data.gauge;
           }
         });

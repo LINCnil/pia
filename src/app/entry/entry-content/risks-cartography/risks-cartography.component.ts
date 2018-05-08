@@ -2,12 +2,13 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Http } from '@angular/http';
 import { Subscription } from 'rxjs/Subscription';
 
-import { Answer } from 'app/entry/entry-content/questions/answer.model';
-import { Evaluation } from 'app/entry/entry-content/evaluations/evaluation.model';
 
 import { PiaService } from 'app/entry/pia.service';
 import { AppDataService } from 'app/services/app-data.service';
 import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
+
+import { AnswerApi, EvaluationApi } from '@api/services';
+import { AnswerModel, EvaluationModel } from '@api/models';
 
 @Component({
   selector: `.app-risks-cartography`,
@@ -17,16 +18,18 @@ import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 export class RisksCartographyComponent implements OnInit, OnDestroy {
   private subscription: Subscription;
   questions: any[] = [];
-  answer: Answer = new Answer();
+  answer: AnswerModel;
   answersGauge: any[] = [];
   dataJSON: any;
   risk1Letter;
   risk2Letter;
 
   constructor(private http: Http,
-              private _appDataService: AppDataService,
-              private _translateService: TranslateService,
-              public _piaService: PiaService) { }
+    private _appDataService: AppDataService,
+    private _translateService: TranslateService,
+    public _piaService: PiaService,
+    private answerApi: AnswerApi,
+    private evaluationApi: EvaluationApi) { }
 
   async ngOnInit() {
     this.risk1Letter = this._translateService.instant('cartography.risk1_access');
@@ -80,7 +83,7 @@ export class RisksCartographyComponent implements OnInit, OnDestroy {
         }
       });
     });
-    this.answer.getGaugeByPia(this._piaService.pia.id).then((entries: any) => {
+    this.answerApi.getAll(this._piaService.pia.id).subscribe((entries: AnswerModel[]) => {
       this.answersGauge = entries.filter((entry) => {
         return entry.data.gauge >= 0;
       });
@@ -99,27 +102,26 @@ export class RisksCartographyComponent implements OnInit, OnDestroy {
             } else if (cartographyKey[0] === 'risk-disappearance') {
               pointPosition -= 20;
             }
-            this.dataJSON[cartographyKey[0]]['author'][axeValue] =  pointPosition;
+            this.dataJSON[cartographyKey[0]]['author'][axeValue] = pointPosition;
           }
         }
       });
-      const evaluation = new Evaluation();
-      evaluation.getByReference(this._piaService.pia.id, '3.2').then(() => {
-        if (evaluation.gauges) {
-          this.dataJSON['risk-access']['evaluator']['y'] = positions['y'][evaluation.gauges['x']];
-          this.dataJSON['risk-access']['evaluator']['x'] = positions['x'][evaluation.gauges['y']];
+      this.evaluationApi.getByRef(this._piaService.pia.id, '3.2').subscribe((theEval: EvaluationModel) => {
+        if (theEval.gauges) {
+          this.dataJSON['risk-access']['evaluator']['y'] = positions['y'][theEval.gauges['x']];
+          this.dataJSON['risk-access']['evaluator']['x'] = positions['x'][theEval.gauges['y']];
         }
-        const evaluation2 = new Evaluation();
-        evaluation2.getByReference(this._piaService.pia.id, '3.3').then(() => {
-          if (evaluation2.gauges) {
-            this.dataJSON['risk-change']['evaluator']['y'] = positions['y'][evaluation2.gauges['x']];
-            this.dataJSON['risk-change']['evaluator']['x'] = positions['x'][evaluation2.gauges['y']];
+
+        this.evaluationApi.getByRef(this._piaService.pia.id, '3.3').subscribe((theEval2: EvaluationModel) => {
+          if (theEval2.gauges) {
+            this.dataJSON['risk-change']['evaluator']['y'] = positions['y'][theEval2.gauges['x']];
+            this.dataJSON['risk-change']['evaluator']['x'] = positions['x'][theEval2.gauges['y']];
           }
-          const evaluation3 = new Evaluation();
-          evaluation3.getByReference(this._piaService.pia.id, '3.4').then(() => {
-            if (evaluation3.gauges) {
-              this.dataJSON['risk-disappearance']['evaluator']['y'] = positions['y'][evaluation3.gauges['x']];
-              this.dataJSON['risk-disappearance']['evaluator']['x'] = positions['x'][evaluation3.gauges['y']];
+          this.evaluationApi.getByRef(this._piaService.pia.id, '3.4').subscribe((theEval3: EvaluationModel) => {
+
+            if (theEval3.gauges) {
+              this.dataJSON['risk-disappearance']['evaluator']['y'] = positions['y'][theEval3.gauges['x']];
+              this.dataJSON['risk-disappearance']['evaluator']['x'] = positions['x'][theEval3.gauges['y']];
             }
             this.loadCartography();
           });
@@ -137,250 +139,250 @@ export class RisksCartographyComponent implements OnInit, OnDestroy {
    * @memberof RisksCartographyComponent
    */
   loadCartography() {
-      // Instanciation of canvas context
-      const canvas = <HTMLCanvasElement>document.getElementById('actionPlanCartography');
-      const context = canvas.getContext('2d');
+    // Instanciation of canvas context
+    const canvas = <HTMLCanvasElement>document.getElementById('actionPlanCartography');
+    const context = canvas.getContext('2d');
 
-      // Clearing canvas if changing languages
-      context.clearRect(0, 0, canvas.width, canvas.height);
+    // Clearing canvas if changing languages
+    context.clearRect(0, 0, canvas.width, canvas.height);
 
-      // White grid creation
+    // White grid creation
+    context.beginPath();
+    context.moveTo(0, 300);
+    context.lineTo(100, 300);
+    context.lineTo(100, 400);
+    context.moveTo(0, 200);
+    context.lineTo(200, 200);
+    context.lineTo(200, 400);
+    context.moveTo(0, 100);
+    context.lineTo(300, 100);
+    context.lineTo(300, 400);
+    context.lineWidth = 2;
+    context.strokeStyle = 'white';
+    context.stroke();
+
+    if (this.dataJSON['risk-access']['author'].x && this.dataJSON['risk-access']['author'].y) {
+      // Author dots (red)
       context.beginPath();
-      context.moveTo(0, 300);
-      context.lineTo(100, 300);
-      context.lineTo(100, 400);
-      context.moveTo(0, 200);
-      context.lineTo(200, 200);
-      context.lineTo(200, 400);
-      context.moveTo(0, 100);
-      context.lineTo(300, 100);
-      context.lineTo(300, 400);
-      context.lineWidth = 2;
-      context.strokeStyle = 'white';
-      context.stroke();
+      if (localStorage.getItem('increaseContrast') === 'true') {
+        context.fillStyle = '#C40288';
+      } else {
+        context.fillStyle = '#FD4664';
+      }
+      context.arc(this.dataJSON['risk-access']['author'].x + 8,
+        this.dataJSON['risk-access']['author'].y, 7, 0, Math.PI * 2, true);
+      context.fill();
+      context.textAlign = 'center';
+      context.font = 'bold 1.1rem Roboto, Times, serif';
+      context.fillStyle = '#333';
+      try {
+        context.fillText(this.risk1Letter,
+          this.dataJSON['risk-access']['author'].x + 8,
+          this.dataJSON['risk-access']['author'].y + 20);
+      } catch (ex) { }
+    }
 
-      if (this.dataJSON['risk-access']['author'].x && this.dataJSON['risk-access']['author'].y) {
-        // Author dots (red)
+    if (this.dataJSON['risk-change']['author'].x && this.dataJSON['risk-change']['author'].y) {
+      context.beginPath();
+      if (localStorage.getItem('increaseContrast') === 'true') {
+        context.fillStyle = '#C40288';
+      } else {
+        context.fillStyle = '#FD4664';
+      }
+      context.arc(this.dataJSON['risk-change']['author'].x,
+        this.dataJSON['risk-change']['author'].y, 7, 0, Math.PI * 2, true);
+      context.fill();
+      context.textAlign = 'center';
+      context.font = 'bold 1.1rem Roboto, Times, serif';
+      context.fillStyle = '#333';
+      try {
+        context.fillText(this.risk2Letter,
+          this.dataJSON['risk-change']['author'].x,
+          this.dataJSON['risk-change']['author'].y + 20);
+      } catch (ex) { }
+    }
+
+    if (this.dataJSON['risk-disappearance']['author'].x && this.dataJSON['risk-disappearance']['author'].y) {
+      context.beginPath();
+      if (localStorage.getItem('increaseContrast') === 'true') {
+        context.fillStyle = '#C40288';
+      } else {
+        context.fillStyle = '#FD4664';
+      }
+      context.arc(this.dataJSON['risk-disappearance']['author'].x - 8,
+        this.dataJSON['risk-disappearance']['author'].y, 7, 0, Math.PI * 2, true);
+      context.fill();
+      context.textAlign = 'center';
+      context.font = 'bold 1.1rem Roboto, Times, serif';
+      context.fillStyle = '#333';
+      try {
+        context.fillText('(D)',
+          this.dataJSON['risk-disappearance']['author'].x - 8,
+          this.dataJSON['risk-disappearance']['author'].y + 20);
+      } catch (ex) { }
+    }
+
+    // Evaluator dots (blue)
+    if (this.dataJSON['risk-access']['author'].x &&
+      this.dataJSON['risk-access']['author'].y &&
+      this.dataJSON['risk-access']['evaluator'].x &&
+      this.dataJSON['risk-access']['evaluator'].y) {
+      let diameter = 7;
+      if (this.dataJSON['risk-access']['evaluator'].x === this.dataJSON['risk-access']['author'].x &&
+        this.dataJSON['risk-access']['evaluator'].y === this.dataJSON['risk-access']['author'].y) {
+        diameter = 10;
+        context.globalCompositeOperation = 'destination-over';
+      }
+      context.beginPath();
+      context.fillStyle = '#091C6B';
+      context.arc(this.dataJSON['risk-access']['evaluator'].x + 8,
+        this.dataJSON['risk-access']['evaluator'].y, diameter, 0, Math.PI * 2, true);
+      context.fill();
+    } else {
+      if (!this.dataJSON['risk-access']['evaluator'].x &&
+        !this.dataJSON['risk-access']['evaluator'].y &&
+        this.dataJSON['risk-access']['author'].x &&
+        this.dataJSON['risk-access']['author'].y) {
+        context.globalCompositeOperation = 'destination-over';
         context.beginPath();
-        if (localStorage.getItem('increaseContrast') === 'true') {
-          context.fillStyle = '#C40288';
-        } else {
-          context.fillStyle = '#FD4664';
-        }
+        context.fillStyle = '#091C6B';
         context.arc(this.dataJSON['risk-access']['author'].x + 8,
-                    this.dataJSON['risk-access']['author'].y, 7, 0, Math.PI * 2, true);
+          this.dataJSON['risk-access']['author'].y, 10, 0, Math.PI * 2, true);
         context.fill();
-        context.textAlign = 'center';
-        context.font = 'bold 1.1rem Roboto, Times, serif';
-        context.fillStyle = '#333';
-        try {
-          context.fillText(this.risk1Letter,
-                      this.dataJSON['risk-access']['author'].x + 8,
-                      this.dataJSON['risk-access']['author'].y + 20);
-        } catch (ex) {}
       }
+    }
 
-      if (this.dataJSON['risk-change']['author'].x && this.dataJSON['risk-change']['author'].y) {
+    if (this.dataJSON['risk-change']['author'].x &&
+      this.dataJSON['risk-change']['author'].y &&
+      this.dataJSON['risk-change']['evaluator'].x &&
+      this.dataJSON['risk-change']['evaluator'].y) {
+      let x = this.dataJSON['risk-change']['evaluator'].x;
+      let y = this.dataJSON['risk-change']['evaluator'].y;
+      let diameter = 7;
+      if (this.dataJSON['risk-change']['evaluator'].x - 10 === this.dataJSON['risk-change']['author'].x &&
+        this.dataJSON['risk-change']['evaluator'].y - 10 === this.dataJSON['risk-change']['author'].y) {
+        x = this.dataJSON['risk-change']['evaluator'].x - 10;
+        y = this.dataJSON['risk-change']['evaluator'].y - 10;
+        diameter = 10;
+        context.globalCompositeOperation = 'destination-over';
+      }
+      context.beginPath();
+      context.fillStyle = '#091C6B';
+      context.arc(x, y, diameter, 0, Math.PI * 2, true);
+      context.fill();
+    } else {
+      if (!this.dataJSON['risk-change']['evaluator'].x &&
+        !this.dataJSON['risk-change']['evaluator'].y &&
+        this.dataJSON['risk-change']['author'].x &&
+        this.dataJSON['risk-change']['author'].y) {
+        context.globalCompositeOperation = 'destination-over';
         context.beginPath();
-        if (localStorage.getItem('increaseContrast') === 'true') {
-          context.fillStyle = '#C40288';
-        } else {
-          context.fillStyle = '#FD4664';
-        }
+        context.fillStyle = '#091C6B';
         context.arc(this.dataJSON['risk-change']['author'].x,
-                    this.dataJSON['risk-change']['author'].y, 7, 0, Math.PI * 2, true);
+          this.dataJSON['risk-change']['author'].y, 10, 0, Math.PI * 2, true);
         context.fill();
-        context.textAlign = 'center';
-        context.font = 'bold 1.1rem Roboto, Times, serif';
-        context.fillStyle = '#333';
-        try {
-          context.fillText(this.risk2Letter,
-                      this.dataJSON['risk-change']['author'].x,
-                      this.dataJSON['risk-change']['author'].y + 20);
-        } catch (ex) {}
       }
+    }
 
-      if (this.dataJSON['risk-disappearance']['author'].x && this.dataJSON['risk-disappearance']['author'].y) {
+    if (this.dataJSON['risk-disappearance']['author'].x &&
+      this.dataJSON['risk-disappearance']['author'].y &&
+      this.dataJSON['risk-disappearance']['evaluator'].x &&
+      this.dataJSON['risk-disappearance']['evaluator'].y) {
+      let x = this.dataJSON['risk-disappearance']['evaluator'].x;
+      let y = this.dataJSON['risk-disappearance']['evaluator'].y;
+      let diameter = 7;
+      if (this.dataJSON['risk-disappearance']['evaluator'].x - 20 === this.dataJSON['risk-disappearance']['author'].x &&
+        this.dataJSON['risk-disappearance']['evaluator'].y - 20 === this.dataJSON['risk-disappearance']['author'].y) {
+        x = this.dataJSON['risk-disappearance']['evaluator'].x - 28;
+        y = this.dataJSON['risk-disappearance']['evaluator'].y - 20;
+        diameter = 10;
+        context.globalCompositeOperation = 'destination-over';
+      }
+      context.beginPath();
+      context.fillStyle = '#091C6B';
+      context.arc(x, y, diameter, 0, Math.PI * 2, true);
+      context.fill();
+    } else {
+      if (!this.dataJSON['risk-disappearance']['evaluator'].x &&
+        !this.dataJSON['risk-disappearance']['evaluator'].y &&
+        this.dataJSON['risk-disappearance']['author'].x &&
+        this.dataJSON['risk-disappearance']['author'].y) {
+        context.globalCompositeOperation = 'destination-over';
         context.beginPath();
-        if (localStorage.getItem('increaseContrast') === 'true') {
-          context.fillStyle = '#C40288';
-        } else {
-          context.fillStyle = '#FD4664';
-        }
+        context.fillStyle = '#091C6B';
         context.arc(this.dataJSON['risk-disappearance']['author'].x - 8,
-                    this.dataJSON['risk-disappearance']['author'].y, 7, 0, Math.PI * 2, true);
+          this.dataJSON['risk-disappearance']['author'].y, 10, 0, Math.PI * 2, true);
         context.fill();
-        context.textAlign = 'center';
-        context.font = 'bold 1.1rem Roboto, Times, serif';
-        context.fillStyle = '#333';
-        try {
-          context.fillText('(D)',
-                          this.dataJSON['risk-disappearance']['author'].x - 8,
-                          this.dataJSON['risk-disappearance']['author'].y + 20);
-        } catch (ex) {}
       }
+    }
 
-      // Evaluator dots (blue)
-      if (this.dataJSON['risk-access']['author'].x &&
-          this.dataJSON['risk-access']['author'].y &&
-          this.dataJSON['risk-access']['evaluator'].x &&
-          this.dataJSON['risk-access']['evaluator'].y) {
-        let diameter = 7;
-        if (this.dataJSON['risk-access']['evaluator'].x === this.dataJSON['risk-access']['author'].x &&
-            this.dataJSON['risk-access']['evaluator'].y === this.dataJSON['risk-access']['author'].y) {
-          diameter = 10;
-          context.globalCompositeOperation = 'destination-over';
-        }
-        context.beginPath();
-        context.fillStyle = '#091C6B';
-        context.arc(this.dataJSON['risk-access']['evaluator'].x + 8,
-                    this.dataJSON['risk-access']['evaluator'].y, diameter, 0, Math.PI * 2, true);
-        context.fill();
-      } else {
-        if (!this.dataJSON['risk-access']['evaluator'].x &&
-            !this.dataJSON['risk-access']['evaluator'].y &&
-            this.dataJSON['risk-access']['author'].x &&
-            this.dataJSON['risk-access']['author'].y) {
-          context.globalCompositeOperation = 'destination-over';
-          context.beginPath();
-          context.fillStyle = '#091C6B';
-          context.arc(this.dataJSON['risk-access']['author'].x + 8,
-                      this.dataJSON['risk-access']['author'].y, 10, 0, Math.PI * 2, true);
-          context.fill();
-        }
-      }
+    // Gradient color definition for dotted lines
+    const grad = context.createLinearGradient(50, 50, 150, 150);
 
-      if (this.dataJSON['risk-change']['author'].x &&
-          this.dataJSON['risk-change']['author'].y &&
-          this.dataJSON['risk-change']['evaluator'].x &&
-          this.dataJSON['risk-change']['evaluator'].y) {
-        let x = this.dataJSON['risk-change']['evaluator'].x;
-        let y = this.dataJSON['risk-change']['evaluator'].y;
-        let diameter = 7;
-        if (this.dataJSON['risk-change']['evaluator'].x - 10 === this.dataJSON['risk-change']['author'].x &&
-            this.dataJSON['risk-change']['evaluator'].y - 10 === this.dataJSON['risk-change']['author'].y) {
-          x = this.dataJSON['risk-change']['evaluator'].x - 10;
-          y = this.dataJSON['risk-change']['evaluator'].y - 10;
-          diameter = 10;
-          context.globalCompositeOperation = 'destination-over';
-        }
-        context.beginPath();
-        context.fillStyle = '#091C6B';
-        context.arc(x, y, diameter, 0, Math.PI * 2, true);
-        context.fill();
-      } else {
-        if (!this.dataJSON['risk-change']['evaluator'].x &&
-            !this.dataJSON['risk-change']['evaluator'].y &&
-            this.dataJSON['risk-change']['author'].x &&
-            this.dataJSON['risk-change']['author'].y) {
-          context.globalCompositeOperation = 'destination-over';
-          context.beginPath();
-          context.fillStyle = '#091C6B';
-          context.arc(this.dataJSON['risk-change']['author'].x,
-                      this.dataJSON['risk-change']['author'].y, 10, 0, Math.PI * 2, true);
-          context.fill();
-        }
-      }
+    // Dotted lines params
+    context.setLineDash([0.1, 1.8]);
+    context.lineWidth = 0.6;
 
-      if (this.dataJSON['risk-disappearance']['author'].x &&
-          this.dataJSON['risk-disappearance']['author'].y &&
-          this.dataJSON['risk-disappearance']['evaluator'].x &&
-          this.dataJSON['risk-disappearance']['evaluator'].y) {
-        let x = this.dataJSON['risk-disappearance']['evaluator'].x;
-        let y = this.dataJSON['risk-disappearance']['evaluator'].y;
-        let diameter = 7;
-        if (this.dataJSON['risk-disappearance']['evaluator'].x - 20 === this.dataJSON['risk-disappearance']['author'].x &&
-            this.dataJSON['risk-disappearance']['evaluator'].y - 20 === this.dataJSON['risk-disappearance']['author'].y) {
-          x = this.dataJSON['risk-disappearance']['evaluator'].x - 28;
-          y = this.dataJSON['risk-disappearance']['evaluator'].y - 20;
-          diameter = 10;
-          context.globalCompositeOperation = 'destination-over';
-        }
-        context.beginPath();
-        context.fillStyle = '#091C6B';
-        context.arc(x, y, diameter, 0, Math.PI * 2, true);
-        context.fill();
-      } else {
-        if (!this.dataJSON['risk-disappearance']['evaluator'].x &&
-            !this.dataJSON['risk-disappearance']['evaluator'].y &&
-            this.dataJSON['risk-disappearance']['author'].x &&
-            this.dataJSON['risk-disappearance']['author'].y) {
-          context.globalCompositeOperation = 'destination-over';
-          context.beginPath();
-          context.fillStyle = '#091C6B';
-          context.arc(this.dataJSON['risk-disappearance']['author'].x - 8,
-                      this.dataJSON['risk-disappearance']['author'].y, 10, 0, Math.PI * 2, true);
-          context.fill();
-        }
-      }
+    // Dotted lines
+    if (this.dataJSON['risk-access']['author'].x && this.dataJSON['risk-access']['author'].y &&
+      this.dataJSON['risk-access']['evaluator'].x && this.dataJSON['risk-access']['evaluator'].y &&
+      (this.dataJSON['risk-access']['evaluator'].x !== this.dataJSON['risk-access']['author'].x ||
+        this.dataJSON['risk-access']['evaluator'].y !== this.dataJSON['risk-access']['author'].y)) {
+      context.beginPath();
+      const gradRisk1 = context.createLinearGradient(this.dataJSON['risk-access']['author'].x,
+        this.dataJSON['risk-access']['author'].y,
+        this.dataJSON['risk-access']['evaluator'].x,
+        this.dataJSON['risk-access']['evaluator'].y);
+      gradRisk1.addColorStop(0, '#FD4664');
+      gradRisk1.addColorStop(1, '#091C6B');
+      context.strokeStyle = gradRisk1;
+      this.canvasArrow(context, this.dataJSON['risk-access']['author'].x + 8,
+        this.dataJSON['risk-access']['author'].y,
+        this.dataJSON['risk-access']['evaluator'].x + 8,
+        this.dataJSON['risk-access']['evaluator'].y);
+      context.closePath();
+      context.stroke();
+    }
 
-      // Gradient color definition for dotted lines
-      const grad = context.createLinearGradient(50, 50, 150, 150);
+    if (this.dataJSON['risk-change']['author'].x && this.dataJSON['risk-change']['author'].y &&
+      this.dataJSON['risk-change']['evaluator'].x && this.dataJSON['risk-change']['evaluator'].y &&
+      (this.dataJSON['risk-change']['evaluator'].x - 10 !== this.dataJSON['risk-change']['author'].x ||
+        this.dataJSON['risk-change']['evaluator'].y - 10 !== this.dataJSON['risk-change']['author'].y)) {
+      context.beginPath();
+      const gradRisk2 = context.createLinearGradient(this.dataJSON['risk-change']['author'].x,
+        this.dataJSON['risk-change']['author'].y,
+        this.dataJSON['risk-change']['evaluator'].x,
+        this.dataJSON['risk-change']['evaluator'].y);
+      gradRisk2.addColorStop(0, '#FD4664');
+      gradRisk2.addColorStop(1, '#091C6B');
+      context.strokeStyle = gradRisk2;
+      this.canvasArrow(context, this.dataJSON['risk-change']['author'].x,
+        this.dataJSON['risk-change']['author'].y,
+        this.dataJSON['risk-change']['evaluator'].x,
+        this.dataJSON['risk-change']['evaluator'].y);
+      context.closePath();
+      context.stroke();
+    }
 
-      // Dotted lines params
-      context.setLineDash([0.1, 1.8]);
-      context.lineWidth = 0.6;
-
-      // Dotted lines
-      if (this.dataJSON['risk-access']['author'].x && this.dataJSON['risk-access']['author'].y &&
-          this.dataJSON['risk-access']['evaluator'].x && this.dataJSON['risk-access']['evaluator'].y &&
-          (this.dataJSON['risk-access']['evaluator'].x !== this.dataJSON['risk-access']['author'].x ||
-          this.dataJSON['risk-access']['evaluator'].y !== this.dataJSON['risk-access']['author'].y)) {
-        context.beginPath();
-        const gradRisk1 = context.createLinearGradient(this.dataJSON['risk-access']['author'].x,
-                                                      this.dataJSON['risk-access']['author'].y,
-                                                      this.dataJSON['risk-access']['evaluator'].x,
-                                                      this.dataJSON['risk-access']['evaluator'].y);
-        gradRisk1.addColorStop(0, '#FD4664');
-        gradRisk1.addColorStop(1, '#091C6B');
-        context.strokeStyle = gradRisk1;
-        this.canvasArrow(context, this.dataJSON['risk-access']['author'].x + 8,
-                        this.dataJSON['risk-access']['author'].y,
-                        this.dataJSON['risk-access']['evaluator'].x + 8,
-                        this.dataJSON['risk-access']['evaluator'].y);
-        context.closePath();
-        context.stroke();
-      }
-
-      if (this.dataJSON['risk-change']['author'].x && this.dataJSON['risk-change']['author'].y &&
-          this.dataJSON['risk-change']['evaluator'].x && this.dataJSON['risk-change']['evaluator'].y &&
-          (this.dataJSON['risk-change']['evaluator'].x - 10 !== this.dataJSON['risk-change']['author'].x ||
-          this.dataJSON['risk-change']['evaluator'].y - 10 !== this.dataJSON['risk-change']['author'].y)) {
-        context.beginPath();
-        const gradRisk2 = context.createLinearGradient(this.dataJSON['risk-change']['author'].x,
-                                                      this.dataJSON['risk-change']['author'].y,
-                                                      this.dataJSON['risk-change']['evaluator'].x,
-                                                      this.dataJSON['risk-change']['evaluator'].y);
-        gradRisk2.addColorStop(0, '#FD4664');
-        gradRisk2.addColorStop(1, '#091C6B');
-        context.strokeStyle = gradRisk2;
-        this.canvasArrow(context, this.dataJSON['risk-change']['author'].x,
-                        this.dataJSON['risk-change']['author'].y,
-                        this.dataJSON['risk-change']['evaluator'].x,
-                        this.dataJSON['risk-change']['evaluator'].y);
-        context.closePath();
-        context.stroke();
-      }
-
-      if (this.dataJSON['risk-disappearance']['author'].x && this.dataJSON['risk-disappearance']['author'].y &&
-          this.dataJSON['risk-disappearance']['evaluator'].x && this.dataJSON['risk-disappearance']['evaluator'].y &&
-          (this.dataJSON['risk-disappearance']['evaluator'].x - 20 !== this.dataJSON['risk-disappearance']['author'].x ||
-          this.dataJSON['risk-disappearance']['evaluator'].y - 20 !== this.dataJSON['risk-disappearance']['author'].y)) {
-        context.beginPath();
-        const gradRisk3 = context.createLinearGradient(this.dataJSON['risk-disappearance']['author'].x,
-                                                      this.dataJSON['risk-disappearance']['author'].y,
-                                                      this.dataJSON['risk-disappearance']['evaluator'].x,
-                                                      this.dataJSON['risk-disappearance']['evaluator'].y);
-        gradRisk3.addColorStop(0, '#FD4664');
-        gradRisk3.addColorStop(1, '#091C6B');
-        context.strokeStyle = gradRisk3;
-        this.canvasArrow(context, this.dataJSON['risk-disappearance']['author'].x - 8,
-                        this.dataJSON['risk-disappearance']['author'].y,
-                        this.dataJSON['risk-disappearance']['evaluator'].x,
-                        this.dataJSON['risk-disappearance']['evaluator'].y);
-        context.closePath();
-        context.stroke();
-      }
+    if (this.dataJSON['risk-disappearance']['author'].x && this.dataJSON['risk-disappearance']['author'].y &&
+      this.dataJSON['risk-disappearance']['evaluator'].x && this.dataJSON['risk-disappearance']['evaluator'].y &&
+      (this.dataJSON['risk-disappearance']['evaluator'].x - 20 !== this.dataJSON['risk-disappearance']['author'].x ||
+        this.dataJSON['risk-disappearance']['evaluator'].y - 20 !== this.dataJSON['risk-disappearance']['author'].y)) {
+      context.beginPath();
+      const gradRisk3 = context.createLinearGradient(this.dataJSON['risk-disappearance']['author'].x,
+        this.dataJSON['risk-disappearance']['author'].y,
+        this.dataJSON['risk-disappearance']['evaluator'].x,
+        this.dataJSON['risk-disappearance']['evaluator'].y);
+      gradRisk3.addColorStop(0, '#FD4664');
+      gradRisk3.addColorStop(1, '#091C6B');
+      context.strokeStyle = gradRisk3;
+      this.canvasArrow(context, this.dataJSON['risk-disappearance']['author'].x - 8,
+        this.dataJSON['risk-disappearance']['author'].y,
+        this.dataJSON['risk-disappearance']['evaluator'].x,
+        this.dataJSON['risk-disappearance']['evaluator'].y);
+      context.closePath();
+      context.stroke();
+    }
   }
 
   /**

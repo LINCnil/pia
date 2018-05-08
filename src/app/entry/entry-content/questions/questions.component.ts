@@ -141,7 +141,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
     bgElement.classList.remove('pia-gaugeBlock-background-4');
     bgElement.classList.add('pia-gaugeBlock-background-' + value);
     const gaugeValue = parseInt(this.questionForm.value.gauge, 10);
-    if (this.answer.id) {
+    if (this.answer && this.answer.id) {
       this.answer.data = { text: this.answer.data.text, gauge: gaugeValue, list: this.answer.data.list };
       this.answerApi.update(this.answer).subscribe((updatedAnswer: AnswerModel) => {
         this.answer = updatedAnswer;
@@ -150,6 +150,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
         });
       });
     } else {
+      this.answer = new AnswerModel();
       this.answer.pia_id = this.pia.id;
       this.answer.reference_to = this.question.id;
       this.answer.data = { text: null, gauge: gaugeValue, list: [] };
@@ -216,7 +217,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
   onAdd(event) {
     if (event && event.value.length > 0) {
       let list = [];
-      if (this.answer.id) {
+      if (this.answer && this.answer.id) {
         list = this.answer.data.list;
       }
       if (list.indexOf(event.value) <= 0) {
