@@ -12,6 +12,8 @@ import { CardsRoutingModule } from 'app/cards/cards-routing.module';
 import { EntryRoutingModule } from 'app/entry/entry-routing.module';
 import { AuthenticationGuardService } from 'app/services/authentication-guard.service';
 //import { AuthenticationCallbackComponent } from 'app/authentication-callback/authentication-callback.component';
+import {PiaResolve} from 'app/services/pia.resolve.service';
+import {PiaService} from 'app/entry/pia.service';
 
 const routes: Routes = [
   { path: '', component: AuthenticationComponent },
@@ -19,7 +21,7 @@ const routes: Routes = [
   { path:
     'summary/:id',
     component: SummaryComponent ,
-    canActivate: [AuthenticationGuardService]
+    canActivate: [AuthenticationGuardService, PiaResolve]
   },
   {
     path: 'settings',
@@ -38,7 +40,8 @@ const routes: Routes = [
     EntryRoutingModule,
     RouterModule.forRoot(routes, { useHash: true }),
   ],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [PiaService, PiaResolve]
 })
 
 export class AppRoutingModule { }

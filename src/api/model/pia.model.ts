@@ -1,5 +1,5 @@
 
-import {BaseModel} from '@api/model/base.model'
+import { BaseModel } from '@api/model/base.model'
 
 export class Pia extends BaseModel {
   public id: any;
@@ -25,6 +25,10 @@ export class Pia extends BaseModel {
 
 
   public getStatusLabel(): string {
-      return this.status >= 0 ? `pia.statuses.${this.status}` : '';
+    return this.status >= 0 ? `pia.statuses.${this.status}` : '';
+  }
+
+  getGaugeName(value: any): string {
+    return value ? `summary.gauges.${value}` : '';
   }
 }

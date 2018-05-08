@@ -59,24 +59,23 @@ export class SummaryComponent implements OnInit {
     this.content = [];
     this.dataNav = await this._appDataService.getDataNav();
 
-    this._piaService.getPIA().then(() => {
-      this.pia = this._piaService.pia;
-      this.displayMainPiaData = true;
-      this.displayActionPlan = true;
-      this.displayRisksOverview = true;
-      this.displayRisksCartography = true;
-      this.showPia().then(() => {
-        // Disable all filters (except action plan) if displaying only action plan
-        if (this.displayOnlyActionPlan) {
-          this.toggleMainContent();
-          this.toggleContextContent();
-          this.toggleFundamentalPrinciplesContent();
-          this.toggleRisksContent();
-          this.toggleRisksOverviewContent();
-          this.toggleRisksCartographyContent();
-        }
-      });
+    this.pia = this._piaService.pia;
+    this.displayMainPiaData = true;
+    this.displayActionPlan = true;
+    this.displayRisksOverview = true;
+    this.displayRisksCartography = true;
+    this.showPia().then(() => {
+      // Disable all filters (except action plan) if displaying only action plan
+      if (this.displayOnlyActionPlan) {
+        this.toggleMainContent();
+        this.toggleContextContent();
+        this.toggleFundamentalPrinciplesContent();
+        this.toggleRisksContent();
+        this.toggleRisksOverviewContent();
+        this.toggleRisksCartographyContent();
+      }
     });
+
   }
 
   downloadAllGraphsAsImages() {
