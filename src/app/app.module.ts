@@ -58,7 +58,6 @@ import { AppRoutingModule } from 'app/app-routing.module';
 import { CardsRoutingModule } from 'app/cards/cards-routing.module';
 import { AuthenticationService } from 'app/services/authentication.service';
 import { AuthenticationGuardService } from 'app/services/authentication-guard.service';
-import { AuthenticationCallbackComponent } from 'app/authentication-callback/authentication-callback.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptor } from 'app/services/token.interceptor';
 
@@ -136,8 +135,7 @@ export function createTranslateLoader(http: HttpClient) {
     SummaryComponent,
     SafeHtmlPipe,
     Nl2brPipe,
-    AboutComponent,
-    AuthenticationCallbackComponent
+    AboutComponent
   ],
   imports: [
     BrowserModule,
