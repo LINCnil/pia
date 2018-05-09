@@ -167,17 +167,18 @@ export class CardsComponent implements OnInit, OnDestroy {
    * Refresh the list.
    * @memberof CardsComponent
    */
-  refreshContent() {
-  
-    this.piaApi.getAll().subscribe((thePias:PiaModel[]) =>{
+  async refreshContent() {
+
+     let thePias:PiaModel[] = await this.piaApi.getAll().toPromise();
       if(thePias.length == 0){
         return;
       }
+      thePias.forEach((item)=>{this.piaApi.computeProgress(item).subscribe()});
       this._piaService.pias = thePias;
       this.sortOrder = localStorage.getItem('sortOrder');
       this.sortValue = localStorage.getItem('sortValue');
       this.sortPia();
-    });
+
 
   }
 
