@@ -1,9 +1,11 @@
 import { Injectable } from '@angular/core';
+//import * as b64ToBlob from 'b64toBlob';
 
 import { ModalsService } from 'app/modals/modals.service';
 
 import { AttachmentModel } from '@api/models';
 import { AttachmentApi } from '@api/services';
+
 
 @Injectable()
 export class AttachmentsService {
@@ -105,15 +107,15 @@ export class AttachmentsService {
    */
   downloadAttachment(id: number) {
     this.attachmentApi.get(this.pia.id, id).subscribe((entry: any) => {
-      fetch(entry.file).then(res => res.blob()).then(blob => {
-        const a = <any>document.createElement('a');
-        a.href = window.URL.createObjectURL(blob);
-        a.download = entry.name;
-        const event = new MouseEvent('click', {
-          view: window
-        });
-        a.dispatchEvent(event);
+      const blob = this.b64ToBlob(entry.file, entry.mime_type);
+      const a = <any>document.createElement('a');
+      const event = new MouseEvent('click', {
+        view: window
       });
+
+      a.href = URL.createObjectURL(blob);
+      a.download = entry.name;
+      a.dispatchEvent(event);
     });
   }
 
@@ -145,5 +147,25 @@ export class AttachmentsService {
       this._modalsService.closeModal();
     }
   }
+
+  b64ToBlob(b64Data, contentType = '', sliceSize = 512) {
+    let byteCharacters = atob(b64Data);
+    let byteArrays = [];
+
+    for (let offset = 0; offset < byteCharacters.length; offset += sliceSize) {
+      let slice = byteCharacters.slice(offset, offset + sliceSize);
+
+      let byteNumbers = new Array(slice.length);
+      for (let i = 0; i < slice.length; i++) {
+        byteNumbers[i] = slice.charCodeAt(i);
+      }
+  
+      let byteArray = new Uint8Array(byteNumbers);
+  
+      byteArrays.push(byteArray);
+    }
+
+    return new Blob(byteArrays, {type: contentType});
+  };
 
 }

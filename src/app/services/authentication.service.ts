@@ -34,7 +34,8 @@ export class AuthenticationService {
       this.user = {
         'access_token': token,
         'refresh_token': localStorage.getItem('refresh'),
-        'expires_at': localStorage.getItem('expiry')
+        'expires_at': localStorage.getItem('expiry'),
+        'roles'     : JSON.parse(localStorage.getItem('roles'))
       }
     }
 
@@ -61,6 +62,7 @@ export class AuthenticationService {
     localStorage.removeItem('token');
     localStorage.removeItem('expiry');
     localStorage.removeItem('refresh');
+    localStorage.removeItem('roles');
   }
 
   protected fetchToken(query: string) {
@@ -73,6 +75,7 @@ export class AuthenticationService {
           localStorage.setItem('token', this.user.access_token);
           localStorage.setItem('refresh', this.user.refresh_token);
           localStorage.setItem('expiry', this.user.expires_at);
+          localStorage.setItem('roles', JSON.stringify(['admin', 'user']));//this.user.roles);
         },
         err  => {
           console.error(err);
