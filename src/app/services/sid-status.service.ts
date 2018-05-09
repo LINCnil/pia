@@ -65,6 +65,7 @@ export class SidStatusService {
     globalEvaluationService.item = item;
     if (item.evaluation_mode === 'item' || item.evaluation_mode === 'question' || reference_to === '4.3') {
       globalEvaluationService.validate(false).then((obj: { reference_to: string, status: number }) => {
+        
         if (reference_to === '4.3') {
           this.enablePiaValidation = globalEvaluationService.enablePiaValidation;
           this.piaIsRefused = globalEvaluationService.piaIsRefused;

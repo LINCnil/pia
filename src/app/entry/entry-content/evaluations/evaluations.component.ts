@@ -110,7 +110,7 @@ export class EvaluationsComponent implements OnInit, AfterViewChecked, OnDestroy
    * @private
    * @memberof EvaluationsComponent
    */
-  private checkEvaluationValidation() {
+  private async checkEvaluationValidation() {
     if (this.item.evaluation_mode === 'question') {
       // Measure evaluation update
       if (this.item.is_measure) {
@@ -132,49 +132,49 @@ export class EvaluationsComponent implements OnInit, AfterViewChecked, OnDestroy
     });
 
     this.evaluation = new EvaluationModel();
-    this.evaluationApi.getByRef(this.pia.id, this.reference_to).subscribe((theEval: EvaluationModel) => {
-      if(theEval){
-        this.evaluation.fromJson(theEval);
-      }
+    let theEval: EvaluationModel = await this.evaluationApi.getByRef(this.pia.id, this.reference_to).toPromise();
+    if (theEval) {
+      this.evaluation.fromJson(theEval);
+    }
 
-      // Translation for comment's placeholder
-      if (this.evaluation.status) {
-        if (this.evaluation.status === 1) {
-          this.comment_placeholder = this._translateService.instant('evaluations.placeholder_to_correct');
-        } else if (this.evaluation.status === 3) {
-          this.comment_placeholder = this._translateService.instant('evaluations.placeholder_acceptable');
-        } else {
-          this.comment_placeholder = this._translateService.instant('evaluations.placeholder_improvable2');
-        }
-      }
-
-      this.evaluationEvent.emit(this.evaluation);
-
-      if (!this.evaluation.gauges) {
-        this.evaluation.gauges = { x: 0, y: 0 };
-      }
-
-      this.evaluationForm.controls['actionPlanComment'].patchValue(this.evaluation.action_plan_comment);
-      this.evaluationForm.controls['evaluationComment'].patchValue(this.evaluation.evaluation_comment);
-      if (this.evaluation.gauges) {
-        this.evaluationForm.controls['gaugeX'].patchValue(this.evaluation.gauges['x']);
-        this.evaluationForm.controls['gaugeY'].patchValue(this.evaluation.gauges['y']);
+    // Translation for comment's placeholder
+    if (this.evaluation.status) {
+      if (this.evaluation.status === 1) {
+        this.comment_placeholder = this._translateService.instant('evaluations.placeholder_to_correct');
+      } else if (this.evaluation.status === 3) {
+        this.comment_placeholder = this._translateService.instant('evaluations.placeholder_acceptable');
       } else {
-        this.evaluationForm.controls['gaugeX'].patchValue(0);
-        this.evaluationForm.controls['gaugeY'].patchValue(0);
+        this.comment_placeholder = this._translateService.instant('evaluations.placeholder_improvable2');
       }
-    });
+    }
+
+    this.evaluationEvent.emit(this.evaluation);
+
+    if (!this.evaluation.gauges) {
+      this.evaluation.gauges = { x: 0, y: 0 };
+    }
+
+    this.evaluationForm.controls['actionPlanComment'].patchValue(this.evaluation.action_plan_comment);
+    this.evaluationForm.controls['evaluationComment'].patchValue(this.evaluation.evaluation_comment);
+    if (this.evaluation.gauges) {
+      this.evaluationForm.controls['gaugeX'].patchValue(this.evaluation.gauges['x']);
+      this.evaluationForm.controls['gaugeY'].patchValue(this.evaluation.gauges['y']);
+    } else {
+      this.evaluationForm.controls['gaugeX'].patchValue(0);
+      this.evaluationForm.controls['gaugeY'].patchValue(0);
+    }
+
 
     if (this.item.questions) {
       const questions: any[] = this.item.questions.filter((question) => {
         return question.answer_type === 'gauge';
       });
+      let theAnswers:AnswerModel[] = await this.answerApi.getAll(this.pia.id).toPromise();
       questions.forEach(question => {
-        this.answerApi.getByRef(this.pia.id, question.id).subscribe((theAnswer: AnswerModel) => {
-          if (theAnswer && theAnswer.data) {
-            this.previousGauges[question.cartography.split('_')[1]] = theAnswer.data.gauge;
-          }
-        });
+        let theRefAnswer = theAnswers.find((item) => item.reference_to == question.id);
+        if (theRefAnswer && theRefAnswer.data) {
+          this.previousGauges[question.cartography.split('_')[1]] = theRefAnswer.data.gauge;
+        }
       });
     }
   }
