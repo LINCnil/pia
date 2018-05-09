@@ -110,7 +110,7 @@ export class ActionPlanService {
     });
 
     this.evaluationApi.getByRef(this.pia.id, '3.2').subscribe((evaluation3: EvaluationModel) => {
-      if (evaluation3.status > 0) {
+      if (evaluation3 && evaluation3.status > 0) {
         if (evaluation3.action_plan_comment && evaluation3.action_plan_comment.length > 0) {
           this.risksActionPlan32Ready = true;
         }
@@ -126,7 +126,7 @@ export class ActionPlanService {
 
     this.evaluationApi.getByRef(this.pia.id, '3.3').subscribe((evaluation4: EvaluationModel) => {
 
-      if (evaluation4.status > 0) {
+      if (evaluation4 && evaluation4.status > 0) {
         if (evaluation4.action_plan_comment && evaluation4.action_plan_comment.length > 0) {
           this.risksActionPlan33Ready = true;
         }
@@ -142,7 +142,7 @@ export class ActionPlanService {
 
 
     this.evaluationApi.getByRef(this.pia.id, '3.4').subscribe((evaluation5: EvaluationModel) => {
-      if (evaluation5.status > 0) {
+      if (evaluation5 && evaluation5.status > 0) {
         if (evaluation5.action_plan_comment && evaluation5.action_plan_comment.length > 0) {
           this.risksActionPlan34Ready = true;
         }
