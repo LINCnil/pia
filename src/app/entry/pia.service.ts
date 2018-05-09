@@ -91,13 +91,13 @@ export class PiaService {
    */
   async cancelAllValidatedEvaluation(): Promise<void> {
 
-      const results = [];
-      let entries: EvaluationModel[] = await this.evaluationApi.getAll(this.pia.id).toPromise();
-      entries.forEach(element => {
-        element.global_status = 0;
-        results.push(this.evaluationApi.update(element).toPromise());
-      });
-      await Promise.all(results);
+    const results = [];
+    let entries: EvaluationModel[] = await this.evaluationApi.getAll(this.pia.id).toPromise();
+    entries.forEach(element => {
+      element.global_status = 0;
+      results.push(this.evaluationApi.update(element).toPromise());
+    });
+    await Promise.all(results);
 
   }
 
@@ -131,7 +131,7 @@ export class PiaService {
    * @returns {Promise}
    * @memberof PiaService
    */
-  exportData(id: number):Promise<any> {
+  exportData(id: number): Promise<any> {
 
     return new Promise((resolve, reject) => {
 
@@ -171,7 +171,7 @@ export class PiaService {
    * @param {boolean} [is_example] - Is the PIA example?
    * @memberof PiaService
    */
-  async importData(data: any, prefix: string, is_duplicate: boolean, is_example?: boolean):Promise<void> {
+  async importData(data: any, prefix: string, is_duplicate: boolean, is_example?: boolean): Promise<void> {
     if (!('pia' in data)) {
       return;
     }
@@ -226,7 +226,7 @@ export class PiaService {
         measureModel.fromJson(measure);
         measureModel.pia_id = newPia.id;
         let p = this.measureApi.create(measureModel).toPromise();
-        p.then((newMeasure: MeasureModel)=>{oldIdToNewId[measure.id] = newMeasure.id;});
+        p.then((newMeasure: MeasureModel) => { oldIdToNewId[measure.id] = newMeasure.id; });
         asyncResults.push(p);
       });
       await Promise.all(asyncResults);
@@ -246,8 +246,8 @@ export class PiaService {
       });
     }
 
-    this.piaApi.computeProgress(pia).subscribe(() => this.pias.push(pia));
-
+    await this.piaApi.computeProgress(pia).toPromise();
+    this.pias.push(pia);
   }
 
   /**
@@ -312,10 +312,13 @@ export class PiaService {
     const reader = new FileReader();
     reader.readAsText(file, 'UTF-8');
 
-    reader.onload = (event: any) => {
-      const jsonFile = JSON.parse(event.target.result);
-      this.importData(jsonFile, 'IMPORT', false);
-    }
+    return new Promise((resolve, reject) => {
+      reader.onload = async (event: any) => {
+        const jsonFile = JSON.parse(event.target.result);
+        await this.importData(jsonFile, 'IMPORT', false);
+        resolve();
+      }
+    });
   }
 
   public saveCurrentPia(): Observable<PiaModel> {

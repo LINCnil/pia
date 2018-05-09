@@ -104,9 +104,10 @@ export class CardsComponent implements OnInit, OnDestroy {
    * @param {*} [event] - Any Event.
    * @memberof CardsComponent
    */
-  importPia(event?: any) {
+  async importPia(event?: any) {
     if (event) {
-      this._piaService.import(event.target.files[0]);
+      await this._piaService.import(event.target.files[0]);
+      this.sortPia();
     } else {
       this.el.nativeElement.querySelector('#import_file').click();
     }
