@@ -17,8 +17,8 @@ export class BaseModel implements Timestampable {
 
   protected mapFromJson(json:any):any{
     return {
-      created_at: moment(json.created_at).toDate(),
-      updated_at: moment(json.updated_at).toDate(),
+      created_at: json.created_at ? moment(json.created_at).toDate():null,
+      updated_at: json.updated_at ? moment(json.updated_at).toDate():null
     }
   }
 

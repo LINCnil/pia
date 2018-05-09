@@ -423,7 +423,7 @@ export class SummaryComponent implements OnInit {
             if (answerModel.data) {
               const content = [];
               if (answerModel.data.gauge && answerModel.data.gauge > 0) {
-                content.push(this._translateService.instant(this.pia.getGaugeName(answerModel.data.gauge)));
+                content.push(this._translateService.instant(this.pia.getGaugeLabel(answerModel.data.gauge)));
               }
               if (answerModel.data.text && answerModel.data.text.length > 0) {
                 content.push(answerModel.data.text);

@@ -62,16 +62,6 @@ export class PiaService {
   getPIA() {
     console.warn('getPIA is deprecated');
     return new Promise((resolve, reject) => { resolve(this.pia) });
-    /*return new Promise((resolve, reject) => {
-      const piaId = parseInt(this.route.snapshot.params['id'], 10);
-      if (!piaId) {
-        return;
-      }
-      this.piaApi.get(piaId).subscribe((thePia: PiaModel) => {
-        this.pia.fromJson(thePia);
-        resolve(this.pia);
-      });
-    });*/
   }
 
   /**
@@ -99,27 +89,16 @@ export class PiaService {
    * @returns {Promise}
    * @memberof PiaService
    */
-  async cancelAllValidatedEvaluation() {
-    return new Promise((resolve, reject) => {
-      let count = 0;
+  async cancelAllValidatedEvaluation(): Promise<void> {
 
-      this.evaluationApi.getAll(this.pia.id).subscribe((entries: any) => {
-        if (entries && entries.length > 0) {
-          entries.forEach(element => {
-            element.global_status = 0;
-            this.evaluationApi.update(element)
-              .subscribe(() => {
-                count++;
-                if (count === entries.length) {
-                  resolve();
-                }
-              });
-          });
-        } else {
-          resolve();
-        }
+      const results = [];
+      let entries: EvaluationModel[] = await this.evaluationApi.getAll(this.pia.id).toPromise();
+      entries.forEach(element => {
+        element.global_status = 0;
+        results.push(this.evaluationApi.update(element).toPromise());
       });
-    });
+      await Promise.all(results);
+
   }
 
   /**
@@ -152,7 +131,7 @@ export class PiaService {
    * @returns {Promise}
    * @memberof PiaService
    */
-  exportData(id: number) {
+  exportData(id: number):Promise<any> {
 
     return new Promise((resolve, reject) => {
 
@@ -192,12 +171,13 @@ export class PiaService {
    * @param {boolean} [is_example] - Is the PIA example?
    * @memberof PiaService
    */
-  async importData(data: any, prefix: string, is_duplicate: boolean, is_example?: boolean) {
-    if (!('pia' in data) || !('dbVersion' in data.pia)) {
+  async importData(data: any, prefix: string, is_duplicate: boolean, is_example?: boolean):Promise<void> {
+    if (!('pia' in data)) {
       return;
     }
     let pia = new PiaModel();
     const values = data.pia;
+    values.id = null;
     values.name = '(' + prefix + ') ' + values.name;
     pia.fromJson(values);
 
@@ -208,8 +188,8 @@ export class PiaService {
 
     if (is_duplicate) {
       pia.status = 0;
-      pia.created_at = new Date();
-      pia.updated_at = new Date();
+      pia.created_at = null;
+      pia.updated_at = null;
       pia.dpos_names = null;
       pia.dpo_status = null;
       pia.dpo_opinion = null;
@@ -223,70 +203,51 @@ export class PiaService {
       if (Number.isNaN(pia.status)) {
         pia.status = 0;
       }
-      pia.created_at = new Date(data.pia.created_at);
-      if (data.pia.updated_at) {
-        pia.updated_at = new Date(data.pia.updated_at);
-      }
     }
-    this.piaApi.create(pia).subscribe((newPia: PiaModel) => {
-      pia = newPia;
-      // Create answers
-      data.answers.forEach(answer => {
-        const answerModel = new AnswerModel();
-        answerModel.pia_id = pia.id;
-        answerModel.reference_to = answer.reference_to;
-        answerModel.data = answer.data;
-        answerModel.created_at = new Date(answer.created_at);
-        if (answer.updated_at) {
-          answerModel.updated_at = new Date(answer.updated_at);
-        }
-        this.answerApi.create(answerModel).subscribe();
-      });
-
-      if (data.measures.length > 0) {
-        let count = 0;
-        const oldIdToNewId = [];
-        // Create measures
-        data.measures.forEach(measure => {
-          const measureModel = new MeasureModel();
-          measureModel.title = measure.title;
-          measureModel.pia_id = newPia.id;
-          measureModel.content = measure.content;
-          measureModel.placeholder = measure.placeholder;
-          measureModel.created_at = new Date(measure.created_at);
-          if (measure.updated_at) {
-            measureModel.updated_at = new Date(measure.updated_at);
-          }
-          this.measureApi.create(measureModel).subscribe((newMeasure: MeasureModel) => {
-            count++;
-            oldIdToNewId[measure.id] = newMeasure.id;
-            if (count === data.measures.length) {
-              this.importEvaluations(data, pia.id, is_duplicate, oldIdToNewId);
-            }
-          });
-        });
-      } else {
-        this.importEvaluations(data, pia.id, is_duplicate);
-      }
-
-      if (!is_duplicate) {
-        // Create comments
-        data.comments.forEach(comment => {
-          const commentModel = new CommentModel();
-          commentModel.pia_id = pia.id;
-          commentModel.description = comment.description;
-          commentModel.reference_to = comment.reference_to;
-          commentModel.for_measure = comment.for_measure;
-          commentModel.created_at = new Date(comment.created_at);
-          if (comment.updated_at) {
-            commentModel.updated_at = new Date(comment.updated_at);
-          }
-          this.commentApi.create(commentModel).subscribe();
-        });
-      }
-      this.piaApi.computeProgress(pia)
-        .subscribe(() => this.pias.push(pia));
+    const newPia: PiaModel = await this.piaApi.create(pia).toPromise();
+    pia.fromJson(newPia);
+    // Create answers
+    data.answers.forEach(answer => {
+      answer.id = null;
+      const answerModel = new AnswerModel();
+      answerModel.fromJson(answer);
+      answerModel.pia_id = pia.id;
+      this.answerApi.create(answerModel).subscribe();
     });
+
+    if (data.measures.length > 0) {
+      let count = 0;
+      const asyncResults = [];
+      const oldIdToNewId = [];
+      // Create measures
+      data.measures.forEach(measure => {
+        measure.id = null;
+        const measureModel = new MeasureModel();
+        measureModel.fromJson(measure);
+        measureModel.pia_id = newPia.id;
+        let p = this.measureApi.create(measureModel).toPromise();
+        p.then((newMeasure: MeasureModel)=>{oldIdToNewId[measure.id] = newMeasure.id;});
+        asyncResults.push(p);
+      });
+      await Promise.all(asyncResults);
+      this.importEvaluations(data, pia.id, is_duplicate, oldIdToNewId);
+    } else {
+      this.importEvaluations(data, pia.id, is_duplicate);
+    }
+
+    if (!is_duplicate) {
+      // Create comments
+      data.comments.forEach(comment => {
+        comment.id = null;
+        const commentModel = new CommentModel();
+        commentModel.fromJson(comment);
+        commentModel.pia_id = pia.id;
+        this.commentApi.create(commentModel).subscribe();
+      });
+    }
+
+    this.piaApi.computeProgress(pia).subscribe(() => this.pias.push(pia));
+
   }
 
   /**
@@ -302,7 +263,7 @@ export class PiaService {
     if (!is_duplicate) {
       // Create evaluations
       data.evaluations.forEach(evaluation => {
-
+        evaluation.id = null;
         const evaluationModel = new EvaluationModel();
         evaluationModel.fromJson(evaluation);
         evaluationModel.pia_id = pia_id;
@@ -317,18 +278,6 @@ export class PiaService {
         }
         evaluationModel.reference_to = reference_to;
 
-        if (evaluation.evaluation_date) {
-          evaluationModel.evaluation_date = new Date(evaluation.evaluation_date);
-        }
-
-        if (evaluation.estimated_implementation_date) {
-          evaluationModel.estimated_implementation_date = new Date(evaluation.estimated_implementation_date);
-        }
-
-        evaluationModel.created_at = new Date(evaluation.created_at);
-        if (evaluation.updated_at) {
-          evaluationModel.updated_at = new Date(evaluation.updated_at);
-        }
         this.evaluationApi.create(evaluationModel).subscribe();
 
       });
@@ -362,6 +311,7 @@ export class PiaService {
   async import(file: any) {
     const reader = new FileReader();
     reader.readAsText(file, 'UTF-8');
+
     reader.onload = (event: any) => {
       const jsonFile = JSON.parse(event.target.result);
       this.importData(jsonFile, 'IMPORT', false);

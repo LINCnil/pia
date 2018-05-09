@@ -346,7 +346,7 @@ export class Pia extends ApplicationDb {
    * @returns {string} - Locale for translation.
    * @memberof Pia
    */
-  getGaugeName(value: any) {
+  getGaugeLabel(value: any) {
     if (value) {
       return `summary.gauges.${value}`;
     }

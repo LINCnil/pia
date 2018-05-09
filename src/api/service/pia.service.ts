@@ -4,6 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import { HttpClient } from '@angular/common/http';
 import { Pia } from '@api/model/pia.model';
 import { Evaluation } from '@api/model/evaluation.model';
+import { Answer } from '@api/model/answer.model';
 import { Injectable } from '@angular/core';
 import { BaseModel } from '@api/model/base.model';
 import { AnswerService } from '@api/service/answer.service';
@@ -24,7 +25,7 @@ export class PiaService extends BaseService<Pia> {
 
 
   public computeProgress(model: Pia): Observable<number> {
-    return this.answerService.getAll(model.id).map(answers => {
+    return this.answerService.getAll(model.id).map((answers:Answer[]) => {
       model.progress = Math.round((100 / model.numberOfQuestions) * answers.length);
       return model.progress;
     });

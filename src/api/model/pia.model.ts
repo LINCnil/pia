@@ -28,7 +28,7 @@ export class Pia extends BaseModel {
     return this.status >= 0 ? `pia.statuses.${this.status}` : '';
   }
 
-  getGaugeName(value: any): string {
+  getGaugeLabel(value: any): string {
     return value ? `summary.gauges.${value}` : '';
   }
 }
