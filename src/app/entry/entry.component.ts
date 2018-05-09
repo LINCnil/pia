@@ -49,9 +49,7 @@ export class EntryComponent implements OnInit, OnDestroy, DoCheck {
   async ngOnInit() {
     let sectionId = parseInt(this.route.snapshot.params['section_id'], 10);
     let itemId = parseInt(this.route.snapshot.params['item_id'], 10);
-
     this.data = await this._appDataService.getDataNav();
-
     this.route.params.subscribe(
       (params: Params) => {
         sectionId = parseInt(params['section_id'], 10);
@@ -67,7 +65,7 @@ export class EntryComponent implements OnInit, OnDestroy, DoCheck {
     });
   }
 
-  ngDoCheck() {
+  async ngDoCheck() {
     if (this.measureToRemoveFromTags && this.measureToRemoveFromTags.length > 0) {
       const measureName = this.measureToRemoveFromTags;
       this.measureToRemoveFromTags = null;
@@ -86,21 +84,37 @@ export class EntryComponent implements OnInit, OnDestroy, DoCheck {
 
       // Keep only questions with measures lists
       const listQuestions = itemsQuestions.filter(v => Object.keys(v).length !== 0);
+      const theAnswers: AnswerModel[] = await this.answerApi.getAll(this._piaService.pia.id).toPromise();
 
-      // For each of these questions, get their respective answer
       listQuestions.forEach(questionsSet => {
         questionsSet.forEach(q => {
 
-          this.answerApi.getByRef(this._piaService.pia.id, q.id).subscribe((theAnswer: AnswerModel) => {
-            if (theAnswer.data && theAnswer.data.list.length > 0 && theAnswer.data.list.includes(measureName)) {
-              const index = theAnswer.data.list.indexOf(measureName);
-              theAnswer.data.list.splice(index, 1);
-              this.answerApi.update(theAnswer).subscribe();
-
-            }
+          let theRefAnswer = theAnswers.find((a) => {
+            return a.reference_to == q.id;
           });
+
+          if (theRefAnswer && theRefAnswer.data.list.length > 0 && theRefAnswer.data.list.includes(measureName)) {
+            const index = theRefAnswer.data.list.indexOf(measureName);
+            theRefAnswer.data.list.splice(index, 1);
+            this.answerApi.update(theRefAnswer).subscribe();
+          }
         });
       });
+
+      // For each of these questions, get their respective answer
+      // listQuestions.forEach(questionsSet => {
+      //   questionsSet.forEach(q => {
+      //
+      //     this.answerApi.getByRef(this._piaService.pia.id, q.id).subscribe((theAnswer: AnswerModel) => {
+      //       if (theAnswer.data && theAnswer.data.list.length > 0 && theAnswer.data.list.includes(measureName)) {
+      //         const index = theAnswer.data.list.indexOf(measureName);
+      //         theAnswer.data.list.splice(index, 1);
+      //         this.answerApi.update(theAnswer).subscribe();
+      //
+      //       }
+      //     });
+      //   });
+      // });
     }
   }
 

@@ -182,32 +182,22 @@ export class GlobalEvaluationService {
    * Cancel validation and return in evaluation mode.
    * @memberof GlobalEvaluationService
    */
-  cancelValidation() {
+  async cancelValidation() {
     if (this.item.evaluation_mode === 'item') {
 
-      this.evaluationApi.getByRef(this.pia.id, this.reference_to)
-        .subscribe(async (theEval: EvaluationModel) => {
-          theEval.global_status = 1;
-          this.evaluationApi.update(theEval)
-            .subscribe(async (updatedEval: EvaluationModel) => {
-              this.validate();
-            });
-        });
-    } else if (this.answersOrMeasures.length > 0) {
-      let count = 0;
-      this.answersOrMeasures.forEach((answerOrMeasure) => {
-        this.evaluationApi.getByRef(this.pia.id, this.getAnswerReferenceTo(answerOrMeasure))
-          .subscribe(async (theEval: EvaluationModel) => {
-            theEval.global_status = 1;
-            this.evaluationApi.update(theEval)
-              .subscribe(async (updatedEval: EvaluationModel) => {
-                count++;
-                if (count === this.answersOrMeasures.length) {
-                  this.validate();
-                }
-              });
-          });
+      let theEval: EvaluationModel = await this.evaluationApi.getByRef(this.pia.id, this.reference_to).toPromise();
 
+      theEval.global_status = 1;
+      await this.evaluationApi.update(theEval).toPromise();
+      this.validate();
+
+    } else if (this.answersOrMeasures.length > 0) {
+
+      this.answersOrMeasures.forEach(async (answerOrMeasure) => {
+        let theEval: EvaluationModel = await this.evaluationApi.getByRef(this.pia.id, this.getAnswerReferenceTo(answerOrMeasure)).toPromise();
+        theEval.global_status = 1;
+        await this.evaluationApi.update(theEval).toPromise();
+        this.validate();
       });
     }
   }
@@ -287,28 +277,24 @@ export class GlobalEvaluationService {
    * @memberof GlobalEvaluationService
    */
   private async createOrUpdateEvaluation(new_reference_to?: string) {
-    return new Promise((resolve, reject) => {
+    return new Promise(async (resolve, reject) => {
       const reference_to = new_reference_to ? new_reference_to : this.reference_to;
 
-      this.evaluationApi.getByRef(this.pia.id, reference_to)
-        .subscribe((theEval: EvaluationModel) => {
-          if (!theEval) {
-            const newEval = new EvaluationModel();
-            newEval.pia_id = this.pia.id;
-            newEval.reference_to = reference_to;
-            this.evaluationApi.create(newEval).subscribe(() => {
-              resolve();
-            });
-          } else if (theEval.status === 1) {
-            theEval.global_status = 0;
-            this.evaluationApi.update(theEval).subscribe(() => {
-              resolve();
-            });
-          } else {
-            resolve();
-          }
-        });
+      let theEval: EvaluationModel = await this.evaluationApi.getByRef(this.pia.id, reference_to).toPromise();
+
+      if (!theEval) {
+        const newEval = new EvaluationModel();
+        newEval.pia_id = this.pia.id;
+        newEval.reference_to = reference_to;
+        await this.evaluationApi.create(newEval).toPromise();
+      } else if (theEval.status === 1) {
+        theEval.global_status = 0;
+        await this.evaluationApi.update(theEval).toPromise();
+      }
+      resolve();
+
     });
+
   }
 
   /**
@@ -317,6 +303,7 @@ export class GlobalEvaluationService {
    * @memberof GlobalEvaluationService
    */
   private verification() {
+
     if (!this.answersOrMeasures) {
       return;
     }
@@ -519,44 +506,33 @@ export class GlobalEvaluationService {
   private async answersVerification() {
     let count = 0;
     this.answersOrMeasures = [];
-    return new Promise((resolve, reject) => {
+    return new Promise(async (resolve, reject) => {
       if (this.item.is_measure) {
-
-        this.measureApi.getAll(this.pia.id).subscribe((measures: MeasureModel[]) => {
-          if (measures && measures.length > 0) {
-            this.questionsOrMeasures = measures;
-            measures.forEach(measure => {
-              count++;
-              if (measure.title && measure.title.length > 0 && measure.content && measure.content.length > 0) {
-                this.answersOrMeasures.push(measure);
-              }
-              if (count === measures.length) {
-                resolve();
-              }
-            });
-          } else {
-            resolve();
-          }
-        });
+        let measures: MeasureModel[] = await this.measureApi.getAll(this.pia.id).toPromise();
+        if (measures.length > 0) {
+          this.questionsOrMeasures = measures;
+          measures.forEach(measure => {
+            if (measure.title && measure.title.length > 0 && measure.content && measure.content.length > 0) {
+              this.answersOrMeasures.push(measure);
+            }
+          });
+        }
+        resolve();
 
       } else {
         this.questionsOrMeasures = this.item.questions;
-        if (this.item.questions) {
-          this.item.questions.forEach((question: any) => {
-            this.answerApi.getByRef(this.pia.id, question.id).subscribe((theAnswer: AnswerModel) => {
-              count++;
-              if (theAnswer) {
-                this.answersOrMeasures.push(theAnswer);
-              }
-              if (count === this.item.questions.length) {
-                resolve();
-              }
-            });
 
+        if (this.item.questions) {
+          let theAnswers = await this.answerApi.getAll(this.pia.id).toPromise();
+
+          this.item.questions.forEach((question: any) => {
+            let theRefAnswer = theAnswers.find((item) => item.reference_to == question.id);
+            if (theRefAnswer) {
+              this.answersOrMeasures.push(theRefAnswer);
+            }
           });
-        } else {
-          resolve();
         }
+        resolve();
       }
     });
   }
@@ -570,56 +546,43 @@ export class GlobalEvaluationService {
   private async evaluationsVerification() {
     let count = 0;
     this.evaluations = [];
-    return new Promise((resolve, reject) => {
+    return new Promise(async (resolve, reject) => {
+
       if (this.item.evaluation_mode === 'item') {
 
-        this.evaluationApi.getByRef(this.pia.id, this.reference_to).subscribe((theEval: EvaluationModel) => {
-          
-          this.evaluations = theEval ? [theEval] : [];
-          resolve();
-        });
+        let theEval = await this.evaluationApi.getByRef(this.pia.id, this.reference_to).toPromise();
+        this.evaluations = theEval ? [theEval] : [];
+        return resolve();
 
       } else if (this.item.is_measure) {
 
-        this.measureApi.getAll(this.pia.id).subscribe((theMeasures: MeasureModel[]) => {
-          if (theMeasures && theMeasures.length > 0) {
-            theMeasures.forEach(measure => {
+        const theMeasures = await this.measureApi.getAll(this.pia.id).toPromise();
+        const theEvaluations = await this.evaluationApi.getAll(this.pia.id).toPromise();
 
-              this.evaluationApi.getByRef(this.pia.id, this.reference_to + '.' + measure.id)
-                .subscribe((theEval: EvaluationModel) => {
-                  count++;
-                  if (theEval) {
-                    this.evaluations.push(theEval);
-                  }
-                  if (count === theMeasures.length) {
-                    resolve();
-                  }
-                });
-            });
-          } else {
-            resolve();
-          }
-        });
-      } else if (this.item.evaluation_mode === 'question') {
-        this.item.questions.forEach(question => {
-
-          this.answerApi.getByRef(this.pia.id, question.id).subscribe((theAnswer: AnswerModel) => {
-            if (theAnswer) {
-              this.evaluationApi.getByRef(this.pia.id, this.reference_to + '.' + theAnswer.reference_to)
-                .subscribe((theEval: EvaluationModel) => {
-                  count++;
-                  if (theEval) {
-                    this.evaluations.push(theEval);
-                  }
-                  if (count === this.item.questions.length) {
-                    resolve();
-                  }
-                });
-            } else {
-              resolve();
+        if (theMeasures && theMeasures.length > 0) {
+          theMeasures.forEach(measure => {
+            let theRefEval = theEvaluations.find((item) => item.reference_to == (this.reference_to + '.' + measure.id));
+            if (theRefEval) {
+              this.evaluations.push(theRefEval);
             }
           });
+          return resolve();
+        }
+      } else if (this.item.evaluation_mode === 'question') {
+
+        const theAnswers = await this.answerApi.getAll(this.pia.id).toPromise();
+        const theEvaluations = await this.evaluationApi.getAll(this.pia.id).toPromise();
+
+        this.item.questions.forEach(question => {
+          let theRefAnswer = theAnswers.find((item) => item.reference_to == question.id);
+          if (theRefAnswer) {
+            let theRefEval = theEvaluations.find((item) => item.reference_to == (this.reference_to + '.' + theRefAnswer.reference_to));
+            if (theRefEval) {
+              this.evaluations.push(theRefEval);
+            }
+          }
         });
+        return resolve();
       }
     });
   }
@@ -633,17 +596,12 @@ export class GlobalEvaluationService {
    */
   private async deleteEvaluationInDb(reference_to: string) {
 
-    return new Promise((resolve, reject) => {
-
-      this.evaluationApi.getByRef(this.pia.id, reference_to).subscribe((theEval: EvaluationModel) => {
-        if (theEval) {
-          this.evaluationApi.delete(theEval).subscribe(() => {
-            resolve();
-          });
-        } else {
-          resolve();
-        }
-      });
+    return new Promise(async (resolve, reject) => {
+      let theRefEval = await this.evaluationApi.getByRef(this.pia.id, reference_to).toPromise();
+      if (theRefEval) {
+        await this.evaluationApi.delete(theRefEval).toPromise();
+      }
+      resolve();
     });
   }
 

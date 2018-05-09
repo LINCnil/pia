@@ -54,45 +54,43 @@ export class QuestionsComponent implements OnInit, OnDestroy {
       text: new FormControl(),
       list: new FormControl()
     });
-    this.answerApi.getByRef(this.pia.id, this.question.id).subscribe((theAnswer: AnswerModel) => {
-      this.answer = theAnswer;
-      if (this.answer && this.answer.data) {
-        let evaluationRefTo: string = this.answer.id.toString();
-        if (this.item.evaluation_mode === 'item') {
-          evaluationRefTo = this.section.id + '.' + this.item.id;
-        }
+    this.answer = await this.answerApi.getByRef(this.pia.id, this.question.id).toPromise();
 
-        this.evaluationApi.getByRef(this.pia.id, evaluationRefTo).subscribe((theEval: EvaluationModel) => {
-          if (theEval) {
-            this.evaluation.fromJson(theEval);
-          }
-        });
-
-        this.questionForm.controls['gauge'].patchValue(this.answer.data.gauge);
-        this.questionForm.controls['text'].patchValue(this.answer.data.text);
-        if (this.answer.data.list) {
-          const dataList = this.answer.data.list.filter((l) => {
-            return (l && l.length > 0);
-          })
-          this.questionForm.controls['list'].patchValue(dataList);
-        }
-        if (this.el.nativeElement.querySelector('.pia-gaugeBlock-background')) {
-          this.el.nativeElement.querySelector('.pia-gaugeBlock-background').classList.
-            add('pia-gaugeBlock-background-' + this.answer.data.gauge);
-        }
+    if (this.answer && this.answer.data) {
+      let evaluationRefTo: string = this.answer.id.toString();
+      if (this.item.evaluation_mode === 'item') {
+        evaluationRefTo = this.section.id + '.' + this.item.id;
       }
-    });
+
+      const theEval: EvaluationModel = await this.evaluationApi.getByRef(this.pia.id, evaluationRefTo).toPromise();
+      if (theEval) {
+        this.evaluation.fromJson(theEval);
+      }
+
+      this.questionForm.controls['gauge'].patchValue(this.answer.data.gauge);
+      this.questionForm.controls['text'].patchValue(this.answer.data.text);
+      if (this.answer.data.list) {
+        const dataList = this.answer.data.list.filter((l) => {
+          return (l && l.length > 0);
+        })
+        this.questionForm.controls['list'].patchValue(dataList);
+      }
+      if (this.el.nativeElement.querySelector('.pia-gaugeBlock-background')) {
+        this.el.nativeElement.querySelector('.pia-gaugeBlock-background').classList.
+          add('pia-gaugeBlock-background-' + this.answer.data.gauge);
+      }
+    }
 
     this.measure.pia_id = this.pia.id;
-    this.measureApi.getAll(this.pia.id).subscribe((entries: MeasureModel[]) => {
-      if (entries) {
-        entries.forEach(entry => {
-          if (entry.title) {
-            this.userMeasures.push(entry.title);
-          }
-        });
-      }
-    });
+    let entries: MeasureModel[] = await this.measureApi.getAll(this.pia.id).toPromise();
+    if (entries) {
+      entries.forEach(entry => {
+        if (entry.title) {
+          this.userMeasures.push(entry.title);
+        }
+      });
+    }
+
   }
 
   ngOnChanges(changes) {
