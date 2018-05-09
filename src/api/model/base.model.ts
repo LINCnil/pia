@@ -11,17 +11,25 @@ export class BaseModel implements Timestampable {
     if (typeof json === 'string') {
       return this.fromJson(JSON.parse(json));
     } else {
-      return Object.assign(this, json, {
-        created_at: moment(json.created_at).toDate(),
-        updated_at: moment(json.updated_at).toDate(),
-      });
+      return Object.assign(this, json, this.mapFromJson(json));
+    }
+  }
+
+  protected mapFromJson(json:any):any{
+    return {
+      created_at: moment(json.created_at).toDate(),
+      updated_at: moment(json.updated_at).toDate(),
     }
   }
 
   public toJson(): any {
-    return Object.assign({}, this, {
+    return Object.assign({}, this, this.mapToJson());
+  }
+
+  protected mapToJson():any{
+    return {
       created_at: this.created_at ? moment(this.created_at).format() : null,
       updated_at: this.updated_at ? moment(this.updated_at).format() : null
-    });
+    }
   }
 }

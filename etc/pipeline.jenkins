@@ -1,0 +1,74 @@
+pipeline {
+    agent {
+        dockerfile {
+            filename "etc/dockerfile.jenkins"
+            additionalBuildArgs '--build-arg UID=$(id -u) --build-arg GID=$(id -g)'
+            args '--network=ci.network'
+        }
+    }
+    
+    environment {
+        NVM_DIR="/home/jenkins/.nvm"
+        /* warnings, can't use "$HOME/.nvm" as it is not the same in docker and host ... */     
+    }
+    
+    options {
+        timeout(time: 1, unit: 'HOURS')
+        timestamps()
+        disableConcurrentBuilds()
+        ansiColor('xterm')
+    }
+    
+    stages {
+    	stage ('Where Am I') {
+            steps {
+                sh "uname -a"
+                sh ". ${env.NVM_DIR}/nvm.sh && npm -v"
+                sh ". ${env.NVM_DIR}/nvm.sh && node -v"
+            }
+        }
+        
+        stage ('Composer Install') {
+            steps {
+                sh ". ${env.NVM_DIR}/nvm.sh && npm install --no-interaction"
+            }
+        }
+
+        stage ('Configuration') {
+            steps {
+                sh "echo waiting merge of new-backend to add some config step"
+            }
+        }
+        
+        stage ('Build Project') {
+            steps {
+                sh ". ${env.NVM_DIR}/nvm.sh && ng build"
+            }
+        }
+        
+       /* stage ('Run Server') {
+            steps {
+                sh ". ${env.NVM_DIR}/nvm.sh && ng serve"
+            }
+        }*/
+        
+        stage ('Run Test') {
+            steps {
+                sh "echo waiting for test creation"
+            }
+        }
+        
+        stage ('Create Archive') {
+            steps {
+                sh "echo waiting for something smart to add in archive"
+            }
+        }
+        
+    }
+    
+    post {
+        always {
+            cleanWs()
+        }
+    }
+}

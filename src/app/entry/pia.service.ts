@@ -9,7 +9,7 @@ import { ActionPlanService } from 'app/entry/entry-content/action-plan//action-p
 //new imports
 
 import { Observable } from 'rxjs/Rx';
-import {BehaviorSubject} from 'rxjs/BehaviorSubject';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { PiaModel, AnswerModel, CommentModel, EvaluationModel, MeasureModel, AttachmentModel } from '@api/models';
 import { PiaApi, AnswerApi, CommentApi, EvaluationApi, MeasureApi, AttachmentApi } from '@api/services';
 
@@ -34,20 +34,35 @@ export class PiaService {
     private measureApi: MeasureApi,
     private attachmentApi: AttachmentApi
   ) {
-    this.getPIA(); //temp hack
     this._appDataService.getDataNav().then((dataNav) => {
       this.data = dataNav;
     });
   }
 
   /**
+   * Get the current PIA.
+   * @return { Observable<PiaModel> }
+  * @memberof PiaService
+  */
+  retrieveCurrentPIA(id: number): Observable<PiaModel> {
+
+    return this.piaApi.get(id).map((thePia: PiaModel) => {
+      this.pia.fromJson(thePia);
+      return this.pia;
+    });
+
+  }
+
+  /**
    * Get the PIA.
    * @return {Promise}
    * @memberof PiaService
+   * @deprecated
    */
   getPIA() {
-
-    return new Promise((resolve, reject) => {
+    console.warn('getPIA is deprecated');
+    return new Promise((resolve, reject) => { resolve(this.pia) });
+    /*return new Promise((resolve, reject) => {
       const piaId = parseInt(this.route.snapshot.params['id'], 10);
       if (!piaId) {
         return;
@@ -56,7 +71,7 @@ export class PiaService {
         this.pia.fromJson(thePia);
         resolve(this.pia);
       });
-    });
+    });*/
   }
 
   /**
@@ -151,10 +166,10 @@ export class PiaService {
         }
         Observable
           .forkJoin(
-          this.answerApi.getAll(id),
-          this.measureApi.getAll(id),
-          this.evaluationApi.getAll(id),
-          this.commentApi.getAll(id),
+            this.answerApi.getAll(id),
+            this.measureApi.getAll(id),
+            this.evaluationApi.getAll(id),
+            this.commentApi.getAll(id),
           //this.attachmentApi.getAll(id),
         )
           .subscribe((values) => {

@@ -14,7 +14,7 @@ import { PiaApi } from '@api/services';
   selector: 'app-modals',
   templateUrl: './modals.component.html',
   styleUrls: ['./modals.component.scss'],
-  providers: [PiaService]
+  providers: []
 })
 export class ModalsComponent implements OnInit {
   @Input() pia: any;
@@ -33,7 +33,7 @@ export class ModalsComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this._piaService.getPIA();
+    //this._piaService.getPIA();
     this.piaForm = new FormGroup({
       name: new FormControl(),
       author_name: new FormControl(),

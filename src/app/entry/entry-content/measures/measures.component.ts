@@ -1,9 +1,6 @@
 import { Component, Input, ElementRef, Renderer2, OnInit, OnDestroy, NgZone } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ModalsService } from 'app/modals/modals.service';
-import { Measure } from './measure.model';
-import { Answer } from 'app/entry/entry-content/questions/answer.model';
-import { Evaluation } from 'app/entry/entry-content/evaluations/evaluation.model';
 import { KnowledgeBaseService } from 'app/entry/knowledge-base/knowledge-base.service';
 import { GlobalEvaluationService } from 'app/services/global-evaluation.service';
 
@@ -17,7 +14,7 @@ import { EvaluationApi, AnswerApi, MeasureApi } from '@api/services';
 })
 export class MeasuresComponent implements OnInit, OnDestroy {
 
-  @Input() measure: Measure;
+  @Input() measure: MeasureModel;
   @Input() item: any;
   @Input() section: any;
   @Input() pia: any;
@@ -49,7 +46,7 @@ export class MeasuresComponent implements OnInit, OnDestroy {
       this.measureModel.fromJson(theMeasure);
       this._knowledgeBaseService.toHide.push(this.measure.title);
       this.elementId = 'pia-measure-content-' + this.measure.id;
-      if (this.measureModel) {
+      if (this.measureModel !== null) {
         this.measureForm.controls['measureTitle'].patchValue(this.measureModel.title);
         this.measureForm.controls['measureContent'].patchValue(this.measureModel.content);
         if (this.measureModel.title) {
@@ -130,7 +127,7 @@ export class MeasuresComponent implements OnInit, OnDestroy {
 
       // Update tags
       this.answerApi.getByRef(this.pia.id, 324).subscribe((theAnswer: AnswerModel) => {
-        if (theAnswer.data && theAnswer.data.list) {
+        if (theAnswer && theAnswer.data && theAnswer.data.list) {
           const index = theAnswer.data.list.indexOf(previousTitle);
           if (~index) {
             theAnswer.data.list[index] = this.measureModel.title;
@@ -140,7 +137,7 @@ export class MeasuresComponent implements OnInit, OnDestroy {
       });
 
       this.answerApi.getByRef(this.pia.id, 334).subscribe((theAnswer2: AnswerModel) => {
-        if (theAnswer2.data && theAnswer2.data.list) {
+        if (theAnswer2 && theAnswer2.data && theAnswer2.data.list) {
           const index = theAnswer2.data.list.indexOf(previousTitle);
           if (~index) {
             theAnswer2.data.list[index] = this.measureModel.title;
@@ -150,7 +147,7 @@ export class MeasuresComponent implements OnInit, OnDestroy {
       });
 
       this.answerApi.getByRef(this.pia.id, 344).subscribe((theAnswer3: AnswerModel) => {
-        if (theAnswer3.data && theAnswer3.data.list) {
+        if (theAnswer3 && theAnswer3.data && theAnswer3.data.list) {
           const index = theAnswer3.data.list.indexOf(previousTitle);
           if (~index) {
             theAnswer3.data.list[index] = this.measureModel.title;

@@ -25,7 +25,7 @@ export class EvaluationService extends BaseService<Evaluation> {
   }
 
   public getByRef(piaId: any, ref: any): Observable<Evaluation> {
-    return this.httpGetOne(this.routing.all, {piaId: piaId}, {reference_to: ref});
+    return this.httpGetFirst(this.routing.all, {piaId: piaId}, {reference_to: ref});
   }
 
   public update(model: Evaluation): Observable<Evaluation> {

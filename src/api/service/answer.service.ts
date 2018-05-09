@@ -25,7 +25,7 @@ export class AnswerService extends BaseService<Answer> {
   }
 
   public getByRef(piaId: any, ref: any): Observable<Answer> {
-    return this.httpGetOne(this.routing.all, { piaId: piaId }, { reference_to: ref });
+    return this.httpGetFirst(this.routing.all, { piaId: piaId }, { reference_to: ref });
   }
 
   public update(model: Answer): Observable<Answer> {

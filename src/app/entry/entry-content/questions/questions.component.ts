@@ -11,7 +11,7 @@ import { Evaluation } from 'app/entry/entry-content/evaluations/evaluation.model
 import { GlobalEvaluationService } from '../../../services/global-evaluation.service';
 
 //new imports
-import { AnswerModel, EvaluationModel, MeasureModel} from '@api/models';
+import { AnswerModel, EvaluationModel, MeasureModel } from '@api/models';
 import { AnswerApi, EvaluationApi, MeasureApi } from '@api/services';
 
 @Component({
@@ -56,14 +56,16 @@ export class QuestionsComponent implements OnInit, OnDestroy {
     });
     this.answerApi.getByRef(this.pia.id, this.question.id).subscribe((theAnswer: AnswerModel) => {
       this.answer = theAnswer;
-      if (this.answer.data) {
+      if (this.answer && this.answer.data) {
         let evaluationRefTo: string = this.answer.id.toString();
         if (this.item.evaluation_mode === 'item') {
           evaluationRefTo = this.section.id + '.' + this.item.id;
         }
 
         this.evaluationApi.getByRef(this.pia.id, evaluationRefTo).subscribe((theEval: EvaluationModel) => {
-          this.evaluation = theEval;
+          if (theEval) {
+            this.evaluation.fromJson(theEval);
+          }
         });
 
         this.questionForm.controls['gauge'].patchValue(this.answer.data.gauge);
@@ -94,11 +96,11 @@ export class QuestionsComponent implements OnInit, OnDestroy {
   }
 
   ngOnChanges(changes) {
-        // only run when property "data" changed
-        if (changes['pia']) {
-            //console.log(this.pia);
-        }
+    // only run when property "data" changed
+    if (changes['pia']) {
+      //console.log(this.pia);
     }
+  }
 
   ngOnDestroy() {
     tinymce.remove(this.editor);
@@ -139,7 +141,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
     bgElement.classList.remove('pia-gaugeBlock-background-4');
     bgElement.classList.add('pia-gaugeBlock-background-' + value);
     const gaugeValue = parseInt(this.questionForm.value.gauge, 10);
-    if (this.answer.id) {
+    if (this.answer && this.answer.id) {
       this.answer.data = { text: this.answer.data.text, gauge: gaugeValue, list: this.answer.data.list };
       this.answerApi.update(this.answer).subscribe((updatedAnswer: AnswerModel) => {
         this.answer = updatedAnswer;
@@ -148,6 +150,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
         });
       });
     } else {
+      this.answer = new AnswerModel();
       this.answer.pia_id = this.pia.id;
       this.answer.reference_to = this.question.id;
       this.answer.data = { text: null, gauge: gaugeValue, list: [] };
@@ -179,7 +182,8 @@ export class QuestionsComponent implements OnInit, OnDestroy {
     if (userText) {
       userText = userText.replace(/^\s+/, '').replace(/\s+$/, '');
     }
-    if (this.answer.id) {
+    //update
+    if (this.answer) {
       this.answer.data = { text: userText, gauge: this.answer.data.gauge, list: this.answer.data.list };
       this.answerApi.update(this.answer).subscribe((updatedAnswer: AnswerModel) => {
         this.answer = updatedAnswer;
@@ -187,8 +191,10 @@ export class QuestionsComponent implements OnInit, OnDestroy {
           this._globalEvaluationService.validate();
         });
       });
-    } else if (!this.answer.id && userText !== '') {
+      //create
+    } else if (!this.answer && userText !== '') {
       if (this.questionForm.value.text && this.questionForm.value.text.length > 0) {
+        this.answer = new AnswerModel();
         this.answer.pia_id = this.pia.id;
         this.answer.reference_to = this.question.id;
         const gaugeValueForCurrentQuestion = this.question.answer_type === 'gauge' ? 0 : null;
@@ -211,7 +217,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
   onAdd(event) {
     if (event && event.value.length > 0) {
       let list = [];
-      if (this.answer.id) {
+      if (this.answer && this.answer.id) {
         list = this.answer.data.list;
       }
       if (list.indexOf(event.value) <= 0) {
@@ -242,7 +248,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
    */
   onRemove(event) {
     let list = [];
-    if (this.answer.id) {
+    if (this.answer) {
       list = this.answer.data.list;
     }
     let valueToRemove;
@@ -265,7 +271,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
    */
   onTagEdited(event) {
     let list = [];
-    if (this.answer.id) {
+    if (this.answer) {
       list = this.answer.data.list;
     }
     const index = list.indexOf(this.lastSelectedTag);
@@ -288,7 +294,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
   onBlur(event) {
     if (event && event.length > 0) {
       let list = [];
-      if (this.answer.id) {
+      if (this.answer) {
         list = this.answer.data.list;
       }
       if (list.indexOf(event) <= 0) {
@@ -305,7 +311,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
    * @memberof QuestionsComponent
    */
   private createOrUpdateList(list: string[]) {
-    if (this.answer.id) {
+    if (this.answer) {
       this.answer.data = { text: this.answer.data.text, gauge: this.answer.data.gauge, list: list };
 
       this.answerApi.update(this.answer).subscribe((updatedAnswer: AnswerModel) => {
@@ -313,6 +319,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
         this._globalEvaluationService.validate();
       });
     } else {
+      this.answer = new AnswerModel();
       this.answer.pia_id = this.pia.id;
       this.answer.reference_to = this.question.id;
       this.answer.data = { text: null, gauge: null, list: list };
