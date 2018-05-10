@@ -1,0 +1,14 @@
+
+export const environment = {
+  name: 'development',
+  production: false,
+  version: 'DEV',
+  rollbar_key: '',
+  date_format: 'DD MM YY HH:mm:ss',
+  api: {
+    client_id:     '{{getv "/api/client/id"}}',
+    client_secret: '{{getv "/api/client/secret"}}',
+    host:          '{{getv "/api/host/url"}}',
+    token_path:    '/oauth/v2/token'
+  },
+};
