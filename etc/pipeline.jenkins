@@ -31,9 +31,9 @@ pipeline {
 
     	stage ('Set Env') {
             steps {
-                sh "etcdctl put /default/api/client/id 1234 --endpoints=http://${env.ETCDHOST}:2379"
-                sh "etcdctl put /default/api/client/secret 4321 --endpoints=http://${env.ETCDHOST}:2379"
-                sh "etcdctl put /default/api/host/url 'http://localhost:8000' --endpoints=http://${env.ETCDHOST}:2379"
+                sh "ETCDCTL_API=3 etcdctl put /default/api/client/id 1234 --endpoints=http://${env.ETCDHOST}:2379"
+                sh "ETCDCTL_API=3 etcdctl put /default/api/client/secret 4321 --endpoints=http://${env.ETCDHOST}:2379"
+                sh "ETCDCTL_API=3 etcdctl put /default/api/host/url 'http://localhost:8000' --endpoints=http://${env.ETCDHOST}:2379"
                 sh "confd -onetime -backend etcdv3 -node http://${env.ETCDHOST}:2379 -confdir ./etc/confd -log-level debug -prefix /default"
                 sh "cat src/environments/environment.ts"
             }
