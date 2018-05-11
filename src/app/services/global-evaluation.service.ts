@@ -1,27 +1,42 @@
 import { Injectable } from '@angular/core';
-import {BehaviorSubject} from 'rxjs/BehaviorSubject';
-import {Answer} from '../entry/entry-content/questions/answer.model';
-import {Evaluation} from '../entry/entry-content/evaluations/evaluation.model';
-import {Measure} from '../entry/entry-content/measures/measure.model';
-import {Pia} from '../entry/pia.model';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { PiaService } from 'app/entry/pia.service';
 import { Observable } from 'rxjs/Observable';
+
+// new imports
+import { Pia as PiaModel } from '@api/model/pia.model';
+import { Evaluation as EvaluationModel } from '@api/model/evaluation.model';
+import { Answer as AnswerModel } from '@api/model/answer.model';
+import { Measure as MeasureModel } from '@api/model/measure.model';
+import { PiaService as PiaApi } from '@api/service/pia.service';
+import { EvaluationService as EvaluationApi } from '@api/service/evaluation.service';
+import { AnswerService as AnswerApi } from '@api/service/answer.service';
+import { MeasureService as MeasureApi } from '@api/service/measure.service';
+
 
 @Injectable()
 export class GlobalEvaluationService {
-  public pia: Pia;
+  public pia: PiaModel;
   public section: any;
   public item: any;
-  public status: number;
+  public status: number = 0;
   public answerEditionEnabled = false;
   public evaluationEditionEnabled = false;
   public reference_to: string;
   public enablePiaValidation: boolean;
   public piaIsRefused: boolean;
   private questionsOrMeasures: Array<any>;
-  private answersOrMeasures: Array<Answer|Measure>;
-  private evaluations: Array<Evaluation>;
+  private answersOrMeasures: Array<AnswerModel | MeasureModel>;
+  private evaluations: Array<EvaluationModel>;
 
   public behaviorSubject = new BehaviorSubject<Object>({});
+
+
+  constructor(
+    private evaluationApi: EvaluationApi,
+    private answerApi: AnswerApi,
+    private measureApi: MeasureApi,
+  ) { }
 
   /**
    * Verifications for answers and evaluations.
@@ -71,7 +86,7 @@ export class GlobalEvaluationService {
       } else {
         await this.answersVerification();
         let count = 0;
-        this.answersOrMeasures.forEach(async (answerOrMeasure: Answer|Measure) => {
+        this.answersOrMeasures.forEach(async (answerOrMeasure: AnswerModel | MeasureModel) => {
           count++;
           this.createOrUpdateEvaluation(this.getAnswerReferenceTo(answerOrMeasure));
           if (count === this.answersOrMeasures.length) {
@@ -91,47 +106,51 @@ export class GlobalEvaluationService {
   async validateAllEvaluation() {
     return new Promise((resolve, reject) => {
       if (this.item.evaluation_mode === 'item') {
-        const evaluation = new Evaluation();
-        evaluation.getByReference(this.pia.id, this.reference_to).then(async () => {
-          if (evaluation.status === 0) {
-            await this.validate();
-            resolve(false);
-          }
-          if (evaluation.status === 1) {
-            evaluation.global_status = 1;
-          } else {
-            evaluation.global_status = 2;
-          }
-          evaluation.update().then(async() => {
-            await this.validate();
-            resolve(evaluation.status === 1);
+
+        this.evaluationApi.getByRef(this.pia.id, this.reference_to)
+          .subscribe(async (theEval: EvaluationModel) => {
+            if (theEval.status === 0) {
+              await this.validate();
+              resolve(false);
+            }
+            if (theEval.status === 1) {
+              theEval.global_status = 1;
+            } else {
+              theEval.global_status = 2;
+            }
+            this.evaluationApi.update(theEval).subscribe(async (updatedEval: EvaluationModel) => {
+              await this.validate();
+              resolve(updatedEval.status === 1);
+            });
           });
-        });
+
       } else if (this.answersOrMeasures.length > 0) {
         let count = 0;
         let toFix = false;
         this.answersOrMeasures.forEach((answerOrMeasure) => {
-          const evaluation = new Evaluation();
-          evaluation.getByReference(this.pia.id, this.getAnswerReferenceTo(answerOrMeasure)).then(async() => {
-            if (evaluation.status > 0) {
-              if (evaluation.status === 1) {
-                evaluation.global_status = 1;
-                toFix = true;
-              } else {
-                evaluation.global_status = 2;
-              }
-              evaluation.update().then(async () => {
-                count++;
-                if (count === this.answersOrMeasures.length) {
-                  await this.validate();
-                  resolve(toFix);
+
+          this.evaluationApi.getByRef(this.pia.id, this.getAnswerReferenceTo(answerOrMeasure))
+            .subscribe(async (theEval: EvaluationModel) => {
+              if (theEval.status > 0) {
+                if (theEval.status === 1) {
+                  theEval.global_status = 1;
+                  toFix = true;
+                } else {
+                  theEval.global_status = 2;
                 }
-              });
-            } else {
-              await this.validate();
-              resolve(false);
-            }
-          });
+                this.evaluationApi.update(theEval).subscribe(async (updatedEval: EvaluationModel) => {
+                  count++;
+                  if (count === this.answersOrMeasures.length) {
+                    await this.validate();
+                    resolve(toFix);
+                  }
+                });
+
+              } else {
+                await this.validate();
+                resolve(false);
+              }
+            });
         });
       }
     });
@@ -163,28 +182,22 @@ export class GlobalEvaluationService {
    * Cancel validation and return in evaluation mode.
    * @memberof GlobalEvaluationService
    */
-  cancelValidation() {
+  async cancelValidation() {
     if (this.item.evaluation_mode === 'item') {
-      const evaluation = new Evaluation();
-      evaluation.getByReference(this.pia.id, this.reference_to).then(() => {
-        evaluation.global_status = 1;
-        evaluation.update().then(() => {
-          this.validate();
-        });
-      });
+
+      let theEval: EvaluationModel = await this.evaluationApi.getByRef(this.pia.id, this.reference_to).toPromise();
+
+      theEval.global_status = 1;
+      await this.evaluationApi.update(theEval).toPromise();
+      this.validate();
+
     } else if (this.answersOrMeasures.length > 0) {
-      let count = 0;
-      this.answersOrMeasures.forEach((answerOrMeasure) => {
-        const evaluation = new Evaluation();
-        evaluation.getByReference(this.pia.id, this.getAnswerReferenceTo(answerOrMeasure)).then(() => {
-          evaluation.global_status = 1;
-          evaluation.update().then(() => {
-            count++;
-            if (count === this.answersOrMeasures.length) {
-              this.validate();
-            }
-          });
-        });
+
+      this.answersOrMeasures.forEach(async (answerOrMeasure) => {
+        let theEval: EvaluationModel = await this.evaluationApi.getByRef(this.pia.id, this.getAnswerReferenceTo(answerOrMeasure)).toPromise();
+        theEval.global_status = 1;
+        await this.evaluationApi.update(theEval).toPromise();
+        this.validate();
       });
     }
   }
@@ -200,8 +213,8 @@ export class GlobalEvaluationService {
     let concernedPeopleOpinionUnsearchedFieldsFilled = false;
     // All DPO fields filled = OK
     if (this.pia.dpos_names && this.pia.dpos_names.length > 0 && (this.pia.dpo_status === 0 || this.pia.dpo_status === 1)
-        && this.pia.dpo_opinion && this.pia.dpo_opinion.length > 0) {
-        dpoFilled = true;
+      && this.pia.dpo_opinion && this.pia.dpo_opinion.length > 0) {
+      dpoFilled = true;
     }
 
     // Concerned people opinion unsearched + no search reason field filled = OK
@@ -214,16 +227,16 @@ export class GlobalEvaluationService {
     // Concerned people opinion searched + name(s) + status + opinions = OK :
     if (this.pia.concerned_people_searched_opinion === true) {
       if (this.pia.people_names && this.pia.people_names.length > 0
-          && (this.pia.concerned_people_status === 0 || this.pia.concerned_people_status === 1)
-          && this.pia.concerned_people_opinion && this.pia.concerned_people_opinion.length > 0) {
-            concernedPeopleOpinionSearchedFieldsFilled = true;
+        && (this.pia.concerned_people_status === 0 || this.pia.concerned_people_status === 1)
+        && this.pia.concerned_people_opinion && this.pia.concerned_people_opinion.length > 0) {
+        concernedPeopleOpinionSearchedFieldsFilled = true;
       }
     }
 
     // Treatment which validates the subsection if everything is OK
     // DPO filled + unsearched opinion scenario filled OR DPO filled + searched opinion scenario filled
     if ((dpoFilled === true && concernedPeopleOpinionUnsearchedFieldsFilled === true)
-        || (dpoFilled === true && concernedPeopleOpinionSearchedFieldsFilled === true)) {
+      || (dpoFilled === true && concernedPeopleOpinionSearchedFieldsFilled === true)) {
       this.status = 7;
       this.enablePiaValidation = [0, 2, 3].includes(this.pia.status);
       this.piaIsRefused = [1, 4].includes(this.pia.status);
@@ -264,26 +277,24 @@ export class GlobalEvaluationService {
    * @memberof GlobalEvaluationService
    */
   private async createOrUpdateEvaluation(new_reference_to?: string) {
-    return new Promise((resolve, reject) => {
+    return new Promise(async (resolve, reject) => {
       const reference_to = new_reference_to ? new_reference_to : this.reference_to;
-      const evaluation = new Evaluation();
-      evaluation.getByReference(this.pia.id, reference_to).then((result: any) => {
-        if (!result) {
-          evaluation.pia_id = this.pia.id;
-          evaluation.reference_to = reference_to;
-          evaluation.create().then(() => {
-            resolve();
-          });
-        } else if (evaluation.status === 1) {
-          evaluation.global_status = 0;
-          evaluation.update().then(() => {
-            resolve();
-          });
-        } else {
-          resolve();
-        }
-      });
+
+      let theEval: EvaluationModel = await this.evaluationApi.getByRef(this.pia.id, reference_to).toPromise();
+
+      if (!theEval) {
+        const newEval = new EvaluationModel();
+        newEval.pia_id = this.pia.id;
+        newEval.reference_to = reference_to;
+        await this.evaluationApi.create(newEval).toPromise();
+      } else if (theEval.status === 1) {
+        theEval.global_status = 0;
+        await this.evaluationApi.update(theEval).toPromise();
+      }
+      resolve();
+
     });
+
   }
 
   /**
@@ -292,32 +303,26 @@ export class GlobalEvaluationService {
    * @memberof GlobalEvaluationService
    */
   private verification() {
+
     if (!this.answersOrMeasures) {
       return;
     }
-    const answersOrMeasuresValid: Array<Answer|Measure> = this.answersOrMeasures.filter((answerOrMeasure: any) => {
+    const answersOrMeasuresValid: Array<AnswerModel | MeasureModel> = this.answersOrMeasures.filter((answerOrMeasure: any) => {
       if (answerOrMeasure.data !== undefined) {
         return this.answerIsValid(answerOrMeasure);
       } else {
         return this.measureIsValid(answerOrMeasure);
       }
-      // TODO Need to use the code below instead of the one above. For this we need in all the findAll()
-      // methods to return an instance of the class instead of a simple json.
-      // if (answerOrMeasure instanceof Answer) {
-      //   return this.answerIsValid(answerOrMeasure);
-      // } else if (answerOrMeasure instanceof Measure) {
-      //   return this.measureIsValid(answerOrMeasure);
-      // }
     });
     if (this.answersOrMeasures.length > 0 && answersOrMeasuresValid.length === this.questionsOrMeasures.length) {
       if (this.evaluations.length === 0) {
         this.status = 2;
       } else {
-        const evaluationsStarted: Array<Evaluation> = this.evaluations.filter((evaluation: Evaluation) => {
+        const evaluationsStarted: Array<EvaluationModel> = this.evaluations.filter((evaluation: EvaluationModel) => {
           return this.evaluationStarted(evaluation);
         });
         if (evaluationsStarted.length === this.evaluations.length) {
-          const evaluationsCompleted: Array<Evaluation> = this.evaluations.filter((evaluation: Evaluation) => {
+          const evaluationsCompleted: Array<EvaluationModel> = this.evaluations.filter((evaluation: EvaluationModel) => {
             return this.evaluationCompleted(evaluation);
           });
           if (evaluationsCompleted.length === this.evaluations.length) {
@@ -328,13 +333,13 @@ export class GlobalEvaluationService {
             }
           } else {
             // If we have one or more evaluation status "toBeFixed"
-            const evaluationToBeFixed: Array<Evaluation> = this.evaluations.filter((evaluation: Evaluation) => {
+            const evaluationToBeFixed: Array<EvaluationModel> = this.evaluations.filter((evaluation: EvaluationModel) => {
               return this.evaluationsToBeFixed(evaluation);
             });
             if (evaluationToBeFixed.length > 0) {
               this.status = 3;
             } else {
-              const evaluationsIsValid: Array<Evaluation> = this.evaluations.filter((evaluation: Evaluation) => {
+              const evaluationsIsValid: Array<EvaluationModel> = this.evaluations.filter((evaluation: EvaluationModel) => {
                 return this.evaluationIsValid(evaluation);
               });
               if (evaluationsIsValid.length > 0 && evaluationsIsValid.length === this.evaluations.length) {
@@ -345,7 +350,8 @@ export class GlobalEvaluationService {
             }
           }
         } else {
-          const evaluationsNotStarted: Array<Evaluation> = this.evaluations.filter((evaluation: Evaluation) => {
+
+          const evaluationsNotStarted: Array<EvaluationModel> = this.evaluations.filter((evaluation: EvaluationModel) => {
             return this.evaluationNotStarted(evaluation);
           });
           if (evaluationsNotStarted.length === this.evaluations.length) {
@@ -365,11 +371,11 @@ export class GlobalEvaluationService {
   /**
    * The evaluation need to be fixed?
    * @private
-   * @param {Evaluation} evaluation - An Evaluation.
+   * @param {EvaluationModel} evaluation - An Evaluation.
    * @returns {boolean}
    * @memberof GlobalEvaluationService
    */
-  private evaluationsToBeFixed(evaluation: Evaluation) {
+  private evaluationsToBeFixed(evaluation: EvaluationModel) {
     if (evaluation.status === 1 && evaluation.global_status === 1) {
       return true;
     }
@@ -379,11 +385,11 @@ export class GlobalEvaluationService {
   /**
    * The evaluation is started?
    * @private
-   * @param {Evaluation} evaluation - An Evaluation.
+   * @param {EvaluationModel} evaluation - An Evaluation.
    * @returns {boolean}
    * @memberof GlobalEvaluationService
    */
-  private evaluationStarted(evaluation: Evaluation) {
+  private evaluationStarted(evaluation: EvaluationModel) {
     if (evaluation.status > 0) {
       return true;
     }
@@ -393,11 +399,11 @@ export class GlobalEvaluationService {
   /**
    * The evaluation is completed?
    * @private
-   * @param {Evaluation} evaluation - An Evaluation.
+   * @param {EvaluationModel} evaluation - An Evaluation.
    * @returns {boolean}
    * @memberof GlobalEvaluationService
    */
-  private evaluationCompleted(evaluation: Evaluation) {
+  private evaluationCompleted(evaluation: EvaluationModel) {
     if (evaluation.status > 1 && evaluation.global_status === 2) {
       return true;
     }
@@ -407,11 +413,11 @@ export class GlobalEvaluationService {
   /**
    * The evaluation isn't started?
    * @private
-   * @param {Evaluation} evaluation - An Evaluation.
+   * @param {EvaluationModel} evaluation - An Evaluation.
    * @returns {boolean}
    * @memberof GlobalEvaluationService
    */
-  private evaluationNotStarted(evaluation: Evaluation) {
+  private evaluationNotStarted(evaluation: EvaluationModel) {
     if (evaluation.status === 0) {
       return true;
     }
@@ -421,13 +427,13 @@ export class GlobalEvaluationService {
   /**
    * Is the measure valid?
    * @private
-   * @param {Measure} measure - A Measure.
+   * @param {MeasureModel} measure - A Measure.
    * @returns {boolean}
    * @memberof GlobalEvaluationService
    */
-  private measureIsValid(measure: Measure) {
+  private measureIsValid(measure: MeasureModel) {
     if (measure.content && measure.content.length > 0 ||
-        measure.title && measure.title.length > 0) {
+      measure.title && measure.title.length > 0) {
       return true;
     }
     return false;
@@ -436,11 +442,11 @@ export class GlobalEvaluationService {
   /**
    * Is the answer valid?
    * @private
-   * @param {Answer} answer - An Answer.
+   * @param {AnswerModel} answer - An Answer.
    * @returns {boolean}
    * @memberof GlobalEvaluationService
    */
-  private answerIsValid(answer: Answer) {
+  private answerIsValid(answer: AnswerModel) {
     let valid = false;
     const gauge = answer.data.gauge;
     const text = answer.data.text;
@@ -448,7 +454,7 @@ export class GlobalEvaluationService {
 
     // First we need to find the answer_type
     const question = this.item.questions.filter((q) => {
-      return q.id === answer.reference_to;
+      return parseInt(q.id, 10) === parseInt(answer.reference_to, 10);
     });
 
     if (question.length === 1) {
@@ -468,11 +474,11 @@ export class GlobalEvaluationService {
   /**
    * Is the evaluation valid?
    * @private
-   * @param {Evaluation} evaluation - An Evaluation.
+   * @param {EvaluationModel} evaluation - An Evaluation.
    * @returns {boolean}
    * @memberof GlobalEvaluationService
    */
-  private evaluationIsValid(evaluation: Evaluation) {
+  private evaluationIsValid(evaluation: EvaluationModel) {
     if (evaluation.status === 1) {
       return evaluation.evaluation_comment && evaluation.evaluation_comment.length > 0;
     } else if (evaluation.status === 2) {
@@ -481,7 +487,7 @@ export class GlobalEvaluationService {
       }
       if (this.item.evaluation_mode === 'item' && this.item.evaluation_with_gauge === true) {
         if (evaluation.gauges && evaluation.gauges['x'] > 0 && evaluation.gauges['y'] > 0
-            && evaluation.action_plan_comment && evaluation.action_plan_comment.length > 0) {
+          && evaluation.action_plan_comment && evaluation.action_plan_comment.length > 0) {
           return true;
         }
       }
@@ -500,44 +506,33 @@ export class GlobalEvaluationService {
   private async answersVerification() {
     let count = 0;
     this.answersOrMeasures = [];
-    return new Promise((resolve, reject) => {
+    return new Promise(async (resolve, reject) => {
       if (this.item.is_measure) {
-        const measureModel = new Measure();
-        measureModel.pia_id = this.pia.id;
-        measureModel.findAll().then((measures: any[]) => {
-          if (measures && measures.length > 0) {
-            this.questionsOrMeasures = measures;
-            measures.forEach(measure => {
-              count++;
-              if (measure.title && measure.title.length > 0 && measure.content && measure.content.length > 0) {
-                this.answersOrMeasures.push(measure);
-              }
-              if (count === measures.length) {
-                resolve();
-              }
-            });
-          } else {
-            resolve();
-          }
-        });
+        let measures: MeasureModel[] = await this.measureApi.getAll(this.pia.id).toPromise();
+        if (measures.length > 0) {
+          this.questionsOrMeasures = measures;
+          measures.forEach(measure => {
+            if (measure.title && measure.title.length > 0 && measure.content && measure.content.length > 0) {
+              this.answersOrMeasures.push(measure);
+            }
+          });
+        }
+        resolve();
+
       } else {
         this.questionsOrMeasures = this.item.questions;
+
         if (this.item.questions) {
+          let theAnswers = await this.answerApi.getAll(this.pia.id).toPromise();
+
           this.item.questions.forEach((question: any) => {
-            const answerModel = new Answer();
-            answerModel.getByReferenceAndPia(this.pia.id, question.id).then((result: boolean) => {
-              count++;
-              if (result) {
-                this.answersOrMeasures.push(answerModel);
-              }
-              if (count === this.item.questions.length) {
-                resolve();
-              }
-            });
+            let theRefAnswer = theAnswers.find((item) => item.reference_to == question.id);
+            if (theRefAnswer) {
+              this.answersOrMeasures.push(theRefAnswer);
+            }
           });
-        } else {
-          resolve();
         }
+        resolve();
       }
     });
   }
@@ -551,54 +546,43 @@ export class GlobalEvaluationService {
   private async evaluationsVerification() {
     let count = 0;
     this.evaluations = [];
-    return new Promise((resolve, reject) => {
+    return new Promise(async (resolve, reject) => {
+
       if (this.item.evaluation_mode === 'item') {
-        const evaluationModel = new Evaluation();
-        evaluationModel.getByReference(this.pia.id, this.reference_to).then((result: any) => {
-          this.evaluations = result ? [evaluationModel] : [];
-          resolve();
-        });
+
+        let theEval = await this.evaluationApi.getByRef(this.pia.id, this.reference_to).toPromise();
+        this.evaluations = theEval ? [theEval] : [];
+        return resolve();
+
       } else if (this.item.is_measure) {
-        const measureModel = new Measure();
-        measureModel.pia_id = this.pia.id;
-        measureModel.findAll().then((measures: any) => {
-          if (measures && measures.length > 0) {
-            measures.forEach(measure => {
-              const evaluationModel = new Evaluation();
-              evaluationModel.getByReference(this.pia.id, this.reference_to + '.' + measure.id).then((result: any) => {
-                count++;
-                if (result) {
-                  this.evaluations.push(evaluationModel);
-                }
-                if (count === measures.length) {
-                  resolve();
-                }
-              });
-            });
-          } else {
-            resolve();
-          }
-        });
-      } else if (this.item.evaluation_mode === 'question') {
-        this.item.questions.forEach(question => {
-          const answerModel = new Answer();
-          answerModel.getByReferenceAndPia(this.pia.id, question.id).then((result: any) => {
-            if (result) {
-              const evaluationModel = new Evaluation();
-              evaluationModel.getByReference(this.pia.id, this.reference_to + '.' + answerModel.reference_to).then((result2: any) => {
-                count++;
-                if (result2) {
-                  this.evaluations.push(evaluationModel);
-                }
-                if (count === this.item.questions.length) {
-                  resolve();
-                }
-              });
-            } else {
-              resolve();
+
+        const theMeasures = await this.measureApi.getAll(this.pia.id).toPromise();
+        const theEvaluations = await this.evaluationApi.getAll(this.pia.id).toPromise();
+
+        if (theMeasures && theMeasures.length > 0) {
+          theMeasures.forEach(measure => {
+            let theRefEval = theEvaluations.find((item) => item.reference_to == (this.reference_to + '.' + measure.id));
+            if (theRefEval) {
+              this.evaluations.push(theRefEval);
             }
           });
+          return resolve();
+        }
+      } else if (this.item.evaluation_mode === 'question') {
+
+        const theAnswers = await this.answerApi.getAll(this.pia.id).toPromise();
+        const theEvaluations = await this.evaluationApi.getAll(this.pia.id).toPromise();
+
+        this.item.questions.forEach(question => {
+          let theRefAnswer = theAnswers.find((item) => item.reference_to == question.id);
+          if (theRefAnswer) {
+            let theRefEval = theEvaluations.find((item) => item.reference_to == (this.reference_to + '.' + theRefAnswer.reference_to));
+            if (theRefEval) {
+              this.evaluations.push(theRefEval);
+            }
+          }
         });
+        return resolve();
       }
     });
   }
@@ -611,17 +595,13 @@ export class GlobalEvaluationService {
    * @memberof GlobalEvaluationService
    */
   private async deleteEvaluationInDb(reference_to: string) {
-    const evaluation = new Evaluation();
-    return new Promise((resolve, reject) => {
-      evaluation.getByReference(this.pia.id, reference_to).then((entry: any) => {
-        if (entry !== false) {
-          evaluation.delete(evaluation.id).then(() => {
-            resolve();
-          });
-        } else {
-          resolve();
-        }
-      });
+
+    return new Promise(async (resolve, reject) => {
+      let theRefEval = await this.evaluationApi.getByRef(this.pia.id, reference_to).toPromise();
+      if (theRefEval) {
+        await this.evaluationApi.delete(theRefEval).toPromise();
+      }
+      resolve();
     });
   }
 

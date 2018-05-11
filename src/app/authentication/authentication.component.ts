@@ -1,52 +1,41 @@
-import { Component, OnInit, DoCheck, OnDestroy } from '@angular/core';
-import { Renderer2 } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Router, CanActivate } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
+import { LanguagesService } from 'app/services/languages.service';
+import { AuthenticationService } from 'app/services/authentication.service';
+import { User } from 'app/authentication/user.model';
 
 @Component({
   selector: 'app-authentication',
   templateUrl: './authentication.component.html',
   styleUrls: ['./authentication.component.scss']
 })
-export class AuthenticationComponent implements OnInit, DoCheck, OnDestroy {
-  selectedLanguage: string;
+export class AuthenticationComponent implements OnInit {
+  public user = new User('', '');
+  public error = false;
 
-  constructor(private _renderer: Renderer2, public _translateService: TranslateService) {
-    this._renderer.addClass(document.body, 'pia-authentication');
+  constructor(public authService: AuthenticationService, public router: Router) {}
+
+  onSubmit() {
+    this.authService.authenticate(this.user).then(
+      user => {
+      	if (user === undefined) {
+      		this.error = true;
+
+      		return;
+      	}
+
+      	this.router.navigate(['home']);
+      },
+      () => {
+        this.error = true
+      }
+    );
   }
 
   ngOnInit() {
-    this.getUserLanguage();
+  	this.authService.logout();
+  	this.router.navigate(['']);
   }
 
-  ngDoCheck() {
-    this.getUserLanguage();
-  }
-
-  ngOnDestroy() {
-    this._renderer.removeClass(document.body, 'pia-authentication');
-  }
-
-  /**
-   * Record the selected language.
-   * @param {string} selectedLanguage - The selected language.
-   * @memberof HeaderComponent
-   */
-  updateCurrentLanguage(selectedLanguage: string) {
-    localStorage.setItem('userLanguage', selectedLanguage);
-    this._translateService.use(selectedLanguage);
-  }
-
-  /**
-   * Retrieve the selected language
-   * @memberof HeaderComponent
-   */
-  getUserLanguage() {
-    const language = localStorage.getItem('userLanguage');
-    if (language && language.length > 0) {
-      this.selectedLanguage = language;
-    } else {
-      const browserLang = this._translateService.getBrowserLang();
-      this.selectedLanguage = browserLang.match(/en|cs|it|nl|fr|pl|de|es/) ? browserLang : 'fr';
-    }
-  }
 }

@@ -1,4 +1,4 @@
-import {Component, OnInit, ElementRef, OnDestroy, Input} from '@angular/core';
+import { Component, OnInit, ElementRef, OnDestroy, Input } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
@@ -8,11 +8,14 @@ import { Pia } from '../entry/pia.model';
 import { ModalsService } from 'app/modals/modals.service';
 import { PiaService } from 'app/entry/pia.service';
 
+import { PiaModel } from '@api/models';
+import { PiaApi } from '@api/services';
+
 @Component({
   selector: 'app-cards',
   templateUrl: './cards.component.html',
   styleUrls: ['./cards.component.scss'],
-  providers: [PiaService]
+  providers: []
 })
 
 export class CardsComponent implements OnInit, OnDestroy {
@@ -27,21 +30,24 @@ export class CardsComponent implements OnInit, OnDestroy {
   paramsSubscribe: Subscription;
 
   constructor(private router: Router,
-              private el: ElementRef,
-              private route: ActivatedRoute,
-              public _modalsService: ModalsService,
-              public _piaService: PiaService) { }
+    private el: ElementRef,
+    private route: ActivatedRoute,
+    public _modalsService: ModalsService,
+    public _piaService: PiaService,
+    private piaApi: PiaApi
+  ) { }
 
   ngOnInit() {
     this.sortOrder = localStorage.getItem('sortOrder');
     this.sortValue = localStorage.getItem('sortValue');
+
     if (!this.sortOrder || !this.sortValue) {
       this.sortOrder = 'up';
       this.sortValue = 'updated_at';
       localStorage.setItem('sortOrder', this.sortOrder);
       localStorage.setItem('sortValue', this.sortValue);
     }
-    this.refreshContent();
+    //this.refreshContent();
     this.piaForm = new FormGroup({
       name: new FormControl(),
       author_name: new FormControl(),
@@ -98,9 +104,10 @@ export class CardsComponent implements OnInit, OnDestroy {
    * @param {*} [event] - Any Event.
    * @memberof CardsComponent
    */
-  importPia(event?: any) {
+  async importPia(event?: any) {
     if (event) {
-      this._piaService.import(event.target.files[0]);
+      await this._piaService.import(event.target.files[0]);
+      this.sortPia();
     } else {
       this.el.nativeElement.querySelector('#import_file').click();
     }
@@ -112,13 +119,14 @@ export class CardsComponent implements OnInit, OnDestroy {
    * @memberof CardsComponent
    */
   onSubmit() {
-    const pia = new Pia();
+    const pia = new PiaModel();
     pia.name = this.piaForm.value.name;
     pia.author_name = this.piaForm.value.author_name;
     pia.evaluator_name = this.piaForm.value.evaluator_name;
     pia.validator_name = this.piaForm.value.validator_name;
-    const p = pia.create();
-    p.then((id) => this.router.navigate(['entry', id, 'section', 1, 'item', 1]));
+    const p = this.piaApi.create(pia).subscribe((newPia: PiaModel) => {
+      this.router.navigate(['entry', newPia.id, 'section', 1, 'item', 1]);
+    });
   }
 
   /**
@@ -161,14 +169,18 @@ export class CardsComponent implements OnInit, OnDestroy {
    * @memberof CardsComponent
    */
   async refreshContent() {
-    const pia = new Pia();
-    const data: any = await pia.getAll();
-    this._piaService.pias = data;
-    this.sortOrder = localStorage.getItem('sortOrder');
-    this.sortValue = localStorage.getItem('sortValue');
-    setTimeout(() => {
+
+     let thePias:PiaModel[] = await this.piaApi.getAll().toPromise();
+      if(thePias.length == 0){
+        return;
+      }
+      thePias.forEach((item)=>{this.piaApi.computeProgress(item).subscribe()});
+      this._piaService.pias = thePias;
+      this.sortOrder = localStorage.getItem('sortOrder');
+      this.sortValue = localStorage.getItem('sortValue');
       this.sortPia();
-    }, 200);
+
+
   }
 
   /**
@@ -185,7 +197,7 @@ export class CardsComponent implements OnInit, OnDestroy {
         secondValue = new Date(b[this.sortValue]);
       }
       if (this.sortValue === 'name' || this.sortValue === 'author_name' ||
-          this.sortValue === 'evaluator_name' || this.sortValue === 'validator_name') {
+        this.sortValue === 'evaluator_name' || this.sortValue === 'validator_name') {
         return firstValue.localeCompare(secondValue);
       } else {
         if (firstValue < secondValue) {

@@ -17,12 +17,12 @@ export class Measure extends ApplicationDb {
         pia_id: this.pia_id,
         content: this.content,
         placeholder: this.placeholder,
-        created_at: this.created_at
+        //created_at: this.created_at
       };
     return new Promise((resolve, reject) => {
       if (this.serverUrl) {
         const formData = new FormData();
-        for(let d in data) {
+        for (const d in data) {
           formData.append('measure[' + d + ']', data[d]);
         }
         fetch(this.getServerUrl(), {
@@ -59,11 +59,11 @@ export class Measure extends ApplicationDb {
         entry.updated_at = new Date();
         if (this.serverUrl) {
           const formData = new FormData();
-          for(let d in entry) {
+          for (const d in entry) {
             formData.append('measure[' + d + ']', entry[d]);
           }
           fetch(this.getServerUrl() + '/' + this.id, {
-            method: 'PATCH',
+            method: 'POST',
             body: formData
           }).then((response) => {
             return response.json();

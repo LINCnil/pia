@@ -9,7 +9,7 @@ import { TranslateService } from '@ngx-translate/core';
   selector: 'app-pia-validate-history',
   templateUrl: './pia-validate-history.component.html',
   styleUrls: ['./pia-validate-history.component.scss'],
-  providers: [PiaService]
+  providers: []
 })
 export class PiaValidateHistoryComponent implements OnInit {
 
@@ -18,7 +18,7 @@ export class PiaValidateHistoryComponent implements OnInit {
               private _translateService: TranslateService) { }
 
   ngOnInit() {
-    this._piaService.getPIA();
+    
   }
 
   /**

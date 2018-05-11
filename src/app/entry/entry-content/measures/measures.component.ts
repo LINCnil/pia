@@ -1,11 +1,11 @@
 import { Component, Input, ElementRef, Renderer2, OnInit, OnDestroy, NgZone } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ModalsService } from 'app/modals/modals.service';
-import { Measure } from './measure.model';
-import { Answer } from 'app/entry/entry-content/questions/answer.model';
-import { Evaluation } from 'app/entry/entry-content/evaluations/evaluation.model';
 import { KnowledgeBaseService } from 'app/entry/knowledge-base/knowledge-base.service';
 import { GlobalEvaluationService } from 'app/services/global-evaluation.service';
+
+import { EvaluationModel, AnswerModel, MeasureModel } from '@api/models';
+import { EvaluationApi, AnswerApi, MeasureApi } from '@api/services';
 
 @Component({
   selector: 'app-measures',
@@ -14,16 +14,16 @@ import { GlobalEvaluationService } from 'app/services/global-evaluation.service'
 })
 export class MeasuresComponent implements OnInit, OnDestroy {
 
-  @Input() measure: Measure;
+  @Input() measure: MeasureModel;
   @Input() item: any;
   @Input() section: any;
   @Input() pia: any;
   editor: any;
   elementId: string;
-  evaluation: Evaluation = new Evaluation();
+  evaluation: EvaluationModel = new EvaluationModel();
   displayDeleteButton = true;
   measureForm: FormGroup;
-  measureModel: Measure = new Measure();
+  measureModel: MeasureModel = new MeasureModel();
 
   constructor(
     public _globalEvaluationService: GlobalEvaluationService,
@@ -31,18 +31,22 @@ export class MeasuresComponent implements OnInit, OnDestroy {
     private _modalsService: ModalsService,
     private _knowledgeBaseService: KnowledgeBaseService,
     private _ngZone: NgZone,
-    private renderer: Renderer2) { }
+    private renderer: Renderer2,
+    private evaluationApi: EvaluationApi,
+    private answerApi: AnswerApi,
+  private measureApi: MeasureApi) { }
 
   ngOnInit() {
     this.measureForm = new FormGroup({
       measureTitle: new FormControl(),
       measureContent: new FormControl()
     });
-    this.measureModel.pia_id = this.pia.id;
-    this.measureModel.get(this.measure.id).then(() => {
+
+    this.measureApi.get(this.pia.id, this.measure.id).subscribe((theMeasure: MeasureModel) => {
+      this.measureModel.fromJson(theMeasure);
       this._knowledgeBaseService.toHide.push(this.measure.title);
       this.elementId = 'pia-measure-content-' + this.measure.id;
-      if (this.measureModel) {
+      if (this.measureModel !== null) {
         this.measureForm.controls['measureTitle'].patchValue(this.measureModel.title);
         this.measureForm.controls['measureContent'].patchValue(this.measureModel.content);
         if (this.measureModel.title) {
@@ -115,44 +119,43 @@ export class MeasuresComponent implements OnInit, OnDestroy {
     this.measureModel.pia_id = this.pia.id;
     const previousTitle = this.measureModel.title;
     this.measureModel.title = userText;
-    this.measureModel.update().then(() => {
+    this.measureApi.update(this.measureModel).subscribe((updatedMeasure: MeasureModel) => {
+      this.measureModel.fromJson(updatedMeasure);
       if (previousTitle !== this.measureModel.title) {
         this._knowledgeBaseService.removeItemIfPresent(this.measureModel.title, previousTitle);
       }
 
       // Update tags
-      const answer = new Answer();
-      answer.getByReferenceAndPia(this.pia.id, 324).then(() => {
-        if (answer.data && answer.data.list) {
-          const index = answer.data.list.indexOf(previousTitle);
+      this.answerApi.getByRef(this.pia.id, 324).subscribe((theAnswer: AnswerModel) => {
+        if (theAnswer && theAnswer.data && theAnswer.data.list) {
+          const index = theAnswer.data.list.indexOf(previousTitle);
           if (~index) {
-            answer.data.list[index] = this.measureModel.title;
-            answer.update();
+            theAnswer.data.list[index] = this.measureModel.title;
+            this.answerApi.update(theAnswer).subscribe();
           }
         }
       });
 
-      const answer2 = new Answer();
-      answer2.getByReferenceAndPia(this.pia.id, 334).then(() => {
-        if (answer2.data && answer2.data.list) {
-          const index = answer2.data.list.indexOf(previousTitle);
+      this.answerApi.getByRef(this.pia.id, 334).subscribe((theAnswer2: AnswerModel) => {
+        if (theAnswer2 && theAnswer2.data && theAnswer2.data.list) {
+          const index = theAnswer2.data.list.indexOf(previousTitle);
           if (~index) {
-            answer2.data.list[index] = this.measureModel.title;
-            answer2.update();
+            theAnswer2.data.list[index] = this.measureModel.title;
+            this.answerApi.update(theAnswer2).subscribe();
           }
         }
       });
 
-      const answer3 = new Answer();
-      answer3.getByReferenceAndPia(this.pia.id, 344).then(() => {
-        if (answer3.data && answer3.data.list) {
-          const index = answer3.data.list.indexOf(previousTitle);
+      this.answerApi.getByRef(this.pia.id, 344).subscribe((theAnswer3: AnswerModel) => {
+        if (theAnswer3 && theAnswer3.data && theAnswer3.data.list) {
+          const index = theAnswer3.data.list.indexOf(previousTitle);
           if (~index) {
-            answer3.data.list[index] = this.measureModel.title;
-            answer3.update();
+            theAnswer3.data.list[index] = this.measureModel.title;
+            this.answerApi.update(theAnswer3).subscribe();
           }
         }
       });
+
 
       if (this.measureForm.value.measureTitle && this.measureForm.value.measureTitle.length > 0) {
         this.measureForm.controls['measureTitle'].disable();
@@ -188,7 +191,8 @@ export class MeasuresComponent implements OnInit, OnDestroy {
     }
     this.measureModel.pia_id = this.pia.id;
     this.measureModel.content = userText;
-    this.measureModel.update().then(() => {
+    this.measureApi.update(this.measureModel).subscribe((updatedMeasure: MeasureModel) => {
+      this.measureModel.fromJson(updatedMeasure);
       this._ngZone.run(() => {
         this._globalEvaluationService.validate();
       });

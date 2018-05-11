@@ -8,7 +8,11 @@ import { Answer } from './answer.model';
 import { Measure } from '../measures/measure.model';
 import { ModalsService } from 'app/modals/modals.service';
 import { Evaluation } from 'app/entry/entry-content/evaluations/evaluation.model';
-import {GlobalEvaluationService} from '../../../services/global-evaluation.service';
+import { GlobalEvaluationService } from '../../../services/global-evaluation.service';
+
+//new imports
+import { AnswerModel, EvaluationModel, MeasureModel } from '@api/models';
+import { AnswerApi, EvaluationApi, MeasureApi } from '@api/services';
 
 @Component({
   selector: 'app-questions',
@@ -22,62 +26,78 @@ export class QuestionsComponent implements OnInit, OnDestroy {
   @Input() item: any;
   @Input() section: any;
   @Input() pia: any;
-  evaluation: Evaluation = new Evaluation();
+  evaluation: EvaluationModel = new EvaluationModel();
   questionForm: FormGroup;
-  answer: Answer = new Answer();
-  measure: Measure = new Measure();
+  answer: AnswerModel = new AnswerModel();
+  measure: MeasureModel = new MeasureModel();
   lastSelectedTag: string;
   elementId: String;
   editor: any;
 
   constructor(private el: ElementRef,
-              private _knowledgeBaseService: KnowledgeBaseService,
-              private _modalsService: ModalsService,
-              private _ngZone: NgZone,
-              public _globalEvaluationService: GlobalEvaluationService,
-              private renderer: Renderer2) { }
+    private _knowledgeBaseService: KnowledgeBaseService,
+    private _modalsService: ModalsService,
+    private _ngZone: NgZone,
+    public _globalEvaluationService: GlobalEvaluationService,
+    private renderer: Renderer2,
+    private answerApi: AnswerApi,
+    private evaluationApi: EvaluationApi,
+    private measureApi: MeasureApi
+  ) { }
 
-  ngOnInit() {
+  async ngOnInit() {
     this._globalEvaluationService.answerEditionEnabled = true;
     this.elementId = 'pia-question-content-' + this.question.id;
+
     this.questionForm = new FormGroup({
       gauge: new FormControl(0),
       text: new FormControl(),
       list: new FormControl()
     });
+    this.answer = await this.answerApi.getByRef(this.pia.id, this.question.id).toPromise();
 
-    this.answer.getByReferenceAndPia(this.pia.id, this.question.id).then(() => {
-      if (this.answer.data) {
-        let evaluationRefTo: string = this.answer.id.toString();
-        if (this.item.evaluation_mode === 'item') {
-          evaluationRefTo = this.section.id + '.' + this.item.id;
-        }
-        this.evaluation.getByReference(this.pia.id, evaluationRefTo);
-        this.questionForm.controls['gauge'].patchValue(this.answer.data.gauge);
-        this.questionForm.controls['text'].patchValue(this.answer.data.text);
-        if (this.answer.data.list) {
-          const dataList = this.answer.data.list.filter((l) => {
-            return (l && l.length > 0);
-          })
-          this.questionForm.controls['list'].patchValue(dataList);
-        }
-        if (this.el.nativeElement.querySelector('.pia-gaugeBlock-background')) {
-          this.el.nativeElement.querySelector('.pia-gaugeBlock-background').classList.
-            add('pia-gaugeBlock-background-' + this.answer.data.gauge);
-        }
+    if (this.answer && this.answer.data) {
+      let evaluationRefTo: string = this.answer.id.toString();
+      if (this.item.evaluation_mode === 'item') {
+        evaluationRefTo = this.section.id + '.' + this.item.id;
       }
-    });
+
+      const theEval: EvaluationModel = await this.evaluationApi.getByRef(this.pia.id, evaluationRefTo).toPromise();
+      if (theEval) {
+        this.evaluation.fromJson(theEval);
+      }
+
+      this.questionForm.controls['gauge'].patchValue(this.answer.data.gauge);
+      this.questionForm.controls['text'].patchValue(this.answer.data.text);
+      if (this.answer.data.list) {
+        const dataList = this.answer.data.list.filter((l) => {
+          return (l && l.length > 0);
+        })
+        this.questionForm.controls['list'].patchValue(dataList);
+      }
+      if (this.el.nativeElement.querySelector('.pia-gaugeBlock-background')) {
+        this.el.nativeElement.querySelector('.pia-gaugeBlock-background').classList.
+          add('pia-gaugeBlock-background-' + this.answer.data.gauge);
+      }
+    }
 
     this.measure.pia_id = this.pia.id;
-    this.measure.findAll().then((entries: any[]) => {
-      if (entries) {
-        entries.forEach(entry => {
-          if (entry.title) {
-            this.userMeasures.push(entry.title);
-          }
-        });
-      }
-    });
+    let entries: MeasureModel[] = await this.measureApi.getAll(this.pia.id).toPromise();
+    if (entries) {
+      entries.forEach(entry => {
+        if (entry.title) {
+          this.userMeasures.push(entry.title);
+        }
+      });
+    }
+
+  }
+
+  ngOnChanges(changes) {
+    // only run when property "data" changed
+    if (changes['pia']) {
+      //console.log(this.pia);
+    }
   }
 
   ngOnDestroy() {
@@ -119,18 +139,21 @@ export class QuestionsComponent implements OnInit, OnDestroy {
     bgElement.classList.remove('pia-gaugeBlock-background-4');
     bgElement.classList.add('pia-gaugeBlock-background-' + value);
     const gaugeValue = parseInt(this.questionForm.value.gauge, 10);
-    if (this.answer.id) {
+    if (this.answer && this.answer.id) {
       this.answer.data = { text: this.answer.data.text, gauge: gaugeValue, list: this.answer.data.list };
-      this.answer.update().then(() => {
+      this.answerApi.update(this.answer).subscribe((updatedAnswer: AnswerModel) => {
+        this.answer = updatedAnswer;
         this._ngZone.run(() => {
           this._globalEvaluationService.validate();
         });
       });
     } else {
+      this.answer = new AnswerModel();
       this.answer.pia_id = this.pia.id;
       this.answer.reference_to = this.question.id;
       this.answer.data = { text: null, gauge: gaugeValue, list: [] };
-      this.answer.create().then(() => {
+      this.answerApi.create(this.answer).subscribe((createdAnswer: AnswerModel) => {
+        this.answer = createdAnswer;
         this._ngZone.run(() => {
           this._globalEvaluationService.validate();
         });
@@ -157,20 +180,25 @@ export class QuestionsComponent implements OnInit, OnDestroy {
     if (userText) {
       userText = userText.replace(/^\s+/, '').replace(/\s+$/, '');
     }
-    if (this.answer.id) {
+    //update
+    if (this.answer) {
       this.answer.data = { text: userText, gauge: this.answer.data.gauge, list: this.answer.data.list };
-      this.answer.update().then(() => {
+      this.answerApi.update(this.answer).subscribe((updatedAnswer: AnswerModel) => {
+        this.answer = updatedAnswer;
         this._ngZone.run(() => {
           this._globalEvaluationService.validate();
         });
       });
-    } else if (!this.answer.id && userText !== '') {
+      //create
+    } else if (!this.answer && userText !== '') {
       if (this.questionForm.value.text && this.questionForm.value.text.length > 0) {
+        this.answer = new AnswerModel();
         this.answer.pia_id = this.pia.id;
         this.answer.reference_to = this.question.id;
         const gaugeValueForCurrentQuestion = this.question.answer_type === 'gauge' ? 0 : null;
         this.answer.data = { text: this.questionForm.value.text, gauge: gaugeValueForCurrentQuestion, list: [] };
-        this.answer.create().then(() => {
+        this.answerApi.create(this.answer).subscribe((createdAnswer: AnswerModel) => {
+          this.answer = createdAnswer;
           this._ngZone.run(() => {
             this._globalEvaluationService.validate();
           });
@@ -187,7 +215,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
   onAdd(event) {
     if (event && event.value.length > 0) {
       let list = [];
-      if (this.answer.id) {
+      if (this.answer && this.answer.id) {
         list = this.answer.data.list;
       }
       if (list.indexOf(event.value) <= 0) {
@@ -218,7 +246,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
    */
   onRemove(event) {
     let list = [];
-    if (this.answer.id) {
+    if (this.answer) {
       list = this.answer.data.list;
     }
     let valueToRemove;
@@ -241,7 +269,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
    */
   onTagEdited(event) {
     let list = [];
-    if (this.answer.id) {
+    if (this.answer) {
       list = this.answer.data.list;
     }
     const index = list.indexOf(this.lastSelectedTag);
@@ -264,7 +292,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
   onBlur(event) {
     if (event && event.length > 0) {
       let list = [];
-      if (this.answer.id) {
+      if (this.answer) {
         list = this.answer.data.list;
       }
       if (list.indexOf(event) <= 0) {
@@ -281,16 +309,20 @@ export class QuestionsComponent implements OnInit, OnDestroy {
    * @memberof QuestionsComponent
    */
   private createOrUpdateList(list: string[]) {
-    if (this.answer.id) {
+    if (this.answer) {
       this.answer.data = { text: this.answer.data.text, gauge: this.answer.data.gauge, list: list };
-      this.answer.update().then(() => {
+
+      this.answerApi.update(this.answer).subscribe((updatedAnswer: AnswerModel) => {
+        this.answer = updatedAnswer;
         this._globalEvaluationService.validate();
       });
     } else {
+      this.answer = new AnswerModel();
       this.answer.pia_id = this.pia.id;
       this.answer.reference_to = this.question.id;
       this.answer.data = { text: null, gauge: null, list: list };
-      this.answer.create().then(() => {
+      this.answerApi.create(this.answer).subscribe((updatedAnswer: AnswerModel) => {
+        this.answer = updatedAnswer;
         this._globalEvaluationService.validate();
       });
     }
@@ -337,11 +369,11 @@ export class QuestionsComponent implements OnInit, OnDestroy {
       menubar: false,
       statusbar: false,
       plugins: 'autoresize lists',
-      forced_root_block : false,
+      forced_root_block: false,
       autoresize_bottom_margin: 30,
       auto_focus: this.elementId,
       autoresize_min_height: 40,
-      content_style: 'body {background-color:#eee!important;}' ,
+      content_style: 'body {background-color:#eee!important;}',
       selector: '#' + this.elementId,
       toolbar: 'undo redo bold italic alignleft aligncenter alignright bullist numlist outdent indent',
       skin_url: 'assets/skins/lightgray',

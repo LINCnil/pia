@@ -19,12 +19,12 @@ export class Pia extends ApplicationDb {
   public dpos_names: string;
   public people_names: string;
   public progress: number;
-  public is_example = 0;
-  public numberOfQuestions = 36; // TODO Auto calcul questions number
+  public is_example = false;
+  public numberOfQuestions = 36; // TODO Automatically count questions
 
   constructor() {
     super(201802221337, 'pia');
-    this.created_at = new Date();
+    //this.created_at = new Date();
   }
 
   /**
@@ -38,7 +38,7 @@ export class Pia extends ApplicationDb {
       this.findAll().then((entries: any) => {
         if (entries && entries.length > 0) {
           entries.forEach(element => {
-            if (element.is_example && element.is_example === 1) {
+            if (element.is_example) {
               return;
             }
             const newPia = new Pia();
@@ -59,8 +59,8 @@ export class Pia extends ApplicationDb {
             newPia.concerned_people_searched_opinion = element.concerned_people_searched_opinion;
             newPia.concerned_people_searched_content = element.concerned_people_searched_content;
             newPia.is_example = element.is_example;
-            newPia.created_at = new Date(element.created_at);
-            newPia.updated_at = new Date(element.updated_at);
+            //newPia.created_at = new Date(element.created_at);
+            //newPia.updated_at = new Date(element.updated_at);
             const answer = new Answer();
             answer.findAllByPia(element.id).then((answers: any) => {
               newPia.progress = Math.round((100 / this.numberOfQuestions) * answers.length);
@@ -74,28 +74,13 @@ export class Pia extends ApplicationDb {
   }
 
   /**
-   * Calcul percent of progress bar.
-   * @returns {Promise}
-   * @memberof Pia
-   */
-  async calculProgress() {
-    return new Promise((resolve, reject) => {
-      const answer = new Answer();
-      answer.findAllByPia(this.id).then((answers: any) => {
-        this.progress = Math.round((100 / this.numberOfQuestions) * answers.length);
-        resolve();
-      });
-    });
-  }
-
-  /**
    * Create a new PIA.
    * @returns {Promise}
    * @memberof Pia
    */
   async create() {
     if (this.created_at === undefined) {
-      this.created_at = new Date();
+      //this.created_at = new Date();
     }
 
     const data = {
@@ -109,8 +94,8 @@ export class Pia extends ApplicationDb {
       concerned_people_status: this.concerned_people_status,
       rejected_reason: this.rejected_reason,
       applied_adjustements: this.applied_adjustements,
-      created_at: this.created_at,
-      updated_at: this.updated_at,
+      //created_at: this.created_at,
+      //updated_at: this.updated_at,
       status: this.status,
       is_example: this.is_example,
       dpos_names: this.dpos_names,
@@ -186,7 +171,7 @@ export class Pia extends ApplicationDb {
             }
           }
           fetch(this.getServerUrl() + '/' + entry.id, {
-            method: 'PATCH',
+            method: 'POST',
             body: formData
           }).then((response) => {
             return response.json();
@@ -255,7 +240,7 @@ export class Pia extends ApplicationDb {
   async getPiaExample() {
     return new Promise((resolve, reject) => {
       if (this.serverUrl) {
-        fetch(this.getServerUrl()).then((response) => {
+        fetch(this.getServerUrl() + '/' + 'example').then((response) => {
           return response.json();
         }).then((result: any) => {
           resolve(result);
@@ -308,50 +293,9 @@ export class Pia extends ApplicationDb {
    * @returns {string} - Locale for translation.
    * @memberof Pia
    */
-  getStatusName() {
+  public getStatusName() {
     if (this.status >= 0) {
       return `pia.statuses.${this.status}`;
     }
   }
-
-  /**
-   * Get people status.
-   * @param {boolean} status - The people search status.
-   * @returns {string} - Locale for translation.
-   * @memberof Pia
-   */
-  getPeopleSearchStatus(status: boolean) {
-    if (status === true) {
-      return 'summary.people_search_status_ok';
-    } else {
-      return 'summary.people_search_status_nok';
-    }
-  }
-
-  /**
-   * Get opinion status.
-   * @param {string} status - The opinion status.
-   * @returns {string} - Locale for translation.
-   * @memberof Pia
-   */
-  getOpinionsStatus(status: string) {
-    if (status) {
-      return `summary.content_choice.${status}`;
-    }
-  }
-
-  /**
-   * Get gauge name.
-   * @param {*} value - The gauge value.
-   * @returns {string} - Locale for translation.
-   * @memberof Pia
-   */
-  getGaugeName(value: any) {
-    if (value) {
-      return `summary.gauges.${value}`;
-    }
-  }
 }
-
-
-

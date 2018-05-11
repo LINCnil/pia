@@ -7,6 +7,9 @@ import { Attachment } from 'app/entry/attachments/attachment.model';
 import { ModalsService } from 'app/modals/modals.service';
 import { PiaService } from 'app/entry/pia.service';
 
+import {PiaModel, AttachmentModel} from '@api/models';
+import {PiaApi, AttachmentApi} from '@api/services';
+
 @Component({
   selector: 'app-card-item',
   templateUrl: './card-item.component.html',
@@ -26,7 +29,9 @@ export class CardItemComponent implements OnInit {
 
   constructor(private router: Router,
               private _modalsService: ModalsService,
-              public _piaService: PiaService) { }
+              public _piaService: PiaService,
+              private piaApi: PiaApi,
+              private attachmentApi: AttachmentApi) { }
 
   ngOnInit() {
     this.piaForm = new FormGroup({
@@ -37,9 +42,7 @@ export class CardItemComponent implements OnInit {
       validator_name: new FormControl({ value: this.pia.validator_name, disabled: false })
     });
 
-    const attachmentModel = new Attachment();
-    attachmentModel.pia_id = this.pia.id;
-    attachmentModel.findAll().then((entries: any) => {
+    this.attachmentApi.getAll(this.pia.id).subscribe((entries: AttachmentModel[]) => {
       this.attachments = entries;
     });
 
@@ -64,10 +67,10 @@ export class CardItemComponent implements OnInit {
       userText = userText.replace(/^\s+/, '').replace(/\s+$/, '');
     }
     if (userText !== '') {
-      const pia = new Pia();
-      pia.get(this.piaForm.value.id).then(() => {
-        pia.name = this.piaForm.value.name;
-        pia.update();
+
+      this.piaApi.get(this.piaForm.value.id).subscribe((thePia: PiaModel) => {
+        thePia.name = this.piaForm.value.name;
+        this.piaApi.update(thePia).subscribe();
       });
     }
   }
@@ -90,10 +93,9 @@ export class CardItemComponent implements OnInit {
       userText = userText.replace(/^\s+/, '').replace(/\s+$/, '');
     }
     if (userText !== '') {
-      const pia = new Pia();
-      pia.get(this.piaForm.value.id).then(() => {
-        pia.author_name = this.piaForm.value.author_name;
-        pia.update();
+      this.piaApi.get(this.piaForm.value.id).subscribe((thePia: PiaModel) => {
+        thePia.author_name = this.piaForm.value.author_name;
+        this.piaApi.update(thePia).subscribe();
       });
     }
   }
@@ -116,10 +118,9 @@ export class CardItemComponent implements OnInit {
       userText = userText.replace(/^\s+/, '').replace(/\s+$/, '');
     }
     if (userText !== '') {
-      const pia = new Pia();
-      pia.get(this.piaForm.value.id).then(() => {
-        pia.evaluator_name = this.piaForm.value.evaluator_name;
-        pia.update();
+      this.piaApi.get(this.piaForm.value.id).subscribe((thePia: PiaModel) => {
+        thePia.evaluator_name = this.piaForm.value.evaluator_name;
+        this.piaApi.update(thePia).subscribe();
       });
     }
   }
@@ -142,10 +143,9 @@ export class CardItemComponent implements OnInit {
       userText = userText.replace(/^\s+/, '').replace(/\s+$/, '');
     }
     if (userText !== '') {
-      const pia = new Pia();
-      pia.get(this.piaForm.value.id).then(() => {
-        pia.validator_name = this.piaForm.value.validator_name;
-        pia.update();
+      this.piaApi.get(this.piaForm.value.id).subscribe((thePia: PiaModel) => {
+        thePia.validator_name = this.piaForm.value.validator_name;
+        this.piaApi.update(thePia).subscribe();
       });
     }
   }

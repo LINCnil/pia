@@ -5,6 +5,9 @@ import { Evaluation } from 'app/entry/entry-content/evaluations/evaluation.model
 
 import { PiaService } from 'app/entry/pia.service';
 
+import { EvaluationModel } from '@api/models';
+import { EvaluationApi } from '@api/services';
+
 @Component({
   selector: 'app-action-plan-implementation',
   templateUrl: './action-plan-implementation.component.html',
@@ -13,14 +16,14 @@ import { PiaService } from 'app/entry/pia.service';
 export class ActionPlanImplementationComponent implements OnInit {
 
   @Input() data: any;
-  evaluation: Evaluation;
+  evaluation: EvaluationModel;
   actionPlanForm: FormGroup;
   displayEditButton = false;
 
   @ViewChild('estimatedEvaluationDate') private estimatedEvaluationDate: ElementRef;
   @ViewChild('personInCharge') private personInCharge: ElementRef;
 
-  constructor(private _piaService: PiaService) { }
+  constructor(private _piaService: PiaService, private evaluationApi: EvaluationApi) { }
 
   ngOnInit() {
     this.actionPlanForm = new FormGroup({
@@ -66,7 +69,9 @@ export class ActionPlanImplementationComponent implements OnInit {
   estimatedEvaluationDateFocusOut() {
     const userText = this.actionPlanForm.controls['estimatedEvaluationDate'].value;
     this.evaluation.estimated_implementation_date = new Date(userText);
-    this.evaluation.update().then(() => {
+
+    this.evaluationApi.update(this.evaluation).subscribe((updatedEval: EvaluationModel) => {
+      this.evaluation.fromJson(updatedEval);
       if (userText && userText.length > 0) {
         // TODO Unable to FocusIn with Firefox
         // this.actionPlanForm.controls['estimatedEvaluationDate'].disable();
@@ -97,7 +102,8 @@ export class ActionPlanImplementationComponent implements OnInit {
       userText = userText.replace(/^\s+/, '').replace(/\s+$/, '');
     }
     this.evaluation.person_in_charge = userText;
-    this.evaluation.update().then(() => {
+    this.evaluationApi.update(this.evaluation).subscribe((updatedEval: EvaluationModel) => {
+      this.evaluation.fromJson(updatedEval);
       this.actionPlanForm.controls['personInCharge'].disable();
       if (userText && userText.length > 0) {
         // TODO Unable to FocusIn with Firefox
@@ -105,5 +111,4 @@ export class ActionPlanImplementationComponent implements OnInit {
       }
     });
   }
-
 }

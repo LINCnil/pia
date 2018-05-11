@@ -6,6 +6,13 @@
 export const environment = {
   name: 'development',
   production: false,
-  version: 'de DEV',
-  rollbar_key: ''
+  version: 'DEV',
+  rollbar_key: '',
+  date_format: 'DD MM YY HH:mm:ss',
+  api: {
+    client_id:     '1_49i8o287f8kk00840cg4ggkws0o0g44ocsogkc0w0g84o80co4',
+    client_secret: '22zpxqpr0r40wo0g8kw00k4kccg0wwkso8ccc0ogsgwogcssss',
+    host:          'http://localhost:8001',
+    token_path:    '/oauth/v2/token'
+  },
 };

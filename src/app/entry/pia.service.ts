@@ -3,44 +3,65 @@ import { ActivatedRoute, Router, Params } from '@angular/router';
 import { Http } from '@angular/http';
 
 import { AppDataService } from 'app/services/app-data.service';
-import { Pia } from './pia.model';
-import { Evaluation } from 'app/entry/entry-content/evaluations/evaluation.model';
-import { Answer } from 'app/entry/entry-content/questions/answer.model';
-import { Measure } from 'app/entry/entry-content/measures/measure.model';
-import { Comment } from 'app/entry/entry-content/comments/comment.model';
-import { Attachment } from 'app/entry/attachments/attachment.model';
-
 import { ModalsService } from 'app/modals/modals.service';
 import { ActionPlanService } from 'app/entry/entry-content/action-plan//action-plan.service';
+
+//new imports
+
+import { Observable } from 'rxjs/Rx';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { PiaModel, AnswerModel, CommentModel, EvaluationModel, MeasureModel, AttachmentModel } from '@api/models';
+import { PiaApi, AnswerApi, CommentApi, EvaluationApi, MeasureApi, AttachmentApi } from '@api/services';
 
 @Injectable()
 export class PiaService {
 
   pias = [];
-  pia: Pia = new Pia();
-  answer: Answer = new Answer();
+  pia: PiaModel = new PiaModel();
+  answer: AnswerModel = new AnswerModel();
   data: { sections: any };
 
-  constructor(private _router: Router, private route: ActivatedRoute,
-              private _appDataService: AppDataService,
-              private _modalsService: ModalsService, private http: Http) {
-                this._appDataService.getDataNav().then((dataNav) => {
-                  this.data = dataNav;
-                });
-              }
+  constructor(
+    private _router: Router,
+    private route: ActivatedRoute,
+    private _appDataService: AppDataService,
+    private _modalsService: ModalsService,
+    private http: Http,
+    private piaApi: PiaApi,
+    private answerApi: AnswerApi,
+    private commentApi: CommentApi,
+    private evaluationApi: EvaluationApi,
+    private measureApi: MeasureApi,
+    private attachmentApi: AttachmentApi
+  ) {
+    this._appDataService.getDataNav().then((dataNav) => {
+      this.data = dataNav;
+    });
+  }
+
+  /**
+   * Get the current PIA.
+   * @return { Observable<PiaModel> }
+  * @memberof PiaService
+  */
+  retrieveCurrentPIA(id: number): Observable<PiaModel> {
+
+    return this.piaApi.get(id).map((thePia: PiaModel) => {
+      this.pia.fromJson(thePia);
+      return this.pia;
+    });
+
+  }
 
   /**
    * Get the PIA.
    * @return {Promise}
    * @memberof PiaService
+   * @deprecated
    */
-  async getPIA() {
-    return new Promise((resolve, reject) => {
-      const piaId = parseInt(this.route.snapshot.params['id'], 10);
-      this.pia.get(piaId).then(() => {
-        resolve();
-      });
-    });
+  getPIA() {
+    console.warn('getPIA is deprecated');
+    return new Promise((resolve, reject) => { resolve(this.pia) });
   }
 
   /**
@@ -49,10 +70,8 @@ export class PiaService {
    */
   removePIA() {
     const piaID = parseInt(localStorage.getItem('pia-id'), 10);
-
     // Removes from DB.
-    const pia = new Pia();
-    pia.delete(piaID);
+    this.piaApi.deleteById(piaID).subscribe();
 
     // Deletes the PIA from the view.
     if (localStorage.getItem('homepageDisplayMode') && localStorage.getItem('homepageDisplayMode') === 'list') {
@@ -70,29 +89,16 @@ export class PiaService {
    * @returns {Promise}
    * @memberof PiaService
    */
-  async cancelAllValidatedEvaluation() {
-    return new Promise((resolve, reject) => {
-      let count = 0;
-      let evaluation = new Evaluation();
-      evaluation.findAll().then((entries: any) => {
-        if (entries && entries.length > 0) {
-          entries.forEach(element => {
-            evaluation = new Evaluation();
-            evaluation.get(element.id).then((entry: any) => {
-              entry.global_status = 0;
-              entry.update().then(() => {
-                count++;
-                if (count === entries.length) {
-                  resolve();
-                }
-              });
-            });
-          });
-        } else {
-          resolve();
-        }
-      });
+  async cancelAllValidatedEvaluation(): Promise<void> {
+
+    const results = [];
+    let entries: EvaluationModel[] = await this.evaluationApi.getAll(this.pia.id).toPromise();
+    entries.forEach(element => {
+      element.global_status = 0;
+      results.push(this.evaluationApi.update(element).toPromise());
     });
+    await Promise.all(results);
+
   }
 
   /**
@@ -101,7 +107,8 @@ export class PiaService {
    */
   abandonTreatment() {
     this.pia.status = 4;
-    this.pia.update().then(() => {
+    this.piaApi.update(this.pia).subscribe((updatedPia: PiaModel) => {
+      this.pia.fromJson(updatedPia);
       this._modalsService.closeModal();
       this._router.navigate(['home']);
     });
@@ -124,19 +131,11 @@ export class PiaService {
    * @returns {Promise}
    * @memberof PiaService
    */
-  exportData(id: number) {
+  exportData(id: number): Promise<any> {
+
     return new Promise((resolve, reject) => {
-      const pia = new Pia();
-      const answer = new Answer();
-      const measure = new Measure();
-      measure.pia_id = id;
-      const evaluation = new Evaluation();
-      evaluation.pia_id = id;
-      const comment = new Comment();
-      comment.pia_id = id;
-      // const attachment = new Attachment();
-      // attachment.pia_id = id;
-      pia.get(id).then(() => {
+
+      this.piaApi.get(id).subscribe((pia: PiaModel) => {
         const data = {
           pia: pia,
           answers: null,
@@ -144,64 +143,53 @@ export class PiaService {
           evaluations: null,
           comments: null
         }
-        answer.findAllByPia(id).then((answers) => {
-          data['answers'] = answers;
-          measure.findAll().then((measures) => {
-            data['measures'] = measures;
-            evaluation.findAll().then((evaluations) => {
-              data['evaluations'] = evaluations;
-              comment.findAll().then((comments) => {
-                data['comments'] = comments;
-                // attachment.findAll().then((attachments) => {
-                  // data['attachments'] = attachments;
-                  resolve(data);
-                // });
-              });
-            });
+        Observable
+          .forkJoin(
+            this.answerApi.getAll(id),
+            this.measureApi.getAll(id),
+            this.evaluationApi.getAll(id),
+            this.commentApi.getAll(id),
+          //this.attachmentApi.getAll(id),
+        )
+          .subscribe((values) => {
+            data.answers = values[0];
+            data.measures = values[1];
+            data.evaluations = values[2];
+            data.comments = values[3];
+            //data.attachments = values[4];
+            resolve(data);
           });
-        });
       });
     });
   }
 
   /**
-   * Allow an user to import a PIA.
+   * Allows a user to import a PIA.
    * @param {*} data - Data PIA.
    * @param {string} prefix - A title prefix.
    * @param {boolean} is_duplicate - Is a duplicate PIA?
    * @param {boolean} [is_example] - Is the PIA example?
    * @memberof PiaService
    */
-  async importData(data: any, prefix: string, is_duplicate: boolean, is_example?: boolean) {
-    if (!('pia' in data) || !('dbVersion' in data.pia)) {
+  async importData(data: any, prefix: string, is_duplicate: boolean, is_example?: boolean): Promise<void> {
+    if (!('pia' in data)) {
       return;
     }
-    const pia = new Pia();
-    pia.name = '(' + prefix + ') ' + data.pia.name;
-    pia.author_name = data.pia.author_name;
-    pia.evaluator_name = data.pia.evaluator_name;
-    pia.validator_name = data.pia.validator_name;
-    pia.dpo_status = data.pia.dpo_status;
-    pia.dpo_opinion = data.pia.dpo_opinion;
-    pia.concerned_people_opinion = data.pia.concerned_people_opinion;
-    pia.concerned_people_status = data.pia.concerned_people_status;
-    pia.concerned_people_searched_opinion = data.pia.concerned_people_searched_opinion;
-    pia.concerned_people_searched_content = data.pia.concerned_people_searched_content;
-    pia.rejected_reason = data.pia.rejected_reason;
-    pia.applied_adjustements = data.pia.applied_adjustements;
-    pia.created_at = data.pia.created_at;
-    pia.dpos_names = data.pia.dpos_names;
-    pia.people_names = data.pia.people_names;
+    let pia = new PiaModel();
+    const values = data.pia;
+    values.id = null;
+    values.name = '(' + prefix + ') ' + values.name;
+    pia.fromJson(values);
 
     /* Set this PIA as the example PIA if needed, else default value affected on creation */
     if (is_example) {
-      pia.is_example = 1;
+      pia.is_example = true;
     }
 
     if (is_duplicate) {
       pia.status = 0;
-      pia.created_at = new Date();
-      pia.updated_at = new Date();
+      pia.created_at = null;
+      pia.updated_at = null;
       pia.dpos_names = null;
       pia.dpo_status = null;
       pia.dpo_opinion = null;
@@ -211,74 +199,55 @@ export class PiaService {
       pia.concerned_people_status = null;
       pia.concerned_people_opinion = null;
     } else {
-      pia.status = data.pia.status;
-      pia.created_at = new Date(data.pia.created_at);
-      if (data.pia.updated_at) {
-        pia.updated_at = new Date(data.pia.updated_at);
+      pia.status = parseInt(data.pia.status, 10);
+      if (Number.isNaN(pia.status)) {
+        pia.status = 0;
       }
     }
-
-    pia.create().then((pia_id: number) => {
-      pia.id = pia_id;
-      // Create answers
-      data.answers.forEach(answer => {
-        const answerModel = new Answer();
-        answerModel.pia_id = pia_id;
-        answerModel.reference_to = answer.reference_to;
-        answerModel.data = answer.data;
-        answerModel.created_at = new Date(answer.created_at);
-        if (answer.updated_at) {
-          answerModel.updated_at = new Date(answer.updated_at);
-        }
-        answerModel.create();
-      });
-
-      if (data.measures.length > 0) {
-        let count = 0;
-        const oldIdToNewId = [];
-        // Create measures
-        data.measures.forEach(measure => {
-          const measureModel = new Measure();
-          measureModel.title = measure.title;
-          measureModel.pia_id = pia_id;
-          measureModel.content = measure.content;
-          measureModel.placeholder = measure.placeholder;
-          measureModel.created_at = new Date(measure.created_at);
-          if (measure.updated_at) {
-            measureModel.updated_at = new Date(measure.updated_at);
-          }
-          measureModel.create().then((id: number) => {
-            count++;
-            oldIdToNewId[measure.id] = id;
-            if (count === data.measures.length) {
-              this.importEvaluations(data, pia_id, is_duplicate, oldIdToNewId);
-            }
-          });
-        });
-      } else {
-        this.importEvaluations(data, pia_id, is_duplicate);
-      }
-
-      if (!is_duplicate) {
-        // Create comments
-        data.comments.forEach(comment => {
-          const commentModel = new Comment();
-          commentModel.pia_id = pia_id;
-          commentModel.description = comment.description;
-          commentModel.reference_to = comment.reference_to;
-          commentModel.for_measure = comment.for_measure;
-          commentModel.created_at = new Date(comment.created_at);
-          if (comment.updated_at) {
-            commentModel.updated_at = new Date(comment.updated_at);
-          }
-          commentModel.create();
-        });
-      }
-
-      pia.calculProgress().then(() => {
-        this.pias.push(pia);
-      });
+    const newPia: PiaModel = await this.piaApi.create(pia).toPromise();
+    pia.fromJson(newPia);
+    // Create answers
+    data.answers.forEach(answer => {
+      answer.id = null;
+      const answerModel = new AnswerModel();
+      answerModel.fromJson(answer);
+      answerModel.pia_id = pia.id;
+      this.answerApi.create(answerModel).subscribe();
     });
+
+    if (data.measures.length > 0) {
+      let count = 0;
+      const asyncResults = [];
+      const oldIdToNewId = [];
+      // Create measures
+      data.measures.forEach(measure => {
+        measure.id = null;
+        const measureModel = new MeasureModel();
+        measureModel.fromJson(measure);
+        measureModel.pia_id = newPia.id;
+        let p = this.measureApi.create(measureModel).toPromise();
+        p.then((newMeasure: MeasureModel) => { oldIdToNewId[measure.id] = newMeasure.id; });
+        asyncResults.push(p);
+      });
+      await Promise.all(asyncResults);
+      this.importEvaluations(data, pia.id, is_duplicate, oldIdToNewId);
+    } else {
+      this.importEvaluations(data, pia.id, is_duplicate);
+    }
+
+    if (!is_duplicate) {
+      // Create comments
+      data.comments.forEach(comment => {
+        comment.id = null;
+        const commentModel = new CommentModel();
+        commentModel.fromJson(comment);
+        commentModel.pia_id = pia.id;
+        this.commentApi.create(commentModel).subscribe();
+      });
+    }
+
+    await this.piaApi.computeProgress(pia).toPromise();
+    this.pias.push(pia);
   }
 
   /**
@@ -294,10 +263,13 @@ export class PiaService {
     if (!is_duplicate) {
       // Create evaluations
       data.evaluations.forEach(evaluation => {
-        const evaluationModel = new Evaluation();
+        evaluation.id = null;
+        const evaluationModel = new EvaluationModel();
+        evaluationModel.fromJson(evaluation);
         evaluationModel.pia_id = pia_id;
-        evaluationModel.status = evaluation.status;
+
         let reference_to = evaluation.reference_to;
+
         if (reference_to.startsWith('3.1') && oldIdToNewId) {
           const ref = reference_to.split('.')
           if (oldIdToNewId[ref[2]]) {
@@ -305,22 +277,9 @@ export class PiaService {
           }
         }
         evaluationModel.reference_to = reference_to;
-        evaluationModel.action_plan_comment = evaluation.action_plan_comment;
-        evaluationModel.evaluation_comment = evaluation.evaluation_comment;
-        if (evaluation.evaluation_date) {
-          evaluationModel.evaluation_date = new Date(evaluation.evaluation_date);
-        }
-        evaluationModel.gauges = evaluation.gauges;
-        if (evaluation.estimated_implementation_date) {
-          evaluationModel.estimated_implementation_date = new Date(evaluation.estimated_implementation_date);
-        }
-        evaluationModel.person_in_charge = evaluation.person_in_charge;
-        evaluationModel.global_status = evaluation.global_status;
-        evaluationModel.created_at = new Date(evaluation.created_at);
-        if (evaluation.updated_at) {
-          evaluationModel.updated_at = new Date(evaluation.updated_at);
-        }
-        evaluationModel.create();
+
+        this.evaluationApi.create(evaluationModel).subscribe();
+
       });
     }
   }
@@ -330,7 +289,7 @@ export class PiaService {
    * @param {number} id - The PIA id.
    * @memberof PiaService
    */
-  export(id:  number) {
+  export(id: number) {
     const date = new Date().getTime();
     this.exportData(id).then((data) => {
       const a = document.getElementById('pia-exportBlock');
@@ -352,9 +311,58 @@ export class PiaService {
   async import(file: any) {
     const reader = new FileReader();
     reader.readAsText(file, 'UTF-8');
-    reader.onload = (event: any) => {
-      const jsonFile = JSON.parse(event.target.result);
-      this.importData(jsonFile, 'IMPORT', false);
+
+    return new Promise((resolve, reject) => {
+      reader.onload = async (event: any) => {
+        const jsonFile = JSON.parse(event.target.result);
+        await this.importData(jsonFile, 'IMPORT', false);
+        resolve();
+      }
+    });
+  }
+
+  public saveCurrentPia(): Observable<PiaModel> {
+    return this.piaApi.update(this.pia).map((updatedPia: PiaModel) => {
+      this.pia = updatedPia;
+      return this.pia;
+    });
+  }
+
+  /**
+   * Get people status.
+   * @param {boolean} status - The people search status.
+   * @returns {string} - Locale for translation.
+   * @memberof Pia
+   */
+  public getPeopleSearchStatus(status: boolean) {
+    if (status === true) {
+      return 'summary.people_search_status_ok';
+    } else {
+      return 'summary.people_search_status_nok';
+    }
+  }
+
+  /**
+   * Get opinion status.
+   * @param {string} status - The opinion status.
+   * @returns {string} - Locale for translation.
+   * @memberof Pia
+   */
+  public getOpinionsStatus(status: string) {
+    if (status) {
+      return `summary.content_choice.${status}`;
+    }
+  }
+
+  /**
+   * Get gauge name.
+   * @param {*} value - The gauge value.
+   * @returns {string} - Locale for translation.
+   * @memberof Pia
+   */
+  public getGaugeLabel(value: any) {
+    if (value) {
+      return `summary.gauges.${value}`;
     }
   }
 }

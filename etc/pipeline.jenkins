@@ -1,0 +1,71 @@
+pipeline {
+    agent {
+        dockerfile {
+            filename "etc/dockerfile.jenkins"
+            additionalBuildArgs '--build-arg UID=$(id -u) --build-arg GID=$(id -g)'
+            args '--network=ci.network'
+        }
+    }
+    
+    environment {
+        NVM_DIR="/home/jenkins/.nvm"
+        ETCDHOST="etcd.host"
+        /* warnings, can't use "$HOME/.nvm" as it is not the same in docker and host ... */     
+    }
+    
+    options {
+        timeout(time: 1, unit: 'HOURS')
+        timestamps()
+        disableConcurrentBuilds()
+        ansiColor('xterm')
+    }
+    
+    stages {
+    	stage ('Where Am I') {
+            steps {
+                sh "uname -a"
+                sh ". ${env.NVM_DIR}/nvm.sh && npm -v"
+                sh ". ${env.NVM_DIR}/nvm.sh && node -v"
+            }
+        }
+
+    	stage ('Set Env') {
+            steps {
+                sh "./bin/ci-scripts/set_env_with_etcd.sh"
+            }
+        }
+
+        stage ('Composer Install') {
+            steps {
+                sh "./bin/ci-scripts/install.sh"
+            }
+        }
+
+        stage ('Build Project') {
+            steps {
+                sh "./bin/ci-scripts/build.sh"                
+            }
+        }
+        
+        stage ('Run Test') {
+            steps {
+                sh "./bin/ci-scripts/run_test.sh"
+            }
+        }
+        
+        stage ('Create Archive') {
+            steps {
+                sh 'Branch=${BRANCH_NAME} ./bin/ci-scripts/gen_archive.sh'
+                archiveArtifacts artifacts: "*.tar.gz*", fingerprint: true
+                build job: 'Copy Artifact', parameters: [string(name: 'Job', value: "${JOB_NAME}"), string(name: 'Project', value: "Pialab"), string(name: 'Branch', value: "${BRANCH_NAME}"), string(name: 'DoDeploy', value: "false")], wait: false
+            }
+        }
+        
+    }
+    
+    post {
+        always {
+            cleanWs()
+        }
+    }
+}

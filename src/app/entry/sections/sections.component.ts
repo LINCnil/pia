@@ -14,7 +14,7 @@ import { GlobalEvaluationService } from 'app/services/global-evaluation.service'
   selector: 'app-sections',
   templateUrl: './sections.component.html',
   styleUrls: ['./sections.component.scss'],
-  providers: [PiaService]
+  providers: []
 })
 export class SectionsComponent implements OnInit {
 
@@ -29,7 +29,7 @@ export class SectionsComponent implements OnInit {
   }
 
   async ngOnInit() {
-    await this._piaService.getPIA();
+
     this.data = await this._appDataService.getDataNav();
     this.data.sections.forEach((section: any) => {
       section.items.forEach((item: any) => {

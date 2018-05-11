@@ -1,7 +1,8 @@
 import { Component, ElementRef, OnInit, Input } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 
-import { Comment } from './comment.model';
+import { CommentModel } from '@api/models';
+import { CommentApi } from '@api/services';
 
 import { MeasureService } from 'app/entry/entry-content/measures/measures.service';
 import { ModalsService } from 'app/modals/modals.service';
@@ -26,8 +27,10 @@ export class CommentsComponent implements OnInit {
   displayCommentValidateBtn: boolean;
 
   constructor(private el: ElementRef,
-              private _measureService: MeasureService,
-              private _modalsService: ModalsService) { }
+    private _measureService: MeasureService,
+    private _modalsService: ModalsService,
+    private commentApi: CommentApi
+  ) { }
 
   ngOnInit() {
     if (this.answer.updated_at && this.answer.updated_at.toString() !== 'Invalid Date') {
@@ -36,15 +39,9 @@ export class CommentsComponent implements OnInit {
       this.questionDate = this.answer.created_at;
     }
     this.comments = [];
-    const commentsModel = new Comment();
-    commentsModel.pia_id = this.pia.id;
-    if (this.measure) {
-      commentsModel.reference_to = this.measure.id;
-    } else {
-      commentsModel.reference_to = this.question.id;
-    }
+    const ref_to = this.measure ? this.measure.id : this.question.id;
 
-    commentsModel.findAllByReference().then((entries) => {
+    this.commentApi.getAllByRef(this.pia.id, ref_to).subscribe((entries: CommentModel[]) => {
       this.comments = entries;
       this.comments.reverse();
     });
@@ -102,7 +99,7 @@ export class CommentsComponent implements OnInit {
       } else {
         // Creates the new comment and pushes it as the first comment in list.
         // Updates accordeon and counter + removes the written comment.
-        const commentRecord = new Comment();
+        const commentRecord = new CommentModel();
         commentRecord.for_measure = false;
         commentRecord.description = this.commentsForm.value.description;
         commentRecord.pia_id = this.pia.id;
@@ -112,8 +109,8 @@ export class CommentsComponent implements OnInit {
         } else {
           commentRecord.reference_to = this.question.id;
         }
-        commentRecord.create().then((id: number) => {
-          commentRecord.id = id;
+        this.commentApi.create(commentRecord).subscribe((newComment: CommentModel) => {
+          commentRecord.fromJson(newComment);
           this.comments.unshift(commentRecord);
           this.commentsForm.controls['description'].setValue('');
           this.getCommentsAccordeonStatus();

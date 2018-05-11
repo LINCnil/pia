@@ -5,6 +5,9 @@ import { Attachment } from 'app/entry/attachments/attachment.model';
 import { ModalsService } from 'app/modals/modals.service';
 import { PiaService } from 'app/entry/pia.service';
 
+import {PiaModel, AttachmentModel} from '@api/models';
+import {PiaApi, AttachmentApi} from '@api/services';
+
 @Component({
   selector: `.app-list-item`,
   templateUrl: './list-item.component.html',
@@ -17,14 +20,16 @@ export class ListItemComponent implements OnInit {
   constructor(private router: Router,
               private route: ActivatedRoute,
               public _piaService: PiaService,
-              private _modalsService: ModalsService) { }
+              private _modalsService: ModalsService,
+              private piaApi: PiaApi,
+              private attachmentApi: AttachmentApi,
+            ) { }
 
   ngOnInit() {
-    const attachmentModel = new Attachment();
-    attachmentModel.pia_id = this.pia.id;
-    attachmentModel.findAll().then((entries: any) => {
-      this.attachments = entries;
+    this.attachmentApi.getAll(this.pia.id).subscribe((entries: AttachmentModel[]) => {
+        this.attachments = entries;
     });
+
   }
 
   /**
@@ -36,7 +41,7 @@ export class ListItemComponent implements OnInit {
   onFocusOut(attribute: string, event: any) {
     const text = event.target.innerText;
     this.pia[attribute] = text;
-    this.pia.update();
+    this.piaApi.update(this.pia).subscribe();
   }
 
   /**

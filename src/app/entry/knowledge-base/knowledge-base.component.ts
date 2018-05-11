@@ -10,7 +10,7 @@ import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
   selector: 'app-knowledge-base',
   templateUrl: './knowledge-base.component.html',
   styleUrls: ['./knowledge-base.component.scss'],
-  providers: [PiaService]
+  providers: []
 })
 export class KnowledgeBaseComponent implements OnInit {
   searchForm: FormGroup;
@@ -24,7 +24,7 @@ export class KnowledgeBaseComponent implements OnInit {
               private _piaService: PiaService) { }
 
   ngOnInit() {
-    this._piaService.getPIA();
+  
     this.searchForm = new FormGroup({
       q: new FormControl()
     });

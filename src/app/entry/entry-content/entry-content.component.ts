@@ -9,7 +9,7 @@ import { AppDataService } from 'app/services/app-data.service';
 import { MeasureService } from 'app/entry/entry-content/measures/measures.service';
 import { ModalsService } from 'app/modals/modals.service';
 import { PiaService } from 'app/entry/pia.service';
-import { PaginationService } from './pagination.service';
+import { PaginationService } from 'app/entry/entry-content/pagination.service';
 import { TranslateService } from '@ngx-translate/core';
 import { SidStatusService } from 'app/services/sid-status.service';
 import { GlobalEvaluationService } from 'app/services/global-evaluation.service';
@@ -18,8 +18,7 @@ import { KnowledgeBaseService } from 'app/entry/knowledge-base/knowledge-base.se
 @Component({
   selector: 'app-entry-content',
   templateUrl: './entry-content.component.html',
-  styleUrls: ['./entry-content.component.scss'],
-  providers: [PiaService]
+  styleUrls: ['./entry-content.component.scss']
 })
 
 export class EntryContentComponent implements OnInit, OnChanges {
@@ -43,17 +42,12 @@ export class EntryContentComponent implements OnInit, OnChanges {
   ngOnInit() {
     // Reset measures no longer addable from KB when switching PIA
     this._knowledgeBaseService.toHide = [];
-
-    // Update the last edited date for this PIA
-    this._piaService.getPIA().then(() => {
-      this._piaService.pia.updated_at = new Date();
-      this._piaService.pia.update();
-    });
+    //Make this._globalEvaluationService.pia available for all entry-content/*
+    this._globalEvaluationService.pia = this._piaService.pia;
   }
 
   async ngOnChanges() {
     this._paginationService.dataNav = await this._appDataService.getDataNav();
-    await this._piaService.getPIA();
 
     const sectionId = parseInt(this._activatedRoute.snapshot.params['section_id'], 10);
     const itemId = parseInt(this._activatedRoute.snapshot.params['item_id'], 10);
@@ -83,7 +77,6 @@ export class EntryContentComponent implements OnInit, OnChanges {
    */
   prepareForEvaluation() {
     this._globalEvaluationService.prepareForEvaluation().then(() => {
-      this.goToNextSectionItem(0, 4);
       let isPiaFullyEdited = true;
       for (const el in this._sidStatusService.itemStatus) {
         if (this._sidStatusService.itemStatus.hasOwnProperty(el) && this._sidStatusService.itemStatus[el] < 4 && el !== '4.3') {
@@ -91,8 +84,10 @@ export class EntryContentComponent implements OnInit, OnChanges {
         }
       }
       if (isPiaFullyEdited) {
+        this.goToNextSectionItem(4, 5);
         this._modalsService.openModal('completed-edition');
       } else {
+        this.goToNextSectionItem(0, 4);
         this._modalsService.openModal('ask-for-evaluation');
       }
     });
@@ -122,44 +117,22 @@ export class EntryContentComponent implements OnInit, OnChanges {
   }
 
   /**
-   * Get next item to go.
+   * Go to next item.
    * @private
    * @param {number} status_start - From status.
    * @param {number} status_end - To status.
    * @memberof EntryContentComponent
    */
   private goToNextSectionItem(status_start: number, status_end: number) {
-    let goto_section = null;
-    let goto_item = null;
-
-    const itemStatus = Object.keys(this._sidStatusService.itemStatus).sort().reduce(
-      (r, k) => (r[k] = this._sidStatusService.itemStatus[k], r), {}
-    );
-
-    for (const el in itemStatus) {
-      if (this._sidStatusService.itemStatus.hasOwnProperty(el) &&
-          this._sidStatusService.itemStatus[el] >= status_start &&
-          this._sidStatusService.itemStatus[el] < status_end &&
-          el !== '4.3') {
-        const reference_to = el.split('.');
-        goto_section = reference_to[0];
-        goto_item = reference_to[1];
-        break;
-      }
-    }
-
-    if (!goto_section || !goto_item) {
-      goto_section = this._paginationService.nextLink[0];
-      goto_item = this._paginationService.nextLink[1];
-    }
+    const goto_section_item = this._paginationService.getNextSectionItem(status_start, status_end)
 
     this._router.navigate([
       'entry',
       this._piaService.pia.id,
       'section',
-      goto_section,
+      goto_section_item[0],
       'item',
-      goto_item
+      goto_section_item[1]
     ]);
   }
 
@@ -169,6 +142,7 @@ export class EntryContentComponent implements OnInit, OnChanges {
    */
   cancelAskForEvaluation() {
     this._globalEvaluationService.cancelForEvaluation();
+    this._modalsService.openModal('back-to-edition');
   }
 
   /**
@@ -177,6 +151,7 @@ export class EntryContentComponent implements OnInit, OnChanges {
    */
   cancelValidateEvaluation() {
     this._globalEvaluationService.cancelValidation();
+    this._modalsService.openModal('back-to-evaluation');
   }
 
 }

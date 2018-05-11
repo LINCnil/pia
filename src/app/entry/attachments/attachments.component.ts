@@ -2,10 +2,8 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Component, OnInit, Input } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 
-import { Pia } from '../pia.model';
-import { Attachment } from './attachment.model';
-
 import { AttachmentsService } from 'app/entry/attachments/attachments.service';
+import { PiaModel } from '@api/models';
 
 @Component({
   selector: 'app-attachments',
@@ -14,7 +12,7 @@ import { AttachmentsService } from 'app/entry/attachments/attachments.service';
 })
 export class AttachmentsComponent implements OnInit {
 
-  @Input() pia: Pia;
+  @Input() pia: PiaModel;
   attachmentForm: FormGroup;
   dispplayAttachmentButton = false;
 
@@ -35,7 +33,7 @@ export class AttachmentsComponent implements OnInit {
    * @memberof AttachmentsComponent
    */
   addAttachment() {
-    if (this.pia.is_example === 1) {
+    if (this.pia.is_example) {
       return false;
     } else {
       this._attachmentsService.pia_signed = 0;

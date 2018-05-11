@@ -15,7 +15,7 @@
       <form [formGroup]="commentsForm" class="pia-commentsBlock-new fadeIn">
         <textarea formControlName="description" (ngModelChange)="newCommentOnChange($event)" placeholder="{{ 'comments.placeholder_new_comment' | translate }}" rows="8" cols="50"></textarea>
       </form>
-      <button type="button" *ngIf="displayCommentValidateBtn && this.pia.is_example === 0" class="btn pia-commentBtnSubmit btn-green" [disabled]="!newCommentDisplayer" (click)="newCommentClickBtn()">{{ 'comments.send' | translate }}</button>
+      <button type="button" *ngIf="displayCommentValidateBtn && !this.pia.is_example" class="btn pia-commentBtnSubmit btn-green" [disabled]="!newCommentDisplayer" (click)="newCommentClickBtn()">{{ 'comments.send' | translate }}</button>
       <app-comment-item *ngFor="let comment of comments" [comment]="comment"></app-comment-item>
     </div>
 </div>

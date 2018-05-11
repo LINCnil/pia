@@ -44,6 +44,7 @@ import { ModalsService } from 'app/modals/modals.service';
 import { AttachmentsService } from 'app/entry/attachments/attachments.service';
 import { KnowledgeBaseService } from 'app/entry/knowledge-base/knowledge-base.service';
 import { PaginationService } from 'app/entry/entry-content/pagination.service';
+import { LanguagesService } from 'app/services/languages.service';
 import { OverviewRisksComponent } from 'app/entry/entry-content/overview-risks/overview-risks.component';
 import { ErrorsComponent } from 'app/errors/errors.component';
 import {
@@ -55,6 +56,13 @@ import { SummaryComponent } from 'app/summary/summary.component';
 import { AboutComponent } from 'app/about/about.component';
 import { AppRoutingModule } from 'app/app-routing.module';
 import { CardsRoutingModule } from 'app/cards/cards-routing.module';
+import { AuthenticationService } from 'app/services/authentication.service';
+import { AuthenticationGuardService } from 'app/services/authentication-guard.service';
+import { AuthorizationGuardService } from 'app/services/authorization-guard.service';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { TokenInterceptor } from 'app/services/token.interceptor';
+
+import { ApiModule } from '@api/api.module';
 
 const providersList: any = [
   AppDataService,
@@ -65,7 +73,16 @@ const providersList: any = [
   ActionPlanService,
   PaginationService,
   SidStatusService,
-  GlobalEvaluationService
+  LanguagesService,
+  GlobalEvaluationService,
+  AuthenticationService,
+  AuthenticationGuardService,
+  AuthorizationGuardService,
+  {
+    provide: HTTP_INTERCEPTORS,
+    useClass: TokenInterceptor,
+    multi: true
+  }
 ];
 
 if (environment.rollbar_key.length > 0) {
@@ -131,6 +148,7 @@ export function createTranslateLoader(http: HttpClient) {
     HttpClientModule,
     BrowserAnimationsModule,
     TagInputModule,
+    ApiModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

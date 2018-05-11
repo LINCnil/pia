@@ -53,12 +53,13 @@
           left: -1px;
           min-width: 200px;
           color: $pia-blue;
+          list-style-type: none;
           box-shadow: 2px 2px 4px 1px rgba(181, 181, 181, 1);
           li {
             text-align: left;
             color: #fff;
             cursor: pointer;
-            a {
+            a, a:active {
               font-size: 1.2rem;
               text-transform: none;
               font-weight: normal;
@@ -120,6 +121,37 @@
           }
         }
       }
+      .pia-navigationBlock-profile {
+        position: relative;
+        min-width: 90px;
+        > ul {
+          display: none;
+          z-index: 999;
+          background-color: #fff;
+          padding: 0;
+          margin: 0;
+          position: absolute;
+          top: 28px;
+          left: -1px;
+          min-width: 200px;
+          list-style-type: none;
+          box-shadow: 2px 2px 4px 1px rgba(181, 181, 181, 1);
+        }
+        &:focus, &:hover, &:active {
+          > a {
+            color: $pia-blue !important;
+            background-color: #fff;
+          }
+          > ul {
+            display: block;
+            background-color: #fff;
+            > li {
+              background-color: #fff;
+              color: $pia-light-black;
+            }
+          }
+        }
+      }
       .pia-navigationBlock-company {
         position: relative;
         border-left: 1px solid #fff;
@@ -142,7 +174,7 @@
           }
           &:focus, &:hover, &:active {
             color: #fff !important;
-            background-color: $pia-green;
+            background-color: #fff;
             & + form {
               display: block;
             }
@@ -222,8 +254,8 @@
         }
         &:focus, &:hover, &:active {
           > a {
-            color: #fff !important;
-            background-color: $pia-green;
+            color: $pia-blue !important;
+            background-color: #fff;
             .pia-icon-scroll {
               background-position: -367px -39px;
             }
