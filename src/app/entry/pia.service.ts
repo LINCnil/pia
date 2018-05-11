@@ -327,4 +327,42 @@ export class PiaService {
       return this.pia;
     });
   }
+
+  /**
+   * Get people status.
+   * @param {boolean} status - The people search status.
+   * @returns {string} - Locale for translation.
+   * @memberof Pia
+   */
+  public getPeopleSearchStatus(status: boolean) {
+    if (status === true) {
+      return 'summary.people_search_status_ok';
+    } else {
+      return 'summary.people_search_status_nok';
+    }
+  }
+
+  /**
+   * Get opinion status.
+   * @param {string} status - The opinion status.
+   * @returns {string} - Locale for translation.
+   * @memberof Pia
+   */
+  public getOpinionsStatus(status: string) {
+    if (status) {
+      return `summary.content_choice.${status}`;
+    }
+  }
+
+  /**
+   * Get gauge name.
+   * @param {*} value - The gauge value.
+   * @returns {string} - Locale for translation.
+   * @memberof Pia
+   */
+  public getGaugeLabel(value: any) {
+    if (value) {
+      return `summary.gauges.${value}`;
+    }
+  }
 }

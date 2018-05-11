@@ -20,7 +20,7 @@ export class Pia extends ApplicationDb {
   public people_names: string;
   public progress: number;
   public is_example = false;
-  public numberOfQuestions = 36; // TODO Auto calcul questions number
+  public numberOfQuestions = 36; // TODO Automatically count questions
 
   constructor() {
     super(201802221337, 'pia');
@@ -69,21 +69,6 @@ export class Pia extends ApplicationDb {
           });
         }
         resolve(items);
-      });
-    });
-  }
-
-  /**
-   * Calcul percent of progress bar.
-   * @returns {Promise}
-   * @memberof Pia
-   */
-  async calculProgress() {
-    return new Promise((resolve, reject) => {
-      const answer = new Answer();
-      answer.findAllByPia(this.id).then((answers: any) => {
-        this.progress = Math.round((100 / this.numberOfQuestions) * answers.length);
-        resolve();
       });
     });
   }
@@ -308,47 +293,9 @@ export class Pia extends ApplicationDb {
    * @returns {string} - Locale for translation.
    * @memberof Pia
    */
-  getStatusName() {
+  public getStatusName() {
     if (this.status >= 0) {
       return `pia.statuses.${this.status}`;
-    }
-  }
-
-  /**
-   * Get people status.
-   * @param {boolean} status - The people search status.
-   * @returns {string} - Locale for translation.
-   * @memberof Pia
-   */
-  getPeopleSearchStatus(status: boolean) {
-    if (status === true) {
-      return 'summary.people_search_status_ok';
-    } else {
-      return 'summary.people_search_status_nok';
-    }
-  }
-
-  /**
-   * Get opinion status.
-   * @param {string} status - The opinion status.
-   * @returns {string} - Locale for translation.
-   * @memberof Pia
-   */
-  getOpinionsStatus(status: string) {
-    if (status) {
-      return `summary.content_choice.${status}`;
-    }
-  }
-
-  /**
-   * Get gauge name.
-   * @param {*} value - The gauge value.
-   * @returns {string} - Locale for translation.
-   * @memberof Pia
-   */
-  getGaugeLabel(value: any) {
-    if (value) {
-      return `summary.gauges.${value}`;
     }
   }
 }

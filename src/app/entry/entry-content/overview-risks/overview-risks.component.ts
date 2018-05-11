@@ -1,4 +1,5 @@
 import { Component, OnInit, ElementRef, NgZone } from '@angular/core';
+import { Observable } from 'rxjs/Rx';
 import { PiaService } from 'app/entry/pia.service';
 import { AppDataService } from 'app/services/app-data.service';
 import { AnswerApi } from '@api/services';
@@ -19,18 +20,20 @@ export class OverviewRisksComponent implements OnInit {
   linkFromTo = [];
   svg: any;
 
-  constructor(private _piaService: PiaService,
+  constructor(
+    private _piaService: PiaService,
     private el: ElementRef,
     private _appDataService: AppDataService,
     private _ngZone: NgZone,
     private _translateService: TranslateService,
-    private answerApi:AnswerApi) { }
+    private answerApi:AnswerApi
+  ) { }
 
-  async ngOnInit() {
-    await this.initData();
-
-    this._ngZone.run(() => {
-      this.initSvg();
+  ngOnInit() {
+    this.initData().subscribe(() => {
+      this._ngZone.run(() => {
+        this.initSvg();
+      });
     });
   }
 
@@ -39,8 +42,7 @@ export class OverviewRisksComponent implements OnInit {
    * @private
    * @memberof OverviewRisksComponent
    */
-  private async initData() {
-
+  private initData() {
     const dataTags = [
       {
         id: 1,
@@ -63,27 +65,51 @@ export class OverviewRisksComponent implements OnInit {
         reference_to: [324, 334, 344]
       }
     ];
+
+    let mainObservables = [];
+
     for (const dt of dataTags) {
-      const tags = {};
-      for (const reference_to of dt.reference_to) {
-        this.answerApi.getByRef(this._piaService.pia.id, reference_to).subscribe((theAnswer: AnswerModel) => {
-          if (theAnswer && theAnswer.data && theAnswer.data.list.length > 0) {
-            const list = theAnswer.data.list;
-            for (const l of list) {
-              if (!tags[l]) {
-                tags[l] = [];
-              }
-              tags[l].push(reference_to.toString().substring(0, 2));
-            }
+      mainObservables.push(
+        new Promise((resolve, reject) => {
+          const tags = {};
+          let observables = [];
+
+          for (const reference_to of dt.reference_to) {
+            observables.push(
+              new Promise((resolve, reject) => {
+                this.answerApi.getByRef(this._piaService.pia.id, reference_to).subscribe((theAnswer: AnswerModel) => {
+                  if (theAnswer && theAnswer.data && theAnswer.data.list.length > 0) {
+                    const list = theAnswer.data.list;
+
+                    for (const l of list) {
+                      if (!tags[l]) {
+                        tags[l] = [];
+                      }
+
+                      tags[l].push(reference_to.toString().substring(0, 2));
+                    }
+                  }
+
+                  resolve();
+                })
+              })
+            );
           }
-        });
-      }
-      this.data.push({
-        id: dt.id,
-        name: dt.name,
-        tags: tags
-      });
+
+          Observable.forkJoin(observables).subscribe((data: any) => {
+            this.data.push({
+              id: dt.id,
+              name: dt.name,
+              tags: tags
+            });
+
+            resolve();
+          }); 
+        })
+      );
     }
+
+    return Observable.forkJoin(mainObservables);
   }
 
   /**

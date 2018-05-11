@@ -85,7 +85,6 @@
   <app-dpo-people-opinions *ngIf="section.id == 4 && item.id == 3"></app-dpo-people-opinions>
 
   <footer class="pia-entryContentBlock-footer">
-    <div>STATUS {{_globalEvaluationService.status}}</div>
     <div *ngIf="_globalEvaluationService.status > 0">
       <button class="btn btn-green" (click)="prepareForEvaluation()"
               *ngIf="_globalEvaluationService.status === 1 || _globalEvaluationService.status === 2 || _globalEvaluationService.status === 3"
