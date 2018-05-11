@@ -31,47 +31,33 @@ pipeline {
 
     	stage ('Set Env') {
             steps {
-                sh "ETCDCTL_API=3 etcdctl put /default/api/client/id 1234 --endpoints=http://${env.ETCDHOST}:2379"
-                sh "ETCDCTL_API=3 etcdctl put /default/api/client/secret 4321 --endpoints=http://${env.ETCDHOST}:2379"
-                sh "ETCDCTL_API=3 etcdctl put /default/api/host/url 'http://localhost:8000' --endpoints=http://${env.ETCDHOST}:2379"
-                sh "confd -onetime -backend etcdv3 -node http://${env.ETCDHOST}:2379 -confdir ./etc/confd -log-level debug -prefix /default"
-                sh "cat src/environments/environment.ts"
+                sh "./bin/ci-scripts/set_env_with_etcd.sh"
             }
         }
 
         stage ('Composer Install') {
             steps {
-                sh ". ${env.NVM_DIR}/nvm.sh && npm install --no-interaction"
+                sh "./bin/ci-scripts/install.sh"
             }
         }
 
-        stage ('Configuration') {
-            steps {
-                sh "echo waiting merge of new-backend to add some config step"
-            }
-        }
-        
         stage ('Build Project') {
             steps {
-                sh ". ${env.NVM_DIR}/nvm.sh && ng build"
+                sh "./bin/ci-scripts/build.sh"                
             }
         }
-        
-       /* stage ('Run Server') {
-            steps {
-                sh ". ${env.NVM_DIR}/nvm.sh && ng serve"
-            }
-        }*/
         
         stage ('Run Test') {
             steps {
-                sh "echo waiting for test creation"
+                sh "./bin/ci-scripts/run_test.sh"
             }
         }
         
         stage ('Create Archive') {
             steps {
-                sh "echo waiting for something smart to add in archive"
+                sh 'Branch=${BRANCH_NAME} ./bin/ci-scripts/gen_archive.sh'
+                archiveArtifacts artifacts: "*.tar.gz*", fingerprint: true
+                build job: 'Copy Artifact', parameters: [string(name: 'Job', value: "${JOB_NAME}"), string(name: 'Project', value: "Pialab"), string(name: 'Branch', value: "${BRANCH_NAME}"), string(name: 'DoDeploy', value: "false")], wait: false
             }
         }
         
