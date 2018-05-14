@@ -1,0 +1,8 @@
+[template]
+src = "environment.dev.ts.tmpl"
+dest = "src/environments/environment.dev.ts"
+keys = [
+       "/api/client/id",
+       "/api/client/secret",
+       "/api/host/url",
+]

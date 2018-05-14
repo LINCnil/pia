@@ -33,6 +33,7 @@ npm-debug.log
 testem.log
 /typings
 src/environments/environment.prod.ts
+src/environments/environment.dev.ts
 yarn-error.log
 
 # e2e
