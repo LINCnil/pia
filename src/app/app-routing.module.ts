@@ -23,11 +23,7 @@ const routes: Routes = [
     component: SummaryComponent ,
     canActivate: [AuthenticationGuardService, PiaResolve]
   },
-  {
-    path: 'settings',
-    component: SettingsComponent,
-    canActivate: [AuthenticationGuardService]
-  },
+
   { path: 'help', component: HelpComponent },
   { path: 'about', component: AboutComponent },
   { path: '**', component: ErrorsComponent },
