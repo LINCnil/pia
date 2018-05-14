@@ -7,12 +7,6 @@ pipeline {
         }
     }
     
-    environment {
-        NVM_DIR="/home/jenkins/.nvm"
-        ETCDHOST="etcd.host"
-        /* warnings, can't use "$HOME/.nvm" as it is not the same in docker and host ... */     
-    }
-    
     options {
         timeout(time: 1, unit: 'HOURS')
         timestamps()
@@ -24,8 +18,6 @@ pipeline {
     	stage ('Where Am I') {
             steps {
                 sh "uname -a"
-                sh ". ${env.NVM_DIR}/nvm.sh && npm -v"
-                sh ". ${env.NVM_DIR}/nvm.sh && node -v"
             }
         }
 
@@ -43,7 +35,7 @@ pipeline {
 
         stage ('Build Project') {
             steps {
-                sh "./bin/ci-scripts/build.sh"                
+                sh "./bin/ci-scripts/build.sh"
             }
         }
         
