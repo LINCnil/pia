@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -ex
 
-if []
+if [ -f ${NVM_DIR}/nvm.sh ]
 then
     . ${NVM_DIR}/nvm.sh
 else
