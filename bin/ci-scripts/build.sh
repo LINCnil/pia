@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -ex
 
-if [ -f ${NVM_DIR}/nvm.sh ]
+if []
 then
     . ${NVM_DIR}/nvm.sh
 else
@@ -9,6 +9,22 @@ else
     exit 42
 fi
 
+if [ -z "${BUILDENV}" ]
+then 
+    BUILDENV="DEV"
+fi
+
+if [ -z "${BUILDARG}" ]
+then 
+    BUILDARG="--sourcemap"
+fi
+
+if [ "${BUILDENV}" = "PROD" ]
+   then
+       BUILDARG="--sourcemap --prod --build-optimizer"
+fi
+
+
 # todo : add build option env variable
-ng build
+ng build "${BUILDARG}"
 
