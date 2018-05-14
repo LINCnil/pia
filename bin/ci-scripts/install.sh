@@ -12,6 +12,5 @@ fi
 nvm --version
 npm --version
 node --version
-ng --version
 
 npm install --no-interaction
