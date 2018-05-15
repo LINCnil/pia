@@ -4,6 +4,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { LanguagesService } from 'app/services/languages.service';
 import { AuthenticationService } from 'app/services/authentication.service';
 import { User } from 'app/authentication/user.model';
+import { environment } from 'environments/environment';
 
 @Component({
   selector: 'app-authentication',
@@ -13,8 +14,11 @@ import { User } from 'app/authentication/user.model';
 export class AuthenticationComponent implements OnInit {
   public user = new User('', '');
   public error = false;
+  public backendUrl = '#'
 
-  constructor(public authService: AuthenticationService, public router: Router) {}
+  constructor(public authService: AuthenticationService, public router: Router) {
+    this.backendUrl = environment.api.host + '/resetting/request'
+  }
 
   onSubmit() {
     this.authService.authenticate(this.user).then(

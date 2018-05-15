@@ -17,7 +17,7 @@
                         </div>
                         <p *ngIf="error" class="error">{{ 'authentication.form.error' | translate }}</p>
                         <button type="submit" [disabled]="!authForm.valid" class="btn btn-green" id="authentication-submit" title="{{ 'homepage.cards.placeholder_start' | translate }}">{{ 'authentication.form.submit' | translate }}</button>
-                        <a href="#">{{ 'authentication.forgotten_password' | translate }}</a>
+                        <a href="{{backendUrl}}">{{ 'authentication.forgotten_password' | translate }}</a>
                     </fieldset>
                 </form>
             </div>
