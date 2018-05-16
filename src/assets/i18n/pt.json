@@ -25,6 +25,8 @@
       "pl": "Polaco",
       "de": "Alemão",
       "es": "Espanhol"
+      "pt": "Português",	
+-     "ro": "Română"
     },
     "tools": {
       "title": "Ferramentas",
@@ -197,7 +199,7 @@
       },
       "PIA_LGL_TRAN": {
         "name": "Transferências",
-        "description": "Dependendo do país em questão, você terá que justificar a escolha da hospedagem remota e indicar as disposições legais de supervisão implementadas, a fim de garantir a proteção adequada dos dados sujeitos a uma transferência transfronteiriça. Isto é :<br>- União Europeia<br>- País reconhecido pela UE por fornecer proteção adequada<br>- Transferência para os Estados Unidos para uma empresa que aderiu ao Privacy Shield<br>- Outro país <br>Ver <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">art. 44 ao 49 do [RGPD]</a>",
+        "description": "Dependendo do país, você terá que justificar a escolha da hospedagem remota e indicar as disposições legais de supervisão implementadas, a fim de garantir a proteção adequada dos dados sujeitos a uma transferência transfronteiriça. Isto é :<br>- União Europeia<br>- País reconhecido pela UE por fornecer proteção adequada<br>- Transferência para os Estados Unidos para uma empresa que aderiu ao Privacy Shield<br>- Outro país <br>Ver <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">art. 44 ao 49 do [RGPD]</a>",
         "source": "PIAF Connected Objects p18"
       },
       "PIA_LGL_DESC": {
@@ -889,7 +891,7 @@
       "download_pia": "Descarregar o relatório PIA"
     },
     "abandon_pia": {
-      "additional_text": "O arquivamento não é definitivo e o PIA pode voltar a ele se for necessário.",
+      "additional_text": "O arquivamento não é definitivo e pode voltar ao PIA se for necessário.",
       "content": "Tem certeza que quer<br>desistir deste tratamento?"
     },
     "refuse_pia": {
@@ -924,22 +926,22 @@
       "remove": "Remover este PIA"
     },
     "remove_attachment": {
-      "comment": "Comentário",
+      "comment": "Comentar",
       "content": "<span class='strong'>Atenção,</span><br>você tem a certeza que quer<br>remover este anexo?",
       "keep": "Manter",
       "remove": "Remover"
     },
     "action_plan_no_evaluation": {
-      "content": "Precisas de iniciar a revisão da análise para criar um plano de acção.",
+      "content": "Precisa de começar a revisão da análise para poder criar um plano de acção.",
       "review_section": "Rever uma secção"
     },
     "back_to_edition": {
     },
     "back_to_evaluation": {
-      "content": "Esta secção foi enviada de volta para revisão.<br> Vários campos devem ser revistos<br> para permitir sua validação adequada."
+      "content": "Esta secção foi enviada de volta para revisão.<br> Devem ser revistos vários campos<br> para permitir sua validação adequada."
     },
     "dpo_missing_evaluations": {
-      "content": "Precisas de completar a revisão da análise para aceder à página do DPO.",
+      "content": "Precisa de completar a revisão da análise para aceder à página do DPO.",
       "review_section": "Rever uma secção"
     },
     "modal_select_text_pia": {
@@ -950,10 +952,10 @@
     "previous_page": "Voltar para a página anterior",
     "print": "Imprimir",
     "copy_to_clipboard": "Copiar para a área de transferência",
-    "download_csv": "Faça o download de uma exportação em CSV",
+    "download_csv": "Faça o download da exportação em CSV",
     "download_images": "Descarregar imagens",
-    "csv_action_plan_comment": "Comentário plano de acção",
-    "csv_evaluation_comment": "Comentário avaliação",
+    "csv_action_plan_comment": "Comentar o plano de acção",
+    "csv_evaluation_comment": "Comentar a avaliação",
     "csv_file_title": "plano-acção",
     "csv_implement_date": "Data de implementação estimada",
     "csv_people_in_charge": "Pessoa responsável",
