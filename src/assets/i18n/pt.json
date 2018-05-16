@@ -199,7 +199,7 @@
       },
       "PIA_LGL_TRAN": {
         "name": "Transferências",
-        "description": "Dependendo do país, você terá que justificar a escolha da hospedagem remota e indicar as disposições legais de supervisão implementadas, a fim de garantir a proteção adequada dos dados sujeitos a uma transferência transfronteiriça. Isto é :<br>- União Europeia<br>- País reconhecido pela UE por fornecer proteção adequada<br>- Transferência para os Estados Unidos para uma empresa que aderiu ao Privacy Shield<br>- Outro país <br>Ver <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">art. 44 ao 49 do [RGPD]</a>",
+        "description": "Dependendo do país, terá que justificar a escolha da hospedagem remota e indicar as disposições legais de supervisão implementadas, a fim de garantir a proteção adequada dos dados sujeitos a uma transferência transfronteiriça. Isto é :<br>- União Europeia<br>- País reconhecido pela UE por fornecer proteção adequada<br>- Transferência para os Estados Unidos para uma empresa que aderiu ao Privacy Shield<br>- Outro país <br>Ver <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">art. 44 ao 49 do [RGPD]</a>",
         "source": "PIAF Connected Objects p18"
       },
       "PIA_LGL_DESC": {
@@ -437,7 +437,7 @@
       },
       "PIA_DEF_MES": {
         "name": "Medidas",
-        "description": "Para ser escolhido entre os disponíveis na seção 'Medidas planeadas ou existentes', que você pode preencher se necessário.",
+        "description": "Para ser escolhido entre os disponíveis na seção 'Medidas planeadas ou existentes', que pode preencher se necessário.",
         "source": "Nenhuma"
       },
       "PIA_DEF_RT": {
@@ -756,8 +756,8 @@
     "placeholder_improvable2": "Digite seus comentários.",
     "placeholder_acceptable": "De acordo com as informações disponíveis, as medidas implementadas são adequadas para atender apropriadamente aos requisitos de proteção dos dados.",
     "gauges": {
-      "seriousness": "Tendo em conta o plano de ação, como você reavalia a <span class='red-highlight'>gravidade deste risco</span> ({{value}})?",
-      "likelihood": "Tendo em conta o plano de ação, como você reavalia a <span class='red-highlight'>probabilidade deste risco</span> ({{value}})?",
+      "seriousness": "Tendo em conta o plano de ação, como reavalia a <span class='red-highlight'>gravidade deste risco</span> ({{value}})?",
+      "likelihood": "Tendo em conta o plano de ação, como reavalia a <span class='red-highlight'>probabilidade deste risco</span> ({{value}})?",
       "0": "(Indefinido)",
       "1": "Insignificante",
       "2": "Limitado",
@@ -782,15 +782,15 @@
         "title": "Problemas conhecidos",
         "qa1": {
           "title": "Eu recebo problemas de exibição, como ícones que estão presos em um estado ou elementos ausentes da interface",
-          "content": "Ao encontrar esses problemas de exibição, feche o aplicativo e recarregue-o. Normalmente corrige o problema. Você não perderá as informações inseridas; ele é salvo automaticamente enquanto você digita."
+          "content": "Ao encontrar esses problemas de exibição, feche o aplicativo e recarregue-o. Normalmente corrige o problema. Não perderá as informações inseridas; ele é salvo automaticamente enquanto digita."
         },
         "qa2": {
           "title": "Não consigo editar os medidores para avaliar a gravidade e a probabilidade de um risco",
-          "content": "Esse problema conhecido está sendo corrigido no momento. Se você encontrar esse problema, recomendamos que você preencha o campo de justificação do nível estimado de gravidade e/ou probabilidade. Você poderá editar o medidor assim que o bug for corrigido."
+          "content": "Esse problema conhecido está sendo corrigido no momento. Se encontrar esse problema, recomendamos que preencha o campo de justificação do nível estimado de gravidade e/ou probabilidade. Poderá editar o medidor assim que o bug for corrigido."
         },
         "qa3": {
           "title": "Eu encontro problemas ao importar um PIA",
-          "content": "Vários erros foram observados durante a importação de uma PIA e, em particular, os indicadores de nível para avaliar a gravidade e a probabilidade de um risco podem desaparecer. Neste caso, por favor, consulte o problema acima mencionado. Além disso, um PIA pode não aparecer no painel depois de importá-lo. Este é um problema de exibição e você só precisa atualizar a página."
+          "content": "Vários erros foram observados durante a importação de uma PIA e, em particular, os indicadores de nível para avaliar a gravidade e a probabilidade de um risco podem desaparecer. Neste caso, por favor, consulte o problema acima mencionado. Além disso, um PIA pode não aparecer no painel depois de importá-lo. Este é um problema de exibição e só precisa atualizar a página."
         },
         "qa4": {
           "title": "Quando copio/colo texto, ele é sublinhado.",
@@ -798,15 +798,15 @@
         },
         "qa5": {
           "title": "Não consigo avaliar uma seção",
-          "content": "Para avaliar uma seção, é obrigatório preencher todos os campos. Por favor, verifique se este é o caso. Ao editar um risco, você deve ter pelo menos uma medida técnica ou organizacional que mitigue o risco, a fim de solicitar uma avaliação do risco."
+          "content": "Para avaliar uma seção, é obrigatório preencher todos os campos. Por favor, verifique se este é o caso. Ao editar um risco, deve ter pelo menos uma medida técnica ou organizacional que mitigue o risco, a fim de solicitar uma avaliação do risco."
         },
         "qa6": {
           "title": "Ao trocar de idioma, os textos não são traduzidos",
-          "content": "Por favor, feche o PIA que você está editando e abra-o novamente. O conteúdo deve então ser exibido no idioma que você selecionou."
+          "content": "Por favor, feche o PIA que está editando e abra-o novamente. O conteúdo deve então ser exibido no idioma que selecionou."
         },
         "qa7": {
           "title": "Recusei a validar uma PIA mas não sei o que fazer agora",
-          "content": "No momento, os ícones do menu de navegação não são atualizados após recusar um PIA. Você deve verificar cada seção e alterar as informações e/ou avaliações de acordo com as razões para recusar a PIA. Depois de toda a seção tiver sido revisada, você poderá solicitar a validação da PIA novamente."
+          "content": "No momento, os ícones do menu de navegação não são atualizados após recusar um PIA. Deve verificar cada seção e alterar as informações e/ou avaliações de acordo com as razões para recusar a PIA. Depois de toda a seção tiver sido revisada, poderá solicitar a validação da PIA novamente."
         }
       },
       "footer": ""
@@ -815,10 +815,10 @@
   "about": {
     "title": "Sobre a Ferramenta PIA",
     "version_number": "Número da versão",
-    "description": "Esta ferramenta é originalmente desenhada pelo <a target=\"_blank\" href=\"https://www.cnil.fr\">Comissão Nacional da Informática e Liberdade (CNIL)</a>, Autoridade Francesa de Proteção de Dados, para ajudar o processador de dados a ser compatível com o GDPR.<br>Este software é gratuito e aberto. Se você deseja se envolver neste projeto, você pode baixar o código fonte do Github, modificá-lo e compartilhá-lo com a comunidade.",
+    "description": "Esta ferramenta é originalmente desenhada pelo <a target=\"_blank\" href=\"https://www.cnil.fr\">Comissão Nacional da Informática e Liberdade (CNIL)</a>, Autoridade Francesa de Proteção de Dados, para ajudar o processador de dados a ser compatível com o GDPR.<br>Este software é gratuito e aberto. Se deseja se envolver neste projeto, pode baixar o código fonte do Github, modificá-lo e compartilhá-lo com a comunidade.",
     "translators": "O software PIA está atualmente disponível em cinco idiomas. As versões francesa e inglesa são fornecidas pelo CNIL. As outras versões resultam das contribuições dos seguintes indivíduos:",
     "translators_name": "<ul><li>Holandês: Ruud van Driel, Manuel d’Orso ;</li><li>Checo: Jiří Grohmann, Manuel d’Orso ;</li><li>Italiano: Manuel d’Orso, Gianluca Markos.</li><li>Polaco: Joanna Karczewska</li><li>Alemão: Kosmas Schütz</li><li>Espanhol: ylachgar</li></ul>",
-    "contribute": "Se você deseja contribuir com a tradução do software em outro idioma ou melhorar as traduções existentes, recomendamos que você <a href=\"https://github.com/LINCnil/pia/tree/master/src/assets/i18n\" target=\"_blank\">leia a página descrevendo os passos a seguir</a>.",
+    "contribute": "Se deseja contribuir com a tradução do software em outro idioma ou melhorar as traduções existentes, recomendamos que <a href=\"https://github.com/LINCnil/pia/tree/master/src/assets/i18n\" target=\"_blank\">leia a página descrevendo os passos a seguir</a>.",
     "licences": "Licensas das bibliotecas:"
   },
   "settings": {
@@ -904,7 +904,7 @@
       "content": "<span class='strong'>Atenção,</span>Pelo menos uma medida deve ser preenchida: não é possível excluir<br>."
     },
     "remove_measure": {
-      "content": "<span class='strong'>Atenção,</span><br>Você tem a certeza que quer <br>remover esta medida?",
+      "content": "<span class='strong'>Atenção,</span><br>Tem a certeza que quer <br>remover esta medida?",
       "remove": "Remover esta <br>medida",
       "keep": "Manter esta <br>medida"
     },
@@ -912,22 +912,22 @@
       "content": "<span class='strong'>Parabéns,</span><br>a subseção está agora<br>disponível para avaliação."
     },
     "validate_evaluation": {
-      "content": "<span class='strong'>Parabéns,</span><br>você terminou de avaliar esta seção.<br>Outras partes do PIA também devem ser avaliadas para poder validar o PIA."
+      "content": "<span class='strong'>Parabéns,</span><br>terminou de avaliar esta seção.<br>Outras partes do PIA também devem ser avaliadas para poder validar o PIA."
     },
     "validate_evaluation_to_correct": {
       "content": "Lamento,<br>vários campos devem ser corrigidos.<br>Returnar ao modo de edição<br>para fazer correções."
     },
     "declare_measures": {
-      "content": "Lamento,<br>antes de avaliar os riscos,<br>você deve relatar as<br>medidas existentes ou planeadas.",
+      "content": "Lamento,<br>antes de avaliar os riscos,<br>deve relatar as<br>medidas existentes ou planeadas.",
       "declare": "Declarar medidas existentes ou planeadas"
     },
     "remove_pia": {
-      "content": "<span class='strong'>Atenção,</span><br>você tem a certeza que quer<br>remover este PIA?",
+      "content": "<span class='strong'>Atenção,</span><br>tem a certeza que quer<br>remover este PIA?",
       "remove": "Remover este PIA"
     },
     "remove_attachment": {
       "comment": "Comentar",
-      "content": "<span class='strong'>Atenção,</span><br>você tem a certeza que quer<br>remover este anexo?",
+      "content": "<span class='strong'>Atenção,</span><br>tem a certeza que quer<br>remover este anexo?",
       "keep": "Manter",
       "remove": "Remover"
     },
@@ -1014,7 +1014,7 @@
   },
   "errors": {
     "title": "Página não encontrada.",
-    "content": "Se você encontrar outros problemas ou se tiver sugestões de melhoria,<br>você pode enviá-los de volta através deste formulário: <a href=\"https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia\" target=\"_blank\">https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia</a>"
+    "content": "Se encontrar outros problemas ou se tiver sugestões de melhoria,<br>pode enviá-los de volta através deste formulário: <a href=\"https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia\" target=\"_blank\">https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia</a>"
   },
   "overview-risks": {
     "potential_impacts": "Impactos potenciais",
@@ -1121,7 +1121,7 @@
     },
     "2": {
       "title": "Princípios fundamentais",
-      "short_help": "Esta seção permite que você crie a estrutura de conformidade para os princípios de privacidade.",
+      "short_help": "Esta seção permite que crie a estrutura de conformidade para os princípios de privacidade.",
       "items": {
         "1": {
           "title": "Proporcionalidade e necessidade",
@@ -1297,7 +1297,7 @@
         },
         "5": {
           "title": "Visão geral dos riscos",
-          "short_help": "Esta visualização permite que você tenha uma visão global e sintética dos efeitos dos controlos sobre os riscos que eles abordam."
+          "short_help": "Esta visualização permite que tenha uma visão global e sintética dos efeitos dos controlos sobre os riscos que eles abordam."
         }
       }
     },
