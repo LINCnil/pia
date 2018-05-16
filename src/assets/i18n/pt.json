@@ -889,6 +889,7 @@
       "download_pia": "Descarregar o relatório PIA"
     },
     "abandon_pia": {
+      "additional_text": "Archiving is not definitive and the PIA can go back to it if needed.",
       "content": "Tem certeza que quer<br>desistir deste tratamento?"
     },
     "refuse_pia": {
@@ -923,23 +924,51 @@
       "remove": "Remover este PIA"
     },
     "remove_attachment": {
+      "comment": "Comment",
       "content": "<span class='strong'>Atenção,</span><br>você tem a certeza que quer<br>remover este anexo?",
       "keep": "Manter",
       "remove": "Remover"
+    },
+    "action_plan_no_evaluation": {
+      "content": "You need to begin the review of the analysis to create the action plan.",
+      "review_section": "Review a section"
+    },
+    "back_to_edition": {
+      "content": "This section has been sent back for editing.<br> Several fields must be corrected<br> to enable its proper review."
+    },
+    "back_to_evaluation": {
+      "content": "This section has been sent back for review.<br> Several fields must be reviewed<br> to enable its proper validation."
+    },
+    "dpo_missing_evaluations": {
+      "content": "You need to complete the review of the analysis to access the DPO page.",
+      "review_section": "Review a section"
+    },
+    "modal_select_text_pia": {
+      "content": "TO BE TRANSLATED - The content of the PIA has been copied to clipboard."
     }
   },
   "summary": {
     "previous_page": "Voltar para a página anterior",
     "print": "Imprimir",
-    "display_pia": "Exibir PIA",
-    "display_action_plan": "Exibir<br>plano de ação",
+    "copy_to_clipboard": "Copy to clipboard",
+    "download_csv": "Download a CSV export",
+    "download_images": "Download images",
+    "csv_action_plan_comment": "Action plan comment",
+    "csv_evaluation_comment": "Evaluation comment",
+    "csv_file_title": "action-plan",
+    "csv_implement_date": "Estimated implementation date",
+    "csv_people_in_charge": "Person in charge",
+    "csv_section": "Section",
+    "csv_title_object": "Title",
     "display_filters": {
       "title": "Exibir filtros",
       "main_content": "Exibir seção \"Informações de PIA\"",
       "context_content": "Exibir seção \"Contexto\"",
       "principles_content": "Exibir seção \"Princípios fundamentais\"",
       "risks_content": "Exibir seção \"Riscos\"",
-      "action_plan_content": "Exibir plano de ação"
+      "action_plan_content": "Exibir plano de ação",
+      "risks_cartography_content": "Display risk mapping",
+      "risks_overview_content": "Display risks overview"
     },
     "title": "Informação PIA",
     "pia_name": "PIA",
