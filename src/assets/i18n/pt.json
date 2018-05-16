@@ -17,16 +17,14 @@
       "official_translation": "Versão original",
       "cnil_translations": "Translações fornecidas pela CNIL",
       "community_translations": "Translações fornecidas pela comunidade",
-      "fr": "Français",
-      "en": "English",
-      "cz": "Česky",
-      "it": "Italiaans",
-      "nl": "Nederlands",
-      "pl": "Polski",
-      "de": "Deutsch",
-      "es": "Español",
-      "pt": "Português",
-      "ro": "Română"
+      "fr": "Francês",
+      "en": "Inglês",
+      "cz": "Checo",
+      "it": "Italiano",
+      "nl": "Holandês",
+      "pl": "Polaco",
+      "de": "Alemão",
+      "es": "Espanhol"
     },
     "tools": {
       "title": "Ferramentas",
@@ -198,8 +196,8 @@
         "source": "PIA2 p10"
       },
       "PIA_LGL_TRAN": {
-        "name": "Transfers",
-        "description": "Depending on the country in question, you will have to justify the choice of remote hosting and indicate the legal supervision arrangements implemented in order to ensure adequate protection of the data subject to a cross-border transfer. That is :<br>- European Union<br>- Country recognised as providing adequate protection by the EU<br>- Transfer to the United States to a company which has joined the Privacy Shield<br>- Other country <br>See <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">art. 44 to 49 of [GDPR]</a>",
+        "name": "Transferências",
+        "description": "Dependendo do país em questão, você terá que justificar a escolha da hospedagem remota e indicar as disposições legais de supervisão implementadas, a fim de garantir a proteção adequada dos dados sujeitos a uma transferência transfronteiriça. Isto é :<br>- União Europeia<br>- País reconhecido pela UE por fornecer proteção adequada<br>- Transferência para os Estados Unidos para uma empresa que aderiu ao Privacy Shield<br>- Outro país <br>Ver <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">art. 44 ao 49 do [RGPD]</a>",
         "source": "PIAF Connected Objects p18"
       },
       "PIA_LGL_DESC": {
@@ -891,7 +889,7 @@
       "download_pia": "Descarregar o relatório PIA"
     },
     "abandon_pia": {
-      "additional_text": "Archiving is not definitive and the PIA can go back to it if needed.",
+      "additional_text": "O arquivamento não é definitivo e o PIA pode voltar a ele se for necessário.",
       "content": "Tem certeza que quer<br>desistir deste tratamento?"
     },
     "refuse_pia": {
@@ -926,42 +924,41 @@
       "remove": "Remover este PIA"
     },
     "remove_attachment": {
-      "comment": "Comment",
+      "comment": "Comentário",
       "content": "<span class='strong'>Atenção,</span><br>você tem a certeza que quer<br>remover este anexo?",
       "keep": "Manter",
       "remove": "Remover"
     },
     "action_plan_no_evaluation": {
-      "content": "You need to begin the review of the analysis to create the action plan.",
-      "review_section": "Review a section"
+      "content": "Precisas de iniciar a revisão da análise para criar um plano de acção.",
+      "review_section": "Rever uma secção"
     },
     "back_to_edition": {
-      "content": "This section has been sent back for editing.<br> Several fields must be corrected<br> to enable its proper review."
     },
     "back_to_evaluation": {
-      "content": "This section has been sent back for review.<br> Several fields must be reviewed<br> to enable its proper validation."
+      "content": "Esta secção foi enviada de volta para revisão.<br> Vários campos devem ser revistos<br> para permitir sua validação adequada."
     },
     "dpo_missing_evaluations": {
-      "content": "You need to complete the review of the analysis to access the DPO page.",
-      "review_section": "Review a section"
+      "content": "Precisas de completar a revisão da análise para aceder à página do DPO.",
+      "review_section": "Rever uma secção"
     },
     "modal_select_text_pia": {
-      "content": "TO BE TRANSLATED - The content of the PIA has been copied to clipboard."
+      "content": "PARA SER TRADUZIDO - O conteúdo de PIA foi copiado para a área de transferência."
     }
   },
   "summary": {
     "previous_page": "Voltar para a página anterior",
     "print": "Imprimir",
-    "copy_to_clipboard": "Copy to clipboard",
-    "download_csv": "Download a CSV export",
-    "download_images": "Download images",
-    "csv_action_plan_comment": "Action plan comment",
-    "csv_evaluation_comment": "Evaluation comment",
-    "csv_file_title": "action-plan",
-    "csv_implement_date": "Estimated implementation date",
-    "csv_people_in_charge": "Person in charge",
-    "csv_section": "Section",
-    "csv_title_object": "Title",
+    "copy_to_clipboard": "Copiar para a área de transferência",
+    "download_csv": "Faça o download de uma exportação em CSV",
+    "download_images": "Descarregar imagens",
+    "csv_action_plan_comment": "Comentário plano de acção",
+    "csv_evaluation_comment": "Comentário avaliação",
+    "csv_file_title": "plano-acção",
+    "csv_implement_date": "Data de implementação estimada",
+    "csv_people_in_charge": "Pessoa responsável",
+    "csv_section": "Secção",
+    "csv_title_object": "Título",
     "display_filters": {
       "title": "Exibir filtros",
       "main_content": "Exibir seção \"Informações de PIA\"",
@@ -969,8 +966,8 @@
       "principles_content": "Exibir seção \"Princípios fundamentais\"",
       "risks_content": "Exibir seção \"Riscos\"",
       "action_plan_content": "Exibir plano de ação",
-      "risks_cartography_content": "Display risk mapping",
-      "risks_overview_content": "Display risks overview"
+      "risks_cartography_content": "Exibir mapeamento de riscos",
+      "risks_overview_content": "Exibir visão geral dos riscos"
     },
     "title": "Informação PIA",
     "pia_name": "PIA",
@@ -1010,8 +1007,8 @@
       "risks": "Riscos",
       "no_action_plan": "Nenhum plano de ação registado."
     },
-    "risks_overview_title": "Risks overview",
-    "risks_cartography_title": "Risk mapping"
+    "risks_overview_title": "Visão geral dos riscos",
+    "risks_cartography_title": "Mapeamento de riscos"
   },
   "errors": {
     "title": "Página não encontrada.",
