@@ -17,16 +17,16 @@
       "official_translation": "Versão original",
       "cnil_translations": "Translações fornecidas pela CNIL",
       "community_translations": "Translações fornecidas pela comunidade",
-      "fr": "Francês",
-      "en": "Inglês",
-      "cz": "Checo",
-      "it": "Italiano",
-      "nl": "Holandês",
-      "pl": "Polaco",
-      "de": "Alemão",
-      "es": "Espanhol"
-      "pt": "Português",	
--     "ro": "Română"
+      "fr": "Français",
+      "en": "English",
+      "cz": "Česky",
+      "it": "Italiaans",
+      "nl": "Nederlands",
+      "pl": "Polski",
+      "de": "Deutsch",
+      "es": "Español",
+      "pt": "Português",
+      "ro": "Română"
     },
     "tools": {
       "title": "Ferramentas",
