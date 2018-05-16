@@ -1007,7 +1007,9 @@
       "measures": "Medidas existentes e planeadas",
       "risks": "Riscos",
       "no_action_plan": "Nenhum plano de ação registado."
-    }
+    },
+    "risks_overview_title": "Risks overview",
+    "risks_cartography_title": "Risk mapping"
   },
   "errors": {
     "title": "Página não encontrada.",
