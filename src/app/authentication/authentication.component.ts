@@ -38,8 +38,9 @@ export class AuthenticationComponent implements OnInit {
   }
 
   ngOnInit() {
-  	this.authService.logout();
-  	this.router.navigate(['']);
+    if (this.authService.isAuthenticated()) {
+      this.router.navigate(['home']);
+    }
   }
 
 }

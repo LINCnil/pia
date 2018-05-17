@@ -34,7 +34,7 @@
                   <p class="user-email">{{ profile.email }}</p>
                 </li>
                 <li class="logout">
-                  <a routerLink="/logout" class="btn btn-blue" href="javascript:;">
+                  <a (click)="logoutAction()" class="btn btn-blue">
                     {{ 'authentication.logout' | translate }}
                   </a>
                 </li>
