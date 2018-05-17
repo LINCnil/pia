@@ -1,4 +1,4 @@
-
+import { StringUtil } from '@utils/string.util';
 import { BaseModel } from '@api/model/base.model'
 
 export class Measure extends BaseModel {
@@ -9,4 +9,8 @@ export class Measure extends BaseModel {
   public content: string;
   public placeholder: string;
 
+
+  public hasValidTitleAndContent(): boolean {
+    return StringUtil.isNotEmpty(this.title) || StringUtil.isNotEmpty(this.content);
+  }
 }

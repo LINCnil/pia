@@ -1,23 +1,16 @@
 <section class="pia-entryContentBlock pia-entryContentBlock-section{{section.id}}" *ngIf="section && item">
   <header autoscroll="true" class="pia-entryContentBlock-header">
     <div>
-      <i class="fa"
-        *ngIf="_sidStatusService.sidStatusIcon[_sidStatusService.itemStatus[section.id + '.' + item.id]]; else specialIcon"
-        [ngClass]="_sidStatusService.sidStatusIcon[_sidStatusService.itemStatus[section.id + '.' + item.id]]"
-        aria-hidden="true"></i>
-      <i class="fa"
-        #specialIcon
-        *ngIf="_sidStatusService.specialIcon[section.id + '.' + item.id]"
-        [ngClass]="_sidStatusService.specialIcon[section.id + '.' + item.id]"
-        aria-hidden="true"></i>
-        <div class="pia-entryContentBlock-header-progress">
-          <div *ngIf="_sidStatusService.itemStatus[section.id + '.' + item.id] <= 4">
-            {{ 'pia.header.edition' | translate }}
-          </div>
-          <div *ngIf="_sidStatusService.itemStatus[section.id + '.' + item.id] > 4 && _sidStatusService.itemStatus[section.id + '.' + item.id] <= 7">
-            {{ 'pia.header.evaluation' | translate }}
-          </div>
+      <i class="fa" *ngIf="_sidStatusService.sidStatusIcon[_sidStatusService.itemStatus[section.id + '.' + item.id]]; else specialIcon" [ngClass]="_sidStatusService.sidStatusIcon[_sidStatusService.itemStatus[section.id + '.' + item.id]]" aria-hidden="true"></i>
+      <i class="fa" #specialIcon *ngIf="_sidStatusService.specialIcon[section.id + '.' + item.id]" [ngClass]="_sidStatusService.specialIcon[section.id + '.' + item.id]" aria-hidden="true"></i>
+      <div class="pia-entryContentBlock-header-progress">
+        <div *ngIf="_sidStatusService.itemStatus[section.id + '.' + item.id] <= 4">
+          {{ 'pia.header.edition' | translate }}
         </div>
+        <div *ngIf="_sidStatusService.itemStatus[section.id + '.' + item.id] > 4 && _sidStatusService.itemStatus[section.id + '.' + item.id] <= 7">
+          {{ 'pia.header.evaluation' | translate }}
+        </div>
+      </div>
     </div>
     <div class="pia-entryContentBlock-header-title">
       <h1 *ngIf="section.title">{{ section.title | translate }}</h1>
@@ -38,6 +31,7 @@
   </header>
 
   <!-- Back to edition -->
+  <div>{{_globalEvaluationService.status}} {{_piaService.pia.is_example}}</div>
   <div class="pia-status-info" *ngIf="_globalEvaluationService.status === 4 && !_piaService.pia.is_example">
     <strong>{{ 'pia.sections.status.evaluation.title' | translate }}</strong>
     <p>
@@ -56,9 +50,7 @@
   </div>
 
   <ng-container *ngIf="item.is_measure; else appQuestions">
-    <button (click)="_measureService.addNewMeasure(_piaService.pia)"
-            class="btn btn-white btn-addMeasure" type="button"
-            *ngIf="_globalEvaluationService.answerEditionEnabled">
+    <button (click)="_measureService.addNewMeasure(_piaService.pia)" class="btn btn-white btn-addMeasure" type="button" *ngIf="_globalEvaluationService.answerEditionEnabled">
       <span class="pia-icons pia-icon-add"></span>
       {{ 'measures.add' | translate }}
     </button>
@@ -69,9 +61,9 @@
       <app-questions [question]="question" [pia]="_piaService.pia" [section]="section" [item]="item"></app-questions>
     </div>
   </ng-template>
-
-  <app-evaluations *ngIf="item.evaluation_mode === 'item'" [pia]="_piaService.pia" [section]="section" [item]="item"></app-evaluations>
-
+  <ng-container *ngxPermissionsOnly="['CanEvaluatePIA']">
+    <app-evaluations *ngIf="item.evaluation_mode === 'item'" [pia]="_piaService.pia" [section]="section" [item]="item"></app-evaluations>
+  </ng-container>
   <div class="app-overview-risks" *ngIf="section.id == 3 && item.id == 5"></div>
 
   <app-validate-pia *ngIf="section.id == 4 && item.id == 4"></app-validate-pia>
@@ -86,38 +78,28 @@
 
   <footer class="pia-entryContentBlock-footer">
     <div *ngIf="_globalEvaluationService.status > 0">
-      <button class="btn btn-green" (click)="prepareForEvaluation()"
-              *ngIf="_globalEvaluationService.status === 1 || _globalEvaluationService.status === 2 || _globalEvaluationService.status === 3"
-              [ngClass]="{'btn-active': _globalEvaluationService.status === 2 || _globalEvaluationService.status === 3}"
-              [disabled]="_globalEvaluationService.status === 1">{{ 'pia.footer.ask_evaluation' | translate }}</button>
-      <button class="btn btn-green" (click)="validateEvaluation()"
-              *ngIf="_globalEvaluationService.status === 5 || _globalEvaluationService.status === 6"
-              [ngClass]="{'btn-active': _globalEvaluationService.status === 6}"
-              [disabled]="_globalEvaluationService.status === 5">{{ 'pia.footer.validate_evaluation' | translate }}</button>
-      <button class="btn btn-pending-validation"
-              disabled
-              *ngIf="_globalEvaluationService.status === 7 && !(section.id == 4 && item.id == 3)">
-        <i class="fa fa-check-square-o" aria-hidden="true"></i>
-        {{ 'pia.footer.subsection_validated' | translate }}
-      </button>
+      <button class="btn btn-green" (click)="prepareForEvaluation()" *ngIf="_globalEvaluationService.status === 1 || _globalEvaluationService.status === 2 || _globalEvaluationService.status === 3" [ngClass]="{'btn-active': _globalEvaluationService.status === 2 || _globalEvaluationService.status === 3}"
+        [disabled]="_globalEvaluationService.status === 1">{{ 'pia.footer.ask_evaluation' | translate }}</button>
 
+      <ng-container *ngxPermissionsOnly="['CanEvaluatePIA']">
+        <button class="btn btn-green" (click)="validateEvaluation()" *ngIf="_globalEvaluationService.status === 5 || _globalEvaluationService.status === 6" [ngClass]="{'btn-active': _globalEvaluationService.status === 6}" [disabled]="_globalEvaluationService.status === 5">{{ 'pia.footer.validate_evaluation' | translate }}</button>
+
+        <button class="btn btn-pending-validation" disabled *ngIf="_globalEvaluationService.status === 7 && !(section.id == 4 && item.id == 3)">
+          <i class="fa fa-check-square-o" aria-hidden="true"></i>
+          {{ 'pia.footer.subsection_validated' | translate }}
+        </button>
+      </ng-container>
       <p>{{ 'pia.footer.mandatory_fields' | translate }}</p>
 
-      <button class="btn pia-cancelBtn" (click)="cancelAskForEvaluation()"
-              *ngIf="!_piaService.pia.is_example && _globalEvaluationService.status === 4">{{ 'pia.sections.status.evaluation.cancel_button' | translate }}</button>
-      <button class="btn pia-cancelBtn" (click)="cancelValidateEvaluation()"
-              *ngIf="!_piaService.pia.is_example && _globalEvaluationService.status === 7 && !(section.id == 4 && item.id == 3)">{{ 'pia.sections.status.validation.cancel_button' | translate }}</button>
+      <button class="btn pia-cancelBtn" (click)="cancelAskForEvaluation()" *ngIf="!_piaService.pia.is_example && _globalEvaluationService.status === 4">{{ 'pia.sections.status.evaluation.cancel_button' | translate }}</button>
+      <button class="btn pia-cancelBtn" (click)="cancelValidateEvaluation()" *ngIf="!_piaService.pia.is_example && _globalEvaluationService.status === 7 && !(section.id == 4 && item.id == 3)">{{ 'pia.sections.status.validation.cancel_button' | translate }}</button>
     </div>
 
     <div class="pia-entryContentBlock-footer-nav">
-      <a [ngClass]="{'mask': _paginationService.hasPreviousLink === false}"
-          class="pia-previousLink"
-          routerLink="/entry/{{_piaService.pia.id}}/section/{{_paginationService.previousLink[0]}}/item/{{_paginationService.previousLink[1]}}">
+      <a [ngClass]="{'mask': _paginationService.hasPreviousLink === false}" class="pia-previousLink" routerLink="/entry/{{_piaService.pia.id}}/section/{{_paginationService.previousLink[0]}}/item/{{_paginationService.previousLink[1]}}">
           <i class="fa fa-angle-double-left" aria-hidden="true"></i>
           {{ _paginationService.previousLink[2] | translate }}
-      </a><a [ngClass]="{'mask': _paginationService.hasNextLink === false}"
-          class="pia-nextLink"
-          routerLink="/entry/{{_piaService.pia.id}}/section/{{_paginationService.nextLink[0]}}/item/{{_paginationService.nextLink[1]}}">
+      </a><a [ngClass]="{'mask': _paginationService.hasNextLink === false}" class="pia-nextLink" routerLink="/entry/{{_piaService.pia.id}}/section/{{_paginationService.nextLink[0]}}/item/{{_paginationService.nextLink[1]}}">
           {{ _paginationService.nextLink[2] | translate }}
           <i class="fa fa-angle-double-right" aria-hidden="true"></i>
       </a>

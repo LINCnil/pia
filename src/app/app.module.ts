@@ -63,6 +63,7 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptor } from 'app/services/token.interceptor';
 
 import { ApiModule } from '@api/api.module';
+import { SecurityModule } from '@security/security.module';
 
 const providersList: any = [
   AppDataService,
@@ -155,7 +156,8 @@ export function createTranslateLoader(http: HttpClient) {
         useFactory: (createTranslateLoader),
         deps: [HttpClient]
       }
-    })
+    }),
+    SecurityModule
   ],
   exports: [],
   providers: providersList,

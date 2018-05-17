@@ -5,7 +5,9 @@
     "module": "es2015",
     "baseUrl": "",
     "paths": {
-        "@api/*": ["api/*"]
+        "@api/*": ["api/*"],
+        "@security/*": ["security/*"],
+        "@utils/*": ["utils/*"]
     },
     "types": ["dom"]
   },

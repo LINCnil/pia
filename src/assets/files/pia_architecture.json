@@ -2,6 +2,7 @@
   "sections": [
     {
       "id": 1,
+      "permissions": ["AccessToContextSection"],
       "title": "sections.1.title",
       "short_help": "sections.1.short_help",
       "items": [
@@ -98,6 +99,7 @@
     {
       "id": 2,
       "title": "sections.2.title",
+      "permissions": ["AccessToPrinciplesSection"],
       "short_help": "sections.2.short_help",
       "items": [
         {
@@ -276,6 +278,7 @@
     },
     {
       "id": 3,
+      "permissions": ["AccessToRisksSection"],
       "title": "sections.3.title",
       "short_help": "sections.3.short_help",
       "items": [
@@ -596,6 +599,7 @@
     },
     {
       "id": 4,
+      "permissions": ["AccessToValidationSection"],
       "title": "sections.4.title",
       "short_help": "sections.4.short_help",
       "items": [

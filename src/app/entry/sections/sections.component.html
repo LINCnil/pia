@@ -5,35 +5,32 @@
   </div>
 
   <div class="pia-sectionBlock-body">
-    <div *ngFor="let dataSection of data?.sections">
-      <div class="pia-sectionBlock-title">
-        {{ dataSection.title | translate }}
-        <hr>
-      </div>
-      <ul class="pia-sectionBlock-list" *ngIf="_piaService.pia && section && item">
-        <ng-container *ngFor="let dataItem of dataSection?.items">
-          <li *ngIf="!dataItem.hide">
-            <a routerLink="/entry/{{_piaService.pia.id}}/section/{{dataSection.id}}/item/{{dataItem.id}}"
-              [ngClass]="{'active': section.id == dataSection.id && item.id == dataItem.id}"
-              class="truncate">
+
+    <ng-container *ngFor="let dataSection of data?.sections">
+      <div *ngxPermissionsOnly="dataSection.permissions">
+
+          <div class="pia-sectionBlock-title">
+            {{ dataSection.title | translate }}
+            <hr>
+          </div>
+          <ul class="pia-sectionBlock-list" *ngIf="_piaService.pia && section && item">
+            <ng-container *ngFor="let dataItem of dataSection?.items">
+              <li *ngIf="!dataItem.hide">
+                <a routerLink="/entry/{{_piaService.pia.id}}/section/{{dataSection.id}}/item/{{dataItem.id}}" [ngClass]="{'active': section.id == dataSection.id && item.id == dataItem.id}" class="truncate">
               {{ dataItem.title | translate }}</a>
-            <i class="fa"
-               *ngIf="_sidStatusService.sidStatusIcon[_sidStatusService.itemStatus[dataSection.id + '.' + dataItem.id]]"
-               [ngClass]="_sidStatusService.sidStatusIcon[_sidStatusService.itemStatus[dataSection.id + '.' + dataItem.id]]"
-               aria-hidden="true"></i>
-          </li>
-        </ng-container>
-      </ul>
-    </div>
+                <i class="fa" *ngIf="_sidStatusService.sidStatusIcon[_sidStatusService.itemStatus[dataSection.id + '.' + dataItem.id]]" [ngClass]="_sidStatusService.sidStatusIcon[_sidStatusService.itemStatus[dataSection.id + '.' + dataItem.id]]" aria-hidden="true"></i>
+              </li>
+            </ng-container>
+          </ul>
+        </div>
+    </ng-container>
   </div>
 </div>
 
-<div class="pia-validatePIABlock">
+<div class="pia-validatePIABlock" *ngxPermissionsOnly="['CanValidatePIA']">
   <ng-container *ngIf="_sidStatusService.enablePiaValidation && _sidStatusService.enableDpoValidation || _sidStatusService.piaIsRefused && _sidStatusService.enableDpoValidation; else defaultButton">
-    <a routerLink="/entry/{{_piaService.pia.id}}/section/4/item/4" class="btn btn-green btn-active"
-      *ngIf="_sidStatusService.enablePiaValidation">{{ 'pia.sections.validate_pia' | translate }}</a>
-    <a routerLink="/entry/{{_piaService.pia.id}}/section/4/item/5" class="btn btn-red btn-active"
-      *ngIf="_sidStatusService.piaIsRefused">{{ 'pia.sections.refuse_pia' | translate }}</a>
+    <a routerLink="/entry/{{_piaService.pia.id}}/section/4/item/4" class="btn btn-green btn-active" *ngIf="_sidStatusService.enablePiaValidation">{{ 'pia.sections.validate_pia' | translate }}</a>
+    <a routerLink="/entry/{{_piaService.pia.id}}/section/4/item/5" class="btn btn-red btn-active" *ngIf="_sidStatusService.piaIsRefused">{{ 'pia.sections.refuse_pia' | translate }}</a>
   </ng-container>
   <ng-template #defaultButton>
     <a class="btn btn-inactive">{{ 'pia.sections.validate_pia' | translate }}</a>

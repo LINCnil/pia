@@ -166,6 +166,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
    * @memberof QuestionsComponent
    */
   questionContentFocusIn() {
+
     if (this._globalEvaluationService.answerEditionEnabled) {
       this.loadEditor();
     }

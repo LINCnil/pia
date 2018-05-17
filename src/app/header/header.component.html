@@ -20,8 +20,11 @@
             <!--<li>
               <a href="#">{{ 'header.knowledge_base_link' | translate }}</a>
             </li>-->
-            <li>
-              <a *ngIf="_languagesService.selectedLanguage === 'fr' && headerForHome" href="javascript:;" (click)="importPiaExample()">{{ 'header.pia_example_link' | translate }}</a>
+            <li *ngxPermissionsOnly="['CanCreatePIAExample']">
+              <a
+              *ngIf="_languagesService.selectedLanguage === 'fr' && headerForHome"
+               href="javascript:;"
+               (click)="importPiaExample()">{{ 'header.pia_example_link' | translate }}</a>
             </li>
             <li *ngIf="profile" class="pia-navigationBlock-profile">
               <a href="javascript:;">

@@ -33,6 +33,7 @@
     "html2canvas": "^1.0.0-alpha.10",
     "moment": "^2.22.1",
     "ngx-chips": "~1.5.11",
+    "ngx-permissions": "^4.1.0",
     "normalize.css": "^7.0.0",
     "rollbar": "^2.2.8",
     "rxjs": "^5.5.10",
