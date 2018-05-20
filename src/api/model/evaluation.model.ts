@@ -53,8 +53,11 @@ export class Evaluation extends BaseModel {
   public isCompleted(): boolean {
     return this.isStarted() && this.isGloballyCompleted();
   }
+  public isGloballyStarted(): boolean {
+    return this.global_status === EvaluationGlobalStatus.Started;
+  }
   public isGloballyCompleted(): boolean {
-    return this.global_status !== EvaluationGlobalStatus.Completed;
+    return this.global_status === EvaluationGlobalStatus.Completed;
   }
   public hasEvaluationComment(): boolean {
     return this.evaluation_comment && this.evaluation_comment.length > 0
@@ -64,6 +67,15 @@ export class Evaluation extends BaseModel {
   }
   public hasAssignedGauges():boolean {
     return this.gauges && this.gauges['x'] > 0 && this.gauges['y'] > 0;
+  }
+  public beGloballyNone():void {
+    this.global_status = EvaluationGlobalStatus.None;
+  }
+  public beGloballyStarted():void {
+    this.global_status = EvaluationGlobalStatus.Started;
+  }
+  public beGloballyCompleted():void {
+    this.global_status = EvaluationGlobalStatus.Completed;
   }
 
 }
