@@ -31,19 +31,20 @@
   </header>
 
   <!-- Back to edition -->
-  <div>{{_globalEvaluationService.status}} {{_piaService.pia.is_example}}</div>
+
   <div class="pia-status-info" *ngIf="_globalEvaluationService.status === 4 && !_piaService.pia.is_example">
     <strong>{{ 'pia.sections.status.evaluation.title' | translate }}</strong>
-    <p>
+    <p *ngxPermissionsOnly="['CanCancelEvaluatePIA']">
       <span [innerHTML]="'pia.sections.status.evaluation.content' | translate"></span>
       <a href="javascript:;" (click)="cancelAskForEvaluation()" [innerHTML]="'pia.sections.status.evaluation.cancel' | translate"></a>
     </p>
   </div>
 
   <!-- Back to evaluation -->
+
   <div class="pia-status-info" *ngIf="_globalEvaluationService.status === 7 && !_piaService.pia.is_example && !(section.id == 4 && item.id == 3)">
     <strong>{{ 'pia.sections.status.validation.title' | translate }}</strong>
-    <p>
+    <p *ngxPermissionsOnly="['CanCancelValidatePIA']">
       <span [innerHTML]="'pia.sections.status.validation.content' | translate"></span>
       <a href="javascript:;" (click)="cancelValidateEvaluation()" [innerHTML]="'pia.sections.status.validation.cancel' | translate"></a>
     </p>
@@ -90,9 +91,12 @@
         </button>
       </ng-container>
       <p>{{ 'pia.footer.mandatory_fields' | translate }}</p>
-
-      <button class="btn pia-cancelBtn" (click)="cancelAskForEvaluation()" *ngIf="!_piaService.pia.is_example && _globalEvaluationService.status === 4">{{ 'pia.sections.status.evaluation.cancel_button' | translate }}</button>
-      <button class="btn pia-cancelBtn" (click)="cancelValidateEvaluation()" *ngIf="!_piaService.pia.is_example && _globalEvaluationService.status === 7 && !(section.id == 4 && item.id == 3)">{{ 'pia.sections.status.validation.cancel_button' | translate }}</button>
+      <ng-container *ngIf="!_piaService.pia.is_example && _globalEvaluationService.status === 4">
+        <button class="btn pia-cancelBtn" *ngxPermissionsOnly="['CanCancelEvaluatePIA']" (click)="cancelAskForEvaluation()">{{ 'pia.sections.status.evaluation.cancel_button' | translate }}</button>
+      </ng-container>
+      <ng-container *ngIf="!_piaService.pia.is_example && _globalEvaluationService.status === 7 && !(section.id == 4 && item.id == 3)">
+        <button class="btn pia-cancelBtn" *ngxPermissionsOnly="['CanCancelValidatePIA']" (click)="cancelValidateEvaluation()">{{ 'pia.sections.status.validation.cancel_button' | translate }}</button>
+      </ng-container>
     </div>
 
     <div class="pia-entryContentBlock-footer-nav">

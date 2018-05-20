@@ -56,21 +56,28 @@ export class AppComponent {
      /*
      PERMISSIONS
 
-     pia = ['CanCreatePIA', 'CanCreatePIAExample', 'CanEditPIA','CanShowPIA', 'CanEvaluatePIA', 'CanValidatePIA', 'CanDeletePIA', 'CanExportPIA']
+     pia = [
+     'CanCreatePIA', 'CanCreatePIAExample', 'CanEditPIA','CanShowPIA',
+     'CanEvaluatePIA', 'CanCancelEvaluatePIA', 'CanValidatePIA', 'CanCancelValidatePIA',
+     'CanDeletePIA', 'CanExportPIA']
      sections = ['AccessToContextSection', 'AccessToPrinciplesSection', 'AccessToRisksSection', 'AccessToValidationSection']
       */
 
     this.permissionsService.loadRolesAndPermissions({
       'CONTROLLER': [
-        'CanEditPIA',
+        'CanEditPIA', 'CanCancelEvaluatePIA',
         'AccessToContextSection', 'AccessToPrinciplesSection', 'AccessToRisksSection'
       ],
       'DPO': [
-        'CanCreatePIA', 'CanCreatePIAExample', 'CanShowPIA', 'CanEvaluatePIA','CanValidatePIA', 'CanDeletePIA', 'CanExportPIA',
+        'CanCreatePIA', 'CanCreatePIAExample', 'CanShowPIA',
+        'CanEvaluatePIA','CanValidatePIA', 'CanCancelValidatePIA',
+        'CanDeletePIA', 'CanExportPIA',
         'AccessToContextSection', 'AccessToPrinciplesSection', 'AccessToRisksSection', 'AccessToValidationSection'
       ],
       'ADMIN': [
-        'CanCreatePIA', 'CanCreatePIAExample', 'CanEditPIA','CanShowPIA', 'CanEvaluatePIA', 'CanValidatePIA', 'CanDeletePIA', 'CanExportPIA',
+        'CanCreatePIA', 'CanCreatePIAExample', 'CanEditPIA','CanShowPIA',
+        'CanEvaluatePIA','CanCancelEvaluatePIA', 'CanValidatePIA', 'CanCancelValidatePIA',
+        'CanDeletePIA', 'CanExportPIA',
         'AccessToContextSection', 'AccessToPrinciplesSection', 'AccessToRisksSection', 'AccessToValidationSection'
       ],
   });
