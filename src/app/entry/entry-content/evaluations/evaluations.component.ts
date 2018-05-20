@@ -139,9 +139,9 @@ export class EvaluationsComponent implements OnInit, AfterViewChecked, OnDestroy
 
     // Translation for comment's placeholder
     if (this.evaluation.status) {
-      if (this.evaluation.status === 1) {
+      if (this.evaluation.isToBeFixed()) {
         this.comment_placeholder = this._translateService.instant('evaluations.placeholder_to_correct');
-      } else if (this.evaluation.status === 3) {
+      } else if (this.evaluation.isAcceptable()) {
         this.comment_placeholder = this._translateService.instant('evaluations.placeholder_acceptable');
       } else {
         this.comment_placeholder = this._translateService.instant('evaluations.placeholder_improvable2');

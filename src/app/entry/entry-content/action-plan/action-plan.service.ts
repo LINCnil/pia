@@ -53,7 +53,9 @@ export class ActionPlanService {
 
         const reference_to = '2.' + item.id + '.' + q.id;
         this.evaluationApi.getByRef(this.pia.id, reference_to).subscribe((evaluation: EvaluationModel) => {
-
+          if(!evaluation){
+            return;
+          }
           if (evaluation.status > 0) {
             if (evaluation.action_plan_comment && evaluation.action_plan_comment.length > 0) {
               this.principlesActionPlanReady = true;
