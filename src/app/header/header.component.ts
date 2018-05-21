@@ -84,4 +84,9 @@ export class HeaderComponent implements OnInit {
       });
     });
   }
+
+  logoutAction() {
+    this.authService.logout();
+    window.location.reload();
+  }
 }
