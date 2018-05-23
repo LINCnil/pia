@@ -7,14 +7,14 @@ export class Evaluation extends BaseModel {
   public id: any;
   public pia_id: any;
   public reference_to: string;
-  public status = EvaluationStatus.Pending; // 0: pending, 1: toBeFixed, 2: improvable, 3: acceptable
+  public status = EvaluationStatus.Pending;
   public action_plan_comment: string;
   public evaluation_comment: string;
   public evaluation_date: Date;
   public gauges: { x: number, y: number } = { x: 0, y: 0 };
   public estimated_implementation_date: Date;
   public person_in_charge: string;
-  public global_status = EvaluationGlobalStatus.None; // 0: No evaluation, 1: Evaluation started, 2: Evaluation completed
+  public global_status = EvaluationGlobalStatus.None;
 
 
   public getStatusLabel(): string {

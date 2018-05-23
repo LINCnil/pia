@@ -1,8 +1,9 @@
-import { Component, DoCheck, OnInit } from '@angular/core';
+import { Component, DoCheck, OnInit, OnDestroy } from '@angular/core';
 import { Renderer2 } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs/Subscription';
 
 import { Pia } from 'app/entry/pia.model';
 
@@ -20,7 +21,8 @@ import { AuthenticationService } from 'app/services/authentication.service'
 })
 export class HeaderComponent implements OnInit {
   public increaseContrast: string;
-  public profile;
+  public profile: any;
+  private profileSubscription: Subscription;
   appVersion: string;
   headerForHome: boolean;
 
@@ -45,7 +47,13 @@ export class HeaderComponent implements OnInit {
                           this._router.url === '/help' ||
                           this._router.url === '/settings') ? true : false;
 
-    this.profile = this.authService.getProfile();
+    this.profileSubscription = this.authService.getProfile().subscribe(profile => {
+      this.profile = profile;
+    });
+  }
+
+  ngOnDestroy() {
+    this.profileSubscription.unsubscribe();
   }
 
   /**

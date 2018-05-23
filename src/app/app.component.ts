@@ -64,25 +64,23 @@ export class AppComponent {
       */
 
     this.permissionsService.loadRolesAndPermissions({
-      'CONTROLLER': [
+      'ROLE_CONTROLLER': [
         'CanEditPIA', 'CanCancelEvaluatePIA',
         'AccessToContextSection', 'AccessToPrinciplesSection', 'AccessToRisksSection'
       ],
-      'DPO': [
+      'ROLE_DPO': [
         'CanCreatePIA', 'CanCreatePIAExample', 'CanShowPIA',
         'CanEvaluatePIA','CanValidatePIA', 'CanCancelValidatePIA',
         'CanDeletePIA', 'CanExportPIA',
         'AccessToContextSection', 'AccessToPrinciplesSection', 'AccessToRisksSection', 'AccessToValidationSection'
       ],
-      'ADMIN': [
+      'ROLE_ADMIN': [
         'CanCreatePIA', 'CanCreatePIAExample', 'CanEditPIA','CanShowPIA',
         'CanEvaluatePIA','CanCancelEvaluatePIA', 'CanValidatePIA', 'CanCancelValidatePIA',
         'CanDeletePIA', 'CanExportPIA',
         'AccessToContextSection', 'AccessToPrinciplesSection', 'AccessToRisksSection', 'AccessToValidationSection'
       ],
-  });
-
-    this.permissionsService.activeCurrentRole('ADMIN');
+    });
 
   }
 }

@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { PermissionsService } from '@security/permissions.service';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { environment } from 'environments/environment';
 import { User } from 'app/authentication/user.model';
 import * as Moment from 'moment';
@@ -7,10 +9,13 @@ import * as Moment from 'moment';
 @Injectable()
 export class AuthenticationService {
   private user = null;
+  private profile;
   private readonly apiSettings = environment.api;
   private readonly dateFormat = environment.date_format;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private permissionsService: PermissionsService) {
+    this.profile = new BehaviorSubject(null); 
+  }
 
   public authenticate(user: User) {
     const query = '?client_id=' + this.apiSettings.client_id +
@@ -20,41 +25,52 @@ export class AuthenticationService {
                 '&password=' + user.password
     ;
 
-    return this.fetchToken(query);
+    return new Promise((resolve, reject) => {
+      this.fetchToken(query).then(() => {
+        this.fetchProfile().then(profile => {
+          resolve(this.user);
+        });
+      });
+    });
   }
 
-  public isAuthenticated(): boolean {
+  public isAuthenticated(): Promise<any> {
     const token = localStorage.getItem('token');
 
-    if (!this.user) {
-      if (!token) {
-        return false;
+    return new Promise((resolve, reject) => {
+      if (!this.user) {
+        if (!token) {
+          resolve(false);
+        }
+
+        this.user = {
+          'access_token': token,
+          'refresh_token': localStorage.getItem('refresh'),
+          'expires_at': localStorage.getItem('expiry')
+        }
       }
 
-      this.user = {
-        'access_token': token,
-        'refresh_token': localStorage.getItem('refresh'),
-        'expires_at': localStorage.getItem('expiry'),
-        'roles'     : JSON.parse(localStorage.getItem('roles'))
+      const expiry = Moment(this.user.expires_at, this.dateFormat);
+      const remainder = Moment.duration(expiry.diff(Moment())).as('seconds');
+
+      if (!remainder || remainder <= 10) {
+        resolve(false);
       }
-    }
 
-    const expiry = Moment(this.user.expires_at, this.dateFormat);
-    const remainder = Moment.duration(expiry.diff(Moment())).as('seconds');
+      if (remainder < 300) {
+        this.refreshToken();
+      }
 
-    if (!remainder || remainder <= 10) {
-      return false;
-    }
-
-    if (remainder < 300) {
-      this.refreshToken();
-    }
-
-    return true;
+      if(this.profile.value === null) {
+        this.fetchProfile().then(() => {
+          resolve(true);
+        });
+      }
+    });
   }
 
   public getProfile() {
-    return this.user;
+    return this.profile;
   }
 
   public logout() {
@@ -62,7 +78,6 @@ export class AuthenticationService {
     localStorage.removeItem('token');
     localStorage.removeItem('expiry');
     localStorage.removeItem('refresh');
-    localStorage.removeItem('roles');
   }
 
   protected fetchToken(query: string) {
@@ -75,13 +90,29 @@ export class AuthenticationService {
           localStorage.setItem('token', this.user.access_token);
           localStorage.setItem('refresh', this.user.refresh_token);
           localStorage.setItem('expiry', this.user.expires_at);
-          localStorage.setItem('roles', JSON.stringify(['admin', 'user']));//this.user.roles);
         },
         err  => {
           console.error(err);
           reject();
         },
         ()   => { resolve(this.user); }
+      );
+    });
+  }
+
+  protected fetchProfile() {
+    return new Promise((resolve, reject) => {
+      this.http.get(this.apiSettings.host + '/profile').subscribe(
+        profile => {
+          this.profile.next(profile);
+
+          this.permissionsService.activeCurrentRole(this.profile.value.pia_roles[0]);
+        },
+        err  => {
+          console.error(err);
+          reject();
+        },
+        ()   => { resolve(this.profile); }
       );
     });
   }

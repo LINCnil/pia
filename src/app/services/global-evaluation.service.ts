@@ -351,16 +351,16 @@ export class GlobalEvaluationService {
       return;
     }
 
-    const evaluationsIsValid: Array<EvaluationModel> = this.evaluations.filter((evaluation: EvaluationModel) => {
+    const areEvaluationsValid: Array<EvaluationModel> = this.evaluations.filter((evaluation: EvaluationModel) => {
       return this.evaluationIsValid(evaluation);
     });
     //PendingEvaluations
-    if (evaluationsIsValid.length !== this.evaluations.length) {
+    if (areEvaluationsValid.length !== this.evaluations.length) {
       this.status = GlobalEvaluationStatus.EvaluationStarted; //5
       return;
     }
     //EvaluationsCompleted
-    if (evaluationsIsValid.length === this.evaluations.length && evaluationToBeFixed.length === 0) {
+    if (areEvaluationsValid.length === this.evaluations.length && evaluationToBeFixed.length === 0) {
       this.status = GlobalEvaluationStatus.EvaluationCompleted; //6
     }
 
