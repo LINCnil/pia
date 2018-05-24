@@ -34,7 +34,7 @@ export class AuthenticationService {
     });
   }
 
-  public isAuthenticated(): Promise<any> {
+  public isAuthenticated(): Promise<boolean> {
     const token = localStorage.getItem('token');
 
     return new Promise((resolve, reject) => {
@@ -65,6 +65,8 @@ export class AuthenticationService {
         this.fetchProfile().then(() => {
           resolve(true);
         });
+      } else {
+        resolve(true);
       }
     });
   }
@@ -106,7 +108,7 @@ export class AuthenticationService {
         profile => {
           this.profile.next(profile);
 
-          this.permissionsService.activeCurrentRole(this.profile.value.pia_roles[0]);
+          this.permissionsService.activeCurrentRole(this.profile.value.user.roles[0]);
         },
         err  => {
           console.error(err);
