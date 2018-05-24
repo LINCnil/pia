@@ -14,16 +14,16 @@ export class AuthenticationService {
   private readonly dateFormat = environment.date_format;
 
   constructor(private http: HttpClient, private permissionsService: PermissionsService) {
-    this.profile = new BehaviorSubject(null); 
+    this.profile = new BehaviorSubject(null);
   }
 
   public authenticate(user: User) {
     const query = '?client_id=' + this.apiSettings.client_id +
-                '&client_secret=' + this.apiSettings.client_secret +
-                '&grant_type=password' +
-                '&username=' + user.username +
-                '&password=' + user.password
-    ;
+      '&client_secret=' + this.apiSettings.client_secret +
+      '&grant_type=password' +
+      '&username=' + user.username +
+      '&password=' + user.password
+      ;
 
     return new Promise((resolve, reject) => {
       this.fetchToken(query).then(() => {
@@ -38,36 +38,39 @@ export class AuthenticationService {
     const token = localStorage.getItem('token');
 
     return new Promise((resolve, reject) => {
-      if (!this.user) {
-        if (!token) {
-          resolve(false);
-        }
+      if (!token) {
+        resolve(false);
+        return;
+      }
 
+      if (!this.user) {
         this.user = {
           'access_token': token,
           'refresh_token': localStorage.getItem('refresh'),
           'expires_at': localStorage.getItem('expiry')
-        }
+        };
       }
 
       const expiry = Moment(this.user.expires_at, this.dateFormat);
       const remainder = Moment.duration(expiry.diff(Moment())).as('seconds');
 
       if (!remainder || remainder <= 10) {
-        resolve(false);
+         resolve(false);
+         return;
       }
 
       if (remainder < 300) {
         this.refreshToken();
       }
 
-      if(this.profile.value === null) {
-        this.fetchProfile().then(() => {
-          resolve(true);
-        });
-      } else {
+      if (this.profile.value !== null) {
         resolve(true);
+        return;
       }
+
+      this.fetchProfile().then(() => {
+        resolve(true);
+      });
     });
   }
 
@@ -93,11 +96,11 @@ export class AuthenticationService {
           localStorage.setItem('refresh', this.user.refresh_token);
           localStorage.setItem('expiry', this.user.expires_at);
         },
-        err  => {
+        err => {
           console.error(err);
           reject();
         },
-        ()   => { resolve(this.user); }
+        () => { resolve(this.user); }
       );
     });
   }
@@ -107,24 +110,23 @@ export class AuthenticationService {
       this.http.get(this.apiSettings.host + '/profile').subscribe(
         profile => {
           this.profile.next(profile);
-
-          this.permissionsService.activeCurrentRole(this.profile.value.user.roles[0]);
+          this.permissionsService.activeCurrentRole(this.profile.value.pia_roles.pop());
         },
-        err  => {
+        err => {
           console.error(err);
           reject();
         },
-        ()   => { resolve(this.profile); }
+        () => { resolve(this.profile); }
       );
     });
   }
 
   protected refreshToken() {
     const query = '?client_id=' + this.apiSettings.client_id +
-                '&client_secret=' + this.apiSettings.client_secret +
-                '&grant_type=refresh_token' +
-                '&refresh_token=' + this.user.refresh_token
-    ;
+      '&client_secret=' + this.apiSettings.client_secret +
+      '&grant_type=refresh_token' +
+      '&refresh_token=' + this.user.refresh_token
+      ;
 
     return this.fetchToken(query);
   }
@@ -134,7 +136,7 @@ export class AuthenticationService {
 
     this.user.expires_at = expiry.seconds(expiry.seconds() + this.user.expires_in)
       .format(this.dateFormat)
-    ;
+      ;
   }
 
 }
