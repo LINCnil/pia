@@ -58,11 +58,11 @@ import { AppRoutingModule } from 'app/app-routing.module';
 import { CardsRoutingModule } from 'app/cards/cards-routing.module';
 import { AuthenticationService } from 'app/services/authentication.service';
 import { AuthenticationGuardService } from 'app/services/authentication-guard.service';
-import { AuthorizationGuardService } from 'app/services/authorization-guard.service';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptor } from 'app/services/token.interceptor';
 
 import { ApiModule } from '@api/api.module';
+import { SecurityModule } from '@security/security.module';
 
 const providersList: any = [
   AppDataService,
@@ -77,7 +77,6 @@ const providersList: any = [
   GlobalEvaluationService,
   AuthenticationService,
   AuthenticationGuardService,
-  AuthorizationGuardService,
   {
     provide: HTTP_INTERCEPTORS,
     useClass: TokenInterceptor,
@@ -155,7 +154,8 @@ export function createTranslateLoader(http: HttpClient) {
         useFactory: (createTranslateLoader),
         deps: [HttpClient]
       }
-    })
+    }),
+    SecurityModule
   ],
   exports: [],
   providers: providersList,

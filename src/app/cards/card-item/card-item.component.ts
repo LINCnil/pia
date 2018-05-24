@@ -9,6 +9,7 @@ import { PiaService } from 'app/entry/pia.service';
 
 import {PiaModel, AttachmentModel} from '@api/models';
 import {PiaApi, AttachmentApi} from '@api/services';
+import {PermissionsService} from '@security/permissions.service';
 
 @Component({
   selector: 'app-card-item',
@@ -31,16 +32,28 @@ export class CardItemComponent implements OnInit {
               private _modalsService: ModalsService,
               public _piaService: PiaService,
               private piaApi: PiaApi,
-              private attachmentApi: AttachmentApi) { }
+              private attachmentApi: AttachmentApi,
+              private permissionsService: PermissionsService
+              ) { }
 
   ngOnInit() {
+
     this.piaForm = new FormGroup({
       id: new FormControl(this.pia.id),
-      name: new FormControl({ value: this.pia.name, disabled: false }),
-      author_name: new FormControl({ value: this.pia.author_name, disabled: false }),
-      evaluator_name: new FormControl({ value: this.pia.evaluator_name, disabled: false }),
-      validator_name: new FormControl({ value: this.pia.validator_name, disabled: false })
+      name: new FormControl({ value: this.pia.name, disabled: true }),
+      author_name: new FormControl({ value: this.pia.author_name, disabled: true }),
+      evaluator_name: new FormControl({ value: this.pia.evaluator_name, disabled: true }),
+      validator_name: new FormControl({ value: this.pia.validator_name, disabled: true })
     });
+
+    //add permission verification
+    const hasPerm$ = this.permissionsService.hasPermission('CanCreatePIA');
+    hasPerm$.then((bool:boolean) => {
+      for (const field in this.piaForm.controls) {
+          const fc = this.piaForm.get(field);
+          bool ? fc.enable() : fc.disable();
+      }
+    } );
 
     this.attachmentApi.getAll(this.pia.id).subscribe((entries: AttachmentModel[]) => {
       this.attachments = entries;
@@ -53,7 +66,7 @@ export class CardItemComponent implements OnInit {
    * @memberof CardItemComponent
    */
   piaNameFocusIn() {
-    this.piaForm.controls['name'].enable();
+    //this.piaForm.controls['name'].enable();
     this.piaName.nativeElement.focus();
   }
 

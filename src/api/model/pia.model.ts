@@ -28,7 +28,23 @@ export class Pia extends BaseModel {
     return this.status >= 0 ? `pia.statuses.${this.status}` : '';
   }
 
-  getGaugeLabel(value: any): string {
+  public getGaugeLabel(value: any): string {
     return value ? `summary.gauges.${value}` : '';
   }
+
+  public validationIsCompleted(): boolean{
+    return  [
+      PiaStatus.SimpleValidation,
+      PiaStatus.SignedValidation,
+      PiaStatus.Archived
+    ].includes(this.status);
+  }
+}
+
+export enum PiaStatus {
+  Doing = 0,
+  Refused = 1,
+  SimpleValidation = 2,
+  SignedValidation = 3,
+  Archived = 4
 }

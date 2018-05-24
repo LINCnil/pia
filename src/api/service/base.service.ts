@@ -18,7 +18,7 @@ export class BaseService<T extends BaseModel> {
     query = this.buildQuery(query);
     const route = this.buildRoute(routeTpl, params);
 
-    return this.http.get(route, {params: query}).map(res => this.mapToCollection(res, this.modelClass));
+    return this.http.get(route, { params: query }).map(res => this.mapToCollection(res, this.modelClass));
   }
 
   protected httpGetOne(routeTpl: string, params: any = {}, query: any = {}): Observable<T> {
@@ -37,21 +37,21 @@ export class BaseService<T extends BaseModel> {
     query = this.buildQuery(query);
     const route = this.buildRoute(routeTpl, params);
 
-    return this.http.put(route, model.toJson(), {params: query}).map(res => this.mapToModel(res, this.modelClass));
+    return this.http.put(route, model.toJson(), { params: query }).map(res => this.mapToModel(res, this.modelClass));
   }
 
   protected httpPost(routeTpl: string, params: any = {}, model: T, query: any = {}): Observable<T> {
     query = this.buildQuery(query);
     const route = this.buildRoute(routeTpl, params);
 
-    return this.http.post(route, model.toJson(), {params: query}).map(res => this.mapToModel(res, this.modelClass));
+    return this.http.post(route, model.toJson(), { params: query }).map(res => this.mapToModel(res, this.modelClass));
   }
 
   protected httpDelete(routeTpl: string, params: any = {}, query: any = {}): Observable<T> {
     query = this.buildQuery(query);
     const route = this.buildRoute(routeTpl, params);
 
-    return this.http.delete(route, {params: query}).map(res => this.mapToModel(res, this.modelClass));
+    return this.http.delete(route, { params: query }).map(res => this.mapToModel(res, this.modelClass));
   }
 
 

@@ -107,19 +107,20 @@ export class RisksCartographyComponent implements OnInit, OnDestroy {
         }
       });
       this.evaluationApi.getByRef(this._piaService.pia.id, '3.2').subscribe((theEval: EvaluationModel) => {
-        if (theEval.gauges) {
+
+        if (theEval && theEval.gauges) {
           this.dataJSON['risk-access']['evaluator']['y'] = positions['y'][theEval.gauges['x']];
           this.dataJSON['risk-access']['evaluator']['x'] = positions['x'][theEval.gauges['y']];
         }
 
         this.evaluationApi.getByRef(this._piaService.pia.id, '3.3').subscribe((theEval2: EvaluationModel) => {
-          if (theEval2.gauges) {
+          if (theEval2 && theEval2.gauges) {
             this.dataJSON['risk-change']['evaluator']['y'] = positions['y'][theEval2.gauges['x']];
             this.dataJSON['risk-change']['evaluator']['x'] = positions['x'][theEval2.gauges['y']];
           }
           this.evaluationApi.getByRef(this._piaService.pia.id, '3.4').subscribe((theEval3: EvaluationModel) => {
 
-            if (theEval3.gauges) {
+            if (theEval3 && theEval3.gauges) {
               this.dataJSON['risk-disappearance']['evaluator']['y'] = positions['y'][theEval3.gauges['x']];
               this.dataJSON['risk-disappearance']['evaluator']['x'] = positions['x'][theEval3.gauges['y']];
             }

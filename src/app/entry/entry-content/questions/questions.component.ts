@@ -13,6 +13,7 @@ import { GlobalEvaluationService } from '../../../services/global-evaluation.ser
 //new imports
 import { AnswerModel, EvaluationModel, MeasureModel } from '@api/models';
 import { AnswerApi, EvaluationApi, MeasureApi } from '@api/services';
+import { PermissionsService } from '@security/permissions.service';
 
 @Component({
   selector: 'app-questions',
@@ -42,7 +43,8 @@ export class QuestionsComponent implements OnInit, OnDestroy {
     private renderer: Renderer2,
     private answerApi: AnswerApi,
     private evaluationApi: EvaluationApi,
-    private measureApi: MeasureApi
+    private measureApi: MeasureApi,
+    private permissionsService: PermissionsService
   ) { }
 
   async ngOnInit() {
@@ -166,9 +168,14 @@ export class QuestionsComponent implements OnInit, OnDestroy {
    * @memberof QuestionsComponent
    */
   questionContentFocusIn() {
-    if (this._globalEvaluationService.answerEditionEnabled) {
-      this.loadEditor();
-    }
+
+
+    this.permissionsService.hasPermission('CanEditPIA').then((hasPerm: boolean) => {
+      if (hasPerm && this._globalEvaluationService.answerEditionEnabled) {
+        this.loadEditor();
+      }
+    });
+
   }
 
   /**

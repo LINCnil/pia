@@ -14,7 +14,7 @@
         </ul>
       </div>
       <div class="pia-cardsBlock-toolbar">
-          <div class="pia-cardsBlock-toolbar-export">
+          <div class="pia-cardsBlock-toolbar-export" *ngxPermissionsOnly="['CanExportPIA']">
             <a href="javascript:;" (click)="export(pia.id)" class="btn pia-tooltip">
               <i class="fa fa-download" aria-hidden="true"></i>
               <span class="pia-tooltip-text">{{ 'homepage.cards.item.tools.export' | translate }}</span>
@@ -24,7 +24,7 @@
             <a href="javascript:;" class="btn pia-tooltip" title="{{ 'homepage.cards.item.tools.more_options' | translate }}">
               <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
               <ul class="pia-cardsBlock-toolbar-moreList">
-                <li>
+                <li *ngxPermissionsOnly="['CanCreatePIA']">
                   <i class="fa fa-files-o" aria-hidden="true"></i>
                   <a href="javascript:;" (click)="_piaService.duplicate(pia.id)">{{ 'homepage.cards.item.tools.duplicate' | translate }}</a>
                 </li>
@@ -36,7 +36,7 @@
                   <i class="fa fa-file-text-o" aria-hidden="true"></i>
                   <a routerLink="/summary/{{pia.id}}" [innerHTML]="'homepage.cards.item.tools.pia' | translate"></a>
                 </li>
-                <li>
+                <li *ngxPermissionsOnly="['CanDeletePIA']">
                   <i class="fa fa-trash-o" aria-hidden="true"></i>
                   <a href="javascript:;" (click)="removePia(pia.id)">{{ 'homepage.cards.item.tools.remove' | translate }}</a>
                 </li>

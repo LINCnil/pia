@@ -109,18 +109,18 @@ export class GlobalEvaluationService {
 
         this.evaluationApi.getByRef(this.pia.id, this.reference_to)
           .subscribe(async (theEval: EvaluationModel) => {
-            if (theEval.status === 0) {
+            if (theEval.isPending()) {
               await this.validate();
               resolve(false);
             }
-            if (theEval.status === 1) {
-              theEval.global_status = 1;
+            if (theEval.isToBeFixed()) {
+              theEval.beGloballyStarted();
             } else {
-              theEval.global_status = 2;
+              theEval.beGloballyCompleted();
             }
             this.evaluationApi.update(theEval).subscribe(async (updatedEval: EvaluationModel) => {
               await this.validate();
-              resolve(updatedEval.status === 1);
+              resolve(updatedEval.isToBeFixed());
             });
           });
 
@@ -132,11 +132,11 @@ export class GlobalEvaluationService {
           this.evaluationApi.getByRef(this.pia.id, this.getAnswerReferenceTo(answerOrMeasure))
             .subscribe(async (theEval: EvaluationModel) => {
               if (theEval.status > 0) {
-                if (theEval.status === 1) {
-                  theEval.global_status = 1;
+                if (theEval.isToBeFixed()) {
+                  theEval.beGloballyStarted();
                   toFix = true;
                 } else {
-                  theEval.global_status = 2;
+                  theEval.beGloballyCompleted();
                 }
                 this.evaluationApi.update(theEval).subscribe(async (updatedEval: EvaluationModel) => {
                   count++;
@@ -287,8 +287,8 @@ export class GlobalEvaluationService {
         newEval.pia_id = this.pia.id;
         newEval.reference_to = reference_to;
         await this.evaluationApi.create(newEval).toPromise();
-      } else if (theEval.status === 1) {
-        theEval.global_status = 0;
+      } else if (theEval.isToBeFixed()) {
+        theEval.beGloballyNone();
         await this.evaluationApi.update(theEval).toPromise();
       }
       resolve();
@@ -304,139 +304,77 @@ export class GlobalEvaluationService {
    */
   private verification() {
 
-    if (!this.answersOrMeasures) {
+    //NoAnswers
+    if (!this.answersOrMeasures || this.answersOrMeasures.length === 0) {
+      this.status = GlobalEvaluationStatus.AnswersNone; //0
       return;
     }
+
     const answersOrMeasuresValid: Array<AnswerModel | MeasureModel> = this.answersOrMeasures.filter((answerOrMeasure: any) => {
       if (answerOrMeasure.data !== undefined) {
         return this.answerIsValid(answerOrMeasure);
       } else {
-        return this.measureIsValid(answerOrMeasure);
+        return answerOrMeasure.hasValidTitleAndContent();
       }
     });
-    if (this.answersOrMeasures.length > 0 && answersOrMeasuresValid.length === this.questionsOrMeasures.length) {
-      if (this.evaluations.length === 0) {
-        this.status = 2;
+
+    //PendingAnswers
+    if (answersOrMeasuresValid.length !== this.questionsOrMeasures.length) {
+      this.status = GlobalEvaluationStatus.AnswersStarted; //1
+      return;
+    }
+
+    //WaitingForEvaluationAsk
+    if (answersOrMeasuresValid.length === this.questionsOrMeasures.length && this.evaluations.length === 0) {
+      this.status = GlobalEvaluationStatus.AnswersCompleted; //2
+      return;
+    }
+
+    const evaluationToBeFixed: Array<EvaluationModel> = this.evaluations.filter((evaluation: EvaluationModel) => {
+      return evaluation.isToBeFixed() && evaluation.isGloballyStarted();
+    });
+
+    //SomeAnswersHaveToBeFixed
+  
+    if (evaluationToBeFixed.length > 0) {
+      this.status = GlobalEvaluationStatus.AnswersToBeFixed; //3
+      return;
+    }
+
+    const evaluationsNotStarted: Array<EvaluationModel> = this.evaluations.filter((evaluation: EvaluationModel) => {
+      return evaluation.isPending();
+    });
+
+    //WaitingForEvaluations
+    if (evaluationsNotStarted.length === this.evaluations.length) {
+      this.status = GlobalEvaluationStatus.EvaluationRequested; //4
+      return;
+    }
+
+    const areEvaluationsValid: Array<EvaluationModel> = this.evaluations.filter((evaluation: EvaluationModel) => {
+      return this.evaluationIsValid(evaluation);
+    });
+    //PendingEvaluations
+    if (areEvaluationsValid.length !== this.evaluations.length) {
+      this.status = GlobalEvaluationStatus.EvaluationStarted; //5
+      return;
+    }
+    //EvaluationsCompleted
+    if (areEvaluationsValid.length === this.evaluations.length && evaluationToBeFixed.length === 0) {
+      this.status = GlobalEvaluationStatus.EvaluationCompleted; //6
+    }
+
+    const evaluationsCompleted: Array<EvaluationModel> = this.evaluations.filter((evaluation: EvaluationModel) => {
+      return evaluation.isCompleted();
+    });
+
+    if (evaluationsCompleted.length === this.evaluations.length) {
+      if (!this.pia.validationIsCompleted()) {
+        this.status = GlobalEvaluationStatus.ValidationRequested; //7
       } else {
-        const evaluationsStarted: Array<EvaluationModel> = this.evaluations.filter((evaluation: EvaluationModel) => {
-          return this.evaluationStarted(evaluation);
-        });
-        if (evaluationsStarted.length === this.evaluations.length) {
-          const evaluationsCompleted: Array<EvaluationModel> = this.evaluations.filter((evaluation: EvaluationModel) => {
-            return this.evaluationCompleted(evaluation);
-          });
-          if (evaluationsCompleted.length === this.evaluations.length) {
-            if (this.pia.status >= 2) {
-              this.status = 8;
-            } else {
-              this.status = 7;
-            }
-          } else {
-            // If we have one or more evaluation status "toBeFixed"
-            const evaluationToBeFixed: Array<EvaluationModel> = this.evaluations.filter((evaluation: EvaluationModel) => {
-              return this.evaluationsToBeFixed(evaluation);
-            });
-            if (evaluationToBeFixed.length > 0) {
-              this.status = 3;
-            } else {
-              const evaluationsIsValid: Array<EvaluationModel> = this.evaluations.filter((evaluation: EvaluationModel) => {
-                return this.evaluationIsValid(evaluation);
-              });
-              if (evaluationsIsValid.length > 0 && evaluationsIsValid.length === this.evaluations.length) {
-                this.status = 6;
-              } else {
-                this.status = 5;
-              }
-            }
-          }
-        } else {
-
-          const evaluationsNotStarted: Array<EvaluationModel> = this.evaluations.filter((evaluation: EvaluationModel) => {
-            return this.evaluationNotStarted(evaluation);
-          });
-          if (evaluationsNotStarted.length === this.evaluations.length) {
-            this.status = 4;
-          } else {
-            this.status = 5;
-          }
-        }
+        this.status = GlobalEvaluationStatus.ValidationCompleted; //8
       }
-    } else if (this.answersOrMeasures.length > 0) {
-      this.status = 1;
-    } else {
-      this.status = 0;
     }
-  }
-
-  /**
-   * The evaluation need to be fixed?
-   * @private
-   * @param {EvaluationModel} evaluation - An Evaluation.
-   * @returns {boolean}
-   * @memberof GlobalEvaluationService
-   */
-  private evaluationsToBeFixed(evaluation: EvaluationModel) {
-    if (evaluation.status === 1 && evaluation.global_status === 1) {
-      return true;
-    }
-    return false;
-  }
-
-  /**
-   * The evaluation is started?
-   * @private
-   * @param {EvaluationModel} evaluation - An Evaluation.
-   * @returns {boolean}
-   * @memberof GlobalEvaluationService
-   */
-  private evaluationStarted(evaluation: EvaluationModel) {
-    if (evaluation.status > 0) {
-      return true;
-    }
-    return false;
-  }
-
-  /**
-   * The evaluation is completed?
-   * @private
-   * @param {EvaluationModel} evaluation - An Evaluation.
-   * @returns {boolean}
-   * @memberof GlobalEvaluationService
-   */
-  private evaluationCompleted(evaluation: EvaluationModel) {
-    if (evaluation.status > 1 && evaluation.global_status === 2) {
-      return true;
-    }
-    return false;
-  }
-
-  /**
-   * The evaluation isn't started?
-   * @private
-   * @param {EvaluationModel} evaluation - An Evaluation.
-   * @returns {boolean}
-   * @memberof GlobalEvaluationService
-   */
-  private evaluationNotStarted(evaluation: EvaluationModel) {
-    if (evaluation.status === 0) {
-      return true;
-    }
-    return false;
-  }
-
-  /**
-   * Is the measure valid?
-   * @private
-   * @param {MeasureModel} measure - A Measure.
-   * @returns {boolean}
-   * @memberof GlobalEvaluationService
-   */
-  private measureIsValid(measure: MeasureModel) {
-    if (measure.content && measure.content.length > 0 ||
-      measure.title && measure.title.length > 0) {
-      return true;
-    }
-    return false;
   }
 
   /**
@@ -459,13 +397,7 @@ export class GlobalEvaluationService {
 
     if (question.length === 1) {
       const answer_type = question[0].answer_type;
-      if (answer_type === 'gauge') {
-        valid = text && text.length > 0 && gauge > 0;
-      } else if (answer_type === 'list') {
-        valid = list && list.length > 0;
-      } else if (answer_type === 'text') {
-        valid = text && text.length > 0;
-      }
+      valid = answer.isValidForType(answer_type);
     }
 
     return valid;
@@ -479,22 +411,23 @@ export class GlobalEvaluationService {
    * @memberof GlobalEvaluationService
    */
   private evaluationIsValid(evaluation: EvaluationModel) {
-    if (evaluation.status === 1) {
-      return evaluation.evaluation_comment && evaluation.evaluation_comment.length > 0;
-    } else if (evaluation.status === 2) {
+    if (evaluation.isToBeFixed()) {
+      return evaluation.hasEvaluationComment();
+    }
+
+    if (evaluation.isImprovable()) {
+
       if (this.item.evaluation_mode === 'question') {
-        return evaluation.action_plan_comment && evaluation.action_plan_comment.length > 0;
+        return evaluation.hasActionPlanComment();
       }
+
       if (this.item.evaluation_mode === 'item' && this.item.evaluation_with_gauge === true) {
-        if (evaluation.gauges && evaluation.gauges['x'] > 0 && evaluation.gauges['y'] > 0
-          && evaluation.action_plan_comment && evaluation.action_plan_comment.length > 0) {
+        if (evaluation.hasAssignedGauges() && evaluation.hasActionPlanComment()) {
           return true;
         }
       }
-    } else if (evaluation.status === 3) {
-      return true;
     }
-    return false;
+    return evaluation.isAcceptable();
   }
 
   /**
@@ -512,7 +445,7 @@ export class GlobalEvaluationService {
         if (measures.length > 0) {
           this.questionsOrMeasures = measures;
           measures.forEach(measure => {
-            if (measure.title && measure.title.length > 0 && measure.content && measure.content.length > 0) {
+            if (measure.hasValidTitleAndContent()) {
               this.answersOrMeasures.push(measure);
             }
           });
@@ -610,7 +543,12 @@ export class GlobalEvaluationService {
    * @memberof GlobalEvaluationService
    */
   setAnswerEditionEnabled() {
-    this.answerEditionEnabled = [0, 1, 2, 3].includes(this.status);
+    this.answerEditionEnabled = [
+      GlobalEvaluationStatus.AnswersNone, //0
+      GlobalEvaluationStatus.AnswersStarted, //1
+      GlobalEvaluationStatus.AnswersCompleted, //2
+      GlobalEvaluationStatus.AnswersToBeFixed, //3
+    ].includes(this.status);
   }
 
   /**
@@ -618,6 +556,23 @@ export class GlobalEvaluationService {
    * @memberof GlobalEvaluationService
    */
   setEvaluationEditionEnabled() {
-    this.evaluationEditionEnabled = [4, 5, 6].includes(this.status);
+    this.evaluationEditionEnabled = [
+      GlobalEvaluationStatus.EvaluationRequested, //4
+      GlobalEvaluationStatus.EvaluationStarted, //5
+      GlobalEvaluationStatus.EvaluationCompleted, //6
+    ].includes(this.status);
   }
+}
+
+export enum GlobalEvaluationStatus {
+  AnswersNone = 0,
+  AnswersStarted = 1,
+  AnswersCompleted = 2,
+  AnswersToBeFixed = 3,
+  EvaluationRequested = 4,
+  EvaluationStarted = 5,
+  EvaluationCompleted = 6,
+  ValidationRequested = 7,
+  ValidationCompleted = 8
+
 }

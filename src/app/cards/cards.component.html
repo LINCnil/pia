@@ -62,7 +62,7 @@
   </div>
   <div class="row">
     <div *ngIf="viewStyle.view === 'card'; else viewList" class="small-12 medium-12 columns">
-      <div class="pia-cardsBlock pia-newBlock" id="cardsSwitch">
+      <div class="pia-cardsBlock pia-newBlock" id="cardsSwitch" *ngxPermissionsOnly="['CanCreatePIA']">
         <div class="pia-newBlock-item front" id="pia-new-card">
           <div class="pia-newBlock-item-new">
             <div class="pia-newBlock-item-new-title">{{ 'homepage.cards.new_pia' | translate }}</div>

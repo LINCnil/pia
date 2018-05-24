@@ -18,7 +18,7 @@ import { GlobalEvaluationService } from 'app/services/global-evaluation.service'
 })
 export class SectionsComponent implements OnInit {
 
-  @Input() section: { id: number, title: string, short_help: string, items: any };
+  @Input() section: { id: number, permissions: string[], title: string, short_help: string, items: any };
   @Input() item: { id: number, title: string, evaluation_mode: string, short_help: string, questions: any };
   data: { sections: any };
 
