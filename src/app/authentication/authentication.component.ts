@@ -39,7 +39,7 @@ export class AuthenticationComponent implements OnInit {
 
   ngOnInit() {
     this.authService.isAuthenticated().then(response => {
-      if (response) {
+      if (response === true) {
         this.router.navigate(['home']);
       }
     });
