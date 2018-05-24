@@ -191,13 +191,13 @@ export class PiaService {
       pia.status = 0;
       pia.created_at = null;
       pia.updated_at = null;
-      pia.dpos_names = null;
-      pia.dpo_status = null;
+      pia.dpos_names = 'N/A';
+      pia.dpo_status = 0;
       pia.dpo_opinion = null;
       pia.concerned_people_searched_opinion = null;
       pia.concerned_people_searched_content = null;
-      pia.people_names = null;
-      pia.concerned_people_status = null;
+      pia.people_names = 'N/A';
+      pia.concerned_people_status = 0;
       pia.concerned_people_opinion = null;
     } else {
       pia.status = parseInt(data.pia.status, 10);
