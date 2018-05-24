@@ -141,7 +141,8 @@ export class PiaService {
           answers: null,
           measures: null,
           evaluations: null,
-          comments: null
+          comments: null,
+          attachments: null
         }
         Observable
           .forkJoin(
@@ -149,14 +150,14 @@ export class PiaService {
             this.measureApi.getAll(id),
             this.evaluationApi.getAll(id),
             this.commentApi.getAll(id),
-          //this.attachmentApi.getAll(id),
+            this.attachmentApi.getAll(id),
         )
           .subscribe((values) => {
             data.answers = values[0];
             data.measures = values[1];
             data.evaluations = values[2];
             data.comments = values[3];
-            //data.attachments = values[4];
+            data.attachments = values[4];
             resolve(data);
           });
       });
@@ -245,6 +246,15 @@ export class PiaService {
         this.commentApi.create(commentModel).subscribe();
       });
     }
+
+    // Create attachments
+    data.attachments.forEach(attachment => {
+      attachment.id = null;
+      const attachmentModel = new AttachmentModel();
+      attachmentModel.fromJson(attachment);
+      attachmentModel.pia_id = pia.id;
+      this.attachmentApi.create(attachmentModel).subscribe();
+    });
 
     await this.piaApi.computeProgress(pia).toPromise();
     this.pias.push(pia);
