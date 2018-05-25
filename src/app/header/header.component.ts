@@ -37,11 +37,11 @@ export class HeaderComponent implements OnInit {
     this.appVersion = environment.version;
     this.pia_is_example = false;
     this._piaService.getPIA().then(() => {
-      if (this._piaService.pia.is_example) {
+      if (this._piaService.pia.is_example === 1) {
         this.pia_is_example = true;
         this.pia_example = this._piaService.pia;
       } else if (!this._piaService.pia.id) {
-        this.getPiaExample();
+        this.loadPiaExample();
       }
     });
   }
@@ -75,17 +75,15 @@ export class HeaderComponent implements OnInit {
    * @private
    * @memberof HeaderComponent
    */
-  private getPiaExample() {
+  private loadPiaExample() {
     const pia = new Pia();
     pia.getPiaExample().then((entry: any) => {
       if (entry) {
-        // this.pia_is_example = true;
         this.pia_example = entry;
       } else {
         this._http.get('./assets/files/2018-02-21-pia-example.json').map(res => res.json()).subscribe(data => {
           this._piaService.importData(data, 'EXAMPLE', false, true).then(() => {
             pia.getPiaExample().then((entry2: any) => {
-              // this.pia_is_example = true;
               this.pia_example = entry2;
             });
           });
