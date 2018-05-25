@@ -20,8 +20,10 @@
           <ul class="pia-navigationBlock-list">
             <!--<li>
               <a href="#">{{ 'header.knowledge_base_link' | translate }}</a>
-            </li>--><li>
-              <a *ngIf="_languagesService.selectedLanguage === 'fr' && headerForHome" href="javascript:;" (click)="importPiaExample()">{{ 'header.pia_example_link' | translate }}</a>
+            </li>--><li [ngClass]="{'active': pia_is_example}">
+              <a *ngIf="_languagesService.selectedLanguage === 'fr' && pia_example" href="javascript:;" routerLink="/entry/{{pia_example.id}}/section/1/item/1">
+                {{ 'header.pia_example_link' | translate }}
+              </a>
             </li><li class="pia-navigationBlock-languages">
               <a href="javascript:;">
                 <i class="fa fa-globe" aria-hidden="true"></i>
