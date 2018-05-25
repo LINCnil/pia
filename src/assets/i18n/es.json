@@ -16,6 +16,7 @@
     "languages": {
       "official_translation": "Versión oficial",
       "cnil_translations": "Traducciones del CNIL",
+      "dpa_translations": "TO BE TRANSLATED - Traduction révisée par les ADP européenne",
       "community_translations": "Traducciones de la comunidad",
       "fr": "Français",
       "en": "English",
@@ -78,7 +79,6 @@
       "placeholder_start": "Todos los campos son obligatorios",
       "item": {
         "tools": {
-          "edit": "Editar la información",
           "export": "Exportar",
           "more_options": "Más opciones",
           "duplicate": "Duplicar",
@@ -124,7 +124,9 @@
     },
     "header": {
       "preview": "Vista Previa",
-      "display_action_plan": "Mostrar<br>Plan de acción"
+      "display_action_plan": "Mostrar<br>Plan de acción",
+      "edition": "TO BE TRANSLATED - Édition",
+      "evaluation": "TO BE TRANSLATED - Évaluation"
     },
     "attachments": {
       "title": "Adjuntos",
@@ -264,11 +266,15 @@
         "description": "La decisión sobre si los controles seleccionados, riesgos residuales y plan de acción son aceptables, con justificaciones, teniendo en cuenta las estacas previamente identificadas y vistas de las partes interesadas. De esta manera, el PIA puede ser: <br> - validado <br> - Condicional a la mejora (explicar de qué manera) <br> - rechazado (junto con el procesamiento considerado). Donde sea necesario, repita los pasos anteriores para que el PIA pueda ser validado. Esta decisión no prejuzga la evaluación de la conformidad que puede llevarse a cabo, en su caso, por la autoridad de protección de datos (la CNIL en Francia), como parte de las formalidades preliminares o comprueba por ejemplo. ",
         "source": "PIAF Connected Objects p40"
       },
-      "PIA_TEC_CHIF": {
-        "placeholder": "Describir aquí los medios implementados para garantizar la confidencialidad de los datos",
-        "name": "Cifrado",
-        "description": "Medios para <strong>asegurar la confidencialidad</strong> de los datos almacenados (en la base de datos, archivos planos, copias de seguridad, etc.), así como el procedimiento para la gestión de claves de cifrado (creación, almacenamiento, cambio en caso de sospecha de compromiso de los datos, etcetera.).<br>Describir los medios de cifrado empleados para flujos de datos (VPN, TLS, etc.) implementados en el proceso. ",
-        "source": "PIAF Connected Objects p21"
+      "PIA_VAL_CART": {
+        "name": "Mapeo de riesgos",
+        "description": "Gráfico que ilustra las prácticas de seguridad buena, con un valor de conformidad atribuido a cada uno en base a su evaluación en etapas anteriores.",
+        "source": "PIAF Connected Objects p34"
+      },
+      "PIA_VAL_ACT": {
+        "name": "Plan de acción",
+        "description": "controles correctivos sugieren por el asesor en etapas anteriores, elaborar un plan de acción estableciendo, para cada acción, su manager, frecuencia, dificultad, coste y el progreso.",
+        "source": "None"
       },
       "PIA_TEC_ANO": {
         "placeholder": "Indicar aquí anonimización implementado mecanismos",
@@ -280,6 +286,12 @@
         "placeholder": "Indicar aquí si se planea el proceso de partición, y cómo esto se lleva a cabo.",
         "name": "Particionamiento datos",
         "description": "Puesta en práctica de los datos que reparten ayudas para reducir la posibilidad que los datos personales pueden ser correlacionados y que una abertura de todos los datos personales puede ocurrir.",
+        "source": "PIAF Connected Objects p21"
+      },
+      "PIA_TEC_CHIF": {
+        "placeholder": "Describir aquí los medios implementados para garantizar la confidencialidad de los datos",
+        "name": "Cifrado",
+        "description": "Medios para <strong>asegurar la confidencialidad</strong> de los datos almacenados (en la base de datos, archivos planos, copias de seguridad, etc.), así como el procedimiento para la gestión de claves de cifrado (creación, almacenamiento, cambio en caso de sospecha de compromiso de los datos, etcetera.).<br>Describir los medios de cifrado empleados para flujos de datos (VPN, TLS, etc.) implementados en el proceso. ",
         "source": "PIAF Connected Objects p21"
       },
       "PIA_TEC_CTLA": {
@@ -347,6 +359,12 @@
         "name": "Mantenimiento",
         "description": "Las políticas que describen el mantenimiento cómo físico de hardware es administradas, indicando si ésta es contratada.<br>Indican si está autorizado el mantenimiento remoto de aplicaciones y según qué modalidades. Especificar si equipo defectuoso se gestiona de una manera específica. ",
         "source": "PIAF Connected Objects p23"
+      },
+      "PIA_SEC_CTR": {
+        "placeholder": "Describir aquí las medidas específicas para los procesadores (host, empresa de mantenimiento, administrador, proveedores de servicios de especialista, etcetera.)",
+        "name": "Contratos de tratamiento",
+        "description": "",
+        "source": "Mesures_US Procurement: Identificada y marcada en un contrato"
       },
       "PIA_SEC_NET": {
         "placeholder": "Indicar aquí los controles de seguridad de red en la que el proceso se lleva a cabo",
@@ -467,6 +485,11 @@
         "description": "Reducir la gravedad de riesgos limitando la cantidad de datos de carácter personal a lo estrictamente necesario para lograr un propósito definido, de lo contrario los datos se recogerán no.",
         "source": ""
       },
+      "PIA_DEF_MIND": {
+        "name": "TO BE TRANSLATED - Minimisation des données elles-mêmes",
+        "description": "TO BE TRANSLATED - Réduire la gravité des risques en minimisant les données elles-mêmes, par des mesures destinées à réduire leur sensibilité.",
+        "source": "TO BE TRANSLATED - WIKI Minimisation_des_données_:_adéquates,_pertinentes_et_limitées"
+      },
       "PIA_DEF_CONS": {
         "name": "El consentimiento",
         "description": "toda manifestación de voluntad libre, específica, informada e inequívoca por la que el interesado acepta, ya sea mediante una declaración o una clara acción afirmativa, el tratamiento de datos personales que le conciernen.<br>Ver <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:32016R0679&from=ES\">Art. 4.10 de [GDPR]</a>",
@@ -502,6 +525,16 @@
         "description": "El interesado tendrá derecho a oponerse, por motivos referentes a su situación particular, en cualquier momento al tratamiento de datos personales sobre él o ella, en virtud de <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:32016R0679&from=ES\">Art. 21 de [GDPR]</a>",
         "source": "GDPR Art. 21"
       },
+      "PIA_DEF_CHIF": {
+        "name": "Cifrado",
+        "description": "Mida el hacer de datos personales unintelligible a cualquier persona sin la autorización de acceso (cifrado simétrico o asimétrico, uso de los algoritmos públicos sabidos para ser certificado fuerte, de la autentificación, etc.). ",
+        "source " : "Mesures_US Encryption"
+      },
+      "PIA_DEF_ANO": {
+        "name": "Anonimización",
+        "description": "De proceso quitando las características que identifican de datos personales. Determinar la robustez de un anonymisation procesa, ve e target= del <a target=\"_blank \" href= \"http://ec.europa.eu/justice/data-protection/article-29/documentation/opinion-recommendation/files/2014/wp216_en.pdf\">WP29 guidelines</a>.",
+        "source": "Mesures_US and G29 guidelines http://ec.europa.eu/justice/data-protection/article-29/documentation/opinion-recommendation/files/2014/wp216_en.pdf"
+      },
       "PIA_DEF_PSEU": {
         "name": "Seudonimización",
         "description": "Tel tratamiento de datos personales de manera tal que ya no puedan atribuirse a un interesado sin utilizar información adicional, siempre que dicha información adicional figure por separado y esté sujeta a medidas técnicas y organizativas destinadas a garantizar que los datos personales no se atribuyan a una persona física identificada o identificable. ",
@@ -516,6 +549,26 @@
         "name": "Controles de acceso lógico",
         "description": "Medios para limitar los riesgos que personas no autorización a las personas electrónicamente tendrá acceso datos de carácter personal, se requiere entre otras cosas: <br>- <strong>gestión de perfiles de los usuarios</strong> mediante la separación de tareas y áreas de responsabilidad (preferiblemente de manera centralizada) para limitar el acceso a los datos personales exclusivamente para usuarios autorizados mediante la aplicación de la necesidad de conocer y menos privilegios principios;<br>- <strong>retirar los derechos de los empleados, contratación de las partes y terceros cuando ellos ya no están autorizados a acceder a un local o un recurso</strong> o cuando su <strong>contrato de trabajo termina</strong>. ",
         "source": "PIA3 p43 - WIKI"
+      },
+      "PIA_DEF_PWD": {
+        "name": "Contraseña",
+        "description": "Las contraseñas serán compuestas de un mínimo de ocho caracteres; debe ser renovado si hay la menos preocupación que pudieron haber sido comprometidos y, posiblemente, periódicamente (cada seis meses o una vez al año) y debe incluir un mínimo de tres de las cuatro clases de caracteres (mayúsculas, letras minúsculas, números y caracteres especiales); cuando se cambia una contraseña, las cinco contraseñas pasadas no pueden ser reutilizadas; la misma contraseña no se debe utilizar para diversos accesos; las contraseñas no se deben relacionar con su información personal (nombre incluyendo o fecha de nacimiento.). Defina un número máximo de las tentativas más allá de las cuales se publica una advertencia y se bloquea la autentificación (temporalmente o hasta ella se desbloquea manualmente).",
+        "source" : "Mesure_US"
+      },
+      "PIA_DEF_AUTH": {
+        "name": "Autenticación",
+        "description": "Cada persona con el acceso legítimo a los datos personales (empleados, contratantes y otros terceros) debe ser identificada por un identificador único. Elija un método de la autentificación para abrir sesiones que sea apropiado al contexto, al nivel del riesgo y a la robustez esperados. Recomendaciones: si los riesgos no se elevan, una contraseña puede ser utilizada; sin embargo, si los riesgos son más altos, utilice un símbolo de una sola vez de la contraseña pero cambie la contraseña de la activación del defecto, o, cuando la parte de la contraseña es enviada por SMS, una tarjeta con un PERNO código, un certificado electrónico o cualquier otra forma de autentificación fuerte.",
+        "source": "Mesures_US Logical Access Control"
+      },
+      "PIA_DEF_LOG": {
+        "name": "Vigilancia",
+        "description": "Instalado una arquitectura de registración para permitir la detección temprana de los incidentes que implican datos personales y para tener información que se puede utilizar para analizarlos o para proporcionar la prueba con respecto a investigaciones.",
+        "source": "Mesures_US Vigilancia"
+      },
+      "PIA_DEF_ARCH": {
+        "name": "El archivar",
+        "description": "Los procedimientos que preservaban y que manejaban los archivos electrónicos que contenían los datos personales se prepusieron asegurar su valor (específicamente, su valor legal) a través del período entero necesario (transferencia, almacenaje, migración, accesibilidad, eliminación, archivando la política, la protección del secreto, el etc.). ",
+        "source": "Mesures_USE Archiving"
       },
       "PIA_DEF_MIN1": {
         "name": "Filtrado y eliminación",
@@ -571,16 +624,6 @@
         "name": "Violación de los datos personales",
         "description": "Violación de la seguridad conduce a la destrucción accidental o ilícita, pérdida, alteración, divulgación no autorizada de, o acceso a, datos personales transmitidos, almacenados o transformadas de otra forma.",
         "source": "GDPR Art. 4.12"
-      },
-      "PIA_VAL_CART": {
-        "name": "Mapeo de riesgos",
-        "description": "Gráfico que ilustra las prácticas de seguridad buena, con un valor de conformidad atribuido a cada uno en base a su evaluación en etapas anteriores.",
-        "source": "PIAF Connected Objects p34"
-      },
-      "PIA_VAL_ACT": {
-        "name": "Plan de acción",
-        "description": "controles correctivos sugieren por el asesor en etapas anteriores, elaborar un plan de acción estableciendo, para cada acción, su manager, frecuencia, dificultad, coste y el progreso.",
-        "source": "None"
       },
       "PIA_DEF_ENJ": {
         "name": "Apuestas",
@@ -691,41 +734,6 @@
         "name": "Minimización de datos ellos mismos",
         "description": "Reduzca la severidad de riesgos reduciendo al mínimo los datos ellos mismos, tomando mide tenido como objetivo el reducir de su sensibilidad.",
         "source": "Mesures_US"
-      },
-      "PIA_DEF_ANO": {
-        "name": "Anonimización",
-        "description": "De proceso quitando las características que identifican de datos personales. Determinar la robustez de un anonymisation procesa, ve e target= del <a target=\"_blank \" href= \"http://ec.europa.eu/justice/data-protection/article-29/documentation/opinion-recommendation/files/2014/wp216_en.pdf\">WP29 guidelines</a>.",
-        "source": "Mesures_US and G29 guidelines http://ec.europa.eu/justice/data-protection/article-29/documentation/opinion-recommendation/files/2014/wp216_en.pdf"
-      },
-      "PIA_SEC_CTR": {
-        "placeholder": "Describir aquí las medidas específicas para los procesadores (host, empresa de mantenimiento, administrador, proveedores de servicios de especialista, etcetera.)",
-        "name": "Contratos de tratamiento",
-        "source": "Mesures_US Procurement: Identificada y marcada en un contrato"
-      },
-      "PIA_DEF_CHIF": {
-        "name": "Cifrado",
-        "description": "Mida el hacer de datos personales unintelligible a cualquier persona sin la autorización de acceso (cifrado simétrico o asimétrico, uso de los algoritmos públicos sabidos para ser certificado fuerte, de la autentificación, etc.). ",
-        "source " : "Mesures_US Encryption"
-      },
-      "PIA_DEF_PWD": {
-        "name": "Contraseña",
-        "description": "Las contraseñas serán compuestas de un mínimo de ocho caracteres; debe ser renovado si hay la menos preocupación que pudieron haber sido comprometidos y, posiblemente, periódicamente (cada seis meses o una vez al año) y debe incluir un mínimo de tres de las cuatro clases de caracteres (mayúsculas, letras minúsculas, números y caracteres especiales); cuando se cambia una contraseña, las cinco contraseñas pasadas no pueden ser reutilizadas; la misma contraseña no se debe utilizar para diversos accesos; las contraseñas no se deben relacionar con su información personal (nombre incluyendo o fecha de nacimiento.). Defina un número máximo de las tentativas más allá de las cuales se publica una advertencia y se bloquea la autentificación (temporalmente o hasta ella se desbloquea manualmente).",
-        "source" : "Mesure_US"
-      },
-      "PIA_DEF_AUTH": {
-        "name": "Autenticación",
-        "description": "Cada persona con el acceso legítimo a los datos personales (empleados, contratantes y otros terceros) debe ser identificada por un identificador único. Elija un método de la autentificación para abrir sesiones que sea apropiado al contexto, al nivel del riesgo y a la robustez esperados. Recomendaciones: si los riesgos no se elevan, una contraseña puede ser utilizada; sin embargo, si los riesgos son más altos, utilice un símbolo de una sola vez de la contraseña pero cambie la contraseña de la activación del defecto, o, cuando la parte de la contraseña es enviada por SMS, una tarjeta con un PERNO código, un certificado electrónico o cualquier otra forma de autentificación fuerte.",
-        "source": "Mesures_US Logical Access Control"
-      },
-      "PIA_DEF_LOG": {
-        "name": "Vigilancia",
-        "description": "Instalado una arquitectura de registración para permitir la detección temprana de los incidentes que implican datos personales y para tener información que se puede utilizar para analizarlos o para proporcionar la prueba con respecto a investigaciones.",
-        "source": "Mesures_US Vigilancia"
-      },
-      "PIA_DEF_ARCH": {
-        "name": "El archivar",
-        "description": "Los procedimientos que preservaban y que manejaban los archivos electrónicos que contenían los datos personales se prepusieron asegurar su valor (específicamente, su valor legal) a través del período entero necesario (transferencia, almacenaje, migración, accesibilidad, eliminación, archivando la política, la protección del secreto, el etc.). ",
-        "source": "Mesures_USE Archiving"
       }
     }
   },
@@ -946,7 +954,9 @@
     },
     "dpo_missing_evaluations": {
       "content": "TO BE TRANSLATED - You need to complete the review of the analysis to access the DPO page.",
-      "review_section": "TO BE TRANSLATED - Review a section"
+      "review_section": "TO BE TRANSLATED - Review a section",
+      "remove": "Eliminar",
+      "comment": "TO BE TRANSLATED - Comment"
     },
     "modal_select_text_pia": {
       "content": "TO BE TRANSLATED - The content of the PIA has been copied to clipboard."

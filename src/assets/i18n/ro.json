@@ -16,6 +16,7 @@
     "languages": {
       "official_translation": "Versiune Originală",
       "cnil_translations": "Traduceri oferite de către CNIL",
+      "dpa_translations": "TO BE TRANSLATED - Traduction révisée par les ADP européenne",
       "community_translations": "Traduceri oferite de către Comunitate",
       "fr": "Français",
       "en": "English",
@@ -265,11 +266,15 @@
         "description": "Se stabilește dacă controalele selectate, riscurile reziduale și planul de acțiune sunt acceptabile, justificându-se decizia, având în vedere consecințele anterior identificate și opiniile părților interesate. Astfel, PIA poate fi:<br>- validată<br>- condiționată de îmbunătățire (se explică în ce mod)<br>- respinsă (împreună cu prelucrarea în cauză). Unde este necesar, se repetă pașii anteriori, astfel încât PIA să poată fi validată. Această decizie nu prejudiciază evaluarea conformității care poate fi efectuată, unde este cazul, de către Autoritatea pentru Protecția Datelor (ANSPDCP), ca parte a formalităților sau controalelor preliminare, de exemplu.",
         "source": "PIAF Connected Objects p40"
       },
-      "PIA_TEC_CHIF": {
-        "placeholder": "Sunt descrise aici metodele implementate pentru asigurarea confidențialității datelor",
-        "name": "Criptare",
-        "description": "Metode implementate pentru <strong>asigurarea confidențialității</strong> datelor stocate (în baza de date, in fișiere plate, backup-uri, etc.), precum și procedura pentru gestionarea cheilor de criptare (crearea, stocarea, modificarea în caz de suspiciuni de compromitere a datelor, etc.).<br> Sunt descrise metodele de criptare utilizate pentru fluxurile de date (VPN, TLS, etc.) implementate în procesare.",
-        "source": "PIAF Connected Objects p21"
+      "PIA_VAL_CART": {
+        "name": "Maparea riscurilor",
+        "description": "Grafic ce ilustrează bunele practici de securitate, cu o valoare de conformitate atribuită fiecăreia în baza evaluării sale în etapele anterioare.",
+        "source": "PIAF Connected Objects p34"
+      },
+      "PIA_VAL_ACT": {
+        "name": "Plan de acțiune",
+        "description": "Controale corective sugerate de către evaluator în etapele anterioare, elaborarea unui plan de acțiune ce stabilește, pentru fiecare acțiune, managerul, frecvența, dificultatea, costul  și evoluția.",
+        "source": "None"
       },
       "PIA_TEC_ANO": {
         "placeholder": "Se indică aici mecanismele de anonimizare implementate",
@@ -281,6 +286,12 @@
         "placeholder": "Se indică aici dacă partiționarea procesării este planificată, și cum se va efectua acest lucru.",
         "name": "Partiționarea datelor",
         "description": "Implementarea partiționarii datelor contribuie la reducerea posibilității ca datele cu caracter personal să poată fi corelate și astfel să ducă la apariția unei breșe în securitatea tuturor datelor cu caracter personal.",
+        "source": "PIAF Connected Objects p21"
+      },
+      "PIA_TEC_CHIF": {
+        "placeholder": "Sunt descrise aici metodele implementate pentru asigurarea confidențialității datelor",
+        "name": "Criptare",
+        "description": "Metode implementate pentru <strong>asigurarea confidențialității</strong> datelor stocate (în baza de date, in fișiere plate, backup-uri, etc.), precum și procedura pentru gestionarea cheilor de criptare (crearea, stocarea, modificarea în caz de suspiciuni de compromitere a datelor, etc.).<br> Sunt descrise metodele de criptare utilizate pentru fluxurile de date (VPN, TLS, etc.) implementate în procesare.",
         "source": "PIAF Connected Objects p21"
       },
       "PIA_TEC_CTLA": {
@@ -348,6 +359,12 @@
         "name": "Mentenanță",
         "description": "Politici care descriu modul în care este gestionată mentenanța fizică a echipamentelor hardware, specificând dacă această operațiune este contractată sau nu.<br> Se specifică dacă mentenanța de la distanță a aplicaților este autorizată, și în conformitate cu ce dispoziții se realizează. Se specifică dacă echipamentul defect este gestionat într-o manieră particulară.",
         "source": "PIAF Connected Objects p23"
+      },
+      "PIA_SEC_CTR": {
+        "placeholder": "Sunt descrise aici măsurile specifice pentru procesatori (host, compania de mentenanța, administrator, furnizori de servicii de specialitate, etc.)",
+        "name": "Contracte de prelucrare",
+        "description": "",
+        "source": "Mesures_US Procurement: identified and governed by a contract"
       },
       "PIA_SEC_NET": {
         "placeholder": "Se indică aici controalele de securitate ale rețelei în care se efectuează prelucrarea datelor",
@@ -468,6 +485,11 @@
         "description": "Se reduce gravitatea riscurilor prin limitarea datelor cu caracter personal colectate doar la ceea ce este strict necesar pentru atingerea scopului stabilit, în caz contrar acestea nu vor fi colectate.",
         "source": ""
       },
+      "PIA_DEF_MIND": {
+        "name": "TO BE TRANSLATED - Minimisation des données elles-mêmes",
+        "description": "TO BE TRANSLATED - Réduire la gravité des risques en minimisant les données elles-mêmes, par des mesures destinées à réduire leur sensibilité.",
+        "source": "TO BE TRANSLATED - WIKI Minimisation_des_données_:_adéquates,_pertinentes_et_limitées"
+      },
       "PIA_DEF_CONS": {
         "name": "Consimțământ",
         "description": "Orice indicație liber oferită, specifică, informată și lipsită de ambiguitate, cu privire la dorințele persoanei vizate, prin care el sau ea, printr-o declarație sau printr-o acțiune clară, afirmativă, exprimă acordul în legătură cu procesarea datelor cu caracter personal.<br>A se vedea <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 4.10 din [GDPR]</a>",
@@ -503,6 +525,16 @@
         "description": "Persoana vizată va avea dreptul de a se opune, în orice moment, din motive legate de situația sa particulară, prelucrării datelor cu caracter personal ce o privesc, în conformitate cu <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 21 din [GDPR]</a>",
         "source": "GDPR Art. 21"
       },
+      "PIA_DEF_CHIF": {
+        "name": "Criptare",
+        "description": "Măsură ce face ca datele cu caracter personal să fie neinteligibile pentru oricine nu deține autorizație de acces (criptare simetrică sau asimetrică, utilizarea de algoritmi publici puternici, certificat de autentificare, etc.).",
+        "source " : "Mesures_US Encryption"
+      },
+      "PIA_DEF_ANO": {
+        "name": "Anonimizarea",
+        "description": "Proces de eliminare a caracteristicii datelor cu caracter personal de a fi identificate. Pentru a evalua stabilitatea procesului de anonimizare, a se vedea <a target=\"_blank\" href=\"http://ec.europa.eu/justice/data-protection/article-29/documentation/opinion-recommendation/files/2014/wp216_en.pdf\">WP29 guidelines</a>.",
+        "source": "Mesures_US and G29 guidelines http://ec.europa.eu/justice/data-protection/article-29/documentation/opinion-recommendation/files/2014/wp216_en.pdf"
+      },
       "PIA_DEF_PSEU": {
         "name": "Pseudonimizare",
         "description": "Prelucrarea datelor cu caracter personal, astfel încât datele să nu se mai poată atribui persoanei vizate fără utilizarea unor informații suplimentare, cu condiția ca aceste informații suplimentare să fie păstrate separat și să facă obiectul unor măsuri tehnice și organizatorice care să asigure faptul că datele cu caracter personal nu sunt atribuite unei persoane fizice indentificate sau identificabile.<br>Pseudonimizarea reduce conexiunea unui set de date cu identitatea originală a persoanei vizate; așadar, este o măsură utilă de securitate, dar nu este o metodă de anonimizare.",
@@ -517,6 +549,26 @@
         "name": "Controale de acces logic",
         "description": "Mijloace implementate pentru limitarea riscului ca persoanele neautorizate să acceseze electronic datele cu caracter personal, necesită printre altele: <br>- <strong>gestionarea profilurilor utilizatorilor</strong> prin separarea sarcinilor și a zonelor de responsabilitate (preferabil într-o manieră centralizată) astfel încât accesul la datele cu caracter personal să fie limitat exclusiv către utilizatorii autorizați prin aplicarea principiilor need-to-know și least-privilege;<br>- <strong>restrângerea drepturilor angajațiilor, părților contractante și ale altor părți terțe atunci când nu mai sunt autorizate să acceseze sediul sau o resursă</strong> sau atunci când <strong>se încheie contractul</strong>.",
         "source": "PIA3 p43 - WIKI"
+      },
+      "PIA_DEF_PWD": {
+        "name": "Parolă",
+        "description": "Parolele vor fi compuse din cel puțin opt caractere; trebuie reînnoite dacă există cea mai mică îngrijorare că acestea au fost compromise și, eventual, reînnoite periodic (la fiecare șase luni sau o dată pe an) și trebuie să includă cel puțin trei din cele patru tipuri de caractere (majuscule, litere mici, cifre și caractere speciale); când o parolă este modificată, ultimele cinci parole nu pot fi reutilizate; aceeași parolă nu ar trebui utilizată pentru nivele de acces diferite; parolele nu ar trebui să aibă legătură cu informații personale (nume sau data nașterii). Se stabilește un număr maxim de încercări după care se emite un avertisment și autentificarea este blocată (temporar sau până când este deblocată manual).",
+        "source" : "Mesure_US"
+      },
+      "PIA_DEF_AUTH": {
+        "name": "Autentificare",
+        "description": "Fiecare persoană care are acces legitim la date cu caracter personal (angajați, părți contractante și alte părți terțe) ar trebui să se identifice printr-un identificator unic. Se alege o metodă de autentificare pentru deschiderea sesiunilor potrivită contextului, nivelului de risc și amplitudinii așteptate. Recomandări: dacă riscurile nu sunt mari, este posibilă utilizarea unei parole; cu toate acestea, dacă riscurile sunt ridicate, se utilizează un token pentru parole unice dar se modifică parola de activare prestabilită, sau, atunci când o parte din parolă este trimisă prin SMS, se utilizează un card cu un cod PIN, un certificat electronic sau orice altă formă puternică de autentificare.",
+        "source": "Mesures_US Logical Access Control"
+      },
+      "PIA_DEF_LOG": {
+        "name": "Supraveghere",
+        "description": "Se creează  o arhitectură de autentificare care să permită depistarea timpurie a incidentelor care implică date cu caracter personal și colectarea de informații pentru a fi analizate sau care furnizează dovezi în legătură cu investigația.",
+        "source": "Mesures_US Surveillance"
+      },
+      "PIA_DEF_ARCH": {
+        "name": "Arhivarea",
+        "description": "Proceduri de păstrare și gestionare a arhivelor electronice ce conțin date cu caracter personal destinate să asigure valoare acestora (mai exact, valoarea juridică) pe întreaga perioadă necesară (transfer, depozitare, migrare, accesibilitate, eliminare, politică de arhivare, protecția confidențialității, etc.).",
+        "source": "Mesures_USE Archiving"
       },
       "PIA_DEF_MIN1": {
         "name": "Filtrare și eliminare",
@@ -572,16 +624,6 @@
         "name": "Încălcarea securității datelor",
         "description": "Încălcarea securității care duce la distrugerea accidentală sau ilicită a datelor, pierderea, modificarea, divulgarea neautorizată, sau accesul la datele cu caracter personal, date transmise, stocate sau prelucrate.",
         "source": "GDPR Art. 4.12"
-      },
-      "PIA_VAL_CART": {
-        "name": "Maparea riscurilor",
-        "description": "Grafic ce ilustrează bunele practici de securitate, cu o valoare de conformitate atribuită fiecăreia în baza evaluării sale în etapele anterioare.",
-        "source": "PIAF Connected Objects p34"
-      },
-      "PIA_VAL_ACT": {
-        "name": "Plan de acțiune",
-        "description": "Controale corective sugerate de către evaluator în etapele anterioare, elaborarea unui plan de acțiune ce stabilește, pentru fiecare acțiune, managerul, frecvența, dificultatea, costul  și evoluția.",
-        "source": "None"
       },
       "PIA_DEF_ENJ": {
         "name": "Mizele",
@@ -692,41 +734,6 @@
         "name": "Minimalizarea datelor în sine",
         "description": "Diminuează gravitatea riscurilor prin minimalizarea datelor în sine, prin adoptarea de măsuri menite să diminueze sensibilitatea datelor.",
         "source": "Mesures_US"
-      },
-      "PIA_DEF_ANO": {
-        "name": "Anonimizarea",
-        "description": "Proces de eliminare a caracteristicii datelor cu caracter personal de a fi identificate. Pentru a evalua stabilitatea procesului de anonimizare, a se vedea <a target=\"_blank\" href=\"http://ec.europa.eu/justice/data-protection/article-29/documentation/opinion-recommendation/files/2014/wp216_en.pdf\">WP29 guidelines</a>.",
-        "source": "Mesures_US and G29 guidelines http://ec.europa.eu/justice/data-protection/article-29/documentation/opinion-recommendation/files/2014/wp216_en.pdf"
-      },
-      "PIA_SEC_CTR": {
-        "placeholder": "Sunt descrise aici măsurile specifice pentru procesatori (host, compania de mentenanța, administrator, furnizori de servicii de specialitate, etc.)",
-        "name": "Contracte de prelucrare",
-        "source": "Mesures_US Procurement: identified and governed by a contract"
-      },
-      "PIA_DEF_CHIF": {
-        "name": "Criptare",
-        "description": "Măsură ce face ca datele cu caracter personal să fie neinteligibile pentru oricine nu deține autorizație de acces (criptare simetrică sau asimetrică, utilizarea de algoritmi publici puternici, certificat de autentificare, etc.).",
-        "source " : "Mesures_US Encryption"
-      },
-      "PIA_DEF_PWD": {
-        "name": "Parolă",
-        "description": "Parolele vor fi compuse din cel puțin opt caractere; trebuie reînnoite dacă există cea mai mică îngrijorare că acestea au fost compromise și, eventual, reînnoite periodic (la fiecare șase luni sau o dată pe an) și trebuie să includă cel puțin trei din cele patru tipuri de caractere (majuscule, litere mici, cifre și caractere speciale); când o parolă este modificată, ultimele cinci parole nu pot fi reutilizate; aceeași parolă nu ar trebui utilizată pentru nivele de acces diferite; parolele nu ar trebui să aibă legătură cu informații personale (nume sau data nașterii). Se stabilește un număr maxim de încercări după care se emite un avertisment și autentificarea este blocată (temporar sau până când este deblocată manual).",
-        "source" : "Mesure_US"
-      },
-      "PIA_DEF_AUTH": {
-        "name": "Autentificare",
-        "description": "Fiecare persoană care are acces legitim la date cu caracter personal (angajați, părți contractante și alte părți terțe) ar trebui să se identifice printr-un identificator unic. Se alege o metodă de autentificare pentru deschiderea sesiunilor potrivită contextului, nivelului de risc și amplitudinii așteptate. Recomandări: dacă riscurile nu sunt mari, este posibilă utilizarea unei parole; cu toate acestea, dacă riscurile sunt ridicate, se utilizează un token pentru parole unice dar se modifică parola de activare prestabilită, sau, atunci când o parte din parolă este trimisă prin SMS, se utilizează un card cu un cod PIN, un certificat electronic sau orice altă formă puternică de autentificare.",
-        "source": "Mesures_US Logical Access Control"
-      },
-      "PIA_DEF_LOG": {
-        "name": "Supraveghere",
-        "description": "Se creează  o arhitectură de autentificare care să permită depistarea timpurie a incidentelor care implică date cu caracter personal și colectarea de informații pentru a fi analizate sau care furnizează dovezi în legătură cu investigația.",
-        "source": "Mesures_US Surveillance"
-      },
-      "PIA_DEF_ARCH": {
-        "name": "Arhivarea",
-        "description": "Proceduri de păstrare și gestionare a arhivelor electronice ce conțin date cu caracter personal destinate să asigure valoare acestora (mai exact, valoarea juridică) pe întreaga perioadă necesară (transfer, depozitare, migrare, accesibilitate, eliminare, politică de arhivare, protecția confidențialității, etc.).",
-        "source": "Mesures_USE Archiving"
       }
     }
   },
@@ -901,7 +908,8 @@
       "download_pia": "Descarcă raport PIA"
     },
     "abandon_pia": {
-      "content": "Sunteți sigur că doriți să renunțați<br>give up this treatment?"
+      "content": "Sunteți sigur că doriți să renunțați<br>give up this treatment?",
+      "additional_text": "TO BE TRANSLATED - L'archivage n'est pas définitif et vous pouvez<br>reprendre l'analyse plus tard si besoin."
     },
     "refuse_pia": {
       "content": "<span class='strong'>PIA respinsă,</span><br>Câteva câmpuri trebuie corectate.<br>Reveniți la modul de evaluare<br>pentru a face corecții."
@@ -937,22 +945,42 @@
     "remove_attachment": {
       "content": "<span class='strong'>Atenție,</span><br>Sunteți sigur că vreți să<br>eliminați fișierul atașat?",
       "keep": "Păstrează",
-      "remove": "Elimină"
+      "remove": "Elimină",
+      "comment": "Commentaires"
+    },
+    "action_plan_no_evaluation": {
+      "content": "Veuillez commencer l'évaluation de l'analyse pour génerer le plan d'actions.",
+      "review_section": "Évaluer une section"
+    },
+    "dpo_missing_evaluations": {
+      "content": "Veuillez compléter l'évaluation de l'analyse pour accéder à la page des DPO.",
+      "review_section": "Évaluer une section",
+      "remove": "Supprimer",
+      "comment": "Commentaire"
+    },
+    "modal_select_text_pia": {
+      "content": "Le contenu du Rapport PIA a été copié dans votre presse-papier."
+    },
+    "back_to_edition": {
+      "content": "La partie est renvoyée en édition,<br>des informations doivent être ajoutées<br>pour permettre son évaluation."
+    },
+    "back_to_evaluation": {
+      "content": "La partie est renvoyée en évaluation,<br>des informations doivent être réévaluées<br>pour permettre sa validation."
     }
   },
   "summary": {
     "previous_page": "Înapoi la pagina anterioară",
     "print": "Printare",
-    "copy_to_clipboard": "Copy to clipboard",
-    "download_images": "Download images",
-    "download_csv": "Download a CSV export",
-    "csv_action_plan_comment": "Action plan comment",
-    "csv_evaluation_comment": "Evaluation comment",
-    "csv_section": "Section",
-    "csv_title_object": "Title",
-    "csv_implement_date": "Estimated implementation date",
-    "csv_people_in_charge": "Person in charge",
-    "csv_file_title": "action-plan",
+    "copy_to_clipboard": "TO BE TRANSLATED - Copier dans le presse-papier",
+    "download_images": "TO BE TRANSLATED - Télécharger les images",
+    "download_csv": "TO BE TRANSLATED - Télécharger un export CSV",
+    "csv_section": "TO BE TRANSLATED - Section",
+    "csv_title_object": "TO BE TRANSLATED - Titre de l'objet concerné",
+    "csv_action_plan_comment": "TO BE TRANSLATED - Commentaires du plan d'actions",
+    "csv_evaluation_comment": "TO BE TRANSLATED - Commentaires d'évaluation",
+    "csv_file_title": "plan-d-action",
+    "csv_implement_date": "TO BE TRANSLATED - Date d'implémentation estimée",
+    "csv_people_in_charge": "TO BE TRANSLATED - Responsable de la mise en oeuvre",
     "display_filters": {
       "title": "Afișează filtrele",
       "main_content": "Afișează secțiunea \"Informații PIA\"",
@@ -960,8 +988,8 @@
       "principles_content": "Afișează secțiunea \"Principii fundamentale\"",
       "risks_content": "Afișează secțiunea \"Riscuri\"",
       "action_plan_content": "Afișează planul de acțiune",
-      "risks_overview_content": "Display risks overview",
-      "risks_cartography_content": "Display risk mapping"
+      "risks_overview_content": "TO BE TRANSLATED - Afficher la vue d'ensemble des risques",
+      "risks_cartography_content": "TO BE TRANSLATED - Afficher la cartographie des risques"
     },
     "title": "Informații PIA",
     "pia_name": "PIA",
@@ -999,10 +1027,10 @@
       "implementation_responsible": "Responsabil pentru implementare",
       "measures": "Măsuri existente sau planificate",
       "risks": "Riscuri",
-      "no_action_plan": "Nu a fost înregistrat niciun plan de acțiune."
+      "no_action_plan": "Niciun plan de acțiune înregistrat."
     },
-    "risks_overview_title": "Risks overview",
-    "risks_cartography_title": "Risk mapping"
+    "risks_overview_title": "TO BE TRANSLATED - Vue d'ensemble des risques",
+    "risks_cartography_title": "TO BE TRANSLATED - Cartographie des risques"
   },
   "errors": {
     "title": "Pagina nu a fost găsită.",

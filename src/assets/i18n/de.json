@@ -16,6 +16,7 @@
     "languages": {
       "official_translation": "Originalversion",
       "cnil_translations": "Von der CNIL bereitgestellte Übersetzungen",
+      "dpa_translations": "Von europäischen Aufsichtsbehörden bereitgestellte Übersetzungen",
       "community_translations": "Von der Community bereitgestellte Übersetzungen",
       "fr": "Français",
       "en": "English",
@@ -666,59 +667,73 @@
       },
       "PIA_EX_DCPS": {
         "name": "Sensible Daten",
-        "description": " Weltanschauliche, politische, religiöse, gewerkschaftliche Überzeugungen und Beziehungen, Sexualleben, Gesundheitsdaten, Rasse oder ethnische Herkunft, Straftaten, Sicherheitsauflagen.<br>Siehe <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/DE/TXT/HTML/?uri=CELEX:32016R0679&from=DE\"> Art. 9 und 10 der [DS-GVO]</a>."
+        "description": "Weltanschauliche, politische, religiöse, gewerkschaftliche Überzeugungen und Beziehungen, Sexualleben, Gesundheitsdaten, Rasse oder ethnische Herkunft, Straftaten, Sicherheitsauflagen.<br>Siehe <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/DE/TXT/HTML/?uri=CELEX:32016R0679&from=DE\"> Art. 9 und 10 der [DS-GVO]</a>.",
+        "source": ""
       },
       "PIA_EX_DCPR": {
         "name": "Besondere Kategorien personenbezogener Daten ",
-        "description": "Weltanschauliche, politische, religiöse, gewerkschaftliche Überzeugungen und Beziehungen, Sexualleben, Gesundheitsdaten, Rasse oder ethnische Herkunft, Straftaten, Sicherheitsauflagen.<br>Siehe <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/DE/TXT/HTML/?uri=CELEX:32016R0679&from=DE\"> Art. 9 und 10 der [DS-GVO]</a>."
+        "description": "Weltanschauliche, politische, religiöse, gewerkschaftliche Überzeugungen und Beziehungen, Sexualleben, Gesundheitsdaten, Rasse oder ethnische Herkunft, Straftaten, Sicherheitsauflagen.<br>Siehe <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/DE/TXT/HTML/?uri=CELEX:32016R0679&from=DE\"> Art. 9 und 10 der [DS-GVO]</a>.",
+        "source": ""
       },
       "PIA_EX_HUMI": {
         "name": "Interne menschliche Risikoquellen",
-        "description": "Das kann sein:<br>- ein böswilliger bzw. nachlässiger Mitarbeiter, der seine / ihre Nähe zum System, seine Fähigkeiten, Rechte und möglicherweise ausreichend verfügbare Zeit nutzt oder aufgrund eines möglichen Mangels an Schulung und Bewusstsein nachlässig ist.<br>- ein böswilliger bzw. nachlässiger Benutzer oder sein Umfeld, mit Zugang zu den Diensten.<br>Die Motivationen können vielfältig sein: Ungeschicklichkeit, Fehler, Nachlässigkeit, Rache, Böswilligkeit, Gier, Spionage."
+        "description": "Das kann sein:<br>- ein böswilliger bzw. nachlässiger Mitarbeiter, der seine / ihre Nähe zum System, seine Fähigkeiten, Rechte und möglicherweise ausreichend verfügbare Zeit nutzt oder aufgrund eines möglichen Mangels an Schulung und Bewusstsein nachlässig ist.<br>- ein böswilliger bzw. nachlässiger Benutzer oder sein Umfeld, mit Zugang zu den Diensten.<br>Die Motivationen können vielfältig sein: Ungeschicklichkeit, Fehler, Nachlässigkeit, Rache, Böswilligkeit, Gier, Spionage.",
+        "source": ""
       },
       "PIA_EX_HUME": {
         "name": "Externe menschliche Risikoquellen",
-        "description": "Das kann sein:<br>- ein böswilliger oder unwissender Dritter, der seine physische Nähe nutzt, um betrügerisch auf den Dienst zuzugreifen<br>- ein Angreifer, der einen Benutzer des Systems mit Hilfe seines Wissens über diesen Benutzer zum Ziel nimmt<br>- ein Angreifer, der eine der Firmen, die für die Verarbeitung verantwortlich sind angreift, um Informationen zu gewinnen oder den Ruf des Unternehmens zu schädigen<br>- eine dritte Partei, die ihren autorisierten Zugang zu anderen Zwecken wie z.B. dem illegalem Zugang zu Informationen nutzt.<br>Die Motive können vielfältig sein:<br>Nervenkitzel, Verärgerung, Böswilligkeit, Rache, Spionage, Gier, Beschaffung von Daten, um sie auszunutzen."
+        "description": "Das kann sein:<br>- ein böswilliger oder unwissender Dritter, der seine physische Nähe nutzt, um betrügerisch auf den Dienst zuzugreifen<br>- ein Angreifer, der einen Benutzer des Systems mit Hilfe seines Wissens über diesen Benutzer zum Ziel nimmt<br>- ein Angreifer, der eine der Firmen, die für die Verarbeitung verantwortlich sind angreift, um Informationen zu gewinnen oder den Ruf des Unternehmens zu schädigen<br>- eine dritte Partei, die ihren autorisierten Zugang zu anderen Zwecken wie z.B. dem illegalem Zugang zu Informationen nutzt.<br>Die Motive können vielfältig sein:<br>Nervenkitzel, Verärgerung, Böswilligkeit, Rache, Spionage, Gier, Beschaffung von Daten, um sie auszunutzen.",
+        "source": ""
       },
       "PIA_EX_NHUM": {
         "name": "Nichtmenschliche Risikoquellen",
-        "description": "Dies kann ein Vorfall oder eine Katastrophe in einer der für die Verarbeitung verantwortlichen Organisationen sein (Stromausfall, Feuer, Überschwemmung, technische Fehler usw.)"
+        "description": "Dies kann ein Vorfall oder eine Katastrophe in einer der für die Verarbeitung verantwortlichen Organisationen sein (Stromausfall, Feuer, Überschwemmung, technische Fehler usw.)",
+        "source": ""
       },
       "PIA_EX_IMPN": {
         "name": "Schweregrad: geringfügig",
-        "description": "Die Betroffenen werden nicht gar nicht beeinträchtigt oder haben einige temporäre Unannehmlichkeiten, die sie ohne Schwierigkeiten überwinden können.<br> Beispiele für Auswirkungen:<br> - Körperlich: flüchtige Kopfschmerzen<br>- materiell: Zeitverschwendung, durch Wiederholung von Formalitäten oder durch Warten auf deren Durchführung, Empfang von Spam-Mails, Verwendung öffentlich zugänglicher Daten für gezielte Werbung etc.,<br>- psychisch: einfaches Ärgernis, Gefühl des Eindringens ins Privatleben ohne wirklichen Schaden (Werbung) usw."
+        "description": "Die Betroffenen werden nicht gar nicht beeinträchtigt oder haben einige temporäre Unannehmlichkeiten, die sie ohne Schwierigkeiten überwinden können.<br> Beispiele für Auswirkungen:<br> - Körperlich: flüchtige Kopfschmerzen<br>- materiell: Zeitverschwendung, durch Wiederholung von Formalitäten oder durch Warten auf deren Durchführung, Empfang von Spam-Mails, Verwendung öffentlich zugänglicher Daten für gezielte Werbung etc.,<br>- psychisch: einfaches Ärgernis, Gefühl des Eindringens ins Privatleben ohne wirklichen Schaden (Werbung) usw.",
+        "source": ""
       },
       "PIA_EX_IMPL": {
         "name": "Schweregrad: überschaubar",
-        "description": "Die Betroffenen können deutliche Unannehmlichkeiten erfahren, die sie jedoch trotz einiger Schwierigkeiten überwinden können.<br>Beispiele für Auswirkungen:<br>- körperlich: geringfügige körperliche Beeinträchtigung (z. B. leichte Erkrankung nach Nichteinhaltung von Kontraindikationen), üble Nachrede, die physische und psychische Auswirkungen hat.<br>- materiell: ungeplante Zahlungen (z. B. unberechtigte Bußgelder), Verweigerung des Zugangs zu administrativen oder kommerziellen Dienstleistungen, gezielte Online-Werbung zu einem ein Aspekt, der seitens des Betroffenen vertraulich bleiben sollte, etc.<br>- psychisch: geringe aber objektiv verstellbare psychische Beeinträchtigung, Gefühl der Verletzung der Privatsphäre ohne irreparablen Schaden, Einschüchterung in sozialen Netzwerken, etc."
+        "description": "Die Betroffenen können deutliche Unannehmlichkeiten erfahren, die sie jedoch trotz einiger Schwierigkeiten überwinden können.<br>Beispiele für Auswirkungen:<br>- körperlich: geringfügige körperliche Beeinträchtigung (z. B. leichte Erkrankung nach Nichteinhaltung von Kontraindikationen), üble Nachrede, die physische und psychische Auswirkungen hat.<br>- materiell: ungeplante Zahlungen (z. B. unberechtigte Bußgelder), Verweigerung des Zugangs zu administrativen oder kommerziellen Dienstleistungen, gezielte Online-Werbung zu einem ein Aspekt, der seitens des Betroffenen vertraulich bleiben sollte, etc.<br>- psychisch: geringe aber objektiv verstellbare psychische Beeinträchtigung, Gefühl der Verletzung der Privatsphäre ohne irreparablen Schaden, Einschüchterung in sozialen Netzwerken, etc.",
+        "source": ""
       },
       "PIA_EX_IMPI": {
         "name": "Schweregrad: substantiell",
-        "description": "Die Betroffenen können erhebliche Konsequenzen erleiden, die sie nur mit erheblichen Schwierigkeiten überwinden können.<br>Beispiele für Auswirkungen:<br>- körperlich: ernsthafte körperliche Beeinträchtigung, die zu langfristigem Schaden führen (Verschlimmerung von Gesundheitszustand aufgrund von schlechter Pflege, oder Nichteinhaltung von Kontraindikationen), Verletzung der körperlichen Unversehrtheit, etc.<br>- materiell: nicht kompensierbarer Verlust von Geldern, Verlust einzigartiger und nicht wiederkehrender Möglichkeiten (Hypothek, Studien, Praktika oder Beschäftigung, Prüfungsverbot), Verlust der Wohnung, Verlust des Arbeitsplatzes, etc.<br>- psychisch: schwere psychische Störung (Depression, Phobie), Gefühl der irreparablen Beeinträchtigung der Privatsphäre, Opfer von Erpressung, Cybermobbing und Mobbing usw."
+        "description": "Die Betroffenen können erhebliche Konsequenzen erleiden, die sie nur mit erheblichen Schwierigkeiten überwinden können.<br>Beispiele für Auswirkungen:<br>- körperlich: ernsthafte körperliche Beeinträchtigung, die zu langfristigem Schaden führen (Verschlimmerung von Gesundheitszustand aufgrund von schlechter Pflege, oder Nichteinhaltung von Kontraindikationen), Verletzung der körperlichen Unversehrtheit, etc.<br>- materiell: nicht kompensierbarer Verlust von Geldern, Verlust einzigartiger und nicht wiederkehrender Möglichkeiten (Hypothek, Studien, Praktika oder Beschäftigung, Prüfungsverbot), Verlust der Wohnung, Verlust des Arbeitsplatzes, etc.<br>- psychisch: schwere psychische Störung (Depression, Phobie), Gefühl der irreparablen Beeinträchtigung der Privatsphäre, Opfer von Erpressung, Cybermobbing und Mobbing usw.",
+        "source": ""
       },
       "PIA_EX_IMPM": {
         "name": "Schweregrad: groß",
-        "description": "Die Betroffenen können erhebliche und auch nicht rückgängig zu machende Folgen erleiden.<br>Beispiele für Auswirkungen:<br>- körperlich: dauerhafte oder längerfristige körperliche Beeinträchtigung, dauerhafte Beeinträchtigung der körperlichen Unversehrtheit, Tod<br>- materiell: finanzielles Risiko, hohe Verschuldung, Arbeitsunfähigkeit, Unfähigkeit umzuziehen, Verlust von Beweisen bei Rechtsstreitigkeiten, Verlust des Zugangs zu lebenswichtiger Infrastruktur (Wasser, Strom), etc.<br >- psychisch: langfristige oder dauerhafte psychische Beeinträchtigung, strafrechtliche Sanktion, Entführung, Verlust der Familienbande, Unmöglichkeit, vor Gericht zu erscheinen, Änderung des Verwaltungsstatus und / oder Verlust der rechtlichen Autonomie (Vormundschaft) usw."
+        "description": "Die Betroffenen können erhebliche und auch nicht rückgängig zu machende Folgen erleiden.<br>Beispiele für Auswirkungen:<br>- körperlich: dauerhafte oder längerfristige körperliche Beeinträchtigung, dauerhafte Beeinträchtigung der körperlichen Unversehrtheit, Tod<br>- materiell: finanzielles Risiko, hohe Verschuldung, Arbeitsunfähigkeit, Unfähigkeit umzuziehen, Verlust von Beweisen bei Rechtsstreitigkeiten, Verlust des Zugangs zu lebenswichtiger Infrastruktur (Wasser, Strom), etc.<br >- psychisch: langfristige oder dauerhafte psychische Beeinträchtigung, strafrechtliche Sanktion, Entführung, Verlust der Familienbande, Unmöglichkeit, vor Gericht zu erscheinen, Änderung des Verwaltungsstatus und / oder Verlust der rechtlichen Autonomie (Vormundschaft) usw.",
+        "source": ""
       },
       "PIA_EX_VRAN": {
         "name": "Eintrittswahrscheinlichkeit: geringfügig",
-        "description": " Für die ausgewählten Risikoquellen scheint es nicht möglich, einen Schaden der Betroffenen zu verursachen (z.B. Diebstahl von Papierdokumenten aus einem Raum, dessen Zutritt mit Kartenleser und Zugangscode geschützt ist)."
+        "description": " Für die ausgewählten Risikoquellen scheint es nicht möglich, einen Schaden der Betroffenen zu verursachen (z.B. Diebstahl von Papierdokumenten aus einem Raum, dessen Zutritt mit Kartenleser und Zugangscode geschützt ist).",
+        "source": ""
       },
       "PIA_EX_VRAL": {
         "name": "Eintrittswahrscheinlichkeit: überschaubar",
-        "description": "Für die ausgewählten Risikoquellen scheint es schwer möglich, einen Schaden für den Betroffenen zu verursachen (z.B. Diebstahl von Papierdokumenten aus einem Raum, dessen Zutritt mit Kartenleser geschützt ist)."
+        "description": "Für die ausgewählten Risikoquellen scheint es schwer möglich, einen Schaden für den Betroffenen zu verursachen (z.B. Diebstahl von Papierdokumenten aus einem Raum, dessen Zutritt mit Kartenleser geschützt ist).",
+        "source": ""
       },
       "PIA_EX_VRAI": {
         "name": "Eintrittswahrscheinlichkeit: substantiell",
-        "description": "Für die ausgewählten Risikoquellen scheint es möglich, einen Schaden für den Betroffenen zu verursachen (z.B. Diebstahl von Papierdokumenten, die in den Büros einer Organisation gespeichert sind, deren Zugang von einer Person an der Rezeption kontrolliert wird)."
+        "description": "Für die ausgewählten Risikoquellen scheint es möglich, einen Schaden für den Betroffenen zu verursachen (z.B. Diebstahl von Papierdokumenten, die in den Büros einer Organisation gespeichert sind, deren Zugang von einer Person an der Rezeption kontrolliert wird).",
+        "source": ""
       },
       "PIA_EX_VRAM": {
         "name": "Eintrittswahrscheinlichkeit: groß",
-        "description": "Für die ausgewählten Risikoquellen scheint es sehr einfach, einen Schaden für den Betroffenen zu verursachen (z.B. Diebstahl von Papierdokumenten in der öffentlichen Lobby aufbewahrt werden)."
+        "description": "Für die ausgewählten Risikoquellen scheint es sehr einfach, einen Schaden für den Betroffenen zu verursachen (z.B. Diebstahl von Papierdokumenten in der öffentlichen Lobby aufbewahrt werden).",
+        "source": ""
       },
       "PIA_EX_DC": {
         "name": "Scoring",
-        "description": "Daten eines Scoringsystems, Ergebnisse aus der Anwendung von Scores ..."
+        "description": "Daten eines Scoringsystems, Ergebnisse aus der Anwendung von Scores ...",
+        "source": ""
       }
     }
   },
