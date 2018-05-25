@@ -16,6 +16,7 @@
     "languages": {
       "official_translation": "Originele versie",
       "cnil_translations": "Vertalingen door CNIL",
+      "dpa_translations": "TO BE TRANSLATED - Traduction révisée par les ADP européenne",
       "community_translations": "Vertalingen door community",
       "fr": "Français",
       "en": "English",
@@ -26,7 +27,10 @@
       "de": "Deutsch",
       "es": "Español",
       "pt": "Português",
-      "ro": "Română"
+      "ro": "Română",
+      "fi": "Suomi",
+      "el": "Ελληνικά",
+      "no": "Norsk"
     },
     "tools": {
       "title": "Tools",
@@ -262,11 +266,15 @@
         "description": "Bepaal of de geselecteerde controles, restrisico's en actieplan aanvaardbaar zijn, met motiveringen, met het oog op de eerder geïdentificeerde belangen en standpunten van de belanghebbenden. Op deze manier kan de PIA zijn: <br> - gevalideerd <br> - afhankelijk van verbetering (leg uit op welke manier) <br> - geweigerd (samen met de verwerking in kwestie). Herhaal waar nodig de voorgaande stappen zodat de PIA kan worden gevalideerd. Deze beslissing loopt niet vooruit op de conformiteitsbeoordeling die eventueel wordt uitgevoerd door de autoriteit voor gegevensbescherming (de CNIL in Frankrijk), als onderdeel van bijvoorbeeld voorafgaande formaliteiten of controles.",
         "source": "PIAF Connected Objects p40"
       },
-      "PIA_TEC_CHIF": {
-        "placeholder": "Beschrijf hier de middelen die zijn geïmplementeerd om de vertrouwelijkheid van gegevens te waarborgen",
-        "name": "Encryptie",
-        "description": "Middelen geïmplementeerd voor <strong> zorgen voor de vertrouwelijkheid </strong> van opgeslagen gegevens (in de database, in platte bestanden, back-ups, enz.), Evenals de procedure voor het beheren van coderingssleutels (creatie, opslag, wijziging in het geval van vermoede gevallen van compromittering van gegevens, enz.). Beschrijf de coderingsmiddelen die worden gebruikt voor gegevensstromen (VPN, TLS, enz.) die bij de verwerking zijn geïmplementeerd.",
-        "source": "PIAF Connected Objects p21"
+      "PIA_VAL_CART": {
+        "name": "Risico's in kaart brengen",
+        "description": "Grafiek die de goede beveiligingspraktijken illustreert, met een conformiteitswaarde die aan elk wordt toegeschreven op basis van zijn beoordeling in vorige stappen.",
+        "source": "PIAF Connected Objects p34"
+      },
+      "PIA_VAL_ACT": {
+        "name": "Actieplan",
+        "description": "Corrigerende controles voorgesteld door de beoordelaar in eerdere stappen, opstellen van een actieplan met voor elke actie de manager, frequentie, moeilijkheidsgraad, kosten en voortgang.",
+        "source": "None"
       },
       "PIA_TEC_ANO": {
         "placeholder": "Geef hier geïmplementeerde anonimiseringsmechanismen aan",
@@ -278,6 +286,12 @@
         "placeholder": "Geef hier aan of partitionering van de verwerking is gepland en hoe dit wordt uitgevoerd.",
         "name": "Partitiegegevens",
         "description": "Implementatie van gegevenspartitionering helpt om de mogelijkheid te verkleinen, dat persoonlijke gegevens kunnen worden gecorreleerd en dat een schending van alle persoonlijke gegevens kan optreden.",
+        "source": "PIAF Connected Objects p21"
+      },
+      "PIA_TEC_CHIF": {
+        "placeholder": "Beschrijf hier de middelen die zijn geïmplementeerd om de vertrouwelijkheid van gegevens te waarborgen",
+        "name": "Encryptie",
+        "description": "Middelen geïmplementeerd voor <strong> zorgen voor de vertrouwelijkheid </strong> van opgeslagen gegevens (in de database, in platte bestanden, back-ups, enz.), Evenals de procedure voor het beheren van coderingssleutels (creatie, opslag, wijziging in het geval van vermoede gevallen van compromittering van gegevens, enz.). Beschrijf de coderingsmiddelen die worden gebruikt voor gegevensstromen (VPN, TLS, enz.) die bij de verwerking zijn geïmplementeerd.",
         "source": "PIAF Connected Objects p21"
       },
       "PIA_TEC_CTLA": {
@@ -345,6 +359,12 @@
         "name": "Onderhoud",
         "description": "Beleid dat beschrijft hoe fysiek onderhoud van hardware wordt beheerd en waarin wordt vermeld of dit wordt uitbesteed. <br> Geef aan of extern onderhoud van apps is toegestaan en volgens welke regelingen. Geef aan of defecte apparatuur op een specifieke manier wordt beheerd.",
         "source": "PIAF Connected Objects p23"
+      },
+      "PIA_SEC_CTR": {
+        "placeholder": "Beschrijf hier specifieke maatregelen voor verwerkers (host, onderhoudsbedrijf, beheerder, gespecialiseerde serviceproviders, enz.)",
+        "name": "Verwerkingscontracten",
+        "description": "Regel de inkooprelaties via een contract ondertekend intuitu personæ. <br> - Verplicht de processor om zijn informatiesysteembeveiligingsbeleid (PSSI) samen met alle ondersteunende documenten van zijn informatiebeveiligingscertificaten door te sturen en de documenten bij het contract te voegen. Zorg ervoor dat de maatregelen op grond van de PSSI voldoen aan de aanbevelingen van de CNIL in dit verband. <br> - Bepaal en stel op contractuele basis nauwkeurig vast welke bewerkingen de verwerker op zijn persoonlijke gegevens moet uitvoeren: <br> 1 ) De gegevens waartoe deze toegang heeft of die er naartoe worden verzonden. <br> 2) De bewerkingen die moeten worden uitgevoerd op de gegevens. <br> 3) De duur waarvoor het de gegevens mag opslaan. <br> 4) Alle ontvangers waarvoor de gegevensbeheerder de gegevens moet verzenden. <br> 5) De bewerkingen die moeten worden uitgevoerd aan het einde van de service (permanente verwijdering van gegevens of retournering van de gegevens in het kader van omkeerbaarheid en vernietiging) van gegevens bij de processor). <br> 6) De beveiligingsdoelstellingen die zijn ingesteld door de gegevensbeheerder. <br> - Bepaal op contractuele basis de verantwoordelijkheidsdeling met betrekking tot de juridische processen gericht op het toestaan ​​van de betrokkenen om hun rechten uit te oefenen. <br> - Expliciet verbieden of reguleren van het gebruik van tier-2-processoren. <br> - Verduidelijken in het contract dat de naleving van de verplichtingen inzake gegevensbescherming een bindende vereiste van het contract is.",
+        "source": "Mesures_US Procurement: identified and governed by a contract"
       },
       "PIA_SEC_NET": {
         "placeholder": "Geef hier de beveiligingscontroles van het netwerk aan waarop de verwerking wordt uitgevoerd",
@@ -465,6 +485,11 @@
         "description": "Verminder de ernst van risico's door de hoeveelheid persoonlijke gegevens te beperken tot wat strikt noodzakelijk is om een bepaald doel te bereiken, anders worden de gegevens niet verzameld.",
         "source": ""
       },
+      "PIA_DEF_MIND": {
+        "name": "TO BE TRANSLATED - Minimisation des données elles-mêmes",
+        "description": "TO BE TRANSLATED - Réduire la gravité des risques en minimisant les données elles-mêmes, par des mesures destinées à réduire leur sensibilité.",
+        "source": "TO BE TRANSLATED - WIKI Minimisation_des_données_:_adéquates,_pertinentes_et_limitées"
+      },
       "PIA_DEF_CONS": {
         "name": "Toestemming",
         "description": "Elke vrij gegeven, specifieke, geïnformeerde en ondubbelzinnige indicatie van de wensen van de betrokkene waarmee hij of zij, door een verklaring of een duidelijke bevestigende handeling, instemt met de verwerking van persoonsgegevens die op hem of haar betrekking hebben. <br> Zie <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/NL/TXT/HTML/?uri=CELEX:32016R0679&from=NL\">Art. 4.10 van de [AVG]</a>",
@@ -500,6 +525,16 @@
         "description": "De betrokkene heeft het recht om op grond van zijn specifieke situatie te allen tijde bezwaar te maken tegen de verwerking van persoonsgegevens die op hem betrekking hebben, overeenkomstig <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/NL/TXT/HTML/?uri=CELEX:32016R0679&from=NL\">Art. 21 van de [AVG]</a>",
         "source": "AVG Art. 21"
       },
+      "PIA_DEF_CHIF": {
+        "name": "Encryptie",
+        "description": "Encryptie maatregelen die persoonlijke gegevens voor iedereen zonder toegangsbevoegdheid onbegrijpelijk maken met (symmetrische of asymmetrische codering, gebruik van openbare algoritmes waarvan bekend is dat ze sterk zijn, authenticatiecertificaat, enz.).",
+        "source " : "Mesures_US Encryption"
+      },
+      "PIA_DEF_ANO": {
+        "name": "Anonimisering",
+        "description": "Proces waarbij de identificerende kenmerken uit persoonlijke gegevens worden verwijderd. Om de robuustheid van anonimiseringsprocessen te beoordelen. Zie de <a target=\"_blank\" href=\"http://ec.europa.eu/justice/data-protection/article-29/documentation/opinion-recommendation/files/2014/wp216_en.pdf\">WP29 richtlijnen</a>.",
+        "source": "Mesures_US and G29 guidelines http://ec.europa.eu/justice/data-protection/article-29/documentation/opinion-recommendation/files/2014/wp216_en.pdf"
+      },
       "PIA_DEF_PSEU": {
         "name": "Pseudonimisering",
         "description": "Verwerking van persoonsgegevens op een zodanige wijze, dat de persoonsgegevens niet langer aan een specifieke gegevenssubject kunnen worden toegeschreven zonder het gebruik van aanvullende informatie, op voorwaarde dat die aanvullende informatie afzonderlijk wordt bewaard en onderworpen is aan technische en organisatorische maatregelen om te gegevens worden niet toegeschreven aan een geïdentificeerde of identificeerbare natuurlijke persoon. <br> Pseudonimisering vermindert de koppelbaarheid van een gegevensset met de oorspronkelijke identiteit van een betrokkene; als zodanig is het een nuttige beveiligingsmaatregel, maar geen methode voor anonimisering.",
@@ -514,6 +549,26 @@
         "name": "Logische toegangscontrole",
         "description": "Middelen die worden geïmplementeerd om de risico's te beperken dat onbevoegde personen elektronisch toegang krijgen tot persoonlijke gegevens, het vereist onder andere om: <br> - <strong> Gebruikersprofielen beheren </strong> door taken en verantwoordelijkheidsdomeinen te scheiden (bij voorkeur op gecentraliseerde wijze) om de toegang tot persoonlijke gegevens exclusief aan geautoriseerde gebruikers te beperken door het toepassen van need-to-know en leastprivilege-principes. <br> - Trek de rechten van werknemers, contractpartijen en andere derden in wanneer ze niet langer geautoriseerd zijn voor toegang een pand of een bron </strong> of wanneer hun <strong> arbeidscontract eindigt </strong>.",
         "source": "PIA3 p43 - WIKI"
+      },
+      "PIA_DEF_PWD": {
+        "name": "Wachtwoorden",
+        "description": "Wachtwoorden bestaan uit minimaal acht tekens; moet worden vernieuwd als er de minste bezorgdheid bestaat dat ze mogelijk in gevaar zijn gebracht en mogelijk periodiek (elke zes maanden of eenmaal per jaar) en een minimum van drie van de vier soorten tekens moeten bevatten (hoofdletters, kleine letters, cijfers en speciale tekens); wanneer een wachtwoord wordt gewijzigd, worden de laatste vijf wachtwoorden mogelijk niet opnieuw gebruikt; hetzelfde wachtwoord mag niet worden gebruikt voor verschillende toegangen; wachtwoorden mogen niet gerelateerd zijn aan iemands persoonlijke informatie (inclusief naam of geboortedatum). Definieer een maximum aantal pogingen waarna een waarschuwing wordt verzonden en de verificatie wordt geblokkeerd (tijdelijk of totdat deze handmatig wordt gedeblokkeerd).",
+        "source" : "Mesure_US"
+      },
+      "PIA_DEF_AUTH": {
+        "name": "Authenticatie",
+        "description": "Elke persoon met legitieme toegang tot persoonlijke gegevens (werknemers, contractanten en andere derden) moet worden geïdentificeerd door een unieke identificatie. Kies een authenticatiemethode om sessies te openen die geschikt zijn voor de context, het risiconiveau en de verwachte robuustheid. Aanbevelingen: als de risico's niet verhoogd zijn, kan een wachtwoord worden gebruikt; gebruik echter, als de risico's groter zijn, een eenmalige wachtwoordfiche, maar wijzig het standaard activeringswachtwoord of, als een deel van het wachtwoord per sms wordt verzonden, een kaart met een pincode, een elektronisch certificaat of een andere vorm van sterk authenticatie.",
+        "source": "Mesures_US Logical Access Control"
+      },
+      "PIA_DEF_LOG": {
+        "name": "Toezicht",
+        "description": "Stel een logging-architectuur in om vroegtijdige detectie van incidenten met persoonsgegevens toe te staan en om informatie te hebben die kan worden gebruikt om deze te analyseren of om bewijs te leveren in verband met onderzoeken.",
+        "source": "Mesures_US Surveillance"
+      },
+      "PIA_DEF_ARCH": {
+        "name": "Archiveren",
+        "description": "Procedures voor het bewaren en beheren van de elektronische archieven die de persoonsgegevens bevatten die bedoeld zijn om hun waarde te waarborgen (specifiek hun juridische waarde) gedurende de gehele vereiste periode (overdracht, opslag, migratie, toegankelijkheid, verwijdering, archiveringsbeleid, bescherming van vertrouwelijkheid, enz.).",
+        "source": "Mesures_USE Archiving"
       },
       "PIA_DEF_MIN1": {
         "name": "Filteren en verwijderen",
@@ -569,16 +624,6 @@
         "name": "Inbreuk op persoonlijksgegevens",
         "description": "Overtreding van de beveiliging die leidt tot de accidentele of onwettige vernietiging, verlies, wijziging, ongeautoriseerde openbaarmaking van of toegang tot doorgegeven, opgeslagen of anderszins verwerkte persoonsgegevens.",
         "source": "AVG Art. 4.12"
-      },
-      "PIA_VAL_CART": {
-        "name": "Risico's in kaart brengen",
-        "description": "Grafiek die de goede beveiligingspraktijken illustreert, met een conformiteitswaarde die aan elk wordt toegeschreven op basis van zijn beoordeling in vorige stappen.",
-        "source": "PIAF Connected Objects p34"
-      },
-      "PIA_VAL_ACT": {
-        "name": "Actieplan",
-        "description": "Corrigerende controles voorgesteld door de beoordelaar in eerdere stappen, opstellen van een actieplan met voor elke actie de manager, frequentie, moeilijkheidsgraad, kosten en voortgang.",
-        "source": "None"
       },
       "PIA_DEF_ENJ": {
         "name": "Inzet",
@@ -689,42 +734,6 @@
         "name": "Minimalisatie van gegevens zelf",
         "description": "Verminder de ernst van risico's door de gegevens zelf te minimaliseren, door maatregelen te nemen die gericht zijn op het verminderen van hun gevoeligheid.",
         "source": "Mesures_US"
-      },
-      "PIA_DEF_ANO": {
-        "name": "Anonimisering",
-        "description": "Proces waarbij de identificerende kenmerken uit persoonlijke gegevens worden verwijderd. Om de robuustheid van anonimiseringsprocessen te beoordelen. Zie de <a target=\"_blank\" href=\"http://ec.europa.eu/justice/data-protection/article-29/documentation/opinion-recommendation/files/2014/wp216_en.pdf\">WP29 richtlijnen</a>.",
-        "source": "Mesures_US and G29 guidelines http://ec.europa.eu/justice/data-protection/article-29/documentation/opinion-recommendation/files/2014/wp216_en.pdf"
-      },
-      "PIA_SEC_CTR": {
-        "placeholder": "Beschrijf hier specifieke maatregelen voor verwerkers (host, onderhoudsbedrijf, beheerder, gespecialiseerde serviceproviders, enz.)",
-        "name": "Verwerkingscontracten",
-        "description": "Regel de inkooprelaties via een contract ondertekend intuitu personæ. <br> - Verplicht de processor om zijn informatiesysteembeveiligingsbeleid (PSSI) samen met alle ondersteunende documenten van zijn informatiebeveiligingscertificaten door te sturen en de documenten bij het contract te voegen. Zorg ervoor dat de maatregelen op grond van de PSSI voldoen aan de aanbevelingen van de CNIL in dit verband. <br> - Bepaal en stel op contractuele basis nauwkeurig vast welke bewerkingen de verwerker op zijn persoonlijke gegevens moet uitvoeren: <br> 1 ) De gegevens waartoe deze toegang heeft of die er naartoe worden verzonden. <br> 2) De bewerkingen die moeten worden uitgevoerd op de gegevens. <br> 3) De duur waarvoor het de gegevens mag opslaan. <br> 4) Alle ontvangers waarvoor de gegevensbeheerder de gegevens moet verzenden. <br> 5) De bewerkingen die moeten worden uitgevoerd aan het einde van de service (permanente verwijdering van gegevens of retournering van de gegevens in het kader van omkeerbaarheid en vernietiging) van gegevens bij de processor). <br> 6) De beveiligingsdoelstellingen die zijn ingesteld door de gegevensbeheerder. <br> - Bepaal op contractuele basis de verantwoordelijkheidsdeling met betrekking tot de juridische processen gericht op het toestaan ​​van de betrokkenen om hun rechten uit te oefenen. <br> - Expliciet verbieden of reguleren van het gebruik van tier-2-processoren. <br> - Verduidelijken in het contract dat de naleving van de verplichtingen inzake gegevensbescherming een bindende vereiste van het contract is.",
-        "source": "Mesures_US Procurement: identified and governed by a contract"
-      },
-      "PIA_DEF_CHIF": {
-        "name": "Encryptie",
-        "description": "Encryptie maatregelen die persoonlijke gegevens voor iedereen zonder toegangsbevoegdheid onbegrijpelijk maken met (symmetrische of asymmetrische codering, gebruik van openbare algoritmes waarvan bekend is dat ze sterk zijn, authenticatiecertificaat, enz.).",
-        "source " : "Mesures_US Encryption"
-      },
-      "PIA_DEF_PWD": {
-        "name": "Wachtwoorden",
-        "description": "Wachtwoorden bestaan uit minimaal acht tekens; moet worden vernieuwd als er de minste bezorgdheid bestaat dat ze mogelijk in gevaar zijn gebracht en mogelijk periodiek (elke zes maanden of eenmaal per jaar) en een minimum van drie van de vier soorten tekens moeten bevatten (hoofdletters, kleine letters, cijfers en speciale tekens); wanneer een wachtwoord wordt gewijzigd, worden de laatste vijf wachtwoorden mogelijk niet opnieuw gebruikt; hetzelfde wachtwoord mag niet worden gebruikt voor verschillende toegangen; wachtwoorden mogen niet gerelateerd zijn aan iemands persoonlijke informatie (inclusief naam of geboortedatum). Definieer een maximum aantal pogingen waarna een waarschuwing wordt verzonden en de verificatie wordt geblokkeerd (tijdelijk of totdat deze handmatig wordt gedeblokkeerd).",
-        "source" : "Mesure_US"
-      },
-      "PIA_DEF_AUTH": {
-        "name": "Authenticatie",
-        "description": "Elke persoon met legitieme toegang tot persoonlijke gegevens (werknemers, contractanten en andere derden) moet worden geïdentificeerd door een unieke identificatie. Kies een authenticatiemethode om sessies te openen die geschikt zijn voor de context, het risiconiveau en de verwachte robuustheid. Aanbevelingen: als de risico's niet verhoogd zijn, kan een wachtwoord worden gebruikt; gebruik echter, als de risico's groter zijn, een eenmalige wachtwoordfiche, maar wijzig het standaard activeringswachtwoord of, als een deel van het wachtwoord per sms wordt verzonden, een kaart met een pincode, een elektronisch certificaat of een andere vorm van sterk authenticatie.",
-        "source": "Mesures_US Logical Access Control"
-      },
-      "PIA_DEF_LOG": {
-        "name": "Toezicht",
-        "description": "Stel een logging-architectuur in om vroegtijdige detectie van incidenten met persoonsgegevens toe te staan en om informatie te hebben die kan worden gebruikt om deze te analyseren of om bewijs te leveren in verband met onderzoeken.",
-        "source": "Mesures_US Surveillance"
-      },
-      "PIA_DEF_ARCH": {
-        "name": "Archiveren",
-        "description": "Procedures voor het bewaren en beheren van de elektronische archieven die de persoonsgegevens bevatten die bedoeld zijn om hun waarde te waarborgen (specifiek hun juridische waarde) gedurende de gehele vereiste periode (overdracht, opslag, migratie, toegankelijkheid, verwijdering, archiveringsbeleid, bescherming van vertrouwelijkheid, enz.).",
-        "source": "Mesures_USE Archiving"
       }
     }
   },
@@ -938,7 +947,9 @@
     },
     "dpo_missing_evaluations": {
       "content": "TO BE TRANSLATED - You need to complete the review of the analysis to access the DPO page.",
-      "review_section": "TO BE TRANSLATED - Review a section"
+      "review_section": "TO BE TRANSLATED - Review a section",
+      "remove": "Verwijderen",
+      "comment": "TO BE TRANSLATED - Comment"
     },
     "modal_select_text_pia": {
       "content": "TO BE TRANSLATED - The content of the PIA has been copied to clipboard."

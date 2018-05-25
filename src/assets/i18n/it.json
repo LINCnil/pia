@@ -16,17 +16,21 @@
 		"languages":{
 			"official_translation":"Versione originale",
 			"cnil_translations":"Traduzioni fornite da CNIL",
+      "dpa_translations": "TO BE TRANSLATED - Traduction révisée par les ADP européenne",
 			"community_translations":"Traduzioni fornite da soggetti diversi",
-			"fr":"Français",
-			"en":"English",
-			"cz":"Česky",
-			"it":"Italiano",
-			"nl":"Nederlands",
-			"pl":"Polski",
-			"de":"Deutsch",
-			"es":"Español",
+      "fr": "Français",
+      "en": "English",
+      "cz": "Česky",
+      "it": "Italiaans",
+      "nl": "Nederlands",
+      "pl": "Polski",
+      "de": "Deutsch",
+      "es": "Español",
       "pt": "Português",
-      "ro": "Română"
+      "ro": "Română",
+      "fi": "Suomi",
+      "el": "Ελληνικά",
+      "no": "Norsk"
 		},
 		"tools":{
 			"title":"Strumenti",
@@ -262,11 +266,15 @@
 				"description":"<strong>Il titolare del trattamento decide formalmente</strong> sull'accettabilità delle misure prescelte, dei rischi residui e del piano d'azione, in modo motivato, alla luce delle problematiche precedentemente identificate e del parere degli stakeholder. La PIA può dunque essere: <br>- validata <br>- da migliorare (spiegare come) <br>- rigettata (insieme con il trattamento in considerazione). <br>Ove opportuno, si dovrà procedere a un riesame delle singole fasi della PIA ai fini della sua validazione. <br>La decisione non pregiudica la valutazione della conformità che può essere effettuata, se del caso, dall'autorità per la protezione dei dati, ad esempio nell'ambito di una consultazione preliminare o dei controlli da essa svolti.",
 				"source":"PIAF Oggetti Connessi p40"
 			},
-			"PIA_TEC_CHIF":{
-				"placeholder":"Descrivere qui gli strumenti crittografici implementati per assicurare la confidenzialità e l'integrità dei dati",
-				"name":"Crittografia",
-				"description":"I mezzi implementati per <strong>assicurare la confidenzialità dei dati archiviati (in database, file, backup ecc.), così come le procedure per gestire chiavi crittografiche (creazione, archiviazione, aggiornamento in caso di sospetta compromissione ecc.).<br>Specificare i mezzi crittografici impiegati per i flussi di dati (VPN, TLS, ecc.) implementati nel trattamento.",
-				"source":"PIAF Oggetti Connessi p21"
+			"PIA_VAL_CART":{
+				"name":"Mappatura dei rischi",
+				"description":"Questo grafico illustra i rischi generati dal trattamento e i rischi residui alla luce delle misure correttive complessivamente previste. Se le misure complementari descritte nel piano d'azione sono implementate correttamente, la probabilità e/o la gravità dei rischi residui dovrebbero ridursi.",
+				"source":"PIAF Oggetti Connessi p34"
+			},
+			"PIA_VAL_ACT":{
+				"name":"Piano d'azione",
+				"description":"Il piano d'azione descrive la strategia, gli strumenti e le misure concrete da implementare per consentire l'intervento delle misure correttive. Per ogni step è necessario indicare un responsabile e definire la tempistica.",
+				"source":"None"
 			},
 			"PIA_TEC_ANO":{
 				"placeholder":"Indicare qui i meccanismi di anonimizzazione implementati",
@@ -279,6 +287,12 @@
 				"name":"Partizionamento",
 				"description":"Metodi utilizzati per il partizionamento del trattamento.",
 				"source":"PIAF Oggetti Collegati p21"
+			},
+			"PIA_TEC_CHIF":{
+				"placeholder":"Descrivere qui gli strumenti crittografici implementati per assicurare la confidenzialità e l'integrità dei dati",
+				"name":"Crittografia",
+				"description":"I mezzi implementati per <strong>assicurare la confidenzialità dei dati archiviati (in database, file, backup ecc.), così come le procedure per gestire chiavi crittografiche (creazione, archiviazione, aggiornamento in caso di sospetta compromissione ecc.).<br>Specificare i mezzi crittografici impiegati per i flussi di dati (VPN, TLS, ecc.) implementati nel trattamento.",
+				"source":"PIAF Oggetti Connessi p21"
 			},
 			"PIA_TEC_CTLA":{
 				"placeholder":"Indicare qui come sono definiti e attribuiti i profili degli utenti.",
@@ -611,16 +625,6 @@
 				"description":"Violazione di sicurezza che comporta accidentalmente o in modo illecito la distruzione, la perdita, la modifica, la divulgazione non autorizzata o l'accesso non autorizzato ai dati personali trasmessi, conservati o altrimenti trattati.",
 				"source":"GDPR Art. 4.12"
 			},
-			"PIA_VAL_CART":{
-				"name":"Mappatura dei rischi",
-				"description":"Questo grafico illustra i rischi generati dal trattamento e i rischi residui alla luce delle misure correttive complessivamente previste. Se le misure complementari descritte nel piano d'azione sono implementate correttamente, la probabilità e/o la gravità dei rischi residui dovrebbero ridursi.",
-				"source":"PIAF Oggetti Connessi p34"
-			},
-			"PIA_VAL_ACT":{
-				"name":"Piano d'azione",
-				"description":"Il piano d'azione descrive la strategia, gli strumenti e le misure concrete da implementare per consentire l'intervento delle misure correttive. Per ogni step è necessario indicare un responsabile e definire la tempistica.",
-				"source":"None"
-			},
 			"PIA_DEF_ENJ":{
 				"name":"Risultati attesi dal trattamento",
 				"description":"Le motivazioni che portano all'attuazione del trattamento, i benefici attesi (per l'organizzazione, per gli interessati, per la società in generale).",
@@ -663,59 +667,73 @@
 			},
 			"PIA_EX_DCPS":{
 				"name":"Dati personali percepiti come sensibili",
-				"description":"Codice Fiscale, Dati Biometrici, Dati Bancari"
+        "description":"Codice Fiscale, Dati Biometrici, Dati Bancari",
+        "source": ""
 			},
 			"PIA_EX_DCPR":{
 				"name":"Dati relativi a reati e dati personali sensibili",
-				"description":"Opinioni filosofiche, politiche, religiose, sindacali, vita sessuale, dati sanitari, origine razziale o etnica, dati relativi alla salute o alla vita sessuale, reati, condanne, misure di sicurezza <br>Vedi gli <a target=\"_blank\" href=\"http://www.garanteprivacy.it/documents/10160/0/Regolamento+UE+2016+679.+Con+riferimenti+ai+considerando\">artt. 9 e 10 del [GDPR]</a>."
+        "description":"Opinioni filosofiche, politiche, religiose, sindacali, vita sessuale, dati sanitari, origine razziale o etnica, dati relativi alla salute o alla vita sessuale, reati, condanne, misure di sicurezza <br>Vedi gli <a target=\"_blank\" href=\"http://www.garanteprivacy.it/documents/10160/0/Regolamento+UE+2016+679.+Con+riferimenti+ai+considerando\">artt. 9 e 10 del [GDPR]</a>.",
+        "source": ""
 			},
 			"PIA_EX_HUMI":{
 				"name":"Fonti umane interne",
-				"description":"Possono essere: <br>- un dipendente malintenzionato che usa la sua vicinanza al sistema, le sue competenze, i suoi privilegi e un tempo a disposizione potenzialmente considerevole, ovvero un dipendente che si renda responsabile di una negligenza a  causa di un'insufficiente formazione e sensibilizzazione. <br>- un utente o il suo entourage, negligente o malintenzionato, che ha accesso al servizio. <br>Le motivazioni possono essere molteplici: confusione, errore, negligenza, vendetta, volontà di provocare allarme, malevolenza, possibilità di lucro, spionaggio"
+        "description":"Possono essere: <br>- un dipendente malintenzionato che usa la sua vicinanza al sistema, le sue competenze, i suoi privilegi e un tempo a disposizione potenzialmente considerevole, ovvero un dipendente che si renda responsabile di una negligenza a  causa di un'insufficiente formazione e sensibilizzazione. <br>- un utente o il suo entourage, negligente o malintenzionato, che ha accesso al servizio. <br>Le motivazioni possono essere molteplici: confusione, errore, negligenza, vendetta, volontà di provocare allarme, malevolenza, possibilità di lucro, spionaggio",
+        "source": ""
 			},
 			"PIA_EX_HUME":{
 				"name":"Fonti umane esterne",
-				"description":"Possono essere: <br>- una terza parte malintenzionata o ignara che sfrutta la sua vicinanza fisica per accedere fraudolentemente al servizio <br>- un attaccante che prende di mira un utente sfruttando la sua conoscenza dell'utente e alcune informazioni su quest'ultimo <br>- un attaccante che prende di mira una delle società incaricate del trattamento sfruttando la sua conoscenza di tali società, così da consentirgli di minarne l'immagine <br>- una terza parte autorizzata che sfrutta i privilegi di accesso per accedere illegittimamente alle informazioni. Le motivazioni possono essere molteplici: dallo scherzo alla molestia, fino al dolo, alla vendetta, allo spionaggio, alla speranza di lucro, all'acquisizione di dati per fini di ulteriore sfruttamento."
+        "description":"Possono essere: <br>- una terza parte malintenzionata o ignara che sfrutta la sua vicinanza fisica per accedere fraudolentemente al servizio <br>- un attaccante che prende di mira un utente sfruttando la sua conoscenza dell'utente e alcune informazioni su quest'ultimo <br>- un attaccante che prende di mira una delle società incaricate del trattamento sfruttando la sua conoscenza di tali società, così da consentirgli di minarne l'immagine <br>- una terza parte autorizzata che sfrutta i privilegi di accesso per accedere illegittimamente alle informazioni. Le motivazioni possono essere molteplici: dallo scherzo alla molestia, fino al dolo, alla vendetta, allo spionaggio, alla speranza di lucro, all'acquisizione di dati per fini di ulteriore sfruttamento.",
+        "source": ""
 			},
 			"PIA_EX_NHUM":{
 				"name":"Fonti non umane",
-				"description":"Possono essere un incidente o un sinistro verificatosi presso uno dei soggetti incaricati del trattamento (interruzioni di corrente, incendio, inondazione, ecc.)"
+        "description":"Possono essere un incidente o un sinistro verificatosi presso uno dei soggetti incaricati del trattamento (interruzioni di corrente, incendio, inondazione, ecc.)",
+        "source": ""
 			},
 			"PIA_EX_IMPN":{
 				"name":"Impatto trascurabile",
-				"description":"Gli interessati non subiranno alcun impatto o potrebbero incontrare qualche inconveniente, superabile senza difficoltà<br>Esempi: <br>- impatti fisici: mal di testa passeggero <br>- impatti materiali: perdita di tempo dovuta a ripetizione delle procedure o all'attesa della loro effettuazione,  riutilizzo dei dati a scopo di pubblicità mirata per beni di consumo corrente ecc. <br>- impatti psicologici: semplice fastidio, impressione di violazione della privacy senza danno reale (intrusione commerciale) ecc."
+        "description":"Gli interessati non subiranno alcun impatto o potrebbero incontrare qualche inconveniente, superabile senza difficoltà<br>Esempi: <br>- impatti fisici: mal di testa passeggero <br>- impatti materiali: perdita di tempo dovuta a ripetizione delle procedure o all'attesa della loro effettuazione,  riutilizzo dei dati a scopo di pubblicità mirata per beni di consumo corrente ecc. <br>- impatti psicologici: semplice fastidio, impressione di violazione della privacy senza danno reale (intrusione commerciale) ecc.",
+        "source": ""
 			},
 			"PIA_EX_IMPL":{
 				"name":"Impatto limitato",
-				"description":"Gli interessati potrebbero sperimentare inconvenienti significativi, superabili nonostante alcune difficoltà. <br>Esempi di impatti: <br>- fisici: minore affezione fisica (es: malattia lieve a seguito del mancato rispetto di  controindicazioni), diffamazione che dia luogo a rappresaglie fisiche, ecc. <br>- materiali: pagamenti non pianificati (ad esempio multe non dovute), negazione dell'accesso a servizi amministrativi o commerciali, pubblicità online mirata su un aspetto di vita privata che la persona voleva mantenere riservata ecc. <br>- psicologici: disturbo psicologico minore ma oggettivo, senso di violazione della privacy senza danni irreparabili, intimidazione sui social network ecc."
+        "description":"Gli interessati potrebbero sperimentare inconvenienti significativi, superabili nonostante alcune difficoltà. <br>Esempi di impatti: <br>- fisici: minore affezione fisica (es: malattia lieve a seguito del mancato rispetto di  controindicazioni), diffamazione che dia luogo a rappresaglie fisiche, ecc. <br>- materiali: pagamenti non pianificati (ad esempio multe non dovute), negazione dell'accesso a servizi amministrativi o commerciali, pubblicità online mirata su un aspetto di vita privata che la persona voleva mantenere riservata ecc. <br>- psicologici: disturbo psicologico minore ma oggettivo, senso di violazione della privacy senza danni irreparabili, intimidazione sui social network ecc.",
+        "source": ""
 			},
 			"PIA_EX_IMPI":{
 				"name":"Impatto significativo",
-				"description":"Gli interessati potrebbero subire  conseguenze significative, che dovrebbero essere in grado di superare, ma con difficoltà reali e significative <br>Esempi di impatti: <br>- fisici: grave affezione fisica che provochi danni a lungo termine (aggravamento dello stato di salute a seguito di una errata assunzione di responsabilità o del mancato rispetto di controindicazioni), alterazione dell'integrità fisica, ecc. <br>- materiali: perdite monetarie non indennizzate, perdita di opportunità uniche e non ricorrenti (mutui immobiliari, studi, tirocini o occupazioni, interdizione da esami scolastici), perdita dell'abitazione, del posto di lavoro, ecc. <br>- psicologici: grave disturbo psicologico (depressione, fobie), senso di violazione della privacy e di un danno irreparabile, esposizione a ricatti, cyberbullismo e molestie psicologiche, ecc."
+        "description":"Gli interessati potrebbero subire  conseguenze significative, che dovrebbero essere in grado di superare, ma con difficoltà reali e significative <br>Esempi di impatti: <br>- fisici: grave affezione fisica che provochi danni a lungo termine (aggravamento dello stato di salute a seguito di una errata assunzione di responsabilità o del mancato rispetto di controindicazioni), alterazione dell'integrità fisica, ecc. <br>- materiali: perdite monetarie non indennizzate, perdita di opportunità uniche e non ricorrenti (mutui immobiliari, studi, tirocini o occupazioni, interdizione da esami scolastici), perdita dell'abitazione, del posto di lavoro, ecc. <br>- psicologici: grave disturbo psicologico (depressione, fobie), senso di violazione della privacy e di un danno irreparabile, esposizione a ricatti, cyberbullismo e molestie psicologiche, ecc.",
+        "source": ""
 			},
 			"PIA_EX_IMPM":{
 				"name":"Impatto massimo",
-				"description":"Gli interessati potrebbero sperimentare conseguenze significative, anche irrimediabili, che potrebbero non superare. <br>Esempi di impatti: <br>- fisici: affezione fisica a lungo termine o permanente, alterazione permanente dell'integrità fisica, decesso <br>- materiali: rischio finanziario, indebitamento ingente, impossibilità di lavorare, incapacità di ricollocazione, smarrimento di elementi di prova nell'ambito di un  contenzioso, perdita di accesso a infrastrutture vitali (acqua, elettricità, ecc. <br>- psicologici: disturbo psicologico a lungo termine o permanente, sanzione penale, allontanamento, perdita di legami familiari, perdita della capacità di agire, cambio di stato amministrativo e/o perdita dell'autonomia legale (tutela) ecc."
+        "description":"Gli interessati potrebbero sperimentare conseguenze significative, anche irrimediabili, che potrebbero non superare. <br>Esempi di impatti: <br>- fisici: affezione fisica a lungo termine o permanente, alterazione permanente dell'integrità fisica, decesso <br>- materiali: rischio finanziario, indebitamento ingente, impossibilità di lavorare, incapacità di ricollocazione, smarrimento di elementi di prova nell'ambito di un  contenzioso, perdita di accesso a infrastrutture vitali (acqua, elettricità, ecc. <br>- psicologici: disturbo psicologico a lungo termine o permanente, sanzione penale, allontanamento, perdita di legami familiari, perdita della capacità di agire, cambio di stato amministrativo e/o perdita dell'autonomia legale (tutela) ecc.",
+        "source": ""
 			},
 			"PIA_EX_VRAN":{
 				"name":"Probabilità trascurabile",
-				"description":"Appare impossibile che le fonti di rischio considerate concretizzino una minaccia basandosi sulle caratteristiche dei supporti (ad esempio: furto di supporti cartacei conservati in un locale dell'organizzazione il cui accesso è controllato tramite badge e codice d'ingresso)."
+        "description":"Appare impossibile che le fonti di rischio considerate concretizzino una minaccia basandosi sulle caratteristiche dei supporti (ad esempio: furto di supporti cartacei conservati in un locale dell'organizzazione il cui accesso è controllato tramite badge e codice d'ingresso).",
+        "source": ""
 			},
 			"PIA_EX_VRAL":{
 				"name":"Probabilità limitata",
-				"description":"Appare difficile che le fonti di rischio considerate concretizzino una minaccia basandosi sulle caratteristiche dei supporti (ad esempio: furto di supporti cartacei conservati in un locale dell'organizzazione il cui accesso è controllato tramite badge)."
+        "description":"Appare difficile che le fonti di rischio considerate concretizzino una minaccia basandosi sulle caratteristiche dei supporti (ad esempio: furto di supporti cartacei conservati in un locale dell'organizzazione il cui accesso è controllato tramite badge).",
+        "source": ""
 			},
 			"PIA_EX_VRAI":{
 				"name":"Probabilità significativa",
-				"description":"Appare possibile che le fonti di rischio considerate concretizzino una minaccia basandosi sulle caratteristiche dei supporti (ad esempio: furto di supporti cartacei conservati in uffici dell'organizzazione ove l'accesso è controllato da un incaricato all'ingresso)."
+        "description":"Appare possibile che le fonti di rischio considerate concretizzino una minaccia basandosi sulle caratteristiche dei supporti (ad esempio: furto di supporti cartacei conservati in uffici dell'organizzazione ove l'accesso è controllato da un incaricato all'ingresso).",
+        "source": ""
 			},
 			"PIA_EX_VRAM":{
 				"name":"Probabilità massima",
-				"description":"Appare estremamente facile per le fonti di rischio considerate concretizzare una minaccia basandosi sulle caratteristiche dei supporti (ad esempio: furto di supporti cartacei conservati in un locale dell'organizzazione pubblicamente accessibile)."
+        "description":"Appare estremamente facile per le fonti di rischio considerate concretizzare una minaccia basandosi sulle caratteristiche dei supporti (ad esempio: furto di supporti cartacei conservati in un locale dell'organizzazione pubblicamente accessibile).",
+        "source": ""
 			},
 			"PIA_EX_DC":{
 				"name":"Dati di calcolo",
-				"description":"Dati utilizzati per un sistema di scoring, risultato dell'applicazione di scoring..."
+        "description":"Dati utilizzati per un sistema di scoring, risultato dell'applicazione di scoring...",
+        "source": ""
 			}
 		}
 	},
