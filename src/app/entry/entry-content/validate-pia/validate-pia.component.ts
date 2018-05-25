@@ -40,7 +40,7 @@ export class ValidatePIAComponent implements OnInit {
       this.validateForm.controls['validateStatus4'].patchValue(this._piaService.pia.status > 1);
 
       this._attachmentsService.updateSignedAttachmentsList();
-      this._actionPlanService.listActionPlan(this._translateService);
+      this._actionPlanService.listActionPlan();
     });
   }
 
@@ -79,7 +79,7 @@ export class ValidatePIAComponent implements OnInit {
    * @memberof ValidatePIAComponent
    */
   lockStatus(event: any) {
-    if (this._piaService.pia.status > 1  || this._piaService.pia.is_example === 1) {
+    if (this._piaService.pia.status > 1  || this._piaService.pia.is_example) {
       return false;
     } else {
       const clickedRadioButton = event.target || event.srcElement || event.currentTarget;

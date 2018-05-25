@@ -1,5 +1,18 @@
 @media print {
   .hide-for-print {
-    display: none;
+    display: none !important;
+  }
+  .pia-actionPlanGraphBlock {
+    width: 78% !important;
+  }
+  .pia-summaryRisksOverviewBlock {
+    > div {
+      width: 75% !important;
+    }
+  }
+  .pia-summaryRisksCartographyBlock {
+    > div {
+      width: 100% !important;
+    }
   }
 }

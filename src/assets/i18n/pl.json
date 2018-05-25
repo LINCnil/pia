@@ -19,12 +19,14 @@
       "community_translations": "Wersja przetłumaczone przez społeczność",
       "fr": "Français",
       "en": "English",
-      "cs": "Česky",
+      "cz": "Česky",
       "it": "Italiaans",
       "nl": "Nederlands",
       "pl": "Polski",
       "de": "Deutsch",
-      "es": "Español"
+      "es": "Español",
+      "pt": "Português",
+      "ro": "Română"
     },
     "tools": {
       "title": "Narzędzia",
@@ -874,7 +876,7 @@
     "start_evaluation": "Rozpoczęcie oceny",
     "back_to_home": "Powrót do powitania",
     "simple_pia_validation": {
-      "content": "PIA została zatwierdzona."
+      "content": "TO BE TRANSLATED - You have approved the PIA."
     },
     "completed_edition": {
       "content": "Dokonano całkowitej analizy PIA, obecnie należy dokonać jej oceny."
@@ -886,14 +888,15 @@
       "content": "Adres serwera został zaktualizowany."
     },
     "signed_pia_validation": {
-      "content": "<span class='strong'>PIA została zaakceptowana</span><br>Można sfinalizować zatwierdzenie PIA załączając<br>raport podpisany przez osobę odpowiedzialną.",
-      "download_pia": "Pobranie raportu PIA"
+      "content": "TO BE TRANSLATED - To approve the PIA, attach the signed report.",
+      "download_pia": "Pobranie raportu"
     },
     "abandon_pia": {
-      "content": "Czy na pewno chcą Państwo<br>zrezygnować z tego przetwarzania ?"
+      "content": "TO BE TRANSLATED - Do you wish to give up the processing?",
+      "additional_text": "TO BE TRANSLATED - Archiving is not definitive and the PIA can go back to it if needed."
     },
     "refuse_pia": {
-      "content": "<span class='strong'>PIA odrzucona,</span><br>Kilka pól wymaga poprawek.<br>Powrót do trybu oceny<br>w celu naniesienia poprawek."
+      "content": "TO BE TRANSLATED - As you have rejected the PIA, it is sent back for review to make the required changes."
     },
     "same_comment": {
       "content": "<span class='strong'>Uwaga</span><br>Należy wprowadzić inny komentarz niż ostatnio zarejestrowany."
@@ -907,7 +910,7 @@
       "keep": "Zachowanie <br>środka"
     },
     "ask_for_evaluation": {
-      "content": "<span class='strong'>Brawo</span><br>Sekcja jest obecnie<br>dostępna do oceny."
+      "content": "TO BE TRANSLATED - This section is ready to be reviewed."
     },
     "validate_evaluation": {
       "content": "<span class='strong'>Gratulacje,</span><br>ocena tej sekcji została zakończona.<br>Należy także ocenić pozostałe sekcje, by móc zatwierdzić PIA."
@@ -916,7 +919,7 @@
       "content": "Niestety<br>Kilka pól wymaga poprawek.<br>Powrót do trybu edycji<br>w celu naniesienia poprawek."
     },
     "declare_measures": {
-      "content": "Niestety<br>Przed oceną ryzyka<br>należy zadeklarować środki<br>istniejące lub przewidziane.",
+      "content": "Przed oceną ryzyka<br>należy zadeklarować środki<br>istniejące lub przewidziane.",
       "declare": "Deklarowane środki istniejące lub przewidziane"
     },
     "remove_pia": {
@@ -926,21 +929,49 @@
     "remove_attachment": {
       "content": "<span class='strong'>Uwaga</span><br>Czy na pewno chcą Państwo<br>usunąć ten załącznik ?",
       "keep": "Zachowanie",
-      "remove": "Usunięcie"
+      "remove": "Usunięcie",
+      "comment": "TO BE TRANSLATED - Comment"
+    },
+    "action_plan_no_evaluation": {
+      "content": "TO BE TRANSLATED - You need to begin the review of the analysis to create the action plan.",
+      "review_section": "TO BE TRANSLATED - Review a section"
+    },
+    "dpo_missing_evaluations": {
+      "content": "TO BE TRANSLATED - You need to complete the review of the analysis to access the DPO page.",
+      "review_section": "TO BE TRANSLATED - Review a section"
+    },
+    "modal_select_text_pia": {
+      "content": "TO BE TRANSLATED - The content of the PIA has been copied to clipboard."
+    },
+    "back_to_edition": {
+      "content": "TO BE TRANSLATED - This section has been sent back for editing.<br> Several fields must be corrected<br> to enable its proper review."
+    },
+    "back_to_evaluation": {
+      "content": "TO BE TRANSLATED - This section has been sent back for review.<br> Several fields must be reviewed<br> to enable its proper validation."
     }
   },
   "summary": {
     "previous_page": "Powrót do poprzedniej strony",
     "print": "Drukowanie",
-    "display_pia": "Wyświetlenie PIA",
-    "display_action_plan": "Wyświetlenie<br>planu działania",
+    "copy_to_clipboard": "TO BE TRANSLATED - Copy to clipboard",
+    "download_images": "TO BE TRANSLATED - Download images",
+    "download_csv": "TO BE TRANSLATED - Download a CSV export",
+    "csv_action_plan_comment": "TO BE TRANSLATED - Action plan comment",
+    "csv_evaluation_comment": "TO BE TRANSLATED - Evaluation comment",
+    "csv_section": "TO BE TRANSLATED - Section",
+    "csv_title_object": "TO BE TRANSLATED - Title",
+    "csv_implement_date": "TO BE TRANSLATED - Estimated implementation date",
+    "csv_people_in_charge": "TO BE TRANSLATED - Person in charge",
+    "csv_file_title": "TO BE TRANSLATED - action-plan",
     "display_filters": {
-      "title": "Filtry",
-      "main_content": "Wyświetlenie sekcji \"Informacje o PIA\"",
-      "context_content": "Wyświetlenie sekcji \"Kontekst\"",
-      "principles_content": "Wyświetlenie sekcji \"Zasady fundamentalne\"",
-      "risks_content": "Wyświetlenie sekcji \"Ryzyka\"",
-      "action_plan_content": "Wyświetlenie planu działania"
+      "title": "TO BE TRANSLATED - Filters",
+      "main_content": "TO BE TRANSLATED - Display \"PIA information\"",
+      "context_content": "TO BE TRANSLATED - Display \"Context\"",
+      "principles_content": "TO BE TRANSLATED - Display \"Fundamental principles\"",
+      "risks_content": "TO BE TRANSLATED - Display \"Risks\"",
+      "action_plan_content": "TO BE TRANSLATED - Display action plan",
+      "risks_overview_content": "TO BE TRANSLATED - Display risks overview",
+      "risks_cartography_content": "TO BE TRANSLATED - Display risk mapping"
     },
     "title": "Informacje o PIA",
     "pia_name": "Nazwa PIA",
@@ -979,7 +1010,9 @@
       "measures": "Środki istniejące lub przewidziane",
       "risks": "Ryzyka",
       "no_action_plan": "Brak zarejestrowanego planu działania."
-    }
+    },
+    "risks_overview_title": "TO BE TRANSLATED - Risks overview",
+    "risks_cartography_title": "TO BE TRANSLATED - Risk mapping"
   },
   "errors": {
     "title": "Brak strony.",

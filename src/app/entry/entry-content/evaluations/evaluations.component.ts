@@ -201,7 +201,7 @@ export class EvaluationsComponent implements OnInit, AfterViewChecked, OnDestroy
 
     // Action plan comment : hides action plan field + switchs its value to comment field + removes its value.
     if (status !== 2) {
-      let evaluationPlanValue = this.evaluationForm.controls['actionPlanComment'].value;
+      const evaluationPlanValue = this.evaluationForm.controls['actionPlanComment'].value;
       const commentValue = this.evaluationForm.controls['evaluationComment'].value;
 
       // Sets up the adequate placeholder for comment
@@ -213,16 +213,14 @@ export class EvaluationsComponent implements OnInit, AfterViewChecked, OnDestroy
 
       // Checks if there is an evaluation comment to concatenate it after the action plan value.
       if (evaluationPlanValue && evaluationPlanValue.length > 0) {
-        const tmp = document.createElement('DIV');
-        tmp.innerHTML = evaluationPlanValue.replace(/<br\s*[\/]?>/gi, "\n");
-        evaluationPlanValue = tmp.textContent || tmp.innerText || '';
         if (commentValue && commentValue.length > 0) {
-          this.evaluationForm.controls['evaluationComment'].setValue(evaluationPlanValue + '\n' + commentValue);
+          this.evaluationForm.controls['evaluationComment'].setValue(evaluationPlanValue + '\n<br>' + commentValue);
+          this.evaluation.evaluation_comment = evaluationPlanValue + '\n<br>' + commentValue;
         } else {
           this.evaluationForm.controls['evaluationComment'].setValue(evaluationPlanValue);
+          this.evaluation.evaluation_comment = evaluationPlanValue;
         }
         this.evaluationForm.controls['actionPlanComment'].setValue('');
-        this.evaluation.evaluation_comment = commentValue;
         this.evaluation.action_plan_comment = undefined;
       }
     } else {

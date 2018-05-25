@@ -74,6 +74,7 @@ export class PiaService {
     return new Promise((resolve, reject) => {
       let count = 0;
       let evaluation = new Evaluation();
+      evaluation.pia_id = this.pia.id;
       evaluation.findAll().then((entries: any) => {
         if (entries && entries.length > 0) {
           entries.forEach(element => {
@@ -195,7 +196,7 @@ export class PiaService {
 
     /* Set this PIA as the example PIA if needed, else default value affected on creation */
     if (is_example) {
-      pia.is_example = 1;
+      pia.is_example = true;
     }
 
     if (is_duplicate) {
@@ -211,7 +212,10 @@ export class PiaService {
       pia.concerned_people_status = null;
       pia.concerned_people_opinion = null;
     } else {
-      pia.status = data.pia.status;
+      pia.status = parseInt(data.pia.status, 10);
+      if (Number.isNaN(pia.status)) {
+        pia.status = 0;
+      }
       pia.created_at = new Date(data.pia.created_at);
       if (data.pia.updated_at) {
         pia.updated_at = new Date(data.pia.updated_at);
