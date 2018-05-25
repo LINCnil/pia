@@ -172,7 +172,7 @@ export class CardsComponent implements OnInit, OnDestroy {
       if(thePias.length == 0){
         return;
       }
-      thePias.forEach((item)=>{this.piaApi.computeProgress(item).subscribe()});
+      
       this._piaService.pias = thePias;
       this.sortOrder = localStorage.getItem('sortOrder');
       this.sortValue = localStorage.getItem('sortValue');
