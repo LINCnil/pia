@@ -29,12 +29,12 @@
             <li *ngIf="profile" class="pia-navigationBlock-profile">
               <a href="javascript:;">
                 <i class="fa fa-user" aria-hidden="true"></i>
-                <span [textContent]="profile.user.username"></span>
+                <span [textContent]="profile.username"></span>
               </a>
               <ul id="user-block">
                 <li class="profile">
-                  <legend class="user-name">{{ profile.firstname }}  {{ profile.lastname }}</legend>
-                  <p class="user-email">{{ profile.user.email }}</p>
+                  <legend class="user-name">{{ profile.username }}</legend>
+                  <p class="user-email">{{ profile.email }}</p>
                 </li>
                 <li class="logout">
                   <a (click)="logoutAction()" class="btn btn-blue">

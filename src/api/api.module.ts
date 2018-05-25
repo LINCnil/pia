@@ -7,6 +7,8 @@ import { CommentService } from '@api/service/comment.service';
 import { EvaluationService } from '@api/service/evaluation.service';
 import { MeasureService } from '@api/service/measure.service';
 import { PiaService } from '@api/service/pia.service';
+import { UserProfileService } from '@api/service/user-profile.service';
+import { UserTokenService } from '@api/service/user-token.service';
 
 @NgModule({
   declarations: [],
@@ -19,7 +21,9 @@ import { PiaService } from '@api/service/pia.service';
     CommentService,
     EvaluationService,
     MeasureService,
-    PiaService
+    PiaService,
+    UserProfileService,
+    UserTokenService
   ]
 })
 

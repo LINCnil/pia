@@ -4,3 +4,5 @@ export { Comment as CommentModel } from '@api/model/comment.model';
 export { Evaluation as EvaluationModel } from '@api/model/evaluation.model';
 export { Measure as MeasureModel } from '@api/model/measure.model';
 export { Attachment as AttachmentModel } from '@api/model/attachment.model';
+export { UserProfile as UserProfileModel } from '@api/model/user-profile.model';
+export { UserToken as UserTokenModel } from '@api/model/user-token.model';

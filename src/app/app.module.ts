@@ -56,10 +56,6 @@ import { SummaryComponent } from 'app/summary/summary.component';
 import { AboutComponent } from 'app/about/about.component';
 import { AppRoutingModule } from 'app/app-routing.module';
 import { CardsRoutingModule } from 'app/cards/cards-routing.module';
-import { AuthenticationService } from 'app/services/authentication.service';
-import { AuthenticationGuardService } from 'app/services/authentication-guard.service';
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { TokenInterceptor } from 'app/services/token.interceptor';
 
 import { ApiModule } from '@api/api.module';
 import { SecurityModule } from '@security/security.module';
@@ -75,13 +71,6 @@ const providersList: any = [
   SidStatusService,
   LanguagesService,
   GlobalEvaluationService,
-  AuthenticationService,
-  AuthenticationGuardService,
-  {
-    provide: HTTP_INTERCEPTORS,
-    useClass: TokenInterceptor,
-    multi: true
-  }
 ];
 
 if (environment.rollbar_key.length > 0) {

@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router, CanActivate } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { LanguagesService } from 'app/services/languages.service';
-import { AuthenticationService } from 'app/services/authentication.service';
-import { User } from 'app/authentication/user.model';
+import { AuthenticationService } from '@security/authentication.service';
+import { User } from '@security/user.model';
 import { environment } from 'environments/environment';
 
 @Component({
@@ -22,24 +22,23 @@ export class AuthenticationComponent implements OnInit {
 
   onSubmit() {
     this.authService.authenticate(this.user).then(
-      user => {
-      	if (user === undefined) {
-      		this.error = true;
+      (userToken) => {
+        if (userToken === undefined) {
+          this.error = true;
+          return;
+        }
 
-      		return;
-      	}
-
-      	this.router.navigate(['home']);
+        this.router.navigate(['home']);
       },
-      () => {
+      (err) => {
         this.error = true
       }
     );
   }
 
   ngOnInit() {
-    this.authService.isAuthenticated().then(response => {
-      if (response === true) {
+    this.authService.isAuthenticated().then((isAuth: boolean) => {
+      if (isAuth) {
         this.router.navigate(['home']);
       }
     });

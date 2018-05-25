@@ -1,6 +1,6 @@
 
 import { BaseModel } from '@api/model/base.model'
-import * as moment from 'moment';
+import * as Moment from 'moment';
 
 export class Evaluation extends BaseModel {
 
@@ -23,15 +23,15 @@ export class Evaluation extends BaseModel {
 
   public mapFromJson(json: any): any {
     return Object.assign({},super.mapFromJson(json),{
-      evaluation_date : json.evaluation_date ? moment(json.evaluation_date).toDate():null,
-      estimated_implementation_date : json.estimated_implementation_date?moment(json.estimated_implementation_date).toDate():null
+      evaluation_date : json.evaluation_date ? Moment(json.evaluation_date).toDate():null,
+      estimated_implementation_date : json.estimated_implementation_date? Moment(json.estimated_implementation_date).toDate():null
     });
   }
 
   public mapToJson(): any {
     return Object.assign({},super.mapToJson(),{
-      evaluation_date : this.evaluation_date ? moment(this.evaluation_date).format() : moment().format(),
-      estimated_implementation_date : this.estimated_implementation_date ? moment(this.estimated_implementation_date).format() : moment().format(),
+      evaluation_date : this.evaluation_date ? Moment(this.evaluation_date).format() : Moment().format(),
+      estimated_implementation_date : this.estimated_implementation_date ? Moment(this.estimated_implementation_date).format() : Moment().format(),
     });
   }
 

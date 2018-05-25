@@ -11,7 +11,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { PiaService } from 'app/entry/pia.service';
 import { ModalsService } from 'app/modals/modals.service';
 import { LanguagesService } from 'app/services/languages.service';
-import { AuthenticationService } from 'app/services/authentication.service'
+import { AuthenticationService } from '@security/authentication.service'
 
 @Component({
   selector: 'app-header',
@@ -47,7 +47,7 @@ export class HeaderComponent implements OnInit {
                           this._router.url === '/help' ||
                           this._router.url === '/settings') ? true : false;
 
-    this.profileSubscription = this.authService.getProfile().subscribe(profile => {
+    this.profileSubscription = this.authService.profile$.subscribe(profile => {
       this.profile = profile;
     });
   }

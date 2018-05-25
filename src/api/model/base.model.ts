@@ -1,5 +1,5 @@
 import { Timestampable } from '@api/model/timestampable.model'
-import * as moment from 'moment';
+import * as Moment from 'moment';
 
 export class BaseModel implements Timestampable {
 
@@ -17,8 +17,8 @@ export class BaseModel implements Timestampable {
 
   protected mapFromJson(json:any):any{
     return {
-      created_at: json.created_at ? moment(json.created_at).toDate():null,
-      updated_at: json.updated_at ? moment(json.updated_at).toDate():null
+      created_at: json.created_at ? Moment(json.created_at).toDate():null,
+      updated_at: json.updated_at ? Moment(json.updated_at).toDate():null
     }
   }
 
@@ -26,10 +26,14 @@ export class BaseModel implements Timestampable {
     return Object.assign({}, this, this.mapToJson());
   }
 
+  public toJsonString(): string {
+    return JSON.stringify(this.toJson());
+  }
+
   protected mapToJson():any{
     return {
-      created_at: this.created_at ? moment(this.created_at).format() : null,
-      updated_at: this.updated_at ? moment(this.updated_at).format() : null
+      created_at: this.created_at ? Moment(this.created_at).format() : null,
+      updated_at: this.updated_at ? Moment(this.updated_at).format() : null
     }
   }
 }

@@ -25,7 +25,7 @@ export class BaseService<T extends BaseModel> {
     query = this.buildQuery(query);
     const route = this.buildRoute(routeTpl, params);
 
-    return this.http.get(route, query).map(res => this.mapToModel(res, this.modelClass));
+    return this.http.get(route, { params: query }).map(res => this.mapToModel(res, this.modelClass));
   }
 
   protected httpGetFirst(routeTpl: string, params: any = {}, query: any = {}): Observable<T> {
