@@ -16,6 +16,7 @@
     "languages": {
       "official_translation": "Version originelle",
       "cnil_translations": "Traductions fournies par la CNIL",
+      "dpa_translations": "Traduction révisée par les ADP européenne",
       "community_translations": "Traductions fournies par la communauté",
       "fr": "Français",
       "en": "English",
@@ -26,7 +27,10 @@
       "de": "Deutsch",
       "es": "Español",
       "pt": "Português",
-      "ro": "Română"
+      "ro": "Română",
+      "fi": "Suomi",
+      "el": "Ελληνικά",
+      "no": "Norsk"
     },
     "tools": {
       "title": "Outils",
