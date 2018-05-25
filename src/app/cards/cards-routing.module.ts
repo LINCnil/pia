@@ -8,11 +8,6 @@ const routes: Routes = [
   	path: 'home',
   	component: CardsComponent,
   	canActivate: [AuthenticationGuardService]
-  },
-  {
-  	path: 'home/:view',
-  	component: CardsComponent,
-  	canActivate: [AuthenticationGuardService]
   }
 ];
 
