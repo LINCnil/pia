@@ -266,6 +266,16 @@
         "description": "Decide on whether the selected controls, residual risks and action plan are acceptable, with justifications, in view of the previously identified stakes and views of the stakeholders. In this way, the PIA may be:<br>- validated<br>- conditional on improvement (explain in what way)<br>- refused (along with the processing under consideration). Where necessary, repeat the previous steps so that the PIA can be validated. This decision does not prejudge the compliance assessment which may be carried out, where applicable, by the Data Protection Authority (the CNIL in France), as part of preliminary formalities or checks for example.",
         "source": "PIAF Connected Objects p40"
       },
+      "PIA_VAL_CART": {
+        "name": "Mapping of risks",
+        "description": "Graph illustrating the good security practices, with a conformity value attributed to each on the basis of its assessment in previous steps.",
+        "source": "PIAF Connected Objects p34"
+      },
+      "PIA_VAL_ACT": {
+        "name": "Action plan",
+        "description": "corrective controls suggested by the assessor in previous steps, drawing up an action plan setting out, for each action, its manager, frequency, difficulty, cost and progress.",
+        "source": "None"
+      },
       "PIA_TEC_CHIF": {
         "placeholder": "Describe here the means implemented for ensuring the confidentiality of data",
         "name": "Encryption",
@@ -614,16 +624,6 @@
         "name": "Personal data breach",
         "description": "Breach of security leading to the accidental or unlawful destruction, loss, alteration, unauthorised disclosure of, or access to, personal data transmitted, stored or otherwise processed.",
         "source": "GDPR Art. 4.12"
-      },
-      "PIA_VAL_CART": {
-        "name": "Mapping of risks",
-        "description": "Graph illustrating the good security practices, with a conformity value attributed to each on the basis of its assessment in previous steps.",
-        "source": "PIAF Connected Objects p34"
-      },
-      "PIA_VAL_ACT": {
-        "name": "Action plan",
-        "description": "corrective controls suggested by the assessor in previous steps, drawing up an action plan setting out, for each action, its manager, frequency, difficulty, cost and progress.",
-        "source": "None"
       },
       "PIA_DEF_ENJ": {
         "name": "Stakes",

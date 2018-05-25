@@ -266,6 +266,16 @@
         "description": "<strong>Le responsable de traitement décide formellement</strong> de l’acceptabilité des mesures choisies, des risques résiduels et du plan d'action, de manière argumentée, au regard des enjeux préalablement identifiés et de l'avis des parties prenantes. Le PIA peut ainsi être :<br>- validé ;<br>- à améliorer (expliquer en quoi) ;<br>- refusé (ainsi que le traitement considéré).<br>Le cas échéant, il conviendra de revoir les étapes précédentes pour que le PIA puisse être validé.<br>Cette décision ne préjuge en rien de l’évaluation de conformité qui peut être faite, le cas échéant, par l'autorité de protection des données (en France, la CNIL), par exemple dans le cadre de formalités préalables ou de contrôles.",
 		    "source": "PIAF Objets connectés p 40"
       },
+      "PIA_VAL_CART": {
+        "name": "La cartographie des risques",
+        "description": "Ce graphique représente les risques engendrés par le traitement et les risques résiduels compte tenu de l’ensemble des mesures correctives. Il démontre que si les mesures complémentaires décrites dans le plan d'action sont correctement mises en œuvre, la vraisemblance et/ou la gravité des risques résiduels devraient réduire.",
+    		"source": "Aucune"
+      },
+      "PIA_VAL_ACT": {
+        "name": "Le plan d'action",
+        "description": "Le plan d'action est la description de la stratégie, des moyens et des effectifs à mettre en oeuvre pour que les mesures correctives définies entrent en fonction. Pour chaque tâche il convient de désigner un responsable et de définir des délais.",
+    		"source": "Aucune"
+      },
       "PIA_TEC_ANO": {
         "placeholder": "Décrivez ici les mécanismes d’anonymisation mis en oeuvre",
         "name": "Anonymisation",
@@ -615,16 +625,6 @@
         "description": "Violation de la sécurité entraînant, de manière accidentelle ou illicite, la destruction, la perte, l'altération, la divulgation non autorisée de données à caractère personnel transmises, conservées ou traitées d'une autre manière, ou l'accès non autorisé à de telles données.",
         "source": "RGPD Art. 4.12"
       },
-      "PIA_VAL_CART": {
-        "name": "La cartographie des risques",
-        "description": "Ce graphique représente les risques engendrés par le traitement et les risques résiduels compte tenu de l’ensemble des mesures correctives. Il démontre que si les mesures complémentaires décrites dans le plan d'action sont correctement mises en œuvre, la vraisemblance et/ou la gravité des risques résiduels devraient réduire.",
-    		"source": "Aucune"
-      },
-      "PIA_VAL_ACT": {
-        "name": "Le plan d'action",
-        "description": "Le plan d'action est la description de la stratégie, des moyens et des effectifs à mettre en oeuvre pour que les mesures correctives définies entrent en fonction. Pour chaque tâche il convient de désigner un responsable et de définir des délais.",
-    		"source": "Aucune"
-      },
       "PIA_DEF_ENJ": {
         "name": "Enjeux du traitement",
         "description": "Il s'agit des motivations menant à la mise en oeuvre du traitement, les bénéfices attendus (pour l’organisme, pour les personnes concernées, pour la société en général…).",
@@ -667,59 +667,73 @@
       },
       "PIA_EX_DCPS": {
         "name": "Données perçues comme sensibles",
-        "description": "Numéro de sécurité sociale (NIR), données biométriques, données bancaires..."
+        "description": "Numéro de sécurité sociale (NIR), données biométriques, données bancaires...",
+        "source": ""
       },
       "PIA_EX_DCPR": {
         "name": "Données d’infraction et données sensibles",
-        "description": "Opinions philosophiques, politiques, religieuses, syndicales, vie sexuelle, données de santé, origine raciales ou ethniques, relatives à la santé ou à la vie sexuelle, infractions, condamnations, mesures de sécurité.<br>Se référer aux <a target=\"_blank\" href=\"https://www.cnil.fr/fr/reglement-europeen-protection-donnees/chapitre2#Article9\">art. 9</a> <br> et <a target=\"_blank\" href=\"https://www.cnil.fr/fr/reglement-europeen-protection-donnees/chapitre2#Article10\">art.10</a> du [RGPD]"
+        "description": "Opinions philosophiques, politiques, religieuses, syndicales, vie sexuelle, données de santé, origine raciales ou ethniques, relatives à la santé ou à la vie sexuelle, infractions, condamnations, mesures de sécurité.<br>Se référer aux <a target=\"_blank\" href=\"https://www.cnil.fr/fr/reglement-europeen-protection-donnees/chapitre2#Article9\">art. 9</a> <br> et <a target=\"_blank\" href=\"https://www.cnil.fr/fr/reglement-europeen-protection-donnees/chapitre2#Article10\">art.10</a> du [RGPD]",
+        "source": ""
       },
       "PIA_EX_HUMI": {
         "name": "Source humaine interne",
-        "description": "Il peut s'agir :<br>- d'un employé, malintentionné, utilisant sa proximité du système, ses compétences, ses privilèges et un temps disponible potentiellement élevés ou commettant une négligence due à un possible manque de formation et de sensibilisation.<br>- d'un utilisateur ou de son entourage, négligent ou malintentionné, ayant accès au service.<br>Ses motivations peuvent être multiples : maladresse, erreur, négligence, vengeance, volonté d’alerter, malveillance, appât du gain, espionnage"
+        "description": "Il peut s'agir :<br>- d'un employé, malintentionné, utilisant sa proximité du système, ses compétences, ses privilèges et un temps disponible potentiellement élevés ou commettant une négligence due à un possible manque de formation et de sensibilisation.<br>- d'un utilisateur ou de son entourage, négligent ou malintentionné, ayant accès au service.<br>Ses motivations peuvent être multiples : maladresse, erreur, négligence, vengeance, volonté d’alerter, malveillance, appât du gain, espionnage",
+        "source": ""
       },
       "PIA_EX_HUME": {
         "name": "Source humaine externe",
-        "description": "Il peut s'agir :<br>- d'un tiers malintentionné ou ignorant utilisant sa proximité physique pour accéder frauduleusement au service<br>- d'un attaquant ciblant un utilisateur en utilisant sa connaissance de l’utilisateur et de certaines des informations le concernant<br>- d'un attaquant ciblant une des sociétés en charge du traitement utilisant sa connaissance des sociétés pouvant permettre d’attenter à leur image<br>- d'un organisme tiers autorisé utilisant ses accès privilégiés pour accéder illégitimement à des informations. Les motivations peuvent être multiples : jeu, nuisance, malveillance, vengeance, espionnage, appât du gain, acquisition de données en vue de les exploiter"
+        "description": "Il peut s'agir :<br>- d'un tiers malintentionné ou ignorant utilisant sa proximité physique pour accéder frauduleusement au service<br>- d'un attaquant ciblant un utilisateur en utilisant sa connaissance de l’utilisateur et de certaines des informations le concernant<br>- d'un attaquant ciblant une des sociétés en charge du traitement utilisant sa connaissance des sociétés pouvant permettre d’attenter à leur image<br>- d'un organisme tiers autorisé utilisant ses accès privilégiés pour accéder illégitimement à des informations. Les motivations peuvent être multiples : jeu, nuisance, malveillance, vengeance, espionnage, appât du gain, acquisition de données en vue de les exploiter",
+        "source": ""
       },
       "PIA_EX_NHUM": {
         "name": "Source non humaine",
-        "description": "Il peut s'agir d'un incident ou sinistre chez un des organismes en charge du traitement (coupure de courant, incendie, inondation, etc.)"
+        "description": "Il peut s'agir d'un incident ou sinistre chez un des organismes en charge du traitement (coupure de courant, incendie, inondation, etc.)",
+        "source": ""
       },
       "PIA_EX_IMPN": {
         "name": "Impact négligeable",
-        "description": "Les personnes concernées ne seront pas impactées ou pourraient connaître quelques désagréments, qu’elles surmonteront sans difficulté.<br>Exemples d'impacts :<br>- corporels : maux de tête passagers<br>- matériels : perte de temps pour réitérer des démarches ou pour attendre de les réaliser, réutilisation des données à des fins de publicité ciblée pour des produits de consommation courante, etc.,<br>- moraux : simple contrariété, sentiment d'atteinte à la vie privée sans préjudice réel (intrusion commerciale), etc."
+        "description": "Les personnes concernées ne seront pas impactées ou pourraient connaître quelques désagréments, qu’elles surmonteront sans difficulté.<br>Exemples d'impacts :<br>- corporels : maux de tête passagers<br>- matériels : perte de temps pour réitérer des démarches ou pour attendre de les réaliser, réutilisation des données à des fins de publicité ciblée pour des produits de consommation courante, etc.,<br>- moraux : simple contrariété, sentiment d'atteinte à la vie privée sans préjudice réel (intrusion commerciale), etc.",
+        "source": ""
       },
       "PIA_EX_IMPL": {
         "name": "Impact limité",
-        "description": "Les personnes concernées pourraient connaître des désagréments significatifs, qu’elles pourront surmonter malgré quelques difficultés<br>Exemples d'impacts :<br>- corporels : affection physique mineure (ex. : maladie bénigne suite au non respect de contre-indications), diffamation donnant lieu à des représailles physiques, etc.<br>- matériels : paiements non prévus (ex. : amendes erronées), refus d’accès à des services administratifs ou commerciaux, publicité ciblée en ligne sur un aspect vie privée que la personne souhaitait garder confidentiel , etc.<br>- moraux : affection psychologique mineure mais objective, sentiment d’atteinte à la vie privée sans préjudice irrémédiable, intimidation sur les réseaux sociaux, etc."
+        "description": "Les personnes concernées pourraient connaître des désagréments significatifs, qu’elles pourront surmonter malgré quelques difficultés<br>Exemples d'impacts :<br>- corporels : affection physique mineure (ex. : maladie bénigne suite au non respect de contre-indications), diffamation donnant lieu à des représailles physiques, etc.<br>- matériels : paiements non prévus (ex. : amendes erronées), refus d’accès à des services administratifs ou commerciaux, publicité ciblée en ligne sur un aspect vie privée que la personne souhaitait garder confidentiel , etc.<br>- moraux : affection psychologique mineure mais objective, sentiment d’atteinte à la vie privée sans préjudice irrémédiable, intimidation sur les réseaux sociaux, etc.",
+        "source": ""
       },
       "PIA_EX_IMPI": {
         "name": "Impact Important",
-        "description": "Les personnes concernées pourraient connaître des conséquences significatives, qu’elles devraient pouvoir surmonter, mais avec des difficultés réelles et significatives<br>Exemples d'impacts :<br>- corporels : affection physique grave causant un préjudice à long terme (aggravation de l’état de santé suite à une mauvaise prise en charge, ou au non respect de contre-indications), altération de l’intégrité corporelle, etc.<br>- matériels : détournements d’argent non indemnisé, opportunités ciblées, uniques et non récurrentes, perdues (prêt immobilier, études, stages ou emploi, interdiction d’examen), perte de logement, perte d’emploi, etc.<br>- moraux : Affection psychologique grave (dépression, phobie), sentiment d’atteinte à la vie privée et de préjudice irrémédiable, victime de chantage, cyberbullying et harcèlement moral, etc."
+        "description": "Les personnes concernées pourraient connaître des conséquences significatives, qu’elles devraient pouvoir surmonter, mais avec des difficultés réelles et significatives<br>Exemples d'impacts :<br>- corporels : affection physique grave causant un préjudice à long terme (aggravation de l’état de santé suite à une mauvaise prise en charge, ou au non respect de contre-indications), altération de l’intégrité corporelle, etc.<br>- matériels : détournements d’argent non indemnisé, opportunités ciblées, uniques et non récurrentes, perdues (prêt immobilier, études, stages ou emploi, interdiction d’examen), perte de logement, perte d’emploi, etc.<br>- moraux : Affection psychologique grave (dépression, phobie), sentiment d’atteinte à la vie privée et de préjudice irrémédiable, victime de chantage, cyberbullying et harcèlement moral, etc.",
+        "source": ""
       },
       "PIA_EX_IMPM": {
         "name": "Impact maximal",
-        "description": "Les personnes concernées pourraient connaître des conséquences significatives, voire irrémédiables, qu’elles pourraient ne pas surmonter<br>Exemples d'impacts :<br>- corporels : affection physique de longue durée ou permanente, altération définitive de l’intégrité physique, décès<br>- matériels : péril financier, dettes importantes, impossibilité de travailler, impossibilité de se reloger, perte de preuves dans le cadre d’un contentieux, perte d’accès à une infrastructure vitale (eau, électricité),etc.<br>- moraux : affection psychologique de longue durée ou permanente, sanction pénale, enlèvement, perte de lien familial, impossibilité d’ester en justice, changement de statut administratif et/ou perte d’autonomie juridique (tutelle), etc."
+        "description": "Les personnes concernées pourraient connaître des conséquences significatives, voire irrémédiables, qu’elles pourraient ne pas surmonter<br>Exemples d'impacts :<br>- corporels : affection physique de longue durée ou permanente, altération définitive de l’intégrité physique, décès<br>- matériels : péril financier, dettes importantes, impossibilité de travailler, impossibilité de se reloger, perte de preuves dans le cadre d’un contentieux, perte d’accès à une infrastructure vitale (eau, électricité),etc.<br>- moraux : affection psychologique de longue durée ou permanente, sanction pénale, enlèvement, perte de lien familial, impossibilité d’ester en justice, changement de statut administratif et/ou perte d’autonomie juridique (tutelle), etc.",
+        "source": ""
       },
       "PIA_EX_VRAN": {
         "name": "Vraisemblance négligeable",
-        "description": "Il ne semble pas possible que les sources de risques retenues puissent réaliser la menace en s’appuyant sur les caractéristiques des supports (ex. : vol de supports papiers stockés dans un local de l’organisme dont l’accès est contrôlé par badge et code d’accès)."
+        "description": "Il ne semble pas possible que les sources de risques retenues puissent réaliser la menace en s’appuyant sur les caractéristiques des supports (ex. : vol de supports papiers stockés dans un local de l’organisme dont l’accès est contrôlé par badge et code d’accès).",
+        "source": ""
       },
       "PIA_EX_VRAL": {
         "name": "Vraisemblance limitée",
-        "description": "Il semble difficile pour les sources de risques retenues de réaliser la menace en s’appuyant sur les caractéristiques des supports (ex. : vol de supports papiers stockés dans un local de l’organisme dont l’accès est contrôlé par badge)."
+        "description": "Il semble difficile pour les sources de risques retenues de réaliser la menace en s’appuyant sur les caractéristiques des supports (ex. : vol de supports papiers stockés dans un local de l’organisme dont l’accès est contrôlé par badge).",
+        "source": ""
       },
       "PIA_EX_VRAI": {
         "name": "Vraisemblance importante",
-        "description": "il semble possible pour les sources de risques retenues de réaliser la menace en s’appuyant sur les caractéristiques des supports (ex. : vol de supports papiers stockés dans les bureaux d’un organisme dont l’accès est contrôlé par une personne à l’accueil)."
+        "description": "il semble possible pour les sources de risques retenues de réaliser la menace en s’appuyant sur les caractéristiques des supports (ex. : vol de supports papiers stockés dans les bureaux d’un organisme dont l’accès est contrôlé par une personne à l’accueil).",
+        "source": ""
       },
       "PIA_EX_VRAM": {
         "name": "Vraisemblance maximale",
-        "description": "il semble extrêmement facile pour les sources de risques retenues de réaliser la menace en s’appuyant sur les caractéristiques des supports (ex. : vol de supports papier stockés dans le hall public de l’organisme)."
+        "description": "il semble extrêmement facile pour les sources de risques retenues de réaliser la menace en s’appuyant sur les caractéristiques des supports (ex. : vol de supports papier stockés dans le hall public de l’organisme).",
+        "source": ""
       },
       "PIA_EX_DC": {
         "name": "Données calculées",
-        "description": "Données pour un système de score, résultat de l’application du score..."
+        "description": "Données pour un système de score, résultat de l’application du score...",
+        "source": ""
       }
     }
   },
