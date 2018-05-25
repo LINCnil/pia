@@ -16,6 +16,7 @@
     "languages": {
       "official_translations": "Viralliset käännökset",
       "cnil_translations": "CNIL:n tarjoamat käännökset",
+      "dpa_translations": "TO BE TRANSLATED - Traduction révisée par les ADP européenne",
       "community_translations": "Epäviralliset käännökset",
       "fr": "Français",
       "en": "English",
@@ -78,7 +79,6 @@
       "placeholder_start": "Kaikki kentät tulee täyttää",
       "item": {
         "tools": {
-          "edit": "Muokkaa tietoja",
           "export": "Vie",
           "more_options": "Lisää valintoja",
           "duplicate": "Kahdenna",
@@ -102,6 +102,7 @@
       "column_actions": "Toiminnat",
       "item": {
         "tools": {
+          "consult": "TO BE TRANSLATED - Consulter",
           "edit": "Muokkaa",
           "export": "Vie",
           "duplicate": "Kahdenna",
@@ -123,7 +124,9 @@
     },
     "header": {
       "preview": "Esikatselu",
-      "display_action_plan": "Näytä<br>toimintasuunnitelma"
+      "display_action_plan": "Näytä<br>toimintasuunnitelma",
+      "edition": "TO BE TRANSLATED - Édition",
+      "evaluation": "TO BE TRANSLATED - Évaluation"
     },
     "attachments": {
       "title": "Liitteet",
@@ -136,14 +139,16 @@
       "refuse_pia": "Hylätty vaikutustenarviointi",
       "status": {
         "evaluation": {
-          "title": "",
-          "content": "",
-          "cancel": ""
+          "title": "TO BE TRANSLATED",
+          "content": "TO BE TRANSLATED",
+          "cancel": "TO BE TRANSLATED",
+          "cancel_button": "TO BE TRANSLATED - Annuler la demande d'évaluation"
         },
         "validation": {
-          "title": "",
-          "content": "",
-          "cancel": ""
+          "title": "TO BE TRANSLATED",
+          "content": "TO BE TRANSLATED",
+          "cancel": "TO BE TRANSLATED",
+          "cancel_button": "TO BE TRANSLATED - Annuler la demande de validation"
         }
       }
     },
@@ -261,11 +266,15 @@
         "description": "Arvioi, ovatko valitut suojausmenetelmät, jäännösriskit ja toimintasuunnitelma perustellusti hyväksyttäviä suhteessa aikaisemmin tunnistettuihin intresseihin ja sidosryhmien mielipiteisiin. Tässä suhteessa vaikutustenarviointi voidaan:<br>- validoida<br>- hyväksyä ehdollisesti, jos siihen tehdään parannuksia (määriteltävä)<br>- hylätä (yhdessä suunnitellun henkilötietojen käsittelyn kanssa) Toista ne aikaisemmat vaiheet, joita vaikutustenarvioinnin validointi edellyttää. Tämä päätös ei vaikuta tietosuojaviranomaisen mahdollisesti suorittamaan vaatimustenmukaisuusarviointiin.",
         "source": "PIAF Connected Objects s. 40"
       },
-      "PIA_TEC_CHIF": {
-        "placeholder": "Kuvaa tietojen luottamuksellisuuden varmistamiseksi tehdyt toimenpiteet tässä.",
-        "name": "Salaus",
-        "description": "Säilytettävien tietojen (tietokannassa, erillistiedostoissa, varmuuskopioissa jne.) <strong>luottamuksellisuuden varmistamiseksi</strong> tehdyt toimenpiteet sekä salausavainten hallintamenettelyt (luominen, säilytys, muuttaminen tietomurtoepäilyjen tapauksessa jne.).<br> Kuvaa käsiteltävien tietovirtojen salausmenetelmät (VPN, TLS jne.).",
-        "source": "PIAF Connected Objects s. 21"
+      "PIA_VAL_CART": {
+        "name": "Riskien kartoitus",
+        "description": "Kaavio, jossa on kuvattu hyvät suojauskäytännöt, joista jokaiselle on annettu vaatimustenmukaisuusarvo aikaisemmissa vaiheissa tehtyjen arviointien perusteella.",
+        "source": "PIAF Connected Objects s. 34"
+      },
+      "PIA_VAL_ACT": {
+        "name": "Toimintasuunnitelma",
+        "description": "Arvioijan aikaisemmissa vaiheissa ehdottamat korjaavat toimenpiteet. Toimintasuunnitelmassa kuvataan jokaisen toiminnan vastuuhenkilö, suoritustiheys, vaikeusaste, kustannukset ja edistyminen.",
+        "source": "Ei ole"
       },
       "PIA_TEC_ANO": {
         "placeholder": "Kuvaa käytetyt anonymisointimenetelmät tässä .",
@@ -277,6 +286,12 @@
         "placeholder": "Ilmoita tässä, aiotaanko henkilötietojen käsittely hajauttaa ja kuinka se toteutetaan.",
         "name": "Henkilötietojen hajauttaminen",
         "description": "Tietojen hajauttaminen pienentää henkilötietojen yhdistelemisen ja kaikkia henkilötietoja  koskevan tietomurron mahdollisuutta.",
+        "source": "PIAF Connected Objects s. 21"
+      },
+      "PIA_TEC_CHIF": {
+        "placeholder": "Kuvaa tietojen luottamuksellisuuden varmistamiseksi tehdyt toimenpiteet tässä.",
+        "name": "Salaus",
+        "description": "Säilytettävien tietojen (tietokannassa, erillistiedostoissa, varmuuskopioissa jne.) <strong>luottamuksellisuuden varmistamiseksi</strong> tehdyt toimenpiteet sekä salausavainten hallintamenettelyt (luominen, säilytys, muuttaminen tietomurtoepäilyjen tapauksessa jne.).<br> Kuvaa käsiteltävien tietovirtojen salausmenetelmät (VPN, TLS jne.).",
         "source": "PIAF Connected Objects s. 21"
       },
       "PIA_TEC_CTLA": {
@@ -344,6 +359,12 @@
         "name": "Huolto",
         "description": "Laitteiston fyysistä huoltoa koskevat toimintaohjeet, joista ilmenee, onko huolto ulkoistettu.<br> Ilmoita, onko sovellusten etäylläpito sallittu ja kuvaile sen järjestelyt. Onko viallisille laitteille erityisiä hallintamenetelmiä?",
         "source": "PIAF Connected Objects s. 23"
+      },
+      "PIA_SEC_CTR": {
+        "placeholder": "Kuvaile tässä henkilötietojen käsittelijöihin sovellettavat toimenpiteet (isäntäpalvelin, huoltoyhtiö, pääkäyttäjä, erikoistuneet palveluntarjoajat jne.)",
+        "name": "Sopimusten käsittely",
+        "description": "",
+        "source": "Mesures_US Procurement: tunnistettu ja sopimuksella säädelty"
       },
       "PIA_SEC_NET": {
         "placeholder": "Kuvaile tässä sen verkon suojaustoimet, jossa henkilötietojen käsittely tapahtuu",
@@ -464,6 +485,11 @@
         "description": "Riskien pienentäminen rajoittamalla käsiteltävien henkilötietojen määrä tietoihin, jotka ovat käsittelyn määriteltyä tarkoitusta varten ehdottoman välttämättömiä. Muita tietoja ei tule kerätä.",
         "source": ""
       },
+      "PIA_DEF_MIND": {
+        "name": "TO BE TRANSLATED - Minimisation des données elles-mêmes",
+        "description": "TO BE TRANSLATED - Réduire la gravité des risques en minimisant les données elles-mêmes, par des mesures destinées à réduire leur sensibilité.",
+        "source": "TO BE TRANSLATED - WIKI Minimisation_des_données_:_adéquates,_pertinentes_et_limitées"
+      },
       "PIA_DEF_CONS": {
         "name": "Suostumus",
         "description": "Mikä tahansa vapaaehtoinen, yksilöity, tietoinen ja yksiselitteinen tahdonilmaisu, jolla rekisteröity hyväksyy henkilötietojensa käsittelyn antamalla suostumusta ilmaisevan lausuman tai toteuttamalla selkeästi suostumusta ilmaisevan toimen.<br>Ks. <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">4 artiklan 10 kohta, [GDPR]</a>",
@@ -499,6 +525,16 @@
         "description": "Rekisteröidyllä on oikeus henkilökohtaiseen erityiseen tilanteeseensa liittyvällä perusteella milloin tahansa vastustaa häntä koskevien henkilötietojen käsittelyä <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">21  artiklan, [GDPR] mukaisesti.</a>",
         "source": "Yleisen tietosuoja-asetuksen  21 artikla"
       },
+      "PIA_DEF_CHIF": {
+        "name": "Salaus",
+        "description": "Henkilötietojen koodaaminen sellaiseen muotoon, että vain valtuutetut henkilöt voivat lukea niitä (symmetrinen tai epäsymmetrinen salaus, vahvoiksi tiedettyjen julkisten algoritmien käyttö, todentamissertifikaatti jne.).",
+        "source " : "Mesures_US Encryption"
+      },
+      "PIA_DEF_ANO": {
+        "name": "Anonymisointi",
+        "description": "Tunnistetietojen poistaminen henkilötiedoista. Anonymisointiprosessien riittävyyttä voi arvioida <a target=\"_blank\" href=\"http://ec.europa.eu/justice/data-protection/article-29/documentation/opinion-recommendation/files/2014/wp216_fi.pdf\">WP29:n ohjeen</a> avulla.",
+        "source": "Mesures_US ja ohje G29 http://ec.europa.eu/justice/data-protection/article-29/documentation/opinion-recommendation/files/2014/wp216_fi.pdf"
+      },
       "PIA_DEF_PSEU": {
         "name": "Pseudonymisointi",
         "description": "Henkilötietojen käsitteleminen siten, että henkilötietoja ei voida enää yhdistää tiettyyn rekisteröityyn käyttämättä lisätietoja, edellyttäen että tällaiset lisätiedot säilytetään erillään ja niihin sovelletaan teknisiä ja organisatorisia toimenpiteitä, joilla varmistetaan, ettei henkilötietojen yhdistämistä tunnistettuun tai tunnistettavissa olevaan luonnolliseen henkilöön tapahdu.<br>Pseudonymisointi vähentää tietojoukon liitettävyyttä rekisteröidyn alkuperäiseen henkilöllisyyteen ja on näin ollen hyödyllinen suojatoimenpide, muttei anonymisoi tietoja.",
@@ -513,6 +549,26 @@
         "name": "Pääsynvalvonta",
         "description": "Keinot, joilla rajoitetaan henkilötietojen luvattoman käytön riskiä. Se edellyttää muun muassa: <br>- <strong>käyttäjäprofiilien hallintaa</strong> tehtävien ja vastuualueiden (mieluiten keskitetyn) avulla, joilla rajoitetaan henkilötietojen käyttöoikeudet määritetyille käyttäjille työtehtävien mukaan, ja<br>- <strong>henkilöstön, rekisterinpitäjän lukuun toimivien käsittelijöiden ja kolmansien osapuolten oikeuksien peruuttamista, kun heillä ei enää ole oikeutta käyttää tiloja tai resurssia</strong> tai kun <strong>heidän työsopimuksensa päättyy</strong>.",
         "source": "PIA3 s. 43 - WIKI"
+      },
+      "PIA_DEF_PWD": {
+        "name": "Salasana",
+        "description": "Salasanojen tulee sisältää vähintään kahdeksan merkkiä. Salasanat tulee vaihtaa, jos niiden paljastumisesta on pienintäkään epäilystä, ja lisäksi mahdollisesti väliajoin (puolen vuoden tai vuoden välein). Salasanojen tulee sisältää vähintään kolmea tai neljää merkkityyppiä (isot kirjaimet, pienet kirjaimet, numerot ja erikoismerkit). Kun salasana vaihdetaan, uudeksi salasanaksi ei saa valita mitään viidestä edellistä salasanasta. Samaa salasanaa ei tule käyttää eri järjestelmiin. Salasanoja ei pidä johtaa henkilökohtaisista tiedoista (kuten nimestä tai syntymäajasta). Määrittele sallittujen kirjautumisyritysten määrä, ennen kuin käyttäjälle lähetetään varoitus ja tili lukitaan (väliaikaisesti tai kunnes se avataan manuaalisesti).",
+        "source" : "Mesure_US"
+      },
+      "PIA_DEF_AUTH": {
+        "name": "Todentaminen",
+        "description": "Jokainen henkilö, jolla on käyttöoikeudet henkilötietoihin (työntekijät, rekisterinpitäjän lukuun toimivat käsittelijät ja kolmannet osapuolet) tulee tunnistaa yksilöllisellä tunnisteella. Valitse asiayhteyden, riskitason ja vaadittavan vahvuuden mukainen todentamismenetelmä, jolla käyttäjät kirjautuvat istuntoon. Suositukset: jos riskitaso ei ole kohonnut, salasanan käyttö on mahdollista. Korkeampien riskien tapauksessa tulee kuitenkin käyttää käyttäjän itse valitseman salasanan lisäksi kertakäyttöisiä salasanoja tai tekstiviestillä lähetettävää salasanaa, PIN-koodikorttia, sähköistä sertifikaattia tai muuta vahvan todentamisen menetelmää.",
+        "source": "Mesures_US Logical Access Control"
+      },
+      "PIA_DEF_LOG": {
+        "name": "Valvonta",
+        "description": "Laatikaa lokiarkkitehtuuri, joka mahdollistaa henkilötietojen tietoturvaloukkausten varhaisen havaitsemisen ja jonka tiedot auttavat loukkausten analysoimisessa tai voivat toimia todisteina tutkimuksissa.",
+        "source": "Mesures_US Surveillance"
+      },
+      "PIA_DEF_ARCH": {
+        "name": "Arkistointi",
+        "description": "Henkilötiedot sisältävien sähköisten arkistojen säilytys- ja hallintamenetelmät, joilla varmistetaan tietojen arvon (laillisen arvon) säilyminen tarvittavaksi ajaksi (siirto, säilytys, migraatio, käytettävyys, tuhoaminen, arkistointipolitiikka, luottamuksellisuuden turvaaminen jne.).",
+        "source": "Mesures_USE Archiving"
       },
       "PIA_DEF_MIN1": {
         "name": "Suodatus ja poistaminen",
@@ -568,16 +624,6 @@
         "name": "Henkilötietojen tietoturvaloukkaus",
         "description": "Tietoturvaloukkaus, jonka seurauksena on siirrettyjen, tallennettujen tai muuten käsiteltyjen henkilötietojen vahingossa tapahtuva tai lainvastainen tuhoaminen, häviäminen, muuttaminen, luvaton luovuttaminen taikka pääsy tietoihin.",
         "source": "Yleisen tietosuoja-asetuksen  4 artiklan 12 kohta"
-      },
-      "PIA_VAL_CART": {
-        "name": "Riskien kartoitus",
-        "description": "Kaavio, jossa on kuvattu hyvät suojauskäytännöt, joista jokaiselle on annettu vaatimustenmukaisuusarvo aikaisemmissa vaiheissa tehtyjen arviointien perusteella.",
-        "source": "PIAF Connected Objects s. 34"
-      },
-      "PIA_VAL_ACT": {
-        "name": "Toimintasuunnitelma",
-        "description": "Arvioijan aikaisemmissa vaiheissa ehdottamat korjaavat toimenpiteet. Toimintasuunnitelmassa kuvataan jokaisen toiminnan vastuuhenkilö, suoritustiheys, vaikeusaste, kustannukset ja edistyminen.",
-        "source": "Ei ole"
       },
       "PIA_DEF_ENJ": {
         "name": "Intressi",
@@ -688,41 +734,6 @@
         "name": "Tietojen minimointi",
         "description": "Vähennä riskien vakavuutta minimoimalla käsiteltävät henkilötiedot toimenpiteillä, jotka vähentävät niiden arkaluonteisuutta.",
         "source": "Mesures_US"
-      },
-      "PIA_DEF_ANO": {
-        "name": "Anonymisointi",
-        "description": "Tunnistetietojen poistaminen henkilötiedoista. Anonymisointiprosessien riittävyyttä voi arvioida <a target=\"_blank\" href=\"http://ec.europa.eu/justice/data-protection/article-29/documentation/opinion-recommendation/files/2014/wp216_fi.pdf\">WP29:n ohjeen</a> avulla.",
-        "source": "Mesures_US ja ohje G29 http://ec.europa.eu/justice/data-protection/article-29/documentation/opinion-recommendation/files/2014/wp216_fi.pdf"
-      },
-      "PIA_SEC_CTR": {
-        "placeholder": "Kuvaile tässä henkilötietojen käsittelijöihin sovellettavat toimenpiteet (isäntäpalvelin, huoltoyhtiö, pääkäyttäjä, erikoistuneet palveluntarjoajat jne.)",
-        "name": "Sopimusten käsittely",
-        "source": "Mesures_US Procurement: tunnistettu ja sopimuksella säädelty"
-      },
-      "PIA_DEF_CHIF": {
-        "name": "Salaus",
-        "description": "Henkilötietojen koodaaminen sellaiseen muotoon, että vain valtuutetut henkilöt voivat lukea niitä (symmetrinen tai epäsymmetrinen salaus, vahvoiksi tiedettyjen julkisten algoritmien käyttö, todentamissertifikaatti jne.).",
-        "source " : "Mesures_US Encryption"
-      },
-      "PIA_DEF_PWD": {
-        "name": "Salasana",
-        "description": "Salasanojen tulee sisältää vähintään kahdeksan merkkiä. Salasanat tulee vaihtaa, jos niiden paljastumisesta on pienintäkään epäilystä, ja lisäksi mahdollisesti väliajoin (puolen vuoden tai vuoden välein). Salasanojen tulee sisältää vähintään kolmea tai neljää merkkityyppiä (isot kirjaimet, pienet kirjaimet, numerot ja erikoismerkit). Kun salasana vaihdetaan, uudeksi salasanaksi ei saa valita mitään viidestä edellistä salasanasta. Samaa salasanaa ei tule käyttää eri järjestelmiin. Salasanoja ei pidä johtaa henkilökohtaisista tiedoista (kuten nimestä tai syntymäajasta). Määrittele sallittujen kirjautumisyritysten määrä, ennen kuin käyttäjälle lähetetään varoitus ja tili lukitaan (väliaikaisesti tai kunnes se avataan manuaalisesti).",
-        "source" : "Mesure_US"
-      },
-      "PIA_DEF_AUTH": {
-        "name": "Todentaminen",
-        "description": "Jokainen henkilö, jolla on käyttöoikeudet henkilötietoihin (työntekijät, rekisterinpitäjän lukuun toimivat käsittelijät ja kolmannet osapuolet) tulee tunnistaa yksilöllisellä tunnisteella. Valitse asiayhteyden, riskitason ja vaadittavan vahvuuden mukainen todentamismenetelmä, jolla käyttäjät kirjautuvat istuntoon. Suositukset: jos riskitaso ei ole kohonnut, salasanan käyttö on mahdollista. Korkeampien riskien tapauksessa tulee kuitenkin käyttää käyttäjän itse valitseman salasanan lisäksi kertakäyttöisiä salasanoja tai tekstiviestillä lähetettävää salasanaa, PIN-koodikorttia, sähköistä sertifikaattia tai muuta vahvan todentamisen menetelmää.",
-        "source": "Mesures_US Logical Access Control"
-      },
-      "PIA_DEF_LOG": {
-        "name": "Valvonta",
-        "description": "Laatikaa lokiarkkitehtuuri, joka mahdollistaa henkilötietojen tietoturvaloukkausten varhaisen havaitsemisen ja jonka tiedot auttavat loukkausten analysoimisessa tai voivat toimia todisteina tutkimuksissa.",
-        "source": "Mesures_US Surveillance"
-      },
-      "PIA_DEF_ARCH": {
-        "name": "Arkistointi",
-        "description": "Henkilötiedot sisältävien sähköisten arkistojen säilytys- ja hallintamenetelmät, joilla varmistetaan tietojen arvon (laillisen arvon) säilyminen tarvittavaksi ajaksi (siirto, säilytys, migraatio, käytettävyys, tuhoaminen, arkistointipolitiikka, luottamuksellisuuden turvaaminen jne.).",
-        "source": "Mesures_USE Archiving"
       }
     }
   },
@@ -849,6 +860,8 @@
     "validated_pia_with_signature": "Validoitu",
     "add_signed_pia": "Lisää allekirjoitettu tietosuojaa koskeva vaikutustenarviointi",
     "remove_attachment": "Poista liite",
+    "latest_signed_attachment": "TO BE TRANSLATED - Dernière pièce jointe signée",
+    "signed_attachments_history": "TO BE TRANSLATED - Historique des pièces jointes signées",
     "tools": {
       "dashboard": "Ohjauspaneeli",
       "display_pia": "Näytä vaikutustenarviointi",
@@ -876,9 +889,16 @@
     "archive": "Arkistoi",
     "close": "Sulje",
     "continue": "Jatka",
+    "start_evaluation": "TO BE TRANSLATED - Commencer l'évaluation",
     "back_to_home": "Takaisin alkuun",
     "simple_pia_validation": {
       "content": "Tietosuojaa koskeva vaikutustenarviointi on validoitu."
+    },
+    "completed_edition": {
+      "content": "TO BE TRANSLATED - Toutes les parties sont éditées.<br>L'analyse doit maintenant être évaluée."
+    },
+    "completed_evaluation": {
+      "content": "TO BE TRANSLATED - Toutes les parties sont évaluées.<br>L'analyse peut être validée."
     },
     "update_server_url": {
       "content": "Palvelimen osoite on päivitetty."
@@ -888,7 +908,8 @@
       "download_pia": "Lataa tietosuojaa koskevan vaikutustenarvioinnin raportti"
     },
     "abandon_pia": {
-      "content": "Haluatko varmasti<br>lopettaa käsittelyn?"
+      "content": "Haluatko varmasti<br>lopettaa käsittelyn?",
+      "additional_text": "TO BE TRANSLATED - L'archivage n'est pas définitif et vous pouvez<br>reprendre l'analyse plus tard si besoin."
     },
     "refuse_pia": {
       "content": "<span class='strong'>Tietosuojaa koskeva vaikutustenarviointi on hylätty,</span><br>Useiden kenttien sisältöä on korjattava.<br>Palaa arviointitilaan<br>ja tee korjaukset."
@@ -925,11 +946,50 @@
       "content": "<span class='strong'>Varoitus,</span><br>Haluatko varmasti<br>poistaa tämän liitteen?",
       "keep": "Säilytä",
       "remove": "Poista"
+    },
+    "action_plan_no_evaluation": {
+      "content": "TO BE TRANSLATED - Veuillez commencer l'évaluation de l'analyse pour génerer le plan d'actions.",
+      "review_section": "TO BE TRANSLATED - Évaluer une section"
+    },
+    "dpo_missing_evaluations": {
+      "content": "TO BE TRANSLATED - Veuillez compléter l'évaluation de l'analyse pour accéder à la page des DPO.",
+      "review_section": "TO BE TRANSLATED - Évaluer une section",
+      "remove": "TO BE TRANSLATED - Supprimer",
+      "comment": "TO BE TRANSLATED - Commentaire"
+    },
+    "modal_select_text_pia": {
+      "content": "TO BE TRANSLATED - Le contenu du Rapport PIA a été copié dans votre presse-papier."
+    },
+    "back_to_edition": {
+      "content": "TO BE TRANSLATED - La partie est renvoyée en édition,<br>des informations doivent être ajoutées<br>pour permettre son évaluation."
+    },
+    "back_to_evaluation": {
+      "content": "TO BE TRANSLATED - La partie est renvoyée en évaluation,<br>des informations doivent être réévaluées<br>pour permettre sa validation."
     }
   },
   "summary": {
     "previous_page": "Takaisin edelliselle sivulle",
     "print": "Tulosta",
+    "copy_to_clipboard": "TO BE TRANSLATED - Copier dans le presse-papier",
+    "download_images": "TO BE TRANSLATED - Télécharger les images",
+    "download_csv": "TO BE TRANSLATED - Télécharger un export CSV",
+    "csv_section": "TO BE TRANSLATED - Section",
+    "csv_title_object": "TO BE TRANSLATED - Titre de l'objet concerné",
+    "csv_action_plan_comment": "TO BE TRANSLATED - Commentaires du plan d'actions",
+    "csv_evaluation_comment": "TO BE TRANSLATED - Commentaires d'évaluation",
+    "csv_file_title": "plan-d-action",
+    "csv_implement_date": "TO BE TRANSLATED - Date d'implémentation estimée",
+    "csv_people_in_charge": "TO BE TRANSLATED - Responsable de la mise en oeuvre",
+    "display_filters": {
+      "title": "TO BE TRANSLATED - Filtres d'affichage",
+      "main_content": "TO BE TRANSLATED - Afficher la section \"Informations du PIA\"",
+      "context_content": "TO BE TRANSLATED - Afficher la section \"Contexte\"",
+      "principles_content": "TO BE TRANSLATED - Afficher la section \"Principes fondamentaux\"",
+      "risks_content": "TO BE TRANSLATED - Afficher la section \"Risques\"",
+      "action_plan_content": "TO BE TRANSLATED - Afficher le plan d'action",
+      "risks_overview_content": "TO BE TRANSLATED - Afficher la vue d'ensemble des risques",
+      "risks_cartography_content": "TO BE TRANSLATED - Afficher la cartographie des risques"
+    },
     "title": "Tietosuojaa koskevan vaikutustenarvioinnin tiedot",
     "pia_name": "Tietosuojaa koskeva vaikutustenarviointi",
     "pia_author": "Laatijan nimi",
@@ -967,7 +1027,9 @@
       "measures": "Toteutetut tai suunnitellut toimenpiteet",
       "risks": "Riskit",
       "no_action_plan": "Toimintasuunnitelmaa ei ole kirjattu."
-    }
+    },
+    "risks_overview_title": "TO BE TRANSLATED - Vue d'ensemble des risques",
+    "risks_cartography_title": "TO BE TRANSLATED - Cartographie des risques"
   },
   "errors": {
     "title": "Sivua ei löytynyt.",
