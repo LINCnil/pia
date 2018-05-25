@@ -23,40 +23,40 @@ export class UserToken extends BaseModel {
   }
 
 
-    public static setLocalToken(token: UserToken) {
-        localStorage.setItem('token', token.toJsonString());
-    }
+  public static setLocalToken(token: UserToken) {
+      localStorage.setItem('token', token.toJsonString());
+  }
 
-    public static getLocalToken(): UserToken {
+  public static getLocalToken(): UserToken {
+    const token = localStorage.getItem('token');
+      return (new UserToken()).fromJson(token);
+  }
+
+  public static hasLocalToken(): boolean {
       const token = localStorage.getItem('token');
-        return (new UserToken()).fromJson(token);
-    }
 
-    public static hasLocalToken(): boolean {
-        const token = localStorage.getItem('token');
+      if (!token) {
+        return false;
+      }
 
-        if (!token) {
-          return false;
-        }
+      try {
+        (new UserToken()).fromJson(token);
+        return true;
+      } catch (err) {
+        this.removeLocalToken();
+        console.error('Invalid local token format: local token removed');
+        return false;
+      }
+  }
 
-        try {
-          (new UserToken()).fromJson(token);
-          return true;
-        } catch (err) {
-          this.removeLocalToken();
-          console.error('Invalid local token format: local token removed');
-          return false;
-        }
-    }
-
-    public static removeLocalToken(): void {
-      localStorage.removeItem('token');
-    }
+  public static removeLocalToken(): void {
+    localStorage.removeItem('token');
+  }
 
   public mapFromJson(json: any): any {
     const expiry = Moment();
     return Object.assign({}, super.mapFromJson(json), {
-      expires_at: expiry.seconds(expiry.seconds() + json.expires_in).toDate()
+      expires_at: json.expires_at? json.expires_at : expiry.seconds(expiry.seconds() + json.expires_in).toDate()
     });
   }
 
