@@ -47,7 +47,7 @@ export class CardsComponent implements OnInit, OnDestroy {
       localStorage.setItem('sortOrder', this.sortOrder);
       localStorage.setItem('sortValue', this.sortValue);
     }
-    //this.refreshContent();
+    // this.refreshContent();
     this.piaForm = new FormGroup({
       name: new FormControl(),
       author_name: new FormControl(),
@@ -170,11 +170,11 @@ export class CardsComponent implements OnInit, OnDestroy {
    */
   async refreshContent() {
 
-     let thePias:PiaModel[] = await this.piaApi.getAll().toPromise();
-      if(thePias.length == 0){
+     const thePias: PiaModel[] = await this.piaApi.getAll().toPromise();
+      if (thePias.length == 0) {
         return;
       }
-      thePias.forEach((item)=>{this.piaApi.computeProgress(item).subscribe()});
+      thePias.forEach((item) => {this.piaApi.computeProgress(item).subscribe()});
       this._piaService.pias = thePias;
       this.sortOrder = localStorage.getItem('sortOrder');
       this.sortValue = localStorage.getItem('sortValue');

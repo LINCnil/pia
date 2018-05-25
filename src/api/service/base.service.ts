@@ -71,7 +71,7 @@ export class BaseService<T extends BaseModel> {
   protected buildQuery(query: any): HttpParams {
     let params = new HttpParams();
 
-    for (let key in query) {
+    for (const key in query) {
       params = params.set(key, query[key]);
     }
 

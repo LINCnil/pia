@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgxPermissionsModule } from 'ngx-permissions';
-import {PermissionsService} from './permissions.service';
-import {AuthenticationService} from './authentication.service';
-import {AuthenticationGuardService} from './authentication-guard.service';
+import { PermissionsService } from './permissions.service';
+import { AuthenticationService } from './authentication.service';
+import { AuthenticationGuardService } from './authentication-guard.service';
 import { TokenInterceptor } from './token.interceptor';
 
 @NgModule({
@@ -12,7 +12,7 @@ import { TokenInterceptor } from './token.interceptor';
     HttpClientModule,
     NgxPermissionsModule.forRoot()
   ],
-  exports:[
+  exports: [
     NgxPermissionsModule
   ],
   providers: [

@@ -6,7 +6,7 @@ import { NgxPermissionsService, NgxRolesService } from 'ngx-permissions';
 @Injectable()
 export class PermissionsService {
 
-  private rolesAndPermissions:any;
+  private rolesAndPermissions: any;
 
   constructor(
     private ngxPermissionsService: NgxPermissionsService,
@@ -20,7 +20,7 @@ export class PermissionsService {
     this.ngxRolesService.addRoles(this.rolesAndPermissions);
   }
 
-  public async hasPermission(permissionName:string):Promise<boolean>{
+  public async hasPermission(permissionName: string): Promise<boolean> {
         return await this.ngxPermissionsService.hasPermission(permissionName);
   }
 

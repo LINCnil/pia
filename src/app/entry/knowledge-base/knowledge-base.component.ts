@@ -24,7 +24,7 @@ export class KnowledgeBaseComponent implements OnInit {
               private _piaService: PiaService) { }
 
   ngOnInit() {
-  
+
     this.searchForm = new FormGroup({
       q: new FormControl()
     });

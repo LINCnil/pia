@@ -5,7 +5,7 @@ import { SidStatusService } from 'app/services/sid-status.service';
 import {Pia} from 'app/entry/pia.model';
 import { PiaService } from 'app/entry/pia.service';
 
-//new import
+// new import
 import {PiaModel} from '@api/models';
 
 @Component({
@@ -108,7 +108,7 @@ export class DPOPeopleOpinionsComponent implements OnInit {
       if (peopleTextarea) {
         this.autoTextareaResize(null, peopleTextarea);
       }
-    
+
   }
 
   /**

@@ -15,10 +15,10 @@ export class BaseModel implements Timestampable {
     }
   }
 
-  protected mapFromJson(json:any):any{
+  protected mapFromJson(json: any): any {
     return {
-      created_at: json.created_at ? Moment(json.created_at).toDate():null,
-      updated_at: json.updated_at ? Moment(json.updated_at).toDate():null
+      created_at: json.created_at ? Moment(json.created_at).toDate() : null,
+      updated_at: json.updated_at ? Moment(json.updated_at).toDate() : null
     }
   }
 
@@ -30,7 +30,7 @@ export class BaseModel implements Timestampable {
     return JSON.stringify(this.toJson());
   }
 
-  protected mapToJson():any{
+  protected mapToJson(): any {
     return {
       created_at: this.created_at ? Moment(this.created_at).format() : null,
       updated_at: this.updated_at ? Moment(this.updated_at).format() : null

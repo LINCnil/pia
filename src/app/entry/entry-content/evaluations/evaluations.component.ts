@@ -132,7 +132,7 @@ export class EvaluationsComponent implements OnInit, AfterViewChecked, OnDestroy
     });
 
     this.evaluation = new EvaluationModel();
-    let theEval: EvaluationModel = await this.evaluationApi.getByRef(this.pia.id, this.reference_to).toPromise();
+    const theEval: EvaluationModel = await this.evaluationApi.getByRef(this.pia.id, this.reference_to).toPromise();
     if (theEval) {
       this.evaluation.fromJson(theEval);
     }
@@ -169,9 +169,9 @@ export class EvaluationsComponent implements OnInit, AfterViewChecked, OnDestroy
       const questions: any[] = this.item.questions.filter((question) => {
         return question.answer_type === 'gauge';
       });
-      let theAnswers:AnswerModel[] = await this.answerApi.getAll(this.pia.id).toPromise();
+      const theAnswers: AnswerModel[] = await this.answerApi.getAll(this.pia.id).toPromise();
       questions.forEach(question => {
-        let theRefAnswer = theAnswers.find((item) => item.reference_to == question.id);
+        const theRefAnswer = theAnswers.find((item) => item.reference_to == question.id);
         if (theRefAnswer && theRefAnswer.data) {
           this.previousGauges[question.cartography.split('_')[1]] = theRefAnswer.data.gauge;
         }

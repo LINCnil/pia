@@ -26,7 +26,7 @@ export class OverviewRisksComponent implements OnInit {
     private _appDataService: AppDataService,
     private _ngZone: NgZone,
     private _translateService: TranslateService,
-    private answerApi:AnswerApi
+    private answerApi: AnswerApi
   ) { }
 
   ngOnInit() {
@@ -66,13 +66,13 @@ export class OverviewRisksComponent implements OnInit {
       }
     ];
 
-    let mainObservables = [];
+    const mainObservables = [];
 
     for (const dt of dataTags) {
       mainObservables.push(
         new Promise((resolve, reject) => {
           const tags = {};
-          let observables = [];
+          const observables = [];
 
           for (const reference_to of dt.reference_to) {
             observables.push(
@@ -104,7 +104,7 @@ export class OverviewRisksComponent implements OnInit {
             });
 
             resolve();
-          }); 
+          });
         })
       );
     }

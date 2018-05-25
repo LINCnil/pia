@@ -10,7 +10,7 @@ import { ModalsService } from 'app/modals/modals.service';
 import { Evaluation } from 'app/entry/entry-content/evaluations/evaluation.model';
 import { GlobalEvaluationService } from '../../../services/global-evaluation.service';
 
-//new imports
+// new imports
 import { AnswerModel, EvaluationModel, MeasureModel } from '@api/models';
 import { AnswerApi, EvaluationApi, MeasureApi } from '@api/services';
 import { PermissionsService } from '@security/permissions.service';
@@ -84,7 +84,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
     }
 
     this.measure.pia_id = this.pia.id;
-    let entries: MeasureModel[] = await this.measureApi.getAll(this.pia.id).toPromise();
+    const entries: MeasureModel[] = await this.measureApi.getAll(this.pia.id).toPromise();
     if (entries) {
       entries.forEach(entry => {
         if (entry.title) {
@@ -98,7 +98,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
   ngOnChanges(changes) {
     // only run when property "data" changed
     if (changes['pia']) {
-      //console.log(this.pia);
+      // console.log(this.pia);
     }
   }
 
@@ -187,7 +187,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
     if (userText) {
       userText = userText.replace(/^\s+/, '').replace(/\s+$/, '');
     }
-    //update
+    // update
     if (this.answer) {
       this.answer.data = { text: userText, gauge: this.answer.data.gauge, list: this.answer.data.list };
       this.answerApi.update(this.answer).subscribe((updatedAnswer: AnswerModel) => {
@@ -196,7 +196,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
           this._globalEvaluationService.validate();
         });
       });
-      //create
+      // create
     } else if (!this.answer && userText !== '') {
       if (this.questionForm.value.text && this.questionForm.value.text.length > 0) {
         this.answer = new AnswerModel();

@@ -22,14 +22,14 @@ export class Evaluation extends BaseModel {
   }
 
   public mapFromJson(json: any): any {
-    return Object.assign({},super.mapFromJson(json),{
-      evaluation_date : json.evaluation_date ? Moment(json.evaluation_date).toDate():null,
-      estimated_implementation_date : json.estimated_implementation_date? Moment(json.estimated_implementation_date).toDate():null
+    return Object.assign({}, super.mapFromJson(json), {
+      evaluation_date : json.evaluation_date ? Moment(json.evaluation_date).toDate() : null,
+      estimated_implementation_date : json.estimated_implementation_date ? Moment(json.estimated_implementation_date).toDate() : null
     });
   }
 
   public mapToJson(): any {
-    return Object.assign({},super.mapToJson(),{
+    return Object.assign({}, super.mapToJson(), {
       evaluation_date : this.evaluation_date ? Moment(this.evaluation_date).format() : Moment().format(),
       estimated_implementation_date : this.estimated_implementation_date ? Moment(this.estimated_implementation_date).format() : Moment().format(),
     });
@@ -65,16 +65,16 @@ export class Evaluation extends BaseModel {
   public hasActionPlanComment(): boolean {
     return this.action_plan_comment && this.action_plan_comment.length > 0;
   }
-  public hasAssignedGauges():boolean {
+  public hasAssignedGauges(): boolean {
     return this.gauges && this.gauges['x'] > 0 && this.gauges['y'] > 0;
   }
-  public beGloballyNone():void {
+  public beGloballyNone(): void {
     this.global_status = EvaluationGlobalStatus.None;
   }
-  public beGloballyStarted():void {
+  public beGloballyStarted(): void {
     this.global_status = EvaluationGlobalStatus.Started;
   }
-  public beGloballyCompleted():void {
+  public beGloballyCompleted(): void {
     this.global_status = EvaluationGlobalStatus.Completed;
   }
 

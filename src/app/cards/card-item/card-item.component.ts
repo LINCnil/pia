@@ -46,9 +46,9 @@ export class CardItemComponent implements OnInit {
       validator_name: new FormControl({ value: this.pia.validator_name, disabled: true })
     });
 
-    //add permission verification
+    // add permission verification
     const hasPerm$ = this.permissionsService.hasPermission('CanCreatePIA');
-    hasPerm$.then((bool:boolean) => {
+    hasPerm$.then((bool: boolean) => {
       for (const field in this.piaForm.controls) {
           const fc = this.piaForm.get(field);
           bool ? fc.enable() : fc.disable();
@@ -66,7 +66,7 @@ export class CardItemComponent implements OnInit {
    * @memberof CardItemComponent
    */
   piaNameFocusIn() {
-    //this.piaForm.controls['name'].enable();
+    // this.piaForm.controls['name'].enable();
     this.piaName.nativeElement.focus();
   }
 

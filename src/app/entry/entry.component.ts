@@ -12,7 +12,7 @@ import { AppDataService } from 'app/services/app-data.service';
 import { SidStatusService } from 'app/services/sid-status.service';
 import { GlobalEvaluationService } from '../services/global-evaluation.service';
 
-//new import
+// new import
 import { PiaModel, AnswerModel } from '@api/models';
 import { PiaApi, AnswerApi } from '@api/services';
 
@@ -89,7 +89,7 @@ export class EntryComponent implements OnInit, OnDestroy, DoCheck {
       listQuestions.forEach(questionsSet => {
         questionsSet.forEach(q => {
 
-          let theRefAnswer = theAnswers.find((a) => {
+          const theRefAnswer = theAnswers.find((a) => {
             return a.reference_to == q.id;
           });
 

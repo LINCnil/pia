@@ -10,8 +10,8 @@ export class AuthenticationGuardService implements CanActivate {
 
   canActivate(): Promise<boolean> {
     return new Promise(resolve => {
-      this.authService.isAuthenticated().then((response:boolean) => {
-        if(!response) {
+      this.authService.isAuthenticated().then((response: boolean) => {
+        if (!response) {
           this.router.navigate(['']);
         }
         resolve(response);

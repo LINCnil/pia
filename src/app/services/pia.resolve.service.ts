@@ -14,9 +14,9 @@ export class PiaResolve implements Resolve<any>, CanActivate {
     }
 
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> {
-      let piaId = route.params.id;
+      const piaId = route.params.id;
       return this.piaService.retrieveCurrentPIA(piaId)
-        .map((data) =>{return true})
-        .catch((error) => {return Observable.of(false)});
+        .map((data) => true)
+        .catch((error) => Observable.of(false));
     }
 }

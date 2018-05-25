@@ -42,7 +42,7 @@ export class EntryContentComponent implements OnInit, OnChanges {
   ngOnInit() {
     // Reset measures no longer addable from KB when switching PIA
     this._knowledgeBaseService.toHide = [];
-    //Make this._globalEvaluationService.pia available for all entry-content/*
+    // Make this._globalEvaluationService.pia available for all entry-content/*
     this._globalEvaluationService.pia = this._piaService.pia;
   }
 

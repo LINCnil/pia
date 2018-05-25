@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { GlobalEvaluationService } from 'app/services/global-evaluation.service';
 import { Subject } from 'rxjs/Subject';
-//new imports
+// new imports
 import { EvaluationService as EvaluationApi } from '@api/service/evaluation.service';
 import { AnswerService as AnswerApi } from '@api/service/answer.service';
 import { MeasureService as MeasureApi } from '@api/service/measure.service';
@@ -20,7 +20,7 @@ export class SidStatusService {
 
   constructor(
     private _globalEvaluationService: GlobalEvaluationService,
-    //next services have to be injected because GlobalEvaluationService is instantiated in  this class...
+    // next services have to be injected because GlobalEvaluationService is instantiated in  this class...
     private evaluationApi: EvaluationApi,
     private answerApi: AnswerApi,
     private measureApi: MeasureApi
@@ -65,7 +65,7 @@ export class SidStatusService {
     globalEvaluationService.item = item;
     if (item.evaluation_mode === 'item' || item.evaluation_mode === 'question' || reference_to === '4.3') {
       globalEvaluationService.validate(false).then((obj: { reference_to: string, status: number }) => {
-        
+
         if (reference_to === '4.3') {
           this.enablePiaValidation = globalEvaluationService.enablePiaValidation;
           this.piaIsRefused = globalEvaluationService.piaIsRefused;

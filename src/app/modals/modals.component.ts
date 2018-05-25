@@ -33,7 +33,7 @@ export class ModalsComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    //this._piaService.getPIA();
+    // this._piaService.getPIA();
     this.piaForm = new FormGroup({
       name: new FormControl(),
       author_name: new FormControl(),

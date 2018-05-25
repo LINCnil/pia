@@ -18,7 +18,7 @@ export class PiaValidateHistoryComponent implements OnInit {
               private _translateService: TranslateService) { }
 
   ngOnInit() {
-    
+
   }
 
   /**

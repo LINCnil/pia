@@ -51,7 +51,7 @@ export class AppComponent {
     this._languagesService.initLanguages();
     this._languagesService.getOrSetCurrentLanguage();
 
-    //ngxPermissions wrapper
+    // ngxPermissions wrapper
 
      /*
      PERMISSIONS
@@ -70,13 +70,13 @@ export class AppComponent {
       ],
       'ROLE_DPO': [
         'CanCreatePIA', 'CanCreatePIAExample', 'CanShowPIA',
-        'CanEvaluatePIA','CanValidatePIA', 'CanCancelValidatePIA',
+        'CanEvaluatePIA', 'CanValidatePIA', 'CanCancelValidatePIA',
         'CanDeletePIA', 'CanExportPIA',
         'AccessToContextSection', 'AccessToPrinciplesSection', 'AccessToRisksSection', 'AccessToValidationSection'
       ],
       'ROLE_ADMIN': [
-        'CanCreatePIA', 'CanCreatePIAExample', 'CanEditPIA','CanShowPIA',
-        'CanEvaluatePIA','CanCancelEvaluatePIA', 'CanValidatePIA', 'CanCancelValidatePIA',
+        'CanCreatePIA', 'CanCreatePIAExample', 'CanEditPIA', 'CanShowPIA',
+        'CanEvaluatePIA', 'CanCancelEvaluatePIA', 'CanValidatePIA', 'CanCancelValidatePIA',
         'CanDeletePIA', 'CanExportPIA',
         'AccessToContextSection', 'AccessToPrinciplesSection', 'AccessToRisksSection', 'AccessToValidationSection'
       ],

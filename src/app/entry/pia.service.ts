@@ -6,7 +6,7 @@ import { AppDataService } from 'app/services/app-data.service';
 import { ModalsService } from 'app/modals/modals.service';
 import { ActionPlanService } from 'app/entry/entry-content/action-plan//action-plan.service';
 
-//new imports
+// new imports
 
 import { Observable } from 'rxjs/Rx';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
@@ -92,7 +92,7 @@ export class PiaService {
   async cancelAllValidatedEvaluation(): Promise<void> {
 
     const results = [];
-    let entries: EvaluationModel[] = await this.evaluationApi.getAll(this.pia.id).toPromise();
+    const entries: EvaluationModel[] = await this.evaluationApi.getAll(this.pia.id).toPromise();
     entries.forEach(element => {
       element.global_status = 0;
       results.push(this.evaluationApi.update(element).toPromise());
@@ -176,7 +176,7 @@ export class PiaService {
     if (!('pia' in data)) {
       return;
     }
-    let pia = new PiaModel();
+    const pia = new PiaModel();
     const values = data.pia;
     values.id = null;
     values.name = '(' + prefix + ') ' + values.name;
@@ -217,7 +217,7 @@ export class PiaService {
     });
 
     if (data.measures.length > 0) {
-      let count = 0;
+      const count = 0;
       const asyncResults = [];
       const oldIdToNewId = [];
       // Create measures
@@ -226,7 +226,7 @@ export class PiaService {
         const measureModel = new MeasureModel();
         measureModel.fromJson(measure);
         measureModel.pia_id = newPia.id;
-        let p = this.measureApi.create(measureModel).toPromise();
+        const p = this.measureApi.create(measureModel).toPromise();
         p.then((newMeasure: MeasureModel) => { oldIdToNewId[measure.id] = newMeasure.id; });
         asyncResults.push(p);
       });

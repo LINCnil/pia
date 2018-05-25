@@ -12,7 +12,7 @@ export class PermissionsGuardService implements CanActivate {
   	const userRoles = localStorage.getItem('roles');
 
   	requiredRoles.forEach(role => {
-  		if(userRoles.indexOf(role) == -1) {
+  		if (userRoles.indexOf(role) == -1) {
   			allowed = false;
   		}
   	})

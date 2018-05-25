@@ -16,7 +16,7 @@ export class UserToken extends BaseModel {
     return (!remainder || remainder <= 10);
   }
 
-  public willExpireIn(msec:number): boolean {
+  public willExpireIn(msec: number): boolean {
     const expiry = Moment(this.expires_at, environment.date_format);
     const remainder = Moment.duration(expiry.diff(Moment())).as('seconds');
     return (remainder > 10 && remainder <= msec);
@@ -35,7 +35,7 @@ export class UserToken extends BaseModel {
     public static hasLocalToken(): boolean {
         const token = localStorage.getItem('token');
 
-        if(!token){
+        if (!token) {
           return false;
         }
 
@@ -61,7 +61,7 @@ export class UserToken extends BaseModel {
   }
 
   public mapToJson(): any {
-    return Object.assign({},super.mapToJson(),{
+    return Object.assign({}, super.mapToJson(), {
       expires_at : this.expires_at ? Moment(this.expires_at).format(environment.date_format) : Moment().format(environment.date_format)
     });
   }

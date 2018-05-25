@@ -32,7 +32,7 @@ export class Pia extends BaseModel {
     return value ? `summary.gauges.${value}` : '';
   }
 
-  public validationIsCompleted(): boolean{
+  public validationIsCompleted(): boolean {
     return  [
       PiaStatus.SimpleValidation,
       PiaStatus.SignedValidation,

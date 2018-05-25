@@ -19,7 +19,7 @@ export class GlobalEvaluationService {
   public pia: PiaModel;
   public section: any;
   public item: any;
-  public status: number = 0;
+  public status = 0;
   public answerEditionEnabled = false;
   public evaluationEditionEnabled = false;
   public reference_to: string;
@@ -185,7 +185,7 @@ export class GlobalEvaluationService {
   async cancelValidation() {
     if (this.item.evaluation_mode === 'item') {
 
-      let theEval: EvaluationModel = await this.evaluationApi.getByRef(this.pia.id, this.reference_to).toPromise();
+      const theEval: EvaluationModel = await this.evaluationApi.getByRef(this.pia.id, this.reference_to).toPromise();
 
       theEval.global_status = 1;
       await this.evaluationApi.update(theEval).toPromise();
@@ -194,7 +194,7 @@ export class GlobalEvaluationService {
     } else if (this.answersOrMeasures.length > 0) {
 
       this.answersOrMeasures.forEach(async (answerOrMeasure) => {
-        let theEval: EvaluationModel = await this.evaluationApi.getByRef(this.pia.id, this.getAnswerReferenceTo(answerOrMeasure)).toPromise();
+        const theEval: EvaluationModel = await this.evaluationApi.getByRef(this.pia.id, this.getAnswerReferenceTo(answerOrMeasure)).toPromise();
         theEval.global_status = 1;
         await this.evaluationApi.update(theEval).toPromise();
         this.validate();
@@ -280,7 +280,7 @@ export class GlobalEvaluationService {
     return new Promise(async (resolve, reject) => {
       const reference_to = new_reference_to ? new_reference_to : this.reference_to;
 
-      let theEval: EvaluationModel = await this.evaluationApi.getByRef(this.pia.id, reference_to).toPromise();
+      const theEval: EvaluationModel = await this.evaluationApi.getByRef(this.pia.id, reference_to).toPromise();
 
       if (!theEval) {
         const newEval = new EvaluationModel();
@@ -304,9 +304,9 @@ export class GlobalEvaluationService {
    */
   private verification() {
 
-    //NoAnswers
+    // NoAnswers
     if (!this.answersOrMeasures || this.answersOrMeasures.length === 0) {
-      this.status = GlobalEvaluationStatus.AnswersNone; //0
+      this.status = GlobalEvaluationStatus.AnswersNone; // 0
       return;
     }
 
@@ -318,15 +318,15 @@ export class GlobalEvaluationService {
       }
     });
 
-    //PendingAnswers
+    // PendingAnswers
     if (answersOrMeasuresValid.length !== this.questionsOrMeasures.length) {
-      this.status = GlobalEvaluationStatus.AnswersStarted; //1
+      this.status = GlobalEvaluationStatus.AnswersStarted; // 1
       return;
     }
 
-    //WaitingForEvaluationAsk
+    // WaitingForEvaluationAsk
     if (answersOrMeasuresValid.length === this.questionsOrMeasures.length && this.evaluations.length === 0) {
-      this.status = GlobalEvaluationStatus.AnswersCompleted; //2
+      this.status = GlobalEvaluationStatus.AnswersCompleted; // 2
       return;
     }
 
@@ -334,10 +334,10 @@ export class GlobalEvaluationService {
       return evaluation.isToBeFixed() && evaluation.isGloballyStarted();
     });
 
-    //SomeAnswersHaveToBeFixed
-  
+    // SomeAnswersHaveToBeFixed
+
     if (evaluationToBeFixed.length > 0) {
-      this.status = GlobalEvaluationStatus.AnswersToBeFixed; //3
+      this.status = GlobalEvaluationStatus.AnswersToBeFixed; // 3
       return;
     }
 
@@ -345,23 +345,23 @@ export class GlobalEvaluationService {
       return evaluation.isPending();
     });
 
-    //WaitingForEvaluations
+    // WaitingForEvaluations
     if (evaluationsNotStarted.length === this.evaluations.length) {
-      this.status = GlobalEvaluationStatus.EvaluationRequested; //4
+      this.status = GlobalEvaluationStatus.EvaluationRequested; // 4
       return;
     }
 
     const areEvaluationsValid: Array<EvaluationModel> = this.evaluations.filter((evaluation: EvaluationModel) => {
       return this.evaluationIsValid(evaluation);
     });
-    //PendingEvaluations
+    // PendingEvaluations
     if (areEvaluationsValid.length !== this.evaluations.length) {
-      this.status = GlobalEvaluationStatus.EvaluationStarted; //5
+      this.status = GlobalEvaluationStatus.EvaluationStarted; // 5
       return;
     }
-    //EvaluationsCompleted
+    // EvaluationsCompleted
     if (areEvaluationsValid.length === this.evaluations.length && evaluationToBeFixed.length === 0) {
-      this.status = GlobalEvaluationStatus.EvaluationCompleted; //6
+      this.status = GlobalEvaluationStatus.EvaluationCompleted; // 6
     }
 
     const evaluationsCompleted: Array<EvaluationModel> = this.evaluations.filter((evaluation: EvaluationModel) => {
@@ -370,9 +370,9 @@ export class GlobalEvaluationService {
 
     if (evaluationsCompleted.length === this.evaluations.length) {
       if (!this.pia.validationIsCompleted()) {
-        this.status = GlobalEvaluationStatus.ValidationRequested; //7
+        this.status = GlobalEvaluationStatus.ValidationRequested; // 7
       } else {
-        this.status = GlobalEvaluationStatus.ValidationCompleted; //8
+        this.status = GlobalEvaluationStatus.ValidationCompleted; // 8
       }
     }
   }
@@ -437,11 +437,11 @@ export class GlobalEvaluationService {
    * @memberof GlobalEvaluationService
    */
   private async answersVerification() {
-    let count = 0;
+    const count = 0;
     this.answersOrMeasures = [];
     return new Promise(async (resolve, reject) => {
       if (this.item.is_measure) {
-        let measures: MeasureModel[] = await this.measureApi.getAll(this.pia.id).toPromise();
+        const measures: MeasureModel[] = await this.measureApi.getAll(this.pia.id).toPromise();
         if (measures.length > 0) {
           this.questionsOrMeasures = measures;
           measures.forEach(measure => {
@@ -456,10 +456,10 @@ export class GlobalEvaluationService {
         this.questionsOrMeasures = this.item.questions;
 
         if (this.item.questions) {
-          let theAnswers = await this.answerApi.getAll(this.pia.id).toPromise();
+          const theAnswers = await this.answerApi.getAll(this.pia.id).toPromise();
 
           this.item.questions.forEach((question: any) => {
-            let theRefAnswer = theAnswers.find((item) => item.reference_to == question.id);
+            const theRefAnswer = theAnswers.find((item) => item.reference_to == question.id);
             if (theRefAnswer) {
               this.answersOrMeasures.push(theRefAnswer);
             }
@@ -477,13 +477,13 @@ export class GlobalEvaluationService {
    * @memberof GlobalEvaluationService
    */
   private async evaluationsVerification() {
-    let count = 0;
+    const count = 0;
     this.evaluations = [];
     return new Promise(async (resolve, reject) => {
 
       if (this.item.evaluation_mode === 'item') {
 
-        let theEval = await this.evaluationApi.getByRef(this.pia.id, this.reference_to).toPromise();
+        const theEval = await this.evaluationApi.getByRef(this.pia.id, this.reference_to).toPromise();
         this.evaluations = theEval ? [theEval] : [];
         return resolve();
 
@@ -494,7 +494,7 @@ export class GlobalEvaluationService {
 
         if (theMeasures && theMeasures.length > 0) {
           theMeasures.forEach(measure => {
-            let theRefEval = theEvaluations.find((item) => item.reference_to == (this.reference_to + '.' + measure.id));
+            const theRefEval = theEvaluations.find((item) => item.reference_to == (this.reference_to + '.' + measure.id));
             if (theRefEval) {
               this.evaluations.push(theRefEval);
             }
@@ -507,9 +507,9 @@ export class GlobalEvaluationService {
         const theEvaluations = await this.evaluationApi.getAll(this.pia.id).toPromise();
 
         this.item.questions.forEach(question => {
-          let theRefAnswer = theAnswers.find((item) => item.reference_to == question.id);
+          const theRefAnswer = theAnswers.find((item) => item.reference_to == question.id);
           if (theRefAnswer) {
-            let theRefEval = theEvaluations.find((item) => item.reference_to == (this.reference_to + '.' + theRefAnswer.reference_to));
+            const theRefEval = theEvaluations.find((item) => item.reference_to == (this.reference_to + '.' + theRefAnswer.reference_to));
             if (theRefEval) {
               this.evaluations.push(theRefEval);
             }
@@ -530,7 +530,7 @@ export class GlobalEvaluationService {
   private async deleteEvaluationInDb(reference_to: string) {
 
     return new Promise(async (resolve, reject) => {
-      let theRefEval = await this.evaluationApi.getByRef(this.pia.id, reference_to).toPromise();
+      const theRefEval = await this.evaluationApi.getByRef(this.pia.id, reference_to).toPromise();
       if (theRefEval) {
         await this.evaluationApi.delete(theRefEval).toPromise();
       }
@@ -544,10 +544,10 @@ export class GlobalEvaluationService {
    */
   setAnswerEditionEnabled() {
     this.answerEditionEnabled = [
-      GlobalEvaluationStatus.AnswersNone, //0
-      GlobalEvaluationStatus.AnswersStarted, //1
-      GlobalEvaluationStatus.AnswersCompleted, //2
-      GlobalEvaluationStatus.AnswersToBeFixed, //3
+      GlobalEvaluationStatus.AnswersNone, // 0
+      GlobalEvaluationStatus.AnswersStarted, // 1
+      GlobalEvaluationStatus.AnswersCompleted, // 2
+      GlobalEvaluationStatus.AnswersToBeFixed, // 3
     ].includes(this.status);
   }
 
@@ -557,9 +557,9 @@ export class GlobalEvaluationService {
    */
   setEvaluationEditionEnabled() {
     this.evaluationEditionEnabled = [
-      GlobalEvaluationStatus.EvaluationRequested, //4
-      GlobalEvaluationStatus.EvaluationStarted, //5
-      GlobalEvaluationStatus.EvaluationCompleted, //6
+      GlobalEvaluationStatus.EvaluationRequested, // 4
+      GlobalEvaluationStatus.EvaluationStarted, // 5
+      GlobalEvaluationStatus.EvaluationCompleted, // 6
     ].includes(this.status);
   }
 }

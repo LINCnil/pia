@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-//import * as b64ToBlob from 'b64toBlob';
+// import * as b64ToBlob from 'b64toBlob';
 
 import { ModalsService } from 'app/modals/modals.service';
 
@@ -149,19 +149,19 @@ export class AttachmentsService {
   }
 
   b64ToBlob(b64Data, contentType = '', sliceSize = 512) {
-    let byteCharacters = atob(b64Data);
-    let byteArrays = [];
+    const byteCharacters = atob(b64Data);
+    const byteArrays = [];
 
     for (let offset = 0; offset < byteCharacters.length; offset += sliceSize) {
-      let slice = byteCharacters.slice(offset, offset + sliceSize);
+      const slice = byteCharacters.slice(offset, offset + sliceSize);
 
-      let byteNumbers = new Array(slice.length);
+      const byteNumbers = new Array(slice.length);
       for (let i = 0; i < slice.length; i++) {
         byteNumbers[i] = slice.charCodeAt(i);
       }
-  
-      let byteArray = new Uint8Array(byteNumbers);
-  
+
+      const byteArray = new Uint8Array(byteNumbers);
+
       byteArrays.push(byteArray);
     }
 

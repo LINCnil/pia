@@ -8,8 +8,8 @@ export class Answer extends BaseModel {
   public data: { text: string, gauge: number, list: string[] };
   public answer_type: string;
 
-  public isValidForType(type: any):boolean {
-    let isValid:boolean = false;
+  public isValidForType(type: any): boolean {
+    let isValid = false;
     switch (<AnswerType>type) {
       case AnswerType.Gauge: {
          isValid = StringUtil.isNotEmpty(this.data.text) && this.data.gauge > 0;
@@ -29,7 +29,7 @@ export class Answer extends BaseModel {
 }
 
 export enum AnswerType {
-  Gauge = "gauge",
-  List = "list",
-  Text = "text"
+  Gauge = 'gauge',
+  List = 'list',
+  Text = 'text'
 }

@@ -4,7 +4,7 @@ import { Measure } from 'app/entry/entry-content/measures/measure.model';
 import { TranslateService } from '@ngx-translate/core';
 import { LanguagesService } from 'app/services/languages.service'
 
-//new import
+// new import
 import { EvaluationModel, AnswerModel, MeasureModel } from '@api/models';
 import { EvaluationApi, AnswerApi, MeasureApi } from '@api/services';
 
@@ -53,7 +53,7 @@ export class ActionPlanService {
 
         const reference_to = '2.' + item.id + '.' + q.id;
         this.evaluationApi.getByRef(this.pia.id, reference_to).subscribe((evaluation: EvaluationModel) => {
-          if(!evaluation){
+          if (!evaluation) {
             return;
           }
           if (evaluation.status > 0) {
