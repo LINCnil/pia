@@ -41,8 +41,7 @@ export class HeaderComponent implements OnInit {
     this.appVersion = environment.version;
 
     // Set the visibility for the PIA example button according to the current url
-    this.headerForHome = (this._router.url === '/home/card' ||
-                          this._router.url === '/home/list' ||
+    this.headerForHome = (this._router.url === '/home' ||
                           this._router.url === '/about' ||
                           this._router.url === '/help' ||
                           this._router.url === '/settings') ? true : false;

@@ -256,7 +256,7 @@ export class PiaService {
       this.attachmentApi.create(attachmentModel).subscribe();
     });
 
-    await this.piaApi.computeProgress(pia).toPromise();
+    this.piaApi.computeProgressFromAnswers(pia, data.answers);
     this.pias.push(pia);
   }
 
