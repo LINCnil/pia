@@ -114,7 +114,7 @@ export class DPOPeopleOpinionsComponent implements OnInit {
    * @memberof DPOPeopleOpinionsComponent
    */
   dpoNameFocusIn() {
-    if (this._piaService.pia.status >= 2 || this._piaService.pia.is_example === 1) {
+    if (this._piaService.pia.status >= 2 || this._piaService.pia.is_example) {
       return false;
     } else {
       this.DPOForm.controls['DPONames'].enable();
@@ -151,7 +151,7 @@ export class DPOPeopleOpinionsComponent implements OnInit {
    * @memberof DPOPeopleOpinionsComponent
    */
   enableDpoStatusRadioButtons() {
-    if (this._piaService.pia.status >= 2 || this._piaService.pia.is_example === 1) {
+    if (this._piaService.pia.status >= 2 || this._piaService.pia.is_example) {
       return false;
     } else {
       this.DPOForm.controls['DPOStatus'].enable();
@@ -174,7 +174,7 @@ export class DPOPeopleOpinionsComponent implements OnInit {
    * @memberof DPOPeopleOpinionsComponent
    */
   dpoOpinionFocusIn() {
-    if (this._piaService.pia.status >= 2 || this._piaService.pia.is_example === 1) {
+    if (this._piaService.pia.status >= 2 || this._piaService.pia.is_example) {
       return false;
     } else {
       this.DPOForm.controls['DPOOpinion'].enable();
@@ -205,7 +205,7 @@ export class DPOPeopleOpinionsComponent implements OnInit {
    * @memberof DPOPeopleOpinionsComponent
    */
   enableConcernedPeopleSearchedOpinionRadioButtons() {
-    if (this._piaService.pia.status >= 2 || this._piaService.pia.is_example === 1) {
+    if (this._piaService.pia.status >= 2 || this._piaService.pia.is_example) {
       return false;
     } else {
       this.searchedOpinionsForm.controls['searchStatus'].enable();
@@ -238,7 +238,7 @@ export class DPOPeopleOpinionsComponent implements OnInit {
    * @memberof DPOPeopleOpinionsComponent
    */
   peopleSearchContentFocusIn() {
-    if (this._piaService.pia.status >= 2 || this._piaService.pia.is_example === 1) {
+    if (this._piaService.pia.status >= 2 || this._piaService.pia.is_example) {
       return false;
     } else {
       this.searchedOpinionsForm.controls['searchContent'].enable();
@@ -269,7 +269,7 @@ export class DPOPeopleOpinionsComponent implements OnInit {
    * @memberof DPOPeopleOpinionsComponent
    */
   concernedPeopleNameFocusIn() {
-    if (this._piaService.pia.status >= 2 || this._piaService.pia.is_example === 1) {
+    if (this._piaService.pia.status >= 2 || this._piaService.pia.is_example) {
       return false;
     } else {
       this.peopleForm.controls['peopleNames'].enable();
@@ -306,7 +306,7 @@ export class DPOPeopleOpinionsComponent implements OnInit {
    * @memberof DPOPeopleOpinionsComponent
    */
   enableConcernedPeopleStatusRadioButtons() {
-    if (this._piaService.pia.status >= 2 || this._piaService.pia.is_example === 1) {
+    if (this._piaService.pia.status >= 2 || this._piaService.pia.is_example) {
       return false;
     } else {
       this.peopleForm.controls['peopleStatus'].enable();
@@ -331,7 +331,7 @@ export class DPOPeopleOpinionsComponent implements OnInit {
    * @memberof DPOPeopleOpinionsComponent
    */
   concernedPeopleOpinionFocusIn() {
-    if (this._piaService.pia.status >= 2 || this._piaService.pia.is_example === 1) {
+    if (this._piaService.pia.status >= 2 || this._piaService.pia.is_example) {
       return false;
     } else {
       this.peopleForm.controls['peopleOpinion'].enable();
