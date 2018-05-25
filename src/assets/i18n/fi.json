@@ -734,7 +734,7 @@
         "name": "Tietojen minimointi",
         "description": "Vähennä riskien vakavuutta minimoimalla käsiteltävät henkilötiedot toimenpiteillä, jotka vähentävät niiden arkaluonteisuutta.",
         "source": "Mesures_US"
-      },
+      }
     }
   },
   "comments": {
