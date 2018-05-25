@@ -37,7 +37,6 @@ export class AuthenticationService {
   }
 
   public isAuthenticated(): Promise<boolean> {
-
     return new Promise((resolve, reject) => {
       if (!UserTokenModel.hasLocalToken()) {
         resolve(false);
@@ -96,14 +95,6 @@ export class AuthenticationService {
         localStorage.setItem('token', userToken.toJsonString());
         this.userToken = userToken;
       }).toPromise();
-  }
-
-  protected setExpiryDate() {
-    const expiry = Moment();
-
-    this.userToken.expires_at = expiry.seconds(expiry.seconds() + this.userToken.expires_in)
-      .format(this.dateFormat)
-      ;
   }
 
 }
