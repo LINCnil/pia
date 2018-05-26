@@ -46,9 +46,9 @@
           </label>
         </div>
         <div class="pia-entryContentBlock-content-btn-valid">
-          <a [ngClass]="{'disabled-validation': _piaService.pia.is_example}" routerLink="/entry/{{_piaService.pia.id}}/section/4/item/5" class="btn btn-red" [innerHTML]="'validation_page.button.rejection' | translate"></a>
-          <button type="submit" class="btn btn-blue" [ngClass]="{'btn-active': _piaService.pia.status === 2, 'disabled-validation': _piaService.pia.is_example}" (click)="simplePIAValidation()" id="pia-simple-validation" [disabled]="_piaService.pia.status <= 1" [innerHTML]="'validation_page.button.simple_validation' | translate"></button>
-          <button type="submit" class="btn btn-red" [ngClass]="{'btn-active': _piaService.pia.status === 3, 'disabled-validation': _piaService.pia.is_example}" (click)="signedPIAValidation()" id="pia-sign-validation" [disabled]="_piaService.pia.status <= 1" [innerHTML]="'validation_page.button.signed_validation' | translate"></button>
+          <a [ngClass]="{'disabled-validation': _piaService.pia.is_example === 1}" routerLink="/entry/{{_piaService.pia.id}}/section/4/item/5" class="btn btn-red" [innerHTML]="'validation_page.button.rejection' | translate"></a>
+          <button type="submit" class="btn btn-blue" [ngClass]="{'btn-active': _piaService.pia.status === 2, 'disabled-validation': _piaService.pia.is_example === 1}" (click)="simplePIAValidation()" id="pia-simple-validation" [disabled]="_piaService.pia.status <= 1" [innerHTML]="'validation_page.button.simple_validation' | translate"></button>
+          <button type="submit" class="btn btn-red" [ngClass]="{'btn-active': _piaService.pia.status === 3, 'disabled-validation': _piaService.pia.is_example === 1}" (click)="signedPIAValidation()" id="pia-sign-validation" [disabled]="_piaService.pia.status <= 1" [innerHTML]="'validation_page.button.signed_validation' | translate"></button>
         </div>
         <p>{{ 'validation_page.mandatory_fields' | translate }}</p>
       </form>
@@ -68,7 +68,7 @@
     </div>
   </div>
 
-  <button [ngClass]="{'disabled-validation': _piaService.pia.is_example}" type="button" (click)="addAttachment()" *ngIf="_piaService.pia.status === 3" class="pia-entryContentBlock-submitAttachmentButton btn btn-red">{{ 'validation_page.add_signed_pia' | translate }}</button>
+  <button [ngClass]="{'disabled-validation': _piaService.pia.is_example === 1}" type="button" (click)="addAttachment()" *ngIf="_piaService.pia.status === 3" class="pia-entryContentBlock-submitAttachmentButton btn btn-red">{{ 'validation_page.add_signed_pia' | translate }}</button>
 
   <div>
     <app-pia-validate-history></app-pia-validate-history>
