@@ -20,7 +20,8 @@ import { LanguagesService } from 'app/services/languages.service';
 export class HeaderComponent implements OnInit {
   public increaseContrast: string;
   appVersion: string;
-  headerForHome: boolean;
+  pia_is_example: boolean;
+  pia_example: Pia;
 
   constructor(private _router: Router,
               private renderer: Renderer2,
@@ -34,13 +35,15 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
     this.appVersion = environment.version;
-
-    // Set the visibility for the PIA example button according to the current url
-    this.headerForHome = (this._router.url === '/home/card' ||
-                          this._router.url === '/home/list' ||
-                          this._router.url === '/about' ||
-                          this._router.url === '/help' ||
-                          this._router.url === '/settings') ? true : false;
+    this.pia_is_example = false;
+    this._piaService.getPIA().then(() => {
+      if (this._piaService.pia.is_example === 1) {
+        this.pia_is_example = true;
+        this.pia_example = this._piaService.pia;
+      } else if (!this._piaService.pia.id) {
+        this.loadPiaExample();
+      }
+    });
   }
 
   /**
@@ -68,27 +71,24 @@ export class HeaderComponent implements OnInit {
   }
 
   /**
-   * Import PIA example.
-   * @returns {Promise}
+   * Get or Load PIA example.
+   * @private
    * @memberof HeaderComponent
    */
-  importPiaExample() {
-    return new Promise((resolve, reject) => {
-      const pia = new Pia();
-      pia.getPiaExample().then((entry: any) => {
-        if (entry) {
-          this._router.navigate(['entry', entry.id, 'section', 1, 'item', 1]);
-        } else {
-          this._http.get('./assets/files/2018-02-21-pia-example.json').map(res => res.json()).subscribe(data => {
-            this._piaService.importData(data, 'EXAMPLE', false, true).then(() => {
-              pia.getPiaExample().then((entry2: any) => {
-                this._router.navigate(['entry', entry2.id, 'section', 1, 'item', 1]);
-              });
+  private loadPiaExample() {
+    const pia = new Pia();
+    pia.getPiaExample().then((entry: any) => {
+      if (entry) {
+        this.pia_example = entry;
+      } else {
+        this._http.get('./assets/files/2018-02-21-pia-example.json').map(res => res.json()).subscribe(data => {
+          this._piaService.importData(data, 'EXAMPLE', false, true).then(() => {
+            pia.getPiaExample().then((entry2: any) => {
+              this.pia_example = entry2;
             });
-            resolve();
           });
-        }
-      });
+        });
+      }
     });
   }
 }
