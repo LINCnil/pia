@@ -81,8 +81,8 @@ export class HeaderComponent implements OnInit {
       if (entry) {
         this.pia_example = entry;
       } else {
-        this._http.get('./assets/files/2018-02-21-pia-example.json').map(res => res.json()).subscribe(data => {
-          this._piaService.importData(data, 'EXAMPLE', false, true).then(() => {
+         this._http.get('./assets/files/2018-02-21-pia-example.json' ).subscribe(data => {
+            this._piaService.importData(data, 'EXAMPLE', false, true).then(() => {
             pia.getPiaExample().then((entry2: any) => {
               this.pia_example = entry2;
             });
