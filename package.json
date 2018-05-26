@@ -23,6 +23,7 @@
     "@angular/router": "~5.2.11",
     "@ngx-translate/core": "~8.0.0",
     "@ngx-translate/http-loader": "~1.0.2",
+    "@types/pdfjs-dist": "^0.1.2",
     "angular2-csv": "~0.2.5",
     "core-js": "~2.5.6",
     "d3": "~5.4.0",
@@ -32,10 +33,12 @@
     "ng2-pdf-viewer": "~5.0.1",
     "ngx-chips": "~1.5.11",
     "normalize.css": "~8.0.0",
+    "pdfjs-dist": "^2.0.489",
     "rollbar": "~2.4.0",
     "rxjs": "~5.6.0-forward-compat.4",
     "save-svg-as-png": "~1.4.2",
     "tinymce": "~4.7.13",
+    "webpack": "^4.9.1",
     "zone.js": "~0.8.26"
   },
   "devDependencies": {
