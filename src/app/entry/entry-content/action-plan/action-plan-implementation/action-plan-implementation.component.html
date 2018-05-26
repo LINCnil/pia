@@ -5,7 +5,7 @@
     </div>
     <div class="pia-details-blocks-content-comment" [innerHTML]="data.evaluation.action_plan_comment | safeHtml">
     </div>
-    <form *ngIf="!_piaService.pia.is_example" [formGroup]="actionPlanForm">
+    <form *ngIf="_piaService.pia.is_example !== 1" [formGroup]="actionPlanForm">
       <div (click)="estimatedEvaluationDateFocusIn()">
         <input type="date" #estimatedEvaluationDate (focusout)="estimatedEvaluationDateFocusOut()" formControlName="estimatedEvaluationDate">
       </div>

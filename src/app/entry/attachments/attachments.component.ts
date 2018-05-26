@@ -35,7 +35,7 @@ export class AttachmentsComponent implements OnInit {
    * @memberof AttachmentsComponent
    */
   addAttachment() {
-    if (this.pia.is_example) {
+    if (this.pia.is_example === 1) {
       return false;
     } else {
       this._attachmentsService.pia_signed = 0;
