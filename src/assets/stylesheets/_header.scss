@@ -53,6 +53,7 @@
           left: -1px;
           min-width: 200px;
           color: $pia-blue;
+          list-style-type: none;
           box-shadow: 2px 2px 4px 1px rgba(181, 181, 181, 1);
           li {
             text-align: left;
@@ -75,6 +76,7 @@
           }
           .officialTranslation,
           .cnilTranslations,
+          .dpaTranslations,
           .communityTranslations {
             font-weight: 600;
             color: #393939;
@@ -82,6 +84,7 @@
             padding: 5px 8px;
           }
           .cnilTranslations,
+          .dpaTranslations,
           .communityTranslations {
             border-top: 1px solid #A7A7A7;
             padding-bottom: 3px;

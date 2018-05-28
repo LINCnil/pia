@@ -20,7 +20,7 @@ export class ActionPlanImplementationComponent implements OnInit {
   @ViewChild('estimatedEvaluationDate') private estimatedEvaluationDate: ElementRef;
   @ViewChild('personInCharge') private personInCharge: ElementRef;
 
-  constructor(private _piaService: PiaService) { }
+  constructor(public _piaService: PiaService) { }
 
   ngOnInit() {
     this.actionPlanForm = new FormGroup({

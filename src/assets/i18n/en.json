@@ -16,6 +16,7 @@
     "languages": {
       "official_translation": "Original version",
       "cnil_translations": "CNIL provided translations",
+      "dpa_translations": "Translation revised by European DPA",
       "community_translations": "Community provided translations",
       "fr": "Français",
       "en": "English",
@@ -24,7 +25,12 @@
       "nl": "Nederlands",
       "pl": "Polski",
       "de": "Deutsch",
-      "es": "Español"
+      "es": "Español",
+      "pt": "Português",
+      "ro": "Română",
+      "fi": "Suomi",
+      "el": "Ελληνικά",
+      "no": "Norsk"
     },
     "tools": {
       "title": "Tools",
@@ -260,6 +266,16 @@
         "description": "Decide on whether the selected controls, residual risks and action plan are acceptable, with justifications, in view of the previously identified stakes and views of the stakeholders. In this way, the PIA may be:<br>- validated<br>- conditional on improvement (explain in what way)<br>- refused (along with the processing under consideration). Where necessary, repeat the previous steps so that the PIA can be validated. This decision does not prejudge the compliance assessment which may be carried out, where applicable, by the Data Protection Authority (the CNIL in France), as part of preliminary formalities or checks for example.",
         "source": "PIAF Connected Objects p40"
       },
+      "PIA_VAL_CART": {
+        "name": "Mapping of risks",
+        "description": "Graph illustrating the good security practices, with a conformity value attributed to each on the basis of its assessment in previous steps.",
+        "source": "PIAF Connected Objects p34"
+      },
+      "PIA_VAL_ACT": {
+        "name": "Action plan",
+        "description": "corrective controls suggested by the assessor in previous steps, drawing up an action plan setting out, for each action, its manager, frequency, difficulty, cost and progress.",
+        "source": "None"
+      },
       "PIA_TEC_CHIF": {
         "placeholder": "Describe here the means implemented for ensuring the confidentiality of data",
         "name": "Encryption",
@@ -344,6 +360,12 @@
         "description": "Policies describing how physical maintenance of hardware is managed, stating whether this is contracted out.<br> Indicate whether the remote maintenance of apps is authorized, and according to what arrangements. Specify whether defective equipment is managed in a specific manner.",
         "source": "PIAF Connected Objects p23"
       },
+      "PIA_SEC_CTR": {
+        "placeholder": "Describe here specific measures for processors (host, maintenance company, administrator, specialist service providers, etc.)",
+        "name": "Processing contracts",
+        "description": "TO BE TRANSLATED - Les données à caractère personnel communiquées à ou gérées par des sous-traitants doivent bénéficier de garanties suffisantes. <strong>Faire appel uniquement à des sous-traitants présentant des garanties suffisantes</strong> (notamment en termes de connaissances spécialisées, de fiabilité et de ressources). Exiger la communication par le prestataire de sa politique de sécurité des systèmes d’information. <br>Prendre et documenter les moyens (audits de sécurité, visite des installations, etc.) permettant d’<strong>assurer l’effectivité des garanties offertes par le sous-traitant<strong> en matière de protection des données. Ces garanties incluent notamment :<br> - le chiffrement des données selon leur sensibilité ou à défaut l’existence de procédures garantissant que la société de prestation n’a pas accès aux données qui lui sont confiées<br>- le chiffrement des transmissions de données (ex : connexion de type HTTPS, VPN, etc.)<br>- des garanties en matière de protection du réseau, de traçabilité (journaux, audits), de gestion des habilitations, d’authentification, etc.<br><strong>Prévoir un contrat avec les sous-traitants</strong>, qui définit notamment l’objet, la durée, la finalité du traitement et les obligations des parties. S’assurer qu’il contient en particulier des dispositions fixant :<br>- leur obligation en matière de confidentialité des données personnelles confiées<br>- des contraintes minimales en matière d’authentification des utilisateurs<br>- les conditions de restitution et/ou de destruction des données en fin du contrat<br>- les règles de gestion et de notification des incidents. Celles-ci devraient comprendre une information du responsable de traitement en cas de découverte de faille de sécurité ou d’incident de sécurité et cela dans les plus brefs délais lorsqu’il s’agit d’une violation de données à caractère personnel.<br>- Dans le cas de l’utilisation de fournisseur de cloud computing :<br>\t1. identifier clairement les données et les traitements qui passeront dans le cloud ;<br>\t2. définir ses propres exigences de sécurité technique et juridique ;<br>\t3. conduire une étude de risques afin d'identifier les mesures de sécurité appropriées ;<br>\t4. identifier le type de cloud pertinent pour le traitement envisagé ;<br>\t5. choisir un prestataire présentant des garanties suffisantes ;<br>\t6. revoir la politique de sécurité interne ;<br>\t7. surveiller les évolutions dans le temps.",
+        "source": "Mesures_US Procurement: identified and governed by a contract"
+      },
       "PIA_SEC_NET": {
         "placeholder": "Indicate here the security controls of network on which the processing is carried out",
         "name": "Network security",
@@ -377,7 +399,7 @@
       "PIA_SEC_PROT": {
         "placeholder": "Indicate here means to avoid to limit non-human sources of risks.",
         "name": "Protecting against non-human sources of risks",
-        "description": "Policies describing the means of fire prevention, detection and fighting. Where applicable, indicate the means of preventing water damage.Also specify the means of power supply monitoring and relief.",
+        "description": "Policies describing the means of fire prevention, detection and fighting. Where applicable, indicate the means of preventing water damage. Also specify the means of power supply monitoring and relief.",
         "source": "PIAF Connected Objects p23 - WIKI"
       },
       "PIA_ORG_ORG": {
@@ -463,6 +485,11 @@
         "description": "Reduce the severity of risks by limiting the amount of personal data to what is strictly necessary to achieve a defined purpose, otherwise the data shall be not collected.",
         "source": ""
       },
+      "PIA_DEF_MIND": {
+        "name": "TO BE TRANSLATED - Minimisation des données elles-mêmes",
+        "description": "TO BE TRANSLATED - Réduire la gravité des risques en minimisant les données elles-mêmes, par des mesures destinées à réduire leur sensibilité.",
+        "source": "TO BE TRANSLATED - WIKI Minimisation_des_données_:_adéquates,_pertinentes_et_limitées"
+      },
       "PIA_DEF_CONS": {
         "name": "Consent",
         "description": "Any freely given, specific, informed and unambiguous indication of the data subject's wishes by which he or she, by a statement or by a clear affirmative action, signifies agreement to the processing of personal data relating to him or her.<br>See <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 4.10 of [GDPR]</a>",
@@ -498,6 +525,16 @@
         "description": "The data subject shall have the right to object, on grounds relating to his or her particular situation, at any time to processing of personal data concerning him or her, pursuant to <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 21 of [GDPR]</a>",
         "source": "GDPR Art. 21"
       },
+      "PIA_DEF_CHIF": {
+        "name": "Encryption",
+        "description": "Measure making personal data unintelligible to anyone without access authorization (symmetric or asymmetric encryption, use of public algorithms known to be strong, authentication certificate, etc.).",
+        "source " : "Mesures_US Encryption"
+      },
+      "PIA_DEF_ANO": {
+        "name": "Anonymisation",
+        "description": "Process removing the identifying characteristics from personal data. To assess the robustness of an anonymisation processes, see the <a target=\"_blank\" href=\"http://ec.europa.eu/justice/data-protection/article-29/documentation/opinion-recommendation/files/2014/wp216_en.pdf\">WP29 guidelines</a>.",
+        "source": "Mesures_US and G29 guidelines http://ec.europa.eu/justice/data-protection/article-29/documentation/opinion-recommendation/files/2014/wp216_en.pdf"
+      },
       "PIA_DEF_PSEU": {
         "name": "Pseudonymisation",
         "description": "Processing of personal data in such a manner that the personal data can no longer be attributed to a specific data subject without the use of additional information, provided that such additional information is kept separately and is subject to technical and organisational measures to ensure that the personal data are not attributed to an identified or identifiable natural person.<br>Pseudonymisation  reduces  the  linkability  of  a  dataset  with  the  original  identity  of  a  data subject; as such, it is a useful security measure but not a method of anonymisation.",
@@ -512,6 +549,26 @@
         "name": "Logical access controls",
         "description": "Means implemented to limit the risks that unauthorized persons will access personal data electronically, it requires among other things to : <br>- <strong>manage users' profiles</strong> by separating tasks and areas of responsibility (preferably in centralised fashion) to limit access to personal data exclusively to authorised users by applying need-to-know and least-privilege principles;<br>- <strong>withdraw the rights of employees, contracting parties and other third parties when they are no longer authorised to access a premises or a resource</strong> or when their <strong>employment contract ends</strong>.",
         "source": "PIA3 p43 - WIKI"
+      },
+      "PIA_DEF_PWD": {
+        "name": "Password",
+        "description": "Passwords shall be composed of a minimum of eight characters; must be renewed if there is the least concern that they may have been compromised and, possibly, periodically (every six months or once a year) and must include a minimum of three of the four kinds of characters (capital letters, lower case letters, numerals and special characters); when a password is changed, the last five passwords may not be reused; the same password should not be used for different accesses; passwords should not be related to one's personal information (including name or date of birth.). Define a maximum number of attempts beyond which a warning is issued and authentication is blocked (temporarily or until it is manually unblocked).",
+        "source" : "Mesure_US"
+      },
+      "PIA_DEF_AUTH": {
+        "name": "Authentication",
+        "description": "Every person with legitimate access to personal data (employees, contracting parties and other third parties) should be identified by a unique identifier. Choose an authentication method to open sessions that is appropriate to the context, the risk level and the robustness expected. Recommendations: if the risks are not elevated, a password may be used; however, if the risks are higher, use a one-time password token but change the default activation password, or, when part of the password is sent by SMS, a card with a PIN code, an electronic certificate or any other form of strong authentication.",
+        "source": "Mesures_US Logical Access Control"
+      },
+      "PIA_DEF_LOG": {
+        "name": "Surveillance",
+        "description": "Set up a logging architecture to allow early detection of incidents involving personal data and to have information that can be used to analyze them or provide proof in connection with investigations.",
+        "source": "Mesures_US Surveillance"
+      },
+      "PIA_DEF_ARCH": {
+        "name": "Archiving",
+        "description": "Procedures preserving and managing the electronic archives containing the personal data intended to ensure their value (specifically, their legal value) throughout the entire period necessary (transfer, storage, migration, accessibility, elimination, archiving policy, protection of confidentiality, etc.).",
+        "source": "Mesures_USE Archiving"
       },
       "PIA_DEF_MIN1": {
         "name": "Filtering and removal",
@@ -567,16 +624,6 @@
         "name": "Personal data breach",
         "description": "Breach of security leading to the accidental or unlawful destruction, loss, alteration, unauthorised disclosure of, or access to, personal data transmitted, stored or otherwise processed.",
         "source": "GDPR Art. 4.12"
-      },
-      "PIA_VAL_CART": {
-        "name": "Mapping of risks",
-        "description": "Graph illustrating the good security practices, with a conformity value attributed to each on the basis of its assessment in previous steps.",
-        "source": "PIAF Connected Objects p34"
-      },
-      "PIA_VAL_ACT": {
-        "name": "Action plan",
-        "description": "corrective controls suggested by the assessor in previous steps, drawing up an action plan setting out, for each action, its manager, frequency, difficulty, cost and progress.",
-        "source": "None"
       },
       "PIA_DEF_ENJ": {
         "name": "Stakes",
@@ -687,41 +734,6 @@
         "name": "Minimisation of data themselves",
         "description": "Reduce the severity of risks by minimising the data themselves, by taking measures aimed at reducing their sensitivity.",
         "source": "Mesures_US"
-      },
-      "PIA_DEF_ANO": {
-        "name": "Anonymisation",
-        "description": "Process removing the identifying characteristics from personal data. To assess the robustness of an anonymisation processes, see the <a target=\"_blank\" href=\"http://ec.europa.eu/justice/data-protection/article-29/documentation/opinion-recommendation/files/2014/wp216_en.pdf\">WP29 guidelines</a>.",
-        "source": "Mesures_US and G29 guidelines http://ec.europa.eu/justice/data-protection/article-29/documentation/opinion-recommendation/files/2014/wp216_en.pdf"
-      },
-      "PIA_SEC_CTR": {
-        "placeholder": "Describe here specific measures for processors (host, maintenance company, administrator, specialist service providers, etc.)",
-        "name": "Processing contracts",
-        "source": "Mesures_US Procurement: identified and governed by a contract"
-      },
-      "PIA_DEF_CHIF": {
-        "name": "Encryption",
-        "description": "Measure making personal data unintelligible to anyone without access authorization (symmetric or asymmetric encryption, use of public algorithms known to be strong, authentication certificate, etc.).",
-        "source " : "Mesures_US Encryption"
-      },
-      "PIA_DEF_PWD": {
-        "name": "Password",
-        "description": "Passwords shall be composed of a minimum of eight characters; must be renewed if there is the least concern that they may have been compromised and, possibly, periodically (every six months or once a year) and must include a minimum of three of the four kinds of characters (capital letters, lower case letters, numerals and special characters); when a password is changed, the last five passwords may not be reused; the same password should not be used for different accesses; passwords should not be related to one's personal information (including name or date of birth.). Define a maximum number of attempts beyond which a warning is issued and authentication is blocked (temporarily or until it is manually unblocked).",
-        "source" : "Mesure_US"
-      },
-      "PIA_DEF_AUTH": {
-        "name": "Authentication",
-        "description": "Every person with legitimate access to personal data (employees, contracting parties and other third parties) should be identified by a unique identifier. Choose an authentication method to open sessions that is appropriate to the context, the risk level and the robustness expected. Recommendations: if the risks are not elevated, a password may be used; however, if the risks are higher, use a one-time password token but change the default activation password, or, when part of the password is sent by SMS, a card with a PIN code, an electronic certificate or any other form of strong authentication.",
-        "source": "Mesures_US Logical Access Control"
-      },
-      "PIA_DEF_LOG": {
-        "name": "Surveillance",
-        "description": "Set up a logging architecture to allow early detection of incidents involving personal data and to have information that can be used to analyze them or provide proof in connection with investigations.",
-        "source": "Mesures_US Surveillance"
-      },
-      "PIA_DEF_ARCH": {
-        "name": "Archiving",
-        "description": "Procedures preserving and managing the electronic archives containing the personal data intended to ensure their value (specifically, their legal value) throughout the entire period necessary (transfer, storage, migration, accessibility, elimination, archiving policy, protection of confidentiality, etc.).",
-        "source": "Mesures_USE Archiving"
       }
     }
   },
@@ -845,7 +857,7 @@
     "signed_attachments_history": "Signed attachments history",
     "tools": {
       "dashboard": "Dashboard",
-      "display_pia": "Display PIA",
+      "display_pia": "Display report",
       "action_plan": "Action plan"
     }
   },
@@ -873,26 +885,27 @@
     "start_evaluation": "Start review",
     "back_to_home": "Back to home",
     "simple_pia_validation": {
-      "content": "The PIA has been validated."
+      "content": "You have approved the PIA."
     },
     "completed_edition": {
-      "content": "The PIA has been fully edited, it has to be reviewed."
+      "content": "The PIA has been fully edited and has to be reviewed."
     },
     "completed_evaluation": {
-      "content": "The PIA has been fully reviewed, it has to be validated."
+      "content": "The PIA has been fully reviewed and can be validated."
     },
     "update_server_url": {
       "content": "The server address has been updated."
     },
     "signed_pia_validation": {
-      "content": "<span class='strong'>The PIA is accepted</span><br>Finalize the validation of the PIA by attaching<br>the signed report by the person in charge.",
-      "download_pia": "Download PIA report"
+      "content": "To approve the PIA, attach the signed report.",
+      "download_pia": "Download report"
     },
     "abandon_pia": {
-      "content": "Are you sure you want to<br>give up this treatment?"
+      "content": "Do you wish to give up the processing?",
+      "additional_text": "Archiving is not definitive and the PIA can go back to it if needed."
     },
     "refuse_pia": {
-      "content": "<span class='strong'>Rejected PIA,</span><br>Several fields must be corrected.<br>Return to evaluation mode<br>to make corrections."
+      "content": "As you have rejected the PIA, it is sent back for review to make the required changes."
     },
     "same_comment": {
       "content": "<span class='strong'>Warning,</span><br>Please enter a comment different from the last recorded."
@@ -906,16 +919,16 @@
       "keep": "Keep this <br>measure"
     },
     "ask_for_evaluation": {
-      "content": "<span class='strong'>Congratulations,</span><br>the subsection is now<br>available for evaluation."
+      "content": "This section is ready to be reviewed."
     },
     "validate_evaluation": {
-      "content": "<span class='strong'>Congratulations,</span><br>you've finished evaluating this section.<br>Others parts of the PIA has to be evaluated as well in order to be able to validate the PIA."
+      "content": "This section is ready for validating the PIA."
     },
     "validate_evaluation_to_correct": {
       "content": "Sorry,<br>Several fields must be corrected.<br>Return to edition mode<br>to make corrections."
     },
     "declare_measures": {
-      "content": "Sorry,<br>before evaluating risks,<br>you must report the<br>existing or planned measures.",
+      "content": "Before evaluating risks,<br>you must report the<br>existing or planned measures.",
       "declare": "Declare existing or planned measures"
     },
     "remove_pia": {
@@ -925,21 +938,51 @@
     "remove_attachment": {
       "content": "<span class='strong'>Warning,</span><br>Are you sure you want to<br>remove this attachment?",
       "keep": "Keep",
-      "remove": "Remove"
+      "remove": "Remove",
+      "comment": "Comment"
+    },
+    "action_plan_no_evaluation": {
+      "content": "You need to begin the review of the analysis to create the action plan.",
+      "review_section": "Review a section"
+    },
+    "dpo_missing_evaluations": {
+      "content": "You need to complete the review of the analysis to access the DPO page.",
+      "review_section": "Review a section",
+      "remove": "Remove",
+      "comment": "Comment"
+    },
+    "modal_select_text_pia": {
+      "content": "The content of the PIA has been copied to clipboard."
+    },
+    "back_to_edition": {
+      "content": "This section has been sent back for editing.<br> Several fields must be corrected<br> to enable its proper review."
+    },
+    "back_to_evaluation": {
+      "content": "This section has been sent back for review.<br> Several fields must be reviewed<br> to enable its proper validation."
     }
   },
   "summary": {
     "previous_page": "Back to previous page",
     "print": "Print",
-    "display_pia": "Display PIA",
-    "display_action_plan": "Display<br>action plan",
+    "copy_to_clipboard": "Copy to clipboard",
+    "download_images": "Download images",
+    "download_csv": "Download a CSV export",
+    "csv_action_plan_comment": "Action plan comment",
+    "csv_evaluation_comment": "Evaluation comment",
+    "csv_section": "Section",
+    "csv_title_object": "Title",
+    "csv_implement_date": "Estimated implementation date",
+    "csv_people_in_charge": "Person in charge",
+    "csv_file_title": "action-plan",
     "display_filters": {
       "title": "Display filters",
       "main_content": "Display section \"PIA information\"",
       "context_content": "Display section \"Context\"",
       "principles_content": "Display section \"Fundamental principles\"",
       "risks_content": "Display section \"Risks\"",
-      "action_plan_content": "Display action plan"
+      "action_plan_content": "Display action plan",
+      "risks_overview_content": "Display risks overview",
+      "risks_cartography_content": "Display risk mapping"
     },
     "title": "PIA information",
     "pia_name": "PIA",
@@ -978,7 +1021,9 @@
       "measures": "Existing or planned measures",
       "risks": "Risks",
       "no_action_plan": "No action plan recorded."
-    }
+    },
+    "risks_overview_title": "Risks overview",
+    "risks_cartography_title": "Risk mapping"
   },
   "errors": {
     "title": "Page not found.",
