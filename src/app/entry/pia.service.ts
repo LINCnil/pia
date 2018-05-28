@@ -247,14 +247,16 @@ export class PiaService {
       });
     }
 
-    // Create attachments
-    data.attachments.forEach(attachment => {
-      attachment.id = null;
-      const attachmentModel = new AttachmentModel();
-      attachmentModel.fromJson(attachment);
-      attachmentModel.pia_id = pia.id;
-      this.attachmentApi.create(attachmentModel).subscribe();
-    });
+    if(data.attachments) {
+      // Create attachments
+      data.attachments.forEach(attachment => {
+        attachment.id = null;
+        const attachmentModel = new AttachmentModel();
+        attachmentModel.fromJson(attachment);
+        attachmentModel.pia_id = pia.id;
+        this.attachmentApi.create(attachmentModel).subscribe();
+      });
+    }
 
     this.piaApi.computeProgressFromAnswers(pia, data.answers);
     this.pias.push(pia);
