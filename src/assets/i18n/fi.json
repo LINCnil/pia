@@ -938,7 +938,8 @@
     "remove_attachment": {
       "content": "<span class='strong'>Varoitus,</span><br>Haluatko varmasti<br>poistaa tämän liitteen?",
       "keep": "Säilytä",
-      "remove": "Poista"
+      "remove": "Poista",
+      "comment": "TO BE TRANSLATED - Comment"
     },
     "action_plan_no_evaluation": {
       "content": "TO BE TRANSLATED - You need to begin the review of the analysis to create the action plan.",
