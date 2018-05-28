@@ -16,7 +16,7 @@
     "languages": {
       "official_translation": "Versão original",
       "cnil_translations": "Translações fornecidas pela CNIL",
-      "dpa_translations": "TO BE TRANSLATED - Traduction révisée par les ADP européenne",
+      "dpa_translations": "TO BE TRANSLATED - Translation revised by European DPA",
       "community_translations": "Translações fornecidas pela comunidade",
       "fr": "Français",
       "en": "English",
@@ -486,9 +486,9 @@
         "source": ""
       },
       "PIA_DEF_MIND": {
-        "name": "Minimisation des données elles-mêmes",
-        "description": "Réduire la gravité des risques en minimisant les données elles-mêmes, par des mesures destinées à réduire leur sensibilité.",
-        "source": "WIKI Minimisation_des_données_:_adéquates,_pertinentes_et_limitées"
+        "name": "TO BE TRANSLATED - Minimization of data themselves",
+        "description": "TO BE TRANSLATED - Reduce the severity of risks by minimizing the data themselves, by taking measures aimed at reducing their sensitivity such as filtering and removing unnecessary data, pseudonymising data, etc.",
+        "source": "PIA3 p64"
       },
       "PIA_DEF_CONS": {
         "name": "Consentimento",
@@ -962,7 +962,7 @@
       "content": "PARA SER TRADUZIDO - O conteúdo de PIA foi copiado para a área de transferência."
     },
     "back_to_edition": {
-      "content": "TO BE TRANSLATED - La partie est renvoyée en édition,<br>des informations doivent être ajoutées<br>pour permettre son évaluation."
+      "content": "TO BE TRANSLATED - This section has been sent back for editing.<br> Several fields must be corrected<br> to enable its proper review."
     },
     "back_to_evaluation": {
       "content": "Esta secção foi enviada de volta para revisão.<br> Devem ser revistos vários campos<br> para permitir sua validação adequada."

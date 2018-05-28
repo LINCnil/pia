@@ -16,7 +16,7 @@
     "languages": {
       "official_translation": "Versiune Originală",
       "cnil_translations": "Traduceri oferite de către CNIL",
-      "dpa_translations": "TO BE TRANSLATED - Traduction révisée par les ADP européenne",
+      "dpa_translations": "TO BE TRANSLATED - Translation revised by European DPA",
       "community_translations": "Traduceri oferite de către Comunitate",
       "fr": "Français",
       "en": "English",
@@ -486,9 +486,9 @@
         "source": ""
       },
       "PIA_DEF_MIND": {
-        "name": "TO BE TRANSLATED - Minimisation des données elles-mêmes",
-        "description": "TO BE TRANSLATED - Réduire la gravité des risques en minimisant les données elles-mêmes, par des mesures destinées à réduire leur sensibilité.",
-        "source": "TO BE TRANSLATED - WIKI Minimisation_des_données_:_adéquates,_pertinentes_et_limitées"
+        "name": "TO BE TRANSLATED - Minimization of data themselves",
+        "description": "TO BE TRANSLATED - Reduce the severity of risks by minimizing the data themselves, by taking measures aimed at reducing their sensitivity such as filtering and removing unnecessary data, pseudonymising data, etc.",
+        "source": "PIA3 p64"
       },
       "PIA_DEF_CONS": {
         "name": "Consimțământ",
@@ -909,7 +909,7 @@
     },
     "abandon_pia": {
       "content": "Sunteți sigur că doriți să renunțați<br>give up this treatment?",
-      "additional_text": "TO BE TRANSLATED - L'archivage n'est pas définitif et vous pouvez<br>reprendre l'analyse plus tard si besoin."
+      "additional_text": "TO BE TRANSLATED - Archiving is not definitive and the PIA can go back to it if needed."
     },
     "refuse_pia": {
       "content": "<span class='strong'>PIA respinsă,</span><br>Câteva câmpuri trebuie corectate.<br>Reveniți la modul de evaluare<br>pentru a face corecții."
@@ -971,16 +971,16 @@
   "summary": {
     "previous_page": "Înapoi la pagina anterioară",
     "print": "Printare",
-    "copy_to_clipboard": "TO BE TRANSLATED - Copier dans le presse-papier",
-    "download_images": "TO BE TRANSLATED - Télécharger les images",
-    "download_csv": "TO BE TRANSLATED - Télécharger un export CSV",
+    "copy_to_clipboard": "TO BE TRANSLATED - Copy to clipboard",
+    "download_images": "TO BE TRANSLATED - Download images",
+    "download_csv": "TO BE TRANSLATED - Download a CSV export",
     "csv_section": "TO BE TRANSLATED - Section",
-    "csv_title_object": "TO BE TRANSLATED - Titre de l'objet concerné",
-    "csv_action_plan_comment": "TO BE TRANSLATED - Commentaires du plan d'actions",
-    "csv_evaluation_comment": "TO BE TRANSLATED - Commentaires d'évaluation",
-    "csv_file_title": "plan-d-action",
-    "csv_implement_date": "TO BE TRANSLATED - Date d'implémentation estimée",
-    "csv_people_in_charge": "TO BE TRANSLATED - Responsable de la mise en oeuvre",
+    "csv_title_object": "TO BE TRANSLATED - Title",
+    "csv_action_plan_comment": "TO BE TRANSLATED - Action plan comment",
+    "csv_evaluation_comment": "TO BE TRANSLATED - Evaluation comment",
+    "csv_file_title": "action-plan",
+    "csv_implement_date": "TO BE TRANSLATED - Estimated implementation date",
+"csv_people_in_charge": "TO BE TRANSLATED - Person in charge",
     "display_filters": {
       "title": "Afișează filtrele",
       "main_content": "Afișează secțiunea \"Informații PIA\"",
@@ -988,8 +988,8 @@
       "principles_content": "Afișează secțiunea \"Principii fundamentale\"",
       "risks_content": "Afișează secțiunea \"Riscuri\"",
       "action_plan_content": "Afișează planul de acțiune",
-      "risks_overview_content": "TO BE TRANSLATED - Afficher la vue d'ensemble des risques",
-      "risks_cartography_content": "TO BE TRANSLATED - Afficher la cartographie des risques"
+      "risks_overview_content": "TO BE TRANSLATED - Display risks overview",
+"risks_cartography_content": "TO BE TRANSLATED - Display risk mapping"
     },
     "title": "Informații PIA",
     "pia_name": "PIA",
@@ -1029,8 +1029,8 @@
       "risks": "Riscuri",
       "no_action_plan": "Niciun plan de acțiune înregistrat."
     },
-    "risks_overview_title": "TO BE TRANSLATED - Vue d'ensemble des risques",
-    "risks_cartography_title": "TO BE TRANSLATED - Cartographie des risques"
+    "risks_overview_title": "TO BE TRANSLATED - Risks overview",
+    "risks_cartography_title": "TO BE TRANSLATED - Risk mapping"
   },
   "errors": {
     "title": "Pagina nu a fost găsită.",

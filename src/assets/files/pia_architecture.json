@@ -238,7 +238,8 @@
               "short_title": "sections.2.items.2.questions.5.short_title",
               "link_knowledge_base": [
                 "PIA_LGL_LIM",
-                "PIA_DEF_LIM"
+                "PIA_DEF_LIM",
+                "PIA_DEF_OPP"
               ],
               "placeholder": "sections.2.items.2.questions.5.placeholder",
               "answer_type": "text",
