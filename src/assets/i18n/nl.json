@@ -141,14 +141,14 @@
         "evaluation": {
           "title": "Wachten op review.",
           "content": "Dit onderdeel is nog niet gereviewed. Indien je dit inhoud, die ingediend is voor rewiew, wenst aan te passen moet je ",
-          "cancel": "TO BE TRANSLATED - de review verzoek annuleren.",
-          "cancel_button": "TO BE TRANSLATED - Annuleer review verzoek"
+          "cancel": "De review verzoek annuleren.",
+          "cancel_button": "Annuleer review verzoek"
         },
         "validation": {
           "title": "Wachten op validatie.",
           "content": "Dit onderdeel is gereviewed en wacht op de algmene PIA validatie. Indien je de review wenst aan te passen moet je ",
-          "cancel": "TO BE TRANSLATED - het validatieverzoek annuleren.",
-          "cancel_button": "TO BE TRANSLATED - Annuleer het validatieverzoek"
+          "cancel": "Het validatieverzoek annuleren.",
+          "cancel_button": "Annuleer het validatieverzoek"
         }
       }
     },
@@ -898,7 +898,7 @@
     },
     "signed_pia_validation": {
       "content": "TO BE TRANSLATED - To approve the PIA, attach the signed report.",
-      "download_pia": "Download rapport"
+      "download_pia": "TO BE TRANSLATED - Download rapport"
     },
     "abandon_pia": {
       "content": "TO BE TRANSLATED - Do you wish to give up the processing?",
