@@ -102,7 +102,7 @@
       "column_actions": "Toiminnat",
       "item": {
         "tools": {
-          "consult": "TO BE TRANSLATED - Consulter",
+          "consult": "TO BE TRANSLATED - Consult",
           "edit": "Muokkaa",
           "export": "Vie",
           "duplicate": "Kahdenna",
@@ -125,8 +125,8 @@
     "header": {
       "preview": "Esikatselu",
       "display_action_plan": "Näytä<br>toimintasuunnitelma",
-      "edition": "TO BE TRANSLATED - Édition",
-      "evaluation": "TO BE TRANSLATED - Évaluation"
+      "edition": "TO BE TRANSLATED - Edition",
+      "evaluation": "TO BE TRANSLATED - Evaluation"
     },
     "attachments": {
       "title": "Liitteet",
@@ -139,16 +139,16 @@
       "refuse_pia": "Hylätty vaikutustenarviointi",
       "status": {
         "evaluation": {
-          "title": "TO BE TRANSLATED",
-          "content": "TO BE TRANSLATED",
-          "cancel": "TO BE TRANSLATED",
-          "cancel_button": "TO BE TRANSLATED - Annuler la demande d'évaluation"
+         "cancel": "TO BE TRANSLATED - Cancel the review request.",
+          "cancel_button": "TO BE TRANSLATED - Cancel the review request",
+          "content": "TO BE TRANSLATED - This part has not yet been reviewed. If you wish to edit the content submitted for review you have to ",
+          "title": "TO BE TRANSLATED - Waiting for review."
         },
         "validation": {
-          "title": "TO BE TRANSLATED",
-          "content": "TO BE TRANSLATED",
-          "cancel": "TO BE TRANSLATED",
-          "cancel_button": "TO BE TRANSLATED - Annuler la demande de validation"
+          "title": "TO BE TRANSLATED - Waiting for validation.",
+          "content": "TO BE TRANSLATED - This part has been reviewed and is waiting for the overal PIA validation. If you wish to change the review, you have to",
+          "cancel": "TO BE TRANSLATED - cancel the validation request.",
+          "cancel_button": "TO BE TRANSLATED - Cancel the validation request"
         }
       }
     },
@@ -853,8 +853,8 @@
     "validated_pia_with_signature": "Validoitu",
     "add_signed_pia": "Lisää allekirjoitettu tietosuojaa koskeva vaikutustenarviointi",
     "remove_attachment": "Poista liite",
-    "latest_signed_attachment": "TO BE TRANSLATED - Dernière pièce jointe signée",
-    "signed_attachments_history": "TO BE TRANSLATED - Historique des pièces jointes signées",
+    "latest_signed_attachment": "TO BE TRANSLATED - Last signed attachment",
+    "signed_attachments_history": "TO BE TRANSLATED - Signed attachments history",
     "tools": {
       "dashboard": "Ohjauspaneeli",
       "display_pia": "Näytä vaikutustenarviointi",
@@ -882,16 +882,16 @@
     "archive": "Arkistoi",
     "close": "Sulje",
     "continue": "Jatka",
-    "start_evaluation": "TO BE TRANSLATED - Commencer l'évaluation",
+    "start_evaluation": "TO BE TRANSLATED - Start review",
     "back_to_home": "Takaisin alkuun",
     "simple_pia_validation": {
       "content": "Tietosuojaa koskeva vaikutustenarviointi on validoitu."
     },
     "completed_edition": {
-      "content": "TO BE TRANSLATED - Toutes les parties sont éditées.<br>L'analyse doit maintenant être évaluée."
+      "content": "TO BE TRANSLATED - The PIA has been fully edited and has to be reviewed."
     },
     "completed_evaluation": {
-      "content": "TO BE TRANSLATED - Toutes les parties sont évaluées.<br>L'analyse peut être validée."
+      "content": "TO BE TRANSLATED - The PIA has been fully reviewed and can be validated."
     },
     "update_server_url": {
       "content": "Palvelimen osoite on päivitetty."
@@ -902,7 +902,7 @@
     },
     "abandon_pia": {
       "content": "Haluatko varmasti<br>lopettaa käsittelyn?",
-      "additional_text": "TO BE TRANSLATED - L'archivage n'est pas définitif et vous pouvez<br>reprendre l'analyse plus tard si besoin."
+      "additional_text": "TO BE TRANSLATED - Archiving is not definitive and the PIA can go back to it if needed."
     },
     "refuse_pia": {
       "content": "<span class='strong'>Tietosuojaa koskeva vaikutustenarviointi on hylätty,</span><br>Useiden kenttien sisältöä on korjattava.<br>Palaa arviointitilaan<br>ja tee korjaukset."
@@ -941,47 +941,47 @@
       "remove": "Poista"
     },
     "action_plan_no_evaluation": {
-      "content": "TO BE TRANSLATED - Veuillez commencer l'évaluation de l'analyse pour génerer le plan d'actions.",
-      "review_section": "TO BE TRANSLATED - Évaluer une section"
+      "content": "TO BE TRANSLATED - You need to begin the review of the analysis to create the action plan.",
+      "review_section": "TO BE TRANSLATED - Review a section"
     },
     "dpo_missing_evaluations": {
-      "content": "TO BE TRANSLATED - Veuillez compléter l'évaluation de l'analyse pour accéder à la page des DPO.",
-      "review_section": "TO BE TRANSLATED - Évaluer une section",
-      "remove": "TO BE TRANSLATED - Supprimer",
-      "comment": "TO BE TRANSLATED - Commentaire"
+      "content": "TO BE TRANSLATED - You need to complete the review of the analysis to access the DPO page.",
+      "review_section": "TO BE TRANSLATED - Review a section",
+      "remove": "TO BE TRANSLATED - Remove",
+      "comment": "TO BE TRANSLATED - Comment"
     },
     "modal_select_text_pia": {
-      "content": "TO BE TRANSLATED - Le contenu du Rapport PIA a été copié dans votre presse-papier."
+      "content": "TO BE TRANSLATED - The content of the PIA has been copied to clipboard."
     },
     "back_to_edition": {
-      "content": "TO BE TRANSLATED - La partie est renvoyée en édition,<br>des informations doivent être ajoutées<br>pour permettre son évaluation."
+      "content": "TO BE TRANSLATED - This section has been sent back for editing.<br> Several fields must be corrected<br> to enable its proper review."
     },
     "back_to_evaluation": {
-      "content": "TO BE TRANSLATED - La partie est renvoyée en évaluation,<br>des informations doivent être réévaluées<br>pour permettre sa validation."
+      "content": "TO BE TRANSLATED - This section has been sent back for review.<br> Several fields must be reviewed<br> to enable its proper validation."
     }
   },
   "summary": {
     "previous_page": "Takaisin edelliselle sivulle",
     "print": "Tulosta",
-    "copy_to_clipboard": "TO BE TRANSLATED - Copier dans le presse-papier",
-    "download_images": "TO BE TRANSLATED - Télécharger les images",
-    "download_csv": "TO BE TRANSLATED - Télécharger un export CSV",
+    "copy_to_clipboard": "TO BE TRANSLATED - Copy to clipboard",
+    "download_images": "TO BE TRANSLATED - Download images",
+    "download_csv": "TO BE TRANSLATED - Download a CSV export",
     "csv_section": "TO BE TRANSLATED - Section",
-    "csv_title_object": "TO BE TRANSLATED - Titre de l'objet concerné",
-    "csv_action_plan_comment": "TO BE TRANSLATED - Commentaires du plan d'actions",
-    "csv_evaluation_comment": "TO BE TRANSLATED - Commentaires d'évaluation",
-    "csv_file_title": "plan-d-action",
-    "csv_implement_date": "TO BE TRANSLATED - Date d'implémentation estimée",
-    "csv_people_in_charge": "TO BE TRANSLATED - Responsable de la mise en oeuvre",
+    "csv_title_object": "TO BE TRANSLATED - Title",
+    "csv_action_plan_comment": "TO BE TRANSLATED - Action plan comment",
+    "csv_evaluation_comment": "TO BE TRANSLATED - Evaluation comment",
+    "csv_file_title": "action-plan",
+    "csv_implement_date": "TO BE TRANSLATED - Estimated implementation date",
+    "csv_people_in_charge": "TO BE TRANSLATED - Person in charge",
     "display_filters": {
-      "title": "TO BE TRANSLATED - Filtres d'affichage",
-      "main_content": "TO BE TRANSLATED - Afficher la section \"Informations du PIA\"",
-      "context_content": "TO BE TRANSLATED - Afficher la section \"Contexte\"",
-      "principles_content": "TO BE TRANSLATED - Afficher la section \"Principes fondamentaux\"",
-      "risks_content": "TO BE TRANSLATED - Afficher la section \"Risques\"",
-      "action_plan_content": "TO BE TRANSLATED - Afficher le plan d'action",
-      "risks_overview_content": "TO BE TRANSLATED - Afficher la vue d'ensemble des risques",
-      "risks_cartography_content": "TO BE TRANSLATED - Afficher la cartographie des risques"
+      "title": "TO BE TRANSLATED - Display filters",
+      "main_content": "TO BE TRANSLATED - Display section \"PIA information\"",
+      "context_content": "TO BE TRANSLATED - Display section \"Context\"",
+      "principles_content": "TO BE TRANSLATED - Display section \"Fundamental principles\"",
+      "risks_content": "TO BE TRANSLATED - Display section \"Risks\"",
+      "action_plan_content": "TO BE TRANSLATED - Display action plan",
+      "risks_overview_content": "TO BE TRANSLATED - Display risks overview",
+      "risks_cartography_content": "TO BE TRANSLATED - Display risk mapping"
     },
     "title": "Tietosuojaa koskevan vaikutustenarvioinnin tiedot",
     "pia_name": "Tietosuojaa koskeva vaikutustenarviointi",
@@ -1021,8 +1021,8 @@
       "risks": "Riskit",
       "no_action_plan": "Toimintasuunnitelmaa ei ole kirjattu."
     },
-    "risks_overview_title": "TO BE TRANSLATED - Vue d'ensemble des risques",
-    "risks_cartography_title": "TO BE TRANSLATED - Cartographie des risques"
+    "risks_overview_title": "TO BE TRANSLATED - Risks overview",
+    "risks_cartography_title": "TO BE TRANSLATED - Risk mapping"
   },
   "errors": {
     "title": "Sivua ei löytynyt.",
