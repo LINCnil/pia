@@ -16,7 +16,7 @@
     "languages": {
       "official_translation": "Originele versie",
       "cnil_translations": "Vertalingen door CNIL",
-      "dpa_translations": "TO BE TRANSLATED - Traduction révisée par les ADP européenne",
+      "dpa_translations": "TO BE TRANSLATED - Translation revised by European DPA",
       "community_translations": "Vertalingen door community",
       "fr": "Français",
       "en": "English",
@@ -141,14 +141,14 @@
         "evaluation": {
           "title": "Wachten op review.",
           "content": "Dit onderdeel is nog niet gereviewed. Indien je dit inhoud, die ingediend is voor rewiew, wenst aan te passen moet je ",
-          "cancel": "TO BE TRANSLATED - de review verzoek annuleren.",
-          "cancel_button": "TO BE TRANSLATED - Annuleer review verzoek"
+          "cancel": "De review verzoek annuleren.",
+          "cancel_button": "Annuleer review verzoek"
         },
         "validation": {
           "title": "Wachten op validatie.",
           "content": "Dit onderdeel is gereviewed en wacht op de algmene PIA validatie. Indien je de review wenst aan te passen moet je ",
-          "cancel": "TO BE TRANSLATED - het validatieverzoek annuleren.",
-          "cancel_button": "TO BE TRANSLATED - Annuleer het validatieverzoek"
+          "cancel": "Het validatieverzoek annuleren.",
+          "cancel_button": "Annuleer het validatieverzoek"
         }
       }
     },
@@ -486,9 +486,9 @@
         "source": ""
       },
       "PIA_DEF_MIND": {
-        "name": "TO BE TRANSLATED - Minimisation des données elles-mêmes",
-        "description": "TO BE TRANSLATED - Réduire la gravité des risques en minimisant les données elles-mêmes, par des mesures destinées à réduire leur sensibilité.",
-        "source": "TO BE TRANSLATED - WIKI Minimisation_des_données_:_adéquates,_pertinentes_et_limitées"
+        "name": "TO BE TRANSLATED - Minimization of data themselves",
+        "description": "TO BE TRANSLATED - Reduce the severity of risks by minimizing the data themselves, by taking measures aimed at reducing their sensitivity such as filtering and removing unnecessary data, pseudonymising data, etc.",
+        "source": "PIA3 p64"
       },
       "PIA_DEF_CONS": {
         "name": "Toestemming",
@@ -898,7 +898,7 @@
     },
     "signed_pia_validation": {
       "content": "TO BE TRANSLATED - To approve the PIA, attach the signed report.",
-      "download_pia": "Download rapport"
+      "download_pia": "TO BE TRANSLATED - Download rapport"
     },
     "abandon_pia": {
       "content": "TO BE TRANSLATED - Do you wish to give up the processing?",
