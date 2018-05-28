@@ -85,7 +85,7 @@ export class ActionPlanService {
         const reference_to = '3.1.' + m.id;
         this.measures[reference_to] = null;
         this.evaluationApi.getByRef(this.pia.id, reference_to).subscribe((evaluation2: EvaluationModel) => {
-          if (evaluation2.status > 0) {
+          if (evaluation2 && evaluation2.status > 0) {
             if (evaluation2.action_plan_comment && evaluation2.action_plan_comment.length > 0) {
               this.measuresActionPlanReady = true;
             }
