@@ -1,19 +1,29 @@
 import { Component, ElementRef, OnInit } from '@angular/core';
-import { PiaService } from 'app/entry/pia.service';
-import { AttachmentsService } from 'app/entry/attachments/attachments.service';
+import { Router, ActivatedRoute, Params } from '@angular/router';
+import { Subscription } from 'rxjs/Subscription';
+import {element} from 'protractor';
+import * as html2canvas from 'html2canvas';
+import { saveSvgAsPng } from 'save-svg-as-png';
+import { Angular2Csv } from 'angular2-csv';
+
 import { Answer } from 'app/entry/entry-content/questions/answer.model';
 import { Measure } from 'app/entry/entry-content/measures/measure.model';
 import { Evaluation } from 'app/entry/entry-content/evaluations/evaluation.model';
-import { ActionPlanService } from 'app/entry/entry-content/action-plan//action-plan.service';
-import { Router, ActivatedRoute, Params } from '@angular/router';
-import { AppDataService } from 'app/services/app-data.service';
 
+import { ActionPlanService } from 'app/entry/entry-content/action-plan//action-plan.service';
+import { AppDataService } from 'app/services/app-data.service';
 import { TranslateService } from '@ngx-translate/core';
+import { ModalsService } from '../modals/modals.service';
+import { PiaService } from 'app/entry/pia.service';
+import { AttachmentsService } from 'app/entry/attachments/attachments.service';
 
 @Component({
   selector: 'app-summary',
   templateUrl: './summary.component.html',
-  styleUrls: ['./summary.component.scss'],
+  styleUrls: [
+    './summary.component.scss',
+    '../entry/entry-content/action-plan/action-plan.component.scss'
+  ],
   providers: [PiaService]
 })
 export class SummaryComponent implements OnInit {
@@ -22,10 +32,12 @@ export class SummaryComponent implements OnInit {
   pia: any;
   allData: Object;
   dataNav: any;
-  showPiaTpl: boolean;
-  displayFilters: boolean;
   displayMainPiaData: boolean;
   displayActionPlan: boolean;
+  summarySubscription: Subscription;
+  displayOnlyActionPlan: boolean;
+  displayRisksOverview: boolean;
+  displayRisksCartography: boolean;
 
   constructor(private el: ElementRef,
               private route: ActivatedRoute,
@@ -33,32 +45,97 @@ export class SummaryComponent implements OnInit {
               public _actionPlanService: ActionPlanService,
               private _translateService: TranslateService,
               private _appDataService: AppDataService,
-              public _piaService: PiaService) { }
+              public _piaService: PiaService,
+              private _modalService: ModalsService) { }
 
   async ngOnInit() {
+    this.summarySubscription = this.route.queryParams.subscribe(params => {
+      this.displayOnlyActionPlan = params['displayOnlyActionPlan'];
+    });
+
     this.content = [];
     this.dataNav = await this._appDataService.getDataNav();
-    this.displayMainPiaData = true;
-    this.displayActionPlan = true;
+
     this._piaService.getPIA().then(() => {
       this.pia = this._piaService.pia;
-      this.showPiaTpl = true;
+      this.displayMainPiaData = true;
+      this.displayActionPlan = true;
+      this.displayRisksOverview = true;
+      this.displayRisksCartography = true;
       this.showPia().then(() => {
-        if (this.route.snapshot.params['type'] === 'action_plan') {
-          this.showPiaTpl = false;
-          this.displayFilters = false;
-        } else {
-          this.displayFilters = true;
+        // Disable all filters (except action plan) if displaying only action plan
+        if (this.displayOnlyActionPlan) {
+          this.toggleMainContent();
+          this.toggleContextContent();
+          this.toggleFundamentalPrinciplesContent();
+          this.toggleRisksContent();
+          this.toggleRisksOverviewContent();
+          this.toggleRisksCartographyContent();
         }
       });
     });
+  }
+
+  downloadAllGraphsAsImages() {
+    this.getActionPlanOverviewImg();
+    this.getRisksOverviewImg();
+    this.getRisksCartographyImg();
+  }
+
+  getActionPlanOverviewImg() {
+    setTimeout(() => {
+      const actionPlanOverviewImg = document.querySelector('#actionPlanOverviewImg');
+      if (actionPlanOverviewImg) {
+        html2canvas(actionPlanOverviewImg, {scale: 1.4}).then(canvas => {
+          if (canvas) {
+            const img = canvas.toDataURL();
+            this.downloadURI(img, 'actionPlanOverview.png');
+          }
+        });
+      }
+    }, 500);
+  }
+
+  getRisksOverviewImg() {
+    setTimeout(() => {
+        const mysvg = document.getElementById('risksOverviewSvg');
+        if (mysvg) {
+          saveSvgAsPng(mysvg, 'risksOverview.png', {
+            backgroundColor: 'white',
+            scale: 1.4,
+            encoderOptions: 1,
+            width: 760});
+        }
+    }, 500);
+  }
+
+  getRisksCartographyImg() {
+    setTimeout(() => {
+      const risksCartographyImg = document.querySelector('#risksCartographyImg');
+      if (risksCartographyImg) {
+        html2canvas(risksCartographyImg, {scale: 1.4}).then(canvas => {
+          if (canvas) {
+            const img = canvas.toDataURL();
+            this.downloadURI(img, 'risksCartography.png');
+          }
+        });
+      }
+    }, 500);
+  }
+
+  downloadURI(uri, name) {
+    const link = document.createElement('a');
+    link.download = name;
+    link.href = uri;
+    document.body.appendChild(link);
+    link.click();
   }
 
   /**
    * Display or hide the main Pia data.
    * @memberof SummaryComponent
    */
-  displayMainContent() {
+  toggleMainContent() {
     this.displayMainPiaData = !this.displayMainPiaData;
   }
 
@@ -66,62 +143,65 @@ export class SummaryComponent implements OnInit {
    * Display or hide the main Pia data.
    * @memberof SummaryComponent
    */
-  displayContextContent() {
-    const contextSection = this.el.nativeElement.querySelector('.section-1');
-    contextSection.classList.toggle('hide');
+  toggleContextContent() {
+    setTimeout(() => {
+      const contextSection = this.el.nativeElement.querySelector('.section-1');
+      contextSection.classList.toggle('hide');
+    }, 100);
   }
 
   /**
    * Display or hide the main Pia data.
    * @memberof SummaryComponent
    */
-  displayFundamentalPrinciplesContent() {
-    const fundamentalPrinciplesSection = this.el.nativeElement.querySelector('.section-2');
-    fundamentalPrinciplesSection.classList.toggle('hide');
+  toggleFundamentalPrinciplesContent() {
+    setTimeout(() => {
+      const fundamentalPrinciplesSection = this.el.nativeElement.querySelector('.section-2');
+      fundamentalPrinciplesSection.classList.toggle('hide');
+    }, 100);
   }
 
   /**
    * Display or hide the main Pia data.
    * @memberof SummaryComponent
    */
-  displayRisksContent() {
-    const risksSection = this.el.nativeElement.querySelector('.section-3');
-    risksSection.classList.toggle('hide');
+  toggleRisksContent() {
+    setTimeout(() => {
+      const risksSection = this.el.nativeElement.querySelector('.section-3');
+      risksSection.classList.toggle('hide');
+    }, 100);
   }
 
   /**
    * Display or hide the action plan.
    * @memberof SummaryComponent
    */
-  displayActionPlanContent() {
+  toggleActionPlanContent() {
     this.displayActionPlan = !this.displayActionPlan;
   }
 
   /**
-   * Switch from Pia overview to action plan overview, and vice versa.
+   * Display or hide the risks overview for the current PIA.
    * @memberof SummaryComponent
    */
-  displayPiaSummary() {
-    const filtersBlock = this.el.nativeElement.querySelector('.pia-summaryFiltersBlock');
-    const displayFilters = this.el.nativeElement.querySelector('.pia-summaryFiltersBlock input');
-    if (displayFilters) {
-      [].forEach.call(displayFilters, function (filter) {
-        filter.checked = true;
-      });
-    }
-    this.showPiaTpl = !this.showPiaTpl;
-    this.displayFilters = !this.displayFilters;
-    this.displayMainPiaData = true;
-    this.displayActionPlan = true;
+  toggleRisksOverviewContent() {
+    this.displayRisksOverview = !this.displayRisksOverview;
   }
 
   /**
-   * Prepare and display the PIA information.
+   * Display or hide the risks cartography for the current PIA.
+   * @memberof SummaryComponent
+   */
+  toggleRisksCartographyContent() {
+    this.displayRisksCartography = !this.displayRisksCartography;
+  }
+
+  /**
+   * Prepare and display the PIA information
    * @memberof SummaryComponent
    */
   async showPia() {
     this.prepareHeader();
-
     this._actionPlanService.data = this.dataNav;
     this._actionPlanService.pia = this.pia;
 
@@ -138,7 +218,7 @@ export class SummaryComponent implements OnInit {
     });
 
     this.getJsonInfo();
-    this._actionPlanService.listActionPlan(this._translateService);
+    this._actionPlanService.listActionPlan();
   }
 
   /**
@@ -148,7 +228,38 @@ export class SummaryComponent implements OnInit {
   showActionPlan() {
     this._actionPlanService.data = this.dataNav;
     this._actionPlanService.pia = this.pia;
-    this._actionPlanService.listActionPlan(this._translateService);
+    this._actionPlanService.listActionPlan();
+  }
+
+  /**
+   * Get a csv document.
+   * @protected
+   * @returns {Object}
+   * @memberof Angular2Csv
+   */
+  public async download() {
+    const options = {
+      fieldSeparator: ';',
+      quoteStrings: '"',
+      decimalseparator: '.',
+      showLabels: true,
+      showTitle: false,
+      useBom: true,
+      headers: [
+        this._translateService.instant('summary.csv_section'),
+        this._translateService.instant('summary.csv_title_object'),
+        this._translateService.instant('summary.csv_action_plan_comment'),
+        this._translateService.instant('summary.csv_evaluation_comment'),
+        this._translateService.instant('summary.csv_implement_date'),
+        this._translateService.instant('summary.csv_people_in_charge')
+      ]
+    }
+
+    this._actionPlanService.getCsv();
+
+    return new Angular2Csv(this._actionPlanService.csvRows,
+                           this._translateService.instant('summary.csv_file_title'),
+                           options);
   }
 
   /**
@@ -278,29 +389,34 @@ export class SummaryComponent implements OnInit {
       section.items.forEach(async (item) => {
         this.allData[section.id][item.id] = {}
         const ref = section.id.toString() + '.' + item.id.toString();
+
+        // Measure
         if (item.is_measure) {
           this.allData[section.id][item.id] = []
           const measuresModel = new Measure();
           measuresModel.pia_id = this.pia.id;
           const entries: any = await measuresModel.findAll();
           entries.forEach(async (measure) => {
+            /* Completed measures */
             if (measure.title !== undefined && measure.content !== undefined) {
+              let evaluation = null;
+              if (item.evaluation_mode === 'question') {
+                evaluation = await this.getEvaluation(section.id, item.id, ref + '.' + measure.id);
+              }
               this.allData[section.id][item.id].push({
                 title: measure.title,
                 content: measure.content,
-                evaluation: null
+                evaluation: evaluation
               })
-              if (item.evaluation_mode === 'question') {
-                const evaluation = await this.getEvaluation(section.id, item.id, ref + '.' + measure.id);
-                this.allData[section.id][item.id].evaluation = evaluation;
-              }
             }
           });
-        } else if (item.questions) {
+        } else if (item.questions) { // Question
           item.questions.forEach(async (question) => {
             this.allData[section.id][item.id][question.id] = {}
             const answerModel = new Answer();
             await answerModel.getByReferenceAndPia(this.pia.id, question.id);
+
+            /* An answer exists */
             if (answerModel.data) {
               const content = [];
               if (answerModel.data.gauge && answerModel.data.gauge > 0) {
@@ -359,4 +475,29 @@ export class SummaryComponent implements OnInit {
       resolve(evaluation);
     });
   }
+
+  /**
+   * Select all text from page.
+   * @memberof Angular2Csv
+   */
+  getTextSelection() {
+    const actionPlanOverview = document.getElementById('actionPlanOverviewImg');
+    if (actionPlanOverview) {
+      actionPlanOverview.classList.toggle('hide');
+    }
+    const select = document.getElementById('force-select-all');
+    select.focus();
+    const range = document.createRange();
+    range.selectNodeContents(select);
+    const sel = window.getSelection();
+    sel.removeAllRanges();
+    sel.addRange(range);
+    document.execCommand('Copy', false, range);
+    document.execCommand('SelectText', false , range);
+    this._modalService.openModal('modal-select-text-pia');
+    if (actionPlanOverview) {
+      actionPlanOverview.classList.toggle('hide');
+    }
+  }
 }
+

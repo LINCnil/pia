@@ -67,7 +67,7 @@
       <div *ngIf="!_actionPlanService.measuresActionPlanReady; else listMeasuresActionPlanComment">
         <div class="pia-entryContentBlock-content-details-blocks">
           <div class="pia-details-blocks-content">
-            {{ 'action_plan.no_action_plan' | translate }}
+             <div>{{ 'action_plan.no_action_plan' | translate }}</div>
           </div>
         </div>
       </div>
@@ -81,7 +81,7 @@
       <div *ngIf="!_actionPlanService.risksActionPlan32Ready && !_actionPlanService.risksActionPlan33Ready && !_actionPlanService.risksActionPlan34Ready; else listRisksActionPlanComment">
         <div class="pia-entryContentBlock-content-details-blocks">
           <div class="pia-details-blocks-content">
-            {{ 'action_plan.no_action_plan' | translate }}
+             <div>{{ 'action_plan.no_action_plan' | translate }}</div>
           </div>
         </div>
       </div>
