@@ -1,7 +1,7 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "outDir": "../pia-app/dist/out-tsc",
+    "outDir": "./dist/out-tsc",
     "baseUrl": "src",
     "sourceMap": true,
     "declaration": false,
