@@ -25,7 +25,6 @@
     "@ngx-translate/core": "^8.0.0",
     "@ngx-translate/http-loader": "^1.0.2",
     "@types/url-template": "^2.0.28",
-    "angular2-csv": "^0.2.5",
     "angular5-csv": "^0.2.10",
     "babel-polyfill": "^6.26.0",
     "core-js": "^2.5.6",
