@@ -24,7 +24,7 @@ export class PermissionsService {
     return await this.ngxPermissionsService.hasPermission(permissionName);
   }
 
-  public activeCurrentRoles(roleNames: string[]): void {
+  public activateCurrentRoles(roleNames: string[]): void {
     let permissions = [];
     roleNames.forEach((roleName) => {
       const role = this.ngxRolesService.getRole(roleName);
