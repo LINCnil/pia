@@ -8,7 +8,7 @@
     "start": "Start"
   },
   "header": {
-    "logo_title": "Ocena skutków dla ochrony danych",
+    "logo_title": "Ocena skutków dla ochrony prywatności",
     "logo_subtitle": "Privacy impact assessment",
     "homepage_link": "Strona główna",
     "knowledge_base_link": "Baza wiedzy",
@@ -16,7 +16,7 @@
     "languages": {
       "official_translation": "Wersja oryginalna",
       "cnil_translations": "Wersje przetłumaczone przez CNIL",
-      "dpa_translations": "TO BE TRANSLATED - Translation revised by European DPA",
+      "dpa_translations": "Tłumaczenia zweryfikowane przez krajowe organy nadzorcze",
       "community_translations": "Wersja przetłumaczone przez społeczność",
       "cz": "Česky",
       "de": "Deutsch",
@@ -131,8 +131,8 @@
     },
     "attachments": {
       "title": "Załączniki",
-      "add": "Dodanie",
-      "remove": "Usunięcie"
+      "add": "Dodaj załącznik",
+      "remove": "Usuń"
     },
     "sections": {
       "homepage_link": "Powrót do powitania",
@@ -147,7 +147,7 @@
         },
         "validation": {
           "title": "Oczekiwanie na zatwierdzenie.",
-          "content": "Ta część została oceniona i czeka na końcowe zatwierdzenie PIA. Jeśli chcesz wyedytować przegląd ",
+          "content": "Ta część została oceniona i czeka na końcowe zatwierdzenie PIA. Jeśli chcesz wyedytować tą sekcję ",
           "cancel": "anuluj prośbę o zatwierdzenie.",
           "cancel_button": "Anuluj prośbę o zatwierdzenie"
         }
@@ -487,8 +487,8 @@
         "source": ""
       },
       "PIA_DEF_MIND": {
-        "name": "TO BE TRANSLATED - Minimization of data themselves",
-        "description": "TO BE TRANSLATED - Reduce the severity of risks by minimizing the data themselves, by taking measures aimed at reducing their sensitivity such as filtering and removing unnecessary data, pseudonymising data, etc.",
+        "name": "Minimalizacja samych danych",
+        "description": "Zmniejszenie wagi zagrożeń poprzez minimalizację samych danych. Minimalizacji danych można dokonać poprzez podjęcie działań mających na celu zmniejszenie ich wrażliwości, takich jak: filtrowanie i usuwanie niepotrzebnych danych, stosowanie pseudonimizacji danych itp.",
         "source": "PIA3 p64"
       },
       "PIA_DEF_CONS": {
@@ -886,7 +886,7 @@
     "start_evaluation": "Rozpoczęcie oceny",
     "back_to_home": "Powrót do powitania",
     "simple_pia_validation": {
-      "content": "TO BE TRANSLATED - You have approved the PIA."
+      "content": "Masz zatwierdzone PIA."
     },
     "completed_edition": {
       "content": "Dokonano całkowitej analizy PIA, obecnie należy dokonać jej oceny."
@@ -898,15 +898,15 @@
       "content": "Adres serwera został zaktualizowany."
     },
     "signed_pia_validation": {
-      "content": "TO BE TRANSLATED - To approve the PIA, attach the signed report.",
+      "content": "Aby zatwierdzić PIA, dołącz podpisany raport.",
       "download_pia": "Pobranie raportu"
     },
     "abandon_pia": {
-      "content": "TO BE TRANSLATED - Do you wish to give up the processing?",
-      "additional_text": "TO BE TRANSLATED - Archiving is not definitive and the PIA can go back to it if needed."
+      "content": "Czy chcesz zrezygnować z przetwarzania?",
+      "additional_text": "Rezygnacja nie musi być ostateczna. Jeśli zajdzie potrzeba można wrócić do tej oceny."
     },
     "refuse_pia": {
-      "content": "TO BE TRANSLATED - As you have rejected the PIA, it is sent back for review to make the required changes."
+      "content": "Ponieważ odrzuciłeś PIA, zostaje ona odesłana do sprawdzenia w celu wprowadzenia wymaganych zmian."
     },
     "same_comment": {
       "content": "<span class='strong'>Uwaga</span><br>Należy wprowadzić inny komentarz niż ostatnio zarejestrowany."
@@ -920,13 +920,13 @@
       "keep": "Zachowanie <br>środka"
     },
     "ask_for_evaluation": {
-      "content": "TO BE TRANSLATED - This section is ready to be reviewed."
+      "content": "Ta sekcja jest gotowa do sprawdzenia."
     },
     "validate_evaluation": {
-      "content": "<span class='strong'>Gratulacje,</span><br>ocena tej sekcji została zakończona.<br>Pozostałe części PIA również muszą zostać ocenione, aby móc zatwierdzić PIA"
+      "content": "<span class='strong'>Gratulacje,</span><br>ocena tej sekcji została zakończona.<br>Pozostałe sekcje również muszą zostać ocenione, aby móc zatwierdzić PIA"
     },
     "validate_evaluation_to_correct": {
-      "content": "Niestety<br>Kilka pól wymaga poprawek.<br>Powrót do trybu edycji<br>w celu naniesienia poprawek."
+      "content": "Odesłano do edycji w celu naniesienia poprawek."
     },
     "declare_measures": {
       "content": "Przed oceną ryzyka<br>należy zadeklarować środki<br>istniejące lub przewidziane.",
@@ -937,53 +937,53 @@
       "remove": "Usuń PIA"
     },
     "remove_attachment": {
-      "content": "<span class='strong'>Uwaga</span><br>Czy na pewno chcą Państwo<br>usunąć ten załącznik?",
-      "keep": "Zachowanie",
-      "remove": "Usunięcie",
-      "comment": "TO BE TRANSLATED - Comment"
+      "content": "Czy na pewno chcesz usunąć ten załącznik?",
+      "keep": "Zachowaj",
+      "remove": "Usuń",
+      "comment": "Komentarz"
     },
     "action_plan_no_evaluation": {
-      "content": "TO BE TRANSLATED - You need to begin the review of the analysis to create the action plan.",
-      "review_section": "TO BE TRANSLATED - Review a section"
+      "content": "Musisz przejrzeć analizę by rozpocząć plan działania.",
+      "review_section": "Przegląd sekcji"
     },
     "dpo_missing_evaluations": {
-      "content": "TO BE TRANSLATED - You need to complete the review of the analysis to access the DPO page.",
-      "review_section": "TO BE TRANSLATED - Review a section",
+      "content": "Musisz zatwierdzić wszystkie sekcje by przejść do strony poświęconej uwagom Inspektora Ochrony Danych",
+      "review_section": "Przegląd sekcji",
       "remove": "Usunięcie",
-      "comment": "TO BE TRANSLATED - Comment"
+      "comment": "Komentarz"
     },
     "modal_select_text_pia": {
-      "content": "TO BE TRANSLATED - The content of the PIA has been copied to clipboard."
+      "content": "Zawartość została skopiowana do schowka."
     },
     "back_to_edition": {
-      "content": "TO BE TRANSLATED - This section has been sent back for editing.<br> Several fields must be corrected<br> to enable its proper review."
+      "content": "Sekcja została odesłana do ponownej edycji."
     },
     "back_to_evaluation": {
-      "content": "TO BE TRANSLATED - This section has been sent back for review.<br> Several fields must be reviewed<br> to enable its proper validation."
+      "content": "Sekcja została odesłana do ponownej oceny."
     }
   },
   "summary": {
     "previous_page": "Powrót do poprzedniej strony",
     "print": "Drukowanie",
-    "copy_to_clipboard": "TO BE TRANSLATED - Copy to clipboard",
-    "download_images": "TO BE TRANSLATED - Download images",
-    "download_csv": "TO BE TRANSLATED - Download a CSV export",
-    "csv_action_plan_comment": "TO BE TRANSLATED - Action plan comment",
-    "csv_evaluation_comment": "TO BE TRANSLATED - Evaluation comment",
-    "csv_section": "TO BE TRANSLATED - Section",
-    "csv_title_object": "TO BE TRANSLATED - Title",
-    "csv_implement_date": "TO BE TRANSLATED - Estimated implementation date",
-    "csv_people_in_charge": "TO BE TRANSLATED - Person in charge",
-    "csv_file_title": "TO BE TRANSLATED - action-plan",
+    "copy_to_clipboard": "Kopiuj do schowka",
+    "download_images": "Pobierz obrazy",
+    "download_csv": "Pobierz w formacie csv",
+    "csv_action_plan_comment": "Komentarz do planu działania",
+    "csv_evaluation_comment": "Komentarz do oceny",
+    "csv_section": "Sekcja",
+    "csv_title_object": "Tytuł",
+    "csv_implement_date": "Szacowana data wdrożenia",
+    "csv_people_in_charge": "Osoba odpowiedzialna",
+    "csv_file_title": "Plan działania",
     "display_filters": {
-      "title": "TO BE TRANSLATED - Filters",
-      "main_content": "TO BE TRANSLATED - Display \"PIA information\"",
-      "context_content": "TO BE TRANSLATED - Display \"Context\"",
-      "principles_content": "TO BE TRANSLATED - Display \"Fundamental principles\"",
-      "risks_content": "TO BE TRANSLATED - Display \"Risks\"",
-      "action_plan_content": "TO BE TRANSLATED - Display action plan",
-      "risks_overview_content": "TO BE TRANSLATED - Display risks overview",
-      "risks_cartography_content": "TO BE TRANSLATED - Display risk mapping"
+      "title": "Filtry",
+      "main_content": "Wyświetl \"Informacje\"",
+      "context_content": "Wyświetl \"Kontekst przetwarzania\"",
+      "principles_content": "Wyświetl \"Podstawowe zasady\"",
+      "risks_content": "Wyświetl \"Ryzyka\"",
+      "action_plan_content": "Wyświetl plan działania",
+      "risks_overview_content": "Wyświetl przegląd ryzyka",
+      "risks_cartography_content": "Wyświetl mapę ryzyka"
     },
     "title": "Informacje o PIA",
     "pia_name": "Nazwa PIA",
@@ -1016,15 +1016,15 @@
     },
     "action_plan": {
       "title": "Plan działania",
-      "fundamental_principles": "Zasady fundamentalne",
+      "fundamental_principles": "Podstawowe zasady",
       "implementation_date": "Planowana data wdrożenia",
       "implementation_responsible": "Osoba odpowiedzialna za wdrożenie",
       "measures": "Środki istniejące lub przewidziane",
       "risks": "Ryzyka",
       "no_action_plan": "Brak zarejestrowanego planu działania."
     },
-    "risks_overview_title": "TO BE TRANSLATED - Risks overview",
-    "risks_cartography_title": "TO BE TRANSLATED - Risk mapping"
+    "risks_overview_title": "Przegląd ryzyka",
+    "risks_cartography_title": "Mapowanie ryzyka"
   },
   "errors": {
     "title": "Brak strony.",
@@ -1063,7 +1063,7 @@
   },
   "action_plan": {
     "title": "Przegląd",
-    "principles": "Zasady fundamentalne",
+    "principles": "Podstawowe zasady",
     "measures": "Środki istniejące lub przewidziane",
     "risks": "Ryzyka",
     "risk1": "Dostęp nieupoważniony do danych",
@@ -1105,7 +1105,7 @@
             },
             "2": {
               "title": "Jakie odpowiedzialności są związane z tym przetwarzaniem?",
-              "placeholder": "Należy opisać odpowiedzialności zaangażowanych stron: administratora danych, ewentualnych podmiotów przetwarzających oraz współadministratorów."
+              "placeholder": "Należy opisać zakres odpowiedzialności zaangażowanych stron: administratora danych, ewentualnych podmiotów przetwarzających oraz współadministratorów."
             },
             "3": {
               "title": "Jakie standardy mają zastosowanie?",
@@ -1134,8 +1134,8 @@
       }
     },
     "2": {
-      "title": "Zasady fundamentalne",
-      "short_help": "Ta sekcja pozwala zbudować zgodność z zasadami prywatności.",
+      "title": "Podstawowe zasady",
+      "short_help": "Ta sekcja pozwala zbudować zgodność z zasadami ochrony danych.",
       "items": {
         "1": {
           "title": "Proporcjonalność i konieczność",
