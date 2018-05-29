@@ -3,8 +3,6 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
 
-import { Pia } from '../entry/pia.model';
-
 import { ModalsService } from 'app/modals/modals.service';
 import { PiaService } from 'app/entry/pia.service';
 
@@ -20,7 +18,7 @@ import { PiaApi } from '@api/services';
 
 export class CardsComponent implements OnInit, OnDestroy {
   @Input() pia: any;
-  newPia: Pia;
+  newPia: PiaModel;
   piaForm: FormGroup;
   importPiaForm: FormGroup;
   sortOrder: string;
@@ -81,7 +79,7 @@ export class CardsComponent implements OnInit, OnDestroy {
    * @memberof CardsComponent
    */
   newPIA() {
-    this.newPia = new Pia();
+    this.newPia = new PiaModel();
     const cardsToSwitch = document.getElementById('cardsSwitch');
     cardsToSwitch.classList.toggle('flipped');
     const rocketToHide = document.getElementById('pia-rocket');
