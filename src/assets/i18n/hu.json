@@ -1065,9 +1065,9 @@
     "legend3": "(A)Adatokhoz való jogosulatlan hozzáférés",
     "legend4": "(M)Az adatok véletlen vagy jogellenes megváltoztatása",
     "legend5": "(D)Adatvesztés",
-    "risk1_access": "(A)",,
-    "risk3_disappearance": "(M)"
-    "risk2_modification": "(D)"
+    "risk1_access": "(A)",
+    "risk2_modification": "(M)",
+    "risk3_disappearance": "(D)"
   },
   "action_plan": {
     "title": "Áttekintés",
