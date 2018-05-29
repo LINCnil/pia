@@ -64,6 +64,7 @@ export class AppComponent {
       */
 
     this.permissionsService.loadRolesAndPermissions({
+      'ROLE_USER': [],
       'ROLE_CONTROLLER': [
         'CanEditPIA', 'CanCancelEvaluatePIA',
         'AccessToContextSection', 'AccessToPrinciplesSection', 'AccessToRisksSection'
@@ -80,6 +81,7 @@ export class AppComponent {
         'CanDeletePIA', 'CanExportPIA',
         'AccessToContextSection', 'AccessToPrinciplesSection', 'AccessToRisksSection', 'AccessToValidationSection'
       ],
+      'ROLE_SUPER_ADMIN': []
     });
 
   }

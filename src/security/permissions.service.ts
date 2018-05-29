@@ -21,15 +21,19 @@ export class PermissionsService {
   }
 
   public async hasPermission(permissionName: string): Promise<boolean> {
-        return await this.ngxPermissionsService.hasPermission(permissionName);
+    return await this.ngxPermissionsService.hasPermission(permissionName);
   }
 
-  public activeCurrentRole(roleName: string): void {
-    const role = this.ngxRolesService.getRole(roleName);
-    if (!role) {
-      throw new Error(`Role ${role} does not exit.`);
-    }
+  public activeCurrentRoles(roleNames: string[]): void {
+    let permissions = [];
+    roleNames.forEach((roleName) => {
+      const role = this.ngxRolesService.getRole(roleName);
+      if (!role) {
+        throw new Error(`Role ${roleName} does not exit.`);
+      }
+      permissions = permissions.concat(this.rolesAndPermissions[roleName]);
+    });
 
-    this.ngxPermissionsService.loadPermissions(this.rolesAndPermissions[roleName]);
+    this.ngxPermissionsService.loadPermissions(permissions);
   }
 }

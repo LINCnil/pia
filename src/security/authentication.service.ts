@@ -77,7 +77,7 @@ export class AuthenticationService {
       this.userProfileApi.get().subscribe(
         (profile: UserProfileModel) => {
           this.profile$.next(profile);
-          this.permissionsService.activeCurrentRole(profile.roles.pop());
+          this.permissionsService.activeCurrentRoles(profile.roles);
         },
         (err) => {
           console.error(err);
