@@ -16,21 +16,21 @@
     "languages": {
       "official_translations": "Viralliset käännökset",
       "cnil_translations": "CNIL:n tarjoamat käännökset",
-      "dpa_translations": "TO BE TRANSLATED - Translation revised by European DPA",
+      "dpa_translations": "Eurooppalaisen tietosuojaviranomaisen tarkistama käännös",
       "community_translations": "Epäviralliset käännökset",
       "fr": "Français",
       "en": "English",
-      "cs": "Česky",
+      "cz": "Česky",
       "it": "Italiaans",
       "nl": "Nederlands",
       "pl": "Polski",
       "de": "Deutsch",
       "es": "Español",
-      "nn": "Nynorsk",
-      "el": "Ελληνικά",
       "pt": "Português",
-      "fi": "Suomalainen",
-      "ro": "Română"
+      "ro": "Română",
+      "fi": "Suomi",
+      "el": "Ελληνικά",
+      "no": "Norsk"
     },
     "tools": {
       "title": "Työkalut",
@@ -102,7 +102,7 @@
       "column_actions": "Toiminnat",
       "item": {
         "tools": {
-          "consult": "TO BE TRANSLATED - Consult",
+          "consult": "Kysy neuvoa",
           "edit": "Muokkaa",
           "export": "Vie",
           "duplicate": "Kahdenna",
@@ -125,8 +125,8 @@
     "header": {
       "preview": "Esikatselu",
       "display_action_plan": "Näytä<br>toimintasuunnitelma",
-      "edition": "TO BE TRANSLATED - Edition",
-      "evaluation": "TO BE TRANSLATED - Evaluation"
+      "edition": "Editio",
+      "evaluation": "Arviointi"
     },
     "attachments": {
       "title": "Liitteet",
@@ -139,16 +139,16 @@
       "refuse_pia": "Hylätty vaikutustenarviointi",
       "status": {
         "evaluation": {
-         "cancel": "TO BE TRANSLATED - Cancel the review request.",
-          "cancel_button": "TO BE TRANSLATED - Cancel the review request",
-          "content": "TO BE TRANSLATED - This part has not yet been reviewed. If you wish to edit the content submitted for review you have to ",
-          "title": "TO BE TRANSLATED - Waiting for review."
+         "cancel": "Peruuta tarkistuspyyntö.",
+          "cancel_button": "Peruuta tarkistuspyyntöt",
+          "content": "Tätä osiota ei ole vielä tarkistettu. Jos haluat muokata tarkistettavaksi lähetettyä sisältöä, sinun täytyy ",
+          "title": "Odottaa tarkistusta."
         },
         "validation": {
-          "title": "TO BE TRANSLATED - Waiting for validation.",
-          "content": "TO BE TRANSLATED - This part has been reviewed and is waiting for the overal PIA validation. If you wish to change the review, you have to",
-          "cancel": "TO BE TRANSLATED - cancel the validation request.",
-          "cancel_button": "TO BE TRANSLATED - Cancel the validation request"
+          "title": "Odottaa validointia.",
+          "content": "Tämä osio on tarkistettu ja odottaa vaikutustenarvioinnin validointia. Jos haluat muokata tarkistusta, sinun täytyy ",
+          "cancel": "Peruuta validointipyyntö.",
+          "cancel_button": "Peruuta validointipyyntö"
         }
       }
     },
@@ -486,8 +486,8 @@
         "source": ""
       },
       "PIA_DEF_MIND": {
-        "name": "TO BE TRANSLATED - Minimization of data themselves",
-        "description": "TO BE TRANSLATED - Reduce the severity of risks by minimizing the data themselves, by taking measures aimed at reducing their sensitivity such as filtering and removing unnecessary data, pseudonymising data, etc.",
+        "name": "Henkilötietojen minimointi",
+        "description": "Pienennä henkilötietietojen käsittelyyn liittyvää riskiä minimoimalla käsiteltävät henkilötiedot. Henkilötietoja voidaan minimoida esimerkiksi vähentämällä tiedon arkaluonteisuutta suodattamalla, pseudonymisoimalla ja poistamalla kaikki tarpeettomat tiedot.",
         "source": "PIA3 p64"
       },
       "PIA_DEF_CONS": {
@@ -833,8 +833,8 @@
     "title": "Tietoa tietosuojaa koskevasta vaikutustenarviointityökalusta",
     "version_number": "Versio",
     "description": "Ranskan tietosuojaviranomainen, <a target=\"_blank\" href=\"https://www.cnil.fr\">Commission Nationale Informatique et Liberté (CNIL)</a>, kehitti tämän työkalun auttamaan rekisterinpitäjiä täyttämään yleisen tietosuoja-asetuksen vaatimukset.<br>Ohjelmisto on ilmainen ja sen lähdekoodi on avointa. Jos haluat osallistua projektiin, voit ladata sen lähdekoodin Githubista, muokata sitä ja jakaa sen yhteisön kanssa.",
-    "translators": "Vaikutustenarviointiohjelmisto on tällä hetkellä saatavilla viidellä kielellä. CNIL on laatinut työkalun ranskan- ja englanninkieliset versiot. Muut kieliversiot ovat seuraavien henkilöiden työn tulosta:",
-    "translators_name": "<ul><li>Hollanti: Ruud van Driel, Manuel d’Orso, Louis De Jaeger ;</li><li>Tšekki: Jiří Grohmann, Manuel d’Orso</li><li>Italia: Manuel d'Orso, Gianluca Markos (Identità Digitale Defender), Antonio Caselli (Garante Privacy Italia) ;</li><li>Puola: Joanna Karczewska, Michał Mazur ;</li><li>Saksa: Kosmas Schütz, Corina Scheiter ;</li><li>Espanja: ylachgar</li><li>Norja: PVOhmn</li><li>Kreikkalainen: Dimitris Tzellis</li><li>Portugali: rubenlavrador, bagois ;</li><li>Suomalainen: DPA Finland</li><li>Romanialainen: oddox</li></ul>",
+    "translators": "Vaikutustenarviointiohjelmisto on tällä hetkellä saatavilla 14 kielellä. CNIL on laatinut työkalun ranskan- ja englanninkieliset versiot. Muut kieliversiot ovat seuraavien henkilöiden työn tulosta:",
+    "translators_name": "<ul><li>Czech : Jiří Grohmann, Manuel d’Orso;</li><li>Dutch : Ruud van Driel, Manuel d’Orso;</li><li>English : <a target=\"_blank\" href=\"https://www.cnil.fr\">CNIL</a>;</li><li>Finnish : <a target=\"_blank\" href=\"https://tietosuoja.fi/etusivu\">Tietosuojavaltuutetun toimisto</a>;</li><li>French : <a target=\"_blank\" href=\"https://www.cnil.fr\">CNIL</a>;</li><li>German : Kosmas Schütz, Corina Scheiter (<a target=\"_blank\" href=\"https://www.lda.bayern.de/en/index.html\">Bayerisches Landesamt für Datenschutzaufsicht (BayLDA)</a>);</li><li>Greek : Dimitris Tzellis;</li><li>Hungarian : <a target=\"_blank\" href=\"https://naih.hu/\">Nemzeti Adatvédelmi és Információszabadság Hatóság (NAIH)</a>;</li><li>Italian : Manuel d’Orso, Gianluca Markos, Antonio Caselli (<a target=\"_blank\" href=\"http://gpdp.it\">Garante per la Protezione dei Dai Personali (GPDP)</a>);</li><li>Norwegian : <a target=\"_blank\" href=\"https://www.datatilsynet.no\">Datatilsynet</a>;</li><li>Polish : Joanna Karczewska, Michal Mazur (<a target=\"_blank\" href=\"https://giodo.gov.pl\">Generalny Inspektor Ochrony Danych Osobowych (GIODO)</a>);</li><li>Portuguese : Barbara Gois;</li><li>Romanian : webmyday;</li><li>Spanish : ylachgar.</li></ul>",
     "contribute": "Jos haluat osallistua ohjelmiston kääntämiseen tai olemassa olevien käännösten parantamiseen, lue <a href=\"https://github.com/LINCnil/pia/tree/master/src/assets/i18n\" target=\"_blank\">ohjeet tältä sivulta</a>.",
     "licences": "Kirjastolisenssit:"
   },
@@ -860,8 +860,8 @@
     "validated_pia_with_signature": "Validoitu",
     "add_signed_pia": "Lisää allekirjoitettu tietosuojaa koskeva vaikutustenarviointi",
     "remove_attachment": "Poista liite",
-    "latest_signed_attachment": "TO BE TRANSLATED - Last signed attachment",
-    "signed_attachments_history": "TO BE TRANSLATED - Signed attachments history",
+    "latest_signed_attachment": "Viimeisin allekirjoitettu liite",
+    "signed_attachments_history": "Kaikki allekirjoitetut liitteet",
     "tools": {
       "dashboard": "Ohjauspaneeli",
       "display_pia": "Näytä vaikutustenarviointi",
@@ -889,16 +889,16 @@
     "archive": "Arkistoi",
     "close": "Sulje",
     "continue": "Jatka",
-    "start_evaluation": "TO BE TRANSLATED - Start review",
+    "start_evaluation": "Aloita tarkistaminen",
     "back_to_home": "Takaisin alkuun",
     "simple_pia_validation": {
       "content": "Tietosuojaa koskeva vaikutustenarviointi on validoitu."
     },
     "completed_edition": {
-      "content": "TO BE TRANSLATED - The PIA has been fully edited and has to be reviewed."
+      "content": "Vaikutustenarviointi on valmis tarkistettavaksi."
     },
     "completed_evaluation": {
-      "content": "TO BE TRANSLATED - The PIA has been fully reviewed and can be validated."
+      "content": "Vaikutustenarviointi on tarkistettu ja valmis validoitavaksi."
     },
     "update_server_url": {
       "content": "Palvelimen osoite on päivitetty."
@@ -909,7 +909,7 @@
     },
     "abandon_pia": {
       "content": "Haluatko varmasti<br>lopettaa käsittelyn?",
-      "additional_text": "TO BE TRANSLATED - Archiving is not definitive and the PIA can go back to it if needed."
+      "additional_text": "Arkistointi ei ole lopullinen. Vaikutustenarviointiin voi tarvittaessa palata."
     },
     "refuse_pia": {
       "content": "<span class='strong'>Tietosuojaa koskeva vaikutustenarviointi on hylätty,</span><br>Useiden kenttien sisältöä on korjattava.<br>Palaa arviointitilaan<br>ja tee korjaukset."
@@ -946,50 +946,50 @@
       "content": "<span class='strong'>Varoitus,</span><br>Haluatko varmasti<br>poistaa tämän liitteen?",
       "keep": "Säilytä",
       "remove": "Poista",
-      "comment": "TO BE TRANSLATED - Comment"
+      "comment": "Kommentoi"
     },
     "action_plan_no_evaluation": {
-      "content": "TO BE TRANSLATED - You need to begin the review of the analysis to create the action plan.",
-      "review_section": "TO BE TRANSLATED - Review a section"
+      "content": "Aloita analyysin tarkistus laatiaksesi toimintasuunnitelman.",
+      "review_section": "Tarkista osio"
     },
     "dpo_missing_evaluations": {
-      "content": "TO BE TRANSLATED - You need to complete the review of the analysis to access the DPO page.",
-      "review_section": "TO BE TRANSLATED - Review a section",
-      "remove": "TO BE TRANSLATED - Remove",
-      "comment": "TO BE TRANSLATED - Comment"
+      "content": "Päätä analyysi jatkaaksesi Tietosuojavastaava-sivulle.",
+      "review_section": "Tarkista osio",
+      "remove": "Poista",
+      "comment": "Kommentoi"
     },
     "modal_select_text_pia": {
-      "content": "TO BE TRANSLATED - The content of the PIA has been copied to clipboard."
+      "content": "Vaikutustenarvioinnin sisältö on kopioitu leikepöydälle."
     },
     "back_to_edition": {
-      "content": "TO BE TRANSLATED - This section has been sent back for editing.<br> Several fields must be corrected<br> to enable its proper review."
+      "content": "Osio on lähetetty muokattavaksi.<br> Useat kentät vaativat korjaamista,<br> jotta osiota voidaan tarkastella."
     },
     "back_to_evaluation": {
-      "content": "TO BE TRANSLATED - This section has been sent back for review.<br> Several fields must be reviewed<br> to enable its proper validation."
+      "content": "Osio on lähetetty muokattavaksi.<br> Useat kentät vaativat korjaamista,<br> jotta osiota voidaan tarkastella."
     }
   },
   "summary": {
     "previous_page": "Takaisin edelliselle sivulle",
     "print": "Tulosta",
-    "copy_to_clipboard": "TO BE TRANSLATED - Copy to clipboard",
-    "download_images": "TO BE TRANSLATED - Download images",
-    "download_csv": "TO BE TRANSLATED - Download a CSV export",
-    "csv_section": "TO BE TRANSLATED - Section",
-    "csv_title_object": "TO BE TRANSLATED - Title",
-    "csv_action_plan_comment": "TO BE TRANSLATED - Action plan comment",
-    "csv_evaluation_comment": "TO BE TRANSLATED - Evaluation comment",
+    "copy_to_clipboard": "Kopioi leikepöydälle",
+    "download_images": "Lataa kuvina",
+    "download_csv": "Lataa CSV-muodossa",
+    "csv_section": "Osio",
+    "csv_title_object": "Otsikko",
+    "csv_action_plan_comment": "Toimintasuunnitelman kommentti",
+    "csv_evaluation_comment": "Arvioinnin kommentti",
     "csv_file_title": "action-plan",
-    "csv_implement_date": "TO BE TRANSLATED - Estimated implementation date",
-    "csv_people_in_charge": "TO BE TRANSLATED - Person in charge",
+    "csv_implement_date": "Arvioitu käyttöönottopäivä",
+    "csv_people_in_charge": "Vastuuhenkilö",
     "display_filters": {
-      "title": "TO BE TRANSLATED - Display filters",
-      "main_content": "TO BE TRANSLATED - Display section \"PIA information\"",
-      "context_content": "TO BE TRANSLATED - Display section \"Context\"",
-      "principles_content": "TO BE TRANSLATED - Display section \"Fundamental principles\"",
-      "risks_content": "TO BE TRANSLATED - Display section \"Risks\"",
-      "action_plan_content": "TO BE TRANSLATED - Display action plan",
-      "risks_overview_content": "TO BE TRANSLATED - Display risks overview",
-      "risks_cartography_content": "TO BE TRANSLATED - Display risk mapping"
+      "title": "Näytä suodattimet",
+      "main_content": "Näytä osio \"Tietoa vaikutustenarvioinnista\"",
+      "context_content": "Näytä osio \"Asiayhteys\"",
+      "principles_content": "Näytä osio \"Perusperiaatteet\"",
+      "risks_content": "Näytä osio \"Riskit\"",
+      "action_plan_content": "Näytä toimintasuunnitelma",
+      "risks_overview_content": "Näytä riskien yleiskatsaus",
+      "risks_cartography_content": "Näytä riskien kartoitus"
     },
     "title": "Tietosuojaa koskevan vaikutustenarvioinnin tiedot",
     "pia_name": "Tietosuojaa koskeva vaikutustenarviointi",
@@ -1029,8 +1029,8 @@
       "risks": "Riskit",
       "no_action_plan": "Toimintasuunnitelmaa ei ole kirjattu."
     },
-    "risks_overview_title": "TO BE TRANSLATED - Risks overview",
-    "risks_cartography_title": "TO BE TRANSLATED - Risk mapping"
+    "risks_overview_title": "Riskien yleiskatsaus",
+    "risks_cartography_title": "Riskien kartoitus"
   },
   "errors": {
     "title": "Sivua ei löytynyt.",

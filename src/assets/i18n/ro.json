@@ -18,18 +18,19 @@
       "cnil_translations": "Traduceri oferite de către CNIL",
       "dpa_translations": "TO BE TRANSLATED - Translation revised by European DPA",
       "community_translations": "Traduceri oferite de către Comunitate",
-      "fr": "Français",
-      "en": "English",
       "cs": "Česky",
+      "de": "Deutsch",
+      "el": "Ελληνικά",
+      "en": "English",
+      "es": "Español",
+      "fi": "Suomi",
+      "fr": "Français",
+      "hu": "Magyar",
       "it": "Italiano",
       "nl": "Nederlands",
-      "pl": "Polski",
-      "de": "Deutsch",
-      "es": "Español",
       "nn": "Nynorsk",
-      "el": "Ελληνικά",
+      "pl": "Polski",
       "pt": "Português",
-      "fi": "Suomalainen",
       "ro": "Română"
     },
     "tools": {
@@ -793,7 +794,7 @@
     "definition": {
       "data1": {
         "title": "Utilizați instrumentul PIA",
-        "content": "Conținutul este în curs de scriere"
+        "content": "Content being written"
       },
       "data2": {
         "title": "Probleme identificate",
@@ -833,8 +834,8 @@
     "title": "Despre instrumentul PIA",
     "version_number": "Versiunea",
     "description": "Acest instrument a fost inițial proiectat de <a target=\"_blank\" href=\"https://www.cnil.fr\">Comisia Națională pentru Informatică și Libertate (CNIL)</a>,  Autoritatea Franceză de Protecția Datelor, pentru a ajuta procesatorul de date să fie în conformitate cu GDPR.<br>Acest software este gratuit. Dacă doriți să va implicați în acest proiect, sunteți bineveniți să descărcați codul sursă din Github, să îl modificați și să îl distribuiți comunității.",
-    "translators": "Software-ul PIA este momentan disponibil în șase limbi. Versiunile în franceză și engleză sunt furnizate de către CNIL. Celelalte versiuni sunt rezultat al contribuției următoarelor persoane:",
-    "translators_name": "<ul><li>Olandeză: Ruud van Driel, Manuel d’Orso ;</li><li>Cehă: Jirí Grohmann, Manuel d’Orso ;</li><li>Italiană: Manuel d’Orso, Gianluca Markos.</li><li>Poloneză: Joanna Karczewska, Michał Mazur ;</li><li>Germană: Kosmas Schütz, Corina Scheiter ;</li><li>Spaniolă: ylachgar</li><li>Norvegian: PVOhmn</li><li>Greacă: Dimitris Tzellis</li><li>Portugheză: rubenlavrador, bagois ;</li><li>Finlandeză: DPA Finland</li><li>Română: oddox</li></ul>",
+    "translators": "Software-ul PIA este momentan disponibil în paisprezece limbi. Versiunile în franceză și engleză sunt furnizate de către CNIL. Celelalte versiuni sunt rezultat al contribuției următoarelor persoane:",
+    "translators_name": "<ul><li>Czech : Jiří Grohmann, Manuel d’Orso;</li><li>Dutch : Ruud van Driel, Manuel d’Orso;</li><li>English : <a target=\"_blank\" href=\"https://www.cnil.fr\">CNIL</a>;</li><li>Finnish : <a target=\"_blank\" href=\"https://tietosuoja.fi/etusivu\">Tietosuojavaltuutetun toimisto</a>;</li><li>French : <a target=\"_blank\" href=\"https://www.cnil.fr\">CNIL</a>;</li><li>German : Kosmas Schütz, Corina Scheiter (<a target=\"_blank\" href=\"https://www.lda.bayern.de/en/index.html\">Bayerisches Landesamt für Datenschutzaufsicht (BayLDA)</a>);</li><li>Greek : Dimitris Tzellis;</li><li>Hungarian : <a target=\"_blank\" href=\"https://naih.hu/\">Nemzeti Adatvédelmi és Információszabadság Hatóság (NAIH)</a>;</li><li>Italian : Manuel d’Orso, Gianluca Markos, Antonio Caselli (<a target=\"_blank\" href=\"http://gpdp.it\">Garante per la Protezione dei Dai Personali (GPDP)</a>);</li><li>Norwegian : <a target=\"_blank\" href=\"https://www.datatilsynet.no\">Datatilsynet</a>;</li><li>Polish : Joanna Karczewska, Michal Mazur (<a target=\"_blank\" href=\"https://giodo.gov.pl\">Generalny Inspektor Ochrony Danych Osobowych (GIODO)</a>);</li><li>Portuguese : Barbara Gois;</li><li>Romanian : webmyday;</li><li>Spanish : ylachgar.</li></ul>",
     "contribute": "Dacă doriți să contribuiți la traducerea software-ului într-o altă limbă sau să îmbunătății traducerile existente, recomandăm să <a href=\"https://github.com/LINCnil/pia/tree/master/src/assets/i18n\" target=\"_blank\"> citiți pagina cu descrierea pașilor de urmat</a>.",
     "licences": "Bibliotecă licențe:"
   },
