@@ -12,7 +12,7 @@ export class LanguagesService {
    * Initialize languages on the PIA tool
    */
   initLanguages() {
-    this._translateService.addLangs(['en', 'cz', 'it', 'nl', 'fr', 'pl', 'de', 'es', 'fi', 'pt', 'ro', 'el']);
+    this._translateService.addLangs(['en', 'cz', 'it', 'nl', 'fr', 'pl', 'de', 'es', 'fi', 'pt', 'ro', 'el', 'hu', 'no']);
     this._translateService.setDefaultLang('fr');
   }
 
@@ -26,7 +26,7 @@ export class LanguagesService {
       this._translateService.use(language);
     } else { // Set default language
       const browserLang = this._translateService.getBrowserLang();
-      language = browserLang.match(/en|cz|it|nl|fr|pl|de|es|fi|pt|ro|el/) ? browserLang : 'fr';
+      language = browserLang.match(/en|cz|it|nl|fr|pl|de|es|fi|pt|ro|el|hu|no/) ? browserLang : 'fr';
       this._translateService.use(language);
     }
     this.selectedLanguage = language;
