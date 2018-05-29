@@ -11,10 +11,10 @@ import * as Moment from 'moment';
 
 @Injectable()
 export class AuthenticationService {
-  private userToken = null;
-  public profile$;
-  private readonly apiSettings = environment.api;
-  private readonly dateFormat = environment.date_format;
+  private userToken: UserTokenModel = null;
+  public profileSubject: BehaviorSubject<UserProfileModel>;
+  private readonly apiSettings: any = environment.api;
+  private readonly dateFormat: string = environment.date_format;
 
   constructor(
     private http: HttpClient,
@@ -22,7 +22,7 @@ export class AuthenticationService {
     private userProfileApi: UserProfileApi,
     private userTokenApi: UserTokenApi
   ) {
-    this.profile$ = new BehaviorSubject<UserProfileModel>(null);
+    this.profileSubject = new BehaviorSubject<UserProfileModel>(null);
   }
 
   public authenticate(user: User): Promise<UserTokenModel> {
@@ -56,7 +56,7 @@ export class AuthenticationService {
         this.refreshToken();
       }
 
-      if (this.profile$.getValue() !== null) {
+      if (this.profileSubject.getValue() !== null) {
         resolve(true);
         return;
       }
@@ -76,14 +76,14 @@ export class AuthenticationService {
     return new Promise((resolve, reject) => {
       this.userProfileApi.get().subscribe(
         (profile: UserProfileModel) => {
-          this.profile$.next(profile);
-          this.permissionsService.activeCurrentRole(profile.roles.pop());
+          this.profileSubject.next(profile);
+          this.permissionsService.activateCurrentRoles(profile.roles);
         },
         (err) => {
           console.error(err);
           reject();
         },
-        () => { resolve(this.profile$.getValue()); }
+        () => { resolve(this.profileSubject.getValue()); }
       );
     });
   }
