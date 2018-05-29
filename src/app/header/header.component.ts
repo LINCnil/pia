@@ -46,7 +46,7 @@ export class HeaderComponent implements OnInit {
                           this._router.url === '/help' ||
                           this._router.url === '/settings') ? true : false;
 
-    this.profileSubscription = this.authService.profile$.subscribe(profile => {
+    this.profileSubscription = this.authService.profileSubject.subscribe(profile => {
       this.profile = profile;
     });
   }
