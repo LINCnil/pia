@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRoute, Router, Params } from '@angular/router';
-import { Http } from '@angular/http';
 
 import { AppDataService } from 'app/services/app-data.service';
 import { ModalsService } from 'app/modals/modals.service';
@@ -26,7 +25,6 @@ export class PiaService {
     private route: ActivatedRoute,
     private _appDataService: AppDataService,
     private _modalsService: ModalsService,
-    private http: Http,
     private piaApi: PiaApi,
     private answerApi: AnswerApi,
     private commentApi: CommentApi,

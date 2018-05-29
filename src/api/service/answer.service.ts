@@ -1,7 +1,7 @@
 
 import { BaseService } from '@api/service/base.service';
 import { Observable } from 'rxjs/Observable';
-import { Http } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
 import { Answer } from '@api/model/answer.model';
 import { Injectable } from '@angular/core';
 import { BaseModel } from '@api/model/base.model';

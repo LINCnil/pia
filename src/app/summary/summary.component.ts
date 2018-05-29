@@ -4,7 +4,7 @@ import { Subscription } from 'rxjs/Subscription';
 import { element } from 'protractor';
 import * as html2canvas from 'html2canvas';
 import { saveSvgAsPng } from 'save-svg-as-png';
-import { Angular2Csv } from 'angular2-csv';
+import { Angular5Csv } from 'angular5-csv/Angular5-csv';
 
 import { ActionPlanService } from 'app/entry/entry-content/action-plan//action-plan.service';
 import { AppDataService } from 'app/services/app-data.service';
@@ -260,7 +260,7 @@ export class SummaryComponent implements OnInit {
 
     this._actionPlanService.getCsv();
 
-    return new Angular2Csv(this._actionPlanService.csvRows,
+    return new Angular5Csv(this._actionPlanService.csvRows,
       this._translateService.instant('summary.csv_file_title'),
       options);
   }
