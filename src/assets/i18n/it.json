@@ -16,12 +16,12 @@
 		"languages":{
 			"official_translation":"Versione originale",
 			"cnil_translations":"Traduzioni fornite da CNIL",
-      "dpa_translations": "TO BE TRANSLATED - Translation revised by European DPA",
+      "dpa_translations": "Traduzioni revisionate da Autorità protezione dati UE",
 			"community_translations":"Traduzioni fornite da soggetti diversi",
       "fr": "Français",
       "en": "English",
       "cz": "Česky",
-      "it": "Italiaans",
+      "it": "Italiano",
       "nl": "Nederlands",
       "pl": "Polski",
       "de": "Deutsch",
@@ -882,7 +882,7 @@
 		"archive":"Archivia",
 		"close":"Chiudi",
 		"continue":"Continua",
-		"start_evaluation":"TO BE TRANSLATED - Start review",
+		"start_evaluation":"Inizia valutazione",
 		"back_to_home":"Torna alla home",
 		"simple_pia_validation":{
 			"content":"La PIA deve essere validata"
@@ -902,7 +902,7 @@
 		},
 		"abandon_pia":{
 			"content":"Sei sicuro di voler <br>terminare il trattamento?",
-			"additional_text":"TO BE TRANSLATED - Archiving is not definitive and the PIA can go back to it if needed."
+			"additional_text":"L'archiviazione non è definitiva; è possibile riprendere la PIA se necessario."
 		},
 		"refuse_pia":{
 			"content":"<span class='strong'>PIA rigettata,</span><br>Sono necessarie correzioni in più campi.<br>Torna alla modalità valutazione<br>per apportare le correzioni."
@@ -939,41 +939,41 @@
 			"content":"<span class='strong'>Attenzione,</span><br>È sicuro di voler<br>cancellare questo allegato?",
 			"keep":"Mantieni",
 			"remove":"Cancella",
-			"comment":"TO BE TRANSLATED - Comment"
+			"comment":"Inserisci un commento"
 		},
 		"action_plan_no_evaluation":{
-			"content":"TO BE TRANSLATED - You need to begin the review of the analysis to create the action plan.",
-			"review_section":"TO BE TRANSLATED - Review a section"
+			"content":"È necessario iniziare la valutazione dell'analisi per creare il piano di azione.",
+			"review_section":"Valuta una sezione"
 		},
 		"dpo_missing_evaluations":{
-			"content":"TO BE TRANSLATED - You need to complete the review of the analysis to access the DPO page.",
-			"review_section":"TO BE TRANSLATED - Review a section",
+			"content":"È necessario completare la valutazione dell'analisi per accedere alla pagina del DPO/RPD.",
+			"review_section":"Valuta una sezione",
 			"remove":"Cancella",
-			"comment":"TO BE TRANSLATED - Comment"
+			"comment":"Inserisci un commento"
 		},
 		"modal_select_text_pia":{
-			"content":"TO BE TRANSLATED - The content of the PIA has been copied to clipboard."
+			"content":"I contenuti della PIA sono stati copiati negli appunti."
 		},
 		"back_to_edition":{
-			"content":"TO BE TRANSLATED - This section has been sent back for editing.<br> Several fields must be corrected<br> to enable its proper review."
+			"content":"Questa sezione viene ripresentata per correzioni. <br>È necessario apportare correzioni in vari campi <br>per consentire un'efficace valutazione."
 		},
 		"back_to_evaluation":{
-			"content":"TO BE TRANSLATED - This section has been sent back for review.<br> Several fields must be reviewed<br> to enable its proper validation."
+			"content":"Questa sezione viene ripresentata per valutazione. <br>È necessario apportare correzioni in vari campi <br>per consentire un'efficace validazione."
 		}
 	},
 	"summary":{
 		"previous_page":"Torna alla pagina precedente",
 		"print":"Stampa",
-		"copy_to_clipboard":"TO BE TRANSLATED - Copy to clipboard",
-		"download_risks_overview":"TO BE TRANSLATED - Save risks overview as an image",
-		"download_risks_cartography":"TO BE TRANSLATED - Save risk mapping as an image",
-		"csv_action_plan_comment":"TO BE TRANSLATED - Action plan comment",
-		"csv_evaluation_comment":"TO BE TRANSLATED - Evaluation comment",
-		"csv_section":"TO BE TRANSLATED - Section",
-		"csv_title_object":"TO BE TRANSLATED - Title",
-		"csv_implement_date":"TO BE TRANSLATED - Estimated implementation date",
-		"csv_people_in_charge":"TO BE TRANSLATED - Person in charge",
-		"csv_file_title":"TO BE TRANSLATED - action-plan",
+		"copy_to_clipboard":"Copia negli appunti",
+		"download_risks_overview":"Salva panoramica rischi come immagine",
+		"download_risks_cartography":"Salva mappaggio rischi come immagine",
+		"csv_action_plan_comment":"Commento sul piano di azione",
+		"csv_evaluation_comment":"Commento sulla valutazione",
+		"csv_section":"Sezione",
+		"csv_title_object":"Titolo",
+		"csv_implement_date":"Data stimata di implementazione",
+		"csv_people_in_charge":"Persona responsabile",
+		"csv_file_title":"Piano di azione",
 		"display_filters":{
 			"title":"Filtri visualizzazione",
 			"main_content":"Visualizza \"Informazioni sulla PIA\"",
@@ -981,8 +981,8 @@
 			"principles_content":"Visualizza \"Principi fondamentali\"",
 			"risks_content":"Visualizza \"Rischi\"",
 			"action_plan_content":"Visualizza piano d'azione",
-			"risks_overview_content":"TO BE TRANSLATED - Display risks overview",
-			"risks_cartography_content":"TO BE TRANSLATED - Display risk mapping"
+			"risks_overview_content":"Visualizza panoramica rischi",
+			"risks_cartography_content":"Visualizza mappaggio rischi"
 		},
 		"title":"Informazioni sulla PIA",
 		"pia_name":"Nome della PIA",
@@ -1022,8 +1022,8 @@
 			"risks":"Rischi",
 			"no_action_plan":"Nessun piano d'azione registrato."
 		},
-		"risks_overview_title":"TO BE TRANSLATED - Risks overview",
-		"risks_cartography_title":"TO BE TRANSLATED - Risk mapping"
+		"risks_overview_title":"Panoramica dei rischi",
+		"risks_cartography_title":"Mappaggio dei rischi"
 	},
 	"errors":{
 		"title":"Pagina non trovata.",
