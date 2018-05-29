@@ -18,18 +18,19 @@
       "cnil_translations": "Traducciones del CNIL",
       "dpa_translations": "TO BE TRANSLATED - Translation revised by European DPA",
       "community_translations": "Traducciones de la comunidad",
-      "fr": "Français",
-      "en": "English",
       "cs": "Česky",
+      "de": "Deutsch",
+      "el": "Ελληνικά",
+      "en": "English",
+      "es": "Español",
+      "fi": "Suomi",
+      "fr": "Français",
+      "hu": "Magyar",
       "it": "Italiano",
       "nl": "Nederlands",
-      "pl": "Polski",
-      "de": "Deutsch",
-      "es": "Español",
       "nn": "Nynorsk",
-      "el": "Ελληνικά",
+      "pl": "Polski",
       "pt": "Português",
-      "fi": "Suomalainen",
       "ro": "Română"
     },
     "tools": {
@@ -783,13 +784,6 @@
   },
   "help": {
     "title": "Ayuda",
-    "infografics": {
-      "title": "TO BE TRANSLATED - An overview of the requirements and methodology",
-      "display": "TO BE TRANSLATED - Show process map",
-      "hide": "TO BE TRANSLATED - Hide process map",
-      "download": "TO BE TRANSLATED - Download process map",
-      "file": "./assets/files/180409_fiche_risque_en_cmjk.pdf"
-    },
     "definition": {
       "data1": {
         "title": "Usa el PIA",
@@ -833,8 +827,8 @@
     "title": "Sobre la herramienta PIA",
     "version_number": "Número de versión",
     "description": "Esta herramienta es diseñada originalmente por la CNIL, la autoridad francesa de la protección de los datos, ayudar al informático a ser obediente con el software de GDPR.<br>This está libre y abierto. Si usted desea conseguir implicado en este proyecto, usted es agradable descargar el código de fuente de Github, lo modifica y lo comparte con la comunidad.",
-    "translators": "El software del PIA es actualmente disponible en cinco idiomas. Las versiones francesas e inglesas son proporcionadas por el CNIL. El otros las versiones resultan de las contribuciones de los individuos siguientes:",
-    "translators_name": "<ul><li>Dutch: Ruud van Driel, Manuel d’Orso, Louis De Jaeger ;</li><li>Czech: Jiří Grohmann, Manuel d’Orso ;</li><li>Italian: Manuel d'Orso, Gianluca Markos (Identità Digitale Defender), Antonio Caselli (Garante Privacy Italia) ;</li><li>Polish: Joanna Karczewska, Michał Mazur ;</li><li>German: Kosmas Schütz, Corina Scheiter ;</li><li>Spanish: ylachgar</li><li>Norwegian: PVOhmn</li><li>Greek: Dimitris Tzellis</li><li>Portuguese: rubenlavrador, bagois ;</li><li>Finnish: DPA Finland</li><li>Romanian: oddox</li></ul>",
+    "translators": "El software del PIA es actualmente disponible en catorce idiomas. Las versiones francesas e inglesas son proporcionadas por el CNIL. El otros las versiones resultan de las contribuciones de los individuos siguientes:",
+    "translators_name": "<ul><li>Czech : Jiří Grohmann, Manuel d’Orso;</li><li>Dutch : Ruud van Driel, Manuel d’Orso;</li><li>English : <a target=\"_blank\" href=\"https://www.cnil.fr\">CNIL</a>;</li><li>Finnish : <a target=\"_blank\" href=\"https://tietosuoja.fi/etusivu\">Tietosuojavaltuutetun toimisto</a>;</li><li>French : <a target=\"_blank\" href=\"https://www.cnil.fr\">CNIL</a>;</li><li>German : Kosmas Schütz, Corina Scheiter (<a target=\"_blank\" href=\"https://www.datenschutz-bayern.de/\">BayLfD</a>);</li><li>Greek : Dimitris Tzellis;</li><li>Hungarian : <a target=\"_blank\" href=\"https://naih.hu/\">Nemzeti Adatvédelmi és Információszabadság Hatóság (NAIH)</a>;</li><li>Italian : Manuel d’Orso, Gianluca Markos, Antonio Caselli (<a target=\"_blank\" href=\"http://gpdp.it\">Garante per la Protezione dei Dai Personali (GPDP)</a>);</li><li>Norwegian : <a target=\"_blank\" href=\"https://www.datatilsynet.no\">Datatilsynet</a>;</li><li>Polish : Joanna Karczewska, Michal Mazur (<a target=\"_blank\" href=\"https://giodo.gov.pl\">Generalny Inspektor Ochrony Danych Osobowych (GIODO)</a>);</li><li>Portuguese : Barbara Gois;</li><li>Romanian : webmyday;</li><li>Spanish : ylachgar.</li></ul>",
     "contribute": "Si usted desea contribuir a la traducción del software en otra idioma mejorar las traducciones existentes, le recomendamos al <a href=\"https://github.com/LINCnil/pia/tree/master/src/assets/i18n\" target=\"_blank\">leer la página que describe los pasos</a>.",
     "licences": "Library licenses:"
   },
