@@ -9,7 +9,7 @@
         "@security/*": ["security/*"],
         "@utils/*": ["utils/*"]
     },
-    "types": ["dom"]
+    "types": []
   },
   "exclude": [
     "test.ts",

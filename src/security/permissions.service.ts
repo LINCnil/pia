@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-import { Http } from '@angular/http';
 import { NgxPermissionsService, NgxRolesService } from 'ngx-permissions';
 
 @Injectable()

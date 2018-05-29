@@ -1,6 +1,5 @@
 import { Component, OnInit, Output, OnDestroy, DoCheck } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
-import { Http } from '@angular/http';
 import { Subscription } from 'rxjs/Subscription';
 
 import { KnowledgeBaseService } from 'app/entry/knowledge-base/knowledge-base.service';
@@ -33,7 +32,6 @@ export class EntryComponent implements OnInit, OnDestroy, DoCheck {
   subscription: Subscription;
 
   constructor(private route: ActivatedRoute,
-    private http: Http,
     private _modalsService: ModalsService,
     private _appDataService: AppDataService,
     private _sidStatusService: SidStatusService,

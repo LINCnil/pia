@@ -1,7 +1,6 @@
 
 import { BaseService } from '@api/service/base.service';
 import { Observable } from 'rxjs/Observable';
-import { Http} from '@angular/http';
 import { Attachment } from '@api/model/attachment.model';
 import { Injectable } from '@angular/core';
 import { BaseModel } from '@api/model/base.model';

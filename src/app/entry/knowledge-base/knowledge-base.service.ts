@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
+import { HttpClient } from '@angular/common/http';
 import 'rxjs/add/operator/map'
 
 @Injectable()
@@ -20,8 +21,8 @@ export class KnowledgeBaseService {
    * @param {any} http
    * @memberof KnowledgeBaseService
    */
-  loadData(http) {
-    http.get('./assets/files/pia_knowledge-base.json').map(res => res.json()).subscribe(data => {
+  loadData(http:HttpClient) {
+    http.get<any[]>('./assets/files/pia_knowledge-base.json').subscribe(data => {
       this.knowledgeBaseData = data;
       this.allKnowledgeBaseData = data;
     });

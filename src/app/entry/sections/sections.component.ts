@@ -4,7 +4,6 @@ import { AppDataService } from 'app/services/app-data.service';
 import { SidStatusService } from 'app/services/sid-status.service';
 import { Measure } from 'app/entry/entry-content/measures/measure.model';
 import { Answer } from 'app/entry/entry-content/questions/answer.model';
-import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 
 import { PiaService } from 'app/entry/pia.service';

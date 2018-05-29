@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AnswerService } from '@api/service/answer.service';
 import { AttachmentService } from '@api/service/attachment.service';
@@ -13,7 +13,7 @@ import { UserTokenService } from '@api/service/user-token.service';
 @NgModule({
   declarations: [],
   imports: [
-    HttpModule
+    HttpClientModule
   ],
   providers: [
     AnswerService,
