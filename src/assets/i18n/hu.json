@@ -1,0 +1,1343 @@
+{
+  "authentication": {
+    "title": "Adatvédelmi hatásvizsgálat <br> Data Protection Impact Assessment (DPIA)",
+    "subtitle1": "Adatvédelmi hatásvizsgálat létrehozására és kezelésére alkalmas felület",
+    "subtitle2": "Hozzáférés az eszköztárhoz és szószedetekhez",
+    "start_app": "Hozzáférés a DPIA-software-hez (Beta)",
+    "description": "A francia adatvédelmi hatóság (CNIL) által kifejlesztett szoftver célja iránymutatást adni az adatkezelőknek a GDPR betartásához, valamint az annak rendelkezéseivel való összhang igazolásához.",
+    "start": "Kezdés"
+  },
+  "header": {
+    "logo_title": "Adatvédelmi hatásvizsgálat",
+    "logo_subtitle": "",
+    "homepage_link": "Vezérlőpult",
+    "knowledge_base_link": "Tudásbázis",
+    "pia_example_link": "DPIA-példa",
+    "languages": {
+      "official_translation": "Hivatalos fordítások",
+      "cnil_translations": "A CNIL által biztosított fordítások",
+      "dpa_translations": "Az illetékes felügyeleti hatóság által felülvizsgált fordítás",
+      "community_translations": "Nem hivatalos fordítások",
+      "cz": "Česky",
+      "de": "Deutsch",
+      "el": "Ελληνικά",
+      "en": "English",
+      "es": "Español",
+      "fi": "Suomi",
+      "fr": "Français",
+      "hu": "Magyar",
+      "it": "Italiano",
+      "nl": "Nederlands",
+      "no": "Norsk",
+      "pl": "Polski",
+      "pt": "Português",
+      "ro": "Română"
+    },
+    "tools": {
+      "title": "Eszköztár",
+      "settings": "Beállítások",
+      "accessibility": "Hozzáférés látássérülteknek (erős színkontraszt, daltonizmus)",
+      "help": "Segítség",
+      "about": "Rólunk"
+    }
+  },
+  "homepage": {
+    "filters": {
+      "list": "lista",
+      "card": "kártya",
+      "sort": "Válogatás",
+      "sort_by": "Válogatás valami szerint",
+      "name": "Név",
+      "date": "Dátum",
+      "status": "Státusz",
+      "author": "Szerző",
+      "assessor": "Véleményező",
+      "validator": "Jóváhagyó",
+      "new_pia": "Új DPIA",
+      "import_pia": "DPIA importálása",
+      "list_rocket_content": "Kezdjen hozzá! Kattintson a + jelre az DPIA elindításához",
+      "card_rocket_content": "Kezdjen hozzá! Kattintson az Új DPIA-ra az DPIA elindításához"
+    },
+    "cards": {
+      "new_pia": "Új DPIA",
+      "placeholder_new_pia": "Új DPIA",
+      "or": "Vagy",
+      "import_pia": "DPIA importálása",
+      "placeholder_import_pia": "DPIA importálása",
+      "title_close_creation": "Bezárás",
+      "pia_name": "DPIA",
+      "placeholder_pia_name": "DPIA címe",
+      "author": "Szerkesztés",
+      "placeholder_author": "Vezetéknév, utónév",
+      "evaluation": "Véleményezés",
+      "placeholder_evaluation": "Vezetéknév, utónév",
+      "validation": "Jóváhagyás",
+      "placeholder_validation": "Vezetéknév, utónév",
+      "date": "Dátum",
+      "status": "Állapot",
+      "creation_status": "Létrehozás",
+      "start": "Start",
+      "placeholder_start": "Minden mezőt ki kell tölteni",
+      "item": {
+        "tools": {
+          "export": "Exportálás",
+          "more_options": "További lehetőségek",
+          "duplicate": "Másolat készítése",
+          "action_plan": "Intézkedési terv megmutatása",
+          "pia": "DPIA megmutatása",
+          "remove": "Törlés"
+        },
+        "edit_pia": "DPIA szerkesztése",
+        "consult_pia": "DPIA áttekintése "
+      }
+    },
+    "lists": {
+      "column_pia": "DPIA",
+      "column_updated_at": "Legutóbb megnyitott hatásvizsgálat",
+      "column_author": "Szerkesztő neve",
+      "column_evaluation": "Véleményező neve",
+      "column_validation": "Jóváhagyó neve",
+      "column_creation": "Létrehozás",
+      "column_status": "Állapot",
+      "column_progression": "Előrehaladás",
+      "column_actions": "Műveletek",
+      "item": {
+        "tools": {
+          "consult": "Konzultáció",
+		  "edit": "Szerkesztés",
+          "export": "Exportálás",
+          "duplicate": "Másolat készítése",
+          "action_plan": "Intézkedési terv megmutatása",
+          "pia": "DPIA megmutatása",
+          "remove": "Törlés"
+        }
+      }
+    }
+  },
+  "pia": {
+    "statuses": {
+      "0": "Folyamatban lévő",
+      "1": "Elutasítva",
+      "2": "Előzetes jóváhagyás",
+      "3": "Végleges (aláírt) jóváhagyás",
+      "4": "Archiválva",
+      "5": "Jóváhagyásra vár"
+    },
+    "header": {
+      "preview": "Előnézet",
+      "display_action_plan": "Intézkedési terv megmutatása",
+	  "edition": "Szerkesztés",
+	  "evaluation": "Értékelés"
+    },
+    "attachments": {
+      "title": "Mellékletek",
+      "add": "Csatolás",
+      "remove": "Eltávolítás"
+    },
+    "sections": {
+      "homepage_link": "Vissza a vezérlőpulthoz",
+      "validate_pia": "Hatásvizsgálat jóváhagyása",
+      "refuse_pia": "Hatásvizsgálat elutasítása",
+      "status": {
+        "evaluation": {
+          "title": "Véleményezésre várva.",
+          "content": "Ez a rész nem lett véleményezve. Ha szerkeszteni kívánja a véleményezésre szánt részt, úgy ",
+          "cancel": "törölni kell a véleményezési igényt.",
+		  "cancel_button": "Véleményezési igény törlése"
+        },
+        "validation": {
+          "title": "Jóváhagyásra várva.",
+          "content": "Ez a rész értékelve lett és a DPIA átfogó jóváhagyására vár. Amennyiben változtatna az értékelésen, úgy ",
+          "cancel": "törölni kell a jóváhagyási igényt.",
+		  "cancel_button": "Jóváhagyási igény törlése"
+        }
+      }
+    },
+    "footer": {
+      "ask_evaluation": "Véleményezés kérése",
+      "validate_evaluation": "Véleményezés befejezése",
+      "subsection_validated": "Rész véleményezve, jóváhagyásra vár",
+      "mandatory_fields": "Minden mezőt ki kell tölteni"
+    }
+  },
+  "measures": {
+    "placeholder_title": "Intézkedés neve",
+    "add": "Intézkedés hozzáadása",
+    "edit": "Intézkedés szerkesztése",
+    "remove": "Intézkedés törlése",
+    "default_placeholder": "Mutassa be a kockázatok kezelését célzó meglévő vagy tervezett intézkedéseket."
+  },
+  "knowledge_base": {
+    "title": "Tudásbázis",
+    "search": "Keresés",
+    "add_measure": "Hozzáadás",
+    "placeholder_help": "Segítség bevitele",
+    "placeholder_add_measure": "Az intézkedés hozzáadása",
+    "add_measure_hint": "A tudásbázisból kiválasztott intézkedést is hozzáádhat.",
+    "filters": {
+      "title": "Szűrők",
+      "all": "Mind",
+      "definitions": "Mit jelent?",
+      "organizational_measures": "Adminisztratív védelmi intézkedések",
+      "measures_on_data": "Logikai védelmi intézkedések",
+      "general_measures": "Fizikai védelmi intézkedések",
+      "no_result": "Nincs találat."
+    },
+    "category": {
+      "definition": "Mit jelent?",
+      "principle": "Útmutatás",
+      "organizational_measure": "Szervezeti védelmi intézkedések",
+      "measure_on_data": "Logikai biztonságvédelem",
+      "general_measure": "Fizikai biztonságvédelem",
+      "example": "Példa"
+    },
+    "slugs": {
+      "PIA_LGL_FOND": {
+        "name": "Jogszerűség igazolása",
+        "description": "- Az érintett hozzájárulását adta személyes adatainak egy vagy több konkrét célból történő kezeléséhez; <br> - Az adatkezelés olyan szerződés teljesítéséhez szükséges, amelyben az érintett az egyik fél, vagy az a szerződés megkötését megelőzően az érintett kérésére történő lépések megtételéhez szükséges; <br> - Az adatkezelés az adatkezelőre vonatkozó jogi kötelezettség teljesítéséhez szükséges; <br> - Az adatkezelés az érintett vagy egy másik természetes személy létfontosságú érdekeinek védelme miatt szükséges; <br> - Az adatkezelés közérdekű vagy az adatkezelőre ruházott közhatalmi jogosítvány gyakorlásának keretében végzett feladat végrehajtásához szükséges; <br> - Az adatkezelés az adatkezelő vagy egy harmadik fél jogos érdekeinek érvényesítéséhez szükséges, kivéve, ha ezen érdekekkel szemben elsőbbséget élveznek az érintett olyan érdekei vagy alapvető jogai és szabadságai, amelyek személyes adatok védelmét teszik szükségessé, különösen, ha az érintett gyermek. Lásd a <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/HU/TXT/HTML/?uri=CELEX:32016R0679&qid=1520586769024&from=HU\">GDPR 6. cikkét</a>.",
+        "source": "DPIA2 4. o."
+      },
+      "PIA_LGL_ST": {
+        "name": "Adatfeldolgozók igénybevétele",
+        "description": "Minden adatfeldolgozóval adatfeldolgozási szerződést kell kötni, amely megszabja mindazokat a feltételeket, amelyeket a <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/HU/TXT/HTML/?uri=CELEX:32016R0679&qid=1520586769024&from=HU\"> GDPR 28. cikke </a> előír, úgymint: az adatkezelés tárgya, időtartama, jellege és célja, a személyes adatok típusai, az érintettek kategóriái, az adatkezelésre vonatkozó írásbeli utasítások stb.",
+        "source": "DPIA2 10. o."
+      },
+      "PIA_LGL_TRAN": {
+        "name": "Adattovábbítás",
+        "description": "Azt figyelembe véve, hogy földrajzilag hova kerülnek továbbításra a személyes adatok - az Európai Unióba; az Unió által elismerten megfelelő védelmet nyújtó országba; az Egyesült Államokba, az EU-USA adatvédelmi pajzshoz (Privacy Shield) csatlakozott szervezet részére; vagy egyéb országba -, olyan jogi kereteket kell biztosítani, amelyek megfelelő szintű védelmet biztosítanak a személyes adatok határokon átnyúló továbbítása esetén.  Lásd <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/HU/TXT/HTML/?uri=CELEX:32016R0679&qid=1520586769024&from=HU\"> a GDPR 44-49. cikkeit </a>.",
+        "source": "DPIAF által összekapcsolt tárgyak 18. o."
+      },
+      "PIA_LGL_DESC": {
+        "name": "Az adatkezelés leírása",
+        "description": "Mutassa be röviden a tervezett adatkezelést, az adatkezelés célját, jogalapját, a kezelt személyes adatok körét, valamint az adatkezelés egyéb jellemzőit. Azonosítsa az adatkezelőt, továbbá - igénybevételük esetén - az adatfeldolgozó(ka)t. Sorolja fel az adatkezelésre vonatkozó alapvető, szükséges vagy betartandó előírásokat, beleértve a jóváhagyott magatartási kódexeket is (lásd a <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/HU/TXT/HTML/?uri=CELEX:32016R0679&qid=1520586769024&from=HU\"> GDPR  40. cikkét </a>), illetve az adatvédelmi tanúsítványokat (lásd a <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/HU/TXT/HTML/?uri=CELEX:32016R0679&qid=1520586769024&from=HU\"> GDPR 42. cikkét </a>).",
+        "source": "DPIA1 4. o."
+      },
+      "PIA_LGL_DATA": {
+        "name": "Adatok és adatkezelési folyamatok",
+        "description": "Részletesen határozza meg és mutassa be: <br> – az érintett személyes adatokat, a címzettjeiket és a tárolásuk időtartamát <br> – az adatkezelést és a személyes adatok kezelésére szolgáló eszközöket a személyes adatok kezelésének egész folyamata során (a gyűjtéstől a törlésig).",
+        "source": "DPIA1 6. o."
+      },
+      "PIA_LGL_SUPT": {
+        "name": "Az adatok kezelésére szolgáló eszközök",
+        "description": "A személyes adatok kezelésére szolgáló eszközök lehetnek például: hardware, software, hálózat, irat vagy papír alapú iratokat továbbító csatorna.",
+        "source": "DPIA1 10. o."
+      },
+      "PIA_LGL_FIN": {
+        "name": "Célhoz kötöttség elve",
+        "description": "A személyes adatok gyűjtése csak meghatározott, egyértelmű és jogszerű célból történhet, és azokat ne kezeljék ezekkel a célokkal össze nem egyeztethető módon. </strong> <br>Lásd <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/HU/TXT/HTML/?uri=CELEX:32016R0679&qid=1520586769024&from=HU\"> a GDPR 5. cikk (1) bekezdésének b) pontját</a>.",
+        "source": "5.1 szakasz b)"
+      },
+      "PIA_LGL_MINI": {
+        "name": "Adattakarékosság",
+        "description": "A kezelt személyes adatok az adatkezelés céljai szempontjából megfelelőek és relevánsak kell, hogy legyenek, továbbá a személyes adatok körét azon adatokra kell szűkíteni, amelyek feltétlenül szükségesek az adatkezelés céljai szempontjából (ezen túlmenően nem szabad gyűjteni azokat).",
+        "source": "DPIAF Összekapcsolt tárgyak, 10. o. - WIKI"
+      },
+      "PIA_LGL_DEST": {
+        "name": "Címzett",
+        "description": "Az a természetes vagy jogi személy, közhatalmi szerv, ügynökség vagy bármely egyéb szerv, akivel vagy amellyel a személyes adatot közlik, függetlenül attól, hogy harmadik fél-e. Azon közhatalmi szervek, amelyek egy egyedi vizsgálat keretében az uniós vagy a tagállami joggal összhangban férhetnek hozzá személyes adatokhoz, nem minősülnek címzettnek; az említett adatok e közhatalmi szervek általi kezelése meg kell, hogy feleljen az adatkezelés céljainak megfelelően az alkalmazandó adatvédelmi szabályoknak. Lásd a <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\"> GDPR 4. cikkének 9. pontját </a>.",
+        "source": "4.9 cikk GDPR"
+      },
+      "PIA_LGL_DUR": {
+        "name": "Adatmegőrzési határidő",
+        "description": "Az adatkezelés tárgyát képező személyes adatok minden típusa esetén meg kell határozni az adatmegőrzés időtartamát, és azt törvényes követelmények és/vagy adatkezelési szükségletek szerint kell igazolni. Meg kell különböztetni ezért az általános és az archivált adatokat, amely utóbbiakhoz csak az érintett felek férhetnek hozzá. Olyan törlési mechanizmust kell kialakítani, amely archiválja az általános adatokat, illetve a tárolás időtartamának lejártával megszűri az archiváltakat. A logikai- és naplóbejegyzésekből is törölni kell a személyes adatokat.",
+        "source": "PIAF Összekapcsolt tárgyak, 12. o."
+      },
+      "PIA_LGL_INFO": {
+        "name": "Az érintettek tájékoztatása",
+        "description": "Gondoskodjon az érintettek - <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/HU/TXT/HTML/?uri=CELEX:32016R0679&qid=1520586769024&from=HU\"> GDPR 12-14. cikkeiben </a> meghatározottak szerinti - tájékoztatásáról.",
+        "source": "GPIA 8. o. - WIKI"
+      },
+      "PIA_LGL_CONS": {
+        "name": "Hozzájárulás",
+        "description": "Biztosítsa, hogy az érintettek önkéntesen, kifejezetten és tájékozott módon döntsenek. Állapítsa meg, hogy az adatkezelésnek van-e olyan jogalapja, amely eltér a <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/HU/TXT/HTML/?uri=CELEX:32016R0679&qid=1520586769024&from=HU\"> GDPR  6. cikke szerinti </a> hozzájárulástól.",
+        "source": "GPIA3, 11. o. - WIKI"
+      },
+      "PIA_VAL_DPO": {
+        "name": "Az adatvédelmi tisztviselő szakmai tanácsa",
+        "description": "Ha van kijelölt adatvédelmi tisztviselő, az adatkezelő az adatvédelmi hatásvizsgálat elvégzésekor az adatvédelmi tisztviselő szakmai tanácsát köteles kikérni. Lásd a <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/HU/TXT/HTML/?uri=CELEX:32016R0679&qid=1520586769024&from=HU\"> a GDPR 35. cikkének (2) bekezdését</a>. <br>Az adatvédelmi tisztviselő által adott vélemény kifogásolhatja a folyamatban lévő adatkezelést, mégsem korlátozza az adatkezelő döntését.",
+        "source": "A GDPR 35. cikkének (2) bekezdése és DPIAF Összekapcsolt tárgyak, 37. o."
+      },
+      "PIA_VAL_CONC": {
+        "name": "Az érintett véleménye",
+        "description": "Az adatkezelő adott esetben – a kereskedelmi érdekek vagy a közérdek védelmének vagy az adatkezelési műveletek biztonságának sérelme nélkül – kikéri az érintettek vagy képviselőik véleményét a tervezett adatkezelésről. Lásd a <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/HU/TXT/HTML/?uri=CELEX:32016R0679&qid=1520586769024&from=HU\"> a GDPR 35. cikk (9) bekezdését </a>. <br> A körülményektől függően a véleményeket többféle módon lehet begyűjteni (többek között az adatkezelés céljára és egyéb lényeges körülményeire irányuló belső vagy külső vizsgálattal, a munkavállalók képviselőinek vagy a szakszervezeteknek feltett kérdéssel, illetve az adatkezelő majdani ügyfeleire irányuló felméréssel). Ha az adatkezelő szembehelyezkedik az érintettek véleményével </strong>, feljegyzést kell készítenie döntése indoklásáról. Ha az adatkezelő úgy véli, nincs jelentősége az érintettek véleménye beszerzésének, ennek indoklását szintén feljegyzésbe kell foglalnia.",
+        "source": "GDPR 35 cikkének 9. bekezdése és DPIAF Összekapcsolt tárgyak, 38. o."
+      },
+      "PIA_VAL_RT": {
+        "name": "Jóváhagyás",
+        "description": "Döntse el, hogy a választott intézkedések, a maradvány kockázat, valamint az intézkedési terv elfogadható-e.  Mindezek alapján a hatásvizsgálat eredménye lehet: jóváhagyott – feltételektől függően jóváhagyható (ebben az esetben ismertesse, hogy milyen korrekciókra van szükség) – elutasított (az alapul szolgáló tervezett adatkezeléssel egyetemben). <br> Ez a döntés nem befolyásolja az adatvédelmi hatóság (Magyarországon a NAIH) vizsgálódását a GDPR rendelkezéseinek történő megfelelés tekintetében.",
+        "source": "DPIAF Összekapcsolt tárgyak, 40. o."
+      },
+      "PIA_TEC_CHIF": {
+        "placeholder": "Ismertesse az adatok bizalmas kezelésére alkalmazott eszközöket",
+        "name": "Titkosítás",
+        "description": "Adatbázisban, fájl szinten, illetve biztonsági mentésként tárolt adatok bizalmasságának megőrzése érdekében használt eljárás. <br> Ismertesse az alkalmazott titkosítási eljárásokat (VPN, TLS stb.).",
+        "source": "DPIAF Összekapcsolt tárgyak, 21. o."
+      },
+      "PIA_TEC_ANO": {
+        "placeholder": "Ismertesse az alkalmazott anonimizálási mechanizmust",
+        "name": "Anonimizálás",
+        "description": "Amennyiben alkalmaznak anonimizálási technikákat, ismertesse, hogy melyeket és mely célból alkalmazzák. Leírásában különítse el az anonimizált módon és az álnevesítés útján kezelt adatokat.",
+        "source": "DPIAF Összekapcsolt tárgyak, 21. o."
+      },
+      "PIA_TEC_CLO": {
+        "placeholder": "Jelezze, hogy tervezik-e az adatok különválasztását, és ezt miként hajtják végre.",
+        "name": "Az adatok különválasztása",
+        "description": "Amennyiben a különböző adatokat elválasztva kezeljük, csökkenhet annak az esélye, hogy a személyes adatok egymással összefüggésbe hozhatók legyenek egy esetleges adatvédelmi incidens bekövetkezése esetén.",
+        "source": "DPIAF Összekapcsolt tárgyak, 21. o."
+      },
+      "PIA_TEC_CTLA": {
+        "placeholder": "Mutassa be, hogyan határozzák meg és azonosítják a felhasználói profilokat.",
+        "name": "Logikai hozzáférés szabályozás",
+        "description": "A felhasználók profiljának definiálása, kezelése. Ismertesse a hitelesítési eljárást. Határozza meg a jelszóhasználati szabályokat (minimum hossz, használható karakterek, érvényesség időtartama, téves jelszóhasználatok száma a fiók zárolása előtt).",
+        "source": "DPIAF Összekapcsolt tárgyak, 21. o. "
+      },
+      "PIA_TEC_LOG": {
+        "placeholder": "Ismertesse, készülnek-e ezekről az eseményekről bejegyzések, és ezeket a bejegyzéseket meddig tárolják.",
+        "name": "Nyomon követhetőség (naplózás)",
+        "description": "A nyomon követhetőség és naplózás irányelvei.",
+        "source": "DPIAF Összekapcsolt tárgyak, 22. o."
+      },
+      "PIA_TEC_ARCH": {
+        "placeholder": "Ismertesse, alkalmaznak-e a tárolt adatok sértetlenségét ellenőrző mechanizmusokat, melyeket és milyen célra.",
+        "name": "Archiválás",
+        "description": "Amennyiben rendelkezik ilyennel, ismertesse a felelősségi körébe tartozó archiválás folyamatait (átadás, tárolás, egyeztetés stb.). Adja meg az archiválás szereplőit (átadó osztályok, adattovábbító ügynökségek stb.), illetve az archiválásra vonatkozó irányelveket. Jelezze, ha az adatok az állami levéltári nyilvántartás hatókörébe tartozhatnak.",
+        "source": "DPIAF Összekapcsolt tárgyak, 22. o. - WIKI"
+      },
+      "PIA_TEC_PAP": {
+        "placeholder": ": Ismertesse, hogy alkalmaznak-e a papír alapú dokumentumok sértetlenségét ellenőrző mechanizmusokat, és amennyiben igen, melyeket és milyen célra.",
+        "name": "Papír alapú dokumentumok biztonsága",
+        "description": "Ha papír alapú dokumentumok is használnak az adatkezelés során, jelezze, hogyan történik a nyomtatásuk, tárolásuk, megsemmisítésük, illetve kicserélésük.",
+        "source": "DPIAF Összekapcsolt tárgyak, 22. o."
+      },
+      "PIA_TEC_MINI": {
+        "placeholder": "Ismertesse, milyen kockázatcsökkentő eszközöket alkalmaznak a személyes adatok mennyiségének korlátozása céljából.",
+        "name": "Adatminimalizálás",
+        "description": "A következő módszerek alkalmazhatók: szűrés, eltávolítás, érzékenységcsökkentés átalakítással, az adatok személyazonosításra alkalmas jellegének csökkentése, az adatfelhalmozás korlátozása, az adatokhoz való hozzáférés korlátozása.",
+        "source": "DPIAF Összekapcsolt tárgyak, 40. o."
+      },
+      "PIA_SEC_EXP": {
+        "placeholder": "Írja le, hogy történnek a software-frissítések (operációs rendszerek, alkalmazások stb.), és hogyan alkalmaznak biztonságvédelmi hibákat javító programokat.",
+        "name": "Üzembiztonság",
+        "description": "A személyes adatok kezelésére szolgáló eszközök kockázati kitettségét csökkentő intézkedések.",
+        "source": "DPIAF Összekapcsolt tárgyak, 22. o. - WIKI"
+      },
+      "PIA_SEC_MAL": {
+        "placeholder": "Írja le, milyen védelmi intézkedésekkel csökkentik a kockázatokat kevésbé biztonságos hálózatokhoz való csatlakozás esetén.",
+        "name": "Rosszindulatú software-ek kiszűrése",
+        "description": "A munkaállomásokra és a szerverekre telepített, a rosszindulatú software-ekkel szemben védő eszközök a kevésbé biztonságos hálózatókhoz való csatlakozás esetén.",
+        "source": "DPIAF Összekapcsolt tárgyak, 22. o. - WIKI"
+      },
+      "PIA_SEC_COMP": {
+        "placeholder": "Írja le a munkaállomásokra telepített védelmi eszközöket.",
+        "name": "A munkaállomások kezelése",
+        "description": "Munkaállomásokra telepített védelmi eszközök (automatikus zárás, rendszeres frissítés, konfiguráció, fizikai biztonság stb.), amely csökkenti a software tulajdonságainak (operációs rendszerek, üzleti applikációk stb.) a személyes adatokra ártalmas kihasználhatóságát.",
+        "source": "PIAF Connected Objects p22 - WIKI"
+      },
+      "PIA_SEC_WEB": {
+        "placeholder": "Tüntesse fel, fel milyen eszközöket alkalmaznak a webhelyek védelmére.",
+        "name": "Webhelybiztonság",
+        "description": "Az ANSSI webheybiztonsági ajánlásainak alkalmazása.",
+        "source": "DPIAF Összekapcsolt tárgyak, 22. o. - WIKI"
+      },
+      "PIA_SEC_BKP": {
+        "placeholder": "Tüntesse fel a biztonsági mentések kezelési módját. Nyilatkozzon arra vonatkozóan,  hogy biztonságos helyen tárolják-e azokat.",
+        "name": "Biztonsági mentés",
+        "description": "A személyes adatok rendelkezésre állását és/vagy sértetlenségét és egyben bizalmas kezelésüket biztosító eljárások és eszközök.",
+        "source": "DPIAF Összekapcsolt tárgyak, 23. o. és PIA+ 27. o. - WIKI "
+      },
+      "PIA_SEC_MAIN": {
+        "placeholder": "Írja le a hardware fizikai karbantartásának módját",
+        "name": "Karbantartás",
+        "description": "A hardware karbantartásának eljárása, jelezve, hogy azt kiszervezik-e. Közölje, engedélyezik-e az applikációk távoli karbantartását, és milyen feltételekkel. Részletezze, hogy a meghibásodott berendezések kezelésére van-e külön eljárás.",
+        "source": "DPIAF Összekapcsolt tárgyak, 23. o. "
+      },
+      "PIA_SEC_NET": {
+        "placeholder": "Adja meg az adatkezelést szolgáló hálózat védelmi eszközeit.",
+        "name": "Hálózatbiztonság",
+        "description": "Az adatkezelést szolgáló hálózattól (elkülönült, magánhálózat vagy Internet) függően adja meg, milyen tűzfal-, behatolásérzékelő, illetve egyéb aktív vagy passzív rendszer gondoskodik a hálózatbiztonságról.",
+        "source": "DPIAF Összekapcsolt tárgyak, 23. o. "
+      },
+      "PIA_SEC_PHY": {
+        "placeholder": "Adja meg, az adatkezelés helyszínét milyen fizikai védelemmel biztosítják.",
+        "name": "Fizikai hozzáférésvédelem",
+        "description": "Fizikai biztonsági intézkedések (az épület szakaszolása, vendégek kísérete, belépők viselése, ajtók zárása stb.). Ismertesse, hogy alkalmaznak-e olyan eljárásokat, amelyek révén illetéktelen behatolás esetén figyelmeztető jelzést kapnak.",
+        "source": "DPIAF Összekapcsolt tárgyak, 23. o."
+      },
+      "PIA_SEC_LOG": {
+        "placeholder": "Tüntesse fel az adatvédelmi incidensek észlelésére alkalmazott eszközöket és intézkedéseket.",
+        "name": "Hálózati tevékenységek megfigyelése",
+        "description": "A behatolásészlelő és -megelőző rendszerek által végzett ellenőrzés révén elemezze a hálózati (vezetékes hálózatok, Wi-Fi, rádióhullám, száloptika) valós idejű forgalmát, és így észlelje a kibertámadás-gyanús tevékenységeket.",
+        "source": " DPIA3, 67.o. - WIKI"
+      },
+      "PIA_SEC_MAT": {
+        "placeholder": "Tüntesse fel a szerverek és a munkaállomások fizikai biztonságát befolyásoló védelmi intézkedéseket",
+        "name": "Hardwarebiztonság",
+        "description": "Tüntesse fel a szerverek és a munkaállomások fizikai biztonságát befolyásoló védelmi intézkedéseket (biztonságos tárolás, biztonsági kábelek, titkossági szűrők, biztonsági törlés szemétbe dobás előtt stb.).",
+        "source": "DPIAF Összekapcsolt tárgyak, 23. o. - WIKI"
+      },
+      "PIA_SEC_SRC": {
+        "placeholder": "Tüntesse fel, hogy a telepítési helyszín ki van-e téve környezeti katasztrófáknak.",
+        "name": "A kockázatforrások elkerülése",
+        "description": "A telepítési helyszín dokumentációja, az ugyanis nem lehet kitéve környezeti katasztrófáknak (ártér, vegyiművek közelsége, földrengéses vagy vulkanikus térség stb.). Jelezze, tárolnak-e ugyanezen területen veszélyes anyagokat.",
+        "source": "A DPIAF Összekapcsolt tárgyak, 23. o. - WIKI"
+      },
+      "PIA_SEC_PROT": {
+        "placeholder": "Tüntesse fel a nem emberi eredetű kockázatok csökkentésének vagy korlátozásának eszközeit.",
+        "name": "A nem emberi eredetű kockázatokkal szembeni védelem",
+        "description": "A tűzvédelmi eszközök, tűzjelző és tűzoltó berendezések leírása. Ha van ilyen, mutassa be a vízkár elleni védelem eszközeit. Jelölje meg továbbá az áramellátás ellenőrzésére szolgáló eszközöket és a kármentesítés eszközeit.",
+        "source": "A DPIAF Összekapcsolt tárgyak, 23. o. - WIKI"
+      },
+      "PIA_ORG_ORG": {
+        "placeholder": "Ismertesse, hogy az adatvédelemmel összefüggő feladat-és felelősségi körök meg vannak-e határozva.",
+        "name": "Szervezet",
+        "description": "Ismertesse, van-e az adatvédelmi jogszabályoknak és egyéb előírások érvényesítésének felelőse, továbbá kijelöltek-e a szervezetrendszeren belül olyan bizottságot (vagy más hasonló egység), amely mintegy ellenőrző mechanizmusként működve, az adatvédelmi vonatkozású tevékenységek kapcsán iránymutatással szolgál és felel az utánkövetésért is.",
+        "source": "DPIAF Összekapcsolt tárgyak, 24. o. - WIKI"
+      },
+      "PIA_ORG_POL": {
+        "placeholder": "Írja le az adatvédelmi célokat és szabályokat magában foglaló dokumentumokat.",
+        "name": "Szabályzatok",
+        "description": "Foglalja össze az adatvédelem, a dokumentumokban előírt adatvédelmi eljárások legfontosabb vonatkozásait az egyes kategóriáknak (kockázatok, betartandó alapelvek, célok, alkalmazandó szabályok stb.) és kommunikációs céloknak (használók, IT-osztály, eljárások kidolgozói stb.) megfelelően.",
+        "source": "GPIA3, 78. o. - WIKI "
+      },
+      "PIA_ORG_RMGT": {
+        "placeholder": "Írja le azokat az eljárásokat, amelyek a szervezet által végzett adatkezelés adatvédelmi, az érintettek magánszféráját érintő kockázataival szemben nyújtanak védelmet.",
+        "name": "Adatvédelmi kockázatok kezelése",
+        "description": "Azok a rendelkezések, amelyek megállapítják a szervezet által végzett, az adatkezelésre és az érintettek magánszférájára kockázatot jelentő adatkezelési műveletek megvizsgálására irányuló eljárásrendeket (kockázatok feltérképezése stb.).",
+        "source": " DPIA3, 77. o. - WIKI "
+      },
+      "PIA_ORG_PBD": {
+        "placeholder": "Mutassa be, hogyan építik be az adatvédelem követelményeit a projektekbe.",
+        "name": "Az adatvédelem beépítése a projektekbe",
+        "description": "Kidolgoztak-e arra vonatkozó eljárásrendet, hogy az adatvédelmi megfontolásokat minden újonnan megkezdett adatkezelési művelet esetén beépítsék a folyamataikba?",
+        "source": " DPIA3, 79. o. - WIKI "
+      },
+      "PIA_ORG_VIOL": {
+        "placeholder": "Ismertesse, hogy rendelkeznek-e dokumentált és tesztelt eljárásrenddel informatikai incidensekre vonatkozóan.",
+        "name": " A személyes adatokkal kapocsolatos jogsértések  kezelése",
+        "description": "Van-e olyan operatív szervezet, amely észleli és kezeli az érintettek polgári jogait és magánszféráját érintő incidenseket?",
+        "source": " DPIAF Összekapcsolt tárgyak, 24. o. és DPIA 36. o. - WIKI"
+      },
+      "PIA_ORG_PERS": {
+        "placeholder": "Mutassa be, milyen módszereket alkalmaznak a munkavállalók adatvédelmi tudatosságának növelése érdekében.",
+        "name": "Humánerőforrás-menedzsment",
+        "description": "Van-e arra nézve eljárásuk, hogy az újonnan felvett alkalmazottak esetében milyen adatvédelmi ismereteiket bővítő és adatvédelmi tudatosságukat növelő mechanizmusokat kell alkalmazni, továbbá milyen intézkedéseket alkalmaznak abban az esetben, amikor felmond egy olyan munkavállaló, aki hozzáféréssel rendelkezik az adatokhoz?",
+        "source": "DPIAF Összekapcsolt tárgyak, 24. o."
+      },
+      "PIA_ORG_EXT": {
+        "placeholder": "Ismertesse, hogy az adatokhoz való hozzáférést kérő adatfeldolgozóknak milyen biztonsági intézkedéseknek kell megfelelniük a hozzáférés tekintetében.",
+        "name": "Kapcsolat harmadik felekkel",
+        "description": "Rendelkeznek-e olyan szabályzattal és eljárásrenddel, amely csökkenti a személyes adatokhoz való jogszerű hozzáférés nyomán keletkező, az érintettek polgári jogait és magánszféráját fenyegető kockázatokat?",
+        "source":  "DPIA3, 48. o. - WIKI"
+      },
+      "PIA_ORG_AUD": {
+        "placeholder": "Jelezze, ellenőrzik-e az adatvédelem hatékonyságát és alkalmasságát.",
+        "name": "Felügyelet",
+        "description": "Van-e arra nézve elv és eljárás, hogy olyan szervezetet kell bevonni, amely képes az általa kezelt személyes adatok védelmét ellátni?",
+        "source":  " DPIA3, 76.o. - WIKI"
+      },
+      "PIA_DEF_EXA": {
+        "name": "Adatminőség",
+        "description": "A személyes adatoknak pontosnak és szükség esetén naprakésznek kell lenniük; minden észszerű intézkedést meg kell tenni annak érdekében, hogy az adatkezelés céljai szempontjából pontatlan személyes adatokat haladéktalanul töröljék vagy helyesbítsék („pontosság”)<br> Lásd a <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/HU/TXT/HTML/?uri=CELEX:32016R0679&qid=1520586769024&from=HU\"> GDPR 5. cikk (1) bekezdésének d.) pontját. </a>",
+        "source": "a GDPR 5. cikke (1) bekezdésének d) pontja"
+      },
+      "PIA_DEF_MES": {
+        "name": "Intézkedések",
+        "description": "Válasszon a „Tervezett vagy meglévő intézkedések” c. rész lehetőségei közül, amelyeket, ha szükséges, kitölthet.",
+        "source": "Nincs"
+      },
+      "PIA_DEF_RT": {
+        "name": "Adatkezelő",
+        "description": "Az a természetes vagy jogi személy, közhatalmi szerv, ügynökség vagy bármely egyéb szerv, amely a személyes adatok kezelésének céljait és eszközeit önállóan vagy másokkal együtt meghatározza; ha az adatkezelés céljait és eszközeit az uniós vagy a tagállami jog határozza meg, az adatkezelőt vagy az adatkezelő kijelölésére vonatkozó különös szempontokat az uniós vagy a tagállami jog is meghatározhatja. Lásd a <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/HU/TXT/HTML/?uri=CELEX:32016R0679&qid=1520586769024&from=HU\"> GDPR 4. cikkének 7. pontját</a>",
+        "source": "A GDPR 4. cikkének 7. pontja"
+      },
+      "PIA_DEF_DCP": {
+        "name": "Személyes adat",
+        "description": "Azonosított vagy azonosítható természetes személyre („érintett”) vonatkozó bármely információ; azonosítható az a természetes személy, aki közvetlen vagy közvetett módon, különösen valamely azonosító, például név, szám, helymeghatározó adat, online azonosító vagy a természetes személy testi, fiziológiai, genetikai, szellemi, gazdasági, kulturális vagy szociális azonosságára vonatkozó egy vagy több tényező alapján azonosítható. Lásd a <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/HU/TXT/HTML/?uri=CELEX:32016R0679&qid=1520586769024&from=HU\"> GDPR 4. cikkének 1. pontját</a>",
+        "source": "A GDPR 4. cikkének 1. pontja"
+      },
+      "PIA_DEF_DEST": {
+        "name": "Címzett",
+        "description": "Az a természetes vagy jogi személy, közhatalmi szerv, ügynökség vagy bármely egyéb szerv, akivel vagy amellyel a személyes adatot közlik, függetlenül attól, hogy harmadik fél-e. Azon közhatalmi szervek, amelyek egy egyedi vizsgálat keretében az uniós vagy a tagállami joggal összhangban férhetnek hozzá személyes adatokhoz, nem minősülnek címzettnek; az említett adatok e közhatalmi szervek általi kezelése meg kell, hogy feleljen az adatkezelés céljainak megfelelően az alkalmazandó adatvédelmi szabályoknak. Lásd a <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/HU/TXT/HTML/?uri=CELEX:32016R0679&qid=1520586769024&from=HU\"> GDPR 4. cikkének 9. pontját </a>",
+        "source": "A GDPR 4. cikkének 9. pontja"
+      },
+      "PIA_DEF_SUPT": {
+        "name": "Az adatok kezelésére szolgáló eszközök",
+        "description": "A személyes adatok kezelésére szolgáló eszközök. Lehet hardware, software, hálózat, személy, irat vagy papír alapú iratokat továbbító csatorna.",
+        "source": "DPIA1, 10. o. "
+      },
+      "PIA_DEF_MINC": {
+        "name": "Adatminimalizálás",
+        "description": "Csökkentse a kockázatok súlyosságát azáltal, hogy a kezelt személyes adatok körét azon adatokra szűkíti, amelyek feltétlenül szükségesek az adatkezelés céljai szempontjából (ezen túlmenően nem szabad gyűjteni azokat).",
+        "source": ""
+      },
+      "PIA_DEF_MIND": {
+        "name": "Adatminimalizálás",
+        "description": "A kockázatok súlyosságának csökkentése az adatok minimalizálása által (az adatok érzékenységének csökkentése például azok szűrésével, az adatkezelés célja szempontjából szükséges adatokon túlmenő adatok eltávolítása, álnevesítés stb.).",
+        "source": "PIA3 p64"
+      },
+      "PIA_DEF_CONS": {
+        "name": "Hozzájárulás",
+        "description": "Az érintett akaratának önkéntes, konkrét és megfelelő tájékoztatáson alapuló és egyértelmű kinyilvánítása, amellyel az érintett nyilatkozat vagy a megerősítést félreérthetetlenül kifejező cselekedet útján jelzi, hogy beleegyezését adja az őt érintő személyes adatok kezeléséhez. Lásd a <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/HU/TXT/HTML/?uri=CELEX:32016R0679&qid=1520586769024&from=HU\">GDPR 4. cikkének 11. pontját</a>.",
+        "source": "A GDPR 4. cikkének 11. pontja "
+      },
+      "PIA_DEF_ACC": {
+        "name": "Hozzáférési jog",
+        "description": "Az érintett jogosult arra, hogy az adatkezelőtől visszajelzést kapjon arra vonatkozóan, hogy személyes adatainak kezelése folyamatban van-e, és ha ilyen adatkezelés folyamatban van, jogosult arra, hogy a személyes adatokhoz és a GDPR 15. cikkében megállapított információkhoz hozzáférést kapjon. Lásd a <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/HU/TXT/HTML/?uri=CELEX:32016R0679&qid=1520586769024&from=HU\">GDPR 15. cikkét</a>.",
+        "source":"A GDPR 15. cikke"
+      },
+      "PIA_DEF_PORT": {
+        "name": "Adathordozhatósághoz való jog",
+        "description": " Az érintett jogosult arra, hogy a rá vonatkozó, általa egy adatkezelő rendelkezésére bocsátott személyes adatokat tagolt, széles körben használt, géppel olvasható formátumban megkapja, továbbá jogosult arra, hogy ezeket az adatokat egy másik adatkezelőnek továbbítsa anélkül, hogy ezt akadályozná az az adatkezelő, amelynek a személyes adatokat a rendelkezésére bocsátotta. Lásd a <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/HU/TXT/HTML/?uri=CELEX:32016R0679&qid=1520586769024&from=HU\">GDPR 20. cikkét</a>.",
+        "source": "A GDPR 20. cikke"
+      },
+      "PIA_DEF_RECT": {
+        "name": "A helyesbítéshez való jog",
+        "description": "Az érintett jogosult arra, hogy kérésére az adatkezelő indokolatlan késedelem nélkül helyesbítse a rá vonatkozó pontatlan személyes adatokat. Figyelembe véve az adatkezelés célját, az érintett jogosult arra, hogy kérje a hiányos személyes adatok – egyebek mellett kiegészítő nyilatkozat útján történő – kiegészítését.",
+        "source": "A GDPR 16. cikke "
+      },
+      "PIA_DEF_EFF": {
+        "name": "A törléshez való jog",
+        "description": " Az érintett jogosult arra, hogy kérésére az adatkezelő indokolatlan késedelem nélkül törölje a rá vonatkozó személyes adatokat, az adatkezelő pedig köteles arra, hogy az érintettre vonatkozó személyes adatokat indokolatlan késedelem nélkül törölje. Lásd a <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/HU/TXT/HTML/?uri=CELEX:32016R0679&qid=1520586769024&from=HU\">GDPR 17. cikkét</a>.",
+        "source" : "A GDPR 17. cikke "
+      },
+      "PIA_DEF_LIM": {
+        "name": "Az adatkezelés korlátozásához való jog",
+        "description": "Az érintett jogosult arra, hogy kérésére az adatkezelő korlátozza az adatkezelést, lásd <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/HU/TXT/HTML/?uri=CELEX:32016R0679&qid=1520586769024&from=HU\">GDPR 18. cikkét</a>.",
+        "source": "A GDPR 18. cikke"
+      },
+      "PIA_DEF_OPP": {
+        "name": "A tiltakozáshoz való jog",
+        "description": "Az érintett jogosult arra, hogy a saját helyzetével kapcsolatos okokból bármikor tiltakozzon személyes adatainak a kezelése ellen <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/HU/TXT/HTML/?uri=CELEX:32016R0679&qid=1520586769024&from=HU\">GDPR 21. cikkét</a>.",
+        "source": "a GDPR 21. cikke szerint"
+      },
+      "PIA_DEF_PSEU": {
+        "name": "Álnevesítés",
+        "description": "A személyes adatok olyan módon történő kezelése, amelynek következtében további információk felhasználása nélkül többé már nem állapítható meg, hogy a személyes adat mely konkrét természetes személyre vonatkozik. Ennek feltétele, hogy az ilyen további információt külön tárolják, és technikai és szervezési intézkedések megtételével biztosított, hogy azonosított vagy azonosítható természetes személyekhez ezt a személyes adatot nem lehet kapcsolni.",
+        "source" :"A GDPR 4. cikkének 5. pontja, illetve a 29-es munkacsoport iránymutatása 22. o. http://ec.europa.eu/justice/data-protection/article-29/documentation/opinion-recommendation/files/2014/wp216_en.pdf"
+      },
+      "PIA_DEF_CLO": {
+        "name": "Az adatok különválasztása",
+        "description": "Amennyiben a különböző adatokat elválasztva kezelik, csökkenhet annak az esélye, hogy a személyes adatok egymással összefüggésbe hozhatók legyenek egy esetleges adatvédelmi incidens bekövetkezése esetén.",
+        "source": "DPIA3, 19. o. - WIKI"
+      },
+      "PIA_DEF_CTLA": {
+        "name": "Logikai hozzáférésvédelem",
+        "description": "Olyan kockázatcsökkentő eszközök, amelyek meggátolják az illetéktelenek személyes adatokhoz való hozzáférését, és amelyek egyebek közt a következőket feltételezik: a felhasználói profilok kezelése a feladatok és felelősségi körök elválasztásával (lehetőség szerint központosítottan) azért, hogy csak az illetékes felhasználók – a szükséges ismeret és legkisebb jogosultság elveinek betartásával – férhessenek hozzá a személyes adatokhoz; továbbá a munkavállalók, a szerződő és a harmadik felek jogosultságainak megvonása, ha azok már nem jogosultak hozzáférni a hivatali eszközökhöz, illetve ha már lejárt a munkaszerződésük.",
+        "source": "DPIA3, 43. o. - WIKI"
+      },
+      "PIA_DEF_MIN1": {
+        "name": "Szűrés és eltávolítás",
+        "description": "Adatimportálás esetén a gyűjtés akaratlanul is kiterjedhet különböző metaadatokra (pl. EXIF-adatok képállomány-melléklettel). Az ilyen metaadatokat azonosítani kell, és el kell távolítani, ha nem szükségesek a meghatározott célokra.",
+        "source" : "DPIAF Összekapcsolt tárgyak, 42. o. - WIKI"
+      },
+      "PIA_DEF_MIN2": {
+        "name": "Személyes adatok érzékenységének csökkentése átalakítással",
+        "description": "Amennyiben érzékeny adatok birtokába jutnak, ezek átalakíthatók kevésbé érzékeny adatokká, illetve álnevesíthetők. Ha például a rendszer IP-cím alapján állapítja meg a használó tartózkodási helyét, az IP-cím törölhető a város vagy kerület azonosítása után; ha a rendszer videóadatokat kap megfigyelő kameráktól, azonosíthatja és elhomályosíthatja az álló vagy mozgó személyeket; ha okos fogyasztásmérőről van szó, az összesítheti az adott időszak energiahasználatát anélkül, hogy valósidőben rögzítené.",
+        "source" : "DPIAF, Összekapcsolt tárgyak, 42. o. - WIKI"
+      },
+      "PIA_DEF_SRC": {
+        "name": "Kockázatforrás",
+        "description": "Kockázatot okozó személy vagy egyéb forrás, mely lehet véletlenül vagy szándékosan előidézett kockázatforrás.",
+        "source": "DPIA1, 11. o. - WIKI"
+      },
+      "PIA_DEF_MEN": {
+        "name": "Fenyegető veszély",
+        "description": "Egy vagy több cselekvésből álló eljárás az adatok kezelésére szolgáló eszközökön, mely megvalósulhat szándékosan vagy más módon.",
+        "source": "DPIA1, 12. o. - WIKI"
+      },
+      "PIA_DEF_MENA": {
+        "name": "Az illetéktelen hozzáférés veszélyei",
+        "description": "Veszélyek: hardware nem rendeltetésszerű használata, megfigyelése, módosítása, elvesztése (érzékeny hardware személyes célokra való használata vagy szállítása, megfigyelés hardware alapú billentyűleütés-naplózóval stb.); software nem rendeltetésszerű használata, megfigyelése, módosítása (jogosultságbővítés, konfigurációs adatok gyűjtése, fertőzés rosszindulatú kód által stb.); számítógépes csatornák megfigyelése (Ethernet-adatáramlás kiszűrése); személyek megfigyelése, manipulálása, elvesztése (akaratlan információközlés, lélektani manipuláció, feladatkiosztás megváltoztatása); papír alapú dokumentumok megfigyelése, elvesztése (olvasása, postai levelek ellopása stb.); papír alapú dokumentumok továbbítási csatornáinak megfigyelése (köröztetett iratátvételi könyvek elolvasása stb.).",
+        "source": "DPIAF Összekapcsolt tárgyak, 44. és 45. o."
+      },
+      "PIA_DEF_MENM": {
+        "name": "Az adatok véletlen vagy jogellenes megváltoztatásának veszélyei",
+        "description": "Veszélyek: hardware módosítása (inkompatibilis hardware telepítése, ami meghibásodást idéz elő; lényegi elemek eltávolítása stb.); software nem rendeltetésszerű használata vagy módosítása (adatbázisok akaratlan módosítása, kezelő adatmódosítást eredményező hibái stb.",
+        "source": "DPIAF Összekapcsolt tárgyak, 43. és 44. o. WIKI"
+      },
+      "PIA_DEF_MENI": {
+        "name": "Személyes adatok eltünésével fenyegető veszélyek",
+        "description": "A következő veszélyek: hardware nem rendeltetésszerű használata, túlterhelése, megváltoztatása, sérülése, elvesztése (a tárolóegység telítődése, az adatkezelő kapacitás túlterhelése, inkompatibilis hardware-rel való, meghibásodást okozó kiegészítés, tűz, valamely eszköz eltulajdonítása vagy elvesztése stb.); software nem rendeltetésszerű használata, túlterhelése, módosítása, károsítása, elvesztése (adattörlés, adatbázis méretének meghaladása, logikai bomba, az adatokhoz való hozzáféréshez használt software engedélyének meg nem újítása; számítógépes csatornák túlterhelése, módosítása, elvesztése (engedély nélküli letöltés, internetkapcsolat elvesztése stb.); személyek túlterhelése, sérülése, elvesztése (készségek meg nem felelő használata, betegség, nyugdíjba vonulás stb.); papír alapú dokumentumok nem rendeltetésszerű használata, sérülése, elvesztése (törlés, archivált dokumentumok kopása, dokumentumok lopása és elvesztése stb.); papír alapú dokumentumok továbbítási csatornáinak túlterhelése, sérülése, módosítása, elvesztése (kézbesítés késlekedése sztrájk miatt, iroda vagy hivatali épület cseréje, postai szolgáltató elvesztése, papír alapú dokumentumok továbbítási csatornáinak átszervezése stb.).",
+        "source": "DPIAF Összekapcsolt tárgyak, 44. és 45. o., WIKI"
+      },
+      "PIA_DEF_GRV": {
+        "name": "Súlyosság",
+        "description": "A súlyosság jelöli a kockázat mértékét. Elsősorban a lehetséges behatások ártalmas jellegén múlik.",
+        "source": "DPIA1, 6. o."
+      },
+      "PIA_DEF_VRA": {
+        "name": "Valószínűség",
+        "description": "A valószínűség a kockázat bekövetkezésének a lehetőségét jelöli. Elsősorban a veszélynek kitett eszközök sérülékenységén és a kockázatforrások mértékén múlik.",
+        "source": "DPIA1, 6. o."
+      },
+      "PIA_DEF_PBDS": {
+        "name": "Projektmenedzsment",
+        "description": "Az egyes újonnan bevezetett adatkezelési műveletek esetán a személyes adatok védelmét integráló intézkedések  (megbízható nevek, iránymutatások, módszertanok).",
+        "source": "Intézkedések "
+      },
+      "PIA_DEF_VIOL": {
+        "name": "Adatvédelmi incidens",
+        "description": "A biztonság olyan sérülése, amely a továbbított, tárolt vagy más módon kezelt személyes adatok véletlen vagy jogellenes megsemmisítését, elvesztését, megváltoztatását, jogosulatlan közlését vagy az azokhoz való jogosulatlan hozzáférést eredményezi.",
+        "source": "A GDPR 4. cikkének 12. pontja"
+      },
+      "PIA_VAL_CART": {
+        "name": "A kockázatok feltérképezése",
+        "description": "Kockázatszámítást bemutató grafikon, ahol az egyes értékek a korábbi lépésekben elvégzett értékelésen alapulnak.",
+        "source": "DPIAF Összekapcsolt tárgyak, 34. o."
+      },
+      "PIA_VAL_ACT": {
+        "name": "Intézkedési terv",
+        "description": "Az értékelő által a korábbi lépések során javasolt hibajavító intézkedések, amelyek akciótervet képeznek, kijelölik a feladatokat, felelőseiket, gyakoriságukat, költségeiket és ütemezésüket.",
+        "source": "Nincs"
+      },
+      "PIA_DEF_ENJ": {
+        "name": "Érdekek",
+        "description": "Várható előnyök (a szervezet, az érintettek és általában a társadalom stb. számára).",
+        "source": "DPIA1, 4. o."
+      },
+      "PIA_DEF_ST": {
+        "name": "Adatfeldolgozó",
+        "description": "Az a természetes vagy jogi személy, közhatalmi szerv, ügynökség vagy bármely egyéb szerv, amely az adatkezelő nevében személyes adatokat kezel, lásd: a <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/HU/TXT/HTML/?uri=CELEX:32016R0679&qid=1520586769024&from=HU\"> GDPR 4. cikkének 8. pontját </a>.<br>Az adatfeldolgozó és bármely, az adatkezelő vagy az adatfeldolgozó irányítása alatt eljáró, a személyes adatokhoz hozzáféréssel rendelkező személy ezeket az adatokat kizárólag az adatkezelő utasításának megfelelően kezelheti, kivéve, ha az ettől való eltérésre őt uniós vagy tagállami jog kötelezi. Lásd a <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/HU/TXT/HTML/?uri=CELEX:32016R0679&qid=1520586769024&from=HU\"> GDPR 29. cikkét </a>.",
+        "source": "A GDPR 4. cikkének (8) bekezdésese és 29. cikke"
+      },
+      "PIA_DEF_RGPD": {
+        "name": "Általános adatvédelmi rendelet (GDPR)",
+        "description": "A természetes személyeknek a személyes adatok kezelése tekintetében történő védelméről és az ilyen adatok szabad áramlásáról, valamint a 95/46/EK rendelet hatályon kívül helyezéséről szóló rendelet.",
+        "source": "A GDPR címe"
+      },
+      "PIA_DEF_PC": {
+        "name": "Érintettek",
+        "description": "Azon személyek, akikre a kezelt adatok vonatkoznak.",
+        "source": "DPIA, 9. o."
+      },
+      "PIA_DEF_MIN3": {
+        "name": "Az adatok személyazonosításra alkalmas jellegének csökkentése",
+        "description": "A rendszer biztosítani tudja a következőket: a felhasználó igénybe vehet valamely eszközt vagy szolgáltatást anélkül, hogy vállalná a személyazonossága közlésével járó kockázatot (anonim adatok), de azonosítható marad, és felelősséget vállal a használatért (álnevesített adat); a felhasználó többször is igénybe veheti az eszközöket vagy szolgáltatásokat anélkül, hogy a különböző használatok összekapcsolódnának (az adatokat nem lehet összekapcsolni); a felhasználó igénybe vehet valamely eszközt vagy szolgáltatást anélkül, hogy mások, különösen harmadik felek megfigyelhetnék az eszköz vagy szolgáltatás használatát (megfigyelhetetlenség). A fenti listából az azonosított veszélyek alapján kell a módszert kiválasztani. A személyes adatok bizonyos veszélyek esetén az álnevesítés alkalmasabb, mint az anonimizálás (ha például szükség van nyomon követésre). Ezen túlmenően a magánszférára vonatkozó kockázatokat több módszer együttes alkalmazásával kell kezelni.",
+        "source" : "DPIAF Összekapcsolt tárgyak, 42. o. - WIKI"
+      },
+      "PIA_DEF_MIN4": {
+        "name": "Az adatfelhalmozás korlátozása",
+        "description": "A rendszer egymástól független részekre osztható, melyek mindegyike külön hozzáférés-védelmi funkcióval rendelkezik. Az adatok szintén eloszthatók a független alrendszerek között, és az egyes alrendszerek külön, különböző hozzáférés-védelmi mechanizmusokat használnak. Ha valamelyik alrendszer sérül, akkor az incidens hatása korlátok közé szorítható.",
+        "source": "DPIAF Összekapcsolt tárgyak, 42. o. - WIKI"
+      },
+      "PIA_DEF_MIN5": {
+        "name": "Az adatokhoz való hozzáférés korlátozása",
+        "description": "A rendszer korlátozhatja az adatokhoz való hozzáférést a szükséges ismeret elve alapján. A rendszer el tudja különíteni az érzékeny adatokat, és meghatározott hozzáférés-védelmi eljárásokat alkalmaz. A rendszer képes továbbá titkosítani az érzékeny adatokat, bizalmasan kezeli azokat továbbítás és tárolás során. Az adatkezelés során keletkező sütikhez való hozzáférést szintén védeni kell.",
+        "source": "DPIAF Összekapcsolt tárgyak, 42. o. - WIKI"
+      },
+      "PIA_EX_DCPC": {
+        "name": "Általános személyes adatok",
+        "description": "Személyazonosító adatok: családi állapot, személyazonosság, életkor stb.; Személyes élet: szokások, családi állapot stb.; Szakmai élet: életrajz, iskolai végzettség, szakmai képzettség, díjak stb.; Kapcsolattartási adatok: IP-címek, naplóbejegyzések; Tartózkodási adatok: utak, GPS-adatok, GSM-adatok; Egyebek: telefonszám, e-mailcím stb.",
+        "source": "DPIA2, korábbi változat - WIKI"
+      },
+      "PIA_EX_DCPS": {
+        "name": "Érzékenynek vélt személyes adatok",
+        "description": "Társadalombiztosítási szám, biometrikus adatok, banki adatok",
+        "source": "DPIA2, korábbi változat - WIKI"
+      },
+      "PIA_EX_DCPR": {
+        "name": "Meggyőződések és érzékeny személyes adatok",
+        "description": "Politikai, világnézeti, vallási és szakszervezetekkel kapcsolatos vélemény, nemi élet, egészségügyi adat, illetve etnikai vagy faji származásra, egészségi állapotra vagy szexuális életre, büntetőjogi felelősség megállapítására, illetve bűncselekményekre vagy ezekhez kapcsolódó biztonsági intézkedésekre vonatkozó adat. Lásd: <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 9 and 10 of [GDPR]</a>.",
+        "source": "DPIA2, régi változat, A GDPR 9. és 10. cikke - WIKI"
+      },
+      "PIA_EX_HUMI": {
+        "name": "Szervezeten belüli emberi tényezők",
+        "description": "Ezen kockázatforrásra példaként szolgálhatnak a következők: hanyag vagy tisztességtelen munkavállaló; képzetlenség és tájékozatlanság; hanyag vagy tisztességtelen felhasználó, családtag vagy barát, aki hozzáfér a rendszerhez. Több indíték is lehetséges: ilyenek lehetnek pélául ügyetlenség, hiba, hanyagság, játék, rosszindulat, bosszú, kémkedés.",
+        "source": "DPIAF Összekapcsolt tárgyak, 41. o. - WIKI"
+      },
+      "PIA_EX_HUME": {
+        "name": "Szervezeten kívüli emberi tényezők",
+        "description": "Ezen kockázatforrásra példaként szolgálhatnak a következők: tisztességtelen vagy naiv szomszéd, aki a fizikai közelség miatt meghekkeli az eszköz adatait; a hekker azért szemeli ki a felhasználót, mert vannak háttérinformáiói a kiszemelt felhasználóval kapcsolatban; a hekker azért szemel ki egy vállalatot, mert olyan ismeret birtokában van, amellyel alááshatja annak jóhírnevét stb.",
+        "source": "DPIAF Összekapcsolt tárgyak, 41. o. - WIKI"
+      },
+      "PIA_EX_NHUM": {
+        "name": "Nem emberi tényezők",
+        "description": "Ezen kockázatforrásra példaként szolgálhat valamely szervezetet sújtó incidens vagy káresemény (áramszünet, tűz, árvíz stb.)",
+        "source": "DPIAF Összekapcsolt tárgyak, 41. o. - WIKI"
+      },
+      "PIA_EX_IMPN": {
+        "name": "Elhanyagolható következmények ",
+        "description": "Az érintettek nem szenvednek kárt, vagy néhány kellemetlenséget kell csupán elviselniük, amelyen könnyen túlteszik magukat. Ilyenek például: fizikai/testi következmény: átmeneti fejfájás; anyagi következmény: időveszteség a formaságok ismétlése vagy teljesítése miatt, kéretlen levelek (pl. spamek) érkezése, weboldalakon közölt adatok újbóli felhasználása célzott reklámok küldése céljából stb.; erkölcsi következmények: egyszerű bosszúság, magánszférába való beavatkozás érzése valóságos vagy objektív sérelem nélkül stb.",
+        "source": "DPIAF Összekapcsolt tárgyak, 41. o. - WIKI"
+      },
+      "PIA_EX_IMPL": {
+        "name": "Korlátozott kihatás/következmények",
+        "description": "Az érintettek jelentős kellemetlenségeket tapasztalhatnak, de néhány nehézség ellenére túlteszik magukat rajtuk. Például: testi kellemetlenség (enyhe betegség az ellenjavallatok be nem tartása miatt); becsületsértés, amely fizikai vagy pszichológiai megtorláshoz vezet stb.; anyagi kellemetlenségek: váratlan költségek (tévesen kiszabott bírságok), közigazgatási vagy kereskedelmi szolgáltatások igénybevételétől való eltiltás; kéretlen üzenetek érkezése, ami árt az érintettek jóhírnevének; erkölcsi kellemetlenségek: kisebb, de objektív pszichés betegség, a magánszféra megsértésének érzése visszafordíthatatlan sérelem nélkül, megalázás közösségi hálókon stb.",
+        "source": "DPIAF Összekapcsolt tárgyak, 41. o. - WIKI"
+      },
+      "PIA_EX_IMPI": {
+        "name": "Jelentős kihatás/következmények",
+        "description": "Az érintettek komoly következményekkel szembesülhetnek, amelyeken ugyan túlteszik magukat, de jelentős és valós nehézségek árán. Ilyenek például a testi következmény: komoly betegségek hosszú távú következményekkel (egészségromlás szakszerűtlen gondozás vagy az ellenjavallatok be nem tartása miatt), a testi épség megváltozása például erőszak, otthoni vagy munkahelyi baleset folytán; anyagi következmény: pénz hűtlen kezelése kártalanítás nélkül, tervezett, egyedi és meg nem ismételhető lehetőségek elvesztése (lakáshitel, tanulmányi, gyakornoki vagy munkahelyi felvétel elutasítása, eltiltás vizsgázástól), lakás vagy állás elvesztése stb.; komoly pszichológia betegség (depresszió, fóbia kialakulása), a magánszféra megsértésének érzése maradandó sérelemmel, zsarolás, kibermegfélemlítés és zaklatás áldozatává válás stb.",
+        "source": "DPIAF Összekapcsolt tárgyak, 41. o. - WIKI"
+      },
+      "PIA_EX_IMPM": {
+        "name": "Maximális kihatás/következmények",
+        "description": "Az érintettek komoly, akár maradandó következményekkel is szembesülhetnek, melyeken nem tudják túltenni magukat. Ilyen például: az egészségkárosodás: hosszú távú vagy állandó testi betegség, a testi épség maradandó károsodása, halál; anyagi következmény: pénzügyi kockázat, adósság, munkaképtelenség, áthelyezkedésre való képtelenség, bizonyítékvesztés peres eljárásban, létfontosságú közművektől való elzárás stb.; erkölcsi következmény: hosszú távú vagy állandó pszichológiai betegség, büntetőjogi szankció, emberrablás áldozatává válás, családi kötelékek elvesztése, jogállás megváltozása és/vagy jogi önállóság elvesztése (gyámság) stb.",
+        "source": "DPIAF Összekapcsolt tárgyak, 41. o. - WIKI"
+      },
+      "PIA_EX_VRAN": {
+        "name": "Csekély valószínűség",
+        "description": "Nem látszik valószínűnek, hogy a kockázatforrások a személyes adatok kezelésére szolgáló eszközöket kihasználó valós veszélyt jelentenének (pl. papír alapú iratok eltulajdonítása belépőkártyával és belépési kóddal védett helyiségből).",
+        "source": "DPIAF Összekapcsolt tárgyak, 44. o. - WIKI"
+      },
+      "PIA_EX_VRAL": {
+        "name": "Korlátozott valószínűség",
+        "description": "Kicsi a valószínűsége annak, hogy a kockázatforrások a személyes adatok kezelésére szolgáló eszközöket kihasználó valós veszélyt jelentenének (pl. papír alapú iratok eltulajdonítása belépőkártyával és belépési kóddal védett helyiségből).",
+        "source": "DPIAF Összekapcsolt tárgyak, 44. o. - WIKI"
+      },
+      "PIA_EX_VRAI": {
+        "name": "Nagy valószínűség",
+        "description": "Valószínű, hogy a kockázatforrások a személyes adatok kezelésére szolgáló eszközöket kihasználó valós veszélyt jelentenek (pl. papír alapú iratok eltulajdonítása olyan helyiségből, amelybe csak a recepciónál való bejelentkezés után lehet belépni).",
+        "source": "DPIAF Összekapcsolt tárgyak, 44. o. - WIKI"
+      },
+      "PIA_EX_VRAM": {
+        "name": "Maximális valószínűség",
+        "description": "A kockázatforrások könnyen jelentenek a személyes adatok kezelésére szolgáló eszközöket kihasználó valós veszélyt (pl. papír alapú iratok eltulajdonítása nyilvános előtérből).",
+        "source": "DPIAF Összekapcsolt tárgyak, 44. o. WIKI"
+      },
+      "PIA_EX_MIND": {
+        "name": "Maguknak az adatoknak a minimalizálása",
+        "description": "Kockázatcsökkentés maguknak az adatoknak a csökkentésével, az adatok érzékenységét csökkentő intézkedésekkel.",
+        "source": "Intézkedések "
+      },
+      "PIA_DEF_ANO": {
+        "name": "Anonimizálás",
+        "description": "Anonimizálás olyan technika, amelyet a személyes adatok személyazonosításra való alkalmatlanná tétele céljából alkalmaznak, lásd: <a target=\"_blank\" href=\"http://ec.europa.eu/justice/data-protection/article-29/documentation/opinion-recommendation/files/2014/wp216_en.pdf\">WP29 iránymutatások</a>.",
+        "source": "Intézkedések és a 29-es munkacsoport iránymutatása http://ec.europa.eu/justice/data-protection/article-29/documentation/opinion-recommendation/files/2014/wp216_en.pdf"
+      },
+      "PIA_SEC_CTR": {
+        "placeholder": "Ismertesse az adatfeldolgozókra vonatkozó különleges intézkedéseket (hosting szolgáltatás, üzemeltetési szolgáltatás, adminisztrátor, egyéb speciális szolgáltatók stb.).",
+        "name": "Adatfeldolgozók igénybevétele során alkalmazandó követelmények",
+        "description": "Az adatfeldolgozók által kezelt személyes adatoknak megfelelő védelemmel kell rendelkezniük. Kizárólag olyan adatfeldolgozók vehetők igénybe, akik ehhez megfelelő garanciát biztosítanak (különösen a szakértelem, megbízhatóság és a megfelelő források terén). <br>Az adatfeldolgozóknak dokumentálniuk kell a garanciák hatékonyságának biztosítását. Ezek a garanciák a következők: <br>- személyes adatok titkosítása; <br> -adatátvitel titkosítása (pl HTTPS kapcsolat, VPN, stb); <br>- hálózati védelem, nyomon követhetőség, jogosultságkezelés, hitelesítés, stb. <br>Az adatfeldolgozóval alkalmazzon olyan szerződést, ami kiterjed különösen a következőkre: az adatkezelés tárgya, célja, időtartama, a felek kötelezettségei. <br>Térjen ki emellett az alábbiakra is: <br>- a személyes adatok titkosságával kapcsolatos kötelezettsége; <br> - a felhasználói hitelesítés minimális követelményei; <br> - az adat visszaszolgáltatásának és / vagy megsemmisítésének feltételei a szerződés végén; <br>- az incidensek kezelésére és jelentésére vonatkozó szabályok. <br>Felhő szolgáltatás használata esetén az alábbiakra is szükséges kitérnie: <br>1. Annak meghatározása, hogy pontosan mely személyes adatokat, milyen módon kezelik a felhőben; <br>2. Saját technikai és jogi biztonsági követelmények meghatározása; <br>3. Kockázatelemzés a megfelelő biztonsági intézkedések meghatározása érdekében; <br>4. A tervezett adatkezelés szempontjából releváns felhő típusának azonosítása; <br>5. Olyan szolgáltató választása, amely elegendő garanciával rendelkezik; <br>6. A belső biztonságpolitika áttekintése; <br>7. A változások rendszeres követése.",
+        "source": "Beszerzési intézkedések: szerződésben meghatározva és irányítva "
+      },
+      "PIA_DEF_CHIF": {
+        "name": "Titkosítás",
+        "description": "Személyes adatokat az illetéktelenek számára felismerhetetlenné tevő intézkedés (szimmetrikus vagy aszimmetrikus titkosítás, a köztudottan erős, nyilvános algoritmusok, hitelesítő tanúsítványok stb. használata).",
+        "source " : "Titkosítás intézkedések"
+      },
+      "PIA_DEF_PWD": {
+        "name": "Jelszó",
+        "description": "A jelszónak legalább nyolc karakterből kell állnia, újat kell megadni a veszély legcsekélyebb gyanúja esetén, illetve lehetőleg rendszeresen (félévente vagy évente); a négy karaktertípusból legalább hármat kell tartalmaznia (kis- és nagybetű, szám és egyéb jel); jelszó cseréjekor az utolsó öt nem használható újra; ugyanaz a jelszó nem használható más hozzáférés esetén; a jelszó ne kapcsolódjon személyes adatokhoz (beleértve a nevet vagy a születési időt). Meg kell határozni a belépési kísérletek maximális számát, amelynek elérése után figyelmeztetést kell küldeni, és a belépést megtagadni.",
+        "source" : "Intézkedés "
+      },
+      "PIA_DEF_AUTH": {
+        "name": "Hitelesítés",
+        "description": "Minden olyan személynek, aki jogszerűen hozzáférhet személyes adatokhoz (alkalmazottak, szerződő és egyéb harmadik felek), egyedi azonosítóval kell rendelkeznie. Olyan hitelesítési (beléptetési) módszert kell kiválasztani egy munkamenet elindításához, amely megfelel a körülményeknek, a kockázati szintnek és a veszélyek várható erejének. Ajánlások: ha a kockázat nem nagy, a jelszó használható; ha viszont magasabb a kockázati szint, egyszeri jelszavas jogosultságot kell használni, és meg kell változtatni az alapértelmezett aktiválási jelszót, ha pedig SMS-ben megy ki a jelszó egyik része, PIN-kódos kártyát, elektronikus igazolást vagy egyéb erős hitelesítő eljárást kell alkalmazni.",
+        "source": "Intézkedések - Logikai hozzáférésvédelem"
+      },
+      "PIA_DEF_LOG": {
+        "name": "Nyomon követés",
+        "description": "Alakítson ki naplózó rendszert, amely lehetővé teszi az adatvédelmi incidensek korai észlelését, illetve olyan információk gyűjtését, amelyek alapján elemzéseket lehet végezni, illetve amelyek bizonyítékul szolgálhatnak.",
+        "source": "Intézkedés megfigyelés"
+      },
+      "PIA_DEF_ARCH": {
+        "name": "Archiválás",
+        "description": "A személyes adatokat tartalmazó elektronikus archívumok megőrzését és kezelését, azok minőségét (főként jogi minőségét) az egész érintett időszakban biztosító eljárások (továbbítás, tárolás, áthelyezhetőség, hozzáférhetőség, eltávolítás, archiválási elvek, bizalmas kezelés védelme stb.).",
+        "source": "Intézkedések archiválás"
+      }
+    }
+  },
+  "comments": {
+    "comments_count": "Megjegyzés(ek)",
+    "new_comment": "Megjegyzés",
+    "placeholder_new_comment": "Tegyen megjegyzést",
+    "comment": "Megjegyzés",
+    "send": "Küldés"
+  },
+  "questions": {
+    "edit": "Kérdés szerkesztése",
+    "gauges": {
+      "0": "(n/a)",
+      "1": "Elhanyagolható",
+      "2": "Korlátozott",
+      "3": "Jelentős",
+      "4": "Maximális"
+    }
+  },
+  "evaluations": {
+    "title": "Véleményezés",
+    "to_correct": "Visszaküldés javításra",
+    "improvable": "Korrekciós intézkedés bevezetése szükséges",
+    "acceptable": "Elfogadható",
+    "evaluation_comment": "Megjegyzés",
+    "action_plan_comment": "Intézkedési terv / korrekciós intézkedések",
+    "placeholder_to_correct": "A megadott információk nem alkalmasak az értékelés elvégzéséhez. Vissza kell küldeni a szerkesztőnek, hogy javítsa ki az eredeti kitöltést .",
+    "placeholder_improvable1": "A rendelkezésre álló információ alapján további intézkedések szükségesek az adatvédelem javítása érdekében az adatkezelés során.",
+    "placeholder_improvable2": "Megjegyzés bevitele.",
+    "placeholder_acceptable": "A rendelkezésre álló információ alapján a bevezetett intézkedések megfelelnek az adatvédelem követelményeinek.",
+    "gauges": {
+      "seriousness": "Az intézkedési terv alapján hogyan értékeli át a <span class='red-highlight'>kockázatot</span> (annak értékét)?",
+      "likelihood": "Az intézkedési terv alapján hogyan értékeli át a <span class='red-highlight'>kockázat valószínűségét</span> (annak értékét)?",
+      "0": "(n/a)",
+      "1": "Elhanyagolható",
+      "2": "Korlátozott",
+      "3": "Jelentős",
+      "4": "Maximális"
+    },
+    "status": {
+      "0": "Elintézés alatt",
+      "1": "Javítandó",
+      "2": "Javítható",
+      "3": "Elfogadható"
+    }
+  },
+  "help": {
+    "title": "Segítség",
+    "definition": {
+      "data1": {
+        "title": "Használja az DPIA eszközét",
+        "content": "Tartalom szerkesztés alatt"
+      },
+      "data2": {
+        "title": "Az ismert problémák",
+        "qa1": {
+          "title": "Képernyőproblémáim vannak, az ikonok beragadnak, elemek hiányoznak a csatlakozási felületről.",
+          "content": "Ha képernyőproblémák adódnak, zárja be az applikációt, és töltse be újra. Ez többnyire kijavítja a hibát. A bevitt adatokat nem veszíti el, a mentés automatikus gépelés közben."
+        },
+        "qa2": {
+          "title": "Nem tudom szerkeszteni a kockázatsúlyosság és -valószínűség értékeinek kijelzőit.",
+          "content": "Ez az ismert probléma javítás alatt van. Ha jelentkezik, javasoljuk, töltse ki a súlyosság és/vagy valószínűség becsült szintjéhez tartozó mezőt. A hiba javítása után szerkesztheti a kijelzőt."
+        },
+        "qa3": {
+          "title": "Ez a probléma DPIA-importáláskor jelentkezik.",
+          "content": "Több hibát is megfigyeltek DPIA-importálás közben, különösen gyakran előfordulhat, hogy eltűnnek a súlyosságot és a valószínűséget értékelő szintkijelzők."
+        },
+        "qa4": {
+          "title": "Másolás-beillesztés közben a szöveg kiemelődik.",
+          "content": "Ez csak kijelzőhiba, nem befolyásolja a mezőbe bevitt szöveget. Kiküszöbölésére hamarosan sor kerül."
+        },
+        "qa5": {
+          "title": "Nem tudom értékelni a szakaszt.",
+          "content": "Egy szakasz értékeléséhez valamennyi mezőt ki kell tölteni. Kérjük, ellenőrizze, hogy ez megtörtént-e. Kockázat szerkesztésekor legalább egy kockázatcsökkentő műszaki vagy szervezeti intézkedést meg kell adni a kockázat értékeléséhez."
+        },
+        "qa6": {
+          "title": "Nyelvváltáskor a szövegek fordítása nem jelenik meg.",
+          "content": "Kérjük, zárja be az DPIA-t, amit szerkeszt, és nyissa meg újra. Ekkor a tartalomnak a kiválasztott nyelven kell megjelennie."
+        },
+        "qa7": {
+          "title": "Nem hagytam jóvá egy DPIA-t, de nem tudom, mi a további teendőm.",
+          "content": "A navigációs menü ikonjai egy DPIA elutasítása után pillanatnyilag nem frissülnek. Ellenőrizzen minden egyes szakaszt, változtassa meg az információt és/vagy értékelést az DPIA elutasítása okainak megfelelően. Az összes szakasz áttekintését követően újra lehetővé válik a DPIA jóváhagyása."
+        }
+      },
+      "footer": ""
+    }
+  },
+  "about": {
+    "title": "Az DPIA-eszközről",
+    "version_number": "Verziószám",
+    "description": "Ezt az eszközt a francia adatvédelmi hatóság (CNIL) <a target=\"_blank\" href=\"https://www.cnil.fr\">Commission Nationale Informatique et Liberté (CNIL)</a> fejlesztette ki, hogy segítse az adatkezelőket a GDPR alkalmazásában. Ez a software ingyenesen és szabadon használható. Ha részt kíván venni a projektben, töltse le a forráskódot a Githubról, módosítsa, és ossza meg a közösségével.",
+    "translators": "Az DPIA-software jelenleg tizennégy nyelven áll rendelkezésre. A francia és az angol változatot a CNIL készítette. A többi változat a következők közreműködésével készült:",
+    "translators_name": "<ul><li>Czech : Jiří Grohmann, Manuel d’Orso;</li><li>Dutch : Ruud van Driel, Manuel d’Orso;</li><li>English : <a target=\"_blank\" href=\"https://www.cnil.fr\">CNIL</a>;</li><li>Finnish : <a target=\"_blank\" href=\"https://tietosuoja.fi/etusivu\">Tietosuojavaltuutetun toimisto</a>;</li><li>French : <a target=\"_blank\" href=\"https://www.cnil.fr\">CNIL</a>;</li><li>German : Kosmas Schütz, Corina Scheiter (<a target=\"_blank\" href=\"https://www.datenschutz-bayern.de/\">BayLfD</a>);</li><li>Greek : Dimitris Tzellis;</li><li>Hungarian : <a target=\"_blank\" href=\"https://naih.hu/\">Nemzeti Adatvédelmi és Információszabadság Hatóság (NAIH)</a>;</li><li>Italian : Manuel d’Orso, Gianluca Markos, Antonio Caselli (<a target=\"_blank\" href=\"http://gpdp.it\">Garante per la Protezione dei Dai Personali (GPDP)</a>);</li><li>Norwegian : <a target=\"_blank\" href=\"https://www.datatilsynet.no\">Datatilsynet</a>;</li><li>Polish : Joanna Karczewska, Michal Mazur (<a target=\"_blank\" href=\"https://giodo.gov.pl\">Generalny Inspektor Ochrony Danych Osobowych (GIODO)</a>);</li><li>Portuguese : Barbara Gois;</li><li>Romanian : webmyday;</li><li>Spanish : ylachgar.</li></ul>",
+    "contribute": "Amennyiben hozzá szeretne járulni a szoftver más nyelvekre történő lefordításához, vagy a meglévő fordításokat szeretné fejleszteni, javasoljuk, <a href=\"https://github.com/LINCnil/pia/tree/master/src/assets/i18n\" target=\"_blank\">kövesse a megadott weboldalon található instrukciókat</a>.",
+    "licences": "Könyvtári engedélyek:"
+  },
+  "settings": {
+    "title": "Beállítások",
+    "content": "Kérjük, adja meg a távoli szerver címét (URL):",
+    "update": "URL frissítése"
+  },
+  "validation_page": {
+    "responsible": "A hatásvizsgálat jóváhagyásáért felelős személy: ",
+    "after_reading": "Az adatkezelésről készült DPIA végigolvasása után ",
+    "confirmation1": "Igazolom, hogy az adatkezelés körülményeinek a leírása megfelel a valóságnak.",
+    "confirmation2": "Igazolom, hogy a kockázatokat a tervezett és meglévő intézkedések szerint vettem tekintetbe.",
+    "confirmation3": "Jóváhagyom a jelzett korrekciós intézkedéseket.",
+    "confirmation4": "Vállalom a jelzett korrekciós intézkedések mihamarabbi megvalósítását.",
+    "button": {
+      "rejection": "Jóváhagyás elutasítása",
+      "simple_validation": "Előzetes jóváhagyás",
+      "signed_validation": "Végleges jóváhagyás"
+    },
+    "mandatory_fields": "Minden mezőt ki kell tölteni",
+    "waiting_for_signature": "A DPIA aláírásra vár",
+    "validated_pia_with_signature": "Jóváhagyva",
+    "add_signed_pia": "Az aláírt DPIA csatolása",
+    "remove_attachment": "Melléklet törlése",
+	"latest_signed_attachment": "Utoljára aláírt csatolmány",
+    "signed_attachments_history": "Aláírt csatolmány előzmények",
+    "tools": {
+      "dashboard": "Vezérlőpult ",
+      "display_pia": "DPIA megjelenítése",
+      "action_plan": "Intézkedési terv"
+    }
+  },
+  "rejection_page": {
+    "title": "Jóváhagyás előzményei",
+    "rejection_reason": " Elutasítás okai",
+    "rejection_reason_placeholder": "Részletezze a DPIA elutasításának okait.",
+    "applied_adjustments": "Kiegészítések",
+    "applied_adjustments_placeholder": "Részletezze ezen DPIA elfogadott részeit",
+    "previous_rejection": "Korábbi elutasítás",
+    "button": {
+      "abandon_treatment": "Visszalépés",
+      "reject_pia": "DPIA elutasítása",
+      "send_for_validation": "Küldés újbóli jóváhagyásra"
+    }
+  },
+  "misc": {
+    "display": "Megjelenítés / Elrejtés"
+  },
+  "modals": {
+    "cancel": "Mégsem",
+    "archive": "Archiválás",
+    "close": "Bezárás",
+    "continue": "Folytatás",
+	"start_evaluation": "Véleményezés kezdése",
+    "back_to_home": "Vissza a kezdőlapra",
+    "simple_pia_validation": {
+      "content": "A hatásvizsgálat jóváhagyása megtörtént."
+    },
+	"completed_edition": {
+      "content": "A DPIA teljes szerkesztése befejeződött, véleményezés szükséges."
+    },
+    "completed_evaluation": {
+      "content": "A DPIA teljes véleményezése megtörtént, jóváhagyásra vár."
+	},
+    "update_server_url": {
+      "content": "A szerver címét frissítették."
+    },
+    "signed_pia_validation": {
+      "content": "<span class='strong'>A DPIA jóváhagyása megtörtént.</span><br>A jóváhagyás véglegesítéséhez csatolja a felelős vezető által aláírt jelentést.",
+      "download_pia": "A DPIA-jelentés letöltése "
+    },
+    "abandon_pia": {
+      "content": "Biztosan abba akarja hagyni ezt a munkamenetet?",
+	  "additional_text": "Az arhiválás nem végleges, van lehetőség a módosításra."
+    },
+    "refuse_pia": {
+      "content": "<span class='strong'>DPIA elutasítva,</span><br>Több mezőt is ki kell javítani. Visszatérés az értékelésmódba a javításokhoz."
+    },
+    "same_comment": {
+      "content": "<span class='strong'>Figyelmeztetés:</span><br>kérjük, a legutóbbihoz képest más megjegyzést vigyen be."
+    },
+    "not_enough_measures_to_remove": {
+      "content": "<span class='strong'>Figyelmeztetés:</span><br>legalább egy intézkedést meg kell adni: nincs törlési lehetőség."
+    },
+    "remove_measure": {
+      "content": "<span class='strong'>Figyelmeztetés:</span><br>Biztosan el akarja távolítani az intézkedést?",
+      "remove": "Az intézkedés eltávolítása",
+      "keep": "Intézkedés megtartása"
+    },
+    "ask_for_evaluation": {
+      "content": "Ez a rész készen áll véleményzésre."
+    },
+    "validate_evaluation": {
+      "content": "A DPIA jóváhagyására vár."
+    },
+    "validate_evaluation_to_correct": {
+      "content": "Sajnáljuk, térjen vissza a szerkesztési módba további javítások elvégzéséhez."
+    },
+    "declare_measures": {
+      "content": "Sajnáljuk, a kockázatértékelés előtt meg kell adnia a meglévő vagy tervezett intézkedéseket.",
+      "declare": "A meglévő/tervezett intézkedések bejelentése"
+    },
+    "remove_pia": {
+      "content": "<span class='strong'>Figyelmeztetés:</span><br>Biztosan el akarja távolítani ezt a DPIA-t?",
+      "remove": "A DPIA eltávolítása"
+    },
+    "remove_attachment": {
+      "content": "<span class='strong'>Figyelmeztetés:</span><br>Biztosan el akarja távolítani a mellékletet?",
+      "keep": "Megtartás",
+      "remove": "Eltávolítás",
+	  "comment": "Komment"
+	},
+    "modal_select_text_pia": {
+      "content": "A DPIA tartalma a vágólapra másolva."
+    },
+    "action_plan_no_evaluation": {
+      "content": "Az intézkedési terv létrehozása előtt tekintse át a vizsgálat eredményét.",
+      "review_section": "Szakasz áttekintése"
+    },
+    "dpo_missing_evaluations": {
+      "content": "Az adatvédelmi tisztviselő menüpontjához történő továbblépés előtt át kell tekintenie a vizsgálat eredményét.",
+      "review_section": "Szakasz áttekintése",
+      "remove": "Eltávolítás",
+      "comment": "Komment"
+    },
+    "back_to_edition": {
+      "content": "Ez a rész vissza lett küldve szerkesztésre.<br> Több mezőt javítani kell<br> a teljes értékelés eléréséhez."
+    },
+    "back_to_evaluation": {
+      "content": "Ez a rész vissza lett küldve felülvizsgálatra.<br> Több mezőt felül kell vizsgálni<br> a teljes jóváhagyáshoz."
+	}
+  },
+  "summary": {
+    "previous_page": "Vissza az előző oldalra",
+    "print": "Nyomtatás",
+  	"copy_to_clipboard": "Másolás a vágólapra",
+    "download_images": "Képek letöltése",
+    "download_csv": "Exportált CSV fájl letöltése",
+    "csv_action_plan_comment": "Intézkedési terv vélemények",
+    "csv_evaluation_comment": "Értékelés vélemények",
+    "csv_section": "Szakasz",
+    "csv_title_object": "Cím",
+    "csv_implement_date": "Teljesítés várható dátuma",
+    "csv_people_in_charge": "Felelős személy",
+    "csv_file_title": "intézkedési terv",
+    "display_filters": {
+      "title": "Szűrők megjelenítése",
+      "main_content": "Szakasz megjelenítése (DPIA információk)",
+      "context_content": "Szakasz megjelenítése (Szövegkörnyezet)",
+      "principles_content": "Szakasz megjelenítése (Alapelvek)",
+      "risks_content": "Szakasz megjelenítése (Kockázatok)",
+      "action_plan_content": "Intézkedési terv megjelenítése",
+	  "risks_overview_content": "Kockázatok áttekintésének megjelenítése",
+	  "risks_cartography_content": "Kockázatok feltérképezésének megjelenítése"
+    },
+    "title": "DPIA-információ",
+    "pia_name": "DPIA",
+    "pia_author": "Szerző neve",
+    "pia_assessor": "Értékelő neve",
+    "pia_validator": "Jóváhagyó neve",
+    "content_choice": {
+      "0": "Az intézkedések megfelelőek, ennek következtében alkalmazhatóak.",
+      "1": "Az intézkedések nem megfelelőek, ezért alkalmazásukra nem kerülhet sor."
+    },
+    "dpo_name": "Adatvédelmi tisztviselő neve",
+    "dpo_status": "Adatvédelmi tisztviselő státusza",
+    "dpo_opinion": "Adatvédelmi tisztviselő véleménye",
+    "concerned_people_searched_opinion": "Érintettek véleményének kikérése.",
+    "people_search_status_ok": "Az érintettek véleményének kikérésére sor került.",
+    "people_search_status_nok": "Az érintettek véleményének kikérésére nem került sor.",
+    "concerned_people_unsearched_opinion_comment": "Azon ok megjelölése, ami alapján az érintettek véleményének kikérésére nem került sor.",
+    "concerned_people_name": "Az érintettek véleménye.",
+    "concerned_people_status": "Az érintettek státusza.",
+    "concerned_people_opinion": "Az érintettek véleménye.",
+    "modification_made": "Elvégzett módosítások.",
+    "rejection_reason": "Elutasítás oka.",
+    "creation_date": "Létrehozás dátuma.",
+    "attachments": "Mellékletek.",
+    "gauges": {
+      "1": "Elhanyagolható",
+      "2": "Korlátozott",
+      "3": "Jelentős",
+      "4": "Maximális"
+    },
+    "action_plan": {
+      "title": "Intézkedési terv",
+      "fundamental_principles": "Alapelvek",
+      "implementation_date": "Végrehajtás várható dátuma",
+      "implementation_responsible": "Végrehajtásért felelős",
+      "measures": "Meglévő vagy tervezett intézkedések",
+      "risks": "Kockázatok",
+      "no_action_plan": "Nincs bejelentett intézkedési terv."
+    },
+	"risks_overview_title": "A kockázatok áttekintése",
+	"risks_cartography_title": "A kockázatok feltérképezése"
+  },
+  "errors": {
+    "title": "Az oldal nem található.",
+    "content": "Amennyiben más problémákkal találkozik, vagy a szoftver fejlesztésre irányuló javaslatai vannak, azt az alábbi űrlap visszaküldésével jelezheti:  <a href=\"https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia\" target=\"_blank\">https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia</a>"
+  },
+  "overview-risks": {
+    "potential_impacts": "Lehetséges következmények",
+    "threat": "Fenyegető veszély",
+    "sources": "Források",
+    "measures": "Intézkedések",
+    "negligible": "Elhanyagolható",
+    "limited": "Korlátozott",
+    "important": "Jelentős",
+    "maximal": "Maximális",
+    "risk-access_x": "Súlyosság",
+    "risk-access_y": "Valószínűség",
+    "risk-change_x": "Súlyosság",
+    "risk-change_y": "Valószínűség",
+    "risk-disappearance_x": "Súlyosság",
+    "risk-disappearance_y": "Valószínűség"
+  },
+  "cartography": {
+    "negligible": "Elhanyagolható",
+    "limited": "Korlátozott",
+    "important": "Jelentős",
+    "maximal": "Maximális",
+    "seriousness_axe": "Kockázat súlyossága",
+    "likelihood_axe": "Kockázat valószínűsége",
+    "legend1": "Tervezett vagy meglévő intézkedések figyelembevételével",
+    "legend2": "A korrekciós intézkedéseket is tekintetbe véve",
+    "legend3": "(A)Adatokhoz való jogosulatlan hozzáférés",
+    "legend4": "(M)Az adatok véletlen vagy jogellenes megváltoztatása",
+    "legend5": "(D)Adatvesztés",
+    "risk1_access": "(A)",
+    "risk2_modification": "(M)"
+  },
+  "action_plan": {
+    "title": "Áttekintés",
+    "principles": "Alapelvek",
+    "measures": "Tervezett vagy meglévő intézkedések",
+    "risks": "Kockázatok",
+    "risk1": "Adatokhoz való jogosulatlan hozzáférés",
+    "risk2": "Az adatok véletlen vagy jogellenes megváltoztatása",
+    "risk3": "Adatvesztés",
+    "improvable_measures": "Korrekciós intézkedések",
+    "acceptable_measures": "Elfogadható intézkedések",
+    "no_action_plan": "Nincs bejelentett intézkedés",
+    "edit": "Szerkesztés",
+    "placeholder_person_in_charge": "Végrehajtásért felelős"
+  },
+  "opinions": {
+    "edit": "Szerkesztés",
+    "content": "álláspontja szerint:",
+    "dpo_opinion": "Az adatvédelmi tisztviselő szakmai tanácsa",
+    "placeholder_dpo_name": "Adatvédelmi tisztviselő  neve",
+    "placeholder_dpo_opinion": "Nevezze meg választása okait.",
+    "dpo_lock": "Kérjük, töltse ki a többi részt is, csak utána írhatja be az adatvédelmi tisztviselő-véleményt.",
+    "people_opinion": "Érintettek véleménye",
+    "placeholder_concerned_people_name": "Érintettek neve",
+    "placeholder_people_opinion": "Ismertesse a vélemények összegyűjtésének és elemzésének módját. Amennyiben nem kérték ki az érintettek véleményét, fejtse ki ennek indokait.",
+    "placeholder_search_content": "Indokolja, miért nem kérték ki az érintettek véleményét.",
+    "treatment_ok": "Az alkalmazott intézkedések megfelelőek voltak.",
+    "treatment_nok": "Az alkalmazott intézkedések nem voltak megfelelőek.",
+    "treatment_lock": "Kérjük, töltse ki a többi részt is, csak utána írhatja be az érintettek véleményét."
+  },
+  "sections": {
+    "1": {
+      "title": "Összegzés",
+      "short_help": "Ez a menüpont áttekintést nyújt a hatásvizsgálat alá vont adatkezelésről.",
+      "items": {
+        "1": {
+          "title": "Áttekintés",
+          "short_help": "Ez a rész áttekintést nyújt a személyes adatok kezelésének főbb ismérveiről.",
+          "questions": {
+            "1": {
+              "title": "Az adatkezelés rövid bemutatása",
+              "placeholder": "Mutassa be röviden az adatkezelést, ennek körében ismertesse különösen a személyes adatok kezelésének célját, jogalapját, a kezelt személyes adatok körét és az adatkezelés egyéb lényeges körülményeit."
+            },
+            "2": {
+              "title": "Az adatkezeléshez kapcsolódó felelősségi viszonyok bemutatása",
+              "placeholder": "Ismertesse az adatkezelésben közreműködő felek – az adatkezelő, az esetleges adatfeldolgozók és a közös adatkezelők – egymáshoz való viszonyát az adatkezelésért való felelősség viselésének szempontjából ."
+            },
+            "3": {
+              "title": "Rendelkezik-e az adatkezelésre alkalmazandó valamilyen szabvánnyal?",
+              "placeholder": "Sorolja fel az adatkezelésre vonatkozó szabványokat, jóváhagyott magatartási kódexeket és adatvédelmi tanúsítványokat, amennyiben ilyennel rendelkezik."
+            }
+          }
+        },
+        "2": {
+          "title": "Adatok, az adatkezelés folyamata, az adatok kezelésére szolgáló eszközök",
+          "short_help": "Ez a rész magában foglalja az adatkezelés hatókörének meghatározását és részletes ismertetését.",
+          "questions": {
+            "1": {
+              "title": "A kezelt személyes adatok köre",
+              "placeholder": "Sorolja fel a gyűjtött és kezelt adatokat. Egyenként határozza meg a tárolás időtartamát, a címzetteket és azokat a személyeket, akik az adatokhoz hozzáférnek."
+            },
+            "2": {
+              "title": "Az adatkezelési folyamatok bemutatása",
+              "placeholder": "Mutassa be az adatkezelés folyamatát (az adatgyűjtéstől az adatok megsemmisítéséig, az adatkezelés különböző szakaszait, a tárolást stb.), használjon például a személyes adatok útját - adatfolyamot -  bemutató ábrát (melyet mellékletként feltölthet)."
+            },
+            "3": {
+              "title": "Melyek a személyes adatok kezelésére szolgáló eszközök?",
+              "placeholder": "Sorolja fel a személyes adatok kezelésére szolgáló eszközöket (operációs rendszerek, alkalmazások, adatbázis-kezelő rendszerek, helyiségek, egyéb eszközök stb.)"
+            }
+          }
+        }
+      }
+    },
+    "2": {
+      "title": "Alapelvek",
+      "short_help": "Ez a menüpont az adatvédelmi elveknek való megfelelés kereteinek bemutatására szolgál.",
+      "items": {
+        "1": {
+          "title": "Arányosság és szükségesség",
+          "short_help": "Ezen rész alatt lehetősége van annak igazolására, hogy az adatok kezelésére jogszerűen kerül sor.",
+          "questions": {
+            "1": {
+              "title": "Az adatkezelés céljai meghatározottak-e, egyértelműek-e és jogszerűek-e?",
+              "short_title": "Célok",
+              "placeholder": "Fejtse ki, hogy mitől meghatározottak, egyértelműek és jogszerűek az adatkezelés céljai."
+            },
+            "2": {
+              "title": "Mi az adatkezelés jogalapja?",
+              "short_title": "Jogalap",
+              "placeholder": "Ismertesse az adatkezelés jogalapját (hozzájárulás, szerződés teljesítése, jogi kötelezettség teljesítése, létfontosságú érdekek védelme stb.)"
+            },
+            "3": {
+              "title": "A gyűjtött adatok az adatkezelés céljai szempontjából megfelelőek és relevánsak-e, valamint a szükségesre korlátozódnak-e (adattakarékosság)?",
+              "short_title": "Megfelelő adatok",
+              "placeholder": "Mutassa be, hogy az egyes gyűjtött adatok miért szükségesek az adatkezelés céljára."
+            },
+            "4": {
+              "title": "Pontosak-e az adatok, naprakész állapotban tartják-e azokat?",
+              "short_title": "Pontosság",
+              "placeholder": "Ismertesse az adatminőséget biztosító intézkedéseket."
+            },
+            "5": {
+              "title": "Mi az adatmegőrzés időtartama?",
+              "short_title": "Adatmegőrzési határidő",
+              "placeholder": "Mutassa be, hogy milyen jogi követelmények és/vagy adatkezelési szükségletek indokolják a tárolás időtartamát."
+            }
+          }
+        },
+        "2": {
+          "title": "Az érintettek jogainak biztosítására szolgáló intézkedések",
+          "short_help": "Ez a rész az érintettek jogérvényesítésének biztosítása érdekében alkalmazott eszközök ismertetését tartalmazza.",
+          "questions": {
+            "1": {
+              "title": "Milyen módon tájékoztatják az érintetteket az adatkezelésről?",
+              "short_title": "Az érintettek tájékoztatása",
+              "placeholder": "Ismertesse az érintetteknek adott tájékoztatást és annak módját."
+            },
+            "2": {
+              "title": "Amennyiben az adatkezelés hozzájáruláson alapul, milyen módon szerzik be az érintettek hozzájárulását?",
+              "short_title": "A hozzájárulás megszerzése",
+              "placeholder": "Mutassa be az annak biztosítására szolgáló eljárásokat, hogy az érintettek hozzájárulásának beszerzése megtörténik."
+            },
+            "3": {
+              "title": "Milyen módon érvényesíthetik az érintettek a hozzáférési, illetve az adathordozhatósághoz való jogukat?",
+              "short_title": "Az adatokhoz való hozzáférés joga és az adathordozhatósághoz való jog",
+              "placeholder": "Ismertesse azokat az intézkedéseket, amelyek biztosítják, hogy az érintettek hozzáférhessenek az adataikhoz, megkapják és továbbíthassák azokat."
+            },
+            "4": {
+              "title": "Hogyan gyakorolhatják az érintettek a helyesbítéshez és törléshez való jogukat?",
+              "short_title": "A helyesbítéshez és a törléshez való jog",
+              "placeholder": "Ismertesse azokat az intézkedéseket, amelyek biztosítják, hogy az érintettek helyesbíttethessék és töröltethessék adataikat."
+            },
+            "5": {
+              "title": "Hogyan gyakorolhatják az érintettek az adatkezelés korlátozásához, valamint tiltakozáshoz való jogukat?",
+              "short_title": "Az adatkezelés korlátozáshoz és a tiltakozáshoz való jog",
+              "placeholder": "Ismertesse azokat az intézkedéseket, amelyek biztosítják, hogy az érintettek kérhessék az adatkezelés korlátozását, illetve tiltakozhassanak személyes adataik kezelése ellen."
+            },
+            "6": {
+              "title": "Az adatfeldolgozók kötelezettségeit egyértelműen rögzíti-e az adatfeldolgozási szerződés?",
+              "short_title": "Adatfeldolgozók igénybevétele",
+              "placeholder": "Ismertesse az egyes adatfeldolgozók kötelezettségeit (időtartam, hatáskör, célok, dokumentált utasítások a feldolgozóknak stb.), illetve jelölje meg azok feladatait és kötelezettségeit meghatározó szerződéseket, magatartási kódexeket és tanúsítványokat."
+            },
+            "7": {
+              "title": "Az Európai Unión kívülre történő adattovábbítás esetén megfelelő védelemben részesülnek-e a személyes adatok?",
+              "short_title": "Adattovábbítások",
+              "placeholder": "Nevezze meg mindazokat az Európai Unión kívüli országokat, amelyekben adatkezelés és -tárolás  történik, továbbá jelölje meg, hogy azok megfelelő védelmi szintet biztosítanak -e (más esetben is írja le az adattovábbításra vonatkozó rendelkezéseket)"
+            }
+          }
+        }
+      }
+    },
+    "3": {
+      "title": "Kockázatok",
+      "short_help": "Ez a menüpont lehetőséget ad az adatkezelés kockázatainak felmérésére a meglévő vagy tervezett intézkedések figyelembevételével .",
+      "items": {
+        "1": {
+          "title": "Tervezett vagy meglévő intézkedések",
+          "short_help": "Ez a rész tartalmazza azon meglévő vagy tervezett intézkedéseket, amelyek hozzájárulnak az adatbiztonság megteremtéséhez."
+        },
+        "2": {
+          "title": "Az adatokhoz való jogosulatlan hozzáférés",
+          "short_help": "Elemezze az adatokhoz való jogosulatlan hozzáférés okait és következményeit, becsülje meg annak súlyosságát, illetve valószínűségét.",
+          "questions": {
+            "1": {
+              "title": "Milyen főbb <span class='green-highlight'>következményekkel járna az érintettekre</span>, ha a kockázat bekövetkezne?",
+              "placeholder": "Írja be a lehetséges következményeket \u002B"
+            },
+            "2": {
+              "title": "Mely fő <span class='green-highlight'>fenyegető veszélyek</span> idézhetik elő a kockázatot?",
+              "placeholder": "Írja be a fenyegető veszélyeket \u002B"
+            },
+            "3": {
+              "title": "Melyek a kockázat <span class='green-highlight'>forrásai</span>?",
+              "placeholder": "Írja be kockázatok forrásait \u002B"
+            },
+            "4": {
+              "title": "A megadott <span class='green-highlight'>intézkedések</span> közül melyek szolgálnak a kockázat kezelésére?",
+              "placeholder": "Kattintson rá a kockázatkezelő intézkedésre."
+            },
+            "5": {
+              "title": "Hogyan becsüli meg a <span class='green-highlight'>kockázat súlyosságát</span>, különösen a lehetséges következményekre és a kockázatok kezelését célzó tervezett intézkedésekre való tekintettel?",
+              "placeholder": "A csúszka elmozdításával mutassa be a kockázat becsült súlyosságát, továbbá szövegesen fejtse ki annak indokát."
+            },
+            "6": {
+              "title": "Hogyan becsüli meg a <span class='green-highlight'>kockázat valószínűségét</span>, különösen a fenyegető veszélyekre, a kockázatforrásokra és a kockázatok kezelését célzó tervezett intézkedésekre való tekintettel?",
+              "placeholder": "A csúszka elmozdításával mutassa be a kockázat becsült valószínűségét, továbbá szövegesen fejtse ki annak indokát."
+            }
+          }
+        },
+        "3": {
+          "title": "Az adatok véletlen vagy jogellenes megváltoztatása",
+          "short_help": "Elemezze a nem kívánt adatmódosítás okait és következményeit, becsülje meg a súlyosságát és valószínűségét.",
+          "questions": {
+            "1": {
+              "title": "Milyen főbb <span class='green-highlight'>következményekkel járna az érintettekre</span>, ha a kockázat bekövetkezne?",
+              "placeholder": "Írja be a lehetséges következményeket \u002B"
+            },
+            "2": {
+              "title": "Milyen fő <span class='green-highlight'>fenyegető veszélyek</span> idézhetik elő a kockázatot?",
+              "placeholder": "Írja be a fenyegető veszélyeket \u002B"
+            },
+            "3": {
+              "title": "Melyek a kockázat <span class='green-highlight'>forrásai</span>?",
+              "placeholder": "Írja be a kockázat forrásait \u002B"
+            },
+            "4": {
+              "title": "A megadott intézkedések közül melyek <span class='green-highlight'>megfelelőek</span> a kockázatok kezelésére?",
+              "placeholder": "Kattintson a kockázatkezelő intézkedésre."
+            },
+            "5": {
+              "title": "Hogyan becsüli meg a <span class='green-highlight'>kockázat súlyosságát</span>, különösen a lehetséges következményekre és a kockázatok kezelését célzó tervezett intézkedésekre való tekintettel?",
+              "placeholder": "A csúszka elmozdításával mutassa be a kockázat becsült súlyosságát, továbbá szövegesen fejtse ki annak indokát."
+            },
+            "6": {
+              "title": "Hogyan becsüli meg a <span class='green-highlight'>kockázat valószínűségét</span>, különösen a fenyegető veszélyekre, a kockázatforrásokra és a kockázatok kezelését célzó tervezett intézkedésekre való tekintettel?",
+              "placeholder": "A csúszka elmozdításával mutassa be a kockázat becsült valószínűségét, továbbá szövegesen fejtse ki annak indokát."
+            }
+          }
+        },
+        "4": {
+          "title": "Adatvesztés",
+          "short_help": "Elemezze az adatvesztés okait és következményeit, becsülje meg a súlyosságát és valószínűségét.",
+          "questions": {
+            "1": {
+              "title": "Milyen főbb <span class='green-highlight'>következményekkel járna az érintettekre,</span> ha a kockázat bekövetkezne?",
+              "placeholder": "Írja be a lehetséges következményeket \u002B"
+            },
+            "2": {
+              "title": "Milyen fő <span class='green-highlight'>fenyegető veszélyek</span> idézhetik elő a kockázatot?",
+              "placeholder": "Írja be a fenyegető veszélyeket \u002B"
+            },
+            "3": {
+              "title": "Melyek a kockázat <span class='green-highlight'>forrásai</span>?",
+              "placeholder": "Írja be kockázat forrásait \u002B"
+            },
+            "4": {
+              "title": "A megadott <span class='green-highlight'>intézkedések</span> közül melyek szolgálnak a kockázat kezelésére?",
+              "placeholder": "Kattintson a kockázatkezelő intézkedésekre."
+            },
+            "5": {
+              "title": "Hogyan becsüli meg a <span class='green-highlight'>kockázat súlyosságát</span>, különösen a lehetséges következményekre és a kockázatok kezelését célzó tervezett intézkedésekre való tekintettel?",
+              "placeholder": "A csúszka elmozdításával mutassa be a kockázat becsült súlyosságát, továbbá szövegesen fejtse ki annak indokát."
+            },
+            "6": {
+              "title": "Hogyan becsüli meg a <span class='green-highlight'>kockázat valószínűségét</span>, különösen a fenyegető veszélyekre, a kockázatforrásokra és a kockázatok kezelését célzó tervezett intézkedésekre való tekintettel?",
+              "placeholder": "A csúszka elmozdításával mutassa be a kockázat a becsült valószínűségét, továbbá szövegesen fejtse ki annak indokát."
+            }
+          }
+        },
+        "5": {
+          "title": "A kockázatok áttekintése",
+          "short_help": "Ezzel az ábrával teljes és összefoglaló képet alkothat arról, hogy a kockázatok kezelését célzó intézkedések milyen hatást fejtenek ki az általuk célzott kockázatokra."
+        }
+      }
+    },
+    "4": {
+      "title": "Jóváhagyás",
+      "short_help": "Ez a menüpont tartalmazza az adatvédelmi hatásvizsgálat jóváhagyásának előkészítő lépéseit.",
+      "items": {
+        "1": {
+          "title": "A kockázatok feltérképezése",
+          "short_help": "Az ábra segít összevetni a kockázatok elhelyezkedését egymás közt, a védelmi intézkedések alkalmazása előtt és után."
+        },
+        "2": {
+          "title": "Intézkedési terv",
+          "short_help": "Készítsen részletes ütemtervet a hatásvizsgálat lefolytatása során kitűzött további intézkedésekről. Az intézkedési terv automatikusan naprakész állapotba kerül az adatvédelmi hatásvizsgálatban foglalt különböző elemek értékelésekor."
+        },
+        "3": {
+          "title": "Adatvédelmi tisztviselő és az érintettek véleménye",
+          "short_help": " Mutassa be az adatvédelmi ügyekért felelős személyek (amennyiben kijelölésre került, az adatvédelmi tisztviselő) tanácsait, továbbá az érintettek vagy képviselőik véleményét."
+        },
+        "4": {
+          "title": "A hatásvizsgálat jóváhagyása"
+        },
+        "5": {
+          "title": "A hatásvizsgálat elutasítása"
+        }
+      }
+    }
+  }
+}

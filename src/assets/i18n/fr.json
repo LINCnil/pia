@@ -18,19 +18,20 @@
       "cnil_translations": "Traductions fournies par la CNIL",
       "dpa_translations": "Traduction révisée par les ADP européenne",
       "community_translations": "Traductions fournies par la communauté",
-      "fr": "Français",
-      "en": "English",
       "cz": "Česky",
-      "it": "Italiaans",
-      "nl": "Nederlands",
-      "pl": "Polski",
       "de": "Deutsch",
-      "es": "Español",
-      "pt": "Português",
-      "ro": "Română",
-      "fi": "Suomi",
       "el": "Ελληνικά",
-      "no": "Norsk"
+      "en": "English",
+      "es": "Español",
+      "fi": "Suomi",
+      "fr": "Français",
+      "hu": "Magyar",
+      "it": "Italiano",
+      "nl": "Nederlands",
+      "no": "Norsk",
+      "pl": "Polski",
+      "pt": "Português",
+      "ro": "Română"
     },
     "tools": {
       "title": "Outils",
@@ -487,7 +488,7 @@
       },
       "PIA_DEF_MIND": {
         "name": "Minimisation des données elles-mêmes",
-        "description": "Réduire la gravité des risques en minimisant les données elles-mêmes, par des mesures destinées à réduire leur sensibilité.",
+        "description": "Réduire la gravité des risques en minimisant les données elles-mêmes, par des mesures destinées à réduire leur sensibilité, par exemple filtrer et retirer les données inutiles, pseudonymiser les données, etc.",
         "source": "WIKI Minimisation_des_données_:_adéquates,_pertinentes_et_limitées"
       },
       "PIA_DEF_CONS": {
@@ -826,8 +827,8 @@
     "title": "A propos de l'Outil PIA",
     "version_number": "Numéro de version",
     "description": "Cet outil est originellement conçu par la <a target=\"_blank\" href=\"https://www.cnil.fr\">Commission Nationale Informatique et Liberté (CNIL)</a>, l’autorité de protection des données française, dans une volonté d’accompagnement des responsables de traitement dans leur démarche de conformité au RGPD.<br>Cet outil est libre et ouvert, sous licence GPLv3. Vous pouvez y contribuer en téléchargeant le code source, en le modifiant et en le redistribuant auprès de la communauté.",
-    "translators": "L’outil est actuellement disponible en cinq langues. Les versions française et anglaise sont fournies par la CNIL. Les autres versions sont le résultat des contributions des personnes suivantes :",
-    "translators_name": "<ul><li>Néerlandais : Ruud van Driel, Manuel d’Orso ;</li><li>Tchèque : Jiří Grohmann, Manuel d’Orso ;</li><li>Italien : Manuel d’Orso, Gianluca Markos.</li><li>Polonais : Joanna Karczewska</li><li>Allemand: Kosmas Schütz</li><li>Espagnol: ylachgar</li></ul>",
+    "translators": "L’outil est actuellement disponible en quatorze langues. Les versions française et anglaise sont fournies par la CNIL. Les autres versions sont le résultat des contributions des personnes suivantes :",
+    "translators_name": "<ul><li>Allemand : Kosmas Schütz, Corina Scheiter (<a target=\"_blank\" href=\"https://www.datenschutz-bayern.de/\">BayLfD</a>) ;</li><li>Anglais : <a target=\"_blank\" href=\"https://www.cnil.fr\">CNIL</a> ;</li><li>Espagnol : ylachgar ;</li><li>Finnois : <a target=\"_blank\" href=\"https://tietosuoja.fi/etusivu\">Tietosuojavaltuutetun toimisto</a> ;</li><li>Français : <a target=\"_blank\" href=\"https://www.cnil.fr\">CNIL</a> ;</li><li>Grec : Dimitris Tzellis ;</li><li>Hongrois : <a target=\"_blank\" href=\"https://naih.hu/\">Nemzeti Adatvédelmi és Információszabadság Hatóság (NAIH)</a> ;</li><li>Italien : Manuel d’Orso, Gianluca Markos, Antonio Caselli (<a target=\"_blank\" href=\"http://gpdp.it\">Garante per la Protezione dei Dai Personali (GPDP)</a>) ;</li><li>Néerlandais : Ruud van Driel, Manuel d’Orso ;</li><li>Norvégien : <a target=\"_blank\" href=\"https://www.datatilsynet.no\">Datatilsynet</a> ;</li><li>Polonais : Joanna Karczewska, Michal Mazur (<a target=\"_blank\" href=\"https://giodo.gov.pl\">Generalny Inspektor Ochrony Danych Osobowych (GIODO)</a>) ;</li><li>Portugais : Barbara Gois ;</li><li>Roumain : webmyday </li><li>Tchèque : Jiří Grohmann, Manuel d’Orso ;</li></ul>",
     "contribute": "Si vous souhaitez contribuer à votre tour à la traduction de l’outil ou à l’amélioration de celles déjà proposées, nous vous invitons à <a href=\"https://github.com/LINCnil/pia/tree/master/src/assets/i18n\" target=\"_blank\">lire la page décrivant les étapes à suivre</a>.",
     "licences": "Licences des librairies :"
   },

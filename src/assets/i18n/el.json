@@ -16,21 +16,22 @@
     "languages": {
       "official_translation": "Αρχική έκδοση",
       "cnil_translations": "Μεταφράσεις παρασχεθείσες από την CNIL",
-      "dpa_translations": "TO BE TRANSLATED - Traduction révisée par les ADP européenne",
+      "dpa_translations": "TO BE TRANSLATED - Translation revised by European DPA",
       "community_translations": "Μεταφράσεις παρασχεθείσες από την κοινότητα",
-      "fr": "Français",
-      "en": "English",
       "cz": "Česky",
-      "it": "Italiaans",
-      "nl": "Nederlands",
-      "pl": "Polski",
       "de": "Deutsch",
-      "es": "Español",
-      "pt": "Português",
-      "ro": "Română",
-      "fi": "Suomi",
       "el": "Ελληνικά",
-      "no": "Norsk"
+      "en": "English",
+      "es": "Español",
+      "fi": "Suomi",
+      "fr": "Français",
+      "hu": "Magyar",
+      "it": "Italiano",
+      "nl": "Nederlands",
+      "no": "Norsk",
+      "pl": "Polski",
+      "pt": "Português",
+      "ro": "Română"
     },
     "tools": {
       "title": "Εργαλεία",
@@ -485,9 +486,9 @@
         "source": ""
       },
       "PIA_DEF_MIND": {
-        "name": "TO BE TRANSLATED - Minimisation des données elles-mêmes",
-        "description": "TO BE TRANSLATED - Réduire la gravité des risques en minimisant les données elles-mêmes, par des mesures destinées à réduire leur sensibilité.",
-        "source": "TO BE TRANSLATED - WIKI Minimisation_des_données_:_adéquates,_pertinentes_et_limitées"
+        "name": "TO BE TRANSLATED - Minimization of data themselves",
+        "description": "TO BE TRANSLATED - Reduce the severity of risks by minimizing the data themselves, by taking measures aimed at reducing their sensitivity such as filtering and removing unnecessary data, pseudonymising data, etc.",
+        "source": "PIA3 p64"
       },
       "PIA_DEF_CONS": {
         "name": "Consent",
@@ -825,8 +826,8 @@
     "title": "Σχετικά με το εργαλείο ΕΑ",
     "version_number": "Αριθμός έκδοσης",
     "description": "Αυτό το εργαλείο σχεδιάστηκε αρχικά από την <a target=\"_blank\" href=\"https://www.cnil.fr\">Commission Nationale Informatique et Liberté (CNIL)</a>, τη γαλλική Αρχή Προστασίας Δεδομένων, για να βοηθήσει τον υπεύθυνο επεξεργασίας προσωπικών δεδομένων να συμμορφωθεί με τον ΓΚΠΔ.<br>Αυτό το λογισμικό είναι ελεύθερο και ανοιχτό. Αν θέλετε να συμμετάσχετε σε αυτό το έργο, μπορείτε να κατεβάσετε τον πηγαίο κώδικα από το Github, να τον τροποποιήσετε και να τον μοιραστείτε με την κοινότητα.",
-    "translators": "Το λογισμικό PIA διατίθεται επί του παρόντος σε έξι γλώσσες. Η γαλλική και η αγγλική εκδοχή παρέχονται από το CNIL. Οι άλλες εκδοχές προκύπτουν από τις συνεισφορές των ακόλουθων ατόμων:",
-    "translators_name": "<ul><li>Dutch: Ruud van Driel, Manuel d’Orso ;</li><li>Czech: Jiří Grohmann, Manuel d’Orso ;</li><li>Italian: Manuel d’Orso, Gianluca Markos, Romolo Manfredini.</li><li>Polish: Joanna Karczewska</li><li>German: Kosmas Schütz</li><li>Spanish: ylachgar</li><li>Greek: <a target=\"_blank\" href=\"https://tzellis.gr\">Dimitris Tzellis</a></li></ul>",
+    "translators": "Το λογισμικό PIA διατίθεται επί του παρόντος σε δεκατέσσερις γλώσσες. Η γαλλική και η αγγλική εκδοχή παρέχονται από το CNIL. Οι άλλες εκδοχές προκύπτουν από τις συνεισφορές των ακόλουθων ατόμων:",
+    "translators_name": "<ul><li>Czech : Jiří Grohmann, Manuel d’Orso;</li><li>Dutch : Ruud van Driel, Manuel d’Orso;</li><li>English : <a target=\"_blank\" href=\"https://www.cnil.fr\">CNIL</a>;</li><li>Finnish : <a target=\"_blank\" href=\"https://tietosuoja.fi/etusivu\">Tietosuojavaltuutetun toimisto</a>;</li><li>French : <a target=\"_blank\" href=\"https://www.cnil.fr\">CNIL</a>;</li><li>German : Kosmas Schütz, Corina Scheiter (<a target=\"_blank\" href=\"https://www.datenschutz-bayern.de/\">BayLfD</a>);</li><li>Greek : <a target=\"_blank\" href=\"https://tzellis.gr\">Dimitris Tzellis</a>;</li><li>Hungarian : <a target=\"_blank\" href=\"https://naih.hu/\">Nemzeti Adatvédelmi és Információszabadság Hatóság (NAIH)</a>;</li><li>Italian : Manuel d’Orso, Gianluca Markos, Antonio Caselli (<a target=\"_blank\" href=\"http://gpdp.it\">Garante per la Protezione dei Dai Personali (GPDP)</a>);</li><li>Norwegian : <a target=\"_blank\" href=\"https://www.datatilsynet.no\">Datatilsynet</a>;</li><li>Polish : Joanna Karczewska, Michal Mazur (<a target=\"_blank\" href=\"https://giodo.gov.pl\">Generalny Inspektor Ochrony Danych Osobowych (GIODO)</a>);</li><li>Portuguese : Barbara Gois;</li><li>Romanian : webmyday;</li><li>Spanish : ylachgar.</li></ul>",
     "contribute": "Αν θέλετε να συμβάλλετε στη μετάφραση του λογισμικού σε άλλη γλώσσα ή να βελτιώσετε τις υπάρχουσες μεταφράσεις, σας συνιστούμε <a href=\"https://github.com/LINCnil/pia/tree/master/src/assets/i18n\" target=\"_blank\">να διαβάσετε τη σελίδα που περιγράφει τα βήματα που πρέπει να ακολουθήσετε</a>.",
     "licences": "Άδειες βιβλιοθήκης:"
   },
@@ -1019,8 +1020,8 @@
       "risks": "Κίνδυνοι",
       "no_action_plan": "Δεν καταγράφηκε κανένα σχέδιο δράσης."
     },
-    "risks_overview_title": "TO BE TRANSLATED - Vue d'ensemble des risques",
-    "risks_cartography_title": "TO BE TRANSLATED - Cartographie des risques"
+    "risks_overview_title": "TO BE TRANSLATED - Risks overview",
+    "risks_cartography_title": "TO BE TRANSLATED - Risk mapping"
   },
   "errors": {
     "title": "Η σελίδα δεν βρέθηκε.",

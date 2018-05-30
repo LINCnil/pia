@@ -16,21 +16,22 @@
     "languages": {
       "official_translation": "Versão original",
       "cnil_translations": "Translações fornecidas pela CNIL",
-      "dpa_translations": "TO BE TRANSLATED - Traduction révisée par les ADP européenne",
+      "dpa_translations": "TO BE TRANSLATED - Translation revised by European DPA",
       "community_translations": "Translações fornecidas pela comunidade",
-      "fr": "Français",
-      "en": "English",
       "cz": "Česky",
-      "it": "Italiaans",
-      "nl": "Nederlands",
-      "pl": "Polski",
       "de": "Deutsch",
-      "es": "Español",
-      "pt": "Português",
-      "ro": "Română",
-      "fi": "Suomi",
       "el": "Ελληνικά",
-      "no": "Norsk"
+      "en": "English",
+      "es": "Español",
+      "fi": "Suomi",
+      "fr": "Français",
+      "hu": "Magyar",
+      "it": "Italiano",
+      "nl": "Nederlands",
+      "no": "Norsk",
+      "pl": "Polski",
+      "pt": "Português",
+      "ro": "Română"
     },
     "tools": {
       "title": "Ferramentas",
@@ -486,9 +487,9 @@
         "source": ""
       },
       "PIA_DEF_MIND": {
-        "name": "Minimisation des données elles-mêmes",
-        "description": "Réduire la gravité des risques en minimisant les données elles-mêmes, par des mesures destinées à réduire leur sensibilité.",
-        "source": "WIKI Minimisation_des_données_:_adéquates,_pertinentes_et_limitées"
+        "name": "TO BE TRANSLATED - Minimization of data themselves",
+        "description": "TO BE TRANSLATED - Reduce the severity of risks by minimizing the data themselves, by taking measures aimed at reducing their sensitivity such as filtering and removing unnecessary data, pseudonymising data, etc.",
+        "source": "PIA3 p64"
       },
       "PIA_DEF_CONS": {
         "name": "Consentimento",
@@ -826,8 +827,8 @@
     "title": "Sobre a Ferramenta PIA",
     "version_number": "Número da versão",
     "description": "Esta ferramenta é originalmente desenhada pelo <a target=\"_blank\" href=\"https://www.cnil.fr\">Comissão Nacional da Informática e Liberdade (CNIL)</a>, Autoridade Francesa de Proteção de Dados, para ajudar o processador de dados a ser compatível com o GDPR.<br>Este software é gratuito e aberto. Se deseja se envolver neste projeto, pode baixar o código fonte do Github, modificá-lo e compartilhá-lo com a comunidade.",
-    "translators": "O software PIA está atualmente disponível em cinco idiomas. As versões francesa e inglesa são fornecidas pelo CNIL. As outras versões resultam das contribuições dos seguintes indivíduos:",
-    "translators_name": "<ul><li>Holandês: Ruud van Driel, Manuel d’Orso ;</li><li>Checo: Jiří Grohmann, Manuel d’Orso ;</li><li>Italiano: Manuel d’Orso, Gianluca Markos.</li><li>Polaco: Joanna Karczewska</li><li>Alemão: Kosmas Schütz</li><li>Espanhol: ylachgar</li></ul>",
+    "translators": "O software PIA está atualmente disponível em quatorze idiomas. As versões francesa e inglesa são fornecidas pelo CNIL. As outras versões resultam das contribuições dos seguintes indivíduos:",
+    "translators_name": "<ul><li>Czech : Jiří Grohmann, Manuel d’Orso;</li><li>Dutch : Ruud van Driel, Manuel d’Orso;</li><li>English : <a target=\"_blank\" href=\"https://www.cnil.fr\">CNIL</a>;</li><li>Finnish : <a target=\"_blank\" href=\"https://tietosuoja.fi/etusivu\">Tietosuojavaltuutetun toimisto</a>;</li><li>French : <a target=\"_blank\" href=\"https://www.cnil.fr\">CNIL</a>;</li><li>German : Kosmas Schütz, Corina Scheiter (<a target=\"_blank\" href=\"https://www.datenschutz-bayern.de/\">BayLfD</a>);</li><li>Greek : Dimitris Tzellis;</li><li>Hungarian : <a target=\"_blank\" href=\"https://naih.hu/\">Nemzeti Adatvédelmi és Információszabadság Hatóság (NAIH)</a>;</li><li>Italian : Manuel d’Orso, Gianluca Markos, Antonio Caselli (<a target=\"_blank\" href=\"http://gpdp.it\">Garante per la Protezione dei Dai Personali (GPDP)</a>);</li><li>Norwegian : <a target=\"_blank\" href=\"https://www.datatilsynet.no\">Datatilsynet</a>;</li><li>Polish : Joanna Karczewska, Michal Mazur (<a target=\"_blank\" href=\"https://giodo.gov.pl\">Generalny Inspektor Ochrony Danych Osobowych (GIODO)</a>);</li><li>Portuguese : Barbara Gois;</li><li>Romanian : webmyday;</li><li>Spanish : ylachgar.</li></ul>",
     "contribute": "Se deseja contribuir com a tradução do software em outro idioma ou melhorar as traduções existentes, recomendamos que <a href=\"https://github.com/LINCnil/pia/tree/master/src/assets/i18n\" target=\"_blank\">leia a página descrevendo os passos a seguir</a>.",
     "licences": "Licensas das bibliotecas:"
   },
@@ -955,7 +956,7 @@
       "content": "PARA SER TRADUZIDO - O conteúdo de PIA foi copiado para a área de transferência."
     },
     "back_to_edition": {
-      "content": "TO BE TRANSLATED - La partie est renvoyée en édition,<br>des informations doivent être ajoutées<br>pour permettre son évaluation."
+      "content": "TO BE TRANSLATED - This section has been sent back for editing.<br> Several fields must be corrected<br> to enable its proper review."
     },
     "back_to_evaluation": {
       "content": "Esta secção foi enviada de volta para revisão.<br> Devem ser revistos vários campos<br> para permitir sua validação adequada."
