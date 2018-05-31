@@ -7,14 +7,13 @@ import { SettingsComponent } from 'app/settings/settings.component';
 import { HelpComponent } from 'app/help/help.component';
 import { AboutComponent } from 'app/about/about.component';
 import { ErrorsComponent } from 'app/errors/errors.component';
-import { TemplatesComponent } from 'app/templates/templates.component';
 
 import { CardsRoutingModule } from 'app/cards/cards-routing.module';
 import { EntryRoutingModule } from 'app/entry/entry-routing.module';
+import { TemplatesRoutingModule } from 'app/templates/templates-routing.module';
 import { AuthenticationGuardService } from '@security/authentication-guard.service';
 import {PiaResolve} from 'app/services/pia.resolve.service';
 import {PiaService} from 'app/entry/pia.service';
-import {TemplatesResolve} from 'app/templates/templates.resolve.service';
 
 const routes: Routes = [
   { path: '', component: AuthenticationComponent },
@@ -22,12 +21,6 @@ const routes: Routes = [
   { path: 'summary/:id',
     component: SummaryComponent ,
     canActivate: [AuthenticationGuardService, PiaResolve]
-  },
-  {
-    path: 'templates',
-    component: TemplatesComponent,
-    canActivate: [AuthenticationGuardService],
-    resolve: { templates: TemplatesResolve }
   },
   { path: 'help', component: HelpComponent },
   { path: 'about', component: AboutComponent },
@@ -38,10 +31,11 @@ const routes: Routes = [
   imports: [
     CardsRoutingModule,
     EntryRoutingModule,
+    TemplatesRoutingModule,
     RouterModule.forRoot(routes, { useHash: true }),
   ],
   exports: [RouterModule],
-  providers: [PiaService, PiaResolve, TemplatesResolve]
+  providers: [PiaService, PiaResolve]
 })
 
 export class AppRoutingModule { }
