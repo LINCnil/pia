@@ -18,7 +18,7 @@ export class PiaService extends BaseService<Pia> {
   protected routing: any = {
     all: '/pias',
     one: '/pias/{id}',
-    template: '/pias/newFromTemplate/{templateId}',
+    template: '/pias/new-from-template/{templateId}',
     export: '/pias/export/{id}',
     import: '/pias/import'
   };

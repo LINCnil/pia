@@ -11,13 +11,12 @@ export class TemplateService extends BaseService<Template> {
   protected modelClass = Template;
 
   protected routing: any = {
-    all: '/pias/templates'
+    all: '/pia-templates'
   };
 
   constructor(http: HttpClient) {
     super(http);
   }
-
 
   public getAll(): Observable<Template[]> {
     return this.httpGetAll(this.routing.all);
