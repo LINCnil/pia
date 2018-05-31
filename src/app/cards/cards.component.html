@@ -41,8 +41,9 @@
             </ul>
           </div>
         </div>
-        <div *ngIf="viewStyle.view === 'list'" class="pia-filtersBlock-buttons">
-          <button type="button" class="btn btn-green" (click)="_modalsService.openModal('modal-list-new-pia')"><i class="fa fa-folder-open" aria-hidden="true"></i>{{ 'homepage.filters.new_pia' | translate }}</button>
+        <div class="pia-filtersBlock-buttons">
+          <button *ngxPermissionsOnly="['CanCreatePIA']" type="button" class="btn btn-green" (click)="_modalsService.openModal('modal-list-new-pia')"><i class="fa fa-plus" aria-hidden="true"></i>{{ 'homepage.filters.new_pia' | translate }}</button>
+          <button routerLink="/templates" *ngxPermissionsOnly="['CanCreatePIA']" type="button" class="btn btn-green"><i class="fa fa-folder-open" aria-hidden="true"></i>{{ 'homepage.filters.new_from_template' | translate }}</button>
           <button type="button" (click)="importPia()" class="btn btn-green"><i class="fa fa-upload" aria-hidden="true"></i>{{ 'homepage.filters.import_pia' | translate }}</button>
         </div>
         <div class="pia-filtersBlock-hint" *ngIf="viewStyle.view === 'list' && _piaService.pias && _piaService.pias.length === 0">
@@ -62,73 +63,6 @@
   </div>
   <div class="row">
     <div *ngIf="viewStyle.view === 'card'; else viewList" class="small-12 medium-12 columns">
-      <div class="pia-cardsBlock pia-newBlock" id="cardsSwitch" *ngxPermissionsOnly="['CanCreatePIA']">
-        <div class="pia-newBlock-item front" id="pia-new-card">
-          <div class="pia-newBlock-item-new">
-            <div class="pia-newBlock-item-new-title">{{ 'homepage.cards.new_pia' | translate }}</div>
-            <div class="pia-newBlock-item-new-btn">
-              <i class="fa fa-folder-open" aria-hidden="true"></i>
-              <button class="btn" (click)="newPIA()" type="button" title="{{ 'homepage.cards.placeholder_new_pia' | translate }}"><span class="pia-icons pia-icon-pia-plus"></span></button>
-            </div>
-          </div>
-          <span>{{ 'homepage.cards.or' | translate }}</span>
-          <div class="pia-newBlock-item-import">
-            <div class="pia-newBlock-item-import-title">{{ 'homepage.cards.import_pia' | translate }}</div>
-            <div class="pia-newBlock-item-import-btn">
-              <i class="fa fa-upload" aria-hidden="true"></i>
-              <button class="btn" (click)="importPia()" type="button" title="{{ 'homepage.cards.placeholder_import_pia' | translate }}"><span class="pia-icons pia-icon-pia-plus"></span></button>
-            </div>
-          </div>
-        </div>
-        <div class="pia-cardsBlock pia-editBlock back">
-          <div class="pia-cardsBlock-item pia-editBlock-item">
-            <button class="btn" (click)="reversePIA()" type="button" title="{{ 'homepage.cards.title_close_creation' | translate }}"><span class="pia-icons pia-icon-close"></span></button>
-            <form class="pia-cardsBlock-item-form" (ngSubmit)="onSubmit(piaForm)" [formGroup]="piaForm">
-              <div>
-                <label for="name">{{ 'homepage.cards.pia_name' | translate }}</label>
-                <input formControlName="name" type="text" placeholder="{{ 'homepage.cards.placeholder_pia_name' | translate }}" id="name" required>
-              </div>
-              <div>
-                <label for="author_name">{{ 'homepage.cards.author' | translate }}</label>
-                <input formControlName="author_name" type="text" placeholder="{{ 'homepage.cards.placeholder_author' | translate }}" id="author_name" required>
-              </div>
-              <div>
-                <label for="evaluator_name">{{ 'homepage.cards.evaluation' | translate }}</label>
-                <input formControlName="evaluator_name" type="text" placeholder="{{ 'homepage.cards.placeholder_evaluation' | translate }}" id="evaluator_name" required>
-              </div>
-              <div>
-                <label for="validator_name">{{ 'homepage.cards.validation' | translate }}</label>
-                <input formControlName="validator_name" type="text" placeholder="{{ 'homepage.cards.placeholder_validation' | translate }}" id="validator_name" required>
-              </div>
-              <div class="pia-cardsBlock-item-date" *ngIf="newPia">
-                <div>{{ 'homepage.cards.validation' | translate }}</div>
-                <time>{{ newPia.created_at | date: 'dd/MM/yyyy'}}</time>
-              </div>
-              <div class="pia-cardsBlock-item-status">
-                <div class="pia-cardsBlock-item-status-infos">
-                  <div>{{ 'homepage.cards.status' | translate }}</div>
-                  <div>{{ 'homepage.cards.creation_status' | translate }}</div>
-                </div>
-                <div class="pia-cardsBlock-item-status-progressBar">
-                  <div>0%</div>
-                  <progress max="100" value="0">
-                  </progress>
-                </div>
-              </div>
-              <div class="pia-cardsBlock-item-btn">
-                <button type="submit" [disabled]="piaForm.invalid" class="btn btn-green" id="pia-save-card-btn" title="{{ 'homepage.cards.placeholder_start' | translate }}">{{ 'homepage.cards.start' | translate }}</button>
-              </div>
-            </form>
-          </div>
-        </div>
-        <div class="pia-newBlock-hint" *ngIf="_piaService.pias && _piaService.pias.length === 0" id="pia-rocket">
-          <span class="pia-icons pia-icon-small-arrow"></span>
-          <div>
-            <span class="pia-icons pia-icon-rocket"></span>
-            <p [innerHTML]="'homepage.filters.card_rocket_content' | translate"></p>
-          </div>
-        </div>
-      </div>
       <app-card-item *ngFor="let pia of _piaService.pias;let i=index" [pia]="pia" [previousPia]="i > 0 ? _piaService.pias[i-1] : null"></app-card-item>
     </div>
     <ng-template #viewList>

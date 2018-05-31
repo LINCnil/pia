@@ -9,6 +9,7 @@ import { MeasureService } from '@api/service/measure.service';
 import { PiaService } from '@api/service/pia.service';
 import { UserProfileService } from '@api/service/user-profile.service';
 import { UserTokenService } from '@api/service/user-token.service';
+import { TemplateService } from '@api/service/template.service';
 
 @NgModule({
   declarations: [],
@@ -23,7 +24,8 @@ import { UserTokenService } from '@api/service/user-token.service';
     MeasureService,
     PiaService,
     UserProfileService,
-    UserTokenService
+    UserTokenService,
+    TemplateService
   ]
 })
 

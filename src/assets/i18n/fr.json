@@ -4,7 +4,7 @@
     "subtitle1": "Une plateforme pour créer <br> et administrer vos pia",
     "subtitle2": "Accéder aux outils et glossaires",
     "start_app": "Accéder à l'outil PIA (Beta)",
-    "description": "Le logiciel PIA de la <strong>Commission Nationale Informatique et Liberté (CNIL)</strong> s'inscrit dans une démarche d'accompagnement des responsables de traitement dans la mise en œuvre des obligations du RGPD. Il accompagne la conduite d'une analyse d'impact relative à la protection des données et vise aussi à faciliter l'appropriation des guides PIA de la CNIL.",
+    "description": "Le logiciel PIA s'inscrit dans une démarche d'accompagnement des responsables de traitement dans la mise en œuvre des obligations du RGPD. Il accompagne la conduite d'une analyse d'impact relative à la protection des données et vise aussi à faciliter l'appropriation des guides PIA de la CNIL.",
     "start": "Commencer",
     "forgotten_password": "Mot de passe oublié",
     "logout": "Déconnexion",
@@ -57,6 +57,7 @@
       "assessor": "Évaluateur",
       "validator": "Validateur",
       "new_pia": "Nouveau PIA",
+      "new_from_template": "Nouveau PIA depuis un modèle",
       "import_pia": "Importer PIA",
       "list_rocket_content": "Lancez-vous ! Pour commencer<br>un PIA, cliquez sur le +",
       "card_rocket_content": "Lancez-vous !<br><br>Pour commencer<br>un PIA, cliquez<br> sur le +"
@@ -169,6 +170,10 @@
     "edit": "Éditer la mesure",
     "remove": "Supprimer la mesure",
     "default_placeholder": "Décrivez les mesures existantes ou prévues pour garantir la sécurité des données."
+  },
+  "templates": {
+    "pick": "Choisir",
+    "header": "Modèles de PIA"
   },
   "knowledge_base": {
     "title": "Base de connaissances",

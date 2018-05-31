@@ -58,6 +58,7 @@ import { CardsRoutingModule } from 'app/cards/cards-routing.module';
 
 import { ApiModule } from '@api/api.module';
 import { SecurityModule } from '@security/security.module';
+import { TemplatesComponent } from './templates/templates.component';
 
 const providersList: any = [
   AppDataService,
@@ -124,7 +125,8 @@ export function createTranslateLoader(http: HttpClient) {
     SummaryComponent,
     SafeHtmlPipe,
     Nl2brPipe,
-    AboutComponent
+    AboutComponent,
+    TemplatesComponent
   ],
   imports: [
     BrowserModule,
