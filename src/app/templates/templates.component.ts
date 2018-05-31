@@ -27,7 +27,6 @@ export class TemplatesComponent implements OnInit {
   }
 
   onSubmit() {
-  	console.log(this.pia);
   	this.piaApi.createFromTemplate(this.pia, this.pickedTemplate).subscribe((pia: PiaModel) => {
       this.router.navigate([`/entry/${pia.id}/section/1/item/1`]);
     });
