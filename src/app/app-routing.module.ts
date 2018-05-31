@@ -10,30 +10,28 @@ import { ErrorsComponent } from 'app/errors/errors.component';
 
 import { CardsRoutingModule } from 'app/cards/cards-routing.module';
 import { EntryRoutingModule } from 'app/entry/entry-routing.module';
+import { TemplatesRoutingModule } from 'app/templates/templates-routing.module';
 import { AuthenticationGuardService } from '@security/authentication-guard.service';
-// import { AuthenticationCallbackComponent } from 'app/authentication-callback/authentication-callback.component';
 import {PiaResolve} from 'app/services/pia.resolve.service';
 import {PiaService} from 'app/entry/pia.service';
 
 const routes: Routes = [
   { path: '', component: AuthenticationComponent },
   { path: 'logout', component: AuthenticationComponent },
-  { path:
-    'summary/:id',
+  { path: 'summary/:id',
     component: SummaryComponent ,
     canActivate: [AuthenticationGuardService, PiaResolve]
   },
-
   { path: 'help', component: HelpComponent },
   { path: 'about', component: AboutComponent },
   { path: '**', component: ErrorsComponent },
-  // { path: 'auth-callback', component: AuthenticationCallbackComponent }
 ];
 
 @NgModule({
   imports: [
     CardsRoutingModule,
     EntryRoutingModule,
+    TemplatesRoutingModule,
     RouterModule.forRoot(routes, { useHash: true }),
   ],
   exports: [RouterModule],

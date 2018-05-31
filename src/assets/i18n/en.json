@@ -4,7 +4,7 @@
     "subtitle1": "A platform to create <br> and manage your PIAs",
     "subtitle2": "Access tools and glossaries",
     "start_app": "Access the PIA's software (Beta)",
-    "description": "This software by the <strong>French Data Protection Authority (CNIL)</strong> is meant to guide the data controllers in building and demonstrating compliance to the GDPR. It helps to properly carry out a data protection impact assessment by facilitating the use of the PIA method developed by the CNIL.",
+    "description": "This software by the is meant to guide the data controllers in building and demonstrating compliance to the GDPR. It helps to properly carry out a data protection impact assessment by facilitating the use of the PIA method developed by the CNIL.",
     "start": "Start"
   },
   "header": {
@@ -47,6 +47,7 @@
       "assessor": "Reviewer",
       "validator": "Validator",
       "new_pia": "New PIA",
+      "new_from_template": "New from template",
       "import_pia": "Import PIA",
       "list_rocket_content": "Get started ! To initiate <br>a PIA, click on the +",
       "card_rocket_content": "Get started !<br><br>To initiate a PIA,<br> click on New PIA"
@@ -159,6 +160,10 @@
     "edit": "Edit measure",
     "remove": "Delete measure",
     "default_placeholder": "Describe the existing or intended measures to ensure data security."
+  },
+  "templates": {
+    "pick": "Pick",
+    "header": "PIA templates"
   },
   "knowledge_base": {
     "title": "Knowledge base",

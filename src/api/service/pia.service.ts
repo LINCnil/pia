@@ -8,6 +8,7 @@ import { Answer } from '@api/model/answer.model';
 import { Injectable } from '@angular/core';
 import { BaseModel } from '@api/model/base.model';
 import { AnswerService } from '@api/service/answer.service';
+import { Template } from '@api/model/template.model';
 
 @Injectable()
 export class PiaService extends BaseService<Pia> {
@@ -17,8 +18,9 @@ export class PiaService extends BaseService<Pia> {
   protected routing: any = {
     all: '/pias',
     one: '/pias/{id}',
+    template: '/pias/new-from-template/{templateId}',
     export: '/pias/export/{id}',
-    import: '/pias/import',
+    import: '/pias/import'
   };
 
   constructor(http: HttpClient, protected answerService: AnswerService) {
@@ -36,6 +38,10 @@ export class PiaService extends BaseService<Pia> {
   public computeProgressFromAnswers(model: Pia, answers:Answer[]): number {
       model.progress = Math.round((100 / model.numberOfQuestions) * answers.length);
       return model.progress;
+  }
+
+  public createFromTemplate(model: Pia, template: Template): Observable<Pia> {
+    return this.httpPost(this.routing.template, {templateId: template.id}, model);
   }
 
   public getAll(): Observable<Pia[]> {

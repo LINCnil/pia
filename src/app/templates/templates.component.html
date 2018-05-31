@@ -1,0 +1,59 @@
+<app-header></app-header>
+
+<h1>{{ 'templates.header' | translate }}</h1>
+<div class="templates container pia-mainContainerBlock">
+	<div class="row">
+		<div class="small-12 medium-12 columns">
+			<div *ngFor="let template of templates" class="template pia-cardsBlock">
+		  	<p class="template-name">{{ template.name }}</p>
+		  	<p class="template-description">{{ template.description }}</p>
+		  	<div class="pia-cardsBlock-item-btn">
+	        <button class="pick-template btn btn-green get-focus" (click)="piaFromTemplate(template)">
+	        	{{ 'templates.pick'| translate }}
+	        </button>
+	      </div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="pia-modalBlock" id="modal-list-new-pia">
+	  <div class="pia-modalBlock-content bounceIn">
+	    <button tabindex="1" type="button" class="pia-modalBlock-close btn" title="{{ 'homepage.cards.title_close_creation' | translate }}" (click)="modalsService.closeModal()"><span class="pia-icons pia-icon-close"></span></button>
+	    <form class="pia-cardsBlock-item-form" #piaForm="ngForm" (ngSubmit)="onSubmit()">
+	      <div>
+	        <label for="name">{{ 'homepage.cards.pia_name' | translate }}</label>
+	        <input [(ngModel)]="pia.name" name="name" type="text" placeholder="{{ 'homepage.cards.placeholder_pia_name' | translate }}" id="name" required>
+	      </div>
+	      <div>
+	        <label for="author_name">{{ 'homepage.cards.author' | translate }}</label>
+	        <input [(ngModel)]="pia.author_name" name="author_name" type="text" placeholder="{{ 'homepage.cards.placeholder_author' | translate }}" id="author_name" required>
+	      </div>
+	      <div>
+	        <label for="evaluator_name">{{ 'homepage.cards.evaluation' | translate }}</label>
+	        <input [(ngModel)]="pia.evaluator_name" name="evaluator_name" type="text" placeholder="{{ 'homepage.cards.placeholder_evaluation' | translate }}" id="evaluator_name" required>
+	      </div>
+	      <div>
+	        <label for="validator_name">{{ 'homepage.cards.validation' | translate }}</label>
+	        <input [(ngModel)]="pia.validator_name" name="validator_name" type="text" placeholder="{{ 'homepage.cards.placeholder_validation' | translate }}" id="validator_name" required>
+	      </div>
+	      <div class="pia-cardsBlock-item-date" *ngIf="newPia">
+	        <div>{{ 'homepage.cards.date' | translate }}</div>
+	        <time>{{ newPia.created_at | date: 'dd/MM/yyyy'}}</time>
+	      </div>
+	      <div class="pia-cardsBlock-item-status">
+	        <div class="pia-cardsBlock-item-status-infos">
+	          <div>{{ 'homepage.cards.status' | translate }}</div>
+	          <div>{{ 'homepage.cards.creation_status' | translate }}</div>
+	        </div>
+	        <div class="pia-cardsBlock-item-status-progressBar">
+	          <div>0%</div>
+	          <progress max="100" value="0">
+	          </progress>
+	        </div>
+	      </div>
+	      <div class="pia-cardsBlock-item-btn">
+	        <button type="submit" [disabled]="piaForm.invalid" class="btn btn-green get-focus" id="pia-save-card-btn">{{ 'homepage.cards.start' | translate }}</button>
+	      </div>
+	    </form>
+	  </div>
+	</div>

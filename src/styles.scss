@@ -44,12 +44,6 @@ body {
 html, body {
     height: 100%;
 }
-body {
-  &.pia-authentication {
-    background: url("./assets/images/authentication-bg.png") no-repeat center center transparent;
-    background-size: cover;
-  }
-}
 .container {
   max-width: 1180px;
   margin: 0 auto;
