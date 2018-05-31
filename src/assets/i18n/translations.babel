@@ -1,7 +1,7 @@
 <babeledit_project version="1.0">
     <preset_collections/>
     <framework>generic-json</framework>
-    <filename>babel.babel</filename>
+    <filename>translations.babel</filename>
     <folder_node>
         <name></name>
         <children>
@@ -56398,6 +56398,6 @@
     <primary_language></primary_language>
     <configuration>
         <indent>tab</indent>
-        <format>json</format>
+        <format>namespaced-json</format>
     </configuration>
 </babeledit_project>
