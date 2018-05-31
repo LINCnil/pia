@@ -130,34 +130,9 @@ export class PiaService {
    * @memberof PiaService
    */
   exportData(id: number): Promise<any> {
-
     return new Promise((resolve, reject) => {
-
-      this.piaApi.get(id).subscribe((pia: PiaModel) => {
-        const data = {
-          pia: pia,
-          answers: null,
-          measures: null,
-          evaluations: null,
-          comments: null,
-          attachments: null
-        }
-        Observable
-          .forkJoin(
-            this.answerApi.getAll(id),
-            this.measureApi.getAll(id),
-            this.evaluationApi.getAll(id),
-            this.commentApi.getAll(id),
-            this.attachmentApi.getAll(id),
-        )
-          .subscribe((values) => {
-            data.answers = values[0];
-            data.measures = values[1];
-            data.evaluations = values[2];
-            data.comments = values[3];
-            data.attachments = values[4];
-            resolve(data);
-          });
+      this.piaApi.export(id).subscribe((json) => {
+        resolve(json);
       });
     });
   }
@@ -171,93 +146,10 @@ export class PiaService {
    * @memberof PiaService
    */
   async importData(data: any, prefix: string, is_duplicate: boolean, is_example?: boolean): Promise<void> {
-    if (!('pia' in data)) {
-      return;
-    }
-    const pia = new PiaModel();
-    const values = data.pia;
-    values.id = null;
-    values.name = '(' + prefix + ') ' + values.name;
-    pia.fromJson(values);
-
-    /* Set this PIA as the example PIA if needed, else default value affected on creation */
-    if (is_example) {
-      pia.is_example = true;
-    }
-
-    if (is_duplicate) {
-      pia.status = 0;
-      pia.created_at = null;
-      pia.updated_at = null;
-      pia.dpos_names = 'N/A';
-      pia.dpo_status = 0;
-      pia.dpo_opinion = null;
-      pia.concerned_people_searched_opinion = null;
-      pia.concerned_people_searched_content = null;
-      pia.people_names = 'N/A';
-      pia.concerned_people_status = 0;
-      pia.concerned_people_opinion = null;
-    } else {
-      pia.status = parseInt(data.pia.status, 10);
-      if (Number.isNaN(pia.status)) {
-        pia.status = 0;
-      }
-    }
-    const newPia: PiaModel = await this.piaApi.create(pia).toPromise();
-    pia.fromJson(newPia);
-    // Create answers
-    data.answers.forEach(answer => {
-      answer.id = null;
-      const answerModel = new AnswerModel();
-      answerModel.fromJson(answer);
-      answerModel.pia_id = pia.id;
-      this.answerApi.create(answerModel).subscribe();
+    this.piaApi.import(data).subscribe((pia) => {
+      this.piaApi.computeProgressFromAnswers(pia, data.answers);
+      this.pias.push(pia);
     });
-
-    if (data.measures.length > 0) {
-      const count = 0;
-      const asyncResults = [];
-      const oldIdToNewId = [];
-      // Create measures
-      data.measures.forEach(measure => {
-        measure.id = null;
-        const measureModel = new MeasureModel();
-        measureModel.fromJson(measure);
-        measureModel.pia_id = newPia.id;
-        const p = this.measureApi.create(measureModel).toPromise();
-        p.then((newMeasure: MeasureModel) => { oldIdToNewId[measure.id] = newMeasure.id; });
-        asyncResults.push(p);
-      });
-      await Promise.all(asyncResults);
-      this.importEvaluations(data, pia.id, is_duplicate, oldIdToNewId);
-    } else {
-      this.importEvaluations(data, pia.id, is_duplicate);
-    }
-
-    if (!is_duplicate) {
-      // Create comments
-      data.comments.forEach(comment => {
-        comment.id = null;
-        const commentModel = new CommentModel();
-        commentModel.fromJson(comment);
-        commentModel.pia_id = pia.id;
-        this.commentApi.create(commentModel).subscribe();
-      });
-    }
-
-    if(data.attachments) {
-      // Create attachments
-      data.attachments.forEach(attachment => {
-        attachment.id = null;
-        const attachmentModel = new AttachmentModel();
-        attachmentModel.fromJson(attachment);
-        attachmentModel.pia_id = pia.id;
-        this.attachmentApi.create(attachmentModel).subscribe();
-      });
-    }
-
-    this.piaApi.computeProgressFromAnswers(pia, data.answers);
-    this.pias.push(pia);
   }
 
   /**

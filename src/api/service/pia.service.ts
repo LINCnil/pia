@@ -18,7 +18,9 @@ export class PiaService extends BaseService<Pia> {
   protected routing: any = {
     all: '/pias',
     one: '/pias/{id}',
-    template: '/pias/newFromTemplate/{templateId}'
+    template: '/pias/newFromTemplate/{templateId}',
+    export: '/pias/export/{id}',
+    import: '/pias/import'
   };
 
   constructor(http: HttpClient, protected answerService: AnswerService) {
@@ -66,4 +68,21 @@ export class PiaService extends BaseService<Pia> {
     return this.deleteById(model.id);
   }
 
+  public export(id: number): Observable<string> {
+    let query: any = this.buildQuery({});
+    const route = this.buildRoute(this.routing.export, {id: id});
+
+    return this.http.get(route, { params: query }).map((res: any) => {
+      return res
+    });
+  }
+
+  public import(data: any): Observable<Pia> {
+    let query: any = this.buildQuery({});
+    const route = this.buildRoute(this.routing.import, {name: name});
+
+    console.info(data);
+
+    return this.http.post(route, {data: data}, { params: query }).map(res => this.mapToModel(res, this.modelClass));
+  }
 }
