@@ -280,7 +280,7 @@
 			"PIA_DEF_CHIF": {
 				"description": "Henkilötietojen koodaaminen sellaiseen muotoon, että vain valtuutetut henkilöt voivat lukea niitä (symmetrinen tai epäsymmetrinen salaus, vahvoiksi tiedettyjen julkisten algoritmien käyttö, todentamissertifikaatti jne.).",
 				"name": "Salaus",
-				"source ": "Mesures_US Encryption"
+				"source": "Mesures_US Encryption"
 			},
 			"PIA_DEF_CLO": {
 				"description": "Tietojen järjestämismenetelmiä, jotka pienentävät henkilötietojen yhdistelemisen ja kaikkia henkilötietoja  koskevan tietoturvaloukkauksen mahdollisuutta. Esimerkki hajauttamisesta olisi vain kunkin liiketoimintaprosessin kannalta hyödyllisten henkilötietojen määritteleminen ja looginen erottaminen muista tiedoista.",

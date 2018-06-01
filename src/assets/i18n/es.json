@@ -280,7 +280,7 @@
 			"PIA_DEF_CHIF": {
 				"description": "Mida el hacer de datos personales unintelligible a cualquier persona sin la autorización de acceso (cifrado simétrico o asimétrico, uso de los algoritmos públicos sabidos para ser certificado fuerte, de la autentificación, etc.). ",
 				"name": "Cifrado",
-				"source ": "Mesures_US Encryption"
+				"source": "Mesures_US Encryption"
 			},
 			"PIA_DEF_CLO": {
 				"description": "Datos organización métodos que reducen la posibilidad de que datos personales pueden ser correlacionados y que se produzca una violación de los datos personales. Por ejemplo, mediante la identificación de los datos personales sólo para cada proceso del negocio y lógicamente que los separa. ",
