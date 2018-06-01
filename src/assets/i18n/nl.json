@@ -102,7 +102,6 @@
 			"nl": "Nederlands",
 			"no": "Norsk",
 			"official_translation": "Originele versie",
-			"official_translations": "",
 			"pl": "Polski",
 			"pt": "Português",
 			"ro": "Română"
@@ -169,7 +168,6 @@
 			"item": {
 				"consult_pia": "PIA Raadplegen",
 				"edit_pia": "Aanpassen PIA",
-				"save_pia": "",
 				"tools": {
 					"action_plan": "Toon<br>actie plan",
 					"duplicate": "Dupliceren",
@@ -1299,8 +1297,6 @@
 		},
 		"download_csv": "TO BE TRANSLATED - Download a CSV export",
 		"download_images": "TO BE TRANSLATED - Download images",
-		"download_risks_cartography": "",
-		"download_risks_overview": "",
 		"dpo_name": "DPO's / FG naam",
 		"dpo_opinion": "DPO's / FG mening",
 		"dpo_status": "DPO's / FG status",

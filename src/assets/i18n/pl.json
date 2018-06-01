@@ -102,7 +102,6 @@
 			"nl": "Nederlands",
 			"no": "Norsk",
 			"official_translation": "Wersja oryginalna",
-			"official_translations": "",
 			"pl": "Polski",
 			"pt": "Português",
 			"ro": "Română"
@@ -169,7 +168,6 @@
 			"item": {
 				"consult_pia": "Konsultacja PIA",
 				"edit_pia": "Edycja PIA",
-				"save_pia": "",
 				"tools": {
 					"action_plan": "Wyświetlenie<br>planu działania",
 					"duplicate": "Duplikacja",
@@ -1299,8 +1297,6 @@
 		},
 		"download_csv": "Pobierz w formacie csv",
 		"download_images": "Pobierz obrazy",
-		"download_risks_cartography": "",
-		"download_risks_overview": "",
 		"dpo_name": "Nazwisko IOD",
 		"dpo_opinion": "Opinia IOD",
 		"dpo_status": "Status IOD",

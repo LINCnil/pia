@@ -102,7 +102,6 @@
 			"nl": "Nederlands",
 			"no": "Norsk",
 			"official_translation": "Originalversion",
-			"official_translations": "",
 			"pl": "Polski",
 			"pt": "Português",
 			"ro": "Română"
@@ -169,7 +168,6 @@
 			"item": {
 				"consult_pia": "DSFA ansehen",
 				"edit_pia": "DSFA bearbeiten",
-				"save_pia": "",
 				"tools": {
 					"action_plan": "Aktionsplan<br>anzeigen",
 					"duplicate": "Kopieren",
@@ -1299,8 +1297,6 @@
 		},
 		"download_csv": "CSV-Export herunterladen",
 		"download_images": "Bilder herunterladen",
-		"download_risks_cartography": "",
-		"download_risks_overview": "",
 		"dpo_name": "Name des DSB",
 		"dpo_opinion": "Gutachten des DSB",
 		"dpo_status": "Feststellung des DSB",

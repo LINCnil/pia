@@ -102,7 +102,6 @@
 			"nl": "Nederlands",
 			"no": "Norsk",
 			"official_translation": "Hivatalos fordítások",
-			"official_translations": "",
 			"pl": "Polski",
 			"pt": "Português",
 			"ro": "Română"
@@ -169,7 +168,6 @@
 			"item": {
 				"consult_pia": "DPIA áttekintése ",
 				"edit_pia": "DPIA szerkesztése",
-				"save_pia": "",
 				"tools": {
 					"action_plan": "Intézkedési terv megmutatása",
 					"duplicate": "Másolat készítése",
@@ -1299,8 +1297,6 @@
 		},
 		"download_csv": "Exportált CSV fájl letöltése",
 		"download_images": "Képek letöltése",
-		"download_risks_cartography": "",
-		"download_risks_overview": "",
 		"dpo_name": "Adatvédelmi tisztviselő neve",
 		"dpo_opinion": "Adatvédelmi tisztviselő véleménye",
 		"dpo_status": "Adatvédelmi tisztviselő státusza",

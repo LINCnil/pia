@@ -102,7 +102,6 @@
 			"nl": "Nederlands",
 			"no": "Norsk",
 			"official_translation": "Αρχική έκδοση",
-			"official_translations": "",
 			"pl": "Polski",
 			"pt": "Português",
 			"ro": "Română"
@@ -169,7 +168,6 @@
 			"item": {
 				"consult_pia": "Συμβουλευθείτε ΕΑ",
 				"edit_pia": "Επεξεργασία ΕΑ",
-				"save_pia": "",
 				"tools": {
 					"action_plan": "Εμφάνιση<br>σχεδίου δράσης",
 					"duplicate": "Διπλότυπο",
@@ -825,18 +823,18 @@
 			"content": "Είστε βέβαιοι ότι θέλετε να <br>παραιτηθείτε από αυτή την επεξεργασία;"
 		},
 		"action_plan_no_evaluation": {
-			"content": "",
-			"review_section": ""
+			"content": "TO BE TRANSLATED - You need to begin the review of the analysis to create the action plan.",
+			"review_section": "TO BE TRANSLATED - Review a section"
 		},
 		"archive": "Αρχειοθέτηση",
 		"ask_for_evaluation": {
 			"content": "<span class='strong'>Συγχαρητήρια,</span><br>η υποενότητα είναι τώρα<br>διαθέσιμη για αξιολόγηση."
 		},
 		"back_to_edition": {
-			"content": ""
+			"content": "TO BE TRANSLATED - This section has been sent back for editing.<br> Several fields must be corrected<br> to enable its proper review."
 		},
 		"back_to_evaluation": {
-			"content": ""
+			"content": "TO BE TRANSLATED - This section has been sent back for review.<br> Several fields must be reviewed<br> to enable its proper validation."
 		},
 		"back_to_home": "Επιστροφή στην αρχή",
 		"cancel": "Ακύρωση",
@@ -853,13 +851,13 @@
 			"declare": "Δηλώστε τα υφιστάμενα ή προγραμματισμένα μέτρα"
 		},
 		"dpo_missing_evaluations": {
-			"comment": "",
+			"comment": "TO BE TRANSLATED - Comment",
 			"content": "",
 			"remove": "",
 			"review_section": ""
 		},
 		"modal_select_text_pia": {
-			"content": ""
+			"content": "TO BE TRANSLATED - The content of the PIA has been copied to clipboard."
 		},
 		"not_enough_measures_to_remove": {
 			"content": "<span class='strong'>Προσοχή,</span><br>Πρέπει να συμπληρωθεί τουλάχιστον ένα μέτρο: δεν είναι δυνατή η διαγραφή."
@@ -1299,8 +1297,6 @@
 		},
 		"download_csv": "TO BE TRANSLATED - Download a CSV export",
 		"download_images": "TO BE TRANSLATED - Download images",
-		"download_risks_cartography": "",
-		"download_risks_overview": "",
 		"dpo_name": "Όνομα του ΥΠΔ",
 		"dpo_opinion": "Γνώμη του ΥΠΔ",
 		"dpo_status": "Καθεστώς του ΥΠΔ",

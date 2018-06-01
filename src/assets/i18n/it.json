@@ -102,7 +102,6 @@
 			"nl": "Nederlands",
 			"no": "Norsk",
 			"official_translation": "Versione originale",
-			"official_translations": "",
 			"pl": "Polski",
 			"pt": "Português",
 			"ro": "Română"
@@ -169,7 +168,6 @@
 			"item": {
 				"consult_pia": "Visualizza PIA",
 				"edit_pia": "Modifica PIA",
-				"save_pia": "",
 				"tools": {
 					"action_plan": "Mostra<br>il piano d'azione",
 					"duplicate": "Crea una copia",
@@ -1297,10 +1295,8 @@
 			"risks_overview_content": "Visualizza panoramica rischi",
 			"title": "Filtri visualizzazione"
 		},
-		"download_csv": "",
-		"download_images": "",
-		"download_risks_cartography": "Salva mappaggio rischi come immagine",
-		"download_risks_overview": "Salva panoramica rischi come immagine",
+		"download_csv": "TO BE TRANSLATED - Download a CSV export",
+		"download_images": "Salva come immagine",
 		"dpo_name": "Nome del DPO/RPD",
 		"dpo_opinion": "Parere del DPO/RPD",
 		"dpo_status": "Posizione del DPO/RPD",

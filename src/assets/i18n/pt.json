@@ -102,7 +102,6 @@
 			"nl": "Nederlands",
 			"no": "Norsk",
 			"official_translation": "Versão original",
-			"official_translations": "",
 			"pl": "Polski",
 			"pt": "Português",
 			"ro": "Română"
@@ -169,7 +168,6 @@
 			"item": {
 				"consult_pia": "Consultar PIA",
 				"edit_pia": "Editar PIA",
-				"save_pia": "",
 				"tools": {
 					"action_plan": "Exibir<br>plano de ação",
 					"duplicate": "Duplicar",
@@ -1299,8 +1297,6 @@
 		},
 		"download_csv": "Faça o download da exportação em CSV",
 		"download_images": "Descarregar imagens",
-		"download_risks_cartography": "",
-		"download_risks_overview": "",
 		"dpo_name": "Nome do DPO",
 		"dpo_opinion": "Opinião do DPO",
 		"dpo_status": "Estado do DPO",
