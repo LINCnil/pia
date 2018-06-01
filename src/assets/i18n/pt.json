@@ -214,7 +214,7 @@
       },
       "PIA_LGL_DATA": {
         "name": "Dados e processos",
-        "description": "Defina e descreva o âmbito em detalhes:<br>-os dados pessoais em causa, os seus destinatários e os períodos de armazenamento <br>-descrição dos processos e dados pessoais que suportam ativos para todo o ciclo de vida dos dados pessoais (da coleção ao apagamento).",
+        "description": "Defina e descreva o âmbito em detalhes:<br>-os dados pessoais em causa, os seus destinatários e os períodos de armazenamento <br>-descrição dos processos e dados pessoais que suportam ativos para todo o ciclo de vida dos dados pessoais (da recolha ao apagamento).",
         "source": "PIA1 p6"
       },
       "PIA_LGL_SUPT": {
@@ -368,13 +368,13 @@
         "source": "Mesures_US Procurement: identified and governed by a contract"
       },
       "PIA_SEC_NET": {
-        "placeholder": "Indique aqui os controlos de segurança da rede em que o processamento é realizado",
+        "placeholder": "Indique aqui os controlos de segurança da rede em que o tratamento é realizado",
         "name": "Segurança de rede",
-        "description": "Dependendo do tipo de rede em que o processamento é realizado (isolado, privado ou Internet). Especifique qual sistema de firewall, sistemas de detecção de intrusão ou outros dispositivos ativos ou passivos são responsáveis por garantir a segurança da rede.",
+        "description": "Dependendo do tipo de rede em que o tratamento é realizado (isolado, privado ou Internet). Especifique qual sistema de firewall, sistemas de detecção de intrusão ou outros dispositivos ativos ou passivos são responsáveis por garantir a segurança da rede.",
         "source": "PIAF Connected Objects p23"
       },
       "PIA_SEC_PHY": {
-        "placeholder": "Indique aqui como o controlo de acesso físico é realizado em relação às instalações que acomodam o processamento.",
+        "placeholder": "Indique aqui como o controlo de acesso físico é realizado em relação às instalações que acomodam o tratamento.",
         "name": "Controlo de acesso físico",
         "description": "Políticas para garantir a segurança física (zoneamento, escolta de visitantes, uso de passes, portas trancadas, etc.). Indique se há procedimentos de alerta em caso de uma invasão.",
         "source": "PIAF Connected Objects p23"
@@ -416,15 +416,15 @@
         "source": "PIA3 p78 - WIKI"
       },
       "PIA_ORG_RMGT": {
-        "placeholder": "Descreva aqui os processos para controlar os riscos que as operações de processamento realizadas pela organização representam na proteção de dados e na privacidade dos sujeitos de dados.",
+        "placeholder": "Descreva aqui os processos para controlar os riscos que as operações de tratamento realizadas pela organização representam na proteção de dados e na privacidade dos sujeitos de dados.",
         "name": "Gerenciamento de riscos de privacidade",
-        "description": "Política descrevendo processos para controlar os riscos que as operações de processamento realizadas pela organização representam na proteção de dados e na privacidade dos sujeitos de dados (criar mapa dos riscos, etc.).",
+        "description": "Política descrevendo processos para controlar os riscos que as operações realizadas pela organização representam na proteção de dados e na privacidade dos sujeitos de dados (criar mapa dos riscos, etc.).",
         "source": "PIA3 p77 - WIKI"
       },
       "PIA_ORG_PBD": {
         "placeholder": "Descreva aqui como a proteção da privacidade é integrada nos projetos",
         "name": "Integração da proteção de privacidade em projetos",
-        "description": "Existência de uma política projetada integra a proteção de dados pessoais em todas as novas operações de processamento.",
+        "description": "Existência de uma política projetada integra a proteção de dados pessoais em todas as novas operações de tratamento.",
         "source": "PIA3 p79 - WIKI"
       },
       "PIA_ORG_VIOL": {
@@ -463,7 +463,7 @@
       },
       "PIA_DEF_RT": {
         "name": "Controlador",
-        "description": "Pessoa singular ou coletiva, autoridade pública, agência ou outro organismo que, individualmente ou em conjunto com outros, determine os fins e meios do tratamento de dados pessoais; Se os fins e os meios desse tratamento forem determinados pela legislação da União ou do Estado-Membro, o responsável pelo tratamento ou os critérios específicos para a sua nomeação podem ser estabelecidos pelo direito da União ou do Estado-Membro.<br>Ver <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 4.7 de [RGPD]</a>",
+        "description": "Pessoa singular ou coletiva, autoridade pública, agência ou outro organismo que, individualmente ou em conjunto com outros, determina os fins e meios do tratamento de dados pessoais; Se os fins e os meios desse tratamento forem determinados pela legislação da União ou do Estado-Membro, o responsável pelo tratamento ou os critérios específicos para a sua nomeação podem ser estabelecidos pelo direito da União ou do Estado-Membro.<br>Ver <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 4.7 de [RGPD]</a>",
         "source": "Art. 4.7"
       },
       "PIA_DEF_DCP": {
@@ -493,7 +493,7 @@
       },
       "PIA_DEF_CONS": {
         "name": "Consentimento",
-        "description": "Qualquer indicação livre, específica, informada e inequívoca dos desejos do titular dos dados, pela qual ele/a, por uma declaração ou por uma ação afirmativa clara, significa acordo para o processamento de dados pessoais relativos a ele/a.<br>Ver <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 4.10 de [RGPD]</a>",
+        "description": "Qualquer indicação livre, específica, informada e inequívoca dos desejos do titular dos dados, pela qual ele/a, por uma declaração ou por uma ação afirmativa clara, significa acordo para o tratamento de dados pessoais relativos a ele/a.<br>Ver <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 4.10 de [RGPD]</a>",
         "source": "GDPR Art. 4.10"
       },
       "PIA_DEF_ACC": {
@@ -518,7 +518,7 @@
       },
       "PIA_DEF_LIM": {
         "name": "Direito à restrição do tratamento",
-        "description": "O titular dos dados terá o direito de obter do responsável pelo tratamento a restrição do processamento, ver <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 18 de [RGPD]</a>",
+        "description": "O titular dos dados terá o direito de obter do responsável pelo tratamento a restrição do tratamento, ver <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 18 de [RGPD]</a>",
         "source": "GDPR Art. 18"
       },
       "PIA_DEF_OPP": {
@@ -603,7 +603,7 @@
       },
       "PIA_DEF_MENI": {
         "name": "Ameaças que levam ao desaparecimento de dados pessoais",
-        "description": "<strong>Ameaças sobre: </strong><br>- <strong>Hardware</strong> : usado indevidamente, sobrecarregado, alterado, danificado, perdido (unidade de armazenamento cheia, sobrecarga de capacidade de processamento, adição de hardware incompatível, resultando em mau funcionamento, incêndio, roubo ou perda de um ativo, etc.)<br>- <strong>Software</strong> : usado de forma inadequada, sobrecarregada, alterada, danificada, perdida (apagamento de dados, excesso de tamanho do banco de dados, bomba lógica, não renovação da licença para software usado para acessar dados, etc.)<br>- <strong>Canais de computador</strong> : sobrecarregado, alterado, perdido (download não autorizado, perda de conexão com a Internet, etc.)<br>- <strong>Pessoas</strong> : sobrecarregado, danificado, perdido (mau uso de habilidades, doença, aposentadoria, etc.)<br>- <strong>Documentos em papel</strong> : usado de forma inadequada, danificado, perdido (apagamento, envelhecimento de documentos arquivados, roubo ou perda de documentos, etc.)<br>- <strong>Canais de transmissão em papel</strong> : sobrecarregado, danificado, alterado, perdido (entrega de correio interrompida por uma greve, reatribuição de escritórios ou instalações, perda de uma empresa de entrega de documentos, reorganização de canais de transmissão de papel, etc.)",
+        "description": "<strong>Ameaças sobre: </strong><br>- <strong>Hardware</strong> : usado indevidamente, sobrecarregado, alterado, danificado, perdido (unidade de armazenamento cheia, sobrecarga de capacidade de adição de hardware incompatível, resultando em mau funcionamento, incêndio, roubo ou perda de um ativo, etc.)<br>- <strong>Software</strong> : usado de forma inadequada, sobrecarregada, alterada, danificada, perdida (apagamento de dados, excesso de tamanho do banco de dados, bomba lógica, não renovação da licença para software usado para acessar dados, etc.)<br>- <strong>Canais de computador</strong> : sobrecarregado, alterado, perdido (download não autorizado, perda de conexão com a Internet, etc.)<br>- <strong>Pessoas</strong> : sobrecarregado, danificado, perdido (mau uso de habilidades, doença, aposentadoria, etc.)<br>- <strong>Documentos em papel</strong> : usado de forma inadequada, danificado, perdido (apagamento, envelhecimento de documentos arquivados, roubo ou perda de documentos, etc.)<br>- <strong>Canais de transmissão em papel</strong> : sobrecarregado, danificado, alterado, perdido (entrega de correio interrompida por uma greve, reatribuição de escritórios ou instalações, perda de uma empresa de entrega de documentos, reorganização de canais de transmissão de papel, etc.)",
         "source": "PIAF Connected Objects p44 and 45, WIKI"
       },
       "PIA_DEF_GRV": {
@@ -618,7 +618,7 @@
       },
       "PIA_DEF_PBDS": {
         "name": "Gerenciamento de projetos",
-        "description": "Medidas tomadas para integrar a proteção de dados pessoais em todas as novas operações de processamento (nomes confiáveis, diretrizes, metodologia CNIL para gerenciamento de risco ou outra metodologia interna).",
+        "description": "Medidas tomadas para integrar a proteção de dados pessoais em todas as novas operações de tratamento (nomes confiáveis, diretrizes, metodologia CNIL para gerenciamento de risco ou outra metodologia interna).",
         "source": "Mesures_US"
       },
       "PIA_DEF_VIOL": {
@@ -658,7 +658,7 @@
       },
       "PIA_DEF_MIN5": {
         "name": "Restringindo o acesso de dados",
-        "description": "O sistema pode limitar o acesso aos dados de acordo com o princípio de 'necessidade de saber'. O sistema pode separar os dados confidenciais e aplicar políticas específicas de controlo de acesso. O sistema também pode criptografar dados confidenciais para proteger sua confidencialidade durante a transmissão e o armazenamento. O acesso a cookies temporários produzidos durante o processamento de dados também deve ser protegido.",
+        "description": "O sistema pode limitar o acesso aos dados de acordo com o princípio de 'necessidade de saber'. O sistema pode separar os dados confidenciais e aplicar políticas específicas de controlo de acesso. O sistema também pode criptografar dados confidenciais para proteger sua confidencialidade durante a transmissão e o armazenamento. O acesso a cookies temporários produzidos durante o tratamento< de dados também deve ser protegido.",
         "source": "PIAF Connected objects p42 - WIKI"
       },
       "PIA_EX_DCPC": {
@@ -839,8 +839,8 @@
   },
   "validation_page": {
     "responsible": "Responsável pela validação do PIA:",
-    "after_reading": "Depois de ler a PIA completa relativa ao processamento de dados ligado a",
-    "confirmation1": "Eu atesto que o contexto do processamento descrito na PIA é consistente com a realidade.",
+    "after_reading": "Depois de ler a PIA completa relativa ao tratamento de dados ligado a",
+    "confirmation1": "Eu atesto que o contexto do tratamento descrito na PIA é consistente com a realidade.",
     "confirmation2": "Eu atesto que estou ciente dos riscos dependendo das medidas existentes ou planeadas.",
     "confirmation3": "Ratifico as ações corretivas indicadas no plano de ação.",
     "confirmation4": "Eu me comprometo a implementar o mais rápido possível as ações corretivas indicadas.",
@@ -1066,9 +1066,9 @@
     "principles": "Princípios fundamentais",
     "measures": "Medidas existentes ou planeadas",
     "risks": "Riscos",
-    "risk1": "Acesso ilegítimo dos dados",
+    "risk1": "Acesso ilegítimo de dados",
     "risk2": "Modificação indesejada de dados",
-    "risk3": "Desaparecimento dos dados",
+    "risk3": "Desaparecimento de dados",
     "improvable_measures": "Medidas improváveis",
     "acceptable_measures": "Medidas aceitáveis",
     "no_action_plan": "Nenhum plano de ação registado.",
@@ -1097,33 +1097,33 @@
       "items": {
         "1": {
           "title": "Visão geral",
-          "short_help": "Esta parte permite identificar e apresentar o objeto do estudo.",
+          "short_help": "Esta parte permite identificar e apresentar o objeto de estudo.",
           "questions": {
             "1": {
-              "title": "Qual é o processamento em consideração?",
-              "placeholder": "Apresentar um breve resumo do processamento: seu nome, propósitos, apostas, contexto de uso, etc."
+              "title": "Qual é o tratamento em consideração?",
+              "placeholder": "Apresentar um breve resumo do tratamento: seu nome, propósitos, apostas, contexto de uso, etc."
             },
             "2": {
-              "title": "Quais são as responsabilidades ligadas ao processamento?",
+              "title": "Quais são as responsabilidades ligadas ao tratamento?",
               "placeholder": "Descrever as responsabilidades das partes interessadas: o controlador de dados, os possíveis processadores de dados e os controladores conjuntos."
             },
             "3": {
-              "title": "Existem padrões aplicáveis ao processamento?",
-              "placeholder": "Listar os padrões relevantes aplicáveis ao processamento, especialmente códigos de conduta aprovados e certificações de proteção de dados."
+              "title": "Existem padrões aplicáveis ao tratamento?",
+              "placeholder": "Listar os padrões relevantes aplicáveis ao tratamento, especialmente códigos de conduta aprovados e certificações de proteção de dados."
             }
           }
         },
         "2": {
           "title": "Dados, processos e ativos de suporte",
-          "short_help": "Esta parte permite definir e descrever o âmbito do processamento em detalhes.",
+          "short_help": "Esta parte permite definir e descrever o âmbito do tratamento em detalhes.",
           "questions": {
             "1": {
               "title": "Quais são os dados processados?",
-              "placeholder": "Listar os dados coletados e processados. Definir para cada duração de armazenamento, os destinatários e as pessoas com acesso aos mesmos."
+              "placeholder": "Listar os dados recolhidos e processados. Definir para cada duração de armazenamento, os destinatários e as pessoas com acesso aos mesmos."
             },
             "2": {
               "title": "Como funciona o ciclo de vida de dados e processos?",
-              "placeholder": "Apresentar e descrever como o produto geralmente funciona (da coleção de dados à destruição de dados, os diferentes estágios de processamento, armazenamento, etc.), usando, por exemplo, um diagrama de fluxos de dados (adicione-o como anexo) e uma descrição detalhada do processos realizados."
+              "placeholder": "Apresentar e descrever como o produto geralmente funciona (da coleção de dados à destruição de dados, os diferentes estágios de tratamento, armazenamento, etc.), usando, por exemplo, um diagrama de fluxos de dados (adicione-o como anexo) e uma descrição detalhada do processos realizados."
             },
             "3": {
               "title": "Quais são os dados que suportam ativos?",
@@ -1142,19 +1142,19 @@
           "short_help": "Esta parte permite demonstrar a legitimidade do seu tratamento e dos dados processados.",
           "questions": {
             "1": {
-              "title": "Os fins de processamento são especificados, explícitos e legítimos?",
+              "title": "Os fins de tratamento são especificados, explícitos e legítimos?",
               "short_title": "Objetivos",
-              "placeholder": "Explicar porque os fins de processamento são especificados, explícitos e legítimos."
+              "placeholder": "Explicar porque os fins de tratamento são especificados, explícitos e legítimos."
             },
             "2": {
-              "title": "Qual é a base legal que torna o processamento legal?",
+              "title": "Qual é a base legal que torna o tratamento legal?",
               "short_title": "Base legal",
-              "placeholder": "Descreva qual é a base legal do seu processamento (ex: consentimento, cumprimento de um contrato, cumprimento de uma obrigação legal, proteção de interesses vitais, etc.)"
+              "placeholder": "Descreva qual é a base legal do seu tratamento (ex: consentimento, cumprimento de um contrato, cumprimento de uma obrigação legal, proteção de interesses vitais, etc.)"
             },
             "3": {
-              "title": "Os dados coletados são adequados, relevantes e limitados ao que é necessário em relação aos fins para os quais são processados ('minimização de dados')?",
+              "title": "Os dados recolhidos são adequados, relevantes e limitados ao que é necessário em relação aos fins para os quais são processados ('minimização de dados')?",
               "short_title": "Dados adequados",
-              "placeholder": "Explique por que cada um dos dados coletados é necessário para o propósito de seu processamento."
+              "placeholder": "Explique por que cada um dos dados recolhidos é necessário para o propósito de seu tratamento."
             },
             "4": {
               "title": "Os dados são precisos e atualizados?",
@@ -1164,7 +1164,7 @@
             "5": {
               "title": "Qual é a duração do armazenamento dos dados?",
               "short_title": "Duração do armazenamento",
-              "placeholder": "Explicar porque as durações de armazenamento são justificadas por requisitos legais e/ou necessidades de processamento."
+              "placeholder": "Explicar porque as durações de armazenamento são justificadas por requisitos legais e/ou necessidades de tratamento."
             }
           }
         },
@@ -1173,7 +1173,7 @@
           "short_help": "Esta parte permite-lhe demonstrar que está a implementar os meios necessários para permitir que as pessoas em causa exerçam os seus direitos.",
           "questions": {
             "1": {
-              "title": "Como os titulares dos dados são informados sobre o processamento?",
+              "title": "Como os titulares dos dados são informados sobre o tratamento?",
               "short_title": "Informação para os titulares dos dados",
               "placeholder": "Descreva quais são as informações dadas aos titulares dos dados e quais os meios para o fazer."
             },
@@ -1195,12 +1195,12 @@
             "5": {
               "title": "Como os titulares de dados podem exercer seus direitos à restrição e à objeção?",
               "short_title": "Direito à restrição e ao objeto",
-              "placeholder": "Descrever os controlos destinados a permitir que os titulares de dados restrinjam e se oponham ao processamento de seus dados."
+              "placeholder": "Descrever os controlos destinados a permitir que os titulares de dados restrinjam e se oponham ao tratamento de seus dados."
             },
             "6": {
               "title": "As obrigações dos processadores são claramente identificadas e regidas por um contrato?",
               "short_title": "Subcontratação",
-              "placeholder": "Para cada processador, descreva suas responsabilidades (duração, âmbito, propósito, instruções de processamento documentadas, autorização prévia) e forneça os contratos, códigos de conduta e certificações que determinam suas missões e obrigações."
+              "placeholder": "Para cada processador, descreva suas responsabilidades (duração, âmbito, propósito, instruções de tratamento documentadas, autorização prévia) e forneça os contratos, códigos de conduta e certificações que determinam suas missões e obrigações."
             },
             "7": {
               "title": "No caso de transferência de dados fora da União Europeia, os dados são adequadamente protegidos?",
