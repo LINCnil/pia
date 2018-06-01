@@ -280,7 +280,6 @@
 			"PIA_DEF_CHIF": {
 				"description": "Measure making personal data unintelligible to anyone without access authorization (symmetric or asymmetric encryption, use of public algorithms known to be strong, authentication certificate, etc.).",
 				"name": "Encryption",
-				"source": "",
 				"source ": "Mesures_US Encryption"
 			},
 			"PIA_DEF_CLO": {

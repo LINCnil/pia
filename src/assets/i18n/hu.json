@@ -280,7 +280,6 @@
 			"PIA_DEF_CHIF": {
 				"description": "Személyes adatokat az illetéktelenek számára felismerhetetlenné tevő intézkedés (szimmetrikus vagy aszimmetrikus titkosítás, a köztudottan erős, nyilvános algoritmusok, hitelesítő tanúsítványok stb. használata).",
 				"name": "Titkosítás",
-				"source": "",
 				"source ": "Titkosítás intézkedések"
 			},
 			"PIA_DEF_CLO": {

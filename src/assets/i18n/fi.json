@@ -280,7 +280,6 @@
 			"PIA_DEF_CHIF": {
 				"description": "Henkilötietojen koodaaminen sellaiseen muotoon, että vain valtuutetut henkilöt voivat lukea niitä (symmetrinen tai epäsymmetrinen salaus, vahvoiksi tiedettyjen julkisten algoritmien käyttö, todentamissertifikaatti jne.).",
 				"name": "Salaus",
-				"source": "",
 				"source ": "Mesures_US Encryption"
 			},
 			"PIA_DEF_CLO": {

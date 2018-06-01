@@ -280,7 +280,6 @@
 			"PIA_DEF_CHIF": {
 				"description": "Medir dados pessoais ininteligíveis para qualquer pessoa sem autorização de acesso (criptografia simétrica ou assimétrica, uso de algoritmos públicos conhecidos como fortes, certificado de autenticação, etc.).",
 				"name": "Encriptação",
-				"source": "",
 				"source ": "Mesures_US Encryption"
 			},
 			"PIA_DEF_CLO": {

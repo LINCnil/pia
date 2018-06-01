@@ -280,7 +280,6 @@
 			"PIA_DEF_CHIF": {
 				"description": "Mida el hacer de datos personales unintelligible a cualquier persona sin la autorización de acceso (cifrado simétrico o asimétrico, uso de los algoritmos públicos sabidos para ser certificado fuerte, de la autentificación, etc.). ",
 				"name": "Cifrado",
-				"source": "",
 				"source ": "Mesures_US Encryption"
 			},
 			"PIA_DEF_CLO": {

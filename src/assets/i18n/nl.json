@@ -280,7 +280,6 @@
 			"PIA_DEF_CHIF": {
 				"description": "Encryptie maatregelen die persoonlijke gegevens voor iedereen zonder toegangsbevoegdheid onbegrijpelijk maken met (symmetrische of asymmetrische codering, gebruik van openbare algoritmes waarvan bekend is dat ze sterk zijn, authenticatiecertificaat, enz.).",
 				"name": "Encryptie",
-				"source": "",
 				"source ": "Mesures_US Encryption"
 			},
 			"PIA_DEF_CLO": {

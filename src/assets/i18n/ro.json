@@ -280,7 +280,6 @@
 			"PIA_DEF_CHIF": {
 				"description": "Măsură ce face ca datele cu caracter personal să fie neinteligibile pentru oricine nu deține autorizație de acces (criptare simetrică sau asimetrică, utilizarea de algoritmi publici puternici, certificat de autentificare, etc.).",
 				"name": "Criptare",
-				"source": "",
 				"source ": "Mesures_US Encryption"
 			},
 			"PIA_DEF_CLO": {
