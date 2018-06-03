@@ -11,10 +11,10 @@
         [ngClass]="_sidStatusService.specialIcon[section.id + '.' + item.id]"
         aria-hidden="true"></i>
         <div class="pia-entryContentBlock-header-progress">
-          <div *ngIf="_sidStatusService.itemStatus[section.id + '.' + item.id] < 4">
+          <div *ngIf="_sidStatusService.itemStatus[section.id + '.' + item.id] <= 4">
             {{ 'pia.header.edition' | translate }}
           </div>
-          <div *ngIf="_sidStatusService.itemStatus[section.id + '.' + item.id] === 7">
+          <div *ngIf="_sidStatusService.itemStatus[section.id + '.' + item.id] > 4 && _sidStatusService.itemStatus[section.id + '.' + item.id] <= 7">
             {{ 'pia.header.evaluation' | translate }}
           </div>
         </div>
@@ -25,26 +25,29 @@
       <h2 *ngIf="item.title">{{ item.title | translate }}</h2>
       <h4 *ngIf="item.short_help">{{ item.short_help | translate }}</h4>
     </div>
-    <a *ngIf="section.id === 4 && item.id === 2;else defaultBlock" routerLink="/summary/{{_piaService.pia.id}}/action_plan" class="btn pia-previewBlock">
+    <a *ngIf="section.id === 4 && item.id === 2;else defaultBlock" routerLink="/summary/{{_piaService.pia.id}}" [queryParams]="{ displayOnlyActionPlan: true }" class="btn pia-previewBlock">
       <span class="pia-icons pia-icon-preview"></span>
       <div [innerHTML]="'pia.header.display_action_plan' | translate"></div>
     </a>
     <ng-template #defaultBlock>
-      <a routerLink="/summary/{{_piaService.pia.id}}/pia" class="btn pia-previewBlock">
+      <a routerLink="/summary/{{_piaService.pia.id}}" class="btn pia-previewBlock">
         <span class="pia-icons pia-icon-preview"></span>
         <div>{{ 'pia.header.preview' | translate }}</div>
       </a>
     </ng-template>
   </header>
 
-  <div class="pia-status-info" *ngIf="_globalEvaluationService.status === 4 && _piaService.pia.is_example === 0">
+  <!-- Back to edition -->
+  <div class="pia-status-info" *ngIf="_globalEvaluationService.status === 4 && _piaService.pia.is_example !== 1">
     <strong>{{ 'pia.sections.status.evaluation.title' | translate }}</strong>
     <p>
       <span [innerHTML]="'pia.sections.status.evaluation.content' | translate"></span>
       <a href="javascript:;" (click)="cancelAskForEvaluation()" [innerHTML]="'pia.sections.status.evaluation.cancel' | translate"></a>
     </p>
   </div>
-  <div class="pia-status-info" *ngIf="_globalEvaluationService.status === 7 && _piaService.pia.is_example === 0 && !(section.id == 4 && item.id == 3)">
+
+  <!-- Back to evaluation -->
+  <div class="pia-status-info" *ngIf="_globalEvaluationService.status === 7 && _piaService.pia.is_example !== 1 && !(section.id == 4 && item.id == 3)">
     <strong>{{ 'pia.sections.status.validation.title' | translate }}</strong>
     <p>
       <span [innerHTML]="'pia.sections.status.validation.content' | translate"></span>
@@ -69,12 +72,16 @@
 
   <app-evaluations *ngIf="item.evaluation_mode === 'item'" [pia]="_piaService.pia" [section]="section" [item]="item"></app-evaluations>
 
-  <app-overview-risks *ngIf="section.id == 3 && item.id == 5"></app-overview-risks>
+  <div class="app-overview-risks" *ngIf="section.id == 3 && item.id == 5"></div>
 
   <app-validate-pia *ngIf="section.id == 4 && item.id == 4"></app-validate-pia>
+
   <app-refuse-pia *ngIf="section.id == 4 && item.id == 5"></app-refuse-pia>
-  <app-risks-cartography *ngIf="section.id == 4 && item.id == 1" [pia]="_piaService.pia"></app-risks-cartography>
+
+  <div class="app-risks-cartography" *ngIf="section.id == 4 && item.id == 1"></div>
+
   <app-action-plan *ngIf="section.id == 4 && item.id == 2" [pia]="_piaService.pia" [data]="data"></app-action-plan>
+
   <app-dpo-people-opinions *ngIf="section.id == 4 && item.id == 3"></app-dpo-people-opinions>
 
   <footer class="pia-entryContentBlock-footer">
@@ -97,9 +104,9 @@
       <p>{{ 'pia.footer.mandatory_fields' | translate }}</p>
 
       <button class="btn pia-cancelBtn" (click)="cancelAskForEvaluation()"
-              *ngIf="_piaService.pia.is_example === 0 && _globalEvaluationService.status === 4">{{ 'pia.sections.status.evaluation.cancel_button' | translate }}</button>
+              *ngIf="_piaService.pia.is_example !== 1 && _globalEvaluationService.status === 4">{{ 'pia.sections.status.evaluation.cancel_button' | translate }}</button>
       <button class="btn pia-cancelBtn" (click)="cancelValidateEvaluation()"
-              *ngIf="_piaService.pia.is_example === 0 && _globalEvaluationService.status === 7 && !(section.id == 4 && item.id == 3)">{{ 'pia.sections.status.validation.cancel_button' | translate }}</button>
+              *ngIf="_piaService.pia.is_example !== 1 && _globalEvaluationService.status === 7 && !(section.id == 4 && item.id == 3)">{{ 'pia.sections.status.validation.cancel_button' | translate }}</button>
     </div>
 
     <div class="pia-entryContentBlock-footer-nav">

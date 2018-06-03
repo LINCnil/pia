@@ -1,11 +1,11 @@
 {
   "authentication": {
     "title": "Privacy impact assessment",
-    "subtitle1": "Una plataforma para crear el <br> y para manejar sus PIAs",
-    "subtitle2": "Herramientas de acceso y glosarios",
-    "start_app": "Acceda al software de PIA (Beta)",
-    "description": "Este software de la <strong>Autoridad Francesa de Protección de Datos (CNIL)</strong> está destinado a guiar a los controladores de datos en la construcción y demostración del cumplimiento de la GDPR. Ayuda a realizar correctamente una evaluación de impacto de protección de datos, facilitando el uso del método PIA desarrollado por el CNIL. ",
-    "start": "Empezar"
+    "subtitle1": "Una plataforma para crear <br> y para manejar sus PIAs",
+    "subtitle2": "Acceso a las herramientas y glosarios",
+    "start_app": "Acceda al software PIA (Beta)",
+    "description": "Este software de la <strong>Autoridad Francesa de Protección de Datos (CNIL)</strong> está destinado a apoyar a los responsables del tratamiento en la evaluación y demostración del cumplimiento del RGPD. Ayuda a realizar una evaluación de impacto en materia de protección de datos y facilita la creación del PIA desarrollado por el CNIL.",
+    "start": "Comenzar"
   },
   "header": {
     "logo_title": "Evaluación de impacto de la privacidad",
@@ -14,17 +14,24 @@
     "knowledge_base_link": "Base de conocimientos",
     "pia_example_link": "Ejemplo de PIA",
     "languages": {
-      "official_translation": "TO BE TRANSLATED - Original version",
-      "cnil_translations": "TO BE TRANSLATED - CNIL provided translations",
-      "community_translations": "TO BE TRANSLATED - Community provided translations",
-      "fr": "Français",
-      "en": "English",
+      "official_translation": "Versión oficial",
+      "cnil_translations": "Traducciones del CNIL",
+      "dpa_translations": "TO BE TRANSLATED - Translation revised by European DPA",
+      "community_translations": "Traducciones de la comunidad",
       "cz": "Česky",
-      "it": "Italiaans",
-      "nl": "Nederlands",
-      "pl": "Polski",
       "de": "Deutsch",
-      "es": "Español"
+      "el": "Ελληνικά",
+      "en": "English",
+      "es": "Español",
+      "fi": "Suomi",
+      "fr": "Français",
+      "hu": "Magyar",
+      "it": "Italiano",
+      "nl": "Nederlands",
+      "no": "Norsk",
+      "pl": "Polski",
+      "pt": "Português",
+      "ro": "Română"
     },
     "tools": {
       "title": "Herramientas",
@@ -37,17 +44,17 @@
   "homepage": {
     "filters": {
       "list": "Lista",
-      "card": "tarjeta",
+      "card": "Ficha",
       "sort": "Ordenar",
       "sort_by": "por",
       "name": "Nombre",
       "date": "Fecha",
       "status": "Estado",
       "author": "Autor",
-      "assessor": "Revisor",
-      "validator": "Validador",
+      "assessor": "Revisado por",
+      "validator": "Validado por",
       "new_pia": "Nuevo PIA",
-      "import_pia": "Importación PIA",
+      "import_pia": "Importar PIA",
       "list_rocket_content": "¡Comencemos! Para iniciar <br>un PIA, haga clic en el +",
       "card_rocket_content": "¡Comencemos! <br><br>Para iniciar un PIA, <br> clic en Nuevo PIA"
     },
@@ -59,51 +66,50 @@
       "placeholder_import_pia": "Importación PIA",
       "title_close_creation": "Cerrar",
       "pia_name": "PIA",
-      "placeholder_pia_name": "Título del PIA",
-      "author": "Corregir",
-      "placeholder_author": "Nombre, Apellido",
-      "evaluation": "Revisión",
-      "placeholder_evaluation": "Nombre, Apellido",
-      "validation": "Validación",
-      "placeholder_validation": "Nombre, Apellido",
+      "placeholder_pia_name": "Nombre del PIA",
+      "author": "Autor",
+      "placeholder_author": "Nombre y apellidos",
+      "evaluation": "Revisado por",
+      "placeholder_evaluation": "Nombre y apellidos",
+      "validation": "Validado por",
+      "placeholder_validation": "Nombre y apellidos",
       "date": "Fecha",
       "status": "Estado",
       "creation_status": "Creación",
-      "start": "Empezar",
-      "placeholder_start": "Todos los campos deben rellenarse",
+      "start": "Comenzar",
+      "placeholder_start": "Todos los campos son obligatorios",
       "item": {
         "tools": {
-          "edit": "Editar la información",
           "export": "Exportar",
           "more_options": "Más opciones",
           "duplicate": "Duplicar",
           "action_plan": "Mostrar<br>plan de acción",
           "pia": "Mostrar<br>PIA",
-          "remove": "Borrar"
+          "remove": "Eliminar"
         },
-        "edit_pia": "Corrija el PIA",
-        "consult_pia": "TO BE TRANSLATED - Consult PIA"
+        "edit_pia": "Modificar PIA",
+        "consult_pia": "Consultar PIA"
       }
     },
     "lists": {
       "column_pia": "PIA",
-      "column_updated_at": "El último se abrió",
-      "column_author": "Corregir",
-      "column_evaluation": "Revisión",
-      "column_validation": "Validación",
+      "column_updated_at": "Último acceso",
+      "column_author": "Autor",
+      "column_evaluation": "Revisado por",
+      "column_validation": "Validado por",
       "column_creation": "Creado",
       "column_status": "Estado",
       "column_progression": "Progreso",
       "column_actions": "Acciones",
       "item": {
         "tools": {
-          "consult": "TO BE TRANSLATED - Consult",
-          "edit": "Corrija",
+          "consult": "Consultar",
+          "edit": "Modificar",
           "export": "Exportar",
           "duplicate": "Duplicar",
           "action_plan": "Mostrar<br>plan de acción",
           "pia": "Mostrar PIA",
-          "remove": "Borrar"
+          "remove": "Eliminar"
         }
       }
     }
@@ -112,14 +118,16 @@
     "statuses": {
       "0": "En progreso",
       "1": "Rechazado",
-      "2": "Simple validation",
-      "3": "Validación firmada",
+      "2": "Validado",
+      "3": "Validado y confirmado",
       "4": "Archivado",
-      "5": "Esperando validación"
+      "5": "Validación pendiente"
     },
     "header": {
       "preview": "Vista Previa",
-      "display_action_plan": "Mostrar<br>plan de acción"
+      "display_action_plan": "Mostrar<br>Plan de acción",
+      "edition": "TO BE TRANSLATED - Edition",
+      "evaluation": "TO BE TRANSLATED - Evaluation"
     },
     "attachments": {
       "title": "Adjuntos",
@@ -129,33 +137,35 @@
     "sections": {
       "homepage_link": "Volver al Escritorio",
       "validate_pia": "Validar PIA",
-      "refuse_pia": "rechazó PIA",
+      "refuse_pia": "Rechazar PIA",
       "status": {
         "evaluation": {
-          "title": "",
-          "content": "",
-          "cancel": ""
+          "title": "Revisión pendiente",
+          "content": "Esta parte aún no ha sido revisada. Si desea editar el contenido para su revisión, debe",
+          "cancel": "cancelar la solicitud de revisión.",
+          "cancel_button": "Cancelar la revisión"
         },
         "validation": {
-          "title": "",
-          "content": "",
-          "cancel": ""
+          "title": "Validación pendiente",
+          "content": "Esta parte ha sido revisada y está pendiente de la validación final del PIA. Si desea cambiar la revisión, debe",
+          "cancel": "cancelar la solicitud de validación.",
+          "cancel_button": "Cancelar la validación"
         }
       }
     },
     "footer": {
-      "ask_evaluation": "Pide revisión",
+      "ask_evaluation": "Solicitar revisión",
       "validate_evaluation": "Validar revisión",
-      "subsection_validated": "Subsección revisado, en espera de validación final",
-      "mandatory_fields": "Todos los campos deben rellenarse"
+      "subsection_validated": "Subsección revisada, en espera de validación final",
+      "mandatory_fields": "Todos los campos son obligatorios"
     }
   },
   "measures": {
-    "placeholder_title": "Título de la medida",
-    "add": "Añadir una medida vacía (de lo contrario, utilice la base de conocimiento)",
+    "placeholder_title": "Nombre de la medida",
+    "add": "Añadir una nueva medida en blanco (de lo contrario, utilice la base de conocimiento)",
     "edit": "Editar medida",
     "remove": "Eliminar la medida",
-    "default_placeholder": "Describir las medidas existentes o previstas para garantizar la seguridad de los datos."
+    "default_placeholder": "Describir la medida existente o prevista para garantizar la seguridad de los datos."
   },
   "knowledge_base": {
     "title": "Base de conocimientos",
@@ -165,86 +175,86 @@
     "placeholder_add_measure": "Añadir esta medida",
     "add_measure_hint": "Usted también puede Añadir una medida de la base de conocimientos.",
     "filters": {
-      "title": "Filtros",
-      "all": "Todos",
+      "title": "Filtrar",
+      "all": "Todo",
       "definitions": "Definiciones",
-      "organizational_measures": "Medidas de la organización",
+      "organizational_measures": "Controles organizativos",
       "measures_on_data": "Controles de seguridad lógicos",
-      "general_measures": "Controles de seguridad física",
-      "no_result": "No se han encontrado resultados."
+      "general_measures": "Controles de seguridad físicos",
+      "no_result": "Sin resultados."
     },
     "category": {
       "definition": "Definición",
       "principle": "Principio",
-      "organizational_measure": "Medidas de la organización",
+      "organizational_measure": "Controles organizativos",
       "measure_on_data": "Controles de seguridad lógicos",
-      "general_measure": "Controles de seguridad física",
+      "general_measure": "Controles de seguridad físicos",
       "example": "Ejemplo"
     },
     "slugs": {
       "PIA_LGL_FOND": {
-        "name": "Justificación de la legalidad",
-        "description": "-El interesado ha dado su consentimiento al tratamiento de sus datos personales para uno o más propósitos específicos<br>-Es necesario para la ejecución de un contrato en el que el interesado sea parte o para tomar medidas a petición del interesado antes de entrar en un contrato<br>-Es necesario para el cumplimiento de una obligación legal para que el controlador está sujeto<br>-Es necesario para proteger a los intereses vitales del interesado o de otra persona natural<br>-Es necesario para el desempeño de una misión de interés público o en el ejercicio del poder público conferido al responsable del<br>-Procesamiento es necesario para los propósitos de los intereses legítimos perseguidos por el controlador o por un tercero, excepto donde tales intereses son reemplazadas por los intereses o derechos y libertades fundamentales del interesado que requieran protección de datos personales, en particular donde el interesado es un niño<br>Ver <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:32016R0679&from=ES\">art. 6 de [GDPR]</a>",
+        "name": "Justificación legal",
+        "description": "- El interesado ha dado su consentimiento para el tratamiento de sus datos personales para uno o más fines específicos<br>- El tratamiento forma parte de los pasos previos o necesarios para la ejecución de un contrato en el que el interesado es parte.<br>- El tratamiento es necesario para dar cumplimiento a una obligación legal a la que el responsable del tratamiento está sujeto<br>- El tratamiento es necesario para proteger a los intereses vitales del interesado o de otra persona física.<br>- El tratamiento es necesario para el desempeño de una misión de interés público o en el ejercicio del poder público conferido al responsable del tratamiento<br>- El tratamiento es necesario para los intereses legítimos que persigue el responsable del tratamiento o un tercero, a menos que los intereses o los derechos fundamentales y libertades del interesado requieran la protección de los datos de carácter personal, en particular cuando la persona interesada es un niño.<br>Ver <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:32016R0679&from=ES\">art. 6 de [GDPR]</a></a>",
         "source": "PIA2 p4"
       },
       "PIA_LGL_ST": {
         "name": "Subcontratación",
-        "description": "Un contrato de procesamiento debe ser firmado con cada procesador, estableciendo todos los aspectos estipulados en el arte. 28 de [GDPR]: duración, alcance, propósito, instrucciones de proceso documentado, previa autorización que un procesador se dedica, provisión de cualquier documentación que evidencia del cumplimiento de la [GDPR], notificación inmediata de cualquier violación de los datos, etcetera. ",
+        "description": "Se deberá realizar un contrato de delegación del tratamiento con cada encargado del tratamiento, especificando todos los elementos previstos en el art. 28 del RGPD: duración, alcance, propósito, instrucciones para el tratamiento, autorización previa en caso de uso de subcontratación, disponibilidad y acceso a la documentación que proporcione evidencia del cumplimiento con el RGPD, notificación inmediata de brechas o violación de datos, etc.",
         "source": "PIA2 p10"
       },
       "PIA_LGL_TRAN": {
-        "name": "Transferencias",
-        "description": "Dependiendo del país en la pregunta, usted tendrá que justificar la opción del telecontrol que recibe e indicar los arreglos legales de la supervisión puestos en ejecución para asegurar la protección adecuada de los datos conforme a una transferencia fronteriza. Eso es:<br>- Unión Europea<br>- reconocido como abastecimiento de la protección adecuada por la transferencia de EU<br>- a los Estados Unidos a una compañía que ha ensamblado la Privacy Shield<br>- el otro país<br>Ver<a target=\" _blank \" href= \"http://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:32016R0679&from=ES\">art. 44 a 49 de [GDPR]</a>",
+        "name": "Transferencias internacionales",
+        "description": "Se deberá detallar la ubicación geográfica de los lugares donde se realizar el tratamiento. Dependiendo del país en cuestión, se deberá justificar la elección del alojamiento fuera de la Unión Europea e indicar el marco legal implementado para garantizar la protección adecuada de los datos sujetos a transferencia transfronteriza.<br> Indicando si es:<br>- Unión Europea<br>-Un país reconocido como adecuado por la Unión Europea<br>- Estados Unidos, compañía adherida al Privacy Shield<br>-Otro país<br>Ver<a target=\" _blank \" href= \"http://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:32016R0679&from=ES\">art. 44 a 49 de [GDPR]</a>",
         "source": "PIAF Connected Objects p18"
       },
       "PIA_LGL_DESC": {
-        "name": "Descripción del proceso",
-        "description": "Presente un breve resumen del procesamiento que se está considerando, su naturaleza, alcance, contexto, propósitos y riesgos. Identifica el controlador de datos y cualquier procesador. Enumere las referencias estándar aplicables al procesamiento, que son necesarias o deben cumplirse, no menos los códigos de conducta aprobados (ver Art. 40 de la <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:32016R0679&from=ES\">[GDPR]</a> ) y las certificaciones relacionadas con la protección de datos (ver Art. 42 de la <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:32016R0679&from=ES\">[GDPR] ]</a>) ",
+        "name": "Descripción del tratamiento",
+        "description": "Se describirá brevemente el tratamiento objeto de evaluación: naturaleza, alcance, contexto, propósitos y riesgos. Identificar al responsable y encargados del tratamiento. Identificar las normas aplicables al tratamiento, que sean necesarias o deban cumplirse,en particular, los códigos de conducta aprobados por el regulador (ver Art. 40 de la <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:32016R0679&from=ES\">[GDPR]</a> ) y las certificaciones relacionadas con la protección de datos (ver Art. 42 de la <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:32016R0679&from=ES\">[GDPR] ]</a>)",
         "source": "PIA1 p4"
       },
       "PIA_LGL_DATA": {
         "name": "Datos y procesos",
-        "description": "Defina y describa el alcance en detalle: <br> - los datos personales afectados, sus destinatarios y las duraciones de almacenamiento <br> - descripción de los procesos y datos personales que soportan los activos para todo el ciclo de vida de los datos personales (desde la recopilación hasta el borrado). ",
+        "description": "Se definirá y describirá con detalle el alcance del tratamiento: <br> - datos personales recabados, destinatarios, encargados del tratamiento, tiempo de retención y otras consideraciones<br> - descripción de los procesos, medios y soportes que se utilizan durante todo el ciclo de vida de los datos personales (desde su recogida hasta su borrado). ",
         "source": "PIA1 p6"
       },
       "PIA_LGL_SUPT": {
-        "name": "Activos de apoyo",
-        "description": "Activo en el que confían los datos personales. Nota: esto puede ser hardware, software, redes, personas, papel o canales de transmisión en papel. ",
+        "name": "Activos del tratamiento",
+        "description": "Activos de los que depende el tratamiento de los datos personales. Nota: Dispositivos físicos, programas, redes, personas, archivos y canales de comunicación de papel, etc. ",
         "source": "PIA1 p10"
       },
       "PIA_LGL_FIN": {
-        "name": "Principios relacionados con el procesamiento de datos personales",
+        "name": "Principios relacionados con el tratamiento de datos personales",
         "description": "Los datos personales se recopilarán con fines específicos, explícitos y legítimos y <strong>no se procesarán de manera incompatible con esos propósitos.</strong> <br>Ver <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:32016R0679&from=ES\">Art. 5.1 b) de [GDPR]</a>",
         "source": "GDPR art 5.1 b)"
       },
       "PIA_LGL_MINI": {
         "name": "Minimización de datos",
-        "description": "Es importante reducir la gravedad de los riesgos al minimizar el número de datos personales que se procesarán, al limitar dichos datos a lo estrictamente necesario para los fines para los que se procesan (de lo contrario, no deberían recopilarse). Luego, también es posible minimizar los datos por sí mismos, a través de controles destinados a reducir su sensibilidad.",
+        "description": "El objetivo es reducir la gravedad de los riesgos limitando la recopilación de datos personales a lo estrictamente necesario para los fines para los que se procesan (de lo contrario, no deberían recopilarse). Es posible minimizar los datos a través de controles destinados a reducir su sensibilidad.",
         "source": "PIAF Connected Objects p10 - WIKI"
       },
       "PIA_LGL_DEST": {
         "name": "Destinatario",
-        "description": "Persona física o jurídica, autoridad pública, agencia u otro organismo al que se divulgan los datos personales, ya sea un tercero o no. No obstante, las autoridades públicas que puedan recibir datos personales en el marco de una investigación particular de conformidad con la legislación de la Unión o del Estado miembro no se considerarán destinatarias. el procesamiento de esos datos por parte de esas autoridades públicas deberá cumplir con las reglas de protección de datos aplicables de acuerdo con los fines del procesamiento. ver Art. 4.9 de la <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:32016R0679&from=ES\">[GDPR]</a>",
+        "description": "Persona física o jurídica, autoridad pública, agencia u otro organismo al que se divulgan los datos personales, ya sea un tercero o no. No obstante, las autoridades públicas que puedan recibir datos personales en el marco de una investigación particular de conformidad con la legislación de la Unión o del Estado miembro no se considerarán destinatarias. El tratamiento de esos datos por parte de esas autoridades públicas deberá cumplir con las reglas de protección de datos aplicables de acuerdo con los fines del tratamiento. ver Art. 4.9 de la <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:32016R0679&from=ES\">[GDPR]</a>",
         "source": "GDPR art 4.9"
       },
       "PIA_LGL_DUR": {
-        "name": "Duraciones de almacenamiento",
-        "description": "Se debe definir una duración de almacenamiento para cada tipo de datos y justificada por los requisitos legales y / o las necesidades de procesamiento. Por lo tanto, se establece una distinción entre los datos comunes y los datos archivados, a los que se limitará el acceso solo a las partes interesadas. Se debe implementar un mecanismo de borrado para archivar datos comunes o depurar datos archivados al final de su duración de almacenamiento. Los rastros funcionales también tendrán que ser purgados, al igual que los registros técnicos que pueden no almacenarse indefinidamente ",
+        "name": "Período de retención de los datos",
+        "description": "Se deberá definir un período de retención para cada tipo de datos, justificado por las necesidades de tratamiento y/o los requisitos legales. Esto diferencia datos actuales y datos archivados, cuyo acceso estará restringido. Se deberá implementar un mecanismo de eliminación para archivar datos actuales o depurar los datos archivados al final de su período de retención. Los rastros funcionales también deben purgarse, así como los registros técnicos que no se almacenarán indefinidamente. ",
         "source": "PIAF Connected Objects p12"
       },
       "PIA_LGL_INFO": {
         "name": "Informar a los interesados",
-        "description": "Asegúrese de que los interesados estén informados. Confirme que el procesamiento no está cubierto por una excepción y no está sujeto a condiciones específicas. ",
+        "description": "Se deberá garantizar que los interesados están informados y evitar la recogida de datos sin su consentimiento. Se deberá de verificar que el tratamiento no está sujeto a una excepción o a condiciones especiales.",
         "source": "PIA3 p8 - WIKI"
       },
       "PIA_LGL_CONS": {
         "name": "Consentimiento",
-        "description": "Allow data subjects to make a free, specific and informed choice. Determinar si el procesamiento se basa en una base legal que no sea el consentimiento de conformidad con el art. 6 de <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:32016R0679&from=ES\">[GDPR]</a>",
+        "description": "Se deberá garantizar que la recogida de datos se realiza de forma libre, específica e informada. Se determinará si el tratamiento dispone de una base legal en la que no sea necesario el consentimiento, de conformidad con el art. 6 de <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:32016R0679&from=ES\">[GDPR]</a>",
         "source": "PIA3 p11 - WIKI"
       },
       "PIA_VAL_DPO": {
         "name": "Opinión de DPO",
-        "description": "El controlador deberá solicitar el asesoramiento del oficial de protección de datos, cuando esté designado, cuando realice una evaluación de impacto de protección de datos. Ver Art. 39.2 de la <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:32016R0679&from=ES\">[GDPR]</a> <br> <strong>Esta vista puede estar en contra del procesamiento que se está implementando, sin restringir la decisión del controlador de datos para todo eso</strong> ",
+        "description": "El responsable deberá recabar el asesoramiento del Delegado de Protección de Datos, cuando esté designado, durante una evaluación de impacto de protección de datos. Ver Art. 39.2 de la <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:32016R0679&from=ES\">[GDPR]</a> <br> <strong>Esta opinión puede ser contraria al tratamiento que se está implementando, sin que ello limite la decisión final del responsable del tratamiento.</strong> ",
         "source": "GDPR Art. 39.2 and PIAF Connected Objects p37"
       },
       "PIA_VAL_CONC": {
@@ -257,11 +267,15 @@
         "description": "La decisión sobre si los controles seleccionados, riesgos residuales y plan de acción son aceptables, con justificaciones, teniendo en cuenta las estacas previamente identificadas y vistas de las partes interesadas. De esta manera, el PIA puede ser: <br> - validado <br> - Condicional a la mejora (explicar de qué manera) <br> - rechazado (junto con el procesamiento considerado). Donde sea necesario, repita los pasos anteriores para que el PIA pueda ser validado. Esta decisión no prejuzga la evaluación de la conformidad que puede llevarse a cabo, en su caso, por la autoridad de protección de datos (la CNIL en Francia), como parte de las formalidades preliminares o comprueba por ejemplo. ",
         "source": "PIAF Connected Objects p40"
       },
-      "PIA_TEC_CHIF": {
-        "placeholder": "Describir aquí los medios implementados para garantizar la confidencialidad de los datos",
-        "name": "Cifrado",
-        "description": "Medios para <strong>asegurar la confidencialidad</strong> de los datos almacenados (en la base de datos, archivos planos, copias de seguridad, etc.), así como el procedimiento para la gestión de claves de cifrado (creación, almacenamiento, cambio en caso de sospecha de compromiso de los datos, etcetera.).<br>Describir los medios de cifrado empleados para flujos de datos (VPN, TLS, etc.) implementados en el proceso. ",
-        "source": "PIAF Connected Objects p21"
+      "PIA_VAL_CART": {
+        "name": "Mapeo de riesgos",
+        "description": "Gráfico que ilustra las prácticas de seguridad buena, con un valor de conformidad atribuido a cada uno en base a su evaluación en etapas anteriores.",
+        "source": "PIAF Connected Objects p34"
+      },
+      "PIA_VAL_ACT": {
+        "name": "Plan de acción",
+        "description": "controles correctivos sugieren por el asesor en etapas anteriores, elaborar un plan de acción estableciendo, para cada acción, su manager, frecuencia, dificultad, coste y el progreso.",
+        "source": "None"
       },
       "PIA_TEC_ANO": {
         "placeholder": "Indicar aquí anonimización implementado mecanismos",
@@ -273,6 +287,12 @@
         "placeholder": "Indicar aquí si se planea el proceso de partición, y cómo esto se lleva a cabo.",
         "name": "Particionamiento datos",
         "description": "Puesta en práctica de los datos que reparten ayudas para reducir la posibilidad que los datos personales pueden ser correlacionados y que una abertura de todos los datos personales puede ocurrir.",
+        "source": "PIAF Connected Objects p21"
+      },
+      "PIA_TEC_CHIF": {
+        "placeholder": "Describir aquí los medios implementados para garantizar la confidencialidad de los datos",
+        "name": "Cifrado",
+        "description": "Medios para <strong>asegurar la confidencialidad</strong> de los datos almacenados (en la base de datos, archivos planos, copias de seguridad, etc.), así como el procedimiento para la gestión de claves de cifrado (creación, almacenamiento, cambio en caso de sospecha de compromiso de los datos, etcetera.).<br>Describir los medios de cifrado empleados para flujos de datos (VPN, TLS, etc.) implementados en el proceso. ",
         "source": "PIAF Connected Objects p21"
       },
       "PIA_TEC_CTLA": {
@@ -340,6 +360,12 @@
         "name": "Mantenimiento",
         "description": "Las políticas que describen el mantenimiento cómo físico de hardware es administradas, indicando si ésta es contratada.<br>Indican si está autorizado el mantenimiento remoto de aplicaciones y según qué modalidades. Especificar si equipo defectuoso se gestiona de una manera específica. ",
         "source": "PIAF Connected Objects p23"
+      },
+      "PIA_SEC_CTR": {
+        "placeholder": "Describir aquí las medidas específicas para los procesadores (host, empresa de mantenimiento, administrador, proveedores de servicios de especialista, etcetera.)",
+        "name": "Contratos de tratamiento",
+        "description": "",
+        "source": "Mesures_US Procurement: Identificada y marcada en un contrato"
       },
       "PIA_SEC_NET": {
         "placeholder": "Indicar aquí los controles de seguridad de red en la que el proceso se lleva a cabo",
@@ -460,6 +486,11 @@
         "description": "Reducir la gravedad de riesgos limitando la cantidad de datos de carácter personal a lo estrictamente necesario para lograr un propósito definido, de lo contrario los datos se recogerán no.",
         "source": ""
       },
+      "PIA_DEF_MIND": {
+        "name": "TO BE TRANSLATED - Minimization of data themselves",
+        "description": "TO BE TRANSLATED - Reduce the severity of risks by minimizing the data themselves, by taking measures aimed at reducing their sensitivity such as filtering and removing unnecessary data, pseudonymising data, etc.",
+        "source": "PIA3 p64"
+      },
       "PIA_DEF_CONS": {
         "name": "El consentimiento",
         "description": "toda manifestación de voluntad libre, específica, informada e inequívoca por la que el interesado acepta, ya sea mediante una declaración o una clara acción afirmativa, el tratamiento de datos personales que le conciernen.<br>Ver <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:32016R0679&from=ES\">Art. 4.10 de [GDPR]</a>",
@@ -495,6 +526,16 @@
         "description": "El interesado tendrá derecho a oponerse, por motivos referentes a su situación particular, en cualquier momento al tratamiento de datos personales sobre él o ella, en virtud de <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:32016R0679&from=ES\">Art. 21 de [GDPR]</a>",
         "source": "GDPR Art. 21"
       },
+      "PIA_DEF_CHIF": {
+        "name": "Cifrado",
+        "description": "Mida el hacer de datos personales unintelligible a cualquier persona sin la autorización de acceso (cifrado simétrico o asimétrico, uso de los algoritmos públicos sabidos para ser certificado fuerte, de la autentificación, etc.). ",
+        "source " : "Mesures_US Encryption"
+      },
+      "PIA_DEF_ANO": {
+        "name": "Anonimización",
+        "description": "De proceso quitando las características que identifican de datos personales. Determinar la robustez de un anonymisation procesa, ve e target= del <a target=\"_blank \" href= \"http://ec.europa.eu/justice/data-protection/article-29/documentation/opinion-recommendation/files/2014/wp216_en.pdf\">WP29 guidelines</a>.",
+        "source": "Mesures_US and G29 guidelines http://ec.europa.eu/justice/data-protection/article-29/documentation/opinion-recommendation/files/2014/wp216_en.pdf"
+      },
       "PIA_DEF_PSEU": {
         "name": "Seudonimización",
         "description": "Tel tratamiento de datos personales de manera tal que ya no puedan atribuirse a un interesado sin utilizar información adicional, siempre que dicha información adicional figure por separado y esté sujeta a medidas técnicas y organizativas destinadas a garantizar que los datos personales no se atribuyan a una persona física identificada o identificable. ",
@@ -509,6 +550,26 @@
         "name": "Controles de acceso lógico",
         "description": "Medios para limitar los riesgos que personas no autorización a las personas electrónicamente tendrá acceso datos de carácter personal, se requiere entre otras cosas: <br>- <strong>gestión de perfiles de los usuarios</strong> mediante la separación de tareas y áreas de responsabilidad (preferiblemente de manera centralizada) para limitar el acceso a los datos personales exclusivamente para usuarios autorizados mediante la aplicación de la necesidad de conocer y menos privilegios principios;<br>- <strong>retirar los derechos de los empleados, contratación de las partes y terceros cuando ellos ya no están autorizados a acceder a un local o un recurso</strong> o cuando su <strong>contrato de trabajo termina</strong>. ",
         "source": "PIA3 p43 - WIKI"
+      },
+      "PIA_DEF_PWD": {
+        "name": "Contraseña",
+        "description": "Las contraseñas serán compuestas de un mínimo de ocho caracteres; debe ser renovado si hay la menos preocupación que pudieron haber sido comprometidos y, posiblemente, periódicamente (cada seis meses o una vez al año) y debe incluir un mínimo de tres de las cuatro clases de caracteres (mayúsculas, letras minúsculas, números y caracteres especiales); cuando se cambia una contraseña, las cinco contraseñas pasadas no pueden ser reutilizadas; la misma contraseña no se debe utilizar para diversos accesos; las contraseñas no se deben relacionar con su información personal (nombre incluyendo o fecha de nacimiento.). Defina un número máximo de las tentativas más allá de las cuales se publica una advertencia y se bloquea la autentificación (temporalmente o hasta ella se desbloquea manualmente).",
+        "source" : "Mesure_US"
+      },
+      "PIA_DEF_AUTH": {
+        "name": "Autenticación",
+        "description": "Cada persona con el acceso legítimo a los datos personales (empleados, contratantes y otros terceros) debe ser identificada por un identificador único. Elija un método de la autentificación para abrir sesiones que sea apropiado al contexto, al nivel del riesgo y a la robustez esperados. Recomendaciones: si los riesgos no se elevan, una contraseña puede ser utilizada; sin embargo, si los riesgos son más altos, utilice un símbolo de una sola vez de la contraseña pero cambie la contraseña de la activación del defecto, o, cuando la parte de la contraseña es enviada por SMS, una tarjeta con un PERNO código, un certificado electrónico o cualquier otra forma de autentificación fuerte.",
+        "source": "Mesures_US Logical Access Control"
+      },
+      "PIA_DEF_LOG": {
+        "name": "Vigilancia",
+        "description": "Instalado una arquitectura de registración para permitir la detección temprana de los incidentes que implican datos personales y para tener información que se puede utilizar para analizarlos o para proporcionar la prueba con respecto a investigaciones.",
+        "source": "Mesures_US Vigilancia"
+      },
+      "PIA_DEF_ARCH": {
+        "name": "El archivar",
+        "description": "Los procedimientos que preservaban y que manejaban los archivos electrónicos que contenían los datos personales se prepusieron asegurar su valor (específicamente, su valor legal) a través del período entero necesario (transferencia, almacenaje, migración, accesibilidad, eliminación, archivando la política, la protección del secreto, el etc.). ",
+        "source": "Mesures_USE Archiving"
       },
       "PIA_DEF_MIN1": {
         "name": "Filtrado y eliminación",
@@ -564,16 +625,6 @@
         "name": "Violación de los datos personales",
         "description": "Violación de la seguridad conduce a la destrucción accidental o ilícita, pérdida, alteración, divulgación no autorizada de, o acceso a, datos personales transmitidos, almacenados o transformadas de otra forma.",
         "source": "GDPR Art. 4.12"
-      },
-      "PIA_VAL_CART": {
-        "name": "Mapeo de riesgos",
-        "description": "Gráfico que ilustra las prácticas de seguridad buena, con un valor de conformidad atribuido a cada uno en base a su evaluación en etapas anteriores.",
-        "source": "PIAF Connected Objects p34"
-      },
-      "PIA_VAL_ACT": {
-        "name": "Plan de acción",
-        "description": "controles correctivos sugieren por el asesor en etapas anteriores, elaborar un plan de acción estableciendo, para cada acción, su manager, frecuencia, dificultad, coste y el progreso.",
-        "source": "None"
       },
       "PIA_DEF_ENJ": {
         "name": "Apuestas",
@@ -684,41 +735,6 @@
         "name": "Minimización de datos ellos mismos",
         "description": "Reduzca la severidad de riesgos reduciendo al mínimo los datos ellos mismos, tomando mide tenido como objetivo el reducir de su sensibilidad.",
         "source": "Mesures_US"
-      },
-      "PIA_DEF_ANO": {
-        "name": "Anonimización",
-        "description": "De proceso quitando las características que identifican de datos personales. Determinar la robustez de un anonymisation procesa, ve e target= del <a target=\"_blank \" href= \"http://ec.europa.eu/justice/data-protection/article-29/documentation/opinion-recommendation/files/2014/wp216_en.pdf\">WP29 guidelines</a>.",
-        "source": "Mesures_US and G29 guidelines http://ec.europa.eu/justice/data-protection/article-29/documentation/opinion-recommendation/files/2014/wp216_en.pdf"
-      },
-      "PIA_SEC_CTR": {
-        "placeholder": "Describir aquí las medidas específicas para los procesadores (host, empresa de mantenimiento, administrador, proveedores de servicios de especialista, etcetera.)",
-        "name": "Contratos de tratamiento",
-        "source": "Mesures_US Procurement: Identificada y marcada en un contrato"
-      },
-      "PIA_DEF_CHIF": {
-        "name": "Cifrado",
-        "description": "Mida el hacer de datos personales unintelligible a cualquier persona sin la autorización de acceso (cifrado simétrico o asimétrico, uso de los algoritmos públicos sabidos para ser certificado fuerte, de la autentificación, etc.). ",
-        "source " : "Mesures_US Encryption"
-      },
-      "PIA_DEF_PWD": {
-        "name": "Contraseña",
-        "description": "Las contraseñas serán compuestas de un mínimo de ocho caracteres; debe ser renovado si hay la menos preocupación que pudieron haber sido comprometidos y, posiblemente, periódicamente (cada seis meses o una vez al año) y debe incluir un mínimo de tres de las cuatro clases de caracteres (mayúsculas, letras minúsculas, números y caracteres especiales); cuando se cambia una contraseña, las cinco contraseñas pasadas no pueden ser reutilizadas; la misma contraseña no se debe utilizar para diversos accesos; las contraseñas no se deben relacionar con su información personal (nombre incluyendo o fecha de nacimiento.). Defina un número máximo de las tentativas más allá de las cuales se publica una advertencia y se bloquea la autentificación (temporalmente o hasta ella se desbloquea manualmente).",
-        "source" : "Mesure_US"
-      },
-      "PIA_DEF_AUTH": {
-        "name": "Autenticación",
-        "description": "Cada persona con el acceso legítimo a los datos personales (empleados, contratantes y otros terceros) debe ser identificada por un identificador único. Elija un método de la autentificación para abrir sesiones que sea apropiado al contexto, al nivel del riesgo y a la robustez esperados. Recomendaciones: si los riesgos no se elevan, una contraseña puede ser utilizada; sin embargo, si los riesgos son más altos, utilice un símbolo de una sola vez de la contraseña pero cambie la contraseña de la activación del defecto, o, cuando la parte de la contraseña es enviada por SMS, una tarjeta con un PERNO código, un certificado electrónico o cualquier otra forma de autentificación fuerte.",
-        "source": "Mesures_US Logical Access Control"
-      },
-      "PIA_DEF_LOG": {
-        "name": "Vigilancia",
-        "description": "Instalado una arquitectura de registración para permitir la detección temprana de los incidentes que implican datos personales y para tener información que se puede utilizar para analizarlos o para proporcionar la prueba con respecto a investigaciones.",
-        "source": "Mesures_US Vigilancia"
-      },
-      "PIA_DEF_ARCH": {
-        "name": "El archivar",
-        "description": "Los procedimientos que preservaban y que manejaban los archivos electrónicos que contenían los datos personales se prepusieron asegurar su valor (específicamente, su valor legal) a través del período entero necesario (transferencia, almacenaje, migración, accesibilidad, eliminación, archivando la política, la protección del secreto, el etc.). ",
-        "source": "Mesures_USE Archiving"
       }
     }
   },
@@ -811,8 +827,8 @@
     "title": "Sobre la herramienta PIA",
     "version_number": "Número de versión",
     "description": "Esta herramienta es diseñada originalmente por la CNIL, la autoridad francesa de la protección de los datos, ayudar al informático a ser obediente con el software de GDPR.<br>This está libre y abierto. Si usted desea conseguir implicado en este proyecto, usted es agradable descargar el código de fuente de Github, lo modifica y lo comparte con la comunidad.",
-    "translators": "El software del PIA es actualmente disponible en cinco idiomas. Las versiones francesas e inglesas son proporcionadas por el CNIL. El otros las versiones resultan de las contribuciones de los individuos siguientes:",
-    "translators_name": "<ul><li>Dutch: Ruud van Driel, Manuel d’Orso ;</li><li>Czech: Jiří Grohmann, Manuel d’Orso ;</li><li>Italian: Manuel d’Orso, Gianluca Markos.</li><li>Polish: Joanna Karczewska</li><li>German: Kosmas Schütz</li><li>Spanish: ylachgar</li></ul>",
+    "translators": "El software del PIA es actualmente disponible en catorce idiomas. Las versiones francesas e inglesas son proporcionadas por el CNIL. El otros las versiones resultan de las contribuciones de los individuos siguientes:",
+    "translators_name": "<ul><li>Czech : Jiří Grohmann, Manuel d’Orso;</li><li>Dutch : Ruud van Driel, Manuel d’Orso;</li><li>English : <a target=\"_blank\" href=\"https://www.cnil.fr\">CNIL</a>;</li><li>Finnish : <a target=\"_blank\" href=\"https://tietosuoja.fi/etusivu\">Tietosuojavaltuutetun toimisto</a>;</li><li>French : <a target=\"_blank\" href=\"https://www.cnil.fr\">CNIL</a>;</li><li>German : Kosmas Schütz, Corina Scheiter (<a target=\"_blank\" href=\"https://www.datenschutz-bayern.de/\">BayLfD</a>);</li><li>Greek : Dimitris Tzellis;</li><li>Hungarian : <a target=\"_blank\" href=\"https://naih.hu/\">Nemzeti Adatvédelmi és Információszabadság Hatóság (NAIH)</a>;</li><li>Italian : Manuel d’Orso, Gianluca Markos, Antonio Caselli (<a target=\"_blank\" href=\"http://gpdp.it\">Garante per la Protezione dei Dai Personali (GPDP)</a>);</li><li>Norwegian : <a target=\"_blank\" href=\"https://www.datatilsynet.no\">Datatilsynet</a>;</li><li>Polish : Joanna Karczewska, Michal Mazur (<a target=\"_blank\" href=\"https://giodo.gov.pl\">Generalny Inspektor Ochrony Danych Osobowych (GIODO)</a>);</li><li>Portuguese : Barbara Gois;</li><li>Romanian : webmyday;</li><li>Spanish : ylachgar.</li></ul>",
     "contribute": "Si usted desea contribuir a la traducción del software en otra idioma mejorar las traducciones existentes, le recomendamos al <a href=\"https://github.com/LINCnil/pia/tree/master/src/assets/i18n\" target=\"_blank\">leer la página que describe los pasos</a>.",
     "licences": "Library licenses:"
   },
@@ -833,7 +849,7 @@
       "simple_validation": "TO BE TRANSLATED - Approve PIA <br>(direct)",
       "signed_validation": "TO BE TRANSLATED - Approve PIA <br>(signed)"
     },
-    "mandatory_fields": "TO BE TRANSLATED - All boxes must be checked",
+    "mandatory_fields": "Todos los campos son obligatorios",
     "waiting_for_signature": "TO BE TRANSLATED - Pending signed PIA",
     "validated_pia_with_signature": "TO BE TRANSLATED - Approved",
     "add_signed_pia": "TO BE TRANSLATED - Add the signed PIA",
@@ -842,7 +858,7 @@
     "signed_attachments_history": "TO BE TRANSLATED - Signed attachments history",
     "tools": {
       "dashboard": "TO BE TRANSLATED - Dashboard",
-      "display_pia": "TO BE TRANSLATED - Display PIA",
+      "display_pia": "TO BE TRANSLATED - Display report",
       "action_plan": "TO BE TRANSLATED - Action plan"
     }
   },
@@ -870,26 +886,27 @@
     "start_evaluation": "TO BE TRANSLATED - Start review",
     "back_to_home": "Volver a inicio",
     "simple_pia_validation": {
-      "content": "Se ha validado la PIA."
+      "content": "TO BE TRANSLATED - You have approved the PIA."
     },
     "completed_edition": {
-      "content": "TO BE TRANSLATED - The PIA has been fully edited, it has to be reviewed."
+      "content": "TO BE TRANSLATED - The PIA has been fully edited and has to be reviewed."
     },
     "completed_evaluation": {
-      "content": "TO BE TRANSLATED - The PIA has been fully reviewed, it has to be validated."
+      "content": "TO BE TRANSLATED - The PIA has been fully reviewed and can be validated."
     },
     "update_server_url": {
       "content": "Se ha actualizado la dirección del servidor"
     },
     "signed_pia_validation": {
-      "content": "Se acepta la PIA<br>Finalice la validación de la PIA adjuntando<br>el informe firmado por la persona a cargo.",
-      "download_pia": "Descargar el PIA report"
+      "content": "TO BE TRANSLATED - To approve the PIA, attach the signed report.",
+      "download_pia": "Descargar el report"
     },
     "abandon_pia": {
-      "content": "¿Es usted seguro usted desea ascendente to<br>give este tratamiento?"
+      "content": "TO BE TRANSLATED - Do you wish to give up the processing?",
+      "additional_text": "TO BE TRANSLATED - Archiving is not definitive and the PIA can go back to it if needed."
     },
     "refuse_pia": {
-      "content": "Rechazó PIA,<br>Varios campos deben corregirse.<br>Volver al modo de evaluación<br>para realizar correcciones."
+      "content": "TO BE TRANSLATED - As you have rejected the PIA, it is sent back for review to make the required changes."
     },
     "same_comment": {
       "content": "Advertencia,<br>Ingrese un comentario diferente al último registrado."
@@ -903,16 +920,16 @@
       "keep": "Mantener este<br>medida"
     },
     "ask_for_evaluation": {
-      "content": "Felicitaciones,<br>la subsección ahora es<br>está disponible para evaluación."
+      "content": "TO BE TRANSLATED - This section is ready to be reviewed."
     },
     "validate_evaluation": {
-      "content": "TO BE TRANSLATED - <span class='strong'>Congratulations,</span><br>you've finished evaluating this section.<br>Others parts of the PIA has to be evaluated as well in order to be able to validate the PIA."
+      "content": "TO BE TRANSLATED - This section is ready for validating the PIA."
     },
     "validate_evaluation_to_correct": {
       "content": "Lo siento,<br>Se deben corregir varios campos. <br> Volver al modo de edición<br>para realizar correcciones"
     },
     "declare_measures": {
-      "content": "Lo siento, <br> antes de evaluar los riesgos, <br> debe informar las medidas existentes o planificadas",
+      "content": "Antes de evaluar los riesgos, <br> debe informar las medidas existentes o planificadas.",
       "declare": "Declare las medidas existentes o previstas"
     },
     "remove_pia": {
@@ -922,21 +939,51 @@
     "remove_attachment": {
       "content": "Advertencia,<br>¿Está seguro de que quiere<br>eliminar este archivo adjunto?",
       "keep": "Mantener",
-      "remove": "Eliminar"
+      "remove": "Eliminar",
+      "comment": "TO BE TRANSLATED - Comment"
+    },
+    "action_plan_no_evaluation": {
+      "content": "TO BE TRANSLATED - You need to begin the review of the analysis to create the action plan.",
+      "review_section": "TO BE TRANSLATED - Review a section"
+    },
+    "dpo_missing_evaluations": {
+      "content": "TO BE TRANSLATED - You need to complete the review of the analysis to access the DPO page.",
+      "review_section": "TO BE TRANSLATED - Review a section",
+      "remove": "Eliminar",
+      "comment": "TO BE TRANSLATED - Comment"
+    },
+    "modal_select_text_pia": {
+      "content": "TO BE TRANSLATED - The content of the PIA has been copied to clipboard."
+    },
+    "back_to_edition": {
+      "content": "TO BE TRANSLATED - This section has been sent back for editing.<br> Several fields must be corrected<br> to enable its proper review."
+    },
+    "back_to_evaluation": {
+      "content": "TO BE TRANSLATED - This section has been sent back for review.<br> Several fields must be reviewed<br> to enable its proper validation."
     }
   },
   "summary": {
     "previous_page": "Volver a la página anterior",
     "print": "Imprimir",
-    "display_pia": "TO BE TRANSLATED - Display PIA",
-    "display_action_plan": "TO BE TRANSLATED - Display<br>action plan",
+    "copy_to_clipboard": "TO BE TRANSLATED - Copy to clipboard",
+    "download_images": "TO BE TRANSLATED - Download images",
+    "download_csv": "TO BE TRANSLATED - Download a CSV export",
+    "csv_action_plan_comment": "TO BE TRANSLATED - Action plan comment",
+    "csv_evaluation_comment": "TO BE TRANSLATED - Evaluation comment",
+    "csv_section": "TO BE TRANSLATED - Section",
+    "csv_title_object": "TO BE TRANSLATED - Title",
+    "csv_implement_date": "TO BE TRANSLATED - Estimated implementation date",
+    "csv_people_in_charge": "TO BE TRANSLATED - Person in charge",
+    "csv_file_title": "TO BE TRANSLATED - action-plan",
     "display_filters": {
       "title": "TO BE TRANSLATED - Filters",
       "main_content": "TO BE TRANSLATED - Display \"PIA information\"",
       "context_content": "TO BE TRANSLATED - Display \"Context\"",
       "principles_content": "TO BE TRANSLATED - Display \"Fundamental principles\"",
       "risks_content": "TO BE TRANSLATED - Display \"Risks\"",
-      "action_plan_content": "TO BE TRANSLATED - Display action plan"
+      "action_plan_content": "TO BE TRANSLATED - Display action plan",
+      "risks_overview_content": "TO BE TRANSLATED - Display risks overview",
+      "risks_cartography_content": "TO BE TRANSLATED - Display risk mapping"
     },
     "title": "Información del PIA",
     "pia_name": "PIA",
@@ -975,7 +1022,9 @@
       "measures": "Medidas existentes o previstas",
       "risks": "Riesgos",
       "no_action_plan": "Ningún plan de acción registrado"
-    }
+    },
+    "risks_overview_title": "TO BE TRANSLATED - Risks overview",
+    "risks_cartography_title": "TO BE TRANSLATED - Risk mapping"
   },
   "errors": {
     "title": "Página no encontrada.",

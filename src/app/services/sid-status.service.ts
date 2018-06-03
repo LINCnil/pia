@@ -125,6 +125,20 @@ export class SidStatusService {
   }
 
   /**
+   * Verification to enable Action Plan page.
+   * @memberof SidStatusService
+   */
+  verifEnableActionPlan() {
+    let valid = false;
+    for (const el in this.itemStatus) {
+      if (this.itemStatus.hasOwnProperty(el) && this.itemStatus[el] >= 5) {
+        valid = true;
+      }
+    }
+    return valid;
+  }
+
+  /**
    * Erase all contents on the DPD page.
    * @private
    * @param {*} piaService - The PIA Service.

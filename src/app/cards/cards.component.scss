@@ -4,6 +4,7 @@
 .pia-newBlock {
   > #pia-new-card {
     border: 1px solid $pia-gray;
+    padding-right: 0;
   }
     &-item {
         background: url("../../assets/images/pia-bg.png") repeat center center;

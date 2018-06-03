@@ -16,15 +16,22 @@
     "languages": {
       "official_translation": "Originalversion",
       "cnil_translations": "Von der CNIL bereitgestellte Übersetzungen",
+      "dpa_translations": "Von europäischen Aufsichtsbehörden bereitgestellte Übersetzungen",
       "community_translations": "Von der Community bereitgestellte Übersetzungen",
-      "fr": "Français",
-      "en": "English",
       "cz": "Česky",
-      "it": "Italiaans",
-      "nl": "Nederlands",
-      "pl": "Polski",
       "de": "Deutsch",
-      "es": "Español"
+      "el": "Ελληνικά",
+      "en": "English",
+      "es": "Español",
+      "fi": "Suomi",
+      "fr": "Français",
+      "hu": "Magyar",
+      "it": "Italiano",
+      "nl": "Nederlands",
+      "no": "Norsk",
+      "pl": "Polski",
+      "pt": "Português",
+      "ro": "Română"
     },
     "tools": {
       "title": "Tools",
@@ -43,13 +50,13 @@
       "name": "Name",
       "date": "Datum",
       "status": "Status",
-      "author": "Erstellt von",
+      "author": "Bearbeitet von",
       "assessor": "Überprüft von",
       "validator": "Bestätigt von",
       "new_pia": "Neue DSFA",
       "import_pia": "DSFA importieren",
-      "list_rocket_content": "Fangen Sie an! Klicken Sie auf das \"+\"-Zeichen, um eine DSFA anzulegen",
-      "card_rocket_content": "Fangen Sie an!<br>Um eine DSFA anzulegen,<br>klicken Sie auf \"Neue DSFA\""
+      "list_rocket_content": "Fangen Sie an! Um eine DSFA anzulegen, klicken Sie auf \"Neue DSFA\"",
+      "card_rocket_content": "Für eine neue DSFA,<br> klicken Sie auf \"+\""
     },
     "cards": {
       "new_pia": "Neue DSFA",
@@ -60,12 +67,12 @@
       "title_close_creation": "Schließen",
       "pia_name": "DSFA",
       "placeholder_pia_name": "DSFA-Titel",
-      "author": "Bearbeitung",
-      "placeholder_author": "Vorname, Nachname",
-      "evaluation": "Überprüfung",
-      "placeholder_evaluation": "Vorname, Nachname",
-      "validation": "Bestätigung",
-      "placeholder_validation": "Vorname, Nachname",
+      "author": "Bearbeiter",
+      "placeholder_author": "Vorname Nachname",
+      "evaluation": "Prüfer",
+      "placeholder_evaluation": "Vorname Nachname",
+      "validation": "Bestätigender",
+      "placeholder_validation": "Vorname Nachname",
       "date": "Datum",
       "status": "Status",
       "creation_status": "Anlegen",
@@ -73,7 +80,6 @@
       "placeholder_start": "Es müssen alle Felder ausgefüllt sein",
       "item": {
         "tools": {
-          "edit": "Informationen bearbeiten",
           "export": "Exportieren",
           "more_options": "Weitere Optionen",
           "duplicate": "Kopieren",
@@ -82,7 +88,7 @@
           "remove": "Löschen"
         },
         "edit_pia": "DSFA bearbeiten",
-        "consult_pia": "DSFA besprechen"
+        "consult_pia": "DSFA ansehen"
       }
     },
     "lists": {
@@ -91,13 +97,13 @@
       "column_author": "Bearbeitet von",
       "column_evaluation": "Überprüft von",
       "column_validation": "Bestätigt von",
-      "column_creation": "Erstellt",
+      "column_creation": "Bearbeitet",
       "column_status": "Status",
       "column_progression": "Fortschritt",
       "column_actions": "Aktionen",
       "item": {
         "tools": {
-          "consult": "Besprechen",
+          "consult": "Ansehen",
           "edit": "Bearbeiten",
           "export": "Exportieren",
           "duplicate": "Kopieren",
@@ -113,13 +119,15 @@
       "0": "In Bearbeitung",
       "1": "Abgelehnt",
       "2": "Einfache Bestätigung",
-      "3": "Signierte Bestätigung",
+      "3": "Bestätigung per Unterschrift",
       "4": "Archiviert",
-      "5": "Wartet auf Bestätigung"
+      "5": "Warten auf Bestätigung"
     },
     "header": {
       "preview": "Vorschau",
-      "display_action_plan": "Aktionsplan<br>anzeigen"
+      "display_action_plan": "Aktionsplan<br>anzeigen",
+      "edition": "Bearbeitung",
+      "evaluation": "Auswertung"
     },
     "attachments": {
       "title": "Anlagen",
@@ -129,23 +137,25 @@
     "sections": {
       "homepage_link": "Zurück zur Übersicht",
       "validate_pia": "DSFA bestätigen",
-      "refuse_pia": "DSFA zurückweisen",
+      "refuse_pia": "DSFA ablehnen",
       "status": {
         "evaluation": {
-          "title": "Warten auf Auswertung",
-          "content": "Die Auswertung dieses Teils hat noch nicht begonnen. Wenn Sie den Inhalt im Bearbeitungsmodus bearbeiten möchten, müssen Sie ",
-          "cancel": "die Auswertungsanfrage zurückziehen."
+          "title": "Warten auf Überprüfung",
+          "content": "Die Überprüfung dieses Teils hat noch nicht begonnen. Wenn Sie den Inhalt im Bearbeitungsmodus bearbeiten möchten, müssen Sie ",
+          "cancel": "die Überprüfungssanfrage zurückziehen.",
+          "cancel_button": "Die Überprüfungssanfrage zurückziehen"
         },
         "validation": {
           "title": "Warten auf Bestätigung",
           "content": "Die Bewertung dieses Teils ist abgeschlossen und wartet auf die endgültige Bestätigung der Analyse. Wenn Sie die Bewertungen ändern möchten, müssen Sie",
-          "cancel": "die Bestätigungsanfrage zurückziehen."
+          "cancel": "die Bestätigungsanfrage zurückziehen.",
+          "cancel_button": "Die Bestätigungsanfrage zurückziehen"
         }
       }
     },
     "footer": {
       "ask_evaluation": "Bitte um Überprüfung",
-      "validate_evaluation": "Bestätigen Sie die Überprüfung",
+      "validate_evaluation": "Bitte um Bestätigung",
       "subsection_validated": "Unterabschnitt überprüft, wartet auf endgültige Bestätigung",
       "mandatory_fields": "Es müssen alle Felder ausgefüllt sein"
     }
@@ -194,22 +204,22 @@
       },
       "PIA_LGL_TRAN": {
         "name": "Datenübermittlung in Drittländer",
-        "description": "Je nach Land müssen Sie die Datenübermittlung rechtfertigen und die rechtlichen Kontrollregelungen angeben, die durchgeführt werden, um einen angemessenen Schutz der Daten zu gewährleisten, die Gegenstand einer grenzüberschreitenden Übertragung sind. Das heißt<br>- Europäische Union<br>- Staat, der ein durch EU anerkanntes angemessene Schutzniveau hat<br>- Transfer in die Vereinigten Staaten zu einem Unternehmen, das dem Privacy Shield beigetreten ist<br>- Andere Länder<br>Siehe <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/DE/TXT/HTML/?uri=CELEX:32016R0679&from=DE\">Art. 44 bis 49 der [DS-GVO]</a>",
+        "description": "Geben Sie die Länder an, in denen Daten verarbeitet werden. Je nach Land müssen Sie die Datenübermittlung rechtfertigen und die rechtlichen Rahmenbedingungen und Überwachungsmaßnahmen angeben, die für einen angemessenen Schutz der Daten, die Gegenstand einer grenzüberschreitenden Übertragung sind. zu erreichen. Zu unterscheiden sind:<br>- Europäische Union<br>- Staat, der ein durch EU anerkanntes angemessene Schutzniveau hat<br>- Transfer in die Vereinigten Staaten zu einem Unternehmen, das dem Privacy Shield beigetreten ist<br>- Andere Länder<br>Siehe <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/DE/TXT/HTML/?uri=CELEX:32016R0679&from=DE\">Art. 44 bis 49 der [DS-GVO]</a>",
         "source": "WIKI Transferts_:_respect_des_obligations_en_mati%C3%A8re_de_transfert_de_donn%C3%A9es_en_dehors_de_l%E2%80%99Union_europ%C3%A9enne et PIAF Objets connectés p17"
       },
       "PIA_LGL_DESC": {
         "name": "Beschreibung der Verarbeitung",
-        "description": "Geben Sie einen kurzen Überblick über die zu berücksichtigende Verarbeitung, ihre Art, ihren Umfang, ihren Kontext, ihre Zwecke und ihre Beteiligten. Identifizieren Sie den Verantwortlichen und alle Auftragsverarbeiter. Listen Sie die für die Verarbeitung geltenden Standards und Normen auf, die erforderlich sind oder eingehaltenwerden müssen, nicht zuletzt die genehmigten Verhaltensregeln (<a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/DE/TXT/HTML/?uri=CELEX:32016R0679&from=DE\">vgl. Art. 40 der [DS-GVO]</a>) und Zertifizierungen zum Datenschutz (<a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/DE/TXT/HTML/?uri=CELEX:32016R0679&from=DE\">vgl. Art. 42 [DS-GVO]</a>)",
+        "description": "Geben Sie einen kurzen Überblick über die geplante Verarbeitung, ihre Art, ihren Umfang, ihren Kontext, ihre Zwecke und ihre Beteiligten. Identifizieren Sie den Verantwortlichen und alle Auftragsverarbeiter. Listen Sie die für die Verarbeitung geltenden Standards und Normen auf, die erforderlich sind oder eingehaltenwerden müssen, nicht zuletzt die genehmigten Verhaltensregeln (<a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/DE/TXT/HTML/?uri=CELEX:32016R0679&from=DE\">vgl. Art. 40 der [DS-GVO]</a>) und Zertifizierungen zum Datenschutz (<a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/DE/TXT/HTML/?uri=CELEX:32016R0679&from=DE\">vgl. Art. 42 [DS-GVO]</a>)",
         "source": "PIA1 p6"
       },
       "PIA_LGL_DATA": {
         "name": "Daten und Prozesse",
-        "description": "Definieren und beschreiben Sie den Bereich im Detail:<br>-die betroffenen personenbezogenen Daten, ihre Empfänger und ihre Aufbewahrungsdauer<br>-eine Beschreibung der Prozesse und Mittel die die Verarbeitung personenbezogener Daten über den gesamten Lebenszyklus (von der Erfassung bis zur Löschung) unterstützen.",
+        "description": "Definieren und beschreiben Sie die verarbeiteten Daten und Prozesse im Detail:<br>-die betroffenen personenbezogenen Daten, ihre Empfänger und ihre Aufbewahrungsdauer<br>-eine Beschreibung der Prozesse und Betriebsmittel, die die Verarbeitung personenbezogener Daten über den gesamten Lebenszyklus (von der Erfassung bis zur Löschung) unterstützen.",
         "source": "PIA1 p6"
       },
       "PIA_LGL_SUPT": {
         "name": "Unterstützung der Verarbeitung",
-        "description": "Betriebsmittel, die die Verarbeitung personenbezogener Daten unterstützen. Hierbei kann es sich um Hardware, Software, Netzwerke, Personen, Papiermedien oder um die Übermittlung von Papieren handeln.",
+        "description": "Betriebsmittel, die die Verarbeitung personenbezogener Daten unterstützen. Hierbei kann es sich um Hardware, Software, Netzwerke, Personen, Papiermedien oder um die Übermittlung von Papier handeln.",
         "source": "PIA1 p12"
       },
       "PIA_LGL_FIN": {
@@ -219,7 +229,7 @@
       },
       "PIA_LGL_MINI": {
         "name": "Datenminimierung",
-        "description": "Ziel ist es, die Schwere der Risiken zu verringern, indem die Erhebung personenbezogener Daten auf das für einen bestimmten Zweck erforderliche Mindestmaß beschränkt wird; vermeiden Sie die Sammlung unnötiger Daten, die Verwendung von Daten, die nichts mit dem Zweck zu tun haben, und übermäßige Auswirkungen auf den Betroffenen.",
+        "description": "Ziel ist es, die Schwere der Risiken zu verringern, indem die Erhebung personenbezogener Daten auf das für den Zweck der Verarbeitung erforderliche Mindestmaß beschränkt wird; vermeiden Sie die Sammlung unnötiger Daten bzw. die Verwendung von Daten, die nichts mit dem Zweck der Verarbeitung zu tun haben, und übermäßige Auswirkungen auf den Betroffenen hätten.",
         "source": "WIKI Minimisation_des_données_:_adéquates,_pertinentes_et_limitées"
       },
       "PIA_LGL_DEST": {
@@ -229,12 +239,12 @@
       },
       "PIA_LGL_DUR": {
         "name": "Speicherdauer",
-        "description": "Für jede Art von Daten muss eine Speicherdauer definiert und durch die gesetzlichen Anforderungen und / oder Verarbeitungsanforderungen gerechtfertigt sein. Dabei wird zwischen aktuellen Daten und archivierten Daten unterschieden, auf die sich der Zugang nur auf die betroffenen Akteure beschränkt. Ein Löschmechanismus muss implementiert werden, um aktuelle Daten zu archivieren oder archivierte Daten am Ende der Speicherdauer zu löschen. Funktionelle Spuren müssen ebenso bereinigt werden wie technische Protokolle, die nicht unbegrenzt gespeichert werden können.",
+        "description": "Für jede Art von Daten muss eine Speicherdauer definiert und durch die gesetzlichen Anforderungen und / oder Verarbeitungsanforderungen gerechtfertigt sein. Dabei wird zwischen aktuellen Daten und archivierten Daten unterschieden. Der Zugriff auf letztere muss auf einen engen Kreis von zuständigen Akteure beschränkt werden. Ein Löschmechanismus muss implementiert werden, um aktuelle Daten zu archivieren oder archivierte Daten am Ende der Speicherdauer zu löschen. Funktionelle Spuren müssen ebenso bereinigt werden wie technische Protokolle, die nicht unbegrenzt gespeichert werden dürfen.",
         "source": "PIAF Connected Objects p10"
       },
       "PIA_LGL_INFO": {
         "name": "Information der Betroffenen",
-        "description": "Stellen Sie sicher, dass die Betroffenen informiert werden. Versichern Sie Ihnen, dass die Verarbeitung nicht durch eine Ausnahme abgedeckt ist und nicht bestimmten Bedingungen unterliegt.",
+        "description": "Stellen Sie sicher, dass die Betroffenen informiert werden. Stellen Sie sicher, dass die Verarbeitung nicht durch eine Ausnahme abgedeckt ist und nicht besonderen Bedingungen unterliegt.",
         "source": "WIKI Information_des_personnes_concernées_(traitement_loyal_et_transparent)"
       },
       "PIA_LGL_CONS": {
@@ -249,12 +259,12 @@
       },
       "PIA_VAL_CONC": {
         "name": "Stellungnahme der Betroffenen",
-        "description": "Der Verantwortliche holt gegebenenfalls die Ansichten der betroffenen Personen oder ihrer Vertreter über die beabsichtigte Verarbeitung, unbeschadet des Schutzes der gewerblichen oder öffentlichen Interessen oder der Sicherheit der Verarbeitungsvorgänge ein. Siehe <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/DE/TXT/HTML/?uri=CELEX:32016R0679&from=DE\">Art. 35 Abs. 9 der [DS-GVO]</a><br>Diese Stellungnahme kann auf verschiedene Weise erhoben werden, je nach Kontext (interne oder externe Studie über den Zweck und die Mittel der Verarbeitung, die Frage an die Mitarbeitervertretung, die Untersuchung der künftigen Kunden des Verantwortlichen).<br><strong>Entscheidet der Verantwortliche</strong> gegen die Meinung der betroffenen Personen, so muss er <strong>die Begründung seiner Entscheidung dokumentieren.</strong><br>Ist der Verantwortliche der Auffassung, dass die<br>die Einholung der Stellungnahme der betroffenen Personen nicht erforderlich ist, so Sie muss er auch hier <strong>die Begründung dokumentieren.</strong>.",
+        "description": "Der Verantwortliche holt gegebenenfalls den Standpunkt der betroffenen Personen oder ihrer Vertreter über die beabsichtigte Verarbeitung, unbeschadet des Schutzes der gewerblichen oder öffentlichen Interessen oder der Sicherheit der Verarbeitungsvorgänge ein. Siehe <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/DE/TXT/HTML/?uri=CELEX:32016R0679&from=DE\">Art. 35 Abs. 9 der [DS-GVO]</a><br>Diese Stellungnahme kann auf verschiedene Weise erhoben werden, je nach Kontext (interne oder externe Studie über den Zweck und die Mittel der Verarbeitung, die Frage an die Mitarbeitervertretung, die Untersuchung der künftigen Kunden des Verantwortlichen).<br><strong>Entscheidet sich der Verantwortliche</strong> gegen die Meinung der betroffenen Personen, so muss er <strong>die Begründung seiner Entscheidung dokumentieren.</strong><br>Ist der Verantwortliche der Auffassung, dass die<br>die Einholung der Stellungnahme der betroffenen Personen nicht erforderlich ist, so muss er auch hier <strong>die Begründung dokumentieren.</strong>",
         "source": "DS-GVO Art. 35.9 and PIAF Connected Objects p39"
       },
       "PIA_VAL_RT": {
         "name": "Bestätigung der DSFA",
-        "description": "<strong>Der Verantwortliche entscheidet förmlich</strong> über die Annehmbarkeit der ausgewählten Maßnahmen, die Restrisiken und den Aktionsplan in festgehaltener Weise im Hinblick auf die zuvor festgestellten Probleme und die Meinung der Beteiligten. Die DSFA kann sein:<br>- bestätigt;<br>- abhängig von einer Verbesserung (erklären Sie in welcher Weise)<br>- abgelehnt (zusammen mit der beabsichtigten Verarbeitung).<br>Bei Bedarf sollten die vorherigen Schritte überprüft werden, damit die DSFA bestätigt werden kann.<br>Diese Entscheidung berührt in keiner Weise die Konformitätsbewertung, die gegebenenfalls von der Datenschutzbehörde, z. B. im Rahmen früherer Formalitäten oder Kontrollen, vorgenommen werden kann.",
+        "description": "<strong>Der Verantwortliche entscheidet förmlich</strong>, ob die ausgewählten Maßnahmen, die Restrisiken und der festgelegte Aktionsplan im Hinblick auf die zuvor festgestellten Probleme und den Standpunkt der betroffenen Personen akzeptabel sind. Die DSFA kann sein:<br>- bestätigt;<br>- zu verbessern (erklären Sie in welcher Weise)<br>- abgelehnt (somit auch die geplante Verarbeitung).<br>Bei Bedarf sollten die vorherigen Schritte noch einmal überprüft und ergänzt werden, damit die DSFA bestätigt werden kann.<br>Diese Entscheidung berührt in keiner Weise die Bewertung, die gegebenenfalls von der Datenschutzbehörde, z. B. im Rahmen einer Vorabkontrolle vorgenommen werden kann.",
         "source": "PIAF Connected Objects p40"
       },
       "PIA_VAL_CART": {
@@ -264,83 +274,83 @@
       },
       "PIA_VAL_ACT": {
         "name": "Aktionsplan",
-        "description": "Der Aktionsplan ist die Beschreibung der Strategie, der Ressourcen und des Personals, die umgesetzt werden müssen, damit die festgelegten Korrekturmaßnahmen wirksam werden. Für jede Aufgabe ist es notwendig, einen Verantwortlichen zu benennen und Fristen zu setzen.",
+        "description": "Der Aktionsplan ist die Auflistung der in den vorherigen Schritten vom Prüfer vorgeschlagenen Maßnahmen, Ressourcen und Zuständigkeiten, die zur Umsetzung der festgelegten Korrekturmaßnahmen erfolgen müssen. Für jede Aufgabe ist es notwendig, einen Verantwortlichen zu benennen und Fristen zu setzen.",
         "source": "keine"
       },
       "PIA_TEC_ANO": {
         "placeholder": "Geben Sie hier die implementierten Anonymisierungsmechanismen an",
         "name": "Anonymisierung",
-        "description": " Beschreibung der Mechanismen der Anonymisierung, zu welchem Zweck sie umgesetzt werden und die Garantien, die sie gegen eine mögliche Reidentifikation einsetzen. ",
+        "description": "Beschreibung der Mechanismen der Anonymisierung, wie sie ausgestaltet sind und zu welchem Zweck sie umgesetzt werden und wie sie eine mögliche Reidentifikation verhindern. Beachten Sie den Unterschied zwischen Anonymisierung und Pseudonymisierung ",
         "source": "keine"
       },
       "PIA_TEC_CLO": {
         "placeholder": "Geben Sie hier an, ob eine Datentrennung geplant ist und wie diese durchgeführt wird.",
         "name": "Datentrennung",
-        "description": "Die Implementierung der Datentrennung trägt dazu bei, die Möglichkeit zu verringern, dass personenbezogene Daten in Zusammenhang gebracht werden können und dass eine Verletzung sämtlicher personenbezogenen Daten eintreten kann.",
+        "description": "Die Implementierung einer Datentrennung trägt dazu bei, die Möglichkeit zu verringern, dass personenbezogene Daten verknüpft werden können und reduzieren so das Risiko eines unbefugten Zuriffs auf sämtliche gespeicherten personenbezogenen Daten.",
         "source": "PIAF Connected Objects p23"
       },
       "PIA_TEC_CHIF": {
         "placeholder": "Beschreiben Sie hier die Maßnahmen, die zur Gewährleistung der Vertraulichkeit der Daten implementiert wurden",
         "name": "Verschlüsselung",
-        "description": "Mittel, die für die <strong>Gewährleistung der Vertraulichkeit</strong> der gespeicherten Daten (in der Datenbank, in Flatfiles, Backups usw.) sowie das Verfahren zur Verwaltung der verwendeten Schlüsseln (Erstellung, Speicherung, Änderung bei Verdacht auf Datengefährdung usw.) implementiert sind.<br>Beschreiben Sie die in der Datenübermittlung implementierten Verschlüsselungsverfahren  (VPN, TLS usw.).",
+        "description": "Maßnahmen, die für die <strong>Gewährleistung der Vertraulichkeit</strong> der gespeicherten Daten (in der Datenbank, in unstrukturierten Dateien, Backups usw.) sowie das Verfahren zur Verwaltung der verwendeten kryptographischen Schlüssel (Erstellung, Speicherung, Änderung bei Verdacht auf Datengefährdung, Zugriffschutz usw.) implementiert sind.<br>Beschreiben Sie die für die Datenübermittlung verwendeten Verschlüsselungsverfahren (VPN, TLS usw.).",
         "source": "keine"
       },
       "PIA_TEC_CTLA": {
         "placeholder": "Geben Sie hier an, wie Benutzerprofile definiert und zugeordnet werden.",
         "name": "Logische Zugriffskontrolle",
-        "description": "Eine Beschreibung der Definition und Zuweisung von Benutzerprofilen. Es ist erforderlich, die durchgeführten<strong>Authentifizierungsmethoden</strong> detailliert zu spezifizieren und gegebenenfalls die für Kennwörter geltenden Regeln anzugeben (Mindestlänge, obligatorische Struktur, Gültigkeitsdauer, Anzahl der erfolglosen Versuche bevor das Konto gesperrt wird, etc.).",
+        "description": "Beschreiben Sie die Definition und Zuweisung von Benutzerprofilen, Rollen und Rechten. Zudem ist es erforderlich, die verwendeten <strong>Authentifizierungsmethoden</strong> detailliert zu spezifizieren und gegebenenfalls die für Kennwörter geltenden Regeln anzugeben (Mindestlänge, obligatorische Struktur, Gültigkeitsdauer, Anzahl der erfolglosen Versuche bevor das Konto gesperrt wird, etc.).",
         "source": "PIAF Connected Objects p21"
       },
       "PIA_TEC_LOG": {
         "placeholder": "Geben Sie hier an, ob Ereignisse protokolliert werden und wie lange diese Aufzeichnungen gespeichert werden.",
         "name": "Rückverfolgbarkeit (Protokollierung)",
-        "description": "Ereignisprotokollierungs- und Aufzeichnungsrichtlinien.",
+        "description": "Maßnahmen zur Sicherstellung der Revisioinsfähigkeit von Verarbeitungsvorgängen, insbesondere Protokollierungs- und Auswertungsrichtlinien.",
         "source": "keine"
       },
       "PIA_TEC_ARCH": {
-        "placeholder": "Geben Sie hier an, ob Mechanismen zur Integritätsprüfung von gespeicherten Daten implementiert sind. Welche sind diese und welchem Zweck dienen Sie?",
+        "placeholder": "Geben Sie hier an, welche Mechanismen zur Archivierung und Integritätsprüfung von gespeicherten Daten implementiert sind und welchem Zweck sie dienen?",
         "name": "Archivierung",
-        "description": "Aufbewahrungsrichtlinien und Verwaltung von elektronischen Archiven, die personenbezogene Daten enthalten, um deren Wert, einschließlich des rechtlichen, für die erforderliche Dauer zu erhalten (Bezahlung, Speicherung, Migration, Zugänglichkeit, Entsorgung, Archivierungspolitik, Schutz der Vertraulichkeit, etc.).",
+        "description": "Beschreiben Sie die Aufbewahrungsrichtlinien sowie die Prozesse zur Verwaltung von Archiven, die personenbezogene Daten enthalten (Anlieferung von Daten, Speicherung, Zugriffsrechte, Aussonderung). Beschreiben Sie die Rollen und rechtlichen Grundlagen und Sicherheitsmaßnahmen der Archivierung. Falls erforderlich, beschreiben Sie die Regelungen zur Abgabe an staatliche Archive.",
         "source": "WIKI Archivage"
       },
       "PIA_TEC_PAP": {
-        "placeholder": "Geben Sie hier an, ob Mechanismen zur Integritätsprüfung von Papierdokumenten implementiert sind. Welche sind diese und welchem Zweck dienen Sie?",
+        "placeholder": "Geben Sie hier an, welche Mechanismen zur Aufbewahrung von Papierunterlagen und zur Integritätsprüfung implementiert sind und welchem Zweck sie dienen?",
         "name": "Papierdokumentensicherheit",
-        "description": "Für die Verarbeitung von Papierdokumenten gibt es Richtlinien. Sie beschreiben, wie Dokumente gedruckt, gelagert, vernichtet und übermittelt werden.",
+        "description": "Soweit Papierdokumente verarbeitet werden, sollte es entsprechende Richtlinien geben. Sie sollten beschreiben, wie Dokumente gedruckt, gelagert, vernichtet und übermittelt werden.",
         "source": "PIAF Connected Objects p21"
       },
       "PIA_TEC_MINI": {
         "placeholder": "Geben Sie hier an, welche Maßnahmen Sie implementiert haben, um den Schweregrad der Risiken durch Datenminimierung personenbezogener Daten zu reduzieren.",
         "name": "Datenminimierung",
-        "description": "Die Sensibilität der Daten kann mit den folgenden Methoden reduziert werden: Filterung und Schrumpfung, Verringerung der Sensibilität durch Transformationen, Reduzierung des identifizierenden Charakters der Daten, Verringerung der Datensammlung, Beschränkung des Zugangs zu Daten.",
+        "description": "Der Umfang der Daten und damit die Sensibilität kann u.a. mit den folgenden Methoden reduziert werden: Filterung und Entfernung, Verringerung der Sensibilität durch Transformationen, Reduzierung des identifizierenden Merkmale der Daten, Aggregation von Daten, Beschränkung des Zugangs zu Daten.",
         "source": "PIAF Connected Objects p41"
       },
       "PIA_SEC_EXP": {
         "placeholder": "Beschreiben Sie hier, wie Softwareaktualisierungen (Betriebssysteme, Anwendungen usw.) und Patches zur Sicherheitskorrektur durchgeführt werden.",
         "name": "Betriebssicherheit",
-        "description": "Richtlinien zur Begrenzung der Wahrscheinlichkeit und des Schweregrads von Risiken für Mittel, die im Betrieb verwendet werden (Dokumentation der Betriebsverfahren, Inventarisierung und Aktualisierung von Software und Hardware, Behebung von Sicherheitslücken, Duplizierung von Daten, Beschränkung des physischen Zugriffs auf Materialien usw.).",
+        "description": "Richtlinien zur Begrenzung der Eintrittswahrscheinlichkeit hinsichtlich von Risiken bezüglich der Betriebsmittel (Dokumentation der Betriebsverfahren, Inventarisierung und Aktualisierung von Software und Hardware, Behebung von Sicherheitslücken, Duplizierung von Daten, Beschränkung des physischen Zugriffs auf Materialien usw.).",
         "source": "WIKI Sécurité_de_l'exploitation"
       },
       "PIA_SEC_MAL": {
         "placeholder": "Beschreiben Sie hier die implementierten Maßnahmen, um Risiken beim Zugriff auf weniger sichere Netzwerke zu reduzieren.",
         "name": "Bekämpfung von Malware",
-        "description": "Maßnahmen zum Schutz des Zugangs zu öffentlichen (Internet-) oder unkontrollierten (Partner-) Netzwerken sowie Workstations und Servern gegen bösartigen Code, der die Sicherheit der personenbezogenen Daten beeinträchtigen könnte.",
+        "description": "Maßnahmen zum Schutz des Zugangs zu öffentlichen (Internet-) oder unkontrollierten (Partner-) Netzwerken sowie Arbeitsplatzrechnern und Servern gegen bösartigen Code, der die Sicherheit der personenbezogenen Daten beeinträchtigen könnte.",
         "source": "WIKI Lutte_contre_les_logiciels_malveillants"
       },
       "PIA_SEC_COMP": {
-        "placeholder": "Beschreiben Sie hier die Maßnahmen, die getroffen wurden, um das Risiko von Angriffen auf die Software zu verringern, die bei der Verarbeitung genutzt wird.",
+        "placeholder": "Beschreiben Sie hier die Maßnahmen, die getroffen wurden, um das Risiko von Angriffen auf die Software auf den Arbeitsplätzen zu verringern",
         "name": "Arbeitsplatzverwaltung",
-        "description": "Maßnahmen, die ergriffen wurden, um die Möglichkeit zu verringern, dass die Eigenschaften der Software (Betriebssysteme, Geschäftsanwendungen, Bürosoftware, Einstellungen usw.) dazu genutzt werden, personenbezogene Daten zu beschädigen (Aktualisierungen, physischer Schutz und Zugriff, Arbeiten in einem gesicherten Netzwerkbereich, Integritätstest, Protokollierung usw.).",
+        "description": "Maßnahmen, die ergriffen wurden, um zu verhindern, dass die Eigenschaften der Software (Betriebssysteme, Geschäftsanwendungen, Bürosoftware, Einstellungen usw.) dazu genutzt werden, personenbezogene Daten zu kompromittieren (Aktualisierungen, physischer Schutz und Zugriff, Arbeiten in einem gesicherten Netzwerkbereich, Integritätstest, Protokollierung usw.).",
         "source": "WIKI Gestion_des_postes_de_travail"
       },
       "PIA_SEC_WEB": {
-        "placeholder": "Beschreiben Sie hier die Methoden und Maßnahmen, die zum Schutz des Internetauftritts implementiert wurden.",
+        "placeholder": "Beschreiben Sie hier die Maßnahmen, die zum Schutz des Internetauftritts implementiert wurden.",
         "name": "Schutz des Internetauftritts",
-        "description": "Methoden und Maßnahmen, um die Möglichkeit zu verringern, dass die Eigenschaften von Websites zur Verletzung personenbezogener Daten missbraucht werden (allgemeine Sicherheitsrichtlinien, TLS-Verschlüsselung von Übermittlungen, Cookie-Richtlinien, Sicherheits-Audits usw.).",
+        "description": "Maßnahmen, um zu verhindern, dass die Eigenschaften von Websites zur Verletzung personenbezogener Daten missbraucht werden (allgemeine Sicherheitsrichtlinien, TLS-Verschlüsselung von Übermittlungen, Cookie-Richtlinien, Sicherheits-Audits usw.).",
         "source": "WIKI Sécurité_des_sites_web"
       },
       "PIA_SEC_BKP": {
-        "placeholder": "Geben Sie hier an, wie Datensicherungen verwaltet werden. Stellen Sie sicher, dass sie an einem sicheren Ort aufbewahrt werden.",
+        "placeholder": "Geben Sie hier an, wie Datensicherungen (Backups) verwaltet werden. Stellen Sie sicher, dass sie an einem sicheren Ort aufbewahrt werden.",
         "name": "Datensicherungen",
         "description": "Vorhandensein einer Backup-Richtlinie, um die Verfügbarkeit und / oder Integrität von personenbezogenen Daten zu gewährleisten und gleichzeitig deren Vertraulichkeit zu schützen (Regelmäßigkeit der Backups, Verschlüsselung des Datenübertragung, Integritätstest usw.).",
         "source": "WIKI Sauvegardes"
@@ -348,43 +358,43 @@
       "PIA_SEC_MAIN": {
         "placeholder": "Beschreiben Sie hier, wie die physische Wartung von Hardware und Geräten organisiert ist.",
         "name": "Hardware-/ Gerätewartung",
-        "description": "Richtlinien, die beschreiben, wie die physische Wartung von Hardware durchgeführt wird, unter Angabe der möglichen Verwendung von Unteraufträgen.<br>Geben Sie an, ob eine Fernwartung und unter welchen Vorkehrungen diese vorgesehen ist. Geben Sie an, wie mit fehlerhafte Geräten umgegangen wird. ",
+        "description": "Richtlinien, die beschreiben, wie die physische Wartung undSicherheit von Hardware durchgeführt wird, unter Angabe der möglichen Verwendung von Unterauftragsverarbeitern.<br>Geben Sie an, ob eine Fernwartung und unter welchen Vorkehrungen diese vorgesehen ist. Geben Sie an, wie mit fehlerhaften Geräten umgegangen wird. ",
         "source": "PIAF Connected Objects p25"
       },
       "PIA_SEC_CTR": {
-        "placeholder":"Beschreiben Sie hier die vertraglichen Garantien für den Schutz personenbezogener Daten, die Auftragsverarbeiter anvertraut sind.",
+        "placeholder":"Beschreiben Sie hier die vertraglichen Regelungen für den Schutz personenbezogener Daten, die einem Auftragsverarbeiter anvertraut sind.",
         "name": "Auftragsverarbeitungsvertrag",
-        "description": "Personenbezogene Daten, die an Auftragsverarbeiter übermittelt oder von diesen verwaltet werden, müssen ausreichende Garantien aufweisen. <strong>Verwenden Sie nur Auftragsverarbeiter mit ausreichenden Garantien</strong> (insbesondere in Bezug auf Fachwissen, Zuverlässigkeit und Ressourcen). Fordern Sie die Sicherheitsrichtlinie für das Informationssystem des Anbieters ein.<br>Ergreifen und dokumentieren Sie die Maßnahmen (Sicherheitsaudits, Besuche von Einrichtungen usw.), um <strong>die Wirksamkeit der Garantien zu gewährleisten, die der Auftragsverarbeiter</strong> im Hinblick auf den Datenschutz bietet. Diese Garantien umfassen:<br>- die Verschlüsselung von Daten entsprechend ihrer Sensibilität oder, falls dies nicht der Fall ist, die Existenz von Verfahren, die gewährleisten, dass das Dienstleistungsunternehmen keinen Zugang zu den ihm anvertrauten Daten hat,<br>- die Verschlüsselung von Übertragungen von Daten (z.B.: HTTPS-Verbindung, VPN, etc.)<br>- Garantien in Bezug auf Netzwerkschutz, Rückverfolgbarkeit (Protokolle, Audits), Autorisierungsverwaltung, Authentifizierung, usw. <strong>Bereitstellung eines Vertrags mit dem Auftragsverarbeiter </strong>, der den Zweck, die Dauer, den Zweck der Verarbeitung und die Verpflichtungen der Parteien definiert. Stellen Sie sicher, dass er insbesondere Bestimmungen enthält, die Folgendes enthalten:<br>- ihre Verpflichtung zur Vertraulichkeit personenbezogener Daten, die ihr anvertraut sind<br>- Mindestanforderungen an die Benutzerauthentifizierung<br>- die Bedingungen für die Rückgabe und / oder Zerstörung von Daten am Ende des Vertrags<br>- die Regeln der Handhabung und die Benachrichtigung bei Datenschutzvorfällen. Diese sollten im Falle einer Sicherheitsverletzung oder eines Sicherheitsvorfalls Informationen des für die Verarbeitung Verantwortlichen enthalten, und dies im Falle einer Verletzung des Schutzes personenbezogener Daten so schnell wie möglich.<br>- Bei Einsatz eines Cloud-Anbieters:<br>\t1. Benennen Sie eindeutig die Daten und die Verarbeitung, die in die Cloud ausgelagert werden;<br>\t2. Definition eigener technischer und rechtlicher Sicherheitsanforderungen;<br>\t3. Führen Sie eine Risikostudie durch, um geeignete Sicherheitsmaßnahmen zu ermitteln;<br>\t4. Identifizieren des relevante Art der Cloud für die beabsichtigte Verarbeitung;<br>\t5. Wählen Sie einen Anbieter mit ausreichenden Garantien;<br>\t6. Überprüfen Sie die interne Sicherheitsrichtlinie;<br>\t7. Überwachen Sie Änderungen während der Laufzeit.",
+        "description": "Personenbezogene Daten, die an Auftragsverarbeiter übermittelt oder von diesen verwaltet werden, müssen ausreichende Garantien aufweisen. Hierzu sind vertragliche Regelungen erforderlich <strong>Verwenden Sie nur Auftragsverarbeiter mit ausreichender Zuverlässigketi</strong> (insbesondere in Bezug auf Fachwissen, Zuverlässigkeit und Ressourcen). Fordern Sie die Sicherheitsrichtlinie für das Informationssystem des Anbieters ein.<br>Ergreifen und dokumentieren Sie die Maßnahmen (Sicherheitsaudits, Besuche von Einrichtungen usw.), um <strong>die Wirksamkeit der Garantien zu gewährleisten, die der Auftragsverarbeiter</strong> im Hinblick auf den Datenschutz bietet. Diese Garantien umfassen:<br>- die Verschlüsselung von Daten entsprechend ihrer Sensibilität oder, falls dies nicht der Fall ist, die Existenz von Verfahren, die gewährleisten, dass das Dienstleistungsunternehmen keinen Zugang zu den ihm anvertrauten Daten hat,<br>- die Verschlüsselung von Übertragungen von Daten (z.B.: HTTPS-Verbindung, VPN, etc.)<br>- Garantien in Bezug auf Netzwerkschutz, Rückverfolgbarkeit (Protokolle, Audits), Autorisierungsverwaltung, Authentifizierung, usw. <strong>Bereitstellung eines Vertrags mit dem Auftragsverarbeiter </strong>, der den Zweck, die Dauer, den Zweck der Verarbeitung und die Verpflichtungen der Parteien definiert. Stellen Sie sicher, dass er insbesondere Bestimmungen enthält, die Folgendes enthalten:<br>- ihre Verpflichtung zur Vertraulichkeit personenbezogener Daten, die ihr anvertraut sind<br>- Mindestanforderungen an die Benutzerauthentifizierung<br>- die Bedingungen für die Rückgabe und / oder Vernichtung / Löschung von Daten am Ende des Vertrags<br>- die Regeln der Handhabung und die Benachrichtigung bei Datenschutzvorfällen. Diese sollten im Falle einer Sicherheitsverletzung oder eines Sicherheitsvorfalls Informationen des für die Verarbeitung Verantwortlichen enthalten, und dies im Falle einer Verletzung des Schutzes personenbezogener Daten so schnell wie möglich.<br>- Bei Einsatz eines Cloud-Anbieters:<br>\t1. Benennen Sie eindeutig die Daten und die Verarbeitung, die in die Cloud ausgelagert werden;<br>\t2. Definition eigener technischer und rechtlicher Sicherheitsanforderungen;<br>\t3. Führen Sie eine Risikostudie durch, um geeignete Sicherheitsmaßnahmen zu ermitteln;<br>\t4. Identifizieren des relevante Art der Cloud für die beabsichtigte Verarbeitung;<br>\t5. Wählen Sie einen Anbieter mit ausreichenden Garantien;<br>\t6. Überprüfen Sie die interne Sicherheitsrichtlinie;<br>\t7. Überwachen Sie Änderungen während der Laufzeit.",
         "source": "Guide Bleu 2017 p19 et https://www.cnil.fr/fr/cloud-computing-les-conseils-de-la-cnil-pour-les-entreprises-qui-utilisent-ces-nouveaux-services"
       },
       "PIA_SEC_NET": {
-        "placeholder": "Geben Sie hier die Sicherheitsmaßnahmen des Netzwerks an, auf dem die Verarbeitung ausgeführt wird.",
+        "placeholder": "Geben Sie hier die Sicherheitsmaßnahmen des Netzwerks an, in dem die Verarbeitung ausgeführt wird.",
         "name": "Netzwerksicherheit",
-        "description": "Je nach Art des Netzwerks, auf dem die Verarbeitung ausgeführt wird (isoliert, privat oder Internet), muss der Verantwortliche angemessene Schutzsysteme installieren: Firewalls, Intrusion Detection Systeme oder andere aktive oder passive Geräte, die für die Sicherstellung der Netzwerksicherheit verantwortlich sind.",
+        "description": "Je nach Art des Netzwerks, auf dem die Verarbeitung ausgeführt wird (isoliert, privat oder Internet), muss der Verantwortliche angemessene Schutzsysteme installieren: Firewalls, Intrusion Detection Systeme oder andere aktive oder passive Geräte, die für die Sicherstellung der Netzwerksicherheit verwendet werden.",
         "source": "PIAF Objets connectés p25"
       },
       "PIA_SEC_PHY": {
-        "placeholder": "Geben Sie hier an, wie die Zutrittskontrolle der Räumlichkeiten durchgeführt wird, in denen die Verarbeitung stattfindet.",
-        "name": "Zutrittskontrolle",
+        "placeholder": "Geben Sie hier an, wie die Zugangskontrolle zu den Räumlichkeiten durchgeführt wird, in denen die Verarbeitung stattfindet.",
+        "name": "Zugangskontrolle",
         "description": "Vorhandensein einer physischen Zugangskontrolle zu den Räumlichkeiten, in denen die Verarbeitung durchgeführt wird (Zonierung, Begleitung der Besucher, Tragen von Abzeichen, verschlossene Türen usw.) - Geben Sie an, ob bei einem Einbruch Alarm ausgelöst werden kann.",
         "source": "PIAF Connected Objects p25"
       },
       "PIA_SEC_LOG": {
-        "placeholder": "Geben Sie hier Mittel und Maßnahmen an, die zur Erkennung von Vorfällen mit personenbezogenen Daten eingesetzt werden",
+        "placeholder": "Geben Sie hier die Maßnahmen an, die zur Erkennung von Vorfällen mit personenbezogenen Daten im Netzwerk eingesetzt werden",
         "name": "Überwachen der Netzwerkaktivität",
-        "description": "Vorhandensein von Maßnahmen, um Vorfälle in Bezug auf personenbezogene Daten frühzeitig zu erkennen und verwertbare Elemente zu deren Untersuchung oder zur Bereitstellung von Nachweisen im Rahmen von Untersuchungen zu haben (Architektur  und Einhaltung der Verpflichtungen in Bezug auf den Schutz personenbezogener Daten usw.).",
+        "description": "Vorhandensein von Maßnahmen zur Überwachung der Netzwerkaktivitäten (in drahtlosen wie drahtgebundenen Netzen) in Echtzeit, um Vorfälle in Bezug auf personenbezogene Daten frühzeitig zu erkennen und verwertbare Informationen zu deren Untersuchung oder zur Bereitstellung von Nachweisen zu liefern.",
         "source": "WIKI Surveillance"
       },
       "PIA_SEC_MAT": {
-        "placeholder": "Geben Sie hier die Maßnahmen an, die sich auf die physische Sicherheit von Servern und Arbeitsplatzrechnern beziehen.",
+        "placeholder": "Geben Sie hier die Sicherheitsmaßnahmen für die verwendeten Hardware-Komponenten an.",
         "name": "Hardware-Sicherheit",
-        "description": "Vorhandensein von Maßnahmen, die ergriffen wurden, um die Möglichkeit zu verringern, dass die Eigenschaften eines Geräts (Server, Workstations, Laptops, Peripheriegeräte, Kommunikationsgeräte, Wechselmedien usw.) zur Beschädigung personenbezogener Daten verwendet werden (Inventarisierung, Trennung, physische Redundanz, Zugangsbeschränkungen usw.).",
+        "description": " Maßnahmen, die ergriffen wurden, um die Möglichkeit zu verringern, dass die eingesetzten Systeme (Server, Workstations, Laptops, Peripheriegeräte, Kommunikationsgeräte, Wechselmedien usw.) zur Beschädigung personenbezogener Daten verwendet werden (Inventarisierung, Trennung, physische Redundanz, Zugangsbeschränkungen usw.).",
         "source": "WIKI Sécurité_des_matériels"
       },
       "PIA_SEC_SRC": {
-        "placeholder": "Beschreiben Sie die Methoden und Maßnahmen, die zur Vermeidung möglicher Risikoquellen eingerichtet wurden.",
+        "placeholder": "Beschreiben Sie die Maßnahmen, die zur Vermeidung möglicher Risikoquellen eingerichtet wurden.",
         "name": "Vermeidung von Risikoquellen",
-        "description": "Vorhandensein von Maßnahmen zur Vermeidung von menschlichen oder nichtmenschlichen Risikoquellen zum Nachteil personenbezogener Daten (gefährliche Produkte, gefährliche geografische Gebiete, Datenübermittlung außerhalb der EU usw.).",
+        "description": "Vorhandensein von Maßnahmen zur Vermeidung von menschlichen oder nichtmenschlichen Risikoquellen für den Schutz personenbezogener Daten (gefährliche Produkte, gefährliche geografische Gebiete, Datenübermittlung außerhalb der EU usw.).",
         "source": "WIKI Éloignement_des_sources_de_risques"
       },
       "PIA_SEC_PROT": {
@@ -394,27 +404,27 @@
         "source": "WIKI Protection_contre_les_sources_de_risques_non_humaines"
       },
       "PIA_ORG_ORG": {
-        "placeholder": "Geben Sie an, ob die Rollen und Verantwortlichkeiten für den Datenschutz definiert sind.",
+        "placeholder": "Geben Sie an, wie die Rollen und Verantwortlichkeiten für den Datenschutz in Ihrer Organisation definiert sind.",
         "name": "Datenschutzorganisation",
-        "description": "Vorhandensein einer Organisationseinheit, die in der Lage ist, den Schutz personenbezogener Daten innerhalb der Organisation zu steuern und zu kontrollieren (Benennung eines DSB, Einrichtung eines Datenschutzausschusses usw.). ",
+        "description": "Vorhandensein einer Organisationseinheit, die in der Lage ist, den Schutz personenbezogener Daten innerhalb der Organisation zu steuern und zu kontrollieren (Benennung eines DSB, Einrichtung eines Teams für das Datenschutzmanagement usw.). ",
         "source": "WIKI Organisation"
       },
       "PIA_ORG_POL": {
-        "placeholder": "Beschreiben Sie hier die Dokumentationsbasis, die Datenschutzziele und -regeln festlegt.",
+        "placeholder": "Beschreiben Sie hier die Dokumentation, die Datenschutzziele und -regeln festlegt.",
         "name": "Datenschutzrichtlinien",
-        "description": "Der für die Verarbeitung Verantwortliche muss über eine Dokumentationsdatenbank verfügen, in der die Ziele und Regeln für den Bereich \"Datenschutz\" festgelegt sind (Aktionsplan, regelmäßige Überarbeitung der Datenschutzrichtlinien usw.).",
+        "description": "Der für die Verarbeitung Verantwortliche muss über eine Dokumentation verfügen, in der die Zielegruppen und Regeln für die Umsetzung des \"Datenschutzes\" festgelegt sind (Aktionsplan, regelmäßige Überarbeitung der Datenschutzrichtlinien usw.).",
         "source": "WIKI Politique_(gestion_des_règles)"
       },
       "PIA_ORG_RMGT": {
-        "placeholder": "Beschreiben Sie hier die Prozesse zur Kontrolle der Risiken, die die von der Organisation durchgeführten Verarbeitungsvorgänge für den Datenschutz und die Privatsphäre der betroffenen Personen darstellen.",
-        "name": "Umgang mit Datenschutzrisiken",
-        "description": "Vorhandensein einer Politik zur Festlegung der Verfahren zur Kontrolle der Risiken, die die Verarbeitungen der Organisation für die Rechte und Freiheiten der betroffenen Personen darstellen (Identifizierung der Verarbeitung personenbezogener Daten, der verarbeitenden Daten, Betriebsmitteln, Risikobewertung, Ermittlung bestehender oder geplanter Maßnahmen usw.).",
+        "placeholder": "Beschreiben Sie hier die Prozesse zum Umgang mit den Risiken, die die von der Organisation durchgeführten Verarbeitungsvorgänge für den Datenschutz und die Privatsphäre der betroffenen Personen mit sich bringen.",
+        "name": "Management von Datenschutzrisiken",
+        "description": "Vorhandene Regelung und Verfahren zum Management der Risiken, die die Verarbeitungen der Organisation für die Rechte und Freiheiten der betroffenen Personen darstellen (Identifizierung der Verarbeitungsverfahren, der verarbeitenden Daten, Betriebsmittel, Risikobewertung, Ermittlung bestehender oder geplanter Maßnahmen usw.).",
         "source": "WIKI Gestion_des_risques"
       },
       "PIA_ORG_PBD": {
         "placeholder": "Beschreiben Sie hier die Methoden, um den Schutz personenbezogener Daten ab Beginn eines neuen Projekts zu berücksichtigen.",
-        "name": "Integrieren Sie den Schutz der Privatsphäre in Projekte",
-        "description": "Vorhandensein von Verfahren zur Beschreibung der Methoden zur Berücksichtigung des Schutzes personenbezogener Daten bei jeder neuen Verarbeitung (Zertifizierungen, Normen, Risikomanagement für die betreffende Person nach der CNIL-Methode oder eine interne Methode usw.).",
+        "name": "Integration des Schutzes der Privatsphäre in Projekte",
+        "description": "Vorhandene Verfahren zur Beschreibung der Methoden zur Berücksichtigung des Schutzes personenbezogener Daten bei jeder neuen Verarbeitung (Zertifizierungen, Normen, Risikomanagement für die betreffende Person nach der CNIL-Methode oder eine interne Methode usw.).",
         "source": "WIKI Gestion_des_projets"
       },
       "PIA_ORG_VIOL": {
@@ -426,17 +436,17 @@
       "PIA_ORG_PERS": {
         "placeholder": "Geben Sie hier an, welche Sensibilisierungsmaßnahmen in Bezug auf die Mitarbeiter durchgeführt werden.",
         "name": "Sensibilisierungsmaßnahmen",
-        "description": "Vorhandensein eines Plans, der die <strong>Sensibilisierungsmaßnahmen</strong> festlegt, die bei der Antritt einer Person in ihrer (neuen) Funktion getroffen wurden, und eines Verfahrens, das die <strong>Maßnahmen beschreibt, die von den Personen getroffen wurden, die auf die Daten zugreifen</strong>.",
+        "description": "Vorhandene Regelungen zur Schulung und <strong>Sensibilisierung</strong> von (neuen) Mitarbeitern bei Antritt ihrer (neuen) Funktion sowie für Personen, die Zugriff auf personenbezogene Daten hatten beim Ausscheiden aus der Organisation</strong>.",
         "source": "PIAF Connected Objects p24"
       },
       "PIA_ORG_EXT": {
-        "placeholder": "Geben Sie hier die Sicherheitskontrollen und -regelungen an, denen Dritte in Bezug auf Ihren Zugang unterliegen.",
-        "name": "Sicherheitskontrollen und -regelungen für Dritte",
-        "description": "Vorliegen eines Verfahrens zur Verringerung der Risiken, die der legitime Zugang zu Daten durch Dritte für die Freiheiten und die Privatsphäre der betroffenen Personen darstellen kann (Festlegung der Dritten, Auftragsverarbeitungsvertrag, Verpflichtungen, BCR usw.) .",
+        "placeholder": "Geben Sie hier die Sicherheitsmaßnahmen und -regelungen an, denen Dritte in Bezug auf Ihren Zugang unterliegen.",
+        "name": "Sicherheitsmaßnahmen und -regelungen für Dritte",
+        "description": "Vorliegen von Regelungen und Maßnahmen zur Verringerung der Risiken, die der legitime Zugang zu Daten durch Dritte für die Freiheiten und die Privatsphäre der betroffenen Personen darstellen kann (Festlegung der Dritten, Auftragsverarbeitungsvertrag, Verpflichtungen, BCR usw.) .",
         "source": "WIKI Relations_avec_les_tiers"
       },
       "PIA_ORG_AUD": {
-        "placeholder": "Geben Sie hier an, ob die Wirksamkeit und Angemessenheit der Datenschutzmaßnahmen überwacht werden.",
+        "placeholder": "Geben Sie hier an, wie die Wirksamkeit und Angemessenheit der Datenschutzmaßnahmen überwacht werden.",
         "name": "Überwachung der Datenschutzmaßnahmen",
         "description": "Vorhandensein von Maßnahmen, um einen globalen und aktuellen Überblick über den Stand des Datenschutzes und die Einhaltung der DS-GVO zu erhalten (Überprüfung der Einhaltung von Verarbeitungen, Zielen und Indikatoren, Verantwortlichkeiten usw.).",
         "source":  "WIKI Supervision"
@@ -467,13 +477,13 @@
         "source": "DS-GVO Art. 4.9"
       },
       "PIA_DEF_SUPT": {
-        "name": "Unterstützung der Verabeitung",
+        "name": "Unterstützung der Verarbeitung",
         "description": "<strong>Hardware und elektronische Datenträger</strong>: Computer, Kommunikationsgeräte, USB-Sticks, Festplatten ...<br><strong>Software</strong>: Betriebssysteme, Messagingsysteme, Datenbanken, Business-Anwendungen ...<br><strong>IT-Netzwerke </strong>: Kabel, WLAN, Glasfaser<br><br> <strong>Personen</strong>: Benutzer, IT-Administratoren, Entscheidungsträger ...<br><strong>Papierdokumente</strong>: Ausdrucke, Fotokopien, handschriftliche Dokumente ...<br><strong>Übertragung von Papierdokumenten</strong>: Postversand, Umlaufmappen ...",
         "source": "WIKI Types_et_exemples_de_supports_des_données"
       },
       "PIA_DEF_MINC": {
-        "name": "Datenminimierung",
-        "description": "Verringerung der Schwere von Risiken, indem die Erfassung personenbezogener Daten auf das begrenzt wird, was für einen bestimmten Zweck unbedingt erforderlich ist; Vermeiden Sie die Sammlung unnötiger Daten, die Verwendung von Daten, die nichts mit dem Zweck zu tun haben, und die exzessive Auswirkungen auf Einzelpersonen haben können.",
+        "name": "Minimierung der Datenmenge",
+        "description": "Verringerung der Schwere von Risiken, indem die Anzahl der erfassten personenbezogenen Daten auf das Minimum dessen begrenzt wird, was für einen bestimmten Zweck unbedingt erforderlich ist; Vermeiden Sie die Sammlung unnötiger Daten, die Verwendung von Daten, die nichts mit dem Zweck zu tun haben, und die exzessive Auswirkungen auf Einzelpersonen haben können.",
         "source": "WIKI Minimisation_des_données_:_adéquates,_pertinentes_et_limitées"
       },
       "PIA_DEF_MIND": {
@@ -482,8 +492,8 @@
         "source": "WIKI Minimisation_des_données_:_adéquates,_pertinentes_et_limitées"
       },
       "PIA_DEF_CONS": {
-        "name": "Einwilligung",
-        "description": "Jede freiwillig für den bestimmten Fall, in informierter Weise und unmissverständlich abgegebene Willensbekundung in Form einer Erklärung oder einer sonstigen eindeutigen bestätigenden Handlung, mit der die betroffene Person zu verstehen gibt, dass sie mit der Verarbeitung der sie betreffenden personenbezogenen Daten einverstanden ist.<br>Siehe <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/DE/TXT/HTML/?uri=CELEX:32016R0679&from=DE\">Art. 4.11 der [DS-GVO]</a>",
+        "name": "Einwilligung des Betroffenen",
+        "description": "Einwilligung der betroffenen Personen jede freiwillig für den bestimmten Fall, in informierter Weise und unmissverständlich abgegebene Willensbekundung in Form einer Erklärung oder einer sonstigen eindeutigen bestätigenden Handlung, mit der die betroffene Person zu verstehen gibt, dass sie mit der Verarbeitung der sie betreffenden personenbezogenen Daten einverstanden ist.<br>Siehe <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/DE/TXT/HTML/?uri=CELEX:32016R0679&from=DE\">Art. 4.11 der [DS-GVO]</a>",
         "source": "DS-GVO Art. 4.11"
       },
       "PIA_DEF_ACC": {
@@ -503,7 +513,7 @@
       },
       "PIA_DEF_EFF": {
         "name": "Recht auf Löschung",
-        "description": "Die betroffene Person hat das Recht, von dem Verantwortlichen zu verlangen, dass sie betreffende personenbezogene Daten unverzüglich gelöscht werden, und der Verantwortliche ist verpflichtet, personenbezogene Daten unverzüglich zu löschen.<br>Siehe <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/DE/TXT/HTML/?uri=CELEX:32016R0679&from=DE\">Art. 17 der [DS-GVO]</a>",
+        "description": "Die betroffene Person hat das Recht, von dem Verantwortlichen zu verlangen, dass sie betreffende personenbezogene Daten unverzüglich gelöscht werden, und der Verantwortliche ist verpflichtet, personenbezogene Daten unverzüglich zu löschen, soweit die gesetzlich geregelten Gründe zutreffen.<br>Siehe <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/DE/TXT/HTML/?uri=CELEX:32016R0679&from=DE\">Art. 17 der [DS-GVO]</a>",
         "source" : "DS-GVO Art. 17"
       },
       "PIA_DEF_LIM": {
@@ -533,36 +543,36 @@
       },
       "PIA_DEF_CLO": {
         "name": "Datentrennung",
-        "description": "Eine Reihe von Methoden, um die Möglichkeit zu reduzieren, personenbezogene Daten zu korrelieren und eine Verletzung aller Daten zu provozieren, beispielsweise die spezifischen Daten jedes Geschäftsprozesses  zu identifizieren, sie logisch zu trennen usw..",
+        "description": "Methoden zur Reduzierung der Möglichkeiten, personenbezogene Daten zu korrelieren und eine Kompromittierung aller gespeicherten Daten zu verhindern, indem beispielsweise die spezifischen Daten der jeweiligen Geschäftsprozesses identifiziert und logisch getrennt werden.",
         "source": "WIKI Cloisonnement_des_données_(par_rapport_au_reste_du_système_d’information)"
       },
       "PIA_DEF_CTLA": {
         "name": "Logische Zugriffskontrollen",
-        "description": "Es geht darum, die Risiken des Zugriffs unbefugter Personen auf personenbezogene Daten in digitaler Form zu begrenzen.<br> Um dies zu tun, empfiehlt es sich:<br>- <strong>Berechtigungsprofile</strong> zu definieren: Systeme, um durch die Trennung von Aufgaben und Verantwortungsbereichen den Zugriff der Benutzer auf diejenigen Daten zu beschränken, die für die Erfüllung ihrer Aufgaben unbedingt erforderlich sind.<br>- <strong>Entziehen Sie Benutzern Zugriffsrechte, sobald diese nicht mehr berechtigt sind, auf eine lokale oder IT-Ressource zuzugreifen</strong>sowie <strong>am Ende ihres Vertrags.</strong><br>- <strong>Führen Sie eine jährliche Überprüfung der Berechtigungen durch</strong>, um nicht verwendete Konten zu identifizieren und zu löschen und die Rechte neu zuzuweisen, die für die Funktionen jedes Nutzers gewährt werden.",
+        "description": "Es geht darum, die Risiken des Zugriffs unbefugter Personen auf personenbezogene Daten in digitaler Form zu begrenzen.<br> Um dies zu tun, empfiehlt es sich:<br>- <strong>Berechtigungsprofile / -konzepte</strong> zu definieren, die durch die Trennung von Aufgaben und Verantwortungsbereichen den Zugriff der Benutzer auf diejenigen Daten beschränken, die für die Erfüllung ihrer Aufgaben unbedingt erforderlich sind.<br>- <strong>Entziehen Sie Benutzern Zugriffsrechte, sobald diese nicht mehr berechtigt sind, auf eine lokale oder IT-Ressource zuzugreifen</strong>sowie <strong>am Ende ihres Vertrags.</strong><br>- <strong>Führen Sie eine jährliche Überprüfung der Berechtigungen durch</strong>, um nicht verwendete Konten zu identifizieren und zu löschen und die Rechte neu zuzuweisen, die für die Funktionen jedes Nutzers gewährt werden.",
         "source": "WIKI Contrôle_des_accès_logiques et Guide Bleu 2017 p9 pour les précautions"
       },
       "PIA_DEF_PWD": {
         "name": "Verwendung von Kennwörtern",
-        "description": "Basierend auf der Verwaltung eines Geheimnisses ist die Authentifizierung durch Benutzername und Kennwort eine einfache und kostengünstige Möglichkeit, um den Zugriff zu kontrollieren. Diese Authentifizierungsmethode weist jedoch ein niedriges Sicherheitsniveau auf.<br>Die Mindestanforderungen der CNIL in Bezug auf Größe und Komplexität des Kennworts hängen von den zusätzlichen Maßnahmen ab, die implementiert werden, um den Authentifizierungsprozess zuverlässiger zu machen:<br>Wenn also eine Authentifizierung ausschließlich auf einem Kennwort basiert, bedeutet dies zumindest die Verwendung eines komplexen Kennwortes mit mindestens 12 Zeichen bestehend aus Großbuchstaben, Ziffern und Sonderzeichen. Zusätzliche Maßnahmen zur Eingabe eines Kennworts (Beschränkungen des Zugriffs, Einbezug anderer Daten, eigene Unterstützung durch den Benutzer) können die Länge und Komplexität des Kennworts aufgrund dieser Maßnahmen verringern. Sie stellen ein Sicherheitsniveau sicher, das äquivalent zu einem Kennwort ist.",
+        "description": "Basierend auf der Verwaltung eines Geheimnisses ist die Authentifizierung durch Benutzername und Kennwort eine einfache und kostengünstige Möglichkeit, um den Zugriff zu kontrollieren. Diese Authentifizierungsmethode weist jedoch ein niedriges Sicherheitsniveau auf.<br>Die Mindestanforderungen der CNIL in Bezug auf Länge und Komplexität des Kennworts hängen von den zusätzlichen Maßnahmen ab, die implementiert werden, um den Authentifizierungsprozess zuverlässiger zu machen:<br>Wenn also eine Authentifizierung ausschließlich auf einem Kennwort basiert, bedeutet dies zumindest die Verwendung eines komplexen Kennwortes mit mindestens 12 Zeichen bestehend aus Großbuchstaben, Ziffern und Sonderzeichen. Zusätzliche Maßnahmen zur Eingabe eines Kennworts (Beschränkungen des Zugriffs, Einbezug anderer Daten, eigene Unterstützung durch den Benutzer) können die Länge und Komplexität des Kennworts aufgrund dieser Maßnahmen verringern. Sie stellen ein Sicherheitsniveau sicher, das äquivalent zu einem Kennwort ist.",
         "source": "Guide Bleu 2017 p7 : https://www.cnil.fr/fr/authentification-par-mot-de-passe-les-mesures-de-securite-elementaires synthétisé"
       },
       "PIA_DEF_AUTH": {
         "name": "Authentifizierung",
-        "description": "Die Authentifizierung ist eine <strong>Operation, durch die der Benutzer seine Identität beweist</strong>. Dafür gibt es mehrere Mechanismen, nach denen Sie eingeordnet sind:<br>-was wir wissen, zum Beispiel ein Passwort;<br>- was man hat, zum Beispiel eine Smartcard;<br>- ein Merkmal, das für uns einzigartig ist, zum Beispiel ein Fingerabdruck oder die Möglichkeit, eine handschriftliche Unterschrift zu leisten.<br>Zur Erinnerung: nach der DS-GVO ist die  Verwendung der Biometrie nur aufgrund eines gesetzlichen Erlaubnistatbestands zulässig.<br><strong>Die Authentifizierung eines Benutzers ist als stark gekennzeichnet, wenn eine Kombination aus mindestens zwei dieser Kategorien verwendet wird.</strong>",
+        "description": "Die Authentifizierung ist eine <strong>Operation, durch die der Benutzer seine Identität beweist</strong>. Jeder berechtigte Benutzer sollte hierbei eindeutig identifiziert werden. Hierfür können mehrere Mechanismen unterschieden werden:<br>-Wissen: zum Beispiel ein Passwort;<br>- Besitz: zum Beispiel eine Smartcard;<br>- Biometrie: ein Merkmal, das für uns einzigartig ist, zum Beispiel ein Fingerabdruck oder die Möglichkeit, eine handschriftliche Unterschrift zu leisten.<br>Zur Erinnerung: nach der DS-GVO ist die  Verwendung der Biometrie nur aufgrund eines gesetzlichen Erlaubnistatbestands zulässig.<br><strong>Die Authentifizierung eines Benutzers ist als stark gekennzeichnet, wenn eine Kombination aus mindestens zwei dieser Kategorien verwendet wird.</strong>",
         "source": "Guide Bleu p7"
       },
       "PIA_DEF_LOG": {
-        "name": "Protokollierung",
-        "description": "Aufzeichnung von Aktionen, die auf dem Computersystem ausgeführt werden, um <strong>betrügerischen Zugriff</strong> oder <strong>Missbrauch</strong> von persönlichen Daten zu identifizieren oder die Herkunft eines Vorfalls. Einige der auf Computersystemen ausgeführten Aktionen sollten aufgezeichnet werden. Zu diesem Zweck muss ein Trace- und Incident-Management-System eingerichtet werden. Es sollte <strong>relevante Ereignisse aufzeichnen</strong>und <strong>sicherstellen, dass diese Datensätze nicht manipuliert werden können.</strong> In jedem Fall sollten Sie <strong>diese Datensätze nur für einen gewissen Zeitraum und nicht exzessiv lange aufbewahrt werden.</strong>",
+        "name": "Protokollierung, Rückverfolgbarkeit",
+        "description": "Aufzeichnung von Aktionen, die auf dem IT-system ausgeführt werden, um <strong>betrügerischen Zugriff</strong> oder <strong>Missbrauch</strong> von persönlichen Daten zu erkennen sowie den Verursacher eines Vorfalls. Zu diesem Zweck muss ein Trace- und Incident-Management-System eingerichtet werden. Es sollte <strong>relevante Ereignisse aufzeichnen</strong>und <strong>sicherstellen, dass diese Datensätze nicht manipuliert werden können.</strong> In jedem Fall sollten Sie <strong>diese Datensätze nur für einen gewissen Zeitraum und nicht exzessiv lange aufbewahrt werden.</strong>",
         "source": "Guide Bleu 2017 p10"
       },
       "PIA_DEF_ARCH": {
         "name": "Archivierung",
-        "description": "Daten, die nicht mehr täglich verwendet werden, aber noch nicht ihre Aufbewahrungsfrist erreicht haben, beispielsweise weil sie für den Fall eines Rechtsstreits aufbewahrt werden, sollten archiviert werden.<br><strong>Archive müssen sicher sein</strong>, insbesondere wenn es sich bei den archivierten Daten um sensible Daten oder um Daten handelt, die schwerwiegende Auswirkungen auf die betroffenen Personen haben können.",
+        "description": "Daten, die nicht mehr täglich verwendet werden, aber noch nicht ihre Aufbewahrungsfrist erreicht haben, beispielsweise weil sie für den Fall eines Rechtsstreits aufbewahrt werden, sollten archiviert werden.<br><strong>Archive müssen sicher und der Zugang eingeschränkt sein</strong>, insbesondere wenn es sich bei den archivierten Daten um sensible Daten oder um Daten handelt, die schwerwiegende Auswirkungen auf die betroffenen Personen haben können.",
         "source": "Guide Bleu 2017 p17"
       },
       "PIA_DEF_MIN1": {
-        "name": "Filterung und Entfernung",
+        "name": "Filterung und Löschung",
         "description": "Beim Importieren von Daten können verschiedene Arten von Metadaten (z. B. EXIF-Daten, die an eine Bilddatei angehängt sind) unbeabsichtigt erfasst werden.<br>Diese Metadaten müssen identifiziert und verworfen werden, wenn sie nicht für die angegebenen Zwecke erforderlich sind.",
         "source" : "WIKI Minimisation_des_données_:_adéquates,_pertinentes_et_limitées"
       },
@@ -573,42 +583,42 @@
       },
       "PIA_DEF_SRC": {
         "name": "Risikoquelle",
-        "description": "Person, die zur Organisation intern oder extern ist und in zufälliger oder vorsätzlicher Weise handelt (z. B. IT-Administrator, Benutzer, externer Angreifer, Mitbewerber). Oder eine nichtmenschliche Quelle (z.B. Wasser, gefährliche Stoffe, Computerviren), die ein Risiko verursachen können.",
+        "description": "Person (intern oder extern), die zufälliger oder vorsätzlicher Weise handelt oder eine nichtmenschliche Quelle (z.B. Wasser, gefährliche Stoffe, Computerviren), die ein Risiko für die Datenverarbeitung verursacht(z. B. IT-Administrator, Benutzer, externer Angreifer, Mitbewerber).",
         "source": "PIA1 p12 et WIKI Types_et_exemples_de_sources_de_risques synthétisés"
       },
       "PIA_DEF_MEN": {
         "name": "Bedrohung",
-        "description": "Verfahren bestehend aus einer oder mehreren Aktivitäten auf datenverarbeitenden Systemen. Die Bedrohung kann absichtlich oder unabsichtlich durch Risikoquellen genutzt werden und kann ein befürchtetes Ereignis auslösen.",
+        "description": "Vorgang, der die datenverarbeitenden Systeme und gespeicherten Daten gefährdet und zu Schäden für den Betroffenen führen kann. Die Bedrohung kann absichtlich oder unabsichtlich durch Risikoquellen genutzt werden und kann ein schadhaftes Ereignis auslösen.",
         "source": "PIA1 p11"
       },
       "PIA_DEF_MENA": {
-        "name": "Bedrohungen, die zu einem unberechtigten Zugriff führen können",
-        "description": "Bedrohungen in Bezug auf:<br>- <strong>Materialien</strong>, unangemessene Verwendung, Ausspähung, ungewollte Veränderung oder Verlust (Verwendung von Medien mit sensiblen Daten aus persönlichen Gründen oder deren Transport ohne entsprechende Sicherheitsmaßnahmen, Ausspähen von Bildschirmen, Einschleusen von Hardware zum Abruf von Daten, usw.)<br>- <strong>Software </strong>, unangemessene Verwendung, Ausspähung, ungewollte Veränderung (Erweiterung von Berechtigungen, Sammlung von Konfigurationsdaten, Installation eines Remote-Tools usw.)<br>-<strong>Computernetzwerke</strong>, die ausgespäht werden (Überwachung von Netzwerkflüssen, etc.) <br>- <strong>Personen</strong> durch Ausspähung, Unterschlagung oder Verlust (unfreiwillige Offenlegung, Social Engineering, Wechsel des Arbeitgebers, etc.)<br>-<strong> Papierdokumente</strong> durch Ausspähung oder Verlust (Fotokopien, vergessene Ausdrucke, Wiederherstellung von verworfene Dokumente, Maildiebstahl, etc.)<br>- <strong>Postversand </strong> durch Ausspähung",
+        "name": "Bedrohungen, die zu einem unrechtmäßigem Zugriff führen können",
+        "description": "Bedrohungen in Bezug auf:<br>- <strong>Komponenten</strong>, unangemessene Verwendung, Ausspähung, ungewollte Veränderung oder Verlust (Verwendung von Medien mit sensiblen Daten aus persönlichen Gründen oder deren Transport ohne entsprechende Sicherheitsmaßnahmen, Ausspähen von Bildschirmen, Einschleusen von Hardware zum Abruf von Daten, usw.)<br>- <strong>Software </strong>, unangemessene Verwendung, Ausspähung, ungewollte Veränderung (Erweiterung von Berechtigungen, Sammlung von Konfigurationsdaten, Installation eines Remote-Tools usw.)<br>-<strong>Computernetzwerke</strong>, die ausgespäht werden (Überwachung von Netzwerkflüssen, etc.) <br>- <strong>Personen</strong> durch Ausspähung, Unterschlagung oder Verlust (unfreiwillige Offenlegung, Social Engineering, Wechsel des Arbeitgebers, etc.)<br>-<strong> Papierdokumente</strong> durch Ausspähung oder Verlust (Fotokopien, vergessene Ausdrucke, Wiederherstellung von verworfenen Dokumente, Maildiebstahl, etc.)<br>- <strong>Postversand </strong> durch Ausspähung",
         "source": "WIKI Menaces_pouvant_mener_à_un_accès_illégitime_à_des_données synthétisé"
       },
       "PIA_DEF_MENM": {
-        "name": "Bedrohungen, die zu einer unerwünschten Änderung personenbezogener Daten führen können",
-        "description": "<strong>Drohungen über:</strong><br>- <strong>Materialien</strong>, die geändert werden (Hinzufügen von inkompatibler Hardware, Entfernen wichtiger Komponenten usw.)<br>- <strong >Software</strong>, die unangemessen verwendet oder modifiziert wird (Bedienfehler, ungewollte Änderungen, etc.)<br>- <strong>Computernetzwerke</strong>, die unangemessen verwendet werden (Weiterversand von abgefangenen Daten, etc.)<br> - <strong>Personen</strong> durch Überarbeitung oder Beeinflussung (unkontrollierte Tätigkeit, störende Arbeitsbedingungen, Einflussnahme, etc.)<br> - Geänderte Papierdokumente (Veränderung , Ersatz durch eine Fälschung, etc.)<br>- <strong>Postversand</strong>, durch Manipulation (Austausch von Abzeichnungen, Versendung widersprüchlicher Briefe usw.)",
+        "name": "Bedrohungen, die zu einer unerwünschten Veränderung personenbezogener Daten führen können",
+        "description": " Bedrohungen in Bezug auf <br>- <strong>Komponenten</strong>, die geändert werden (Hinzufügen von inkompatibler Hardware, Entfernen wichtiger Komponenten usw.)<br>- <strong >Software</strong>, die unangemessen verwendet oder modifiziert wird (Bedienfehler, ungewollte Änderungen, etc.)<br>- <strong>Computernetzwerke</strong>, die unangemessen verwendet werden (Weiterversand von abgefangenen Daten, etc.)<br> - <strong>Personen</strong> durch Überarbeitung oder Beeinflussung (unkontrollierte Tätigkeit, störende Arbeitsbedingungen, Einflussnahme, etc.)<br> - Geänderte Papierdokumente (Veränderung , Ersatz durch eine Fälschung, etc.)<br>- <strong>Postversand</strong>, durch Manipulation (Austausch von Abzeichnungen, Versendung widersprüchlicher Briefe usw.)",
         "source": "WIKI Menaces_pouvant_mener_à_une_modification_non_désirées_de_données"
       },
       "PIA_DEF_MENI": {
         "name": "Bedrohungen, die zum Verlust personenbezogener Daten führen können",
-        "description": "<strong>Drohungen über:</strong><br>- <strong>Hardware</strong>: missbraucht, überlastet, modifiziert, verdorben, verloren (Speicherüberlastung, DOS-Angriff, Änderung, die zu einem Absturz führt, Feuer , Diebstahl oder Verlust, etc.)<br>- <strong>Software</strong>: unangemessen verwendet, überlastet, modifiziert, beschädigt, verloren (Datenlöschung, Dateneinspeisung, logische Bombe, Lizenz nicht erneuert, etc.)<br>- <strong>Computernetzwerke</strong>: überlastet, beschädigt, verloren (Download nicht möglich, Internet-Zugang usw.)<br> -<strong>Personen</strong> : überlastet, beeinflusst, nicht (mehr) verfügbar (Missbrauch von Fähigkeiten, Abwesenheit, Abreise usw.)<br>- <strong>Papierdokumente </strong>: missbräuchlich verwendet, beschädigt, verloren (Löschung, Zerstörung, Diebstahl oder Verlust usw.)<br>- <strong>Postversand</strong>: beschädigt, verändert, verloren (Poststreik, Änderung der Räumlichkeiten, Verschwinden eines Dokumententrägers, Reorganisation des Versands usw.)",
+        "description": "Bedrohungen in Bezug auf <br>- <strong>Komponenten</strong>: Missbrauch, Überlastung, Veränderung, Zerstörung, Verlust (Speicherüberlastung, DOS-Angriff, Änderung, die zu einem Absturz führt, Feuer , Diebstahl oder Verlust, etc.)<br>- <strong>Software</strong>: unangemessene Verwendung, Überlastung, Veränderung, Zerstörung, Verlust (Datenlöschung, Einschmuggeln von Daten, logische Bombe, Lizenz nicht erneuert, etc.)<br>- <strong>Computernetzwerke</strong>: Überlastung, Beschädigung, Verlust (Download nicht möglich, Internet-Zugang usw.)<br> -<strong>Personen</strong> : Überlastung, Beeinflussung, Abwesenheit (Missbrauch von Fähigkeiten, Abwesenheit, Abreise usw.)<br>- <strong>Papierdokumente </strong>: missbräuchliche Nutzung, Beschädigung, Verlust (Zerstörung, Diebstahl oder Verlust usw.)<br>- <strong>Postversand</strong>: Beschädigung, Veränderung, Verlust (Poststreik, Änderung der Räumlichkeiten, Verschwinden eines Dokumententrägers, Reorganisation des Versands usw.)",
         "source": "WIKI Menaces_pouvant_mener_à_une_disparition_de_données"
       },
       "PIA_DEF_GRV": {
         "name": "Schweregrad",
-        "description": "Die Schwere ist die Größe eines Risikos. Es hängt im Wesentlichen von der Schädlichkeit der potenziellen Auswirkungen ab.",
+        "description": "Der Schweregrad bemisst die Tragweite eines Risikos. Er hängt im Wesentlichen von dem potenziellen Schaden ab, den der Eintritt des Risikos bewirkt.",
         "source": "PIA1 page 9"
       },
       "PIA_DEF_VRA": {
         "name": "Eintrittswahrscheinlichkeit",
-        "description": "Die Wahrscheinlichkeit spiegelt die Möglichkeit wieder, dass ein Risiko eintritt. Es hängt hauptsächlich von den Schwachstellen der eingesetzten Mittel gegenüber Bedrohungen und der Fähigkeit der Risikoquellen ab, diese zu nutzen.",
+        "description": "Die Wahrscheinlichkeit spiegelt die Möglichkeit wieder, dass ein Risiko eintritt. Es hängt hauptsächlich von den Angreifbarkeit der eingesetzten Betriebsmittel hinsichtlich der Bedrohungen und Risikoquellen ab.",
         "source": "PIA1 page 12"
       },
       "PIA_DEF_PBDS": {
         "name": "Projektmanagement",
-        "description": "Ansatz zur Berücksichtigung des Schutzes personenbezogener Daten bei jeder neuen Verarbeitung (Zertifizierungen, anerkannte Verhaltensregeln, Risikomanagement für die betreffende Person gemäß der Methodik der CNIL oder einer internen Methode usw.), einschließlich:<br>- Nutzen Sie den Risikomanagementansatz der CNIL, sobald ein Dienst oder eine Anwendung entwickelt wird.<br>– Setzen Sie in den Bereichen IT auf Zertifizierungen (für Verfahren, Produkte, Managementsysteme, Organisationen, Personen usw.).<br>- Verwenden Sie bewährte und anerkannte Verhaltensregeln und Standards.",
+        "description": "Maßnahmen zur Berücksichtigung des Schutzes personenbezogener Daten bereits bei der Konzeption einer neuen Verarbeitung (Zertifizierungen, anerkannte Verhaltensregeln, Risikomanagement für die betreffende Person gemäß der Methodik der CNIL oder einer internen Methode usw.), einschließlich:<br>- Nutzen Sie den Risikomanagementansatz der CNIL, sobald ein Dienst oder eine Anwendung entwickelt wird.<br>– Setzen Sie in den Bereichen IT auf Zertifizierungen (für Verfahren, Produkte, Managementsysteme, Organisationen, Personen usw.).<br>- Verwenden Sie bewährte und anerkannte Verhaltensregeln und Standards.",
         "source": "WIKI Gestion_des_projets - les recommandations ne sont pas citées"
       },
       "PIA_DEF_VIOL": {
@@ -633,22 +643,22 @@
       },
       "PIA_DEF_PC": {
         "name": "Betroffener",
-        "description": "Person, auf die sich die zu verarbeitenden Daten beziehen.",
+        "description": "Person, deren Daten verarbeitet werden.",
         "source": "PIA1 p11"
       },
       "PIA_DEF_MIN3": {
         "name": "Verringerung der identifizierenden Natur der Daten",
-        "description": "Das System kann sicherstellen, dass:<br>- Der Benutzer eine Ressource oder einen Dienstes ohne das Risiko der Offenlegung seiner / ihrer Identität (anonyme Daten) verwenden kann.<br>- Der Benutzer eine Ressource oder Dienstleistung ohne Offenlegung seiner / ihrer Identität benutzen kann. Er  bleibt aber identifizierbar und verantwortlich für diese Nutzung (pseudonymisierte Daten).<br>- Der Benutzer kann Ressourcen oder Dienste mehrfach nutzen, ohne dass diese Nutzungen miteinander verknüpft werden können (nicht korrelierbare Daten).<br>- Der Benutzer darf eine Ressource oder Dienstleistung ohne Risiko nutzen, dass andere, insbesondere Dritte, in der Lage sind, zu beobachten, dass die Ressource oder Dienstleistung genutzt wird (Nichtbeobachtbarkeit).<br>Eine Methode aus der obigen Liste muss von den erkannten Bedrohungen abhängen. Für einige Arten von Datenschutzbedrohungen ist die Pseudonymisierung geeigneter als die Anonymisierung (z. B. wenn Nachverfolgbarkeit erforderlich ist). Darüber hinaus werden einige Datenschutzbedrohungen durch eine Kombination mehrerer Methoden behoben.",
+        "description": "Das System kann sicherstellen, dass:<br>- Der Benutzer eine Ressource oder einen Dienstes ohne das Risiko der Offenlegung seiner / ihrer Identität (anonyme Daten) verwenden kann.<br>- Der Benutzer eine Ressource oder Dienstleistung ohne Offenlegung seiner / ihrer Identität benutzen kann. Er bleibt aber identifizierbar und verantwortlich für diese Nutzung (pseudonymisierte Daten).<br>- Der Benutzer kann Ressourcen oder Dienste mehrfach nutzen, ohne dass diese Nutzungen miteinander verknüpft werden können (nicht korrelierbare / verkettbare Daten).<br>- Der Benutzer kann eine Ressource oder Dienstleistung ohne Risiko nutzen, dass andere, insbesondere Dritte, in der Lage sind, zu beobachten, dass die Ressource oder Dienstleistung genutzt wird (Nichtbeobachtbarkeit).<br>Eine Methode aus der obigen Liste muss von den erkannten Bedrohungen abhängen. Für einige Arten von Datenschutzbedrohungen ist die Pseudonymisierung geeigneter als die Anonymisierung (z. B. wenn Nachverfolgbarkeit erforderlich ist). Darüber hinaus werden einige Datenschutzbedrohungen durch eine Kombination mehrerer Methoden behoben.",
         "source" : "WIKI Minimisation_des_données_:_adéquates,_pertinentes_et_limitées"
       },
       "PIA_DEF_MIN4": {
         "name": "Nichtverkettbarkeit",
-        "description": "Das System kann in unabhängige Teile mit separaten Zugriffssteuerungsfunktionen strukturiert sein. Die Daten können auch auf diese unabhängigen Teilsysteme verteilt und von jedem Teilsystem unter Verwendung verschiedener Zugriffssteuerungsmechanismen gesteuert werden. Wenn ein Subsystem kompromittiert wird, können die Auswirkungen auf den gesamten Datenbestand reduziert werden. ",
+        "description": "Das System kann in unabhängige Teile mit separaten Zugriffssteuerungsfunktionen strukturiert sein. Die Daten können auch auf diese unabhängigen Teilsysteme verteilt und von jedem Teilsystem unter Verwendung verschiedener Zugriffssteuerungsmechanismen gesteuert werden. Wenn ein Subsystem kompromittiert wird, hat dies keine Auswirkungen auf den gesamten Datenbestand. ",
         "source": "WIKI Minimisation_des_données_:_adéquates,_pertinentes_et_limitées"
       },
       "PIA_DEF_MIN5": {
         "name": "Beschränkung des Datenzugriffs",
-        "description": "Das System kann den Zugriff auf Daten nach dem \"need to know\"-Prinzip einschränken. Das System kann vertrauliche Daten trennen und spezifische Zugriffsrichtlinien anwenden.<br>Das System kann auch vertrauliche Daten verschlüsseln, um die Vertraulichkeit während der Übertragung und Speicherung zu schützen. Der Zugriff auf temporäre Dateien, die während der Datenverarbeitung erzeugt werden, sollte ebenfalls geschützt werden.",
+        "description": "Das System kann den Zugriff auf Daten nach dem \"need to know\"-Prinzip einschränken. Das System kann vertrauliche Daten von den sonstigen Daten trennen und spezifische Zugriffsrichtlinien anwenden.<br>Das System kann sensible Daten verschlüsseln, um die Vertraulichkeit während der Übertragung und Speicherung zu schützen. Der Zugriff auf temporäre Dateien, die während der Datenverarbeitung erzeugt werden, sollte ebenfalls geschützt werden.",
         "source": "WIKI Minimisation_des_données_:_adéquates,_pertinentes_et_limitées"
       },
       "PIA_EX_DCPC": {
@@ -658,66 +668,80 @@
       },
       "PIA_EX_DCPS": {
         "name": "Sensible Daten",
-        "description": "Sozialversicherungsnummer, biometrische Daten, Bankdaten"
+        "description": " Weltanschauliche, politische, religiöse, gewerkschaftliche Überzeugungen und Beziehungen, Sexualleben, Gesundheitsdaten, Rasse oder ethnische Herkunft, Straftaten, Sicherheitsauflagen.<br>Siehe <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/DE/TXT/HTML/?uri=CELEX:32016R0679&from=DE\"> Art. 9 und 10 der [DS-GVO]</a>.",
+        "source": ""
       },
       "PIA_EX_DCPR": {
-        "name": "Besondere Kategorien personenbezogener Daten",
-        "description": "Weltanschauliche, politische, religiöse, gewerkschaftliche Überzeugungen und Beziehungen, Sexualleben, Gesundheitsdaten, Rasse oder ethnische Herkunft, Straftaten, Sicherheitsauflagen.<br>Siehe <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/DE/TXT/HTML/?uri=CELEX:32016R0679&from=DE\"> Art. 9 und 10 der [DS-GVO]</a>."
+        "name": "Besondere Kategorien personenbezogener Daten ",
+        "description": "Weltanschauliche, politische, religiöse, gewerkschaftliche Überzeugungen und Beziehungen, Sexualleben, Gesundheitsdaten, Rasse oder ethnische Herkunft, Straftaten, Sicherheitsauflagen.<br>Siehe <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/DE/TXT/HTML/?uri=CELEX:32016R0679&from=DE\"> Art. 9 und 10 der [DS-GVO]</a>.",
+        "source": ""
       },
       "PIA_EX_HUMI": {
-        "name": "Interne menschliche Datenquellen",
-        "description": "Das kann sein:<br>- ein bösartiger Mitarbeiter, der seine / ihre Nähe zum System, seine Fähigkeiten, Privilegien und möglicherweise ausreichend verfügbare Zeit nutzt oder aufgrund eines möglichen Mangels an Schulung und Bewusstsein nachlässig ist.<br>- ein Benutzer oder sein Umfeld, fahrlässig oder böswillig, mit Zugang zu den Diensten.<br>Seine Motivationen können vielfältig sein: Ungeschicklichkeit, Fehler, Nachlässigkeit, Rache, Bereitschaft zu warnen, Böswilligkeit, Gier, Spionage."
+        "name": "Interne menschliche Risikoquellen",
+        "description": "Das kann sein:<br>- ein böswilliger bzw. nachlässiger Mitarbeiter, der seine / ihre Nähe zum System, seine Fähigkeiten, Rechte und möglicherweise ausreichend verfügbare Zeit nutzt oder aufgrund eines möglichen Mangels an Schulung und Bewusstsein nachlässig ist.<br>- ein böswilliger bzw. nachlässiger Benutzer oder sein Umfeld, mit Zugang zu den Diensten.<br>Die Motivationen können vielfältig sein: Ungeschicklichkeit, Fehler, Nachlässigkeit, Rache, Böswilligkeit, Gier, Spionage.",
+        "source": ""
       },
       "PIA_EX_HUME": {
-        "name": "Externe menschliche Datenquellen",
-        "description": "Das kann sein:<br>- ein böswilliger oder unwissender Dritter, der seine physische Nähe nutzt, um betrügerisch auf den Dienst zuzugreifen<br>- ein Angreifer, der einen Benutzer mit seinen Kenntnissen über den Benutzer und einige der Informationen über ihn zum Ziel nimmt<br>- ein Angreifer, der eine der Firmen, die für die Verarbeitung verantwortlich sind, mit seinem Wissen über Unternehmen angreift, um den Ruf des Unternehmens zu schädigen<br>- eine autorisierte dritte Partei, die ihren privilegierten Zugang zu illegalem Zugang zu Informationen nutzt.<br>Die Motive können vielfältig sein:<br>Glücksspiel, Verärgerung, Böswilligkeit, Rache, Spionage, Gier, Erwerb von Daten, um sie auszunutzen."
+        "name": "Externe menschliche Risikoquellen",
+        "description": "Das kann sein:<br>- ein böswilliger oder unwissender Dritter, der seine physische Nähe nutzt, um betrügerisch auf den Dienst zuzugreifen<br>- ein Angreifer, der einen Benutzer des Systems mit Hilfe seines Wissens über diesen Benutzer zum Ziel nimmt<br>- ein Angreifer, der eine der Firmen, die für die Verarbeitung verantwortlich sind angreift, um Informationen zu gewinnen oder den Ruf des Unternehmens zu schädigen<br>- eine dritte Partei, die ihren autorisierten Zugang zu anderen Zwecken wie z.B. dem illegalem Zugang zu Informationen nutzt.<br>Die Motive können vielfältig sein:<br>Nervenkitzel, Verärgerung, Böswilligkeit, Rache, Spionage, Gier, Beschaffung von Daten, um sie auszunutzen.",
+        "source": ""
       },
       "PIA_EX_NHUM": {
-        "name": "Nichtmenschliche Datenquellen",
-        "description": "Dies kann ein Vorfall oder eine Katastrophe in einer der für die Verarbeitung verantwortlichen Organisationen sein (Stromausfall, Feuer, Überschwemmung usw.)"
+        "name": "Nichtmenschliche Risikoquellen",
+        "description": "Dies kann ein Vorfall oder eine Katastrophe in einer der für die Verarbeitung verantwortlichen Organisationen sein (Stromausfall, Feuer, Überschwemmung, technische Fehler usw.)",
+        "source": ""
       },
       "PIA_EX_IMPN": {
-        "name": "Schweregrad: vernachlässigbar",
-        "description": "Die Betroffenen werden nicht beeinträchtigt oder können einige Unannehmlichkeiten erfahren, die sie ohne Schwierigkeiten überwinden können.<br> Beispiele für Auswirkungen:<br> - Körperlich: flüchtige Kopfschmerzen<br>- materiell: Zeitverschwendung,  durch Wiederholung von Schritten oder durch Warten auf deren Durchführung, Verwendung der Daten für Zwecke der gezielten Werbung für Konsumgüter, etc.,<br>- psychisch: einfache Belästigung, Gefühl des Eindringens ins Privatleben ohne wirklichen Schaden (kommerzielles Eindringen) usw."
+        "name": "Schweregrad: geringfügig",
+        "description": "Die Betroffenen werden nicht gar nicht beeinträchtigt oder haben einige temporäre Unannehmlichkeiten, die sie ohne Schwierigkeiten überwinden können.<br> Beispiele für Auswirkungen:<br> - Körperlich: flüchtige Kopfschmerzen<br>- materiell: Zeitverschwendung, durch Wiederholung von Formalitäten oder durch Warten auf deren Durchführung, Empfang von Spam-Mails, Verwendung öffentlich zugänglicher Daten für gezielte Werbung etc.,<br>- psychisch: einfaches Ärgernis, Gefühl des Eindringens ins Privatleben ohne wirklichen Schaden (Werbung) usw.",
+        "source": ""
       },
       "PIA_EX_IMPL": {
-        "name": "Schweregrad: begrenzt",
-        "description": "Die Betroffenen könnten erhebliche Unannehmlichkeiten erfahren, die sie trotz einiger Schwierigkeiten überwinden können.<br>Beispiele für Auswirkungen:<br>- körperlich: geringfügige körperliche Beeinträchtigung (z. B. leichte Erkrankung nach Nichteinhaltung von Kontraindikationen), Diffamierung, die zu physischen Repressalien usw. führt.<br>- materiell: ungeplante Zahlungen (z. B. unberechtigte Bußgelder), Verweigerung des Zugangs zu administrativen oder kommerziellen Dienstleistungen, gezielte Online-Werbung zu einem ein Aspekt, der seitens des Betroffenen vertraulich bleiben sollte, etc.<br>- psychisch: geringe aber objektiv verstellbare psychische Beeinträchtigung, Gefühl der Verletzung der Privatsphäre ohne irreparablen Schaden, Einschüchterung in sozialen Netzwerken, etc."
+        "name": "Schweregrad: überschaubar",
+        "description": "Die Betroffenen können deutliche Unannehmlichkeiten erfahren, die sie jedoch trotz einiger Schwierigkeiten überwinden können.<br>Beispiele für Auswirkungen:<br>- körperlich: geringfügige körperliche Beeinträchtigung (z. B. leichte Erkrankung nach Nichteinhaltung von Kontraindikationen), üble Nachrede, die physische und psychische Auswirkungen hat.<br>- materiell: ungeplante Zahlungen (z. B. unberechtigte Bußgelder), Verweigerung des Zugangs zu administrativen oder kommerziellen Dienstleistungen, gezielte Online-Werbung zu einem ein Aspekt, der seitens des Betroffenen vertraulich bleiben sollte, etc.<br>- psychisch: geringe aber objektiv verstellbare psychische Beeinträchtigung, Gefühl der Verletzung der Privatsphäre ohne irreparablen Schaden, Einschüchterung in sozialen Netzwerken, etc.",
+        "source": ""
       },
       "PIA_EX_IMPI": {
-        "name": "Schweregrad: wesentlich",
-        "description": "Die Betroffenen könnten erhebliche Konsequenzen erleiden, die sie zwar überwinden, aber nur mit echten und erheblichen Schwierigkeiten bewältigen können.<br>Beispiele für Auswirkungen:<br>- körperlich: ernsthafte körperliche Beeinträchtigung, die zu langfristigem Schaden führen (Verschlimmerung von Gesundheitszustand aufgrund von schlechter Pflege, oder Nichteinhaltung von Kontraindikationen), Veränderung der körperlichen Unversehrtheit, etc.<br>- materiell: nicht kompensierbare Veruntreuung von Geldern, Verlust einzigartiger und nicht wiederkehrender Möglichkeiten (Hypothek, Studien, Praktika oder Beschäftigung, Prüfungsverbot), Verlust der Wohnung, Verlust des Arbeitsplatzes, etc.<br>- psychisch: schwere psychische Störung (Depression, Phobie), Gefühl der irreparablen Beeinträchtigung der Privatsphäre, Opfer von Erpressung, Cybermobbing und Mobbing usw."
+        "name": "Schweregrad: substantiell",
+        "description": "Die Betroffenen können erhebliche Konsequenzen erleiden, die sie nur mit erheblichen Schwierigkeiten überwinden können.<br>Beispiele für Auswirkungen:<br>- körperlich: ernsthafte körperliche Beeinträchtigung, die zu langfristigem Schaden führen (Verschlimmerung von Gesundheitszustand aufgrund von schlechter Pflege, oder Nichteinhaltung von Kontraindikationen), Verletzung der körperlichen Unversehrtheit, etc.<br>- materiell: nicht kompensierbarer Verlust von Geldern, Verlust einzigartiger und nicht wiederkehrender Möglichkeiten (Hypothek, Studien, Praktika oder Beschäftigung, Prüfungsverbot), Verlust der Wohnung, Verlust des Arbeitsplatzes, etc.<br>- psychisch: schwere psychische Störung (Depression, Phobie), Gefühl der irreparablen Beeinträchtigung der Privatsphäre, Opfer von Erpressung, Cybermobbing und Mobbing usw.",
+        "source": ""
       },
       "PIA_EX_IMPM": {
-        "name": "Schweregrad: maximal",
-        "description": "Die Betroffenen könnten erhebliche und auch nicht rückgängig zu machende Folgen erleiden, die sie nicht bewältigen könnten.<br>Beispiele für Auswirkungen:<br>- körperlich: dauerhafte oder dauerhafte körperliche Beeinträchtigung, dauerhafte Beeinträchtigung der körperlichen Unversehrtheit, Tod<br>- materiell: finanzielles Risiko, hohe Verschuldung, Arbeitsunfähigkeit, Unfähigkeit umzuziehen, Verlust von Beweisen bei Rechtsstreitigkeiten, Verlust des Zugangs zu lebenswichtiger Infrastruktur (Wasser, Strom), etc.<br >- psychisch: langfristige oder dauerhafte psychische Beeinträchtigung, strafrechtliche Sanktion, Entführung, Verlust der Familienbande, Unmöglichkeit, vor Gericht zu erscheinen, Änderung des Verwaltungsstatus und / oder Verlust der rechtlichen Autonomie (Vormundschaft) usw."
+        "name": "Schweregrad: groß",
+        "description": "Die Betroffenen können erhebliche und auch nicht rückgängig zu machende Folgen erleiden.<br>Beispiele für Auswirkungen:<br>- körperlich: dauerhafte oder längerfristige körperliche Beeinträchtigung, dauerhafte Beeinträchtigung der körperlichen Unversehrtheit, Tod<br>- materiell: finanzielles Risiko, hohe Verschuldung, Arbeitsunfähigkeit, Unfähigkeit umzuziehen, Verlust von Beweisen bei Rechtsstreitigkeiten, Verlust des Zugangs zu lebenswichtiger Infrastruktur (Wasser, Strom), etc.<br >- psychisch: langfristige oder dauerhafte psychische Beeinträchtigung, strafrechtliche Sanktion, Entführung, Verlust der Familienbande, Unmöglichkeit, vor Gericht zu erscheinen, Änderung des Verwaltungsstatus und / oder Verlust der rechtlichen Autonomie (Vormundschaft) usw.",
+        "source": ""
       },
       "PIA_EX_VRAN": {
-        "name": "Eintrittswahrscheinlichkeit: vernachlässigbar",
-        "description": "Für die ausgewählten Risikoquellen scheint es nicht möglich, die Bedrohung zu verwirklichen, indem man sich auf die Eigenschaften der verwendeten Medien eingeht (z.B. Diebstahl von Papierdokumenten aus einem Raum, dessen Zutritt mit Kartenleser und Zugangscode geschützt ist)."
+        "name": "Eintrittswahrscheinlichkeit: geringfügig",
+        "description": " Für die ausgewählten Risikoquellen scheint es nicht möglich, einen Schaden der Betroffenen zu verursachen (z.B. Diebstahl von Papierdokumenten aus einem Raum, dessen Zutritt mit Kartenleser und Zugangscode geschützt ist).",
+        "source": ""
       },
       "PIA_EX_VRAL": {
-        "name": "Eintrittswahrscheinlichkeit: begrenzt",
-        "description": "Für die ausgewählten Risikoquellen scheint es schwierig, die Bedrohung zu verwirklichen, indem man sich auf die Eigenschaften der verwendeten Medien eingeht (z.B. Diebstahl von Papierdokumenten aus einem Raum, dessen Zutritt mit Kartenleser geschützt ist)."
+        "name": "Eintrittswahrscheinlichkeit: überschaubar",
+        "description": "Für die ausgewählten Risikoquellen scheint es schwer möglich, einen Schaden für den Betroffenen zu verursachen (z.B. Diebstahl von Papierdokumenten aus einem Raum, dessen Zutritt mit Kartenleser geschützt ist).",
+        "source": ""
       },
       "PIA_EX_VRAI": {
-        "name": "Eintrittswahrscheinlichkeit: wesentlich",
-        "description": "Für die ausgewählten Risikoquellen scheint es möglich, die Bedrohung zu verwirklichen, indem man sich auf die Eigenschaften der verwendeten Medien eingeht (z.B. Diebstahl von Papierdokumenten, die in den Büros einer Organisation gespeichert sind, deren Zugang von einer Person an der Rezeption kontrolliert wird)."
+        "name": "Eintrittswahrscheinlichkeit: substantiell",
+        "description": "Für die ausgewählten Risikoquellen scheint es möglich, einen Schaden für den Betroffenen zu verursachen (z.B. Diebstahl von Papierdokumenten, die in den Büros einer Organisation gespeichert sind, deren Zugang von einer Person an der Rezeption kontrolliert wird).",
+        "source": ""
       },
       "PIA_EX_VRAM": {
-        "name": "Eintrittswahrscheinlichkeit: maximal",
-        "description": "Für die ausgewählten Risikoquellen scheint es sehr einfach, die Bedrohung zu verwirklichen, indem man sich auf die Eigenschaften der verwendeten Medien eingeht (z.B. Diebstahl von Papierdokumenten in der öffentlichen Lobby aufbewahrt werden)."
+        "name": "Eintrittswahrscheinlichkeit: groß",
+        "description": "Für die ausgewählten Risikoquellen scheint es sehr einfach, einen Schaden für den Betroffenen zu verursachen (z.B. Diebstahl von Papierdokumenten in der öffentlichen Lobby aufbewahrt werden).",
+        "source": ""
       },
       "PIA_EX_DC": {
         "name": "Scoring",
-        "description": "Daten eines Scoringsystems, Ergebnisse aus der Anwendung von Scores ..."
+        "description": "Daten eines Scoringsystems, Ergebnisse aus der Anwendung von Scores ...",
+        "source": ""
       }
     }
   },
   "comments": {
     "comments_count": "Kommentar(e)",
     "new_comment": "Kommentieren",
-    "placeholder_new_comment": "Hinterlasse einen Kommentar",
+    "placeholder_new_comment": "Hinterlassen Sie einen Kommentar",
     "comment": "Kommentar",
     "send": "Senden"
   },
@@ -725,37 +749,37 @@
     "edit": "Frage bearbeiten",
     "gauges": {
       "0": "(Nicht definiert)",
-      "1": "Vernachlässigbar",
-      "2": "Begrenzt",
-      "3": "Wesentlich",
-      "4": "Maximal"
+      "1": "Geringfügig",
+      "2": "Überschaubar",
+      "3": "Substantiell",
+      "4": "Groß"
     }
   },
   "evaluations": {
     "title": "Bewertung",
     "to_correct": "zu berichtigen",
     "improvable": "verbesserungsfähig",
-    "acceptable": "tragbar",
+    "acceptable": "akzeptabel",
     "evaluation_comment": "Bewertungskommentar",
     "action_plan_comment": "Aktionsplan / Korrekturmaßnahmen",
-    "placeholder_to_correct": "Die bereitgestellten Informationen sind nicht ausreichend, um sie zu bewerten. Zur Bearbeitung zurückkehren, um den ursprünglichen Vorschlag anzureichern.",
-    "placeholder_improvable1": "Angesichts der bereitgestellten Informationen müssen zusätzliche Maßnahmen hinzugefügt werden, um den Schutz der verarbeiteten Daten zu verbessern.",
+    "placeholder_to_correct": "Die bereitgestellten Informationen sind nicht ausreichend für eine vollständige Bewertung. Die DSFA wird zurück an den Bearbeiter verwiesen, um den ursprünglichen Vorschlag zu ergänzen.",
+    "placeholder_improvable1": " Soweit aus den zur Verfügung gestellten Informationen ersichtlich, müssen zusätzliche Maßnahmen hinzugefügt werden, um den Schutz der verarbeiteten Daten zu verbessern.",
     "placeholder_improvable2": "Geben Sie Ihre Kommentare ein.",
-    "placeholder_acceptable": "Angesichts der zur Verfügung gestellten Informationen reichen die durchgeführten Maßnahmen aus, um die Datenschutzanforderungen zu erfüllen.",
+    "placeholder_acceptable": "Soweit aus den zur Verfügung gestellten Informationen ersichtlich, reichen die durchgeführten Maßnahmen aus, um die Datenschutzanforderungen zu erfüllen.",
     "gauges": {
       "seriousness": "Wie bewerten Sie unter Berücksichtigung des Aktionsplans die <span class = 'red-highlight'> Höhe dieses Risikos </span> ({{value}})?",
       "likelihood": "Unter Berücksichtigung des Aktionsplans, wie bewerten Sie die <span class = 'red-highlight'> Wahrscheinlichkeit dieses Risikos </span> ({{value}}) erneut?",
       "0": "(Nicht definiert)",
-      "1": "Vernachlässigbar",
-      "2": "Begrenzt",
-      "3": "Wesentlich",
-      "4": "Maximal"
+      "1": "Geringfügig",
+      "2": "Überschaubar",
+      "3": "Substantiell",
+      "4": "Groß"
     },
     "status": {
       "0": "unerledigt",
       "1": "zu korrigieren",
       "2": "verbesserungsfähig",
-      "3": "tragbar"
+      "3": "akzeptabel"
     }
   },
   "help": {
@@ -768,24 +792,24 @@
       "data2": {
         "title": "Bekannte Probleme",
         "qa1": {
-          "title": "Ich bekomme Probleme mit der Anzeige, z. B. dass Symbole in einem Status hängen bleiben oder Elemente der Schnittstelle fehlen",
-          "content": "Schließen Sie die Anwendung, wenn diese Anzeigeprobleme auftreten, und laden Sie sie erneut. Normalerweise behebt es das Problem. Die on Ihnen eingegebenen Informationen gehen nicht verloren; Diese werden automatisch während der Eingabe gespeichert."
+          "title": "Ich habe Probleme mit der Anzeige, z. B. dass Symbole in einem Status hängen bleiben oder Elemente der Schnittstelle fehlen",
+          "content": "Schließen Sie die Anwendung, wenn diese Anzeigeprobleme auftreten, und starten Sie sie erneut. Normalerweise behebt es das Problem. Die von Ihnen eingegebenen Informationen gehen nicht verloren; Diese werden automatisch während der Eingabe gespeichert."
         },
         "qa2": {
-          "title": "Ich kann die Skala nicht bearbeiten, um den Schweregrad und die Wahrscheinlichkeit eines Risikos zu bewerten",
-          "content": "Dieses bekannte Problem wird derzeit behoben. Wenn Sie auf dieses Problem stoßen, empfehlen wir, dass Sie das Begründungsfeld des geschätzten Schweregrads und / oder der Wahrscheinlichkeit ausfüllen. Sie können die Skala bearbeiten, sobald der Fehler behoben ist."
+          "title": "Ich kann die Skala nicht bearbeiten, um den Schweregrad und die Eintrittswahrscheinlichkeit eines Risikos zu bewerten",
+          "content": "Dieses bekannte Problem wird derzeit behoben. Wenn Sie auf dieses Problem stoßen, empfehlen wir, dass Sie das Begründungsfeld des geschätzten Schweregrads und / oder der Eintrittswahrscheinlichkeit ausfüllen. Sie können die Skala bearbeiten, sobald der Fehler behoben ist."
         },
         "qa3": {
           "title": "Beim Importieren einer DSFA treten Probleme auf",
-          "content": "Beim Import einer DSFA wurden mehrere Fehler beobachtet, und insbesondere die Skalen für die Bewertung der Schwere und Wahrscheinlichkeit eines Risikos können verschwinden. Bitte beachten Sie in diesem Fall das oben genannte Problem. Außerdem wird eine DSFA nach dem Importieren möglicherweise nicht auf der Übersicht angezeigt. Dies ist ein Anzeigeproblem und Sie müssen nur die Seite aktualisieren."
+          "content": "Beim Import einer DSFA wurden mehrere Fehler beobachtet, und insbesondere die Skalen für die Bewertung des Schweregrads und der Eintrittswahrscheinlichkeit eines Risikos können verschwinden. Bitte beachten Sie in diesem Fall das oben genannte Problem. Außerdem wird eine DSFA nach dem Importieren möglicherweise nicht in der Übersicht angezeigt. Dies ist ein Anzeigeproblem und Sie müssen nur die Seite aktualisieren."
         },
         "qa4": {
           "title": "Wenn ich Text kopiere / einfüge, wird er markiert.",
           "content": "Dies ist nur ein Anzeigefehler und hat keine Auswirkung auf den Text, den Sie in ein Feld eingeben. Dieses visuelle Problem wird bald behoben sein."
         },
         "qa5": {
-          "title": "Ich kann einen Abschnitt nicht bewerten",
-          "content": "Um einen Abschnitt auszuwerten, müssen alle Felder ausgefüllt werden. Bitte prüfen Sie, ob dies der Fall ist. Wenn Sie ein Risiko bearbeiten, müssen Sie mindestens eine technische oder organisatorische Maßnahme haben, die das Risiko mindert, um nach einer Risikobewertung zu fragen. "
+          "title": "Ich kann einen Abschnitt nicht überprüfen / bestätigen",
+          "content": "Um einen Abschnitt zu überprüfen oder zu bestätigen, müssen alle Felder ausgefüllt werden. Bitte prüfen Sie, ob dies der Fall ist. Wenn Sie ein Risiko bearbeiten, müssen Sie mindestens eine technische oder organisatorische Maßnahme haben, die das Risiko mindert, um nach einer Risikobewertung zu fragen. "
         },
         "qa6": {
           "title": "Beim Wechseln der Sprache werden die Texte nicht übersetzt",
@@ -803,8 +827,8 @@
     "title": "Über das Werkzeug PIA",
     "version_number": "Versionsnummer",
     "description": "Dieses Tool wurde ursprünglich von der französischen Datenschutzbehörde <a target=\"_blank\" href=\"https://www.cnil.fr\"> Nationale Kommission für Informatik und Freiheit (CNIL) </a> entwickelt, um dem Verantwortlichen zu helfen, mit der DS-GVO konform zu sein.<br>Diese Software ist kostenlos und offen. Wenn Sie sich an diesem Projekt beteiligen möchten, können Sie den Quellcode von Github herunterladen, ändern und mit anderen in der Community teilen.",
-    "translators": "Das Tool ist derzeit in sieben Sprachen verfügbar. Die französische und die englische Version werden von der CNIL bereitgestellt. Die anderen Versionen sind das Ergebnis der Beiträge der folgenden Personen:",
-    "translators_name": "<ul><li>Niederländisch: Ruud van Driel, Manuel d'Orso;</li><li>Tschechisch: Jirí Grohmann, Manuel d'Orso;</li><li>Italienisch: Manuel d'Orso, Gianluca Markos;</li><li>Polnisch: Joanna Karczewska</li> <li>Deutsch: Kosmas Schütz</li><li>Spanisch: ylachgar</li></ul>",
+    "translators": "Das Tool ist derzeit in vierzehn Sprachen verfügbar. Die französische und die englische Version werden von der CNIL bereitgestellt. Die anderen Versionen sind das Ergebnis der Beiträge der folgenden Personen:",
+    "translators_name": "<ul><li>Deutsch : Kosmas Schütz, Corina Scheiter (<a target=\"_blank\" href=\"https://www.datenschutz-bayern.de/\">BayLfD</a>) ;</li><li>Englisch : <a target=\"_blank\" href=\"https://www.cnil.fr\">CNIL</a> ;</li><li>Finnisch : <a target=\"_blank\" href=\"https://tietosuoja.fi/etusivu\">Tietosuojavaltuutetun toimisto</a> ;</li><li>Französisch : <a target=\"_blank\" href=\"https://www.cnil.fr\">CNIL</a> ;</li><li>Griechisch : Dimitris Tzellis ;</li><li>Italienisch : Manuel d’Orso, Gianluca Markos, Antonio Caselli (<a target=\"_blank\" href=\"http://gpdp.it\">Garante per la Protezione dei Dai Personali (GPDP)</a>) ;</li><li>Niederländisch : Ruud van Driel, Manuel d’Orso ;</li><li>Norwegisch : <a target=\"_blank\" href=\"https://www.datatilsynet.no\">Datatilsynet</a> ;</li><li>Polieren : Joanna Karczewska, Michal Mazur (<a target=\"_blank\" href=\"https://giodo.gov.pl\">Generalny Inspektor Ochrony Danych Osobowych (GIODO)</a>) ;</li><li>Portugiesisch : Barbara Gois ;</li><li>Rumänisch : webmyday </li><li>Spanisch : ylachgar ;</li><li>Tschechisch : Jiří Grohmann, Manuel d’Orso ;</li><li>Ungarisch : <a target=\"_blank\" href=\"https://naih.hu/\">Nemzeti Adatvédelmi és Információszabadság Hatóság (NAIH)</a> ;</li></ul>",
     "contribute": "Wenn Sie zur Übersetzung des Tools oder zur Verbesserung der bereits vorgeschlagenen beitragen möchten, laden wir Sie ein, <a href=\"https://github.com/LINCnil/pia/tree/master/src/assets/i18n\" target=\"_blank\">die Seite mit den folgenden Schritten zu lesen</a>.",
     "licences": "Bibliothekslizenzen:"
   },
@@ -814,16 +838,16 @@
     "update": "URL aktualisieren"
   },
   "validation_page": {
-    "responsible": "Verantwortlich für die Bestätigung der PIA: ",
-    "after_reading": "Nach vollständiger Lektüre der PIA bezüglich der Verarbeitung von Daten bezüglich der Aktivität von:",
-    "confirmation1": "Ich bestätige, dass die Beschreibung meines Verarbeitunskontextes der Realität entspricht.",
-    "confirmation2": "Ich bestätige, dass ich die bestehenden Risiken nach den aktuell durchgeführten oder geplanten Maßnahmen gelesen habe.",
-    "confirmation3": "Ich bestätige die angegebenen Korrekturmaßnahmen.",
-    "confirmation4": "Ich verpflichte mich, die angegebenen Korrekturmaßnahmen so schnell wie möglich umzusetzen.",
+    "responsible": "Verantwortlich für die Bestätigung der DSFA: ",
+    "after_reading": "Nach vollständiger Durchsicht der DSFA bezüglich der Verarbeitung von Daten im Rahmen von:",
+    "confirmation1": "Bestätige ich, dass der Kontext der Datenverarbeitung, so wie er in der DSFA beschrieben wurde, der Realität entspricht.",
+    "confirmation2": "Bestätige ich, dass mir die nach den aktuell umgesetzten oder geplanten Maßnahmen verbleibenden Risiken bewusst sind.",
+    "confirmation3": "Billige ich die angegebenen Korrekturmaßnahmen.",
+    "confirmation4": "Verpflichte ich mich, die angegebenen Korrekturmaßnahmen so schnell wie möglich umzusetzen.",
     "button": {
-      "rejection": "Bestätigung verweigern",
+      "rejection": "Bestätigung ablehnen",
       "simple_validation": "Einfache Bestätigung",
-      "signed_validation": "Lassen Sie den Verantwortlichen die DSFA unterzeichnen"
+      "signed_validation": "Unterschriebene Bestätigung"
     },
     "mandatory_fields": "Alle Felder müssen markiert sein",
     "waiting_for_signature": "Warten auf die Unterschrift der DSFA",
@@ -841,13 +865,13 @@
   "rejection_page": {
     "title": "Bestätigungshistorie",
     "rejection_reason": "Grund für die Ablehnung",
-    "rejection_reason_placeholder": "Beschreiben Sie die Gründe für die Verweigerung der Bestätigung dieser DSFA.",
+    "rejection_reason_placeholder": "Beschreiben Sie die Gründe für die Ablehung der Bestätigung dieser DSFA.",
     "applied_adjustments": "Vorgenommene Änderungen",
     "applied_adjustments_placeholder": "Beschreibe die Änderungen, die an der DSFA vorgenommen wurden.",
     "previous_rejection": "Vorherige Ablehnung",
     "button": {
       "abandon_treatment": "Aufgabe der Verarbeitung",
-      "reject_pia": "DSFA zurückweisen",
+      "reject_pia": "DSFA ablehnen",
       "send_for_validation": "Zurück zur Bestätigung"
     }
   },
@@ -859,16 +883,16 @@
     "archive": "Archivieren",
     "close": "Schließen",
     "continue": "Fortsetzen",
-    "start_evaluation": "TO BE TRANSLATED - Start review",
+    "start_evaluation": "Beginnen Sie die Überprüfung",
     "back_to_home": "Zurück zur Startseite",
     "simple_pia_validation": {
       "content": "Die DSFA wurde bestätigt."
     },
     "completed_edition": {
-      "content": "TO BE TRANSLATED - The PIA has been fully edited, it has to be reviewed."
+      "content": "Die DSFA wurde vollständig bearbeitet, sie muss überprüft werden."
     },
     "completed_evaluation": {
-      "content": "TO BE TRANSLATED - The PIA has been fully reviewed, it has to be validated."
+      "content": "Die DSFA wurde vollständig überprüft, sie muss bestätigt werden."
     },
     "update_server_url": {
       "content": "Die Serveradresse wurde aktualisiert."
@@ -878,16 +902,17 @@
       "download_pia": "Laden Sie die DSFA herunter"
     },
     "abandon_pia": {
-      "content": "Sind Sie sicher, dass Sie diese Verarbeitung aufgeben wollen?"
+      "content": "Sind Sie sicher, dass Sie diese Verarbeitung aufgeben wollen?",
+      "additional_text": "Die Archivierung ist nicht endgültig. Sie können die Analyse später bei Bedarf fortsetzen."
     },
     "refuse_pia": {
-      "content": "<span class = 'strong'>Abgelehnte DSFA, </span><br>Mehrere Felder müssen korrigiert werden.<br>Zum Auswertungsmodus zurückkehren, um Korrekturen vorzunehmen."
+      "content": "Nach Ihrer Ablehnung wird vom Analyse-<br>in den Überprüfungsmodus zurückgesetzt,<br>um die notwendigen Änderungen vorzunehmen."
     },
     "same_comment": {
-      "content": "<span class = 'strong'>Warnung, </span><br>Bitte geben Sie einen anderen Kommentar als den zuletzt aufgezeichneten ein."
+      "content": "<span class = 'strong'>Warnung, </span><br>Bitte geben Sie einen anderen Kommentar als den zuletzt angegebenen ein."
     },
     "not_enough_measures_to_remove": {
-      "content": "<span class = 'strong'>Warnung, </span><br>Es muss mindestens eine Maßnahme angebeben werden: keine Löschung möglich."
+      "content": "<span class = 'strong'>Warnung, </span><br>Es muss mindestens eine Maßnahme angegeben werden: keine Löschung möglich."
     },
     "remove_measure": {
       "content": "<span class = 'strong'>Warnung, </span><br>Sind Sie sicher, dass Sie diese Maßnahme entfernen möchten?",
@@ -895,16 +920,16 @@
       "keep": "Behalten Sie<br>diese Maßnahme"
     },
     "ask_for_evaluation": {
-      "content": "<span class = 'strong'>Herzlichen Glückwunsch, </span><br> der Unterabschnitt steht jetzt zur Auswertung zur Verfügung."
+      "content": "Der Unterabschnitt steht jetzt zur Überprüfung bereit."
     },
     "validate_evaluation": {
-      "content": "<span class = 'strong'>Herzlichen Glückwunsch, </span><br> warten Sie auf die globale Bestätigung der DSFA."
+      "content": "Der Unterabschnitt steht jetzt zur Bestätigung der Analyse bereit."
     },
     "validate_evaluation_to_correct": {
-      "content": "Sorry,<br>Mehrere Felder müssen korrigiert werden.<br>Zum Bearbeitungsmodus zurückkehren und Korrekturen vornehmen."
+      "content": "Entschuldigung,<br>mehrere Felder müssen korrigiert werden.<br>Zum Bearbeitungsmodus zurückkehren und Korrekturen vornehmen."
     },
     "declare_measures": {
-      "content": "Sorry,<br>bevor Sie Risiken bewerten,<br>müssen Sie die bestehenden oder geplanten Maßnahmen melden.",
+      "content": "Entschuldigung,<br>bevor Sie Risiken bewerten,<br>müssen Sie die bestehenden oder geplanten Maßnahmen melden.",
       "declare": "Benennen Sie bestehende oder geplante Maßnahmen"
     },
     "remove_pia": {
@@ -914,30 +939,60 @@
     "remove_attachment": {
       "content": "<span class = 'strong'> Warnung, </span><br>Sind Sie sicher, dass Sie diesen Anhang entfernen möchten?",
       "keep": "Behalten",
-      "remove": "Entfernen"
+      "remove": "Entfernen",
+      "comment": "Kommentieren"
+    },
+    "action_plan_no_evaluation": {
+      "content": "Sie müssen mit der Überprüfung der Analyse beginnen, um den Aktionsplan zu erstellen.",
+      "review_section": "Überprüfen Sie einen Abschnitt"
+    },
+    "dpo_missing_evaluations": {
+      "content": "Sie müssen die Überprüfung der Analyse abschließen, um auf die DSB-Seite zugreifen zu können.",
+      "review_section": "Überprüfen Sie einen Abschnitt",
+      "remove": "Entfernen",
+      "comment": "Kommentieren"
+    },
+    "modal_select_text_pia": {
+      "content": "Der Inhalt der DSFA wurde in die Zwischenablage kopiert."
+    },
+    "back_to_edition": {
+      "content": "Dieser Abschnitt wurde zur Bearbeitung zurückgeschickt.<br>Einige Felder müssen korrigiert werden,<br>damit sie ordnungsgemäß überprüft werden können."
+    },
+    "back_to_evaluation": {
+      "content": "Dieser Abschnitt wurde zur Überprüfung zurückgeschickt.<br>Einige Felder müssen überprüft werden,<br>um ihre ordnungsgemäße Validierung zu ermöglichen."
     }
   },
   "summary": {
     "previous_page": "Zurück zur vorherigen Seite",
     "print": "Drucken",
-    "display_pia": "Sehen Sie sich die PIA an",
-    "display_action_plan": "Sehen Sie sich den<br>Aktionsplan an",
+    "copy_to_clipboard": "In die Zwischenablage kopieren",
+    "download_images": "Bilder herunterladen",
+    "download_csv": "CSV-Export herunterladen",
+    "csv_section": "Abschnitt",
+    "csv_title_object": "Title",
+    "csv_action_plan_comment": "Aktionsplankommentar",
+    "csv_evaluation_comment": "Bewertungskommentar",
+    "csv_file_title": "Aktionsplan",
+    "csv_implement_date": "Geschätztes Umsetzungsdatum",
+    "csv_people_in_charge": "Verantwortlicher",
     "display_filters": {
       "title": "Filter",
       "main_content": "\"Information zur DSFA\" anzeigen",
       "context_content": "\"Kontext\" anzeigen",
-      "principles_content": "\"Fundamentale Prinzipien\" anzeigen",
+      "principles_content": "\"Grundlegende Prinzipien\" anzeigen",
       "risks_content": "\"Risiken\" anzeigen",
-      "action_plan_content": "\"Aktionsplan\" anzeigen"
+      "action_plan_content": "\"Aktionsplan\" anzeigen",
+      "risks_overview_content": "Risikoübersicht anzeigen",
+      "risks_cartography_content": "Risikokartierung anzeigen"
     },
     "title": "Information zur DSFA",
     "pia_name": "DSFA",
-    "pia_author": "Name des Autors",
+    "pia_author": "Name des Bearbeiters",
     "pia_assessor": "Name des Prüfers",
     "pia_validator": "Name des Bestätigers",
     "content_choice": {
-      "0": "Die Verarbeitung könnte umgesetzt werden.",
-      "1": "Die Verarbeitung sollte nicht durchgeführt werden."
+      "0": "Die Verarbeitung sollte nicht durchgeführt werden.",
+      "1": "Die Verarbeitung kann umgesetzt werden."
     },
     "dpo_name": "Name des DSB",
     "dpo_status": "Feststellung des DSB",
@@ -951,23 +1006,25 @@
     "concerned_people_opinion": "Auffassungen der Betroffenen",
     "modification_made": "Vorgenommene Änderungen",
     "rejection_reason": "Ablehnungsgrund",
-    "creation_date": "Erstellungsdatum",
+    "creation_date": "Bearbeitungsdatum",
     "attachments": "Anlagen",
     "gauges": {
-      "1": "Vernachlässigbar",
-      "2": "Begrenzt",
-      "3": "Wesentlich",
-      "4": "Maximal"
+      "1": "Geringfügig",
+      "2": "Überschaubar",
+      "3": "Substantiell",
+      "4": "Groß"
     },
     "action_plan": {
       "title": "Aktionsplan",
-      "fundamental_principles": "Fundamentale Prinzipien",
+      "fundamental_principles": "Grundlegende Prinzipien",
       "implementation_date": "Voraussichtliches Datum der Umsetzung",
       "implementation_responsible": "Verantwortlich für die Umsetzung",
       "measures": "Bestehende oder geplante Maßnahmen",
       "risks": "Risiken",
       "no_action_plan": "Kein Aktionsplan festgelegt."
-    }
+    },
+    "risks_overview_title": "Risikokübersicht",
+    "risks_cartography_title": "Risikokartierung"
   },
   "errors":{
     "title": "Seite nicht gefunden.",
@@ -978,39 +1035,39 @@
     "threat": "Bedrohung",
     "sources": "Ursachen",
     "measures": "Maßnahmen",
-    "negligible": "Vernachlässigbar",
-    "limited": "Begrenzt",
-    "important": "Wesentlich",
-    "maximal": "Maximal",
-    "risk-access_x": "Schwere",
+    "negligible": "Geringfügig",
+    "limited": "Überschaubar",
+    "important": "Substantiell",
+    "maximal": "Groß",
+    "risk-access_x": "Schweregrad",
     "risk-access_y": "Eintrittswahrscheinlichkeit",
-    "risk-change_x": "Schwere",
+    "risk-change_x": "Schweregrad",
     "risk-change_y": "Eintrittswahrscheinlichkeit",
-    "risk-disappearance_x": "Schwere",
+    "risk-disappearance_x": "Schweregrad",
     "risk-disappearance_y": "Eintrittswahrscheinlichkeit"
   },
   "cartography": {
-    "negligible": "Vernachlässigbar",
-    "limited": "Begrenzt",
-    "important": "Wesentlich",
-    "maximal": "Maximal",
-    "seriousness_axe": "Schwere des Risikos",
+    "negligible": "Geringfügig",
+    "limited": "Überschaubar",
+    "important": "Substantiell",
+    "maximal": "Groß",
+    "seriousness_axe": "Schweregrad des Risikos",
     "likelihood_axe": "Eintrittswahrscheinlichkeit des Risikos",
     "legend1": "Geplante oder bestehende Maßnahmen",
     "legend2": "Mit den eingeleiteten Korrekturmaßnahmen",
-    "legend3": "(I)llegitimer Zugriff auf Daten",
-    "legend4": "(U)nerwünschte Änderung von Daten",
-    "legend5": "(D)atenverlust",
-    "risk1_access": "(A)",
-    "risk2_modification": "(M)"
+    "legend3": "(Z) Unrechtmäßiger Zugriff auf Daten",
+    "legend4": "(V) Unerwünschte Veränderung von Daten",
+    "legend5": "(D) Datenverlust",
+    "risk1_access": "(Z)",
+    "risk2_modification": "(V)"
   },
   "action_plan": {
     "title": "Übersicht",
-    "principles": "Fundamentale Prinzipien",
+    "principles": "Grundlegende Prinzipien",
     "measures": "Geplante oder bestehende Maßnahmen",
     "risks": "Risiken",
-    "risk1": "Illegitimer Zugriff auf Daten",
-    "risk2": "Unerwünschte Änderung von Daten",
+    "risk1": "Unrechtmäßiger Zugriff auf Daten",
+    "risk2": "Unerwünschte Veränderung von Daten",
     "risk3": "Datenverlust",
     "improvable_measures": "Verbesserbare Maßnahmen",
     "acceptable_measures": "Akzeptable Maßnahmen",
@@ -1020,16 +1077,16 @@
   },
   "opinions": {
     "edit": "Bearbeiten",
-    "content": ", berücksichtige das:",
+    "content": ", ist folgender Ansicht:",
     "dpo_opinion": "Stellungnahme des DSB",
     "placeholder_dpo_name": "Name des DSB",
-    "placeholder_dpo_opinion": "Geben Sie die Gründe für Ihre Auswahl an.",
+    "placeholder_dpo_opinion": "Geben Sie die Gründe für Ihre Entscheidung an.",
     "dpo_lock": "Bitte füllen Sie die anderen Abschnitte aus, bevor Sie die Stellungnahme des DSB ausfüllen können.",
     "people_opinion": "Stellungnahme der Betroffenen",
     "placeholder_concerned_people_name": "Namen der Betroffenen",
-    "placeholder_people_opinion": "Beschreiben Sie, wie die Stellungnahme eingeholt wurden und was das Ergebnis der Analyse ist. Falls keine Stellungnahme eingeholt wurden, geben Sie die Gründe an.",
+    "placeholder_people_opinion": "Beschreiben Sie, wie die Stellungnahme eingeholt wurde und was das Ergebnis der Analyse ist. Falls keine Stellungnahme eingeholt wurden, geben Sie die Gründe an.",
     "placeholder_search_content": "Begründen Sie, warum die Stellungnahme der Betroffenen nicht eingeholt wurde",
-    "treatment_ok": "Die Verarbeitung könnte umgesetzt werden.",
+    "treatment_ok": "Die Verarbeitung kann umgesetzt werden.",
     "treatment_nok": "Die Verarbeitung sollte nicht verwendet werden.",
     "treatment_lock": "Bitte füllen Sie die anderen Abschnitte aus, bevor Sie die Stellungnahme der betroffenen Personen ausfüllen können."
   },
@@ -1040,19 +1097,19 @@
       "items": {
         "1": {
           "title": "Überblick",
-          "short_help": "Dieser Teil ermöglicht es Ihnen, das Objekt der Untersuchung zu identifizieren und zu beschreiben",
+          "short_help": "Dieser Teil ermöglicht es Ihnen, den Gegenstand Untersuchung zu identifizieren und zu beschreiben",
           "questions": {
             "1": {
-              "title": "Welche Verarbeitung wird in Betracht gezogen?",
-              "placeholder": "Geben Sie einen kurzen Überblick über die Verarbeitung: Name, Zweck, Einsatz, Nutzungskontext usw."
+              "title": "Welche Verarbeitung ist geplant?",
+              "placeholder": "Geben Sie einen kurzen Überblick über die Verarbeitung: Name, Zweck, Einsatzgebiet, Nutzer usw."
             },
             "2": {
-              "title": "Welche Verantwortlichen sind mit der Verarbeitung betraut?",
-              "placeholder": "Beschreiben Sie die Verantwortlichkeiten der Beteiligten: des Verantwortlichen, der möglichen Auftragsverarbeiter und der gemeinsam Verantwortlichen."
+              "title": "Welche Zuständigkeiten bestehen für die Verarbeitung?",
+              "placeholder": "Beschreiben Sie die Zuständigkeiten der Beteiligten: Des Verantwortlichen, der möglichen Auftragsverarbeiter und der gemeinsam Verantwortlichen."
             },
             "3": {
               "title": "Gibt es Normen oder Standards für die Verarbeitung?",
-              "placeholder": "Nennen Sie die relevanten Standards für die Verarbeitung, insbesondere die anerkannten Richtlinien und Verhaltensregeln (codes of conduct) und die Datenschutzzertifizierung."
+              "placeholder": "Nennen Sie die relevanten Normen und Standards für die Verarbeitung, insbesondere die anerkannten Richtlinien und Verhaltensregeln (codes of conduct) und die Datenschutzzertifizierung."
             }
           }
         },
@@ -1062,15 +1119,15 @@
           "questions": {
             "1": {
               "title": "Welche Daten werden verarbeitetet?",
-              "placeholder": "Listen Sie die gesammelten und verarbeiteten Daten auf. Definieren Sie je Datenkategorie die Speicherdauer ,die Empfänger und die zugriffsberechtigten Personen."
+              "placeholder": "Listen Sie die gesammelten und verarbeiteten Daten auf. Definieren Sie je Datenkategorie die Speicherdauer, die Empfänger und die zugriffsberechtigten Personen."
             },
             "2": {
-              "title": "Wie funktioniert der Lebenszyklus von Daten und Prozessen?",
-              "placeholder": "Präsentieren und beschreiben Sie, wie die Verarbeitung in der Regel funktioniert (von der Datensammlung bis zur Datenlöschung, den verschiedenen Verarbeitungsstufen, Speicherung, etc.) und verwenden Sie zum Beispiel ein Diagramm der Datenflüsse (fügen Sie es als Anhang hinzu) und eine detaillierte Beschreibung des Prozesses."
+              "title": "Wie verläuft der Lebenszyklus von Daten und Prozessen?",
+              "placeholder": "Präsentieren und beschreiben Sie die Funktionsweise und den Ablauf der Datenverarbeitung (von der Datensammlung bis zur Datenlöschung, sowie die verschiedenen Verarbeitungsschritte, Speicherung, etc.) zum Beispiel mit Hilfe eines Diagramm der Datenflüsse (fügen Sie es als Anhang hinzu) und einer detaillierten Beschreibung der Prozesse."
             },
             "3": {
-              "title": "Wie wird die Verarbeitung unterstützt?",
-              "placeholder": "Listen Sie die unterstützenden Mittel auf (Betriebssysteme, Geschäftsanwendungen, Datenbankverwaltungssysteme, Office-Suites, Protokolle, Konfigurationen usw.)."
+              "title": "Mit Hilfe welcher Betriebsmittel erfolgt die Datenverarbeitung?",
+              "placeholder": "Listen Sie die entsprechenden IT-Systeme und andere Betriebsmittel auf (Betriebssysteme, Server, Fachanwendungen, Datenbankverwaltungssysteme, Office-Suites, Netze, Protokolle, Konfigurationen usw.)."
             }
           }
         }
@@ -1078,77 +1135,77 @@
     },
     "2": {
       "title": "Grundlegende Prinzipien",
-      "short_help": "In diesem Abschnitt können Sie die grundsätzlichen Compliance-Regelungen zum Datenschutz darstellen.",
+      "short_help": "In diesem Abschnitt können Sie die Maßnahmen zur Sicherstellung der Konformität mit den Grundprinzipien des Datenschutz darlegen.",
       "items": {
         "1": {
           "title": "Verhältnismäßigkeit und Notwendigkeit",
-          "short_help": "In diesem Teil können Sie die Rechtmäßigkeit Ihrer Verarbeitung und der verarbeiteten Daten nachweisen.",
+          "short_help": "In diesem Teil können Sie nachweisen, dass Sie ausreichende Maßnahmen zur Umsetzung der Rechte der Betroffenen ergriffen haben.",
           "questions": {
             "1": {
-              "title": "Sind die Verarbeitungszwecke eindeutig und legitim?",
+              "title": "Sind die Verarbeitungszwecke eindeutig definiert und rechtmäßig?",
               "short_title": "Zwecke",
               "placeholder": "Erklären Sie, warum die Verarbeitungszwecke bestimmt, eindeutig und legitim sind."
             },
             "2": {
-              "title": "Auf welcher Rechtsgrundlage erfolgt die rechtmäßige Verarbeitung?",
+              "title": "Aufgrund welcher Rechtsgrundlage erfolgt die Verarbeitung?",
               "short_title": "Rechtsgrundlage",
-              "placeholder": "Beschreiben Sie die Grundlage(n) Ihrer Verarbeitung (z. B. Zustimmung, Vertragserfüllung, rechtliche Verpflichtung, lebenswichtige Interessen usw.)."
+              "placeholder": "Beschreiben Sie die rechtlichen Grundlage(n) Ihrer Verarbeitung (z. B. Einwilligung, Vertragserfüllung, rechtliche Verpflichtung, lebenswichtige Interessen usw.)."
             },
             "3": {
-              "title": "Sind die erhobenen Daten angemessen, relevant und auf das für die Datenverarbeitung Notwendige beschränkt?",
-              "short_title": "Angemessenheit der Daten",
+              "title": "Sind die erhobenen Daten erforderlich, relevant und auf das für die Datenverarbeitung Notwendige beschränkt?",
+              "short_title": "Erforderlichkeit der Daten",
               "placeholder": "Erläutern Sie, warum alle Daten für Ihre Verarbeitung benötigt werden."
             },
             "4": {
               "title": "Sind die Daten korrekt und auf dem neuesten Stand?",
-              "short_title": "Datengenauigkeit",
+              "short_title": "Korrektheit der Daten",
               "placeholder": "Beschreiben Sie, welche Schritte unternommen wurden, um die Qualität der Daten sicherzustellen."
             },
             "5": {
               "title": "Welche Speicherdauer haben die Daten?",
               "short_title": "Speicherdauer",
-              "placeholder": "Erklären Sie, warum die Speicherdauer durch gesetzliche Anforderungen und / oder Verarbeitungsbedürfnisse gerechtfertigt ist."
+              "placeholder": "Erklären Sie, warum die Speicherdauer durch gesetzliche Anforderungen, andere Regelungen und / oder Verarbeitungsbedürfnisse gerechtfertigt ist."
             }
           }
         },
         "2": {
-          "title": "Regelungen zum Schutz der Persönlichkeitsrechte der betroffenen Personen",
-          "short_help": "In diesem Teil können Sie nachweisen, dass Sie die notwendigen Mittel einsetzen, um den betroffenen Personen die Ausübung ihrer Rechte zu ermöglichen.",
+          "title": "Maßnahmen zum Schutz der Persönlichkeitsrechte der betroffenen Personen",
+          "short_help": " In diesem Teil können Sie nachweisen, dass Sie ausreichende Maßnahmen zur Umsetzung der Rechte der Betroffenen ergriffen haben.",
           "questions": {
             "1": {
               "title": "Wie werden die betroffenen Personen über die Verarbeitung informiert?",
               "short_title": "Information der Betroffenen",
-              "placeholder": "Beschreiben Sie, welche Informationen den betroffenen Personen zur Verfügung gestellt werden und welche Mittel dafür zur Verfügung stehen."
+              "placeholder": "Beschreiben Sie, welche Informationen den betroffenen Personen auf welche Art und Weise zur Verfügung gestellt werden."
             },
             "2": {
-              "title": "Wie erfolgt die Zustimmung der betroffenen Personen?",
-              "short_title": "Einholung der Zustimmung",
-              "placeholder": "Beschreiben Sie die Regelungen, die sicherstellen sollen, dass die Zustimmung der Betroffenen eingeholt wurde."
+              "title": "Wenn anwendbar, wie wird die Einwilligung der betroffenen Personen eingeholt?",
+              "short_title": "Einholung der Einwilligung",
+              "placeholder": "Beschreiben Sie die Maßnahmen, die sicherstellen sollen, dass die Einwilligung der Betroffenen eingeholt wurde."
             },
             "3": {
               "title": "Wie können Betroffene ihre Recht auf Auskunft und Datenübertragbarkeit ausüben?",
               "short_title": "Recht auf Auskunft und Datenübertragbarkeit",
-              "placeholder": "Beschreiben Sie die Regelungen, mit denen betroffene Personen ihre Daten abrufen, erhalten und übertragen können."
+              "placeholder": "Beschreiben Sie die Maßnahmen, mit denen betroffene Personen Einsicht in ihre Daten nehmen sowie diese erhalten und übermitteln können."
             },
             "4": {
-              "title": "Wie können betroffene Personen ihr Recht auf Berichtigung und Löschung ausüben?",
+              "title": "Wie können betroffene Personen ihr Recht auf Berichtigung und Löschung (Recht auf Vergessenwerden) ausüben?",
               "short_title": "Recht auf Berichtigung und Löschung",
               "placeholder": "Beschreiben Sie die Regelungen, mit denen betroffene Personen ihre Daten berichtigen und löschen können."
             },
             "5": {
               "title": "Wie können betroffene Personen ihre Rechte auf Einschränkung oder Widerspruch der Verarbeitung ausüben?",
               "short_title": "Recht auf Einschränkung und auf Widerspruch",
-              "placeholder": "Beschreiben Sie die Regelungen, mit denen betroffene Personen die Verarbeitung ihrer Daten einschränken und ablehnen können."
+              "placeholder": "Beschreiben Sie die Regelungen, mit denen betroffene Personen die Verarbeitung ihrer Daten einschränken und ihr widersprechen können."
             },
             "6": {
               "title": "Sind die Verpflichtungen der Auftragsverarbeiter klar definiert und vertraglich geregelt?",
               "short_title": " Auftragsverarbeitung",
-              "placeholder": "Beschreiben Sie für jeden Auftragsverarbeiter seine Verantwortlichkeiten (Dauer, Umfang, Zweck, dokumentierte Verarbeitungsanweisungen, vorherige Genehmigung) und stellen Sie die Verträge, Verhaltensregeln (codes of conduct) und Zertifizierungen bereit, die seine Aufgaben und Verpflichtungen bestimmen."
+              "placeholder": "Beschreiben Sie für jeden Auftragsverarbeiter seine Zuständigkeiten und Aufgaben (Dauer, Umfang, Zweck, dokumentierte Verarbeitungsanweisungen, vorherige Genehmigung) und stellen Sie die Verträge, Verhaltensregeln (codes of conduct) und Zertifizierungen bereit, die seine Aufgaben und Verpflichtungen bestimmen."
             },
             "7": {
-              "title": "Werden die Daten bei Datenübermittlungen in Länder außerhalb der Europäischen Union angemessen geschützt?",
+              "title": "Soweit Datenübermittlungen in Länder außerhalb der Europäischen Union stattfinden, werden die Daten angemessen geschützt?",
               "short_title": "Übermittlung in Drittländer",
-              "placeholder": "Identifizieren sie jedes Land außerhalb der Europäischen Union, in dem Daten gespeichert oder verarbeitet werden, und geben Sie an, ob es anerkanntermaßen ein angemessenes Datenschutzniveau bietet oder beschreiben Sie die Vertragsbedingungen, die den Transfer regeln."
+              "placeholder": "Listen Sie jedes Land außerhalb der Europäischen Union, in dem Daten gespeichert oder verarbeitet werden und geben Sie an, ob dieses anerkanntermaßen ein angemessenes Datenschutzniveau bietet oder beschreiben Sie die (Vertrags-)Bedingungen, die den Transfer regeln."
             }
           }
         }
@@ -1156,15 +1213,15 @@
     },
     "3": {
       "title": "Risiken",
-      "short_help": "In diesem Abschnitt können Sie die Datenschutzrisiken unter Berücksichtigung bestehender oder geplanter Regelungen bewerten.",
+      "short_help": "In diesem Abschnitt können Sie die Datenschutzrisiken unter Berücksichtigung bestehender oder geplanter Maßnahmen bewerten.",
       "items": {
         "1": {
           "title": "Geplante oder bestehende Maßnahmen",
-          "short_help": "In diesem Abschnitt können Sie Regelungen (vorhanden oder geplant) identifizieren, die zur Datensicherheit beitragen."
+          "short_help": "In diesem Abschnitt können Sie Maßnahmen (vorhanden oder geplant) identifizieren, die zur Datensicherheit beitragen."
         },
         "2": {
-          "title": "Illegitimer Zugang zu Daten",
-          "short_help": "Analysieren Sie die Ursachen und Folgen von illegitimen Zugriffen auf Daten und schätzen Sie deren Schweregrad und Wahrscheinlichkeit ein.",
+          "title": "Unrechtmäßiger Zugriff auf Daten",
+          "short_help": "Analysieren Sie die Ursachen und Folgen von unrechtmäßigen Zugriffen auf Daten und schätzen Sie deren Schweregrad und Eintrittswahrscheinlichkeit ein.",
           "questions": {
             "1": {
               "title": "Was könnten die wesentlichen Auswirkungen für die betroffenen Personen sein, wenn das Risiko eintritt?",
@@ -1179,22 +1236,22 @@
               "placeholder": "Geben Sie die Risikoquellen ein \u002B"
             },
             "4": {
-              "title": "Welche der identifizierten Regelungen tragen zur Bewältigung des Risikos bei?",
-              "placeholder": "Klicken Sie hier, um Regelungen auszuwählen, die das Risiko adressieren."
+              "title": "Welche der identifizierten Maßnahmen tragen zur Bewältigung des Risikos bei?",
+              "placeholder": "Klicken Sie hier, um Maßnahmen auszuwählen, die das Risiko adressieren."
             },
             "5": {
-              "title": "Wie schätzen Sie den Risikoschweregrad ein, insbesondere nach möglichen Auswirkungen und geplanten Regelungen?",
-              "placeholder": "Begründen Sie hier die geschätzte Schwere des Risikos."
+              "title": "Wie schätzen Sie den Risikoschweregrad ein, insbesondere hinsichtlich der möglichen Auswirkungen und geplanten Maßnahmen?",
+              "placeholder": "Begründen Sie hier den vermuteten Schweregrad des Risikos."
             },
             "6": {
-              "title": "Wie schätzen Sie die Wahrscheinlichkeit des Risikos ein, insbesondere in Bezug auf Bedrohungen, Risikoquellen und geplante Regelungen?",
-              "placeholder": "Begründen Sie hier die geschätzte Wahrscheinlichkeit."
+              "title": "Wie schätzen Sie die Eintrittswahrscheinlichkeit des Risikos ein, insbesondere hinsichtlich der Bedrohungen, Risikoquellen und geplante Maßnahmen?",
+              "placeholder": "Begründen Sie hier die vermutete Eintrittswahrscheinlichkeit."
             }
           }
         },
         "3": {
-          "title": "Unerwünschte Änderung von Daten",
-          "short_help": "Analysieren Sie die Ursachen und Folgen einer unerwünschten Veränderung der Daten und schätzen Sie deren Schweregrad und Wahrscheinlichkeit ein.",
+          "title": "Unerwünschte Veränderung von Daten",
+          "short_help": "Analysieren Sie die Ursachen und Folgen einer unerwünschten Veränderung der Daten und schätzen Sie deren Schweregrad und Eintrittswahrscheinlichkeit ein.",
           "questions": {
             "1": {
               "title": "Was könnten die wesentlichen Auswirkungen für die betroffenen Personen sein, wenn das Risiko eintritt?",
@@ -1209,26 +1266,26 @@
               "placeholder": "Geben Sie die Risikoquellen \u002B ein"
             },
             "4": {
-              "title": "Welche der identifizierten Regelungen tragen zur Bewältigung des Risikos bei?",
-              "placeholder": "Klicken Sie hier, um Regelungen auszuwählen, die das Risiko adressieren."
+              "title": "Welche der identifizierten Maßnahmen tragen zur Bewältigung des Risikos bei?",
+              "placeholder": "Klicken Sie hier, um Maßnahmen auszuwählen, die das Risiko adressieren."
             },
             "5": {
-              "title": "Wie schätzen Sie den Risikoschweregrad ein, insbesondere nach möglichen Auswirkungen und geplanten Regelungen?",
-              "placeholder": "Begründen Sie hier die geschätzte Schwere des Risikos."
+              "title": " Wie schätzen Sie den Risikoschweregrad ein, insbesondere hinsichtlich der möglichen Auswirkungen und geplanten Maßnahmen?",
+              "placeholder": " Begründen Sie hier den vermuteten Schweregrad des Risikos."
             },
             "6": {
-              "title": "Wie schätzen Sie die Wahrscheinlichkeit des Risikos ein, insbesondere in Bezug auf Bedrohungen, Risikoquellen und geplante Regelungen?",
-              "placeholder": "Begründen Sie hier die geschätzte Wahrscheinlichkeit."
+              "title": " Wie schätzen Sie die Eintrittswahrscheinlichkeit des Risikos ein, insbesondere hinsichtlich der Bedrohungen, Risikoquellen und geplante Maßnahmen?",
+              "placeholder": " Begründen Sie hier die vermutete Eintrittswahrscheinlichkeit."
             }
           }
         },
         "4": {
           "title": "Datenverlust",
-          "short_help": "Analysieren Sie die Ursachen und Folgen von Datenverlusten und schätzen Sie deren Schweregrad und Wahrscheinlichkeit ein.",
+          "short_help": "Analysieren Sie die Ursachen und Folgen von Datenverlusten und schätzen Sie deren Schweregrad und Eintrittswahrscheinlichkeit ein.",
           "questions": {
             "1": {
               "title": "Was könnten die wesentlichen Auswirkungen für die betroffenen Personen sein, wenn das Risiko eintritt?",
-              "placeholder": "Geben Sie die potenziellen Auswirkungen ein \u002B"
+              "placeholder": "Geben Sie die möglichen Auswirkungen ein \u002B"
             },
             "2": {
               "title": "Was sind die Hauptbedrohungen, die zu dem Risiko führen könnten?",
@@ -1239,22 +1296,22 @@
               "placeholder": "Geben Sie die Risikoquellen ein \u002B"
             },
             "4": {
-              "title": "Welche der identifizierten Regelungen tragen zur Bewältigung des Risikos bei?",
-              "placeholder": "Klicken Sie hier, um Regelungen auszuwählen, die das Risiko adressieren."
+              "title": "Welche der identifizierten Maßnahmen tragen zur Bewältigung des Risikos bei?",
+              "placeholder": "Klicken Sie hier, um Maßnahmen auszuwählen, die das Risiko adressieren."
             },
             "5": {
-              "title": "Wie schätzen Sie den Risikoschweregrad ein, insbesondere nach möglichen Auswirkungen und geplanten Regelungen?",
-              "placeholder": "Begründen Sie hier die geschätzte Schwere des Risikos."
+              "title": " Wie schätzen Sie den Risikoschweregrad ein, insbesondere hinsichtlich der möglichen Auswirkungen und geplanten Maßnahmen?",
+              "placeholder": " Begründen Sie hier den vermuteten Schweregrad des Risikos."
             },
             "6": {
-              "title": "Wie schätzen Sie die Wahrscheinlichkeit des Risikos ein, insbesondere in Bezug auf Bedrohungen, Risikoquellen und geplante Regelungen?",
-              "placeholder": "Begründen Sie hier die geschätzte Wahrscheinlichkeit."
+              "title": " Wie schätzen Sie die Eintrittswahrscheinlichkeit des Risikos ein, insbesondere hinsichtlich der Bedrohungen, Risikoquellen und geplante Maßnahmen?",
+              "placeholder": " Begründen Sie hier die vermutete Eintrittswahrscheinlichkeit."
             }
           }
         },
         "5": {
           "title": "Risikoübersicht",
-          "short_help": "Diese Visualisierung ermöglicht Ihnen eine globale und virtuelle Sicht auf die Auswirkungen der Maßnahmen auf die Risiken, denen die von der Verarbeitung ausgehen."
+          "short_help": "Diese Visualisierung ermöglicht Ihnen eine globale und kompakte Übersicht über die Auswirkungen der vorgesehenen Maßnahmen auf die Risiken, die von der Verarbeitung ausgehen."
         }
       }
     },
@@ -1264,15 +1321,15 @@
       "items": {
         "1": {
           "title": "Risikokartierung",
-          "short_help": "Diese Visualisierung ermöglicht es Ihnen, die Positionierung der Risiken vor und nach der Anwendung der ergänzenden Kontrollen zu vergleichen."
+          "short_help": "Diese Visualisierung ermöglicht es Ihnen, die Positionierung der Risiken vor und nach der Anwendung der jeweiligen ergänzenden Maßnahmen zu vergleichen."
         },
         "2": {
           "title": "Aktionsplan",
-          "short_help": "Planen Sie detailliert die Implementierung der zusätzlichen Kontrollen, die während der DSFA identifiziert wurden."
+          "short_help": "Planen Sie detailliert die Umsetzung der ergänzenden Maßnahmen, die während der DSFA identifiziert wurden. Der Aktionsplan wird automatisch aktualisiert, sobald im Rahmen der Überprüfung der DSFA Ergänzungen vorgenommen werden."
         },
         "3": {
-          "title": "Stellungnahmen des Datenschutzbeauftragte und der Betroffenen",
-          "short_help": "Holen Sie den Rat des Datenschutzbeauftragten ein. Präsentieren Sie die Ansichten der betroffenen Personen oder ihren Vertreter."
+          "title": "Stellungnahmen des Datenschutzbeauftragten und der Betroffenen",
+          "short_help": "Legen Sie den Rat des Datenschutzbeauftragten dar. Dokumentieren Sie den Standpunkt der betroffenen Personen oder ihren Vertreter."
         },
         "4": {
           "title": "Bestätigen Sie die DSFA"

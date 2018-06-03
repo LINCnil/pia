@@ -38,7 +38,7 @@ export class Pia extends ApplicationDb {
       this.findAll().then((entries: any) => {
         if (entries && entries.length > 0) {
           entries.forEach(element => {
-            if (element.is_example && element.is_example === 1) {
+            if (element.is_example === 1) {
               return;
             }
             const newPia = new Pia();
@@ -255,7 +255,7 @@ export class Pia extends ApplicationDb {
   async getPiaExample() {
     return new Promise((resolve, reject) => {
       if (this.serverUrl) {
-        fetch(this.getServerUrl()).then((response) => {
+        fetch(this.getServerUrl() + '/' + 'example').then((response) => {
           return response.json();
         }).then((result: any) => {
           resolve(result);
