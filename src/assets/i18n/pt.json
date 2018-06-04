@@ -1,7 +1,7 @@
 {
   "authentication": {
     "title": "Avaliação de impacto sobre a proteção de dados",
-    "subtitle1": "Uma plataforma para criar <br> e gerir os teus PIAs",
+    "subtitle1": "Uma plataforma para criar <br> e gerir as análises de PIA",
     "subtitle2": "Aceder a ferramentas e glossários",
     "start_app": "Aceder o software PIA (Beta)",
     "description": "Este software da <strong>Comissão Francesa de Proteção de Dados (CNIL)</strong> pretende guiar os controladores de dados na construção e demonstração da conformidade para a RGPD. Ajuda a proceder corretamente a avaliação do impacto da proteção de dados facilitando o uso do método PIA desenvolvido pelo CNIL.",
@@ -15,9 +15,9 @@
     "pia_example_link":"Exemplo PIA",
     "languages": {
       "official_translation": "Versão original",
-      "cnil_translations": "Translações fornecidas pela CNIL",
-      "dpa_translations": "Translações revistas pela ADP europeia",
-      "community_translations": "Translações fornecidas pela comunidade",
+      "cnil_translations": "Traduções fornecidas pela CNIL",
+      "dpa_translations": "Traduções revistas pela ADP europeia",
+      "community_translations": "Traduções fornecidas pela comunidade",
       "cz": "Česky",
       "de": "Deutsch",
       "el": "Ελληνικά",
@@ -53,20 +53,20 @@
       "author": "Autor",
       "assessor": "Revisor",
       "validator": "Validador",
-      "new_pia": "Nova PIA",
+      "new_pia": "Nova análise PIA",
       "import_pia": "Importar PIA",
-      "list_rocket_content": "Iniciar ! Para iniciar <br>uma PIA, clicar no +",
-      "card_rocket_content": "Iniciar !<br><br>Para iniciar uma PIA,<br> clicar no Nova PIA"
+      "list_rocket_content": "Iniciar ! Para iniciar <br>uma análise PIA, clicar no +",
+      "card_rocket_content": "Iniciar !<br><br>Para iniciar uma análise PIA,<br> clicar no Nova análise PIA"
     },
     "cards": {
-      "new_pia": "Nova PIA",
-      "placeholder_new_pia": "Nova PIA",
+      "new_pia": "Nova análise PIA",
+      "placeholder_new_pia": "Nova análise PIA",
       "or": "ou",
-      "import_pia": "Importar PIA",
-      "placeholder_import_pia": "Importar PIA",
+      "import_pia": "Importar análise PIA",
+      "placeholder_import_pia": "Importar análise PIA",
       "title_close_creation": "Fechar",
       "pia_name": "PIA",
-      "placeholder_pia_name": "Título da PIA",
+      "placeholder_pia_name": "Título da análise PIA",
       "author": "Editar",
       "placeholder_author": "Primeiro Nome, último nome",
       "evaluation": "Revisão",
@@ -84,11 +84,11 @@
           "more_options": "Mais opções",
           "duplicate": "Duplicar",
           "action_plan": "Exibir<br>plano de ação",
-          "pia": "Exibir<br>PIA",
+          "pia": "Exibir análise <br>PIA",
           "remove": "Apagar"
         },
-        "edit_pia": "Editar PIA",
-        "consult_pia": "Consultar PIA"
+        "edit_pia": "Editar análise PIA",
+        "consult_pia": "Consultar análise PIA"
       }
     },
     "lists": {
@@ -108,7 +108,7 @@
           "export": "Exportar",
           "duplicate": "Duplicar",
           "action_plan": "Exibir plano de ação",
-          "pia": "Exibir PIA",
+          "pia": "Exibir análise PIA",
           "remove": "Apagar"
         }
       }
@@ -136,8 +136,8 @@
     },
     "sections": {
       "homepage_link": "Voltar para o painel",
-      "validate_pia": "Validar PIA",
-      "refuse_pia": "PIA recusada",
+      "validate_pia": "Validar análise PIA",
+      "refuse_pia": "Análise PIA recusada",
       "status": {
         "evaluation": {
           "title": "Espera por revisão.",
@@ -147,7 +147,7 @@
         },
         "validation": {
           "title": "Espera por validação.",
-          "content": "Esta parte tem sido revista e está à espera da validação completa da PIA. Se desejares mudar a revisão, tens de ",
+          "content": "Esta parte tem sido revista e está à espera da validação completa da análise PIA. Se desejares mudar a revisão, tens de ",
           "cancel": "cancelar o pedido de validação.",
           "cancel_button": "Cancelar pedido de validação"
         }
@@ -264,7 +264,7 @@
       },
       "PIA_VAL_RT": {
         "name": "Validação Formal",
-        "description": "Decidir se os controlos selecionados, os riscos residuais e o plano de ação são aceitáveis, com justificações, tendo em vista as participações e visões anteriormente identificadas das partes interessadas. Desta forma, a PIA pode ser:<br>- validada<br>- condicionada, em melhoria (explique de que maneira)<br>- recusada (juntamente com o tratamento em consideração). Se necessário, repita os passos anteriores para que a PIA possa ser validada. Esta decisão não prejudica a avaliação da conformidade que pode ser efetuada, se for aplicável, pela Autoridade de Proteção de Dados (CNIL em França), como parte das formalidades preliminares ou dos controlos, por exemplo.",
+        "description": "Decidir se os controlos selecionados, os riscos residuais e o plano de ação são aceitáveis, com justificações, tendo em vista as participações e visões anteriormente identificadas das partes interessadas. Desta forma, a análise PIA pode ser:<br>- validada<br>- condicionada, em melhoria (explique de que maneira)<br>- recusada (juntamente com o tratamento em consideração). Se necessário, repita os passos anteriores para que a análise PIA possa ser validada. Esta decisão não prejudica a avaliação da conformidade que pode ser efetuada, se for aplicável, pela Autoridade de Proteção de Dados (CNIL em França), como parte das formalidades preliminares ou dos controlos, por exemplo.",
         "source": "PIAF Connected Objects p40"
       },
       "PIA_VAL_CART": {
@@ -309,8 +309,8 @@
       },
       "PIA_TEC_ARCH": {
         "placeholder": "Indique aqui se os mecanismos são implementados para o monitoramento da integridade dos dados armazenados, quais e para que finalidade.",
-        "name": "Arquivamento",
-        "description": "Se for aplicável, descreva aqui os processos de gestão de arquivo (entrega, armazenamento, consulta, etc.) sob sua responsabilidade. Especifique as funções de arquivamento (escritórios de origem, agências de transferência etc.) e a política de arquivamento. Informar se os dados podem estar no âmbito dos arquivos públicos.",
+        "name": "Arquivo",
+        "description": "Se for aplicável, descreva aqui os processos de gestão de arquivo (entrega, armazenamento, consulta, etc.) sob sua responsabilidade. Especifique as funções de arquivo (escritórios de origem, agências de transferência etc.) e a política de arquivo. Informar se os dados podem estar no âmbito dos arquivos públicos.",
         "source": "PIAF Connected Objects p22 - WIKI"
       },
       "PIA_TEC_PAP": {
@@ -418,7 +418,7 @@
       "PIA_ORG_RMGT": {
         "placeholder": "Descreva aqui os processos para controlar os riscos que as operações de tratamento realizadas pela organização representam na proteção de dados e na privacidade dos sujeitos de dados.",
         "name": "Gerenciamento de riscos de privacidade",
-        "description": "Política descrevendo processos para controlar os riscos que as operações realizadas pela organização representam na proteção de dados e na privacidade dos sujeitos de dados (criar mapa dos riscos, etc.).",
+        "description": "Política descrevendo processos para controlar os riscos que as operações de tratamento realizadas pela organização representam na proteção de dados e na privacidade dos sujeitos de dados (criar mapa dos riscos, etc.).",
         "source": "PIA3 p77 - WIKI"
       },
       "PIA_ORG_PBD": {
@@ -487,7 +487,7 @@
         "source": ""
       },
       "PIA_DEF_MIND": {
-        "name": "Minimização dos dados em si",
+        "name": "Minimização dos dados pessoais",
         "description": "Reduzir a gravidade dos riscos minimizando os dados, adotando medidas que visem reduzir sua sensibilidade, como filtrar e remover dados desnecessários, pseudonimizando os dados, etc.",
         "source": "PIA3 p64"
       },
@@ -567,8 +567,8 @@
         "source": "Mesures_US Surveillance"
       },
       "PIA_DEF_ARCH": {
-        "name": "Arquivamento",
-        "description": "Procedimentos que preservam e gerenciam os arquivos eletrónicos contendo os dados pessoais destinados a garantir seu valor (especificamente, seu valor legal) durante todo o período necessário (transferência, armazenamento, migração, acessibilidade, eliminação, política de arquivamento, proteção de confidencialidade, etc.).",
+        "name": "Arquivo",
+        "description": "Procedimentos que preservam e gerenciam os arquivos eletrónicos contendo os dados pessoais destinados a garantir seu valor (especificamente, seu valor legal) durante todo o período necessário (transferência, armazenamento, migração, acessibilidade, eliminação, política de arquivo, proteção de confidencialidade, etc.).",
         "source": "Mesures_USE Archiving"
       },
       "PIA_DEF_MIN1": {
@@ -800,8 +800,8 @@
           "content": "Esse problema conhecido está sendo corrigido no momento. Se encontrar esse problema, recomendamos que preencha o campo de justificação do nível estimado de gravidade e/ou probabilidade. Poderá editar o medidor assim que o bug for corrigido."
         },
         "qa3": {
-          "title": "Eu encontro problemas ao importar um PIA",
-          "content": "Vários erros foram observados durante a importação de uma PIA e, em particular, os indicadores de nível para avaliar a gravidade e a probabilidade de um risco podem desaparecer. Neste caso, por favor, consulte o problema acima mencionado. Além disso, um PIA pode não aparecer no painel depois de importá-lo. Este é um problema de exibição e só precisa atualizar a página."
+          "title": "Eu encontro problemas ao importar uma análise PIA",
+          "content": "Vários erros foram observados durante a importação de uma análise PIA e, em particular, os indicadores de nível para avaliar a gravidade e a probabilidade de um risco podem desaparecer. Neste caso, por favor, consulte o problema acima mencionado. Além disso, uma análise PIA pode não aparecer no painel depois de importá-lo. Este é um problema de exibição e só precisa atualizar a página."
         },
         "qa4": {
           "title": "Quando copio/colo texto, ele é sublinhado.",
@@ -813,11 +813,11 @@
         },
         "qa6": {
           "title": "Ao trocar de idioma, os textos não são traduzidos",
-          "content": "Por favor, feche a PIA que está editando e abra-o novamente. O conteúdo deve então ser exibido no idioma que selecionou."
+          "content": "Por favor, feche a análise PIA que está editando e abra-o novamente. O conteúdo deve então ser exibido no idioma que selecionou."
         },
         "qa7": {
-          "title": "Recusei a validar uma PIA mas não sei o que fazer agora",
-          "content": "No momento, os ícones do menu de navegação não são atualizados após recusar um PIA. Deve verificar cada seção e alterar as informações e/ou avaliações de acordo com as razões para recusar a PIA. Depois de toda a seção tiver sido revisada, poderá solicitar a validação da PIA novamente."
+          "title": "Recusei a validar uma análise PIA mas não sei o que fazer agora",
+          "content": "No momento, os ícones do menu de navegação não são atualizados após recusar uma análise PIA. Deve verificar cada seção e alterar as informações e/ou avaliações de acordo com as razões para recusar a análise PIA. Depois de toda a seção tiver sido revisada, poderá solicitar a validação da análise PIA novamente."
         }
       },
       "footer": ""
@@ -838,40 +838,40 @@
     "update": "Atualizar URL"
   },
   "validation_page": {
-    "responsible": "Responsável pela validação da PIA:",
-    "after_reading": "Depois de ler a PIA completa relativa ao tratamento de dados ligado a",
-    "confirmation1": "Eu atesto que o contexto do tratamento descrito na PIA é consistente com a realidade.",
+    "responsible": "Responsável pela validação da análise PIA:",
+    "after_reading": "Depois de ler a análise PIA completa relativa ao tratamento de dados ligado a",
+    "confirmation1": "Eu atesto que o contexto do tratamento descrito na análise PIA é consistente com a realidade.",
     "confirmation2": "Eu atesto que estou ciente dos riscos dependendo das medidas existentes ou planeadas.",
     "confirmation3": "Ratifico as ações corretivas indicadas no plano de ação.",
     "confirmation4": "Eu me comprometo a implementar o mais rápido possível as ações corretivas indicadas.",
     "button": {
-      "rejection": "Rejeitar PIA",
-      "simple_validation": "Aprovar PIA <br>(direto)",
-      "signed_validation": "Aprovar PIA <br>(assinado)"
+      "rejection": "Rejeitar análise PIA",
+      "simple_validation": "Aprovar análise PIA <br>(direto)",
+      "signed_validation": "Aprovar análise PIA <br>(assinado)"
     },
     "mandatory_fields": "Todas as caixas devem ser verificadas",
-    "waiting_for_signature": "PIA subscrita pendente",
+    "waiting_for_signature": "Análise PIA subscrita pendente",
     "validated_pia_with_signature": "Aprovado",
-    "add_signed_pia": "Adicionar a PIA subscrita",
+    "add_signed_pia": "Adicionar a análise PIA subscrita",
     "remove_attachment": "Remover o anexo",
     "latest_signed_attachment": "Último anexo subscrito",
     "signed_attachments_history": "Histórico de anexos subscritos",
     "tools": {
       "dashboard": "Painel",
-      "display_pia": "Exibir PIA",
+      "display_pia": "Exibir análise PIA",
       "action_plan": "Plano de ação"
     }
   },
   "rejection_page": {
     "title": "História de validação",
     "rejection_reason": "Motivo de recusa",
-    "rejection_reason_placeholder": "Descrever os motivos da recusa de PIA.",
+    "rejection_reason_placeholder": "Descrever os motivos da recusa da análise PIA.",
     "applied_adjustments": "Ajustamentos propostos",
-    "applied_adjustments_placeholder": "Descrever as mudanças trazidas para PIA.",
+    "applied_adjustments_placeholder": "Descrever as mudanças trazidas para a análise PIA.",
     "previous_rejection": "Recusa anterior",
     "button": {
       "abandon_treatment": "Abandono do tratamento",
-      "reject_pia": "Rejeitar PIA",
+      "reject_pia": "Rejeitar análise PIA",
       "send_for_validation": "Reenvio para aprovação"
     }
   },
@@ -886,27 +886,27 @@
     "start_evaluation": "Começar revisão",
     "back_to_home": "Voltar para o menu",
     "simple_pia_validation": {
-      "content": "A PIA tem sido validada."
+      "content": "A análise PIA tem sido validada."
     },
     "completed_edition": {
-      "content": "A PIA foi totalmente editada, tem que ser revisada."
+      "content": "A análise PIA foi totalmente editada, tem que ser revisada."
     },
     "completed_evaluation": {
-      "content": "A PIA foi totalmente revisada, tem que ser validada."
+      "content": "A análise PIA foi totalmente revisada, tem que ser validada."
     },
     "update_server_url": {
       "content": "O endereço do servidor foi atualizado."
     },
     "signed_pia_validation": {
-      "content": "<span class='strong'>A PIA é aceite</span><br> Finalize a validação da PIA anexando<br>o relatório assinado pela pessoa responsável.",
+      "content": "<span class='strong'>A análise PIA é aceite</span><br> Finalize a validação da análise PIA anexando<br>o relatório assinado pela pessoa responsável.",
       "download_pia": "Descarregar o relatório PIA"
     },
     "abandon_pia": {
-      "additional_text": "O arquivamento não é definitivo e pode voltar à PIA se for necessário.",
+      "additional_text": "O arquivo não é definitivo e pode voltar à análise PIA se for necessário.",
       "content": "Tem certeza que quer<br>desistir deste tratamento?"
     },
     "refuse_pia": {
-      "content": "<span class='strong'>PIA rejeitada,</span><br>Vários campos devem ser corrigidos.<br>Retornar ao modo de avaliação<br>para fazer correções."
+      "content": "<span class='strong'>Análise PIA rejeitada,</span><br>Vários campos devem ser corrigidos.<br>Retornar ao modo de avaliação<br>para fazer correções."
     },
     "same_comment": {
       "content": "<span class='strong'>Atenção,</span> Por favor insira um comentário diferente do último gravado<br>."
@@ -923,18 +923,18 @@
       "content": "<span class='strong'>Parabéns</span><br>, a subseção está agora <br>disponível para avaliação."
     },
     "validate_evaluation": {
-      "content": "<span class='strong'>Parabéns</span><br>, terminou de avaliar esta seção. <br>Outras partes de PIA também devem ser avaliadas para poder validar a PIA."
+      "content": "<span class='strong'>Parabéns</span><br>, terminou de avaliar esta seção. <br>Outras partes da ferramenta PIA também devem ser avaliadas para poder validar a análise PIA."
     },
     "validate_evaluation_to_correct": {
-      "content": "Lamento, <br>vários campos devem ser corrigidos. <br>Returnar ao modo de edição<br>para fazer correções."
+      "content": "Lamento, <br>vários campos devem ser corrigidos. <br>Retornar ao modo de edição<br>para fazer correções."
     },
     "declare_measures": {
       "content": "Lamento, <br>antes de avaliar os riscos<br>, deve relatar as <br>medidas existentes ou planeadas.",
       "declare": "Declarar medidas existentes ou planeadas"
     },
     "remove_pia": {
-      "content": "<span class='strong'>Atenção</span><br>, tem a certeza que quer <br>remover este PIA?",
-      "remove": "Remover este PIA"
+      "content": "<span class='strong'>Atenção</span><br>, tem a certeza que quer <br>remover esta análise PIA?",
+      "remove": "Remover esta análise PIA"
     },
     "remove_attachment": {
       "content": "<span class='strong'>Atenção</span><br>, tem a certeza que quer <br>remover este anexo?",
@@ -953,7 +953,7 @@
       "comment": "Comentar"
     },
     "modal_select_text_pia": {
-      "content": "O conteúdo de PIA foi copiado para a área de transferência."
+      "content": "O conteúdo da análise PIA foi copiado para a área de transferência."
     },
     "back_to_edition": {
       "content": "Esta seção foi enviada de volta para edição. <br> Vários campos devem ser corrigidos<br> para permitir sua revisão adequada."
@@ -977,7 +977,7 @@
     "csv_title_object": "Título",
     "display_filters": {
       "title": "Exibir filtros",
-      "main_content": "Exibir seção \"Informações de PIA\"",
+      "main_content": "Exibir seção \"Informações da análise PIA\"",
       "context_content": "Exibir seção \"Contexto\"",
       "principles_content": "Exibir seção \"Princípios fundamentais\"",
       "risks_content": "Exibir seção \"Riscos\"",
@@ -1100,16 +1100,16 @@
           "short_help": "Esta parte permite identificar e apresentar o objeto de estudo.",
           "questions": {
             "1": {
-              "title": "Qual é o tratamento em consideração?",
-              "placeholder": "Apresentar um breve resumo do tratamento: seu nome, propósitos, apostas, contexto de uso, etc."
+              "title": "Qual é a finalidade de tratamento considerada no âmbito da análise?",
+              "placeholder": "Descreva a finalidade de tratamento, incluindo nome, objetivos e benefícios dessa finalidade, contexto de utilização, etc."
             },
             "2": {
-              "title": "Quais são as responsabilidades ligadas ao tratamento?",
-              "placeholder": "Descrever as responsabilidades das partes interessadas: o controlador de dados, os possíveis processadores de dados e os controladores conjuntos."
+              "title": "Quais são as responsabilidades inerentes ao tratamento de dados pessoais?",
+              "placeholder": "Descreva as responsabilidades de todos os intervenientes envolvidos na finalidade de tratamento, identificando a entidade que atua como responsável pelo tratamento, entidades subcontratadas que tratem estes dados, terceiros autorizados, entre outros. <br><br>Responsável pelo tratamento é a pessoa singular ou coletiva, a autoridade pública, a agência ou outro organismo que, individualmente ou em conjunto com outras (responsáveis conjuntos), determina as finalidades e os meios de tratamento de dados pessoais. <br><br>No caso de existirem responsáveis conjuntos pelo tratamento, estes determinam por acordo entre si e de modo transparente as respetivas responsabilidades pelo cumprimento do RGPD, nomeadamente no que diz respeito ao exercício dos direitos do titular dos dados e aos respetivos deveres de fornecer as informações requeridas pelo RGPD, a menos e na medida em que as suas responsabilidades respetivas sejam determinadas pelo direito da União ou do Estado-Membro a que se estejam sujeitos."
             },
             "3": {
-              "title": "Existem padrões aplicáveis ao tratamento?",
-              "placeholder": "Listar os padrões relevantes aplicáveis ao tratamento, especialmente códigos de conduta aprovados e certificações de proteção de dados."
+              "title": "Quais são as normas aplicáveis à finalidade de tratamento?",
+              "placeholder": "Para esta finalidade de tratamento identifique as normas seguidas pela organização, especialmente códigos de conduta aprovados, certificações de proteção de dados e/ou segurança da informação, cláusulas de subcontratação com indicação expressa da forma de utilização dos dados, entre outros."
             }
           }
         },
@@ -1118,16 +1118,16 @@
           "short_help": "Esta parte permite definir e descrever o âmbito do tratamento em detalhes.",
           "questions": {
             "1": {
-              "title": "Quais são os dados processados?",
-              "placeholder": "Listar os dados recolhidos e processados. Definir para cada duração de armazenamento, os destinatários e as pessoas com acesso aos mesmos."
+              "title": "Quais são os dados pessoais tratados?",
+              "placeholder": "Identifique as categorias de dados recolhidos e processados (p.ex. nome, data nascimento, morada, etc.) e identifique o prazo de conservação destes dados, caso exista, por tipo de dados. No caso de não existir um prazo definido, este facto deverá ser indicado."
             },
             "2": {
-              "title": "Como funciona o ciclo de vida de dados e processos?",
-              "placeholder": "Apresentar e descrever como o produto geralmente funciona (da coleção de dados à destruição de dados, os diferentes estágios de tratamento, armazenamento, etc.), usando, por exemplo, um diagrama de fluxos de dados (adicione-o como anexo) e uma descrição detalhada do processos realizados."
+              "title": "Como funciona o ciclo de vida dos dados pessoais e dos processos inerentes?",
+              "placeholder": "Apresente e descreva como os dados são processados (desde a recolha de dados até a destruição dos mesmos, as diferentes fases de tratamento, armazenamento, etc.). Se for aplicável, anexe exemplos de fluxogramas. Também é necessário identificar os tipos de operações de tratamento, tendo em contra os seguintes pontos: <br>-recolha <br>-registo <br>-organização <br>-estruturação <br>-conservação <br>-adaptação ou alteração <br>-recuperação <br>-consulta <br>-utilização <br>-divulgação por transmissão, difusão ou qualquer outra forma de disponibilização <br>-comparação ou interconexão <br>-limitação <br>-apagamento ou destruição <br>-outros." 
             },
             "3": {
-              "title": "Quais são os dados que suportam ativos?",
-              "placeholder": "Listar os dados que suportam ativos (sistemas operacionais, aplicativos de negócios, sistemas de gerenciamento de banco de dados, conjuntos de escritórios, protocolos, configurações, etc.)"
+              "title": "Quais são os ativos de informação utilizados na finalidade de tratamento?",
+              "placeholder": "Identifique os ativos de informação de que dependem os dados pessoais: <br>-equipamento informático <br>-software <br>-redes <br>-pessoas intervenientes (cargos desempenhados na organização) <br>-suportes de informação em papel. <br><br>Para a finalidade de tratamento, devem ser indicados os tipos de meios utilizados para o tratamento de dados. Estes podem ser: <br>-<strong>Meios de tratamento automatizados</strong>: devem ser indicados todos os meios tecnológicos (softwares, sistemas, sites) utilizadas no tratamento dos dados pessoais; <br>-<strong>Meios de tratamento não automatizados</strong>: devem ser indicadas as operações manuais (preenchimento de formulários em papel, criação de cópias de documentos e/ou digitalização, arquivo físico em papel, entre outros) realizadas para a finalidade de tratamento. <br><br>Para esta finalidade, devem ser identificados equipamentos físicos como computadores portáteis ou impressoras, aplicações utilizadas, se é utilizado um servidor próprio ou cloud, quem manuseia documentos em papel e como os ativos são transmitidos na organização."
             }
           }
         }
@@ -1142,29 +1142,29 @@
           "short_help": "Esta parte permite demonstrar a legitimidade do seu tratamento e dos dados processados.",
           "questions": {
             "1": {
-              "title": "Os fins de tratamento são especificados, explícitos e legítimos?",
+              "title": "A finalidade de tratamento é específica, explícita e legítima?",
               "short_title": "Objetivos",
-              "placeholder": "Explicar porque os fins de tratamento são especificados, explícitos e legítimos."
+              "placeholder": "Justifique porque a finalidade é específica, explícita e legítima. <br><br>Os dados pessoais são recolhidos para uma finalidade específica, explícitas e legítimas e não podendo ser tratados posteriormente de uma forma incompatível com essa finalidade."
             },
             "2": {
-              "title": "Qual é a base legal que torna o tratamento legal?",
+              "title": "Qual é o fundamento para tratamento de dados pessoais?",
               "short_title": "Base legal",
-              "placeholder": "Descreva qual é a base legal do seu tratamento (ex: consentimento, cumprimento de um contrato, cumprimento de uma obrigação legal, proteção de interesses vitais, etc.)"
+              "placeholder": "Identifique qual é o fundamento de tratamento de dados (consentimento, contrato, obrigação jurídica, interesses vitais do titular dos dados, funções de interesse público, interesses legítimos). <br><br>É necessário identificar o periodo da aplicabilidade do fundamento para tratamento de dados pessoais, que pode variar ao longo do ciclo de vida dos dados pessoais descrito na resposta à pergunta Q.5. “Como funciona o ciclo de vida dos dados pessoais e dos processos inerentes?”. <br><br>Por exemplo, o fundamento para tratamento de dados pessoais pode passar da execução de contrato, pela obrigação jurídica para conservação dos documentos específicos e acabando no consentimento após a cessação do prazo de conservação legalmente definido. <br><br>Para que o tratamento seja lícito, os dados pessoais deverão ser tratados com base no consentimento do titular dos dados em causa ou noutro fundamento legítimo, previsto por lei, incluindo a necessidade de serem cumpridas as obrigações legais a que o responsável pelo tratamento se encontre sujeito, a necessidade de serem executados contratos em que o titular dos dados seja parte ou a fim de serem efetuadas as diligências pré-contratuais que o titular dos dados solicitar. <br><br>Deve, portanto, verificar-se pelo menos um dos seguintes fundamentos: <br>-O titular dos dados deu o seu <strong>consentimento</strong> para o tratamento dos seus dados pessoais para uma ou mais finalidades específicas; <br>-O tratamento é necessário para a <strong>execução de um contrato</strong> no qual o titular dos dados é parte, ou para diligências pré-contratuais a pedido do titular dos dados; <br>-O tratamento é necessário para o cumprimento de uma <strong>obrigação jurídica</strong> a que o responsável pelo tratamento esteja sujeito; <br>-O tratamento é necessário para a defesa de <strong>interesses vitais</strong> do titular dos dados ou de outra pessoa singular; <br>-O tratamento é necessário ao exercício de <strong>funções de interesse público</strong> ou ao exercício da autoridade pública de que está investido o responsável pelo tratamento; <br>-O tratamento é necessário para efeito dos <strong>interesses legítimos</strong> prosseguidos pelo responsável pelo tratamento ou por terceiros, exceto se prevalecerem os interesses ou direitos e liberdades do titular. <br><br><strong>Os interesses legítimos devem ser devidamente justificados e validados por advogados </strong>. Podem ser identificados os seguintes interesses legítimos prosseguidos: <br>-Tratamento dos dados pessoais dos clientes em casos quando as relações contratuais não são devidamente formalizadas <br>-Tratamento dos dados pessoais dos titulares dos dados que estão ao serviço do responsável pelo tratamento independentemente da existência da remuneração; <br>-Tratamento dos dados pessoais para efeitos de comercialização direta; <br>-Tratamento dos dados pessoais para assegurar a segurança da rede e das informações; <br>-Tratamento dos dados pessoais no âmbito do grupo de empresas; <br>-Indicação de eventuais atos criminosos ou ameaças à segurança pública a autoridades competentes; <br>-Tratamento de dados pessoais necessário à prevenção e controlo da fraude; <br>-Transferências não repetitivas que apenas digam respeito a um número limitado de titulares de dados."
             },
             "3": {
-              "title": "Os dados recolhidos são adequados, relevantes e limitados ao que é necessário em relação aos fins para os quais são processados ('minimização de dados')?",
+              "title": "Os dados pessoais recolhidos são adequados, relevantes e limitados para o propósito de tratamento realizado (princípio da minimização de dados)?",
               "short_title": "Dados adequados",
-              "placeholder": "Explique por que cada um dos dados recolhidos é necessário para o propósito de seu tratamento."
+              "placeholder": "Justifique a necessidade de recolha dos dados pessoais de acordo com o objectivo do tratamento e a respetiva finalidade. Esta análise deverá ser feita por tipo de dados identificados na pergunta Q.4 'Quais são os dados pessoais tratados?'."
             },
             "4": {
-              "title": "Os dados são precisos e atualizados?",
+              "title": "Os dados pessoais estão atualizados e são fidedignos?",
               "short_title": "Precisão de dados",
-              "placeholder": "Descreva quais são as etapas tomadas para garantir a qualidade dos dados."
+              "placeholder": "Descreva quais são as medidas implementadas para garantir que os dados pessoais são atualizados. Devem ser adotadas todas as medidas adequadas para que os dados inexatos, tendo em conta a finalidade para que são tratados, sejam apagados ou retificados sem demora injustificada."
             },
             "5": {
-              "title": "Qual é a duração do armazenamento dos dados?",
-              "short_title": "Duração do armazenamento",
-              "placeholder": "Explicar porque as durações de armazenamento são justificadas por requisitos legais e/ou necessidades de tratamento."
+              "title": "Qual é o prazo da conservação dos dados?",
+              "short_title": "Duração dos dados",
+              "placeholder": "Identifique o prazo de conservação dos dados pessoais e justifique o mesmo pelos requisitos legais e/ou pelas necessidades de negócio. É importante considerar os prazos da conservação por tipos de dados identificados na resposta à pergunta Q.4. “Quais são os dados pessoais tratados?”, pois a justificação do mesmo pode  variar em função do tipo de dados em questão. <br>Descreva medidas implementadas para garantir a eliminação e/ou anonimização dos dados no fim do prazo identificado ou indique a ausência das mesmas."
             }
           }
         },
@@ -1173,39 +1173,39 @@
           "short_help": "Esta parte permite-lhe demonstrar que está a implementar os meios necessários para permitir que as pessoas em causa exerçam os seus direitos.",
           "questions": {
             "1": {
-              "title": "Como os titulares dos dados são informados sobre o tratamento?",
+              "title": "Como é que os titulares dos dados são informados sobre o tratamento dos seus dados?",
               "short_title": "Informação para os titulares dos dados",
-              "placeholder": "Descreva quais são as informações dadas aos titulares dos dados e quais os meios para o fazer."
+              "placeholder": "Indique se as informações devidas ao abrigo do direito de informação estão a ser prestadas ou não ao titular de dados. Em caso afirmativo, identifique as informações que são fornecidas ao titular e quais os meios para fazer isso aquando da recolha de dados pessoais."
             },
             "2": {
-              "title": "Se aplicável, como é obtido o consentimento dos titulares de dados?",
+              "title": "Como é obtido o consentimento dos titulares de dados?",
               "short_title": "Obtenção do consentimento",
-              "placeholder": "Descrever os controlos destinados a assegurar que o consentimento dos usuários tenha sido obtido."
+              "placeholder": "Se for aplicável, descreva os controlos previstos para obtenção do consentimento dos titulares de dados."
             },
             "3": {
-              "title": "Como os titulares de dados podem exercer seus direitos de acesso e portabilidade de dados?",
+              "title": "Como é garantido o acesso e portabilidade de dados pessoais?",
               "short_title": "Direito de acesso e portabilidade de dados",
-              "placeholder": "Descrever os controlos destinados a permitir que os titulares de dados acessem, recebam e transmitam seus dados."
+              "placeholder": "Descreva os controlos existentes que permitem aos titulares dos dados o exercício dos direitos de atualização/retificação e apagamento dos seus dados. <br><br>O titular de dados tem o direito de obter sem demora injustificada, do responsável pelo tratamento a retificação dos dados pessoais inexatos que lhe digam respeito. Tendo em conta as finalidades do tratamento, o titular dos dados tem direito a que os seus dados pessoais incompletos sejam completos, incluindo por meio de uma declaração adicional. O titular dos dados tem o direito de se opor a qualquer momento, por motivos relacionados com a sua situação particular, ao tratamento dos dados pessoais que lhe digam respeito para: <br>-exercício de funções de interesse público; <br>-efeito dos interesses legítimos prosseguidos pelo responsável pelo tratamento ou por terceiros; <br>-fins que não sejam aqueles para os quais os dados pessoais foram recolhidos. <br><br>O responsável pelo tratamento cessa o tratamento dos dados pessoais, a não ser que apresente razões imperiosas e legítimas para esse tratamento que prevaleçam sobre os interesses, direitos e liberdades do titular dos dados, ou para efeitos de declaração, exercício ou defesa de um direito num processo judicial.<br><br>Deverão ser descritos os controlos existentes que permitem aos titulares dos dados o exercício deste direito."
             },
             "4": {
-              "title": "Como os titulares de dados podem exercer seus direitos de retificação e apagamento?",
+              "title": "Como é garantida a atualização/retificação e apagamento dos dados pessoais pedida pelo titular dos mesmos?",
               "short_title": "Direito à retificação e apagamento",
               "placeholder": "Descrever os controlos destinados a permitir que os titulares de dados retifiquem e apaguem seus dados."
             },
             "5": {
-              "title": "Como os titulares de dados podem exercer seus direitos à restrição e à oposição?",
-              "short_title": "Direito à restrição e ao objeto",
-              "placeholder": "Descrever os controlos destinados a permitir que os titulares de dados restrinjam e se oponham ao tratamento de seus dados."
+              "title": "Como é garantida a limitação do tratamento dos dados pessoais pedido pelo titular dos mesmos?",
+              "short_title": "Direito à restrição e à oposição",
+              "placeholder": "Descreva os controlos destinados a permitir que os titulares restrinjam e se oponham ao tratamento dos seus dados pessoais. <br><br>O titular dos dados tem o direito de obter do responsável pelo tratamento a limitação do tratamento, se se aplicar uma das seguintes situações: <br>-Contestar a exatidão dos dados pessoais, durante um período que permita ao responsável pelo tratamento verificar a sua exatidão; <br>-O tratamento for ilícito e o titular dos dados se opuser ao apagamento dos dados pessoais e solicitar, em contrapartida, a limitação da sua utilização; <br>-O responsável pelo tratamento já não precisar dos dados pessoais para fins de tratamento, mas esses dados sejam requeridos pelo titular para efeitos de declaração, exercício ou defesa de um direito num processo judicial; <br>-Se tiver oposto ao tratamento, até se verificar que os motivos legítimos do responsável pelo tratamento prevalecem sobre os do titular dos dados."
             },
             "6": {
-              "title": "As obrigações dos processadores são claramente identificadas e regidas por um contrato?",
+              "title": "As obrigações dos subcontratrantes são claramente identificadas e regulados por contrato ou outro ato normativo?",
               "short_title": "Subcontratação",
-              "placeholder": "Para cada processador, descreva suas responsabilidades (duração, âmbito, propósito, instruções de tratamento documentadas, autorização prévia) e forneça os contratos, códigos de conduta e certificações que determinam suas missões e obrigações."
+              "placeholder": "Para cada subcontratante descreva as suas responsabilidades (objeto e a duração do tratamento, a natureza e finalidade do tratamento, o tipo de dados pessoais e as categorias dos titulares dos dados) e forneça os contratos, códigos de conduta e certificações que determinam as obrigações e direitos do responsável pelo tratamento."
             },
             "7": {
               "title": "No caso de transferência de dados fora da União Europeia, os dados são adequadamente protegidos?",
               "short_title": "Transferências",
-              "placeholder": "Para cada país fora da União Europeia, onde os dados são armazenados ou processados, nomeá-lo e dizer se ele é reconhecido como oferecendo um nível adequado de proteção de dados ou descrever as disposições relativas à transferência."
+              "placeholder": "Identifique países fora da União Europeia onde os dados são armazenados ou processados e indique como está garantido que não é comprometido o nível de proteção das pessoas singulares. <br><br>Quando os dados pessoais são transferidos da União Europeia para responsáveis pelo tratamento, para subcontratantes ou para outros destinatários em países terceiros ou para organizações internacionais, o nível de proteção das pessoas singulares assegurado na União Europeia pelo RGPD deverá continuar a ser garantido, inclusive nos casos de posterior transferência de dados pessoais do País terceiro ou da organização internacional em causa para responsáveis pelo tratamento, subcontratantes desse país terceiro ou de outro, ou para uma organização internacional."
             }
           }
         }
@@ -1317,7 +1317,6 @@
     },
      "4": {
       "title": "Validação",
-      "short_help": "Esta seção permite preparar e formalizar a validação da PIA.",
       "items": {
         "1": {
           "title": "Mapeamento dos riscos",
@@ -1325,17 +1324,17 @@
         },
         "2": {
           "title": "Plano de ação",
-          "short_help": "Planeie em detalhes a implementação dos controlos adicionais identificados durante a PIA. O plano de ação é atualizado automaticamente ao avaliar os diferentes elementos contidos na PIA."
+          "short_help": "Planeie em detalhes a implementação dos controlos adicionais identificados durante a análise PIA. O plano de ação é atualizado automaticamente ao avaliar os diferentes elementos contidos na análise PIA."
         },
         "3": {
           "title": "DPO e opiniões de partes interessadas",
           "short_help": "Apresente o conselho da pessoa encarregada da proteção de dados e questões de privacidade (delegado de proteção de dados, se houver). Apresentar as opiniões dos titulares de dados ou seus representantes."
         },
         "4": {
-          "title": "Validar PIA"
+          "title": "Validar análise PIA"
         },
         "5": {
-          "title": "PIA rejeitada"
+          "title": "Análise PIA rejeitada"
         }
       }
     }
