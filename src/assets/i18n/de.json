@@ -266,33 +266,32 @@
 			"PIA_DEF_ACC": {
 				"description": "Die betroffene Person hat das Recht, eine Bestätigung des für die Verarbeitung Verantwortlichen zu erhalten, dass sie betreffende personenbezogene Daten verarbeitet werden oder nicht und, soweit verfügbar, Zugang zu diesen personenbezogenen Daten und anderen Daten. Informationen, die im <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/DE/TXT/HTML/?uri=CELEX:32016R0679&from=DE\">Art. 15 der [DS-GVO]</a> angegeben sind.<br>Es gibt Besonderheiten in Bezug auf den Zugang zu medizinischen Aufzeichnungen und bei der Ausübung des Rechts auf Zugang für Erziehungsberechtigte, für Minderjährige oder deren gesetzlichen Vertreter und für Personen, die unter Vormundschaft stehen.",
 				"name": "Recht auf Auskunft",
-				"source": "DS-GVO Art. 15 pour la définition et WIKI Exercice_des_droits_d’accès_et_à_la_portabilité pour les exceptions du droit Français"
+				"source": "DS-GVO Art. 15"
 			},
 			"PIA_DEF_ANO": {
 				"description": "Der Zweck einer Anonymisierungslösung besteht darin, dass personenbezogene Daten ihren identifizierenden Charakter verlieren. Eine Anonymisierungslösung muss von Fall zu Fall erstellt und an die beabsichtigten Verwendungszwecke angepasst werden. Eine Hilfe für die Bewertung einer guten Lösung, bietet die <a target=\"_blank\" href=\"http://ec.europa.eu/justice/data-protection/article-29/documentation/opinion-recommendation/files/2014/wp216_de.pdf\">Art.29-Gruppe</a>.Sie nennt drei Kriterien:<br><strong>die Individualisierung:</strong> es ist noch immer möglich, eine individuelle Person zu isolieren<br>- <strong>die Korrelation:</strong> es ist möglich, getrennte Datensätze für dasselbe Individuum miteinander zu verknüpfen<br>- <strong>die Schlussfolgerung:</strong>hier ist es  möglich, aus den Informationen über eine Person auf deren Identität zu schließen.<br><strong>Eine Gruppe von Daten, für die es unmöglich ist, zu individualisieren oder zu korrelieren oder abzuleiten, ist a priori anonym.</strong><br><strong>Wird eines der drei Kriterien nicht eingehalten,</strong> kann nur nach einer erneuten eingehenden Analyse der Risiken einer Einordnung als anonym vorgenommen werden.",
 				"name": "Anonymisierung",
-				"source": "WIKI pour la première phrase, site CNIL pour la description des recommandations du G29 https://www.cnil.fr/fr/le-g29-publie-un-avis-sur-les-techniques-danonymisation-0"
+				"source": "Mesures_US und Empfehlungen der Art.29.Gruppe S. 24 http://ec.europa.eu/justice/data-protection/article-29/documentation/opinion-recommendation/files/2014/wp216_de.pdf"
 			},
 			"PIA_DEF_ARCH": {
 				"description": "Daten, die nicht mehr täglich verwendet werden, aber noch nicht ihre Aufbewahrungsfrist erreicht haben, beispielsweise weil sie für den Fall eines Rechtsstreits aufbewahrt werden, sollten archiviert werden.<br><strong>Archive müssen sicher und der Zugang eingeschränkt sein</strong>, insbesondere wenn es sich bei den archivierten Daten um sensible Daten oder um Daten handelt, die schwerwiegende Auswirkungen auf die betroffenen Personen haben können.",
 				"name": "Archivierung",
-				"source": "Guide Bleu 2017 p17"
+				"source": "Mesures_USE Archiving"
 			},
 			"PIA_DEF_AUTH": {
 				"description": "Die Authentifizierung ist eine <strong>Operation, durch die der Benutzer seine Identität beweist</strong>. Jeder berechtigte Benutzer sollte hierbei eindeutig identifiziert werden. Hierfür können mehrere Mechanismen unterschieden werden:<br>-Wissen: zum Beispiel ein Passwort;<br>- Besitz: zum Beispiel eine Smartcard;<br>- Biometrie: ein Merkmal, das für uns einzigartig ist, zum Beispiel ein Fingerabdruck oder die Möglichkeit, eine handschriftliche Unterschrift zu leisten.<br>Zur Erinnerung: nach der DS-GVO ist die  Verwendung der Biometrie nur aufgrund eines gesetzlichen Erlaubnistatbestands zulässig.<br><strong>Die Authentifizierung eines Benutzers ist als stark gekennzeichnet, wenn eine Kombination aus mindestens zwei dieser Kategorien verwendet wird.</strong>",
 				"name": "Authentifizierung",
-				"source": "Guide Bleu p7"
+				"source": "Mesures_US Logical Access Control"
 			},
 			"PIA_DEF_CHIF": {
 				"description": "Durch das Verschlüsseln einer Nachricht wird sichergestellt, dass nur der Absender und der / die rechtmäßige(n) Empfänger einer Nachricht den Inhalt kennen. Es ist eine Art digital versiegelter Umschlag. Nach der Verschlüsselung ist eine Nachricht weder für Personen noch Maschinen zugänglich oder lesbar, wenn sie nicht über den spezifischen Schlüssel verfügen.<br>Es gibt zwei große Familien der Verschlüsselung : symmetrische und asymmetrische.<br>- <strong>Symmetrische Verschlüsselung</strong> Inhalte werden mit dem gleichen Schlüssel verschlüsselt und entschlüsselt, genannt der \"geheimen Schlüssel\". Die symmetrische Verschlüsselung ist besonders schnell, erfordert jedoch, dass der Sender und der Empfänger sich auf einen gemeinsamen geheimen Schlüssel einigen oder ihn über einen anderen Kanal übertragen. Dieser muss sorgfältig ausgewählt werden, da sonst der Schlüssel von den falschen Leuten zurückgewonnen werden könnte und die Vertraulichkeit der Nachricht kompromittiert wird.<br-<strong>Asymmetrische Verschlüsselung</strong> Sie geht davon aus, dass der (zukünftige) Empfänger ein Schlüsselpaar (privater Schlüssel, öffentlicher Schlüssel) hat und hat sicherstellt, dass der potentielle Absender Zugriff auf seinen öffentlichen Schlüssel hat. In diesem Fall verwendet der Absender den öffentlichen Schlüssel des Empfängers zum Verschlüsseln der Nachricht, während der Empfänger seinen privaten Schlüssel zum Entschlüsseln verwendet. Es ist von Vorteil, dass der öffentliche Schlüssel allen bekannt ist und veröffentlicht werden kann. Aber Vorsicht: es ist notwendig, dass die Sender das Vertrauen in der Herkunft des öffentlichen Schlüssels haben und sicher sind , dass er in der Tat vom Empfänger stammt. Ein weiterer Pluspunkt: Sie müssen nicht den gleichen geheimen Schlüssel teilen! Die asymmetrische Verschlüsselung macht es möglich, darauf zu verzichten, aber sie ist langsamer.",
 				"name": "Verschlüsselung",
-				"source": "Guide Bleu 2017 p23 https://www.cnil.fr/fr/comprendre-les-grands-principes-de-la-cryptologie-et-du-chiffrement",
-				"source ": ""
+				"source": "Mesures_US Encryption"
 			},
 			"PIA_DEF_CLO": {
 				"description": "Methoden zur Reduzierung der Möglichkeiten, personenbezogene Daten zu korrelieren und eine Kompromittierung aller gespeicherten Daten zu verhindern, indem beispielsweise die spezifischen Daten der jeweiligen Geschäftsprozesses identifiziert und logisch getrennt werden.",
 				"name": "Datentrennung",
-				"source": "WIKI Cloisonnement_des_données_(par_rapport_au_reste_du_système_d’information)"
+				"source": "PIA3 p19 - WIKI"
 			},
 			"PIA_DEF_CONS": {
 				"description": "Einwilligung der betroffenen Personen jede freiwillig für den bestimmten Fall, in informierter Weise und unmissverständlich abgegebene Willensbekundung in Form einer Erklärung oder einer sonstigen eindeutigen bestätigenden Handlung, mit der die betroffene Person zu verstehen gibt, dass sie mit der Verarbeitung der sie betreffenden personenbezogenen Daten einverstanden ist.<br>Siehe <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/DE/TXT/HTML/?uri=CELEX:32016R0679&from=DE\">Art. 4.11 der [DS-GVO]</a>",
@@ -302,7 +301,7 @@
 			"PIA_DEF_CTLA": {
 				"description": "Es geht darum, die Risiken des Zugriffs unbefugter Personen auf personenbezogene Daten in digitaler Form zu begrenzen.<br> Um dies zu tun, empfiehlt es sich:<br>- <strong>Berechtigungsprofile / -konzepte</strong> zu definieren, die durch die Trennung von Aufgaben und Verantwortungsbereichen den Zugriff der Benutzer auf diejenigen Daten beschränken, die für die Erfüllung ihrer Aufgaben unbedingt erforderlich sind.<br>- <strong>Entziehen Sie Benutzern Zugriffsrechte, sobald diese nicht mehr berechtigt sind, auf eine lokale oder IT-Ressource zuzugreifen</strong>sowie <strong>am Ende ihres Vertrags.</strong><br>- <strong>Führen Sie eine jährliche Überprüfung der Berechtigungen durch</strong>, um nicht verwendete Konten zu identifizieren und zu löschen und die Rechte neu zuzuweisen, die für die Funktionen jedes Nutzers gewährt werden.",
 				"name": "Logische Zugriffskontrollen",
-				"source": "WIKI Contrôle_des_accès_logiques et Guide Bleu 2017 p9 pour les précautions"
+				"source": "PIA3 p43 - WIKI"
 			},
 			"PIA_DEF_DCP": {
 				"description": "Alle Informationen, die sich auf eine identifizierte oder identifizierbare natürliche Person (im Folgenden „betroffene Person“) beziehen; als identifizierbar wird eine natürliche Person angesehen, die direkt oder indirekt, insbesondere mittels Zuordnung zu einer Kennung wie einem Namen, zu einer Kennnummer, zu Standortdaten, zu einer Online-Kennung oder zu einem oder mehreren besonderen Merkmalen, die Ausdruck der physischen, physiologischen, genetischen, psychischen, wirtschaftlichen, kulturellen oder sozialen Identität dieser natürlichen Person sind, identifiziert werden kann.<br>Siehe <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/DE/TXT/HTML/?uri=CELEX:32016R0679&from=DE\">Art. 4.1 der [DS-GVO]</a>",
@@ -342,7 +341,7 @@
 			"PIA_DEF_LOG": {
 				"description": "Aufzeichnung von Aktionen, die auf dem IT-system ausgeführt werden, um <strong>betrügerischen Zugriff</strong> oder <strong>Missbrauch</strong> von persönlichen Daten zu erkennen sowie den Verursacher eines Vorfalls. Zu diesem Zweck muss ein Trace- und Incident-Management-System eingerichtet werden. Es sollte <strong>relevante Ereignisse aufzeichnen</strong>und <strong>sicherstellen, dass diese Datensätze nicht manipuliert werden können.</strong> In jedem Fall sollten Sie <strong>diese Datensätze nur für einen gewissen Zeitraum und nicht exzessiv lange aufbewahrt werden.</strong>",
 				"name": "Protokollierung, Rückverfolgbarkeit",
-				"source": "Guide Bleu 2017 p10"
+				"source": "Mesures_US Surveillance"
 			},
 			"PIA_DEF_MEN": {
 				"description": "Vorgang, der die datenverarbeitenden Systeme und gespeicherten Daten gefährdet und zu Schäden für den Betroffenen führen kann. Die Bedrohung kann absichtlich oder unabsichtlich durch Risikoquellen genutzt werden und kann ein schadhaftes Ereignis auslösen.",
@@ -352,17 +351,17 @@
 			"PIA_DEF_MENA": {
 				"description": "Bedrohungen in Bezug auf:<br>- <strong>Komponenten</strong>, unangemessene Verwendung, Ausspähung, ungewollte Veränderung oder Verlust (Verwendung von Medien mit sensiblen Daten aus persönlichen Gründen oder deren Transport ohne entsprechende Sicherheitsmaßnahmen, Ausspähen von Bildschirmen, Einschleusen von Hardware zum Abruf von Daten, usw.)<br>- <strong>Software </strong>, unangemessene Verwendung, Ausspähung, ungewollte Veränderung (Erweiterung von Berechtigungen, Sammlung von Konfigurationsdaten, Installation eines Remote-Tools usw.)<br>-<strong>Computernetzwerke</strong>, die ausgespäht werden (Überwachung von Netzwerkflüssen, etc.) <br>- <strong>Personen</strong> durch Ausspähung, Unterschlagung oder Verlust (unfreiwillige Offenlegung, Social Engineering, Wechsel des Arbeitgebers, etc.)<br>-<strong> Papierdokumente</strong> durch Ausspähung oder Verlust (Fotokopien, vergessene Ausdrucke, Wiederherstellung von verworfenen Dokumente, Maildiebstahl, etc.)<br>- <strong>Postversand </strong> durch Ausspähung",
 				"name": "Bedrohungen, die zu einem unrechtmäßigem Zugriff führen können",
-				"source": "WIKI Menaces_pouvant_mener_à_un_accès_illégitime_à_des_données synthétisé"
+				"source": "PIAF Connected objects p44 and 45"
 			},
 			"PIA_DEF_MENI": {
 				"description": "Bedrohungen in Bezug auf <br>- <strong>Komponenten</strong>: Missbrauch, Überlastung, Veränderung, Zerstörung, Verlust (Speicherüberlastung, DOS-Angriff, Änderung, die zu einem Absturz führt, Feuer , Diebstahl oder Verlust, etc.)<br>- <strong>Software</strong>: unangemessene Verwendung, Überlastung, Veränderung, Zerstörung, Verlust (Datenlöschung, Einschmuggeln von Daten, logische Bombe, Lizenz nicht erneuert, etc.)<br>- <strong>Computernetzwerke</strong>: Überlastung, Beschädigung, Verlust (Download nicht möglich, Internet-Zugang usw.)<br> -<strong>Personen</strong> : Überlastung, Beeinflussung, Abwesenheit (Missbrauch von Fähigkeiten, Abwesenheit, Abreise usw.)<br>- <strong>Papierdokumente </strong>: missbräuchliche Nutzung, Beschädigung, Verlust (Zerstörung, Diebstahl oder Verlust usw.)<br>- <strong>Postversand</strong>: Beschädigung, Veränderung, Verlust (Poststreik, Änderung der Räumlichkeiten, Verschwinden eines Dokumententrägers, Reorganisation des Versands usw.)",
 				"name": "Bedrohungen, die zum Verlust personenbezogener Daten führen können",
-				"source": "WIKI Menaces_pouvant_mener_à_une_disparition_de_données"
+				"source": "PIAF Connected Objects p44 and 45, WIKI"
 			},
 			"PIA_DEF_MENM": {
 				"description": " Bedrohungen in Bezug auf <br>- <strong>Komponenten</strong>, die geändert werden (Hinzufügen von inkompatibler Hardware, Entfernen wichtiger Komponenten usw.)<br>- <strong >Software</strong>, die unangemessen verwendet oder modifiziert wird (Bedienfehler, ungewollte Änderungen, etc.)<br>- <strong>Computernetzwerke</strong>, die unangemessen verwendet werden (Weiterversand von abgefangenen Daten, etc.)<br> - <strong>Personen</strong> durch Überarbeitung oder Beeinflussung (unkontrollierte Tätigkeit, störende Arbeitsbedingungen, Einflussnahme, etc.)<br> - Geänderte Papierdokumente (Veränderung , Ersatz durch eine Fälschung, etc.)<br>- <strong>Postversand</strong>, durch Manipulation (Austausch von Abzeichnungen, Versendung widersprüchlicher Briefe usw.)",
 				"name": "Bedrohungen, die zu einer unerwünschten Veränderung personenbezogener Daten führen können",
-				"source": "WIKI Menaces_pouvant_mener_à_une_modification_non_désirées_de_données"
+				"source": "PIAF Connected Objects p43 and 44, WIKI"
 			},
 			"PIA_DEF_MES": {
 				"description": "Wählen Sie Maßnahmen aus den im Abschnitt \"Vorhandene oder geplante Maßnahmen\" verfügbaren aus, ergänzen Sie diese bei Bedarf.",
@@ -372,37 +371,37 @@
 			"PIA_DEF_MIN1": {
 				"description": "Beim Importieren von Daten können verschiedene Arten von Metadaten (z. B. EXIF-Daten, die an eine Bilddatei angehängt sind) unbeabsichtigt erfasst werden.<br>Diese Metadaten müssen identifiziert und verworfen werden, wenn sie nicht für die angegebenen Zwecke erforderlich sind.",
 				"name": "Filterung und Löschung",
-				"source": "WIKI Minimisation_des_données_:_adéquates,_pertinentes_et_limitées"
+				"source": "PIAF Connected objects p42 - WIKI"
 			},
 			"PIA_DEF_MIN2": {
 				"description": "Nach dem Empfang sensibler Daten im Rahmen allgemeiner Informationen oder zu statistischen Zwecken können diese in eine weniger sensible oder pseudonymisierte Form umgewandelt werden. Zum Beispiel:<br>- Wenn das System die IP-Adresse sammelt, um den Standort des Benutzers für statistische Zwecke zu ermitteln, kann die IP-Adresse nach Ermittlung der Stadt oder des Bezirks gelöscht werden;<br>- Wenn das System Videodaten von Überwachungskameras empfängt, kann es Personen, die in der Szene stehen oder sich bewegen, erkennen und unscharf machen;<br>- Wenn das System ein intelligentes Messgerät ist, kann es die Energienutzung über einen bestimmten Zeitraum hinweg aggregieren, ohne ihn in Echtzeit zu erfassen.",
 				"name": "Verringerung der Sensibilität durch Umwandlung",
-				"source": "WIKI Minimisation_des_données_:_adéquates,_pertinentes_et_limitées"
+				"source": "PIAF Connected objects p42 - WIKI"
 			},
 			"PIA_DEF_MIN3": {
 				"description": "Das System kann sicherstellen, dass:<br>- Der Benutzer eine Ressource oder einen Dienstes ohne das Risiko der Offenlegung seiner / ihrer Identität (anonyme Daten) verwenden kann.<br>- Der Benutzer eine Ressource oder Dienstleistung ohne Offenlegung seiner / ihrer Identität benutzen kann. Er bleibt aber identifizierbar und verantwortlich für diese Nutzung (pseudonymisierte Daten).<br>- Der Benutzer kann Ressourcen oder Dienste mehrfach nutzen, ohne dass diese Nutzungen miteinander verknüpft werden können (nicht korrelierbare / verkettbare Daten).<br>- Der Benutzer kann eine Ressource oder Dienstleistung ohne Risiko nutzen, dass andere, insbesondere Dritte, in der Lage sind, zu beobachten, dass die Ressource oder Dienstleistung genutzt wird (Nichtbeobachtbarkeit).<br>Eine Methode aus der obigen Liste muss von den erkannten Bedrohungen abhängen. Für einige Arten von Datenschutzbedrohungen ist die Pseudonymisierung geeigneter als die Anonymisierung (z. B. wenn Nachverfolgbarkeit erforderlich ist). Darüber hinaus werden einige Datenschutzbedrohungen durch eine Kombination mehrerer Methoden behoben.",
 				"name": "Verringerung der identifizierenden Natur der Daten",
-				"source": "WIKI Minimisation_des_données_:_adéquates,_pertinentes_et_limitées"
+				"source": "PIAF Connected objects p42 - WIKI"
 			},
 			"PIA_DEF_MIN4": {
 				"description": "Das System kann in unabhängige Teile mit separaten Zugriffssteuerungsfunktionen strukturiert sein. Die Daten können auch auf diese unabhängigen Teilsysteme verteilt und von jedem Teilsystem unter Verwendung verschiedener Zugriffssteuerungsmechanismen gesteuert werden. Wenn ein Subsystem kompromittiert wird, hat dies keine Auswirkungen auf den gesamten Datenbestand. ",
 				"name": "Nichtverkettbarkeit",
-				"source": "WIKI Minimisation_des_données_:_adéquates,_pertinentes_et_limitées"
+				"source": "PIAF Connected objects p42 - WIKI"
 			},
 			"PIA_DEF_MIN5": {
 				"description": "Das System kann den Zugriff auf Daten nach dem \"need to know\"-Prinzip einschränken. Das System kann vertrauliche Daten von den sonstigen Daten trennen und spezifische Zugriffsrichtlinien anwenden.<br>Das System kann sensible Daten verschlüsseln, um die Vertraulichkeit während der Übertragung und Speicherung zu schützen. Der Zugriff auf temporäre Dateien, die während der Datenverarbeitung erzeugt werden, sollte ebenfalls geschützt werden.",
 				"name": "Beschränkung des Datenzugriffs",
-				"source": "WIKI Minimisation_des_données_:_adéquates,_pertinentes_et_limitées"
+				"source": "PIAF Connected objects p42 - WIKI"
 			},
 			"PIA_DEF_MINC": {
 				"description": "Verringerung der Schwere von Risiken, indem die Anzahl der erfassten personenbezogenen Daten auf das Minimum dessen begrenzt wird, was für einen bestimmten Zweck unbedingt erforderlich ist; Vermeiden Sie die Sammlung unnötiger Daten, die Verwendung von Daten, die nichts mit dem Zweck zu tun haben, und die exzessive Auswirkungen auf Einzelpersonen haben können.",
 				"name": "Minimierung der Datenmenge",
-				"source": "WIKI Minimisation_des_données_:_adéquates,_pertinentes_et_limitées"
+				"source": ""
 			},
 			"PIA_DEF_MIND": {
 				"description": "Verringern Sie die Schwere von Risiken, indem Sie die Anzahl Daten selbst minimieren und Maßnahmen ergreifen, um deren Sensibilität zu verringern.",
 				"name": "Minimierung der Daten selbst",
-				"source": "WIKI Minimisation_des_données_:_adéquates,_pertinentes_et_limitées"
+				"source": "PIA3 p64"
 			},
 			"PIA_DEF_OPP": {
 				"description": "Die betroffene Person hat das Recht, aus Gründen, die sich aus ihrer besonderen Situation ergeben, jederzeit gegen die Verarbeitung sie betreffender personenbezogener Daten, die aufgrund von Art. 6 Abs. 1 lit. e oder f erfolgt, Widerspruch einzulegen.<br>Siehe <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/DE/TXT/HTML/?uri=CELEX:32016R0679&from=DE\">Art. 21 der [DS-GVO]</a>",
@@ -412,7 +411,7 @@
 			"PIA_DEF_PBDS": {
 				"description": "Maßnahmen zur Berücksichtigung des Schutzes personenbezogener Daten bereits bei der Konzeption einer neuen Verarbeitung (Zertifizierungen, anerkannte Verhaltensregeln, Risikomanagement für die betreffende Person gemäß der Methodik der CNIL oder einer internen Methode usw.), einschließlich:<br>- Nutzen Sie den Risikomanagementansatz der CNIL, sobald ein Dienst oder eine Anwendung entwickelt wird.<br>– Setzen Sie in den Bereichen IT auf Zertifizierungen (für Verfahren, Produkte, Managementsysteme, Organisationen, Personen usw.).<br>- Verwenden Sie bewährte und anerkannte Verhaltensregeln und Standards.",
 				"name": "Projektmanagement",
-				"source": "WIKI Gestion_des_projets - les recommandations ne sont pas citées"
+				"source": "Mesures_US"
 			},
 			"PIA_DEF_PC": {
 				"description": "Person, deren Daten verarbeitet werden.",
@@ -432,7 +431,7 @@
 			"PIA_DEF_PWD": {
 				"description": "Basierend auf der Verwaltung eines Geheimnisses ist die Authentifizierung durch Benutzername und Kennwort eine einfache und kostengünstige Möglichkeit, um den Zugriff zu kontrollieren. Diese Authentifizierungsmethode weist jedoch ein niedriges Sicherheitsniveau auf.<br>Die Mindestanforderungen der CNIL in Bezug auf Länge und Komplexität des Kennworts hängen von den zusätzlichen Maßnahmen ab, die implementiert werden, um den Authentifizierungsprozess zuverlässiger zu machen:<br>Wenn also eine Authentifizierung ausschließlich auf einem Kennwort basiert, bedeutet dies zumindest die Verwendung eines komplexen Kennwortes mit mindestens 12 Zeichen bestehend aus Großbuchstaben, Ziffern und Sonderzeichen. Zusätzliche Maßnahmen zur Eingabe eines Kennworts (Beschränkungen des Zugriffs, Einbezug anderer Daten, eigene Unterstützung durch den Benutzer) können die Länge und Komplexität des Kennworts aufgrund dieser Maßnahmen verringern. Sie stellen ein Sicherheitsniveau sicher, das äquivalent zu einem Kennwort ist.",
 				"name": "Verwendung von Kennwörtern",
-				"source": "Guide Bleu 2017 p7 : https://www.cnil.fr/fr/authentification-par-mot-de-passe-les-mesures-de-securite-elementaires synthétisé"
+				"source": "Mesure_US"
 			},
 			"PIA_DEF_RECT": {
 				"description": "Die betroffene Person hat das Recht, von dem Verantwortlichen unverzüglich die Berichtigung sie betreffender unrichtiger personenbezogener Daten zu verlangen. Unter Berücksichtigung der Zwecke der Verarbeitung hat die betroffene Person das Recht, die Vervollständigung unvollständiger personenbezogener Daten — auch mittels einer ergänzenden Erklärung — zu verlangen. Siehe <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/DE/TXT/HTML/?uri=CELEX:32016R0679&from=DE\">Art. 16 der [DS-GVO]</a>",
@@ -452,7 +451,7 @@
 			"PIA_DEF_SRC": {
 				"description": "Person (intern oder extern), die zufälliger oder vorsätzlicher Weise handelt oder eine nichtmenschliche Quelle (z.B. Wasser, gefährliche Stoffe, Computerviren), die ein Risiko für die Datenverarbeitung verursacht(z. B. IT-Administrator, Benutzer, externer Angreifer, Mitbewerber).",
 				"name": "Risikoquelle",
-				"source": "PIA1 p12 et WIKI Types_et_exemples_de_sources_de_risques synthétisés"
+				"source": "PIA1 p11 - WIKI"
 			},
 			"PIA_DEF_ST": {
 				"description": "Natürliche oder juristische Personen, Behörden, Dienste oder andere Stellen, die personenbezogene Daten im Auftrag des für die Verarbeitung Verantwortlichen verarbeiten, gemäß <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/DE/TXT/HTML/?uri=CELEX:32016R0679&from=DE\">Art. 4.8 der [DS-GVO]</a><br>Der Auftragsverarbeiter und jede Person, die unter der Aufsicht des für die Verarbeitung Verantwortlichen oder des Auftragsverarbeiters handelt und Zugang zu personenbezogenen Daten hat, können diese Daten nur auf Anweisung der für die Daten Verantwortlichen verarbeiten. Es sei denn, dies ist durch das Unionsrecht oder das Recht eines Mitgliedstaats vorgeschrieben, gemäß <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/DE/TXT/HTML/?uri=CELEX:32016R0679&from=DE\">Art. 29 der [DS-GVO]</a>.",
@@ -462,7 +461,7 @@
 			"PIA_DEF_SUPT": {
 				"description": "<strong>Hardware und elektronische Datenträger</strong>: Computer, Kommunikationsgeräte, USB-Sticks, Festplatten ...<br><strong>Software</strong>: Betriebssysteme, Messagingsysteme, Datenbanken, Business-Anwendungen ...<br><strong>IT-Netzwerke </strong>: Kabel, WLAN, Glasfaser<br><br> <strong>Personen</strong>: Benutzer, IT-Administratoren, Entscheidungsträger ...<br><strong>Papierdokumente</strong>: Ausdrucke, Fotokopien, handschriftliche Dokumente ...<br><strong>Übertragung von Papierdokumenten</strong>: Postversand, Umlaufmappen ...",
 				"name": "Unterstützung der Verarbeitung",
-				"source": "WIKI Types_et_exemples_de_supports_des_données"
+				"source": "PIA1 p10"
 			},
 			"PIA_DEF_VIOL": {
 				"description": "Eine Verletzung der Sicherheit, die, ob unbeabsichtigt oder unrechtmäßig, zur Vernichtung, zum Verlust, zur Veränderung, oder zur unbefugten Offenlegung von beziehungsweise zum unbefugten Zugang zu personenbezogenen Daten führt, die übermittelt, gespeichert oder auf sonstige Weise verarbeitet wurden.",
@@ -482,15 +481,15 @@
 			"PIA_EX_DCPC": {
 				"description": "<strong>Identifikationsdaten</strong>: Familienstand, Alter, Staatsangehörigkeit, doppelte Staatsbürgerschaft, Postanschrift, Rechtsfähigkeit ...<br><strong>Privatleben</strong>: Familienstand, Anzahl der Kinder , Wohnort, Wohnungstyp, Wohnsituation, Wohndauer ...<br><strong>Berufsleben</strong>: Anstellungsverhältnis, Vertragsart, Name des Arbeitgebers, Beschäftigungsdauer, Arbeitslosigkeit ...<br><strong>Login-Daten </strong>: IP-Adresse, Ereignisprotokolle ...<br><strong>Standortdaten </strong>: Bewegungsdaten, GPS, GSM-Daten ...<br><strong>Andere</strong>: Telefonnummer, E-Mail-Adresse ...",
 				"name": "Allgemeine Daten",
-				"source": "WIKI Types_de_données"
+				"source": "PIA2 old version - WIKI"
 			},
 			"PIA_EX_DCPR": {
 				"description": "Weltanschauliche, politische, religiöse, gewerkschaftliche Überzeugungen und Beziehungen, Sexualleben, Gesundheitsdaten, Rasse oder ethnische Herkunft, Straftaten, Sicherheitsauflagen.<br>Siehe <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/DE/TXT/HTML/?uri=CELEX:32016R0679&from=DE\"> Art. 9 und 10 der [DS-GVO]</a>.",
 				"name": "Besondere Kategorien personenbezogener Daten ",
-				"source": ""
+				"source": "PIA2 old version, GDPR Article 9 and 10 - WIKI"
 			},
 			"PIA_EX_DCPS": {
-				"description": "Weltanschauliche, politische, religiöse, gewerkschaftliche Überzeugungen und Beziehungen, Sexualleben, Gesundheitsdaten, Rasse oder ethnische Herkunft, Straftaten, Sicherheitsauflagen.<br>Siehe <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/DE/TXT/HTML/?uri=CELEX:32016R0679&from=DE\"> Art. 9 und 10 der [DS-GVO]</a>.",
+				"description": " Weltanschauliche, politische, religiöse, gewerkschaftliche Überzeugungen und Beziehungen, Sexualleben, Gesundheitsdaten, Rasse oder ethnische Herkunft, Straftaten, Sicherheitsauflagen.<br>Siehe <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/DE/TXT/HTML/?uri=CELEX:32016R0679&from=DE\"> Art. 9 und 10 der [DS-GVO]</a>.",
 				"name": "Sensible Daten",
 				"source": ""
 			},
