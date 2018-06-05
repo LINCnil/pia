@@ -141,7 +141,7 @@
       "status": {
         "evaluation": {
           "title": "Espera por revisão.",
-          "content": "Esta parte não tem sido revista ainda. Se desejares editar o conteúdo submetido para revisão tens que ",
+          "content": "Esta parte não tem sido revista ainda. Se desejar editar o conteúdo submetido para revisão tens que ",
           "cancel": "cancelar o pedido de revisão.",
           "cancel_button": "Cancelar pedido de revisão"
         },
