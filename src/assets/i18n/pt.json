@@ -4,7 +4,7 @@
     "subtitle1": "Uma plataforma para criar <br> e gerir as análises de PIA",
     "subtitle2": "Aceder a ferramentas e glossários",
     "start_app": "Aceder o software PIA (Beta)",
-    "description": "Este software da <strong>Comissão Francesa de Proteção de Dados (CNIL)</strong> pretende guiar os controladores de dados na construção e demonstração da conformidade para a RGPD. Ajuda a proceder corretamente a avaliação do impacto da proteção de dados facilitando o uso do método PIA desenvolvido pelo CNIL.",
+    "description": "Este software da <strong>Comissão Francesa de Proteção de Dados (CNIL)</strong> pretende guiar os responsáveis pelo tratamento na construção e demonstração da conformidade para a RGPD. Ajuda a proceder corretamente a avaliação do impacto da proteção de dados facilitando o uso do método PIA desenvolvido pelo CNIL.",
     "start": "Início"
   },
   "header": {
@@ -56,7 +56,7 @@
       "new_pia": "Nova análise PIA",
       "import_pia": "Importar PIA",
       "list_rocket_content": "Iniciar ! Para iniciar <br>uma análise PIA, clicar no +",
-      "card_rocket_content": "Iniciar !<br><br>Para iniciar uma análise PIA,<br> clicar no Nova análise PIA"
+      "card_rocket_content": "Iniciar !<br><br>Para iniciar uma análise PIA,<br> clicar na Nova análise PIA"
     },
     "cards": {
       "new_pia": "Nova análise PIA",
@@ -121,7 +121,7 @@
       "2": "Validação simples",
       "3": "Validação assinada",
       "4": "Arquivado",
-      "5": "Espera por validação"
+      "5": "Aguarda validação"
     },
     "header": {
       "preview": "Previsão",
@@ -140,14 +140,14 @@
       "refuse_pia": "Análise PIA recusada",
       "status": {
         "evaluation": {
-          "title": "Espera por revisão.",
-          "content": "Esta parte não tem sido revista ainda. Se desejar editar o conteúdo submetido para revisão tens que ",
+          "title": "Aguarda revisão.",
+          "content": "Esta parte não foi revista ainda. Se desejar editar o conteúdo submetido para revisão terá que ",
           "cancel": "cancelar o pedido de revisão.",
           "cancel_button": "Cancelar pedido de revisão"
         },
         "validation": {
-          "title": "Espera por validação.",
-          "content": "Esta parte tem sido revista e está à espera da validação completa da análise PIA. Se desejares mudar a revisão, tens de ",
+          "title": "Aguarda validação.",
+          "content": "Esta parte foi revista e aguarda validação completa da análise PIA. Se desejar mudar a revisão, terá de ",
           "cancel": "cancelar o pedido de validação.",
           "cancel_button": "Cancelar pedido de validação"
         }
@@ -194,12 +194,12 @@
     "slugs": {
       "PIA_LGL_FOND": {
         "name": "Justificação da legalidade",
-        "description": "- Este titular de dados tem dado consentimento para o tratamento dos seus dados pessoais para uma ou mais finalidades específicas <br>- Tratamento é necessário para a execução de um contrato o qual o titular dos dados está parcialmente ou a fim de tomar medidas a pedido do titular de dados antes de entrar em um contrato  <br>-Tratamento é necessário para a conformidade com obrigação legal a qual o controlador é sujeito <br>- Tratamento é necessário para proteger os interesses vitais do titular de dados ou outra pessoa natural <br>- Tratamento é necessário para a execução da tarefa nos interesses públicos ou no exercício da autoridade oficial investida no controlador <br>- Tratamento é necessário para as finalidades dos interesses legítimos seguidos pelo controlador ou pelo terceiro,excepto onde tais interesses são ignorados pelos interesses ou direitos e liberdades fundamentais do titular de dados que requer proteção dos dados, particularmente onde o titular é uma criança<br> Ver <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">art. 6 de [RGPD]</a> ",
+        "description": "- Este titular de dados tem dado consentimento para o tratamento dos seus dados pessoais para uma ou mais finalidades específicas <br>- Tratamento é necessário para a execução de um contrato o qual o titular dos dados está parcialmente ou a fim de tomar medidas a pedido do titular de dados antes de entrar em um contrato  <br>-Tratamento é necessário para a conformidade com obrigação legal a qual o responsável pelo tratamento é sujeito <br>- Tratamento é necessário para proteger os interesses vitais do titular de dados ou outra pessoa natural <br>- Tratamento é necessário para a execução da tarefa nos interesses públicos ou no exercício da autoridade oficial investida no responsável pelo tratamento <br>- Tratamento é necessário para as finalidades dos interesses legítimos seguidos pelo responsável pelo tratamento ou pelo terceiro,excepto onde tais interesses são ignorados pelos interesses ou direitos e liberdades fundamentais do titular de dados que requer proteção dos dados, particularmente onde o titular é uma criança<br> Ver <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">art. 6 de [RGPD]</a> ",
         "source": "PIA2 p4"
       },
       "PIA_LGL_ST": {
         "name": "Subcontratação",
-        "description": "Um contrato de tratamento deve ser assinado com cada processador, estabelecendo todos os aspectos estipulados no Art. 28 de [RGPD] do : duração, âmbito, finalidade, instruções de tratamento documentadas, autorização prévia onde um processador está envolvido, fornecimento de qualquer documentação que comprove a conformidade com o RGPD, notificação imediata de qualquer violação de dados, etc.",
+        "description": "Um contrato de tratamento deve ser assinado com cada subcontratante, estabelecendo todos os aspectos estipulados no Art. 28 de [RGPD] do : duração, âmbito, finalidade, instruções de tratamento documentadas, autorização prévia onde um subcontrante está envolvido, fornecimento de qualquer documentação que comprove a conformidade com o RGPD, notificação imediata de qualquer violação de dados, etc.",
         "source": "PIA2 p10"
       },
       "PIA_LGL_TRAN": {
@@ -209,7 +209,7 @@
       },
       "PIA_LGL_DESC": {
         "name": "Descrição do tratamento",
-        "description": "Apresenta um breve resumo do tratamento sob consideração, sua natureza, âmbito, contexto, finalidades e estacas. Identifique o controlador de dados e quaisquer processadores. Listar as referências padrão aplicáveis ao tratamento, que são necessárias ou devem ser cumpridas, e não menos importante, os códigos de conduta aprovados  (ver Art. 40 de <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[RGPD]</a>) e certificações com referência a proteção de dados (ver Art. 42 de <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[RGPD]</a>)",
+        "description": "Apresenta um breve resumo do tratamento sob consideração, sua natureza, âmbito, contexto, finalidades e estacas. Identifique o responsável pelo tratamento e quaisquer subcontratantes. Listar as referências padrão aplicáveis ao tratamento, que são necessárias ou devem ser cumpridas, e não menos importante, os códigos de conduta aprovados  (ver Art. 40 de <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[RGPD]</a>) e certificações com referência a proteção de dados (ver Art. 42 de <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[RGPD]</a>)",
         "source": "PIA1 p4"
       },
       "PIA_LGL_DATA": {
@@ -254,12 +254,12 @@
       },
       "PIA_VAL_DPO": {
         "name": "Opinião do Encarregado da Proteção de Dados (DPO)",
-        "description": "O responsável pelo tratamento deve solicitar o parecer do encarregado da proteção de dados, quando efetuar uma avaliação de impacto sobre a proteção de dados. Ver Art. 39.2 de <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[RGPD]</a><br> <strong>Essa visão pode ser contra o tratamento que está sendo implementado, sem restringir a decisão do controlador de dados para todos que</strong>.",
+        "description": "O responsável pelo tratamento deve solicitar o parecer do encarregado da proteção de dados, quando efetuar uma avaliação de impacto sobre a proteção de dados. Ver Art. 39.2 de <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[RGPD]</a><br> <strong>Essa visão pode ser contra o tratamento que está sendo implementado, sem restringir a decisão do responsável pelo tratamento para todos que</strong>.",
         "source": "GDPR Art. 39.2 and PIAF Connected Objects p37"
       },
       "PIA_VAL_CONC": {
         "name": "Opinião dos titulares dos dados",
-        "description": "Quando for apropriado, o responsável pelo tratamento solicita a opinião dos titulares de dados ou dos seus representantes sobre o tratamento pretendido, sem prejuízo da protecção dos interesses comerciais ou públicos ou da segurança das operações de tratamento. Ver Art. 39.2 de <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[RGPD]</a><br> <strong>Esses pontos de vista podem ser reunidos por diversos meios, dependendo do contexto (estudo interno ou externo sobre os métodos de tratamento e finalidade, pergunta para a atenção dos representantes do pessoal ou sindicatos, pesquisa entre os futuros clientes do processador de dados). Quando o controlador de dados decide ir contra as opiniões dos titulares dos dados</strong>, ele deve anotar <strong>a justificação para essa decisão</strong>. Quando o controlador de dados considera que <strong>reunir as opiniões dos titulares dos dados não é relevante, ele deve também anotar a justificação disso</strong>.",
+        "description": "Quando for apropriado, o responsável pelo tratamento solicita a opinião dos titulares de dados ou dos seus representantes sobre o tratamento pretendido, sem prejuízo da protecção dos interesses comerciais ou públicos ou da segurança das operações de tratamento. Ver Art. 39.2 de <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[RGPD]</a><br> <strong>Esses pontos de vista podem ser reunidos por diversos meios, dependendo do contexto (estudo interno ou externo sobre os métodos de tratamento e finalidade, pergunta para a atenção dos representantes do pessoal ou sindicatos, pesquisa entre os futuros clientes do subcontratante). Quando o responsável pelo tratamento decide ir contra as opiniões dos titulares dos dados</strong>, ele deve anotar <strong>a justificação para essa decisão</strong>. Quando o responsável pelo tratamento considera que <strong>reunir as opiniões dos titulares dos dados não é relevante, ele deve também anotar a justificação disso</strong>.",
         "source": "GDPR Art. 39.9 and PIAF Connected Objects p38"
       },
       "PIA_VAL_RT": {
@@ -308,9 +308,9 @@
         "source": "PIAF Connected Objects p22"
       },
       "PIA_TEC_ARCH": {
-        "placeholder": "Indique aqui se os mecanismos são implementados para o monitoramento da integridade dos dados armazenados, quais e para que finalidade.",
+        "placeholder": "Indique quais os mecanismos que são implementados para a monitorização da integridade dos dados armazenados e para que finalidade.",
         "name": "Arquivo",
-        "description": "Se for aplicável, descreva aqui os processos de gestão de arquivo (entrega, armazenamento, consulta, etc.) sob sua responsabilidade. Especifique as funções de arquivo (escritórios de origem, agências de transferência etc.) e a política de arquivo. Informar se os dados podem estar no âmbito dos arquivos públicos.",
+        "description": "Se for aplicável, descreva aqui os processos de gestão de arquivo (entrega, armazenamento, consulta, etc.) sob sua responsabilidade. Especifique as funções de arquivo (escritórios de origem, agências de transferência etc.) e a política de arquivo. Refira se os dados podem estar incluídos no âmbito de arquivo público.",
         "source": "PIAF Connected Objects p22 - WIKI"
       },
       "PIA_TEC_PAP": {
@@ -362,7 +362,7 @@
         "source": "PIAF Connected Objects p23"
       },
       "PIA_SEC_CTR": {
-        "placeholder": "Descreva aqui medidas específicas para processadores (hospedeiro, empresa de manutenção, administrador, fornecedores de serviços especializados, etc.)",
+        "placeholder": "Descreva aqui medidas específicas para subcontratantes (hospedeiro, empresa de manutenção, administrador, fornecedores de serviços especializados, etc.)",
         "name": "Processando contratos",
         "description": "",
         "source": "Mesures_US Procurement: identified and governed by a contract"
@@ -440,7 +440,7 @@
         "source": "PIAF Connected Objects p24"
       },
       "PIA_ORG_EXT": {
-        "placeholder": "Indique aqui, para os processadores que requerem acesso aos dados, os controlos e arranjos de segurança executados em relação a esse acesso.",
+        "placeholder": "Indique aqui, para os subcontratantes que requerem acesso aos dados, os controlos e arranjos de segurança executados em relação a esse acesso.",
         "name": "Relações com terceiros",
         "description": "Existência de uma política e processos que reduzam o risco de que o acesso legítimo a dados pessoais por terceiros possa representar para as liberdades civis e privacidade das pessoas em causa.",
         "source":  "PIA3 p48 - WIKI"
@@ -462,7 +462,7 @@
         "source": "Nenhuma"
       },
       "PIA_DEF_RT": {
-        "name": "Controlador",
+        "name": "Responsável pelo tratamento",
         "description": "Pessoa singular ou coletiva, autoridade pública, agência ou outro organismo que, individualmente ou em conjunto com outros, determina os fins e meios do tratamento de dados pessoais; Se os fins e os meios desse tratamento forem determinados pela legislação da União ou do Estado-Membro, o responsável pelo tratamento ou os critérios específicos para a sua nomeação podem ser estabelecidos pelo direito da União ou do Estado-Membro.<br>Ver <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 4.7 de [RGPD]</a>",
         "source": "Art. 4.7"
       },
@@ -503,7 +503,7 @@
       },
       "PIA_DEF_PORT": {
         "name": "Direito à portabilidade dos dados",
-        "description": "O titular dos dados tem o direito de receber os dados pessoais que lhe são fornecidos, que forneceu a um responsável pelo tratamento, num formato estruturado, normalmente utilizado e legível por máquina, e tem o direito de os transmitir para outro controlador sem impedimento do controlador para o qual os dados pessoais foram fornecidos, ver <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 20 de [RGPD]</a>",
+        "description": "O titular dos dados tem o direito de receber os dados pessoais que lhe são fornecidos, que forneceu a um responsável pelo tratamento, num formato estruturado, normalmente utilizado e legível por máquina, e tem o direito de os transmitir para outro responsável pelo tratamento sem impedimento do primeiro responsável pelo tratamento para o qual os dados pessoais foram fornecidos, ver <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 20 de [RGPD]</a>",
         "source": "GDPR Art. 20"
       },
       "PIA_DEF_RECT": {
@@ -632,8 +632,8 @@
         "source": "PIA1 p4 footnote 8"
       },
       "PIA_DEF_ST": {
-        "name": "Processador",
-        "description": "Pessoa singular ou coletiva, autoridade pública, agência ou outro organismo que processa dados pessoais em nome do responsável pelo tratamento, ver <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 4.8 de [RGPD]</a>.<br>O processador e qualquer pessoa que atue sob a autoridade do responsável pelo tratamento ou do processador, que tenha acesso a dados pessoais, não devem processar esses dados, salvo instruções do responsável pelo tratamento, a menos que tal seja exigido pela legislação da União ou do Estado-Membro, ver <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 29 de [RGPD]</a>.",
+        "name": "Subcontratante",
+        "description": "Pessoa singular ou coletiva, autoridade pública, agência ou outro organismo que processa dados pessoais em nome do responsável pelo tratamento, ver <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 4.8 de [RGPD]</a>.<br>O subcontratante e qualquer pessoa que atue sob a autoridade do responsável pelo tratamento ou do subcontratante, que tenha acesso a dados pessoais, não devem processar esses dados, salvo instruções do responsável pelo tratamento, a menos que tal seja exigido pela legislação da União ou do Estado-Membro, ver <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 29 de [RGPD]</a>.",
         "source": "GDPR Art. 4.8 and 29"
       },
       "PIA_DEF_RGPD": {
@@ -796,8 +796,8 @@
           "content": "Ao encontrar esses problemas de exibição, feche o aplicativo e recarregue-o. Normalmente corrige o problema. Não perderá as informações inseridas; ele é salvo automaticamente enquanto digita."
         },
         "qa2": {
-          "title": "Não consigo editar os medidores para avaliar a gravidade e a probabilidade de um risco",
-          "content": "Esse problema conhecido está sendo corrigido no momento. Se encontrar esse problema, recomendamos que preencha o campo de justificação do nível estimado de gravidade e/ou probabilidade. Poderá editar o medidor assim que o bug for corrigido."
+          "title": "Não consigo editar os campos para avaliar a gravidade e a probabilidade de um risco",
+          "content": "Este constrangimento está a ser corrigido. Caso encontre este constrangimento, recomendamos que preencha o campo Justificação do nível de gravidade e/ou probabilidade estimado. É possível editar este campo assim que o bug for corrigido."
         },
         "qa3": {
           "title": "Eu encontro problemas ao importar uma análise PIA",
@@ -817,7 +817,7 @@
         },
         "qa7": {
           "title": "Recusei a validar uma análise PIA mas não sei o que fazer agora",
-          "content": "No momento, os ícones do menu de navegação não são atualizados após recusar uma análise PIA. Deve verificar cada seção e alterar as informações e/ou avaliações de acordo com as razões para recusar a análise PIA. Depois de toda a seção tiver sido revisada, poderá solicitar a validação da análise PIA novamente."
+          "content": "Os ícones do menu de navegação não são atualizados após recusar uma análise PIA. Deve verificar cada seção e alterar as informações e/ou avaliações de acordo com aos motivos de recusa da análise PIA. Depois de toda a seção tiver sido revista, poderá solicitar a validação da análise PIA novamente."
         }
       },
       "footer": ""
@@ -826,7 +826,7 @@
   "about": {
     "title": "Sobre a Ferramenta PIA",
     "version_number": "Número da versão",
-    "description": "Esta ferramenta é originalmente desenhada pelo <a target=\"_blank\" href=\"https://www.cnil.fr\">Comissão Nacional da Informática e Liberdade (CNIL)</a>, Autoridade Francesa de Proteção de Dados, para ajudar o processador de dados a ser compatível com o GDPR.<br>Este software é gratuito e aberto. Se deseja se envolver neste projeto, pode baixar o código fonte do Github, modificá-lo e compartilhá-lo com a comunidade.",
+    "description": "Esta ferramenta é originalmente desenhada pelo <a target=\"_blank\" href=\"https://www.cnil.fr\">Comissão Nacional da Informática e Liberdade (CNIL)</a>, Autoridade Francesa de Proteção de Dados, para ajudar o subcontratante a ser compatível com o GDPR.<br>Este software é gratuito e aberto. Se deseja se envolver neste projeto, pode baixar o código fonte do Github, modificá-lo e compartilhá-lo com a comunidade.",
     "translators": "O software PIA está atualmente disponível em quatorze idiomas. As versões francesa e inglesa são fornecidas pelo CNIL. As outras versões resultam das contribuições dos seguintes indivíduos:",
     "translators_name": "<ul><li>Czech : Jiří Grohmann, Manuel d’Orso;</li><li>Dutch : Ruud van Driel, Manuel d’Orso;</li><li>English : <a target=\"_blank\" href=\"https://www.cnil.fr\">CNIL</a>;</li><li>Finnish : <a target=\"_blank\" href=\"https://tietosuoja.fi/etusivu\">Tietosuojavaltuutetun toimisto</a>;</li><li>French : <a target=\"_blank\" href=\"https://www.cnil.fr\">CNIL</a>;</li><li>German : Kosmas Schütz, Corina Scheiter (<a target=\"_blank\" href=\"https://www.datenschutz-bayern.de/\">BayLfD</a>);</li><li>Greek : Dimitris Tzellis;</li><li>Hungarian : <a target=\"_blank\" href=\"https://naih.hu/\">Nemzeti Adatvédelmi és Információszabadság Hatóság (NAIH)</a>;</li><li>Italian : Manuel d’Orso, Gianluca Markos, Antonio Caselli (<a target=\"_blank\" href=\"http://gpdp.it\">Garante per la Protezione dei Dai Personali (GPDP)</a>);</li><li>Norwegian : <a target=\"_blank\" href=\"https://www.datatilsynet.no\">Datatilsynet</a>;</li><li>Polish : Joanna Karczewska, Michal Mazur (<a target=\"_blank\" href=\"https://giodo.gov.pl\">Generalny Inspektor Ochrony Danych Osobowych (GIODO)</a>);</li><li>Portuguese : Barbara Gois;</li><li>Romanian : webmyday;</li><li>Spanish : ylachgar.</li></ul>",
     "contribute": "Se deseja contribuir com a tradução do software em outro idioma ou melhorar as traduções existentes, recomendamos que <a href=\"https://github.com/LINCnil/pia/tree/master/src/assets/i18n\" target=\"_blank\">leia a página descrevendo os passos a seguir</a>.",
@@ -843,7 +843,7 @@
     "confirmation1": "Eu atesto que o contexto do tratamento descrito na análise PIA é consistente com a realidade.",
     "confirmation2": "Eu atesto que estou ciente dos riscos dependendo das medidas existentes ou planeadas.",
     "confirmation3": "Ratifico as ações corretivas indicadas no plano de ação.",
-    "confirmation4": "Eu me comprometo a implementar o mais rápido possível as ações corretivas indicadas.",
+    "confirmation4": "Eu comprometo-me a implementar as ações corretivas indicadas o mais rápido possível.",
     "button": {
       "rejection": "Rejeitar análise PIA",
       "simple_validation": "Aprovar análise PIA <br>(direto)",
@@ -867,7 +867,7 @@
     "rejection_reason": "Motivo de recusa",
     "rejection_reason_placeholder": "Descrever os motivos da recusa da análise PIA.",
     "applied_adjustments": "Ajustamentos propostos",
-    "applied_adjustments_placeholder": "Descrever as mudanças trazidas para a análise PIA.",
+    "applied_adjustments_placeholder": "Descrever as mudanças produzidas pela análise PIA.",
     "previous_rejection": "Recusa anterior",
     "button": {
       "abandon_treatment": "Abandono do tratamento",
@@ -883,16 +883,16 @@
     "archive": "Arquivar",
     "close": "Fechar",
     "continue": "Continuar",
-    "start_evaluation": "Começar revisão",
+    "start_evaluation": "Começar a revisão",
     "back_to_home": "Voltar para o menu",
     "simple_pia_validation": {
-      "content": "A análise PIA tem sido validada."
+      "content": "A análise PIA foi validada."
     },
     "completed_edition": {
-      "content": "A análise PIA foi totalmente editada, tem que ser revisada."
+      "content": "A análise PIA foi editada, deve ser revista."
     },
     "completed_evaluation": {
-      "content": "A análise PIA foi totalmente revisada, tem que ser validada."
+      "content": "A análise PIA foi revista, deve ser validada."
     },
     "update_server_url": {
       "content": "O endereço do servidor foi atualizado."
@@ -906,7 +906,7 @@
       "content": "Tem certeza que quer<br>desistir deste tratamento?"
     },
     "refuse_pia": {
-      "content": "<span class='strong'>Análise PIA rejeitada,</span><br>Vários campos devem ser corrigidos.<br>Retornar ao modo de avaliação<br>para fazer correções."
+      "content": "<span class='strong'>Como rejeitou a análise PIA,</span><br>Vesta regressou à revisão para corrigir as alterações necessárias."
     },
     "same_comment": {
       "content": "<span class='strong'>Atenção,</span> Por favor insira um comentário diferente do último gravado<br>."
@@ -1097,7 +1097,7 @@
       "items": {
         "1": {
           "title": "Visão geral",
-          "short_help": "Esta parte permite identificar e apresentar o objeto de estudo.",
+          "short_help": "Esta seção permite identificar e apresentar o objeto de estudo.",
           "questions": {
             "1": {
               "title": "Qual é a finalidade de tratamento considerada no âmbito da análise?",
@@ -1115,7 +1115,7 @@
         },
         "2": {
           "title": "Dados, processos e ativos de suporte",
-          "short_help": "Esta parte permite definir e descrever o âmbito do tratamento em detalhes.",
+          "short_help": "Esta seção permite definir e descrever o âmbito do tratamento em detalhes.",
           "questions": {
             "1": {
               "title": "Quais são os dados pessoais tratados?",
@@ -1139,7 +1139,7 @@
       "items": {
         "1": {
           "title": "Proporcionalidade e necessidade",
-          "short_help": "Esta parte permite demonstrar a legitimidade do seu tratamento e dos dados processados.",
+          "short_help": "Esta seção permite demonstrar a legitimidade do seu tratamento e dos dados processados.",
           "questions": {
             "1": {
               "title": "A finalidade de tratamento é específica, explícita e legítima?",
@@ -1170,7 +1170,7 @@
         },
         "2": {
           "title": "Controlos para proteger os direitos pessoais dos titulares dos dados",
-          "short_help": "Esta parte permite-lhe demonstrar que está a implementar os meios necessários para permitir que as pessoas em causa exerçam os seus direitos.",
+          "short_help": "Esta seção permite demonstrar que estão a ser implementadas todas as medidas que permitem assegurar o exercício dos direitos ao titular dos dados pessoais.",
           "questions": {
             "1": {
               "title": "Como é que os titulares dos dados são informados sobre o tratamento dos seus dados?",
@@ -1185,12 +1185,12 @@
             "3": {
               "title": "Como é garantido o acesso e portabilidade de dados pessoais?",
               "short_title": "Direito de acesso e portabilidade de dados",
-              "placeholder": "Descreva os controlos existentes que permitem aos titulares dos dados o exercício dos direitos de atualização/retificação e apagamento dos seus dados. <br><br>O titular de dados tem o direito de obter sem demora injustificada, do responsável pelo tratamento a retificação dos dados pessoais inexatos que lhe digam respeito. Tendo em conta as finalidades do tratamento, o titular dos dados tem direito a que os seus dados pessoais incompletos sejam completos, incluindo por meio de uma declaração adicional. O titular dos dados tem o direito de se opor a qualquer momento, por motivos relacionados com a sua situação particular, ao tratamento dos dados pessoais que lhe digam respeito para: <br>-exercício de funções de interesse público; <br>-efeito dos interesses legítimos prosseguidos pelo responsável pelo tratamento ou por terceiros; <br>-fins que não sejam aqueles para os quais os dados pessoais foram recolhidos. <br><br>O responsável pelo tratamento cessa o tratamento dos dados pessoais, a não ser que apresente razões imperiosas e legítimas para esse tratamento que prevaleçam sobre os interesses, direitos e liberdades do titular dos dados, ou para efeitos de declaração, exercício ou defesa de um direito num processo judicial.<br><br>Deverão ser descritos os controlos existentes que permitem aos titulares dos dados o exercício deste direito."
+              "placeholder": "Descreva os controlos previstos para garantir que os titulares exerçam os direitos de obter do responsável pelo tratamento a confirmação de que os dados pessoais que lhe digam respeito são ou não objeto de tratamento e, se for esse o caso, o direito de aceder aos seus dados pessoais, bem como o direito de portabilidade."
             },
             "4": {
               "title": "Como é garantida a atualização/retificação e apagamento dos dados pessoais pedida pelo titular dos mesmos?",
               "short_title": "Direito à retificação e apagamento",
-              "placeholder": "Descrever os controlos destinados a permitir que os titulares de dados retifiquem e apaguem seus dados."
+              "placeholder": "O titular de dados tem o direito de obter sem demora injustificada, do responsável pelo tratamento a retificação dos dados pessoais inexatos que lhe digam respeito. Tendo em conta as finalidades do tratamento, o titular dos dados tem direito a que os seus dados pessoais incompletos sejam completos, incluindo por meio de uma declaração adicional. O titular dos dados tem o direito de se opor a qualquer momento, por motivos relacionados com a sua situação particular, ao tratamento dos dados pessoais que lhe digam respeito para: <br>-Exercício de funções de interesse público; <br>-Efeito dos interesses legítimos prosseguidos pelo responsável pelo tratamento ou por terceiros; <br>-Fins que não sejam aqueles para os quais os dados pessoais foram recolhidos. <br><br>O responsável pelo tratamento cessa o tratamento dos dados pessoais, a não ser que apresente razões imperiosas e legítimas para esse tratamento que prevaleçam sobre os interesses, direitos e liberdades do titular dos dados, ou para efeitos de declaração, exercício ou defesa de um direito num processo judicial. Deverão ser descritos os controlos existentes que permitem aos titulares dos dados o exercício deste direito."
             },
             "5": {
               "title": "Como é garantida a limitação do tratamento dos dados pessoais pedido pelo titular dos mesmos?",
@@ -1205,7 +1205,7 @@
             "7": {
               "title": "No caso de transferência de dados fora da União Europeia, os dados são adequadamente protegidos?",
               "short_title": "Transferências",
-              "placeholder": "Identifique países fora da União Europeia onde os dados são armazenados ou processados e indique como está garantido que não é comprometido o nível de proteção das pessoas singulares. <br><br>Quando os dados pessoais são transferidos da União Europeia para responsáveis pelo tratamento, para subcontratantes ou para outros destinatários em países terceiros ou para organizações internacionais, o nível de proteção das pessoas singulares assegurado na União Europeia pelo RGPD deverá continuar a ser garantido, inclusive nos casos de posterior transferência de dados pessoais do País terceiro ou da organização internacional em causa para responsáveis pelo tratamento, subcontratantes desse país terceiro ou de outro, ou para uma organização internacional."
+              "placeholder": "Quando os dados pessoais são transferidos da União Europeia para responsáveis pelo tratamento, para subcontratantes ou para outros destinatários em países terceiros ou para organizações internacionais, o nível de proteção das pessoas singulares assegurado na União Europeia pelo RGPD deverá continuar a ser garantido, inclusive nos casos de posterior transferência de dados pessoais do País terceiro ou da organização internacional em causa para responsáveis pelo tratamento, subcontratantes desse país terceiro ou de outro, ou para uma organização internacional. <br>Para cada país fora da União Europeia onde os dados são armazenados ou processados, este deverá ser identificado nesta questão e ter a indicação se está disponível um nível adequado de protecção de dados ou O titular de dados tem o direito de obter sem demora injustificada, do responsável pelo tratamento a retificação dos dados pessoais inexatos que lhe digam respeito. Tendo em conta as finalidades do tratamento, o titular dos dados tem direito a que os seus dados pessoais incompletos sejam completos, incluindo por meio de uma declaração adicional. O titular dos dados tem o direito de se opor a qualquer momento, por motivos relacionados com a sua situação particular, ao tratamento dos dados pessoais que lhe digam respeito para: as disposições relativas à transferência."
             }
           }
         }
@@ -1320,7 +1320,7 @@
       "items": {
         "1": {
           "title": "Mapeamento dos riscos",
-          "short_help": "Esta visualização permite comparar o posicionamento dos riscos entre eles, antes e depois da aplicação dos controlos complementares."
+          "short_help": "Esta visualização permite comparar a relação entre o posicionamento dos riscos entre si, antes e depois da aplicação dos controlos complementares."
         },
         "2": {
           "title": "Plano de ação",
