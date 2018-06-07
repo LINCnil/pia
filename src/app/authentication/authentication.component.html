@@ -15,7 +15,7 @@
                             <label for="authentication-password">{{ 'authentication.form.password' | translate }}</label>
                             <input id="authentication-password" type="password" [(ngModel)]="user.password" name="password" required>
                         </div>
-                        <p *ngIf="error" class="error">{{ 'authentication.form.error' | translate }}</p>
+                        <p class="error" [@errorState]="error ? 'active' : 'inactive'">{{ 'authentication.form.error' | translate }}</p>
                         <button type="submit" [disabled]="!authForm.valid" class="btn btn-green" id="authentication-submit" title="{{ 'homepage.cards.placeholder_start' | translate }}">{{ 'authentication.form.submit' | translate }}</button>
                         <a href="{{backendUrl}}">{{ 'authentication.forgotten_password' | translate }}</a>
                     </fieldset>
