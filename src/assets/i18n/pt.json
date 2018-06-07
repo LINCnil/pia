@@ -4,7 +4,7 @@
     "subtitle1": "Uma plataforma para criar <br> e gerir as análises de PIA",
     "subtitle2": "Aceder a ferramentas e glossários",
     "start_app": "Aceder o software PIA (Beta)",
-    "description": "Este software da <strong>Comissão Francesa de Proteção de Dados (CNIL)</strong> pretende guiar os responsáveis pelo tratamento na construção e demonstração da conformidade para a RGPD. Ajuda a proceder corretamente a avaliação do impacto da proteção de dados facilitando o uso do método PIA desenvolvido pelo CNIL.",
+    "description": "Este software da <strong>Commission Nationale de l'Informatique et des Libertés (CNIL)</strong> pretende guiar os responsáveis pelo tratamento na construção e demonstração da conformidade para com o RGPD. Através da metodologia desenvolvida pela CNIL, esta ferramenta ajuda na avaliação de risco dos dados pessoais da organizaçao.",
     "start": "Início"
   },
   "header": {
@@ -141,7 +141,7 @@
       "status": {
         "evaluation": {
           "title": "Aguarda revisão.",
-          "content": "Esta parte não foi revista ainda. Se desejar editar o conteúdo submetido para revisão terá que ",
+          "content": "Esta parte ainda não foi revista. Caso deseje editar o conteúdo submetido para revisão terá que ",
           "cancel": "cancelar o pedido de revisão.",
           "cancel_button": "Cancelar pedido de revisão"
         },
@@ -826,7 +826,7 @@
   "about": {
     "title": "Sobre a Ferramenta PIA",
     "version_number": "Número da versão",
-    "description": "Esta ferramenta é originalmente desenhada pelo <a target=\"_blank\" href=\"https://www.cnil.fr\">Comissão Nacional da Informática e Liberdade (CNIL)</a>, Autoridade Francesa de Proteção de Dados, para ajudar o subcontratante a ser compatível com o GDPR.<br>Este software é gratuito e aberto. Se deseja se envolver neste projeto, pode baixar o código fonte do Github, modificá-lo e compartilhá-lo com a comunidade.",
+    "description": "Esta ferramenta foi originalmente desenhada pelo <a target=\"_blank\" href=\"https://www.cnil.fr\">Comissão Nacional da Informática e Liberdade (CNIL)</a>, Autoridade Francesa de Proteção de Dados, para ajudar o subcontratante a ser compatível com o GDPR.<br>Este software é gratuito e de código aberto. Caso pretenda se envolver neste projeto, poderá baixar o código fonte do Github, modificá-lo e compartilhá-lo com a comunidade.",
     "translators": "O software PIA está atualmente disponível em quatorze idiomas. As versões francesa e inglesa são fornecidas pelo CNIL. As outras versões resultam das contribuições dos seguintes indivíduos:",
     "translators_name": "<ul><li>Czech : Jiří Grohmann, Manuel d’Orso;</li><li>Dutch : Ruud van Driel, Manuel d’Orso;</li><li>English : <a target=\"_blank\" href=\"https://www.cnil.fr\">CNIL</a>;</li><li>Finnish : <a target=\"_blank\" href=\"https://tietosuoja.fi/etusivu\">Tietosuojavaltuutetun toimisto</a>;</li><li>French : <a target=\"_blank\" href=\"https://www.cnil.fr\">CNIL</a>;</li><li>German : Kosmas Schütz, Corina Scheiter (<a target=\"_blank\" href=\"https://www.datenschutz-bayern.de/\">BayLfD</a>);</li><li>Greek : Dimitris Tzellis;</li><li>Hungarian : <a target=\"_blank\" href=\"https://naih.hu/\">Nemzeti Adatvédelmi és Információszabadság Hatóság (NAIH)</a>;</li><li>Italian : Manuel d’Orso, Gianluca Markos, Antonio Caselli (<a target=\"_blank\" href=\"http://gpdp.it\">Garante per la Protezione dei Dai Personali (GPDP)</a>);</li><li>Norwegian : <a target=\"_blank\" href=\"https://www.datatilsynet.no\">Datatilsynet</a>;</li><li>Polish : Joanna Karczewska, Michal Mazur (<a target=\"_blank\" href=\"https://giodo.gov.pl\">Generalny Inspektor Ochrony Danych Osobowych (GIODO)</a>);</li><li>Portuguese : Barbara Gois;</li><li>Romanian : webmyday;</li><li>Spanish : ylachgar.</li></ul>",
     "contribute": "Se deseja contribuir com a tradução do software em outro idioma ou melhorar as traduções existentes, recomendamos que <a href=\"https://github.com/LINCnil/pia/tree/master/src/assets/i18n\" target=\"_blank\">leia a página descrevendo os passos a seguir</a>.",
@@ -906,7 +906,7 @@
       "content": "Tem certeza que quer<br>desistir deste tratamento?"
     },
     "refuse_pia": {
-      "content": "<span class='strong'>Como rejeitou a análise PIA,</span><br>Vesta regressou à revisão para corrigir as alterações necessárias."
+      "content": "<span class='strong'>Como rejeitou a análise PIA,</span><br>esta regressou à revisão para corrigir as alterações necessárias."
     },
     "same_comment": {
       "content": "<span class='strong'>Atenção,</span> Por favor insira um comentário diferente do último gravado<br>."
