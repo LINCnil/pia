@@ -19,13 +19,13 @@
           <ul class="pia-navigationBlock-list">
             <!--<li>
               <a href="#">{{ 'header.knowledge_base_link' | translate }}</a>
-            </li>-->
+            </li>
             <li *ngxPermissionsOnly="['CanCreatePIAExample']">
               <a
               *ngIf="_languagesService.selectedLanguage === 'fr' && headerForHome"
                href="javascript:;"
                (click)="importPiaExample()">{{ 'header.pia_example_link' | translate }}</a>
-            </li>
+            </li>-->
             <li *ngIf="profile" class="pia-navigationBlock-profile">
               <a href="javascript:;">
                 <i class="fa fa-user" aria-hidden="true"></i>

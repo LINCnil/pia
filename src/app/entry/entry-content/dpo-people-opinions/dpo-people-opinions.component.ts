@@ -190,7 +190,7 @@ export class DPOPeopleOpinionsComponent implements OnInit {
    */
   dpoOpinionFocusOut() {
     let userText = this.DPOForm.controls['DPOOpinion'].value;
-    if (userText) {
+    if (userText && typeof userText === 'string') {
       userText = userText.replace(/^\s+/, '').replace(/\s+$/, '');
     }
     this._piaService.pia.dpo_opinion = userText;
@@ -254,7 +254,7 @@ export class DPOPeopleOpinionsComponent implements OnInit {
    */
   peopleSearchContentFocusOut() {
     let userText = this.searchedOpinionsForm.controls['searchContent'].value;
-    if (userText) {
+    if (userText && typeof userText === 'string') {
       userText = userText.replace(/^\s+/, '').replace(/\s+$/, '');
     }
     this._piaService.pia.concerned_people_searched_content = userText;
@@ -348,7 +348,7 @@ export class DPOPeopleOpinionsComponent implements OnInit {
    */
   concernedPeopleopinionFocusOut() {
     let userText = this.peopleForm.controls['peopleOpinion'].value;
-    if (userText) {
+    if (userText && typeof userText === 'string') {
       userText = userText.replace(/^\s+/, '').replace(/\s+$/, '');
     }
     this._piaService.pia.concerned_people_opinion = userText;

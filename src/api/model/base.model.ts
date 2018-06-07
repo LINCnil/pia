@@ -15,6 +15,28 @@ export class BaseModel implements Timestampable {
     }
   }
 
+  protected mapToJson(object?: any): any {
+    return this.iterate(object);
+  }
+
+  public toJson(): any {
+    return Object.assign({}, this, this.mapToJson(this));
+  }
+
+  protected iterate(obj) {
+
+    for (var property in obj) {
+      if (obj.hasOwnProperty(property)) {
+        if (obj[property] instanceof Date) {
+          obj[property] = Moment(obj[property]).format()
+        } else if (typeof obj[property] == "object") {
+          this.iterate(obj[property]);
+        }
+      }
+    }
+    return obj;
+  }
+
   protected mapFromJson(json: any): any {
     return {
       created_at: json.created_at ? Moment(json.created_at).toDate() : null,
@@ -22,18 +44,18 @@ export class BaseModel implements Timestampable {
     }
   }
 
-  public toJson(): any {
-    return Object.assign({}, this, this.mapToJson());
-  }
+  // public toJson(): any {
+  //   return Object.assign({}, this, this.mapToJson());
+  // }
 
   public toJsonString(): string {
     return JSON.stringify(this.toJson());
   }
 
-  protected mapToJson(): any {
-    return {
-      created_at: this.created_at ? Moment(this.created_at).format() : null,
-      updated_at: this.updated_at ? Moment(this.updated_at).format() : null
-    }
-  }
+  // protected mapToJson(): any {
+  //   return {
+  //     created_at: this.created_at ? Moment(this.created_at).format() : null,
+  //     updated_at: this.updated_at ? Moment(this.updated_at).format() : null
+  //   }
+  // }
 }

@@ -6,7 +6,10 @@ import { PaginationService } from 'app/entry/entry-content/pagination.service';
 export class ModalsService {
 
 
-  constructor(private _router: Router, private _paginationService: PaginationService) {}
+  constructor(
+    private _router: Router,
+    private _paginationService: PaginationService
+  ) {}
 
   /**
    * Opens a specific modal through its unique id.

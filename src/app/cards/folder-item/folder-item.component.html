@@ -1,0 +1,24 @@
+<div class="pia-folder-item" [attr.data-id]="folder.id">
+    <div class="pia-cardsBlock-toolbar">
+        <div class="pia-cardsBlock-toolbar-more">
+            <a href="javascript:;" class="btn pia-tooltip" title="{{ 'homepage.cards.item.tools.more_options' | translate }}">
+                <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+                <ul class="pia-cardsBlock-toolbar-moreList">
+                    <li *ngxPermissionsOnly="['CanDeletePIA']">
+                        <i class="fa fa-trash-o" aria-hidden="true"></i>
+                        <a href="javascript:;" (click)="removeFolder(folder)">{{ 'homepage.cards.item.tools.remove' | translate }}</a>
+                    </li>
+                </ul>
+            </a>
+        </div>
+    </div>
+    <div class="folder-icon">
+        <i class="fa fa-folder-open" aria-hidden="true"></i>
+    </div>
+    <form [formGroup]="folderForm">
+        <input class="folder-title" [value]="folder.name" formControlName="name" required (focusout)="folderNameFocusOut()" />
+    </form>
+    <div class="bottom-actions">
+        <a class="btn btn-green" routerLink="/home/{{folder.id}}" href="#">{{ 'homepage.cards.folder.open' | translate }}</a>
+    </div>
+</div>

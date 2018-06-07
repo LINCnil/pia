@@ -10,6 +10,7 @@ import { PiaService } from '@api/service/pia.service';
 import { UserProfileService } from '@api/service/user-profile.service';
 import { UserTokenService } from '@api/service/user-token.service';
 import { TemplateService } from '@api/service/template.service';
+import { FolderService } from '@api/service/folder.service';
 
 @NgModule({
   declarations: [],
@@ -25,7 +26,8 @@ import { TemplateService } from '@api/service/template.service';
     PiaService,
     UserProfileService,
     UserTokenService,
-    TemplateService
+    TemplateService,
+    FolderService
   ]
 })
 

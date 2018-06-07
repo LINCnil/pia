@@ -9,13 +9,16 @@ import { ActionPlanService } from 'app/entry/entry-content/action-plan//action-p
 
 import { Observable } from 'rxjs/Rx';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
-import { PiaModel, AnswerModel, CommentModel, EvaluationModel, MeasureModel, AttachmentModel } from '@api/models';
-import { PiaApi, AnswerApi, CommentApi, EvaluationApi, MeasureApi, AttachmentApi } from '@api/services';
+import { PiaModel, AnswerModel, CommentModel, EvaluationModel, MeasureModel, AttachmentModel, FolderModel } from '@api/models';
+import { PiaApi, AnswerApi, CommentApi, EvaluationApi, MeasureApi, AttachmentApi, FolderApi } from '@api/services';
 
 @Injectable()
 export class PiaService {
 
   pias = [];
+  folders = [];
+  currentFolder: FolderModel = null
+  isRootFolder: boolean = false
   pia: PiaModel = new PiaModel();
   answer: AnswerModel = new AnswerModel();
   data: { sections: any };
@@ -30,7 +33,8 @@ export class PiaService {
     private commentApi: CommentApi,
     private evaluationApi: EvaluationApi,
     private measureApi: MeasureApi,
-    private attachmentApi: AttachmentApi
+    private attachmentApi: AttachmentApi,
+    private folderApi: FolderApi
   ) {
     this._appDataService.getDataNav().then((dataNav) => {
       this.data = dataNav;
@@ -40,8 +44,8 @@ export class PiaService {
   /**
    * Get the current PIA.
    * @return { Observable<PiaModel> }
-  * @memberof PiaService
-  */
+   * @memberof PiaService
+   */
   retrieveCurrentPIA(id: number): Observable<PiaModel> {
 
     return this.piaApi.get(id).map((thePia: PiaModel) => {
@@ -79,6 +83,22 @@ export class PiaService {
     }
 
     localStorage.removeItem('pia-id');
+    this._modalsService.closeModal();
+  }
+
+  removeFolder() {
+    const folderID = parseInt(localStorage.getItem('folder-id'), 10);
+    // Removes from DB.
+    this.folderApi.deleteById(folderID).subscribe();
+
+    // Deletes the Folder from the view.
+    if (localStorage.getItem('homepageDisplayMode') && localStorage.getItem('homepageDisplayMode') === 'list') {
+      document.querySelector('.folder-listsBlock-item[data-id="' + folderID + '"]').remove();
+    } else {
+      document.querySelector('.pia-folder-item[data-id="' + folderID + '"]').remove();
+    }
+
+    localStorage.removeItem('folder-id');
     this._modalsService.closeModal();
   }
 

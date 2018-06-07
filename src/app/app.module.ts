@@ -59,6 +59,9 @@ import { CardsRoutingModule } from 'app/cards/cards-routing.module';
 import { ApiModule } from '@api/api.module';
 import { SecurityModule } from '@security/security.module';
 import { TemplatesComponent } from './templates/templates.component';
+import { FolderItemComponent } from './cards/folder-item/folder-item.component';
+import { ListItemFolderComponent } from './cards/list-item-folder/list-item-folder.component';
+import { DndModule } from 'ngx-drag-drop';
 
 const providersList: any = [
   AppDataService,
@@ -126,7 +129,9 @@ export function createTranslateLoader(http: HttpClient) {
     SafeHtmlPipe,
     Nl2brPipe,
     AboutComponent,
-    TemplatesComponent
+    TemplatesComponent,
+    FolderItemComponent,
+    ListItemFolderComponent
   ],
   imports: [
     BrowserModule,
@@ -144,7 +149,8 @@ export function createTranslateLoader(http: HttpClient) {
         deps: [HttpClient]
       }
     }),
-    SecurityModule
+    SecurityModule,
+    DndModule
   ],
   exports: [],
   providers: providersList,

@@ -7,3 +7,4 @@ export { Attachment as AttachmentModel } from '@api/model/attachment.model';
 export { UserProfile as UserProfileModel } from '@api/model/user-profile.model';
 export { UserToken as UserTokenModel } from '@api/model/user-token.model';
 export { Template as TemplateModel } from '@api/model/template.model';
+export { Folder as FolderModel } from '@api/model/folder.model';

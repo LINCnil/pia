@@ -40,6 +40,15 @@ body {
     font-size: 1.2rem;
     font-family: 'Roboto', sans-serif;
     background-color: $pia-white;
+
+    .pia-folder-item.parent.dndDragover, .dndDragover:not(.dndDropzoneDisabled) > .pia-folder-item {
+      transform: scale(1.05);
+      border: 1px solid $pia-blue;
+    }
+
+    .dndDragging > .pia-folder-item, .dndDragging > .pia-cardsBlock {
+      transform: scale(0.8);
+    }
 }
 html, body {
     height: 100%;

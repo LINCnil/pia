@@ -263,7 +263,7 @@ export class EvaluationsComponent implements OnInit, AfterViewChecked, OnDestroy
     this._knowledgeBaseService.placeholder = null;
     this.editor = null;
     let userText = this.evaluationForm.controls['actionPlanComment'].value;
-    if (userText) {
+    if (userText && typeof userText === 'string') {
       userText = userText.replace(/^\s+/, '').replace(/\s+$/, '');
     }
     this.evaluation.action_plan_comment = userText;
@@ -295,7 +295,7 @@ export class EvaluationsComponent implements OnInit, AfterViewChecked, OnDestroy
     this._knowledgeBaseService.placeholder = null;
     this.editorEvaluationComment = false;
     let userText = this.evaluationForm.controls['evaluationComment'].value;
-    if (userText) {
+    if (userText && typeof userText === 'string') {
       userText = userText.replace(/^\s+/, '').replace(/\s+$/, '');
     }
     this.evaluation.evaluation_comment = userText;

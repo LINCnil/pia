@@ -76,7 +76,7 @@ export class CardItemComponent implements OnInit {
    */
   piaNameFocusOut() {
     let userText = this.piaForm.controls['name'].value;
-    if (userText) {
+    if (userText && typeof userText === 'string') {
       userText = userText.replace(/^\s+/, '').replace(/\s+$/, '');
     }
     if (userText !== '') {
@@ -102,7 +102,7 @@ export class CardItemComponent implements OnInit {
    */
   piaAuthorNameFocusOut() {
     let userText = this.piaForm.controls['author_name'].value;
-    if (userText) {
+    if (userText && typeof userText === 'string') {
       userText = userText.replace(/^\s+/, '').replace(/\s+$/, '');
     }
     if (userText !== '') {
@@ -127,7 +127,7 @@ export class CardItemComponent implements OnInit {
    */
   piaEvaluatorNameFocusOut() {
     let userText = this.piaForm.controls['evaluator_name'].value;
-    if (userText) {
+    if (userText && typeof userText === 'string') {
       userText = userText.replace(/^\s+/, '').replace(/\s+$/, '');
     }
     if (userText !== '') {
@@ -152,7 +152,7 @@ export class CardItemComponent implements OnInit {
    */
   piaValidatorNameFocusOut() {
     let userText = this.piaForm.value.validator_name;
-    if (userText) {
+    if (userText && typeof userText === 'string') {
       userText = userText.replace(/^\s+/, '').replace(/\s+$/, '');
     }
     if (userText !== '') {

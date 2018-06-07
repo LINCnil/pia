@@ -56,8 +56,10 @@
       "author": "Éditeur",
       "assessor": "Évaluateur",
       "validator": "Validateur",
-      "new_pia": "Nouveau PIA",
-      "new_from_template": "Nouveau PIA depuis un modèle",
+      "new": "Nouveau...",
+      "new_pia": "PIA",
+      "new_from_template": "PIA depuis un modèle",
+      "new_folder": "Dossier",
       "import_pia": "Importer PIA",
       "list_rocket_content": "Lancez-vous ! Pour commencer<br>un PIA, cliquez sur le +",
       "card_rocket_content": "Lancez-vous !<br><br>Pour commencer<br>un PIA, cliquez<br> sur le +"
@@ -70,6 +72,8 @@
       "placeholder_import_pia": "Importer PIA",
       "title_close_creation": "Fermer",
       "pia_name": "PIA",
+      "folder_name": "Nom du dossier",
+      "create_folder": "Créer le dossier",
       "placeholder_pia_name": "Intitulé du PIA",
       "author": "Saisie",
       "placeholder_author": "Prénom, nom",
@@ -82,6 +86,12 @@
       "creation_status": "Création",
       "start": "Commencer",
       "placeholder_start": "Tous les champs doivent être remplis",
+      "folder": {
+        "title": "Dossier",
+        "parent": "Dossier parent",
+        "open": "Consulter le dossier",
+        "root": "Racine"
+      },
       "item": {
         "tools": {
           "export": "Exporter",
@@ -97,6 +107,7 @@
     },
     "lists": {
       "column_pia": "PIA",
+      "column_pias_folders": "PIA / Dossier",
       "column_updated_at": "Ouvert le",
       "column_author": "Saisie",
       "column_evaluation": "Évaluation",
@@ -108,6 +119,7 @@
       "item": {
         "tools": {
           "consult": "Consulter",
+          "consult_folder": "Consulter le dossier",
           "edit": "Éditer",
           "export": "Exporter",
           "duplicate": "Dupliquer",
@@ -929,6 +941,10 @@
     "remove_pia": {
       "content": "<span class='strong'>Attention,</span><br>Êtes-vous sûr de vouloir<br>supprimer ce PIA ?",
       "remove": "Supprimer ce PIA"
+    },
+    "remove_pia_folder": {
+      "content": "<span class='strong'>Attention,</span><br>Êtes-vous sûr de vouloir<br>supprimer ce dossier ?<p>Les PIAs présentes dans ce dossier seront supprimées</p>",
+      "remove": "Supprimer ce dossier"
     },
     "remove_attachment": {
       "content": "<span class='strong'>Attention,</span><br>Êtes-vous sûr de vouloir<br>supprimer cette pièce jointe ?",

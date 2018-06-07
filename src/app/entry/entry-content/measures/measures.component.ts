@@ -113,7 +113,7 @@ export class MeasuresComponent implements OnInit, OnDestroy {
    */
   measureTitleFocusOut(event: Event) {
     let userText = this.measureForm.controls['measureTitle'].value;
-    if (userText) {
+    if (userText && typeof userText === 'string') {
       userText = userText.replace(/^\s+/, '').replace(/\s+$/, '');
     }
     this.measureModel.pia_id = this.pia.id;
@@ -186,7 +186,7 @@ export class MeasuresComponent implements OnInit, OnDestroy {
     this._knowledgeBaseService.placeholder = null;
     this.editor = null;
     let userText = this.measureForm.controls['measureContent'].value;
-    if (userText) {
+    if (userText && typeof userText === 'string') {
       userText = userText.replace(/^\s+/, '').replace(/\s+$/, '');
     }
     this.measureModel.pia_id = this.pia.id;

@@ -7,3 +7,4 @@ export { AttachmentService as AttachmentApi } from '@api/service/attachment.serv
 export { UserProfileService as UserProfileApi } from '@api/service/user-profile.service';
 export { UserTokenService as UserTokenApi } from '@api/service/user-token.service';
 export { TemplateService as TemplateApi } from '@api/service/template.service';
+export { FolderService as FolderApi } from '@api/service/folder.service';

@@ -20,6 +20,7 @@ export class Pia extends BaseModel {
   public people_names: string;
   public progress: number;
   public is_example = false;
+  public folder_id: number;
 
   public numberOfQuestions = 36; // TODO Auto compute questions number
 

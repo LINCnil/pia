@@ -109,7 +109,7 @@ export class RefusePIAComponent implements OnInit {
    */
   rejectionReasonFocusOut() {
     let userText = this.rejectionReasonForm.controls['rejectionReason'].value;
-    if (userText) {
+    if (userText && typeof userText === 'string') {
       userText = userText.replace(/^\s+/, '').replace(/\s+$/, '');
     }
     this._piaService.pia.rejected_reason = userText;
@@ -143,7 +143,7 @@ export class RefusePIAComponent implements OnInit {
   modificationsMadeFocusOut() {
     let userText = this.modificationsMadeForm.controls['modificationsMade'].value;
     const resendButton = this.el.nativeElement.querySelector('.pia-entryContentBlock-footer > button');
-    if (userText) {
+    if (userText && typeof userText === 'string') {
       userText = userText.replace(/^\s+/, '').replace(/\s+$/, '');
     }
     this._piaService.pia.applied_adjustements = userText;

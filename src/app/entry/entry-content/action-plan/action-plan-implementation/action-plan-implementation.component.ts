@@ -98,7 +98,7 @@ export class ActionPlanImplementationComponent implements OnInit {
    */
   personInChargeFocusOut() {
     let userText = this.actionPlanForm.controls['personInCharge'].value;
-    if (userText) {
+    if (userText && typeof userText === 'string') {
       userText = userText.replace(/^\s+/, '').replace(/\s+$/, '');
     }
     this.evaluation.person_in_charge = userText;

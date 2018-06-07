@@ -7,8 +7,9 @@ import { PiaService } from 'app/entry/pia.service';
 import { AttachmentsService } from 'app/entry/attachments/attachments.service';
 import { FormControl, FormGroup } from '@angular/forms';
 
-import { PiaModel } from '@api/models';
-import { PiaApi } from '@api/services';
+import { PiaModel, FolderModel } from '@api/models';
+import { PiaApi, FolderApi } from '@api/services';
+
 
 @Component({
   selector: 'app-modals',
@@ -19,7 +20,9 @@ import { PiaApi } from '@api/services';
 export class ModalsComponent implements OnInit {
   @Input() pia: any;
   newPia: PiaModel;
+  newFolder: FolderModel;
   piaForm: FormGroup;
+  folderForm: FormGroup;
   removeAttachmentForm: FormGroup;
   enableSubmit = true;
 
@@ -29,7 +32,8 @@ export class ModalsComponent implements OnInit {
     public _piaService: PiaService,
     public _measuresService: MeasureService,
     public _attachmentsService: AttachmentsService,
-    private piaApi: PiaApi
+    private piaApi: PiaApi,
+    public _folderApi: FolderApi
   ) { }
 
   ngOnInit() {
@@ -40,10 +44,14 @@ export class ModalsComponent implements OnInit {
       evaluator_name: new FormControl(),
       validator_name: new FormControl()
     });
+    this.folderForm = new FormGroup({
+      name: new FormControl(),
+    });
     this.removeAttachmentForm = new FormGroup({
       comment: new FormControl()
     });
     this.newPia = new PiaModel();
+    this.newFolder = new FolderModel();
   }
 
   /**
@@ -67,8 +75,24 @@ export class ModalsComponent implements OnInit {
     pia.evaluator_name = this.piaForm.value.evaluator_name;
     pia.validator_name = this.piaForm.value.validator_name;
 
-    this.piaApi.create(pia).subscribe((newPia: PiaModel) => {
+    this.piaApi.create(pia, this._piaService.currentFolder).subscribe((newPia: PiaModel) => {
       this.router.navigate(['entry', newPia.id, 'section', 1, 'item', 1]);
+    });
+  }
+
+  /**
+   * Save the newly created PIA.
+   * Sends to the path associated to this new PIA.
+   * @memberof ModalsComponent
+   */
+  onSubmitFolder() {
+    const folder = new FolderModel();
+    folder.name = this.folderForm.value.name;
+    folder.parent = this._piaService.currentFolder;
+
+    this._folderApi.create(folder).subscribe((newFolder: FolderModel) => {
+      this._modalsService.closeModal();
+      this.router.navigate(['home', newFolder.id]);
     });
   }
 

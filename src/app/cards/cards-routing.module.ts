@@ -5,6 +5,10 @@ import { AuthenticationGuardService } from '@security/authentication-guard.servi
 
 const routes: Routes = [
   {
+  	path: 'home/:id',
+  	component: CardsComponent,
+  	canActivate: [AuthenticationGuardService]
+  },{
   	path: 'home',
   	component: CardsComponent,
   	canActivate: [AuthenticationGuardService]
