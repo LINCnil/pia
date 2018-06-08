@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-import { HttpClient } from '@angular/common/http';
 import { BaseService } from '@api/service/base.service';
 import { UserToken } from '@api/model/user-token.model';
 import { environment } from 'environments/environment';
+import { HttpHeaders } from '@angular/common/http';
 
 @Injectable()
 export class UserTokenService extends BaseService<UserToken> {
@@ -14,28 +14,33 @@ export class UserTokenService extends BaseService<UserToken> {
     token: environment.api.token_path,
   };
 
-  constructor(http: HttpClient) {
-    super(http);
-  }
+  protected httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type':  'application/x-www-form-urlencoded'
+    })
+  };
 
   public getTokenFromLogin(username, password): Observable<UserToken> {
-    return this.httpGetOne(this.routing.token, {}, {
+    const query = this.buildQuery({
       client_id: environment.api.client_id,
       client_secret: environment.api.client_secret,
       grant_type: 'password',
       username: username,
       password: password
     });
+
+    return this.http.post(this.buildRoute(this.routing.token), query, this.httpOptions).map(res => this.mapToModel(res, this.modelClass));
   }
 
   public refreshToken(token: UserToken): Observable<UserToken> {
-    return this.httpGetOne(this.routing.token, {}, {
+    const query = this.buildQuery({
       client_id: environment.api.client_id,
       client_secret: environment.api.client_secret,
       grant_type: 'refresh_token',
       refresh_token: token.refresh_token
     });
-  }
 
+    return this.http.post(this.buildRoute(this.routing.token), query, this.httpOptions).map(res => this.mapToModel(res, this.modelClass));
+  }
 
 }

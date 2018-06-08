@@ -54,7 +54,6 @@ export class BaseService<T extends BaseModel> {
     return this.http.delete(route, { params: query }).map(res => this.mapToModel(res, this.modelClass));
   }
 
-
   protected buildRoute(route: string, params: any = {}): string {
     const tpl = UrlTemplate.parse(this.host + route);
     return tpl.expand(params);
