@@ -48,15 +48,15 @@
           </button>
           <div class="pia-filtersBlock-filters-list">
             <ul>
-              <li *ngxPermissionsOnly="['CanCreatePIA']">
-                <a (click)="_modalsService.openModal('modal-list-new-pia')">{{ 'homepage.filters.new_pia' | translate }}</a>
+              <li>
+                <button *ngxPermissionsOnly="['CanCreatePIA']" (click)="_modalsService.openModal('modal-list-new-pia')">{{ 'homepage.filters.new_pia' | translate }}</button>
               </li>
-              <li *ngxPermissionsOnly="['CanCreatePIA']">
-                <a routerLink="/templates">{{ 'homepage.filters.new_from_template' | translate }}</a>
+              <li >
+                <button *ngxPermissionsOnly="['CanCreatePIA']" routerLink="/templates">{{ 'homepage.filters.new_from_template' | translate }}</button>
               </li>
               <li class="divider"></li>
-              <li *ngxPermissionsOnly="['CanCreatePIA']">
-                <a (click)="_modalsService.openModal('modal-list-new-folder')">{{ 'homepage.filters.new_folder' | translate }}</a>
+              <li>
+                <button *ngxPermissionsOnly="['CanCreateFolder']" (click)="_modalsService.openModal('modal-list-new-folder')">{{ 'homepage.filters.new_folder' | translate }}</button>
               </li>
             </ul>
           </div>

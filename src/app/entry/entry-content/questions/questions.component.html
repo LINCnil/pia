@@ -56,20 +56,25 @@
 
         <!-- Question answer -->
         <div (click)="questionContentFocusIn()"
-              class="pia-questionBlock-contentText"
-              [innerHTML]="questionForm.controls['text'].value | safeHtml"
-              [ngClass]="{ 'hide': editor || !questionForm.controls['text'].value }"></div>
-        <textarea *ngIf="question.answer_type == 'text' || question.answer_type == 'gauge'"
-                  [attr.data-id]="question.id"
-                  id="pia-question-content-{{question.id}}"
-                  formControlName="text"
-                  name="pia-question"
-                  minRows="8"
-                  cols="50"
-                  [ngClass]="{ 'hide': (!editor && questionForm.controls['text'].value && questionForm.controls['text'].value.length > 0) }"
-                  (focusin)="questionContentFocusIn()"
-                  placeholder="{{ question.placeholder | translate }}">
-        </textarea>
+          class="pia-questionBlock-contentText"
+          [innerHTML]="questionForm.controls['text'].value | safeHtml"
+          [ngClass]="{ 'hide': editor || !questionForm.controls['text'].value }"
+        ></div>
+        <ng-container *ngIf="question.answer_type == 'text' || question.answer_type == 'gauge'">
+          <textarea
+            [attr.data-id]="question.id"
+            id="pia-question-content-{{question.id}}"
+            formControlName="text"
+            name="pia-question"
+            minRows="8"
+            cols="50"
+            [ngClass]="{ 'hide': (!editor && questionForm.controls['text'].value && questionForm.controls['text'].value.length > 0) }"
+            (focusin)="questionContentFocusIn()"
+            placeholder="{{ question.placeholder | translate }}"
+            *ngxPermissionsOnly="['CanEditPIA']" 
+          >
+          </textarea>
+        </ng-container>
       </div>
     </form>
   </div>

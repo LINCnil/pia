@@ -1,10 +1,11 @@
-import { Component, Renderer2, Pipe, PipeTransform } from '@angular/core';
+import { Component, Renderer2, Pipe, PipeTransform, TemplateRef } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { DomSanitizer } from '@angular/platform-browser';
 
 import { KnowledgeBaseService } from 'app/entry/knowledge-base/knowledge-base.service';
 import { LanguagesService } from 'app/services/languages.service';
 import { PermissionsService } from '@security/permissions.service';
+import { NgxPermissionsConfigurationService } from 'ngx-permissions';
 
 
 @Pipe({ name: 'safeHtml' })
@@ -35,7 +36,8 @@ export class AppComponent {
     private _http: HttpClient,
     private _knowledgeBaseService: KnowledgeBaseService,
     private _languagesService: LanguagesService,
-    private permissionsService: PermissionsService
+    private permissionsService: PermissionsService,
+    private ngxPermissionsConfigurationService: NgxPermissionsConfigurationService
   ) {
 
     this._knowledgeBaseService.loadData(this._http);
@@ -72,17 +74,27 @@ export class AppComponent {
       'ROLE_DPO': [
         'CanCreatePIA', 'CanCreatePIAExample', 'CanShowPIA',
         'CanEvaluatePIA', 'CanValidatePIA', 'CanCancelValidatePIA',
-        'CanDeletePIA', 'CanExportPIA',
+        'CanDeletePIA', 'CanExportPIA', 'CanCreateFolder',
         'AccessToContextSection', 'AccessToPrinciplesSection', 'AccessToRisksSection', 'AccessToValidationSection'
       ],
       'ROLE_ADMIN': [
         'CanCreatePIA', 'CanCreatePIAExample', 'CanEditPIA', 'CanShowPIA',
         'CanEvaluatePIA', 'CanCancelEvaluatePIA', 'CanValidatePIA', 'CanCancelValidatePIA',
-        'CanDeletePIA', 'CanExportPIA',
+        'CanDeletePIA', 'CanExportPIA', 'CanCreateFolder',
         'AccessToContextSection', 'AccessToPrinciplesSection', 'AccessToRisksSection', 'AccessToValidationSection'
       ],
       'ROLE_SUPER_ADMIN': []
+    }); 
+
+    this.ngxPermissionsConfigurationService.addPermissionStrategy('disable', (templateRef: TemplateRef<any>) => {
+      this._renderer.setAttribute(templateRef.elementRef.nativeElement.nextSibling, 'disabled', 'true');
     });
 
+
+    this.ngxPermissionsConfigurationService.addPermissionStrategy('enable', (templateRef: TemplateRef<any>) => {
+      this._renderer.removeAttribute(templateRef.elementRef.nativeElement.nextSibling, 'disabled');
+    });
+
+    this.ngxPermissionsConfigurationService.setDefaultOnUnauthorizedStrategy('disable');
   }
 }

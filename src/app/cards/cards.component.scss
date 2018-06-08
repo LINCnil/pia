@@ -139,22 +139,29 @@ section {
                 li {
                     list-style-type: none;
                     padding: 4px;
-                    a {
+                    button, a {
+                        text-align: left;
+                        width: 100%;
                         font-size: 1.5rem;
                         font-weight: 500;
                         display: block;
                         text-decoration: none;
                         color: #000;
-                    }
-                    &:focus,
-                    &:hover,
-                    &:active,
-                    .active {
-                        background-color: $pia-blue;
-                        a {
+
+                        &:focus,
+                        &:hover,
+                        &:active,
+                        .active {
+                            background-color: $pia-green;
                             color: #ffffff !important;
-                            font-weight: 600;
                             cursor: pointer;
+                        }
+                        &:disabled {
+                            color: $pia-gray;
+                            cursor: not-allowed;
+                            &:hover, &:focus, &:active {
+                                background-color: $pia-gray;
+                            }
                         }
                     }
                 }
