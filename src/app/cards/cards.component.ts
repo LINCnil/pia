@@ -99,7 +99,7 @@ export class CardsComponent implements OnInit, OnDestroy {
     pia.author_name = this.piaForm.value.author_name;
     pia.evaluator_name = this.piaForm.value.evaluator_name;
     pia.validator_name = this.piaForm.value.validator_name;
-    const p = this.piaApi.create(pia, this._piaService.currentFolder).subscribe((newPia: PiaModel) => {
+    const p = this.piaApi.create(pia).subscribe((newPia: PiaModel) => {
       this.router.navigate(['entry', newPia.id, 'section', 1, 'item', 1]);
     });
   }
@@ -242,13 +242,13 @@ export class CardsComponent implements OnInit, OnDestroy {
 
   onDragStart(item: any) {
     this.itemToMove = item;
-   
+
   }
 
   onDragCanceled() {
     this.itemToMove = null;
   }
-  
+
   onDrop(targetFolder: FolderModel) {
     if(this.itemToMove) {
       if(this.itemToMove instanceof FolderModel) {
