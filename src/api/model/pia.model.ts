@@ -8,22 +8,21 @@ export class Pia extends BaseModel {
   public author_name: string;
   public evaluator_name: string;
   public validator_name: string;
-  public dpo_status: number; // 0: NOK, 1: OK
+  public dpo_status: number = 0; // 0: NOK, 1: OK
   public dpo_opinion: string;
   public concerned_people_opinion: string;
-  public concerned_people_status: number; // 0: NOK, 1: OK
-  public concerned_people_searched_opinion: boolean; // 0 : false, 1: true
+  public concerned_people_status: number = 0; // 0: NOK, 1: OK
+  public concerned_people_searched_opinion: boolean = false; // 0 : false, 1: true
   public concerned_people_searched_content: string;
   public rejected_reason: string;
   public applied_adjustements: string;
   public dpos_names: string;
   public people_names: string;
   public progress: number;
-  public is_example = false;
+  public is_example: boolean = false;
   public folder_id: number;
 
   public numberOfQuestions = 36; // TODO Auto compute questions number
-
 
   public getStatusLabel(): string {
     return this.status >= 0 ? `pia.statuses.${this.status}` : '';
