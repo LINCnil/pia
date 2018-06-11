@@ -5,7 +5,6 @@ import * as Moment from 'moment';
 export class Folder extends BaseModel {
   public name: string
   public parent: FolderModel
-  public parent_id: number
   public children: FolderModel[]
   public pias: PiaModel[]
   public isRoot: boolean
