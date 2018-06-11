@@ -59,6 +59,8 @@ import { CardsRoutingModule } from 'app/cards/cards-routing.module';
 import { ApiModule } from '@api/api.module';
 import { SecurityModule } from '@security/security.module';
 import { TemplatesComponent } from './templates/templates.component';
+import { ToastrModule } from 'ngx-toastr';
+import { AppErrorHandler } from 'app/services/app-error.handler';
 import { FolderItemComponent } from './cards/folder-item/folder-item.component';
 import { ListItemFolderComponent } from './cards/list-item-folder/list-item-folder.component';
 import { DndModule } from 'ngx-drag-drop';
@@ -74,6 +76,10 @@ const providersList: any = [
   SidStatusService,
   LanguagesService,
   GlobalEvaluationService,
+  {
+    provide: ErrorHandler,
+    useClass: AppErrorHandler,
+  }
 ];
 
 if (environment.rollbar_key.length > 0) {
@@ -150,6 +156,10 @@ export function createTranslateLoader(http: HttpClient) {
       }
     }),
     SecurityModule,
+    ToastrModule.forRoot({
+      positionClass: 'toast-top-right',
+      onActivateTick: true
+    }),
     DndModule
   ],
   exports: [],

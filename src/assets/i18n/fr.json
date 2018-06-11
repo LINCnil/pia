@@ -17,6 +17,16 @@
       "error" : "Identifiants incorrects"
     }
   },
+  "messages":{
+    "server_error":{
+      "title" : "Une erreur serveur est survenue",
+      "content" : "[500] : Veuillez contacter votre administrateur"
+    },
+    "unauthorized_action":{
+      "title" : "Action non-autorisée",
+      "content" : "[403] : Vous n'ête pas autorisé à faire cette action"
+    }
+  },
   "header": {
     "logo_title": "Analyse d'impact sur la protection des données",
     "logo_subtitle": "privacy impact assessment",
