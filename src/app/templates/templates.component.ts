@@ -10,16 +10,16 @@ import { PiaModel, TemplateModel } from '@api/models';
   styleUrls: ['./templates.component.scss']
 })
 export class TemplatesComponent implements OnInit {
-  protected templates: TemplateModel[];
+  public templates: TemplateModel[];
   protected pickedTemplate: TemplateModel;
-  protected pia: PiaModel = new PiaModel();
+  public pia: PiaModel = new PiaModel();
 
   constructor(
   	protected piaApi: PiaApi,
   	protected router: Router,
   	private route: ActivatedRoute,
-  	private modalsService: ModalsService
-  	) { 
+  	public modalsService: ModalsService
+  	) {
   }
 
   ngOnInit() {
@@ -38,4 +38,3 @@ export class TemplatesComponent implements OnInit {
   }
 
 }
-

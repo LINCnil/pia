@@ -11,9 +11,9 @@
   <div class="folder-listsBlock-item-actions">
     <a routerLink="/home/{{folder.id}}" class="btn pia-tooltip">
       <i class="fa fa-eye" aria-hidden="true"></i>
-      <span *ngIf="folder.status > 0" class="pia-tooltip-text">{{ 'homepage.lists.item.tools.consult_folder' | translate }}</span>
+      <span class="pia-tooltip-text">{{ 'homepage.lists.item.tools.consult_folder' | translate }}</span>
     </a>
-    <a href="javascript:;" (click)="removePia(folder.id)" class="btn pia-tooltip">
+    <a href="javascript:;" (click)="removeFolder(folder.id)" class="btn pia-tooltip">
       <i class="fa fa-trash-o" aria-hidden="true"></i>
       <span class="pia-tooltip-text">{{ 'homepage.lists.item.tools.remove' | translate }}</span>
     </a>
