@@ -33,7 +33,6 @@ export class PiaService extends BaseService<Pia> {
     return this.answerService.getAll(model.id).map((answers:Answer[]) => {
       return this.computeProgressFromAnswers(model, answers);
     });
-
   }
 
   public computeProgressFromAnswers(model: Pia, answers:Answer[]): number {

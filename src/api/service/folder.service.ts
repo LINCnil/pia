@@ -31,6 +31,7 @@ export class FolderService extends BaseService<FolderModel> {
         });
         if (folder.parent !== null) {
           folder.parent = (new FolderModel()).fromJson(folder.parent)
+          folder.parent_id = folder.parent.id
         }
       });
       return folders;
@@ -47,16 +48,19 @@ export class FolderService extends BaseService<FolderModel> {
       });
       if (folder.parent !== null) {
         folder.parent = (new FolderModel()).fromJson(folder.parent)
+        folder.parent_id = folder.parent.id
       }
       return folder;
     });
   }
 
   public update(model: FolderModel): Observable<FolderModel> {
+    model.parent_id = model.parent.id;
     return this.httpPut(this.routing.one, { id: model.id }, model);
   }
 
   public create(model: FolderModel): Observable<FolderModel> {
+    model.parent_id = model.parent.id;
     return this.httpPost(this.routing.all, {}, model);
   }
 
