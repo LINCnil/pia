@@ -10,21 +10,20 @@ else
 fi
 
 if [ -z "${BUILDENV}" ]
-then 
+then
     BUILDENV="dev"
 fi
 
 if [ -z "${BUILDARG}" ]
-then 
+then
     BUILDARG="--sourcemap"
 fi
 
 if [ "${BUILDENV}" = "prod" ]
    then
-       BUILDARG="--sourcemap --prod --build-optimizer"
+       BUILDARG="--prod --build-optimizer"
 fi
 
 
 # todo : add build option env variable
 ng build "${BUILDARG}"
-
