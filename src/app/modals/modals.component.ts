@@ -75,7 +75,7 @@ export class ModalsComponent implements OnInit {
     pia.evaluator_name = this.piaForm.value.evaluator_name;
     pia.validator_name = this.piaForm.value.validator_name;
 
-    this.piaApi.create(pia).subscribe((newPia: PiaModel) => {
+    this.piaApi.create(pia, this._piaService.currentFolder).subscribe((newPia: PiaModel) => {
       this.router.navigate(['entry', newPia.id, 'section', 1, 'item', 1]);
     });
   }
