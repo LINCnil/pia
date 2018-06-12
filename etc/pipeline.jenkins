@@ -6,14 +6,35 @@ pipeline {
             args '--network=ci.network'
         }
     }
-    
+
+
+    parameters {
+        string(defaultValue: 'pialab', description: '', name: 'GlobalName')
+
+        string(defaultValue: 'http://ci.libre-informatique.fr:8042/front', description: '', name: 'FrontUrl')
+        string(defaultValue: 'http://ci.libre-informatique.fr:8042/back', description: '', name: 'BackUrl')
+
+        string(defaultValue: '/usr/share/pialab/dist', description: '', name: 'FrontDirectory')
+
+        string(defaultValue: '/etc/ssl/pialab.crt', description: '', name: 'FrontSSLCertificateFile')
+        string(defaultValue: '/etc/ssl/pialab.key', description: '', name: 'FrontSSLCertificateKeyFile')
+        string(defaultValue: '/etc/ssl/pialab.pem', description: '', name: 'FrontSSLCertificateChainFile')
+
+       /* string(defaultValue: 'master', description: '', name: 'FrontGitBranch') */
+
+        string(defaultValue: '', description: '', name: 'ClientId')
+        string(defaultValue: '', description: '', name: 'ClientSecret')
+
+
+    }
+
     options {
         timeout(time: 1, unit: 'HOURS')
         timestamps()
         disableConcurrentBuilds()
         ansiColor('xterm')
     }
-    
+
     stages {
     	stage ('Where Am I') {
             steps {
@@ -38,13 +59,13 @@ pipeline {
                 sh "./bin/ci-scripts/build.sh"
             }
         }
-        
+
         stage ('Run Test') {
             steps {
                 sh "./bin/ci-scripts/run_test.sh"
             }
         }
-        
+
         stage ('Create Archive') {
             steps {
                 sh 'Branch=${BRANCH_NAME} ./bin/ci-scripts/gen_archive.sh'
@@ -52,9 +73,9 @@ pipeline {
                 build job: 'Copy Artifact', parameters: [string(name: 'Job', value: "${JOB_NAME}"), string(name: 'Project', value: "Pialab"), string(name: 'Branch', value: "${BRANCH_NAME}"), string(name: 'DoDeploy', value: "false")], wait: false
             }
         }
-        
+
     }
-    
+
     post {
         always {
             cleanWs()
