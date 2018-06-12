@@ -36,6 +36,11 @@ export class ModalsService {
     if (gf) {
       gf.focus();
     }
+
+    if(modal_id === 'modal-list-new-folder' || modal_id === 'modal-list-new-pia') {
+      const input = <HTMLInputElement>e.querySelector('input#name');
+      input.focus();
+    }
   }
 
   /**
