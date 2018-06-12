@@ -1,8 +1,7 @@
 # Change Log
 
-## [Unreleased](https://github.com/pia-lab/pialab/tree/HEAD)
-
-[Full Changelog](https://github.com/pia-lab/pialab/compare/0.4.5...HEAD)
+## [1.0.0](https://github.com/pia-lab/pialab/tree/1.0.0) (2018-06-12)
+[Full Changelog](https://github.com/pia-lab/pialab/compare/0.4.5...1.0.0)
 
 **Implemented enhancements:**
 
