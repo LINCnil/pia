@@ -9,9 +9,8 @@ pipeline {
 
 
     parameters {
-        string(defaultValue: 'pialab', description: '', name: 'GlobalName')
+        string(defaultValue: 'pialab-front', description: '', name: 'GlobalName')
 
-        string(defaultValue: 'http://ci.libre-informatique.fr:8042/front', description: '', name: 'FrontUrl')
         string(defaultValue: 'http://ci.libre-informatique.fr:8042/back', description: '', name: 'BackUrl')
 
         string(defaultValue: '/usr/share/pialab/dist', description: '', name: 'FrontDirectory')
@@ -21,6 +20,7 @@ pipeline {
         string(defaultValue: '/etc/ssl/pialab.pem', description: '', name: 'FrontSSLCertificateChainFile')
 
        /* string(defaultValue: 'master', description: '', name: 'FrontGitBranch') */
+        string(defaultValue: 'test', description: '', name: 'BuildEnv')
 
         string(defaultValue: '', description: '', name: 'ClientId')
         string(defaultValue: '', description: '', name: 'ClientSecret')
@@ -56,7 +56,7 @@ pipeline {
 
         stage ('Build Project') {
             steps {
-                sh "./bin/ci-scripts/build.sh"
+                sh "BUILDENV=${params.BuildEnv} ./bin/ci-scripts/build.sh"
             }
         }
 
@@ -68,7 +68,7 @@ pipeline {
 
         stage ('Create Archive') {
             steps {
-                sh 'Branch=${BRANCH_NAME} ./bin/ci-scripts/gen_archive.sh'
+                sh "Name=${params.GlobalName} Branch=${BRANCH_NAME} ./bin/ci-scripts/gen_archive.sh"
                 archiveArtifacts artifacts: "*.tar.gz*", fingerprint: true
                 build job: 'Copy Artifact', parameters: [string(name: 'Job', value: "${JOB_NAME}"), string(name: 'Project', value: "Pialab"), string(name: 'Branch', value: "${BRANCH_NAME}"), string(name: 'DoDeploy', value: "false")], wait: false
             }

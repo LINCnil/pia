@@ -34,17 +34,28 @@ fi
 if [ -z "${APICLIENTID}" ]
 then
     APICLIENTID=1234
+    if [ -n "$ClientId" ]
+    then
+        APICLIENTID=$ClientId
+    fi
+
 fi
 
 if [ -z "${APICLIENTSECRET}" ]
 then
     APICLIENTSECRET=4321
+    if [ -n "$ClientSecret" ]
+    then
+        APICLIENTSECRET=$ClientSecret
+    fi
+
 fi
 
 if [ -z "${BACKURL}" ]
 then
     BACKURL='http://localhost:8000'
 fi
+
 
 # todo add env management (prod and dev)
 
