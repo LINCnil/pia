@@ -79,9 +79,16 @@
 
   <footer class="pia-entryContentBlock-footer">
     <div *ngIf="_globalEvaluationService.status > 0">
-      <ng-container *ngIf="_globalEvaluationService.status === 1 || _globalEvaluationService.status === 2 || _globalEvaluationService.status === 3">
-        <button *ngxPermissionsOnly="['CanEvaluatePIA']" class="btn btn-green" [ngClass]="{'btn-active': _globalEvaluationService.status === 2 || _globalEvaluationService.status === 3}" (click)="prepareForEvaluation()"
+      <ng-container *ngIf="_globalEvaluationService.status === 1">
+        <button class="btn btn-green" [ngClass]="{'btn-active': _globalEvaluationService.status === 2 || _globalEvaluationService.status === 3}" (click)="prepareForEvaluation()"
         [disabled]="_globalEvaluationService.status === 1"
+        >
+          {{ 'pia.footer.ask_evaluation' | translate }}
+        </button>
+      </ng-container>
+      <ng-container *ngIf="_globalEvaluationService.status === 2 || _globalEvaluationService.status === 3">
+        <button class="btn btn-green btn-active"(click)="prepareForEvaluation()"
+        *ngxPermissionsOnly="['CanAskEvaluatePIA']"
         >
           {{ 'pia.footer.ask_evaluation' | translate }}
         </button>
