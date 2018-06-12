@@ -68,7 +68,7 @@ export class AppComponent {
     this.permissionsService.loadRolesAndPermissions({
       'ROLE_USER': [],
       'ROLE_CONTROLLER': [
-        'CanEditPIA', 'CanCancelEvaluatePIA',
+        'CanEditPIA', 'CanCancelEvaluatePIA', 'CanAskEvaluatePIA',
         'AccessToContextSection', 'AccessToPrinciplesSection', 'AccessToRisksSection'
       ],
       'ROLE_DPO': [
