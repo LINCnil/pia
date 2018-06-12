@@ -54,6 +54,11 @@ fi
 if [ -z "${BACKURL}" ]
 then
     BACKURL='http://localhost:8000'
+    if [ -n "$BackUrl" ]
+    then
+        BACKURL=$BackUrl
+    fi
+
 fi
 
 

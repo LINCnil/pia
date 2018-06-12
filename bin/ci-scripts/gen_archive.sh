@@ -25,6 +25,6 @@ rm -rf \
    *.dist
 
 tar --exclude-vcs \
-    -czhf ${Filename} ./dist
+    -czhf ${Filename} --transform="s/dist/public/g" ./dist
 
 sha256sum ${Filename} > ${Filename}.sha256.txt
