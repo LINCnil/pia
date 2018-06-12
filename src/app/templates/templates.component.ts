@@ -3,6 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { ModalsService } from 'app/modals/modals.service'
 import { PiaApi} from '@api/services';
 import { PiaModel, TemplateModel } from '@api/models';
+import { PiaService } from '../entry/pia.service';
 
 @Component({
   selector: 'app-templates',
@@ -18,7 +19,8 @@ export class TemplatesComponent implements OnInit {
   	protected piaApi: PiaApi,
   	protected router: Router,
   	private route: ActivatedRoute,
-  	public modalsService: ModalsService
+    public modalsService: ModalsService,
+    private _piaService: PiaService
   	) {
   }
 
@@ -27,7 +29,7 @@ export class TemplatesComponent implements OnInit {
   }
 
   onSubmit() {
-  	this.piaApi.createFromTemplate(this.pia, this.pickedTemplate).subscribe((pia: PiaModel) => {
+  	this.piaApi.createFromTemplate(this.pia, this.pickedTemplate, this._piaService.currentFolder).subscribe((pia: PiaModel) => {
       this.router.navigate([`/entry/${pia.id}/section/1/item/1`]);
     });
   }

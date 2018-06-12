@@ -40,7 +40,8 @@ export class PiaService extends BaseService<Pia> {
       return model.progress;
   }
 
-  public createFromTemplate(model: Pia, template: Template): Observable<Pia> {
+  public createFromTemplate(model: Pia, template: Template, folder: FolderModel): Observable<Pia> {
+    model.folder = folder;
     return this.httpPost(this.routing.template, {templateId: template.id}, model);
   }
 
