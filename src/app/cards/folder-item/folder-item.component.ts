@@ -40,7 +40,7 @@ export class FolderItemComponent implements OnInit {
     if (userText !== '') {
 
       this.folderApi.get(this.folder.id).subscribe((theFolder: FolderModel) => {
-        theFolder.name = this.folderForm.value.name.value;
+        theFolder.name = userText;
         this.folderApi.update(theFolder).subscribe();
       });
     }
