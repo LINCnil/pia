@@ -14,7 +14,6 @@
     "type": "git",
     "url": "git+https://github.com/pia-lab/pialab.git"
   },
-  "license": "GPLv3",
   "dependencies": {
     "@angular/animations": "^5.2.11",
     "@angular/common": "^5.2.11",
