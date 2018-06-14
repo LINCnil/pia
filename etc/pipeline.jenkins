@@ -51,7 +51,7 @@ pipeline {
             }
         }
 
-        stage ('Composer Install') {
+        stage ('Npm Install') {
             steps {
                 sh "./bin/ci-scripts/install.sh"
             }
