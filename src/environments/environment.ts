@@ -3,9 +3,9 @@
 // `ng build --env=prod` then `environment.prod.ts` will be used instead.
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 export const environment = {
-  name: 'development',
+  name: 'production',
   production: false,
-  version: 'DEV',
+  version: '1.0',
   rollbar_key: '',
   date_format: 'DD MM YY HH:mm:ss',
   api: {

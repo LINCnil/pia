@@ -18,7 +18,7 @@
     }
   },
   "header": {
-    "logo_title": "Privacy impact assessment",
+    "logo_title": "RGPD compliance companion software",
     "logo_subtitle": "",
     "homepage_link": "Dashboard",
     "knowledge_base_link": "Knowledge base",
@@ -840,7 +840,7 @@
   "about": {
     "title": "About the Tool PIA",
     "version_number": "Version number",
-    "description": "This tool is originally designed by the <a target=\"_blank\" href=\"https://www.cnil.fr\">Commission Nationale Informatique et Liberté (CNIL)</a>, the French Data Protection Authority, to help data processor to be compliant with the GDPR.<br>This software is free and open. If you wish to get involved in this project, you are welcome to download the source code from Github, modify it and share it with the community.",
+    "description": "This tool is developped by <a target=\"_blank\" href=\"https://www.libre-informatique.fr\">Libre Informatique</a> and is based  on the work of the <a target=\"_blank\" href=\"https://www.cnil.fr\">Commission Nationale Informatique et Liberté (CNIL)</a>, the French Data Protection Authority, to help data processors in their GDPR compliance process.<br>This software is free and open. If you wish to get involved in this project, you are welcome to download the <a target=\"_blank\" href=\"https://github.com/pia-lab/pialab\">source code</a> from Github, modify it and share it with the community.",
     "translators": "The PIA software is currently available in five languages. The French and English versions are provided by the CNIL. The others versions result from the contributions of the following individuals:",
     "translators_name": "<ul><li>Dutch: Ruud van Driel, Manuel d’Orso ;</li><li>Czech: Jiří Grohmann, Manuel d’Orso ;</li><li>Italian: Manuel d’Orso, Gianluca Markos.</li><li>Polish: Joanna Karczewska</li><li>German: Kosmas Schütz</li><li>Spanish: ylachgar</li></ul>",
     "contribute": "If you wish to contribute to the translation of the software in another language or improve the existing translations, we recommend you to <a href=\"https://github.com/LINCnil/pia/tree/master/src/assets/i18n\" target=\"_blank\">read the page describing the steps to follow</a>.",

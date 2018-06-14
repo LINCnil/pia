@@ -1,6 +1,6 @@
 {
   "name": "Pialab",
-  "version": "0.4.5",
+  "version": "1.0",
   "license": "GPLv3",
   "scripts": {
     "ng": "ng",
@@ -10,7 +10,11 @@
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
-  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pia-lab/pialab.git"
+  },
+  "license": "GPLv3",
   "dependencies": {
     "@angular/animations": "^5.2.11",
     "@angular/common": "^5.2.11",

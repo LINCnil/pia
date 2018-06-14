@@ -1,6 +1,8 @@
 @import '../../assets/stylesheets/variables';
 
 .pia-aboutBlock {
+  text-align: left;
+
   h1 {
     text-transform: uppercase;
     margin-bottom: 40px;
@@ -8,6 +10,7 @@
   &-piaLogo {
     padding-top: 180px;
     background: url('../../assets/images/pia-lab.png') no-repeat top center transparent;
+    background-position: left top;
     height: auto;
     margin-bottom: 40px;
     &-text {

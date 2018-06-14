@@ -28,8 +28,8 @@
     }
   },
   "header": {
-    "logo_title": "Analyse d'impact sur la protection des données",
-    "logo_subtitle": "privacy impact assessment",
+    "logo_title": "Logiciel d'accompagnement à la mise en conformité RGPD",
+    "logo_subtitle": "",
     "homepage_link": "Accueil",
     "knowledge_base_link": "Base de connaissances",
     "pia_example_link": "Importer un exemple de PIA",
@@ -842,7 +842,7 @@
   "about": {
     "title": "A propos de l'Outil PIA",
     "version_number": "Numéro de version",
-    "description": "Cet outil est originellement conçu par la <a target=\"_blank\" href=\"https://www.cnil.fr\">Commission Nationale Informatique et Liberté (CNIL)</a>, l’autorité de protection des données française, dans une volonté d’accompagnement des responsables de traitement dans leur démarche de conformité au RGPD.<br>Cet outil est libre et ouvert, sous licence GPLv3. Vous pouvez y contribuer en téléchargeant le code source, en le modifiant et en le redistribuant auprès de la communauté.",
+    "description": "Cet outil a été developpé par <a target=\"_blank\" href=\"https://www.libre-informatique.fr\">Libre Informatique</a> est basé sur le travail du Laboratoire d'innovation numérique de la <a target=\"_blank\" href=\"https://www.cnil.fr\">Commission Nationale Informatique et Liberté (CNIL)</a>, l’autorité de protection des données française, dans une volonté d’accompagnement des responsables de traitement dans leur démarche de conformité au RGPD.<br>Cet outil est libre et ouvert, sous licence GPLv3. Vous pouvez y contribuer en téléchargeant le <a target=\"_blank\" href=\"https://github.com/pia-lab/pialab\">code source</a>, en le modifiant et en le redistribuant auprès de la communauté.",
     "translators": "L’outil est actuellement disponible en cinq langues. Les versions française et anglaise sont fournies par la CNIL. Les autres versions sont le résultat des contributions des personnes suivantes :",
     "translators_name": "<ul><li>Néerlandais : Ruud van Driel, Manuel d’Orso ;</li><li>Tchèque : Jiří Grohmann, Manuel d’Orso ;</li><li>Italien : Manuel d’Orso, Gianluca Markos.</li><li>Polonais : Joanna Karczewska</li><li>Allemand: Kosmas Schütz</li><li>Espagnol: ylachgar</li></ul>",
     "contribute": "Si vous souhaitez contribuer à votre tour à la traduction de l’outil ou à l’amélioration de celles déjà proposées, nous vous invitons à <a href=\"https://github.com/LINCnil/pia/tree/master/src/assets/i18n\" target=\"_blank\">lire la page décrivant les étapes à suivre</a>.",
