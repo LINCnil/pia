@@ -37,6 +37,6 @@ ENV NVM_DIR="$HOME/.nvm"
 RUN curl -so- https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh | bash \
     && [ -s "$NVM_DIR/nvm.sh" ] \
     && . "$NVM_DIR/nvm.sh" \
-    && nvm install 8.11.1 \
+    && nvm install 8.11.3 \
     && npm install -g @angular/cli
 
