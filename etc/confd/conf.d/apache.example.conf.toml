@@ -1,0 +1,9 @@
+[template]
+src = "apache.example.conf.tmpl"
+dest = "apache.example.conf"
+keys = [
+     "/apache/servername",
+     "/apache/directory",
+     "/apache/certificate/file",
+     "/apache/certificate/key",
+]

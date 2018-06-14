@@ -12,8 +12,8 @@ then
 fi
 
 # Clean current git dir
-git clean -df
-git checkout -- .
+#git clean -df
+#git checkout -- .
 
 Filename=${Name}_${Branch}.tar.gz
 
@@ -39,6 +39,6 @@ tar --exclude-vcs \
     --exclude=bin/git-scripts \
     --exclude=etc \
     --transform s/dist/public/g \
-    -czhf ${Filename} build-metadata.json environment.* ./dist
+    -czhf ${Filename} build-metadata.json apache.example.conf environment.* ./dist
 
 sha256sum ${Filename} > ${Filename}.sha256.txt

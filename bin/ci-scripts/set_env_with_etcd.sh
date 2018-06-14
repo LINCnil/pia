@@ -61,12 +61,40 @@ then
 
 fi
 
+# Apache Conf
+if [ -z "${ServerName}" ]
+then
+    ServerName=pialab.io
+    if [ -n ${FrontUrl} ]
+    then
+        ServerName=$(echo $FrontUrl | sed -e s:.*//::g | sed -e s:/.*::g | sed -e s/:.*//g )
+    fi
+fi
 
-# todo add env management (prod and dev)
+if [ -z "${FrontDirectory}" ]
+then
+    FrontDirectory=/usr/share/pialab-back/public
+fi
+
+if [ -z "${FrontSSLCertificateFile}" ]
+then
+    FrontSSLCertificateFile=/etc/ssl/pialab.crt
+fi
+
+if [ -z "${FrontSSLCertificateKeyFile}" ]
+then
+    FrontSSLCertificateKeyFile=/etc/ssl/pialab.key
+fi
+
 
 $ETCDCTLCMD put $Prefix/api/client/id ${APICLIENTID} $ETCDENDPOINT
 $ETCDCTLCMD put $Prefix/api/client/secret ${APICLIENTSECRET} $ETCDENDPOINT
 $ETCDCTLCMD put $Prefix/api/host/url ${BACKURL} $ETCDENDPOINT
+
+$ETCDCTLCMD put $Prefix/apache/servername $ServerName $ETCDENDPOINT
+$ETCDCTLCMD put $Prefix/apache/directory $FrontDirectory $ETCDENDPOINT
+$ETCDCTLCMD put $Prefix/apache/certificate/file $FrontSSLCertificateFile $ETCDENDPOINT
+$ETCDCTLCMD put $Prefix/apache/certificate/key $FrontSSLCertificateKeyFile $ETCDENDPOINT
 
 confd -onetime -backend etcdv3 -node http://${ETCDHOST}:2379 -confdir ./etc/confd -log-level debug -prefix $Prefix
 cat src/environments/environment.ts

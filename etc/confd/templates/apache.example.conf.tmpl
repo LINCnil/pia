@@ -1,0 +1,39 @@
+# Redirection Backend vers HTTPS
+<VirtualHost *:80>
+  ServerName {{getv "/apache/servername"}}
+  Redirect Permanent / https://{{getv "/apache/servername"}}/
+  ErrorLog /var/log/apache2/{{getv "/apache/servername"}}-error.log
+  CustomLog /var/log/apache2/{{getv "/apache/servername"}}-access.log combined
+</VirtualHost>
+
+
+# Virtualhost du front
+<VirtualHost *:443>
+  ServerName {{getv "/apache/servername"}}
+  DocumentRoot {{getv "/apache/directory"}}/
+  DirectoryIndex index.html
+
+  <Directory {{getv "/apache/directory"}}>
+        AllowOverride All
+        Order Allow,Deny
+        Allow from All
+        Options +FollowSymlinks -MultiViews
+        DirectoryIndex index.html
+        # TODO: find if it is a good idea or not
+        Header set Access-Control-Allow-Origin "*"
+
+        RewriteEngine On
+        RewriteBase /
+        RewriteRule ^index\.html$ - [L]
+        RewriteCond %{REQUEST_FILENAME} !-f
+        RewriteCond %{REQUEST_FILENAME} !-d
+        RewriteRule . /index.html [L]
+   </Directory>
+
+   SSLEngine on
+   SSLCertificateFile {{getv "/apache/certificate/file"}}
+   SSLCertificateKeyFile {{getv "/apache/certificate/key"}}
+
+   ErrorLog /var/log/apache2/{{getv "/apache/servername"}}-error.log
+   CustomLog /var/log/apache2/{{getv "/apache/servername"}}-access.log combined
+</VirtualHost>
