@@ -79,8 +79,10 @@ export class AppComponent {
       'CanDeletePIA', 'CanExportPIA', 'CanCreateFolder',
        'AccessToValidationSection'
     ]);
-    roles['ROLE_ADMIN'] = roles['ROLE_CONTROLLER'].concat(roles['ROLE_DPO']);
-    roles['ROLE_SUPER_ADMIN'] = [];
+
+    roles['ROLE_ADMIN'] = [].concat(roles['ROLE_DPO']);
+    roles['ROLE_TECHNICAL_ADMIN'] = [].concat(roles['ROLE_ADMIN']);
+    roles['ROLE_SUPER_ADMIN'] = [].concat(roles['ROLE_TECHNICAL_ADMIN']);
 
     this.permissionsService.loadRolesAndPermissions(roles);
 /*
