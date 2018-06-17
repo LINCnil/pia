@@ -176,6 +176,7 @@ export class DPOPeopleOpinionsComponent implements OnInit {
    * @memberof DPOPeopleOpinionsComponent
    */
   dpoOpinionFocusIn() {
+    console.log(this._piaService.pia.status);
     if (this._piaService.pia.status >= 2 || this._piaService.pia.is_example) {
       return false;
     } else {

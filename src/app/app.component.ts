@@ -65,36 +65,34 @@ export class AppComponent {
      sections = ['AccessToContextSection', 'AccessToPrinciplesSection', 'AccessToRisksSection', 'AccessToValidationSection']
       */
 
-    this.permissionsService.loadRolesAndPermissions({
-      'ROLE_USER': [],
-      'ROLE_CONTROLLER': [
-        'CanEditPIA', 'CanCancelEvaluatePIA', 'CanAskEvaluatePIA',
-        'AccessToContextSection', 'AccessToPrinciplesSection', 'AccessToRisksSection'
-      ],
-      'ROLE_DPO': [
-        'CanCreatePIA', 'CanCreatePIAExample', 'CanShowPIA',
-        'CanEvaluatePIA', 'CanValidatePIA', 'CanCancelValidatePIA',
-        'CanDeletePIA', 'CanExportPIA', 'CanCreateFolder',
-        'AccessToContextSection', 'AccessToPrinciplesSection', 'AccessToRisksSection', 'AccessToValidationSection'
-      ],
-      'ROLE_ADMIN': [
-        'CanCreatePIA', 'CanCreatePIAExample', 'CanEditPIA', 'CanShowPIA',
-        'CanEvaluatePIA', 'CanCancelEvaluatePIA', 'CanValidatePIA', 'CanCancelValidatePIA',
-        'CanDeletePIA', 'CanExportPIA', 'CanCreateFolder',
-        'AccessToContextSection', 'AccessToPrinciplesSection', 'AccessToRisksSection', 'AccessToValidationSection'
-      ],
-      'ROLE_SUPER_ADMIN': []
-    }); 
+    let roles = {};
 
+    roles['ROLE_USER'] = [];
+
+    roles['ROLE_CONTROLLER'] = [
+      'CanEditPIA', 'CanCancelEvaluatePIA', 'CanAskEvaluatePIA',
+      'AccessToContextSection', 'AccessToPrinciplesSection', 'AccessToRisksSection'
+    ];
+    roles['ROLE_DPO'] = roles['ROLE_CONTROLLER'].concat([
+      'CanCreatePIA', 'CanCreatePIAExample', 'CanShowPIA',
+      'CanEvaluatePIA', 'CanValidatePIA', 'CanCancelValidatePIA',
+      'CanDeletePIA', 'CanExportPIA', 'CanCreateFolder',
+       'AccessToValidationSection'
+    ]);
+    roles['ROLE_ADMIN'] = roles['ROLE_CONTROLLER'].concat(roles['ROLE_DPO']);
+    roles['ROLE_SUPER_ADMIN'] = [];
+
+    this.permissionsService.loadRolesAndPermissions(roles);
+/*
     this.ngxPermissionsConfigurationService.addPermissionStrategy('disable', (templateRef: TemplateRef<any>) => {
       this._renderer.setAttribute(templateRef.elementRef.nativeElement.nextSibling, 'disabled', 'true');
     });
-
 
     this.ngxPermissionsConfigurationService.addPermissionStrategy('enable', (templateRef: TemplateRef<any>) => {
       this._renderer.removeAttribute(templateRef.elementRef.nativeElement.nextSibling, 'disabled');
     });
 
     this.ngxPermissionsConfigurationService.setDefaultOnUnauthorizedStrategy('disable');
+*/
   }
 }

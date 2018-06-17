@@ -62,9 +62,9 @@
       <app-questions [question]="question" [pia]="_piaService.pia" [section]="section" [item]="item"></app-questions>
     </div>
   </ng-template>
-  <ng-container *ngxPermissionsOnly="['CanEvaluatePIA']">
-    <app-evaluations *ngIf="item.evaluation_mode === 'item'" [pia]="_piaService.pia" [section]="section" [item]="item"></app-evaluations>
-  </ng-container>
+
+  <app-evaluations *ngIf="item.evaluation_mode === 'item'" [pia]="_piaService.pia" [section]="section" [item]="item"></app-evaluations>
+
   <div class="app-overview-risks" *ngIf="section.id == 3 && item.id == 5"></div>
 
   <app-validate-pia *ngIf="section.id == 4 && item.id == 4"></app-validate-pia>

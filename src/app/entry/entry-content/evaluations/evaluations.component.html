@@ -1,106 +1,75 @@
-<div class="pia-evaluationBlock"
-      *ngIf="_globalEvaluationService.status >= 3"
-      [ngClass]="{'pia-evaluationBlock-shadowed pia-evaluationBlock-self-padding': item.evaluation_mode === 'item'}">
-  <div class="pia-evaluationBlock-title">{{ 'evaluations.title' | translate }}</div>
+<ng-container *ngxPermissionsOnly="['CanEvaluatePIA']">
+  <div class="pia-evaluationBlock" *ngIf="_globalEvaluationService.status >= 3" [ngClass]="{'pia-evaluationBlock-shadowed pia-evaluationBlock-self-padding': item.evaluation_mode === 'item'}">
+    <div class="pia-evaluationBlock-title">{{ 'evaluations.title' | translate }}</div>
 
-  <form [formGroup]="evaluationForm">
+    <form [formGroup]="evaluationForm">
 
-    <!-- Buttons -->
-    <div class="pia-evaluationBlock-buttons">
-      <button class="btn btn-red"
-              [ngClass]="{'btn-active': evaluation.status === 1}"
-              [disabled]="evaluation.status === 1 || !_globalEvaluationService.evaluationEditionEnabled"
-              (click)="selectedButton($event, 1)"
-              name="fix"
-              type="submit">
+      <!-- Buttons -->
+      <div class="pia-evaluationBlock-buttons">
+        <button class="btn btn-red" [ngClass]="{'btn-active': evaluation.status === 1}" [disabled]="evaluation.status === 1 || !_globalEvaluationService.evaluationEditionEnabled" (click)="selectedButton($event, 1)" name="fix" type="submit">
         {{ 'evaluations.to_correct' | translate }}
       </button>
-      <button class="btn btn-blue"
-              [ngClass]="{'btn-active': evaluation.status === 2}"
-              [disabled]="evaluation.status === 2 || !_globalEvaluationService.evaluationEditionEnabled"
-              *ngIf="section.id !== 1"
-              (click)="selectedButton($event, 2)"
-              name="improvable"
-              type="submit">
+        <button class="btn btn-blue" [ngClass]="{'btn-active': evaluation.status === 2}" [disabled]="evaluation.status === 2 || !_globalEvaluationService.evaluationEditionEnabled" *ngIf="section.id !== 1" (click)="selectedButton($event, 2)" name="improvable"
+          type="submit">
         {{ 'evaluations.improvable' | translate }}
       </button>
-      <button class="btn btn-green"
-              [ngClass]="{'btn-active': evaluation.status === 3}"
-              [disabled]="evaluation.status === 3 || !_globalEvaluationService.evaluationEditionEnabled"
-              (click)="selectedButton($event, 3)"
-              name="acceptable"
-              type="submit">
+        <button class="btn btn-green" [ngClass]="{'btn-active': evaluation.status === 3}" [disabled]="evaluation.status === 3 || !_globalEvaluationService.evaluationEditionEnabled" (click)="selectedButton($event, 3)" name="acceptable" type="submit">
         {{ 'evaluations.acceptable' | translate }}
       </button>
-    </div>
-
-    <div class="pia-evaluationBlock-content pia-evaluationBlock-measure-{{measureId}} pia-evaluationBlock-question-{{questionId}} fadeIn" [ngClass]="{'hide': evaluation.status <= 0}">
-      <time class="pia-evaluationBlock-date">{{evaluation.created_at | date: 'dd/MM/yyyy'}}</time>
-
-      <!-- Evaluation fields -->
-      <!-- Action plan evaluation : special action plan comment field -->
-      <div class="pia-evaluationBlock-actionPlan fadeIn" *ngIf="evaluation.status === 2">
-        <label for="pia-evaluation-action-plan-{{reference_to}}">{{ 'evaluations.action_plan_comment' | translate }}</label>
-        <div (click)="actionPlanCommentFocusIn()" class="pia-evaluationBlock-contentText" [innerHTML]="evaluationForm.controls['actionPlanComment'].value | safeHtml" [ngClass]="{ 'hide': editor || !evaluationForm.controls['actionPlanComment'].value }"></div>
-        <textarea (keyup)="autoTextareaResize($event)"
-                  id="{{actionPlanCommentElementId}}"
-                  rows="8"
-                  cols="50"
-                  formControlName="actionPlanComment"
-                  name="pia-evaluation-action-plan"
-                  [attr.disabled]="_globalEvaluationService.evaluationEditionEnabled ? null : true"
-                  (focusin)="actionPlanCommentFocusIn()"
-                  [ngClass]="{ 'hide': ((!editor && evaluationForm.controls['actionPlanComment'].value && evaluationForm.controls['actionPlanComment'].value.length > 0) || _globalEvaluationService.status >= 7) }"
-                  placeholder="{{ 'evaluations.placeholder_improvable1' | translate }}"></textarea>
       </div>
 
-      <!-- All evaluations : comment field -->
-      <div [ngClass]="{'hide': _globalEvaluationService.status >= 7 && (!evaluation.evaluation_comment || evaluation.evaluation_comment.length <= 0)}">
-        <label for="pia-evaluation-comment-{{evaluation.id}}">{{ 'evaluations.evaluation_comment' | translate }}</label>
-        <div (click)="evaluationCommentFocusIn()" class="pia-evaluationBlock-contentText" [innerHTML]="evaluationForm.controls['evaluationComment'].value | safeHtml" [ngClass]="{ 'hide': editorEvaluationComment || !evaluationForm.controls['evaluationComment'].value }"></div>
-        <textarea (keyup)="autoTextareaResize($event)"
-                  id="{{evaluationCommentElementId}}"
-                  rows="8"
-                  cols="50"
-                  formControlName="evaluationComment"
-                  name="pia-evaluation-comment"
-                  [attr.disabled]="_globalEvaluationService.evaluationEditionEnabled ? null : true"
-                  (focusin)="evaluationCommentFocusIn()"
-                  [ngClass]="{ 'hide': ((!editorEvaluationComment && evaluationForm.controls['evaluationComment'].value && evaluationForm.controls['evaluationComment'].value.length > 0) || _globalEvaluationService.status >= 7) }"
-                  [attr.placeholder]="comment_placeholder"></textarea>
-      </div>
+      <div class="pia-evaluationBlock-content pia-evaluationBlock-measure-{{measureId}} pia-evaluationBlock-question-{{questionId}} fadeIn" [ngClass]="{'hide': evaluation.status <= 0}">
+        <time class="pia-evaluationBlock-date">{{evaluation.created_at | date: 'dd/MM/yyyy'}}</time>
 
-      <!-- Gauges -->
-      <div *ngIf="item.evaluation_mode === 'item' && item.evaluation_with_gauge === true && evaluation.status === 2">
-        <p class="pia-evaluationBlock-gauge" [innerHTML]="'evaluations.gauges.seriousness' | translate:riskName"></p>
-        <div class="pia-gaugeBlock">
-          <input type="range" (focus)="enableGaugeX()" (change)="checkGaugeChanges($event, 'x')" formControlName="gaugeX" min="0" max="4" step="1">
-          <div>
-            <div>{{ 'evaluations.gauges.0' | translate }}</div>
-            <div>{{ 'evaluations.gauges.1' | translate }}</div>
-            <div>{{ 'evaluations.gauges.2' | translate }}</div>
-            <div>{{ 'evaluations.gauges.3' | translate }}</div>
-            <div>{{ 'evaluations.gauges.4' | translate }}</div>
-          </div>
-          <div class="pia-gaugeBlock-user-choice pia-gaugeBlock-user-choice-{{previousGauges.x}}"></div>
-          <div *ngIf="evaluation.gauges" class="pia-gaugeBlock-background pia-gaugeBlock-background-x pia-gaugeBlock-background-{{evaluation.gauges['x']}}"></div>
+        <!-- Evaluation fields -->
+        <!-- Action plan evaluation : special action plan comment field -->
+        <div class="pia-evaluationBlock-actionPlan fadeIn" *ngIf="evaluation.status === 2">
+          <label for="pia-evaluation-action-plan-{{reference_to}}">{{ 'evaluations.action_plan_comment' | translate }}</label>
+          <div (click)="actionPlanCommentFocusIn()" class="pia-evaluationBlock-contentText" [innerHTML]="evaluationForm.controls['actionPlanComment'].value | safeHtml" [ngClass]="{ 'hide': editor || !evaluationForm.controls['actionPlanComment'].value }"></div>
+          <textarea (keyup)="autoTextareaResize($event)" id="{{actionPlanCommentElementId}}" rows="8" cols="50" formControlName="actionPlanComment" name="pia-evaluation-action-plan" [attr.disabled]="_globalEvaluationService.evaluationEditionEnabled ? null : true"
+            (focusin)="actionPlanCommentFocusIn()" [ngClass]="{ 'hide': ((!editor && evaluationForm.controls['actionPlanComment'].value && evaluationForm.controls['actionPlanComment'].value.length > 0) || _globalEvaluationService.status >= 7) }" placeholder="{{ 'evaluations.placeholder_improvable1' | translate }}"></textarea>
         </div>
 
-        <p class="pia-evaluationBlock-gauge" [innerHTML]="'evaluations.gauges.likelihood' | translate:riskName"></p>
-        <div class="pia-gaugeBlock">
-          <input type="range" (focus)="enableGaugeY()" (change)="checkGaugeChanges($event, 'y')" formControlName="gaugeY" min="0" max="4" step="1">
-          <div>
-            <div>{{ 'evaluations.gauges.0' | translate }}</div>
-            <div>{{ 'evaluations.gauges.1' | translate }}</div>
-            <div>{{ 'evaluations.gauges.2' | translate }}</div>
-            <div>{{ 'evaluations.gauges.3' | translate }}</div>
-            <div>{{ 'evaluations.gauges.4' | translate }}</div>
-          </div>
-          <div class="pia-gaugeBlock-user-choice pia-gaugeBlock-user-choice-{{previousGauges.y}}"></div>
-          <div *ngIf="evaluation.gauges" class="pia-gaugeBlock-background pia-gaugeBlock-background-y pia-gaugeBlock-background-{{evaluation.gauges['y']}}"></div>
+        <!-- All evaluations : comment field -->
+        <div [ngClass]="{'hide': _globalEvaluationService.status >= 7 && (!evaluation.evaluation_comment || evaluation.evaluation_comment.length <= 0)}">
+          <label for="pia-evaluation-comment-{{evaluation.id}}">{{ 'evaluations.evaluation_comment' | translate }}</label>
+          <div (click)="evaluationCommentFocusIn()" class="pia-evaluationBlock-contentText" [innerHTML]="evaluationForm.controls['evaluationComment'].value | safeHtml" [ngClass]="{ 'hide': editorEvaluationComment || !evaluationForm.controls['evaluationComment'].value }"></div>
+          <textarea (keyup)="autoTextareaResize($event)" id="{{evaluationCommentElementId}}" rows="8" cols="50" formControlName="evaluationComment" name="pia-evaluation-comment" [attr.disabled]="_globalEvaluationService.evaluationEditionEnabled ? null : true" (focusin)="evaluationCommentFocusIn()"
+            [ngClass]="{ 'hide': ((!editorEvaluationComment && evaluationForm.controls['evaluationComment'].value && evaluationForm.controls['evaluationComment'].value.length > 0) || _globalEvaluationService.status >= 7) }" [attr.placeholder]="comment_placeholder"></textarea>
         </div>
-      </div>
 
-    </div>
-  </form>
-</div>
+        <!-- Gauges -->
+        <div *ngIf="item.evaluation_mode === 'item' && item.evaluation_with_gauge === true && evaluation.status === 2">
+          <p class="pia-evaluationBlock-gauge" [innerHTML]="'evaluations.gauges.seriousness' | translate:riskName"></p>
+          <div class="pia-gaugeBlock">
+            <input type="range" (focus)="enableGaugeX()" (change)="checkGaugeChanges($event, 'x')" formControlName="gaugeX" min="0" max="4" step="1">
+            <div>
+              <div>{{ 'evaluations.gauges.0' | translate }}</div>
+              <div>{{ 'evaluations.gauges.1' | translate }}</div>
+              <div>{{ 'evaluations.gauges.2' | translate }}</div>
+              <div>{{ 'evaluations.gauges.3' | translate }}</div>
+              <div>{{ 'evaluations.gauges.4' | translate }}</div>
+            </div>
+            <div class="pia-gaugeBlock-user-choice pia-gaugeBlock-user-choice-{{previousGauges.x}}"></div>
+            <div *ngIf="evaluation.gauges" class="pia-gaugeBlock-background pia-gaugeBlock-background-x pia-gaugeBlock-background-{{evaluation.gauges['x']}}"></div>
+          </div>
+
+          <p class="pia-evaluationBlock-gauge" [innerHTML]="'evaluations.gauges.likelihood' | translate:riskName"></p>
+          <div class="pia-gaugeBlock">
+            <input type="range" (focus)="enableGaugeY()" (change)="checkGaugeChanges($event, 'y')" formControlName="gaugeY" min="0" max="4" step="1">
+            <div>
+              <div>{{ 'evaluations.gauges.0' | translate }}</div>
+              <div>{{ 'evaluations.gauges.1' | translate }}</div>
+              <div>{{ 'evaluations.gauges.2' | translate }}</div>
+              <div>{{ 'evaluations.gauges.3' | translate }}</div>
+              <div>{{ 'evaluations.gauges.4' | translate }}</div>
+            </div>
+            <div class="pia-gaugeBlock-user-choice pia-gaugeBlock-user-choice-{{previousGauges.y}}"></div>
+            <div *ngIf="evaluation.gauges" class="pia-gaugeBlock-background pia-gaugeBlock-background-y pia-gaugeBlock-background-{{evaluation.gauges['y']}}"></div>
+          </div>
+        </div>
+
+      </div>
+    </form>
+  </div>
+</ng-container>
