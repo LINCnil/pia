@@ -25,7 +25,7 @@ export class HelpComponent implements OnInit, OnDestroy {
     let file = `./assets/files/pia_help_${fileTranslation}.html`;
 
 
-    this.http.get<string>(file).subscribe(data => {
+    this.http.get(file,{responseType: 'text'}).subscribe(data => {
       this.content = data;
       this.getSectionList();
     });
@@ -34,7 +34,7 @@ export class HelpComponent implements OnInit, OnDestroy {
     this.helpSubscription = this._translateService.onLangChange.subscribe((event: LangChangeEvent) => {
       fileTranslation = event['lang'] === 'fr' ? 'fr' : 'en';
       file = `./assets/files/pia_help_${fileTranslation}.html`;
-      this.http.get<string>(file).subscribe(data => {
+      this.http.get(file, {responseType: 'text'}).subscribe(data => {
         this.content = data;
         this.getSectionList();
       });

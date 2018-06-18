@@ -14,6 +14,10 @@ export class AppErrorHandler implements ErrorHandler {
   }
 
   handleError(error: any) {
+    if(error.rejection == undefined){
+      console.error("Unknown Error", error);
+      return;
+    }
 
     let httpErrorCode = error.rejection.status;
 
@@ -30,7 +34,7 @@ export class AppErrorHandler implements ErrorHandler {
           null,
           this.i18n.instant('messages.server_error.title')
         );
-        
+
         break;
       default:
 
