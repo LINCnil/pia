@@ -292,7 +292,7 @@
       "PIA_TEC_CHIF": {
         "placeholder": "Beschreiben Sie hier die Maßnahmen, die zur Gewährleistung der Vertraulichkeit der Daten implementiert wurden.",
         "name": "Verschlüsselung",
-        "description": "Maßnahmen, die für die <strong>Gewährleistung der Vertraulichkeit</strong> der gespeicherten Daten (in der Datenbank, in unstrukturierten Dateien, Backups usw.) sowie das Verfahren zur Verwaltung der verwendeten kryptographischen Schlüssel (Erstellung, Speicherung, Änderung bei Verdacht auf Datengefährdung, Zugriffschutzf usw.) implementiert sind.<br>Beschreiben Sie die für die Datenübermittlung verwendeten Verschlüsselungsverfahren (VPN, TLS usw.).",
+        "description": "Maßnahmen, die für die <strong>Gewährleistung der Vertraulichkeit</strong> der gespeicherten Daten (in der Datenbank, in unstrukturierten Dateien, Backups usw.) sowie das Verfahren zur Verwaltung der verwendeten kryptographischen Schlüssel (Erstellung, Speicherung, Änderung bei Verdacht auf Datengefährdung, Zugriffschutz usw.) implementiert sind.<br>Beschreiben Sie die für die Datenübermittlung verwendeten Verschlüsselungsverfahren (VPN, TLS usw.).",
         "source": "keine"
       },
       "PIA_TEC_CTLA": {
