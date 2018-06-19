@@ -7,30 +7,33 @@
     "description": "This software by the is meant to guide the data controllers in building and demonstrating compliance to the GDPR. It helps to properly carry out a data protection impact assessment by facilitating the use of the PIA method developed by the CNIL.",
     "start": "Start"
   },
-  "messages":{
-    "server_error":{
-      "title" : "A server error has occurred",
-      "content" : "[500] : Please contact your administrator"
+  "messages": {
+    "client_error":{
+      "title": "An error occurred",
+      "content": "Please contact your administrator"
     },
-    "unauthorized_action":{
-      "title" : "Unauthorized Action",
-      "content" : "[403] : You are not allowed to perform this action"
+    "http": {
+      "401": {
+        "title": "Unauthorized Action",
+        "content": "You are not allowed to perform this action"
+      },
+      "403": {
+        "title": "Forbidden Action",
+        "content": "You are not allowed to perform this action"
+      },
+      "409": {
+        "title": "A conflict has been detected",
+        "content": "Please correct your request and try again",
+        "701": {
+          "title": "The folder cannot be deleted",
+          "content": "Folder must be empty before being deleted"
+        }
+      },
+      "500": {
+        "title": "An error occurred",
+        "content": "Please contact your administrator"
+      }
     }
-  },
-  "fatal_error":{
-    "title" : "A server error has occurred",
-    "code": "500",
-    "content" : "Please contact your administrator"
-  },
-  "forbidden":{
-    "title" : "Forbidden Action",
-    "code": "403",
-    "content" : "You are not allowed to perform this action"
-  },
-  "unauthorized":{
-    "title" : "Unauthorized Action",
-    "code": "401",
-    "content" : "You are not allowed to perform this action"
   },
   "header": {
     "logo_title": "RGPD compliance companion software",
@@ -105,7 +108,7 @@
       "pia_types": {
         "regular": "Processing",
         "simplified": "Simplified processing",
-        "advanced"  : "Processing with impact assessment"
+        "advanced": "Processing with impact assessment"
       },
       "folder": {
         "title": "Folder",
@@ -468,13 +471,13 @@
         "placeholder": "Indicate here, for processors requiring access to data, the security controls and arrangements carried out as regards such access.",
         "name": "Relations with third parties",
         "description": "Existence of a policy and processes reducing the risk that legitimate access to personal data by third parties may pose to the data subjects' civil liberties and privacy.",
-        "source":  "PIA3 p48 - WIKI"
+        "source": "PIA3 p48 - WIKI"
       },
       "PIA_ORG_AUD": {
         "placeholder": "Indicate here whether the effectiveness and adequacy of privacy controls are monitored.",
         "name": "Supervision",
         "description": "Existence of a policy and processes to obtain an organisation able to manage and control the protection of personal data held within it.",
-        "source":  "PIA3 p76 - WIKI"
+        "source": "PIA3 p76 - WIKI"
       },
       "PIA_DEF_EXA": {
         "name": "Quality of data",
@@ -519,7 +522,7 @@
       "PIA_DEF_ACC": {
         "name": "Right of access",
         "description": "The data subject shall have the right to obtain from the controller confirmation as to whether or not personal data concerning him or her are being processed, and, where that is the case, access to the personal data and the information described in <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 15 of [GDPR]</a>",
-        "source":"GDPR Art. 15"
+        "source": "GDPR Art. 15"
       },
       "PIA_DEF_PORT": {
         "name": "Right to data portability",
@@ -534,7 +537,7 @@
       "PIA_DEF_EFF": {
         "name": "Right to erasure",
         "description": " The data subject shall have the right to obtain from the controller the erasure of personal data concerning him or her without undue delay and the controller shall have the obligation to erase personal data without undue delay, see <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 17 of [GDPR]</a>",
-        "source" : "GDPR Art. 17"
+        "source": "GDPR Art. 17"
       },
       "PIA_DEF_LIM": {
         "name": "Right to restricting of processing",
@@ -549,7 +552,7 @@
       "PIA_DEF_PSEU": {
         "name": "Pseudonymisation",
         "description": "Processing of personal data in such a manner that the personal data can no longer be attributed to a specific data subject without the use of additional information, provided that such additional information is kept separately and is subject to technical and organisational measures to ensure that the personal data are not attributed to an identified or identifiable natural person.<br>Pseudonymisation  reduces  the  linkability  of  a  dataset  with  the  original  identity  of  a  data subject; as such, it is a useful security measure but not a method of anonymisation.",
-        "source" :"GDPR Art. 4.5 and guidelines G29 p22 http://ec.europa.eu/justice/data-protection/article-29/documentation/opinion-recommendation/files/2014/wp216_en.pdf"
+        "source": "GDPR Art. 4.5 and guidelines G29 p22 http://ec.europa.eu/justice/data-protection/article-29/documentation/opinion-recommendation/files/2014/wp216_en.pdf"
       },
       "PIA_DEF_CLO": {
         "name": "Data partitioning",
@@ -564,12 +567,12 @@
       "PIA_DEF_MIN1": {
         "name": "Filtering and removal",
         "description": "When data are being imported, different types of metadata (such as EXIF data with an image file attached) can unintentionally be collected. <br>Such metadata must be identified and eliminated if they are unnecessary for the purposes specified.",
-        "source" : "PIAF Connected objects p42 - WIKI"
+        "source": "PIAF Connected objects p42 - WIKI"
       },
       "PIA_DEF_MIN2": {
         "name": "Reducing sensitivity via conversion",
         "description": "Once sensitive data have been received, as part of a series of general information or transmitted for statistical purposes only, these can be converted into a less sensitive form or pseudonymised. For example : <br>- if the system collects the IP address to determine the user's location for a statistical purpose, the IP address can be deleted once the city or district has been deduced<br>- if the system receives video data from surveillance cameras, it can recognise people who are standing or moving in the scene and blur them<br>- if the system is a smart meter, it can aggregate the use of energy over a certain period, without recording it in real time",
-        "source" : "PIAF Connected objects p42 - WIKI"
+        "source": "PIAF Connected objects p42 - WIKI"
       },
       "PIA_DEF_SRC": {
         "name": "Risk source",
@@ -649,7 +652,7 @@
       "PIA_DEF_MIN3": {
         "name": "Reducing the identifying nature of data",
         "description": "The system can ensure that: <br>- the user can use a resource or service without the risk of disclosing his/her identity (anonymous data)<br>- the user can use a resource or service without the risk of disclosing his/her identity, but remain identifiable and responsible for this use (pseudonymous data)<br>- the user can make multiple uses of resources or services without the risk of these different uses being linked together (data cannot be correlated)<br>- the user can use a resource or service without the risk of others, third parties in particular, being able to observe that the resource or service is being used (non-observability)<br>The choice of a method from the list above must be made on the basis of the threats identified. For some types of threat to privacy, pseudonymization will be more appropriate than anonymisation (for example, if there is a traceability need). In addition, some threats to privacy will be addressed using a combination of methods.",
-        "source" : "PIAF Connected objects p42 - WIKI"
+        "source": "PIAF Connected objects p42 - WIKI"
       },
       "PIA_DEF_MIN4": {
         "name": "Reducing data accumulation",
@@ -749,12 +752,12 @@
       "PIA_DEF_CHIF": {
         "name": "Encryption",
         "description": "Measure making personal data unintelligible to anyone without access authorization (symmetric or asymmetric encryption, use of public algorithms known to be strong, authentication certificate, etc.).",
-        "source " : "Mesures_US Encryption"
+        "source ": "Mesures_US Encryption"
       },
       "PIA_DEF_PWD": {
         "name": "Password",
         "description": "Passwords shall be composed of a minimum of eight characters; must be renewed if there is the least concern that they may have been compromised and, possibly, periodically (every six months or once a year) and must include a minimum of three of the four kinds of characters (capital letters, lower case letters, numerals and special characters); when a password is changed, the last five passwords may not be reused; the same password should not be used for different accesses; passwords should not be related to one's personal information (including name or date of birth.). Define a maximum number of attempts beyond which a warning is issued and authentication is blocked (temporarily or until it is manually unblocked).",
-        "source" : "Mesure_US"
+        "source": "Mesure_US"
       },
       "PIA_DEF_AUTH": {
         "name": "Authentication",
@@ -1352,7 +1355,7 @@
         }
       }
     },
-     "4": {
+    "4": {
       "title": "Validation",
       "short_help": "This section allows you to prepare and formalise the PIA validation.",
       "items": {

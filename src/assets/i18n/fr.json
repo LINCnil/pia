@@ -17,21 +17,32 @@
       "error" : "Identifiants incorrects"
     }
   },
-  "messages":{
-    "fatal_error":{
-      "title" : "Une erreur serveur est survenue",
-      "code": "500",
-      "content" : "Veuillez contacter votre administrateur"
+  "messages": {
+    "client_error":{
+      "title": "Une erreur est survenue",
+      "content": "Veuillez contacter votre administrateur"
     },
-    "forbidden":{
-      "title" : "Action non-autorisée",
-      "code": "403",
-      "content" : "Vous n'ête pas autorisé à faire cette action"
-    },
-    "unauthorized":{
-      "title" : "Veuillez vous connecter",
-      "code": "401",
-      "content" : "Vous n'ête pas autorisé à faire cette action"
+    "http": {
+      "401": {
+        "title": "Veuillez vous connecter",
+        "content": "Vous n'êtes pas autorisé à faire cette action"
+      },
+      "403": {
+        "title": "Action non-autorisée",
+        "content": "Vous n'êtes pas autorisé à faire cette action"
+      },
+      "409": {
+        "title": "Conflit détecté",
+        "content": "Veuillez corriger votre demande et réessayer",
+        "701": {
+          "title": "Le dossier ne peut être supprimé",
+          "content": "Le dossier doit être vide pour être supprimé"
+        }
+      },
+      "500": {
+        "title": "Une erreur est survenue",
+        "content": "Veuillez contacter votre administrateur"
+      }
     }
   },
   "header": {

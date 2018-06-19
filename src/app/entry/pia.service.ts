@@ -73,32 +73,34 @@ export class PiaService {
   removePIA() {
     const piaID = parseInt(localStorage.getItem('pia-id'), 10);
     // Removes from DB.
-    this.piaApi.deleteById(piaID).subscribe();
+    this.piaApi.deleteById(piaID).subscribe(() => {
+      // Deletes the PIA from the view.
+      if (localStorage.getItem('homepageDisplayMode') && localStorage.getItem('homepageDisplayMode') === 'list') {
+        document.querySelector('.app-list-item[data-id="' + piaID + '"]').remove();
+      } else {
+        document.querySelector('.pia-cardsBlock.pia[data-id="' + piaID + '"]').remove();
+      }
 
-    // Deletes the PIA from the view.
-    if (localStorage.getItem('homepageDisplayMode') && localStorage.getItem('homepageDisplayMode') === 'list') {
-      document.querySelector('.app-list-item[data-id="' + piaID + '"]').remove();
-    } else {
-      document.querySelector('.pia-cardsBlock.pia[data-id="' + piaID + '"]').remove();
-    }
+      localStorage.removeItem('pia-id');
+    });
 
-    localStorage.removeItem('pia-id');
+
     this._modalsService.closeModal();
   }
 
   removeFolder() {
     const folderID = parseInt(localStorage.getItem('folder-id'), 10);
     // Removes from DB.
-    this.folderApi.deleteById(folderID).subscribe();
+    this.folderApi.deleteById(folderID).subscribe(() => {
+      // Deletes the Folder from the view.
+      if (localStorage.getItem('homepageDisplayMode') && localStorage.getItem('homepageDisplayMode') === 'list') {
+        document.querySelector('.folder-listsBlock-item[data-id="' + folderID + '"]').remove();
+      } else {
+        document.querySelector('.pia-folder-item[data-id="' + folderID + '"]').remove();
+      }
+      localStorage.removeItem('folder-id');
+    });
 
-    // Deletes the Folder from the view.
-    if (localStorage.getItem('homepageDisplayMode') && localStorage.getItem('homepageDisplayMode') === 'list') {
-      document.querySelector('.folder-listsBlock-item[data-id="' + folderID + '"]').remove();
-    } else {
-      document.querySelector('.pia-folder-item[data-id="' + folderID + '"]').remove();
-    }
-
-    localStorage.removeItem('folder-id');
     this._modalsService.closeModal();
   }
 

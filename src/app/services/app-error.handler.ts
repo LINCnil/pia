@@ -1,4 +1,5 @@
 import { ErrorHandler, Inject, Injector, Injectable, NgZone } from '@angular/core';
+import { HttpErrorResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { TranslateService } from '@ngx-translate/core';
@@ -27,42 +28,43 @@ export class AppErrorHandler implements ErrorHandler {
     return this.injector.get(AuthenticationService);
   }
 
+  handleHttpError(httpError: HttpErrorResponse) {
 
-
-  handleError(error: any) {
-    if (error.rejection == undefined) {
-      console.error("Unknown Error", error);
-      return;
+    let trans = 'messages.http.' + httpError.status;
+    if (httpError.error.error_code) {
+      trans = trans + '.' + httpError.error.error_code;
     }
 
-    let httpErrorCode = error.rejection.status;
-
-    switch (httpErrorCode) {
+    this.toastr.error(
+      this.i18n.instant(trans+'.content'),
+      this.i18n.instant(trans+'.title')
+    );
+    switch (httpError.status) {
       case 401:
-        this.toastr.error(
-          null,
-          this.i18n.instant('messages.unauthorized.title')
-        );
         this.auth.logout();
-        this.zone.run(()=>this.router.navigate([""]));
-        break;
-      case 403:
-        this.toastr.error(
-          null,
-          this.i18n.instant('messages.forbidden.title')
-        );
-
-        break;
-      case 500:
-        this.toastr.error(
-          null,
-          this.i18n.instant('messages.fatal_error.title')
-        );
-
+        this.zone.run(() => this.router.navigate([""]));
         break;
       default:
 
     }
+  }
+
+  handleClientError(error: Error) {
+    this.toastr.error(
+      this.i18n.instant('messages.client_error.content'),
+      this.i18n.instant('messages.client_error.title')
+    );
+  }
+
+  handleError(error: Error | HttpErrorResponse) {
+
+    if (error instanceof HttpErrorResponse) {
+      this.handleHttpError(error);
+    } else {
+      this.handleClientError(error);
+    }
+    console.error("Error happens", error);
+
   }
 
 }
