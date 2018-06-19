@@ -1,5 +1,16 @@
 # Change Log
 
+## [1.0.2](https://github.com/pia-lab/pialab/tree/1.0.2) (2018-06-18)
+[Full Changelog](https://github.com/pia-lab/pialab/compare/1.0.1...1.0.2)
+
+**Merged pull requests:**
+
+- Add e2e tests using protractor [\#25](https://github.com/pia-lab/pialab/pull/25) ([GlennCavarle](https://github.com/GlennCavarle))
+- Minor fixes [\#24](https://github.com/pia-lab/pialab/pull/24) ([GlennCavarle](https://github.com/GlennCavarle))
+
+## [1.0.1](https://github.com/pia-lab/pialab/tree/1.0.1) (2018-06-14)
+[Full Changelog](https://github.com/pia-lab/pialab/compare/1.0.0...1.0.1)
+
 ## [1.0.0](https://github.com/pia-lab/pialab/tree/1.0.0) (2018-06-12)
 [Full Changelog](https://github.com/pia-lab/pialab/compare/0.4.5...1.0.0)
 
