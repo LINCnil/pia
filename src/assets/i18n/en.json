@@ -17,6 +17,21 @@
       "content" : "[403] : You are not allowed to perform this action"
     }
   },
+  "fatal_error":{
+    "title" : "A server error has occurred",
+    "code": "500",
+    "content" : "Please contact your administrator"
+  },
+  "forbidden":{
+    "title" : "Forbidden Action",
+    "code": "403",
+    "content" : "You are not allowed to perform this action"
+  },
+  "unauthorized":{
+    "title" : "Unauthorized Action",
+    "code": "401",
+    "content" : "You are not allowed to perform this action"
+  },
   "header": {
     "logo_title": "RGPD compliance companion software",
     "logo_subtitle": "",

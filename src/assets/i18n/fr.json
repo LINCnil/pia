@@ -18,13 +18,20 @@
     }
   },
   "messages":{
-    "server_error":{
+    "fatal_error":{
       "title" : "Une erreur serveur est survenue",
-      "content" : "[500] : Veuillez contacter votre administrateur"
+      "code": "500",
+      "content" : "Veuillez contacter votre administrateur"
     },
-    "unauthorized_action":{
+    "forbidden":{
       "title" : "Action non-autorisée",
-      "content" : "[403] : Vous n'ête pas autorisé à faire cette action"
+      "code": "403",
+      "content" : "Vous n'ête pas autorisé à faire cette action"
+    },
+    "unauthorized":{
+      "title" : "Veuillez vous connecter",
+      "code": "401",
+      "content" : "Vous n'ête pas autorisé à faire cette action"
     }
   },
   "header": {

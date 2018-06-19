@@ -29,8 +29,7 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "styles.scss",
-        "../node_modules/ngx-toastr/toastr.css"
+        "styles.scss"
       ],
       "scripts": [
         "../node_modules/save-svg-as-png/saveSvgAsPng.js",
