@@ -22,6 +22,7 @@ export class Pia extends BaseModel {
   public progress: number;
   public is_example: boolean = false;
   public folder: FolderModel;
+  public type: string = PiaType.regular;
 
   public numberOfQuestions = 36; // TODO Auto compute questions number
 
@@ -48,4 +49,10 @@ export enum PiaStatus {
   SimpleValidation = 2,
   SignedValidation = 3,
   Archived = 4
+}
+
+export enum PiaType {
+  simplified = 'simplified',
+  regular = 'regular',
+  advanced = 'advanced'
 }

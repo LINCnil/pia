@@ -9,6 +9,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 
 import { PiaModel, FolderModel } from '@api/models';
 import { PiaApi, FolderApi } from '@api/services';
+import { PiaType } from '@api/model/pia.model';
 
 
 @Component({
@@ -25,6 +26,7 @@ export class ModalsComponent implements OnInit {
   folderForm: FormGroup;
   removeAttachmentForm: FormGroup;
   enableSubmit = true;
+  piaTypes: any;
 
   constructor(
     private router: Router,
@@ -42,7 +44,8 @@ export class ModalsComponent implements OnInit {
       name: new FormControl(),
       author_name: new FormControl(),
       evaluator_name: new FormControl(),
-      validator_name: new FormControl()
+      validator_name: new FormControl(),
+      type: new FormControl()
     });
     this.folderForm = new FormGroup({
       name: new FormControl(),
@@ -52,6 +55,8 @@ export class ModalsComponent implements OnInit {
     });
     this.newPia = new PiaModel();
     this.newFolder = new FolderModel();
+
+    this.piaTypes = Object.values(PiaType);
   }
 
   /**
@@ -74,6 +79,7 @@ export class ModalsComponent implements OnInit {
     pia.author_name = this.piaForm.value.author_name;
     pia.evaluator_name = this.piaForm.value.evaluator_name;
     pia.validator_name = this.piaForm.value.validator_name;
+    pia.type = this.piaForm.value.type;
 
     this.piaApi.create(pia, this._piaService.currentFolder).subscribe((newPia: PiaModel) => {
       this.router.navigate(['entry', newPia.id, 'section', 1, 'item', 1]);

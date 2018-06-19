@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
+import { PiaModel } from '@api/models';
+import { PiaType } from '@api/model/pia.model';
+
 @Injectable()
 export class AppDataService {
 
@@ -15,10 +18,24 @@ export class AppDataService {
    * @returns {Object}
    * @memberof AppDataService
    */
-  async getDataNav() {
-    if (!this.dataNav.sections) {
-      await this.loadArchitecture();
+  async getDataNav(pia?: PiaModel) {
+    await this.loadArchitecture();
+    
+    if(pia) {
+      if(pia.type == PiaType.regular) {
+        delete this.dataNav.sections[3];
+        delete this.dataNav.sections[2];
+      }
+
+      if(pia.type === PiaType.simplified) {
+        delete this.dataNav.sections[3];
+        delete this.dataNav.sections[2];
+        delete this.dataNav.sections[1];
+      }
+
+      this.dataNav.sections = Object.values(this.dataNav.sections);
     }
+
     return this.dataNav;
   }
 

@@ -28,13 +28,6 @@ export class PiaService extends BaseService<Pia> {
     super(http);
   }
 
-
-  public computeProgress(model: Pia): Observable<number> {
-    return this.answerService.getAll(model.id).map((answers:Answer[]) => {
-      return this.computeProgressFromAnswers(model, answers);
-    });
-  }
-
   public computeProgressFromAnswers(model: Pia, answers:Answer[]): number {
       model.progress = Math.round((100 / model.numberOfQuestions) * answers.length);
       return model.progress;

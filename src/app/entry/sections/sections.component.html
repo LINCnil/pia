@@ -7,7 +7,7 @@
   <div class="pia-sectionBlock-body">
 
     <ng-container *ngFor="let dataSection of data?.sections">
-      <div *ngxPermissionsOnly="dataSection.permissions">
+      <div *ngxPermissionsOnly="dataSection.permissions" id="{{dataSection.name}}">
 
           <div class="pia-sectionBlock-title">
             {{ dataSection.title | translate }}
@@ -33,7 +33,7 @@
     <a routerLink="/entry/{{_piaService.pia.id}}/section/4/item/5" class="btn btn-red btn-active" *ngIf="_sidStatusService.piaIsRefused">{{ 'pia.sections.refuse_pia' | translate }}</a>
   </ng-container>
   <ng-template #defaultButton>
-    <a class="btn btn-inactive">{{ 'pia.sections.validate_pia' | translate }}</a>
+    <a *ngIf="_piaService.pia.type == 'advanced'" class="btn btn-inactive">{{ 'pia.sections.validate_pia' | translate }}</a>
   </ng-template>
 </div>
 

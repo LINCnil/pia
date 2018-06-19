@@ -8,6 +8,7 @@ import 'rxjs/add/operator/map';
 
 import { PiaService } from 'app/entry/pia.service';
 import { GlobalEvaluationService } from 'app/services/global-evaluation.service';
+import { PiaType } from '@api/model/pia.model';
 
 @Component({
   selector: 'app-sections',
@@ -28,8 +29,8 @@ export class SectionsComponent implements OnInit {
   }
 
   async ngOnInit() {
+    this.data = await this._appDataService.getDataNav(this._piaService.pia);
 
-    this.data = await this._appDataService.getDataNav();
     this.data.sections.forEach((section: any) => {
       section.items.forEach((item: any) => {
         this._sidStatusService.setSidStatus(this._piaService, section, item);

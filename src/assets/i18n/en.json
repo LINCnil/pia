@@ -101,6 +101,12 @@
       "creation_status": "Creation",
       "start": "Start",
       "placeholder_start": "All fields must be filled",
+      "pia_type": "Type",
+      "pia_types": {
+        "regular": "Processing",
+        "simplified": "Simplified processing",
+        "advanced"  : "Processing with impact assessment"
+      },
       "folder": {
         "title": "Folder",
         "parent": "Parent",

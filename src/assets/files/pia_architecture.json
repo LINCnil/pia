@@ -4,6 +4,7 @@
       "id": 1,
       "permissions": ["AccessToContextSection"],
       "title": "sections.1.title",
+      "name" : "context-section",
       "short_help": "sections.1.short_help",
       "items": [
         {
@@ -100,6 +101,7 @@
       "id": 2,
       "title": "sections.2.title",
       "permissions": ["AccessToPrinciplesSection"],
+      "name": "principles-section",
       "short_help": "sections.2.short_help",
       "items": [
         {
@@ -279,6 +281,7 @@
     {
       "id": 3,
       "permissions": ["AccessToRisksSection"],
+      "name": "risks-section",
       "title": "sections.3.title",
       "short_help": "sections.3.short_help",
       "items": [
@@ -600,6 +603,7 @@
     {
       "id": 4,
       "permissions": ["AccessToValidationSection"],
+      "name": "validation-section",
       "title": "sections.4.title",
       "short_help": "sections.4.short_help",
       "items": [

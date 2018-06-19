@@ -48,7 +48,7 @@
       <form class="pia-cardsBlock-item-form"
             [formGroup]="piaForm">
           <input type="hidden" formControlName="id">
-          <div (click)="piaNameFocusIn()" style="margin-top:20px;">
+          <div (click)="piaNameFocusIn()">
               <label for="pia-edit-name">{{ 'homepage.cards.pia_name' | translate }}</label>
               <input type="text"
                      #piaName
@@ -57,6 +57,18 @@
                      placeholder="{{ 'homepage.cards.placeholder_pia_name' | translate }}"
                      id="pia-edit-name"
                      (focusout)="piaNameFocusOut()">
+          </div>
+          <div>
+              <label for="pia-edit-type">{{ 'homepage.cards.pia_type' | translate }}</label>
+              <select
+                     #piaType
+                     formControlName="type"
+                     required
+                     id="pia-edit-type"
+                     (change)="piaTypeFocusOut()"
+              >
+                  <option *ngFor="let type of piaTypes" value="{{ type }}">{{ 'homepage.cards.pia_types.' + type | translate }}</option>
+              </select>
           </div>
           <div (click)="piaAuthorNameFocusIn()">
               <label for="pia-edit-author-name">{{ 'homepage.cards.author' | translate }}</label>
@@ -107,7 +119,7 @@
                 <progress max="100" value="{{ pia.progress }}"></progress>
             </div>
         </div>
-        <div class="pia-cardsBlock-item-btn">
+        <div class="pia-cardsBlock-item-btn bottom-actions">
           <a *ngIf="pia.status === 0" routerLink="/entry/{{pia.id}}/section/1/item/1" class="btn btn-green">{{ 'homepage.cards.item.edit_pia' | translate }}</a>
           <a *ngIf="pia.status > 0" routerLink="/entry/{{pia.id}}/section/1/item/1" class="btn btn-green">{{ 'homepage.cards.item.consult_pia' | translate }}</a>
         </div>

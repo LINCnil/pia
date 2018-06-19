@@ -10,6 +10,7 @@ import { PiaService } from 'app/entry/pia.service';
 import {PiaModel, AttachmentModel} from '@api/models';
 import {PiaApi, AttachmentApi} from '@api/services';
 import {PermissionsService} from '@security/permissions.service';
+import { PiaType } from '@api/model/pia.model';
 
 @Component({
   selector: 'app-card-item',
@@ -22,11 +23,13 @@ export class CardItemComponent implements OnInit {
   @Input() previousPia: any;
   piaForm: FormGroup;
   attachments: any;
+  piaTypes: any;
 
   @ViewChild('piaName') private piaName: ElementRef;
   @ViewChild('piaAuthorName') private piaAuthorName: ElementRef;
   @ViewChild('piaEvaluatorName') private piaEvaluatorName: ElementRef;
   @ViewChild('piaValidatorName') private piaValidatorName: ElementRef;
+  @ViewChild('piaType') private piaType: ElementRef;
 
   constructor(private router: Router,
               private _modalsService: ModalsService,
@@ -43,7 +46,8 @@ export class CardItemComponent implements OnInit {
       name: new FormControl({ value: this.pia.name, disabled: true }),
       author_name: new FormControl({ value: this.pia.author_name, disabled: true }),
       evaluator_name: new FormControl({ value: this.pia.evaluator_name, disabled: true }),
-      validator_name: new FormControl({ value: this.pia.validator_name, disabled: true })
+      validator_name: new FormControl({ value: this.pia.validator_name, disabled: true }),
+      type: new FormControl({value: this.pia.type, disabled: true})
     });
 
     // add permission verification
@@ -59,6 +63,7 @@ export class CardItemComponent implements OnInit {
       this.attachments = entries;
     });
 
+    this.piaTypes = Object.values(PiaType);
   }
 
   /**
@@ -161,6 +166,17 @@ export class CardItemComponent implements OnInit {
         this.piaApi.update(thePia).subscribe();
       });
     }
+  }
+
+  /**
+   * Disables pia validator name field and saves data.
+   * @memberof CardItemComponent
+   */
+  piaTypeFocusOut() {
+    this.piaApi.get(this.piaForm.value.id).subscribe((thePia: PiaModel) => {
+      thePia.type = this.piaForm.value.type;
+      this.piaApi.update(thePia).subscribe();
+    });
   }
 
   /**

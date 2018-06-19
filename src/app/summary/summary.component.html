@@ -35,26 +35,28 @@
               <input type="checkbox" name="displayer-pia-section-1" id="displayer-pia-main-1" [checked]="displayOnlyActionPlan ? false : true" (change)="toggleContextContent()">
               <label for="displayer-pia-main-1">{{ 'summary.display_filters.context_content' | translate }}</label>
             </div>
-            <div>
+            <div *ngIf="pia?.type !== piaTypes?.simplified">
               <input type="checkbox" name="displayer-pia-section-2" id="displayer-pia-section-2" [checked]="displayOnlyActionPlan ? false : true" (change)="toggleFundamentalPrinciplesContent()">
               <label for="displayer-pia-section-2">{{ 'summary.display_filters.principles_content' | translate }}</label>
             </div>
-            <div>
-              <input type="checkbox" name="displayer-pia-section-3" id="displayer-pia-section-3" [checked]="displayOnlyActionPlan ? false : true" (change)="toggleRisksContent()">
-              <label for="displayer-pia-section-3">{{ 'summary.display_filters.risks_content' | translate }}</label>
-            </div>
-            <div>
-              <input type="checkbox" name="displayer-pia-action-plan" id="displayer-pia-action-plan" [checked]="true" (change)="toggleActionPlanContent()">
-              <label for="displayer-pia-action-plan">{{ 'summary.display_filters.action_plan_content' | translate }}</label>
-            </div>
-            <div>
-              <input type="checkbox" name="displayer-pia-risks-overview" id="displayer-pia-risks-overview" [checked]="displayRisksOverview ? true : false" (change)="toggleRisksOverviewContent()">
-              <label for="displayer-pia-risks-overview">{{ 'summary.display_filters.risks_overview_content' | translate }}</label>
-            </div>
-            <div>
-              <input type="checkbox" name="displayer-pia-risks-cartography" id="displayer-risks-cartography" [checked]="displayRisksCartography ? true : false" (change)="toggleRisksCartographyContent()">
-              <label for="displayer-risks-cartography">{{ 'summary.display_filters.risks_cartography_content' | translate }}</label>
-            </div>
+            <ng-container *ngIf="pia?.type === piaTypes?.advanced">
+              <div>
+                <input type="checkbox" name="displayer-pia-section-3" id="displayer-pia-section-3" [checked]="displayOnlyActionPlan ? false : true" (change)="toggleRisksContent()">
+                <label for="displayer-pia-section-3">{{ 'summary.display_filters.risks_content' | translate }}</label>
+              </div>
+              <div>
+                <input type="checkbox" name="displayer-pia-action-plan" id="displayer-pia-action-plan" [checked]="true" (change)="toggleActionPlanContent()">
+                <label for="displayer-pia-action-plan">{{ 'summary.display_filters.action_plan_content' | translate }}</label>
+              </div>
+              <div>
+                <input type="checkbox" name="displayer-pia-risks-overview" id="displayer-pia-risks-overview" [checked]="displayRisksOverview ? true : false" (change)="toggleRisksOverviewContent()">
+                <label for="displayer-pia-risks-overview">{{ 'summary.display_filters.risks_overview_content' | translate }}</label>
+              </div>
+              <div>
+                <input type="checkbox" name="displayer-pia-risks-cartography" id="displayer-risks-cartography" [checked]="displayRisksCartography ? true : false" (change)="toggleRisksCartographyContent()">
+                <label for="displayer-risks-cartography">{{ 'summary.display_filters.risks_cartography_content' | translate }}</label>
+              </div>
+            </ng-container>
           </div>
         </fieldset>
       </form>
@@ -82,7 +84,7 @@
             </div>
           </div>
         </div>
-        <div *ngFor="let section of _piaService.data.sections">
+        <div *ngFor="let section of sections">
           <div class="fadeIn section-{{section.id}} pagebreak" *ngIf="section.id !== 4">
             <h1 >{{ section.title | translate }}</h1>
             <div *ngFor="let item of section.items">
@@ -96,7 +98,7 @@
                       <h3 [innerHTML]="measure.title"></h3>
                       <div [innerHTML]="measure.content | translate | safeHtml"></div>
                       <br>
-                      <!-- Measures' evaluations -->
+                      <!-- Measures evaluations -->
                       <div class="evaluationbox" *ngIf="measure.evaluation">
                         <p>
                           <strong class="evaluationValue">{{ 'evaluations.title' | translate }} : {{ measure.evaluation.title | translate }}</strong>
@@ -181,65 +183,101 @@
           </div>
         </div>
       </div>
+      <ng-container *ngIf="pia?.type === piaTypes?.advanced">
+        <!-- Action plan summary -->
+        <div class="fadeIn pagebreak" *ngIf="displayActionPlan && pia?.type !== 'simplified'">
+          <div>
+            <h1>{{ 'summary.action_plan.title' | translate }}</h1>
 
-      <!-- Action plan summary -->
-      <div class="fadeIn pagebreak" *ngIf="displayActionPlan">
-        <div>
-          <h1>{{ 'summary.action_plan.title' | translate }}</h1>
-
-          <!-- Action plan graph -->
-          <div class="pia-entryContentBlock-content pia-actionPlanGraphBlock unselectable" id="actionPlanOverviewImg">
-            <h2>{{ 'action_plan.title' | translate }}</h2>
-            <div class="row">
-              <div class="medium-6 columns pia-actionPlanGraphBlock-left">
-                <h3>{{ 'action_plan.principles' | translate }}</h3>
-                <div class="pia-actionPlanGraphBlock-item" *ngFor="let r of _actionPlanService.results">
-                  <span class="pia-list">{{ r.short_title | translate }}</span>
-                  <span class="pia-box" [ngClass]="{'pia-blue': r.status === 2, 'pia-red': r.status === 1}"></span>
-                  <span class="pia-box" [ngClass]="{'pia-green': r.status === 3, 'pia-red': r.status === 1}"></span>
+            <!-- Action plan graph -->
+            <div class="pia-entryContentBlock-content pia-actionPlanGraphBlock unselectable" id="actionPlanOverviewImg">
+              <h2>{{ 'action_plan.title' | translate }}</h2>
+              <div class="row">
+                <div class="medium-6 columns pia-actionPlanGraphBlock-left">
+                  <h3>{{ 'action_plan.principles' | translate }}</h3>
+                  <div class="pia-actionPlanGraphBlock-item" *ngFor="let r of _actionPlanService.results">
+                    <span class="pia-list">{{ r.short_title | translate }}</span>
+                    <span class="pia-box" [ngClass]="{'pia-blue': r.status === 2, 'pia-red': r.status === 1}"></span>
+                    <span class="pia-box" [ngClass]="{'pia-green': r.status === 3, 'pia-red': r.status === 1}"></span>
+                  </div>
+                </div>
+                <div class="medium-6 columns pia-actionPlanGraphBlock-right">
+                  <h3>{{ 'action_plan.measures' | translate }}</h3>
+                  <div class="pia-actionPlanGraphBlock-right-measures summaryMode">
+                    <div class="pia-actionPlanGraphBlock-right-measures-scroll summaryMode" *ngIf="_actionPlanService.measures">
+                      <div *ngFor="let measure of _actionPlanService.measures" class="pia-actionPlanGraphBlock-item">
+                        <span class="pia-box" [ngClass]="{'pia-blue': measure.status === 2, 'pia-red': measure.status === 1}"></span>
+                        <span class="pia-box" [ngClass]="{'pia-green': measure.status === 3, 'pia-red': measure.status === 1}"></span>
+                        <span class="pia-list">{{ measure.name }}</span>
+                      </div>
+                    </div>
+                  </div>
+                  <h3>{{ 'action_plan.risks' | translate }}</h3>
+                  <div class="pia-actionPlanGraphBlock-item">
+                    <span class="pia-box" [ngClass]="{'pia-blue': _actionPlanService.risks['3.2'] && _actionPlanService.risks['3.2']['status'] === 2, 'pia-red': _actionPlanService.risks['3.2'] && _actionPlanService.risks['3.2']['status'] === 1}"></span>
+                    <span class="pia-box" [ngClass]="{'pia-green': _actionPlanService.risks['3.2'] && _actionPlanService.risks['3.2']['status'] === 3, 'pia-red': _actionPlanService.risks['3.2'] && _actionPlanService.risks['3.2']['status'] === 1}"></span>
+                    <span class="pia-list">{{ 'action_plan.risk1' | translate }}</span>
+                  </div>
+                  <div class="pia-actionPlanGraphBlock-item">
+                    <span class="pia-box" [ngClass]="{'pia-blue': _actionPlanService.risks['3.3'] && _actionPlanService.risks['3.3']['status'] === 2, 'pia-red': _actionPlanService.risks['3.3'] && _actionPlanService.risks['3.3']['status'] === 1}"></span>
+                    <span class="pia-box" [ngClass]="{'pia-green': _actionPlanService.risks['3.3'] && _actionPlanService.risks['3.3']['status'] === 3, 'pia-red': _actionPlanService.risks['3.3'] && _actionPlanService.risks['3.3']['status'] === 1}"></span>
+                    <span class="pia-list">{{ 'action_plan.risk2' | translate }}</span>
+                  </div>
+                  <div class="pia-actionPlanGraphBlock-item">
+                    <span class="pia-box" [ngClass]="{'pia-blue': _actionPlanService.risks['3.4'] && _actionPlanService.risks['3.4']['status'] === 2, 'pia-red': _actionPlanService.risks['3.4'] && _actionPlanService.risks['3.4']['status'] === 1}"></span>
+                    <span class="pia-box" [ngClass]="{'pia-green': _actionPlanService.risks['3.4'] && _actionPlanService.risks['3.4']['status'] === 3, 'pia-red': _actionPlanService.risks['3.4'] && _actionPlanService.risks['3.4']['status'] === 1}"></span>
+                    <span class="pia-list">{{ 'action_plan.risk3' | translate }}</span>
+                  </div>
+                </div>
+                <div class="pia-legend">
+                  <p>{{ 'action_plan.improvable_measures' | translate }}</p>
+                  <p>{{ 'action_plan.acceptable_measures' | translate }}</p>
                 </div>
               </div>
-              <div class="medium-6 columns pia-actionPlanGraphBlock-right">
-                <h3>{{ 'action_plan.measures' | translate }}</h3>
-                <div class="pia-actionPlanGraphBlock-right-measures summaryMode">
-                  <div class="pia-actionPlanGraphBlock-right-measures-scroll summaryMode" *ngIf="_actionPlanService.measures">
-                    <div *ngFor="let measure of _actionPlanService.measures" class="pia-actionPlanGraphBlock-item">
-                      <span class="pia-box" [ngClass]="{'pia-blue': measure.status === 2, 'pia-red': measure.status === 1}"></span>
-                      <span class="pia-box" [ngClass]="{'pia-green': measure.status === 3, 'pia-red': measure.status === 1}"></span>
-                      <span class="pia-list">{{ measure.name }}</span>
+            </div>
+
+            <!-- Action plan for fundamental principles -->
+            <div>
+              <h2>{{ 'summary.action_plan.fundamental_principles' | translate }}</h2>
+              <ng-container *ngIf="_actionPlanService.principlesActionPlanReady; else noFundamentalPrinciples">
+                <div class="actionplanbox">
+                  <div *ngFor="let entry of _actionPlanService.results">
+                    <div style="border:0.5px dotted #A7A7A7;padding:6px;margin:10px 0;" *ngIf="entry.action_plan_comment && entry.action_plan_comment.length > 0">
+                      <h3 style="margin-bottom:2px;">{{ entry.short_title | translate }}</h3>
+                      <div>
+                        <strong>{{ 'evaluations.action_plan_comment' | translate }} :<br></strong>
+                        <span [innerHTML]="entry.action_plan_comment | translate | safeHtml"></span>
+                      </div>
+                      <div *ngIf="entry.evaluation_comment && entry.evaluation_comment.length > 0">
+                        <strong>{{ 'evaluations.evaluation_comment' | translate }} :<br></strong>
+                        <span [innerHTML]="entry.evaluation_comment | safeHtml"></span>
+                      </div>
+                      <div *ngIf="entry.evaluation && entry.evaluation.estimated_implementation_date && entry.evaluation.estimated_implementation_date .toString() !== 'Invalid Date'">
+                        <strong>{{ 'summary.action_plan.implementation_date' | translate }} : </strong>
+                        <time>{{ entry.evaluation.estimated_implementation_date | date: 'dd/MM/yyyy' }}</time>
+                      </div>
+                      <div *ngIf="entry.evaluation && entry.evaluation.person_in_charge">
+                        <strong>{{ 'summary.action_plan.implementation_responsible' | translate }} : </strong>
+                        {{ entry.evaluation.person_in_charge }}
+                      </div>
                     </div>
                   </div>
                 </div>
-                <h3>{{ 'action_plan.risks' | translate }}</h3>
-                <div class="pia-actionPlanGraphBlock-item">
-                  <span class="pia-box" [ngClass]="{'pia-blue': _actionPlanService.risks['3.2'] && _actionPlanService.risks['3.2']['status'] === 2, 'pia-red': _actionPlanService.risks['3.2'] && _actionPlanService.risks['3.2']['status'] === 1}"></span>
-                  <span class="pia-box" [ngClass]="{'pia-green': _actionPlanService.risks['3.2'] && _actionPlanService.risks['3.2']['status'] === 3, 'pia-red': _actionPlanService.risks['3.2'] && _actionPlanService.risks['3.2']['status'] === 1}"></span>
-                  <span class="pia-list">{{ 'action_plan.risk1' | translate }}</span>
+              </ng-container>
+              <ng-template #noFundamentalPrinciples>
+                <div class="actionplanbox">
+                  {{ 'summary.action_plan.no_action_plan' |  translate }}
                 </div>
-                <div class="pia-actionPlanGraphBlock-item">
-                  <span class="pia-box" [ngClass]="{'pia-blue': _actionPlanService.risks['3.3'] && _actionPlanService.risks['3.3']['status'] === 2, 'pia-red': _actionPlanService.risks['3.3'] && _actionPlanService.risks['3.3']['status'] === 1}"></span>
-                  <span class="pia-box" [ngClass]="{'pia-green': _actionPlanService.risks['3.3'] && _actionPlanService.risks['3.3']['status'] === 3, 'pia-red': _actionPlanService.risks['3.3'] && _actionPlanService.risks['3.3']['status'] === 1}"></span>
-                  <span class="pia-list">{{ 'action_plan.risk2' | translate }}</span>
-                </div>
-                <div class="pia-actionPlanGraphBlock-item">
-                  <span class="pia-box" [ngClass]="{'pia-blue': _actionPlanService.risks['3.4'] && _actionPlanService.risks['3.4']['status'] === 2, 'pia-red': _actionPlanService.risks['3.4'] && _actionPlanService.risks['3.4']['status'] === 1}"></span>
-                  <span class="pia-box" [ngClass]="{'pia-green': _actionPlanService.risks['3.4'] && _actionPlanService.risks['3.4']['status'] === 3, 'pia-red': _actionPlanService.risks['3.4'] && _actionPlanService.risks['3.4']['status'] === 1}"></span>
-                  <span class="pia-list">{{ 'action_plan.risk3' | translate }}</span>
-                </div>
-              </div>
-              <div class="pia-legend">
-                <p>{{ 'action_plan.improvable_measures' | translate }}</p>
-                <p>{{ 'action_plan.acceptable_measures' | translate }}</p>
-              </div>
+              </ng-template>
             </div>
           </div>
 
-          <!-- Action plan for fundamental principles -->
+          <!-- Action plan for measures -->
           <div>
-            <h2>{{ 'summary.action_plan.fundamental_principles' | translate }}</h2>
-            <ng-container *ngIf="_actionPlanService.principlesActionPlanReady; else noFundamentalPrinciples">
+            <h2>{{ 'summary.action_plan.measures' | translate }}</h2>
+            <ng-container *ngIf="_actionPlanService.measuresActionPlanReady; else noMeasures">
               <div class="actionplanbox">
-                <div *ngFor="let entry of _actionPlanService.results">
+                <div *ngFor="let entry of _actionPlanService.measures">
                   <div style="border:0.5px dotted #A7A7A7;padding:6px;margin:10px 0;" *ngIf="entry.action_plan_comment && entry.action_plan_comment.length > 0">
                     <h3 style="margin-bottom:2px;">{{ entry.short_title | translate }}</h3>
                     <div>
@@ -250,7 +288,7 @@
                       <strong>{{ 'evaluations.evaluation_comment' | translate }} :<br></strong>
                       <span [innerHTML]="entry.evaluation_comment | safeHtml"></span>
                     </div>
-                    <div *ngIf="entry.evaluation && entry.evaluation.estimated_implementation_date && entry.evaluation.estimated_implementation_date .toString() !== 'Invalid Date'">
+                    <div *ngIf="entry.evaluation && entry.evaluation.estimated_implementation_date && entry.evaluation.estimated_implementation_date.toString() !== 'Invalid Date'">
                       <strong>{{ 'summary.action_plan.implementation_date' | translate }} : </strong>
                       <time>{{ entry.evaluation.estimated_implementation_date | date: 'dd/MM/yyyy' }}</time>
                     </div>
@@ -262,185 +300,150 @@
                 </div>
               </div>
             </ng-container>
-            <ng-template #noFundamentalPrinciples>
+            <ng-template #noMeasures>
               <div class="actionplanbox">
                 {{ 'summary.action_plan.no_action_plan' |  translate }}
               </div>
             </ng-template>
           </div>
-        </div>
 
-        <!-- Action plan for measures -->
-        <div>
-          <h2>{{ 'summary.action_plan.measures' | translate }}</h2>
-          <ng-container *ngIf="_actionPlanService.measuresActionPlanReady; else noMeasures">
-            <div class="actionplanbox">
-              <div *ngFor="let entry of _actionPlanService.measures">
-                <div style="border:0.5px dotted #A7A7A7;padding:6px;margin:10px 0;" *ngIf="entry.action_plan_comment && entry.action_plan_comment.length > 0">
-                  <h3 style="margin-bottom:2px;">{{ entry.short_title | translate }}</h3>
-                  <div>
-                    <strong>{{ 'evaluations.action_plan_comment' | translate }} :<br></strong>
-                    <span [innerHTML]="entry.action_plan_comment | translate | safeHtml"></span>
-                  </div>
-                  <div *ngIf="entry.evaluation_comment && entry.evaluation_comment.length > 0">
-                    <strong>{{ 'evaluations.evaluation_comment' | translate }} :<br></strong>
-                    <span [innerHTML]="entry.evaluation_comment | safeHtml"></span>
-                  </div>
-                  <div *ngIf="entry.evaluation && entry.evaluation.estimated_implementation_date && entry.evaluation.estimated_implementation_date.toString() !== 'Invalid Date'">
-                    <strong>{{ 'summary.action_plan.implementation_date' | translate }} : </strong>
-                    <time>{{ entry.evaluation.estimated_implementation_date | date: 'dd/MM/yyyy' }}</time>
-                  </div>
-                  <div *ngIf="entry.evaluation && entry.evaluation.person_in_charge">
-                    <strong>{{ 'summary.action_plan.implementation_responsible' | translate }} : </strong>
-                    {{ entry.evaluation.person_in_charge }}
-                  </div>
+          <!-- Action plan for risks -->
+          <div>
+            <!-- Risk 1 -->
+            <div *ngIf="_actionPlanService.risksActionPlan32Ready">
+              <h2 style="margin-bottom:2px;">{{ 'summary.action_plan.risks' | translate }} - {{ _actionPlanService.risks['3.2'].short_title | translate }}</h2>
+              <div class="actionplanbox">
+                <strong>{{ 'evaluations.action_plan_comment' | translate }} : </strong>
+                <div [innerHTML]="_actionPlanService.risks['3.2'].action_plan_comment | translate | safeHtml"></div>
+                <div *ngIf="_actionPlanService.risks['3.2'].evaluation_comment && _actionPlanService.risks['3.2'].evaluation_comment.length > 0">
+                  <strong>{{ 'evaluations.evaluation_comment' | translate }} :<br></strong>
+                  <span [innerHTML]="_actionPlanService.risks['3.2'].evaluation_comment | safeHtml"></span>
                 </div>
+
+                <!-- Estimated implementation date & implementation responsible -->
+                <div class="estimated-implementation-date" *ngIf="_actionPlanService.risks['3.2'].evaluation && _actionPlanService.risks['3.2'].evaluation.estimated_implementation_date && _actionPlanService.risks['3.2'].evaluation.estimated_implementation_date.toString() !== 'Invalid Date'">
+                  <strong>{{ 'summary.action_plan.implementation_date' | translate }} : </strong>
+                  <time>{{ _actionPlanService.risks['3.2'].evaluation.estimated_implementation_date | date: 'dd/MM/yyyy' }}</time>
+                </div>
+                <div class="implementation-responsible" *ngIf="_actionPlanService.risks['3.2'].evaluation && _actionPlanService.risks['3.2'].evaluation.person_in_charge && _actionPlanService.risks['3.2'].evaluation.person_in_charge.length > 0">
+                  <strong>{{ 'summary.action_plan.implementation_responsible' | translate }} : </strong>
+                  {{ _actionPlanService.risks['3.2'].evaluation.person_in_charge }}
+                </div>
+
+                <!-- Reviewer gauges -->
+                <span *ngIf="_actionPlanService.risks['3.2'].evaluation.gauges && _actionPlanService.risks['3.2'].evaluation.gauges.x > 0">
+                  <span [innerHTML]="'evaluations.gauges.seriousness' | translate:{value: _actionPlanService.risks['3.2'].short_title}"></span>
+                  <strong>{{ 'evaluations.gauges.' + _actionPlanService.risks['3.2'].evaluation.gauges.x | translate }}</strong>
+                  <br>
+                </span>
+                <span *ngIf="_actionPlanService.risks['3.2'].evaluation.gauges && _actionPlanService.risks['3.2'].evaluation.gauges.y > 0">
+                  <span [innerHTML]="'evaluations.gauges.likelihood' | translate:{value: _actionPlanService.risks['3.2'].short_title}"></span>
+                  <strong>{{ 'evaluations.gauges.' + _actionPlanService.risks['3.2'].evaluation.gauges.y | translate }}</strong>
+                </span>
+
               </div>
             </div>
-          </ng-container>
-          <ng-template #noMeasures>
-            <div class="actionplanbox">
-              {{ 'summary.action_plan.no_action_plan' |  translate }}
+
+            <!-- Risk 2 -->
+            <div *ngIf="_actionPlanService.risksActionPlan33Ready">
+              <h2 style="margin-bottom:2px;">{{ 'summary.action_plan.risks' | translate }} - {{ _actionPlanService.risks['3.3'].short_title | translate }}</h2>
+              <div class="actionplanbox">
+                <strong>{{ 'evaluations.action_plan_comment' | translate }} : </strong>
+                <div [innerHTML]="_actionPlanService.risks['3.3'].action_plan_comment | translate | safeHtml"></div>
+                <div *ngIf="_actionPlanService.risks['3.3'].evaluation_comment && _actionPlanService.risks['3.3'].evaluation_comment.length > 0">
+                  <strong>{{ 'evaluations.evaluation_comment' | translate }} :<br></strong>
+                  <span [innerHTML]="_actionPlanService.risks['3.3'].evaluation_comment | safeHtml"></span>
+                </div>
+
+                <!-- Estimated implementation date & implementation responsible -->
+                <div class="estimated-implementation-date" *ngIf="_actionPlanService.risks['3.3'].evaluation && _actionPlanService.risks['3.3'].evaluation.estimated_implementation_date && _actionPlanService.risks['3.3'].evaluation.estimated_implementation_date.toString() !== 'Invalid Date'">
+                  <strong>{{ 'summary.action_plan.implementation_date' | translate }} : </strong>
+                  <time>{{ _actionPlanService.risks['3.3'].evaluation.estimated_implementation_date | date: 'dd/MM/yyyy' }}</time>
+                </div>
+                <div class="implementation-responsible" *ngIf="_actionPlanService.risks['3.3'].evaluation && _actionPlanService.risks['3.3'].evaluation.person_in_charge && _actionPlanService.risks['3.3'].evaluation.person_in_charge.length > 0">
+                  <strong>{{ 'summary.action_plan.implementation_responsible' | translate }} : </strong>
+                  {{ _actionPlanService.risks['3.3'].evaluation.person_in_charge }}
+                </div>
+
+                <!-- Reviewer gauges -->
+                <span *ngIf="_actionPlanService.risks['3.3'].evaluation.gauges && _actionPlanService.risks['3.3'].evaluation.gauges.x > 0">
+                  <span [innerHTML]="'evaluations.gauges.seriousness' | translate:{value: _actionPlanService.risks['3.3'].short_title}"></span>
+                  <strong>{{ 'evaluations.gauges.' + _actionPlanService.risks['3.3'].evaluation.gauges.x | translate }}</strong>
+                  <br>
+                </span>
+                <span *ngIf="_actionPlanService.risks['3.3'].evaluation.gauges && _actionPlanService.risks['3.3'].evaluation.gauges.y > 0">
+                  <span [innerHTML]="'evaluations.gauges.likelihood' | translate:{value: _actionPlanService.risks['3.3'].short_title}"></span>
+                  <strong>{{ 'evaluations.gauges.' + _actionPlanService.risks['3.3'].evaluation.gauges.y | translate }}</strong>
+                </span>
+
+              </div>
             </div>
-          </ng-template>
+
+            <!-- Risk 3 -->
+            <div *ngIf="_actionPlanService.risksActionPlan34Ready">
+              <h2 style="margin-bottom:2px;">{{ 'summary.action_plan.risks' | translate }} - {{ _actionPlanService.risks['3.4'].short_title | translate }}</h2>
+              <div class="actionplanbox">
+                <strong>{{ 'evaluations.action_plan_comment' | translate }} : </strong>
+                <div [innerHTML]="_actionPlanService.risks['3.4'].action_plan_comment | translate | safeHtml"></div>
+                <div *ngIf="_actionPlanService.risks['3.4'].evaluation_comment && _actionPlanService.risks['3.4'].evaluation_comment.length > 0">
+                  <strong>{{ 'evaluations.evaluation_comment' | translate }} :<br></strong>
+                  <span [innerHTML]="_actionPlanService.risks['3.4'].evaluation_comment | safeHtml"></span>
+                </div>
+
+                <!-- Estimated implementation date & implementation responsible -->
+                <div class="estimated-implementation-date" *ngIf="_actionPlanService.risks['3.4'].evaluation && _actionPlanService.risks['3.4'].evaluation.estimated_implementation_date && _actionPlanService.risks['3.4'].evaluation.estimated_implementation_date.toString() !== 'Invalid Date'">
+                  <strong>{{ 'summary.action_plan.implementation_date' | translate }} : </strong>
+                  <time>{{ _actionPlanService.risks['3.4'].evaluation.estimated_implementation_date | date: 'dd/MM/yyyy' }}</time>
+                </div>
+                <div class="implementation-responsible" *ngIf="_actionPlanService.risks['3.4'].evaluation && _actionPlanService.risks['3.4'].evaluation.person_in_charge && _actionPlanService.risks['3.4'].evaluation.person_in_charge.length > 0">
+                  <strong>{{ 'summary.action_plan.implementation_responsible' | translate }} : </strong>
+                  {{ _actionPlanService.risks['3.4'].evaluation.person_in_charge }}
+                </div>
+
+                <!-- Reviewer gauges -->
+                <span *ngIf="_actionPlanService.risks['3.4'].evaluation.gauges && _actionPlanService.risks['3.4'].evaluation.gauges.x > 0">
+                  <span [innerHTML]="'evaluations.gauges.seriousness' | translate:{value: _actionPlanService.risks['3.4'].short_title}"></span>
+                  <strong>{{ 'evaluations.gauges.' + _actionPlanService.risks['3.4'].evaluation.gauges.x | translate }}</strong>
+                  <br>
+                </span>
+                <span *ngIf="_actionPlanService.risks['3.4'].evaluation.gauges && _actionPlanService.risks['3.4'].evaluation.gauges.y > 0">
+                  <span [innerHTML]="'evaluations.gauges.likelihood' | translate:{value: _actionPlanService.risks['3.4'].short_title}"></span>
+                  <strong>{{ 'evaluations.gauges.' + _actionPlanService.risks['3.4'].evaluation.gauges.y | translate }}</strong>
+                </span>
+
+              </div>
+            </div>
+
+            <!-- No actions plan for risks -->
+            <div *ngIf="!_actionPlanService.risksActionPlan32Ready && !_actionPlanService.risksActionPlan33Ready && !_actionPlanService.risksActionPlan34Ready">
+              <h2 style="margin-bottom:2px;">{{ 'summary.action_plan.risks' | translate }}</h2>
+              <div class="actionplanbox">
+                {{ 'summary.action_plan.no_action_plan' |  translate }}
+              </div>
+            </div>
+
+          </div>
         </div>
-
-        <!-- Action plan for risks -->
-        <div>
-          <!-- Risk 1 -->
-          <div *ngIf="_actionPlanService.risksActionPlan32Ready">
-            <h2 style="margin-bottom:2px;">{{ 'summary.action_plan.risks' | translate }} - {{ _actionPlanService.risks['3.2'].short_title | translate }}</h2>
-            <div class="actionplanbox">
-              <strong>{{ 'evaluations.action_plan_comment' | translate }} : </strong>
-              <div [innerHTML]="_actionPlanService.risks['3.2'].action_plan_comment | translate | safeHtml"></div>
-              <div *ngIf="_actionPlanService.risks['3.2'].evaluation_comment && _actionPlanService.risks['3.2'].evaluation_comment.length > 0">
-                <strong>{{ 'evaluations.evaluation_comment' | translate }} :<br></strong>
-                <span [innerHTML]="_actionPlanService.risks['3.2'].evaluation_comment | safeHtml"></span>
-              </div>
-
-              <!-- Estimated implementation date & implementation responsible -->
-              <div class="estimated-implementation-date" *ngIf="_actionPlanService.risks['3.2'].evaluation && _actionPlanService.risks['3.2'].evaluation.estimated_implementation_date && _actionPlanService.risks['3.2'].evaluation.estimated_implementation_date.toString() !== 'Invalid Date'">
-                <strong>{{ 'summary.action_plan.implementation_date' | translate }} : </strong>
-                <time>{{ _actionPlanService.risks['3.2'].evaluation.estimated_implementation_date | date: 'dd/MM/yyyy' }}</time>
-              </div>
-              <div class="implementation-responsible" *ngIf="_actionPlanService.risks['3.2'].evaluation && _actionPlanService.risks['3.2'].evaluation.person_in_charge && _actionPlanService.risks['3.2'].evaluation.person_in_charge.length > 0">
-                <strong>{{ 'summary.action_plan.implementation_responsible' | translate }} : </strong>
-                {{ _actionPlanService.risks['3.2'].evaluation.person_in_charge }}
-              </div>
-
-              <!-- Reviewer gauges -->
-              <span *ngIf="_actionPlanService.risks['3.2'].evaluation.gauges && _actionPlanService.risks['3.2'].evaluation.gauges.x > 0">
-                <span [innerHTML]="'evaluations.gauges.seriousness' | translate:{value: _actionPlanService.risks['3.2'].short_title}"></span>
-                <strong>{{ 'evaluations.gauges.' + _actionPlanService.risks['3.2'].evaluation.gauges.x | translate }}</strong>
-                <br>
-              </span>
-              <span *ngIf="_actionPlanService.risks['3.2'].evaluation.gauges && _actionPlanService.risks['3.2'].evaluation.gauges.y > 0">
-                <span [innerHTML]="'evaluations.gauges.likelihood' | translate:{value: _actionPlanService.risks['3.2'].short_title}"></span>
-                <strong>{{ 'evaluations.gauges.' + _actionPlanService.risks['3.2'].evaluation.gauges.y | translate }}</strong>
-              </span>
-
-            </div>
-          </div>
-
-          <!-- Risk 2 -->
-          <div *ngIf="_actionPlanService.risksActionPlan33Ready">
-            <h2 style="margin-bottom:2px;">{{ 'summary.action_plan.risks' | translate }} - {{ _actionPlanService.risks['3.3'].short_title | translate }}</h2>
-            <div class="actionplanbox">
-              <strong>{{ 'evaluations.action_plan_comment' | translate }} : </strong>
-              <div [innerHTML]="_actionPlanService.risks['3.3'].action_plan_comment | translate | safeHtml"></div>
-              <div *ngIf="_actionPlanService.risks['3.3'].evaluation_comment && _actionPlanService.risks['3.3'].evaluation_comment.length > 0">
-                <strong>{{ 'evaluations.evaluation_comment' | translate }} :<br></strong>
-                <span [innerHTML]="_actionPlanService.risks['3.3'].evaluation_comment | safeHtml"></span>
-              </div>
-
-              <!-- Estimated implementation date & implementation responsible -->
-              <div class="estimated-implementation-date" *ngIf="_actionPlanService.risks['3.3'].evaluation && _actionPlanService.risks['3.3'].evaluation.estimated_implementation_date && _actionPlanService.risks['3.3'].evaluation.estimated_implementation_date.toString() !== 'Invalid Date'">
-                <strong>{{ 'summary.action_plan.implementation_date' | translate }} : </strong>
-                <time>{{ _actionPlanService.risks['3.3'].evaluation.estimated_implementation_date | date: 'dd/MM/yyyy' }}</time>
-              </div>
-              <div class="implementation-responsible" *ngIf="_actionPlanService.risks['3.3'].evaluation && _actionPlanService.risks['3.3'].evaluation.person_in_charge && _actionPlanService.risks['3.3'].evaluation.person_in_charge.length > 0">
-                <strong>{{ 'summary.action_plan.implementation_responsible' | translate }} : </strong>
-                {{ _actionPlanService.risks['3.3'].evaluation.person_in_charge }}
-              </div>
-
-              <!-- Reviewer gauges -->
-              <span *ngIf="_actionPlanService.risks['3.3'].evaluation.gauges && _actionPlanService.risks['3.3'].evaluation.gauges.x > 0">
-                <span [innerHTML]="'evaluations.gauges.seriousness' | translate:{value: _actionPlanService.risks['3.3'].short_title}"></span>
-                <strong>{{ 'evaluations.gauges.' + _actionPlanService.risks['3.3'].evaluation.gauges.x | translate }}</strong>
-                <br>
-              </span>
-              <span *ngIf="_actionPlanService.risks['3.3'].evaluation.gauges && _actionPlanService.risks['3.3'].evaluation.gauges.y > 0">
-                <span [innerHTML]="'evaluations.gauges.likelihood' | translate:{value: _actionPlanService.risks['3.3'].short_title}"></span>
-                <strong>{{ 'evaluations.gauges.' + _actionPlanService.risks['3.3'].evaluation.gauges.y | translate }}</strong>
-              </span>
-
-            </div>
-          </div>
-
-          <!-- Risk 3 -->
-          <div *ngIf="_actionPlanService.risksActionPlan34Ready">
-            <h2 style="margin-bottom:2px;">{{ 'summary.action_plan.risks' | translate }} - {{ _actionPlanService.risks['3.4'].short_title | translate }}</h2>
-            <div class="actionplanbox">
-              <strong>{{ 'evaluations.action_plan_comment' | translate }} : </strong>
-              <div [innerHTML]="_actionPlanService.risks['3.4'].action_plan_comment | translate | safeHtml"></div>
-              <div *ngIf="_actionPlanService.risks['3.4'].evaluation_comment && _actionPlanService.risks['3.4'].evaluation_comment.length > 0">
-                <strong>{{ 'evaluations.evaluation_comment' | translate }} :<br></strong>
-                <span [innerHTML]="_actionPlanService.risks['3.4'].evaluation_comment | safeHtml"></span>
-              </div>
-
-              <!-- Estimated implementation date & implementation responsible -->
-              <div class="estimated-implementation-date" *ngIf="_actionPlanService.risks['3.4'].evaluation && _actionPlanService.risks['3.4'].evaluation.estimated_implementation_date && _actionPlanService.risks['3.4'].evaluation.estimated_implementation_date.toString() !== 'Invalid Date'">
-                <strong>{{ 'summary.action_plan.implementation_date' | translate }} : </strong>
-                <time>{{ _actionPlanService.risks['3.4'].evaluation.estimated_implementation_date | date: 'dd/MM/yyyy' }}</time>
-              </div>
-              <div class="implementation-responsible" *ngIf="_actionPlanService.risks['3.4'].evaluation && _actionPlanService.risks['3.4'].evaluation.person_in_charge && _actionPlanService.risks['3.4'].evaluation.person_in_charge.length > 0">
-                <strong>{{ 'summary.action_plan.implementation_responsible' | translate }} : </strong>
-                {{ _actionPlanService.risks['3.4'].evaluation.person_in_charge }}
-              </div>
-
-              <!-- Reviewer gauges -->
-              <span *ngIf="_actionPlanService.risks['3.4'].evaluation.gauges && _actionPlanService.risks['3.4'].evaluation.gauges.x > 0">
-                <span [innerHTML]="'evaluations.gauges.seriousness' | translate:{value: _actionPlanService.risks['3.4'].short_title}"></span>
-                <strong>{{ 'evaluations.gauges.' + _actionPlanService.risks['3.4'].evaluation.gauges.x | translate }}</strong>
-                <br>
-              </span>
-              <span *ngIf="_actionPlanService.risks['3.4'].evaluation.gauges && _actionPlanService.risks['3.4'].evaluation.gauges.y > 0">
-                <span [innerHTML]="'evaluations.gauges.likelihood' | translate:{value: _actionPlanService.risks['3.4'].short_title}"></span>
-                <strong>{{ 'evaluations.gauges.' + _actionPlanService.risks['3.4'].evaluation.gauges.y | translate }}</strong>
-              </span>
-
-            </div>
-          </div>
-
-          <!-- No actions plan for risks -->
-          <div *ngIf="!_actionPlanService.risksActionPlan32Ready && !_actionPlanService.risksActionPlan33Ready && !_actionPlanService.risksActionPlan34Ready">
-            <h2 style="margin-bottom:2px;">{{ 'summary.action_plan.risks' | translate }}</h2>
-            <div class="actionplanbox">
-              {{ 'summary.action_plan.no_action_plan' |  translate }}
-            </div>
-          </div>
-
-        </div>
+      </ng-container>
+    </div>
+  </div>
+  <ng-container *ngIf="pia?.type === piaTypes?.advanced">
+    <!-- Risks overview -->
+    <div class="pia-summaryRisksOverviewBlock pagebreak" *ngIf="displayRisksOverview">
+      <h1>{{ 'summary.risks_overview_title' |  translate }}</h1>
+      <div class="risksOverview">
+        <div class="app-overview-risks"></div>
       </div>
     </div>
-  </div>
 
-  <!-- Risks overview -->
-  <div class="pia-summaryRisksOverviewBlock pagebreak" *ngIf="displayRisksOverview">
-    <h1>{{ 'summary.risks_overview_title' |  translate }}</h1>
-    <div class="risksOverview">
-      <div class="app-overview-risks"></div>
+    <!-- Risks cartography -->
+    <div class="pia-summaryRisksCartographyBlock pagebreak" *ngIf="displayRisksCartography">
+      <h1>{{ 'summary.risks_cartography_title' |  translate }}</h1>
+      <div>
+        <div class="app-risks-cartography"></div>
+      </div>
     </div>
-  </div>
-
-  <!-- Risks cartography -->
-  <div class="pia-summaryRisksCartographyBlock pagebreak" *ngIf="displayRisksCartography">
-    <h1>{{ 'summary.risks_cartography_title' |  translate }}</h1>
-    <div>
-      <div class="app-risks-cartography"></div>
-    </div>
-  </div>
-
+  </ng-container>
 </main>
 
 <app-modals></app-modals>

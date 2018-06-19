@@ -87,75 +87,76 @@
           color: #fff!important;
         }
       }
-      > div {
-        &:first-child {
-          .pia-sectionBlock-title {
-            color: $pia-green;
-            border-color: $pia-green;
-          }
-          hr {
-            max-width: 164px;
-          }
-          a {
-            &:focus, &:hover, &:active, &.active {
-              background-color: $pia-green;
-            }
-          }
-          .fa-pencil-square-o.pia-fa-valid, .fa-cog.pia-fa-valid, .fa-check-square-o {
-            color: $pia-green;
+      
+      #context-section {
+        .pia-sectionBlock-title {
+          color: $pia-green;
+          border-color: $pia-green;
+        }
+        hr {
+          max-width: 164px;
+        }
+        a {
+          &:focus, &:hover, &:active, &.active {
+            background-color: $pia-green;
           }
         }
-        &:nth-child(2) {
-          .pia-sectionBlock-title {
-            color: $pia-blue;
-            border-color: $pia-blue;
-          }
-          hr {
-            max-width: 62px;
-          }
-          a {
-            &:focus, &:hover, &:active, &.active {
-              background-color: $pia-blue;
-            }
-          }
-          .fa-pencil-square-o.pia-fa-valid, .fa-cog.pia-fa-valid, .fa-check-square-o {
-            color: $pia-blue;
+        .fa-pencil-square-o.pia-fa-valid, .fa-cog.pia-fa-valid, .fa-check-square-o {
+          color: $pia-green;
+        }
+      }
+      #principles-section {
+        .pia-sectionBlock-title {
+          color: $pia-blue;
+          border-color: $pia-blue;
+        }
+        hr {
+          max-width: 62px;
+        }
+        a {
+          &:focus, &:hover, &:active, &.active {
+            background-color: $pia-blue;
           }
         }
-        &:nth-child(3) {
-          .pia-sectionBlock-title {
-            color: $pia-red;
-            border-color: $pia-red;
-          }
-          hr {
-            max-width: 182px;
-          }
-          a {
-            &:focus, &:hover, &:active, &.active {
-              background-color: $pia-red;
-            }
-          }
-          .fa-pencil-square-o.pia-fa-valid, .fa-cog.pia-fa-valid, .fa-check-square-o {
-            color: $pia-red;
+        .fa-pencil-square-o.pia-fa-valid, .fa-cog.pia-fa-valid, .fa-check-square-o {
+          color: $pia-blue;
+        }
+      }
+      
+      #risks-section {
+        .pia-sectionBlock-title {
+          color: $pia-red;
+          border-color: $pia-red;
+        }
+        hr {
+          max-width: 182px;
+        }
+        a {
+          &:focus, &:hover, &:active, &.active {
+            background-color: $pia-red;
           }
         }
-        &:last-child {
-          .pia-sectionBlock-title {
-            color: $pia-dark-black;
-            border-color: $pia-dark-black;
-            display: block;
+        .fa-pencil-square-o.pia-fa-valid, .fa-cog.pia-fa-valid, .fa-check-square-o {
+          color: $pia-red;
+        }
+      }
+      
+      #validation-section {
+        .pia-sectionBlock-title {
+          color: $pia-dark-black;
+          border-color: $pia-dark-black;
+          display: block;
+        }
+        hr {
+          display: none;
+        }
+        a {
+          &:focus, &:hover, &:active, &.active {
+            background-color: $pia-dark-black;
           }
-          hr {
-            display: none;
-          }
-          a {
-            &:focus, &:hover, &:active, &.active {
-              background-color: $pia-dark-black;
-            }
-          }
-          .fa-cog.pia-fa-valid, .fa-check-square-o {
-            color: $pia-dark-black;
-          }
+        }
+        .fa-cog.pia-fa-valid, .fa-check-square-o {
+          color: $pia-dark-black;
         }
       }
     }

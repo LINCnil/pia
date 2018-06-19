@@ -88,7 +88,7 @@
       "import_pia": "Importer PIA",
       "placeholder_import_pia": "Importer PIA",
       "title_close_creation": "Fermer",
-      "pia_name": "PIA",
+      "pia_name": "Nom",
       "folder_name": "Nom du dossier",
       "create_folder": "Créer le dossier",
       "placeholder_pia_name": "Intitulé du PIA",
@@ -103,6 +103,12 @@
       "creation_status": "Création",
       "start": "Commencer",
       "placeholder_start": "Tous les champs doivent être remplis",
+      "pia_type": "Type",
+      "pia_types": {
+        "regular": "Traitement",
+        "simplified": "Traitement simplifié",
+        "advanced"  : "Traitement Avec analyse d'impact"
+      },
       "folder": {
         "title": "Dossier",
         "parent": "Dossier parent",

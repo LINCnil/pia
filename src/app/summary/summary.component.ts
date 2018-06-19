@@ -13,9 +13,9 @@ import { ModalsService } from '../modals/modals.service';
 import { PiaService } from 'app/entry/pia.service';
 import { AttachmentsService } from 'app/entry/attachments/attachments.service';
 
-// new import
 import { EvaluationModel, AnswerModel, MeasureModel } from '@api/models';
 import { EvaluationApi, AnswerApi, MeasureApi } from '@api/services';
+import { PiaType } from '@api/model/pia.model';
 
 @Component({
   selector: 'app-summary',
@@ -38,6 +38,8 @@ export class SummaryComponent implements OnInit {
   displayOnlyActionPlan: boolean;
   displayRisksOverview: boolean;
   displayRisksCartography: boolean;
+  piaTypes: any;
+  sections: any;
 
   constructor(private el: ElementRef,
     private route: ActivatedRoute,
@@ -58,6 +60,7 @@ export class SummaryComponent implements OnInit {
 
     this.content = [];
     this.dataNav = await this._appDataService.getDataNav();
+    this.piaTypes = PiaType;
 
     this.pia = this._piaService.pia;
     this.displayMainPiaData = true;
@@ -76,6 +79,21 @@ export class SummaryComponent implements OnInit {
       }
     });
 
+    const dataNav = await this._appDataService.getDataNav();
+    let sections = {...dataNav.sections};
+
+    if(this.pia.type == PiaType.regular) {
+      delete sections[3];
+      delete sections[2];
+    }
+
+    if(this.pia.type === PiaType.simplified) {
+      delete sections[3];
+      delete sections[2];
+      delete sections[1];
+    }
+
+    this.sections = Object.values(sections);
   }
 
   downloadAllGraphsAsImages() {

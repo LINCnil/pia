@@ -1,0 +1,37 @@
+select {
+	height: 3rem;
+	margin-left: -3px;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	border: 1px solid #fff;
+	border-radius: 0;
+	background-color: #fefefe;
+	font-family: inherit;
+	font-size: 1.3rem;
+	font-weight: normal;
+	line-height: 1.5;
+	color: #0a0a0a;
+	transition: box-shadow 0.5s, border-color 0.25s ease-in-out; 
+	&:hover {
+		outline: 1px dotted $pia-green;
+	}
+	&:focus {
+		outline: 1px dotted $pia-green;
+		border: 1px solid #8a8a8a;
+		background-color: #fefefe;
+		box-shadow: 0 0 5px #cacaca;
+		transition: box-shadow 0.5s, border-color 0.25s ease-in-out;
+	}
+	&:disabled {
+		background-color: #e6e6e6;
+		cursor: not-allowed; 
+	}
+	&::-ms-expand {
+		display: none; 
+	}
+	&[multiple] {
+	  	height: auto;
+	  	background-image: none; 
+	}
+}
