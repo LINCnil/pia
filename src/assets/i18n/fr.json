@@ -107,7 +107,7 @@
       "pia_types": {
         "regular": "Traitement",
         "simplified": "Traitement simplifié",
-        "advanced"  : "Traitement Avec analyse d'impact"
+        "advanced"  : "Traitement avec analyse d'impact"
       },
       "folder": {
         "title": "Dossier",

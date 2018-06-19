@@ -47,6 +47,6 @@ export class ListItemFolderComponent implements OnInit {
    */
   removeFolder(id: string) {
     localStorage.setItem('folder-id', id);
-    this._modalsService.openModal('modal-remove-pia-folder');
+    this._modalsService.openModal('modal-remove-folder');
   }
 }

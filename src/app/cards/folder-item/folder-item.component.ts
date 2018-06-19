@@ -48,6 +48,6 @@ export class FolderItemComponent implements OnInit {
 
   removeFolder(folder: FolderModel) {
     localStorage.setItem('folder-id', folder.id);
-    this._modalsService.openModal('modal-remove-pia-folder');
+    this._modalsService.openModal('modal-remove-folder');
   }
 }

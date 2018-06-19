@@ -79,9 +79,10 @@ export class ModalsComponent implements OnInit {
     pia.author_name = this.piaForm.value.author_name;
     pia.evaluator_name = this.piaForm.value.evaluator_name;
     pia.validator_name = this.piaForm.value.validator_name;
-    pia.type = this.piaForm.value.type;
+    pia.type = "advanced";//this.piaForm.value.type;
 
     this.piaApi.create(pia, this._piaService.currentFolder).subscribe((newPia: PiaModel) => {
+      this.piaForm.reset();
       this.router.navigate(['entry', newPia.id, 'section', 1, 'item', 1]);
     });
   }
@@ -98,6 +99,7 @@ export class ModalsComponent implements OnInit {
 
     this._folderApi.create(folder).subscribe((newFolder: FolderModel) => {
       this._modalsService.closeModal();
+      this.folderForm.reset();
       this._piaService.currentFolder.children.push(newFolder);
     });
   }
