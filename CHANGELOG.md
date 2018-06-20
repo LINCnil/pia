@@ -1,6 +1,16 @@
 # Change Log
 
-## [1.0.2](https://github.com/pia-lab/pialab/tree/1.0.2) (2018-06-18)
+## [1.1.0](https://github.com/pia-lab/pialab/tree/1.1.0) (2018-06-20)
+[Full Changelog](https://github.com/pia-lab/pialab/compare/v1.1.0...1.1.0)
+
+## [v1.1.0](https://github.com/pia-lab/pialab/tree/v1.1.0) (2018-06-20)
+[Full Changelog](https://github.com/pia-lab/pialab/compare/1.0.2...v1.1.0)
+
+**Merged pull requests:**
+
+- Pia types [\#23](https://github.com/pia-lab/pialab/pull/23) ([RomainSanchez](https://github.com/RomainSanchez))
+
+## [1.0.2](https://github.com/pia-lab/pialab/tree/1.0.2) (2018-06-19)
 [Full Changelog](https://github.com/pia-lab/pialab/compare/1.0.1...1.0.2)
 
 **Merged pull requests:**
