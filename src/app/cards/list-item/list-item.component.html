@@ -1,5 +1,5 @@
 <td class="pia-listsBlock-item">
-  <div contenteditable (focusout)="onFocusOut('name', $event)">{{ pia.name }}</div>
+  <div [attr.contenteditable]="canCreatePIA" (focusout)="onFocusOut('name', $event)">{{ pia.name }}</div>
   <div *ngIf="attachments && attachments.length > 0" class="pia-listsBlock-item-attachment" aria-hidden="true">
     <span class="pia-icons pia-icon-attachment"></span>
     <ul>
@@ -12,9 +12,9 @@
   </div>
 </td>
 <td class="pia-listsBlock-item"><time *ngIf="pia.updated_at">{{ pia.updated_at | date: 'dd/MM/yyyy' }}</time></td>
-<td class="pia-listsBlock-item"><div contenteditable (focusout)="onFocusOut('author_name', $event)">{{ pia.author_name }}</div></td>
-<td class="pia-listsBlock-item"><div contenteditable (focusout)="onFocusOut('evaluator_name', $event)">{{ pia.evaluator_name }}</div></td>
-<td class="pia-listsBlock-item"><div contenteditable (focusout)="onFocusOut('validator_name', $event)">{{ pia.validator_name }}</div></td>
+<td class="pia-listsBlock-item"><div [attr.contenteditable]="canCreatePIA" (focusout)="onFocusOut('author_name', $event)">{{ pia.author_name }}</div></td>
+<td class="pia-listsBlock-item"><div [attr.contenteditable]="canCreatePIA" (focusout)="onFocusOut('evaluator_name', $event)">{{ pia.evaluator_name }}</div></td>
+<td class="pia-listsBlock-item"><div [attr.contenteditable]="canCreatePIA" (focusout)="onFocusOut('validator_name', $event)">{{ pia.validator_name }}</div></td>
 <td class="pia-listsBlock-item"><time>{{ pia.created_at | date: 'dd/MM/yyyy' }}</time></td>
 <td class="pia-listsBlock-item" *ngIf="pia.status === 0 && pia.progress === 100;else defaultStatuses">
   {{ 'pia.statuses.5' | translate }}
@@ -34,11 +34,11 @@
       <span *ngIf="pia.status === 0" class="pia-tooltip-text">{{ 'homepage.lists.item.tools.edit' | translate }}</span>
       <span *ngIf="pia.status > 0" class="pia-tooltip-text">{{ 'homepage.lists.item.tools.consult' | translate }}</span>
     </a>
-    <a href="javascript:;" (click)="export(pia.id)" class="btn pia-tooltip">
+    <a href="javascript:;" *ngxPermissionsOnly="['CanExportPIA']" (click)="export(pia.id)" class="btn pia-tooltip">
       <i class="fa fa-download" aria-hidden="true"></i>
       <span class="pia-tooltip-text">{{ 'homepage.lists.item.tools.export' | translate }}</span>
     </a>
-    <a href="javascript:;" (click)="_piaService.duplicate(pia.id)" class="btn pia-tooltip">
+    <a href="javascript:;" *ngxPermissionsOnly="['CanCreatePIA']" (click)="_piaService.duplicate(pia.id)" class="btn pia-tooltip">
       <i class="fa fa-files-o" aria-hidden="true"></i>
       <span class="pia-tooltip-text">{{ 'homepage.lists.item.tools.duplicate' | translate }}</span>
     </a>
@@ -50,7 +50,7 @@
       <i class="fa fa-file-text-o" aria-hidden="true"></i>
       <span class="pia-tooltip-text">{{ 'homepage.lists.item.tools.pia' | translate }}</span>
     </a>
-    <a href="javascript:;" (click)="removePia(pia.id)" class="btn pia-tooltip">
+    <a href="javascript:;" *ngxPermissionsOnly="['CanCreatePIA']" (click)="removePia(pia.id)" class="btn pia-tooltip">
       <i class="fa fa-trash-o" aria-hidden="true"></i>
       <span class="pia-tooltip-text">{{ 'homepage.lists.item.tools.remove' | translate }}</span>
     </a>

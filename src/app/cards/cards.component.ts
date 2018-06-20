@@ -11,6 +11,7 @@ import { PiaService } from 'app/entry/pia.service';
 
 import { PiaModel, FolderModel } from '@api/models';
 import { PiaApi, FolderApi } from '@api/services';
+import { PermissionsService } from '@security/permissions.service';
 
 @Component({
   selector: 'app-cards',
@@ -31,6 +32,7 @@ export class CardsComponent implements OnInit, OnDestroy {
   paramsSubscribe: Subscription;
   folderId: number;
   itemToMove: any = null;
+  canCreatePIA: boolean;
 
   constructor(
     private router: Router,
@@ -39,10 +41,16 @@ export class CardsComponent implements OnInit, OnDestroy {
     public _modalsService: ModalsService,
     public _piaService: PiaService,
     private piaApi: PiaApi,
-    private folderApi: FolderApi
+    private folderApi: FolderApi,
+    private permissionsService: PermissionsService
   ) { }
 
   ngOnInit() {
+    // add permission verification
+    const hasPerm$ = this.permissionsService.hasPermission('CanCreatePIA');
+    hasPerm$.then((bool: boolean) => {
+      this.canCreatePIA = bool;
+    });
     this.applySortOrder();
     this.initPiaForm();
   }
@@ -250,9 +258,9 @@ export class CardsComponent implements OnInit, OnDestroy {
   }
 
   onDrop(targetFolder: FolderModel) {
-    if(this.itemToMove) {
-      if(this.itemToMove instanceof FolderModel) {
-        if(this.itemToMove.id == targetFolder.id) {
+    if (this.itemToMove) {
+      if (this.itemToMove instanceof FolderModel) {
+        if (this.itemToMove.id == targetFolder.id) {
           return;
         }
 
@@ -271,5 +279,18 @@ export class CardsComponent implements OnInit, OnDestroy {
         this.refreshContent();
       });
     }
+  }
+
+  private currentFolderIsRoot(): boolean {
+    return this._piaService.currentFolder.parent.isRoot;
+  }
+
+  getRouteToParentFolder():string {
+    let route = '/home';
+    if (!this.currentFolderIsRoot()) {
+      let parentId = this._piaService.currentFolder.parent.id;
+      route = '/home/' + parentId;
+    }
+    return route;
   }
 }

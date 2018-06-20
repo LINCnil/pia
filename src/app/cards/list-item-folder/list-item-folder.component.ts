@@ -7,6 +7,7 @@ import { PiaService } from 'app/entry/pia.service';
 
 import { FolderModel } from '@api/models';
 import { FolderApi } from '@api/services';
+import {PermissionsService} from '@security/permissions.service';
 
 @Component({
   selector: `.app-list-item-folder`,
@@ -14,16 +15,23 @@ import { FolderApi } from '@api/services';
   styleUrls: ['./list-item-folder.component.scss']
 })
 export class ListItemFolderComponent implements OnInit {
+
   @Input() folder: FolderModel;
+  public canCreatePIA: boolean;
 
   constructor(private router: Router,
     private route: ActivatedRoute,
     private _modalsService: ModalsService,
-    private folderApi: FolderApi
+    private folderApi: FolderApi,
+    private permissionsService: PermissionsService
   ) { }
 
   ngOnInit() {
-
+    // add permission verification
+    const hasPerm$ = this.permissionsService.hasPermission('CanCreatePIA');
+    hasPerm$.then((bool: boolean) => {
+      this.canCreatePIA = bool;
+    } );
   }
 
   /**

@@ -438,7 +438,7 @@ export class SummaryComponent implements OnInit {
 
 
             /* An answer exists */
-            if (answerModel.data) {
+            if (answerModel && answerModel.data) {
               const content = [];
               if (answerModel.data.gauge && answerModel.data.gauge > 0) {
                 content.push(this._translateService.instant(this._piaService.getGaugeLabel(answerModel.data.gauge)));

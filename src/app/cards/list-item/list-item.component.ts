@@ -7,6 +7,7 @@ import { PiaService } from 'app/entry/pia.service';
 
 import {PiaModel, AttachmentModel} from '@api/models';
 import {PiaApi, AttachmentApi} from '@api/services';
+import {PermissionsService} from '@security/permissions.service';
 
 @Component({
   selector: `.app-list-item`,
@@ -16,6 +17,7 @@ import {PiaApi, AttachmentApi} from '@api/services';
 export class ListItemComponent implements OnInit {
   @Input() pia: any;
   attachments: any;
+  public canCreatePIA: boolean;
 
   constructor(private router: Router,
               private route: ActivatedRoute,
@@ -23,9 +25,15 @@ export class ListItemComponent implements OnInit {
               private _modalsService: ModalsService,
               private piaApi: PiaApi,
               private attachmentApi: AttachmentApi,
+              private permissionsService: PermissionsService
             ) { }
 
   ngOnInit() {
+    // add permission verification
+    const hasPerm$ = this.permissionsService.hasPermission('CanCreatePIA');
+    hasPerm$.then((bool: boolean) => {
+      this.canCreatePIA = bool;
+    } );
     this.attachmentApi.getAll(this.pia.id).subscribe((entries: AttachmentModel[]) => {
         this.attachments = entries;
     });

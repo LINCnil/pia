@@ -112,9 +112,9 @@
       },
       "folder": {
         "title": "Folder",
-        "parent": "Parent",
+        "parent": "Parent folder",
         "open": "Open folder",
-        "root": "Root"
+        "root": "Root folder"
       },
       "item": {
         "tools": {

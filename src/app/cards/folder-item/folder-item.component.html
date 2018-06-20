@@ -1,4 +1,4 @@
-<div class="pia-folder-item" [attr.data-id]="folder.id">
+<div class="pia-folder-item" [attr.data-id]="folder.id" >
     <div class="pia-cardsBlock-toolbar">
         <div class="pia-cardsBlock-toolbar-more">
             <a href="javascript:;" class="btn pia-tooltip" title="{{ 'homepage.cards.item.tools.more_options' | translate }}">
@@ -12,7 +12,7 @@
             </a>
         </div>
     </div>
-    <div class="folder-icon">
+    <div class="folder-icon" routerLink="/home/{{folder.id}}">
         <i class="fa fa-folder-open" aria-hidden="true"></i>
     </div>
     <form [formGroup]="folderForm">

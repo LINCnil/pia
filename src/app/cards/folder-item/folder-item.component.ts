@@ -4,6 +4,7 @@ import { FolderApi } from '@api/services';
 import { FolderModel } from '@api/models';
 import { PiaService } from '../../entry/pia.service';
 import { ModalsService } from '../../modals/modals.service';
+import {PermissionsService} from '@security/permissions.service';
 
 @Component({
   selector: 'app-folder-item',
@@ -19,13 +20,23 @@ export class FolderItemComponent implements OnInit {
   constructor(
     private folderApi: FolderApi,
     private _piaService: PiaService,
-    private _modalsService: ModalsService
+    private _modalsService: ModalsService,
+    private permissionsService: PermissionsService
   ) { }
 
   ngOnInit() {
     this.folderForm = new FormGroup({
       name: new FormControl({ value: this.folder.name })
-    })
+    });
+
+    // add permission verification
+    const hasPerm$ = this.permissionsService.hasPermission('CanCreatePIA');
+    hasPerm$.then((bool: boolean) => {
+      for (const field in this.folderForm.controls) {
+          const fc = this.folderForm.get(field);
+          bool ? fc.enable() : fc.disable();
+      }
+    } );
   }
 
   /**

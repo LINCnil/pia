@@ -55,15 +55,7 @@ export class AppComponent {
 
     // ngxPermissions wrapper
 
-     /*
-     PERMISSIONS
-
-     pia = [
-     'CanCreatePIA', 'CanCreatePIAExample', 'CanEditPIA','CanShowPIA',
-     'CanEvaluatePIA', 'CanCancelEvaluatePIA', 'CanValidatePIA', 'CanCancelValidatePIA',
-     'CanDeletePIA', 'CanExportPIA']
-     sections = ['AccessToContextSection', 'AccessToPrinciplesSection', 'AccessToRisksSection', 'AccessToValidationSection']
-      */
+     /*  PERMISSIONS */
 
     let roles = {};
 
@@ -76,7 +68,7 @@ export class AppComponent {
     roles['ROLE_DPO'] = roles['ROLE_CONTROLLER'].concat([
       'CanCreatePIA', 'CanCreatePIAExample', 'CanShowPIA',
       'CanEvaluatePIA', 'CanValidatePIA', 'CanCancelValidatePIA',
-      'CanDeletePIA', 'CanExportPIA', 'CanCreateFolder',
+      'CanDeletePIA','CanImportPIA', 'CanExportPIA', 'CanCreateFolder',
        'AccessToValidationSection'
     ]);
 

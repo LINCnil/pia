@@ -124,7 +124,7 @@
         "title": "Dossier",
         "parent": "Dossier parent",
         "open": "Consulter le dossier",
-        "root": "Racine"
+        "root": "Dossier racine"
       },
       "item": {
         "tools": {
