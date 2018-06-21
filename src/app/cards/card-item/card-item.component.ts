@@ -175,12 +175,6 @@ export class CardItemComponent implements OnInit {
   piaTypeFocusOut() {
     this.piaApi.get(this.piaForm.value.id).subscribe((thePia: PiaModel) => {
       thePia.type = this.piaForm.value.type;
-      
-      thePia.concerned_people_searched_opinion = 
-        thePia.concerned_people_searched_opinion === null ?
-        false :
-        thePia.concerned_people_searched_opinion
-      ;
 
       this.piaApi.update(thePia).subscribe();
     });
