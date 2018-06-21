@@ -26,7 +26,7 @@ export class FolderItemComponent implements OnInit {
 
   ngOnInit() {
     this.folderForm = new FormGroup({
-      name: new FormControl({ value: this.folder.name })
+      name: new FormControl(this.folder.name)
     });
 
     // add permission verification
