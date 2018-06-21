@@ -28,4 +28,4 @@ fi
 
 
 # todo : add build option env variable
-ng build "${BUILDARG}"
+ng build ${BUILDARG}
