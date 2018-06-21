@@ -15,6 +15,11 @@ if [ -z "$Suffix" ]
        Suffix=$(echo $RND|sed -e s/-/_/g|tr '[:upper:]' '[:lower:]')$(echo -n $(cat shuf.nbr ))
 fi
 
+if [ -z "$Branch" ]
+then
+    Branch="master"
+fi
+
 if [ -z "$Prefix" ]
 then
     Prefix="/pialab/build/$Suffix"
@@ -90,6 +95,8 @@ fi
 $ETCDCTLCMD put $Prefix/api/client/id ${APICLIENTID} $ETCDENDPOINT
 $ETCDCTLCMD put $Prefix/api/client/secret ${APICLIENTSECRET} $ETCDENDPOINT
 $ETCDCTLCMD put $Prefix/api/host/url ${BACKURL} $ETCDENDPOINT
+
+$ETCDCTLCMD put $Prefix/git/branch ${Branch} $ETCDENDPOINT
 
 $ETCDCTLCMD put $Prefix/apache/servername $ServerName $ETCDENDPOINT
 $ETCDCTLCMD put $Prefix/apache/directory $FrontDirectory $ETCDENDPOINT

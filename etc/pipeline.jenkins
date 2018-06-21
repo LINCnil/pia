@@ -47,7 +47,7 @@ pipeline {
 
     	stage ('Set Env') {
             steps {
-                sh "./bin/ci-scripts/set_env_with_etcd.sh"
+                sh "Branch=${BRANCH_NAME} ./bin/ci-scripts/set_env_with_etcd.sh"
             }
         }
 

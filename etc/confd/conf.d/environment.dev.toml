@@ -2,6 +2,7 @@
 src = "environment.dev.ts.tmpl"
 dest = "src/environments/environment.dev.ts"
 keys = [
+       "/git/branch",
        "/api/client/id",
        "/api/client/secret",
        "/api/host/url",

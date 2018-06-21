@@ -2,7 +2,7 @@
 export const environment = {
   name: 'development',
   production: false,
-  version: 'DEV',
+  version: '{{getv "/git/branch"}}',
   rollbar_key: '',
   date_format: 'DD MM YY HH:mm:ss',
   api: {
