@@ -65,10 +65,20 @@ import { FolderItemComponent } from './cards/folder-item/folder-item.component';
 import { ListItemFolderComponent } from './cards/list-item-folder/list-item-folder.component';
 import { DndModule } from 'ngx-drag-drop';
 
+//modals
+import { ModalService } from './modals/modal.service';
+import { DomService } from 'app/modals/dom.service';
+import { SimplePiaValidationModal } from 'app/entry/entry-content/validate-pia/modals/simple-pia-validation.modal';
+import { NewFolderModal } from 'app/cards/modals/new-folder.modal';
+
+
+
 const providersList: any = [
   AppDataService,
   MeasureService,
   ModalsService,
+  DomService,
+  ModalService,
   AttachmentsService,
   KnowledgeBaseService,
   ActionPlanService,
@@ -137,7 +147,13 @@ export function createTranslateLoader(http: HttpClient) {
     AboutComponent,
     TemplatesComponent,
     FolderItemComponent,
-    ListItemFolderComponent
+    ListItemFolderComponent,
+    SimplePiaValidationModal,
+    NewFolderModal
+  ],
+  entryComponents:[
+    SimplePiaValidationModal,
+    NewFolderModal
   ],
   imports: [
     BrowserModule,
@@ -164,6 +180,7 @@ export function createTranslateLoader(http: HttpClient) {
   ],
   exports: [],
   providers: providersList,
+  
   bootstrap: [AppComponent]
 })
 export class AppModule { }

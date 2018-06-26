@@ -6,6 +6,8 @@ import { ModalsService } from 'app/modals/modals.service';
 import { AttachmentsService } from 'app/entry/attachments/attachments.service';
 import { ActionPlanService } from 'app/entry/entry-content/action-plan//action-plan.service';
 import { TranslateService } from '@ngx-translate/core';
+import { SimplePiaValidationModal } from './modals/simple-pia-validation.modal';
+import { ModalService } from 'app/modals/modal.service';
 
 @Component({
   selector: 'app-validate-pia',
@@ -21,6 +23,7 @@ export class ValidatePIAComponent implements OnInit {
 
   constructor(private el: ElementRef,
     private _modalsService: ModalsService,
+    private modalService: ModalService,
     public _attachmentsService: AttachmentsService,
     private _actionPlanService: ActionPlanService,
     private _translateService: TranslateService,
@@ -70,7 +73,9 @@ export class ValidatePIAComponent implements OnInit {
    */
   removeAttachment(id: number) {
     localStorage.setItem('attachment-id', id.toString());
-    this._modalsService.openModal('modal-remove-attachment');
+    //this._modalsService.openModal('modal-remove-attachment');
+
+    this.modalService.init(SimplePiaValidationModal);
   }
 
   /**

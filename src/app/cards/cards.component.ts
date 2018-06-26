@@ -12,6 +12,8 @@ import { PiaService } from 'app/entry/pia.service';
 import { PiaModel, FolderModel } from '@api/models';
 import { PiaApi, FolderApi } from '@api/services';
 import { PermissionsService } from '@security/permissions.service';
+import { NewFolderModal } from 'app/cards/modals/new-folder.modal';
+import { ModalService } from 'app/modals/modal.service';
 
 @Component({
   selector: 'app-cards',
@@ -39,6 +41,7 @@ export class CardsComponent implements OnInit, OnDestroy {
     private el: ElementRef,
     private route: ActivatedRoute,
     public _modalsService: ModalsService,
+    private modalService: ModalService,
     public _piaService: PiaService,
     private piaApi: PiaApi,
     private folderApi: FolderApi,
@@ -292,5 +295,9 @@ export class CardsComponent implements OnInit, OnDestroy {
       route = '/home/' + parentId;
     }
     return route;
+  }
+
+  openNewFolderModal(){
+    this.modalService.init(NewFolderModal);
   }
 }
