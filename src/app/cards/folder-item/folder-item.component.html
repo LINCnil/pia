@@ -1,10 +1,10 @@
-<div class="pia-folder-item" [attr.data-id]="folder.id" >
+<div class="pia-folder-item" [attr.data-id]="folder.id" [attr.data-name]="folder.name" >
     <div class="pia-cardsBlock-toolbar">
         <div class="pia-cardsBlock-toolbar-more">
             <a href="javascript:;" class="btn pia-tooltip" title="{{ 'homepage.cards.item.tools.more_options' | translate }}">
                 <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
                 <ul class="pia-cardsBlock-toolbar-moreList">
-                    <li *ngxPermissionsOnly="['CanDeletePIA']">
+                    <li class="pia-cardsBlock-toolbar-delete" *ngxPermissionsOnly="['CanDeletePIA']">
                         <i class="fa fa-trash-o" aria-hidden="true"></i>
                         <a href="javascript:;" (click)="removeFolder(folder)">{{ 'homepage.cards.item.tools.remove' | translate }}</a>
                     </li>

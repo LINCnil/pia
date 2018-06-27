@@ -28,4 +28,5 @@ export class LoginPage {
   loginErrorMessage(){
     return element(by.css('form.pia-authenticationBlock-login p.error'));
   }
+
 }

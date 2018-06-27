@@ -223,8 +223,8 @@
         <p [innerHTML]="'modals.remove_pia_folder.content' | translate"></p>
         <span class="pia-icons pia-icon-sad"></span>
         <div class="pia-modalBlock-buttons-choice">
-            <button tabindex="1" class="btn btn-red get-focus" type="button" (click)="_modalsService.closeModal()">{{ 'modals.cancel' | translate }}</button>
-            <button tabindex="2" class="btn btn-red" (click)="_piaService.removeFolder()" type="button">{{ 'modals.remove_pia_folder.remove' | translate }}</button>
+            <button tabindex="1" class="btn-cancel btn btn-red get-focus" type="button" (click)="_modalsService.closeModal()">{{ 'modals.cancel' | translate }}</button>
+            <button tabindex="2" class="btn-confirm btn btn-red" (click)="_piaService.removeFolder()" type="button">{{ 'modals.remove_pia_folder.remove' | translate }}</button>
         </div>
     </div>
 </div>
