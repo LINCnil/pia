@@ -206,7 +206,7 @@ export class MeasuresComponent implements OnInit, OnDestroy {
    */
   displayMeasure(event: any) {
     const accordeon = this.el.nativeElement.querySelector('.pia-measureBlock-title button');
-    accordeon.classList.toggle('pia-icon-accordeon-down');
+    accordeon.classList.toggle('fa-angle-up');
     const displayer = this.el.nativeElement.querySelector('.pia-measureBlock-displayer');
     displayer.classList.toggle('close');
 

@@ -61,10 +61,10 @@ export class CommentsComponent implements OnInit {
     const accordeonButton = this.el.nativeElement.querySelector('.pia-commentsBlock-btn button span');
     const commentsList = this.el.nativeElement.querySelector('.pia-commentsBlock-list');
     if (commentsList && accordeonButton) {
-      if (commentsList.classList.contains('close') && accordeonButton.classList.contains('pia-icon-accordeon-down')) {
-        accordeonButton.classList.toggle('pia-icon-accordeon-up');
-        accordeonButton.classList.remove('pia-icon-accordeon-down');
-      }
+      
+        accordeonButton.classList.toggle('fa-angle-up');
+        accordeonButton.classList.toggle('fa-angle-down');
+      
       commentsList.classList.remove('close');
     }
     newCommentBox.classList.toggle('open');
@@ -127,8 +127,9 @@ export class CommentsComponent implements OnInit {
   displayCommentsList() {
     const commentsList = this.el.nativeElement.querySelector('.pia-commentsBlock-list');
     const btn = this.el.nativeElement.querySelector('.pia-commentsBlock-btn button span');
-    btn.classList.toggle('pia-icon-accordeon-down');
-    btn.classList.toggle('pia-icon-accordeon-up');
+    
+    btn.classList.toggle('fa-angle-up');
+    btn.classList.toggle('fa-angle-down');
     commentsList.classList.toggle('close');
   }
 

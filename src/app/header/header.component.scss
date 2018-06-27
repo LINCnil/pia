@@ -1,18 +1,14 @@
 @import '../../assets/stylesheets/variables';
 
 .pia {
-  &-versionInfoBlock {
-    color: $pia-green;
-    position: absolute;
-    top: 10px;
-    left: 10px;
-  }
+  
   &-headerBlock {
     background-color: #fff;
     margin-bottom: 24px;
   }
   &-logoBlock {
-    text-align: center;
+    //text-align: center;
+    margin-bottom: 8px;
     height: 48px;
     a {
       img {
@@ -31,6 +27,11 @@
       span {
         font-weight: normal;
       }
+    }
+    .pia-versionInfoBlock {
+      color: $pia-green;
+      font-size: 0.90rem;
+      margin-left: 5px;
     }
   }
 }

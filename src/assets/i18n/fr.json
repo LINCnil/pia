@@ -136,7 +136,8 @@
           "remove": "Supprimer"
         },
         "edit_pia": "Éditer le PIA",
-        "consult_pia": "Consulter le PIA"
+        "consult_pia": "Consulter le PIA",
+        "back_to_parent":"Retour"
       }
     },
     "lists": {

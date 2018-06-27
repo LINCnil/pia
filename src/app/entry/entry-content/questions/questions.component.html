@@ -1,6 +1,6 @@
 <div class="pia-questionBlock" [ngClass]="{'approved': evaluation.status === 2 || evaluation.status === 3}" [attr.data-id]="question.id">
   <div [innerHTML]="question.title | translate" class="pia-questionBlock-title"></div>
-  <button class="pia-icons pia-accordeon pia-icon-accordeon-up" type="button" (click)="displayQuestion($event)" title="{{ 'misc.display' | translate }}"></button>
+  <button class="pia-accordeon fa fa-angle-up" type="button" (click)="displayQuestion($event)" title="{{ 'misc.display' | translate }}"></button>
   <div class="pia-questionBlock-displayer fadeIn">
     <form [formGroup]="questionForm">
 

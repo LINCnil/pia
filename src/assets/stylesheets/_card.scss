@@ -212,7 +212,7 @@
       }
       &-btn {
           position: absolute;
-          bottom: 0px;
+          bottom: 5px;
           left: 9px;
           right: 9px;
           border-top: 1px solid $pia-green;
@@ -220,7 +220,7 @@
           margin-top: 21px;
           text-align: center;
           a, button {
-              border-radius: 20px;
+              //border-radius: 20px;
               border: 1px solid;
               padding: 9px 20px;
               display: inline-block;
@@ -252,6 +252,8 @@
               cursor: context-menu;
               .pia-cardsBlock-toolbar-moreList {
                 display: block;
+                box-shadow: 2px 2px 4px 0px $pia-green;
+                -webkit-box-shadow: 2px 2px 4px 0px $pia-green;
               }
             }
           }

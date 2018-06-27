@@ -1,7 +1,7 @@
 <div class="pia-measureBlock" [ngClass]="{'approved': evaluation.status === 2 || evaluation.status === 3}" [attr.data-id]="measure.id">
   <form [formGroup]="measureForm">
     <div class="pia-measureBlock-title">
-      <button  class="pia-icons pia-icon-accordeon-up" type="button" (click)="displayMeasure($event)" title="{{ 'misc.display' | translate }}"></button>
+      <button  class="fa fa-angle-up" type="button" (click)="displayMeasure($event)" title="{{ 'misc.display' | translate }}"></button>
 
       <!-- Measure title -->
       <div (click)="measureTitleFocusIn()">

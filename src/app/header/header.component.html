@@ -1,9 +1,11 @@
-<div class="hide-for-print pia-versionInfoBlock" *ngIf="appVersion">Version {{appVersion}}</div>
 <header class="pia-headerBlock hide-for-print">
-  <div class="pia-logoBlock container">
+  <div class="pia-logoBlock">
     <div class="row">
       <div class="small-12 medium-12 columns">
+        <div>  
         <a id="logo" routerLink="/home"><img src="assets/images/pia-lab-small.png" alt="Logo PIA lab"></a>
+      </div>  
+        <div class="hide-for-print pia-versionInfoBlock" *ngIf="appVersion">Version {{appVersion}}</div>
       </div>
     </div>
   </div>
@@ -95,9 +97,8 @@
             </li>
             <li class="pia-navigationBlock-company">
               <a href="javascript:;">
-                <i class="fa fa-user" style="display:none;" aria-hidden="true"></i>
                 {{ 'header.tools.title' | translate }}
-                <span class="pia-icons pia-icon-scroll" aria-hidden="true"></span>
+                <span class="fa fa-angle-down" aria-hidden="true"></span>
               </a>
               <form>
                 <fieldset>

@@ -126,7 +126,8 @@
           "remove": "Delete"
         },
         "edit_pia": "Edit PIA",
-        "consult_pia": "Consult PIA"
+        "consult_pia": "Consult PIA",
+        "back_to_parent":"Back"
       }
     },
     "lists": {

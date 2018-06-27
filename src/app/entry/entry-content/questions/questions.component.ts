@@ -340,7 +340,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
    */
   displayQuestion(event: any) {
     const accordeon = this.el.nativeElement.querySelector('.pia-accordeon');
-    accordeon.classList.toggle('pia-icon-accordeon-down');
+    accordeon.classList.toggle('fa-angle-down');
     const displayer = this.el.nativeElement.querySelector('.pia-questionBlock-displayer');
     displayer.classList.toggle('close');
 

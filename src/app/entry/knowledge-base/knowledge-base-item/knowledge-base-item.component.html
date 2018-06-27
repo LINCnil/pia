@@ -1,7 +1,7 @@
 <div class="pia-knowledgeBaseBlock-item" [attr.data-slug]="itemKb.slug">
   <div>
     <div class="pia-knowledgeBaseBlock-item-accordion">
-      <button class="btn" type="button" (click)="displayItem()" title="{{ 'misc.display' | translate }}"><span class="pia-icons pia-icon-accordeon-down"></span></button>
+      <button class="btn" type="button" (click)="displayItem()" title="{{ 'misc.display' | translate }}"><span class="fa fa-angle-down"></span></button>
     </div><div class="pia-knowledgeBaseBlock-item-definition">
       <p (click)="displayItem()">{{ itemKb.category | translate }}</p>
       <button *ngIf="itemKb.filters.startsWith('measure.') && itemKb.filters !== 'measure.definition' && _globalEvaluationService.answerEditionEnabled"

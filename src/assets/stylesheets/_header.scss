@@ -173,7 +173,6 @@
             float: right;
           }
           &:focus, &:hover, &:active {
-            color: #fff !important;
             background-color: #fff;
             & + form {
               display: block;

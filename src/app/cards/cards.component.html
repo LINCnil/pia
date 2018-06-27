@@ -15,8 +15,8 @@
         </button>
         <div class="pia-filtersBlock-filters menu-sort">
           <button class="pia-filtersBlock-filters-btn btn" type="button">
-            {{ 'homepage.filters.sort' | translate }} {{ 'homepage.filters.sort_by' | translate }}
-            <span class="pia-icons pia-icon-scroll-green"></span>
+            {{ 'homepage.filters.sort' | translate }} {{ 'homepage.filters.sort_by' | translate }}...
+            <span class="fa fa-angle-down"></span>
           </button>
           <div class="pia-filtersBlock-filters-list">
             <ul>
@@ -44,7 +44,7 @@
         <div class="pia-filtersBlock-filters menu-creation" *ngxPermissionsOnly="['CanCreatePIA']">
           <button class="pia-filtersBlock-filters-btn btn" type="button">
             {{ 'homepage.filters.new' | translate }}
-            <span class="pia-icons pia-icon-scroll-green"></span>
+            <span class="fa fa-angle-down"></span>
           </button>
           <div class="pia-filtersBlock-filters-list">
             <ul>
@@ -82,12 +82,19 @@
     </div>
   </div>
   <div class="row">
-    <div class="small-12 medium-12 columns folderBreadcrumb" *ngIf="_piaService.currentFolder">
-      <span *ngFor="let item of _piaService.currentFolder.hierarchy">
-        &nbsp;/&nbsp;
-        <a routerLink="/home" *ngIf="item.lvl == 0">{{ 'homepage.cards.folder.root' | translate }}</a>
-        <a routerLink="/home/{{item.id}}" *ngIf="item.lvl > 0">{{ item.name }}</a>
-      </span>
+    <div class="small-12 medium-12 columns" *ngIf="_piaService.currentFolder">
+      <ul class="breadcrumbs folder-breadcrumbs">
+          <li *ngFor="let item of _piaService.currentFolder.hierarchy">
+              <a routerLink="/home" *ngIf="item.lvl == 0">
+                <i class="fa fa-folder-open"></i>
+                {{ 'homepage.cards.folder.root' | translate }}
+              </a>
+              <a routerLink="/home/{{item.id}}" *ngIf="item.lvl > 0">
+                <i class="fa fa-folder-open"></i>
+                {{ item.name }}
+              </a>
+          </li>
+      </ul>
     </div>
   </div>
   <div class="row">
@@ -98,10 +105,12 @@
       >
         <div class="folder-icon" routerLink="{{getRouteToParentFolder()}}">
           <i class="fa fa-level-up" aria-hidden="true"></i>
+          
         </div>
+        <div class="folder-title">{{ 'homepage.cards.folder.parent' | translate }}</div>
         <div class="bottom-actions">
-            <a class="btn btn-green" routerLink="{{getRouteToParentFolder()}}" href="#">
-              {{ 'homepage.cards.folder.parent' | translate }}
+            <a class="btn btn-green" routerLink="{{getRouteToParentFolder()}}" href="#" >
+              {{ 'homepage.cards.item.back_to_parent' | translate }}
             </a>
         </div>
       </div>

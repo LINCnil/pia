@@ -1,523 +1,504 @@
 @import '../../assets/stylesheets/variables';
-
 section {
-    height: 700px;
-    width: 700px;
-    border: 2px solid black;
+  height: 700px;
+  width: 700px;
+  border: 2px solid black;
 }
+
 // New PIA
 .pia-newBlock {
-    >#pia-new-card {
-        border: 1px solid $pia-gray;
+  >#pia-new-card {
+    border: 1px solid $pia-gray;
+  }
+  &-item {
+    background: url("../../assets/images/pia-bg.png") repeat center center;
+    padding: 40px;
+    font-size: 1.9rem;
+    color: $pia-green;
+    height: 368px;
+    width: 274px;
+    &-new,
+    &-import {
+      &-title {
+        padding-bottom: 10px;
+      }
+      &-btn {
+        padding-left: 18px;
+        .fa-folder-open,
+        .fa-upload {
+          font-size: 7rem;
+          margin-right: 30px;
+        }
+        .fa-upload {
+          margin-right: 40px;
+        }
+        .fa-folder-open,
+        .fa-upload,
+        button {
+          display: inline-block;
+          vertical-align: top;
+        }
+      }
     }
-    &-item {
-        background: url("../../assets/images/pia-bg.png") repeat center center;
-        padding: 40px;
-        font-size: 1.9rem;
-        color: $pia-green;
-        height: 368px;
-        width: 274px;
-        &-new,
-        &-import {
-            &-title {
-                padding-bottom: 10px;
-            }
-            &-btn {
-                padding-left: 18px;
-                .fa-folder-open,
-                .fa-upload {
-                    font-size: 7rem;
-                    margin-right: 30px;
-                }
-                .fa-upload {
-                    margin-right: 40px;
-                }
-                .fa-folder-open,
-                .fa-upload,
-                button {
-                    display: inline-block;
-                    vertical-align: top;
-                }
-            }
-        }
-        >span {
-            display: block;
-            padding: 22px 0;
-            color: $pia-gray;
-            font-size: 2.1rem;
-        }
+    >span {
+      display: block;
+      padding: 22px 0;
+      color: $pia-gray;
+      font-size: 2.1rem;
     }
-    &-hint {
-        position: absolute;
-        background-color: #fff;
-        width: 300px;
-        height: 200px;
-        border-radius: 10px;
-        box-shadow: 0px 0px 18px 2px rgba(212, 212, 212, 1);
-        top: 110px;
-        right: -323px;
-        .pia-icon-small-arrow {
-            position: absolute;
-            top: 50%;
-            left: -22px;
-            margin-top: -18.5px;
-        }
-        div {
-            margin-top: 8px;
-            margin-left: 38px;
-            p {
-                display: inline-block;
-                vertical-align: top;
-                color: $pia-blue;
-                font-size: 1.6rem;
-                line-height: 1.2;
-                margin-top: 58px;
-                margin-left: 14px;
-            }
-        }
+  }
+  &-hint {
+    position: absolute;
+    background-color: #fff;
+    width: 300px;
+    height: 200px;
+    box-shadow: 0px 0px 18px 2px rgba(212, 212, 212, 1);
+    top: 110px;
+    right: -323px;
+    
+    div {
+      margin-top: 8px;
+      margin-left: 38px;
+      p {
+        display: inline-block;
+        vertical-align: top;
+        color: $pia-blue;
+        font-size: 1.6rem;
+        line-height: 1.2;
+        margin-top: 58px;
+        margin-left: 14px;
+      }
     }
+  }
 }
 
 .pia {
-    &-filtersBlock {
-        position: relative;
-        margin: 8px 0 45px 0;
-        &-switch,
-        &-filters {
-            display: inline-block;
-            vertical-align: middle;
-        }
-        &-switch {
-            display: inline-block;
-            vertical-align: middle;
-            width: 34px;
-            height: 34px;
-            border: 1px solid $pia-green;
-            border-radius: 20px;
-            color: $pia-green;
-            div {
-                font-size: 1.1rem;
-                margin-top: -2px;
-            }
-            &:hover,
-            &:focus {
-                background: $pia-green;
-                border-color: $pia-green;
-                color: #fff;
-            }
-            &:active {
-                color: $pia-green;
-                background-color: #fff;
-                border-color: $pia-green;
-            }
-        }
-        &-filters {
-            position: relative;
-            margin-left: 12px;
-            &-list {
-                z-index: 998;
-                background-color: #eee;
-                display: none;
-                padding: 30px 10px 10px 10px;
-                position: absolute;
-                top: 15px;
-                left: 0;
-                right: 0;
-                border: 2px solid $pia-green;
-                border-top: none;
-                border-bottom-left-radius: 20px;
-                border-bottom-right-radius: 20px;
-                >span {
-                    padding: 6px;
-                    font-style: italic;
-                    color: $pia-gray;
-                }
-                ul {
-                    padding: 0;
-                    margin: 0;
-                }
-                li {
-                    list-style-type: none;
-                    padding: 4px;
-                    button, a {
-                        text-align: left;
-                        width: 100%;
-                        font-size: 1.5rem;
-                        font-weight: 500;
-                        display: block;
-                        text-decoration: none;
-                        color: #000;
-
-                        &:focus,
-                        &:hover,
-                        &:active,
-                        .active {
-                            background-color: $pia-green;
-                            color: #ffffff !important;
-                            cursor: pointer;
-                        }
-                        &:disabled {
-                            color: $pia-gray;
-                            cursor: not-allowed;
-                            &:hover, &:focus, &:active {
-                                background-color: $pia-gray;
-                            }
-                        }
-                    }
-                }
-            }
-            &-btn {
-                border: 1px solid $pia-green;
-                border-radius: 20px;
-                color: $pia-green;
-                padding: 9px 12px 9px 16px;
-                font-size: 1.3rem;
-                font-weight: 500;
-                position: relative;
-                z-index: 999;
-                .pia-icon-scroll-green {
-                    margin-left: 35px;
-                }
-                &:focus,
-                &:hover,
-                &:active {
-                    +.pia-filtersBlock-filters-list {
-                        display: block;
-                    }
-                }
-            }
-            &:hover {
-                .pia-filtersBlock-filters-btn {
-                    color: #fff;
-                    background-color: $pia-green;
-                    .pia-icon-scroll-green {
-                        background-position: -367px -39px;
-                    }
-                }
-                .pia-filtersBlock-filters-list {
-                    display: block;
-                    background-color: #fff;
-                    ul {
-                        li {
-                            &.divider {
-                                height: 1px;
-                                background: #DDD;
-                                padding: 0;
-                                margin: 4px 0;
-                            }
-                            &:hover {
-                                &:not(.divider) {
-                                    &:last-of-type {
-                                        border-radius: 0 0 10px 10px;
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-        &-hint {
-            position: relative;
-            display: inline-block;
-            vertical-align: middle;
-            background-color: #fff;
-            border-radius: 10px;
-            padding: 3px 24px 5px 26px;
-            margin-left: 10px;
-            div {
-                span,
-                p {
-                    display: inline-block;
-                    vertical-align: middle;
-                }
-                p {
-                    margin-left: 10px;
-                    color: $pia-blue;
-                    font-size: 2rem;
-                    line-height: 1.2;
-                }
-            }
-        }
-        &-buttons {
-            margin-left: 12px;
-            display: inline-block;
-            vertical-align: middle;
-            margin-right: 3px;
-            button {
-                padding: 8px 20px;
-                &:first-child {
-                    margin-right: 12px;
-                }
-            }
-            .fa {
-                margin-right: 10px;
-                font-size: 1.5rem;
-            }
-        }
+  &-filtersBlock {
+    position: relative;
+    margin: 8px 0 45px 0;
+    &-switch,
+    &-filters {
+      display: inline-block;
+      vertical-align: middle;
     }
+    &-switch {
+      display: inline-block;
+      vertical-align: middle;
+      width: 34px;
+      height: 34px;
+      border: 1px solid $pia-green; 
+      color: $pia-green;
+      div {
+        font-size: 1.1rem;
+        margin-top: -2px;
+      }
+      &:hover,
+      &:focus {
+        background: $pia-green;
+        border-color: $pia-green;
+        color: #fff;
+      }
+      &:active {
+        color: $pia-green;
+        background-color: #fff;
+        border-color: $pia-green;
+      }
+    }
+    &-filters {
+      position: relative;
+      margin-left: 12px;
+      &-list {
+        z-index: 998;
+        background-color: #eee;
+        display: none;
+        padding: 30px 10px 10px 10px;
+        position: absolute;
+        top: 15px;
+        left: 0;
+        right: 0;
+        border: 2px solid $pia-green;
+        border-top: none; 
+        >span {
+          padding: 6px;
+          font-style: italic;
+          color: $pia-gray;
+        }
+        ul {
+          padding: 0;
+          margin: 0;
+        }
+        li {
+          list-style-type: none;
+          padding: 4px;
+          button,
+          a {
+            text-align: left;
+            width: 100%;
+            font-size: 1.5rem;
+            font-weight: 500;
+            display: block;
+            text-decoration: none;
+            color: #000;
+            &:focus,
+            &:hover,
+            &:active,
+            .active {
+              background-color: $pia-green;
+              color: #ffffff !important;
+              cursor: pointer;
+            }
+            &:disabled {
+              color: $pia-gray;
+              cursor: not-allowed;
+              &:hover,
+              &:focus,
+              &:active {
+                background-color: $pia-gray;
+              }
+            }
+          }
+        }
+      }
+      &-btn {
+        border: 1px solid $pia-green; //border-radius: 20px;
+        color: $pia-green;
+        padding: 9px 12px 9px 16px;
+        font-size: 1.3rem;
+        font-weight: 500;
+        position: relative;
+        z-index: 999;
+        .pia-icon-scroll-green {
+          margin-left: 35px;
+        }
+        &:focus,
+        &:hover,
+        &:active {
+          +.pia-filtersBlock-filters-list {
+            display: block;
+          }
+        }
+      }
+      &:hover {
+        .pia-filtersBlock-filters-btn {
+          color: #fff;
+          background-color: $pia-green;
+          .pia-icon-scroll-green {
+            background-position: -367px -39px;
+          }
+        }
+        .pia-filtersBlock-filters-list {
+          display: block;
+          background-color: #fff;
+          ul {
+            li {
+              &.divider {
+                height: 1px;
+                background: #DDD;
+                padding: 0;
+                margin: 4px 0;
+              }
+              &:hover {
+                &:not(.divider) {
+                  &:last-of-type {
+                    //border-radius: 0 0 10px 10px;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    &-hint {
+      position: relative;
+      display: inline-block;
+      vertical-align: middle;
+      background-color: #fff;
+      //border-radius: 10px;
+      padding: 3px 24px 5px 26px;
+      margin-left: 10px;
+      div {
+        span,
+        p {
+          display: inline-block;
+          vertical-align: middle;
+        }
+        p {
+          margin-left: 10px;
+          color: $pia-blue;
+          font-size: 2rem;
+          line-height: 1.2;
+        }
+      }
+    }
+    &-buttons {
+      margin-left: 12px;
+      display: inline-block;
+      vertical-align: middle;
+      margin-right: 3px;
+      button {
+        padding: 8px 20px;
+        &:first-child {
+          margin-right: 12px;
+        }
+      }
+      .fa {
+        margin-right: 10px;
+        font-size: 1.5rem;
+      }
+    }
+  }
 }
 
 // Edit PIA
 .pia-editBlock {
-    border-color: $pia-green;
-    button {
-        display: block;
-        margin-right: 0;
-        margin-left: auto;
-    }
+  border-color: $pia-green;
+  button {
+    display: block;
+    margin-right: 0;
+    margin-left: auto;
+  }
 }
 
 // Cards flipper (New / Edit)
 #cardsSwitch {
-    background-color: transparent;
+  background-color: transparent;
 }
 
 #cardsSwitch>div {
-    margin: 0;
-    position: absolute;
-    backface-visibility: hidden;
-    transform-style: preserve-3d;
-    transition: transform 1s;
+  margin: 0;
+  position: absolute;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  transition: transform 1s;
 }
 
 #cardsSwitch .back {
-    transform: rotateY( 180deg);
+  transform: rotateY( 180deg);
 }
 
 #cardsSwitch.flipped .back {
-    transform: rotateY( 0deg);
+  transform: rotateY( 0deg);
 }
 
 #cardsSwitch.flipped .front {
-    transform: rotateY( 180deg);
+  transform: rotateY( 180deg);
 }
 
 // List PIA
 .pia-list-table {
-    margin-top: 10px;
-    border-collapse: collapse;
-    width: 100%;
-    max-width: 100%;
-    margin-bottom: 1rem;
-    border-bottom: 1px solid #d0d0d0;
-    thead {
-        background-color: $pia-dark-black;
+  margin-top: 10px;
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #d0d0d0;
+  thead {
+    background-color: $pia-dark-black;
+    color: $pia-white;
+    text-transform: uppercase;
+    font-size: 1.3rem;
+    text-align: left;
+    display: table-header-group;
+    vertical-align: middle;
+    tr {
+      display: table-row;
+    }
+    th {
+      width: 150px;
+      display: table-cell;
+      a {
+        padding: 5px 0;
         color: $pia-white;
-        text-transform: uppercase;
-        font-size: 1.3rem;
-        text-align: left;
-        display: table-header-group;
-        vertical-align: middle;
-        tr {
-            display: table-row;
+        text-decoration: none;
+        display: flex;
+        cursor: pointer;
+        justify-content: space-between;
+        span {
+          align-self: center;
+          padding-left: 13px;
         }
-        th {
-            width: 150px;
-            display: table-cell;
-            a {
-                padding: 5px 0;
-                color: $pia-white;
-                text-decoration: none;
-                display: flex;
-                cursor: pointer;
-                justify-content: space-between;
-                span {
-                    align-self: center;
-                    padding-left: 13px;
-                }
-                i {
-                    padding-right: 13px;
-                    color: $pia-white;
-                    font-size: 2.5rem;
-                    align-self: center;
-                }
-            }
-            span {
-                border-left: solid 1px $pia-white;
-                &:last-child {
-                    padding-left: 13px;
-                }
-            }
-            &:first-child span:first-of-type {
-                border: 0;
-            }
+        i {
+          padding-right: 13px;
+          color: $pia-white;
+          font-size: 2.5rem;
+          align-self: center;
         }
+      }
+      span {
+        border-left: solid 1px $pia-white;
+        &:last-child {
+          padding-left: 13px;
+        }
+      }
+      &:first-child span:first-of-type {
+        border: 0;
+      }
     }
-    tbody {
-        tr {
-            display: table-row;
-            &:nth-child(even) {
-                background-color: rgba(62, 224, 149, 0.15);
-            }
-            &:hover {
-                background-color: rgba(62, 224, 149, 0.25);
-            }
-            &>td>i.fa {
-                color: $pia-green !important;
-            }
-        }
+  }
+  tbody {
+    tr {
+      display: table-row;
+      &:nth-child(even) {
+        background-color: rgba(62, 224, 149, 0.15);
+      }
+      &:hover {
+        background-color: rgba(62, 224, 149, 0.25);
+      }
+      &>td>i.fa {
+        color: $pia-green !important;
+      }
     }
+  }
 }
 
 .pia-cardsBlock-item-form input {
-    padding-bottom: 0;
+  padding-bottom: 0;
 }
 
 .pia-icon-close {
-    z-index: 1;
+  z-index: 1;
 }
 
 .pia-cardsBlock-item-btn button {
-    display: flex;
-    margin: auto;
+  display: flex;
+  margin: auto;
 }
 
 .pia-folder-item.parent {
-    width: 276px;
-    display: inline-block;
-    color: $pia-green;
-    vertical-align: top;
-    position: relative;
-    margin-right: 12px;
-    margin-bottom: 40px;
-    height: 370px;
-    border: 1px solid #A7A7A7;
-    padding: 9px;
-    background-color: transparent; //background: url("../../../assets/images/pia-bg.png") repeat center center;
-    .folder-icon {
-        width: 100%;
-        text-align: center;
-        margin-top: 100px;
-        .fa {
-            font-size: 7rem;
-        }
+  width: 276px;
+  display: inline-block;
+  color: $pia-green;
+  vertical-align: top;
+  position: relative;
+  margin-right: 12px;
+  margin-bottom: 40px;
+  height: 382px;
+  border: 1px solid #A7A7A7;
+  padding: 9px;
+  background-color: transparent; //background: url("../../../assets/images/pia-bg.png") repeat center center;
+  .folder-icon {
+    width: 100%;
+    text-align: center;
+    margin-top: 100px;
+    .fa {
+      font-size: 7rem;
     }
-    input.folder-title {
-        width: 100%;
-        text-align: center;
-        font-size: 1.9rem;
-        color: #2BBBAD;
-        background: transparent;
-        border: 0;
-        &:hover {
-            outline: 1px dotted $pia-green;
-            cursor: text;
-        }
+  }
+  .folder-title {
+    width: 100%;
+    text-align: center;
+    font-size: 1.9rem;
+    color: #2BBBAD;
+    background: transparent;
+    border: 0;
+    
+  }
+  input.folder-title{
+    &:hover {
+      outline: 1px dotted $pia-green;
+      cursor: text;
     }
-    .bottom-actions {
-        position: absolute;
-        bottom: 12px;
-        left: 9px;
-        right: 9px;
-        border-top: 1px solid #2BBBAD;
-        padding-top: 21px;
-        margin-top: 21px;
-        text-align: center;
-        margin-bottom: 15px;
-        a {
-            text-decoration: none;
-            padding: 5.5px 21px;
-        }
+  }
+  .bottom-actions {
+    position: absolute;
+    bottom: 3px;
+    left: 9px;
+    right: 9px;
+    border-top: 1px solid #2BBBAD;
+    padding-top: 21px;
+    margin-top: 21px;
+    text-align: center;
+    margin-bottom: 15px;
+    a {
+      text-decoration: none;
+      padding: 5.5px 21px;
     }
+  }
 }
 
 .folder-listsBlock-item {
-    position: relative;
-    padding: 0 10px;
-    cursor: pointer;
-    &:first-child {
-        div[contenteditable] {
-            vertical-align: middle;
-            display: inline-block;
-            width: 80%;
-        }
-    }
+  position: relative;
+  padding: 0 10px;
+  cursor: pointer;
+  &:first-child {
     div[contenteditable] {
-        cursor: text;
-        &:focus,
-        &:hover,
-        &:active {
-            outline: 1px dotted $pia-green;
-        }
-        &:focus,
-        &:active {
-            background-color: #fff;
-        }
+      vertical-align: middle;
+      display: inline-block;
+      width: 80%;
     }
-    &:last-child {
-        cursor: default;
+  }
+  div[contenteditable] {
+    cursor: text;
+    &:focus,
+    &:hover,
+    &:active {
+      outline: 1px dotted $pia-green;
     }
-    &-actions {
-        display: flex;
-        justify-content: space-around;
-        a {
-            color: $pia-green;
-            font-size: 2rem;
-            margin: 0 2px;
-        }
+    &:focus,
+    &:active {
+      background-color: #fff;
     }
-    &-attachment {
-        vertical-align: middle;
-        display: inline-block;
-        width: 10%;
-        position: relative;
-        cursor: pointer;
-        margin: auto 0 auto auto;
-        ul {
-            display: none;
-            position: absolute;
-            z-index: 999;
-            top: 18px;
-            left: 2px;
-            font-size: 1rem;
-            color: $pia-gray-dark;
-            background-color: #fff;
-            text-align: center;
-            min-width: 100px;
-            margin: 10px 0;
-            padding: 2px 4px;
-            box-shadow: 1px 1px 2px 1px rgba(214, 212, 214, 1);
-            li {
-                list-style-type: none;
-                margin: 0;
-                padding: 0;
-                border-bottom: 1px dotted $pia-gray-dark;
-                padding: 2px 0;
-                &:last-child {
-                    border-bottom: none;
-                }
-            }
-        }
-        &:focus,
-        &:hover,
-        &:active {
-            ul {
-                display: block;
-            }
-        }
+  }
+  &:last-child {
+    cursor: default;
+  }
+  &-actions {
+    display: flex;
+    float: right;
+    justify-content: space-around;
+    a {
+      color: $pia-green;
+      font-size: 2rem;
+      margin: 0 2px;
     }
+  }
+  &-attachment {
+    vertical-align: middle;
+    display: inline-block;
+    width: 10%;
+    position: relative;
+    cursor: pointer;
+    margin: auto 0 auto auto;
+    ul {
+      display: none;
+      position: absolute;
+      z-index: 999;
+      top: 18px;
+      left: 2px;
+      font-size: 1rem;
+      color: $pia-gray-dark;
+      background-color: #fff;
+      text-align: center;
+      min-width: 100px;
+      margin: 10px 0;
+      padding: 2px 4px;
+      box-shadow: 1px 1px 2px 1px rgba(214, 212, 214, 1);
+      li {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        border-bottom: 1px dotted $pia-gray-dark;
+        padding: 2px 0;
+        &:last-child {
+          border-bottom: none;
+        }
+      }
+    }
+    &:focus,
+    &:hover,
+    &:active {
+      ul {
+        display: block;
+      }
+    }
+  }
 }
 
 .pia-filtersBlock {
-    margin: 8px 0 5px 10px;
+  margin: 8px 0 5px 10px;
 }
 
 .cardsContainer {
-    margin-top: 3em;
-}
-
-.folderBreadcrumb {
-    margin: 1.5em 0 0;
-    padding-left:0.5em;
-    height: 2.5em;
-    span {
-        a {
-            background: $pia-green;
-            color: white;
-            border-radius: 1.5em;
-            padding: 0.5em 1em;
-            text-decoration: none;
-        }
-    }
+  margin-top: 3em;
 }

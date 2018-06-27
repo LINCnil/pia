@@ -28,7 +28,7 @@ export class PiaValidateHistoryComponent implements OnInit {
   displayHistoryList() {
     const historyList = this.el.nativeElement.querySelector('.pia-validationHistoryBlock-content');
     const btn = this.el.nativeElement.querySelector('.pia-historyBlock-btn span');
-    btn.classList.toggle('pia-icon-accordeon-down');
+    btn.classList.toggle('fa-angle-down');
     historyList.classList.toggle('close');
   }
 
@@ -39,7 +39,7 @@ export class PiaValidateHistoryComponent implements OnInit {
   displayRefuseList() {
     const refuseList = this.el.nativeElement.querySelector('.pia-validationHistoryBlock-refuse-content');
     const btn = this.el.nativeElement.querySelector('.pia-refuseBlock-btn span');
-    btn.classList.toggle('pia-icon-accordeon-down');
+    btn.classList.toggle('fa-angle-down');
     refuseList.classList.toggle('close');
   }
 

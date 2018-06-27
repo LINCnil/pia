@@ -28,6 +28,7 @@
   }
   &-actions {
     display: flex;
+    float:right;
     justify-content: space-around;
     a {
       color: $pia-green;
