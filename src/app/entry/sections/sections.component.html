@@ -1,7 +1,7 @@
 <div class="pia-sectionsBlock">
   <div class="pia-sectionBlock-header">
     <h1 class="truncate" title="{{_piaService.pia.name}}">{{ _piaService.pia.name }}</h1>
-    <a class="pia-icons pia-icon-close-big" *ngIf="_piaService.pia.folder" routerLink="/home/{{ _piaService.pia.folder.id }}" title="{{ 'pia.sections.homepage_link' | translate }}"></a>
+    <a class="pia-icons pia-icon-close-big" *ngIf="_piaService.pia.folder" routerLink="/folders/{{ _piaService.pia.folder.id }}" title="{{ 'pia.sections.homepage_link' | translate }}"></a>
   </div>
 
   <div class="pia-sectionBlock-body">
