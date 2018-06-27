@@ -12,13 +12,13 @@
             </a>
         </div>
     </div>
-    <div class="folder-icon" routerLink="/home/{{folder.id}}">
+    <div class="folder-icon" routerLink="/folders/{{folder.id}}">
         <i class="fa fa-folder-open" aria-hidden="true"></i>
     </div>
     <form [formGroup]="folderForm">
         <input class="folder-title" [value]="folder.name" formControlName="name" required (focusout)="folderNameFocusOut()" />
     </form>
     <div class="bottom-actions">
-        <a class="btn btn-green" routerLink="/home/{{folder.id}}" href="#">{{ 'homepage.cards.folder.open' | translate }}</a>
+        <a class="btn btn-green" routerLink="/folders/{{folder.id}}" href="#">{{ 'homepage.cards.folder.open' | translate }}</a>
     </div>
 </div>

@@ -1,5 +1,5 @@
 <td class="folder-listsBlock-item" [attr.data-id]="folder.id" >
-  <i class="fa fa-folder" routerLink="/home/{{folder.id}}"></i>&nbsp;<div [attr.contenteditable]="canCreatePIA" (focusout)="onFocusOut('name', $event)">{{ folder.name }}</div>
+  <i class="fa fa-folder" routerLink="/folders/{{folder.id}}"></i>&nbsp;<div [attr.contenteditable]="canCreatePIA" (focusout)="onFocusOut('name', $event)">{{ folder.name }}</div>
 </td>
 <td class="folder-listsBlock-item" colspan="4">
   <time *ngIf="folder.updated_at">{{ folder.updated_at | date: 'dd/MM/yyyy' }}</time>
@@ -9,7 +9,7 @@
 </td>
 <td class="folder-listsBlock-item">
   <div class="folder-listsBlock-item-actions">
-    <a routerLink="/home/{{folder.id}}" class="btn pia-tooltip">
+    <a routerLink="/folders/{{folder.id}}" class="btn pia-tooltip">
       <i class="fa fa-eye" aria-hidden="true"></i>
       <span class="pia-tooltip-text">{{ 'homepage.lists.item.tools.consult_folder' | translate }}</span>
     </a>

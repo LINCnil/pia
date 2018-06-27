@@ -94,7 +94,7 @@ export class PiaService {
     this.folderApi.deleteById(folderID).subscribe(() => {
       // Deletes the Folder from the view.
       if (localStorage.getItem('homepageDisplayMode') && localStorage.getItem('homepageDisplayMode') === 'list') {
-        document.querySelector('.folder-listsBlock-item[data-id="' + folderID + '"]').remove();
+        document.querySelector('tr.app-list-item-folder[data-id="' + folderID + '"]').remove();
       } else {
         document.querySelector('.pia-folder-item[data-id="' + folderID + '"]').remove();
       }

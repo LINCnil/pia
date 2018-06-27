@@ -286,10 +286,10 @@ export class CardsComponent implements OnInit, OnDestroy {
   }
 
   getRouteToParentFolder():string {
-    let route = '/home';
+    let route = '/folders';
     if (!this.currentFolderIsRoot()) {
       let parentId = this._piaService.currentFolder.parent.id;
-      route = '/home/' + parentId;
+      route = '/folders/' + parentId;
     }
     return route;
   }

@@ -4,18 +4,18 @@ import { CardsComponent } from 'app/cards/cards.component';
 import { AuthenticationGuardService } from '@security/authentication-guard.service';
 
 const routes: Routes = [
-  {
-  	path: 'home/:id',
-  	component: CardsComponent,
-  	canActivate: [AuthenticationGuardService]
-  },
+  
   {
   	path: 'home',
+    redirectTo: 'folders'
+  },
+  {
+  	path: 'folders',
   	component: CardsComponent,
   	canActivate: [AuthenticationGuardService]
   },
   {
-    path: 'folder/:id',
+    path: 'folders/:id',
     component: CardsComponent,
     canActivate: [AuthenticationGuardService]
   }
