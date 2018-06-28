@@ -1,10 +1,16 @@
 # Change Log
 
-## [1.1.0](https://github.com/pia-lab/pialab/tree/1.1.0) (2018-06-20)
-[Full Changelog](https://github.com/pia-lab/pialab/compare/v1.1.0...1.1.0)
+## [1.2.0](https://github.com/pia-lab/pialab/tree/1.2.0) (2018-06-27)
+[Full Changelog](https://github.com/pia-lab/pialab/compare/1.1.0...1.2.0)
 
-## [v1.1.0](https://github.com/pia-lab/pialab/tree/v1.1.0) (2018-06-20)
-[Full Changelog](https://github.com/pia-lab/pialab/compare/1.0.2...v1.1.0)
+**Merged pull requests:**
+
+- Replace /home route by /folders route and add some fixes [\#28](https://github.com/pia-lab/pialab/pull/28) ([GlennCavarle](https://github.com/GlennCavarle))
+- Polish and fix ui styles to stay consistent [\#27](https://github.com/pia-lab/pialab/pull/27) ([GlennCavarle](https://github.com/GlennCavarle))
+- Add e2e tests for login and card-folders [\#26](https://github.com/pia-lab/pialab/pull/26) ([GlennCavarle](https://github.com/GlennCavarle))
+
+## [1.1.0](https://github.com/pia-lab/pialab/tree/1.1.0) (2018-06-20)
+[Full Changelog](https://github.com/pia-lab/pialab/compare/1.0.2...1.1.0)
 
 **Merged pull requests:**
 
