@@ -209,7 +209,7 @@
       },
       "PIA_LGL_DESC": {
         "name": "Beschreibung der Verarbeitung",
-        "description": "Geben Sie einen kurzen Überblick über die geplante Verarbeitung, ihre Art, ihren Umfang, ihren Kontext, ihre Zwecke und ihre Beteiligten. Identifizieren Sie den Verantwortlichen und alle Auftragsverarbeiter. Listen Sie die für die Verarbeitung geltenden Standards und Normen auf, die erforderlich sind oder eingehaltenwerden müssen, nicht zuletzt die genehmigten Verhaltensregeln (<a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/DE/TXT/HTML/?uri=CELEX:32016R0679&from=DE\">vgl. Art. 40 der [DS-GVO]</a>) und Zertifizierungen zum Datenschutz (<a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/DE/TXT/HTML/?uri=CELEX:32016R0679&from=DE\">vgl. Art. 42 [DS-GVO]</a>)",
+        "description": "Geben Sie einen kurzen Überblick über die geplante Verarbeitung, ihre Art, ihren Umfang, ihren Kontext, ihre Zwecke und ihre Beteiligten. Identifizieren Sie den Verantwortlichen und alle Auftragsverarbeiter. Listen Sie die für die Verarbeitung geltenden Standards und Normen auf, die erforderlich sind oder eingehalten werden müssen, nicht zuletzt die genehmigten Verhaltensregeln (<a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/DE/TXT/HTML/?uri=CELEX:32016R0679&from=DE\">vgl. Art. 40 der [DS-GVO]</a>) und Zertifizierungen zum Datenschutz (<a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/DE/TXT/HTML/?uri=CELEX:32016R0679&from=DE\">vgl. Art. 42 [DS-GVO]</a>)",
         "source": "PIA1 p6"
       },
       "PIA_LGL_DATA": {
@@ -259,7 +259,7 @@
       },
       "PIA_VAL_CONC": {
         "name": "Stellungnahme der Betroffenen",
-        "description": "Der Verantwortliche holt gegebenenfalls den Standpunkt der betroffenen Personen oder ihrer Vertreter über die beabsichtigte Verarbeitung, unbeschadet des Schutzes der gewerblichen oder öffentlichen Interessen oder der Sicherheit der Verarbeitungsvorgänge ein. Siehe <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/DE/TXT/HTML/?uri=CELEX:32016R0679&from=DE\">Art. 35 Abs. 9 der [DS-GVO]</a><br>Diese Stellungnahme kann auf verschiedene Weise erhoben werden, je nach Kontext (interne oder externe Studie über den Zweck und die Mittel der Verarbeitung, die Frage an die Mitarbeitervertretung, die Untersuchung der künftigen Kunden des Verantwortlichen).<br><strong>Entscheidet sich der Verantwortliche</strong> gegen die Meinung der betroffenen Personen, so muss er <strong>die Begründung seiner Entscheidung dokumentieren.</strong><br>Ist der Verantwortliche der Auffassung, dass die<br>die Einholung der Stellungnahme der betroffenen Personen nicht erforderlich ist, so muss er auch hier <strong>die Begründung dokumentieren.</strong>",
+        "description": "Der Verantwortliche holt gegebenenfalls den Standpunkt der betroffenen Personen oder ihrer Vertreter über die beabsichtigte Verarbeitung, unbeschadet des Schutzes der gewerblichen oder öffentlichen Interessen oder der Sicherheit der Verarbeitungsvorgänge ein. Siehe <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/DE/TXT/HTML/?uri=CELEX:32016R0679&from=DE\">Art. 35 Abs. 9 der [DS-GVO]</a><br>Diese Stellungnahme kann auf verschiedene Weise erhoben werden, je nach Kontext (interne oder externe Studie über den Zweck und die Mittel der Verarbeitung, die Frage an die Mitarbeitervertretung, die Untersuchung der künftigen Kunden des Verantwortlichen).<br><strong>Entscheidet sich der Verantwortliche</strong> gegen die Meinung der betroffenen Personen, so muss er <strong>die Begründung seiner Entscheidung dokumentieren.</strong><br>Ist der Verantwortliche der Auffassung, dass <br>die Einholung der Stellungnahme der betroffenen Personen nicht erforderlich ist, so muss er auch hier <strong>die Begründung dokumentieren.</strong>",
         "source": "DS-GVO Art. 35.9 and PIAF Connected Objects p39"
       },
       "PIA_VAL_RT": {
@@ -280,7 +280,7 @@
       "PIA_TEC_ANO": {
         "placeholder": "Geben Sie hier die implementierten Anonymisierungsmechanismen an",
         "name": "Anonymisierung",
-        "description": "Beschreibung der Mechanismen der Anonymisierung, wie sie ausgestaltet sind und zu welchem Zweck sie umgesetzt werden und wie sie eine mögliche Reidentifikation verhindern. Beachten Sie den Unterschied zwischen Anonymisierung und Pseudonymisierung ",
+        "description": "Beschreibung der Mechanismen der Anonymisierung, wie sie ausgestaltet sind und zu welchem Zweck sie umgesetzt werden und wie sie eine mögliche Reidentifikation verhindern. Beachten Sie den Unterschied zwischen Anonymisierung und Pseudonymisierung.",
         "source": "keine"
       },
       "PIA_TEC_CLO": {
@@ -290,7 +290,7 @@
         "source": "PIAF Connected Objects p23"
       },
       "PIA_TEC_CHIF": {
-        "placeholder": "Beschreiben Sie hier die Maßnahmen, die zur Gewährleistung der Vertraulichkeit der Daten implementiert wurden",
+        "placeholder": "Beschreiben Sie hier die Maßnahmen, die zur Gewährleistung der Vertraulichkeit der Daten implementiert wurden.",
         "name": "Verschlüsselung",
         "description": "Maßnahmen, die für die <strong>Gewährleistung der Vertraulichkeit</strong> der gespeicherten Daten (in der Datenbank, in unstrukturierten Dateien, Backups usw.) sowie das Verfahren zur Verwaltung der verwendeten kryptographischen Schlüssel (Erstellung, Speicherung, Änderung bei Verdacht auf Datengefährdung, Zugriffschutz usw.) implementiert sind.<br>Beschreiben Sie die für die Datenübermittlung verwendeten Verschlüsselungsverfahren (VPN, TLS usw.).",
         "source": "keine"
@@ -298,7 +298,7 @@
       "PIA_TEC_CTLA": {
         "placeholder": "Geben Sie hier an, wie Benutzerprofile definiert und zugeordnet werden.",
         "name": "Logische Zugriffskontrolle",
-        "description": "Beschreiben Sie die Definition und Zuweisung von Benutzerprofilen, Rollen und Rechten. Zudem ist es erforderlich, die verwendeten <strong>Authentifizierungsmethoden</strong> detailliert zu spezifizieren und gegebenenfalls die für Kennwörter geltenden Regeln anzugeben (Mindestlänge, obligatorische Struktur, Gültigkeitsdauer, Anzahl der erfolglosen Versuche bevor das Konto gesperrt wird, etc.).",
+        "description": "Beschreiben Sie die Definition und Zuweisung von Benutzerprofilen, Rollen und Rechten. Zudem ist es erforderlich, die verwendeten <strong>Authentifizierungsmethoden</strong> detailliert zu spezifizieren und gegebenenfalls die für Kennwörter geltenden Regeln anzugeben (Mindestlänge, obligatorische Struktur, Gültigkeitsdauer, Anzahl der erfolglosen Versuche bevor das Konto gesperrt wird etc.).",
         "source": "PIAF Connected Objects p21"
       },
       "PIA_TEC_LOG": {
@@ -308,13 +308,13 @@
         "source": "keine"
       },
       "PIA_TEC_ARCH": {
-        "placeholder": "Geben Sie hier an, welche Mechanismen zur Archivierung und Integritätsprüfung von gespeicherten Daten implementiert sind und welchem Zweck sie dienen?",
+        "placeholder": "Geben Sie hier an, welche Mechanismen zur Archivierung und Integritätsprüfung von gespeicherten Daten implementiert sind und welchem Zweck sie dienen.",
         "name": "Archivierung",
         "description": "Beschreiben Sie die Aufbewahrungsrichtlinien sowie die Prozesse zur Verwaltung von Archiven, die personenbezogene Daten enthalten (Anlieferung von Daten, Speicherung, Zugriffsrechte, Aussonderung). Beschreiben Sie die Rollen und rechtlichen Grundlagen und Sicherheitsmaßnahmen der Archivierung. Falls erforderlich, beschreiben Sie die Regelungen zur Abgabe an staatliche Archive.",
         "source": "WIKI Archivage"
       },
       "PIA_TEC_PAP": {
-        "placeholder": "Geben Sie hier an, welche Mechanismen zur Aufbewahrung von Papierunterlagen und zur Integritätsprüfung implementiert sind und welchem Zweck sie dienen?",
+        "placeholder": "Geben Sie hier an, welche Mechanismen zur Aufbewahrung von Papierunterlagen und zur Integritätsprüfung implementiert sind und welchem Zweck sie dienen.",
         "name": "Papierdokumentensicherheit",
         "description": "Soweit Papierdokumente verarbeitet werden, sollte es entsprechende Richtlinien geben. Sie sollten beschreiben, wie Dokumente gedruckt, gelagert, vernichtet und übermittelt werden.",
         "source": "PIAF Connected Objects p21"
@@ -364,7 +364,7 @@
       "PIA_SEC_CTR": {
         "placeholder":"Beschreiben Sie hier die vertraglichen Regelungen für den Schutz personenbezogener Daten, die einem Auftragsverarbeiter anvertraut sind.",
         "name": "Auftragsverarbeitungsvertrag",
-        "description": "Personenbezogene Daten, die an Auftragsverarbeiter übermittelt oder von diesen verwaltet werden, müssen ausreichende Garantien aufweisen. Hierzu sind vertragliche Regelungen erforderlich <strong>Verwenden Sie nur Auftragsverarbeiter mit ausreichender Zuverlässigketi</strong> (insbesondere in Bezug auf Fachwissen, Zuverlässigkeit und Ressourcen). Fordern Sie die Sicherheitsrichtlinie für das Informationssystem des Anbieters ein.<br>Ergreifen und dokumentieren Sie die Maßnahmen (Sicherheitsaudits, Besuche von Einrichtungen usw.), um <strong>die Wirksamkeit der Garantien zu gewährleisten, die der Auftragsverarbeiter</strong> im Hinblick auf den Datenschutz bietet. Diese Garantien umfassen:<br>- die Verschlüsselung von Daten entsprechend ihrer Sensibilität oder, falls dies nicht der Fall ist, die Existenz von Verfahren, die gewährleisten, dass das Dienstleistungsunternehmen keinen Zugang zu den ihm anvertrauten Daten hat,<br>- die Verschlüsselung von Übertragungen von Daten (z.B.: HTTPS-Verbindung, VPN, etc.)<br>- Garantien in Bezug auf Netzwerkschutz, Rückverfolgbarkeit (Protokolle, Audits), Autorisierungsverwaltung, Authentifizierung, usw. <strong>Bereitstellung eines Vertrags mit dem Auftragsverarbeiter </strong>, der den Zweck, die Dauer, den Zweck der Verarbeitung und die Verpflichtungen der Parteien definiert. Stellen Sie sicher, dass er insbesondere Bestimmungen enthält, die Folgendes enthalten:<br>- ihre Verpflichtung zur Vertraulichkeit personenbezogener Daten, die ihr anvertraut sind<br>- Mindestanforderungen an die Benutzerauthentifizierung<br>- die Bedingungen für die Rückgabe und / oder Vernichtung / Löschung von Daten am Ende des Vertrags<br>- die Regeln der Handhabung und die Benachrichtigung bei Datenschutzvorfällen. Diese sollten im Falle einer Sicherheitsverletzung oder eines Sicherheitsvorfalls Informationen des für die Verarbeitung Verantwortlichen enthalten, und dies im Falle einer Verletzung des Schutzes personenbezogener Daten so schnell wie möglich.<br>- Bei Einsatz eines Cloud-Anbieters:<br>\t1. Benennen Sie eindeutig die Daten und die Verarbeitung, die in die Cloud ausgelagert werden;<br>\t2. Definition eigener technischer und rechtlicher Sicherheitsanforderungen;<br>\t3. Führen Sie eine Risikostudie durch, um geeignete Sicherheitsmaßnahmen zu ermitteln;<br>\t4. Identifizieren des relevante Art der Cloud für die beabsichtigte Verarbeitung;<br>\t5. Wählen Sie einen Anbieter mit ausreichenden Garantien;<br>\t6. Überprüfen Sie die interne Sicherheitsrichtlinie;<br>\t7. Überwachen Sie Änderungen während der Laufzeit.",
+        "description": "Personenbezogene Daten, die an Auftragsverarbeiter übermittelt oder von diesen verwaltet werden, müssen ausreichende Garantien aufweisen. Hierzu sind vertragliche Regelungen erforderlich <strong>Verwenden Sie nur Auftragsverarbeiter mit ausreichender Zuverlässigkeit</strong> (insbesondere in Bezug auf Fachwissen, Zuverlässigkeit und Ressourcen). Fordern Sie die Sicherheitsrichtlinie für das Informationssystem des Anbieters ein.<br>Ergreifen und dokumentieren Sie die Maßnahmen (Sicherheitsaudits, Besuche von Einrichtungen usw.), um <strong>die Wirksamkeit der Garantien zu gewährleisten, die der Auftragsverarbeiter</strong> im Hinblick auf den Datenschutz bietet. Diese Garantien umfassen:<br>- die Verschlüsselung von Daten entsprechend ihrer Sensibilität oder, falls dies nicht der Fall ist, die Existenz von Verfahren, die gewährleisten, dass das Dienstleistungsunternehmen keinen Zugang zu den ihm anvertrauten Daten hat,<br>- die Verschlüsselung von Übertragungen von Daten (z. B.: HTTPS-Verbindung, VPN etc.)<br>- Garantien in Bezug auf Netzwerkschutz, Rückverfolgbarkeit (Protokolle, Audits), Autorisierungsverwaltung, Authentifizierung usw. <strong>Bereitstellung eines Vertrags mit dem Auftragsverarbeiter </strong>, der den Zweck, die Dauer, den Zweck der Verarbeitung und die Verpflichtungen der Parteien definiert. Stellen Sie sicher, dass er insbesondere Bestimmungen enthält, die Folgendes enthalten:<br>- ihre Verpflichtung zur Vertraulichkeit personenbezogener Daten, die ihr anvertraut sind<br>- Mindestanforderungen an die Benutzerauthentifizierung<br>- die Bedingungen für die Rückgabe und / oder Vernichtung / Löschung von Daten am Ende des Vertrags<br>- die Regeln der Handhabung und die Benachrichtigung bei Datenschutzvorfällen. Diese sollten im Falle einer Sicherheitsverletzung oder eines Sicherheitsvorfalls Informationen des für die Verarbeitung Verantwortlichen enthalten, und dies im Falle einer Verletzung des Schutzes personenbezogener Daten so schnell wie möglich.<br>- Bei Einsatz eines Cloud-Anbieters:<br>\t1. Benennen Sie eindeutig die Daten und die Verarbeitung, die in die Cloud ausgelagert werden;<br>\t2. Definition eigener technischer und rechtlicher Sicherheitsanforderungen;<br>\t3. Führen Sie eine Risikostudie durch, um geeignete Sicherheitsmaßnahmen zu ermitteln;<br>\t4. Identifizieren der relevanten Art der Cloud für die beabsichtigte Verarbeitung;<br>\t5. Wählen Sie einen Anbieter mit ausreichenden Garantien;<br>\t6. Überprüfen Sie die interne Sicherheitsrichtlinie;<br>\t7. Überwachen Sie Änderungen während der Laufzeit.",
         "source": "Guide Bleu 2017 p19 et https://www.cnil.fr/fr/cloud-computing-les-conseils-de-la-cnil-pour-les-entreprises-qui-utilisent-ces-nouveaux-services"
       },
       "PIA_SEC_NET": {
@@ -430,7 +430,7 @@
       "PIA_ORG_VIOL": {
         "placeholder": "Beschreiben Sie hier die operativen Prozesse, die dazu dienen, Datenschutzverletzungen zu erkennen und mit ihnen umzugehen.",
         "name": " Umgang mit Datenschutzverletzungen",
-        "description": "Existenz einer operativen Einheit zur Aufdeckung und Behandlung von Ereignissen, die die Freiheiten und die Privatsphäre der betroffenen Personen beeinträchtigen können (Definition von Verantwortlichkeiten, Reaktionsplan, Charakterisierung von Verstößen, etc.).",
+        "description": "Existenz einer operativen Einheit zur Aufdeckung und Behandlung von Ereignissen, die die Freiheiten und die Privatsphäre der betroffenen Personen beeinträchtigen können (Definition von Verantwortlichkeiten, Reaktionsplan, Charakterisierung von Verstößen etc.).",
         "source": "WIKI Gestion_des_incidents_et_des_violations_de_données"
       },
       "PIA_ORG_PERS": {
@@ -528,12 +528,12 @@
       },
       "PIA_DEF_CHIF": {
         "name": "Verschlüsselung",
-        "description": "Durch das Verschlüsseln einer Nachricht wird sichergestellt, dass nur der Absender und der / die rechtmäßige(n) Empfänger einer Nachricht den Inhalt kennen. Es ist eine Art digital versiegelter Umschlag. Nach der Verschlüsselung ist eine Nachricht weder für Personen noch Maschinen zugänglich oder lesbar, wenn sie nicht über den spezifischen Schlüssel verfügen.<br>Es gibt zwei große Familien der Verschlüsselung : symmetrische und asymmetrische.<br>- <strong>Symmetrische Verschlüsselung</strong> Inhalte werden mit dem gleichen Schlüssel verschlüsselt und entschlüsselt, genannt der \"geheimen Schlüssel\". Die symmetrische Verschlüsselung ist besonders schnell, erfordert jedoch, dass der Sender und der Empfänger sich auf einen gemeinsamen geheimen Schlüssel einigen oder ihn über einen anderen Kanal übertragen. Dieser muss sorgfältig ausgewählt werden, da sonst der Schlüssel von den falschen Leuten zurückgewonnen werden könnte und die Vertraulichkeit der Nachricht kompromittiert wird.<br-<strong>Asymmetrische Verschlüsselung</strong> Sie geht davon aus, dass der (zukünftige) Empfänger ein Schlüsselpaar (privater Schlüssel, öffentlicher Schlüssel) hat und hat sicherstellt, dass der potentielle Absender Zugriff auf seinen öffentlichen Schlüssel hat. In diesem Fall verwendet der Absender den öffentlichen Schlüssel des Empfängers zum Verschlüsseln der Nachricht, während der Empfänger seinen privaten Schlüssel zum Entschlüsseln verwendet. Es ist von Vorteil, dass der öffentliche Schlüssel allen bekannt ist und veröffentlicht werden kann. Aber Vorsicht: es ist notwendig, dass die Sender das Vertrauen in der Herkunft des öffentlichen Schlüssels haben und sicher sind , dass er in der Tat vom Empfänger stammt. Ein weiterer Pluspunkt: Sie müssen nicht den gleichen geheimen Schlüssel teilen! Die asymmetrische Verschlüsselung macht es möglich, darauf zu verzichten, aber sie ist langsamer.",
+        "description": "Durch das Verschlüsseln einer Nachricht wird sichergestellt, dass nur der Absender und der / die rechtmäßige(n) Empfänger einer Nachricht den Inhalt kennen. Es ist eine Art digital versiegelter Umschlag. Nach der Verschlüsselung ist eine Nachricht weder für Personen noch Maschinen zugänglich oder lesbar, wenn sie nicht über den spezifischen Schlüssel verfügen.<br>Es gibt zwei große Familien der Verschlüsselung : symmetrische und asymmetrische.<br>- <strong>Symmetrische Verschlüsselung</strong> Inhalte werden mit dem gleichen Schlüssel verschlüsselt und entschlüsselt, genannt der \"geheime Schlüssel\". Die symmetrische Verschlüsselung ist besonders schnell, erfordert jedoch, dass der Sender und der Empfänger sich auf einen gemeinsamen geheimen Schlüssel einigen oder ihn über einen anderen Kanal übertragen. Dieser muss sorgfältig ausgewählt werden, da sonst der Schlüssel von den falschen Leuten zurückgewonnen und die Vertraulichkeit der Nachricht kompromittiert werden könnte.<br-<strong>Asymmetrische Verschlüsselung</strong> Sie geht davon aus, dass der (zukünftige) Empfänger ein Schlüsselpaar (privater Schlüssel, öffentlicher Schlüssel) hat und hat sicherstellt, dass der potentielle Absender Zugriff auf seinen öffentlichen Schlüssel hat. In diesem Fall verwendet der Absender den öffentlichen Schlüssel des Empfängers zum Verschlüsseln der Nachricht, während der Empfänger seinen privaten Schlüssel zum Entschlüsseln verwendet. Es ist von Vorteil, dass der öffentliche Schlüssel allen bekannt ist und veröffentlicht werden kann. Aber Vorsicht: es ist notwendig, dass die Sender das Vertrauen in der Herkunft des öffentlichen Schlüssels haben und sicher sind , dass er in der Tat vom Empfänger stammt. Ein weiterer Pluspunkt: Sie müssen nicht den gleichen geheimen Schlüssel teilen! Die asymmetrische Verschlüsselung macht es möglich, darauf zu verzichten, aber sie ist langsamer.",
         "source": "Guide Bleu 2017 p23 https://www.cnil.fr/fr/comprendre-les-grands-principes-de-la-cryptologie-et-du-chiffrement"
       },
       "PIA_DEF_ANO": {
         "name": "Anonymisierung",
-        "description": "Der Zweck einer Anonymisierungslösung besteht darin, dass personenbezogene Daten ihren identifizierenden Charakter verlieren. Eine Anonymisierungslösung muss von Fall zu Fall erstellt und an die beabsichtigten Verwendungszwecke angepasst werden. Eine Hilfe für die Bewertung einer guten Lösung, bietet die <a target=\"_blank\" href=\"http://ec.europa.eu/justice/data-protection/article-29/documentation/opinion-recommendation/files/2014/wp216_de.pdf\">Art.29-Gruppe</a>.Sie nennt drei Kriterien:<br><strong>die Individualisierung:</strong> es ist noch immer möglich, eine individuelle Person zu isolieren<br>- <strong>die Korrelation:</strong> es ist möglich, getrennte Datensätze für dasselbe Individuum miteinander zu verknüpfen<br>- <strong>die Schlussfolgerung:</strong>hier ist es  möglich, aus den Informationen über eine Person auf deren Identität zu schließen.<br><strong>Eine Gruppe von Daten, für die es unmöglich ist, zu individualisieren oder zu korrelieren oder abzuleiten, ist a priori anonym.</strong><br><strong>Wird eines der drei Kriterien nicht eingehalten,</strong> kann nur nach einer erneuten eingehenden Analyse der Risiken einer Einordnung als anonym vorgenommen werden.",
+        "description": "Der Zweck einer Anonymisierungslösung besteht darin, dass personenbezogene Daten ihren identifizierenden Charakter verlieren. Eine Anonymisierungslösung muss von Fall zu Fall erstellt und an die beabsichtigten Verwendungszwecke angepasst werden. Eine Hilfe für die Bewertung einer guten Lösung, bietet die <a target=\"_blank\" href=\"http://ec.europa.eu/justice/data-protection/article-29/documentation/opinion-recommendation/files/2014/wp216_de.pdf\">Art.29-Gruppe</a>. Sie nennt drei Kriterien:<br><strong>die Individualisierung:</strong> es ist noch immer möglich, eine individuelle Person zu isolieren<br>- <strong>die Korrelation:</strong> es ist möglich, getrennte Datensätze für dasselbe Individuum miteinander zu verknüpfen<br>- <strong>die Schlussfolgerung:</strong>hier ist es  möglich, aus den Informationen über eine Person auf deren Identität zu schließen.<br><strong>Eine Gruppe von Daten, für die es unmöglich ist, zu individualisieren oder zu korrelieren oder abzuleiten, ist a priori anonym.</strong><br><strong>Wird eines der drei Kriterien nicht eingehalten,</strong> kann nur nach einer erneuten eingehenden Analyse der Risiken einer Einordnung als anonym vorgenommen werden.",
         "source": "WIKI pour la première phrase, site CNIL pour la description des recommandations du G29 https://www.cnil.fr/fr/le-g29-publie-un-avis-sur-les-techniques-danonymisation-0"
       },
       "PIA_DEF_PSEU": {
@@ -563,7 +563,7 @@
       },
       "PIA_DEF_LOG": {
         "name": "Protokollierung, Rückverfolgbarkeit",
-        "description": "Aufzeichnung von Aktionen, die auf dem IT-system ausgeführt werden, um <strong>betrügerischen Zugriff</strong> oder <strong>Missbrauch</strong> von persönlichen Daten zu erkennen sowie den Verursacher eines Vorfalls. Zu diesem Zweck muss ein Trace- und Incident-Management-System eingerichtet werden. Es sollte <strong>relevante Ereignisse aufzeichnen</strong>und <strong>sicherstellen, dass diese Datensätze nicht manipuliert werden können.</strong> In jedem Fall sollten Sie <strong>diese Datensätze nur für einen gewissen Zeitraum und nicht exzessiv lange aufbewahrt werden.</strong>",
+        "description": "Aufzeichnung von Aktionen, die auf dem IT-System ausgeführt werden, um <strong>betrügerischen Zugriff</strong> oder <strong>Missbrauch</strong> von persönlichen Daten, sowie den Verursacher eines Vorfalls, zu erkennen . Zu diesem Zweck muss ein Trace- und Incident-Management-System eingerichtet werden. Es sollte <strong>relevante Ereignisse aufzeichnen</strong>und <strong>sicherstellen, dass diese Datensätze nicht manipuliert werden können.</strong> In jedem Fall sollten Sie <strong>diese Datensätze nur für einen gewissen Zeitraum und nicht exzessiv lange aufbewahrt werden.</strong>",
         "source": "Guide Bleu 2017 p10"
       },
       "PIA_DEF_ARCH": {
@@ -583,7 +583,7 @@
       },
       "PIA_DEF_SRC": {
         "name": "Risikoquelle",
-        "description": "Person (intern oder extern), die zufälliger oder vorsätzlicher Weise handelt oder eine nichtmenschliche Quelle (z.B. Wasser, gefährliche Stoffe, Computerviren), die ein Risiko für die Datenverarbeitung verursacht(z. B. IT-Administrator, Benutzer, externer Angreifer, Mitbewerber).",
+        "description": "Person (intern oder extern), die zufälliger oder vorsätzlicher Weise handelt oder eine nichtmenschliche Quelle (z. B. Wasser, gefährliche Stoffe, Computerviren), die ein Risiko für die Datenverarbeitung verursacht(z. B. IT-Administrator, Benutzer, externer Angreifer, Mitbewerber).",
         "source": "PIA1 p12 et WIKI Types_et_exemples_de_sources_de_risques synthétisés"
       },
       "PIA_DEF_MEN": {
@@ -593,17 +593,17 @@
       },
       "PIA_DEF_MENA": {
         "name": "Bedrohungen, die zu einem unrechtmäßigem Zugriff führen können",
-        "description": "Bedrohungen in Bezug auf:<br>- <strong>Komponenten</strong>, unangemessene Verwendung, Ausspähung, ungewollte Veränderung oder Verlust (Verwendung von Medien mit sensiblen Daten aus persönlichen Gründen oder deren Transport ohne entsprechende Sicherheitsmaßnahmen, Ausspähen von Bildschirmen, Einschleusen von Hardware zum Abruf von Daten, usw.)<br>- <strong>Software </strong>, unangemessene Verwendung, Ausspähung, ungewollte Veränderung (Erweiterung von Berechtigungen, Sammlung von Konfigurationsdaten, Installation eines Remote-Tools usw.)<br>-<strong>Computernetzwerke</strong>, die ausgespäht werden (Überwachung von Netzwerkflüssen, etc.) <br>- <strong>Personen</strong> durch Ausspähung, Unterschlagung oder Verlust (unfreiwillige Offenlegung, Social Engineering, Wechsel des Arbeitgebers, etc.)<br>-<strong> Papierdokumente</strong> durch Ausspähung oder Verlust (Fotokopien, vergessene Ausdrucke, Wiederherstellung von verworfenen Dokumente, Maildiebstahl, etc.)<br>- <strong>Postversand </strong> durch Ausspähung",
+        "description": "Bedrohungen in Bezug auf:<br>- <strong>Komponenten</strong>, unangemessene Verwendung, Ausspähung, ungewollte Veränderung oder Verlust (Verwendung von Medien mit sensiblen Daten aus persönlichen Gründen oder deren Transport ohne entsprechende Sicherheitsmaßnahmen, Ausspähen von Bildschirmen, Einschleusen von Hardware zum Abruf von Daten usw.)<br>- <strong>Software </strong>, unangemessene Verwendung, Ausspähung, ungewollte Veränderung (Erweiterung von Berechtigungen, Sammlung von Konfigurationsdaten, Installation eines Remote-Tools usw.)<br>-<strong>Computernetzwerke</strong>, die ausgespäht werden (Überwachung von Netzwerkflüssen etc.) <br>- <strong>Personen</strong> durch Ausspähung, Unterschlagung oder Verlust (unfreiwillige Offenlegung, Social Engineering, Wechsel des Arbeitgebers etc.)<br>-<strong> Papierdokumente</strong> durch Ausspähung oder Verlust (Fotokopien, vergessene Ausdrucke, Wiederherstellung von verworfenen Dokumente, Maildiebstahl etc.)<br>- <strong>Postversand </strong> durch Ausspähung",
         "source": "WIKI Menaces_pouvant_mener_à_un_accès_illégitime_à_des_données synthétisé"
       },
       "PIA_DEF_MENM": {
         "name": "Bedrohungen, die zu einer unerwünschten Veränderung personenbezogener Daten führen können",
-        "description": " Bedrohungen in Bezug auf <br>- <strong>Komponenten</strong>, die geändert werden (Hinzufügen von inkompatibler Hardware, Entfernen wichtiger Komponenten usw.)<br>- <strong >Software</strong>, die unangemessen verwendet oder modifiziert wird (Bedienfehler, ungewollte Änderungen, etc.)<br>- <strong>Computernetzwerke</strong>, die unangemessen verwendet werden (Weiterversand von abgefangenen Daten, etc.)<br> - <strong>Personen</strong> durch Überarbeitung oder Beeinflussung (unkontrollierte Tätigkeit, störende Arbeitsbedingungen, Einflussnahme, etc.)<br> - Geänderte Papierdokumente (Veränderung , Ersatz durch eine Fälschung, etc.)<br>- <strong>Postversand</strong>, durch Manipulation (Austausch von Abzeichnungen, Versendung widersprüchlicher Briefe usw.)",
+        "description": " Bedrohungen in Bezug auf <br>- <strong>Komponenten</strong>, die geändert werden (Hinzufügen von inkompatibler Hardware, Entfernen wichtiger Komponenten usw.)<br>- <strong >Software</strong>, die unangemessen verwendet oder modifiziert wird (Bedienfehler, ungewollte Änderungen etc.)<br>- <strong>Computernetzwerke</strong>, die unangemessen verwendet werden (Weiterversand von abgefangenen Daten etc.)<br> - <strong>Personen</strong> durch Überarbeitung oder Beeinflussung (unkontrollierte Tätigkeit, störende Arbeitsbedingungen, Einflussnahme etc.)<br> - Geänderte Papierdokumente (Veränderung , Ersatz durch eine Fälschung etc.)<br>- <strong>Postversand</strong>, durch Manipulation (Austausch von Abzeichnungen, Versendung widersprüchlicher Briefe usw.)",
         "source": "WIKI Menaces_pouvant_mener_à_une_modification_non_désirées_de_données"
       },
       "PIA_DEF_MENI": {
         "name": "Bedrohungen, die zum Verlust personenbezogener Daten führen können",
-        "description": "Bedrohungen in Bezug auf <br>- <strong>Komponenten</strong>: Missbrauch, Überlastung, Veränderung, Zerstörung, Verlust (Speicherüberlastung, DOS-Angriff, Änderung, die zu einem Absturz führt, Feuer , Diebstahl oder Verlust, etc.)<br>- <strong>Software</strong>: unangemessene Verwendung, Überlastung, Veränderung, Zerstörung, Verlust (Datenlöschung, Einschmuggeln von Daten, logische Bombe, Lizenz nicht erneuert, etc.)<br>- <strong>Computernetzwerke</strong>: Überlastung, Beschädigung, Verlust (Download nicht möglich, Internet-Zugang usw.)<br> -<strong>Personen</strong> : Überlastung, Beeinflussung, Abwesenheit (Missbrauch von Fähigkeiten, Abwesenheit, Abreise usw.)<br>- <strong>Papierdokumente </strong>: missbräuchliche Nutzung, Beschädigung, Verlust (Zerstörung, Diebstahl oder Verlust usw.)<br>- <strong>Postversand</strong>: Beschädigung, Veränderung, Verlust (Poststreik, Änderung der Räumlichkeiten, Verschwinden eines Dokumententrägers, Reorganisation des Versands usw.)",
+        "description": "Bedrohungen in Bezug auf <br>- <strong>Komponenten</strong>: Missbrauch, Überlastung, Veränderung, Zerstörung, Verlust (Speicherüberlastung, DOS-Angriff, Änderung, die zu einem Absturz führt, Feuer , Diebstahl oder Verlust etc.)<br>- <strong>Software</strong>: unangemessene Verwendung, Überlastung, Veränderung, Zerstörung, Verlust (Datenlöschung, Einschmuggeln von Daten, logische Bombe, Lizenz nicht erneuert etc.)<br>- <strong>Computernetzwerke</strong>: Überlastung, Beschädigung, Verlust (Download nicht möglich, Internet-Zugang usw.)<br> -<strong>Personen</strong> : Überlastung, Beeinflussung, Abwesenheit (Missbrauch von Fähigkeiten, Abwesenheit, Abreise usw.)<br>- <strong>Papierdokumente </strong>: missbräuchliche Nutzung, Beschädigung, Verlust (Zerstörung, Diebstahl oder Verlust usw.)<br>- <strong>Postversand</strong>: Beschädigung, Veränderung, Verlust (Poststreik, Änderung der Räumlichkeiten, Verschwinden eines Dokumententrägers, Reorganisation des Versands usw.)",
         "source": "WIKI Menaces_pouvant_mener_à_une_disparition_de_données"
       },
       "PIA_DEF_GRV": {
@@ -653,7 +653,7 @@
       },
       "PIA_DEF_MIN4": {
         "name": "Nichtverkettbarkeit",
-        "description": "Das System kann in unabhängige Teile mit separaten Zugriffssteuerungsfunktionen strukturiert sein. Die Daten können auch auf diese unabhängigen Teilsysteme verteilt und von jedem Teilsystem unter Verwendung verschiedener Zugriffssteuerungsmechanismen gesteuert werden. Wenn ein Subsystem kompromittiert wird, hat dies keine Auswirkungen auf den gesamten Datenbestand. ",
+        "description": "Das System kann in unabhängige Teile mit separaten Zugriffssteuerungsfunktionen strukturiert sein. Die Daten können auch auf diese unabhängigen Teilsysteme verteilt und von jedem Teilsystem unter Verwendung verschiedener Zugriffssteuerungsmechanismen gesteuert werden. Wenn ein Subsystem kompromittiert wird, hat dies keine Auswirkungen auf den gesamten Datenbestand.",
         "source": "WIKI Minimisation_des_données_:_adéquates,_pertinentes_et_limitées"
       },
       "PIA_DEF_MIN5": {
@@ -668,7 +668,7 @@
       },
       "PIA_EX_DCPS": {
         "name": "Sensible Daten",
-        "description": " Weltanschauliche, politische, religiöse, gewerkschaftliche Überzeugungen und Beziehungen, Sexualleben, Gesundheitsdaten, Rasse oder ethnische Herkunft, Straftaten, Sicherheitsauflagen.<br>Siehe <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/DE/TXT/HTML/?uri=CELEX:32016R0679&from=DE\"> Art. 9 und 10 der [DS-GVO]</a>.",
+        "description": "Weltanschauliche, politische, religiöse, gewerkschaftliche Überzeugungen und Beziehungen, Sexualleben, Gesundheitsdaten, Rasse oder ethnische Herkunft, Straftaten, Sicherheitsauflagen.<br>Siehe <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/DE/TXT/HTML/?uri=CELEX:32016R0679&from=DE\"> Art. 9 und 10 der [DS-GVO]</a>.",
         "source": ""
       },
       "PIA_EX_DCPR": {
@@ -683,7 +683,7 @@
       },
       "PIA_EX_HUME": {
         "name": "Externe menschliche Risikoquellen",
-        "description": "Das kann sein:<br>- ein böswilliger oder unwissender Dritter, der seine physische Nähe nutzt, um betrügerisch auf den Dienst zuzugreifen<br>- ein Angreifer, der einen Benutzer des Systems mit Hilfe seines Wissens über diesen Benutzer zum Ziel nimmt<br>- ein Angreifer, der eine der Firmen, die für die Verarbeitung verantwortlich sind angreift, um Informationen zu gewinnen oder den Ruf des Unternehmens zu schädigen<br>- eine dritte Partei, die ihren autorisierten Zugang zu anderen Zwecken wie z.B. dem illegalem Zugang zu Informationen nutzt.<br>Die Motive können vielfältig sein:<br>Nervenkitzel, Verärgerung, Böswilligkeit, Rache, Spionage, Gier, Beschaffung von Daten, um sie auszunutzen.",
+        "description": "Das kann sein:<br>- ein böswilliger oder unwissender Dritter, der seine physische Nähe nutzt, um betrügerisch auf den Dienst zuzugreifen<br>- ein Angreifer, der einen Benutzer des Systems mit Hilfe seines Wissens über diesen Benutzer zum Ziel nimmt<br>- ein Angreifer, der eine der Firmen, die für die Verarbeitung verantwortlich sind angreift, um Informationen zu gewinnen oder den Ruf des Unternehmens zu schädigen<br>- eine dritte Partei, die ihren autorisierten Zugang zu anderen Zwecken wie z. B. dem illegalem Zugang zu Informationen nutzt.<br>Die Motive können vielfältig sein:<br>Nervenkitzel, Verärgerung, Böswilligkeit, Rache, Spionage, Gier, Beschaffung von Daten, um sie auszunutzen.",
         "source": ""
       },
       "PIA_EX_NHUM": {
@@ -698,37 +698,37 @@
       },
       "PIA_EX_IMPL": {
         "name": "Schweregrad: überschaubar",
-        "description": "Die Betroffenen können deutliche Unannehmlichkeiten erfahren, die sie jedoch trotz einiger Schwierigkeiten überwinden können.<br>Beispiele für Auswirkungen:<br>- körperlich: geringfügige körperliche Beeinträchtigung (z. B. leichte Erkrankung nach Nichteinhaltung von Kontraindikationen), üble Nachrede, die physische und psychische Auswirkungen hat.<br>- materiell: ungeplante Zahlungen (z. B. unberechtigte Bußgelder), Verweigerung des Zugangs zu administrativen oder kommerziellen Dienstleistungen, gezielte Online-Werbung zu einem ein Aspekt, der seitens des Betroffenen vertraulich bleiben sollte, etc.<br>- psychisch: geringe aber objektiv verstellbare psychische Beeinträchtigung, Gefühl der Verletzung der Privatsphäre ohne irreparablen Schaden, Einschüchterung in sozialen Netzwerken, etc.",
+        "description": "Die Betroffenen können deutliche Unannehmlichkeiten erfahren, die sie jedoch trotz einiger Schwierigkeiten überwinden können.<br>Beispiele für Auswirkungen:<br>- körperlich: geringfügige körperliche Beeinträchtigung (z. B. leichte Erkrankung nach Nichteinhaltung von Kontraindikationen), üble Nachrede, die physische und psychische Auswirkungen hat.<br>- materiell: ungeplante Zahlungen (z. B. unberechtigte Bußgelder), Verweigerung des Zugangs zu administrativen oder kommerziellen Dienstleistungen, gezielte Online-Werbung zu einem ein Aspekt, der seitens des Betroffenen vertraulich bleiben sollte etc.<br>- psychisch: geringe aber objektiv verstellbare psychische Beeinträchtigung, Gefühl der Verletzung der Privatsphäre ohne irreparablen Schaden, Einschüchterung in sozialen Netzwerken etc.",
         "source": ""
       },
       "PIA_EX_IMPI": {
         "name": "Schweregrad: substantiell",
-        "description": "Die Betroffenen können erhebliche Konsequenzen erleiden, die sie nur mit erheblichen Schwierigkeiten überwinden können.<br>Beispiele für Auswirkungen:<br>- körperlich: ernsthafte körperliche Beeinträchtigung, die zu langfristigem Schaden führen (Verschlimmerung von Gesundheitszustand aufgrund von schlechter Pflege, oder Nichteinhaltung von Kontraindikationen), Verletzung der körperlichen Unversehrtheit, etc.<br>- materiell: nicht kompensierbarer Verlust von Geldern, Verlust einzigartiger und nicht wiederkehrender Möglichkeiten (Hypothek, Studien, Praktika oder Beschäftigung, Prüfungsverbot), Verlust der Wohnung, Verlust des Arbeitsplatzes, etc.<br>- psychisch: schwere psychische Störung (Depression, Phobie), Gefühl der irreparablen Beeinträchtigung der Privatsphäre, Opfer von Erpressung, Cybermobbing und Mobbing usw.",
+        "description": "Die Betroffenen können erhebliche Konsequenzen erleiden, die sie nur mit erheblichen Schwierigkeiten überwinden können.<br>Beispiele für Auswirkungen:<br>- körperlich: ernsthafte körperliche Beeinträchtigung, die zu langfristigem Schaden führen (Verschlimmerung von Gesundheitszustand aufgrund von schlechter Pflege, oder Nichteinhaltung von Kontraindikationen), Verletzung der körperlichen Unversehrtheit etc.<br>- materiell: nicht kompensierbarer Verlust von Geldern, Verlust einzigartiger und nicht wiederkehrender Möglichkeiten (Hypothek, Studien, Praktika oder Beschäftigung, Prüfungsverbot), Verlust der Wohnung, Verlust des Arbeitsplatzes etc.<br>- psychisch: schwere psychische Störung (Depression, Phobie), Gefühl der irreparablen Beeinträchtigung der Privatsphäre, Opfer von Erpressung, Cybermobbing und Mobbing usw.",
         "source": ""
       },
       "PIA_EX_IMPM": {
         "name": "Schweregrad: groß",
-        "description": "Die Betroffenen können erhebliche und auch nicht rückgängig zu machende Folgen erleiden.<br>Beispiele für Auswirkungen:<br>- körperlich: dauerhafte oder längerfristige körperliche Beeinträchtigung, dauerhafte Beeinträchtigung der körperlichen Unversehrtheit, Tod<br>- materiell: finanzielles Risiko, hohe Verschuldung, Arbeitsunfähigkeit, Unfähigkeit umzuziehen, Verlust von Beweisen bei Rechtsstreitigkeiten, Verlust des Zugangs zu lebenswichtiger Infrastruktur (Wasser, Strom), etc.<br >- psychisch: langfristige oder dauerhafte psychische Beeinträchtigung, strafrechtliche Sanktion, Entführung, Verlust der Familienbande, Unmöglichkeit, vor Gericht zu erscheinen, Änderung des Verwaltungsstatus und / oder Verlust der rechtlichen Autonomie (Vormundschaft) usw.",
+        "description": "Die Betroffenen können erhebliche und auch nicht rückgängig zu machende Folgen erleiden.<br>Beispiele für Auswirkungen:<br>- körperlich: dauerhafte oder längerfristige körperliche Beeinträchtigung, dauerhafte Beeinträchtigung der körperlichen Unversehrtheit, Tod<br>- materiell: finanzielles Risiko, hohe Verschuldung, Arbeitsunfähigkeit, Unfähigkeit umzuziehen, Verlust von Beweisen bei Rechtsstreitigkeiten, Verlust des Zugangs zu lebenswichtiger Infrastruktur (Wasser, Strom) etc.<br >- psychisch: langfristige oder dauerhafte psychische Beeinträchtigung, strafrechtliche Sanktion, Entführung, Verlust der Familienbande, Unmöglichkeit, vor Gericht zu erscheinen, Änderung des Verwaltungsstatus und / oder Verlust der rechtlichen Autonomie (Vormundschaft) usw.",
         "source": ""
       },
       "PIA_EX_VRAN": {
         "name": "Eintrittswahrscheinlichkeit: geringfügig",
-        "description": " Für die ausgewählten Risikoquellen scheint es nicht möglich, einen Schaden der Betroffenen zu verursachen (z.B. Diebstahl von Papierdokumenten aus einem Raum, dessen Zutritt mit Kartenleser und Zugangscode geschützt ist).",
+        "description": " Für die ausgewählten Risikoquellen scheint es nicht möglich, einen Schaden der Betroffenen zu verursachen (z. B. Diebstahl von Papierdokumenten aus einem Raum, dessen Zutritt mit Kartenleser und Zugangscode geschützt ist).",
         "source": ""
       },
       "PIA_EX_VRAL": {
         "name": "Eintrittswahrscheinlichkeit: überschaubar",
-        "description": "Für die ausgewählten Risikoquellen scheint es schwer möglich, einen Schaden für den Betroffenen zu verursachen (z.B. Diebstahl von Papierdokumenten aus einem Raum, dessen Zutritt mit Kartenleser geschützt ist).",
+        "description": "Für die ausgewählten Risikoquellen scheint es schwer möglich, einen Schaden für den Betroffenen zu verursachen (z. B. Diebstahl von Papierdokumenten aus einem Raum, dessen Zutritt mit Kartenleser geschützt ist).",
         "source": ""
       },
       "PIA_EX_VRAI": {
         "name": "Eintrittswahrscheinlichkeit: substantiell",
-        "description": "Für die ausgewählten Risikoquellen scheint es möglich, einen Schaden für den Betroffenen zu verursachen (z.B. Diebstahl von Papierdokumenten, die in den Büros einer Organisation gespeichert sind, deren Zugang von einer Person an der Rezeption kontrolliert wird).",
+        "description": "Für die ausgewählten Risikoquellen scheint es möglich, einen Schaden für den Betroffenen zu verursachen (z. B. Diebstahl von Papierdokumenten, die in den Büros einer Organisation gespeichert sind, deren Zugang von einer Person an der Rezeption kontrolliert wird).",
         "source": ""
       },
       "PIA_EX_VRAM": {
         "name": "Eintrittswahrscheinlichkeit: groß",
-        "description": "Für die ausgewählten Risikoquellen scheint es sehr einfach, einen Schaden für den Betroffenen zu verursachen (z.B. Diebstahl von Papierdokumenten in der öffentlichen Lobby aufbewahrt werden).",
+        "description": "Für die ausgewählten Risikoquellen scheint es sehr einfach, einen Schaden für den Betroffenen zu verursachen (z. B. Diebstahl von Papierdokumenten in der öffentlichen Lobby aufbewahrt werden).",
         "source": ""
       },
       "PIA_EX_DC": {
@@ -1123,7 +1123,7 @@
             },
             "2": {
               "title": "Wie verläuft der Lebenszyklus von Daten und Prozessen?",
-              "placeholder": "Präsentieren und beschreiben Sie die Funktionsweise und den Ablauf der Datenverarbeitung (von der Datensammlung bis zur Datenlöschung, sowie die verschiedenen Verarbeitungsschritte, Speicherung, etc.) zum Beispiel mit Hilfe eines Diagramm der Datenflüsse (fügen Sie es als Anhang hinzu) und einer detaillierten Beschreibung der Prozesse."
+              "placeholder": "Präsentieren und beschreiben Sie die Funktionsweise und den Ablauf der Datenverarbeitung (von der Datensammlung bis zur Datenlöschung, sowie die verschiedenen Verarbeitungsschritte, Speicherung etc.) zum Beispiel mit Hilfe eines Diagramm der Datenflüsse (fügen Sie es als Anhang hinzu) und einer detaillierten Beschreibung der Prozesse."
             },
             "3": {
               "title": "Mit Hilfe welcher Betriebsmittel erfolgt die Datenverarbeitung?",
