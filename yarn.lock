@@ -321,9 +321,9 @@ amqplib@^0.5.2:
     readable-stream "1.x >=1.1.9"
     safe-buffer "^5.0.1"
 
-"angular2-csv@git+https://github.com/javiertelioz/angular2-csv.git":
-  version "0.2.6"
-  resolved "git+https://github.com/javiertelioz/angular2-csv.git#18afaa5ce7ebfe7655200ade663530b8da80750b"
+angular2-csv@~0.2.5:
+  version "0.2.5"
+  resolved "https://registry.yarnpkg.com/angular2-csv/-/angular2-csv-0.2.5.tgz#8179f4392ed5c62b4043bf819e3bfc1ee8abf8f3"
 
 ansi-html@0.0.7:
   version "0.0.7"
