@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit } from '@angular/core';
+import { Component, Renderer2, ElementRef, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
 import { element } from 'protractor';
@@ -51,7 +51,8 @@ export class SummaryComponent implements OnInit {
     private _modalService: ModalsService,
     private evaluationApi: EvaluationApi,
     private answerApi: AnswerApi,
-    private measureApi: MeasureApi) { }
+    private measureApi: MeasureApi,
+    private renderer: Renderer2) { }
 
   async ngOnInit() {
     this.summarySubscription = this.route.queryParams.subscribe(params => {
@@ -168,7 +169,7 @@ export class SummaryComponent implements OnInit {
     setTimeout(() => {
       const contextSection = this.el.nativeElement.querySelector('.section-1');
       contextSection.classList.toggle('hide');
-    }, 100);
+    }, 500);
   }
 
   /**
@@ -179,7 +180,7 @@ export class SummaryComponent implements OnInit {
     setTimeout(() => {
       const fundamentalPrinciplesSection = this.el.nativeElement.querySelector('.section-2');
       fundamentalPrinciplesSection.classList.toggle('hide');
-    }, 100);
+    }, 500);
   }
 
   /**
@@ -190,7 +191,7 @@ export class SummaryComponent implements OnInit {
     setTimeout(() => {
       const risksSection = this.el.nativeElement.querySelector('.section-3');
       risksSection.classList.toggle('hide');
-    }, 100);
+    }, 500);
   }
 
   /**
