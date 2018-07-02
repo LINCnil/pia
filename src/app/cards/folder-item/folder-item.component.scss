@@ -8,11 +8,14 @@
   position: relative;
   margin-right: 12px;
   margin-bottom: 40px;
-  height: 382px;
+  height: 384px;
   border: none;
   padding: 9px;
   background-color: #fff;
   //background: url("../../../assets/images/pia-bg.png") repeat center center;
+  -webkit-box-shadow: 1px 1px 2px 1px rgba(204,202,204,1);
+    -moz-box-shadow: 1px 1px 2px 1px rgba(204,202,204,1);
+    box-shadow: 1px 1px 2px 1px rgba(204,202,204,1);
 
   .folder-icon {
     width: 100%;
@@ -48,7 +51,7 @@
     padding-top: 21px;
     margin-top: 21px;
     text-align: center;
-    margin-bottom: 15px;
+    margin-bottom: 9px;
 
     a {
       text-decoration: none;
