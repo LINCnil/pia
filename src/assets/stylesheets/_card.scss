@@ -5,9 +5,12 @@
     position: relative;
     margin-right: 12px;
     margin-bottom: 50px;
-    height: 370px;
+    //height: 370px;
     border: 1px solid #fff;
     background-color: #fff;
+    -webkit-box-shadow: 1px 1px 2px 1px rgba(204,202,204,1);
+    -moz-box-shadow: 1px 1px 2px 1px rgba(204,202,204,1);
+    box-shadow: 1px 1px 2px 1px rgba(204,202,204,1);
     &-title {
       height: 23px;
     }
@@ -252,8 +255,9 @@
               cursor: context-menu;
               .pia-cardsBlock-toolbar-moreList {
                 display: block;
-                box-shadow: 2px 2px 4px 0px $pia-green;
-                -webkit-box-shadow: 2px 2px 4px 0px $pia-green;
+                box-shadow: 2px 2px 4px 0px rgba(204,202,204,1);
+                -webkit-box-shadow: 2px 2px 4px 0px rgba(204,202,204,1);
+                -moz-box-shadow: 2px 2px 4px 0px rgba(204,202,204,1);
               }
             }
           }
