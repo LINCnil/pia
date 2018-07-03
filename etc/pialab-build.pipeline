@@ -1,7 +1,7 @@
 pipeline {
     agent  any
     stages {
-        stage ('Build') {
+        stage ('Build PR') {
            
             when { expression { env.CHANGE_ID != null } }
             steps {
@@ -10,7 +10,8 @@ pipeline {
                    string(value: "${CHANGE_ID}",  name: 'PR_ID'),
                 ], wait: true  
             }
-            
+        }
+        stage ('Build branch') {
             when { expression {env.CHANGE_ID == null} }
             steps {
                 build job: "Pialab/Pialab-Front-Build",  parameters: [
