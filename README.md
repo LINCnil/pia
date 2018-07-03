@@ -6,7 +6,7 @@
 
 ## Install
 
-First things first, you need to set up the  [ backend](https://github.com/pia-lab/pialab-back#pialab-backend) in order to use PiaLab.
+First things first, you need to set up the [ backend](https://github.com/pia-lab/pialab-back#pialab-backend) in order to use PiaLab.
 
 Once ready
 
