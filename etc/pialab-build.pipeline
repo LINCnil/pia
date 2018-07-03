@@ -1,15 +1,12 @@
 pipeline {
     agent  any
-    parameters {
-        string(defaultValue: 'master', description: '', name: 'BRANCH_NAME') 
-        string(defaultValue: '', description: '', name: 'CHANGE_ID') /*Pull request id*/
-    }
+    
     stages {
         stage ('Build') {
             steps {
                 build job: "Pialab/Pialab-Front-Build",  parameters: [
-                   string(value: "${params.BRANCH_NAME}",  name: 'BRANCH_NAME'),
-                   string(value: "${params.CHANGE_ID}",  name: 'PR_ID'),
+                   string(value: "${env.BRANCH_NAME}",  name: 'BRANCH_NAME'),
+                   string(value: "${env.CHANGE_ID}",  name: 'PR_ID'),
                 ], wait: true  
             }
         }
