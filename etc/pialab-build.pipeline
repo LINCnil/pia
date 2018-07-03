@@ -1,0 +1,14 @@
+pipeline {
+    agent  any
+
+    stages {
+        stage ('Build') {
+           
+            steps {
+                build job: "Pialab/Pialab-Front-Build",  parameters: [
+                   string(value: "${BRANCH_NAME}",  name: 'BRANCH_NAME'),
+                ], wait: true  
+            }
+        }
+    }
+}
