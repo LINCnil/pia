@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage ('Build') {
            
-           when { not { env.CHANGE_ID null } }
+            when { expression { env.CHANGE_ID != null } }
             steps {
                 build job: "Pialab/Pialab-Front-Build",  parameters: [
                    string(value: "${BRANCH_NAME}",  name: 'BRANCH_NAME'),
@@ -11,7 +11,7 @@ pipeline {
                 ], wait: true  
             }
             
-            when { env.CHANGE_ID null }
+            when { expression {env.CHANGE_ID == null} }
             steps {
                 build job: "Pialab/Pialab-Front-Build",  parameters: [
                    string(value: "${BRANCH_NAME}",  name: 'BRANCH_NAME'),
