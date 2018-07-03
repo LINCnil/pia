@@ -1,10 +1,10 @@
 pipeline {
     agent  any
     stages {
-        stage ('Build')
+        stage ('Build') {
             parallel {
                 stage ('From PR') {
-                    when { expression{ env.CHANGE_ID != null }}
+                    when { expression { env.CHANGE_ID != null }}
                     steps {
                         build job: "Pialab/Pialab-Front-Build",  parameters: [
                            string(value: "${BRANCH_NAME}",  name: 'BRANCH_NAME'),
@@ -13,7 +13,7 @@ pipeline {
                     }
                 }
                 stage ('From branch') {
-                    when { expression{ env.CHANGE_ID == null }}
+                    when { expression { env.CHANGE_ID == null }}
                     steps {
                         build job: "Pialab/Pialab-Front-Build",  parameters: [
                            string(value: "${BRANCH_NAME}",  name: 'BRANCH_NAME'),
