@@ -1,13 +1,25 @@
 pipeline {
     agent  any
-    
     stages {
-        stage ('Build') {
-            steps {
-                build job: "Pialab/Pialab-Front-Build",  parameters: [
-                   string(value: "${env.BRANCH_NAME}",  name: 'BRANCH_NAME'),
-                   string(value: "${env.CHANGE_ID}",  name: 'PR_ID'),
-                ], wait: true  
+        stage ('Build')
+            parallel {
+                stage ('From PR') {
+                    when { expression{ env.CHANGE_ID != null }}
+                    steps {
+                        build job: "Pialab/Pialab-Front-Build",  parameters: [
+                           string(value: "${BRANCH_NAME}",  name: 'BRANCH_NAME'),
+                           string(value: "${CHANGE_ID}",  name: 'PR_ID'),
+                        ], wait: true  
+                    }
+                }
+                stage ('From branch') {
+                    when { expression{ env.CHANGE_ID == null }}
+                    steps {
+                        build job: "Pialab/Pialab-Front-Build",  parameters: [
+                           string(value: "${BRANCH_NAME}",  name: 'BRANCH_NAME'),
+                        ], wait: true  
+                    }
+                }
             }
         }
     }
