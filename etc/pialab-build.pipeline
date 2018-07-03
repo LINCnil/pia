@@ -8,8 +8,8 @@ pipeline {
         stage ('Build') {
             steps {
                 build job: "Pialab/Pialab-Front-Build",  parameters: [
-                   string(value: "${BRANCH_NAME}",  name: 'BRANCH_NAME'),
-                   string(value: "${CHANGE_ID}",  name: 'PR_ID'),
+                   string(value: "${params.BRANCH_NAME}",  name: 'BRANCH_NAME'),
+                   string(value: "${params.CHANGE_ID}",  name: 'PR_ID'),
                 ], wait: true  
             }
         }
