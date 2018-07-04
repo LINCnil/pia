@@ -1225,15 +1225,15 @@
           "questions": {
             "1": {
               "title": " Quais poderiam ser os principais<span class='green-highlight'>impactos nos dados dos titulares</span> se o risco ocorrer?",
-              "placeholder": "Insira os possíveis impactos \u002B"
+              "placeholder": "Insira os possíveis impactos"
             },
             "2": {
               "title": "Quais são os principais<span class='green-highlight'>ameaças</span>que poderiam levar ao risco? ",
-              "placeholder": "Insira as ameaças \u002B"
+              "placeholder": "Insira as ameaças"
             },
             "3": {
               "title": "Quais são as <span class='green-highlight'>fontes</span>de risco?",
-              "placeholder": "Insira as fontes de risco \u002B"
+              "placeholder": "Insira as fontes de risco"
             },
             "4": {
               "title": "Quais são os <span class='green-highlight'>controlos</span> identificados que contribuem para abordar o risco?",
@@ -1255,15 +1255,15 @@
           "questions": {
             "1": {
               "title": "Quais poderiam ser os <span class='green-highlight'>impactos nos dados dos titulares </span> se o risco ocorrer?",
-              "placeholder": "Inserir os impactos potenciais \u002B"
+              "placeholder": "Inserir os impactos potenciais"
             },
             "2": {
               "title": "Quais são as principais <span class='green-highlight'>ameaças</span> que poderiam levar ao risco?",
-              "placeholder": "Inserir as ameaças \u002B"
+              "placeholder": "Inserir as ameaças"
             },
             "3": {
               "title": "Quais são as <span class='green-highlight'>fontes</span>de risco?",
-              "placeholder": "Inserir as fontes de risco \u002B"
+              "placeholder": "Inserir as fontes de risco"
             },
             "4": {
               "title": "Quais são os <span class='green-highlight'>controlos</span> identificados que contribuem para abordar o risco?",
@@ -1285,15 +1285,15 @@
           "questions": {
             "1": {
               "title": "Quais são os principais<span class='green-highlight'>impactos nos dados dos titulares</span> se o risco ocorrer?",
-              "placeholder": "Isnerir os impactos potenciais \u002B"
+              "placeholder": "Isnerir os impactos potenciais"
             },
             "2": {
               "title": "Quais são as principais <span class='green-highlight'>ameaças</span> que poderiam levar ao risco",
-              "placeholder": "Inserir as ameaças \u002B"
+              "placeholder": "Inserir as ameaças"
             },
             "3": {
               "title": "Quais são as <span class='green-highlight'>fontes</span>de risco?",
-              "placeholder": "Inserir as fontes de risco \u002B"
+              "placeholder": "Inserir as fontes de risco"
             },
             "4": {
               "title": "Quais são os <span class='green-highlight'>controlos</span> identificados que contribuem para abordar o risco?",

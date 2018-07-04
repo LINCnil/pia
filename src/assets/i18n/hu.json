@@ -1225,15 +1225,15 @@
           "questions": {
             "1": {
               "title": "Milyen főbb <span class='green-highlight'>következményekkel járna az érintettekre</span>, ha a kockázat bekövetkezne?",
-              "placeholder": "Írja be a lehetséges következményeket \u002B"
+              "placeholder": "Írja be a lehetséges következményeket"
             },
             "2": {
               "title": "Mely fő <span class='green-highlight'>fenyegető veszélyek</span> idézhetik elő a kockázatot?",
-              "placeholder": "Írja be a fenyegető veszélyeket \u002B"
+              "placeholder": "Írja be a fenyegető veszélyeket"
             },
             "3": {
               "title": "Melyek a kockázat <span class='green-highlight'>forrásai</span>?",
-              "placeholder": "Írja be kockázatok forrásait \u002B"
+              "placeholder": "Írja be kockázatok forrásait"
             },
             "4": {
               "title": "A megadott <span class='green-highlight'>intézkedések</span> közül melyek szolgálnak a kockázat kezelésére?",
@@ -1255,15 +1255,15 @@
           "questions": {
             "1": {
               "title": "Milyen főbb <span class='green-highlight'>következményekkel járna az érintettekre</span>, ha a kockázat bekövetkezne?",
-              "placeholder": "Írja be a lehetséges következményeket \u002B"
+              "placeholder": "Írja be a lehetséges következményeket"
             },
             "2": {
               "title": "Milyen fő <span class='green-highlight'>fenyegető veszélyek</span> idézhetik elő a kockázatot?",
-              "placeholder": "Írja be a fenyegető veszélyeket \u002B"
+              "placeholder": "Írja be a fenyegető veszélyeket"
             },
             "3": {
               "title": "Melyek a kockázat <span class='green-highlight'>forrásai</span>?",
-              "placeholder": "Írja be a kockázat forrásait \u002B"
+              "placeholder": "Írja be a kockázat forrásait"
             },
             "4": {
               "title": "A megadott intézkedések közül melyek <span class='green-highlight'>megfelelőek</span> a kockázatok kezelésére?",
@@ -1285,15 +1285,15 @@
           "questions": {
             "1": {
               "title": "Milyen főbb <span class='green-highlight'>következményekkel járna az érintettekre,</span> ha a kockázat bekövetkezne?",
-              "placeholder": "Írja be a lehetséges következményeket \u002B"
+              "placeholder": "Írja be a lehetséges következményeket"
             },
             "2": {
               "title": "Milyen fő <span class='green-highlight'>fenyegető veszélyek</span> idézhetik elő a kockázatot?",
-              "placeholder": "Írja be a fenyegető veszélyeket \u002B"
+              "placeholder": "Írja be a fenyegető veszélyeket"
             },
             "3": {
               "title": "Melyek a kockázat <span class='green-highlight'>forrásai</span>?",
-              "placeholder": "Írja be kockázat forrásait \u002B"
+              "placeholder": "Írja be kockázat forrásait"
             },
             "4": {
               "title": "A megadott <span class='green-highlight'>intézkedések</span> közül melyek szolgálnak a kockázat kezelésére?",
