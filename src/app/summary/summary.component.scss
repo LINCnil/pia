@@ -57,8 +57,8 @@
     a, button {
       margin: 0 5px;
       i {
-        color: $pia-gray-dark;
-        font-size: 1.7rem;
+        color: $pia-green;
+        font-size: 2rem;
       }
     }
   }
@@ -131,13 +131,6 @@
   &-summaryRisksOverviewBlock > div {
     box-shadow: 1px 1px 15px 1px #d2d2d2;
   }
-}
-.btn-select-all {
-  display: block;
-  padding: 10px 12px;
-  color: $pia-white;
-  background-color: $pia-green;
-  border-radius: 15px;
 }
 .force-select-all {
   -webkit-user-select: all;

@@ -12,12 +12,12 @@
     <a (click)="download()" title="{{ 'summary.download_csv' | translate }}" class="btn hide-for-print" title="">
       <i class="fa fa-2x fa-file-excel-o"></i>
     </a>
-    <button class="btn btn-green hide-for-print" (click)="downloadAllGraphsAsImages()">{{ 'summary.download_images' | translate }}</button>
+    <button title="{{ 'summary.download_images' | translate }}" class="btn hide-for-print" (click)="downloadAllGraphsAsImages()"><i class="fa fa-2x fa-file-image-o"></i></button>
   </div>
 
   <!-- Copy to clipboard block -->
   <div class="pia-summaryCopyBlock hide-for-print">
-    <button class="btn btn-select-all hide-for-print" (click)="getTextSelection()">{{ 'summary.copy_to_clipboard' | translate }}</button>
+    <button class="btn btn-green hide-for-print" (click)="getTextSelection()">{{ 'summary.copy_to_clipboard' | translate }}</button>
   </div>
 
   <!-- Customize content filters -->

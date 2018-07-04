@@ -783,7 +783,13 @@ body.pia-contrast {
   .pia-summaryCopyBlock button {
     background-color: $pia-green-dark!important;
   }
-
+  .pia-summaryButtonsBlock {
+    a, button {
+      i {
+        color: $pia-green-dark !important;
+      }
+    }
+  }
   .evaluationbox {
     p {
       border: 0.5px dotted $pia-gray-dark !important;
