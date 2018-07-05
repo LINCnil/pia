@@ -22,7 +22,7 @@
 
   <!-- Customize content filters -->
   <div class="row">
-   <div class="small-12 medium-12 columns">
+    <div class="small-12 medium-12 columns">
       <form class="pia-summaryFiltersBlock hide-for-print">
         <fieldset>
           <legend class="unselectable">{{ 'summary.display_filters.title' | translate }}</legend>
@@ -59,13 +59,11 @@
         </fieldset>
       </form>
     </div>
-   </div>
-  <!--<div class="row force-select-all" id="force-select-all">-->
+  </div>
   <div class="row" id="force-select-all">
     <div class="small-12 medium-12 columns">
       <div *ngIf="allData" ng-class="{'text-success': model.copied, 'text-danger': !model.copied}" ng-copy="events.onCopy($event)">
         <!-- Main PIA data -->
-        <!--<div class="fadeIn force-select-all" *ngIf="displayMainPiaData">-->
         <div class="fadeIn" *ngIf="displayMainPiaData">
           <div *ngFor="let c of content">
             <div *ngIf="c.data.length > 0">

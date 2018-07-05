@@ -76,13 +76,23 @@ export class SummaryComponent implements OnInit {
     });
   }
 
-  downloadAllGraphsAsImages() {
+  /**
+   * Download all graphs as images
+   * @private
+   * @memberof SummaryComponent
+   */
+  private downloadAllGraphsAsImages() {
     this.getActionPlanOverviewImg();
     this.getRisksOverviewImg();
     this.getRisksCartographyImg();
   }
 
-  getActionPlanOverviewImg() {
+  /**
+   * Download the action plan overview as an image
+   * @private
+   * @memberof SummaryComponent
+   */
+  private getActionPlanOverviewImg() {
     setTimeout(() => {
       const actionPlanOverviewImg = document.querySelector('#actionPlanOverviewImg');
       if (actionPlanOverviewImg) {
@@ -95,8 +105,12 @@ export class SummaryComponent implements OnInit {
       }
     }, 500);
   }
-
-  getRisksOverviewImg() {
+  /**
+   * Download the risks overview as an image
+   * @private
+   * @memberof SummaryComponent
+   */
+  private getRisksOverviewImg() {
     setTimeout(() => {
         const mysvg = document.getElementById('risksOverviewSvg');
         if (mysvg) {
@@ -109,7 +123,12 @@ export class SummaryComponent implements OnInit {
     }, 500);
   }
 
-  getRisksCartographyImg() {
+  /**
+   * Download the risks cartography as an image
+   * @private
+   * @memberof SummaryComponent
+   */
+  private getRisksCartographyImg() {
     setTimeout(() => {
       const risksCartographyImg = document.querySelector('#risksCartographyImg');
       if (risksCartographyImg) {
@@ -123,7 +142,14 @@ export class SummaryComponent implements OnInit {
     }, 500);
   }
 
-  downloadURI(uri, name) {
+  /**
+   * Generate a link to download the different images in the summary
+   * @private
+   * @param {uri} uri identifiant URI de l'image
+   * @param {string} name name of the image
+   * @memberof SummaryComponent
+   */
+  private downloadURI(uri, name) {
     const link = document.createElement('a');
     link.download = name;
     link.href = uri;
@@ -133,17 +159,19 @@ export class SummaryComponent implements OnInit {
 
   /**
    * Display or hide the main Pia data.
+   * @private
    * @memberof SummaryComponent
    */
-  toggleMainContent() {
+  private toggleMainContent() {
     this.displayMainPiaData = !this.displayMainPiaData;
   }
 
   /**
    * Display or hide the main Pia data.
+   * @private
    * @memberof SummaryComponent
    */
-  toggleContextContent() {
+  private toggleContextContent() {
     setTimeout(() => {
       const contextSection = this.el.nativeElement.querySelector('.section-1');
       contextSection.classList.toggle('hide');
@@ -152,9 +180,10 @@ export class SummaryComponent implements OnInit {
 
   /**
    * Display or hide the main Pia data.
+   * @private
    * @memberof SummaryComponent
    */
-  toggleFundamentalPrinciplesContent() {
+  private toggleFundamentalPrinciplesContent() {
     setTimeout(() => {
       const fundamentalPrinciplesSection = this.el.nativeElement.querySelector('.section-2');
       fundamentalPrinciplesSection.classList.toggle('hide');
@@ -163,9 +192,10 @@ export class SummaryComponent implements OnInit {
 
   /**
    * Display or hide the main Pia data.
+   * @private
    * @memberof SummaryComponent
    */
-  toggleRisksContent() {
+  private toggleRisksContent() {
     setTimeout(() => {
       const risksSection = this.el.nativeElement.querySelector('.section-3');
       risksSection.classList.toggle('hide');
@@ -174,25 +204,28 @@ export class SummaryComponent implements OnInit {
 
   /**
    * Display or hide the action plan.
+   * @private
    * @memberof SummaryComponent
    */
-  toggleActionPlanContent() {
+  private toggleActionPlanContent() {
     this.displayActionPlan = !this.displayActionPlan;
   }
 
   /**
    * Display or hide the risks overview for the current PIA.
+   * @private
    * @memberof SummaryComponent
    */
-  toggleRisksOverviewContent() {
+  private toggleRisksOverviewContent() {
     this.displayRisksOverview = !this.displayRisksOverview;
   }
 
   /**
    * Display or hide the risks cartography for the current PIA.
+   * @private
    * @memberof SummaryComponent
    */
-  toggleRisksCartographyContent() {
+  private toggleRisksCartographyContent() {
     this.displayRisksCartography = !this.displayRisksCartography;
   }
 
@@ -223,9 +256,10 @@ export class SummaryComponent implements OnInit {
 
   /**
    * Prepare and display the ActionPlan information.
+   * @private
    * @memberof SummaryComponent
    */
-  showActionPlan() {
+  private showActionPlan() {
     this._actionPlanService.data = this.dataNav;
     this._actionPlanService.pia = this.pia;
     this._actionPlanService.listActionPlan();
@@ -478,9 +512,10 @@ export class SummaryComponent implements OnInit {
 
   /**
    * Select all text from page.
+   * @private
    * @memberof Angular2Csv
    */
-  getTextSelection() {
+  private getTextSelection() {
     const actionPlanOverview = document.getElementById('actionPlanOverviewImg');
     if (actionPlanOverview) {
       actionPlanOverview.classList.toggle('hide');
