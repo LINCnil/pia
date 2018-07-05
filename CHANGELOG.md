@@ -1,5 +1,26 @@
 # Change Log
 
+## [Unreleased](https://github.com/pia-lab/pialab/tree/HEAD)
+
+[Full Changelog](https://github.com/pia-lab/pialab/compare/1.2.1...HEAD)
+
+**Fixed bugs:**
+
+- Error in export/import PIA [\#34](https://github.com/pia-lab/pialab/issues/34)
+
+## [1.2.1](https://github.com/pia-lab/pialab/tree/1.2.1) (2018-07-03)
+[Full Changelog](https://github.com/pia-lab/pialab/compare/1.2.0...1.2.1)
+
+**Closed issues:**
+
+- unable  to create a database [\#33](https://github.com/pia-lab/pialab/issues/33)
+- user creation: can't send mail for reset the password [\#30](https://github.com/pia-lab/pialab/issues/30)
+- \[Error\] Cannot read property 'pias' of undefined [\#29](https://github.com/pia-lab/pialab/issues/29)
+
+**Merged pull requests:**
+
+- Wip ui update [\#31](https://github.com/pia-lab/pialab/pull/31) ([GlennCavarle](https://github.com/GlennCavarle))
+
 ## [1.2.0](https://github.com/pia-lab/pialab/tree/1.2.0) (2018-06-28)
 [Full Changelog](https://github.com/pia-lab/pialab/compare/1.1.0...1.2.0)
 
