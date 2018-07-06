@@ -977,10 +977,10 @@
     "csv_file_title": "actieplan",
     "display_filters": {
       "title": "Filters",
-      "main_content": "Toon \ "PIA informatie \"",
-      "context_content": "Toon \ "Context \"",
-      "principles_content": "Toon \ "Fundamentele principes \"",
-      "risks_content": "Toon \ "Risico's \"",
+      "main_content": "Toon \"PIA informatie\"",
+      "context_content": "Toon \"Context\"",
+      "principles_content": "Toon \"Fundamentele principes\"",
+      "risks_content": "Toon \"Risico's\"",
       "action_plan_content": "Toon actieplan",
       "risks_overview_content": "Toon overzicht van de risico's",
       "risks_cartography_content": "Toon risicokaart"
