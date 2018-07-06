@@ -71,10 +71,10 @@
 			"seriousness": "Rekening houdend met het actieplan, hoe herevalueer je het <span class='red-highlight'>ernst van dit risico</span> ({{value}})?"
 		},
 		"improvable": "Verbeterbaar",
-		"placeholder_acceptable": "TO BE TRANSLATED - According to the available information, the measures implemented are adequate to properly meet the requirements for protecting the data.",
-		"placeholder_improvable1": "TO BE TRANSLATED - According to the available information, additional measures are to be implemented in order to improve the data protection of the processing.",
-		"placeholder_improvable2": "TO BE TRANSLATED - Enter your comments.",
-		"placeholder_to_correct": "TO BE TRANSLATED - The information provided are not sufficient to properly evaluate them. Send back to the editor to improve the original submission.",
+		"placeholder_acceptable": "Volgens de beschikbare informatie zijn de geïmplementeerde maatregelen toereikend om goed te voldoen aan de vereisten voor de bescherming van de gegevens.",
+		"placeholder_improvable1": "Volgens de beschikbare informatie moeten aanvullende maatregelen worden geïmplementeerd om de gegevensbescherming van de verwerking te verbeteren.",
+		"placeholder_improvable2": "Voer uw opmerkingen in.",
+		"placeholder_to_correct": "De verstrekte informatie is niet voldoende om ze goed te evalueren. Stuur terug naar de editor om de originele inzending te verbeteren.",
 		"status": {
 			"0": "In afwachting",
 			"1": "Te corrigeren",
@@ -92,7 +92,7 @@
 			"community_translations": "Vertalingen door community",
 			"cs": "Česky",
 			"de": "Deutsch",
-			"dpa_translations": "TO BE TRANSLATED - Translation revised by European DPA",
+			"dpa_translations": "Vertaling herzien door Europese gegevensbeschermingsautoriteit",
 			"el": "Ελληνικά",
 			"en": "English",
 			"es": "Español",
@@ -399,8 +399,8 @@
 				"source": ""
 			},
 			"PIA_DEF_MIND": {
-				"description": "TO BE TRANSLATED - Reduce the severity of risks by minimizing the data themselves, by taking measures aimed at reducing their sensitivity such as filtering and removing unnecessary data, pseudonymising data, etc.",
-				"name": "TO BE TRANSLATED - Minimization of data themselves",
+				"description": "De ernst van de risico's verminderen door de gegevens zelf te minimaliseren, door maatregelen te nemen om hun gevoeligheid te verminderen, zoals het filteren en verwijderen van onnodige gegevens, het pseudonimiseren van gegevens, enz.",
+				"name": "Minimalisatie van gegevens zelf",
 				"source": "PIA3 p64"
 			},
 			"PIA_DEF_OPP": {
@@ -827,22 +827,22 @@
 	},
 	"modals": {
 		"abandon_pia": {
-			"additional_text": "TO BE TRANSLATED - Archiving is not definitive and the PIA can go back to it if needed.",
-			"content": "TO BE TRANSLATED - Do you wish to give up the processing?"
+			"additional_text": "Archivering is niet definitief en de PIA kan er zo nodig op terugkomen.",
+			"content": "Wilt u de verwerking opgeven?"
 		},
 		"action_plan_no_evaluation": {
-			"content": "TO BE TRANSLATED - You need to begin the review of the analysis to create the action plan.",
-			"review_section": "TO BE TRANSLATED - Review a section"
+			"content": "U moet beginnen met het evalueren van de analyse om het actieplan te maken.",
+			"review_section": "Controleer een sectie"
 		},
 		"archive": "Archief",
 		"ask_for_evaluation": {
-			"content": "TO BE TRANSLATED - This section is ready to be reviewed."
+			"content": "Dit gedeelte kan worden beoordeeld."
 		},
 		"back_to_edition": {
-			"content": "TO BE TRANSLATED - This section has been sent back for editing.<br> Several fields must be corrected<br> to enable its proper review."
+			"content": "Deze sectie is teruggestuurd voor bewerking. <br>Verschillende velden moeten worden gecorrigeerd<br> om de juiste beoordeling mogelijk te maken."
 		},
 		"back_to_evaluation": {
-			"content": "TO BE TRANSLATED - This section has been sent back for review.<br> Several fields must be reviewed<br> to enable its proper validation."
+			"content": "Dit gedeelte is ter beoordeling teruggestuurd. <br>Verschillende velden moeten worden beoordeeld<br> om de juiste validatie mogelijk te maken."
 		},
 		"back_to_home": "Terug naar begin",
 		"cancel": "Annuleer",
@@ -859,22 +859,22 @@
 			"declare": "Declareer bestaande of geplande maatregelen"
 		},
 		"dpo_missing_evaluations": {
-			"comment": "TO BE TRANSLATED - Comment",
-			"content": "TO BE TRANSLATED - You need to complete the review of the analysis to access the DPO page.",
+			"comment": "Commentaar",
+			"content": "U moet de controle van de analyse voltooien om toegang te krijgen tot de DPO- / FG-pagina.",
 			"remove": "Verwijderen",
-			"review_section": "TO BE TRANSLATED - Review a section"
+			"review_section": "Controleer een sectie"
 		},
 		"modal_select_text_pia": {
-			"content": "TO BE TRANSLATED - The content of the PIA has been copied to clipboard."
+			"content": "De inhoud van de PIA is gekopieerd naar het klembord."
 		},
 		"not_enough_measures_to_remove": {
 			"content": "<span class='strong'>Waarschuwing, </span> <br> Ten minste één meting moet worden ingevuld: geen verwijdering mogelijk."
 		},
 		"refuse_pia": {
-			"content": "TO BE TRANSLATED - As you have rejected the PIA, it is sent back for review to make the required changes."
+			"content": "Aangezien u de PIA hebt afgewezen, wordt deze ter beoordeling teruggestuurd om de vereiste wijzigingen aan te brengen."
 		},
 		"remove_attachment": {
-			"comment": "TO BE TRANSLATED - Comment",
+			"comment": "Commentaar",
 			"content": "<span class='strong'>Waarschuwing, </span> <br> Weet u zeker dat u deze bijlage wilt verwijderen?",
 			"keep": "Aanhouden",
 			"remove": "Verwijderen"
@@ -892,18 +892,18 @@
 			"content": "<span class='strong'>Waarschuwing, </span> <br> Voer een andere opmerking in dan de laatst opgenomen."
 		},
 		"signed_pia_validation": {
-			"content": "TO BE TRANSLATED - To approve the PIA, attach the signed report.",
-			"download_pia": "TO BE TRANSLATED - Download rapport"
+			"content": "Bevestig het ondertekende rapport om de PIA goed te keuren.",
+			"download_pia": "Download rapport"
 		},
 		"simple_pia_validation": {
-			"content": "TO BE TRANSLATED - You have approved the PIA."
+			"content": "U hebt de PIA goedgekeurd."
 		},
 		"start_evaluation": "Start review",
 		"update_server_url": {
 			"content": "Het serveradres is bijgewerkt."
 		},
 		"validate_evaluation": {
-			"content": "TO BE TRANSLATED - This section is ready for validating the PIA."
+			"content": "Dit gedeelte is klaar voor het valideren van de PIA."
 		},
 		"validate_evaluation_to_correct": {
 			"content": "Sorry, maar er zijn meerdere velden die moeten worden gecorrigeerd. <br> Keer terug naar de bewerkingsmodus om correcties aan te brengen."
@@ -1284,27 +1284,27 @@
 			"0": "De behandeling mag niet worden gebruikt.",
 			"1": "De behandeling zou kunnen worden geïmplementeerd."
 		},
-		"copy_to_clipboard": "TO BE TRANSLATED - Copy to clipboard",
+		"copy_to_clipboard": "Kopieer naar klembord",
 		"creation_date": "Aanmaakdatum",
-		"csv_action_plan_comment": "TO BE TRANSLATED - Action plan comment",
-		"csv_evaluation_comment": "TO BE TRANSLATED - Evaluation comment",
-		"csv_file_title": "TO BE TRANSLATED - action-plan",
-		"csv_implement_date": "TO BE TRANSLATED - Estimated implementation date",
-		"csv_people_in_charge": "TO BE TRANSLATED - Person in charge",
-		"csv_section": "TO BE TRANSLATED - Section",
-		"csv_title_object": "TO BE TRANSLATED - Title",
+		"csv_action_plan_comment": "Commentaar actieplan",
+		"csv_evaluation_comment": "Evaluatie commentaar",
+		"csv_file_title": "actieplan",
+		"csv_implement_date": "Geschatte implementatiedatum",
+		"csv_people_in_charge": "Leidinggevende",
+		"csv_section": "Sectie",
+		"csv_title_object": "Titel",
 		"display_filters": {
-			"action_plan_content": "TO BE TRANSLATED - Display action plan",
-			"context_content": "TO BE TRANSLATED - Display \"Context\"",
-			"main_content": "TO BE TRANSLATED - Display \"PIA information\"",
-			"principles_content": "TO BE TRANSLATED - Display \"Fundamental principles\"",
-			"risks_cartography_content": "TO BE TRANSLATED - Display risk mapping",
-			"risks_content": "TO BE TRANSLATED - Display \"Risks\"",
-			"risks_overview_content": "TO BE TRANSLATED - Display risks overview",
-			"title": "TO BE TRANSLATED - Filters"
+			"action_plan_content": "Toon actieplan",
+			"context_content": "Toon \"Context\"",
+			"main_content": "Toon \"PIA informatie\"",
+			"principles_content": "Toon \"Fundamentele principes\"",
+			"risks_cartography_content": "Toon risicokaart",
+			"risks_content": "Toon \"Risico's\"",
+			"risks_overview_content": "Toon overzicht van de risico's",
+			"title": "Filters"
 		},
-		"download_csv": "TO BE TRANSLATED - Download a CSV export",
-		"download_images": "TO BE TRANSLATED - Download images",
+		"download_csv": "Download een CSV-export",
+		"download_images": "Download afbeeldingen",
 		"dpo_name": "DPO's / FG naam",
 		"dpo_opinion": "DPO's / FG mening",
 		"dpo_status": "DPO's / FG status",
@@ -1324,8 +1324,8 @@
 		"previous_page": "Terug naar de vorige pagina",
 		"print": "Print",
 		"rejection_reason": "Afwijzingsreden",
-		"risks_cartography_title": "TO BE TRANSLATED - Risk mapping",
-		"risks_overview_title": "TO BE TRANSLATED - Risks overview",
+		"risks_cartography_title": "Risicokartering",
+		"risks_overview_title": "Risico's overzicht",
 		"title": "PIA informatie"
 	},
 	"validation_page": {
@@ -1338,8 +1338,8 @@
 		},
 		"confirmation1": "Erken ik dat de context van de verwerking beschreven in de PIA consistent is met de werkelijkheid.",
 		"confirmation2": "Erken ik dat ik bewust ben van de risico's gebaseerd op de bestaande en de te implementeren maatregelen.",
-		"confirmation3": "TO BE TRANSLATED - I ratify the corrective actions indicated in the action plan.",
-		"confirmation4": "TO BE TRANSLATED - I commit to implement as quickly as possible the indicated corrective actions.",
+		"confirmation3": "Ik bekrachtig de corrigerende acties die in het actieplan zijn aangegeven.",
+		"confirmation4": "Ik verbind mij ertoe om de aangegeven corrigerende maatregelen zo snel mogelijk te implementeren.",
 		"latest_signed_attachment": "Laatst ondertekende bijlage",
 		"mandatory_fields": "Alle checkboxen moeten aangevinkt zijn",
 		"remove_attachment": "Verwijder de bijlage",
