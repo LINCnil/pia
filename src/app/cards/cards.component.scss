@@ -1,4 +1,4 @@
-@import '../../assets/stylesheets/variables';
+@import "../../assets/stylesheets/variables";
 section {
   height: 700px;
   width: 700px;
@@ -7,7 +7,7 @@ section {
 
 // New PIA
 .pia-newBlock {
-  >#pia-new-card {
+  > #pia-new-card {
     border: 1px solid $pia-gray;
   }
   &-item {
@@ -40,7 +40,7 @@ section {
         }
       }
     }
-    >span {
+    > span {
       display: block;
       padding: 22px 0;
       color: $pia-gray;
@@ -55,7 +55,7 @@ section {
     box-shadow: 0px 0px 18px 2px rgba(212, 212, 212, 1);
     top: 110px;
     right: -323px;
-    
+
     div {
       margin-top: 8px;
       margin-left: 38px;
@@ -86,7 +86,7 @@ section {
       vertical-align: middle;
       width: 34px;
       height: 34px;
-      border: 1px solid $pia-green; 
+      border: 1px solid $pia-green;
       color: $pia-green;
       div {
         font-size: 1.1rem;
@@ -117,8 +117,8 @@ section {
         left: 0;
         right: 0;
         border: 2px solid $pia-green;
-        border-top: none; 
-        >span {
+        border-top: none;
+        > span {
           padding: 6px;
           font-style: italic;
           color: $pia-gray;
@@ -173,7 +173,7 @@ section {
         &:focus,
         &:hover,
         &:active {
-          +.pia-filtersBlock-filters-list {
+          + .pia-filtersBlock-filters-list {
             display: block;
           }
         }
@@ -193,7 +193,7 @@ section {
             li {
               &.divider {
                 height: 1px;
-                background: #DDD;
+                background: #ddd;
                 padding: 0;
                 margin: 4px 0;
               }
@@ -265,7 +265,7 @@ section {
   background-color: transparent;
 }
 
-#cardsSwitch>div {
+#cardsSwitch > div {
   margin: 0;
   position: absolute;
   backface-visibility: hidden;
@@ -274,15 +274,15 @@ section {
 }
 
 #cardsSwitch .back {
-  transform: rotateY( 180deg);
+  transform: rotateY(180deg);
 }
 
 #cardsSwitch.flipped .back {
-  transform: rotateY( 0deg);
+  transform: rotateY(0deg);
 }
 
 #cardsSwitch.flipped .front {
-  transform: rotateY( 180deg);
+  transform: rotateY(180deg);
 }
 
 // List PIA
@@ -345,7 +345,7 @@ section {
       &:hover {
         background-color: rgba(62, 224, 149, 0.25);
       }
-      &>td>i.fa {
+      & > td > i.fa {
         color: $pia-green !important;
       }
     }
@@ -374,13 +374,14 @@ section {
   margin-right: 12px;
   margin-bottom: 40px;
   height: 382px;
-  border: 1px solid #A7A7A7;
+  border: 1px solid #a7a7a7;
   padding: 9px;
   background-color: transparent; //background: url("../../../assets/images/pia-bg.png") repeat center center;
   .folder-icon {
     width: 100%;
     text-align: center;
     margin-top: 100px;
+    cursor: pointer;
     .fa {
       font-size: 7rem;
     }
@@ -389,12 +390,11 @@ section {
     width: 100%;
     text-align: center;
     font-size: 1.9rem;
-    color: #2BBBAD;
+    color: #2bbbad;
     background: transparent;
     border: 0;
-    
   }
-  input.folder-title{
+  input.folder-title {
     &:hover {
       outline: 1px dotted $pia-green;
       cursor: text;
@@ -405,7 +405,7 @@ section {
     bottom: 3px;
     left: 9px;
     right: 9px;
-    border-top: 1px solid #2BBBAD;
+    border-top: 1px solid #2bbbad;
     padding-top: 21px;
     margin-top: 21px;
     text-align: center;
