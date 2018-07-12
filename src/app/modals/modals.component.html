@@ -298,7 +298,8 @@
                 <input formControlName="name" type="text" placeholder="{{ 'homepage.cards.placeholder_pia_name' | translate }}" id="name"
                     required>
             </div>
-            <div>
+            <!-- hide the type feature-->
+            <div *ngIf="false">
                 <label for="type">{{ 'homepage.cards.pia_type' | translate }}</label>
                 <select formControlName="type" id="type"
                     required>

@@ -58,7 +58,8 @@
                      id="pia-edit-name"
                      (focusout)="piaNameFocusOut()">
           </div>
-          <div>
+          <!-- hide the type feature-->
+          <div *ngIf="false">
               <label for="pia-edit-type">{{ 'homepage.cards.pia_type' | translate }}</label>
               <select
                      #piaType
