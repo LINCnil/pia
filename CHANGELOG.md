@@ -1,5 +1,12 @@
 # Change Log
 
+## [1.2.3](https://github.com/pia-lab/pialab/tree/1.2.3) (2018-07-12)
+[Full Changelog](https://github.com/pia-lab/pialab/compare/1.2.2...1.2.3)
+
+**Merged pull requests:**
+
+- Update export route to be compliant with the backend [\#35](https://github.com/pia-lab/pialab/pull/35) ([GlennCavarle](https://github.com/GlennCavarle))
+
 ## [1.2.2](https://github.com/pia-lab/pialab/tree/1.2.2) (2018-07-12)
 [Full Changelog](https://github.com/pia-lab/pialab/compare/1.2.1...1.2.2)
 
