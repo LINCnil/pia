@@ -1,15 +1,14 @@
 # Change Log
 
-## [Unreleased](https://github.com/pia-lab/pialab/tree/HEAD)
+## [1.2.2](https://github.com/pia-lab/pialab/tree/1.2.2) (2018-07-12)
+[Full Changelog](https://github.com/pia-lab/pialab/compare/1.2.1...1.2.2)
 
-[Full Changelog](https://github.com/pia-lab/pialab/compare/1.2.1...HEAD)
+## [1.2.1](https://github.com/pia-lab/pialab/tree/1.2.1) (2018-07-05)
+[Full Changelog](https://github.com/pia-lab/pialab/compare/1.2.0...1.2.1)
 
 **Fixed bugs:**
 
 - Error in export/import PIA [\#34](https://github.com/pia-lab/pialab/issues/34)
-
-## [1.2.1](https://github.com/pia-lab/pialab/tree/1.2.1) (2018-07-03)
-[Full Changelog](https://github.com/pia-lab/pialab/compare/1.2.0...1.2.1)
 
 **Closed issues:**
 
