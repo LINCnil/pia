@@ -20,7 +20,7 @@ export class PiaService extends BaseService<Pia> {
     all: '/pias',
     one: '/pias/{id}',
     template: '/pias/new-from-template/{templateId}',
-    export: '/pias/export/{id}',
+    export: '/pias/{id}/export',
     import: '/pias/import'
   };
 
