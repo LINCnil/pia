@@ -63,7 +63,7 @@ export class AppErrorHandler implements ErrorHandler {
     } else {
       this.handleClientError(error);
     }
-    console.error("Error happens", error);
+    console.error("Error happens", error.message || error);
 
   }
 

@@ -1,13 +1,13 @@
 import { Component, OnInit, Input, Output } from '@angular/core';
-import { Evaluation } from 'app/entry/entry-content/evaluations/evaluation.model';
-import { AppDataService } from 'app/services/app-data.service';
-import { SidStatusService } from 'app/services/sid-status.service';
-import { Measure } from 'app/entry/entry-content/measures/measure.model';
-import { Answer } from 'app/entry/entry-content/questions/answer.model';
+import { Evaluation } from '../entry-content/evaluations/evaluation.model';
+import { AppDataService } from '../../services/app-data.service';
+import { SidStatusService } from '../../services/sid-status.service';
+import { Measure } from '../entry-content/measures/measure.model';
+import { Answer } from '../entry-content/questions/answer.model';
 import 'rxjs/add/operator/map';
 
-import { PiaService } from 'app/entry/pia.service';
-import { GlobalEvaluationService } from 'app/services/global-evaluation.service';
+import { PiaService } from '../pia.service';
+import { GlobalEvaluationService } from '../../services/global-evaluation.service';
 import { PiaType } from '@api/model/pia.model';
 
 @Component({

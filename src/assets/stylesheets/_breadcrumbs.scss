@@ -1,6 +1,7 @@
 ul.breadcrumbs {
     list-style: none;
     overflow: hidden;
+    margin-left:-40px; //to be aligned with other elements
     li {
       float: left;
       a {

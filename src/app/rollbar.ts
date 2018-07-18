@@ -1,6 +1,6 @@
 import * as Rollbar from 'rollbar';
 import { ErrorHandler, Injectable, Injector, InjectionToken } from '@angular/core';
-import { environment } from '../environments/environment';
+import { environment } from 'environments/environment';
 
 export let rollbarConfig = {
     accessToken: environment.rollbar_key,

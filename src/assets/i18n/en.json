@@ -7,7 +7,18 @@
     "description": "This software by the is meant to guide the data controllers in building and demonstrating compliance to the GDPR. It helps to properly carry out a data protection impact assessment by facilitating the use of the PIA method developed by the CNIL.",
     "start": "Start"
   },
+  "dashboard":{
+    "title" : "Dashboard",
+    "items" :{
+      "portfolio" : "Portfolio",
+      "processings" : "My processings"
+    }
+  },
+  "portfolio":{
+    "title" : "Customer Portfolio"
+  },
   "messages": {
+    "no_structure_assigned":"No structure is assigned to you",
     "client_error":{
       "title": "An error occurred",
       "content": "Please contact your administrator"
@@ -39,6 +50,7 @@
     "logo_title": "RGPD compliance companion software",
     "logo_subtitle": "",
     "homepage_link": "Dashboard",
+    "portfolio_link": "Portfolio",
     "knowledge_base_link": "Knowledge base",
     "pia_example_link": "PIA example",
     "languages": {

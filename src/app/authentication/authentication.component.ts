@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, CanActivate } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
-import { LanguagesService } from 'app/services/languages.service';
+import { LanguagesService } from '../services/languages.service';
 import { AuthenticationService } from '@security/authentication.service';
 import { User } from '@security/user.model';
 import { environment } from 'environments/environment';

@@ -1,0 +1,14 @@
+<app-header></app-header>
+
+<div class="container">
+    <div class="row">
+        <h2 class="page-title">{{'portfolio.title'|translate}}</h2>
+        <div class="small-12 medium-12 columns">
+            <app-structure-item *ngFor="let structure of structures" [structure]=structure>
+            </app-structure-item>
+        </div>
+    </div>
+</div>
+
+
+<app-modals></app-modals>

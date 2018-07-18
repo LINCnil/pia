@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
-import { PiaService } from 'app/entry/pia.service';
+import { PiaService } from '../entry/pia.service';
 import { Observable } from 'rxjs/Observable';
 
 // new imports

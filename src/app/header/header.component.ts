@@ -1,17 +1,18 @@
 import { Component, DoCheck, OnInit, OnDestroy } from '@angular/core';
 import { Renderer2 } from '@angular/core';
-import { environment } from '../../environments/environment';
+import { environment } from 'environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
 
-import { Pia } from 'app/entry/pia.model';
+import { Pia } from '../entry/pia.model';
 
 import { TranslateService } from '@ngx-translate/core';
-import { PiaService } from 'app/entry/pia.service';
-import { ModalsService } from 'app/modals/modals.service';
-import { LanguagesService } from 'app/services/languages.service';
+import { PiaService } from '../entry/pia.service';
+import { ModalsService } from '../modals/modals.service';
+import { LanguagesService } from '../services/languages.service';
 import { AuthenticationService } from '@security/authentication.service'
+import { ProfileSession } from 'app/services/profile-session.service';
 
 @Component({
   selector: 'app-header',
@@ -25,6 +26,7 @@ export class HeaderComponent implements OnInit {
   private profileSubscription: Subscription;
   appVersion: string;
   headerForHome: boolean;
+  _hasPortfolio:boolean = false;
 
   constructor(private _router: Router,
               private renderer: Renderer2,
@@ -33,7 +35,8 @@ export class HeaderComponent implements OnInit {
               private _modalsService: ModalsService,
               private _http: HttpClient,
               public _languagesService: LanguagesService,
-              private authService: AuthenticationService) {
+              private authService: AuthenticationService,
+              private session: ProfileSession) {
     this.updateContrast();
   }
 
@@ -48,7 +51,14 @@ export class HeaderComponent implements OnInit {
 
     this.profileSubscription = this.authService.profileSubject.subscribe(profile => {
       this.profile = profile;
+      
     });
+
+    this._hasPortfolio = this.session.hasPortfolioStructures();
+  }
+
+  hasPortfolio(){
+    return this._hasPortfolio;
   }
 
   ngOnDestroy() {

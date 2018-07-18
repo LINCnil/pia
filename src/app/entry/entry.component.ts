@@ -2,13 +2,13 @@ import { Component, OnInit, Output, OnDestroy, DoCheck } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
 
-import { KnowledgeBaseService } from 'app/entry/knowledge-base/knowledge-base.service';
-import { MeasureService } from 'app/entry/entry-content/measures/measures.service';
-import { ActionPlanService } from 'app/entry/entry-content/action-plan//action-plan.service';
-import { PiaService } from 'app/entry/pia.service';
-import { ModalsService } from 'app/modals/modals.service';
-import { AppDataService } from 'app/services/app-data.service';
-import { SidStatusService } from 'app/services/sid-status.service';
+import { KnowledgeBaseService } from './knowledge-base/knowledge-base.service';
+import { MeasureService } from './entry-content/measures/measures.service';
+import { ActionPlanService } from './entry-content/action-plan/action-plan.service';
+import { PiaService } from './pia.service';
+import { ModalsService } from '../modals/modals.service';
+import { AppDataService } from '../services/app-data.service';
+import { SidStatusService } from '../services/sid-status.service';
 import { GlobalEvaluationService } from '../services/global-evaluation.service';
 
 // new import

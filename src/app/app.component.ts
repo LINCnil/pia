@@ -2,8 +2,8 @@ import { Component, Renderer2, Pipe, PipeTransform, TemplateRef } from '@angular
 import { HttpClient } from '@angular/common/http';
 import { DomSanitizer } from '@angular/platform-browser';
 
-import { KnowledgeBaseService } from 'app/entry/knowledge-base/knowledge-base.service';
-import { LanguagesService } from 'app/services/languages.service';
+import { KnowledgeBaseService } from './entry/knowledge-base/knowledge-base.service';
+import { LanguagesService } from './services/languages.service';
 import { PermissionsService } from '@security/permissions.service';
 import { NgxPermissionsConfigurationService } from 'ngx-permissions';
 
@@ -71,6 +71,7 @@ export class AppComponent {
       'CanDeletePIA','CanImportPIA', 'CanExportPIA', 'CanCreateFolder',
        'AccessToValidationSection'
     ]);
+    roles['ROLE_SHARED_DPO'] = roles['ROLE_DPO'];
 
     roles['ROLE_ADMIN'] = [].concat(roles['ROLE_DPO']);
     roles['ROLE_TECHNICAL_ADMIN'] = [].concat(roles['ROLE_ADMIN']);

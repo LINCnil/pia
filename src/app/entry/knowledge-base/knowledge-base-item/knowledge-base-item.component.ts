@@ -2,7 +2,7 @@ import { Component, ElementRef, OnInit, Input, Output, EventEmitter } from '@ang
 import { Router, ActivatedRoute } from '@angular/router';
 import { KnowledgeBaseService } from '../knowledge-base.service';
 import { TranslateService } from '@ngx-translate/core';
-import { GlobalEvaluationService } from 'app/services/global-evaluation.service';
+import { GlobalEvaluationService } from '../../../services/global-evaluation.service';
 
 @Component({
   selector: 'app-knowledge-base-item',

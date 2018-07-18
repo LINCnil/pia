@@ -12,7 +12,7 @@ import * as Moment from 'moment';
 @Injectable()
 export class AuthenticationService {
   private userToken: UserTokenModel = null;
-  public profileSubject: BehaviorSubject<UserProfileModel>;
+  public profileSubject: BehaviorSubject<UserProfileModel> = new BehaviorSubject<UserProfileModel>(null)
   private readonly apiSettings: any = environment.api;
   private readonly dateFormat: string = environment.date_format;
 
@@ -22,7 +22,6 @@ export class AuthenticationService {
     private userProfileApi: UserProfileApi,
     private userTokenApi: UserTokenApi
   ) {
-    this.profileSubject = new BehaviorSubject<UserProfileModel>(null);
   }
 
   public authenticate(user: User): Promise<UserTokenModel> {

@@ -12,12 +12,13 @@ import { PiaService } from 'app/entry/pia.service';
 import { PiaModel, FolderModel } from '@api/models';
 import { PiaApi, FolderApi } from '@api/services';
 import { PermissionsService } from '@security/permissions.service';
+import { AuthenticationService } from '@security/authentication.service';
+import { ProfileSession } from '../services/profile-session.service';
 
 @Component({
   selector: 'app-cards',
   templateUrl: './cards.component.html',
-  styleUrls: ['./cards.component.scss'],
-  providers: [FolderApi]
+  styleUrls: ['./cards.component.scss']
 })
 
 export class CardsComponent implements OnInit, OnDestroy {
@@ -33,6 +34,7 @@ export class CardsComponent implements OnInit, OnDestroy {
   folderId: number;
   itemToMove: any = null;
   canCreatePIA: boolean;
+  public structure:any;
 
   constructor(
     private router: Router,
@@ -42,15 +44,17 @@ export class CardsComponent implements OnInit, OnDestroy {
     public _piaService: PiaService,
     private piaApi: PiaApi,
     private folderApi: FolderApi,
-    private permissionsService: PermissionsService
+    private permissionsService: PermissionsService,
+    private session: ProfileSession
   ) { }
 
   ngOnInit() {
     // add permission verification
-    const hasPerm$ = this.permissionsService.hasPermission('CanCreatePIA');
-    hasPerm$.then((bool: boolean) => {
+    this.permissionsService.hasPermission('CanCreatePIA').then((bool: boolean) => {
       this.canCreatePIA = bool;
     });
+    this.structure = this.session.getCurrentStructure();
+      
     this.applySortOrder();
     this.initPiaForm();
   }
@@ -161,9 +165,9 @@ export class CardsComponent implements OnInit, OnDestroy {
 
   protected fetchFolders() {
     if (this.folderId !== null) {
-      return this.folderApi.get(this.folderId).toPromise()
+      return this.folderApi.get(this.structure.id,this.folderId).toPromise()
     }
-    return this.folderApi.getAll().toPromise()
+    return this.folderApi.getAll(this.structure.id).toPromise();
   }
 
   protected handleFoldersCollection(folderOrFolderCollection: any) {

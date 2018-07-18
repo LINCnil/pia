@@ -17,6 +17,9 @@
             <li routerLinkActive="active">
               <a routerLink="/home">{{ 'header.homepage_link' | translate }}</a>
             </li>
+            <li *ngIf="hasPortfolio()">
+                <a routerLink="/portfolio">{{ 'header.portfolio_link' | translate }}</a>
+              </li>
           </ul>
           <ul class="pia-navigationBlock-list">
             <!--<li>

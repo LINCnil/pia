@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 // import * as b64ToBlob from 'b64toBlob';
 
-import { ModalsService } from 'app/modals/modals.service';
+import { ModalsService } from '../../modals/modals.service';
 
 import { AttachmentModel } from '@api/models';
 import { AttachmentApi } from '@api/services';

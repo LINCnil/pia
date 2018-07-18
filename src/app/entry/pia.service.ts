@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRoute, Router, Params } from '@angular/router';
 
-import { AppDataService } from 'app/services/app-data.service';
-import { ModalsService } from 'app/modals/modals.service';
-import { ActionPlanService } from 'app/entry/entry-content/action-plan//action-plan.service';
+import { AppDataService } from '../services/app-data.service';
+import { ModalsService } from '../modals/modals.service';
+import { ActionPlanService } from './entry-content/action-plan/action-plan.service';
 
 // new imports
 
-import { Observable } from 'rxjs/Rx';
+import { Observable } from 'rxjs';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { PiaModel, AnswerModel, CommentModel, EvaluationModel, MeasureModel, AttachmentModel, FolderModel } from '@api/models';
 import { PiaApi, AnswerApi, CommentApi, EvaluationApi, MeasureApi, AttachmentApi, FolderApi } from '@api/services';
@@ -90,8 +90,9 @@ export class PiaService {
 
   removeFolder() {
     const folderID = parseInt(localStorage.getItem('folder-id'), 10);
+    const structureID = parseInt(localStorage.getItem('structure-id'), 10);
     // Removes from DB.
-    this.folderApi.deleteById(folderID).subscribe(() => {
+    this.folderApi.deleteById(structureID, folderID).subscribe(() => {
       // Deletes the Folder from the view.
       if (localStorage.getItem('homepageDisplayMode') && localStorage.getItem('homepageDisplayMode') === 'list') {
         document.querySelector('tr.app-list-item-folder[data-id="' + folderID + '"]').remove();

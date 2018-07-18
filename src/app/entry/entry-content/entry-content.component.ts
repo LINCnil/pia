@@ -2,17 +2,17 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import 'rxjs/add/operator/map'
 
-import { Evaluation } from 'app/entry/entry-content/evaluations/evaluation.model';
+import { Evaluation } from './evaluations/evaluation.model';
 
-import { AppDataService } from 'app/services/app-data.service';
-import { MeasureService } from 'app/entry/entry-content/measures/measures.service';
-import { ModalsService } from 'app/modals/modals.service';
-import { PiaService } from 'app/entry/pia.service';
-import { PaginationService } from 'app/entry/entry-content/pagination.service';
+import { AppDataService } from '../../services/app-data.service';
+import { MeasureService } from './measures/measures.service';
+import { ModalsService } from '../../modals/modals.service';
+import { PiaService } from '../pia.service';
+import { PaginationService } from './pagination.service';
 import { TranslateService } from '@ngx-translate/core';
-import { SidStatusService } from 'app/services/sid-status.service';
-import { GlobalEvaluationService } from 'app/services/global-evaluation.service';
-import { KnowledgeBaseService } from 'app/entry/knowledge-base/knowledge-base.service';
+import { SidStatusService } from '../../services/sid-status.service';
+import { GlobalEvaluationService } from '../../services/global-evaluation.service';
+import { KnowledgeBaseService } from '../knowledge-base/knowledge-base.service';
 
 @Component({
   selector: 'app-entry-content',

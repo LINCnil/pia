@@ -12,16 +12,16 @@ export class FolderService extends BaseService<FolderModel> {
   protected modelClass = FolderModel;
 
   protected routing: any = {
-    all: '/folders',
-    one: '/folders/{id}'
+    all: '/structures/{structureId}/folders',
+    one: '/structures/{structureId}/folders/{id}'
   };
 
   constructor(http: HttpClient) {
     super(http);
   }
 
-  public getAll(): Observable<FolderModel[]> {
-    return this.httpGetAll(this.routing.all).map(folders => {
+  public getAll(structureId:string): Observable<FolderModel[]> {
+    return this.httpGetAll(this.routing.all,{structureId: structureId}).map(folders => {
       folders.forEach(folder => {
         folder.pias.forEach((pia, index, pias) => {
           pias[index] = (new PiaModel()).fromJson(pia);
@@ -37,8 +37,8 @@ export class FolderService extends BaseService<FolderModel> {
    });
   }
 
-  public get(id: any): Observable<FolderModel> {
-    return this.httpGetOne(this.routing.one, { id: id }).map(folder => {
+  public get(structureId:string, id: any): Observable<FolderModel> {
+    return this.httpGetOne(this.routing.one, {structureId: structureId, id: id }).map(folder => {
       folder.pias.forEach((pia, index, pias) => {
         pias[index] = (new PiaModel()).fromJson(pia);
       });
@@ -53,18 +53,18 @@ export class FolderService extends BaseService<FolderModel> {
   }
 
   public update(model: FolderModel): Observable<FolderModel> {
-    return this.httpPut(this.routing.one, { id: model.id }, model);
+    return this.httpPut(this.routing.one, {structureId: model.structure_id, id: model.id }, model);
   }
 
   public create(model: FolderModel): Observable<FolderModel> {
-    return this.httpPost(this.routing.all, {}, model);
+    return this.httpPost(this.routing.all, {structureId: model.structure_id}, model);
   }
 
-  public deleteById(id: any): Observable<FolderModel> {
-    return this.httpDelete(this.routing.one, { id: id });
+  public deleteById(structureId:any, id: any): Observable<FolderModel> {
+    return this.httpDelete(this.routing.one, {structureId: structureId, id: id });
   }
 
   public delete(model: FolderModel): Observable<FolderModel> {
-    return this.deleteById(model.id);
+    return this.deleteById(model.structure_id, model.id);
   }
 }

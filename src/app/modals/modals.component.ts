@@ -97,6 +97,7 @@ export class ModalsComponent implements OnInit {
     const folder = new FolderModel();
     folder.name = this.folderForm.value.name;
     folder.parent = this._piaService.currentFolder;
+    folder.structure_id = folder.parent.structure_id;
 
     this._folderApi.create(folder).subscribe((newFolder: FolderModel) => {
       this._modalsService.closeModal();

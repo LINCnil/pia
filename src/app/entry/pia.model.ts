@@ -1,5 +1,5 @@
 import { ApplicationDb } from '../application.db';
-import { Answer } from 'app/entry/entry-content/questions/answer.model';
+import { Answer } from './entry-content/questions/answer.model';
 
 export class Pia extends ApplicationDb {
   public id: number;

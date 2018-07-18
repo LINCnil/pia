@@ -17,7 +17,18 @@
       "error" : "Identifiants incorrects"
     }
   },
+  "dashboard":{
+    "title" : "Tableau de bord",
+    "items" :{
+      "portfolio" : "Portefeuille Client",
+      "processings" : "Mes traitements"
+    }
+  },
+  "portfolio":{
+    "title" : "Portefeuille client"
+  },
   "messages": {
+    "no_structure_assigned":"Aucune structure ne vous est assignée",
     "client_error":{
       "title": "Une erreur est survenue",
       "content": "Veuillez contacter votre administrateur"
@@ -49,6 +60,7 @@
     "logo_title": "Logiciel d'accompagnement à la mise en conformité RGPD",
     "logo_subtitle": "",
     "homepage_link": "Accueil",
+    "portfolio_link": "Portefeuille Client",
     "knowledge_base_link": "Base de connaissances",
     "pia_example_link": "Importer un exemple de PIA",
     "languages": {

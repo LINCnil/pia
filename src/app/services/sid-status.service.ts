@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { GlobalEvaluationService } from 'app/services/global-evaluation.service';
+import { GlobalEvaluationService } from './global-evaluation.service';
 import { Subject } from 'rxjs/Subject';
 // new imports
 import { EvaluationService as EvaluationApi } from '@api/service/evaluation.service';

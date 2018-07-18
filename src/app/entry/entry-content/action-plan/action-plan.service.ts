@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { Evaluation } from 'app/entry/entry-content/evaluations/evaluation.model';
-import { Measure } from 'app/entry/entry-content/measures/measure.model';
+import { Evaluation } from '../evaluations/evaluation.model';
+import { Measure } from '../measures/measure.model';
 import { TranslateService } from '@ngx-translate/core';
-import { LanguagesService } from 'app/services/languages.service'
+import { LanguagesService } from '../../../services/languages.service'
 
 // new import
 import { EvaluationModel, AnswerModel, MeasureModel } from '@api/models';

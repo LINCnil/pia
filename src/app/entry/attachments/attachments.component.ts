@@ -2,7 +2,7 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Component, OnInit, Input } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 
-import { AttachmentsService } from 'app/entry/attachments/attachments.service';
+import { AttachmentsService } from './attachments.service';
 import { PiaModel } from '@api/models';
 
 @Component({

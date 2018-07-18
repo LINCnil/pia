@@ -3,9 +3,9 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { Pia } from '../../entry/pia.model';
 import { Router } from '@angular/router';
 
-import { Attachment } from 'app/entry/attachments/attachment.model';
-import { ModalsService } from 'app/modals/modals.service';
-import { PiaService } from 'app/entry/pia.service';
+import { Attachment } from '../../entry/attachments/attachment.model';
+import { ModalsService } from '../../modals/modals.service';
+import { PiaService } from '../../entry/pia.service';
 
 import {PiaModel, AttachmentModel} from '@api/models';
 import {PiaApi, AttachmentApi} from '@api/services';

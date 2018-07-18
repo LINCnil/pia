@@ -2,8 +2,8 @@ import { Component, OnInit, Input } from '@angular/core';
 
 import { Attachment } from '../attachment.model';
 
-import { ModalsService } from 'app/modals/modals.service';
-import { AttachmentsService } from 'app/entry/attachments/attachments.service';
+import { ModalsService } from '../../../modals/modals.service';
+import { AttachmentsService } from '../attachments.service';
 
 @Component({
   selector: 'app-attachment-item',
