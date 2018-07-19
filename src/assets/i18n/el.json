@@ -162,7 +162,7 @@
   },
   "measures": {
     "placeholder_title": "Τίτλος μέτρου",
-    "add": "Προσθήκη ενός μέτρου (ειδάλλως, χρησιμοποιείστε τη γνωσιακή βάση)",
+    "add": "Προσθήκη ενός μέτρου (ειδάλλως, χρησιμοποιήστε τη γνωσιακή βάση)",
     "edit": "Επεξεργασία μέτρου",
     "remove": "Διαγραφή μέτρου",
     "default_placeholder": "Περιγράψτε τα υφιστάμενα ή προοριζόμενα μέτρα για να εξασφαλίσετε την ασφάλεια των προσωπικών δεδομένων."
@@ -264,7 +264,7 @@
       },
       "PIA_VAL_RT": {
         "name": "Επίσημη επικύρωση",
-        "description": "Αποφασίστε εάν οι επιλεγμένοι έλεγχοι, οι υπολειπόμενοι κίνδυνοι και το σχέδιο δράσης είναι αποδεκτά, με αιτιολόγηση, ενόψει των ήδη πρσδιορισθέντων διακυβευμάτων και των απόψεων των ενδιαφερομένων. Με αυτόν τον τρόπο, η ΕΑ μπορεί να είναι:<br>- επικυρωμένη<br>- εξαρτώμενη από βελτίωση (εξηγήστε με ποιόν τρόπο)<br>- απορριφθείσα (μαζί με την υπό εξέταση επεξεργασία). Όπου είναι απαραίτητο, επαναλάβετε τα προηγούμενα βήματα ώστε να είναι δυνατή η επικύρωση της ΕΑ. Η απόφαση αυτή δεν προδικάζει την εκτίμηση της συμμόρφωσης, η οποία μπορεί, ενδεχομένως, να πραγματοποιηθεί από την Αρχή Προστασίας Δεδομένων Προσωπικού Χαρακτήρα (την ΑΠΔΠΧ στην Ελλάδα, την CNIL στη Γαλλία), στο πλαίσιο προκαταρκτικών διατυπώσεων ή ελέγχων, για παράδειγμα.",
+        "description": "Αποφασίστε εάν οι επιλεγμένοι έλεγχοι, οι υπολειπόμενοι κίνδυνοι και το σχέδιο δράσης είναι αποδεκτά, με αιτιολόγηση, ενόψει των ήδη πρσδιορισθέντων διακυβευμάτων και των απόψεων των ενδιαφερομένων. Με αυτόν τον τρόπο, η ΕΑ μπορεί να είναι:<br>- επικυρωμένη<br>- εξαρτώμενη από βελτίωση (εξηγήστε με ποιον τρόπο)<br>- απορριφθείσα (μαζί με την υπό εξέταση επεξεργασία). Όπου είναι απαραίτητο, επαναλάβετε τα προηγούμενα βήματα ώστε να είναι δυνατή η επικύρωση της ΕΑ. Η απόφαση αυτή δεν προδικάζει την εκτίμηση της συμμόρφωσης, η οποία μπορεί, ενδεχομένως, να πραγματοποιηθεί από την Αρχή Προστασίας Δεδομένων Προσωπικού Χαρακτήρα (την ΑΠΔΠΧ στην Ελλάδα, την CNIL στη Γαλλία), στο πλαίσιο προκαταρκτικών διατυπώσεων ή ελέγχων, για παράδειγμα.",
         "source": "PIAF Connected Objects p40"
       },
       "PIA_VAL_CART": {
@@ -280,7 +280,7 @@
       "PIA_TEC_ANO": {
         "placeholder": "Αναφέρετε εδώ τους μηχανισμούς ανωνυμοποίησης που εφαρμόζονται",
         "name": "Ανωνυμοποίηση",
-        "description": "Αναφέρετε εδώ αν εφαρμόζονται μηχανισμοί ανωνυμοποίησης, ποιοί και για ποιο σκοπό. <br>Θυμηθείτε να διακρίνετε σαφώς τα ανώνυμα και τα ψευδώνυμα προσωπικά δεδομένα.",
+        "description": "Αναφέρετε εδώ αν εφαρμόζονται μηχανισμοί ανωνυμοποίησης, ποιοι και για ποιο σκοπό. <br>Θυμηθείτε να διακρίνετε σαφώς τα ανώνυμα και τα ψευδώνυμα προσωπικά δεδομένα.",
         "source": "PIAF Connected Objects p21"
       },
       "PIA_TEC_CLO": {
@@ -434,7 +434,7 @@
         "source": "PIAF Connected Objects p24 and PIA3 p36 - WIKI"
       },
       "PIA_ORG_PERS": {
-        "placeholder": "Αναφέρετε εδώ ποιές διαδικασίες αύξησης της ευαισθητοποίησης εκτελούνται σε σχέση με τους υπαλλήλους.",
+        "placeholder": "Αναφέρετε εδώ ποιες διαδικασίες αύξησης της ευαισθητοποίησης εκτελούνται σε σχέση με τους υπαλλήλους.",
         "name": "Διαχείριση προσωπικού",
         "description": "Ύπαρξη ενός σχεδίου που πλαισιώνει τα <strong>μέτρα ευαισθητοποίησης</strong> που λαμβάνονται κατά την ανάληψη ενός νέου ρόλου από ένα άτομο και μια διαδικασία που περιγράφει τα <strong>μέτρα που λαμβάνονται από τα άτομα που έχουν πρόσβαση στα δεδομένα</strong>.",
         "source": "PIAF Connected Objects p24"
@@ -786,7 +786,7 @@
     "title": "Βοήθεια",
     "definition": {
       "data1": {
-        "title": "Χρησιμοποιείστε το εργαλείο ΑΕ",
+        "title": "Χρησιμοποιήστε το εργαλείο ΑΕ",
         "content": "Καταγραφή περιεχομένου"
       },
       "data2": {
@@ -828,7 +828,7 @@
     "version_number": "Αριθμός έκδοσης",
     "description": "Αυτό το εργαλείο σχεδιάστηκε αρχικά από την <a target=\"_blank\" href=\"https://www.cnil.fr\">Commission Nationale Informatique et Liberté (CNIL)</a>, τη γαλλική Αρχή Προστασίας Δεδομένων, για να βοηθήσει τον υπεύθυνο επεξεργασίας προσωπικών δεδομένων να συμμορφωθεί με τον ΓΚΠΔ.<br>Αυτό το λογισμικό είναι ελεύθερο και ανοιχτό. Αν θέλετε να συμμετάσχετε σε αυτό το έργο, μπορείτε να κατεβάσετε τον πηγαίο κώδικα από το Github, να τον τροποποιήσετε και να τον μοιραστείτε με την κοινότητα.",
     "translators": "Το λογισμικό PIA διατίθεται επί του παρόντος σε δεκατέσσερις γλώσσες. Η γαλλική και η αγγλική εκδοχή παρέχονται από το CNIL. Οι άλλες εκδοχές προκύπτουν από τις συνεισφορές των ακόλουθων ατόμων:",
-    "translators_name": "<ul><li>Czech : Jiří Grohmann, Manuel d’Orso;</li><li>Dutch : Ruud van Driel, Manuel d’Orso;</li><li>English : <a target=\"_blank\" href=\"https://www.cnil.fr\">CNIL</a>;</li><li>Finnish : <a target=\"_blank\" href=\"https://tietosuoja.fi/etusivu\">Tietosuojavaltuutetun toimisto</a>;</li><li>French : <a target=\"_blank\" href=\"https://www.cnil.fr\">CNIL</a>;</li><li>German : Kosmas Schütz, Corina Scheiter (<a target=\"_blank\" href=\"https://www.datenschutz-bayern.de/\">BayLfD</a>);</li><li>Greek : Dimitris Tzellis;</li><li>Hungarian : <a target=\"_blank\" href=\"https://naih.hu/\">Nemzeti Adatvédelmi és Információszabadság Hatóság (NAIH)</a>;</li><li>Italian : Manuel d’Orso, Gianluca Markos, Antonio Caselli (<a target=\"_blank\" href=\"http://gpdp.it\">Garante per la Protezione dei Dai Personali (GPDP)</a>);</li><li>Norwegian : <a target=\"_blank\" href=\"https://www.datatilsynet.no\">Datatilsynet</a>;</li><li>Polish : Joanna Karczewska, Michal Mazur (<a target=\"_blank\" href=\"https://giodo.gov.pl\">Generalny Inspektor Ochrony Danych Osobowych (GIODO)</a>);</li><li>Portuguese : Barbara Gois;</li><li>Romanian : webmyday;</li><li>Spanish : ylachgar.</li></ul>",
+    "translators_name": "<ul><li>Czech : Jiří Grohmann, Manuel d’Orso;</li><li>Dutch : Ruud van Driel, Manuel d’Orso;</li><li>English : <a target=\"_blank\" href=\"https://www.cnil.fr\">CNIL</a>;</li><li>Finnish : <a target=\"_blank\" href=\"https://tietosuoja.fi/etusivu\">Tietosuojavaltuutetun toimisto</a>;</li><li>French : <a target=\"_blank\" href=\"https://www.cnil.fr\">CNIL</a>;</li><li>German : Kosmas Schütz, Corina Scheiter (<a target=\"_blank\" href=\"https://www.datenschutz-bayern.de/\">BayLfD</a>);</li><li>Greek : <a target=\"_blank\" href=\"https://tzellis.gr\">Dimitris Tzellis</a>;</li><li>Hungarian : <a target=\"_blank\" href=\"https://naih.hu/\">Nemzeti Adatvédelmi és Információszabadság Hatóság (NAIH)</a>;</li><li>Italian : Manuel d’Orso, Gianluca Markos, Antonio Caselli (<a target=\"_blank\" href=\"http://gpdp.it\">Garante per la Protezione dei Dai Personali (GPDP)</a>);</li><li>Norwegian : <a target=\"_blank\" href=\"https://www.datatilsynet.no\">Datatilsynet</a>;</li><li>Polish : Joanna Karczewska, Michal Mazur (<a target=\"_blank\" href=\"https://giodo.gov.pl\">Generalny Inspektor Ochrony Danych Osobowych (GIODO)</a>);</li><li>Portuguese : Barbara Gois;</li><li>Romanian : webmyday;</li><li>Spanish : ylachgar.</li></ul>",
     "contribute": "Αν θέλετε να συμβάλλετε στη μετάφραση του λογισμικού σε άλλη γλώσσα ή να βελτιώσετε τις υπάρχουσες μεταφράσεις, σας συνιστούμε <a href=\"https://github.com/LINCnil/pia/tree/master/src/assets/i18n\" target=\"_blank\">να διαβάσετε τη σελίδα που περιγράφει τα βήματα που πρέπει να ακολουθήσετε</a>.",
     "licences": "Άδειες βιβλιοθήκης:"
   },
@@ -1099,7 +1099,7 @@
           "short_help": "Αυτό το τμήμα σας επιτρέπει να ορίσετε και να περιγράψετε λεπτομερώς το αντικείμενο της επεξεργασίας.",
           "questions": {
             "1": {
-              "title": "Ποιά προσωπικά δεδομένα υφίστανται επεξεργασία;",
+              "title": "Ποια προσωπικά δεδομένα υφίστανται επεξεργασία;",
               "placeholder": "Καταγράψτε τα δεδομένα που συλλέγονται και τυγχάνουν επεξεργασίας. Καθορίστε για κάθε ένα τη διάρκεια αποθήκευσης, τους αποδέκτες και τα άτομα που έχουν πρόσβαση σε αυτά."
             },
             "2": {
@@ -1213,11 +1213,11 @@
               "placeholder": "Καταχωρίστε τις απειλές \u002B"
             },
             "3": {
-              "title": "Ποιές είναι οι <span class='green-highlight'>πηγές</span> κινδύνου;",
+              "title": "Ποιες είναι οι <span class='green-highlight'>πηγές</span> κινδύνου;",
               "placeholder": "Καταχωρίστε τις πηγές κινδύνου \u002B"
             },
             "4": {
-              "title": "Ποιά από τα εντοπισθέντα <span class='green-highlight'>μέτρα</span> συμβάλλουν στην αντιμετώπιση του κινδύνου;",
+              "title": "Ποια από τα εντοπισθέντα <span class='green-highlight'>μέτρα</span> συμβάλλουν στην αντιμετώπιση του κινδύνου;",
               "placeholder": "Κάντε κλικ για να επιλέξετε μέτρα που αφορούν στον κίνδυνο."
             },
             "5": {
@@ -1235,7 +1235,7 @@
           "short_help": "Αναλύστε τα αίτια και τις συνέπειες μιας ανεπιθύμητης αλλαγής των δεδομένων και εκτιμήστε τη σοβαρότητα και την πιθανότητά της.",
           "questions": {
             "1": {
-              "title": "Ποιές θα μπορούσαν να είναι οι κύριες <span class='green-highlight'>επιπτώσεις στα υποκείμενα των δεδομένων </span>σε περίπτωση επέλευσης του κινδύνου;",
+              "title": "Ποιες θα μπορούσαν να είναι οι κύριες <span class='green-highlight'>επιπτώσεις στα υποκείμενα των δεδομένων </span>σε περίπτωση επέλευσης του κινδύνου;",
               "placeholder": "Καταχωρίστε τις πιθανές επιπτώσεις \u002B"
             },
             "2": {
@@ -1243,11 +1243,11 @@
               "placeholder": "Καταχωρίστε τις απειλές \u002B"
             },
             "3": {
-              "title": "Ποιές είναι οι <span class='green-highlight'>πηγές</span> κινδύνου;",
+              "title": "Ποιες είναι οι <span class='green-highlight'>πηγές</span> κινδύνου;",
               "placeholder": "Καταχωρίστε τις πηγές κινδύνου \u002B"
             },
             "4": {
-              "title": "Ποιά από τα προσδιορισθέντα <span class='green-highlight'>μέτρα</span> συμβάλλουν στην αντιμετώπιση του κινδύνου;",
+              "title": "Ποια από τα προσδιορισθέντα <span class='green-highlight'>μέτρα</span> συμβάλλουν στην αντιμετώπιση του κινδύνου;",
               "placeholder": "Κάντε κλικ εδώ για να επιλέξετε τα μέτρα που αφορούν στον κίνδυνο."
             },
             "5": {
@@ -1265,19 +1265,19 @@
           "short_help": "Αναλύστε τα αίτια και τις συνέπειες της απώλειας δεδομένων και εκτιμήστε τη σοβαρότητα και την πιθανότητά τους.",
           "questions": {
             "1": {
-              "title": "Ποιές θα μπορούσαν να είναι οι κύριες <span class='green-highlight'>επιπτώσεις στα υποκείμενα των δεδομένων</span>σε περίπτωσης επέλευσης του κινδύνου;",
+              "title": "Ποιες θα μπορούσαν να είναι οι κύριες <span class='green-highlight'>επιπτώσεις στα υποκείμενα των δεδομένων</span>σε περίπτωσης επέλευσης του κινδύνου;",
               "placeholder": "Καταχωρίστε τις πιθανές επιπτώσεις \u002B"
             },
             "2": {
-              "title": "Ποιές είναι οι κύριες <span class='green-highlight'>απειλές</span>που θα μπορούσαν να οδηγήσουν στην επέλευση του κινδύνου;",
+              "title": "Ποιες είναι οι κύριες <span class='green-highlight'>απειλές</span>που θα μπορούσαν να οδηγήσουν στην επέλευση του κινδύνου;",
               "placeholder": "Καταχωρίστε τις απειλές \u002B"
             },
             "3": {
-              "title": "Ποιές είναι οι <span class='green-highlight'>πηγές</span> κινδύνου;",
+              "title": "Ποιες είναι οι <span class='green-highlight'>πηγές</span> κινδύνου;",
               "placeholder": "Καταχωρίστε τις πηγές κινδύνου \u002B"
             },
             "4": {
-              "title": "Ποιά από τα προσδιορισθέντα <span class='green-highlight'>μέτρα</span> συμβάλλουν στην αντιμετώπιση του κινδύνου;",
+              "title": "Ποια από τα προσδιορισθέντα <span class='green-highlight'>μέτρα</span> συμβάλλουν στην αντιμετώπιση του κινδύνου;",
               "placeholder": "Κάντε κλικ εδώ για να επιλέξετε τα μέτρα που αφορούν στον κίνδυνο."
             },
             "5": {
