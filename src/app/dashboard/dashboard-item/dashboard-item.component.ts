@@ -10,4 +10,7 @@ export class DashboardItemComponent {
   @Input() item;
 
 
+  onClick(item){
+    item.action();
+  }
 }

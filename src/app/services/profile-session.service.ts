@@ -13,6 +13,7 @@ export class ProfileSession {
   private currentStructure: UserProfileStructure;
   private _hasPortfolioStructures: boolean = false;
   private _hasOwnStructure: boolean = false;
+  private _ownStructure: UserProfileStructure;
 
   constructor(
     private authService: AuthenticationService,
@@ -34,7 +35,7 @@ export class ProfileSession {
 
       this._hasPortfolioStructures = profile.portfolio_structures.length !== 0;
       this._hasOwnStructure = profile.structure !== null;
-
+      this._ownStructure = profile.structure;
       if (!this._hasPortfolioStructures) {
         this.currentStructure = profile.structure;
       }
@@ -55,6 +56,14 @@ export class ProfileSession {
 
   public hasOwnStructure(): boolean {
     return this._hasOwnStructure;
+  }
+
+  public getOwnStructure(): UserProfileStructure {
+    return this._ownStructure;
+  }
+
+  public navigateToOwnStructure() {
+    return this.navigateToStructure(this._ownStructure);
   }
 
   public hasPortfolioStructures(): boolean {

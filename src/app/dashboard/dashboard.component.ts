@@ -20,10 +20,14 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     if(this.session.hasPortfolioStructures()){
-      this.items.push({ route: "/portfolio", title: "dashboard.items.portfolio", icon: "fa-briefcase" });
+      this.items.push({title: "dashboard.items.portfolio", icon: "fa-briefcase", action: () => {
+        this.router.navigate(['/portfolio']);
+      } });
     }
     if(this.session.hasOwnStructure()){
-      this.items.push({ route: "/folders", title: "dashboard.items.processings", icon: "fa-file-text" });
+      this.items.push({ title: "dashboard.items.processings", icon: "fa-file-text", action: () => {
+        this.session.navigateToOwnStructure();
+      } });
     }
   }
 }
