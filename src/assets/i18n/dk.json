@@ -1,18 +1,18 @@
 {
   "authentication": {
-    "title": "Konsekvensanalyse vedrørende databeskyttelse",
-    "subtitle1": "En platform til at skabe <br> og styre DPIA konsekvensanalyser",
+    "title": "Konsekvensanalyse vedrørende beskyttelse af privatlivet",
+    "subtitle1": "En platform til at skabe <br> og styre PIA konsekvensanalyser (Privacy Impact Assessment)",
     "subtitle2": "Adgang til værktøjer og ordforråd",
     "start_app": "Start Konsekvensanalysen (Beta)",
     "description": "Dette program af det <strong>Franske Datatilsyn (CNIL)</strong>, er stillet tilrådig for at hjælpe og vejlede dataansvarlige til at opbygge og vedligeholde compliance til persondataforordningen (GDPR). Det er en applikation der hjælper med at udføre konsekvensanalyser ved brug af en analyse methode udviklet af CNIL.",
     "start": "Start"
   },
   "header": {
-    "logo_title": "DPIA Konsekvensanalyse",
+    "logo_title": "PIA Konsekvensanalyse",
     "logo_subtitle": "",
     "homepage_link": "Hjem",
     "knowledge_base_link": "Vidensbase",
-    "pia_example_link": "DPIA exempel",
+    "pia_example_link": "PIA exempel",
     "languages": {
       "official_translation": "Original version",
       "cnil_translations": "Oversættelser af CNILs",
@@ -54,20 +54,20 @@
       "author": "Forfatter",
       "assessor": "Analytiker",
       "validator": "Godkender",
-      "new_pia": "Ny DPIA",
-      "import_pia": "Importer DPIA",
-      "list_rocket_content": "Begynd ! For at starte <br>en DPIA, klik på +",
-      "card_rocket_content": "Begynd !<br><br>For at starte en DPIA,<br> klik på Ny DPIA"
+      "new_pia": "Ny PIA",
+      "import_pia": "Importer PIA",
+      "list_rocket_content": "Begynd ! For at starte <br>en PIA, klik på +",
+      "card_rocket_content": "Begynd !<br><br>For at starte en PIA,<br> klik på Ny PIA"
     },
     "cards": {
-      "new_pia": "Ny DPIA",
-      "placeholder_new_pia": "Ny DPIA",
+      "new_pia": "Ny PIA",
+      "placeholder_new_pia": "Ny PIA",
       "or": "or",
-      "import_pia": "Importere DPIA",
-      "placeholder_import_pia": "Importere DPIA",
+      "import_pia": "Importere PIA",
+      "placeholder_import_pia": "Importere PIA",
       "title_close_creation": "Luk",
-      "pia_name": "DPIA",
-      "placeholder_pia_name": "DPIA's titel",
+      "pia_name": "PIA",
+      "placeholder_pia_name": "PIA's titel",
       "author": "Editing",
       "placeholder_author": "Fornavn, efternavn",
       "evaluation": "Review",
@@ -85,15 +85,15 @@
           "more_options": "Flere optioner",
           "duplicate": "duplikere",
           "action_plan": "Vis<br>handlingsplan",
-          "pia": "Vis<br>DPIA",
+          "pia": "Vis<br>PIA",
           "remove": "Slet"
         },
-        "edit_pia": "Redigere DPIA",
-        "consult_pia": "Konsultere DPIA"
+        "edit_pia": "Redigere PIA",
+        "consult_pia": "Konsultere PIA"
       }
     },
     "lists": {
-      "column_pia": "DPIA",
+      "column_pia": "PIA",
       "column_updated_at": "Sidst åben",
       "column_author": "Redigere",
       "column_evaluation": "Evaluere",
@@ -109,7 +109,7 @@
           "export": "Exportere",
           "duplicate": "Duplikere",
           "action_plan": "Vis handlingsplan",
-          "pia": "Vis DPIA",
+          "pia": "Vis PIA",
           "remove": "Slet"
         }
       }
@@ -137,8 +137,8 @@
     },
     "sections": {
       "homepage_link": "Tilbage til oversigt",
-      "validate_pia": "Godkend DPIA",
-      "refuse_pia": "Afvise DPIA",
+      "validate_pia": "Godkend PIA",
+      "refuse_pia": "Afvise PIA",
       "status": {
         "evaluation": {
           "title": "Venter på evaluering.",
@@ -148,7 +148,7 @@
         },
         "validation": {
           "title": "Venter på godkendelse.",
-          "content": "Denne del er evalueret og venter på overordnet DPIA validation. Hvis du ønsker at ændre evalueringen , skal du ",
+          "content": "Denne del er evalueret og venter på overordnet PIA validation. Hvis du ønsker at ændre evalueringen , skal du ",
           "cancel": "Annulere forspørgslen om evaluering.",
           "cancel_button": "Annulere forspørgslen om evaluering"
         }
@@ -265,7 +265,7 @@
       },
       "PIA_VAL_RT": {
         "name": "Dataansvarliges validation",
-        "description": "Dataansvarlige afgører om hvorvidt de valgte foranstaltninger,  tilbageværende riscici og afhjælpningsplan er acceptabel, dette dokumenteres udfra en forudgående forståelse/analyse og de involverede partners synspunkter. Således kan DPIA konsekvensanalysen blive :<br>- godkendt<br>- godkendelse betinget af forbedring (forklare hvorledes)<br>- Afslået (sammen med den pågældende behandling). Hvis nødvendigt gentages de foregående etaper således at DPIA'en kan godkendes. Denne afgørelse foregriber ikke en compliancevurdering der eventuelt fortages af tilsynsmyndigheden (Datatilsynet i Danmark), som del af standard aftaler eller tilsyn/revision.",
+        "description": "Dataansvarlige afgører om hvorvidt de valgte foranstaltninger,  tilbageværende riscici og afhjælpningsplan er acceptabel, dette dokumenteres udfra en forudgående forståelse/analyse og de involverede partners synspunkter. Således kan PIA konsekvensanalysen blive :<br>- godkendt<br>- godkendelse betinget af forbedring (forklare hvorledes)<br>- Afslået (sammen med den pågældende behandling). Hvis nødvendigt gentages de foregående etaper således at PIA'en kan godkendes. Denne afgørelse foregriber ikke en compliancevurdering der eventuelt fortages af tilsynsmyndigheden (Datatilsynet i Danmark), som del af standard aftaler eller tilsyn/revision.",
         "source": "PIAF Connected Objects p40"
       },
       "PIA_VAL_CART": {
@@ -425,7 +425,7 @@
       "PIA_ORG_PBD": {
         "placeholder": "Beskriv her hvordan beskyttelse af privatlivet er integreret i nye projekter",
         "name": "Integration af privatlivsbeskyttelse i projekter",
-        "description": "Findes der en "Privacy by Design" politik der kræver at princippet om beskyttelse af privatlivet og personoplysninger håndhæves ved alle nye behandlingsaktiviteter.",
+        "description": "Findes der en Privacy-by-Design politik der kræver at princippet om beskyttelse af privatlivet og personoplysninger håndhæves ved alle nye behandlingsaktiviteter.",
         "source": "PIA3 p79 - WIKI"
       },
       "PIA_ORG_VIOL": {
@@ -442,7 +442,7 @@
       },
       "PIA_ORG_EXT": {
         "placeholder": "Beskriv her krav og regler for adgangskontrol ved databehandlers adgang til personoplysninger.",
-        "name": Adgangskontrol for databehandler",
+        "name": "Adgangskontrol for databehandler",
         "description": "Findes der en politik der mindsker risiko for databehandler's autoriseret adgang til personoplysninger (identitet af medarbejdere, databehandleraftale, tekniske og organisatoriske tiltag, BCR, osv.).",
         "source":  "PIA3 p48 - WIKI"
       },
@@ -539,7 +539,7 @@
       },
       "PIA_DEF_PSEU": {
         "name": "Pseudonymisering",
-        "description": "Pseudonymisering er i databeskyttelsesforordningen defineret som behandling af personoplysninger på en sådan måde, at personoplysningerne ikke længere kan henføres til en bestemt registreret uden brug af supplerende oplysninger, forudsat at sådanne supplerende oplysninger opbevares separat og er underlagt tekniske og organisatoriske foranstaltninger for at sikre, at personoplysningerne ikke henføres til en identificeret eller identificerbar fysisk person.<br>Pseudonymisering reducerer linkbarheden af ​​et datasæt med den registrerede persons oprindelige identitet; som sådan er det en nyttig sikkerhedsforanstaltning, men ikke en metode til anonymisering.",
+        "description": "Pseudonymisering er i databeskyttelsesforordningen defineret som behandling af personoplysninger på en sådan måde, at personoplysningerne ikke længere kan henføres til en bestemt registreret uden brug af supplerende oplysninger, forudsat at sådanne supplerende oplysninger opbevares separat og er underlagt tekniske og organisatoriske foranstaltninger for at sikre, at personoplysningerne ikke henføres til en identificeret eller identificerbar fysisk person.<br>Pseudonymisering reducerer linkbarheden af et datasæt med den registrerede persons oprindelige identitet; som sådan er det en nyttig sikkerhedsforanstaltning, men ikke en metode til anonymisering.",
         "source" :"GDPR Art. 4.5"
       },
       "PIA_DEF_CLO": {
@@ -609,7 +609,7 @@
       },
       "PIA_DEF_GRV": {
         "name": "Alvorlighed",
-        "description": "Alvorlighed repræsentere størrelsen af ​​en risiko. Det afhænger primært af den skadelige karakter af de potentielle virkninger.",
+        "description": "Alvorlighed repræsentere størrelsen af en risiko. Det afhænger primært af den skadelige karakter af de potentielle virkninger.",
         "source": "PIA1 page 6"
       },
       "PIA_DEF_VRA": {
@@ -619,7 +619,7 @@
       },
       "PIA_DEF_PBDS": {
         "name": "Projekt styring",
-        "description": "Foranstaltninger, der træffes for at integrere beskyttelsen af ​​personoplysninger i alle nye behandlingsoperationer (retningslinjer, metoder til risikostyring).",
+        "description": "Foranstaltninger, der træffes for at integrere beskyttelsen af personoplysninger i alle nye behandlingsoperationer (retningslinjer, metoder til risikostyring).",
         "source": "Mesures_US"
       },
       "PIA_DEF_VIOL": {
@@ -659,7 +659,7 @@
       },
       "PIA_DEF_MIN5": {
         "name": "Begræning af adgang til personoplysninger",
-        "description": "Systemet kan begrænse adgangen til data i henhold til "need to know" princippet. Systemet kan adskille følsomme personoplysninger og anvende specifikke adgangskontrolpolitikker. Systemet kan også kryptere følsomme personoplysninger for at beskytte deres fortrolighed under transmission og opbevaring. Adgang til midlertidige skjulte filer, der produceres under databehandling, bør også beskyttes.",
+        "description": "Systemet kan begrænse adgangen til data i henhold til need-to-know princippet. Systemet kan adskille følsomme personoplysninger og anvende specifikke adgangskontrolpolitikker. Systemet kan også kryptere følsomme personoplysninger for at beskytte deres fortrolighed under transmission og opbevaring. Adgang til midlertidige skjulte filer, der produceres under databehandling, bør også beskyttes.",
         "source": "PIAF Connected objects p42 - WIKI"
       },
       "PIA_EX_DCPC": {
@@ -689,7 +689,7 @@
       },
       "PIA_EX_NHUM": {
         "name": "ikke-menneskelige trussels kilder",
-        "description": "Det kan være en hændelse eller katastrofe i en af ​​de organisationer, der har ansvaret for behandlingen (strømafbrydelse, brand, oversvømmelse, osv.)",
+        "description": "Det kan være en hændelse eller katastrofe i en af de organisationer, der har ansvaret for behandlingen (strømafbrydelse, brand, oversvømmelse, osv.)",
         "source": "PIAF Connected objects p41 - WIKI"
       },
       "PIA_EX_IMPN": {
@@ -763,12 +763,12 @@
     "acceptable": "Godtaget",
     "evaluation_comment": "Evaluerings kommentar",
     "action_plan_comment": "Handlingsplan / forbedringer",
-    "placeholder_to_correct": "Oplysningerne er ikke fyldstgørende for en evalution. Send tilbage til redaktøren/forfatter af denne DPIA, for at forbedre de oprindelige indsendte oplysninger.",
+    "placeholder_to_correct": "Oplysningerne er ikke fyldstgørende for en evalution. Send tilbage til redaktøren/forfatter af denne PIA, for at forbedre de oprindelige indsendte oplysninger.",
     "placeholder_improvable1": "Ifølge de foreliggende oplysninger skal yderligere foranstaltninger gennemføres for at databeskyttelsen i behandlingen er fyldestgørende.",
     "placeholder_improvable2": "Skriv dine kommentarer.",
     "placeholder_acceptable": "Ifølge de foreliggende oplysninger er de gennemførte foranstaltninger tilstrækkelige til at opfylde kravene til databeskyttelse.",
     "gauges": {
-      "seriousness": "Under hensyntagen til handlingsplanen, hvordan vurderer du<span class='red-highlight'>alvorligheden af ​​denne risiko</span> ({{value}})?",
+      "seriousness": "Under hensyntagen til handlingsplanen, hvordan vurderer du<span class='red-highlight'>alvorligheden af denne risiko</span> ({{value}})?",
       "likelihood": "Under hensyntagen til handlingsplanen, hvordan vurderer du <span class='red-highlight'>sandsynligheden for denne risiko</span> ({{value}})?",
       "0": "(Udefinet)",
       "1": "Ubetydelig",
@@ -787,7 +787,7 @@
     "title": "Hjælp",
     "definition": {
       "data1": {
-        "title": "Bruge DPIA værktøjet",
+        "title": "Bruge PIA værktøjet",
         "content": "Indhold under skrivining"
       },
       "data2": {
@@ -801,12 +801,12 @@
           "content": "Denne fejl er kendt og afhjælpning i gang. Hvis du støder på dette problem, skal du angive niveauet af sværhedsgrad eller sandsynlighed, som du vurderer ud over begrundelsen for dette estimat i feltet Justification."
         },
         "qa3": {
-          "title": "Jeg har problemer med at importere en DPIA",
-          "content": "Flere bugs blev observeret under importen af ​​en DPIA, især målernes forsvinden med vurdering af konsekvens og sandsynligheden for en risiko. I dette tilfælde henvises til det foregående spørgsmål. Hvis du ikke kan se din DPIA instrumentbrættet i DPIA'erne, skal du opdatere siden."
+          "title": "Jeg har problemer med at importere en PIA",
+          "content": "Flere bugs blev observeret under importen af en PIA, især målernes forsvinden med vurdering af konsekvens og sandsynligheden for en risiko. I dette tilfælde henvises til det foregående spørgsmål. Hvis du ikke kan se din PIA instrumentbrættet i PIA'erne, skal du opdatere siden."
         },
         "qa4": {
           "title": "Når jeg kopierer og indsætter, vises min tekst fremhævet.",
-          "content": "Dette er kun en visningsfejl og kompromitterer ikke de oplysninger, der er indtastet i DPIA. Dette problem vil blive rettet hurtigt."
+          "content": "Dette er kun en visningsfejl og kompromitterer ikke de oplysninger, der er indtastet i PIA. Dette problem vil blive rettet hurtigt."
         },
         "qa5": {
           "title": "Jeg kan ikke bede om en del-evaluering",
@@ -814,18 +814,18 @@
         },
         "qa6": {
           "title": "Ved sprogskift oversættes teksterne ikke",
-          "content": "Luk DPIA'en, du redigerer og åbner den igen. Indholdet bliver derefter vist på det valgte sprog."
+          "content": "Luk PIA'en, du redigerer og åbner den igen. Indholdet bliver derefter vist på det valgte sprog."
         },
         "qa7": {
           "title": "Jeg afviste at godkende en PIA, men ved ikke hvad jeg skal gøre derefter",
-          "content": "PT. opdateres ikonerne i den venstre navigationsmenu ikke efter et valideringsafslag. Du skal besøge hvert afsnit igen, kontrollere oplysningerne og evalueringen i henhold til årsagerne til afslaget og anmode om en validering igen. Når alle sektioner er blevet gennemgået, vil det være muligt at returnere DPIA til validering."
+          "content": "PT. opdateres ikonerne i den venstre navigationsmenu ikke efter et valideringsafslag. Du skal besøge hvert afsnit igen, kontrollere oplysningerne og evalueringen i henhold til årsagerne til afslaget og anmode om en validering igen. Når alle sektioner er blevet gennemgået, vil det være muligt at returnere PIA til validering."
         }
       },
       "footer": "Hvis du støder på andre problemer, eller hvis du har forslag til forbedringer, kan du sende dem tilbage via denne formular <a target=\"_blank\" href=\"https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia\">https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia</a>."
     }
   },
   "about": {
-    "title": "Om DPIA værktøjet",
+    "title": "Om PIA værktøjet",
     "version_number": "Version nummer",
     "description": "Dette værktøj er oprindeligt designet af <a target=\"_blank\" href=\"https://www.cnil.fr\">Commission Nationale Informatique et Liberté (CNIL)</a>, den franske databeskyttelsesmyndighed med henblik på at støtte dataansvarlige i deres efterlevelse af GDPR kravene.<br>Dette værktøj er gratis og åbent, under GPLv3-licens. Du kan bidrage ved at hente kildekoden, ændre den og omfordele den til fællesskabet.",
     "translators": "Værktøjet er i øjeblikket tilgængeligt på fjorten sprog. De franske og engelske versioner leveres af CNIL. De andre versioner er resultatet af bidrag fra følgende personer:",
@@ -839,21 +839,21 @@
     "update": "Updatere URL"
   },
   "validation_page": {
-    "responsible": "Ansvarlig for godkendelse af D​​PIA: ",
-    "after_reading": "Efter fuld læsning af DPIA vedrørende behandling af personoplysninger relateret til aktiviteten af ",
-    "confirmation1": "Jeg bekræfter, at beskrivelsen af ​​sammenhængen i min behandling er i overensstemmelse med virkeligheden.",
+    "responsible": "Ansvarlig for godkendelse af PIA: ",
+    "after_reading": "Efter fuld læsning af PIA vedrørende behandling af personoplysninger relateret til aktiviteten af ",
+    "confirmation1": "Jeg bekræfter, at beskrivelsen af sammenhængen i min behandling er i overensstemmelse med virkeligheden.",
     "confirmation2": "Jeg bekræfter, at jeg har noteret de eksisterende risici i henhold til de foranstaltninger, der i øjeblikket gennemføres eller planlægges.",
     "confirmation3": "Jeg godkender de angivne korrigerende tiltag indikeret i handlingsplanen.",
     "confirmation4": "Jeg forpligter mig til at gennemføre de korrigerende foranstaltninger, der er angivet, så hurtigt som muligt.",
     "button": {
-      "rejection": "Afvis DPIA",
-      "simple_validation": "Godkend DPIA <br>(direkte)",
-      "signed_validation": "Godkend DPIA <br>(signatur)"
+      "rejection": "Afvis PIA",
+      "simple_validation": "Godkend PIA <br>(direkte)",
+      "signed_validation": "Godkend PIA <br>(signatur)"
     },
     "mandatory_fields": "Alle kasser skal checkes",
-    "waiting_for_signature": "Afventende DPIA signatur",
+    "waiting_for_signature": "Afventende PIA signatur",
     "validated_pia_with_signature": "Godkendt",
-    "add_signed_pia": "Tilføj underskrevet DPIA",
+    "add_signed_pia": "Tilføj underskrevet PIA",
     "remove_attachment": "Fjern vedhæftet dokument",
     "latest_signed_attachment": "Sidste underskrevet vedhæftelse",
     "signed_attachments_history": "Log af Underskrevet vedhæftelser",
@@ -866,13 +866,13 @@
   "rejection_page": {
     "title": "Valideringshistorik",
     "rejection_reason": "Begrundelse for afvisning",
-    "rejection_reason_placeholder": "Begrundelse for afvisning af DPIA.",
+    "rejection_reason_placeholder": "Begrundelse for afvisning af PIA.",
     "applied_adjustments": "Foreslået forbedringer",
-    "applied_adjustments_placeholder": "Beskriv ændringer til DPIA'en.",
+    "applied_adjustments_placeholder": "Beskriv ændringer til PIA'en.",
     "previous_rejection": "Foregående afvisning",
     "button": {
       "abandon_treatment": "Forlad behandlingen",
-      "reject_pia": "Afvis DPIA",
+      "reject_pia": "Afvis PIA",
       "send_for_validation": "Send igen til validering"
     }
   },
@@ -887,24 +887,24 @@
     "start_evaluation": "Start evaluering",
     "back_to_home": "Tilbage til oversigt",
     "simple_pia_validation": {
-      "content": "Du har godkendt DPIA'en."
+      "content": "Du har godkendt PIA'en."
     },
     "completed_edition": {
       "content": "Alle dele er redigeret.<br>Analysen skal nu evalueres."
     },
     "completed_evaluation": {
-      "content": "DPIA er blevet fuldt gennemgået og godkendt."
+      "content": "PIA er blevet fuldt gennemgået og godkendt."
     },
     "update_server_url": {
       "content": "Serveradressen er blevet opdateret."
     },
     "signed_pia_validation": {
-      "content": "For at godkende DPIA'en skal du vedhæfte den underskrevne rapport.",
+      "content": "For at godkende PIA'en skal du vedhæfte den underskrevne rapport.",
       "download_pia": "Hent rapporten"
     },
     "abandon_pia": {
       "content": "Vil du opgive behandlingen?",
-      "additional_text": "Arkiveringen er ikke definitiv og du kan genoptage behandlingen af DPIA'en hvis ønsket."
+      "additional_text": "Arkiveringen er ikke definitiv og du kan genoptage behandlingen af PIA'en hvis ønsket."
     },
     "refuse_pia": {
       "content": "Efter din afvisning, returneres analysen til evaluering for at foretage de nødvendige ændringer."
@@ -924,7 +924,7 @@
       "content": "Denne sektion er klar til evaluering."
     },
     "validate_evaluation": {
-      "content": "Denne sektion er klar for godkendelse af DPIA."
+      "content": "Denne sektion er klar for godkendelse af PIA."
     },
     "validate_evaluation_to_correct": {
       "content": "Undskyld,<br>Alle felter skal korrigeres.<br>Tilbage til redigeringsstatus<br>for at korriger."
@@ -934,8 +934,8 @@
       "declare": "Erklære eksisterende eller planlagte foranstaltninger"
     },
     "remove_pia": {
-      "content": "<span class='strong'>Warning,</span><br>Er du sikker på at ville<br>slette denne DPIA?",
-      "remove": "Slet denne DPIA"
+      "content": "<span class='strong'>Warning,</span><br>Er du sikker på at ville<br>slette denne PIA?",
+      "remove": "Slet denne PIA"
     },
     "remove_attachment": {
       "content": "<span class='strong'>Warning,</span><br>Er du sikker på at du vil<br>slette denne vedhæftelse?",
@@ -944,17 +944,17 @@
       "comment": "Kommentarer"
     },
     "action_plan_no_evaluation": {
-      "content": "Start venligst evalueringen af ​​analysen for at generere handlingsplanen.",
+      "content": "Start venligst evalueringen af analysen for at generere handlingsplanen.",
       "review_section": "Evaluere sektionen"
     },
     "dpo_missing_evaluations": {
-      "content": "Udfyld evalueringen af ​​analysen for at få adgang til DPO-siden.",
+      "content": "Udfyld evalueringen af analysen for at få adgang til DPO-siden.",
       "review_section": "Evaluere sektionen",
       "remove": "Slet",
       "comment": "Kommentarer"
     },
     "modal_select_text_pia": {
-      "content": "Indholdet af DPIA er kopieret til clipboard."
+      "content": "Indholdet af PIA er kopieret til clipboard."
     },
     "back_to_edition": {
       "content": "Dette afsnit redigeres,<br> oplysninger skal tilføjes for at tillade dets evaluering."
@@ -978,7 +978,7 @@
     "csv_file_title": "handlingsplan",
     "display_filters": {
       "title": "Vis filtre",
-      "main_content": "Vis sektion \"DPIA information\"",
+      "main_content": "Vis sektion \"PIA information\"",
       "context_content": "Vis sektion \"Kontext\"",
       "principles_content": "Vis sektion \"Fundamentale principper\"",
       "risks_content": "Vis sektion \"Risici\"",
@@ -986,8 +986,8 @@
       "risks_overview_content": "Vis risici oversigt",
       "risks_cartography_content": "Vis Risikokortlægning"
     },
-    "title": "DPIA information",
-    "pia_name": "DPIA",
+    "title": "PIA information",
+    "pia_name": "PIA",
     "pia_author": "Forfatterens navn",
     "pia_assessor": "Analytikers navn",
     "pia_validator": "Godkenders navn",
@@ -1140,7 +1140,7 @@
       "items": {
         "1": {
           "title": "Proportionalitet og nødvendighed",
-          "short_help": "Dette afsnit giver dig mulighed for at demonstrere legitimiteten af ​​din behandling og behandlede data.",
+          "short_help": "Dette afsnit giver dig mulighed for at demonstrere legitimiteten af din behandling og behandlede data.",
           "questions": {
             "1": {
               "title": "Er formålet med behandlingen bestemt, eksplicit og legitim?",
@@ -1160,7 +1160,7 @@
             "4": {
               "title": "Er personoplysningerne nøjagtige og holdes ajourførte?",
               "short_title": "Rigtighed",
-              "placeholder": "Beskriv de planlagte foranstaltninger for at sikre kvaliteten af ​​personopllysningerne."
+              "placeholder": "Beskriv de planlagte foranstaltninger for at sikre kvaliteten af personopllysningerne."
             },
             "5": {
               "title": "Hvor længe opbevares personoplysningerne?",
@@ -1196,7 +1196,7 @@
             "5": {
               "title": "Hvordan kan de registrerede udøve deres ret til begrænsning af behandling og ret til indsigelses?",
               "short_title": "Ret til begrænsning og indsigelse",
-              "placeholder": "Beskriv hvordan man tillader de registrerede at anmode om begrænsning af behandlingen af ​​deres personoplysninger og hvis relevant, modsætte sig behandlingen."
+              "placeholder": "Beskriv hvordan man tillader de registrerede at anmode om begrænsning af behandlingen af deres personoplysninger og hvis relevant, modsætte sig behandlingen."
             },
             "6": {
               "title": "Er forpligtelser klart defineret og kontraktliggjort for databehandler?",
@@ -1318,7 +1318,7 @@
     },
      "4": {
       "title": "Godkendelse",
-      "short_help": "Dette afsnit giver dig mulighed for at forberede og formalisere valideringen af ​​DPIA.",
+      "short_help": "Dette afsnit giver dig mulighed for at forberede og formalisere valideringen af PIA.",
       "items": {
         "1": {
           "title": "Risikokortlægning",
@@ -1326,17 +1326,17 @@
         },
         "2": {
           "title": "Handlingsplann",
-          "short_help": "Planlægge i detaljer gennemførelsen af ​​de yderligere foranstaltninger, der blev identificeret under DPIA. Dette afsnit opdateres automatisk i henhold til evalueringen af ​​hver enkelt komponent i konsekvensanalysen."
+          "short_help": "Planlægge i detaljer gennemførelsen af de yderligere foranstaltninger, der blev identificeret under PIA. Dette afsnit opdateres automatisk i henhold til evalueringen af hver enkelt komponent i konsekvensanalysen."
         },
         "3": {
           "title": "Udtalelse fra DPO og de berørte personer",
           "short_help": "Præsentere holdning fra den person, der har ansvaret for compliance til databeskyttelsesforordningen (GDPR) (delegeret til databeskyttelsesrådgiveren, hvis den eksisterer). Fremsætte de berørte personers eller deres repræsentants sysnpunkter."
         },
         "4": {
-          "title": "Godkend DPIA"
+          "title": "Godkend PIA"
         },
         "5": {
-          "title": "Afvis DPIA"
+          "title": "Afvis PIA"
         }
       }
     }
