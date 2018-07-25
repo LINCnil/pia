@@ -5,7 +5,7 @@
 		"licences": "Bibliothekslizenzen:",
 		"title": "Über das Werkzeug PIA",
 		"translators": "Das Tool ist derzeit in vierzehn Sprachen verfügbar. Die französische und die englische Version werden von der CNIL bereitgestellt. Die anderen Versionen sind das Ergebnis der Beiträge der folgenden Personen:",
-		"translators_name": "<ul><li>Deutsch : Kosmas Schütz, Corina Scheiter (<a target=\"_blank\" href=\"https://www.datenschutz-bayern.de/\">BayLfD</a>) ;</li><li>Englisch : <a target=\"_blank\" href=\"https://www.cnil.fr\">CNIL</a> ;</li><li>Finnisch : <a target=\"_blank\" href=\"https://tietosuoja.fi/etusivu\">Tietosuojavaltuutetun toimisto</a> ;</li><li>Französisch : <a target=\"_blank\" href=\"https://www.cnil.fr\">CNIL</a> ;</li><li>Griechisch : Dimitris Tzellis ;</li><li>Italienisch : Manuel d’Orso, Gianluca Markos, Antonio Caselli (<a target=\"_blank\" href=\"http://gpdp.it\">Garante per la Protezione dei Dai Personali (GPDP)</a>) ;</li><li>Niederländisch : Ruud van Driel, Manuel d’Orso ;</li><li>Norwegisch : <a target=\"_blank\" href=\"https://www.datatilsynet.no\">Datatilsynet</a> ;</li><li>Polieren : Joanna Karczewska, Michal Mazur (<a target=\"_blank\" href=\"https://giodo.gov.pl\">Generalny Inspektor Ochrony Danych Osobowych (GIODO)</a>) ;</li><li>Portugiesisch : Barbara Gois ;</li><li>Rumänisch : webmyday </li><li>Spanisch : ylachgar ;</li><li>Tschechisch : Jiří Grohmann, Manuel d’Orso ;</li><li>Ungarisch : <a target=\"_blank\" href=\"https://naih.hu/\">Nemzeti Adatvédelmi és Információszabadság Hatóság (NAIH)</a> ;</li></ul>",
+		"translators_name": "<ul><li>Deutsch : Kosmas Schütz, Corina Scheiter (<a target=\"_blank\" href=\"https://www.datenschutz-bayern.de/\">BayLfD</a>) ;</li><li>Dänisch: Michael Drews Olsen;</li><li>Englisch : <a target=\"_blank\" href=\"https://www.cnil.fr\">CNIL</a> ;</li><li>Finnisch : <a target=\"_blank\" href=\"https://tietosuoja.fi/etusivu\">Tietosuojavaltuutetun toimisto</a> ;</li><li>Französisch : <a target=\"_blank\" href=\"https://www.cnil.fr\">CNIL</a> ;</li><li>Griechisch : Dimitris Tzellis ;</li><li>Italienisch : Manuel d’Orso, Gianluca Markos, Antonio Caselli (<a target=\"_blank\" href=\"http://gpdp.it\">Garante per la Protezione dei Dai Personali (GPDP)</a>) ;</li><li>Niederländisch : Ruud van Driel, Manuel d’Orso ;</li><li>Norwegisch : <a target=\"_blank\" href=\"https://www.datatilsynet.no\">Datatilsynet</a> ;</li><li>Polieren : Joanna Karczewska, Michal Mazur (<a target=\"_blank\" href=\"https://giodo.gov.pl\">Generalny Inspektor Ochrony Danych Osobowych (GIODO)</a>) ;</li><li>Portugiesisch : Barbara Gois ;</li><li>Rumänisch : webmyday </li><li>Spanisch : ylachgar ;</li><li>Tschechisch : Jiří Grohmann, Manuel d’Orso ;</li><li>Ungarisch : <a target=\"_blank\" href=\"https://naih.hu/\">Nemzeti Adatvédelmi és Információszabadság Hatóság (NAIH)</a> ;</li></ul>",
 		"version_number": "Versionsnummer"
 	},
 	"action_plan": {
@@ -92,6 +92,7 @@
 			"community_translations": "Von der Community bereitgestellte Übersetzungen",
 			"cs": "Česky",
 			"de": "Deutsch",
+			"dk": "Dansk",
 			"dpa_translations": "Von europäischen Aufsichtsbehörden bereitgestellte Übersetzungen",
 			"el": "Ελληνικά",
 			"en": "English",
@@ -102,6 +103,7 @@
 			"it": "Italiano",
 			"nl": "Nederlands",
 			"nn": "Nynorsk",
+			"no": "",
 			"official_translation": "Originalversion",
 			"pl": "Polski",
 			"pt": "Português",
@@ -286,7 +288,8 @@
 			"PIA_DEF_CHIF": {
 				"description": "Durch das Verschlüsseln einer Nachricht wird sichergestellt, dass nur der Absender und der / die rechtmäßige(n) Empfänger einer Nachricht den Inhalt kennen. Es ist eine Art digital versiegelter Umschlag. Nach der Verschlüsselung ist eine Nachricht weder für Personen noch Maschinen zugänglich oder lesbar, wenn sie nicht über den spezifischen Schlüssel verfügen.<br>Es gibt zwei große Familien der Verschlüsselung : symmetrische und asymmetrische.<br>- <strong>Symmetrische Verschlüsselung</strong> Inhalte werden mit dem gleichen Schlüssel verschlüsselt und entschlüsselt, genannt der \"geheime Schlüssel\". Die symmetrische Verschlüsselung ist besonders schnell, erfordert jedoch, dass der Sender und der Empfänger sich auf einen gemeinsamen geheimen Schlüssel einigen oder ihn über einen anderen Kanal übertragen. Dieser muss sorgfältig ausgewählt werden, da sonst der Schlüssel von den falschen Leuten zurückgewonnen und die Vertraulichkeit der Nachricht kompromittiert werden könnte.<br-<strong>Asymmetrische Verschlüsselung</strong> Sie geht davon aus, dass der (zukünftige) Empfänger ein Schlüsselpaar (privater Schlüssel, öffentlicher Schlüssel) hat und hat sicherstellt, dass der potentielle Absender Zugriff auf seinen öffentlichen Schlüssel hat. In diesem Fall verwendet der Absender den öffentlichen Schlüssel des Empfängers zum Verschlüsseln der Nachricht, während der Empfänger seinen privaten Schlüssel zum Entschlüsseln verwendet. Es ist von Vorteil, dass der öffentliche Schlüssel allen bekannt ist und veröffentlicht werden kann. Aber Vorsicht: es ist notwendig, dass die Sender das Vertrauen in der Herkunft des öffentlichen Schlüssels haben und sicher sind , dass er in der Tat vom Empfänger stammt. Ein weiterer Pluspunkt: Sie müssen nicht den gleichen geheimen Schlüssel teilen! Die asymmetrische Verschlüsselung macht es möglich, darauf zu verzichten, aber sie ist langsamer.",
 				"name": "Verschlüsselung",
-				"source": "Guide Bleu 2017 p23 https://www.cnil.fr/fr/comprendre-les-grands-principes-de-la-cryptologie-et-du-chiffrement"
+				"source": "Guide Bleu 2017 p23 https://www.cnil.fr/fr/comprendre-les-grands-principes-de-la-cryptologie-et-du-chiffrement",
+				"source ": ""
 			},
 			"PIA_DEF_CLO": {
 				"description": "Methoden zur Reduzierung der Möglichkeiten, personenbezogene Daten zu korrelieren und eine Kompromittierung aller gespeicherten Daten zu verhindern, indem beispielsweise die spezifischen Daten der jeweiligen Geschäftsprozesses identifiziert und logisch getrennt werden.",
