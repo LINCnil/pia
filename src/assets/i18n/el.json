@@ -5,7 +5,7 @@
 		"licences": "Άδειες βιβλιοθήκης:",
 		"title": "Σχετικά με το εργαλείο ΕΑ",
 		"translators": "Το λογισμικό PIA διατίθεται επί του παρόντος σε δεκατέσσερις γλώσσες. Η γαλλική και η αγγλική εκδοχή παρέχονται από το CNIL. Οι άλλες εκδοχές προκύπτουν από τις συνεισφορές των ακόλουθων ατόμων:",
-		"translators_name": "<ul><li>Czech : Jiří Grohmann, Manuel d’Orso;</li><li>Dutch : Ruud van Driel, Manuel d’Orso;</li><li>English : <a target=\"_blank\" href=\"https://www.cnil.fr\">CNIL</a>;</li><li>Finnish : <a target=\"_blank\" href=\"https://tietosuoja.fi/etusivu\">Tietosuojavaltuutetun toimisto</a>;</li><li>French : <a target=\"_blank\" href=\"https://www.cnil.fr\">CNIL</a>;</li><li>German : Kosmas Schütz, Corina Scheiter (<a target=\"_blank\" href=\"https://www.datenschutz-bayern.de/\">BayLfD</a>);</li><li>Greek : Dimitris Tzellis;</li><li>Hungarian : <a target=\"_blank\" href=\"https://naih.hu/\">Nemzeti Adatvédelmi és Információszabadság Hatóság (NAIH)</a>;</li><li>Italian : Manuel d’Orso, Gianluca Markos, Antonio Caselli (<a target=\"_blank\" href=\"http://gpdp.it\">Garante per la Protezione dei Dai Personali (GPDP)</a>);</li><li>Norwegian : <a target=\"_blank\" href=\"https://www.datatilsynet.no\">Datatilsynet</a>;</li><li>Polish : Joanna Karczewska, Michal Mazur (<a target=\"_blank\" href=\"https://giodo.gov.pl\">Generalny Inspektor Ochrony Danych Osobowych (GIODO)</a>);</li><li>Portuguese : Barbara Gois;</li><li>Romanian : webmyday;</li><li>Spanish : ylachgar.</li></ul>",
+		"translators_name": "<ul><li>Czech : Jiří Grohmann, Manuel d’Orso;</li><li>Danish: Michael Drews Olsen;</li><li>Dutch : Ruud van Driel, Manuel d’Orso;</li><li>English : <a target=\"_blank\" href=\"https://www.cnil.fr\">CNIL</a>;</li><li>Finnish : <a target=\"_blank\" href=\"https://tietosuoja.fi/etusivu\">Tietosuojavaltuutetun toimisto</a>;</li><li>French : <a target=\"_blank\" href=\"https://www.cnil.fr\">CNIL</a>;</li><li>German : Kosmas Schütz, Corina Scheiter (<a target=\"_blank\" href=\"https://www.datenschutz-bayern.de/\">BayLfD</a>);</li><li>Greek : Dimitris Tzellis;</li><li>Hungarian : <a target=\"_blank\" href=\"https://naih.hu/\">Nemzeti Adatvédelmi és Információszabadság Hatóság (NAIH)</a>;</li><li>Italian : Manuel d’Orso, Gianluca Markos, Antonio Caselli (<a target=\"_blank\" href=\"http://gpdp.it\">Garante per la Protezione dei Dai Personali (GPDP)</a>);</li><li>Norwegian : <a target=\"_blank\" href=\"https://www.datatilsynet.no\">Datatilsynet</a>;</li><li>Polish : Joanna Karczewska, Michal Mazur (<a target=\"_blank\" href=\"https://giodo.gov.pl\">Generalny Inspektor Ochrony Danych Osobowych (GIODO)</a>);</li><li>Portuguese : Barbara Gois;</li><li>Romanian : webmyday;</li><li>Spanish : ylachgar.</li></ul>",
 		"version_number": "Αριθμός έκδοσης"
 	},
 	"action_plan": {
@@ -92,6 +92,7 @@
 			"community_translations": "Μεταφράσεις που παρείχε η κοινότητα",
 			"cs": "Česky",
 			"de": "Deutsch",
+			"dk": "Dansk",
 			"dpa_translations": "Μετάφραση αναθεωρημένη από ευρωπαϊκή ΑΠΔ",
 			"el": "Ελληνικά",
 			"en": "English",
@@ -102,6 +103,7 @@
 			"it": "Italiano",
 			"nl": "Nederlands",
 			"nn": "Nynorsk",
+			"no": "",
 			"official_translation": "Αρχική έκδοση",
 			"pl": "Polski",
 			"pt": "Português",
@@ -286,7 +288,8 @@
 			"PIA_DEF_CHIF": {
 				"description": "Μέτρο που καθιστά τα προσωπικά δεδομένα ακατανόητα σε οποιονδήποτε χωρίς άδεια πρόσβασης (συμμετρική ή ασύμμετρη κρυπτογράφηση, χρήση δημόσιων αλγορίθμων που είναι αναγνωρισμένα ισχυροί, πιστοποιητικό ελέγχου ταυτότητας, κ.λπ.).",
 				"name": "Κρυπτογράφηση",
-				"source": "Mesures_US Encryption"
+				"source": "Mesures_US Encryption",
+				"source ": ""
 			},
 			"PIA_DEF_CLO": {
 				"description": "Μέθοδοι οργάνωσης δεδομένων που μειώνουν την πιθανότητα συσχέτισης των προσωπικών δεδομένων και παραβίασης όλων των προσωπικών δεδομένων. Για παράδειγμα, με το να προσδιοριστούν τα προσωπικά δεδομένα που είναι χρήσιμα μόνο για την κάθε επιχειρηματική διαδικασία και με το να διαχωριστούν αυτά λογικά.",

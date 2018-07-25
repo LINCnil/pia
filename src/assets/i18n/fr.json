@@ -5,7 +5,7 @@
 		"licences": "Licences des librairies :",
 		"title": "A propos de l'Outil PIA",
 		"translators": "L’outil est actuellement disponible en quatorze langues. Les versions française et anglaise sont fournies par la CNIL. Les autres versions sont le résultat des contributions des personnes suivantes :",
-		"translators_name": "<ul><li>Allemand : Kosmas Schütz, Corina Scheiter (<a target=\"_blank\" href=\"https://www.datenschutz-bayern.de/\">BayLfD</a>) ;</li><li>Anglais : <a target=\"_blank\" href=\"https://www.cnil.fr\">CNIL</a> ;</li><li>Espagnol : ylachgar ;</li><li>Finnois : <a target=\"_blank\" href=\"https://tietosuoja.fi/etusivu\">Tietosuojavaltuutetun toimisto</a> ;</li><li>Français : <a target=\"_blank\" href=\"https://www.cnil.fr\">CNIL</a> ;</li><li>Grec : Dimitris Tzellis ;</li><li>Hongrois : <a target=\"_blank\" href=\"https://naih.hu/\">Nemzeti Adatvédelmi és Információszabadság Hatóság (NAIH)</a> ;</li><li>Italien : Manuel d’Orso, Gianluca Markos, Antonio Caselli (<a target=\"_blank\" href=\"http://gpdp.it\">Garante per la Protezione dei Dai Personali (GPDP)</a>) ;</li><li>Néerlandais : Ruud van Driel, Manuel d’Orso ;</li><li>Norvégien : <a target=\"_blank\" href=\"https://www.datatilsynet.no\">Datatilsynet</a> ;</li><li>Polonais : Joanna Karczewska, Michal Mazur (<a target=\"_blank\" href=\"https://giodo.gov.pl\">Generalny Inspektor Ochrony Danych Osobowych (GIODO)</a>) ;</li><li>Portugais : Barbara Gois ;</li><li>Roumain : webmyday </li><li>Tchèque : Jiří Grohmann, Manuel d’Orso ;</li></ul>",
+		"translators_name": "<ul><li>Allemand : Kosmas Schütz, Corina Scheiter (<a target=\"_blank\" href=\"https://www.datenschutz-bayern.de/\">BayLfD</a>) ;</li><li>Anglais : <a target=\"_blank\" href=\"https://www.cnil.fr\">CNIL</a> ;</li><li>Danois: Michael Drews Olsen;</li><li>Espagnol : ylachgar ;</li><li>Finnois : <a target=\"_blank\" href=\"https://tietosuoja.fi/etusivu\">Tietosuojavaltuutetun toimisto</a> ;</li><li>Français : <a target=\"_blank\" href=\"https://www.cnil.fr\">CNIL</a> ;</li><li>Grec : Dimitris Tzellis ;</li><li>Hongrois : <a target=\"_blank\" href=\"https://naih.hu/\">Nemzeti Adatvédelmi és Információszabadság Hatóság (NAIH)</a> ;</li><li>Italien : Manuel d’Orso, Gianluca Markos, Antonio Caselli (<a target=\"_blank\" href=\"http://gpdp.it\">Garante per la Protezione dei Dai Personali (GPDP)</a>) ;</li><li>Néerlandais : Ruud van Driel, Manuel d’Orso ;</li><li>Norvégien : <a target=\"_blank\" href=\"https://www.datatilsynet.no\">Datatilsynet</a> ;</li><li>Polonais : Joanna Karczewska, Michal Mazur (<a target=\"_blank\" href=\"https://giodo.gov.pl\">Generalny Inspektor Ochrony Danych Osobowych (GIODO)</a>) ;</li><li>Portugais : Barbara Gois ;</li><li>Roumain : webmyday </li><li>Tchèque : Jiří Grohmann, Manuel d’Orso ;</li></ul>",
 		"version_number": "Numéro de version"
 	},
 	"action_plan": {
@@ -92,6 +92,7 @@
 			"community_translations": "Traductions fournies par la communauté",
 			"cs": "Česky",
 			"de": "Deutsch",
+			"dk": "Dansk",
 			"dpa_translations": "Traduction révisée par les ADP européenne",
 			"el": "Ελληνικά",
 			"en": "English",
@@ -102,6 +103,7 @@
 			"it": "Italiano",
 			"nl": "Nederlands",
 			"nn": "Nynorsk",
+			"no": "",
 			"official_translation": "Version originelle",
 			"pl": "Polski",
 			"pt": "Português",
@@ -286,7 +288,8 @@
 			"PIA_DEF_CHIF": {
 				"description": "Le chiffrement d’un message permet de garantir que seuls l’émetteur et le(s) destinataire(s) légitime(s) d’un message en connaissent le contenu. C’est une sorte d’enveloppe scellée numérique. Une fois chiffré, faute d'avoir la clé spécifique, un message est inaccessible et illisible, que ce soit par les humains ou les machines.<br>Il existe deux grandes familles de chiffrement : le chiffrement symétrique et le chiffrement asymétrique.<br>- <strong>Le chiffrement symétrique</strong> permet de chiffrer et de déchiffrer un contenu avec la même clé, appelée alors la « clé secrète ». Le chiffrement symétrique est particulièrement rapide mais nécessite que l’émetteur et le destinataire se mettent d’accord sur une clé secrète commune ou se la transmettent par un autre canal. Celui-ci doit être choisi avec précautions, sans quoi la clé pourrait être récupérée par les mauvaises personnes, ce qui n’assurerait plus la confidentialité du message.<br>- <strong>Le chiffrement asymétrique</strong> suppose que le (futur) destinataire est muni d’une paire de clés (clé privée, clé publique) et qu’il a fait en sorte que les émetteurs potentiels aient accès à sa clé publique. Dans ce cas, l’émetteur utilise la clé publique du destinataire pour chiffrer le message tandis que le destinataire utilise sa clé privée pour le déchiffrer. Parmi ses avantages, la clé publique peut être connue de tous et publiée. Mais attention : il est nécessaire que les émetteurs aient confiance en l’origine de la clé publique, qu’ils soient sûrs qu’il s’agit bien de celle du destinataire. Autre point fort : plus besoin de partager une même clé secrète ! Le chiffrement asymétrique permet de s’en dispenser mais il est plus lent.",
 				"name": "Chiffrement",
-				"source": "Guide Bleu 2017 p23 https://www.cnil.fr/fr/comprendre-les-grands-principes-de-la-cryptologie-et-du-chiffrement"
+				"source": "Guide Bleu 2017 p23 https://www.cnil.fr/fr/comprendre-les-grands-principes-de-la-cryptologie-et-du-chiffrement",
+				"source ": ""
 			},
 			"PIA_DEF_CLO": {
 				"description": "Ensemble de méthodes permettant de réduire la possibilité de corréler des données à caractère personnel et de provoquer une violation de l’ensemble des données .<br>On pourra par exemple identifier les données propres à chaque métier, les séparer logiquement, etc.",
