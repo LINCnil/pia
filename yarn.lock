@@ -4387,12 +4387,12 @@ ng2-material-dropdown@0.8.0:
   version "0.8.0"
   resolved "https://registry.yarnpkg.com/ng2-material-dropdown/-/ng2-material-dropdown-0.8.0.tgz#9ad5757fbab2922a51216e3bf38e12d3a7964c60"
 
-ng2-pdf-viewer@~5.0.1:
-  version "5.0.1"
-  resolved "https://registry.yarnpkg.com/ng2-pdf-viewer/-/ng2-pdf-viewer-5.0.1.tgz#08bdc29a2fb24fec4247eda3ab03885ee6a46227"
+ng2-pdf-viewer@~5.1.1:
+  version "5.1.1"
+  resolved "https://registry.yarnpkg.com/ng2-pdf-viewer/-/ng2-pdf-viewer-5.1.1.tgz#3e6b8f0bf5a757f7a273c3b13445085615f5434a"
   dependencies:
     "@types/pdfjs-dist" "^0.1.2"
-    pdfjs-dist "2.0.489"
+    pdfjs-dist "2.0.550"
 
 ngx-chips@~1.5.11:
   version "1.5.11"
@@ -4951,12 +4951,12 @@ pbkdf2@^3.0.3:
     safe-buffer "^5.0.1"
     sha.js "^2.4.8"
 
-pdfjs-dist@2.0.489, pdfjs-dist@^2.0.489:
-  version "2.0.489"
-  resolved "https://registry.yarnpkg.com/pdfjs-dist/-/pdfjs-dist-2.0.489.tgz#63e54b292a86790a454697eb44d4347b8fbfad27"
+pdfjs-dist@2.0.550, pdfjs-dist@^2.0.550:
+  version "2.0.550"
+  resolved "https://registry.yarnpkg.com/pdfjs-dist/-/pdfjs-dist-2.0.550.tgz#52a5bd05d8b250206ccd2843209cfa3b8f1ea4ae"
   dependencies:
     node-ensure "^0.0.0"
-    worker-loader "^1.1.1"
+    worker-loader "^2.0.0"
 
 performance-now@^0.2.0:
   version "0.2.0"
@@ -7077,9 +7077,9 @@ worker-farm@^1.5.2:
   dependencies:
     errno "~0.1.7"
 
-worker-loader@^1.1.1:
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/worker-loader/-/worker-loader-1.1.1.tgz#920d74ddac6816fc635392653ed8b4af1929fd92"
+worker-loader@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/worker-loader/-/worker-loader-2.0.0.tgz#45fda3ef76aca815771a89107399ee4119b430ac"
   dependencies:
     loader-utils "^1.0.0"
     schema-utils "^0.4.0"
