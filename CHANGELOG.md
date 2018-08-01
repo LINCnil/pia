@@ -1,8 +1,7 @@
 # Change Log
 
-## [Unreleased](https://github.com/pia-lab/pialab/tree/HEAD)
-
-[Full Changelog](https://github.com/pia-lab/pialab/compare/1.3.0...HEAD)
+## [1.3.0](https://github.com/pia-lab/pialab/tree/1.3.0) (2018-08-01)
+[Full Changelog](https://github.com/pia-lab/pialab/compare/1.2.4...1.3.0)
 
 **Implemented enhancements:**
 
@@ -10,14 +9,8 @@
 
 **Closed issues:**
 
-- Risks Mapping and Action Plan images problems [\#37](https://github.com/pia-lab/pialab/issues/37)
-
-## [1.3.0](https://github.com/pia-lab/pialab/tree/1.3.0) (2018-07-23)
-[Full Changelog](https://github.com/pia-lab/pialab/compare/1.2.4...1.3.0)
-
-**Closed issues:**
-
 - Error in build for production [\#38](https://github.com/pia-lab/pialab/issues/38)
+- Risks Mapping and Action Plan images problems [\#37](https://github.com/pia-lab/pialab/issues/37)
 
 **Merged pull requests:**
 
