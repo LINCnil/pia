@@ -10,6 +10,7 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 import { AppDataService } from 'app/services/app-data.service';
+import { ProcessingArchitectureService } from 'app/services/processing-architecture.service';
 import { HeaderComponent } from 'app/header/header.component';
 import { AuthenticationComponent } from 'app/authentication/authentication.component';
 import { CardsComponent } from 'app/cards/cards.component';
@@ -43,6 +44,7 @@ import { ModalsService } from 'app/modals/modals.service';
 import { AttachmentsService } from 'app/entry/attachments/attachments.service';
 import { KnowledgeBaseService } from 'app/entry/knowledge-base/knowledge-base.service';
 import { PaginationService } from 'app/entry/entry-content/pagination.service';
+import { PaginationService as ProcessingPaginationService} from 'app/processing/processing-form/pagination.service';
 import { LanguagesService } from 'app/services/languages.service';
 import { OverviewRisksComponent } from 'app/entry/entry-content/overview-risks/overview-risks.component';
 import { ErrorsComponent } from 'app/errors/errors.component';
@@ -68,9 +70,13 @@ import { DndModule } from 'ngx-drag-drop';
 import { ProfileSession } from './services/profile-session.service';
 import { PortfolioGuardService } from 'app/services/portfolio-guard.service';
 import { StructureGuardService } from 'app/services/structure-guard.service';
+import { ProcessingComponent } from './processing/processing.component';
+import { ProcessingFormComponent} from './processing/processing-form/processing-form.component';
+import { ProcessingService} from './processing/processing.service';
 
 const providersList: any = [
   AppDataService,
+  ProcessingArchitectureService,
   ProfileSession,
   PortfolioGuardService,
   StructureGuardService,
@@ -83,6 +89,8 @@ const providersList: any = [
   SidStatusService,
   LanguagesService,
   GlobalEvaluationService,
+  ProcessingService,
+  ProcessingPaginationService,
   {
     provide: ErrorHandler,
     useClass: AppErrorHandler,
@@ -148,7 +156,9 @@ export function createTranslateLoader(http: HttpClient) {
     PortfolioComponent,
     StructureItemComponent,
     DashboardComponent,
-    DashboardItemComponent
+    DashboardItemComponent,
+    ProcessingComponent,
+    ProcessingFormComponent
   ],
   imports: [
     BrowserModule,

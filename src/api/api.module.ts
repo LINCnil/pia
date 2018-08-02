@@ -11,6 +11,7 @@ import { UserProfileService } from '@api/service/user-profile.service';
 import { UserTokenService } from '@api/service/user-token.service';
 import { TemplateService } from '@api/service/template.service';
 import { FolderService } from '@api/service/folder.service';
+import { ProcessingService } from '@api/service/processing.service';
 
 @NgModule({
   declarations: [],
@@ -27,7 +28,8 @@ import { FolderService } from '@api/service/folder.service';
     UserProfileService,
     UserTokenService,
     TemplateService,
-    FolderService
+    FolderService,
+    ProcessingService
   ]
 })
 

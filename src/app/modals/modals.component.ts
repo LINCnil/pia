@@ -7,8 +7,8 @@ import { PiaService } from 'app/entry/pia.service';
 import { AttachmentsService } from 'app/entry/attachments/attachments.service';
 import { FormControl, FormGroup } from '@angular/forms';
 
-import { PiaModel, FolderModel } from '@api/models';
-import { PiaApi, FolderApi } from '@api/services';
+import { PiaModel, FolderModel, ProcessingModel } from '@api/models';
+import { PiaApi, FolderApi, ProcessingApi } from '@api/services';
 import { PiaType } from '@api/model/pia.model';
 
 
@@ -21,8 +21,10 @@ import { PiaType } from '@api/model/pia.model';
 export class ModalsComponent implements OnInit {
   @Input() pia: any;
   newPia: PiaModel;
+  newProcessing: ProcessingModel;
   newFolder: FolderModel;
   piaForm: FormGroup;
+  processingForm: FormGroup;
   folderForm: FormGroup;
   removeAttachmentForm: FormGroup;
   enableSubmit = true;
@@ -32,6 +34,7 @@ export class ModalsComponent implements OnInit {
     private router: Router,
     public _modalsService: ModalsService,
     public _piaService: PiaService,
+    public _processingApi: ProcessingApi,
     public _measuresService: MeasureService,
     public _attachmentsService: AttachmentsService,
     private piaApi: PiaApi,
@@ -39,7 +42,6 @@ export class ModalsComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    // this._piaService.getPIA();
     this.piaForm = new FormGroup({
       name: new FormControl(),
       author_name: new FormControl(),
@@ -47,14 +49,24 @@ export class ModalsComponent implements OnInit {
       validator_name: new FormControl(),
       type: new FormControl()
     });
+
+    this.processingForm = new FormGroup({
+      name: new FormControl(),
+      author: new FormControl(),
+      controllers: new FormControl()
+    });
+
     this.folderForm = new FormGroup({
       name: new FormControl(),
     });
+
     this.removeAttachmentForm = new FormGroup({
       comment: new FormControl()
     });
+
     this.newPia = new PiaModel();
     this.newFolder = new FolderModel();
+    this.newProcessing = new ProcessingModel();
 
     this.piaTypes = Object.values(PiaType);
   }
@@ -85,6 +97,23 @@ export class ModalsComponent implements OnInit {
     this.piaApi.create(pia, this._piaService.currentFolder).subscribe((newPia: PiaModel) => {
       this.piaForm.reset();
       this.router.navigate(['entry', newPia.id, 'section', 1, 'item', 1]);
+    });
+  }
+
+  /**
+   * Save the newly created Processing.
+   * Sends to the path associated to this new Processing.
+   * @memberof ModalsComponent
+   */
+  onSubmitProcessing() {
+    const processing = new ProcessingModel();
+    processing.name = this.processingForm.value.name;
+    processing.author = this.processingForm.value.author;
+    processing.controllers = this.processingForm.value.controllers;
+
+    this._processingApi.create(processing, this._piaService.currentFolder).subscribe((newProcessing: ProcessingModel) => {
+      this.piaForm.reset();
+      this.router.navigate(['entry', newProcessing.id, 'section', 1, 'item', 1]);
     });
   }
 

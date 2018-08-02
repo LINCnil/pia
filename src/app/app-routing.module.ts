@@ -10,16 +10,18 @@ import { ErrorsComponent } from 'app/errors/errors.component';
 
 import { CardsRoutingModule } from 'app/cards/cards-routing.module';
 import { EntryRoutingModule } from 'app/entry/entry-routing.module';
+import { ProcessingRoutingModule } from 'app/processing/processing-routing.module';
 import { TemplatesRoutingModule } from 'app/templates/templates-routing.module';
 import { PortfolioRoutingModule } from 'app/portfolio';
 import { DashboardRoutingModule } from 'app/dashboard';
 import { AuthenticationGuardService } from '@security/authentication-guard.service';
 import {PiaResolve} from 'app/services/pia.resolve.service';
 import {PiaService} from 'app/entry/pia.service';
+import {ProcessingService} from 'app/processing/processing.service';
 
 const routes: Routes = [
   {
-  	path: 'home',
+    path: 'home',
     redirectTo: 'dashboard'
   },
   { path: '', component: AuthenticationComponent },
@@ -40,6 +42,7 @@ const routes: Routes = [
     TemplatesRoutingModule,
     PortfolioRoutingModule,
     DashboardRoutingModule,
+    ProcessingRoutingModule,
     RouterModule.forRoot(routes, { useHash: true }),
   ],
   exports: [RouterModule],

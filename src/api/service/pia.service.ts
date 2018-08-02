@@ -29,8 +29,8 @@ export class PiaService extends BaseService<Pia> {
   }
 
   public computeProgressFromAnswers(model: Pia, answers:Answer[]): number {
-      model.progress = Math.round((100 / model.numberOfQuestions) * answers.length);
-      return model.progress;
+    model.progress = Math.round((100 / model.numberOfQuestions) * answers.length);
+    return model.progress;
   }
 
   public createFromTemplate(model: Pia, template: Template, folder: FolderModel): Observable<Pia> {

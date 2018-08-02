@@ -1,3 +1,4 @@
+export { Processing as ProcessingModel } from '@api/model/processing.model';
 export { Pia as PiaModel } from '@api/model/pia.model';
 export { Answer as AnswerModel } from '@api/model/answer.model';
 export { Comment as CommentModel } from '@api/model/comment.model';

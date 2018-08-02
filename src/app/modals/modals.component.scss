@@ -138,7 +138,8 @@
     &-form {
       text-align: left;
     }
-    &-status {
+    &-status,
+    &-pias-number {
       display: flex;
       justify-content: space-between;
       &-infos {

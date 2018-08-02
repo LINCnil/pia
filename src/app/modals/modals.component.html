@@ -215,6 +215,20 @@
     </div>
 </div>
 
+<div class="pia-modalBlock" id="modal-remove-processing">
+    <div class="pia-modalBlock-content pia-modalBlock-removeProcessing bounceIn">
+        <button tabindex="3" type="button" class="pia-modalBlock-close btn" title="{{ 'modals.close' | translate }}" (click)="_modalsService.closeModal()">
+            <span class="pia-icons pia-icon-close-big"></span>
+        </button>
+        <p [innerHTML]="'modals.remove_processing.content' | translate"></p>
+        <span class="pia-icons pia-icon-sad"></span>
+        <div class="pia-modalBlock-buttons-choice">
+            <button tabindex="1" class="btn btn-red get-focus" type="button" (click)="_modalsService.closeModal()">{{ 'modals.cancel' | translate }}</button>
+            <button tabindex="2" class="btn btn-red" (click)="_piaService.removeProcessing()" type="button">{{ 'modals.remove_processing.remove' | translate }}</button>
+        </div>
+    </div>
+</div>
+
 <div class="pia-modalBlock" id="modal-remove-folder">
     <div class="pia-modalBlock-content pia-modalBlock-removePIA bounceIn">
         <button tabindex="3" type="button" class="pia-modalBlock-close btn" title="{{ 'modals.close' | translate }}" (click)="_modalsService.closeModal()">
@@ -338,6 +352,44 @@
             </div>
             <div class="pia-cardsBlock-item-btn">
                 <button type="submit" [disabled]="piaForm.invalid" class="btn btn-green get-focus" id="pia-save-card-btn">{{ 'homepage.cards.start' | translate }}</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="pia-modalBlock" id="modal-list-new-processing">
+    <div class="pia-modalBlock-content bounceIn">
+        <button tabindex="1" type="button" class="pia-modalBlock-close btn" title="{{ 'homepage.cards.title_close_creation' | translate }}"
+            (click)="_modalsService.closeModal()">
+            <span class="pia-icons pia-icon-close"></span>
+        </button>
+        <form class="pia-cardsBlock-item-form" (ngSubmit)="onSubmitProcessing()" [formGroup]="processingForm">
+            <div>
+                <label for="name">{{ 'homepage.cards.processing_name' | translate }}</label>
+                <input formControlName="name" type="text" placeholder="{{ 'homepage.cards.placeholder_processing_name' | translate }}" id="name"
+                    required>
+            </div>
+            <div>
+                <label for="author">{{ 'homepage.cards.author' | translate }}</label>
+                <input formControlName="author" type="text" placeholder="{{ 'homepage.cards.placeholder_author' | translate }}" id="author"
+                    required>
+            </div>
+            <div>
+                <label for="controllers">{{ 'homepage.cards.controllers' | translate }}</label>
+                <input formControlName="controllers" type="text" placeholder="{{ 'homepage.cards.placeholder_controllers' | translate }}"
+                    id="controllers" required>
+            </div>
+            <div class="pia-cardsBlock-item-date" *ngIf="newProcessing">
+                <div>{{ 'homepage.cards.date' | translate }}</div>
+                <time>{{ newPia.created_at | date: 'dd/MM/yyyy'}}</time>
+            </div>
+            <div class="pia-cardsBlock-item-status">
+                <div class="pia-cardsBlock-item-status-infos">
+                    <div>{{ 'homepage.cards.status' | translate }}</div>
+                </div>
+            </div>
+            <div class="pia-cardsBlock-item-btn">
+                <button type="submit" [disabled]="processingForm.invalid" class="btn btn-green get-focus" id="pia-save-card-btn">{{ 'homepage.cards.start' | translate }}</button>
             </div>
         </form>
     </div>

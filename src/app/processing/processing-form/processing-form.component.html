@@ -1,0 +1,66 @@
+<section class="processing-entryContentBlock processing-entryContentBlock-section{{section.id}}">
+  <header autoscroll="true" class="processing-entryContentBlock-header">
+    <div>
+      <!-- <i class="fa" *ngIf="_sidStatusService.sidStatusIcon[_sidStatusService.itemStatus[section.id + '.' + item.id]]; else specialIcon" [ngClass]="_sidStatusService.sidStatusIcon[_sidStatusService.itemStatus[section.id + '.' + item.id]]" aria-hidden="true"></i> -->
+      <!-- <i class="fa" #specialIcon *ngIf="_sidStatusService.specialIcon[section.id + '.' + item.id]" [ngClass]="_sidStatusService.specialIcon[section.id + '.' + item.id]" aria-hidden="true"></i> -->
+      <div class="processing-entryContentBlock-header-progress">
+        <!-- <div *ngIf="_sidStatusService.itemStatus[section.id + '.' + item.id] <= 4">
+          {{ 'processing.header.edition' | translate }}
+        </div> -->
+        <!-- <div *ngIf="_sidStatusService.itemStatus[section.id + '.' + item.id] > 4 && _sidStatusService.itemStatus[section.id + '.' + item.id] <= 7">
+          {{ 'processing.header.evaluation' | translate }}
+        </div> -->
+      </div>
+    </div>
+    <div class="processing-entryContentBlock-header-title">
+      <h1 *ngIf="section.title">{{ section.title | translate }}</h1>
+      <h3 *ngIf="section.short_help">{{ section.short_help | translate }}</h3>
+      <!-- <h2 *ngIf="item.title">{{ item.title | translate }}</h2>
+      <h4 *ngIf="item.short_help">{{ item.short_help | translate }}</h4> -->
+    </div>
+    <!-- <a *ngIf="section.id === 4 && item.id === 2;else defaultBlock" routerLink="/summary/{{_processingService.processing.id}}" [queryParams]="{ displayOnlyActionPlan: true }" class="btn processing-previewBlock">
+      <span class="processing-icons processing-icon-preview"></span>
+      <div [innerHTML]="'processing.header.display_action_plan' | translate"></div>
+    </a> -->
+    <ng-template #defaultBlock>
+      <a routerLink="/summary/{{_processingService.processing.id}}" class="btn processing-previewBlock">
+        <span class="processing-icons processing-icon-preview"></span>
+        <div>{{ 'processing.header.preview' | translate }}</div>
+      </a>
+    </ng-template>
+  </header>
+    
+  <main>
+      <form class="processing-form" #processingForm="ngForm" (ngSubmit)="onSubmit()">
+          <fieldset>
+              <div>
+                  <label for="processing-description">{{ 'processing.form.description' | translate }}</label>
+                  <input id="processing-description" type="text"  [(ngModel)]="processing.description" name="description" required>
+              </div>
+          </fieldset>
+<!-- name
+author
+status = self::STATUS_DOING
+description
+lifeCycle
+storage
+standards
+processors
+controllers
+nonEuTransfer
+processingDataTypes -->
+      </form>
+  </main>
+
+  <footer class="processing-entryContentBlock-footer">
+    <div class="processing-entryContentBlock-footer-nav">
+      <a [ngClass]="{'mask': _paginationService.hasPreviousLink === false}" class="processing-previousLink" routerLink="/processing/{{_processingService.processing.id}}/section/{{_paginationService.previousLink[0]}}/item/{{_paginationService.previousLink[1]}}">
+          <i class="fa fa-angle-double-left" aria-hidden="true"></i>
+          {{ _paginationService.previousLink[2] | translate }}
+      </a><a [ngClass]="{'mask': _paginationService.hasNextLink === false}" class="processing-nextLink" routerLink="/processing/{{_processingService.processing.id}}/section/{{_paginationService.nextLink[0]}}/item/{{_paginationService.nextLink[1]}}">
+          {{ _paginationService.nextLink[2] | translate }}
+          <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+      </a>
+    </div>
+  </footer>
+</section>

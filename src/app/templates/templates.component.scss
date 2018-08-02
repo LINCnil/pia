@@ -8,7 +8,7 @@ h1 {
 
 .templates {
   .template {
-    height: 330px; 
+    height: 330px;
     padding: 10px;
     text-align: center;
 
@@ -163,7 +163,8 @@ h1 {
     &-form {
       text-align: left;
     }
-    &-status {
+    &-status,
+    &-pias-number {
       display: flex;
       justify-content: space-between;
       &-infos {

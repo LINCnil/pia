@@ -98,6 +98,7 @@
       "validator": "Validateur",
       "new": "Nouveau...",
       "new_pia": "PIA",
+      "new_processing": "Traitement",
       "new_from_template": "PIA depuis un modèle",
       "new_folder": "Dossier",
       "import_pia": "Importer PIA",
@@ -112,9 +113,11 @@
       "placeholder_import_pia": "Importer PIA",
       "title_close_creation": "Fermer",
       "pia_name": "Nom",
+      "processing_name": "Nom",
       "folder_name": "Nom du dossier",
       "create_folder": "Créer le dossier",
       "placeholder_pia_name": "Intitulé du PIA",
+      "placeholder_processing_name": "Intitulé du Traitement",
       "author": "Saisie",
       "placeholder_author": "Prénom, nom",
       "evaluation": "Évaluation",
@@ -126,12 +129,15 @@
       "creation_status": "Création",
       "start": "Commencer",
       "placeholder_start": "Tous les champs doivent être remplis",
+      "controllers": "Responsables de traitement",
+      "placeholder_controllers": "Nom(s) et Prénom(s)",
       "pia_type": "Type",
       "pia_types": {
         "regular": "Traitement",
         "simplified": "Traitement simplifié",
         "advanced"  : "Traitement avec analyse d'impact"
       },
+      "pias_number": "Nombre de PIA",
       "folder": {
         "title": "Dossier",
         "parent": "Dossier parent",
@@ -145,11 +151,14 @@
           "duplicate": "Dupliquer",
           "action_plan": "Afficher le<br>plan d'action",
           "pia": "Afficher le<br>PIA",
-          "remove": "Supprimer"
+          "remove": "Supprimer",
+          "show_pias": "Voir les PIAs"
         },
         "edit_pia": "Éditer le PIA",
         "consult_pia": "Consulter le PIA",
-        "back_to_parent":"Retour"
+        "back_to_parent":"Retour",
+        "edit_processing": "Éditer le traitement",
+        "consult_processing": "Consulter le traitement"
       }
     },
     "lists": {
@@ -175,6 +184,12 @@
           "remove": "Supprimer"
         }
       }
+    }
+  },
+  "processing": {
+    "statuses": {
+      "0": "Valide",
+      "1": "Archivé"
     }
   },
   "pia": {
@@ -988,6 +1003,10 @@
     "remove_pia": {
       "content": "<span class='strong'>Attention,</span><br>Êtes-vous sûr de vouloir<br>supprimer ce PIA ?",
       "remove": "Supprimer ce PIA"
+    },
+    "remove_processing": {
+      "content": "<span class='strong'>Attention,</span><br>Êtes-vous sûr de vouloir<br>supprimer ce traitement ?",
+      "remove": "Supprimer ce traitement"
     },
     "remove_pia_folder": {
       "content": "<span class='strong'>Attention,</span><br>Êtes-vous sûr de vouloir<br>supprimer ce dossier ?<p>Les PIAs présentes dans ce dossier seront supprimées</p>",

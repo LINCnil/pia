@@ -1,0 +1,23 @@
+[
+    {
+      "id": 1,
+      "permissions": ["AccessToGeneralSection"],
+      "title": "sections.processing.1.title",
+      "name" : "general-section",
+      "short_help": "sections.processing.1.short_help"
+    },
+    {
+      "id": 2,
+      "title": "sections.processing.2.title",
+      "permissions": ["AccessToDataSection"],
+      "name": "data-section",
+      "short_help": "sections.processing.2.short_help"
+    },
+    {
+      "id": 3,
+      "permissions": ["AccessToLifeCycleSection"],
+      "name": "lifecycle-section",
+      "title": "sections.processing.3.title",
+      "short_help": "sections.processing.3.short_help"
+    }
+]

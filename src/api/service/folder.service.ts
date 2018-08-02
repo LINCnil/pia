@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import { HttpClient } from '@angular/common/http';
 import { FolderModel } from '@api/models';
 import { Injectable } from '@angular/core';
-import { PiaModel } from '@api/models';
+import { ProcessingModel } from '@api/models';
 
 @Injectable()
 export class FolderService extends BaseService<FolderModel> {
@@ -23,8 +23,8 @@ export class FolderService extends BaseService<FolderModel> {
   public getAll(structureId:string): Observable<FolderModel[]> {
     return this.httpGetAll(this.routing.all,{structureId: structureId}).map(folders => {
       folders.forEach(folder => {
-        folder.pias.forEach((pia, index, pias) => {
-          pias[index] = (new PiaModel()).fromJson(pia);
+        folder.processings.forEach((processing, index, processings) => {
+          processings[index] = (new ProcessingModel()).fromJson(processing);
         });
         folder.children.forEach((child, index, children) => {
           children[index] = (new FolderModel()).fromJson(child);
@@ -39,8 +39,8 @@ export class FolderService extends BaseService<FolderModel> {
 
   public get(structureId:string, id: any): Observable<FolderModel> {
     return this.httpGetOne(this.routing.one, {structureId: structureId, id: id }).map(folder => {
-      folder.pias.forEach((pia, index, pias) => {
-        pias[index] = (new PiaModel()).fromJson(pia);
+      folder.processings.forEach((processing, index, processings) => {
+        processings[index] = (new ProcessingModel()).fromJson(processing);
       });
       folder.children.forEach((child, index, children) => {
         children[index] = (new FolderModel()).fromJson(child);

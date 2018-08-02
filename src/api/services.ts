@@ -1,3 +1,4 @@
+export { ProcessingService as ProcessingApi } from '@api/service/processing.service';
 export { PiaService as PiaApi } from '@api/service/pia.service';
 export { AnswerService as AnswerApi } from '@api/service/answer.service';
 export { CommentService as CommentApi } from '@api/service/comment.service';

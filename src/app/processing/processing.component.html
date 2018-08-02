@@ -1,0 +1,42 @@
+<app-header></app-header>
+<main class="container pia-mainContainerBlock">
+    <div class="row">
+        <!-- Left sidebar (sections) -->
+        <div class="small-12 medium-3 columns">
+            <aside class="pia-leftSidebarBlock">
+                <div class="processing-sectionsBlock">
+                    <div class="processing-sectionBlock-header">
+                      <h1 class="truncate" title="{{_processingService.processing.name}}">{{ _processingService.processing.name }}</h1>
+                      <a class="processing-icons processing-icon-close-big" *ngIf="_processingService.processing.folder" routerLink="/folders/{{ _processingService.processing.folder.id }}" title="{{ 'processing.sections.homepage_link' | translate }}"></a>
+                    </div>
+                  
+                    <div class="processing-sectionBlock-body">
+                  
+                      <ng-container *ngFor="let section of sections">
+                        <!-- <div *ngxPermissionsOnly="section.permissions" id="{{section.name}}"> -->
+                            <div class="processing-sectionBlock-title">
+                              {{ section.title | translate }}
+                              <hr>
+                            </div>
+                          <!-- </div> -->
+                      </ng-container>
+                    </div>
+                  </div>
+            </aside>
+        </div>
+
+        <!-- Main form content -->
+        <div class="small-12 medium-6 columns">
+            <app-processing-form [sections]="sections" [section]="section" [data]="data"></app-processing-form>
+        </div>
+
+        <!-- Right sidebar (knowledge base) -->
+        <div class="small-12 medium-3 columns">
+            <div class="pia-rightSidebarBlock">
+                <app-knowledge-base [item]="item"></app-knowledge-base>
+            </div>
+        </div>
+    </div>
+</main>
+
+<app-modals></app-modals>
