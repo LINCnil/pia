@@ -1,7 +1,7 @@
 import {Component, OnInit, ElementRef, OnDestroy, Input, Renderer2} from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router, ActivatedRoute, Params } from '@angular/router';
-import { Subscription } from 'rxjs/Subscription';
+import { Subscription } from 'rxjs';
 
 import { Pia } from '../entry/pia.model';
 

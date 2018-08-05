@@ -1,10 +1,9 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { BehaviorSubject ,  Observable } from 'rxjs';
 import { Answer } from '../entry/entry-content/questions/answer.model';
 import { Evaluation } from '../entry/entry-content/evaluations/evaluation.model';
 import { Measure } from '../entry/entry-content/measures/measure.model';
 import { Pia } from '../entry/pia.model';
-import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class GlobalEvaluationService {

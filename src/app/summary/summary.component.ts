@@ -1,10 +1,11 @@
-import { Component, ElementRef, OnInit } from '@angular/core';
-import { Router, ActivatedRoute, Params } from '@angular/router';
-import { Subscription } from 'rxjs/Subscription';
-import {element} from 'protractor';
+import { Component, ElementRef, OnInit, AfterContentChecked } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Subscription } from 'rxjs';
+// import { element } from 'protractor';
 import * as html2canvas from 'html2canvas';
 import { saveSvgAsPng } from 'save-svg-as-png';
-import { Angular2Csv } from 'angular2-csv';
+
+import { CsvComponent } from './csv.component';
 
 import { Answer } from 'app/entry/entry-content/questions/answer.model';
 import { Measure } from 'app/entry/entry-content/measures/measure.model';
@@ -16,7 +17,6 @@ import { TranslateService } from '@ngx-translate/core';
 import { ModalsService } from '../modals/modals.service';
 import { PiaService } from 'app/entry/pia.service';
 import { AttachmentsService } from 'app/entry/attachments/attachments.service';
-
 import { LanguagesService } from '../services/languages.service';
 
 @Component({
@@ -29,6 +29,19 @@ import { LanguagesService } from '../services/languages.service';
   providers: [PiaService]
 })
 export class SummaryComponent implements OnInit {
+  csv = {
+    filename: "",
+    data: [],
+    options: {
+      fieldSeparator: ';',
+      quoteStrings: '"',
+      decimalseparator: 'locale',
+      showLabels: true,
+      showTitle: false,
+      useBom: true,
+      headers: []
+    }
+  };
 
   content: any[];
   pia: any;
@@ -77,6 +90,22 @@ export class SummaryComponent implements OnInit {
         }
       });
     });
+  }
+
+  ngAfterContentChecked() {
+    this.csv.filename = this._translateService.instant('summary.csv_file_title');
+
+    this._actionPlanService.getCsv();
+    this.csv.data = this._actionPlanService.csvRows;
+
+    this.csv.options.headers = [
+      this._translateService.instant('summary.csv_section'),
+      this._translateService.instant('summary.csv_title_object'),
+      this._translateService.instant('summary.csv_action_plan_comment'),
+      this._translateService.instant('summary.csv_evaluation_comment'),
+      this._translateService.instant('summary.csv_implement_date'),
+      this._translateService.instant('summary.csv_people_in_charge'),
+    ];
   }
 
   downloadAllGraphsAsImages() {
@@ -232,37 +261,6 @@ export class SummaryComponent implements OnInit {
     this._actionPlanService.data = this.dataNav;
     this._actionPlanService.pia = this.pia;
     this._actionPlanService.listActionPlan();
-  }
-
-  /**
-   * Get a csv document.
-   * @protected
-   * @returns {Object}
-   * @memberof Angular2Csv
-   */
-  public async download() {
-    const options = {
-      fieldSeparator: ';',
-      quoteStrings: '"',
-      decimalseparator: '.',
-      showLabels: true,
-      showTitle: false,
-      useBom: true,
-      headers: [
-        this._translateService.instant('summary.csv_section'),
-        this._translateService.instant('summary.csv_title_object'),
-        this._translateService.instant('summary.csv_action_plan_comment'),
-        this._translateService.instant('summary.csv_evaluation_comment'),
-        this._translateService.instant('summary.csv_implement_date'),
-        this._translateService.instant('summary.csv_people_in_charge')
-      ]
-    }
-
-    this._actionPlanService.getCsv();
-
-    return new Angular2Csv(this._actionPlanService.csvRows,
-                           this._translateService.instant('summary.csv_file_title'),
-                           options);
   }
 
   /**
