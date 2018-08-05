@@ -1,6 +1,6 @@
 import { Component, ElementRef, OnInit, OnDestroy, Input, Output, EventEmitter, AfterViewChecked, DoCheck, NgZone } from '@angular/core';
 import { FormArray, FormControl, FormGroup } from '@angular/forms';
-import { Subscription } from 'rxjs/Subscription';
+import { Subscription } from 'rxjs';
 
 import { Evaluation } from './evaluation.model';
 import { Answer } from 'app/entry/entry-content/questions/answer.model';

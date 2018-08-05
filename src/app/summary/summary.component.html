@@ -9,9 +9,9 @@
     <button onclick="print()" class="btn hide-for-print" title="{{ 'summary.print' | translate }}">
       <i class="fa fa-print" aria-hidden="true"></i>
     </button>
-    <a (click)="download()" title="{{ 'summary.download_csv' | translate }}" class="btn hide-for-print" title="">
-      <i class="fa fa-2x fa-file-excel-o"></i>
-    </a>
+
+    <angular6csv [data]="csv.data" [filename]="csv.filename" [options]="csv.options" title="{{ 'summary.download_csv' | translate }}" class="btn hide-for-print"></angular6csv>
+
     <button class="btn btn-green hide-for-print" (click)="downloadAllGraphsAsImages()">{{ 'summary.download_images' | translate }}</button>
   </div>
 

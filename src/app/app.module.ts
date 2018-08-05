@@ -9,6 +9,8 @@ import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { registerLocaleData } from '@angular/common';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { Angular2CsvModule } from 'angular2-csv';
+import { CsvModule } from "./summary/csv.module";
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 
 import { AppDataService } from 'app/services/app-data.service';
@@ -163,6 +165,8 @@ export function createTranslateLoader(http: HttpClient) {
     ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    Angular2CsvModule,
+    CsvModule,
     TagInputModule,
     TranslateModule.forRoot({
       loader: {
