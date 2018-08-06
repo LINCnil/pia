@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-import { BaseService } from '@api/service/base.service';
-import { UserToken } from '@api/model/user-token.model';
+import { BaseService } from './base.service';
+import { UserToken } from '../model';
 import { environment } from 'environments/environment';
 import { HttpHeaders } from '@angular/common/http';
 

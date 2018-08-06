@@ -1,0 +1,179 @@
+@import "../../../assets/stylesheets/variables";
+
+.pia {
+  &-filtersBlock {
+    position: relative;
+    margin: 8px 0 45px 0;
+    &-switch,
+    &-filters {
+      display: inline-block;
+      vertical-align: middle;
+    }
+    &-switch {
+      display: inline-block;
+      vertical-align: middle;
+      width: 34px;
+      height: 34px;
+      border: 1px solid $pia-green;
+      color: $pia-green;
+      div {
+        font-size: 1.1rem;
+        margin-top: -2px;
+      }
+      &:hover,
+      &:focus {
+        background: $pia-green;
+        border-color: $pia-green;
+        color: #fff;
+      }
+      &:active {
+        color: $pia-green;
+        background-color: #fff;
+        border-color: $pia-green;
+      }
+    }
+    &-filters {
+      position: relative;
+      margin-left: 12px;
+      &-list {
+        z-index: 998;
+        background-color: #eee;
+        display: none;
+        padding: 30px 10px 10px 10px;
+        position: absolute;
+        top: 15px;
+        left: 0;
+        right: 0;
+        border: 2px solid $pia-green;
+        border-top: none;
+        > span {
+          padding: 6px;
+          font-style: italic;
+          color: $pia-gray;
+        }
+        ul {
+          padding: 0;
+          margin: 0;
+        }
+        li {
+          list-style-type: none;
+          padding: 4px;
+          button,
+          a {
+            text-align: left;
+            width: 100%;
+            font-size: 1.5rem;
+            font-weight: 500;
+            display: block;
+            text-decoration: none;
+            color: #000;
+            &:focus,
+            &:hover,
+            &:active,
+            .active {
+              background-color: $pia-green;
+              color: #ffffff !important;
+              cursor: pointer;
+            }
+            &:disabled {
+              color: $pia-gray;
+              cursor: not-allowed;
+              &:hover,
+              &:focus,
+              &:active {
+                background-color: $pia-gray;
+              }
+            }
+          }
+        }
+      }
+      &-btn {
+        border: 1px solid $pia-green; //border-radius: 20px;
+        color: $pia-green;
+        padding: 9px 12px 9px 16px;
+        font-size: 1.3rem;
+        font-weight: 500;
+        position: relative;
+        z-index: 999;
+        .pia-icon-scroll-green {
+          margin-left: 35px;
+        }
+        &:focus,
+        &:hover,
+        &:active {
+          + .pia-filtersBlock-filters-list {
+            display: block;
+          }
+        }
+      }
+      &:hover {
+        .pia-filtersBlock-filters-btn {
+          color: #fff;
+          background-color: $pia-green;
+          .pia-icon-scroll-green {
+            background-position: -367px -39px;
+          }
+        }
+        .pia-filtersBlock-filters-list {
+          display: block;
+          background-color: #fff;
+          ul {
+            li {
+              &.divider {
+                height: 1px;
+                background: #ddd;
+                padding: 0;
+                margin: 4px 0;
+              }
+              &:hover {
+                &:not(.divider) {
+                  &:last-of-type {
+                    //border-radius: 0 0 10px 10px;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    &-hint {
+      position: relative;
+      display: inline-block;
+      vertical-align: middle;
+      background-color: #fff;
+      //border-radius: 10px;
+      padding: 3px 24px 5px 26px;
+      margin-left: 10px;
+      div {
+        span,
+        p {
+          display: inline-block;
+          vertical-align: middle;
+        }
+        p {
+          margin-left: 10px;
+          color: $pia-blue;
+          font-size: 2rem;
+          line-height: 1.2;
+        }
+      }
+    }
+    &-buttons {
+      margin-left: 12px;
+      display: inline-block;
+      vertical-align: middle;
+      margin-right: 3px;
+      button {
+        padding: 8px 20px;
+        &:first-child {
+          margin-right: 12px;
+        }
+      }
+      .fa {
+        margin-right: 10px;
+        font-size: 1.5rem;
+      }
+    }
+  }
+}

@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { HttpClient } from '@angular/common/http';
-import { BaseService } from '@api/service/base.service';
-import { UserProfile } from '@api/model/user-profile.model';
+import { BaseService } from './base.service';
+import { UserProfile } from '../model';
 
 @Injectable()
 export class UserProfileService extends BaseService<UserProfile> {

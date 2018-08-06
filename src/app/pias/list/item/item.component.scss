@@ -1,0 +1,173 @@
+@import "../../../../assets/stylesheets/variables";
+@media (max-width: 1023px) {
+  .pia {
+
+    &-archive,
+    &-doing {
+      span {
+        text-align: center;
+        font-weight: bold;
+        color: $pia-white;
+        width: 0;
+        white-space: nowrap;
+      }
+    }
+  }
+}
+@media (min-width: 1024px) {
+  .pia {
+
+    &-archive,
+    &-doing {
+      border-bottom: 1px solid $pia-white;
+      position: relative;
+      width: 2em;
+      span {
+        text-align: center;
+        font-weight: bold;
+        color: $pia-white;
+        display:block;
+        position: absolute;
+        transform-origin: left;
+        transform: rotate(-90deg);
+        height: 0em;
+        width: 0;
+        white-space: nowrap;
+        top: 75%;
+      }
+    }
+  }
+}
+.pia {
+
+  &-archive {
+    background-color: $pia-gray;
+  }
+  &-doing {
+    background-color: $pia-green;
+  }
+  &-progressBar {
+    width: 100px;
+    text-align: right;
+    div {
+      color: $pia-green;
+      font-style: italic;
+      text-align: right;
+      font-size: 1rem;
+    }
+    progress {
+      width: 100%;
+      position: relative;
+      margin-top: 5px;
+      &:after {
+        position: absolute;
+        left: 0;
+        top: 50%;
+        content: '';
+        height: 12px;
+        width: 1px;
+        margin-top: -6px;
+        background-color: $pia-green;
+      }
+      &:before {
+        position: absolute;
+        content: '';
+        left: 0;
+        right: 0;
+        top: 50%;
+        height: 1px;
+        background-color: $pia-green;
+      }
+    }
+    progress[value] {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      background-color: transparent;
+      height: 12px;
+      &::-webkit-progress-bar {
+        background-color: transparent;
+      }
+      &::-webkit-progress-value {
+        background-color: $pia-green;
+      }
+    }
+    progress[value]::-moz-progress-bar {
+      background-color: $pia-green;
+    }
+  }
+
+  &-toolbar {
+    font-size: 1.45rem;
+    float: right;
+    a, button {
+      color: $pia-green;
+      .fa {
+        margin: 0 3px;
+      }
+    }
+    > div {
+      display: inline-block;
+      vertical-align: top;
+      position: relative;
+    }
+    &-more {
+      position: relative;
+       > a {
+        &:focus, &:hover, &:active {
+          cursor: context-menu;
+          .pia-toolbar-moreList {
+            display: block;
+            box-shadow: 2px 2px 4px 0px rgba(204,202,204,1);
+            -webkit-box-shadow: 2px 2px 4px 0px rgba(204,202,204,1);
+            -moz-box-shadow: 2px 2px 4px 0px rgba(204,202,204,1);
+          }
+        }
+      }
+    }
+    &-moreList {
+        z-index: 999;
+        margin: 0;
+        padding: 0;
+        display: none;
+        position: absolute;
+        right: 15px;
+        top: -6px;
+        padding-left: 0;
+        background-color: #fff;
+        width: 125px;
+        li {
+            width: 100%;
+            padding-left: 15px;
+            list-style-type: none;
+            color: $pia-green;
+            padding: 0;
+            background-color: #fff;
+            padding-left: 10px;
+            text-align: left;
+            .fa, a {
+                display: inline-block;
+                vertical-align: middle;
+                font-size: 1.2rem;
+            }
+            .fa {
+                margin-right: 3px;
+            }
+            a {
+                text-align: left;
+                padding: 2px;
+                text-decoration: none;
+                line-height: 1;
+                font-size: 1.2rem;
+            }
+            &:focus, &:hover, &:active {
+                color: #fff;
+                background-color: $pia-green;
+                a {
+                    color: #fff;
+                }
+            }
+        }
+    }
+}
+}

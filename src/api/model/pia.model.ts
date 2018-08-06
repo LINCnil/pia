@@ -1,6 +1,6 @@
 
-import { BaseModel } from '@api/model/base.model'
-import { FolderModel } from '@api/models';
+import { BaseModel } from './base.model';
+import { Folder } from './folder.model';
 
 export class Pia extends BaseModel {
   public id: any;
@@ -21,7 +21,7 @@ export class Pia extends BaseModel {
   public people_names: string;
   public progress: number;
   public is_example: boolean = false;
-  public folder: FolderModel;
+  public folder: Folder;
   public type: string = PiaType.regular;
 
   public numberOfQuestions = 36; // TODO Auto compute questions number
@@ -35,7 +35,7 @@ export class Pia extends BaseModel {
   }
 
   public validationIsCompleted(): boolean {
-    return  [
+    return [
       PiaStatus.SimpleValidation,
       PiaStatus.SignedValidation,
       PiaStatus.Archived

@@ -1,4 +1,4 @@
-import { BaseModel } from '@api/model/base.model'
+import { BaseModel } from './base.model';
 
 export class Comment extends BaseModel {
   public id: any;

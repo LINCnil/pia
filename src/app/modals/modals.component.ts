@@ -113,7 +113,7 @@ export class ModalsComponent implements OnInit {
 
     this._processingApi.create(processing, this._piaService.currentFolder).subscribe((newProcessing: ProcessingModel) => {
       this.piaForm.reset();
-      this.router.navigate(['entry', newProcessing.id, 'section', 1, 'item', 1]);
+      this.router.navigate(['processings', newProcessing.id, 'pias']); // @TODO: Change this to the complete form route
     });
   }
 

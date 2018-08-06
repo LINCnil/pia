@@ -1,4 +1,4 @@
-import { BaseModel } from '@api/model/base.model'
+import { BaseModel } from './base.model'
 
 export class Template extends BaseModel {
   public enabled: boolean;

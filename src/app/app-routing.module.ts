@@ -1,9 +1,8 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule, CanActivate } from '@angular/router';
+import { Routes, RouterModule } from '@angular/router';
 
 import { AuthenticationComponent } from 'app/authentication/authentication.component';
 import { SummaryComponent } from 'app/summary/summary.component';
-import { SettingsComponent } from 'app/settings/settings.component';
 import { HelpComponent } from 'app/help/help.component';
 import { AboutComponent } from 'app/about/about.component';
 import { ErrorsComponent } from 'app/errors/errors.component';
@@ -15,9 +14,11 @@ import { TemplatesRoutingModule } from 'app/templates/templates-routing.module';
 import { PortfolioRoutingModule } from 'app/portfolio';
 import { DashboardRoutingModule } from 'app/dashboard';
 import { AuthenticationGuardService } from '@security/authentication-guard.service';
-import {PiaResolve} from 'app/services/pia.resolve.service';
-import {PiaService} from 'app/entry/pia.service';
-import {ProcessingService} from 'app/processing/processing.service';
+
+import { PiaResolve } from 'app/services/pia.resolve.service';
+import { PiaService } from 'app/entry/pia.service';
+import { PiasListComponent } from './pias/list/list.component';
+import { ProcessingService } from 'app/processing/processing.service';
 
 const routes: Routes = [
   {
@@ -26,12 +27,17 @@ const routes: Routes = [
   },
   { path: '', component: AuthenticationComponent },
   { path: 'logout', component: AuthenticationComponent },
-  { path: 'summary/:id',
+  {
+    path: 'summary/:id',
     component: SummaryComponent ,
     canActivate: [AuthenticationGuardService, PiaResolve]
   },
   { path: 'help', component: HelpComponent },
   { path: 'about', component: AboutComponent },
+  {
+    path: 'processings/:id/pias',
+    component: PiasListComponent
+  },
   { path: '**', component: ErrorsComponent },
 ];
 

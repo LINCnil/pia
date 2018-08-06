@@ -1,11 +1,16 @@
-export { ProcessingService as ProcessingApi } from '@api/service/processing.service';
-export { PiaService as PiaApi } from '@api/service/pia.service';
-export { AnswerService as AnswerApi } from '@api/service/answer.service';
-export { CommentService as CommentApi } from '@api/service/comment.service';
-export { EvaluationService as EvaluationApi } from '@api/service/evaluation.service';
-export { MeasureService as MeasureApi } from '@api/service/measure.service';
-export { AttachmentService as AttachmentApi } from '@api/service/attachment.service';
-export { UserProfileService as UserProfileApi } from '@api/service/user-profile.service';
-export { UserTokenService as UserTokenApi } from '@api/service/user-token.service';
-export { TemplateService as TemplateApi } from '@api/service/template.service';
-export { FolderService as FolderApi } from '@api/service/folder.service';
+//temporary service aliasing
+//to avoid naming collision with existing PIA-CNIL services
+
+export {
+    ProcessingService as ProcessingApi,
+    PiaService as PiaApi,
+    AnswerService as AnswerApi,
+    CommentService as CommentApi,
+    EvaluationService as EvaluationApi,
+    MeasureService as MeasureApi,
+    AttachmentService as AttachmentApi,
+    UserProfileService as UserProfileApi,
+    UserTokenService as UserTokenApi,
+    TemplateService as TemplateApi,
+    FolderService as FolderApi,
+} from '@api/service';

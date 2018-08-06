@@ -1,0 +1,72 @@
+<td [ngClass]="{'pia-archive': pia.status == 4, 'pia-doing': pia.status == 0 || pia.status == 2 || pia.status == 3 }">
+  <span>{{ ('pia.statuses.' + pia.status) | translate }}</span>
+</td>
+<td>
+  {{ pia.name }}
+</td>
+<td>
+  <ul>
+    <li title="{{ 'processing.pia-list.item.author_name' | translate }}">
+      <b>{{ 'processing.pia-list.item.author_name' | translate | slice : 0 : 3 }}:</b> {{ pia.author_name }}
+    </li>
+    <li title="{{ 'processing.pia-list.item.evaluator_name' | translate }}">
+      <b>{{ 'processing.pia-list.item.evaluator_name' | translate | slice : 0 : 3 }}:</b> {{ pia.evaluator_name }}
+    </li>
+    <li title="{{ 'processing.pia-list.item.validator_name' | translate }}">
+      <b>{{ 'processing.pia-list.item.validator_name' | translate | slice : 0 : 3 }}:</b> {{ pia.validator_name }}
+    </li>
+  </ul>
+</td>
+<td>
+  <ul>
+    <li>
+      {{ pia.created_at | date: 'dd/MM/yyyy' }}
+    </li>
+    <li>
+      {{ pia.updated_at | date: 'dd/MM/yyyy' }}
+    </li>
+  </ul>
+</td>
+<td>
+  <div class="pia-progressBar">
+    <div>{{ pia.progress }}%</div>
+    <progress max="100" value="{{ pia.progress }}"></progress>
+  </div>
+</td>
+<td>
+  <div class="pia-toolbar">
+    <div class="pia-cardsBlock-toolbar-export" *ngxPermissionsOnly="['CanExportPIA']">
+      <a href="javascript:;" (click)="_piaService.export(pia.id)" class="btn pia-tooltip">
+        <i class="fa fa-download" aria-hidden="true"></i>
+        <span class="pia-tooltip-text">{{ 'processing.pia-list.item.actions.export' | translate }}</span>
+      </a>
+    </div>
+    <div class="pia-toolbar-more">
+      <a href="javascript:;" class="btn pia-tooltip" title="{{ 'processing.pia-list.item.actions.tooltip' | translate }}">
+        <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+        <ul class="pia-toolbar-moreList">
+          <li *ngxPermissionsOnly="['CanEditPIA']">
+            <i class="fa fa-files-o" aria-hidden="true"></i>
+            <a routerLink="/entry/{{pia.id}}" [innerHTML]="'processing.pia-list.item.actions.edit' | translate"></a>
+          </li>
+          <li *ngxPermissionsOnly="['CanExportPIA']">
+            <i class="fa fa-files-o" aria-hidden="true"></i>
+            <a href="javascript:;" (click)="_piaService.duplicate(pia.id)">{{ 'processing.pia-list.item.actions.duplicate' | translate }}</a>
+          </li>
+          <li>
+            <i class="fa fa-calendar-check-o" aria-hidden="true"></i>
+            <a routerLink="/summary/{{pia.id}}" [queryParams]="{ displayOnlyActionPlan: true }" [innerHTML]="'processing.pia-list.item.actions.action_plan' | translate"></a>
+          </li>
+          <li>
+            <i class="fa fa-file-text-o" aria-hidden="true"></i>
+            <a routerLink="/summary/{{pia.id}}" [innerHTML]="'processing.pia-list.item.actions.show' | translate"></a>
+          </li>
+          <li *ngxPermissionsOnly="['CanDeletePIA']">
+            <i class="fa fa-trash-o" aria-hidden="true"></i>
+            <a href="javascript:;" (click)="removePia(pia.id)">{{ 'processing.pia-list.item.actions.remove' | translate }}</a>
+          </li>
+        </ul>
+      </a>
+    </div>
+  </div>
+</td>

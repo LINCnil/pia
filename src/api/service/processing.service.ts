@@ -1,10 +1,9 @@
 
-import { BaseService } from '@api/service/base.service';
+import { BaseService } from './base.service';
 import { Observable } from 'rxjs/Observable';
 import { HttpClient } from '@angular/common/http';
-import { Processing } from '@api/model/processing.model';
 import { Injectable } from '@angular/core';
-import { FolderModel } from '@api/models';
+import { Processing, Folder } from '../model';
 
 @Injectable()
 export class ProcessingService extends BaseService<Processing> {
@@ -36,7 +35,7 @@ export class ProcessingService extends BaseService<Processing> {
     return this.httpPut(this.routing.one, { id: model.id }, model);
   }
 
-  public create(model: Processing, folder: FolderModel): Observable<Processing> {
+  public create(model: Processing, folder: Folder): Observable<Processing> {
     model.folder = folder;
     return this.httpPost(this.routing.all, {}, model);
   }

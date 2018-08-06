@@ -1,0 +1,85 @@
+<app-header></app-header>
+
+<div class="container pia-mainContainerBlock">
+  <div class="row">
+
+    <div class="small-12 medium-12 columns">
+
+      <h2 class="page-title">{{ processing.name }}</h2>
+
+      <div class="pia-filtersBlock">
+
+        <div class="pia-filtersBlock-filters menu-sort">
+          <button class="pia-filtersBlock-filters-btn btn" type="button">
+            {{ 'homepage.filters.sort' | translate }} {{ 'homepage.filters.sort_by' | translate }}...
+            <span class="fa fa-angle-down"></span>
+          </button>
+          <div class="pia-filtersBlock-filters-list">
+            <ul>
+              <li [ngClass]="{'active': sortValue === 'name'}">
+                <a (click)="sortBy('name');">{{ 'homepage.filters.name' | translate }}</a>
+              </li>
+              <li [ngClass]="{'active': sortValue === 'created_at'}">
+                <a (click)="sortBy('created_at');">{{ 'homepage.filters.date' | translate }}</a>
+              </li>
+              <li [ngClass]="{'active': sortValue === 'status'}">
+                <a (click)="sortBy('status');">{{ 'homepage.filters.status' | translate }}</a>
+              </li>
+              <li [ngClass]="{'active': sortValue === 'author_name'}">
+                <a (click)="sortBy('author_name');">{{ 'homepage.filters.author' | translate }}</a>
+              </li>
+              <li [ngClass]="{'active': sortValue === 'evaluator_name'}">
+                <a (click)="sortBy('evaluator_name');">{{ 'homepage.filters.assessor' | translate }}</a>
+              </li>
+              <li [ngClass]="{'active': sortValue === 'validator_name'}">
+                <a (click)="sortBy('validator_name');">{{ 'homepage.filters.validator' | translate }}</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="pia-filtersBlock-filters menu-creation" *ngxPermissionsOnly="['CanCreatePIA']">
+          <button class="pia-filtersBlock-filters-btn btn" type="button">
+            {{ 'homepage.filters.new' | translate }}
+            <span class="fa fa-angle-down"></span>
+          </button>
+          <div class="pia-filtersBlock-filters-list">
+            <ul>
+              <li>
+                <button name="create-pia-btn" (click)="_modalsService.openModal('modal-list-new-pia')">{{ 'homepage.filters.new_pia' | translate }}</button>
+              </li>
+              <li class="divider"></li>
+              <li >
+                <button name="create-from-tpl-btn" routerLink="/templates">{{ 'homepage.filters.new_from_template' | translate }}</button>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+
+      <table class="stack hover">
+
+        <thead>
+          <tr>
+            <th>{{ 'processing.pia-list.table-header.status' | translate }}</th>
+            <th>{{ 'processing.pia-list.table-header.name' | translate }}</th>
+            <th>{{ 'processing.pia-list.table-header.stakeholders' | translate }}</th>
+            <th [innerHTML]="'processing.pia-list.table-header.createdAndUpdatedAt' | translate | safeHtml"></th>
+            <th>{{ 'processing.pia-list.table-header.progress' | translate }}</th>
+            <th>
+              <i class="fa fa-cogs"></i>
+            </th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr *ngFor="let pia of pias" app-pias-list-item [pia]="pia"></tr>
+        </tbody>
+
+      </table>
+
+    </div>
+
+  </div>
+</div>
+<app-modals></app-modals>

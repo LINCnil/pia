@@ -1,0 +1,6 @@
+@import "../../../node_modules/foundation-sites/scss/components/_table.scss";
+
+body {
+  @include foundation-table(true);
+}
+

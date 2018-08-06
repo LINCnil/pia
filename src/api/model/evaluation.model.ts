@@ -1,5 +1,5 @@
 
-import { BaseModel } from '@api/model/base.model'
+import { BaseModel } from './base.model';
 import * as Moment from 'moment';
 
 export class Evaluation extends BaseModel {

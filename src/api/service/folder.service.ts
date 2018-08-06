@@ -1,15 +1,14 @@
 
-import { BaseService } from '@api/service/base.service';
+import { BaseService } from './base.service';
 import { Observable } from 'rxjs/Observable';
 import { HttpClient } from '@angular/common/http';
-import { FolderModel } from '@api/models';
 import { Injectable } from '@angular/core';
-import { ProcessingModel } from '@api/models';
+import { Folder, Processing } from '../model';
 
 @Injectable()
-export class FolderService extends BaseService<FolderModel> {
+export class FolderService extends BaseService<Folder> {
 
-  protected modelClass = FolderModel;
+  protected modelClass = Folder;
 
   protected routing: any = {
     all: '/structures/{structureId}/folders',
@@ -20,51 +19,51 @@ export class FolderService extends BaseService<FolderModel> {
     super(http);
   }
 
-  public getAll(structureId:string): Observable<FolderModel[]> {
+  public getAll(structureId:string): Observable<Folder[]> {
     return this.httpGetAll(this.routing.all,{structureId: structureId}).map(folders => {
       folders.forEach(folder => {
         folder.processings.forEach((processing, index, processings) => {
-          processings[index] = (new ProcessingModel()).fromJson(processing);
+          processings[index] = (new Processing()).fromJson(processing);
         });
         folder.children.forEach((child, index, children) => {
-          children[index] = (new FolderModel()).fromJson(child);
+          children[index] = (new Folder()).fromJson(child);
         });
         if (folder.parent !== null) {
-          folder.parent = (new FolderModel()).fromJson(folder.parent)
+          folder.parent = (new Folder()).fromJson(folder.parent)
         }
       });
       return folders;
    });
   }
 
-  public get(structureId:string, id: any): Observable<FolderModel> {
+  public get(structureId:string, id: any): Observable<Folder> {
     return this.httpGetOne(this.routing.one, {structureId: structureId, id: id }).map(folder => {
       folder.processings.forEach((processing, index, processings) => {
-        processings[index] = (new ProcessingModel()).fromJson(processing);
+        processings[index] = (new Processing()).fromJson(processing);
       });
       folder.children.forEach((child, index, children) => {
-        children[index] = (new FolderModel()).fromJson(child);
+        children[index] = (new Folder()).fromJson(child);
       });
       if (folder.parent !== null) {
-        folder.parent = (new FolderModel()).fromJson(folder.parent)
+        folder.parent = (new Folder()).fromJson(folder.parent)
       }
       return folder;
     });
   }
 
-  public update(model: FolderModel): Observable<FolderModel> {
+  public update(model: Folder): Observable<Folder> {
     return this.httpPut(this.routing.one, {structureId: model.structure_id, id: model.id }, model);
   }
 
-  public create(model: FolderModel): Observable<FolderModel> {
+  public create(model: Folder): Observable<Folder> {
     return this.httpPost(this.routing.all, {structureId: model.structure_id}, model);
   }
 
-  public deleteById(structureId:any, id: any): Observable<FolderModel> {
+  public deleteById(structureId:any, id: any): Observable<Folder> {
     return this.httpDelete(this.routing.one, {structureId: structureId, id: id });
   }
 
-  public delete(model: FolderModel): Observable<FolderModel> {
+  public delete(model: Folder): Observable<Folder> {
     return this.deleteById(model.structure_id, model.id);
   }
 }

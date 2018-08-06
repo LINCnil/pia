@@ -7,7 +7,7 @@ import { ModalsService } from '../modals/modals.service';
 // new imports
 
 import { Observable } from 'rxjs';
-import { PiaModel, AnswerModel, EvaluationModel, FolderModel } from '@api/models';
+import { PiaModel, AnswerModel, EvaluationModel, FolderModel, ProcessingModel } from '@api/models';
 import { PiaApi, EvaluationApi, FolderApi, ProcessingApi } from '@api/services';
 
 @Injectable()

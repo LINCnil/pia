@@ -34,7 +34,7 @@ export class CardsComponent implements OnInit, OnDestroy {
   itemToMove: any = null;
   // canCreatePIA: boolean;
   canCreateProcessing: boolean;
-  public structure:any;
+  public structure: any;
 
   constructor(
     private router: Router,
@@ -156,7 +156,7 @@ export class CardsComponent implements OnInit, OnDestroy {
 
   protected fetchFolders() {
     if (this.folderId !== null) {
-      return this.folderApi.get(this.structure.id,this.folderId).toPromise()
+      return this.folderApi.get(this.structure.id, this.folderId).toPromise()
     }
     return this.folderApi.getAll(this.structure.id).toPromise();
   }
@@ -279,7 +279,7 @@ export class CardsComponent implements OnInit, OnDestroy {
   onDrop(targetFolder: FolderModel) {
     if (this.itemToMove) {
       if (this.itemToMove instanceof FolderModel) {
-        if (this.itemToMove.id == targetFolder.id) {
+        if (this.itemToMove.id === parseInt(targetFolder.id, 10)) {
           return;
         }
 
@@ -304,10 +304,10 @@ export class CardsComponent implements OnInit, OnDestroy {
     return this._piaService.currentFolder.parent.isRoot;
   }
 
-  getRouteToParentFolder():string {
+  getRouteToParentFolder(): string {
     let route = '/folders';
     if (!this.currentFolderIsRoot()) {
-      let parentId = this._piaService.currentFolder.parent.id;
+      const parentId = this._piaService.currentFolder.parent.id;
       route = '/folders/' + parentId;
     }
     return route;

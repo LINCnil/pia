@@ -1,4 +1,4 @@
-import { Timestampable } from '@api/model/timestampable.model'
+import { Timestampable } from './timestampable.model'
 import * as Moment from 'moment';
 
 export class BaseModel implements Timestampable {

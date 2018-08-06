@@ -73,6 +73,8 @@ import { StructureGuardService } from 'app/services/structure-guard.service';
 import { ProcessingComponent } from './processing/processing.component';
 import { ProcessingFormComponent} from './processing/processing-form/processing-form.component';
 import { ProcessingService} from './processing/processing.service';
+import { PiasListComponent } from './pias/list/list.component';
+import { PiasListItemComponent } from './pias/list/item/item.component';
 
 const providersList: any = [
   AppDataService,
@@ -158,7 +160,9 @@ export function createTranslateLoader(http: HttpClient) {
     DashboardComponent,
     DashboardItemComponent,
     ProcessingComponent,
-    ProcessingFormComponent
+    ProcessingFormComponent,
+    PiasListComponent,
+    PiasListItemComponent
   ],
   imports: [
     BrowserModule,

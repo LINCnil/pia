@@ -32,7 +32,7 @@
                -->
                 <li>
                   <i class="fa fa-file-text-o" aria-hidden="true"></i>
-                  <a routerLink="/summary/{{processing.id}}" [innerHTML]="'homepage.cards.item.tools.show_pias' | translate"></a>
+                  <a routerLink="/processings/{{processing.id}}/pias" [innerHTML]="'homepage.cards.item.tools.show_pias' | translate"></a>
                 </li>
                 <li *ngxPermissionsOnly="['CanDeleteProcessing']">
                   <i class="fa fa-trash-o" aria-hidden="true"></i>
@@ -90,7 +90,7 @@
         </div>
         <div class="pia-cardsBlock-item-pias-number">
           <label for="pia-edit-validator-name">{{ 'homepage.cards.pias_number' | translate }}</label>
-          <div>{{ processing.pias.length }}</div>
+          <div>{{ processing.pias_count }}</div>
         </div>
         <div class="pia-cardsBlock-item-btn bottom-actions">
           <a *ngIf="processing.status === 0" routerLink="/entry/{{processing.id}}/section/1/item/1" class="btn btn-green">{{ 'homepage.cards.item.edit_processing' | translate }}</a>
