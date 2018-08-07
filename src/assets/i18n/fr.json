@@ -103,7 +103,8 @@
       "new_folder": "Dossier",
       "import_pia": "Importer PIA",
       "list_rocket_content": "Lancez-vous ! Pour commencer<br>un PIA, cliquez sur le +",
-      "card_rocket_content": "Lancez-vous !<br><br>Pour commencer<br>un PIA, cliquez<br> sur le +"
+      "card_rocket_content": "Lancez-vous !<br><br>Pour commencer<br>un PIA, cliquez<br> sur le +",
+      "go_to_folders": "Retour aux dossiers"
     },
     "cards": {
       "new_pia": "Nouveau PIA",

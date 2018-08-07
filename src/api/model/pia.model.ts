@@ -1,6 +1,8 @@
 
 import { BaseModel } from './base.model';
 import { Folder } from './folder.model';
+import { Processing } from './processing.model';
+
 
 export class Pia extends BaseModel {
   public id: any;
@@ -23,6 +25,7 @@ export class Pia extends BaseModel {
   public is_example: boolean = false;
   public folder: Folder;
   public type: string = PiaType.regular;
+  public processing: Processing;
 
   public numberOfQuestions = 36; // TODO Auto compute questions number
 

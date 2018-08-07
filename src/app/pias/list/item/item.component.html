@@ -47,7 +47,7 @@
         <ul class="pia-toolbar-moreList">
           <li *ngxPermissionsOnly="['CanEditPIA']">
             <i class="fa fa-files-o" aria-hidden="true"></i>
-            <a routerLink="/entry/{{pia.id}}" [innerHTML]="'processing.pia-list.item.actions.edit' | translate"></a>
+            <a routerLink="/entry/{{pia.id}}/section/1/item/1" [innerHTML]="'processing.pia-list.item.actions.edit' | translate"></a>
           </li>
           <li *ngxPermissionsOnly="['CanExportPIA']">
             <i class="fa fa-files-o" aria-hidden="true"></i>

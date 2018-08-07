@@ -45,8 +45,7 @@ export class PiaService extends BaseService<Pia> {
     return this.httpPut(this.routing.one, { id: model.id }, model);
   }
 
-  public create(model: Pia, folder: Folder): Observable<Pia> {
-    model.folder = folder;
+  public create(model: Pia): Observable<Pia> {
     return this.httpPost(this.routing.all, {}, model);
   }
 

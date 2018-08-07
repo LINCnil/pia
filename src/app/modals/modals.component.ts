@@ -91,10 +91,10 @@ export class ModalsComponent implements OnInit {
     pia.author_name = this.piaForm.value.author_name;
     pia.evaluator_name = this.piaForm.value.evaluator_name;
     pia.validator_name = this.piaForm.value.validator_name;
-    //disable the type feature
-    pia.type = "advanced";//this.piaForm.value.type;
+    // disable the type feature
+    pia.type = 'advanced'; // this.piaForm.value.type;
 
-    this.piaApi.create(pia, this._piaService.currentFolder).subscribe((newPia: PiaModel) => {
+    this.piaApi.create(pia).subscribe((newPia: PiaModel) => {
       this.piaForm.reset();
       this.router.navigate(['entry', newPia.id, 'section', 1, 'item', 1]);
     });

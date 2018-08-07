@@ -3,6 +3,7 @@ import { PiaApi, ProcessingApi } from '@api/services';
 import { ActivatedRoute } from '@angular/router';
 import { PiaModel, ProcessingModel } from '@api/models';
 import { ModalsService } from '../../modals/modals.service';
+import { PiaService } from '../../entry/pia.service';
 
 @Component({
   selector: 'app-pias-list',
@@ -20,6 +21,7 @@ export class PiasListComponent implements OnInit {
     private route: ActivatedRoute,
     private piaApi: PiaApi,
     private processingApi: ProcessingApi,
+    private _piaService: PiaService,
     protected _modalsService: ModalsService
   ) {
     this.route.params.subscribe( params => {

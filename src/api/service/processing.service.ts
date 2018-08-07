@@ -49,7 +49,7 @@ export class ProcessingService extends BaseService<Processing> {
   }
 
   public export(id: number): Observable<string> {
-    let query: any = this.buildQuery({});
+    const query: any = this.buildQuery({});
     const route = this.buildRoute(this.routing.export, {id: id});
 
     return this.http.get(route, { params: query }).map((res: any) => {
@@ -58,7 +58,7 @@ export class ProcessingService extends BaseService<Processing> {
   }
 
   public import(data: any): Observable<Processing> {
-    let query: any = this.buildQuery({});
+    const query: any = this.buildQuery({});
     const route = this.buildRoute(this.routing.import, {name: name});
 
     return this.http.post(route, {data: data}, { params: query }).map(res => this.mapToModel(res, this.modelClass));

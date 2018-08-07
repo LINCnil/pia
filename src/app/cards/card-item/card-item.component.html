@@ -32,7 +32,7 @@
                -->
                 <li>
                   <i class="fa fa-file-text-o" aria-hidden="true"></i>
-                  <a routerLink="/processings/{{processing.id}}/pias" [innerHTML]="'homepage.cards.item.tools.show_pias' | translate"></a>
+                  <a routerLink="/processing/{{processing.id}}/pias" [innerHTML]="'homepage.cards.item.tools.show_pias' | translate"></a>
                 </li>
                 <li *ngxPermissionsOnly="['CanDeleteProcessing']">
                   <i class="fa fa-trash-o" aria-hidden="true"></i>

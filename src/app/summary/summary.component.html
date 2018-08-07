@@ -3,7 +3,7 @@
 
   <!-- Buttons -->
   <div class="pia-summaryButtonsBlock unselectable">
-    <a title="{{ 'summary.previous_page' | translate }}" routerLink="/entry/{{_piaService.pia.id}}/section/1/item/1" class="btn hide-for-print">
+    <a title="{{ 'summary.previous_page' | translate }}" routerLink="/processing/{{_piaService.pia.processing.id}}/pias" class="btn hide-for-print">
       <i class="fa fa-chevron-left" aria-hidden="true"></i>
     </a>
     <button onclick="print()" class="btn hide-for-print" title="{{ 'summary.print' | translate }}">

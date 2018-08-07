@@ -9,7 +9,15 @@
 
       <div class="pia-filtersBlock">
 
+        <button class="pia-filtersBlock-filters-btn btn"
+                type="button"
+                title="{{ 'homepage.filters.go_to_folders' | translate }}"
+                routerLink="/folders/{{ processing.folder ? processing.folder.id : -1 }}">
+          <i class="fa fa-folder" aria-hidden="true"></i>
+        </button>
+
         <div class="pia-filtersBlock-filters menu-sort">
+
           <button class="pia-filtersBlock-filters-btn btn" type="button">
             {{ 'homepage.filters.sort' | translate }} {{ 'homepage.filters.sort_by' | translate }}...
             <span class="fa fa-angle-down"></span>
