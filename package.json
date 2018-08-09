@@ -27,8 +27,9 @@
     "core-js": "~2.5.6",
     "d3": "~5.5.0",
     "font-awesome": "~4.7.0",
-    "foundation-sites": "~6.4.3",
+    "foundation-sites": "~6.5.0-rc.2",
     "html2canvas": "~1.0.0-alpha.12",
+    "jquery": "^3.3.1",
     "ng2-pdf-viewer": "~5.1.1",
     "ngx-chips": "^1.9.3",
     "normalize.css": "~8.0.0",
@@ -37,6 +38,7 @@
     "rxjs": "~6.2.2",
     "save-svg-as-png": "~1.4.5",
     "tinymce": "~4.8.1",
+    "what-input": "^5.1.1",
     "zone.js": "~0.8.26"
   },
   "devDependencies": {
