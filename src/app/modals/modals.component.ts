@@ -93,6 +93,7 @@ export class ModalsComponent implements OnInit {
     pia.validator_name = this.piaForm.value.validator_name;
     // disable the type feature
     pia.type = 'advanced'; // this.piaForm.value.type;
+    pia.processing = this._piaService.currentProcessing;
 
     this.piaApi.create(pia).subscribe((newPia: PiaModel) => {
       this.piaForm.reset();
