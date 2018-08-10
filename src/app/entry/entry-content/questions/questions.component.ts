@@ -71,7 +71,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
 
       this.questionForm.controls['gauge'].patchValue(this.answer.data.gauge);
       this.questionForm.controls['text'].patchValue(this.answer.data.text);
-      if (this.answer.data.list) {
+      if (this.answer.data.list && this.answer.data.list instanceof Array) {
         const dataList = this.answer.data.list.filter((l) => {
           return (l && l.length > 0);
         })
@@ -94,7 +94,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
     }
 
   }
-  
+
   ngOnChanges(changes) {
     // only run when property "data" changed
     if (changes['pia']) {
@@ -405,6 +405,6 @@ export class QuestionsComponent implements OnInit, OnDestroy {
   }
 
   protected checkPermissions() {
-    
+
   }
 }
