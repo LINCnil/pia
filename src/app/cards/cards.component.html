@@ -37,13 +37,7 @@
                 <a (click)="sortBy('status');">{{ 'homepage.filters.status' | translate }}</a>
               </li>
               <li [ngClass]="{'active': sortValue === 'author_name'}">
-                <a (click)="sortBy('author_name');">{{ 'homepage.filters.author' | translate }}</a>
-              </li>
-              <li [ngClass]="{'active': sortValue === 'evaluator_name'}">
-                <a (click)="sortBy('evaluator_name');">{{ 'homepage.filters.assessor' | translate }}</a>
-              </li>
-              <li [ngClass]="{'active': sortValue === 'validator_name'}">
-                <a (click)="sortBy('validator_name');">{{ 'homepage.filters.validator' | translate }}</a>
+                <a (click)="sortBy('author');">{{ 'homepage.filters.author' | translate }}</a>
               </li>
             </ul>
           </div>

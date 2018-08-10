@@ -134,16 +134,15 @@ export class CardsComponent implements OnInit, OnDestroy {
    * @memberof CardsComponent
    */
   protected sortElements() {
-    if (this._piaService.pias !== undefined) {
-      this._piaService.pias.sort((a, b) => {
+    if (this._piaService.processings !== undefined) {
+      this._piaService.processings.sort((a, b) => {
         let firstValue = a[this.sortValue];
         let secondValue = b[this.sortValue];
         if (this.sortValue === 'updated_at' || this.sortValue === 'created_at') {
           firstValue = new Date(a[this.sortValue]);
           secondValue = new Date(b[this.sortValue]);
         }
-        if (this.sortValue === 'name' || this.sortValue === 'author_name' ||
-          this.sortValue === 'evaluator_name' || this.sortValue === 'validator_name') {
+        if (this.sortValue === 'name' || this.sortValue === 'author') {
           return firstValue.localeCompare(secondValue);
         } else {
           if (firstValue < secondValue) {
@@ -156,10 +155,9 @@ export class CardsComponent implements OnInit, OnDestroy {
         }
       });
       if (this.sortOrder === 'up') {
-        this._piaService.pias.reverse();
+        this._piaService.processings.reverse();
       }
     }
-    // TODO: sort processings
   }
 
   protected applySortOrder() {
