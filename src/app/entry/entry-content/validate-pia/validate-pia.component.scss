@@ -52,7 +52,7 @@
           }
           .fa-circle {
             display: block;
-            color: #fff;
+            color: $pia-full-white;
             border-radius: 50%;
             border: solid 1px $pia-gray;
           }
@@ -61,7 +61,7 @@
           }
           input:checked + label {
             border: solid $pia-green 1px;
-            background-color: #fff;
+            background-color: $pia-full-white;
             .fa-check {
               display: block;
               color: $pia-green;
@@ -75,14 +75,14 @@
             input:checked + label {
               border: solid $pia-green 1px;
               background-color: $pia-green;
-              color: #fff;
+              color: $pia-full-white;
               font-weight: bold;
               .fa-circle {
                 display: none;
               }
               .fa-check {
                 display: block;
-                color: #fff;
+                color: $pia-full-white;
               }
             }
           }
@@ -128,7 +128,7 @@
       &-validationAttachments {
         margin: 10px 0;
         box-shadow: 2px 1px 18px 1px #c2c2c2;
-        background-color: #fff;
+        background-color: $pia-full-white;
         padding: 10px 24px;
         h2 {
           color: $pia-dark-black;
@@ -180,7 +180,7 @@
       &-validationTools {
         margin-top: 1rem;
         box-shadow: 2px 1px 18px 1px #c2c2c2;
-        background-color: #fff;
+        background-color: $pia-full-white;
         display: flex;
         justify-content: center;
         color: $pia-green;

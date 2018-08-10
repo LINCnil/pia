@@ -49,23 +49,23 @@
       left: 0;
       top: 7px;
       background-color: #999;
-      background: linear-gradient(90deg, #fff, #fff);
+      background: linear-gradient(90deg, $pia-full-white, $pia-full-white);
       box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 1px 2px 0 rgba(0, 0, 0, 0.2);
       &-1 {
         width: calc(25% + 15px);
-        background: linear-gradient(90deg, #fff, #E0E0DF);
+        background: linear-gradient(90deg, $pia-full-white, #E0E0DF);
       }
       &-2 {
         width: calc(50% + 10px);
-        background: linear-gradient(90deg, #fff, #E0E0DF);
+        background: linear-gradient(90deg, $pia-full-white, #E0E0DF);
       }
       &-3 {
         width: calc(75% + 3px);
-        background: linear-gradient(90deg, #fff, #c6c6c6);
+        background: linear-gradient(90deg, $pia-full-white, #c6c6c6);
       }
       &-4 {
         width: calc(99% + 2px);
-        background: linear-gradient(90deg, #fff, $pia-gray);
+        background: linear-gradient(90deg, $pia-full-white, $pia-gray);
       }
     }
     &-background-1 {
@@ -119,7 +119,7 @@ input[type="range"]::-webkit-slider-runnable-track {
 }
 input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none;
-  border: 2px solid #fff;
+  border: 2px solid $pia-full-white;
   height: 22px;
   width: 22px;
   border-radius: 50%;
@@ -143,7 +143,7 @@ input[type=range]::-moz-range-track {
   border-radius: 3px;
 }
 input[type=range]::-moz-range-thumb {
-  border: 2px solid #fff;
+  border: 2px solid $pia-full-white;
   height: 22px;
   width: 22px;
   border-radius: 50%;
@@ -172,7 +172,7 @@ input[type=range]::-ms-track {
 }
 
 input[type=range]::-ms-thumb {
-  border: 2px solid #fff;
+  border: 2px solid $pia-full-white;
   height: 22px;
   width: 22px;
   border-radius: 50%;

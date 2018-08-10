@@ -4,7 +4,7 @@ select {
 	-webkit-appearance: none;
 	-moz-appearance: none;
 	appearance: none;
-	border: 1px solid #fff;
+	border: 1px solid $pia-full-white;
 	border-radius: 0;
 	background-color: #fefefe;
 	font-family: inherit;
@@ -12,7 +12,7 @@ select {
 	font-weight: normal;
 	line-height: 1.5;
 	color: #0a0a0a;
-	transition: box-shadow 0.5s, border-color 0.25s ease-in-out; 
+	transition: box-shadow 0.5s, border-color 0.25s ease-in-out;
 	&:hover {
 		outline: 1px dotted $pia-green;
 	}
@@ -25,13 +25,13 @@ select {
 	}
 	&:disabled {
 		background-color: #e6e6e6;
-		cursor: not-allowed; 
+		cursor: not-allowed;
 	}
 	&::-ms-expand {
-		display: none; 
+		display: none;
 	}
 	&[multiple] {
 	  	height: auto;
-	  	background-image: none; 
+	  	background-image: none;
 	}
 }

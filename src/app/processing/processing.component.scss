@@ -50,7 +50,7 @@
         color: $pia-green!important;
       }
     }
-    
+
     &-list {
       padding: 0;
       margin-bottom: 22px;
@@ -95,10 +95,10 @@
         width: 81%;
         border-radius: 4px;
         &:focus, &:hover, &:active, &.active {
-          color: #fff!important;
+          color: $pia-full-white !important;
         }
       }
-      
+
       #general-section {
         .pia-section-title {
           color: $pia-green;
@@ -133,7 +133,7 @@
           color: $pia-blue;
         }
       }
-      
+
       #lifecycle-section {
         .pia-section-title {
           color: $pia-red;

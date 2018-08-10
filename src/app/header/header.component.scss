@@ -1,9 +1,9 @@
 @import '../../assets/stylesheets/variables';
 
 .pia {
-  
+
   &-headerBlock {
-    background-color: #fff;
+    background-color: $pia-full-white;
     margin-bottom: 24px;
   }
   &-logoBlock {

@@ -43,7 +43,7 @@
     &-fundamental, &-measures, &-risks {
       color: $pia-dark-black;
       h2 {
-        color: #fff;
+        color: $pia-full-white;
         box-shadow: 2px 1px 18px 1px rgba(194,194,194,1);
         padding: 4px 20px;
       }
@@ -64,7 +64,7 @@
       padding: 10px;
       margin-top: 10px;
       box-shadow: 2px 1px 18px 1px rgba(194,194,194,1);
-      background-color: #fff;
+      background-color: $pia-full-white;
       .pia-details-blocks-content {
         &-title {
           display: flex;

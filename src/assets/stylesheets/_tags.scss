@@ -14,10 +14,10 @@ $foundation-tag-theme: (
     background-focused: $foundation-primary-dark,
     background-active: $foundation-primary-dark,
     background-hover: $foundation-primary-dark,
-    color: #fff,
+    color: $pia-full-white,
     font-size: 1.5rem,
     font-weight: 500,
-    color-hover: #fff,
+    color-hover: $pia-full-white,
     border-radius: 0
 );
 
@@ -27,12 +27,12 @@ $foundation-tag-edit-theme: (
     background-focused: $foundation-primary-dark,
     background-active: $foundation-primary-dark,
     background-hover: $foundation-primary-dark,
-    color: #fff,
+    color: $pia-full-white,
 );
 
 // this is the delete icon's theme
 $foundation-icon-theme: (
-    fill: #fff,
+    fill: $pia-full-white,
     fill-focus: #eee,
     transition: all 0.5s
 );

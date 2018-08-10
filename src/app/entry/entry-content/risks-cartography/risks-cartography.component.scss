@@ -4,7 +4,7 @@
 .pia {
   &-cartographyBlock {
     box-shadow: 1px 1px 15px 1px #d2d2d2;
-    background-color: #fff;
+    background-color: $pia-full-white;
     display: block;
     padding: 25px;
     &-graph {

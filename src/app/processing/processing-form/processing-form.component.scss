@@ -10,7 +10,7 @@
       display: flex;
       align-items: stretch;
       margin-bottom: 14px;
-      background-color: #fff;
+      background-color: $pia-full-white;
       position: relative;
       box-shadow: 1px 1px 15px 1px rgba(210,210,210,1);
       > div:first-child {
@@ -25,7 +25,7 @@
           margin-left: -15px;
           position: absolute;
           font-size: 34px;
-          color: #fff;
+          color: $pia-full-white;
           text-align: center;
         }
       }
@@ -90,7 +90,7 @@
           right: 0;
           position: absolute;
           font-size: 1rem;
-          color: #fff;
+          color: $pia-full-white;
           text-align: center;
           min-height: auto !important;
           div {
@@ -224,7 +224,7 @@
     color: #686868;
     position: relative;
     margin-bottom: 10px;
-    background-color: #fff;
+    background-color: $pia-full-white;
     padding: 12px 32px;
     box-shadow: 1px 1px 15px 1px #d2d2d2;
   }
@@ -311,10 +311,10 @@
         width: 81%;
         border-radius: 4px;
         &:focus, &:hover, &:active, &.active {
-          color: #fff!important;
+          color: $pia-full-white !important;
         }
       }
-      
+
       #context-section {
         .processing-sectionBlock-title {
           color: $pia-green;
@@ -349,7 +349,7 @@
           color: $pia-blue;
         }
       }
-      
+
       #risks-section {
         .processing-sectionBlock-title {
           color: $pia-red;
@@ -367,7 +367,7 @@
           color: $pia-red;
         }
       }
-      
+
       #validation-section {
         .processing-sectionBlock-title {
           color: $pia-dark-black;
@@ -398,7 +398,7 @@
   .form-field {
     position: relative;
     margin-bottom: 10px;
-    background-color: #fff;
+    background-color: $pia-full-white;
     padding: 12px 32px;
     box-shadow: 1px 1px 15px 1px rgba(210,210,210,1);
     .hide {
