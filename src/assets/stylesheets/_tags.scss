@@ -1,6 +1,6 @@
 @import "../../../node_modules/ngx-chips/dist/modules/core/styles/core/_core.scss";
 
-$foundation-primary: #091C6B;
+$foundation-primary: $pia-blue;
 $foundation-primary-dark: darken($foundation-primary, 10%);
 
 // this is the container's theme

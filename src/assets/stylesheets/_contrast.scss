@@ -817,13 +817,13 @@ body.pia-contrast {
       background: linear-gradient(90deg, $pia-green-dark, $pia-green-dark);
     }
     &-background-1 {
-      background: linear-gradient(90deg, $pia-green-dark, #41534c);
+      background: linear-gradient(90deg, $pia-green-dark, $pia-gauge-1);
     }
     &-background-2 {
-      background: linear-gradient(90deg, $pia-green-dark, #6b3960);
+      background: linear-gradient(90deg, $pia-green-dark, $pia-gauge-2);
     }
     &-background-3 {
-      background: linear-gradient(90deg, $pia-green-dark, #961f73);
+      background: linear-gradient(90deg, $pia-green-dark, $pia-gauge-3);
     }
     &-background-4 {
       background: linear-gradient(90deg, $pia-green-dark, $pia-red-dark);

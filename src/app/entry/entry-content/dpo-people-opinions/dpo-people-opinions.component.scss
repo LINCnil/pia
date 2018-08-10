@@ -10,7 +10,7 @@
           justify-content: space-between;
         }
         .DPOName {
-          background-color: #F5F5F5;
+          background-color: $pia-white;
           border: none;
           &:disabled {
             cursor: pointer;
