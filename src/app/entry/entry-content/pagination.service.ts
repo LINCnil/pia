@@ -5,11 +5,15 @@ import { SidStatusService } from '../../services/sid-status.service';
 export class PaginationService {
   hasPreviousLink: boolean;
   hasNextLink: boolean;
-  previousLink: any[] = []; // sectionId, itemId, itemTitle
-  nextLink: any[] = []; // sectionId, itemId, itemTitle
+  previousLink: PaginationItem;
+  nextLink: PaginationItem;
   dataNav: any;
 
-  constructor(private _sidStatusService: SidStatusService) { }
+  constructor(
+    private _sidStatusService: SidStatusService
+  ) {
+    this.initLinks();
+  }
 
   /**
    * Set the pagination.
@@ -18,43 +22,71 @@ export class PaginationService {
    * @memberof PaginationService
    */
   setPagination(sectionId: number, itemId: number) {
-    this.previousLink = [];
-    this.nextLink = [];
-    this.hasPreviousLink = !(sectionId === 1 && itemId === 1) && !(sectionId === 4 && itemId === 4) && !(sectionId === 4 && itemId === 5);
-    this.hasNextLink = !(sectionId === 4 && (itemId === 3 || itemId === 4 || itemId === 5));
+    this.initLinks();
 
-    if (this.hasPreviousLink) {
-      if (sectionId === 1) { // 1.2
-        this.previousLink.push(sectionId);
-        this.previousLink.push(itemId - 1);
-        this.previousLink.push(this.dataNav['sections'][sectionId - 1]['items'][itemId - 2].title);
-      } else { // 2.x, 3.x, 4.x
-        if (itemId !== 1) {  // 2.2, 3.2, 3.3, 3.4, 4.2, ...
-          this.previousLink.push(sectionId); // Same section id
-          this.previousLink.push(itemId - 1);  // Prev item id
-          this.previousLink.push(this.dataNav['sections'][sectionId - 1]['items'][itemId - 2].title); // Prev item title
-        } else {  // 2.1, 3.1, 4.1
-          this.previousLink.push(sectionId - 1); // Prev section id
-          const previousSectionLength = this.dataNav['sections'][sectionId - 2]['items'].length;
-          const lastPreviousItem = this.dataNav['sections'][sectionId - 2]['items'][previousSectionLength - 1];
-          this.previousLink.push(lastPreviousItem.id);  // Prev item id (which is the last item of the previous section)
-          this.previousLink.push(lastPreviousItem.title); // Prev item title
-        }
+    this.getNextLink(sectionId, itemId);
+    this.getPreviousLink(sectionId, itemId);
+  }
+
+  private getNextLink(sectionId: number, itemId: number) {
+    let nextSectionId = sectionId;
+    let nextItemId = itemId;
+
+    this.hasNextLink = !(nextSectionId === 4 && itemId === this.getSection(4)['items'].length);
+
+    if (this.hasNextLink) {
+      if (nextItemId < this.getSection(nextSectionId).items.length) {
+        nextItemId++;
+      } else {
+        nextItemId = 1;
+        nextSectionId++;
       }
     }
-    if (this.hasNextLink) {
-      const currentSectionLength = this.dataNav['sections'][sectionId - 1]['items'].length;
-      const currentSectionLastItemId = this.dataNav['sections'][sectionId - 1]['items'][currentSectionLength - 1].id;
-      if (itemId !== currentSectionLastItemId) { // Not the last item from the current section
-        this.nextLink.push(sectionId); // Same section id
-        this.nextLink.push(itemId + 1);  // Next item id
-        this.nextLink.push(this.dataNav['sections'][sectionId - 1]['items'][itemId].title);  // Next item title
-      } else {  // last item from the current section
-        this.nextLink.push(sectionId + 1); // Next section id
-        const firstNextItem = this.dataNav['sections'][sectionId]['items'][0];
-        this.nextLink.push(firstNextItem.id);  // Next item id (which is the first item of the next section)
-        this.nextLink.push(firstNextItem.title); // Next item title
+
+    this.nextLink.section = nextSectionId;
+    this.nextLink.item = nextItemId;
+    this.nextLink.title = this.getItemTitle(nextSectionId, nextItemId);
+  }
+
+  private getPreviousLink(sectionId: number, itemId: number) {
+    let previousSectionId = sectionId;
+    let previousItemId = itemId;
+
+    this.hasPreviousLink = !(previousSectionId === 2 && itemId === 1);
+
+    if (this.hasPreviousLink) {
+      if (previousItemId === 1) {
+        previousSectionId--;
+        previousItemId = this.getSection(previousSectionId).items.length
+      } else {
+        previousItemId--;
       }
+    }
+
+    this.previousLink.section = previousSectionId;
+    this.previousLink.item = previousItemId;
+    this.previousLink.title = this.getItemTitle(previousSectionId, previousItemId);
+  }
+
+  private getItemTitle(sectionId: number, itemId: number): string {
+    const item = this.getSection(sectionId).items.filter(itm => itm.id === itemId)[0];
+    return item ? item.title : '';
+  }
+
+  private getSection(sectionId: number) {
+    return this.dataNav.sections.filter(section => section.id === sectionId)[0];
+  }
+
+  private initLinks(): void {
+    this.previousLink = {
+      section: 2,
+      item: 1,
+      title: ''
+    };
+    this.nextLink = {
+      section: 2,
+      item: 1,
+      title: ''
     }
   }
 
@@ -75,9 +107,9 @@ export class PaginationService {
 
     for (const el in itemStatus) {
       if (this._sidStatusService.itemStatus.hasOwnProperty(el) &&
-          this._sidStatusService.itemStatus[el] >= status_start &&
-          this._sidStatusService.itemStatus[el] < status_end &&
-          el !== '4.3') {
+        this._sidStatusService.itemStatus[el] >= status_start &&
+        this._sidStatusService.itemStatus[el] < status_end &&
+        el !== '4.3') {
         const reference_to = el.split('.');
         goto_section = reference_to[0];
         goto_item = reference_to[1];
@@ -86,15 +118,21 @@ export class PaginationService {
     }
 
     if (!goto_section || !goto_item) {
-      if (this.nextLink[0] && this.nextLink[1] && this.nextLink[0] !== 4 && this.nextLink[1] !== 3) {
-        goto_section = this.nextLink[0];
-        goto_item = this.nextLink[1];
+      if (this.nextLink.section && this.nextLink.item && this.nextLink.section !== 4 && this.nextLink.item !== 3) {
+        goto_section = this.nextLink.section;
+        goto_item = this.nextLink.item;
       } else {
-        goto_section = 1;
+        goto_section = 2;
         goto_item = 1;
       }
     }
 
     return [goto_section, goto_item];
   }
+}
+
+interface PaginationItem {
+  section: number
+  item: number
+  title: string
 }

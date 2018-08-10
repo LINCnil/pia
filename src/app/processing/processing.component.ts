@@ -48,7 +48,8 @@ export class ProcessingComponent implements OnInit {
     }
     if (section.id === 2) {
       this.formComponent.updateKnowledgeBase([
-        'PIA_LGL_DATA'
+        'PIA_LGL_DATA',
+        'PIA_LGL_DUR'
       ]);
     }
     if (section.id === 3) {

@@ -87,7 +87,7 @@
           color: #fff!important;
         }
       }
-      
+
       #context-section {
         .pia-sectionBlock-title {
           color: $pia-green;
@@ -122,7 +122,7 @@
           color: $pia-blue;
         }
       }
-      
+
       #risks-section {
         .pia-sectionBlock-title {
           color: $pia-red;
@@ -140,7 +140,7 @@
           color: $pia-red;
         }
       }
-      
+
       #validation-section {
         .pia-sectionBlock-title {
           color: $pia-dark-black;
@@ -170,7 +170,7 @@
     text-align: center;
     a {
       display: block;
-      width: 250px;
+      // width: 250px;
       margin: 0 auto;
       border-radius: 0;
       padding: 2px;

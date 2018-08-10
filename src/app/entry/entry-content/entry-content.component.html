@@ -111,13 +111,14 @@
     </div>
 
     <div class="pia-entryContentBlock-footer-nav">
-      <a [ngClass]="{'mask': _paginationService.hasPreviousLink === false}" class="pia-previousLink" routerLink="/entry/{{_piaService.pia.id}}/section/{{_paginationService.previousLink[0]}}/item/{{_paginationService.previousLink[1]}}">
+      <a [ngClass]="{'mask': _paginationService.hasPreviousLink === false}" class="pia-previousLink" routerLink="/entry/{{_piaService.pia.id}}/section/{{_paginationService.previousLink.section}}/item/{{_paginationService.previousLink.item}}">
           <i class="fa fa-angle-double-left" aria-hidden="true"></i>
-          {{ _paginationService.previousLink[2] | translate }}
-      </a><a [ngClass]="{'mask': _paginationService.hasNextLink === false}" class="pia-nextLink" routerLink="/entry/{{_piaService.pia.id}}/section/{{_paginationService.nextLink[0]}}/item/{{_paginationService.nextLink[1]}}">
-          {{ _paginationService.nextLink[2] | translate }}
+          {{ _paginationService.previousLink.title | translate }}
+      </a><a [ngClass]="{'mask': _paginationService.hasNextLink === false}" class="pia-nextLink" routerLink="/entry/{{_piaService.pia.id}}/section/{{_paginationService.nextLink.section}}/item/{{_paginationService.nextLink.item}}">
+          {{ _paginationService.nextLink.title | translate }}
           <i class="fa fa-angle-double-right" aria-hidden="true"></i>
       </a>
     </div>
+
   </footer>
 </section>

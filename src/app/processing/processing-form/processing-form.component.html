@@ -76,7 +76,7 @@
             [(ngModel)]="processing.processing_data_types" 
             name="data-types"
             id="processing-data-types"
-            (click)="updateKnowledgeBase(['PIA_LGL_DATA'])"
+            (click)="updateKnowledgeBase(['PIA_LGL_DATA', 'PIA_LGL_DUR'])"
             (change)="updateProcessing(true)"
             [processingId]="processing.id"
           ></app-processing-data-types>

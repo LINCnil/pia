@@ -59,16 +59,16 @@ describe('Processing folder management', () => {
 
         folderCreationModal.fillFolderName(folderName);
 
-        folderCreationModal.submitForm().then(() => {
-          expect(folderCreationModal.el().isDisplayed()).toBeFalsy();
-          expect(folderCards.byFolderName(folderName).el().isPresent()).toBeTruthy();
-        });
+  //       folderCreationModal.submitForm().then(() => {
+  //         expect(folderCreationModal.el().isDisplayed()).toBeFalsy();
+  //         expect(folderCards.byFolderName(folderName).el().isPresent()).toBeTruthy();
+  //       });
 
-    });
+  //   });
 
-  });
+  // });
 
-  it('when user delete a folder - a popup ask for confirmation and the folder is deleted', () => {
+  // it('when user deletes a folder - a popup asks for confirmation and the folder is deleted', () => {
 
     folderCards.byFolderName(folderName).clickOnDeleteInToolMenu().then(() => {
       expect(folderDeleteConfirmationModal.el().isDisplayed()).toBeTruthy();
@@ -79,6 +79,6 @@ describe('Processing folder management', () => {
       expect(folderCards.byFolderName(folderName).el().isPresent()).toBeFalsy();
     })
 
-  });
+  // });
 
 });

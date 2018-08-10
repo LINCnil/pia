@@ -3,12 +3,13 @@
   .pia {
     &-archive,
     &-doing {
+      overflow: hidden;
       span {
         text-align: center;
         font-weight: bold;
         color: $pia-white;
         width: 0;
-        white-space: nowrap;
+        line-height: 0.9em;
       }
     }
   }
@@ -21,6 +22,7 @@
       border-bottom: 1px solid $pia-white;
       position: relative;
       width: 2em;
+      overflow: hidden;
       span {
         text-align: center;
         font-weight: bold;
@@ -31,8 +33,8 @@
         transform: rotate(-90deg);
         height: 0em;
         width: 0;
-        white-space: nowrap;
-        top: 75%;
+        line-height: 0.9em;
+        top: 95%;
       }
     }
   }

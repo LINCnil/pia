@@ -1,103 +1,6 @@
 {
   "sections": [
     {
-      "id": 1,
-      "permissions": ["AccessToContextSection"],
-      "title": "sections.1.title",
-      "name" : "context-section",
-      "short_help": "sections.1.short_help",
-      "items": [
-        {
-          "id": 1,
-          "title": "sections.1.items.1.title",
-          "evaluation_mode": "item",
-          "short_help": "sections.1.items.1.short_help",
-          "questions": [
-            {
-              "id": 111,
-              "title": "sections.1.items.1.questions.1.title",
-              "link_knowledge_base": [
-                "PIA_LGL_DESC",
-                "PIA_DEF_FIN"
-              ],
-              "placeholder": "sections.1.items.1.questions.1.placeholder",
-              "answer_type": "text",
-              "keywords": "",
-              "active": true
-            },
-            {
-              "id": 112,
-              "title": "sections.1.items.1.questions.2.title",
-              "link_knowledge_base": [
-                "PIA_LGL_DESC",
-                "PIA_DEF_RT",
-                "PIA_DEF_ST"
-              ],
-              "placeholder": "sections.1.items.1.questions.2.placeholder",
-              "answer_type": "text",
-              "keywords": "",
-              "active": true
-            },
-            {
-              "id": 113,
-              "title": "sections.1.items.1.questions.3.title",
-              "link_knowledge_base": [
-                "PIA_LGL_DESC"
-              ],
-              "placeholder": "sections.1.items.1.questions.3.placeholder",
-              "answer_type": "text",
-              "keywords": "",
-              "active": true
-            }
-          ]
-        },
-        {
-          "id": 2,
-          "title": "sections.1.items.2.title",
-          "evaluation_mode": "item",
-          "short_help": "sections.1.items.2.short_help",
-          "questions": [
-            {
-              "id": 121,
-              "title": "sections.1.items.2.questions.1.title",
-              "link_knowledge_base": [
-                "PIA_LGL_DATA",
-                "PIA_LGL_DEST",
-                "PIA_DEF_DCP",
-                "PIA_DEF_DEST"
-              ],
-              "placeholder": "sections.1.items.2.questions.1.placeholder",
-              "answer_type": "text",
-              "keywords": "",
-              "active": true
-            },
-      			{
-      			  "id": 122,
-      			  "title": "sections.1.items.2.questions.2.title",
-      			  "link_knowledge_base": [
-                "PIA_LGL_LCYC"
-              ],
-      			  "placeholder": "sections.1.items.2.questions.2.placeholder",
-      			  "answer_type": "text",
-      			  "keywords": "",
-      			  "active": true
-      			},
-      			{
-      			  "id": 123,
-      			  "title": "sections.1.items.2.questions.3.title",
-      			  "link_knowledge_base": [
-                "PIA_LGL_SUPT"
-              ],
-      			  "placeholder": "sections.1.items.2.questions.3.placeholder",
-      			  "answer_type": "text",
-      			  "keywords": "",
-      			  "active": true
-      			}
-          ]
-        }
-      ]
-    },
-    {
       "id": 2,
       "title": "sections.2.title",
       "permissions": ["AccessToPrinciplesSection"],
@@ -157,18 +60,6 @@
                 "PIA_DEF_EXA"
               ],
               "placeholder": "sections.2.items.1.questions.4.placeholder",
-              "answer_type": "text",
-              "keywords": "",
-              "active": true
-            },
-            {
-              "id": 215,
-              "title": "sections.2.items.1.questions.5.title",
-              "short_title": "sections.2.items.1.questions.5.short_title",
-              "link_knowledge_base": [
-                "PIA_LGL_DUR"
-              ],
-              "placeholder": "sections.2.items.1.questions.5.placeholder",
               "answer_type": "text",
               "keywords": "",
               "active": true

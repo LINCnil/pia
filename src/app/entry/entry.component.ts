@@ -88,7 +88,7 @@ export class EntryComponent implements OnInit, OnDestroy, DoCheck {
         questionsSet.forEach(q => {
 
           const theRefAnswer = theAnswers.find((a) => {
-            return a.reference_to == q.id;
+            return parseInt(a.reference_to, 10) === q.id;
           });
 
           if (theRefAnswer && theRefAnswer.data.list.length > 0 && theRefAnswer.data.list.includes(measureName)) {

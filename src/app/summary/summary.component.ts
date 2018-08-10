@@ -81,14 +81,14 @@ export class SummaryComponent implements OnInit {
     });
 
     const dataNav = await this._appDataService.getDataNav();
-    let sections = {...dataNav.sections};
+    const sections = {...dataNav.sections};
 
-    if(this.pia.type == PiaType.regular) {
+    if (this.pia.type === PiaType.regular) {
       delete sections[3];
       delete sections[2];
     }
 
-    if(this.pia.type === PiaType.simplified) {
+    if (this.pia.type === PiaType.simplified) {
       delete sections[3];
       delete sections[2];
       delete sections[1];
@@ -168,7 +168,9 @@ export class SummaryComponent implements OnInit {
   toggleContextContent() {
     setTimeout(() => {
       const contextSection = this.el.nativeElement.querySelector('.section-1');
-      contextSection.classList.toggle('hide');
+      if (contextSection) {
+        contextSection.classList.toggle('hide');
+      }
     }, 500);
   }
 
