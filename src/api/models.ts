@@ -1,5 +1,5 @@
-//temporary model aliasing
-//to avoid naming collision with old PIA-CNIL models
+// temporary model aliasing
+// to avoid naming collision with old PIA-CNIL models
 
 export {
     Processing as ProcessingModel,
@@ -12,6 +12,6 @@ export {
     UserProfile as UserProfileModel,
     UserToken as UserTokenModel,
     Template as TemplateModel,
-    Folder as FolderModel
-
+    Folder as FolderModel,
+    ProcessingDataType as ProcessingDataTypeModel
 } from '@api/model';

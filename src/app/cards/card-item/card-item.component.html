@@ -1,18 +1,8 @@
-<div class="pia-cardsBlock pia" [ngClass]="{'pia-archiveBlock': processing.status == 1}" [attr.data-id]="processing.id">
+<div class="pia-cardsBlock pia" [ngClass]="{'pia-archiveBlock': processing.status == 1}" [attr.data-id]="processing.id" [attr.data-name]="processing.name">
     <div class="pia-cardsBlock-header-title" *ngIf="processing.id !== null">
       <span *ngIf="!previousProcessing || previousProcessing.status !== processing.status">{{ ('processing.statuses.' + processing.status) | translate }}</span>
     </div>
     <div class="pia-cardsBlock-item pia-doingBlock-item">
-      <div *ngIf="attachments && attachments.length > 0" class="pia-cardsBlock-item-attachment" aria-hidden="true">
-        <span class="pia-icons pia-icon-attachment"></span>
-        <ul>
-          <ng-container *ngFor="let attachment of attachments">
-            <li>
-              {{ attachment.name }}
-            </li>
-          </ng-container>
-        </ul>
-      </div>
       <div class="pia-cardsBlock-toolbar">
           <div class="pia-cardsBlock-toolbar-export" *ngxPermissionsOnly="['CanExportProcessing']">
             <a href="javascript:;" (click)="export(processing.id)" class="btn pia-tooltip">
@@ -93,8 +83,8 @@
           <div>{{ processing.pias_count }}</div>
         </div>
         <div class="pia-cardsBlock-item-btn bottom-actions">
-          <a *ngIf="processing.status === 0" routerLink="/entry/{{processing.id}}/section/1/item/1" class="btn btn-green">{{ 'homepage.cards.item.edit_processing' | translate }}</a>
-          <a *ngIf="processing.status > 0" routerLink="/entry/{{processing.id}}/section/1/item/1" class="btn btn-green">{{ 'homepage.cards.item.consult_processing' | translate }}</a>
+          <a *ngIf="processing.status === 0" routerLink="/processing/{{processing.id}}" class="btn btn-green">{{ 'homepage.cards.item.edit_processing' | translate }}</a>
+          <a *ngIf="processing.status > 0" routerLink="/processing/{{processing.id}}" class="btn btn-green">{{ 'homepage.cards.item.consult_processing' | translate }}</a>
         </div>
       </form>
   </div>

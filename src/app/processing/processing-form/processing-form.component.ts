@@ -1,68 +1,125 @@
-import { Router, ActivatedRoute } from '@angular/router';
-import { Component, OnInit, Input, OnChanges } from '@angular/core';
-import 'rxjs/add/operator/map'
+import { Component, Input, OnDestroy, ViewChild, ChangeDetectorRef } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
-import { ProcessingArchitectureService } from '../../services/processing-architecture.service';
-import { ModalsService } from '../../modals/modals.service';
-import { PaginationService } from 'app/processing/processing-form/pagination.service';
-import { TranslateService } from '@ngx-translate/core';
-import { SidStatusService } from '../../services/sid-status.service';
-import { KnowledgeBaseService } from 'app/entry/knowledge-base/knowledge-base.service';
-import { ProcessingService } from '../processing.service';
+import { KnowledgeBaseService } from '../../entry/knowledge-base/knowledge-base.service';
 import { ProcessingModel } from '@api/models';
+import { ProcessingApi } from '@api/services';
+import { PermissionsService } from '@security/permissions.service';
+
 
 @Component({
   selector: 'app-processing-form',
   templateUrl: './processing-form.component.html',
   styleUrls: ['./processing-form.component.scss']
 })
-
-export class ProcessingFormComponent implements OnInit, OnChanges {
-  @Input() section: any;
-  @Input() item: any;
-  @Input() data: any;
+export class ProcessingFormComponent implements OnDestroy {
   @Input() sections: any;
-  processing: ProcessingModel = new ProcessingModel();
+  @Input() processing: ProcessingModel;
+  @Input() currentSection: any;
+  @ViewChild('processingForm') processingForm: NgForm;
+  editor: any;
+  elementId: String;
 
-  constructor(private _router: Router,
-              private _processingArchitectureService: ProcessingArchitectureService,
-              private _activatedRoute: ActivatedRoute,
-              private _modalsService: ModalsService,
-              public _processingService: ProcessingService,
-              public _sidStatusService: SidStatusService,
-              public _paginationService: PaginationService,
-              private _translateService: TranslateService,
-              private _knowledgeBaseService: KnowledgeBaseService) { }
-
-  ngOnInit() {
-    this._knowledgeBaseService.toHide = [];
+  constructor(
+    private processingApi: ProcessingApi,
+    private ref: ChangeDetectorRef,
+    private permissionsService: PermissionsService,
+    private knowledgeBaseService: KnowledgeBaseService
+  ) {
+    this.knowledgeBaseService.knowledgeBaseData = [];
   }
 
-  ngOnChanges() {
-    const sectionId = parseInt(this._activatedRoute.snapshot.params['section_id'], 10);
-    const itemId = parseInt(this._activatedRoute.snapshot.params['item_id'], 10);
-
-    this._paginationService.setPagination(sectionId, itemId);
+  ngOnDestroy() {
+    this.closeEditor();
   }
-
 
   /**
-   * Go to next item.
-   * @private
-   * @param {number} status_start - From status.
-   * @param {number} status_end - To status.
-   * @memberof EntryContentComponent
+   * Update Processing model
+   *
+   * @param {boolean} dataTypes
+   * @memberof ProcessingFormComponent
    */
-  private goToNextSectionItem(status_start: number, status_end: number) {
-    const goto_section_item = this._paginationService.getNextSectionItem(status_start, status_end)
+  updateProcessing(dataTypes: boolean = false ) {
+    if (dataTypes) {
+      return
+    };
 
-    this._router.navigate([
-      'entry',
-      this._processingService.processing.id,
-      'section',
-      goto_section_item[0],
-      'item',
-      goto_section_item[1]
-    ]);
+    this.processingApi.update(this.processing).subscribe(() => {});
+  }
+
+  updateKnowledgeBase(slugs: string[]) {
+    const item = {
+      link_knowledge_base: slugs
+    };
+    this.knowledgeBaseService.loadByItem(item);
+  }
+
+  /**
+   * Check permissions and open editor to edit field content
+   *
+   * @param {any} element
+   * @param {string[]} knowledgeBaseItemIdentifier
+   * @memberof ProcessingFormComponent
+   */
+  editField(element: any, knowledgeBaseItemIdentifier?: string[]) {
+    this.permissionsService.hasPermission('CanEditProcessing').then((hasPerm: boolean) => {
+      if (hasPerm) {
+        this.elementId = element.id;
+
+        this.loadEditor(element);
+      }
+      if (knowledgeBaseItemIdentifier) {
+        this.updateKnowledgeBase(knowledgeBaseItemIdentifier);
+      }
+    });
+  }
+
+  /**
+   * Load wysiwyg editor.
+   *
+   * @private
+   * @param element
+   * @memberof ProcessingFormComponent
+   */
+  private loadEditor(element: any) {
+    tinymce.init({
+      branding: false,
+      menubar: false,
+      statusbar: false,
+      plugins: 'autoresize lists',
+      forced_root_block: false,
+      autoresize_bottom_margin: 30,
+      auto_focus: element.id,
+      autoresize_min_height: 40,
+      content_style: 'body {background-color:#eee!important;}',
+      selector: '#' + element.id,
+      toolbar: 'undo redo bold italic alignleft aligncenter alignright bullist numlist outdent indent',
+      skin_url: 'assets/skins/lightgray',
+      setup: editor => {
+        this.editor = editor;
+
+        editor.on('focusout', () => {
+          const content = editor.getContent();
+
+          this.processingForm.form.controls[element.name].patchValue(content);
+
+          this.closeEditor();
+          this.updateProcessing();
+          // Hack to trigger view update
+          this.ref.detectChanges();
+        });
+      },
+    });
+  }
+
+  /**
+   * Close wysiwig editor
+   *
+   * @private
+   * @memberof ProcessingFormComponent
+   */
+  private closeEditor() {
+    tinymce.remove(this.editor);
+    this.editor = null;
   }
 }

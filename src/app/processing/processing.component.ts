@@ -1,13 +1,8 @@
-import { Component, OnInit, Output, OnDestroy, DoCheck } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
-import { KnowledgeBaseService } from 'app/entry/knowledge-base/knowledge-base.service';
-import { ProcessingService } from './processing.service';
-import { ModalsService } from '../modals/modals.service';
-import { ProcessingArchitectureService } from '../services/processing-architecture.service';
-import { SidStatusService } from '../services/sid-status.service';
 import { ProcessingModel } from '@api/models';
-import { ProcessingApi } from '@api/services';
+import { ProcessingFormComponent } from './processing-form/processing-form.component';
 
 @Component({
   selector: 'app-processing',
@@ -15,68 +10,62 @@ import { ProcessingApi } from '@api/services';
   styleUrls: ['./processing.component.scss']
 })
 export class ProcessingComponent implements OnInit {
+  @ViewChild(ProcessingFormComponent) formComponent: ProcessingFormComponent;
+  processing: ProcessingModel;
   sections: any;
-  section: { id: number, title: string, short_help: string, items: any };
-  item: { id: number, title: string, evaluation_mode: string, short_help: string, questions: any };
+  currentSection: Section;
 
-  constructor(private route: ActivatedRoute,
-    private _modalsService: ModalsService,
-    private _processingArchitectureService: ProcessingArchitectureService,
-    private _sidStatusService: SidStatusService,
-    private knowledgeBaseService: KnowledgeBaseService,
-    private _processingService: ProcessingService
+  constructor(
+    private route: ActivatedRoute
   ) { }
 
   ngOnInit() {
     this.sections = this.route.snapshot.data.sections;
-    this.getSectionFromRouteParams(this.route.snapshot.params);
+    this.processing = this.route.snapshot.data.processing;
 
-    this.route.params.subscribe((newParams: Params) => {
-      this.getSectionFromRouteParams(newParams);
-
-      window.scroll(0, 0);
-    });
+    this.changeSection(1);
   }
 
   /**
-   * Gets form section and item from route params
-   * @private
-   * @param {Params} params
-   * @memberof ProcessingComponent
+   * Change current section
+   *
+   * @param sectionId
    */
-  private getSectionFromRouteParams(params: Params) {
-    const sectionId = parseInt(this.route.snapshot.params['section_id'], 10) || 1;
-    const itemId = parseInt(this.route.snapshot.params['item_id'], 10) || 1;
-
-    this.section = this.sections.filter((section) => {
-      return section.id === sectionId;
-    })[0];
-
-    // this.item = this.section.items.filter((item) => {
-    //   return item.id === itemId;
-    // })[0];
-
-    // this.updateKnowledgeBase();
+  changeSection(sectionId) {
+    this.currentSection = this.sections.filter((section) => section.id === sectionId)[0];
   }
 
-  /**
-   * Updates the knowledge base section
-   * @private
-   * @param {number} sectionId - The section id.
-   * @param {number} itemId - The item id.
-   * @memberof ProcessingComponent
-   */
-  private updateKnowledgeBase() {
-    // Update on knowledge base (scroll / content / search field)
-    const knowledgeBaseScroll = document.querySelector('.pia-knowledgeBaseBlock-list');
-    const knowledgeBaseContent = <HTMLInputElement>document.querySelector('.pia-knowledgeBaseBlock-searchForm input');
-
-    knowledgeBaseScroll.scrollTop = 0;
-    knowledgeBaseContent.value = '';
-
-    this.knowledgeBaseService.q = null;
-    this.knowledgeBaseService.loadByItem(this.item);
-    this.knowledgeBaseService.placeholder = null;
+  public displayKnowledgeBaseForSection(section?: Section): void {
+    if (section === null) {
+      section = this.sections
+    }
+    if (section.id === 1) {
+      this.formComponent.updateKnowledgeBase([
+        'PIA_LGL_DESC',
+        'PIA_LGL_FIN',
+        'PIA_LGL_FOND'
+      ]);
+    }
+    if (section.id === 2) {
+      this.formComponent.updateKnowledgeBase([
+        'PIA_LGL_DATA'
+      ]);
+    }
+    if (section.id === 3) {
+      this.formComponent.updateKnowledgeBase([
+        'PIA_LGL_LFC',
+        'PIA_LGL_ST',
+        'PIA_LGL_DEST',
+        'PIA_LGL_TRAN'
+      ]);
+    }
   }
+}
 
+interface Section {
+  id: number
+  title: string
+  evaluation_mode: string
+  short_help: string
+  questions: any
 }

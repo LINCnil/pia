@@ -57,7 +57,7 @@ export class AppComponent {
 
      /*  PERMISSIONS */
 
-    let roles = {};
+    const roles = {};
 
     roles['ROLE_USER'] = [];
 
@@ -69,8 +69,8 @@ export class AppComponent {
       'CanCreatePIA', 'CanCreatePIAExample', 'CanShowPIA',
       'CanEvaluatePIA', 'CanValidatePIA', 'CanCancelValidatePIA',
       'CanDeletePIA', 'CanCreateFolder',
-      'CanCreateProcessing', 'CanShowProcessing', 'CanDeleteProcessing',
-      'AccessToValidationSection'
+      'CanCreateProcessing', 'CanEditProcessing', 'CanImportProcessing', 'CanExportProcessing', 'CanShowProcessing', 'CanDeleteProcessing',
+       'AccessToValidationSection'
     ]);
     roles['ROLE_SHARED_DPO'] = roles['ROLE_DPO'];
 

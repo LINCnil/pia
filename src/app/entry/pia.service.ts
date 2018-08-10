@@ -1,12 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs/Observable';
+import { map } from 'rxjs/operators';
 
 import { AppDataService } from '../services/app-data.service';
 import { ModalsService } from '../modals/modals.service';
-
-// new imports
-
-import { Observable } from 'rxjs/Observable';
 import { PiaModel, AnswerModel, EvaluationModel, FolderModel, ProcessingModel } from '@api/models';
 import { PiaApi, EvaluationApi, FolderApi, ProcessingApi } from '@api/services';
 
@@ -17,6 +15,7 @@ export class PiaService {
   processings = [];
   folders = [];
   currentFolder: FolderModel = null
+  currentProcessing: ProcessingModel = null;
   isRootFolder: boolean = false
   pia: PiaModel = new PiaModel();
   answer: AnswerModel = new AnswerModel();
@@ -43,10 +42,10 @@ export class PiaService {
    */
   retrieveCurrentPIA(id: number): Observable<PiaModel> {
 
-    return this.piaApi.get(id).map((thePia: PiaModel) => {
+    return this.piaApi.get(id).pipe(map((thePia: PiaModel) => {
       this.pia.fromJson(thePia);
       return this.pia;
-    });
+    }));
 
   }
 
@@ -264,10 +263,10 @@ export class PiaService {
   }
 
   public saveCurrentPia(): Observable<PiaModel> {
-    return this.piaApi.update(this.pia).map((updatedPia: PiaModel) => {
+    return this.piaApi.update(this.pia).pipe(map((updatedPia: PiaModel) => {
       this.pia = updatedPia;
       return this.pia;
-    });
+    }));
   }
 
   /**

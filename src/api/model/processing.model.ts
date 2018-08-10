@@ -1,6 +1,6 @@
 
-import { BaseModel } from './base.model';
-import { Folder } from './folder.model';
+import { BaseModel } from '@api/model/base.model';
+import { PiaModel, FolderModel } from '@api/models';
 
 export class Processing extends BaseModel {
   public id: any;
@@ -8,13 +8,13 @@ export class Processing extends BaseModel {
   public status: string;
   public description: string;
   public author: string;
-  public lifeCycle: string;
+  public life_cycle: string;
   public storage: string;
   public standards: string;
   public processors: any;
   public controllers: any;
-  public nonEuTransfer: string;
-  public dataTypes: any;
-  public folder: Folder;
+  public non_eu_transfer: string;
+  public processing_data_types: any;
+  public folder: FolderModel;
   public pias_count: number;
 }

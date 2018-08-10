@@ -389,3 +389,78 @@
     }
   }
 }
+
+#processing-form {
+  fieldset {
+    border: none;
+  }
+
+  .form-field {
+    position: relative;
+    margin-bottom: 10px;
+    background-color: #fff;
+    padding: 12px 32px;
+    box-shadow: 1px 1px 15px 1px rgba(210,210,210,1);
+    .hide {
+      display: none;
+    }
+    *:not(label) {
+      margin-top: 20px;
+    }
+    .title {
+      position: relative;
+      font-size: 1.75rem;
+      padding-left: 12px;
+      padding-right: 12px;
+      margin-bottom: 4px;
+    }
+    textarea {
+      resize: none;
+      display: block;
+      width: 100%;
+      background-color: $pia-white;
+      border: 0;
+      padding: 5px 12px;
+      font-size: 1.35rem;
+      min-height: 130px;
+      &::placeholder {
+        font-style: italic;
+      }
+      &:disabled {
+        background-color: transparent;
+        color: $pia-dark-black;
+        cursor: pointer;
+      }
+    }
+    .field {
+      color: $pia-gray;
+      top: 16px;
+      right: 14px;
+      font-size: 1.9rem;
+      padding: 0;
+      // Tags questions
+      .tags {
+        width: 100%;
+        border: none;
+        margin: 10px 0;
+        padding: 4px;
+      }
+    }
+    .highlight {
+      color: $pia-red;
+    }
+    .content {
+      &Text {
+        min-height: 130px;
+        padding: 5px 12px;
+        cursor: pointer;
+      }
+    }
+    .date {
+      display: inline-block;
+      width: 50%;
+      color: $pia-gray;
+      font-size: 1rem;
+    }
+  }
+}

@@ -32,7 +32,7 @@ module.exports = function(config) {
           '--remote-debugging-port=9222',
         ],
       }
-    }
+    },
     reporters: ['progress', 'kjhtml'],
     port: 9876,
     colors: true,

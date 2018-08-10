@@ -2,7 +2,7 @@
   border: none;
   margin-bottom: 30px;
   > div {
-    border-bottom: 2px solid #3EE095;
+    border-bottom: 2px solid $pia-green;
   }
 }
 .mce-edit-area.mce-container.mce-panel.mce-stack-layout-item.mce-last {
@@ -10,7 +10,7 @@
 }
 .mce-container-body {
   .mce-flow-layout {
-    background-color: #3EE095 !important;
+    background-color: $pia-green !important;
     position: absolute;
     left: 10%;
     padding: 0;
@@ -24,14 +24,14 @@
       left: 50%;
       border-left: 16px solid transparent;
       border-right: 16px solid transparent;
-      border-bottom: 16px solid #3EE095;
+      border-bottom: 16px solid $pia-green;
       margin-left: -16px;
     }
     i {
       color:$white;
     }
     .mce-widget, .mce-btn {
-      background-color: #3EE095;
+      background-color: $pia-green;
     }
   }
   .mce-toolbar-grp {
@@ -41,6 +41,6 @@
 
 app-editor{
   width: 90%;
-  border-bottom: #3EE095 solid 0.3rem;
+  border-bottom: $pia-green solid 0.3rem;
   margin:auto;
 }

@@ -1,34 +1,32 @@
-import { browser, by, element } from 'protractor';
+import { browser } from 'protractor';
 import { LoginPage } from './page/login.po';
-import { HomePage } from './page/home.po';
+import { Dashboard } from './page/dashboard.po';
+import { Folders } from './page/folders.po';
 import { FolderCreationModal } from './modal/folder-creation.po';
-import { FolderDeletionModal } from './modal/folder-deletion.po';
+import { FolderDeleteConfirmationModal } from './modal/folder-delete-confirmation.po';
+import { Header } from './element/header.po';
 import { FolderCards } from './element/folder-cards.po';
 import './set-env';
 
 
-describe('PIA folder management', () => {
+describe('Processing folder management', () => {
 
   const auth = {
     username: process.env.TEST_USERNAME,
     password: process.env.TEST_PASSWORD
   };
   const salt = Math.random().toString(36).substring(2, 8);
-  const folderName = "Test Folder "+ salt;
+  const folderName = 'Test Folder ' + salt;
 
-  let loginPage: LoginPage;
-  let homePage: HomePage;
-  let folderCreationModal: FolderCreationModal;
-  let folderDeletionModal: FolderDeletionModal;
-  let folderCards: FolderCards;
+  const loginPage = new LoginPage();
+  const dashboard = new Dashboard();
+  const header = new Header();
+  const folders = new Folders();
+  const folderCreationModal = new FolderCreationModal();
+  const folderDeleteConfirmationModal = new FolderDeleteConfirmationModal();
+  const folderCards = new FolderCards();
 
   beforeEach(() => {
-    loginPage = new LoginPage();
-    homePage = new HomePage();
-    folderCreationModal = new FolderCreationModal();
-    folderDeletionModal = new FolderDeletionModal();
-    folderCards = new FolderCards();
-
     loginPage.navigateTo();
     loginPage.clearSessionAndStorage();
     loginPage.fillCredentionals(auth.username, auth.password);
@@ -36,22 +34,29 @@ describe('PIA folder management', () => {
 
     browser.wait(function() {
       return browser.getCurrentUrl().then(function(url) {
-        return /home/.test(url);
+        return /dashboard/.test(url);
+      });
+    }, 10000);
+
+    dashboard.clickOnDashboardItem('processings');
+
+    browser.wait(function() {
+      return browser.getCurrentUrl().then(function(url) {
+        return /folders/.test(url);
       });
     }, 10000);
 
   });
 
   afterEach(() => {
-    loginPage = new LoginPage();
-    homePage.clickOnLogoutInProfileMenu();
+    header.clickOnLogoutInProfileMenu();
   });
 
   it('when user create a folder - a popup has to be filled and the created folder appear on the page', () => {
 
-    homePage.clickOnCreateFolderInCreationMenu().then(() => {
+    folders.clickOnCreateFolderInCreationMenu().then(() => {
         expect(folderCreationModal.el().isDisplayed()).toBeTruthy();
-        
+
         folderCreationModal.fillFolderName(folderName);
 
         folderCreationModal.submitForm().then(() => {
@@ -66,11 +71,11 @@ describe('PIA folder management', () => {
   it('when user delete a folder - a popup ask for confirmation and the folder is deleted', () => {
 
     folderCards.byFolderName(folderName).clickOnDeleteInToolMenu().then(() => {
-      expect(folderDeletionModal.el().isDisplayed()).toBeTruthy();
+      expect(folderDeleteConfirmationModal.el().isDisplayed()).toBeTruthy();
     });
 
-    folderDeletionModal.confirmDeletion().then(() => {
-      expect(folderDeletionModal.el().isDisplayed()).toBeFalsy();
+    folderDeleteConfirmationModal.confirmDeletion().then(() => {
+      expect(folderDeleteConfirmationModal.el().isDisplayed()).toBeFalsy();
       expect(folderCards.byFolderName(folderName).el().isPresent()).toBeFalsy();
     })
 

@@ -21,7 +21,7 @@ export class KnowledgeBaseService {
    * @param {any} http
    * @memberof KnowledgeBaseService
    */
-  loadData(http:HttpClient) {
+  loadData(http: HttpClient) {
     http.get<any[]>('./assets/files/pia_knowledge-base.json').subscribe(data => {
       this.knowledgeBaseData = data;
       this.allKnowledgeBaseData = data;

@@ -9,3 +9,4 @@ export { UserProfileService } from './user-profile.service';
 export { UserTokenService } from './user-token.service';
 export { TemplateService } from './template.service';
 export { FolderService } from './folder.service';
+export { ProcessingDataTypeService } from './processing-data-type.service';

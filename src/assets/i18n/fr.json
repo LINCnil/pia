@@ -188,6 +188,49 @@
     }
   },
   "processing": {
+    "form": {
+      "previous": "Section précédente",
+      "next": "Section suivante",
+      "description": { 
+        "title": "Quelles sont les finalités du traitement ?",
+        "placeholder": "Décrivez les objectifs et finalités du traitement"
+      },
+      "standards": {
+        "title": "Quels sont les référenciels applicables ?",
+        "placeholder": "Listez les référenciels qui concernent ce traitement"
+      },
+      "non-eu-transfer":  {
+        "title": "Transfert hors UE",
+        "placeholder": "Laisser vide si pas de transfert de données hors UE"
+      },
+      "data-types": "Types de données traitées",
+      "storage": {
+        "title": "Où les données sont elles stockées",
+        "placeholder": "Décrivez le/les lieux de stockage des données"
+      },
+      "processors": {
+        "title": "Sous traitants",
+        "placeholder": "Listez les sous traitants"
+      },
+      "lifecycle": {
+        "title": "Cycle de vie des données",
+        "placeholder": "Décrivez le cycle de vie des données pour ce traitement"
+      },
+      "sections": {
+        "description": {
+          "title": "Description de l'activité de traitement",
+          "short_help": ""
+        },
+        "data": {
+          "title": "Données traitées",
+          "short_help": ""
+        },
+        "lifecycle": {
+          "title": "Cycle de vie des données",
+          "short_help": ""
+        }
+      }
+    },
     "statuses": {
       "0": "Valide",
       "1": "Archivé"
@@ -214,6 +257,20 @@
           "remove": "Supprimer le PIA"
         }
       }
+    }
+  },
+  "processing-data-types": {
+    "form": {
+      "retention-period": "Durée de conservation",
+      "sensitive": "Données sensibles ?",
+      "identification": "État-civil, identité, données d'identification, images(ex.nom, prénom, adresse, photographie, date et lieu de naissance, etc.)",
+      "personal": "Vie personnelle (ex. habitudes de vie, situation familiale, etc.)",
+      "professional": "Vie professionnelle(ex. CV, situation professionnelle, scolarité, formation, distinctions, diplômes, etc.)",
+      "financial": "Informations d’ordre économique et financier (ex. revenus, situation financière, données bancaires, etc.)",
+      "log": "Données de connexion (ex. adresses Ip, logs, identifiants des terminaux, identifiants de connexion, informations d'horodatage, etc.)",
+      "location": "Données de localisation (ex. déplacements, données GPS, GSM, ...)",
+      "internet": "Internet(ex. cookies, traceurs, données de navigation, mesures d’audience, ...)",
+      "other": "Autres catégories de données"
     }
   },
   "pia": {
@@ -357,6 +414,10 @@
         "name": "Recueil du consentement de l'utilisateur du service",
         "description": "Il s'agit de permettre un choix libre, spécifique et éclairé; vérifier que l'une des bases légales du traitement est le consentement, tel que prévu à l'<a target=\"_blank\" href=\"https://www.cnil.fr/fr/reglement-europeen-protection-donnees/chapitre2#Article6\">article 6 du RGPD</a> (obligation légale, sauvegarde de la vie, mission de service public, contrat ou mesures prises avec la personne, intérêt légitime).",
         "source": "WIKI Recueil_du_consentement"
+      },
+      "PIA_LGL_LFC": {
+        "name": "Cycle de vie des données",
+        "description": "Décrivez les différentes étapes qui concerneront les données tout au long de leur durée de conservation."
       },
       "PIA_VAL_DPO": {
         "name": "Avis du délégué à la protection des données",

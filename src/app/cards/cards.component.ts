@@ -62,51 +62,6 @@ export class CardsComponent implements OnInit, OnDestroy {
     this.paramsSubscribe.unsubscribe();
   }
 
-  // /**
-  //  * Import a new PIA.
-  //  * @param {*} [event] - Any Event.
-  //  * @memberof CardsComponent
-  //  */
-  // async importPia(event?: any) {
-  //   if (event) {
-  //     await this._piaService.import(event.target.files[0]);
-  //     this.sortElements();
-  //   } else {
-  //     this.el.nativeElement.querySelector('#import_file').click();
-  //   }
-  // }
-
-  // /**
-  //  * Save the newly created PIA.
-  //  * Sends to the path associated to this new PIA.
-  //  * @memberof CardsComponent
-  //  */
-  // onSubmit() {
-  //   const pia = new PiaModel();
-  //   pia.name = this.piaForm.value.name;
-  //   pia.author_name = this.piaForm.value.author_name;
-  //   pia.evaluator_name = this.piaForm.value.evaluator_name;
-  //   pia.validator_name = this.piaForm.value.validator_name;
-  //   const p = this.piaApi.create(pia, this._piaService.currentFolder).subscribe((newPia: PiaModel) => {
-  //     this.router.navigate(['entry', newPia.id, 'section', 1, 'item', 1]);
-  //   });
-  // }
-  /**
-   * Save the newly created PIA.
-   * Sends to the path associated to this new PIA.
-   * @memberof CardsComponent
-   */
-  onSubmitNewProcessingForm() {
-    const processing = new ProcessingModel();
-    processing.name = this.processingForm.value.name;
-    processing.author = this.processingForm.value.author;
-    processing.processors = this.processingForm.value.processors;
-    processing.controllers = this.processingForm.value.controllers;
-    const p = this.processingApi.create(processing, this._piaService.currentFolder).subscribe((newProcessing: ProcessingModel) => {
-      this.router.navigate(['entry', newProcessing.id, 'section', 1, 'item', 1]);
-    });
-  }
-
   /**
    * Sort items.
    * @param {string} fieldToSort - Field to sort.
@@ -218,33 +173,6 @@ export class CardsComponent implements OnInit, OnDestroy {
       localStorage.setItem('sortValue', this.sortValue);
     }
   }
-
-  // protected initPiaForm() {
-  //   this.piaForm = new FormGroup({
-  //     name: new FormControl(),
-  //     author_name: new FormControl(),
-  //     evaluator_name: new FormControl(),
-  //     validator_name: new FormControl()
-  //   });
-  //   this.viewStyle = {
-  //     view: this.route.snapshot.params['view']
-  //   }
-  //   this.paramsSubscribe = this.route.params.subscribe(
-  //     (params: Params) => {
-  //       this.viewStyle.view = params['view'];
-  //       this.folderId = (params.id ? params.id : null)
-  //       if (localStorage.getItem('homepageDisplayMode') === 'list') {
-  //         this.viewOnList();
-  //       } else {
-  //         this.viewOnCard();
-  //       }
-  //     }
-  //   );
-
-  //   this.importPiaForm = new FormGroup({
-  //     import_file: new FormControl('', [])
-  //   });
-  // }
 
   protected initProcessingForm() {
     this.processingForm = new FormGroup({

@@ -1160,5 +1160,16 @@
     "link_good_practices": "",
     "link_notes": "",
     "link_tools": ""
+  },
+  {
+    "slug": "PIA_LGL_LFC",
+    "filters": "",
+    "category": "knowledge_base.category.example",
+    "name": "knowledge_base.slugs.PIA_LGL_LFC.name",
+    "description": "knowledge_base.slugs.PIA_LGL_LFC.description",
+    "link_objectives": "",
+    "link_good_practices": "",
+    "link_notes": "",
+    "link_tools": ""
   }
 ]

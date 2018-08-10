@@ -1,9 +1,9 @@
 import { browser, by, element } from 'protractor';
 
-export class HomePage {
+export class Header {
 
-  navigateTo() {
-    return browser.get('/home');
+  el() {
+    return element(by.css('header.pia-headerBlock'));
   }
 
   navbarProfile() {
@@ -13,19 +13,10 @@ export class HomePage {
     return element(by.css('li.pia-navigationBlock-profile > a')).click();
   }
 
-  openCreationMenu() {
-    return element(by.css('.menu-creation button.pia-filtersBlock-filters-btn.btn')).click();
-  }
-
-  clickOnCreateFolderInCreationMenu() {
-    return this.openCreationMenu().then(() => {
-      return element(by.css('.menu-creation button[name="create-folder-btn"]')).click();
-    });
-  }
-
   clickOnLogoutInProfileMenu() {
     return this.openProfileMenu().then(() => {
       return element(by.css('#user-block li.logout > a')).click();
     });
   }
+
 }

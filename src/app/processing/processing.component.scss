@@ -3,12 +3,15 @@
 
 // Sections
 .processing {
-  &-sectionBlock {
+  .active {
+    color: red;
+  }
+  &-section {
     &-header {
       display: flex;
-      justify-content: flex-end;
+      justify-content: flex-start;
       padding: 0;
-      border-bottom: solid 2px $pia-gray;
+      border-bottom: solid 2px $pia-green;
       h1 {
         font-size: 3rem;
         font-weight: 400;
@@ -24,6 +27,7 @@
       }
     }
     &-title {
+      color: $pia-dark-black;
       margin-top: 18px;
       margin-left: 10px;
       text-transform: uppercase;
@@ -32,15 +36,21 @@
       align-self: center;
       display: flex;
       font-weight: 600;
-      justify-content: flex-end;
+      justify-content: flex-start;
       font-size: 1.3rem;
+      cursor: pointer;
       hr {
         margin: auto 10px auto auto;
         background-color: $pia-gray;
         border: 0;
         height: 1px;
       }
+
+      &:focus, &:hover, &:active, &.active {
+        color: $pia-green!important;
+      }
     }
+    
     &-list {
       padding: 0;
       margin-bottom: 22px;
@@ -90,7 +100,7 @@
       }
       
       #general-section {
-        .pia-sectionBlock-title {
+        .pia-section-title {
           color: $pia-green;
           border-color: $pia-green;
         }
@@ -107,7 +117,7 @@
         }
       }
       #data-section {
-        .pia-sectionBlock-title {
+        .pia-section-title {
           color: $pia-blue;
           border-color: $pia-blue;
         }
@@ -125,7 +135,7 @@
       }
       
       #lifecycle-section {
-        .pia-sectionBlock-title {
+        .pia-section-title {
           color: $pia-red;
           border-color: $pia-red;
         }
@@ -142,5 +152,21 @@
         }
       }
     }
+  }
+}
+
+.processing-bottom-nav {
+  a {
+    color: $pia-green;
+    font-size: 1.2em;
+    cursor: pointer;
+  }
+
+  .processing-next {
+    float: right;
+  }
+
+  .processing-previous {
+    float: left;
   }
 }

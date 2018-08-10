@@ -1,9 +1,11 @@
 import { Injectable } from '@angular/core';
+import { HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
+import { map } from 'rxjs/operators';
+
 import { BaseService } from './base.service';
 import { UserToken } from '../model';
 import { environment } from 'environments/environment';
-import { HttpHeaders } from '@angular/common/http';
 
 @Injectable()
 export class UserTokenService extends BaseService<UserToken> {
@@ -29,7 +31,8 @@ export class UserTokenService extends BaseService<UserToken> {
       password: password
     });
 
-    return this.http.post(this.buildRoute(this.routing.token), query, this.httpOptions).map(res => this.mapToModel(res, this.modelClass));
+    return this.http.post(this.buildRoute(this.routing.token), query, this.httpOptions)
+      .pipe(map(res => this.mapToModel(res, this.modelClass)));
   }
 
   public refreshToken(token: UserToken): Observable<UserToken> {
@@ -40,7 +43,8 @@ export class UserTokenService extends BaseService<UserToken> {
       refresh_token: token.refresh_token
     });
 
-    return this.http.post(this.buildRoute(this.routing.token), query, this.httpOptions).map(res => this.mapToModel(res, this.modelClass));
+    return this.http.post(this.buildRoute(this.routing.token), query, this.httpOptions)
+      .pipe(map(res => this.mapToModel(res, this.modelClass)));
   }
 
 }

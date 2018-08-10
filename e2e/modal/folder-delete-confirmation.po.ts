@@ -1,6 +1,6 @@
 import { browser, by, element } from 'protractor';
 
-export class FolderDeletionModal {
+export class FolderDeleteConfirmationModal {
 
   el() {
     return element(by.css('#modal-remove-folder'));

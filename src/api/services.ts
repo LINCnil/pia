@@ -1,5 +1,5 @@
-//temporary service aliasing
-//to avoid naming collision with existing PIA-CNIL services
+// temporary service aliasing
+// to avoid naming collision with existing PIA-CNIL services
 
 export {
     ProcessingService as ProcessingApi,
@@ -13,4 +13,5 @@ export {
     UserTokenService as UserTokenApi,
     TemplateService as TemplateApi,
     FolderService as FolderApi,
+    ProcessingDataTypeService as ProcessingDataTypeApi
 } from '@api/service';

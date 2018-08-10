@@ -31,8 +31,12 @@
     "member-access": false,
     "member-ordering": [
       true,
-      "static-before-instance",
-      "variables-before-functions"
+      {
+        "order": [
+          "static-before-instance",
+          "variables-before-functions"
+        ]
+      }
     ],
     "no-arg": true,
     "no-bitwise": true,
@@ -115,9 +119,13 @@
     ],
     "component-selector": [
       true,
-      "attribute",
-      "element",
-      "app",
+      [
+        "element",
+        "attribute"
+      ],
+      [
+        "app"
+      ],
       "kebab-case"
     ],
     "use-input-property-decorator": true,

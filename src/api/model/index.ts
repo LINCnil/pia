@@ -11,3 +11,4 @@ export { UserProfile } from './user-profile.model';
 export { UserToken } from './user-token.model';
 export { Template } from './template.model';
 export { Folder } from './folder.model';
+export { ProcessingDataType } from './processing-data-type.model';

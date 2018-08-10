@@ -18,7 +18,7 @@ import { AuthenticationGuardService } from '@security/authentication-guard.servi
 import { PiaResolve } from 'app/services/pia.resolve.service';
 import { PiaService } from 'app/entry/pia.service';
 import { PiasListComponent } from './pias/list/list.component';
-import { ProcessingResolve } from './services/processing.resolve.service';
+import { ProcessingResolve } from './processing/processing.resolve.service';
 
 
 const routes: Routes = [
@@ -38,7 +38,8 @@ const routes: Routes = [
   {
     path: 'processing/:id/pias',
     component: PiasListComponent,
-    canActivate: [AuthenticationGuardService, ProcessingResolve]
+    canActivate: [AuthenticationGuardService],
+    resolve: {processing: ProcessingResolve}
   },
   { path: '**', component: ErrorsComponent },
 ];

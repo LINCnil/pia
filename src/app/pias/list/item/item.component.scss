@@ -1,7 +1,6 @@
 @import "../../../../assets/stylesheets/variables";
-@media (max-width: 1023px) {
+@media (max-width: calc(#{map-get($breakpoints, 'large')} - 1px)) {
   .pia {
-
     &-archive,
     &-doing {
       span {
@@ -14,7 +13,7 @@
     }
   }
 }
-@media (min-width: 1024px) {
+@media (min-width: #{map-get($breakpoints, 'large')}) {
   .pia {
 
     &-archive,
@@ -131,7 +130,7 @@
         padding: 0;
         display: none;
         position: absolute;
-        right: 15px;
+        right: 17px;
         top: -6px;
         padding-left: 0;
         background-color: #fff;

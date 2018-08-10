@@ -1,10 +1,10 @@
-import { browser, by, element } from 'protractor';
+import { browser } from 'protractor';
 import { LoginPage } from './page/login.po';
-import { HomePage } from './page/home.po';
+import { Header } from './element/header.po';
 import './set-env';
 
 
-describe('PIA Login page', () => {
+describe('PiaLab Login page', () => {
 
   const auth = {
     username: process.env.TEST_USERNAME,
@@ -12,11 +12,11 @@ describe('PIA Login page', () => {
   };
 
   let loginPage: LoginPage;
-  let homePage: HomePage;
+  let header: Header;
 
   beforeEach(() => {
     loginPage = new LoginPage();
-    homePage = new HomePage();
+    header = new Header();
   });
 
   it('when user trying to login with wrong credentials he should stay on “login” page and see error notification', () => {
@@ -44,13 +44,12 @@ describe('PIA Login page', () => {
 
     browser.wait(function() {
       return browser.getCurrentUrl().then(function(url) {
-        return /home/.test(url);
+        return /dashboard/.test(url);
       });
     }, 10000);
 
-    expect(homePage.navbarProfile().isPresent()).toBeTruthy();
-    homePage.clickOnLogoutInProfileMenu();
-    
+    expect(header.navbarProfile().isPresent()).toBeTruthy();
+    header.clickOnLogoutInProfileMenu();
   });
 
 });

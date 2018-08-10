@@ -1,0 +1,187 @@
+<div class="row">
+  <div class="processing-data-type small-12" id="identification-data">
+    <div class="type-enabled">
+      <input *ngxPermissionsOnly="['CanEditProcessing']" type="checkbox" class="field"
+        [(ngModel)]="identification.enabled" 
+        (change)="updateValue('identification', true)"
+      >
+      <label class="enabled-label" for="identification">{{ 'processing-data-types.form.identification'| translate }}</label>
+    </div>
+    <div class="type-retention-period" *ngIf="identification.enabled">
+      <label class="label" for="identification-retention-period">{{ 'processing-data-types.form.retention-period'| translate }}</label>
+      <input type="text" class="retention-period"
+        [(ngModel)]="identification.processedDataType.retention_period"
+        (change)="updateValue('identification')">
+    </div>
+    <div class="type-sensitive" *ngIf="identification.enabled">
+      <label class="label" for="identification-sensitive">{{ 'processing-data-types.form.sensitive'| translate }}</label>
+      <input type="checkbox"
+        [(ngModel)]="identification.processedDataType.sensitive"
+        (change)="updateValue('identification')">
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="processing-data-type small-12" id="personal-data">
+    <div class="type-enabled">
+      <input *ngxPermissionsOnly="['CanEditProcessing']" class="field" type="checkbox"
+        [(ngModel)]="personal.enabled"
+        (change)="updateValue('personal', true)">
+      <label class="enabled-label" for="personal">{{ 'processing-data-types.form.personal'| translate }}</label>
+    </div>
+    <div class="type-retention-period" *ngIf="personal.enabled">
+      <label class="label" for="personal-retention-period">{{ 'processing-data-types.form.retention-period'| translate }}</label>
+      <input type="text" class="retention-period"
+        [(ngModel)]="personal.processedDataType.retention_period"
+        (change)="updateValue('personal')">
+    </div>
+    <div class="type-sensitive" *ngIf="personal.enabled">
+      <label class="label" for="personal-sensitive">{{ 'processing-data-types.form.sensitive'| translate }}</label>
+      <input type="checkbox" name="personal[sensitive]" field="sensitive" reference="personal" 
+        [(ngModel)]="personal.processedDataType.sensitive" 
+        (change)="updateValue('personal')">
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="processing-data-type small-12" id="professional-data">
+    <div class="type-enabled">
+      <input *ngxPermissionsOnly="['CanEditProcessing']" class="field" type="checkbox"
+        [(ngModel)]="professional.enabled"
+        (change)="updateValue('professional', true)">
+      <label class="enabled-label" for="professional">{{ 'processing-data-types.form.professional'| translate }}</label>
+    </div>
+    <div class="type-retention-period" *ngIf="professional.enabled">
+      <label class="label" for="professional-retention-period">{{ 'processing-data-types.form.retention-period'| translate }}</label>
+      <input type="text" class="retention-period"
+        [(ngModel)]="professional.processedDataType.retention_period"
+        (change)="updateValue('professional')">
+    </div>
+    <div class="type-sensitive" *ngIf="professional.enabled">
+      <label class="label" for="professional-sensitive">{{ 'processing-data-types.form.sensitive'| translate }}</label>
+      <input type="checkbox" class="sensitive"
+        [(ngModel)]="professional.processedDataType.sensitive"
+        (change)="updateValue('professional')">
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="processing-data-type small-12" id="financial-data">
+    <div class="type-enabled">
+      <input *ngxPermissionsOnly="['CanEditProcessing']" class="field" type="checkbox"
+        [(ngModel)]="financial.enabled"
+        (change)="updateValue('financial', true)">
+      <label class="enabled-label" for="financial">{{ 'processing-data-types.form.financial'| translate }}</label>
+    </div>
+    <div class="type-retention-period" *ngIf="financial.enabled">
+      <label class="label" for="financial-retention-period">{{ 'processing-data-types.form.retention-period'| translate }}</label>
+      <input type="text" class="retention-period"
+        [(ngModel)]="financial.processedDataType.retention_period"
+        (change)="updateValue('financial')">
+    </div>
+    <div class="type-sensitive" *ngIf="financial.enabled">
+      <label class="label" for="financial-sensitive">{{ 'processing-data-types.form.sensitive'| translate }}</label>
+      <input type="checkbox" class="sensitive"
+        [(ngModel)]="financial.processedDataType.sensitive"
+        (change)="updateValue('financial')">
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="processing-data-type small-12" id="log-data">
+    <div class="type-enabled">
+      <input *ngxPermissionsOnly="['CanEditProcessing']" class="field" type="checkbox"
+          [(ngModel)]="log.enabled" 
+          (change)="updateValue('log', true)">
+      <label class="enabled-label" for="log">{{ 'processing-data-types.form.log'| translate }}</label>
+    </div>
+    <div class="type-retention-period" *ngIf="log.enabled">
+      <label class="label" for="log-retention-period">{{ 'processing-data-types.form.retention-period'| translate }}</label>
+      <input type="text" class="retention-period"
+        [(ngModel)]="log.processedDataType.retention_period"
+        (change)="updateValue('log')">
+    </div>
+    <div class="type-sensitive" *ngIf="log.enabled">
+      <label class="label" for="log-sensitive">{{ 'processing-data-types.form.sensitive'| translate }}</label>
+      <input type="checkbox" class="sensitive"
+        [(ngModel)]="log.processedDataType.sensitive"
+        (change)="updateValue('log')">
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="processing-data-type small-12" id="location-data">
+    <div class="type-enabled">
+      <input *ngxPermissionsOnly="['CanEditProcessing']" class="field" type="checkbox"
+        [(ngModel)]="location.enabled"
+        (change)="updateValue('location', true)">
+      <label class="enabled-label" for="location">{{ 'processing-data-types.form.location'| translate }}</label>
+    </div>
+    <div class="type-retention-period" *ngIf="location.enabled">
+      <label class="label" for="location-retention-period">{{ 'processing-data-types.form.retention-period'| translate }}</label>
+      <input type="text" class="retention-period"
+        [(ngModel)]="location.processedDataType.retention_period"
+        (change)="updateValue('location')">
+    </div>
+    <div class="type-sensitive" *ngIf="location.enabled">
+      <label class="label" for="location-sensitive">{{ 'processing-data-types.form.sensitive'| translate }}</label>
+      <input type="checkbox" class="sensitive"
+        [(ngModel)]="location.processedDataType.sensitive"
+        (change)="updateValue('location')">
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="processing-data-type small-12" id="internet-data">
+    <div class="type-enabled">
+      <input *ngxPermissionsOnly="['CanEditProcessing']" type="checkbox"
+        [(ngModel)]="internet.enabled"
+        (change)="updateValue('internet', true)">
+      <label class="enabled-label" for="internet">{{ 'processing-data-types.form.internet'| translate }}</label>
+    </div>
+    <div class="type-retention-period" *ngIf="internet.enabled">
+      <label class="label" for="internet-retention-period">{{ 'processing-data-types.form.retention-period'| translate }}</label>
+      <input type="text" class="retention-period"
+        [(ngModel)]="internet.processedDataType.retention_period"
+        (change)="updateValue('internet')">
+    </div>
+    <div class="type-sensitive" *ngIf="internet.enabled">
+      <label class="label" for="internet-sensitive">{{ 'processing-data-types.form.sensitive'| translate }}</label>
+      <input type="checkbox" class="sensitive" 
+        [(ngModel)]="internet.processedDataType.sensitive"
+        (change)="updateValue('internet')">
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="processing-data-type small-12" id="other-data">
+    <div class="type-enabled">
+      <input *ngxPermissionsOnly="['CanEditProcessing']" class="field" type="checkbox"
+        [(ngModel)]="other.enabled"
+        (change)="updateValue('other', true)">
+      <label class="enabled-label" for="other">{{ 'processing-data-types.form.other'| translate }}</label>
+    </div>
+    <div class="type-retention-period" *ngIf="other.enabled">
+      <input type="text" class="other"
+        [(ngModel)]="other.processedDataType.data"
+        (change)="updateValue('other')">
+    </div>
+    <div class="type-retention-period" *ngIf="other.enabled">
+      <label class="label" for="other-retention-period">{{ 'processing-data-types.form.retention-period'| translate }}</label>
+      <input type="text" class="retention-period"
+        [(ngModel)]="other.processedDataType.retention_period"
+        (change)="updateValue('other')">
+    </div>
+    <div class="type-sensitive" *ngIf="other.enabled">
+      <label class="label" for="other-sensitive">{{ 'processing-data-types.form.sensitive'| translate }}</label>
+      <input type="checkbox" class="sensitive"
+        [(ngModel)]="other.processedDataType.sensitive"
+        (change)="updateValue('other')">
+    </div>
+  </div>
+</div>

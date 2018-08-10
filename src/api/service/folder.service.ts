@@ -1,6 +1,7 @@
 
 import { BaseService } from './base.service';
 import { Observable } from 'rxjs/Observable';
+import { map } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Folder, Processing } from '../model';
@@ -20,7 +21,7 @@ export class FolderService extends BaseService<Folder> {
   }
 
   public getAll(structureId:string): Observable<Folder[]> {
-    return this.httpGetAll(this.routing.all,{structureId: structureId}).map(folders => {
+    return this.httpGetAll(this.routing.all,{structureId: structureId}).pipe(map(folders => {
       folders.forEach(folder => {
         folder.processings.forEach((processing, index, processings) => {
           processings[index] = (new Processing()).fromJson(processing);
@@ -33,11 +34,11 @@ export class FolderService extends BaseService<Folder> {
         }
       });
       return folders;
-   });
+   }));
   }
 
-  public get(structureId:string, id: any): Observable<Folder> {
-    return this.httpGetOne(this.routing.one, {structureId: structureId, id: id }).map(folder => {
+  public get(structureId: string, id: any): Observable<Folder> {
+    return this.httpGetOne(this.routing.one, {structureId: structureId, id: id }).pipe(map(folder => {
       folder.processings.forEach((processing, index, processings) => {
         processings[index] = (new Processing()).fromJson(processing);
       });
@@ -48,7 +49,7 @@ export class FolderService extends BaseService<Folder> {
         folder.parent = (new Folder()).fromJson(folder.parent)
       }
       return folder;
-    });
+    }));
   }
 
   public update(model: Folder): Observable<Folder> {
