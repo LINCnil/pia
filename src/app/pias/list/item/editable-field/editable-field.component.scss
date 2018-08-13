@@ -1,0 +1,14 @@
+@import "../../../../../assets/stylesheets/variables";
+
+label {
+  input {
+    border:none;
+    background: transparent;
+    border:1px solid transparent;
+
+    &:hover,
+    &:focus {
+      border:1px solid $pia-green;
+    }
+  }
+}

@@ -76,6 +76,7 @@ import { ProcessingDataTypesComponent } from './processing/processing-form/proce
 import { PiasListComponent } from './pias/list/list.component';
 import { PiasListItemComponent } from './pias/list/item/item.component';
 import { ProcessingDataTypeService } from '@api/service';
+import { EditableFieldComponent } from './pias/list/item/editable-field/editable-field.component';
 
 const providersList: any = [
   AppDataService,
@@ -164,7 +165,8 @@ export function createTranslateLoader(http: HttpClient) {
     ProcessingFormComponent,
     ProcessingDataTypesComponent,
     PiasListComponent,
-    PiasListItemComponent
+    PiasListItemComponent,
+    EditableFieldComponent
   ],
   imports: [
     BrowserModule,
