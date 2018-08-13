@@ -1,6 +1,4 @@
 @import '../../../assets/stylesheets/variables';
-
-// Knowledge base
 .pia {
   &-knowledgeBaseBlock {
     &-none {
@@ -170,7 +168,6 @@
         }
       }
       &-content {
-        // display: none;
         padding-top: 10px;
         padding-bottom: 15px;
         color: $pia-dark-black;

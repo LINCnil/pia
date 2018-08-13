@@ -64,6 +64,7 @@
   <div class="row" id="force-select-all">
     <div class="small-12 medium-12 columns">
       <div *ngIf="allData" ng-class="{'text-success': model.copied, 'text-danger': !model.copied}" ng-copy="events.onCopy($event)">
+
         <!-- Main PIA data -->
         <!--<div class="fadeIn force-select-all" *ngIf="displayMainPiaData">-->
         <div class="fadeIn" *ngIf="displayMainPiaData">
@@ -82,6 +83,7 @@
             </div>
           </div>
         </div>
+
         <div *ngFor="let section of _piaService.data.sections">
           <div class="fadeIn section-{{section.id}} pagebreak" *ngIf="section.id !== 4">
             <h1 >{{ section.title | translate }}</h1>
