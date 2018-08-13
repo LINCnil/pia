@@ -894,8 +894,11 @@
     "completed_evaluation": {
       "content": "TO BE TRANSLATED - The PIA has been fully reviewed and can be validated."
     },
-    "update_server_url": {
-      "content": "Se ha actualizado la dirección del servidor"
+    "update_server_url_ok": {
+      "content": "TO BE TRANSLATED - The server address has been updated."
+    },
+    "update_server_url_nok": {
+      "content": "TO BE TRANSLATED - Connection impossible."
     },
     "signed_pia_validation": {
       "content": "TO BE TRANSLATED - To approve the PIA, attach the signed report.",
@@ -1229,7 +1232,7 @@
             },
             "2": {
               "title": "¿Cuáles son las principales amenazas que podrían conducir a los riesgos?",
-              "placeholder": "Entrar la amenazas \u002B"
+              "placeholder": "Entrar la amenazas"
             },
             "3": {
               "title": "¿Cuáles son las fuentes de riesgo?",

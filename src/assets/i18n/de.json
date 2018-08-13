@@ -894,8 +894,11 @@
     "completed_evaluation": {
       "content": "Die DSFA wurde vollständig überprüft, sie muss bestätigt werden."
     },
-    "update_server_url": {
-      "content": "Die Serveradresse wurde aktualisiert."
+    "update_server_url_ok": {
+      "content": "TO BE TRANSLATED - The server address has been updated."
+    },
+    "update_server_url_nok": {
+      "content": "TO BE TRANSLATED - Connection impossible."
     },
     "signed_pia_validation": {
       "content": "<span class = 'strong'>Die DSFA wird akzeptiert</span><br>Schließen Sie die Bestätigung der DSFA ab, indem Sie den unterschriebenen Bericht an die zuständige Person anhängen.",
@@ -1225,15 +1228,15 @@
           "questions": {
             "1": {
               "title": "Was könnten die wesentlichen Auswirkungen für die betroffenen Personen sein, wenn das Risiko eintritt?",
-              "placeholder": "Geben Sie die möglichen Auswirkungen ein \u002B"
+              "placeholder": "Geben Sie die möglichen Auswirkungen ein"
             },
             "2": {
               "title": "Was sind die Hauptbedrohungen, die zu dem Risiko führen könnten?",
-              "placeholder": "Geben Sie die Bedrohungen ein \u002B"
+              "placeholder": "Geben Sie die Bedrohungen ein"
             },
             "3": {
               "title": "Was sind die Risikoquellen?",
-              "placeholder": "Geben Sie die Risikoquellen ein \u002B"
+              "placeholder": "Geben Sie die Risikoquellen ein"
             },
             "4": {
               "title": "Welche der identifizierten Maßnahmen tragen zur Bewältigung des Risikos bei?",
@@ -1255,15 +1258,15 @@
           "questions": {
             "1": {
               "title": "Was könnten die wesentlichen Auswirkungen für die betroffenen Personen sein, wenn das Risiko eintritt?",
-              "placeholder": "Geben Sie die potenziellen Auswirkungen ein \u002B"
+              "placeholder": "Geben Sie die potenziellen Auswirkungen ein"
             },
             "2": {
               "title": "Was sind die Hauptbedrohungen, die zu dem Risiko führen könnten?",
-              "placeholder": "Geben Sie die Bedrohungen ein \u002B"
+              "placeholder": "Geben Sie die Bedrohungen ein"
             },
             "3": {
               "title": "Was sind die Risikoquellen?",
-              "placeholder": "Geben Sie die Risikoquellen \u002B ein"
+              "placeholder": "Geben Sie die Risikoquellen ein"
             },
             "4": {
               "title": "Welche der identifizierten Maßnahmen tragen zur Bewältigung des Risikos bei?",
@@ -1285,15 +1288,15 @@
           "questions": {
             "1": {
               "title": "Was könnten die wesentlichen Auswirkungen für die betroffenen Personen sein, wenn das Risiko eintritt?",
-              "placeholder": "Geben Sie die möglichen Auswirkungen ein \u002B"
+              "placeholder": "Geben Sie die möglichen Auswirkungen ein"
             },
             "2": {
               "title": "Was sind die Hauptbedrohungen, die zu dem Risiko führen könnten?",
-              "placeholder": "Geben Sie die Bedrohungen ein \u002B"
+              "placeholder": "Geben Sie die Bedrohungen ein"
             },
             "3": {
               "title": "Was sind die Risikoquellen?",
-              "placeholder": "Geben Sie die Risikoquellen ein \u002B"
+              "placeholder": "Geben Sie die Risikoquellen ein"
             },
             "4": {
               "title": "Welche der identifizierten Maßnahmen tragen zur Bewältigung des Risikos bei?",

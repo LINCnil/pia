@@ -1,9 +1,11 @@
 import { Component, OnInit, ElementRef, NgZone } from '@angular/core';
+import * as d3 from 'd3';
+
+import { Answer } from 'app/entry/entry-content/questions/answer.model';
+
 import { PiaService } from 'app/entry/pia.service';
 import { AppDataService } from 'app/services/app-data.service';
-import { Answer } from 'app/entry/entry-content/questions/answer.model';
 import { TranslateService } from '@ngx-translate/core';
-import * as d3 from 'd3';
 
 @Component({
   selector: `.app-overview-risks`,

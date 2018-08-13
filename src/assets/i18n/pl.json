@@ -894,8 +894,11 @@
     "completed_evaluation": {
       "content": "Dokonano całkowitej analizy PIA, obecnie należy dokonać jej zatwierdzenia."
     },
-    "update_server_url": {
-      "content": "Adres serwera został zaktualizowany."
+    "update_server_url_ok": {
+      "content": "TO BE TRANSLATED - The server address has been updated."
+    },
+    "update_server_url_nok": {
+      "content": "TO BE TRANSLATED - Connection impossible."
     },
     "signed_pia_validation": {
       "content": "Aby zatwierdzić PIA, dołącz podpisany raport.",
@@ -1225,15 +1228,15 @@
           "questions": {
             "1": {
               "title": "Jakie mogą być główne skutki dla osób, których dane dotyczą, jeżeli ryzyko się zdarzy?",
-              "placeholder": "Należy przedstawić potencjalne skutki \u002B"
+              "placeholder": "Należy przedstawić potencjalne skutki"
             },
             "2": {
               "title": "Jakie są główne zagrożenia, które mogą doprowadzić do zdarzenia się ryzyka?",
-              "placeholder": "Należy przedstawić zagrożenia \u002B"
+              "placeholder": "Należy przedstawić zagrożenia"
             },
             "3": {
               "title": "Jakie są źródła ryzyka?",
-              "placeholder": "Należy przedstawić źródła ryzyka \u002B"
+              "placeholder": "Należy przedstawić źródła ryzyka"
             },
             "4": {
               "title": "Które ze zidentyfikowanych środków pozwoli zająć się ryzykiem?",
@@ -1255,15 +1258,15 @@
           "questions": {
             "1": {
               "title": "Jakie mogą być główne skutki dla osób, których dane dotyczą, jeżeli ryzyko się zdarzy?",
-              "placeholder": "Należy przedstawić potencjalne skutki \u002B"
+              "placeholder": "Należy przedstawić potencjalne skutki"
             },
             "2": {
               "title": "Jakie są główne zagrożenia, które mogą doprowadzić do zdarzenia się ryzyka?",
-              "placeholder": "Należy przedstawić zagrożenia \u002B"
+              "placeholder": "Należy przedstawić zagrożenia"
             },
             "3": {
               "title": "Jakie są źródła ryzyka?",
-              "placeholder": "Należy przedstawić źródła ryzyka \u002B"
+              "placeholder": "Należy przedstawić źródła ryzyka"
             },
             "4": {
               "title": "Które ze zidentyfikowanych środków pozwoli zająć się ryzykiem?",
@@ -1285,15 +1288,15 @@
           "questions": {
             "1": {
               "title": "Jakie mogą być główne skutki dla osób, których dane dotyczą, jeżeli ryzyko się zdarzy?",
-              "placeholder": "Należy przedstawić potencjalne skutki \u002B"
+              "placeholder": "Należy przedstawić potencjalne skutki"
             },
             "2": {
               "title": "Jakie są główne zagrożenia, które mogą doprowadzić do zdarzenia się ryzyka?",
-              "placeholder": "Należy przedstawić zagrożenia \u002B"
+              "placeholder": "Należy przedstawić zagrożenia"
             },
             "3": {
               "title": "Jakie są źródła ryzyka?",
-              "placeholder": "Należy przedstawić źródła ryzyka \u002B"
+              "placeholder": "Należy przedstawić źródła ryzyka"
             },
             "4": {
               "title": "Które ze zidentyfikowanych środków pozwoli zająć się ryzykiem?",

@@ -894,8 +894,11 @@
     "completed_evaluation": {
       "content": "The PIA has been fully reviewed and can be validated."
     },
-    "update_server_url": {
+    "update_server_url_ok": {
       "content": "The server address has been updated."
+    },
+    "update_server_url_nok": {
+      "content": "Connection impossible."
     },
     "signed_pia_validation": {
       "content": "To approve the PIA, attach the signed report.",
@@ -1225,15 +1228,15 @@
           "questions": {
             "1": {
               "title": "What could be the main <span class='green-highlight'>impacts on the data subjects</span> if the risk were to occur?",
-              "placeholder": "Enter the potential impacts \u002B"
+              "placeholder": "Enter the potential impacts"
             },
             "2": {
               "title": "What are the main <span class='green-highlight'>threats</span> that could lead to the risk?",
-              "placeholder": "Enter the threats \u002B"
+              "placeholder": "Enter the threats"
             },
             "3": {
               "title": "What are the risk <span class='green-highlight'>sources</span>?",
-              "placeholder": "Enter the risk sources \u002B"
+              "placeholder": "Enter the risk sources"
             },
             "4": {
               "title": "Which of the identified <span class='green-highlight'>controls</span> contribute to addressing the risk?",
@@ -1255,15 +1258,15 @@
           "questions": {
             "1": {
               "title": "What could be the main <span class='green-highlight'>impacts on the data subjects</span> if the risk were to occur?",
-              "placeholder": "Enter the potential impacts \u002B"
+              "placeholder": "Enter the potential impacts"
             },
             "2": {
               "title": "What are the main <span class='green-highlight'>threats</span> that could lead to the risk?",
-              "placeholder": "Enter the threats \u002B"
+              "placeholder": "Enter the threats"
             },
             "3": {
               "title": "What are the risk <span class='green-highlight'>sources</span>?",
-              "placeholder": "Enter the risk sources \u002B"
+              "placeholder": "Enter the risk sources"
             },
             "4": {
               "title": "Which of the identified <span class='green-highlight'>controls</span> contribute to addressing the risk?",
@@ -1285,15 +1288,15 @@
           "questions": {
             "1": {
               "title": "What could be the main <span class='green-highlight'>impacts on the data subjects</span> if the risk were to occur?",
-              "placeholder": "Enter the potential impacts \u002B"
+              "placeholder": "Enter the potential impacts"
             },
             "2": {
               "title": "What are the main <span class='green-highlight'>threats</span> that could lead to the risk?",
-              "placeholder": "Enter the threats \u002B"
+              "placeholder": "Enter the threats"
             },
             "3": {
               "title": "What are the risk <span class='green-highlight'>sources</span>?",
-              "placeholder": "Enter the risk sources \u002B"
+              "placeholder": "Enter the risk sources"
             },
             "4": {
               "title": "Which of the identified <span class='green-highlight'>controls</span> contribute to addressing the risk?",

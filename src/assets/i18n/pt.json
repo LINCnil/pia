@@ -1123,7 +1123,7 @@
             },
             "2": {
               "title": "Como funciona o ciclo de vida dos dados pessoais e dos processos inerentes?",
-              "placeholder": "Apresente e descreva como os dados são processados (desde a recolha de dados até a destruição dos mesmos, as diferentes fases de tratamento, armazenamento, etc.). Se for aplicável, anexe exemplos de fluxogramas. Também é necessário identificar os tipos de operações de tratamento, tendo em contra os seguintes pontos: <br>-recolha <br>-registo <br>-organização <br>-estruturação <br>-conservação <br>-adaptação ou alteração <br>-recuperação <br>-consulta <br>-utilização <br>-divulgação por transmissão, difusão ou qualquer outra forma de disponibilização <br>-comparação ou interconexão <br>-limitação <br>-apagamento ou destruição <br>-outros." 
+              "placeholder": "Apresente e descreva como os dados são processados (desde a recolha de dados até a destruição dos mesmos, as diferentes fases de tratamento, armazenamento, etc.). Se for aplicável, anexe exemplos de fluxogramas. Também é necessário identificar os tipos de operações de tratamento, tendo em contra os seguintes pontos: <br>-recolha <br>-registo <br>-organização <br>-estruturação <br>-conservação <br>-adaptação ou alteração <br>-recuperação <br>-consulta <br>-utilização <br>-divulgação por transmissão, difusão ou qualquer outra forma de disponibilização <br>-comparação ou interconexão <br>-limitação <br>-apagamento ou destruição <br>-outros."
             },
             "3": {
               "title": "Quais são os ativos de informação utilizados na finalidade de tratamento?",
@@ -1224,16 +1224,16 @@
           "short_help": "Analisar as causas e consequências do acesso ilegítimo aos dados e estimar sua gravidade e probabilidade.",
           "questions": {
             "1": {
-              "title": "Quais poderiam ser os principais <span class='green-highlight'> impactos nos dados dos titulares</span> se o risco ocorrer?",
-              "placeholder": "Insira os possíveis impactos \u002B"
+              "title": " Quais poderiam ser os principais<span class='green-highlight'>impactos nos dados dos titulares</span> se o risco ocorrer?",
+              "placeholder": "Insira os possíveis impactos"
             },
             "2": {
-              "title": "Quais são as principais <span class='green-highlight'>ameaças</span> que poderiam levar ao risco? ",
-              "placeholder": "Insira as ameaças \u002B"
+              "title": "Quais são os principais<span class='green-highlight'>ameaças</span>que poderiam levar ao risco? ",
+              "placeholder": "Insira as ameaças"
             },
             "3": {
-              "title": "Quais são as <span class='green-highlight'>fontes</span> de risco?",
-              "placeholder": "Insira as fontes de risco \u002B"
+              "title": "Quais são as <span class='green-highlight'>fontes</span>de risco?",
+              "placeholder": "Insira as fontes de risco"
             },
             "4": {
               "title": "Quais são os <span class='green-highlight'>controlos</span> identificados que contribuem para abordar o risco?",
@@ -1254,16 +1254,16 @@
           "short_help": "Analisar as causas e consequências de uma alteração indesejada nos dados e estimar sua gravidade e probabilidade.",
           "questions": {
             "1": {
-              "title": "Quais poderiam ser os <span class='green-highlight'>impactos nos dados dos titulares</span> se o risco ocorrer?",
-              "placeholder": "Inserir os impactos potenciais \u002B"
+              "title": "Quais poderiam ser os <span class='green-highlight'>impactos nos dados dos titulares </span> se o risco ocorrer?",
+              "placeholder": "Inserir os impactos potenciais"
             },
             "2": {
               "title": "Quais são as principais <span class='green-highlight'>ameaças</span> que poderiam levar ao risco?",
-              "placeholder": "Inserir as ameaças \u002B"
+              "placeholder": "Inserir as ameaças"
             },
             "3": {
-              "title": "Quais são as <span class='green-highlight'>fontes</span> de risco?",
-              "placeholder": "Inserir as fontes de risco \u002B"
+              "title": "Quais são as <span class='green-highlight'>fontes</span>de risco?",
+              "placeholder": "Inserir as fontes de risco"
             },
             "4": {
               "title": "Quais são os <span class='green-highlight'>controlos</span> identificados que contribuem para abordar o risco?",
@@ -1284,16 +1284,16 @@
           "short_help": "Analisar as causas e consequências da perda de dados e estimar sua gravidade e probabilidade.",
           "questions": {
             "1": {
-              "title": "Quais são os principais <span class='green-highlight'>impactos nos dados dos titulares</span> se o risco ocorrer?",
-              "placeholder": "Inserir os impactos potenciais \u002B"
+              "title": "Quais são os principais<span class='green-highlight'>impactos nos dados dos titulares</span> se o risco ocorrer?",
+              "placeholder": "Isnerir os impactos potenciais"
             },
             "2": {
               "title": "Quais são as principais <span class='green-highlight'>ameaças</span> que poderiam levar ao risco",
-              "placeholder": "Inserir as ameaças \u002B"
+              "placeholder": "Inserir as ameaças"
             },
             "3": {
-              "title": "Quais são as <span class='green-highlight'>fontes</span> de risco?",
-              "placeholder": "Inserir as fontes de risco \u002B"
+              "title": "Quais são as <span class='green-highlight'>fontes</span>de risco?",
+              "placeholder": "Inserir as fontes de risco"
             },
             "4": {
               "title": "Quais são os <span class='green-highlight'>controlos</span> identificados que contribuem para abordar o risco?",
