@@ -2,18 +2,41 @@
   <span>{{ ('pia.statuses.' + pia.status) | translate }}</span>
 </td>
 <td>
-  {{ pia.name }}
+  <app-editable-field
+                    [formControlObject]="piaFormGroup.controls['name']"
+                    [modelAttribute]="'name'"
+                    [model]="pia"
+                    (updated)="onUpdated($event)">
+  </app-editable-field>
 </td>
 <td>
   <ul>
     <li title="{{ 'processing.pia-list.item.author_name' | translate }}">
-      <b>{{ 'processing.pia-list.item.author_name' | translate | slice : 0 : 3 }}:</b> {{ pia.author_name }}
+      <b>{{ 'processing.pia-list.item.author_name' | translate | slice : 0 : 3 }}:</b>
+      <app-editable-field
+                        [formControlObject]="piaFormGroup.controls['author_name']"
+                        [modelAttribute]="'author_name'"
+                        [model]="pia"
+                        (updated)="onUpdated($event)">
+      </app-editable-field>
     </li>
     <li title="{{ 'processing.pia-list.item.evaluator_name' | translate }}">
-      <b>{{ 'processing.pia-list.item.evaluator_name' | translate | slice : 0 : 3 }}:</b> {{ pia.evaluator_name }}
+      <b>{{ 'processing.pia-list.item.evaluator_name' | translate | slice : 0 : 3 }}:</b>
+      <app-editable-field
+                        [formControlObject]="piaFormGroup.controls['evaluator_name']"
+                        [modelAttribute]="'evaluator_name'"
+                        [model]="pia"
+                        (updated)="onUpdated($event)">
+      </app-editable-field>
     </li>
     <li title="{{ 'processing.pia-list.item.validator_name' | translate }}">
-      <b>{{ 'processing.pia-list.item.validator_name' | translate | slice : 0 : 3 }}:</b> {{ pia.validator_name }}
+      <b>{{ 'processing.pia-list.item.validator_name' | translate | slice : 0 : 3 }}:</b>
+      <app-editable-field
+                        [formControlObject]="piaFormGroup.controls['validator_name']"
+                        [modelAttribute]="'validator_name'"
+                        [model]="pia"
+                        (updated)="onUpdated($event)">
+      </app-editable-field>
     </li>
   </ul>
 </td>

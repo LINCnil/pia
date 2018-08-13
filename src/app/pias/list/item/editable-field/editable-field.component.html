@@ -1,0 +1,4 @@
+<label>
+  {{ label !== null ? label : '' }}
+  <input type="text" [formControl]="formControlObject" (focusout)="onFocusOut()"/>
+</label>
