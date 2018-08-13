@@ -1225,15 +1225,15 @@
           "questions": {
             "1": {
               "title": "Quels pourraient être les principaux <span class='green-highlight'>impacts sur les personnes concernées</span> si le risque se produisait ?",
-              "placeholder": "Saisissez les impacts potentiels \u002B"
+              "placeholder": "Saisissez les impacts potentiels"
             },
             "2": {
               "title": "Quelles sont les principales <span class='green-highlight'>menaces</span> qui pourraient permettre la réalisation du risque ?",
-              "placeholder": "Saisissez les menaces \u002B"
+              "placeholder": "Saisissez les menaces"
             },
             "3": {
               "title": "Quelles <span class='green-highlight'>sources</span> de risques pourraient-elles en être à l'origine ?",
-              "placeholder": "Saisissez les sources de risques \u002B"
+              "placeholder": "Saisissez les sources de risques"
             },
             "4": {
               "title": "Quelles sont les <span class='green-highlight'>mesures</span>, parmi celles identifiées, qui contribuent à traiter le risque ?",
@@ -1255,15 +1255,15 @@
           "questions": {
             "1": {
               "title": "Quels pourraient être les principaux <span class='green-highlight'>impacts sur les personnes concernées</span> si le risque se produisait ?",
-              "placeholder": "Saisissez les impacts potentiels \u002B"
+              "placeholder": "Saisissez les impacts potentiels"
             },
             "2": {
               "title": "Quelles sont les principales <span class='green-highlight'>menaces</span> qui pourraient permettre la réalisation du risque ?",
-              "placeholder": "Saisissez les menaces \u002B"
+              "placeholder": "Saisissez les menaces"
             },
             "3": {
               "title": "Quelles <span class='green-highlight'>sources</span> de risques pourraient-elles en être à l'origine ?",
-              "placeholder": "Saisissez les sources de risques \u002B"
+              "placeholder": "Saisissez les sources de risques"
             },
             "4": {
               "title": "Quelles sont les <span class='green-highlight'>mesures</span>, parmi celles identifiées, qui contribuent à traiter le risque ?",
@@ -1285,15 +1285,15 @@
           "questions": {
             "1": {
               "title": "Quels pourraient être les principaux <span class='green-highlight'>impacts sur les personnes concernées</span> si le risque se produisait ?",
-              "placeholder": "Saisissez les impacts potentiels \u002B"
+              "placeholder": "Saisissez les impacts potentiels"
             },
             "2": {
               "title": "Quelles sont les principales <span class='green-highlight'>menaces</span> qui pourraient permettre la réalisation du risque ?",
-              "placeholder": "Saisissez les menaces \u002B"
+              "placeholder": "Saisissez les menaces"
             },
             "3": {
               "title": "Quelles <span class='green-highlight'>sources</span> de risques pourraient-elles en être à l'origine ?",
-              "placeholder": "Saisissez les sources de risques \u002B"
+              "placeholder": "Saisissez les sources de risques"
             },
             "4": {
               "title": "Quelles sont les <span class='green-highlight'>mesures</span>, parmi celles identifiées, qui contribuent à traiter le risque ?",

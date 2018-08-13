@@ -10,7 +10,7 @@ import { Evaluation } from 'app/entry/entry-content/evaluations/evaluation.model
 
 import { KnowledgeBaseService } from '../../knowledge-base/knowledge-base.service';
 import { ModalsService } from 'app/modals/modals.service';
-import {GlobalEvaluationService} from '../../../services/global-evaluation.service';
+import { GlobalEvaluationService } from '../../../services/global-evaluation.service';
 
 @Component({
   selector: 'app-questions',

@@ -1225,15 +1225,15 @@
           "questions": {
             "1": {
               "title": "Was könnten die wesentlichen Auswirkungen für die betroffenen Personen sein, wenn das Risiko eintritt?",
-              "placeholder": "Geben Sie die möglichen Auswirkungen ein \u002B"
+              "placeholder": "Geben Sie die möglichen Auswirkungen ein"
             },
             "2": {
               "title": "Was sind die Hauptbedrohungen, die zu dem Risiko führen könnten?",
-              "placeholder": "Geben Sie die Bedrohungen ein \u002B"
+              "placeholder": "Geben Sie die Bedrohungen ein"
             },
             "3": {
               "title": "Was sind die Risikoquellen?",
-              "placeholder": "Geben Sie die Risikoquellen ein \u002B"
+              "placeholder": "Geben Sie die Risikoquellen ein"
             },
             "4": {
               "title": "Welche der identifizierten Maßnahmen tragen zur Bewältigung des Risikos bei?",
@@ -1255,15 +1255,15 @@
           "questions": {
             "1": {
               "title": "Was könnten die wesentlichen Auswirkungen für die betroffenen Personen sein, wenn das Risiko eintritt?",
-              "placeholder": "Geben Sie die potenziellen Auswirkungen ein \u002B"
+              "placeholder": "Geben Sie die potenziellen Auswirkungen ein"
             },
             "2": {
               "title": "Was sind die Hauptbedrohungen, die zu dem Risiko führen könnten?",
-              "placeholder": "Geben Sie die Bedrohungen ein \u002B"
+              "placeholder": "Geben Sie die Bedrohungen ein"
             },
             "3": {
               "title": "Was sind die Risikoquellen?",
-              "placeholder": "Geben Sie die Risikoquellen \u002B ein"
+              "placeholder": "Geben Sie die Risikoquellen ein"
             },
             "4": {
               "title": "Welche der identifizierten Maßnahmen tragen zur Bewältigung des Risikos bei?",
@@ -1285,15 +1285,15 @@
           "questions": {
             "1": {
               "title": "Was könnten die wesentlichen Auswirkungen für die betroffenen Personen sein, wenn das Risiko eintritt?",
-              "placeholder": "Geben Sie die möglichen Auswirkungen ein \u002B"
+              "placeholder": "Geben Sie die möglichen Auswirkungen ein"
             },
             "2": {
               "title": "Was sind die Hauptbedrohungen, die zu dem Risiko führen könnten?",
-              "placeholder": "Geben Sie die Bedrohungen ein \u002B"
+              "placeholder": "Geben Sie die Bedrohungen ein"
             },
             "3": {
               "title": "Was sind die Risikoquellen?",
-              "placeholder": "Geben Sie die Risikoquellen ein \u002B"
+              "placeholder": "Geben Sie die Risikoquellen ein"
             },
             "4": {
               "title": "Welche der identifizierten Maßnahmen tragen zur Bewältigung des Risikos bei?",

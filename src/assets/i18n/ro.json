@@ -1225,15 +1225,15 @@
           "questions": {
             "1": {
               "title": "Care ar putea fi principalele <span class='green-highlight'>impacturi asupra persoanelor vizate</span> dacă riscul s-ar materializa?",
-              "placeholder": "Introduceți potențialele impacturi\u002B"
+              "placeholder": "Introduceți potențialele impacturi"
             },
             "2": {
               "title": "Care sunt principalele <span class='green-highlight'>amenințări</span> care ar putea determina producerea riscului?",
-              "placeholder": "Introduceți amenințările\u002B"
+              "placeholder": "Introduceți amenințările"
             },
             "3": {
               "title": "Care sunt<span class='green-highlight'>sursele</span> de risc?",
-              "placeholder": "Introduceți sursele de risc\u002B"
+              "placeholder": "Introduceți sursele de risc"
             },
             "4": {
               "title": "Care dintre <span class='green-highlight'>metodele</span> identificate contribuie la combaterea riscului?",
@@ -1255,15 +1255,15 @@
           "questions": {
             "1": {
               "title": "Care ar putea fi principalele <span class='green-highlight'>impacturi asupra persoanelor vizate</span> în cazul în care riscul s-ar materializa?",
-              "placeholder": "Introduceți potențialele impacturi\u002B"
+              "placeholder": "Introduceți potențialele impacturi"
             },
             "2": {
               "title": "Care sunt principalele <span class='green-highlight'>amenințări</span> care ar putea determina producerea riscului?",
-              "placeholder": "Introduceți amenințările\u002B"
+              "placeholder": "Introduceți amenințările"
             },
             "3": {
               "title": "Care sunt <span class='green-highlight'>sursele</span> de risc?",
-              "placeholder": "Introduceți sursele de risc \u002B"
+              "placeholder": "Introduceți sursele de risc"
             },
             "4": {
               "title": "Care dintre <span class='green-highlight'>metodele</span> identificate contribuie la combaterea riscului?",
@@ -1285,15 +1285,15 @@
           "questions": {
             "1": {
               "title": "Care ar putea fi principalele<span class='green-highlight'>impacturi asupra persoanelor vizate</span> în cazul în care riscul s-ar materializa??",
-              "placeholder": "Introduceți impacturile potențiale \u002B"
+              "placeholder": "Introduceți impacturile potențiale"
             },
             "2": {
               "title": "Care sunt principalele<span class='green-highlight'>amenințări</span> care ar putea determina producerea riscului?",
-              "placeholder": "Introduceți amenințările \u002B"
+              "placeholder": "Introduceți amenințările"
             },
             "3": {
               "title": "Care sunt <span class='green-highlight'>sursele</span>de risc?",
-              "placeholder": "Introduceți sursele de risc \u002B"
+              "placeholder": "Introduceți sursele de risc"
             },
             "4": {
               "title": "Care din <span class='green-highlight'>metodele</span> identificate contribuie la combaterea riscului?",

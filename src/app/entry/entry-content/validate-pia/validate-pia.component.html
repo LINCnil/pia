@@ -50,7 +50,7 @@
           <button type="submit" class="btn btn-blue" [ngClass]="{'btn-active': _piaService.pia.status === 2, 'disabled-validation': _piaService.pia.is_example === 1}" (click)="simplePIAValidation()" id="pia-simple-validation" [disabled]="_piaService.pia.status <= 1" [innerHTML]="'validation_page.button.simple_validation' | translate"></button>
           <button type="submit" class="btn btn-red" [ngClass]="{'btn-active': _piaService.pia.status === 3, 'disabled-validation': _piaService.pia.is_example === 1}" (click)="signedPIAValidation()" id="pia-sign-validation" [disabled]="_piaService.pia.status <= 1" [innerHTML]="'validation_page.button.signed_validation' | translate"></button>
         </div>
-        <p>{{ 'validation_page.mandatory_fields' | translate }}</p>
+        <p style="margin-top:6px;">{{ 'validation_page.mandatory_fields' | translate }}</p>
       </form>
 
       <!-- Display adequate text according to the signed attachment available or not -->

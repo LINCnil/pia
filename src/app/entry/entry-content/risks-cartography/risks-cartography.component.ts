@@ -318,8 +318,8 @@ export class RisksCartographyComponent implements OnInit, OnDestroy {
       const grad = context.createLinearGradient(50, 50, 150, 150);
 
       // Dotted lines params
-      context.setLineDash([0.1, 1.8]);
-      context.lineWidth = 0.6;
+      context.setLineDash([3, 2]);
+      context.lineWidth = 1;
 
       // Dotted lines
       if (this.dataJSON['risk-access']['author'].x && this.dataJSON['risk-access']['author'].y &&
@@ -384,7 +384,7 @@ export class RisksCartographyComponent implements OnInit, OnDestroy {
   }
 
   /**
-   * Draw an arrow between two point.
+   * Draw an arrow between two points.
    * @param {CanvasRenderingContext2D} context - The context.
    * @param {number} fromx - From the position X.
    * @param {number} fromy - From the position Y.
