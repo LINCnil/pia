@@ -895,10 +895,10 @@
       "content": "Toutes les parties sont évaluées.<br>L'analyse peut être validée."
     },
     "update_server_url_ok": {
-      "content": "L'adresse du serveur à été mise à jour :<br>connexion établie."
+      "content": "L'adresse du serveur à été mise à jour."
     },
     "update_server_url_nok": {
-      "content": "L'adresse du serveur à été mise à jour :<br>connexion impossible."
+      "content": "Connexion impossible."
     },
     "signed_pia_validation": {
       "content": "Pour finaliser la validation de l'analyse,<br>attachez en pièce-jointe le rapport signé.",

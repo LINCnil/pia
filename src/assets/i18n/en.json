@@ -894,8 +894,11 @@
     "completed_evaluation": {
       "content": "The PIA has been fully reviewed and can be validated."
     },
-    "update_server_url": {
+    "update_server_url_ok": {
       "content": "The server address has been updated."
+    },
+    "update_server_url_nok": {
+      "content": "Connection impossible."
     },
     "signed_pia_validation": {
       "content": "To approve the PIA, attach the signed report.",

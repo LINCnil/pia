@@ -894,8 +894,11 @@
     "completed_evaluation": {
       "content": "TO BE TRANSLATED - The PIA has been fully reviewed and can be validated."
     },
-    "update_server_url": {
-      "content": "Adresa serveru byla aktualizována."
+    "update_server_url_ok": {
+      "content": "TO BE TRANSLATED - The server address has been updated."
+    },
+    "update_server_url_nok": {
+      "content": "TO BE TRANSLATED - Connection impossible."
     },
     "signed_pia_validation": {
       "content": "TO BE TRANSLATED - To approve the PIA, attach the signed report.",
