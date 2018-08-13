@@ -13,13 +13,20 @@
       "node_modules/@types"
     ],
     "paths": {
-      "@api/*": ["api/*"],
-      "@security/*": ["security/*"],
-      "@utils/*": ["utils/*"]
+      "@api/*": [
+        "api/*"
+      ],
+      "@security/*": [
+        "security/*"
+      ],
+      "@utils/*": [
+        "utils/*"
+      ]
     },
     "lib": [
       "es2017",
       "dom"
-    ]
+    ],
+    "module": "es2015"
   }
 }

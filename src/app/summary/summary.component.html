@@ -22,26 +22,30 @@
 
   <!-- Customize content filters -->
   <div class="row">
-   <div class="small-12 medium-12 columns">
+    <div class="small-12 medium-12 columns">
       <form class="pia-summaryFiltersBlock hide-for-print">
         <fieldset>
           <legend class="unselectable">{{ 'summary.display_filters.title' | translate }}</legend>
           <div class="databox">
             <div>
-              <input type="checkbox" name="displayer-pia-main-content" id="displayer-pia-main-content" [checked]="displayOnlyActionPlan ? false : true" (change)="toggleMainContent()">
+              <input type="checkbox" name="displayer-pia-main-content" id="displayer-pia-main-content" [checked]="displayOnlyActionPlan ? false : true"
+                (change)="toggleMainContent()">
               <label for="displayer-pia-main-content">{{ 'summary.display_filters.main_content' | translate }}</label>
             </div>
             <div>
-              <input type="checkbox" name="displayer-pia-section-1" id="displayer-pia-main-1" [checked]="displayOnlyActionPlan ? false : true" (change)="toggleContextContent()">
-              <label for="displayer-pia-main-1">{{ 'summary.display_filters.context_content' | translate }}</label>
+              <input type="checkbox" name="displayer-pia-section-1" id="displayer-pia-main-1" [checked]="displayOnlyActionPlan ? false : true"
+                (change)="toggleContextContent()">
+              <label for="displayer-pia-main-1">{{ 'summary.display_filters.processing_content' | translate }}</label>
             </div>
             <div *ngIf="pia?.type !== piaTypes?.simplified">
-              <input type="checkbox" name="displayer-pia-section-2" id="displayer-pia-section-2" [checked]="displayOnlyActionPlan ? false : true" (change)="toggleFundamentalPrinciplesContent()">
+              <input type="checkbox" name="displayer-pia-section-2" id="displayer-pia-section-2" [checked]="displayOnlyActionPlan ? false : true"
+                (change)="toggleFundamentalPrinciplesContent()">
               <label for="displayer-pia-section-2">{{ 'summary.display_filters.principles_content' | translate }}</label>
             </div>
             <ng-container *ngIf="pia?.type === piaTypes?.advanced">
               <div>
-                <input type="checkbox" name="displayer-pia-section-3" id="displayer-pia-section-3" [checked]="displayOnlyActionPlan ? false : true" (change)="toggleRisksContent()">
+                <input type="checkbox" name="displayer-pia-section-3" id="displayer-pia-section-3" [checked]="displayOnlyActionPlan ? false : true"
+                  (change)="toggleRisksContent()">
                 <label for="displayer-pia-section-3">{{ 'summary.display_filters.risks_content' | translate }}</label>
               </div>
               <div>
@@ -49,11 +53,13 @@
                 <label for="displayer-pia-action-plan">{{ 'summary.display_filters.action_plan_content' | translate }}</label>
               </div>
               <div>
-                <input type="checkbox" name="displayer-pia-risks-overview" id="displayer-pia-risks-overview" [checked]="displayRisksOverview ? true : false" (change)="toggleRisksOverviewContent()">
+                <input type="checkbox" name="displayer-pia-risks-overview" id="displayer-pia-risks-overview" [checked]="displayRisksOverview ? true : false"
+                  (change)="toggleRisksOverviewContent()">
                 <label for="displayer-pia-risks-overview">{{ 'summary.display_filters.risks_overview_content' | translate }}</label>
               </div>
               <div>
-                <input type="checkbox" name="displayer-pia-risks-cartography" id="displayer-risks-cartography" [checked]="displayRisksCartography ? true : false" (change)="toggleRisksCartographyContent()">
+                <input type="checkbox" name="displayer-pia-risks-cartography" id="displayer-risks-cartography" [checked]="displayRisksCartography ? true : false"
+                  (change)="toggleRisksCartographyContent()">
                 <label for="displayer-risks-cartography">{{ 'summary.display_filters.risks_cartography_content' | translate }}</label>
               </div>
             </ng-container>
@@ -61,13 +67,13 @@
         </fieldset>
       </form>
     </div>
-   </div>
-  <!--<div class="row force-select-all" id="force-select-all">-->
+  </div>
+
   <div class="row" id="force-select-all">
     <div class="small-12 medium-12 columns">
       <div *ngIf="allData" ng-class="{'text-success': model.copied, 'text-danger': !model.copied}" ng-copy="events.onCopy($event)">
         <!-- Main PIA data -->
-        <!--<div class="fadeIn force-select-all" *ngIf="displayMainPiaData">-->
+
         <div class="fadeIn" *ngIf="displayMainPiaData">
           <div *ngFor="let c of content">
             <div *ngIf="c.data.length > 0">
@@ -75,7 +81,8 @@
               <h2 *ngIf="c.subtitle">{{ c.subtitle | translate }}</h2>
               <div class="databox" *ngFor="let d of c.data">
                 <h3 id="select">{{ d.title | translate }}</h3>
-                <div style="font-weight:500;" [ngClass]="{ 'pia-attachment-removed': d.comment && d.comment.length > 0 }" *ngIf="d.type !== 'date'; else dateBlock" [innerHTML]="d.content | translate | safeHtml"></div>
+                <div style="font-weight:500;" [ngClass]="{ 'pia-attachment-removed': d.comment && d.comment.length > 0 }" *ngIf="d.type !== 'date'; else dateBlock"
+                  [innerHTML]="d.content | translate | safeHtml"></div>
                 <div *ngIf="d.type !== 'date' && d.comment && d.comment.length > 0" [innerHTML]="d.comment | nl2br | safeHtml"></div>
                 <ng-template #dateBlock>
                   <time style="font-weight:500;" *ngIf="d.content.toString() !== 'Invalid Date'">{{ d.content | date: 'dd/MM/yyyy' }}</time>
@@ -84,9 +91,51 @@
             </div>
           </div>
         </div>
+        <div class="fadeIn section-1 pagebreak">
+          <h1>{{ 'summary.processing' | translate }}</h1>
+
+          <div>
+            <h2>{{ 'processing.form.sections.description.title' | translate }}</h2>
+            <div class="databox">
+              <!-- Processing description -->
+              <h3>{{ 'processing.form.description.title' | translate }}</h3>
+              <div [innerHTML]="pia.processing.description"></div>
+              <!-- Processing standard -->
+              <h3>{{ 'processing.form.standards.title' | translate }}</h3>
+              <div [innerHTML]="pia.processing.standards"></div>
+            </div>
+            <h2>{{ 'processing.form.sections.data.title' | translate }}</h2>
+            <div class="databox">
+              <!-- Processing description -->
+              <h3>{{ 'processing.form.data-types' | translate }}</h3>
+              <div *ngFor="let pdt of processingDataTypes">
+                <div [innerHTML]="'- ' + ('processing-data-types.form.' + pdt.reference | translate)"></div>
+                <p>
+                  <span *ngIf="pdt.retention_period">{{ 'processing-data-types.form.retention-period' | translate }}: {{ pdt.retention_period }}.</span>
+                  <span *ngIf="pdt.sensitive">{{ 'processing-data-types.form.sensitive-affirmative' | translate }}.</span>
+                </p>
+              </div>
+              <!-- Processing standard -->
+              <h3>{{ 'processing.form.storage.title' | translate }}</h3>
+              <div [innerHTML]="pia.processing.storage"></div>
+            </div>
+            <h2>{{ 'processing.form.sections.lifecycle.title' | translate }}</h2>
+            <div class="databox">
+              <!-- Processing lifecycle -->
+              <h3>{{ 'processing.form.lifecycle.title' | translate }}</h3>
+              <div [innerHTML]="pia.processing.life_cycle"></div>
+              <!-- Processing processors -->
+              <h3>{{ 'processing.form.processors.title' | translate }}</h3>
+              <div [innerHTML]="pia.processing.processors"></div>
+              <!-- Processing non-eu-transfer -->
+              <h3>{{ 'processing.form.non-eu-transfer.title' | translate }}</h3>
+              <div [innerHTML]="pia.processing.non_eu_transfer"></div>
+            </div>
+          </div>
+        </div>
         <div *ngFor="let section of sections">
           <div class="fadeIn section-{{section.id}} pagebreak" *ngIf="section.id !== 4">
-            <h1 >{{ section.title | translate }}</h1>
+            <h1>{{ section.title | translate }}</h1>
             <div *ngFor="let item of section.items">
               <div *ngIf="item.evaluation_mode !== ''">
                 <h2>{{ item.title | translate }}</h2>
@@ -104,11 +153,17 @@
                           <strong class="evaluationValue">{{ 'evaluations.title' | translate }} : {{ measure.evaluation.title | translate }}</strong>
                           <br>
                           <span *ngIf="measure.evaluation.action_plan_comment">
-                            <strong>{{ 'evaluations.action_plan_comment' | translate }} :<br></strong><span style="font-weight:400;" [innerHTML]="measure.evaluation.action_plan_comment | safeHtml"></span>
+                            <strong>{{ 'evaluations.action_plan_comment' | translate }} :
+                              <br>
+                            </strong>
+                            <span style="font-weight:400;" [innerHTML]="measure.evaluation.action_plan_comment | safeHtml"></span>
                             <br>
                           </span>
                           <span *ngIf="measure.evaluation.evaluation_comment">
-                            <strong>{{ 'evaluations.evaluation_comment' | translate }} :<br></strong><span style="font-weight:400;" [innerHTML]="measure.evaluation.evaluation_comment | safeHtml"></span>
+                            <strong>{{ 'evaluations.evaluation_comment' | translate }} :
+                              <br>
+                            </strong>
+                            <span style="font-weight:400;" [innerHTML]="measure.evaluation.evaluation_comment | safeHtml"></span>
                             <br>
                           </span>
                         </p>
@@ -120,18 +175,26 @@
                   <div *ngIf="item.questions">
                     <div *ngFor="let question of item.questions">
                       <h3 [innerHTML]="question.title | translate"></h3>
-                      <div *ngIf="allData[section.id][item.id][question.id].content && allData[section.id][item.id][question.id].content.length > 0" [innerHTML]="allData[section.id][item.id][question.id].content | translate | safeHtml"></div>
+                      <div *ngIf="allData[section.id][item.id][question.id].content && allData[section.id][item.id][question.id].content.length > 0"
+                        [innerHTML]="allData[section.id][item.id][question.id].content | translate | safeHtml"></div>
                       <div class="evaluationbox" *ngIf="allData[section.id][item.id][question.id].evaluation">
                         <br>
                         <p>
-                          <strong class="evaluationValue">{{ 'evaluations.title' | translate }} : {{ allData[section.id][item.id][question.id].evaluation.title | translate }}</strong>
+                          <strong class="evaluationValue">{{ 'evaluations.title' | translate }} : {{ allData[section.id][item.id][question.id].evaluation.title
+                            | translate }}</strong>
                           <br>
                           <span *ngIf="allData[section.id][item.id][question.id].evaluation.action_plan_comment">
-                            <strong>{{ 'evaluations.action_plan_comment' | translate }} :<br></strong><span [innerHTML]="allData[section.id][item.id][question.id].evaluation.action_plan_comment | safeHtml"></span>
+                            <strong>{{ 'evaluations.action_plan_comment' | translate }} :
+                              <br>
+                            </strong>
+                            <span [innerHTML]="allData[section.id][item.id][question.id].evaluation.action_plan_comment | safeHtml"></span>
                             <br>
                           </span>
                           <span *ngIf="allData[section.id][item.id][question.id].evaluation.evaluation_comment">
-                            <strong>{{ 'evaluations.evaluation_comment' | translate }} :<br></strong><span [innerHTML]="allData[section.id][item.id][question.id].evaluation.evaluation_comment | safeHtml"></span>
+                            <strong>{{ 'evaluations.evaluation_comment' | translate }} :
+                              <br>
+                            </strong>
+                            <span [innerHTML]="allData[section.id][item.id][question.id].evaluation.evaluation_comment | safeHtml"></span>
                             <br>
                           </span>
 
@@ -154,14 +217,21 @@
                   <div class="evaluationbox" *ngIf="allData[section.id][item.id]['evaluation_item']">
                     <br>
                     <p>
-                      <strong class="evaluationValue">{{ 'evaluations.title' | translate }} : {{ allData[section.id][item.id]['evaluation_item'].title | translate }}</strong>
+                      <strong class="evaluationValue">{{ 'evaluations.title' | translate }} : {{ allData[section.id][item.id]['evaluation_item'].title |
+                        translate }}</strong>
                       <br>
                       <span *ngIf="allData[section.id][item.id]['evaluation_item'].action_plan_comment">
-                        <strong>{{ 'evaluations.action_plan_comment' | translate }} :<br></strong><span [innerHTML]="allData[section.id][item.id]['evaluation_item'].action_plan_comment | safeHtml"></span>
+                        <strong>{{ 'evaluations.action_plan_comment' | translate }} :
+                          <br>
+                        </strong>
+                        <span [innerHTML]="allData[section.id][item.id]['evaluation_item'].action_plan_comment | safeHtml"></span>
                         <br>
                       </span>
                       <span *ngIf="allData[section.id][item.id]['evaluation_item'].evaluation_comment">
-                        <strong>{{ 'evaluations.evaluation_comment' | translate }} :<br></strong><span [innerHTML]="allData[section.id][item.id]['evaluation_item'].evaluation_comment | safeHtml"></span>
+                        <strong>{{ 'evaluations.evaluation_comment' | translate }} :
+                          <br>
+                        </strong>
+                        <span [innerHTML]="allData[section.id][item.id]['evaluation_item'].evaluation_comment | safeHtml"></span>
                         <br>
                       </span>
                       <span *ngIf="allData[section.id][item.id]['evaluation_item'].gauges && allData[section.id][item.id]['evaluation_item'].gauges.seriousness > 0">
@@ -245,11 +315,15 @@
                     <div style="border:0.5px dotted #A7A7A7;padding:6px;margin:10px 0;" *ngIf="entry.action_plan_comment && entry.action_plan_comment.length > 0">
                       <h3 style="margin-bottom:2px;">{{ entry.short_title | translate }}</h3>
                       <div>
-                        <strong>{{ 'evaluations.action_plan_comment' | translate }} :<br></strong>
+                        <strong>{{ 'evaluations.action_plan_comment' | translate }} :
+                          <br>
+                        </strong>
                         <span [innerHTML]="entry.action_plan_comment | translate | safeHtml"></span>
                       </div>
                       <div *ngIf="entry.evaluation_comment && entry.evaluation_comment.length > 0">
-                        <strong>{{ 'evaluations.evaluation_comment' | translate }} :<br></strong>
+                        <strong>{{ 'evaluations.evaluation_comment' | translate }} :
+                          <br>
+                        </strong>
                         <span [innerHTML]="entry.evaluation_comment | safeHtml"></span>
                       </div>
                       <div *ngIf="entry.evaluation && entry.evaluation.estimated_implementation_date && entry.evaluation.estimated_implementation_date .toString() !== 'Invalid Date'">
@@ -266,7 +340,7 @@
               </ng-container>
               <ng-template #noFundamentalPrinciples>
                 <div class="actionplanbox">
-                  {{ 'summary.action_plan.no_action_plan' |  translate }}
+                  {{ 'summary.action_plan.no_action_plan' | translate }}
                 </div>
               </ng-template>
             </div>
@@ -281,11 +355,15 @@
                   <div style="border:0.5px dotted #A7A7A7;padding:6px;margin:10px 0;" *ngIf="entry.action_plan_comment && entry.action_plan_comment.length > 0">
                     <h3 style="margin-bottom:2px;">{{ entry.short_title | translate }}</h3>
                     <div>
-                      <strong>{{ 'evaluations.action_plan_comment' | translate }} :<br></strong>
+                      <strong>{{ 'evaluations.action_plan_comment' | translate }} :
+                        <br>
+                      </strong>
                       <span [innerHTML]="entry.action_plan_comment | translate | safeHtml"></span>
                     </div>
                     <div *ngIf="entry.evaluation_comment && entry.evaluation_comment.length > 0">
-                      <strong>{{ 'evaluations.evaluation_comment' | translate }} :<br></strong>
+                      <strong>{{ 'evaluations.evaluation_comment' | translate }} :
+                        <br>
+                      </strong>
                       <span [innerHTML]="entry.evaluation_comment | safeHtml"></span>
                     </div>
                     <div *ngIf="entry.evaluation && entry.evaluation.estimated_implementation_date && entry.evaluation.estimated_implementation_date.toString() !== 'Invalid Date'">
@@ -302,7 +380,7 @@
             </ng-container>
             <ng-template #noMeasures>
               <div class="actionplanbox">
-                {{ 'summary.action_plan.no_action_plan' |  translate }}
+                {{ 'summary.action_plan.no_action_plan' | translate }}
               </div>
             </ng-template>
           </div>
@@ -311,12 +389,15 @@
           <div>
             <!-- Risk 1 -->
             <div *ngIf="_actionPlanService.risksActionPlan32Ready">
-              <h2 style="margin-bottom:2px;">{{ 'summary.action_plan.risks' | translate }} - {{ _actionPlanService.risks['3.2'].short_title | translate }}</h2>
+              <h2 style="margin-bottom:2px;">{{ 'summary.action_plan.risks' | translate }} - {{ _actionPlanService.risks['3.2'].short_title | translate
+                }}</h2>
               <div class="actionplanbox">
                 <strong>{{ 'evaluations.action_plan_comment' | translate }} : </strong>
                 <div [innerHTML]="_actionPlanService.risks['3.2'].action_plan_comment | translate | safeHtml"></div>
                 <div *ngIf="_actionPlanService.risks['3.2'].evaluation_comment && _actionPlanService.risks['3.2'].evaluation_comment.length > 0">
-                  <strong>{{ 'evaluations.evaluation_comment' | translate }} :<br></strong>
+                  <strong>{{ 'evaluations.evaluation_comment' | translate }} :
+                    <br>
+                  </strong>
                   <span [innerHTML]="_actionPlanService.risks['3.2'].evaluation_comment | safeHtml"></span>
                 </div>
 
@@ -346,12 +427,15 @@
 
             <!-- Risk 2 -->
             <div *ngIf="_actionPlanService.risksActionPlan33Ready">
-              <h2 style="margin-bottom:2px;">{{ 'summary.action_plan.risks' | translate }} - {{ _actionPlanService.risks['3.3'].short_title | translate }}</h2>
+              <h2 style="margin-bottom:2px;">{{ 'summary.action_plan.risks' | translate }} - {{ _actionPlanService.risks['3.3'].short_title | translate
+                }}</h2>
               <div class="actionplanbox">
                 <strong>{{ 'evaluations.action_plan_comment' | translate }} : </strong>
                 <div [innerHTML]="_actionPlanService.risks['3.3'].action_plan_comment | translate | safeHtml"></div>
                 <div *ngIf="_actionPlanService.risks['3.3'].evaluation_comment && _actionPlanService.risks['3.3'].evaluation_comment.length > 0">
-                  <strong>{{ 'evaluations.evaluation_comment' | translate }} :<br></strong>
+                  <strong>{{ 'evaluations.evaluation_comment' | translate }} :
+                    <br>
+                  </strong>
                   <span [innerHTML]="_actionPlanService.risks['3.3'].evaluation_comment | safeHtml"></span>
                 </div>
 
@@ -381,12 +465,15 @@
 
             <!-- Risk 3 -->
             <div *ngIf="_actionPlanService.risksActionPlan34Ready">
-              <h2 style="margin-bottom:2px;">{{ 'summary.action_plan.risks' | translate }} - {{ _actionPlanService.risks['3.4'].short_title | translate }}</h2>
+              <h2 style="margin-bottom:2px;">{{ 'summary.action_plan.risks' | translate }} - {{ _actionPlanService.risks['3.4'].short_title | translate
+                }}</h2>
               <div class="actionplanbox">
                 <strong>{{ 'evaluations.action_plan_comment' | translate }} : </strong>
                 <div [innerHTML]="_actionPlanService.risks['3.4'].action_plan_comment | translate | safeHtml"></div>
                 <div *ngIf="_actionPlanService.risks['3.4'].evaluation_comment && _actionPlanService.risks['3.4'].evaluation_comment.length > 0">
-                  <strong>{{ 'evaluations.evaluation_comment' | translate }} :<br></strong>
+                  <strong>{{ 'evaluations.evaluation_comment' | translate }} :
+                    <br>
+                  </strong>
                   <span [innerHTML]="_actionPlanService.risks['3.4'].evaluation_comment | safeHtml"></span>
                 </div>
 
@@ -418,7 +505,7 @@
             <div *ngIf="!_actionPlanService.risksActionPlan32Ready && !_actionPlanService.risksActionPlan33Ready && !_actionPlanService.risksActionPlan34Ready">
               <h2 style="margin-bottom:2px;">{{ 'summary.action_plan.risks' | translate }}</h2>
               <div class="actionplanbox">
-                {{ 'summary.action_plan.no_action_plan' |  translate }}
+                {{ 'summary.action_plan.no_action_plan' | translate }}
               </div>
             </div>
 
@@ -430,7 +517,7 @@
   <ng-container *ngIf="pia?.type === piaTypes?.advanced">
     <!-- Risks overview -->
     <div class="pia-summaryRisksOverviewBlock pagebreak" *ngIf="displayRisksOverview">
-      <h1>{{ 'summary.risks_overview_title' |  translate }}</h1>
+      <h1>{{ 'summary.risks_overview_title' | translate }}</h1>
       <div class="risksOverview">
         <div class="app-overview-risks"></div>
       </div>
@@ -438,7 +525,7 @@
 
     <!-- Risks cartography -->
     <div class="pia-summaryRisksCartographyBlock pagebreak" *ngIf="displayRisksCartography">
-      <h1>{{ 'summary.risks_cartography_title' |  translate }}</h1>
+      <h1>{{ 'summary.risks_cartography_title' | translate }}</h1>
       <div>
         <div class="app-risks-cartography"></div>
       </div>

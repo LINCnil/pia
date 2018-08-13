@@ -25,11 +25,11 @@ export class BaseModel implements Timestampable {
 
   protected iterate(obj) {
 
-    for (var property in obj) {
+    for (const property in obj) {
       if (obj.hasOwnProperty(property)) {
         if (obj[property] instanceof Date) {
           obj[property] = Moment(obj[property]).format()
-        } else if (typeof obj[property] == "object") {
+        } else if (typeof obj[property] === 'object') {
           this.iterate(obj[property]);
         }
       }

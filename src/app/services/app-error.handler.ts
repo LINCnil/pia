@@ -1,4 +1,4 @@
-import { ErrorHandler, Inject, Injector, Injectable, NgZone } from '@angular/core';
+import { ErrorHandler, Inject, Injector, Injectable, NgZone, ChangeDetectorRef } from '@angular/core';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
@@ -57,6 +57,16 @@ export class AppErrorHandler implements ErrorHandler {
   }
 
   handleError(error: Error | HttpErrorResponse) {
+
+    // WORKAROUND: Fixing infinite loop template error. See https://github.com/angular/angular/issues/17010
+
+    const debugCtx = error['ngDebugContext'];
+    const changeDetectorRef = debugCtx && debugCtx.injector.get(ChangeDetectorRef);
+    if (changeDetectorRef) {
+      changeDetectorRef.detach();
+    }
+
+    // END WORKAROUND
 
     if (error instanceof HttpErrorResponse) {
       this.handleHttpError(error);
