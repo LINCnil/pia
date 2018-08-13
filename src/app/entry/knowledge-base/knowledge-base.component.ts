@@ -49,7 +49,7 @@ export class KnowledgeBaseComponent implements OnInit {
   }
 
   /**
-   * New knowledgebase search query.
+   * New knowledge base search query.
    * @memberof KnowledgeBaseComponent
    */
   onSubmit() {

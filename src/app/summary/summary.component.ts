@@ -105,6 +105,7 @@ export class SummaryComponent implements OnInit {
       }
     }, 500);
   }
+
   /**
    * Download the risks overview as an image
    * @private

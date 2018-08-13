@@ -1,10 +1,9 @@
 import { Component, ViewChild, ElementRef, OnInit, Input } from '@angular/core';
-import {FormControl, FormGroup} from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
+
+import { Pia } from 'app/entry/pia.model';
 
 import { SidStatusService } from 'app/services/sid-status.service';
-
-import {Pia} from 'app/entry/pia.model';
-
 import { PiaService } from 'app/entry/pia.service';
 
 @Component({
