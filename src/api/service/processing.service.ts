@@ -23,8 +23,8 @@ export class ProcessingService extends BaseService<Processing> {
     super(http);
   }
 
-  public getAll(): Observable<Processing[]> {
-    return this.httpGetAll(this.routing.all);
+  public getAll(criteria?: string): Observable<Processing[]> {
+    return this.httpGetAll(this.routing.all, null, criteria);
   }
 
   public get(id: any): Observable<Processing> {

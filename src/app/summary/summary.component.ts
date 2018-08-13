@@ -1,7 +1,6 @@
-import { Component, Renderer2, ElementRef, OnInit } from '@angular/core';
-import { Router, ActivatedRoute, Params } from '@angular/router';
+import { Component, ElementRef, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
-import { element } from 'protractor';
 import * as html2canvas from 'html2canvas';
 import { saveSvgAsPng } from 'save-svg-as-png';
 import { Angular5Csv } from 'angular5-csv/Angular5-csv';
@@ -13,9 +12,11 @@ import { ModalsService } from '../modals/modals.service';
 import { PiaService } from 'app/entry/pia.service';
 import { AttachmentsService } from 'app/entry/attachments/attachments.service';
 
-import { EvaluationModel, AnswerModel, MeasureModel } from '@api/models';
+import { EvaluationModel } from '@api/models';
 import { EvaluationApi, AnswerApi, MeasureApi } from '@api/services';
 import { PiaType } from '@api/model/pia.model';
+import { ProcessingDataType } from '@api/model';
+import { ProcessingDataTypeService } from '@api/service';
 
 @Component({
   selector: 'app-summary',
@@ -30,6 +31,7 @@ export class SummaryComponent implements OnInit {
 
   content: any[];
   pia: any;
+  processingDataTypes: ProcessingDataType[]
   allData: Object;
   dataNav: any;
   displayMainPiaData: boolean;
@@ -52,7 +54,8 @@ export class SummaryComponent implements OnInit {
     private evaluationApi: EvaluationApi,
     private answerApi: AnswerApi,
     private measureApi: MeasureApi,
-    private renderer: Renderer2) { }
+    private processingDataTypeApi: ProcessingDataTypeService
+  ) { }
 
   async ngOnInit() {
     this.summarySubscription = this.route.queryParams.subscribe(params => {
@@ -62,8 +65,10 @@ export class SummaryComponent implements OnInit {
     this.content = [];
     this.dataNav = await this._appDataService.getDataNav();
     this.piaTypes = PiaType;
-
     this.pia = this._piaService.pia;
+    this.processingDataTypeApi.getAll(this.pia.processing.id).subscribe(pdts => {
+      this.processingDataTypes = pdts;
+    });
     this.displayMainPiaData = true;
     this.displayActionPlan = true;
     this.displayRisksOverview = true;
@@ -81,20 +86,7 @@ export class SummaryComponent implements OnInit {
     });
 
     const dataNav = await this._appDataService.getDataNav();
-    const sections = {...dataNav.sections};
-
-    if (this.pia.type === PiaType.regular) {
-      delete sections[3];
-      delete sections[2];
-    }
-
-    if (this.pia.type === PiaType.simplified) {
-      delete sections[3];
-      delete sections[2];
-      delete sections[1];
-    }
-
-    this.sections = Object.values(sections);
+    this.sections = dataNav.sections;
   }
 
   downloadAllGraphsAsImages() {

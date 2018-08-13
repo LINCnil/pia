@@ -191,7 +191,7 @@
     "form": {
       "previous": "Section précédente",
       "next": "Section suivante",
-      "description": { 
+      "description": {
         "title": "Quelles sont les finalités du traitement ?",
         "placeholder": "Décrivez les objectifs et finalités du traitement"
       },
@@ -263,6 +263,7 @@
     "form": {
       "retention-period": "Durée de conservation",
       "sensitive": "Données sensibles ?",
+      "sensitive-affirmative": "Données sensibles",
       "identification": "État-civil, identité, données d'identification, images(ex.nom, prénom, adresse, photographie, date et lieu de naissance, etc.)",
       "personal": "Vie personnelle (ex. habitudes de vie, situation familiale, etc.)",
       "professional": "Vie professionnelle(ex. CV, situation professionnelle, scolarité, formation, distinctions, diplômes, etc.)",
@@ -1140,6 +1141,7 @@
       "title": "Filtres d'affichage",
       "main_content": "Afficher la section \"Informations du PIA\"",
       "context_content": "Afficher la section \"Contexte\"",
+      "processing_content": "Afficher la section \"Traitement\"",
       "principles_content": "Afficher la section \"Principes fondamentaux\"",
       "risks_content": "Afficher la section \"Risques\"",
       "action_plan_content": " Afficher le plan d'action",
@@ -1175,6 +1177,7 @@
       "3": "Importante",
       "4": "Maximale"
     },
+    "processing": "Traitement",
     "action_plan": {
       "title": "Plan d'action",
       "fundamental_principles": "Principes fondamentaux",

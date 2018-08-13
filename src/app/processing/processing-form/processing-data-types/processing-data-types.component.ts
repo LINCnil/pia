@@ -17,14 +17,14 @@ import { ProcessingDataTypeApi } from '@api/services';
 })
 
 export class ProcessingDataTypesComponent implements ControlValueAccessor {
-  public identification: Field = {enabled: false, processedDataType: new ProcessingDataTypeModel()};
-  public personal: Field       = {enabled: false, processedDataType: new ProcessingDataTypeModel()};
-  public professional: Field   = {enabled: false, processedDataType: new ProcessingDataTypeModel()};
-  public financial: Field      = {enabled: false, processedDataType: new ProcessingDataTypeModel()};
-  public log: Field            = {enabled: false, processedDataType: new ProcessingDataTypeModel()};
-  public location: Field       = {enabled: false, processedDataType: new ProcessingDataTypeModel()};
-  public internet: Field       = {enabled: false, processedDataType: new ProcessingDataTypeModel()};
-  public other: Field          = {enabled: false, processedDataType: new ProcessingDataTypeModel()};
+  public identification: Field = {enabled: false, processingDataType: new ProcessingDataTypeModel()};
+  public personal: Field       = {enabled: false, processingDataType: new ProcessingDataTypeModel()};
+  public professional: Field   = {enabled: false, processingDataType: new ProcessingDataTypeModel()};
+  public financial: Field      = {enabled: false, processingDataType: new ProcessingDataTypeModel()};
+  public log: Field            = {enabled: false, processingDataType: new ProcessingDataTypeModel()};
+  public location: Field       = {enabled: false, processingDataType: new ProcessingDataTypeModel()};
+  public internet: Field       = {enabled: false, processingDataType: new ProcessingDataTypeModel()};
+  public other: Field          = {enabled: false, processingDataType: new ProcessingDataTypeModel()};
   @Input() processingId: number;
 
 
@@ -38,7 +38,7 @@ export class ProcessingDataTypesComponent implements ControlValueAccessor {
    * @param value
    */
   updateValue(reference: string, enable: boolean = false): void {
-    const type = this[reference].processedDataType;
+    const type = this[reference].processingDataType;
 
     // Data type enabled no creation yet
     if (enable) {
@@ -62,36 +62,39 @@ export class ProcessingDataTypesComponent implements ControlValueAccessor {
       // Create on server
       this.processingDataTypeApi.create(type).subscribe((theType: ProcessingDataTypeModel) => {
         // Udate model
-        this[reference].processedDataType = theType;
+        this[reference].processingDataType = theType;
       });
 
       return;
     }
 
     // Update existing on server
-    this.processingDataTypeApi.update(type).subscribe((theType: ProcessingDataTypeModel) => {
-      // update model
-      this[reference].processedDataType = theType;
+    this.processingDataTypeApi.get(type.id).subscribe(pdt => {
+      const thePdt = Object.assign(pdt, type); // Fix missing .toJson method because « type » var is not of type ProcessingDataTypeModel
+      this.processingDataTypeApi.update(thePdt).subscribe((theType: ProcessingDataTypeModel) => {
+        // update model
+        this[reference].processingDataType = theType;
+      });
     });
   }
 
   /**
    * Write form control value
-   * 
+   *
    * @param element
    */
   writeValue(value: any): void {
     if (value) {
       value.forEach((type: ProcessingDataTypeModel) => {
         this[type.reference].enabled = true;
-        this[type.reference].processedDataType = type;
+        this[type.reference].processingDataType = type;
       });
     }
   }
 
   /**
    * Register onChange callback
-   * 
+   *
    * @param fn
    */
   registerOnChange(fn: any): void {
@@ -116,5 +119,5 @@ export class ProcessingDataTypesComponent implements ControlValueAccessor {
 
 interface Field {
   enabled: boolean;
-  processedDataType: ProcessingDataTypeModel
+  processingDataType: ProcessingDataTypeModel
 }

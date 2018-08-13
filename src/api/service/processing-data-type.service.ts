@@ -19,8 +19,9 @@ export class ProcessingDataTypeService extends BaseService<ProcessingDataType> {
     super(http);
   }
 
-  public getAll(): Observable<ProcessingDataType[]> {
-    return this.httpGetAll(this.routing.all);
+  public getAll(processingId?: number): Observable<ProcessingDataType[]> {
+    const query = processingId ? {'processing': processingId} : null;
+    return this.httpGetAll(this.routing.all, null, query);
   }
 
   public get(id: any): Observable<ProcessingDataType> {
