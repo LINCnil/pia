@@ -45,6 +45,13 @@ export class ActionPlanImplementationComponent implements OnInit {
         // TODO Unable to FocusIn with Firefox
         // this.actionPlanForm.controls['personInCharge'].disable();
       }
+
+      this._piaService.getPIA().then(() => {
+        if (this._piaService.pia.status >= 2 || this._piaService.pia.is_example === 1) {
+          this.actionPlanForm.controls['estimatedEvaluationDate'].disable();
+          this.actionPlanForm.controls['personInCharge'].disable();
+        }
+      });
     }
   }
 
