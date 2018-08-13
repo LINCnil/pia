@@ -1,5 +1,20 @@
 # Change Log
 
+## [1.4.0](https://github.com/pia-lab/pialab/tree/1.4.0) (2018-08-13)
+[Full Changelog](https://github.com/pia-lab/pialab/compare/1.3.0...1.4.0)
+
+**Merged pull requests:**
+
+- Action plan with Processing [\#50](https://github.com/pia-lab/pialab/pull/50) ([PapsOu](https://github.com/PapsOu))
+- Pia architecture + Misc fixes [\#49](https://github.com/pia-lab/pialab/pull/49) ([PapsOu](https://github.com/PapsOu))
+- Fix create PIA from template [\#48](https://github.com/pia-lab/pialab/pull/48) ([PapsOu](https://github.com/PapsOu))
+- Add Processing form contextual help [\#47](https://github.com/pia-lab/pialab/pull/47) ([PapsOu](https://github.com/PapsOu))
+- Fix PIA create form [\#46](https://github.com/pia-lab/pialab/pull/46) ([PapsOu](https://github.com/PapsOu))
+- Add processing form [\#45](https://github.com/pia-lab/pialab/pull/45) ([RomainSanchez](https://github.com/RomainSanchez))
+- Wip processing pias list [\#44](https://github.com/pia-lab/pialab/pull/44) ([PapsOu](https://github.com/PapsOu))
+- Disable list view [\#43](https://github.com/pia-lab/pialab/pull/43) ([PapsOu](https://github.com/PapsOu))
+- Wip processing list [\#40](https://github.com/pia-lab/pialab/pull/40) ([PapsOu](https://github.com/PapsOu))
+
 ## [1.3.0](https://github.com/pia-lab/pialab/tree/1.3.0) (2018-08-01)
 [Full Changelog](https://github.com/pia-lab/pialab/compare/1.2.4...1.3.0)
 
