@@ -894,6 +894,12 @@
 		"update_server_url": {
 			"content": "L'indirizzo del server è stato aggiornato."
 		},
+		"update_server_url_nok": {
+			"content": ""
+		},
+		"update_server_url_ok": {
+			"content": ""
+		},
 		"validate_evaluation": {
 			"content": "<span class='strong'>Congratulazioni,</span><br>la valutazione di questa sezione è conclusa.<br>Devono essere valutate anche le altre sezioni per poter accedere alla validazione della PIA."
 		},

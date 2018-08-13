@@ -894,6 +894,12 @@
 		"update_server_url": {
 			"content": "Palvelimen osoite on päivitetty."
 		},
+		"update_server_url_nok": {
+			"content": ""
+		},
+		"update_server_url_ok": {
+			"content": ""
+		},
 		"validate_evaluation": {
 			"content": "<span class='strong'>Erinomaista,</span><br>tietosuojaa koskeva vaikutustenarviointi odottaa yleistä validointia."
 		},
