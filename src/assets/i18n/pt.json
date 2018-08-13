@@ -91,6 +91,7 @@
 			"community_translations": "Traduções fornecidas pela comunidade",
 			"cz": "Česky",
 			"de": "Deutsch",
+			"dk": "",
 			"dpa_translations": "Traduções revistas pela ADP europeia",
 			"el": "Ελληνικά",
 			"en": "English",
@@ -278,7 +279,8 @@
 			"PIA_DEF_CHIF": {
 				"description": "Medir dados pessoais ininteligíveis para qualquer pessoa sem autorização de acesso (criptografia simétrica ou assimétrica, uso de algoritmos públicos conhecidos como fortes, certificado de autenticação, etc.).",
 				"name": "Encriptação",
-				"source": "Mesures_US Encryption"
+				"source": "Mesures_US Encryption",
+				"source ": ""
 			},
 			"PIA_DEF_CLO": {
 				"description": "Métodos de organização de dados que reduzem a possibilidade de que os dados pessoais possam ser correlacionados e que uma violação de todos os dados pessoais possa ocorrer. Por exemplo, identificando os dados pessoais úteis apenas para cada processo de negócios e logicamente separando-os.",
@@ -892,13 +894,13 @@
 		},
 		"start_evaluation": "Começar a revisão",
 		"update_server_url": {
-			"content": "O endereço do servidor foi atualizado."
+			"content": ""
 		},
 		"update_server_url_nok": {
-			"content": ""
+			"content": "TO BE TRANSLATED - Connection impossible."
 		},
 		"update_server_url_ok": {
-			"content": ""
+			"content": "O endereço do servidor foi atualizado."
 		},
 		"validate_evaluation": {
 			"content": "<span class='strong'>Parabéns</span><br>, terminou de avaliar esta seção. <br>Outras partes da ferramenta PIA também devem ser avaliadas para poder validar a análise PIA."

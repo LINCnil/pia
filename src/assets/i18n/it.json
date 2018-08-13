@@ -91,6 +91,7 @@
 			"community_translations": "Traduzioni fornite da soggetti diversi",
 			"cz": "Česky",
 			"de": "Deutsch",
+			"dk": "",
 			"dpa_translations": "Traduzioni revisionate da Autorità protezione dati UE",
 			"el": "Ελληνικά",
 			"en": "English",
@@ -278,7 +279,8 @@
 			"PIA_DEF_CHIF": {
 				"description": "La cifratura di un messaggio permette di garantire che solo il mittente e il/i destinatari(o) di tale messaggio ne conosca(no) il contenuto. Si tratta di una sorta di busta digitale sigillata. Una volta cifrato, se non si dispone della chiave specifica, il messaggio resta inaccessibile e illeggibile sia per le persone sia per le macchine.<br>Si distingue fra cifratura (o crittografia) simmetrica e cifratura (o crittografia) asimmetrica.<br>- <strong>La cifratura simmetrica</strong> consente di cifrare e decifrare un determinato contenuto utilizzando una sola chiave, detta in tal caso 'chiave segreta'. La cifratura simmetrica ha il pregio della rapidità, ma mittente e destinatario devono concordare una chiave segreta comune, ovvero devono utilizzare un diverso canale per trasmettersi reciprocamente tale chiave. La scelta del canale di trasmissione richiede particolare cautela per evitare che terzi malintenzionati entrino in possesso della chiave violando, quindi, la riservatezza del messaggio.<br>- <strong>La cifratura asimmetrica</strong> prevede che il (futuro) destinatario sia provvisto di una coppia di chiavi (chiave privata e chiave pubblica) e consenta ai potenziali mittenti di accedere alla sua chiave pubblica. In tal caso, il mittente usa la chiave pubblica del destinatario per cifrare il messaggio, e parallelamente il destinatario utilizzerà la sua chiave privata per decifrarlo. Fra i vantaggi di tale sistema, c'è il fatto che la chiave pubblica può essere pubblicata ed è di dominio pubblico. Tuttavia, occorre che i mittenti si fidino dell'origine della chiave pubblica, e siano certi che si tratti effettivamente della chiave pubblica del destinatario. Un altro vantaggio è che non vi è più necessità di condividere una stessa chiave segreta: la cifratura asimmetrica permette di evitarlo, ma è più lenta.",
 				"name": "Cifratura",
-				"source": "Guide Bleu 2017 p23 https://www.cnil.fr/fr/comprendre-les-grands-principes-de-la-cryptologie-et-du-chiffrement"
+				"source": "Guide Bleu 2017 p23 https://www.cnil.fr/fr/comprendre-les-grands-principes-de-la-cryptologie-et-du-chiffrement",
+				"source ": ""
 			},
 			"PIA_DEF_CLO": {
 				"description": "Metodiche che riducono la possibilità di correlazioni fra i dati personali e di una compromissione a carico della totalità dei dati.<br>Per esempio, si potranno  identificare i dati specifici per ogni attività separandoli logicamente, ecc.",
@@ -892,13 +894,13 @@
 		},
 		"start_evaluation": "Inizia valutazione",
 		"update_server_url": {
-			"content": "L'indirizzo del server è stato aggiornato."
+			"content": ""
 		},
 		"update_server_url_nok": {
-			"content": ""
+			"content": "TO BE TRANSLATED - Connection impossible."
 		},
 		"update_server_url_ok": {
-			"content": ""
+			"content": "L'indirizzo del server è stato aggiornato."
 		},
 		"validate_evaluation": {
 			"content": "<span class='strong'>Congratulazioni,</span><br>la valutazione di questa sezione è conclusa.<br>Devono essere valutate anche le altre sezioni per poter accedere alla validazione della PIA."

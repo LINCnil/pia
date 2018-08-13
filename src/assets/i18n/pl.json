@@ -91,6 +91,7 @@
 			"community_translations": "Wersja przetłumaczone przez społeczność",
 			"cz": "Česky",
 			"de": "Deutsch",
+			"dk": "",
 			"dpa_translations": "Tłumaczenia zweryfikowane przez krajowe organy nadzorcze",
 			"el": "Ελληνικά",
 			"en": "English",
@@ -278,7 +279,8 @@
 			"PIA_DEF_CHIF": {
 				"description": "Szyfrowanie wiadomości pozwala zapewnić, że jedynie nadawca i prawowity odbiorca będą znali jej treść. Po zaszyfrowaniu żaden człowiek ani maszyna nie odczyta wiadomości bez znajomości klucza (szyfrowanie symetryczne lub asymetryczne, korzystanie z publicznych algorytmów uznanych za sile, certyfikat uwierzytelniający, itd.).",
 				"name": "Szyfrowanie",
-				"source": "Mesures_US Encryption"
+				"source": "Mesures_US Encryption",
+				"source ": ""
 			},
 			"PIA_DEF_CLO": {
 				"description": "Zestaw metod pozwalających ograniczyć prawdopodobieństwo korelacji danych osobowych i doprowadzenia do naruszenia wszystkich danych osobowych.<br>Można np. zidentyfikować dane osobowe potrzebne dla każdego procesu biznesowego i je logicznie rozdzielić, itd.",
@@ -892,13 +894,13 @@
 		},
 		"start_evaluation": "Rozpoczęcie oceny",
 		"update_server_url": {
-			"content": "Adres serwera został zaktualizowany."
+			"content": ""
 		},
 		"update_server_url_nok": {
 			"content": "TO BE TRANSLATED - Connection impossible."
 		},
 		"update_server_url_ok": {
-			"content": "TO BE TRANSLATED - The server address has been updated."
+			"content": "Adres serwera został zaktualizowany."
 		},
 		"validate_evaluation": {
 			"content": "<span class='strong'>Gratulacje,</span><br>ocena tej sekcji została zakończona.<br>Pozostałe sekcje również muszą zostać ocenione, aby móc zatwierdzić PIA"

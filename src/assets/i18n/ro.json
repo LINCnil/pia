@@ -91,6 +91,7 @@
 			"community_translations": "Traduceri oferite de către Comunitate",
 			"cz": "Česky",
 			"de": "Deutsch",
+			"dk": "",
 			"dpa_translations": "TO BE TRANSLATED - Translation revised by European DPA",
 			"el": "Ελληνικά",
 			"en": "English",
@@ -278,7 +279,8 @@
 			"PIA_DEF_CHIF": {
 				"description": "Măsură ce face ca datele cu caracter personal să fie neinteligibile pentru oricine nu deține autorizație de acces (criptare simetrică sau asimetrică, utilizarea de algoritmi publici puternici, certificat de autentificare, etc.).",
 				"name": "Criptare",
-				"source": "Mesures_US Encryption"
+				"source": "Mesures_US Encryption",
+				"source ": ""
 			},
 			"PIA_DEF_CLO": {
 				"description": "Metode de organizare a datelor ce reduc posibilitatea de corelare a datelor cu caracter personal și de apariție a breșelor în protecția datelor cu caracter personal. De exemplu, prin identificarea datelor cu caracter personal utile numai fiecărui proces de business și prin separarea logică a acestora.",
@@ -892,13 +894,13 @@
 		},
 		"start_evaluation": "Începeți evaluarea",
 		"update_server_url": {
-			"content": "Adresa server-ului a fost actualizată."
+			"content": ""
 		},
 		"update_server_url_nok": {
-			"content": ""
+			"content": "TO BE TRANSLATED - Connection impossible."
 		},
 		"update_server_url_ok": {
-			"content": ""
+			"content": "Adresa server-ului a fost actualizată."
 		},
 		"validate_evaluation": {
 			"content": "<span class='strong'>Felicitări,</span><br>ați finalizat evaluarea acestei secțiuni.<br>Alte secțiuni ale PIA trebuie, de asemenea, evaluate pentru a putea valida PIA."

@@ -91,6 +91,7 @@
 			"community_translations": "Nem hivatalos fordítások",
 			"cz": "Česky",
 			"de": "Deutsch",
+			"dk": "",
 			"dpa_translations": "Az illetékes felügyeleti hatóság által felülvizsgált fordítás",
 			"el": "Ελληνικά",
 			"en": "English",
@@ -278,7 +279,8 @@
 			"PIA_DEF_CHIF": {
 				"description": "Személyes adatokat az illetéktelenek számára felismerhetetlenné tevő intézkedés (szimmetrikus vagy aszimmetrikus titkosítás, a köztudottan erős, nyilvános algoritmusok, hitelesítő tanúsítványok stb. használata).",
 				"name": "Titkosítás",
-				"source": "Titkosítás intézkedések"
+				"source": "Titkosítás intézkedések",
+				"source ": ""
 			},
 			"PIA_DEF_CLO": {
 				"description": "Amennyiben a különböző adatokat elválasztva kezelik, csökkenhet annak az esélye, hogy a személyes adatok egymással összefüggésbe hozhatók legyenek egy esetleges adatvédelmi incidens bekövetkezése esetén.",
@@ -892,13 +894,13 @@
 		},
 		"start_evaluation": "Véleményezés kezdése",
 		"update_server_url": {
-			"content": "A szerver címét frissítették."
+			"content": ""
 		},
 		"update_server_url_nok": {
-			"content": ""
+			"content": "TO BE TRANSLATED - Connection impossible."
 		},
 		"update_server_url_ok": {
-			"content": ""
+			"content": "A szerver címét frissítették."
 		},
 		"validate_evaluation": {
 			"content": "A DPIA jóváhagyására vár."

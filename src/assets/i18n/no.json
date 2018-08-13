@@ -91,6 +91,7 @@
 			"community_translations": "TO BE TRANSLATED - Community provided translations",
 			"cz": "Česky",
 			"de": "Deutsch",
+			"dk": "",
 			"dpa_translations": "TO BE TRANSLATED - Translation revised by European DPA",
 			"el": "Ελληνικά",
 			"en": "English",
@@ -278,7 +279,8 @@
 			"PIA_DEF_CHIF": {
 				"description": "Measure making personal data unintelligible to anyone without access authorization (symmetric or asymmetric encryption, use of public algorithms known to be strong, authentication certificate, etc.).",
 				"name": "Encryption",
-				"source": "Mesures_US Encryption"
+				"source": "Mesures_US Encryption",
+				"source ": ""
 			},
 			"PIA_DEF_CLO": {
 				"description": "Data organisation methods that reduce the possibility that personal data can be correlated and that a breach of all personal data may occur. For instance, by identifying the personal data useful only to each business process and logically separating them.",
@@ -892,7 +894,7 @@
 		},
 		"start_evaluation": "TO BE TRANSLATED - Start review",
 		"update_server_url": {
-			"content": "The server address has been updated."
+			"content": ""
 		},
 		"update_server_url_nok": {
 			"content": "TO BE TRANSLATED - Connection impossible."
