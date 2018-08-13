@@ -21,5 +21,4 @@ export class AuthenticationComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this._renderer.removeClass(document.body, 'pia-authentication');
   }
-
 }
