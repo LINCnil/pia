@@ -305,11 +305,9 @@ amdefine@>=0.0.4:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/amdefine/-/amdefine-1.0.1.tgz#4a5282ac164729e93619bcfd3ad151f817ce91f5"
 
-angular2-csv@^0.2.9:
-  version "0.2.9"
-  resolved "https://registry.yarnpkg.com/angular2-csv/-/angular2-csv-0.2.9.tgz#cccb0a2bd95fcf45fdb1e4853396d26655fb1c7e"
-  dependencies:
-    tslib "^1.9.0"
+angular2-csv@0.2.5:
+  version "0.2.5"
+  resolved "https://registry.yarnpkg.com/angular2-csv/-/angular2-csv-0.2.5.tgz#8179f4392ed5c62b4043bf819e3bfc1ee8abf8f3"
 
 ansi-html@0.0.7:
   version "0.0.7"
@@ -5953,10 +5951,6 @@ tsickle@^0.21.0:
 tslib@^1.7.1, tslib@^1.8.1:
   version "1.8.1"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.8.1.tgz#6946af2d1d651a7b1863b531d6e5afa41aa44eac"
-
-tslib@^1.9.0:
-  version "1.9.3"
-  resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.9.3.tgz#d7e4dd79245d85428c4d7e4822a79917954ca286"
 
 tslint@^5.5.0:
   version "5.8.0"
