@@ -6,7 +6,7 @@
         <h1>{{ 'settings.title' | translate }}</h1>
         <form [formGroup]="settingsForm" (ngSubmit)="onSubmit()" novalidate >
           <label for="server_url">{{ 'settings.content' | translate }}</label>
-          <input type="text" id="server_url" formControlName="server_url">
+          <input type="text" id="server_url" formControlName="server_url" placeholder="https://">
           <button type="submit"
                   class="btn btn-green"
                   ngClass="{'btn--processing': formProcessing}">
