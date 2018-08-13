@@ -1,5 +1,12 @@
 # Change Log
 
+## [1.4.1](https://github.com/pia-lab/pialab/tree/1.4.1) (2018-08-13)
+[Full Changelog](https://github.com/pia-lab/pialab/compare/1.4.0...1.4.1)
+
+**Merged pull requests:**
+
+- Add Pia editable fields [\#51](https://github.com/pia-lab/pialab/pull/51) ([PapsOu](https://github.com/PapsOu))
+
 ## [1.4.0](https://github.com/pia-lab/pialab/tree/1.4.0) (2018-08-13)
 [Full Changelog](https://github.com/pia-lab/pialab/compare/1.3.0...1.4.0)
 
