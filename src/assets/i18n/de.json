@@ -895,10 +895,10 @@
 			"content": "Die Serveradresse wurde aktualisiert."
 		},
 		"update_server_url_nok": {
-			"content": "TO BE TRANSLATED - Connection impossible."
+			"content": "Keine Verbindung zum Server möglich."
 		},
 		"update_server_url_ok": {
-			"content": "TO BE TRANSLATED - The server address has been updated."
+			"content": "Die Serveradresse wurde aktualisiert."
 		},
 		"validate_evaluation": {
 			"content": "Der Unterabschnitt steht jetzt zur Bestätigung der Analyse bereit."
