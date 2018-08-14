@@ -279,8 +279,7 @@
 			"PIA_DEF_CHIF": {
 				"description": "Măsură ce face ca datele cu caracter personal să fie neinteligibile pentru oricine nu deține autorizație de acces (criptare simetrică sau asimetrică, utilizarea de algoritmi publici puternici, certificat de autentificare, etc.).",
 				"name": "Criptare",
-				"source": "Mesures_US Encryption",
-				"source ": ""
+				"source": "Mesures_US Encryption"
 			},
 			"PIA_DEF_CLO": {
 				"description": "Metode de organizare a datelor ce reduc posibilitatea de corelare a datelor cu caracter personal și de apariție a breșelor în protecția datelor cu caracter personal. De exemplu, prin identificarea datelor cu caracter personal utile numai fiecărui proces de business și prin separarea logică a acestora.",
@@ -893,9 +892,6 @@
 			"content": "PIA a fost validată."
 		},
 		"start_evaluation": "Începeți evaluarea",
-		"update_server_url": {
-			"content": ""
-		},
 		"update_server_url_nok": {
 			"content": "TO BE TRANSLATED - Connection impossible."
 		},

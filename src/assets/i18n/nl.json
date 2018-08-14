@@ -279,8 +279,7 @@
 			"PIA_DEF_CHIF": {
 				"description": "Encryptie maatregelen die persoonlijke gegevens voor iedereen zonder toegangsbevoegdheid onbegrijpelijk maken met (symmetrische of asymmetrische codering, gebruik van openbare algoritmes waarvan bekend is dat ze sterk zijn, authenticatiecertificaat, enz.).",
 				"name": "Encryptie",
-				"source": "Mesures_US Encryption",
-				"source ": ""
+				"source": "Mesures_US Encryption"
 			},
 			"PIA_DEF_CLO": {
 				"description": "Gegevensorganisatie-methoden die de mogelijkheid verkleinen dat persoonlijke gegevens kunnen worden gecorreleerd en dat een schending van alle persoonlijke gegevens kan optreden. Bijvoorbeeld door de persoonlijke gegevens te identificeren die alleen voor elk bedrijfsproces nuttig zijn en logisch van elkaar te scheiden.",
@@ -893,9 +892,6 @@
 			"content": "U hebt de PIA goedgekeurd."
 		},
 		"start_evaluation": "Start review",
-		"update_server_url": {
-			"content": ""
-		},
 		"update_server_url_nok": {
 			"content": "TO BE TRANSLATED - Connection impossible."
 		},
