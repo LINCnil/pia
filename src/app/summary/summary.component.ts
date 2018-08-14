@@ -81,7 +81,7 @@ export class SummaryComponent implements OnInit {
    * @private
    * @memberof SummaryComponent
    */
-  private downloadAllGraphsAsImages() {
+  downloadAllGraphsAsImages() {
     this.getActionPlanOverviewImg();
     this.getRisksOverviewImg();
     this.getRisksCartographyImg();
@@ -163,7 +163,7 @@ export class SummaryComponent implements OnInit {
    * @private
    * @memberof SummaryComponent
    */
-  private toggleMainContent() {
+  toggleMainContent() {
     this.displayMainPiaData = !this.displayMainPiaData;
   }
 
@@ -172,7 +172,7 @@ export class SummaryComponent implements OnInit {
    * @private
    * @memberof SummaryComponent
    */
-  private toggleContextContent() {
+  toggleContextContent() {
     setTimeout(() => {
       const contextSection = this.el.nativeElement.querySelector('.section-1');
       contextSection.classList.toggle('hide');
@@ -184,7 +184,7 @@ export class SummaryComponent implements OnInit {
    * @private
    * @memberof SummaryComponent
    */
-  private toggleFundamentalPrinciplesContent() {
+  toggleFundamentalPrinciplesContent() {
     setTimeout(() => {
       const fundamentalPrinciplesSection = this.el.nativeElement.querySelector('.section-2');
       fundamentalPrinciplesSection.classList.toggle('hide');
@@ -196,7 +196,7 @@ export class SummaryComponent implements OnInit {
    * @private
    * @memberof SummaryComponent
    */
-  private toggleRisksContent() {
+  toggleRisksContent() {
     setTimeout(() => {
       const risksSection = this.el.nativeElement.querySelector('.section-3');
       risksSection.classList.toggle('hide');
@@ -208,7 +208,7 @@ export class SummaryComponent implements OnInit {
    * @private
    * @memberof SummaryComponent
    */
-  private toggleActionPlanContent() {
+  toggleActionPlanContent() {
     this.displayActionPlan = !this.displayActionPlan;
   }
 
@@ -217,7 +217,7 @@ export class SummaryComponent implements OnInit {
    * @private
    * @memberof SummaryComponent
    */
-  private toggleRisksOverviewContent() {
+  toggleRisksOverviewContent() {
     this.displayRisksOverview = !this.displayRisksOverview;
   }
 
@@ -226,7 +226,7 @@ export class SummaryComponent implements OnInit {
    * @private
    * @memberof SummaryComponent
    */
-  private toggleRisksCartographyContent() {
+  toggleRisksCartographyContent() {
     this.displayRisksCartography = !this.displayRisksCartography;
   }
 
@@ -516,7 +516,7 @@ export class SummaryComponent implements OnInit {
    * @private
    * @memberof Angular2Csv
    */
-  private getTextSelection() {
+  getTextSelection() {
     const actionPlanOverview = document.getElementById('actionPlanOverviewImg');
     if (actionPlanOverview) {
       actionPlanOverview.classList.toggle('hide');

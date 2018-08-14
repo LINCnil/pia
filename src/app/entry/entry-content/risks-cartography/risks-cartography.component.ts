@@ -86,7 +86,7 @@ export class RisksCartographyComponent implements OnInit, OnDestroy {
       });
       this.answersGauge.forEach(answer => {
         const question: any = this.questions.filter((entry) => {
-          return entry.id === answer.reference_to;
+          return entry.id.toString() === answer.reference_to.toString();
         });
         if (question[0]) {
           const cartographyKey = question[0].cartography.split('_');
