@@ -1,6 +1,6 @@
 {
   "name": "pia",
-  "version": "1.6.0",
+  "version": "1.6.4",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
@@ -39,7 +39,7 @@
     "zone.js": "^0.8.16"
   },
   "devDependencies": {
-    "@angular/cli": "^1.4.9",
+    "@angular/cli": "^1.7.4",
     "@angular/compiler-cli": "^4.4.3",
     "@angular/language-service": "^4.4.3",
     "@types/jasmine": "^2.5.53",
@@ -57,6 +57,6 @@
     "source-map-explorer": "^1.5.0",
     "ts-node": "^3.3.0",
     "tslint": "^5.5.0",
-    "typescript": "~2.4.2"
+    "typescript": "^2.3.4"
   }
 }
