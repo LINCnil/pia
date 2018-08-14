@@ -14,6 +14,8 @@
  * Learn more in https://angular.io/docs/ts/latest/guide/browser-support.html
  */
 
+(window as any).global = window;
+
 /***************************************************************************************************
  * BROWSER POLYFILLS
  */
