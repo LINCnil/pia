@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import 'rxjs/add/operator/map';
+import { map} from "rxjs/operators";
 
 import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 

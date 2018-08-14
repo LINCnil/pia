@@ -1,6 +1,5 @@
 import { Component, Input, ElementRef, OnInit, Renderer2, OnDestroy, NgZone } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { KnowledgeBaseService } from '../../knowledge-base/knowledge-base.service';
 import { Answer } from './answer.model';
 import { Measure } from '../measures/measure.model';
 import { Evaluation } from 'app/entry/entry-content/evaluations/evaluation.model';
