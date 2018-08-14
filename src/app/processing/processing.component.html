@@ -15,7 +15,7 @@
 
                         <ng-container *ngFor="let section of sections">
                             <!-- <div *ngxPermissionsOnly="section.permissions" id="{{section.name}}"> -->
-                            <div (click)="changeSection(section.id)" class="processing-section-title" [ngClass]="{'active': currentSection.id == section.id}">
+                            <div (click)="changeSection(section.id)" class="processing-section-title {{ section.name }}" [ngClass]="{'active': currentSection.id == section.id}">
                                 {{ section.title | translate }}
                             </div>
                             <!-- </div> -->

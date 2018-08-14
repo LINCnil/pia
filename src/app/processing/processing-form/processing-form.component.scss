@@ -13,9 +13,38 @@
       background-color: $pia-full-white;
       position: relative;
       box-shadow: 1px 1px 15px 1px rgba(210,210,210,1);
+      &.description-section {
+        > div:last-child {
+          h1 {
+            color: $pia-blue;
+          }
+        }
+        > div:first-child {
+          background-color: $pia-blue;
+        }
+      }
+      &.data-section {
+        > div:last-child {
+          h1 {
+            color: $pia-red;
+          }
+        }
+        > div:first-child {
+          background-color: $pia-red;
+        }
+      }
+      &.lifecycle-section {
+        > div:last-child {
+          h1 {
+            color: $pia-green;
+          }
+        }
+        > div:first-child {
+          background-color: $pia-green;
+        }
+      }
       > div:first-child {
         width: 74px;
-        background-color: $pia-green;
         position: relative;
         i {
           display: block;
@@ -98,38 +127,6 @@
             background-color: transparent;
             min-height: inherit;
           }
-      }
-    }
-    &-section {
-      &2 {
-        .processing-entryContentBlock-header {
-          > div:first-child {
-            background-color: $pia-blue;
-          }
-          h1, h2 {
-            color: $pia-blue;
-          }
-        }
-      }
-      &3 {
-        .processing-entryContentBlock-header {
-          > div:first-child {
-            background-color: $pia-red;
-          }
-          h1, h2 {
-            color: $pia-red;
-          }
-        }
-      }
-      &4 {
-        .processing-entryContentBlock-header {
-          > div:first-child {
-            background-color: $pia-dark-black;
-          }
-          h1, h2 {
-            color: $pia-dark-black;
-          }
-        }
       }
     }
     &-content {

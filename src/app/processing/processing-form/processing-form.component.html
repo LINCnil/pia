@@ -1,5 +1,5 @@
 <section class="processing-setion">
-  <header autoscroll="true" class="processing-entryContentBlock-header">
+  <header autoscroll="true" class="processing-entryContentBlock-header {{ currentSection.name }}">
     <div>
       <div class="processing-entryContentBlock-header-progress">
       </div>
@@ -72,8 +72,8 @@
       <fieldset *ngIf="currentSection.id == 2" id="data" class="form-section">
         <div class="form-field">
           <label class="title" for="processing-data-types">{{ 'processing.form.data-types' | translate }}</label>
-          <app-processing-data-types 
-            [(ngModel)]="processing.processing_data_types" 
+          <app-processing-data-types
+            [(ngModel)]="processing.processing_data_types"
             name="data-types"
             id="processing-data-types"
             (click)="updateKnowledgeBase(['PIA_LGL_DATA', 'PIA_LGL_DUR'])"
