@@ -27,7 +27,24 @@ export class SettingsComponent implements OnInit {
    * @memberof SettingsComponent
    */
   onSubmit() {
-    localStorage.setItem('server_url', this.settingsForm.value.server_url);
-    this._modalsService.openModal('modal-update-server-url');
+      /* Set it back to empty if server mode is disabled */
+      if (this.settingsForm.controls['server_url'].value === null || this.settingsForm.controls['server_url'].value.length <= 0) {
+        localStorage.removeItem('server_url');
+        this._modalsService.openModal('modal-update-server-url-ok');
+      } else {
+        fetch(this.settingsForm.value.server_url).then((response) => {
+          return response.status;
+        }).then((httpCode: number) => {
+          if (httpCode === 200) {
+            localStorage.setItem('server_url', this.settingsForm.value.server_url);
+            this._modalsService.openModal('modal-update-server-url-ok');
+          } else {
+            this._modalsService.openModal('modal-update-server-url-nok');
+          }
+        }).catch((error) => {
+          console.error('Request failed', error);
+          this._modalsService.openModal('modal-update-server-url-nok');
+        });
+      }
   }
 }

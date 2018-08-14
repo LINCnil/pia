@@ -1,6 +1,4 @@
 @import '../../assets/stylesheets/variables';
-
-// Action plan
 .pia-entryContentBlock {
   &-header {
     div:first-child {
@@ -9,8 +7,6 @@
     }
     .pia-previewBlock {
       span {
-        // border: solid 1px $pia-green;
-        // border-radius: 50%;
         width: 35px;
         height: 35px;
         color: $pia-green;

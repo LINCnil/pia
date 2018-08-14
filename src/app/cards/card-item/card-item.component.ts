@@ -1,9 +1,10 @@
 import { Component, OnInit, ViewChild, ElementRef, Input } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { Pia } from '../../entry/pia.model';
 import { Router } from '@angular/router';
 
+import { Pia } from '../../entry/pia.model';
 import { Attachment } from 'app/entry/attachments/attachment.model';
+
 import { ModalsService } from 'app/modals/modals.service';
 import { PiaService } from 'app/entry/pia.service';
 
@@ -14,7 +15,7 @@ import { LanguagesService } from 'app/services/languages.service';
   selector: 'app-card-item',
   templateUrl: './card-item.component.html',
   styleUrls: ['./card-item.component.scss', './card-item_edit.component.scss',
-    './card-item_doing.component.scss', './card-item_archived.component.scss'],
+    './card-item_doing.component.scss'],
 })
 export class CardItemComponent implements OnInit {
   @Input() pia: any;

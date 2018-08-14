@@ -1,5 +1,4 @@
 @import '../../../assets/stylesheets/variables';
-
 // Main PIA content styles
 .pia {
   // Central PIA content Block
@@ -184,6 +183,9 @@
             }
           }
         }
+      }
+      &-requiredFields {
+        margin-top: 6px !important;
       }
     }
   }

@@ -41,9 +41,8 @@
 		"limited": "Limitado",
 		"maximal": "Máximo",
 		"negligible": "Insignificante",
-		"risk1_access": "(A)",
-		"risk2_modification": "(M)",
-		"risk3_disappearance": "(D)",
+		"risk1_access": "(I)",
+		"risk2_modification": "(IN)",
 		"seriousness_axe": "Gravidade de risco"
 	},
 	"comments": {
@@ -287,8 +286,7 @@
 			"PIA_DEF_CHIF": {
 				"description": "Medir dados pessoais ininteligíveis para qualquer pessoa sem autorização de acesso (criptografia simétrica ou assimétrica, uso de algoritmos públicos conhecidos como fortes, certificado de autenticação, etc.).",
 				"name": "Encriptação",
-				"source": "Mesures_US Encryption",
-				"source ": ""
+				"source": "Mesures_US Encryption"
 			},
 			"PIA_DEF_CLO": {
 				"description": "Métodos de organização de dados que reduzem a possibilidade de que os dados pessoais possam ser correlacionados e que uma violação de todos os dados pessoais possa ocorrer. Por exemplo, identificando os dados pessoais úteis apenas para cada processo de negócios e logicamente separando-os.",
@@ -901,7 +899,10 @@
 			"content": "A análise PIA foi validada."
 		},
 		"start_evaluation": "Começar a revisão",
-		"update_server_url": {
+		"update_server_url_nok": {
+			"content": "TO BE TRANSLATED - Connection impossible."
+		},
+		"update_server_url_ok": {
 			"content": "O endereço do servidor foi atualizado."
 		},
 		"validate_evaluation": {

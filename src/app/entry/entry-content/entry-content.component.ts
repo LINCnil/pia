@@ -57,22 +57,6 @@ export class EntryContentComponent implements OnInit, OnChanges {
     const itemId = parseInt(this._activatedRoute.snapshot.params['item_id'], 10);
 
     this._paginationService.setPagination(sectionId, itemId);
-
-    // Redirect users accessing validation page if requirements not met
-    /* TODO make it works for refusal PIA status + */
-    // if (sectionId === 4 && itemId === 4) {
-    //   if ((!this._globalEvaluationService.enablePiaValidation && !this._globalEvaluationService.piaIsRefused)
-    //   || (this._globalEvaluationService.piaIsRefused && !this._piaService.pia.applied_adjustements)) {
-    //     this._router.navigate(['entry', this._piaService.pia.id, 'section', 1, 'item', 1])
-    //   }
-    // }
-
-    // // Redirect users accessing refusal page if requirements not met
-    // if (sectionId === 4 && itemId === 5) {
-    //   if (!this._globalEvaluationService.enablePiaValidation && !this._globalEvaluationService.piaIsRefused) {
-    //     this._router.navigate(['entry', this._piaService.pia.id, 'section', 1, 'item', 1])
-    //   }
-    // }
   }
 
   /**

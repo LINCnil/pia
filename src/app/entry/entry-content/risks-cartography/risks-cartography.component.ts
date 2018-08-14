@@ -91,7 +91,7 @@ export class RisksCartographyComponent implements OnInit, OnDestroy {
       });
       this.answersGauge.forEach(answer => {
         const question: any = this.questions.filter((entry) => {
-          return entry.id === answer.reference_to;
+          return entry.id.toString() === answer.reference_to.toString();
         });
         if (question[0]) {
           const cartographyKey = question[0].cartography.split('_');
@@ -323,8 +323,8 @@ export class RisksCartographyComponent implements OnInit, OnDestroy {
       const grad = context.createLinearGradient(50, 50, 150, 150);
 
       // Dotted lines params
-      context.setLineDash([2, 2]);
-      context.lineWidth = 2;
+      context.setLineDash([3, 2]);
+      context.lineWidth = 1;
 
       // Dotted lines
       if (this.dataJSON['risk-access']['author'].x && this.dataJSON['risk-access']['author'].y &&
@@ -389,7 +389,7 @@ export class RisksCartographyComponent implements OnInit, OnDestroy {
   }
 
   /**
-   * Draw an arrow between two point.
+   * Draw an arrow between two points.
    * @param {CanvasRenderingContext2D} context - The context.
    * @param {number} fromx - From the position X.
    * @param {number} fromy - From the position Y.

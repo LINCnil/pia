@@ -17,12 +17,12 @@
 
   <!-- Copy to clipboard block -->
   <div class="pia-summaryCopyBlock hide-for-print">
-    <button class="btn btn-select-all hide-for-print" (click)="getTextSelection()">{{ 'summary.copy_to_clipboard' | translate }}</button>
+    <button class="btn btn-green hide-for-print" (click)="getTextSelection()">{{ 'summary.copy_to_clipboard' | translate }}</button>
   </div>
 
   <!-- Customize content filters -->
   <div class="row">
-   <div class="small-12 medium-12 columns">
+    <div class="small-12 medium-12 columns">
       <form class="pia-summaryFiltersBlock hide-for-print">
         <fieldset>
           <legend class="unselectable">{{ 'summary.display_filters.title' | translate }}</legend>
@@ -59,13 +59,12 @@
         </fieldset>
       </form>
     </div>
-   </div>
-  <!--<div class="row force-select-all" id="force-select-all">-->
+  </div>
   <div class="row" id="force-select-all">
     <div class="small-12 medium-12 columns">
       <div *ngIf="allData" ng-class="{'text-success': model.copied, 'text-danger': !model.copied}" ng-copy="events.onCopy($event)">
+
         <!-- Main PIA data -->
-        <!--<div class="fadeIn force-select-all" *ngIf="displayMainPiaData">-->
         <div class="fadeIn" *ngIf="displayMainPiaData">
           <div *ngFor="let c of content">
             <div *ngIf="c.data.length > 0">
@@ -82,6 +81,7 @@
             </div>
           </div>
         </div>
+
         <div *ngFor="let section of _piaService.data.sections">
           <div class="fadeIn section-{{section.id}} pagebreak" *ngIf="section.id !== 4">
             <h1 >{{ section.title | translate }}</h1>
@@ -235,7 +235,7 @@
           </div>
 
           <!-- Action plan for fundamental principles -->
-          <div>
+          <div class="pagebreak">
             <h2>{{ 'summary.action_plan.fundamental_principles' | translate }}</h2>
             <ng-container *ngIf="_actionPlanService.principlesActionPlanReady; else noFundamentalPrinciples">
               <div class="actionplanbox">
@@ -271,7 +271,7 @@
         </div>
 
         <!-- Action plan for measures -->
-        <div>
+        <div class="pagebreak">
           <h2>{{ 'summary.action_plan.measures' | translate }}</h2>
           <ng-container *ngIf="_actionPlanService.measuresActionPlanReady; else noMeasures">
             <div class="actionplanbox">
@@ -306,7 +306,7 @@
         </div>
 
         <!-- Action plan for risks -->
-        <div>
+        <div class="pagebreak">
           <!-- Risk 1 -->
           <div *ngIf="_actionPlanService.risksActionPlan32Ready">
             <h2 style="margin-bottom:2px;">{{ 'summary.action_plan.risks' | translate }} - {{ _actionPlanService.risks['3.2'].short_title | translate }}</h2>

@@ -1,6 +1,4 @@
 @import '../../../../assets/stylesheets/variables';
-
-// Measures block
 .pia {
   &-measureBlock {
     position: relative;
@@ -93,11 +91,6 @@
       color: $pia-gray;
       font-size: 1rem;
     }
-  }
-}
-
-.pia {
-  &-measureBlock {
     &.approved {
       border: 1px solid $pia-gray;
       box-shadow: none;

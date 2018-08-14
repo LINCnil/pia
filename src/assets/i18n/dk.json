@@ -901,7 +901,10 @@
 			"content": "Du har godkendt PIA'en."
 		},
 		"start_evaluation": "Start evaluering",
-		"update_server_url": {
+		"update_server_url_nok": {
+			"content": "TO BE TRANSLATED - Connection impossible."
+		},
+		"update_server_url_ok": {
 			"content": "Serveradressen er blevet opdateret."
 		},
 		"validate_evaluation": {
