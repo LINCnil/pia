@@ -67,7 +67,7 @@ export class RefusePIAComponent implements OnInit {
   }
 
   /**
-   * Display the modal to abandon.
+   * Display the modal to abandon the PIA.
    * @memberof RefusePIAComponent
    */
   abandon() {

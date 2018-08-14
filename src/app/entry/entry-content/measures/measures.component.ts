@@ -1,9 +1,11 @@
 import { Component, Input, ElementRef, Renderer2, OnInit, OnDestroy, NgZone } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { ModalsService } from 'app/modals/modals.service';
+
 import { Measure } from './measure.model';
 import { Answer } from 'app/entry/entry-content/questions/answer.model';
 import { Evaluation } from 'app/entry/entry-content/evaluations/evaluation.model';
+
+import { ModalsService } from 'app/modals/modals.service';
 import { KnowledgeBaseService } from 'app/entry/knowledge-base/knowledge-base.service';
 import { GlobalEvaluationService } from 'app/services/global-evaluation.service';
 

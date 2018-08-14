@@ -9,11 +9,22 @@
   </div>
 </div>
 
-<div class="pia-modalBlock" id="modal-update-server-url">
+<div class="pia-modalBlock" id="modal-update-server-url-ok">
   <div class="pia-modalBlock-content bounceIn">
     <button tabindex="2" type="button" class="pia-modalBlock-close btn" title="{{ 'modals.close' | translate }}" (click)="_modalsService.closeModal()"><span class="pia-icons pia-icon-close-big"></span></button>
-    <p>{{ 'modals.update_server_url.content' | translate }}</p>
+    <p [innerHTML]="'modals.update_server_url_ok.content' | translate"></p>
     <span class="pia-icons pia-icon-happy"></span>
+    <div class="pia-modalBlock-validate">
+      <button tabindex="1" class="btn btn-green get-focus" type="button" (click)="returnToHomepage()">{{ 'modals.back_to_home' | translate }}</button>
+    </div>
+  </div>
+</div>
+
+<div class="pia-modalBlock" id="modal-update-server-url-nok">
+  <div class="pia-modalBlock-content bounceIn">
+    <button tabindex="2" type="button" class="pia-modalBlock-close btn" title="{{ 'modals.close' | translate }}" (click)="_modalsService.closeModal()"><span class="pia-icons pia-icon-close-big"></span></button>
+    <p [innerHTML]="'modals.update_server_url_nok.content' | translate"></p>
+    <span class="pia-icons pia-icon-sad"></span>
     <div class="pia-modalBlock-validate">
       <button tabindex="1" class="btn btn-green get-focus" type="button" (click)="returnToHomepage()">{{ 'modals.back_to_home' | translate }}</button>
     </div>

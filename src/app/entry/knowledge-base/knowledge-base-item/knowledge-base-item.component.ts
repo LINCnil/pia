@@ -1,5 +1,6 @@
 import { Component, ElementRef, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+
 import { KnowledgeBaseService } from '../knowledge-base.service';
 import { TranslateService } from '@ngx-translate/core';
 import { GlobalEvaluationService } from 'app/services/global-evaluation.service';

@@ -287,8 +287,7 @@
 			"PIA_DEF_CHIF": {
 				"description": "Foranstaltning der ved brug af kryptering blandt andet tillader fortrolighed i elektroniske kommunikationer f.eks. ved digital signatur. En elektronisk underskrift sikrer, at du (underskriveren) er den, du giver dig ud for at være, når du underskriver i forbindelse med elektronisk kommunikation.",
 				"name": "Kryptering",
-				"source": "",
-				"source ": "Mesures_US Encryption"
+				"source": "Mesures_US Encryption"
 			},
 			"PIA_DEF_CLO": {
 				"description": "Opdeling af personoplysninger kan forbedre beskyttelsen ved sikkerhedsbrud. Hvis et delsystem er kompromitteret, kan konsekvenserne på datasættet reduceres.",
@@ -901,7 +900,10 @@
 			"content": "Du har godkendt PIA'en."
 		},
 		"start_evaluation": "Start evaluering",
-		"update_server_url": {
+		"update_server_url_nok": {
+			"content": "TO BE TRANSLATED - Connection impossible."
+		},
+		"update_server_url_ok": {
 			"content": "Serveradressen er blevet opdateret."
 		},
 		"validate_evaluation": {

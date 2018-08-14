@@ -287,8 +287,7 @@
 			"PIA_DEF_CHIF": {
 				"description": "Măsură ce face ca datele cu caracter personal să fie neinteligibile pentru oricine nu deține autorizație de acces (criptare simetrică sau asimetrică, utilizarea de algoritmi publici puternici, certificat de autentificare, etc.).",
 				"name": "Criptare",
-				"source": "Mesures_US Encryption",
-				"source ": ""
+				"source": "Mesures_US Encryption"
 			},
 			"PIA_DEF_CLO": {
 				"description": "Metode de organizare a datelor ce reduc posibilitatea de corelare a datelor cu caracter personal și de apariție a breșelor în protecția datelor cu caracter personal. De exemplu, prin identificarea datelor cu caracter personal utile numai fiecărui proces de business și prin separarea logică a acestora.",
@@ -901,7 +900,10 @@
 			"content": "PIA a fost validată."
 		},
 		"start_evaluation": "Începeți evaluarea",
-		"update_server_url": {
+		"update_server_url_nok": {
+			"content": "TO BE TRANSLATED - Connection impossible."
+		},
+		"update_server_url_ok": {
 			"content": "Adresa server-ului a fost actualizată."
 		},
 		"validate_evaluation": {
@@ -1141,15 +1143,15 @@
 				"2": {
 					"questions": {
 						"1": {
-							"placeholder": "Introduceți potențialele impacturi+",
+							"placeholder": "Introduceți potențialele impacturi +",
 							"title": "Care ar putea fi principalele <span class='green-highlight'>impacturi asupra persoanelor vizate</span> dacă riscul s-ar materializa?"
 						},
 						"2": {
-							"placeholder": "Introduceți amenințările+",
+							"placeholder": "Introduceți amenințările +",
 							"title": "Care sunt principalele <span class='green-highlight'>amenințări</span> care ar putea determina producerea riscului?"
 						},
 						"3": {
-							"placeholder": "Introduceți sursele de risc+",
+							"placeholder": "Introduceți sursele de risc  +",
 							"title": "Care sunt<span class='green-highlight'>sursele</span> de risc?"
 						},
 						"4": {
@@ -1171,11 +1173,11 @@
 				"3": {
 					"questions": {
 						"1": {
-							"placeholder": "Introduceți potențialele impacturi+",
+							"placeholder": "Introduceți potențialele impacturi +",
 							"title": "Care ar putea fi principalele <span class='green-highlight'>impacturi asupra persoanelor vizate</span> în cazul în care riscul s-ar materializa?"
 						},
 						"2": {
-							"placeholder": "Introduceți amenințările+",
+							"placeholder": "Introduceți amenințările +",
 							"title": "Care sunt principalele <span class='green-highlight'>amenințări</span> care ar putea determina producerea riscului?"
 						},
 						"3": {
