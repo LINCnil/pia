@@ -10,12 +10,12 @@
     //border-radius: 20px;
      
     font-size: 1.35rem;
-    color: white;
+    color: $pia-full-white;
     &:hover, &:focus {
-      color: white;
+      color: $pia-full-white;
     }
     &:active {
-      background-color: white;
+      background-color: $pia-full-white;
     }
   }
   &.hide {
@@ -37,7 +37,7 @@
   &-white {
     @extend .btn-default;
     color: $pia-green;
-    background-color: white;
+    background-color: $pia-full-white;
     &:focus, &:hover, &.btn-active {
       color: $pia-green;
     }
@@ -49,7 +49,7 @@
     border-color: $pia-green;
     &:focus, &:hover, &.btn-active, &.btn-active[disabled] {
       background-color: $pia-green;
-      color: white;
+      color: $pia-full-white;
     }
   }
 
@@ -59,7 +59,7 @@
     border-color: $pia-blue;
     &:focus, &:hover, &.btn-active, &.btn-active[disabled] {
       background-color: $pia-blue;
-      color: white;
+      color: $pia-full-white;
     }
   }
 
@@ -69,7 +69,7 @@
     border-color: $pia-red;
     &:focus, &:hover, &.btn-active, &.btn-active[disabled] {
       background-color: $pia-red;
-      color: white;
+      color: $pia-full-white;
     }
   }
 
@@ -92,7 +92,7 @@
   &-addMeasure {
     border-radius: 0;
     width: 100%;
-    box-shadow: 1px 1px 15px 1px #d2d2d2;
+    box-shadow: 1px 1px 15px 1px darken($pia-white, 13.8%);
     margin-bottom: 10px;
   }
 }

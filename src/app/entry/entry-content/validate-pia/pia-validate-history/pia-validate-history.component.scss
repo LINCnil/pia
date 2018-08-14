@@ -44,7 +44,7 @@
       border-top: solid $pia-red 5px;
       background-color: $pia-full-white;
       padding: 10px 40px 40px 40px;
-      box-shadow: 2px 1px 18px 1px #c2c2c2;
+      box-shadow: 2px 1px 18px 1px darken($pia-white, 20%);
     }
   }
 }

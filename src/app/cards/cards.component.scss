@@ -3,7 +3,7 @@
 section {
   height: 700px;
   width: 700px;
-  border: 2px solid black;
+  border: 2px solid $pia-dark-black;
 }
 
 
@@ -112,7 +112,7 @@ section {
       margin-left: 12px;
       &-list {
         z-index: 998;
-        background-color: #eee;
+        background-color: darken($pia-white, 2.8%);
         display: none;
         padding: 30px 10px 10px 10px;
         position: absolute;
@@ -196,7 +196,7 @@ section {
             li {
               &.divider {
                 height: 1px;
-                background: #ddd;
+                background: darken($pia-white, 9.5%);
                 padding: 0;
                 margin: 4px 0;
               }
@@ -295,7 +295,7 @@ section {
   width: 100%;
   max-width: 100%;
   margin-bottom: 1rem;
-  border-bottom: 1px solid #d0d0d0;
+  border-bottom: 1px solid darken($pia-white, 14.5%);
   thead {
     background-color: $pia-dark-black;
     color: $pia-white;

@@ -175,7 +175,7 @@
         button {
           width: 49%;
           height: 43px;
-          box-shadow: 1px 1px 15px 1px #d2d2d2;
+          box-shadow: 1px 1px 15px 1px darken($pia-white, 13.8%);
           float: right;
           &:first-child {
             float: left;
@@ -226,7 +226,7 @@
     margin-bottom: 10px;
     background-color: $pia-full-white;
     padding: 12px 32px;
-    box-shadow: 1px 1px 15px 1px #d2d2d2;
+    box-shadow: 1px 1px 15px 1px darken($pia-white, 13.8%);
   }
 
   &-sectionBlock {

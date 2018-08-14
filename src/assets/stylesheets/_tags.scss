@@ -33,7 +33,7 @@ $foundation-tag-edit-theme: (
 // this is the delete icon's theme
 $foundation-icon-theme: (
     fill: $pia-full-white,
-    fill-focus: #eee,
+    fill-focus: darken($pia-white, 2.8%),
     transition: all 0.5s
 );
 

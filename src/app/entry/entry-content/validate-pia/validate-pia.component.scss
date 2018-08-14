@@ -4,7 +4,7 @@
 .pia-validationBlock {
   .pia-entryContentBlock {
     &-content {
-      background-color: #fefefe;
+      background-color: lighten($pia-white, 3.5%);
       box-shadow: 2px 1px 18px 1px rgba(194,194,194,1);
       &-list {
         padding:  10px 60px 20px  60px;
@@ -35,7 +35,7 @@
             margin-top: 5px;
             padding: 10px;
             background-color: $pia-white;
-            border: solid 1px #eee;
+            border: solid 1px darken($pia-white, 2.8%);
             cursor: pointer;
             .pia-list-confirm-icon {
               align-self: center;
@@ -127,7 +127,7 @@
     &-footer {
       &-validationAttachments {
         margin: 10px 0;
-        box-shadow: 2px 1px 18px 1px #c2c2c2;
+        box-shadow: 2px 1px 18px 1px darken($pia-white, 20%);
         background-color: $pia-full-white;
         padding: 10px 24px;
         h2 {
@@ -179,7 +179,7 @@
       }
       &-validationTools {
         margin-top: 1rem;
-        box-shadow: 2px 1px 18px 1px #c2c2c2;
+        box-shadow: 2px 1px 18px 1px darken($pia-white, 20%);
         background-color: $pia-full-white;
         display: flex;
         justify-content: center;

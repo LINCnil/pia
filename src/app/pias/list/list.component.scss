@@ -37,7 +37,7 @@
       margin-left: 12px;
       &-list {
         z-index: 998;
-        background-color: #eee;
+        background-color: darken($pia-white, 2.8%);
         display: none;
         padding: 30px 10px 10px 10px;
         position: absolute;
@@ -121,7 +121,7 @@
             li {
               &.divider {
                 height: 1px;
-                background: #ddd;
+                background: darken($pia-white, 9.5%);
                 padding: 0;
                 margin: 4px 0;
               }
