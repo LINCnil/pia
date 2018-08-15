@@ -79,6 +79,8 @@
       "placeholder_evaluation": "Prénom, nom",
       "validation": "Validation",
       "placeholder_validation": "Prénom, nom",
+      "structure": "Modèle",
+      "placeholder_structure": "Choisir un modèle",
       "date": "Date",
       "status": "Statut",
       "creation_status": "Création",
@@ -118,6 +120,7 @@
       "column_actions": "Actions",
       "column_structure": "Modèle",
       "column_sector_name": "Secteur associé",
+      "column_structure_name": "Modèle",
       "item": {
         "tools": {
           "consult": "Consulter",
@@ -155,6 +158,7 @@
       "homepage_link": "Retourner à l'accueil",
       "validate_pia": "Valider le PIA",
       "refuse_pia": "PIA refusé",
+      "based_on_structure_name": "Basé sur le modèle :",
       "status": {
         "evaluation": {
           "title": "En attente d'évaluation",

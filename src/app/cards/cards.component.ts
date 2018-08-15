@@ -7,6 +7,7 @@ import { Pia } from '../entry/pia.model';
 
 import { ModalsService } from 'app/modals/modals.service';
 import { PiaService } from 'app/services/pia.service';
+import { Structure } from 'app/structures/structure.model';
 
 @Component({
   selector: 'app-cards',
@@ -33,6 +34,11 @@ export class CardsComponent implements OnInit, OnDestroy {
               public _piaService: PiaService) { }
 
   ngOnInit() {
+    const structure = new Structure();
+    structure.getAll().then((data: any) => {
+      this._piaService.structures = data;
+    });
+
     this.sortOrder = localStorage.getItem('sortOrder');
     this.sortValue = localStorage.getItem('sortValue');
     if (!this.sortOrder || !this.sortValue) {
@@ -46,7 +52,8 @@ export class CardsComponent implements OnInit, OnDestroy {
       name: new FormControl(),
       author_name: new FormControl(),
       evaluator_name: new FormControl(),
-      validator_name: new FormControl()
+      validator_name: new FormControl(),
+      structure: new FormControl([])
     });
     this.viewStyle = {
       view: this.route.snapshot.params['view']
@@ -117,8 +124,20 @@ export class CardsComponent implements OnInit, OnDestroy {
     pia.author_name = this.piaForm.value.author_name;
     pia.evaluator_name = this.piaForm.value.evaluator_name;
     pia.validator_name = this.piaForm.value.validator_name;
-    const p = pia.create();
-    p.then((id) => this.router.navigate(['entry', id, 'section', 1, 'item', 1]));
+    const structure_id = this.piaForm.value.structure;
+    if (structure_id && structure_id > 0) {
+      const structure = new Structure();
+      structure.get(structure_id).then(() => {
+        pia.structure_name = structure.name;
+        pia.structure_sector_name = structure.sector_name;
+        pia.structure_data = structure.data;
+        const p = pia.create();
+        p.then((id) => this.router.navigate(['entry', id, 'section', 1, 'item', 1]));
+      });
+    } else {
+      const p = pia.create();
+      p.then((id) => this.router.navigate(['entry', id, 'section', 1, 'item', 1]));
+    }
   }
 
   /**

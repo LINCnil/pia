@@ -21,9 +21,12 @@ export class Pia extends ApplicationDb {
   public progress: number;
   public is_example = 0;
   public numberOfQuestions = 36; // TODO Auto calcul questions number
+  public structure_name: string;
+  public structure_sector_name: string;
+  public structure_data: { sections: any };
 
   constructor() {
-    super(201802221337, 'pia');
+    super(201808011100, 'pia');
     this.created_at = new Date();
   }
 
@@ -59,6 +62,9 @@ export class Pia extends ApplicationDb {
             newPia.concerned_people_searched_opinion = element.concerned_people_searched_opinion;
             newPia.concerned_people_searched_content = element.concerned_people_searched_content;
             newPia.is_example = element.is_example;
+            newPia.structure_name = element.structure_name;
+            newPia.structure_sector_name = element.structure_sector_name;
+            newPia.structure_data = element.structure_data;
             newPia.created_at = new Date(element.created_at);
             newPia.updated_at = new Date(element.updated_at);
             const answer = new Answer();
@@ -116,7 +122,10 @@ export class Pia extends ApplicationDb {
       dpos_names: this.dpos_names,
       people_names: this.people_names,
       concerned_people_searched_opinion: this.concerned_people_searched_opinion,
-      concerned_people_searched_content: this.concerned_people_searched_content
+      concerned_people_searched_content: this.concerned_people_searched_content,
+      structure_name: this.structure_name,
+      structure_sector_name: this.structure_sector_name,
+      structure_data: this.structure_data
     };
 
     return new Promise((resolve, reject) => {
@@ -177,6 +186,9 @@ export class Pia extends ApplicationDb {
         entry.people_names = this.people_names;
         entry.concerned_people_searched_opinion = this.concerned_people_searched_opinion;
         entry.concerned_people_searched_content = this.concerned_people_searched_content;
+        entry.structure_name = this.structure_name;
+        entry.structure_sector_name = this.structure_sector_name;
+        entry.structure_data = this.structure_data;
         entry.updated_at = new Date();
         if (this.serverUrl) {
           const formData = new FormData();
@@ -241,6 +253,9 @@ export class Pia extends ApplicationDb {
           this.people_names = entry.people_names;
           this.concerned_people_searched_opinion = entry.concerned_people_searched_opinion;
           this.concerned_people_searched_content = entry.concerned_people_searched_content;
+          this.structure_name = entry.structure_name;
+          this.structure_sector_name = entry.structure_sector_name;
+          this.structure_data = entry.structure_data;
         }
         resolve();
       });
@@ -293,6 +308,9 @@ export class Pia extends ApplicationDb {
                 this.people_names = entry.people_names;
                 this.concerned_people_searched_opinion = entry.concerned_people_searched_opinion;
                 this.concerned_people_searched_content = entry.concerned_people_searched_content;
+                this.structure_name = entry.structure_name;
+                this.structure_sector_name = entry.structure_sector_name;
+                this.structure_data = entry.structure_data;
                 resolve(entry);
               } else {
                 resolve(false);
