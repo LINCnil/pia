@@ -197,6 +197,18 @@
   </div>
 </div>
 
+<div class="pia-modalBlock" id="modal-remove-structure">
+  <div class="pia-modalBlock-content pia-modalBlock-removePIA bounceIn">
+    <button tabindex="3" type="button" class="pia-modalBlock-close btn" title="{{ 'modals.close' | translate }}" (click)="_modalsService.closeModal()"><span class="pia-icons pia-icon-close-big"></span></button>
+    <p [innerHTML]="'modals.remove_structure.content' | translate"></p>
+    <span class="pia-icons pia-icon-sad"></span>
+    <div class="pia-modalBlock-buttons-choice">
+      <button tabindex="1" class="btn btn-red get-focus" type="button" (click)="_modalsService.closeModal()">{{ 'modals.cancel' | translate }}</button>
+      <button tabindex="2" class="btn btn-red" (click)="_piaService.removeStructure()" type="button">{{ 'modals.remove_structure.remove' | translate }}</button>
+    </div>
+  </div>
+</div>
+
 <div class="pia-modalBlock" id="modal-remove-attachment">
   <div class="pia-modalBlock-content pia-modalBlock-removeAttachment bounceIn">
     <button tabindex="3" type="button" class="pia-modalBlock-close btn" title="{{ 'modals.close' | translate }}" (click)="_modalsService.closeModal()"><span class="pia-icons pia-icon-close-big"></span></button>

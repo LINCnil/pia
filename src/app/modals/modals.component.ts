@@ -86,6 +86,7 @@ export class ModalsComponent implements OnInit {
     const structure = new Structure();
     structure.name = this.structureForm.value.name;
     structure.sector_name = this.structureForm.value.sector_name;
+    structure.data = this._piaService.data;
     const p = structure.create();
     p.then((id) => this.router.navigate(['entry', id, 'section', 1, 'item', 1]));
   }

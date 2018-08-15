@@ -956,6 +956,10 @@
       "content": "<span class='strong'>Attention,</span><br>Êtes-vous sûr de vouloir<br>supprimer ce PIA ?",
       "remove": "Supprimer ce PIA"
     },
+    "remove_structure": {
+      "content": "<span class='strong'>Attention,</span><br>Êtes-vous sûr de vouloir<br>supprimer ce modèle ?",
+      "remove": "Supprimer ce modèle"
+    },
     "remove_attachment": {
       "content": "<span class='strong'>Attention,</span><br>Êtes-vous sûr de vouloir<br>supprimer cette pièce jointe ?",
       "keep": "Conserver",

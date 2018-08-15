@@ -4,7 +4,7 @@ export class Structure extends ApplicationDb {
   public id: number;
   public name: string;
   public sector_name: string;
-  public data: string;
+  public data: { sections: any };
 
   constructor() {
     super(201808011000, 'structure');

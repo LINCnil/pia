@@ -37,7 +37,7 @@ export class ListItemComponent implements OnInit {
    * @param {string} id - The Structure id.
    * @memberof ListItemComponent
    */
-  removePia(id: string) {
+  remove(id: string) {
     localStorage.setItem('structure-id', id);
     this._modalsService.openModal('modal-remove-structure');
   }

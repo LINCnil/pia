@@ -91,7 +91,7 @@ export class CardItemComponent implements OnInit {
    * @param {string} id - The Structure id.
    * @memberof CardItemComponent
    */
-  removePia(id: string) {
+  remove(id: string) {
     localStorage.setItem('structure-id', id);
     this._modalsService.openModal('modal-remove-structure');
   }
@@ -102,6 +102,7 @@ export class CardItemComponent implements OnInit {
    * @memberof CardItemComponent
    */
   export(id: number) {
+    console.log(id);
     this._piaService.exportStructure(id);
   }
 }
