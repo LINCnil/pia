@@ -3,7 +3,7 @@ import * as d3 from 'd3';
 
 import { Answer } from 'app/entry/entry-content/questions/answer.model';
 
-import { PiaService } from 'app/entry/pia.service';
+import { PiaService } from 'app/services/pia.service';
 import { AppDataService } from 'app/services/app-data.service';
 import { TranslateService } from '@ngx-translate/core';
 

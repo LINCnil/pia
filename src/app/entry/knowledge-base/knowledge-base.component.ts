@@ -5,7 +5,7 @@ import { Pia } from '../pia.model';
 
 import { MeasureService } from 'app/entry/entry-content/measures/measures.service';
 import { KnowledgeBaseService } from './knowledge-base.service';
-import { PiaService } from 'app/entry/pia.service';
+import { PiaService } from 'app/services/pia.service';
 import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 
 @Component({

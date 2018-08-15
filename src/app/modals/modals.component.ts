@@ -7,7 +7,7 @@ import { Structure } from '../structures/structure.model';
 
 import { ModalsService } from './modals.service';
 import { MeasureService } from 'app/entry/entry-content/measures/measures.service';
-import { PiaService } from 'app/entry/pia.service';
+import { PiaService } from 'app/services/pia.service';
 import { AttachmentsService } from 'app/entry/attachments/attachments.service';
 
 @Component({

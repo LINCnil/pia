@@ -9,7 +9,7 @@ import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 import { GlobalEvaluationService } from 'app/services/global-evaluation.service';
 import { KnowledgeBaseService } from '../../knowledge-base/knowledge-base.service';
 import { SidStatusService } from 'app/services/sid-status.service';
-import { PiaService } from 'app/entry/pia.service';
+import { PiaService } from 'app/services/pia.service';
 
 @Component({
   selector: 'app-evaluations',

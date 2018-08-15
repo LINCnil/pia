@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
 import { Pia } from 'app/entry/pia.model';
 
 import { TranslateService } from '@ngx-translate/core';
-import { PiaService } from 'app/entry/pia.service';
+import { PiaService } from 'app/services/pia.service';
 import { ModalsService } from 'app/modals/modals.service';
 import { LanguagesService } from 'app/services/languages.service';
 

@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 import { Structure } from '../structure.model';
 
 import { ModalsService } from 'app/modals/modals.service';
-import { PiaService } from 'app/entry/pia.service';
+import { PiaService } from 'app/services/pia.service';
 
 @Component({
   selector: 'app-card-item',

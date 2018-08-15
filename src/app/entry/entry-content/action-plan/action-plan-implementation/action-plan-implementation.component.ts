@@ -3,7 +3,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 
 import { Evaluation } from 'app/entry/entry-content/evaluations/evaluation.model';
 
-import { PiaService } from 'app/entry/pia.service';
+import { PiaService } from 'app/services/pia.service';
 import { GlobalEvaluationService } from 'app/services/global-evaluation.service';
 
 @Component({

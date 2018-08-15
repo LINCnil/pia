@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 import { Evaluation } from 'app/entry/entry-content/evaluations/evaluation.model';
 
 import { ModalsService } from 'app/modals/modals.service';
-import { PiaService } from 'app/entry/pia.service';
+import { PiaService } from 'app/services/pia.service';
 import { SidStatusService } from 'app/services/sid-status.service';
 import { TranslateService } from '@ngx-translate/core';
 

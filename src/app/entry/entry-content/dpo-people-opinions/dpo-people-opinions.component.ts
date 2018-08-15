@@ -4,7 +4,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { Pia } from 'app/entry/pia.model';
 
 import { SidStatusService } from 'app/services/sid-status.service';
-import { PiaService } from 'app/entry/pia.service';
+import { PiaService } from 'app/services/pia.service';
 
 @Component({
   selector: 'app-dpo-people-opinions',

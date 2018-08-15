@@ -6,7 +6,7 @@ import { Subscription } from 'rxjs/Subscription';
 import { Pia } from '../entry/pia.model';
 
 import { ModalsService } from 'app/modals/modals.service';
-import { PiaService } from 'app/entry/pia.service';
+import { PiaService } from 'app/services/pia.service';
 
 @Component({
   selector: 'app-cards',
