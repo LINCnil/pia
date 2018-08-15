@@ -13,6 +13,7 @@
     "homepage_link": "Accueil",
     "knowledge_base_link": "Base de connaissances",
     "pia_example_link": "Exemple de PIA",
+    "structures": "Modèles de PIA",
     "languages": {
       "official_translation": "Version originelle",
       "cnil_translations": "Traductions fournies par la CNIL",
@@ -56,7 +57,12 @@
       "new_pia": "Nouveau PIA",
       "import_pia": "Importer PIA",
       "list_rocket_content": "Lancez-vous ! Pour commencer<br>un PIA, cliquez sur le +",
-      "card_rocket_content": "Lancez-vous !<br><br>Pour commencer<br>un PIA, cliquez<br> sur le +"
+      "card_rocket_content": "Lancez-vous !<br><br>Pour commencer<br>un PIA, cliquez<br> sur le +",
+      "new_structure": "Nouveau modèle",
+      "import_structure": "Importer modèle",
+      "sector_name": "Secteur associé",
+      "list_rocket_content_structure": "Lancez-vous ! Pour commencer<br>un modèle, cliquez sur le +",
+      "card_rocket_content_structure": "Lancez-vous !<br><br>Pour commencer<br>un modèle, cliquez<br> sur le +"
     },
     "cards": {
       "new_pia": "Nouveau PIA",
@@ -78,6 +84,14 @@
       "creation_status": "Création",
       "start": "Commencer",
       "placeholder_start": "Tous les champs doivent être remplis",
+      "new_structure": "Nouveau modèle",
+      "placeholder_new_structure": "Nouveau modèle",
+      "import_structure": "Importer modèle",
+      "placeholder_import_structure": "Importer modèle",
+      "structure_name": "Nom du modèle",
+      "sector_name": "Secteur associé",
+      "placeholder_structure_name": "Intitulé du modèle",
+      "placeholder_sector_name": "Intitulé du Secteur associé",
       "item": {
         "tools": {
           "export": "Exporter",
@@ -88,7 +102,8 @@
           "remove": "Supprimer"
         },
         "edit_pia": "Éditer le PIA",
-        "consult_pia": "Consulter le PIA"
+        "consult_pia": "Consulter le PIA",
+        "edit_structure": "Éditer le modèle"
       }
     },
     "lists": {
@@ -101,6 +116,8 @@
       "column_status": "Statut",
       "column_progression": "Progression",
       "column_actions": "Actions",
+      "column_structure": "Modèle",
+      "column_sector_name": "Secteur associé",
       "item": {
         "tools": {
           "consult": "Consulter",

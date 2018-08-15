@@ -120,7 +120,7 @@
   }
 }
 // Create new pia from list
-#modal-list-new-pia {
+#modal-list-new-pia, #modal-list-new-structure {
   .pia-modalBlock {
     &-close {
       top: 6px;
@@ -145,18 +145,15 @@
       }
     }
   }
+  .pia-modalBlock-content {
+    height: 386px;
+  }
 }
 .pia-remove-attachment-comment {
   textarea {
     width: 94%;
     height: 100px;
     border: 1px solid #A7A7A7;
-  }
-}
-
-#modal-list-new-pia {
-  .pia-modalBlock-content {
-    height: 386px;
   }
 }
 

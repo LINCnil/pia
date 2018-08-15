@@ -9,6 +9,7 @@ import { Answer } from 'app/entry/entry-content/questions/answer.model';
 import { Measure } from 'app/entry/entry-content/measures/measure.model';
 import { Comment } from 'app/entry/entry-content/comments/comment.model';
 import { Attachment } from 'app/entry/attachments/attachment.model';
+import { Structure } from 'app/structures/structure.model';
 
 import { AppDataService } from 'app/services/app-data.service';
 import { ModalsService } from 'app/modals/modals.service';
@@ -18,7 +19,9 @@ import { ActionPlanService } from 'app/entry/entry-content/action-plan//action-p
 export class PiaService {
 
   pias = [];
+  structures = [];
   pia: Pia = new Pia();
+  structure: Structure = new Structure();
   answer: Answer = new Answer();
   data: { sections: any };
 
@@ -350,6 +353,26 @@ export class PiaService {
   }
 
   /**
+   * Download the Structure exported.
+   * @param {number} id - The Structure id.
+   * @memberof PiaService
+   */
+  exportStructure(id:  number) {
+    // TODO:
+    // const date = new Date().getTime();
+    // this.exportData(id).then((data) => {
+    //   const a = document.getElementById('pia-exportBlock');
+    //   const url = 'data:text/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(data));
+    //   a.setAttribute('href', url);
+    //   a.setAttribute('download', date + '_export_pia_' + id + '.json');
+    //   const event = new MouseEvent('click', {
+    //     view: window
+    //   });
+    //   a.dispatchEvent(event);
+    // });
+  }
+
+  /**
    * Import the PIA from file.
    * @param {*} file - The exported PIA file.
    * @memberof PiaService
@@ -360,6 +383,20 @@ export class PiaService {
     reader.onload = (event: any) => {
       const jsonFile = JSON.parse(event.target.result);
       this.importData(jsonFile, 'IMPORT', false);
+    }
+  }
+
+  /**
+   * Import the Structure from file.
+   * @param {*} file - The exported Structure file.
+   * @memberof PiaService
+   */
+  async importStructure(file: any) {
+    const reader = new FileReader();
+    reader.readAsText(file, 'UTF-8');
+    reader.onload = (event: any) => {
+      const jsonFile = JSON.parse(event.target.result);
+      // this.importData(jsonFile, 'IMPORT', false); TODO: Do Structure import
     }
   }
 }
