@@ -894,8 +894,11 @@
     "completed_evaluation": {
       "content": "TO BE TRANSLATED - The PIA has been fully reviewed and can be validated."
     },
-    "update_server_url": {
-      "content": "Adresa serveru byla aktualizována."
+    "update_server_url_ok": {
+      "content": "TO BE TRANSLATED - The server address has been updated."
+    },
+    "update_server_url_nok": {
+      "content": "TO BE TRANSLATED - Connection impossible."
     },
     "signed_pia_validation": {
       "content": "TO BE TRANSLATED - To approve the PIA, attach the signed report.",
@@ -1225,15 +1228,15 @@
           "questions": {
             "1": {
               "title": "Jaké by mohly být hlavní dopady na subjekty údajů, pokud by k takovému riziku došlo?",
-              "placeholder": "Zadejte potenciální dopady \u002B"
+              "placeholder": "Zadejte potenciální dopady"
             },
             "2": {
               "title": "Jaké jsou hlavní hrozby, které by mohly vést k riziku?",
-              "placeholder": "Zadejte hrozby \u002B"
+              "placeholder": "Zadejte hrozby"
             },
             "3": {
               "title": "Jaké jsou zdroje rizika?",
-              "placeholder": "Zadejte zdroje rizika \u002B"
+              "placeholder": "Zadejte zdroje rizika"
             },
             "4": {
               "title": "Která z identifikovaných kontrol přispívá k řešení rizika?",
@@ -1255,15 +1258,15 @@
           "questions": {
             "1": {
               "title": "Jaké by mohly být hlavní dopady na subjekty údajů, pokud by k takovému riziku došlo?",
-              "placeholder": "Zadejte potenciální dopady \u002B"
+              "placeholder": "Zadejte potenciální dopady"
             },
             "2": {
               "title": "Jaké jsou hlavní hrozby, které by mohly vést k riziku?",
-              "placeholder": "Zadejte hrozby \u002B"
+              "placeholder": "Zadejte hrozby"
             },
             "3": {
               "title": "Jaké jsou zdroje rizika?",
-              "placeholder": "Zadejte zdroje rizika \u002B"
+              "placeholder": "Zadejte zdroje rizika"
             },
             "4": {
               "title": "Která z identifikovaných kontrol přispívá k řešení rizika?",
@@ -1285,15 +1288,15 @@
           "questions": {
             "1": {
               "title": "Jaké by mohly být hlavní dopady na subjekty údajů, pokud by k takovému riziku došlo?",
-              "placeholder": "Zadejte potenciální dopady \u002B"
+              "placeholder": "Zadejte potenciální dopady"
             },
             "2": {
               "title": "Jaké jsou hlavní hrozby, které by mohly vést k riziku?",
-              "placeholder": "Zadejte hrozby \u002B"
+              "placeholder": "Zadejte hrozby"
             },
             "3": {
               "title": "Jaké jsou zdroje rizika?",
-              "placeholder": "Zadejte zdroje rizika \u002B"
+              "placeholder": "Zadejte zdroje rizika"
             },
             "4": {
               "title": "Která z identifikovaných kontrol přispívá k řešení rizika?",

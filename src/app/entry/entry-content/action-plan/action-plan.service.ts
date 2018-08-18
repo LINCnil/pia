@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
+
 import { Evaluation } from 'app/entry/entry-content/evaluations/evaluation.model';
 import { Measure } from 'app/entry/entry-content/measures/measure.model';
+
 import { TranslateService } from '@ngx-translate/core';
 import { LanguagesService } from 'app/services/languages.service'
 
@@ -203,6 +205,11 @@ export class ActionPlanService {
     }
   }
 
+  /**
+   * Filter the passed text
+   * @param data a string to filter
+   * @param isDate true if it's a date, false otherwise
+   */
   private filterText(data: string, isDate = false) {
     if (data && data.length > 0) {
       if (isDate) {

@@ -101,7 +101,7 @@
         {{ 'pia.footer.subsection_validated' | translate }}
       </button>
 
-      <p>{{ 'pia.footer.mandatory_fields' | translate }}</p>
+      <p class="pia-entryContentBlock-footer-requiredFields">{{ 'pia.footer.mandatory_fields' | translate }}</p>
 
       <button class="btn pia-cancelBtn" (click)="cancelAskForEvaluation()"
               *ngIf="_piaService.pia.is_example !== 1 && _globalEvaluationService.status === 4">{{ 'pia.sections.status.evaluation.cancel_button' | translate }}</button>
