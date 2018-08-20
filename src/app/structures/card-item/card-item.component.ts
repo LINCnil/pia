@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 import { Structure } from '../structure.model';
 
 import { ModalsService } from 'app/modals/modals.service';
-import { PiaService } from 'app/services/pia.service';
+import { StructureService } from 'app/services/structure.service';
 
 @Component({
   selector: 'app-card-item',
@@ -23,7 +23,7 @@ export class CardItemComponent implements OnInit {
 
   constructor(private router: Router,
               private _modalsService: ModalsService,
-              public _piaService: PiaService) { }
+              public _structureService: StructureService) { }
 
   ngOnInit() {
     this.structureForm = new FormGroup({
@@ -103,6 +103,6 @@ export class CardItemComponent implements OnInit {
    */
   export(id: number) {
     console.log(id);
-    this._piaService.exportStructure(id);
+    this._structureService.exportStructure(id);
   }
 }

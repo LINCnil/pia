@@ -7,13 +7,14 @@ import { Pia } from '../entry/pia.model';
 
 import { ModalsService } from 'app/modals/modals.service';
 import { PiaService } from 'app/services/pia.service';
+import { StructureService } from 'app/services/structure.service';
 import { Structure } from 'app/structures/structure.model';
 
 @Component({
   selector: 'app-cards',
   templateUrl: './cards.component.html',
   styleUrls: ['./cards.component.scss'],
-  providers: [PiaService]
+  providers: [PiaService, StructureService]
 })
 
 export class CardsComponent implements OnInit, OnDestroy {
@@ -31,12 +32,13 @@ export class CardsComponent implements OnInit, OnDestroy {
               private el: ElementRef,
               private route: ActivatedRoute,
               public _modalsService: ModalsService,
-              public _piaService: PiaService) { }
+              public _piaService: PiaService,
+              public _structureService: StructureService) { }
 
   ngOnInit() {
     const structure = new Structure();
     structure.getAll().then((data: any) => {
-      this._piaService.structures = data;
+      this._structureService.structures = data;
     });
 
     this.sortOrder = localStorage.getItem('sortOrder');

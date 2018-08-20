@@ -4,13 +4,10 @@ import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/filter';
 
-import { Answer } from './answer.model';
-import { Measure } from '../measures/measure.model';
-import { Evaluation } from 'app/entry/entry-content/evaluations/evaluation.model';
-
-import { KnowledgeBaseService } from '../../knowledge-base/knowledge-base.service';
+import { KnowledgeBaseService } from 'app/entry/knowledge-base/knowledge-base.service';
 import { ModalsService } from 'app/modals/modals.service';
-import { GlobalEvaluationService } from '../../../services/global-evaluation.service';
+import { GlobalEvaluationService } from 'app/services/global-evaluation.service';
+import { StructureService } from 'app/services/structure.service';
 
 @Component({
   selector: 'app-questions',
@@ -23,11 +20,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
   @Input() question: any;
   @Input() item: any;
   @Input() section: any;
-  @Input() pia: any;
-  evaluation: Evaluation = new Evaluation();
   questionForm: FormGroup;
-  answer: Answer = new Answer();
-  measure: Measure = new Measure();
   lastSelectedTag: string;
   elementId: String;
   editor: any;
@@ -37,53 +30,58 @@ export class QuestionsComponent implements OnInit, OnDestroy {
               private _modalsService: ModalsService,
               private _ngZone: NgZone,
               public _globalEvaluationService: GlobalEvaluationService,
-              private renderer: Renderer2) { }
+              private renderer: Renderer2,
+              private _structureService: StructureService) { }
 
   ngOnInit() {
     this._globalEvaluationService.answerEditionEnabled = true;
     this.elementId = 'pia-question-content-' + this.question.id;
     this.questionForm = new FormGroup({
+      title: new FormControl(),
       gauge: new FormControl(0),
       text: new FormControl(),
       list: new FormControl()
     });
 
-    if (this.question.answer) {
-      this.questionForm.controls['text'].patchValue(this.question.answer);
+    if(!this.question.title.startsWith('section') && this.question.title.length > 0) {
+      this.questionForm.controls['title'].patchValue(this.question.title);
+      this.questionForm.controls['title'].disable();
     }
 
-    this.answer.getByReferenceAndPia(this.pia.id, this.question.id).then(() => {
-      if (this.answer.data) {
-        let evaluationRefTo: string = this.answer.id.toString();
-        if (this.item.evaluation_mode === 'item') {
-          evaluationRefTo = this.section.id + '.' + this.item.id;
-        }
-        this.evaluation.getByReference(this.pia.id, evaluationRefTo);
-        this.questionForm.controls['gauge'].patchValue(this.answer.data.gauge);
-        this.questionForm.controls['text'].patchValue(this.answer.data.text);
-        if (this.answer.data.list) {
-          const dataList = this.answer.data.list.filter((l) => {
-            return (l && l.length > 0);
-          })
-          this.questionForm.controls['list'].patchValue(dataList);
-        }
-        if (this.el.nativeElement.querySelector('.pia-gaugeBlock-background')) {
-          this.el.nativeElement.querySelector('.pia-gaugeBlock-background').classList.
-            add('pia-gaugeBlock-background-' + this.answer.data.gauge);
-        }
-      }
-    });
+    this.questionForm.controls['text'].patchValue(this.question.answer);
 
-    this.measure.pia_id = this.pia.id;
-    this.measure.findAll().then((entries: any[]) => {
-      if (entries) {
-        entries.forEach(entry => {
-          if (entry.title) {
-            this.userMeasures.push(entry.title);
-          }
-        });
-      }
-    });
+    // this.answer.getByReferenceAndPia(this.pia.id, this.question.id).then(() => {
+    //   if (this.answer.data) {
+    //     let evaluationRefTo: string = this.answer.id.toString();
+    //     if (this.item.evaluation_mode === 'item') {
+    //       evaluationRefTo = this.section.id + '.' + this.item.id;
+    //     }
+    //     this.evaluation.getByReference(this.pia.id, evaluationRefTo);
+    //     this.questionForm.controls['gauge'].patchValue(this.answer.data.gauge);
+    //     this.questionForm.controls['text'].patchValue(this.answer.data.text);
+    //     if (this.answer.data.list) {
+    //       const dataList = this.answer.data.list.filter((l) => {
+    //         return (l && l.length > 0);
+    //       })
+    //       this.questionForm.controls['list'].patchValue(dataList);
+    //     }
+    //     if (this.el.nativeElement.querySelector('.pia-gaugeBlock-background')) {
+    //       this.el.nativeElement.querySelector('.pia-gaugeBlock-background').classList.
+    //         add('pia-gaugeBlock-background-' + this.answer.data.gauge);
+    //     }
+    //   }
+    // });
+
+    // this.measure.pia_id = this.pia.id;
+    // this.measure.findAll().then((entries: any[]) => {
+    //   if (entries) {
+    //     entries.forEach(entry => {
+    //       if (entry.title) {
+    //         this.userMeasures.push(entry.title);
+    //       }
+    //     });
+    //   }
+    // });
   }
 
   ngOnDestroy() {
@@ -96,7 +94,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
    * @memberof QuestionsComponent
    */
   evaluationChange(evaluation) {
-    this.evaluation = evaluation;
+    // this.evaluation = evaluation;
   }
 
   /**
@@ -125,22 +123,60 @@ export class QuestionsComponent implements OnInit, OnDestroy {
     bgElement.classList.remove('pia-gaugeBlock-background-4');
     bgElement.classList.add('pia-gaugeBlock-background-' + value);
     const gaugeValue = parseInt(this.questionForm.value.gauge, 10);
-    if (this.answer.id) {
-      this.answer.data = { text: this.answer.data.text, gauge: gaugeValue, list: this.answer.data.list };
-      this.answer.update().then(() => {
-        this._ngZone.run(() => {
-          this._globalEvaluationService.validate();
-        });
-      });
-    } else {
-      this.answer.pia_id = this.pia.id;
-      this.answer.reference_to = this.question.id;
-      this.answer.data = { text: null, gauge: gaugeValue, list: [] };
-      this.answer.create().then(() => {
-        this._ngZone.run(() => {
-          this._globalEvaluationService.validate();
-        });
-      });
+    // if (this.answer.id) {
+    //   this.answer.data = { text: this.answer.data.text, gauge: gaugeValue, list: this.answer.data.list };
+    //   this.answer.update().then(() => {
+    //     this._ngZone.run(() => {
+    //       this._globalEvaluationService.validate();
+    //     });
+    //   });
+    // } else {
+    //   this.answer.pia_id = this.pia.id;
+    //   this.answer.reference_to = this.question.id;
+    //   this.answer.data = { text: null, gauge: gaugeValue, list: [] };
+    //   this.answer.create().then(() => {
+    //     this._ngZone.run(() => {
+    //       this._globalEvaluationService.validate();
+    //     });
+    //   });
+    // }
+  }
+
+  removeQuestion() {
+    localStorage.setItem('question-id', [this.section.id, this.item.id, this.question.id].toString());
+    this._modalsService.openModal('remove-question');
+  }
+
+
+
+  /**
+   * Enables edition for question title.
+   * @memberof QuestionsComponent
+   */
+  questionTitleFocusIn() {
+    this.questionForm.controls['title'].enable();
+    const questionTitleTextarea = document.getElementById('pia-questionBlock-title-' + this.question.id);
+    questionTitleTextarea.focus();
+  }
+
+  /**
+   * Disables title field when losing focus from it.
+   * Shows question edit button.
+   * Saves data from title field.
+   * @param {event} event - Any Event.
+   * @memberof QuestionsComponent
+   */
+  questionTitleFocusOut(event: Event) {
+    let userText = this.questionForm.controls['title'].value;
+    if (userText) {
+      userText = userText.replace(/^\s+/, '').replace(/\s+$/, '');
+    }
+
+    this.question.title = userText;
+    this._structureService.updateJson(this.section, this.item, this.question);
+
+    if (this.questionForm.value.title && this.questionForm.value.title.length > 0) {
+      this.questionForm.controls['title'].disable();
     }
   }
 
@@ -163,26 +199,32 @@ export class QuestionsComponent implements OnInit, OnDestroy {
     if (userText) {
       userText = userText.replace(/^\s+/, '').replace(/\s+$/, '');
     }
-    if (this.answer.id) {
-      this.answer.data = { text: userText, gauge: this.answer.data.gauge, list: this.answer.data.list };
-      this.answer.update().then(() => {
-        this._ngZone.run(() => {
-          this._globalEvaluationService.validate();
-        });
-      });
-    } else if (!this.answer.id && userText !== '') {
-      if (this.questionForm.value.text && this.questionForm.value.text.length > 0) {
-        this.answer.pia_id = this.pia.id;
-        this.answer.reference_to = this.question.id;
-        const gaugeValueForCurrentQuestion = this.question.answer_type === 'gauge' ? 0 : null;
-        this.answer.data = { text: this.questionForm.value.text, gauge: gaugeValueForCurrentQuestion, list: [] };
-        this.answer.create().then(() => {
-          this._ngZone.run(() => {
-            this._globalEvaluationService.validate();
-          });
-        });
-      }
-    }
+
+    this._ngZone.run(() => {
+      this.question.answer = userText;
+      this._structureService.updateJson(this.section, this.item, this.question);
+    });
+
+    // if (this.answer.id) {
+    //   this.answer.data = { text: userText, gauge: this.answer.data.gauge, list: this.answer.data.list };
+    //   this.answer.update().then(() => {
+    //     this._ngZone.run(() => {
+    //       this._globalEvaluationService.validate();
+    //     });
+    //   });
+    // } else if (!this.answer.id && userText !== '') {
+    //   if (this.questionForm.value.text && this.questionForm.value.text.length > 0) {
+    //     this.answer.pia_id = this.pia.id;
+    //     this.answer.reference_to = this.question.id;
+    //     const gaugeValueForCurrentQuestion = this.question.answer_type === 'gauge' ? 0 : null;
+    //     this.answer.data = { text: this.questionForm.value.text, gauge: gaugeValueForCurrentQuestion, list: [] };
+    //     this.answer.create().then(() => {
+    //       this._ngZone.run(() => {
+    //         this._globalEvaluationService.validate();
+    //       });
+    //     });
+    //   }
+    // }
   }
 
   /**
@@ -193,9 +235,9 @@ export class QuestionsComponent implements OnInit, OnDestroy {
   onAdd(event) {
     if (event && event.value.length > 0) {
       let list = [];
-      if (this.answer.id) {
-        list = this.answer.data.list;
-      }
+      // if (this.answer.id) {
+      //   list = this.answer.data.list;
+      // }
       if (list.indexOf(event.value) <= 0) {
         list.push(event.value);
         this.createOrUpdateList(list);
@@ -224,9 +266,9 @@ export class QuestionsComponent implements OnInit, OnDestroy {
    */
   onRemove(event) {
     let list = [];
-    if (this.answer.id) {
-      list = this.answer.data.list;
-    }
+    // if (this.answer.id) {
+    //   list = this.answer.data.list;
+    // }
     let valueToRemove;
     if (event.hasOwnProperty('value')) {
       valueToRemove = event.value;
@@ -247,9 +289,9 @@ export class QuestionsComponent implements OnInit, OnDestroy {
    */
   onTagEdited(event) {
     let list = [];
-    if (this.answer.id) {
-      list = this.answer.data.list;
-    }
+    // if (this.answer.id) {
+    //   list = this.answer.data.list;
+    // }
     const index = list.indexOf(this.lastSelectedTag);
     let updatedValue;
     // When it returns an object (weird scenario)
@@ -270,9 +312,9 @@ export class QuestionsComponent implements OnInit, OnDestroy {
   onBlur(event) {
     if (event && event.length > 0) {
       let list = [];
-      if (this.answer.id) {
-        list = this.answer.data.list;
-      }
+      // if (this.answer.id) {
+      //   list = this.answer.data.list;
+      // }
       if (list.indexOf(event) <= 0) {
         list.push(event);
         this.createOrUpdateList(list);
@@ -287,19 +329,19 @@ export class QuestionsComponent implements OnInit, OnDestroy {
    * @memberof QuestionsComponent
    */
   private createOrUpdateList(list: string[]) {
-    if (this.answer.id) {
-      this.answer.data = { text: this.answer.data.text, gauge: this.answer.data.gauge, list: list };
-      this.answer.update().then(() => {
-        this._globalEvaluationService.validate();
-      });
-    } else {
-      this.answer.pia_id = this.pia.id;
-      this.answer.reference_to = this.question.id;
-      this.answer.data = { text: null, gauge: null, list: list };
-      this.answer.create().then(() => {
-        this._globalEvaluationService.validate();
-      });
-    }
+    // if (this.answer.id) {
+    //   this.answer.data = { text: this.answer.data.text, gauge: this.answer.data.gauge, list: list };
+    //   this.answer.update().then(() => {
+    //     this._globalEvaluationService.validate();
+    //   });
+    // } else {
+    //   this.answer.pia_id = this.pia.id;
+    //   this.answer.reference_to = this.question.id;
+    //   this.answer.data = { text: null, gauge: null, list: list };
+    //   this.answer.create().then(() => {
+    //     this._globalEvaluationService.validate();
+    //   });
+    // }
   }
 
   /**
@@ -319,9 +361,9 @@ export class QuestionsComponent implements OnInit, OnDestroy {
     if (event.target.getAttribute('data-status') === 'hide') {
       event.target.removeAttribute('data-status');
       commentsDisplayer.classList.remove('hide');
-      if (evaluationDisplayer && this.evaluation.status > 0) {
-        evaluationDisplayer.classList.remove('hide');
-      }
+      // if (evaluationDisplayer && this.evaluation.status > 0) {
+      //   evaluationDisplayer.classList.remove('hide');
+      // }
     } else {
       event.target.setAttribute('data-status', 'hide');
       commentsDisplayer.classList.add('hide');

@@ -8,7 +8,7 @@ import { Evaluation } from 'app/entry/entry-content/evaluations/evaluation.model
 import { AppDataService } from 'app/services/app-data.service';
 import { MeasureService } from 'app/entry/entry-content/measures/measures.service';
 import { ModalsService } from 'app/modals/modals.service';
-import { PiaService } from 'app/services/pia.service';
+import { StructureService } from 'app/services/structure.service';
 import { PaginationService } from 'app/entry/entry-content/pagination.service';
 import { TranslateService } from '@ngx-translate/core';
 import { SidStatusService } from 'app/services/sid-status.service';
@@ -19,7 +19,7 @@ import { KnowledgeBaseService } from 'app/entry/knowledge-base/knowledge-base.se
   selector: 'app-entry-content',
   templateUrl: './entry-content.component.html',
   styleUrls: ['./entry-content.component.scss'],
-  providers: [PiaService]
+  providers: [StructureService]
 })
 
 export class EntryContentComponent implements OnInit, OnChanges {
@@ -33,7 +33,7 @@ export class EntryContentComponent implements OnInit, OnChanges {
               private _activatedRoute: ActivatedRoute,
               public _measureService: MeasureService,
               private _modalsService: ModalsService,
-              public _piaService: PiaService,
+              public _structureService: StructureService,
               public _sidStatusService: SidStatusService,
               public _globalEvaluationService: GlobalEvaluationService,
               public _paginationService: PaginationService,
@@ -45,20 +45,29 @@ export class EntryContentComponent implements OnInit, OnChanges {
     this._knowledgeBaseService.toHide = [];
 
     // Update the last edited date for this PIA
-    this._piaService.getPIA().then(() => {
-      this._piaService.pia.updated_at = new Date();
-      this._piaService.pia.update();
+    this._structureService.getStructure().then(() => {
+      this._structureService.structure.updated_at = new Date();
+      this._structureService.structure.update();
     });
   }
 
   async ngOnChanges() {
-    await this._piaService.getPIA();
-    this._paginationService.dataNav = await this._appDataService.getDataNav();
+    await this._structureService.getStructure();
+    this._paginationService.dataNav = this._structureService.structure.data;
 
     const sectionId = parseInt(this._activatedRoute.snapshot.params['section_id'], 10);
     const itemId = parseInt(this._activatedRoute.snapshot.params['item_id'], 10);
 
     this._paginationService.setPagination(sectionId, itemId);
+  }
+
+  /**
+   * Add new question.
+   * @memberof EntryContentComponent
+   */
+  async addQuestion() {
+    const question = await this._structureService.addQuestion(this.section, this.item);
+    this.questions.push(question);
   }
 
   /**
@@ -117,8 +126,9 @@ export class EntryContentComponent implements OnInit, OnChanges {
     const goto_section_item = this._paginationService.getNextSectionItem(status_start, status_end)
 
     this._router.navigate([
+      'structures',
       'entry',
-      this._piaService.pia.id,
+      this._structureService.structure.id,
       'section',
       goto_section_item[0],
       'item',

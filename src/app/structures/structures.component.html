@@ -36,7 +36,7 @@
           <button type="button" class="btn btn-green" (click)="_modalsService.openModal('modal-list-new-structure')"><i class="fa fa-folder-open" aria-hidden="true"></i>{{ 'homepage.filters.new_structure' | translate }}</button>
           <button type="button" (click)="importStruct()" class="btn btn-green"><i class="fa fa-upload" aria-hidden="true"></i>{{ 'homepage.filters.import_structure' | translate }}</button>
         </div>
-        <div class="pia-filtersBlock-hint" *ngIf="viewStyle.view === 'list' && _piaService.structures && _piaService.structures.length === 0">
+        <div class="pia-filtersBlock-hint" *ngIf="viewStyle.view === 'list' && _structureService.structures && _structureService.structures.length === 0">
           <div>
             <span class="pia-icons pia-icon-rocket-small"></span>
             <p [innerHTML]="'homepage.filters.list_rocket_content_structure' | translate"></p>
@@ -93,7 +93,7 @@
             </form>
           </div>
         </div>
-        <div class="pia-newBlock-hint" *ngIf="_piaService.structures && _piaService.structures.length === 0" id="pia-rocket">
+        <div class="pia-newBlock-hint" *ngIf="_structureService.structures && _structureService.structures.length === 0" id="pia-rocket">
           <span class="pia-icons pia-icon-small-arrow"></span>
           <div>
             <span class="pia-icons pia-icon-rocket"></span>
@@ -101,7 +101,7 @@
           </div>
         </div>
       </div>
-      <app-card-item *ngFor="let structure of _piaService.structures;let i=index" [structure]="structure" [previousStructure]="i > 0 ? _piaService.structures[i-1] : null"></app-card-item>
+      <app-card-item *ngFor="let structure of _structureService.structures;let i=index" [structure]="structure" [previousStructure]="i > 0 ? _structureService.structures[i-1] : null"></app-card-item>
     </div>
     <ng-template #viewList>
       <div class="small-12 medium-12 columns">
@@ -138,7 +138,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr class="app-list-item" [attr.data-id]="structure.id" *ngFor="let structure of _piaService.structures;let i=index" [structure]="structure"></tr>
+            <tr class="app-list-item" [attr.data-id]="structure.id" *ngFor="let structure of _structureService.structures;let i=index" [structure]="structure"></tr>
           </tbody>
         </table>
       </div>

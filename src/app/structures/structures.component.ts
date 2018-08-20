@@ -3,15 +3,16 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
 
-import { PiaService } from 'app/services/pia.service';
+import { StructureService } from 'app/services/structure.service';
 import { Structure } from './structure.model';
 import { ModalsService } from 'app/modals/modals.service';
+import { AppDataService } from 'app/services/app-data.service';
 
 @Component({
   selector: 'app-structures',
   templateUrl: './structures.component.html',
   styleUrls: ['./structures.component.scss'],
-  providers: [PiaService]
+  providers: [StructureService]
 })
 
 export class StructuresComponent implements OnInit, OnDestroy {
@@ -29,7 +30,8 @@ export class StructuresComponent implements OnInit, OnDestroy {
               private el: ElementRef,
               private route: ActivatedRoute,
               public _modalsService: ModalsService,
-              public _piaService: PiaService) { }
+              private _appDataService: AppDataService,
+              public _structureService: StructureService) { }
 
   ngOnInit() {
     this.sortOrder = localStorage.getItem('sortOrder');
@@ -97,7 +99,7 @@ export class StructuresComponent implements OnInit, OnDestroy {
    */
   importStruct(event?: any) {
     if (event) {
-      this._piaService.importStructure(event.target.files[0]);
+      this._structureService.importStructure(event.target.files[0]);
     } else {
       this.el.nativeElement.querySelector('#import_file').click();
     }
@@ -109,12 +111,14 @@ export class StructuresComponent implements OnInit, OnDestroy {
    * @memberof StructuresComponent
    */
   onSubmit() {
-    const structure = new Structure();
-    structure.name = this.structureForm.value.name;
-    structure.sector_name = this.structureForm.value.sector_name;
-    structure.data = this._piaService.data;
-    const p = structure.create();
-    p.then((id) => this.router.navigate(['entry', id, 'section', 1, 'item', 1]));
+    this._appDataService.getDataNav().then((data) => {
+      const structure = new Structure();
+      structure.name = this.structureForm.value.name;
+      structure.sector_name = this.structureForm.value.sector_name;
+      structure.data = data;
+      const p = structure.create();
+      p.then((id) => this.router.navigate(['structures', 'entry', id, 'section', 1, 'item', 1]));
+    });
   }
 
   /**
@@ -159,7 +163,7 @@ export class StructuresComponent implements OnInit, OnDestroy {
   async refreshContent() {
     const structure = new Structure();
     const data: any = await structure.getAll();
-    this._piaService.structures = data;
+    this._structureService.structures = data;
     this.sortOrder = localStorage.getItem('sortOrder');
     this.sortValue = localStorage.getItem('sortValue');
     setTimeout(() => {
@@ -173,7 +177,7 @@ export class StructuresComponent implements OnInit, OnDestroy {
    * @memberof StructuresComponent
    */
   private sortStructure() {
-    this._piaService.structures.sort((a, b) => {
+    this._structureService.structures.sort((a, b) => {
       let firstValue = a[this.sortValue];
       let secondValue = b[this.sortValue];
       if (this.sortValue === 'updated_at' || this.sortValue === 'created_at') {
@@ -193,7 +197,7 @@ export class StructuresComponent implements OnInit, OnDestroy {
       }
     });
     if (this.sortOrder === 'up') {
-      this._piaService.structures.reverse();
+      this._structureService.structures.reverse();
     }
   }
 }

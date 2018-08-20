@@ -8,13 +8,14 @@ import { Structure } from '../structures/structure.model';
 import { ModalsService } from './modals.service';
 import { MeasureService } from 'app/entry/entry-content/measures/measures.service';
 import { PiaService } from 'app/services/pia.service';
+import { StructureService } from 'app/services/structure.service';
 import { AttachmentsService } from 'app/entry/attachments/attachments.service';
 
 @Component({
   selector: 'app-modals',
   templateUrl: './modals.component.html',
   styleUrls: ['./modals.component.scss'],
-  providers: [PiaService]
+  providers: [PiaService, StructureService]
 })
 export class ModalsComponent implements OnInit {
   @Input() pia: any;
@@ -30,17 +31,24 @@ export class ModalsComponent implements OnInit {
     private router: Router,
     public _modalsService: ModalsService,
     public _piaService: PiaService,
+    public _structureService: StructureService,
     public _measuresService: MeasureService,
     public _attachmentsService: AttachmentsService
   ) { }
 
   ngOnInit() {
+    const structure = new Structure();
+    structure.getAll().then((data: any) => {
+      this._structureService.structures = data;
+    });
+
     this._piaService.getPIA();
     this.piaForm = new FormGroup({
       name: new FormControl(),
       author_name: new FormControl(),
       evaluator_name: new FormControl(),
-      validator_name: new FormControl()
+      validator_name: new FormControl(),
+      structure: new FormControl([])
     });
     this.structureForm = new FormGroup({
       name: new FormControl(),

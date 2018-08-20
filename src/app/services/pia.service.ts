@@ -9,7 +9,6 @@ import { Answer } from 'app/entry/entry-content/questions/answer.model';
 import { Measure } from 'app/entry/entry-content/measures/measure.model';
 import { Comment } from 'app/entry/entry-content/comments/comment.model';
 import { Attachment } from 'app/entry/attachments/attachment.model';
-import { Structure } from 'app/structures/structure.model';
 
 import { AppDataService } from 'app/services/app-data.service';
 import { ModalsService } from 'app/modals/modals.service';
@@ -19,9 +18,7 @@ import { ActionPlanService } from 'app/entry/entry-content/action-plan//action-p
 export class PiaService {
 
   pias = [];
-  structures = [];
   pia: Pia = new Pia();
-  structure: Structure = new Structure();
   answer: Answer = new Answer();
   data: { sections: any };
 
@@ -66,28 +63,6 @@ export class PiaService {
     }
 
     localStorage.removeItem('pia-id');
-    this._modalsService.closeModal();
-  }
-
-  /**
-   * Allows an user to remove a Structure.
-   * @memberof PiaService
-   */
-  removeStructure() {
-    const id = parseInt(localStorage.getItem('structure-id'), 10);
-
-    // Removes from DB.
-    const structure = new Structure();
-    structure.delete(id);
-
-    // Deletes the PIA from the view.
-    if (localStorage.getItem('homepageDisplayMode') && localStorage.getItem('homepageDisplayMode') === 'list') {
-      document.querySelector('.app-list-item[data-id="' + id + '"]').remove();
-    } else {
-      document.querySelector('.pia-cardsBlock.pia[data-id="' + id + '"]').remove();
-    }
-
-    localStorage.removeItem('structure-id');
     this._modalsService.closeModal();
   }
 
@@ -146,17 +121,6 @@ export class PiaService {
   }
 
   /**
-   * Allow an user to duplicate a Structure.
-   * @param {number} id - The Structure id.
-   * @memberof PiaService
-   */
-  duplicateStructure(id: number) {
-    this.exportStructureData(id).then((data) => {
-      this.importStructureData(data, 'COPY', true);
-    });
-  }
-
-  /**
    * Allow an user to export a PIA.
    * @param {number} id - The PIA id.
    * @returns {Promise}
@@ -198,24 +162,6 @@ export class PiaService {
             });
           });
         });
-      });
-    });
-  }
-
-  /**
-   * Allow an user to export a Structure.
-   * @param {number} id - The Structure id.
-   * @returns {Promise}
-   * @memberof PiaService
-   */
-  exportStructureData(id: number) {
-    return new Promise((resolve, reject) => {
-      const structure = new Structure();
-      structure.get(id).then(() => {
-        const data = {
-          structure: structure
-        }
-        resolve(data);
       });
     });
   }
@@ -341,38 +287,6 @@ export class PiaService {
   }
 
   /**
-   * Allow an user to import a Structure.
-   * @param {*} data - Data Structure.
-   * @param {string} prefix - A title prefix.
-   * @param {boolean} is_duplicate - Is a duplicate Structure?
-   * @memberof PiaService
-   */
-  async importStructureData(data: any, prefix: string, is_duplicate: boolean) {
-    if (!('structure' in data) || !('dbVersion' in data.structure)) {
-      return;
-    }
-    const structure = new Structure();
-    structure.name = '(' + prefix + ') ' + data.structure.name;
-    structure.sector_name = data.structure.sector_name;
-    structure.data = data.structure.data;
-
-    if (is_duplicate) {
-      structure.created_at = new Date();
-      structure.updated_at = new Date();
-    } else {
-      structure.created_at = new Date(data.structure.created_at);
-      if (data.structure.updated_at) {
-        structure.updated_at = new Date(data.structure.updated_at);
-      }
-    }
-
-    structure.create().then((structure_id: number) => {
-      console.log(structure);
-      this.structures.push(structure);
-    });
-  }
-
-  /**
    * Import all evaluations.
    * @private
    * @param {*} data - Data PIA.
@@ -436,27 +350,6 @@ export class PiaService {
   }
 
   /**
-   * Download the Structure exported.
-   * @param {number} id - The Structure id.
-   * @memberof PiaService
-   */
-  exportStructure(id: number) {
-    console.log(id);
-    const date = new Date().getTime();
-    this.exportStructureData(id).then((data) => {
-      console.log(data);
-      const a = document.getElementById('pia-exportBlock');
-      const url = 'data:text/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(data));
-      a.setAttribute('href', url);
-      a.setAttribute('download', date + '_export_structure_' + id + '.json');
-      const event = new MouseEvent('click', {
-        view: window
-      });
-      a.dispatchEvent(event);
-    });
-  }
-
-  /**
    * Import the PIA from file.
    * @param {*} file - The exported PIA file.
    * @memberof PiaService
@@ -467,20 +360,6 @@ export class PiaService {
     reader.onload = (event: any) => {
       const jsonFile = JSON.parse(event.target.result);
       this.importData(jsonFile, 'IMPORT', false);
-    }
-  }
-
-  /**
-   * Import the Structure from file.
-   * @param {*} file - The exported Structure file.
-   * @memberof PiaService
-   */
-  async importStructure(file: any) {
-    const reader = new FileReader();
-    reader.readAsText(file, 'UTF-8');
-    reader.onload = (event: any) => {
-      const jsonFile = JSON.parse(event.target.result);
-      this.importStructureData(jsonFile, 'IMPORT', false);
     }
   }
 }

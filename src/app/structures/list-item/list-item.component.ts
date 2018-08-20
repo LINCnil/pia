@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
 import { ModalsService } from 'app/modals/modals.service';
-import { PiaService } from 'app/services/pia.service';
+import { StructureService } from 'app/services/structure.service';
 
 @Component({
   selector: `.app-list-item`,
@@ -14,7 +14,7 @@ export class ListItemComponent implements OnInit {
 
   constructor(private router: Router,
               private route: ActivatedRoute,
-              public _piaService: PiaService,
+              public _structureService: StructureService,
               private _modalsService: ModalsService) { }
 
   ngOnInit() {
@@ -48,6 +48,6 @@ export class ListItemComponent implements OnInit {
    * @memberof ListItemComponent
    */
   export(id: number) {
-    this._piaService.exportStructure(id);
+    this._structureService.exportStructure(id);
   }
 }

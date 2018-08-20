@@ -6,6 +6,10 @@ import { StructuresRoutingModule } from './structures-routing.module';
 import { StructuresComponent } from './structures.component';
 import { CardItemComponent } from './card-item/card-item.component';
 import { ListItemComponent } from './list-item/list-item.component';
+import { EntryComponent } from './entry/entry.component';
+import { SectionsComponent } from './entry/sections/sections.component';
+import { EntryContentComponent } from './entry/entry-content/entry-content.component';
+import { QuestionsComponent } from './entry/entry-content/questions/questions.component';
 
 @NgModule({
   imports: [
@@ -16,7 +20,11 @@ import { ListItemComponent } from './list-item/list-item.component';
   declarations: [
     StructuresComponent,
     CardItemComponent,
-    ListItemComponent
+    ListItemComponent,
+    EntryComponent,
+    SectionsComponent,
+    EntryContentComponent,
+    QuestionsComponent
   ]
 })
 export class StructuresModule { }

@@ -20,6 +20,7 @@
               ],
               "placeholder": "sections.1.items.1.questions.1.placeholder",
               "answer_type": "text",
+              "answer": "",
               "active": true
             },
             {
@@ -32,6 +33,7 @@
               ],
               "placeholder": "sections.1.items.1.questions.2.placeholder",
               "answer_type": "text",
+              "answer": "",
               "active": true
             },
             {
@@ -42,6 +44,7 @@
               ],
               "placeholder": "sections.1.items.1.questions.3.placeholder",
               "answer_type": "text",
+              "answer": "",
               "active": true
             }
           ]
@@ -63,6 +66,7 @@
               ],
               "placeholder": "sections.1.items.2.questions.1.placeholder",
               "answer_type": "text",
+              "answer": "",
               "active": true
             },
       			{
@@ -72,7 +76,8 @@
                 "PIA_LGL_LCYC"
               ],
       			  "placeholder": "sections.1.items.2.questions.2.placeholder",
-      			  "answer_type": "text",
+              "answer_type": "text",
+              "answer": "",
       			  "active": true
       			},
       			{
@@ -82,7 +87,8 @@
                 "PIA_LGL_SUPT"
               ],
       			  "placeholder": "sections.1.items.2.questions.3.placeholder",
-      			  "answer_type": "text",
+              "answer_type": "text",
+              "answer": "",
       			  "active": true
       			}
           ]
@@ -110,6 +116,7 @@
               ],
               "placeholder": "sections.2.items.1.questions.1.placeholder",
               "answer_type": "text",
+              "answer": "",
               "active": true
             },
             {
@@ -121,6 +128,7 @@
               ],
               "placeholder": "sections.2.items.1.questions.2.placeholder",
               "answer_type": "text",
+              "answer": "",
               "active": true
             },
             {
@@ -134,6 +142,7 @@
               ],
               "placeholder": "sections.2.items.1.questions.3.placeholder",
               "answer_type": "text",
+              "answer": "",
               "active": true
             },
             {
@@ -145,6 +154,7 @@
               ],
               "placeholder": "sections.2.items.1.questions.4.placeholder",
               "answer_type": "text",
+              "answer": "",
               "active": true
             },
             {
@@ -156,6 +166,7 @@
               ],
               "placeholder": "sections.2.items.1.questions.5.placeholder",
               "answer_type": "text",
+              "answer": "",
               "active": true
             }
           ]
@@ -175,6 +186,7 @@
               ],
               "placeholder": "sections.2.items.2.questions.1.placeholder",
               "answer_type": "text",
+              "answer": "",
               "active": true
             },
             {
@@ -187,6 +199,7 @@
               ],
               "placeholder": "sections.2.items.2.questions.2.placeholder",
               "answer_type": "text",
+              "answer": "",
               "active": true
             },
             {
@@ -201,6 +214,7 @@
               ],
               "placeholder": "sections.2.items.2.questions.3.placeholder",
               "answer_type": "text",
+              "answer": "",
               "active": true
             },
             {
@@ -215,6 +229,7 @@
               ],
               "placeholder": "sections.2.items.2.questions.4.placeholder",
               "answer_type": "text",
+              "answer": "",
               "active": true
             },
             {
@@ -228,6 +243,7 @@
               ],
               "placeholder": "sections.2.items.2.questions.5.placeholder",
               "answer_type": "text",
+              "answer": "",
               "active": true
             },
             {
@@ -240,6 +256,7 @@
               ],
               "placeholder": "sections.2.items.2.questions.6.placeholder",
               "answer_type": "text",
+              "answer": "",
               "active": true
             },
             {
@@ -251,6 +268,7 @@
               ],
               "placeholder": "sections.2.items.2.questions.7.placeholder",
               "answer_type": "text",
+              "answer": "",
               "active": true
             }
           ]

@@ -157,6 +157,7 @@
     "sections": {
       "homepage_link": "Retourner à l'accueil",
       "validate_pia": "Valider le PIA",
+      "validate_structure": "Valider le modèle",
       "refuse_pia": "PIA refusé",
       "based_on_structure_name": "Basé sur le modèle :",
       "status": {
@@ -178,7 +179,8 @@
       "ask_evaluation": "Demander l'évaluation",
       "validate_evaluation": "Valider l'évaluation",
       "subsection_validated": "Partie évaluée, en attente de la validation finale",
-      "mandatory_fields": "Tous les champs doivent être remplis"
+      "mandatory_fields": "Tous les champs doivent être remplis",
+      "structure_add_question": "Ajouter une question"
     }
   },
   "measures": {
@@ -768,6 +770,8 @@
   },
   "questions": {
     "edit": "Éditer la question",
+    "remove": "Supprimer la question",
+    "placeholder_title": "Titre de la question",
     "gauges": {
       "0": "(Non définie)",
       "1": "Négligeable",
@@ -942,6 +946,11 @@
       "content": "<span class='strong'>Attention,</span><br>Êtes-vous sûr de vouloir<br>supprimer cette mesure ?",
       "remove": "Supprimer cette <br>mesure",
       "keep": "Conserver cette <br>mesure"
+    },
+    "remove_question": {
+      "content": "Souhaitez-vous supprimer la question ?",
+      "remove": "Supprimer",
+      "keep": "Annuler"
     },
     "ask_for_evaluation": {
       "content": "La partie est disponible<br>pour évaluation."

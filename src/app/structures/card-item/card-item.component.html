@@ -13,7 +13,7 @@
               <ul class="pia-cardsBlock-toolbar-moreList">
                 <li>
                   <i class="fa fa-files-o" aria-hidden="true"></i>
-                  <a href="javascript:;" (click)="_piaService.duplicateStructure(structure.id)">{{ 'homepage.cards.item.tools.duplicate' | translate }}</a>
+                  <a href="javascript:;" (click)="_structureService.duplicateStructure(structure.id)">{{ 'homepage.cards.item.tools.duplicate' | translate }}</a>
                 </li>
                 <li>
                   <i class="fa fa-trash-o" aria-hidden="true"></i>
@@ -52,7 +52,7 @@
             <time>{{ structure.created_at | date: 'dd/MM/yyyy' }}</time>
         </div>
         <div class="pia-cardsBlock-item-btn">
-          <a routerLink="/entry/{{structure.id}}/section/1/item/1" class="btn btn-green">{{ 'homepage.cards.item.edit_structure' | translate }}</a>
+          <a routerLink="/structures/entry/{{structure.id}}/section/1/item/1" class="btn btn-green">{{ 'homepage.cards.item.edit_structure' | translate }}</a>
         </div>
       </form>
   </div>

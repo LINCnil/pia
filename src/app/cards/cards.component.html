@@ -104,7 +104,7 @@
                 <label for="structure">{{ 'homepage.cards.structure' | translate }}</label>
                 <select formControlName="structure" id="structure">
                   <option value="" selected>{{ 'homepage.cards.placeholder_structure' | translate }}</option>
-                  <option *ngFor="let item of _piaService.structures" [ngValue]="item.id">{{item.name}}</option>
+                  <option *ngFor="let item of _structureService.structures" [ngValue]="item.id">{{item.name}}</option>
                 </select>
               </div>
               <div class="pia-cardsBlock-item-date" *ngIf="newPia">
