@@ -10,7 +10,7 @@
       display: flex;
       align-items: stretch;
       margin-bottom: 14px;
-      background-color: #fff;
+      background-color: $pia-full-white;
       position: relative;
       box-shadow: 1px 1px 15px 1px rgba(210,210,210,1);
       > div:first-child {
@@ -25,7 +25,7 @@
           margin-left: -15px;
           position: absolute;
           font-size: 34px;
-          color: #fff;
+          color: $pia-full-white;
           text-align: center;
         }
       }
@@ -90,7 +90,7 @@
           right: 0;
           position: absolute;
           font-size: 1rem;
-          color: #fff;
+          color: $pia-full-white;
           text-align: center;
           min-height: auto !important;
           div {
@@ -175,7 +175,7 @@
         button {
           width: 49%;
           height: 43px;
-          box-shadow: 1px 1px 15px 1px #d2d2d2;
+          box-shadow: 1px 1px 15px 1px darken($pia-white, 13.8%);
           float: right;
           &:first-child {
             float: left;
@@ -216,16 +216,16 @@
       text-transform: uppercase;
     }
     a {
-      color: #FD4664;
+      color: $pia-red;
     }
     p {
       margin-bottom: 0;
     }
-    color: #686868;
+    color: $pia-gray-dark;
     position: relative;
     margin-bottom: 10px;
-    background-color: #fff;
+    background-color: $pia-full-white;
     padding: 12px 32px;
-    box-shadow: 1px 1px 15px 1px #d2d2d2;
+    box-shadow: 1px 1px 15px 1px darken($pia-white, 13.8%);
   }
 }

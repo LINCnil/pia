@@ -8,7 +8,7 @@
       border-bottom: 4px solid $pia-blue;
     }
     h2 {
-      color: #393939;
+      color: $pia-light-black;
       margin-bottom: 3px;
     }
     h3 {
@@ -21,8 +21,8 @@
       margin: 0 0 8px 0;
       border: 1px solid $pia-gray;
       padding: 6px 16px;
-      background: #fff;
-      box-shadow: 1px 1px 3px 0px #c2c2c2;
+      background: $pia-full-white;
+      box-shadow: 1px 1px 3px 0px darken($pia-white, 20%);
     }
     .evaluationbox {
       p {
@@ -129,7 +129,7 @@
     }
   }
   &-summaryRisksOverviewBlock > div {
-    box-shadow: 1px 1px 15px 1px #d2d2d2;
+    box-shadow: 1px 1px 15px 1px darken($pia-white, 13.8%);
   }
 }
 .btn-select-all {

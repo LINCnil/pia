@@ -10,12 +10,41 @@
       display: flex;
       align-items: stretch;
       margin-bottom: 14px;
-      background-color: #fff;
+      background-color: $pia-full-white;
       position: relative;
       box-shadow: 1px 1px 15px 1px rgba(210,210,210,1);
+      &.description-section {
+        > div:last-child {
+          h1 {
+            color: $pia-blue;
+          }
+        }
+        > div:first-child {
+          background-color: $pia-blue;
+        }
+      }
+      &.data-section {
+        > div:last-child {
+          h1 {
+            color: $pia-red;
+          }
+        }
+        > div:first-child {
+          background-color: $pia-red;
+        }
+      }
+      &.lifecycle-section {
+        > div:last-child {
+          h1 {
+            color: $pia-green;
+          }
+        }
+        > div:first-child {
+          background-color: $pia-green;
+        }
+      }
       > div:first-child {
         width: 74px;
-        background-color: $pia-green;
         position: relative;
         i {
           display: block;
@@ -25,7 +54,7 @@
           margin-left: -15px;
           position: absolute;
           font-size: 34px;
-          color: #fff;
+          color: $pia-full-white;
           text-align: center;
         }
       }
@@ -90,7 +119,7 @@
           right: 0;
           position: absolute;
           font-size: 1rem;
-          color: #fff;
+          color: $pia-full-white;
           text-align: center;
           min-height: auto !important;
           div {
@@ -98,38 +127,6 @@
             background-color: transparent;
             min-height: inherit;
           }
-      }
-    }
-    &-section {
-      &2 {
-        .processing-entryContentBlock-header {
-          > div:first-child {
-            background-color: $pia-blue;
-          }
-          h1, h2 {
-            color: $pia-blue;
-          }
-        }
-      }
-      &3 {
-        .processing-entryContentBlock-header {
-          > div:first-child {
-            background-color: $pia-red;
-          }
-          h1, h2 {
-            color: $pia-red;
-          }
-        }
-      }
-      &4 {
-        .processing-entryContentBlock-header {
-          > div:first-child {
-            background-color: $pia-dark-black;
-          }
-          h1, h2 {
-            color: $pia-dark-black;
-          }
-        }
       }
     }
     &-content {
@@ -175,7 +172,7 @@
         button {
           width: 49%;
           height: 43px;
-          box-shadow: 1px 1px 15px 1px #d2d2d2;
+          box-shadow: 1px 1px 15px 1px darken($pia-white, 13.8%);
           float: right;
           &:first-child {
             float: left;
@@ -216,17 +213,17 @@
       text-transform: uppercase;
     }
     a {
-      color: #FD4664;
+      color: $pia-red;
     }
     p {
       margin-bottom: 0;
     }
-    color: #686868;
+    color: $pia-gray-dark;
     position: relative;
     margin-bottom: 10px;
-    background-color: #fff;
+    background-color: $pia-full-white;
     padding: 12px 32px;
-    box-shadow: 1px 1px 15px 1px #d2d2d2;
+    box-shadow: 1px 1px 15px 1px darken($pia-white, 13.8%);
   }
 
   &-sectionBlock {
@@ -311,10 +308,10 @@
         width: 81%;
         border-radius: 4px;
         &:focus, &:hover, &:active, &.active {
-          color: #fff!important;
+          color: $pia-full-white !important;
         }
       }
-      
+
       #context-section {
         .processing-sectionBlock-title {
           color: $pia-green;
@@ -349,7 +346,7 @@
           color: $pia-blue;
         }
       }
-      
+
       #risks-section {
         .processing-sectionBlock-title {
           color: $pia-red;
@@ -367,7 +364,7 @@
           color: $pia-red;
         }
       }
-      
+
       #validation-section {
         .processing-sectionBlock-title {
           color: $pia-dark-black;
@@ -398,7 +395,7 @@
   .form-field {
     position: relative;
     margin-bottom: 10px;
-    background-color: #fff;
+    background-color: $pia-full-white;
     padding: 12px 32px;
     box-shadow: 1px 1px 15px 1px rgba(210,210,210,1);
     .hide {

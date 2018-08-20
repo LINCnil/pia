@@ -4,34 +4,34 @@ select {
 	-webkit-appearance: none;
 	-moz-appearance: none;
 	appearance: none;
-	border: 1px solid #fff;
+	border: 1px solid $pia-full-white;
 	border-radius: 0;
-	background-color: #fefefe;
+	background-color: lighten($pia-white, 3.5%);
 	font-family: inherit;
 	font-size: 1.3rem;
 	font-weight: normal;
 	line-height: 1.5;
-	color: #0a0a0a;
-	transition: box-shadow 0.5s, border-color 0.25s ease-in-out; 
+	color: darken($pia-light-black, 18.5%);
+	transition: box-shadow 0.5s, border-color 0.25s ease-in-out;
 	&:hover {
 		outline: 1px dotted $pia-green;
 	}
 	&:focus {
 		outline: 1px dotted $pia-green;
-		border: 1px solid #8a8a8a;
-		background-color: #fefefe;
-		box-shadow: 0 0 5px #cacaca;
+		border: 1px solid darken($pia-gray, 11.4%);
+		background-color: lighten($pia-white, 3.5%);
+		box-shadow: 0 0 5px darken($pia-white, 17%);
 		transition: box-shadow 0.5s, border-color 0.25s ease-in-out;
 	}
 	&:disabled {
-		background-color: #e6e6e6;
-		cursor: not-allowed; 
+		background-color: darken($pia-white, 5.8%);
+		cursor: not-allowed;
 	}
 	&::-ms-expand {
-		display: none; 
+		display: none;
 	}
 	&[multiple] {
 	  	height: auto;
-	  	background-image: none; 
+	  	background-image: none;
 	}
 }

@@ -6,8 +6,8 @@
     margin-right: 12px;
     margin-bottom: 50px;
     //height: 370px;
-    border: 1px solid #fff;
-    background-color: #fff;
+    border: 1px solid $pia-full-white;
+    background-color: $pia-full-white;
     -webkit-box-shadow: 1px 1px 2px 1px rgba(204,202,204,1);
     -moz-box-shadow: 1px 1px 2px 1px rgba(204,202,204,1);
     box-shadow: 1px 1px 2px 1px rgba(204,202,204,1);
@@ -24,7 +24,7 @@
     }
     &-item {
       padding: 9px;
-      background-color: #fff;
+      background-color: $pia-full-white;
       padding-top: 6px;
       height: 382px;
       &-attachment {
@@ -41,7 +41,7 @@
           left: 2px;
           font-size: 1rem;
           color: $pia-gray-dark;
-          background-color: #fff;
+          background-color: $pia-full-white;
           text-align: center;
           min-width: 100px;
           margin: 10px 0;
@@ -180,7 +180,7 @@
               button {
                   font-size: 1rem;
                   color: $pia-gray;
-                  background-color: #fff;
+                  background-color: $pia-full-white;
                   display: none;
                   position: absolute;
                   bottom: -14px;
@@ -271,7 +271,7 @@
             right: 17px;
             top: -6px;
             padding-right: 0;
-            background-color: #fff;
+            background-color: $pia-full-white;
             width: 125px;
             li {
                 width: 100%;
@@ -279,7 +279,7 @@
                 list-style-type: none;
                 color: $pia-green;
                 padding: 0;
-                background-color: #fff;
+                background-color: $pia-full-white;
                 padding-left: 10px;
                 text-align: left;
                 .fa, a {
@@ -298,10 +298,10 @@
                     font-size: 1.2rem;
                 }
                 &:focus, &:hover, &:active {
-                    color: #fff;
+                    color: $pia-full-white;
                     background-color: $pia-green;
                     a {
-                        color: #fff;
+                        color: $pia-full-white;
                     }
                 }
             }

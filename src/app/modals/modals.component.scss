@@ -42,12 +42,12 @@
       position: absolute;
       top: 32.5%;
       left: 50%;
-      background-color: #fff;
+      background-color: $pia-full-white;
     }
     &-content {
       margin-left: -220px;
       width: 440px;
-      box-shadow: 15px 15px 205px -35px black;
+      box-shadow: 15px 15px 205px -35px $pia-dark-black;
       text-align: center;
       color: $pia-blue;
       font-style: italic;
@@ -152,7 +152,7 @@
   textarea {
     width: 94%;
     height: 100px;
-    border: 1px solid #A7A7A7;
+    border: 1px solid $pia-gray;
   }
 }
 

@@ -21,7 +21,7 @@ body.pia-contrast {
       border-color: $pia-green-dark;
       &:focus, &:hover, &.btn-active, &.btn-active[disabled] {
         background-color: $pia-green-dark;
-        color: #fff;
+        color: $pia-full-white;
       }
     }
     &-blue {
@@ -29,7 +29,7 @@ body.pia-contrast {
       border-color: $pia-blue;
       &:focus, &:hover, &.btn-active, &.btn-active[disabled] {
         background-color: $pia-blue;
-        color: #fff;
+        color: $pia-full-white;
       }
     }
     &-red {
@@ -37,7 +37,7 @@ body.pia-contrast {
       border-color: $pia-red-dark;
       &:focus, &:hover, &.btn-active, &.btn-active[disabled] {
         background-color: $pia-red-dark;
-        color: #fff;
+        color: $pia-full-white;
       }
     }
   }
@@ -102,7 +102,7 @@ body.pia-contrast {
       &:focus, &:hover, &:active {
         background-color: $pia-green-dark;
         border-color: $pia-green-dark;
-        color: #fff;
+        color: $pia-full-white;
       }
     }
     &-filters {
@@ -817,13 +817,13 @@ body.pia-contrast {
       background: linear-gradient(90deg, $pia-green-dark, $pia-green-dark);
     }
     &-background-1 {
-      background: linear-gradient(90deg, $pia-green-dark, #41534c);
+      background: linear-gradient(90deg, $pia-green-dark, $pia-gauge-1);
     }
     &-background-2 {
-      background: linear-gradient(90deg, $pia-green-dark, #6b3960);
+      background: linear-gradient(90deg, $pia-green-dark, $pia-gauge-2);
     }
     &-background-3 {
-      background: linear-gradient(90deg, $pia-green-dark, #961f73);
+      background: linear-gradient(90deg, $pia-green-dark, $pia-gauge-3);
     }
     &-background-4 {
       background: linear-gradient(90deg, $pia-green-dark, $pia-red-dark);

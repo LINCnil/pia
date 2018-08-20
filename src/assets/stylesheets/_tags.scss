@@ -1,6 +1,6 @@
 @import "../../../node_modules/ngx-chips/dist/modules/core/styles/core/_core.scss";
 
-$foundation-primary: #091C6B;
+$foundation-primary: $pia-blue;
 $foundation-primary-dark: darken($foundation-primary, 10%);
 
 // this is the container's theme
@@ -14,10 +14,10 @@ $foundation-tag-theme: (
     background-focused: $foundation-primary-dark,
     background-active: $foundation-primary-dark,
     background-hover: $foundation-primary-dark,
-    color: #fff,
+    color: $pia-full-white,
     font-size: 1.5rem,
     font-weight: 500,
-    color-hover: #fff,
+    color-hover: $pia-full-white,
     border-radius: 0
 );
 
@@ -27,13 +27,13 @@ $foundation-tag-edit-theme: (
     background-focused: $foundation-primary-dark,
     background-active: $foundation-primary-dark,
     background-hover: $foundation-primary-dark,
-    color: #fff,
+    color: $pia-full-white,
 );
 
 // this is the delete icon's theme
 $foundation-icon-theme: (
-    fill: #fff,
-    fill-focus: #eee,
+    fill: $pia-full-white,
+    fill-focus: darken($pia-white, 2.8%),
     transition: all 0.5s
 );
 

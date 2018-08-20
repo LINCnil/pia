@@ -70,13 +70,13 @@ html, body {
 /* Inactive inputs styles */
 input {
   &:disabled {
-    background-color: #fff !important;
+    background-color: $pia-full-white !important;
   }
 }
 
 // Active navigation button styles
 .active {
-  background-color: #fff;
+  background-color: $pia-full-white;
   a {
     color: $pia-blue !important;
   }
@@ -229,7 +229,7 @@ tag-input-form {
     padding: 8px 20px;
     margin: 0;
     max-width: 610px;
-    color: #fff;
+    color: $pia-full-white;
     display: block;
     font-weight: 400;
   }
@@ -251,7 +251,7 @@ tag-input-form {
     padding: 15px;
     border: none !important;
     &:first-child {
-      box-shadow: 1px 1px 15px 1px #d2d2d2;
+      box-shadow: 1px 1px 15px 1px darken($pia-white, 13.8%);
     }
   }
   img {

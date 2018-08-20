@@ -1,8 +1,9 @@
 @import "../../assets/stylesheets/variables";
+
 section {
   height: 700px;
   width: 700px;
-  border: 2px solid black;
+  border: 2px solid $pia-dark-black;
 }
 
 
@@ -51,7 +52,7 @@ section {
   }
   &-hint {
     position: absolute;
-    background-color: #fff;
+    background-color: $pia-full-white;
     width: 300px;
     height: 200px;
     box-shadow: 0px 0px 18px 2px rgba(212, 212, 212, 1);
@@ -98,11 +99,11 @@ section {
       &:focus {
         background: $pia-green;
         border-color: $pia-green;
-        color: #fff;
+        color: $pia-full-white;
       }
       &:active {
         color: $pia-green;
-        background-color: #fff;
+        background-color: $pia-full-white;
         border-color: $pia-green;
       }
     }
@@ -111,7 +112,7 @@ section {
       margin-left: 12px;
       &-list {
         z-index: 998;
-        background-color: #eee;
+        background-color: darken($pia-white, 2.8%);
         display: none;
         padding: 30px 10px 10px 10px;
         position: absolute;
@@ -140,13 +141,13 @@ section {
             font-weight: 500;
             display: block;
             text-decoration: none;
-            color: #000;
+            color: $pia-dark-black;
             &:focus,
             &:hover,
             &:active,
             .active {
               background-color: $pia-green;
-              color: #ffffff !important;
+              color: $pia-full-white !important;
               cursor: pointer;
             }
             &:disabled {
@@ -182,7 +183,7 @@ section {
       }
       &:hover {
         .pia-filtersBlock-filters-btn {
-          color: #fff;
+          color: $pia-full-white;
           background-color: $pia-green;
           .pia-icon-scroll-green {
             background-position: -367px -39px;
@@ -190,12 +191,12 @@ section {
         }
         .pia-filtersBlock-filters-list {
           display: block;
-          background-color: #fff;
+          background-color: $pia-full-white;
           ul {
             li {
               &.divider {
                 height: 1px;
-                background: #ddd;
+                background: darken($pia-white, 9.5%);
                 padding: 0;
                 margin: 4px 0;
               }
@@ -215,7 +216,7 @@ section {
       position: relative;
       display: inline-block;
       vertical-align: middle;
-      background-color: #fff;
+      background-color: $pia-full-white;
       //border-radius: 10px;
       padding: 3px 24px 5px 26px;
       margin-left: 10px;
@@ -294,7 +295,7 @@ section {
   width: 100%;
   max-width: 100%;
   margin-bottom: 1rem;
-  border-bottom: 1px solid #d0d0d0;
+  border-bottom: 1px solid darken($pia-white, 14.5%);
   thead {
     background-color: $pia-dark-black;
     color: $pia-white;
@@ -376,7 +377,7 @@ section {
   margin-right: 12px;
   margin-bottom: 40px;
   height: 382px;
-  border: 1px solid #a7a7a7;
+  border: 1px solid $pia-gray;
   padding: 9px;
   background-color: transparent; //background: url("../../../assets/images/pia-bg.png") repeat center center;
   .folder-icon {
@@ -439,7 +440,7 @@ section {
     }
     &:focus,
     &:active {
-      background-color: #fff;
+      background-color: $pia-full-white;
     }
   }
   &:last-child {
@@ -470,7 +471,7 @@ section {
       left: 2px;
       font-size: 1rem;
       color: $pia-gray-dark;
-      background-color: #fff;
+      background-color: $pia-full-white;
       text-align: center;
       min-width: 100px;
       margin: 10px 0;

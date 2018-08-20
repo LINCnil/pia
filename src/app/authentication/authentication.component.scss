@@ -4,7 +4,7 @@
     display: flex;
     padding-top: 110px;
     &-warning {
-      color: white;
+      color:$pia-full-white;
     }
     &-logo {
         > div:first-child {
@@ -36,7 +36,7 @@
         h2, p {
             position: relative;
             text-transform: uppercase;
-            color: #fff;
+            color: $pia-full-white;
             font-size: 1.4rem;
             line-height: 1.55rem;
             font-weight: bold;
@@ -61,10 +61,10 @@
     &-auth {
         margin-left: 10px;
         width: 280px;
-        box-shadow: 0 0 50px #aaa;
+        box-shadow: 0 0 50px $pia-gray;
     }
     &-enter {
-        background-color: #fff;
+        background-color: $pia-full-white;
         font-size: 1.4rem;
         padding: 10px;
         > div {
@@ -85,14 +85,14 @@
             color: $pia-green;
             &:focus, &:hover, &:active {
                 background-color: $pia-green;
-                color: #fff;
+                color: $pia-full-white;
             }
         }
     }
     &-enter {
         margin-top: 10%;
         > div {
-            color: #fff;
+            color: $pia-full-white;
             margin-bottom: 20px;
         }
     }
@@ -153,7 +153,7 @@
             text-decoration: none;
             font-size: 1.3rem;
             background-color: $pia-green;
-            color: #fff;
+            color: $pia-full-white;
         }
         a {
             display: block;
@@ -171,6 +171,6 @@
 .pia-navigationBlock {
   margin-top: 0 !important;
   &-languages {
-    border-right: 1px solid #fff;
+    border-right: 1px solid $pia-full-white;
   }
 }

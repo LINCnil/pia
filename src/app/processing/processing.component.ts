@@ -21,6 +21,7 @@ export class ProcessingComponent implements OnInit {
 
   ngOnInit() {
     this.sections = this.route.snapshot.data.sections;
+    console.log(this.sections);
     this.processing = this.route.snapshot.data.processing;
 
     this.changeSection(1);

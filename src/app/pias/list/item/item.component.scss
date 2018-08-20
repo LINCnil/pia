@@ -135,7 +135,7 @@
         right: 17px;
         top: -6px;
         padding-left: 0;
-        background-color: #fff;
+        background-color: $pia-full-white;
         width: 125px;
         li {
             width: 100%;
@@ -143,7 +143,7 @@
             list-style-type: none;
             color: $pia-green;
             padding: 0;
-            background-color: #fff;
+            background-color: $pia-full-white;
             padding-left: 10px;
             text-align: left;
             .fa, a {
@@ -162,10 +162,10 @@
                 font-size: 1.2rem;
             }
             &:focus, &:hover, &:active {
-                color: #fff;
+                color: $pia-full-white;
                 background-color: $pia-green;
                 a {
-                    color: #fff;
+                    color: $pia-full-white;
                 }
             }
         }

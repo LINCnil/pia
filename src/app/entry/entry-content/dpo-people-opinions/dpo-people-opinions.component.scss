@@ -10,7 +10,7 @@
           justify-content: space-between;
         }
         .DPOName {
-          background-color: #F5F5F5;
+          background-color: $pia-white;
           border: none;
           &:disabled {
             cursor: pointer;
@@ -28,7 +28,7 @@
         box-shadow: 2px 1px 18px 1px rgba(194,194,194,1);
         padding: 15px 46px;
         padding-bottom: 40px;
-        background-color: #fefefe;
+        background-color: lighten($pia-white, 3.5%);
         margin: 10px 0;
         h2 {
           margin:0;
@@ -56,7 +56,7 @@
                 display: block;
               }
               span {
-                color: #fff;
+                color: $pia-full-white;
               }
             }
             .fa-circle {
@@ -65,14 +65,14 @@
               height: 20px;
               border: solid $pia-gray 1px;
               border-radius: 50%;
-              color: #fefefe;
+              color: lighten($pia-white, 3.5%);
               align-self: center;
             }
             .fa-check, .fa-close {
               display: none;
               font-size: 2rem;
               align-self: center;
-              color: white;
+              color: $pia-full-white;
             }
             span {
               padding-left: 20px;

@@ -4,7 +4,7 @@
 .pia-entryContentBlock {
   &-content {
     &.pia-actionPlanGraphBlock {
-      background-color: #fefefe;
+      background-color: lighten($pia-white, 3.5%);
       box-shadow: 2px 1px 18px 1px rgba(194,194,194,1);
       padding: 10px 20px 20px 20px;
     }

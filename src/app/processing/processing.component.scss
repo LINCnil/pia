@@ -27,7 +27,7 @@
       }
     }
     &-title {
-      color: $pia-dark-black;
+      // color: $pia-dark-black;
       margin-top: 18px;
       margin-left: 10px;
       text-transform: uppercase;
@@ -38,6 +38,17 @@
       font-weight: 600;
       justify-content: flex-start;
       font-size: 1.3rem;
+
+      &.description-section {
+        color: $pia-blue;
+      }
+      &.data-section {
+        color: $pia-red;
+      }
+      &.lifecycle-section {
+        color: $pia-green;
+      }
+
       cursor: pointer;
       hr {
         margin: auto 10px auto auto;
@@ -45,12 +56,8 @@
         border: 0;
         height: 1px;
       }
-
-      &:focus, &:hover, &:active, &.active {
-        color: $pia-green!important;
-      }
     }
-    
+
     &-list {
       padding: 0;
       margin-bottom: 22px;
@@ -95,10 +102,10 @@
         width: 81%;
         border-radius: 4px;
         &:focus, &:hover, &:active, &.active {
-          color: #fff!important;
+          color: $pia-full-white !important;
         }
       }
-      
+
       #general-section {
         .pia-section-title {
           color: $pia-green;
@@ -133,7 +140,7 @@
           color: $pia-blue;
         }
       }
-      
+
       #lifecycle-section {
         .pia-section-title {
           color: $pia-red;

@@ -20,7 +20,7 @@
       outline: 1px dotted $pia-green;
     }
     &:focus, &:active {
-      background-color: #fff;
+      background-color: $pia-full-white;
     }
   }
   &:last-child {
@@ -51,7 +51,7 @@
       left: 2px;
       font-size: 1rem;
       color: $pia-gray-dark;
-      background-color: #fff;
+      background-color: $pia-full-white;
       text-align: center;
       min-width: 100px;
       margin: 10px 0;

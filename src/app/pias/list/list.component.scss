@@ -24,11 +24,11 @@
       &:focus {
         background: $pia-green;
         border-color: $pia-green;
-        color: #fff;
+        color: $pia-full-white;
       }
       &:active {
         color: $pia-green;
-        background-color: #fff;
+        background-color: $pia-full-white;
         border-color: $pia-green;
       }
     }
@@ -37,7 +37,7 @@
       margin-left: 12px;
       &-list {
         z-index: 998;
-        background-color: #eee;
+        background-color: darken($pia-white, 2.8%);
         display: none;
         padding: 30px 10px 10px 10px;
         position: absolute;
@@ -66,13 +66,13 @@
             font-weight: 500;
             display: block;
             text-decoration: none;
-            color: #000;
+            color: $pia-dark-black;
             &:focus,
             &:hover,
             &:active,
             .active {
               background-color: $pia-green;
-              color: #ffffff !important;
+              color: $pia-full-white !important;
               cursor: pointer;
             }
             &:disabled {
@@ -108,7 +108,7 @@
       }
       &:hover {
         .pia-filtersBlock-filters-btn {
-          color: #fff;
+          color: $pia-full-white;
           background-color: $pia-green;
           .pia-icon-scroll-green {
             background-position: -367px -39px;
@@ -116,12 +116,12 @@
         }
         .pia-filtersBlock-filters-list {
           display: block;
-          background-color: #fff;
+          background-color: $pia-full-white;
           ul {
             li {
               &.divider {
                 height: 1px;
-                background: #ddd;
+                background: darken($pia-white, 9.5%);
                 padding: 0;
                 margin: 4px 0;
               }
@@ -141,7 +141,7 @@
       position: relative;
       display: inline-block;
       vertical-align: middle;
-      background-color: #fff;
+      background-color: $pia-full-white;
       //border-radius: 10px;
       padding: 3px 24px 5px 26px;
       margin-left: 10px;

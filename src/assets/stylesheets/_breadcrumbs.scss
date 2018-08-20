@@ -5,7 +5,7 @@ ul.breadcrumbs {
     li {
       float: left;
       a {
-        color: white;
+        color: $pia-full-white;
         text-decoration: none;
         padding: 5px 0 5px 40px;
         background: $pia-green;
@@ -34,7 +34,7 @@ ul.breadcrumbs {
           height: 0;
           border-top: 50px solid transparent;       
           border-bottom: 50px solid transparent;
-          border-left: 30px solid white;
+          border-left: 30px solid $pia-full-white;
           position: absolute;
           top: 50%;
           margin-top: -50px; 

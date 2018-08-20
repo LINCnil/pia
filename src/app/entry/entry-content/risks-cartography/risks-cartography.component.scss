@@ -3,8 +3,8 @@
 // Risk cartography page
 .pia {
   &-cartographyBlock {
-    box-shadow: 1px 1px 15px 1px #d2d2d2;
-    background-color: #fff;
+    box-shadow: 1px 1px 15px 1px darken($pia-white, 13.8%);
+    background-color: $pia-full-white;
     display: block;
     padding: 25px;
     &-graph {
@@ -16,13 +16,8 @@
         border-left: 1px solid $pia-gray;
         border-bottom: 1px solid $pia-gray;
         // Linear gradient for background (green to red)
-        background-color: #d8f9e9;
-        // background-image:-moz-linear-gradient(left bottom, #d8f9e9 0%, #c5f5de 15%,#fee4e8 68%, #fed8de 88%);
-        background-image: linear-gradient(to right top, #d8f9e9 0%, #c5f5de 15%, #fee4e8 68%, #fed8de 88%);
-        // background-image:-webkit-linear-gradient(left bottom, #d8f9e9 0%, #c5f5de 15%,#fee4e8 68%, #fed8de 88%);
-        // background-image:-o-linear-gradient(left bottom, #d8f9e9 0%, #c5f5de 15%,#fee4e8 68%, #fed8de 88%);
-        // background-image:-ms-linear-gradient(left bottom, #d8f9e9 0%, #c5f5de 15%,#fee4e8 68%, #fed8de 88%);
-        // background-image:-webkit-gradient(linear, left bottom, right top, color-stop(0%,#d8f9e9), color-stop(15%,#c5f5de),color-stop(68%,#fee4e8),color-stop(88%,#fed8de));
+        background-color: $risk-cartography-1-4;
+        background-image: linear-gradient(to right top, $risk-cartography-1-4 0%, $risk-cartography-2-4 15%, $risk-cartography-3-4 68%, $risk-cartography-4-4 88%);
       }
     }
     &-ordinates, &-abscisses {
