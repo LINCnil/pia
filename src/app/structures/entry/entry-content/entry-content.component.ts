@@ -41,10 +41,10 @@ export class EntryContentComponent implements OnInit, OnChanges {
               private _knowledgeBaseService: KnowledgeBaseService) { }
 
   ngOnInit() {
-    // Reset measures no longer addable from KB when switching PIA
+    // Reset measures no longer addable from KB when switching Structure
     this._knowledgeBaseService.toHide = [];
 
-    // Update the last edited date for this PIA
+    // Update the last edited date for this Structure
     this._structureService.getStructure().then(() => {
       this._structureService.structure.updated_at = new Date();
       this._structureService.structure.update();
@@ -68,6 +68,15 @@ export class EntryContentComponent implements OnInit, OnChanges {
   async addQuestion() {
     const question = await this._structureService.addQuestion(this.section, this.item);
     this.questions.push(question);
+  }
+
+  /**
+   * Add new measure.
+   * @memberof EntryContentComponent
+   */
+  async addMeasure() {
+    const measure = await this._structureService.addMeasure(this.section, this.item);
+    this.item.answers.push(measure);
   }
 
   /**

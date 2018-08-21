@@ -287,7 +287,8 @@
           "title": "sections.3.items.1.title",
           "link_knowledge_base": [],
           "evaluation_mode": "question",
-          "short_help": "sections.3.items.1.short_help"
+          "short_help": "sections.3.items.1.short_help",
+          "answers": []
         },
         {
           "id": 2,

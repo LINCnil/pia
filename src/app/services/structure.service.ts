@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, ResolvedReflectiveFactory } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { Structure } from 'app/structures/structure.model';
@@ -22,7 +22,7 @@ export class StructureService {
    */
   async getStructure() {
     return new Promise((resolve, reject) => {
-      const id = parseInt(this.route.snapshot.params['id'], 10);
+      const id = parseInt(this.route.snapshot.params['structure_id'], 10);
       this.structure.get(id).then(() => {
         resolve();
       });
@@ -30,10 +30,13 @@ export class StructureService {
   }
 
   updateJson(section: any, item: any, question: any) {
-    console.log(question);
     this.structure.data.sections.find(s => s.id === section.id).items.find(i => i.id === item.id).questions.find(q => q.id === question.id).title = question.title;
     this.structure.data.sections.find(s => s.id === section.id).items.find(i => i.id === item.id).questions.find(q => q.id === question.id).answer = question.answer;
-    console.log(this.structure.data.sections.find(s => s.id === section.id).items.find(i => i.id === item.id).questions);
+    this.structure.update();
+  }
+
+  updateMeasureJson(section: any, item: any, measure: any, id: number) {
+    this.structure.data.sections.find(s => s.id === section.id).items.find(i => i.id === item.id).answers[id] = measure;
     this.structure.update();
   }
 
@@ -53,6 +56,33 @@ export class StructureService {
       this.structure.data.sections.find(s => s.id === section.id).items.find(i => i.id === item.id).questions.push(question);
       this.structure.update().then(() => {
         resolve(question);
+      });
+    });
+  }
+
+  async addMeasure(section: any, item: any) {
+    return new Promise((resolve, reject) => {
+      const measure = {
+        'title': '',
+        'content': ''
+      }
+      this.structure.data.sections.find(s => s.id === section.id).items.find(i => i.id === item.id).answers.push(measure);
+      this.structure.update().then(() => {
+        resolve(measure);
+      });
+    });
+  }
+
+  removeMeasure() {
+    const sid = localStorage.getItem('measure-id').split(',');
+    const section_id = parseInt(sid[0], 10);
+    const item_id = parseInt(sid[1], 10);
+    const measure_id = parseInt(sid[2], 10);
+    this.getStructure().then(() => {
+      this.structure.data.sections.find(s => s.id === section_id).items.find(i => i.id === item_id).answers.splice(measure_id, 1);
+      this.structure.update().then(() => {
+        localStorage.removeItem('measure-id');
+        this._modalsService.closeModal();
       });
     });
   }

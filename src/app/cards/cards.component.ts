@@ -9,6 +9,7 @@ import { ModalsService } from 'app/modals/modals.service';
 import { PiaService } from 'app/services/pia.service';
 import { StructureService } from 'app/services/structure.service';
 import { Structure } from 'app/structures/structure.model';
+import { Measure } from 'app/entry/entry-content/measures/measure.model';
 
 @Component({
   selector: 'app-cards',
@@ -133,13 +134,39 @@ export class CardsComponent implements OnInit, OnDestroy {
         pia.structure_name = structure.name;
         pia.structure_sector_name = structure.sector_name;
         pia.structure_data = structure.data;
-        const p = pia.create();
-        p.then((id) => this.router.navigate(['entry', id, 'section', 1, 'item', 1]));
+        pia.create().then((id) => {
+          this.structureCreateMeasures(pia, id).then(() => this.router.navigate(['entry', id, 'section', 1, 'item', 1]));
+        });
       });
     } else {
-      const p = pia.create();
-      p.then((id) => this.router.navigate(['entry', id, 'section', 1, 'item', 1]));
+      pia.create().then((id) => this.router.navigate(['entry', id, 'section', 1, 'item', 1]));
     }
+  }
+
+  async structureCreateMeasures(pia: Pia, id: any) {
+    return new Promise((resolve, reject) => {
+      // Record the structures Measures
+      const structures_measures = pia.structure_data.sections.find(s => s.id === 3).items.find(i => i.id === 1).answers;
+      let i = 0;
+      if (structures_measures.length > 0) {
+        for (const m in structures_measures) {
+          if (structures_measures.hasOwnProperty(m) && structures_measures[m]) {
+            const measure = new Measure();
+            measure.pia_id = id;
+            measure.title = structures_measures[m].title;
+            measure.content = structures_measures[m].content;
+            measure.create().then(() => {
+              i++;
+              if (i === structures_measures.length) {
+                resolve();
+              }
+            });
+          }
+        }
+      } else {
+        resolve();
+      }
+    });
   }
 
   /**

@@ -56,13 +56,12 @@
   </div>
 
   <ng-container *ngIf="item.is_measure; else appQuestions">
-    <button (click)="_measureService.addNewMeasure(_structureService.structure)"
-            class="btn btn-white btn-addMeasure" type="button"
-            *ngIf="_globalEvaluationService.answerEditionEnabled">
+    <button (click)="addMeasure()"
+            class="btn btn-white btn-addMeasure" type="button">
       <span class="pia-icons pia-icon-add"></span>
       {{ 'measures.add' | translate }}
     </button>
-    <!-- <app-measures *ngFor="let measure of _measureService.measures" [measure]="measure" [pia]="_structureService.structure" [section]="section" [item]="item"></app-measures> -->
+    <app-measures *ngFor="let measure of item.answers; let i = index" [id]="i" [measure]="measure" [section]="section" [item]="item"></app-measures>
   </ng-container>
   <ng-template #appQuestions>
     <div *ngFor="let question of questions">
@@ -70,7 +69,7 @@
     </div>
   </ng-template>
 
-  <footer class="pia-entryContentBlock-footer">
+  <footer class="pia-entryContentBlock-footer" *ngIf="!item.is_measure">
     <div>
       <button class="btn btn-green btn-active" (click)="addQuestion()">
         <i class="fa fa-plus" aria-hidden="true"></i>

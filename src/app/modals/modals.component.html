@@ -100,6 +100,18 @@
   </div>
 </div>
 
+<div class="pia-modalBlock" id="remove-structure-measure">
+  <div class="pia-modalBlock-content pia-modalBlock-removeMeasure bounceIn">
+    <button tabindex="3" type="button" class="pia-modalBlock-close btn" title="{{ 'modals.close' | translate }}" (click)="_modalsService.closeModal()"><span class="pia-icons pia-icon-close-big"></span></button>
+    <p [innerHTML]="'modals.remove_measure.content' | translate"></p>
+    <span class="pia-icons pia-icon-sad"></span>
+    <div class="pia-modalBlock-buttons-choice">
+      <button tabindex="1" class="btn btn-red" (click)="_structureService.removeMeasure()" type="button" [innerHTML]="'modals.remove_measure.remove' | translate"></button>
+      <button tabindex="2" class="btn btn-red get-focus" type="button" (click)="_modalsService.closeModal()" [innerHTML]="'modals.remove_measure.keep' | translate"></button>
+    </div>
+  </div>
+</div>
+
 <div class="pia-modalBlock" id="remove-question">
   <div class="pia-modalBlock-content pia-modalBlock-removeQuestion bounceIn">
     <button tabindex="3" type="button" class="pia-modalBlock-close btn" title="{{ 'modals.close' | translate }}" (click)="_modalsService.closeModal()"><span class="pia-icons pia-icon-close-big"></span></button>

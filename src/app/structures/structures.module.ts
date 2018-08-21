@@ -10,6 +10,7 @@ import { EntryComponent } from './entry/entry.component';
 import { SectionsComponent } from './entry/sections/sections.component';
 import { EntryContentComponent } from './entry/entry-content/entry-content.component';
 import { QuestionsComponent } from './entry/entry-content/questions/questions.component';
+import { MeasuresComponent } from './entry/entry-content/measures/measures.component';
 
 @NgModule({
   imports: [
@@ -24,7 +25,8 @@ import { QuestionsComponent } from './entry/entry-content/questions/questions.co
     EntryComponent,
     SectionsComponent,
     EntryContentComponent,
-    QuestionsComponent
+    QuestionsComponent,
+    MeasuresComponent
   ]
 })
 export class StructuresModule { }

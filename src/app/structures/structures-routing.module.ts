@@ -6,8 +6,8 @@ import { EntryComponent } from 'app/structures/entry/entry.component';
 const routes: Routes = [
   { path: 'structures', component: StructuresComponent },
   { path: 'structures/:view', component: StructuresComponent },
-  { path: 'structures/entry/:id', component: EntryComponent },
-  { path: 'structures/entry/:id/section/:section_id/item/:item_id', component: EntryComponent },
+  { path: 'structures/entry/:structure_id', component: EntryComponent },
+  { path: 'structures/entry/:structure_id/section/:section_id/item/:item_id', component: EntryComponent },
 ];
 
 @NgModule({
