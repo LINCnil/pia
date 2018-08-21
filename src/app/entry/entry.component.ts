@@ -12,7 +12,7 @@ import { PiaService } from 'app/services/pia.service';
 import { ModalsService } from 'app/modals/modals.service';
 import { AppDataService } from 'app/services/app-data.service';
 import { SidStatusService } from 'app/services/sid-status.service';
-import { GlobalEvaluationService } from '../services/global-evaluation.service';
+import { GlobalEvaluationService } from 'app/services/global-evaluation.service';
 
 @Component({
   selector: 'app-entry',
@@ -43,7 +43,12 @@ export class EntryComponent implements OnInit, OnDestroy, DoCheck {
     let sectionId = parseInt(this.route.snapshot.params['section_id'], 10);
     let itemId = parseInt(this.route.snapshot.params['item_id'], 10);
 
+    await this._piaService.getPIA();
+    if (this._piaService.pia.structure_data) {
+      this._appDataService.dataNav = this._piaService.pia.structure_data;
+    }
     this.data = await this._appDataService.getDataNav();
+
     this.route.params.subscribe(
       (params: Params) => {
         sectionId = parseInt(params['section_id'], 10);
@@ -106,7 +111,17 @@ export class EntryComponent implements OnInit, OnDestroy, DoCheck {
    * @param {number} itemId - The item id.
    * @memberof EntryComponent
    */
-  private getSectionAndItem(sectionId: number, itemId: number) {
+  private async getSectionAndItem(sectionId: number, itemId: number) {
+    this._appDataService.dataNav = { sections: null };
+
+    // await this._piaService.getPIA();
+    if (this._piaService.pia.structure_data) {
+      this._appDataService.dataNav = this._piaService.pia.structure_data;
+    }
+    console.log(this._appDataService.dataNav);
+    this.data = await this._appDataService.getDataNav();
+    console.log(this._appDataService.dataNav);
+
     this.section = this.data['sections'].filter((section) => {
       return section.id === sectionId;
     })[0];
