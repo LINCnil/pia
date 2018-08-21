@@ -21,7 +21,7 @@
     "title" : "Tableau de bord",
     "items" :{
       "portfolio" : "Portefeuille Client",
-      "processings" : "Mes traitements"
+      "processings" : "Traitements"
     }
   },
   "portfolio":{

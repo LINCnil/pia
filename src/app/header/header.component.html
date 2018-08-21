@@ -2,9 +2,9 @@
   <div class="pia-logoBlock">
     <div class="row">
       <div class="small-12 medium-12 columns">
-        <div>  
+        <div>
         <a id="logo" routerLink="/home"><img src="assets/images/pia-lab-small.png" alt="Logo PIA lab"></a>
-      </div>  
+      </div>
         <div class="hide-for-print pia-versionInfoBlock" *ngIf="appVersion">Version {{appVersion}}</div>
       </div>
     </div>
@@ -15,11 +15,14 @@
         <div class="small-12 medium-12 columns">
           <ul class="pia-navigationBlock-list">
             <li routerLinkActive="active">
-              <a routerLink="/home">{{ 'header.homepage_link' | translate }}</a>
+              <a routerLink="/home">{{ 'dashboard.title' | translate }}</a>
             </li>
             <li *ngIf="hasPortfolio()">
-                <a routerLink="/portfolio">{{ 'header.portfolio_link' | translate }}</a>
-              </li>
+              <a routerLink="/portfolio">{{ 'header.portfolio_link' | translate }}</a>
+            </li>
+            <li *ngIf="hasOwnStructure()">
+              <a (click)="session.navigateToOwnStructure()" style="cursor:pointer;">{{ 'dashboard.items.processings' | translate }}</a>
+            </li>
           </ul>
           <ul class="pia-navigationBlock-list">
             <!--<li>

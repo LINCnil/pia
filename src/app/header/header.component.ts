@@ -20,23 +20,26 @@ import { ProfileSession } from 'app/services/profile-session.service';
   styleUrls: ['./header.component.scss'],
   providers: [],
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit, OnDestroy {
   public increaseContrast: string;
   public profile: any;
   private profileSubscription: Subscription;
   appVersion: string;
   headerForHome: boolean;
-  _hasPortfolio:boolean = false;
+  _hasPortfolio: boolean = false;
+  _hasOwnStructure: boolean = false;
 
-  constructor(private _router: Router,
-              private renderer: Renderer2,
-              private _translateService: TranslateService,
-              public _piaService: PiaService,
-              private _modalsService: ModalsService,
-              private _http: HttpClient,
-              public _languagesService: LanguagesService,
-              private authService: AuthenticationService,
-              private session: ProfileSession) {
+  constructor(
+    private _router: Router,
+    private renderer: Renderer2,
+    private _translateService: TranslateService,
+    public _piaService: PiaService,
+    private _modalsService: ModalsService,
+    private _http: HttpClient,
+    public _languagesService: LanguagesService,
+    private authService: AuthenticationService,
+    protected session: ProfileSession
+  ) {
     this.updateContrast();
   }
 
@@ -44,21 +47,27 @@ export class HeaderComponent implements OnInit {
     this.appVersion = environment.version;
 
     // Set the visibility for the PIA example button according to the current url
-    this.headerForHome = (this._router.url === '/home' ||
-                          this._router.url === '/about' ||
-                          this._router.url === '/help' ||
-                          this._router.url === '/settings') ? true : false;
+    this.headerForHome = (
+      this._router.url === '/home' ||
+      this._router.url === '/about' ||
+      this._router.url === '/help' ||
+      this._router.url === '/settings'
+    ) ? true : false;
 
     this.profileSubscription = this.authService.profileSubject.subscribe(profile => {
       this.profile = profile;
-      
     });
 
     this._hasPortfolio = this.session.hasPortfolioStructures();
+    this._hasOwnStructure = this.session.hasOwnStructure();
   }
 
-  hasPortfolio(){
+  hasPortfolio() {
     return this._hasPortfolio;
+  }
+
+  hasOwnStructure() {
+    return this._hasOwnStructure;
   }
 
   ngOnDestroy() {

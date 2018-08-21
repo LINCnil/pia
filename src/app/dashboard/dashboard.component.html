@@ -1,15 +1,14 @@
 <app-header></app-header>
 <div class="container">
-    <div class="row">
-        <h2 class="page-title">{{'dashboard.title'|translate}}</h2>
-        <div class="small-12 medium-12 columns">
-            <app-dashboard-item *ngFor="let item of items" [item]=item></app-dashboard-item>
-        </div>
-        <div  *ngIf="items.length == 0" class="small-12 medium-12 columns">
-                <span class="error">{{'messages.no_structure_assigned' | translate}}</span>
-            </div>
+  <div class="row">
+    <h2 class="page-title">{{'dashboard.title'|translate}}</h2>
+    <div class="small-12 medium-12 columns">
+      <app-dashboard-item *ngFor="let item of items" [item]="item"></app-dashboard-item>
     </div>
+    <div *ngIf="items.length == 0" class="small-12 medium-12 columns">
+      <span class="error">{{'messages.no_structure_assigned' | translate}}</span>
+    </div>
+  </div>
 </div>
-
 
 <app-modals></app-modals>

@@ -1,12 +1,8 @@
-import { Injectable } from "@angular/core";
-import { Resolve, ActivatedRouteSnapshot, Router } from "@angular/router";
-import "rxjs/add/operator/catch";
-import { AuthenticationService } from "@security/authentication.service";
-import {
-  UserProfile,
-  UserProfileStructure
-} from "@api/model/user-profile.model";
-import { BehaviorSubject, Observable } from "rxjs";
+import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
+import 'rxjs/add/operator/catch';
+import { AuthenticationService } from '@security/authentication.service';
+import { UserProfile, UserProfileStructure } from '@api/model/user-profile.model';
 
 @Injectable()
 export class ProfileSession {
@@ -20,10 +16,10 @@ export class ProfileSession {
     private router: Router
   ) {
 
-    if (localStorage.getItem("structure-id") !== null) {
+    if (localStorage.getItem('structure-id') !== null) {
       this.currentStructure = {
-        name: localStorage.getItem("structure-name"),
-        id: localStorage.getItem("structure-id")
+        name: localStorage.getItem('structure-name'),
+        id: localStorage.getItem('structure-id')
       };
     }
 
@@ -48,10 +44,10 @@ export class ProfileSession {
 
   public navigateToStructure(structure: UserProfileStructure): void {
     this.currentStructure = structure;
-    localStorage.setItem("structure-name", structure.name);
-    localStorage.setItem("structure-id", structure.id);
+    localStorage.setItem('structure-name', structure.name);
+    localStorage.setItem('structure-id', structure.id);
 
-    this.router.navigate(["folders"]);
+    this.router.navigate(['folders']);
   }
 
   public hasOwnStructure(): boolean {
