@@ -1,15 +1,11 @@
-import { Component, DoCheck, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Renderer2 } from '@angular/core';
 import { environment } from 'environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
 
-import { Pia } from '../entry/pia.model';
-
-import { TranslateService } from '@ngx-translate/core';
 import { PiaService } from '../entry/pia.service';
-import { ModalsService } from '../modals/modals.service';
 import { LanguagesService } from '../services/languages.service';
 import { AuthenticationService } from '@security/authentication.service'
 import { ProfileSession } from 'app/services/profile-session.service';
@@ -28,13 +24,12 @@ export class HeaderComponent implements OnInit, OnDestroy {
   headerForHome: boolean;
   _hasPortfolio: boolean = false;
   _hasOwnStructure: boolean = false;
+  public currentRoute: string;
 
   constructor(
     private _router: Router,
     private renderer: Renderer2,
-    private _translateService: TranslateService,
     public _piaService: PiaService,
-    private _modalsService: ModalsService,
     private _http: HttpClient,
     public _languagesService: LanguagesService,
     private authService: AuthenticationService,
@@ -53,6 +48,9 @@ export class HeaderComponent implements OnInit, OnDestroy {
       this._router.url === '/help' ||
       this._router.url === '/settings'
     ) ? true : false;
+
+    this.currentRoute = this._router.url;
+    console.log(this.currentRoute);
 
     this.profileSubscription = this.authService.profileSubject.subscribe(profile => {
       this.profile = profile;

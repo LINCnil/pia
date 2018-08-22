@@ -25,7 +25,7 @@
           text-transform: uppercase;
           font-weight: 500;
           font-size: 1.38rem;
-          &:focus, &:hover, &:active {
+          &:focus, &:hover, &:active, &.active {
             background-color: $pia-full-white;
             color: $pia-blue;
           }

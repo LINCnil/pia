@@ -14,14 +14,14 @@
       <div class="row">
         <div class="small-12 medium-12 columns">
           <ul class="pia-navigationBlock-list">
-            <li routerLinkActive="active">
-              <a routerLink="/home">{{ 'dashboard.title' | translate }}</a>
+            <li>
+              <a routerLink="/dashboard" [ngClass]="{'active': currentRoute === '/dashboard'}">{{ 'dashboard.title' | translate }}</a>
             </li>
             <li *ngIf="hasPortfolio()">
-              <a routerLink="/portfolio">{{ 'header.portfolio_link' | translate }}</a>
+              <a routerLink="/portfolio" [ngClass]="{'active': currentRoute === '/portfolio'}">{{ 'header.portfolio_link' | translate }}</a>
             </li>
             <li *ngIf="hasOwnStructure()">
-              <a (click)="session.navigateToOwnStructure()" style="cursor:pointer;">{{ 'dashboard.items.processings' | translate }}</a>
+              <a (click)="session.navigateToOwnStructure()" style="cursor:pointer;" [ngClass]="{'active': currentRoute === '/folders'}">{{ 'dashboard.items.processings' | translate }}</a>
             </li>
           </ul>
           <ul class="pia-navigationBlock-list">
