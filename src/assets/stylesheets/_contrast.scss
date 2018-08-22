@@ -395,6 +395,9 @@ body.pia-contrast {
     }
     &-body {
       > div {
+        i.pia-fa-valid {
+          color: $pia-green-dark !important;
+        }
         &:first-child {
           .pia-sectionBlock-title {
             color: $pia-green-dark !important;

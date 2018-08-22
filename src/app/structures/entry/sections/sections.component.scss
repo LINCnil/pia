@@ -89,6 +89,9 @@
         }
       }
       > div {
+        i.pia-fa-valid {
+          color: $pia-green;
+        }
         &:first-child {
           .pia-sectionBlock-title {
             color: $pia-green;

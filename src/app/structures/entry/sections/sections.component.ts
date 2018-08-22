@@ -3,6 +3,7 @@ import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 
 import { AppDataService } from 'app/services/app-data.service';
+import { SidStatusService } from 'app/services/sid-status.service';
 import { StructureService } from 'app/services/structure.service';
 
 @Component({
@@ -18,6 +19,7 @@ export class SectionsComponent implements OnInit {
   data: { sections: any };
 
   constructor(public _structureService: StructureService,
+              public _sidStatusService: SidStatusService,
               private _appDataService: AppDataService) {
   }
 

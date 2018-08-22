@@ -8,6 +8,7 @@ import { KnowledgeBaseService } from 'app/entry/knowledge-base/knowledge-base.se
 import { ModalsService } from 'app/modals/modals.service';
 import { GlobalEvaluationService } from 'app/services/global-evaluation.service';
 import { StructureService } from 'app/services/structure.service';
+import { SidStatusService } from 'app/services/sid-status.service';
 
 @Component({
   selector: 'app-questions',
@@ -31,6 +32,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
               private _ngZone: NgZone,
               public _globalEvaluationService: GlobalEvaluationService,
               private renderer: Renderer2,
+              private _sidStatusService: SidStatusService,
               private _structureService: StructureService) { }
 
   ngOnInit() {
@@ -203,6 +205,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
     this._ngZone.run(() => {
       this.question.answer = userText;
       this._structureService.updateJson(this.section, this.item, this.question);
+      this._sidStatusService.setStructureStatus(this.section, this.item);
     });
 
     // if (this.answer.id) {

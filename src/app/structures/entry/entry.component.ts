@@ -46,6 +46,12 @@ export class EntryComponent implements OnInit, OnDestroy, DoCheck {
     await this._structureService.getStructure();
     this.data = this._structureService.structure.data;
 
+    this.data.sections.forEach(section => {
+      section.items.forEach(item => {
+        this._sidStatusService.setStructureStatus(section, item);
+      });
+    });
+
     this.route.params.subscribe(
       (params: Params) => {
         sectionId = parseInt(params['section_id'], 10);
@@ -62,39 +68,39 @@ export class EntryComponent implements OnInit, OnDestroy, DoCheck {
   }
 
   ngDoCheck() {
-    if (this.measureToRemoveFromTags && this.measureToRemoveFromTags.length > 0) {
-      const measureName = this.measureToRemoveFromTags;
-      this.measureToRemoveFromTags = null;
+    // if (this.measureToRemoveFromTags && this.measureToRemoveFromTags.length > 0) {
+    //   const measureName = this.measureToRemoveFromTags;
+    //   this.measureToRemoveFromTags = null;
 
-      // Update tags when removing measures from 3.1
-      const itemsQuestions = [];
-      this.data.sections.forEach(section => {
-        section.items.forEach(item => {
-            if (item.questions) {
-              itemsQuestions.push(item.questions.filter((question) => {
-                return (question.answer_type === 'list' && question.is_measure === true);
-              }));
-            }
-        });
-      });
+    //   // Update tags when removing measures from 3.1
+    //   const itemsQuestions = [];
+    //   this.data.sections.forEach(section => {
+    //     section.items.forEach(item => {
+    //         if (item.questions) {
+    //           itemsQuestions.push(item.questions.filter((question) => {
+    //             return (question.answer_type === 'list' && question.is_measure === true);
+    //           }));
+    //         }
+    //     });
+    //   });
 
-      // Keep only questions with measures lists
-      const listQuestions = itemsQuestions.filter(v => Object.keys(v).length !== 0);
+    //   // Keep only questions with measures lists
+    //   const listQuestions = itemsQuestions.filter(v => Object.keys(v).length !== 0);
 
-      // For each of these questions, get their respective answer
-      listQuestions.forEach(questionsSet => {
-        questionsSet.forEach(q => {
-          const answer = new Answer();
-          answer.getByReferenceAndPia(this._structureService.structure.id, q.id).then(() => {
-            if (answer.data && answer.data.list.length > 0 && answer.data.list.includes(measureName)) {
-              const index = answer.data.list.indexOf(measureName);
-              answer.data.list.splice(index, 1);
-              answer.update();
-            }
-          });
-        });
-      });
-    }
+    //   // For each of these questions, get their respective answer
+    //   listQuestions.forEach(questionsSet => {
+    //     questionsSet.forEach(q => {
+    //       const answer = new Answer();
+    //       answer.getByReferenceAndPia(this._structureService.structure.id, q.id).then(() => {
+    //         if (answer.data && answer.data.list.length > 0 && answer.data.list.includes(measureName)) {
+    //           const index = answer.data.list.indexOf(measureName);
+    //           answer.data.list.splice(index, 1);
+    //           answer.update();
+    //         }
+    //       });
+    //     });
+    //   });
+    // }
   }
 
   ngOnDestroy() {

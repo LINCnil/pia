@@ -18,7 +18,7 @@
                 [ngClass]="{'active': section.id == dataSection.id && item.id == dataItem.id}"
                 class="truncate">
                 {{ dataItem.title | translate }}</a>
-              <i class="fa fa-sitemap" aria-hidden="true"></i>
+              <i class="fa fa-sitemap" [ngClass]="{'pia-fa-valid': _sidStatusService.structureStatus[dataSection.id + '.' + dataItem.id] === true}" aria-hidden="true"></i>
             </li>
           </ng-container>
         </ul>

@@ -5,6 +5,7 @@ import { ModalsService } from 'app/modals/modals.service';
 import { KnowledgeBaseService } from 'app/entry/knowledge-base/knowledge-base.service';
 import { GlobalEvaluationService } from 'app/services/global-evaluation.service';
 import { StructureService } from 'app/services/structure.service';
+import { SidStatusService } from 'app/services/sid-status.service';
 
 @Component({
   selector: 'app-measures',
@@ -28,6 +29,7 @@ export class MeasuresComponent implements OnInit, OnDestroy {
     private _modalsService: ModalsService,
     private _knowledgeBaseService: KnowledgeBaseService,
     private _ngZone: NgZone,
+    private _sidStatusService: SidStatusService,
     private _structureService: StructureService) { }
 
   ngOnInit() {
@@ -118,6 +120,7 @@ export class MeasuresComponent implements OnInit, OnDestroy {
     if (this.measureForm.value.measureTitle && this.measureForm.value.measureTitle.length > 0) {
       this.measureForm.controls['measureTitle'].disable();
     }
+    this._sidStatusService.setStructureStatus(this.section, this.item);
     // this.measureModel.pia_id = this.pia.id;
     // const previousTitle = this.measureModel.title;
     // this.measureModel.title = userText;
@@ -160,6 +163,7 @@ export class MeasuresComponent implements OnInit, OnDestroy {
     this._ngZone.run(() => {
       this.measure.content = userText;
       this._structureService.updateMeasureJson(this.section, this.item, this.measure, this.id);
+      this._sidStatusService.setStructureStatus(this.section, this.item);
     });
   }
 
