@@ -1,0 +1,77 @@
+<ng-template #viewList>
+  <div class="small-12 medium-12 columns">
+    <table class="pia-list-table">
+      <thead>
+        <tr>
+          <th>
+            <a (click)="sortBy('name')">
+              <span>{{ 'homepage.lists.column_pias_folders' | translate }}</span>
+              <i *ngIf="sortValue === 'name'" class="fa fa-caret-{{sortOrder}}"></i>
+            </a>
+          </th>
+          <th>
+            <a (click)="sortBy('updated_at')">
+              <span>{{ 'homepage.lists.column_updated_at' | translate }}</span>
+              <i *ngIf="sortValue === 'updated_at'" class="fa fa-caret-{{sortOrder}}"></i>
+            </a>
+          </th>
+          <th>
+            <a (click)="sortBy('author_name')">
+              <span>{{ 'homepage.lists.column_author' | translate }}</span>
+              <i *ngIf="sortValue === 'author_name'" class="fa fa-caret-{{sortOrder}}"></i>
+            </a>
+          </th>
+          <th>
+            <a (click)="sortBy('evaluator_name')">
+              <span>{{ 'homepage.lists.column_evaluation' | translate }}</span>
+              <i *ngIf="sortValue === 'evaluator_name'" class="fa fa-caret-{{sortOrder}}"></i>
+            </a>
+          </th>
+          <th>
+            <a (click)="sortBy('validator_name')">
+              <span>{{ 'homepage.lists.column_validation' | translate }}</span>
+              <i *ngIf="sortValue === 'validator_name'" class="fa fa-caret-{{sortOrder}}"></i>
+            </a>
+          </th>
+          <th>
+            <a (click)="sortBy('created_at')">
+              <span>{{ 'homepage.lists.column_creation' | translate }}</span>
+              <i *ngIf="sortValue === 'created_at'" class="fa fa-caret-{{sortOrder}}"></i>
+            </a>
+          </th>
+          <th>
+            <span>{{ 'homepage.lists.column_status' | translate }}</span>
+          </th>
+          <th>
+            <a (click)="sortBy('progress')">
+              <span>{{ 'homepage.lists.column_progression' | translate }}</span>
+              <i *ngIf="sortValue === 'progress'" class="fa fa-caret-{{sortOrder}}"></i>
+            </a>
+          </th>
+          <th>
+            <span>{{ 'homepage.lists.column_actions' | translate }}</span>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <!--
+        <tr class="list-item-folder" *ngIf="_piaService.currentFolder && _piaService.currentFolder.parent != null">
+          <td class="folder-listsBlock-item" colspan="8">
+            <i class="fa fa-folder-open" routerLink="{{getRouteToParentFolder()}}"></i>&nbsp;{{ 'homepage.cards.folder.parent' | translate }}
+          </td>
+          <td class="folder-listsBlock-item">
+            <div class="folder-listsBlock-item-actions">
+              <a class="btn pia-tooltip" routerLink="{{getRouteToParentFolder()}}" href="#">
+                  <i class="fa fa-level-up" aria-hidden="true"></i>
+                  <span class="pia-tooltip-text">{{ 'homepage.cards.folder.parent' | translate }}</span>
+                </a>
+            </div>
+          </td>
+        </tr>
+        <tr class="app-list-item-folder" [attr.data-id]="folder.id" *ngFor="let folder of _piaService.folders;let i=index" [folder]="folder"></tr>
+        <tr class="app-list-item" [attr.data-id]="processing.id" *ngFor="let processing of _piaService.processings;let i=index" [processing]="processing"></tr>
+        -->
+      </tbody>
+    </table>
+  </div>
+</ng-template>

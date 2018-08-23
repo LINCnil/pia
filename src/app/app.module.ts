@@ -51,7 +51,7 @@ import {
     ActionPlanImplementationComponent
   } from 'app/entry/entry-content/action-plan/action-plan-implementation/action-plan-implementation.component';
 import { environment } from '../environments/environment';
-import { ListItemComponent } from 'app/cards/list-item/list-item.component';
+import { ListItemComponent } from 'app/lists/list-item/list-item.component';
 import { SummaryComponent } from 'app/summary/summary.component';
 import { AboutComponent } from 'app/about/about.component';
 import { AppRoutingModule } from 'app/app-routing.module';
@@ -62,7 +62,7 @@ import { TemplatesComponent } from './templates/templates.component';
 import { ToastrModule } from 'ngx-toastr';
 import { AppErrorHandler } from 'app/services/app-error.handler';
 import { FolderItemComponent } from './cards/folder-item/folder-item.component';
-import { ListItemFolderComponent } from './cards/list-item-folder/list-item-folder.component';
+import { ListItemFolderComponent } from './lists/list-item-folder/list-item-folder.component';
 import { PortfolioComponent, StructureItemComponent } from 'app/portfolio';
 import { DashboardComponent, DashboardItemComponent } from 'app/dashboard';
 import { DndModule } from 'ngx-drag-drop';
@@ -77,6 +77,7 @@ import { PiasListComponent } from './pias/list/list.component';
 import { PiasListItemComponent } from './pias/list/item/item.component';
 import { ProcessingDataTypeService } from '@api/service';
 import { EditableFieldComponent } from './pias/list/item/editable-field/editable-field.component';
+import { ListsComponent } from './lists/lists.component';
 
 const providersList: any = [
   AppDataService,
@@ -166,7 +167,8 @@ export function createTranslateLoader(http: HttpClient) {
     ProcessingDataTypesComponent,
     PiasListComponent,
     PiasListItemComponent,
-    EditableFieldComponent
+    EditableFieldComponent,
+    ListsComponent
   ],
   imports: [
     BrowserModule,

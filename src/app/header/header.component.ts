@@ -50,7 +50,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
     ) ? true : false;
 
     this.currentRoute = this._router.url;
-    console.log(this.currentRoute);
 
     this.profileSubscription = this.authService.profileSubject.subscribe(profile => {
       this.profile = profile;
