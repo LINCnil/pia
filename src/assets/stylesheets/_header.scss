@@ -3,6 +3,9 @@
     position: relative;
     background-color: $pia-blue;
     margin-top: 4px;
+    &-structures {
+      background-color: $pia-green;
+    }
     .container {
       position: relative;
     }
