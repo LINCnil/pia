@@ -9,6 +9,7 @@ import { KnowledgeBaseService } from 'app/entry/knowledge-base/knowledge-base.se
 import { MeasureService } from 'app/entry/entry-content/measures/measures.service';
 import { ActionPlanService } from 'app/entry/entry-content/action-plan//action-plan.service';
 import { StructureService } from 'app/services/structure.service';
+import { AnswerStructureService } from 'app/services/answer-structure.service';
 import { ModalsService } from 'app/modals/modals.service';
 import { AppDataService } from 'app/services/app-data.service';
 import { SidStatusService } from 'app/services/sid-status.service';
@@ -35,6 +36,7 @@ export class EntryComponent implements OnInit, OnDestroy, DoCheck {
               private _sidStatusService: SidStatusService,
               private _knowledgeBaseService: KnowledgeBaseService,
               private _structureService: StructureService,
+              private _answerStructureService: AnswerStructureService,
               private _actionPlanService: ActionPlanService,
               private _globalEvaluationService: GlobalEvaluationService,
               private _measureService: MeasureService) { }
@@ -45,6 +47,7 @@ export class EntryComponent implements OnInit, OnDestroy, DoCheck {
 
     await this._structureService.getStructure();
     this.data = this._structureService.structure.data;
+    this._answerStructureService.structure = this._structureService.structure;
 
     this.data.sections.forEach(section => {
       section.items.forEach(item => {

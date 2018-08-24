@@ -9,6 +9,7 @@ import { ModalsService } from './modals.service';
 import { MeasureService } from 'app/entry/entry-content/measures/measures.service';
 import { PiaService } from 'app/services/pia.service';
 import { StructureService } from 'app/services/structure.service';
+import { AnswerStructureService } from 'app/services/answer-structure.service';
 import { AttachmentsService } from 'app/entry/attachments/attachments.service';
 
 @Component({
@@ -32,6 +33,7 @@ export class ModalsComponent implements OnInit {
     public _modalsService: ModalsService,
     public _piaService: PiaService,
     public _structureService: StructureService,
+    public _answerStructureService: AnswerStructureService,
     public _measuresService: MeasureService,
     public _attachmentsService: AttachmentsService
   ) { }

@@ -7,7 +7,8 @@ import { StructureService } from 'app/services/structure.service';
 @Component({
   selector: `.app-list-item`,
   templateUrl: './list-item.component.html',
-  styleUrls: ['./list-item.component.scss']
+  styleUrls: ['./list-item.component.scss'],
+  providers: [StructureService]
 })
 export class ListItemComponent implements OnInit {
   @Input() structure: any;

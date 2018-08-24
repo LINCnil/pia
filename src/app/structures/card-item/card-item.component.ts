@@ -10,8 +10,8 @@ import { StructureService } from 'app/services/structure.service';
 @Component({
   selector: 'app-card-item',
   templateUrl: './card-item.component.html',
-  styleUrls: ['./card-item.component.scss', './card-item_edit.component.scss',
-    './card-item_doing.component.scss'],
+  styleUrls: ['./card-item.component.scss', './card-item_edit.component.scss', './card-item_doing.component.scss'],
+  providers: [StructureService]
 })
 export class CardItemComponent implements OnInit {
   @Input() structure: any;

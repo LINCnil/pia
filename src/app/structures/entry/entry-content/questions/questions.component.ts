@@ -13,7 +13,8 @@ import { SidStatusService } from 'app/services/sid-status.service';
 @Component({
   selector: 'app-questions',
   templateUrl: './questions.component.html',
-  styleUrls: ['./questions.component.scss']
+  styleUrls: ['./questions.component.scss'],
+  providers: [StructureService]
 })
 
 export class QuestionsComponent implements OnInit, OnDestroy {

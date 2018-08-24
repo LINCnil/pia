@@ -10,7 +10,8 @@ import { SidStatusService } from 'app/services/sid-status.service';
 @Component({
   selector: 'app-measures',
   templateUrl: './measures.component.html',
-  styleUrls: ['./measures.component.scss']
+  styleUrls: ['./measures.component.scss'],
+  providers: [StructureService]
 })
 export class MeasuresComponent implements OnInit, OnDestroy {
 

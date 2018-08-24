@@ -1,11 +1,13 @@
 import { Router, ActivatedRoute, Params } from '@angular/router';
-import { Component, OnInit, Input, OnChanges } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, OnDestroy } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map'
+import { Subscription } from 'rxjs/Subscription';
 
 import { Evaluation } from 'app/entry/entry-content/evaluations/evaluation.model';
 
 import { AppDataService } from 'app/services/app-data.service';
+import { AnswerStructureService } from 'app/services/answer-structure.service';
 import { MeasureService } from 'app/entry/entry-content/measures/measures.service';
 import { ModalsService } from 'app/modals/modals.service';
 import { StructureService } from 'app/services/structure.service';
@@ -22,11 +24,13 @@ import { KnowledgeBaseService } from 'app/entry/knowledge-base/knowledge-base.se
   providers: [StructureService]
 })
 
-export class EntryContentComponent implements OnInit, OnChanges {
+export class EntryContentComponent implements OnInit, OnChanges, OnDestroy {
   @Input() section: any;
   @Input() item: any;
   @Input() questions: any;
   @Input() data: any;
+  subscriptionMeasure: Subscription;
+  subscriptionQuestion: Subscription;
 
   constructor(private _router: Router,
               private _appDataService: AppDataService,
@@ -38,6 +42,7 @@ export class EntryContentComponent implements OnInit, OnChanges {
               public _globalEvaluationService: GlobalEvaluationService,
               public _paginationService: PaginationService,
               private _translateService: TranslateService,
+              private _answerStructureService: AnswerStructureService,
               private _knowledgeBaseService: KnowledgeBaseService) { }
 
   ngOnInit() {
@@ -49,6 +54,16 @@ export class EntryContentComponent implements OnInit, OnChanges {
       this._structureService.structure.updated_at = new Date();
       this._structureService.structure.update();
     });
+
+    this.subscriptionMeasure = this._answerStructureService.measureToRemove.subscribe((index) => {
+      this.item.answers.splice(index, 1);
+      }
+    );
+
+    this.subscriptionQuestion = this._answerStructureService.questionToRemove.subscribe((index) => {
+      this.questions.splice(index, 1);
+      }
+    );
   }
 
   async ngOnChanges() {
@@ -66,7 +81,7 @@ export class EntryContentComponent implements OnInit, OnChanges {
    * @memberof EntryContentComponent
    */
   async addQuestion() {
-    const question = await this._structureService.addQuestion(this.section, this.item);
+    const question = await this._answerStructureService.addQuestion(this.section, this.item);
     this.questions.push(question);
   }
 
@@ -75,7 +90,7 @@ export class EntryContentComponent implements OnInit, OnChanges {
    * @memberof EntryContentComponent
    */
   async addMeasure() {
-    const measure = await this._structureService.addMeasure(this.section, this.item);
+    const measure = await this._answerStructureService.addMeasure(this.section, this.item);
     this.item.answers.push(measure);
   }
 
@@ -163,4 +178,8 @@ export class EntryContentComponent implements OnInit, OnChanges {
     this._modalsService.openModal('back-to-evaluation');
   }
 
+  ngOnDestroy() {
+    this.subscriptionMeasure.unsubscribe();
+    this.subscriptionQuestion.unsubscribe();
+  }
 }

@@ -106,7 +106,7 @@
     <p [innerHTML]="'modals.remove_measure.content' | translate"></p>
     <span class="pia-icons pia-icon-sad"></span>
     <div class="pia-modalBlock-buttons-choice">
-      <button tabindex="1" class="btn btn-red" (click)="_structureService.removeMeasure()" type="button" [innerHTML]="'modals.remove_measure.remove' | translate"></button>
+      <button tabindex="1" class="btn btn-red" (click)="_answerStructureService.removeMeasure()" type="button" [innerHTML]="'modals.remove_measure.remove' | translate"></button>
       <button tabindex="2" class="btn btn-red get-focus" type="button" (click)="_modalsService.closeModal()" [innerHTML]="'modals.remove_measure.keep' | translate"></button>
     </div>
   </div>
@@ -118,7 +118,7 @@
     <p [innerHTML]="'modals.remove_question.content' | translate"></p>
     <span class="pia-icons pia-icon-sad"></span>
     <div class="pia-modalBlock-buttons-choice">
-      <button tabindex="1" class="btn btn-red" (click)="_structureService.removeQuestion()" type="button" [innerHTML]="'modals.remove_question.remove' | translate"></button>
+      <button tabindex="1" class="btn btn-red" (click)="_answerStructureService.removeQuestion()" type="button" [innerHTML]="'modals.remove_question.remove' | translate"></button>
       <button tabindex="2" class="btn btn-red get-focus" type="button" (click)="_modalsService.closeModal()" [innerHTML]="'modals.remove_question.keep' | translate"></button>
     </div>
   </div>
