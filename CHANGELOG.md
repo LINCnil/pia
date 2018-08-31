@@ -1,10 +1,25 @@
 # Change Log
 
-## [1.4.4](https://github.com/pia-lab/pialab/tree/1.4.4) (2018-08-28)
-[Full Changelog](https://github.com/pia-lab/pialab/compare/1.4.5...1.4.4)
+## [Unreleased](https://github.com/pia-lab/pialab/tree/HEAD)
+
+[Full Changelog](https://github.com/pia-lab/pialab/compare/1.2.6...HEAD)
+
+**Closed issues:**
+
+- Duplication issues [\#56](https://github.com/pia-lab/pialab/issues/56)
+- Error when i try to export  [\#53](https://github.com/pia-lab/pialab/issues/53)
+
+## [1.2.6](https://github.com/pia-lab/pialab/tree/1.2.6) (2018-08-29)
+[Full Changelog](https://github.com/pia-lab/pialab/compare/1.4.5...1.2.6)
 
 ## [1.4.5](https://github.com/pia-lab/pialab/tree/1.4.5) (2018-08-28)
-[Full Changelog](https://github.com/pia-lab/pialab/compare/1.4.3...1.4.5)
+[Full Changelog](https://github.com/pia-lab/pialab/compare/1.4.6...1.4.5)
+
+## [1.4.6](https://github.com/pia-lab/pialab/tree/1.4.6) (2018-08-28)
+[Full Changelog](https://github.com/pia-lab/pialab/compare/1.4.4...1.4.6)
+
+## [1.4.4](https://github.com/pia-lab/pialab/tree/1.4.4) (2018-08-28)
+[Full Changelog](https://github.com/pia-lab/pialab/compare/1.4.3...1.4.4)
 
 ## [1.4.3](https://github.com/pia-lab/pialab/tree/1.4.3) (2018-08-27)
 [Full Changelog](https://github.com/pia-lab/pialab/compare/1.2.5...1.4.3)
