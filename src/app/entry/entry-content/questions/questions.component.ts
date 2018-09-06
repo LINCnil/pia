@@ -98,7 +98,6 @@ export class QuestionsComponent implements OnInit, OnDestroy {
   ngOnChanges(changes) {
     // only run when property "data" changed
     if (changes['pia']) {
-      // console.log(this.pia);
     }
   }
 
