@@ -1,9 +1,12 @@
 @import "../../../../assets/stylesheets/variables";
+
 @media (max-width: calc(#{map-get($breakpoints, 'large')} - 1px)) {
   .pia {
+
     &-archive,
     &-doing {
       overflow: hidden;
+
       span {
         text-align: center;
         font-weight: bold;
@@ -13,7 +16,19 @@
       }
     }
   }
+
+  .pia-toolbar {
+    position: absolute;
+    top: 2.7em;
+    right: 0.4em;
+
+    .pia-dropdown-icon {
+      right: -0.4em;
+      border-radius: 0.5em 0 0 0.5em;
+    }
+  }
 }
+
 @media (min-width: #{map-get($breakpoints, 'large')}) {
   .pia {
 
@@ -23,11 +38,12 @@
       position: relative;
       width: 2em;
       overflow: hidden;
+
       span {
         text-align: center;
         font-weight: bold;
         color: $pia-white;
-        display:block;
+        display: block;
         position: absolute;
         transform-origin: left;
         transform: rotate(-90deg);
@@ -39,27 +55,33 @@
     }
   }
 }
+
 .pia {
 
   &-archive {
     background-color: $pia-gray;
   }
+
   &-doing {
     background-color: $pia-green;
   }
+
   &-progressBar {
     width: 100px;
     text-align: right;
+
     div {
       color: $pia-green;
       font-style: italic;
       text-align: right;
       font-size: 1rem;
     }
+
     progress {
       width: 100%;
       position: relative;
       margin-top: 5px;
+
       &:after {
         position: absolute;
         left: 0;
@@ -70,6 +92,7 @@
         margin-top: -6px;
         background-color: $pia-green;
       }
+
       &:before {
         position: absolute;
         content: '';
@@ -80,19 +103,23 @@
         background-color: $pia-green;
       }
     }
+
     progress[value] {
       -webkit-appearance: none;
       -moz-appearance: none;
       appearance: none;
       background-color: transparent;
       height: 12px;
+
       &::-webkit-progress-bar {
         background-color: transparent;
       }
+
       &::-webkit-progress-value {
         background-color: $pia-green;
       }
     }
+
     progress[value]::-moz-progress-bar {
       background-color: $pia-green;
     }
@@ -101,74 +128,99 @@
   &-toolbar {
     font-size: 1.45rem;
     float: right;
-    a, button {
+
+    a,
+    button {
       color: $pia-green;
+
       .fa {
         margin: 0 3px;
       }
     }
-    > div {
+
+    >div {
       display: inline-block;
       vertical-align: top;
       position: relative;
     }
+
     &-more {
       position: relative;
-       > a {
-        &:focus, &:hover, &:active {
+
+      >a {
+
+        &:focus,
+        &:hover,
+        &:active {
           cursor: context-menu;
+
           .pia-toolbar-moreList {
             display: block;
-            box-shadow: 2px 2px 4px 0px rgba(204,202,204,1);
-            -webkit-box-shadow: 2px 2px 4px 0px rgba(204,202,204,1);
-            -moz-box-shadow: 2px 2px 4px 0px rgba(204,202,204,1);
+            box-shadow: 2px 2px 4px 0px rgba(204, 202, 204, 1);
+            -webkit-box-shadow: 2px 2px 4px 0px rgba(204, 202, 204, 1);
+            -moz-box-shadow: 2px 2px 4px 0px rgba(204, 202, 204, 1);
+          }
+        }
+      }
+
+      .pia-dropdown-icon {
+        right: -0.4em;
+        border-radius: 0.5em 0 0 0.5em;
+      }
+    }
+
+    &-moreList {
+      z-index: 999;
+      margin: 0;
+      padding: 0;
+      display: none;
+      position: absolute;
+      right: 2.1em;
+      top: 0;
+      padding-left: 0;
+      background-color: $pia-full-white;
+      width: 125px;
+
+      li {
+        width: 100%;
+        padding-left: 15px;
+        list-style-type: none;
+        color: $pia-green;
+        padding: 0;
+        background-color: $pia-full-white;
+        padding-left: 10px;
+        text-align: left;
+
+        .fa,
+        a {
+          display: inline-block;
+          vertical-align: middle;
+          font-size: 1.2rem;
+        }
+
+        .fa {
+          margin-right: 3px;
+        }
+
+        a {
+          text-align: left;
+          padding: 2px;
+          text-decoration: none;
+          line-height: 1;
+          font-size: 1.2rem;
+        }
+
+        &:focus,
+        &:hover,
+        &:active {
+          color: $pia-full-white;
+          background-color: $pia-green;
+
+          a {
+            color: $pia-full-white;
           }
         }
       }
     }
-    &-moreList {
-        z-index: 999;
-        margin: 0;
-        padding: 0;
-        display: none;
-        position: absolute;
-        right: 17px;
-        top: -6px;
-        padding-left: 0;
-        background-color: $pia-full-white;
-        width: 125px;
-        li {
-            width: 100%;
-            padding-left: 15px;
-            list-style-type: none;
-            color: $pia-green;
-            padding: 0;
-            background-color: $pia-full-white;
-            padding-left: 10px;
-            text-align: left;
-            .fa, a {
-                display: inline-block;
-                vertical-align: middle;
-                font-size: 1.2rem;
-            }
-            .fa {
-                margin-right: 3px;
-            }
-            a {
-                text-align: left;
-                padding: 2px;
-                text-decoration: none;
-                line-height: 1;
-                font-size: 1.2rem;
-            }
-            &:focus, &:hover, &:active {
-                color: $pia-full-white;
-                background-color: $pia-green;
-                a {
-                    color: $pia-full-white;
-                }
-            }
-        }
-    }
-}
+  }
 }

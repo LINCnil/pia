@@ -268,8 +268,8 @@
             padding: 0;
             display: none;
             position: absolute;
-            right: 17px;
-            top: -6px;
+            right: 2.1em;
+            top: 0;
             padding-right: 0;
             background-color: $pia-full-white;
             width: 125px;
@@ -311,4 +311,16 @@
 
 .pia-exampleBlock {
   display: none !important;
+}
+
+.pia-dropdown-icon {  
+  background: $pia-green;
+  padding: 0.5em;
+  position: absolute;
+  top: -0.45em;
+  right: -0.7em;
+  border-radius: 0 0 0 0.5em;
+  i.fa.fa-ellipsis-h {
+    color: white;
+  }
 }

@@ -1,5 +1,13 @@
 @import "../../../assets/stylesheets/variables";
 
+@media (max-width: calc(#{map-get($breakpoints, 'large')} - 1px)) {
+  table.stack.hover {
+    tr {
+      position: relative;
+    }
+  }
+}
+
 .pia {
   &-filtersBlock {
     position: relative;
