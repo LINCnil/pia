@@ -21,7 +21,7 @@ import { ProfileSession } from '../services/profile-session.service';
   styleUrls: ['./cards.component.scss']
 })
 
-export class CardsComponent implements OnInit, OnDestroy {
+export class CardsComponent implements OnInit {
   newProcessing: ProcessingModel;
   processingForm: FormGroup;
   // importPiaForm: FormGroup;
@@ -29,7 +29,6 @@ export class CardsComponent implements OnInit, OnDestroy {
   sortValue: string;
   viewStyle: { view: string }
   view: 'card';
-  paramsSubscribe: Subscription;
   folderId: number;
   itemToMove: any = null;
   // canCreatePIA: boolean;
@@ -58,9 +57,6 @@ export class CardsComponent implements OnInit, OnDestroy {
     this.initProcessingForm();
   }
 
-  ngOnDestroy() {
-    this.paramsSubscribe.unsubscribe();
-  }
 
   /**
    * Sort items.
@@ -181,7 +177,7 @@ export class CardsComponent implements OnInit, OnDestroy {
     this.viewStyle = {
       view: this.route.snapshot.params['view']
     }
-    this.paramsSubscribe = this.route.params.subscribe(
+    this.route.params.subscribe(
       (params: Params) => {
         this.viewStyle.view = params['view'];
         this.folderId = (params.id ? params.id : null)
