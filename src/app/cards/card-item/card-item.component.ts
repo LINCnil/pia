@@ -99,7 +99,7 @@ export class CardItemComponent implements OnInit {
     }
     if (userText !== '') {
       this.processingApi.get(this.processingForm.value.id).subscribe((theProcessing: ProcessingModel) => {
-        theProcessing.author = this.processingForm.value.author_name;
+        theProcessing.author = this.processingForm.value.author;
         this.processingApi.update(theProcessing).subscribe();
       });
     }
@@ -124,7 +124,7 @@ export class CardItemComponent implements OnInit {
     }
     if (userText !== '') {
       this.processingApi.get(this.processingForm.value.id).subscribe((theProcessing: ProcessingModel) => {
-        theProcessing.controllers = this.processingForm.value.evaluator_name;
+        theProcessing.controllers = this.processingForm.value.controllers;
         this.processingApi.update(theProcessing).subscribe();
       });
     }
