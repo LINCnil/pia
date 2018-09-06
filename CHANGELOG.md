@@ -2,7 +2,23 @@
 
 ## [Unreleased](https://github.com/pia-lab/pialab/tree/HEAD)
 
-[Full Changelog](https://github.com/pia-lab/pialab/compare/1.2.6...HEAD)
+[Full Changelog](https://github.com/pia-lab/pialab/compare/1.4.7...HEAD)
+
+**Closed issues:**
+
+- HTML title does not match "PiaLab" [\#57](https://github.com/pia-lab/pialab/issues/57)
+
+## [1.4.7](https://github.com/pia-lab/pialab/tree/1.4.7) (2018-09-06)
+[Full Changelog](https://github.com/pia-lab/pialab/compare/1.4.6...1.4.7)
+
+**Merged pull requests:**
+
+- Fix remaining Pia favicons [\#60](https://github.com/pia-lab/pialab/pull/60) ([PapsOu](https://github.com/PapsOu))
+- Fix page title [\#59](https://github.com/pia-lab/pialab/pull/59) ([PapsOu](https://github.com/PapsOu))
+- Fix dropdown toolbar button \(ellipsis icon\) on cards and pia list. [\#58](https://github.com/pia-lab/pialab/pull/58) ([PapsOu](https://github.com/PapsOu))
+
+## [1.4.6](https://github.com/pia-lab/pialab/tree/1.4.6) (2018-08-31)
+[Full Changelog](https://github.com/pia-lab/pialab/compare/1.2.6...1.4.6)
 
 **Closed issues:**
 
@@ -13,10 +29,7 @@
 [Full Changelog](https://github.com/pia-lab/pialab/compare/1.4.5...1.2.6)
 
 ## [1.4.5](https://github.com/pia-lab/pialab/tree/1.4.5) (2018-08-28)
-[Full Changelog](https://github.com/pia-lab/pialab/compare/1.4.6...1.4.5)
-
-## [1.4.6](https://github.com/pia-lab/pialab/tree/1.4.6) (2018-08-28)
-[Full Changelog](https://github.com/pia-lab/pialab/compare/1.4.4...1.4.6)
+[Full Changelog](https://github.com/pia-lab/pialab/compare/1.4.4...1.4.5)
 
 ## [1.4.4](https://github.com/pia-lab/pialab/tree/1.4.4) (2018-08-28)
 [Full Changelog](https://github.com/pia-lab/pialab/compare/1.4.3...1.4.4)
