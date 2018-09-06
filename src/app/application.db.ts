@@ -61,19 +61,24 @@ export class ApplicationDb {
           }
           if (event.oldVersion !== this.dbVersion) {
             // Next DB versions
-            if (this.dbVersion === 201708291502) {
+            if (this.dbVersion === 201708291502 || event.oldVersion === 0) {
               if (this.tableName === 'attachment') {
                 objectStore.createIndex('index2', ['pia_id', 'pia_signed'], { unique: false });
               }
             }
-            if (this.dbVersion === 201709122303) {
+            if (this.dbVersion === 201709122303 || event.oldVersion === 0) {
               if (this.tableName === 'comment') {
                 objectStore.createIndex('index2', 'pia_id', { unique: false });
               }
             }
-            if (this.dbVersion === 201802221337) {
+            if (this.dbVersion === 201802221337 || event.oldVersion === 0) {
               if (this.tableName === 'pia') {
                 objectStore.createIndex('index3', 'is_example', { unique: false });
+              }
+            }
+            if (this.dbVersion === 201809012140 || event.oldVersion === 0) {
+              if (this.tableName === 'pia') {
+                objectStore.createIndex('index4', 'structure_id', { unique: false });
               }
             }
           }

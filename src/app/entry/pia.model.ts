@@ -21,12 +21,13 @@ export class Pia extends ApplicationDb {
   public progress: number;
   public is_example = 0;
   public numberOfQuestions = 36; // TODO Auto calcul questions number
+  public structure_id: number;
   public structure_name: string;
   public structure_sector_name: string;
   public structure_data: { sections: any };
 
   constructor() {
-    super(201808011100, 'pia');
+    super(201809012140, 'pia');
     this.created_at = new Date();
   }
 
@@ -62,6 +63,7 @@ export class Pia extends ApplicationDb {
             newPia.concerned_people_searched_opinion = element.concerned_people_searched_opinion;
             newPia.concerned_people_searched_content = element.concerned_people_searched_content;
             newPia.is_example = element.is_example;
+            newPia.structure_id = element.structure_id;
             newPia.structure_name = element.structure_name;
             newPia.structure_sector_name = element.structure_sector_name;
             newPia.structure_data = element.structure_data;
@@ -76,6 +78,40 @@ export class Pia extends ApplicationDb {
         }
         resolve(items);
       });
+    });
+  }
+
+  async getAllWithStructure(structure_id: number) {
+    const items = [];
+    return new Promise((resolve, reject) => {
+      if (this.serverUrl) {
+        fetch(this.getServerUrl()).then((response) => {
+          return response.json();
+        }).then((result: any) => {
+          resolve(result);
+        }).catch ((error) => {
+          console.error('Request failed', error);
+          reject();
+        });
+      } else {
+        this.getObjectStore().then(() => {
+          const index4 = this.objectStore.index('index4');
+          const evt = index4.openCursor(IDBKeyRange.only(structure_id));
+          evt.onerror = (event: any) => {
+            console.error(event);
+            reject(Error(event));
+          }
+          evt.onsuccess = (event: any) => {
+            const cursor = event.target.result;
+            if (cursor) {
+              items.push(cursor.value);
+              cursor.continue();
+            } else {
+              resolve(items);
+            }
+          }
+        });
+      }
     });
   }
 
@@ -123,6 +159,7 @@ export class Pia extends ApplicationDb {
       people_names: this.people_names,
       concerned_people_searched_opinion: this.concerned_people_searched_opinion,
       concerned_people_searched_content: this.concerned_people_searched_content,
+      structure_id: this.structure_id,
       structure_name: this.structure_name,
       structure_sector_name: this.structure_sector_name,
       structure_data: this.structure_data
@@ -186,6 +223,7 @@ export class Pia extends ApplicationDb {
         entry.people_names = this.people_names;
         entry.concerned_people_searched_opinion = this.concerned_people_searched_opinion;
         entry.concerned_people_searched_content = this.concerned_people_searched_content;
+        entry.structure_id = this.structure_id;
         entry.structure_name = this.structure_name;
         entry.structure_sector_name = this.structure_sector_name;
         entry.structure_data = this.structure_data;
@@ -225,6 +263,47 @@ export class Pia extends ApplicationDb {
   }
 
   /**
+   * Update a PIA.
+   * @returns {Promise}
+   * @memberof Pia
+   */
+  async updateEntry(entry: any) {
+    return new Promise((resolve, reject) => {
+      entry.updated_at = new Date();
+      if (this.serverUrl) {
+        const formData = new FormData();
+        for (const d in entry) {
+          if (entry.hasOwnProperty(d)) {
+            formData.append('pia[' + d + ']', entry[d]);
+          }
+        }
+        fetch(this.getServerUrl() + '/' + entry.id, {
+          method: 'PATCH',
+          body: formData
+        }).then((response) => {
+          return response.json();
+        }).then((result: any) => {
+          resolve();
+        }).catch ((error) => {
+          console.error('Request failed', error);
+          reject();
+        });
+      } else {
+        this.getObjectStore().then(() => {
+          const evt = this.objectStore.put(entry);
+          evt.onerror = (event: any) => {
+            console.error(event);
+            reject(Error(event));
+          }
+          evt.onsuccess = () => {
+            resolve();
+          };
+        });
+      }
+    });
+  }
+
+  /**
    * Get a PIA.
    * @param {number} id - The PIA id.
    * @returns {Promise}
@@ -253,6 +332,7 @@ export class Pia extends ApplicationDb {
           this.people_names = entry.people_names;
           this.concerned_people_searched_opinion = entry.concerned_people_searched_opinion;
           this.concerned_people_searched_content = entry.concerned_people_searched_content;
+          this.structure_id = entry.structure_id;
           this.structure_name = entry.structure_name;
           this.structure_sector_name = entry.structure_sector_name;
           this.structure_data = entry.structure_data;
@@ -308,6 +388,7 @@ export class Pia extends ApplicationDb {
                 this.people_names = entry.people_names;
                 this.concerned_people_searched_opinion = entry.concerned_people_searched_opinion;
                 this.concerned_people_searched_content = entry.concerned_people_searched_content;
+                this.structure_id = entry.structure_id;
                 this.structure_name = entry.structure_name;
                 this.structure_sector_name = entry.structure_sector_name;
                 this.structure_data = entry.structure_data;

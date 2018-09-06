@@ -176,6 +176,7 @@ export class PiaService {
    */
   async importData(data: any, prefix: string, is_duplicate: boolean, is_example?: boolean) {
     if (!('pia' in data) || !('dbVersion' in data.pia)) {
+      this._modalsService.openModal('import-wrong-pia-file');
       return;
     }
     const pia = new Pia();

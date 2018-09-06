@@ -77,7 +77,9 @@ export class SidStatusService {
   setStructureStatus(section: any, item: any) {
     let contentExist = false;
     if (item.is_measure) {
-      contentExist = item.answers.map(x => x.title).filter(String).length > 0;
+      if (item.answers) {
+        contentExist = item.answers.map(x => x.title).filter(String).length > 0;
+      }
     } else if (item.questions) {
       item.questions.forEach(question => {
         if (!contentExist && question.answer) {

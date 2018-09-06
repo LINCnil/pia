@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 
 import { Structure } from 'app/structures/structure.model';
 import { ModalsService } from 'app/modals/modals.service';
+import { Pia } from 'app/entry/pia.model';
 
 @Injectable()
 export class StructureService {
@@ -50,7 +51,15 @@ export class StructureService {
 
     // Removes from DB.
     const structure = new Structure();
-    structure.delete(id);
+    structure.delete(id).then( () => {
+      const pia = new Pia();
+      pia.getAllWithStructure(id).then((items: any) => {
+        items.forEach(item => {
+          item.structure_id = null;
+          pia.updateEntry(item);
+        });
+      });
+    });
 
     // Deletes the PIA from the view.
     if (localStorage.getItem('homepageDisplayMode') && localStorage.getItem('homepageDisplayMode') === 'list') {
@@ -101,6 +110,7 @@ export class StructureService {
    */
   async importStructureData(data: any, prefix: string, is_duplicate: boolean) {
     if (!('structure' in data) || !('dbVersion' in data.structure)) {
+      this._modalsService.openModal('import-wrong-structure-file');
       return;
     }
     const structure = new Structure();

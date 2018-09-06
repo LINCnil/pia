@@ -997,6 +997,12 @@
     },
     "back_to_evaluation": {
       "content": "La partie est renvoyée en évaluation,<br>des informations doivent être réévaluées<br>pour permettre sa validation."
+    },
+    "import_wrong_pia_file": {
+      "content": "Le fichier importé ne correspond pas à un fichier de type PIA"
+    },
+    "import_wrong_structure_file": {
+      "content": "Le fichier importé ne correspond pas à un fichier de type Modèle"
     }
   },
   "summary": {

@@ -102,7 +102,6 @@ export class CardItemComponent implements OnInit {
    * @memberof CardItemComponent
    */
   export(id: number) {
-    console.log(id);
     this._structureService.exportStructure(id);
   }
 }
