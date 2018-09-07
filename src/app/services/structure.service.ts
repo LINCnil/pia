@@ -32,14 +32,18 @@ export class StructureService {
   }
 
   updateJson(section: any, item: any, question: any) {
-    this.structure.data.sections.find(s => s.id === section.id).items.find(i => i.id === item.id).questions.find(q => q.id === question.id).title = question.title;
-    this.structure.data.sections.find(s => s.id === section.id).items.find(i => i.id === item.id).questions.find(q => q.id === question.id).answer = question.answer;
-    this.structure.update();
+    this.getStructure().then(() => {
+      this.structure.data.sections.filter(s => s.id === section.id)[0].items.filter(i => i.id === item.id)[0].questions.filter(q => q.id === question.id)[0].title = question.title;
+      this.structure.data.sections.filter(s => s.id === section.id)[0].items.filter(i => i.id === item.id)[0].questions.filter(q => q.id === question.id)[0].answer = question.answer;
+      this.structure.update();
+    });
   }
 
   updateMeasureJson(section: any, item: any, measure: any, id: number) {
-    this.structure.data.sections.find(s => s.id === section.id).items.find(i => i.id === item.id).answers[id] = measure;
-    this.structure.update();
+    this.getStructure().then(() => {
+      this.structure.data.sections.filter(s => s.id === section.id)[0].items.filter(i => i.id === item.id)[0].answers[id] = measure;
+      this.structure.update();
+    });
   }
 
   /**

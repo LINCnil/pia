@@ -81,8 +81,11 @@ export class EntryContentComponent implements OnInit, OnChanges, OnDestroy {
    * @memberof EntryContentComponent
    */
   async addQuestion() {
-    const question = await this._answerStructureService.addQuestion(this.section, this.item);
-    this.questions.push(question);
+    this._structureService.getStructure().then(() => {
+      this._answerStructureService.addQuestion(this._structureService.structure, this.section, this.item).then((question: any) => {
+        this.questions.push(question);
+      });
+    });
   }
 
   /**
@@ -90,8 +93,11 @@ export class EntryContentComponent implements OnInit, OnChanges, OnDestroy {
    * @memberof EntryContentComponent
    */
   async addMeasure() {
-    const measure = await this._answerStructureService.addMeasure(this.section, this.item);
-    this.item.answers.push(measure);
+    this._structureService.getStructure().then(() => {
+      this._answerStructureService.addMeasure(this._structureService.structure, this.section, this.item).then((measure: any) => {
+        this.item.answers.push(measure);
+      });
+    });
   }
 
   /**
