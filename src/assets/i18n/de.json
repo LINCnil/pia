@@ -13,6 +13,7 @@
     "homepage_link": "Übersicht",
     "knowledge_base_link": "Wissensbasis",
     "pia_example_link": "Beispiel DSFA",
+    "structures": "TO BE TRANSLATED - Modèles de PIA",
     "languages": {
       "official_translation": "Originalversion",
       "cnil_translations": "Von der CNIL bereitgestellte Übersetzungen",
@@ -56,7 +57,12 @@
       "new_pia": "Neue DSFA",
       "import_pia": "DSFA importieren",
       "list_rocket_content": "Fangen Sie an! Um eine DSFA anzulegen, klicken Sie auf \"Neue DSFA\"",
-      "card_rocket_content": "Für eine neue DSFA,<br> klicken Sie auf \"+\""
+      "card_rocket_content": "Für eine neue DSFA,<br> klicken Sie auf \"+\"",
+      "new_structure": "TO BE TRANSLATED - Nouveau modèle",
+      "import_structure": "TO BE TRANSLATED - Importer modèle",
+      "sector_name": "TO BE TRANSLATED - Secteur associé",
+      "list_rocket_content_structure": "TO BE TRANSLATED - Lancez-vous ! Pour commencer<br>un modèle, cliquez sur le +",
+      "card_rocket_content_structure": "TO BE TRANSLATED - Lancez-vous !<br><br>Pour commencer<br>un modèle, cliquez<br> sur le +"
     },
     "cards": {
       "new_pia": "Neue DSFA",
@@ -73,11 +79,21 @@
       "placeholder_evaluation": "Vorname Nachname",
       "validation": "Bestätigender",
       "placeholder_validation": "Vorname Nachname",
+      "structure": "TO BE TRANSLATED - Modèle",
+      "placeholder_structure": "TO BE TRANSLATED - Choisir un modèle",
       "date": "Datum",
       "status": "Status",
       "creation_status": "Anlegen",
       "start": "Start",
       "placeholder_start": "Es müssen alle Felder ausgefüllt sein",
+      "new_structure": "TO BE TRANSLATED - Nouveau modèle",
+      "placeholder_new_structure": "TO BE TRANSLATED - Nouveau modèle",
+      "import_structure": "TO BE TRANSLATED - Importer modèle",
+      "placeholder_import_structure": "TO BE TRANSLATED - Importer modèle",
+      "structure_name": "TO BE TRANSLATED - Nom du modèle",
+      "sector_name": "TO BE TRANSLATED - Secteur associé",
+      "placeholder_structure_name": "TO BE TRANSLATED - Intitulé du modèle",
+      "placeholder_sector_name": "TO BE TRANSLATED - Intitulé du Secteur associé",
       "item": {
         "tools": {
           "export": "Exportieren",
@@ -88,7 +104,8 @@
           "remove": "Löschen"
         },
         "edit_pia": "DSFA bearbeiten",
-        "consult_pia": "DSFA ansehen"
+        "consult_pia": "DSFA ansehen",
+        "edit_structure": "TO BE TRANSLATED - Éditer le modèle"
       }
     },
     "lists": {
@@ -101,6 +118,9 @@
       "column_status": "Status",
       "column_progression": "Fortschritt",
       "column_actions": "Aktionen",
+      "column_structure": "TO BE TRANSLATED - Modèle",
+      "column_sector_name": "TO BE TRANSLATED - Secteur associé",
+      "column_structure_name": "TO BE TRANSLATED - Modèle",
       "item": {
         "tools": {
           "consult": "Ansehen",
@@ -137,7 +157,9 @@
     "sections": {
       "homepage_link": "Zurück zur Übersicht",
       "validate_pia": "DSFA bestätigen",
+      "validate_structure": "TO BE TRANSLATED - Valider le modèle",
       "refuse_pia": "DSFA ablehnen",
+      "based_on_structure_name": "TO BE TRANSLATED - Basé sur le modèle :",
       "status": {
         "evaluation": {
           "title": "Warten auf Überprüfung",
@@ -157,7 +179,8 @@
       "ask_evaluation": "Bitte um Überprüfung",
       "validate_evaluation": "Bitte um Bestätigung",
       "subsection_validated": "Unterabschnitt überprüft, wartet auf endgültige Bestätigung",
-      "mandatory_fields": "Es müssen alle Felder ausgefüllt sein"
+      "mandatory_fields": "Es müssen alle Felder ausgefüllt sein",
+      "structure_add_question": "TO BE TRANSLATED - Ajouter une question"
     }
   },
   "measures": {
@@ -747,6 +770,8 @@
   },
   "questions":  {
     "edit": "Frage bearbeiten",
+    "remove": "TO BE TRANSLATED - Supprimer la question",
+    "placeholder_title": "TO BE TRANSLATED - Titre de la question",
     "gauges": {
       "0": "(Nicht definiert)",
       "1": "Geringfügig",
@@ -922,6 +947,11 @@
       "remove": "Entfernen Sie<br>diese Maßnahme",
       "keep": "Behalten Sie<br>diese Maßnahme"
     },
+    "remove_question": {
+      "content": "TO BE TRANSLATED - Souhaitez-vous supprimer la question ?",
+      "remove": "TO BE TRANSLATED - Supprimer",
+      "keep": "TO BE TRANSLATED - Annuler"
+    },
     "ask_for_evaluation": {
       "content": "Der Unterabschnitt steht jetzt zur Überprüfung bereit."
     },
@@ -938,6 +968,10 @@
     "remove_pia": {
       "content": "<span class = 'strong'> Warnung, </span><br>Möchten Sie diese DSFA wirklich entfernen?",
       "remove": "Diese DSFA entfernen"
+    },
+    "remove_structure": {
+      "content": "TO BE TRANSLATED - <span class='strong'>Attention,</span><br>Êtes-vous sûr de vouloir<br>supprimer ce modèle ?",
+      "remove": "TO BE TRANSLATED - Supprimer ce modèle"
     },
     "remove_attachment": {
       "content": "<span class = 'strong'> Warnung, </span><br>Sind Sie sicher, dass Sie diesen Anhang entfernen möchten?",
@@ -963,6 +997,12 @@
     },
     "back_to_evaluation": {
       "content": "Dieser Abschnitt wurde zur Überprüfung zurückgeschickt.<br>Einige Felder müssen überprüft werden,<br>um ihre ordnungsgemäße Validierung zu ermöglichen."
+    },
+    "import_wrong_pia_file": {
+      "content": "TO BE TRANSLATED - Le fichier importé ne correspond pas à un fichier de type PIA"
+    },
+    "import_wrong_structure_file": {
+      "content": "TO BE TRANSLATED - Le fichier importé ne correspond pas à un fichier de type Modèle"
     }
   },
   "summary": {

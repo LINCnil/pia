@@ -13,6 +13,7 @@
     "homepage_link": "Ohjauspaneeli",
     "knowledge_base_link": "Tietopankki",
     "pia_example_link": "Esimerkki vaikutustenarvioinnista",
+    "structures": "TO BE TRANSLATED - Modèles de PIA",
     "languages": {
       "official_translations": "Viralliset käännökset",
       "cnil_translations": "CNIL:n tarjoamat käännökset",
@@ -55,7 +56,12 @@
       "new_pia": "Uusi vaikutustenarviointi",
       "import_pia": "Tuo vaikutustenarviointi",
       "list_rocket_content": "Aloitetaan! Luo vaikutustenarviointi <br> napsauttamalla +-painiketta",
-      "card_rocket_content": "Aloitetaan!<br><br>Luo vaikutustenarviointi<br>  napsauttamalla Uusi vaikutustenarviointi -painiketta"
+      "card_rocket_content": "Aloitetaan!<br><br>Luo vaikutustenarviointi<br>  napsauttamalla Uusi vaikutustenarviointi -painiketta",
+      "new_structure": "TO BE TRANSLATED - Nouveau modèle",
+      "import_structure": "TO BE TRANSLATED - Importer modèle",
+      "sector_name": "TO BE TRANSLATED - Secteur associé",
+      "list_rocket_content_structure": "TO BE TRANSLATED - Lancez-vous ! Pour commencer<br>un modèle, cliquez sur le +",
+      "card_rocket_content_structure": "TO BE TRANSLATED - Lancez-vous !<br><br>Pour commencer<br>un modèle, cliquez<br> sur le +"
     },
     "cards": {
       "new_pia": "Uusi vaikutustenarviointi",
@@ -72,11 +78,21 @@
       "placeholder_evaluation": "Etunimi, sukunimi",
       "validation": "Validointi",
       "placeholder_validation": "Etunimi, sukunimi",
+      "structure": "TO BE TRANSLATED - Modèle",
+      "placeholder_structure": "TO BE TRANSLATED - Choisir un modèle",
       "date": "Päiväys",
       "status": "Tila",
       "creation_status": "Luonti",
       "start": "Aloita",
       "placeholder_start": "Kaikki kentät tulee täyttää",
+      "new_structure": "TO BE TRANSLATED - Nouveau modèle",
+      "placeholder_new_structure": "TO BE TRANSLATED - Nouveau modèle",
+      "import_structure": "TO BE TRANSLATED - Importer modèle",
+      "placeholder_import_structure": "TO BE TRANSLATED - Importer modèle",
+      "structure_name": "TO BE TRANSLATED - Nom du modèle",
+      "sector_name": "TO BE TRANSLATED - Secteur associé",
+      "placeholder_structure_name": "TO BE TRANSLATED - Intitulé du modèle",
+      "placeholder_sector_name": "TO BE TRANSLATED - Intitulé du Secteur associé",
       "item": {
         "tools": {
           "export": "Vie",
@@ -87,7 +103,8 @@
           "remove": "Poista"
         },
         "edit_pia": "Muokkaa vaikutustenarviointia",
-        "save_pia": "Tallenna"
+        "consult_pia": "Tallenna",
+        "edit_structure": "TO BE TRANSLATED - Éditer le modèle"
       }
     },
     "lists": {
@@ -100,6 +117,9 @@
       "column_status": "Tila",
       "column_progression": "Edistyminen",
       "column_actions": "Toiminnat",
+      "column_structure": "TO BE TRANSLATED - Modèle",
+      "column_sector_name": "TO BE TRANSLATED - Secteur associé",
+      "column_structure_name": "TO BE TRANSLATED - Modèle",
       "item": {
         "tools": {
           "consult": "Kysy neuvoa",
@@ -136,7 +156,9 @@
     "sections": {
       "homepage_link": "Takaisin ohjauspaneeliin",
       "validate_pia": "Validoi vaikutustenarviointi",
+      "validate_structure": "TO BE TRANSLATED - Valider le modèle",
       "refuse_pia": "Hylätty vaikutustenarviointi",
+      "based_on_structure_name": "TO BE TRANSLATED - Basé sur le modèle :",
       "status": {
         "evaluation": {
          "cancel": "Peruuta tarkistuspyyntö.",
@@ -156,7 +178,8 @@
       "ask_evaluation": "Pyydä tarkastusta",
       "validate_evaluation": "Validoi tarkastus",
       "subsection_validated": "Osa-alue tarkastettu, odottaa lopullista validointia",
-      "mandatory_fields": "Kaikki kentät tulee täyttää"
+      "mandatory_fields": "Kaikki kentät tulee täyttää",
+      "structure_add_question": "TO BE TRANSLATED - Ajouter une question"
     }
   },
   "measures": {
@@ -746,6 +769,8 @@
   },
   "questions": {
     "edit": "Muokkaa kysymystä",
+    "remove": "TO BE TRANSLATED - Supprimer la question",
+    "placeholder_title": "TO BE TRANSLATED - Titre de la question",
     "gauges": {
       "0": "(Määrittelemätön)",
       "1": "Vähäinen",
@@ -918,6 +943,11 @@
       "remove": "Poista tämä <br>toimenpide",
       "keep": "Säilytä tämä <br>toimenpide"
     },
+    "remove_question": {
+      "content": "TO BE TRANSLATED - Souhaitez-vous supprimer la question ?",
+      "remove": "TO BE TRANSLATED - Supprimer",
+      "keep": "TO BE TRANSLATED - Annuler"
+    },
     "ask_for_evaluation": {
       "content": "<span class='strong'>Erinomaista,</span><br>tämä alaosio on nyt<br>valmis arvioitavaksi."
     },
@@ -934,6 +964,10 @@
     "remove_pia": {
       "content": "<span class='strong'>Varoitus,</span><br>Haluatko varmasti<br>poistaa tämän tietosuojaa koskevan vaikutustenarvioinnin?",
       "remove": "Poista tämä tietosuojaa koskeva vaikutustenarviointi"
+    },
+    "remove_structure": {
+      "content": "TO BE TRANSLATED - <span class='strong'>Attention,</span><br>Êtes-vous sûr de vouloir<br>supprimer ce modèle ?",
+      "remove": "TO BE TRANSLATED - Supprimer ce modèle"
     },
     "remove_attachment": {
       "content": "<span class='strong'>Varoitus,</span><br>Haluatko varmasti<br>poistaa tämän liitteen?",
@@ -959,6 +993,12 @@
     },
     "back_to_evaluation": {
       "content": "Osio on lähetetty muokattavaksi.<br> Useat kentät vaativat korjaamista,<br> jotta osiota voidaan tarkastella."
+    },
+    "import_wrong_pia_file": {
+      "content": "TO BE TRANSLATED - Le fichier importé ne correspond pas à un fichier de type PIA"
+    },
+    "import_wrong_structure_file": {
+      "content": "TO BE TRANSLATED - Le fichier importé ne correspond pas à un fichier de type Modèle"
     }
   },
   "summary": {

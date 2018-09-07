@@ -13,6 +13,7 @@
 		"homepage_link":"Pannello di controllo",
 		"knowledge_base_link":"Archivio",
 		"pia_example_link":"Esempio PIA",
+    "structures": "TO BE TRANSLATED - Modèles de PIA",
 		"languages":{
 			"official_translation":"Versione originale",
 			"cnil_translations":"Traduzioni fornite da CNIL",
@@ -56,7 +57,12 @@
 			"new_pia":"Nuova PIA",
 			"import_pia":"Importa PIA",
 			"list_rocket_content":"Inizia! Per impostare <br>una PIA, clicca sul +",
-			"card_rocket_content":"Inizia! Per impostare <br>una PIA, clicca sul +"
+			"card_rocket_content":"Inizia! Per impostare <br>una PIA, clicca sul +",
+      "new_structure": "TO BE TRANSLATED - Nouveau modèle",
+      "import_structure": "TO BE TRANSLATED - Importer modèle",
+      "sector_name": "TO BE TRANSLATED - Secteur associé",
+      "list_rocket_content_structure": "TO BE TRANSLATED - Lancez-vous ! Pour commencer<br>un modèle, cliquez sur le +",
+      "card_rocket_content_structure": "TO BE TRANSLATED - Lancez-vous !<br><br>Pour commencer<br>un modèle, cliquez<br> sur le +"
 		},
 		"cards":{
 			"new_pia":"Nuova PIA",
@@ -73,11 +79,21 @@
 			"placeholder_evaluation":"Cognome, nome",
 			"validation":"Validatore",
 			"placeholder_validation":"Cognome, nome",
+      "structure": "TO BE TRANSLATED - Modèle",
+      "placeholder_structure": "TO BE TRANSLATED - Choisir un modèle",
 			"date":"Data",
 			"status":"Stato",
 			"creation_status":"Inizializzazione",
 			"start":"Avvio",
 			"placeholder_start":"Tutti i campi sono obbligatori",
+      "new_structure": "TO BE TRANSLATED - Nouveau modèle",
+      "placeholder_new_structure": "TO BE TRANSLATED - Nouveau modèle",
+      "import_structure": "TO BE TRANSLATED - Importer modèle",
+      "placeholder_import_structure": "TO BE TRANSLATED - Importer modèle",
+      "structure_name": "TO BE TRANSLATED - Nom du modèle",
+      "sector_name": "TO BE TRANSLATED - Secteur associé",
+      "placeholder_structure_name": "TO BE TRANSLATED - Intitulé du modèle",
+      "placeholder_sector_name": "TO BE TRANSLATED - Intitulé du Secteur associé",
 			"item":{
 				"tools":{
 					"export":"Esporta",
@@ -88,7 +104,8 @@
 					"remove":"Cancella"
 				},
 				"edit_pia":"Modifica PIA",
-				"consult_pia":"Visualizza PIA"
+				"consult_pia":"Visualizza PIA",
+        "edit_structure": "TO BE TRANSLATED - Éditer le modèle"
 			}
 		},
 		"lists":{
@@ -101,6 +118,9 @@
 			"column_status":"Stato",
 			"column_progression":"Avanzamento",
 			"column_actions":"Azioni",
+      "column_structure": "TO BE TRANSLATED - Modèle",
+      "column_sector_name": "TO BE TRANSLATED - Secteur associé",
+      "column_structure_name": "TO BE TRANSLATED - Modèle",
 			"item":{
 				"tools":{
 					"consult":"Visualizza",
@@ -137,7 +157,9 @@
 		"sections":{
 			"homepage_link":"Torna al pannello di controllo",
 			"validate_pia":"Validazione PIA",
+      "validate_structure": "TO BE TRANSLATED - Valider le modèle",
 			"refuse_pia":"Rifiuta PIA",
+      "based_on_structure_name": "TO BE TRANSLATED - Basé sur le modèle :",
 			"status":{
 				"evaluation":{
 					"title":"In attesa di revisione",
@@ -157,7 +179,8 @@
 			"ask_evaluation":"Richiedi una revisione",
 			"validate_evaluation":"Valida revisione",
 			"subsection_validated":"Sezione rivista, in attesa di validazione finale",
-			"mandatory_fields":"Tutti i campi sono obbligatori"
+			"mandatory_fields":"Tutti i campi sono obbligatori",
+      "structure_add_question": "TO BE TRANSLATED - Ajouter une question"
 		}
 	},
 	"measures":{
@@ -747,6 +770,8 @@
 	},
 	"questions":{
 		"edit":"Modifica domanda",
+    "remove": "TO BE TRANSLATED - Supprimer la question",
+    "placeholder_title": "TO BE TRANSLATED - Titre de la question",
 		"gauges":{
 			"0":"(Indefinito)",
 			"1":"Trascurabile",
@@ -919,6 +944,11 @@
 			"remove":"Cancella questa <br>misura",
 			"keep":"Mantieni questa <br>misura"
 		},
+    "remove_question": {
+      "content": "TO BE TRANSLATED - Souhaitez-vous supprimer la question ?",
+      "remove": "TO BE TRANSLATED - Supprimer",
+      "keep": "TO BE TRANSLATED - Annuler"
+    },
 		"ask_for_evaluation":{
 			"content":"<span class='strong'>Congratulazioni,</span><br>la sezione è <br>disponibile per la valutazione."
 		},
@@ -936,6 +966,10 @@
 			"content":"<span class='strong'>Attenzione,</span><br>È sicuro di voler<br>cancellare questa PIA?",
 			"remove":"Cancella questa PIA"
 		},
+    "remove_structure": {
+      "content": "TO BE TRANSLATED - <span class='strong'>Attention,</span><br>Êtes-vous sûr de vouloir<br>supprimer ce modèle ?",
+      "remove": "TO BE TRANSLATED - Supprimer ce modèle"
+    },
 		"remove_attachment":{
 			"content":"<span class='strong'>Attenzione,</span><br>È sicuro di voler<br>cancellare questo allegato?",
 			"keep":"Mantieni",
@@ -960,7 +994,13 @@
 		},
 		"back_to_evaluation":{
 			"content":"Questa sezione viene ripresentata per valutazione. <br>È necessario apportare correzioni in vari campi <br>per consentire un'efficace validazione."
-		}
+		},
+    "import_wrong_pia_file": {
+      "content": "TO BE TRANSLATED - Le fichier importé ne correspond pas à un fichier de type PIA"
+    },
+    "import_wrong_structure_file": {
+      "content": "TO BE TRANSLATED - Le fichier importé ne correspond pas à un fichier de type Modèle"
+    }
 	},
 	"summary":{
 		"previous_page":"Torna alla pagina precedente",

@@ -13,6 +13,7 @@
     "homepage_link": "Πίνακας ενδείξεων",
     "knowledge_base_link": "Βάση γνώσεων",
     "pia_example_link": "Παράδειγμα ΕΑ",
+    "structures": "TO BE TRANSLATED - Modèles de PIA",
     "languages": {
       "official_translation": "Αρχική έκδοση",
       "cnil_translations": "Μεταφράσεις που παρείχε η CNIL",
@@ -56,7 +57,12 @@
       "new_pia": "Νέα ΕΑ",
       "import_pia": "Εισαγωγή ΕΑ",
       "list_rocket_content": "Αρχίστε ! Για να ξεκινήσετε <br>μια ΕΑ, κάντε κλικ στο +",
-      "card_rocket_content": "Αρχίστε !<br><br>Για να ξεκινήσετε μια ΕΑ,<br> κάντε κλικ στο Νέα ΕΑ"
+      "card_rocket_content": "Αρχίστε !<br><br>Για να ξεκινήσετε μια ΕΑ,<br> κάντε κλικ στο Νέα ΕΑ",
+      "new_structure": "TO BE TRANSLATED - Nouveau modèle",
+      "import_structure": "TO BE TRANSLATED - Importer modèle",
+      "sector_name": "TO BE TRANSLATED - Secteur associé",
+      "list_rocket_content_structure": "TO BE TRANSLATED - Lancez-vous ! Pour commencer<br>un modèle, cliquez sur le +",
+      "card_rocket_content_structure": "TO BE TRANSLATED - Lancez-vous !<br><br>Pour commencer<br>un modèle, cliquez<br> sur le +"
     },
     "cards": {
       "new_pia": "Νέα ΕΑ",
@@ -73,11 +79,21 @@
       "placeholder_evaluation": "Όνομα, επίθετο",
       "validation": "Επικύρωση",
       "placeholder_validation": "Όνομα, επίθετο",
+      "structure": "TO BE TRANSLATED - Modèle",
+      "placeholder_structure": "TO BE TRANSLATED - Choisir un modèle",
       "date": "Ημερομηνία",
       "status": "Κατάσταση",
       "creation_status": "Δημιουργία",
       "start": "Έναρξη",
       "placeholder_start": "Όλα τα πεδία πρέπει να συμπληρωθούν",
+      "new_structure": "TO BE TRANSLATED - Nouveau modèle",
+      "placeholder_new_structure": "TO BE TRANSLATED - Nouveau modèle",
+      "import_structure": "TO BE TRANSLATED - Importer modèle",
+      "placeholder_import_structure": "TO BE TRANSLATED - Importer modèle",
+      "structure_name": "TO BE TRANSLATED - Nom du modèle",
+      "sector_name": "TO BE TRANSLATED - Secteur associé",
+      "placeholder_structure_name": "TO BE TRANSLATED - Intitulé du modèle",
+      "placeholder_sector_name": "TO BE TRANSLATED - Intitulé du Secteur associé",
       "item": {
         "tools": {
           "export": "Εξαγωγή",
@@ -88,7 +104,8 @@
           "remove": "Διαγραφή"
         },
         "edit_pia": "Επεξεργασία ΕΑ",
-        "consult_pia": "Συμβουλευθείτε την ΕΑ"
+        "consult_pia": "Συμβουλευθείτε την ΕΑ",
+        "edit_structure": "TO BE TRANSLATED - Éditer le modèle"
       }
     },
     "lists": {
@@ -101,6 +118,9 @@
       "column_status": "Κατάσταση",
       "column_progression": "Πρόοδος",
       "column_actions": "Ενέργειες",
+      "column_structure": "TO BE TRANSLATED - Modèle",
+      "column_sector_name": "TO BE TRANSLATED - Secteur associé",
+      "column_structure_name": "TO BE TRANSLATED - Modèle",
       "item": {
         "tools": {
           "consult": "Συμβουλή",
@@ -137,7 +157,9 @@
     "sections": {
       "homepage_link": "Επιστροφή στον πίνακα ελέγχου",
       "validate_pia": "Επικύρωση ΕΑ",
+      "validate_structure": "TO BE TRANSLATED - Valider le modèle",
       "refuse_pia": "Απορριφθείσες ΕΑ",
+      "based_on_structure_name": "TO BE TRANSLATED - Basé sur le modèle :",
       "status": {
         "evaluation": {
           "title": "Σε αναμονή ελέγχου.",
@@ -157,7 +179,8 @@
       "ask_evaluation": "Αίτηση ελέγχου",
       "validate_evaluation": "Επικύρωση ελέγχου",
       "subsection_validated": "Το υποτμήμα ελέγχθηκε, σε αναμονή τελικής επικύρωσης",
-      "mandatory_fields": "Όλα τα πεδία πρέπει να συμπληρωθούν"
+      "mandatory_fields": "Όλα τα πεδία πρέπει να συμπληρωθούν",
+      "structure_add_question": "TO BE TRANSLATED - Ajouter une question"
     }
   },
   "measures": {
@@ -747,6 +770,8 @@
   },
   "questions": {
     "edit": "Επεξεργασία ερωτήματος",
+    "remove": "TO BE TRANSLATED - Supprimer la question",
+    "placeholder_title": "TO BE TRANSLATED - Titre de la question",
     "gauges": {
       "0": "(Απροσδιόριστο)",
       "1": "Αμελητέο",
@@ -919,6 +944,11 @@
       "remove": "Κατάργηση αυτού του <br>μέτρου",
       "keep": "Διατήρηση αυτού του <br>μέτρου"
     },
+    "remove_question": {
+      "content": "TO BE TRANSLATED - Souhaitez-vous supprimer la question ?",
+      "remove": "TO BE TRANSLATED - Supprimer",
+      "keep": "TO BE TRANSLATED - Annuler"
+    },
     "ask_for_evaluation": {
       "content": "<span class='strong'>Συγχαρητήρια,</span><br>η υποενότητα είναι τώρα<br>διαθέσιμη για αξιολόγηση."
     },
@@ -936,11 +966,40 @@
       "content": "<span class='strong'>Προσοχή,</span><br>Είστε βέβαιοι ότι θέλετε να <br>αφαιρέσετε αυτή την ΕΑ;",
       "remove": "Αφαίρεση αυτής της ΕΑ"
     },
+    "remove_structure": {
+      "content": "TO BE TRANSLATED - <span class='strong'>Attention,</span><br>Êtes-vous sûr de vouloir<br>supprimer ce modèle ?",
+      "remove": "TO BE TRANSLATED - Supprimer ce modèle"
+    },
     "remove_attachment": {
       "content": "<span class='strong'>Προσοχή,</span><br>Είστε βέβαιοι ότι θέλετε να <br>αφαιρέσετε αυτό το συνημμένο;",
       "keep": "Διατήρηση",
       "remove": "Αφαίρεση",
       "comment": "Σχόλιο"
+    },
+    "action_plan_no_evaluation": {
+      "content": "TO BE TRANSLATED - You need to begin the review of the analysis to create the action plan.",
+      "review_section": "TO BE TRANSLATED - Review a section"
+    },
+    "dpo_missing_evaluations": {
+      "content": "TO BE TRANSLATED - You need to complete the review of the analysis to access the DPO page.",
+      "review_section": "TO BE TRANSLATED - Review a section",
+      "remove": "Odebrat",
+      "comment": "TO BE TRANSLATED - Comment"
+    },
+    "modal_select_text_pia": {
+      "content": "TO BE TRANSLATED - The content of the PIA has been copied to clipboard."
+    },
+    "back_to_edition": {
+      "content": "TO BE TRANSLATED - This section has been sent back for editing.<br> Several fields must be corrected<br> to enable its proper review."
+    },
+    "back_to_evaluation": {
+      "content": "TO BE TRANSLATED - This section has been sent back for review.<br> Several fields must be reviewed<br> to enable its proper validation."
+    },
+    "import_wrong_pia_file": {
+      "content": "TO BE TRANSLATED - Le fichier importé ne correspond pas à un fichier de type PIA"
+    },
+    "import_wrong_structure_file": {
+      "content": "TO BE TRANSLATED - Le fichier importé ne correspond pas à un fichier de type Modèle"
     }
   },
   "summary": {

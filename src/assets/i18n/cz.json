@@ -13,6 +13,7 @@
     "homepage_link": "Hlavní panel",
     "knowledge_base_link": "Znalostní báze",
     "pia_example_link": "PIA příklad",
+    "structures": "TO BE TRANSLATED - Modèles de PIA",
     "languages": {
       "official_translation": "TO BE TRANSLATED - Original version",
       "cnil_translations": "TO BE TRANSLATED - CNIL provided translations",
@@ -56,7 +57,12 @@
       "new_pia": "Nová PIA",
       "import_pia": "Importovat PIA",
       "list_rocket_content": "Začínáme! Chcete-li zahájit PIA, klikněte na tlačítko +",
-      "card_rocket_content": "Začínáme! <br><br>Chcete-li iniciovat PIA,<br> klikněte na Nová PIA"
+      "card_rocket_content": "Začínáme! <br><br>Chcete-li iniciovat PIA,<br> klikněte na Nová PIA",
+      "new_structure": "TO BE TRANSLATED - Nouveau modèle",
+      "import_structure": "TO BE TRANSLATED - Importer modèle",
+      "sector_name": "TO BE TRANSLATED - Secteur associé",
+      "list_rocket_content_structure": "TO BE TRANSLATED - Lancez-vous ! Pour commencer<br>un modèle, cliquez sur le +",
+      "card_rocket_content_structure": "TO BE TRANSLATED - Lancez-vous !<br><br>Pour commencer<br>un modèle, cliquez<br> sur le +"
     },
     "cards": {
       "new_pia": "Nová PIA",
@@ -73,11 +79,21 @@
       "placeholder_evaluation": "Křestní jméno, Příjmení",
       "validation": "Validation",
       "placeholder_validation": "Křestní jméno, Příjmení",
+      "structure": "TO BE TRANSLATED - Modèle",
+      "placeholder_structure": "TO BE TRANSLATED - Choisir un modèle",
       "date": "Datum",
       "status": "Stav",
       "creation_status": "Vytvořeno",
       "start": "Start",
       "placeholder_start": "Všechna pole musí být vyplněna",
+      "new_structure": "TO BE TRANSLATED - Nouveau modèle",
+      "placeholder_new_structure": "TO BE TRANSLATED - Nouveau modèle",
+      "import_structure": "TO BE TRANSLATED - Importer modèle",
+      "placeholder_import_structure": "TO BE TRANSLATED - Importer modèle",
+      "structure_name": "TO BE TRANSLATED - Nom du modèle",
+      "sector_name": "TO BE TRANSLATED - Secteur associé",
+      "placeholder_structure_name": "TO BE TRANSLATED - Intitulé du modèle",
+      "placeholder_sector_name": "TO BE TRANSLATED - Intitulé du Secteur associé",
       "item": {
         "tools": {
           "export": "Exportovat",
@@ -88,7 +104,8 @@
           "remove": "Odstranit"
         },
         "edit_pia": "Upravit PIA",
-        "consult_pia": "TO BE TRANSLATED - Consult PIA"
+        "consult_pia": "TO BE TRANSLATED - Consult PIA",
+        "edit_structure": "TO BE TRANSLATED - Éditer le modèle"
       }
     },
     "lists": {
@@ -101,6 +118,9 @@
       "column_status": "Stav",
       "column_progression": "Postup",
       "column_actions": "Akce",
+      "column_structure": "TO BE TRANSLATED - Modèle",
+      "column_sector_name": "TO BE TRANSLATED - Secteur associé",
+      "column_structure_name": "TO BE TRANSLATED - Modèle",
       "item": {
         "tools": {
           "consult": "TO BE TRANSLATED - Consult",
@@ -137,7 +157,9 @@
     "sections": {
       "homepage_link": "Zpět na Hlavní panel",
       "validate_pia": "Ověřit PIA",
+      "validate_structure": "TO BE TRANSLATED - Valider le modèle",
       "refuse_pia": "Odmítnutá PIA",
+      "based_on_structure_name": "TO BE TRANSLATED - Basé sur le modèle :",
       "status": {
         "evaluation": {
           "title": "TO BE TRANSLATED - Waiting for review.",
@@ -157,7 +179,8 @@
       "ask_evaluation": "Požádat o kontrolu",
       "validate_evaluation": "Ověřit kontrolu",
       "subsection_validated": "Subsekce schválená, čeká na konečné ověření",
-      "mandatory_fields": "Všechna pole musí být vyplněna"
+      "mandatory_fields": "Všechna pole musí být vyplněna",
+      "structure_add_question": "TO BE TRANSLATED - Ajouter une question"
     }
   },
   "measures": {
@@ -747,6 +770,8 @@
   },
   "questions": {
     "edit": "Upravit otázku",
+    "remove": "TO BE TRANSLATED - Supprimer la question",
+    "placeholder_title": "TO BE TRANSLATED - Titre de la question",
     "gauges": {
       "0": "(Nedefinováno)",
       "1": "Zanedbatelné",
@@ -922,6 +947,11 @@
       "remove": "Odebrat toto <br>opatření",
       "keep": "Ponechat toto <br>opatření"
     },
+    "remove_question": {
+      "content": "TO BE TRANSLATED - Souhaitez-vous supprimer la question ?",
+      "remove": "TO BE TRANSLATED - Supprimer",
+      "keep": "TO BE TRANSLATED - Annuler"
+    },
     "ask_for_evaluation": {
       "content": "TO BE TRANSLATED - This section is ready to be reviewed."
     },
@@ -938,6 +968,10 @@
     "remove_pia": {
       "content": "<span class='strong'>Upozornění,</span><br>Opravdu chcete<br>odstranit toto PIA?",
       "remove": "Odstranit tuto PIA"
+    },
+    "remove_structure": {
+      "content": "TO BE TRANSLATED - <span class='strong'>Attention,</span><br>Êtes-vous sûr de vouloir<br>supprimer ce modèle ?",
+      "remove": "TO BE TRANSLATED - Supprimer ce modèle"
     },
     "remove_attachment": {
       "content": "<span class='strong'>Warning,</span><br>Are you sure you want to<br>remove this attachment?",
@@ -963,6 +997,12 @@
     },
     "back_to_evaluation": {
       "content": "TO BE TRANSLATED - This section has been sent back for review.<br> Several fields must be reviewed<br> to enable its proper validation."
+    },
+    "import_wrong_pia_file": {
+      "content": "TO BE TRANSLATED - Le fichier importé ne correspond pas à un fichier de type PIA"
+    },
+    "import_wrong_structure_file": {
+      "content": "TO BE TRANSLATED - Le fichier importé ne correspond pas à un fichier de type Modèle"
     }
   },
   "summary": {

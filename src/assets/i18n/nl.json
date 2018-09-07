@@ -13,6 +13,7 @@
     "homepage_link": "Dashboard",
     "knowledge_base_link": "Knowledge base",
     "pia_example_link": "PIA voorbeeld",
+    "structures": "TO BE TRANSLATED - Modèles de PIA",
     "languages": {
       "official_translation": "Originele versie",
       "cnil_translations": "Vertalingen door CNIL",
@@ -56,7 +57,12 @@
       "new_pia": "Nieuwe PIA",
       "import_pia": "Importeren PIA",
       "list_rocket_content": "Begin! Om een PIA te initiëren, klik op de +",
-      "card_rocket_content": "Aan de slag! <br> <br> Om een PIA te starten, <br> klikt u op Nieuwe PIA"
+      "card_rocket_content": "Aan de slag! <br> <br> Om een PIA te starten, <br> klikt u op Nieuwe PIA",
+      "new_structure": "TO BE TRANSLATED - Nouveau modèle",
+      "import_structure": "TO BE TRANSLATED - Importer modèle",
+      "sector_name": "TO BE TRANSLATED - Secteur associé",
+      "list_rocket_content_structure": "TO BE TRANSLATED - Lancez-vous ! Pour commencer<br>un modèle, cliquez sur le +",
+      "card_rocket_content_structure": "TO BE TRANSLATED - Lancez-vous !<br><br>Pour commencer<br>un modèle, cliquez<br> sur le +"
     },
     "cards": {
       "new_pia": "Nieuwe PIA",
@@ -73,11 +79,21 @@
       "placeholder_evaluation": "Voornaam, achternaam",
       "validation": "Valideren",
       "placeholder_validation": "Voornaam, achternaam",
+      "structure": "TO BE TRANSLATED - Modèle",
+      "placeholder_structure": "TO BE TRANSLATED - Choisir un modèle",
       "date": "Datum",
       "status": "Status",
       "creation_status": "Creatie",
       "start": "Beginnen",
       "placeholder_start": "Alle velden moeten worden ingevuld",
+      "new_structure": "TO BE TRANSLATED - Nouveau modèle",
+      "placeholder_new_structure": "TO BE TRANSLATED - Nouveau modèle",
+      "import_structure": "TO BE TRANSLATED - Importer modèle",
+      "placeholder_import_structure": "TO BE TRANSLATED - Importer modèle",
+      "structure_name": "TO BE TRANSLATED - Nom du modèle",
+      "sector_name": "TO BE TRANSLATED - Secteur associé",
+      "placeholder_structure_name": "TO BE TRANSLATED - Intitulé du modèle",
+      "placeholder_sector_name": "TO BE TRANSLATED - Intitulé du Secteur associé",
       "item": {
         "tools": {
           "export": "Exporteren",
@@ -88,7 +104,8 @@
           "remove": "Verwijderen"
         },
         "edit_pia": "Aanpassen PIA",
-        "consult_pia": "PIA Raadplegen"
+        "consult_pia": "PIA Raadplegen",
+        "edit_structure": "TO BE TRANSLATED - Éditer le modèle"
       }
     },
     "lists": {
@@ -101,6 +118,9 @@
       "column_status": "Status",
       "column_progression": "Voortgang",
       "column_actions": "Acties",
+      "column_structure": "TO BE TRANSLATED - Modèle",
+      "column_sector_name": "TO BE TRANSLATED - Secteur associé",
+      "column_structure_name": "TO BE TRANSLATED - Modèle",
       "item": {
         "tools": {
           "consult": "Raadplegen",
@@ -137,7 +157,9 @@
     "sections": {
       "homepage_link": "Terug naar dashboard",
       "validate_pia": "Valideren PIA",
+      "validate_structure": "TO BE TRANSLATED - Valider le modèle",
       "refuse_pia": "Geweigerde PIA",
+      "based_on_structure_name": "TO BE TRANSLATED - Basé sur le modèle :",
       "status": {
         "evaluation": {
           "title": "Wachten op review.",
@@ -157,7 +179,8 @@
       "ask_evaluation": "Vraag een beoordeling",
       "validate_evaluation": "Beoordeling valideren",
       "subsection_validated": "Subsectie beoordeeld, in afwachting van definitieve validatie",
-      "mandatory_fields": "Alle velden moeten worden ingevuld"
+      "mandatory_fields": "Alle velden moeten worden ingevuld",
+      "structure_add_question": "TO BE TRANSLATED - Ajouter une question"
     }
   },
   "measures": {
@@ -747,6 +770,8 @@
   },
   "questions": {
     "edit": "Vraag bewerken",
+    "remove": "TO BE TRANSLATED - Supprimer la question",
+    "placeholder_title": "TO BE TRANSLATED - Titre de la question",
     "gauges": {
       "0": "(Onbepaald)",
       "1": "Verwaarloosbaar",
@@ -922,6 +947,11 @@
       "remove": "Verwijder deze maatregel",
       "keep": "Bewaar deze <br> maatregel"
     },
+    "remove_question": {
+      "content": "TO BE TRANSLATED - Souhaitez-vous supprimer la question ?",
+      "remove": "TO BE TRANSLATED - Supprimer",
+      "keep": "TO BE TRANSLATED - Annuler"
+    },
     "ask_for_evaluation": {
       "content": "Dit gedeelte kan worden beoordeeld."
     },
@@ -938,6 +968,10 @@
     "remove_pia": {
       "content": "<span class='strong'>Waarschuwing, </span> <br> Weet u zeker dat u deze PIA wilt verwijderen?",
       "remove": "Remove this PIA"
+    },
+    "remove_structure": {
+      "content": "TO BE TRANSLATED - <span class='strong'>Attention,</span><br>Êtes-vous sûr de vouloir<br>supprimer ce modèle ?",
+      "remove": "TO BE TRANSLATED - Supprimer ce modèle"
     },
     "remove_attachment": {
       "content": "<span class='strong'>Waarschuwing, </span> <br> Weet u zeker dat u deze bijlage wilt verwijderen?",
@@ -963,6 +997,12 @@
     },
     "back_to_evaluation": {
       "content": "Dit gedeelte is ter beoordeling teruggestuurd. <br>Verschillende velden moeten worden beoordeeld<br> om de juiste validatie mogelijk te maken."
+    },
+    "import_wrong_pia_file": {
+      "content": "TO BE TRANSLATED - Le fichier importé ne correspond pas à un fichier de type PIA"
+    },
+    "import_wrong_structure_file": {
+      "content": "TO BE TRANSLATED - Le fichier importé ne correspond pas à un fichier de type Modèle"
     }
   },
   "summary": {

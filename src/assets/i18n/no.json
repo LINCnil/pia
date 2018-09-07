@@ -13,6 +13,7 @@
     "homepage_link": "Hovedside",
     "knowledge_base_link": "Kunnskapsdatabase",
     "pia_example_link": "Eksempel på vurdering av personvernkonsekvenser",
+    "structures": "TO BE TRANSLATED - Modèles de PIA",
     "languages": {
       "official_translation": "TO BE TRANSLATED - Original version",
       "cnil_translations": "TO BE TRANSLATED - CNIL provided translations",
@@ -56,7 +57,12 @@
       "new_pia": "Ny PIA",
       "import_pia": "Importer PIA",
       "list_rocket_content": "Kom i gang ! For å starte <br>en PIA, klikk på +",
-      "card_rocket_content": "Kom i gang !<br><br>For å starte en PIA,<br> klikk på Ny PIA"
+      "card_rocket_content": "Kom i gang !<br><br>For å starte en PIA,<br> klikk på Ny PIA",
+      "new_structure": "TO BE TRANSLATED - Nouveau modèle",
+      "import_structure": "TO BE TRANSLATED - Importer modèle",
+      "sector_name": "TO BE TRANSLATED - Secteur associé",
+      "list_rocket_content_structure": "TO BE TRANSLATED - Lancez-vous ! Pour commencer<br>un modèle, cliquez sur le +",
+      "card_rocket_content_structure": "TO BE TRANSLATED - Lancez-vous !<br><br>Pour commencer<br>un modèle, cliquez<br> sur le +"
     },
     "cards": {
       "new_pia": "Ny PIA",
@@ -73,11 +79,21 @@
       "placeholder_evaluation": "Fornavn, etternavn",
       "validation": "Forankring",
       "placeholder_validation": "Fornavn, etternavn",
+      "structure": "TO BE TRANSLATED - Modèle",
+      "placeholder_structure": "TO BE TRANSLATED - Choisir un modèle",
       "date": "Dato",
       "status": "Status",
       "creation_status": "Opprettelse",
       "start": "Start",
       "placeholder_start": "Alle felt må fylles ut",
+      "new_structure": "TO BE TRANSLATED - Nouveau modèle",
+      "placeholder_new_structure": "TO BE TRANSLATED - Nouveau modèle",
+      "import_structure": "TO BE TRANSLATED - Importer modèle",
+      "placeholder_import_structure": "TO BE TRANSLATED - Importer modèle",
+      "structure_name": "TO BE TRANSLATED - Nom du modèle",
+      "sector_name": "TO BE TRANSLATED - Secteur associé",
+      "placeholder_structure_name": "TO BE TRANSLATED - Intitulé du modèle",
+      "placeholder_sector_name": "TO BE TRANSLATED - Intitulé du Secteur associé",
       "item": {
         "tools": {
           "export": "Eksporter",
@@ -88,7 +104,8 @@
           "remove": "Slett"
         },
         "edit_pia": "Regiger PIA",
-        "consult_pia": "TO BE TRANSLATED - Consult PIA"
+        "consult_pia": "TO BE TRANSLATED - Consult PIA",
+        "edit_structure": "TO BE TRANSLATED - Éditer le modèle"
       }
     },
     "lists": {
@@ -101,6 +118,9 @@
       "column_status": "Status",
       "column_progression": "Fremgang",
       "column_actions": "Handlinger",
+      "column_structure": "TO BE TRANSLATED - Modèle",
+      "column_sector_name": "TO BE TRANSLATED - Secteur associé",
+      "column_structure_name": "TO BE TRANSLATED - Modèle",
       "item": {
         "tools": {
           "consult": "TO BE TRANSLATED - Consult",
@@ -137,7 +157,9 @@
     "sections": {
       "homepage_link": "Tilbake til hovedside",
       "validate_pia": "Valider PIA",
+      "validate_structure": "TO BE TRANSLATED - Valider le modèle",
       "refuse_pia": "Avvist PIA",
+      "based_on_structure_name": "TO BE TRANSLATED - Basé sur le modèle :",
       "status": {
         "evaluation": {
           "title": "Avventer saksbehandling",
@@ -157,7 +179,8 @@
       "ask_evaluation": "Forespør saksbehandling",
       "validate_evaluation": "Valider saksbehandling",
       "subsection_validated": "Underavsnitt saksbehandlet. Avventer endelig validering",
-      "mandatory_fields": "Alle felter må fylles ut"
+      "mandatory_fields": "Alle felter må fylles ut",
+      "structure_add_question": "TO BE TRANSLATED - Ajouter une question"
     }
   },
   "measures": {
@@ -747,6 +770,8 @@
   },
   "questions": {
     "edit": "Edit question",
+    "remove": "TO BE TRANSLATED - Supprimer la question",
+    "placeholder_title": "TO BE TRANSLATED - Titre de la question",
     "gauges": {
       "0": "(Undefined)",
       "1": "Negligible",
@@ -922,6 +947,11 @@
       "remove": "Remove this <br>measure",
       "keep": "Keep this <br>measure"
     },
+    "remove_question": {
+      "content": "TO BE TRANSLATED - Souhaitez-vous supprimer la question ?",
+      "remove": "TO BE TRANSLATED - Supprimer",
+      "keep": "TO BE TRANSLATED - Annuler"
+    },
     "ask_for_evaluation": {
       "content": "TO BE TRANSLATED - This section is ready to be reviewed."
     },
@@ -938,6 +968,10 @@
     "remove_pia": {
       "content": "<span class='strong'>Warning,</span><br>Are you sure you want to<br>remove this PIA?",
       "remove": "Remove this PIA"
+    },
+    "remove_structure": {
+      "content": "TO BE TRANSLATED - <span class='strong'>Attention,</span><br>Êtes-vous sûr de vouloir<br>supprimer ce modèle ?",
+      "remove": "TO BE TRANSLATED - Supprimer ce modèle"
     },
     "remove_attachment": {
       "content": "<span class='strong'>Warning,</span><br>Are you sure you want to<br>remove this attachment?",
@@ -963,6 +997,12 @@
     },
     "back_to_evaluation": {
       "content": "TO BE TRANSLATED - This section has been sent back for review.<br> Several fields must be reviewed<br> to enable its proper validation."
+    },
+    "import_wrong_pia_file": {
+      "content": "TO BE TRANSLATED - Le fichier importé ne correspond pas à un fichier de type PIA"
+    },
+    "import_wrong_structure_file": {
+      "content": "TO BE TRANSLATED - Le fichier importé ne correspond pas à un fichier de type Modèle"
     }
   },
   "summary": {

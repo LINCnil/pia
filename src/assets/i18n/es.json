@@ -13,6 +13,7 @@
     "homepage_link": "Panel de control",
     "knowledge_base_link": "Base de conocimientos",
     "pia_example_link": "Ejemplo de PIA",
+    "structures": "TO BE TRANSLATED - Modèles de PIA",
     "languages": {
       "official_translation": "Versión oficial",
       "cnil_translations": "Traducciones del CNIL",
@@ -56,7 +57,12 @@
       "new_pia": "Nuevo PIA",
       "import_pia": "Importar PIA",
       "list_rocket_content": "¡Comencemos! Para iniciar <br>un PIA, haga clic en el +",
-      "card_rocket_content": "¡Comencemos! <br><br>Para iniciar un PIA, <br> clic en Nuevo PIA"
+      "card_rocket_content": "¡Comencemos! <br><br>Para iniciar un PIA, <br> clic en Nuevo PIA",
+      "new_structure": "TO BE TRANSLATED - Nouveau modèle",
+      "import_structure": "TO BE TRANSLATED - Importer modèle",
+      "sector_name": "TO BE TRANSLATED - Secteur associé",
+      "list_rocket_content_structure": "TO BE TRANSLATED - Lancez-vous ! Pour commencer<br>un modèle, cliquez sur le +",
+      "card_rocket_content_structure": "TO BE TRANSLATED - Lancez-vous !<br><br>Pour commencer<br>un modèle, cliquez<br> sur le +"
     },
     "cards": {
       "new_pia": "Nuevo PIA",
@@ -73,11 +79,21 @@
       "placeholder_evaluation": "Nombre y apellidos",
       "validation": "Validado por",
       "placeholder_validation": "Nombre y apellidos",
+      "structure": "TO BE TRANSLATED - Modèle",
+      "placeholder_structure": "TO BE TRANSLATED - Choisir un modèle",
       "date": "Fecha",
       "status": "Estado",
       "creation_status": "Creación",
       "start": "Comenzar",
       "placeholder_start": "Todos los campos son obligatorios",
+      "new_structure": "TO BE TRANSLATED - Nouveau modèle",
+      "placeholder_new_structure": "TO BE TRANSLATED - Nouveau modèle",
+      "import_structure": "TO BE TRANSLATED - Importer modèle",
+      "placeholder_import_structure": "TO BE TRANSLATED - Importer modèle",
+      "structure_name": "TO BE TRANSLATED - Nom du modèle",
+      "sector_name": "TO BE TRANSLATED - Secteur associé",
+      "placeholder_structure_name": "TO BE TRANSLATED - Intitulé du modèle",
+      "placeholder_sector_name": "TO BE TRANSLATED - Intitulé du Secteur associé",
       "item": {
         "tools": {
           "export": "Exportar",
@@ -88,7 +104,8 @@
           "remove": "Eliminar"
         },
         "edit_pia": "Modificar PIA",
-        "consult_pia": "Consultar PIA"
+        "consult_pia": "Consultar PIA",
+        "edit_structure": "TO BE TRANSLATED - Éditer le modèle"
       }
     },
     "lists": {
@@ -101,6 +118,9 @@
       "column_status": "Estado",
       "column_progression": "Progreso",
       "column_actions": "Acciones",
+      "column_structure": "TO BE TRANSLATED - Modèle",
+      "column_sector_name": "TO BE TRANSLATED - Secteur associé",
+      "column_structure_name": "TO BE TRANSLATED - Modèle",
       "item": {
         "tools": {
           "consult": "Consultar",
@@ -137,7 +157,9 @@
     "sections": {
       "homepage_link": "Volver al Escritorio",
       "validate_pia": "Validar PIA",
+      "validate_structure": "TO BE TRANSLATED - Valider le modèle",
       "refuse_pia": "Rechazar PIA",
+      "based_on_structure_name": "TO BE TRANSLATED - Basé sur le modèle :",
       "status": {
         "evaluation": {
           "title": "Revisión pendiente",
@@ -157,7 +179,8 @@
       "ask_evaluation": "Solicitar revisión",
       "validate_evaluation": "Validar revisión",
       "subsection_validated": "Subsección revisada, en espera de validación final",
-      "mandatory_fields": "Todos los campos son obligatorios"
+      "mandatory_fields": "Todos los campos son obligatorios",
+      "structure_add_question": "TO BE TRANSLATED - Ajouter une question"
     }
   },
   "measures": {
@@ -747,6 +770,8 @@
   },
   "questions": {
     "edit": "Corrija la pregunta",
+    "remove": "TO BE TRANSLATED - Supprimer la question",
+    "placeholder_title": "TO BE TRANSLATED - Titre de la question",
     "gauges": {
       "0": "(Indefinido)",
       "1": "Insignificante",
@@ -922,6 +947,11 @@
       "remove": "Eliminar esto<br>medida",
       "keep": "Mantener este<br>medida"
     },
+    "remove_question": {
+      "content": "TO BE TRANSLATED - Souhaitez-vous supprimer la question ?",
+      "remove": "TO BE TRANSLATED - Supprimer",
+      "keep": "TO BE TRANSLATED - Annuler"
+    },
     "ask_for_evaluation": {
       "content": "TO BE TRANSLATED - This section is ready to be reviewed."
     },
@@ -938,6 +968,10 @@
     "remove_pia": {
       "content": "Advertencia,<br>¿Está seguro de que quiere<br>eliminar este PIA?",
       "remove": "Eliminar este PIA"
+    },
+    "remove_structure": {
+      "content": "TO BE TRANSLATED - <span class='strong'>Attention,</span><br>Êtes-vous sûr de vouloir<br>supprimer ce modèle ?",
+      "remove": "TO BE TRANSLATED - Supprimer ce modèle"
     },
     "remove_attachment": {
       "content": "Advertencia,<br>¿Está seguro de que quiere<br>eliminar este archivo adjunto?",
@@ -963,6 +997,12 @@
     },
     "back_to_evaluation": {
       "content": "TO BE TRANSLATED - This section has been sent back for review.<br> Several fields must be reviewed<br> to enable its proper validation."
+    },
+    "import_wrong_pia_file": {
+      "content": "TO BE TRANSLATED - Le fichier importé ne correspond pas à un fichier de type PIA"
+    },
+    "import_wrong_structure_file": {
+      "content": "TO BE TRANSLATED - Le fichier importé ne correspond pas à un fichier de type Modèle"
     }
   },
   "summary": {

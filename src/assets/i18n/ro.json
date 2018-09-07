@@ -13,6 +13,7 @@
     "homepage_link": "Panou de comandă",
     "knowledge_base_link": "Baza de cunoaștere",
     "pia_example_link": "exemplu PIA",
+    "structures": "TO BE TRANSLATED - Modèles de PIA",
     "languages": {
       "official_translation": "Versiune Originală",
       "cnil_translations": "Traduceri oferite de către CNIL",
@@ -56,7 +57,12 @@
       "new_pia": "Creare PIA",
       "import_pia": "Inserare PIA",
       "list_rocket_content": "Incepeți ! Pentru a iniția <br>PIA, accesați +",
-      "card_rocket_content": "Incepeți!<br><br>Pentru a iniția PIA,<br> accesați Creare PIA"
+      "card_rocket_content": "Incepeți!<br><br>Pentru a iniția PIA,<br> accesați Creare PIA",
+      "new_structure": "TO BE TRANSLATED - Nouveau modèle",
+      "import_structure": "TO BE TRANSLATED - Importer modèle",
+      "sector_name": "TO BE TRANSLATED - Secteur associé",
+      "list_rocket_content_structure": "TO BE TRANSLATED - Lancez-vous ! Pour commencer<br>un modèle, cliquez sur le +",
+      "card_rocket_content_structure": "TO BE TRANSLATED - Lancez-vous !<br><br>Pour commencer<br>un modèle, cliquez<br> sur le +"
     },
     "cards": {
       "new_pia": "Creare PIA",
@@ -73,11 +79,21 @@
       "placeholder_evaluation": "Prenume, Nume",
       "validation": "Aprobare",
       "placeholder_validation": "Prenume, Nume",
+      "structure": "TO BE TRANSLATED - Modèle",
+      "placeholder_structure": "TO BE TRANSLATED - Choisir un modèle",
       "date": "Dată",
       "status": "Stare",
       "creation_status": "Creare",
       "start": "Inițiere",
       "placeholder_start": "Toate câmpurile trebuie completate",
+      "new_structure": "TO BE TRANSLATED - Nouveau modèle",
+      "placeholder_new_structure": "TO BE TRANSLATED - Nouveau modèle",
+      "import_structure": "TO BE TRANSLATED - Importer modèle",
+      "placeholder_import_structure": "TO BE TRANSLATED - Importer modèle",
+      "structure_name": "TO BE TRANSLATED - Nom du modèle",
+      "sector_name": "TO BE TRANSLATED - Secteur associé",
+      "placeholder_structure_name": "TO BE TRANSLATED - Intitulé du modèle",
+      "placeholder_sector_name": "TO BE TRANSLATED - Intitulé du Secteur associé",
       "item": {
         "tools": {
           "export": "Export fișier",
@@ -88,7 +104,8 @@
           "remove": "Ștergere"
         },
         "edit_pia": "Editare PIA",
-        "consult_pia": "Consultare PIA"
+        "consult_pia": "Consultare PIA",
+        "edit_structure": "TO BE TRANSLATED - Éditer le modèle"
       }
     },
     "lists": {
@@ -101,6 +118,9 @@
       "column_status": "Stare",
       "column_progression": "Progres",
       "column_actions": "Acțiuni",
+      "column_structure": "TO BE TRANSLATED - Modèle",
+      "column_sector_name": "TO BE TRANSLATED - Secteur associé",
+      "column_structure_name": "TO BE TRANSLATED - Modèle",
       "item": {
         "tools": {
           "consult": "Consultare",
@@ -137,7 +157,9 @@
     "sections": {
       "homepage_link": "Inapoi către Panou de comandă",
       "validate_pia": "PIA Validate",
+      "validate_structure": "TO BE TRANSLATED - Valider le modèle",
       "refuse_pia": "PIA Respinse",
+      "based_on_structure_name": "TO BE TRANSLATED - Basé sur le modèle :",
       "status": {
         "evaluation": {
           "title": "In așteptarea evaluării.",
@@ -157,7 +179,8 @@
       "ask_evaluation": "Solicită evaluarea",
       "validate_evaluation": "Validează evaluarea",
       "subsection_validated": "Sub-secțiune evaluată, în așteptarea validării finale",
-      "mandatory_fields": "Toate câmpurile trebuie completate"
+      "mandatory_fields": "Toate câmpurile trebuie completate",
+      "structure_add_question": "TO BE TRANSLATED - Ajouter une question"
     }
   },
   "measures": {
@@ -747,6 +770,8 @@
   },
   "questions": {
     "edit": "Editați întrebarea",
+    "remove": "TO BE TRANSLATED - Supprimer la question",
+    "placeholder_title": "TO BE TRANSLATED - Titre de la question",
     "gauges": {
       "0": "(Nedefinit)",
       "1": "Neglijabil",
@@ -919,6 +944,11 @@
       "remove": "Elimină această <br>măsură",
       "keep": "Păstrează această <br>măsură"
     },
+    "remove_question": {
+      "content": "TO BE TRANSLATED - Souhaitez-vous supprimer la question ?",
+      "remove": "TO BE TRANSLATED - Supprimer",
+      "keep": "TO BE TRANSLATED - Annuler"
+    },
     "ask_for_evaluation": {
       "content": "<span class='strong'>Felicitări,</span><br>acestă secțiune este acum<br>disponibilă pentru evaluare."
     },
@@ -935,6 +965,10 @@
     "remove_pia": {
       "content": "<span class='strong'>Atenție,</span><br>Sunteți sigur că vreți să<br>eliminați această PIA?",
       "remove": "Eliminați PIA"
+    },
+    "remove_structure": {
+      "content": "TO BE TRANSLATED - <span class='strong'>Attention,</span><br>Êtes-vous sûr de vouloir<br>supprimer ce modèle ?",
+      "remove": "TO BE TRANSLATED - Supprimer ce modèle"
     },
     "remove_attachment": {
       "content": "<span class='strong'>Atenție,</span><br>Sunteți sigur că vreți să<br>eliminați fișierul atașat?",
@@ -960,6 +994,12 @@
     },
     "back_to_evaluation": {
       "content": "La partie est renvoyée en évaluation,<br>des informations doivent être réévaluées<br>pour permettre sa validation."
+    },
+    "import_wrong_pia_file": {
+      "content": "TO BE TRANSLATED - Le fichier importé ne correspond pas à un fichier de type PIA"
+    },
+    "import_wrong_structure_file": {
+      "content": "TO BE TRANSLATED - Le fichier importé ne correspond pas à un fichier de type Modèle"
     }
   },
   "summary": {

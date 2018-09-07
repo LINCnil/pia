@@ -13,6 +13,7 @@
     "homepage_link": "Vezérlőpult",
     "knowledge_base_link": "Tudásbázis",
     "pia_example_link": "DPIA-példa",
+    "structures": "TO BE TRANSLATED - Modèles de PIA",
     "languages": {
       "official_translation": "Hivatalos fordítások",
       "cnil_translations": "A CNIL által biztosított fordítások",
@@ -56,7 +57,12 @@
       "new_pia": "Új DPIA",
       "import_pia": "DPIA importálása",
       "list_rocket_content": "Kezdjen hozzá! Kattintson a + jelre az DPIA elindításához",
-      "card_rocket_content": "Kezdjen hozzá! Kattintson az Új DPIA-ra az DPIA elindításához"
+      "card_rocket_content": "Kezdjen hozzá! Kattintson az Új DPIA-ra az DPIA elindításához",
+      "new_structure": "TO BE TRANSLATED - Nouveau modèle",
+      "import_structure": "TO BE TRANSLATED - Importer modèle",
+      "sector_name": "TO BE TRANSLATED - Secteur associé",
+      "list_rocket_content_structure": "TO BE TRANSLATED - Lancez-vous ! Pour commencer<br>un modèle, cliquez sur le +",
+      "card_rocket_content_structure": "TO BE TRANSLATED - Lancez-vous !<br><br>Pour commencer<br>un modèle, cliquez<br> sur le +"
     },
     "cards": {
       "new_pia": "Új DPIA",
@@ -73,11 +79,21 @@
       "placeholder_evaluation": "Vezetéknév, utónév",
       "validation": "Jóváhagyás",
       "placeholder_validation": "Vezetéknév, utónév",
+      "structure": "TO BE TRANSLATED - Modèle",
+      "placeholder_structure": "TO BE TRANSLATED - Choisir un modèle",
       "date": "Dátum",
       "status": "Állapot",
       "creation_status": "Létrehozás",
       "start": "Start",
       "placeholder_start": "Minden mezőt ki kell tölteni",
+      "new_structure": "TO BE TRANSLATED - Nouveau modèle",
+      "placeholder_new_structure": "TO BE TRANSLATED - Nouveau modèle",
+      "import_structure": "TO BE TRANSLATED - Importer modèle",
+      "placeholder_import_structure": "TO BE TRANSLATED - Importer modèle",
+      "structure_name": "TO BE TRANSLATED - Nom du modèle",
+      "sector_name": "TO BE TRANSLATED - Secteur associé",
+      "placeholder_structure_name": "TO BE TRANSLATED - Intitulé du modèle",
+      "placeholder_sector_name": "TO BE TRANSLATED - Intitulé du Secteur associé",
       "item": {
         "tools": {
           "export": "Exportálás",
@@ -88,7 +104,8 @@
           "remove": "Törlés"
         },
         "edit_pia": "DPIA szerkesztése",
-        "consult_pia": "DPIA áttekintése "
+        "consult_pia": "DPIA áttekintése",
+        "edit_structure": "TO BE TRANSLATED - Éditer le modèle"
       }
     },
     "lists": {
@@ -101,6 +118,9 @@
       "column_status": "Állapot",
       "column_progression": "Előrehaladás",
       "column_actions": "Műveletek",
+      "column_structure": "TO BE TRANSLATED - Modèle",
+      "column_sector_name": "TO BE TRANSLATED - Secteur associé",
+      "column_structure_name": "TO BE TRANSLATED - Modèle",
       "item": {
         "tools": {
           "consult": "Konzultáció",
@@ -137,7 +157,9 @@
     "sections": {
       "homepage_link": "Vissza a vezérlőpulthoz",
       "validate_pia": "Hatásvizsgálat jóváhagyása",
+      "validate_structure": "TO BE TRANSLATED - Valider le modèle",
       "refuse_pia": "Hatásvizsgálat elutasítása",
+      "based_on_structure_name": "TO BE TRANSLATED - Basé sur le modèle :",
       "status": {
         "evaluation": {
           "title": "Véleményezésre várva.",
@@ -157,7 +179,8 @@
       "ask_evaluation": "Véleményezés kérése",
       "validate_evaluation": "Véleményezés befejezése",
       "subsection_validated": "Rész véleményezve, jóváhagyásra vár",
-      "mandatory_fields": "Minden mezőt ki kell tölteni"
+      "mandatory_fields": "Minden mezőt ki kell tölteni",
+      "structure_add_question": "TO BE TRANSLATED - Ajouter une question"
     }
   },
   "measures": {
@@ -747,6 +770,8 @@
   },
   "questions": {
     "edit": "Kérdés szerkesztése",
+    "remove": "TO BE TRANSLATED - Supprimer la question",
+    "placeholder_title": "TO BE TRANSLATED - Titre de la question",
     "gauges": {
       "0": "(n/a)",
       "1": "Elhanyagolható",
@@ -919,6 +944,11 @@
       "remove": "Az intézkedés eltávolítása",
       "keep": "Intézkedés megtartása"
     },
+    "remove_question": {
+      "content": "TO BE TRANSLATED - Souhaitez-vous supprimer la question ?",
+      "remove": "TO BE TRANSLATED - Supprimer",
+      "keep": "TO BE TRANSLATED - Annuler"
+    },
     "ask_for_evaluation": {
       "content": "Ez a rész készen áll véleményzésre."
     },
@@ -935,6 +965,10 @@
     "remove_pia": {
       "content": "<span class='strong'>Figyelmeztetés:</span><br>Biztosan el akarja távolítani ezt a DPIA-t?",
       "remove": "A DPIA eltávolítása"
+    },
+    "remove_structure": {
+      "content": "TO BE TRANSLATED - <span class='strong'>Attention,</span><br>Êtes-vous sûr de vouloir<br>supprimer ce modèle ?",
+      "remove": "TO BE TRANSLATED - Supprimer ce modèle"
     },
     "remove_attachment": {
       "content": "<span class='strong'>Figyelmeztetés:</span><br>Biztosan el akarja távolítani a mellékletet?",
@@ -960,7 +994,13 @@
     },
     "back_to_evaluation": {
       "content": "Ez a rész vissza lett küldve felülvizsgálatra.<br> Több mezőt felül kell vizsgálni<br> a teljes jóváhagyáshoz."
-	}
+	  },
+    "import_wrong_pia_file": {
+      "content": "TO BE TRANSLATED - Le fichier importé ne correspond pas à un fichier de type PIA"
+    },
+    "import_wrong_structure_file": {
+      "content": "TO BE TRANSLATED - Le fichier importé ne correspond pas à un fichier de type Modèle"
+    }
   },
   "summary": {
     "previous_page": "Vissza az előző oldalra",
