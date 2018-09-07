@@ -48,10 +48,6 @@ export class QuestionsComponent implements OnInit, OnDestroy {
       list: new FormControl()
     });
 
-    if (this.question.answer) {
-      this.questionForm.controls['text'].patchValue(this.question.answer);
-    }
-
     this.answer.getByReferenceAndPia(this.pia.id, this.question.id).then(() => {
       if (this.answer.data) {
         let evaluationRefTo: string = this.answer.id.toString();

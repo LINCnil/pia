@@ -10,6 +10,7 @@ import { PiaService } from 'app/services/pia.service';
 import { StructureService } from 'app/services/structure.service';
 import { Structure } from 'app/structures/structure.model';
 import { Measure } from 'app/entry/entry-content/measures/measure.model';
+import { Answer } from 'app/entry/entry-content/questions/answer.model';
 
 @Component({
   selector: 'app-cards',
@@ -131,11 +132,14 @@ export class CardsComponent implements OnInit, OnDestroy {
     if (structure_id && structure_id > 0) {
       const structure = new Structure();
       structure.get(structure_id).then(() => {
+        pia.structure_id = structure.id;
         pia.structure_name = structure.name;
         pia.structure_sector_name = structure.sector_name;
         pia.structure_data = structure.data;
         pia.create().then((id) => {
-          this.structureCreateMeasures(pia, id).then(() => this.router.navigate(['entry', id, 'section', 1, 'item', 1]));
+          this.structureCreateMeasures(pia, id).then(() => {
+            this.structureCreateAnswers(pia, id).then(() => this.router.navigate(['entry', id, 'section', 1, 'item', 1]));
+          });
         });
       });
     } else {
@@ -146,7 +150,7 @@ export class CardsComponent implements OnInit, OnDestroy {
   async structureCreateMeasures(pia: Pia, id: any) {
     return new Promise((resolve, reject) => {
       // Record the structures Measures
-      const structures_measures = pia.structure_data.sections.find(s => s.id === 3).items.find(i => i.id === 1).answers;
+      const structures_measures = pia.structure_data.sections.filter(s => s.id === 3)[0].items.filter(i => i.id === 1)[0].answers;
       let i = 0;
       if (structures_measures.length > 0) {
         for (const m in structures_measures) {
@@ -163,6 +167,45 @@ export class CardsComponent implements OnInit, OnDestroy {
             });
           }
         }
+      } else {
+        resolve();
+      }
+    });
+  }
+
+  async structureCreateAnswers(pia: Pia, id: any) {
+    // Record the structures Answers
+    return new Promise((resolve, reject) => {
+      const questions = [];
+      pia.structure_data.sections.forEach(section => {
+        if (section.items) {
+          section.items.forEach(item => {
+            if (item.questions) {
+              item.questions.forEach(question => {
+                if (question.answer && question.answer.length > 0) {
+                  questions.push(question);
+                }
+              });
+            }
+          });
+        }
+      });
+
+      if (questions.length > 0) {
+        console.log(questions);
+        let i = 0;
+        questions.forEach(question => {
+          const answer = new Answer();
+          answer.pia_id = id;
+          answer.reference_to = question.id;
+          answer.data = { text: question.answer, gauge: null, list: null };
+          answer.create().then(() => {
+            i++;
+            if (i === questions.length) {
+              resolve();
+            }
+          });
+        });
       } else {
         resolve();
       }
