@@ -70,7 +70,7 @@ export class PiaService extends BaseService<Pia> {
 
   public import(data: any): Observable<Pia> {
     const query: any = this.buildQuery({});
-    const route = this.buildRoute(this.routing.import, { name: name });
+    const route = this.buildRoute(this.routing.import);
 
     return this.http.post(route, { data: data }, { params: query }).pipe(map(res => this.mapToModel(res, this.modelClass)));
   }

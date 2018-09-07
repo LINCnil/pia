@@ -308,19 +308,6 @@
         </button>
         <form class="pia-cardsBlock-item-form" (ngSubmit)="onSubmit()" [formGroup]="piaForm">
             <div>
-                <label for="name">{{ 'homepage.cards.pia_name' | translate }}</label>
-                <input formControlName="name" type="text" placeholder="{{ 'homepage.cards.placeholder_pia_name' | translate }}" id="name"
-                    required>
-            </div>
-            <!-- hide the type feature-->
-            <div *ngIf="false">
-                <label for="type">{{ 'homepage.cards.pia_type' | translate }}</label>
-                <select formControlName="type" id="type"
-                    required>
-                    <option *ngFor="let type of piaTypes" value="{{ type }}">{{ 'homepage.cards.pia_types.' + type | translate }}</option>
-                </select>
-            </div>
-            <div>
                 <label for="author_name">{{ 'homepage.cards.author' | translate }}</label>
                 <input formControlName="author_name" type="text" placeholder="{{ 'homepage.cards.placeholder_author' | translate }}" id="author_name"
                     required>

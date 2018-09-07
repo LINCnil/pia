@@ -7,7 +7,6 @@ import { Processing } from './processing.model';
 export class Pia extends BaseModel {
   public id: any;
   public status = 0; // 0: doing, 1: refused, 2: simple_validation, 3: signed_validation, 4: archived
-  public name: string;
   public author_name: string;
   public evaluator_name: string;
   public validator_name: string;

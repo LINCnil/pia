@@ -22,7 +22,6 @@ export class PiasListItemComponent implements OnInit {
 
   ngOnInit() {
     this.piaFormGroup = new FormGroup({
-      name: new FormControl(this.pia.name),
       author_name: new FormControl(this.pia.author_name),
       evaluator_name: new FormControl(this.pia.evaluator_name),
       validator_name: new FormControl(this.pia.validator_name),

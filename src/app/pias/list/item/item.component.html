@@ -2,14 +2,6 @@
   <span>{{ ('pia.statuses.' + pia.status) | translate }}</span>
 </td>
 <td>
-  <app-editable-field
-                    [formControlObject]="piaFormGroup.controls['name']"
-                    [modelAttribute]="'name'"
-                    [model]="pia"
-                    (updated)="onUpdated($event)">
-  </app-editable-field>
-</td>
-<td>
   <ul>
     <li title="{{ 'processing.pia-list.item.author_name' | translate }}">
       <b>{{ 'processing.pia-list.item.author_name' | translate | slice : 0 : 3 }}:</b>

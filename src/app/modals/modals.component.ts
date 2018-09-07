@@ -43,7 +43,6 @@ export class ModalsComponent implements OnInit {
 
   ngOnInit() {
     this.piaForm = new FormGroup({
-      name: new FormControl(),
       author_name: new FormControl(),
       evaluator_name: new FormControl(),
       validator_name: new FormControl(),
@@ -87,7 +86,6 @@ export class ModalsComponent implements OnInit {
    */
   onSubmit() {
     const pia = new PiaModel();
-    pia.name = this.piaForm.value.name;
     pia.author_name = this.piaForm.value.author_name;
     pia.evaluator_name = this.piaForm.value.evaluator_name;
     pia.validator_name = this.piaForm.value.validator_name;
