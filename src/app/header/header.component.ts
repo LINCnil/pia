@@ -23,7 +23,7 @@ export class HeaderComponent implements OnInit {
   pia_is_example: boolean;
   pia_example: Pia;
 
-  constructor(private _router: Router,
+  constructor(public _router: Router,
               private renderer: Renderer2,
               private _translateService: TranslateService,
               public _piaService: PiaService,
