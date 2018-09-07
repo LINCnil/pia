@@ -21,7 +21,7 @@
     "title" : "Tableau de bord",
     "items" :{
       "portfolio" : "Portefeuille Client",
-      "processings" : "Traitements"
+      "processings" : "Registre des traitements"
     }
   },
   "portfolio":{
@@ -107,6 +107,7 @@
       "go_to_folders": "Retour aux dossiers"
     },
     "cards": {
+      "processing_register": "Registre des traitements",
       "new_pia": "Nouveau PIA",
       "placeholder_new_pia": "Nouveau PIA",
       "or": "ou",

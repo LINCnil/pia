@@ -11,7 +11,7 @@
     "title" : "Dashboard",
     "items" :{
       "portfolio" : "Portfolio",
-      "processings" : "My processings"
+      "processings" : "Data processing register"
     }
   },
   "portfolio":{
@@ -95,6 +95,7 @@
       "card_rocket_content": "Get started !<br><br>To initiate a PIA,<br> click on New PIA"
     },
     "cards": {
+      "processing_register": "Data processing register",
       "new_pia": "New PIA",
       "placeholder_new_pia": "New PIA",
       "or": "or",
