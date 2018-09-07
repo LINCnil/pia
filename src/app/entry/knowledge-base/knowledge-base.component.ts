@@ -6,13 +6,15 @@ import { Pia } from '../pia.model';
 import { MeasureService } from 'app/entry/entry-content/measures/measures.service';
 import { KnowledgeBaseService } from './knowledge-base.service';
 import { PiaService } from 'app/services/pia.service';
+import { StructureService } from 'app/services/structure.service';
+import { AnswerStructureService } from 'app/services/answer-structure.service';
 import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-knowledge-base',
   templateUrl: './knowledge-base.component.html',
   styleUrls: ['./knowledge-base.component.scss'],
-  providers: [PiaService]
+  providers: [PiaService, StructureService]
 })
 export class KnowledgeBaseComponent implements OnInit {
   searchForm: FormGroup;
@@ -23,7 +25,9 @@ export class KnowledgeBaseComponent implements OnInit {
               public _knowledgeBaseService: KnowledgeBaseService,
               private el: ElementRef,
               private _translateService: TranslateService,
-              private _piaService: PiaService) { }
+              private _piaService: PiaService,
+              private _answerStructureService: AnswerStructureService,
+              private _structureService: StructureService) { }
 
   ngOnInit() {
     this._piaService.getPIA();
@@ -68,7 +72,21 @@ export class KnowledgeBaseComponent implements OnInit {
    * @memberof KnowledgeBaseComponent
    */
   addNewMeasure(event) {
-    this._measureService.addNewMeasure(this._piaService.pia, event.name, event.placeholder);
+    if (this._piaService.pia.id > 0) {
+      this._measureService.addNewMeasure(this._piaService.pia, event.name, event.placeholder);
+    } else if (this._structureService.structure.id > 0) {
+      this._structureService.getStructure().then(() => {
+        const title = this._translateService.instant(event.name);
+        const measure = {
+          'title': title,
+          'content': ''
+        }
+        this._structureService.structure.data.sections.filter(s => s.id === 3)[0].items.filter(i => i.id === 1)[0].answers.push(measure);
+        this._structureService.structure.update().then(() => {
+          this.item.answers.push(measure);
+        });
+      });
+    }
   }
 
 }

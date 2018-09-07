@@ -192,7 +192,6 @@ export class CardsComponent implements OnInit, OnDestroy {
       });
 
       if (questions.length > 0) {
-        console.log(questions);
         let i = 0;
         questions.forEach(question => {
           const answer = new Answer();

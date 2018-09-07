@@ -118,9 +118,7 @@ export class EntryComponent implements OnInit, OnDestroy, DoCheck {
     if (this._piaService.pia.structure_data) {
       this._appDataService.dataNav = this._piaService.pia.structure_data;
     }
-    console.log(this._appDataService.dataNav);
     this.data = await this._appDataService.getDataNav();
-    console.log(this._appDataService.dataNav);
 
     this.section = this.data['sections'].filter((section) => {
       return section.id === sectionId;
