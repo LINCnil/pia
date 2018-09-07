@@ -21,7 +21,7 @@
               <a routerLink="/portfolio" [ngClass]="{'active': currentRoute === '/portfolio'}">{{ 'header.portfolio_link' | translate }}</a>
             </li>
             <li *ngIf="hasOwnStructure()">
-              <a (click)="session.navigateToOwnStructure()" style="cursor:pointer;" [ngClass]="{'active': currentRoute === '/folders'}">{{ 'dashboard.items.processings' | translate }}</a>
+              <a (click)="session.navigateToOwnStructure()" style="cursor:pointer;" [ngClass]="{'active': currentRoute.startsWith('/folders')}">{{ 'dashboard.items.processings' | translate }}</a>
             </li>
           </ul>
           <ul class="pia-navigationBlock-list">

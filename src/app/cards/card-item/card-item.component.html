@@ -39,33 +39,33 @@
             [formGroup]="processingForm">
           <input type="hidden" formControlName="id">
           <div (click)="processingNameFocusIn()">
-              <label for="pia-edit-name">{{ 'homepage.cards.processing_name' | translate }}</label>
+              <label for="pia-edit-name[{{processing.id}}]">{{ 'homepage.cards.processing_name' | translate }}</label>
               <input type="text"
                      #processingName
                      formControlName="name"
                      required
                      placeholder="{{ 'homepage.cards.placeholder_processing_name' | translate }}"
-                     id="pia-edit-name"
+                     id="pia-edit-name[{{processing.id}}]"
                      (focusout)="processingNameFocusOut()">
           </div>
           <div (click)="processingAuthorFocusIn()">
-              <label for="pia-edit-author-name">{{ 'homepage.cards.author' | translate }}</label>
+              <label for="pia-edit-author-name[{{processing.id}}]">{{ 'homepage.cards.author' | translate }}</label>
               <input type="text"
                      #processingAuthor
                      formControlName="author"
                      required
                      placeholder="{{ 'homepage.cards.placeholder_author' | translate }}"
-                     id="pia-edit-author-name"
+                     id="pia-edit-author-name[{{processing.id}}]"
                      (focusout)="processingAuthorFocusOut()">
           </div>
           <div (click)="processingControllersFocusIn()">
-              <label for="pia-edit-validator-name">{{ 'homepage.cards.controllers' | translate }}</label>
+              <label for="pia-edit-validator-name[{{processing.id}}]">{{ 'homepage.cards.controllers' | translate }}</label>
               <input type="text"
                      #processingControllers
                      formControlName="controllers"
                      required
                      placeholder="{{ 'homepage.cards.placeholder_controllers' | translate }}"
-                     id="pia-edit-validator-name"
+                     id="pia-edit-validator-name[{{processing.id}}]"
                      (focusout)="processingControllersFocusOut()">
           </div>
         <div class="pia-cardsBlock-item-date">
@@ -85,8 +85,7 @@
           <div>{{ processing.pias_count }}</div>
         </div>
         <div class="pia-cardsBlock-item-btn bottom-actions">
-          <a *ngIf="processing.status === 0" routerLink="/processing/{{processing.id}}" class="btn btn-green">{{ 'homepage.cards.item.edit_processing' | translate }}</a>
-          <a *ngIf="processing.status > 0" routerLink="/processing/{{processing.id}}" class="btn btn-green">{{ 'homepage.cards.item.consult_processing' | translate }}</a>
+          <a routerLink="/processing/{{processing.id}}" class="btn btn-green">{{ 'homepage.cards.item.consult_processing' | translate }}</a>
         </div>
       </form>
   </div>

@@ -177,15 +177,17 @@ export class CardsComponent implements OnInit {
     this.viewStyle = {
       view: this.route.snapshot.params['view']
     }
+   
     this.route.params.subscribe(
       (params: Params) => {
         this.viewStyle.view = params['view'];
-        this.folderId = (params.id ? params.id : null)
-        if (localStorage.getItem('homepageDisplayMode') === 'list') {
+        this.folderId = (params.id ? params.id : null);
+        this.viewOnCard();
+        /*if (localStorage.getItem('homepageDisplayMode') === 'list') {
           this.viewOnList();
         } else {
           this.viewOnCard();
-        }
+        }*/
       }
     );
   }

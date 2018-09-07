@@ -411,7 +411,7 @@
       padding-right: 12px;
       margin-bottom: 4px;
     }
-    textarea {
+    textarea.field {
       resize: none;
       display: block;
       width: 100%;
@@ -421,6 +421,7 @@
       font-size: 1.35rem;
       min-height: 130px;
       &::placeholder {
+        color: $pia-dark-black;
         font-style: italic;
       }
       &:disabled {

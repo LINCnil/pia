@@ -70,7 +70,7 @@
           width: 150px;
           div {
             color: $pia-gray;
-            font-size: 1rem;
+            font-size: 1.3rem;
             margin-bottom: -1px;
             font-style: italic;
             &:last-child {
@@ -144,8 +144,8 @@
       &-form {
           div {
               label {
-                  color: $pia-gray;
-                  font-size: 0.95rem;
+                  color: $pia-green;
+                  font-size: 1.3rem;
                   font-style: italic;
               }
               input {
