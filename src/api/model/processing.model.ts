@@ -11,8 +11,9 @@ export class Processing extends BaseModel {
   public life_cycle: string;
   public storage: string;
   public standards: string;
-  public processors: any;
-  public controllers: any;
+  public processors: string;
+  public designated_controller: string;
+  public controllers: string;
   public non_eu_transfer: string;
   public processing_data_types: any;
   public folder: FolderModel;

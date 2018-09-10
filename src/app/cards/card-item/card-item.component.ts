@@ -25,7 +25,7 @@ export class CardItemComponent implements OnInit {
 
   @ViewChild('processingName') private processingName: ElementRef;
   @ViewChild('processingAuthor') private processingAuthor: ElementRef;
-  @ViewChild('processingControllers') private processingControllers: ElementRef;
+  @ViewChild('processingDesignatedController') private processingDesignatedController: ElementRef;
 
   constructor(
     private _modalsService: ModalsService,
@@ -42,7 +42,7 @@ export class CardItemComponent implements OnInit {
       id: new FormControl(this.processing.id),
       name: new FormControl({ value: this.processing.name, disabled: true }),
       author: new FormControl({ value: this.processing.author, disabled: true }),
-      controllers: new FormControl({ value: this.processing.controllers, disabled: true })
+      designated_controller: new FormControl({ value: this.processing.designated_controller, disabled: true })
     });
 
     // add permission verification
@@ -109,22 +109,22 @@ export class CardItemComponent implements OnInit {
    * Focuses pia evaluator name field.
    * @memberof CardItemComponent
    */
-  processingControllersFocusIn() {
-    this.processingControllers.nativeElement.focus();
+  processingDesignatedControllerFocusIn() {
+    this.processingDesignatedController.nativeElement.focus();
   }
 
   /**
    * Disables pia evaluator name field and saves data.
    * @memberof CardItemComponent
    */
-  processingControllersFocusOut() {
-    let userText = this.processingForm.controls['controllers'].value;
+  processingDesignatedControllerFocusOut() {
+    let userText = this.processingForm.controls['designated_controller'].value;
     if (userText && typeof userText === 'string') {
       userText = userText.replace(/^\s+/, '').replace(/\s+$/, '');
     }
     if (userText !== '') {
       this.processingApi.get(this.processingForm.value.id).subscribe((theProcessing: ProcessingModel) => {
-        theProcessing.controllers = this.processingForm.value.controllers;
+        theProcessing.designated_controller = this.processingForm.value.designated_controller;
         this.processingApi.update(theProcessing).subscribe();
       });
     }

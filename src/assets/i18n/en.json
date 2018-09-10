@@ -117,6 +117,10 @@
       "creation_status": "Creation",
       "start": "Start",
       "placeholder_start": "All fields must be filled",
+      "designated_controller": "Processing designated controller",
+      "controllers": "Processing controllers",
+      "placeholder_controllers": "Firstname(s), Lastname(s)",
+      "placeholder_designated_controller": "Firstname, Lastname",
       "pia_type": "Type",
       "pia_types": {
         "regular": "Processing",
@@ -213,6 +217,97 @@
       "validate_evaluation": "Validate review",
       "subsection_validated": "Subsection reviewed, awaiting final validation",
       "mandatory_fields": "All fields must be filled"
+    }
+  },
+  "processing": {
+    "form": {
+      "previous": "Previous section",
+      "next": "Next section",
+      "description": {
+        "title": "Quelles sont les finalités du traitement ?",
+        "placeholder": "Décrivez les objectifs et finalités du traitement"
+      },
+      "controllers": {
+        "title": "Quelles sont les personnes responsables du traitement?",
+        "placeholder": "Désignez les personnes opérationnelles qui sont responsables du traitement"
+      },
+      "standards": {
+        "title": "Quels sont les référenciels applicables ?",
+        "placeholder": "Listez les référenciels qui concernent ce traitement"
+      },
+      "non-eu-transfer":  {
+        "title": "Transfert hors UE",
+        "placeholder": "Laisser vide si pas de transfert de données hors UE"
+      },
+      "data-types": "Types de données traitées",
+      "storage": {
+        "title": "Où les données sont elles stockées",
+        "placeholder": "Décrivez le/les lieux de stockage des données"
+      },
+      "processors": {
+        "title": "Sous traitants",
+        "placeholder": "Listez les sous traitants"
+      },
+      "lifecycle": {
+        "title": "Cycle de vie des données",
+        "placeholder": "Décrivez le cycle de vie des données pour ce traitement"
+      },
+      "sections": {
+        "description": {
+          "title": "Description de l'activité de traitement",
+          "short_help": ""
+        },
+        "data": {
+          "title": "Données traitées",
+          "short_help": ""
+        },
+        "lifecycle": {
+          "title": "Cycle de vie des données",
+          "short_help": ""
+        }
+      }
+    },
+    "statuses": {
+      "0": "Validated",
+      "1": "Archived"
+    },
+    "pia-list": {
+      "table-header": {
+        "name": "Name",
+        "stakeholders": "Stakeholders",
+        "status": "Status",
+        "createdAndUpdatedAt": "Created at<br />Updated at",
+        "progress": "Progress"
+      },
+      "item": {
+        "author_name": "Author",
+        "evaluator_name": "Evaluator",
+        "validator_name": "Validator",
+        "actions": {
+          "export": "Export PIA",
+          "tooltip": "Actions",
+          "duplicate": "Duplicate PIA",
+          "edit": "Édit PIA",
+          "action_plan": "Action plan",
+          "show": "Show PIA",
+          "remove": "Remove PIA"
+        }
+      }
+    }
+  },
+  "processing-data-types": {
+    "form": {
+      "retention-period": "Durée de conservation",
+      "sensitive": "Données sensibles ?",
+      "sensitive-affirmative": "Données sensibles",
+      "identification": "État-civil, identité, données d'identification, images(ex.nom, prénom, adresse, photographie, date et lieu de naissance, etc.)",
+      "personal": "Vie personnelle (ex. habitudes de vie, situation familiale, etc.)",
+      "professional": "Vie professionnelle(ex. CV, situation professionnelle, scolarité, formation, distinctions, diplômes, etc.)",
+      "financial": "Informations d’ordre économique et financier (ex. revenus, situation financière, données bancaires, etc.)",
+      "log": "Données de connexion (ex. adresses Ip, logs, identifiants des terminaux, identifiants de connexion, informations d'horodatage, etc.)",
+      "location": "Données de localisation (ex. déplacements, données GPS, GSM, ...)",
+      "internet": "Internet(ex. cookies, traceurs, données de navigation, mesures d’audience, ...)",
+      "other": "Autres catégories de données"
     }
   },
   "measures": {

@@ -131,8 +131,10 @@
       "creation_status": "Création",
       "start": "Commencer",
       "placeholder_start": "Tous les champs doivent être remplis",
+      "designated_controller": "Responsable désigné du traitement",
       "controllers": "Responsables de traitement",
       "placeholder_controllers": "Nom(s) et Prénom(s)",
+      "placeholder_designated_controller": "Nom et Prénom",
       "pia_type": "Type",
       "pia_types": {
         "regular": "Traitement",
@@ -195,6 +197,10 @@
       "description": {
         "title": "Quelles sont les finalités du traitement ?",
         "placeholder": "Décrivez les objectifs et finalités du traitement"
+      },
+      "controllers": {
+        "title": "Quelles sont les personnes responsables du traitement?",
+        "placeholder": "Désignez les personnes opérationnelles qui sont responsables du traitement"
       },
       "standards": {
         "title": "Quels sont les référenciels applicables ?",

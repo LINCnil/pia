@@ -45,6 +45,30 @@
         </div>
 
         <div class="form-field">
+          <label class="title" for="processing-controllers">{{ 'processing.form.controllers.title' | translate }}</label>
+          <div (click)="editField(controllers, ['PIA_VAL_RT', 'PIA_LGL_DESC', 'PIA_DEF_RT'])"
+            class="pia-questionBlock-contentText"
+            [innerHTML]="processingForm.form.controls['controllers']?.value | safeHtml"
+            [ngClass]="{ 'hide': ((editor && elementId === controllers.id) || !processingForm.form.controls['controllers']?.value) }"
+          ></div>
+
+          <textarea
+            class="field"
+            id="processing-controllers"
+            required
+            name="controllers"
+            minRows="8"
+            cols="50"
+            placeholder="{{'processing.form.controllers.placeholder' | translate }}"
+            #controllers
+            (change)="updateProcessing()"
+            [(ngModel)]="processing.controllers"
+            [ngClass]="{ 'hide': (processingForm.form.controls['controllers']?.value && processingForm.form.controls['controllers']?.value.length > 0) }"
+            (focusin)="editField($event.target, ['PIA_VAL_RT', 'PIA_LGL_DESC', 'PIA_DEF_RT'])"
+          ></textarea>
+        </div>
+
+        <div class="form-field">
           <label class="title" for="processing-standards">{{ 'processing.form.standards.title' | translate }}</label>
           <div (click)="editField(standards, ['PIA_LGL_FOND'])"
             class="pia-questionBlock-contentText"

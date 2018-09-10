@@ -177,7 +177,7 @@ export class CardsComponent implements OnInit {
     this.viewStyle = {
       view: this.route.snapshot.params['view']
     }
-   
+
     this.route.params.subscribe(
       (params: Params) => {
         this.viewStyle.view = params['view'];

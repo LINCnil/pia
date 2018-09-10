@@ -58,15 +58,15 @@
                      id="pia-edit-author-name[{{processing.id}}]"
                      (focusout)="processingAuthorFocusOut()">
           </div>
-          <div (click)="processingControllersFocusIn()">
-              <label for="pia-edit-validator-name[{{processing.id}}]">{{ 'homepage.cards.controllers' | translate }}</label>
+          <div (click)="processingDesignatedControllerFocusIn()">
+              <label for="pia-edit-designated-controller[{{processing.id}}]">{{ 'homepage.cards.designated_controller' | translate }}</label>
               <input type="text"
-                     #processingControllers
-                     formControlName="controllers"
+                     #processingDesignatedController
+                     formControlName="designated_controller"
                      required
-                     placeholder="{{ 'homepage.cards.placeholder_controllers' | translate }}"
-                     id="pia-edit-validator-name[{{processing.id}}]"
-                     (focusout)="processingControllersFocusOut()">
+                     placeholder="{{ 'homepage.cards.placeholder_designated_controller' | translate }}"
+                     id="pia-edit-designated-controller[{{processing.id}}]"
+                     (focusout)="processingDesignatedControllerFocusOut()">
           </div>
         <div class="pia-cardsBlock-item-date">
             <div>{{ 'homepage.cards.date' | translate }}</div>
