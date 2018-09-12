@@ -16,11 +16,6 @@ then
     BUILDENV="dev"
 fi
 
-if [ -z "${BUILDARG}" ]
-then
-    BUILDARG="--sourcemap"
-fi
-
 if [ "${BUILDENV}" = "prod" ]
    then
        BUILDARG="--prod --build-optimizer"
