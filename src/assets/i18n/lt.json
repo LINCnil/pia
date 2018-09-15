@@ -146,55 +146,55 @@
           "cancel_button": "Atsisakyti prašymo dėl peržiūros"
         },
         "validation": {
-          "title": "Waiting for validation.",
-          "content": "This part has been reviewed and is waiting for the overall PIA validation. If you wish to change the review, you have to ",
-          "cancel": "cancel the validation request.",
-          "cancel_button": "Cancel the validation request"
+          "title": "Laukiama patvirtinimo.",
+          "content": "Ši dalis jau peržiūrėta, laukiama patvirtinimo.  Jei norite padaryti pakeitimus peržiūroje, Jūs turite ",
+          "cancel": "atsisakyti prašymo dėl patvirtinimo.",
+          "cancel_button": "Atsisakyti prašymo dėl patvirtinimo"
         }
       }
     },
     "footer": {
-      "ask_evaluation": "Ask for review",
-      "validate_evaluation": "Validate review",
-      "subsection_validated": "Subsection reviewed, awaiting final validation",
-      "mandatory_fields": "All fields must be filled"
+      "ask_evaluation": "Prašyti peržiūros",
+      "validate_evaluation": "Patvirtinti peržiūrą",
+      "subsection_validated": "Tam tikra dalis peržiūrėta, laukiama galutinio patvirtinimo",
+      "mandatory_fields": "Visi laukai turi būti užpildyti"
     }
   },
   "measures": {
-    "placeholder_title": "Measure title",
-    "add": "Add an empty measure (otherwise, use the knowledge base)",
-    "edit": "Edit measure",
-    "remove": "Delete measure",
-    "default_placeholder": "Describe the existing or intended measures to ensure data security."
+    "placeholder_title": "Priemonės pavadinimas",
+    "add": "Sukurti priemonę (arba pasirinkti priemonę iš Pagalbos)",
+    "edit": "Redaguoti priemonę",
+    "remove": "Ištrinti priemonę",
+    "default_placeholder": "Aprašyti esamą ir naują duomenų apsaugą užtikrinančią priemonę."
   },
   "knowledge_base": {
-    "title": "Knowledge base",
-    "search": "Search",
-    "add_measure": "Add",
-    "placeholder_help": "Entry aids",
-    "placeholder_add_measure": "Add this measure",
-    "add_measure_hint": "You can also add a measure from the knowledge base.",
+    "title": "Pagalba",
+    "search": "Paieška",
+    "add_measure": "Įvesti",
+    "placeholder_help": "Įvedimo pagalba",
+    "placeholder_add_measure": "Įvesti šią priemonę",
+    "add_measure_hint": "Jūs taip pat galite įvesti priemonę iš Pagalboje esančio jų sąrašo.",
     "filters": {
-      "title": "Filters",
-      "all": "All",
-      "definitions": "Definitions",
-      "organizational_measures": "Organisational controls",
-      "measures_on_data": "Logical security controls",
-      "general_measures": "Physical Security controls",
-      "no_result": "No result found."
+      "title": "Filtrai",
+      "all": "Visi",
+      "definitions": "Apibrėžimai",
+      "organizational_measures": "Organizacinė kontrolės priemonės",
+      "measures_on_data": "Loginio saugumo kontrolės priemonės",
+      "general_measures": "Fizinio saugumo kontrolės priemonės",
+      "no_result": "Rezultatų nerasta."
     },
     "category": {
-      "definition": "Definition",
-      "principle": "Principle",
-      "organizational_measure": "Organisational control",
-      "measure_on_data": "Logical security control",
-      "general_measure": "Physical Security control",
-      "example": "Example"
+      "definition": "Apibrėžimas",
+      "principle": "Principas",
+      "organizational_measure": "Organizacinė kontrolės priemonės",
+      "measure_on_data": "Loginio saugumo kontrolės priemonės",
+      "general_measure": "Fizinio saugumo kontrolės priemonės",
+      "example": "Pavyzdys"
     },
     "slugs": {
       "PIA_LGL_FOND": {
-        "name": "Justification of lawfulness",
-        "description": "- The data subject has given consent  to the processing of his or her personal data for one or more specific purposes <br>- Processing is necessary for the performance of a contract to which the data subject is party or in order to take steps at the request of the data subject prior to entering into a contract <br>-Processing is necessary for compliance with a legal obligation to which the controller is subject <br>- Processing is necessary in order to protect the vital interests of the data subject or of another natural person <br>- Processing is necessary for the performance of a task carried out in the public interest or in the exercise of official authority vested in the controller <br>- Processing is necessary for the purposes of the legitimate interests pursued by the controller or by a third party, except where such interests are overridden by the interests or fundamental rights and freedoms of the data subject which require protection of personal data, in particular where the data subject is a child<br> See <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">art. 6 of [GDPR]</a> ",
+        "name": "Duomenų tvarkymo teisinis pagrindas",
+        "description": "- duomenų subjektas davė sutikimą, kad jo asmens duomenys būtų tvarkomi vienu ar keliais konkrečiais tikslais <br>- tvarkyti duomenis būtina siekiant įvykdyti sutartį, kurios šalis yra duomenų subjektas, arba siekiant imtis veiksmų duomenų subjekto prašymu prieš sudarant sutartį <br>-tvarkyti duomenis būtina, kad būtų įvykdyta duomenų valdytojui taikoma teisinė prievolė <br>- tvarkyti duomenis būtina siekiant apsaugoti gyvybinius duomenų subjekto ar kito fizinio asmens interesus <br>- tvarkyti duomenis būtina siekiant atlikti užduotį, vykdomą viešojo intereso labui arba vykdant duomenų valdytojui pavestas viešosios valdžios funkcijas <br>- tvarkyti duomenis būtina siekiant teisėtų duomenų valdytojo arba trečiosios šalies interesų, išskyrus atvejus, kai tokie duomenų subjekto interesai arba pagrindinės teisės ir laisvės, dėl kurių būtina užtikrinti asmens duomenų apsaugą, yra už juos viršesni, ypač kai duomenų subjektas yra vaikas <br> Žr. <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/LT/TXT/HTML/?uri=CELEX:32016R0679&from=LT\">str. 6 of [BDAR]</a>",
         "source": "PIA2 p4"
       },
       "PIA_LGL_ST": {
