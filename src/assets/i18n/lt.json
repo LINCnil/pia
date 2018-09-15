@@ -116,34 +116,34 @@
   },
   "pia": {
     "statuses": {
-      "0": "In progress",
-      "1": "Rejected",
-      "2": "Simple validation",
-      "3": "Signed validation",
-      "4": "Archived",
-      "5": "Waiting for validation"
+      "0": "Vykdomas",
+      "1": "Atmestas",
+      "2": "Preliminarus patvirtinimas",
+      "3": "Galutinis patvirtinimas",
+      "4": "Suarchivuota",
+      "5": "Laukiama patvirtinimo"
     },
     "header": {
-      "preview": "Preview",
-      "display_action_plan": "Display<br>action plan",
-      "edition": "Edition",
-      "evaluation": "Evaluation"
+      "preview": "Peržiūra",
+      "display_action_plan": "Pasižiūrėti<br>veiksmų planą",
+      "edition": "Redaguoti",
+      "evaluation": "Įvertinimas"
     },
     "attachments": {
-      "title": "Attachments",
-      "add": "Add",
-      "remove": "Remove"
+      "title": "Priedai",
+      "add": "Pridėti",
+      "remove": "Pašalinti"
     },
     "sections": {
-      "homepage_link": "Back to dashboard",
-      "validate_pia": "Validate PIA",
-      "refuse_pia": "Refused PIA",
+      "homepage_link": "Atgal į dashboard",
+      "validate_pia": "Tvirtinti PDAV",
+      "refuse_pia": "Atmesti PDAV",
       "status": {
         "evaluation": {
-          "title": "Waiting for review.",
-          "content": "This part has not yet been reviewed. If you wish to edit the content submitted for review you have to ",
-          "cancel": "cancel the review request.",
-          "cancel_button": "Cancel the review request"
+          "title": "Laukiama peržiūros.",
+          "content": "Ši dalis dar nebuvo peržiūrėta. Jei norite redaguoti peržiūrai pateiktą turinį, Jūs turite",
+          "cancel": "atsiakyti prašymo dėl peržiūros.",
+          "cancel_button": "Atsisakyti prašymo dėl peržiūros"
         },
         "validation": {
           "title": "Waiting for validation.",
