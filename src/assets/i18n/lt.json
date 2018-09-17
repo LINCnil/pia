@@ -198,58 +198,58 @@
         "source": "PIA2 p4"
       },
       "PIA_LGL_ST": {
-        "name": "Subcontracting",
-        "description": "A processing contract must be signed with each processor, setting out all of the aspects stipulated in Art. 28 of the [GDPR]: duration, scope, purpose, documented processing instructions, prior authorisation where a processor is engaged, provision of any documentation providing evidence of compliance with the [GDPR], prompt notification of any data breach, etc.",
+        "name": "Duomenų tvarkytojo pasitelkimas",
+        "description": "Susitarimas dėl asmens duomenų tvarkymo turi būti pasirašytas su kiekvienu duomenų tvarkytoju. Susitarime turi būti nurodytos [BDAR] 28 str. nustatytos sąlygos: trukmė; tvarkymo apimtis; tikslas; dokumentuoti nurodymai apie asmens duomenų tvarkymą; išankstinis patvirtinimas, pasitelkiant pagalbinį tvarkytoją; dokumentų, patvirtinančių atitiktį [BDAR] reikalavimams, pateikimas; skubus informavimas apie duomenų saugumo pažeidimą; t.t.",
         "source": "PIA2 p10"
       },
       "PIA_LGL_TRAN": {
-        "name": "Transfers",
-        "description": "Depending on the country in question, you will have to justify the choice of remote hosting and indicate the legal supervision arrangements implemented in order to ensure adequate protection of the data subject to a cross-border transfer. That is :<br>- European Union<br>- Country recognised as providing adequate protection by the EU<br>- Transfer to the United States to a company which has joined the Privacy Shield<br>- Other country <br>See <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">art. 44 to 49 of [GDPR]</a>",
+        "name": "Duomenų teikimas į trečiąsias šalis",
+        "description": "Nurodykite šalis, kuriose bus tvarkomi asmens duomenys. Priklausomai nuo pasirinktos šalies, Jums reikės teisiškai pagrįsti asmens duomenų teikimą į jas ir nurodyti, kokių teisinių ir kontrolės priemonių buvo imtasi, siekiant užtikrinti tinkamą asmens duomenų, kurie yra teikiami į kitas šalis, apsaugą. Tokiomis priemonėmis gali būti: <br>- Europos Sąjungos<br>- šalies pripažinimas, kad ji užtikrina tinkamą asmens duomenų apsaugą <br>- Duomenų teikimas į JAV, ten esančiai bendrovei, kuri yra prisijungusi prie Privacy Shield programos <br>- Dėl kitų šalių <br>žr. <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/LT/TXT/HTML/?uri=CELEX:32016R0679&from=LT\"> [BDAR] 44-49 str. </a>",
         "source": "PIAF Connected Objects p18"
       },
       "PIA_LGL_DESC": {
         "name": "Processing's description",
-        "description": "Present a brief outline of the processing under consideration, its nature, scope, context, purposes and stakes. Identify the data controller and any processors. List the standard references applicable to the processing, which are necessary or must be complied with , not least the approved codes of conduct (see Art. 40 of the <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR]</a>) and certifications regarding data protection (see Art. 42 of the <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR]</a>)",
+        "description": "Trumpai aprašykite planuojamą asmens duomenų tvarkymą, jo pobūdį, apimtį, tikslus, nurodykite kokie asmenys dalyvaus, asmens duomenų tvarkyme. Taip pat nurodykite duomenų valdytojus ir tvarkytojus. Nurodykite duomenų tvarkymą reglamentuojančias tvarkas ir teisės normas, kurių privaloma laikytis, taip pat patvirtintus elgesio kodeksus, kai jie taikomi. (žr. <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/LT/TXT/HTML/?uri=CELEX:32016R0679&from=LT\">[BDAR] 40 str.</a>) ir duomenų apsaugos sertifikavimas (žr. <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[BDAR] 42 str.</a>)",
         "source": "PIA1 p4"
       },
       "PIA_LGL_DATA": {
-        "name": "Data and processes",
-        "description": "Define and describe the scope in detail:<br>- the personal data concerned, their recipients and storage durations<br>- description of the processes and personal data supporting assets for the entire personal data life cycle (from collection to erasure).",
+        "name": "Duomenys ir procesai",
+        "description": "Detaliau aprašykite duomenų tvarkymą ir susijusius procesus: <br>- asmens duomenų kategorijas, asmens duomenų gavėjus, asmens duomenų saugojimo trukmę <br>- procesai ir įmonės tvarkos, padedantys tvarkyti nuo asmens duomenis nuo jų gavimo iki ištrynimo.",
         "source": "PIA1 p6"
       },
       "PIA_LGL_SUPT": {
-        "name": "Supporting asset",
-        "description": "Asset on which personal data rely. Note: this may be hardware, software, networks, people, paper or paper transmission channels.",
+        "name": "Pagalbinės priemonės",
+        "description": "Priemonės, kurios būtinos asmens duomenų tvarkymui. Pvz. jomis gali būti, techninė kompiuterinė įranga, programinė įranga, kompiuterinis tinklas, žmonės, popieriniai dokumentai, popierinių dokumentų perdavimo būdai ir pan.",
         "source": "PIA1 p10"
       },
       "PIA_LGL_FIN": {
-        "name": "Principles relating to processing of personal data",
-        "description": "Personal data shall be collected for specified, explicit and legitimate purposes and <strong>not further processed in a manner that is incompatible with those purposes.</strong> <br>See <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 5.1 b) of [GDPR]</a>",
-        "source": "GDPR art 5.1 b)"
+        "name": "Su asmens duomenų tvarkymu susiję principai",
+        "description": "Asmens duomenys turi būti renkami nustatytais, aiškiai apibrėžtais bei teisėtais tikslais ir toliau netvarkomi su tais tikslais nesuderinamu būdu.</strong> <br>Žr. <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/LT/TXT/HTML/?uri=CELEX:32016R0679&from=LT\"> 5 str. 1 d. b p.) [BDAR]</a>",
+        "source": "BDAR 5 str. 1 d. b p.)"
       },
       "PIA_LGL_MINI": {
-        "name": "Data minimisation",
-        "description": "It is important to reduce the severity of the risks by minimising the number of personal data that will be processed, by limiting such data to what is strictly necessary for the purposes for which they are processed (otherwise they should not be collected). Then, it also becomes possible to minimise the data themselves, via controls aimed at reducing their sensitivity.",
+        "name": "Duomenų kiekio mažinimas",
+        "description": "Siekiant sumažinti kylančias rizikas, reikia mažinti tvarkomų duomenų kiekį, tvarkyti tik tuos duomenis, kurių būtini duomenų tvarkymo tikslų pasiekimui. Venkite nereikalingų asmens duomenų rinkimo ir tvarkymo.",
         "source": "PIAF Connected Objects p10 - WIKI"
       },
       "PIA_LGL_DEST": {
-        "name": "Recipient",
-        "description": "Natural or legal person, public authority, agency or another body, to which the personal data are disclosed, whether a third party or not. However, public authorities which may receive personal data in the framework of a particular inquiry in accordance with Union or Member State law shall not be regarded as recipients; the processing of those data by those public authorities shall be in compliance with the applicable data protection rules according to the purposes of the processing. see Art. 4.9 of the <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR]</a>",
-        "source": "GDPR art 4.9"
+        "name": "Duomenų gavėjai",
+        "description": "Fizinis arba juridinis asmuo, valdžios institucija, agentūra ar kita įstaiga, kuriai atskleidžiami asmens duomenys, nesvarbu, ar tai trečioji šalis ar ne. Tačiau valdžios institucijos, kurios pagal Sąjungos arba valstybės narės teisę gali gauti asmens duomenis vykdydamos konkretų tyrimą, nelaikomos duomenų gavėjais; tvarkydamos tuos duomenis, tos valdžios institucijos laikosi taikomų duomenų tvarkymo tikslus atitinkančių duomenų apsaugos taisyklių. Žr. <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/LT/TXT/HTML/?uri=CELEX:32016R0679&from=LT\">[BDAR]</a> 4 str. 9 p.",
+        "source": "BDAR 4 str. 9 d."
       },
       "PIA_LGL_DUR": {
-        "name": "Storage Durations",
-        "description": "A storage duration must be defined for each type of data and justified by the legal requirements and/or processing needs. Thus a distinction is made between common data and archived data, to which access will be limited to only the stakeholders concerned. An erasure mechanism must be implemented to archive common data or purge archived data at the end of their storage duration. Functional traces will also have to be purged, as will technical logs which may not be stored indefinitely",
+        "name": "Saugojimo trukmė",
+        "description": "Duomenų saugojimo trukmė turi būti nustatyta kiekvienai asmens duomenų kategorijai ir pagrįsta teisiniais reikalavimais ir/ar duomenų tvarkymo poreikiais. Tam tikslui, reikia skirti tvarkomus duomenis nuo suarchyvuotų duomenų, prieigą prie pastarųjų gali būti suteikta tik ribotam ratui atsakingų asmenų. Turi būti įgyvendinta duomenų ištrynimo tvarka tam, kad būtų galima suarchyvuoti duomenis ir juos ištrinti, kai sueina duomenų saugojimo terminas. Prieigos registracijos duomenys (logs) taip pat turi būti ištrinti, o techniniai protokolų duomenys negali būtų saugoti neribotai.",
         "source": "PIAF Connected Objects p12"
       },
       "PIA_LGL_INFO": {
-        "name": "Informing data subjects",
-        "description": "Ensure that the subjects are informed. Confirm that the processing is not covered by an exception and is not subject to specific conditions.",
+        "name": "Duomenų subjektų informavimas",
+        "description": "Duomenų subjektai privalo būti informuoti. Siekite užtikrinti, kad duomenų tvarkymas nebūtų grindžiamas išimtimi ar ypatingomis sąlygomis.",
         "source": "PIA3 p8 - WIKI"
       },
       "PIA_LGL_CONS": {
-        "name": "Consent",
-        "description": "Allow data subjects to make a free, specific and informed choice. Determine whether the processing relies on a legal basis other than consent pursuant to Art. 6 of the <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR]</a>",
+        "name": "Sutikimas",
+        "description": "Sutikimas turi būti suteiktas laisva valia, konkretus, informacija pagrįstas ir vienareikšmis nurodymas. Nustatykite, ar duomenų tvarkymas remiasi kitu nei sutikimas teisiniu pagrindu pagal <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/LT/TXT/HTML/?uri=CELEX:32016R0679&from=LT\">[BDAR]</a> 6 str.",
         "source": "PIA3 p11 - WIKI"
       },
       "PIA_VAL_DPO": {
