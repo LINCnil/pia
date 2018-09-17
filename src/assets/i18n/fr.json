@@ -279,6 +279,10 @@
         "title": "Sous traitants",
         "placeholder": "Listez les sous traitants"
       },
+      "recipients": {
+        "title": "Destinataires",
+        "placeholder": "Listez les destinataires du traitement"
+      },
       "lifecycle": {
         "title": "Cycle de vie des données",
         "placeholder": "Décrivez le cycle de vie des données pour ce traitement (description fonctionnelle)"

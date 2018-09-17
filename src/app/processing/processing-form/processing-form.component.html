@@ -336,6 +336,29 @@
             ></textarea>
           </div>
           <div class="form-field">
+            <label class="title" for="processing-recipients">{{ 'processing.form.recipients.title' | translate }}</label>
+            <div (click)="editField(recipients, ['PIA_LGL_ST', 'PIA_LGL_DEST'])"
+              class="pia-questionBlock-contentText"
+              [innerHTML]="processingForm.form.controls['recipients']?.value | safeHtml"
+              [ngClass]="{ 'hide': ((editor && elementId === recipients.id) || !processingForm.form.controls['recipients']?.value) }"
+            ></div>
+
+            <textarea
+              class="field"
+              id="processing-recipients"
+              required
+              name="recipients"
+              minRows="8"
+              cols="50"
+              placeholder="{{'processing.form.recipients.placeholder' | translate}}"
+              #recipients
+              (change)="updateProcessing()"
+              [(ngModel)]="processing.recipients"
+              [ngClass]="{ 'hide': (processingForm.form.controls['recipients']?.value && processingForm.form.controls['recipients']?.value.length > 0) }"
+              (focusin)="editField($event.target, ['PIA_LGL_ST', 'PIA_LGL_DEST'])"
+            ></textarea>
+          </div>
+          <div class="form-field">
             <label class="title" for="processing-non-eu-transfer">{{ 'processing.form.non-eu-transfer.title' | translate }}</label>
             <div (click)="editField(nonEuTransfer, ['PIA_LGL_TRAN'])"
               class="pia-questionBlock-contentText"
