@@ -13,5 +13,6 @@ export {
     UserTokenService as UserTokenApi,
     TemplateService as TemplateApi,
     FolderService as FolderApi,
-    ProcessingDataTypeService as ProcessingDataTypeApi
+    ProcessingDataTypeService as ProcessingDataTypeApi,
+    StructureService as StructureApi
 } from '@api/service';

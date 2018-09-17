@@ -1,0 +1,36 @@
+@import '../../assets/stylesheets/variables';
+
+.go-back-link {
+  float: right;
+  color: $pia-green;
+}
+
+#structure-form {
+  .form-field {
+    background: $pia-full-white;
+    box-shadow: 1px 1px 5px 1px lighten($pia-gray, 20%);
+    padding: 0.8em;
+    margin: 1.2em 0;
+
+    .title {
+      display: block;
+      width: 100%;
+      // color: $pia-blue;
+      color: $pia-green;
+      font-size: 1.2em;
+      font-weight: bold;
+      // border-bottom: 1px solid $pia-blue;
+      border-bottom: 1px solid $pia-green;
+    }
+
+    .value {
+      min-height: 2em;
+      padding:0.5em;
+      font-size:1.2em;
+    }
+
+    textarea{
+      display: none;
+    }
+  }
+}

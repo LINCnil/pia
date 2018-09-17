@@ -1,0 +1,247 @@
+<app-header></app-header>
+
+<div class="container pia-mainContainerBlock">
+  <div class="row">
+
+    <div class="small-12 medium-12 columns">
+      <h2 class="page-title">
+        
+        <i class="fa fa-building" aria-hidden="true"></i>
+        {{structure.name}}
+        <a routerLink="/folders" class="go-back-link">
+          <i class="fa fa-reply"></i>
+        </a>
+      </h2>
+    </div>
+
+    <form id="structure-form" #structureForm="ngForm" class="small-12 medium-12 columns">
+
+      <div class="small-12 medium-12 columns">
+
+        <!-- NAME -->
+
+        <div class="form-field">
+          <label class="title" for="structure-name">{{ 'structure.form.name.title' | translate }}</label>
+          <div (click)="editField(name)"
+            class="value"
+            [innerHTML]="structureForm.form.controls['name']?.value | safeHtml"
+            [ngClass]="{ 'hide': ((editor && elementId === name.id)) }"
+          ></div>
+
+          <textarea
+            class="field"
+            id="structure-name"
+            name="name"
+            minRows="4"
+            cols="50"
+            placeholder="{{'structure.form.name.placeholder' | translate }}"
+            #name
+            (change)="updateStructure()"
+            [(ngModel)]="structure.name"
+            [ngClass]="{ 'hide': (structureForm.form.controls['name']?.value) }"
+            (focusin)="editField($event.target)"
+          ></textarea>
+        </div>
+
+        <!-- LEGAL_FORM -->
+
+        <div class="form-field">
+          <label class="title" for="structure-legal-form">{{ 'structure.form.legal_form.title' | translate }}</label>
+          <div (click)="editField(legalForm)"
+            class="value"
+            [innerHTML]="structureForm.form.controls['legal_form']?.value | safeHtml"
+            [ngClass]="{ 'hide': ((editor && elementId === legalForm.id)) }"
+          ></div>
+
+          <textarea
+            class="field"
+            id="structure-legal_form"
+            name="legal_form"
+            minRows="4"
+            cols="50"
+            placeholder="{{'structure.form.legal_form.placeholder' | translate }}"
+            #legalForm
+            (change)="updateStructure()"
+            [(ngModel)]="structure.legal_form"
+            [ngClass]="{ 'hide': (structureForm.form.controls['legal_form']?.value) }"
+            (focusin)="editField($event.target)"
+          ></textarea>
+        </div>
+
+        <!-- ADDRESS -->
+
+        <div class="form-field">
+          <label class="title" for="structure-address">{{ 'structure.form.address.title' | translate }}</label>
+          <div (click)="editField(address)"
+            class="value"
+            [innerHTML]="structureForm.form.controls['address']?.value | safeHtml"
+            [ngClass]="{ 'hide': ((editor && elementId === address.id)) }"
+          ></div>
+
+          <textarea
+            class="field"
+            id="structure-address"
+            name="address"
+            minRows="4"
+            cols="50"
+            placeholder="{{'structure.form.address.placeholder' | translate }}"
+            #address
+            (change)="updateStructure()"
+            [(ngModel)]="structure.address"
+            [ngClass]="{ 'hide': (structureForm.form.controls['address']?.value) }"
+            (focusin)="editField($event.target)"
+          ></textarea>
+        </div>
+
+        <!-- PHONE -->
+
+        <div class="form-field">
+          <label class="title" for="structure-phone">{{ 'structure.form.phone.title' | translate }}</label>
+          <div (click)="editField(phone)"
+            class="value"
+            [innerHTML]="structureForm.form.controls['phone']?.value | safeHtml"
+            [ngClass]="{ 'hide': ((editor && elementId === phone.id)) }"
+          ></div>
+
+          <textarea
+            class="field"
+            id="structure-phone"
+            name="phone"
+            minRows="4"
+            cols="50"
+            placeholder="{{'structure.form.phone.placeholder' | translate }}"
+            #phone
+            (change)="updateStructure()"
+            [(ngModel)]="structure.phone"
+            [ngClass]="{ 'hide': (structureForm.form.controls['phone']?.value) }"
+            (focusin)="editField($event.target)"
+          ></textarea>
+        </div>
+
+        <!-- ACTIVITY_CODE -->
+
+        <div class="form-field">
+          <label class="title" for="structure-activity_code">{{ 'structure.form.activity_code.title' | translate }}</label>
+          <div (click)="editField(activityCode)"
+            class="value"
+            [innerHTML]="structureForm.form.controls['activity_code']?.value | safeHtml"
+            [ngClass]="{ 'hide': ((editor && elementId === activityCode.id)) }"
+          ></div>
+
+          <textarea
+            class="field"
+            id="structure-activity_code"
+            name="activity_code"
+            minRows="4"
+            cols="50"
+            placeholder="{{'structure.form.activity_code.placeholder' | translate }}"
+            #activityCode
+            (change)="updateStructure()"
+            [(ngModel)]="structure.activity_code"
+            [ngClass]="{ 'hide': (structureForm.form.controls['activity_code']?.value) }"
+            (focusin)="editField($event.target)"
+          ></textarea>
+        </div>
+
+        <!-- SIREN -->
+
+        <div class="form-field">
+          <label class="title" for="structure-siren">{{ 'structure.form.siren.title' | translate }}</label>
+          <div (click)="editField(siren)"
+            class="value"
+            [innerHTML]="structureForm.form.controls['siren']?.value | safeHtml"
+            [ngClass]="{ 'hide': ((editor && elementId === siren.id)) }"
+          ></div>
+
+          <textarea
+            class="field"
+            id="structure-siren"
+            name="siren"
+            minRows="4"
+            cols="50"
+            placeholder="{{'structure.form.siren.placeholder' | translate }}"
+            #siren
+            (change)="updateStructure()"
+            [(ngModel)]="structure.siren"
+            [ngClass]="{ 'hide': (structureForm.form.controls['siren']?.value) }"
+            (focusin)="editField($event.target)"
+          ></textarea>
+        </div>
+
+        <!-- SIRET -->
+
+        <div class="form-field">
+          <label class="title" for="structure-siret">{{ 'structure.form.siret.title' | translate }}</label>
+          <div (click)="editField(siret)"
+            class="value"
+            [innerHTML]="structureForm.form.controls['siret']?.value | safeHtml"
+            [ngClass]="{ 'hide': ((editor && elementId === siret.id)) }"
+          ></div>
+
+          <textarea
+            class="field"
+            id="structure-siret"
+            name="siret"
+            minRows="4"
+            cols="50"
+            placeholder="{{'structure.form.siret.placeholder' | translate }}"
+            #siret
+            (change)="updateStructure()"
+            [(ngModel)]="structure.siret"
+            [ngClass]="{ 'hide': (structureForm.form.controls['siret']?.value) }"
+            (focusin)="editField($event.target)"
+          ></textarea>
+        </div>
+
+        <!-- VAT_NUMBER -->
+
+        <div class="form-field">
+          <label class="title" for="structure-vat_number">{{ 'structure.form.vat_number.title' | translate }}</label>
+          <div (click)="editField(vatNumber)"
+            class="value"
+            [innerHTML]="structureForm.form.controls['vat_number']?.value | safeHtml"
+            [ngClass]="{ 'hide': ((editor && elementId === vatNumber.id)) }"
+          ></div>
+
+          <textarea
+            class="field"
+            id="structure-vat_number"
+            name="vat_number"
+            minRows="4"
+            cols="50"
+            placeholder="{{'structure.form.vat_number.placeholder' | translate }}"
+            #vatNumber
+            (change)="updateStructure()"
+            [(ngModel)]="structure.vat_number"
+            [ngClass]="{ 'hide': (structureForm.form.controls['vat_number']?.value) }"
+            (focusin)="editField($event.target)"
+          ></textarea>
+        </div>
+
+        <!-- REGISTRATION_DATE -->
+
+        <div class="form-field">
+          <label class="title" for="structure-registration_date">{{ 'structure.form.registration_date.title' | translate }}</label>
+          <div (click)="editDateField(registrationDate)"
+            class="value"
+            [innerHTML]="structureForm.form.controls['registration_date']?.value | date | safeHtml"
+            [ngClass]="{ 'hide': (elementId === registrationDate.id) }"
+          ></div>
+
+          <input type="date"
+            class="field"
+            id="structure-registration_date"
+            name="registration_date"
+            #registrationDate
+            (change)="updateStructure()"
+            [(ngModel)]="structure.registration_date"
+            [ngClass]="{ 'hide': (elementId !== registrationDate.id) }"
+            (focusout)="closeDateField($event.target)"
+          />
+        </div>
+
+      </div>
+
+    </form>
+  </div>
+</div>

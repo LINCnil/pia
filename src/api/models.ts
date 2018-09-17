@@ -13,5 +13,6 @@ export {
     UserToken as UserTokenModel,
     Template as TemplateModel,
     Folder as FolderModel,
-    ProcessingDataType as ProcessingDataTypeModel
+    ProcessingDataType as ProcessingDataTypeModel,
+    Structure as StructureModel,
 } from '@api/model';

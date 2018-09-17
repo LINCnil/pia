@@ -188,6 +188,40 @@
           "remove": "Supprimer"
         }
       }
+    },
+    "structure": {
+      "info_button": "Informations de la structure"
+    }
+  },
+  "structure": {
+    "form": {
+      "name": {
+        "title": "Dénomination"
+      },
+      "address": {
+        "title": "Adresse"
+      },
+      "phone": {
+        "title": "Numéro de téléphone"
+      },
+      "siren": {
+        "title": "SIREN"
+      },
+      "siret": {
+        "title": "SIRET (Siège)"
+      },
+      "vat_number": {
+        "title": "Numéro de TVA intracommunautaire"
+      },
+      "activity_code": {
+        "title": "Activité (Code NAF ou APE)"
+      },
+      "legal_form": {
+        "title": "Forme juridique"
+      },
+      "registration_date": {
+        "title": "Date immatriculation RCS"
+      }
     }
   },
   "processing": {

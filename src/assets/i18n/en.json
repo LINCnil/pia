@@ -170,6 +170,9 @@
           "remove": "Delete"
         }
       }
+    },
+    "structure": {
+      "info_button": "Structure informations"
     }
   },
   "pia": {
@@ -217,6 +220,37 @@
       "validate_evaluation": "Validate review",
       "subsection_validated": "Subsection reviewed, awaiting final validation",
       "mandatory_fields": "All fields must be filled"
+    }
+  },
+  "structure": {
+    "form": {
+      "name": {
+        "title": "Name"
+      },
+      "address": {
+        "title": "Address"
+      },
+      "phone": {
+        "title": "Phone number"
+      },
+      "siren": {
+        "title": "SIREN"
+      },
+      "siret": {
+        "title": "SIRET (HQ)"
+      },
+      "vat_number": {
+        "title": "Vat Number"
+      },
+      "activity_code": {
+        "title": "Activity Code"
+      },
+      "legal_form": {
+        "title": "Legal form"
+      },
+      "registration_date": {
+        "title": "Registration date"
+      }
     }
   },
   "processing": {

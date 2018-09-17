@@ -19,6 +19,8 @@ import { PiaResolve } from 'app/services/pia.resolve.service';
 import { PiaService } from 'app/entry/pia.service';
 import { PiasListComponent } from './pias/list/list.component';
 import { ProcessingResolve } from './processing/processing.resolve.service';
+import { StructureResolve } from './structure/structure.resolve.service';
+import { StructureComponent } from 'app/structure/structure.component';
 
 
 const routes: Routes = [
@@ -35,6 +37,12 @@ const routes: Routes = [
   },
   { path: 'help', component: HelpComponent },
   { path: 'about', component: AboutComponent },
+  { 
+    path: 'structure/:id', 
+    component: StructureComponent,
+    canActivate: [AuthenticationGuardService],
+    resolve: {structure: StructureResolve}
+  },
   {
     path: 'processing/:id/pias',
     component: PiasListComponent,
@@ -58,7 +66,8 @@ const routes: Routes = [
   providers: [
     PiaService,
     PiaResolve,
-    ProcessingResolve
+    ProcessingResolve,
+    StructureResolve
   ]
 })
 

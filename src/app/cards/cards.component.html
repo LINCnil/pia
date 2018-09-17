@@ -4,7 +4,17 @@
   <div class="row">
 
     <div class="small-12 medium-12 columns">
-      <h2 class="page-title"> <i class="fa fa-building" aria-hidden="true"></i>  {{structure.name}} <br> <small>{{ 'homepage.cards.processing_register' | translate}}</small></h2>
+      <h2 class="page-title">
+        
+        <i class="fa fa-building" aria-hidden="true"></i>
+        {{structure.name}}
+        <a class="btn btn-green structure-info-button" routerLink="/structure/{{structure.id}}">
+          <i class="fa fa-info-circle"></i>
+          <span>{{ 'homepage.structure.info_button' | translate}}</span>
+        </a>
+        <br>
+        <small>{{ 'homepage.cards.processing_register' | translate}}</small>
+      </h2>
       <div class="pia-filtersBlock">
         <!--
 
