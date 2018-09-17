@@ -1,7 +1,8 @@
 <section class="processing-setion">
   <header autoscroll="true" class="processing-entryContentBlock-header {{ currentSection.name }}">
     <div>
-      <div class="processing-entryContentBlock-header-progress">
+      <div class="">
+          <i class="fa fa-pencil-square-o ng-star-inserted"></i>
       </div>
     </div>
     <div class="processing-entryContentBlock-header-title">
@@ -69,6 +70,30 @@
         </div>
 
         <div class="form-field">
+          <label class="title" for="processing-lawfulness">{{ 'processing.form.lawfulness.title' | translate }}</label>
+          <div (click)="editField(lawfulness, ['PIA_LGL_FOND'])"
+            class="pia-questionBlock-contentText"
+            [innerHTML]="processingForm.form.controls['lawfulness']?.value | safeHtml"
+            [ngClass]="{ 'hide': ((editor && elementId === lawfulness.id) || !processingForm.form.controls['lawfulness']?.value) }"
+          ></div>
+
+          <textarea
+            class="field"
+            id="processing-lawfulness"
+            required
+            name="lawfulness"
+            minRows="8"
+            cols="50"
+            placeholder="{{'processing.form.lawfulness.placeholder' | translate}}"
+            #lawfulness
+            (change)="updateProcessing()"
+            [(ngModel)]="processing.lawfulness"
+            [ngClass]="{ 'hide': (processingForm.form.controls['lawfulness']?.value && processingForm.form.controls['lawfulness']?.value.length > 0) }"
+            (focusin)="editField($event.target, ['PIA_LGL_FOND'])"
+          ></textarea>
+        </div>
+
+        <div class="form-field">
           <label class="title" for="processing-standards">{{ 'processing.form.standards.title' | translate }}</label>
           <div (click)="editField(standards, ['PIA_LGL_FOND'])"
             class="pia-questionBlock-contentText"
@@ -91,9 +116,57 @@
             (focusin)="editField($event.target, ['PIA_LGL_FOND'])"
           ></textarea>
         </div>
+
+        <div class="form-field">
+          <label class="title" for="processing-consent">{{ 'processing.form.consent.title' | translate }}</label>
+          <div (click)="editField(consent, ['PIA_LGL_CONS', 'PIA_LGL_INFO', 'PIA_DEF_CONS'])"
+            class="pia-questionBlock-contentText"
+            [innerHTML]="processingForm.form.controls['consent']?.value | safeHtml"
+            [ngClass]="{ 'hide': ((editor && elementId === consent.id) || !processingForm.form.controls['consent']?.value) }"
+          ></div>
+
+          <textarea
+            class="field"
+            id="processing-consent"
+            required
+            name="consent"
+            minRows="8"
+            cols="50"
+            placeholder="{{'processing.form.consent.placeholder' | translate}}"
+            #consent
+            (change)="updateProcessing()"
+            [(ngModel)]="processing.consent"
+            [ngClass]="{ 'hide': (processingForm.form.controls['consent']?.value && processingForm.form.controls['consent']?.value.length > 0) }"
+            (focusin)="editField($event.target, ['PIA_LGL_CONS', 'PIA_LGL_INFO', 'PIA_DEF_CONS'])"
+          ></textarea>
+        </div>
+
+        <div class="form-field">
+          <label class="title" for="processing-rights-guarantee">{{ 'processing.form.rights_guarantee.title' | translate }}</label>
+          <div (click)="editField(guarantee, ['PIA_DEF_ACC', 'PIA_DEF_PORT', 'PIA_DEF_RECT', 'PIA_DEF_EFF', 'PIA_DEF_LIM'])"
+            class="pia-questionBlock-contentText"
+            [innerHTML]="processingForm.form.controls['guarantee']?.value | safeHtml"
+            [ngClass]="{ 'hide': ((editor && elementId === guarantee.id) || !processingForm.form.controls['guarantee']?.value) }"
+          ></div>
+
+          <textarea
+            class="field"
+            id="processing-rights-guarantee"
+            required
+            name="guarantee"
+            minRows="8"
+            cols="50"
+            placeholder="{{'processing.form.rights_guarantee.placeholder' | translate}}"
+            #guarantee
+            (change)="updateProcessing()"
+            [(ngModel)]="processing.rights_guarantee"
+            [ngClass]="{ 'hide': (processingForm.form.controls['guarantee']?.value && processingForm.form.controls['guarantee']?.value.length > 0) }"
+            (focusin)="editField($event.target, ['PIA_DEF_ACC', 'PIA_DEF_PORT', 'PIA_DEF_RECT', 'PIA_DEF_EFF', 'PIA_DEF_LIM'])"
+          ></textarea>
+        </div>
       </fieldset>
 
-      <fieldset *ngIf="currentSection.id == 2" id="data" class="form-section">
+      <fieldset [hidden]="currentSection.id !== 2" id="data" class="form-section">
         <div class="form-field">
           <label class="title" for="processing-data-types">{{ 'processing.form.data-types' | translate }}</label>
           <app-processing-data-types
@@ -104,6 +177,54 @@
             (change)="updateProcessing(true)"
             [processingId]="processing.id"
           ></app-processing-data-types>
+        </div>
+
+        <div class="form-field">
+          <label class="title" for="processing-exactness">{{ 'processing.form.exactness.title' | translate }}</label>
+          <div (click)="editField(exactness, ['PIA_DEF_EXA'])"
+            class="pia-questionBlock-contentText"
+            [innerHTML]="processingForm.form.controls['exactness']?.value | safeHtml"
+            [ngClass]="{ 'hide': ((editor && elementId === exactness.id) || !processingForm.form.controls['exactness']?.value) }"
+          ></div>
+
+          <textarea
+            class="field"
+            id="processing-exactness"
+            required
+            name="exactness"
+            minRows="8"
+            cols="50"
+            placeholder="{{'processing.form.exactness.placeholder' | translate}}"
+            #exactness
+            (change)="updateProcessing()"
+            [(ngModel)]="processing.exactness"
+            [ngClass]="{ 'hide': (processingForm.form.controls['exactness']?.value && processingForm.form.controls['exactness']?.value.length > 0) }"
+            (focusin)="editField($event.target, ['PIA_DEF_EXA'])"
+          ></textarea>
+        </div>
+
+        <div class="form-field">
+          <label class="title" for="processing-minimization">{{ 'processing.form.minimization.title' | translate }}</label>
+          <div (click)="editField(minimization, ['PIA_LGL_MINI', 'PIA_DF_MINC', 'PIA_DEF_MIND'])"
+            class="pia-questionBlock-contentText"
+            [innerHTML]="processingForm.form.controls['minimization']?.value | safeHtml"
+            [ngClass]="{ 'hide': ((editor && elementId === minimization.id) || !processingForm.form.controls['minimization']?.value) }"
+          ></div>
+
+          <textarea
+            class="field"
+            id="processing-minimization"
+            required
+            name="minimization"
+            minRows="8"
+            cols="50"
+            placeholder="{{'processing.form.minimization.placeholder' | translate}}"
+            #minimization
+            (change)="updateProcessing()"
+            [(ngModel)]="processing.minimization"
+            [ngClass]="{ 'hide': (processingForm.form.controls['minimization']?.value && processingForm.form.controls['minimization']?.value.length > 0) }"
+            (focusin)="editField($event.target, ['PIA_LGL_MINI', 'PIA_DF_MINC', 'PIA_DEF_MIND'])"
+          ></textarea>
         </div>
 
         <div class="form-field">

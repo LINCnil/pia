@@ -56,8 +56,11 @@
         border: 0;
         height: 1px;
       }
-    }
 
+      &:focus, &:hover, &:active, &.active {
+        color: $pia-green!important;
+      }
+    }
     &-list {
       padding: 0;
       margin-bottom: 22px;

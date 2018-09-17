@@ -249,8 +249,28 @@
         "placeholder": "Listez les sous traitants"
       },
       "lifecycle": {
-        "title": "Cycle de vie des données",
-        "placeholder": "Décrivez le cycle de vie des données pour ce traitement"
+        "title": "Data lifecycle",
+        "placeholder": "Describe data lifecycle in this processing"
+      },
+      "lawfulness": {
+        "title": "Quels sont les fondements qui rendent le traitement licite ?",
+        "placeholder": "Presentez les fondements de votre traitement (ex: consentement, exécution d'un contrat, obligation légale, etc...)"
+      },
+      "consent": {
+        "title": "Si applicable, comment le consentement des personnes concernées est-il obtenu ou comment sont elles informées?",
+        "placeholder": "Décrivez les modalités prévues pour obtenir le consentement des personnes concernées ou les informer qu'elles sont concernées par le traitement."
+      },
+      "rights_guarantee": {
+        "title": "Mesures protectrices des droits",
+        "placeholder": "Décrivez les modalités prévues pour guarantir les droits élémentaires des personnes concernées (portabilité, oubli, limitation, opposition, rectification, suppression)."
+      },
+      "minimization": {
+        "title": "Les données collectées sont-elles adéquates, pertinentes et limitées à ce qui est nécessaire au regard des finalités pour lesquelles elles sont traitées (minimisation des données) ?",
+        "placeholder": "Expliquez en quoi chaque donnée collectée est nécessaire aux finalités de votre traitement."
+      },
+      "exactness": {
+        "title": "Les données sont-elles exactes et tenues à jour ?",
+        "placeholder": "Décrivez les mesures prévues pour assurer la qualité et la pertinence des données."
       },
       "sections": {
         "description": {

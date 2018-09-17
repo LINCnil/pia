@@ -202,13 +202,33 @@
         "title": "Quelles sont les personnes responsables du traitement?",
         "placeholder": "Désignez les personnes opérationnelles qui sont responsables du traitement"
       },
+      "lawfulness": {
+        "title": "Quels sont les fondements qui rendent le traitement licite ?",
+        "placeholder": "Presentez les fondements de votre traitement (ex: consentement, exécution d'un contrat, obligation légale, etc...)"
+      },
       "standards": {
         "title": "Quels sont les référenciels applicables ?",
         "placeholder": "Listez les référenciels qui concernent ce traitement"
       },
+      "consent": {
+        "title": "Si applicable, comment le consentement des personnes concernées est-il obtenu ou comment sont elles informées?",
+        "placeholder": "Décrivez les modalités prévues pour obtenir le consentement des personnes concernées ou les informer qu'elles sont concernées par le traitement."
+      },
+      "rights_guarantee": {
+        "title": "Mesures protectrices des droits",
+        "placeholder": "Décrivez les modalités prévues pour guarantir les droits élémentaires des personnes concernées (portabilité, oubli, limitation, opposition, rectification, suppression)."
+      },
+      "minimization": {
+        "title": "Les données collectées sont-elles adéquates, pertinentes et limitées à ce qui est nécessaire au regard des finalités pour lesquelles elles sont traitées (minimisation des données) ?",
+        "placeholder": "Expliquez en quoi chaque donnée collectée est nécessaire aux finalités de votre traitement."
+      },
+      "exactness": {
+        "title": "Les données sont-elles exactes et tenues à jour ?",
+        "placeholder": "Décrivez les mesures prévues pour assurer la qualité et la pertinence des données."
+      },
       "non-eu-transfer":  {
-        "title": "Transfert hors UE",
-        "placeholder": "Laisser vide si pas de transfert de données hors UE"
+        "title": "En cas de transfert de données en dehors de l'Union européenne, les données sont-elles protégées de manière équivalente ?",
+        "placeholder": "Pour chaque pays en dehors de l'Union européenne où des données sont stockées ou traitées, identifiez-le et indiquez s'il est reconnu comme adéquat ou décrivez les clauses qui encadrent le transfert.(Laisser vide si pas de transfert de données hors UE)"
       },
       "data-types": "Types de données traitées",
       "storage": {
@@ -221,7 +241,7 @@
       },
       "lifecycle": {
         "title": "Cycle de vie des données",
-        "placeholder": "Décrivez le cycle de vie des données pour ce traitement"
+        "placeholder": "Décrivez le cycle de vie des données pour ce traitement (description fonctionnelle)"
       },
       "sections": {
         "description": {

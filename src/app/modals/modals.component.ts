@@ -52,7 +52,7 @@ export class ModalsComponent implements OnInit {
     this.processingForm = new FormGroup({
       name: new FormControl(),
       author: new FormControl(),
-      controllers: new FormControl()
+      designated_controller: new FormControl()
     });
 
     this.folderForm = new FormGroup({
@@ -108,7 +108,7 @@ export class ModalsComponent implements OnInit {
     const processing = new ProcessingModel();
     processing.name = this.processingForm.value.name;
     processing.author = this.processingForm.value.author;
-    processing.controllers = this.processingForm.value.controllers;
+    processing.designated_controller = this.processingForm.value.designated_controller;
 
     this._processingApi.create(processing, this._piaService.currentFolder).subscribe((newProcessing: ProcessingModel) => {
       this.piaForm.reset();

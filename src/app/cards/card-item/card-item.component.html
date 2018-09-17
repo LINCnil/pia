@@ -28,7 +28,7 @@
                 </li>
                 <li *ngxPermissionsOnly="['CanDeleteProcessing']">
                   <i class="fa fa-trash-o" aria-hidden="true"></i>
-                  <a href="javascript:;" (click)="removeProcessing(processing.id)">{{ 'homepage.cards.item.tools.remove' | translate }}</a>
+                  <a href="javascript:;" (click)="removeProcessing(processing.id)" class="delete-processing">{{ 'homepage.cards.item.tools.remove' | translate }}</a>
                 </li>
               </ul>
             </a>
@@ -85,7 +85,7 @@
           <div>{{ processing.pias_count }}</div>
         </div>
         <div class="pia-cardsBlock-item-btn bottom-actions">
-          <a routerLink="/processing/{{processing.id}}" class="btn btn-green">{{ 'homepage.cards.item.consult_processing' | translate }}</a>
+          <a routerLink="/processing/{{processing.id}}" class="btn btn-edit btn-green">{{ 'homepage.cards.item.consult_processing' | translate }}</a>
         </div>
       </form>
   </div>

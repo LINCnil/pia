@@ -27,10 +27,7 @@ describe('Processing folder management', () => {
   const folderCards = new FolderCards();
 
   beforeEach(() => {
-    loginPage.navigateTo();
-    loginPage.clearSessionAndStorage();
-    loginPage.fillCredentionals(auth.username, auth.password);
-    loginPage.submitCredentials();
+    loginPage.authenticate(auth.username, auth.password);
 
     browser.wait(function() {
       return browser.getCurrentUrl().then(function(url) {
@@ -52,23 +49,23 @@ describe('Processing folder management', () => {
     header.clickOnLogoutInProfileMenu();
   });
 
-  it('when user create a folder - a popup has to be filled and the created folder appear on the page', () => {
+  it('when user creates a folder - a popup has to be filled and the created folder appears on the page', () => {
 
     folders.clickOnCreateFolderInCreationMenu().then(() => {
         expect(folderCreationModal.el().isDisplayed()).toBeTruthy();
 
         folderCreationModal.fillFolderName(folderName);
 
-  //       folderCreationModal.submitForm().then(() => {
-  //         expect(folderCreationModal.el().isDisplayed()).toBeFalsy();
-  //         expect(folderCards.byFolderName(folderName).el().isPresent()).toBeTruthy();
-  //       });
+        folderCreationModal.submitForm().then(() => {
+          expect(folderCreationModal.el().isDisplayed()).toBeFalsy();
+          expect(folderCards.byFolderName(folderName).el().isPresent()).toBeTruthy();
+        });
 
-  //   });
+    });
 
-  // });
+  });
 
-  // it('when user deletes a folder - a popup asks for confirmation and the folder is deleted', () => {
+  it('when user deletes a folder - a popup asks for confirmation and the folder is deleted', () => {
 
     folderCards.byFolderName(folderName).clickOnDeleteInToolMenu().then(() => {
       expect(folderDeleteConfirmationModal.el().isDisplayed()).toBeTruthy();
@@ -77,8 +74,8 @@ describe('Processing folder management', () => {
     folderDeleteConfirmationModal.confirmDeletion().then(() => {
       expect(folderDeleteConfirmationModal.el().isDisplayed()).toBeFalsy();
       expect(folderCards.byFolderName(folderName).el().isPresent()).toBeFalsy();
-    })
+    });
 
-  // });
+  });
 
 });

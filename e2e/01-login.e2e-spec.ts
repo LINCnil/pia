@@ -34,7 +34,7 @@ describe('PiaLab Login page', () => {
 
   });
 
-  it('when login is successful — he should redirect to home page', () => {
+  it('when login is successful — he should be redirected to home page', () => {
 
     loginPage.navigateTo();
     loginPage.clearSessionAndStorage();

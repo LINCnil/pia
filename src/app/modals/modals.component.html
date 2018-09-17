@@ -224,7 +224,7 @@
         <span class="pia-icons pia-icon-sad"></span>
         <div class="pia-modalBlock-buttons-choice">
             <button tabindex="1" class="btn btn-red get-focus" type="button" (click)="_modalsService.closeModal()">{{ 'modals.cancel' | translate }}</button>
-            <button tabindex="2" class="btn btn-red" (click)="_piaService.removeProcessing()" type="button">{{ 'modals.remove_processing.remove' | translate }}</button>
+            <button tabindex="2" class="btn-confirm btn btn-red" (click)="_piaService.removeProcessing()" type="button">{{ 'modals.remove_processing.remove' | translate }}</button>
         </div>
     </div>
 </div>
@@ -359,9 +359,9 @@
                     required>
             </div>
             <div>
-                <label for="controllers">{{ 'homepage.cards.controllers' | translate }}</label>
-                <input formControlName="controllers" type="text" placeholder="{{ 'homepage.cards.placeholder_controllers' | translate }}"
-                    id="controllers" required>
+                <label for="designated-controller">{{ 'homepage.cards.designated_controller' | translate }}</label>
+                <input formControlName="designated_controller" type="text" placeholder="{{ 'homepage.cards.placeholder_designated_controller' | translate }}"
+                    id="designated-controller" required>
             </div>
             <p>&nbsp;</p>
             <!--
