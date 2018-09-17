@@ -5,7 +5,7 @@ import { FolderModel } from '@api/models';
 export class Processing extends BaseModel {
   public id: any;
   public name: string;
-  public status: string;
+  public status: number;
   public description: string;
   public author: string;
   public life_cycle: string;
@@ -24,4 +24,11 @@ export class Processing extends BaseModel {
   public rights_guarantee: string;
   public exactness: string;
   public minimization: string;
+}
+
+export enum ProcessingStatus {
+  STATUS_DOING = 0,
+  STATUS_UNDER_VALIDATION = 1,
+  STATUS_VALIDATED = 2,
+  STATUS_ARCHIVED = 3
 }

@@ -257,6 +257,8 @@
     "form": {
       "previous": "Previous section",
       "next": "Next section",
+      "ask_validate_button": "Ask for processing validation",
+      "cancel_ask_validate_button": "Cancel processing validation ask",
       "description": {
         "title": "Quelles sont les finalités du traitement ?",
         "placeholder": "Décrivez les objectifs et finalités du traitement"

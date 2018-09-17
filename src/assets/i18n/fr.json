@@ -228,6 +228,8 @@
     "form": {
       "previous": "Section précédente",
       "next": "Section suivante",
+      "ask_validate_button": "Demander la validation du traitement",
+      "cancel_ask_validate_button": "Annuler la demande de validation du traitement",
       "description": {
         "title": "Quelles sont les finalités du traitement ?",
         "placeholder": "Décrivez les objectifs et finalités du traitement"

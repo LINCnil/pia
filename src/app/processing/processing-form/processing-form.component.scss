@@ -461,4 +461,24 @@
       font-size: 1rem;
     }
   }
+
+  .cancel-validate-container {
+    text-align: center;
+    a.cancel-validation-link {
+      color: $pia-red;
+      cursor: pointer;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+  .validate-container {
+    opacity:0.5;
+    &.ready {
+      opacity:1;
+    }
+    .btn.expanded {
+      margin:0;
+    }
+  }
 }

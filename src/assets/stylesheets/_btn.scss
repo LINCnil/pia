@@ -95,4 +95,8 @@
     box-shadow: 1px 1px 15px 1px darken($pia-white, 13.8%);
     margin-bottom: 10px;
   }
+
+  &.expanded {
+    width: 100%;
+  }
 }

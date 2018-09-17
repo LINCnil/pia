@@ -20,6 +20,18 @@
 
     <form id="processing-form" #processingForm="ngForm">
 
+      <div 
+        class="form-field cancel-validate-container" 
+        *ngIf="processing.status === processingStatus.STATUS_UNDER_VALIDATION"
+      >
+        <a
+          class="cancel-validation-link" 
+          (click)="cancelAskValidation()"
+        >
+          {{ 'processing.form.cancel_ask_validate_button' | translate }}
+        </a>
+      </div>
+
       <fieldset *ngIf="currentSection.id == 1" id="description" class="form-section">
         <div class="form-field">
           <label class="title" for="processing-description">{{ 'processing.form.description.title' | translate }}</label>
@@ -347,6 +359,21 @@
             ></textarea>
           </div>
       </fieldset>
+
+      <div 
+        class="form-field validate-container" 
+        [ngClass]="{'ready': processingFullyFilled === true}" 
+        *ngIf="processing.status === processingStatus.STATUS_DOING"
+      >
+        <button 
+          class="btn btn-green expanded" 
+          [disabled]="processingFullyFilled === false ? 'disabled' : disabled"
+          (click)="askValidation()"
+        >
+          {{ 'processing.form.ask_validate_button' | translate }}
+        </button>
+      </div>
+
     </form>
   </main>
 </section>
