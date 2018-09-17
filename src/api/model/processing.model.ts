@@ -18,6 +18,7 @@ export class Processing extends BaseModel {
   public processing_data_types: any;
   public folder: FolderModel;
   public pias_count: number;
+  public context_of_implementation: string;
   public lawfulness: string;
   public consent: string;
   public rights_guarantee: string;

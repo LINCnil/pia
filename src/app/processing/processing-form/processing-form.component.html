@@ -46,6 +46,30 @@
         </div>
 
         <div class="form-field">
+          <label class="title" for="processing-context_of_implementation">{{ 'processing.form.context_of_implementation.title' | translate }}</label>
+          <div (click)="editField(context_of_implementation, ['PIA_LGL_DESC', 'PIA_LGL_FIN'])"
+            class="pia-questionBlock-contentText"
+            [innerHTML]="processingForm.form.controls['context_of_implementation']?.value | safeHtml"
+            [ngClass]="{ 'hide': ((editor && elementId === context_of_implementation.id) || !processingForm.form.controls['context_of_implementation']?.value) }"
+          ></div>
+
+          <textarea
+            class="field"
+            id="processing-context_of_implementation"
+            required
+            name="context_of_implementation"
+            minRows="8"
+            cols="50"
+            placeholder="{{'processing.form.context_of_implementation.placeholder' | translate }}"
+            #context_of_implementation
+            (change)="updateProcessing()"
+            [(ngModel)]="processing.context_of_implementation"
+            [ngClass]="{ 'hide': (processingForm.form.controls['context_of_implementation']?.value && processingForm.form.controls['context_of_implementation']?.value.length > 0) }"
+            (focusin)="editField($event.target, ['PIA_LGL_DESC', 'PIA_LGL_FIN'])"
+          ></textarea>
+        </div>
+
+        <div class="form-field">
           <label class="title" for="processing-controllers">{{ 'processing.form.controllers.title' | translate }}</label>
           <div (click)="editField(controllers, ['PIA_VAL_RT', 'PIA_LGL_DESC', 'PIA_DEF_RT'])"
             class="pia-questionBlock-contentText"

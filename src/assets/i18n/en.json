@@ -261,6 +261,10 @@
         "title": "Quelles sont les finalités du traitement ?",
         "placeholder": "Décrivez les objectifs et finalités du traitement"
       },
+      "context_of_implementation": {
+        "title": "Quel est le context de mise en œuvre du traitement ?",
+        "placeholder": "Décrivez le context de mise en œuvre du traitement"
+      },
       "controllers": {
         "title": "Quelles sont les personnes responsables du traitement?",
         "placeholder": "Désignez les personnes opérationnelles qui sont responsables du traitement"
