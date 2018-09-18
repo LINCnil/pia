@@ -253,58 +253,58 @@
         "source": "PIA3 p11 - WIKI"
       },
       "PIA_VAL_DPO": {
-        "name": "DPO's opinion",
-        "description": "The controller shall seek the advice of the data protection officer, where designated, when carrying out a data protection impact assessment. See Art. 35.2 of the <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR]</a><br> <strong>This view may be against the processing being implemented, without restricting the decision of the data controller for all that</strong>.",
-        "source": "GDPR Art. 35.2 and PIAF Connected Objects p37"
+        "name": "DAP nuomonė",
+        "description": "Atliekant poveikio duomenų apsaugai vertinimą, duomenų valdytojas turėtų konsultuotis su duomenų apsaugos pareigūnu, jei toks yra paskirtas. Žr. <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/LT/TXT/HTML/?uri=CELEX:32016R0679&from=LT\">[GDPR]</a> 35 str. 2 d. <br> <strong>Jo nuomonė gali prieštarauti planuojamam duomenų tvarkymui, tačiau tai neturėtų riboti duomenų valdytojo diskrecijos priimant sprendimus</strong>.",
+        "source": "BDAR 35 str. 2 d. ir PIAF Connected Objects p37"
       },
       "PIA_VAL_CONC": {
-        "name": "Data subject's opinion",
-        "description": "Where appropriate, the controller shall seek the views of data subjects or their representatives on the intended processing, without prejudice to the protection of commercial or public interests or the security of processing operations. See Art. 35.9 of the <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR]</a><br>These views may be gathered by diverse means, depending on the context (internal or external study on the processing methods and purpose, question for the attention of staff representatives or trade unions, survey among future customers of the data processor). <strong>Where the data controller decides to go against the views of the data subjects</strong>, he must note down <strong>the justification for this decision</strong>. Where the data controller considers that <strong>gathering the views of the data subjects is not relevant, he must also note down the justification thereof</strong>.",
-        "source": "GDPR Art. 35.9 and PIAF Connected Objects p38"
+        "name": "Duomenų subjekto nuomonė",
+        "description": "Atitinkamais atvejais duomenų valdytojas turėtų siekti išsiaiškinti duomenų subjektų ar jų atstovų nuomonę apie numatytą duomenų tvarkymą, nepažeisdamas komercinių ar viešųjų interesų apsaugos arba duomenų tvarkymo operacijų saugumo reikalavimų. Žr. <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/LT/TXT/HTML/?uri=CELEX:32016R0679&from=LT\">[GDPR]</a> 35 str. 9 d.<br>Tokia nuomonė gali būti gaunama įvairiais būdais (vidinės ir išorinės studijos apie duomenų tvarkymo tikslą ir būdus, klausimynai darbuotojų atstovams, potencialių duomenų valdytojo klientų apklausos).<strong>Jei duomenų valdytojas nusprendžia elgtis priešingai nei mano duomenų subjektai</strong>, jis privalo <strong> tokį savo sprendimą pagrįsti raštu</strong>. Jei duomenų valdytojas nusprendžia, <strong> kad duomenų subjektų nuomonės išsiaiškinimas nėra svarbus, tokį sprendimą jis taip pat turėtų pagrįsti raštu</strong>.",
+        "source": "BDAR 35 str. 9 d. ir PIAF Connected Objects p38"
       },
       "PIA_VAL_RT": {
-        "name": "Formal validation",
-        "description": "Decide on whether the selected controls, residual risks and action plan are acceptable, with justifications, in view of the previously identified stakes and views of the stakeholders. In this way, the PIA may be:<br>- validated<br>- conditional on improvement (explain in what way)<br>- refused (along with the processing under consideration). Where necessary, repeat the previous steps so that the PIA can be validated. This decision does not prejudge the compliance assessment which may be carried out, where applicable, by the Data Protection Authority (the CNIL in France), as part of preliminary formalities or checks for example.",
+        "name": "Galutinis patvirtinimas",
+        "description": "<strong>Duomenų valdytojas turi nuspręsti</strong>, ar, atsižvelgiant į nustatytas problemas ir jų poveikį duomenų subjektams, jo pasirinktos priemonės, susijusios rizikos ir veiksmų planas yra priimtinos. PDAV gali būti: <br>- patvirtintas<br>- dalinis patvirtinimas (nurodykite, kas turi būti pagerinta)<br>- atmestas (nurodykite to priežastis). Jei būtina, reikėtų dar kartą patikrinti ankstesnius žingsnius ir juos papildyti tam, kad PDAV galėtų būti patvirtintas. Šis sprendimas neįtakoja atitinkamo duomenų apsaugos inspekcijos vertinimo, pvz. vykstant išankstinėms konsultacijoms.",
         "source": "PIAF Connected Objects p40"
       },
       "PIA_VAL_CART": {
-        "name": "Mapping of risks",
-        "description": "Graph illustrating the good security practices, with a conformity value attributed to each on the basis of its assessment in previous steps.",
+        "name": "Rizikų nurodymas",
+        "description": "Grafikas parodo duomenų tvarkymo metu kylančias rizikas ir kitas rizikas, atsižvelgiant į taikytas technines ir organizacines priemones. Jame parodoma, kad įgyvendinus veiksmų plane nurodytas priemones rizikų įvykimo tikimybė gali būti sumažinta.",
         "source": "PIAF Connected Objects p34"
       },
       "PIA_VAL_ACT": {
-        "name": "Action plan",
-        "description": "corrective controls suggested by the assessor in previous steps, drawing up an action plan setting out, for each action, its manager, frequency, difficulty, cost and progress.",
+        "name": "Veiksmų planas",
+        "description": "Veiksmų plane nurodoma ankstesniuose žingsniuose vertintojo pasiūlytos priemonės, resursai ir patobulinimai, kuriuos reikia įgyvendinti ir įdiegti. Kiekvienai užduočiai reikia paskirti atsakingą asmenį ir nustatyti užduoties atlikimo terminą.",
         "source": "None"
       },
       "PIA_TEC_CHIF": {
-        "placeholder": "Describe here the means implemented for ensuring the confidentiality of data",
-        "name": "Encryption",
-        "description": "Means implemented for <strong>ensuring the confidentiality</strong> of data stored (in the database, in flat files, backups, etc.), as well as the procedure for managing encryption keys (creation, storage, change in the event of suspected cases of data compromise, etc.).<br> Describe the encryption means employed for data flows (VPN, TLS, etc.) implemented in the processing.",
+        "placeholder": "Nurodykite priemones, kurios yra įgyvendintos, siekiant užtikrinti duomenų konfidencialumą",
+        "name": "Šifravimas",
+        "description": "Priemonės, skirtos duomenų, saugomų duomenų bazėse, kompiuterių failuose, atsarginėse kopijose, <strong> konfidencialumo užtikrinimui </strong>. Taip pat šifravimo raktų administravimo procedūros (jų sukūrimas, saugojimas, keitimas, kai įtariama, kad duomenys galėjo būti pažeisti ir t.t.).<br> Nurodykite, kokie šifravimo mechanizmai naudojami duomenų srautų konfidencialumo užtikrinimui (VPN, TLS, pan.).",
         "source": "PIAF Connected Objects p21"
       },
       "PIA_TEC_ANO": {
-        "placeholder": "Indicate here implemented anonymisation mechanisms",
-        "name": "Anonymisation",
-        "description": "Indicate here whether anonymisation mechanisms are implemented, which ones and for what purpose. <br>Remember to clearly distinguish between anonymous and pseudonymous data.",
+        "placeholder": "Nurodykite duomenų nuasmeninimo procedūrą",
+        "name": "Nuasmeninimas",
+        "description": "Nurodykite, ar vykdomas duomenų nuasmeninimas, ar yra šdiegta tam skirta tvarka. Detalizuokite nuasmeninimo procedūrą. <br> Atminkite, kad nuasmeninimas ir pseudonimų suteikimas duomenims yra ne tas pats.",
         "source": "PIAF Connected Objects p21"
       },
       "PIA_TEC_CLO": {
-        "placeholder": "Indicate here if processing partitioning is planned, and how this is carried out.",
-        "name": "Partitioning data",
-        "description": "Implementation of data partitioning helps to reduce the possibility that personal data can be correlated and that a breach of all personal data may occur.",
+        "placeholder": "Nurodykite, ar planuojamas duomenų atskyrimas ir kaip jis vykdomas.",
+        "name": "Duomenų atskyrimas",
+        "description": "Duomenų atskyrimas padeda sumažinti galimybę sujungti duomenis bei sumažina neteisėtos prieigos prie visų saugomų duomenų riziką.",
         "source": "PIAF Connected Objects p21"
       },
       "PIA_TEC_CTLA": {
-        "placeholder": "Indicate here how users profiles are defined and attributed.",
-        "name": "Logical access control",
-        "description": "Methods to define and attribute users profiles. Specify the <strong>authentication</strong> means implemented . Where applicable, specify the rules applicable to passwords (minimum length, required characters, validity duration, number of failed attempts before access to account is locked, etc.).",
+        "placeholder": "Nurodykite, kai nustatote ir suteikiate vartotojams profilius.",
+        "name": "Loginė prieigos kontrolė",
+        "description": "Nurodykite, kaip sukuriami vartotojų profiliai ir suteikiamos jiems atitinkamos teisės bei rolės. Kokie yra įgyvendinti <strong>autentifikavimosi</strong> būdai. Kokios taisyklės yra taikomos slaptažodžių valdymui (minimalus ilgis, privalomas formatas, galiojimo terminas, leistinas nepavykusių prisijungimų skaičius iki paskyros blokavimo ir t.t.)",
         "source": "PIAF Connected Objects p21"
       },
       "PIA_TEC_LOG": {
-        "placeholder": "Indicate here whether events are logged and how long these traces are stored for.",
-        "name": "Traceability (logging)",
-        "description": "Policies that define traceability and log management.",
+        "placeholder": "Nurodykite, ar vedamas veiksmų registravimo žurnalas ir kiek laiko jo įrašai yra saugomi.",
+        "name": "Veiksmų registravimas (logging)",
+        "description": "Taisyklės, kurios taikomos veiksmų registravimui ir įrašų (log) valdymui.",
         "source": "PIAF Connected Objects p22"
       },
       "PIA_TEC_ARCH": {
