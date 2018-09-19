@@ -308,51 +308,51 @@
         "source": "PIAF Connected Objects p22"
       },
       "PIA_TEC_ARCH": {
-        "placeholder": "Indicate here whether mechanisms are implemented for integrity monitoring of stored data, which ones and for what purpose.",
-        "name": "Archiving",
-        "description": "Where applicable, describe here the processes of archive management (delivery, storage, consultation, etc.) under your responsibility. Specify the archiving roles (offices of origin, transferring agencies, etc.) and the archiving policy. State if data may fall within the scope of public archives.",
+        "placeholder": "Nurodykite, ar yra įdiegta duomenų vientisumo kontrolės tvarka, kokia ji ir koks jos tikslas.",
+        "name": "Archyvavimas",
+        "description": "Aprašykite archyvavimo procedūrą ir tvarką (duomenų pateikimą archyvavimui, archyvų saugojimą, prieigos prie jų tvarką, suarchyvuotų duomenų atskyrimą ir pan.). Jei taikoma, aprašykite suarchyvuotų duomenų perdavimo valstybiniams archyvams tvarką.",
         "source": "PIAF Connected Objects p22 - WIKI"
       },
       "PIA_TEC_PAP": {
-        "placeholder": "Indicate here whether mechanisms are implemented for integrity monitoring of paper documents, which ones and for what purpose.",
-        "name": "Paper document security",
-        "description": "Where paper documents containing data are used during the processing, indicate here how they are printed, stored, destroyed and exchanged.",
+        "placeholder": "Nurodykite, kaip tvarkomi popieriniai dokumentai ir kaip užtikrinamas jų vientisumas?",
+        "name": "Popierinių dokumentų apsauga",
+        "description": "Jei duomenų tvarkymas atliekamas su popieriniais dokumentais, nurodykite kaip jie yra saugomi, atspausdinami, sunaikinami ir kaip jais yra keičiamasi su kitais asmenimis.",
         "source": "PIAF Connected Objects p22"
       },
       "PIA_TEC_MINI": {
-        "placeholder": "Indicate here means implemented to reduce the severity of risks by limiting the amount of personal data",
-        "name": "Minimising the amount of personal data",
-        "description": "The following methods could be used : Filtering and removal, Reducing sensitivity via conversion, Reducing the identifying nature of data, Reducing data accumulation, Restricting data access",
+        "placeholder": "Nurodykite, kokių priemonių imamasi tam, kad sumažinti su tvarkomų asmens duomenų kiekį ir apimtis.",
+        "name": "Asmens duomenų tvarkymo apimties mažinimas",
+        "description": "Duomenų apimties sumažinimo galima siekti tokiomis priemonėmis: filtravimas ir sunaikinimas, jautrumo sumažinimas konvertavimo pagalba, identifikuojančių duomenų kiekio sumažinimas, duomenų apjungimo vengimas, prieigos prie duomenų ribojimas ir pan.",
         "source": "PIAF Connected Objects p40"
       },
       "PIA_SEC_EXP": {
-        "placeholder": "Describe here how the software updates (operating systems, applications, etc.) and application of security corrective controls patches are carried out.",
-        "name": "Operating security",
-        "description": "Policies implemented to reduce the possibility and the impact of risks on assets supporting personal data.",
+        "placeholder": "Nurodykite, kaip atnaujinama programinė įranga (operacinės sistemos, kompiuterinės programos, antivirusinės programos ir t.t.) ir kaip įdiegiami programinės įrangos saugumo spragų pataisymai.",
+        "name": "Eksploatavimo sauga",
+        "description": "Aprašykite tvarkas, reglamentuojančias neigiamo poveikio techninei ir programinei įrangai, kurių pagalba tvarkomi asmens duomenys, sumažinimą.",
         "source": "PIAF Connected Objects p22 - WIKI"
       },
       "PIA_SEC_MAL": {
-        "placeholder": "Describe here the controls implemented to reduce risks while accessing less secure networks.",
-        "name": "Clamping down on malicious software",
-        "description": "Controls implemented on workstations and servers to protect them from malicious software while accessing less secure networks.",
+        "placeholder": "Nurodykite kokių kontrolės priemonių imamasi, siekiant sumažinti riziką naudojantis mažiau saugiai tinklais.",
+        "name": "Kenkėjiškų programų prvencija",
+        "description": "Aprašykite, kokių priemonių imamasi, kad į personalinius kompiuterius ir serverius nepatektų kenkėjiškų programų, besinaudojant mažiau saugiais tinklais.",
         "source": "PIAF Connected Objects p22 - WIKI"
       },
       "PIA_SEC_COMP": {
-        "placeholder": "Describe here the controls implemented on workstations",
-        "name": "Managing workstations",
-        "description": "Controls implemented on workstations (automatic locking, regular updates, configuration, physical security, etc.) to reduce the possibility to exploit software properties (operating systems, business applications etc.) to adversely affect personal data.",
+        "placeholder": "Nurodykite, kaip kontroliuojami personaliniai kompiuteriai",
+        "name": "Personalinių kompiuterių administravimas",
+        "description": "Aprašykite, kokių priemonių imamasi, kad nebūtų įsilaužta į personalinius kompiuterius ir juose įdiegtą programinę įrangą bei nebūtų pažeisti ten tvarkomi asmens duomenys (automatinis užraktas, periodiniai programinės įrangos atnaujinimai, fizinė sauga, prieigos kontrolė, išsilaužimo testai, veiksmų protokolavimas ir pan.)",
         "source": "PIAF Connected Objects p22 - WIKI"
       },
       "PIA_SEC_WEB": {
-        "placeholder": "Indicate here controls implemented to protect websites.",
-        "name": "Website security",
-        "description": "Implementation of ANSSI's Recommendations for securing websites.",
+        "placeholder": "Nurodykite, kaip apsaugotos interneto svetainės.",
+        "name": "Interneto svetainių sauga",
+        "description": "Aprašykite, kokių priemonių imamasi, siekiant apsaugoti interneto svetaines ir jose tvarkomus asmens duomenis (bendros saugumo gairės, duomenų perdavimo TLS šifravimas, slapukų naudojimo gairės, saugumo auditai ir pan.)",
         "source": "PIAF Connected Objects p22 - WIKI"
       },
       "PIA_SEC_BKP": {
-        "placeholder": "Indicate here how backups are managed. Clarify whether they are stored in a safe place.",
-        "name": "Backups",
-        "description": "Policies and means implemented to ensure the availability and/or integrity of the personal data, while maintaining their confidentiality.",
+        "placeholder": "Nurodykite, kaip valdomos atsarginės duomenų kopijos. Įvertinkite ar jos saugomos saugioje vietoje.",
+        "name": "Atsarginės kopijos",
+        "description": "Aprašykite tvarkas, skirtas užtikrinti duomenų prieinamumą ir vientisumą, tuo pačiu užtikrinant jų konfidencialumą (atsarginių kopijų darymo periodiškumas, perduodamų duomenų šifravimas, duomenų vientisumo testai ir pan.).",
         "source": "PIAF Connected Objects p23 & PIA3 p27  - WIKI"
       },
       "PIA_SEC_MAIN": {
