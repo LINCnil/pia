@@ -52,7 +52,7 @@ export class PaginationService {
     let previousSectionId = sectionId;
     let previousItemId = itemId;
 
-    this.hasPreviousLink = !(previousSectionId === 2 && itemId === 1);
+    this.hasPreviousLink = !(previousSectionId === 3 && itemId === 1);
 
     if (this.hasPreviousLink) {
       if (previousItemId === 1) {
@@ -79,13 +79,13 @@ export class PaginationService {
 
   private initLinks(): void {
     this.previousLink = {
-      section: 2,
+      section: 3,
       item: 1,
       title: ''
     };
     this.nextLink = {
-      section: 2,
-      item: 1,
+      section: 3,
+      item: 2,
       title: ''
     }
   }
@@ -122,7 +122,7 @@ export class PaginationService {
         goto_section = this.nextLink.section;
         goto_item = this.nextLink.item;
       } else {
-        goto_section = 2;
+        goto_section = 3;
         goto_item = 1;
       }
     }

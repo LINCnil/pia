@@ -29,7 +29,7 @@
 </td>
 <td class="pia-listsBlock-item">
   <div class="pia-listsBlock-item-actions">
-    <a routerLink="/entry/{{pia.id}}/section/2/item/1" class="btn pia-tooltip">
+    <a routerLink="/entry/{{pia.id}}/section/3/item/1" class="btn pia-tooltip">
       <i class="fa" [ngClass]="{'fa-eye': pia.status > 0, 'fa-pencil': pia.status === 0}" aria-hidden="true"></i>
       <span *ngIf="pia.status === 0" class="pia-tooltip-text">{{ 'homepage.lists.item.tools.edit' | translate }}</span>
       <span *ngIf="pia.status > 0" class="pia-tooltip-text">{{ 'homepage.lists.item.tools.consult' | translate }}</span>

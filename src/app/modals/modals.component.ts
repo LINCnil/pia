@@ -95,7 +95,7 @@ export class ModalsComponent implements OnInit {
 
     this.piaApi.create(pia).subscribe((newPia: PiaModel) => {
       this.piaForm.reset();
-      this.router.navigate(['entry', newPia.id, 'section', 2, 'item', 1]);
+      this.router.navigate(['entry', newPia.id, 'section', 3, 'item', 1]);
     });
   }
 

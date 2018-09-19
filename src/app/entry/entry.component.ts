@@ -47,6 +47,9 @@ export class EntryComponent implements OnInit, OnDestroy, DoCheck {
   async ngOnInit() {
     let sectionId = parseInt(this.route.snapshot.params['section_id'], 10);
     let itemId = parseInt(this.route.snapshot.params['item_id'], 10);
+
+    this._globalEvaluationService.answerEditionEnabled = true;
+
     this.data = await this._appDataService.getDataNav();
     this.route.params.subscribe(
       (params: Params) => {
