@@ -326,13 +326,13 @@
         "source": "PIAF Connected Objects p40"
       },
       "PIA_SEC_EXP": {
-        "placeholder": "Nurodykite, kaip atnaujinama programinė įranga (operacinės sistemos, kompiuterinės programos, antivirusinės programos ir t.t.) ir kaip įdiegiami programinės įrangos saugumo spragų pataisymai.",
+        "placeholder": "Nurodykite, kaip atnaujinama programinė įranga (operacinės sistemos, kompiuterinės programos, antivirusinės programos ir t.t.) ir kaip įdiegiami programinės įrangos saugumo spragų pataisymai",
         "name": "Eksploatavimo sauga",
         "description": "Aprašykite tvarkas, reglamentuojančias neigiamo poveikio techninei ir programinei įrangai, kurių pagalba tvarkomi asmens duomenys, sumažinimą.",
         "source": "PIAF Connected Objects p22 - WIKI"
       },
       "PIA_SEC_MAL": {
-        "placeholder": "Nurodykite kokių kontrolės priemonių imamasi, siekiant sumažinti riziką naudojantis mažiau saugiai tinklais.",
+        "placeholder": "Nurodykite kokių kontrolės priemonių imamasi, siekiant sumažinti riziką naudojantis mažiau saugiai tinklais",
         "name": "Kenkėjiškų programų prvencija",
         "description": "Aprašykite, kokių priemonių imamasi, kad į personalinius kompiuterius ir serverius nepatektų kenkėjiškų programų, besinaudojant mažiau saugiais tinklais.",
         "source": "PIAF Connected Objects p22 - WIKI"
@@ -344,93 +344,93 @@
         "source": "PIAF Connected Objects p22 - WIKI"
       },
       "PIA_SEC_WEB": {
-        "placeholder": "Nurodykite, kaip apsaugotos interneto svetainės.",
+        "placeholder": "Nurodykite, kaip apsaugotos interneto svetainės",
         "name": "Interneto svetainių sauga",
         "description": "Aprašykite, kokių priemonių imamasi, siekiant apsaugoti interneto svetaines ir jose tvarkomus asmens duomenis (bendros saugumo gairės, duomenų perdavimo TLS šifravimas, slapukų naudojimo gairės, saugumo auditai ir pan.)",
         "source": "PIAF Connected Objects p22 - WIKI"
       },
       "PIA_SEC_BKP": {
-        "placeholder": "Nurodykite, kaip valdomos atsarginės duomenų kopijos. Įvertinkite ar jos saugomos saugioje vietoje.",
+        "placeholder": "Nurodykite, kaip valdomos atsarginės duomenų kopijos. Įvertinkite ar jos saugomos saugioje vietoje",
         "name": "Atsarginės kopijos",
         "description": "Aprašykite tvarkas, skirtas užtikrinti duomenų prieinamumą ir vientisumą, tuo pačiu užtikrinant jų konfidencialumą (atsarginių kopijų darymo periodiškumas, perduodamų duomenų šifravimas, duomenų vientisumo testai ir pan.).",
         "source": "PIAF Connected Objects p23 & PIA3 p27  - WIKI"
       },
       "PIA_SEC_MAIN": {
-        "placeholder": "Describe here how physical maintenance of hardware is managed",
-        "name": "Maintenance",
-        "description": "Policies describing how physical maintenance of hardware is managed, stating whether this is contracted out.<br> Indicate whether the remote maintenance of apps is authorized, and according to what arrangements. Specify whether defective equipment is managed in a specific manner.",
+        "placeholder": "Nurodykite, kaip priežiūrite techninę įrangą",
+        "name": "Priežiūra",
+        "description": "Nurodyti tvarkas, reglamentuojančias techninės įrangos priežiūrą ir saugą, nurodant ar tokios paslaugos perkamos iš išorinių paslaugų teikėjų. <br> Nurodyti, ar leidžia nuotoliniu būdu teikti prorgaminės įrangos priežiūros paslaugas. Nurodyti, kaip elgiamasi su sugedusia įranga.",
         "source": "PIAF Connected Objects p23"
       },
       "PIA_SEC_CTR": {
-        "placeholder": "Describe here specific measures for processors (host, maintenance company, administrator, specialist service providers, etc.)",
-        "name": "Processing contracts",
-        "description": "TO BE TRANSLATED - Les données à caractère personnel communiquées à ou gérées par des sous-traitants doivent bénéficier de garanties suffisantes. <strong>Faire appel uniquement à des sous-traitants présentant des garanties suffisantes</strong> (notamment en termes de connaissances spécialisées, de fiabilité et de ressources). Exiger la communication par le prestataire de sa politique de sécurité des systèmes d’information. <br>Prendre et documenter les moyens (audits de sécurité, visite des installations, etc.) permettant d’<strong>assurer l’effectivité des garanties offertes par le sous-traitant<strong> en matière de protection des données. Ces garanties incluent notamment :<br> - le chiffrement des données selon leur sensibilité ou à défaut l’existence de procédures garantissant que la société de prestation n’a pas accès aux données qui lui sont confiées<br>- le chiffrement des transmissions de données (ex : connexion de type HTTPS, VPN, etc.)<br>- des garanties en matière de protection du réseau, de traçabilité (journaux, audits), de gestion des habilitations, d’authentification, etc.<br><strong>Prévoir un contrat avec les sous-traitants</strong>, qui définit notamment l’objet, la durée, la finalité du traitement et les obligations des parties. S’assurer qu’il contient en particulier des dispositions fixant :<br>- leur obligation en matière de confidentialité des données personnelles confiées<br>- des contraintes minimales en matière d’authentification des utilisateurs<br>- les conditions de restitution et/ou de destruction des données en fin du contrat<br>- les règles de gestion et de notification des incidents. Celles-ci devraient comprendre une information du responsable de traitement en cas de découverte de faille de sécurité ou d’incident de sécurité et cela dans les plus brefs délais lorsqu’il s’agit d’une violation de données à caractère personnel.<br>- Dans le cas de l’utilisation de fournisseur de cloud computing :<br>\t1. identifier clairement les données et les traitements qui passeront dans le cloud ;<br>\t2. définir ses propres exigences de sécurité technique et juridique ;<br>\t3. conduire une étude de risques afin d'identifier les mesures de sécurité appropriées ;<br>\t4. identifier le type de cloud pertinent pour le traitement envisagé ;<br>\t5. choisir un prestataire présentant des garanties suffisantes ;<br>\t6. revoir la politique de sécurité interne ;<br>\t7. surveiller les évolutions dans le temps.",
-        "source": "Mesures_US Procurement: identified and governed by a contract"
+        "placeholder": "Nurodykite, kokie reikalavimai taikomi duomenų tvarkytojui (prieglobos tiekėjui, administratoriui, specifinių paslaugų teikėjui)",
+        "name": "Susitarimai dėl duomenų tvarkymo",
+        "description": "Duomenų tvarkytojas, kuriam perduodami asmens duomenis ar kuris juos tvarko, turi suteikti pakankamas garantijas. Tam būtina sudaryti susitarimą. <strong>Naudokitės tik patikimų duomenų tvarkytojų paslaugomis </strong> (ypač atsižvelkite į technines kompetencijas, patikimumą ir jo turimus resursus). Reikalaukite, kad tiekėjas pateiktų informacinių sistemų saugumo gaires. <br>Atlikite patikrą ir ją dokumentuokite (saugumo auditai, patalpų apžiūra) tam, kad įsitikintumėte, jog duomenų tvarkytojo suteiktos duomenų apsaugos garantijos iš tiesų egzistuoja. Garantijos apima: <br>- duomenų šifravimas, priklausomai nuo jų jautrumo lygio arba, jei tai neaktualu, buvimas procedūrų, kurių pagalba užtikrinama, kad paslaugų teikėjas neturėtų fizinės prieigos prie tvarkomų duomenų,<br>- perduodamų duomenų šifravimas (z.B.: HTTPS protokolo pagalba, VPN, t.t.)<br>- tinklo apsaugos garantijos, įvykių atsekamumo galimybė (protokolai, auditai), autorizavimosi valdymas, tapatybės nustatymas ir t.t.<strong>susitarimo su duomenų tvarkytoju sudarymas </strong>, jame turi būtų apibrėžtas susitarimo tikslas, trukmė, duomenų tvarkymo tikslas ir susitarimo šalių įsipareigojimai. Įsitikinkite, kad sutartyje būtų šios sąlygos:<br>- tvarkytojo konfidencialumo įsipareigojimas jo tvarkomų asmens duomenų atžvilgiu<br>- minimalūs reikalavimai vartotojų tapatybės nustatymui<br>- reikalavimai dėl duomenų grąžinimo, sunaikinimo ar ištrynimo, kai susitarimas pasibaigia<br>- pranešimų apie duomenų apsaugos pažeidimus ir incidentus taisyklės. Tokį pranešimą duomenų valdytojas turi gauti nedelsiant, per kiek įmanomai trumpiausią terminą. <br>- Naudojant debesų kompiuterijos paslaugas:<br>\t1. aiškiai nurodykite asmens duomenų kategorijas ir duomenų tvarkymo veiksmus, kurie yra perkelti į debesis;<br>\t2. savo pačių nustatyti techniniai ir teisiniai saugos reikalavimai;<br>\t3. atlikite rizikos vertinimą tam, kas nustatytumėte tinkamas saugumo priemones;<br>\t4. nustatykite, kokio tipo debesų paslaugos naudojamos tvarkant duomenis;<br>\t5. pasirinkite tokį tiekėją, kuris suteikia pakankamas garantijas;<br>\t6. patikrinkite atitiktį vidinėms saugos gairėms;<br>\t7. stebėkite pasikeitimus sutartinių santykių metu.",
+        "source": "žr. https://ico.org.uk/media/for-organisations/documents/1540/cloud_computing_guidance_for_organisations.pdf"
       },
       "PIA_SEC_NET": {
-        "placeholder": "Indicate here the security controls of network on which the processing is carried out",
-        "name": "Network security",
-        "description": "Depending on the type of network on which the processing is carried out (isolated, private or Internet). Specify which firewall system, intrusion detection systems or other active or passive devices are in charge of ensuring network security.",
+        "placeholder": "Nurodykite, kaip užtikrinamas saugumas tinkle, kuriame atliekamas asmens duomenų tvarkymas",
+        "name": "Tinklo saugumas",
+        "description": "Duomenų valdytojas turi įdiegti tinkamas saugumo sistemas, kurios priklausomai nuo to, koks tinklas yra naudojamas (uždaras, privatus ar internetas): ugniasienė, įsibrovimų nustatymo sistema arba kita aktyvi ar pasyvi įranga, naudojama tinklo saugumui užtikrinti.",
         "source": "PIAF Connected Objects p23"
       },
       "PIA_SEC_PHY": {
-        "placeholder": "Indicate here how physical access control is carried out regarding the premises accommodating the processing.",
-        "name": "Physical access control",
-        "description": "Policies to ensure physical security (zoning, escorting of visitors, wearing of passes, locked doors and so on).Indicate whether there are warning procedures in place in the event of a break-in.",
+        "placeholder": "Nurodykite, ar naudojama fizinė praėjimo kontrolė patalpose, kur vyksta duomenų tvarkymas",
+        "name": "Fizinė praėjimo kontrolė",
+        "description": "Ar naudojama praėjimo kontrolė į patalpas, kur vyksta duomenų tvarkymas (patalpų išskaidymas, lankytojų palyda, nešiojimas matomoje vietoje pažymėjimų, rakinamos durys, vaizdo stebėsena ir pan.). Nurodykite ar yra įdiegta signalizacija.",
         "source": "PIAF Connected Objects p23"
       },
       "PIA_SEC_LOG": {
-        "placeholder": "Indicate here means and controls implemented to detect incidents involving personal data",
-        "name": "Monitoring network activity",
-        "description": "Monitor intrusion detection systems and intrusion prevention systems in order to analyze network (wired networks, Wi-Fi, radio waves, fiber optics, etc.) traffic in real time and detect any suspicious activity suggestive of a cyber attack scenario.",
+        "placeholder": "Nurodykite, kokios priemonės ir kontrolė naudojama, siekiant nustatyti su asmens duomenis susijusius incidentus",
+        "name": "Tinklo stebėjimas",
+        "description": "Ar naudojamos priemonės tinklo stebėsenai realiame laike tam, kad užkirsti kelią įtartinai veiklai tinkle ir fiksuoti reikiamus įrodymus.",
         "source": "PIA3 p67 - WIKI"
       },
       "PIA_SEC_MAT": {
-        "placeholder": "Indicate here the controls bearing on the physical security of servers and workstations",
-        "name": "Hardware security",
-        "description": "Indicate here the controls bearing on the physical security of servers and workstations (secure storage, security cables, confidentiality filters, secure erasure prior to scrapping, etc.).",
+        "placeholder": "Nurodykite, kokios saugos priemonės taikomos naudojamai techninei įrangai",
+        "name": "Techninės įrangos sauga",
+        "description": "Nurodykite, kokių priemonių imamasi, kad naudojamos sistemos (serveriai, personaliniai kompiuteriai, nešiojami kompiuteriais, komunikacijos įrenginiai ir kita techninė įranga) nebūtų naudojamos asmens duomenų neteisėtam sugadinimui (saugus duomenų saugojimas, duomenų atskyrimas, fizinis tvarkomų duomenų sumažinimas, prieigos prie duomenų ribojimas ir pan.).",
         "source": "PIAF Connected Objects p23 - WIKI"
       },
       "PIA_SEC_SRC": {
-        "placeholder": "Indicate here whether the implantation area is subject to environmental disasters",
-        "name": "Avoiding sources of risk",
-        "description": "Documentation on implantation area, which should not be subject to environmental disasters (flood zone, proximity to chemical industries, earthquake or volcanic zone, etc.).Specify if dangerous products are stored in the same area.",
+        "placeholder": "Nurodykite, kokių rizikos, susijusios su gamtos nelaimėmis, prevencijos priemonių imtasi",
+        "name": "Riziko šaltinių užkardymas",
+        "description": "Priemonės, skirtos nuo žmogaus elgesio priklausančių ir nepriklausančių rizikų išvengimui, siekiant užtikrinti asmens duomenų apsaugos (potvynio zona, pavojinga geografinė teritorija, žemės drebėjimas, asmens duomenų teikimas už ES ribų ir pan.)",
         "source": "PIAF Connected Objects p23 - WIKI"
       },
       "PIA_SEC_PROT": {
-        "placeholder": "Indicate here means to avoid to limit non-human sources of risks.",
-        "name": "Protecting against non-human sources of risks",
-        "description": "Policies describing the means of fire prevention, detection and fighting. Where applicable, indicate the means of preventing water damage. Also specify the means of power supply monitoring and relief.",
+        "placeholder": "Nurodykite, kokių priemonių imamasi, siekinat išvengti ar riboti nuo žmogaus nepriklausančių rizikų",
+        "name": "Apsauga nuo ne nuo žmogaus priklausančių rizikų",
+        "description": "Priemonės, skirtos sumažinti nuo žmogaus elgesio nepriklausančias rizikas (gaisras, potvynis, nelaimingi atsitikimai ir pan.), kas gali pažeisti duomenų saugumą (kokių prevencinių priemonių imamasi, aplinkos monitorinimas, apsauga ir pan.)",
         "source": "PIAF Connected Objects p23 - WIKI"
       },
       "PIA_ORG_ORG": {
-        "placeholder": "Indicate if the roles and responsibilities for data protection are defined.",
-        "name": "Organisation",
-        "description": "Specify whether a person is responsible for the enforcement of privacy laws and regulations. Specify whether there is a monitoring committee (or equivalent) responsible for the guidance and follow-up of actions concerning the protection of privacy.",
+        "placeholder": "Nurodykite, ar aprašytos su duomenų apsauga susijusios atsakomybės ir funkcijos.",
+        "name": "Duomenų apsaugos organizacija",
+        "description": "Ar paskirtas organizacijoje asmuo, atsakingas už duomenų apsaugos teisės aktų reikalavimų įgyvendinimą ir kontrolę (duomenų apsaugos pareigūno paskyrimas, komandos, atsakingos už duomenų apsaugos valdymą, subūrimas ir pan.).",
         "source": "PIAF Connected Objects p24 - WIKI"
       },
       "PIA_ORG_POL": {
-        "placeholder": "Describe here the documentary base setting out data protection objectives and rules.",
-        "name": "Policy",
-        "description": "Set out important aspects relating to data protection within a documentary base making up the data protection policy and in a form suited to each type of content (risks, key principles to be followed, target objectives, rules to be applied, etc.) and each communication target (users, IT department, policymakers, etc.).",
+        "placeholder": "Nurodykite dokumentus, kuriuose būtų aprašyta duomenų apsaugos tikslai ir taisyklės.",
+        "name": "Tvarkos",
+        "description": "Duomenų valdytojas privalo turėti pasitvirtinęs vidines taisykles (tvarkas), kuriuose būtų nustatytos duomenų apsaugos įgyvendinimo taisyklės ir procedūros (veiksmų planas, atsakingi asmenys, tvarkų revizijos ir pan.).",
         "source": "PIA3 p78 - WIKI"
       },
       "PIA_ORG_RMGT": {
-        "placeholder": "Describe here processes to control the risks that processing operations performed by the organisation pose on data protection and the privacy of data subjects.",
-        "name": "Managing privacy risks",
-        "description": "Policy describing processes to control the risks that processing operations performed by the organisation pose on data protection and the privacy of data subjects (building a map of the risks, etc.).",
+        "placeholder": "Nurodykite procesus, kurių pagalba siekiama kontroliuoti duomenų subjektams kylančias privatumo pažeidimo rizikas, susijusias su organizacijoje tvarkomais duomenimis",
+        "name": "Rizikų privatumui valdymas",
+        "description": "Taisyklės ir procesai, skirti su duomenų subjektų teisių ir laisvių pažeidimu susijusios rizikos valdymui (duomenų tvarkymo procesų, tvarkomų duomenų, naudojamų priemonių nustatymas, rizikos vertinimas, esamų ir planuojamų priemonių vertinimas ir pan.).",
         "source": "PIA3 p77 - WIKI"
       },
       "PIA_ORG_PBD": {
-        "placeholder": "Describe here how privacy protection is integrated in projects",
-        "name": "Integrating privacy protection in projects",
-        "description": "Existence of a policy designed integrate the protection of personal data in all new processing operations.",
+        "placeholder": "Nurodykite, kokių veiksmų imamasi, siekiant užtikrinti asmens duomenų apsaugą, naujo projekto pradžioje, kuriame planuojama tvarkyti asmens duomenis",
+        "name": "Duomenų apsaugos taikymas projektuose",
+        "description": "Tvarkos, skirtos užtikrinti asmens duomenų apsaugą visose naujose duomenų tvarkymo operacijose, egzistavimas.",
         "source": "PIA3 p79 - WIKI"
       },
       "PIA_ORG_VIOL": {
-        "placeholder": "Indicate here whether IT incidents are subject to a documented and tested management procedure.",
-        "name": " Managing personal data violations",
-        "description": "Existence of an operational organisation that can detect and treat incidents that may affect the data subjects' civil liberties and privacy.",
+        "placeholder": "Aprašykite, kaip nustatomi asmens duomenų apsaugos pažeidimai ir kokių veiksmų tuomet imamasi",
+        "name": "Duomenų apsaugos pažeidimų valdymas",
+        "description": "Atsakingų asmenų, kurie atpažintų ir valdytų asmens duomenų saugos pažeidimus, paskyrimas (atsakomybių nustatymas, reakcijos laikai, saugos pažeidimų aprašymas ir pan.).",
         "source": "PIAF Connected Objects p24 and PIA3 p36 - WIKI"
       },
       "PIA_ORG_PERS": {
