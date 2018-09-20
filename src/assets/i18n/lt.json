@@ -5,7 +5,7 @@
     "subtitle2": "Įrankiai ir žodynėliai",
     "start_app": "Nauotis PIA programa (Beta ver.)",
     "description": "Ši programa Ši <strong>Prancūzijos duomenų apsaugos inspekcijos (CNIL) </strong> sukurta programa, skirta padėti duomenų valdytojams užtikrinti asmens duomenų tvarkymo atitikti BDAR reikalavimams. Jos pagalba galima tinkamai atlikti poveikio duomenų apsaugai vertinimą, naudojant PIA programos metodiką.",
-    "start": "Pradėti"
+    "start": "Pradėti" 
   },
   "header": {
     "logo_title": "Poveikio duomenų apsaugai vertinimas",
@@ -562,48 +562,48 @@
         "source": "Mesures_US Loginė prieigos kontrolė"
       },
       "PIA_DEF_LOG": {
-        "name": "Surveillance",
-        "description": "Set up a logging architecture to allow early detection of incidents involving personal data and to have information that can be used to analyze them or provide proof in connection with investigations.",
+        "name": "Veiksmų protokolavimas, jų atsekamumas",
+        "description": "Naudokite veiksmų registravimą, kad būtų galima ankstyvoje stadijoje pastebėti incidentus, juos analizuoti ir surinkti jų tyrimui reikalingus įrodymus.",
         "source": "Mesures_US Surveillance"
       },
       "PIA_DEF_ARCH": {
-        "name": "Archiving",
-        "description": "Procedures preserving and managing the electronic archives containing the personal data intended to ensure their value (specifically, their legal value) throughout the entire period necessary (transfer, storage, migration, accessibility, elimination, archiving policy, protection of confidentiality, etc.).",
+        "name": "Archyvavimas",
+        "description": "Procedūros, skirtos elektroninių duomenų archyvų išsaugojimui ir valdymui, siekiant turėti archyvinius duomenis, kurių gali prireikti ateityje dėl teisėtų interesų (pvz. galimuose ginčuose ir pan.). Archyvai turi būti saugomi saugiai, o prieiga prie jų turi būti ribojama ir kontroliuojama. Ypač tada, kai jie susiję su specialių kategorijų duomenimis, kurių apsaugos pažeidimas gali sukelti didelę žalą duomenų subjektams.",
         "source": "Mesures_USE Archiving"
       },
       "PIA_DEF_MIN1": {
-        "name": "Filtering and removal",
-        "description": "When data are being imported, different types of metadata (such as EXIF data with an image file attached) can unintentionally be collected. <br>Such metadata must be identified and eliminated if they are unnecessary for the purposes specified.",
+        "name": "Filtravimas ir ištrynimas",
+        "description": "Importuojant duomenis, gali būti nesąmoningai kaupiami vadinamieji meta-duomenys (pvz. EXIF duomenys, kurie būna prisegti prie paveikslų failų). Tokius meta-duomenis reikėtų identifikuoti ir ištrinti, jei jie nebūtini duomenų tvarkymo tikslui.",
         "source" : "PIAF Connected objects p42 - WIKI"
       },
       "PIA_DEF_MIN2": {
-        "name": "Reducing sensitivity via conversion",
-        "description": "Once sensitive data have been received, as part of a series of general information or transmitted for statistical purposes only, these can be converted into a less sensitive form or pseudonymised. For example : <br>- if the system collects the IP address to determine the user's location for a statistical purpose, the IP address can be deleted once the city or district has been deduced<br>- if the system receives video data from surveillance cameras, it can recognise people who are standing or moving in the scene and blur them<br>- if the system is a smart meter, it can aggregate the use of energy over a certain period, without recording it in real time",
+        "name": "Duomenų jautrumo sumažinimas tranformavimo pagalba",
+        "description": "Tam tikrais atvejais gavus jautrius duomenis, jie gali būti transformuojami į mažiau jautrius duomenis arba jiems gali būti suteikti pseudonimai. Pavyzdžiui: <br>-jei programoje tvarkomi IP adresai, kad statistiniais tikslais būtų galiam nustatyti vartotojo geografinę vietą, tai, nustačius miestą ar regioną, IP adresą būtų galima ištrinti <br>-jei programoje renkami ir tvarkomi vaizdo duomenys, gaunami iš video stebėjimo sistemų, tai žmonių atvaizdus galima būtų retušuoti<>br-jei naudojami išmanieji skaitikliai, tai galima apskaičiuoti bendrą energijos suvartojimą tam tikru laikotarpiu ir energijos suvartojimo neregistruoti realiuoju laiku.",
         "source" : "PIAF Connected objects p42 - WIKI"
       },
       "PIA_DEF_SRC": {
-        "name": "Risk source",
-        "description": "Person or non-human source that can cause a risk. This source may act accidentally or deliberately.",
+        "name": "Rizikos šaltiniai",
+        "description": "Riziką gali sukelti žmogaus veiksmai ir ne nuo žmogaus priklausantys faktoriai. Tai gali įvykti atsitiktinai arba sukelti tyčia.",
         "source": "PIA1 p11 - WIKI"
       },
       "PIA_DEF_MEN": {
-        "name": "Threat",
-        "description": "Procedure comprising one or more individual actions on data supporting assets. It is used, intentionally or otherwise, by risk sources and may cause a feared event.",
+        "name": "Grėsmės",
+        "description": "Veiksmai, kurie gali paveikti duomenis apdorojančias sistemas ir jose saugomus duomenis bei sukelti žalą duomenų subjektams. Grėsmės gali būti sukeltos sąmoningai arba netyčia.",
         "source": "PIA1 p12 - WIKI"
       },
       "PIA_DEF_MENA": {
-        "name": "Threats that can lead to an illegitimate access",
-        "description": "Threats regarding: - <strong>Hardware</strong>, used inappropriately, observed, altered, lost (use or transportation of sensitive hardware for personal purposes, watching a person's screen without their knowledge while on the train, tracking by a hardware-based key logger, etc.)<br> - <strong>Software</strong>, used inappropriately, observed, altered (raising of privileges, collection of configuration data, infection by malicious code, etc.)<br>- <strong>Computer channels</strong> observed (Interception of Ethernet traffic, etc.)<br>- <strong>People</strong>, observed, manipulated, lost (Unintentional disclosure of information, social engineering, assignment changes)<br>- <strong>Paper documents</strong> observed, lost (reading, theft of mail, etc.)<br>- <strong>Paper transmission channels</strong> observed (reading of signature books in circulation, etc.)",
+        "name": "Grėsmės, susijusios su neteisėta prieiga prie duomenų",
+        "description": "Grėsmės susijusios su:-<strong> techninė įranga </strong>, netinkamai naudojama, prižiūrima, pakeista, prarasta (techninės įrangos su jautria informacija naudojimas asmeniniais tikslais, jos naudojimas viešose vietose, įrangos stebėjimas klavišų registravimo priemonėmis ir pan.)<br>-<strong> Programinė įranga </strong>, netinkamai naudojama, prižiūrima, pakeista (naudojimosi teisių išplėtimas, konfigūravimo duomenų rinkimas, kenkėjiškų programų įdiegimas ir pan.)<br>-<strong> Kompiuteriniai tinklai </strong> (tinko duomenų srautų stebėjimas, tinklo duomenų srauto perėmimas ir pan.)<br>-<strong> Žmonės </strong>, sekami, manipuliuojami(netyčinis informacijos atskleidimas, psichologinė manipuliacija, darbdavio pakeitimai)<br>-<strong> Popieriniai dokumentai </strong>, pastebėti, prarasti (nukopijavimas, nufotografavimas, sunaikintų dokumentų atstatymas, korespondencijos vagystė pan kt.) <br>-<strong>Pašto persiuntimas</strong> šnypinėjimas",
         "source": "PIAF Connected objects p44 and 45"
       },
       "PIA_DEF_MENM": {
-        "name": "Threats that can lead to an unwanted modification of personal data",
-        "description": "<strong>Threats regarding : </strong><br>- <strong>Hardware</strong> altered (addition of incompatible hardware resulting in malfunctions, removal of essential components, etc.)<br>- <strong>Software</strong> used inappropriately or altered (Unwanted modifications to data in databases, operator errors that modify data, etc.)<br>- <strong>Computer channels</strong> used inappropriately (resending of intercepted data, etc.)<br>- <strong>People</strong> overloaded or manipulates (assignment of staff to tasks beyond their abilities, stress or negative changes in working conditions, influence, etc.)<br>- Paper documents that have been altered (changes to figures in a file, replacement of an original by a forgery, etc.)<br>- <strong>Paper transmission channels</strong> that have been altered (change from one signature book to another, sending of multiple conflicting documents, etc.)",
+        "name": "Grėsmės, dėl kurių gali būti neteisėtai pakeisti asmens duomenys",
+        "description": "<strong>Grėsmės susijusios su: </strong><br>- <strong>techninės įrangos</strong> pakeitimais (nesuderintos įrangos prijungimas, sąlygojantis veikimo sutrikimus, svarbių techninės įrangos dalių pašalinimas, atjungimas ir pan.) <br>- <strong>programinės įrangos</strong> netinkamas naudojimas ar pakeitimas (nenorimas duomenų pakeitimas duomenų bazėse, administratoriaus klaidos, sąlygojančios duomenų pakeitimą ir pan.)<br>- <strong>kompiuterinių tinklų </strong> netinkamas naudojimas (perimtų duomenų persiuntimas ir pan.)<br>- <strong>Žmonių</strong> nuovargis ar manipuliacijos jais (atsakomybių, viršijančių žmogaus kompetencijas, suteikimas, stresas, bloga, įtempta atmosfera darbo vietoje, darbo sąlygų bloginimas, neigiami polinkiai ir pan.)<br>- Popierinių dokumentų pakeitimas (skaičių pakeitimas failuose, originalo pakeitimas klastote ir pan.)<br>- <strong>Dokumentų perdavimo kanalų</strong> pakeitimas (tų pačių dokumentų skirtingų versijų siuntimas ir pan.)",
         "source": "PIAF Connected Objects p43 and 44, WIKI"
       },
       "PIA_DEF_MENI": {
-        "name": "Threats that can lead to a disappearance of personal data",
-        "description": "<strong>Threats regarding : </strong><br>- <strong>Hardware</strong> : used inappropriately, overloaded, altered, damaged, lost (storage unit full, processing capacity overload, addition of incompatible hardware resulting in malfunctions,  fire, theft or loss of an asset, etc.)<br>- <strong>Software</strong> : used inappropriately, overloaded, altered, damaged, lost (erasure of data, exceeding of database size, logic bomb, non-renewal of the licence for software used to access data, etc.)<br>- <strong>Computer channels</strong> : overloaded, altered, lost (unauthorised downloading, loss of Internet connection, etc.)<br>- <strong>People</strong> : overloaded, damaged, lost (poor use of skills, disease, retirement, etc.)<br>- <strong>Paper documents</strong> : used inappropriately, damaged, lost (erasure, aging of archived documents, theft or loss of documents, etc.)<br>- <strong>Paper transmission channels</strong> : overloaded, damaged, altered, lost (mail delivery halted by a strike, reassignment of offices or premises, loss of a document delivery company, reorganisation of paper transmission channels, etc.)",
+        "name": "Grėsmės, dėl kurių gali pradingti asmens duomenys",
+        "description": "<strong>Grėsmės susijusios su: </strong><br>- <strong>Hardware</strong> : used inappropriately, overloaded, altered, damaged, lost (storage unit full, processing capacity overload, addition of incompatible hardware resulting in malfunctions,  fire, theft or loss of an asset, etc.)<br>- <strong>Software</strong> : used inappropriately, overloaded, altered, damaged, lost (erasure of data, exceeding of database size, logic bomb, non-renewal of the licence for software used to access data, etc.)<br>- <strong>Computer channels</strong> : overloaded, altered, lost (unauthorised downloading, loss of Internet connection, etc.)<br>- <strong>People</strong> : overloaded, damaged, lost (poor use of skills, disease, retirement, etc.)<br>- <strong>Paper documents</strong> : used inappropriately, damaged, lost (erasure, aging of archived documents, theft or loss of documents, etc.)<br>- <strong>Paper transmission channels</strong> : overloaded, damaged, altered, lost (mail delivery halted by a strike, reassignment of offices or premises, loss of a document delivery company, reorganisation of paper transmission channels, etc.)",
         "source": "PIAF Connected Objects p44 and 45, WIKI"
       },
       "PIA_DEF_GRV": {
