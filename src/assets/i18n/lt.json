@@ -434,132 +434,132 @@
         "source": "PIAF Connected Objects p24 and PIA3 p36 - WIKI"
       },
       "PIA_ORG_PERS": {
-        "placeholder": "Indicate here what awareness-raising controls are carried out with regard to employees.",
-        "name": "Personnel management",
-        "description": "Existence of a policy describing awareness-raising controls are carried out with regard to a new recruit and what controls are carried out when persons who have been accessing data leave their job.",
+        "placeholder": "Ar darbuotojams yra daromi mokymai?",
+        "name": "Personalo valdymas",
+        "description": "Tvarka, kur aprašoma darbuotojų mokymai, siekiant juos supažindinti su asmens duomenų tvarkymo ir apsaugos taisyklėmis bei skatinant juos turėti daugiau sąmoningumo duomenų apsaugos ir privatumo apsaugos klausimais.",
         "source": "PIAF Connected Objects p24"
       },
       "PIA_ORG_EXT": {
-        "placeholder": "Indicate here, for processors requiring access to data, the security controls and arrangements carried out as regards such access.",
-        "name": "Relations with third parties",
-        "description": "Existence of a policy and processes reducing the risk that legitimate access to personal data by third parties may pose to the data subjects' civil liberties and privacy.",
+        "placeholder": "Nurodykite, kokia atliekama duomenų tvarkytojų patikimumo patikra.",
+        "name": "Santykiai su trečiosiomis šalimis",
+        "description": "Kokios tvarkos egzistuoja ir kokių veiksmų imamasi, siekiant užkirsti kelią neteisėtam trečiųjų šalių asmens duomenų tvarkymui (trečiųjų šalių identifikavimas, susitarimas dėl duomenų tvarkymo ir teikimo, sutartiniai įsipareigojimai, elgesio kodeksai, binding corporate rules ir pan.)",
         "source":  "PIA3 p48 - WIKI"
       },
       "PIA_ORG_AUD": {
-        "placeholder": "Indicate here whether the effectiveness and adequacy of privacy controls are monitored.",
-        "name": "Supervision",
-        "description": "Existence of a policy and processes to obtain an organisation able to manage and control the protection of personal data held within it.",
+        "placeholder": "Nurodykite, ar stebimas duomenų apsaugos priemonių efektyvumas ir tinkamumas esamai situacijai.",
+        "name": "Duomenų apsaugos priemonių stebėjimas",
+        "description": "Kokių veiksmų imamais, kad duomenų apsaugos priemonės atitiktų gerąją praktiką ir duomenų apsaugos teisės aktų reikalavimus (asmens duomenų apsaugos auditai, duomenų tvarkymo tikslų peržiūra, atsakomybių kontrolė).",
         "source":  "PIA3 p76 - WIKI"
       },
       "PIA_DEF_EXA": {
-        "name": "Quality of data",
-        "description": "Personal data shall be accurate and, where necessary, kept up to date; every reasonable step must be taken to ensure that personal data that are inaccurate, having regard to the purposes for which they are processed, are erased or rectified without delay (‘accuracy’). <br>See <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 5.1 d) of [GDPR]</a>",
-        "source": "GDPR Art. 5.1 d)"
+        "name": "Asmens duomenų kokybė",
+        "description": "Asmens duomenys turi būti tikslūs ir prireikus atnaujinami; turi būti imamasi visų pagrįstų priemonių užtikrinti, kad asmens duomenys, kurie nėra tikslūs, atsižvelgiant į jų tvarkymo tikslus, būtų nedelsiant ištrinami arba ištaisomi (tikslumo principas). <br>Žr. <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/LT/TXT/HTML/?uri=CELEX:32016R0679&from=LT\">5 str. 1 d. d p. [BDAR]</a>",
+        "source": "BDAR 5 str. 1 d. d p.)"
       },
       "PIA_DEF_MES": {
-        "name": "Measures",
-        "description": "To be chosen among those available in section \"Planned or existing measures\", which you may complete if needed.",
+        "name": "Priemonės",
+        "description": "Pasirinkite priemonę iš skyriaus \“Planuojamos arba egzistuojančios priemonės“\, esant poreikiui, papildykite jas.",
         "source": "None"
       },
       "PIA_DEF_RT": {
-        "name": "Controller",
-        "description": "Natural or legal person, public authority, agency or other body which, alone or jointly with others, determines the purposes and means of the processing of personal data; where the purposes and means of such processing are determined by Union or Member State law, the controller or the specific criteria for its nomination may be provided for by Union or Member State law.<br>See <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 4.7 of [GDPR]</a>",
-        "source": "GDPR Art. 4.7"
+        "name": "Duomenų valdytojas",
+        "description": "fizinis arba juridinis asmuo, valdžios institucija, agentūra ar kita įstaiga, kuris vienas ar drauge su kitais nustato duomenų tvarkymo tikslus ir priemones; kai tokio duomenų tvarkymo tikslai ir priemonės nustatyti Sąjungos arba valstybės narės teisės, duomenų valdytojas arba konkretūs jo skyrimo kriterijai gali būti nustatyti Sąjungos arba valstybės narės teise.<br>Žr. <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/LT/TXT/HTML/?uri=CELEX:32016R0679&from=LT\"> 4 str. 7 d. [BDAR]</a>",
+        "source": "BDAR 4 str. 7 d."
       },
       "PIA_DEF_DCP": {
-        "name": "Personal data",
-        "description": "Any information relating to an identified or identifiable natural person (‘data subject’); an identifiable natural person is one who can be identified, directly or indirectly, in particular by reference to an identifier such as a name, an identification number, location data, an online identifier or to one or more factors specific to the physical, physiological, genetic, mental, economic, cultural or social identity of that natural person. <br>See <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 4.1 of [GDPR]</a>",
-        "source": "GDPR Art 4.1"
+        "name": "Asmens duomenys",
+        "description": "Bet kokia informacija apie fizinį asmenį, kurio tapatybė nustatyta arba kurio tapatybę galima nustatyti (duomenų subjektas); fizinis asmuo, kurio tapatybę galima nustatyti, yra asmuo, kurio tapatybę tiesiogiai arba netiesiogiai galima nustatyti, visų pirma pagal identifikatorių, kaip antai vardą ir pavardę, asmens identifikavimo numerį, buvimo vietos duomenis ir interneto identifikatorių arba pagal vieną ar kelis to fizinio asmens fizinės, fiziologinės, genetinės, psichinės, ekonominės, kultūrinės ar socialinės tapatybės požymius. <br>Žr. <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/LT/TXT/HTML/?uri=CELEX:32016R0679&from=LT\">4 str. 1 d. [BDAR]</a>",
+        "source": "BDAR 4 str. 1 d."
       },
       "PIA_DEF_DEST": {
-        "name": "Recipient",
-        "description": "Natural or legal person, public authority, agency or another body, to which the personal data are disclosed, whether a third party or not. However, public authorities which may receive personal data in the framework of a particular inquiry in accordance with Union or Member State law shall not be regarded as recipients; the processing of those data by those public authorities shall be in compliance with the applicable data protection rules according to the purposes of the processing. <br>See <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 4.9 of [GDPR]</a>",
-        "source": "GDPR Art. 4.9"
+        "name": "Duomenų gavėjas",
+        "description": "Fizinis arba juridinis asmuo, valdžios institucija, agentūra ar kita įstaiga, kuriai atskleidžiami asmens duomenys, nesvarbu, ar tai trečioji šalis ar ne. Tačiau valdžios institucijos, kurios pagal Sąjungos arba valstybės narės teisę gali gauti asmens duomenis vykdydamos konkretų tyrimą, nelaikomos duomenų gavėjais; tvarkydamos tuos duomenis, tos valdžios institucijos laikosi taikomų duomenų tvarkymo tikslus atitinkančių duomenų apsaugos taisyklių. <br>Žr. <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/LT/TXT/HTML/?uri=CELEX:32016R0679&from=LT\">4 str. 9 d. [BDAR]</a>",
+        "source": "BDAR 4 str. 9 d."
       },
       "PIA_DEF_SUPT": {
-        "name": "Supporting assets",
-        "description": "Asset on which personal data rely. This may be hardware, software, networks, people, paper or paper transmission channels",
+        "name": "Pagalbiniai ištekliai",
+        "description": "Ištekliai, nuo kurių priklauso duomenų tvarkymas. Jais gali būti techninė įranga, prorgaminė įranga, tinklas, žmonės, popieriniai dokumentai, dokumentų perdavimo sistemos.",
         "source": "PIA1 p10"
       },
       "PIA_DEF_MINC": {
-        "name": "Minimising the amount of personal data",
-        "description": "Reduce the severity of risks by limiting the amount of personal data to what is strictly necessary to achieve a defined purpose, otherwise the data shall be not collected.",
+        "name": "Asmens duomenų apimties mažinimas",
+        "description": "Riziką galima sumažinti, sumažinant tvarkomų asmens duomenų apimtį. Reikia rinkti ir tvarkyti tik tuos duomenis, kurie būtini duomenų tvarkymo tikslui pasiekti.",
         "source": ""
       },
       "PIA_DEF_MIND": {
-        "name": "Minimization of data themselves",
-        "description": "Reduce the severity of risks by minimizing the data themselves, by taking measures aimed at reducing their sensitivity such as filtering and removing unnecessary data, pseudonymising data, etc.",
+        "name": "Asmens duomenų kiekio mažinimas",
+        "description": "Sumažinti riziką galimą, sumažinant tvarkomų duomenų kiekį ir sumažinant jų jautrumą pseudonimų suteikimo pagalba, ištrinant nebereikalingus duomenis, filtravimo pagalba ir pan.",
         "source": "PIA3 p64"
       },
       "PIA_DEF_CONS": {
-        "name": "Consent",
-        "description": "Any freely given, specific, informed and unambiguous indication of the data subject's wishes by which he or she, by a statement or by a clear affirmative action, signifies agreement to the processing of personal data relating to him or her.<br>See <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 4.10 of [GDPR]</a>",
-        "source": "GDPR Art. 4.10"
+        "name": "Sutikimas",
+        "description": "Bet koks laisva valia duotas, konkretus ir nedviprasmiškas tinkamai informuoto duomenų subjekto valios išreiškimas pareiškimu arba vienareikšmiais veiksmais kuriais jis sutinka, kad būtų tvarkomi su juo susiję asmens duomenys.<br>Žr. <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/LT/TXT/HTML/?uri=CELEX:32016R0679&from=LT\"> 4 str. 10 d. [BDAR]</a>",
+        "source": "BDAR 4 str. 10 d."
       },
       "PIA_DEF_ACC": {
-        "name": "Right of access",
-        "description": "The data subject shall have the right to obtain from the controller confirmation as to whether or not personal data concerning him or her are being processed, and, where that is the case, access to the personal data and the information described in <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 15 of [GDPR]</a>",
-        "source":"GDPR Art. 15"
+        "name": "Teisė susipažinti",
+        "description": "Duomenų subjektas turi teisę iš duomenų valdytojo gauti patvirtinimą, ar su juo susiję asmens duomenys yra tvarkomi, o jei tokie asmens duomenys yra tvarkomi, turi teisę susipažinti su asmens duomenimis ir toliau nurodyta informacija žr. <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/LT/TXT/HTML/?uri=CELEX:32016R0679&from=LT\">15 str. [BDAR]</a>",
+        "source":"BDAR 15 str."
       },
       "PIA_DEF_PORT": {
-        "name": "Right to data portability",
-        "description": " The data subject shall have the right to receive the personal data concerning him or her, which he or she has provided to a controller, in a structured, commonly used and machine-readable format and have the right to transmit those data to another controller without hindrance from the controller to which the personal data have been provided, see <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 20 of [GDPR]</a>",
-        "source": "GDPR Art. 20"
+        "name": "Teisė į duomenų perkeliamumą",
+        "description": "Duomenų subjektas turi teisę gauti su juo susijusius asmens duomenis, kuriuos jis pateikė duomenų valdytojui susistemintu, įprastai naudojamu ir kompiuterio skaitomu formatu, ir turi teisę persiųsti tuos duomenis kitam duomenų valdytojui, o duomenų valdytojas, kuriam asmens duomenys buvo pateikti, turi nesudaryti tam kliūčių, žr. <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/LT/TXT/HTML/?uri=CELEX:32016R0679&from=LT\">20 str. [BDAR]</a>",
+        "source": "BDAR 20 str."
       },
       "PIA_DEF_RECT": {
-        "name": "Right to rectification",
-        "description": "The data subject shall have the right to obtain from the controller without undue delay the rectification of inaccurate personal data concerning him or her. Taking into account the purposes of the processing, the data subject shall have the right to have incomplete personal data completed, including by means of providing a supplementary statement.",
-        "source": "GDPR Art. 16"
+        "name": "Teisė reikalauti ištaisyti duomenis",
+        "description": "Duomenų subjektas turi teisę reikalauti, kad duomenų valdytojas nepagrįstai nedelsdamas ištaisytų netikslius su juo susijusius asmens duomenis. Atsižvelgiant į tikslus, kuriais duomenys buvo tvarkomi, duomenų subjektas turi teisę reikalauti, kad būtų papildyti neišsamūs asmens duomenys, be kita ko, pateikdamas papildomą pareiškimą.",
+        "source": "BDAR 16 str."
       },
       "PIA_DEF_EFF": {
-        "name": "Right to erasure",
-        "description": " The data subject shall have the right to obtain from the controller the erasure of personal data concerning him or her without undue delay and the controller shall have the obligation to erase personal data without undue delay, see <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 17 of [GDPR]</a>",
-        "source" : "GDPR Art. 17"
+        "name": "Teisė reikalauti ištrinti duomenis",
+        "description": "Duomenų subjektas turi teisę reikalauti, kad duomenų valdytojas nepagrįstai nedelsdamas ištrintų su juo susijusius asmens duomenis, o duomenų valdytojas yra įpareigotas nepagrįstai nedelsdamas ištrinti asmens duomenis, jei tai galima pagrįsti viena iš šių priežasčių, žr. <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/LT/TXT/HTML/?uri=CELEX:32016R0679&from=LT\">17 str. [BDAR]</a>",
+        "source" : "BDAR 17 str."
       },
       "PIA_DEF_LIM": {
-        "name": "Right to restricting of processing",
-        "description": "The data subject shall have the right to obtain from the controller restriction of processing, see <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 18 of [GDPR]</a>",
-        "source": "GDPR Art. 18"
+        "name": "Teisė apriboti duomenų tvarkymą",
+        "description": "Duomenų subjektas turi teisę reikalauti, kad duomenų valdytojas apribotų duomenų tvarkymą kai taikomas vienas iš šių atvejų, žr. <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/LT/TXT/HTML/?uri=CELEX:32016R0679&from=LT\">18 str. [BDAR]</a>",
+        "source": "BDAR 18 str."
       },
       "PIA_DEF_OPP": {
-        "name": "Right to object",
-        "description": "The data subject shall have the right to object, on grounds relating to his or her particular situation, at any time to processing of personal data concerning him or her, pursuant to <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 21 of [GDPR]</a>",
-        "source": "GDPR Art. 21"
+        "name": "Teisė nesutikti",
+        "description": "Duomenų subjektas turi teisę dėl su jo konkrečiu atveju susijusių priežasčių bet kuriuo metu nesutikti, kad su juo susiję asmens duomenys būtų tvarkomi pagal <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/LT/TXT/HTML/?uri=CELEX:32016R0679&from=LT\">21 str. [BDAR]</a>",
+        "source": "BDAR 21 str."
       },
       "PIA_DEF_CHIF": {
-        "name": "Encryption",
-        "description": "Measure making personal data unintelligible to anyone without access authorization (symmetric or asymmetric encryption, use of public algorithms known to be strong, authentication certificate, etc.).",
-        "source " : "Mesures_US Encryption"
+        "name": "Duomenų šifravimas",
+        "description": "Kokių šifravimo priemonių imamasi. Šifravimas – tai procesas, kurio metu pradinis tekstas (duomenys) paverčiamas į neskaitomą formą, vadinamą šifruotu tekstu (angl. ciphertext) arba kartais kriptograma (angl. cryptogram). Iššifravimas tai atvirkštinis procesas kai iš šifruoto teksto (duomenų) atstatomas pradinis. Šifras tai algoritmas, skirtas šifravimui ir iššifravimui. Dažniausiai šifras valdomas raktu – slapta informacijos dalele, kuri turi įtakos šifruoto teksto gamybai. Protokolas detaliai apibrėžia kaip šifrai (ir kiti kriptografiniai primityvai) turi būti naudojami siekiant norimų rezultatų. Protokolų, šifrų, raktų valdymo bei vartotojo vykdomų veiksmų visuma sudaro kriptosistemą.",
+        "source " : "Mesures_US šifravimas"
       },
       "PIA_DEF_ANO": {
-        "name": "Anonymisation",
-        "description": "Process removing the identifying characteristics from personal data. To assess the robustness of an anonymisation processes, see the <a target=\"_blank\" href=\"http://ec.europa.eu/justice/data-protection/article-29/documentation/opinion-recommendation/files/2014/wp216_en.pdf\">WP29 guidelines</a>.",
-        "source": "Mesures_US and G29 guidelines http://ec.europa.eu/justice/data-protection/article-29/documentation/opinion-recommendation/files/2014/wp216_en.pdf"
+        "name": "Duomenų nuasmeninimas",
+        "description": "Veiksmai, kurių pagalba asmens duomenys nuasmeninami taip, kad iš nuasmenintų duomenų duomenų subjekto tapatybė negali arba nebegali būti nustatyta, žr. <a target=\"_blank\" href=\" http://ec.europa.eu/justice/article-29/documentation/opinion-recommendation/files/2014/wp216_lt.pdf\">WP216 nuomonė</a>.",
+        "source": "Mesures_US ir 29 Darbo Grupės nuomonė žr. http://ec.europa.eu/justice/article-29/documentation/opinion-recommendation/files/2014/wp216_lt.pdf"
       },
       "PIA_DEF_PSEU": {
-        "name": "Pseudonymisation",
-        "description": "Processing of personal data in such a manner that the personal data can no longer be attributed to a specific data subject without the use of additional information, provided that such additional information is kept separately and is subject to technical and organisational measures to ensure that the personal data are not attributed to an identified or identifiable natural person.<br>Pseudonymisation  reduces  the  linkability  of  a  dataset  with  the  original  identity  of  a  data subject; as such, it is a useful security measure but not a method of anonymisation.",
-        "source" :"GDPR Art. 4.5 and guidelines G29 p22 http://ec.europa.eu/justice/data-protection/article-29/documentation/opinion-recommendation/files/2014/wp216_en.pdf"
+        "name": "Pseudonimų duomenims suteikimas",
+        "description": "Asmens duomenų tvarkymas taip, kad asmens duomenys nebegalėtų būti priskirti konkrečiam duomenų subjektui nesinaudojant papildoma informacija, jeigu tokia papildoma informacija yra saugoma atskirai ir jos atžvilgiu taikomos techninės bei organizacinės priemonės siekiant užtikrinti asmens duomenų nepriskyrimą fiziniam asmeniui, kurio tapatybė yra nustatyta arba kurio tapatybę galima nustatyti. .<br>Pseudonimų suteikimas sumažina riziką, kad duomenys bus susieti su konkrečių duomenų subjektu, tai naudingas metodas, tačiau tai nėra tas pats, kas duomenų nuasmeninimas.",
+        "source" :"BDAR 4 str. 5 d. ir 29 Darbo Grupės nuomonė žr. http://ec.europa.eu/justice/article-29/documentation/opinion-recommendation/files/2014/wp216_lt.pdf"
       },
       "PIA_DEF_CLO": {
-        "name": "Data partitioning",
-        "description": "Data organisation methods that reduce the possibility that personal data can be correlated and that a breach of all personal data may occur. For instance, by identifying the personal data useful only to each business process and logically separating them.",
+        "name": "Duomenų skaidymas",
+        "description": "Duomenų loginis ir fizinis skaidymas (partitioning) į skirtingas laikmenas mažina riziką, kad pažeidimo atveju bus pažeisti ar pavogti visi duomenys.",
         "source": "PIA3 p19 - WIKI"
       },
       "PIA_DEF_CTLA": {
-        "name": "Logical access controls",
-        "description": "Means implemented to limit the risks that unauthorized persons will access personal data electronically, it requires among other things to : <br>- <strong>manage users' profiles</strong> by separating tasks and areas of responsibility (preferably in centralised fashion) to limit access to personal data exclusively to authorised users by applying need-to-know and least-privilege principles;<br>- <strong>withdraw the rights of employees, contracting parties and other third parties when they are no longer authorised to access a premises or a resource</strong> or when their <strong>employment contract ends</strong>.",
+        "name": "Loginė prieigos kontrolė",
+        "description": "Priemonės, kurių imamasi siekiant užkirsti kelią, kad teisės neturintys asmenys neturėtų prieigos prie tvarkomų asmens duomenų. Jomis gali būti:<br>-<strong>vartotojų profilių administravimas</strong>, atskiriant užduotis ir atsakomybės sritis, kad prieigą prie asmens duomenų turėtų tik tie asmenys, kuriems ji būtina darbinėms funkcijoms atlikti;-<strong>panaikinti darbuotojų, paslaugų teikėjų ar kitų trečiųjų asmenų prieigos prie duomenų teises, kai jie praranda teisę patekti į patalpas ar praranda teisę naudotis kitais bendrovės ištekliais</strong> arba kai jų <strong> darbo sutartis ar paslaugų sutartis pasibaigia</strong>.",
         "source": "PIA3 p43 - WIKI"
       },
       "PIA_DEF_PWD": {
-        "name": "Password",
-        "description": "Passwords shall be composed of a minimum of eight characters; must be renewed if there is the least concern that they may have been compromised and, possibly, periodically (every six months or once a year) and must include a minimum of three of the four kinds of characters (capital letters, lower case letters, numerals and special characters); when a password is changed, the last five passwords may not be reused; the same password should not be used for different accesses; passwords should not be related to one's personal information (including name or date of birth.). Define a maximum number of attempts beyond which a warning is issued and authentication is blocked (temporarily or until it is manually unblocked).",
+        "name": "Slaptažodžiai",
+        "description": "Slaptažodžius turi sudaryti ne mažiau kaip aštuoni simboliai. Slaptažodžiai turi būti keičiami, ypač tuomet, jei kyla bent mažiausių abejonių dėl to, kad slaptažodį galėjo sužinoti kitas asmuo. Periodiškai slaptažodžiai gali būti keičiami kas tris, šešis mėnesius arba kartą per metus. Slaptažodžius turėtų sudaryti bent trys iš keturių simbolių rūšių (didžiosios raidės, mažosios raidės, skaitmenys ir specialieji simboliai). Keičiant slaptažodį negalima vietoj jo naudoti penkių paskutinių prieš tai jau naudotų slaptažodžių. Tas pats slaptažodis neturėtų būti naudojamas autentifikuotis skirtingose prieigose. Slaptažodžiai neturėtų būti susiję su asmenine informacija (pvz., vardu ar gimimo data). Nustatykite maksimalų slaptažodžio įvedimo bandymų skaičių su įspėjimu apie autentifikavimosi užblokavimą (laikinai arba kol jis bus rankiniu būdu atblokuotas).",
         "source" : "Mesure_US"
       },
       "PIA_DEF_AUTH": {
-        "name": "Authentication",
-        "description": "Every person with legitimate access to personal data (employees, contracting parties and other third parties) should be identified by a unique identifier. Choose an authentication method to open sessions that is appropriate to the context, the risk level and the robustness expected. Recommendations: if the risks are not elevated, a password may be used; however, if the risks are higher, use a one-time password token but change the default activation password, or, when part of the password is sent by SMS, a card with a PIN code, an electronic certificate or any other form of strong authentication.",
-        "source": "Mesures_US Logical Access Control"
+        "name": "Autentifikavimasis",
+        "description": "Autentifikavimosi metu vartotojas privalo įrodyti savo tapatybę. Kiekvienas, teisę į prieigą prie duomenų turintis asmuo, turi turėti unikalų savo identifikatorių. Autentifikuotis galima: :<br>-slaptažodžio pagalba;<br>-el. parašo ar el. bankininkystės pagalba;<br>- savo biometrinių duomenų pagalba.<br>Primintina, kad pagal BDAR biometrinių duomenų naudojimas leidžiamas, turint duomenų subjekto galiojantį sutikimą.<br><strong> Autentifikavimasis laikomas stipriu, jei naudojami mažiausiai keli autentifikavimosi būdai.</strong>",
+        "source": "Mesures_US Loginė prieigos kontrolė"
       },
       "PIA_DEF_LOG": {
         "name": "Surveillance",
