@@ -5,7 +5,11 @@
 
     <div class="small-12 medium-12 columns">
 
-      <h2 class="page-title">{{ processing.name }}</h2>
+      <h2 class="page-title">
+        <a routerLink="/processing/{{ processing.id }}">
+          {{ processing.name }}
+        </a>
+      </h2>
 
       <div class="pia-filtersBlock">
 

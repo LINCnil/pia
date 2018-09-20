@@ -329,6 +329,11 @@
           "title": "Cycle de vie des données",
           "short_help": ""
         }
+      },
+      "pia_section": {
+        "title": "PIAs",
+        "new_pia_button": "Create new PIA",
+        "list_button": "List of PIAs"
       }
     },
     "statuses": {

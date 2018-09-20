@@ -185,3 +185,13 @@
     }
   }
 }
+
+.page-title {
+  a {
+    color: $pia-blue;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

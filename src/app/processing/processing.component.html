@@ -1,5 +1,5 @@
 <app-header></app-header>
-<main class="container pia-mainContainer">
+<main class="container pia-mainContainer pia-mainContainerBlock">
     <div class="row">
         <!-- Left sidebar (sections) -->
         <div class="small-12 medium-3 columns">
@@ -20,6 +20,33 @@
                             </div>
                             <!-- </div> -->
                         </ng-container>
+                    </div>
+                </div>
+                <div class="pia-section">
+                    <div class="processing-section-header">
+                        <h1 class="truncate" title="{{ 'processing.form.pia_section.title' | translate }}">
+                            {{ 'processing.form.pia_section.title' | translate }}
+                        </h1>
+                        <a class="fa fa-list fa-2x" routerLink="/processing/{{processing.id}}/pias"
+                            title="{{ 'processing.form.pia_section.list_button' | translate }}"></a>
+                    </div>
+                    <button class="btn btn-green expanded" (click)="_modalsService.openModal('modal-list-new-pia')" *ngxPermissionsOnly="['CanCreatePIA']">
+                        {{ 'processing.form.pia_section.new_pia_button' | translate }}
+                    </button>
+                    <div *ngIf="processing.pias_count > 0">
+                        <ul class="pia-quick-list">
+                            <ng-container *ngFor="let pia of pias">
+                            <li 
+                                *ngIf="pia.status !== 4"
+                                [ngClass]="{'pia-archive': pia.status == 4, 'pia-doing': pia.status == 0, 'pia-refused': pia.status == 1, 'pia-valid': pia.status == 2 || pia.status == 3 }"
+                            >
+                                {{ pia.updated_at | date: 'dd/MM/yyyy' }} | {{ 'pia.statuses.' + pia.status | translate }}
+                                <a routerLink="/entry/{{pia.id}}/section/3/item/1">
+                                    <i class="fa fa-eye"></i>
+                                </a>
+                            </li>
+                            </ng-container>
+                        </ul>
                     </div>
                 </div>
             </aside>

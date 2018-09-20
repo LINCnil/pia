@@ -300,6 +300,11 @@
           "title": "Cycle de vie des données",
           "short_help": ""
         }
+      },
+      "pia_section": {
+        "title": "PIAs",
+        "new_pia_button": "Créer un PIA",
+        "list_button": "Voir la liste des PIAs"
       }
     },
     "statuses": {

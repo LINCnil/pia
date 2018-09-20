@@ -180,3 +180,76 @@
     float: left;
   }
 }
+
+.pia-section {
+  margin-top:2em;
+
+  .processing-section-header {
+    display: flex;
+    justify-content: flex-start;
+    padding: 0;
+    border-bottom: solid 2px $pia-green;
+    margin-bottom: 2em;
+    h1 {
+      font-size: 3rem;
+      font-weight: 400;
+      margin: 10px;
+      margin-left: 0;
+      width: 100%;
+      line-height: 30px;
+      padding-bottom: 2px;
+    }
+    a {
+      width: 35px;
+      align-self: center;
+    }
+
+    .fa.fa-list {
+      color: $pia-dark-black;
+      text-decoration: none;
+    }
+  }
+
+  .btn {
+    display: block;
+  }
+}
+
+ul.pia-quick-list {
+  list-style-type: none;
+  padding-left: 0;
+  & > li {
+    background: $pia-full-white;
+    margin:0.5em 0;
+    box-shadow: 0 1px 2px transparentize($pia-gray,0.5);
+    padding: 0.3em 0.6em;
+    &.pia-archive,
+    &.pia-doing,
+    &.pia-refused,
+    &.pia-valid {
+      border-left-width: 4px;
+      border-left-style: solid;
+    }
+
+    &.pia-archive {
+      opacity: 0.5;
+      border-left-color: $pia-gray;
+    }
+    &.pia-doing {
+      border-left-color: $pia-green;
+    }
+    &.pia-refused {
+      border-left-color: $pia-red;
+    }
+    &.pia-valid {
+      border-left-color: $pia-blue;
+    }
+
+    & > a {
+      float: right;
+      & > i.fa {
+        color: $pia-green;
+      }
+    }
+  }
+}
