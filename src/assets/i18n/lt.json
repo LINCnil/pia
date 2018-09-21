@@ -607,53 +607,53 @@
         "source": "PIAF Connected Objects p44 and 45, WIKI"
       },
       "PIA_DEF_GRV": {
-        "name": "Severity",
-        "description": "Severity represents the magnitude of a risk. It primarily depends on the prejudicial nature of the potential impacts.",
+        "name": "Rizikos laipsnis",
+        "description": "Rizikos laipsnis priklauso nuo preliminaraus galimo neigiamo poveikio vertinimo",
         "source": "PIA1 page 6"
       },
       "PIA_DEF_VRA": {
-        "name": "Likelihood",
-        "description": "Likelihood expresses the possibility of a risk occurring. It primarily depends on the level of vulnerabilities of the supporting assets when under threat and the level of capabilities of the risk sources to exploit them.",
+        "name": "Tikimybė",
+        "description": "Tikimybė, kad įvyks potenciali rizika. Tikimybės dydis priklauso nuo įrangos ir kitų išteklių pažeidžiamumo laipsnio ir riziką sukeliančių šaltinių potencialo juos pažeisti.",
         "source": "PIA1 page 6"
       },
       "PIA_DEF_PBDS": {
-        "name": "Project Management",
-        "description": "Measures taken to integrate the protection of personal data in all new processing operations (trusted names, guidelines, CNIL methodology for risk management or other internal methodology).",
+        "name": "Projekto valdymas",
+        "description": "Priemonės, kurių imamasi diegiant duomenų apsaugos reikalavimus naujuose projektuose.",
         "source": "Mesures_US"
       },
       "PIA_DEF_VIOL": {
-        "name": "Personal data breach",
-        "description": "Breach of security leading to the accidental or unlawful destruction, loss, alteration, unauthorised disclosure of, or access to, personal data transmitted, stored or otherwise processed.",
-        "source": "GDPR Art. 4.12"
+        "name": "Asmens duomenų saugumo pažeidimas",
+        "description": "Saugumo pažeidimas, dėl kurio netyčia arba neteisėtai sunaikinami, prarandami, pakeičiami, be leidimo atskleidžiami persiųsti, saugomi arba kitaip tvarkomi asmens duomenys arba prie jų be leidimo gaunama prieiga.",
+        "source": "BDAR 4 str. 12 d."
       },
       "PIA_DEF_ENJ": {
-        "name": "Stakes",
-        "description": "Expected benefits (for the organisation, for the data subjects, for society in general, etc.).",
+        "name": "Lūkečiai",
+        "description": "Kokios naudos tikimasi (organizacijai, duomenų subjektams, visuomenei bendrai ir t.t.).",
         "source": "PIA1 p4 footnote 8"
       },
       "PIA_DEF_ST": {
-        "name": "Processor",
-        "description": "Natural or legal person, public authority, agency or other body which processes personal data on behalf of the controller, see <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 4.8 of [GDPR]</a>.<br>The processor and any person acting under the authority of the controller or of the processor, who has access to personal data, shall not process those data except on instructions from the controller, unless required to do so by Union or Member State law, see <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 29 of [GDPR]</a>.",
-        "source": "GDPR Art. 4.8 and 29"
+        "name": "Duomenų tvarkytojas",
+        "description": "Fizinis arba juridinis asmuo, valdžios institucija, agentūra ar kita įstaiga, kuri duomenų valdytojo vardu tvarko asmens duomenis, žr. <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/LT/TXT/HTML/?uri=CELEX:32016R0679&from=LT\">4 str. 8 d. [BDAR]</a>. Duomenų tvarkytojas tvarko asmens duomenis tik pagal duomenų valdytojo dokumentais įformintus nurodymus, įskaitant susijusius su asmens duomenų perdavimu į trečiąją valstybę ar tarptautinei organizacijai, išskyrus atvejus, kai tai daryti reikalaujama pagal Sąjungos arba valstybės narės teisę, kuri yra taikoma duomenų tvarkytojui, žr. <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/LT/TXT/HTML/?uri=CELEX:32016R0679&from=LT\">29 str. [BDAR]</a>",
+        "source": "BDAR 4 str. 8 d. ir 29 str."
       },
       "PIA_DEF_RGPD": {
-        "name": "GDPR (General Data Protection Regulation",
-        "description": "Regulation on the protection of natural persons with regard to the processing of personal data and on the free movement of such data, and repealing Directive 95/46/EC.",
-        "source": "GDPR title"
+        "name": "BDAR (Bendrasis duomenų apsaugos reglamentas)",
+        "description": "Reglamentas (ES) 2016/679 dėl fizinių asmenų apsaugos tvarkant asmens duomenis ir dėl laisvo tokių duomenų judėjimo ir kuriuo panaikinama Direktyva 95/46/EB.",
+        "source": "BDAR pavadinimas"
       },
       "PIA_DEF_PC": {
-        "name": "Data subject",
-        "description": "Persons to whom the data covered by the processing relate.",
+        "name": "Duomenų subjektas",
+        "description": "Žmogus, kurio asmens duomenys yra tvarkomi.",
         "source": "PIA1 p9"
       },
       "PIA_DEF_MIN3": {
-        "name": "Reducing the identifying nature of data",
-        "description": "The system can ensure that: <br>- the user can use a resource or service without the risk of disclosing his/her identity (anonymous data)<br>- the user can use a resource or service without the risk of disclosing his/her identity, but remain identifiable and responsible for this use (pseudonymous data)<br>- the user can make multiple uses of resources or services without the risk of these different uses being linked together (data cannot be correlated)<br>- the user can use a resource or service without the risk of others, third parties in particular, being able to observe that the resource or service is being used (non-observability)<br>The choice of a method from the list above must be made on the basis of the threats identified. For some types of threat to privacy, pseudonymization will be more appropriate than anonymisation (for example, if there is a traceability need). In addition, some threats to privacy will be addressed using a combination of methods.",
+        "name": "Žmogų indentifikuojančių duomenų sumažinimas",
+        "description": "IT sistema gali leisti:<br>- vartotojui naudotis paslaugomis ar kitais resursais, neatskleidžiant savo tapatybės (tvarkomi tik anoniminiai vartotojų duomenys)<br>- vartotojui naudotis paslaugomis ar kitais resursais, neatskleidžiant savo tapatybės. Tačiau vartotojui suteikiant pseudonimus <br>- vartotojui naudotis paslaugomis ar kitais resursais be rizikos, kad visi jo skirtingi veiksmai bus tarpusavyje susieti ir apjungti<br>- vartotojui naudotis paslaugomis ar kitais resursais be galimybės trečiosioms šalis stebėti jo elgseną<br> Konkretaus iš minėtų būdų pasirinkimas priklauso nuo nustatytų galimų grėsmių privatumui. Dėl kai kurių grėsmių pseudonimų suteikimas yra tinkamesnis būdas nei duomenų nuasmeninimas (pvz., jei reikalingas veiksmų atsekamumas). Dėl tam tikrų grėsmių galima naudoti keletą būdų.",
         "source" : "PIAF Connected objects p42 - WIKI"
       },
       "PIA_DEF_MIN4": {
-        "name": "Reducing data accumulation",
-        "description": "The system can be organised into independent parts with separate access control functions. The data can also be divided between these independent sub-systems and controlled by each sub-system using different access control mechanisms. If a sub-system is compromised, the impacts on all of the data can thus be reduced.",
+        "name": "Duomenų saugojimo išskaidymas",
+        "description": "IT sistema gali būti suskaidyta į atskiras dalis, turinčiomis atskiras prieigos kontroles. Duomenis taip pat galima paskirstyti tarp šių atskirų posistemių ir kontroliuoti kiekvieną posistemę naudojant skirtingus prieigos kontrolės mechanizmus. Jei viena iš posistemių yra pažeista, poveikis visiems duomenims gali būti reikšmingai sumažintas.",
         "source": "PIAF Connected objects p42 - WIKI"
       },
       "PIA_DEF_MIN5": {
