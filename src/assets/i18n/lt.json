@@ -458,7 +458,7 @@
       },
       "PIA_DEF_MES": {
         "name": "Priemonės",
-        "description": "Pasirinkite priemonę iš skyriaus \“Planuojamos arba egzistuojančios priemonės“\, esant poreikiui, papildykite jas.",
+        "description": "Pasirinkite priemonę iš skyriaus \"Planuojamos arba egzistuojančios priemonės\", esant poreikiui, papildykite jas.",
         "source": "None"
       },
       "PIA_DEF_RT": {
