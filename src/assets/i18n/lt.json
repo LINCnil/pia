@@ -628,7 +628,7 @@
       },
       "PIA_DEF_ENJ": {
         "name": "Lūkečiai",
-        "description": "Kokios naudos tikimasi (organizacijai, duomenų subjektams, visuomenei bendrai ir t.t.).",
+        "description": "Kokios naudos tikimasi organizacijai, duomenų subjektams, visuomenei bendrai ir t.t.",
         "source": "PIA1 p4 footnote 8"
       },
       "PIA_DEF_ST": {
@@ -657,32 +657,32 @@
         "source": "PIAF Connected objects p42 - WIKI"
       },
       "PIA_DEF_MIN5": {
-        "name": "Restricting data access",
-        "description": "The system can limit data access according to the \"need to know\" principle. The system can separate the sensitive data and apply specific access control policies. The system can also encrypt sensitive data to protect their confidentiality during transmission and storage. Access to temporary cookies which are produced during the data processing must also be protected.",
+        "name": "Prieigos prie duomenų ribojimas",
+        "description": "Prieigą prie duomenų galima riboti pagal principą \"tik tam, kam būtina\". Sistemoje galima laikyti specialių kategorijų duomenis atskirai ir dar griežčiau riboti prieigą prie jų. Specialių kategorijų duomenys gali būti šifruojami tiek juos saugant, tiek perduodant tinkle. Prieiga prie slapukų surinktų duomenų taip pat turi būti apsaugota.",
         "source": "PIAF Connected objects p42 - WIKI"
       },
       "PIA_EX_DCPC": {
-        "name": "Common personal data",
-        "description": "<strong>Identification data</strong> : Civil status, identity, age, etc. <br><strong>Personal life</strong> : living habits, marital status, etc. <br><strong>Professional life </strong> : résumé, education and professional training, awards, etc. <br><strong>Connection data </strong> : IP addresses, event logs, etc.<br><strong>Location data</strong> : travels, GPS data, GSM data, etc.<br><strong>Others</strong> : phone number, email address, etc.",
+        "name": "Bendrieji asmens duomenys",
+        "description": "<strong>Identifikaciniai duomenys</strong> : vardas, pavardė, amžius,  pilietybė, gyv, vietos adresas, t.t. <br><strong>Asmens gyvenimas</strong> : pmoėgiai, įpročiai, šeimyninė padėtis, t.t. <br><strong>Profesinis gyvenimas </strong> : darbovietė, veiklos pobūdis, išsilavinimas, gyvenimo aprašymas (CV), išsilavinimas, mokymai, profesiniai pasiekimai, apdovanojimai, t.t. <br><strong>Ryšio duomenys </strong> : IP adresas, veiksmų žurnalas (angl. event logs), t.t.<br><strong>Geografinės vietos duomenys</strong> : keliavimo maršrutai, GPS duomenys, GPS duomenys, t.t.<br><strong>Kita informacija</strong> : telefono numeris, el. pašto adresas, t.t.",
         "source": "PIA2 old version - WIKI"
       },
       "PIA_EX_DCPS": {
-        "name": "Personal data perceived as sensitive",
-        "description": "Social security number (NIR), biometric data, bank data",
+        "name": "Jautraus pobūdžio asmens duomenys",
+        "description": "Asmens kodas, finansiniai duomenys",
         "source": "PIA2 old version - WIKI"
       },
       "PIA_EX_DCPR": {
-        "name": "Convictions and sensitive personal data",
-        "description": "Philosophical, political, religious and trade-union views, sex life, health data, racial or ethnic origin, data concerning health or sex life, offenses, convictions, security measures, see <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 9 and 10 of [GDPR]</a>.",
-        "source": "PIA2 old version, GDPR Article 9 and 10 - WIKI"
+        "name": "Specialių kategorijų asmens duomenys",
+        "description": "Rasinė ir etninė kilmė, politinės pažiūros, religiniai ir filosofiniai įsitikinimai, narystė profesinėse sąjungose, genetiniai duomenys, biometriniai duomenys, siekiant konkrečiai nustatyti fizinio asmens tapatybę, sveikatos duomenys, duomenys apie fizinio asmens lytinį gyvenimą ir lytinę orientaciją, duomenys apie apkaltinamuosius nuosprendžius ir nusikalstamas veikas, žr. <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/LT/TXT/HTML/?uri=CELEX:32016R0679&from=LT\">9-10 str. [BDAR]</a>.",
+        "source": "PIA2 old version, BDAR 9-10 str. - WIKI"
       },
       "PIA_EX_HUMI": {
-        "name": "Internal human sources",
-        "description": "It could be either:<br>- a negligent or rogue employee, proximity of the system, skills, privileges and available time are potentially high, possible lack of training and awareness<br>- negligent or rogue user, family member or friend having access to the service.<br> Various motives are possible, including : clumsiness, error, negligence game, malicious intent, revenge, spying",
+        "name": "Vidinės žmogiškosios rizikos",
+        "description": "Tai gali būti: <br>- darbuotojų neatsargumas ar apsileidimas, mokymų ir įgūdžių trūkumas <br>-  nesąžiningumas, galimybė darbuotojo artimiesiems ar jo draugams pasinaudoti darbiniais įrankiais ir gauti prieigą prie duomenų<br>- įvairūs kiti galimi motyvai: suklydimas, aplaidumas, piktybiški ketinimai, kerštas, komercinis šnipinėjimas.",
         "source": "PIAF Connected objects p41 - WIKI"
       },
       "PIA_EX_HUME": {
-        "name": "External human sources",
+        "name": "Išorinės žmogiškos rizikos",
         "description": "It could be either:<br>- a rogue or naive neighbor, by having a physical proximity, hacking into the device's data;<br>- a hacker targeting a user by using the knowledge he/she has of the user and some of the information concerning him/her;<br>- a hacker targeting one of the companies by using the knowledge he/she has of the companies that can undermine their image;<br>- an authorised third party company using its privileged access to illegitimately access information.",
         "source": "PIAF Connected objects p41 - WIKI"
       },
