@@ -683,21 +683,21 @@
       },
       "PIA_EX_HUME": {
         "name": "Išorinės žmogiškos rizikos",
-        "description": "It could be either:<br>- a rogue or naive neighbor, by having a physical proximity, hacking into the device's data;<br>- a hacker targeting a user by using the knowledge he/she has of the user and some of the information concerning him/her;<br>- a hacker targeting one of the companies by using the knowledge he/she has of the companies that can undermine their image;<br>- an authorised third party company using its privileged access to illegitimately access information.",
+        "description": "Tai gali būti: <br>- trečiojo asmens įsilaužimas į sistemą<br>- įsilaužėlis, kuris disponuoja tam tikra informacija apie vartotoją<br>- įsilaužėlis, kuris disponuoja tam tikra informacija apie įmonę, kuri yra duomenų valdytoja ar duomenų tvarkytoja<br>- įgaliota trečioji šalis, kuri savo turimą prisijungimą naudoja, siekdama neteisėtai gauti prieigą prie duomenų.",
         "source": "PIAF Connected objects p41 - WIKI"
       },
       "PIA_EX_NHUM": {
-        "name": "Non-human sources",
-        "description": "Incident or damage at one of the organisation (power cut, fire, flood, etc.)",
+        "name": "Ne nuo žmogaus priklausančios rizikos",
+        "description": "Tai gali būti incidentas ar nelaimė pas duomenų valdytoją (elektros dingimas, gaisras, potvynis, techninis sutrikimas ir pan.).",
         "source": "PIAF Connected objects p41 - WIKI"
       },
       "PIA_EX_IMPN": {
-        "name": "Negligible impact",
-        "description": "Data subjects either will not be affected or may encounter a few inconveniences, which they will overcome without any problem. For example:<br>- physical : transient headaches;<br>- material : loss of time in repeating formalities or waiting for them to be fulfilled, receipt of unsolicited mail (e.g.: spams), reuse of data published on websites for the purpose of targeted advertising , etc.;<br>- moral : mere annoyance, feeling of invasion of privacy without real or objective harm (commercial intrusion), etc.",
+        "name": "Nedidelis poveikis",
+        "description": "Tai nepaveiks duomenų subjektų arba sukels jiems nedidelių nepatogumų, kuriuos jie nesunkiai gali įveikti. Pvz., :<br>- nedidelis galvos skausmas;<br>- laiko praradimas kartojant formalumus arba laukiant jų įvykdymo, nepageidaujamų el. laiškų gavimas, viešai prieinamų duomenų naudojimas tikslinei tiesioginei rinkodarai ir t.t.<br>- sukeltas pyktis, dvasinis diskomfortas, pažeisto privatumo jausmas, nesukeliantis realių nuostolių ir t.t.",
         "source": "PIAF Connected Objects p41 - WIKI"
       },
       "PIA_EX_IMPL": {
-        "name": "Limited impact",
+        "name": "Ribotas poveikis",
         "description": "Data subjects may encounter significant inconveniences, which they will be able to overcome despite a few difficulties. For example:<br>- physical : minor physical ailments (minor illness due to disregard of contraindications), defamation resulting in physical or psychological retaliation, etc.;<br>- material : unanticipated payments (fines imposed erroneously), denial of access to administrative or commercial services, receipt of unsolicited targeted mailings likely to damage the reputation of data subjects, etc.;<br>- moral : minor but objective psychological ailments, feeling of invasion of privacy without irreversible damage, intimidation on social networks, etc.",
         "source": "PIAF Connected objects p41 - WIKI"
       },
