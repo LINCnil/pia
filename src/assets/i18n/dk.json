@@ -1105,7 +1105,7 @@
               "placeholder": "Presenter behandlingen på en syntetisk måde: dets navn, dets formål, dets indsats (forventede bidrag), dets anvendelsesmåde osv."
             },
             "2": {
-              "title": "What are the responsibilities linked to the processing?",
+              "title": "Hvordan er ansvaret for behandlingen fordelt?",
               "placeholder": "Beskriv ansvarsfordelingen for behandlingen: dataansvarlige, eventuel databehandler og fælles dataansvarlige."
             },
             "3": {
