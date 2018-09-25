@@ -178,23 +178,6 @@ export class MeasuresComponent implements OnInit, OnDestroy {
     accordeon.classList.toggle('pia-icon-accordeon-down');
     const displayer = this.el.nativeElement.querySelector('.pia-measureBlock-displayer');
     displayer.classList.toggle('close');
-
-    // Display comments/evaluations for measures
-    // const commentsDisplayer = document.querySelector('.pia-commentsBlock-measure-' + this.measure.id);
-    // const evaluationDisplayer = document.querySelector('.pia-evaluationBlock-measure-' + this.measure.id);
-    // if (event.target.getAttribute('data-status') === 'hide') {
-    //   event.target.removeAttribute('data-status');
-    //   commentsDisplayer.classList.remove('hide');
-    //   if (evaluationDisplayer && this.evaluation.status > 0) {
-    //     evaluationDisplayer.classList.remove('hide');
-    //   }
-    // } else {
-    //   event.target.setAttribute('data-status', 'hide');
-    //   commentsDisplayer.classList.add('hide');
-    //   if (evaluationDisplayer) {
-    //     evaluationDisplayer.classList.add('hide');
-    //   }
-    // }
   }
 
   /**
