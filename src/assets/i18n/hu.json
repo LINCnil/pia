@@ -80,7 +80,7 @@
       "validation": "Jóváhagyás",
       "placeholder_validation": "Vezetéknév, utónév",
       "structure": "TO BE TRANSLATED - Modèle",
-      "placeholder_structure": "TO BE TRANSLATED - Choisir un modèle",
+      "placeholder_structure": "TO BE TRANSLATED - Modèle par défaut",
       "date": "Dátum",
       "status": "Állapot",
       "creation_status": "Létrehozás",

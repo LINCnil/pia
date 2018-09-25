@@ -80,7 +80,7 @@
       "validation": "Validation",
       "placeholder_validation": "Prénom, nom",
       "structure": "Modèle",
-      "placeholder_structure": "Choisir un modèle",
+      "placeholder_structure": "Modèle par défaut",
       "date": "Date",
       "status": "Statut",
       "creation_status": "Création",
