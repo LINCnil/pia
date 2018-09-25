@@ -80,7 +80,7 @@
       "validation": "Validation",
       "placeholder_validation": "Firstname, lastname",
       "structure": "TO BE TRANSLATED - Modèle",
-      "placeholder_structure": "TO BE TRANSLATED - Choisir un modèle",
+      "placeholder_structure": "TO BE TRANSLATED - Modèle par défaut",
       "date": "Date",
       "status": "Status",
       "creation_status": "Creation",
