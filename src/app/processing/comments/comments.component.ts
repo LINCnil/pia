@@ -33,7 +33,7 @@ export class CommentsComponent implements OnInit {
    */
   toggleCommentInput() {
     if (this.processing.comments.length) {
-      this.toggleCommentsList();
+      this.toggleCommentList();
     }
 
     this.displayInput = !this.displayInput;
@@ -43,7 +43,7 @@ export class CommentsComponent implements OnInit {
    * Show or hide comments list.
    * @memberof CommentsComponent
    */
-  toggleCommentsList() {
+  toggleCommentList() {
    this.displayList = !this.displayList;
   }
 
