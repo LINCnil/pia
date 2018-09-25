@@ -22,6 +22,7 @@ export class HeaderComponent implements OnInit {
   appVersion: string;
   pia_is_example: boolean;
   pia_example: Pia;
+  isStructureHeader: boolean;
 
   constructor(public _router: Router,
               private renderer: Renderer2,
@@ -44,6 +45,9 @@ export class HeaderComponent implements OnInit {
         this.loadPiaExample();
       }
     });
+    if (this._router.url.indexOf('/structures/') > -1) {
+      this.isStructureHeader = true;
+    }
   }
 
   /**
