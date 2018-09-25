@@ -1,7 +1,7 @@
 <div class="pia-commentsBlock-content fadeIn">
   <div class="pia-commentsBlock-date">
     {{ 'comments.comment' | translate }}
-    <time *ngIf="comment.created_at && comment.created_at.toString() !== 'Invalid Date'">le {{comment.created_at | date: 'dd/MM/yyyy'}}</time>
+    <time *ngIf="comment.created_at && comment.created_at.toString() !== 'Invalid Date'">{{comment.created_at | date: 'dd/MM/yyyy'}}</time>
   </div>
   <textarea rows="3" disabled cols="50">{{comment.description}}</textarea>
 </div>

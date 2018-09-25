@@ -1,6 +1,6 @@
-@import '../../../../assets/stylesheets/variables';
-.pia {
-  &-commentsBlock {
+@import '../../../assets/stylesheets/variables';
+
+.processing-comments{
     &-count {
       text-align: right;
       color: $pia-blue;
@@ -10,6 +10,7 @@
     }
     &-btn {
       display: block;
+      margin-left: auto;
       button {
         align-self: center;
         color: $pia-green;
@@ -49,10 +50,15 @@
     }
     &-date {
       font-weight: initial;
-      color: $pia-gray;
-      font-size: 1rem;
+      color: $pia-blue;
+      font-size: 1.4rem;
       &:before {
         margin: 0 5px;
+      }
+
+      time {
+       color: $pia-gray;
+       font-size: 1rem; 
       }
     }
     &-new {
@@ -61,7 +67,6 @@
         margin: 10px auto;
         resize: none;
         display: block;
-        vertical-align: top;
         width: 100%;
         background-color: $pia-white;
         border: 0;
@@ -70,9 +75,9 @@
         font-style: italic;
       }
     }
-    .pia-commentBtnSubmit {
-      margin: 10px  0 5px auto;
-      display: flex;
-    }
   }
-}
+
+  .comment-submit {
+    margin: 10px  0 5px auto;
+    display: flex;
+  }

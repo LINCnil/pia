@@ -37,8 +37,8 @@ const routes: Routes = [
   },
   { path: 'help', component: HelpComponent },
   { path: 'about', component: AboutComponent },
-  { 
-    path: 'structure/:id', 
+  {
+    path: 'structure/:id',
     component: StructureComponent,
     canActivate: [AuthenticationGuardService],
     resolve: {structure: StructureResolve}

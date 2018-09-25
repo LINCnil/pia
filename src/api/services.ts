@@ -14,5 +14,6 @@ export {
     TemplateService as TemplateApi,
     FolderService as FolderApi,
     ProcessingDataTypeService as ProcessingDataTypeApi,
-    StructureService as StructureApi
+    StructureService as StructureApi,
+    ProcessingCommentService as ProcessingCommentApi
 } from '@api/service';

@@ -69,7 +69,7 @@ export class AppComponent {
       'CanCreatePIA', 'CanCreatePIAExample', 'CanShowPIA',
       'CanEvaluatePIA', 'CanValidatePIA', 'CanCancelValidatePIA',
       'CanDeletePIA', 'CanCreateFolder',
-      'CanCreateProcessing', 'CanEditProcessing', 'CanImportProcessing', 'CanExportProcessing', 'CanShowProcessing', 'CanDeleteProcessing', 
+      'CanCreateProcessing', 'CanEditProcessing', 'CanImportProcessing', 'CanExportProcessing', 'CanShowProcessing', 'CanDeleteProcessing',
       'AccessToValidationSection',
       'CanEditStructure',
     ]);

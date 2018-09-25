@@ -127,7 +127,7 @@ export class CommentsComponent implements OnInit {
   displayCommentsList() {
     const commentsList = this.el.nativeElement.querySelector('.pia-commentsBlock-list');
     const btn = this.el.nativeElement.querySelector('.pia-commentsBlock-btn button span');
-    
+
     btn.classList.toggle('fa-angle-up');
     btn.classList.toggle('fa-angle-down');
     commentsList.classList.toggle('close');

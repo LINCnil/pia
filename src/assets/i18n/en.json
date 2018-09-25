@@ -254,6 +254,13 @@
     }
   },
   "processing": {
+    "comments": {
+      "add": "Comment",
+      "new": "Send",
+      "count": "comment(s)",
+      "comment": "Comment",
+      "placeholder_new_comment": "Leave a comment"
+    },
     "form": {
       "previous": "Previous section",
       "next": "Next section",

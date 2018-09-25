@@ -12,6 +12,7 @@ import { UserTokenService } from '@api/service/user-token.service';
 import { TemplateService } from '@api/service/template.service';
 import { FolderService } from '@api/service/folder.service';
 import { ProcessingService } from '@api/service/processing.service';
+import { ProcessingCommentService } from '@api/service/processing-comment.service';
 import { StructureService } from '@api/service/structure.service';
 
 @NgModule({
@@ -31,6 +32,7 @@ import { StructureService } from '@api/service/structure.service';
     TemplateService,
     FolderService,
     ProcessingService,
+    ProcessingCommentService,
     StructureService
   ]
 })

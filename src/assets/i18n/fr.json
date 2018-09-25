@@ -225,6 +225,13 @@
     }
   },
   "processing": {
+    "comments": {
+      "add": "Commenter",
+      "new": "Envoyer",
+      "count": "commentaire(s)",
+      "comment": "Commentaire",
+      "placeholder_new_comment": "Laisser un commentaire"
+    },
     "form": {
       "previous": "Section précédente",
       "next": "Section suivante",

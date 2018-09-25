@@ -132,25 +132,33 @@ export class ProcessingFormComponent implements OnDestroy, OnInit {
    */
   private closeEditor() {
     tinymce.remove(this.editor);
+    this.isFullyFilled();
     this.editor = null;
   }
 
   protected isFullyFilled(): void {
     const fields = [
-      "description",
-      "controllers",
-      "standards",
-      "storage",
-      "life_cycle",
-      "processors",
-      "non_eu_transfer"
+      'description',
+      'controllers',
+      'standards',
+      'storage',
+      'life_cycle',
+      'processors',
+      'non_eu_transfer',
+      'recipients',
+      'lawfulness',
+      'minimization',
+      'rights_guarantee',
+      'exctness',
+      'consent'
     ];
+
     let isFullyFilled = true;
 
     this.processingDataTypeApi.getAll(this.processing.id).subscribe((processingDataTypes) => {
       isFullyFilled = processingDataTypes.length > 0;
 
-      for (let field of fields) {
+      for (const field of fields) {
         if (
           this.processing.hasOwnProperty(field)
           && (
