@@ -34,6 +34,7 @@ export class StructuresComponent implements OnInit, OnDestroy {
               public _structureService: StructureService) { }
 
   ngOnInit() {
+    this._appDataService.dataNav.sections = null;
     this.sortOrder = localStorage.getItem('sortOrder');
     this.sortValue = localStorage.getItem('sortValue');
     if (!this.sortOrder || !this.sortValue) {

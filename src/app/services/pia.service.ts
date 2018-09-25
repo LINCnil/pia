@@ -195,6 +195,14 @@ export class PiaService {
     pia.created_at = data.pia.created_at;
     pia.dpos_names = data.pia.dpos_names;
     pia.people_names = data.pia.people_names;
+    /* Structure import if there is a specific one associated to this PIA */
+    if (data.pia.structure_id) {
+      pia.structure_id = data.pia.structure_id;
+      pia.structure_data = data.pia.structure_data;
+      pia.structure_name = data.pia.structure_name;
+      pia.structure_sector_name = data.pia.structure_sector_name;
+
+    }
 
     /* Set this PIA as the example PIA if needed, else default value affected on creation */
     if (is_example) {
