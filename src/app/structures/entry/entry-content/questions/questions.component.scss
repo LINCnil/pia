@@ -4,11 +4,11 @@
     position: relative;
     margin-bottom: 10px;
     background-color: #fff;
-    padding: 12px 32px;
+    padding: 12px 40px;
     box-shadow: 1px 1px 15px 1px rgba(210,210,210,1);
     .pia-accordeon {
       position: absolute;
-      right: 20px;
+      right: 15px;
       top: 22px;
       cursor: pointer;
       &:before {
@@ -24,8 +24,8 @@
       z-index: 999;
       color: $pia-red;
       position: absolute;
-      top: 16px;
-      right: 34px;
+      top: 48px;
+      right: 15px;
       font-size: 1.9rem;
     }
     &-title {
