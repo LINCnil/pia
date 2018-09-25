@@ -157,7 +157,6 @@
     "sections": {
       "homepage_link": "Retourner à l'accueil",
       "validate_pia": "Valider le PIA",
-      "validate_structure": "Valider le modèle",
       "refuse_pia": "PIA refusé",
       "based_on_structure_name": "Basé sur le modèle :",
       "status": {

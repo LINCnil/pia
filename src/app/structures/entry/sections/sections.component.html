@@ -1,7 +1,7 @@
 <div class="pia-sectionsBlock">
   <div class="pia-sectionBlock-header">
     <h1 class="truncate" title="{{_structureService.structure.name}}">{{ _structureService.structure.name }}</h1>
-    <a class="pia-icons pia-icon-close-big" routerLink="/home" title="{{ 'pia.sections.homepage_link' | translate }}"></a>
+    <a class="pia-icons pia-icon-close-big" routerLink="/structures" title="{{ 'pia.sections.homepage_link' | translate }}"></a>
   </div>
 
   <div class="pia-sectionBlock-body">
@@ -25,8 +25,4 @@
       </ng-container>
     </div>
   </div>
-</div>
-
-<div class="pia-validatePIABlock">
-  <a [routerLink]="['/structures']" routerLinkActive="router-link-active"  class="btn btn-green btn-active">{{ 'pia.sections.validate_structure' | translate }}</a>
 </div>

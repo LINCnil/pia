@@ -157,7 +157,6 @@
 		"sections":{
 			"homepage_link":"Torna al pannello di controllo",
 			"validate_pia":"Validazione PIA",
-      "validate_structure": "TO BE TRANSLATED - Valider le modèle",
 			"refuse_pia":"Rifiuta PIA",
       "based_on_structure_name": "TO BE TRANSLATED - Basé sur le modèle :",
 			"status":{
