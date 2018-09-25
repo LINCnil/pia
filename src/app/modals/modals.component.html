@@ -94,8 +94,8 @@
     <p [innerHTML]="'modals.remove_measure.content' | translate"></p>
     <span class="pia-icons pia-icon-sad"></span>
     <div class="pia-modalBlock-buttons-choice">
-      <button tabindex="1" class="btn btn-red" (click)="_measuresService.removeMeasure()" type="button" [innerHTML]="'modals.remove_measure.remove' | translate"></button>
-      <button tabindex="2" class="btn btn-red get-focus" type="button" (click)="_modalsService.closeModal()" [innerHTML]="'modals.remove_measure.keep' | translate"></button>
+      <button tabindex="1" class="btn btn-red" type="button" (click)="_modalsService.closeModal()" [innerHTML]="'modals.remove_measure.keep' | translate"></button>
+      <button tabindex="2" class="btn btn-red get-focus" (click)="_measuresService.removeMeasure()" type="button" [innerHTML]="'modals.remove_measure.remove' | translate"></button>
     </div>
   </div>
 </div>
@@ -106,8 +106,8 @@
     <p [innerHTML]="'modals.remove_measure.content' | translate"></p>
     <span class="pia-icons pia-icon-sad"></span>
     <div class="pia-modalBlock-buttons-choice">
-      <button tabindex="1" class="btn btn-red" (click)="_answerStructureService.removeMeasure()" type="button" [innerHTML]="'modals.remove_measure.remove' | translate"></button>
-      <button tabindex="2" class="btn btn-red get-focus" type="button" (click)="_modalsService.closeModal()" [innerHTML]="'modals.remove_measure.keep' | translate"></button>
+      <button tabindex="1" class="btn btn-red" type="button" (click)="_modalsService.closeModal()" [innerHTML]="'modals.remove_measure.keep' | translate"></button>
+      <button tabindex="2" class="btn btn-red get-focus" (click)="_answerStructureService.removeMeasure()" type="button" [innerHTML]="'modals.remove_measure.remove' | translate"></button>
     </div>
   </div>
 </div>
@@ -118,8 +118,8 @@
     <p [innerHTML]="'modals.remove_question.content' | translate"></p>
     <span class="pia-icons pia-icon-sad"></span>
     <div class="pia-modalBlock-buttons-choice">
-      <button tabindex="1" class="btn btn-red" (click)="_answerStructureService.removeQuestion()" type="button" [innerHTML]="'modals.remove_question.remove' | translate"></button>
-      <button tabindex="2" class="btn btn-red get-focus" type="button" (click)="_modalsService.closeModal()" [innerHTML]="'modals.remove_question.keep' | translate"></button>
+      <button tabindex="1" class="btn btn-red" type="button" (click)="_modalsService.closeModal()" [innerHTML]="'modals.remove_question.keep' | translate"></button>
+      <button tabindex="2" class="btn btn-red get-focus" (click)="_answerStructureService.removeQuestion()" type="button" [innerHTML]="'modals.remove_question.remove' | translate"></button>
     </div>
   </div>
 </div>
@@ -215,8 +215,8 @@
     <p [innerHTML]="'modals.remove_pia.content' | translate"></p>
     <span class="pia-icons pia-icon-sad"></span>
     <div class="pia-modalBlock-buttons-choice">
-      <button tabindex="1" class="btn btn-red get-focus" type="button" (click)="_modalsService.closeModal()">{{ 'modals.cancel' | translate }}</button>
-      <button tabindex="2" class="btn btn-red" (click)="_piaService.removePIA()" type="button">{{ 'modals.remove_pia.remove' | translate }}</button>
+      <button tabindex="1" class="btn btn-red" type="button" (click)="_modalsService.closeModal()">{{ 'modals.cancel' | translate }}</button>
+      <button tabindex="2" class="btn btn-red get-focus" (click)="_piaService.removePIA()" type="button">{{ 'modals.remove_pia.remove' | translate }}</button>
     </div>
   </div>
 </div>
@@ -227,8 +227,8 @@
     <p [innerHTML]="'modals.remove_structure.content' | translate"></p>
     <span class="pia-icons pia-icon-sad"></span>
     <div class="pia-modalBlock-buttons-choice">
-      <button tabindex="1" class="btn btn-red get-focus" type="button" (click)="_modalsService.closeModal()">{{ 'modals.cancel' | translate }}</button>
-      <button tabindex="2" class="btn btn-red" (click)="_structureService.removeStructure()" type="button">{{ 'modals.remove_structure.remove' | translate }}</button>
+      <button tabindex="1" class="btn btn-red" type="button" (click)="_modalsService.closeModal()">{{ 'modals.cancel' | translate }}</button>
+      <button tabindex="2" class="btn btn-red get-focus" (click)="_structureService.removeStructure()" type="button">{{ 'modals.remove_structure.remove' | translate }}</button>
     </div>
   </div>
 </div>
@@ -242,8 +242,8 @@
       <textarea id="pia-remove-attachment-comment" (focusout)="attachmentCommentFocusOut()" formControlName="comment"></textarea>
     </form>
     <div class="pia-modalBlock-buttons-choice">
-      <button tabindex="1" class="btn btn-red get-focus" type="button" (click)="_modalsService.closeModal()">{{ 'modals.remove_attachment.keep' | translate }}</button>
-      <button tabindex="2" class="btn btn-red" [disabled]="enableSubmit" (click)="_attachmentsService.removeAttachment(removeAttachmentForm.controls['comment'].value)" type="button">{{ 'modals.remove_attachment.remove' | translate }}</button>
+      <button tabindex="1" class="btn btn-red" type="button" (click)="_modalsService.closeModal()">{{ 'modals.remove_attachment.keep' | translate }}</button>
+      <button tabindex="2" class="btn btn-red get-focus" [disabled]="enableSubmit" (click)="_attachmentsService.removeAttachment(removeAttachmentForm.controls['comment'].value)" type="button">{{ 'modals.remove_attachment.remove' | translate }}</button>
     </div>
   </div>
 </div>
