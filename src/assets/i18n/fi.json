@@ -769,7 +769,7 @@
   "questions": {
     "edit": "Muokkaa kysymystä",
     "remove": "TO BE TRANSLATED - Supprimer la question",
-    "placeholder_title": "TO BE TRANSLATED - Titre de la question",
+    "placeholder_title": "TO BE TRANSLATED - Titre de la question (obligatoire)",
     "gauges": {
       "0": "(Määrittelemätön)",
       "1": "Vähäinen",

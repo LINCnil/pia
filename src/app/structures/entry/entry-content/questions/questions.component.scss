@@ -65,6 +65,9 @@
           font-style: italic;
           color: $pia-gray;
         }
+        &.pia-required::placeholder {
+          color: $pia-red;
+        }
         &:disabled {
           background-color: transparent;
           color: $pia-dark-black;

@@ -770,7 +770,7 @@
   "questions": {
     "edit": "Edycja pytania",
     "remove": "TO BE TRANSLATED - Supprimer la question",
-    "placeholder_title": "TO BE TRANSLATED - Titre de la question",
+    "placeholder_title": "TO BE TRANSLATED - Titre de la question (obligatoire)",
     "gauges": {
       "0": "(Niezdefiniowane)",
       "1": "Pomijalne",

@@ -770,7 +770,7 @@
   "questions": {
     "edit": "Éditer la question",
     "remove": "Supprimer la question",
-    "placeholder_title": "Titre de la question",
+    "placeholder_title": "Titre de la question (obligatoire)",
     "gauges": {
       "0": "(Non définie)",
       "1": "Négligeable",

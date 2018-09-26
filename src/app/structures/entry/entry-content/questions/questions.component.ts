@@ -188,8 +188,15 @@ export class QuestionsComponent implements OnInit, OnDestroy {
    * @memberof QuestionsComponent
    */
   questionContentFocusIn() {
-    if (this._globalEvaluationService.answerEditionEnabled) {
-      this.loadEditor();
+    let questionTitle = this.questionForm.controls['title'].value;
+    if (questionTitle) {
+      if (this._globalEvaluationService.answerEditionEnabled) {
+        this.loadEditor();
+      }
+    } else {
+      const questionTitleTextarea = document.getElementById('pia-questionBlock-title-' + this.question.id);
+      questionTitleTextarea.classList.add('pia-required');
+      questionTitleTextarea.focus();
     }
   }
 
