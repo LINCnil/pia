@@ -46,7 +46,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
       list: new FormControl()
     });
 
-    if(!this.question.title.startsWith('section') && this.question.title.length > 0) {
+    if (this.question.title && !this.question.title.startsWith('section') && this.question.title.length > 0) {
       this.questionForm.controls['title'].patchValue(this.question.title);
       this.questionForm.controls['title'].disable();
     }
@@ -175,8 +175,10 @@ export class QuestionsComponent implements OnInit, OnDestroy {
       userText = userText.replace(/^\s+/, '').replace(/\s+$/, '');
     }
 
-    this.question.title = userText;
-    this._structureService.updateJson(this.section, this.item, this.question);
+    if (userText && userText.length >= 1) {
+      this.question.title = userText;
+      this._structureService.updateJson(this.section, this.item, this.question);
+    }
 
     if (this.questionForm.value.title && this.questionForm.value.title.length > 0) {
       this.questionForm.controls['title'].disable();
@@ -188,15 +190,13 @@ export class QuestionsComponent implements OnInit, OnDestroy {
    * @memberof QuestionsComponent
    */
   questionContentFocusIn() {
-    let questionTitle = this.questionForm.controls['title'].value;
-    if (questionTitle) {
-      if (this._globalEvaluationService.answerEditionEnabled) {
-        this.loadEditor();
-      }
-    } else {
-      const questionTitleTextarea = document.getElementById('pia-questionBlock-title-' + this.question.id);
-      questionTitleTextarea.classList.add('pia-required');
-      questionTitleTextarea.focus();
+    const questionTitleTextarea = document.getElementById('pia-questionBlock-title-' + this.question.id);
+    const questionTitle = this.questionForm.controls['title'].value;
+    if (questionTitleTextarea && !questionTitle) {
+        questionTitleTextarea.classList.add('pia-required');
+        questionTitleTextarea.focus();
+    } else if (this._globalEvaluationService.answerEditionEnabled) {
+      this.loadEditor();
     }
   }
 
