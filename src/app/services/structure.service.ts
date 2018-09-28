@@ -81,9 +81,13 @@ export class StructureService {
    * @param {number} id - The Structure id.
    * @memberof StructureService
    */
-  duplicateStructure(id: number) {
-    this.exportStructureData(id).then((data) => {
-      this.importStructureData(data, 'COPY', true);
+  async duplicateStructure(id: number) {
+    return new Promise((resolve, reject) => {
+      this.exportStructureData(id).then((data) => {
+        this.importStructureData(data, 'COPY', true).then((structure) => {
+          resolve(structure);
+        });
+      });
     });
   }
 
@@ -113,27 +117,30 @@ export class StructureService {
    * @memberof StructureService
    */
   async importStructureData(data: any, prefix: string, is_duplicate: boolean) {
-    if (!('structure' in data) || !('dbVersion' in data.structure)) {
-      this._modalsService.openModal('import-wrong-structure-file');
-      return;
-    }
-    const structure = new Structure();
-    structure.name = '(' + prefix + ') ' + data.structure.name;
-    structure.sector_name = data.structure.sector_name;
-    structure.data = data.structure.data;
-
-    if (is_duplicate) {
-      structure.created_at = new Date();
-      structure.updated_at = new Date();
-    } else {
-      structure.created_at = new Date(data.structure.created_at);
-      if (data.structure.updated_at) {
-        structure.updated_at = new Date(data.structure.updated_at);
+    return new Promise((resolve, reject) => {
+      if (!('structure' in data) || !('dbVersion' in data.structure)) {
+        this._modalsService.openModal('import-wrong-structure-file');
+        return;
       }
-    }
+      const structure = new Structure();
+      structure.name = '(' + prefix + ') ' + data.structure.name;
+      structure.sector_name = data.structure.sector_name;
+      structure.data = data.structure.data;
 
-    structure.create().then((structure_id: number) => {
-      this.structures.push(structure);
+      if (is_duplicate) {
+        structure.created_at = new Date();
+        structure.updated_at = new Date();
+      } else {
+        structure.created_at = new Date(data.structure.created_at);
+        if (data.structure.updated_at) {
+          structure.updated_at = new Date(data.structure.updated_at);
+        }
+      }
+
+      structure.create().then((structure_id: number) => {
+        structure.id = structure_id;
+        resolve(structure);
+      });
     });
   }
 
@@ -162,11 +169,15 @@ export class StructureService {
    * @memberof StructureService
    */
   async importStructure(file: any) {
-    const reader = new FileReader();
-    reader.readAsText(file, 'UTF-8');
-    reader.onload = (event: any) => {
-      const jsonFile = JSON.parse(event.target.result);
-      this.importStructureData(jsonFile, 'IMPORT', false);
-    }
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.readAsText(file, 'UTF-8');
+      reader.onload = (event: any) => {
+        const jsonFile = JSON.parse(event.target.result);
+        this.importStructureData(jsonFile, 'IMPORT', false).then((structure) => {
+          this.structures.push(structure);
+        });
+      }
+    });
   }
 }

@@ -101,7 +101,7 @@
           </div>
         </div>
       </div>
-      <app-card-item *ngFor="let structure of _structureService.structures;let i=index" [structure]="structure" [previousStructure]="i > 0 ? _structureService.structures[i-1] : null"></app-card-item>
+      <app-card-item *ngFor="let structure of _structureService.structures;let i=index" (structEvent)="structChange($event)" [structure]="structure" [previousStructure]="i > 0 ? _structureService.structures[i-1] : null"></app-card-item>
     </div>
     <ng-template #viewList>
       <div class="small-12 medium-12 columns">
@@ -138,7 +138,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr class="app-list-item" [attr.data-id]="structure.id" *ngFor="let structure of _structureService.structures;let i=index" [structure]="structure"></tr>
+            <tr class="app-list-item" [attr.data-id]="structure.id" *ngFor="let structure of _structureService.structures;let i=index" (structEvent)="structChange($event)" [structure]="structure"></tr>
           </tbody>
         </table>
       </div>

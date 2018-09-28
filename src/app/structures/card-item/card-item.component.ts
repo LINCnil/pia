@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef, Input } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, EventEmitter, Input, Output } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 
@@ -16,6 +16,7 @@ import { StructureService } from 'app/services/structure.service';
 export class CardItemComponent implements OnInit {
   @Input() structure: any;
   @Input() previousStructure: any;
+  @Output() structEvent = new EventEmitter<Structure>();
   structureForm: FormGroup;
 
   @ViewChild('structureName') private structureName: ElementRef;
@@ -103,5 +104,15 @@ export class CardItemComponent implements OnInit {
    */
   export(id: number) {
     this._structureService.exportStructure(id);
+  }
+
+  /**
+   *
+   * @param id structure ID
+   */
+  async duplicate(id: number) {
+    this._structureService.duplicateStructure(id).then((structure: Structure) => {
+      this.structEvent.emit(structure);
+    });
   }
 }

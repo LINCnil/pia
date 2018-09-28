@@ -71,6 +71,15 @@ export class StructuresComponent implements OnInit, OnDestroy {
   }
 
   /**
+   * On structure change.
+   * @param {any} structure - Any Structure.
+   * @memberof StructuresComponent
+   */
+  structChange(structure) {
+    this._structureService.structures.push(structure);
+  }
+
+  /**
    * Creates a new PIA card and adds a flip effect to go switch between new PIA and edit PIA events.
    * @memberof StructuresComponent
    */

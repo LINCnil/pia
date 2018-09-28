@@ -1,6 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, EventEmitter, Output } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
+import { Structure } from 'app/structures/structure.model';
 import { ModalsService } from 'app/modals/modals.service';
 import { StructureService } from 'app/services/structure.service';
 
@@ -12,6 +13,7 @@ import { StructureService } from 'app/services/structure.service';
 })
 export class ListItemComponent implements OnInit {
   @Input() structure: any;
+  @Output() structEvent = new EventEmitter<Structure>();
 
   constructor(private router: Router,
               private route: ActivatedRoute,
@@ -50,5 +52,15 @@ export class ListItemComponent implements OnInit {
    */
   export(id: number) {
     this._structureService.exportStructure(id);
+  }
+
+  /**
+   *
+   * @param id structure ID
+   */
+  async duplicate(id: number) {
+    this._structureService.duplicateStructure(id).then((structure: Structure) => {
+      this.structEvent.emit(structure);
+    });
   }
 }
