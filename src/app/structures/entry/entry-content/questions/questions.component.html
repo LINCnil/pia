@@ -1,6 +1,6 @@
 <div class="pia-questionBlock" [attr.data-id]="question.id">
   <form [formGroup]="questionForm">
-    <ng-container *ngIf="question.title.startsWith('sections'); else inputTitle">
+    <ng-container *ngIf="question.title && question.title.startsWith('sections'); else inputTitle">
       <div [innerHTML]="question.title | translate" class="pia-questionBlock-title"></div>
     </ng-container>
     <ng-template #inputTitle>
