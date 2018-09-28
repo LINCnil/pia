@@ -9,35 +9,7 @@
       <h2 *ngIf="item.title">{{ item.title | translate }}</h2>
       <h4 *ngIf="item.short_help">{{ item.short_help | translate }}</h4>
     </div>
-    <a *ngIf="section.id === 4 && item.id === 2;else defaultBlock" routerLink="/summary/{{_structureService.structure.id}}" [queryParams]="{ displayOnlyActionPlan: true }" class="btn pia-previewBlock">
-      <span class="pia-icons pia-icon-preview"></span>
-      <div [innerHTML]="'pia.header.display_action_plan' | translate"></div>
-    </a>
-    <ng-template #defaultBlock>
-      <a routerLink="/summary/{{_structureService.structure.id}}" class="btn pia-previewBlock">
-        <span class="pia-icons pia-icon-preview"></span>
-        <div>{{ 'pia.header.preview' | translate }}</div>
-      </a>
-    </ng-template>
   </header>
-
-  <!-- Back to edition -->
-  <div class="pia-status-info" *ngIf="_globalEvaluationService.status === 4 && _structureService.structure.is_example !== 1">
-    <strong>{{ 'pia.sections.status.evaluation.title' | translate }}</strong>
-    <p>
-      <span [innerHTML]="'pia.sections.status.evaluation.content' | translate"></span>
-      <a href="javascript:;" (click)="cancelAskForEvaluation()" [innerHTML]="'pia.sections.status.evaluation.cancel' | translate"></a>
-    </p>
-  </div>
-
-  <!-- Back to evaluation -->
-  <div class="pia-status-info" *ngIf="_globalEvaluationService.status === 7 && _structureService.structure.is_example !== 1 && !(section.id == 4 && item.id == 3)">
-    <strong>{{ 'pia.sections.status.validation.title' | translate }}</strong>
-    <p>
-      <span [innerHTML]="'pia.sections.status.validation.content' | translate"></span>
-      <a href="javascript:;" (click)="cancelValidateEvaluation()" [innerHTML]="'pia.sections.status.validation.cancel' | translate"></a>
-    </p>
-  </div>
 
   <ng-container *ngIf="item.is_measure; else appQuestions">
     <button (click)="addMeasure()"
