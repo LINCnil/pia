@@ -46,7 +46,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
       list: new FormControl()
     });
 
-    if(!this.question.title.startsWith('section') && this.question.title.length > 0) {
+    if (this.question.title && !this.question.title.startsWith('section') && this.question.title.length > 0) {
       this.questionForm.controls['title'].patchValue(this.question.title);
       this.questionForm.controls['title'].disable();
     }
@@ -175,8 +175,10 @@ export class QuestionsComponent implements OnInit, OnDestroy {
       userText = userText.replace(/^\s+/, '').replace(/\s+$/, '');
     }
 
-    this.question.title = userText;
-    this._structureService.updateJson(this.section, this.item, this.question);
+    if (userText && userText.length >= 1) {
+      this.question.title = userText;
+      this._structureService.updateJson(this.section, this.item, this.question);
+    }
 
     if (this.questionForm.value.title && this.questionForm.value.title.length > 0) {
       this.questionForm.controls['title'].disable();
