@@ -458,7 +458,7 @@
       },
       "PIA_DEF_MES": {
         "name": "Priemonės",
-        "description": "Pasirinkite priemonę iš skyriaus \"Planuojamos arba egzistuojančios priemonės\", esant poreikiui, papildykite jas.",
+        "description": "Pasirinkite priemonę iš skyriaus 'Planuojamos arba egzistuojančios priemonės', esant poreikiui, papildykite jas.",
         "source": "None"
       },
       "PIA_DEF_RT": {
@@ -679,80 +679,80 @@
       "PIA_EX_HUMI": {
         "name": "Vidinės žmogiškosios rizikos",
         "description": "Tai gali būti: <br>- darbuotojų neatsargumas ar apsileidimas, mokymų ir įgūdžių trūkumas <br>-  nesąžiningumas, galimybė darbuotojo artimiesiems ar jo draugams pasinaudoti darbiniais įrankiais ir gauti prieigą prie duomenų<br>- įvairūs kiti galimi motyvai: suklydimas, aplaidumas, piktybiški ketinimai, kerštas, komercinis šnipinėjimas.",
-        "source": "PIAF Connected objects p41 - WIKI"
+        "source": ""
       },
       "PIA_EX_HUME": {
         "name": "Išorinės žmogiškos rizikos",
         "description": "Tai gali būti: <br>- trečiojo asmens įsilaužimas į sistemą<br>- įsilaužėlis, kuris disponuoja tam tikra informacija apie vartotoją<br>- įsilaužėlis, kuris disponuoja tam tikra informacija apie įmonę, kuri yra duomenų valdytoja ar duomenų tvarkytoja<br>- įgaliota trečioji šalis, kuri savo turimą prisijungimą naudoja, siekdama neteisėtai gauti prieigą prie duomenų.",
-        "source": "PIAF Connected objects p41 - WIKI"
+        "source": ""
       },
       "PIA_EX_NHUM": {
         "name": "Ne nuo žmogaus priklausančios rizikos",
         "description": "Tai gali būti incidentas ar nelaimė pas duomenų valdytoją (elektros dingimas, gaisras, potvynis, techninis sutrikimas ir pan.).",
-        "source": "PIAF Connected objects p41 - WIKI"
+        "source": ""
       },
       "PIA_EX_IMPN": {
         "name": "Nedidelis poveikis",
-        "description": "Tai nepaveiks duomenų subjektų arba sukels jiems nedidelių nepatogumų, kuriuos jie nesunkiai gali įveikti. Pvz., :<br>- nedidelis galvos skausmas;<br>- laiko praradimas kartojant formalumus arba laukiant jų įvykdymo, nepageidaujamų el. laiškų gavimas, viešai prieinamų duomenų naudojimas tikslinei tiesioginei rinkodarai ir t.t.<br>- sukeltas pyktis, dvasinis diskomfortas, pažeisto privatumo jausmas, nesukeliantis realių nuostolių ir t.t.",
-        "source": "PIAF Connected Objects p41 - WIKI"
+        "description": "Tai nepaveiks duomenų subjektų arba sukels jiems nedidelių nepatogumų, kuriuos jie nesunkiai gali įveikti. <br>Pasekmių pvz.:<br>- nedidelis galvos skausmas;<br>- laiko praradimas kartojant formalumus arba laukiant jų įvykdymo, nepageidaujamų el. laiškų gavimas, viešai prieinamų duomenų naudojimas tikslinei tiesioginei rinkodarai ir t.t.<br>- sukeltas pyktis, dvasinis diskomfortas, pažeisto privatumo jausmas, nesukeliantis realių nuostolių ir t.t.",
+        "source": ""
       },
       "PIA_EX_IMPL": {
         "name": "Ribotas poveikis",
-        "description": "Data subjects may encounter significant inconveniences, which they will be able to overcome despite a few difficulties. For example:<br>- physical : minor physical ailments (minor illness due to disregard of contraindications), defamation resulting in physical or psychological retaliation, etc.;<br>- material : unanticipated payments (fines imposed erroneously), denial of access to administrative or commercial services, receipt of unsolicited targeted mailings likely to damage the reputation of data subjects, etc.;<br>- moral : minor but objective psychological ailments, feeling of invasion of privacy without irreversible damage, intimidation on social networks, etc.",
-        "source": "PIAF Connected objects p41 - WIKI"
+        "description": "Duomenų subjektai gali patirti reikšmingus nepatogumus, tačiau juos galima pašalinti, nors ir su tam tikrais sunkumais. <br>Pasekmių pvz.:<br>- fizinės: lengvas susirgimas, laiku nenustačius diagnozės; šmeižtas, sukeliantis neigiamus fizinius ir psichologinius išgyvenimus;<br>- materialinės: nenumatyti mokėjimai dėl per klaidą paskirtos baudos; atsisakymas suteikti viešąsias ar kitokias paslaugas; nepageidaujamų el. laiškų gavimas, jei tai kenkia dalykinei reputacijai;<br>- moralinės: nežymūs, bet objektyvūs psichologiniai negalavimai; dvasiniai išgyvenimai; privatumo pažeidimo jausmas; bauginimas (klaidingų žinių sąmoningas skleidimas) socialiniuose tinkluose ir kt.",
+        "source": ""
       },
       "PIA_EX_IMPI": {
-        "name": "Significant impact",
-        "description": "Data subjects may encounter significant consequences, which they should be able to overcome albeit with real and serious difficulties. For example: <br>- physical : serious physical ailments causing long-term harm (worsening of health due to improper care, or disregard of contraindications), lteration of physical integrity for example following an assault, an accident at home, work, etc.<br>- material : misappropriation of money not compensated, targeted, unique and non-recurring, lost opportunities  (home loan, refusal of studies, internships or employment, examination ban), loss of housing, loss of employment, etc.;<br>- moral : serious psychological ailments (depression, development of a phobia), feeling of invasion of privacy with irreversible damage, victim of blackmailing, cyberbullying and harassment, etc.",
-        "source": "PIAF Connected objects p41 - WIKI"
+        "name": "Reikšmingas poveikis",
+        "description": "Duomenų subjektai gali patirti reikšmingas neigiamas pasekmes, kurias pašalinti yra įmanoma, bet gana sunku ir tam reikia didelių pastangų. <br> Pasekmių pvz.:<br>- fizinės: rimti fiziniai negalavimai, sukeliantys ilgalaikes neigiamas pasekmes (sveikatos pablogėjimas dėl netinkamos priežiūros arba kontraindikacijų nepaisymas); fizinio neliečiamumo pažeidimas (nelaimingas atsitikimas namuose, darbe ir kt.) <br>- materialinės: neteisėtai pasisavinti pinigai, kurių susigrąžinti nebeįmanoma; prarastos galimybės (būsto kredito, studijų, stažuočių, įdarbinimo, draudimas laikyti egzaminą); būsto praradimas; darbo netekimas; t.t.;<br>- moralinės: rimti psichologiniai negalavimai (depresija, fobijos); privatumo pažeidimas su neatitaisoma žala; šantažavimas; patyčios; priekabiavimas ir t.t.",
+        "source": ""
       },
       "PIA_EX_IMPM": {
-        "name": "Maximum impact",
-        "description": "Data subjects may encounter significant, or even irreversible, consequences, which they may not overcome. For example:<br>- physical : long-term or permanent physical ailments, permanent impairment of physical integrity, death;<br>- material : financial risk, substantial debts, inability to work, inability to relocate, loss of evidence in the context of litigation, loss of access to vital infrastructure (water, electricity), etc.<br>- moral : long-term or permanent psychological ailments, criminal penalty, abduction, loss of family ties, inability to sue, change of administrative status and/or loss of legal autonomy (guardianship), etc.",
-        "source": "PIAF Connected objects p41 - WIKI"
+        "name": "Maksimalus poveikis",
+        "description": "Duomenų subjektai gali susidurti su labai reikšmingomis neigiamomis pasekmėmis, kur žala gali būti neatitaisoma. <br>Poveikio pvz.: <br> - fizinės: ilgalaikiai arba nuolatiniai fiziniai negalavimai, fiziniai kūno sutrukimai, neįgalumas, mirtis, kt.<br>- materialiniai: finansinė rizika, didelės skolos, nedarbingumas, negalėjimas persikelti į kitą gyvenamąją vietą, įrodymų praradimas teisminiame ginče, galimybės naudotis svarbia infrastruktūra praradimas (vanduo, elektra, internetu), ir kt. <bt>- moralinis: ilgalaikiai arba nuolatiniai psichologiniai negalavimai, baudžiamosios sankcijos, pagrobimas, šeimyninių ryšių nutrūkimas, negalėjimas atvykti į teismą ir kt.",
+        "source": ""
       },
       "PIA_EX_VRAN": {
-        "name": "Negligible likelihood",
-        "description": "It does not seem possible for the selected risk sources to materialize the threat by exploiting the properties of supporting assets (e.g.: theft of paper documents stored in a room protected by a badge reader and access code).",
-        "source": "PIAF Connected objects p44 - WIKI"
+        "name": "Nereikšminga tikimybė",
+        "description": "Atsižvelgiant į rizikos šaltinius neįmanoma nuspėti, kad tai galėtų sukelti kokią nors žalą asmenims (pvz., dokumentų vagystė iš saugomos patalpos, į kurią patekti galima tik su asmeniniu įėjimo kodu ir pažymėjimu).",
+        "source": ""
       },
       "PIA_EX_VRAL": {
-        "name": "Limited likelihood",
-        "description": "It seems difficult for the selected risk sources to materialize the threat by exploiting the properties of supporting assets (e.g.: theft of paper documents stored in a room protected by a badge reader).",
-        "source": "PIAF Connected objects p44 - WIKI"
+        "name": "Ribota tikimybė",
+        "description": "Atsižvelgiant į rizikos šaltinius sunkiai tikėtina, kad tai galėtų sukelti kokią nors žalą asmenims (pvz., dokumentų vagystė iš saugomos patalpos, į kurią pateikimas kontroliuojamas kortelių skaitytuvo pagalba).",
+        "source": ""
       },
       "PIA_EX_VRAI": {
-        "name": "Significant likelihood",
-        "description": "It seems possible for the selected risk sources to materialize the threat by exploiting the properties of supporting assets (e.g.: theft of paper documents stored in offices that cannot be accessed without first checking in at the reception).",
-        "source": "PIAF Connected objects p44 - WIKI"
+        "name": "Reikšminga tikimybė",
+        "description": "Atsižvelgiant į rizikos šaltinius tikėtina, kad tai gali sukelti žalą asmenims (pvz., dokumentų vagystė iš saugomos patalpos, į kurią pateikimą kontroliuoja tik biuro priimamojo sekretorė).",
+        "source": ""
       },
       "PIA_EX_VRAM": {
-        "name": "Maximum likelihood",
-        "description": "It seems extremely easy for the selected risk sources to materialize the threat by exploiting the properties of supporting assets (e.g.: theft of paper documents stored in the public lobby).",
-        "source": "PIAF Connected objects p44 - WIKI"
+        "name": "Maksimali tikimybė",
+        "description": "Atsižvelgiant į rizikos šaltinius labai tikėtina, kad tai sukels žalą asmenims (pvz., dokumentų, saugomų visiems prieinamoje vietoje, į kurią patekimas nekontroliuojamas, vagystė).",
+        "source": ""
       },
       "PIA_EX_MIND": {
-        "name": "Minimisation of data themselves",
-        "description": "Reduce the severity of risks by minimising the data themselves, by taking measures aimed at reducing their sensitivity.",
-        "source": "Mesures_US"
+        "name": "Duomenų kiekio mažinimas",
+        "description": "Sumažinti riziką galima sumažinant tvarkomų duomenų kiekį ir imantis priemonių sumažinant jų jautrumą.",
+        "source": ""
       }
     }
   },
   "comments": {
-    "comments_count": "comment(s)",
-    "new_comment": "Comment",
-    "placeholder_new_comment": "Leave a comment",
-    "comment": "Comment",
-    "send": "Send"
+    "comments_count": "Komentaras(-ai)",
+    "new_comment": "Komentuoti",
+    "placeholder_new_comment": "Palikti komentarą",
+    "comment": "Komentaras",
+    "send": "Siųsti"
   },
   "questions": {
-    "edit": "Edit question",
+    "edit": "Redaguoti klausimą",
     "gauges": {
-      "0": "(Undefined)",
-      "1": "Negligible",
-      "2": "Limited",
-      "3": "Important",
-      "4": "Maximum"
+      "0": "(Nenustatytas)",
+      "1": "Nedidelis",
+      "2": "Ribotas",
+      "3": "Reikšmingas",
+      "4": "Maksimalus"
     }
   },
   "evaluations": {
