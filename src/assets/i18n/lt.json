@@ -10,7 +10,7 @@
   "header": {
     "logo_title": "Poveikio duomenų apsaugai vertinimas",
     "logo_subtitle": "",
-    "homepage_link": "Dashboard",
+    "homepage_link": "Apžvalga",
     "knowledge_base_link": "Pagalba",
     "pia_example_link": "PDAV pavyzdys",
     "languages": {
@@ -619,7 +619,7 @@
       "PIA_DEF_PBDS": {
         "name": "Projekto valdymas",
         "description": "Priemonės, kurių imamasi diegiant duomenų apsaugos reikalavimus naujuose projektuose.",
-        "source": "Mesures_US"
+        "source": ""
       },
       "PIA_DEF_VIOL": {
         "name": "Asmens duomenų saugumo pažeidimas",
@@ -649,7 +649,7 @@
       "PIA_DEF_MIN3": {
         "name": "Žmogų indentifikuojančių duomenų sumažinimas",
         "description": "IT sistema gali leisti:<br>- vartotojui naudotis paslaugomis ar kitais resursais, neatskleidžiant savo tapatybės (tvarkomi tik anoniminiai vartotojų duomenys)<br>- vartotojui naudotis paslaugomis ar kitais resursais, neatskleidžiant savo tapatybės. Tačiau vartotojui suteikiant pseudonimus <br>- vartotojui naudotis paslaugomis ar kitais resursais be rizikos, kad visi jo skirtingi veiksmai bus tarpusavyje susieti ir apjungti<br>- vartotojui naudotis paslaugomis ar kitais resursais be galimybės trečiosioms šalis stebėti jo elgseną<br> Konkretaus iš minėtų būdų pasirinkimas priklauso nuo nustatytų galimų grėsmių privatumui. Dėl kai kurių grėsmių pseudonimų suteikimas yra tinkamesnis būdas nei duomenų nuasmeninimas (pvz., jei reikalingas veiksmų atsekamumas). Dėl tam tikrų grėsmių galima naudoti keletą būdų.",
-        "source" : "PIAF Connected objects p42 - WIKI"
+        "source" : ""
       },
       "PIA_DEF_MIN4": {
         "name": "Duomenų saugojimo išskaidymas",
@@ -756,41 +756,41 @@
     }
   },
   "evaluations": {
-    "title": "Evaluation",
-    "to_correct": "To correct",
-    "improvable": "Improvable",
-    "acceptable": "Acceptable",
-    "evaluation_comment": "Evaluation comment",
-    "action_plan_comment": "Action plan / corrective actions",
-    "placeholder_to_correct": "The information provided are not sufficient to properly evaluate them. Send back to the editor to improve the original submission.",
-    "placeholder_improvable1": "According to the available information, additional measures are to be implemented in order to improve the data protection of the processing.",
-    "placeholder_improvable2": "Enter your comments.",
-    "placeholder_acceptable": "According to the available information, the measures implemented are adequate to properly meet the requirements for protecting the data.",
+    "title": "Vertinimas",
+    "to_correct": "Taisytinas",
+    "improvable": "Tobulintinas",
+    "acceptable": "Tinkamas",
+    "evaluation_comment": "Vertinimo komentaras",
+    "action_plan_comment": "Veiksmų planas / ką reikėtų pataisyti",
+    "placeholder_to_correct": "Pateiktos informacijos nepakanka įvertinimui. PDAV grąžinimas jo rengėjui tobulinimui, būtina atsižvelgti į pateiktas pastabas.",
+    "placeholder_improvable1": "Atsižvelgiant į turimą informaciją, reikėtų imtis papildomų priemonių, siekiant pagerinti tvarkomų asmens  duomenų apsaugą.",
+    "placeholder_improvable2": "Pateikite savo komentarą.",
+    "placeholder_acceptable": "Atsižvelgiant į turimą informaciją, įgyvendintos priemonės yra pakankamos tvarkomų asmens duomenų apsaugai užtikrinti.",
     "gauges": {
-      "seriousness": "Taking into account the action plan, how do you re-evaluate the <span class='red-highlight'>seriousness of this risk</span> ({{value}})?",
-      "likelihood": "Taking into account the action plan, how do you re-evaluate the <span class='red-highlight'>likelihood of this risk</span> ({{value}})?",
-      "0": "(Undefined)",
-      "1": "Negligible",
-      "2": "Limited",
-      "3": "Important",
-      "4": "Maximum"
+      "seriousness": "Atsižvelgdamas į veiksmų planą, kaip vertintumėte <span class='red-highlight'>šios rizikos dydį</span> ({{value}})?",
+      "likelihood": "Atsižvelgdamas į veiksmų planą, kaip vertintumėte iš naujo <span class='red-highlight'>šios rizikos dydį</span> ({{value}})?",
+      "0": "(Nenustatytas)",
+      "1": "Nedidelis",
+      "2": "Ribotas",
+      "3": "Reikšmingas",
+      "4": "Maksimalus"
     },
     "status": {
-      "0": "Pending",
-      "1": "To correct",
-      "2": "Improvable",
-      "3": "Acceptable"
+      "0": "Nebaigtas",
+      "1": "Taisytinas",
+      "2": "Tobulintinas",
+      "3": "Tinkamas"
     }
   },
   "help": {
-    "title": "Help",
+    "title": "Pagalba",
     "definition": {
       "data1": {
-        "title": "Use the PIA tool",
-        "content": "Content being written"
+        "title": "Naudokite PIA programą",
+        "content": "Turinys rengiamas"
       },
       "data2": {
-        "title": "Known Issues",
+        "title": "Žinomos problemos (EN)",
         "qa1": {
           "title": "I get display issues such as icons being stuck in one state or missing elements from the interface",
           "content": "When encountering those display issues, close the application and reload it. It usually fixes the issue. You won’t lose the information you have entered ; it is  automatically saved as you type."
@@ -824,245 +824,245 @@
     }
   },
   "about": {
-    "title": "About the Tool PIA",
-    "version_number": "Version number",
-    "description": "This tool is originally designed by the <a target=\"_blank\" href=\"https://www.cnil.fr\">Commission Nationale Informatique et Liberté (CNIL)</a>, the French Data Protection Authority, to help data processor to be compliant with the GDPR.<br>This software is free and open. If you wish to get involved in this project, you are welcome to download the source code from Github, modify it and share it with the community.",
+    "title": "Apie PDAV programą",
+    "version_number": "Versijos Nr.",
+    "description": "Ši programa yra sukurta <a target=\"_blank\" href=\"https://www.cnil.fr\">Commission Nationale Informatique et Liberté (CNIL)</a>, Prancūzijos duomenų apsaugos inspekcijos, siekiant padėti jos vartotojams užtikrinti asmens duomenų tvarkymo atitikti BDAR reikalavimams. Jei norite prisidėti prie šio projekto tolimesnio vystymo, jūs galite atsisiūti programos išeities kodą iš Github, jį modifikuoti ir dalintis su bendruomene.",
     "translators": "The PIA software is currently available in fourteen languages. The French and English versions are provided by the CNIL. The others versions result from the contributions of the following individuals:",
-    "translators_name": "<ul><li>Czech : Jiří Grohmann, Manuel d’Orso;</li><li>Dutch : Ruud van Driel, Manuel d’Orso;</li><li>English : <a target=\"_blank\" href=\"https://www.cnil.fr\">CNIL</a>;</li><li>Finnish : <a target=\"_blank\" href=\"https://tietosuoja.fi/etusivu\">Tietosuojavaltuutetun toimisto</a>;</li><li>French : <a target=\"_blank\" href=\"https://www.cnil.fr\">CNIL</a>;</li><li>German : Kosmas Schütz, Corina Scheiter (<a target=\"_blank\" href=\"https://www.datenschutz-bayern.de/\">BayLfD</a>);</li><li>Greek : Dimitris Tzellis;</li><li>Hungarian : <a target=\"_blank\" href=\"https://naih.hu/\">Nemzeti Adatvédelmi és Információszabadság Hatóság (NAIH)</a>;</li><li>Italian : Manuel d’Orso, Gianluca Markos, Antonio Caselli (<a target=\"_blank\" href=\"http://gpdp.it\">Garante per la Protezione dei Dai Personali (GPDP)</a>);</li><li>Norwegian : <a target=\"_blank\" href=\"https://www.datatilsynet.no\">Datatilsynet</a>;</li><li>Polish : Joanna Karczewska, Michal Mazur (<a target=\"_blank\" href=\"https://giodo.gov.pl\">Generalny Inspektor Ochrony Danych Osobowych (GIODO)</a>);</li><li>Portuguese : Barbara Gois;</li><li>Romanian : webmyday;</li><li>Spanish : ylachgar.</li></ul>",
-    "contribute": "If you wish to contribute to the translation of the software in another language or improve the existing translations, we recommend you to <a href=\"https://github.com/LINCnil/pia/tree/master/src/assets/i18n\" target=\"_blank\">read the page describing the steps to follow</a>.",
-    "licences": "Library licences:"
+    "translators_name": "<ul><li>Czech : Jiří Grohmann, Manuel d’Orso;</li><li>Dutch : Ruud van Driel, Manuel d’Orso;</li><li>English : <a target=\"_blank\" href=\"https://www.cnil.fr\">CNIL</a>;</li><li>Finnish : <a target=\"_blank\" href=\"https://tietosuoja.fi/etusivu\">Tietosuojavaltuutetun toimisto</a>;</li><li>French : <a target=\"_blank\" href=\"https://www.cnil.fr\">CNIL</a>;</li><li>German : Kosmas Schütz, Corina Scheiter (<a target=\"_blank\" href=\"https://www.datenschutz-bayern.de/\">BayLfD</a>);</li><li>Greek : Dimitris Tzellis;</li><li>Hungarian : <a target=\"_blank\" href=\"https://naih.hu/\">Nemzeti Adatvédelmi és Információszabadság Hatóság (NAIH)</a>;</li><li>Italian : Manuel d’Orso, Gianluca Markos, Antonio Caselli (<a target=\"_blank\" href=\"http://gpdp.it\">Garante per la Protezione dei Dai Personali (GPDP)</a>);<li>Lithuanian : Paulius Galubickas (<a target=\"_blank\" href=\"http://galubickas.lt\">Law firm Galubickas </a>);</li></li><li>Norwegian : <a target=\"_blank\" href=\"https://www.datatilsynet.no\">Datatilsynet</a>;</li><li>Polish : Joanna Karczewska, Michal Mazur (<a target=\"_blank\" href=\"https://giodo.gov.pl\">Generalny Inspektor Ochrony Danych Osobowych (GIODO)</a>);</li><li>Portuguese : Barbara Gois;</li><li>Romanian : webmyday;</li><li>Spanish : ylachgar.</li></ul>",
+    "contribute": "Jei norite prisidėti prie programos vertimo į kitas kalbas ar norite pagerinti esamą vertimą, rekomenduojame <a href=\"https://github.com/LINCnil/pia/tree/master/src/assets/i18n\" target=\"_blank\"> perskaityti instrukcijas</a>.",
+    "licences": "Bibliotekų licencijos:"
   },
   "settings": {
-    "title": "Settings",
-    "content": "Please, provide the address (URL) of the remote server:",
-    "update": "Update URL"
+    "title": "Nustatymai",
+    "content": "Nurodykite serverio nuorodą (URL):",
+    "update": "Atnaujinkite URL nuorodą"
   },
   "validation_page": {
-    "responsible": "Person accountable for validating the PIA: ",
-    "after_reading": "After reading full PIA relating to the data processing linked to ",
-    "confirmation1": "I attest that the context of the processing described in the PIA is consistent with the reality.",
-    "confirmation2": "I attest that I am aware of the risks depending on the existing or planned measures.",
-    "confirmation3": "I ratify the corrective actions indicated in the action plan.",
-    "confirmation4": "I commit to implement as quickly as possible the indicated corrective actions.",
+    "responsible": "Asmuo, atsakingas už PDAV vertinimą:",
+    "after_reading": "Perskaičius PDAV dėl asmens duomenų tvarkymo: ",
+    "confirmation1": "Patvirtintu, kad PDAV aprašytas asmens duomenų tvarkymas atitinka tikrovę.",
+    "confirmation2": "Patvirtinu, kad man žinomos likusios rizikos, susijusios su planuojamomis arba jau įgyvendintomis priemonėmis.",
+    "confirmation3": "Aš patvirtinu veiksmų plane nurodytus taisytinus veiksmus.",
+    "confirmation4": "Įsipareigoju, įgyvendinti nurodytus taisytinus veiksmus kaip galima skubiau.",
     "button": {
-      "rejection": "Reject PIA",
-      "simple_validation": "Approve PIA <br>(direct)",
-      "signed_validation": "Approve PIA <br>(signed)"
+      "rejection": "Netvirtinti PDAV",
+      "simple_validation": "Tvirtinti PDAV <br>(nepasirašant)",
+      "signed_validation": "Tvirtinti PDAV <br>(pasirašant)"
     },
-    "mandatory_fields": "All boxes must be checked",
-    "waiting_for_signature": "Pending signed PIA",
-    "validated_pia_with_signature": "Approved",
-    "add_signed_pia": "Add the signed PIA",
-    "remove_attachment": "Remove the attachment",
-    "latest_signed_attachment": "Last signed attachment",
-    "signed_attachments_history": "Signed attachments history",
+    "mandatory_fields": "Visi laukeliai turi būti pažymėti",
+    "waiting_for_signature": "Laukiama PDAV pasirašymo",
+    "validated_pia_with_signature": "Patvirtinta",
+    "add_signed_pia": "Pridėti pasirašytą PDAV",
+    "remove_attachment": "Ištrinti priedelį",
+    "latest_signed_attachment": "Paskutinis pridėtas priedelis",
+    "signed_attachments_history": "Pridėtų priedelių istorija",
     "tools": {
-      "dashboard": "Dashboard",
-      "display_pia": "Display report",
-      "action_plan": "Action plan"
+      "dashboard": "Apžvalga",
+      "display_pia": "Parodyti PDAV ataskaitą",
+      "action_plan": "Veiksmų planas"
     }
   },
   "rejection_page": {
-    "title": "Validation history",
-    "rejection_reason": "Refusal reason",
-    "rejection_reason_placeholder": "Describe the reasons for refusing the PIA.",
-    "applied_adjustments": "Adjustments proposed",
-    "applied_adjustments_placeholder": "Describe the changes brought to the PIA.",
-    "previous_rejection": "Previous refusal",
+    "title": "Patvirtinimų istorija",
+    "rejection_reason": "Atsisakymo tvirtinti priežastys",
+    "rejection_reason_placeholder": "Nurodykite atsisakymo tvirtinti PDAV priežastis.",
+    "applied_adjustments": "Siūlomi pakeitimai",
+    "applied_adjustments_placeholder": "Nurodykite siūlomus PDAV pakeitimus.",
+    "previous_rejection": "Ankstesnis atsisakymas",
     "button": {
-      "abandon_treatment": "Abandon processing",
-      "reject_pia": "Reject PIA",
-      "send_for_validation": "Resend for approval"
+      "abandon_treatment": "Nutraukti rengimą",
+      "reject_pia": "Atmesti PDAV",
+      "send_for_validation": "Iš naujo persiųsti tvirtinimui"
     }
   },
   "misc": {
-    "display": "Show / Hide"
+    "display": "Parodyti / Nerodyti"
   },
   "modals": {
-    "cancel": "Cancel",
-    "archive": "Archive",
-    "close": "Close",
-    "continue": "Continue",
-    "start_evaluation": "Start review",
-    "back_to_home": "Back to home",
+    "cancel": "Atsisakyti",
+    "archive": "Archyvuoti",
+    "close": "Uždaryti",
+    "continue": "Tęsti",
+    "start_evaluation": "Pradėti peržiūrą",
+    "back_to_home": "Atgal į pradžią",
     "simple_pia_validation": {
-      "content": "You have approved the PIA."
+      "content": "Jūs patvirtinote PDAV."
     },
     "completed_edition": {
-      "content": "The PIA has been fully edited and has to be reviewed."
+      "content": "PDAV pilnai parengtas, jį reikia peržiūrėti."
     },
     "completed_evaluation": {
-      "content": "The PIA has been fully reviewed and can be validated."
+      "content": "PDAV pilnai peržiūrėtas, jį reikia patvirtinti."
     },
     "update_server_url_ok": {
-      "content": "The server address has been updated."
+      "content": "Serverio adresas yra atnaujintas."
     },
     "update_server_url_nok": {
-      "content": "Connection impossible."
+      "content": "Nėra ryšio."
     },
     "signed_pia_validation": {
-      "content": "To approve the PIA, attach the signed report.",
-      "download_pia": "Download report"
+      "content": "Tam, kad būtų galima patvirtinti PDAV, pridėkite pasirašytą ataskaitą.",
+      "download_pia": "Atsisiųsti ataskaitą"
     },
     "abandon_pia": {
-      "content": "Do you wish to give up the processing?",
-      "additional_text": "Archiving is not definitive and the PIA can go back to it if needed."
+      "content": "Ar norite nutraukti darbą?",
+      "additional_text": "Archyvavimas nėra negrįžtamas veiksmas. Jūs galėsite pratęsti analizę ateityje."
     },
     "refuse_pia": {
-      "content": "As you have rejected the PIA, it is sent back for review to make the required changes."
+      "content": "Kadangi atsisakėte tvirtinti PDAV, jis yra grąžintas tobulinimui."
     },
     "same_comment": {
-      "content": "<span class='strong'>Warning,</span><br>Please enter a comment different from the last recorded."
+      "content": "<span class='strong'>Įspėjimas,</span><br>Įveskite kitą nei prieš tai buvusį komentarą."
     },
     "not_enough_measures_to_remove": {
-      "content": "<span class='strong'>Warning,</span><br>At least one measure must be filled: no deletion possible."
+      "content": "<span class='strong'>Įspėjimas,</span><br>Mažiausiai bent vieną priemonę reikia nurodyti: ištrynimas negalimas."
     },
     "remove_measure": {
-      "content": "<span class='strong'>Warning,</span><br>Are you sure you want to <br>remove this measure?",
-      "remove": "Remove this <br>measure",
-      "keep": "Keep this <br>measure"
+      "content": "<span class='strong'>Įspėjimas,</span><br>Ar tikrai norite <br>ištrinti šią priemonę?",
+      "remove": "Ištrinti <br>šią priemonę",
+      "keep": "Palikti <br>šią priemonę"
     },
     "ask_for_evaluation": {
-      "content": "This section is ready to be reviewed."
+      "content": "Ši dalis paruošta peržiūrai."
     },
     "validate_evaluation": {
-      "content": "This section is ready for validating the PIA."
+      "content": "Ši dalis paruošta PDAV tvirtinimui."
     },
     "validate_evaluation_to_correct": {
-      "content": "Sorry,<br>Several fields must be corrected.<br>Return to edition mode<br>to make corrections."
+      "content": "Deja,<br>Tam tikri laukeliai turi būti pataisyti.<br>Grįžti į redagavimo būsenę tam, kad atlikti pakeitimus."
     },
     "declare_measures": {
-      "content": "Before evaluating risks,<br>you must report the<br>existing or planned measures.",
-      "declare": "Declare existing or planned measures"
+      "content": "Prieš vertinant rizikas, reikia nurodyti esamas arba planuojamas priemones.",
+      "declare": "Nurodyti esamas arba planuojamas priemones"
     },
     "remove_pia": {
-      "content": "<span class='strong'>Warning,</span><br>Are you sure you want to<br>remove this PIA?",
-      "remove": "Remove this PIA"
+      "content": "<span class='strong'>Įspėjimas,</span><br>Ar tikrai norite<br>ištrinti šį PDAV?",
+      "remove": "Ištrinti šį PDAV"
     },
     "remove_attachment": {
-      "content": "<span class='strong'>Warning,</span><br>Are you sure you want to<br>remove this attachment?",
-      "keep": "Keep",
-      "remove": "Remove",
-      "comment": "Comment"
+      "content": "<span class='strong'>Įspėjimas,</span><br>Ar tikrai norite <br>ištrinti šį priedelį?",
+      "keep": "Palikti",
+      "remove": "Ištrinti",
+      "comment": "Komentuoti"
     },
     "action_plan_no_evaluation": {
-      "content": "You need to begin the review of the analysis to create the action plan.",
-      "review_section": "Review a section"
+      "content": "Norint parengti veiksmų planą, reikia pradėti analizės peržiūrą.",
+      "review_section": "Dalies peržiūra"
     },
     "dpo_missing_evaluations": {
-      "content": "You need to complete the review of the analysis to access the DPO page.",
-      "review_section": "Review a section",
-      "remove": "Remove",
-      "comment": "Comment"
+      "content": "Norint pereiti prie DPA dalies, reikia baigti analizės peržiūrą.",
+      "review_section": "Dalies peržiūra",
+      "remove": "Ištrinti",
+      "comment": "Komentuoti"
     },
     "modal_select_text_pia": {
-      "content": "The content of the PIA has been copied to clipboard."
+      "content": "PDAV turinys buvo nukopijuotas į kompiuterio laikiną atmintį."
     },
     "back_to_edition": {
-      "content": "This section has been sent back for editing.<br> Several fields must be corrected<br> to enable its proper review."
+      "content": "Ši dalis buvo grąžinta redagavimui.<br> Tam tikri laukai turi būti pataisyti prieš atliekant peržiūrą."
     },
     "back_to_evaluation": {
-      "content": "This section has been sent back for review.<br> Several fields must be reviewed<br> to enable its proper validation."
+      "content": "Ši dalis buvo grąžinta peržiūrai.<br> Tam tikri laukai turi būti peržiūrėti prieš atliekant patvirtinimą."
     }
   },
   "summary": {
-    "previous_page": "Back to previous page",
-    "print": "Print",
-    "copy_to_clipboard": "Copy to clipboard",
-    "download_images": "Download images",
-    "download_csv": "Download a CSV export",
-    "csv_action_plan_comment": "Action plan comment",
-    "csv_evaluation_comment": "Evaluation comment",
-    "csv_section": "Section",
-    "csv_title_object": "Title",
-    "csv_implement_date": "Estimated implementation date",
-    "csv_people_in_charge": "Person in charge",
-    "csv_file_title": "action-plan",
+    "previous_page": "Atgal į ankstesnį puslapį",
+    "print": "Spausdinti",
+    "copy_to_clipboard": "Kopijuoti į kompiuterio laikiną atmintį",
+    "download_images": "Atsisiųti paveikslėlius",
+    "download_csv": "Atsisiusti CSV formatu",
+    "csv_action_plan_comment": "Komentaras veiksmų planui",
+    "csv_evaluation_comment": "Komentaro įvertinimas",
+    "csv_section": "Dalis",
+    "csv_title_object": "Pavadinimas",
+    "csv_implement_date": "Planuojamas įgyvendinimo terminas",
+    "csv_people_in_charge": "Atsakingas asmuo",
+    "csv_file_title": "Veiksmų planas",
     "display_filters": {
-      "title": "Display filters",
-      "main_content": "Display section \"PIA information\"",
-      "context_content": "Display section \"Context\"",
-      "principles_content": "Display section \"Fundamental principles\"",
-      "risks_content": "Display section \"Risks\"",
-      "action_plan_content": "Display action plan",
-      "risks_overview_content": "Display risks overview",
-      "risks_cartography_content": "Display risk mapping"
+      "title": "Filtrai",
+      "main_content": "Parodyti dalį\"PDAV informacija\"",
+      "context_content": "Parodyti dalį \"Kontekstas\"",
+      "principles_content": "Parodyti dalį \"Pagrindiniai principai\"",
+      "risks_content": "Parodyti dalį \"Rizikos\"",
+      "action_plan_content": "Parodyti veiksmų planą",
+      "risks_overview_content": "Parodyti rizikų apžvalgą",
+      "risks_cartography_content": "Parodyti rizikų tarpusavio sąsajas"
     },
-    "title": "PIA information",
-    "pia_name": "PIA",
-    "pia_author": "Author's name",
-    "pia_assessor": "Assessor's name",
-    "pia_validator": "Validator's name",
+    "title": "PDAV informacija",
+    "pia_name": "PDAV",
+    "pia_author": "Rengėjo vardas, pavardė, el. pašto adresas",
+    "pia_assessor": "Vertintojo vardas, pavardė, el. pašto adresas",
+    "pia_validator": "Tvirtintojo vardas, pavardė, el. pašto adresas",
     "content_choice": {
-      "0": "The treatment should not be used.",
-      "1": "The treatment could be implemented."
+      "0": "Tvarkymas neturėtų būti vykdomas.",
+      "1": "Tvarkymas gali būti vykdomas."
     },
-    "dpo_name": "DPO's name",
-    "dpo_status": "DPO's status",
-    "dpo_opinion": "DPO's opinion",
-    "concerned_people_searched_opinion": "Search of concerned people opinion",
-    "people_search_status_ok": "Concerned people opinion was requested.",
-    "people_search_status_nok": "Concerned people opinion wasn't requested.",
-    "concerned_people_unsearched_opinion_comment": "Reason why concerned people opinion wasn't requested",
-    "concerned_people_name": "Concerned people opinions",
-    "concerned_people_status": "Concerned people statuses",
-    "concerned_people_opinion": "Concerned people opinions",
-    "modification_made": "Modifications made",
-    "rejection_reason": "Rejection reason",
-    "creation_date": "Creation date",
-    "attachments": "Attachments",
+    "dpo_name": "DPA vardas, pavardė",
+    "dpo_status": "DPA paskyrimo detalės (išorinis, vidinis)",
+    "dpo_opinion": "DPA nuomonė",
+    "concerned_people_searched_opinion": "Duomenų subjektų nuomonė",
+    "people_search_status_ok": "Duomenų subjektų nuomonės buvo prašoma.",
+    "people_search_status_nok": "Duomenų subjektų nuomonės nebuvo prašoma.",
+    "concerned_people_unsearched_opinion_comment": "Priežastys, dėl kurių duomenų subjektų nuomonės nebuvo prašoma",
+    "concerned_people_name": "Duomenų subjektų vardai, pavardės",
+    "concerned_people_status": "Duomenų subjektų statusas",
+    "concerned_people_opinion": "Duomenų subjektų nuomonės",
+    "modification_made": "Padaryti pakeitimai",
+    "rejection_reason": "Atmetimo priežastys",
+    "creation_date": "Data",
+    "attachments": "Priedeliai",
     "gauges": {
-      "1": "Negligible",
-      "2": "Limited",
-      "3": "Important",
-      "4": "Maximum"
+      "1": "Nežymi",
+      "2": "Ribota",
+      "3": "Reikšminga",
+      "4": "Maksimali"
     },
     "action_plan": {
-      "title": "Action plan",
-      "fundamental_principles": "Fundamental principles",
-      "implementation_date": "Expected date of implementation",
-      "implementation_responsible": "Responsible for implementation",
-      "measures": "Existing or planned measures",
-      "risks": "Risks",
-      "no_action_plan": "No action plan recorded."
+      "title": "Veiksmų planas",
+      "fundamental_principles": "Pagrindiniai principai",
+      "implementation_date": "Planuojamas įgyvendinimo terminas",
+      "implementation_responsible": "Už įgyvendinimą atsakingas asmuo",
+      "measures": "Esamos arba planuojamos priemonės",
+      "risks": "Rizikos",
+      "no_action_plan": "Veiksmų planas neparengtas."
     },
-    "risks_overview_title": "Risks overview",
-    "risks_cartography_title": "Risk mapping"
+    "risks_overview_title": "Rizikų apžvalga",
+    "risks_cartography_title": "Rizikų tarpusavio sąsajos"
   },
   "errors": {
-    "title": "Page not found.",
-    "content": "If you encounter other problems or if you have suggestions for improvement,<br>you can send them back via this form: <a href=\"https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia\" target=\"_blank\">https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia</a>"
+    "title": "Nerastas puslapis.",
+    "content": "Jei susiduriate su problemomis, besinaudodami PIA programa, ar turite pasiūlymų, kaip ją galima būtų patobulinti, galite mums parašyti, užpildydami šią formą: <a href=\"https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia\" target=\"_blank\">https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia</a>"
   },
   "overview-risks": {
-    "potential_impacts": "Potential impacts",
-    "threat": "Threats",
-    "sources": "Sources",
-    "measures": "Measures",
-    "negligible": "Negligible",
-    "limited": "Limited",
-    "important": "Important",
-    "maximal": "Maximal",
-    "risk-access_x": "Severity",
-    "risk-access_y": "Likelihood",
-    "risk-change_x": "Severity",
-    "risk-change_y": "Likelihood",
-    "risk-disappearance_x": "Severity",
-    "risk-disappearance_y": "Likelihood"
+    "potential_impacts": "Galimos pasekmės (poveikis)",
+    "threat": "Grėsmės",
+    "sources": "Šaltiniai",
+    "measures": "Priemonės",
+    "negligible": "Nežymus",
+    "limited": "Ribotas",
+    "important": "Reikšmingas",
+    "maximal": "Maksimalus",
+    "risk-access_x": "Didelė",
+    "risk-access_y": "Tikimybė",
+    "risk-change_x": "Didelė",
+    "risk-change_y": "Tikimybė",
+    "risk-disappearance_x": "Didelė",
+    "risk-disappearance_y": "Tikimybė"
   },
   "cartography": {
-    "negligible": "Negligible",
-    "limited": "Limited",
-    "important": "Important",
-    "maximal": "Maximum",
-    "seriousness_axe": "Risk seriousness",
-    "likelihood_axe": "Risk likelihood",
-    "legend1": "Planned or existing measures",
-    "legend2": "With the corrective measures implemented",
-    "legend3": "(I)llegitimate access to data",
-    "legend4": "(U)nwanted modification of data",
-    "legend5": "(D)ata disappearance",
-    "risk1_access": "(I)",
-    "risk2_modification": "(U)"
+    "negligible": "Nežymus",
+    "limited": "Ribotas",
+    "important": "Reikšmingas",
+    "maximal": "Maksimalus",
+    "seriousness_axe": "Rizikos dydis",
+    "likelihood_axe": "Rizikos pasireiškimo tikimybė",
+    "legend1": "Planuojamos arba esamos priemonės",
+    "legend2": "Įgyvendinta pakoreguotų priemonių pagalba",
+    "legend3": "(NP)eteisėta prieiga prie duomenų",
+    "legend4": "(NDP)epageidaujamas duomenų pakeitimas",
+    "legend5": "(D)uomenų pradingimas",
+    "risk1_access": "(NP)",
+    "risk2_modification": "(NDP)"
   },
   "action_plan": {
     "title": "Overview",
