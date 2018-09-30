@@ -790,7 +790,7 @@
         "content": "Turinys rengiamas"
       },
       "data2": {
-        "title": "Žinomos problemos (EN)",
+        "title": "Žinomos problemos (LT - TO BE TRANSLATED)",
         "qa1": {
           "title": "I get display issues such as icons being stuck in one state or missing elements from the interface",
           "content": "When encountering those display issues, close the application and reload it. It usually fixes the issue. You won’t lose the information you have entered ; it is  automatically saved as you type."
@@ -1172,54 +1172,54 @@
           }
         },
         "2": {
-          "title": "Controls to protect the personal rights of data subjects",
-          "short_help": "This part allows you to demonstrate that you are implementing the necessary means to enable the persons concerned to exercise their rights.",
+          "title": "Duomenų subjektų teisėms apsaugoti skirtos priemonės",
+          "short_help": "Šioje dalyje nurodoma, kaip užtikrinamas duomenų subjektų teisių įgyvendinimas.",
           "questions": {
             "1": {
-              "title": "How are the data subjects informed on the processing?",
-              "short_title": "Information for the data subjects",
-              "placeholder": "Describe what is the information given to the data subjects and what are the means to do it."
+              "title": "Kaip duomenų subjektai informuojami apie duomenų tvarkymą?",
+              "short_title": "Duomenų subjektams pateikiama informacija",
+              "placeholder": "Nurodykite, kokia informacija pateikia duomenų subjektams ir kokiu būdu."
             },
             "2": {
-              "title": "If applicable, how is the consent of data subjects obtained?",
-              "short_title": "Obtaining consent",
-              "placeholder": "Describe the controls intended to ensure that users' consent has been obtained."
+              "title": "Kaip gaunamas duomenų subjejtų sutikimas (jei toks yra naudojamas)?",
+              "short_title": "Sutikimo gavimas",
+              "placeholder": "Nurodykite, kaip patikrinama, ar yra gautas duomenų subjekto galiojantis sutikimas."
             },
             "3": {
-              "title": "How can data subjects exercise their rights of access and to data portability?",
-              "short_title": "Right of access and to data portability",
-              "placeholder": "Describe the controls intended for enabling data subjects to access, receive and transmit their data."
+              "title": "Kaip duomenų subjektai gali susipažinti su duomenimis ir įgyvendinti savo teisę į duomenų perkeliamumą?",
+              "short_title": "Teisė susipažinti ir teisė į duomenų perkeliamumą",
+              "placeholder": "Nurodykite, kaip užtikrinama duomenų subjektų teisės susipažinti su duomenimis, juos gauti ir į duomenų perkeliamumą."
             },
             "4": {
-              "title": "How can data subjects exercise their rights to rectification and erasure?",
-              "short_title": "Right to rectification and erasure",
-              "placeholder": "Describe the controls intended for enabling data subjects to rectify and erase their data."
+              "title": "Kaip duomenų subjektai gali ištaisyti duomenis ir reikalauti juos ištrinti (teisė būti pamirštam)?",
+              "short_title": "Teisė ištaisyti ir ištrinti",
+              "placeholder": "Nurodykite, kaip užtikrinama duomenų subjektų teisės į duomenų ištaisymą ir ištrynimą."
             },
             "5": {
-              "title": "How can data subjects exercise their rights to restriction and to object?",
-              "short_title": "Right to restriction and to object",
-              "placeholder": "Describe the controls intended for enabling data subjects to restrict and to object to the processing of their data."
+              "title": "Kaip duomenų subjektai gali apriboti duomenų tvarkymą ir prieštarauti jų tvarkymui?",
+              "short_title": "Teisė apriboti ir prieštarauti",
+              "placeholder": "Nurodykite, kaip užtikrinama duomenų subjektų teisės apriboti duomenų tvarkyma ir prieštarauti dėl jų tvarkymo."
             },
             "6": {
-              "title": "Are the obligations of the processors clearly identified and governed by a contract?",
-              "short_title": "Subcontracting",
-              "placeholder": "For each processor, describe his responsibilities (duration, scope, purpose, documented processing instructions, prior authorisation) and provide the contracts, codes of conduct and certifications determining its missions and obligations."
+              "title": "Ar duomenų tvarkytojų įsipareigojimai yra aiškiai nustatyti ir reglamentuojami sutartimi?",
+              "short_title": "Sutartis dėl duomenų tvarkymo",
+              "placeholder": "Kiekvieno duomenų tvarkytojo atveju nurodykite jo įsipareigojimus (trukmė, apimtis, tikslas, kokie yra dokumentuoti valdytojo nurodymai, išankstinis sutikimas dėl pagalbinių duomenų tvarkytojų ir t.t.), nurodykite tvarkytojui taikomas sutartis, elgesio kodeksus ir sertifikatus."
             },
             "7": {
-              "title": "In the case of data transfer outside the European Union, are the data adequately protected?",
-              "short_title": "Transfers",
-              "placeholder": "For each country outside the European Union where data are stored or processed, name it and tell if it is acknowledged as offering an adequate level of data protection or describe the provisions concerning the transfer."
+              "title": "Ar asmens duomenys tinkamai apsaugomi, tuo atveju jei jie teikiami už Europos Sąjungos ribų?",
+              "short_title": "Duomenų teikimas",
+              "placeholder": "Kiekvienos už Europos Sąjungos ribų esančios šalies, kurioje yra saugomi ir tvarkomi asmens duomenys, atveju nurodykite, kokią tai šalis, ar ji pripažinta kaip užtikrinanti tinkamo lygio apsaugą, aprašykite duomenų teikimo sąlygas."
             }
           }
         }
       }
     },
     "3": {
-      "title": "Risks",
-      "short_help": "This section allows you to assess the privacy risks, taking into account existing or planned controls.",
+      "title": "Rizikos",
+      "short_help": "Šioje dalyje įvertinamos galimos rizikos duomenų apsaugai, atsižvelgiant į planuojamas ir esamas kontrolės priemones.",
       "items": {
         "1": {
-          "title": "Planned or existing measures",
+          "title": "Planuojamos arba esamos priemonės",
           "short_help": "This section allows you to identify controls (existing or planned) that contribute to data security."
         },
         "2": {
