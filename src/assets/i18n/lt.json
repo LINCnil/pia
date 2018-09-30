@@ -827,7 +827,7 @@
     "title": "Apie PDAV programą",
     "version_number": "Versijos Nr.",
     "description": "Ši programa yra sukurta <a target=\"_blank\" href=\"https://www.cnil.fr\">Commission Nationale Informatique et Liberté (CNIL)</a>, Prancūzijos duomenų apsaugos inspekcijos, siekiant padėti jos vartotojams užtikrinti asmens duomenų tvarkymo atitikti BDAR reikalavimams. Jei norite prisidėti prie šio projekto tolimesnio vystymo, jūs galite atsisiūti programos išeities kodą iš Github, jį modifikuoti ir dalintis su bendruomene.",
-    "translators": "The PIA software is currently available in fourteen languages. The French and English versions are provided by the CNIL. The others versions result from the contributions of the following individuals:",
+    "translators": "PIA programa yra išvesrta į penkioliką kalbų. Programos prancūziška ir angliška versijas sukūrė CNIL. Programos versijos kitomis kalbomis parengė šie asmenys:",
     "translators_name": "<ul><li>Czech : Jiří Grohmann, Manuel d’Orso;</li><li>Dutch : Ruud van Driel, Manuel d’Orso;</li><li>English : <a target=\"_blank\" href=\"https://www.cnil.fr\">CNIL</a>;</li><li>Finnish : <a target=\"_blank\" href=\"https://tietosuoja.fi/etusivu\">Tietosuojavaltuutetun toimisto</a>;</li><li>French : <a target=\"_blank\" href=\"https://www.cnil.fr\">CNIL</a>;</li><li>German : Kosmas Schütz, Corina Scheiter (<a target=\"_blank\" href=\"https://www.datenschutz-bayern.de/\">BayLfD</a>);</li><li>Greek : Dimitris Tzellis;</li><li>Hungarian : <a target=\"_blank\" href=\"https://naih.hu/\">Nemzeti Adatvédelmi és Információszabadság Hatóság (NAIH)</a>;</li><li>Italian : Manuel d’Orso, Gianluca Markos, Antonio Caselli (<a target=\"_blank\" href=\"http://gpdp.it\">Garante per la Protezione dei Dai Personali (GPDP)</a>);<li>Lithuanian : Paulius Galubickas (<a target=\"_blank\" href=\"http://galubickas.lt\">Law firm Galubickas </a>);</li></li><li>Norwegian : <a target=\"_blank\" href=\"https://www.datatilsynet.no\">Datatilsynet</a>;</li><li>Polish : Joanna Karczewska, Michal Mazur (<a target=\"_blank\" href=\"https://giodo.gov.pl\">Generalny Inspektor Ochrony Danych Osobowych (GIODO)</a>);</li><li>Portuguese : Barbara Gois;</li><li>Romanian : webmyday;</li><li>Spanish : ylachgar.</li></ul>",
     "contribute": "Jei norite prisidėti prie programos vertimo į kitas kalbas ar norite pagerinti esamą vertimą, rekomenduojame <a href=\"https://github.com/LINCnil/pia/tree/master/src/assets/i18n\" target=\"_blank\"> perskaityti instrukcijas</a>.",
     "licences": "Bibliotekų licencijos:"
@@ -1065,109 +1065,109 @@
     "risk2_modification": "(NDP)"
   },
   "action_plan": {
-    "title": "Overview",
-    "principles": "Fundamental principles",
-    "measures": "Planned or existing measures",
-    "risks": "Risks",
-    "risk1": "Illegitimate access to data",
-    "risk2": "Unwanted modification of data",
-    "risk3": "Data disappearance",
-    "improvable_measures": "Improvable measures",
-    "acceptable_measures": "Acceptable measures",
-    "no_action_plan": "No action plan recorded.",
-    "edit": "Edit",
-    "placeholder_person_in_charge": "Implementation responsible"
+    "title": "Apžvalga",
+    "principles": "Pagrindiniai principai",
+    "measures": "Planuojamos arba esamos priemonės",
+    "risks": "Rizikos",
+    "risk1": "Neteisėta prieiga prie duomenų",
+    "risk2": "Nepageidaujamas duomenų pakeitimas",
+    "risk3": "Duomenų pradingimas",
+    "improvable_measures": "Priemonės, skirtos pataisymams",
+    "acceptable_measures": "Tinkamos priemonės",
+    "no_action_plan": "Veiksmų planas neparengtas.",
+    "edit": "Redaguoti",
+    "placeholder_person_in_charge": "Už įgyvendinimą atsakingas asmuo"
   },
   "opinions": {
-    "edit": "Edit",
-    "content": ", consider that :",
-    "dpo_opinion": "DPO opinion",
-    "placeholder_dpo_name": "DPO name(s)",
-    "placeholder_dpo_opinion": "Specify the reasons for your choice.",
-    "dpo_lock": "Please complete the other sections before you can fill the DPO opinion.",
-    "people_opinion": "Concerned people opinion",
-    "placeholder_concerned_people_name": "Concerned people name(s)",
-    "placeholder_people_opinion": "Describe how the opinions were collected and what the analysis is. If the notices have not been sought, state the reasons.",
-    "placeholder_search_content": "Justify the reason why the opinion of the persons concerned has not been requested.",
-    "treatment_ok": "The treatment could be implemented.",
-    "treatment_nok": "The treatment should not be used.",
-    "treatment_lock": "Please complete the other sections before you can fill the opinions of the persons concerned."
+    "edit": "Redaguoti",
+    "content": ", atsižvelgiant kad :",
+    "dpo_opinion": "DPA nuomonė",
+    "placeholder_dpo_name": "DPA vardas, pavardė",
+    "placeholder_dpo_opinion": "Nurodykite savo sprendimo priežastis.",
+    "dpo_lock": "Norint pateikti DPA nuomonę, reikia baigti užpildyti kitas dalis.",
+    "people_opinion": "Susijusių žmonių (duomenų subejktų) nuomonė",
+    "placeholder_concerned_people_name": "Duomenų subjektų vardai, pavardės, kontaktiniai duomenys",
+    "placeholder_people_opinion": "Nurodykite, kaip buvo atsiklausiama asmenų nuomonių ir kaip jos buvo analizuojamos. Jei nuomonių nebuvo prašomo, nurodykite to priežastis.",
+    "placeholder_search_content": "Nurodykite priežastis, kurios pateisintų tai, kad nebuvo siekiama gauti duomenų subjektų nuomonės.",
+    "treatment_ok": "Tvarkymas gali būti vykdomas.",
+    "treatment_nok": "Tvarkymas neturėtų būti vykdomas.",
+    "treatment_lock": "Norint pateikti susijusių duomenų subjektų nuomones, reikia užpildyti kitas dalis."
   },
   "sections": {
     "1": {
-      "title": "Context",
-      "short_help": "This section gives you a clear view of the treatment(s) of personal data in question.",
+      "title": "Kontekstas",
+      "short_help": "Šioje dalyje detaliai aprašomas asmens duomenų tvarkymas.",
       "items": {
         "1": {
-          "title": "Overview",
-          "short_help": "This part allows you to identify and present the object of the study.",
+          "title": "Apžvalga",
+          "short_help": "Šioje dalyje pateikiamas analizės tikslas.",
           "questions": {
             "1": {
-              "title": "Which is the processing under consideration?",
-              "placeholder": "Present a brief outline of the processing: its name, purposes, stakes, context of use, etc."
+              "title": "Koks yra planuojamas asmens duomenų tvarkymas?",
+              "placeholder": "NUordykite trumpą duomenų tvarkymo aprašymą: pavadinimas, tikslas, sritis, naudos gavėjai, t.t."
             },
             "2": {
-              "title": "What are the responsibilities linked to the processing?",
-              "placeholder": "Describe the responsabilities of the stakeholders: the data controller, the possible data processors and joint controllers."
+              "title": "Kas atsakingas už asmens duomenų tvarkymą?",
+              "placeholder": "Nurodykite atsakingus asmenis ir jų atsakomybių sritis: duomenų valdytojas, bendri duomenų valdytojai, galimi duomenų tvarkytojai, jų pagalbiniai duomenų tvarkytojai, tretieji asmenys kaip galimi duomenų gavėjai."
             },
             "3": {
-              "title": "Are there standards applicable to the processing?",
-              "placeholder": "List the relevant standards applicable to the processing, especially approved codes of conduct and data protection certifications."
+              "title": "Kokie standartai ar taisyklės taikomi duomenų tvarkymui?",
+              "placeholder": "Nurodykite duomenų tvarkymo procesams taikomus standartus ar taisykles, kaip pvz. taikomus elgesio kodeksus, įgytus duomenų tvarkymo sertifikatus."
             }
           }
         },
         "2": {
-          "title": "Data, processes and supporting assets",
-          "short_help": "This part allows you to define and describe the scope of the processing in detail.",
+          "title": "Duomenys, procesai ir pagalbinės priemonės",
+          "short_help": "Šioje dalyje galima detalizuoti duomenų tvarkymo apimtį.",
           "questions": {
             "1": {
-              "title": "What are the data processed?",
-              "placeholder": "List the data collected and processed. Define for each the storage durations, the recipients and persons with access thereto."
+              "title": "Kokie asmens duomenys (kategorijos) tvarkomi?",
+              "placeholder": "Nurodykite kokie asmens duomenys (pvz., pavardė, el. pašto adresas, asmens kodas, sveikatos duomenys, genetiniai duomenys, t.t.) renkami ir tvarkomi. Nurodykite jų saugojimo terminą, gavėjus ir asmenis, turinčius teisę juos tvarkyti."
             },
             "2": {
-              "title": "How does the life cycle of data and processes work?",
-              "placeholder": "Present and describe how the product generally works (from the data collection to the data destruction, the different processing stages, storage, etc.), using for example a diagram of data flows (add it as an attachment) and a detailed description of the processes carried out."
+              "title": "Kokie yra duomenų tvarkymo etapai?",
+              "placeholder": "Nurodykite duomenų tvarkymo etapus (nuo duomenų rinkimo iki duomenų sunaikinimo, aprašykite kiekvieno etapo specifiką, duomenų saugojimą ir pan.), galite naudoti diagramas (pridėkite jas kaip priedelius), detaliai aprašykite duomenų tvarkymo metu atliekamus veiksmus."
             },
             "3": {
-              "title": "What are the data supporting assets?",
-              "placeholder": "List the data supporting assets (operating systems, business applications, database management systems, office suites, protocols, configurations, etc.)"
+              "title": "Kokios pagalbinės priemonės duomenų tvarkymui yra naudojamos?",
+              "placeholder": "Nurodykite pagalbines priemones (pvz., operacinė sistema, verslo valdymo sistemos, programinė įranga (kompiuterio programos), duomenų bazės, serveriai, tinklo įranga, ryšio tiekėjai ir pan.)"
             }
           }
         }
       }
     },
     "2": {
-      "title": "Fundamental principles",
-      "short_help": "This section allows you to build the compliance framework for privacy principles.",
+      "title": "Pagrindiniai principai",
+      "short_help": "Šioje dalyje aprašoma atitiktis pagrindiniams duomenų tvarkymo teisėtumo principams.",
       "items": {
         "1": {
-          "title": "Proportionality and necessity",
-          "short_help": "This part allows you to demonstrate the legitimacy of your treatment and of the data processed.",
+          "title": "Proporcingumas ir būtinybė",
+          "short_help": "Šioje dalyje pagrindžiamas duomenų tvarkymo teisėtumas.",
           "questions": {
             "1": {
-              "title": "Are the processing purposes specified, explicit and legitimate?",
-              "short_title": "Purposes",
-              "placeholder": "Explain why the processing purposes are specified, explicit and legitimate."
+              "title": "Ar asmens duomenys tvarkymi nustatytais, aiškiai apibrėžtais bei teisėtais tikslais (tikslo apribojimo principas)?",
+              "short_title": "Tiklsai",
+              "placeholder": "Nurodykite, kodėl manote, kad duomenys tvarkymi nustatytais, aiškiai apibrėžtais bei teisėtais tikslais."
             },
             "2": {
-              "title": "What are the legal basis making the processing lawful?",
-              "short_title": "Legal basis",
-              "placeholder": "Describe what is/are the legal basis of your processing (ex: consent, performance of a contract, compliance with a legal obligation, protecting the vital intests, etc.)"
+              "title": "Kokiais teisiniai pagrindais vadovaujantis galima teigti, kad duomenų tvarkymas teisėtas?",
+              "short_title": "Teisinis pagrindas",
+              "placeholder": "Nurodykite, kokie yra duomenų tvarkymo teisiniai pagrindai (pvz., sutikimas, sutarties vykdymas, teisinės prievolės vykdymas, gyvybinių interesų apsauga ir pan.)"
             },
             "3": {
-              "title": "Are the data collected adequate, relevant and limited to what is necessary in relation to the purposes for which they are processed ('data minimisation')?",
-              "short_title": "Adequate data",
-              "placeholder": "Explain why each of the data collected is necessary for the purposes of your processing."
+              "title": "Ar renkami asmens duomenys adekvatūs, tinkami ir tik tokie, kurių reikia siekiant tikslų (duomenų kiekio mažinimo principas)?",
+              "short_title": "Duomenų adekvatumas",
+              "placeholder": "Nurodykite, kodėl konkrečiam duomenų tvarkymo tikslui reikalingas konkretas asmens duomuo."
             },
             "4": {
-              "title": "Are the data accurate and kept up to date?",
-              "short_title": "Data accuracy",
-              "placeholder": "Describe which are the steps taken to ensure the quality of the data."
+              "title": "Ar tvarkomi asmens duomenys tikslūs ir prireikus atnaujinami (tikslumo principas)?",
+              "short_title": "Duomenų tikslumas",
+              "placeholder": "Nurodykite, kokių priemonių imamasi, siekiant užtikrinti duomenų kokybę."
             },
             "5": {
-              "title": "What are the storage duration of the data?",
-              "short_title": "Storage duration",
-              "placeholder": "Explain why the storage durations are justified by legal requirements and/or processing needs."
+              "title": "Kokia yra asmens duomenų saugojimo trukmė?",
+              "short_title": "Saugojimo trukmė",
+              "placeholder": "Nurodykite, kokios teisinės prievolės (įstatymo reikalavimai) ir duomenų tvarkymo poreikiai lemia tokią duomenų saugojimo trukmę."
             }
           }
         },
