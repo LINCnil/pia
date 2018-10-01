@@ -315,8 +315,10 @@
       }
     },
     "statuses": {
-      "0": "Valide",
-      "1": "Archivé"
+      "0": "En cours",
+      "1": "À valider",
+      "2": "Valide",
+      "3": "Archivé"
     },
     "pia-list": {
       "table-header": {
@@ -1018,7 +1020,10 @@
       "1": "À corriger",
       "2": "Améliorable",
       "3": "Acceptable"
-    }
+    },
+    "processing_validated": "Traitement validé",
+    "processing_partialy_validated": "Traitement validé avec réserves",
+    "cancel": "Annuler la validation"
   },
   "help": {
     "title": "Aide",

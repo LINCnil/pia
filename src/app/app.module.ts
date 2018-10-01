@@ -79,6 +79,7 @@ import { ProcessingDataTypeService } from '@api/service';
 import { EditableFieldComponent } from './pias/list/item/editable-field/editable-field.component';
 import { ListsComponent } from './lists/lists.component';
 import { StructureComponent } from './structure/structure.component';
+import { EvaluationBlockComponent } from './processing/evaluation-block/evaluation-block.component';
 import { CommentsComponent as ProcessingCommentsComponent} from './processing/comments/comments.component';
 
 const providersList: any = [
@@ -172,6 +173,7 @@ export function createTranslateLoader(http: HttpClient) {
     EditableFieldComponent,
     ListsComponent,
     StructureComponent,
+    EvaluationBlockComponent,
     ProcessingCommentsComponent
   ],
   imports: [

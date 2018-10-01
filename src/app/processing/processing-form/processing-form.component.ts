@@ -5,7 +5,7 @@ import { KnowledgeBaseService } from '../../entry/knowledge-base/knowledge-base.
 import { ProcessingModel } from '@api/models';
 import { ProcessingApi, ProcessingDataTypeApi } from '@api/services';
 import { PermissionsService } from '@security/permissions.service';
-import { ProcessingStatus } from '@api/model/processing.model';
+import { ProcessingStatus, ProcessingEvaluationStates } from '@api/model/processing.model';
 
 
 @Component({
@@ -22,6 +22,7 @@ export class ProcessingFormComponent implements OnDestroy, OnInit {
   elementId: String;
   processingFullyFilled: boolean = false;
   processingStatus = ProcessingStatus;
+  processingEvaluationStates = ProcessingEvaluationStates;
 
   constructor(
     private processingApi: ProcessingApi,
@@ -191,5 +192,10 @@ export class ProcessingFormComponent implements OnDestroy, OnInit {
     this.processingApi.update(this.processing).subscribe((processing) => {
       this.processing = processing;
     });
+  }
+
+  public onProcessngUpdated(processing: ProcessingModel) {
+    this.processing = processing;
+    this.ref.detectChanges();
   }
 }

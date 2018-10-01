@@ -25,6 +25,8 @@ export class Processing extends BaseModel {
   public rights_guarantee: string;
   public exactness: string;
   public minimization: string;
+  public evaluation_comment: string;
+  public evaluation_state: number;
   public comments: ProcessingCommentModel[] = [];
 }
 
@@ -33,4 +35,11 @@ export enum ProcessingStatus {
   STATUS_UNDER_VALIDATION = 1,
   STATUS_VALIDATED = 2,
   STATUS_ARCHIVED = 3
+}
+
+export enum ProcessingEvaluationStates {
+  EVALUATION_STATE_NONE = -1,
+  EVALUATION_STATE_TO_CORRECT = 0,
+  EVALUATION_STATE_IMPROVABLE = 1,
+  EVALUATION_STATE_ACCEPTABLE = 2
 }

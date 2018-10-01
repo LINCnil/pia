@@ -1,0 +1,27 @@
+@import '../../../assets/stylesheets/variables';
+
+.evaluation-container,
+.cancel-evaluation-container {
+    background: $pia-full-white;
+    box-shadow: 0 2px 4px $pia-gray;
+    padding: 1em;
+    margin-bottom: 1em;
+
+    h2 {
+        margin-top: 0;
+    }
+
+    .evaluate-buttons {
+        text-align: center;
+        margin-bottom: 1em;
+        .btn {
+            width:30%;
+        }
+    }
+}
+
+.cancel-evaluation-container {
+    .btn {
+        width: 100%;
+    }
+}

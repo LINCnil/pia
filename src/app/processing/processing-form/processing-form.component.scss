@@ -388,6 +388,15 @@
 }
 
 #processing-form {
+  .validated-label {
+    background: $pia-green;
+    color: $pia-full-white;
+    text-align: center;
+    font-weight: bold;
+    padding: 1em;
+    margin-bottom: 1em;
+  }
+
   fieldset {
     border: none;
   }

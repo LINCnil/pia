@@ -344,8 +344,10 @@
       }
     },
     "statuses": {
-      "0": "Validated",
-      "1": "Archived"
+      "0": "Doing",
+      "1": "To be validated",
+      "2": "Validated",
+      "3": "Archived"
     },
     "pia-list": {
       "table-header": {
@@ -1004,7 +1006,10 @@
       "1": "To correct",
       "2": "Improvable",
       "3": "Acceptable"
-    }
+    },
+    "processing_validated": "Processing validated",
+    "processing_partialy_validated": "Processing partially validated",
+    "cancel": "Cancel validation"
   },
   "help": {
     "title": "Help",

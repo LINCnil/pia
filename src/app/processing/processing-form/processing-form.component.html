@@ -32,6 +32,15 @@
         </a>
       </div>
 
+      <ng-container *ngIf="processing.status === processingStatus.STATUS_VALIDATED">
+        <div class="validated-label" *ngIf="processing.evaluation_state === processingEvaluationStates.EVALUATION_STATE_ACCEPTABLE">
+          {{ 'evaluations.processing_validated' | translate }}
+        </div>
+        <div class="validated-label" *ngIf="processing.evaluation_state === processingEvaluationStates.EVALUATION_STATE_IMPROVABLE">
+          {{ 'evaluations.processing_partialy_validated' | translate }}
+        </div>
+      </ng-container>
+
       <fieldset *ngIf="currentSection.id == 1" id="description" class="form-section">
         <div class="form-field">
           <label class="title" for="processing-description">{{ 'processing.form.description.title' | translate }}</label>
@@ -411,6 +420,8 @@
           {{ 'processing.form.ask_validate_button' | translate }}
         </button>
       </div>
+
+      <app-evaluation-block [processing]="processing" (processingUpdated)="onProcessngUpdated($event)"></app-evaluation-block>
 
     </form>
   </main>
