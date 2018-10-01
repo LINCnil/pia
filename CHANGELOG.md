@@ -1,15 +1,67 @@
 # Change Log
 
-## [Unreleased](https://github.com/pia-lab/pialab/tree/HEAD)
+## [1.4.17](https://github.com/pia-lab/pialab/tree/1.4.17) (2018-10-01)
+[Full Changelog](https://github.com/pia-lab/pialab/compare/1.4.16...1.4.17)
 
-[Full Changelog](https://github.com/pia-lab/pialab/compare/1.4.7...HEAD)
+**Merged pull requests:**
+
+- Add processing attachments [\#79](https://github.com/pia-lab/pialab/pull/79) ([RomainSanchez](https://github.com/RomainSanchez))
+- Add Processing evaluation and validation part [\#78](https://github.com/pia-lab/pialab/pull/78) ([PapsOu](https://github.com/PapsOu))
+
+## [1.4.16](https://github.com/pia-lab/pialab/tree/1.4.16) (2018-09-26)
+[Full Changelog](https://github.com/pia-lab/pialab/compare/1.4.15...1.4.16)
+
+## [1.4.15](https://github.com/pia-lab/pialab/tree/1.4.15) (2018-09-26)
+[Full Changelog](https://github.com/pia-lab/pialab/compare/1.4.14...1.4.15)
+
+## [1.4.14](https://github.com/pia-lab/pialab/tree/1.4.14) (2018-09-25)
+[Full Changelog](https://github.com/pia-lab/pialab/compare/1.4.13...1.4.14)
+
+**Merged pull requests:**
+
+- Add comments to processing form [\#77](https://github.com/pia-lab/pialab/pull/77) ([RomainSanchez](https://github.com/RomainSanchez))
+- Add PIA quick list on Processing form left sidebar [\#76](https://github.com/pia-lab/pialab/pull/76) ([PapsOu](https://github.com/PapsOu))
+- Remove principles section from PIA form [\#74](https://github.com/pia-lab/pialab/pull/74) ([RomainSanchez](https://github.com/RomainSanchez))
+
+## [1.4.13](https://github.com/pia-lab/pialab/tree/1.4.13) (2018-09-18)
+[Full Changelog](https://github.com/pia-lab/pialab/compare/1.4.10...1.4.13)
+
+**Merged pull requests:**
+
+- Add missing fields to processing form [\#73](https://github.com/pia-lab/pialab/pull/73) ([RomainSanchez](https://github.com/RomainSanchez))
+- Add Structure informations \(dynamic form\) [\#72](https://github.com/pia-lab/pialab/pull/72) ([PapsOu](https://github.com/PapsOu))
+- Add Processing context\_of\_implementation field [\#70](https://github.com/pia-lab/pialab/pull/70) ([PapsOu](https://github.com/PapsOu))
+- Add ask for validation button [\#69](https://github.com/pia-lab/pialab/pull/69) ([PapsOu](https://github.com/PapsOu))
+- Add recipients to Processing [\#68](https://github.com/pia-lab/pialab/pull/68) ([PapsOu](https://github.com/PapsOu))
+
+## [1.4.10](https://github.com/pia-lab/pialab/tree/1.4.10) (2018-09-14)
+[Full Changelog](https://github.com/pia-lab/pialab/compare/1.4.9...1.4.10)
+
+**Merged pull requests:**
+
+- Change Processing models for designated\_controller fields [\#67](https://github.com/pia-lab/pialab/pull/67) ([PapsOu](https://github.com/PapsOu))
+
+## [1.4.9](https://github.com/pia-lab/pialab/tree/1.4.9) (2018-09-07)
+[Full Changelog](https://github.com/pia-lab/pialab/compare/1.4.8...1.4.9)
+
+**Merged pull requests:**
+
+- Minor Fixes in UI and styles [\#66](https://github.com/pia-lab/pialab/pull/66) ([GlennCavarle](https://github.com/GlennCavarle))
+- \[FIX\] Navigation error when moving from processing to dashboard [\#65](https://github.com/pia-lab/pialab/pull/65) ([GlennCavarle](https://github.com/GlennCavarle))
+- Add the mention "Processing Register" in the cards header [\#64](https://github.com/pia-lab/pialab/pull/64) ([GlennCavarle](https://github.com/GlennCavarle))
+- Remove PIA name field [\#63](https://github.com/pia-lab/pialab/pull/63) ([PapsOu](https://github.com/PapsOu))
+- \[FIX\] Wrong processing form submit for controllers and author fields [\#62](https://github.com/pia-lab/pialab/pull/62) ([PapsOu](https://github.com/PapsOu))
+- \[FIX\] Remove unwanted console.log [\#61](https://github.com/pia-lab/pialab/pull/61) ([PapsOu](https://github.com/PapsOu))
+
+## [1.4.8](https://github.com/pia-lab/pialab/tree/1.4.8) (2018-09-06)
+[Full Changelog](https://github.com/pia-lab/pialab/compare/1.4.7...1.4.8)
+
+## [1.4.7](https://github.com/pia-lab/pialab/tree/1.4.7) (2018-09-06)
+[Full Changelog](https://github.com/pia-lab/pialab/compare/1.4.6...1.4.7)
 
 **Closed issues:**
 
 - HTML title does not match "PiaLab" [\#57](https://github.com/pia-lab/pialab/issues/57)
-
-## [1.4.7](https://github.com/pia-lab/pialab/tree/1.4.7) (2018-09-06)
-[Full Changelog](https://github.com/pia-lab/pialab/compare/1.4.6...1.4.7)
 
 **Merged pull requests:**
 
