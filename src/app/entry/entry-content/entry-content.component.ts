@@ -2,8 +2,6 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import 'rxjs/add/operator/map'
 
-import { Evaluation } from './evaluations/evaluation.model';
-
 import { AppDataService } from '../../services/app-data.service';
 import { MeasureService } from './measures/measures.service';
 import { ModalsService } from '../../modals/modals.service';
@@ -57,7 +55,7 @@ export class EntryContentComponent implements OnInit, OnChanges {
     /* TODO make it works for refusal PIA status + */
     // if (sectionId === 4 && itemId === 4) {
     //   if ((!this._globalEvaluationService.enablePiaValidation && !this._globalEvaluationService.piaIsRefused)
-    //   || (this._globalEvaluationService.piaIsRefused && !this._piaService.pia.applied_adjustements)) {
+    //   || (this._globalEvaluationService.piaIsRefused && !this._piaService.pia.applied_adjustments)) {
     //     this._router.navigate(['entry', this._piaService.pia.id, 'section', 1, 'item', 1])
     //   }
     // }

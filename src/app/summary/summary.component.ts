@@ -376,10 +376,10 @@ export class SummaryComponent implements OnInit {
       }
     }
 
-    if (this.pia.applied_adjustements && this.pia.applied_adjustements.length > 0) {
+    if (this.pia.applied_adjustments && this.pia.applied_adjustments.length > 0) {
       el.data.push({
         title: 'summary.modification_made',
-        content: this.pia.applied_adjustements
+        content: this.pia.applied_adjustments
       });
     }
     if (this.pia.rejected_reason && this.pia.rejected_reason.length > 0) {

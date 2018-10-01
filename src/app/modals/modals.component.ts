@@ -8,7 +8,8 @@ import { AttachmentsService } from 'app/entry/attachments/attachments.service';
 import { FormControl, FormGroup } from '@angular/forms';
 
 import { PiaModel, FolderModel, ProcessingModel } from '@api/models';
-import { PiaApi, FolderApi, ProcessingApi } from '@api/services';
+import { PiaApi, FolderApi, ProcessingApi, ProcessingAttachmentApi } from '@api/services';
+import { AttachmentsService as ProcessingAttachmentsService } from 'app/processing/attachments/attachments.service';
 import { PiaType } from '@api/model/pia.model';
 
 
@@ -38,6 +39,8 @@ export class ModalsComponent implements OnInit {
     public _measuresService: MeasureService,
     public _attachmentsService: AttachmentsService,
     private piaApi: PiaApi,
+    public processingAttachmentApi: ProcessingAttachmentApi,
+    public processingAttachmentsService: ProcessingAttachmentsService,
     public _folderApi: FolderApi
   ) { }
 

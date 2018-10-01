@@ -24,7 +24,7 @@ export class AttachmentsComponent implements OnInit {
       attachment_file: new FormControl('', [])
     });
     this._attachmentsService.pia = this.pia;
-    this._attachmentsService.listAttachments();
+    //this._attachmentsService.listAttachments();
     this.dispplayAttachmentButton = (this.pia.status !== 2 && this.pia.status !== 3);
   }
 

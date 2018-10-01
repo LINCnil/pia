@@ -13,4 +13,5 @@ export { Template } from './template.model';
 export { Folder } from './folder.model';
 export { ProcessingDataType } from './processing-data-type.model';
 export { Structure } from './structure.model';
-export { ProcessingComment } from './processing-comment.model'
+export { ProcessingComment } from './processing-comment.model';
+export { ProcessingAttachment } from './processing-attachment.model';

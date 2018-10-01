@@ -17,7 +17,7 @@ export class Pia extends BaseModel {
   public concerned_people_searched_opinion: boolean = false; // 0 : false, 1: true
   public concerned_people_searched_content: string;
   public rejected_reason: string;
-  public applied_adjustements: string;
+  public applied_adjustments: string;
   public dpos_names: string;
   public people_names: string;
   public progress: number;

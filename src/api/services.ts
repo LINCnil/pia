@@ -15,5 +15,6 @@ export {
     FolderService as FolderApi,
     ProcessingDataTypeService as ProcessingDataTypeApi,
     StructureService as StructureApi,
-    ProcessingCommentService as ProcessingCommentApi
+    ProcessingCommentService as ProcessingCommentApi,
+    ProcessingAttachmentService as ProcessingAttachmentApi
 } from '@api/service';

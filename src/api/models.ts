@@ -15,5 +15,6 @@ export {
     Folder as FolderModel,
     ProcessingDataType as ProcessingDataTypeModel,
     Structure as StructureModel,
-    ProcessingComment as ProcessingCommentModel
+    ProcessingComment as ProcessingCommentModel,
+    ProcessingAttachment as ProcessingAttachmentModel
 } from '@api/model';

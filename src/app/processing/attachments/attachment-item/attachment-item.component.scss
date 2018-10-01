@@ -1,0 +1,38 @@
+@import '../../../../assets/stylesheets/variables';
+// Attachments
+.pia {
+  &-attachmentsBlock {
+    &-item {
+      margin: 4px 0;
+      padding: 4px;
+      padding-right: 10px;
+      position: relative;
+      border: solid 1px $pia-gray;
+      display: flex;
+      justify-content: space-between;
+      span:first-child {
+        align-self: center;
+        padding: 10px;
+        color: $pia-blue;
+      }
+      span:nth-child(2) {
+        align-self: center;
+        color: $pia-blue;
+        width: 100%;
+        margin-left: 5px;
+      }
+      span:last-child {
+        align-self: center;
+        padding: 10px;
+      }
+      a {
+        padding: 2px 10px;
+        margin-top: 2px;
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 1.15rem;
+        color: $pia-blue;
+      }
+    }
+  }
+}

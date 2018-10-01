@@ -1,0 +1,7 @@
+<div class="pia-attachmentsBlock-item bounceIn" *ngIf="attachment.file && attachment.file.length > 0">
+  <span class="pia-icons pia-icon-file-pdf-blue"></span>
+  <a href="javascript:;" (click)="attachmentsService.downloadAttachment(attachment.id)" title="{{attachment.name}}" class="truncate">{{attachment.name}}</a>
+  <button type="button" class="btn" (click)="removeAttachment(attachment.id)" title="{{ 'pia.attachments.remove' | translate }}">
+    <span class="pia-icons pia-icon-close"></span>
+  </button>
+</div>

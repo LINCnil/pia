@@ -15,7 +15,7 @@ export class Pia extends ApplicationDb {
   public concerned_people_searched_opinion: boolean; // 0 : false, 1: true
   public concerned_people_searched_content: string;
   public rejected_reason: string;
-  public applied_adjustements: string;
+  public applied_adjustments: string;
   public dpos_names: string;
   public people_names: string;
   public progress: number;
@@ -52,7 +52,7 @@ export class Pia extends ApplicationDb {
             newPia.concerned_people_opinion = element.concerned_people_opinion;
             newPia.concerned_people_status = element.concerned_people_status;
             newPia.rejected_reason = element.rejected_reason;
-            newPia.applied_adjustements = element.applied_adjustements;
+            newPia.applied_adjustments = element.applied_adjustments;
             newPia.status = element.status;
             newPia.dpos_names = element.dpos_names;
             newPia.people_names = element.people_names;
@@ -93,7 +93,7 @@ export class Pia extends ApplicationDb {
       concerned_people_opinion: this.concerned_people_opinion,
       concerned_people_status: this.concerned_people_status,
       rejected_reason: this.rejected_reason,
-      applied_adjustements: this.applied_adjustements,
+      applied_adjustments: this.applied_adjustments,
       // created_at: this.created_at,
       // updated_at: this.updated_at,
       status: this.status,
@@ -155,7 +155,7 @@ export class Pia extends ApplicationDb {
         entry.concerned_people_opinion = this.concerned_people_opinion;
         entry.concerned_people_status = this.concerned_people_status;
         entry.rejected_reason = this.rejected_reason;
-        entry.applied_adjustements = this.applied_adjustements;
+        entry.applied_adjustments = this.applied_adjustments;
         entry.status = this.status;
         entry.is_example = this.is_example;
         entry.dpos_names = this.dpos_names;
@@ -219,7 +219,7 @@ export class Pia extends ApplicationDb {
           this.concerned_people_opinion = entry.concerned_people_opinion;
           this.concerned_people_status = entry.concerned_people_status;
           this.rejected_reason = entry.rejected_reason;
-          this.applied_adjustements = entry.applied_adjustements;
+          this.applied_adjustments = entry.applied_adjustments;
           this.created_at = new Date(entry.created_at);
           this.updated_at = new Date(entry.updated_at);
           this.dpos_names = entry.dpos_names;
@@ -271,7 +271,7 @@ export class Pia extends ApplicationDb {
                 this.concerned_people_opinion = entry.concerned_people_opinion;
                 this.concerned_people_status = entry.concerned_people_status;
                 this.rejected_reason = entry.rejected_reason;
-                this.applied_adjustements = entry.applied_adjustements;
+                this.applied_adjustments = entry.applied_adjustments;
                 this.created_at = new Date(entry.created_at);
                 this.updated_at = new Date(entry.updated_at);
                 this.dpos_names = entry.dpos_names;

@@ -79,8 +79,11 @@ import { ProcessingDataTypeService } from '@api/service';
 import { EditableFieldComponent } from './pias/list/item/editable-field/editable-field.component';
 import { ListsComponent } from './lists/lists.component';
 import { StructureComponent } from './structure/structure.component';
+import { CommentsComponent as ProcessingCommentsComponent } from './processing/comments/comments.component';
+import { AttachmentsComponent as ProcessingAttachmentsComponent } from './processing/attachments/attachments.component';
+import { AttachmentsService as ProcessingAttachmentsService} from './processing/attachments/attachments.service';
+import { AttachmentItemComponent as ProcessingAttachmentItemComponent } from './processing/attachments/attachment-item/attachment-item.component';
 import { EvaluationBlockComponent } from './processing/evaluation-block/evaluation-block.component';
-import { CommentsComponent as ProcessingCommentsComponent} from './processing/comments/comments.component';
 
 const providersList: any = [
   AppDataService,
@@ -98,6 +101,7 @@ const providersList: any = [
   LanguagesService,
   GlobalEvaluationService,
   ProcessingService,
+  ProcessingAttachmentsService,
   ProcessingDataTypeService,
   {
     provide: ErrorHandler,
@@ -173,8 +177,10 @@ export function createTranslateLoader(http: HttpClient) {
     EditableFieldComponent,
     ListsComponent,
     StructureComponent,
+    ProcessingCommentsComponent,
+    ProcessingAttachmentsComponent,
+    ProcessingAttachmentItemComponent,
     EvaluationBlockComponent,
-    ProcessingCommentsComponent
   ],
   imports: [
     BrowserModule,

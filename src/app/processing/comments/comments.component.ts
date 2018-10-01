@@ -53,7 +53,7 @@ export class CommentsComponent implements OnInit {
    */
   newComment() {
     const comment = new ProcessingCommentModel();
-console.log(this.commentForm);
+
     comment.processing_id = this.processing.id;
     comment.content = this.commentForm.value.content;
     comment.field = this.field;

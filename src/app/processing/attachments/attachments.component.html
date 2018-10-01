@@ -1,0 +1,13 @@
+<div class="pia-attachmentsBlock">
+  <p>{{ 'pia.attachments.title' | translate }}</p>
+
+  <app-processing-attachment-item *ngFor="let attachment of attachmentsService.processing.attachments;let i=index" [attachment]="attachment" [processing]="processing"></app-processing-attachment-item>
+
+  <form enctype="multipart/form-data" [formGroup]="attachmentForm">
+    <input type="file" formControlName="attachment_file" id="attachment_file" (change)="attachmentsService.uploadAttachement($event)" class="hide">
+    <button class="pia-attachmentsBlock-addBtn btn" type="button" (click)="addAttachment()">
+      <span class="pia-icons pia-icon-add"></span>
+      {{ 'pia.attachments.add' | translate }}
+    </button>
+  </form>
+</div>
