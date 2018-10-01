@@ -46,38 +46,41 @@ export class ActionPlanService {
     this.risksActionPlan33Ready = false;
     this.risksActionPlan34Ready = false;
     const section = this.data.sections.filter((s) => {
-      return s.id === 2;
+      return s.id === 3;
     });
+    console.log(section);
     section[0].items.forEach((item) => {
-      item.questions.forEach(q => {
+      if (item.evaluation_mode === 'item') {
+        item.questions.forEach(q => {
 
-        const reference_to = '2.' + item.id + '.' + q.id;
-        this.evaluationApi.getByRef(this.pia.id, reference_to).subscribe((evaluation: EvaluationModel) => {
-          if (!evaluation) {
-            return;
-          }
-          if (evaluation.status > 0) {
-            if (evaluation.action_plan_comment && evaluation.action_plan_comment.length > 0) {
-              this.principlesActionPlanReady = true;
+          const reference_to = '2.' + item.id + '.' + q.id;
+          this.evaluationApi.getByRef(this.pia.id, reference_to).subscribe((evaluation: EvaluationModel) => {
+            if (!evaluation) {
+              return;
             }
-            this.results.push({
-              status: evaluation.status,
-              short_title: q.short_title,
-              action_plan_comment: evaluation.action_plan_comment,
-              evaluation_comment: evaluation.evaluation_comment,
-              evaluation: evaluation
-            });
-          } else {
-            this.results.push({
-              status: null,
-              short_title: q.short_title,
-              action_plan_comment: null,
-              evaluation_comment: null,
-              evaluation: null
-            });
-          }
+            if (evaluation.status > 0) {
+              if (evaluation.action_plan_comment && evaluation.action_plan_comment.length > 0) {
+                this.principlesActionPlanReady = true;
+              }
+              this.results.push({
+                status: evaluation.status,
+                short_title: q.short_title,
+                action_plan_comment: evaluation.action_plan_comment,
+                evaluation_comment: evaluation.evaluation_comment,
+                evaluation: evaluation
+              });
+            } else {
+              this.results.push({
+                status: null,
+                short_title: q.short_title,
+                action_plan_comment: null,
+                evaluation_comment: null,
+                evaluation: null
+              });
+            }
+          });
         });
-      });
+      }
     });
 
     this.measureApi.getAll(this.pia.id).subscribe((entries: MeasureModel[]) => {
