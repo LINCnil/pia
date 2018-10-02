@@ -1,7 +1,10 @@
 # Change Log
 
 ## [1.4.17](https://github.com/pia-lab/pialab/tree/1.4.17) (2018-10-01)
-[Full Changelog](https://github.com/pia-lab/pialab/compare/1.4.16...1.4.17)
+[Full Changelog](https://github.com/pia-lab/pialab/compare/1.4.18...1.4.17)
+
+## [1.4.18](https://github.com/pia-lab/pialab/tree/1.4.18) (2018-10-01)
+[Full Changelog](https://github.com/pia-lab/pialab/compare/1.4.16...1.4.18)
 
 **Merged pull requests:**
 
