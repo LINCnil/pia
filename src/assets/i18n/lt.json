@@ -1220,125 +1220,125 @@
       "items": {
         "1": {
           "title": "Planuojamos arba esamos priemonės",
-          "short_help": "This section allows you to identify controls (existing or planned) that contribute to data security."
+          "short_help": "Šioje dalyje galima nurodyti esamas ar planuojamas duomenų apsaugos kontrolės priemones."
         },
         "2": {
-          "title": "Illegitimate access to data",
-          "short_help": "Analyze the causes and consequences of illegitimate access to data, and estimate its severity and likelihood.",
+          "title": "Neteisėta prieiga prie duomenų",
+          "short_help": "Pateikite neteisėtos prieigos prie duomenų priežasčių ir pasekmių analizę ir įvertinkite to tikimybę bei galimą neigiamą poveikį.",
           "questions": {
             "1": {
-              "title": "What could be the main <span class='green-highlight'>impacts on the data subjects</span> if the risk were to occur?",
-              "placeholder": "Enter the potential impacts"
+              "title": "Kokie būtų pagrindiniai <span class='green-highlight'> neigiami poveikiai duomenų subjektams</span> jei ši rizika pasireikštu?",
+              "placeholder": "Nurodykite galimus poveikius"
             },
             "2": {
-              "title": "What are the main <span class='green-highlight'>threats</span> that could lead to the risk?",
-              "placeholder": "Enter the threats"
+              "title": "Kokios būtų pagrindinės <span class='green-highlight'>grėsmės</span> galinčios sukelti šią riziką?",
+              "placeholder": "Nurodykite grėsmes"
             },
             "3": {
-              "title": "What are the risk <span class='green-highlight'>sources</span>?",
-              "placeholder": "Enter the risk sources"
+              "title": "Kokie yra šios rizikos <span class='green-highlight'>šaltiniai</span>?",
+              "placeholder": "Nurodykite rizikos šaltinius"
             },
             "4": {
-              "title": "Which of the identified <span class='green-highlight'>controls</span> contribute to addressing the risk?",
-              "placeholder": "Click to select controls which address the risk."
+              "title": "Kurios iš nurodytų <span class='green-highlight'>kontrolės primonių</span> padeda užkirsti kelią šios rizikos įvykimui?",
+              "placeholder": "Pasirinkite rizikos kontrolės priemones."
             },
             "5": {
-              "title": "How do you estimate the <span class='green-highlight'>risk severity</span>, especially according to potential impacts and planned controls?",
-              "placeholder": "Justify here the estimated severity of the risk."
+              "title": "Kaip vertinate <span class='green-highlight'>rizikos laipsnį</span>, ypač atisžvelgiant į galimą poveikį ir planuojamas kontrolės priemones?",
+              "placeholder": "Pagrįskite numanomą rizikos dydį."
             },
             "6": {
-              "title": "How do you estimate the <span class='green-highlight'>likelihood of the risk</span>, especially in respect of threats, sources of risk and planned controls?",
-              "placeholder": "Justify here the estimated likelihood."
+              "title": "Kaip vertinate <span class='green-highlight'>šios rizikos tikimybę </span>, ypač atsižvelgiant į grėsmes, rizikos šaltinius ir planuojamas kontrolės priemones?",
+              "placeholder": "Pagrįskite numanomą tikimybę."
             }
           }
         },
         "3": {
-          "title": "Unwanted modification of data",
-          "short_help": "Analyze the causes and consequences of an undesired change in data, and estimate its seriousness and likelihood.",
+          "title": "Nepageidaujamas duomenų pakeitimas",
+          "short_help": "Pateikite nepageidaujamo duomenų pakeitimo priežasčių ir pasekmių analizę ir įvertinkite to tikimybę bei galimą neigiamą poveikį.",
           "questions": {
             "1": {
-              "title": "What could be the main <span class='green-highlight'>impacts on the data subjects</span> if the risk were to occur?",
-              "placeholder": "Enter the potential impacts"
+              "title": "Kokie būtų pagrindiniai <span class='green-highlight'>neigiami poveikiai duomenų subjektams</span> jei ši rizika pasireikštu?",
+              "placeholder": "Nurodykite galimus poveikius"
             },
             "2": {
-              "title": "What are the main <span class='green-highlight'>threats</span> that could lead to the risk?",
-              "placeholder": "Enter the threats"
+              "title": "Kokios būtų pagrindinės <span class='green-highlight'>grėsmės</span> galinčios sukelti šią riziką?",
+              "placeholder": "Nurodykite grėsmes"
             },
             "3": {
-              "title": "What are the risk <span class='green-highlight'>sources</span>?",
-              "placeholder": "Enter the risk sources"
+              "title": "Kokie yra šios rizikos <span class='green-highlight'>šaltiniai</span>?",
+              "placeholder": "Nurodykite rizikos šaltinius"
             },
             "4": {
-              "title": "Which of the identified <span class='green-highlight'>controls</span> contribute to addressing the risk?",
-              "placeholder": "Click here to select controls which address the risk."
+              "title": "Kurios iš nurodytų <span class='green-highlight'>kontrolės primonių</span> padeda užkirsti kelią šios rizikos įvykimui?",
+              "placeholder": "Pasirinkite rizikos kontrolės priemones."
             },
             "5": {
-              "title": "How do you estimate the <span class='green-highlight'>risk severity</span>, especially according to potential impacts and planned controls?",
-              "placeholder": "Justify here the estimated severity of the risk."
+              "title": "Kaip vertinate <span class='green-highlight'>rizikos laipsnį</span>, ypač atisžvelgiant į galimą poveikį ir planuojamas kontrolės priemones?",
+              "placeholder": "Pagrįskite numanomą rizikos dydį."
             },
             "6": {
-              "title": "How do you estimate the <span class='green-highlight'>likelihood of the risk</span>, especially in respect of threats, sources of risk and planned controls?",
-              "placeholder": "Justify here the estimated likelihood."
+              "title": "Kaip vertinate <span class='green-highlight'>šios rizikos tikimybę </span>, ypač atsižvelgiant į grėsmes, rizikos šaltinius ir planuojamas kontrolės priemones?",
+              "placeholder": "Pagrįskite numanomą tikimybę."
             }
           }
         },
         "4": {
-          "title": "Data disappearance",
-          "short_help": "Analyze the causes and consequences of data loss, and estimate its seriousness and likelihood.",
+          "title": "Duomenų pradingimas",
+          "short_help": "Pateikite duomenų dingimo priežasčių ir pasekmių analizę ir įvertinkite to tikimybę bei galimą neigiamą poveikį.",
           "questions": {
             "1": {
-              "title": "What could be the main <span class='green-highlight'>impacts on the data subjects</span> if the risk were to occur?",
-              "placeholder": "Enter the potential impacts"
+              "title": "Kokie būtų pagrindiniai <span class='green-highlight'>neigiami poveikiai duomenų subjektams</span> jei ši rizika pasireikštu?",
+              "placeholder": "Nurodykite galimus poveikius"
             },
             "2": {
-              "title": "What are the main <span class='green-highlight'>threats</span> that could lead to the risk?",
-              "placeholder": "Enter the threats"
+              "title": "Kokios būtų pagrindinės <span class='green-highlight'>grėsmės</span> galinčios sukelti šią riziką?",
+              "placeholder": "Nurodykite grėsmes"
             },
             "3": {
-              "title": "What are the risk <span class='green-highlight'>sources</span>?",
-              "placeholder": "Enter the risk sources"
+              "title": "Kokie yra šios rizikos <span class='green-highlight'>šaltiniai</span>?",
+              "placeholder": "Nurodykite rizikos šaltinius"
             },
             "4": {
-              "title": "Which of the identified <span class='green-highlight'>controls</span> contribute to addressing the risk?",
-              "placeholder": "Click here to select controls which address the risk."
+              "title": "Kurios iš nurodytų <span class='green-highlight'>kontrolės primonių</span> padeda užkirsti kelią šios rizikos įvykimui?",
+              "placeholder": "Pasirinkite rizikos kontrolės priemones."
             },
             "5": {
-              "title": "How do you estimate the <span class='green-highlight'>risk severity</span>, especially according to potential impacts and planned controls?",
-              "placeholder": "Justify here the estimated severity of the risk."
+              "title": "Kaip vertinate <span class='green-highlight'>rizikos laipsnį</span>, ypač atisžvelgiant į galimą poveikį ir planuojamas kontrolės priemones?",
+              "placeholder": "Pagrįskite numanomą rizikos dydį."
             },
             "6": {
-              "title": "How do you estimate the <span class='green-highlight'>likelihood of the risk</span>, especially in respect of threats, sources of risk and planned controls?",
-              "placeholder": "Justify here the estimated likelihood."
+              "title": "Kaip vertinate <span class='green-highlight'>šios rizikos tikimybę </span>, ypač atsižvelgiant į grėsmes, rizikos šaltinius ir planuojamas kontrolės priemones?",
+              "placeholder": "Pagrįskite numanomą tikimybę."
             }
           }
         },
         "5": {
-          "title": "Risks overview",
-          "short_help": "This visualisation allows you to have a global and synthetic view on the controls effects on the risks they address."
+          "title": "Rizikų apžvalga",
+          "short_help": "Ši vizualizacija padės susidaryti bendrą vaizdą apie naudojamų priemonių efektyvumą, siekiant sukontroliuoti esamas rizikas."
         }
       }
     },
      "4": {
-      "title": "Validation",
-      "short_help": "This section allows you to prepare and formalise the PIA validation.",
+      "title": "Patvirtinimas",
+      "short_help": "Šioje dalyje atliekamas PDAV patvirtinimas.",
       "items": {
         "1": {
-          "title": "Risk mapping",
-          "short_help": "This visualisation allows you to compare the positioning of the risks between them, before and after application of the complementary controls."
+          "title": "Rizikų susiejimas (angl. mapping)",
+          "short_help": "Ši vizualizacija padės palyginti tarpusavyje esamas rizikas prieš ir po papildomų kontrolės priemonių taikymo."
         },
         "2": {
-          "title": "Action plan",
-          "short_help": "Plan in detail the implementation of the additional controls identified during the PIA. The action plan is automatically updated when evaluating the different elements comprised in the PIA."
+          "title": "Veiksmų planas",
+          "short_help": "Detaliai suplanuokite papildomų kontrolės priemonių, kurių poreikis nustatytas atliekant PDAV, įgyvendinimą. Veiksmų planas bus automatiškai atnaujinamas, jei PDAV tikrinimo metu bus padaryti papildymai."
         },
         "3": {
-          "title": "DPO and concerned persons opinions",
-          "short_help": "Present the advice of the person in charge of data protection and privacy issues (data protection delegate if there is one). Present the views of the data subjects or their representatives."
+          "title": "DPA ir susijusių duomenų subjektų nuomonės",
+          "short_help": "Nurodykite, kokį patarimą pateikė asmuo, atsakingas už asmens duomenų apsaugą, pateikite duomenų subjektų ir/ar jų atstovų nuomones."
         },
         "4": {
-          "title": "Validate the PIA"
+          "title": "Patvirtintni PDAV"
         },
         "5": {
-          "title": "Rejected PIA"
+          "title": "Nepatvirtintni PDAV"
         }
       }
     }
