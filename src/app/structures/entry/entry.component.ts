@@ -118,27 +118,26 @@ export class EntryComponent implements OnInit, OnDestroy, DoCheck {
    * @memberof EntryComponent
    */
   private getSectionAndItem(sectionId: number, itemId: number) {
-    this.section = this.data['sections'].filter((section) => {
-      return section.id === sectionId;
-    })[0];
-    this.item = this.section['items'].filter((item) => {
-      return item.id === itemId;
-    })[0];
-
-    this._globalEvaluationService.section = this.section;
-    this._globalEvaluationService.item = this.item;
-
     this.questions = [];
-    if (this.item['questions']) {
-      this.item['questions'].forEach(question => {
-        this.questions.push(question);
-      });
-    }
 
     this._structureService.getStructure().then(() => {
-      // TODO:
-      // this._globalEvaluationService.structure = this._structureService.structure;
-      // this._globalEvaluationService.validate();
+      this.data = this._structureService.structure.data;
+      this.section = this.data['sections'].filter((section) => {
+        return section.id === sectionId;
+      })[0];
+      this.item = this.section['items'].filter((item) => {
+        return item.id === itemId;
+      })[0];
+
+      this._globalEvaluationService.section = this.section;
+      this._globalEvaluationService.item = this.item;
+
+      if (this.item['questions']) {
+        this.item['questions'].forEach(question => {
+          this.questions.push(question);
+        });
+      }
+
       this._measureService.listMeasures(this._structureService.structure.id).then(() => {
 
         /* Modal for risks if no measures yet */
@@ -169,8 +168,6 @@ export class EntryComponent implements OnInit, OnDestroy, DoCheck {
       });
 
       this._actionPlanService.data = this.data;
-      // TODO:
-      // this._actionPlanService.structure = this._structureService.structure;
     });
 
     // Update on knowledge base (scroll / content / search field)
