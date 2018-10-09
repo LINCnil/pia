@@ -13,7 +13,7 @@
     "homepage_link": "Dashboard",
     "knowledge_base_link": "Knowledge base",
     "pia_example_link": "PIA example",
-    "structures": "TO BE TRANSLATED - Modèles de PIA",
+    "structures": "PIA template",
     "languages": {
       "official_translation": "Original version",
       "cnil_translations": "CNIL provided translations",
@@ -58,11 +58,11 @@
       "import_pia": "Import PIA",
       "list_rocket_content": "Get started ! To initiate <br>a PIA, click on the +",
       "card_rocket_content": "Get started !<br><br>To initiate a PIA,<br> click on New PIA",
-      "new_structure": "TO BE TRANSLATED - Nouveau modèle",
-      "import_structure": "TO BE TRANSLATED - Importer modèle",
-      "sector_name": "TO BE TRANSLATED - Secteur associé",
-      "list_rocket_content_structure": "TO BE TRANSLATED - Lancez-vous ! Pour commencer<br>un modèle, cliquez sur le +",
-      "card_rocket_content_structure": "TO BE TRANSLATED - Lancez-vous !<br><br>Pour commencer<br>un modèle, cliquez<br> sur le +"
+      "new_structure": "New template",
+      "import_structure": "Import template",
+      "sector_name": "Associated sector",
+      "list_rocket_content_structure": "Get started ! To initiate <br>a template, click on the +",
+      "card_rocket_content_structure": "Get started ! To initiate <br>a template, click on the +"
     },
     "cards": {
       "new_pia": "New PIA",
@@ -79,21 +79,21 @@
       "placeholder_evaluation": "Firstname, lastname",
       "validation": "Validation",
       "placeholder_validation": "Firstname, lastname",
-      "structure": "TO BE TRANSLATED - Modèle",
-      "placeholder_structure": "TO BE TRANSLATED - Modèle par défaut",
+      "structure": "Template",
+      "placeholder_structure": "Default template",
       "date": "Date",
       "status": "Status",
       "creation_status": "Creation",
       "start": "Start",
       "placeholder_start": "All fields must be filled",
-      "new_structure": "TO BE TRANSLATED - Nouveau modèle",
-      "placeholder_new_structure": "TO BE TRANSLATED - Nouveau modèle",
-      "import_structure": "TO BE TRANSLATED - Importer modèle",
-      "placeholder_import_structure": "TO BE TRANSLATED - Importer modèle",
-      "structure_name": "TO BE TRANSLATED - Nom du modèle",
-      "sector_name": "TO BE TRANSLATED - Secteur associé",
-      "placeholder_structure_name": "TO BE TRANSLATED - Intitulé du modèle",
-      "placeholder_sector_name": "TO BE TRANSLATED - Intitulé du Secteur associé",
+      "new_structure": "New template",
+      "placeholder_new_structure": "New template",
+      "import_structure": "Import template",
+      "placeholder_import_structure": "Import template",
+      "structure_name": "Template's title",
+      "sector_name": "Associated sector",
+      "placeholder_structure_name": "Template's title",
+      "placeholder_sector_name": "Sector name",
       "item": {
         "tools": {
           "export": "Export",
@@ -105,7 +105,7 @@
         },
         "edit_pia": "Edit PIA",
         "consult_pia": "Consult PIA",
-        "edit_structure": "TO BE TRANSLATED - Éditer le modèle"
+        "edit_structure": "Edit template"
       }
     },
     "lists": {
@@ -118,9 +118,9 @@
       "column_status": "Status",
       "column_progression": "Progress",
       "column_actions": "Actions",
-      "column_structure": "TO BE TRANSLATED - Modèle",
-      "column_sector_name": "TO BE TRANSLATED - Secteur associé",
-      "column_structure_name": "TO BE TRANSLATED - Modèle",
+      "column_structure": "Template",
+      "column_sector_name": "Associated sector",
+      "column_structure_name": "Template",
       "item": {
         "tools": {
           "consult": "Consult",
@@ -158,7 +158,7 @@
       "homepage_link": "Back to dashboard",
       "validate_pia": "Validate PIA",
       "refuse_pia": "Refused PIA",
-      "based_on_structure_name": "TO BE TRANSLATED - Basé sur le modèle :",
+      "based_on_structure_name": "Base on template:",
       "status": {
         "evaluation": {
           "title": "Waiting for review.",
@@ -179,7 +179,7 @@
       "validate_evaluation": "Validate review",
       "subsection_validated": "Subsection reviewed, awaiting final validation",
       "mandatory_fields": "All fields must be filled",
-      "structure_add_question": "TO BE TRANSLATED - Ajouter une question"
+      "structure_add_question": "Add a "
     }
   },
   "measures": {
@@ -386,7 +386,7 @@
       "PIA_SEC_CTR": {
         "placeholder": "Describe here specific measures for processors (host, maintenance company, administrator, specialist service providers, etc.)",
         "name": "Processing contracts",
-        "description": "TO BE TRANSLATED - Les données à caractère personnel communiquées à ou gérées par des sous-traitants doivent bénéficier de garanties suffisantes. <strong>Faire appel uniquement à des sous-traitants présentant des garanties suffisantes</strong> (notamment en termes de connaissances spécialisées, de fiabilité et de ressources). Exiger la communication par le prestataire de sa politique de sécurité des systèmes d’information. <br>Prendre et documenter les moyens (audits de sécurité, visite des installations, etc.) permettant d’<strong>assurer l’effectivité des garanties offertes par le sous-traitant<strong> en matière de protection des données. Ces garanties incluent notamment :<br> - le chiffrement des données selon leur sensibilité ou à défaut l’existence de procédures garantissant que la société de prestation n’a pas accès aux données qui lui sont confiées<br>- le chiffrement des transmissions de données (ex : connexion de type HTTPS, VPN, etc.)<br>- des garanties en matière de protection du réseau, de traçabilité (journaux, audits), de gestion des habilitations, d’authentification, etc.<br><strong>Prévoir un contrat avec les sous-traitants</strong>, qui définit notamment l’objet, la durée, la finalité du traitement et les obligations des parties. S’assurer qu’il contient en particulier des dispositions fixant :<br>- leur obligation en matière de confidentialité des données personnelles confiées<br>- des contraintes minimales en matière d’authentification des utilisateurs<br>- les conditions de restitution et/ou de destruction des données en fin du contrat<br>- les règles de gestion et de notification des incidents. Celles-ci devraient comprendre une information du responsable de traitement en cas de découverte de faille de sécurité ou d’incident de sécurité et cela dans les plus brefs délais lorsqu’il s’agit d’une violation de données à caractère personnel.<br>- Dans le cas de l’utilisation de fournisseur de cloud computing :<br>\t1. identifier clairement les données et les traitements qui passeront dans le cloud ;<br>\t2. définir ses propres exigences de sécurité technique et juridique ;<br>\t3. conduire une étude de risques afin d'identifier les mesures de sécurité appropriées ;<br>\t4. identifier le type de cloud pertinent pour le traitement envisagé ;<br>\t5. choisir un prestataire présentant des garanties suffisantes ;<br>\t6. revoir la politique de sécurité interne ;<br>\t7. surveiller les évolutions dans le temps.",
+        "description": "<strong>Only use subcontractors which are able to provide sufficient guarantees</strong> (in particular in terms of specialised knowledge, reliability and resources). Require service providers to communicate their information system security policy before signing a contract with them. <br>Take and document the means (security audits, installation visits, etc.) used to <strong>ensure the effectiveness of the guarantees offered by the subcontractor</strong> in terms of data protection. These guarantees include: <br>- encryption of data according to its sensitivity or, at least, the existence of procedures guaranteeing that the service company does not have access to the data; <br>- encryption of data transmissions (e.g.: HTTPS type connection, VPN, etc.); <br>- guarantees in terms of network protection, traceability (logs, audits), access rights management, authentication, etc. <br><strong>Sign a contract with the subcontractors</strong>, which defines the subject, the length and the purpose of the processing, as well as obligations of each party. Ensure that it contains, in particular, provisions targeting: <br>- their obligation in terms of <strong>confidentiality of the entrusted personal data</strong>;<br>- <strong>minimal standards in terms of user authentication</strong>;<br>- <strong>conditions of restitution of data and/or its destruction at end of the contract</strong>;<br>- <strong>incident management and notification rules. </strong> They should include notification of the data controller whenever a security breach or a security incident is discovered, which should happen as soon as possible when it concerns personal data.",
         "source": "Mesures_US Procurement: identified and governed by a contract"
       },
       "PIA_SEC_NET": {
@@ -769,8 +769,8 @@
   },
   "questions": {
     "edit": "Edit question",
-    "remove": "TO BE TRANSLATED - Supprimer la question",
-    "placeholder_title": "TO BE TRANSLATED - Titre de la question (obligatoire)",
+    "remove": "Delete question",
+    "placeholder_title": "Question title (mandatory)",
     "gauges": {
       "0": "(Undefined)",
       "1": "Negligible",
@@ -947,9 +947,9 @@
       "keep": "Keep this <br>measure"
     },
     "remove_question": {
-      "content": "TO BE TRANSLATED - Souhaitez-vous supprimer la question ?",
-      "remove": "TO BE TRANSLATED - Supprimer",
-      "keep": "TO BE TRANSLATED - Annuler"
+      "content": "Are you sure you want to deleted the question?",
+      "remove": "Delete",
+      "keep": "Cancel"
     },
     "ask_for_evaluation": {
       "content": "This section is ready to be reviewed."
@@ -969,8 +969,8 @@
       "remove": "Remove this PIA"
     },
     "remove_structure": {
-      "content": "TO BE TRANSLATED - <span class='strong'>Attention,</span><br>Êtes-vous sûr de vouloir<br>supprimer ce modèle ?",
-      "remove": "TO BE TRANSLATED - Supprimer ce modèle"
+      "content": "<span class='strong'>Warning,</span><br>Are you sure you want<br>to delete the template?",
+      "remove": "Delete template"
     },
     "remove_attachment": {
       "content": "<span class='strong'>Warning,</span><br>Are you sure you want to<br>remove this attachment?",
@@ -998,10 +998,10 @@
       "content": "This section has been sent back for review.<br> Several fields must be reviewed<br> to enable its proper validation."
     },
     "import_wrong_pia_file": {
-      "content": "TO BE TRANSLATED - Le fichier importé ne correspond pas à un fichier de type PIA"
+      "content": "The imported file doesn't correspond to a PIA report file"
     },
     "import_wrong_structure_file": {
-      "content": "TO BE TRANSLATED - Le fichier importé ne correspond pas à un fichier de type Modèle"
+      "content": "The imported file doesn't correspond to a PIA template file "
     }
   },
   "summary": {
