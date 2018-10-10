@@ -55,6 +55,7 @@ export class ProcessingComponent implements OnInit {
    */
   changeSection(sectionId) {
     this.currentSection = this.sections.filter((section) => section.id === sectionId)[0];
+    window.scrollTo(0, 0);
   }
 
   public displayKnowledgeBaseForSection(section?: Section): void {
