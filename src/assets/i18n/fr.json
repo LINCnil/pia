@@ -198,6 +198,15 @@
       "name": {
         "title": "Dénomination"
       },
+      "executive": {
+        "title": "Dirigeant"
+      },
+      "backup": {
+        "title": "Backup dirigeant"
+      },
+      "dpo": {
+        "title": "DPO"
+      },
       "address": {
         "title": "Adresse"
       },

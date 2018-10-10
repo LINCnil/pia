@@ -43,6 +43,81 @@
           ></textarea>
         </div>
 
+        <!-- EXECUTIVE -->
+        
+        <div class="form-field">
+          <label class="title" for="structure-executive">{{ 'structure.form.executive.title' | translate }}</label>
+          <div (click)="editField(executive)"
+            class="value"
+            [innerHTML]="structureForm.form.controls['executive']?.value | safeHtml"
+            [ngClass]="{ 'hide': ((editor && elementId === executive.id)) }"
+          ></div>
+
+          <textarea
+            class="field"
+            id="structure-executive"
+            name="executive"
+            minRows="4"
+            cols="50"
+            placeholder="{{'structure.form.executive.placeholder' | translate }}"
+            #executive
+            (change)="updateStructure()"
+            [(ngModel)]="structure.executive"
+            [ngClass]="{ 'hide': (structureForm.form.controls['executive']?.value) }"
+            (focusin)="editField($event.target)"
+          ></textarea>
+        </div>
+
+        <!-- BACKUP -->
+        
+        <div class="form-field">
+          <label class="title" for="structure-backup">{{ 'structure.form.backup.title' | translate }}</label>
+          <div (click)="editField(backup)"
+            class="value"
+            [innerHTML]="structureForm.form.controls['backup']?.value | safeHtml"
+            [ngClass]="{ 'hide': ((editor && elementId === backup.id)) }"
+          ></div>
+
+          <textarea
+            class="field"
+            id="structure-backup"
+            name="backup"
+            minRows="4"
+            cols="50"
+            placeholder="{{'structure.form.backup.placeholder' | translate }}"
+            #backup
+            (change)="updateStructure()"
+            [(ngModel)]="structure.backup"
+            [ngClass]="{ 'hide': (structureForm.form.controls['backup']?.value) }"
+            (focusin)="editField($event.target)"
+          ></textarea>
+        </div>
+
+        <!-- DPO -->
+        
+        <div class="form-field">
+          <label class="title" for="structure-dpo">{{ 'structure.form.dpo.title' | translate }}</label>
+          <div (click)="editField(dpo)"
+            class="value"
+            [innerHTML]="structureForm.form.controls['dpo']?.value | safeHtml"
+            [ngClass]="{ 'hide': ((editor && elementId === dpo.id)) }"
+          ></div>
+
+          <textarea
+            class="field"
+            id="structure-dpo"
+            name="dpo"
+            minRows="4"
+            cols="50"
+            placeholder="{{'structure.form.dpo.placeholder' | translate }}"
+            #dpo
+            (change)="updateStructure()"
+            [(ngModel)]="structure.dpo"
+            [ngClass]="{ 'hide': (structureForm.form.controls['dpo']?.value) }"
+            (focusin)="editField($event.target)"
+          ></textarea>
+        </div>
+
         <!-- LEGAL_FORM -->
 
         <div class="form-field">

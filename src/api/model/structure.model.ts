@@ -11,4 +11,7 @@ export class Structure extends BaseModel {
   public activity_code: string;
   public legal_form: string;
   public registration_date: string;
+  public executive: string;
+  public backup: string;
+  public dpo: string;
 }

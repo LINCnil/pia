@@ -509,13 +509,7 @@ section {
 .structure-info-button {
   color: $pia-green;
   float:right;
-  &>span {
-    display:none;
-  }
   &:hover {
     color: $pia-full-white;
-    &>span {
-      display: inline;
-    }
   }
 }

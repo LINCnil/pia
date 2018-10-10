@@ -227,6 +227,15 @@
       "name": {
         "title": "Name"
       },
+      "executive": {
+        "title": "Executive"
+      },
+      "backup": {
+        "title": "Backup"
+      },
+      "dpo": {
+        "title": "DPO"
+      },
       "address": {
         "title": "Address"
       },
