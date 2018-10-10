@@ -200,13 +200,6 @@ section {
                 padding: 0;
                 margin: 4px 0;
               }
-              &:hover {
-                &:not(.divider) {
-                  &:last-of-type {
-                    //border-radius: 0 0 10px 10px;
-                  }
-                }
-              }
             }
           }
         }

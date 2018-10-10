@@ -408,13 +408,11 @@
       </fieldset>
 
       <div 
-        class="form-field validate-container" 
-        [ngClass]="{'ready': processingFullyFilled === true}" 
+        class="form-field validate-container ready" 
         *ngIf="processing.status === processingStatus.STATUS_DOING"
       >
         <button 
-          class="btn btn-green expanded" 
-          [disabled]="processingFullyFilled === false ? 'disabled' : disabled"
+          class="btn btn-green expanded"
           (click)="askValidation()"
         >
           {{ 'processing.form.ask_validate_button' | translate }}
