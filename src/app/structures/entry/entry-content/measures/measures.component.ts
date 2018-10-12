@@ -39,34 +39,16 @@ export class MeasuresComponent implements OnInit, OnDestroy {
       measureContent: new FormControl()
     });
 
-    if(this.measure.title && this.measure.title.length > 0) {
+    if (this.measure.title && this.measure.title.length > 0) {
       this.measureForm.controls['measureTitle'].patchValue(this.measure.title);
       this.measureForm.controls['measureTitle'].disable();
     }
 
-    if(this.measure.content && this.measure.content.length > 0) {
+    if (this.measure.content && this.measure.content.length > 0) {
       this.measureForm.controls['measureContent'].patchValue(this.measure.content);
     }
 
     this.elementId = 'pia-measure-content-' + this.id;
-
-    // this.measureModel.pia_id = this.pia.id;
-    // this.measureModel.get(this.measure.id).then(() => {
-    //   this._knowledgeBaseService.toHide.push(this.measure.title);
-    //   this.elementId = 'pia-measure-content-' + this.measure.id;
-    //   if (this.measureModel) {
-    //     this.measureForm.controls['measureTitle'].patchValue(this.measureModel.title);
-    //     this.measureForm.controls['measureContent'].patchValue(this.measureModel.content);
-    //     if (this.measureModel.title) {
-    //       this.measureForm.controls['measureTitle'].disable();
-    //     }
-    //   }
-
-    //   const measureTitleTextarea = document.getElementById('pia-measure-title-' + this.measure.id);
-    //   if (measureTitleTextarea) {
-    //     this.autoTextareaResize(null, measureTitleTextarea);
-    //   }
-    // });
   }
 
   ngOnDestroy() {
@@ -122,20 +104,6 @@ export class MeasuresComponent implements OnInit, OnDestroy {
       this.measureForm.controls['measureTitle'].disable();
     }
     this._sidStatusService.setStructureStatus(this.section, this.item);
-    // this.measureModel.pia_id = this.pia.id;
-    // const previousTitle = this.measureModel.title;
-    // this.measureModel.title = userText;
-    // this.measureModel.update().then(() => {
-    //   if (previousTitle !== this.measureModel.title) {
-    //     this._knowledgeBaseService.removeItemIfPresent(this.measureModel.title, previousTitle);
-    //   }
-
-    //   if (this.measureForm.value.measureTitle && this.measureForm.value.measureTitle.length > 0) {
-    //     this.measureForm.controls['measureTitle'].disable();
-    //   }
-
-    //   this._globalEvaluationService.validate();
-    // });
 
   }
 

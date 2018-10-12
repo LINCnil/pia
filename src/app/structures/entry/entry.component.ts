@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, OnDestroy, DoCheck } from '@angular/core';
+import { Component, OnInit, Output, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Http } from '@angular/http';
 import { Subscription } from 'rxjs/Subscription';
@@ -21,7 +21,7 @@ import { GlobalEvaluationService } from 'app/services/global-evaluation.service'
   styleUrls: ['./entry.component.scss'],
   providers: [StructureService]
 })
-export class EntryComponent implements OnInit, OnDestroy, DoCheck {
+export class EntryComponent implements OnInit, OnDestroy {
   section: { id: number, title: string, short_help: string, items: any };
   item: { id: number, title: string, evaluation_mode: string, short_help: string, questions: any };
   data: { sections: any };
@@ -70,42 +70,6 @@ export class EntryComponent implements OnInit, OnDestroy, DoCheck {
     });
   }
 
-  ngDoCheck() {
-    // if (this.measureToRemoveFromTags && this.measureToRemoveFromTags.length > 0) {
-    //   const measureName = this.measureToRemoveFromTags;
-    //   this.measureToRemoveFromTags = null;
-
-    //   // Update tags when removing measures from 3.1
-    //   const itemsQuestions = [];
-    //   this.data.sections.forEach(section => {
-    //     section.items.forEach(item => {
-    //         if (item.questions) {
-    //           itemsQuestions.push(item.questions.filter((question) => {
-    //             return (question.answer_type === 'list' && question.is_measure === true);
-    //           }));
-    //         }
-    //     });
-    //   });
-
-    //   // Keep only questions with measures lists
-    //   const listQuestions = itemsQuestions.filter(v => Object.keys(v).length !== 0);
-
-    //   // For each of these questions, get their respective answer
-    //   listQuestions.forEach(questionsSet => {
-    //     questionsSet.forEach(q => {
-    //       const answer = new Answer();
-    //       answer.getByReferenceAndPia(this._structureService.structure.id, q.id).then(() => {
-    //         if (answer.data && answer.data.list.length > 0 && answer.data.list.includes(measureName)) {
-    //           const index = answer.data.list.indexOf(measureName);
-    //           answer.data.list.splice(index, 1);
-    //           answer.update();
-    //         }
-    //       });
-    //     });
-    //   });
-    // }
-  }
-
   ngOnDestroy() {
     this.subscription.unsubscribe();
   }
@@ -138,46 +102,19 @@ export class EntryComponent implements OnInit, OnDestroy, DoCheck {
         });
       }
 
-      this._measureService.listMeasures(this._structureService.structure.id).then(() => {
-
-        /* Modal for risks if no measures yet */
-        let displayModal = true;
-        if ((this.section.id === 3) && (this.item.id === 2 || this.item.id === 3 || this.item.id === 4)) {
-          if (this._measureService.measures.length > 0) {
-            this._measureService.measures.forEach(element => {
-              if (element.title && element.title.length > 0) {
-                displayModal = false;
-              }
-            });
-          }
-          if (displayModal) {
-            this._modalsService.openModal('pia-declare-measures');
-          }
-        }
-
-        /* Modal for action plan if no evaluations yet */
-        if (this.section.id === 4 && this.item.id === 2 && !this._sidStatusService.verifEnableActionPlan()) {
-          this._modalsService.openModal('pia-action-plan-no-evaluation');
-        }
-
-        /* Modal for dpo page if all evaluations are not done yet */
-        if (this.section.id === 4 && this.item.id === 3 && !this._sidStatusService.enableDpoValidation) {
-          this._modalsService.openModal('pia-dpo-missing-evaluations');
-        }
-
-      });
-
+      this._measureService.listMeasures(this._structureService.structure.id);
       this._actionPlanService.data = this.data;
+
+      // Update on knowledge base (scroll / content / search field)
+      const knowledgeBaseScroll  = document.querySelector('.pia-knowledgeBaseBlock-list');
+      const knowledgeBaseContent  = <HTMLInputElement>document.querySelector('.pia-knowledgeBaseBlock-searchForm input');
+      knowledgeBaseScroll.scrollTop = 0;
+      knowledgeBaseContent.value = '';
+
+      this._knowledgeBaseService.q = null;
+      this._knowledgeBaseService.loadByItem(this.item);
+      this._knowledgeBaseService.placeholder = null;
     });
 
-    // Update on knowledge base (scroll / content / search field)
-    const knowledgeBaseScroll  = document.querySelector('.pia-knowledgeBaseBlock-list');
-    const knowledgeBaseContent  = <HTMLInputElement>document.querySelector('.pia-knowledgeBaseBlock-searchForm input');
-    knowledgeBaseScroll.scrollTop = 0;
-    knowledgeBaseContent.value = '';
-
-    this._knowledgeBaseService.q = null;
-    this._knowledgeBaseService.loadByItem(this.item);
-    this._knowledgeBaseService.placeholder = null;
   }
 }

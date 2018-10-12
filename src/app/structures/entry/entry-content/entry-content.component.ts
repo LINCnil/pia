@@ -4,8 +4,6 @@ import { Http } from '@angular/http';
 import 'rxjs/add/operator/map'
 import { Subscription } from 'rxjs/Subscription';
 
-import { Evaluation } from 'app/entry/entry-content/evaluations/evaluation.model';
-
 import { AppDataService } from 'app/services/app-data.service';
 import { AnswerStructureService } from 'app/services/answer-structure.service';
 import { MeasureService } from 'app/entry/entry-content/measures/measures.service';
@@ -14,7 +12,6 @@ import { StructureService } from 'app/services/structure.service';
 import { PaginationService } from 'app/entry/entry-content/pagination.service';
 import { TranslateService } from '@ngx-translate/core';
 import { SidStatusService } from 'app/services/sid-status.service';
-import { GlobalEvaluationService } from 'app/services/global-evaluation.service';
 import { KnowledgeBaseService } from 'app/entry/knowledge-base/knowledge-base.service';
 
 @Component({
@@ -39,7 +36,6 @@ export class EntryContentComponent implements OnInit, OnChanges, OnDestroy {
               private _modalsService: ModalsService,
               public _structureService: StructureService,
               public _sidStatusService: SidStatusService,
-              public _globalEvaluationService: GlobalEvaluationService,
               public _paginationService: PaginationService,
               private _translateService: TranslateService,
               private _answerStructureService: AnswerStructureService,
@@ -101,51 +97,6 @@ export class EntryContentComponent implements OnInit, OnChanges, OnDestroy {
   }
 
   /**
-   * Prepare entry for evaluation.
-   * @memberof EntryContentComponent
-   */
-  prepareForEvaluation() {
-    this._globalEvaluationService.prepareForEvaluation().then(() => {
-      let isPiaFullyEdited = true;
-      for (const el in this._sidStatusService.itemStatus) {
-        if (this._sidStatusService.itemStatus.hasOwnProperty(el) && this._sidStatusService.itemStatus[el] < 4 && el !== '4.3') {
-          isPiaFullyEdited = false;
-        }
-      }
-      if (isPiaFullyEdited) {
-        this.goToNextSectionItem(4, 5);
-        this._modalsService.openModal('completed-edition');
-      } else {
-        this.goToNextSectionItem(0, 4);
-        this._modalsService.openModal('ask-for-evaluation');
-      }
-    });
-  }
-
-  /**
-   * Allow an user to validate evaluation for a section.
-   * @memberof EntryContentComponent
-   */
-  validateEvaluation() {
-    this._globalEvaluationService.validateAllEvaluation().then((toFix: boolean) => {
-      this.goToNextSectionItem(5, 7);
-      let isPiaFullyEvaluated = true;
-      for (const el in this._sidStatusService.itemStatus) {
-        if (this._sidStatusService.itemStatus.hasOwnProperty(el) && this._sidStatusService.itemStatus[el] !== 7 && el !== '4.3') {
-          isPiaFullyEvaluated = false;
-        }
-      }
-      if (isPiaFullyEvaluated) {
-        this._modalsService.openModal('completed-evaluation');
-      } else if (toFix) {
-        this._modalsService.openModal('validate-evaluation-to-correct');
-      } else {
-        this._modalsService.openModal('validate-evaluation');
-      }
-    });
-  }
-
-  /**
    * Go to next item.
    * @private
    * @param {number} status_start - From status.
@@ -164,24 +115,6 @@ export class EntryContentComponent implements OnInit, OnChanges, OnDestroy {
       'item',
       goto_section_item[1]
     ]);
-  }
-
-  /**
-   * Allow an user to return in edit mode.
-   * @memberof EntryContentComponent
-   */
-  cancelAskForEvaluation() {
-    this._globalEvaluationService.cancelForEvaluation();
-    this._modalsService.openModal('back-to-edition');
-  }
-
-  /**
-   * Allow an user to cancel the validation.
-   * @memberof EntryContentComponent
-   */
-  cancelValidateEvaluation() {
-    this._globalEvaluationService.cancelValidation();
-    this._modalsService.openModal('back-to-evaluation');
   }
 
   ngOnDestroy() {
