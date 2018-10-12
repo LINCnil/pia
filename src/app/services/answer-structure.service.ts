@@ -50,15 +50,16 @@ export class AnswerStructureService {
 
   removeMeasure() {
     const sid = localStorage.getItem('measure-id').split(',');
+
     const section_id = parseInt(sid[0], 10);
     const item_id = parseInt(sid[1], 10);
     const measure_id = parseInt(sid[2], 10);
-      this.structure.data.sections.filter(s => s.id === section_id)[0].items.filter(i => i.id === item_id)[0].answers.splice(measure_id, 1);
-      this.structure.update().then(() => {
-        this.measureToRemove.next(measure_id);
-        localStorage.removeItem('measure-id');
-        this._modalsService.closeModal();
-      });
+    this.structure.data.sections.filter(s => s.id === section_id)[0].items.filter(i => i.id === item_id)[0].answers.splice(measure_id, 1);
+    this.structure.update().then(() => {
+      this.measureToRemove.next(measure_id);
+      localStorage.removeItem('measure-id');
+      this._modalsService.closeModal();
+    });
   }
 
   removeQuestion() {

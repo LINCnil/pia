@@ -51,10 +51,10 @@ export class EntryContentComponent implements OnInit, OnChanges, OnDestroy {
       this._structureService.structure.update();
     });
 
-    this.subscriptionMeasure = this._answerStructureService.measureToRemove.subscribe((index) => {
+    /*this.subscriptionMeasure = this._answerStructureService.measureToRemove.subscribe((index) => {
       this.item.answers.splice(index, 1);
       }
-    );
+    );*/
 
     this.subscriptionQuestion = this._answerStructureService.questionToRemove.subscribe((index) => {
       this.questions.splice(index, 1);
