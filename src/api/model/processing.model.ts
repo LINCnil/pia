@@ -27,6 +27,7 @@ export class Processing extends BaseModel {
   public minimization: string;
   public evaluation_comment: string;
   public evaluation_state: number;
+  public concerned_people: string;
   public comments: ProcessingCommentModel[] = [];
   public attachments: ProcessingAttachmentModel[] = [];
 }

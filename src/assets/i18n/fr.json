@@ -304,6 +304,10 @@
         "title": "Cycle de vie des données",
         "placeholder": "Décrivez le cycle de vie des données pour ce traitement (description fonctionnelle)"
       },
+      "concerned_people": {
+        "title": "Personnes concernées",
+        "placeholder": "Détaillez les types de personnes concernées"
+      },
       "sections": {
         "description": {
           "title": "Description de l'activité de traitement",

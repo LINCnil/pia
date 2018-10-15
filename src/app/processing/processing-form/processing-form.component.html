@@ -233,6 +233,31 @@
         </div>
 
         <div class="form-field">
+          <label class="title" for="processing-concerned-people">{{ 'processing.form.concerned_people.title' | translate }}</label>
+          <div (click)="editField(concernedPeople)"
+            class="pia-questionBlock-contentText"
+            [innerHTML]="processingForm.form.controls['concerned-people']?.value | safeHtml"
+            [ngClass]="{ 'hide': ((editor && elementId === concernedPeople.id) || !processingForm.form.controls['concerned-people']?.value) }"
+          ></div>
+
+          <textarea
+            class="field"
+            id="processing-concerned-people"
+            required
+            name="concerned-people"
+            minRows="8"
+            cols="50"
+            placeholder="{{'processing.form.concerned_people.placeholder' | translate}}"
+            #concernedPeople
+            (change)="updateProcessing()"
+            [(ngModel)]="processing.concerned_people"
+            [ngClass]="{ 'hide': (processingForm.form.controls['concerned-people']?.value && processingForm.form.controls['concerned-people']?.value.length > 0) }"
+            (focusin)="editField($event.target)"
+          ></textarea>
+          <app-processing-comments [processing]="processing" [field]="'concerned_people'"></app-processing-comments>
+        </div>
+
+        <div class="form-field">
           <label class="title" for="processing-exactness">{{ 'processing.form.exactness.title' | translate }}</label>
           <div (click)="editField(exactness, ['PIA_DEF_EXA'])"
             class="pia-questionBlock-contentText"

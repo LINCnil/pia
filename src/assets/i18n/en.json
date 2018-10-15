@@ -333,6 +333,10 @@
         "title": "Les données sont-elles exactes et tenues à jour ?",
         "placeholder": "Décrivez les mesures prévues pour assurer la qualité et la pertinence des données."
       },
+      "concerned_people": {
+        "title": "Concerned people",
+        "placeholder": "Détaillez les types de personnes concernées"
+      },
       "sections": {
         "description": {
           "title": "Description de l'activité de traitement",
