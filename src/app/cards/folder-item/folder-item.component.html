@@ -15,8 +15,29 @@
     <div class="folder-icon" routerLink="/folders/{{folder.id}}">
         <i class="fa fa-folder-open" aria-hidden="true"></i>
     </div>
-    <form [formGroup]="folderForm">
-        <input class="folder-title" [value]="folder.name" formControlName="name" required (focusout)="folderNameFocusOut()" />
+    <form #folderForm="ngForm">
+        <input class="folder-title" [(ngModel)]="folder.name" name="name" required (focusout)="folderNameFocusOut()"/>
+        <div class="form-field person-in-charge">
+            <label class="title person-in-charge-label" for="person-in-charge">{{ 'homepage.cards.folder.person_in_charge' | translate }}</label>
+            <div (click)="editField(personInCharge)"
+              class="value"
+              [innerHTML]="folderForm.form.controls['person-in-charge']?.value | safeHtml"
+              [ngClass]="{ 'hide': ((editor && elementId === personInCharge.id)) }"
+            ></div>
+  
+            <textarea
+              class="field"
+              id="person-in-charge-{{ folder.id }}"
+              name="person-in-charge"
+              minRows="4"
+              cols="30"
+              #personInCharge
+              (change)="updateFolder()"
+              [(ngModel)]="folder.person_in_charge"
+              [ngClass]="{ 'hide': (folderForm.form.controls['person-in-charge']?.value) }"
+              (focusin)="editField($event.target)"
+            ></textarea>
+          </div>
     </form>
     <div class="bottom-actions">
         <a class="btn btn-green" routerLink="/folders/{{folder.id}}" href="#">{{ 'homepage.cards.folder.open' | translate }}</a>

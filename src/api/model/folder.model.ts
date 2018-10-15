@@ -8,4 +8,5 @@ export class Folder extends BaseModel {
   public children: Folder[];
   public processings: Processing[];
   public isRoot: boolean;
+  public person_in_charge: string;
 }

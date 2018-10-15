@@ -20,7 +20,7 @@
   .folder-icon {
     width: 100%;
     text-align: center;
-    margin-top: 100px;
+    margin-top: 60px;
     cursor: pointer;
 
     .fa {
@@ -59,7 +59,44 @@
     }
   }
 
+  .hide {
+    display: none;
+  }
+
   .pia-dropdown-icon {
     top: -0.6em;
+  }
+
+  .person-in-charge {
+    margin-top: 20px;
+    text-align: center;
+
+    .person-in-charge-label {
+      color: $pia-gray;
+    }
+    
+    .value {
+      margin-top: 10px;
+    }
+
+    textarea {
+      resize: none;
+      display: block;
+      width: 100%;
+      border: 0;
+      padding: 5px 12px;
+      font-size: 1.35rem;
+      min-height: 80px;
+      &::placeholder {
+        font-style: italic;
+      }
+      &:disabled {
+        background-color: transparent;
+        color: $pia-dark-black;
+        cursor: pointer;
+      }
+    }
+
+
   }
 }

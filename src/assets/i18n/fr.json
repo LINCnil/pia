@@ -146,7 +146,8 @@
         "title": "Dossier",
         "parent": "Dossier parent",
         "open": "Consulter le dossier",
-        "root": "Dossier racine"
+        "root": "Dossier racine",
+        "person_in_charge": "Responsable"
       },
       "item": {
         "tools": {

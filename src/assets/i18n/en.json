@@ -131,7 +131,8 @@
         "title": "Folder",
         "parent": "Parent folder",
         "open": "Open folder",
-        "root": "Root folder"
+        "root": "Root folder",
+        "person_in_charge": "Person in charge"
       },
       "item": {
         "tools": {
