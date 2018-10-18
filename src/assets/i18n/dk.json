@@ -1024,7 +1024,7 @@
 						},
 						"2": {
 							"placeholder": "Beskriv ansvarsfordelingen for behandlingen: dataansvarlige, eventuel databehandler og fælles dataansvarlige.",
-							"title": "What are the responsibilities linked to the processing?"
+							"title": "Hvordan er ansvaret for behandlingen fordelt?"
 						},
 						"3": {
 							"placeholder": "Beskriv relevante standarder for behandlingen, især godkendte adfærdskodekser og databeskyttelse normer eller certifikationer.",
