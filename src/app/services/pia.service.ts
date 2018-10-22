@@ -44,6 +44,44 @@ export class PiaService {
     });
   }
 
+  async calculProgress() {
+    this.pias.forEach((pia: Pia) => {
+      this.calculPiaProgress(pia);
+    });
+  }
+
+  calculPiaProgress(pia: Pia) {
+    let numberElementsToValidate = 1;
+    this.data.sections.forEach(section => {
+      section.items.forEach(item => {
+        if (item.questions) {
+          numberElementsToValidate += item.questions.length;
+        }
+      });
+    });
+    const answer = new Answer();
+    let numberElementsValidated = 0;
+    answer.findAllByPia(pia.id).then((answers: any) => {
+      numberElementsValidated += answers.length;
+      if (pia.status > 1) {
+        numberElementsValidated += 1;
+      }
+      const measure = new Measure();
+      measure.pia_id = pia.id;
+      measure.findAll().then((measures: any) => {
+        numberElementsToValidate += measures.length;
+        numberElementsValidated += measures.length;
+        // const evaluation = new Evaluation();
+        // evaluation.pia_id = pia.id;
+        // evaluation.findAll().then((evaluations: any) => {
+        //   numberElementsValidated += evaluations.length;
+        //   numberElementsToValidate *= 2;
+          pia.progress = Math.round((100 / numberElementsToValidate) * numberElementsValidated);
+        // });
+      });
+    });
+  }
+
   /**
    * Allows an user to remove a PIA.
    * @memberof PiaService
@@ -289,9 +327,8 @@ export class PiaService {
         });
       }
 
-      pia.calculProgress().then(() => {
-        this.pias.push(pia);
-      });
+      this.pias.push(pia);
+      this.calculPiaProgress(pia);
     });
   }
 

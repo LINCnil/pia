@@ -20,7 +20,6 @@ export class Pia extends ApplicationDb {
   public people_names: string;
   public progress: number;
   public is_example = 0;
-  public numberOfQuestions = 36; // TODO Auto calcul questions number
   public structure_id: number;
   public structure_name: string;
   public structure_sector_name: string;
@@ -69,11 +68,7 @@ export class Pia extends ApplicationDb {
             newPia.structure_data = element.structure_data;
             newPia.created_at = new Date(element.created_at);
             newPia.updated_at = new Date(element.updated_at);
-            const answer = new Answer();
-            answer.findAllByPia(element.id).then((answers: any) => {
-              newPia.progress = Math.round((100 / this.numberOfQuestions) * answers.length);
-              items.push(newPia);
-            });
+            items.push(newPia);
           });
         }
         resolve(items);
@@ -112,21 +107,6 @@ export class Pia extends ApplicationDb {
           }
         });
       }
-    });
-  }
-
-  /**
-   * Calcul percent of progress bar.
-   * @returns {Promise}
-   * @memberof Pia
-   */
-  async calculProgress() {
-    return new Promise((resolve, reject) => {
-      const answer = new Answer();
-      answer.findAllByPia(this.id).then((answers: any) => {
-        this.progress = Math.round((100 / this.numberOfQuestions) * answers.length);
-        resolve();
-      });
     });
   }
 

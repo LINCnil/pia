@@ -282,6 +282,7 @@ export class CardsComponent implements OnInit, OnDestroy {
     const pia = new Pia();
     const data: any = await pia.getAll();
     this._piaService.pias = data;
+    this._piaService.calculProgress();
     this.sortOrder = localStorage.getItem('sortOrder');
     this.sortValue = localStorage.getItem('sortValue');
     setTimeout(() => {
