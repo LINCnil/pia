@@ -26,7 +26,7 @@ export class EntryContentComponent implements OnInit, OnChanges, OnDestroy {
   @Input() item: any;
   @Input() questions: any;
   @Input() data: any;
-  subscriptionMeasure: Subscription;
+  // subscriptionMeasure: Subscription;
   subscriptionQuestion: Subscription;
 
   constructor(private _router: Router,
@@ -118,7 +118,7 @@ export class EntryContentComponent implements OnInit, OnChanges, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.subscriptionMeasure.unsubscribe();
+    // this.subscriptionMeasure.unsubscribe();
     this.subscriptionQuestion.unsubscribe();
   }
 }
