@@ -30,6 +30,7 @@ export class AnswerStructureService {
         };
         structure.data.sections.filter(s => s.id === section.id)[0].items.filter(i => i.id === item.id)[0].questions.push(question);
         structure.update().then(() => {
+          this.structure = structure;
           resolve(question);
         });
       });

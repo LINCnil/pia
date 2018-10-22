@@ -135,7 +135,7 @@ export class CardsComponent implements OnInit, OnDestroy {
         pia.structure_id = structure.id;
         pia.structure_name = structure.name;
         pia.structure_sector_name = structure.sector_name;
-        pia.structure_data = structure.data;
+        pia.structure_data = this.removeEmptyElements(structure.data);
         pia.create().then((id) => {
           this.structureCreateMeasures(pia, id).then(() => {
             this.structureCreateAnswers(pia, id).then(() => this.router.navigate(['entry', id, 'section', 1, 'item', 1]));
@@ -145,6 +145,34 @@ export class CardsComponent implements OnInit, OnDestroy {
     } else {
       pia.create().then((id) => this.router.navigate(['entry', id, 'section', 1, 'item', 1]));
     }
+  }
+
+  removeEmptyElements(structure_data) {
+    structure_data.sections.forEach(section => {
+      if (section.items) {
+        section.items.forEach(item => {
+          if (item.is_measure) {
+            if (item.answers && item.answers.length > 0) {
+              let index = 0;
+              item.answers.forEach(answer => {
+                if (answer && answer.title.length <= 0) {
+                  item.answers.splice(index, 1);
+                }
+                index++;
+              });
+            }
+          } else if (item.questions) {
+            item.questions.forEach(question => {
+              if (question.answer && question.answer.length > 0 && question.answer.title && question.answer.title.length <= 0) {
+                const index = item.questions.findIndex(q => q.id === question.id);
+                item.questions.splice(index, 1);
+              }
+            });
+          }
+        });
+      }
+    });
+    return structure_data;
   }
 
   async structureCreateMeasures(pia: Pia, id: any) {
