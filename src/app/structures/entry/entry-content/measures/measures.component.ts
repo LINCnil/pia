@@ -103,7 +103,9 @@ export class MeasuresComponent implements OnInit, OnDestroy {
     if (this.measureForm.value.measureTitle && this.measureForm.value.measureTitle.length > 0) {
       this.measureForm.controls['measureTitle'].disable();
     }
-    this._sidStatusService.setStructureStatus(this.section, this.item);
+    this._ngZone.run(() => {
+      this._sidStatusService.setStructureStatus(this.section, this.item);
+    });
 
   }
 
