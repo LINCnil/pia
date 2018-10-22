@@ -6,6 +6,5 @@
 export const environment = {
   name: 'development',
   production: false,
-  version: 'de DEV',
-  rollbar_key: ''
+  version: 'de DEV'
 };

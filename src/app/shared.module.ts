@@ -1,5 +1,3 @@
-import { RollbarService, RollbarErrorHandler, rollbarFactory } from 'app/rollbar';
-
 import { NgModule, ErrorHandler } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { environment } from '../environments/environment';
@@ -49,19 +47,6 @@ const providersList: any = [
   LanguagesService,
   GlobalEvaluationService
 ];
-
-if (environment.rollbar_key.length > 0) {
-  providersList.push(
-    {
-      provide: ErrorHandler,
-      useClass: RollbarErrorHandler
-    },
-    {
-      provide: RollbarService,
-      useFactory: rollbarFactory
-    }
-  );
-}
 
 @NgModule({
   imports: [
