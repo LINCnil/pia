@@ -4,9 +4,14 @@
       <div [innerHTML]="question.title | translate" class="pia-questionBlock-title"></div>
     </ng-container>
     <ng-template #inputTitle>
-      <div (click)="questionTitleFocusIn()" class="pia-questionBlock-title" style="padding:0;">
+      <div (click)="questionTitleFocusIn()"
+            class="pia-questionBlock-title"
+            [ngClass]="{ 'hide': editTitle }"
+            [innerHTML]="questionForm.controls['title'].value | safeHtml"></div>
+      <div class="pia-questionBlock-title" style="padding:0;">
         <textarea maxlength="120"
                   rows="2"
+                  [ngClass]="{ 'hide': !editTitle }"
                   [attr.data-id]="question.id"
                   id="pia-questionBlock-title-{{question.id}}"
                   formControlName="title"

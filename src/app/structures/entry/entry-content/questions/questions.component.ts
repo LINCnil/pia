@@ -26,6 +26,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
   lastSelectedTag: string;
   elementId: String;
   editor: any;
+  editTitle = true;
 
   constructor(private el: ElementRef,
               private _knowledgeBaseService: KnowledgeBaseService,
@@ -49,6 +50,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
     if (this.question.title && !this.question.title.startsWith('section') && this.question.title.length > 0) {
       this.questionForm.controls['title'].patchValue(this.question.title);
       this.questionForm.controls['title'].disable();
+      this.editTitle = false;
     }
 
     this.questionForm.controls['text'].patchValue(this.question.answer);
@@ -68,9 +70,12 @@ export class QuestionsComponent implements OnInit, OnDestroy {
    * @memberof QuestionsComponent
    */
   questionTitleFocusIn() {
+    this.editTitle = true;
     this.questionForm.controls['title'].enable();
     const questionTitleTextarea = document.getElementById('pia-questionBlock-title-' + this.question.id);
-    questionTitleTextarea.focus();
+    setTimeout(() => {
+      questionTitleTextarea.focus();
+    }, 200);
   }
 
   /**
@@ -84,6 +89,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
     let userText = this.questionForm.controls['title'].value;
     if (userText) {
       userText = userText.replace(/^\s+/, '').replace(/\s+$/, '');
+      this.editTitle = false;
     }
 
     if (userText && userText.length >= 1) {
