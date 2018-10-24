@@ -1,0 +1,921 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>pia documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">pia documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search">
+</div>
+            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content injectable">
+                   <div class="content-data">
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li>Injectables</li>
+  <li>AttachmentsService</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/entry/attachments/attachments.service.ts</code>
+        </p>
+
+
+
+            <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#attachment_signed">attachment_signed</a>
+                            </li>
+                            <li>
+                                <a href="#attachments">attachments</a>
+                            </li>
+                            <li>
+                                <a href="#pia">pia</a>
+                            </li>
+                            <li>
+                                <a href="#pia_signed">pia_signed</a>
+                            </li>
+                            <li>
+                                <a href="#signedAttachments">signedAttachments</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#downloadAttachment">downloadAttachment</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#listAttachments">listAttachments</a>
+                            </li>
+                            <li>
+                                <a href="#removeAttachment">removeAttachment</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#updateSignedAttachmentsList">updateSignedAttachmentsList</a>
+                            </li>
+                            <li>
+                                <a href="#upload">upload</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(_modalsService: <a href="../injectables/ModalsService.html">ModalsService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/entry/attachments/attachments.service.ts:14</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>_modalsService</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="../injectables/ModalsService.html" target="_self" >ModalsService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section>
+    
+        <h3 id="methods">
+            Methods
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="downloadAttachment"></a>
+                        <span class="name">
+                            <b>
+                            downloadAttachment
+                            </b>
+                            <a href="#downloadAttachment"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>downloadAttachment(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="103" class="link-to-prism">src/app/entry/attachments/attachments.service.ts:103</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Download an attachment by id.</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                                    <td>Description</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>id</td>
+                                                        <td>
+                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                        <td>
+                                                                <code><ul>
+<li>Id of the attachment.</li>
+</ul>
+</code>
+                                                        </td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="listAttachments"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Async</span>
+                            listAttachments
+                            </b>
+                            <a href="#listAttachments"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                            <span class="modifier-icon icon ion-ios-reset"></span>
+                        <code>listAttachments()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/entry/attachments/attachments.service.ts:23</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>List all attachments.</p>
+</div>
+
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code>{}</code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="removeAttachment"></a>
+                        <span class="name">
+                            <b>
+                            removeAttachment
+                            </b>
+                            <a href="#removeAttachment"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>removeAttachment(comment: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="124" class="link-to-prism">src/app/entry/attachments/attachments.service.ts:124</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Allows an user to remove a PIA.</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                                    <td>Description</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>comment</td>
+                                                        <td>
+                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                        <td>
+                                                                <code><ul>
+<li>Comment to justify deletion.</li>
+</ul>
+</code>
+                                                        </td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="updateSignedAttachmentsList"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Async</span>
+                            updateSignedAttachmentsList
+                            </b>
+                            <a href="#updateSignedAttachmentsList"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                            <span class="modifier-icon icon ion-ios-reset"></span>
+                        <code>updateSignedAttachmentsList()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/app/entry/attachments/attachments.service.ts:39</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Update all signed attachement.</p>
+</div>
+
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code>{}</code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="upload"></a>
+                        <span class="name">
+                            <b>
+                            upload
+                            </b>
+                            <a href="#upload"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>upload(attachment_file: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="71" class="link-to-prism">src/app/entry/attachments/attachments.service.ts:71</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Upload a new attachment.</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                                    <td>Description</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>attachment_file</td>
+                                                        <td>
+                                                                    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                        <td>
+                                                                <code><ul>
+<li>The attachment file.</li>
+</ul>
+</code>
+                                                        </td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="attachment_signed"></a>
+                        <span class="name">
+                            <b>
+                            attachment_signed
+                            </b>
+                            <a href="#attachment_signed"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>attachment_signed:     <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/entry/attachments/attachments.service.ts:12</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="attachments"></a>
+                        <span class="name">
+                            <b>
+                            attachments
+                            </b>
+                            <a href="#attachments"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>attachments:     <code>any[]</code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>any[]</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/app/entry/attachments/attachments.service.ts:10</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="pia"></a>
+                        <span class="name">
+                            <b>
+                            pia
+                            </b>
+                            <a href="#pia"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>pia:     <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/entry/attachments/attachments.service.ts:13</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="pia_signed"></a>
+                        <span class="name">
+                            <b>
+                            pia_signed
+                            </b>
+                            <a href="#pia_signed"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>pia_signed:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>0</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/entry/attachments/attachments.service.ts:14</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="signedAttachments"></a>
+                        <span class="name">
+                            <b>
+                            signedAttachments
+                            </b>
+                            <a href="#signedAttachments"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>signedAttachments:     <code>any[]</code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>any[]</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/entry/attachments/attachments.service.ts:11</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
+
+import { Attachment } from &#x27;./attachment.model&#x27;;
+
+import { ModalsService } from &#x27;app/modals/modals.service&#x27;;
+
+@Injectable()
+export class AttachmentsService {
+
+  attachments: any[];
+  signedAttachments: any[] &#x3D; [];
+  attachment_signed: any;
+  pia: any;
+  pia_signed &#x3D; 0;
+
+  constructor(private _modalsService: ModalsService) { }
+
+  /**
+   * List all attachments.
+   * @returns {Promise}
+   * @memberof AttachmentsService
+   */
+  async listAttachments() {
+    return new Promise((resolve, reject) &#x3D;&gt; {
+      const attachment &#x3D; new Attachment();
+      attachment.pia_id &#x3D; this.pia.id;
+      attachment.findAll().then((data: any[]) &#x3D;&gt; {
+        this.attachments &#x3D; data;
+        resolve();
+      });
+    });
+  }
+
+  /**
+   * Update all signed attachement.
+   * @returns {Promise}
+   * @memberof AttachmentsService
+   */
+  async updateSignedAttachmentsList() {
+    return new Promise((resolve, reject) &#x3D;&gt; {
+      this.signedAttachments &#x3D; [];
+      const attachment &#x3D; new Attachment();
+      attachment.pia_id &#x3D; this.pia.id;
+      attachment.findAll().then((data: any[]) &#x3D;&gt; {
+        // Store all signed attachments if they are not yet stored
+        data.forEach(a &#x3D;&gt; {
+          if (a.pia_signed &amp;&amp; a.pia_signed &#x3D;&#x3D;&#x3D; 1) {
+            this.signedAttachments.push(a);
+          }
+        });
+        // If we have some signed attachments :
+        if (this.signedAttachments &amp;&amp; this.signedAttachments.length &gt; 0) {
+          this.signedAttachments.reverse(); // Reverse array (latest signed attachment at first)
+          if (this.signedAttachments[0] &amp;&amp; this.signedAttachments[0].file &amp;&amp; this.signedAttachments[0].file.length &gt; 0) {
+             // Store the latest signed attachment only if file isn&#x27;t empty
+            this.attachment_signed &#x3D; this.signedAttachments[0];
+             // Remove it from the signed attachments array so that we get the oldest
+            this.signedAttachments.splice(0, 1);
+          }
+        }
+        resolve();
+      });
+    });
+  }
+
+  /**
+   * Upload a new attachment.
+   * @param {*} attachment_file - The attachment file.
+   * @memberof AttachmentsService
+   */
+  upload(attachment_file: any) {
+    const file &#x3D; new Blob([attachment_file]);
+    const reader &#x3D; new FileReader();
+    reader.readAsDataURL(file);
+    reader.onloadend &#x3D; () &#x3D;&gt; {
+      const attachment &#x3D; new Attachment();
+      attachment.file &#x3D; reader.result;
+      attachment.name &#x3D; attachment_file.name;
+      attachment.mime_type &#x3D; attachment_file.type;
+      attachment.pia_id &#x3D; this.pia.id;
+      attachment.pia_signed &#x3D; this.pia_signed;
+      attachment.comment &#x3D; &#x27;&#x27;;
+      attachment.create().then((id: number) &#x3D;&gt; {
+        attachment.id &#x3D; id;
+        this.attachments.unshift(attachment);
+        if (attachment.pia_signed &#x3D;&#x3D;&#x3D; 1) {
+          // Add the last previous signed attachment in the signed attachments array
+          this.signedAttachments.unshift(this.attachment_signed);
+          // Allocate the new one
+          this.attachment_signed &#x3D; attachment;
+        }
+        // To refresh signed attachments on validation page
+        this.updateSignedAttachmentsList();
+      });
+    }
+  }
+
+  /**
+   * Download an attachment by id.
+   * @param {number} id - Id of the attachment.
+   * @memberof AttachmentsService
+   */
+  downloadAttachment(id: number) {
+    const attachment &#x3D; new Attachment();
+    attachment.pia_id &#x3D; this.pia.id;
+    attachment.find(id).then((entry: any) &#x3D;&gt; {
+      fetch(entry.file).then(res &#x3D;&gt; res.blob()).then(blob &#x3D;&gt; {
+        const a &#x3D; &lt;any&gt;document.createElement(&#x27;a&#x27;);
+        a.href &#x3D; window.URL.createObjectURL(blob);
+        a.download &#x3D; entry.name;
+        const event &#x3D; new MouseEvent(&#x27;click&#x27;, {
+          view: window
+        });
+        a.dispatchEvent(event);
+      });
+    });
+  }
+
+  /**
+   * Allows an user to remove a PIA.
+   * @param {string} comment - Comment to justify deletion.
+   * @memberof AttachmentsService
+   */
+  removeAttachment(comment: string) {
+    if (comment &amp;&amp; comment.length &gt; 0) {
+      const attachmentId &#x3D; parseInt(localStorage.getItem(&#x27;attachment-id&#x27;), 10);
+
+      // Remove from DB by erasing only the &quot;file&quot; field
+      const attachment &#x3D; new Attachment();
+      attachment.id &#x3D; attachmentId;
+      attachment.remove(comment);
+
+      // Deletes from the attachments array.
+      const index &#x3D; this.attachments.findIndex(p &#x3D;&gt; p.id &#x3D;&#x3D;&#x3D; attachmentId);
+      if (index !&#x3D;&#x3D; -1) {
+        this.attachments.splice(index, 1);
+      }
+      if (this.attachment_signed &amp;&amp; this.attachment_signed.id &#x3D;&#x3D;&#x3D; attachmentId) {
+        this.attachment_signed.comment &#x3D; comment;
+        this.attachment_signed.file &#x3D; null;
+        this.signedAttachments.unshift(this.attachment_signed);
+        this.attachment_signed &#x3D; null;
+      }
+
+      localStorage.removeItem(&#x27;attachment-id&#x27;);
+      this._modalsService.closeModal();
+    }
+  }
+
+}
+</code></pre>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'AttachmentsService.html';
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <script src="../js/menu-wc.js"></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

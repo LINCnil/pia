@@ -1,0 +1,1098 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>pia documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">pia documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search">
+</div>
+            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>EntryComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/entry/entry.component.ts</code>
+</p>
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+                <code><a href="https://angular.io/api/core/OnDestroy" target="_blank" >OnDestroy</a></code>
+                <code><a href="https://angular.io/api/core/DoCheck" target="_blank" >DoCheck</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">providers</td>
+                <td class="col-md-9">
+                            <code><a href="../injectables/PiaService.html" target="_self" >PiaService</a></code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-entry</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>entry.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./entry.component.html</code></td>
+            </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#data">data</a>
+                            </li>
+                            <li>
+                                <a href="#item">item</a>
+                            </li>
+                            <li>
+                                <a href="#measureToRemoveFromTags">measureToRemoveFromTags</a>
+                            </li>
+                            <li>
+                                <a href="#questions">questions</a>
+                            </li>
+                            <li>
+                                <a href="#section">section</a>
+                            </li>
+                            <li>
+                                <a href="#subscription">subscription</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Async</span>
+                                <a href="#getSectionAndItem">getSectionAndItem</a>
+                            </li>
+                            <li>
+                                <a href="#ngDoCheck">ngDoCheck</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnDestroy">ngOnDestroy</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#ngOnInit">ngOnInit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(route: <a href="https://angular.io/api/router/ActivatedRoute" target="_blank">ActivatedRoute</a>, http: <a href="https://angular.io/api/http/Http" target="_blank">Http</a>, _modalsService: <a href="../injectables/ModalsService.html">ModalsService</a>, _appDataService: <a href="../injectables/AppDataService.html">AppDataService</a>, _sidStatusService: <a href="../injectables/SidStatusService.html">SidStatusService</a>, _knowledgeBaseService: <a href="../injectables/KnowledgeBaseService.html">KnowledgeBaseService</a>, _piaService: <a href="../injectables/PiaService.html">PiaService</a>, _actionPlanService: <a href="../injectables/ActionPlanService.html">ActionPlanService</a>, _globalEvaluationService: <a href="../injectables/GlobalEvaluationService.html">GlobalEvaluationService</a>, _measureService: <a href="../injectables/MeasureService.html">MeasureService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/entry/entry.component.ts:29</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>route</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="https://angular.io/api/router/ActivatedRoute" target="_blank" >ActivatedRoute</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>http</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="https://angular.io/api/http/Http" target="_blank" >Http</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>_modalsService</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="../injectables/ModalsService.html" target="_self" >ModalsService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>_appDataService</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="../injectables/AppDataService.html" target="_self" >AppDataService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>_sidStatusService</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="../injectables/SidStatusService.html" target="_self" >SidStatusService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>_knowledgeBaseService</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="../injectables/KnowledgeBaseService.html" target="_self" >KnowledgeBaseService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>_piaService</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="../injectables/PiaService.html" target="_self" >PiaService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>_actionPlanService</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="../injectables/ActionPlanService.html" target="_self" >ActionPlanService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>_globalEvaluationService</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="../injectables/GlobalEvaluationService.html" target="_self" >GlobalEvaluationService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>_measureService</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="../injectables/MeasureService.html" target="_self" >MeasureService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section>
+    
+        <h3 id="methods">
+            Methods
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="getSectionAndItem"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                                <span class="modifier">Async</span>
+                            getSectionAndItem
+                            </b>
+                            <a href="#getSectionAndItem"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                            <span class="modifier-icon icon ion-ios-reset"></span>
+                        <code>getSectionAndItem(sectionId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, itemId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="114" class="link-to-prism">src/app/entry/entry.component.ts:114</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Get the current Section and Item and initialize others information.</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                                    <td>Description</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>sectionId</td>
+                                                        <td>
+                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                        <td>
+                                                                <code><ul>
+<li>The section id.</li>
+</ul>
+</code>
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>itemId</td>
+                                                        <td>
+                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                        <td>
+                                                                <code><ul>
+<li>The item id.</li>
+</ul>
+</code>
+                                                        </td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="ngDoCheck"></a>
+                        <span class="name">
+                            <b>
+                            ngDoCheck
+                            </b>
+                            <a href="#ngDoCheck"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>ngDoCheck()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="67" class="link-to-prism">src/app/entry/entry.component.ts:67</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="ngOnDestroy"></a>
+                        <span class="name">
+                            <b>
+                            ngOnDestroy
+                            </b>
+                            <a href="#ngOnDestroy"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>ngOnDestroy()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="103" class="link-to-prism">src/app/entry/entry.component.ts:103</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="ngOnInit"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Async</span>
+                            ngOnInit
+                            </b>
+                            <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                            <span class="modifier-icon icon ion-ios-reset"></span>
+                        <code>ngOnInit()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">src/app/entry/entry.component.ts:42</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="data"></a>
+                        <span class="name">
+                            <b>
+                            data
+                            </b>
+                            <a href="#data"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>data:     <code>literal type</code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>literal type</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/entry/entry.component.ts:26</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="item"></a>
+                        <span class="name">
+                            <b>
+                            item
+                            </b>
+                            <a href="#item"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>item:     <code>literal type</code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>literal type</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/entry/entry.component.ts:25</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="measureToRemoveFromTags"></a>
+                        <span class="name">
+                            <b>
+                            measureToRemoveFromTags
+                            </b>
+                            <a href="#measureToRemoveFromTags"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>measureToRemoveFromTags:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/entry/entry.component.ts:28</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="questions"></a>
+                        <span class="name">
+                            <b>
+                            questions
+                            </b>
+                            <a href="#questions"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>questions:     <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/entry/entry.component.ts:27</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="section"></a>
+                        <span class="name">
+                            <b>
+                            section
+                            </b>
+                            <a href="#section"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>section:     <code>literal type</code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>literal type</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/entry/entry.component.ts:24</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="subscription"></a>
+                        <span class="name">
+                            <b>
+                            subscription
+                            </b>
+                            <a href="#subscription"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>subscription:     <code>Subscription</code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>Subscription</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/entry/entry.component.ts:29</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit, Output, OnDestroy, DoCheck } from &#x27;@angular/core&#x27;;
+import { ActivatedRoute, Params } from &#x27;@angular/router&#x27;;
+import { Http } from &#x27;@angular/http&#x27;;
+import { Subscription } from &#x27;rxjs/Subscription&#x27;;
+
+import { Answer } from &#x27;app/entry/entry-content/questions/answer.model&#x27;;
+
+import { KnowledgeBaseService } from &#x27;app/entry/knowledge-base/knowledge-base.service&#x27;;
+import { MeasureService } from &#x27;app/entry/entry-content/measures/measures.service&#x27;;
+import { ActionPlanService } from &#x27;app/entry/entry-content/action-plan//action-plan.service&#x27;;
+import { PiaService } from &#x27;app/services/pia.service&#x27;;
+import { ModalsService } from &#x27;app/modals/modals.service&#x27;;
+import { AppDataService } from &#x27;app/services/app-data.service&#x27;;
+import { SidStatusService } from &#x27;app/services/sid-status.service&#x27;;
+import { GlobalEvaluationService } from &#x27;app/services/global-evaluation.service&#x27;;
+
+@Component({
+  selector: &#x27;app-entry&#x27;,
+  templateUrl: &#x27;./entry.component.html&#x27;,
+  styleUrls: [&#x27;./entry.component.scss&#x27;],
+  providers: [PiaService]
+})
+export class EntryComponent implements OnInit, OnDestroy, DoCheck {
+  section: { id: number, title: string, short_help: string, items: any };
+  item: { id: number, title: string, evaluation_mode: string, short_help: string, questions: any };
+  data: { sections: any };
+  questions: any;
+  measureToRemoveFromTags: string;
+  subscription: Subscription;
+
+  constructor(private route: ActivatedRoute,
+              private http: Http,
+              private _modalsService: ModalsService,
+              private _appDataService: AppDataService,
+              private _sidStatusService: SidStatusService,
+              private _knowledgeBaseService: KnowledgeBaseService,
+              private _piaService: PiaService,
+              private _actionPlanService: ActionPlanService,
+              private _globalEvaluationService: GlobalEvaluationService,
+              private _measureService: MeasureService) { }
+
+  async ngOnInit() {
+    let sectionId &#x3D; parseInt(this.route.snapshot.params[&#x27;section_id&#x27;], 10);
+    let itemId &#x3D; parseInt(this.route.snapshot.params[&#x27;item_id&#x27;], 10);
+
+    await this._piaService.getPIA();
+    if (this._piaService.pia.structure_data) {
+      this._appDataService.dataNav &#x3D; this._piaService.pia.structure_data;
+    }
+    this.data &#x3D; await this._appDataService.getDataNav();
+
+    this.route.params.subscribe(
+      (params: Params) &#x3D;&gt; {
+        sectionId &#x3D; parseInt(params[&#x27;section_id&#x27;], 10);
+        itemId &#x3D; parseInt(params[&#x27;item_id&#x27;], 10);
+        this.getSectionAndItem(sectionId, itemId);
+        window.scroll(0, 0);
+      }
+    );
+
+    // Suscribe to measure service messages
+    this.subscription &#x3D; this._measureService.behaviorSubject.subscribe((val) &#x3D;&gt; {
+      this.measureToRemoveFromTags &#x3D; val;
+    });
+  }
+
+  ngDoCheck() {
+    if (this.measureToRemoveFromTags &amp;&amp; this.measureToRemoveFromTags.length &gt; 0) {
+      const measureName &#x3D; this.measureToRemoveFromTags;
+      this.measureToRemoveFromTags &#x3D; null;
+
+      // Update tags when removing measures from 3.1
+      const itemsQuestions &#x3D; [];
+      this._piaService.data.sections.forEach(section &#x3D;&gt; {
+        section.items.forEach(item &#x3D;&gt; {
+            if (item.questions) {
+              itemsQuestions.push(item.questions.filter((question) &#x3D;&gt; {
+                return (question.answer_type &#x3D;&#x3D;&#x3D; &#x27;list&#x27; &amp;&amp; question.is_measure &#x3D;&#x3D;&#x3D; true);
+              }));
+            }
+        });
+      });
+
+      // Keep only questions with measures lists
+      const listQuestions &#x3D; itemsQuestions.filter(v &#x3D;&gt; Object.keys(v).length !&#x3D;&#x3D; 0);
+
+      // For each of these questions, get their respective answer
+      listQuestions.forEach(questionsSet &#x3D;&gt; {
+        questionsSet.forEach(q &#x3D;&gt; {
+          const answer &#x3D; new Answer();
+          answer.getByReferenceAndPia(this._piaService.pia.id, q.id).then(() &#x3D;&gt; {
+            if (answer.data &amp;&amp; answer.data.list.length &gt; 0 &amp;&amp; answer.data.list.includes(measureName)) {
+              const index &#x3D; answer.data.list.indexOf(measureName);
+              answer.data.list.splice(index, 1);
+              answer.update();
+            }
+          });
+        });
+      });
+    }
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
+  }
+
+  /**
+   * Get the current Section and Item and initialize others information.
+   * @private
+   * @param {number} sectionId - The section id.
+   * @param {number} itemId - The item id.
+   * @memberof EntryComponent
+   */
+  private async getSectionAndItem(sectionId: number, itemId: number) {
+    this._appDataService.dataNav &#x3D; { sections: null };
+
+    // await this._piaService.getPIA();
+    if (this._piaService.pia.structure_data) {
+      this._appDataService.dataNav &#x3D; this._piaService.pia.structure_data;
+    }
+    this.data &#x3D; await this._appDataService.getDataNav();
+
+    this.section &#x3D; this.data[&#x27;sections&#x27;].filter((section) &#x3D;&gt; {
+      return section.id &#x3D;&#x3D;&#x3D; sectionId;
+    })[0];
+    this.item &#x3D; this.section[&#x27;items&#x27;].filter((item) &#x3D;&gt; {
+      return item.id &#x3D;&#x3D;&#x3D; itemId;
+    })[0];
+
+    this._globalEvaluationService.section &#x3D; this.section;
+    this._globalEvaluationService.item &#x3D; this.item;
+
+    this.questions &#x3D; [];
+    if (this.item[&#x27;questions&#x27;]) {
+      this.item[&#x27;questions&#x27;].forEach(question &#x3D;&gt; {
+        this.questions.push(question);
+      });
+    }
+
+    this._piaService.getPIA().then(() &#x3D;&gt; {
+      this._globalEvaluationService.pia &#x3D; this._piaService.pia;
+      this._globalEvaluationService.validate();
+      this._measureService.listMeasures(this._piaService.pia.id).then(() &#x3D;&gt; {
+
+        /* Modal for risks if no measures yet */
+        let displayModal &#x3D; true;
+        if ((this.section.id &#x3D;&#x3D;&#x3D; 3) &amp;&amp; (this.item.id &#x3D;&#x3D;&#x3D; 2 || this.item.id &#x3D;&#x3D;&#x3D; 3 || this.item.id &#x3D;&#x3D;&#x3D; 4)) {
+          if (this._measureService.measures.length &gt; 0) {
+            this._measureService.measures.forEach(element &#x3D;&gt; {
+              if (element.title &amp;&amp; element.title.length &gt; 0) {
+                displayModal &#x3D; false;
+              }
+            });
+          }
+          if (displayModal) {
+            this._modalsService.openModal(&#x27;pia-declare-measures&#x27;);
+          }
+        }
+
+        /* Modal for action plan if no evaluations yet */
+        if (this.section.id &#x3D;&#x3D;&#x3D; 4 &amp;&amp; this.item.id &#x3D;&#x3D;&#x3D; 2 &amp;&amp; !this._sidStatusService.verifEnableActionPlan()) {
+          this._modalsService.openModal(&#x27;pia-action-plan-no-evaluation&#x27;);
+        }
+
+        /* Modal for dpo page if all evaluations are not done yet */
+        if (this.section.id &#x3D;&#x3D;&#x3D; 4 &amp;&amp; this.item.id &#x3D;&#x3D;&#x3D; 3 &amp;&amp; !this._sidStatusService.enableDpoValidation) {
+          this._modalsService.openModal(&#x27;pia-dpo-missing-evaluations&#x27;);
+        }
+
+      });
+
+      this._actionPlanService.data &#x3D; this.data;
+      this._actionPlanService.pia &#x3D; this._piaService.pia;
+    });
+
+    // Update on knowledge base (scroll / content / search field)
+    const knowledgeBaseScroll  &#x3D; document.querySelector(&#x27;.pia-knowledgeBaseBlock-list&#x27;);
+    const knowledgeBaseContent  &#x3D; &lt;HTMLInputElement&gt;document.querySelector(&#x27;.pia-knowledgeBaseBlock-searchForm input&#x27;);
+    knowledgeBaseScroll.scrollTop &#x3D; 0;
+    knowledgeBaseContent.value &#x3D; &#x27;&#x27;;
+
+    this._knowledgeBaseService.q &#x3D; null;
+    this._knowledgeBaseService.loadByItem(this.item);
+    this._knowledgeBaseService.placeholder &#x3D; null;
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;app-header&gt;&lt;/app-header&gt;
+&lt;main class&#x3D;&quot;container pia-mainContainerBlock&quot;&gt;
+    &lt;div class&#x3D;&quot;row&quot;&gt;
+        &lt;!-- Left sidebar (sections) --&gt;
+        &lt;div class&#x3D;&quot;small-12 medium-3 columns&quot;&gt;
+            &lt;aside class&#x3D;&quot;pia-leftSidebarBlock&quot;&gt;
+                &lt;app-sections [section]&#x3D;&quot;section&quot; [item]&#x3D;&quot;item&quot;&gt;&lt;/app-sections&gt;
+            &lt;/aside&gt;
+        &lt;/div&gt;
+
+        &lt;!-- Main entry content --&gt;
+        &lt;div class&#x3D;&quot;small-12 medium-6 columns&quot;&gt;
+            &lt;app-entry-content [questions]&#x3D;&quot;questions&quot; [section]&#x3D;&quot;section&quot; [item]&#x3D;&quot;item&quot; [data]&#x3D;&quot;data&quot;&gt;&lt;/app-entry-content&gt;
+        &lt;/div&gt;
+
+        &lt;!-- Right sidebar (knowledge base) --&gt;
+        &lt;div class&#x3D;&quot;small-12 medium-3 columns&quot;&gt;
+            &lt;div class&#x3D;&quot;pia-rightSidebarBlock&quot;&gt;
+                &lt;app-knowledge-base [item]&#x3D;&quot;item&quot;&gt;&lt;/app-knowledge-base&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/main&gt;
+
+&lt;app-modals&gt;&lt;/app-modals&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><app-header></app-header><main class="container pia-mainContainerBlock">    <div class="row">        <!-- Left sidebar (sections) -->        <div class="small-12 medium-3 columns">            <aside class="pia-leftSidebarBlock">                <app-sections [section]="section" [item]="item"></app-sections>            </aside>        </div>        <!-- Main entry content -->        <div class="small-12 medium-6 columns">            <app-entry-content [questions]="questions" [section]="section" [item]="item" [data]="data"></app-entry-content>        </div>        <!-- Right sidebar (knowledge base) -->        <div class="small-12 medium-3 columns">            <div class="pia-rightSidebarBlock">                <app-knowledge-base [item]="item"></app-knowledge-base>            </div>        </div>    </div></main><app-modals></app-modals></div>'
+    var COMPONENTS = [{'name': 'AboutComponent', 'selector': 'app-about'},{'name': 'ActionPlanComponent', 'selector': 'app-action-plan'},{'name': 'ActionPlanImplementationComponent', 'selector': 'app-action-plan-implementation'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AttachmentItemComponent', 'selector': 'app-attachment-item'},{'name': 'AttachmentsComponent', 'selector': 'app-attachments'},{'name': 'AuthenticationComponent', 'selector': 'app-authentication'},{'name': 'CardItemComponent', 'selector': 'app-card-item'},{'name': 'CardItemComponent', 'selector': 'app-card-item'},{'name': 'CardsComponent', 'selector': 'app-cards'},{'name': 'CommentItemComponent', 'selector': 'app-comment-item'},{'name': 'CommentsComponent', 'selector': 'app-comments'},{'name': 'DPOPeopleOpinionsComponent', 'selector': 'app-dpo-people-opinions'},{'name': 'EntryComponent', 'selector': 'app-entry'},{'name': 'EntryComponent', 'selector': 'app-entry'},{'name': 'EntryContentComponent', 'selector': 'app-entry-content'},{'name': 'EntryContentComponent', 'selector': 'app-entry-content'},{'name': 'ErrorsComponent', 'selector': 'app-errors'},{'name': 'EvaluationsComponent', 'selector': 'app-evaluations'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HelpComponent', 'selector': 'app-help'},{'name': 'KnowledgeBaseComponent', 'selector': 'app-knowledge-base'},{'name': 'KnowledgeBaseItemComponent', 'selector': 'app-knowledge-base-item'},{'name': 'ListItemComponent', 'selector': '.app-list-item'},{'name': 'ListItemComponent', 'selector': '.app-list-item'},{'name': 'MeasuresComponent', 'selector': 'app-measures'},{'name': 'MeasuresComponent', 'selector': 'app-measures'},{'name': 'ModalsComponent', 'selector': 'app-modals'},{'name': 'OverviewRisksComponent', 'selector': '.app-overview-risks'},{'name': 'PiaValidateHistoryComponent', 'selector': 'app-pia-validate-history'},{'name': 'QuestionsComponent', 'selector': 'app-questions'},{'name': 'QuestionsComponent', 'selector': 'app-questions'},{'name': 'RefusePIAComponent', 'selector': 'app-refuse-pia'},{'name': 'RisksCartographyComponent', 'selector': '.app-risks-cartography'},{'name': 'SectionsComponent', 'selector': 'app-sections'},{'name': 'SectionsComponent', 'selector': 'app-sections'},{'name': 'SettingsComponent', 'selector': 'app-settings'},{'name': 'StructuresComponent', 'selector': 'app-structures'},{'name': 'SummaryComponent', 'selector': 'app-summary'},{'name': 'ValidatePIAComponent', 'selector': 'app-validate-pia'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'EntryComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'EntryComponent.html';
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <script src="../js/menu-wc.js"></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

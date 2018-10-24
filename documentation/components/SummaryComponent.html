@@ -1,0 +1,2868 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>pia documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">pia documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search">
+</div>
+            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>SummaryComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/summary/summary.component.ts</code>
+</p>
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">providers</td>
+                <td class="col-md-9">
+                            <code><a href="../injectables/PiaService.html" target="_self" >PiaService</a></code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-summary</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>summary.component.scss,<br>.entry/entry-content/action-plan/action-plan.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./summary.component.html</code></td>
+            </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#_actionPlanService">_actionPlanService</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#_piaService">_piaService</a>
+                            </li>
+                            <li>
+                                <a href="#allData">allData</a>
+                            </li>
+                            <li>
+                                <a href="#content">content</a>
+                            </li>
+                            <li>
+                                <a href="#dataNav">dataNav</a>
+                            </li>
+                            <li>
+                                <a href="#displayActionPlan">displayActionPlan</a>
+                            </li>
+                            <li>
+                                <a href="#displayMainPiaData">displayMainPiaData</a>
+                            </li>
+                            <li>
+                                <a href="#displayOnlyActionPlan">displayOnlyActionPlan</a>
+                            </li>
+                            <li>
+                                <a href="#displayRisksCartography">displayRisksCartography</a>
+                            </li>
+                            <li>
+                                <a href="#displayRisksOverview">displayRisksOverview</a>
+                            </li>
+                            <li>
+                                <a href="#pia">pia</a>
+                            </li>
+                            <li>
+                                <a href="#summarySubscription">summarySubscription</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                    <span class="modifier">Async</span>
+                                <a href="#download">download</a>
+                            </li>
+                            <li>
+                                <a href="#downloadAllGraphsAsImages">downloadAllGraphsAsImages</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#downloadURI">downloadURI</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#getActionPlanOverviewImg">getActionPlanOverviewImg</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Async</span>
+                                <a href="#getEvaluation">getEvaluation</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Async</span>
+                                <a href="#getJsonInfo">getJsonInfo</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#getRisksCartographyImg">getRisksCartographyImg</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#getRisksOverviewImg">getRisksOverviewImg</a>
+                            </li>
+                            <li>
+                                <a href="#getTextSelection">getTextSelection</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#ngOnInit">ngOnInit</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#prepareHeader">prepareHeader</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#showActionPlan">showActionPlan</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#showPia">showPia</a>
+                            </li>
+                            <li>
+                                <a href="#toggleActionPlanContent">toggleActionPlanContent</a>
+                            </li>
+                            <li>
+                                <a href="#toggleContextContent">toggleContextContent</a>
+                            </li>
+                            <li>
+                                <a href="#toggleFundamentalPrinciplesContent">toggleFundamentalPrinciplesContent</a>
+                            </li>
+                            <li>
+                                <a href="#toggleMainContent">toggleMainContent</a>
+                            </li>
+                            <li>
+                                <a href="#toggleRisksCartographyContent">toggleRisksCartographyContent</a>
+                            </li>
+                            <li>
+                                <a href="#toggleRisksContent">toggleRisksContent</a>
+                            </li>
+                            <li>
+                                <a href="#toggleRisksOverviewContent">toggleRisksOverviewContent</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(el: <a href="https://angular.io/api/core/ElementRef" target="_blank">ElementRef</a>, route: <a href="https://angular.io/api/router/ActivatedRoute" target="_blank">ActivatedRoute</a>, _attachmentsService: <a href="../injectables/AttachmentsService.html">AttachmentsService</a>, _actionPlanService: <a href="../injectables/ActionPlanService.html">ActionPlanService</a>, _translateService: TranslateService, _appDataService: <a href="../injectables/AppDataService.html">AppDataService</a>, _piaService: <a href="../injectables/PiaService.html">PiaService</a>, _modalService: <a href="../injectables/ModalsService.html">ModalsService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/app/summary/summary.component.ts:40</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>el</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="https://angular.io/api/core/ElementRef" target="_blank" >ElementRef</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>route</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="https://angular.io/api/router/ActivatedRoute" target="_blank" >ActivatedRoute</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>_attachmentsService</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="../injectables/AttachmentsService.html" target="_self" >AttachmentsService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>_actionPlanService</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="../injectables/ActionPlanService.html" target="_self" >ActionPlanService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>_translateService</td>
+                                                  
+                                                        <td>
+                                                                    <code>TranslateService</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>_appDataService</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="../injectables/AppDataService.html" target="_self" >AppDataService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>_piaService</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="../injectables/PiaService.html" target="_self" >PiaService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>_modalService</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="../injectables/ModalsService.html" target="_self" >ModalsService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section>
+    
+        <h3 id="methods">
+            Methods
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="download"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                                <span class="modifier">Async</span>
+                            download
+                            </b>
+                            <a href="#download"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                            <span class="modifier-icon icon ion-ios-reset"></span>
+                        <code>download()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="275" class="link-to-prism">src/app/summary/summary.component.ts:275</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Get a csv document.</p>
+</div>
+
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code>{}</code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="downloadAllGraphsAsImages"></a>
+                        <span class="name">
+                            <b>
+                            downloadAllGraphsAsImages
+                            </b>
+                            <a href="#downloadAllGraphsAsImages"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>downloadAllGraphsAsImages()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="84" class="link-to-prism">src/app/summary/summary.component.ts:84</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Download all graphs as images</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="downloadURI"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            downloadURI
+                            </b>
+                            <a href="#downloadURI"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                            <span class="modifier-icon icon ion-ios-reset"></span>
+                        <code>downloadURI(uri: , name: )</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="153" class="link-to-prism">src/app/summary/summary.component.ts:153</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Generate a link to download the different images in the summary</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                <td>Optional</td>
+                                                    <td>Description</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>uri</td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                        <td>
+                                                                <code><p>identifiant URI de l&#39;image</p>
+</code>
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>name</td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                        <td>
+                                                                <code><p>name of the image</p>
+</code>
+                                                        </td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="getActionPlanOverviewImg"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            getActionPlanOverviewImg
+                            </b>
+                            <a href="#getActionPlanOverviewImg"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                            <span class="modifier-icon icon ion-ios-reset"></span>
+                        <code>getActionPlanOverviewImg()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="95" class="link-to-prism">src/app/summary/summary.component.ts:95</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Download the action plan overview as an image</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="getEvaluation"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                                <span class="modifier">Async</span>
+                            getEvaluation
+                            </b>
+                            <a href="#getEvaluation"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                            <span class="modifier-icon icon ion-ios-reset"></span>
+                        <code>getEvaluation(section_id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, item_id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, ref: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="493" class="link-to-prism">src/app/summary/summary.component.ts:493</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Get an evaluation by reference.</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                                    <td>Description</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>section_id</td>
+                                                        <td>
+                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                        <td>
+                                                                <code><ul>
+<li>The section id.</li>
+</ul>
+</code>
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>item_id</td>
+                                                        <td>
+                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                        <td>
+                                                                <code><ul>
+<li>The item id.</li>
+</ul>
+</code>
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>ref</td>
+                                                        <td>
+                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                        <td>
+                                                                <code><ul>
+<li>The reference.</li>
+</ul>
+</code>
+                                                        </td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code>{}</code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="getJsonInfo"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                                <span class="modifier">Async</span>
+                            getJsonInfo
+                            </b>
+                            <a href="#getJsonInfo"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                            <span class="modifier-icon icon ion-ios-reset"></span>
+                        <code>getJsonInfo()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="420" class="link-to-prism">src/app/summary/summary.component.ts:420</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Get information from the JSON file.</p>
+</div>
+
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="getRisksCartographyImg"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            getRisksCartographyImg
+                            </b>
+                            <a href="#getRisksCartographyImg"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                            <span class="modifier-icon icon ion-ios-reset"></span>
+                        <code>getRisksCartographyImg()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="132" class="link-to-prism">src/app/summary/summary.component.ts:132</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Download the risks cartography as an image</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="getRisksOverviewImg"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            getRisksOverviewImg
+                            </b>
+                            <a href="#getRisksOverviewImg"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                            <span class="modifier-icon icon ion-ios-reset"></span>
+                        <code>getRisksOverviewImg()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="114" class="link-to-prism">src/app/summary/summary.component.ts:114</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Download the risks overview as an image</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="getTextSelection"></a>
+                        <span class="name">
+                            <b>
+                            getTextSelection
+                            </b>
+                            <a href="#getTextSelection"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>getTextSelection()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="519" class="link-to-prism">src/app/summary/summary.component.ts:519</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Select all text from page.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="ngOnInit"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Async</span>
+                            ngOnInit
+                            </b>
+                            <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                            <span class="modifier-icon icon ion-ios-reset"></span>
+                        <code>ngOnInit()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">src/app/summary/summary.component.ts:51</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="prepareHeader"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            prepareHeader
+                            </b>
+                            <a href="#prepareHeader"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                            <span class="modifier-icon icon ion-ios-reset"></span>
+                        <code>prepareHeader()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="305" class="link-to-prism">src/app/summary/summary.component.ts:305</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Get PIA information.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="showActionPlan"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            showActionPlan
+                            </b>
+                            <a href="#showActionPlan"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                            <span class="modifier-icon icon ion-ios-reset"></span>
+                        <code>showActionPlan()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="263" class="link-to-prism">src/app/summary/summary.component.ts:263</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Prepare and display the ActionPlan information.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="showPia"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Async</span>
+                            showPia
+                            </b>
+                            <a href="#showPia"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                            <span class="modifier-icon icon ion-ios-reset"></span>
+                        <code>showPia()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="237" class="link-to-prism">src/app/summary/summary.component.ts:237</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Prepare and display the PIA information</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="toggleActionPlanContent"></a>
+                        <span class="name">
+                            <b>
+                            toggleActionPlanContent
+                            </b>
+                            <a href="#toggleActionPlanContent"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>toggleActionPlanContent()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="211" class="link-to-prism">src/app/summary/summary.component.ts:211</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Display or hide the action plan.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="toggleContextContent"></a>
+                        <span class="name">
+                            <b>
+                            toggleContextContent
+                            </b>
+                            <a href="#toggleContextContent"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>toggleContextContent()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="175" class="link-to-prism">src/app/summary/summary.component.ts:175</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Display or hide the main Pia data.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="toggleFundamentalPrinciplesContent"></a>
+                        <span class="name">
+                            <b>
+                            toggleFundamentalPrinciplesContent
+                            </b>
+                            <a href="#toggleFundamentalPrinciplesContent"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>toggleFundamentalPrinciplesContent()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="187" class="link-to-prism">src/app/summary/summary.component.ts:187</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Display or hide the main Pia data.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="toggleMainContent"></a>
+                        <span class="name">
+                            <b>
+                            toggleMainContent
+                            </b>
+                            <a href="#toggleMainContent"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>toggleMainContent()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="166" class="link-to-prism">src/app/summary/summary.component.ts:166</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Display or hide the main Pia data.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="toggleRisksCartographyContent"></a>
+                        <span class="name">
+                            <b>
+                            toggleRisksCartographyContent
+                            </b>
+                            <a href="#toggleRisksCartographyContent"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>toggleRisksCartographyContent()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="229" class="link-to-prism">src/app/summary/summary.component.ts:229</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Display or hide the risks cartography for the current PIA.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="toggleRisksContent"></a>
+                        <span class="name">
+                            <b>
+                            toggleRisksContent
+                            </b>
+                            <a href="#toggleRisksContent"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>toggleRisksContent()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="199" class="link-to-prism">src/app/summary/summary.component.ts:199</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Display or hide the main Pia data.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="toggleRisksOverviewContent"></a>
+                        <span class="name">
+                            <b>
+                            toggleRisksOverviewContent
+                            </b>
+                            <a href="#toggleRisksOverviewContent"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>toggleRisksOverviewContent()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="220" class="link-to-prism">src/app/summary/summary.component.ts:220</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Display or hide the risks overview for the current PIA.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="_actionPlanService"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            _actionPlanService
+                            </b>
+                            <a href="#_actionPlanService"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>_actionPlanService:     <code><a href="../injectables/ActionPlanService.html" target="_self" >ActionPlanService</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="../injectables/ActionPlanService.html" target="_self" >ActionPlanService</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">src/app/summary/summary.component.ts:45</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="_piaService"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            _piaService
+                            </b>
+                            <a href="#_piaService"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>_piaService:     <code><a href="../injectables/PiaService.html" target="_self" >PiaService</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="../injectables/PiaService.html" target="_self" >PiaService</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">src/app/summary/summary.component.ts:48</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="allData"></a>
+                        <span class="name">
+                            <b>
+                            allData
+                            </b>
+                            <a href="#allData"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>allData:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" target="_blank" >Object</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" target="_blank" >Object</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/summary/summary.component.ts:33</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="content"></a>
+                        <span class="name">
+                            <b>
+                            content
+                            </b>
+                            <a href="#content"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>content:     <code>any[]</code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>any[]</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/app/summary/summary.component.ts:31</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="dataNav"></a>
+                        <span class="name">
+                            <b>
+                            dataNav
+                            </b>
+                            <a href="#dataNav"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>dataNav:     <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/app/summary/summary.component.ts:34</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="displayActionPlan"></a>
+                        <span class="name">
+                            <b>
+                            displayActionPlan
+                            </b>
+                            <a href="#displayActionPlan"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>displayActionPlan:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/app/summary/summary.component.ts:36</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="displayMainPiaData"></a>
+                        <span class="name">
+                            <b>
+                            displayMainPiaData
+                            </b>
+                            <a href="#displayMainPiaData"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>displayMainPiaData:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/app/summary/summary.component.ts:35</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="displayOnlyActionPlan"></a>
+                        <span class="name">
+                            <b>
+                            displayOnlyActionPlan
+                            </b>
+                            <a href="#displayOnlyActionPlan"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>displayOnlyActionPlan:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/app/summary/summary.component.ts:38</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="displayRisksCartography"></a>
+                        <span class="name">
+                            <b>
+                            displayRisksCartography
+                            </b>
+                            <a href="#displayRisksCartography"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>displayRisksCartography:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/app/summary/summary.component.ts:40</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="displayRisksOverview"></a>
+                        <span class="name">
+                            <b>
+                            displayRisksOverview
+                            </b>
+                            <a href="#displayRisksOverview"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>displayRisksOverview:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/app/summary/summary.component.ts:39</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="pia"></a>
+                        <span class="name">
+                            <b>
+                            pia
+                            </b>
+                            <a href="#pia"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>pia:     <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/summary/summary.component.ts:32</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="summarySubscription"></a>
+                        <span class="name">
+                            <b>
+                            summarySubscription
+                            </b>
+                            <a href="#summarySubscription"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>summarySubscription:     <code>Subscription</code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>Subscription</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/summary/summary.component.ts:37</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, ElementRef, OnInit } from &#x27;@angular/core&#x27;;
+import { Router, ActivatedRoute, Params } from &#x27;@angular/router&#x27;;
+import { Subscription } from &#x27;rxjs/Subscription&#x27;;
+import {element} from &#x27;protractor&#x27;;
+import * as html2canvas from &#x27;html2canvas&#x27;;
+import { saveSvgAsPng } from &#x27;save-svg-as-png&#x27;;
+import { Angular2Csv } from &#x27;angular2-csv&#x27;;
+
+import { Answer } from &#x27;app/entry/entry-content/questions/answer.model&#x27;;
+import { Measure } from &#x27;app/entry/entry-content/measures/measure.model&#x27;;
+import { Evaluation } from &#x27;app/entry/entry-content/evaluations/evaluation.model&#x27;;
+
+import { ActionPlanService } from &#x27;app/entry/entry-content/action-plan//action-plan.service&#x27;;
+import { AppDataService } from &#x27;app/services/app-data.service&#x27;;
+import { TranslateService } from &#x27;@ngx-translate/core&#x27;;
+import { ModalsService } from &#x27;../modals/modals.service&#x27;;
+import { PiaService } from &#x27;app/services/pia.service&#x27;;
+import { AttachmentsService } from &#x27;app/entry/attachments/attachments.service&#x27;;
+
+@Component({
+  selector: &#x27;app-summary&#x27;,
+  templateUrl: &#x27;./summary.component.html&#x27;,
+  styleUrls: [
+    &#x27;./summary.component.scss&#x27;,
+    &#x27;../entry/entry-content/action-plan/action-plan.component.scss&#x27;
+  ],
+  providers: [PiaService]
+})
+export class SummaryComponent implements OnInit {
+
+  content: any[];
+  pia: any;
+  allData: Object;
+  dataNav: any;
+  displayMainPiaData: boolean;
+  displayActionPlan: boolean;
+  summarySubscription: Subscription;
+  displayOnlyActionPlan: boolean;
+  displayRisksOverview: boolean;
+  displayRisksCartography: boolean;
+
+  constructor(private el: ElementRef,
+              private route: ActivatedRoute,
+              private _attachmentsService: AttachmentsService,
+              public _actionPlanService: ActionPlanService,
+              private _translateService: TranslateService,
+              private _appDataService: AppDataService,
+              public _piaService: PiaService,
+              private _modalService: ModalsService) { }
+
+  async ngOnInit() {
+    this.summarySubscription &#x3D; this.route.queryParams.subscribe(params &#x3D;&gt; {
+      this.displayOnlyActionPlan &#x3D; params[&#x27;displayOnlyActionPlan&#x27;];
+    });
+
+    this.content &#x3D; [];
+    this.dataNav &#x3D; await this._appDataService.getDataNav();
+
+    this._piaService.getPIA().then(() &#x3D;&gt; {
+      this.pia &#x3D; this._piaService.pia;
+      this.displayMainPiaData &#x3D; true;
+      this.displayActionPlan &#x3D; true;
+      this.displayRisksOverview &#x3D; true;
+      this.displayRisksCartography &#x3D; true;
+      this.showPia().then(() &#x3D;&gt; {
+        // Disable all filters (except action plan) if displaying only action plan
+        if (this.displayOnlyActionPlan) {
+          this.toggleMainContent();
+          this.toggleContextContent();
+          this.toggleFundamentalPrinciplesContent();
+          this.toggleRisksContent();
+          this.toggleRisksOverviewContent();
+          this.toggleRisksCartographyContent();
+        }
+      });
+    });
+  }
+
+  /**
+   * Download all graphs as images
+   * @private
+   * @memberof SummaryComponent
+   */
+  downloadAllGraphsAsImages() {
+    this.getActionPlanOverviewImg();
+    this.getRisksOverviewImg();
+    this.getRisksCartographyImg();
+  }
+
+  /**
+   * Download the action plan overview as an image
+   * @private
+   * @memberof SummaryComponent
+   */
+  private getActionPlanOverviewImg() {
+    setTimeout(() &#x3D;&gt; {
+      const actionPlanOverviewImg &#x3D; document.querySelector(&#x27;#actionPlanOverviewImg&#x27;);
+      if (actionPlanOverviewImg) {
+        html2canvas(actionPlanOverviewImg, {scale: 1.4}).then(canvas &#x3D;&gt; {
+          if (canvas) {
+            const img &#x3D; canvas.toDataURL();
+            this.downloadURI(img, &#x27;actionPlanOverview.png&#x27;);
+          }
+        });
+      }
+    }, 500);
+  }
+
+  /**
+   * Download the risks overview as an image
+   * @private
+   * @memberof SummaryComponent
+   */
+  private getRisksOverviewImg() {
+    setTimeout(() &#x3D;&gt; {
+        const mysvg &#x3D; document.getElementById(&#x27;risksOverviewSvg&#x27;);
+        if (mysvg) {
+          saveSvgAsPng(mysvg, &#x27;risksOverview.png&#x27;, {
+            backgroundColor: &#x27;white&#x27;,
+            scale: 1.4,
+            encoderOptions: 1,
+            width: 760});
+        }
+    }, 500);
+  }
+
+  /**
+   * Download the risks cartography as an image
+   * @private
+   * @memberof SummaryComponent
+   */
+  private getRisksCartographyImg() {
+    setTimeout(() &#x3D;&gt; {
+      const risksCartographyImg &#x3D; document.querySelector(&#x27;#risksCartographyImg&#x27;);
+      if (risksCartographyImg) {
+        html2canvas(risksCartographyImg, {scale: 1.4}).then(canvas &#x3D;&gt; {
+          if (canvas) {
+            const img &#x3D; canvas.toDataURL();
+            this.downloadURI(img, &#x27;risksCartography.png&#x27;);
+          }
+        });
+      }
+    }, 500);
+  }
+
+  /**
+   * Generate a link to download the different images in the summary
+   * @private
+   * @param {uri} uri identifiant URI de l&#x27;image
+   * @param {string} name name of the image
+   * @memberof SummaryComponent
+   */
+  private downloadURI(uri, name) {
+    const link &#x3D; document.createElement(&#x27;a&#x27;);
+    link.download &#x3D; name;
+    link.href &#x3D; uri;
+    document.body.appendChild(link);
+    link.click();
+  }
+
+  /**
+   * Display or hide the main Pia data.
+   * @private
+   * @memberof SummaryComponent
+   */
+  toggleMainContent() {
+    this.displayMainPiaData &#x3D; !this.displayMainPiaData;
+  }
+
+  /**
+   * Display or hide the main Pia data.
+   * @private
+   * @memberof SummaryComponent
+   */
+  toggleContextContent() {
+    setTimeout(() &#x3D;&gt; {
+      const contextSection &#x3D; this.el.nativeElement.querySelector(&#x27;.section-1&#x27;);
+      contextSection.classList.toggle(&#x27;hide&#x27;);
+    }, 100);
+  }
+
+  /**
+   * Display or hide the main Pia data.
+   * @private
+   * @memberof SummaryComponent
+   */
+  toggleFundamentalPrinciplesContent() {
+    setTimeout(() &#x3D;&gt; {
+      const fundamentalPrinciplesSection &#x3D; this.el.nativeElement.querySelector(&#x27;.section-2&#x27;);
+      fundamentalPrinciplesSection.classList.toggle(&#x27;hide&#x27;);
+    }, 100);
+  }
+
+  /**
+   * Display or hide the main Pia data.
+   * @private
+   * @memberof SummaryComponent
+   */
+  toggleRisksContent() {
+    setTimeout(() &#x3D;&gt; {
+      const risksSection &#x3D; this.el.nativeElement.querySelector(&#x27;.section-3&#x27;);
+      risksSection.classList.toggle(&#x27;hide&#x27;);
+    }, 100);
+  }
+
+  /**
+   * Display or hide the action plan.
+   * @private
+   * @memberof SummaryComponent
+   */
+  toggleActionPlanContent() {
+    this.displayActionPlan &#x3D; !this.displayActionPlan;
+  }
+
+  /**
+   * Display or hide the risks overview for the current PIA.
+   * @private
+   * @memberof SummaryComponent
+   */
+  toggleRisksOverviewContent() {
+    this.displayRisksOverview &#x3D; !this.displayRisksOverview;
+  }
+
+  /**
+   * Display or hide the risks cartography for the current PIA.
+   * @private
+   * @memberof SummaryComponent
+   */
+  toggleRisksCartographyContent() {
+    this.displayRisksCartography &#x3D; !this.displayRisksCartography;
+  }
+
+  /**
+   * Prepare and display the PIA information
+   * @memberof SummaryComponent
+   */
+  async showPia() {
+    this.prepareHeader();
+    this._actionPlanService.data &#x3D; this.dataNav;
+    this._actionPlanService.pia &#x3D; this.pia;
+
+    this._attachmentsService.pia &#x3D; this.pia;
+    this._attachmentsService.listAttachments().then(() &#x3D;&gt; {
+      const attachmentElement &#x3D; { title: &#x27;summary.attachments&#x27;, subtitle: null, data: [] };
+      this._attachmentsService.attachments.forEach((attachment) &#x3D;&gt; {
+        attachmentElement.data.push({
+          content: attachment.name,
+          comment: attachment.comment
+        });
+      });
+      this.content.push(attachmentElement);
+    });
+
+    this.getJsonInfo();
+    this._actionPlanService.listActionPlan();
+  }
+
+  /**
+   * Prepare and display the ActionPlan information.
+   * @private
+   * @memberof SummaryComponent
+   */
+  private showActionPlan() {
+    this._actionPlanService.data &#x3D; this.dataNav;
+    this._actionPlanService.pia &#x3D; this.pia;
+    this._actionPlanService.listActionPlan();
+  }
+
+  /**
+   * Get a csv document.
+   * @protected
+   * @returns {Object}
+   * @memberof Angular2Csv
+   */
+  public async download() {
+    const options &#x3D; {
+      fieldSeparator: &#x27;;&#x27;,
+      quoteStrings: &#x27;&quot;&#x27;,
+      decimalseparator: &#x27;.&#x27;,
+      showLabels: true,
+      showTitle: false,
+      useBom: true,
+      headers: [
+        this._translateService.instant(&#x27;summary.csv_section&#x27;),
+        this._translateService.instant(&#x27;summary.csv_title_object&#x27;),
+        this._translateService.instant(&#x27;summary.csv_action_plan_comment&#x27;),
+        this._translateService.instant(&#x27;summary.csv_evaluation_comment&#x27;),
+        this._translateService.instant(&#x27;summary.csv_implement_date&#x27;),
+        this._translateService.instant(&#x27;summary.csv_people_in_charge&#x27;)
+      ]
+    }
+
+    this._actionPlanService.getCsv();
+
+    return new Angular2Csv(this._actionPlanService.csvRows,
+                           this._translateService.instant(&#x27;summary.csv_file_title&#x27;),
+                           options);
+  }
+
+  /**
+   * Get PIA information.
+   * @private
+   * @memberof SummaryComponent
+   */
+  private prepareHeader() {
+    const el &#x3D; { title: &#x27;summary.title&#x27;, data: [] };
+
+    if (this.pia.name &amp;&amp; this.pia.name.length &gt; 0) {
+      el.data.push({
+        title: &#x27;summary.pia_name&#x27;,
+        content: this.pia.name
+      });
+    }
+    if (this.pia.author_name &amp;&amp; this.pia.author_name.length &gt; 0) {
+      el.data.push({
+        title: &#x27;summary.pia_author&#x27;,
+        content: this.pia.author_name
+      });
+    }
+    if (this.pia.evaluator_name &amp;&amp; this.pia.evaluator_name.length &gt; 0) {
+      el.data.push({
+        title: &#x27;summary.pia_assessor&#x27;,
+        content: this.pia.evaluator_name
+      });
+    }
+    if (this.pia.validator_name &amp;&amp; this.pia.validator_name.length &gt; 0) {
+      el.data.push({
+        title: &#x27;summary.pia_validator&#x27;,
+        content: this.pia.validator_name
+      });
+    }
+    if (this.pia.created_at) {
+      el.data.push({
+        title: &#x27;summary.creation_date&#x27;,
+        type: &#x27;date&#x27;,
+        content: this.pia.created_at
+      });
+    }
+    if (this.pia.dpos_names &amp;&amp; this.pia.dpos_names.length &gt; 0) {
+      el.data.push({
+        title: &#x27;summary.dpo_name&#x27;,
+        content: this.pia.dpos_names
+      });
+    }
+    if (this.pia.dpo_status &amp;&amp; this.pia.dpo_status.length &gt; 0) {
+      el.data.push({
+        title: &#x27;summary.dpo_status&#x27;,
+        content: this.pia.getOpinionsStatus(this.pia.dpo_status.toString())
+      });
+    }
+    if (this.pia.dpo_opinion &amp;&amp; this.pia.dpo_opinion.length &gt; 0) {
+      el.data.push({
+        title: &#x27;summary.dpo_opinion&#x27;,
+        content: this.pia.dpo_opinion
+      });
+    }
+
+    // Searched opinion for concerned people
+    if (this.pia.concerned_people_searched_opinion &#x3D;&#x3D;&#x3D; true) {
+      el.data.push({
+        title: &#x27;summary.concerned_people_searched_opinion&#x27;,
+        content: this.pia.getPeopleSearchStatus(this.pia.concerned_people_searched_opinion)
+      });
+      if (this.pia.people_names &amp;&amp; this.pia.people_names.length &gt; 0) {
+        el.data.push({
+          title: &#x27;summary.concerned_people_name&#x27;,
+          content: this.pia.people_names
+        });
+      }
+      if (this.pia.concerned_people_status &gt;&#x3D; 0) {
+        el.data.push({
+          title: &#x27;summary.concerned_people_status&#x27;,
+          content: this.pia.getOpinionsStatus(this.pia.concerned_people_status.toString())
+        });
+      }
+      if (this.pia.concerned_people_opinion &amp;&amp; this.pia.concerned_people_opinion.length &gt; 0) {
+        el.data.push({
+          title: &#x27;summary.concerned_people_opinion&#x27;,
+          content: this.pia.concerned_people_opinion
+        });
+      }
+    }
+
+    // Unsearched opinion for concerned people
+    if (this.pia.concerned_people_searched_opinion &#x3D;&#x3D;&#x3D; false) {
+      el.data.push({
+        title: &#x27;summary.concerned_people_searched_opinion&#x27;,
+        content: this.pia.getPeopleSearchStatus(this.pia.concerned_people_searched_opinion)
+      });
+      if (this.pia.concerned_people_searched_content &amp;&amp; this.pia.concerned_people_searched_content.length &gt; 0) {
+        el.data.push({
+          title: &#x27;summary.concerned_people_unsearched_opinion_comment&#x27;,
+          content: this.pia.concerned_people_searched_content
+        });
+      }
+    }
+
+    if (this.pia.applied_adjustements &amp;&amp; this.pia.applied_adjustements.length &gt; 0) {
+      el.data.push({
+        title: &#x27;summary.modification_made&#x27;,
+        content: this.pia.applied_adjustements
+      });
+    }
+    if (this.pia.rejected_reason &amp;&amp; this.pia.rejected_reason.length &gt; 0) {
+      el.data.push({
+        title: &#x27;summary.rejection_reason&#x27;,
+        content: this.pia.rejected_reason
+      });
+    }
+
+    this.content.push(el);
+  }
+
+  /**
+   * Get information from the JSON file.
+   * @returns {Promise}
+   * @private
+   * @memberof SummaryComponent
+   */
+  private async getJsonInfo() {
+    this.allData &#x3D; {}
+    this._piaService.data.sections.forEach(async (section) &#x3D;&gt; {
+      this.allData[section.id] &#x3D; {};
+      section.items.forEach(async (item) &#x3D;&gt; {
+        this.allData[section.id][item.id] &#x3D; {}
+        const ref &#x3D; section.id.toString() + &#x27;.&#x27; + item.id.toString();
+
+        // Measure
+        if (item.is_measure) {
+          this.allData[section.id][item.id] &#x3D; []
+          const measuresModel &#x3D; new Measure();
+          measuresModel.pia_id &#x3D; this.pia.id;
+          const entries: any &#x3D; await measuresModel.findAll();
+          entries.forEach(async (measure) &#x3D;&gt; {
+            /* Completed measures */
+            if (measure.title !&#x3D;&#x3D; undefined &amp;&amp; measure.content !&#x3D;&#x3D; undefined) {
+              let evaluation &#x3D; null;
+              if (item.evaluation_mode &#x3D;&#x3D;&#x3D; &#x27;question&#x27;) {
+                evaluation &#x3D; await this.getEvaluation(section.id, item.id, ref + &#x27;.&#x27; + measure.id);
+              }
+              this.allData[section.id][item.id].push({
+                title: measure.title,
+                content: measure.content,
+                evaluation: evaluation
+              })
+            }
+          });
+        } else if (item.questions) { // Question
+          item.questions.forEach(async (question) &#x3D;&gt; {
+            this.allData[section.id][item.id][question.id] &#x3D; {}
+            const answerModel &#x3D; new Answer();
+            await answerModel.getByReferenceAndPia(this.pia.id, question.id);
+
+            /* An answer exists */
+            if (answerModel.data) {
+              const content &#x3D; [];
+              if (answerModel.data.gauge &amp;&amp; answerModel.data.gauge &gt; 0) {
+                content.push(this._translateService.instant(this.pia.getGaugeName(answerModel.data.gauge)));
+              }
+              if (answerModel.data.text &amp;&amp; answerModel.data.text.length &gt; 0) {
+                content.push(answerModel.data.text);
+              }
+              if (answerModel.data.list &amp;&amp; answerModel.data.list.length &gt; 0) {
+                content.push(answerModel.data.list.join(&#x27;, &#x27;));
+              }
+              if (content.length &gt; 0) {
+                if (item.evaluation_mode &#x3D;&#x3D;&#x3D; &#x27;question&#x27;) {
+                  const evaluation &#x3D; await this.getEvaluation(section.id, item.id, ref + &#x27;.&#x27; + question.id);
+                  this.allData[section.id][item.id][question.id].evaluation &#x3D; evaluation;
+                }
+                this.allData[section.id][item.id][question.id].content &#x3D; content.join(&#x27;, &#x27;)
+              }
+            }
+          });
+        }
+        if (item.evaluation_mode &#x3D;&#x3D;&#x3D; &#x27;item&#x27;) {
+          const evaluation &#x3D; await this.getEvaluation(section.id, item.id, ref);
+          this.allData[section.id][item.id][&#x27;evaluation_item&#x27;] &#x3D; evaluation;
+        }
+      });
+    });
+  }
+
+  /**
+   * Get an evaluation by reference.
+   * @private
+   * @param {string} section_id - The section id.
+   * @param {string} item_id - The item id.
+   * @param {string} ref - The reference.
+   * @returns {Promise}
+   * @memberof SummaryComponent
+   */
+  private async getEvaluation(section_id: string, item_id: string, ref: string) {
+    return new Promise(async (resolve, reject) &#x3D;&gt; {
+      let evaluation &#x3D; null;
+      const evaluationModel &#x3D; new Evaluation();
+      const exist &#x3D; await evaluationModel.getByReference(this.pia.id, ref);
+      if (exist) {
+        evaluation &#x3D; {
+          &#x27;title&#x27;: evaluationModel.getStatusName(),
+          &#x27;action_plan_comment&#x27;: evaluationModel.action_plan_comment,
+          &#x27;evaluation_comment&#x27;: evaluationModel.evaluation_comment,
+          &#x27;gauges&#x27;: {
+            &#x27;riskName&#x27;: { value: this._translateService.instant(&#x27;sections.&#x27; + section_id + &#x27;.items.&#x27; + item_id + &#x27;.title&#x27;) },
+            &#x27;seriousness&#x27;: evaluationModel.gauges ? evaluationModel.gauges.x : null,
+            &#x27;likelihood&#x27;: evaluationModel.gauges ? evaluationModel.gauges.y : null
+          }
+        };
+      }
+      resolve(evaluation);
+    });
+  }
+
+  /**
+   * Select all text from page.
+   * @private
+   * @memberof Angular2Csv
+   */
+  getTextSelection() {
+    const actionPlanOverview &#x3D; document.getElementById(&#x27;actionPlanOverviewImg&#x27;);
+    if (actionPlanOverview) {
+      actionPlanOverview.classList.toggle(&#x27;hide&#x27;);
+    }
+    const select &#x3D; document.getElementById(&#x27;force-select-all&#x27;);
+    select.focus();
+    const range &#x3D; document.createRange();
+    range.selectNodeContents(select);
+    const sel &#x3D; window.getSelection();
+    sel.removeAllRanges();
+    sel.addRange(range);
+    document.execCommand(&#x27;Copy&#x27;, false, range);
+    document.execCommand(&#x27;SelectText&#x27;, false , range);
+    this._modalService.openModal(&#x27;modal-select-text-pia&#x27;);
+    if (actionPlanOverview) {
+      actionPlanOverview.classList.toggle(&#x27;hide&#x27;);
+    }
+  }
+}
+
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;app-header&gt;&lt;/app-header&gt;
+&lt;main class&#x3D;&quot;container pia-summaryContainerBlock pia-mainContainerBlock&quot;&gt;
+
+  &lt;!-- Buttons --&gt;
+  &lt;div class&#x3D;&quot;pia-summaryButtonsBlock unselectable&quot;&gt;
+    &lt;a title&#x3D;&quot;{{ &#x27;summary.previous_page&#x27; | translate }}&quot; routerLink&#x3D;&quot;/entry/{{_piaService.pia.id}}/section/1/item/1&quot; class&#x3D;&quot;btn hide-for-print&quot;&gt;
+      &lt;i class&#x3D;&quot;fa fa-chevron-left&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/i&gt;
+    &lt;/a&gt;
+    &lt;button onclick&#x3D;&quot;print()&quot; class&#x3D;&quot;btn hide-for-print&quot; title&#x3D;&quot;{{ &#x27;summary.print&#x27; | translate }}&quot;&gt;
+      &lt;i class&#x3D;&quot;fa fa-print&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/i&gt;
+    &lt;/button&gt;
+    &lt;a (click)&#x3D;&quot;download()&quot; title&#x3D;&quot;{{ &#x27;summary.download_csv&#x27; | translate }}&quot; class&#x3D;&quot;btn hide-for-print&quot; title&#x3D;&quot;&quot;&gt;
+      &lt;i class&#x3D;&quot;fa fa-2x fa-file-excel-o&quot;&gt;&lt;/i&gt;
+    &lt;/a&gt;
+    &lt;button title&#x3D;&quot;{{ &#x27;summary.download_images&#x27; | translate }}&quot; class&#x3D;&quot;btn hide-for-print&quot; (click)&#x3D;&quot;downloadAllGraphsAsImages()&quot;&gt;&lt;i class&#x3D;&quot;fa fa-2x fa-file-image-o&quot;&gt;&lt;/i&gt;&lt;/button&gt;
+  &lt;/div&gt;
+
+  &lt;!-- Copy to clipboard block --&gt;
+  &lt;div class&#x3D;&quot;pia-summaryCopyBlock hide-for-print&quot;&gt;
+    &lt;button class&#x3D;&quot;btn btn-green hide-for-print&quot; (click)&#x3D;&quot;getTextSelection()&quot;&gt;{{ &#x27;summary.copy_to_clipboard&#x27; | translate }}&lt;/button&gt;
+  &lt;/div&gt;
+
+  &lt;!-- Customize content filters --&gt;
+  &lt;div class&#x3D;&quot;row&quot;&gt;
+    &lt;div class&#x3D;&quot;small-12 medium-12 columns&quot;&gt;
+      &lt;form class&#x3D;&quot;pia-summaryFiltersBlock hide-for-print&quot;&gt;
+        &lt;fieldset&gt;
+          &lt;legend class&#x3D;&quot;unselectable&quot;&gt;{{ &#x27;summary.display_filters.title&#x27; | translate }}&lt;/legend&gt;
+          &lt;div class&#x3D;&quot;databox&quot;&gt;
+            &lt;div&gt;
+              &lt;input type&#x3D;&quot;checkbox&quot; name&#x3D;&quot;displayer-pia-main-content&quot; id&#x3D;&quot;displayer-pia-main-content&quot; [checked]&#x3D;&quot;displayOnlyActionPlan ? false : true&quot; (change)&#x3D;&quot;toggleMainContent()&quot;&gt;
+              &lt;label for&#x3D;&quot;displayer-pia-main-content&quot;&gt;{{ &#x27;summary.display_filters.main_content&#x27; | translate }}&lt;/label&gt;
+            &lt;/div&gt;
+            &lt;div&gt;
+              &lt;input type&#x3D;&quot;checkbox&quot; name&#x3D;&quot;displayer-pia-section-1&quot; id&#x3D;&quot;displayer-pia-main-1&quot; [checked]&#x3D;&quot;displayOnlyActionPlan ? false : true&quot; (change)&#x3D;&quot;toggleContextContent()&quot;&gt;
+              &lt;label for&#x3D;&quot;displayer-pia-main-1&quot;&gt;{{ &#x27;summary.display_filters.context_content&#x27; | translate }}&lt;/label&gt;
+            &lt;/div&gt;
+            &lt;div&gt;
+              &lt;input type&#x3D;&quot;checkbox&quot; name&#x3D;&quot;displayer-pia-section-2&quot; id&#x3D;&quot;displayer-pia-section-2&quot; [checked]&#x3D;&quot;displayOnlyActionPlan ? false : true&quot; (change)&#x3D;&quot;toggleFundamentalPrinciplesContent()&quot;&gt;
+              &lt;label for&#x3D;&quot;displayer-pia-section-2&quot;&gt;{{ &#x27;summary.display_filters.principles_content&#x27; | translate }}&lt;/label&gt;
+            &lt;/div&gt;
+            &lt;div&gt;
+              &lt;input type&#x3D;&quot;checkbox&quot; name&#x3D;&quot;displayer-pia-section-3&quot; id&#x3D;&quot;displayer-pia-section-3&quot; [checked]&#x3D;&quot;displayOnlyActionPlan ? false : true&quot; (change)&#x3D;&quot;toggleRisksContent()&quot;&gt;
+              &lt;label for&#x3D;&quot;displayer-pia-section-3&quot;&gt;{{ &#x27;summary.display_filters.risks_content&#x27; | translate }}&lt;/label&gt;
+            &lt;/div&gt;
+            &lt;div&gt;
+              &lt;input type&#x3D;&quot;checkbox&quot; name&#x3D;&quot;displayer-pia-action-plan&quot; id&#x3D;&quot;displayer-pia-action-plan&quot; [checked]&#x3D;&quot;true&quot; (change)&#x3D;&quot;toggleActionPlanContent()&quot;&gt;
+              &lt;label for&#x3D;&quot;displayer-pia-action-plan&quot;&gt;{{ &#x27;summary.display_filters.action_plan_content&#x27; | translate }}&lt;/label&gt;
+            &lt;/div&gt;
+            &lt;div&gt;
+              &lt;input type&#x3D;&quot;checkbox&quot; name&#x3D;&quot;displayer-pia-risks-overview&quot; id&#x3D;&quot;displayer-pia-risks-overview&quot; [checked]&#x3D;&quot;displayRisksOverview ? true : false&quot; (change)&#x3D;&quot;toggleRisksOverviewContent()&quot;&gt;
+              &lt;label for&#x3D;&quot;displayer-pia-risks-overview&quot;&gt;{{ &#x27;summary.display_filters.risks_overview_content&#x27; | translate }}&lt;/label&gt;
+            &lt;/div&gt;
+            &lt;div&gt;
+              &lt;input type&#x3D;&quot;checkbox&quot; name&#x3D;&quot;displayer-pia-risks-cartography&quot; id&#x3D;&quot;displayer-risks-cartography&quot; [checked]&#x3D;&quot;displayRisksCartography ? true : false&quot; (change)&#x3D;&quot;toggleRisksCartographyContent()&quot;&gt;
+              &lt;label for&#x3D;&quot;displayer-risks-cartography&quot;&gt;{{ &#x27;summary.display_filters.risks_cartography_content&#x27; | translate }}&lt;/label&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/fieldset&gt;
+      &lt;/form&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class&#x3D;&quot;row&quot; id&#x3D;&quot;force-select-all&quot;&gt;
+    &lt;div class&#x3D;&quot;small-12 medium-12 columns&quot;&gt;
+      &lt;div *ngIf&#x3D;&quot;allData&quot; ng-class&#x3D;&quot;{&#x27;text-success&#x27;: model.copied, &#x27;text-danger&#x27;: !model.copied}&quot; ng-copy&#x3D;&quot;events.onCopy($event)&quot;&gt;
+
+        &lt;!-- Main PIA data --&gt;
+        &lt;div class&#x3D;&quot;fadeIn&quot; *ngIf&#x3D;&quot;displayMainPiaData&quot;&gt;
+          &lt;div *ngFor&#x3D;&quot;let c of content&quot;&gt;
+            &lt;div *ngIf&#x3D;&quot;c.data.length &gt; 0&quot;&gt;
+              &lt;h1&gt;{{ c.title | translate }}&lt;/h1&gt;
+              &lt;h2 *ngIf&#x3D;&quot;c.subtitle&quot;&gt;{{ c.subtitle | translate }}&lt;/h2&gt;
+              &lt;div class&#x3D;&quot;databox&quot; *ngFor&#x3D;&quot;let d of c.data&quot;&gt;
+                &lt;h3 id&#x3D;&quot;select&quot;&gt;{{ d.title | translate }}&lt;/h3&gt;
+                &lt;div style&#x3D;&quot;font-weight:500;&quot; [ngClass]&#x3D;&quot;{ &#x27;pia-attachment-removed&#x27;: d.comment &amp;&amp; d.comment.length &gt; 0 }&quot; *ngIf&#x3D;&quot;d.type !&#x3D;&#x3D; &#x27;date&#x27;; else dateBlock&quot; [innerHTML]&#x3D;&quot;d.content | translate | safeHtml&quot;&gt;&lt;/div&gt;
+                &lt;div *ngIf&#x3D;&quot;d.type !&#x3D;&#x3D; &#x27;date&#x27; &amp;&amp; d.comment &amp;&amp; d.comment.length &gt; 0&quot; [innerHTML]&#x3D;&quot;d.comment | nl2br | safeHtml&quot;&gt;&lt;/div&gt;
+                &lt;ng-template #dateBlock&gt;
+                  &lt;time style&#x3D;&quot;font-weight:500;&quot; *ngIf&#x3D;&quot;d.content.toString() !&#x3D;&#x3D; &#x27;Invalid Date&#x27;&quot;&gt;{{ d.content | date: &#x27;dd/MM/yyyy&#x27; }}&lt;/time&gt;
+                &lt;/ng-template&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div *ngFor&#x3D;&quot;let section of _piaService.data.sections&quot;&gt;
+          &lt;div class&#x3D;&quot;fadeIn section-{{section.id}} pagebreak&quot; *ngIf&#x3D;&quot;section.id !&#x3D;&#x3D; 4&quot;&gt;
+            &lt;h1 &gt;{{ section.title | translate }}&lt;/h1&gt;
+            &lt;div *ngFor&#x3D;&quot;let item of section.items&quot;&gt;
+              &lt;div *ngIf&#x3D;&quot;item.evaluation_mode !&#x3D;&#x3D; &#x27;&#x27;&quot;&gt;
+                &lt;h2&gt;{{ item.title | translate }}&lt;/h2&gt;
+                &lt;div class&#x3D;&quot;databox&quot;&gt;
+
+                  &lt;!-- Measures --&gt;
+                  &lt;div *ngIf&#x3D;&quot;item.is_measure&quot;&gt;
+                    &lt;div *ngFor&#x3D;&quot;let measure of allData[section.id][item.id]&quot;&gt;
+                      &lt;h3 [innerHTML]&#x3D;&quot;measure.title&quot;&gt;&lt;/h3&gt;
+                      &lt;div [innerHTML]&#x3D;&quot;measure.content | translate | safeHtml&quot;&gt;&lt;/div&gt;
+                      &lt;br&gt;
+                      &lt;!-- Measures&#x27; evaluations --&gt;
+                      &lt;div class&#x3D;&quot;evaluationbox&quot; *ngIf&#x3D;&quot;measure.evaluation&quot;&gt;
+                        &lt;p&gt;
+                          &lt;strong class&#x3D;&quot;evaluationValue&quot;&gt;{{ &#x27;evaluations.title&#x27; | translate }} : {{ measure.evaluation.title | translate }}&lt;/strong&gt;
+                          &lt;br&gt;
+                          &lt;span *ngIf&#x3D;&quot;measure.evaluation.action_plan_comment&quot;&gt;
+                            &lt;strong&gt;{{ &#x27;evaluations.action_plan_comment&#x27; | translate }} :&lt;br&gt;&lt;/strong&gt;&lt;span style&#x3D;&quot;font-weight:400;&quot; [innerHTML]&#x3D;&quot;measure.evaluation.action_plan_comment | safeHtml&quot;&gt;&lt;/span&gt;
+                            &lt;br&gt;
+                          &lt;/span&gt;
+                          &lt;span *ngIf&#x3D;&quot;measure.evaluation.evaluation_comment&quot;&gt;
+                            &lt;strong&gt;{{ &#x27;evaluations.evaluation_comment&#x27; | translate }} :&lt;br&gt;&lt;/strong&gt;&lt;span style&#x3D;&quot;font-weight:400;&quot; [innerHTML]&#x3D;&quot;measure.evaluation.evaluation_comment | safeHtml&quot;&gt;&lt;/span&gt;
+                            &lt;br&gt;
+                          &lt;/span&gt;
+                        &lt;/p&gt;
+                      &lt;/div&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+
+                  &lt;!-- Questions --&gt;
+                  &lt;div *ngIf&#x3D;&quot;item.questions&quot;&gt;
+                    &lt;div *ngFor&#x3D;&quot;let question of item.questions&quot;&gt;
+                      &lt;h3 [innerHTML]&#x3D;&quot;question.title | translate&quot;&gt;&lt;/h3&gt;
+                      &lt;div *ngIf&#x3D;&quot;allData[section.id][item.id][question.id].content &amp;&amp; allData[section.id][item.id][question.id].content.length &gt; 0&quot; [innerHTML]&#x3D;&quot;allData[section.id][item.id][question.id].content | translate | safeHtml&quot;&gt;&lt;/div&gt;
+                      &lt;div class&#x3D;&quot;evaluationbox&quot; *ngIf&#x3D;&quot;allData[section.id][item.id][question.id].evaluation&quot;&gt;
+                        &lt;br&gt;
+                        &lt;p&gt;
+                          &lt;strong class&#x3D;&quot;evaluationValue&quot;&gt;{{ &#x27;evaluations.title&#x27; | translate }} : {{ allData[section.id][item.id][question.id].evaluation.title | translate }}&lt;/strong&gt;
+                          &lt;br&gt;
+                          &lt;span *ngIf&#x3D;&quot;allData[section.id][item.id][question.id].evaluation.action_plan_comment&quot;&gt;
+                            &lt;strong&gt;{{ &#x27;evaluations.action_plan_comment&#x27; | translate }} :&lt;br&gt;&lt;/strong&gt;&lt;span [innerHTML]&#x3D;&quot;allData[section.id][item.id][question.id].evaluation.action_plan_comment | safeHtml&quot;&gt;&lt;/span&gt;
+                            &lt;br&gt;
+                          &lt;/span&gt;
+                          &lt;span *ngIf&#x3D;&quot;allData[section.id][item.id][question.id].evaluation.evaluation_comment&quot;&gt;
+                            &lt;strong&gt;{{ &#x27;evaluations.evaluation_comment&#x27; | translate }} :&lt;br&gt;&lt;/strong&gt;&lt;span [innerHTML]&#x3D;&quot;allData[section.id][item.id][question.id].evaluation.evaluation_comment | safeHtml&quot;&gt;&lt;/span&gt;
+                            &lt;br&gt;
+                          &lt;/span&gt;
+
+                          &lt;!-- Gauges&#x27; values --&gt;
+                          &lt;span *ngIf&#x3D;&quot;allData[section.id][item.id][question.id].evaluation.gauges &amp;&amp; allData[section.id][item.id][question.id].evaluation.gauges.seriousness &gt; 0&quot;&gt;
+                            &lt;span [innerHTML]&#x3D;&quot;&#x27;evaluations.gauges.seriousness&#x27; | translate:allData[section.id][item.id][question.id].evaluation.gauges.riskName&quot;&gt;&lt;/span&gt;
+                            {{ &#x27;evaluations.gauges.&#x27; + allData[section.id][item.id][question.id].evaluation.gauges.seriousness | translate }}
+                            &lt;br&gt;
+                          &lt;/span&gt;
+                          &lt;span *ngIf&#x3D;&quot;allData[section.id][item.id][question.id].evaluation.gauges &amp;&amp; allData[section.id][item.id][question.id].evaluation.gauges.likelihood &gt; 0&quot;&gt;
+                            &lt;span [innerHTML]&#x3D;&quot;&#x27;evaluations.gauges.likelihood&#x27; | translate:allData[section.id][item.id][question.id].evaluation.gauges.riskName&quot;&gt;&lt;/span&gt;
+                            {{ &#x27;evaluations.gauges.&#x27; + allData[section.id][item.id][question.id].evaluation.gauges.likelihood | translate }}
+                          &lt;/span&gt;
+                        &lt;/p&gt;
+                      &lt;/div&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+
+                  &lt;!-- Evaluations --&gt;
+                  &lt;div class&#x3D;&quot;evaluationbox&quot; *ngIf&#x3D;&quot;allData[section.id][item.id][&#x27;evaluation_item&#x27;]&quot;&gt;
+                    &lt;br&gt;
+                    &lt;p&gt;
+                      &lt;strong class&#x3D;&quot;evaluationValue&quot;&gt;{{ &#x27;evaluations.title&#x27; | translate }} : {{ allData[section.id][item.id][&#x27;evaluation_item&#x27;].title | translate }}&lt;/strong&gt;
+                      &lt;br&gt;
+                      &lt;span *ngIf&#x3D;&quot;allData[section.id][item.id][&#x27;evaluation_item&#x27;].action_plan_comment&quot;&gt;
+                        &lt;strong&gt;{{ &#x27;evaluations.action_plan_comment&#x27; | translate }} :&lt;br&gt;&lt;/strong&gt;&lt;span [innerHTML]&#x3D;&quot;allData[section.id][item.id][&#x27;evaluation_item&#x27;].action_plan_comment | safeHtml&quot;&gt;&lt;/span&gt;
+                        &lt;br&gt;
+                      &lt;/span&gt;
+                      &lt;span *ngIf&#x3D;&quot;allData[section.id][item.id][&#x27;evaluation_item&#x27;].evaluation_comment&quot;&gt;
+                        &lt;strong&gt;{{ &#x27;evaluations.evaluation_comment&#x27; | translate }} :&lt;br&gt;&lt;/strong&gt;&lt;span [innerHTML]&#x3D;&quot;allData[section.id][item.id][&#x27;evaluation_item&#x27;].evaluation_comment | safeHtml&quot;&gt;&lt;/span&gt;
+                        &lt;br&gt;
+                      &lt;/span&gt;
+                      &lt;span *ngIf&#x3D;&quot;allData[section.id][item.id][&#x27;evaluation_item&#x27;].gauges &amp;&amp; allData[section.id][item.id][&#x27;evaluation_item&#x27;].gauges.seriousness &gt; 0&quot;&gt;
+                        &lt;span [innerHTML]&#x3D;&quot;&#x27;evaluations.gauges.seriousness&#x27; | translate:allData[section.id][item.id][&#x27;evaluation_item&#x27;].gauges.riskName&quot;&gt;&lt;/span&gt;
+                        {{ &#x27;evaluations.gauges.&#x27; + allData[section.id][item.id][&#x27;evaluation_item&#x27;].gauges.seriousness | translate }}
+                        &lt;br&gt;
+                      &lt;/span&gt;
+                      &lt;span *ngIf&#x3D;&quot;allData[section.id][item.id][&#x27;evaluation_item&#x27;].gauges &amp;&amp; allData[section.id][item.id][&#x27;evaluation_item&#x27;].gauges.likelihood &gt; 0&quot;&gt;
+                        &lt;span [innerHTML]&#x3D;&quot;&#x27;evaluations.gauges.likelihood&#x27; | translate:allData[section.id][item.id][&#x27;evaluation_item&#x27;].gauges.riskName&quot;&gt;&lt;/span&gt;
+                        {{ &#x27;evaluations.gauges.&#x27; + allData[section.id][item.id][&#x27;evaluation_item&#x27;].gauges.likelihood | translate }}
+                      &lt;/span&gt;
+                    &lt;/p&gt;
+                  &lt;/div&gt;
+
+                &lt;/div&gt;
+
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;!-- Action plan summary --&gt;
+      &lt;div class&#x3D;&quot;fadeIn pagebreak&quot; *ngIf&#x3D;&quot;displayActionPlan&quot;&gt;
+        &lt;div&gt;
+          &lt;h1&gt;{{ &#x27;summary.action_plan.title&#x27; | translate }}&lt;/h1&gt;
+
+          &lt;!-- Action plan graph --&gt;
+          &lt;div class&#x3D;&quot;pia-entryContentBlock-content pia-actionPlanGraphBlock unselectable&quot; id&#x3D;&quot;actionPlanOverviewImg&quot;&gt;
+            &lt;h2&gt;{{ &#x27;action_plan.title&#x27; | translate }}&lt;/h2&gt;
+            &lt;div class&#x3D;&quot;row&quot;&gt;
+              &lt;div class&#x3D;&quot;medium-6 columns pia-actionPlanGraphBlock-left&quot;&gt;
+                &lt;h3&gt;{{ &#x27;action_plan.principles&#x27; | translate }}&lt;/h3&gt;
+                &lt;div class&#x3D;&quot;pia-actionPlanGraphBlock-item&quot; *ngFor&#x3D;&quot;let r of _actionPlanService.results&quot;&gt;
+                  &lt;span class&#x3D;&quot;pia-list&quot;&gt;{{ r.short_title | translate }}&lt;/span&gt;
+                  &lt;span class&#x3D;&quot;pia-box&quot; [ngClass]&#x3D;&quot;{&#x27;pia-blue&#x27;: r.status &#x3D;&#x3D;&#x3D; 2, &#x27;pia-red&#x27;: r.status &#x3D;&#x3D;&#x3D; 1}&quot;&gt;&lt;/span&gt;
+                  &lt;span class&#x3D;&quot;pia-box&quot; [ngClass]&#x3D;&quot;{&#x27;pia-green&#x27;: r.status &#x3D;&#x3D;&#x3D; 3, &#x27;pia-red&#x27;: r.status &#x3D;&#x3D;&#x3D; 1}&quot;&gt;&lt;/span&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+              &lt;div class&#x3D;&quot;medium-6 columns pia-actionPlanGraphBlock-right&quot;&gt;
+                &lt;h3&gt;{{ &#x27;action_plan.measures&#x27; | translate }}&lt;/h3&gt;
+                &lt;div class&#x3D;&quot;pia-actionPlanGraphBlock-right-measures summaryMode&quot;&gt;
+                  &lt;div class&#x3D;&quot;pia-actionPlanGraphBlock-right-measures-scroll summaryMode&quot; *ngIf&#x3D;&quot;_actionPlanService.measures&quot;&gt;
+                    &lt;div *ngFor&#x3D;&quot;let measure of _actionPlanService.measures&quot; class&#x3D;&quot;pia-actionPlanGraphBlock-item&quot;&gt;
+                      &lt;span class&#x3D;&quot;pia-box&quot; [ngClass]&#x3D;&quot;{&#x27;pia-blue&#x27;: measure.status &#x3D;&#x3D;&#x3D; 2, &#x27;pia-red&#x27;: measure.status &#x3D;&#x3D;&#x3D; 1}&quot;&gt;&lt;/span&gt;
+                      &lt;span class&#x3D;&quot;pia-box&quot; [ngClass]&#x3D;&quot;{&#x27;pia-green&#x27;: measure.status &#x3D;&#x3D;&#x3D; 3, &#x27;pia-red&#x27;: measure.status &#x3D;&#x3D;&#x3D; 1}&quot;&gt;&lt;/span&gt;
+                      &lt;span class&#x3D;&quot;pia-list&quot;&gt;{{ measure.name }}&lt;/span&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;h3&gt;{{ &#x27;action_plan.risks&#x27; | translate }}&lt;/h3&gt;
+                &lt;div class&#x3D;&quot;pia-actionPlanGraphBlock-item&quot;&gt;
+                  &lt;span class&#x3D;&quot;pia-box&quot; [ngClass]&#x3D;&quot;{&#x27;pia-blue&#x27;: _actionPlanService.risks[&#x27;3.2&#x27;] &amp;&amp; _actionPlanService.risks[&#x27;3.2&#x27;][&#x27;status&#x27;] &#x3D;&#x3D;&#x3D; 2, &#x27;pia-red&#x27;: _actionPlanService.risks[&#x27;3.2&#x27;] &amp;&amp; _actionPlanService.risks[&#x27;3.2&#x27;][&#x27;status&#x27;] &#x3D;&#x3D;&#x3D; 1}&quot;&gt;&lt;/span&gt;
+                  &lt;span class&#x3D;&quot;pia-box&quot; [ngClass]&#x3D;&quot;{&#x27;pia-green&#x27;: _actionPlanService.risks[&#x27;3.2&#x27;] &amp;&amp; _actionPlanService.risks[&#x27;3.2&#x27;][&#x27;status&#x27;] &#x3D;&#x3D;&#x3D; 3, &#x27;pia-red&#x27;: _actionPlanService.risks[&#x27;3.2&#x27;] &amp;&amp; _actionPlanService.risks[&#x27;3.2&#x27;][&#x27;status&#x27;] &#x3D;&#x3D;&#x3D; 1}&quot;&gt;&lt;/span&gt;
+                  &lt;span class&#x3D;&quot;pia-list&quot;&gt;{{ &#x27;action_plan.risk1&#x27; | translate }}&lt;/span&gt;
+                &lt;/div&gt;
+                &lt;div class&#x3D;&quot;pia-actionPlanGraphBlock-item&quot;&gt;
+                  &lt;span class&#x3D;&quot;pia-box&quot; [ngClass]&#x3D;&quot;{&#x27;pia-blue&#x27;: _actionPlanService.risks[&#x27;3.3&#x27;] &amp;&amp; _actionPlanService.risks[&#x27;3.3&#x27;][&#x27;status&#x27;] &#x3D;&#x3D;&#x3D; 2, &#x27;pia-red&#x27;: _actionPlanService.risks[&#x27;3.3&#x27;] &amp;&amp; _actionPlanService.risks[&#x27;3.3&#x27;][&#x27;status&#x27;] &#x3D;&#x3D;&#x3D; 1}&quot;&gt;&lt;/span&gt;
+                  &lt;span class&#x3D;&quot;pia-box&quot; [ngClass]&#x3D;&quot;{&#x27;pia-green&#x27;: _actionPlanService.risks[&#x27;3.3&#x27;] &amp;&amp; _actionPlanService.risks[&#x27;3.3&#x27;][&#x27;status&#x27;] &#x3D;&#x3D;&#x3D; 3, &#x27;pia-red&#x27;: _actionPlanService.risks[&#x27;3.3&#x27;] &amp;&amp; _actionPlanService.risks[&#x27;3.3&#x27;][&#x27;status&#x27;] &#x3D;&#x3D;&#x3D; 1}&quot;&gt;&lt;/span&gt;
+                  &lt;span class&#x3D;&quot;pia-list&quot;&gt;{{ &#x27;action_plan.risk2&#x27; | translate }}&lt;/span&gt;
+                &lt;/div&gt;
+                &lt;div class&#x3D;&quot;pia-actionPlanGraphBlock-item&quot;&gt;
+                  &lt;span class&#x3D;&quot;pia-box&quot; [ngClass]&#x3D;&quot;{&#x27;pia-blue&#x27;: _actionPlanService.risks[&#x27;3.4&#x27;] &amp;&amp; _actionPlanService.risks[&#x27;3.4&#x27;][&#x27;status&#x27;] &#x3D;&#x3D;&#x3D; 2, &#x27;pia-red&#x27;: _actionPlanService.risks[&#x27;3.4&#x27;] &amp;&amp; _actionPlanService.risks[&#x27;3.4&#x27;][&#x27;status&#x27;] &#x3D;&#x3D;&#x3D; 1}&quot;&gt;&lt;/span&gt;
+                  &lt;span class&#x3D;&quot;pia-box&quot; [ngClass]&#x3D;&quot;{&#x27;pia-green&#x27;: _actionPlanService.risks[&#x27;3.4&#x27;] &amp;&amp; _actionPlanService.risks[&#x27;3.4&#x27;][&#x27;status&#x27;] &#x3D;&#x3D;&#x3D; 3, &#x27;pia-red&#x27;: _actionPlanService.risks[&#x27;3.4&#x27;] &amp;&amp; _actionPlanService.risks[&#x27;3.4&#x27;][&#x27;status&#x27;] &#x3D;&#x3D;&#x3D; 1}&quot;&gt;&lt;/span&gt;
+                  &lt;span class&#x3D;&quot;pia-list&quot;&gt;{{ &#x27;action_plan.risk3&#x27; | translate }}&lt;/span&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+              &lt;div class&#x3D;&quot;pia-legend&quot;&gt;
+                &lt;p&gt;{{ &#x27;action_plan.improvable_measures&#x27; | translate }}&lt;/p&gt;
+                &lt;p&gt;{{ &#x27;action_plan.acceptable_measures&#x27; | translate }}&lt;/p&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+
+          &lt;!-- Action plan for fundamental principles --&gt;
+          &lt;div class&#x3D;&quot;pagebreak&quot;&gt;
+            &lt;h2&gt;{{ &#x27;summary.action_plan.fundamental_principles&#x27; | translate }}&lt;/h2&gt;
+            &lt;ng-container *ngIf&#x3D;&quot;_actionPlanService.principlesActionPlanReady; else noFundamentalPrinciples&quot;&gt;
+              &lt;div class&#x3D;&quot;actionplanbox&quot;&gt;
+                &lt;div *ngFor&#x3D;&quot;let entry of _actionPlanService.results&quot;&gt;
+                  &lt;div style&#x3D;&quot;border:0.5px dotted #A7A7A7;padding:6px;margin:10px 0;&quot; *ngIf&#x3D;&quot;entry.action_plan_comment &amp;&amp; entry.action_plan_comment.length &gt; 0&quot;&gt;
+                    &lt;h3 style&#x3D;&quot;margin-bottom:2px;&quot;&gt;{{ entry.short_title | translate }}&lt;/h3&gt;
+                    &lt;div&gt;
+                      &lt;strong&gt;{{ &#x27;evaluations.action_plan_comment&#x27; | translate }} :&lt;br&gt;&lt;/strong&gt;
+                      &lt;span [innerHTML]&#x3D;&quot;entry.action_plan_comment | translate | safeHtml&quot;&gt;&lt;/span&gt;
+                    &lt;/div&gt;
+                    &lt;div *ngIf&#x3D;&quot;entry.evaluation_comment &amp;&amp; entry.evaluation_comment.length &gt; 0&quot;&gt;
+                      &lt;strong&gt;{{ &#x27;evaluations.evaluation_comment&#x27; | translate }} :&lt;br&gt;&lt;/strong&gt;
+                      &lt;span [innerHTML]&#x3D;&quot;entry.evaluation_comment | safeHtml&quot;&gt;&lt;/span&gt;
+                    &lt;/div&gt;
+                    &lt;div *ngIf&#x3D;&quot;entry.evaluation &amp;&amp; entry.evaluation.estimated_implementation_date &amp;&amp; entry.evaluation.estimated_implementation_date .toString() !&#x3D;&#x3D; &#x27;Invalid Date&#x27;&quot;&gt;
+                      &lt;strong&gt;{{ &#x27;summary.action_plan.implementation_date&#x27; | translate }} : &lt;/strong&gt;
+                      &lt;time&gt;{{ entry.evaluation.estimated_implementation_date | date: &#x27;dd/MM/yyyy&#x27; }}&lt;/time&gt;
+                    &lt;/div&gt;
+                    &lt;div *ngIf&#x3D;&quot;entry.evaluation &amp;&amp; entry.evaluation.person_in_charge&quot;&gt;
+                      &lt;strong&gt;{{ &#x27;summary.action_plan.implementation_responsible&#x27; | translate }} : &lt;/strong&gt;
+                      {{ entry.evaluation.person_in_charge }}
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+            &lt;/ng-container&gt;
+            &lt;ng-template #noFundamentalPrinciples&gt;
+              &lt;div class&#x3D;&quot;actionplanbox&quot;&gt;
+                {{ &#x27;summary.action_plan.no_action_plan&#x27; |  translate }}
+              &lt;/div&gt;
+            &lt;/ng-template&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;!-- Action plan for measures --&gt;
+        &lt;div class&#x3D;&quot;pagebreak&quot;&gt;
+          &lt;h2&gt;{{ &#x27;summary.action_plan.measures&#x27; | translate }}&lt;/h2&gt;
+          &lt;ng-container *ngIf&#x3D;&quot;_actionPlanService.measuresActionPlanReady; else noMeasures&quot;&gt;
+            &lt;div class&#x3D;&quot;actionplanbox&quot;&gt;
+              &lt;div *ngFor&#x3D;&quot;let entry of _actionPlanService.measures&quot;&gt;
+                &lt;div style&#x3D;&quot;border:0.5px dotted #A7A7A7;padding:6px;margin:10px 0;&quot; *ngIf&#x3D;&quot;entry.action_plan_comment &amp;&amp; entry.action_plan_comment.length &gt; 0&quot;&gt;
+                  &lt;h3 style&#x3D;&quot;margin-bottom:2px;&quot;&gt;{{ entry.short_title | translate }}&lt;/h3&gt;
+                  &lt;div&gt;
+                    &lt;strong&gt;{{ &#x27;evaluations.action_plan_comment&#x27; | translate }} :&lt;br&gt;&lt;/strong&gt;
+                    &lt;span [innerHTML]&#x3D;&quot;entry.action_plan_comment | translate | safeHtml&quot;&gt;&lt;/span&gt;
+                  &lt;/div&gt;
+                  &lt;div *ngIf&#x3D;&quot;entry.evaluation_comment &amp;&amp; entry.evaluation_comment.length &gt; 0&quot;&gt;
+                    &lt;strong&gt;{{ &#x27;evaluations.evaluation_comment&#x27; | translate }} :&lt;br&gt;&lt;/strong&gt;
+                    &lt;span [innerHTML]&#x3D;&quot;entry.evaluation_comment | safeHtml&quot;&gt;&lt;/span&gt;
+                  &lt;/div&gt;
+                  &lt;div *ngIf&#x3D;&quot;entry.evaluation &amp;&amp; entry.evaluation.estimated_implementation_date &amp;&amp; entry.evaluation.estimated_implementation_date.toString() !&#x3D;&#x3D; &#x27;Invalid Date&#x27;&quot;&gt;
+                    &lt;strong&gt;{{ &#x27;summary.action_plan.implementation_date&#x27; | translate }} : &lt;/strong&gt;
+                    &lt;time&gt;{{ entry.evaluation.estimated_implementation_date | date: &#x27;dd/MM/yyyy&#x27; }}&lt;/time&gt;
+                  &lt;/div&gt;
+                  &lt;div *ngIf&#x3D;&quot;entry.evaluation &amp;&amp; entry.evaluation.person_in_charge&quot;&gt;
+                    &lt;strong&gt;{{ &#x27;summary.action_plan.implementation_responsible&#x27; | translate }} : &lt;/strong&gt;
+                    {{ entry.evaluation.person_in_charge }}
+                  &lt;/div&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/ng-container&gt;
+          &lt;ng-template #noMeasures&gt;
+            &lt;div class&#x3D;&quot;actionplanbox&quot;&gt;
+              {{ &#x27;summary.action_plan.no_action_plan&#x27; |  translate }}
+            &lt;/div&gt;
+          &lt;/ng-template&gt;
+        &lt;/div&gt;
+
+        &lt;!-- Action plan for risks --&gt;
+        &lt;div class&#x3D;&quot;pagebreak&quot;&gt;
+          &lt;!-- Risk 1 --&gt;
+          &lt;div *ngIf&#x3D;&quot;_actionPlanService.risksActionPlan32Ready&quot;&gt;
+            &lt;h2 style&#x3D;&quot;margin-bottom:2px;&quot;&gt;{{ &#x27;summary.action_plan.risks&#x27; | translate }} - {{ _actionPlanService.risks[&#x27;3.2&#x27;].short_title | translate }}&lt;/h2&gt;
+            &lt;div class&#x3D;&quot;actionplanbox&quot;&gt;
+              &lt;strong&gt;{{ &#x27;evaluations.action_plan_comment&#x27; | translate }} : &lt;/strong&gt;
+              &lt;div [innerHTML]&#x3D;&quot;_actionPlanService.risks[&#x27;3.2&#x27;].action_plan_comment | translate | safeHtml&quot;&gt;&lt;/div&gt;
+              &lt;div *ngIf&#x3D;&quot;_actionPlanService.risks[&#x27;3.2&#x27;].evaluation_comment &amp;&amp; _actionPlanService.risks[&#x27;3.2&#x27;].evaluation_comment.length &gt; 0&quot;&gt;
+                &lt;strong&gt;{{ &#x27;evaluations.evaluation_comment&#x27; | translate }} :&lt;br&gt;&lt;/strong&gt;
+                &lt;span [innerHTML]&#x3D;&quot;_actionPlanService.risks[&#x27;3.2&#x27;].evaluation_comment | safeHtml&quot;&gt;&lt;/span&gt;
+              &lt;/div&gt;
+
+              &lt;!-- Estimated implementation date &amp; implementation responsible --&gt;
+              &lt;div class&#x3D;&quot;estimated-implementation-date&quot; *ngIf&#x3D;&quot;_actionPlanService.risks[&#x27;3.2&#x27;].evaluation &amp;&amp; _actionPlanService.risks[&#x27;3.2&#x27;].evaluation.estimated_implementation_date &amp;&amp; _actionPlanService.risks[&#x27;3.2&#x27;].evaluation.estimated_implementation_date.toString() !&#x3D;&#x3D; &#x27;Invalid Date&#x27;&quot;&gt;
+                &lt;strong&gt;{{ &#x27;summary.action_plan.implementation_date&#x27; | translate }} : &lt;/strong&gt;
+                &lt;time&gt;{{ _actionPlanService.risks[&#x27;3.2&#x27;].evaluation.estimated_implementation_date | date: &#x27;dd/MM/yyyy&#x27; }}&lt;/time&gt;
+              &lt;/div&gt;
+              &lt;div class&#x3D;&quot;implementation-responsible&quot; *ngIf&#x3D;&quot;_actionPlanService.risks[&#x27;3.2&#x27;].evaluation &amp;&amp; _actionPlanService.risks[&#x27;3.2&#x27;].evaluation.person_in_charge &amp;&amp; _actionPlanService.risks[&#x27;3.2&#x27;].evaluation.person_in_charge.length &gt; 0&quot;&gt;
+                &lt;strong&gt;{{ &#x27;summary.action_plan.implementation_responsible&#x27; | translate }} : &lt;/strong&gt;
+                {{ _actionPlanService.risks[&#x27;3.2&#x27;].evaluation.person_in_charge }}
+              &lt;/div&gt;
+
+              &lt;!-- Reviewer gauges --&gt;
+              &lt;span *ngIf&#x3D;&quot;_actionPlanService.risks[&#x27;3.2&#x27;].evaluation.gauges &amp;&amp; _actionPlanService.risks[&#x27;3.2&#x27;].evaluation.gauges.x &gt; 0&quot;&gt;
+                &lt;span [innerHTML]&#x3D;&quot;&#x27;evaluations.gauges.seriousness&#x27; | translate:{value: _actionPlanService.risks[&#x27;3.2&#x27;].short_title}&quot;&gt;&lt;/span&gt;
+                &lt;strong&gt;{{ &#x27;evaluations.gauges.&#x27; + _actionPlanService.risks[&#x27;3.2&#x27;].evaluation.gauges.x | translate }}&lt;/strong&gt;
+                &lt;br&gt;
+              &lt;/span&gt;
+              &lt;span *ngIf&#x3D;&quot;_actionPlanService.risks[&#x27;3.2&#x27;].evaluation.gauges &amp;&amp; _actionPlanService.risks[&#x27;3.2&#x27;].evaluation.gauges.y &gt; 0&quot;&gt;
+                &lt;span [innerHTML]&#x3D;&quot;&#x27;evaluations.gauges.likelihood&#x27; | translate:{value: _actionPlanService.risks[&#x27;3.2&#x27;].short_title}&quot;&gt;&lt;/span&gt;
+                &lt;strong&gt;{{ &#x27;evaluations.gauges.&#x27; + _actionPlanService.risks[&#x27;3.2&#x27;].evaluation.gauges.y | translate }}&lt;/strong&gt;
+              &lt;/span&gt;
+
+            &lt;/div&gt;
+          &lt;/div&gt;
+
+          &lt;!-- Risk 2 --&gt;
+          &lt;div *ngIf&#x3D;&quot;_actionPlanService.risksActionPlan33Ready&quot;&gt;
+            &lt;h2 style&#x3D;&quot;margin-bottom:2px;&quot;&gt;{{ &#x27;summary.action_plan.risks&#x27; | translate }} - {{ _actionPlanService.risks[&#x27;3.3&#x27;].short_title | translate }}&lt;/h2&gt;
+            &lt;div class&#x3D;&quot;actionplanbox&quot;&gt;
+              &lt;strong&gt;{{ &#x27;evaluations.action_plan_comment&#x27; | translate }} : &lt;/strong&gt;
+              &lt;div [innerHTML]&#x3D;&quot;_actionPlanService.risks[&#x27;3.3&#x27;].action_plan_comment | translate | safeHtml&quot;&gt;&lt;/div&gt;
+              &lt;div *ngIf&#x3D;&quot;_actionPlanService.risks[&#x27;3.3&#x27;].evaluation_comment &amp;&amp; _actionPlanService.risks[&#x27;3.3&#x27;].evaluation_comment.length &gt; 0&quot;&gt;
+                &lt;strong&gt;{{ &#x27;evaluations.evaluation_comment&#x27; | translate }} :&lt;br&gt;&lt;/strong&gt;
+                &lt;span [innerHTML]&#x3D;&quot;_actionPlanService.risks[&#x27;3.3&#x27;].evaluation_comment | safeHtml&quot;&gt;&lt;/span&gt;
+              &lt;/div&gt;
+
+              &lt;!-- Estimated implementation date &amp; implementation responsible --&gt;
+              &lt;div class&#x3D;&quot;estimated-implementation-date&quot; *ngIf&#x3D;&quot;_actionPlanService.risks[&#x27;3.3&#x27;].evaluation &amp;&amp; _actionPlanService.risks[&#x27;3.3&#x27;].evaluation.estimated_implementation_date &amp;&amp; _actionPlanService.risks[&#x27;3.3&#x27;].evaluation.estimated_implementation_date.toString() !&#x3D;&#x3D; &#x27;Invalid Date&#x27;&quot;&gt;
+                &lt;strong&gt;{{ &#x27;summary.action_plan.implementation_date&#x27; | translate }} : &lt;/strong&gt;
+                &lt;time&gt;{{ _actionPlanService.risks[&#x27;3.3&#x27;].evaluation.estimated_implementation_date | date: &#x27;dd/MM/yyyy&#x27; }}&lt;/time&gt;
+              &lt;/div&gt;
+              &lt;div class&#x3D;&quot;implementation-responsible&quot; *ngIf&#x3D;&quot;_actionPlanService.risks[&#x27;3.3&#x27;].evaluation &amp;&amp; _actionPlanService.risks[&#x27;3.3&#x27;].evaluation.person_in_charge &amp;&amp; _actionPlanService.risks[&#x27;3.3&#x27;].evaluation.person_in_charge.length &gt; 0&quot;&gt;
+                &lt;strong&gt;{{ &#x27;summary.action_plan.implementation_responsible&#x27; | translate }} : &lt;/strong&gt;
+                {{ _actionPlanService.risks[&#x27;3.3&#x27;].evaluation.person_in_charge }}
+              &lt;/div&gt;
+
+              &lt;!-- Reviewer gauges --&gt;
+              &lt;span *ngIf&#x3D;&quot;_actionPlanService.risks[&#x27;3.3&#x27;].evaluation.gauges &amp;&amp; _actionPlanService.risks[&#x27;3.3&#x27;].evaluation.gauges.x &gt; 0&quot;&gt;
+                &lt;span [innerHTML]&#x3D;&quot;&#x27;evaluations.gauges.seriousness&#x27; | translate:{value: _actionPlanService.risks[&#x27;3.3&#x27;].short_title}&quot;&gt;&lt;/span&gt;
+                &lt;strong&gt;{{ &#x27;evaluations.gauges.&#x27; + _actionPlanService.risks[&#x27;3.3&#x27;].evaluation.gauges.x | translate }}&lt;/strong&gt;
+                &lt;br&gt;
+              &lt;/span&gt;
+              &lt;span *ngIf&#x3D;&quot;_actionPlanService.risks[&#x27;3.3&#x27;].evaluation.gauges &amp;&amp; _actionPlanService.risks[&#x27;3.3&#x27;].evaluation.gauges.y &gt; 0&quot;&gt;
+                &lt;span [innerHTML]&#x3D;&quot;&#x27;evaluations.gauges.likelihood&#x27; | translate:{value: _actionPlanService.risks[&#x27;3.3&#x27;].short_title}&quot;&gt;&lt;/span&gt;
+                &lt;strong&gt;{{ &#x27;evaluations.gauges.&#x27; + _actionPlanService.risks[&#x27;3.3&#x27;].evaluation.gauges.y | translate }}&lt;/strong&gt;
+              &lt;/span&gt;
+
+            &lt;/div&gt;
+          &lt;/div&gt;
+
+          &lt;!-- Risk 3 --&gt;
+          &lt;div *ngIf&#x3D;&quot;_actionPlanService.risksActionPlan34Ready&quot;&gt;
+            &lt;h2 style&#x3D;&quot;margin-bottom:2px;&quot;&gt;{{ &#x27;summary.action_plan.risks&#x27; | translate }} - {{ _actionPlanService.risks[&#x27;3.4&#x27;].short_title | translate }}&lt;/h2&gt;
+            &lt;div class&#x3D;&quot;actionplanbox&quot;&gt;
+              &lt;strong&gt;{{ &#x27;evaluations.action_plan_comment&#x27; | translate }} : &lt;/strong&gt;
+              &lt;div [innerHTML]&#x3D;&quot;_actionPlanService.risks[&#x27;3.4&#x27;].action_plan_comment | translate | safeHtml&quot;&gt;&lt;/div&gt;
+              &lt;div *ngIf&#x3D;&quot;_actionPlanService.risks[&#x27;3.4&#x27;].evaluation_comment &amp;&amp; _actionPlanService.risks[&#x27;3.4&#x27;].evaluation_comment.length &gt; 0&quot;&gt;
+                &lt;strong&gt;{{ &#x27;evaluations.evaluation_comment&#x27; | translate }} :&lt;br&gt;&lt;/strong&gt;
+                &lt;span [innerHTML]&#x3D;&quot;_actionPlanService.risks[&#x27;3.4&#x27;].evaluation_comment | safeHtml&quot;&gt;&lt;/span&gt;
+              &lt;/div&gt;
+
+              &lt;!-- Estimated implementation date &amp; implementation responsible --&gt;
+              &lt;div class&#x3D;&quot;estimated-implementation-date&quot; *ngIf&#x3D;&quot;_actionPlanService.risks[&#x27;3.4&#x27;].evaluation &amp;&amp; _actionPlanService.risks[&#x27;3.4&#x27;].evaluation.estimated_implementation_date &amp;&amp; _actionPlanService.risks[&#x27;3.4&#x27;].evaluation.estimated_implementation_date.toString() !&#x3D;&#x3D; &#x27;Invalid Date&#x27;&quot;&gt;
+                &lt;strong&gt;{{ &#x27;summary.action_plan.implementation_date&#x27; | translate }} : &lt;/strong&gt;
+                &lt;time&gt;{{ _actionPlanService.risks[&#x27;3.4&#x27;].evaluation.estimated_implementation_date | date: &#x27;dd/MM/yyyy&#x27; }}&lt;/time&gt;
+              &lt;/div&gt;
+              &lt;div class&#x3D;&quot;implementation-responsible&quot; *ngIf&#x3D;&quot;_actionPlanService.risks[&#x27;3.4&#x27;].evaluation &amp;&amp; _actionPlanService.risks[&#x27;3.4&#x27;].evaluation.person_in_charge &amp;&amp; _actionPlanService.risks[&#x27;3.4&#x27;].evaluation.person_in_charge.length &gt; 0&quot;&gt;
+                &lt;strong&gt;{{ &#x27;summary.action_plan.implementation_responsible&#x27; | translate }} : &lt;/strong&gt;
+                {{ _actionPlanService.risks[&#x27;3.4&#x27;].evaluation.person_in_charge }}
+              &lt;/div&gt;
+
+              &lt;!-- Reviewer gauges --&gt;
+              &lt;span *ngIf&#x3D;&quot;_actionPlanService.risks[&#x27;3.4&#x27;].evaluation.gauges &amp;&amp; _actionPlanService.risks[&#x27;3.4&#x27;].evaluation.gauges.x &gt; 0&quot;&gt;
+                &lt;span [innerHTML]&#x3D;&quot;&#x27;evaluations.gauges.seriousness&#x27; | translate:{value: _actionPlanService.risks[&#x27;3.4&#x27;].short_title}&quot;&gt;&lt;/span&gt;
+                &lt;strong&gt;{{ &#x27;evaluations.gauges.&#x27; + _actionPlanService.risks[&#x27;3.4&#x27;].evaluation.gauges.x | translate }}&lt;/strong&gt;
+                &lt;br&gt;
+              &lt;/span&gt;
+              &lt;span *ngIf&#x3D;&quot;_actionPlanService.risks[&#x27;3.4&#x27;].evaluation.gauges &amp;&amp; _actionPlanService.risks[&#x27;3.4&#x27;].evaluation.gauges.y &gt; 0&quot;&gt;
+                &lt;span [innerHTML]&#x3D;&quot;&#x27;evaluations.gauges.likelihood&#x27; | translate:{value: _actionPlanService.risks[&#x27;3.4&#x27;].short_title}&quot;&gt;&lt;/span&gt;
+                &lt;strong&gt;{{ &#x27;evaluations.gauges.&#x27; + _actionPlanService.risks[&#x27;3.4&#x27;].evaluation.gauges.y | translate }}&lt;/strong&gt;
+              &lt;/span&gt;
+
+            &lt;/div&gt;
+          &lt;/div&gt;
+
+          &lt;!-- No actions plan for risks --&gt;
+          &lt;div *ngIf&#x3D;&quot;!_actionPlanService.risksActionPlan32Ready &amp;&amp; !_actionPlanService.risksActionPlan33Ready &amp;&amp; !_actionPlanService.risksActionPlan34Ready&quot;&gt;
+            &lt;h2 style&#x3D;&quot;margin-bottom:2px;&quot;&gt;{{ &#x27;summary.action_plan.risks&#x27; | translate }}&lt;/h2&gt;
+            &lt;div class&#x3D;&quot;actionplanbox&quot;&gt;
+              {{ &#x27;summary.action_plan.no_action_plan&#x27; |  translate }}
+            &lt;/div&gt;
+          &lt;/div&gt;
+
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;!-- Risks overview --&gt;
+  &lt;div class&#x3D;&quot;pia-summaryRisksOverviewBlock pagebreak&quot; *ngIf&#x3D;&quot;displayRisksOverview&quot;&gt;
+    &lt;h1&gt;{{ &#x27;summary.risks_overview_title&#x27; |  translate }}&lt;/h1&gt;
+    &lt;div class&#x3D;&quot;risksOverview&quot;&gt;
+      &lt;div class&#x3D;&quot;app-overview-risks&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;!-- Risks cartography --&gt;
+  &lt;div class&#x3D;&quot;pia-summaryRisksCartographyBlock pagebreak&quot; *ngIf&#x3D;&quot;displayRisksCartography&quot;&gt;
+    &lt;h1&gt;{{ &#x27;summary.risks_cartography_title&#x27; |  translate }}&lt;/h1&gt;
+    &lt;div&gt;
+      &lt;div class&#x3D;&quot;app-risks-cartography&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+&lt;/main&gt;
+
+&lt;app-modals&gt;&lt;/app-modals&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><app-header></app-header><main class="container pia-summaryContainerBlock pia-mainContainerBlock">  <!-- Buttons -->  <div class="pia-summaryButtonsBlock unselectable">    <a title="{{ \'summary.previous_page\' | translate }}" routerLink="/entry/{{_piaService.pia.id}}/section/1/item/1" class="btn hide-for-print">      <i class="fa fa-chevron-left" aria-hidden="true"></i>    </a>    <button onclick="print()" class="btn hide-for-print" title="{{ \'summary.print\' | translate }}">      <i class="fa fa-print" aria-hidden="true"></i>    </button>    <a (click)="download()" title="{{ \'summary.download_csv\' | translate }}" class="btn hide-for-print" title="">      <i class="fa fa-2x fa-file-excel-o"></i>    </a>    <button title="{{ \'summary.download_images\' | translate }}" class="btn hide-for-print" (click)="downloadAllGraphsAsImages()"><i class="fa fa-2x fa-file-image-o"></i></button>  </div>  <!-- Copy to clipboard block -->  <div class="pia-summaryCopyBlock hide-for-print">    <button class="btn btn-green hide-for-print" (click)="getTextSelection()">{{ \'summary.copy_to_clipboard\' | translate }}</button>  </div>  <!-- Customize content filters -->  <div class="row">    <div class="small-12 medium-12 columns">      <form class="pia-summaryFiltersBlock hide-for-print">        <fieldset>          <legend class="unselectable">{{ \'summary.display_filters.title\' | translate }}</legend>          <div class="databox">            <div>              <input type="checkbox" name="displayer-pia-main-content" id="displayer-pia-main-content" [checked]="displayOnlyActionPlan ? false : true" (change)="toggleMainContent()">              <label for="displayer-pia-main-content">{{ \'summary.display_filters.main_content\' | translate }}</label>            </div>            <div>              <input type="checkbox" name="displayer-pia-section-1" id="displayer-pia-main-1" [checked]="displayOnlyActionPlan ? false : true" (change)="toggleContextContent()">              <label for="displayer-pia-main-1">{{ \'summary.display_filters.context_content\' | translate }}</label>            </div>            <div>              <input type="checkbox" name="displayer-pia-section-2" id="displayer-pia-section-2" [checked]="displayOnlyActionPlan ? false : true" (change)="toggleFundamentalPrinciplesContent()">              <label for="displayer-pia-section-2">{{ \'summary.display_filters.principles_content\' | translate }}</label>            </div>            <div>              <input type="checkbox" name="displayer-pia-section-3" id="displayer-pia-section-3" [checked]="displayOnlyActionPlan ? false : true" (change)="toggleRisksContent()">              <label for="displayer-pia-section-3">{{ \'summary.display_filters.risks_content\' | translate }}</label>            </div>            <div>              <input type="checkbox" name="displayer-pia-action-plan" id="displayer-pia-action-plan" [checked]="true" (change)="toggleActionPlanContent()">              <label for="displayer-pia-action-plan">{{ \'summary.display_filters.action_plan_content\' | translate }}</label>            </div>            <div>              <input type="checkbox" name="displayer-pia-risks-overview" id="displayer-pia-risks-overview" [checked]="displayRisksOverview ? true : false" (change)="toggleRisksOverviewContent()">              <label for="displayer-pia-risks-overview">{{ \'summary.display_filters.risks_overview_content\' | translate }}</label>            </div>            <div>              <input type="checkbox" name="displayer-pia-risks-cartography" id="displayer-risks-cartography" [checked]="displayRisksCartography ? true : false" (change)="toggleRisksCartographyContent()">              <label for="displayer-risks-cartography">{{ \'summary.display_filters.risks_cartography_content\' | translate }}</label>            </div>          </div>        </fieldset>      </form>    </div>  </div>  <div class="row" id="force-select-all">    <div class="small-12 medium-12 columns">      <div *ngIf="allData" ng-class="{\'text-success\': model.copied, \'text-danger\': !model.copied}" ng-copy="events.onCopy($event)">        <!-- Main PIA data -->        <div class="fadeIn" *ngIf="displayMainPiaData">          <div *ngFor="let c of content">            <div *ngIf="c.data.length > 0">              <h1>{{ c.title | translate }}</h1>              <h2 *ngIf="c.subtitle">{{ c.subtitle | translate }}</h2>              <div class="databox" *ngFor="let d of c.data">                <h3 id="select">{{ d.title | translate }}</h3>                <div style="font-weight:500;" [ngClass]="{ \'pia-attachment-removed\': d.comment && d.comment.length > 0 }" *ngIf="d.type !== \'date\'; else dateBlock" [innerHTML]="d.content | translate | safeHtml"></div>                <div *ngIf="d.type !== \'date\' && d.comment && d.comment.length > 0" [innerHTML]="d.comment | nl2br | safeHtml"></div>                <ng-template #dateBlock>                  <time style="font-weight:500;" *ngIf="d.content.toString() !== \'Invalid Date\'">{{ d.content | date: \'dd/MM/yyyy\' }}</time>                </ng-template>              </div>            </div>          </div>        </div>        <div *ngFor="let section of _piaService.data.sections">          <div class="fadeIn section-{{section.id}} pagebreak" *ngIf="section.id !== 4">            <h1 >{{ section.title | translate }}</h1>            <div *ngFor="let item of section.items">              <div *ngIf="item.evaluation_mode !== \'\'">                <h2>{{ item.title | translate }}</h2>                <div class="databox">                  <!-- Measures -->                  <div *ngIf="item.is_measure">                    <div *ngFor="let measure of allData[section.id][item.id]">                      <h3 [innerHTML]="measure.title"></h3>                      <div [innerHTML]="measure.content | translate | safeHtml"></div>                      <br>                      <!-- Measures\' evaluations -->                      <div class="evaluationbox" *ngIf="measure.evaluation">                        <p>                          <strong class="evaluationValue">{{ \'evaluations.title\' | translate }} : {{ measure.evaluation.title | translate }}</strong>                          <br>                          <span *ngIf="measure.evaluation.action_plan_comment">                            <strong>{{ \'evaluations.action_plan_comment\' | translate }} :<br></strong><span style="font-weight:400;" [innerHTML]="measure.evaluation.action_plan_comment | safeHtml"></span>                            <br>                          </span>                          <span *ngIf="measure.evaluation.evaluation_comment">                            <strong>{{ \'evaluations.evaluation_comment\' | translate }} :<br></strong><span style="font-weight:400;" [innerHTML]="measure.evaluation.evaluation_comment | safeHtml"></span>                            <br>                          </span>                        </p>                      </div>                    </div>                  </div>                  <!-- Questions -->                  <div *ngIf="item.questions">                    <div *ngFor="let question of item.questions">                      <h3 [innerHTML]="question.title | translate"></h3>                      <div *ngIf="allData[section.id][item.id][question.id].content && allData[section.id][item.id][question.id].content.length > 0" [innerHTML]="allData[section.id][item.id][question.id].content | translate | safeHtml"></div>                      <div class="evaluationbox" *ngIf="allData[section.id][item.id][question.id].evaluation">                        <br>                        <p>                          <strong class="evaluationValue">{{ \'evaluations.title\' | translate }} : {{ allData[section.id][item.id][question.id].evaluation.title | translate }}</strong>                          <br>                          <span *ngIf="allData[section.id][item.id][question.id].evaluation.action_plan_comment">                            <strong>{{ \'evaluations.action_plan_comment\' | translate }} :<br></strong><span [innerHTML]="allData[section.id][item.id][question.id].evaluation.action_plan_comment | safeHtml"></span>                            <br>                          </span>                          <span *ngIf="allData[section.id][item.id][question.id].evaluation.evaluation_comment">                            <strong>{{ \'evaluations.evaluation_comment\' | translate }} :<br></strong><span [innerHTML]="allData[section.id][item.id][question.id].evaluation.evaluation_comment | safeHtml"></span>                            <br>                          </span>                          <!-- Gauges\' values -->                          <span *ngIf="allData[section.id][item.id][question.id].evaluation.gauges && allData[section.id][item.id][question.id].evaluation.gauges.seriousness > 0">                            <span [innerHTML]="\'evaluations.gauges.seriousness\' | translate:allData[section.id][item.id][question.id].evaluation.gauges.riskName"></span>                            {{ \'evaluations.gauges.\' + allData[section.id][item.id][question.id].evaluation.gauges.seriousness | translate }}                            <br>                          </span>                          <span *ngIf="allData[section.id][item.id][question.id].evaluation.gauges && allData[section.id][item.id][question.id].evaluation.gauges.likelihood > 0">                            <span [innerHTML]="\'evaluations.gauges.likelihood\' | translate:allData[section.id][item.id][question.id].evaluation.gauges.riskName"></span>                            {{ \'evaluations.gauges.\' + allData[section.id][item.id][question.id].evaluation.gauges.likelihood | translate }}                          </span>                        </p>                      </div>                    </div>                  </div>                  <!-- Evaluations -->                  <div class="evaluationbox" *ngIf="allData[section.id][item.id][\'evaluation_item\']">                    <br>                    <p>                      <strong class="evaluationValue">{{ \'evaluations.title\' | translate }} : {{ allData[section.id][item.id][\'evaluation_item\'].title | translate }}</strong>                      <br>                      <span *ngIf="allData[section.id][item.id][\'evaluation_item\'].action_plan_comment">                        <strong>{{ \'evaluations.action_plan_comment\' | translate }} :<br></strong><span [innerHTML]="allData[section.id][item.id][\'evaluation_item\'].action_plan_comment | safeHtml"></span>                        <br>                      </span>                      <span *ngIf="allData[section.id][item.id][\'evaluation_item\'].evaluation_comment">                        <strong>{{ \'evaluations.evaluation_comment\' | translate }} :<br></strong><span [innerHTML]="allData[section.id][item.id][\'evaluation_item\'].evaluation_comment | safeHtml"></span>                        <br>                      </span>                      <span *ngIf="allData[section.id][item.id][\'evaluation_item\'].gauges && allData[section.id][item.id][\'evaluation_item\'].gauges.seriousness > 0">                        <span [innerHTML]="\'evaluations.gauges.seriousness\' | translate:allData[section.id][item.id][\'evaluation_item\'].gauges.riskName"></span>                        {{ \'evaluations.gauges.\' + allData[section.id][item.id][\'evaluation_item\'].gauges.seriousness | translate }}                        <br>                      </span>                      <span *ngIf="allData[section.id][item.id][\'evaluation_item\'].gauges && allData[section.id][item.id][\'evaluation_item\'].gauges.likelihood > 0">                        <span [innerHTML]="\'evaluations.gauges.likelihood\' | translate:allData[section.id][item.id][\'evaluation_item\'].gauges.riskName"></span>                        {{ \'evaluations.gauges.\' + allData[section.id][item.id][\'evaluation_item\'].gauges.likelihood | translate }}                      </span>                    </p>                  </div>                </div>              </div>            </div>          </div>        </div>      </div>      <!-- Action plan summary -->      <div class="fadeIn pagebreak" *ngIf="displayActionPlan">        <div>          <h1>{{ \'summary.action_plan.title\' | translate }}</h1>          <!-- Action plan graph -->          <div class="pia-entryContentBlock-content pia-actionPlanGraphBlock unselectable" id="actionPlanOverviewImg">            <h2>{{ \'action_plan.title\' | translate }}</h2>            <div class="row">              <div class="medium-6 columns pia-actionPlanGraphBlock-left">                <h3>{{ \'action_plan.principles\' | translate }}</h3>                <div class="pia-actionPlanGraphBlock-item" *ngFor="let r of _actionPlanService.results">                  <span class="pia-list">{{ r.short_title | translate }}</span>                  <span class="pia-box" [ngClass]="{\'pia-blue\': r.status === 2, \'pia-red\': r.status === 1}"></span>                  <span class="pia-box" [ngClass]="{\'pia-green\': r.status === 3, \'pia-red\': r.status === 1}"></span>                </div>              </div>              <div class="medium-6 columns pia-actionPlanGraphBlock-right">                <h3>{{ \'action_plan.measures\' | translate }}</h3>                <div class="pia-actionPlanGraphBlock-right-measures summaryMode">                  <div class="pia-actionPlanGraphBlock-right-measures-scroll summaryMode" *ngIf="_actionPlanService.measures">                    <div *ngFor="let measure of _actionPlanService.measures" class="pia-actionPlanGraphBlock-item">                      <span class="pia-box" [ngClass]="{\'pia-blue\': measure.status === 2, \'pia-red\': measure.status === 1}"></span>                      <span class="pia-box" [ngClass]="{\'pia-green\': measure.status === 3, \'pia-red\': measure.status === 1}"></span>                      <span class="pia-list">{{ measure.name }}</span>                    </div>                  </div>                </div>                <h3>{{ \'action_plan.risks\' | translate }}</h3>                <div class="pia-actionPlanGraphBlock-item">                  <span class="pia-box" [ngClass]="{\'pia-blue\': _actionPlanService.risks[\'3.2\'] && _actionPlanService.risks[\'3.2\'][\'status\'] === 2, \'pia-red\': _actionPlanService.risks[\'3.2\'] && _actionPlanService.risks[\'3.2\'][\'status\'] === 1}"></span>                  <span class="pia-box" [ngClass]="{\'pia-green\': _actionPlanService.risks[\'3.2\'] && _actionPlanService.risks[\'3.2\'][\'status\'] === 3, \'pia-red\': _actionPlanService.risks[\'3.2\'] && _actionPlanService.risks[\'3.2\'][\'status\'] === 1}"></span>                  <span class="pia-list">{{ \'action_plan.risk1\' | translate }}</span>                </div>                <div class="pia-actionPlanGraphBlock-item">                  <span class="pia-box" [ngClass]="{\'pia-blue\': _actionPlanService.risks[\'3.3\'] && _actionPlanService.risks[\'3.3\'][\'status\'] === 2, \'pia-red\': _actionPlanService.risks[\'3.3\'] && _actionPlanService.risks[\'3.3\'][\'status\'] === 1}"></span>                  <span class="pia-box" [ngClass]="{\'pia-green\': _actionPlanService.risks[\'3.3\'] && _actionPlanService.risks[\'3.3\'][\'status\'] === 3, \'pia-red\': _actionPlanService.risks[\'3.3\'] && _actionPlanService.risks[\'3.3\'][\'status\'] === 1}"></span>                  <span class="pia-list">{{ \'action_plan.risk2\' | translate }}</span>                </div>                <div class="pia-actionPlanGraphBlock-item">                  <span class="pia-box" [ngClass]="{\'pia-blue\': _actionPlanService.risks[\'3.4\'] && _actionPlanService.risks[\'3.4\'][\'status\'] === 2, \'pia-red\': _actionPlanService.risks[\'3.4\'] && _actionPlanService.risks[\'3.4\'][\'status\'] === 1}"></span>                  <span class="pia-box" [ngClass]="{\'pia-green\': _actionPlanService.risks[\'3.4\'] && _actionPlanService.risks[\'3.4\'][\'status\'] === 3, \'pia-red\': _actionPlanService.risks[\'3.4\'] && _actionPlanService.risks[\'3.4\'][\'status\'] === 1}"></span>                  <span class="pia-list">{{ \'action_plan.risk3\' | translate }}</span>                </div>              </div>              <div class="pia-legend">                <p>{{ \'action_plan.improvable_measures\' | translate }}</p>                <p>{{ \'action_plan.acceptable_measures\' | translate }}</p>              </div>            </div>          </div>          <!-- Action plan for fundamental principles -->          <div class="pagebreak">            <h2>{{ \'summary.action_plan.fundamental_principles\' | translate }}</h2>            <ng-container *ngIf="_actionPlanService.principlesActionPlanReady; else noFundamentalPrinciples">              <div class="actionplanbox">                <div *ngFor="let entry of _actionPlanService.results">                  <div style="border:0.5px dotted #A7A7A7;padding:6px;margin:10px 0;" *ngIf="entry.action_plan_comment && entry.action_plan_comment.length > 0">                    <h3 style="margin-bottom:2px;">{{ entry.short_title | translate }}</h3>                    <div>                      <strong>{{ \'evaluations.action_plan_comment\' | translate }} :<br></strong>                      <span [innerHTML]="entry.action_plan_comment | translate | safeHtml"></span>                    </div>                    <div *ngIf="entry.evaluation_comment && entry.evaluation_comment.length > 0">                      <strong>{{ \'evaluations.evaluation_comment\' | translate }} :<br></strong>                      <span [innerHTML]="entry.evaluation_comment | safeHtml"></span>                    </div>                    <div *ngIf="entry.evaluation && entry.evaluation.estimated_implementation_date && entry.evaluation.estimated_implementation_date .toString() !== \'Invalid Date\'">                      <strong>{{ \'summary.action_plan.implementation_date\' | translate }} : </strong>                      <time>{{ entry.evaluation.estimated_implementation_date | date: \'dd/MM/yyyy\' }}</time>                    </div>                    <div *ngIf="entry.evaluation && entry.evaluation.person_in_charge">                      <strong>{{ \'summary.action_plan.implementation_responsible\' | translate }} : </strong>                      {{ entry.evaluation.person_in_charge }}                    </div>                  </div>                </div>              </div>            </ng-container>            <ng-template #noFundamentalPrinciples>              <div class="actionplanbox">                {{ \'summary.action_plan.no_action_plan\' |  translate }}              </div>            </ng-template>          </div>        </div>        <!-- Action plan for measures -->        <div class="pagebreak">          <h2>{{ \'summary.action_plan.measures\' | translate }}</h2>          <ng-container *ngIf="_actionPlanService.measuresActionPlanReady; else noMeasures">            <div class="actionplanbox">              <div *ngFor="let entry of _actionPlanService.measures">                <div style="border:0.5px dotted #A7A7A7;padding:6px;margin:10px 0;" *ngIf="entry.action_plan_comment && entry.action_plan_comment.length > 0">                  <h3 style="margin-bottom:2px;">{{ entry.short_title | translate }}</h3>                  <div>                    <strong>{{ \'evaluations.action_plan_comment\' | translate }} :<br></strong>                    <span [innerHTML]="entry.action_plan_comment | translate | safeHtml"></span>                  </div>                  <div *ngIf="entry.evaluation_comment && entry.evaluation_comment.length > 0">                    <strong>{{ \'evaluations.evaluation_comment\' | translate }} :<br></strong>                    <span [innerHTML]="entry.evaluation_comment | safeHtml"></span>                  </div>                  <div *ngIf="entry.evaluation && entry.evaluation.estimated_implementation_date && entry.evaluation.estimated_implementation_date.toString() !== \'Invalid Date\'">                    <strong>{{ \'summary.action_plan.implementation_date\' | translate }} : </strong>                    <time>{{ entry.evaluation.estimated_implementation_date | date: \'dd/MM/yyyy\' }}</time>                  </div>                  <div *ngIf="entry.evaluation && entry.evaluation.person_in_charge">                    <strong>{{ \'summary.action_plan.implementation_responsible\' | translate }} : </strong>                    {{ entry.evaluation.person_in_charge }}                  </div>                </div>              </div>            </div>          </ng-container>          <ng-template #noMeasures>            <div class="actionplanbox">              {{ \'summary.action_plan.no_action_plan\' |  translate }}            </div>          </ng-template>        </div>        <!-- Action plan for risks -->        <div class="pagebreak">          <!-- Risk 1 -->          <div *ngIf="_actionPlanService.risksActionPlan32Ready">            <h2 style="margin-bottom:2px;">{{ \'summary.action_plan.risks\' | translate }} - {{ _actionPlanService.risks[\'3.2\'].short_title | translate }}</h2>            <div class="actionplanbox">              <strong>{{ \'evaluations.action_plan_comment\' | translate }} : </strong>              <div [innerHTML]="_actionPlanService.risks[\'3.2\'].action_plan_comment | translate | safeHtml"></div>              <div *ngIf="_actionPlanService.risks[\'3.2\'].evaluation_comment && _actionPlanService.risks[\'3.2\'].evaluation_comment.length > 0">                <strong>{{ \'evaluations.evaluation_comment\' | translate }} :<br></strong>                <span [innerHTML]="_actionPlanService.risks[\'3.2\'].evaluation_comment | safeHtml"></span>              </div>              <!-- Estimated implementation date & implementation responsible -->              <div class="estimated-implementation-date" *ngIf="_actionPlanService.risks[\'3.2\'].evaluation && _actionPlanService.risks[\'3.2\'].evaluation.estimated_implementation_date && _actionPlanService.risks[\'3.2\'].evaluation.estimated_implementation_date.toString() !== \'Invalid Date\'">                <strong>{{ \'summary.action_plan.implementation_date\' | translate }} : </strong>                <time>{{ _actionPlanService.risks[\'3.2\'].evaluation.estimated_implementation_date | date: \'dd/MM/yyyy\' }}</time>              </div>              <div class="implementation-responsible" *ngIf="_actionPlanService.risks[\'3.2\'].evaluation && _actionPlanService.risks[\'3.2\'].evaluation.person_in_charge && _actionPlanService.risks[\'3.2\'].evaluation.person_in_charge.length > 0">                <strong>{{ \'summary.action_plan.implementation_responsible\' | translate }} : </strong>                {{ _actionPlanService.risks[\'3.2\'].evaluation.person_in_charge }}              </div>              <!-- Reviewer gauges -->              <span *ngIf="_actionPlanService.risks[\'3.2\'].evaluation.gauges && _actionPlanService.risks[\'3.2\'].evaluation.gauges.x > 0">                <span [innerHTML]="\'evaluations.gauges.seriousness\' | translate:{value: _actionPlanService.risks[\'3.2\'].short_title}"></span>                <strong>{{ \'evaluations.gauges.\' + _actionPlanService.risks[\'3.2\'].evaluation.gauges.x | translate }}</strong>                <br>              </span>              <span *ngIf="_actionPlanService.risks[\'3.2\'].evaluation.gauges && _actionPlanService.risks[\'3.2\'].evaluation.gauges.y > 0">                <span [innerHTML]="\'evaluations.gauges.likelihood\' | translate:{value: _actionPlanService.risks[\'3.2\'].short_title}"></span>                <strong>{{ \'evaluations.gauges.\' + _actionPlanService.risks[\'3.2\'].evaluation.gauges.y | translate }}</strong>              </span>            </div>          </div>          <!-- Risk 2 -->          <div *ngIf="_actionPlanService.risksActionPlan33Ready">            <h2 style="margin-bottom:2px;">{{ \'summary.action_plan.risks\' | translate }} - {{ _actionPlanService.risks[\'3.3\'].short_title | translate }}</h2>            <div class="actionplanbox">              <strong>{{ \'evaluations.action_plan_comment\' | translate }} : </strong>              <div [innerHTML]="_actionPlanService.risks[\'3.3\'].action_plan_comment | translate | safeHtml"></div>              <div *ngIf="_actionPlanService.risks[\'3.3\'].evaluation_comment && _actionPlanService.risks[\'3.3\'].evaluation_comment.length > 0">                <strong>{{ \'evaluations.evaluation_comment\' | translate }} :<br></strong>                <span [innerHTML]="_actionPlanService.risks[\'3.3\'].evaluation_comment | safeHtml"></span>              </div>              <!-- Estimated implementation date & implementation responsible -->              <div class="estimated-implementation-date" *ngIf="_actionPlanService.risks[\'3.3\'].evaluation && _actionPlanService.risks[\'3.3\'].evaluation.estimated_implementation_date && _actionPlanService.risks[\'3.3\'].evaluation.estimated_implementation_date.toString() !== \'Invalid Date\'">                <strong>{{ \'summary.action_plan.implementation_date\' | translate }} : </strong>                <time>{{ _actionPlanService.risks[\'3.3\'].evaluation.estimated_implementation_date | date: \'dd/MM/yyyy\' }}</time>              </div>              <div class="implementation-responsible" *ngIf="_actionPlanService.risks[\'3.3\'].evaluation && _actionPlanService.risks[\'3.3\'].evaluation.person_in_charge && _actionPlanService.risks[\'3.3\'].evaluation.person_in_charge.length > 0">                <strong>{{ \'summary.action_plan.implementation_responsible\' | translate }} : </strong>                {{ _actionPlanService.risks[\'3.3\'].evaluation.person_in_charge }}              </div>              <!-- Reviewer gauges -->              <span *ngIf="_actionPlanService.risks[\'3.3\'].evaluation.gauges && _actionPlanService.risks[\'3.3\'].evaluation.gauges.x > 0">                <span [innerHTML]="\'evaluations.gauges.seriousness\' | translate:{value: _actionPlanService.risks[\'3.3\'].short_title}"></span>                <strong>{{ \'evaluations.gauges.\' + _actionPlanService.risks[\'3.3\'].evaluation.gauges.x | translate }}</strong>                <br>              </span>              <span *ngIf="_actionPlanService.risks[\'3.3\'].evaluation.gauges && _actionPlanService.risks[\'3.3\'].evaluation.gauges.y > 0">                <span [innerHTML]="\'evaluations.gauges.likelihood\' | translate:{value: _actionPlanService.risks[\'3.3\'].short_title}"></span>                <strong>{{ \'evaluations.gauges.\' + _actionPlanService.risks[\'3.3\'].evaluation.gauges.y | translate }}</strong>              </span>            </div>          </div>          <!-- Risk 3 -->          <div *ngIf="_actionPlanService.risksActionPlan34Ready">            <h2 style="margin-bottom:2px;">{{ \'summary.action_plan.risks\' | translate }} - {{ _actionPlanService.risks[\'3.4\'].short_title | translate }}</h2>            <div class="actionplanbox">              <strong>{{ \'evaluations.action_plan_comment\' | translate }} : </strong>              <div [innerHTML]="_actionPlanService.risks[\'3.4\'].action_plan_comment | translate | safeHtml"></div>              <div *ngIf="_actionPlanService.risks[\'3.4\'].evaluation_comment && _actionPlanService.risks[\'3.4\'].evaluation_comment.length > 0">                <strong>{{ \'evaluations.evaluation_comment\' | translate }} :<br></strong>                <span [innerHTML]="_actionPlanService.risks[\'3.4\'].evaluation_comment | safeHtml"></span>              </div>              <!-- Estimated implementation date & implementation responsible -->              <div class="estimated-implementation-date" *ngIf="_actionPlanService.risks[\'3.4\'].evaluation && _actionPlanService.risks[\'3.4\'].evaluation.estimated_implementation_date && _actionPlanService.risks[\'3.4\'].evaluation.estimated_implementation_date.toString() !== \'Invalid Date\'">                <strong>{{ \'summary.action_plan.implementation_date\' | translate }} : </strong>                <time>{{ _actionPlanService.risks[\'3.4\'].evaluation.estimated_implementation_date | date: \'dd/MM/yyyy\' }}</time>              </div>              <div class="implementation-responsible" *ngIf="_actionPlanService.risks[\'3.4\'].evaluation && _actionPlanService.risks[\'3.4\'].evaluation.person_in_charge && _actionPlanService.risks[\'3.4\'].evaluation.person_in_charge.length > 0">                <strong>{{ \'summary.action_plan.implementation_responsible\' | translate }} : </strong>                {{ _actionPlanService.risks[\'3.4\'].evaluation.person_in_charge }}              </div>              <!-- Reviewer gauges -->              <span *ngIf="_actionPlanService.risks[\'3.4\'].evaluation.gauges && _actionPlanService.risks[\'3.4\'].evaluation.gauges.x > 0">                <span [innerHTML]="\'evaluations.gauges.seriousness\' | translate:{value: _actionPlanService.risks[\'3.4\'].short_title}"></span>                <strong>{{ \'evaluations.gauges.\' + _actionPlanService.risks[\'3.4\'].evaluation.gauges.x | translate }}</strong>                <br>              </span>              <span *ngIf="_actionPlanService.risks[\'3.4\'].evaluation.gauges && _actionPlanService.risks[\'3.4\'].evaluation.gauges.y > 0">                <span [innerHTML]="\'evaluations.gauges.likelihood\' | translate:{value: _actionPlanService.risks[\'3.4\'].short_title}"></span>                <strong>{{ \'evaluations.gauges.\' + _actionPlanService.risks[\'3.4\'].evaluation.gauges.y | translate }}</strong>              </span>            </div>          </div>          <!-- No actions plan for risks -->          <div *ngIf="!_actionPlanService.risksActionPlan32Ready && !_actionPlanService.risksActionPlan33Ready && !_actionPlanService.risksActionPlan34Ready">            <h2 style="margin-bottom:2px;">{{ \'summary.action_plan.risks\' | translate }}</h2>            <div class="actionplanbox">              {{ \'summary.action_plan.no_action_plan\' |  translate }}            </div>          </div>        </div>      </div>    </div>  </div>  <!-- Risks overview -->  <div class="pia-summaryRisksOverviewBlock pagebreak" *ngIf="displayRisksOverview">    <h1>{{ \'summary.risks_overview_title\' |  translate }}</h1>    <div class="risksOverview">      <div class="app-overview-risks"></div>    </div>  </div>  <!-- Risks cartography -->  <div class="pia-summaryRisksCartographyBlock pagebreak" *ngIf="displayRisksCartography">    <h1>{{ \'summary.risks_cartography_title\' |  translate }}</h1>    <div>      <div class="app-risks-cartography"></div>    </div>  </div></main><app-modals></app-modals></div>'
+    var COMPONENTS = [{'name': 'AboutComponent', 'selector': 'app-about'},{'name': 'ActionPlanComponent', 'selector': 'app-action-plan'},{'name': 'ActionPlanImplementationComponent', 'selector': 'app-action-plan-implementation'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AttachmentItemComponent', 'selector': 'app-attachment-item'},{'name': 'AttachmentsComponent', 'selector': 'app-attachments'},{'name': 'AuthenticationComponent', 'selector': 'app-authentication'},{'name': 'CardItemComponent', 'selector': 'app-card-item'},{'name': 'CardItemComponent', 'selector': 'app-card-item'},{'name': 'CardsComponent', 'selector': 'app-cards'},{'name': 'CommentItemComponent', 'selector': 'app-comment-item'},{'name': 'CommentsComponent', 'selector': 'app-comments'},{'name': 'DPOPeopleOpinionsComponent', 'selector': 'app-dpo-people-opinions'},{'name': 'EntryComponent', 'selector': 'app-entry'},{'name': 'EntryComponent', 'selector': 'app-entry'},{'name': 'EntryContentComponent', 'selector': 'app-entry-content'},{'name': 'EntryContentComponent', 'selector': 'app-entry-content'},{'name': 'ErrorsComponent', 'selector': 'app-errors'},{'name': 'EvaluationsComponent', 'selector': 'app-evaluations'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HelpComponent', 'selector': 'app-help'},{'name': 'KnowledgeBaseComponent', 'selector': 'app-knowledge-base'},{'name': 'KnowledgeBaseItemComponent', 'selector': 'app-knowledge-base-item'},{'name': 'ListItemComponent', 'selector': '.app-list-item'},{'name': 'ListItemComponent', 'selector': '.app-list-item'},{'name': 'MeasuresComponent', 'selector': 'app-measures'},{'name': 'MeasuresComponent', 'selector': 'app-measures'},{'name': 'ModalsComponent', 'selector': 'app-modals'},{'name': 'OverviewRisksComponent', 'selector': '.app-overview-risks'},{'name': 'PiaValidateHistoryComponent', 'selector': 'app-pia-validate-history'},{'name': 'QuestionsComponent', 'selector': 'app-questions'},{'name': 'QuestionsComponent', 'selector': 'app-questions'},{'name': 'RefusePIAComponent', 'selector': 'app-refuse-pia'},{'name': 'RisksCartographyComponent', 'selector': '.app-risks-cartography'},{'name': 'SectionsComponent', 'selector': 'app-sections'},{'name': 'SectionsComponent', 'selector': 'app-sections'},{'name': 'SettingsComponent', 'selector': 'app-settings'},{'name': 'StructuresComponent', 'selector': 'app-structures'},{'name': 'SummaryComponent', 'selector': 'app-summary'},{'name': 'ValidatePIAComponent', 'selector': 'app-validate-pia'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'SummaryComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'SummaryComponent.html';
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <script src="../js/menu-wc.js"></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

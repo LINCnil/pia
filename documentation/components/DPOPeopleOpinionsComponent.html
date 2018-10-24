@@ -1,0 +1,2184 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>pia documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">pia documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search">
+</div>
+            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>DPOPeopleOpinionsComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/entry/entry-content/dpo-people-opinions/dpo-people-opinions.component.ts</code>
+</p>
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">providers</td>
+                <td class="col-md-9">
+                            <code><a href="../injectables/PiaService.html" target="_self" >PiaService</a></code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-dpo-people-opinions</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>dpo-people-opinions.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./dpo-people-opinions.component.html</code></td>
+            </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#_piaService">_piaService</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#_sidStatusService">_sidStatusService</a>
+                            </li>
+                            <li>
+                                <a href="#displayPeopleOpinions">displayPeopleOpinions</a>
+                            </li>
+                            <li>
+                                <a href="#displayPeopleSearchContent">displayPeopleSearchContent</a>
+                            </li>
+                            <li>
+                                <a href="#DPOForm">DPOForm</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#elementRef1">elementRef1</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#elementRef2">elementRef2</a>
+                            </li>
+                            <li>
+                                <a href="#peopleForm">peopleForm</a>
+                            </li>
+                            <li>
+                                <a href="#searchedOpinionsForm">searchedOpinionsForm</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#autoTextareaResize">autoTextareaResize</a>
+                            </li>
+                            <li>
+                                <a href="#checkConcernedPeopleName">checkConcernedPeopleName</a>
+                            </li>
+                            <li>
+                                <a href="#checkDpoName">checkDpoName</a>
+                            </li>
+                            <li>
+                                <a href="#concernedPeopleNameFocusIn">concernedPeopleNameFocusIn</a>
+                            </li>
+                            <li>
+                                <a href="#concernedPeopleNameFocusOut">concernedPeopleNameFocusOut</a>
+                            </li>
+                            <li>
+                                <a href="#concernedPeopleOpinionFocusIn">concernedPeopleOpinionFocusIn</a>
+                            </li>
+                            <li>
+                                <a href="#concernedPeopleopinionFocusOut">concernedPeopleopinionFocusOut</a>
+                            </li>
+                            <li>
+                                <a href="#concernedPeopleStatusFocusOut">concernedPeopleStatusFocusOut</a>
+                            </li>
+                            <li>
+                                <a href="#dpoNameFocusIn">dpoNameFocusIn</a>
+                            </li>
+                            <li>
+                                <a href="#dpoNameFocusOut">dpoNameFocusOut</a>
+                            </li>
+                            <li>
+                                <a href="#dpoOpinionFocusIn">dpoOpinionFocusIn</a>
+                            </li>
+                            <li>
+                                <a href="#dpoOpinionFocusOut">dpoOpinionFocusOut</a>
+                            </li>
+                            <li>
+                                <a href="#dpoStatusFocusOut">dpoStatusFocusOut</a>
+                            </li>
+                            <li>
+                                <a href="#enableConcernedPeopleSearchedOpinionRadioButtons">enableConcernedPeopleSearchedOpinionRadioButtons</a>
+                            </li>
+                            <li>
+                                <a href="#enableConcernedPeopleStatusRadioButtons">enableConcernedPeopleStatusRadioButtons</a>
+                            </li>
+                            <li>
+                                <a href="#enableDpoStatusRadioButtons">enableDpoStatusRadioButtons</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit">ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#peopleSearchContentFocusIn">peopleSearchContentFocusIn</a>
+                            </li>
+                            <li>
+                                <a href="#peopleSearchContentFocusOut">peopleSearchContentFocusOut</a>
+                            </li>
+                            <li>
+                                <a href="#searchedOpinionsFocusOut">searchedOpinionsFocusOut</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(el: <a href="https://angular.io/api/core/ElementRef" target="_blank">ElementRef</a>, _sidStatusService: <a href="../injectables/SidStatusService.html">SidStatusService</a>, _piaService: <a href="../injectables/PiaService.html">PiaService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/entry/entry-content/dpo-people-opinions/dpo-people-opinions.component.ts:22</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>el</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="https://angular.io/api/core/ElementRef" target="_blank" >ElementRef</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>_sidStatusService</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="../injectables/SidStatusService.html" target="_self" >SidStatusService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>_piaService</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="../injectables/PiaService.html" target="_self" >PiaService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section>
+    
+        <h3 id="methods">
+            Methods
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="autoTextareaResize"></a>
+                        <span class="name">
+                            <b>
+                            autoTextareaResize
+                            </b>
+                            <a href="#autoTextareaResize"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>autoTextareaResize(event: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>, textarea?: HTMLElement)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="366" class="link-to-prism">src/app/entry/entry-content/dpo-people-opinions/dpo-people-opinions.component.ts:366</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Auto textarea resize.</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                                    <td>Description</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>event</td>
+                                                        <td>
+                                                                    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                        <td>
+                                                                <code><ul>
+<li>Any Event.</li>
+</ul>
+</code>
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>textarea</td>
+                                                        <td>
+                                                                    <code>HTMLElement</code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            Yes
+                                                    </td>
+                                                    
+
+                                                        <td>
+                                                                <code><ul>
+<li>Textarea HTML element.</li>
+</ul>
+</code>
+                                                        </td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="checkConcernedPeopleName"></a>
+                        <span class="name">
+                            <b>
+                            checkConcernedPeopleName
+                            </b>
+                            <a href="#checkConcernedPeopleName"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>checkConcernedPeopleName()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="396" class="link-to-prism">src/app/entry/entry-content/dpo-people-opinions/dpo-people-opinions.component.ts:396</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Checks if concerned people name is filled to enable other fields.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="checkDpoName"></a>
+                        <span class="name">
+                            <b>
+                            checkDpoName
+                            </b>
+                            <a href="#checkDpoName"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>checkDpoName()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="382" class="link-to-prism">src/app/entry/entry-content/dpo-people-opinions/dpo-people-opinions.component.ts:382</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Checks if dpo name is filled to enable other fields.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="concernedPeopleNameFocusIn"></a>
+                        <span class="name">
+                            <b>
+                            concernedPeopleNameFocusIn
+                            </b>
+                            <a href="#concernedPeopleNameFocusIn"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>concernedPeopleNameFocusIn()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="271" class="link-to-prism">src/app/entry/entry-content/dpo-people-opinions/dpo-people-opinions.component.ts:271</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Focuses concerned people name.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="concernedPeopleNameFocusOut"></a>
+                        <span class="name">
+                            <b>
+                            concernedPeopleNameFocusOut
+                            </b>
+                            <a href="#concernedPeopleNameFocusOut"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>concernedPeopleNameFocusOut()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="284" class="link-to-prism">src/app/entry/entry-content/dpo-people-opinions/dpo-people-opinions.component.ts:284</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Updates concerned people name.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="concernedPeopleOpinionFocusIn"></a>
+                        <span class="name">
+                            <b>
+                            concernedPeopleOpinionFocusIn
+                            </b>
+                            <a href="#concernedPeopleOpinionFocusIn"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>concernedPeopleOpinionFocusIn()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="333" class="link-to-prism">src/app/entry/entry-content/dpo-people-opinions/dpo-people-opinions.component.ts:333</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Focuses concerned people opinion field.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="concernedPeopleopinionFocusOut"></a>
+                        <span class="name">
+                            <b>
+                            concernedPeopleopinionFocusOut
+                            </b>
+                            <a href="#concernedPeopleopinionFocusOut"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>concernedPeopleopinionFocusOut()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="346" class="link-to-prism">src/app/entry/entry-content/dpo-people-opinions/dpo-people-opinions.component.ts:346</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Updates concerned people opinion.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="concernedPeopleStatusFocusOut"></a>
+                        <span class="name">
+                            <b>
+                            concernedPeopleStatusFocusOut
+                            </b>
+                            <a href="#concernedPeopleStatusFocusOut"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>concernedPeopleStatusFocusOut()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="320" class="link-to-prism">src/app/entry/entry-content/dpo-people-opinions/dpo-people-opinions.component.ts:320</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Updates concerned people status.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="dpoNameFocusIn"></a>
+                        <span class="name">
+                            <b>
+                            dpoNameFocusIn
+                            </b>
+                            <a href="#dpoNameFocusIn"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>dpoNameFocusIn()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="116" class="link-to-prism">src/app/entry/entry-content/dpo-people-opinions/dpo-people-opinions.component.ts:116</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Focuses dpo name.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="dpoNameFocusOut"></a>
+                        <span class="name">
+                            <b>
+                            dpoNameFocusOut
+                            </b>
+                            <a href="#dpoNameFocusOut"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>dpoNameFocusOut()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="129" class="link-to-prism">src/app/entry/entry-content/dpo-people-opinions/dpo-people-opinions.component.ts:129</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Disables DPO fields (status + opinion) and saves data.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="dpoOpinionFocusIn"></a>
+                        <span class="name">
+                            <b>
+                            dpoOpinionFocusIn
+                            </b>
+                            <a href="#dpoOpinionFocusIn"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>dpoOpinionFocusIn()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="176" class="link-to-prism">src/app/entry/entry-content/dpo-people-opinions/dpo-people-opinions.component.ts:176</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Focuses dpo opinion.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="dpoOpinionFocusOut"></a>
+                        <span class="name">
+                            <b>
+                            dpoOpinionFocusOut
+                            </b>
+                            <a href="#dpoOpinionFocusOut"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>dpoOpinionFocusOut()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="189" class="link-to-prism">src/app/entry/entry-content/dpo-people-opinions/dpo-people-opinions.component.ts:189</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Updates dpo opinion.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="dpoStatusFocusOut"></a>
+                        <span class="name">
+                            <b>
+                            dpoStatusFocusOut
+                            </b>
+                            <a href="#dpoStatusFocusOut"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>dpoStatusFocusOut()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="165" class="link-to-prism">src/app/entry/entry-content/dpo-people-opinions/dpo-people-opinions.component.ts:165</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Updates dpo status.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="enableConcernedPeopleSearchedOpinionRadioButtons"></a>
+                        <span class="name">
+                            <b>
+                            enableConcernedPeopleSearchedOpinionRadioButtons
+                            </b>
+                            <a href="#enableConcernedPeopleSearchedOpinionRadioButtons"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>enableConcernedPeopleSearchedOpinionRadioButtons()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="207" class="link-to-prism">src/app/entry/entry-content/dpo-people-opinions/dpo-people-opinions.component.ts:207</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Enables concerned people searched or unsearched radio buttons.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="enableConcernedPeopleStatusRadioButtons"></a>
+                        <span class="name">
+                            <b>
+                            enableConcernedPeopleStatusRadioButtons
+                            </b>
+                            <a href="#enableConcernedPeopleStatusRadioButtons"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>enableConcernedPeopleStatusRadioButtons()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="308" class="link-to-prism">src/app/entry/entry-content/dpo-people-opinions/dpo-people-opinions.component.ts:308</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Enables concerned people status radio buttons.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="enableDpoStatusRadioButtons"></a>
+                        <span class="name">
+                            <b>
+                            enableDpoStatusRadioButtons
+                            </b>
+                            <a href="#enableDpoStatusRadioButtons"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>enableDpoStatusRadioButtons()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="153" class="link-to-prism">src/app/entry/entry-content/dpo-people-opinions/dpo-people-opinions.component.ts:153</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Enables dpo status radio buttons.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="ngOnInit"></a>
+                        <span class="name">
+                            <b>
+                            ngOnInit
+                            </b>
+                            <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>ngOnInit()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/entry/entry-content/dpo-people-opinions/dpo-people-opinions.component.ts:28</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="peopleSearchContentFocusIn"></a>
+                        <span class="name">
+                            <b>
+                            peopleSearchContentFocusIn
+                            </b>
+                            <a href="#peopleSearchContentFocusIn"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>peopleSearchContentFocusIn()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="240" class="link-to-prism">src/app/entry/entry-content/dpo-people-opinions/dpo-people-opinions.component.ts:240</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Focuses concerned people search content.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="peopleSearchContentFocusOut"></a>
+                        <span class="name">
+                            <b>
+                            peopleSearchContentFocusOut
+                            </b>
+                            <a href="#peopleSearchContentFocusOut"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>peopleSearchContentFocusOut()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="253" class="link-to-prism">src/app/entry/entry-content/dpo-people-opinions/dpo-people-opinions.component.ts:253</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Updates concerned people search content.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="searchedOpinionsFocusOut"></a>
+                        <span class="name">
+                            <b>
+                            searchedOpinionsFocusOut
+                            </b>
+                            <a href="#searchedOpinionsFocusOut"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>searchedOpinionsFocusOut()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="219" class="link-to-prism">src/app/entry/entry-content/dpo-people-opinions/dpo-people-opinions.component.ts:219</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Updates concerned people searched or unsearched opinion.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="_piaService"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            _piaService
+                            </b>
+                            <a href="#_piaService"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>_piaService:     <code><a href="../injectables/PiaService.html" target="_self" >PiaService</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="../injectables/PiaService.html" target="_self" >PiaService</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/entry/entry-content/dpo-people-opinions/dpo-people-opinions.component.ts:26</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="_sidStatusService"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            _sidStatusService
+                            </b>
+                            <a href="#_sidStatusService"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>_sidStatusService:     <code><a href="../injectables/SidStatusService.html" target="_self" >SidStatusService</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="../injectables/SidStatusService.html" target="_self" >SidStatusService</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/entry/entry-content/dpo-people-opinions/dpo-people-opinions.component.ts:25</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="displayPeopleOpinions"></a>
+                        <span class="name">
+                            <b>
+                            displayPeopleOpinions
+                            </b>
+                            <a href="#displayPeopleOpinions"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>displayPeopleOpinions:     <code></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>false</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/entry/entry-content/dpo-people-opinions/dpo-people-opinions.component.ts:19</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="displayPeopleSearchContent"></a>
+                        <span class="name">
+                            <b>
+                            displayPeopleSearchContent
+                            </b>
+                            <a href="#displayPeopleSearchContent"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>displayPeopleSearchContent:     <code></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>false</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/entry/entry-content/dpo-people-opinions/dpo-people-opinions.component.ts:20</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="DPOForm"></a>
+                        <span class="name">
+                            <b>
+                            DPOForm
+                            </b>
+                            <a href="#DPOForm"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>DPOForm:     <code><a href="https://angular.io/api/forms/FormGroup" target="_blank" >FormGroup</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://angular.io/api/forms/FormGroup" target="_blank" >FormGroup</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/entry/entry-content/dpo-people-opinions/dpo-people-opinions.component.ts:16</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="elementRef1"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            elementRef1
+                            </b>
+                            <a href="#elementRef1"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>elementRef1:     <code><a href="https://angular.io/api/core/ElementRef" target="_blank" >ElementRef</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://angular.io/api/core/ElementRef" target="_blank" >ElementRef</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Decorators : </i><code>ViewChild</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/app/entry/entry-content/dpo-people-opinions/dpo-people-opinions.component.ts:21</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="elementRef2"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            elementRef2
+                            </b>
+                            <a href="#elementRef2"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>elementRef2:     <code><a href="https://angular.io/api/core/ElementRef" target="_blank" >ElementRef</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://angular.io/api/core/ElementRef" target="_blank" >ElementRef</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Decorators : </i><code>ViewChild</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/entry/entry-content/dpo-people-opinions/dpo-people-opinions.component.ts:22</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="peopleForm"></a>
+                        <span class="name">
+                            <b>
+                            peopleForm
+                            </b>
+                            <a href="#peopleForm"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>peopleForm:     <code><a href="https://angular.io/api/forms/FormGroup" target="_blank" >FormGroup</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://angular.io/api/forms/FormGroup" target="_blank" >FormGroup</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/entry/entry-content/dpo-people-opinions/dpo-people-opinions.component.ts:18</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="searchedOpinionsForm"></a>
+                        <span class="name">
+                            <b>
+                            searchedOpinionsForm
+                            </b>
+                            <a href="#searchedOpinionsForm"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>searchedOpinionsForm:     <code><a href="https://angular.io/api/forms/FormGroup" target="_blank" >FormGroup</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://angular.io/api/forms/FormGroup" target="_blank" >FormGroup</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/entry/entry-content/dpo-people-opinions/dpo-people-opinions.component.ts:17</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, ViewChild, ElementRef, OnInit, Input } from &#x27;@angular/core&#x27;;
+import { FormControl, FormGroup } from &#x27;@angular/forms&#x27;;
+
+import { Pia } from &#x27;app/entry/pia.model&#x27;;
+
+import { SidStatusService } from &#x27;app/services/sid-status.service&#x27;;
+import { PiaService } from &#x27;app/services/pia.service&#x27;;
+
+@Component({
+  selector: &#x27;app-dpo-people-opinions&#x27;,
+  templateUrl: &#x27;./dpo-people-opinions.component.html&#x27;,
+  styleUrls: [&#x27;./dpo-people-opinions.component.scss&#x27;],
+  providers: [PiaService]
+})
+export class DPOPeopleOpinionsComponent implements OnInit {
+  DPOForm: FormGroup;
+  searchedOpinionsForm: FormGroup;
+  peopleForm: FormGroup;
+  displayPeopleOpinions &#x3D; false;
+  displayPeopleSearchContent &#x3D; false;
+  @ViewChild(&#x27;DpoNames&#x27;) private elementRef1: ElementRef;
+  @ViewChild(&#x27;PeopleNames&#x27;) private elementRef2: ElementRef;
+
+  constructor(private el: ElementRef,
+              public _sidStatusService: SidStatusService,
+              public _piaService: PiaService) { }
+
+  ngOnInit() {
+    this.DPOForm &#x3D; new FormGroup({
+      DPOStatus : new FormControl(),
+      DPOOpinion : new FormControl(),
+      DPONames : new FormControl()
+    });
+    this.searchedOpinionsForm &#x3D; new FormGroup({
+      searchStatus : new FormControl(),
+      searchContent : new FormControl()
+    });
+    this.peopleForm &#x3D; new FormGroup({
+      peopleStatus : new FormControl(),
+      peopleOpinion : new FormControl(),
+      peopleNames: new FormControl()
+    });
+
+    this._piaService.getPIA().then(() &#x3D;&gt; {
+      // DPO
+      if (this._piaService.pia.dpos_names &amp;&amp; this._piaService.pia.dpos_names.length &gt; 0) {
+        this.DPOForm.controls[&#x27;DPONames&#x27;].patchValue(this._piaService.pia.dpos_names);
+        this.DPOForm.controls[&#x27;DPONames&#x27;].disable();
+      } else {
+        this.DPOForm.controls[&#x27;DPOStatus&#x27;].disable();
+        this.DPOForm.controls[&#x27;DPOOpinion&#x27;].disable();
+      }
+      if (this._piaService.pia.dpo_status !&#x3D;&#x3D; undefined) {
+        this.DPOForm.controls[&#x27;DPOStatus&#x27;].patchValue(this._piaService.pia.dpo_status);
+      }
+      if (this._piaService.pia.dpo_opinion &amp;&amp; this._piaService.pia.dpo_opinion.length &gt; 0) {
+        this.DPOForm.controls[&#x27;DPOOpinion&#x27;].patchValue(this._piaService.pia.dpo_opinion);
+        this.DPOForm.controls[&#x27;DPOOpinion&#x27;].disable();
+      }
+
+      // Concerned people opinion searched or unsearched
+      if (this._piaService.pia.concerned_people_searched_opinion !&#x3D;&#x3D; undefined) {
+        this.searchedOpinionsForm.controls[&#x27;searchStatus&#x27;].patchValue(this._piaService.pia.concerned_people_searched_opinion);
+        if (this._piaService.pia.concerned_people_searched_opinion &#x3D;&#x3D;&#x3D; true) {
+          this.displayPeopleOpinions &#x3D; true;
+          this.displayPeopleSearchContent &#x3D; false;
+        } else {
+          this.displayPeopleOpinions &#x3D; false;
+          this.displayPeopleSearchContent &#x3D; true;
+        }
+      }
+
+      // Concerned people unsearched field
+      if (this._piaService.pia.concerned_people_searched_content &amp;&amp; this._piaService.pia.concerned_people_searched_content.length &gt; 0) {
+        this.searchedOpinionsForm.controls[&#x27;searchContent&#x27;].patchValue(this._piaService.pia.concerned_people_searched_content);
+        this.searchedOpinionsForm.controls[&#x27;searchContent&#x27;].disable();
+      }
+
+      // Concerned people searched fields
+      if (this._piaService.pia.people_names &amp;&amp; this._piaService.pia.people_names.length &gt; 0) {
+        this.peopleForm.controls[&#x27;peopleNames&#x27;].patchValue(this._piaService.pia.people_names);
+        this.peopleForm.controls[&#x27;peopleNames&#x27;].disable();
+      } else {
+        this.peopleForm.controls[&#x27;peopleStatus&#x27;].disable();
+        this.peopleForm.controls[&#x27;peopleOpinion&#x27;].disable();
+      }
+      if (this._piaService.pia.concerned_people_status !&#x3D;&#x3D; undefined) {
+        this.peopleForm.controls[&#x27;peopleStatus&#x27;].patchValue(this._piaService.pia.concerned_people_status);
+      }
+      if (this._piaService.pia.concerned_people_opinion &amp;&amp; this._piaService.pia.concerned_people_opinion.length &gt; 0) {
+        this.peopleForm.controls[&#x27;peopleOpinion&#x27;].patchValue(this._piaService.pia.concerned_people_opinion);
+        this.peopleForm.controls[&#x27;peopleOpinion&#x27;].disable();
+      }
+
+      if (this._piaService.pia.status &gt;&#x3D; 2) {
+        this.DPOForm.disable();
+        this.peopleForm.disable();
+      }
+
+      // Textareas auto resize
+      const DPOTextarea &#x3D; document.getElementById(&#x27;pia-opinions-dpo&#x27;);
+      if (DPOTextarea) {
+        this.autoTextareaResize(null, DPOTextarea);
+      }
+      const peopleTextarea &#x3D; document.getElementById(&#x27;pia-opinions-people&#x27;);
+      if (peopleTextarea) {
+        this.autoTextareaResize(null, peopleTextarea);
+      }
+    });
+  }
+
+  /**
+   * Focuses dpo name.
+   * @memberof DPOPeopleOpinionsComponent
+   */
+  dpoNameFocusIn() {
+    if (this._piaService.pia.status &gt;&#x3D; 2 || this._piaService.pia.is_example &#x3D;&#x3D;&#x3D; 1) {
+      return false;
+    } else {
+      this.DPOForm.controls[&#x27;DPONames&#x27;].enable();
+      this.elementRef1.nativeElement.focus();
+    }
+  }
+
+  /**
+   * Disables DPO fields (status + opinion) and saves data.
+   * @memberof DPOPeopleOpinionsComponent
+   */
+  dpoNameFocusOut() {
+    if (this.DPOForm.value.DPONames &amp;&amp; this.DPOForm.value.DPONames.length &gt; 0) {
+      this._piaService.pia.dpos_names &#x3D; this.DPOForm.value.DPONames;
+      this.DPOForm.enable();
+    } else {
+      this._piaService.pia.dpos_names &#x3D; null;
+      this._piaService.pia.dpo_status &#x3D; null;
+      this._piaService.pia.dpo_opinion &#x3D; null;
+      this.DPOForm.controls[&#x27;DPONames&#x27;].patchValue(null);
+      this.DPOForm.controls[&#x27;DPOStatus&#x27;].patchValue(null);
+      this.DPOForm.controls[&#x27;DPOOpinion&#x27;].patchValue(null);
+    }
+    this._piaService.pia.update().then(() &#x3D;&gt; {
+      this._sidStatusService.setSidStatus(this._piaService, { id: 4 }, { id: 3 });
+      if (this.DPOForm.value.DPONames &amp;&amp; this.DPOForm.value.DPONames.length &gt; 0) {
+        this.DPOForm.controls[&#x27;DPONames&#x27;].disable();
+      }
+    });
+  }
+
+  /**
+   * Enables dpo status radio buttons.
+   * @memberof DPOPeopleOpinionsComponent
+   */
+  enableDpoStatusRadioButtons() {
+    if (this._piaService.pia.status &gt;&#x3D; 2 || this._piaService.pia.is_example &#x3D;&#x3D;&#x3D; 1) {
+      return false;
+    } else {
+      this.DPOForm.controls[&#x27;DPOStatus&#x27;].enable();
+    }
+  }
+
+  /**
+   * Updates dpo status.
+   * @memberof DPOPeopleOpinionsComponent
+   */
+  dpoStatusFocusOut() {
+    this._piaService.pia.dpo_status &#x3D; parseInt(this.DPOForm.value.DPOStatus, 10);
+    this._piaService.pia.update().then(() &#x3D;&gt; {
+      this._sidStatusService.setSidStatus(this._piaService, { id: 4 }, { id: 3 });
+    });
+  }
+
+  /**
+   * Focuses dpo opinion.
+   * @memberof DPOPeopleOpinionsComponent
+   */
+  dpoOpinionFocusIn() {
+    if (this._piaService.pia.status &gt;&#x3D; 2 || this._piaService.pia.is_example &#x3D;&#x3D;&#x3D; 1) {
+      return false;
+    } else {
+      this.DPOForm.controls[&#x27;DPOOpinion&#x27;].enable();
+      document.getElementById(&#x27;pia-opinions-dpo&#x27;).focus();
+    }
+  }
+
+  /**
+   * Updates dpo opinion.
+   * @memberof DPOPeopleOpinionsComponent
+   */
+  dpoOpinionFocusOut() {
+    let userText &#x3D; this.DPOForm.controls[&#x27;DPOOpinion&#x27;].value;
+    if (userText) {
+      userText &#x3D; userText.replace(/^\s+/, &#x27;&#x27;).replace(/\s+$/, &#x27;&#x27;);
+    }
+    this._piaService.pia.dpo_opinion &#x3D; userText;
+    this._piaService.pia.update().then(() &#x3D;&gt; {
+      this._sidStatusService.setSidStatus(this._piaService, { id: 4 }, { id: 3 });
+      if (userText &amp;&amp; userText.length &gt; 0) {
+        this.DPOForm.controls[&#x27;DPOOpinion&#x27;].disable();
+      }
+    });
+  }
+
+  /**
+   * Enables concerned people searched or unsearched radio buttons.
+   * @memberof DPOPeopleOpinionsComponent
+   */
+  enableConcernedPeopleSearchedOpinionRadioButtons() {
+    if (this._piaService.pia.status &gt;&#x3D; 2 || this._piaService.pia.is_example &#x3D;&#x3D;&#x3D; 1) {
+      return false;
+    } else {
+      this.searchedOpinionsForm.controls[&#x27;searchStatus&#x27;].enable();
+    }
+  }
+
+  /**
+   * Updates concerned people searched or unsearched opinion.
+   * @memberof DPOPeopleOpinionsComponent
+   */
+  searchedOpinionsFocusOut() {
+    if (this.searchedOpinionsForm.value.searchStatus) {
+      if (this.searchedOpinionsForm.value.searchStatus &#x3D;&#x3D;&#x3D; &#x27;true&#x27;) {
+        this._piaService.pia.concerned_people_searched_opinion &#x3D; true;
+        this.displayPeopleOpinions &#x3D; true;
+        this.displayPeopleSearchContent &#x3D; false;
+      } else if (this.searchedOpinionsForm.value.searchStatus &#x3D;&#x3D;&#x3D; &#x27;false&#x27;) {
+        this._piaService.pia.concerned_people_searched_opinion &#x3D; false;
+        this.displayPeopleOpinions &#x3D; false;
+        this.displayPeopleSearchContent &#x3D; true;
+      }
+      this._piaService.pia.update().then(() &#x3D;&gt; {
+        this._sidStatusService.setSidStatus(this._piaService, { id: 4 }, { id: 3 });
+      });
+    }
+  }
+
+  /**
+   * Focuses concerned people search content.
+   * @memberof DPOPeopleOpinionsComponent
+   */
+  peopleSearchContentFocusIn() {
+    if (this._piaService.pia.status &gt;&#x3D; 2 || this._piaService.pia.is_example &#x3D;&#x3D;&#x3D; 1) {
+      return false;
+    } else {
+      this.searchedOpinionsForm.controls[&#x27;searchContent&#x27;].enable();
+      document.getElementById(&#x27;pia-people-search-content&#x27;).focus();
+    }
+  }
+
+  /**
+   * Updates concerned people search content.
+   * @memberof DPOPeopleOpinionsComponent
+   */
+  peopleSearchContentFocusOut() {
+    let userText &#x3D; this.searchedOpinionsForm.controls[&#x27;searchContent&#x27;].value;
+    if (userText) {
+      userText &#x3D; userText.replace(/^\s+/, &#x27;&#x27;).replace(/\s+$/, &#x27;&#x27;);
+    }
+    this._piaService.pia.concerned_people_searched_content &#x3D; userText;
+    this._piaService.pia.update().then(() &#x3D;&gt; {
+      this._sidStatusService.setSidStatus(this._piaService, { id: 4 }, { id: 3 });
+      if (userText &amp;&amp; userText.length &gt; 0) {
+        this.searchedOpinionsForm.controls[&#x27;searchContent&#x27;].disable();
+      }
+    });
+  }
+
+  /**
+   * Focuses concerned people name.
+   * @memberof DPOPeopleOpinionsComponent
+   */
+  concernedPeopleNameFocusIn() {
+    if (this._piaService.pia.status &gt;&#x3D; 2 || this._piaService.pia.is_example &#x3D;&#x3D;&#x3D; 1) {
+      return false;
+    } else {
+      this.peopleForm.controls[&#x27;peopleNames&#x27;].enable();
+      this.elementRef2.nativeElement.focus();
+    }
+  }
+
+  /**
+   * Updates concerned people name.
+   * @memberof DPOPeopleOpinionsComponent
+   */
+  concernedPeopleNameFocusOut() {
+    if (this.peopleForm.value.peopleNames &amp;&amp; this.peopleForm.value.peopleNames.length &gt; 0) {
+      this._piaService.pia.people_names &#x3D; this.peopleForm.value.peopleNames;
+      this.peopleForm.enable();
+    } else {
+      this._piaService.pia.people_names &#x3D; null;
+      this._piaService.pia.concerned_people_status &#x3D; null;
+      this._piaService.pia.concerned_people_opinion &#x3D; null;
+      this.peopleForm.controls[&#x27;peopleOpinion&#x27;].patchValue(null);
+      this.peopleForm.controls[&#x27;peopleNames&#x27;].patchValue(null);
+      this.peopleForm.controls[&#x27;peopleStatus&#x27;].patchValue(null);
+    }
+    this._piaService.pia.update().then(() &#x3D;&gt; {
+      this._sidStatusService.setSidStatus(this._piaService, { id: 4 }, { id: 3 });
+      if (this.peopleForm.value.peopleNames &amp;&amp; this.peopleForm.value.peopleNames.length &gt; 0) {
+        this.peopleForm.controls[&#x27;peopleNames&#x27;].disable();
+      }
+    });
+  }
+
+  /**
+   * Enables concerned people status radio buttons.
+   * @memberof DPOPeopleOpinionsComponent
+   */
+  enableConcernedPeopleStatusRadioButtons() {
+    if (this._piaService.pia.status &gt;&#x3D; 2 || this._piaService.pia.is_example &#x3D;&#x3D;&#x3D; 1) {
+      return false;
+    } else {
+      this.peopleForm.controls[&#x27;peopleStatus&#x27;].enable();
+    }
+  }
+
+  /**
+   * Updates concerned people status.
+   * @memberof DPOPeopleOpinionsComponent
+   */
+  concernedPeopleStatusFocusOut() {
+    if (this.peopleForm.value.peopleStatus &amp;&amp; this.peopleForm.value.peopleStatus &gt;&#x3D; 0) {
+      this._piaService.pia.concerned_people_status &#x3D; parseInt(this.peopleForm.value.peopleStatus, 10);
+      this._piaService.pia.update().then(() &#x3D;&gt; {
+        this._sidStatusService.setSidStatus(this._piaService, { id: 4 }, { id: 3 });
+      });
+    }
+  }
+
+  /**
+   * Focuses concerned people opinion field.
+   * @memberof DPOPeopleOpinionsComponent
+   */
+  concernedPeopleOpinionFocusIn() {
+    if (this._piaService.pia.status &gt;&#x3D; 2 || this._piaService.pia.is_example &#x3D;&#x3D;&#x3D; 1) {
+      return false;
+    } else {
+      this.peopleForm.controls[&#x27;peopleOpinion&#x27;].enable();
+      document.getElementById(&#x27;pia-opinions-people&#x27;).focus();
+    }
+  }
+
+  /**
+   * Updates concerned people opinion.
+   * @memberof DPOPeopleOpinionsComponent
+   */
+  concernedPeopleopinionFocusOut() {
+    let userText &#x3D; this.peopleForm.controls[&#x27;peopleOpinion&#x27;].value;
+    if (userText) {
+      userText &#x3D; userText.replace(/^\s+/, &#x27;&#x27;).replace(/\s+$/, &#x27;&#x27;);
+    }
+    this._piaService.pia.concerned_people_opinion &#x3D; userText;
+    this._piaService.pia.update().then(() &#x3D;&gt; {
+      this._sidStatusService.setSidStatus(this._piaService, { id: 4 }, { id: 3 });
+      if (userText &amp;&amp; userText.length &gt; 0) {
+        this.peopleForm.controls[&#x27;peopleOpinion&#x27;].disable();
+      }
+    });
+  }
+
+  /**
+   * Auto textarea resize.
+   * @param {*} event - Any Event.
+   * @param {HTMLElement} [textarea] - Textarea HTML element.
+   * @memberof DPOPeopleOpinionsComponent
+   */
+  autoTextareaResize(event: any, textarea?: HTMLElement) {
+    if (event) {
+      textarea &#x3D; event.target;
+    }
+    if (textarea.clientHeight &lt; textarea.scrollHeight) {
+      textarea.style.height &#x3D; textarea.scrollHeight + &#x27;px&#x27;;
+      if (textarea.clientHeight &lt; textarea.scrollHeight) {
+        textarea.style.height &#x3D; (textarea.scrollHeight * 2 - textarea.clientHeight) + &#x27;px&#x27;;
+      }
+    }
+  }
+
+  /**
+   * Checks if dpo name is filled to enable other fields.
+   * @memberof DPOPeopleOpinionsComponent
+   */
+  checkDpoName() {
+    if (!this.DPOForm.controls[&#x27;DPONames&#x27;].value) {
+      this.elementRef1.nativeElement.focus();
+      this.DPOForm.controls[&#x27;DPOStatus&#x27;].disable();
+      this.DPOForm.controls[&#x27;DPOOpinion&#x27;].disable();
+      this.DPOForm.controls[&#x27;DPOStatus&#x27;].patchValue(null);
+      this.DPOForm.controls[&#x27;DPOOpinion&#x27;].patchValue(null);
+    }
+  }
+
+  /**
+   * Checks if concerned people name is filled to enable other fields.
+   * @memberof DPOPeopleOpinionsComponent
+   */
+  checkConcernedPeopleName() {
+    if (!this.peopleForm.controls[&#x27;peopleNames&#x27;].value) {
+      this.elementRef2.nativeElement.focus();
+      this.peopleForm.controls[&#x27;peopleStatus&#x27;].disable();
+      this.peopleForm.controls[&#x27;peopleOpinion&#x27;].disable();
+      this.peopleForm.controls[&#x27;peopleStatus&#x27;].patchValue(null);
+      this.peopleForm.controls[&#x27;peopleOpinion&#x27;].patchValue(null);
+    }
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;pia-ValidationDPO&quot;&gt;
+  &lt;div class&#x3D;&quot;pia-entryContentBlock-content&quot;&gt;
+    &lt;!-- DPO opinions --&gt;
+    &lt;div class&#x3D;&quot;pia-entryContentBlock-content-DPO&quot;&gt;
+      &lt;div&gt;
+        &lt;h2&gt;{{ &#x27;opinions.dpo_opinion&#x27; | translate }}&lt;/h2&gt;
+      &lt;/div&gt;
+      &lt;ng-container *ngIf&#x3D;&quot;_sidStatusService.enableDpoValidation; else disableDpoBLock&quot;&gt;
+        &lt;form (click)&#x3D;&quot;checkDpoName()&quot; [formGroup]&#x3D;&quot;DPOForm&quot;&gt;
+          &lt;p&gt;
+            &lt;span&gt;
+              &lt;ng-container *ngIf&#x3D;&quot;!_piaService.pia.status || _piaService.pia.status &lt; 2; else displayNames1&quot;&gt;
+                &lt;div style&#x3D;&quot;display:inline-block;&quot; (click)&#x3D;&quot;dpoNameFocusIn()&quot;&gt;
+                  &lt;input (focusout)&#x3D;&quot;dpoNameFocusOut()&quot; #DpoNames type&#x3D;&quot;text&quot; class&#x3D;&quot;DPOName&quot; formControlName&#x3D;&quot;DPONames&quot; placeholder&#x3D;&quot;{{ &#x27;opinions.placeholder_dpo_name&#x27; | translate }}&quot;&gt;
+                &lt;/div&gt;
+              &lt;/ng-container&gt;
+              &lt;ng-template #displayNames1&gt;
+                {{_piaService.pia.dpos_names}}
+              &lt;/ng-template&gt;
+            &lt;/span&gt;{{ &#x27;opinions.content&#x27; | translate }}
+          &lt;/p&gt;
+          &lt;div class&#x3D;&quot;pia-entryContentBlock-content-DPO-treatment&quot;&gt;
+            &lt;div&gt;
+              &lt;input type&#x3D;&quot;radio&quot;
+                     id&#x3D;&quot;treatment-1&quot;
+                     [attr.dirty]&#x3D;&quot;_piaService.pia.dpo_status &#x3D;&#x3D;&#x3D; 1&quot;
+                     [checked]&#x3D;&quot;_piaService.pia.dpo_status &#x3D;&#x3D;&#x3D; 1&quot;
+                     (click)&#x3D;&quot;enableDpoStatusRadioButtons()&quot;
+                     (change)&#x3D;&quot;dpoStatusFocusOut()&quot;
+                     formControlName&#x3D;&quot;DPOStatus&quot;
+                     value&#x3D;&quot;1&quot;&gt;
+              &lt;label for&#x3D;&quot;treatment-1&quot;&gt;
+                &lt;i class&#x3D;&quot;fa fa-circle&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/i&gt;
+                &lt;i class&#x3D;&quot;fa fa-check&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/i&gt;
+                &lt;span&gt;{{ &#x27;opinions.treatment_ok&#x27; | translate }}&lt;/span&gt;
+              &lt;/label&gt;
+            &lt;/div&gt;
+            &lt;div&gt;
+              &lt;input type&#x3D;&quot;radio&quot;
+                     id&#x3D;&quot;treatment-2&quot;
+                     [attr.dirty]&#x3D;&quot;_piaService.pia.dpo_status &#x3D;&#x3D;&#x3D; 0&quot;
+                     [checked]&#x3D;&quot;_piaService.pia.dpo_status &#x3D;&#x3D;&#x3D; 0&quot;
+                     (click)&#x3D;&quot;enableDpoStatusRadioButtons()&quot;
+                     (change)&#x3D;&quot;dpoStatusFocusOut()&quot;
+                     formControlName&#x3D;&quot;DPOStatus&quot;
+                     value&#x3D;&quot;0&quot;&gt;
+              &lt;label for&#x3D;&quot;treatment-2&quot;&gt;
+                &lt;i class&#x3D;&quot;fa fa-circle&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/i&gt;
+                &lt;i class&#x3D;&quot;fa fa-close&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/i&gt;
+                &lt;span&gt;{{ &#x27;opinions.treatment_nok&#x27; | translate }}&lt;/span&gt;
+              &lt;/label&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div (click)&#x3D;&quot;dpoOpinionFocusIn()&quot; class&#x3D;&quot;pia-entryContentBlock-content-DPO-reasons&quot;&gt;
+            &lt;textarea (focusout)&#x3D;&quot;dpoOpinionFocusOut()&quot; (keyup)&#x3D;&quot;autoTextareaResize($event)&quot; id&#x3D;&quot;pia-opinions-dpo&quot; formControlName&#x3D;&quot;DPOOpinion&quot; rows&#x3D;&quot;8&quot; cols&#x3D;&quot;50&quot; placeholder&#x3D;&quot;{{ &#x27;opinions.placeholder_dpo_opinion&#x27; | translate }}&quot;&gt;&lt;/textarea&gt;
+          &lt;/div&gt;
+        &lt;/form&gt;
+      &lt;/ng-container&gt;
+
+      &lt;ng-template #disableDpoBLock&gt;
+        {{ &#x27;opinions.dpo_lock&#x27; | translate }}
+      &lt;/ng-template&gt;
+
+    &lt;/div&gt;
+
+    &lt;!-- Concerned people opinions --&gt;
+    &lt;div class&#x3D;&quot;pia-entryContentBlock-content-people&quot;&gt;
+      &lt;div&gt;
+        &lt;h2&gt;{{ &#x27;opinions.people_opinion&#x27; | translate }}&lt;/h2&gt;
+      &lt;/div&gt;
+      &lt;ng-container *ngIf&#x3D;&quot;_sidStatusService.enableDpoValidation; else disableConcernedPeopleBLock&quot;&gt;
+
+        &lt;!-- Opinions searched or not searched --&gt;
+        &lt;form style&#x3D;&quot;margin-top:16px;&quot; [formGroup]&#x3D;&quot;searchedOpinionsForm&quot;&gt;
+          &lt;div class&#x3D;&quot;pia-entryContentBlock-content-people-treatment&quot;&gt;
+            &lt;div&gt;
+              &lt;input type&#x3D;&quot;radio&quot;
+                      id&#x3D;&quot;concerned-people-choice-searched&quot;
+                      [attr.dirty]&#x3D;&quot;_piaService.pia.concerned_people_searched_opinion &#x3D;&#x3D;&#x3D; true&quot;
+                      [checked]&#x3D;&quot;_piaService.pia.concerned_people_searched_opinion &#x3D;&#x3D;&#x3D; true&quot;
+                      (click)&#x3D;&quot;enableConcernedPeopleSearchedOpinionRadioButtons()&quot;
+                      (change)&#x3D;&quot;searchedOpinionsFocusOut()&quot;
+                      formControlName&#x3D;&quot;searchStatus&quot;
+                      value&#x3D;&quot;true&quot;&gt;
+              &lt;label for&#x3D;&quot;concerned-people-choice-searched&quot;&gt;
+                &lt;i class&#x3D;&quot;fa fa-circle&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/i&gt;
+                &lt;i class&#x3D;&quot;fa fa-check&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/i&gt;
+                &lt;span&gt;{{ &#x27;summary.people_search_status_ok&#x27; | translate }}&lt;/span&gt;
+              &lt;/label&gt;
+            &lt;/div&gt;
+            &lt;div&gt;
+              &lt;input type&#x3D;&quot;radio&quot;
+                      id&#x3D;&quot;concerned-people-choice-unsearched&quot;
+                      [attr.dirty]&#x3D;&quot;_piaService.pia.concerned_people_searched_opinion &#x3D;&#x3D;&#x3D; false&quot;
+                      [checked]&#x3D;&quot;_piaService.pia.concerned_people_searched_opinion &#x3D;&#x3D;&#x3D; false&quot;
+                      (click)&#x3D;&quot;enableConcernedPeopleSearchedOpinionRadioButtons()&quot;
+                      (change)&#x3D;&quot;searchedOpinionsFocusOut()&quot;
+                      formControlName&#x3D;&quot;searchStatus&quot;
+                      value&#x3D;&quot;false&quot;&gt;
+              &lt;label for&#x3D;&quot;concerned-people-choice-unsearched&quot;&gt;
+                &lt;i class&#x3D;&quot;fa fa-circle&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/i&gt;
+                &lt;i class&#x3D;&quot;fa fa-close&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/i&gt;
+                &lt;span&gt;{{ &#x27;summary.people_search_status_nok&#x27; | translate }}&lt;/span&gt;
+              &lt;/label&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div (click)&#x3D;&quot;peopleSearchContentFocusIn()&quot; *ngIf&#x3D;&quot;displayPeopleSearchContent&quot; class&#x3D;&quot;pia-entryContentBlock-content-DPO-reasons&quot;&gt;
+            &lt;textarea (focusout)&#x3D;&quot;peopleSearchContentFocusOut()&quot; (keyup)&#x3D;&quot;autoTextareaResize($event)&quot; id&#x3D;&quot;pia-people-search-content&quot; rows&#x3D;&quot;8&quot; formControlName&#x3D;&quot;searchContent&quot; cols&#x3D;&quot;50&quot; placeholder&#x3D;&quot;{{ &#x27;opinions.placeholder_search_content&#x27; | translate }}&quot;&gt;&lt;/textarea&gt;
+          &lt;/div&gt;
+        &lt;/form&gt;
+
+        &lt;!-- Opinions content --&gt;
+        &lt;form style&#x3D;&quot;margin-top:30px;&quot; *ngIf&#x3D;&quot;displayPeopleOpinions&quot; (click)&#x3D;&quot;checkConcernedPeopleName()&quot; [formGroup]&#x3D;&quot;peopleForm&quot;&gt;
+          &lt;p&gt;
+            &lt;span&gt;
+              &lt;ng-container *ngIf&#x3D;&quot;!_piaService.pia.status || _piaService.pia.status &lt; 2; else displayNames2&quot;&gt;
+                &lt;div style&#x3D;&quot;display:inline-block;&quot; (click)&#x3D;&quot;concernedPeopleNameFocusIn()&quot;&gt;
+                  &lt;input #PeopleNames type&#x3D;&quot;text&quot; class&#x3D;&quot;DPOName&quot; (change)&#x3D;&quot;concernedPeopleNameFocusOut()&quot; formControlName&#x3D;&quot;peopleNames&quot; placeholder&#x3D;&quot;{{ &#x27;opinions.placeholder_concerned_people_name&#x27; | translate }}&quot;&gt;
+                &lt;/div&gt;
+              &lt;/ng-container&gt;
+              &lt;ng-template #displayNames2&gt;
+                {{_piaService.pia.people_names}}
+              &lt;/ng-template&gt;
+            &lt;/span&gt;{{ &#x27;opinions.content&#x27; | translate }}
+          &lt;/p&gt;
+          &lt;div class&#x3D;&quot;pia-entryContentBlock-content-people-treatment&quot;&gt;
+            &lt;div&gt;
+              &lt;input type&#x3D;&quot;radio&quot;
+                      id&#x3D;&quot;dpoAvis-1&quot;
+                      [checked]&#x3D;&quot;_piaService.pia.concerned_people_status &#x3D;&#x3D; 1&quot;
+                      (click)&#x3D;&quot;enableConcernedPeopleStatusRadioButtons()&quot;
+                      (change)&#x3D;&quot;concernedPeopleStatusFocusOut()&quot;
+                      formControlName&#x3D;&quot;peopleStatus&quot;
+                      value&#x3D;&quot;1&quot;&gt;
+              &lt;label for&#x3D;&quot;dpoAvis-1&quot;&gt;
+                &lt;i class&#x3D;&quot;fa fa-circle&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/i&gt;
+                &lt;i class&#x3D;&quot;fa fa-check&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/i&gt;
+                &lt;span&gt;{{ &#x27;opinions.treatment_ok&#x27; | translate }}&lt;/span&gt;
+              &lt;/label&gt;
+            &lt;/div&gt;
+            &lt;div&gt;
+              &lt;input type&#x3D;&quot;radio&quot;
+                      id&#x3D;&quot;dpoAvis-2&quot;
+                      [checked]&#x3D;&quot;_piaService.pia.concerned_people_status &#x3D;&#x3D; 0&quot;
+                      (click)&#x3D;&quot;enableConcernedPeopleStatusRadioButtons()&quot;
+                      (change)&#x3D;&quot;concernedPeopleStatusFocusOut()&quot;
+                      formControlName&#x3D;&quot;peopleStatus&quot;
+                      value&#x3D;&quot;0&quot;&gt;
+              &lt;label for&#x3D;&quot;dpoAvis-2&quot;&gt;
+                &lt;i class&#x3D;&quot;fa fa-circle&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/i&gt;
+                &lt;i class&#x3D;&quot;fa fa-close&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/i&gt;
+                &lt;span&gt;{{ &#x27;opinions.treatment_nok&#x27; | translate }}&lt;/span&gt;
+              &lt;/label&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div (click)&#x3D;&quot;concernedPeopleOpinionFocusIn()&quot; class&#x3D;&quot;pia-entryContentBlock-content-people-reasons&quot;&gt;
+            &lt;textarea (focusout)&#x3D;&quot;concernedPeopleopinionFocusOut()&quot; (keyup)&#x3D;&quot;autoTextareaResize($event)&quot; id&#x3D;&quot;pia-opinions-people&quot; rows&#x3D;&quot;8&quot; formControlName&#x3D;&quot;peopleOpinion&quot; cols&#x3D;&quot;50&quot; placeholder&#x3D;&quot;{{ &#x27;opinions.placeholder_people_opinion&#x27; | translate }}&quot;&gt;&lt;/textarea&gt;
+          &lt;/div&gt;
+        &lt;/form&gt;
+      &lt;/ng-container&gt;
+      &lt;ng-template #disableConcernedPeopleBLock&gt;
+          {{ &#x27;opinions.treatment_lock&#x27; | translate }}
+        &lt;/ng-template&gt;
+    &lt;/div&gt;
+
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="pia-ValidationDPO">  <div class="pia-entryContentBlock-content">    <!-- DPO opinions -->    <div class="pia-entryContentBlock-content-DPO">      <div>        <h2>{{ \'opinions.dpo_opinion\' | translate }}</h2>      </div>      <ng-container *ngIf="_sidStatusService.enableDpoValidation; else disableDpoBLock">        <form (click)="checkDpoName()" [formGroup]="DPOForm">          <p>            <span>              <ng-container *ngIf="!_piaService.pia.status || _piaService.pia.status < 2; else displayNames1">                <div style="display:inline-block;" (click)="dpoNameFocusIn()">                  <input (focusout)="dpoNameFocusOut()" #DpoNames type="text" class="DPOName" formControlName="DPONames" placeholder="{{ \'opinions.placeholder_dpo_name\' | translate }}">                </div>              </ng-container>              <ng-template #displayNames1>                {{_piaService.pia.dpos_names}}              </ng-template>            </span>{{ \'opinions.content\' | translate }}          </p>          <div class="pia-entryContentBlock-content-DPO-treatment">            <div>              <input type="radio"                     id="treatment-1"                     [attr.dirty]="_piaService.pia.dpo_status === 1"                     [checked]="_piaService.pia.dpo_status === 1"                     (click)="enableDpoStatusRadioButtons()"                     (change)="dpoStatusFocusOut()"                     formControlName="DPOStatus"                     value="1">              <label for="treatment-1">                <i class="fa fa-circle" aria-hidden="true"></i>                <i class="fa fa-check" aria-hidden="true"></i>                <span>{{ \'opinions.treatment_ok\' | translate }}</span>              </label>            </div>            <div>              <input type="radio"                     id="treatment-2"                     [attr.dirty]="_piaService.pia.dpo_status === 0"                     [checked]="_piaService.pia.dpo_status === 0"                     (click)="enableDpoStatusRadioButtons()"                     (change)="dpoStatusFocusOut()"                     formControlName="DPOStatus"                     value="0">              <label for="treatment-2">                <i class="fa fa-circle" aria-hidden="true"></i>                <i class="fa fa-close" aria-hidden="true"></i>                <span>{{ \'opinions.treatment_nok\' | translate }}</span>              </label>            </div>          </div>          <div (click)="dpoOpinionFocusIn()" class="pia-entryContentBlock-content-DPO-reasons">            <textarea (focusout)="dpoOpinionFocusOut()" (keyup)="autoTextareaResize($event)" id="pia-opinions-dpo" formControlName="DPOOpinion" rows="8" cols="50" placeholder="{{ \'opinions.placeholder_dpo_opinion\' | translate }}"></textarea>          </div>        </form>      </ng-container>      <ng-template #disableDpoBLock>        {{ \'opinions.dpo_lock\' | translate }}      </ng-template>    </div>    <!-- Concerned people opinions -->    <div class="pia-entryContentBlock-content-people">      <div>        <h2>{{ \'opinions.people_opinion\' | translate }}</h2>      </div>      <ng-container *ngIf="_sidStatusService.enableDpoValidation; else disableConcernedPeopleBLock">        <!-- Opinions searched or not searched -->        <form style="margin-top:16px;" [formGroup]="searchedOpinionsForm">          <div class="pia-entryContentBlock-content-people-treatment">            <div>              <input type="radio"                      id="concerned-people-choice-searched"                      [attr.dirty]="_piaService.pia.concerned_people_searched_opinion === true"                      [checked]="_piaService.pia.concerned_people_searched_opinion === true"                      (click)="enableConcernedPeopleSearchedOpinionRadioButtons()"                      (change)="searchedOpinionsFocusOut()"                      formControlName="searchStatus"                      value="true">              <label for="concerned-people-choice-searched">                <i class="fa fa-circle" aria-hidden="true"></i>                <i class="fa fa-check" aria-hidden="true"></i>                <span>{{ \'summary.people_search_status_ok\' | translate }}</span>              </label>            </div>            <div>              <input type="radio"                      id="concerned-people-choice-unsearched"                      [attr.dirty]="_piaService.pia.concerned_people_searched_opinion === false"                      [checked]="_piaService.pia.concerned_people_searched_opinion === false"                      (click)="enableConcernedPeopleSearchedOpinionRadioButtons()"                      (change)="searchedOpinionsFocusOut()"                      formControlName="searchStatus"                      value="false">              <label for="concerned-people-choice-unsearched">                <i class="fa fa-circle" aria-hidden="true"></i>                <i class="fa fa-close" aria-hidden="true"></i>                <span>{{ \'summary.people_search_status_nok\' | translate }}</span>              </label>            </div>          </div>          <div (click)="peopleSearchContentFocusIn()" *ngIf="displayPeopleSearchContent" class="pia-entryContentBlock-content-DPO-reasons">            <textarea (focusout)="peopleSearchContentFocusOut()" (keyup)="autoTextareaResize($event)" id="pia-people-search-content" rows="8" formControlName="searchContent" cols="50" placeholder="{{ \'opinions.placeholder_search_content\' | translate }}"></textarea>          </div>        </form>        <!-- Opinions content -->        <form style="margin-top:30px;" *ngIf="displayPeopleOpinions" (click)="checkConcernedPeopleName()" [formGroup]="peopleForm">          <p>            <span>              <ng-container *ngIf="!_piaService.pia.status || _piaService.pia.status < 2; else displayNames2">                <div style="display:inline-block;" (click)="concernedPeopleNameFocusIn()">                  <input #PeopleNames type="text" class="DPOName" (change)="concernedPeopleNameFocusOut()" formControlName="peopleNames" placeholder="{{ \'opinions.placeholder_concerned_people_name\' | translate }}">                </div>              </ng-container>              <ng-template #displayNames2>                {{_piaService.pia.people_names}}              </ng-template>            </span>{{ \'opinions.content\' | translate }}          </p>          <div class="pia-entryContentBlock-content-people-treatment">            <div>              <input type="radio"                      id="dpoAvis-1"                      [checked]="_piaService.pia.concerned_people_status == 1"                      (click)="enableConcernedPeopleStatusRadioButtons()"                      (change)="concernedPeopleStatusFocusOut()"                      formControlName="peopleStatus"                      value="1">              <label for="dpoAvis-1">                <i class="fa fa-circle" aria-hidden="true"></i>                <i class="fa fa-check" aria-hidden="true"></i>                <span>{{ \'opinions.treatment_ok\' | translate }}</span>              </label>            </div>            <div>              <input type="radio"                      id="dpoAvis-2"                      [checked]="_piaService.pia.concerned_people_status == 0"                      (click)="enableConcernedPeopleStatusRadioButtons()"                      (change)="concernedPeopleStatusFocusOut()"                      formControlName="peopleStatus"                      value="0">              <label for="dpoAvis-2">                <i class="fa fa-circle" aria-hidden="true"></i>                <i class="fa fa-close" aria-hidden="true"></i>                <span>{{ \'opinions.treatment_nok\' | translate }}</span>              </label>            </div>          </div>          <div (click)="concernedPeopleOpinionFocusIn()" class="pia-entryContentBlock-content-people-reasons">            <textarea (focusout)="concernedPeopleopinionFocusOut()" (keyup)="autoTextareaResize($event)" id="pia-opinions-people" rows="8" formControlName="peopleOpinion" cols="50" placeholder="{{ \'opinions.placeholder_people_opinion\' | translate }}"></textarea>          </div>        </form>      </ng-container>      <ng-template #disableConcernedPeopleBLock>          {{ \'opinions.treatment_lock\' | translate }}        </ng-template>    </div>  </div></div></div>'
+    var COMPONENTS = [{'name': 'AboutComponent', 'selector': 'app-about'},{'name': 'ActionPlanComponent', 'selector': 'app-action-plan'},{'name': 'ActionPlanImplementationComponent', 'selector': 'app-action-plan-implementation'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AttachmentItemComponent', 'selector': 'app-attachment-item'},{'name': 'AttachmentsComponent', 'selector': 'app-attachments'},{'name': 'AuthenticationComponent', 'selector': 'app-authentication'},{'name': 'CardItemComponent', 'selector': 'app-card-item'},{'name': 'CardItemComponent', 'selector': 'app-card-item'},{'name': 'CardsComponent', 'selector': 'app-cards'},{'name': 'CommentItemComponent', 'selector': 'app-comment-item'},{'name': 'CommentsComponent', 'selector': 'app-comments'},{'name': 'DPOPeopleOpinionsComponent', 'selector': 'app-dpo-people-opinions'},{'name': 'EntryComponent', 'selector': 'app-entry'},{'name': 'EntryComponent', 'selector': 'app-entry'},{'name': 'EntryContentComponent', 'selector': 'app-entry-content'},{'name': 'EntryContentComponent', 'selector': 'app-entry-content'},{'name': 'ErrorsComponent', 'selector': 'app-errors'},{'name': 'EvaluationsComponent', 'selector': 'app-evaluations'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HelpComponent', 'selector': 'app-help'},{'name': 'KnowledgeBaseComponent', 'selector': 'app-knowledge-base'},{'name': 'KnowledgeBaseItemComponent', 'selector': 'app-knowledge-base-item'},{'name': 'ListItemComponent', 'selector': '.app-list-item'},{'name': 'ListItemComponent', 'selector': '.app-list-item'},{'name': 'MeasuresComponent', 'selector': 'app-measures'},{'name': 'MeasuresComponent', 'selector': 'app-measures'},{'name': 'ModalsComponent', 'selector': 'app-modals'},{'name': 'OverviewRisksComponent', 'selector': '.app-overview-risks'},{'name': 'PiaValidateHistoryComponent', 'selector': 'app-pia-validate-history'},{'name': 'QuestionsComponent', 'selector': 'app-questions'},{'name': 'QuestionsComponent', 'selector': 'app-questions'},{'name': 'RefusePIAComponent', 'selector': 'app-refuse-pia'},{'name': 'RisksCartographyComponent', 'selector': '.app-risks-cartography'},{'name': 'SectionsComponent', 'selector': 'app-sections'},{'name': 'SectionsComponent', 'selector': 'app-sections'},{'name': 'SettingsComponent', 'selector': 'app-settings'},{'name': 'StructuresComponent', 'selector': 'app-structures'},{'name': 'SummaryComponent', 'selector': 'app-summary'},{'name': 'ValidatePIAComponent', 'selector': 'app-validate-pia'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'DPOPeopleOpinionsComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'DPOPeopleOpinionsComponent.html';
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <script src="../js/menu-wc.js"></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

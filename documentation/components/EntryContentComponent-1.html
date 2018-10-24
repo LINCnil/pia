@@ -1,0 +1,1229 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>pia documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">pia documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search">
+</div>
+            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>EntryContentComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/structures/entry/entry-content/entry-content.component.ts</code>
+</p>
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+                <code><a href="https://angular.io/api/core/OnChanges" target="_blank" >OnChanges</a></code>
+                <code><a href="https://angular.io/api/core/OnDestroy" target="_blank" >OnDestroy</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">providers</td>
+                <td class="col-md-9">
+                            <code><a href="../injectables/StructureService.html" target="_self" >StructureService</a></code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-entry-content</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>entry-content.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./entry-content.component.html</code></td>
+            </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#_measureService">_measureService</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#_paginationService">_paginationService</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#_sidStatusService">_sidStatusService</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#_structureService">_structureService</a>
+                            </li>
+                            <li>
+                                <a href="#subscriptionQuestion">subscriptionQuestion</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#addMeasure">addMeasure</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#addQuestion">addQuestion</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#goToNextSectionItem">goToNextSectionItem</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#ngOnChanges">ngOnChanges</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnDestroy">ngOnDestroy</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit">ngOnInit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#data">data</a>
+                            </li>
+                            <li>
+                                <a href="#item">item</a>
+                            </li>
+                            <li>
+                                <a href="#questions">questions</a>
+                            </li>
+                            <li>
+                                <a href="#section">section</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(_router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>, _appDataService: <a href="../injectables/AppDataService.html">AppDataService</a>, _activatedRoute: <a href="https://angular.io/api/router/ActivatedRoute" target="_blank">ActivatedRoute</a>, _measureService: <a href="../injectables/MeasureService.html">MeasureService</a>, _modalsService: <a href="../injectables/ModalsService.html">ModalsService</a>, _structureService: <a href="../injectables/StructureService.html">StructureService</a>, _sidStatusService: <a href="../injectables/SidStatusService.html">SidStatusService</a>, _paginationService: <a href="../injectables/PaginationService.html">PaginationService</a>, _translateService: TranslateService, _answerStructureService: <a href="../injectables/StructureService.html">AnswerStructureService</a>, _knowledgeBaseService: <a href="../injectables/KnowledgeBaseService.html">KnowledgeBaseService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/structures/entry/entry-content/entry-content.component.ts:30</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>_router</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="https://angular.io/api/router/Router" target="_blank" >Router</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>_appDataService</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="../injectables/AppDataService.html" target="_self" >AppDataService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>_activatedRoute</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="https://angular.io/api/router/ActivatedRoute" target="_blank" >ActivatedRoute</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>_measureService</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="../injectables/MeasureService.html" target="_self" >MeasureService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>_modalsService</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="../injectables/ModalsService.html" target="_self" >ModalsService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>_structureService</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="../injectables/StructureService.html" target="_self" >StructureService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>_sidStatusService</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="../injectables/SidStatusService.html" target="_self" >SidStatusService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>_paginationService</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="../injectables/PaginationService.html" target="_self" >PaginationService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>_translateService</td>
+                                                  
+                                                        <td>
+                                                                    <code>TranslateService</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>_answerStructureService</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="../injectables/StructureService.html" target="_self" >AnswerStructureService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>_knowledgeBaseService</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="../injectables/KnowledgeBaseService.html" target="_self" >KnowledgeBaseService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+    <section>
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-2">
+                        <a name="data"></a>
+                        <code>data</code>
+                    </td>
+                    <td class="col-md-10">
+                            <p>
+                            <em>Type :</em>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                            </p>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/structures/entry/entry-content/entry-content.component.ts:28</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-2">
+                        <a name="item"></a>
+                        <code>item</code>
+                    </td>
+                    <td class="col-md-10">
+                            <p>
+                            <em>Type :</em>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                            </p>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/structures/entry/entry-content/entry-content.component.ts:26</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-2">
+                        <a name="questions"></a>
+                        <code>questions</code>
+                    </td>
+                    <td class="col-md-10">
+                            <p>
+                            <em>Type :</em>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                            </p>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/structures/entry/entry-content/entry-content.component.ts:27</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-2">
+                        <a name="section"></a>
+                        <code>section</code>
+                    </td>
+                    <td class="col-md-10">
+                            <p>
+                            <em>Type :</em>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                            </p>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/structures/entry/entry-content/entry-content.component.ts:25</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+    <section>
+    
+        <h3 id="methods">
+            Methods
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="addMeasure"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Async</span>
+                            addMeasure
+                            </b>
+                            <a href="#addMeasure"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                            <span class="modifier-icon icon ion-ios-reset"></span>
+                        <code>addMeasure()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="91" class="link-to-prism">src/app/structures/entry/entry-content/entry-content.component.ts:91</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Add new measure.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="addQuestion"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Async</span>
+                            addQuestion
+                            </b>
+                            <a href="#addQuestion"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                            <span class="modifier-icon icon ion-ios-reset"></span>
+                        <code>addQuestion()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="79" class="link-to-prism">src/app/structures/entry/entry-content/entry-content.component.ts:79</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Add new question.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="goToNextSectionItem"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            goToNextSectionItem
+                            </b>
+                            <a href="#goToNextSectionItem"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                            <span class="modifier-icon icon ion-ios-reset"></span>
+                        <code>goToNextSectionItem(status_start: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, status_end: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="106" class="link-to-prism">src/app/structures/entry/entry-content/entry-content.component.ts:106</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Go to next item.</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                                    <td>Description</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>status_start</td>
+                                                        <td>
+                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                        <td>
+                                                                <code><ul>
+<li>From status.</li>
+</ul>
+</code>
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>status_end</td>
+                                                        <td>
+                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                        <td>
+                                                                <code><ul>
+<li>To status.</li>
+</ul>
+</code>
+                                                        </td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="ngOnChanges"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Async</span>
+                            ngOnChanges
+                            </b>
+                            <a href="#ngOnChanges"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                            <span class="modifier-icon icon ion-ios-reset"></span>
+                        <code>ngOnChanges()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="65" class="link-to-prism">src/app/structures/entry/entry-content/entry-content.component.ts:65</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="ngOnDestroy"></a>
+                        <span class="name">
+                            <b>
+                            ngOnDestroy
+                            </b>
+                            <a href="#ngOnDestroy"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>ngOnDestroy()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="120" class="link-to-prism">src/app/structures/entry/entry-content/entry-content.component.ts:120</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="ngOnInit"></a>
+                        <span class="name">
+                            <b>
+                            ngOnInit
+                            </b>
+                            <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>ngOnInit()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">src/app/structures/entry/entry-content/entry-content.component.ts:44</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="_measureService"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            _measureService
+                            </b>
+                            <a href="#_measureService"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>_measureService:     <code><a href="../injectables/MeasureService.html" target="_self" >MeasureService</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="../injectables/MeasureService.html" target="_self" >MeasureService</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/app/structures/entry/entry-content/entry-content.component.ts:35</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="_paginationService"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            _paginationService
+                            </b>
+                            <a href="#_paginationService"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>_paginationService:     <code><a href="../injectables/PaginationService.html" target="_self" >PaginationService</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="../injectables/PaginationService.html" target="_self" >PaginationService</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/app/structures/entry/entry-content/entry-content.component.ts:39</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="_sidStatusService"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            _sidStatusService
+                            </b>
+                            <a href="#_sidStatusService"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>_sidStatusService:     <code><a href="../injectables/SidStatusService.html" target="_self" >SidStatusService</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="../injectables/SidStatusService.html" target="_self" >SidStatusService</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/app/structures/entry/entry-content/entry-content.component.ts:38</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="_structureService"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            _structureService
+                            </b>
+                            <a href="#_structureService"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>_structureService:     <code><a href="../injectables/StructureService.html" target="_self" >StructureService</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="../injectables/StructureService.html" target="_self" >StructureService</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/structures/entry/entry-content/entry-content.component.ts:37</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="subscriptionQuestion"></a>
+                        <span class="name">
+                            <b>
+                            subscriptionQuestion
+                            </b>
+                            <a href="#subscriptionQuestion"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>subscriptionQuestion:     <code>Subscription</code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>Subscription</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/structures/entry/entry-content/entry-content.component.ts:30</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Router, ActivatedRoute, Params } from &#x27;@angular/router&#x27;;
+import { Component, OnInit, Input, OnChanges, OnDestroy } from &#x27;@angular/core&#x27;;
+import { Http } from &#x27;@angular/http&#x27;;
+import &#x27;rxjs/add/operator/map&#x27;
+import { Subscription } from &#x27;rxjs/Subscription&#x27;;
+
+import { AppDataService } from &#x27;app/services/app-data.service&#x27;;
+import { AnswerStructureService } from &#x27;app/services/answer-structure.service&#x27;;
+import { MeasureService } from &#x27;app/entry/entry-content/measures/measures.service&#x27;;
+import { ModalsService } from &#x27;app/modals/modals.service&#x27;;
+import { StructureService } from &#x27;app/services/structure.service&#x27;;
+import { PaginationService } from &#x27;app/entry/entry-content/pagination.service&#x27;;
+import { TranslateService } from &#x27;@ngx-translate/core&#x27;;
+import { SidStatusService } from &#x27;app/services/sid-status.service&#x27;;
+import { KnowledgeBaseService } from &#x27;app/entry/knowledge-base/knowledge-base.service&#x27;;
+
+@Component({
+  selector: &#x27;app-entry-content&#x27;,
+  templateUrl: &#x27;./entry-content.component.html&#x27;,
+  styleUrls: [&#x27;./entry-content.component.scss&#x27;],
+  providers: [StructureService]
+})
+
+export class EntryContentComponent implements OnInit, OnChanges, OnDestroy {
+  @Input() section: any;
+  @Input() item: any;
+  @Input() questions: any;
+  @Input() data: any;
+  // subscriptionMeasure: Subscription;
+  subscriptionQuestion: Subscription;
+
+  constructor(private _router: Router,
+              private _appDataService: AppDataService,
+              private _activatedRoute: ActivatedRoute,
+              public _measureService: MeasureService,
+              private _modalsService: ModalsService,
+              public _structureService: StructureService,
+              public _sidStatusService: SidStatusService,
+              public _paginationService: PaginationService,
+              private _translateService: TranslateService,
+              private _answerStructureService: AnswerStructureService,
+              private _knowledgeBaseService: KnowledgeBaseService) { }
+
+  ngOnInit() {
+    // Reset measures no longer addable from KB when switching Structure
+    this._knowledgeBaseService.toHide &#x3D; [];
+
+    // Update the last edited date for this Structure
+    this._structureService.getStructure().then(() &#x3D;&gt; {
+      this._structureService.structure.updated_at &#x3D; new Date();
+      this._structureService.structure.update();
+    });
+
+    /*this.subscriptionMeasure &#x3D; this._answerStructureService.measureToRemove.subscribe((index) &#x3D;&gt; {
+      this.item.answers.splice(index, 1);
+      }
+    );*/
+
+    this.subscriptionQuestion &#x3D; this._answerStructureService.questionToRemove.subscribe((index) &#x3D;&gt; {
+      this.questions.splice(index, 1);
+      }
+    );
+  }
+
+  async ngOnChanges() {
+    await this._structureService.getStructure();
+    this._paginationService.dataNav &#x3D; this._structureService.structure.data;
+
+    const sectionId &#x3D; parseInt(this._activatedRoute.snapshot.params[&#x27;section_id&#x27;], 10);
+    const itemId &#x3D; parseInt(this._activatedRoute.snapshot.params[&#x27;item_id&#x27;], 10);
+
+    this._paginationService.setPagination(sectionId, itemId);
+  }
+
+  /**
+   * Add new question.
+   * @memberof EntryContentComponent
+   */
+  async addQuestion() {
+    this._structureService.getStructure().then(() &#x3D;&gt; {
+      this._answerStructureService.addQuestion(this._structureService.structure, this.section, this.item).then((question: any) &#x3D;&gt; {
+        this.questions.push(question);
+      });
+    });
+  }
+
+  /**
+   * Add new measure.
+   * @memberof EntryContentComponent
+   */
+  async addMeasure() {
+    this._structureService.getStructure().then(() &#x3D;&gt; {
+      this._answerStructureService.addMeasure(this._structureService.structure, this.section, this.item).then((measure: any) &#x3D;&gt; {
+        this.item.answers.push(measure);
+      });
+    });
+  }
+
+  /**
+   * Go to next item.
+   * @private
+   * @param {number} status_start - From status.
+   * @param {number} status_end - To status.
+   * @memberof EntryContentComponent
+   */
+  private goToNextSectionItem(status_start: number, status_end: number) {
+    const goto_section_item &#x3D; this._paginationService.getNextSectionItem(status_start, status_end)
+
+    this._router.navigate([
+      &#x27;structures&#x27;,
+      &#x27;entry&#x27;,
+      this._structureService.structure.id,
+      &#x27;section&#x27;,
+      goto_section_item[0],
+      &#x27;item&#x27;,
+      goto_section_item[1]
+    ]);
+  }
+
+  ngOnDestroy() {
+    // this.subscriptionMeasure.unsubscribe();
+    this.subscriptionQuestion.unsubscribe();
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;section class&#x3D;&quot;pia-entryContentBlock pia-entryContentBlock-section{{section.id}}&quot; *ngIf&#x3D;&quot;section &amp;&amp; item&quot;&gt;
+  &lt;header autoscroll&#x3D;&quot;true&quot; class&#x3D;&quot;pia-entryContentBlock-header&quot;&gt;
+    &lt;div&gt;
+      &lt;i class&#x3D;&quot;fa fa-sitemap&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/i&gt;
+    &lt;/div&gt;
+    &lt;div class&#x3D;&quot;pia-entryContentBlock-header-title&quot;&gt;
+      &lt;h1 *ngIf&#x3D;&quot;section.title&quot;&gt;{{ section.title | translate }}&lt;/h1&gt;
+      &lt;h3 *ngIf&#x3D;&quot;section.short_help&quot;&gt;{{ section.short_help | translate }}&lt;/h3&gt;
+      &lt;h2 *ngIf&#x3D;&quot;item.title&quot;&gt;{{ item.title | translate }}&lt;/h2&gt;
+      &lt;h4 *ngIf&#x3D;&quot;item.short_help&quot;&gt;{{ item.short_help | translate }}&lt;/h4&gt;
+    &lt;/div&gt;
+  &lt;/header&gt;
+
+  &lt;ng-container *ngIf&#x3D;&quot;item.is_measure; else appQuestions&quot;&gt;
+    &lt;button (click)&#x3D;&quot;addMeasure()&quot;
+            class&#x3D;&quot;btn btn-white btn-addMeasure&quot; type&#x3D;&quot;button&quot;&gt;
+      &lt;span class&#x3D;&quot;pia-icons pia-icon-add&quot;&gt;&lt;/span&gt;
+      {{ &#x27;measures.add&#x27; | translate }}
+    &lt;/button&gt;
+    &lt;app-measures *ngFor&#x3D;&quot;let measure of item.answers; let i &#x3D; index&quot; [id]&#x3D;&quot;i&quot; [measure]&#x3D;&quot;measure&quot; [section]&#x3D;&quot;section&quot; [item]&#x3D;&quot;item&quot;&gt;&lt;/app-measures&gt;
+  &lt;/ng-container&gt;
+  &lt;ng-template #appQuestions&gt;
+    &lt;div *ngFor&#x3D;&quot;let question of questions&quot;&gt;
+      &lt;app-questions [question]&#x3D;&quot;question&quot; [section]&#x3D;&quot;section&quot; [item]&#x3D;&quot;item&quot;&gt;&lt;/app-questions&gt;
+    &lt;/div&gt;
+  &lt;/ng-template&gt;
+
+  &lt;footer class&#x3D;&quot;pia-entryContentBlock-footer&quot; *ngIf&#x3D;&quot;!item.is_measure&quot;&gt;
+    &lt;div&gt;
+      &lt;button class&#x3D;&quot;btn btn-green btn-active&quot; (click)&#x3D;&quot;addQuestion()&quot;&gt;
+        &lt;i class&#x3D;&quot;fa fa-plus&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/i&gt;
+        {{ &#x27;pia.footer.structure_add_question&#x27; | translate }}
+      &lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/footer&gt;
+&lt;/section&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><section class="pia-entryContentBlock pia-entryContentBlock-section{{section.id}}" *ngIf="section && item">  <header autoscroll="true" class="pia-entryContentBlock-header">    <div>      <i class="fa fa-sitemap" aria-hidden="true"></i>    </div>    <div class="pia-entryContentBlock-header-title">      <h1 *ngIf="section.title">{{ section.title | translate }}</h1>      <h3 *ngIf="section.short_help">{{ section.short_help | translate }}</h3>      <h2 *ngIf="item.title">{{ item.title | translate }}</h2>      <h4 *ngIf="item.short_help">{{ item.short_help | translate }}</h4>    </div>  </header>  <ng-container *ngIf="item.is_measure; else appQuestions">    <button (click)="addMeasure()"            class="btn btn-white btn-addMeasure" type="button">      <span class="pia-icons pia-icon-add"></span>      {{ \'measures.add\' | translate }}    </button>    <app-measures *ngFor="let measure of item.answers; let i = index" [id]="i" [measure]="measure" [section]="section" [item]="item"></app-measures>  </ng-container>  <ng-template #appQuestions>    <div *ngFor="let question of questions">      <app-questions [question]="question" [section]="section" [item]="item"></app-questions>    </div>  </ng-template>  <footer class="pia-entryContentBlock-footer" *ngIf="!item.is_measure">    <div>      <button class="btn btn-green btn-active" (click)="addQuestion()">        <i class="fa fa-plus" aria-hidden="true"></i>        {{ \'pia.footer.structure_add_question\' | translate }}      </button>    </div>  </footer></section></div>'
+    var COMPONENTS = [{'name': 'AboutComponent', 'selector': 'app-about'},{'name': 'ActionPlanComponent', 'selector': 'app-action-plan'},{'name': 'ActionPlanImplementationComponent', 'selector': 'app-action-plan-implementation'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AttachmentItemComponent', 'selector': 'app-attachment-item'},{'name': 'AttachmentsComponent', 'selector': 'app-attachments'},{'name': 'AuthenticationComponent', 'selector': 'app-authentication'},{'name': 'CardItemComponent', 'selector': 'app-card-item'},{'name': 'CardItemComponent', 'selector': 'app-card-item'},{'name': 'CardsComponent', 'selector': 'app-cards'},{'name': 'CommentItemComponent', 'selector': 'app-comment-item'},{'name': 'CommentsComponent', 'selector': 'app-comments'},{'name': 'DPOPeopleOpinionsComponent', 'selector': 'app-dpo-people-opinions'},{'name': 'EntryComponent', 'selector': 'app-entry'},{'name': 'EntryComponent', 'selector': 'app-entry'},{'name': 'EntryContentComponent', 'selector': 'app-entry-content'},{'name': 'EntryContentComponent', 'selector': 'app-entry-content'},{'name': 'ErrorsComponent', 'selector': 'app-errors'},{'name': 'EvaluationsComponent', 'selector': 'app-evaluations'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HelpComponent', 'selector': 'app-help'},{'name': 'KnowledgeBaseComponent', 'selector': 'app-knowledge-base'},{'name': 'KnowledgeBaseItemComponent', 'selector': 'app-knowledge-base-item'},{'name': 'ListItemComponent', 'selector': '.app-list-item'},{'name': 'ListItemComponent', 'selector': '.app-list-item'},{'name': 'MeasuresComponent', 'selector': 'app-measures'},{'name': 'MeasuresComponent', 'selector': 'app-measures'},{'name': 'ModalsComponent', 'selector': 'app-modals'},{'name': 'OverviewRisksComponent', 'selector': '.app-overview-risks'},{'name': 'PiaValidateHistoryComponent', 'selector': 'app-pia-validate-history'},{'name': 'QuestionsComponent', 'selector': 'app-questions'},{'name': 'QuestionsComponent', 'selector': 'app-questions'},{'name': 'RefusePIAComponent', 'selector': 'app-refuse-pia'},{'name': 'RisksCartographyComponent', 'selector': '.app-risks-cartography'},{'name': 'SectionsComponent', 'selector': 'app-sections'},{'name': 'SectionsComponent', 'selector': 'app-sections'},{'name': 'SettingsComponent', 'selector': 'app-settings'},{'name': 'StructuresComponent', 'selector': 'app-structures'},{'name': 'SummaryComponent', 'selector': 'app-summary'},{'name': 'ValidatePIAComponent', 'selector': 'app-validate-pia'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'EntryContentComponent-1'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'EntryContentComponent-1.html';
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <script src="../js/menu-wc.js"></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

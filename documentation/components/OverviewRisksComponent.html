@@ -1,0 +1,1176 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>pia documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">pia documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search">
+</div>
+            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>OverviewRisksComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/entry/entry-content/overview-risks/overview-risks.component.ts</code>
+</p>
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">providers</td>
+                <td class="col-md-9">
+                            <code><a href="../injectables/PiaService.html" target="_self" >PiaService</a></code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>.app-overview-risks</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>overview-risks.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./overview-risks.component.html</code></td>
+            </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#data">data</a>
+                            </li>
+                            <li>
+                                <a href="#items">items</a>
+                            </li>
+                            <li>
+                                <a href="#linkFromTo">linkFromTo</a>
+                            </li>
+                            <li>
+                                <a href="#svg">svg</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Async</span>
+                                <a href="#initData">initData</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Async</span>
+                                <a href="#initSvg">initSvg</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#ngOnInit">ngOnInit</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Async</span>
+                                <a href="#parseQuestions">parseQuestions</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(_piaService: <a href="../injectables/PiaService.html">PiaService</a>, el: <a href="https://angular.io/api/core/ElementRef" target="_blank">ElementRef</a>, _appDataService: <a href="../injectables/AppDataService.html">AppDataService</a>, _ngZone: <a href="https://angular.io/api/core/NgZone" target="_blank">NgZone</a>, _translateService: TranslateService)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/entry/entry-content/overview-risks/overview-risks.component.ts:20</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>_piaService</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="../injectables/PiaService.html" target="_self" >PiaService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>el</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="https://angular.io/api/core/ElementRef" target="_blank" >ElementRef</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>_appDataService</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="../injectables/AppDataService.html" target="_self" >AppDataService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>_ngZone</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="https://angular.io/api/core/NgZone" target="_blank" >NgZone</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>_translateService</td>
+                                                  
+                                                        <td>
+                                                                    <code>TranslateService</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section>
+    
+        <h3 id="methods">
+            Methods
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="initData"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                                <span class="modifier">Async</span>
+                            initData
+                            </b>
+                            <a href="#initData"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                            <span class="modifier-icon icon ion-ios-reset"></span>
+                        <code>initData()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/app/entry/entry-content/overview-risks/overview-risks.component.ts:41</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Initialize the data.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="initSvg"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                                <span class="modifier">Async</span>
+                            initSvg
+                            </b>
+                            <a href="#initSvg"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                            <span class="modifier-icon icon ion-ios-reset"></span>
+                        <code>initSvg()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="93" class="link-to-prism">src/app/entry/entry-content/overview-risks/overview-risks.component.ts:93</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Initialize the SVG.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="ngOnInit"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Async</span>
+                            ngOnInit
+                            </b>
+                            <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                            <span class="modifier-icon icon ion-ios-reset"></span>
+                        <code>ngOnInit()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/entry/entry-content/overview-risks/overview-risks.component.ts:28</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="parseQuestions"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                                <span class="modifier">Async</span>
+                            parseQuestions
+                            </b>
+                            <a href="#parseQuestions"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                            <span class="modifier-icon icon ion-ios-reset"></span>
+                        <code>parseQuestions(questionGauges: , g: , x: , y: )</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="266" class="link-to-prism">src/app/entry/entry-content/overview-risks/overview-risks.component.ts:266</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Parse the questions.</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                <td>Optional</td>
+                                                    <td>Description</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>questionGauges</td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                        <td>
+                                                                <code><ul>
+<li>Any questions gauges.</li>
+</ul>
+</code>
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>g</td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                        <td>
+                                                                <code><ul>
+<li>SVG element.</li>
+</ul>
+</code>
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>x</td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                        <td>
+                                                                <code><ul>
+<li>Position X.</li>
+</ul>
+</code>
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>y</td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                        <td>
+                                                                <code><ul>
+<li>Position Y.</li>
+</ul>
+</code>
+                                                        </td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code>{}</code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="data"></a>
+                        <span class="name">
+                            <b>
+                            data
+                            </b>
+                            <a href="#data"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>data:     <code>[]</code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>[]</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/entry/entry-content/overview-risks/overview-risks.component.ts:17</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="items"></a>
+                        <span class="name">
+                            <b>
+                            items
+                            </b>
+                            <a href="#items"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>items:     <code>[]</code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>[]</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/entry/entry-content/overview-risks/overview-risks.component.ts:18</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="linkFromTo"></a>
+                        <span class="name">
+                            <b>
+                            linkFromTo
+                            </b>
+                            <a href="#linkFromTo"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>linkFromTo:     <code>[]</code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>[]</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/entry/entry-content/overview-risks/overview-risks.component.ts:19</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="svg"></a>
+                        <span class="name">
+                            <b>
+                            svg
+                            </b>
+                            <a href="#svg"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>svg:     <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/entry/entry-content/overview-risks/overview-risks.component.ts:20</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit, ElementRef, NgZone } from &#x27;@angular/core&#x27;;
+import * as d3 from &#x27;d3&#x27;;
+
+import { Answer } from &#x27;app/entry/entry-content/questions/answer.model&#x27;;
+
+import { PiaService } from &#x27;app/services/pia.service&#x27;;
+import { AppDataService } from &#x27;app/services/app-data.service&#x27;;
+import { TranslateService } from &#x27;@ngx-translate/core&#x27;;
+
+@Component({
+  selector: &#x60;.app-overview-risks&#x60;,
+  templateUrl: &#x27;./overview-risks.component.html&#x27;,
+  styleUrls: [&#x27;./overview-risks.component.scss&#x27;],
+  providers: [PiaService]
+})
+export class OverviewRisksComponent implements OnInit {
+  data &#x3D; [];
+  items &#x3D; [];
+  linkFromTo &#x3D; [];
+  svg: any;
+
+  constructor(private _piaService: PiaService,
+              private el: ElementRef,
+              private _appDataService: AppDataService,
+              private _ngZone: NgZone,
+              private _translateService: TranslateService) { }
+
+  async ngOnInit() {
+    await this.initData();
+
+    this._ngZone.run(() &#x3D;&gt; {
+      this.initSvg();
+    });
+  }
+
+  /**
+   * Initialize the data.
+   * @private
+   * @memberof OverviewRisksComponent
+   */
+  private async initData() {
+    await this._piaService.getPIA();
+    const dataTags &#x3D; [
+      {
+        id: 1,
+        name: this._translateService.instant(&#x27;overview-risks.potential_impacts&#x27;),
+        reference_to: [321, 331, 341]
+      },
+      {
+        id: 2,
+        name: this._translateService.instant(&#x27;overview-risks.threat&#x27;),
+        reference_to: [322, 332, 342]
+      },
+      {
+        id: 3,
+        name: this._translateService.instant(&#x27;overview-risks.sources&#x27;),
+        reference_to: [323, 333, 343]
+      },
+      {
+        id: 4,
+        name: this._translateService.instant(&#x27;overview-risks.measures&#x27;),
+        reference_to: [324, 334, 344]
+      }
+    ];
+    for (const dt of dataTags) {
+      const tags &#x3D; {};
+      for (const reference_to of dt.reference_to) {
+        const answerModel &#x3D; new Answer();
+        await answerModel.getByReferenceAndPia(this._piaService.pia.id, reference_to);
+        if (answerModel.data &amp;&amp; answerModel.data.list.length &gt; 0) {
+          const list &#x3D; answerModel.data.list;
+          for (const l of list) {
+            if (!tags[l]) {
+              tags[l] &#x3D; [];
+            }
+            tags[l].push(reference_to.toString().substring(0, 2));
+          }
+        }
+      }
+      this.data.push({
+        id: dt.id,
+        name: dt.name,
+        tags: tags
+      });
+    }
+  }
+
+  /**
+   * Initialize the SVG.
+   * @private
+   * @memberof OverviewRisksComponent
+   */
+  private async initSvg() {
+    const dataNav &#x3D; await this._appDataService.getDataNav();
+    this.svg &#x3D; d3.select(&#x27;svg&#x27;);
+    this.svg.attr(&#x27;viewBox&#x27;, &#x27;0 0 590 800&#x27;);
+    let y &#x3D; 20;
+    for (const a of this.data) {
+        let x &#x3D; 10;
+        this.svg.append(&#x27;text&#x27;).attr(&#x27;x&#x27;, x).attr(&#x27;y&#x27;, y).text(a.name).attr(&#x27;class&#x27;, &#x27;title&#x27;);
+        x +&#x3D; 20;
+        y +&#x3D; 14;
+        for (const property in a.tags) {
+            if (a.tags.hasOwnProperty(property)) {
+              const links &#x3D; a.tags[property];
+              this.svg.append(&#x27;rect&#x27;).attr(&#x27;x&#x27;, x).attr(&#x27;y&#x27;, y).attr(&#x27;width&#x27;, &#x27;180px&#x27;).attr(&#x27;height&#x27;, &#x27;20px&#x27;)
+                  .attr(&#x27;data-rect-id&#x27;, a.id).attr(&#x27;data-links&#x27;, links).attr(&#x27;class&#x27;, &#x27;rect_1&#x27;);
+              let textProperty &#x3D; property;
+              if (property.length &gt;&#x3D; 30) {
+                textProperty &#x3D; property.substring(0, 27) + &#x27;...&#x27;;
+              }
+              this.svg.append(&#x27;text&#x27;).text(textProperty).attr(&#x27;x&#x27;, x + 5).attr(&#x27;y&#x27;, y + 15).style(&#x27;fill&#x27;, &#x27;white&#x27;);
+              this.svg.append(&#x27;rect&#x27;).attr(&#x27;x&#x27;, x).attr(&#x27;y&#x27;, y).attr(&#x27;width&#x27;, &#x27;180px&#x27;).attr(&#x27;height&#x27;, &#x27;20px&#x27;)
+                  .attr(&#x27;data-id&#x27;, a.id).attr(&#x27;data-to_links&#x27;, links).attr(&#x27;class&#x27;, &#x27;rect_action&#x27;).on(&#x27;click&#x27;, function() {
+                    let ids &#x3D; new Array&lt;string&gt;();
+                    const id &#x3D; a.id;
+                    const elements2: any &#x3D; document.querySelectorAll(&#x27;[data-rect-id]&#x27;);
+                    const elements3: any &#x3D; document.querySelectorAll(&#x27;[data-right]&#x27;);
+                    const elements4: any &#x3D; document.querySelectorAll(&#x27;[data-rect-id&#x3D;&quot;&#x27; + id + &#x27;&quot;]&#x27;);
+                    const elements5: any &#x3D; document.querySelectorAll(&#x27;[data-id&#x3D;&quot;&#x27; + id + &#x27;&quot;]&#x27;);
+                    const elements6: any &#x3D; document.querySelectorAll(&#x27;path[data-id]&#x27;);
+                    const previousId &#x3D; parseInt(localStorage.getItem(&#x27;d3PreviousIdClicked&#x27;), 10);
+                    if (previousId &amp;&amp; previousId &gt; 0 &amp;&amp; previousId &#x3D;&#x3D;&#x3D; a.id) {
+                      localStorage.removeItem(&#x27;d3PreviousIdClicked&#x27;);
+                      elements2.forEach(el3 &#x3D;&gt; {
+                          el3.classList.remove(&#x27;rect_2&#x27;);
+                          el3.classList.add(&#x27;rect_1&#x27;);
+                      });
+                      elements3.forEach(el3 &#x3D;&gt; {
+                          el3.classList.remove(&#x27;right_c&#x27;);
+                      });
+                      elements6.forEach(el1 &#x3D;&gt; {
+                          el1.classList.remove(&#x27;hide&#x27;);
+                      });
+                    } else {
+                      localStorage.setItem(&#x27;d3PreviousIdClicked&#x27;, a.id);
+                      elements2.forEach(el3 &#x3D;&gt; {
+                          el3.classList.remove(&#x27;rect_1&#x27;);
+                          el3.classList.add(&#x27;rect_2&#x27;);
+                      });
+                      elements3.forEach(el3 &#x3D;&gt; {
+                          el3.classList.add(&#x27;right_c&#x27;);
+                      });
+                      elements4.forEach(el3 &#x3D;&gt; {
+                          el3.classList.remove(&#x27;rect_2&#x27;);
+                          el3.classList.add(&#x27;rect_1&#x27;);
+                      });
+                      elements5.forEach(el3 &#x3D;&gt; {
+                          ids.push(el3.dataset.to_links.split(&#x27;,&#x27;));
+                      });
+                      ids &#x3D; ids.reduce(function(aa, bb) {
+                          return aa.concat(bb);
+                      }, []);
+                      const uniqLinks &#x3D; Array.from(new Set(ids));
+                      elements6.forEach(el1 &#x3D;&gt; {
+                          el1.classList.add(&#x27;hide&#x27;);
+                      });
+                      for (const link of ids) {
+                          document.querySelector(&#x27;[data-right&#x3D;&quot;&#x27; + link + &#x27;&quot;]&#x27;).classList.remove(&#x27;right_c&#x27;);
+                          const pathElement: any &#x3D; document.querySelectorAll(&#x27;path[data-id&#x3D;&quot;&#x27; + id + &#x27;-&#x27; + link + &#x27;&quot;]&#x27;);
+                          for (const path of pathElement) {
+                              path.classList.remove(&#x27;hide&#x27;);
+                          }
+                      }
+                    }
+                  });
+              this.linkFromTo.push({x: x + 185, y: y + 10, from: a.id, to: links});
+              y +&#x3D; 22;
+            }
+        }
+        let viewBoxHeight &#x3D; y + 30;
+        if (viewBoxHeight &lt; 600) {
+          viewBoxHeight &#x3D; 600;
+        }
+        this.svg.attr(&#x27;viewBox&#x27;, &#x27;0 0 590 &#x27; + viewBoxHeight);
+        y +&#x3D; 50;
+    }
+
+    y &#x3D; 140;
+    dataNav.sections.forEach(section &#x3D;&gt; {
+      section.items.forEach(item &#x3D;&gt; {
+        if (item.evaluation_with_gauge) {
+          const id &#x3D; section.id.toString() + item.id.toString();
+          const x &#x3D; 380;
+          const g &#x3D; this.svg.append(&#x27;g&#x27;).attr(&#x27;data-right&#x27;, id);
+          g.on(&#x27;click&#x27;, function() {
+            const previousId &#x3D; parseInt(localStorage.getItem(&#x27;d3PreviousIdClicked2&#x27;), 10);
+            const elements8: any &#x3D; document.querySelectorAll(&#x27;[data-right]&#x27;);
+            const elements9: any &#x3D; document.querySelectorAll(&#x27;[data-rect-id]&#x27;);
+            const elements10: any &#x3D; document.querySelectorAll(&#x27;path&#x27;);
+            const elements11: any &#x3D; document.querySelectorAll(&#x27;path[data-id$&#x3D;&quot;&#x27; + id + &#x27;&quot;]&#x27;);
+            const elements12: any &#x3D; document.querySelectorAll(&#x27;rect[data-links*&#x3D;&quot;&#x27; + id + &#x27;&quot;]&#x27;);
+            if (previousId &amp;&amp; previousId &gt; 0 &amp;&amp; previousId &#x3D;&#x3D;&#x3D; parseInt(id, 10)) {
+              localStorage.removeItem(&#x27;d3PreviousIdClicked2&#x27;);
+              elements8.forEach(el3 &#x3D;&gt; {
+                el3.classList.remove(&#x27;right_c&#x27;);
+              });
+              elements9.forEach(el3 &#x3D;&gt; {
+                  el3.classList.remove(&#x27;rect_2&#x27;);
+                  el3.classList.add(&#x27;rect_1&#x27;);
+              });
+              elements10.forEach(el3 &#x3D;&gt; {
+                  el3.classList.remove(&#x27;hide&#x27;);
+              });
+            } else {
+              localStorage.setItem(&#x27;d3PreviousIdClicked2&#x27;, id);
+              elements8.forEach(el3 &#x3D;&gt; {
+                  el3.classList.add(&#x27;right_c&#x27;);
+              });
+              d3.select(this).attr(&#x27;class&#x27;, &#x27;&#x27;);
+              elements9.forEach(el3 &#x3D;&gt; {
+                  el3.classList.remove(&#x27;rect_1&#x27;);
+                  el3.classList.add(&#x27;rect_2&#x27;);
+              });
+              elements10.forEach(el3 &#x3D;&gt; {
+                  el3.classList.add(&#x27;hide&#x27;);
+              });
+              elements11.forEach(el3 &#x3D;&gt; {
+                  el3.classList.remove(&#x27;hide&#x27;);
+              });
+              elements12.forEach(el3 &#x3D;&gt; {
+                  el3.classList.remove(&#x27;rect_2&#x27;);
+                  el3.classList.add(&#x27;rect_1&#x27;);
+              });
+            }
+          });
+          const name &#x3D; this._translateService.instant(item.title).split(&#x27;\n&#x27;);
+          const name_1 &#x3D; name[0];
+          const name_2 &#x3D; name[1];
+          g.append(&#x27;text&#x27;).attr(&#x27;x&#x27;, x).attr(&#x27;y&#x27;, y).text(name_1).attr(&#x27;class&#x27;, &#x27;c&#x27; + id);
+          const lft &#x3D; this.linkFromTo.filter((l) &#x3D;&gt; {
+            return l.to.includes(id);
+          });
+          lft.forEach((bb) &#x3D;&gt; {
+            const x1 &#x3D; bb.x + 100;
+            const y1 &#x3D; bb.y;
+            const x2 &#x3D; x - 4 - 100;
+            const y2 &#x3D; y;
+            this.svg.append(&#x27;path&#x27;).attr(&#x27;class&#x27;, &#x27;fadeIn path_&#x27; + id)
+                              .attr(&#x27;data-id&#x27;, bb.from + &#x27;-&#x27; + id)
+                              .attr(&#x27;d&#x27;, &#x27;M&#x27; + bb.x + &#x27;,&#x27; + bb.y + &#x27; C&#x27; + x1 + &#x27;,&#x27; + y1 + &#x27; &#x27; + x2 + &#x27;,&#x27; + y2 + &#x27; &#x27; + (x - 8)
+                                    + &#x27;,&#x27; + (y + 2));
+          });
+          y +&#x3D; 12;
+          g.append(&#x27;text&#x27;).attr(&#x27;x&#x27;, x).attr(&#x27;y&#x27;, y).text(name_2).attr(&#x27;class&#x27;, &#x27;c&#x27; + id);
+          const questionGauges &#x3D; item.questions.filter((question) &#x3D;&gt; {
+            return question.answer_type &#x3D;&#x3D;&#x3D; &#x27;gauge&#x27;;
+          });
+          this.parseQuestions(questionGauges, g, x, y);
+          y +&#x3D; 140;
+        }
+      });
+    });
+  }
+
+  /**
+   * Parse the questions.
+   * @private
+   * @param {any} questionGauges - Any questions gauges.
+   * @param {any} g - SVG element.
+   * @param {any} x - Position X.
+   * @param {any} y - Position Y.
+   * @returns {Promise}
+   * @memberof OverviewRisksComponent
+   */
+  private async parseQuestions(questionGauges, g, x, y) {
+    let i &#x3D; 0;
+    const data &#x3D; [];
+    const gauges_value &#x3D; {
+      1: this._translateService.instant(&#x27;overview-risks.negligible&#x27;),
+      2: this._translateService.instant(&#x27;overview-risks.limited&#x27;),
+      3: this._translateService.instant(&#x27;overview-risks.important&#x27;),
+      4: this._translateService.instant(&#x27;overview-risks.maximal&#x27;)
+    };
+    return new Promise((resolve, reject) &#x3D;&gt; {
+      questionGauges.forEach(async question &#x3D;&gt; {
+        i++;
+        const answerModel &#x3D; new Answer();
+        await answerModel.getByReferenceAndPia(this._piaService.pia.id, question.id);
+        if (answerModel.data &amp;&amp; answerModel.data.gauge &gt; 0) {
+          const value &#x3D; answerModel.data.gauge;
+          const name &#x3D; this._translateService.instant(&#x27;overview-risks.&#x27; + question.cartography);
+          y +&#x3D; 25;
+          g.append(&#x27;text&#x27;).attr(&#x27;x&#x27;, x).attr(&#x27;y&#x27;, y).text(name + &#x27; : &#x27; + gauges_value[value]).attr(&#x27;class&#x27;, &#x27;gauge_prefix&#x27;);
+          y +&#x3D; 10;
+          g.append(&#x27;line&#x27;).attr(&#x27;stroke-width&#x27;, 4).style(&#x27;stroke&#x27;, &#x27;#eee&#x27;).attr(&#x27;x1&#x27;, x)
+            .attr(&#x27;y1&#x27;, y).attr(&#x27;x2&#x27;, x + 200).attr(&#x27;y2&#x27;, y);
+          g.append(&#x27;line&#x27;).attr(&#x27;stroke-width&#x27;, 4).attr(&#x27;class&#x27;, &#x27;progress_bar_&#x27; + value.toString())
+            .attr(&#x27;x1&#x27;, x).attr(&#x27;y1&#x27;, y).attr(&#x27;x2&#x27;, x + ((value * 25) * 2)).attr(&#x27;y2&#x27;, y);
+        }
+        if (questionGauges.length &#x3D;&#x3D;&#x3D; i) {
+          resolve(data);
+        }
+      });
+    });
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;pia-risksOverviewBlock&quot;&gt;
+  &lt;svg id&#x3D;&quot;risksOverviewSvg&quot; xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot;&gt;
+    &lt;defs&gt;
+      &lt;style type&#x3D;&quot;text/css&quot;&gt;
+        svg {
+          background-color: white;
+        }
+        .rect_action {
+          cursor: pointer;
+          fill: transparent;
+        }
+        .title {
+          font-size: 1.3rem;
+          font-weight: bold;
+        }
+        .rect_1 {
+          fill: #000;
+        }
+        .rect_2 {
+          fill: #a7a7a7;
+        }
+        .c32 {
+          fill: #FD4664;
+          font-weight: bold;
+        }
+        .c33 {
+          fill: #3EE095;
+          font-weight: bold;
+        }
+        .c34 {
+          fill: #091C6B;
+          font-weight: bold;
+        }
+        .path_32 {
+          stroke: #FD4664;
+          fill: transparent;
+        }
+        .path_33 {
+          stroke: #3EE095;
+          fill: transparent;
+        }
+        .path_34 {
+          stroke: #091C6B;
+          fill: transparent;
+        }
+        [data-right] {
+          cursor: pointer;
+        }
+        .right_c text {
+          fill: #a7a7a7 !important;
+        }
+        .gauge_prefix {
+          text-transform: capitalize;
+        }
+        .right_c line.progress_bar_1,
+        .right_c line.progress_bar_2,
+        .right_c line.progress_bar_3,
+        .right_c line.progress_bar_4 {
+          stroke: #a7a7a7 !important;
+        }
+        .progress_bar_1 {
+          stroke: #78b687;
+        }
+        .progress_bar_2 {
+          stroke: #a2947f;
+        }
+        .progress_bar_3 {
+          stroke: #d06f73;
+        }
+        .progress_bar_4 {
+          stroke: #FD4664;
+        }
+      &lt;/style&gt;
+    &lt;/defs&gt;
+  &lt;/svg&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="pia-risksOverviewBlock">  <svg id="risksOverviewSvg" xmlns="http://www.w3.org/2000/svg">    <defs>      <style type="text/css">        svg {          background-color: white;        }        .rect_action {          cursor: pointer;          fill: transparent;        }        .title {          font-size: 1.3rem;          font-weight: bold;        }        .rect_1 {          fill: #000;        }        .rect_2 {          fill: #a7a7a7;        }        .c32 {          fill: #FD4664;          font-weight: bold;        }        .c33 {          fill: #3EE095;          font-weight: bold;        }        .c34 {          fill: #091C6B;          font-weight: bold;        }        .path_32 {          stroke: #FD4664;          fill: transparent;        }        .path_33 {          stroke: #3EE095;          fill: transparent;        }        .path_34 {          stroke: #091C6B;          fill: transparent;        }        [data-right] {          cursor: pointer;        }        .right_c text {          fill: #a7a7a7 !important;        }        .gauge_prefix {          text-transform: capitalize;        }        .right_c line.progress_bar_1,        .right_c line.progress_bar_2,        .right_c line.progress_bar_3,        .right_c line.progress_bar_4 {          stroke: #a7a7a7 !important;        }        .progress_bar_1 {          stroke: #78b687;        }        .progress_bar_2 {          stroke: #a2947f;        }        .progress_bar_3 {          stroke: #d06f73;        }        .progress_bar_4 {          stroke: #FD4664;        }      </style>    </defs>  </svg></div></div>'
+    var COMPONENTS = [{'name': 'AboutComponent', 'selector': 'app-about'},{'name': 'ActionPlanComponent', 'selector': 'app-action-plan'},{'name': 'ActionPlanImplementationComponent', 'selector': 'app-action-plan-implementation'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AttachmentItemComponent', 'selector': 'app-attachment-item'},{'name': 'AttachmentsComponent', 'selector': 'app-attachments'},{'name': 'AuthenticationComponent', 'selector': 'app-authentication'},{'name': 'CardItemComponent', 'selector': 'app-card-item'},{'name': 'CardItemComponent', 'selector': 'app-card-item'},{'name': 'CardsComponent', 'selector': 'app-cards'},{'name': 'CommentItemComponent', 'selector': 'app-comment-item'},{'name': 'CommentsComponent', 'selector': 'app-comments'},{'name': 'DPOPeopleOpinionsComponent', 'selector': 'app-dpo-people-opinions'},{'name': 'EntryComponent', 'selector': 'app-entry'},{'name': 'EntryComponent', 'selector': 'app-entry'},{'name': 'EntryContentComponent', 'selector': 'app-entry-content'},{'name': 'EntryContentComponent', 'selector': 'app-entry-content'},{'name': 'ErrorsComponent', 'selector': 'app-errors'},{'name': 'EvaluationsComponent', 'selector': 'app-evaluations'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HelpComponent', 'selector': 'app-help'},{'name': 'KnowledgeBaseComponent', 'selector': 'app-knowledge-base'},{'name': 'KnowledgeBaseItemComponent', 'selector': 'app-knowledge-base-item'},{'name': 'ListItemComponent', 'selector': '.app-list-item'},{'name': 'ListItemComponent', 'selector': '.app-list-item'},{'name': 'MeasuresComponent', 'selector': 'app-measures'},{'name': 'MeasuresComponent', 'selector': 'app-measures'},{'name': 'ModalsComponent', 'selector': 'app-modals'},{'name': 'OverviewRisksComponent', 'selector': '.app-overview-risks'},{'name': 'PiaValidateHistoryComponent', 'selector': 'app-pia-validate-history'},{'name': 'QuestionsComponent', 'selector': 'app-questions'},{'name': 'QuestionsComponent', 'selector': 'app-questions'},{'name': 'RefusePIAComponent', 'selector': 'app-refuse-pia'},{'name': 'RisksCartographyComponent', 'selector': '.app-risks-cartography'},{'name': 'SectionsComponent', 'selector': 'app-sections'},{'name': 'SectionsComponent', 'selector': 'app-sections'},{'name': 'SettingsComponent', 'selector': 'app-settings'},{'name': 'StructuresComponent', 'selector': 'app-structures'},{'name': 'SummaryComponent', 'selector': 'app-summary'},{'name': 'ValidatePIAComponent', 'selector': 'app-validate-pia'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'OverviewRisksComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'OverviewRisksComponent.html';
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <script src="../js/menu-wc.js"></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
