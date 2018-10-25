@@ -142,7 +142,7 @@ export class Pia extends ApplicationDb {
       structure_id: (this.structure_id ? this.structure_id : ''),
       structure_name: this.structure_name,
       structure_sector_name: this.structure_sector_name,
-      structure_data: this.structure_data
+      structure_data: (this.structure_data ? this.structure_data : '')
     };
 
     return new Promise((resolve, reject) => {
@@ -210,7 +210,7 @@ export class Pia extends ApplicationDb {
         entry.structure_id = (this.structure_id ? this.structure_id : '');
         entry.structure_name = this.structure_name;
         entry.structure_sector_name = this.structure_sector_name;
-        entry.structure_data = this.structure_data;
+        entry.structure_data = (this.structure_data ? this.structure_data : '')
         entry.updated_at = new Date();
         if (this.serverUrl) {
           const formData = new FormData();
