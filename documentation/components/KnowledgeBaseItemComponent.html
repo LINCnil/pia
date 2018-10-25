@@ -1,0 +1,767 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>pia documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">pia documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search">
+</div>
+            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>KnowledgeBaseItemComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/entry/knowledge-base/knowledge-base-item/knowledge-base-item.component.ts</code>
+</p>
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-knowledge-base-item</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>knowledge-base-item.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./knowledge-base-item.component.html</code></td>
+            </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#_globalEvaluationService">_globalEvaluationService</a>
+                            </li>
+                            <li>
+                                <a href="#titleKb">titleKb</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#addNewMeasure">addNewMeasure</a>
+                            </li>
+                            <li>
+                                <a href="#displayItem">displayItem</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit">ngOnInit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#item">item</a>
+                            </li>
+                            <li>
+                                <a href="#itemKb">itemKb</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Outputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#newMeasureEvent">newMeasureEvent</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(el: <a href="https://angular.io/api/core/ElementRef" target="_blank">ElementRef</a>, router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>, _knowledgeBaseService: <a href="../injectables/KnowledgeBaseService.html">KnowledgeBaseService</a>, _translateService: TranslateService, _globalEvaluationService: <a href="../injectables/GlobalEvaluationService.html">GlobalEvaluationService</a>, activatedRoute: <a href="https://angular.io/api/router/ActivatedRoute" target="_blank">ActivatedRoute</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/entry/knowledge-base/knowledge-base-item/knowledge-base-item.component.ts:18</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>el</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="https://angular.io/api/core/ElementRef" target="_blank" >ElementRef</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="https://angular.io/api/router/Router" target="_blank" >Router</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>_knowledgeBaseService</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="../injectables/KnowledgeBaseService.html" target="_self" >KnowledgeBaseService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>_translateService</td>
+                                                  
+                                                        <td>
+                                                                    <code>TranslateService</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>_globalEvaluationService</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="../injectables/GlobalEvaluationService.html" target="_self" >GlobalEvaluationService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>activatedRoute</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="https://angular.io/api/router/ActivatedRoute" target="_blank" >ActivatedRoute</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+    <section>
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-2">
+                        <a name="item"></a>
+                        <code>item</code>
+                    </td>
+                    <td class="col-md-10">
+                            <p>
+                            <em>Type :</em>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                            </p>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/entry/knowledge-base/knowledge-base-item/knowledge-base-item.component.ts:15</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-2">
+                        <a name="itemKb"></a>
+                        <code>itemKb</code>
+                    </td>
+                    <td class="col-md-10">
+                            <p>
+                            <em>Type :</em>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                            </p>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/entry/knowledge-base/knowledge-base-item/knowledge-base-item.component.ts:16</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+    <section>
+    <h3 id="outputs">Outputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-2">
+                        <a name="newMeasureEvent"></a>
+                        <code>newMeasureEvent</code>
+                    </td>
+                    <td class="col-md-10">
+                        <em><code>$event</code> Type:</em>    <code>EventEmitter&lt;any&gt;</code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/entry/knowledge-base/knowledge-base-item/knowledge-base-item.component.ts:17</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+
+
+    <section>
+    
+        <h3 id="methods">
+            Methods
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="addNewMeasure"></a>
+                        <span class="name">
+                            <b>
+                            addNewMeasure
+                            </b>
+                            <a href="#addNewMeasure"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>addNewMeasure()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="57" class="link-to-prism">src/app/entry/knowledge-base/knowledge-base-item/knowledge-base-item.component.ts:57</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Adds a measure to the PIA.
+This is used mainly on &quot;Mesures préventives et existantes&quot; subsection.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="displayItem"></a>
+                        <span class="name">
+                            <b>
+                            displayItem
+                            </b>
+                            <a href="#displayItem"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>displayItem()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/app/entry/knowledge-base/knowledge-base-item/knowledge-base-item.component.ts:38</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Shows or hides an help item.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="ngOnInit"></a>
+                        <span class="name">
+                            <b>
+                            ngOnInit
+                            </b>
+                            <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>ngOnInit()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/entry/knowledge-base/knowledge-base-item/knowledge-base-item.component.ts:28</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="_globalEvaluationService"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            _globalEvaluationService
+                            </b>
+                            <a href="#_globalEvaluationService"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>_globalEvaluationService:     <code><a href="../injectables/GlobalEvaluationService.html" target="_self" >GlobalEvaluationService</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="../injectables/GlobalEvaluationService.html" target="_self" >GlobalEvaluationService</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/entry/knowledge-base/knowledge-base-item/knowledge-base-item.component.ts:23</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="titleKb"></a>
+                        <span class="name">
+                            <b>
+                            titleKb
+                            </b>
+                            <a href="#titleKb"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>titleKb:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/entry/knowledge-base/knowledge-base-item/knowledge-base-item.component.ts:18</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, ElementRef, OnInit, Input, Output, EventEmitter } from &#x27;@angular/core&#x27;;
+import { Router, ActivatedRoute } from &#x27;@angular/router&#x27;;
+
+import { KnowledgeBaseService } from &#x27;../knowledge-base.service&#x27;;
+import { TranslateService } from &#x27;@ngx-translate/core&#x27;;
+import { GlobalEvaluationService } from &#x27;app/services/global-evaluation.service&#x27;;
+
+@Component({
+  selector: &#x27;app-knowledge-base-item&#x27;,
+  templateUrl: &#x27;./knowledge-base-item.component.html&#x27;,
+  styleUrls: [&#x27;./knowledge-base-item.component.scss&#x27;]
+})
+export class KnowledgeBaseItemComponent implements OnInit {
+
+  @Input() item: any;
+  @Input() itemKb: any;
+  @Output() newMeasureEvent: EventEmitter&lt;any&gt; &#x3D; new EventEmitter&lt;any&gt;();
+  titleKb: string;
+
+  constructor(private el: ElementRef, private router: Router,
+              private _knowledgeBaseService: KnowledgeBaseService,
+              private _translateService: TranslateService,
+              public _globalEvaluationService: GlobalEvaluationService,
+              private activatedRoute: ActivatedRoute) {
+    this.router &#x3D; router;
+  }
+
+  ngOnInit() {
+    this._translateService.get(this.itemKb.name).subscribe(value &#x3D;&gt; {
+        this.titleKb &#x3D; value;
+    });
+  }
+
+  /**
+   * Shows or hides an help item.
+   * @memberof KnowledgeBaseItemComponent
+   */
+  displayItem() {
+    const accordeon &#x3D; this.el.nativeElement.querySelector(&#x27;.pia-knowledgeBaseBlock-item-accordion button span&#x27;);
+    const displayer &#x3D; this.el.nativeElement.querySelector(&#x27;.pia-knowledgeBaseBlock-item-content&#x27;);
+    if (displayer.classList.contains(&#x27;hide&#x27;)) {
+      displayer.classList.remove(&#x27;hide&#x27;);
+      accordeon.classList.remove(&#x27;pia-icon-accordeon-down&#x27;);
+      accordeon.classList.add(&#x27;pia-icon-accordeon-up&#x27;);
+    } else {
+      displayer.classList.add(&#x27;hide&#x27;);
+      accordeon.classList.remove(&#x27;pia-icon-accordeon-up&#x27;);
+      accordeon.classList.add(&#x27;pia-icon-accordeon-down&#x27;);
+    }
+  }
+
+  /**
+   * Adds a measure to the PIA.
+   * This is used mainly on &quot;Mesures préventives et existantes&quot; subsection.
+   * @memberof KnowledgeBaseItemComponent
+   */
+  addNewMeasure() {
+    this.newMeasureEvent.emit(this.itemKb);
+  }
+
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;pia-knowledgeBaseBlock-item&quot; [attr.data-slug]&#x3D;&quot;itemKb.slug&quot;&gt;
+  &lt;div&gt;
+    &lt;div class&#x3D;&quot;pia-knowledgeBaseBlock-item-accordion&quot;&gt;
+      &lt;button class&#x3D;&quot;btn&quot; type&#x3D;&quot;button&quot; (click)&#x3D;&quot;displayItem()&quot; title&#x3D;&quot;{{ &#x27;misc.display&#x27; | translate }}&quot;&gt;&lt;span class&#x3D;&quot;pia-icons pia-icon-accordeon-down&quot;&gt;&lt;/span&gt;&lt;/button&gt;
+    &lt;/div&gt;&lt;div class&#x3D;&quot;pia-knowledgeBaseBlock-item-definition&quot;&gt;
+      &lt;p (click)&#x3D;&quot;displayItem()&quot;&gt;{{ itemKb.category | translate }}&lt;/p&gt;
+      &lt;button *ngIf&#x3D;&quot;itemKb.filters.startsWith(&#x27;measure.&#x27;) &amp;&amp; itemKb.filters !&#x3D;&#x3D; &#x27;measure.definition&#x27; &amp;&amp; _globalEvaluationService.answerEditionEnabled&quot;
+              class&#x3D;&quot;btn&quot;
+              type&#x3D;&quot;button&quot;
+              (click)&#x3D;&quot;addNewMeasure()&quot;
+              [ngClass]&#x3D;&quot;{&#x27;hide&#x27;: this._knowledgeBaseService.toHide.includes(titleKb)}&quot;
+              title&#x3D;&quot;{{ &#x27;knowledge_base.placeholder_add_measure&#x27; | translate }}&quot;&gt;
+        &lt;span class&#x3D;&quot;pia-icons pia-icon-add&quot;&gt;&lt;/span&gt;
+        &lt;span&gt;{{ &#x27;knowledge_base.add_measure&#x27; | translate }}&lt;/span&gt;
+      &lt;/button&gt;
+      &lt;div style&#x3D;&quot;display:none;&quot;&gt;
+        &lt;span class&#x3D;&quot;pia-icons pia-icon-hand&quot;&gt;&lt;/span&gt;
+        &lt;p&gt;{{ &#x27;knowledge_base.add_measure_hint&#x27; | translate }}&lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class&#x3D;&quot;pia-knowledgeBaseBlock-item-title&quot;&gt;
+    &lt;p (click)&#x3D;&quot;displayItem()&quot;&gt;{{ itemKb.name | translate }}&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div class&#x3D;&quot;pia-knowledgeBaseBlock-item-content hide&quot; [innerHTML]&#x3D;&quot;itemKb.description | translate&quot;&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="pia-knowledgeBaseBlock-item" [attr.data-slug]="itemKb.slug">  <div>    <div class="pia-knowledgeBaseBlock-item-accordion">      <button class="btn" type="button" (click)="displayItem()" title="{{ \'misc.display\' | translate }}"><span class="pia-icons pia-icon-accordeon-down"></span></button>    </div><div class="pia-knowledgeBaseBlock-item-definition">      <p (click)="displayItem()">{{ itemKb.category | translate }}</p>      <button *ngIf="itemKb.filters.startsWith(\'measure.\') && itemKb.filters !== \'measure.definition\' && _globalEvaluationService.answerEditionEnabled"              class="btn"              type="button"              (click)="addNewMeasure()"              [ngClass]="{\'hide\': this._knowledgeBaseService.toHide.includes(titleKb)}"              title="{{ \'knowledge_base.placeholder_add_measure\' | translate }}">        <span class="pia-icons pia-icon-add"></span>        <span>{{ \'knowledge_base.add_measure\' | translate }}</span>      </button>      <div style="display:none;">        <span class="pia-icons pia-icon-hand"></span>        <p>{{ \'knowledge_base.add_measure_hint\' | translate }}</p>      </div>    </div>  </div>  <div class="pia-knowledgeBaseBlock-item-title">    <p (click)="displayItem()">{{ itemKb.name | translate }}</p>  </div>  <div class="pia-knowledgeBaseBlock-item-content hide" [innerHTML]="itemKb.description | translate">  </div></div></div>'
+    var COMPONENTS = [{'name': 'AboutComponent', 'selector': 'app-about'},{'name': 'ActionPlanComponent', 'selector': 'app-action-plan'},{'name': 'ActionPlanImplementationComponent', 'selector': 'app-action-plan-implementation'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AttachmentItemComponent', 'selector': 'app-attachment-item'},{'name': 'AttachmentsComponent', 'selector': 'app-attachments'},{'name': 'AuthenticationComponent', 'selector': 'app-authentication'},{'name': 'CardItemComponent', 'selector': 'app-card-item'},{'name': 'CardItemComponent', 'selector': 'app-card-item'},{'name': 'CardsComponent', 'selector': 'app-cards'},{'name': 'CommentItemComponent', 'selector': 'app-comment-item'},{'name': 'CommentsComponent', 'selector': 'app-comments'},{'name': 'DPOPeopleOpinionsComponent', 'selector': 'app-dpo-people-opinions'},{'name': 'EntryComponent', 'selector': 'app-entry'},{'name': 'EntryComponent', 'selector': 'app-entry'},{'name': 'EntryContentComponent', 'selector': 'app-entry-content'},{'name': 'EntryContentComponent', 'selector': 'app-entry-content'},{'name': 'ErrorsComponent', 'selector': 'app-errors'},{'name': 'EvaluationsComponent', 'selector': 'app-evaluations'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HelpComponent', 'selector': 'app-help'},{'name': 'KnowledgeBaseComponent', 'selector': 'app-knowledge-base'},{'name': 'KnowledgeBaseItemComponent', 'selector': 'app-knowledge-base-item'},{'name': 'ListItemComponent', 'selector': '.app-list-item'},{'name': 'ListItemComponent', 'selector': '.app-list-item'},{'name': 'MeasuresComponent', 'selector': 'app-measures'},{'name': 'MeasuresComponent', 'selector': 'app-measures'},{'name': 'ModalsComponent', 'selector': 'app-modals'},{'name': 'OverviewRisksComponent', 'selector': '.app-overview-risks'},{'name': 'PiaValidateHistoryComponent', 'selector': 'app-pia-validate-history'},{'name': 'QuestionsComponent', 'selector': 'app-questions'},{'name': 'QuestionsComponent', 'selector': 'app-questions'},{'name': 'RefusePIAComponent', 'selector': 'app-refuse-pia'},{'name': 'RisksCartographyComponent', 'selector': '.app-risks-cartography'},{'name': 'SectionsComponent', 'selector': 'app-sections'},{'name': 'SectionsComponent', 'selector': 'app-sections'},{'name': 'SettingsComponent', 'selector': 'app-settings'},{'name': 'StructuresComponent', 'selector': 'app-structures'},{'name': 'SummaryComponent', 'selector': 'app-summary'},{'name': 'ValidatePIAComponent', 'selector': 'app-validate-pia'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'KnowledgeBaseItemComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'KnowledgeBaseItemComponent.html';
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <script src="../js/menu-wc.js"></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

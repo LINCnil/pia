@@ -1,0 +1,1622 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>pia documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">pia documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search">
+</div>
+            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>ModalsComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/modals/modals.component.ts</code>
+</p>
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">providers</td>
+                <td class="col-md-9">
+                            <code><a href="../injectables/PiaService.html" target="_self" >PiaService</a></code>
+                            <code><a href="../injectables/StructureService.html" target="_self" >StructureService</a></code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-modals</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>modals.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./modals.component.html</code></td>
+            </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#_answerStructureService">_answerStructureService</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#_attachmentsService">_attachmentsService</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#_measuresService">_measuresService</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#_modalsService">_modalsService</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#_piaService">_piaService</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#_structureService">_structureService</a>
+                            </li>
+                            <li>
+                                <a href="#enableSubmit">enableSubmit</a>
+                            </li>
+                            <li>
+                                <a href="#newPia">newPia</a>
+                            </li>
+                            <li>
+                                <a href="#newStructure">newStructure</a>
+                            </li>
+                            <li>
+                                <a href="#piaForm">piaForm</a>
+                            </li>
+                            <li>
+                                <a href="#removeAttachmentForm">removeAttachmentForm</a>
+                            </li>
+                            <li>
+                                <a href="#structureForm">structureForm</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#attachmentCommentFocusOut">attachmentCommentFocusOut</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit">ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#onSubmit">onSubmit</a>
+                            </li>
+                            <li>
+                                <a href="#onSubmitStructure">onSubmitStructure</a>
+                            </li>
+                            <li>
+                                <a href="#returnToHomepage">returnToHomepage</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#pia">pia</a>
+                            </li>
+                            <li>
+                                <a href="#structure">structure</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>, _modalsService: <a href="../injectables/ModalsService.html">ModalsService</a>, _piaService: <a href="../injectables/PiaService.html">PiaService</a>, _structureService: <a href="../injectables/StructureService.html">StructureService</a>, _answerStructureService: <a href="../injectables/StructureService.html">AnswerStructureService</a>, _measuresService: <a href="../injectables/MeasureService.html">MeasureService</a>, _attachmentsService: <a href="../injectables/AttachmentsService.html">AttachmentsService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/modals/modals.component.ts:29</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="https://angular.io/api/router/Router" target="_blank" >Router</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>_modalsService</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="../injectables/ModalsService.html" target="_self" >ModalsService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>_piaService</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="../injectables/PiaService.html" target="_self" >PiaService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>_structureService</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="../injectables/StructureService.html" target="_self" >StructureService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>_answerStructureService</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="../injectables/StructureService.html" target="_self" >AnswerStructureService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>_measuresService</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="../injectables/MeasureService.html" target="_self" >MeasureService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>_attachmentsService</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="../injectables/AttachmentsService.html" target="_self" >AttachmentsService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+    <section>
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-2">
+                        <a name="pia"></a>
+                        <code>pia</code>
+                    </td>
+                    <td class="col-md-10">
+                            <p>
+                            <em>Type :</em>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                            </p>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/modals/modals.component.ts:22</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-2">
+                        <a name="structure"></a>
+                        <code>structure</code>
+                    </td>
+                    <td class="col-md-10">
+                            <p>
+                            <em>Type :</em>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                            </p>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/modals/modals.component.ts:23</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+    <section>
+    
+        <h3 id="methods">
+            Methods
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="attachmentCommentFocusOut"></a>
+                        <span class="name">
+                            <b>
+                            attachmentCommentFocusOut
+                            </b>
+                            <a href="#attachmentCommentFocusOut"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>attachmentCommentFocusOut()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="108" class="link-to-prism">src/app/modals/modals.component.ts:108</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Focuses out from the comment attachment field.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="ngOnInit"></a>
+                        <span class="name">
+                            <b>
+                            ngOnInit
+                            </b>
+                            <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>ngOnInit()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/app/modals/modals.component.ts:41</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="onSubmit"></a>
+                        <span class="name">
+                            <b>
+                            onSubmit
+                            </b>
+                            <a href="#onSubmit"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>onSubmit()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="80" class="link-to-prism">src/app/modals/modals.component.ts:80</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Save the newly created PIA.
+Sends to the path associated to this new PIA.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="onSubmitStructure"></a>
+                        <span class="name">
+                            <b>
+                            onSubmitStructure
+                            </b>
+                            <a href="#onSubmitStructure"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>onSubmitStructure()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="95" class="link-to-prism">src/app/modals/modals.component.ts:95</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Save the newly created Structure.
+Sends to the path associated to this new Structure.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="returnToHomepage"></a>
+                        <span class="name">
+                            <b>
+                            returnToHomepage
+                            </b>
+                            <a href="#returnToHomepage"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>returnToHomepage()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="70" class="link-to-prism">src/app/modals/modals.component.ts:70</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Returns to homepage (used on several modals).</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="_answerStructureService"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            _answerStructureService
+                            </b>
+                            <a href="#_answerStructureService"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>_answerStructureService:     <code><a href="../injectables/StructureService.html" target="_self" >AnswerStructureService</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="../injectables/StructureService.html" target="_self" >AnswerStructureService</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/app/modals/modals.component.ts:36</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="_attachmentsService"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            _attachmentsService
+                            </b>
+                            <a href="#_attachmentsService"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>_attachmentsService:     <code><a href="../injectables/AttachmentsService.html" target="_self" >AttachmentsService</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="../injectables/AttachmentsService.html" target="_self" >AttachmentsService</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/app/modals/modals.component.ts:38</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="_measuresService"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            _measuresService
+                            </b>
+                            <a href="#_measuresService"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>_measuresService:     <code><a href="../injectables/MeasureService.html" target="_self" >MeasureService</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="../injectables/MeasureService.html" target="_self" >MeasureService</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/modals/modals.component.ts:37</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="_modalsService"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            _modalsService
+                            </b>
+                            <a href="#_modalsService"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>_modalsService:     <code><a href="../injectables/ModalsService.html" target="_self" >ModalsService</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="../injectables/ModalsService.html" target="_self" >ModalsService</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/modals/modals.component.ts:33</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="_piaService"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            _piaService
+                            </b>
+                            <a href="#_piaService"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>_piaService:     <code><a href="../injectables/PiaService.html" target="_self" >PiaService</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="../injectables/PiaService.html" target="_self" >PiaService</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/app/modals/modals.component.ts:34</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="_structureService"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            _structureService
+                            </b>
+                            <a href="#_structureService"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>_structureService:     <code><a href="../injectables/StructureService.html" target="_self" >StructureService</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="../injectables/StructureService.html" target="_self" >StructureService</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/app/modals/modals.component.ts:35</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="enableSubmit"></a>
+                        <span class="name">
+                            <b>
+                            enableSubmit
+                            </b>
+                            <a href="#enableSubmit"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>enableSubmit:     <code></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>true</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/modals/modals.component.ts:29</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="newPia"></a>
+                        <span class="name">
+                            <b>
+                            newPia
+                            </b>
+                            <a href="#newPia"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>newPia:     <code><a href="../classes/Pia.html" target="_self" >Pia</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="../classes/Pia.html" target="_self" >Pia</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/modals/modals.component.ts:24</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="newStructure"></a>
+                        <span class="name">
+                            <b>
+                            newStructure
+                            </b>
+                            <a href="#newStructure"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>newStructure:     <code><a href="../classes/Structure.html" target="_self" >Structure</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="../classes/Structure.html" target="_self" >Structure</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/modals/modals.component.ts:25</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="piaForm"></a>
+                        <span class="name">
+                            <b>
+                            piaForm
+                            </b>
+                            <a href="#piaForm"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>piaForm:     <code><a href="https://angular.io/api/forms/FormGroup" target="_blank" >FormGroup</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://angular.io/api/forms/FormGroup" target="_blank" >FormGroup</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/modals/modals.component.ts:26</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="removeAttachmentForm"></a>
+                        <span class="name">
+                            <b>
+                            removeAttachmentForm
+                            </b>
+                            <a href="#removeAttachmentForm"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>removeAttachmentForm:     <code><a href="https://angular.io/api/forms/FormGroup" target="_blank" >FormGroup</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://angular.io/api/forms/FormGroup" target="_blank" >FormGroup</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/modals/modals.component.ts:28</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="structureForm"></a>
+                        <span class="name">
+                            <b>
+                            structureForm
+                            </b>
+                            <a href="#structureForm"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>structureForm:     <code><a href="https://angular.io/api/forms/FormGroup" target="_blank" >FormGroup</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://angular.io/api/forms/FormGroup" target="_blank" >FormGroup</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/modals/modals.component.ts:27</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, Input, OnInit } from &#x27;@angular/core&#x27;;
+import { Router } from &#x27;@angular/router&#x27;;
+import { FormControl, FormGroup } from &#x27;@angular/forms&#x27;;
+
+import { Pia } from &#x27;../entry/pia.model&#x27;;
+import { Structure } from &#x27;../structures/structure.model&#x27;;
+
+import { ModalsService } from &#x27;./modals.service&#x27;;
+import { MeasureService } from &#x27;app/entry/entry-content/measures/measures.service&#x27;;
+import { PiaService } from &#x27;app/services/pia.service&#x27;;
+import { StructureService } from &#x27;app/services/structure.service&#x27;;
+import { AnswerStructureService } from &#x27;app/services/answer-structure.service&#x27;;
+import { AttachmentsService } from &#x27;app/entry/attachments/attachments.service&#x27;;
+
+@Component({
+  selector: &#x27;app-modals&#x27;,
+  templateUrl: &#x27;./modals.component.html&#x27;,
+  styleUrls: [&#x27;./modals.component.scss&#x27;],
+  providers: [PiaService, StructureService]
+})
+export class ModalsComponent implements OnInit {
+  @Input() pia: any;
+  @Input() structure: any;
+  newPia: Pia;
+  newStructure: Structure;
+  piaForm: FormGroup;
+  structureForm: FormGroup;
+  removeAttachmentForm: FormGroup;
+  enableSubmit &#x3D; true;
+
+  constructor(
+    private router: Router,
+    public _modalsService: ModalsService,
+    public _piaService: PiaService,
+    public _structureService: StructureService,
+    public _answerStructureService: AnswerStructureService,
+    public _measuresService: MeasureService,
+    public _attachmentsService: AttachmentsService
+  ) { }
+
+  ngOnInit() {
+    const structure &#x3D; new Structure();
+    structure.getAll().then((data: any) &#x3D;&gt; {
+      this._structureService.structures &#x3D; data;
+    });
+
+    this._piaService.getPIA();
+    this.piaForm &#x3D; new FormGroup({
+      name: new FormControl(),
+      author_name: new FormControl(),
+      evaluator_name: new FormControl(),
+      validator_name: new FormControl(),
+      structure: new FormControl([])
+    });
+    this.structureForm &#x3D; new FormGroup({
+      name: new FormControl(),
+      sector_name: new FormControl()
+    });
+    this.removeAttachmentForm &#x3D; new FormGroup({
+      comment: new FormControl()
+    });
+    this.newPia &#x3D; new Pia();
+    this.newStructure &#x3D; new Structure();
+  }
+
+  /**
+   * Returns to homepage (used on several modals).
+   * @memberof ModalsComponent
+   */
+  returnToHomepage() {
+    this._modalsService.closeModal();
+    this.router.navigate([&#x27;/home&#x27;]);
+  }
+
+  /**
+   * Save the newly created PIA.
+   * Sends to the path associated to this new PIA.
+   * @memberof ModalsComponent
+   */
+  onSubmit() {
+    const pia &#x3D; new Pia();
+    pia.name &#x3D; this.piaForm.value.name;
+    pia.author_name &#x3D; this.piaForm.value.author_name;
+    pia.evaluator_name &#x3D; this.piaForm.value.evaluator_name;
+    pia.validator_name &#x3D; this.piaForm.value.validator_name;
+    const p &#x3D; pia.create();
+    p.then((id) &#x3D;&gt; this.router.navigate([&#x27;entry&#x27;, id, &#x27;section&#x27;, 1, &#x27;item&#x27;, 1]));
+  }
+
+  /**
+   * Save the newly created Structure.
+   * Sends to the path associated to this new Structure.
+   * @memberof ModalsComponent
+   */
+  onSubmitStructure() {
+    const structure &#x3D; new Structure();
+    structure.name &#x3D; this.structureForm.value.name;
+    structure.sector_name &#x3D; this.structureForm.value.sector_name;
+    structure.data &#x3D; this._piaService.data;
+    const p &#x3D; structure.create();
+    p.then((id) &#x3D;&gt; this.router.navigate([&#x27;entry&#x27;, id, &#x27;section&#x27;, 1, &#x27;item&#x27;, 1]));
+  }
+
+  /**
+   * Focuses out from the comment attachment field.
+   * @memberof ModalsComponent
+   */
+  attachmentCommentFocusOut() {
+    if (this.removeAttachmentForm.controls[&#x27;comment&#x27;].value &amp;&amp;
+        this.removeAttachmentForm.controls[&#x27;comment&#x27;].value.length &gt; 0) {
+      this.enableSubmit &#x3D; false;
+    }
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;pia-modalBlock&quot; id&#x3D;&quot;modal-simple-pia-validation&quot;&gt;
+  &lt;div class&#x3D;&quot;pia-modalBlock-content bounceIn&quot;&gt;
+    &lt;button tabindex&#x3D;&quot;2&quot; type&#x3D;&quot;button&quot; class&#x3D;&quot;pia-modalBlock-close btn&quot; title&#x3D;&quot;{{ &#x27;modals.close&#x27; | translate }}&quot; (click)&#x3D;&quot;_modalsService.closeModal()&quot;&gt;&lt;span class&#x3D;&quot;pia-icons pia-icon-close-big&quot;&gt;&lt;/span&gt;&lt;/button&gt;
+    &lt;p&gt;{{ &#x27;modals.simple_pia_validation.content&#x27; | translate }}&lt;/p&gt;
+    &lt;i class&#x3D;&quot;fa fa-check icon-green&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/i&gt;
+    &lt;div class&#x3D;&quot;pia-modalBlock-validate&quot;&gt;
+      &lt;button tabindex&#x3D;&quot;1&quot; class&#x3D;&quot;btn btn-green get-focus&quot; type&#x3D;&quot;button&quot; (click)&#x3D;&quot;returnToHomepage()&quot;&gt;{{ &#x27;modals.back_to_home&#x27; | translate }}&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class&#x3D;&quot;pia-modalBlock&quot; id&#x3D;&quot;modal-update-server-url-ok&quot;&gt;
+  &lt;div class&#x3D;&quot;pia-modalBlock-content bounceIn&quot;&gt;
+    &lt;button tabindex&#x3D;&quot;2&quot; type&#x3D;&quot;button&quot; class&#x3D;&quot;pia-modalBlock-close btn&quot; title&#x3D;&quot;{{ &#x27;modals.close&#x27; | translate }}&quot; (click)&#x3D;&quot;_modalsService.closeModal()&quot;&gt;&lt;span class&#x3D;&quot;pia-icons pia-icon-close-big&quot;&gt;&lt;/span&gt;&lt;/button&gt;
+    &lt;p [innerHTML]&#x3D;&quot;&#x27;modals.update_server_url_ok.content&#x27; | translate&quot;&gt;&lt;/p&gt;
+    &lt;span class&#x3D;&quot;pia-icons pia-icon-happy&quot;&gt;&lt;/span&gt;
+    &lt;div class&#x3D;&quot;pia-modalBlock-validate&quot;&gt;
+      &lt;button tabindex&#x3D;&quot;1&quot; class&#x3D;&quot;btn btn-green get-focus&quot; type&#x3D;&quot;button&quot; (click)&#x3D;&quot;returnToHomepage()&quot;&gt;{{ &#x27;modals.back_to_home&#x27; | translate }}&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class&#x3D;&quot;pia-modalBlock&quot; id&#x3D;&quot;modal-update-server-url-nok&quot;&gt;
+  &lt;div class&#x3D;&quot;pia-modalBlock-content bounceIn&quot;&gt;
+    &lt;button tabindex&#x3D;&quot;2&quot; type&#x3D;&quot;button&quot; class&#x3D;&quot;pia-modalBlock-close btn&quot; title&#x3D;&quot;{{ &#x27;modals.close&#x27; | translate }}&quot; (click)&#x3D;&quot;_modalsService.closeModal()&quot;&gt;&lt;span class&#x3D;&quot;pia-icons pia-icon-close-big&quot;&gt;&lt;/span&gt;&lt;/button&gt;
+    &lt;p [innerHTML]&#x3D;&quot;&#x27;modals.update_server_url_nok.content&#x27; | translate&quot;&gt;&lt;/p&gt;
+    &lt;span class&#x3D;&quot;pia-icons pia-icon-sad&quot;&gt;&lt;/span&gt;
+    &lt;div class&#x3D;&quot;pia-modalBlock-validate&quot;&gt;
+      &lt;button tabindex&#x3D;&quot;1&quot; class&#x3D;&quot;btn btn-green get-focus&quot; type&#x3D;&quot;button&quot; (click)&#x3D;&quot;returnToHomepage()&quot;&gt;{{ &#x27;modals.back_to_home&#x27; | translate }}&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class&#x3D;&quot;pia-modalBlock&quot; id&#x3D;&quot;modal-signed-pia-validation&quot;&gt;
+  &lt;div class&#x3D;&quot;pia-modalBlock-content pia-modalBlock-acceptedPIA bounceIn&quot;&gt;
+    &lt;button tabindex&#x3D;&quot;1&quot; type&#x3D;&quot;button&quot; class&#x3D;&quot;pia-modalBlock-close btn&quot; title&#x3D;&quot;{{ &#x27;modals.close&#x27; | translate }}&quot; (click)&#x3D;&quot;_modalsService.closeModal()&quot;&gt;&lt;span class&#x3D;&quot;pia-icons pia-icon-close-big&quot;&gt;&lt;/span&gt;&lt;/button&gt;
+    &lt;p [innerHTML]&#x3D;&quot;&#x27;modals.signed_pia_validation.content&#x27; | translate&quot;&gt;&lt;/p&gt;
+    &lt;i class&#x3D;&quot;fa fa-check icon-green&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/i&gt;
+    &lt;div class&#x3D;&quot;pia-modalBlock-buttons-choice&quot;&gt;
+      &lt;a routerLink&#x3D;&quot;/summary/{{_piaService.pia.id}}&quot; class&#x3D;&quot;btn btn-green get-focus&quot; [innerHTML]&#x3D;&quot;&#x27;modals.signed_pia_validation.download_pia&#x27; | translate&quot;&gt;&lt;/a&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class&#x3D;&quot;pia-modalBlock&quot; id&#x3D;&quot;modal-abandon-pia&quot;&gt;
+  &lt;div class&#x3D;&quot;pia-modalBlock-content pia-modalBlock-abandonPIA bounceIn&quot;&gt;
+    &lt;button tabindex&#x3D;&quot;3&quot; type&#x3D;&quot;button&quot; class&#x3D;&quot;pia-modalBlock-close btn&quot; title&#x3D;&quot;{{ &#x27;modals.close&#x27; | translate }}&quot; (click)&#x3D;&quot;_modalsService.closeModal()&quot;&gt;&lt;span class&#x3D;&quot;pia-icons pia-icon-close-big&quot;&gt;&lt;/span&gt;&lt;/button&gt;
+    &lt;p [innerHTML]&#x3D;&quot;&#x27;modals.abandon_pia.content&#x27; | translate&quot;&gt;&lt;/p&gt;
+    &lt;i class&#x3D;&quot;fa fa-times icon-red&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/i&gt;
+    &lt;div class&#x3D;&quot;pia-modalBlock-buttons-choice&quot;&gt;
+      &lt;button tabindex&#x3D;&quot;1&quot; class&#x3D;&quot;btn btn-red get-focus&quot; type&#x3D;&quot;button&quot; (click)&#x3D;&quot;_modalsService.closeModal()&quot;&gt;{{ &#x27;modals.cancel&#x27; | translate }}&lt;/button&gt;
+      &lt;button tabindex&#x3D;&quot;2&quot;class&#x3D;&quot;btn btn-red&quot; type&#x3D;&quot;button&quot; (click)&#x3D;&quot;_piaService.abandonTreatment()&quot;&gt;{{ &#x27;modals.archive&#x27; | translate }}&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;div class&#x3D;&quot;abandonText&quot; [innerHTML]&#x3D;&quot;&#x27;modals.abandon_pia.additional_text&#x27; | translate&quot;&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class&#x3D;&quot;pia-modalBlock&quot; id&#x3D;&quot;modal-refuse-pia&quot;&gt;
+  &lt;div class&#x3D;&quot;pia-modalBlock-content bounceIn&quot;&gt;
+    &lt;button tabindex&#x3D;&quot;2&quot; type&#x3D;&quot;button&quot; class&#x3D;&quot;pia-modalBlock-close btn&quot; title&#x3D;&quot;{{ &#x27;modals.close&#x27; | translate }}&quot; (click)&#x3D;&quot;_modalsService.closeModal()&quot;&gt;&lt;span class&#x3D;&quot;pia-icons pia-icon-close-big&quot;&gt;&lt;/span&gt;&lt;/button&gt;
+    &lt;p [innerHTML]&#x3D;&quot;&#x27;modals.refuse_pia.content&#x27; | translate&quot;&gt;&lt;/p&gt;
+    &lt;i class&#x3D;&quot;fa fa-cog icon-red&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/i&gt;
+    &lt;div class&#x3D;&quot;pia-modalBlock-validate&quot;&gt;
+      &lt;button tabindex&#x3D;&quot;1&quot; class&#x3D;&quot;btn btn-red get-focus&quot; type&#x3D;&quot;button&quot; (click)&#x3D;&quot;_modalsService.closeModal()&quot;&gt;{{ &#x27;modals.continue&#x27; | translate }}&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class&#x3D;&quot;pia-modalBlock&quot; id&#x3D;&quot;modal-same-comment&quot;&gt;
+  &lt;div class&#x3D;&quot;pia-modalBlock-content bounceIn&quot;&gt;
+    &lt;button tabindex&#x3D;&quot;2&quot; type&#x3D;&quot;button&quot; class&#x3D;&quot;pia-modalBlock-close btn&quot; title&#x3D;&quot;{{ &#x27;modals.close&#x27; | translate }}&quot; (click)&#x3D;&quot;_modalsService.closeModal()&quot;&gt;&lt;span data-dismiss&#x3D;&quot;modal&quot; class&#x3D;&quot;pia-icons pia-icon-close-big&quot;&gt;&lt;/span&gt;&lt;/button&gt;
+    &lt;p [innerHTML]&#x3D;&quot;&#x27;modals.same_comment.content&#x27; | translate&quot;&gt;&lt;/p&gt;
+    &lt;span class&#x3D;&quot;pia-icons pia-icon-sorry&quot;&gt;&lt;/span&gt;
+    &lt;div class&#x3D;&quot;pia-modalBlock-validate&quot;&gt;
+      &lt;button tabindex&#x3D;&quot;1&quot; class&#x3D;&quot;btn btn-blue get-focus&quot; type&#x3D;&quot;button&quot; (click)&#x3D;&quot;_modalsService.closeModal()&quot; data-dismiss&#x3D;&quot;modal&quot;&gt;{{ &#x27;modals.close&#x27; | translate }}&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class&#x3D;&quot;pia-modalBlock&quot; id&#x3D;&quot;not-enough-measures-to-remove&quot;&gt;
+  &lt;div class&#x3D;&quot;pia-modalBlock-content bounceIn&quot;&gt;
+    &lt;button tabindex&#x3D;&quot;2&quot; type&#x3D;&quot;button&quot; class&#x3D;&quot;pia-modalBlock-close btn&quot; title&#x3D;&quot;{{ &#x27;modals.close&#x27; | translate }}&quot; (click)&#x3D;&quot;_modalsService.closeModal()&quot;&gt;&lt;span data-dismiss&#x3D;&quot;modal&quot; class&#x3D;&quot;pia-icons pia-icon-close-big&quot;&gt;&lt;/span&gt;&lt;/button&gt;
+    &lt;p [innerHTML]&#x3D;&quot;&#x27;modals.not_enough_measures_to_remove.content&#x27; | translate&quot;&gt;&lt;/p&gt;
+    &lt;span class&#x3D;&quot;pia-icons pia-icon-sorry&quot;&gt;&lt;/span&gt;
+    &lt;div class&#x3D;&quot;pia-modalBlock-validate&quot;&gt;
+      &lt;button tabindex&#x3D;&quot;1&quot; class&#x3D;&quot;btn btn-blue get-focus&quot; type&#x3D;&quot;button&quot; (click)&#x3D;&quot;_modalsService.closeModal()&quot; data-dismiss&#x3D;&quot;modal&quot;&gt;{{ &#x27;modals.close&#x27; | translate }}&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class&#x3D;&quot;pia-modalBlock&quot; id&#x3D;&quot;remove-measure&quot;&gt;
+  &lt;div class&#x3D;&quot;pia-modalBlock-content pia-modalBlock-removeMeasure bounceIn&quot;&gt;
+    &lt;button tabindex&#x3D;&quot;3&quot; type&#x3D;&quot;button&quot; class&#x3D;&quot;pia-modalBlock-close btn&quot; title&#x3D;&quot;{{ &#x27;modals.close&#x27; | translate }}&quot; (click)&#x3D;&quot;_modalsService.closeModal()&quot;&gt;&lt;span class&#x3D;&quot;pia-icons pia-icon-close-big&quot;&gt;&lt;/span&gt;&lt;/button&gt;
+    &lt;p [innerHTML]&#x3D;&quot;&#x27;modals.remove_measure.content&#x27; | translate&quot;&gt;&lt;/p&gt;
+    &lt;span class&#x3D;&quot;pia-icons pia-icon-sad&quot;&gt;&lt;/span&gt;
+    &lt;div class&#x3D;&quot;pia-modalBlock-buttons-choice&quot;&gt;
+      &lt;button tabindex&#x3D;&quot;1&quot; class&#x3D;&quot;btn btn-red&quot; type&#x3D;&quot;button&quot; (click)&#x3D;&quot;_modalsService.closeModal()&quot; [innerHTML]&#x3D;&quot;&#x27;modals.remove_measure.keep&#x27; | translate&quot;&gt;&lt;/button&gt;
+      &lt;button tabindex&#x3D;&quot;2&quot; class&#x3D;&quot;btn btn-red get-focus&quot; (click)&#x3D;&quot;_measuresService.removeMeasure()&quot; type&#x3D;&quot;button&quot; [innerHTML]&#x3D;&quot;&#x27;modals.remove_measure.remove&#x27; | translate&quot;&gt;&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class&#x3D;&quot;pia-modalBlock&quot; id&#x3D;&quot;remove-structure-measure&quot;&gt;
+  &lt;div class&#x3D;&quot;pia-modalBlock-content pia-modalBlock-removeMeasure bounceIn&quot;&gt;
+    &lt;button tabindex&#x3D;&quot;3&quot; type&#x3D;&quot;button&quot; class&#x3D;&quot;pia-modalBlock-close btn&quot; title&#x3D;&quot;{{ &#x27;modals.close&#x27; | translate }}&quot; (click)&#x3D;&quot;_modalsService.closeModal()&quot;&gt;&lt;span class&#x3D;&quot;pia-icons pia-icon-close-big&quot;&gt;&lt;/span&gt;&lt;/button&gt;
+    &lt;p [innerHTML]&#x3D;&quot;&#x27;modals.remove_measure.content&#x27; | translate&quot;&gt;&lt;/p&gt;
+    &lt;span class&#x3D;&quot;pia-icons pia-icon-sad&quot;&gt;&lt;/span&gt;
+    &lt;div class&#x3D;&quot;pia-modalBlock-buttons-choice&quot;&gt;
+      &lt;button tabindex&#x3D;&quot;1&quot; class&#x3D;&quot;btn btn-red&quot; type&#x3D;&quot;button&quot; (click)&#x3D;&quot;_modalsService.closeModal()&quot; [innerHTML]&#x3D;&quot;&#x27;modals.remove_measure.keep&#x27; | translate&quot;&gt;&lt;/button&gt;
+      &lt;button tabindex&#x3D;&quot;2&quot; class&#x3D;&quot;btn btn-red get-focus&quot; (click)&#x3D;&quot;_answerStructureService.removeMeasure()&quot; type&#x3D;&quot;button&quot; [innerHTML]&#x3D;&quot;&#x27;modals.remove_measure.remove&#x27; | translate&quot;&gt;&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class&#x3D;&quot;pia-modalBlock&quot; id&#x3D;&quot;remove-question&quot;&gt;
+  &lt;div class&#x3D;&quot;pia-modalBlock-content pia-modalBlock-removeQuestion bounceIn&quot;&gt;
+    &lt;button tabindex&#x3D;&quot;3&quot; type&#x3D;&quot;button&quot; class&#x3D;&quot;pia-modalBlock-close btn&quot; title&#x3D;&quot;{{ &#x27;modals.close&#x27; | translate }}&quot; (click)&#x3D;&quot;_modalsService.closeModal()&quot;&gt;&lt;span class&#x3D;&quot;pia-icons pia-icon-close-big&quot;&gt;&lt;/span&gt;&lt;/button&gt;
+    &lt;p [innerHTML]&#x3D;&quot;&#x27;modals.remove_question.content&#x27; | translate&quot;&gt;&lt;/p&gt;
+    &lt;span class&#x3D;&quot;pia-icons pia-icon-sad&quot;&gt;&lt;/span&gt;
+    &lt;div class&#x3D;&quot;pia-modalBlock-buttons-choice&quot;&gt;
+      &lt;button tabindex&#x3D;&quot;1&quot; class&#x3D;&quot;btn btn-red&quot; type&#x3D;&quot;button&quot; (click)&#x3D;&quot;_modalsService.closeModal()&quot; [innerHTML]&#x3D;&quot;&#x27;modals.remove_question.keep&#x27; | translate&quot;&gt;&lt;/button&gt;
+      &lt;button tabindex&#x3D;&quot;2&quot; class&#x3D;&quot;btn btn-red get-focus&quot; (click)&#x3D;&quot;_answerStructureService.removeQuestion()&quot; type&#x3D;&quot;button&quot; [innerHTML]&#x3D;&quot;&#x27;modals.remove_question.remove&#x27; | translate&quot;&gt;&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class&#x3D;&quot;pia-modalBlock&quot; id&#x3D;&quot;ask-for-evaluation&quot;&gt;
+  &lt;div class&#x3D;&quot;pia-modalBlock-content bounceIn&quot;&gt;
+    &lt;button tabindex&#x3D;&quot;2&quot; type&#x3D;&quot;button&quot; class&#x3D;&quot;pia-modalBlock-close btn&quot; title&#x3D;&quot;{{ &#x27;modals.close&#x27; | translate }}&quot; (click)&#x3D;&quot;_modalsService.closeModal()&quot;&gt;&lt;span class&#x3D;&quot;pia-icons pia-icon-close-big&quot;&gt;&lt;/span&gt;&lt;/button&gt;
+    &lt;p [innerHTML]&#x3D;&quot;&#x27;modals.ask_for_evaluation.content&#x27; | translate&quot;&gt;&lt;/p&gt;
+    &lt;i class&#x3D;&quot;fa fa-pencil-square-o icon-green&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/i&gt;
+    &lt;div class&#x3D;&quot;pia-modalBlock-validate&quot;&gt;
+      &lt;button tabindex&#x3D;&quot;1&quot; (click)&#x3D;&quot;_modalsService.closeModal()&quot; class&#x3D;&quot;btn btn-green get-focus&quot; type&#x3D;&quot;button&quot;&gt;{{ &#x27;modals.continue&#x27; | translate }}&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class&#x3D;&quot;pia-modalBlock&quot; id&#x3D;&quot;back-to-edition&quot;&gt;
+  &lt;div class&#x3D;&quot;pia-modalBlock-content bounceIn&quot;&gt;
+    &lt;button tabindex&#x3D;&quot;2&quot; type&#x3D;&quot;button&quot; class&#x3D;&quot;pia-modalBlock-close btn&quot; title&#x3D;&quot;{{ &#x27;modals.close&#x27; | translate }}&quot; (click)&#x3D;&quot;_modalsService.closeModal()&quot;&gt;&lt;span class&#x3D;&quot;pia-icons pia-icon-close-big&quot;&gt;&lt;/span&gt;&lt;/button&gt;
+    &lt;p [innerHTML]&#x3D;&quot;&#x27;modals.back_to_edition.content&#x27; | translate&quot;&gt;&lt;/p&gt;
+    &lt;i class&#x3D;&quot;fa fa-pencil-square-o icon-gray&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/i&gt;
+    &lt;div class&#x3D;&quot;pia-modalBlock-validate&quot;&gt;
+      &lt;button tabindex&#x3D;&quot;1&quot; (click)&#x3D;&quot;_modalsService.closeModal()&quot; class&#x3D;&quot;btn btn-green get-focus&quot; type&#x3D;&quot;button&quot;&gt;{{ &#x27;modals.continue&#x27; | translate }}&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class&#x3D;&quot;pia-modalBlock&quot; id&#x3D;&quot;validate-evaluation&quot;&gt;
+  &lt;div class&#x3D;&quot;pia-modalBlock-content bounceIn&quot;&gt;
+    &lt;button tabindex&#x3D;&quot;2&quot; type&#x3D;&quot;button&quot; class&#x3D;&quot;pia-modalBlock-close btn&quot; title&#x3D;&quot;{{ &#x27;modals.close&#x27; | translate }}&quot; (click)&#x3D;&quot;_modalsService.closeModal()&quot;&gt;&lt;span class&#x3D;&quot;pia-icons pia-icon-close-big&quot;&gt;&lt;/span&gt;&lt;/button&gt;
+    &lt;p [innerHTML]&#x3D;&quot;&#x27;modals.validate_evaluation.content&#x27; | translate&quot;&gt;&lt;/p&gt;
+    &lt;i class&#x3D;&quot;fa fa-cog icon-green&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/i&gt;
+    &lt;div class&#x3D;&quot;pia-modalBlock-validate&quot;&gt;
+      &lt;button tabindex&#x3D;&quot;1&quot; (click)&#x3D;&quot;_modalsService.closeModal()&quot; class&#x3D;&quot;btn btn-green get-focus&quot; type&#x3D;&quot;button&quot;&gt;{{ &#x27;modals.continue&#x27; | translate }}&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class&#x3D;&quot;pia-modalBlock&quot; id&#x3D;&quot;back-to-evaluation&quot;&gt;
+  &lt;div class&#x3D;&quot;pia-modalBlock-content bounceIn&quot;&gt;
+    &lt;button tabindex&#x3D;&quot;2&quot; type&#x3D;&quot;button&quot; class&#x3D;&quot;pia-modalBlock-close btn&quot; title&#x3D;&quot;{{ &#x27;modals.close&#x27; | translate }}&quot; (click)&#x3D;&quot;_modalsService.closeModal()&quot;&gt;&lt;span class&#x3D;&quot;pia-icons pia-icon-close-big&quot;&gt;&lt;/span&gt;&lt;/button&gt;
+    &lt;p [innerHTML]&#x3D;&quot;&#x27;modals.back_to_evaluation.content&#x27; | translate&quot;&gt;&lt;/p&gt;
+    &lt;i class&#x3D;&quot;fa fa-cog icon-gray&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/i&gt;
+    &lt;div class&#x3D;&quot;pia-modalBlock-validate&quot;&gt;
+      &lt;button tabindex&#x3D;&quot;1&quot; (click)&#x3D;&quot;_modalsService.closeModal()&quot; class&#x3D;&quot;btn btn-green get-focus&quot; type&#x3D;&quot;button&quot;&gt;{{ &#x27;modals.continue&#x27; | translate }}&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class&#x3D;&quot;pia-modalBlock&quot; style&#x3D;&quot;background-color:transparent;&quot; id&#x3D;&quot;validate-evaluation-to-correct&quot;&gt;
+  &lt;div class&#x3D;&quot;pia-modalBlock-content pia-modalBlock-declareMeasuresForRisks bounceIn&quot;&gt;
+    &lt;button tabindex&#x3D;&quot;2&quot; type&#x3D;&quot;button&quot; class&#x3D;&quot;pia-modalBlock-close btn&quot; title&#x3D;&quot;{{ &#x27;modals.close&#x27; | translate }}&quot; (click)&#x3D;&quot;_modalsService.closeModal()&quot;&gt;&lt;span class&#x3D;&quot;pia-icons pia-icon-close-big&quot;&gt;&lt;/span&gt;&lt;/button&gt;
+    &lt;p [innerHTML]&#x3D;&quot;&#x27;modals.validate_evaluation_to_correct.content&#x27; | translate&quot;&gt;&lt;/p&gt;
+    &lt;i class&#x3D;&quot;fa fa-pencil-square-o icon-gray&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/i&gt;
+    &lt;div class&#x3D;&quot;pia-modalBlock-validate&quot;&gt;
+      &lt;button tabindex&#x3D;&quot;1&quot; (click)&#x3D;&quot;_modalsService.closeModal()&quot; class&#x3D;&quot;btn btn-green get-focus&quot; type&#x3D;&quot;button&quot;&gt;{{ &#x27;modals.continue&#x27; | translate }}&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class&#x3D;&quot;pia-modalBlock&quot; style&#x3D;&quot;background-color:transparent;&quot; id&#x3D;&quot;pia-declare-measures&quot;&gt;
+  &lt;div class&#x3D;&quot;pia-modalBlock-content pia-modalBlock-declareMeasuresForRisks bounceIn&quot;&gt;
+    &lt;p [innerHTML]&#x3D;&quot;&#x27;modals.declare_measures.content&#x27; | translate&quot;&gt;&lt;/p&gt;
+    &lt;i class&#x3D;&quot;fa fa-arrow-left icon-blue&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/i&gt;
+    &lt;div class&#x3D;&quot;pia-modalBlock-validate&quot;&gt;
+      &lt;a routerLink&#x3D;&quot;/entry/{{_piaService.pia.id}}/section/3/item/1&quot; (click)&#x3D;&quot;_modalsService.closeModal()&quot; class&#x3D;&quot;btn btn-green get-focus&quot;&gt;{{ &#x27;modals.declare_measures.declare&#x27; | translate }}&lt;/a&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class&#x3D;&quot;pia-modalBlock&quot; style&#x3D;&quot;background-color:transparent;&quot; id&#x3D;&quot;pia-action-plan-no-evaluation&quot;&gt;
+  &lt;div class&#x3D;&quot;pia-modalBlock-content pia-modalBlock-haveEvaluationsForActionPlan bounceIn&quot;&gt;
+    &lt;p [innerHTML]&#x3D;&quot;&#x27;modals.action_plan_no_evaluation.content&#x27; | translate&quot;&gt;&lt;/p&gt;
+    &lt;i class&#x3D;&quot;fa fa-cog icon-blue&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/i&gt;
+    &lt;div class&#x3D;&quot;pia-modalBlock-validate&quot;&gt;
+      &lt;button tabindex&#x3D;&quot;1&quot; class&#x3D;&quot;btn btn-blue get-focus&quot; type&#x3D;&quot;button&quot; (click)&#x3D;&quot;_modalsService.closeModal(_piaService.pia.id, &#x27;4-5&#x27;)&quot; data-dismiss&#x3D;&quot;modal&quot;&gt;{{ &#x27;modals.action_plan_no_evaluation.review_section&#x27; | translate }}&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class&#x3D;&quot;pia-modalBlock&quot; style&#x3D;&quot;background-color:transparent;&quot; id&#x3D;&quot;pia-dpo-missing-evaluations&quot;&gt;
+  &lt;div class&#x3D;&quot;pia-modalBlock-content pia-modalBlock-allEvaluationsForDpo bounceIn&quot;&gt;
+    &lt;p [innerHTML]&#x3D;&quot;&#x27;modals.dpo_missing_evaluations.content&#x27; | translate&quot;&gt;&lt;/p&gt;
+    &lt;i class&#x3D;&quot;fa fa-cog icon-blue&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/i&gt;
+    &lt;div class&#x3D;&quot;pia-modalBlock-validate&quot;&gt;
+      &lt;button tabindex&#x3D;&quot;1&quot; class&#x3D;&quot;btn btn-blue get-focus&quot; type&#x3D;&quot;button&quot; (click)&#x3D;&quot;_modalsService.closeModal(_piaService.pia.id, &#x27;4-7&#x27;)&quot; data-dismiss&#x3D;&quot;modal&quot;&gt;{{ &#x27;modals.action_plan_no_evaluation.review_section&#x27; | translate }}&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class&#x3D;&quot;pia-modalBlock&quot; id&#x3D;&quot;modal-remove-pia&quot;&gt;
+  &lt;div class&#x3D;&quot;pia-modalBlock-content pia-modalBlock-removePIA bounceIn&quot;&gt;
+    &lt;button tabindex&#x3D;&quot;3&quot; type&#x3D;&quot;button&quot; class&#x3D;&quot;pia-modalBlock-close btn&quot; title&#x3D;&quot;{{ &#x27;modals.close&#x27; | translate }}&quot; (click)&#x3D;&quot;_modalsService.closeModal()&quot;&gt;&lt;span class&#x3D;&quot;pia-icons pia-icon-close-big&quot;&gt;&lt;/span&gt;&lt;/button&gt;
+    &lt;p [innerHTML]&#x3D;&quot;&#x27;modals.remove_pia.content&#x27; | translate&quot;&gt;&lt;/p&gt;
+    &lt;span class&#x3D;&quot;pia-icons pia-icon-sad&quot;&gt;&lt;/span&gt;
+    &lt;div class&#x3D;&quot;pia-modalBlock-buttons-choice&quot;&gt;
+      &lt;button tabindex&#x3D;&quot;1&quot; class&#x3D;&quot;btn btn-red&quot; type&#x3D;&quot;button&quot; (click)&#x3D;&quot;_modalsService.closeModal()&quot;&gt;{{ &#x27;modals.cancel&#x27; | translate }}&lt;/button&gt;
+      &lt;button tabindex&#x3D;&quot;2&quot; class&#x3D;&quot;btn btn-red get-focus&quot; (click)&#x3D;&quot;_piaService.removePIA()&quot; type&#x3D;&quot;button&quot;&gt;{{ &#x27;modals.remove_pia.remove&#x27; | translate }}&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class&#x3D;&quot;pia-modalBlock&quot; id&#x3D;&quot;modal-remove-structure&quot;&gt;
+  &lt;div class&#x3D;&quot;pia-modalBlock-content pia-modalBlock-removePIA bounceIn&quot;&gt;
+    &lt;button tabindex&#x3D;&quot;3&quot; type&#x3D;&quot;button&quot; class&#x3D;&quot;pia-modalBlock-close btn&quot; title&#x3D;&quot;{{ &#x27;modals.close&#x27; | translate }}&quot; (click)&#x3D;&quot;_modalsService.closeModal()&quot;&gt;&lt;span class&#x3D;&quot;pia-icons pia-icon-close-big&quot;&gt;&lt;/span&gt;&lt;/button&gt;
+    &lt;p [innerHTML]&#x3D;&quot;&#x27;modals.remove_structure.content&#x27; | translate&quot;&gt;&lt;/p&gt;
+    &lt;span class&#x3D;&quot;pia-icons pia-icon-sad&quot;&gt;&lt;/span&gt;
+    &lt;div class&#x3D;&quot;pia-modalBlock-buttons-choice&quot;&gt;
+      &lt;button tabindex&#x3D;&quot;1&quot; class&#x3D;&quot;btn btn-red&quot; type&#x3D;&quot;button&quot; (click)&#x3D;&quot;_modalsService.closeModal()&quot;&gt;{{ &#x27;modals.cancel&#x27; | translate }}&lt;/button&gt;
+      &lt;button tabindex&#x3D;&quot;2&quot; class&#x3D;&quot;btn btn-red get-focus&quot; (click)&#x3D;&quot;_structureService.removeStructure()&quot; type&#x3D;&quot;button&quot;&gt;{{ &#x27;modals.remove_structure.remove&#x27; | translate }}&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class&#x3D;&quot;pia-modalBlock&quot; id&#x3D;&quot;modal-remove-attachment&quot;&gt;
+  &lt;div class&#x3D;&quot;pia-modalBlock-content pia-modalBlock-removeAttachment bounceIn&quot;&gt;
+    &lt;button tabindex&#x3D;&quot;3&quot; type&#x3D;&quot;button&quot; class&#x3D;&quot;pia-modalBlock-close btn&quot; title&#x3D;&quot;{{ &#x27;modals.close&#x27; | translate }}&quot; (click)&#x3D;&quot;_modalsService.closeModal()&quot;&gt;&lt;span class&#x3D;&quot;pia-icons pia-icon-close-big&quot;&gt;&lt;/span&gt;&lt;/button&gt;
+    &lt;p [innerHTML]&#x3D;&quot;&#x27;modals.remove_attachment.content&#x27; | translate&quot;&gt;&lt;/p&gt;
+    &lt;form [formGroup]&#x3D;&quot;removeAttachmentForm&quot; class&#x3D;&quot;pia-remove-attachment-comment&quot;&gt;
+      &lt;label for&#x3D;&quot;pia-remove-attachment-comment&quot;&gt;{{ &#x27;modals.remove_attachment.comment&#x27; | translate }}&lt;/label&gt;
+      &lt;textarea id&#x3D;&quot;pia-remove-attachment-comment&quot; (focusout)&#x3D;&quot;attachmentCommentFocusOut()&quot; formControlName&#x3D;&quot;comment&quot;&gt;&lt;/textarea&gt;
+    &lt;/form&gt;
+    &lt;div class&#x3D;&quot;pia-modalBlock-buttons-choice&quot;&gt;
+      &lt;button tabindex&#x3D;&quot;1&quot; class&#x3D;&quot;btn btn-red&quot; type&#x3D;&quot;button&quot; (click)&#x3D;&quot;_modalsService.closeModal()&quot;&gt;{{ &#x27;modals.remove_attachment.keep&#x27; | translate }}&lt;/button&gt;
+      &lt;button tabindex&#x3D;&quot;2&quot; class&#x3D;&quot;btn btn-red get-focus&quot; [disabled]&#x3D;&quot;enableSubmit&quot; (click)&#x3D;&quot;_attachmentsService.removeAttachment(removeAttachmentForm.controls[&#x27;comment&#x27;].value)&quot; type&#x3D;&quot;button&quot;&gt;{{ &#x27;modals.remove_attachment.remove&#x27; | translate }}&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class&#x3D;&quot;pia-modalBlock&quot; id&#x3D;&quot;completed-edition&quot;&gt;
+  &lt;div class&#x3D;&quot;pia-modalBlock-content bounceIn&quot;&gt;
+    &lt;button tabindex&#x3D;&quot;2&quot; type&#x3D;&quot;button&quot; class&#x3D;&quot;pia-modalBlock-close btn&quot; title&#x3D;&quot;{{ &#x27;modals.close&#x27; | translate }}&quot; (click)&#x3D;&quot;_modalsService.closeModal()&quot;&gt;&lt;span class&#x3D;&quot;pia-icons pia-icon-close-big&quot;&gt;&lt;/span&gt;&lt;/button&gt;
+    &lt;p [innerHTML]&#x3D;&quot;&#x27;modals.completed_edition.content&#x27; | translate&quot;&gt;&lt;/p&gt;
+    &lt;i class&#x3D;&quot;fa fa-cog icon-gray&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/i&gt;
+    &lt;div class&#x3D;&quot;pia-modalBlock-validate&quot;&gt;
+      &lt;button tabindex&#x3D;&quot;1&quot; (click)&#x3D;&quot;_modalsService.closeModal()&quot; class&#x3D;&quot;btn btn-green get-focus&quot; type&#x3D;&quot;button&quot;&gt;{{ &#x27;modals.continue&#x27; | translate }}&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class&#x3D;&quot;pia-modalBlock&quot; id&#x3D;&quot;completed-evaluation&quot;&gt;
+  &lt;div class&#x3D;&quot;pia-modalBlock-content bounceIn&quot;&gt;
+    &lt;button tabindex&#x3D;&quot;2&quot; type&#x3D;&quot;button&quot; class&#x3D;&quot;pia-modalBlock-close btn&quot; title&#x3D;&quot;{{ &#x27;modals.close&#x27; | translate }}&quot; (click)&#x3D;&quot;_modalsService.closeModal()&quot;&gt;&lt;span class&#x3D;&quot;pia-icons pia-icon-close-big&quot;&gt;&lt;/span&gt;&lt;/button&gt;
+    &lt;p [innerHTML]&#x3D;&quot;&#x27;modals.completed_evaluation.content&#x27; | translate&quot;&gt;&lt;/p&gt;
+    &lt;i class&#x3D;&quot;fa fa-check icon-gray&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/i&gt;
+    &lt;div class&#x3D;&quot;pia-modalBlock-validate&quot;&gt;
+      &lt;button tabindex&#x3D;&quot;1&quot; class&#x3D;&quot;btn btn-green get-focus&quot; type&#x3D;&quot;button&quot; (click)&#x3D;&quot;_modalsService.closeModal()&quot;&gt;{{ &#x27;modals.continue&#x27; | translate }}&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class&#x3D;&quot;pia-modalBlock&quot; id&#x3D;&quot;modal-select-text-pia&quot;&gt;
+  &lt;div class&#x3D;&quot;pia-modalBlock-content bounceIn&quot;&gt;
+    &lt;button tabindex&#x3D;&quot;2&quot; type&#x3D;&quot;button&quot; class&#x3D;&quot;pia-modalBlock-close btn&quot; title&#x3D;&quot;{{ &#x27;modals.close&#x27; | translate }}&quot; (click)&#x3D;&quot;_modalsService.closeModal()&quot;&gt;&lt;span class&#x3D;&quot;pia-icons pia-icon-close-big&quot;&gt;&lt;/span&gt;&lt;/button&gt;
+    &lt;p&gt;{{ &#x27;modals.modal_select_text_pia.content&#x27; | translate }}&lt;/p&gt;
+    &lt;span class&#x3D;&quot;pia-icons pia-icon-happy&quot;&gt;&lt;/span&gt;
+    &lt;div class&#x3D;&quot;pia-modalBlock-validate&quot;&gt;
+      &lt;button tabindex&#x3D;&quot;1&quot; class&#x3D;&quot;btn btn-green get-focus&quot; type&#x3D;&quot;button&quot; (click)&#x3D;&quot;_modalsService.closeModal()&quot;&gt;{{ &#x27;modals.continue&#x27; | translate }}&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class&#x3D;&quot;pia-modalBlock&quot; id&#x3D;&quot;import-wrong-pia-file&quot;&gt;
+  &lt;div class&#x3D;&quot;pia-modalBlock-content bounceIn&quot;&gt;
+    &lt;button tabindex&#x3D;&quot;2&quot; type&#x3D;&quot;button&quot; class&#x3D;&quot;pia-modalBlock-close btn&quot; title&#x3D;&quot;{{ &#x27;modals.close&#x27; | translate }}&quot; (click)&#x3D;&quot;_modalsService.closeModal()&quot;&gt;&lt;span class&#x3D;&quot;pia-icons pia-icon-close-big&quot;&gt;&lt;/span&gt;&lt;/button&gt;
+    &lt;p&gt;{{ &#x27;modals.import_wrong_pia_file.content&#x27; | translate }}&lt;/p&gt;
+    &lt;span class&#x3D;&quot;pia-icons pia-icon-sad&quot;&gt;&lt;/span&gt;
+    &lt;div class&#x3D;&quot;pia-modalBlock-validate&quot;&gt;
+      &lt;button tabindex&#x3D;&quot;1&quot; class&#x3D;&quot;btn btn-red get-focus&quot; type&#x3D;&quot;button&quot; (click)&#x3D;&quot;_modalsService.closeModal()&quot;&gt;{{ &#x27;modals.close&#x27; | translate }}&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class&#x3D;&quot;pia-modalBlock&quot; id&#x3D;&quot;import-wrong-structure-file&quot;&gt;
+  &lt;div class&#x3D;&quot;pia-modalBlock-content bounceIn&quot;&gt;
+    &lt;button tabindex&#x3D;&quot;2&quot; type&#x3D;&quot;button&quot; class&#x3D;&quot;pia-modalBlock-close btn&quot; title&#x3D;&quot;{{ &#x27;modals.close&#x27; | translate }}&quot; (click)&#x3D;&quot;_modalsService.closeModal()&quot;&gt;&lt;span class&#x3D;&quot;pia-icons pia-icon-close-big&quot;&gt;&lt;/span&gt;&lt;/button&gt;
+    &lt;p&gt;{{ &#x27;modals.import_wrong_structure_file.content&#x27; | translate }}&lt;/p&gt;
+    &lt;span class&#x3D;&quot;pia-icons pia-icon-sad&quot;&gt;&lt;/span&gt;
+    &lt;div class&#x3D;&quot;pia-modalBlock-validate&quot;&gt;
+      &lt;button tabindex&#x3D;&quot;1&quot; class&#x3D;&quot;btn btn-red get-focus&quot; type&#x3D;&quot;button&quot; (click)&#x3D;&quot;_modalsService.closeModal()&quot;&gt;{{ &#x27;modals.close&#x27; | translate }}&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class&#x3D;&quot;pia-modalBlock&quot; id&#x3D;&quot;modal-list-new-pia&quot;&gt;
+  &lt;div class&#x3D;&quot;pia-modalBlock-content bounceIn&quot;&gt;
+    &lt;button tabindex&#x3D;&quot;1&quot; type&#x3D;&quot;button&quot; class&#x3D;&quot;pia-modalBlock-close btn&quot; title&#x3D;&quot;{{ &#x27;homepage.cards.title_close_creation&#x27; | translate }}&quot; (click)&#x3D;&quot;_modalsService.closeModal()&quot;&gt;&lt;span class&#x3D;&quot;pia-icons pia-icon-close&quot;&gt;&lt;/span&gt;&lt;/button&gt;
+    &lt;form class&#x3D;&quot;pia-cardsBlock-item-form&quot; (ngSubmit)&#x3D;&quot;onSubmit()&quot; [formGroup]&#x3D;&quot;piaForm&quot;&gt;
+      &lt;div&gt;
+        &lt;label for&#x3D;&quot;name&quot;&gt;{{ &#x27;homepage.cards.pia_name&#x27; | translate }}&lt;/label&gt;
+        &lt;input formControlName&#x3D;&quot;name&quot; type&#x3D;&quot;text&quot; placeholder&#x3D;&quot;{{ &#x27;homepage.cards.placeholder_pia_name&#x27; | translate }}&quot; id&#x3D;&quot;name&quot; required&gt;
+      &lt;/div&gt;
+      &lt;div&gt;
+        &lt;label for&#x3D;&quot;author_name&quot;&gt;{{ &#x27;homepage.cards.author&#x27; | translate }}&lt;/label&gt;
+        &lt;input formControlName&#x3D;&quot;author_name&quot; type&#x3D;&quot;text&quot; placeholder&#x3D;&quot;{{ &#x27;homepage.cards.placeholder_author&#x27; | translate }}&quot; id&#x3D;&quot;author_name&quot; required&gt;
+      &lt;/div&gt;
+      &lt;div&gt;
+        &lt;label for&#x3D;&quot;evaluator_name&quot;&gt;{{ &#x27;homepage.cards.evaluation&#x27; | translate }}&lt;/label&gt;
+        &lt;input formControlName&#x3D;&quot;evaluator_name&quot; type&#x3D;&quot;text&quot; placeholder&#x3D;&quot;{{ &#x27;homepage.cards.placeholder_evaluation&#x27; | translate }}&quot; id&#x3D;&quot;evaluator_name&quot; required&gt;
+      &lt;/div&gt;
+      &lt;div&gt;
+        &lt;label for&#x3D;&quot;validator_name&quot;&gt;{{ &#x27;homepage.cards.validation&#x27; | translate }}&lt;/label&gt;
+        &lt;input formControlName&#x3D;&quot;validator_name&quot; type&#x3D;&quot;text&quot; placeholder&#x3D;&quot;{{ &#x27;homepage.cards.placeholder_validation&#x27; | translate }}&quot; id&#x3D;&quot;validator_name&quot; required&gt;
+      &lt;/div&gt;
+      &lt;div&gt;
+        &lt;label for&#x3D;&quot;structure&quot;&gt;{{ &#x27;homepage.cards.structure&#x27; | translate }}&lt;/label&gt;
+        &lt;div class&#x3D;&quot;pia-structure-wrapper&quot;&gt;
+          &lt;select formControlName&#x3D;&quot;structure&quot; id&#x3D;&quot;structure&quot;&gt;
+            &lt;option value&#x3D;&quot;&quot; selected&gt;{{ &#x27;homepage.cards.placeholder_structure&#x27; | translate }}&lt;/option&gt;
+            &lt;option *ngFor&#x3D;&quot;let item of _structureService.structures&quot; [ngValue]&#x3D;&quot;item.id&quot;&gt;{{item.name}}&lt;/option&gt;
+          &lt;/select&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;pia-cardsBlock-item-date&quot; *ngIf&#x3D;&quot;newPia&quot;&gt;
+        &lt;div&gt;{{ &#x27;homepage.cards.date&#x27; | translate }}&lt;/div&gt;
+        &lt;time&gt;{{ newPia.created_at | date: &#x27;dd/MM/yyyy&#x27;}}&lt;/time&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;pia-cardsBlock-item-status&quot;&gt;
+        &lt;div class&#x3D;&quot;pia-cardsBlock-item-status-infos&quot;&gt;
+          &lt;div&gt;{{ &#x27;homepage.cards.status&#x27; | translate }}&lt;/div&gt;
+          &lt;div&gt;{{ &#x27;homepage.cards.creation_status&#x27; | translate }}&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class&#x3D;&quot;pia-cardsBlock-item-status-progressBar&quot;&gt;
+          &lt;div&gt;0%&lt;/div&gt;
+          &lt;progress max&#x3D;&quot;100&quot; value&#x3D;&quot;0&quot;&gt;
+          &lt;/progress&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;pia-cardsBlock-item-btn&quot;&gt;
+        &lt;button type&#x3D;&quot;submit&quot; [disabled]&#x3D;&quot;piaForm.invalid&quot; class&#x3D;&quot;btn btn-green get-focus&quot; id&#x3D;&quot;pia-save-card-btn&quot;&gt;{{ &#x27;homepage.cards.start&#x27; | translate }}&lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/form&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class&#x3D;&quot;pia-modalBlock&quot; id&#x3D;&quot;modal-list-new-structure&quot;&gt;
+  &lt;div class&#x3D;&quot;pia-modalBlock-content bounceIn&quot;&gt;
+    &lt;button tabindex&#x3D;&quot;1&quot; type&#x3D;&quot;button&quot; class&#x3D;&quot;pia-modalBlock-close btn&quot; title&#x3D;&quot;{{ &#x27;homepage.cards.title_close_creation&#x27; | translate }}&quot; (click)&#x3D;&quot;_modalsService.closeModal()&quot;&gt;&lt;span class&#x3D;&quot;pia-icons pia-icon-close&quot;&gt;&lt;/span&gt;&lt;/button&gt;
+    &lt;form class&#x3D;&quot;pia-cardsBlock-item-form&quot; (ngSubmit)&#x3D;&quot;onSubmitStructure()&quot; [formGroup]&#x3D;&quot;structureForm&quot;&gt;
+      &lt;div&gt;
+        &lt;label for&#x3D;&quot;name&quot;&gt;{{ &#x27;homepage.cards.structure_name&#x27; | translate }}&lt;/label&gt;
+        &lt;input formControlName&#x3D;&quot;name&quot; type&#x3D;&quot;text&quot; placeholder&#x3D;&quot;{{ &#x27;homepage.cards.placeholder_structure_name&#x27; | translate }}&quot; id&#x3D;&quot;name&quot; required&gt;
+      &lt;/div&gt;
+      &lt;div&gt;
+        &lt;label for&#x3D;&quot;sector_name&quot;&gt;{{ &#x27;homepage.cards.sector_name&#x27; | translate }}&lt;/label&gt;
+        &lt;input formControlName&#x3D;&quot;sector_name&quot; type&#x3D;&quot;text&quot; placeholder&#x3D;&quot;{{ &#x27;homepage.cards.placeholder_sector_name&#x27; | translate }}&quot; id&#x3D;&quot;sector_name&quot; required&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;pia-cardsBlock-item-date&quot; *ngIf&#x3D;&quot;newPia&quot;&gt;
+        &lt;div&gt;{{ &#x27;homepage.cards.date&#x27; | translate }}&lt;/div&gt;
+        &lt;time&gt;{{ newStructure.created_at | date: &#x27;dd/MM/yyyy&#x27;}}&lt;/time&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;pia-cardsBlock-item-status&quot;&gt;&lt;/div&gt;
+      &lt;div class&#x3D;&quot;pia-cardsBlock-item-btn&quot;&gt;
+        &lt;button type&#x3D;&quot;submit&quot; [disabled]&#x3D;&quot;structureForm.invalid&quot; class&#x3D;&quot;btn btn-green get-focus&quot; id&#x3D;&quot;pia-save-card-btn&quot;&gt;{{ &#x27;homepage.cards.start&#x27; | translate }}&lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/form&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="pia-modalBlock" id="modal-simple-pia-validation">  <div class="pia-modalBlock-content bounceIn">    <button tabindex="2" type="button" class="pia-modalBlock-close btn" title="{{ \'modals.close\' | translate }}" (click)="_modalsService.closeModal()"><span class="pia-icons pia-icon-close-big"></span></button>    <p>{{ \'modals.simple_pia_validation.content\' | translate }}</p>    <i class="fa fa-check icon-green" aria-hidden="true"></i>    <div class="pia-modalBlock-validate">      <button tabindex="1" class="btn btn-green get-focus" type="button" (click)="returnToHomepage()">{{ \'modals.back_to_home\' | translate }}</button>    </div>  </div></div><div class="pia-modalBlock" id="modal-update-server-url-ok">  <div class="pia-modalBlock-content bounceIn">    <button tabindex="2" type="button" class="pia-modalBlock-close btn" title="{{ \'modals.close\' | translate }}" (click)="_modalsService.closeModal()"><span class="pia-icons pia-icon-close-big"></span></button>    <p [innerHTML]="\'modals.update_server_url_ok.content\' | translate"></p>    <span class="pia-icons pia-icon-happy"></span>    <div class="pia-modalBlock-validate">      <button tabindex="1" class="btn btn-green get-focus" type="button" (click)="returnToHomepage()">{{ \'modals.back_to_home\' | translate }}</button>    </div>  </div></div><div class="pia-modalBlock" id="modal-update-server-url-nok">  <div class="pia-modalBlock-content bounceIn">    <button tabindex="2" type="button" class="pia-modalBlock-close btn" title="{{ \'modals.close\' | translate }}" (click)="_modalsService.closeModal()"><span class="pia-icons pia-icon-close-big"></span></button>    <p [innerHTML]="\'modals.update_server_url_nok.content\' | translate"></p>    <span class="pia-icons pia-icon-sad"></span>    <div class="pia-modalBlock-validate">      <button tabindex="1" class="btn btn-green get-focus" type="button" (click)="returnToHomepage()">{{ \'modals.back_to_home\' | translate }}</button>    </div>  </div></div><div class="pia-modalBlock" id="modal-signed-pia-validation">  <div class="pia-modalBlock-content pia-modalBlock-acceptedPIA bounceIn">    <button tabindex="1" type="button" class="pia-modalBlock-close btn" title="{{ \'modals.close\' | translate }}" (click)="_modalsService.closeModal()"><span class="pia-icons pia-icon-close-big"></span></button>    <p [innerHTML]="\'modals.signed_pia_validation.content\' | translate"></p>    <i class="fa fa-check icon-green" aria-hidden="true"></i>    <div class="pia-modalBlock-buttons-choice">      <a routerLink="/summary/{{_piaService.pia.id}}" class="btn btn-green get-focus" [innerHTML]="\'modals.signed_pia_validation.download_pia\' | translate"></a>    </div>  </div></div><div class="pia-modalBlock" id="modal-abandon-pia">  <div class="pia-modalBlock-content pia-modalBlock-abandonPIA bounceIn">    <button tabindex="3" type="button" class="pia-modalBlock-close btn" title="{{ \'modals.close\' | translate }}" (click)="_modalsService.closeModal()"><span class="pia-icons pia-icon-close-big"></span></button>    <p [innerHTML]="\'modals.abandon_pia.content\' | translate"></p>    <i class="fa fa-times icon-red" aria-hidden="true"></i>    <div class="pia-modalBlock-buttons-choice">      <button tabindex="1" class="btn btn-red get-focus" type="button" (click)="_modalsService.closeModal()">{{ \'modals.cancel\' | translate }}</button>      <button tabindex="2"class="btn btn-red" type="button" (click)="_piaService.abandonTreatment()">{{ \'modals.archive\' | translate }}</button>    </div>    <div class="abandonText" [innerHTML]="\'modals.abandon_pia.additional_text\' | translate"></div>  </div></div><div class="pia-modalBlock" id="modal-refuse-pia">  <div class="pia-modalBlock-content bounceIn">    <button tabindex="2" type="button" class="pia-modalBlock-close btn" title="{{ \'modals.close\' | translate }}" (click)="_modalsService.closeModal()"><span class="pia-icons pia-icon-close-big"></span></button>    <p [innerHTML]="\'modals.refuse_pia.content\' | translate"></p>    <i class="fa fa-cog icon-red" aria-hidden="true"></i>    <div class="pia-modalBlock-validate">      <button tabindex="1" class="btn btn-red get-focus" type="button" (click)="_modalsService.closeModal()">{{ \'modals.continue\' | translate }}</button>    </div>  </div></div><div class="pia-modalBlock" id="modal-same-comment">  <div class="pia-modalBlock-content bounceIn">    <button tabindex="2" type="button" class="pia-modalBlock-close btn" title="{{ \'modals.close\' | translate }}" (click)="_modalsService.closeModal()"><span data-dismiss="modal" class="pia-icons pia-icon-close-big"></span></button>    <p [innerHTML]="\'modals.same_comment.content\' | translate"></p>    <span class="pia-icons pia-icon-sorry"></span>    <div class="pia-modalBlock-validate">      <button tabindex="1" class="btn btn-blue get-focus" type="button" (click)="_modalsService.closeModal()" data-dismiss="modal">{{ \'modals.close\' | translate }}</button>    </div>  </div></div><div class="pia-modalBlock" id="not-enough-measures-to-remove">  <div class="pia-modalBlock-content bounceIn">    <button tabindex="2" type="button" class="pia-modalBlock-close btn" title="{{ \'modals.close\' | translate }}" (click)="_modalsService.closeModal()"><span data-dismiss="modal" class="pia-icons pia-icon-close-big"></span></button>    <p [innerHTML]="\'modals.not_enough_measures_to_remove.content\' | translate"></p>    <span class="pia-icons pia-icon-sorry"></span>    <div class="pia-modalBlock-validate">      <button tabindex="1" class="btn btn-blue get-focus" type="button" (click)="_modalsService.closeModal()" data-dismiss="modal">{{ \'modals.close\' | translate }}</button>    </div>  </div></div><div class="pia-modalBlock" id="remove-measure">  <div class="pia-modalBlock-content pia-modalBlock-removeMeasure bounceIn">    <button tabindex="3" type="button" class="pia-modalBlock-close btn" title="{{ \'modals.close\' | translate }}" (click)="_modalsService.closeModal()"><span class="pia-icons pia-icon-close-big"></span></button>    <p [innerHTML]="\'modals.remove_measure.content\' | translate"></p>    <span class="pia-icons pia-icon-sad"></span>    <div class="pia-modalBlock-buttons-choice">      <button tabindex="1" class="btn btn-red" type="button" (click)="_modalsService.closeModal()" [innerHTML]="\'modals.remove_measure.keep\' | translate"></button>      <button tabindex="2" class="btn btn-red get-focus" (click)="_measuresService.removeMeasure()" type="button" [innerHTML]="\'modals.remove_measure.remove\' | translate"></button>    </div>  </div></div><div class="pia-modalBlock" id="remove-structure-measure">  <div class="pia-modalBlock-content pia-modalBlock-removeMeasure bounceIn">    <button tabindex="3" type="button" class="pia-modalBlock-close btn" title="{{ \'modals.close\' | translate }}" (click)="_modalsService.closeModal()"><span class="pia-icons pia-icon-close-big"></span></button>    <p [innerHTML]="\'modals.remove_measure.content\' | translate"></p>    <span class="pia-icons pia-icon-sad"></span>    <div class="pia-modalBlock-buttons-choice">      <button tabindex="1" class="btn btn-red" type="button" (click)="_modalsService.closeModal()" [innerHTML]="\'modals.remove_measure.keep\' | translate"></button>      <button tabindex="2" class="btn btn-red get-focus" (click)="_answerStructureService.removeMeasure()" type="button" [innerHTML]="\'modals.remove_measure.remove\' | translate"></button>    </div>  </div></div><div class="pia-modalBlock" id="remove-question">  <div class="pia-modalBlock-content pia-modalBlock-removeQuestion bounceIn">    <button tabindex="3" type="button" class="pia-modalBlock-close btn" title="{{ \'modals.close\' | translate }}" (click)="_modalsService.closeModal()"><span class="pia-icons pia-icon-close-big"></span></button>    <p [innerHTML]="\'modals.remove_question.content\' | translate"></p>    <span class="pia-icons pia-icon-sad"></span>    <div class="pia-modalBlock-buttons-choice">      <button tabindex="1" class="btn btn-red" type="button" (click)="_modalsService.closeModal()" [innerHTML]="\'modals.remove_question.keep\' | translate"></button>      <button tabindex="2" class="btn btn-red get-focus" (click)="_answerStructureService.removeQuestion()" type="button" [innerHTML]="\'modals.remove_question.remove\' | translate"></button>    </div>  </div></div><div class="pia-modalBlock" id="ask-for-evaluation">  <div class="pia-modalBlock-content bounceIn">    <button tabindex="2" type="button" class="pia-modalBlock-close btn" title="{{ \'modals.close\' | translate }}" (click)="_modalsService.closeModal()"><span class="pia-icons pia-icon-close-big"></span></button>    <p [innerHTML]="\'modals.ask_for_evaluation.content\' | translate"></p>    <i class="fa fa-pencil-square-o icon-green" aria-hidden="true"></i>    <div class="pia-modalBlock-validate">      <button tabindex="1" (click)="_modalsService.closeModal()" class="btn btn-green get-focus" type="button">{{ \'modals.continue\' | translate }}</button>    </div>  </div></div><div class="pia-modalBlock" id="back-to-edition">  <div class="pia-modalBlock-content bounceIn">    <button tabindex="2" type="button" class="pia-modalBlock-close btn" title="{{ \'modals.close\' | translate }}" (click)="_modalsService.closeModal()"><span class="pia-icons pia-icon-close-big"></span></button>    <p [innerHTML]="\'modals.back_to_edition.content\' | translate"></p>    <i class="fa fa-pencil-square-o icon-gray" aria-hidden="true"></i>    <div class="pia-modalBlock-validate">      <button tabindex="1" (click)="_modalsService.closeModal()" class="btn btn-green get-focus" type="button">{{ \'modals.continue\' | translate }}</button>    </div>  </div></div><div class="pia-modalBlock" id="validate-evaluation">  <div class="pia-modalBlock-content bounceIn">    <button tabindex="2" type="button" class="pia-modalBlock-close btn" title="{{ \'modals.close\' | translate }}" (click)="_modalsService.closeModal()"><span class="pia-icons pia-icon-close-big"></span></button>    <p [innerHTML]="\'modals.validate_evaluation.content\' | translate"></p>    <i class="fa fa-cog icon-green" aria-hidden="true"></i>    <div class="pia-modalBlock-validate">      <button tabindex="1" (click)="_modalsService.closeModal()" class="btn btn-green get-focus" type="button">{{ \'modals.continue\' | translate }}</button>    </div>  </div></div><div class="pia-modalBlock" id="back-to-evaluation">  <div class="pia-modalBlock-content bounceIn">    <button tabindex="2" type="button" class="pia-modalBlock-close btn" title="{{ \'modals.close\' | translate }}" (click)="_modalsService.closeModal()"><span class="pia-icons pia-icon-close-big"></span></button>    <p [innerHTML]="\'modals.back_to_evaluation.content\' | translate"></p>    <i class="fa fa-cog icon-gray" aria-hidden="true"></i>    <div class="pia-modalBlock-validate">      <button tabindex="1" (click)="_modalsService.closeModal()" class="btn btn-green get-focus" type="button">{{ \'modals.continue\' | translate }}</button>    </div>  </div></div><div class="pia-modalBlock" style="background-color:transparent;" id="validate-evaluation-to-correct">  <div class="pia-modalBlock-content pia-modalBlock-declareMeasuresForRisks bounceIn">    <button tabindex="2" type="button" class="pia-modalBlock-close btn" title="{{ \'modals.close\' | translate }}" (click)="_modalsService.closeModal()"><span class="pia-icons pia-icon-close-big"></span></button>    <p [innerHTML]="\'modals.validate_evaluation_to_correct.content\' | translate"></p>    <i class="fa fa-pencil-square-o icon-gray" aria-hidden="true"></i>    <div class="pia-modalBlock-validate">      <button tabindex="1" (click)="_modalsService.closeModal()" class="btn btn-green get-focus" type="button">{{ \'modals.continue\' | translate }}</button>    </div>  </div></div><div class="pia-modalBlock" style="background-color:transparent;" id="pia-declare-measures">  <div class="pia-modalBlock-content pia-modalBlock-declareMeasuresForRisks bounceIn">    <p [innerHTML]="\'modals.declare_measures.content\' | translate"></p>    <i class="fa fa-arrow-left icon-blue" aria-hidden="true"></i>    <div class="pia-modalBlock-validate">      <a routerLink="/entry/{{_piaService.pia.id}}/section/3/item/1" (click)="_modalsService.closeModal()" class="btn btn-green get-focus">{{ \'modals.declare_measures.declare\' | translate }}</a>    </div>  </div></div><div class="pia-modalBlock" style="background-color:transparent;" id="pia-action-plan-no-evaluation">  <div class="pia-modalBlock-content pia-modalBlock-haveEvaluationsForActionPlan bounceIn">    <p [innerHTML]="\'modals.action_plan_no_evaluation.content\' | translate"></p>    <i class="fa fa-cog icon-blue" aria-hidden="true"></i>    <div class="pia-modalBlock-validate">      <button tabindex="1" class="btn btn-blue get-focus" type="button" (click)="_modalsService.closeModal(_piaService.pia.id, \'4-5\')" data-dismiss="modal">{{ \'modals.action_plan_no_evaluation.review_section\' | translate }}</button>    </div>  </div></div><div class="pia-modalBlock" style="background-color:transparent;" id="pia-dpo-missing-evaluations">  <div class="pia-modalBlock-content pia-modalBlock-allEvaluationsForDpo bounceIn">    <p [innerHTML]="\'modals.dpo_missing_evaluations.content\' | translate"></p>    <i class="fa fa-cog icon-blue" aria-hidden="true"></i>    <div class="pia-modalBlock-validate">      <button tabindex="1" class="btn btn-blue get-focus" type="button" (click)="_modalsService.closeModal(_piaService.pia.id, \'4-7\')" data-dismiss="modal">{{ \'modals.action_plan_no_evaluation.review_section\' | translate }}</button>    </div>  </div></div><div class="pia-modalBlock" id="modal-remove-pia">  <div class="pia-modalBlock-content pia-modalBlock-removePIA bounceIn">    <button tabindex="3" type="button" class="pia-modalBlock-close btn" title="{{ \'modals.close\' | translate }}" (click)="_modalsService.closeModal()"><span class="pia-icons pia-icon-close-big"></span></button>    <p [innerHTML]="\'modals.remove_pia.content\' | translate"></p>    <span class="pia-icons pia-icon-sad"></span>    <div class="pia-modalBlock-buttons-choice">      <button tabindex="1" class="btn btn-red" type="button" (click)="_modalsService.closeModal()">{{ \'modals.cancel\' | translate }}</button>      <button tabindex="2" class="btn btn-red get-focus" (click)="_piaService.removePIA()" type="button">{{ \'modals.remove_pia.remove\' | translate }}</button>    </div>  </div></div><div class="pia-modalBlock" id="modal-remove-structure">  <div class="pia-modalBlock-content pia-modalBlock-removePIA bounceIn">    <button tabindex="3" type="button" class="pia-modalBlock-close btn" title="{{ \'modals.close\' | translate }}" (click)="_modalsService.closeModal()"><span class="pia-icons pia-icon-close-big"></span></button>    <p [innerHTML]="\'modals.remove_structure.content\' | translate"></p>    <span class="pia-icons pia-icon-sad"></span>    <div class="pia-modalBlock-buttons-choice">      <button tabindex="1" class="btn btn-red" type="button" (click)="_modalsService.closeModal()">{{ \'modals.cancel\' | translate }}</button>      <button tabindex="2" class="btn btn-red get-focus" (click)="_structureService.removeStructure()" type="button">{{ \'modals.remove_structure.remove\' | translate }}</button>    </div>  </div></div><div class="pia-modalBlock" id="modal-remove-attachment">  <div class="pia-modalBlock-content pia-modalBlock-removeAttachment bounceIn">    <button tabindex="3" type="button" class="pia-modalBlock-close btn" title="{{ \'modals.close\' | translate }}" (click)="_modalsService.closeModal()"><span class="pia-icons pia-icon-close-big"></span></button>    <p [innerHTML]="\'modals.remove_attachment.content\' | translate"></p>    <form [formGroup]="removeAttachmentForm" class="pia-remove-attachment-comment">      <label for="pia-remove-attachment-comment">{{ \'modals.remove_attachment.comment\' | translate }}</label>      <textarea id="pia-remove-attachment-comment" (focusout)="attachmentCommentFocusOut()" formControlName="comment"></textarea>    </form>    <div class="pia-modalBlock-buttons-choice">      <button tabindex="1" class="btn btn-red" type="button" (click)="_modalsService.closeModal()">{{ \'modals.remove_attachment.keep\' | translate }}</button>      <button tabindex="2" class="btn btn-red get-focus" [disabled]="enableSubmit" (click)="_attachmentsService.removeAttachment(removeAttachmentForm.controls[\'comment\'].value)" type="button">{{ \'modals.remove_attachment.remove\' | translate }}</button>    </div>  </div></div><div class="pia-modalBlock" id="completed-edition">  <div class="pia-modalBlock-content bounceIn">    <button tabindex="2" type="button" class="pia-modalBlock-close btn" title="{{ \'modals.close\' | translate }}" (click)="_modalsService.closeModal()"><span class="pia-icons pia-icon-close-big"></span></button>    <p [innerHTML]="\'modals.completed_edition.content\' | translate"></p>    <i class="fa fa-cog icon-gray" aria-hidden="true"></i>    <div class="pia-modalBlock-validate">      <button tabindex="1" (click)="_modalsService.closeModal()" class="btn btn-green get-focus" type="button">{{ \'modals.continue\' | translate }}</button>    </div>  </div></div><div class="pia-modalBlock" id="completed-evaluation">  <div class="pia-modalBlock-content bounceIn">    <button tabindex="2" type="button" class="pia-modalBlock-close btn" title="{{ \'modals.close\' | translate }}" (click)="_modalsService.closeModal()"><span class="pia-icons pia-icon-close-big"></span></button>    <p [innerHTML]="\'modals.completed_evaluation.content\' | translate"></p>    <i class="fa fa-check icon-gray" aria-hidden="true"></i>    <div class="pia-modalBlock-validate">      <button tabindex="1" class="btn btn-green get-focus" type="button" (click)="_modalsService.closeModal()">{{ \'modals.continue\' | translate }}</button>    </div>  </div></div><div class="pia-modalBlock" id="modal-select-text-pia">  <div class="pia-modalBlock-content bounceIn">    <button tabindex="2" type="button" class="pia-modalBlock-close btn" title="{{ \'modals.close\' | translate }}" (click)="_modalsService.closeModal()"><span class="pia-icons pia-icon-close-big"></span></button>    <p>{{ \'modals.modal_select_text_pia.content\' | translate }}</p>    <span class="pia-icons pia-icon-happy"></span>    <div class="pia-modalBlock-validate">      <button tabindex="1" class="btn btn-green get-focus" type="button" (click)="_modalsService.closeModal()">{{ \'modals.continue\' | translate }}</button>    </div>  </div></div><div class="pia-modalBlock" id="import-wrong-pia-file">  <div class="pia-modalBlock-content bounceIn">    <button tabindex="2" type="button" class="pia-modalBlock-close btn" title="{{ \'modals.close\' | translate }}" (click)="_modalsService.closeModal()"><span class="pia-icons pia-icon-close-big"></span></button>    <p>{{ \'modals.import_wrong_pia_file.content\' | translate }}</p>    <span class="pia-icons pia-icon-sad"></span>    <div class="pia-modalBlock-validate">      <button tabindex="1" class="btn btn-red get-focus" type="button" (click)="_modalsService.closeModal()">{{ \'modals.close\' | translate }}</button>    </div>  </div></div><div class="pia-modalBlock" id="import-wrong-structure-file">  <div class="pia-modalBlock-content bounceIn">    <button tabindex="2" type="button" class="pia-modalBlock-close btn" title="{{ \'modals.close\' | translate }}" (click)="_modalsService.closeModal()"><span class="pia-icons pia-icon-close-big"></span></button>    <p>{{ \'modals.import_wrong_structure_file.content\' | translate }}</p>    <span class="pia-icons pia-icon-sad"></span>    <div class="pia-modalBlock-validate">      <button tabindex="1" class="btn btn-red get-focus" type="button" (click)="_modalsService.closeModal()">{{ \'modals.close\' | translate }}</button>    </div>  </div></div><div class="pia-modalBlock" id="modal-list-new-pia">  <div class="pia-modalBlock-content bounceIn">    <button tabindex="1" type="button" class="pia-modalBlock-close btn" title="{{ \'homepage.cards.title_close_creation\' | translate }}" (click)="_modalsService.closeModal()"><span class="pia-icons pia-icon-close"></span></button>    <form class="pia-cardsBlock-item-form" (ngSubmit)="onSubmit()" [formGroup]="piaForm">      <div>        <label for="name">{{ \'homepage.cards.pia_name\' | translate }}</label>        <input formControlName="name" type="text" placeholder="{{ \'homepage.cards.placeholder_pia_name\' | translate }}" id="name" required>      </div>      <div>        <label for="author_name">{{ \'homepage.cards.author\' | translate }}</label>        <input formControlName="author_name" type="text" placeholder="{{ \'homepage.cards.placeholder_author\' | translate }}" id="author_name" required>      </div>      <div>        <label for="evaluator_name">{{ \'homepage.cards.evaluation\' | translate }}</label>        <input formControlName="evaluator_name" type="text" placeholder="{{ \'homepage.cards.placeholder_evaluation\' | translate }}" id="evaluator_name" required>      </div>      <div>        <label for="validator_name">{{ \'homepage.cards.validation\' | translate }}</label>        <input formControlName="validator_name" type="text" placeholder="{{ \'homepage.cards.placeholder_validation\' | translate }}" id="validator_name" required>      </div>      <div>        <label for="structure">{{ \'homepage.cards.structure\' | translate }}</label>        <div class="pia-structure-wrapper">          <select formControlName="structure" id="structure">            <option value="" selected>{{ \'homepage.cards.placeholder_structure\' | translate }}</option>            <option *ngFor="let item of _structureService.structures" [ngValue]="item.id">{{item.name}}</option>          </select>        </div>      </div>      <div class="pia-cardsBlock-item-date" *ngIf="newPia">        <div>{{ \'homepage.cards.date\' | translate }}</div>        <time>{{ newPia.created_at | date: \'dd/MM/yyyy\'}}</time>      </div>      <div class="pia-cardsBlock-item-status">        <div class="pia-cardsBlock-item-status-infos">          <div>{{ \'homepage.cards.status\' | translate }}</div>          <div>{{ \'homepage.cards.creation_status\' | translate }}</div>        </div>        <div class="pia-cardsBlock-item-status-progressBar">          <div>0%</div>          <progress max="100" value="0">          </progress>        </div>      </div>      <div class="pia-cardsBlock-item-btn">        <button type="submit" [disabled]="piaForm.invalid" class="btn btn-green get-focus" id="pia-save-card-btn">{{ \'homepage.cards.start\' | translate }}</button>      </div>    </form>  </div></div><div class="pia-modalBlock" id="modal-list-new-structure">  <div class="pia-modalBlock-content bounceIn">    <button tabindex="1" type="button" class="pia-modalBlock-close btn" title="{{ \'homepage.cards.title_close_creation\' | translate }}" (click)="_modalsService.closeModal()"><span class="pia-icons pia-icon-close"></span></button>    <form class="pia-cardsBlock-item-form" (ngSubmit)="onSubmitStructure()" [formGroup]="structureForm">      <div>        <label for="name">{{ \'homepage.cards.structure_name\' | translate }}</label>        <input formControlName="name" type="text" placeholder="{{ \'homepage.cards.placeholder_structure_name\' | translate }}" id="name" required>      </div>      <div>        <label for="sector_name">{{ \'homepage.cards.sector_name\' | translate }}</label>        <input formControlName="sector_name" type="text" placeholder="{{ \'homepage.cards.placeholder_sector_name\' | translate }}" id="sector_name" required>      </div>      <div class="pia-cardsBlock-item-date" *ngIf="newPia">        <div>{{ \'homepage.cards.date\' | translate }}</div>        <time>{{ newStructure.created_at | date: \'dd/MM/yyyy\'}}</time>      </div>      <div class="pia-cardsBlock-item-status"></div>      <div class="pia-cardsBlock-item-btn">        <button type="submit" [disabled]="structureForm.invalid" class="btn btn-green get-focus" id="pia-save-card-btn">{{ \'homepage.cards.start\' | translate }}</button>      </div>    </form>  </div></div></div>'
+    var COMPONENTS = [{'name': 'AboutComponent', 'selector': 'app-about'},{'name': 'ActionPlanComponent', 'selector': 'app-action-plan'},{'name': 'ActionPlanImplementationComponent', 'selector': 'app-action-plan-implementation'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AttachmentItemComponent', 'selector': 'app-attachment-item'},{'name': 'AttachmentsComponent', 'selector': 'app-attachments'},{'name': 'AuthenticationComponent', 'selector': 'app-authentication'},{'name': 'CardItemComponent', 'selector': 'app-card-item'},{'name': 'CardItemComponent', 'selector': 'app-card-item'},{'name': 'CardsComponent', 'selector': 'app-cards'},{'name': 'CommentItemComponent', 'selector': 'app-comment-item'},{'name': 'CommentsComponent', 'selector': 'app-comments'},{'name': 'DPOPeopleOpinionsComponent', 'selector': 'app-dpo-people-opinions'},{'name': 'EntryComponent', 'selector': 'app-entry'},{'name': 'EntryComponent', 'selector': 'app-entry'},{'name': 'EntryContentComponent', 'selector': 'app-entry-content'},{'name': 'EntryContentComponent', 'selector': 'app-entry-content'},{'name': 'ErrorsComponent', 'selector': 'app-errors'},{'name': 'EvaluationsComponent', 'selector': 'app-evaluations'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HelpComponent', 'selector': 'app-help'},{'name': 'KnowledgeBaseComponent', 'selector': 'app-knowledge-base'},{'name': 'KnowledgeBaseItemComponent', 'selector': 'app-knowledge-base-item'},{'name': 'ListItemComponent', 'selector': '.app-list-item'},{'name': 'ListItemComponent', 'selector': '.app-list-item'},{'name': 'MeasuresComponent', 'selector': 'app-measures'},{'name': 'MeasuresComponent', 'selector': 'app-measures'},{'name': 'ModalsComponent', 'selector': 'app-modals'},{'name': 'OverviewRisksComponent', 'selector': '.app-overview-risks'},{'name': 'PiaValidateHistoryComponent', 'selector': 'app-pia-validate-history'},{'name': 'QuestionsComponent', 'selector': 'app-questions'},{'name': 'QuestionsComponent', 'selector': 'app-questions'},{'name': 'RefusePIAComponent', 'selector': 'app-refuse-pia'},{'name': 'RisksCartographyComponent', 'selector': '.app-risks-cartography'},{'name': 'SectionsComponent', 'selector': 'app-sections'},{'name': 'SectionsComponent', 'selector': 'app-sections'},{'name': 'SettingsComponent', 'selector': 'app-settings'},{'name': 'StructuresComponent', 'selector': 'app-structures'},{'name': 'SummaryComponent', 'selector': 'app-summary'},{'name': 'ValidatePIAComponent', 'selector': 'app-validate-pia'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'ModalsComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'ModalsComponent.html';
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <script src="../js/menu-wc.js"></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

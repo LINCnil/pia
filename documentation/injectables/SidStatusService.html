@@ -1,0 +1,1378 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>pia documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">pia documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search">
+</div>
+            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content injectable">
+                   <div class="content-data">
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li>Injectables</li>
+  <li>SidStatusService</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/services/sid-status.service.ts</code>
+        </p>
+
+
+
+            <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#defaultIcon">defaultIcon</a>
+                            </li>
+                            <li>
+                                <a href="#enableDpoValidation">enableDpoValidation</a>
+                            </li>
+                            <li>
+                                <a href="#enablePiaValidation">enablePiaValidation</a>
+                            </li>
+                            <li>
+                                <a href="#itemStatus">itemStatus</a>
+                            </li>
+                            <li>
+                                <a href="#noIconFor">noIconFor</a>
+                            </li>
+                            <li>
+                                <a href="#piaIsRefused">piaIsRefused</a>
+                            </li>
+                            <li>
+                                <a href="#sidStatusIcon">sidStatusIcon</a>
+                            </li>
+                            <li>
+                                <a href="#specialIcon">specialIcon</a>
+                            </li>
+                            <li>
+                                <a href="#structureStatus">structureStatus</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#subject">subject</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#refusePia">refusePia</a>
+                            </li>
+                            <li>
+                                <a href="#removeSidStatus">removeSidStatus</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#resetDpoPage">resetDpoPage</a>
+                            </li>
+                            <li>
+                                <a href="#setSidStatus">setSidStatus</a>
+                            </li>
+                            <li>
+                                <a href="#setStructureStatus">setStructureStatus</a>
+                            </li>
+                            <li>
+                                <a href="#verifEnableActionPlan">verifEnableActionPlan</a>
+                            </li>
+                            <li>
+                                <a href="#verifEnableDpo">verifEnableDpo</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(_globalEvaluationService: <a href="../injectables/GlobalEvaluationService.html">GlobalEvaluationService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/services/sid-status.service.ts:17</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>_globalEvaluationService</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="../injectables/GlobalEvaluationService.html" target="_self" >GlobalEvaluationService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section>
+    
+        <h3 id="methods">
+            Methods
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="refusePia"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Async</span>
+                            refusePia
+                            </b>
+                            <a href="#refusePia"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                            <span class="modifier-icon icon ion-ios-reset"></span>
+                        <code>refusePia(piaService: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="122" class="link-to-prism">src/app/services/sid-status.service.ts:122</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Update PIA status to refused.</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                                    <td>Description</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>piaService</td>
+                                                        <td>
+                                                                    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                        <td>
+                                                                <code><ul>
+<li>The PIA Service.</li>
+</ul>
+</code>
+                                                        </td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code>{}</code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="removeSidStatus"></a>
+                        <span class="name">
+                            <b>
+                            removeSidStatus
+                            </b>
+                            <a href="#removeSidStatus"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>removeSidStatus(piaService: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>, section: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>, item: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="100" class="link-to-prism">src/app/services/sid-status.service.ts:100</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Reset all statuses.</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                                    <td>Description</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>piaService</td>
+                                                        <td>
+                                                                    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                        <td>
+                                                                <code><ul>
+<li>The PIA Service.</li>
+</ul>
+</code>
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>section</td>
+                                                        <td>
+                                                                    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                        <td>
+                                                                <code><ul>
+<li>The section.</li>
+</ul>
+</code>
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>item</td>
+                                                        <td>
+                                                                    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                        <td>
+                                                                <code><ul>
+<li>The item.</li>
+</ul>
+</code>
+                                                        </td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="resetDpoPage"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            resetDpoPage
+                            </b>
+                            <a href="#resetDpoPage"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                            <span class="modifier-icon icon ion-ios-reset"></span>
+                        <code>resetDpoPage(piaService: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="172" class="link-to-prism">src/app/services/sid-status.service.ts:172</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Erase all contents on the DPD page.</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                                    <td>Description</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>piaService</td>
+                                                        <td>
+                                                                    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                        <td>
+                                                                <code><ul>
+<li>The PIA Service.</li>
+</ul>
+</code>
+                                                        </td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="setSidStatus"></a>
+                        <span class="name">
+                            <b>
+                            setSidStatus
+                            </b>
+                            <a href="#setSidStatus"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>setSidStatus(piaService: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>, section: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>, item: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="52" class="link-to-prism">src/app/services/sid-status.service.ts:52</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Set status by reference.</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                                    <td>Description</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>piaService</td>
+                                                        <td>
+                                                                    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                        <td>
+                                                                <code><ul>
+<li>The PIA Service.</li>
+</ul>
+</code>
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>section</td>
+                                                        <td>
+                                                                    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                        <td>
+                                                                <code><ul>
+<li>The section.</li>
+</ul>
+</code>
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>item</td>
+                                                        <td>
+                                                                    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                        <td>
+                                                                <code><ul>
+<li>The item.</li>
+</ul>
+</code>
+                                                        </td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="setStructureStatus"></a>
+                        <span class="name">
+                            <b>
+                            setStructureStatus
+                            </b>
+                            <a href="#setStructureStatus"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>setStructureStatus(section: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>, item: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="77" class="link-to-prism">src/app/services/sid-status.service.ts:77</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Set status structure</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                                    <td>Description</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>section</td>
+                                                        <td>
+                                                                    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                        <td>
+                                                                <code><ul>
+<li>The section.</li>
+</ul>
+</code>
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>item</td>
+                                                        <td>
+                                                                    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                        <td>
+                                                                <code><ul>
+<li>The item.</li>
+</ul>
+</code>
+                                                        </td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="verifEnableActionPlan"></a>
+                        <span class="name">
+                            <b>
+                            verifEnableActionPlan
+                            </b>
+                            <a href="#verifEnableActionPlan"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>verifEnableActionPlan()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="156" class="link-to-prism">src/app/services/sid-status.service.ts:156</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Verification to enable Action Plan page.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="verifEnableDpo"></a>
+                        <span class="name">
+                            <b>
+                            verifEnableDpo
+                            </b>
+                            <a href="#verifEnableDpo"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>verifEnableDpo()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="139" class="link-to-prism">src/app/services/sid-status.service.ts:139</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Verification to enable the DPD page fields.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="defaultIcon"></a>
+                        <span class="name">
+                            <b>
+                            defaultIcon
+                            </b>
+                            <a href="#defaultIcon"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>defaultIcon:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>&#x27;fa-pencil-square-o&#x27;</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/services/sid-status.service.ts:13</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="enableDpoValidation"></a>
+                        <span class="name">
+                            <b>
+                            enableDpoValidation
+                            </b>
+                            <a href="#enableDpoValidation"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>enableDpoValidation:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/services/sid-status.service.ts:16</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="enablePiaValidation"></a>
+                        <span class="name">
+                            <b>
+                            enablePiaValidation
+                            </b>
+                            <a href="#enablePiaValidation"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>enablePiaValidation:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/services/sid-status.service.ts:14</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="itemStatus"></a>
+                        <span class="name">
+                            <b>
+                            itemStatus
+                            </b>
+                            <a href="#itemStatus"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>itemStatus:     <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/services/sid-status.service.ts:11</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="noIconFor"></a>
+                        <span class="name">
+                            <b>
+                            noIconFor
+                            </b>
+                            <a href="#noIconFor"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>noIconFor:     <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">src/app/services/sid-status.service.ts:8</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="piaIsRefused"></a>
+                        <span class="name">
+                            <b>
+                            piaIsRefused
+                            </b>
+                            <a href="#piaIsRefused"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>piaIsRefused:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/services/sid-status.service.ts:15</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="sidStatusIcon"></a>
+                        <span class="name">
+                            <b>
+                            sidStatusIcon
+                            </b>
+                            <a href="#sidStatusIcon"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>sidStatusIcon:     <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/app/services/sid-status.service.ts:10</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="specialIcon"></a>
+                        <span class="name">
+                            <b>
+                            specialIcon
+                            </b>
+                            <a href="#specialIcon"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>specialIcon:     <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">src/app/services/sid-status.service.ts:9</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="structureStatus"></a>
+                        <span class="name">
+                            <b>
+                            structureStatus
+                            </b>
+                            <a href="#structureStatus"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>structureStatus:     <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/services/sid-status.service.ts:12</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="subject"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            subject
+                            </b>
+                            <a href="#subject"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>subject:     <code></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>new Subject()</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/services/sid-status.service.ts:17</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
+import { Subject } from &#x27;rxjs/Subject&#x27;;
+
+import { GlobalEvaluationService } from &#x27;app/services/global-evaluation.service&#x27;;
+
+@Injectable()
+export class SidStatusService {
+  noIconFor: any;
+  specialIcon: any;
+  sidStatusIcon: any;
+  itemStatus: any;
+  structureStatus: any;
+  defaultIcon &#x3D; &#x27;fa-pencil-square-o&#x27;;
+  enablePiaValidation: boolean;
+  piaIsRefused: boolean;
+  enableDpoValidation: boolean;
+  public subject &#x3D; new Subject();
+
+  constructor(private _globalEvaluationService: GlobalEvaluationService) {
+    this.specialIcon &#x3D; { &#x27;3.5&#x27;: &#x27;fa-line-chart&#x27;, &#x27;4.1&#x27;: &#x27;fa-line-chart&#x27;, &#x27;4.2&#x27;: &#x27;fa-calendar-check-o&#x27; }
+    this.sidStatusIcon &#x3D; {
+      0: &#x27;fa-pencil-square-o&#x27;,
+      1: &#x27;fa-pencil-square-o&#x27;,
+      2: &#x27;fa-pencil-square-o&#x27;,
+      3: &#x27;fa-pencil-square-o&#x27;,
+      4: [&#x27;fa-pencil-square-o&#x27;, &#x27;pia-fa-valid&#x27;],
+      5: &#x27;fa-cog&#x27;,
+      6: &#x27;fa-cog&#x27;,
+      7: [&#x27;fa-cog&#x27;, &#x27;pia-fa-valid&#x27;],
+      8: &#x27;fa-check-square-o&#x27;
+    };
+    this.itemStatus &#x3D; {};
+    this.structureStatus &#x3D; {};
+    this.enablePiaValidation &#x3D; false;
+    this.piaIsRefused &#x3D; false;
+    this.enableDpoValidation &#x3D; false;
+    this._globalEvaluationService.behaviorSubject.subscribe((obj: { reference_to: string, status: number }) &#x3D;&gt; {
+      if (obj.reference_to &amp;&amp; obj.status &gt; 0) {
+        this.itemStatus[obj.reference_to] &#x3D; obj.status;
+        this.verifEnableDpo();
+      }
+    });
+  }
+
+  /**
+   * Set status by reference.
+   * @param {*} piaService - The PIA Service.
+   * @param {*} section - The section.
+   * @param {*} item - The item.
+   * @memberof SidStatusService
+   */
+  setSidStatus(piaService: any, section: any, item: any) {
+    const reference_to &#x3D; section.id + &#x27;.&#x27; + item.id;
+    // We need to instanciate a new instance of GLobalEvaluationService
+    const globalEvaluationService &#x3D; new GlobalEvaluationService();
+    globalEvaluationService.pia &#x3D; piaService.pia;
+    globalEvaluationService.section &#x3D; section;
+    globalEvaluationService.item &#x3D; item;
+    if (item.evaluation_mode &#x3D;&#x3D;&#x3D; &#x27;item&#x27; || item.evaluation_mode &#x3D;&#x3D;&#x3D; &#x27;question&#x27; || reference_to &#x3D;&#x3D;&#x3D; &#x27;4.3&#x27;) {
+      globalEvaluationService.validate(false).then((obj: { reference_to: string, status: number }) &#x3D;&gt; {
+        if (reference_to &#x3D;&#x3D;&#x3D; &#x27;4.3&#x27;) {
+          this.enablePiaValidation &#x3D; globalEvaluationService.enablePiaValidation;
+          this.piaIsRefused &#x3D; globalEvaluationService.piaIsRefused;
+        }
+        this.itemStatus[obj.reference_to] &#x3D; obj.status;
+        this.verifEnableDpo();
+      });
+    }
+  }
+
+  /**
+   * Set status structure
+   * @param {*} section - The section.
+   * @param {*} item - The item.
+   * @memberof SidStatusService
+   */
+  setStructureStatus(section: any, item: any) {
+    let contentExist &#x3D; false;
+    if (item.is_measure) {
+      if (item.answers) {
+        contentExist &#x3D; item.answers.map(x &#x3D;&gt; x.title).filter(String).length &gt; 0;
+      }
+    } else if (item.questions) {
+      item.questions.forEach(question &#x3D;&gt; {
+        if (!contentExist &amp;&amp; question.answer) {
+          contentExist &#x3D; question.answer.length &gt; 0;
+        }
+      });
+    }
+    this.structureStatus[&#x60;${section.id}.${item.id}&#x60;] &#x3D; contentExist;
+  }
+
+  /**
+   * Reset all statuses.
+   * @param {*} piaService - The PIA Service.
+   * @param {*} section - The section.
+   * @param {*} item - The item.
+   * @memberof SidStatusService
+   */
+  removeSidStatus(piaService: any, section: any, item: any) {
+    const sid &#x3D; section.id + &#x27;.&#x27; + item.id;
+    if (!this.noIconFor.includes(sid)) {
+      this.itemStatus[sid] &#x3D; 0;
+      // TODO the code below isn&#x27;t useful
+      piaService.getPIA().then(() &#x3D;&gt; {
+        // Special behaviour for DPO page
+        if (sid &#x3D;&#x3D;&#x3D; &#x27;4.3&#x27;) {
+          // Nothing to do
+        } else {
+          this.itemStatus[sid] &#x3D; 0;
+        }
+      });
+    }
+  }
+
+  /**
+   * Update PIA status to refused.
+   * @param {*} piaService - The PIA Service.
+   * @returns {Promise}
+   * @memberof SidStatusService
+   */
+  async refusePia(piaService: any) {
+    this.enablePiaValidation &#x3D; false;
+    return new Promise((resolve, reject) &#x3D;&gt; {
+      for (const el in this.itemStatus) {
+        if (this.itemStatus.hasOwnProperty(el)) {
+          this.itemStatus[el] &#x3D; 6;
+        }
+      }
+      this.resetDpoPage(piaService);
+      resolve();
+    });
+  }
+
+  /**
+   * Verification to enable the DPD page fields.
+   * @memberof SidStatusService
+   */
+  verifEnableDpo() {
+    this.enableDpoValidation &#x3D; false;
+    let count &#x3D; 0;
+    for (const el in this.itemStatus) {
+      if (this.itemStatus.hasOwnProperty(el) &amp;&amp; this.itemStatus[el] &gt;&#x3D; 7 &amp;&amp; el !&#x3D;&#x3D; &#x27;4.3&#x27;) {
+        count++;
+      }
+    }
+    if (count &#x3D;&#x3D;&#x3D; Object.keys(this.itemStatus).length - 1) {
+      this.enableDpoValidation &#x3D; true;
+    }
+  }
+
+  /**
+   * Verification to enable Action Plan page.
+   * @memberof SidStatusService
+   */
+  verifEnableActionPlan() {
+    let valid &#x3D; false;
+    for (const el in this.itemStatus) {
+      if (this.itemStatus.hasOwnProperty(el) &amp;&amp; this.itemStatus[el] &gt;&#x3D; 5) {
+        valid &#x3D; true;
+      }
+    }
+    return valid;
+  }
+
+  /**
+   * Erase all contents on the DPD page.
+   * @private
+   * @param {*} piaService - The PIA Service.
+   * @memberof SidStatusService
+   */
+  private resetDpoPage(piaService: any) {
+    piaService.pia.dpos_names &#x3D; null;
+    piaService.pia.dpo_status &#x3D; null;
+    piaService.pia.dpo_opinion &#x3D; null;
+    piaService.pia.concerned_people_searched_opinion &#x3D; null;
+    piaService.pia.concerned_people_searched_content &#x3D; null;
+    piaService.pia.people_names &#x3D; null;
+    piaService.pia.concerned_people_status &#x3D; null;
+    piaService.pia.concerned_people_opinion &#x3D; null;
+    piaService.pia.update();
+    this.enableDpoValidation &#x3D; false;
+  }
+}
+</code></pre>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'SidStatusService.html';
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <script src="../js/menu-wc.js"></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

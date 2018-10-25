@@ -1,0 +1,2305 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>pia documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">pia documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search">
+</div>
+            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>QuestionsComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/entry/entry-content/questions/questions.component.ts</code>
+</p>
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+                <code><a href="https://angular.io/api/core/OnDestroy" target="_blank" >OnDestroy</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-questions</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>questions.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./questions.component.html</code></td>
+            </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#_globalEvaluationService">_globalEvaluationService</a>
+                            </li>
+                            <li>
+                                <a href="#answer">answer</a>
+                            </li>
+                            <li>
+                                <a href="#editor">editor</a>
+                            </li>
+                            <li>
+                                <a href="#elementId">elementId</a>
+                            </li>
+                            <li>
+                                <a href="#evaluation">evaluation</a>
+                            </li>
+                            <li>
+                                <a href="#lastSelectedTag">lastSelectedTag</a>
+                            </li>
+                            <li>
+                                <a href="#measure">measure</a>
+                            </li>
+                            <li>
+                                <a href="#questionForm">questionForm</a>
+                            </li>
+                            <li>
+                                <a href="#userMeasures">userMeasures</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#checkGaugeChanges">checkGaugeChanges</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#closeEditor">closeEditor</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#createOrUpdateList">createOrUpdateList</a>
+                            </li>
+                            <li>
+                                <a href="#displayQuestion">displayQuestion</a>
+                            </li>
+                            <li>
+                                <a href="#enableGauge">enableGauge</a>
+                            </li>
+                            <li>
+                                <a href="#evaluationChange">evaluationChange</a>
+                            </li>
+                            <li>
+                                <a href="#loadEditor">loadEditor</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnDestroy">ngOnDestroy</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit">ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#onAdd">onAdd</a>
+                            </li>
+                            <li>
+                                <a href="#onBlur">onBlur</a>
+                            </li>
+                            <li>
+                                <a href="#onRemove">onRemove</a>
+                            </li>
+                            <li>
+                                <a href="#onSelected">onSelected</a>
+                            </li>
+                            <li>
+                                <a href="#onTagEdited">onTagEdited</a>
+                            </li>
+                            <li>
+                                <a href="#questionContentFocusIn">questionContentFocusIn</a>
+                            </li>
+                            <li>
+                                <a href="#questionContentFocusOut">questionContentFocusOut</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#item">item</a>
+                            </li>
+                            <li>
+                                <a href="#pia">pia</a>
+                            </li>
+                            <li>
+                                <a href="#question">question</a>
+                            </li>
+                            <li>
+                                <a href="#section">section</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(el: <a href="https://angular.io/api/core/ElementRef" target="_blank">ElementRef</a>, _knowledgeBaseService: <a href="../injectables/KnowledgeBaseService.html">KnowledgeBaseService</a>, _modalsService: <a href="../injectables/ModalsService.html">ModalsService</a>, _ngZone: <a href="https://angular.io/api/core/NgZone" target="_blank">NgZone</a>, _globalEvaluationService: <a href="../injectables/GlobalEvaluationService.html">GlobalEvaluationService</a>, renderer: <a href="https://angular.io/api/core/Renderer2" target="_blank">Renderer2</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/entry/entry-content/questions/questions.component.ts:33</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>el</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="https://angular.io/api/core/ElementRef" target="_blank" >ElementRef</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>_knowledgeBaseService</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="../injectables/KnowledgeBaseService.html" target="_self" >KnowledgeBaseService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>_modalsService</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="../injectables/ModalsService.html" target="_self" >ModalsService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>_ngZone</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="https://angular.io/api/core/NgZone" target="_blank" >NgZone</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>_globalEvaluationService</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="../injectables/GlobalEvaluationService.html" target="_self" >GlobalEvaluationService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>renderer</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="https://angular.io/api/core/Renderer2" target="_blank" >Renderer2</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+    <section>
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-2">
+                        <a name="item"></a>
+                        <code>item</code>
+                    </td>
+                    <td class="col-md-10">
+                            <p>
+                            <em>Type :</em>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                            </p>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/entry/entry-content/questions/questions.component.ts:24</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-2">
+                        <a name="pia"></a>
+                        <code>pia</code>
+                    </td>
+                    <td class="col-md-10">
+                            <p>
+                            <em>Type :</em>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                            </p>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/entry/entry-content/questions/questions.component.ts:26</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-2">
+                        <a name="question"></a>
+                        <code>question</code>
+                    </td>
+                    <td class="col-md-10">
+                            <p>
+                            <em>Type :</em>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                            </p>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/entry/entry-content/questions/questions.component.ts:23</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-2">
+                        <a name="section"></a>
+                        <code>section</code>
+                    </td>
+                    <td class="col-md-10">
+                            <p>
+                            <em>Type :</em>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                            </p>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/entry/entry-content/questions/questions.component.ts:25</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+    <section>
+    
+        <h3 id="methods">
+            Methods
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="checkGaugeChanges"></a>
+                        <span class="name">
+                            <b>
+                            checkGaugeChanges
+                            </b>
+                            <a href="#checkGaugeChanges"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>checkGaugeChanges(event: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="115" class="link-to-prism">src/app/entry/entry-content/questions/questions.component.ts:115</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Check gauge change.</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                                    <td>Description</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>event</td>
+                                                        <td>
+                                                                    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                        <td>
+                                                                <code><ul>
+<li>Any Event.</li>
+</ul>
+</code>
+                                                        </td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="closeEditor"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            closeEditor
+                            </b>
+                            <a href="#closeEditor"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                            <span class="modifier-icon icon ion-ios-reset"></span>
+                        <code>closeEditor()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="366" class="link-to-prism">src/app/entry/entry-content/questions/questions.component.ts:366</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Close the editor.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="createOrUpdateList"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            createOrUpdateList
+                            </b>
+                            <a href="#createOrUpdateList"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                            <span class="modifier-icon icon ion-ios-reset"></span>
+                        <code>createOrUpdateList(list: string[])</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="285" class="link-to-prism">src/app/entry/entry-content/questions/questions.component.ts:285</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Creates or updates the tags list.</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                                    <td>Description</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>list</td>
+                                                        <td>
+                                                                    <code>string[]</code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                        <td>
+                                                                <code><ul>
+<li>List of tags.</li>
+</ul>
+</code>
+                                                        </td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="displayQuestion"></a>
+                        <span class="name">
+                            <b>
+                            displayQuestion
+                            </b>
+                            <a href="#displayQuestion"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>displayQuestion(event: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="306" class="link-to-prism">src/app/entry/entry-content/questions/questions.component.ts:306</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Shows or hides a question.</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                                    <td>Description</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>event</td>
+                                                        <td>
+                                                                    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                        <td>
+                                                                <code><ul>
+<li>Any Event.</li>
+</ul>
+</code>
+                                                        </td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="enableGauge"></a>
+                        <span class="name">
+                            <b>
+                            enableGauge
+                            </b>
+                            <a href="#enableGauge"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>enableGauge()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="102" class="link-to-prism">src/app/entry/entry-content/questions/questions.component.ts:102</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Enable the gauge.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="evaluationChange"></a>
+                        <span class="name">
+                            <b>
+                            evaluationChange
+                            </b>
+                            <a href="#evaluationChange"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>evaluationChange(evaluation: )</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="94" class="link-to-prism">src/app/entry/entry-content/questions/questions.component.ts:94</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>On evaluation change.</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                <td>Optional</td>
+                                                    <td>Description</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>evaluation</td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                        <td>
+                                                                <code><ul>
+<li>Any Evaluation.</li>
+</ul>
+</code>
+                                                        </td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="loadEditor"></a>
+                        <span class="name">
+                            <b>
+                            loadEditor
+                            </b>
+                            <a href="#loadEditor"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>loadEditor()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="334" class="link-to-prism">src/app/entry/entry-content/questions/questions.component.ts:334</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Loads wysiwyg editor.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="ngOnDestroy"></a>
+                        <span class="name">
+                            <b>
+                            ngOnDestroy
+                            </b>
+                            <a href="#ngOnDestroy"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>ngOnDestroy()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="85" class="link-to-prism">src/app/entry/entry-content/questions/questions.component.ts:85</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="ngOnInit"></a>
+                        <span class="name">
+                            <b>
+                            ngOnInit
+                            </b>
+                            <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>ngOnInit()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">src/app/entry/entry-content/questions/questions.component.ts:42</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="onAdd"></a>
+                        <span class="name">
+                            <b>
+                            onAdd
+                            </b>
+                            <a href="#onAdd"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>onAdd(event: )</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="189" class="link-to-prism">src/app/entry/entry-content/questions/questions.component.ts:189</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Adds the measure tag in the database.</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                <td>Optional</td>
+                                                    <td>Description</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>event</td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                        <td>
+                                                                <code><ul>
+<li>Any Event.</li>
+</ul>
+</code>
+                                                        </td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="onBlur"></a>
+                        <span class="name">
+                            <b>
+                            onBlur
+                            </b>
+                            <a href="#onBlur"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>onBlur(event: )</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="266" class="link-to-prism">src/app/entry/entry-content/questions/questions.component.ts:266</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>On tag leave.</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                <td>Optional</td>
+                                                    <td>Description</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>event</td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                        <td>
+                                                                <code><ul>
+<li>Any Event.</li>
+</ul>
+</code>
+                                                        </td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="onRemove"></a>
+                        <span class="name">
+                            <b>
+                            onRemove
+                            </b>
+                            <a href="#onRemove"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>onRemove(event: )</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="221" class="link-to-prism">src/app/entry/entry-content/questions/questions.component.ts:221</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Removes the measure tag from the database.</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                <td>Optional</td>
+                                                    <td>Description</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>event</td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                        <td>
+                                                                <code><ul>
+<li>Any Event.</li>
+</ul>
+</code>
+                                                        </td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="onSelected"></a>
+                        <span class="name">
+                            <b>
+                            onSelected
+                            </b>
+                            <a href="#onSelected"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>onSelected(event: )</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="207" class="link-to-prism">src/app/entry/entry-content/questions/questions.component.ts:207</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Updates the last selected tag.</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                <td>Optional</td>
+                                                    <td>Description</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>event</td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                        <td>
+                                                                <code><ul>
+<li>Any Event.</li>
+</ul>
+</code>
+                                                        </td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="onTagEdited"></a>
+                        <span class="name">
+                            <b>
+                            onTagEdited
+                            </b>
+                            <a href="#onTagEdited"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>onTagEdited(event: )</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="244" class="link-to-prism">src/app/entry/entry-content/questions/questions.component.ts:244</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>On tag edited.</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                <td>Optional</td>
+                                                    <td>Description</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>event</td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                        <td>
+                                                                <code><ul>
+<li>Any Event.</li>
+</ul>
+</code>
+                                                        </td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="questionContentFocusIn"></a>
+                        <span class="name">
+                            <b>
+                            questionContentFocusIn
+                            </b>
+                            <a href="#questionContentFocusIn"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>questionContentFocusIn()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="147" class="link-to-prism">src/app/entry/entry-content/questions/questions.component.ts:147</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Loads WYSIWYG editor.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="questionContentFocusOut"></a>
+                        <span class="name">
+                            <b>
+                            questionContentFocusOut
+                            </b>
+                            <a href="#questionContentFocusOut"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>questionContentFocusOut()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="157" class="link-to-prism">src/app/entry/entry-content/questions/questions.component.ts:157</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Disables question field + shows edit button + save data.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="_globalEvaluationService"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            _globalEvaluationService
+                            </b>
+                            <a href="#_globalEvaluationService"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>_globalEvaluationService:     <code><a href="../injectables/GlobalEvaluationService.html" target="_self" >GlobalEvaluationService</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="../injectables/GlobalEvaluationService.html" target="_self" >GlobalEvaluationService</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/app/entry/entry-content/questions/questions.component.ts:39</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="answer"></a>
+                        <span class="name">
+                            <b>
+                            answer
+                            </b>
+                            <a href="#answer"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>answer:     <code><a href="../classes/Answer.html" target="_self" >Answer</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="../classes/Answer.html" target="_self" >Answer</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>new Answer()</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/entry/entry-content/questions/questions.component.ts:29</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="editor"></a>
+                        <span class="name">
+                            <b>
+                            editor
+                            </b>
+                            <a href="#editor"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>editor:     <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/entry/entry-content/questions/questions.component.ts:33</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="elementId"></a>
+                        <span class="name">
+                            <b>
+                            elementId
+                            </b>
+                            <a href="#elementId"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>elementId:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank" >String</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank" >String</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/entry/entry-content/questions/questions.component.ts:32</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="evaluation"></a>
+                        <span class="name">
+                            <b>
+                            evaluation
+                            </b>
+                            <a href="#evaluation"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>evaluation:     <code><a href="../classes/Evaluation.html" target="_self" >Evaluation</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="../classes/Evaluation.html" target="_self" >Evaluation</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>new Evaluation()</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/entry/entry-content/questions/questions.component.ts:27</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="lastSelectedTag"></a>
+                        <span class="name">
+                            <b>
+                            lastSelectedTag
+                            </b>
+                            <a href="#lastSelectedTag"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>lastSelectedTag:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/app/entry/entry-content/questions/questions.component.ts:31</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="measure"></a>
+                        <span class="name">
+                            <b>
+                            measure
+                            </b>
+                            <a href="#measure"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>measure:     <code><a href="../classes/Measure.html" target="_self" >Measure</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="../classes/Measure.html" target="_self" >Measure</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>new Measure()</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/entry/entry-content/questions/questions.component.ts:30</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="questionForm"></a>
+                        <span class="name">
+                            <b>
+                            questionForm
+                            </b>
+                            <a href="#questionForm"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>questionForm:     <code><a href="https://angular.io/api/forms/FormGroup" target="_blank" >FormGroup</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://angular.io/api/forms/FormGroup" target="_blank" >FormGroup</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/entry/entry-content/questions/questions.component.ts:28</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="userMeasures"></a>
+                        <span class="name">
+                            <b>
+                            userMeasures
+                            </b>
+                            <a href="#userMeasures"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>userMeasures:     <code>[]</code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>[]</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/entry/entry-content/questions/questions.component.ts:22</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, Input, ElementRef, OnInit, Renderer2, OnDestroy, NgZone } from &#x27;@angular/core&#x27;;
+import { FormControl, FormGroup } from &#x27;@angular/forms&#x27;;
+import &#x27;rxjs/add/operator/debounceTime&#x27;;
+import &#x27;rxjs/add/operator/map&#x27;;
+import &#x27;rxjs/add/operator/filter&#x27;;
+
+import { Answer } from &#x27;./answer.model&#x27;;
+import { Measure } from &#x27;../measures/measure.model&#x27;;
+import { Evaluation } from &#x27;app/entry/entry-content/evaluations/evaluation.model&#x27;;
+
+import { KnowledgeBaseService } from &#x27;../../knowledge-base/knowledge-base.service&#x27;;
+import { ModalsService } from &#x27;app/modals/modals.service&#x27;;
+import { GlobalEvaluationService } from &#x27;../../../services/global-evaluation.service&#x27;;
+
+@Component({
+  selector: &#x27;app-questions&#x27;,
+  templateUrl: &#x27;./questions.component.html&#x27;,
+  styleUrls: [&#x27;./questions.component.scss&#x27;]
+})
+
+export class QuestionsComponent implements OnInit, OnDestroy {
+  userMeasures &#x3D; [];
+  @Input() question: any;
+  @Input() item: any;
+  @Input() section: any;
+  @Input() pia: any;
+  evaluation: Evaluation &#x3D; new Evaluation();
+  questionForm: FormGroup;
+  answer: Answer &#x3D; new Answer();
+  measure: Measure &#x3D; new Measure();
+  lastSelectedTag: string;
+  elementId: String;
+  editor: any;
+
+  constructor(private el: ElementRef,
+              private _knowledgeBaseService: KnowledgeBaseService,
+              private _modalsService: ModalsService,
+              private _ngZone: NgZone,
+              public _globalEvaluationService: GlobalEvaluationService,
+              private renderer: Renderer2) { }
+
+  ngOnInit() {
+    this._globalEvaluationService.answerEditionEnabled &#x3D; true;
+    this.elementId &#x3D; &#x27;pia-question-content-&#x27; + this.question.id;
+    this.questionForm &#x3D; new FormGroup({
+      gauge: new FormControl(0),
+      text: new FormControl(),
+      list: new FormControl()
+    });
+
+    this.answer.getByReferenceAndPia(this.pia.id, this.question.id).then(() &#x3D;&gt; {
+      if (this.answer.data) {
+        let evaluationRefTo: string &#x3D; this.answer.id.toString();
+        if (this.item.evaluation_mode &#x3D;&#x3D;&#x3D; &#x27;item&#x27;) {
+          evaluationRefTo &#x3D; this.section.id + &#x27;.&#x27; + this.item.id;
+        }
+        this.evaluation.getByReference(this.pia.id, evaluationRefTo);
+        this.questionForm.controls[&#x27;gauge&#x27;].patchValue(this.answer.data.gauge);
+        this.questionForm.controls[&#x27;text&#x27;].patchValue(this.answer.data.text);
+        if (this.answer.data.list) {
+          const dataList &#x3D; this.answer.data.list.filter((l) &#x3D;&gt; {
+            return (l &amp;&amp; l.length &gt; 0);
+          })
+          this.questionForm.controls[&#x27;list&#x27;].patchValue(dataList);
+        }
+        if (this.el.nativeElement.querySelector(&#x27;.pia-gaugeBlock-background&#x27;)) {
+          this.el.nativeElement.querySelector(&#x27;.pia-gaugeBlock-background&#x27;).classList.
+            add(&#x27;pia-gaugeBlock-background-&#x27; + this.answer.data.gauge);
+        }
+      }
+    });
+
+    this.measure.pia_id &#x3D; this.pia.id;
+    this.measure.findAll().then((entries: any[]) &#x3D;&gt; {
+      if (entries) {
+        entries.forEach(entry &#x3D;&gt; {
+          if (entry.title) {
+            this.userMeasures.push(entry.title);
+          }
+        });
+      }
+    });
+  }
+
+  ngOnDestroy() {
+    tinymce.remove(this.editor);
+  }
+
+  /**
+   * On evaluation change.
+   * @param {any} evaluation - Any Evaluation.
+   * @memberof QuestionsComponent
+   */
+  evaluationChange(evaluation) {
+    this.evaluation &#x3D; evaluation;
+  }
+
+  /**
+   * Enable the gauge.
+   * @memberof QuestionsComponent
+   */
+  enableGauge() {
+    if (this._globalEvaluationService.answerEditionEnabled) {
+      this.questionForm.controls[&#x27;gauge&#x27;].enable();
+    } else {
+      this.questionForm.controls[&#x27;gauge&#x27;].disable();
+    }
+  }
+
+  /**
+   * Check gauge change.
+   * @param {*} event - Any Event.
+   * @memberof QuestionsComponent
+   */
+  checkGaugeChanges(event: any) {
+    const value: string &#x3D; event.target.value;
+    const bgElement &#x3D; event.target.parentNode.querySelector(&#x27;.pia-gaugeBlock-background&#x27;);
+    bgElement.classList.remove(&#x27;pia-gaugeBlock-background-1&#x27;);
+    bgElement.classList.remove(&#x27;pia-gaugeBlock-background-2&#x27;);
+    bgElement.classList.remove(&#x27;pia-gaugeBlock-background-3&#x27;);
+    bgElement.classList.remove(&#x27;pia-gaugeBlock-background-4&#x27;);
+    bgElement.classList.add(&#x27;pia-gaugeBlock-background-&#x27; + value);
+    const gaugeValue &#x3D; parseInt(this.questionForm.value.gauge, 10);
+    if (this.answer.id) {
+      this.answer.data &#x3D; { text: this.answer.data.text, gauge: gaugeValue, list: this.answer.data.list };
+      this.answer.update().then(() &#x3D;&gt; {
+        this._ngZone.run(() &#x3D;&gt; {
+          this._globalEvaluationService.validate();
+        });
+      });
+    } else {
+      this.answer.pia_id &#x3D; this.pia.id;
+      this.answer.reference_to &#x3D; this.question.id;
+      this.answer.data &#x3D; { text: null, gauge: gaugeValue, list: [] };
+      this.answer.create().then(() &#x3D;&gt; {
+        this._ngZone.run(() &#x3D;&gt; {
+          this._globalEvaluationService.validate();
+        });
+      });
+    }
+  }
+
+  /**
+   * Loads WYSIWYG editor.
+   * @memberof QuestionsComponent
+   */
+  questionContentFocusIn() {
+    if (this._globalEvaluationService.answerEditionEnabled) {
+      this.loadEditor();
+    }
+  }
+
+  /**
+   * Disables question field + shows edit button + save data.
+   * @memberof QuestionsComponent
+   */
+  questionContentFocusOut() {
+    let userText &#x3D; this.questionForm.controls[&#x27;text&#x27;].value;
+    if (userText) {
+      userText &#x3D; userText.replace(/^\s+/, &#x27;&#x27;).replace(/\s+$/, &#x27;&#x27;);
+    }
+    if (this.answer.id) {
+      this.answer.data &#x3D; { text: userText, gauge: this.answer.data.gauge, list: this.answer.data.list };
+      this.answer.update().then(() &#x3D;&gt; {
+        this._ngZone.run(() &#x3D;&gt; {
+          this._globalEvaluationService.validate();
+        });
+      });
+    } else if (!this.answer.id &amp;&amp; userText !&#x3D;&#x3D; &#x27;&#x27;) {
+      if (this.questionForm.value.text &amp;&amp; this.questionForm.value.text.length &gt; 0) {
+        this.answer.pia_id &#x3D; this.pia.id;
+        this.answer.reference_to &#x3D; this.question.id;
+        const gaugeValueForCurrentQuestion &#x3D; this.question.answer_type &#x3D;&#x3D;&#x3D; &#x27;gauge&#x27; ? 0 : null;
+        this.answer.data &#x3D; { text: this.questionForm.value.text, gauge: gaugeValueForCurrentQuestion, list: [] };
+        this.answer.create().then(() &#x3D;&gt; {
+          this._ngZone.run(() &#x3D;&gt; {
+            this._globalEvaluationService.validate();
+          });
+        });
+      }
+    }
+  }
+
+  /**
+   * Adds the measure tag in the database.
+   * @param {any} event - Any Event.
+   * @memberof QuestionsComponent
+   */
+  onAdd(event) {
+    if (event &amp;&amp; event.value.length &gt; 0) {
+      let list &#x3D; [];
+      if (this.answer.id) {
+        list &#x3D; this.answer.data.list;
+      }
+      if (list.indexOf(event.value) &lt;&#x3D; 0) {
+        list.push(event.value);
+        this.createOrUpdateList(list);
+      }
+    }
+  }
+
+  /**
+   * Updates the last selected tag.
+   * @param {any} event - Any Event.
+   * @memberof QuestionsComponent
+   */
+  onSelected(event) {
+    // When it returns an object (weird scenario)
+    if (event.hasOwnProperty(&#x27;value&#x27;)) {
+      this.lastSelectedTag &#x3D; event.value;
+    } else {
+      this.lastSelectedTag &#x3D; event;
+    }
+  }
+
+  /**
+   * Removes the measure tag from the database.
+   * @param {any} event - Any Event.
+   * @memberof QuestionsComponent
+   */
+  onRemove(event) {
+    let list &#x3D; [];
+    if (this.answer.id) {
+      list &#x3D; this.answer.data.list;
+    }
+    let valueToRemove;
+    if (event.hasOwnProperty(&#x27;value&#x27;)) {
+      valueToRemove &#x3D; event.value;
+    } else {
+      valueToRemove &#x3D; event;
+    }
+    const index &#x3D; list.indexOf(valueToRemove);
+    if (index &gt;&#x3D; 0) {
+      list.splice(list.indexOf(valueToRemove), 1);
+      this.createOrUpdateList(list);
+    }
+  }
+
+  /**
+   * On tag edited.
+   * @param {any} event - Any Event.
+   * @memberof QuestionsComponent
+   */
+  onTagEdited(event) {
+    let list &#x3D; [];
+    if (this.answer.id) {
+      list &#x3D; this.answer.data.list;
+    }
+    const index &#x3D; list.indexOf(this.lastSelectedTag);
+    let updatedValue;
+    // When it returns an object (weird scenario)
+    if (event.hasOwnProperty(&#x27;value&#x27;)) {
+      updatedValue &#x3D; event.value;
+    } else {
+      updatedValue &#x3D; event;
+    }
+    list[index] &#x3D; updatedValue;
+    this.createOrUpdateList(list);
+  }
+
+  /**
+   * On tag leave.
+   * @param {any} event - Any Event.
+   * @memberof QuestionsComponent
+   */
+  onBlur(event) {
+    if (event &amp;&amp; event.length &gt; 0) {
+      let list &#x3D; [];
+      if (this.answer.id) {
+        list &#x3D; this.answer.data.list;
+      }
+      if (list.indexOf(event) &lt;&#x3D; 0) {
+        list.push(event);
+        this.createOrUpdateList(list);
+      }
+    }
+  }
+
+  /**
+   * Creates or updates the tags list.
+   * @private
+   * @param {string[]} list - List of tags.
+   * @memberof QuestionsComponent
+   */
+  private createOrUpdateList(list: string[]) {
+    if (this.answer.id) {
+      this.answer.data &#x3D; { text: this.answer.data.text, gauge: this.answer.data.gauge, list: list };
+      this.answer.update().then(() &#x3D;&gt; {
+        this._globalEvaluationService.validate();
+      });
+    } else {
+      this.answer.pia_id &#x3D; this.pia.id;
+      this.answer.reference_to &#x3D; this.question.id;
+      this.answer.data &#x3D; { text: null, gauge: null, list: list };
+      this.answer.create().then(() &#x3D;&gt; {
+        this._globalEvaluationService.validate();
+      });
+    }
+  }
+
+  /**
+   * Shows or hides a question.
+   * @param {*} event - Any Event.
+   * @memberof QuestionsComponent
+   */
+  displayQuestion(event: any) {
+    const accordeon &#x3D; this.el.nativeElement.querySelector(&#x27;.pia-accordeon&#x27;);
+    accordeon.classList.toggle(&#x27;pia-icon-accordeon-down&#x27;);
+    const displayer &#x3D; this.el.nativeElement.querySelector(&#x27;.pia-questionBlock-displayer&#x27;);
+    displayer.classList.toggle(&#x27;close&#x27;);
+
+    // Display comments/evaluations for questions
+    const commentsDisplayer &#x3D; document.querySelector(&#x27;.pia-commentsBlock-question-&#x27; + this.question.id);
+    const evaluationDisplayer &#x3D; document.querySelector(&#x27;.pia-evaluationBlock-question-&#x27; + this.question.id);
+    if (event.target.getAttribute(&#x27;data-status&#x27;) &#x3D;&#x3D;&#x3D; &#x27;hide&#x27;) {
+      event.target.removeAttribute(&#x27;data-status&#x27;);
+      commentsDisplayer.classList.remove(&#x27;hide&#x27;);
+      if (evaluationDisplayer &amp;&amp; this.evaluation.status &gt; 0) {
+        evaluationDisplayer.classList.remove(&#x27;hide&#x27;);
+      }
+    } else {
+      event.target.setAttribute(&#x27;data-status&#x27;, &#x27;hide&#x27;);
+      commentsDisplayer.classList.add(&#x27;hide&#x27;);
+      if (evaluationDisplayer) {
+        evaluationDisplayer.classList.add(&#x27;hide&#x27;);
+      }
+    }
+  }
+
+  /**
+   * Loads wysiwyg editor.
+   * @memberof QuestionsComponent
+   */
+  loadEditor() {
+    this._knowledgeBaseService.placeholder &#x3D; this.question.placeholder;
+    this._knowledgeBaseService.search(&#x27;&#x27;, &#x27;&#x27;, this.question.link_knowledge_base);
+    tinymce.init({
+      branding: false,
+      menubar: false,
+      statusbar: false,
+      plugins: &#x27;autoresize lists&#x27;,
+      forced_root_block : false,
+      autoresize_bottom_margin: 30,
+      auto_focus: this.elementId,
+      autoresize_min_height: 40,
+      content_style: &#x27;body {background-color:#eee!important;}&#x27; ,
+      selector: &#x27;#&#x27; + this.elementId,
+      toolbar: &#x27;undo redo bold italic alignleft aligncenter alignright bullist numlist outdent indent&#x27;,
+      skin_url: &#x27;assets/skins/lightgray&#x27;,
+      setup: editor &#x3D;&gt; {
+        this.editor &#x3D; editor;
+        editor.on(&#x27;focusout&#x27;, () &#x3D;&gt; {
+          this.questionForm.controls[&#x27;text&#x27;].patchValue(editor.getContent());
+          this.questionContentFocusOut();
+          this.closeEditor();
+        });
+      },
+    });
+  }
+
+  /**
+   * Close the editor.
+   * @private
+   * @memberof QuestionsComponent
+   */
+  private closeEditor() {
+    this._knowledgeBaseService.placeholder &#x3D; null;
+    tinymce.remove(this.editor);
+    this.editor &#x3D; null;
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;pia-questionBlock&quot; [ngClass]&#x3D;&quot;{&#x27;approved&#x27;: evaluation.status &#x3D;&#x3D;&#x3D; 2 || evaluation.status &#x3D;&#x3D;&#x3D; 3}&quot; [attr.data-id]&#x3D;&quot;question.id&quot;&gt;
+  &lt;div [innerHTML]&#x3D;&quot;question.title | translate&quot; class&#x3D;&quot;pia-questionBlock-title&quot;&gt;&lt;/div&gt;
+  &lt;button class&#x3D;&quot;pia-icons pia-accordeon pia-icon-accordeon-up&quot; type&#x3D;&quot;button&quot; (click)&#x3D;&quot;displayQuestion($event)&quot; title&#x3D;&quot;{{ &#x27;misc.display&#x27; | translate }}&quot;&gt;&lt;/button&gt;
+  &lt;div class&#x3D;&quot;pia-questionBlock-displayer fadeIn&quot;&gt;
+    &lt;form [formGroup]&#x3D;&quot;questionForm&quot;&gt;
+
+      &lt;!-- Gauge --&gt;
+      &lt;div class&#x3D;&quot;pia-gaugeBlock&quot; *ngIf&#x3D;&quot;question.answer_type &#x3D;&#x3D; &#x27;gauge&#x27;&quot;&gt;
+        &lt;input type&#x3D;&quot;range&quot; (focus)&#x3D;&quot;enableGauge()&quot; (change)&#x3D;&quot;checkGaugeChanges($event)&quot; formControlName&#x3D;&quot;gauge&quot; min&#x3D;&quot;0&quot; max&#x3D;&quot;4&quot; step&#x3D;&quot;1&quot;&gt;
+        &lt;div&gt;
+          &lt;div&gt;{{ &#x27;questions.gauges.0&#x27; | translate }}&lt;/div&gt;
+          &lt;div&gt;{{ &#x27;questions.gauges.1&#x27; | translate }}&lt;/div&gt;
+          &lt;div&gt;{{ &#x27;questions.gauges.2&#x27; | translate }}&lt;/div&gt;
+          &lt;div&gt;{{ &#x27;questions.gauges.3&#x27; | translate }}&lt;/div&gt;
+          &lt;div&gt;{{ &#x27;questions.gauges.4&#x27; | translate }}&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class&#x3D;&quot;pia-gaugeBlock-background&quot;&gt;&lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;!-- Tags list --&gt;
+      &lt;div class&#x3D;&quot;pia-questionBlock-content&quot;&gt;
+        &lt;ng-container *ngIf&#x3D;&quot;question.is_measure; else tagInput2&quot;&gt;
+          &lt;tag-input *ngIf&#x3D;&quot;question.answer_type &#x3D;&#x3D; &#x27;list&#x27;&quot;
+                    (onAdd)&#x3D;&quot;onAdd($event)&quot;
+                    (onTagEdited)&#x3D;&quot;onTagEdited($event)&quot;
+                    (onRemove)&#x3D;&quot;onRemove($event)&quot;
+                    formControlName&#x3D;&quot;list&quot;
+                    [clearOnBlur]&#x3D;&quot;true&quot;
+                    [theme]&#x3D;&quot;&#x27;foundation-theme&#x27;&quot;
+                    [placeholder]&#x3D;&quot;question.placeholder | translate&quot;
+                    [editable]&#x3D;&quot;false&quot;
+                    [disable]&#x3D;&quot;!_globalEvaluationService.answerEditionEnabled&quot;
+                    [onlyFromAutocomplete]&#x3D;&quot;true&quot;
+                    (focusin)&#x3D;&quot;questionContentFocusIn()&quot;
+                    [secondaryPlaceholder]&#x3D;&quot;question.placeholder | translate&quot;&gt;
+            &lt;tag-input-dropdown [showDropdownIfEmpty]&#x3D;&quot;true&quot; [autocompleteItems]&#x3D;&quot;userMeasures&quot;&gt;&lt;/tag-input-dropdown&gt;
+          &lt;/tag-input&gt;
+        &lt;/ng-container&gt;
+        &lt;ng-template #tagInput2&gt;
+          &lt;tag-input *ngIf&#x3D;&quot;question.answer_type &#x3D;&#x3D; &#x27;list&#x27;&quot;
+                    (onAdd)&#x3D;&quot;onAdd($event)&quot;
+                    (onSelect)&#x3D;&quot;onSelected($event)&quot;
+                    (onTagEdited)&#x3D;&quot;onTagEdited($event)&quot;
+                    (onRemove)&#x3D;&quot;onRemove($event)&quot;
+                    [addOnBlur]&#x3D;&quot;true&quot;
+                    [separatorKeyCodes]&#x3D;&quot;[27, 13]&quot;
+                    formControlName&#x3D;&quot;list&quot;
+                    [theme]&#x3D;&quot;&#x27;foundation-theme&#x27;&quot;
+                    [placeholder]&#x3D;&quot;question.placeholder | translate&quot;
+                    (focusin)&#x3D;&quot;questionContentFocusIn()&quot;
+                    [editable]&#x3D;&quot;true&quot;
+                    [disable]&#x3D;&quot;!_globalEvaluationService.answerEditionEnabled&quot;
+                    [secondaryPlaceholder]&#x3D;&quot;question.placeholder | translate&quot;&gt;
+          &lt;/tag-input&gt;
+        &lt;/ng-template&gt;
+
+        &lt;!-- Question answer --&gt;
+        &lt;div (click)&#x3D;&quot;questionContentFocusIn()&quot;
+              class&#x3D;&quot;pia-questionBlock-contentText&quot;
+              [innerHTML]&#x3D;&quot;questionForm.controls[&#x27;text&#x27;].value | safeHtml&quot;
+              [ngClass]&#x3D;&quot;{ &#x27;hide&#x27;: editor || !questionForm.controls[&#x27;text&#x27;].value }&quot;&gt;&lt;/div&gt;
+        &lt;textarea *ngIf&#x3D;&quot;question.answer_type &#x3D;&#x3D; &#x27;text&#x27; || question.answer_type &#x3D;&#x3D; &#x27;gauge&#x27;&quot;
+                  [attr.data-id]&#x3D;&quot;question.id&quot;
+                  id&#x3D;&quot;pia-question-content-{{question.id}}&quot;
+                  formControlName&#x3D;&quot;text&quot;
+                  name&#x3D;&quot;pia-question&quot;
+                  minRows&#x3D;&quot;8&quot;
+                  cols&#x3D;&quot;50&quot;
+                  [ngClass]&#x3D;&quot;{ &#x27;hide&#x27;: (!editor &amp;&amp; questionForm.controls[&#x27;text&#x27;].value &amp;&amp; questionForm.controls[&#x27;text&#x27;].value.length &gt; 0) }&quot;
+                  (focusin)&#x3D;&quot;questionContentFocusIn()&quot;
+                  placeholder&#x3D;&quot;{{ question.placeholder | translate }}&quot;&gt;
+        &lt;/textarea&gt;
+      &lt;/div&gt;
+    &lt;/form&gt;
+  &lt;/div&gt;
+
+  &lt;app-comments *ngIf&#x3D;&quot;answer &amp;&amp; answer.id&quot; [pia]&#x3D;&quot;pia&quot; [question]&#x3D;&quot;question&quot; [questionId]&#x3D;&quot;question.id&quot; [answer]&#x3D;&quot;answer&quot;&gt;&lt;/app-comments&gt;
+
+  &lt;app-evaluations (evaluationEvent)&#x3D;&quot;evaluationChange($event)&quot;
+                   *ngIf&#x3D;&quot;item.evaluation_mode &#x3D;&#x3D;&#x3D; &#x27;question&#x27;&quot;
+                   [pia]&#x3D;&quot;pia&quot; [section]&#x3D;&quot;section&quot; [item]&#x3D;&quot;item&quot; [questionId]&#x3D;&quot;question.id&quot;&gt;&lt;/app-evaluations&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="pia-questionBlock" [ngClass]="{\'approved\': evaluation.status === 2 || evaluation.status === 3}" [attr.data-id]="question.id">  <div [innerHTML]="question.title | translate" class="pia-questionBlock-title"></div>  <button class="pia-icons pia-accordeon pia-icon-accordeon-up" type="button" (click)="displayQuestion($event)" title="{{ \'misc.display\' | translate }}"></button>  <div class="pia-questionBlock-displayer fadeIn">    <form [formGroup]="questionForm">      <!-- Gauge -->      <div class="pia-gaugeBlock" *ngIf="question.answer_type == \'gauge\'">        <input type="range" (focus)="enableGauge()" (change)="checkGaugeChanges($event)" formControlName="gauge" min="0" max="4" step="1">        <div>          <div>{{ \'questions.gauges.0\' | translate }}</div>          <div>{{ \'questions.gauges.1\' | translate }}</div>          <div>{{ \'questions.gauges.2\' | translate }}</div>          <div>{{ \'questions.gauges.3\' | translate }}</div>          <div>{{ \'questions.gauges.4\' | translate }}</div>        </div>        <div class="pia-gaugeBlock-background"></div>      </div>      <!-- Tags list -->      <div class="pia-questionBlock-content">        <ng-container *ngIf="question.is_measure; else tagInput2">          <tag-input *ngIf="question.answer_type == \'list\'"                    (onAdd)="onAdd($event)"                    (onTagEdited)="onTagEdited($event)"                    (onRemove)="onRemove($event)"                    formControlName="list"                    [clearOnBlur]="true"                    [theme]="\'foundation-theme\'"                    [placeholder]="question.placeholder | translate"                    [editable]="false"                    [disable]="!_globalEvaluationService.answerEditionEnabled"                    [onlyFromAutocomplete]="true"                    (focusin)="questionContentFocusIn()"                    [secondaryPlaceholder]="question.placeholder | translate">            <tag-input-dropdown [showDropdownIfEmpty]="true" [autocompleteItems]="userMeasures"></tag-input-dropdown>          </tag-input>        </ng-container>        <ng-template #tagInput2>          <tag-input *ngIf="question.answer_type == \'list\'"                    (onAdd)="onAdd($event)"                    (onSelect)="onSelected($event)"                    (onTagEdited)="onTagEdited($event)"                    (onRemove)="onRemove($event)"                    [addOnBlur]="true"                    [separatorKeyCodes]="[27, 13]"                    formControlName="list"                    [theme]="\'foundation-theme\'"                    [placeholder]="question.placeholder | translate"                    (focusin)="questionContentFocusIn()"                    [editable]="true"                    [disable]="!_globalEvaluationService.answerEditionEnabled"                    [secondaryPlaceholder]="question.placeholder | translate">          </tag-input>        </ng-template>        <!-- Question answer -->        <div (click)="questionContentFocusIn()"              class="pia-questionBlock-contentText"              [innerHTML]="questionForm.controls[\'text\'].value | safeHtml"              [ngClass]="{ \'hide\': editor || !questionForm.controls[\'text\'].value }"></div>        <textarea *ngIf="question.answer_type == \'text\' || question.answer_type == \'gauge\'"                  [attr.data-id]="question.id"                  id="pia-question-content-{{question.id}}"                  formControlName="text"                  name="pia-question"                  minRows="8"                  cols="50"                  [ngClass]="{ \'hide\': (!editor && questionForm.controls[\'text\'].value && questionForm.controls[\'text\'].value.length > 0) }"                  (focusin)="questionContentFocusIn()"                  placeholder="{{ question.placeholder | translate }}">        </textarea>      </div>    </form>  </div>  <app-comments *ngIf="answer && answer.id" [pia]="pia" [question]="question" [questionId]="question.id" [answer]="answer"></app-comments>  <app-evaluations (evaluationEvent)="evaluationChange($event)"                   *ngIf="item.evaluation_mode === \'question\'"                   [pia]="pia" [section]="section" [item]="item" [questionId]="question.id"></app-evaluations></div></div>'
+    var COMPONENTS = [{'name': 'AboutComponent', 'selector': 'app-about'},{'name': 'ActionPlanComponent', 'selector': 'app-action-plan'},{'name': 'ActionPlanImplementationComponent', 'selector': 'app-action-plan-implementation'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AttachmentItemComponent', 'selector': 'app-attachment-item'},{'name': 'AttachmentsComponent', 'selector': 'app-attachments'},{'name': 'AuthenticationComponent', 'selector': 'app-authentication'},{'name': 'CardItemComponent', 'selector': 'app-card-item'},{'name': 'CardItemComponent', 'selector': 'app-card-item'},{'name': 'CardsComponent', 'selector': 'app-cards'},{'name': 'CommentItemComponent', 'selector': 'app-comment-item'},{'name': 'CommentsComponent', 'selector': 'app-comments'},{'name': 'DPOPeopleOpinionsComponent', 'selector': 'app-dpo-people-opinions'},{'name': 'EntryComponent', 'selector': 'app-entry'},{'name': 'EntryComponent', 'selector': 'app-entry'},{'name': 'EntryContentComponent', 'selector': 'app-entry-content'},{'name': 'EntryContentComponent', 'selector': 'app-entry-content'},{'name': 'ErrorsComponent', 'selector': 'app-errors'},{'name': 'EvaluationsComponent', 'selector': 'app-evaluations'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HelpComponent', 'selector': 'app-help'},{'name': 'KnowledgeBaseComponent', 'selector': 'app-knowledge-base'},{'name': 'KnowledgeBaseItemComponent', 'selector': 'app-knowledge-base-item'},{'name': 'ListItemComponent', 'selector': '.app-list-item'},{'name': 'ListItemComponent', 'selector': '.app-list-item'},{'name': 'MeasuresComponent', 'selector': 'app-measures'},{'name': 'MeasuresComponent', 'selector': 'app-measures'},{'name': 'ModalsComponent', 'selector': 'app-modals'},{'name': 'OverviewRisksComponent', 'selector': '.app-overview-risks'},{'name': 'PiaValidateHistoryComponent', 'selector': 'app-pia-validate-history'},{'name': 'QuestionsComponent', 'selector': 'app-questions'},{'name': 'QuestionsComponent', 'selector': 'app-questions'},{'name': 'RefusePIAComponent', 'selector': 'app-refuse-pia'},{'name': 'RisksCartographyComponent', 'selector': '.app-risks-cartography'},{'name': 'SectionsComponent', 'selector': 'app-sections'},{'name': 'SectionsComponent', 'selector': 'app-sections'},{'name': 'SettingsComponent', 'selector': 'app-settings'},{'name': 'StructuresComponent', 'selector': 'app-structures'},{'name': 'SummaryComponent', 'selector': 'app-summary'},{'name': 'ValidatePIAComponent', 'selector': 'app-validate-pia'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'QuestionsComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'QuestionsComponent.html';
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <script src="../js/menu-wc.js"></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
