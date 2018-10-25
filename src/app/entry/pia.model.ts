@@ -139,7 +139,7 @@ export class Pia extends ApplicationDb {
       people_names: this.people_names,
       concerned_people_searched_opinion: this.concerned_people_searched_opinion,
       concerned_people_searched_content: this.concerned_people_searched_content,
-      structure_id: this.structure_id,
+      structure_id: (this.structure_id ? this.structure_id : ''),
       structure_name: this.structure_name,
       structure_sector_name: this.structure_sector_name,
       structure_data: this.structure_data
@@ -150,7 +150,11 @@ export class Pia extends ApplicationDb {
         const formData = new FormData();
         for (const d in data) {
           if (data.hasOwnProperty(d)) {
-            formData.append('pia[' + d + ']', data[d]);
+            let value = data[d];
+            if (d === 'structure_data') {
+              value = JSON.stringify(value);
+            }
+            formData.append('pia[' + d + ']', value);
           }
         }
         fetch(this.getServerUrl(), {
@@ -203,7 +207,7 @@ export class Pia extends ApplicationDb {
         entry.people_names = this.people_names;
         entry.concerned_people_searched_opinion = this.concerned_people_searched_opinion;
         entry.concerned_people_searched_content = this.concerned_people_searched_content;
-        entry.structure_id = this.structure_id;
+        entry.structure_id = (this.structure_id ? this.structure_id : '');
         entry.structure_name = this.structure_name;
         entry.structure_sector_name = this.structure_sector_name;
         entry.structure_data = this.structure_data;
@@ -212,7 +216,11 @@ export class Pia extends ApplicationDb {
           const formData = new FormData();
           for (const d in entry) {
             if (entry.hasOwnProperty(d)) {
-              formData.append('pia[' + d + ']', entry[d]);
+              let value = entry[d];
+              if (d === 'structure_data') {
+                value = JSON.stringify(value);
+              }
+              formData.append('pia[' + d + ']', value);
             }
           }
           fetch(this.getServerUrl() + '/' + entry.id, {
@@ -254,7 +262,11 @@ export class Pia extends ApplicationDb {
         const formData = new FormData();
         for (const d in entry) {
           if (entry.hasOwnProperty(d)) {
-            formData.append('pia[' + d + ']', entry[d]);
+            let value = entry[d];
+            if (d === 'structure_data') {
+              value = JSON.stringify(value);
+            }
+            formData.append('pia[' + d + ']', value);
           }
         }
         fetch(this.getServerUrl() + '/' + entry.id, {

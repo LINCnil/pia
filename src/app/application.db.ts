@@ -1,6 +1,7 @@
 export class ApplicationDb {
   protected serverUrl: string;
   public pia_id: number;
+  public structure_id: number;
   public reference_to: string;
   public created_at: Date;
   public updated_at: Date;
@@ -217,10 +218,17 @@ export class ApplicationDb {
    * @memberof ApplicationDb
    */
   protected getServerUrl() {
-    if (this.tableName !== 'pia') {
-      return this.serverUrl + '/pias/' + this.pia_id + '/' + this.tableName + 's' ;
+    let prefix = '/pias';
+    let id = this.pia_id;
+    if (this.tableName === 'structure') {
+      prefix = '/structures';
+      id = this.structure_id;
+    }
+
+    if (this.tableName !== 'pia' && this.tableName !== 'structure') {
+      return this.serverUrl + prefix + '/' + id + '/' + this.tableName + 's' ;
     } else {
-      return this.serverUrl + '/pias';
+      return this.serverUrl + prefix;
     }
   }
 }

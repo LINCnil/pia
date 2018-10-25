@@ -60,7 +60,11 @@ export class Structure extends ApplicationDb {
         const formData = new FormData();
         for (const d in data) {
           if (data.hasOwnProperty(d)) {
-            formData.append('structure[' + d + ']', data[d]);
+            let value = data[d];
+            if (d === 'data') {
+              value = JSON.stringify(value);
+            }
+            formData.append('structure[' + d + ']', value);
           }
         }
         fetch(this.getServerUrl(), {
@@ -105,7 +109,11 @@ export class Structure extends ApplicationDb {
           const formData = new FormData();
           for (const d in entry) {
             if (entry.hasOwnProperty(d)) {
-              formData.append('structure[' + d + ']', entry[d]);
+              let value = entry[d];
+              if (d === 'data') {
+                value = JSON.stringify(value);
+              }
+              formData.append('structure[' + d + ']', value);
             }
           }
           fetch(this.getServerUrl() + '/' + entry.id, {
