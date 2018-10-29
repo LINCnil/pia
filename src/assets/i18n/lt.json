@@ -126,7 +126,7 @@
         "tools": {
           "consult": "Peržiūrėti",
           "edit": "Redaguoti",
-          "export": "Exportuoti",
+          "export": "Eksportuoti",
           "duplicate": "Kopijuoti",
           "action_plan": "Peržiūrėti veiksmų planą",
           "pia": "Atidaryti PDAV",
@@ -201,17 +201,17 @@
       "title": "Filtrai",
       "all": "Visi",
       "definitions": "Apibrėžimai",
-      "organizational_measures": "Organizacinė kontrolės priemonės",
-      "measures_on_data": "Loginio saugumo kontrolės priemonės",
-      "general_measures": "Fizinio saugumo kontrolės priemonės",
+      "organizational_measures": "Organizacinės apsaugos priemonės",
+      "measures_on_data": "Loginės apsaugos priemonės",
+      "general_measures": "Fizinės (techninės) apsaugos priemonės",
       "no_result": "Rezultatų nerasta."
     },
     "category": {
       "definition": "Apibrėžimas",
       "principle": "Principas",
-      "organizational_measure": "Organizacinė kontrolės priemonės",
-      "measure_on_data": "Loginio saugumo kontrolės priemonės",
-      "general_measure": "Fizinio saugumo kontrolės priemonės",
+      "organizational_measure": "Organizacinės apsaugos priemonės",
+      "measure_on_data": "Loginės apsaugos priemonės",
+      "general_measure": "Fizinės (techninės) apsaugos priemonės",
       "example": "Pavyzdys"
     },
     "slugs": {
@@ -227,11 +227,11 @@
       },
       "PIA_LGL_TRAN": {
         "name": "Duomenų teikimas į trečiąsias šalis",
-        "description": "Nurodykite šalis, kuriose bus tvarkomi asmens duomenys. Priklausomai nuo pasirinktos šalies, Jums reikės teisiškai pagrįsti asmens duomenų teikimą į jas ir nurodyti, kokių teisinių ir kontrolės priemonių buvo imtasi, siekiant užtikrinti tinkamą asmens duomenų, kurie yra teikiami į kitas šalis, apsaugą. Tokiomis priemonėmis gali būti: <br>- Europos Sąjungos<br>- šalies pripažinimas, kad ji užtikrina tinkamą asmens duomenų apsaugą <br>- Duomenų teikimas į JAV, ten esančiai bendrovei, kuri yra prisijungusi prie Privacy Shield programos <br>- Dėl kitų šalių <br>žr. <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/LT/TXT/HTML/?uri=CELEX:32016R0679&from=LT\"> [BDAR] 44-49 str. </a>",
+        "description": "Nurodykite šalis, kuriose bus tvarkomi asmens duomenys. Priklausomai nuo pasirinktos šalies, Jums reikės teisiškai pagrįsti asmens duomenų teikimą į jas ir nurodyti, kokių teisinių bei techninių ir organizacinių apsaugos priemonių buvo imtasi, siekiant užtikrinti tinkamą asmens duomenų, kurie yra teikiami į kitas šalis, apsaugą. Tokiomis priemonėmis gali būti: <br>- Europos Sąjungos<br>- šalies pripažinimas, kad ji užtikrina tinkamą asmens duomenų apsaugą <br>- Duomenų teikimas į JAV, ten esančiai bendrovei, kuri yra prisijungusi prie Privacy Shield programos <br>- Dėl kitų šalių <br>žr. <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/LT/TXT/HTML/?uri=CELEX:32016R0679&from=LT\"> [BDAR] 44-49 str. </a>",
         "source": "PIAF Connected Objects p18"
       },
       "PIA_LGL_DESC": {
-        "name": "Processing's description",
+        "name": "Duomenų tvarkymo aprašymas",
         "description": "Trumpai aprašykite planuojamą asmens duomenų tvarkymą, jo pobūdį, apimtį, tikslus, nurodykite kokie asmenys dalyvaus, asmens duomenų tvarkyme. Taip pat nurodykite duomenų valdytojus ir tvarkytojus. Nurodykite duomenų tvarkymą reglamentuojančias tvarkas ir teisės normas, kurių privaloma laikytis, taip pat patvirtintus elgesio kodeksus, kai jie taikomi. (žr. <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/LT/TXT/HTML/?uri=CELEX:32016R0679&from=LT\">[BDAR] 40 str.</a>) ir duomenų apsaugos sertifikavimas (žr. <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[BDAR] 42 str.</a>)",
         "source": "PIA1 p4"
       },
@@ -309,24 +309,24 @@
       "PIA_TEC_ANO": {
         "placeholder": "Nurodykite duomenų nuasmeninimo procedūrą",
         "name": "Nuasmeninimas",
-        "description": "Nurodykite, ar vykdomas duomenų nuasmeninimas, ar yra šdiegta tam skirta tvarka. Detalizuokite nuasmeninimo procedūrą. <br> Atminkite, kad nuasmeninimas ir pseudonimų suteikimas duomenims yra ne tas pats.",
+        "description": "Nurodykite, ar vykdomas duomenų nuasmeninimas, ar yra įdiegta tam skirta tvarka. Detalizuokite nuasmeninimo procedūrą. <br> Atminkite, kad nuasmeninimas ir pseudonimų suteikimas duomenims yra ne tas pats.",
         "source": "PIAF Connected Objects p21"
       },
       "PIA_TEC_CLO": {
-        "placeholder": "Nurodykite, ar planuojamas duomenų atskyrimas ir kaip jis vykdomas.",
+        "placeholder": "Nurodykite, ar planuojamas duomenų atskyrimas ir kaip jis vykdomas",
         "name": "Duomenų atskyrimas",
         "description": "Duomenų atskyrimas padeda sumažinti galimybę sujungti duomenis bei sumažina neteisėtos prieigos prie visų saugomų duomenų riziką.",
         "source": "PIAF Connected Objects p21"
       },
       "PIA_TEC_CTLA": {
-        "placeholder": "Nurodykite, kai nustatote ir suteikiate vartotojams profilius.",
-        "name": "Loginė prieigos kontrolė",
+        "placeholder": "Nurodykite, kaip nustatote ir suteikiate vartotojams profilius",
+        "name": "Prieigos kontrolė",
         "description": "Nurodykite, kaip sukuriami vartotojų profiliai ir suteikiamos jiems atitinkamos teisės bei rolės. Kokie yra įgyvendinti <strong>autentifikavimosi</strong> būdai. Kokios taisyklės yra taikomos slaptažodžių valdymui (minimalus ilgis, privalomas formatas, galiojimo terminas, leistinas nepavykusių prisijungimų skaičius iki paskyros blokavimo ir t.t.)",
         "source": "PIAF Connected Objects p21"
       },
       "PIA_TEC_LOG": {
-        "placeholder": "Nurodykite, ar vedamas veiksmų registravimo žurnalas ir kiek laiko jo įrašai yra saugomi.",
-        "name": "Veiksmų registravimas (logging)",
+        "placeholder": "Nurodykite, ar vedamas veiksmų registravimo žurnalas ir kiek laiko jo įrašai yra saugomi",
+        "name": "Veiksmų registravimas (angl. logging)",
         "description": "Taisyklės, kurios taikomos veiksmų registravimui ir įrašų (log) valdymui.",
         "source": "PIAF Connected Objects p22"
       },
@@ -343,7 +343,7 @@
         "source": "PIAF Connected Objects p22"
       },
       "PIA_TEC_MINI": {
-        "placeholder": "Nurodykite, kokių priemonių imamasi tam, kad sumažinti su tvarkomų asmens duomenų kiekį ir apimtis.",
+        "placeholder": "Nurodykite, kokių priemonių imamasi tam, kad sumažinti su tvarkomų asmens duomenų kiekį ir apimtis",
         "name": "Asmens duomenų tvarkymo apimties mažinimas",
         "description": "Duomenų apimties sumažinimo galima siekti tokiomis priemonėmis: filtravimas ir sunaikinimas, jautrumo sumažinimas konvertavimo pagalba, identifikuojančių duomenų kiekio sumažinimas, duomenų apjungimo vengimas, prieigos prie duomenų ribojimas ir pan.",
         "source": "PIAF Connected Objects p40"
@@ -355,8 +355,8 @@
         "source": "PIAF Connected Objects p22 - WIKI"
       },
       "PIA_SEC_MAL": {
-        "placeholder": "Nurodykite kokių kontrolės priemonių imamasi, siekiant sumažinti riziką naudojantis mažiau saugiai tinklais",
-        "name": "Kenkėjiškų programų prvencija",
+        "placeholder": "Nurodykite kokių apsaugos priemonių imamasi, siekiant sumažinti riziką naudojantis mažiau saugiai tinklais",
+        "name": "Kenkėjiškų programų prevencija",
         "description": "Aprašykite, kokių priemonių imamasi, kad į personalinius kompiuterius ir serverius nepatektų kenkėjiškų programų, besinaudojant mažiau saugiais tinklais.",
         "source": "PIAF Connected Objects p22 - WIKI"
       },
@@ -379,15 +379,15 @@
         "source": "PIAF Connected Objects p23 & PIA3 p27  - WIKI"
       },
       "PIA_SEC_MAIN": {
-        "placeholder": "Nurodykite, kaip priežiūrite techninę įrangą",
+        "placeholder": "Nurodykite, kaip prižiūrite techninę įrangą",
         "name": "Priežiūra",
-        "description": "Nurodyti tvarkas, reglamentuojančias techninės įrangos priežiūrą ir saugą, nurodant ar tokios paslaugos perkamos iš išorinių paslaugų teikėjų. <br> Nurodyti, ar leidžia nuotoliniu būdu teikti prorgaminės įrangos priežiūros paslaugas. Nurodyti, kaip elgiamasi su sugedusia įranga.",
+        "description": "Nurodyti tvarkas, reglamentuojančias techninės įrangos priežiūrą ir saugą, nurodant ar tokios paslaugos perkamos iš išorinių paslaugų teikėjų. <br> Nurodyti, ar leidžia nuotoliniu būdu teikti programinės įrangos priežiūros paslaugas. Nurodyti, kaip elgiamasi su sugedusia įranga.",
         "source": "PIAF Connected Objects p23"
       },
       "PIA_SEC_CTR": {
         "placeholder": "Nurodykite, kokie reikalavimai taikomi duomenų tvarkytojui (prieglobos tiekėjui, administratoriui, specifinių paslaugų teikėjui)",
         "name": "Susitarimai dėl duomenų tvarkymo",
-        "description": "Duomenų tvarkytojas, kuriam perduodami asmens duomenis ar kuris juos tvarko, turi suteikti pakankamas garantijas. Tam būtina sudaryti susitarimą. <strong>Naudokitės tik patikimų duomenų tvarkytojų paslaugomis </strong> (ypač atsižvelkite į technines kompetencijas, patikimumą ir jo turimus resursus). Reikalaukite, kad tiekėjas pateiktų informacinių sistemų saugumo gaires. <br>Atlikite patikrą ir ją dokumentuokite (saugumo auditai, patalpų apžiūra) tam, kad įsitikintumėte, jog duomenų tvarkytojo suteiktos duomenų apsaugos garantijos iš tiesų egzistuoja. Garantijos apima: <br>- duomenų šifravimas, priklausomai nuo jų jautrumo lygio arba, jei tai neaktualu, buvimas procedūrų, kurių pagalba užtikrinama, kad paslaugų teikėjas neturėtų fizinės prieigos prie tvarkomų duomenų,<br>- perduodamų duomenų šifravimas (z.B.: HTTPS protokolo pagalba, VPN, t.t.)<br>- tinklo apsaugos garantijos, įvykių atsekamumo galimybė (protokolai, auditai), autorizavimosi valdymas, tapatybės nustatymas ir t.t.<strong>susitarimo su duomenų tvarkytoju sudarymas </strong>, jame turi būtų apibrėžtas susitarimo tikslas, trukmė, duomenų tvarkymo tikslas ir susitarimo šalių įsipareigojimai. Įsitikinkite, kad sutartyje būtų šios sąlygos:<br>- tvarkytojo konfidencialumo įsipareigojimas jo tvarkomų asmens duomenų atžvilgiu<br>- minimalūs reikalavimai vartotojų tapatybės nustatymui<br>- reikalavimai dėl duomenų grąžinimo, sunaikinimo ar ištrynimo, kai susitarimas pasibaigia<br>- pranešimų apie duomenų apsaugos pažeidimus ir incidentus taisyklės. Tokį pranešimą duomenų valdytojas turi gauti nedelsiant, per kiek įmanomai trumpiausią terminą. <br>- Naudojant debesų kompiuterijos paslaugas:<br>\t1. aiškiai nurodykite asmens duomenų kategorijas ir duomenų tvarkymo veiksmus, kurie yra perkelti į debesis;<br>\t2. savo pačių nustatyti techniniai ir teisiniai saugos reikalavimai;<br>\t3. atlikite rizikos vertinimą tam, kas nustatytumėte tinkamas saugumo priemones;<br>\t4. nustatykite, kokio tipo debesų paslaugos naudojamos tvarkant duomenis;<br>\t5. pasirinkite tokį tiekėją, kuris suteikia pakankamas garantijas;<br>\t6. patikrinkite atitiktį vidinėms saugos gairėms;<br>\t7. stebėkite pasikeitimus sutartinių santykių metu.",
+        "description": "Duomenų tvarkytojas, kuriam perduodami asmens duomenys ar kuris juos tvarko, turi suteikti pakankamas garantijas. Tam būtina sudaryti susitarimą. <strong>Naudokitės tik patikimų duomenų tvarkytojų paslaugomis </strong> (ypač atsižvelkite į technines kompetencijas, patikimumą ir jo turimus resursus). Reikalaukite, kad tiekėjas pateiktų informacinių sistemų saugumo gaires. <br>Atlikite patikrą ir ją dokumentuokite (saugumo auditai, patalpų apžiūra) tam, kad įsitikintumėte, jog duomenų tvarkytojo suteiktos duomenų apsaugos garantijos iš tiesų egzistuoja. Garantijos apima: <br>- duomenų šifravimas, priklausomai nuo jų jautrumo lygio arba, jei tai neaktualu, buvimas procedūrų, kurių pagalba užtikrinama, kad paslaugų teikėjas neturėtų fizinės prieigos prie tvarkomų duomenų,<br>- perduodamų duomenų šifravimas (z.B.: HTTPS protokolo pagalba, VPN, t.t.)<br>- tinklo apsaugos garantijos, įvykių atsekamumo galimybė (protokolai, auditai), autorizavimosi valdymas, tapatybės nustatymas ir t.t.<strong>susitarimo su duomenų tvarkytoju sudarymas </strong>, jame turi būtų apibrėžtas susitarimo tikslas, trukmė, duomenų tvarkymo tikslas ir susitarimo šalių įsipareigojimai. Įsitikinkite, kad sutartyje būtų šios sąlygos:<br>- tvarkytojo konfidencialumo įsipareigojimas jo tvarkomų asmens duomenų atžvilgiu<br>- minimalūs reikalavimai vartotojų tapatybės nustatymui<br>- reikalavimai dėl duomenų grąžinimo, sunaikinimo ar ištrynimo, kai susitarimas pasibaigia<br>- pranešimų apie duomenų apsaugos pažeidimus ir incidentus taisyklės. Tokį pranešimą duomenų valdytojas turi gauti nedelsiant, per kiek įmanomai trumpiausią terminą. <br>- Naudojant debesų kompiuterijos paslaugas:<br>\t1. aiškiai nurodykite asmens duomenų kategorijas ir duomenų tvarkymo veiksmus, kurie yra perkelti į debesis;<br>\t2. savo pačių nustatyti techniniai ir teisiniai saugos reikalavimai;<br>\t3. atlikite rizikos vertinimą tam, kad nustatytumėte tinkamas saugumo priemones;<br>\t4. nustatykite, kokio tipo debesų paslaugos naudojamos tvarkant duomenis;<br>\t5. pasirinkite tokį tiekėją, kuris suteikia pakankamas garantijas;<br>\t6. patikrinkite atitiktį vidinėms saugos gairėms;<br>\t7. stebėkite pasikeitimus sutartinių santykių metu.",
         "source": "žr. https://ico.org.uk/media/for-organisations/documents/1540/cloud_computing_guidance_for_organisations.pdf"
       },
       "PIA_SEC_NET": {
@@ -411,17 +411,17 @@
       "PIA_SEC_MAT": {
         "placeholder": "Nurodykite, kokios saugos priemonės taikomos naudojamai techninei įrangai",
         "name": "Techninės įrangos sauga",
-        "description": "Nurodykite, kokių priemonių imamasi, kad naudojamos sistemos (serveriai, personaliniai kompiuteriai, nešiojami kompiuteriais, komunikacijos įrenginiai ir kita techninė įranga) nebūtų naudojamos asmens duomenų neteisėtam sugadinimui (saugus duomenų saugojimas, duomenų atskyrimas, fizinis tvarkomų duomenų sumažinimas, prieigos prie duomenų ribojimas ir pan.).",
+        "description": "Nurodykite, kokių priemonių imamasi, kad naudojamos sistemos (serveriai, personaliniai kompiuteriai, nešiojami kompiuteriai, komunikacijų įrenginiai ir kita techninė įranga) nebūtų naudojamos asmens duomenų neteisėtam sugadinimui (saugus duomenų saugojimas, duomenų atskyrimas, fizinis tvarkomų duomenų sumažinimas, prieigos prie duomenų ribojimas ir pan.).",
         "source": "PIAF Connected Objects p23 - WIKI"
       },
       "PIA_SEC_SRC": {
         "placeholder": "Nurodykite, kokių rizikos, susijusios su gamtos nelaimėmis, prevencijos priemonių imtasi",
-        "name": "Riziko šaltinių užkardymas",
-        "description": "Priemonės, skirtos nuo žmogaus elgesio priklausančių ir nepriklausančių rizikų išvengimui, siekiant užtikrinti asmens duomenų apsaugos (potvynio zona, pavojinga geografinė teritorija, žemės drebėjimas, asmens duomenų teikimas už ES ribų ir pan.)",
+        "name": "Rizikos šaltinių užkardymas",
+        "description": "Priemonės, skirtos nuo žmogaus elgesio priklausančių ir nepriklausančių rizikų išvengimui, siekiant užtikrinti asmens duomenų apsaugą (potvynio zona, pavojinga geografinė teritorija, žemės drebėjimas, asmens duomenų teikimas už ES ribų ir pan.)",
         "source": "PIAF Connected Objects p23 - WIKI"
       },
       "PIA_SEC_PROT": {
-        "placeholder": "Nurodykite, kokių priemonių imamasi, siekinat išvengti ar riboti nuo žmogaus nepriklausančių rizikų",
+        "placeholder": "Nurodykite, kokių priemonių imamasi, siekiant išvengti ar riboti nuo žmogaus nepriklausančių rizikų",
         "name": "Apsauga nuo ne nuo žmogaus priklausančių rizikų",
         "description": "Priemonės, skirtos sumažinti nuo žmogaus elgesio nepriklausančias rizikas (gaisras, potvynis, nelaimingi atsitikimai ir pan.), kas gali pažeisti duomenų saugumą (kokių prevencinių priemonių imamasi, aplinkos monitorinimas, apsauga ir pan.)",
         "source": "PIAF Connected Objects p23 - WIKI"
@@ -481,7 +481,7 @@
       },
       "PIA_DEF_MES": {
         "name": "Priemonės",
-        "description": "Pasirinkite priemonę iš skyriaus 'Planuojamos arba egzistuojančios priemonės', esant poreikiui, papildykite jas.",
+        "description": "Pasirinkite priemonę iš skyriaus 'Planuojamos arba egzistuojančios apsaugos priemonės', esant poreikiui, papildykite jas.",
         "source": "None"
       },
       "PIA_DEF_RT": {
@@ -501,7 +501,7 @@
       },
       "PIA_DEF_SUPT": {
         "name": "Pagalbiniai ištekliai",
-        "description": "Ištekliai, nuo kurių priklauso duomenų tvarkymas. Jais gali būti techninė įranga, prorgaminė įranga, tinklas, žmonės, popieriniai dokumentai, dokumentų perdavimo sistemos.",
+        "description": "Ištekliai, nuo kurių priklauso duomenų tvarkymas. Jais gali būti techninė įranga, programinė įranga, tinklas, žmonės, popieriniai dokumentai, dokumentų perdavimo sistemos.",
         "source": "PIA1 p10"
       },
       "PIA_DEF_MINC": {
@@ -561,12 +561,12 @@
       },
       "PIA_DEF_PSEU": {
         "name": "Pseudonimų duomenims suteikimas",
-        "description": "Asmens duomenų tvarkymas taip, kad asmens duomenys nebegalėtų būti priskirti konkrečiam duomenų subjektui nesinaudojant papildoma informacija, jeigu tokia papildoma informacija yra saugoma atskirai ir jos atžvilgiu taikomos techninės bei organizacinės priemonės siekiant užtikrinti asmens duomenų nepriskyrimą fiziniam asmeniui, kurio tapatybė yra nustatyta arba kurio tapatybę galima nustatyti. .<br>Pseudonimų suteikimas sumažina riziką, kad duomenys bus susieti su konkrečių duomenų subjektu, tai naudingas metodas, tačiau tai nėra tas pats, kas duomenų nuasmeninimas.",
+        "description": "Asmens duomenų tvarkymas taip, kad asmens duomenys nebegalėtų būti priskirti konkrečiam duomenų subjektui nesinaudojant papildoma informacija, jeigu tokia papildoma informacija yra saugoma atskirai ir jos atžvilgiu taikomos techninės bei organizacinės priemonės siekiant užtikrinti asmens duomenų nepriskyrimą fiziniam asmeniui, kurio tapatybė yra nustatyta arba kurio tapatybę galima nustatyti. .<br>Pseudonimų suteikimas sumažina riziką, kad duomenys bus susieti su konkrečiu duomenų subjektu, tai naudingas metodas, tačiau tai nėra tas pats, kas duomenų nuasmeninimas.",
         "source" :"BDAR 4 str. 5 d. ir 29 Darbo Grupės nuomonė žr. http://ec.europa.eu/justice/article-29/documentation/opinion-recommendation/files/2014/wp216_lt.pdf"
       },
       "PIA_DEF_CLO": {
         "name": "Duomenų skaidymas",
-        "description": "Duomenų loginis ir fizinis skaidymas (partitioning) į skirtingas laikmenas mažina riziką, kad pažeidimo atveju bus pažeisti ar pavogti visi duomenys.",
+        "description": "Duomenų loginis ir fizinis skaidymas (angl. partitioning) į skirtingas laikmenas mažina riziką, kad pažeidimo atveju bus pažeisti ar pavogti visi duomenys.",
         "source": "PIA3 p19 - WIKI"
       },
       "PIA_DEF_CTLA": {
@@ -600,8 +600,8 @@
         "source" : "PIAF Connected objects p42 - WIKI"
       },
       "PIA_DEF_MIN2": {
-        "name": "Duomenų jautrumo sumažinimas tranformavimo pagalba",
-        "description": "Tam tikrais atvejais gavus jautrius duomenis, jie gali būti transformuojami į mažiau jautrius duomenis arba jiems gali būti suteikti pseudonimai. Pavyzdžiui: <br>-jei programoje tvarkomi IP adresai, kad statistiniais tikslais būtų galiam nustatyti vartotojo geografinę vietą, tai, nustačius miestą ar regioną, IP adresą būtų galima ištrinti <br>-jei programoje renkami ir tvarkomi vaizdo duomenys, gaunami iš video stebėjimo sistemų, tai žmonių atvaizdus galima būtų retušuoti<>br-jei naudojami išmanieji skaitikliai, tai galima apskaičiuoti bendrą energijos suvartojimą tam tikru laikotarpiu ir energijos suvartojimo neregistruoti realiuoju laiku.",
+        "name": "Duomenų jautrumo sumažinimas jų transformavimo pagalba",
+        "description": "Tam tikrais atvejais gavus jautrius duomenis, jie gali būti transformuojami į mažiau jautrius duomenis arba jiems gali būti suteikti pseudonimai. Pavyzdžiui: <br>-jei programoje tvarkomi IP adresai, kad statistiniais tikslais būtų galima nustatyti vartotojo geografinę vietą, tai, nustačius miestą ar regioną, IP adresą būtų galima ištrinti <br>-jei programoje renkami ir tvarkomi vaizdo duomenys, gaunami iš video stebėjimo sistemų, tai žmonių atvaizdus galima būtų retušuoti-jei naudojami išmanieji skaitikliai, tai galima apskaičiuoti bendrą energijos suvartojimą tam tikru laikotarpiu ir energijos suvartojimo neregistruoti realiuoju laiku.",
         "source" : "PIAF Connected objects p42 - WIKI"
       },
       "PIA_DEF_SRC": {
@@ -770,8 +770,8 @@
   },
   "questions": {
     "edit": "Redaguoti klausimą",
-    "remove": "Delete question (TRANSLATION REQUIRED)",
-    "placeholder_title": "Question title (mandatory) (TRANSLATION REQUIRED)",
+    "remove": "Ištrinti klausimą",
+    "placeholder_title": "Klausimo pavadinimas",
     "gauges": {
       "0": "(Nenustatytas)",
       "1": "Nedidelis",
@@ -815,7 +815,7 @@
         "content": "Turinys rengiamas"
       },
       "data2": {
-        "title": "Žinomos problemos (LT - TO BE TRANSLATED)",
+        "title": "Žinomos problemos (LT - Bus išversta į lietuvių k. vėliau arba būtume dėkingi, jei patys prisidėtumėte prie vertimo)",
         "qa1": {
           "title": "I get display issues such as icons being stuck in one state or missing elements from the interface",
           "content": "When encountering those display issues, close the application and reload it. It usually fixes the issue. You won’t lose the information you have entered ; it is  automatically saved as you type."
@@ -852,7 +852,7 @@
     "title": "Apie PDAV programą",
     "version_number": "Versijos Nr.",
     "description": "Ši programa yra sukurta <a target=\"_blank\" href=\"https://www.cnil.fr\">Commission Nationale Informatique et Liberté (CNIL)</a>, Prancūzijos duomenų apsaugos inspekcijos, siekiant padėti jos vartotojams užtikrinti asmens duomenų tvarkymo atitikti BDAR reikalavimams. Jei norite prisidėti prie šio projekto tolimesnio vystymo, jūs galite atsisiūti programos išeities kodą iš Github, jį modifikuoti ir dalintis su bendruomene.",
-    "translators": "PIA programa yra išvesrta į penkioliką kalbų. Programos prancūziška ir angliška versijas sukūrė CNIL. Programos versijos kitomis kalbomis parengė šie asmenys:",
+    "translators": "PIA programa yra išversta į daugiau nei penkioliką kalbų. Programos prancūziška ir angliška versijas sukūrė CNIL. Programos versijos kitomis kalbomis parengė šie asmenys:",
     "translators_name": "<ul><li>Czech : Jiří Grohmann, Manuel d’Orso;</li><li>Dutch : Ruud van Driel, Manuel d’Orso;</li><li>English : <a target=\"_blank\" href=\"https://www.cnil.fr\">CNIL</a>;</li><li>Finnish : <a target=\"_blank\" href=\"https://tietosuoja.fi/etusivu\">Tietosuojavaltuutetun toimisto</a>;</li><li>French : <a target=\"_blank\" href=\"https://www.cnil.fr\">CNIL</a>;</li><li>German : Kosmas Schütz, Corina Scheiter (<a target=\"_blank\" href=\"https://www.datenschutz-bayern.de/\">BayLfD</a>);</li><li>Greek : Dimitris Tzellis;</li><li>Hungarian : <a target=\"_blank\" href=\"https://naih.hu/\">Nemzeti Adatvédelmi és Információszabadság Hatóság (NAIH)</a>;</li><li>Italian : Manuel d’Orso, Gianluca Markos, Antonio Caselli (<a target=\"_blank\" href=\"http://gpdp.it\">Garante per la Protezione dei Dai Personali (GPDP)</a>);<li>Lithuanian : Paulius Galubickas (<a target=\"_blank\" href=\"http://galubickas.lt\">Law firm Galubickas </a>);</li></li><li>Norwegian : <a target=\"_blank\" href=\"https://www.datatilsynet.no\">Datatilsynet</a>;</li><li>Polish : Joanna Karczewska, Michal Mazur (<a target=\"_blank\" href=\"https://giodo.gov.pl\">Generalny Inspektor Ochrony Danych Osobowych (GIODO)</a>);</li><li>Portuguese : Barbara Gois;</li><li>Romanian : webmyday;</li><li>Spanish : ylachgar.</li></ul>",
     "contribute": "Jei norite prisidėti prie programos vertimo į kitas kalbas ar norite pagerinti esamą vertimą, rekomenduojame <a href=\"https://github.com/LINCnil/pia/tree/master/src/assets/i18n\" target=\"_blank\"> perskaityti instrukcijas</a>.",
     "licences": "Bibliotekų licencijos:"
@@ -863,7 +863,7 @@
     "update": "Atnaujinkite URL nuorodą"
   },
   "validation_page": {
-    "responsible": "Asmuo, atsakingas už PDAV vertinimą:",
+    "responsible": "Asmuo, atsakingas už PDAV įvertinimą:",
     "after_reading": "Perskaičius PDAV dėl asmens duomenų tvarkymo: ",
     "confirmation1": "Patvirtintu, kad PDAV aprašytas asmens duomenų tvarkymas atitinka tikrovę.",
     "confirmation2": "Patvirtinu, kad man žinomos likusios rizikos, susijusios su planuojamomis arba jau įgyvendintomis priemonėmis.",
@@ -914,10 +914,10 @@
       "content": "Jūs patvirtinote PDAV."
     },
     "completed_edition": {
-      "content": "PDAV pilnai parengtas, jį reikia peržiūrėti."
+      "content": "PDAV pabaigtas, jį reikia peržiūrėti."
     },
     "completed_evaluation": {
-      "content": "PDAV pilnai peržiūrėtas, jį reikia patvirtinti."
+      "content": "PDAV peržiūrėtas, jį reikia patvirtinti."
     },
     "update_server_url_ok": {
       "content": "Serverio adresas yra atnaujintas."
@@ -948,9 +948,9 @@
       "keep": "Palikti <br>šią priemonę"
     },
     "remove_question": {
-      "content": "Are you sure you want to deleted the question? (TRANSLATION REQUIRED)",
-      "remove": "Delete (TRANSLATION REQUIRED)",
-      "keep": "Cancel (TRANSLATION REQUIRED)"
+      "content": "Ar tikrai norite ištrinti klausimą?",
+      "remove": "Ištrinti",
+      "keep": "Atsisakyti"
     },
     "ask_for_evaluation": {
       "content": "Ši dalis paruošta peržiūrai."
@@ -959,7 +959,7 @@
       "content": "Ši dalis paruošta PDAV tvirtinimui."
     },
     "validate_evaluation_to_correct": {
-      "content": "Deja,<br>Tam tikri laukeliai turi būti pataisyti.<br>Grįžti į redagavimo būsenę tam, kad atlikti pakeitimus."
+      "content": "Deja,<br>Tam tikri laukeliai turi būti pataisyti.<br>Grįžti į redagavimo būseną tam, kad atlikti pakeitimus."
     },
     "declare_measures": {
       "content": "Prieš vertinant rizikas, reikia nurodyti esamas arba planuojamas priemones.",
@@ -970,8 +970,8 @@
       "remove": "Ištrinti šį PDAV"
     },
     "remove_structure": {
-      "content": "<span class='strong'>Warning,</span><br>Are you sure you want<br>to delete the template?",
-      "remove": "Delete template"
+      "content": "<span class='strong'>Įspėjimas,</span><br>ar tikrai norite <br>ištrinti šabloną?",
+      "remove": "Ištrinti šabloną"
     },
     "remove_attachment": {
       "content": "<span class='strong'>Įspėjimas,</span><br>Ar tikrai norite <br>ištrinti šį priedelį?",
@@ -984,8 +984,8 @@
       "review_section": "Dalies peržiūra"
     },
     "dpo_missing_evaluations": {
-      "content": "Norint pereiti prie DPA dalies, reikia baigti analizės peržiūrą.",
-      "review_section": "Dalies peržiūra",
+      "content": "Norint pereiti prie DPA dalies, reikia pabaigti analizės peržiūrą.",
+      "review_section": "Peržiūra",
       "remove": "Ištrinti",
       "comment": "Komentuoti"
     },
@@ -999,18 +999,18 @@
       "content": "Ši dalis buvo grąžinta peržiūrai.<br> Tam tikri laukai turi būti peržiūrėti prieš atliekant patvirtinimą."
     },
     "import_wrong_pia_file": {
-      "content": "The imported file doesn't correspond to a PIA report file (TRANSLATION REQUIRED)"
+      "content": "Importuotas failas skiriasi nuo PDAV ataskaitos failo"
     },
     "import_wrong_structure_file": {
-      "content": "The imported file doesn't correspond to a PIA template file (TRANSLATION REQUIRED)"
+      "content": "Importuotas failas skiriasi nuo PDAV ataskaitos failo"
     }
   },
   "summary": {
     "previous_page": "Atgal į ankstesnį puslapį",
     "print": "Spausdinti",
     "copy_to_clipboard": "Kopijuoti į kompiuterio laikiną atmintį",
-    "download_images": "Atsisiųti paveikslėlius",
-    "download_csv": "Atsisiusti CSV formatu",
+    "download_images": "Atsisiųsti ataskaitos grafikus",
+    "download_csv": "Atsisiųsti CSV formatu",
     "csv_action_plan_comment": "Komentaras veiksmų planui",
     "csv_evaluation_comment": "Komentaro įvertinimas",
     "csv_section": "Dalis",
@@ -1096,8 +1096,8 @@
     "maximal": "Maksimalus",
     "seriousness_axe": "Rizikos dydis",
     "likelihood_axe": "Rizikos pasireiškimo tikimybė",
-    "legend1": "Planuojamos arba esamos priemonės",
-    "legend2": "Įgyvendinta pakoreguotų priemonių pagalba",
+    "legend1": "Planuojamos arba įgyvendintos apsaugos priemonės",
+    "legend2": "Įgyvendinta pakeistų apsaugos priemonių pagalba",
     "legend3": "(NP)eteisėta prieiga prie duomenų",
     "legend4": "(NDP)epageidaujamas duomenų pakeitimas",
     "legend5": "(D)uomenų pradingimas",
@@ -1107,14 +1107,14 @@
   "action_plan": {
     "title": "Apžvalga",
     "principles": "Pagrindiniai principai",
-    "measures": "Planuojamos arba esamos priemonės",
+    "measures": "Planuojamos arba įgyvendintos apsaugos priemonės",
     "risks": "Rizikos",
     "risk1": "Neteisėta prieiga prie duomenų",
     "risk2": "Nepageidaujamas duomenų pakeitimas",
     "risk3": "Duomenų pradingimas",
-    "improvable_measures": "Priemonės, skirtos pataisymams",
-    "acceptable_measures": "Tinkamos priemonės",
-    "no_action_plan": "Veiksmų planas neparengtas.",
+    "improvable_measures": "Taisytinos apsaugos priemonės",
+    "acceptable_measures": "Tinkamos apsaugos priemonės",
+    "no_action_plan": "Veiksmų planas neparengtas",
     "edit": "Redaguoti",
     "placeholder_person_in_charge": "Už įgyvendinimą atsakingas asmuo"
   },
@@ -1123,14 +1123,14 @@
     "content": ", atsižvelgiant kad :",
     "dpo_opinion": "DPA nuomonė",
     "placeholder_dpo_name": "DPA vardas, pavardė",
-    "placeholder_dpo_opinion": "Nurodykite savo sprendimo priežastis.",
-    "dpo_lock": "Norint pateikti DPA nuomonę, reikia baigti užpildyti kitas dalis.",
-    "people_opinion": "Susijusių žmonių (duomenų subejktų) nuomonė",
+    "placeholder_dpo_opinion": "Nurodykite tokio sprendimo priežastis.",
+    "dpo_lock": "Norint pateikti DPA nuomonę, reikia pabaigti užpildyti kitas PDAV dalis.",
+    "people_opinion": "Susijusių žmonių (duomenų subjektų) nuomonė",
     "placeholder_concerned_people_name": "Duomenų subjektų vardai, pavardės, kontaktiniai duomenys",
-    "placeholder_people_opinion": "Nurodykite, kaip buvo atsiklausiama asmenų nuomonių ir kaip jos buvo analizuojamos. Jei nuomonių nebuvo prašomo, nurodykite to priežastis.",
+    "placeholder_people_opinion": "Nurodykite, kaip buvo atsiklausta žmonių nuomonės ir kaip ji buvo analizuojama. Jei nebuvo prašoma nuomonės, nurodykite to priežastis.",
     "placeholder_search_content": "Nurodykite priežastis, kurios pateisintų tai, kad nebuvo siekiama gauti duomenų subjektų nuomonės.",
-    "treatment_ok": "Tvarkymas gali būti vykdomas.",
-    "treatment_nok": "Tvarkymas neturėtų būti vykdomas.",
+    "treatment_ok": "Asmens duomenų tvarkymas gali būti vykdomas.",
+    "treatment_nok": "Asmens duomenų tvarkymas neturėtų būti vykdomas.",
     "treatment_lock": "Norint pateikti susijusių duomenų subjektų nuomones, reikia užpildyti kitas dalis."
   },
   "sections": {
@@ -1143,15 +1143,15 @@
           "short_help": "Šioje dalyje pateikiamas analizės tikslas.",
           "questions": {
             "1": {
-              "title": "Koks yra planuojamas asmens duomenų tvarkymas?",
-              "placeholder": "NUordykite trumpą duomenų tvarkymo aprašymą: pavadinimas, tikslas, sritis, naudos gavėjai, t.t."
+              "title": "Kokie yra asmens duomenų tvarkymo tikslai?",
+              "placeholder": "Nurodykite trumpą duomenų tvarkymo aprašymą: pavadinimas, tikslas, sritis, naudos gavėjai, t.t."
             },
             "2": {
-              "title": "Kas atsakingas už asmens duomenų tvarkymą?",
+              "title": "Kas tvarko asmens duomenis?",
               "placeholder": "Nurodykite atsakingus asmenis ir jų atsakomybių sritis: duomenų valdytojas, bendri duomenų valdytojai, galimi duomenų tvarkytojai, jų pagalbiniai duomenų tvarkytojai, tretieji asmenys kaip galimi duomenų gavėjai."
             },
             "3": {
-              "title": "Kokie standartai ar taisyklės taikomi duomenų tvarkymui?",
+              "title": "Kokie vidiniai dokumentai, taisyklės ar teisės aktai reglamentuoja asmens duomenų tvarkymą?",
               "placeholder": "Nurodykite duomenų tvarkymo procesams taikomus standartus ar taisykles, kaip pvz. taikomus elgesio kodeksus, įgytus duomenų tvarkymo sertifikatus."
             }
           }
@@ -1161,15 +1161,15 @@
           "short_help": "Šioje dalyje galima detalizuoti duomenų tvarkymo apimtį.",
           "questions": {
             "1": {
-              "title": "Kokie asmens duomenys (kategorijos) tvarkomi?",
+              "title": "Kokie konkrečiai asmens duomenys (kategorijos) tvarkomi?",
               "placeholder": "Nurodykite kokie asmens duomenys (pvz., pavardė, el. pašto adresas, asmens kodas, sveikatos duomenys, genetiniai duomenys, t.t.) renkami ir tvarkomi. Nurodykite jų saugojimo terminą, gavėjus ir asmenis, turinčius teisę juos tvarkyti."
             },
             "2": {
-              "title": "Kokie yra duomenų tvarkymo etapai?",
+              "title": "Kokie yra duomenų tvarkymo etapai (stadijos)?",
               "placeholder": "Nurodykite duomenų tvarkymo etapus (nuo duomenų rinkimo iki duomenų sunaikinimo, aprašykite kiekvieno etapo specifiką, duomenų saugojimą ir pan.), galite naudoti diagramas (pridėkite jas kaip priedelius), detaliai aprašykite duomenų tvarkymo metu atliekamus veiksmus."
             },
             "3": {
-              "title": "Kokios pagalbinės priemonės duomenų tvarkymui yra naudojamos?",
+              "title": "Kokios techninės ar kitos pagalbinės priemonės naudojamos duomenų tvarkymui?",
               "placeholder": "Nurodykite pagalbines priemones (pvz., operacinė sistema, verslo valdymo sistemos, programinė įranga (kompiuterio programos), duomenų bazės, serveriai, tinklo įranga, ryšio tiekėjai ir pan.)"
             }
           }
@@ -1185,19 +1185,19 @@
           "short_help": "Šioje dalyje pagrindžiamas duomenų tvarkymo teisėtumas.",
           "questions": {
             "1": {
-              "title": "Ar asmens duomenys tvarkymi nustatytais, aiškiai apibrėžtais bei teisėtais tikslais (tikslo apribojimo principas)?",
-              "short_title": "Tiklsai",
-              "placeholder": "Nurodykite, kodėl manote, kad duomenys tvarkymi nustatytais, aiškiai apibrėžtais bei teisėtais tikslais."
+              "title": "Ar asmens duomenys tvarkomi nustatytais, aiškiai apibrėžtais bei teisėtais tikslais (tikslo apribojimo principas)?",
+              "short_title": "Tikslai",
+              "placeholder": "Nurodykite, kodėl manote, kad duomenys tvarkomi nustatytais, aiškiai apibrėžtais bei teisėtais tikslais."
             },
             "2": {
-              "title": "Kokiais teisiniai pagrindais vadovaujantis galima teigti, kad duomenų tvarkymas teisėtas?",
+              "title": "Kokiais teisiniais pagrindais vadovaujantis galima teigti, kad duomenų tvarkymas teisėtas?",
               "short_title": "Teisinis pagrindas",
               "placeholder": "Nurodykite, kokie yra duomenų tvarkymo teisiniai pagrindai (pvz., sutikimas, sutarties vykdymas, teisinės prievolės vykdymas, gyvybinių interesų apsauga ir pan.)"
             },
             "3": {
               "title": "Ar renkami asmens duomenys adekvatūs, tinkami ir tik tokie, kurių reikia siekiant tikslų (duomenų kiekio mažinimo principas)?",
               "short_title": "Duomenų adekvatumas",
-              "placeholder": "Nurodykite, kodėl konkrečiam duomenų tvarkymo tikslui reikalingas konkretas asmens duomuo."
+              "placeholder": "Nurodykite, kodėl konkrečiam duomenų tvarkymo tikslui reikalingas konkretus asmens duomuo."
             },
             "4": {
               "title": "Ar tvarkomi asmens duomenys tikslūs ir prireikus atnaujinami (tikslumo principas)?",
@@ -1221,7 +1221,7 @@
               "placeholder": "Nurodykite, kokia informacija pateikia duomenų subjektams ir kokiu būdu."
             },
             "2": {
-              "title": "Kaip gaunamas duomenų subjejtų sutikimas (jei toks yra naudojamas)?",
+              "title": "Kaip gaunamas duomenų subjektų sutikimas (jei toks yra naudojamas)?",
               "short_title": "Sutikimo gavimas",
               "placeholder": "Nurodykite, kaip patikrinama, ar yra gautas duomenų subjekto galiojantis sutikimas."
             },
@@ -1238,7 +1238,7 @@
             "5": {
               "title": "Kaip duomenų subjektai gali apriboti duomenų tvarkymą ir prieštarauti jų tvarkymui?",
               "short_title": "Teisė apriboti ir prieštarauti",
-              "placeholder": "Nurodykite, kaip užtikrinama duomenų subjektų teisės apriboti duomenų tvarkyma ir prieštarauti dėl jų tvarkymo."
+              "placeholder": "Nurodykite, kaip užtikrinama duomenų subjektų teisės apriboti duomenų tvarkymą ir prieštarauti dėl jų tvarkymo."
             },
             "6": {
               "title": "Ar duomenų tvarkytojų įsipareigojimai yra aiškiai nustatyti ir reglamentuojami sutartimi?",
@@ -1248,7 +1248,7 @@
             "7": {
               "title": "Ar asmens duomenys tinkamai apsaugomi, tuo atveju jei jie teikiami už Europos Sąjungos ribų?",
               "short_title": "Duomenų teikimas",
-              "placeholder": "Kiekvienos už Europos Sąjungos ribų esančios šalies, kurioje yra saugomi ir tvarkomi asmens duomenys, atveju nurodykite, kokią tai šalis, ar ji pripažinta kaip užtikrinanti tinkamo lygio apsaugą, aprašykite duomenų teikimo sąlygas."
+              "placeholder": "Kiekvienos už Europos Sąjungos ribų esančios šalies, kurioje yra saugomi ir tvarkomi asmens duomenys, atveju nurodykite, kokia tai šalis, ar ji pripažinta kaip užtikrinanti tinkamo lygio apsaugą, aprašykite duomenų teikimo sąlygas."
             }
           }
         }
@@ -1256,69 +1256,69 @@
     },
     "3": {
       "title": "Rizikos",
-      "short_help": "Šioje dalyje įvertinamos galimos rizikos duomenų apsaugai, atsižvelgiant į planuojamas ir esamas kontrolės priemones.",
+      "short_help": "Šioje dalyje įvertinamos galimos rizikos duomenų apsaugai, atsižvelgiant į planuojamas ir esamas apsaugos priemones, skirtas apsaugoti duomenis.",
       "items": {
         "1": {
-          "title": "Planuojamos arba esamos priemonės",
-          "short_help": "Šioje dalyje galima nurodyti esamas ar planuojamas duomenų apsaugos kontrolės priemones."
+          "title": "Planuojamos arba esamos duomenų apsaugos priemonės",
+          "short_help": "Šioje dalyje galima nurodyti esamas ar planuojamas priemones, skirtas duomenų apsaugai."
         },
         "2": {
           "title": "Neteisėta prieiga prie duomenų",
           "short_help": "Pateikite neteisėtos prieigos prie duomenų priežasčių ir pasekmių analizę ir įvertinkite to tikimybę bei galimą neigiamą poveikį.",
           "questions": {
             "1": {
-              "title": "Kokie būtų pagrindiniai <span class='green-highlight'> neigiami poveikiai duomenų subjektams</span> jei ši rizika pasireikštu?",
-              "placeholder": "Nurodykite galimus poveikius"
+              "title": "Kokie būtų <span class='green-highlight'>neigiami poveikiai duomenų subjektams,</span> jei tokia rizika pasireikštų?",
+              "placeholder": "Nurodykite neigiamą poveikį"
             },
             "2": {
-              "title": "Kokios būtų pagrindinės <span class='green-highlight'>grėsmės</span> galinčios sukelti šią riziką?",
+              "title": "Kas gali sukelti tokią riziką, nurodykite galimas<span class='green-highlight'>grėsmes</span>",
               "placeholder": "Nurodykite grėsmes"
             },
             "3": {
-              "title": "Kokie yra šios rizikos <span class='green-highlight'>šaltiniai</span>?",
+              "title": "Kokie yra tokios rizikos <span class='green-highlight'>šaltiniai</span>?",
               "placeholder": "Nurodykite rizikos šaltinius"
             },
             "4": {
-              "title": "Kurios iš nurodytų <span class='green-highlight'>kontrolės primonių</span> padeda užkirsti kelią šios rizikos įvykimui?",
-              "placeholder": "Pasirinkite rizikos kontrolės priemones."
+              "title": "Kurios iš nurodytų <span class='green-highlight'>apsaugos priemonių</span> padėtų užkirsti kelią tokios rizikos pasireiškimui?",
+              "placeholder": "Pasirinkite priemones"
             },
             "5": {
-              "title": "Kaip vertinate <span class='green-highlight'>rizikos laipsnį</span>, ypač atisžvelgiant į galimą poveikį ir planuojamas kontrolės priemones?",
-              "placeholder": "Pagrįskite numanomą rizikos dydį."
+              "title": "Kaip įvertintumėte <span class='green-highlight'>rizikos dydį</span>, ypač atsižvelgiant į galimą neigiamą poveikį ir planuojamas taikyti apsaugos priemones?",
+              "placeholder": "Pagrįskite numanomą rizikos dydį"
             },
             "6": {
-              "title": "Kaip vertinate <span class='green-highlight'>šios rizikos tikimybę </span>, ypač atsižvelgiant į grėsmes, rizikos šaltinius ir planuojamas kontrolės priemones?",
-              "placeholder": "Pagrįskite numanomą tikimybę."
+              "title": "Kaip įvertintumėte <span class='green-highlight'>tokios rizikos tikimybę </span>, ypač atsižvelgiant į grėsmes, rizikos šaltinius ir planuojamas apsaugos priemones?",
+              "placeholder": "Pagrįskite numanomą tikimybę"
             }
           }
         },
         "3": {
           "title": "Nepageidaujamas duomenų pakeitimas",
-          "short_help": "Pateikite nepageidaujamo duomenų pakeitimo priežasčių ir pasekmių analizę ir įvertinkite to tikimybę bei galimą neigiamą poveikį.",
+          "short_help": "Pateikite nepageidaujamo duomenų pakeitimo priežasčių ir pasekmių analizę bei įvertinkite to tikimybę bei galimą neigiamą poveikį.",
           "questions": {
             "1": {
-              "title": "Kokie būtų pagrindiniai <span class='green-highlight'>neigiami poveikiai duomenų subjektams</span> jei ši rizika pasireikštu?",
-              "placeholder": "Nurodykite galimus poveikius"
+              "title": "Kokie būtų <span class='green-highlight'>neigiami poveikiai duomenų subjektams,</span> jei tokia rizika pasireikštų? Kokie būtų <span class='green-highlight'>neigiami poveikiai duomenų subjektams,</span> jei tokia rizika pasireikštų?",
+              "placeholder": "Nurodykite neigiamą poveikį"
             },
             "2": {
-              "title": "Kokios būtų pagrindinės <span class='green-highlight'>grėsmės</span> galinčios sukelti šią riziką?",
+              "title": "Kas gali sukelti tokią riziką, nurodykite galimas<span class='green-highlight'>grėsmes</span>",
               "placeholder": "Nurodykite grėsmes"
             },
             "3": {
-              "title": "Kokie yra šios rizikos <span class='green-highlight'>šaltiniai</span>?",
+              "title": "Kokie yra tokios rizikos <span class='green-highlight'>šaltiniai</span>?",
               "placeholder": "Nurodykite rizikos šaltinius"
             },
             "4": {
-              "title": "Kurios iš nurodytų <span class='green-highlight'>kontrolės primonių</span> padeda užkirsti kelią šios rizikos įvykimui?",
-              "placeholder": "Pasirinkite rizikos kontrolės priemones."
+              "title": "Kurios iš nurodytų <span class='green-highlight'>apsaugos priemonių</span> padėtų užkirsti kelią tokios rizikos pasireiškimui?",
+              "placeholder": "Pasirinkite priemones"
             },
             "5": {
-              "title": "Kaip vertinate <span class='green-highlight'>rizikos laipsnį</span>, ypač atisžvelgiant į galimą poveikį ir planuojamas kontrolės priemones?",
-              "placeholder": "Pagrįskite numanomą rizikos dydį."
+              "title": "Kaip įvertintumėte <span class='green-highlight'>rizikos dydį</span>, ypač atsižvelgiant į galimą neigiamą poveikį ir planuojamas taikyti apsaugos priemones?",
+              "placeholder": "Pagrįskite numanomą rizikos dydį"
             },
             "6": {
-              "title": "Kaip vertinate <span class='green-highlight'>šios rizikos tikimybę </span>, ypač atsižvelgiant į grėsmes, rizikos šaltinius ir planuojamas kontrolės priemones?",
-              "placeholder": "Pagrįskite numanomą tikimybę."
+              "title": "Kaip vertinate <span class='green-highlight'>tokios rizikos tikimybę </span>, ypač atsižvelgiant į grėsmes, rizikos šaltinius ir planuojamas apsaugos priemones?",
+              "placeholder": "Pagrįskite numanomą tikimybę"
             }
           }
         },
@@ -1327,58 +1327,58 @@
           "short_help": "Pateikite duomenų dingimo priežasčių ir pasekmių analizę ir įvertinkite to tikimybę bei galimą neigiamą poveikį.",
           "questions": {
             "1": {
-              "title": "Kokie būtų pagrindiniai <span class='green-highlight'>neigiami poveikiai duomenų subjektams</span> jei ši rizika pasireikštu?",
-              "placeholder": "Nurodykite galimus poveikius"
+              "title": "Kokie būtų <span class='green-highlight'>neigiami poveikiai duomenų subjektams,</span> jei tokia rizika pasireikštų? Kokie būtų <span class='green-highlight'>neigiami poveikiai duomenų subjektams,</span> jei tokia rizika pasireikštų?",
+              "placeholder": "Nurodykite neigiamą poveikį"
             },
             "2": {
-              "title": "Kokios būtų pagrindinės <span class='green-highlight'>grėsmės</span> galinčios sukelti šią riziką?",
+              "title": "Kas gali sukelti tokią riziką, nurodykite galimas<span class='green-highlight'>grėsmes</span>",
               "placeholder": "Nurodykite grėsmes"
             },
             "3": {
-              "title": "Kokie yra šios rizikos <span class='green-highlight'>šaltiniai</span>?",
+              "title": "Kokie yra tokios rizikos <span class='green-highlight'>šaltiniai</span>?",
               "placeholder": "Nurodykite rizikos šaltinius"
             },
             "4": {
-              "title": "Kurios iš nurodytų <span class='green-highlight'>kontrolės primonių</span> padeda užkirsti kelią šios rizikos įvykimui?",
-              "placeholder": "Pasirinkite rizikos kontrolės priemones."
+              "title": "Kurios iš nurodytų <span class='green-highlight'>apsaugos priemonių</span> padėtų užkirsti kelią tokios rizikos pasireiškimui?",
+              "placeholder": "Pasirinkite priemones"
             },
             "5": {
-              "title": "Kaip vertinate <span class='green-highlight'>rizikos laipsnį</span>, ypač atisžvelgiant į galimą poveikį ir planuojamas kontrolės priemones?",
-              "placeholder": "Pagrįskite numanomą rizikos dydį."
+              "title": "Kaip įvertintumėte <span class='green-highlight'>rizikos dydį</span>, ypač atsižvelgiant į galimą neigiamą poveikį ir planuojamas taikyti apsaugos priemones?",
+              "placeholder": "Pagrįskite numanomą rizikos dydį"
             },
             "6": {
-              "title": "Kaip vertinate <span class='green-highlight'>šios rizikos tikimybę </span>, ypač atsižvelgiant į grėsmes, rizikos šaltinius ir planuojamas kontrolės priemones?",
-              "placeholder": "Pagrįskite numanomą tikimybę."
+              "title": "Kaip vertinate <span class='green-highlight'>tokios rizikos tikimybę </span>, ypač atsižvelgiant į grėsmes, rizikos šaltinius ir planuojamas apsaugos priemones?",
+              "placeholder": "Pagrįskite numanomą tikimybę"
             }
           }
         },
         "5": {
           "title": "Rizikų apžvalga",
-          "short_help": "Ši vizualizacija padės susidaryti bendrą vaizdą apie naudojamų priemonių efektyvumą, siekiant sukontroliuoti esamas rizikas."
+          "short_help": "Šis grafikas padės susidaryti bendrą vaizdą apie naudojamų apsaugos priemonių efektyvumą, siekiant kontroliuoti rizikas."
         }
       }
     },
      "4": {
       "title": "Patvirtinimas",
-      "short_help": "Šioje dalyje atliekamas PDAV patvirtinimas.",
+      "short_help": "Šioje dalyje atliekamas PDAV patvirtinimas",
       "items": {
         "1": {
           "title": "Rizikų susiejimas (angl. mapping)",
-          "short_help": "Ši vizualizacija padės palyginti tarpusavyje esamas rizikas prieš ir po papildomų kontrolės priemonių taikymo."
+          "short_help": "Šis grafikas padės tarpusavyje palyginti rizikas prieš ir po papildomų apsaugos priemonių pritaikymo."
         },
         "2": {
           "title": "Veiksmų planas",
-          "short_help": "Detaliai suplanuokite papildomų kontrolės priemonių, kurių poreikis nustatytas atliekant PDAV, įgyvendinimą. Veiksmų planas bus automatiškai atnaujinamas, jei PDAV tikrinimo metu bus padaryti papildymai."
+          "short_help": "Detaliai suplanuokite papildomų apsaugos priemonių, kurių poreikis nustatytas atliekant PDAV, įgyvendinimą. Veiksmų planas bus automatiškai atnaujinamas, jei PDAV tikrinimo metu bus padaryti papildymai."
         },
         "3": {
           "title": "DPA ir susijusių duomenų subjektų nuomonės",
           "short_help": "Nurodykite, kokį patarimą pateikė asmuo, atsakingas už asmens duomenų apsaugą, pateikite duomenų subjektų ir/ar jų atstovų nuomones."
         },
         "4": {
-          "title": "Patvirtintni PDAV"
+          "title": "Patvirtinti PDAV"
         },
         "5": {
-          "title": "Nepatvirtintni PDAV"
+          "title": "Nepatvirtinti PDAV"
         }
       }
     }
