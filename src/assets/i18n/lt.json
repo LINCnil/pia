@@ -13,7 +13,7 @@
     "homepage_link": "Apžvalga",
     "knowledge_base_link": "Pagalba",
     "pia_example_link": "PDAV pavyzdys",
-    "structures": "PIA template (TRANSLATION REQUIRED)",
+    "structures": "PDAV šablonas",
     "languages": {
       "official_translation": "Originali versija",
       "cnil_translations": "CNIL vertimas",
@@ -45,8 +45,8 @@
   },
   "homepage": {
     "filters": {
-      "list": "sąrašas",
-      "card": "kortelė",
+      "list": "Sąrašas",
+      "card": "Kortelė",
       "sort": "Rūšiuoti",
       "sort_by": "pagal",
       "name": "Pavadinimą",
@@ -59,11 +59,11 @@
       "import_pia": "Importuoti PDAV",
       "list_rocket_content": "Pradėti ! Tam, kad pradėti <br>PDAV, spausk +",
       "card_rocket_content": "Pradėti !<br><br> Tam, kad pradėti<br> spausk Naujas PDAV",
-      "new_structure": "New template (TRANSLATION REQUIRED)",
-      "import_structure": "Import template (TRANSLATION REQUIRED)",
-      "sector_name": "Associated sector (TRANSLATION REQUIRED)",
-      "list_rocket_content_structure": "Get started ! To initiate <br>a template, click on the + (TRANSLATION REQUIRED)",
-      "card_rocket_content_structure": "Get started ! To initiate <br>a template, click on the + (TRANSLATION REQUIRED)"
+      "new_structure": "Naujas šablonas",
+      "import_structure": "Importuoti šabloną",
+      "sector_name": "Susijęs sektorius",
+      "list_rocket_content_structure": "Pradėk ! Tam, kad pradėti rengti <br>šabloną, spausk +",
+      "card_rocket_content_structure": "Pradėk ! Tam, kad pradėti rengti <br>šabloną, spausk +"
     },
     "cards": {
       "new_pia": "Naujas PDAV",
@@ -80,33 +80,33 @@
       "placeholder_evaluation": "Vardas, Pavardė",
       "validation": "Tvirtinimas",
       "placeholder_validation": "Vardas, Pavardė",
-       "structure": "Template (TRANSLATION REQUIRED)",
-      "placeholder_structure": "Default template (TRANSLATION REQUIRED)",
+       "structure": "Šablonas",
+      "placeholder_structure": "Standartinis šablonas",
       "date": "Data",
       "status": "Statusas",
       "creation_status": "Sukūrimas",
       "start": "Start",
       "placeholder_start": "Turi būti užpildyti visi laukai",
-      "new_structure": "New template (TRANSLATION REQUIRED)",
-      "placeholder_new_structure": "New template (TRANSLATION REQUIRED)",
-      "import_structure": "Import template (TRANSLATION REQUIRED)",
-      "placeholder_import_structure": "Import template (TRANSLATION REQUIRED)",
-      "structure_name": "Template's title (TRANSLATION REQUIRED)",
-      "sector_name": "Associated sector (TRANSLATION REQUIRED)",
-      "placeholder_structure_name": "Template's title (TRANSLATION REQUIRED)",
-      "placeholder_sector_name": "Sector name (TRANSLATION REQUIRED)",
+      "new_structure": "Naujas šablonas",
+      "placeholder_new_structure": "Naujas šablonas",
+      "import_structure": "Importuoti šabloną",
+      "placeholder_import_structure": "Importuoti šabloną",
+      "structure_name": "Šablono pavadinimas",
+      "sector_name": "Susijęs sektorius",
+      "placeholder_structure_name": "Šablono pavadinimas",
+      "placeholder_sector_name": "Sektoriaus pavadinimas",
       "item": {
         "tools": {
           "export": "Eksportas",
           "more_options": "Daugiau funkcijų",
           "duplicate": "Daryti kopiją",
-          "action_plan": "Pasižiūrėti<br>veiksmų planą",
+          "action_plan": "Peržiūrėti<br>veiksmų planą",
           "pia": "Atidaryti<br>PDAV",
           "remove": "Ištrinti"
         },
         "edit_pia": "Redaguoti PDAV",
-        "consult_pia": "Pasižiūrėti PDAV",
-        "edit_structure": "Edit template (TRANSLATION REQUIRED)"
+        "consult_pia": "Peržiūrėti PDAV",
+        "edit_structure": "Redaguoti šabloną"
       }
     },
     "lists": {
@@ -119,16 +119,16 @@
       "column_status": "Statusas",
       "column_progression": "Progresas",
       "column_actions": "Veiksmai",
-      "column_structure": "Template (TRANSLATION REQUIRED)",
-      "column_sector_name": "Associated sector (TRANSLATION REQUIRED)",
-      "column_structure_name": "Template (TRANSLATION REQUIRED)",
+      "column_structure": "Šablonas",
+      "column_sector_name": "Susijęs sektorius",
+      "column_structure_name": "Šablonas",
       "item": {
         "tools": {
-          "consult": "Pasižiūrėti",
+          "consult": "Peržiūrėti",
           "edit": "Redaguoti",
           "export": "Exportuoti",
           "duplicate": "Kopijuoti",
-          "action_plan": "Pasižiūrėti veiksmų planą",
+          "action_plan": "Peržiūrėti veiksmų planą",
           "pia": "Atidaryti PDAV",
           "remove": "Ištrinti"
         }
@@ -141,12 +141,12 @@
       "1": "Atmestas",
       "2": "Preliminarus patvirtinimas",
       "3": "Galutinis patvirtinimas",
-      "4": "Suarchivuota",
+      "4": "Suarchyvuota",
       "5": "Laukiama patvirtinimo"
     },
     "header": {
       "preview": "Peržiūra",
-      "display_action_plan": "Pasižiūrėti<br>veiksmų planą",
+      "display_action_plan": "Peržiūrėti<br>veiksmų planą",
       "edition": "Redaguoti",
       "evaluation": "Įvertinimas"
     },
@@ -156,13 +156,13 @@
       "remove": "Pašalinti"
     },
     "sections": {
-      "homepage_link": "Atgal į dashboard",
+      "homepage_link": "Atgal į apžvalgą",
       "validate_pia": "Tvirtinti PDAV",
       "refuse_pia": "Atmesti PDAV",
-      "based_on_structure_name": "Base on template: (TRANSLATION REQUIRED)",
+      "based_on_structure_name": "Remiantis šablonu:",
       "status": {
         "evaluation": {
-          "title": "Laukiama peržiūros.",
+          "title": "Laukiama peržiūros",
           "content": "Ši dalis dar nebuvo peržiūrėta. Jei norite redaguoti peržiūrai pateiktą turinį, Jūs turite",
           "cancel": "atsiakyti prašymo dėl peržiūros.",
           "cancel_button": "Atsisakyti prašymo dėl peržiūros"
@@ -178,9 +178,9 @@
     "footer": {
       "ask_evaluation": "Prašyti peržiūros",
       "validate_evaluation": "Patvirtinti peržiūrą",
-      "subsection_validated": "Tam tikra dalis peržiūrėta, laukiama galutinio patvirtinimo",
-      "mandatory_fields": "Visi laukai turi būti užpildyti",
-      "structure_add_question": "Add a (TRANSLATION REQUIRED)"
+      "subsection_validated": "Ši dalis peržiūrėta, laukiama galutinio patvirtinimo",
+      "mandatory_fields": "Turi būti užpildyti visi laukai",
+      "structure_add_question": "Pridėti"
     }
   },
   "measures": {
@@ -188,7 +188,7 @@
     "add": "Sukurti priemonę (arba pasirinkti priemonę iš Pagalbos)",
     "edit": "Redaguoti priemonę",
     "remove": "Ištrinti priemonę",
-    "default_placeholder": "Aprašyti esamą ir naują duomenų apsaugą užtikrinančią priemonę."
+    "default_placeholder": "Aprašyti esamą ar naują priemonę, skirtą duomenų apsaugai užtikrinti."
   },
   "knowledge_base": {
     "title": "Pagalba",
@@ -196,7 +196,7 @@
     "add_measure": "Įvesti",
     "placeholder_help": "Įvedimo pagalba",
     "placeholder_add_measure": "Įvesti šią priemonę",
-    "add_measure_hint": "Jūs taip pat galite įvesti priemonę iš Pagalboje esančio jų sąrašo.",
+    "add_measure_hint": "Galite pasirinkti priemonę iš Pagalboje pateikto jų sąrašo.",
     "filters": {
       "title": "Filtrai",
       "all": "Visi",
