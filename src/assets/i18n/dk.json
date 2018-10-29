@@ -13,6 +13,7 @@
     "homepage_link": "Hjem",
     "knowledge_base_link": "Vidensbase",
     "pia_example_link": "PIA exempel",
+    "structures": "PIA template (TRANSLATION REQUIRED)",
     "languages": {
       "official_translation": "Original version",
       "cnil_translations": "Oversættelser af CNILs",
@@ -20,6 +21,7 @@
       "community_translations": "Community oversættelser",
       "cz": "Česky",
       "de": "Deutsch",
+      "dk": "Dansk",
       "el": "Ελληνικά",
       "en": "English",
       "es": "Español",
@@ -32,7 +34,6 @@
       "pl": "Polski",
       "pt": "Português",
       "ro": "Română"
-      "dk": "Dansk"
     },
     "tools": {
       "title": "Værktøjer",
@@ -57,7 +58,12 @@
       "new_pia": "Ny PIA",
       "import_pia": "Importer PIA",
       "list_rocket_content": "Begynd ! For at starte <br>en PIA, klik på +",
-      "card_rocket_content": "Begynd !<br><br>For at starte en PIA,<br> klik på Ny PIA"
+      "card_rocket_content": "Begynd !<br><br>For at starte en PIA,<br> klik på Ny PIA",
+      "new_structure": "New template (TRANSLATION REQUIRED)",
+      "import_structure": "Import template (TRANSLATION REQUIRED)",
+      "sector_name": "Associated sector (TRANSLATION REQUIRED)",
+      "list_rocket_content_structure": "Get started ! To initiate <br>a template, click on the + (TRANSLATION REQUIRED)",
+      "card_rocket_content_structure": "Get started ! To initiate <br>a template, click on the + (TRANSLATION REQUIRED)"
     },
     "cards": {
       "new_pia": "Ny PIA",
@@ -74,11 +80,21 @@
       "placeholder_evaluation": "Fornavn, efternavn",
       "validation": "Validation",
       "placeholder_validation": "Fornavn, efternavn",
+      "structure": "Template (TRANSLATION REQUIRED)",
+      "placeholder_structure": "Default template (TRANSLATION REQUIRED)",
       "date": "Dato",
       "status": "Status",
       "creation_status": "Kreation",
       "start": "Start",
       "placeholder_start": "Alle felter skal fyldes",
+      "new_structure": "New template (TRANSLATION REQUIRED)",
+      "placeholder_new_structure": "New template (TRANSLATION REQUIRED)",
+      "import_structure": "Import template (TRANSLATION REQUIRED)",
+      "placeholder_import_structure": "Import template (TRANSLATION REQUIRED)",
+      "structure_name": "Template's title (TRANSLATION REQUIRED)",
+      "sector_name": "Associated sector (TRANSLATION REQUIRED)",
+      "placeholder_structure_name": "Template's title (TRANSLATION REQUIRED)",
+      "placeholder_sector_name": "Sector name (TRANSLATION REQUIRED)",
       "item": {
         "tools": {
           "export": "Exportere",
@@ -89,7 +105,8 @@
           "remove": "Slet"
         },
         "edit_pia": "Redigere PIA",
-        "consult_pia": "Konsultere PIA"
+        "consult_pia": "Konsultere PIA",
+        "edit_structure": "Edit template (TRANSLATION REQUIRED)"
       }
     },
     "lists": {
@@ -102,6 +119,9 @@
       "column_status": "Status",
       "column_progression": "Progression",
       "column_actions": "Aktioner",
+      "column_structure": "Template (TRANSLATION REQUIRED)",
+      "column_sector_name": "Associated sector (TRANSLATION REQUIRED)",
+      "column_structure_name": "Template (TRANSLATION REQUIRED)",
       "item": {
         "tools": {
           "consult": "Konsultere",
@@ -139,6 +159,7 @@
       "homepage_link": "Tilbage til oversigt",
       "validate_pia": "Godkend PIA",
       "refuse_pia": "Afvise PIA",
+      "based_on_structure_name": "Base on template: (TRANSLATION REQUIRED)",
       "status": {
         "evaluation": {
           "title": "Venter på evaluering.",
@@ -158,7 +179,8 @@
       "ask_evaluation": "Bede om evaluering",
       "validate_evaluation": "Acceptere evaluering",
       "subsection_validated": "Delvist evalueret, venter på endelig godkendelse",
-      "mandatory_fields": "Alle felter skal udfyldes"
+      "mandatory_fields": "Alle felter skal udfyldes",
+      "structure_add_question": "Add a (TRANSLATION REQUIRED)"
     }
   },
   "measures": {
@@ -366,7 +388,7 @@
         "placeholder": "Ved brug af databehandler, beskriv de kontraktuelle garantier",
         "name": "Databehandler kontrakt",
         "description": "Databehandler eller anden part der modtager eller behandler personoplysninger <strong>skal stille de nødvendige garantier</strong> (f.eks. ved specialiseret viden, pålidelighed af ressourcer). Stille krav til databehandler om at udlevere sikkerhedspolitikker for relevante informationssystemer. <br>Modtage og dokumentere at sikkerhedspolitikkerne er effektive (sikkerheds revision, tilsyn af data og behandlingscentre, osv.) for at kunne <strong>påvise effektiviteten af databehandlers garantier<strong> for beskyttelse af personoplysninger. Disse garantier inkludere exempelvis :<br> - kryptering af personoplysninger ifølge sensitiviteten eller dokumenterede procedurer der sikre at databehandler ikke har adgang til personoplysningerne<br>- krypteringle af data i bevægelse (f.eks. kommunikation over HTTPS, VPN, osv.)<br>- garantier for beskyttelse af netværk, logning (journal og event audits), styring af adgangsrettigheder, brugergodkendelse, osv.<br><strong>Etablere en kontrakt med databehandler</strong>, der indeholder omfanget, tidslængde, formålet af behandlingen og parternes obligationer. Sikre at kontrakten indeholder klasuler for :<br>- fortrolighedserklæring for informationer og personoplysninger<br>- minimumskrav til brugergodkendelse<br>- tilbagelevering og/eller sletning ved udløb af kontrakten<br>- regler for rapportering af sikkerhedshændelser. Nødvendige informationer kommunikeres snarest til dataansvarlige i tilfælde af sikkerhedshændelser, og straks ved sikkerhedsbrud af personoplysninger.<br>- Ved brug af cloud leverandører :<br>\t1. identificere alle oplysninger der behandles i cloud ;<br>\t2. definere passende tekniske og juridiske krav ;<br>\t3. udføre en risikoanalyse for at identificere nødvendige sikkerhedsforanstaltninger ;<br>\t4. identificere en passende cloud model (Privat, community, Public - IaaS, PaaS, SaaS, Hybrid) relevant for den planlagte behandling ;<br>\t5. vælge en databehandler der kan stille de nødvendige garantier ;<br>\t6. Gennemse og eventuelt opdatere sin interne sikkerhedspolitik ;<br>\t7. overvåge forandringer og evolution igennem kontraktens serviceperioden.",
-        "source": "Digitaliseringsstyrelsen; Sådan stiller du krav til leverandører om informationssikkerhed <a target=\"_blank\" href=\"https://digst.dk/styring/standardkontrakter/klausuler-til-informationssikkerhed/kravkatalog-til-leverandoerer/">kravkatalog til leverandoerer</a>"
+        "source": "Digitaliseringsstyrelsen; Sådan stiller du krav til leverandører om informationssikkerhed <a target=\"_blank\" href=\"https://digst.dk/styring/standardkontrakter/klausuler-til-informationssikkerhed/kravkatalog-til-leverandoerer\">kravkatalog til leverandoerer</a>"
       },
       "PIA_SEC_NET": {
         "placeholder": "Beskriv her sikkerhedsforanstaltninger på netværket hvor behandlingen foregår",
@@ -748,6 +770,8 @@
   },
   "questions": {
     "edit": "Redigere spørgsmål",
+    "remove": "Delete question (TRANSLATION REQUIRED)",
+    "placeholder_title": "Question title (mandatory) (TRANSLATION REQUIRED)",
     "gauges": {
       "0": "(Udefinet)",
       "1": "Ubetydelig",
@@ -895,7 +919,10 @@
     "completed_evaluation": {
       "content": "PIA er blevet fuldt gennemgået og godkendt."
     },
-    "update_server_url": {
+    "update_server_url_nok": {
+      "content": "Connection impossible."
+    },
+    "update_server_url_ok": {
       "content": "Serveradressen er blevet opdateret."
     },
     "signed_pia_validation": {
@@ -923,6 +950,11 @@
     "ask_for_evaluation": {
       "content": "Denne sektion er klar til evaluering."
     },
+    "remove_question": {
+      "content": "Are you sure you want to deleted the question? (TRANSLATION REQUIRED)",
+      "remove": "Delete (TRANSLATION REQUIRED)",
+      "keep": "Cancel (TRANSLATION REQUIRED)"
+    },
     "validate_evaluation": {
       "content": "Denne sektion er klar for godkendelse af PIA."
     },
@@ -936,6 +968,10 @@
     "remove_pia": {
       "content": "<span class='strong'>Warning,</span><br>Er du sikker på at ville<br>slette denne PIA?",
       "remove": "Slet denne PIA"
+    },
+    "remove_structure": {
+      "content": "<span class='strong'>Warning,</span><br>Are you sure you want<br>to delete the template?",
+      "remove": "Delete template"
     },
     "remove_attachment": {
       "content": "<span class='strong'>Warning,</span><br>Er du sikker på at du vil<br>slette denne vedhæftelse?",
@@ -961,6 +997,12 @@
     },
     "back_to_evaluation": {
       "content": "Dette afsnit redigere,<br> oplysninger skal vurderes igen for at tillade dens validering."
+    },
+    "import_wrong_pia_file": {
+      "content": "The imported file doesn't correspond to a PIA report file (TRANSLATION REQUIRED)"
+    },
+    "import_wrong_structure_file": {
+      "content": "The imported file doesn't correspond to a PIA template file (TRANSLATION REQUIRED)"
     }
   },
   "summary": {
