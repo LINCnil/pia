@@ -13,7 +13,7 @@
     "homepage_link": "Hjem",
     "knowledge_base_link": "Vidensbase",
     "pia_example_link": "PIA exempel",
-    "structures": "PIA template (TRANSLATION REQUIRED)",
+    "structures": "PIA skabelon",
     "languages": {
       "official_translation": "Original version",
       "cnil_translations": "Oversættelser af CNILs",
@@ -45,8 +45,8 @@
   },
   "homepage": {
     "filters": {
-      "list": "liste",
-      "card": "kort",
+      "list": "Liste",
+      "card": "Kort",
       "sort": "Sortere",
       "sort_by": "ved",
       "name": "Navn",
@@ -59,11 +59,11 @@
       "import_pia": "Importer PIA",
       "list_rocket_content": "Begynd ! For at starte <br>en PIA, klik på +",
       "card_rocket_content": "Begynd !<br><br>For at starte en PIA,<br> klik på Ny PIA",
-      "new_structure": "New template (TRANSLATION REQUIRED)",
-      "import_structure": "Import template (TRANSLATION REQUIRED)",
-      "sector_name": "Associated sector (TRANSLATION REQUIRED)",
-      "list_rocket_content_structure": "Get started ! To initiate <br>a template, click on the + (TRANSLATION REQUIRED)",
-      "card_rocket_content_structure": "Get started ! To initiate <br>a template, click on the + (TRANSLATION REQUIRED)"
+      "new_structure": "Ny skabelon",
+      "import_structure": "Importere skabelon",
+      "sector_name": "Tilhørende sektion",
+      "list_rocket_content_structure": "Begynd ! For at starte <br>en skabelon, klik på +",
+      "card_rocket_content_structure": "Begynd ! For at starte <br>en skabelon, klik på +"
     },
     "cards": {
       "new_pia": "Ny PIA",
@@ -80,21 +80,21 @@
       "placeholder_evaluation": "Fornavn, efternavn",
       "validation": "Validation",
       "placeholder_validation": "Fornavn, efternavn",
-      "structure": "Template (TRANSLATION REQUIRED)",
-      "placeholder_structure": "Default template (TRANSLATION REQUIRED)",
+      "structure": "Skabelon",
+      "placeholder_structure": "Standard skabelon",
       "date": "Dato",
       "status": "Status",
       "creation_status": "Kreation",
       "start": "Start",
       "placeholder_start": "Alle felter skal fyldes",
-      "new_structure": "New template (TRANSLATION REQUIRED)",
-      "placeholder_new_structure": "New template (TRANSLATION REQUIRED)",
-      "import_structure": "Import template (TRANSLATION REQUIRED)",
-      "placeholder_import_structure": "Import template (TRANSLATION REQUIRED)",
-      "structure_name": "Template's title (TRANSLATION REQUIRED)",
-      "sector_name": "Associated sector (TRANSLATION REQUIRED)",
-      "placeholder_structure_name": "Template's title (TRANSLATION REQUIRED)",
-      "placeholder_sector_name": "Sector name (TRANSLATION REQUIRED)",
+      "new_structure": "Ny skabelon",
+      "placeholder_new_structure": "Ny skabelon",
+      "import_structure": "Importere skabelon",
+      "placeholder_import_structure": "Importere skabelon",
+      "structure_name": "Titel på skabelon",
+      "sector_name": "Tilhørende sektion",
+      "placeholder_structure_name": "Skabelon titel",
+      "placeholder_sector_name": "Navn på sektion",
       "item": {
         "tools": {
           "export": "Exportere",
@@ -119,9 +119,9 @@
       "column_status": "Status",
       "column_progression": "Progression",
       "column_actions": "Aktioner",
-      "column_structure": "Template (TRANSLATION REQUIRED)",
-      "column_sector_name": "Associated sector (TRANSLATION REQUIRED)",
-      "column_structure_name": "Template (TRANSLATION REQUIRED)",
+      "column_structure": "Skabelon",
+      "column_sector_name": "Tilhørende sektion",
+      "column_structure_name": "Skabelon",
       "item": {
         "tools": {
           "consult": "Konsultere",
@@ -159,7 +159,7 @@
       "homepage_link": "Tilbage til oversigt",
       "validate_pia": "Godkend PIA",
       "refuse_pia": "Afvise PIA",
-      "based_on_structure_name": "Base on template: (TRANSLATION REQUIRED)",
+      "based_on_structure_name": "Baseret på skabelon",
       "status": {
         "evaluation": {
           "title": "Venter på evaluering.",
@@ -180,7 +180,7 @@
       "validate_evaluation": "Acceptere evaluering",
       "subsection_validated": "Delvist evalueret, venter på endelig godkendelse",
       "mandatory_fields": "Alle felter skal udfyldes",
-      "structure_add_question": "Add a (TRANSLATION REQUIRED)"
+      "structure_add_question": "Tilføj et"
     }
   },
   "measures": {
@@ -771,7 +771,7 @@
   "questions": {
     "edit": "Redigere spørgsmål",
     "remove": "Delete question (TRANSLATION REQUIRED)",
-    "placeholder_title": "Question title (mandatory) (TRANSLATION REQUIRED)",
+    "placeholder_title": "Titel på spørgsmål (obligatorisk)",
     "gauges": {
       "0": "(Udefinet)",
       "1": "Ubetydelig",
@@ -952,8 +952,8 @@
     },
     "remove_question": {
       "content": "Are you sure you want to deleted the question? (TRANSLATION REQUIRED)",
-      "remove": "Delete (TRANSLATION REQUIRED)",
-      "keep": "Cancel (TRANSLATION REQUIRED)"
+      "remove": "Slet",
+      "keep": "Behold"
     },
     "validate_evaluation": {
       "content": "Denne sektion er klar for godkendelse af PIA."
