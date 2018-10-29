@@ -13,6 +13,7 @@
     "homepage_link": "Kontrolna ploča",
     "knowledge_base_link": "Baza znanja",
     "pia_example_link": "Primjer PUP-a",
+    "structures": "PIA template",
     "languages": {
       "official_translation": "Izvorna verzija",
       "cnil_translations": "Prijevodi od strane CNIL-a",
@@ -23,12 +24,15 @@
       "el": "Ελληνικά",
       "en": "English",
       "es": "Español",
+      "fi": "Suomi",
       "fr": "Français",
-	  "hr": "Hrvatski",
+	    "hr": "Hrvatski",
       "hu": "Magyar",
       "it": "Italiano",
+      "nl": "Nederlands",
       "no": "Norsk",
       "pl": "Polski",
+      "pt": "Português",
       "ro": "Română"
     },
     "tools": {
@@ -54,7 +58,12 @@
       "new_pia": "Novi PUP",
       "import_pia": "Uvezi PUP",
       "list_rocket_content": "Započnite! Kako bi započeli s <br>PUP-om, kliknite na +",
-      "card_rocket_content": "Započnite!<br><br>Kako bi započeli s PUP-om,<br> kliknite na Novi PUP"
+      "card_rocket_content": "Započnite!<br><br>Kako bi započeli s PUP-om,<br> kliknite na Novi PUP",
+      "new_structure": "New template (TRANSLATION REQUIRED)",
+      "import_structure": "Import template (TRANSLATION REQUIRED)",
+      "sector_name": "Associated sector (TRANSLATION REQUIRED)",
+      "list_rocket_content_structure": "Get started ! To initiate <br>a template, click on the + (TRANSLATION REQUIRED)",
+      "card_rocket_content_structure": "Get started ! To initiate <br>a template, click on the + (TRANSLATION REQUIRED)" 
     },
     "cards": {
       "new_pia": "Novi PUP",
@@ -64,18 +73,28 @@
       "placeholder_import_pia": "Uvezi PUP",
       "title_close_creation": "Zatvori",
       "pia_name": "PUP",
-      "placeholder_PUP_name": "Naziv PUP-a",
+      "placeholder_pia_name": "Naziv PUP-a",
       "author": "Uređivanje",
       "placeholder_author": "Ime, prezime",
       "evaluation": "Pregled",
       "placeholder_evaluation": "Ime, prezime",
       "validation": "Potvrda",
       "placeholder_validation": "Ime, prezime",
+      "structure": "Template (TRANSLATION REQUIRED)",
+      "placeholder_structure": "Default template (TRANSLATION REQUIRED)",
       "date": "Datum",
       "status": "Status",
       "creation_status": "Stvaranje",
       "start": "Početak",
       "placeholder_start": "Sva polja moraju biti popunjena",
+      "new_structure": "New template (TRANSLATION REQUIRED)",
+      "placeholder_new_structure": "New template (TRANSLATION REQUIRED)",
+      "import_structure": "Import template (TRANSLATION REQUIRED)",
+      "placeholder_import_structure": "Import template (TRANSLATION REQUIRED)",
+      "structure_name": "Template's title (TRANSLATION REQUIRED)",
+      "sector_name": "Associated sector (TRANSLATION REQUIRED)",
+      "placeholder_structure_name": "Template's title (TRANSLATION REQUIRED)",
+      "placeholder_sector_name": "Sector name (TRANSLATION REQUIRED)",
       "item": {
         "tools": {
           "export": "Izvezi",
@@ -86,7 +105,8 @@
           "remove": "Izbriši"
         },
         "edit_pia": "Uredi PUP",
-        "consult_pia": "Pogledaj PUP"
+        "consult_pia": "Pogledaj PUP",
+        "edit_structure": "Edit template (TRANSLATION REQUIRED)"
       }
     },
     "lists": {
@@ -99,6 +119,9 @@
       "column_status": "Status",
       "column_progression": "Napredak",
       "column_actions": "Radnje",
+      "column_structure": "Template (TRANSLATION REQUIRED)",
+      "column_sector_name": "Associated sector (TRANSLATION REQUIRED)",
+      "column_structure_name": "Template (TRANSLATION REQUIRED)",
       "item": {
         "tools": {
           "consult": "Pogledaj",
@@ -123,7 +146,7 @@
     },
     "header": {
       "preview": "Kratki pregled",
-      "Prikaži_action_plan": "Prikaži<br>akcijski plan",
+      "display_action_plan": "Prikaži<br>akcijski plan",
       "edition": "Izdanje",
       "evaluation": "Evaluacija"
     },
@@ -134,8 +157,9 @@
     },
     "sections": {
       "homepage_link": "Povratak na kontrolnu ploču",
-      "validate_PUP": "Potvrdi  PUP",
-      "refuse_PUP": "Odbijeni PUP",
+      "validate_pia": "Potvrdi  PUP",
+      "refuse_pia": "Odbijeni PUP",
+      "based_on_structure_name": "Base on template: (TRANSLATION REQUIRED)",
       "status": {
         "evaluation": {
           "title": "Čeka na pregled.",
@@ -155,7 +179,8 @@
       "ask_evaluation": "Zatraži pregled",
       "validate_evaluation": "Izvrši potvrdu pregleda",
       "subsection_validated": "Pododjeljak je pregledan i očekuje konačnu potvrdu",
-      "mandatory_fields": "Sva polja moraju biti popunjena"
+      "mandatory_fields": "Sva polja moraju biti popunjena",
+      "structure_add_question": "Add a (TRANSLATION REQUIRED)"
     }
   },
   "measures": {
@@ -190,546 +215,546 @@
       "example": "Example"
     },
     "slugs": {
-      "pia_LGL_FOND": {
+      "PIA_LGL_FOND": {
         "name": "Opravdanje zakonitosti",
         "description": "- Ispitanik je dao privolu za obradu njegovih ili njezinih osobnih podataka za za jednu ili više specifičnih svrha <br> - Obrada je neophodna za izvršenje ugovora u kojem je ispitanik ugovorna strana ili kako bi se poduzeli koraci na zahtjev ispitanika prije sklapanja ugovora <br> - Obrada je neophodna za ispunjavanje zakonske obveze koja obvezuje voditelja obrade <br>- Obrada je neophodna kako bi se zaštitili vitalni interesi ispitanika ili druge fizičke osobe <br>- Obrada je neophodna za obavljanje zadatka koji se obavlja u javnom interesu ili u obavljanju službene ovlasti koja je dana voditelju obrade <br>- Obrada je neophodna u svrhu legitimnih interesa voditelja obrade ili treće strane, osim ako su takvi interesi nadjačani interesima ili temeljnim pravima i slobodama ispitanika koje zahtijevaju zaštitu osobnih podataka, osobito ako je ispitanik  dijete<br> Pogledaj <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">art. 6 of [GDPR]</a> ",
         "source": "pia2 p4"
       },
-      "pia_LGL_ST": {
+      "PIA_LGL_ST": {
         "name": "Podizvođači",
         "description": "Ugovor o obradi mora biti potpisan sa svakim izvršiteljem obrade i navoditi aspekte propisane čl. 28. [GDPR]: trajanje, opseg, svrhu, dokumentirane upute za obradu, prethodno odobrenje kad je angažiran izvršitelj obrade, pružanje bilo koje dokumentacije koja dokazuje sukladnost s [GDPR], promptno obavještavanje o povredi podataka itd..",
         "source": "pia2 p10"
       },
-      "pia_LGL_TRAN": {
+      "PIA_LGL_TRAN": {
         "name": "Prijenosi",
         "description": "Ovisno o državi u pitanju, morat ćete opravdati izbor udaljenog hostinga i naznačiti aranžmane nadzora zakonitosti koji su provedeni kako bi se osigurala odgovarajuća zaštita podataka podložnih prekograničnom prijenosu. To jest: <br> - Europska unija <br> - Država priznata od strane EU-a kao ona koja pruža odgovarajuće zaštitu <br> - Prijenos u Sjedinjene Države društvu koje se pridružilo Privacy Shield okviru <br> - Druga država <br>Pogledajte <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">art. 44 to 49 of [GDPR]</a>",
         "source": "piaF Connected Objects p18"
       },
-      "pia_LGL_DESC": {
+      "PIA_LGL_DESC": {
         "name": "Opis obrade",
         "description": "Navedite kratak pregled razmatrane obrade, njegnu prirodu, opseg, kontekst, svrhe i uloge. Odredite voditelja obrade i sve izvršitelje obrade. Navedite standardne reference koje se primjenjuju na tu obradu, a koje su nužne ili se moraju poštovati, ne zanemarujući odobrene kodekse ponašanja (pogledajte članak 40. <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR]</a>) and certifications regarding data protection (see Art. 42 of the <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR]</a>)",
         "source": "pia1 p4"
       },
-      "pia_LGL_DATA": {
+      "PIA_LGL_DATA": {
         "name": "Podaci i postupci",
         "description": "Detaljno definirajte i opišite opseg :<br>- predmetne osobne podatke, njihove primatelje i trajanja pohrane<br>- opis postupaka i pomoćnih sredstava za osobne podatke tijekom cijelog životno ciklusa osobnih podataka (od prikupljanja do brisanja).",
         "source": "pia1 p6"
       },
-      "pia_LGL_SUPT": {
+      "PIA_LGL_SUPT": {
         "name": "Pomoćno sredstvo",
         "description": "Sredstvo na koje se osobni podaci oslanjaju. Napomena: ovo može biti hardver, softver, mreže, ljudi, papir ili papirnati prijenosni kanali.",
         "source": "pia1 p10"
       },
-      "pia_LGL_FIN": {
+      "PIA_LGL_FIN": {
         "name": "Načela koja se odnose na obradu osobnih podataka",
         "description": "Osobni podaci prikupljaju se u posebne, izričite i zakonite svrhe te se dalje ne smiju obrađivati na način koji nije u skladu s tim svrhama.</strong> <br>Pogledajte <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 5.1 b) of [GDPR]</a>",
         "source": "OUZP čl. 5.1 b)"
       },
-      "pia_LGL_MINI": {
+      "PIA_LGL_MINI": {
         "name": "Načelo smanjenja količine podataka",
         "description": "Važno je smanjiti ozbiljnost rizika smanjivanjem količine osobnih podataka koji će se obrađivati ograničavanjem tih podataka na samo one koji su strogo nužni u svrhe za koje se obrađuju (inače ih se ne smije prikupljati). Nadalje, također postaje moguće smanjiti i same podatke, putem kontrola usmjerenih na smanjenje njihove osjetljivosti.",
         "source": "piaF Connected Objects p10 - WIKI"
       },
-      "pia_LGL_DEST": {
+      "PIA_LGL_DEST": {
         "name": "Primatelj",
         "description": "Fizička ili pravna osoba, tijelo javne vlasti, agencija ili drugo tijelo kojem se otkrivaju osobni podaci, neovisno o tome je li on treća strana. Međutim, tijela javne vlasti koja mogu primiti osobne podatke u okviru određene istrage u skladu s pravom Unije ili države članice ne smatraju se primateljima; obrada tih podataka koju obavljaju ta tijela javne vlasti mora biti u skladu s primjenjivim pravilima o zaštiti podataka prema svrhama obrade. see Art. 4.9 of the <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR]</a>",
         "source": "OUZP čl. 4.9"
       },
-      "pia_LGL_DUR": {
+      "PIA_LGL_DUR": {
         "name": "Trajanje pohrane",
         "description": "Trajanje pohrane mora biti definirano za svaku vrstu podataka i opravdano pravnim zahtjevima i/ili potrebama obrade. Dakle, postoji razlika između zajedničkih podataka i arhiviranih podataka, kojima će pristup imati samo zainteresirani dionici. Potrebno je uvesti mehanizam brisanja za arhiviranje zajedničkih podataka ili čišćenja arhiviranih podataka na kraju njihovog trajanja pohrane. Također, očistiti se moraju i funkcionalni tragovi, kao i tehnički zapisi koji se ne smiju pohranjivati na neodređeno vrijeme",
         "source": "piaF Connected Objects p12"
       },
-      "pia_LGL_INFO": {
+      "PIA_LGL_INFO": {
         "name": "Obavještavanje ispitanika",
         "description": "Osigurajte da su ispitanici obaviješteni. Potvrdite da obrada nije obuhvaćena iznimkom i ne podliježe posebnim uvjetima.",
         "source": "pia3 p8 - WIKI"
       },
-      "pia_LGL_CONS": {
+      "PIA_LGL_CONS": {
         "name": "Privola",
         "description": "Dopustite ispitanicima naprave slobodan, specifičan i informirani izbor. Utvrditi da li se obrada temelji na pravnoj osnovi, osim privole na temelju čl. 6. <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR]</a>",
         "source": "pia3 p11 - WIKI"
       },
-      "pia_VAL_DPO": {
+      "PIA_VAL_DPO": {
         "name": "Mišljenje SZP-a",
         "description": "Voditelj obrade tražit će savjet službenika za zaštitu podataka, kad je određen, pri provođenju procjene učinka na zaštitu podataka. Pogledajte čl. 35. st. 2 <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR]</a><br> <strong>Ovo gledište može biti protiv obrade koja se provodi, bez ograničavanja odluke voditelja obrade za to</strong>.",
         "source": "OUZP čl. 35.2 and piaF Connected Objects p37"
       },
-      "pia_VAL_CONC": {
+      "PIA_VAL_CONC": {
         "name": "Mišljenje ispitanika",
         "description": "Gdje je to primjereno, voditelj obrade zatražit će mišljenja ispitanika ili njihovih predstavnika o namjeravanoj obradi, ne dovodeći u pitanje zaštitu komercijalnih ili javnih interesa ili sigurnost postupaka obrade. Vidi čl. 35 st. 9 od <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR]</a><br> Ta se mišljenja mogu prikupljati različitim sredstvima, ovisno o kontekstu (unutarnje ili vanjsko istraživanje o metodama obrade i svrsi, pitanja za predstavnike osoblja ili sindikate, ankete među budućim klijentima voditelja obrade. <strong> Kada voditelj obrade odluči ići protiv stavova ispitanika </ strong>, on mora zabilježiti <strong> opravdanje ove odluke </ strong>. Ako voditelj obrade smatra da <strong> prikupljanje mišljenja ispitanika nije relevantno, mora također zabilježiti opravdanje za to</strong>.",
         "source": "OUZP čl. 35.9 and piaF Connected Objects p38"
       },
-      "pia_VAL_RT": {
+      "PIA_VAL_RT": {
         "name": "Formalna potvrda",
         "description": "Odlučite jesu li odabrane kontrole, rezidualni rizici i akcijski plan prihvatljivi, s opravdanjima, s obzirom na prethodno utvrđene uloge i mišljenja dionika. Na taj način, PUP može biti: <br>- potvrđen<br>- uvjetovan poboljšanjem (objasniti na koji način) <br> - odbijen (uz obradu koja je predmetom razmatranja). Tamo gdje je potrebno, ponovite prethodne korake kako bi PUP bio potvrđen. Ova odluka ne prejudicira ocjenu sukladnosti koja se može provesti, ako je to primjenjivo, od strane Tijela za zaštitu podataka (CNIL u Francuskoj), kao dio preliminarnih formalnosti ili provjera, na primjer.",
         "source": "piaF Connected Objects p40"
       },
-      "pia_VAL_CART": {
+      "PIA_VAL_CART": {
         "name": "Mapiranje rizika",
         "description": "Grafikon koji ilustrira dobre sigurnosne prakse, s vrijednostima usklađenosti koje se dodjeljuju svakoj od njih na temelju njihove procjene u prijašnjim koracima.",
         "source": "piaF Connected Objects p34"
       },
-      "pia_VAL_ACT": {
+      "PIA_VAL_ACT": {
         "name": "Akcijski plan",
         "description": "korektivne kontrole koje predlaže procjenitelj u prijašnjim koracima, uz izradu akcijskog plana kojim se određuje, za svaku radnju, njen voditelj, učestalost, težina, trošak i napredak.",
         "source": "Ne postoji"
       },
-      "pia_TEC_CHIF": {
+      "PIA_TEC_CHIF": {
         "placeholder": "Opišite ovdje provedena sredstva za osiguranje povjerljivosti podataka",
         "name": "Enkripcija",
         "description": "Sredstva implementirana za <strong> osiguravanje povjerljivosti </ strong>  pohranjenih podataka (u bazi podataka, ravnim datotekama, sigurnosnim kopijama itd.), kao i postupak za upravljanje enkripcijskim ključevima (stvaranje, pohrana, promjena u slučaju sumnja na slučajeve kompromitiranja podataka i sl.). <br> Opišite načine enkripcije koji se koriste za tokove podataka (VPN, TLS, itd.), a koji su implementirani u obradi.",
         "source": "piaF Connected Objects p21"
       },
-      "pia_TEC_ANO": {
+      "PIA_TEC_ANO": {
         "placeholder": "Ovdje navedite implementirane anonimizacijske mehanizme",
         "name": "Anonimizacija",
         "description": "Ovdje navedite da li se provode mehanizmi anonimizacije, koji oni i za koju svrhu. <br> Ne zaboravite jasno razlikovati anonimizirane i pseudonimizirane podatke.",
         "source": "piaF Connected Objects p21"
       },
-      "pia_TEC_CLO": {
+      "PIA_TEC_CLO": {
         "placeholder": "Ovdje navedite da li se planira particioniranje obrade i kako se ono provodi.",
         "name": "Particioniranje podataka",
         "description": "Provedba particioniranja podataka pomaže smanjiti mogućnost da se osobni podaci mogu povezati i da se može pojaviti povreda svih osobnih podataka.",
         "source": "piaF Connected Objects p21"
       },
-      "pia_TEC_CTLA": {
+      "PIA_TEC_CTLA": {
         "placeholder": "Ovdje navedite kako su definirani i kako se pripisuju korisnički profili.",
         "name": "Kontrola logičkog pristupa",
         "description": "Metode za definiranje i pripisivanje korisničkih profila. Navedite način <strong> autentikacije </ strong> Gdje je to moguće, odredite pravila koja se primjenjuju na zaporke (minimalna duljina, zahtijevani znakovi, trajanje valjanosti, broj neuspjelih pokušaja prije zaključavanja pristupa računu i sl.).",
         "source": "piaF Connected Objects p21"
       },
-      "pia_TEC_LOG": {
+      "PIA_TEC_LOG": {
         "placeholder": "Ovdje navedite da li događaji bilježe i koliko dugo se ti tragovi čuvaju.",
         "name": "Sljedivost (stvaranje zapisa)",
         "description": "Pravila koja uređuju sljedivost i upravljanje zapisnicima.",
         "source": "piaF Connected Objects p22"
       },
-      "pia_TEC_ARCH": {
+      "PIA_TEC_ARCH": {
         "placeholder": "Ovdje navedite da li su uvedeni mehanizmi za praćenje integriteta pohranjenih podataka, kojih i u koju svrhu.",
         "name": "Arhiviranje",
         "description": "Gdje je to moguće, ovdje opišite postupke upravljanja arhivom (isporuka, pohrana, pregled, itd.) koji su pod Vašom odgovornošću. Navedite uloge arhiviranja (uredi podrijetla, agencije za prijenos, itd.) i pravila arhiviranja. Navedite da li podaci padaju unutar okvira javnih arhiva.",
         "source": "piaF Connected Objects p22 - WIKI"
       },
-      "pia_TEC_PAP": {
+      "PIA_TEC_PAP": {
         "placeholder": "Ovdje navedite jesu li uvedeni mehanizmi za praćenje integriteta papirnatih dokumenata, koji su i za koju svrhu.",
         "name": "Sigurnost papirnatih dokumenata",
         "description": "Tamo gdje se tijekom obrade koriste papirnati dokumenti koji sadrže podatke, ovdje navedite kako se ispisuju, pohranjuju, uništavaju i razmjenjuju.",
         "source": "piaF Connected Objects p22"
       },
-      "pia_TEC_MINI": {
+      "PIA_TEC_MINI": {
         "placeholder": "Ovdje navedite sredstva koja su provedena kako bi se smanjila ozbiljnost rizika ograničavanjem količine osobnih podataka",
         "name": "Smanjenje količine osobnih podataka",
         "description": "Mogu se koristiti sljedeće metode: Filtriranje i uklanjanje, smanjenje osjetljivosti putem pretvorbe, smanjenje otkrivajuće prirode podataka, smanjenje akumulacije podataka, ograničavanje pristupa podacima",
         "source": "piaF Connected Objects p40"
       },
-      "pia_SEC_EXP": {
+      "PIA_SEC_EXP": {
         "placeholder": "Ovdje opišite kako se provode ažuriranja softvera (operativnih sustava, aplikacija itd.) i primjena sigurnosnih ispravljajućih zakrpa za sigurnosne ispravke.",
         "name": "Operativna sigurnost",
         "description": "Pravila uvedena kako bi se smanjla mogućnost i učinak rizika na sredstva koja podupiru osobne podatke.",
         "source": "piaF Connected Objects p22 - WIKI"
       },
-      "pia_SEC_MAL": {
+      "PIA_SEC_MAL": {
         "placeholder": "Ovdje opišite kontrole koje se provode kako bi se smanjili rizici pri pristupu manje sigurnim mrežama.",
         "name": "Suzbijanje zlonamjernog softvera",
         "description": "Kontrole implementirane na radnim stanicama i poslužiteljima kako bi ih zaštitili od zlonamjernog softvera dok se pristupaju manje sigurnim mrežama.",
         "source": "piaF Connected Objects p22 - WIKI"
       },
-      "pia_SEC_COMP": {
+      "PIA_SEC_COMP": {
         "placeholder": "Ovdje opišite kontrole koje se provode na radnim stanicama",
         "name": "Upravljanje radnim stanicama",
         "description": "Kontrole implementirane na radnim stanicama (automatsko zaključavanje, redovita ažuriranja, konfiguracija, fizička sigurnost itd.) kako bi se smanjila mogućnost iskorištavanja softverskih svojstava (operativni sustavi, poslovne aplikacije i sl.) s nepovoljnim utjecajem na osobne podatke.",
         "source": "piaF Connected Objects p22 - WIKI"
       },
-      "pia_SEC_WEB": {
+      "PIA_SEC_WEB": {
         "placeholder": "Ovdje navedite kontrole provedene za zaštitu mrežnih stranica.",
         "name": "Sigurnost mrežnih stranica",
         "description": "Implementacija preporuka ANSSI-ja za osiguravanje mrežnih stranica.",
         "source": "piaF Connected Objects p22 - WIKI"
       },
-      "pia_SEC_BKP": {
+      "PIA_SEC_BKP": {
         "placeholder": "Ovdje navedite kako se upravlja sigurnosnim kopijama. Pojasnite jesu li pohranjene na sigurnom mjestu.",
         "name": "Sigurnosne kopije",
         "description": "Pravila i sredstva koja se provode kako bi se osigurala dostupnost i/ili cjelovitost osobnih podataka uz istovremeno zadržavanje njihove tajnosti.",
         "source": "piaF Connected Objects p23 & pia3 p27  - WIKI"
       },
-      "pia_SEC_MAIN": {
+      "PIA_SEC_MAIN": {
         "placeholder": "Ovdje opišite kako se upravlja fizičkim održavanjem hardvera",
         "name": "Održavanje",
         "description": "Pravila koja opisuju kako se upravlja fizičkim održavanjem hardvera, navodeći je li to podugovoreno. <br> Navedite je li dopušteno daljinsko održavanje aplikacija i prema kakvim dogovorima. Navedite da li se defektnom opremom upravlja na određeni način.",
         "source": "piaF Connected Objects p23"
       },
-      "pia_SEC_CTR": {
+      "PIA_SEC_CTR": {
         "placeholder": "Ovdje opišite specifične mjere za izvršitelje obrade (društvo koje pruža usluge poslužitelja, drušvo za održavanje, administrator, specijalizirani pružatelji usluga itd.)",
         "name": "Ugovori o izvršavanju obrade",
         "description": "TO BE TRANSLATED - Les données à caractère personnel communiquées à ou gérées par des sous-traitants doivent bénéficier de garanties suffisantes. <strong>Faire appel uniquement à des sous-traitants présentant des garanties suffisantes</strong> (notamment en termes de connaissances spécialisées, de fiabilité et de ressources). Exiger la communication par le prestataire de sa politique de sécurité des systèmes d’information. <br>Prendre et documenter les moyens (audits de sécurité, visite des installations, etc.) permettant d’<strong>assurer l’effectivité des garanties offertes par le sous-traitant<strong> en matière de protection des données. Ces garanties incluent notamment :<br> - le chiffrement des données selon leur sensibilité ou à défaut l’existence de procédures garantissant que la société de prestation n’a pas accès aux données qui lui sont confiées<br>- le chiffrement des transmissions de données (ex : connexion de type HTTPS, VPN, etc.)<br>- des garanties en matière de protection du réseau, de traçabilité (journaux, audits), de gestion des habilitations, d’authentification, etc.<br><strong>Prévoir un contrat avec les sous-traitants</strong>, qui définit notamment l’objet, la durée, la finalité du traitement et les obligations des parties. S’assurer qu’il contient en particulier des dispositions fixant :<br>- leur obligation en matière de confidentialité des données personnelles confiées<br>- des contraintes minimales en matière d’authentification des utilisateurs<br>- les conditions de restitution et/ou de destruction des données en fin du contrat<br>- les règles de gestion et de notification des incidents. Celles-ci devraient comprendre une information du responsable de traitement en cas de découverte de faille de sécurité ou d’incident de sécurité et cela dans les plus brefs délais lorsqu’il s’agit d’une violation de données à caractère personnel.<br>- Dans le cas de l’utilisation de fournisseur de cloud computing :<br>\t1. identifier clairement les données et les traitements qui passeront dans le cloud ;<br>\t2. définir ses propres exigences de sécurité technique et juridique ;<br>\t3. conduire une étude de risques afin d'identifier les mesures de sécurité appropriées ;<br>\t4. identifier le type de cloud pertinent pour le traitement envisagé ;<br>\t5. choisir un prestataire présentant des garanties suffisantes ;<br>\t6. revoir la politique de sécurité interne ;<br>\t7. surveiller les évolutions dans le temps.",
         "source": "Mjere_SAD nabava: identificirane i podložne ugovoru"
       },
-      "pia_SEC_NET": {
+      "PIA_SEC_NET": {
         "placeholder": "Ovdje navedite sigurnosne kontrole mreže na kojoj se obrada izvršava",
         "name": "Mrežna sigurnost",
         "description": "Ovisno o vrsti mreže na kojoj se obrada izvršava (izolirana, privatna ili internetska). Navedite koji je sustav vatrozida, odnosno koji su sustavi za otkrivanje upada ili drugi aktivni ili pasivni uređaji zaduženi za osiguranje sigurnosti mreže.",
         "source": "piaF Connected Objects p23"
       },
-      "pia_SEC_PHY": {
+      "PIA_SEC_PHY": {
         "placeholder": "Ovdje navedite kako se provodi kontrola fizičkog pristupa u prostorijama u kojima se obrada izvršava.",
         "name": "Kontrola fizičkog pristupa",
         "description": "Pravila kako bi se osigurala fizička sigurnost (zoniranje, pratnja za posjetitelje, nošenje kartica za prolaz, zaključana vrata itd.). Navedite postoje li postupci upozoravanja u slučaju provale.",
         "source": "piaF Connected Objects p23"
       },
-      "pia_SEC_LOG": {
+      "PIA_SEC_LOG": {
         "placeholder": "Ovdje navedite sredstva i kontrole koje se provode za otkrivanje incidenta koji uključuju osobne podatke",
         "name": "Praćenje aktivnosti mreže",
         "description": "Nadzor sustava za otkrivanje upada i sustava za sprečavanje upada radi analiziranja mrežnog prometa (žičane mreže, Wi-Fi, radio valovi, svjetlovodi itd.) u stvarnom vremenu i otkrivanje sumnjivih aktivnosti koje ukazuju na scenarij kibernetičkog napada.",
         "source": "pia3 p67 - WIKI"
       },
-      "pia_SEC_MAT": {
+      "PIA_SEC_MAT": {
         "placeholder": "Ovdje navedite kontrole koje su od utjecaja na fizičku sigurnost poslužitelja i radnih stanica",
         "name": "Sigurnost hardvera",
         "description": "Ovdje navedite kontrole od utjecaja na fizičku sigurnost poslužitelja i radnih stanica (sigurnosna pohrana, sigurnosni kabeli, filtri povjerljivosti, sigurnosno brisanje prije uklanjanja, itd.).",
         "source": "piaF Connected Objects p23 - WIKI"
       },
-      "pia_SEC_SRC": {
+      "PIA_SEC_SRC": {
         "placeholder": "Ovdje navedite je li područje implantacije podložno ekološkim katastrofama",
         "name": "Izbjegavanje izvora rizika",
         "description": "Dokumentacija o području implantacije, koje ne bi trebalo biti podložno katastrofama u okolišu (zona poplava, blizina kemijskih industrija, potresi ili vulkanske zone itd.) Navedite da li su na istom području pohranjeni opasni proizvodi.",
         "source": "piaF Connected Objects p23 - WIKI"
       },
-      "pia_SEC_PROT": {
+      "PIA_SEC_PROT": {
         "placeholder": "Ovdje navedite sredstva za ograničavanje ne-ljudskih izvora rizika.",
         "name": "Zaštita od ne-ljudskih izvora rizika",
         "description": "Pravila koja opisuju sredstva za sprečavanje, otkrivanje i borbu protiv požara. Ako je primjenjivo, navedite sredstva za sprečavanje oštećenja od vode. Također navedite sredstva za nadzor napajanja i pomoć.",
         "source": "piaF Connected Objects p23 - WIKI"
       },
-      "pia_ORG_ORG": {
+      "PIA_ORG_ORG": {
         "placeholder": "Ovdje navedite da li su definirane uloge i odgovornosti za zaštitu podataka.",
         "name": "Organizacija",
         "description": "Navedite da li postoji osoba odgovorna za provođenje zakona i propisa o privatnosti. Navedite postoji li nadzorni odbor (ili slično tijelo) odgovoran za usmjeravanje i praćenje radnji vezanih uz zaštitu privatnosti.",
         "source": "piaF Connected Objects p24 - WIKI"
       },
-      "pia_ORG_POL": {
+      "PIA_ORG_POL": {
         "placeholder": "Ovdje opišite dokumentarnu bazu koja navodi ciljeve i pravila zaštite podataka.",
         "name": "Pravila",
-        "description": "Navedite važne aspekte koji se odnose na zaštitu podataka u dokumentarnoj bazi koji čine pravila o zaštiti podataka i u obliku koji odgovara svakoj vrsti sadržaja (rizici, ključna načela koje treba slijediti, zadani ciljevi, pravila koja se primjenjuju, itd.) i svakom cilju komunikacije (korisnici, informatički odjel, stvaratelji pravila, itd.). ",.).",
+        "description": "Navedite važne aspekte koji se odnose na zaštitu podataka u dokumentarnoj bazi koji čine pravila o zaštiti podataka i u obliku koji odgovara svakoj vrsti sadržaja (rizici, ključna načela koje treba slijediti, zadani ciljevi, pravila koja se primjenjuju, itd.) i svakom cilju komunikacije (korisnici, informatički odjel, stvaratelji pravila, itd.).",
         "source": "pia3 p78 - WIKI"
       },
-      "pia_ORG_RMGT": {
+      "PIA_ORG_RMGT": {
         "placeholder": "Ovdje opišite postupke za kontrolu rizika koje aktivnosti obrade koju organizacija provodi predstavljaju za zaštitu podataka i privatnost ispitanika.",
         "name": "Upravljanje rizicima za privatnost",
         "description": "Pravila koja opisuju postupke kojima se kontroliraju rizici koji uslijed aktivnosti obrade koje provodi organizacija nastaju za zaštitu podataka i privatnost ispitanika (izgradnja karte rizika itd.).",
         "source": "pia3 p77 - WIKI"
       },
-      "pia_ORG_PBD": {
+      "PIA_ORG_PBD": {
         "placeholder": "Ovdje opišite kako je zaštita privatnosti integrirana u projekte",
         "name": "Integriranje zaštite privatnosti u projektima",
         "description": "Postojanje pravila osmišljenih za integriranje zaštite osobnih podataka u sve nove aktivnosti obrade.",
         "source": "pia3 p79 - WIKI"
       },
-      "pia_ORG_VIOL": {
+      "PIA_ORG_VIOL": {
         "placeholder": "Ovdje navedite jesu li IT incidenti podložni dokumentiranom i testiranom postupku upravljanja.",
         "name": " Upravljanje povredama osobnih podataka",
         "description": "Postojanje operativne organizacije koja može otkriti i popravljati incidente koji mogu utjecati na građanske slobode i privatnost ispitanika.",
         "source": "piaF Connected Objects p24 and pia3 p36 - WIKI"
       },
-      "pia_ORG_PERS": {
+      "PIA_ORG_PERS": {
         "placeholder": "Ovdje navedite koje se kontrole podizanja svijesti provode u odnosu na zaposlenike.",
         "name": "Upravljanje osobljem",
         "description": "Postojanje pravila koja opisuju kontrolu podizanja svijesti i provode se prilikom novog zapošljavanja i koje se kontrole provode kada osobe koje imaju pristup podacima napuštaju svoj posao.",
         "source": "piaF Connected Objects p24"
       },
-      "pia_ORG_EXT": {
+      "PIA_ORG_EXT": {
         "placeholder": "Ovdje za izvršitelje obrade koji zahtijevaju pristup podacima navedite sigurnosne kontrole i dogovore koji se provode u vezi s takvim pristupom.",
         "name": "Odnosi s trećim stranama",
         "description": "Postojanje pravila i postupaka koji smanjuju rizik da legitimni pristup osobnim podacima od strane trećih osoba može predstavljati rizik za građanske slobode i privatnost ispitanika.",
         "source":  "pia3 p48 - WIKI"
       },
-      "pia_ORG_AUD": {
+      "PIA_ORG_AUD": {
         "placeholder": "Ovdje navedite da li se nadzire učinkovitost i primjerenost kontrola privatnosti.",
         "name": "Nadzor",
         "description": "Postojanje pravila i postupaka za dobivanje organizacije koja može upravljati i kontrolirati zaštitu osobnih podataka koji se kod nje nalaze.",
         "source":  "pia3 p76 - WIKI"
       },
-      "pia_DEF_EXA": {
+      "PIA_DEF_EXA": {
         "name": "Kvaliteta podataka",
         "description": "Osobni moraju biti točni i prema potrebi ažurni; mora se poduzeti svaka razumna mjera radi osiguravanja da se osobni podaci koji nisu točni, uzimajući u obzir svrhe u koje se obrađuju, bez odlaganja izbrišu ili isprave („točnost”). <br>Pogledajte <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">čl. 5.1 d) of [GDPR]</a>",
         "source": "OUZP čl. 5.1 d)"
       },
-      "pia_DEF_MES": {
+      "PIA_DEF_MES": {
         "name": "Mjere",
         "description": "Treba ih odabrati između onih dostupnih u odjeljku \"Planirane ili postojeće mjere\", koji možete dopuniti ako je potrebno.",
         "source": "None"
       },
-      "pia_DEF_RT": {
+      "PIA_DEF_RT": {
         "name": "Voditelj obrade",
         "description": "Fizička ili pravna osoba, tijelo javne vlasti, agencija ili drugo tijelo koje samo ili zajedno s drugima određuje svrhe i sredstva obrade osobnih podataka; kada su svrhe i sredstva takve obrade utvrđeni pravom Unije ili pravom države članice, voditelj obrade ili posebni kriteriji za njegovo imenovanje mogu se predvidjeti pravom Unije ili pravom države članice.<br>Pogledajte <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">čl. 4.7 [GDPR]</a>",
         "source": "OUZP čl. 4.7"
       },
-      "pia_DEF_DCP": {
+      "PIA_DEF_DCP": {
         "name": "Osobni podaci",
         "description": "Svi podaci koji se odnose na pojedinca čiji je identitet utvrđen ili se može utvrditi (\"ispitanik\"); pojedinac čiji se identitet može utvrditi jest osoba koja se može identificirati izravno ili neizravno, osobito uz pomoć identifikatora kao što su ime, identifikacijski broj, podaci o lokaciji, mrežni identifikator ili uz pomoć jednog ili više čimbenika svojstvenih za fizički, fiziološki, genetski, mentalni, ekonomski, kulturni ili socijalni identitet tog pojedinca. <br>Pogledajte <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 4.1 of [GDPR]</a>",
         "source": "OUZP čl. 4.1"
       },
-      "pia_DEF_DEST": {
+      "PIA_DEF_DEST": {
         "name": "Primatelj",
         "description": "Fizička ili pravna osoba, tijelo javne vlasti, agencija ili drugo tijelo kojem se otkrivaju osobni podaci, neovisno o tome je li on treća strana. Međutim, tijela javne vlasti koja mogu primiti osobne podatke u okviru određene istrage u skladu s pravom Unije ili države članice ne smatraju se primateljima; obrada tih podataka koju obavljaju ta tijela javne vlasti mora biti u skladu s primjenjivim pravilima o zaštiti podataka prema svrhama obrade. <br>Pogledajte <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Čl. 4.9 of [GDPR]</a>",
         "source": "OUZP čl. 4.9"
       },
-      "pia_DEF_SUPT": {
+      "PIA_DEF_SUPT": {
         "name": "Pomoćna sredstva",
         "description": "Sredstvo na koje se osobni podaci oslanjaju. To može biti hardver, softver, mreže, ljudi, papir ili papirnati prijenosni kanali",
         "source": "pia1 p10"
       },
-      "pia_DEF_MINC": {
+      "PIA_DEF_MINC": {
         "name": "Smanjenje količine podataka",
         "description": "Smanjite ozbiljnost rizika smanjivanjem količine osobnih podataka koji će se obrađivati ograničavanjem tih podataka na samo one koji su strogo nužni u svrhe za koje se obrađuju (inače ih se ne smije prikupljati).",
         "source": ""
       },
-      "pia_DEF_MIND": {
+      "PIA_DEF_MIND": {
         "name": "Smanjenje količine samih podataka",
         "description": "Reduce the severity of risks by minimizing the data themselves, by taking measures aimed at reducing their sensitivity such as filtering and removing unnecessary data, pseudonymising data, etc.",
         "source": "pia3 p64"
       },
-      "pia_DEF_CONS": {
+      "PIA_DEF_CONS": {
         "name": "Privola",
         "description": "Svako dobrovoljno, posebno, informirano i nedvosmisleno izražavanje želja ispitanika kojim on izjavom ili jasnom potvrdnom radnjom daje privolu za obradu osobnih podataka koji se na njega odnose.<br>Pogledajte <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 4.10 of [GDPR]</a>",
         "source": "OUZP čl. 4.10"
       },
-      "pia_DEF_ACC": {
+      "PIA_DEF_ACC": {
         "name": "Pravo na pristup",
         "description": "Ispitanik ima pravo dobiti od voditelja obrade potvrdu obrađuju li se osobni podaci koji se odnose na njega te ako se takvi osobni podaci obrađuju, pristup osobnim podacima i informacijama opisanim u <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 15 of [GDPR]</a>",
         "source":"OUZP čl. 15"
       },
-      "pia_DEF_PORT": {
+      "PIA_DEF_PORT": {
         "name": "Pravo na prenosivost podataka",
         "description": "Ispitanik ima pravo zaprimiti osobne podatke koji se odnose na njega, a koje je pružio voditelju obrade u strukturiranom, uobičajeno upotrebljavanom i strojno čitljivom formatu te ima pravo prenijeti te podatke drugom voditelju obrade bez ometanja od strane voditelja obrade kojem su osobni podaci pruženi, pogledajte <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 20 of [GDPR]</a>",
         "source": "OUZP čl. 20"
       },
-      "pia_DEF_RECT": {
+      "PIA_DEF_RECT": {
         "name": "Pravo na ispravak",
         "description": "Ispitanik ima pravo bez nepotrebnog odgađanja ishoditi od voditelja obrade ispravak netočnih osobnih podataka koji se na njega odnose. Uzimajući u obzir svrhe obrade, ispitanik ima pravo dopuniti nepotpune osobne podatke, među ostalim i davanjem dodatne izjave.",
         "source": "OUZP čl. 16"
       },
-      "pia_DEF_EFF": {
+      "PIA_DEF_EFF": {
         "name": "Pravo na brisanje",
         "description": "Ispitanik ima pravo od voditelja obrade ishoditi brisanje osobnih podataka koji se na njega odnose bez nepotrebnog odgađanja te voditelj obrade ima obvezu obrisati osobne podatke bez nepotrebnog odgađanja, pogledajte <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 17 of [GDPR]</a>",
         "source" : "OUZP čl. 17"
       },
-      "pia_DEF_LIM": {
+      "PIA_DEF_LIM": {
         "name": "Pravo na ograničenje obrade",
         "description": "Ispitanik ima pravo od voditelja obrade ishoditi ograničenje obrade, pogledajte <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 18 of [GDPR]</a>",
         "source": "OUZP čl. 18"
       },
-      "pia_DEF_OPP": {
+      "PIA_DEF_OPP": {
         "name": "Pravo na prigovor",
         "description": "Ispitanik ima pravo na temelju svoje posebne situacije u svakom trenutku uložiti prigovor na obradu osobnih podataka koji se odnose na njega, sukladno <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 21 of [GDPR]</a>",
         "source": "OUZP čl. 21"
       },
-      "pia_DEF_CHIF": {
+      "PIA_DEF_CHIF": {
         "name": "Enkripcija",
         "description": "Mjera činjenja osobnih podataka nerazumljivim bilo kome bez odobrenja za pristup (simetrična ili asimetrična enkripcija, korištenje javnih algoritama za koje se zna da su jaki, autentikacijski certifikati, itd.).",
         "source " : "Mesures_US Encryption"
       },
-      "pia_DEF_ANO": {
+      "PIA_DEF_ANO": {
         "name": "Anonimizacija",
         "description": "Postupak uklanjanja identifikacijskih osobina iz osobnih podataka. Da biste procijenili robusnost postupka anonimizacije, pogledajte <a target=\"_blank\" href=\"http://ec.europa.eu/justice/data-protection/article-29/documentation/opinion-recommendation/files/2014/wp216_en.pdf\">WP29 guidelines</a>.",
         "source": "Mesures_US and G29 guidelines http://ec.europa.eu/justice/data-protection/article-29/documentation/opinion-recommendation/files/2014/wp216_en.pdf"
       },
-      "pia_DEF_PSEU": {
+      "PIA_DEF_PSEU": {
         "name": "Pseudonimizacija",
         "description": "Obrada osobnih podataka na način da se osobni podaci više ne mogu pripisati određenom ispitaniku bez uporabe dodatnih informacija, pod uvjetom da se takve dodatne informacije drže odvojeno te da podliježu tehničkim i organizacijskim mjerama kako bi se osiguralo da se osobni podaci ne mogu pripisati pojedincu čiji je identitet utvrđen ili se može utvrditi.<br>Pseudonimizacija smanjuje povezivost skupova podataka s izvornim identitetom ispitanika; kao takva je korisna mjera sigurnosti, ali ne i metoda anonimizacije.",
         "source" :"OUZP čl. 4.5 i smjernice G29 p22 http://ec.europa.eu/justice/data-protection/article-29/documentation/opinion-recommendation/files/2014/wp216_en.pdf"
       },
-      "pia_DEF_CLO": {
+      "PIA_DEF_CLO": {
         "name": "Particioniranje podataka",
         "description": "Metode organizacije podataka koje smanjuju mogućnost da se osobni podaci mogu povezati i da se može dogoditi povreda svih osobnih podataka. Na primjer, prepoznavanjem osobnih podataka koji su korisni samo za pojedini poslovni proces i njihovo logičko razdvajanje.",
         "source": "pia3 p19 - WIKI"
       },
-      "pia_DEF_CTLA": {
+      "PIA_DEF_CTLA": {
         "name": "Kontrole logičkog pristupa",
         "description": "Sredstva koja se primjenjuju kako bi ograničili rizici da će neovlaštene osobe pristupiti osobnim podacima elektroničkim putem; to, između ostalog, zahtijeva: <br> - <strong> upravljanje profilima korisnika </ strong> odvajanjem zadataka i područja odgovornosti (po mogućnosti na centraliziran način) radi ograničavanja pristupa osobnim podacima isključivo na ovlaštene korisnike primjenom načela nužnog znanja i najmanjih ovlasti, <br> - <strong> povlačenje prava zaposlenika, ugovornih strana i drugih trećih osoba kada više nemaju ovlasti za pristup prostorima ili resursu </ strong> ili kada završi njihov ugovor o radu <strong></strong>.",
         "source": "pia3 p43 - WIKI"
       },
-      "pia_DEF_PWD": {
+      "PIA_DEF_PWD": {
         "name": "Lozinka",
         "description": "Lozinke moraju biti sastavljene od najmanje osam znakova; moraju se obnoviti ako postoji najmanja zabrinutost da bi one mogli biti ugrožene, a eventualno i povremeno (svakih šest mjeseci ili jednom godišnje) i moraju sadržavati najmanje tri od četiri vrste znakova (velika slova, mala slova, brojevi i posebni znakovi); kada se promijeni lozinka, posljednjih pet lozinki ne smiju se ponovno koristiti; istu lozinku ne smije se koristiti za različite pristupe; lozinke ne bi trebale biti povezane s osobnim podacima (uključujući ime ili datum rođenja). Odredite maksimalni broj pokušaja nakon kojih se izdaje upozorenje i autentikacija blokira (privremeno ili dok se ručno ne deblokira).",
         "source" : "Mesure_US"
       },
-      "pia_DEF_AUTH": {
+      "PIA_DEF_AUTH": {
         "name": "Autentikacija",
         "description": "Svaku osobu koja ima legitiman pristup osobnim podacima (zaposlenici, ugovorne strane i ostale treće strane) treba identificirati jedinstvenim identifikatorom. Odaberite način autentikacije za otvaranje sjednica prikladan za kontekst, razinu rizika i očekivanu robusnost. Preporuke: ako rizici nisu povišeni, može se koristiti lozinka; Međutim, ako su rizici veći, upotrijebite jednokratnu token lozinku, ali promijenite zadanu lozinku za aktivaciju ili, kada se dio lozinke šalje SMS-om, karticom s PIN-om, elektroničkim certifikatom ili bilo kojim drugim oblikom jake autentikacije.",
         "source": "Mesures_US Logical Access Control"
       },
-      "pia_DEF_LOG": {
+      "PIA_DEF_LOG": {
         "name": "Nadziranje",
         "description": "Postavite arhitekturu zapisivanja kako bi se omogućilo rano otkrivanje incidenta koji uključuju osobne podatke i koje se može koristiti za njihovu analizu ili dokazivanje u vezi s istragama.",
         "source": "Mesures_US Surveillance"
       },
-      "pia_DEF_ARCH": {
+      "PIA_DEF_ARCH": {
         "name": "Arhiviranje",
         "description": "Postupci za čuvanje i upravljanje elektroničkim arhivima koji sadrže osobne podatke kojima se osigurava njihova vrijednost (posebice njihova pravna vrijednost) tijekom cijelog potrebnog razdoblja (prijenos, pohrana, migracija, pristupačnost, uklanjanje, pravila arhiviranja, zaštita povjerljivosti itd..).",
         "source": "Mesures_USE Archiving"
       },
-      "pia_DEF_MIN1": {
+      "PIA_DEF_MIN1": {
         "name": "Filtriranje i uklanjanje",
         "description": "Kad se uvoze podaci, mogu se nenamjerno prikupljati različite vrste metapodataka (kao što su EXIF podaci kod slikovnih datoteka). <br> Takvi metapodaci moraju biti identificirani i uklonjeni ako nisu potrebni za navedene svrhe.",
         "source" : "piaF Connected objects p42 - WIKI"
       },
-      "pia_DEF_MIN2": {
+      "PIA_DEF_MIN2": {
         "name": "Smanjenje osjetljivosti putem pretvorbe",
         "description": "Nakon što su primljeni osjetljivi podaci, kao dio niza općih informacija ili koji se prenose samo u statističke svrhe, oni se mogu pretvoriti u manje osjetljivi oblik ili pseudonimizirani. Na primjer: <br> - ako sustav prikuplja IP adresu kako bi utvrdio lokaciju korisnika za statističku svrhu, IP adresa može biti izbrisana nakon što je donesen zaključak o gradu ili okrugu - <br> ako sustav prima video podatke iz nadzornih kamera može prepoznati ljude koji stoje ili se kreću na sceni i zamutiti ih<br> - ako je sustav pametno brojilo, može skupljati energiju tijekom određenog razdoblja, a da je ne snima u stvarnom vremenu",
         "source" : "piaF Connected objects p42 - WIKI"
       },
-      "pia_DEF_SRC": {
+      "PIA_DEF_SRC": {
         "name": "Izvor rizika",
         "description": "Osoba ili ne-ljudski izvor koji može uzrokovati rizik. Taj izvor može djelovati slučajno ili namjerno.",
         "source": "pia1 p11 - WIKI"
       },
-      "pia_DEF_MEN": {
+      "PIA_DEF_MEN": {
         "name": "Prijetnja",
         "description": "Postupak koji obuhvaća jednu ili više pojedinačnih radnji na pomoćnim sredstvima za podatke. Upotrebljavaju je, namjerno ili na neki drugi način, izvori rizika i može izazvati strahovani događaj.",
         "source": "pia1 p12 - WIKI"
       },
-      "pia_DEF_MENA": {
+      "PIA_DEF_MENA": {
         "name": "Prijetnje koje mogu dovesti do nezakonitog pristupa",
         "description": "Prijetnje vezane uz: - <strong> Hardver </ strong> koji je korišten neprikladno, promatran, izmijenjen, izgubljen (upotreba ili prijevoz osjetljivog hardvera u osobne svrhe, gledanje zaslona osobe bez njenog znanja tijekom putovanja vlakom, praćenje putem hardverskog snimača ključeva itd.) <br> - <strong> Softver </ strong> koji je korišten neprikladno, promatran, promijenjen (podizanje ovlasti, prikupljanje konfiguracijskih podataka, infekcija zlonamjernim kodom itd.) <br>- <strong> Računalne kanale </strong> koji su promatrani (Presretanje Ethernet prometa, itd.)<br>- Ljude </ strong> koji su promatrani, manipulirani, izgubljeni (nenamjerno otkrivanje informacija, socijalni inženjering, promjene u zadacima) <br>- <strong> Papirnate dokumente </strong> koji su promatrani, izgubljeni (čitanje, krađa pošte itd.) <br>- <strong> Papirnate prijenosne kanale </ strong> (čitanje knjiga potpisa u optjecaju i sl.)",
         "source": "piaF Connected objects p44 and 45"
       },
-      "pia_DEF_MENM": {
+      "PIA_DEF_MENM": {
         "name": "Prijetnje koje mogu dovesti do neželjenih izmjena osobnih podataka",
         "description": "<strong>Prijetnje vezane uz: </strong><br> - <strong>Hardver </strong> izmijenjen (dodavanje nekompatibilnog hardvera koji je doveo do kvarova, uklanjanja nužnih komponenti itd.) <br>- <strong>Softver</strong> korišten neprimjereno ili izmijenjen (neželjene izmjene podataka u bazama podataka, pogreške operatera koje mijenjaju podatke itd.) <br>- <strong> Računalne kanale </strong> korištene neprimjereno (ponovno slanje presretanih podataka itd.) <br>- <strong>Ljude </strong> preopterećene ili manipulirane (dodjeljivanje osoblju zadataka izvan njihovih sposobnosti, stres ili negativne promjene uvjeta rada, utjecaja itd.) <br> - Papirnate dokumente koji su izmijenjeni (izmjene brojeva u datoteci, zamjena izvornika krivotvorinom, itd.) <br>- <strong> Papirnate prijenosne kanale </ strong> koji su izmijenjeni (promjena iz jedne potpisne knjige u drugu, slanje više proturječnih dokumenata itd..)",
         "source": "piaF Connected Objects p43 and 44, WIKI"
       },
-      "pia_DEF_MENI": {
+      "PIA_DEF_MENI": {
         "name": "Prijetnje koje mogu dovesti do nestanka osobnih podataka",
         "description": "<strong>Prijetnje vezane uz: </strong> <br> - <strong> Hardver </strong>: upotrebljava se neprikladno, preopterećen je, izmijenjen, oštećen ili izgubljen (jedinica za pohranu puna, preopterećenje kapaciteta obrade, dodavanje nekompatibilnog hardvera što rezultira kvarovima, ili gubitak imovine itd.) <br> - <strong> Softver </strong>: upotrebljava se neprikladno, preopterećen je, izmijenjen, oštećen ili izgubljen (brisanje podataka, prekoračenje veličine baze podataka, logička bomba, <strong> Računalne kanale </strong>: preopterećeni, izmijenjeni, izgubljeni (neovlašteno preuzimanje, gubitak internetske veze i sl.) <br>- <strong> Ljude </strong> : preopterećeni, oštećeni ili izgubljeni (loša upotreba vještina, bolesti, mirovina, itd.)<br>- <strong> Papirnate dokumente </strong>: korišteni neprikladno, oštećeni, izgubljeni (brisanje, starenje arhiviranih dokumenata, krađa ili gubitak dokumenata, itd.)<br>- <strong> Papirnate prijenosne kanale </strong>: preopterećeni, oštećeni, izmijenjeni, izgubljeni (dostava pošte zaustavljena štrajkom, preraspodjelama unutar ureda ili prostorija, gubitak tvrtke za dostavu dokumenata, reorganizacije paprirnatih prijenosnih kanala itd.)",
         "source": "piaF Connected Objects p44 and 45, WIKI"
       },
-      "pia_DEF_GRV": {
+      "PIA_DEF_GRV": {
         "name": "Ozbiljnost",
         "description": "Ozbiljnost predstavlja jačinu rizika. Ona prvenstveno ovisi o štetnoj prirodi potencijalnih utjecaja.",
         "source": "pia1 page 6"
       },
-      "pia_DEF_VRA": {
+      "PIA_DEF_VRA": {
         "name": "Vjerojatnost",
         "description": "Vjerojatnost izražava mogućnost nastanka rizika. Ona prvenstveno ovisi o razini ranjivosti pomoćnih sredstava prilikom prijetnji i razini sposobnosti izvora rizika da ih iskoriste.",
         "source": "pia1 page 6"
       },
-      "pia_DEF_PBDS": {
+      "PIA_DEF_PBDS": {
         "name": "Upravljanje projektima",
         "description": "Mjere poduzete za integraciju zaštite osobnih podataka u sve nove aktivnosti obrade (pouzdana imena, smjernice, CNIL metodologija za upravljanje rizikom ili druga interna metodologija).",
         "source": "Mesures_US"
       },
-      "pia_DEF_VIOL": {
+      "PIA_DEF_VIOL": {
         "name": "Povreda osobnih podataka",
         "description": "Povreda sigurnosti koja dovodi do slučajnog ili nezakonitog uništenja, gubitka, izmjene, neovlaštenog otkrivanja ili pristupa osobnim podacima koji su preneseni, pohranjeni ili na drugi način obrađeni.",
         "source": "OUZP čl. 4.12"
       },
-      "pia_DEF_ENJ": {
+      "PIA_DEF_ENJ": {
         "name": "Ulozi",
         "description": "Očekivane prednosti (za organizaciju, za ispitanike, za društvo općenito, itd.).",
         "source": "pia1 p4 footnote 8"
       },
-      "pia_DEF_ST": {
+      "PIA_DEF_ST": {
         "name": "Izvršitelj obrade",
         "description": "fizička ili pravna osoba, tijelo javne vlasti, agencija ili drugo tijelo koje obrađuje osobne podatke u ime voditelja obrade, pogledajte <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 4.8 of [GDPR]</a>.<br>Izvršitelj obrade i bilo koja osoba koja djeluje pod vodstvom voditelja obrade ili izvršitelja obrade koja ima pristup osobnim podacima, ne obrađuje te podatke ako to ne zatraži voditelj obrade, osim ako to nalaže pravo Unije ili pravo države članice, pogledajte <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 29 of [GDPR]</a>.",
         "source": "OUZP čl. 4.8 and 29"
       },
-      "pia_DEF_RGPD": {
+      "PIA_DEF_RGPD": {
         "name": "OUZP (Opća uredba o zaštiti podataka, engl. GDPR - General Data Protection Regulation",
         "description": "Uredba o zaštiti pojedinaca u vezi s obradom osobnih podataka i o slobodnom kretanju takvih podataka te o stavljanju izvan snage Direktive 95/46/EZ.",
         "source": "GDPR title"
       },
-      "pia_DEF_PC": {
+      "PIA_DEF_PC": {
         "name": "Ispitanik",
         "description": "Osobe na koje se odnose podaci obuhvaćeni obradom.",
         "source": "pia1 p9"
       },
-      "pia_DEF_MIN3": {
+      "PIA_DEF_MIN3": {
         "name": "Smanjenje identificirajuće prirode podataka",
         "description": "Sustav može osigurati da: <br>- korisnik može koristiti resurs ili uslugu bez rizika otkrivanja identiteta (anonimnih podataka) <br>- korisnik može koristiti resurs ili uslugu bez rizika otkrivanja njegovog/njezinog identiteta, ali ostaju prepoznatljivi i odgovorni za to korištenje (pseudonimni podaci) <br>- korisnik može izvršiti višestruku upotrebu resursa ili usluga bez rizika da se te različite upotrebe povezuju zajedno (podaci se ne mogu povezati) <br>- korisnik može koristiti resurs ili uslugu bez rizika od drugih, osobito trećih osoba, koje mogu primijetiti korištenje resursa ili usluge (neobavezanost) <br> Izbor metode s gornjeg popisa mora biti napravljen na temelju utvrđenih prijetnji. Za neke vrste prijetnji po privatnost, pseudonimizacija će biti prikladnija od anonimizacije (na primjer, ako postoji potreba za sljedivosti). Osim toga, neke prijetnje po privatnost riješit će se pomoću kombinacije metoda.",
         "source" : "piaF Connected objects p42 - WIKI"
       },
-      "pia_DEF_MIN4": {
+      "PIA_DEF_MIN4": {
         "name": "Smanjenje akumulacije podataka",
         "description": "Sustav se može organizirati u nezavisne dijelove s posebnim funkcijama kontrole pristupa. Podaci se također mogu podijeliti između tih nezavisnih podsustava i svaki podsustav može ih kontrolirati koristeći različite mehanizme kontrole pristupa. Ako je podsustav kompromitiran, utjecaji na cjelokupne podatke mogu se smanjiti.",
         "source": "piaF Connected objects p42 - WIKI"
       },
-      "pia_DEF_MIN5": {
+      "PIA_DEF_MIN5": {
         "name": "Ograničavanje pristupa podacima",
         "description": "Sustav može ograničiti pristup podacima prema principu \"nužnog znanja\". Sustav može odvojiti osjetljive podatke i primijeniti određene politike kontrole pristupa. Sustav također može enkriptirati osjetljive podatke kako bi zaštitila njihova povjerljivost tijekom prijenosa i pohrane. Također je potrebno zaštititi pristup privremenim kolačićima koji se proizvode tijekom obrade podataka.",
         "source": "piaF Connected objects p42 - WIKI"
       },
-      "pia_EX_DCPC": {
+      "PIA_EX_DCPC": {
         "name": "Zajednički osobni podaci",
         "description": "<strong>Podaci o identitetu </strong>: građanski status, identitet, dob, itd. <strong> Osobni život </strong>: životne navike, bračni status, <strong> Podaci o vezi </strong>: IP adrese, zapisi o događajima itd. <br> <strong> Podaci o lokaciji </strong>: putovanja, GPS podaci, GSM podaci itd. <Strong> Ostalo </strong>: telefonski broj, adresa e-pošte itd.",
         "source": "pia2 old version - WIKI"
       },
-      "pia_EX_DCPS": {
+      "PIA_EX_DCPS": {
         "name": "Osobni podaci koji se percipiraju kao osjetljivi",
         "description": "Broj socijalnog osiguranja (NIR), biometrijski podaci, bankovni podaci",
         "source": "pia2 old version - WIKI"
       },
-      "pia_EX_DCPR": {
+      "PIA_EX_DCPR": {
         "name": "Kaznene osude i osjetljivi osobni podaci",
         "description": "Filozofski, politički, vjerski i sindikalni stavovi, seksualni život, podaci o zdravlju, rasno ili etničko podrijetlo, podaci o zdravlju ili seksualnom životu, kaznena djela, osude, sigurnosne mjere, pogledajte <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 9 and 10 of [GDPR]</a>.",
         "source": "pia2 old version, OUZP čl. 9 and 10 - WIKI"
       },
-      "pia_EX_HUMI": {
+      "PIA_EX_HUMI": {
         "name": "Unutarnji ljudski izvori",
         "description": "Mogu biti ili:<br>- zaposlenik koji je nemaran ili se odmetnuo, blizina sustava, vještine, ovlasti i vrijeme koje je na raspolaganju su potencijalno visoki, mogući nedostatak obuke i svjesnosti<br>- nepažljiv ili odmetnuti korisnik, član obitelji ili prijatelj koji ima pristup usluzi.<br> Mogući su različiti motivi, uključujući: nespretnost, pogrešku, igru nemarnosti, zlu namjeru, osvetu, špijunažu",
         "source": "piaF Connected objects p41 - WIKI"
       },
-      "pia_EX_HUME": {
+      "PIA_EX_HUME": {
         "name": "Vanjski ljudski izvori",
         "description": "To mogu biti: <br>- odmetnuti ili naivan susjed koji uslijed fizičke blizine hakira podatke uređaja;<br>- haker koji cilja korisnika pomoću znanja koje ima o korisniku i nekih od informacija o njemu/njoj;<br>- haker koji cilja jednu tvrtku pomoću znanja koje posjeduje o tvrtkama koje može potkopati njihov ugled;<br>- ovlaštena tvrtka treće strane koja koristi povlašteni pristup za nezakonit pristup informacijama.",
         "source": "piaF Connected objects p41 - WIKI"
       },
-      "pia_EX_NHUM": {
+      "PIA_EX_NHUM": {
         "name": "Ne-ljudski izvori",
         "description": "Incident ili oštećenje u jednoj od organizacija (struja, požar, poplava itd.)",
         "source": "piaF Connected objects p41 - WIKI"
       },
-      "pia_EX_IMPN": {
+      "PIA_EX_IMPN": {
         "name": "Zanemariv utjecaj",
         "description": "Ispitanici ili neće biti pogođeni ili mogu naići na par neugodnosti koje će nadvladati bez ikakvih problema. Na primjer:<br>- fizičke: prolazne glavobolje;<br>- materijalne: gubitak vremena u ponavljanju formalnosti ili čekanju na njihovo ispunjavanje, primanje neželjenih pošte (npr. spam pošta), ponovna upotreba podataka objavljenih na web stranicama za svrhe ciljanog oglašavanja, itd.;<br>- moral: puka smetnja, osjećaj invazije privatnosti bez stvarne ili objektivne štete (komercijalni upad) itd.",
         "source": "piaF Connected Objects p41 - WIKI"
       },
-      "pia_EX_IMPL": {
+      "PIA_EX_IMPL": {
         "name": "Ograničen utjecaj",
         "description": "Ispitanici mogu naići na značajne neugodnosti, koje će moći nadvladati unatoč nekoliko poteškoća. Na primjer:<br>- fizičke: manja tjelesna oboljenja (manje bolesti zbog nepoštivanja kontraindikacija), gubitka ugleda koji rezultira fizičkom ili psihološkom odmazdom itd.;<br>- materijalne: neočekivana plaćanja (pogrešno nametnute novčane kazne), uskraćivanje pristupa administrativnim ili komercijalnim uslugama, primanje neželjene ciljane pošte koja bi mogla oštetiti ugled ispitanika, itd.;<br>- moralne: manje, ali objektivne psihološke boli, osjećaj invazije privatnosti bez nepovratne štete, zastrašivanje na društvenim mrežama itd..",
         "source": "piaF Connected objects p41 - WIKI"
       },
-      "pia_EX_IMPI": {
+      "PIA_EX_IMPI": {
         "name": "Značajan utjecaj",
         "description": "Ispitanici mogu imati značajne posljedice koje bi trebali biti u stanju nadvladati, ali s pravim i ozbiljnim poteškoćama. Na primjer: <br>- fizičke: ozbiljna tjelesna oboljenja koje uzrokuju dugotrajnu štetu (pogoršanje zdravlja zbog nepravilne skrbi ili zanemarivanja kontraindikacija), izmjena fizičkog integriteta, primjerice nakon napada, nesreće kod kuće, rada itd. <br>- materijalne: zloupotreba novca koji nije nadoknađen, ciljana, jedinstvena i neponavljajuća, izgubljene mogućnosti (kućni zajam, odbijanje studija, stažiranja ili zapošljavanja, zabrana izlaska na ispit), gubitak stanovanja, gubitak zaposlenja itd.;<br>- moralne: ozbiljne psihičke bolesti (depresija, razvoj fobije), osjećaj invazije privatnosti s nepovratnim oštećenjem, žrtva ucjene, internetskog zlostavljanja i uznemiravanja itd.",
         "source": "piaF Connected objects p41 - WIKI"
       },
-      "pia_EX_IMPM": {
+      "PIA_EX_IMPM": {
         "name": "Maksimalan utjecaj",
         "description": "Ispitanici se mogu se susresti sa značajnim ili čak nepovratnim posljedicama koje oni ne mogu nadvladati. Na primjer:<br>- fizičkim: dugotrajna ili trajna fizička oboljenja, trajno oštećenje tjelesne cjelovitosti, smrt;<br>- materijalnim: financijski rizik, znatna dugovanja, nemogućnost rada, nemogućnost preseljenja, gubitak dokaza u kontekst parnica, gubitak pristupa vitalnoj infrastrukturi (voda, struja), itd.<br>- moralnim: dugotrajna ili trajna psihička oboljenja, kaznene sankcije, otmica, gubitak obiteljskih veza, nemogućnost tužbe, promjena upravnog statusa i/ili gubitak pravne autonomije (skrbništvo) itd.",
         "source": "piaF Connected objects p41 - WIKI"
       },
-      "pia_EX_VRAN": {
+      "PIA_EX_VRAN": {
         "name": "Zanemariva vjerojatnost",
         "description": "Ne čini se mogućim da bi odabrani izvori rizika mogli ostvariti prijetnju iskorištavanjem svojstava pomoćnih sredstava (npr. krađa papirnatih dokumenata pohranjenih u prostoriji zaštićenoj čitačem značke i pristupnim kodom).",
         "source": "piaF Connected objects p44 - WIKI"
       },
-      "pia_EX_VRAL": {
+      "PIA_EX_VRAL": {
         "name": "Ograničena vjerojatnost",
         "description": "Čini se da bi odabrani izvori rizika teško mogli ostvariti prijetnju iskorištavanjem svojstava pomoćnih sredstava (npr. krađa papirnatih dokumenata pohranjenih u prostoriji zaštićenoj čitačem značke).",
         "source": "piaF Connected objects p44 - WIKI"
       },
-      "pia_EX_VRAI": {
+      "PIA_EX_VRAI": {
         "name": "Značajna vjerojatnost",
         "description": "Čini se mogućim da bi odabrani izvori rizika ostvarili prijetnju iskorištavanjem svojstava pomoćnih sredstava (npr. krađe papirnatih dokumenata pohranjenih u uredima kojima se ne može pristupiti bez prijave na recepciji).",
         "source": "piaF Connected objects p44 - WIKI"
       },
-      "pia_EX_VRAM": {
+      "PIA_EX_VRAM": {
         "name": "Maksimalna vjerojatnost",
         "description": "Čini se da bi odabrani izvori rizika iznimno lako mogli ostvariti prijetnju iskorištavanjem svojstava prateće imovine (npr. krađe papirnatih dokumenata pohranjenih u javnom predvorju).",
         "source": "piaF Connected objects p44 - WIKI"
       },
-      "pia_EX_MIND": {
+      "PIA_EX_MIND": {
         "name": "Smanjenje količine samih podataka",
         "description": "Smanjite ozbiljnost rizika smanjivanjem količine samih podataka, poduzimajući mjere usmjerene na smanjenje njihove osjetljivosti.",
         "source": "Mesures_US"
@@ -745,6 +770,8 @@
   },
   "questions": {
     "edit": "Uredi pitanje",
+    "remove": "Delete question",
+    "placeholder_title": "Question title (mandatory)",
     "gauges": {
       "0": "(Nedefinirano)",
       "1": "Zanemariv",
@@ -835,7 +862,7 @@
     "content": "Molimo navedite adresu (URL) udaljenog poslužitelja:",
     "update": "Ažuriraj URL"
   },
-  "potvrda_page": {
+  "validation_page": {
     "responsible": "Osoba odgovorna za potvrđivanje PUP-a: ",
     "after_reading": "Nakon čitanja cijelog PUP-a koji se odnosi na obradu podataka povezanih s",
     "confirmation1": "Potvrđujem da je kontekst obrade opisan u PUP-u u skladu sa stvarnosti.",
@@ -844,8 +871,8 @@
     "confirmation4": "Obvezujem se što brže provesti navedene korektivne radnje.",
     "button": {
       "rejection": "Odbij PUP",
-      "simple_potvrda": "Odobri PUP <br>(izravno)",
-      "signed_potvrda": "Odobri PUP <br>(uz potpis)"
+      "simple_validation": "Odobri PUP <br>(izravno)",
+      "signed_validation": "Odobri PUP <br>(uz potpis)"
     },
     "mandatory_fields": "Sve kućice moraju biti označene",
     "waiting_for_signature": "Čeka se na potpis PUP-a",
@@ -856,7 +883,7 @@
     "signed_attachments_history": "Povijest potpisanih privitaka",
     "tools": {
       "dashboard": "Kontrolna ploča",
-      "Prikaži_pia": "Prikaži izvještaj",
+      "display_pia": "Prikaži izvještaj",
       "action_plan": "Akcijski plan"
     }
   },
@@ -870,11 +897,11 @@
     "button": {
       "abandon_treatment": "Obustavi obradu",
       "reject_pia": "Odbij PUP",
-      "send_for_potvrda": "Pošalji na ponovno odobrenje"
+      "send_for_validation": "Pošalji na ponovno odobrenje"
     }
   },
   "misc": {
-    "Prikaži": "Prikaži / sakrij"
+    "display": "Prikaži / sakrij"
   },
   "modals": {
     "cancel": "Poništi",
@@ -883,7 +910,7 @@
     "continue": "Nastavi",
     "start_evaluation": "Započni pregled",
     "back_to_home": "Povratak kući",
-    "simple_pia_potvrda": {
+    "simple_pia_validation": {
       "content": "Odobrili ste PUP."
     },
     "completed_edition": {
@@ -892,10 +919,13 @@
     "completed_evaluation": {
       "content": "PUP je u potpunosti pregledan i može ići na potvrdu."
     },
-    "update_server_url": {
+    "update_server_url_ok": {
       "content": "Adresa poslužitelja je ažurirana."
     },
-    "signed_pia_potvrda": {
+    "update_server_url_nok": {
+      "content": "Connection impossible. (TRANSLATION REQUIRED)"
+    },
+    "signed_pia_validation": {
       "content": "Da biste odobrili PUP, priložite potpisano izvješće.",
       "download_pia": "Preuzmi izvješće"
     },
@@ -917,6 +947,11 @@
       "remove": "Ukloni ovu <br>mjeru",
       "keep": "Zadrži ovu <br>mjeru"
     },
+    "remove_question": {
+      "content": "Are you sure you want to deleted the question? (TRANSLATION REQUIRED)",
+      "remove": "Delete (TRANSLATION REQUIRED)",
+      "keep": "Cancel (TRANSLATION REQUIRED)"
+    },
     "ask_for_evaluation": {
       "content": "Ovaj odjeljak spreman je za pregled."
     },
@@ -933,6 +968,10 @@
     "remove_pia": {
       "content": "<span class='strong'>Upozorenje, </span><br> Jeste li sigurni da želite ukloniti ovaj PUP?",
       "remove": "Ukloni ovaj PUP"
+    },
+    "remove_structure": {
+      "content": "<span class='strong'>Warning,</span><br>Are you sure you want<br>to delete the template?",
+      "remove": "Delete template"
     },
     "remove_attachment": {
       "content": "<span class='strong'>Upozorenje, </span><br> Jeste li sigurni da želite ukloniti ovaj privitak?",
@@ -958,6 +997,12 @@
     },
     "back_to_evaluation": {
       "content": "Ovaj odjeljak poslan je nazada na pregled.<br> Potrebno je pregledati nekoliko polja<br> kako bi se omogućilo pravilno potvrđivanje."
+    },
+    "import_wrong_pia_file": {
+      "content": "The imported file doesn't correspond to a PIA report file (TRANSLATION REQUIRED)"
+    },
+    "import_wrong_structure_file": {
+      "content": "The imported file doesn't correspond to a PIA template file (TRANSLATION REQUIRED)"
     }
   },
   "summary": {
@@ -973,7 +1018,7 @@
     "csv_implement_date": "Procijenjeni datum provedbe",
     "csv_people_in_charge": "Odgovorna osoba",
     "csv_file_title": "Akcijski plan",
-    "Prikaži_filters": {
+    "display_filters": {
       "title": "Prikaži filtere",
       "main_content": "Prikaži odjeljak \"PIA information\"",
       "context_content": "Prikaži odjeljak \"Context\"",
