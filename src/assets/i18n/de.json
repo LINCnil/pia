@@ -13,6 +13,7 @@
     "homepage_link": "Übersicht",
     "knowledge_base_link": "Wissensbasis",
     "pia_example_link": "Beispiel DSFA",
+    "structures": "PIA template (TRANSLATION REQUIRED)",
     "languages": {
       "official_translation": "Originalversion",
       "cnil_translations": "Von der CNIL bereitgestellte Übersetzungen",
@@ -56,7 +57,12 @@
       "new_pia": "Neue DSFA",
       "import_pia": "DSFA importieren",
       "list_rocket_content": "Fangen Sie an! Um eine DSFA anzulegen, klicken Sie auf \"Neue DSFA\"",
-      "card_rocket_content": "Für eine neue DSFA,<br> klicken Sie auf \"+\""
+      "card_rocket_content": "Für eine neue DSFA,<br> klicken Sie auf \"+\"",
+      "new_structure": "New template (TRANSLATION REQUIRED)",
+      "import_structure": "Import template (TRANSLATION REQUIRED)",
+      "sector_name": "Associated sector (TRANSLATION REQUIRED)",
+      "list_rocket_content_structure": "Get started ! To initiate <br>a template, click on the + (TRANSLATION REQUIRED)",
+      "card_rocket_content_structure": "Get started ! To initiate <br>a template, click on the + (TRANSLATION REQUIRED)"
     },
     "cards": {
       "new_pia": "Neue DSFA",
@@ -73,11 +79,21 @@
       "placeholder_evaluation": "Vorname Nachname",
       "validation": "Bestätigender",
       "placeholder_validation": "Vorname Nachname",
+      "structure": "Template (TRANSLATION REQUIRED)",
+      "placeholder_structure": "Default template (TRANSLATION REQUIRED)",
       "date": "Datum",
       "status": "Status",
       "creation_status": "Anlegen",
       "start": "Start",
       "placeholder_start": "Es müssen alle Felder ausgefüllt sein",
+      "new_structure": "New template (TRANSLATION REQUIRED)",
+      "placeholder_new_structure": "New template (TRANSLATION REQUIRED)",
+      "import_structure": "Import template (TRANSLATION REQUIRED)",
+      "placeholder_import_structure": "Import template (TRANSLATION REQUIRED)",
+      "structure_name": "Template's title (TRANSLATION REQUIRED)",
+      "sector_name": "Associated sector (TRANSLATION REQUIRED)",
+      "placeholder_structure_name": "Template's title (TRANSLATION REQUIRED)",
+      "placeholder_sector_name": "Sector name (TRANSLATION REQUIRED)",
       "item": {
         "tools": {
           "export": "Exportieren",
@@ -88,7 +104,8 @@
           "remove": "Löschen"
         },
         "edit_pia": "DSFA bearbeiten",
-        "consult_pia": "DSFA ansehen"
+        "consult_pia": "DSFA ansehen",
+        "edit_structure": "Edit template (TRANSLATION REQUIRED)"
       }
     },
     "lists": {
@@ -101,6 +118,9 @@
       "column_status": "Status",
       "column_progression": "Fortschritt",
       "column_actions": "Aktionen",
+      "column_structure": "Template (TRANSLATION REQUIRED)",
+      "column_sector_name": "Associated sector (TRANSLATION REQUIRED)",
+      "column_structure_name": "Template (TRANSLATION REQUIRED)",
       "item": {
         "tools": {
           "consult": "Ansehen",
@@ -138,6 +158,7 @@
       "homepage_link": "Zurück zur Übersicht",
       "validate_pia": "DSFA bestätigen",
       "refuse_pia": "DSFA ablehnen",
+      "based_on_structure_name": "Base on template: (TRANSLATION REQUIRED)",
       "status": {
         "evaluation": {
           "title": "Warten auf Überprüfung",
@@ -157,7 +178,8 @@
       "ask_evaluation": "Bitte um Überprüfung",
       "validate_evaluation": "Bitte um Bestätigung",
       "subsection_validated": "Unterabschnitt überprüft, wartet auf endgültige Bestätigung",
-      "mandatory_fields": "Es müssen alle Felder ausgefüllt sein"
+      "mandatory_fields": "Es müssen alle Felder ausgefüllt sein",
+      "structure_add_question": "Add a (TRANSLATION REQUIRED)"
     }
   },
   "measures": {
@@ -747,6 +769,8 @@
   },
   "questions":  {
     "edit": "Frage bearbeiten",
+    "remove": "Delete question (TRANSLATION REQUIRED)",
+    "placeholder_title": "Question title (mandatory) (TRANSLATION REQUIRED)",
     "gauges": {
       "0": "(Nicht definiert)",
       "1": "Geringfügig",
@@ -922,6 +946,11 @@
       "remove": "Entfernen Sie<br>diese Maßnahme",
       "keep": "Behalten Sie<br>diese Maßnahme"
     },
+    "remove_question": {
+      "content": "Are you sure you want to deleted the question? (TRANSLATION REQUIRED)",
+      "remove": "Delete (TRANSLATION REQUIRED)",
+      "keep": "Cancel (TRANSLATION REQUIRED)"
+    },
     "ask_for_evaluation": {
       "content": "Der Unterabschnitt steht jetzt zur Überprüfung bereit."
     },
@@ -938,6 +967,10 @@
     "remove_pia": {
       "content": "<span class = 'strong'> Warnung, </span><br>Möchten Sie diese DSFA wirklich entfernen?",
       "remove": "Diese DSFA entfernen"
+    },
+    "remove_structure": {
+      "content": "<span class='strong'>Warning,</span><br>Are you sure you want<br>to delete the template?",
+      "remove": "Delete template"
     },
     "remove_attachment": {
       "content": "<span class = 'strong'> Warnung, </span><br>Sind Sie sicher, dass Sie diesen Anhang entfernen möchten?",
@@ -963,6 +996,12 @@
     },
     "back_to_evaluation": {
       "content": "Dieser Abschnitt wurde zur Überprüfung zurückgeschickt.<br>Einige Felder müssen überprüft werden,<br>um ihre ordnungsgemäße Validierung zu ermöglichen."
+    },
+    "import_wrong_pia_file": {
+      "content": "The imported file doesn't correspond to a PIA report file (TRANSLATION REQUIRED)"
+    },
+    "import_wrong_structure_file": {
+      "content": "The imported file doesn't correspond to a PIA template file (TRANSLATION REQUIRED)"
     }
   },
   "summary": {
