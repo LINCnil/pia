@@ -13,6 +13,7 @@
     "homepage_link": "Apžvalga",
     "knowledge_base_link": "Pagalba",
     "pia_example_link": "PDAV pavyzdys",
+    "structures": "PIA template (TRANSLATION REQUIRED)",
     "languages": {
       "official_translation": "Originali versija",
       "cnil_translations": "CNIL vertimas",
@@ -57,7 +58,12 @@
       "new_pia": "Naujas PDAV",
       "import_pia": "Importuoti PDAV",
       "list_rocket_content": "Pradėti ! Tam, kad pradėti <br>PDAV, spausk +",
-      "card_rocket_content": "Pradėti !<br><br> Tam, kad pradėti<br> spausk Naujas PDAV"
+      "card_rocket_content": "Pradėti !<br><br> Tam, kad pradėti<br> spausk Naujas PDAV",
+      "new_structure": "New template (TRANSLATION REQUIRED)",
+      "import_structure": "Import template (TRANSLATION REQUIRED)",
+      "sector_name": "Associated sector (TRANSLATION REQUIRED)",
+      "list_rocket_content_structure": "Get started ! To initiate <br>a template, click on the + (TRANSLATION REQUIRED)",
+      "card_rocket_content_structure": "Get started ! To initiate <br>a template, click on the + (TRANSLATION REQUIRED)"
     },
     "cards": {
       "new_pia": "Naujas PDAV",
@@ -74,11 +80,21 @@
       "placeholder_evaluation": "Vardas, Pavardė",
       "validation": "Tvirtinimas",
       "placeholder_validation": "Vardas, Pavardė",
+       "structure": "Template (TRANSLATION REQUIRED)",
+      "placeholder_structure": "Default template (TRANSLATION REQUIRED)",
       "date": "Data",
       "status": "Statusas",
       "creation_status": "Sukūrimas",
       "start": "Start",
       "placeholder_start": "Turi būti užpildyti visi laukai",
+      "new_structure": "New template (TRANSLATION REQUIRED)",
+      "placeholder_new_structure": "New template (TRANSLATION REQUIRED)",
+      "import_structure": "Import template (TRANSLATION REQUIRED)",
+      "placeholder_import_structure": "Import template (TRANSLATION REQUIRED)",
+      "structure_name": "Template's title (TRANSLATION REQUIRED)",
+      "sector_name": "Associated sector (TRANSLATION REQUIRED)",
+      "placeholder_structure_name": "Template's title (TRANSLATION REQUIRED)",
+      "placeholder_sector_name": "Sector name (TRANSLATION REQUIRED)",
       "item": {
         "tools": {
           "export": "Eksportas",
@@ -89,7 +105,8 @@
           "remove": "Ištrinti"
         },
         "edit_pia": "Redaguoti PDAV",
-        "consult_pia": "Pasižiūrėti PDAV"
+        "consult_pia": "Pasižiūrėti PDAV",
+        "edit_structure": "Edit template (TRANSLATION REQUIRED)"
       }
     },
     "lists": {
@@ -102,6 +119,9 @@
       "column_status": "Statusas",
       "column_progression": "Progresas",
       "column_actions": "Veiksmai",
+      "column_structure": "Template (TRANSLATION REQUIRED)",
+      "column_sector_name": "Associated sector (TRANSLATION REQUIRED)",
+      "column_structure_name": "Template (TRANSLATION REQUIRED)",
       "item": {
         "tools": {
           "consult": "Pasižiūrėti",
@@ -139,6 +159,7 @@
       "homepage_link": "Atgal į dashboard",
       "validate_pia": "Tvirtinti PDAV",
       "refuse_pia": "Atmesti PDAV",
+      "based_on_structure_name": "Base on template: (TRANSLATION REQUIRED)",
       "status": {
         "evaluation": {
           "title": "Laukiama peržiūros.",
@@ -158,7 +179,8 @@
       "ask_evaluation": "Prašyti peržiūros",
       "validate_evaluation": "Patvirtinti peržiūrą",
       "subsection_validated": "Tam tikra dalis peržiūrėta, laukiama galutinio patvirtinimo",
-      "mandatory_fields": "Visi laukai turi būti užpildyti"
+      "mandatory_fields": "Visi laukai turi būti užpildyti",
+      "structure_add_question": "Add a (TRANSLATION REQUIRED)"
     }
   },
   "measures": {
@@ -748,6 +770,8 @@
   },
   "questions": {
     "edit": "Redaguoti klausimą",
+    "remove": "Delete question (TRANSLATION REQUIRED)",
+    "placeholder_title": "Question title (mandatory) (TRANSLATION REQUIRED)",
     "gauges": {
       "0": "(Nenustatytas)",
       "1": "Nedidelis",
@@ -923,6 +947,11 @@
       "remove": "Ištrinti <br>šią priemonę",
       "keep": "Palikti <br>šią priemonę"
     },
+    "remove_question": {
+      "content": "Are you sure you want to deleted the question? (TRANSLATION REQUIRED)",
+      "remove": "Delete (TRANSLATION REQUIRED)",
+      "keep": "Cancel (TRANSLATION REQUIRED)"
+    },
     "ask_for_evaluation": {
       "content": "Ši dalis paruošta peržiūrai."
     },
@@ -939,6 +968,10 @@
     "remove_pia": {
       "content": "<span class='strong'>Įspėjimas,</span><br>Ar tikrai norite<br>ištrinti šį PDAV?",
       "remove": "Ištrinti šį PDAV"
+    },
+    "remove_structure": {
+      "content": "<span class='strong'>Warning,</span><br>Are you sure you want<br>to delete the template?",
+      "remove": "Delete template"
     },
     "remove_attachment": {
       "content": "<span class='strong'>Įspėjimas,</span><br>Ar tikrai norite <br>ištrinti šį priedelį?",
@@ -964,6 +997,12 @@
     },
     "back_to_evaluation": {
       "content": "Ši dalis buvo grąžinta peržiūrai.<br> Tam tikri laukai turi būti peržiūrėti prieš atliekant patvirtinimą."
+    },
+    "import_wrong_pia_file": {
+      "content": "The imported file doesn't correspond to a PIA report file (TRANSLATION REQUIRED)"
+    },
+    "import_wrong_structure_file": {
+      "content": "The imported file doesn't correspond to a PIA template file (TRANSLATION REQUIRED)"
     }
   },
   "summary": {
