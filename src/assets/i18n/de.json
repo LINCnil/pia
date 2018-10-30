@@ -71,7 +71,7 @@
 		},
 		"improvable": "verbesserungsfähig",
 		"placeholder_acceptable": "Soweit aus den zur Verfügung gestellten Informationen ersichtlich, reichen die durchgeführten Maßnahmen aus, um die Datenschutzanforderungen zu erfüllen.",
-		"placeholder_improvable1": " Soweit aus den zur Verfügung gestellten Informationen ersichtlich, müssen zusätzliche Maßnahmen hinzugefügt werden, um den Schutz der verarbeiteten Daten zu verbessern.",
+		"placeholder_improvable1": "Soweit aus den zur Verfügung gestellten Informationen ersichtlich, müssen zusätzliche Maßnahmen hinzugefügt werden, um den Schutz der verarbeiteten Daten zu verbessern.",
 		"placeholder_improvable2": "Geben Sie Ihre Kommentare ein.",
 		"placeholder_to_correct": "Die bereitgestellten Informationen sind nicht ausreichend für eine vollständige Bewertung. Die DSFA wird zurück an den Bearbeiter verwiesen, um den ursprünglichen Vorschlag zu ergänzen.",
 		"status": {
@@ -109,7 +109,7 @@
 		"logo_subtitle": "PIA - privacy impact assessment",
 		"logo_title": "DSFA - Datenschutz-Folgenabschätzung",
 		"pia_example_link": "Beispiel DSFA",
-		"structures": "TO BE TRANSLATED - Modèles de PIA",
+		"structures": "DSFA-Vorlagen",
 		"tools": {
 			"about": "Über",
 			"accessibility": "Unterstützung für Sehbehinderte (kontrastreiche Farben, bei Rot-Grün-Sehschwäche)",
@@ -166,11 +166,11 @@
 			"date": "Datum",
 			"evaluation": "Prüfer",
 			"import_pia": "DSFA importieren",
-			"import_structure": "TO BE TRANSLATED - Importer modèle",
+			"import_structure": "Vorlage importieren",
 			"item": {
 				"consult_pia": "DSFA ansehen",
 				"edit_pia": "DSFA bearbeiten",
-				"edit_structure": "TO BE TRANSLATED - Éditer le modèle",
+				"edit_structure": "Bearbeiten der Vorlage",
 				"tools": {
 					"action_plan": "Aktionsplan<br>anzeigen",
 					"duplicate": "Kopieren",
@@ -181,26 +181,26 @@
 				}
 			},
 			"new_pia": "Neue DSFA",
-			"new_structure": "TO BE TRANSLATED - Nouveau modèle",
+			"new_structure": "Neue Vorlage",
 			"or": "oder",
 			"pia_name": "DSFA",
 			"placeholder_author": "Vorname Nachname",
 			"placeholder_evaluation": "Vorname Nachname",
 			"placeholder_import_pia": "DSFA importieren",
-			"placeholder_import_structure": "TO BE TRANSLATED - Importer modèle",
+			"placeholder_import_structure": "Vorlage importieren",
 			"placeholder_new_pia": "Neue DSFA",
-			"placeholder_new_structure": "TO BE TRANSLATED - Nouveau modèle",
+			"placeholder_new_structure": "Neue Vorlage",
 			"placeholder_pia_name": "DSFA-Titel",
-			"placeholder_sector_name": "TO BE TRANSLATED - Intitulé du Secteur associé",
+			"placeholder_sector_name": "Titel des zugehörigen Abschnitts",
 			"placeholder_start": "Es müssen alle Felder ausgefüllt sein",
-			"placeholder_structure": "TO BE TRANSLATED - Modèle par défaut",
-			"placeholder_structure_name": "TO BE TRANSLATED - Intitulé du modèle",
+			"placeholder_structure": "Standardvorlage",
+			"placeholder_structure_name": "Titel der Vorlage",
 			"placeholder_validation": "Vorname Nachname",
-			"sector_name": "TO BE TRANSLATED - Secteur associé",
+			"sector_name": "Zugehöriger Abschnitt",
 			"start": "Start",
 			"status": "Status",
-			"structure": "TO BE TRANSLATED - Modèle",
-			"structure_name": "TO BE TRANSLATED - Nom du modèle",
+			"structure": "Vorlage",
+			"structure_name": "Name der Vorlage",
 			"title_close_creation": "Schließen",
 			"validation": "Bestätigender"
 		},
@@ -209,17 +209,17 @@
 			"author": "Bearbeitet von",
 			"card": "Karte",
 			"card_rocket_content": "Für eine neue DSFA,<br> klicken Sie auf \"+\"",
-			"card_rocket_content_structure": "TO BE TRANSLATED - Lancez-vous !<br><br>Pour commencer<br>un modèle, cliquez<br> sur le +",
+			"card_rocket_content_structure": "Fangen Sia an!<br><br>Um eine Vorlage<br>zu beginnen, klicken Sie auf<br> auf das +.",
 			"date": "Datum",
 			"import_pia": "DSFA importieren",
-			"import_structure": "TO BE TRANSLATED - Importer modèle",
+			"import_structure": "Vorlage importieren",
 			"list": "Liste",
 			"list_rocket_content": "Fangen Sie an! Um eine DSFA anzulegen, klicken Sie auf \"Neue DSFA\"",
-			"list_rocket_content_structure": "TO BE TRANSLATED - Lancez-vous ! Pour commencer<br>un modèle, cliquez sur le +",
+			"list_rocket_content_structure": "Fangen Sie an! Um eine Vorlage<br>zu beginnen, klicken Sie auf die Schaltfläche +.",
 			"name": "Name",
 			"new_pia": "Neue DSFA",
-			"new_structure": "TO BE TRANSLATED - Nouveau modèle",
-			"sector_name": "TO BE TRANSLATED - Secteur associé",
+			"new_structure": "Neue Vorlage",
+			"sector_name": "Zugehöriger Abschnitt",
 			"sort": "Sortieren",
 			"sort_by": "nach",
 			"status": "Status",
@@ -232,10 +232,10 @@
 			"column_evaluation": "Überprüft von",
 			"column_pia": "DSFA",
 			"column_progression": "Fortschritt",
-			"column_sector_name": "TO BE TRANSLATED - Secteur associé",
+			"column_sector_name": "Zugehöriger Abschnitt",
 			"column_status": "Status",
-			"column_structure": "TO BE TRANSLATED - Modèle",
-			"column_structure_name": "TO BE TRANSLATED - Modèle",
+			"column_structure": "Vorlage",
+			"column_structure_name": "Vorlage",
 			"column_updated_at": "Zuletzt geöffnet",
 			"column_validation": "Bestätigt von",
 			"item": {
@@ -858,10 +858,10 @@
 			"review_section": "Überprüfen Sie einen Abschnitt"
 		},
 		"import_wrong_pia_file": {
-			"content": "TO BE TRANSLATED - Le fichier importé ne correspond pas à un fichier de type PIA"
+			"content": "Die importierte Datei entspricht nicht dem Dateityp einer DSFA."
 		},
 		"import_wrong_structure_file": {
-			"content": "TO BE TRANSLATED - Le fichier importé ne correspond pas à un fichier de type Modèle"
+			"content": "Die importierte Datei entspricht nicht dem Dateityp einer Vorlage."
 		},
 		"modal_select_text_pia": {
 			"content": "Der Inhalt der DSFA wurde in die Zwischenablage kopiert."
@@ -888,13 +888,13 @@
 			"remove": "Diese DSFA entfernen"
 		},
 		"remove_question": {
-			"content": "TO BE TRANSLATED - Souhaitez-vous supprimer la question ?",
-			"keep": "TO BE TRANSLATED - Annuler",
-			"remove": "TO BE TRANSLATED - Supprimer"
+			"content": "Möchten Sie die Frage löschen?",
+			"keep": "Abbrechen",
+			"remove": "Löschen"
 		},
 		"remove_structure": {
-			"content": "TO BE TRANSLATED - <span class='strong'>Attention,</span><br>Êtes-vous sûr de vouloir<br>supprimer ce modèle ?",
-			"remove": "TO BE TRANSLATED - Supprimer ce modèle"
+			"content": "<span class='strong'>Achtung,</span><br>Sind Sie sicher, dass Sie dieses Modell löschen wollen?",
+			"remove": "Diese Vorlage löschen"
 		},
 		"same_comment": {
 			"content": "<span class = 'strong'>Warnung, </span><br>Bitte geben Sie einen anderen Kommentar als den zuletzt angegebenen ein."
@@ -908,10 +908,10 @@
 		},
 		"start_evaluation": "Beginnen Sie die Überprüfung",
 		"update_server_url_nok": {
-			"content": "TO BE TRANSLATED - Connection impossible."
+			"content": "Keine Verbindung möglich."
 		},
 		"update_server_url_ok": {
-			"content": "TO BE TRANSLATED - The server address has been updated."
+			"content": "Die Serveradresse wurde aktualisiert."
 		},
 		"validate_evaluation": {
 			"content": "Der Unterabschnitt steht jetzt zur Bestätigung der Analyse bereit."
@@ -960,7 +960,7 @@
 		"footer": {
 			"ask_evaluation": "Bitte um Überprüfung",
 			"mandatory_fields": "Es müssen alle Felder ausgefüllt sein",
-			"structure_add_question": "TO BE TRANSLATED - Ajouter une question",
+			"structure_add_question": "Eine Frage hinzufügen",
 			"subsection_validated": "Unterabschnitt überprüft, wartet auf endgültige Bestätigung",
 			"validate_evaluation": "Bitte um Bestätigung"
 		},
@@ -971,7 +971,7 @@
 			"preview": "Vorschau"
 		},
 		"sections": {
-			"based_on_structure_name": "TO BE TRANSLATED - Basé sur le modèle :",
+			"based_on_structure_name": "Basierend auf der Vorlage:",
 			"homepage_link": "Zurück zur Übersicht",
 			"refuse_pia": "DSFA ablehnen",
 			"status": {
@@ -1008,8 +1008,8 @@
 			"3": "Substantiell",
 			"4": "Groß"
 		},
-		"placeholder_title": "TO BE TRANSLATED - Titre de la question (obligatoire)",
-		"remove": "TO BE TRANSLATED - Supprimer la question"
+		"placeholder_title": "Titel der Frage (erforderlich)",
+		"remove": "Löschen Sie die Frage"
 	},
 	"rejection_page": {
 		"applied_adjustments": "Vorgenommene Änderungen",

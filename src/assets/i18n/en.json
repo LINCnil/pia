@@ -960,7 +960,7 @@
 		"footer": {
 			"ask_evaluation": "Ask for review",
 			"mandatory_fields": "All fields must be filled",
-			"structure_add_question": "Add a ",
+			"structure_add_question": "Add a question",
 			"subsection_validated": "Subsection reviewed, awaiting final validation",
 			"validate_evaluation": "Validate review"
 		},
