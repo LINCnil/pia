@@ -155,7 +155,7 @@
 				},
 				"title": "Problemas conocidos"
 			},
-			"footer": ""
+			"footer": "TO BE TRANSLATED - If you have any other problems or suggestions for improvement, you can send them to us via this form <a target=\"_blank\" href=\"https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia\">https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia</a>."
 		},
 		"title": "Ayuda"
 	},
@@ -298,8 +298,7 @@
 			"PIA_DEF_CHIF": {
 				"description": "Mida el hacer de datos personales unintelligible a cualquier persona sin la autorización de acceso (cifrado simétrico o asimétrico, uso de los algoritmos públicos sabidos para ser certificado fuerte, de la autentificación, etc.). ",
 				"name": "Cifrado",
-				"source": "",
-				"source ": "Mesures_US Encryption"
+				"source": "Mesures_US Encryption"
 			},
 			"PIA_DEF_CLO": {
 				"description": "Datos organización métodos que reducen la posibilidad de que datos personales pueden ser correlacionados y que se produzca una violación de los datos personales. Por ejemplo, mediante la identificación de los datos personales sólo para cada proceso del negocio y lógicamente que los separa. ",
@@ -409,7 +408,7 @@
 			"PIA_DEF_MINC": {
 				"description": "Reducir la gravedad de riesgos limitando la cantidad de datos de carácter personal a lo estrictamente necesario para lograr un propósito definido, de lo contrario los datos se recogerán no.",
 				"name": "Minimizar la cantidad de datos de carácter personal",
-				"source": ""
+				"source": "WIKI Minimisation_des_données_:_adéquates,_pertinentes_et_limitées"
 			},
 			"PIA_DEF_MIND": {
 				"description": "TO BE TRANSLATED - Reduce the severity of risks by minimizing the data themselves, by taking measures aimed at reducing their sensitivity such as filtering and removing unnecessary data, pseudonymising data, etc.",
@@ -487,9 +486,8 @@
 				"source": "PIA1 page 6"
 			},
 			"PIA_EX_DC": {
-				"description": "",
-				"name": "",
-				"source": ""
+				"description": "TO BE TRANSLATED - Data for a score system, result of the application of the score....",
+				"name": "TO BE TRANSLATED - Calculated data"
 			},
 			"PIA_EX_DCPC": {
 				"description": "Datos de Identificación Estado civil, identidad, edad, etcetera. <br><strong>Vida personal</strong> : hábitos de vida, estado civil, etcetera. <br><strong>Vida profesional</strong> : currículum, educación y formación profesional, premios, etcetera. Datos de conexión Direcciones IP, registros de eventos, etcetera.<br><strong>Datos de localización</strong> : viajes, datos GPS, datos GSM, etcetera.<br><strong>Otros</strong> : teléfono número, dirección de correo electrónico, etcetera. ",
@@ -498,73 +496,55 @@
 			},
 			"PIA_EX_DCPR": {
 				"description": "Opiniones filosóficas, políticas, religiosas y sindicales, vida sexual, datos de salud, origen racial o étnico, datos referentes a salud vida sexo, delitos, condenas, medidas de seguridad, consulte <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:32016R0679&from=ES\">arte. 9 y 10 de [GDPR]</a>. ",
-				"name": "Convicciones y datos personales sensibles",
-				"source": "PIA2 old version, GDPR Article 9 and 10 - WIKI"
+				"name": "Convicciones y datos personales sensibles"
 			},
 			"PIA_EX_DCPS": {
 				"description": "Número de Seguro Social, datos biométricos, datos del Banco",
-				"name": "Datos de carácter personal perciben como sensible",
-				"source": "PIA2 old version - WIKI"
+				"name": "Datos de carácter personal perciben como sensible"
 			},
 			"PIA_EX_HUME": {
 				"description": "Podría ser cualquiera:<br>-un pícaro o ingenuo vecino, por tener una cercanía física, piratería en los datos del dispositivo;<br>-un hacker dirigidos a un usuario mediante el uso de los conocimientos que tiene el usuario y la información relativa a él;<br>-un hacker a una de las empresas utilizando el conocimiento que se tiene de las empresas que pueden socavar su imagen;<br>-una empresa de terceros autorizados con su privilegiado acceso ilegítimamente para acceder a información. ",
-				"name": "Fuentes humanas externas",
-				"source": "PIAF Connected objects p41 - WIKI"
+				"name": "Fuentes humanas externas"
 			},
 			"PIA_EX_HUMI": {
 				"description": "Podría ser cualquiera:<br>-un empleado negligente o pícaro, proximidad del sistema, capacidades, privilegios y tiempo disponible son potencialmente alta, posible falta de formación y sensibilización<br>-no fiables o negligente del usuario, familiar o amigo teniendo acceso al servicio.<br>Varios motivos son posibles, incluyendo: torpeza, el error, juego de negligencia, mala intención, venganza, espionaje ",
-				"name": "Fuentes humanas internas",
-				"source": "PIAF Connected objects p41 - WIKI"
+				"name": "Fuentes humanas internas"
 			},
 			"PIA_EX_IMPI": {
 				"description": "Los interesados pueden encontrar consecuencias significativas, que deben ser capaces de superar con dificultades reales y graves. Por ejemplo: <br>-físicos: dolencias físicas graves que causa a largo plazo dañar lteration (empeoramiento de la salud debido al cuidado incorrecto, o la indiferencia de Contraindicaciones), integridad física, por ejemplo después de un asalto, un accidente en su casa, trabajo, etcetera.<br>-material: apropiación indebida de dinero no compensado, específico, único y no recurrentes, perdidas de oportunidades (préstamo, denegación de empleo o estudios, pasantías, prohibición de examen), pérdida de la vivienda, pérdida de empleo, etcetera.;<br>-moral: graves enfermedades psicológicas (depresión, desarrollo de una fobia), sensación de invasión de la privacidad con un daño irreversible, víctima de chantaje, intimidación y acoso, etcetera. ",
-				"name": "Impacto significativo",
-				"source": "PIAF Connected objects p41 - WIKI"
+				"name": "Impacto significativo"
 			},
 			"PIA_EX_IMPL": {
 				"description": "Los interesados pueden encontrar inconvenientes importantes, que sean capaces de superar a pesar de algunas dificultades. Por ejemplo:<br>-físicos: dolencias físicas de menor importancia (menor enfermedad debido al caso omiso de las contraindicaciones), difamación, dando lugar a represalias físicas o psicológicas, etcetera.;<br>-material: pagos imprevistos (multas erróneamente), denegación de acceso a los servicios administrativos o comerciales, recepción de mailings segmentados dañen la reputación de los interesados, etcetera.;<br>-moral: dolencias psicológicas menores pero objetivo, sentimiento de invasión de la privacidad sin daño irreversible, intimidación en redes sociales, etcetera. ",
-				"name": "Impacto limitado",
-				"source": "PIAF Connected objects p41 - WIKI"
+				"name": "Impacto limitado"
 			},
 			"PIA_EX_IMPM": {
 				"description": "Los interesados pueden encontrar significativas o incluso irreversibles, consecuencias, que no pueden superar. Por ejemplo:<br>-físicos: dolencias físicas a largo plazo o permanentes, incapacidad permanente de la integridad física, la muerte;<br>-material: riesgo financiero, deudas substanciales, incapacidad, incapacidad para trasladarse, pérdida de la evidencia en el contexto del litigio, pérdida de acceso a infraestructuras vitales (agua, electricidad), etcetera.<br>-moral: dolencias psicológicas a largo plazo o permanentes, sanción penal, secuestro, pérdida de lazos familiares, incapacidad para demandar el cambio de situación administrativa o pérdida de autonomía legal (tutela), etcetera. ",
-				"name": "Impacto Máximo",
-				"source": "PIAF Connected objects p41 - WIKI"
+				"name": "Impacto Máximo"
 			},
 			"PIA_EX_IMPN": {
 				"description": "Los interesados no se verán afectados o pueden surgir algunos inconvenientes que se superan sin ningún problema. Por ejemplo:<br>-físicos: dolores de cabeza transitorios;<br>-material: pérdida de tiempo en la repetición de trámites o esperando que se cumplan, recepción de correo no solicitado (por ejemplo: spam), reutilización de los datos publicados en sitios web con el fin de la publicidad dirigida, etcetera.;<br>-moral: mera molestia, sensación de invasión de la privacidad sin daño real u objetiva (intrusión comercial), etcetera. ",
-				"name": "Impacto insignificante",
-				"source": "PIAF Connected Objects p41 - WIKI"
-			},
-			"PIA_EX_MIND": {
-				"description": "Reduzca la severidad de riesgos reduciendo al mínimo los datos ellos mismos, tomando mide tenido como objetivo el reducir de su sensibilidad.",
-				"name": "Minimización de datos ellos mismos",
-				"source": "Mesures_US"
+				"name": "Impacto insignificante"
 			},
 			"PIA_EX_NHUM": {
 				"description": "Incidente o daño en uno de la organización (corte de energía, incendios, inundaciones, etcetera.)",
-				"name": "Fuentes no humanos",
-				"source": "PIAF Connected objects p41 - WIKI"
+				"name": "Fuentes no humanos"
 			},
 			"PIA_EX_VRAI": {
 				"description": "Se parece posible que las fuentes seleccionadas del riesgo materialicen la amenaza explotando las características de apoyar activos (e.g.: hurto de los documentos de papel almacenados en las oficinas que no pueden ser alcanzadas sin primero llegar en la recepción). ",
-				"name": "Probabilidad significativa",
-				"source": "PIAF Connected objects p44 - WIKI"
+				"name": "Probabilidad significativa"
 			},
 			"PIA_EX_VRAL": {
 				"description": "Se parece difícil que las fuentes seleccionadas del riesgo materialicen la amenaza explotando las características de apoyar activos (e.g.: hurto de los documentos de papel almacenados en un cuarto protegido por un lector de divisa).",
-				"name": "Probabilidad limitada",
-				"source": "PIAF Connected objects p44 - WIKI"
+				"name": "Probabilidad limitada"
 			},
 			"PIA_EX_VRAM": {
 				"description": "Se parece extremadamente fácil que las fuentes seleccionadas del riesgo materialicen la amenaza explotando las características de apoyar activos (e.g.: hurto de los documentos de papel almacenados en el pasillo público).",
-				"name": "Probabilidad máxima",
-				"source": "PIAF Connected objects p44 - WIKI"
+				"name": "Probabilidad máxima"
 			},
 			"PIA_EX_VRAN": {
 				"description": "No se parece posible que las fuentes seleccionadas del riesgo materialicen la amenaza explotando las características de apoyar activos (e.g.: hurto de los documentos de papel almacenados en un cuarto protegido por un lector de divisa y un código de acceso). ",
-				"name": "Probabilidad insignificante",
-				"source": "PIAF Connected objects p44 - WIKI"
+				"name": "Probabilidad insignificante"
 			},
 			"PIA_LGL_CONS": {
 				"description": "Se deberá garantizar que la recogida de datos se realiza de forma libre, específica e informada. Se determinará si el tratamiento dispone de una base legal en la que no sea necesario el consentimiento, de conformidad con el art. 6 de <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:32016R0679&from=ES\">[GDPR]</a>",
@@ -927,9 +907,6 @@
 			"content": "TO BE TRANSLATED - You have approved the PIA."
 		},
 		"start_evaluation": "TO BE TRANSLATED - Start review",
-		"update_server_url": {
-			"content": ""
-		},
 		"update_server_url_nok": {
 			"content": "TO BE TRANSLATED - Connection impossible."
 		},
@@ -1343,8 +1320,6 @@
 		},
 		"download_csv": "TO BE TRANSLATED - Download a CSV export",
 		"download_images": "TO BE TRANSLATED - Download images",
-		"download_risks_cartography": "",
-		"download_risks_overview": "",
 		"dpo_name": "Nombre de DPO",
 		"dpo_opinion": "Opinión de DPO",
 		"dpo_status": "Estado de DPO",

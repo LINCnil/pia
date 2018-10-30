@@ -155,7 +155,7 @@
 				},
 				"title": "Probleme identificate"
 			},
-			"footer": ""
+			"footer": "TO BE TRANSLATED - If you have any other problems or suggestions for improvement, you can send them to us via this form <a target=\"_blank\" href=\"https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia\">https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia</a>."
 		},
 		"title": "Ajutor"
 	},
@@ -298,8 +298,7 @@
 			"PIA_DEF_CHIF": {
 				"description": "Măsură ce face ca datele cu caracter personal să fie neinteligibile pentru oricine nu deține autorizație de acces (criptare simetrică sau asimetrică, utilizarea de algoritmi publici puternici, certificat de autentificare, etc.).",
 				"name": "Criptare",
-				"source": "",
-				"source ": "Mesures_US Encryption"
+				"source": "Mesures_US Encryption"
 			},
 			"PIA_DEF_CLO": {
 				"description": "Metode de organizare a datelor ce reduc posibilitatea de corelare a datelor cu caracter personal și de apariție a breșelor în protecția datelor cu caracter personal. De exemplu, prin identificarea datelor cu caracter personal utile numai fiecărui proces de business și prin separarea logică a acestora.",
@@ -409,7 +408,7 @@
 			"PIA_DEF_MINC": {
 				"description": "Se reduce gravitatea riscurilor prin limitarea datelor cu caracter personal colectate doar la ceea ce este strict necesar pentru atingerea scopului stabilit, în caz contrar acestea nu vor fi colectate.",
 				"name": "Minimalizarea datelor",
-				"source": ""
+				"source": "WIKI Minimisation_des_données_:_adéquates,_pertinentes_et_limitées"
 			},
 			"PIA_DEF_MIND": {
 				"description": "TO BE TRANSLATED - Reduce the severity of risks by minimizing the data themselves, by taking measures aimed at reducing their sensitivity such as filtering and removing unnecessary data, pseudonymising data, etc.",
@@ -487,9 +486,8 @@
 				"source": "PIA1 page 6"
 			},
 			"PIA_EX_DC": {
-				"description": "",
-				"name": "",
-				"source": ""
+				"description": "TO BE TRANSLATED - Data for a score system, result of the application of the score....",
+				"name": "TO BE TRANSLATED - Calculated data"
 			},
 			"PIA_EX_DCPC": {
 				"description": "<strong>Date de identificare</strong> : Stare civilă, identitate, Vârstă, etc. <br><strong>Viață personală</strong> : obiceiuri de trai, stare civilă, etc. <br><strong>Viață profesională </strong> : CV, educație și pregătire profesională, premii, etc. <br><strong>Datele de conectare</strong> : adresă IP , log-uri, etc.<br><strong>Date cu privire la locație</strong> : călătorii, date GPS, date GSM, etc.<br><strong>Altele</strong> :număr de telefon, adresă email, etc.",
@@ -498,73 +496,55 @@
 			},
 			"PIA_EX_DCPR": {
 				"description": "Opinii de natură filosofică, politică, religioasă și sindicală, viață sexuală,  date privind sănătatea, rasă sau origine etnică, date cu privire la viața sexuală sau sănătate, infracțiuni, condamnări, măsuri de securitate, a se vedea <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 9 și 10 din [GDPR]</a>.",
-				"name": "Condamnări penale și date cu caracter personal sensibile",
-				"source": "PIA2 old version, GDPR Article 9 and 10 - WIKI"
+				"name": "Condamnări penale și date cu caracter personal sensibile"
 			},
 			"PIA_EX_DCPS": {
 				"description": "Cod numeric personal (CNP), date biometrice, date bancare",
-				"name": "Date cu caracter personal considerate sensibile",
-				"source": "PIA2 old version - WIKI"
+				"name": "Date cu caracter personal considerate sensibile"
 			},
 			"PIA_EX_HUME": {
 				"description": "Ar putea fi:<br>- un vecin rău intenționat sau naiv care, având proximitate fizică, să acceseze neautorizat datele dispozitivului;<br>- un hacker care vizează un utilizator prin utilizarea cunoștințelor pe care le are despre acel utilizator și a informațiilor cu privire la acesta;<br>- un hacker ce vizează o organizație prin utilizarea cunoștințelor pe care le are despre aceasta, informații care îi pot submina imaginea;<br>- o companie terță autorizată ce se folosește de accesul său privilegiat într-un mod nelegitim și rău intenționat.",
-				"name": "Surse umane din afara organizației",
-				"source": "PIAF Connected objects p41 - WIKI"
+				"name": "Surse umane din afara organizației"
 			},
 			"PIA_EX_HUMI": {
 				"description": "Ar putea fi:<br>- un angajat neglijent sau rău intenționat, proximitatea sistemului, aptitudinile, privilegiile și timpul disponibil potențial ridicate, o posibilă lipsă de instruire și conștientizare<br>- un utilizator neglijent sau rău intenționat, membru al familiei sau prieten care are acces la serviciu.<br> Sunt posibile diverse motive, ce includ : neîndemânare, eroare, neglijență, acțiuni rău intenționate, răzbunare, spionaj",
-				"name": "Surse umane din interiorul organizației",
-				"source": "PIAF Connected objects p41 - WIKI"
+				"name": "Surse umane din interiorul organizației"
 			},
 			"PIA_EX_IMPI": {
 				"description": "Persoanele vizate ar putea întâmpina consecințe semnificative, pe care ar trebui să le poată depăși, însă cu dificultăți reale și grave. De exemplu: <br>- fizic : afecțiuni fizice grave care provoacă vătămări pe termen lung (agravarea sănătății din cauza îngrijirii necorespunzătoare, sau  a desconsiderării contraindicațiilor), alterarea integrității fizice (de exemplu: ca urmare a unui atac, un incident petrecut acasa, la locul de muncă, etc.<br>- material: delapidare ce nu a fost compensată, direcționată, unică și care nu este recurentă, oportunități pierdute  (credite imobiliare, refuzul studiilor, internship-urilor sau angajării, interdicția examinării), pierderea locuinței, pierderea locului de muncă, etc.;<br>- moral : afecțiuni psihologice grave (depresie, dezvoltarea unei fobii), sentimentul de invadare a vieții private cu daune ireversibile, victima șantajului, hărțuire sau hărțuire în mediul virtual, etc.",
-				"name": "Impact semnificativ",
-				"source": "PIAF Connected objects p41 - WIKI"
+				"name": "Impact semnificativ"
 			},
 			"PIA_EX_IMPL": {
 				"description": "Persoanele vizate ar putea întâmpina inconveniente semnificative, pe care le vor putea depăși în ciuda unor dificultăți. De exemplu:<br>- fizic : afecțiuni fizice minore (afecțiune minoră din cauza desconsiderării contraindicațiilor), defăimarea care are ca rezultat represalii fizice sau psihologice, etc.;<br>- material : plăți neașteptate (amenzi aplicate eronat), refuzul accesului la servicii administrative sau comerciale, primirea de mesaje nesolicitate care ar putea deteriora reputația persoanelor vizate, etc.;<br>- moral : afecțiuni psihice minore, dar concrete, sentimentul de încălcare a vieții private, dar fără daune ireversibile, intimidarea pe rețelele de socializare, etc.",
-				"name": "Impact limitat",
-				"source": "PIAF Connected objects p41 - WIKI"
+				"name": "Impact limitat"
 			},
 			"PIA_EX_IMPM": {
 				"description": "Persoanele vizate ar putea întâmpina consecințe semnificative sau chiar ireversibile, pe care nu le-ar putea depăși. De exemplu:<br>- fizic : afecțiuni fizice pe termen lung sau permanente, afectarea permanentă a integrității fizice, deces;<br>- material : risc financiar, datorii substanțiale, incapacitate de muncă, incapacitatea de a se mutaa, pierderea doveziilor în cazul litigiilor, pierderea accesului la utilități publice vitale (apă, electricitate), etc.<br>- moral : afecțiuni psihologice pe termen lung sau permanente, pedeapsă penală, răpire, pierderea legăturilor de familie, incapacitate de a acționa în judecată, modificarea statutului administrativ și/sau pierderea autonomiei juridice (tutela), etc.",
-				"name": "Impact maxim",
-				"source": "PIAF Connected objects p41 - WIKI"
+				"name": "Impact maxim"
 			},
 			"PIA_EX_IMPN": {
 				"description": "Persoanele vizate fie nu vor fi afectate, fie vor întâmpina câteva inconveniente, care pot fi depășite fără nicio problemă. De exemplu:<br>- fizic : dureri de cap tranzitorii;<br>- material : pierderea timpului în repetarea formalităților sau în așteptarea îndeplinirii acestora, primirea de mesaje nesolicitate (ex: spams), reutilizarea datelor publicate pe site-uri web în scopul publicității direcționate , etc.;<br>- moral : simpla enervare, sentimentul de invadare a vieții personale fără prejudicii concrete (intruziune comercială), etc.",
-				"name": "Impact neglijabil",
-				"source": "PIAF Connected Objects p41 - WIKI"
-			},
-			"PIA_EX_MIND": {
-				"description": "Diminuează gravitatea riscurilor prin minimalizarea datelor în sine, prin adoptarea de măsuri menite să diminueze sensibilitatea datelor.",
-				"name": "Minimalizarea datelor în sine",
-				"source": "Mesures_US"
+				"name": "Impact neglijabil"
 			},
 			"PIA_EX_NHUM": {
 				"description": "Incident sau defecțiune produsă la una din companii (pană de curent, incendiu, inundație, etc.)",
-				"name": "Surse ce nu sunt de natură umană",
-				"source": "PIAF Connected objects p41 - WIKI"
+				"name": "Surse ce nu sunt de natură umană"
 			},
 			"PIA_EX_VRAI": {
 				"description": "Pare posibil pentru sursele de risc selctate să materializeze amenințarea prin exploatarea caracteristicilor activelor suport (e.g.: furtul documentelor pe suport de hârtie păstrate în birouri, care nu pot fi accesate fără o primă verificare la recepție).",
-				"name": "Probabilitate semnificativă",
-				"source": "PIAF Connected objects p44 - WIKI"
+				"name": "Probabilitate semnificativă"
 			},
 			"PIA_EX_VRAL": {
 				"description": "Pare dificil pentru sursele de risc selctate să materializeze amenințarea prin exploatarea caracteristicilor activelor suport (ex: furtul documentelor pe suport de hârtie depozitate într-o cameră protejată de un cititor de carduri de acces).",
-				"name": "Probabilitate limitată",
-				"source": "PIAF Connected objects p44 - WIKI"
+				"name": "Probabilitate limitată"
 			},
 			"PIA_EX_VRAM": {
 				"description": "Pare extrem de facil pentru sursele de risc selctate să materializeze amenințarea prin exploatarea caracteristicilor activelor suport (e.g.: furtul documentelor pe suport de hârtie depozitate într-un coridor public).",
-				"name": "Probabilitate maximă",
-				"source": "PIAF Connected objects p44 - WIKI"
+				"name": "Probabilitate maximă"
 			},
 			"PIA_EX_VRAN": {
 				"description": "Nu pare posibil pentru sursele de risc selectate să materializeze amenințarea prin exploatarea caracteristicilor activelor suport (ex: furtul documentelor pe suport de hârtie depozitate într-o cameră protejată de un cititor de carduri de acces și un cod de acces).",
-				"name": "Probabilitate neglijabilă",
-				"source": "PIAF Connected objects p44 - WIKI"
+				"name": "Probabilitate neglijabilă"
 			},
 			"PIA_LGL_CONS": {
 				"description": "Permiteți persoanelor vizate să facă o alegere liberă, informată și clar definită. Determinați dacă prelucrarea se bazează pe un temei juridic, altul decât consimțîmântul ce se regăsește în cadrul Art. 6 din <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR]</a>",
@@ -927,14 +907,11 @@
 			"content": "PIA a fost validată."
 		},
 		"start_evaluation": "Începeți evaluarea",
-		"update_server_url": {
-			"content": "Adresa server-ului a fost actualizată."
-		},
 		"update_server_url_nok": {
-			"content": ""
+			"content": "TO BE TRANSLATED - Connection impossible."
 		},
 		"update_server_url_ok": {
-			"content": ""
+			"content": "Adresa server-ului a fost actualizată."
 		},
 		"validate_evaluation": {
 			"content": "<span class='strong'>Felicitări,</span><br>ați finalizat evaluarea acestei secțiuni.<br>Alte secțiuni ale PIA trebuie, de asemenea, evaluate pentru a putea valida PIA."
@@ -1343,8 +1320,6 @@
 		},
 		"download_csv": "TO BE TRANSLATED - Download a CSV export",
 		"download_images": "TO BE TRANSLATED - Download images",
-		"download_risks_cartography": "",
-		"download_risks_overview": "",
 		"dpo_name": "Nume DPO",
 		"dpo_opinion": "Opinie DPO",
 		"dpo_status": "Stare DPO",

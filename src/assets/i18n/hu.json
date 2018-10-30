@@ -155,7 +155,7 @@
 				},
 				"title": "Az ismert problémák"
 			},
-			"footer": ""
+			"footer": "TO BE TRANSLATED - If you have any other problems or suggestions for improvement, you can send them to us via this form <a target=\"_blank\" href=\"https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia\">https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia</a>."
 		},
 		"title": "Segítség"
 	},
@@ -298,8 +298,7 @@
 			"PIA_DEF_CHIF": {
 				"description": "Személyes adatokat az illetéktelenek számára felismerhetetlenné tevő intézkedés (szimmetrikus vagy aszimmetrikus titkosítás, a köztudottan erős, nyilvános algoritmusok, hitelesítő tanúsítványok stb. használata).",
 				"name": "Titkosítás",
-				"source": "",
-				"source ": "Titkosítás intézkedések"
+				"source": "Titkosítás intézkedések"
 			},
 			"PIA_DEF_CLO": {
 				"description": "Amennyiben a különböző adatokat elválasztva kezelik, csökkenhet annak az esélye, hogy a személyes adatok egymással összefüggésbe hozhatók legyenek egy esetleges adatvédelmi incidens bekövetkezése esetén.",
@@ -409,7 +408,7 @@
 			"PIA_DEF_MINC": {
 				"description": "Csökkentse a kockázatok súlyosságát azáltal, hogy a kezelt személyes adatok körét azon adatokra szűkíti, amelyek feltétlenül szükségesek az adatkezelés céljai szempontjából (ezen túlmenően nem szabad gyűjteni azokat).",
 				"name": "Adatminimalizálás",
-				"source": ""
+				"source": "WIKI Minimisation_des_données_:_adéquates,_pertinentes_et_limitées"
 			},
 			"PIA_DEF_MIND": {
 				"description": "A kockázatok súlyosságának csökkentése az adatok minimalizálása által (az adatok érzékenységének csökkentése például azok szűrésével, az adatkezelés célja szempontjából szükséges adatokon túlmenő adatok eltávolítása, álnevesítés stb.).",
@@ -487,9 +486,8 @@
 				"source": "DPIA1, 6. o."
 			},
 			"PIA_EX_DC": {
-				"description": "",
-				"name": "",
-				"source": ""
+				"description": "TO BE TRANSLATED - Data for a score system, result of the application of the score....",
+				"name": "TO BE TRANSLATED - Calculated data"
 			},
 			"PIA_EX_DCPC": {
 				"description": "Személyazonosító adatok: családi állapot, személyazonosság, életkor stb.; Személyes élet: szokások, családi állapot stb.; Szakmai élet: életrajz, iskolai végzettség, szakmai képzettség, díjak stb.; Kapcsolattartási adatok: IP-címek, naplóbejegyzések; Tartózkodási adatok: utak, GPS-adatok, GSM-adatok; Egyebek: telefonszám, e-mailcím stb.",
@@ -498,73 +496,55 @@
 			},
 			"PIA_EX_DCPR": {
 				"description": "Politikai, világnézeti, vallási és szakszervezetekkel kapcsolatos vélemény, nemi élet, egészségügyi adat, illetve etnikai vagy faji származásra, egészségi állapotra vagy szexuális életre, büntetőjogi felelősség megállapítására, illetve bűncselekményekre vagy ezekhez kapcsolódó biztonsági intézkedésekre vonatkozó adat. Lásd: <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 9 and 10 of [GDPR]</a>.",
-				"name": "Meggyőződések és érzékeny személyes adatok",
-				"source": "DPIA2, régi változat, A GDPR 9. és 10. cikke - WIKI"
+				"name": "Meggyőződések és érzékeny személyes adatok"
 			},
 			"PIA_EX_DCPS": {
 				"description": "Társadalombiztosítási szám, biometrikus adatok, banki adatok",
-				"name": "Érzékenynek vélt személyes adatok",
-				"source": "DPIA2, korábbi változat - WIKI"
+				"name": "Érzékenynek vélt személyes adatok"
 			},
 			"PIA_EX_HUME": {
 				"description": "Ezen kockázatforrásra példaként szolgálhatnak a következők: tisztességtelen vagy naiv szomszéd, aki a fizikai közelség miatt meghekkeli az eszköz adatait; a hekker azért szemeli ki a felhasználót, mert vannak háttérinformáiói a kiszemelt felhasználóval kapcsolatban; a hekker azért szemel ki egy vállalatot, mert olyan ismeret birtokában van, amellyel alááshatja annak jóhírnevét stb.",
-				"name": "Szervezeten kívüli emberi tényezők",
-				"source": "DPIAF Összekapcsolt tárgyak, 41. o. - WIKI"
+				"name": "Szervezeten kívüli emberi tényezők"
 			},
 			"PIA_EX_HUMI": {
 				"description": "Ezen kockázatforrásra példaként szolgálhatnak a következők: hanyag vagy tisztességtelen munkavállaló; képzetlenség és tájékozatlanság; hanyag vagy tisztességtelen felhasználó, családtag vagy barát, aki hozzáfér a rendszerhez. Több indíték is lehetséges: ilyenek lehetnek pélául ügyetlenség, hiba, hanyagság, játék, rosszindulat, bosszú, kémkedés.",
-				"name": "Szervezeten belüli emberi tényezők",
-				"source": "DPIAF Összekapcsolt tárgyak, 41. o. - WIKI"
+				"name": "Szervezeten belüli emberi tényezők"
 			},
 			"PIA_EX_IMPI": {
 				"description": "Az érintettek komoly következményekkel szembesülhetnek, amelyeken ugyan túlteszik magukat, de jelentős és valós nehézségek árán. Ilyenek például a testi következmény: komoly betegségek hosszú távú következményekkel (egészségromlás szakszerűtlen gondozás vagy az ellenjavallatok be nem tartása miatt), a testi épség megváltozása például erőszak, otthoni vagy munkahelyi baleset folytán; anyagi következmény: pénz hűtlen kezelése kártalanítás nélkül, tervezett, egyedi és meg nem ismételhető lehetőségek elvesztése (lakáshitel, tanulmányi, gyakornoki vagy munkahelyi felvétel elutasítása, eltiltás vizsgázástól), lakás vagy állás elvesztése stb.; komoly pszichológia betegség (depresszió, fóbia kialakulása), a magánszféra megsértésének érzése maradandó sérelemmel, zsarolás, kibermegfélemlítés és zaklatás áldozatává válás stb.",
-				"name": "Jelentős kihatás/következmények",
-				"source": "DPIAF Összekapcsolt tárgyak, 41. o. - WIKI"
+				"name": "Jelentős kihatás/következmények"
 			},
 			"PIA_EX_IMPL": {
 				"description": "Az érintettek jelentős kellemetlenségeket tapasztalhatnak, de néhány nehézség ellenére túlteszik magukat rajtuk. Például: testi kellemetlenség (enyhe betegség az ellenjavallatok be nem tartása miatt); becsületsértés, amely fizikai vagy pszichológiai megtorláshoz vezet stb.; anyagi kellemetlenségek: váratlan költségek (tévesen kiszabott bírságok), közigazgatási vagy kereskedelmi szolgáltatások igénybevételétől való eltiltás; kéretlen üzenetek érkezése, ami árt az érintettek jóhírnevének; erkölcsi kellemetlenségek: kisebb, de objektív pszichés betegség, a magánszféra megsértésének érzése visszafordíthatatlan sérelem nélkül, megalázás közösségi hálókon stb.",
-				"name": "Korlátozott kihatás/következmények",
-				"source": "DPIAF Összekapcsolt tárgyak, 41. o. - WIKI"
+				"name": "Korlátozott kihatás/következmények"
 			},
 			"PIA_EX_IMPM": {
 				"description": "Az érintettek komoly, akár maradandó következményekkel is szembesülhetnek, melyeken nem tudják túltenni magukat. Ilyen például: az egészségkárosodás: hosszú távú vagy állandó testi betegség, a testi épség maradandó károsodása, halál; anyagi következmény: pénzügyi kockázat, adósság, munkaképtelenség, áthelyezkedésre való képtelenség, bizonyítékvesztés peres eljárásban, létfontosságú közművektől való elzárás stb.; erkölcsi következmény: hosszú távú vagy állandó pszichológiai betegség, büntetőjogi szankció, emberrablás áldozatává válás, családi kötelékek elvesztése, jogállás megváltozása és/vagy jogi önállóság elvesztése (gyámság) stb.",
-				"name": "Maximális kihatás/következmények",
-				"source": "DPIAF Összekapcsolt tárgyak, 41. o. - WIKI"
+				"name": "Maximális kihatás/következmények"
 			},
 			"PIA_EX_IMPN": {
 				"description": "Az érintettek nem szenvednek kárt, vagy néhány kellemetlenséget kell csupán elviselniük, amelyen könnyen túlteszik magukat. Ilyenek például: fizikai/testi következmény: átmeneti fejfájás; anyagi következmény: időveszteség a formaságok ismétlése vagy teljesítése miatt, kéretlen levelek (pl. spamek) érkezése, weboldalakon közölt adatok újbóli felhasználása célzott reklámok küldése céljából stb.; erkölcsi következmények: egyszerű bosszúság, magánszférába való beavatkozás érzése valóságos vagy objektív sérelem nélkül stb.",
-				"name": "Elhanyagolható következmények ",
-				"source": "DPIAF Összekapcsolt tárgyak, 41. o. - WIKI"
-			},
-			"PIA_EX_MIND": {
-				"description": "Kockázatcsökkentés maguknak az adatoknak a csökkentésével, az adatok érzékenységét csökkentő intézkedésekkel.",
-				"name": "Maguknak az adatoknak a minimalizálása",
-				"source": "Intézkedések "
+				"name": "Elhanyagolható következmények "
 			},
 			"PIA_EX_NHUM": {
 				"description": "Ezen kockázatforrásra példaként szolgálhat valamely szervezetet sújtó incidens vagy káresemény (áramszünet, tűz, árvíz stb.)",
-				"name": "Nem emberi tényezők",
-				"source": "DPIAF Összekapcsolt tárgyak, 41. o. - WIKI"
+				"name": "Nem emberi tényezők"
 			},
 			"PIA_EX_VRAI": {
 				"description": "Valószínű, hogy a kockázatforrások a személyes adatok kezelésére szolgáló eszközöket kihasználó valós veszélyt jelentenek (pl. papír alapú iratok eltulajdonítása olyan helyiségből, amelybe csak a recepciónál való bejelentkezés után lehet belépni).",
-				"name": "Nagy valószínűség",
-				"source": "DPIAF Összekapcsolt tárgyak, 44. o. - WIKI"
+				"name": "Nagy valószínűség"
 			},
 			"PIA_EX_VRAL": {
 				"description": "Kicsi a valószínűsége annak, hogy a kockázatforrások a személyes adatok kezelésére szolgáló eszközöket kihasználó valós veszélyt jelentenének (pl. papír alapú iratok eltulajdonítása belépőkártyával és belépési kóddal védett helyiségből).",
-				"name": "Korlátozott valószínűség",
-				"source": "DPIAF Összekapcsolt tárgyak, 44. o. - WIKI"
+				"name": "Korlátozott valószínűség"
 			},
 			"PIA_EX_VRAM": {
 				"description": "A kockázatforrások könnyen jelentenek a személyes adatok kezelésére szolgáló eszközöket kihasználó valós veszélyt (pl. papír alapú iratok eltulajdonítása nyilvános előtérből).",
-				"name": "Maximális valószínűség",
-				"source": "DPIAF Összekapcsolt tárgyak, 44. o. WIKI"
+				"name": "Maximális valószínűség"
 			},
 			"PIA_EX_VRAN": {
 				"description": "Nem látszik valószínűnek, hogy a kockázatforrások a személyes adatok kezelésére szolgáló eszközöket kihasználó valós veszélyt jelentenének (pl. papír alapú iratok eltulajdonítása belépőkártyával és belépési kóddal védett helyiségből).",
-				"name": "Csekély valószínűség",
-				"source": "DPIAF Összekapcsolt tárgyak, 44. o. - WIKI"
+				"name": "Csekély valószínűség"
 			},
 			"PIA_LGL_CONS": {
 				"description": "Biztosítsa, hogy az érintettek önkéntesen, kifejezetten és tájékozott módon döntsenek. Állapítsa meg, hogy az adatkezelésnek van-e olyan jogalapja, amely eltér a <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/HU/TXT/HTML/?uri=CELEX:32016R0679&qid=1520586769024&from=HU\"> GDPR  6. cikke szerinti </a> hozzájárulástól.",
@@ -927,14 +907,11 @@
 			"content": "A hatásvizsgálat jóváhagyása megtörtént."
 		},
 		"start_evaluation": "Véleményezés kezdése",
-		"update_server_url": {
-			"content": "A szerver címét frissítették."
-		},
 		"update_server_url_nok": {
-			"content": ""
+			"content": "TO BE TRANSLATED - Connection impossible."
 		},
 		"update_server_url_ok": {
-			"content": ""
+			"content": "A szerver címét frissítették."
 		},
 		"validate_evaluation": {
 			"content": "A DPIA jóváhagyására vár."
@@ -1343,8 +1320,6 @@
 		},
 		"download_csv": "Exportált CSV fájl letöltése",
 		"download_images": "Képek letöltése",
-		"download_risks_cartography": "",
-		"download_risks_overview": "",
 		"dpo_name": "Adatvédelmi tisztviselő neve",
 		"dpo_opinion": "Adatvédelmi tisztviselő véleménye",
 		"dpo_status": "Adatvédelmi tisztviselő státusza",

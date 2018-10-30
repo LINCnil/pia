@@ -155,7 +155,7 @@
 				},
 				"title": "Bekende Problemen"
 			},
-			"footer": ""
+			"footer": "TO BE TRANSLATED - If you have any other problems or suggestions for improvement, you can send them to us via this form <a target=\"_blank\" href=\"https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia\">https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia</a>."
 		},
 		"title": "Help"
 	},
@@ -298,8 +298,7 @@
 			"PIA_DEF_CHIF": {
 				"description": "Encryptie maatregelen die persoonlijke gegevens voor iedereen zonder toegangsbevoegdheid onbegrijpelijk maken met (symmetrische of asymmetrische codering, gebruik van openbare algoritmes waarvan bekend is dat ze sterk zijn, authenticatiecertificaat, enz.).",
 				"name": "Encryptie",
-				"source": "",
-				"source ": "Mesures_US Encryption"
+				"source": "Mesures_US Encryption"
 			},
 			"PIA_DEF_CLO": {
 				"description": "Gegevensorganisatie-methoden die de mogelijkheid verkleinen dat persoonlijke gegevens kunnen worden gecorreleerd en dat een schending van alle persoonlijke gegevens kan optreden. Bijvoorbeeld door de persoonlijke gegevens te identificeren die alleen voor elk bedrijfsproces nuttig zijn en logisch van elkaar te scheiden.",
@@ -409,7 +408,7 @@
 			"PIA_DEF_MINC": {
 				"description": "Verminder de ernst van risico's door de hoeveelheid persoonlijke gegevens te beperken tot wat strikt noodzakelijk is om een bepaald doel te bereiken, anders worden de gegevens niet verzameld.",
 				"name": "Het minimaliseren van de hoeveelheid persoonlijke gegevens",
-				"source": ""
+				"source": "WIKI Minimisation_des_données_:_adéquates,_pertinentes_et_limitées"
 			},
 			"PIA_DEF_MIND": {
 				"description": "De ernst van de risico's verminderen door de gegevens zelf te minimaliseren, door maatregelen te nemen om hun gevoeligheid te verminderen, zoals het filteren en verwijderen van onnodige gegevens, het pseudonimiseren van gegevens, enz.",
@@ -487,9 +486,8 @@
 				"source": "PIA1 page 6"
 			},
 			"PIA_EX_DC": {
-				"description": "",
-				"name": "",
-				"source": ""
+				"description": "TO BE TRANSLATED - Data for a score system, result of the application of the score....",
+				"name": "TO BE TRANSLATED - Calculated data"
 			},
 			"PIA_EX_DCPC": {
 				"description": "<strong> Identificatiegegevens </strong>: burgerlijke staat, identiteit, leeftijd, etc. <br> <strong> Persoonlijk leven </strong>: leefgewoonten, burgerlijke staat, enz. <br> <strong> Professioneel leven </strong>: cv, onderwijs en professionele training, onderscheidingen, etc. <br> <strong> Verbindingsgegevens </strong>: IP-adressen, gebeurtenislogboeken, enz. <br> <strong> Locatiegegevens </strong>: reizen, GPS-gegevens, GSM-gegevens, enz. <br> <strong> Overige </strong>: telefoonnummer, e-mailadres, etc.",
@@ -498,73 +496,55 @@
 			},
 			"PIA_EX_DCPR": {
 				"description": "Filosofische, politieke, religieuze en vakbondsvisies, seksleven, gezondheidsgegevens, ras of etnische afkomst, gegevens over gezondheid of seksleven, overtredingen, veroordelingen, veiligheidsmaatregelen, zie <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/NL/TXT/HTML/?uri=CELEX:32016R0679&from=NL\">Art. 9 and 10 van de [AVG]</a>.",
-				"name": "Overtuigingen en gevoelige persoonsgegevens",
-				"source": "PIA2 old version, GDPR Article 9 and 10 - WIKI"
+				"name": "Overtuigingen en gevoelige persoonsgegevens"
 			},
 			"PIA_EX_DCPS": {
 				"description": "burgerservicenummer (BSN), biometrische gegevens, bankgegevens",
-				"name": "Persoonlijke gegevens die als gevoelig worden ervaren",
-				"source": "PIA2 old version - WIKI"
+				"name": "Persoonlijke gegevens die als gevoelig worden ervaren"
 			},
 			"PIA_EX_HUME": {
 				"description": "Het kan een van de volgende zijn: <br> - een bedrieglijke of naïeve buur, door een fysieke nabijheid te hebben, de gegevens van het apparaat te hacken; <br> - een hacker die een gebruiker richt door gebruik te maken van de kennis die hij / zij heeft van de gebruiker en sommige van de informatie over hem / haar; <br> - een hacker die zich op een van de bedrijven richt door gebruik te maken van de kennis die hij / zij heeft van de bedrijven die hun imago kunnen ondermijnen; <br> - een geautoriseerd extern bedrijf dat zijn bevoorrechte toegang tot onrechtmatig gebruikt toegang tot informatie.",
-				"name": "Externe menselijke bronnen",
-				"source": "PIAF Connected objects p41 - WIKI"
+				"name": "Externe menselijke bronnen"
 			},
 			"PIA_EX_HUMI": {
 				"description": "Het kan een van beide zijn: <br> - een nalatige of malafide medewerker, nabijheid van het systeem, vaardigheden, privileges en beschikbare tijd zijn potentieel hoog, mogelijk gebrek aan training en bewustzijn <br> - Onachtzame of schurkenstaten gebruiker of mensen in de omgeving <br> Verschillende motieven zijn mogelijk, waaronder: onhandigheid, fouten, nalatigheid, kwaadaardige bedoelingen, wraak, spionage",
-				"name": "Interne menselijke bronnen",
-				"source": "PIAF Connected objects p41 - WIKI"
+				"name": "Interne menselijke bronnen"
 			},
 			"PIA_EX_IMPI": {
 				"description": "Betrokkenen kunnen aanzienlijke gevolgen ondervinden, die ze moeten kunnen overwinnen, zij het met echte en ernstige problemen <br> Voorbeelden: <br> - fysiek: ernstige fysieke kwalen veroorzaakt schade op de lange termijn (verslechtering van de gezondheid als gevolg van onjuiste zorg of veronachtzaming van contra-indicaties), lteratie van fysieke integriteit, bijvoorbeeld na een aanslag, een ongeval thuis, werk, etc. <br> - materiaal: verduistering van niet-gecompenseerd, gericht, uniek en niet-recurrent, gemiste kansen (huislening, weigering van studies, stages of tewerkstelling, onderzoeksverbod), verlies van huisvesting, verlies van werk, etc. <br> - moraal: ernstige psychische aandoeningen (depressie, ontwikkeling van een fobie), gevoel van inbreuk op privacy met onomkeerbare schade, slachtoffer van chantage, cyberpesten en intimidatie, enz.",
-				"name": "Aanzienlijke ernst",
-				"source": "PIAF Connected objects p41 - WIKI"
+				"name": "Aanzienlijke ernst"
 			},
 			"PIA_EX_IMPL": {
 				"description": "Betrokkenen kunnen aanzienlijke ongemakken tegenkomen, die ze kunnen overwinnen ondanks een paar problemen <br> Voorbeelden: <br> - fysiek: kleine lichamelijke kwalen (kleine ziekte als gevolg van het negeren van contra-indicaties), laster die resulteert in fysieke of psychologische vergelding, enz. <br> - materiaal: onverwachte betalingen (boetes die ten onrechte zijn opgelegd), ontzegging van toegang tot administratieve of commerciële diensten, Ontvangst van ongevraagde gerichte mailings die de reputatie van betrokkenen kunnen schaden enz. <br> - moraal: onbeduidend maar objectief psychische aandoeningen, gevoel van inbreuk op de privacy zonder onomkeerbare schade, intimidatie op sociale netwerken, enz.",
-				"name": "Beperkte ernst",
-				"source": "PIAF Connected objects p41 - WIKI"
+				"name": "Beperkte ernst"
 			},
 			"PIA_EX_IMPM": {
 				"description": "Betrokkenen kunnen aanzienlijke, of zelfs onomkeerbare, gevolgen ondervinden, die ze mogelijk niet overwinnen. Voorbeelden: <br> - fysiek: langdurige of permanente fysieke kwalen, blijvende beschadiging van fysieke integriteit, overlijden <br> - materiaal: financieel risico, aanzienlijke schulden, onvermogen om te werken, onvermogen om te verhuizen, verlies van bewijs in de context van geschillen, verlies van toegang tot vitale infrastructuur (water, elektriciteit), enz. <br> - moraal: langdurige of permanente psychische aandoeningen, strafrechtelijke sanctie, ontvoering, verlies van familiebanden, onvermogen om te vervolgen, verandering van administratieve status en / of verlies van juridische autonomie (voogdij), enz.",
-				"name": "Maximale ernst",
-				"source": "PIAF Connected objects p41 - WIKI"
+				"name": "Maximale ernst"
 			},
 			"PIA_EX_IMPN": {
 				"description": "Betrokkenen worden ofwel niet beïnvloed of kunnen enkele ongemakken tegenkomen die ze zonder enig probleem zullen overwinnen. Voorbeelden: <br> - fysiek: voorbijgaande hoofdpijn <br> - materiaal: tijdverlies bij het herhalen van formaliteiten of wachten op waaraan ze moeten voldoen, ontvangst van ongevraagde e-mail (bijv. spams), hergebruik van gegevens die op websites worden gepubliceerd met het doel van gerichte advertenties, enz., <br> - moraal: loutere ergernis, gevoel van inbreuk op privacy zonder echte of objectieve schade (commerciële inbraak), etc.",
-				"name": "Verwaarloosbare ernst",
-				"source": "PIAF Connected Objects p41 - WIKI"
-			},
-			"PIA_EX_MIND": {
-				"description": "Verminder de ernst van risico's door de gegevens zelf te minimaliseren, door maatregelen te nemen die gericht zijn op het verminderen van hun gevoeligheid.",
-				"name": "Minimalisatie van gegevens zelf",
-				"source": "Mesures_US"
+				"name": "Verwaarloosbare ernst"
 			},
 			"PIA_EX_NHUM": {
 				"description": "Incident of schade bij een van de organisatie (stroomstoring, brand, overstroming, etc.)",
-				"name": "Niet-menselijke bronnen",
-				"source": "PIAF Connected objects p41 - WIKI"
+				"name": "Niet-menselijke bronnen"
 			},
 			"PIA_EX_VRAI": {
 				"description": "Het lijkt mogelijk dat de geselecteerde risicobronnen de dreiging materialiseren door gebruik te maken van de eigenschappen van ondersteunende activa (bijvoorbeeld diefstal van papieren documenten die zijn opgeslagen in kantoren en die niet toegankelijk zijn zonder eerst bij de receptie in te checken).",
-				"name": "Aanzienlijke waarschijnlijkheid",
-				"source": "PIAF Connected objects p44 - WIKI"
+				"name": "Aanzienlijke waarschijnlijkheid"
 			},
 			"PIA_EX_VRAL": {
 				"description": "Het lijkt moeilijk voor de geselecteerde risicobronnen om de dreiging te materialiseren door gebruik te maken van de eigenschappen van ondersteunende activa (bijvoorbeeld: diefstal van papieren documenten die zijn opgeslagen in een kamer die wordt beschermd door een badgelezer).",
-				"name": "Beperkte waarschijnlijkheid",
-				"source": "PIAF Connected objects p44 - WIKI"
+				"name": "Beperkte waarschijnlijkheid"
 			},
 			"PIA_EX_VRAM": {
 				"description": "Het lijkt uiterst gemakkelijk voor de geselecteerde risicobronnen om de dreiging te materialiseren door gebruik te maken van de eigenschappen van ondersteunende activa (bijvoorbeeld diefstal van papieren documenten die zijn opgeslagen in de openbare lobby).",
-				"name": "Maximale kans",
-				"source": "PIAF Connected objects p44 - WIKI"
+				"name": "Maximale kans"
 			},
 			"PIA_EX_VRAN": {
 				"description": "Het lijkt niet mogelijk dat de geselecteerde risicobronnen de dreiging materialiseren door gebruik te maken van de eigenschappen van ondersteunende activa (bijvoorbeeld diefstal van papieren documenten die zijn opgeslagen in een ruimte die wordt beschermd door een badgelezer en toegangscode).",
-				"name": "Verwaarloosbare waarschijnlijkheid",
-				"source": "PIAF Connected objects p44 - WIKI"
+				"name": "Verwaarloosbare waarschijnlijkheid"
 			},
 			"PIA_LGL_CONS": {
 				"description": "Sta de betrokkenen toe om een vrije, specifieke en geïnformeerde keuze te maken. Bepaal of de verwerking berust op een andere wettelijke basis dan toestemming overeenkomstig Art. 6 van de <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/NL/TXT/HTML/?uri=CELEX:32016R0679&from=NL\">[AVG]</a>",
@@ -927,9 +907,6 @@
 			"content": "U hebt de PIA goedgekeurd."
 		},
 		"start_evaluation": "Start review",
-		"update_server_url": {
-			"content": ""
-		},
 		"update_server_url_nok": {
 			"content": "TO BE TRANSLATED - Connection impossible."
 		},
@@ -1343,8 +1320,6 @@
 		},
 		"download_csv": "Download een CSV-export",
 		"download_images": "Download afbeeldingen",
-		"download_risks_cartography": "",
-		"download_risks_overview": "",
 		"dpo_name": "DPO's / FG naam",
 		"dpo_opinion": "DPO's / FG mening",
 		"dpo_status": "DPO's / FG status",
