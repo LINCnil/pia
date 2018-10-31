@@ -947,7 +947,7 @@
       "keep": "Keep this <br>measure"
     },
     "remove_question": {
-      "content": "Are you sure you want to deleted the question?",
+      "content": "Are you sure you want to delete the question?",
       "remove": "Delete",
       "keep": "Cancel"
     },
