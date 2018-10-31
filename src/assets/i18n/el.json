@@ -13,7 +13,7 @@
     "homepage_link": "Πίνακας ενδείξεων",
     "knowledge_base_link": "Βάση γνώσεων",
     "pia_example_link": "Παράδειγμα ΕΑ",
-    "structures": "TO BE TRANSLATED - Modèles de PIA",
+    "structures": "Υπoδείγματα ΕΑ",
     "languages": {
       "official_translation": "Αρχική έκδοση",
       "cnil_translations": "Μεταφράσεις που παρείχε η CNIL",
@@ -58,11 +58,11 @@
       "import_pia": "Εισαγωγή ΕΑ",
       "list_rocket_content": "Αρχίστε ! Για να ξεκινήσετε <br>μια ΕΑ, κάντε κλικ στο +",
       "card_rocket_content": "Αρχίστε !<br><br>Για να ξεκινήσετε μια ΕΑ,<br> κάντε κλικ στο Νέα ΕΑ",
-      "new_structure": "TO BE TRANSLATED - Nouveau modèle",
-      "import_structure": "TO BE TRANSLATED - Importer modèle",
-      "sector_name": "TO BE TRANSLATED - Secteur associé",
-      "list_rocket_content_structure": "TO BE TRANSLATED - Lancez-vous ! Pour commencer<br>un modèle, cliquez sur le +",
-      "card_rocket_content_structure": "TO BE TRANSLATED - Lancez-vous !<br><br>Pour commencer<br>un modèle, cliquez<br> sur le +"
+      "new_structure": "Νέο υπόδειγμα",
+      "import_structure": "Εισαγωγή υποδείγματος",
+      "sector_name": "Σχετικός τομέας",
+      "list_rocket_content_structure": "Αρχίστε ! Για να ξεκινήσετε <br>ένα υπόδειγμα, κάντε κλικ στο +",
+      "card_rocket_content_structure": "Αρχίστε ! Για να ξεκινήσετε <br>ένα υπόδειγμα, κάντε κλικ στο +"
     },
     "cards": {
       "new_pia": "Νέα ΕΑ",
@@ -79,21 +79,21 @@
       "placeholder_evaluation": "Όνομα, επίθετο",
       "validation": "Επικύρωση",
       "placeholder_validation": "Όνομα, επίθετο",
-      "structure": "TO BE TRANSLATED - Modèle",
-      "placeholder_structure": "TO BE TRANSLATED - Modèle par défaut",
+      "structure": "Υπόδειγμα",
+      "placeholder_structure": "Προεπιλεγμένο υπόδειγμα",
       "date": "Ημερομηνία",
       "status": "Κατάσταση",
       "creation_status": "Δημιουργία",
       "start": "Έναρξη",
       "placeholder_start": "Όλα τα πεδία πρέπει να συμπληρωθούν",
-      "new_structure": "TO BE TRANSLATED - Nouveau modèle",
-      "placeholder_new_structure": "TO BE TRANSLATED - Nouveau modèle",
-      "import_structure": "TO BE TRANSLATED - Importer modèle",
-      "placeholder_import_structure": "TO BE TRANSLATED - Importer modèle",
-      "structure_name": "TO BE TRANSLATED - Nom du modèle",
-      "sector_name": "TO BE TRANSLATED - Secteur associé",
-      "placeholder_structure_name": "TO BE TRANSLATED - Intitulé du modèle",
-      "placeholder_sector_name": "TO BE TRANSLATED - Intitulé du Secteur associé",
+      "new_structure": "Νέο υπόδειγμα",
+      "placeholder_new_structure": "Νέο υπόδειγμα",
+      "import_structure": "Εισαγωγή υποδείγματος",
+      "placeholder_import_structure": "Εισαγωγή υποδείγματος",
+      "structure_name": "Όνομα υποδείγματος",
+      "sector_name": "Σχετικός τομέας",
+      "placeholder_structure_name": "Τίτλος υποδείγματος",
+      "placeholder_sector_name": "Όνομα σχετικού τομέα",
       "item": {
         "tools": {
           "export": "Εξαγωγή",
@@ -105,7 +105,7 @@
         },
         "edit_pia": "Επεξεργασία ΕΑ",
         "consult_pia": "Συμβουλευθείτε την ΕΑ",
-        "edit_structure": "TO BE TRANSLATED - Éditer le modèle"
+        "edit_structure": "Επεξεργασία υποδείγματος"
       }
     },
     "lists": {
@@ -118,9 +118,9 @@
       "column_status": "Κατάσταση",
       "column_progression": "Πρόοδος",
       "column_actions": "Ενέργειες",
-      "column_structure": "TO BE TRANSLATED - Modèle",
-      "column_sector_name": "TO BE TRANSLATED - Secteur associé",
-      "column_structure_name": "TO BE TRANSLATED - Modèle",
+      "column_structure": "Υπόδειγμα",
+      "column_sector_name": "Σχετικός τομέας",
+      "column_structure_name": "Υπόδειγμα",
       "item": {
         "tools": {
           "consult": "Συμβουλή",
@@ -158,7 +158,7 @@
       "homepage_link": "Επιστροφή στον πίνακα ελέγχου",
       "validate_pia": "Επικύρωση ΕΑ",
       "refuse_pia": "Απορριφθείσες ΕΑ",
-      "based_on_structure_name": "TO BE TRANSLATED - Basé sur le modèle :",
+      "based_on_structure_name": "Με βάση το υπόδειγμα:",
       "status": {
         "evaluation": {
           "title": "Σε αναμονή ελέγχου.",
@@ -179,7 +179,7 @@
       "validate_evaluation": "Επικύρωση ελέγχου",
       "subsection_validated": "Το υποτμήμα ελέγχθηκε, σε αναμονή τελικής επικύρωσης",
       "mandatory_fields": "Όλα τα πεδία πρέπει να συμπληρωθούν",
-      "structure_add_question": "TO BE TRANSLATED - Ajouter une question"
+      "structure_add_question": "Προσθήκη ερωτήματος"
     }
   },
   "measures": {
@@ -384,9 +384,9 @@
         "source": "PIAF Connected Objects p23"
       },
       "PIA_SEC_CTR": {
-        "placeholder": "Περιγράψτε εδώ συγκεκριμένα μέτρα για τους εκτελούντες την επεξεργασία (κεντρικός υπολογιστής, εταιρεία συντήρησης, διαχειριστής, ειδικοί πάροχοι υπηρεσιών, κ.λπ.)",
+        "placeholder": "Περιγράψτε εδώ συγκεκριμένα μέτρα για τους εκτελούντες την επεξεργασία (πάροχος φιλοξενίας ιστοσελίδας, εταιρεία συντήρησης, διαχειριστής, πάροχοι ειδικών υπηρεσιών, κ.λπ.)",
         "name": "Συμβάσεις επεξεργασίας",
-        "description": "TO BE TRANSLATED - Les données à caractère personnel communiquées à ou gérées par des sous-traitants doivent bénéficier de garanties suffisantes. <strong>Faire appel uniquement à des sous-traitants présentant des garanties suffisantes</strong> (notamment en termes de connaissances spécialisées, de fiabilité et de ressources). Exiger la communication par le prestataire de sa politique de sécurité des systèmes d’information. <br>Prendre et documenter les moyens (audits de sécurité, visite des installations, etc.) permettant d’<strong>assurer l’effectivité des garanties offertes par le sous-traitant<strong> en matière de protection des données. Ces garanties incluent notamment :<br> - le chiffrement des données selon leur sensibilité ou à défaut l’existence de procédures garantissant que la société de prestation n’a pas accès aux données qui lui sont confiées<br>- le chiffrement des transmissions de données (ex : connexion de type HTTPS, VPN, etc.)<br>- des garanties en matière de protection du réseau, de traçabilité (journaux, audits), de gestion des habilitations, d’authentification, etc.<br><strong>Prévoir un contrat avec les sous-traitants</strong>, qui définit notamment l’objet, la durée, la finalité du traitement et les obligations des parties. S’assurer qu’il contient en particulier des dispositions fixant :<br>- leur obligation en matière de confidentialité des données personnelles confiées<br>- des contraintes minimales en matière d’authentification des utilisateurs<br>- les conditions de restitution et/ou de destruction des données en fin du contrat<br>- les règles de gestion et de notification des incidents. Celles-ci devraient comprendre une information du responsable de traitement en cas de découverte de faille de sécurité ou d’incident de sécurité et cela dans les plus brefs délais lorsqu’il s’agit d’une violation de données à caractère personnel.<br>- Dans le cas de l’utilisation de fournisseur de cloud computing :<br>\t1. identifier clairement les données et les traitements qui passeront dans le cloud ;<br>\t2. définir ses propres exigences de sécurité technique et juridique ;<br>\t3. conduire une étude de risques afin d'identifier les mesures de sécurité appropriées ;<br>\t4. identifier le type de cloud pertinent pour le traitement envisagé ;<br>\t5. choisir un prestataire présentant des garanties suffisantes ;<br>\t6. revoir la politique de sécurité interne ;<br>\t7. surveiller les évolutions dans le temps.",
+        "description": "<strong>Να χρησιμοποιείτε μόνο υπεργολάβους που παρέχουν επαρκείς εγγυήσεις</strong> (ιδίως από πλευράς εμπειρογνωμοσύνης, αξιοπιστίας και πόρων). Να απαιτήσετε οι πάροχοι υπηρεσιών να σας γνωστοποιήσουν την πολιτική ασφαλείας των πληροφοριακών συστημάτων τους πριν υπογράψετε σύμβαση μαζί τους. <br>Να λάβετε και να καταγράψετε τα μέτρα (έλεγχοι ασφαλείας, επισκέψεις σε εγκαταστάσεις, κ.λπ.) που εφαρμόζονται για την <strong>εξασφάλιση της αποτελεσματικότητας των εγγυήσεων που προσφέρει ο υπεργολάβος</strong> για την προστασία των προσωπικών δεδομένων. Στις εγγυήσεις αυτές περιλαμβάνονται: <br>- η κρυπτογράφηση δεδομένων ανάλογα με την ευαισθησία τους ή, κατ' ελάχιστον, η ύπαρξη διαδικασιών που εγγυώνται ότι η εταιρεία που παρέχει την υπηρεσία δεν έχει πρόσβαση στα δεδομένα· <br>- η κρυπτογράφηση της μετάδοσης δεδομένων (π.χ. σύνδεση τύπου HTTPS, VPN, κ.λπ.)· <br>- εγγυήσεις όσον αφορά στην προστασία του δικτύου, στην ιχνηλασιμότητα (αρχεία καταγραφής - logs, τακτικοί και έκτακτοι έλεγχοι), στη διαχείριση αδειών πρόσβασης, στην πιστοποίηση της ταυτότητας, κ.λπ.· <br><strong>Να υπογράψετε σύμβαση με τους υπεργολάβους</strong>, η οποία καθορίζει το αντικείμενο, τη διάρκεια, τον σκοπό της επεξεργασίας καθώς και τις υποχρεώσεις εκάστου μέρους. Διασφαλίστε ότι περιέχει, ειδικότερα, διατάξεις που καθορίζουν: <br>- την υποχρέωσή τους όσον αφορά <strong>στην εμπιστευτικότητα των προσωπικών δεδομένων που τους έχουν εμπιστευθεί</strong>· <br>- <strong>τις ελάχιστες απαιτήσεις όσον αφορά στην πιστοποίηση της ταυτότητας των χρηστών</strong>· <br>- <strong>τους όρους ανάκτησης ή / και καταστροφής δεδομένων στο τέλος της σύμβασης</strong>· <br>- <strong>τους κανόνες για τη διαχείριση και την αναφορά περιστατικών.</strong> Αυτοί θα πρέπει να περιλαμβάνουν, όποτε ανακαλύπτεται παραβίαση της ασφάλειας ή περιστατικό ασφαλείας, ειδοποίηση του υπεύθυνου επεξεργασίας, η οποία θα πρέπει να συμβεί το συντομότερο δυνατόν αν αφορά σε προσωπικά δεδομένα.",
         "source": "Mesures_US Procurement: identified and governed by a contract"
       },
       "PIA_SEC_NET": {
@@ -769,8 +769,8 @@
   },
   "questions": {
     "edit": "Επεξεργασία ερωτήματος",
-    "remove": "TO BE TRANSLATED - Supprimer la question",
-    "placeholder_title": "TO BE TRANSLATED - Titre de la question (obligatoire)",
+    "remove": "Διαγραφή ερωτήματος",
+    "placeholder_title": "Τίτλος ερωτήματος (υποχρεωτικό)",
     "gauges": {
       "0": "(Απροσδιόριστο)",
       "1": "Αμελητέο",
@@ -944,9 +944,9 @@
       "keep": "Διατήρηση αυτού του <br>μέτρου"
     },
     "remove_question": {
-      "content": "TO BE TRANSLATED - Souhaitez-vous supprimer la question ?",
-      "remove": "TO BE TRANSLATED - Supprimer",
-      "keep": "TO BE TRANSLATED - Annuler"
+      "content": "Είστε βέβαιοι ότι θέλετε να διαγράψετε το ερώτημα;",
+      "remove": "Διαγραφή",
+      "keep": "Ακύρωση"
     },
     "ask_for_evaluation": {
       "content": "<span class='strong'>Συγχαρητήρια,</span><br>η υποενότητα είναι τώρα<br>διαθέσιμη για αξιολόγηση."
@@ -966,8 +966,8 @@
       "remove": "Αφαίρεση αυτής της ΕΑ"
     },
     "remove_structure": {
-      "content": "TO BE TRANSLATED - <span class='strong'>Attention,</span><br>Êtes-vous sûr de vouloir<br>supprimer ce modèle ?",
-      "remove": "TO BE TRANSLATED - Supprimer ce modèle"
+      "content": "<span class='strong'>Προσοχή,</span><br>Είστε βέβαιοι ότι θέλετε να <br>διαγράψετε το υπόδειγμα;",
+      "remove": "Διαγραφή του υποδείγματος"
     },
     "remove_attachment": {
       "content": "<span class='strong'>Προσοχή,</span><br>Είστε βέβαιοι ότι θέλετε να <br>αφαιρέσετε αυτό το συνημμένο;",
@@ -976,29 +976,29 @@
       "comment": "Σχόλιο"
     },
     "action_plan_no_evaluation": {
-      "content": "TO BE TRANSLATED - You need to begin the review of the analysis to create the action plan.",
-      "review_section": "TO BE TRANSLATED - Review a section"
+      "content": "Πρέπει να ξεκινήσετε την αξιολόγηση της ανάλυσης για να δημιουργήσετε το σχέδιο δράσης.",
+      "review_section": "Αξιολόγηση ενός τμήματος"
     },
     "dpo_missing_evaluations": {
-      "content": "TO BE TRANSLATED - You need to complete the review of the analysis to access the DPO page.",
-      "review_section": "TO BE TRANSLATED - Review a section",
-      "remove": "Odebrat",
-      "comment": "TO BE TRANSLATED - Comment"
+      "content": "Πρέπει να ολοκληρώσετε την αξιολόγηση της ανάλυσης για να αποκτήσετε πρόσβαση στην σελίδα του ΥΠΔ.",
+      "review_section": "Αξιολόγηση ενός τμήματος",
+      "remove": "Αφαίρεση",
+      "comment": "Σχόλιο"
     },
     "modal_select_text_pia": {
-      "content": "TO BE TRANSLATED - The content of the PIA has been copied to clipboard."
+      "content": "Το περιεχόμενο της ΕΑ έχει αντιγραφεί στο πρόχειρο."
     },
     "back_to_edition": {
-      "content": "TO BE TRANSLATED - This section has been sent back for editing.<br> Several fields must be corrected<br> to enable its proper review."
+      "content": "Αυτό το τμήμα έχει σταλεί πίσω για επεξεργασία.<br> Αρκετά πεδία πρέπει να διορθωθούν<br> για να επιτραπεί η ορθή αξιολόγησή του."
     },
     "back_to_evaluation": {
-      "content": "TO BE TRANSLATED - This section has been sent back for review.<br> Several fields must be reviewed<br> to enable its proper validation."
+      "content": "Αυτό το τμήμα έχει σταλεί πίσω για αξιολόγηση.<br> Αρκετά πεδία πρέπει να αξιολογηθούν<br> για να επιτραπεί η ορθή επικύρωσή του."
     },
     "import_wrong_pia_file": {
-      "content": "TO BE TRANSLATED - Le fichier importé ne correspond pas à un fichier de type PIA"
+      "content": "Το εισαγόμενο αρχείο δεν αντιστοιχεί σε ένα αρχείο ΕΑ."
     },
     "import_wrong_structure_file": {
-      "content": "TO BE TRANSLATED - Le fichier importé ne correspond pas à un fichier de type Modèle"
+      "content": "Το εισαγόμενο αρχείο δεν αντιστοιχεί σε ένα αρχείο Υποδείγματος."
     }
   },
   "summary": {
