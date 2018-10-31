@@ -59,11 +59,11 @@
       "import_pia": "Uvezi PUP",
       "list_rocket_content": "Započnite! Kako bi započeli s <br>PUP-om, kliknite na +",
       "card_rocket_content": "Započnite!<br><br>Kako bi započeli s PUP-om,<br> kliknite na Novi PUP",
-      "new_structure": "New template (TRANSLATION REQUIRED)",
-      "import_structure": "Import template (TRANSLATION REQUIRED)",
-      "sector_name": "Associated sector (TRANSLATION REQUIRED)",
-      "list_rocket_content_structure": "Get started ! To initiate <br>a template, click on the + (TRANSLATION REQUIRED)",
-      "card_rocket_content_structure": "Get started ! To initiate <br>a template, click on the + (TRANSLATION REQUIRED)" 
+      "new_structure": "Novi obrazac",
+      "import_structure": "Uvezi obrazac",
+      "sector_name": "Pridruženi sektor",
+      "list_rocket_content_structure": "Započnite! Kako bi započeli s <br>obrascem, kliknite na +",
+      "card_rocket_content_structure": "Započnite! Kako bi započeli s <br>obrascem, kliknite na +" 
     },
     "cards": {
       "new_pia": "Novi PUP",
@@ -80,21 +80,21 @@
       "placeholder_evaluation": "Ime, prezime",
       "validation": "Potvrda",
       "placeholder_validation": "Ime, prezime",
-      "structure": "Template (TRANSLATION REQUIRED)",
-      "placeholder_structure": "Default template (TRANSLATION REQUIRED)",
+      "structure": "Obrazac",
+      "placeholder_structure": "Zadani obrazac",
       "date": "Datum",
       "status": "Status",
       "creation_status": "Stvaranje",
       "start": "Početak",
       "placeholder_start": "Sva polja moraju biti popunjena",
-      "new_structure": "New template (TRANSLATION REQUIRED)",
-      "placeholder_new_structure": "New template (TRANSLATION REQUIRED)",
-      "import_structure": "Import template (TRANSLATION REQUIRED)",
-      "placeholder_import_structure": "Import template (TRANSLATION REQUIRED)",
-      "structure_name": "Template's title (TRANSLATION REQUIRED)",
-      "sector_name": "Associated sector (TRANSLATION REQUIRED)",
-      "placeholder_structure_name": "Template's title (TRANSLATION REQUIRED)",
-      "placeholder_sector_name": "Sector name (TRANSLATION REQUIRED)",
+      "new_structure": "Novi obrazac",
+      "placeholder_new_structure": "Novi obrazac",
+      "import_structure": "Uvezi obrazac",
+      "placeholder_import_structure": "Uvezi obrazac",
+      "structure_name": "Naziv obrasca",
+      "sector_name": "Pridruženi sektor",
+      "placeholder_structure_name": "Naziv obrasca",
+      "placeholder_sector_name": "Naziv sektora",
       "item": {
         "tools": {
           "export": "Izvezi",
@@ -106,7 +106,7 @@
         },
         "edit_pia": "Uredi PUP",
         "consult_pia": "Pogledaj PUP",
-        "edit_structure": "Edit template (TRANSLATION REQUIRED)"
+        "edit_structure": "Uredi obrazac"
       }
     },
     "lists": {
@@ -119,9 +119,9 @@
       "column_status": "Status",
       "column_progression": "Napredak",
       "column_actions": "Radnje",
-      "column_structure": "Template (TRANSLATION REQUIRED)",
-      "column_sector_name": "Associated sector (TRANSLATION REQUIRED)",
-      "column_structure_name": "Template (TRANSLATION REQUIRED)",
+      "column_structure": "Obrazac",
+      "column_sector_name": "Pridruženi sektor",
+      "column_structure_name": "Obrazac",
       "item": {
         "tools": {
           "consult": "Pogledaj",
@@ -159,7 +159,7 @@
       "homepage_link": "Povratak na kontrolnu ploču",
       "validate_pia": "Potvrdi  PUP",
       "refuse_pia": "Odbijeni PUP",
-      "based_on_structure_name": "Base on template: (TRANSLATION REQUIRED)",
+      "based_on_structure_name": "Na temelju obrasca:",
       "status": {
         "evaluation": {
           "title": "Čeka na pregled.",
@@ -180,7 +180,7 @@
       "validate_evaluation": "Izvrši potvrdu pregleda",
       "subsection_validated": "Pododjeljak je pregledan i očekuje konačnu potvrdu",
       "mandatory_fields": "Sva polja moraju biti popunjena",
-      "structure_add_question": "Add a (TRANSLATION REQUIRED)"
+      "structure_add_question": "Dodaj"
     }
   },
   "measures": {
@@ -923,7 +923,7 @@
       "content": "Adresa poslužitelja je ažurirana."
     },
     "update_server_url_nok": {
-      "content": "Connection impossible. (TRANSLATION REQUIRED)"
+      "content": "Vezu nije moguće ostvariti."
     },
     "signed_pia_validation": {
       "content": "Da biste odobrili PUP, priložite potpisano izvješće.",
@@ -948,9 +948,9 @@
       "keep": "Zadrži ovu <br>mjeru"
     },
     "remove_question": {
-      "content": "Are you sure you want to deleted the question? (TRANSLATION REQUIRED)",
-      "remove": "Delete (TRANSLATION REQUIRED)",
-      "keep": "Cancel (TRANSLATION REQUIRED)"
+      "content": "Jeste li sigurni da želite obrisati pitanje?",
+      "remove": "Izbriši",
+      "keep": "Poništi"
     },
     "ask_for_evaluation": {
       "content": "Ovaj odjeljak spreman je za pregled."
@@ -999,10 +999,10 @@
       "content": "Ovaj odjeljak poslan je nazada na pregled.<br> Potrebno je pregledati nekoliko polja<br> kako bi se omogućilo pravilno potvrđivanje."
     },
     "import_wrong_pia_file": {
-      "content": "The imported file doesn't correspond to a PIA report file (TRANSLATION REQUIRED)"
+      "content": "Uvezena datoteka ne odgovara datoteci izvještaja PUP-a"
     },
     "import_wrong_structure_file": {
-      "content": "The imported file doesn't correspond to a PIA template file (TRANSLATION REQUIRED)"
+      "content": "Uvezena datoteka ne odgovara datoteci obrasca PUP-a"
     }
   },
   "summary": {
