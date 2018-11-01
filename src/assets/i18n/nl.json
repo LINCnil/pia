@@ -91,7 +91,7 @@
 			"community_translations": "Vertalingen door community",
 			"cz": "Česky",
 			"de": "Deutsch",
-			"dk": "",
+			"dk": "Dansk",
 			"dpa_translations": "Vertaling herzien door Europese gegevensbeschermingsautoriteit",
 			"el": "Ελληνικά",
 			"en": "English",
@@ -100,6 +100,7 @@
 			"fr": "Français",
 			"hu": "Magyar",
 			"it": "Italiano",
+			"lt": "Lietuviškai",
 			"nl": "Nederlands",
 			"no": "Norsk",
 			"official_translation": "Originele versie",
@@ -110,6 +111,7 @@
 		"logo_subtitle": "",
 		"logo_title": "Privacy Impact Assessment",
 		"pia_example_link": "PIA voorbeeld",
+		"structures": "",
 		"tools": {
 			"about": "Over",
 			"accessibility": "Toegang voor slechtzienden (kleuren met hoog contrast, daltonisme)",
@@ -166,9 +168,11 @@
 			"date": "Datum",
 			"evaluation": "Reviewen",
 			"import_pia": "Importeren PIA",
+			"import_structure": "",
 			"item": {
 				"consult_pia": "PIA Raadplegen",
 				"edit_pia": "Aanpassen PIA",
+				"edit_structure": "",
 				"tools": {
 					"action_plan": "Toon<br>actie plan",
 					"duplicate": "Dupliceren",
@@ -179,17 +183,26 @@
 				}
 			},
 			"new_pia": "Nieuwe PIA",
+			"new_structure": "",
 			"or": "or",
 			"pia_name": "PIA",
 			"placeholder_author": "Voornaam, achternaam",
 			"placeholder_evaluation": "Voornaam, achternaam",
 			"placeholder_import_pia": "Importeren PIA",
+			"placeholder_import_structure": "",
 			"placeholder_new_pia": "Nieuwe PIA",
+			"placeholder_new_structure": "",
 			"placeholder_pia_name": "Namen PIA's",
+			"placeholder_sector_name": "",
 			"placeholder_start": "Alle velden moeten worden ingevuld",
+			"placeholder_structure": "",
+			"placeholder_structure_name": "",
 			"placeholder_validation": "Voornaam, achternaam",
+			"sector_name": "",
 			"start": "Beginnen",
 			"status": "Status",
+			"structure": "",
+			"structure_name": "",
 			"title_close_creation": "Sluiten",
 			"validation": "Valideren"
 		},
@@ -198,12 +211,17 @@
 			"author": "Auteur",
 			"card": "Kaart",
 			"card_rocket_content": "Aan de slag! <br> <br> Om een PIA te starten, <br> klikt u op Nieuwe PIA",
+			"card_rocket_content_structure": "",
 			"date": "Datum",
 			"import_pia": "Importeren PIA",
+			"import_structure": "",
 			"list": "lijst",
 			"list_rocket_content": "Begin! Om een PIA te initiëren, klik op de +",
+			"list_rocket_content_structure": "",
 			"name": "Naam",
 			"new_pia": "Nieuwe PIA",
+			"new_structure": "",
+			"sector_name": "",
 			"sort": "Sorteren",
 			"sort_by": "met",
 			"status": "Status",
@@ -216,7 +234,10 @@
 			"column_evaluation": "Review",
 			"column_pia": "PIA",
 			"column_progression": "Voortgang",
+			"column_sector_name": "",
 			"column_status": "Status",
+			"column_structure": "",
+			"column_structure_name": "",
 			"column_updated_at": "Laatst geopend",
 			"column_validation": "Valideren",
 			"item": {
@@ -279,7 +300,8 @@
 			"PIA_DEF_CHIF": {
 				"description": "Encryptie maatregelen die persoonlijke gegevens voor iedereen zonder toegangsbevoegdheid onbegrijpelijk maken met (symmetrische of asymmetrische codering, gebruik van openbare algoritmes waarvan bekend is dat ze sterk zijn, authenticatiecertificaat, enz.).",
 				"name": "Encryptie",
-				"source": "Mesures_US Encryption"
+				"source": "Mesures_US Encryption",
+				"source ": ""
 			},
 			"PIA_DEF_CLO": {
 				"description": "Gegevensorganisatie-methoden die de mogelijkheid verkleinen dat persoonlijke gegevens kunnen worden gecorreleerd en dat een schending van alle persoonlijke gegevens kan optreden. Bijvoorbeeld door de persoonlijke gegevens te identificeren die alleen voor elk bedrijfsproces nuttig zijn en logisch van elkaar te scheiden.",
@@ -857,6 +879,12 @@
 			"remove": "Verwijderen",
 			"review_section": "Controleer een sectie"
 		},
+		"import_wrong_pia_file": {
+			"content": ""
+		},
+		"import_wrong_structure_file": {
+			"content": ""
+		},
 		"modal_select_text_pia": {
 			"content": "De inhoud van de PIA is gekopieerd naar het klembord."
 		},
@@ -880,6 +908,15 @@
 		"remove_pia": {
 			"content": "<span class='strong'>Waarschuwing, </span> <br> Weet u zeker dat u deze PIA wilt verwijderen?",
 			"remove": "Remove this PIA"
+		},
+		"remove_question": {
+			"content": "",
+			"keep": "",
+			"remove": ""
+		},
+		"remove_structure": {
+			"content": "",
+			"remove": ""
 		},
 		"same_comment": {
 			"content": "<span class='strong'>Waarschuwing, </span> <br> Voer een andere opmerking in dan de laatst opgenomen."
@@ -945,6 +982,7 @@
 		"footer": {
 			"ask_evaluation": "Vraag een beoordeling",
 			"mandatory_fields": "Alle velden moeten worden ingevuld",
+			"structure_add_question": "",
 			"subsection_validated": "Subsectie beoordeeld, in afwachting van definitieve validatie",
 			"validate_evaluation": "Beoordeling valideren"
 		},
@@ -955,6 +993,7 @@
 			"preview": "Voorbeeld"
 		},
 		"sections": {
+			"based_on_structure_name": "",
 			"homepage_link": "Terug naar dashboard",
 			"refuse_pia": "Geweigerde PIA",
 			"status": {
@@ -990,7 +1029,9 @@
 			"2": "Beperkt",
 			"3": "Belangrijk",
 			"4": "Maximaal"
-		}
+		},
+		"placeholder_title": "",
+		"remove": ""
 	},
 	"rejection_page": {
 		"applied_adjustments": "Voorgestelde aanpassingen",

@@ -91,7 +91,7 @@
 			"community_translations": "Traduzioni fornite da soggetti diversi",
 			"cz": "Česky",
 			"de": "Deutsch",
-			"dk": "",
+			"dk": "Dansk",
 			"dpa_translations": "Traduzioni revisionate da Autorità protezione dati UE",
 			"el": "Ελληνικά",
 			"en": "English",
@@ -100,6 +100,7 @@
 			"fr": "Français",
 			"hu": "Magyar",
 			"it": "Italiano",
+			"lt": "Lietuviškai",
 			"nl": "Nederlands",
 			"no": "Norsk",
 			"official_translation": "Versione originale",
@@ -110,6 +111,7 @@
 		"logo_subtitle": "",
 		"logo_title": "Valutazione d'impatto sulla protezione dei dati",
 		"pia_example_link": "Esempio PIA",
+		"structures": "",
 		"tools": {
 			"about": "Informazioni",
 			"accessibility": "Accessibilità per ipovedenti (colori ad alto contrasto, daltonismo)",
@@ -166,9 +168,11 @@
 			"date": "Data",
 			"evaluation": "Revisore",
 			"import_pia": "Importa PIA",
+			"import_structure": "",
 			"item": {
 				"consult_pia": "Visualizza PIA",
 				"edit_pia": "Modifica PIA",
+				"edit_structure": "",
 				"tools": {
 					"action_plan": "Mostra<br>il piano d'azione",
 					"duplicate": "Crea una copia",
@@ -179,17 +183,26 @@
 				}
 			},
 			"new_pia": "Nuova PIA",
+			"new_structure": "",
 			"or": "oppure",
 			"pia_name": "PIA",
 			"placeholder_author": "Cognome, nome",
 			"placeholder_evaluation": "Cognome, nome",
 			"placeholder_import_pia": "Importa PIA",
+			"placeholder_import_structure": "",
 			"placeholder_new_pia": "Nuova PIA",
+			"placeholder_new_structure": "",
 			"placeholder_pia_name": "Nome della PIA",
+			"placeholder_sector_name": "",
 			"placeholder_start": "Tutti i campi sono obbligatori",
+			"placeholder_structure": "",
+			"placeholder_structure_name": "",
 			"placeholder_validation": "Cognome, nome",
+			"sector_name": "",
 			"start": "Avvio",
 			"status": "Stato",
+			"structure": "",
+			"structure_name": "",
 			"title_close_creation": "Chiudi",
 			"validation": "Validatore"
 		},
@@ -198,12 +211,17 @@
 			"author": "Autore",
 			"card": "Tabella",
 			"card_rocket_content": "Inizia! Per impostare <br>una PIA, clicca sul +",
+			"card_rocket_content_structure": "",
 			"date": "Data",
 			"import_pia": "Importa PIA",
+			"import_structure": "",
 			"list": "Lista",
 			"list_rocket_content": "Inizia! Per impostare <br>una PIA, clicca sul +",
+			"list_rocket_content_structure": "",
 			"name": "Nome",
 			"new_pia": "Nuova PIA",
+			"new_structure": "",
+			"sector_name": "",
 			"sort": "Ordina",
 			"sort_by": "per",
 			"status": "Stato",
@@ -216,7 +234,10 @@
 			"column_evaluation": "Revisore",
 			"column_pia": "PIA",
 			"column_progression": "Avanzamento",
+			"column_sector_name": "",
 			"column_status": "Stato",
+			"column_structure": "",
+			"column_structure_name": "",
 			"column_updated_at": "Cronologia",
 			"column_validation": "Validatore",
 			"item": {
@@ -279,7 +300,8 @@
 			"PIA_DEF_CHIF": {
 				"description": "La cifratura di un messaggio permette di garantire che solo il mittente e il/i destinatari(o) di tale messaggio ne conosca(no) il contenuto. Si tratta di una sorta di busta digitale sigillata. Una volta cifrato, se non si dispone della chiave specifica, il messaggio resta inaccessibile e illeggibile sia per le persone sia per le macchine.<br>Si distingue fra cifratura (o crittografia) simmetrica e cifratura (o crittografia) asimmetrica.<br>- <strong>La cifratura simmetrica</strong> consente di cifrare e decifrare un determinato contenuto utilizzando una sola chiave, detta in tal caso 'chiave segreta'. La cifratura simmetrica ha il pregio della rapidità, ma mittente e destinatario devono concordare una chiave segreta comune, ovvero devono utilizzare un diverso canale per trasmettersi reciprocamente tale chiave. La scelta del canale di trasmissione richiede particolare cautela per evitare che terzi malintenzionati entrino in possesso della chiave violando, quindi, la riservatezza del messaggio.<br>- <strong>La cifratura asimmetrica</strong> prevede che il (futuro) destinatario sia provvisto di una coppia di chiavi (chiave privata e chiave pubblica) e consenta ai potenziali mittenti di accedere alla sua chiave pubblica. In tal caso, il mittente usa la chiave pubblica del destinatario per cifrare il messaggio, e parallelamente il destinatario utilizzerà la sua chiave privata per decifrarlo. Fra i vantaggi di tale sistema, c'è il fatto che la chiave pubblica può essere pubblicata ed è di dominio pubblico. Tuttavia, occorre che i mittenti si fidino dell'origine della chiave pubblica, e siano certi che si tratti effettivamente della chiave pubblica del destinatario. Un altro vantaggio è che non vi è più necessità di condividere una stessa chiave segreta: la cifratura asimmetrica permette di evitarlo, ma è più lenta.",
 				"name": "Cifratura",
-				"source": "Guide Bleu 2017 p23 https://www.cnil.fr/fr/comprendre-les-grands-principes-de-la-cryptologie-et-du-chiffrement"
+				"source": "Guide Bleu 2017 p23 https://www.cnil.fr/fr/comprendre-les-grands-principes-de-la-cryptologie-et-du-chiffrement",
+				"source ": ""
 			},
 			"PIA_DEF_CLO": {
 				"description": "Metodiche che riducono la possibilità di correlazioni fra i dati personali e di una compromissione a carico della totalità dei dati.<br>Per esempio, si potranno  identificare i dati specifici per ogni attività separandoli logicamente, ecc.",
@@ -857,6 +879,12 @@
 			"remove": "Cancella",
 			"review_section": "Valuta una sezione"
 		},
+		"import_wrong_pia_file": {
+			"content": ""
+		},
+		"import_wrong_structure_file": {
+			"content": ""
+		},
 		"modal_select_text_pia": {
 			"content": "I contenuti della PIA sono stati copiati negli appunti."
 		},
@@ -880,6 +908,15 @@
 		"remove_pia": {
 			"content": "<span class='strong'>Attenzione,</span><br>È sicuro di voler<br>cancellare questa PIA?",
 			"remove": "Cancella questa PIA"
+		},
+		"remove_question": {
+			"content": "",
+			"keep": "",
+			"remove": ""
+		},
+		"remove_structure": {
+			"content": "",
+			"remove": ""
 		},
 		"same_comment": {
 			"content": "<span class='strong'>Attenzione,</span><br>Inserire un commento diverso dall'ultimo inserito."
@@ -945,6 +982,7 @@
 		"footer": {
 			"ask_evaluation": "Richiedi una revisione",
 			"mandatory_fields": "Tutti i campi sono obbligatori",
+			"structure_add_question": "",
 			"subsection_validated": "Sezione rivista, in attesa di validazione finale",
 			"validate_evaluation": "Valida revisione"
 		},
@@ -955,6 +993,7 @@
 			"preview": "Anteprima"
 		},
 		"sections": {
+			"based_on_structure_name": "",
 			"homepage_link": "Torna al pannello di controllo",
 			"refuse_pia": "Rifiuta PIA",
 			"status": {
@@ -990,7 +1029,9 @@
 			"2": "Limitato",
 			"3": "Importante",
 			"4": "Massimo"
-		}
+		},
+		"placeholder_title": "",
+		"remove": ""
 	},
 	"rejection_page": {
 		"applied_adjustments": "Modifiche apportate",

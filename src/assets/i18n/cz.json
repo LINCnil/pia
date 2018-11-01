@@ -91,7 +91,7 @@
 			"community_translations": "TO BE TRANSLATED - Community provided translations",
 			"cz": "Česky",
 			"de": "Deutsch",
-			"dk": "",
+			"dk": "Dansk",
 			"dpa_translations": "TO BE TRANSLATED - Translation revised by European DPA",
 			"el": "Ελληνικά",
 			"en": "English",
@@ -100,6 +100,7 @@
 			"fr": "Français",
 			"hu": "Magyar",
 			"it": "Italiano",
+			"lt": "Lietuviškai",
 			"nl": "Nederlands",
 			"no": "Norsk",
 			"official_translation": "TO BE TRANSLATED - Original version",
@@ -110,6 +111,7 @@
 		"logo_subtitle": "",
 		"logo_title": "Posouzení dopadů na soukromí",
 		"pia_example_link": "PIA příklad",
+		"structures": "",
 		"tools": {
 			"about": "O nás",
 			"accessibility": "Dostupnost pro zrakově postižené (barvy s vysokým kontrastem, daltonismem)",
@@ -166,9 +168,11 @@
 			"date": "Datum",
 			"evaluation": "Posouzení",
 			"import_pia": "Importovat PIA",
+			"import_structure": "",
 			"item": {
 				"consult_pia": "TO BE TRANSLATED - Consult PIA",
 				"edit_pia": "Upravit PIA",
+				"edit_structure": "",
 				"tools": {
 					"action_plan": "Zobrazit<br>akční plán",
 					"duplicate": "Duplikovat",
@@ -179,17 +183,26 @@
 				}
 			},
 			"new_pia": "Nová PIA",
+			"new_structure": "",
 			"or": "nebo",
 			"pia_name": "PIA",
 			"placeholder_author": "Křestní jméno, Příjmení",
 			"placeholder_evaluation": "Křestní jméno, Příjmení",
 			"placeholder_import_pia": "Importovat PIA",
+			"placeholder_import_structure": "",
 			"placeholder_new_pia": "Nová PIA",
+			"placeholder_new_structure": "",
 			"placeholder_pia_name": "PIA název",
+			"placeholder_sector_name": "",
 			"placeholder_start": "Všechna pole musí být vyplněna",
+			"placeholder_structure": "",
+			"placeholder_structure_name": "",
 			"placeholder_validation": "Křestní jméno, Příjmení",
+			"sector_name": "",
 			"start": "Start",
 			"status": "Stav",
+			"structure": "",
+			"structure_name": "",
 			"title_close_creation": "Zavřít",
 			"validation": "Validation"
 		},
@@ -198,12 +211,17 @@
 			"author": "Autora",
 			"card": "karta",
 			"card_rocket_content": "Začínáme! <br><br>Chcete-li iniciovat PIA,<br> klikněte na Nová PIA",
+			"card_rocket_content_structure": "",
 			"date": "Datumu",
 			"import_pia": "Importovat PIA",
+			"import_structure": "",
 			"list": "seznam",
 			"list_rocket_content": "Začínáme! Chcete-li zahájit PIA, klikněte na tlačítko +",
+			"list_rocket_content_structure": "",
 			"name": "Názvu",
 			"new_pia": "Nová PIA",
+			"new_structure": "",
+			"sector_name": "",
 			"sort": "Seřadit",
 			"sort_by": "podle",
 			"status": "Stavu",
@@ -216,7 +234,10 @@
 			"column_evaluation": "Posouzení",
 			"column_pia": "PIA",
 			"column_progression": "Postup",
+			"column_sector_name": "",
 			"column_status": "Stav",
+			"column_structure": "",
+			"column_structure_name": "",
 			"column_updated_at": "Naposledy otevřeno",
 			"column_validation": "Validace",
 			"item": {
@@ -279,7 +300,8 @@
 			"PIA_DEF_CHIF": {
 				"description": "Measure making personal data unintelligible to anyone without access authorization (symmetric or asymmetric encryption, use of public algorithms known to be strong, authentication certificate, etc.).",
 				"name": "Encryption",
-				"source": "Mesures_US Encryption"
+				"source": "Mesures_US Encryption",
+				"source ": ""
 			},
 			"PIA_DEF_CLO": {
 				"description": "Data organisation methods that reduce the possibility that personal data can be correlated and that a breach of all personal data may occur. For instance, by identifying the personal data useful only to each business process and logically separating them.",
@@ -857,6 +879,12 @@
 			"remove": "Odebrat",
 			"review_section": "TO BE TRANSLATED - Review a section"
 		},
+		"import_wrong_pia_file": {
+			"content": ""
+		},
+		"import_wrong_structure_file": {
+			"content": ""
+		},
 		"modal_select_text_pia": {
 			"content": "TO BE TRANSLATED - The content of the PIA has been copied to clipboard."
 		},
@@ -880,6 +908,15 @@
 		"remove_pia": {
 			"content": "<span class='strong'>Upozornění,</span><br>Opravdu chcete<br>odstranit toto PIA?",
 			"remove": "Odstranit tuto PIA"
+		},
+		"remove_question": {
+			"content": "",
+			"keep": "",
+			"remove": ""
+		},
+		"remove_structure": {
+			"content": "",
+			"remove": ""
 		},
 		"same_comment": {
 			"content": "<span class='strong'>Upozornění,</span><br>Prosím zadejte komentář odlišný od posledního zaznamenaného."
@@ -945,6 +982,7 @@
 		"footer": {
 			"ask_evaluation": "Požádat o kontrolu",
 			"mandatory_fields": "Všechna pole musí být vyplněna",
+			"structure_add_question": "",
 			"subsection_validated": "Subsekce schválená, čeká na konečné ověření",
 			"validate_evaluation": "Ověřit kontrolu"
 		},
@@ -955,6 +993,7 @@
 			"preview": "Náhled"
 		},
 		"sections": {
+			"based_on_structure_name": "",
 			"homepage_link": "Zpět na Hlavní panel",
 			"refuse_pia": "Odmítnutá PIA",
 			"status": {
@@ -990,7 +1029,9 @@
 			"2": "Omezeno",
 			"3": "Důležité",
 			"4": "Maximální"
-		}
+		},
+		"placeholder_title": "",
+		"remove": ""
 	},
 	"rejection_page": {
 		"applied_adjustments": "TO BE TRANSLATED - Adjustments proposed",

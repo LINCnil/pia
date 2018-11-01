@@ -91,7 +91,7 @@
 			"community_translations": "Von der Community bereitgestellte Übersetzungen",
 			"cz": "Česky",
 			"de": "Deutsch",
-			"dk": "",
+			"dk": "Dansk",
 			"dpa_translations": "Von europäischen Aufsichtsbehörden bereitgestellte Übersetzungen",
 			"el": "Ελληνικά",
 			"en": "English",
@@ -100,6 +100,7 @@
 			"fr": "Français",
 			"hu": "Magyar",
 			"it": "Italiano",
+			"lt": "Lietuviškai",
 			"nl": "Nederlands",
 			"no": "Norsk",
 			"official_translation": "Originalversion",
@@ -110,6 +111,7 @@
 		"logo_subtitle": "PIA - privacy impact assessment",
 		"logo_title": "DSFA - Datenschutz-Folgenabschätzung",
 		"pia_example_link": "Beispiel DSFA",
+		"structures": "",
 		"tools": {
 			"about": "Über",
 			"accessibility": "Unterstützung für Sehbehinderte (kontrastreiche Farben, bei Rot-Grün-Sehschwäche)",
@@ -166,9 +168,11 @@
 			"date": "Datum",
 			"evaluation": "Prüfer",
 			"import_pia": "DSFA importieren",
+			"import_structure": "",
 			"item": {
 				"consult_pia": "DSFA ansehen",
 				"edit_pia": "DSFA bearbeiten",
+				"edit_structure": "",
 				"tools": {
 					"action_plan": "Aktionsplan<br>anzeigen",
 					"duplicate": "Kopieren",
@@ -179,17 +183,26 @@
 				}
 			},
 			"new_pia": "Neue DSFA",
+			"new_structure": "",
 			"or": "oder",
 			"pia_name": "DSFA",
 			"placeholder_author": "Vorname Nachname",
 			"placeholder_evaluation": "Vorname Nachname",
 			"placeholder_import_pia": "DSFA importieren",
+			"placeholder_import_structure": "",
 			"placeholder_new_pia": "Neue DSFA",
+			"placeholder_new_structure": "",
 			"placeholder_pia_name": "DSFA-Titel",
+			"placeholder_sector_name": "",
 			"placeholder_start": "Es müssen alle Felder ausgefüllt sein",
+			"placeholder_structure": "",
+			"placeholder_structure_name": "",
 			"placeholder_validation": "Vorname Nachname",
+			"sector_name": "",
 			"start": "Start",
 			"status": "Status",
+			"structure": "",
+			"structure_name": "",
 			"title_close_creation": "Schließen",
 			"validation": "Bestätigender"
 		},
@@ -198,12 +211,17 @@
 			"author": "Bearbeitet von",
 			"card": "Karte",
 			"card_rocket_content": "Für eine neue DSFA,<br> klicken Sie auf \"+\"",
+			"card_rocket_content_structure": "",
 			"date": "Datum",
 			"import_pia": "DSFA importieren",
+			"import_structure": "",
 			"list": "Liste",
 			"list_rocket_content": "Fangen Sie an! Um eine DSFA anzulegen, klicken Sie auf \"Neue DSFA\"",
+			"list_rocket_content_structure": "",
 			"name": "Name",
 			"new_pia": "Neue DSFA",
+			"new_structure": "",
+			"sector_name": "",
 			"sort": "Sortieren",
 			"sort_by": "nach",
 			"status": "Status",
@@ -216,7 +234,10 @@
 			"column_evaluation": "Überprüft von",
 			"column_pia": "DSFA",
 			"column_progression": "Fortschritt",
+			"column_sector_name": "",
 			"column_status": "Status",
+			"column_structure": "",
+			"column_structure_name": "",
 			"column_updated_at": "Zuletzt geöffnet",
 			"column_validation": "Bestätigt von",
 			"item": {
@@ -279,7 +300,8 @@
 			"PIA_DEF_CHIF": {
 				"description": "Durch das Verschlüsseln einer Nachricht wird sichergestellt, dass nur der Absender und der / die rechtmäßige(n) Empfänger einer Nachricht den Inhalt kennen. Es ist eine Art digital versiegelter Umschlag. Nach der Verschlüsselung ist eine Nachricht weder für Personen noch Maschinen zugänglich oder lesbar, wenn sie nicht über den spezifischen Schlüssel verfügen.<br>Es gibt zwei große Familien der Verschlüsselung : symmetrische und asymmetrische.<br>- <strong>Symmetrische Verschlüsselung</strong> Inhalte werden mit dem gleichen Schlüssel verschlüsselt und entschlüsselt, genannt der \"geheime Schlüssel\". Die symmetrische Verschlüsselung ist besonders schnell, erfordert jedoch, dass der Sender und der Empfänger sich auf einen gemeinsamen geheimen Schlüssel einigen oder ihn über einen anderen Kanal übertragen. Dieser muss sorgfältig ausgewählt werden, da sonst der Schlüssel von den falschen Leuten zurückgewonnen und die Vertraulichkeit der Nachricht kompromittiert werden könnte.<br-<strong>Asymmetrische Verschlüsselung</strong> Sie geht davon aus, dass der (zukünftige) Empfänger ein Schlüsselpaar (privater Schlüssel, öffentlicher Schlüssel) hat und hat sicherstellt, dass der potentielle Absender Zugriff auf seinen öffentlichen Schlüssel hat. In diesem Fall verwendet der Absender den öffentlichen Schlüssel des Empfängers zum Verschlüsseln der Nachricht, während der Empfänger seinen privaten Schlüssel zum Entschlüsseln verwendet. Es ist von Vorteil, dass der öffentliche Schlüssel allen bekannt ist und veröffentlicht werden kann. Aber Vorsicht: es ist notwendig, dass die Sender das Vertrauen in der Herkunft des öffentlichen Schlüssels haben und sicher sind , dass er in der Tat vom Empfänger stammt. Ein weiterer Pluspunkt: Sie müssen nicht den gleichen geheimen Schlüssel teilen! Die asymmetrische Verschlüsselung macht es möglich, darauf zu verzichten, aber sie ist langsamer.",
 				"name": "Verschlüsselung",
-				"source": "Guide Bleu 2017 p23 https://www.cnil.fr/fr/comprendre-les-grands-principes-de-la-cryptologie-et-du-chiffrement"
+				"source": "Guide Bleu 2017 p23 https://www.cnil.fr/fr/comprendre-les-grands-principes-de-la-cryptologie-et-du-chiffrement",
+				"source ": ""
 			},
 			"PIA_DEF_CLO": {
 				"description": "Methoden zur Reduzierung der Möglichkeiten, personenbezogene Daten zu korrelieren und eine Kompromittierung aller gespeicherten Daten zu verhindern, indem beispielsweise die spezifischen Daten der jeweiligen Geschäftsprozesses identifiziert und logisch getrennt werden.",
@@ -857,6 +879,12 @@
 			"remove": "Entfernen",
 			"review_section": "Überprüfen Sie einen Abschnitt"
 		},
+		"import_wrong_pia_file": {
+			"content": ""
+		},
+		"import_wrong_structure_file": {
+			"content": ""
+		},
 		"modal_select_text_pia": {
 			"content": "Der Inhalt der DSFA wurde in die Zwischenablage kopiert."
 		},
@@ -880,6 +908,15 @@
 		"remove_pia": {
 			"content": "<span class = 'strong'> Warnung, </span><br>Möchten Sie diese DSFA wirklich entfernen?",
 			"remove": "Diese DSFA entfernen"
+		},
+		"remove_question": {
+			"content": "",
+			"keep": "",
+			"remove": ""
+		},
+		"remove_structure": {
+			"content": "",
+			"remove": ""
 		},
 		"same_comment": {
 			"content": "<span class = 'strong'>Warnung, </span><br>Bitte geben Sie einen anderen Kommentar als den zuletzt angegebenen ein."
@@ -945,6 +982,7 @@
 		"footer": {
 			"ask_evaluation": "Bitte um Überprüfung",
 			"mandatory_fields": "Es müssen alle Felder ausgefüllt sein",
+			"structure_add_question": "",
 			"subsection_validated": "Unterabschnitt überprüft, wartet auf endgültige Bestätigung",
 			"validate_evaluation": "Bitte um Bestätigung"
 		},
@@ -955,6 +993,7 @@
 			"preview": "Vorschau"
 		},
 		"sections": {
+			"based_on_structure_name": "",
 			"homepage_link": "Zurück zur Übersicht",
 			"refuse_pia": "DSFA ablehnen",
 			"status": {
@@ -990,7 +1029,9 @@
 			"2": "Überschaubar",
 			"3": "Substantiell",
 			"4": "Groß"
-		}
+		},
+		"placeholder_title": "",
+		"remove": ""
 	},
 	"rejection_page": {
 		"applied_adjustments": "Vorgenommene Änderungen",

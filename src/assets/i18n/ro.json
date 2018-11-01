@@ -91,7 +91,7 @@
 			"community_translations": "Traduceri oferite de către Comunitate",
 			"cz": "Česky",
 			"de": "Deutsch",
-			"dk": "",
+			"dk": "Dansk",
 			"dpa_translations": "TO BE TRANSLATED - Translation revised by European DPA",
 			"el": "Ελληνικά",
 			"en": "English",
@@ -100,6 +100,7 @@
 			"fr": "Français",
 			"hu": "Magyar",
 			"it": "Italiano",
+			"lt": "Lietuviškai",
 			"nl": "Nederlands",
 			"no": "Norsk",
 			"official_translation": "Versiune Originală",
@@ -110,6 +111,7 @@
 		"logo_subtitle": "privacy impact assessment",
 		"logo_title": "Analiza impactului asupra confidențialității datelor",
 		"pia_example_link": "exemplu PIA",
+		"structures": "",
 		"tools": {
 			"about": "Despre",
 			"accessibility": "Accesibilitate deficiențe vizuale (contrast ridicat, daltonism)",
@@ -166,9 +168,11 @@
 			"date": "Dată",
 			"evaluation": "Evaluare",
 			"import_pia": "Inserare PIA",
+			"import_structure": "",
 			"item": {
 				"consult_pia": "Consultare PIA",
 				"edit_pia": "Editare PIA",
+				"edit_structure": "",
 				"tools": {
 					"action_plan": "Afișare<br>plan de acțiune",
 					"duplicate": "Creare<br>copie",
@@ -179,17 +183,26 @@
 				}
 			},
 			"new_pia": "Creare PIA",
+			"new_structure": "",
 			"or": "sau",
 			"pia_name": "PIA",
 			"placeholder_author": "Prenume, Nume",
 			"placeholder_evaluation": "Prenume, Nume",
 			"placeholder_import_pia": "Inserare PIA",
+			"placeholder_import_structure": "",
 			"placeholder_new_pia": "Creare PIA",
+			"placeholder_new_structure": "",
 			"placeholder_pia_name": "Titlu PIA",
+			"placeholder_sector_name": "",
 			"placeholder_start": "Toate câmpurile trebuie completate",
+			"placeholder_structure": "",
+			"placeholder_structure_name": "",
 			"placeholder_validation": "Prenume, Nume",
+			"sector_name": "",
 			"start": "Inițiere",
 			"status": "Stare",
+			"structure": "",
+			"structure_name": "",
 			"title_close_creation": "Închide",
 			"validation": "Aprobare"
 		},
@@ -198,12 +211,17 @@
 			"author": "Autor",
 			"card": "Panou",
 			"card_rocket_content": "Incepeți!<br><br>Pentru a iniția PIA,<br> accesați Creare PIA",
+			"card_rocket_content_structure": "",
 			"date": "Dată",
 			"import_pia": "Inserare PIA",
+			"import_structure": "",
 			"list": "Listă",
 			"list_rocket_content": "Incepeți ! Pentru a iniția <br>PIA, accesați +",
+			"list_rocket_content_structure": "",
 			"name": "Nume",
 			"new_pia": "Creare PIA",
+			"new_structure": "",
+			"sector_name": "",
 			"sort": "Sortare",
 			"sort_by": "după",
 			"status": "Stare",
@@ -216,7 +234,10 @@
 			"column_evaluation": "Evaluare",
 			"column_pia": "PIA",
 			"column_progression": "Progres",
+			"column_sector_name": "",
 			"column_status": "Stare",
+			"column_structure": "",
+			"column_structure_name": "",
 			"column_updated_at": "Ultima accesare",
 			"column_validation": "Aprobare",
 			"item": {
@@ -279,7 +300,8 @@
 			"PIA_DEF_CHIF": {
 				"description": "Măsură ce face ca datele cu caracter personal să fie neinteligibile pentru oricine nu deține autorizație de acces (criptare simetrică sau asimetrică, utilizarea de algoritmi publici puternici, certificat de autentificare, etc.).",
 				"name": "Criptare",
-				"source": "Mesures_US Encryption"
+				"source": "Mesures_US Encryption",
+				"source ": ""
 			},
 			"PIA_DEF_CLO": {
 				"description": "Metode de organizare a datelor ce reduc posibilitatea de corelare a datelor cu caracter personal și de apariție a breșelor în protecția datelor cu caracter personal. De exemplu, prin identificarea datelor cu caracter personal utile numai fiecărui proces de business și prin separarea logică a acestora.",
@@ -857,6 +879,12 @@
 			"remove": "Supprimer",
 			"review_section": "Évaluer une section"
 		},
+		"import_wrong_pia_file": {
+			"content": ""
+		},
+		"import_wrong_structure_file": {
+			"content": ""
+		},
 		"modal_select_text_pia": {
 			"content": "Le contenu du Rapport PIA a été copié dans votre presse-papier."
 		},
@@ -880,6 +908,15 @@
 		"remove_pia": {
 			"content": "<span class='strong'>Atenție,</span><br>Sunteți sigur că vreți să<br>eliminați această PIA?",
 			"remove": "Eliminați PIA"
+		},
+		"remove_question": {
+			"content": "",
+			"keep": "",
+			"remove": ""
+		},
+		"remove_structure": {
+			"content": "",
+			"remove": ""
 		},
 		"same_comment": {
 			"content": "<span class='strong'>Atenție,</span><br>Introduceți un comentariu diferit de cel înregistrat anterior."
@@ -945,6 +982,7 @@
 		"footer": {
 			"ask_evaluation": "Solicită evaluarea",
 			"mandatory_fields": "Toate câmpurile trebuie completate",
+			"structure_add_question": "",
 			"subsection_validated": "Sub-secțiune evaluată, în așteptarea validării finale",
 			"validate_evaluation": "Validează evaluarea"
 		},
@@ -955,6 +993,7 @@
 			"preview": "Vizualizare"
 		},
 		"sections": {
+			"based_on_structure_name": "",
 			"homepage_link": "Inapoi către Panou de comandă",
 			"refuse_pia": "PIA Respinse",
 			"status": {
@@ -990,7 +1029,9 @@
 			"2": "Limitat",
 			"3": "Important",
 			"4": "Maxim"
-		}
+		},
+		"placeholder_title": "",
+		"remove": ""
 	},
 	"rejection_page": {
 		"applied_adjustments": "Ajustările propuse",

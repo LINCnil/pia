@@ -91,7 +91,7 @@
 			"community_translations": "Nem hivatalos fordítások",
 			"cz": "Česky",
 			"de": "Deutsch",
-			"dk": "",
+			"dk": "Dansk",
 			"dpa_translations": "Az illetékes felügyeleti hatóság által felülvizsgált fordítás",
 			"el": "Ελληνικά",
 			"en": "English",
@@ -100,6 +100,7 @@
 			"fr": "Français",
 			"hu": "Magyar",
 			"it": "Italiano",
+			"lt": "Lietuviškai",
 			"nl": "Nederlands",
 			"no": "Norsk",
 			"official_translation": "Hivatalos fordítások",
@@ -110,6 +111,7 @@
 		"logo_subtitle": "",
 		"logo_title": "Adatvédelmi hatásvizsgálat",
 		"pia_example_link": "DPIA-példa",
+		"structures": "",
 		"tools": {
 			"about": "Rólunk",
 			"accessibility": "Hozzáférés látássérülteknek (erős színkontraszt, daltonizmus)",
@@ -166,9 +168,11 @@
 			"date": "Dátum",
 			"evaluation": "Véleményezés",
 			"import_pia": "DPIA importálása",
+			"import_structure": "",
 			"item": {
 				"consult_pia": "DPIA áttekintése ",
 				"edit_pia": "DPIA szerkesztése",
+				"edit_structure": "",
 				"tools": {
 					"action_plan": "Intézkedési terv megmutatása",
 					"duplicate": "Másolat készítése",
@@ -179,17 +183,26 @@
 				}
 			},
 			"new_pia": "Új DPIA",
+			"new_structure": "",
 			"or": "Vagy",
 			"pia_name": "DPIA",
 			"placeholder_author": "Vezetéknév, utónév",
 			"placeholder_evaluation": "Vezetéknév, utónév",
 			"placeholder_import_pia": "DPIA importálása",
+			"placeholder_import_structure": "",
 			"placeholder_new_pia": "Új DPIA",
+			"placeholder_new_structure": "",
 			"placeholder_pia_name": "DPIA címe",
+			"placeholder_sector_name": "",
 			"placeholder_start": "Minden mezőt ki kell tölteni",
+			"placeholder_structure": "",
+			"placeholder_structure_name": "",
 			"placeholder_validation": "Vezetéknév, utónév",
+			"sector_name": "",
 			"start": "Start",
 			"status": "Állapot",
+			"structure": "",
+			"structure_name": "",
 			"title_close_creation": "Bezárás",
 			"validation": "Jóváhagyás"
 		},
@@ -198,12 +211,17 @@
 			"author": "Szerző",
 			"card": "kártya",
 			"card_rocket_content": "Kezdjen hozzá! Kattintson az Új DPIA-ra az DPIA elindításához",
+			"card_rocket_content_structure": "",
 			"date": "Dátum",
 			"import_pia": "DPIA importálása",
+			"import_structure": "",
 			"list": "lista",
 			"list_rocket_content": "Kezdjen hozzá! Kattintson a + jelre az DPIA elindításához",
+			"list_rocket_content_structure": "",
 			"name": "Név",
 			"new_pia": "Új DPIA",
+			"new_structure": "",
+			"sector_name": "",
 			"sort": "Válogatás",
 			"sort_by": "Válogatás valami szerint",
 			"status": "Státusz",
@@ -216,7 +234,10 @@
 			"column_evaluation": "Véleményező neve",
 			"column_pia": "DPIA",
 			"column_progression": "Előrehaladás",
+			"column_sector_name": "",
 			"column_status": "Állapot",
+			"column_structure": "",
+			"column_structure_name": "",
 			"column_updated_at": "Legutóbb megnyitott hatásvizsgálat",
 			"column_validation": "Jóváhagyó neve",
 			"item": {
@@ -279,7 +300,8 @@
 			"PIA_DEF_CHIF": {
 				"description": "Személyes adatokat az illetéktelenek számára felismerhetetlenné tevő intézkedés (szimmetrikus vagy aszimmetrikus titkosítás, a köztudottan erős, nyilvános algoritmusok, hitelesítő tanúsítványok stb. használata).",
 				"name": "Titkosítás",
-				"source": "Titkosítás intézkedések"
+				"source": "Titkosítás intézkedések",
+				"source ": ""
 			},
 			"PIA_DEF_CLO": {
 				"description": "Amennyiben a különböző adatokat elválasztva kezelik, csökkenhet annak az esélye, hogy a személyes adatok egymással összefüggésbe hozhatók legyenek egy esetleges adatvédelmi incidens bekövetkezése esetén.",
@@ -857,6 +879,12 @@
 			"remove": "Eltávolítás",
 			"review_section": "Szakasz áttekintése"
 		},
+		"import_wrong_pia_file": {
+			"content": ""
+		},
+		"import_wrong_structure_file": {
+			"content": ""
+		},
 		"modal_select_text_pia": {
 			"content": "A DPIA tartalma a vágólapra másolva."
 		},
@@ -880,6 +908,15 @@
 		"remove_pia": {
 			"content": "<span class='strong'>Figyelmeztetés:</span><br>Biztosan el akarja távolítani ezt a DPIA-t?",
 			"remove": "A DPIA eltávolítása"
+		},
+		"remove_question": {
+			"content": "",
+			"keep": "",
+			"remove": ""
+		},
+		"remove_structure": {
+			"content": "",
+			"remove": ""
 		},
 		"same_comment": {
 			"content": "<span class='strong'>Figyelmeztetés:</span><br>kérjük, a legutóbbihoz képest más megjegyzést vigyen be."
@@ -945,6 +982,7 @@
 		"footer": {
 			"ask_evaluation": "Véleményezés kérése",
 			"mandatory_fields": "Minden mezőt ki kell tölteni",
+			"structure_add_question": "",
 			"subsection_validated": "Rész véleményezve, jóváhagyásra vár",
 			"validate_evaluation": "Véleményezés befejezése"
 		},
@@ -955,6 +993,7 @@
 			"preview": "Előnézet"
 		},
 		"sections": {
+			"based_on_structure_name": "",
 			"homepage_link": "Vissza a vezérlőpulthoz",
 			"refuse_pia": "Hatásvizsgálat elutasítása",
 			"status": {
@@ -990,7 +1029,9 @@
 			"2": "Korlátozott",
 			"3": "Jelentős",
 			"4": "Maximális"
-		}
+		},
+		"placeholder_title": "",
+		"remove": ""
 	},
 	"rejection_page": {
 		"applied_adjustments": "Kiegészítések",

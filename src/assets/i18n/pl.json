@@ -91,7 +91,7 @@
 			"community_translations": "Wersja przetłumaczone przez społeczność",
 			"cz": "Česky",
 			"de": "Deutsch",
-			"dk": "",
+			"dk": "Dansk",
 			"dpa_translations": "Tłumaczenia zweryfikowane przez krajowe organy nadzorcze",
 			"el": "Ελληνικά",
 			"en": "English",
@@ -100,6 +100,7 @@
 			"fr": "Français",
 			"hu": "Magyar",
 			"it": "Italiano",
+			"lt": "Lietuviškai",
 			"nl": "Nederlands",
 			"no": "Norsk",
 			"official_translation": "Wersja oryginalna",
@@ -110,6 +111,7 @@
 		"logo_subtitle": "Privacy impact assessment",
 		"logo_title": "Ocena skutków dla ochrony prywatności",
 		"pia_example_link": "Przykład PIA",
+		"structures": "",
 		"tools": {
 			"about": "O aplikacji",
 			"accessibility": "Dostępność dla osób słabowidzących (kolory o mocnym kontraście, dopasowane do daltonizmu)",
@@ -166,9 +168,11 @@
 			"date": "Data",
 			"evaluation": "Ocena",
 			"import_pia": "Import PIA",
+			"import_structure": "",
 			"item": {
 				"consult_pia": "Konsultacja PIA",
 				"edit_pia": "Edycja PIA",
+				"edit_structure": "",
 				"tools": {
 					"action_plan": "Wyświetlenie<br>planu działania",
 					"duplicate": "Duplikacja",
@@ -179,17 +183,26 @@
 				}
 			},
 			"new_pia": "Nowa PIA",
+			"new_structure": "",
 			"or": "or",
 			"pia_name": "PIA",
 			"placeholder_author": "Imię, nazwisko",
 			"placeholder_evaluation": "Imię, nazwisko",
 			"placeholder_import_pia": "Import PIA",
+			"placeholder_import_structure": "",
 			"placeholder_new_pia": "Nowa PIA",
+			"placeholder_new_structure": "",
 			"placeholder_pia_name": "Tytuł PIA",
+			"placeholder_sector_name": "",
 			"placeholder_start": "Należy wypełnić wszystkie pola",
+			"placeholder_structure": "",
+			"placeholder_structure_name": "",
 			"placeholder_validation": "Imię, nazwisko",
+			"sector_name": "",
 			"start": "Start",
 			"status": "Status",
+			"structure": "",
+			"structure_name": "",
 			"title_close_creation": "Zamknięcie",
 			"validation": "Zatwierdzenie"
 		},
@@ -198,12 +211,17 @@
 			"author": "Autora",
 			"card": "karta",
 			"card_rocket_content": "Zaczynajmy!<br><br>By rozpocząć PIA,<br> należy kliknąć Nowa PIA",
+			"card_rocket_content_structure": "",
 			"date": "Daty",
 			"import_pia": "Import PIA",
+			"import_structure": "",
 			"list": "lista",
 			"list_rocket_content": "Zaczynajmy! By rozpocząć <br>PIA, prosimy kliknąć +",
+			"list_rocket_content_structure": "",
 			"name": "Nazwiska",
 			"new_pia": "Nowa PIA",
+			"new_structure": "",
+			"sector_name": "",
 			"sort": "Sortowanie",
 			"sort_by": "według",
 			"status": "Statusu",
@@ -216,7 +234,10 @@
 			"column_evaluation": "Ocena",
 			"column_pia": "PIA",
 			"column_progression": "Postęp",
+			"column_sector_name": "",
 			"column_status": "Status",
+			"column_structure": "",
+			"column_structure_name": "",
 			"column_updated_at": "Data otwarcia",
 			"column_validation": "Zatwierdzenie",
 			"item": {
@@ -279,7 +300,8 @@
 			"PIA_DEF_CHIF": {
 				"description": "Szyfrowanie wiadomości pozwala zapewnić, że jedynie nadawca i prawowity odbiorca będą znali jej treść. Po zaszyfrowaniu żaden człowiek ani maszyna nie odczyta wiadomości bez znajomości klucza (szyfrowanie symetryczne lub asymetryczne, korzystanie z publicznych algorytmów uznanych za sile, certyfikat uwierzytelniający, itd.).",
 				"name": "Szyfrowanie",
-				"source": "Mesures_US Encryption"
+				"source": "Mesures_US Encryption",
+				"source ": ""
 			},
 			"PIA_DEF_CLO": {
 				"description": "Zestaw metod pozwalających ograniczyć prawdopodobieństwo korelacji danych osobowych i doprowadzenia do naruszenia wszystkich danych osobowych.<br>Można np. zidentyfikować dane osobowe potrzebne dla każdego procesu biznesowego i je logicznie rozdzielić, itd.",
@@ -857,6 +879,12 @@
 			"remove": "Usunięcie",
 			"review_section": "Przegląd sekcji"
 		},
+		"import_wrong_pia_file": {
+			"content": ""
+		},
+		"import_wrong_structure_file": {
+			"content": ""
+		},
 		"modal_select_text_pia": {
 			"content": "Zawartość została skopiowana do schowka."
 		},
@@ -880,6 +908,15 @@
 		"remove_pia": {
 			"content": "Czy na pewno usunąć?",
 			"remove": "Usuń PIA"
+		},
+		"remove_question": {
+			"content": "",
+			"keep": "",
+			"remove": ""
+		},
+		"remove_structure": {
+			"content": "",
+			"remove": ""
 		},
 		"same_comment": {
 			"content": "<span class='strong'>Uwaga</span><br>Należy wprowadzić inny komentarz niż ostatnio zarejestrowany."
@@ -945,6 +982,7 @@
 		"footer": {
 			"ask_evaluation": "Skierowanie do oceny",
 			"mandatory_fields": "Należy wypełnić wszystkie pola",
+			"structure_add_question": "",
 			"subsection_validated": "Część oceniona, czeka na końcowe zatwierdzenie",
 			"validate_evaluation": "Zatwierdzenie oceny"
 		},
@@ -955,6 +993,7 @@
 			"preview": "Przegląd"
 		},
 		"sections": {
+			"based_on_structure_name": "",
 			"homepage_link": "Powrót do powitania",
 			"refuse_pia": "Odrzucona PIA",
 			"status": {
@@ -990,7 +1029,9 @@
 			"2": "Ograniczone",
 			"3": "Poważne",
 			"4": "Maksymalne"
-		}
+		},
+		"placeholder_title": "",
+		"remove": ""
 	},
 	"rejection_page": {
 		"applied_adjustments": "Wniesione zmiany",

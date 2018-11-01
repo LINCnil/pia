@@ -91,7 +91,7 @@
 			"community_translations": "Community provided translations",
 			"cz": "Česky",
 			"de": "Deutsch",
-			"dk": "",
+			"dk": "Dansk",
 			"dpa_translations": "Translation revised by European DPA",
 			"el": "Ελληνικά",
 			"en": "English",
@@ -100,6 +100,7 @@
 			"fr": "Français",
 			"hu": "Magyar",
 			"it": "Italiano",
+			"lt": "Lietuviškai",
 			"nl": "Nederlands",
 			"no": "Norsk",
 			"official_translation": "Original version",
@@ -110,6 +111,7 @@
 		"logo_subtitle": "",
 		"logo_title": "Privacy impact assessment",
 		"pia_example_link": "PIA example",
+		"structures": "",
 		"tools": {
 			"about": "About",
 			"accessibility": "Visually impaired accessibility (high contrast colors, daltonism)",
@@ -166,9 +168,11 @@
 			"date": "Date",
 			"evaluation": "Review",
 			"import_pia": "Import PIA",
+			"import_structure": "",
 			"item": {
 				"consult_pia": "Consult PIA",
 				"edit_pia": "Edit PIA",
+				"edit_structure": "",
 				"tools": {
 					"action_plan": "Display<br>action plan",
 					"duplicate": "Duplicate",
@@ -179,17 +183,26 @@
 				}
 			},
 			"new_pia": "New PIA",
+			"new_structure": "",
 			"or": "or",
 			"pia_name": "PIA",
 			"placeholder_author": "Firstname, lastname",
 			"placeholder_evaluation": "Firstname, lastname",
 			"placeholder_import_pia": "Import PIA",
+			"placeholder_import_structure": "",
 			"placeholder_new_pia": "New PIA",
+			"placeholder_new_structure": "",
 			"placeholder_pia_name": "PIA's title",
+			"placeholder_sector_name": "",
 			"placeholder_start": "All fields must be filled",
+			"placeholder_structure": "",
+			"placeholder_structure_name": "",
 			"placeholder_validation": "Firstname, lastname",
+			"sector_name": "",
 			"start": "Start",
 			"status": "Status",
+			"structure": "",
+			"structure_name": "",
 			"title_close_creation": "Close",
 			"validation": "Validation"
 		},
@@ -198,12 +211,17 @@
 			"author": "Author",
 			"card": "card",
 			"card_rocket_content": "Get started !<br><br>To initiate a PIA,<br> click on New PIA",
+			"card_rocket_content_structure": "",
 			"date": "Date",
 			"import_pia": "Import PIA",
+			"import_structure": "",
 			"list": "list",
 			"list_rocket_content": "Get started ! To initiate <br>a PIA, click on the +",
+			"list_rocket_content_structure": "",
 			"name": "Name",
 			"new_pia": "New PIA",
+			"new_structure": "",
+			"sector_name": "",
 			"sort": "Sort",
 			"sort_by": "by",
 			"status": "Status",
@@ -216,7 +234,10 @@
 			"column_evaluation": "Review",
 			"column_pia": "PIA",
 			"column_progression": "Progress",
+			"column_sector_name": "",
 			"column_status": "Status",
+			"column_structure": "",
+			"column_structure_name": "",
 			"column_updated_at": "Last opened",
 			"column_validation": "Validation",
 			"item": {
@@ -279,7 +300,8 @@
 			"PIA_DEF_CHIF": {
 				"description": "Measure making personal data unintelligible to anyone without access authorization (symmetric or asymmetric encryption, use of public algorithms known to be strong, authentication certificate, etc.).",
 				"name": "Encryption",
-				"source": "Mesures_US Encryption"
+				"source": "Mesures_US Encryption",
+				"source ": ""
 			},
 			"PIA_DEF_CLO": {
 				"description": "Data organisation methods that reduce the possibility that personal data can be correlated and that a breach of all personal data may occur. For instance, by identifying the personal data useful only to each business process and logically separating them.",
@@ -857,6 +879,12 @@
 			"remove": "Remove",
 			"review_section": "Review a section"
 		},
+		"import_wrong_pia_file": {
+			"content": ""
+		},
+		"import_wrong_structure_file": {
+			"content": ""
+		},
 		"modal_select_text_pia": {
 			"content": "The content of the PIA has been copied to clipboard."
 		},
@@ -880,6 +908,15 @@
 		"remove_pia": {
 			"content": "<span class='strong'>Warning,</span><br>Are you sure you want to<br>remove this PIA?",
 			"remove": "Remove this PIA"
+		},
+		"remove_question": {
+			"content": "",
+			"keep": "",
+			"remove": ""
+		},
+		"remove_structure": {
+			"content": "",
+			"remove": ""
 		},
 		"same_comment": {
 			"content": "<span class='strong'>Warning,</span><br>Please enter a comment different from the last recorded."
@@ -945,6 +982,7 @@
 		"footer": {
 			"ask_evaluation": "Ask for review",
 			"mandatory_fields": "All fields must be filled",
+			"structure_add_question": "",
 			"subsection_validated": "Subsection reviewed, awaiting final validation",
 			"validate_evaluation": "Validate review"
 		},
@@ -955,6 +993,7 @@
 			"preview": "Preview"
 		},
 		"sections": {
+			"based_on_structure_name": "",
 			"homepage_link": "Back to dashboard",
 			"refuse_pia": "Refused PIA",
 			"status": {
@@ -990,7 +1029,9 @@
 			"2": "Limited",
 			"3": "Important",
 			"4": "Maximum"
-		}
+		},
+		"placeholder_title": "",
+		"remove": ""
 	},
 	"rejection_page": {
 		"applied_adjustments": "Adjustments proposed",

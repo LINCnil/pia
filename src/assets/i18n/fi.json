@@ -91,7 +91,7 @@
 			"community_translations": "Epäviralliset käännökset",
 			"cz": "Česky",
 			"de": "Deutsch",
-			"dk": "",
+			"dk": "Dansk",
 			"dpa_translations": "Eurooppalaisen tietosuojaviranomaisen tarkistama käännös",
 			"el": "Ελληνικά",
 			"en": "English",
@@ -100,6 +100,7 @@
 			"fr": "Français",
 			"hu": "Magyar",
 			"it": "Italiano",
+			"lt": "Lietuviškai",
 			"nl": "Nederlands",
 			"no": "Norsk",
 			"official_translation": "Viralliset käännökset",
@@ -110,6 +111,7 @@
 		"logo_subtitle": "",
 		"logo_title": "Tietosuojaa koskeva vaikutustenarviointi",
 		"pia_example_link": "Esimerkki vaikutustenarvioinnista",
+		"structures": "",
 		"tools": {
 			"about": "Tietoa ohjelmasta",
 			"accessibility": "Visuaaliset helppokäyttöisyysasetukset (suuri kontrasti, värisokeus)",
@@ -166,9 +168,11 @@
 			"date": "Päiväys",
 			"evaluation": "Tarkasta",
 			"import_pia": "Tuo vaikutustenarviointi",
+			"import_structure": "",
 			"item": {
 				"consult_pia": "TO BE TRANSLATED - Consult PIA",
 				"edit_pia": "Muokkaa vaikutustenarviointia",
+				"edit_structure": "",
 				"tools": {
 					"action_plan": "Näytä<br>toimintasuunnitelma",
 					"duplicate": "Kahdenna",
@@ -179,17 +183,26 @@
 				}
 			},
 			"new_pia": "Uusi vaikutustenarviointi",
+			"new_structure": "",
 			"or": "tai",
 			"pia_name": "Tietosuojaa koskeva vaikutustenarviointi",
 			"placeholder_author": "Etunimi, sukunimi",
 			"placeholder_evaluation": "Etunimi, sukunimi",
 			"placeholder_import_pia": "Tuo vaikutustenarviointi",
+			"placeholder_import_structure": "",
 			"placeholder_new_pia": "Uusi vaikutustenarviointi",
+			"placeholder_new_structure": "",
 			"placeholder_pia_name": "Vaikutustenarvioinnin otsikko",
+			"placeholder_sector_name": "",
 			"placeholder_start": "Kaikki kentät tulee täyttää",
+			"placeholder_structure": "",
+			"placeholder_structure_name": "",
 			"placeholder_validation": "Etunimi, sukunimi",
+			"sector_name": "",
 			"start": "Aloita",
 			"status": "Tila",
+			"structure": "",
+			"structure_name": "",
 			"title_close_creation": "Sulje",
 			"validation": "Validointi"
 		},
@@ -198,12 +211,17 @@
 			"author": "Laatija",
 			"card": "kortti",
 			"card_rocket_content": "Aloitetaan!<br><br>Luo vaikutustenarviointi<br>  napsauttamalla Uusi vaikutustenarviointi -painiketta",
+			"card_rocket_content_structure": "",
 			"date": "Päiväys",
 			"import_pia": "Tuo vaikutustenarviointi",
+			"import_structure": "",
 			"list": "luettelo",
 			"list_rocket_content": "Aloitetaan! Luo vaikutustenarviointi <br> napsauttamalla +-painiketta",
+			"list_rocket_content_structure": "",
 			"name": "Nimi",
 			"new_pia": "Uusi vaikutustenarviointi",
+			"new_structure": "",
+			"sector_name": "",
 			"sort": "Lajittele",
 			"sort_by": "kriteeri",
 			"status": "Tila",
@@ -216,7 +234,10 @@
 			"column_evaluation": "Tarkasta",
 			"column_pia": "Tietosuojaa koskeva vaikutustenarviointi",
 			"column_progression": "Edistyminen",
+			"column_sector_name": "",
 			"column_status": "Tila",
+			"column_structure": "",
+			"column_structure_name": "",
 			"column_updated_at": "Viimeksi avattu",
 			"column_validation": "Validointi",
 			"item": {
@@ -279,7 +300,8 @@
 			"PIA_DEF_CHIF": {
 				"description": "Henkilötietojen koodaaminen sellaiseen muotoon, että vain valtuutetut henkilöt voivat lukea niitä (symmetrinen tai epäsymmetrinen salaus, vahvoiksi tiedettyjen julkisten algoritmien käyttö, todentamissertifikaatti jne.).",
 				"name": "Salaus",
-				"source": "Mesures_US Encryption"
+				"source": "Mesures_US Encryption",
+				"source ": ""
 			},
 			"PIA_DEF_CLO": {
 				"description": "Tietojen järjestämismenetelmiä, jotka pienentävät henkilötietojen yhdistelemisen ja kaikkia henkilötietoja  koskevan tietoturvaloukkauksen mahdollisuutta. Esimerkki hajauttamisesta olisi vain kunkin liiketoimintaprosessin kannalta hyödyllisten henkilötietojen määritteleminen ja looginen erottaminen muista tiedoista.",
@@ -857,6 +879,12 @@
 			"remove": "Poista",
 			"review_section": "Tarkista osio"
 		},
+		"import_wrong_pia_file": {
+			"content": ""
+		},
+		"import_wrong_structure_file": {
+			"content": ""
+		},
 		"modal_select_text_pia": {
 			"content": "Vaikutustenarvioinnin sisältö on kopioitu leikepöydälle."
 		},
@@ -880,6 +908,15 @@
 		"remove_pia": {
 			"content": "<span class='strong'>Varoitus,</span><br>Haluatko varmasti<br>poistaa tämän tietosuojaa koskevan vaikutustenarvioinnin?",
 			"remove": "Poista tämä tietosuojaa koskeva vaikutustenarviointi"
+		},
+		"remove_question": {
+			"content": "",
+			"keep": "",
+			"remove": ""
+		},
+		"remove_structure": {
+			"content": "",
+			"remove": ""
 		},
 		"same_comment": {
 			"content": "<span class='strong'>Varoitus,</span><br>Syötä kommentti, joka ei ole sama kuin edellinen tallennettu kommentti."
@@ -945,6 +982,7 @@
 		"footer": {
 			"ask_evaluation": "Pyydä tarkastusta",
 			"mandatory_fields": "Kaikki kentät tulee täyttää",
+			"structure_add_question": "",
 			"subsection_validated": "Osa-alue tarkastettu, odottaa lopullista validointia",
 			"validate_evaluation": "Validoi tarkastus"
 		},
@@ -955,6 +993,7 @@
 			"preview": "Esikatselu"
 		},
 		"sections": {
+			"based_on_structure_name": "",
 			"homepage_link": "Takaisin ohjauspaneeliin",
 			"refuse_pia": "Hylätty vaikutustenarviointi",
 			"status": {
@@ -990,7 +1029,9 @@
 			"2": "Rajattu",
 			"3": "Merkittävä",
 			"4": "Suurin"
-		}
+		},
+		"placeholder_title": "",
+		"remove": ""
 	},
 	"rejection_page": {
 		"applied_adjustments": "Tehdyt muokkaukset",

@@ -91,7 +91,7 @@
 			"community_translations": "Traduções fornecidas pela comunidade",
 			"cz": "Česky",
 			"de": "Deutsch",
-			"dk": "",
+			"dk": "Dansk",
 			"dpa_translations": "Traduções revistas pela ADP europeia",
 			"el": "Ελληνικά",
 			"en": "English",
@@ -100,6 +100,7 @@
 			"fr": "Français",
 			"hu": "Magyar",
 			"it": "Italiano",
+			"lt": "Lietuviškai",
 			"nl": "Nederlands",
 			"no": "Norsk",
 			"official_translation": "Versão original",
@@ -110,6 +111,7 @@
 		"logo_subtitle": "Privacy Impact Assessment",
 		"logo_title": "Avaliação do Impacto da Proteção de Dados",
 		"pia_example_link": "Exemplo PIA",
+		"structures": "",
 		"tools": {
 			"about": "Sobre",
 			"accessibility": "Acessibilidade deficiente visual (cores de alto contraste, daltonismo)",
@@ -166,9 +168,11 @@
 			"date": "Data",
 			"evaluation": "Revisão",
 			"import_pia": "Importar análise PIA",
+			"import_structure": "",
 			"item": {
 				"consult_pia": "Consultar análise PIA",
 				"edit_pia": "Editar análise PIA",
+				"edit_structure": "",
 				"tools": {
 					"action_plan": "Exibir<br>plano de ação",
 					"duplicate": "Duplicar",
@@ -179,17 +183,26 @@
 				}
 			},
 			"new_pia": "Nova análise PIA",
+			"new_structure": "",
 			"or": "ou",
 			"pia_name": "PIA",
 			"placeholder_author": "Primeiro Nome, último nome",
 			"placeholder_evaluation": "Primeiro Nome, último nome",
 			"placeholder_import_pia": "Importar análise PIA",
+			"placeholder_import_structure": "",
 			"placeholder_new_pia": "Nova análise PIA",
+			"placeholder_new_structure": "",
 			"placeholder_pia_name": "Título da análise PIA",
+			"placeholder_sector_name": "",
 			"placeholder_start": "Todos os campos devem estar prenchidos",
+			"placeholder_structure": "",
+			"placeholder_structure_name": "",
 			"placeholder_validation": "Primeiro Nome, último nome",
+			"sector_name": "",
 			"start": "Início",
 			"status": "Estado",
+			"structure": "",
+			"structure_name": "",
 			"title_close_creation": "Fechar",
 			"validation": "Validação"
 		},
@@ -198,12 +211,17 @@
 			"author": "Autor",
 			"card": "cartão",
 			"card_rocket_content": "Iniciar !<br><br>Para iniciar uma análise PIA,<br> clicar na Nova análise PIA",
+			"card_rocket_content_structure": "",
 			"date": "Data",
 			"import_pia": "Importar PIA",
+			"import_structure": "",
 			"list": "lista",
 			"list_rocket_content": "Iniciar ! Para iniciar <br>uma análise PIA, clicar no +",
+			"list_rocket_content_structure": "",
 			"name": "Nome",
 			"new_pia": "Nova análise PIA",
+			"new_structure": "",
+			"sector_name": "",
 			"sort": "Ordem",
 			"sort_by": "Por",
 			"status": "Estado",
@@ -216,7 +234,10 @@
 			"column_evaluation": "Revisão",
 			"column_pia": "PIA",
 			"column_progression": "Progresso",
+			"column_sector_name": "",
 			"column_status": "Estado",
+			"column_structure": "",
+			"column_structure_name": "",
 			"column_updated_at": "Último aberto",
 			"column_validation": "Validação",
 			"item": {
@@ -279,7 +300,8 @@
 			"PIA_DEF_CHIF": {
 				"description": "Medir dados pessoais ininteligíveis para qualquer pessoa sem autorização de acesso (criptografia simétrica ou assimétrica, uso de algoritmos públicos conhecidos como fortes, certificado de autenticação, etc.).",
 				"name": "Encriptação",
-				"source": "Mesures_US Encryption"
+				"source": "Mesures_US Encryption",
+				"source ": ""
 			},
 			"PIA_DEF_CLO": {
 				"description": "Métodos de organização de dados que reduzem a possibilidade de que os dados pessoais possam ser correlacionados e que uma violação de todos os dados pessoais possa ocorrer. Por exemplo, identificando os dados pessoais úteis apenas para cada processo de negócios e logicamente separando-os.",
@@ -857,6 +879,12 @@
 			"remove": "Remover",
 			"review_section": "Rever uma secção"
 		},
+		"import_wrong_pia_file": {
+			"content": ""
+		},
+		"import_wrong_structure_file": {
+			"content": ""
+		},
 		"modal_select_text_pia": {
 			"content": "O conteúdo da análise PIA foi copiado para a área de transferência."
 		},
@@ -880,6 +908,15 @@
 		"remove_pia": {
 			"content": "<span class='strong'>Atenção</span><br>, tem a certeza que quer <br>remover esta análise PIA?",
 			"remove": "Remover esta análise PIA"
+		},
+		"remove_question": {
+			"content": "",
+			"keep": "",
+			"remove": ""
+		},
+		"remove_structure": {
+			"content": "",
+			"remove": ""
 		},
 		"same_comment": {
 			"content": "<span class='strong'>Atenção,</span> Por favor insira um comentário diferente do último gravado<br>."
@@ -945,6 +982,7 @@
 		"footer": {
 			"ask_evaluation": "Pedir revisão",
 			"mandatory_fields": "Todos os campos devem estar preenchidos",
+			"structure_add_question": "",
 			"subsection_validated": "Subseção revista, esperando pela validação final",
 			"validate_evaluation": "Validar revisão"
 		},
@@ -955,6 +993,7 @@
 			"preview": "Previsão"
 		},
 		"sections": {
+			"based_on_structure_name": "",
 			"homepage_link": "Voltar para o painel",
 			"refuse_pia": "Análise PIA recusada",
 			"status": {
@@ -990,7 +1029,9 @@
 			"2": "Limitado",
 			"3": "Significativo",
 			"4": "Máximo"
-		}
+		},
+		"placeholder_title": "",
+		"remove": ""
 	},
 	"rejection_page": {
 		"applied_adjustments": "Ajustamentos propostos",

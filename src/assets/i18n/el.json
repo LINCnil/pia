@@ -91,7 +91,7 @@
 			"community_translations": "Μεταφράσεις που παρείχε η κοινότητα",
 			"cz": "Česky",
 			"de": "Deutsch",
-			"dk": "",
+			"dk": "Dansk",
 			"dpa_translations": "Μετάφραση αναθεωρημένη από ευρωπαϊκή ΑΠΔ",
 			"el": "Ελληνικά",
 			"en": "English",
@@ -100,6 +100,7 @@
 			"fr": "Français",
 			"hu": "Magyar",
 			"it": "Italiano",
+			"lt": "Lietuviškai",
 			"nl": "Nederlands",
 			"no": "Norsk",
 			"official_translation": "Αρχική έκδοση",
@@ -110,6 +111,7 @@
 		"logo_subtitle": "",
 		"logo_title": "Εκτίμηση αντικτύπου",
 		"pia_example_link": "Παράδειγμα ΕΑ",
+		"structures": "",
 		"tools": {
 			"about": "Σχετικά",
 			"accessibility": "Προσβασιμότητα με προβλήματα όρασης (χρώματα υψηλής αντίθεσης, δαλτονισμός)",
@@ -166,9 +168,11 @@
 			"date": "Ημερομηνία",
 			"evaluation": "Αξιολόγηση",
 			"import_pia": "Εισαγωγή ΕΑ",
+			"import_structure": "",
 			"item": {
 				"consult_pia": "Συμβουλευθείτε την ΕΑ",
 				"edit_pia": "Επεξεργασία ΕΑ",
+				"edit_structure": "",
 				"tools": {
 					"action_plan": "Εμφάνιση<br>σχεδίου δράσης",
 					"duplicate": "Διπλότυπο",
@@ -179,17 +183,26 @@
 				}
 			},
 			"new_pia": "Νέα ΕΑ",
+			"new_structure": "",
 			"or": "ή",
 			"pia_name": "ΕΑ",
 			"placeholder_author": "Όνομα, επίθετο",
 			"placeholder_evaluation": "Όνομα, επίθετο",
 			"placeholder_import_pia": "Εισαγωγή ΕΑ",
+			"placeholder_import_structure": "",
 			"placeholder_new_pia": "Νέα ΕΑ",
+			"placeholder_new_structure": "",
 			"placeholder_pia_name": "Τίτλος ΕΑ",
+			"placeholder_sector_name": "",
 			"placeholder_start": "Όλα τα πεδία πρέπει να συμπληρωθούν",
+			"placeholder_structure": "",
+			"placeholder_structure_name": "",
 			"placeholder_validation": "Όνομα, επίθετο",
+			"sector_name": "",
 			"start": "Έναρξη",
 			"status": "Κατάσταση",
+			"structure": "",
+			"structure_name": "",
 			"title_close_creation": "Κλείσιμο",
 			"validation": "Επικύρωση"
 		},
@@ -198,12 +211,17 @@
 			"author": "Συντάκτης",
 			"card": "κάρτα",
 			"card_rocket_content": "Αρχίστε !<br><br>Για να ξεκινήσετε μια ΕΑ,<br> κάντε κλικ στο Νέα ΕΑ",
+			"card_rocket_content_structure": "",
 			"date": "Ημερομηνία",
 			"import_pia": "Εισαγωγή ΕΑ",
+			"import_structure": "",
 			"list": "λίστα",
 			"list_rocket_content": "Αρχίστε ! Για να ξεκινήσετε <br>μια ΕΑ, κάντε κλικ στο +",
+			"list_rocket_content_structure": "",
 			"name": "Όνομα",
 			"new_pia": "Νέα ΕΑ",
+			"new_structure": "",
+			"sector_name": "",
 			"sort": "Ταξινόμηση",
 			"sort_by": "κατά",
 			"status": "Κατάσταση",
@@ -216,7 +234,10 @@
 			"column_evaluation": "Αξιολόγηση",
 			"column_pia": "ΕΑ",
 			"column_progression": "Πρόοδος",
+			"column_sector_name": "",
 			"column_status": "Κατάσταση",
+			"column_structure": "",
+			"column_structure_name": "",
 			"column_updated_at": "Τελευταίο άνοιγμα",
 			"column_validation": "Επικύρωση",
 			"item": {
@@ -279,7 +300,8 @@
 			"PIA_DEF_CHIF": {
 				"description": "Μέτρο που καθιστά τα προσωπικά δεδομένα ακατανόητα σε οποιονδήποτε χωρίς άδεια πρόσβασης (συμμετρική ή ασύμμετρη κρυπτογράφηση, χρήση δημόσιων αλγορίθμων που είναι αναγνωρισμένα ισχυροί, πιστοποιητικό ελέγχου ταυτότητας, κ.λπ.).",
 				"name": "Κρυπτογράφηση",
-				"source": "Mesures_US Encryption"
+				"source": "Mesures_US Encryption",
+				"source ": ""
 			},
 			"PIA_DEF_CLO": {
 				"description": "Μέθοδοι οργάνωσης δεδομένων που μειώνουν την πιθανότητα συσχέτισης των προσωπικών δεδομένων και παραβίασης όλων των προσωπικών δεδομένων. Για παράδειγμα, με το να προσδιοριστούν τα προσωπικά δεδομένα που είναι χρήσιμα μόνο για την κάθε επιχειρηματική διαδικασία και με το να διαχωριστούν αυτά λογικά.",
@@ -857,6 +879,12 @@
 			"remove": "",
 			"review_section": ""
 		},
+		"import_wrong_pia_file": {
+			"content": ""
+		},
+		"import_wrong_structure_file": {
+			"content": ""
+		},
 		"modal_select_text_pia": {
 			"content": ""
 		},
@@ -880,6 +908,15 @@
 		"remove_pia": {
 			"content": "<span class='strong'>Προσοχή,</span><br>Είστε βέβαιοι ότι θέλετε να <br>αφαιρέσετε αυτή την ΕΑ;",
 			"remove": "Αφαίρεση αυτής της ΕΑ"
+		},
+		"remove_question": {
+			"content": "",
+			"keep": "",
+			"remove": ""
+		},
+		"remove_structure": {
+			"content": "",
+			"remove": ""
 		},
 		"same_comment": {
 			"content": "<span class='strong'>Προσοχή,</span><br> παρακαλώ εισάγετε ένα σχόλιο διαφορετικό από το τελευταίο."
@@ -945,6 +982,7 @@
 		"footer": {
 			"ask_evaluation": "Αίτηση ελέγχου",
 			"mandatory_fields": "Όλα τα πεδία πρέπει να συμπληρωθούν",
+			"structure_add_question": "",
 			"subsection_validated": "Το υποτμήμα ελέγχθηκε, σε αναμονή τελικής επικύρωσης",
 			"validate_evaluation": "Επικύρωση ελέγχου"
 		},
@@ -955,6 +993,7 @@
 			"preview": "Προεπισκόπηση"
 		},
 		"sections": {
+			"based_on_structure_name": "",
 			"homepage_link": "Επιστροφή στον πίνακα ελέγχου",
 			"refuse_pia": "Απορριφθείσες ΕΑ",
 			"status": {
@@ -990,7 +1029,9 @@
 			"2": "Περιορισμένο",
 			"3": "Σημαντικό",
 			"4": "Μέγιστο"
-		}
+		},
+		"placeholder_title": "",
+		"remove": ""
 	},
 	"rejection_page": {
 		"applied_adjustments": "Προτεινόμενες προσαρμογές",

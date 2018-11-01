@@ -91,7 +91,7 @@
 			"community_translations": "TO BE TRANSLATED - Community provided translations",
 			"cz": "Česky",
 			"de": "Deutsch",
-			"dk": "",
+			"dk": "Dansk",
 			"dpa_translations": "TO BE TRANSLATED - Translation revised by European DPA",
 			"el": "Ελληνικά",
 			"en": "English",
@@ -100,6 +100,7 @@
 			"fr": "Français",
 			"hu": "Magyar",
 			"it": "Italiano",
+			"lt": "Lietuviškai",
 			"nl": "Nederlands",
 			"no": "Norsk",
 			"official_translation": "TO BE TRANSLATED - Original version",
@@ -110,6 +111,7 @@
 		"logo_subtitle": "Vurdering av personvernkonsekvenser",
 		"logo_title": "PIA",
 		"pia_example_link": "Eksempel på vurdering av personvernkonsekvenser",
+		"structures": "",
 		"tools": {
 			"about": "Om",
 			"accessibility": "Tilgjengelighet for synshemmede (høykontrastfarger, daltonisme)",
@@ -166,9 +168,11 @@
 			"date": "Dato",
 			"evaluation": "Saksbehandling",
 			"import_pia": "Importer PIA",
+			"import_structure": "",
 			"item": {
 				"consult_pia": "TO BE TRANSLATED - Consult PIA",
 				"edit_pia": "Regiger PIA",
+				"edit_structure": "",
 				"tools": {
 					"action_plan": "Vis<br>handlingsplan",
 					"duplicate": "Dupliser",
@@ -179,17 +183,26 @@
 				}
 			},
 			"new_pia": "Ny PIA",
+			"new_structure": "",
 			"or": "or",
 			"pia_name": "PIA",
 			"placeholder_author": "Fornavn, etternavn",
 			"placeholder_evaluation": "Fornavn, etternavn",
 			"placeholder_import_pia": "Importer PIA",
+			"placeholder_import_structure": "",
 			"placeholder_new_pia": "Ny PIA",
+			"placeholder_new_structure": "",
 			"placeholder_pia_name": "PIA-tittel",
+			"placeholder_sector_name": "",
 			"placeholder_start": "Alle felt må fylles ut",
+			"placeholder_structure": "",
+			"placeholder_structure_name": "",
 			"placeholder_validation": "Fornavn, etternavn",
+			"sector_name": "",
 			"start": "Start",
 			"status": "Status",
+			"structure": "",
+			"structure_name": "",
 			"title_close_creation": "Lukk",
 			"validation": "Forankring"
 		},
@@ -198,12 +211,17 @@
 			"author": "Forfatter",
 			"card": "kort",
 			"card_rocket_content": "Kom i gang !<br><br>For å starte en PIA,<br> klikk på Ny PIA",
+			"card_rocket_content_structure": "",
 			"date": "Dato",
 			"import_pia": "Importer PIA",
+			"import_structure": "",
 			"list": "liste",
 			"list_rocket_content": "Kom i gang ! For å starte <br>en PIA, klikk på +",
+			"list_rocket_content_structure": "",
 			"name": "Navn",
 			"new_pia": "Ny PIA",
+			"new_structure": "",
+			"sector_name": "",
 			"sort": "Sorter",
 			"sort_by": "etter",
 			"status": "Status",
@@ -216,7 +234,10 @@
 			"column_evaluation": "Evaluer",
 			"column_pia": "PIA",
 			"column_progression": "Fremgang",
+			"column_sector_name": "",
 			"column_status": "Status",
+			"column_structure": "",
+			"column_structure_name": "",
 			"column_updated_at": "Sist åpnet",
 			"column_validation": "Valider",
 			"item": {
@@ -279,7 +300,8 @@
 			"PIA_DEF_CHIF": {
 				"description": "Measure making personal data unintelligible to anyone without access authorization (symmetric or asymmetric encryption, use of public algorithms known to be strong, authentication certificate, etc.).",
 				"name": "Encryption",
-				"source": "Mesures_US Encryption"
+				"source": "Mesures_US Encryption",
+				"source ": ""
 			},
 			"PIA_DEF_CLO": {
 				"description": "Data organisation methods that reduce the possibility that personal data can be correlated and that a breach of all personal data may occur. For instance, by identifying the personal data useful only to each business process and logically separating them.",
@@ -857,6 +879,12 @@
 			"remove": "Remove",
 			"review_section": "TO BE TRANSLATED - Review a section"
 		},
+		"import_wrong_pia_file": {
+			"content": ""
+		},
+		"import_wrong_structure_file": {
+			"content": ""
+		},
 		"modal_select_text_pia": {
 			"content": "TO BE TRANSLATED - The content of the PIA has been copied to clipboard."
 		},
@@ -880,6 +908,15 @@
 		"remove_pia": {
 			"content": "<span class='strong'>Warning,</span><br>Are you sure you want to<br>remove this PIA?",
 			"remove": "Remove this PIA"
+		},
+		"remove_question": {
+			"content": "",
+			"keep": "",
+			"remove": ""
+		},
+		"remove_structure": {
+			"content": "",
+			"remove": ""
 		},
 		"same_comment": {
 			"content": "<span class='strong'>Warning,</span><br>Please enter a comment different from the last recorded."
@@ -945,6 +982,7 @@
 		"footer": {
 			"ask_evaluation": "Forespør saksbehandling",
 			"mandatory_fields": "Alle felter må fylles ut",
+			"structure_add_question": "",
 			"subsection_validated": "Underavsnitt saksbehandlet. Avventer endelig validering",
 			"validate_evaluation": "Valider saksbehandling"
 		},
@@ -955,6 +993,7 @@
 			"preview": "Forhåndsvis"
 		},
 		"sections": {
+			"based_on_structure_name": "",
 			"homepage_link": "Tilbake til hovedside",
 			"refuse_pia": "Avvist PIA",
 			"status": {
@@ -990,7 +1029,9 @@
 			"2": "Limited",
 			"3": "Important",
 			"4": "Maximum"
-		}
+		},
+		"placeholder_title": "",
+		"remove": ""
 	},
 	"rejection_page": {
 		"applied_adjustments": "TO BE TRANSLATED - Adjustments proposed",

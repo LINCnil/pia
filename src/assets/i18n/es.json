@@ -91,7 +91,7 @@
 			"community_translations": "Traducciones de la comunidad",
 			"cz": "Česky",
 			"de": "Deutsch",
-			"dk": "",
+			"dk": "Dansk",
 			"dpa_translations": "TO BE TRANSLATED - Translation revised by European DPA",
 			"el": "Ελληνικά",
 			"en": "English",
@@ -100,6 +100,7 @@
 			"fr": "Français",
 			"hu": "Magyar",
 			"it": "Italiano",
+			"lt": "Lietuviškai",
 			"nl": "Nederlands",
 			"no": "Norsk",
 			"official_translation": "Versión oficial",
@@ -110,6 +111,7 @@
 		"logo_subtitle": "",
 		"logo_title": "Evaluación de impacto de la privacidad",
 		"pia_example_link": "Ejemplo de PIA",
+		"structures": "",
 		"tools": {
 			"about": "Acerca de",
 			"accessibility": "Accesibilidad para personas con discapacidad visual (colores de alto contraste, daltonismo)",
@@ -166,9 +168,11 @@
 			"date": "Fecha",
 			"evaluation": "Revisado por",
 			"import_pia": "Importación PIA",
+			"import_structure": "",
 			"item": {
 				"consult_pia": "Consultar PIA",
 				"edit_pia": "Modificar PIA",
+				"edit_structure": "",
 				"tools": {
 					"action_plan": "Mostrar<br>plan de acción",
 					"duplicate": "Duplicar",
@@ -179,17 +183,26 @@
 				}
 			},
 			"new_pia": "Nuevo PIA",
+			"new_structure": "",
 			"or": "o",
 			"pia_name": "PIA",
 			"placeholder_author": "Nombre y apellidos",
 			"placeholder_evaluation": "Nombre y apellidos",
 			"placeholder_import_pia": "Importación PIA",
+			"placeholder_import_structure": "",
 			"placeholder_new_pia": "Nuevo PIA",
+			"placeholder_new_structure": "",
 			"placeholder_pia_name": "Nombre del PIA",
+			"placeholder_sector_name": "",
 			"placeholder_start": "Todos los campos son obligatorios",
+			"placeholder_structure": "",
+			"placeholder_structure_name": "",
 			"placeholder_validation": "Nombre y apellidos",
+			"sector_name": "",
 			"start": "Comenzar",
 			"status": "Estado",
+			"structure": "",
+			"structure_name": "",
 			"title_close_creation": "Cerrar",
 			"validation": "Validado por"
 		},
@@ -198,12 +211,17 @@
 			"author": "Autor",
 			"card": "Ficha",
 			"card_rocket_content": "¡Comencemos! <br><br>Para iniciar un PIA, <br> clic en Nuevo PIA",
+			"card_rocket_content_structure": "",
 			"date": "Fecha",
 			"import_pia": "Importar PIA",
+			"import_structure": "",
 			"list": "Lista",
 			"list_rocket_content": "¡Comencemos! Para iniciar <br>un PIA, haga clic en el +",
+			"list_rocket_content_structure": "",
 			"name": "Nombre",
 			"new_pia": "Nuevo PIA",
+			"new_structure": "",
+			"sector_name": "",
 			"sort": "Ordenar",
 			"sort_by": "por",
 			"status": "Estado",
@@ -216,7 +234,10 @@
 			"column_evaluation": "Revisado por",
 			"column_pia": "PIA",
 			"column_progression": "Progreso",
+			"column_sector_name": "",
 			"column_status": "Estado",
+			"column_structure": "",
+			"column_structure_name": "",
 			"column_updated_at": "Último acceso",
 			"column_validation": "Validado por",
 			"item": {
@@ -279,7 +300,8 @@
 			"PIA_DEF_CHIF": {
 				"description": "Mida el hacer de datos personales unintelligible a cualquier persona sin la autorización de acceso (cifrado simétrico o asimétrico, uso de los algoritmos públicos sabidos para ser certificado fuerte, de la autentificación, etc.). ",
 				"name": "Cifrado",
-				"source": "Mesures_US Encryption"
+				"source": "Mesures_US Encryption",
+				"source ": ""
 			},
 			"PIA_DEF_CLO": {
 				"description": "Datos organización métodos que reducen la posibilidad de que datos personales pueden ser correlacionados y que se produzca una violación de los datos personales. Por ejemplo, mediante la identificación de los datos personales sólo para cada proceso del negocio y lógicamente que los separa. ",
@@ -857,6 +879,12 @@
 			"remove": "Eliminar",
 			"review_section": "TO BE TRANSLATED - Review a section"
 		},
+		"import_wrong_pia_file": {
+			"content": ""
+		},
+		"import_wrong_structure_file": {
+			"content": ""
+		},
 		"modal_select_text_pia": {
 			"content": "TO BE TRANSLATED - The content of the PIA has been copied to clipboard."
 		},
@@ -880,6 +908,15 @@
 		"remove_pia": {
 			"content": "Advertencia,<br>¿Está seguro de que quiere<br>eliminar este PIA?",
 			"remove": "Eliminar este PIA"
+		},
+		"remove_question": {
+			"content": "",
+			"keep": "",
+			"remove": ""
+		},
+		"remove_structure": {
+			"content": "",
+			"remove": ""
 		},
 		"same_comment": {
 			"content": "Advertencia,<br>Ingrese un comentario diferente al último registrado."
@@ -945,6 +982,7 @@
 		"footer": {
 			"ask_evaluation": "Solicitar revisión",
 			"mandatory_fields": "Todos los campos son obligatorios",
+			"structure_add_question": "",
 			"subsection_validated": "Subsección revisada, en espera de validación final",
 			"validate_evaluation": "Validar revisión"
 		},
@@ -955,6 +993,7 @@
 			"preview": "Vista Previa"
 		},
 		"sections": {
+			"based_on_structure_name": "",
 			"homepage_link": "Volver al Escritorio",
 			"refuse_pia": "Rechazar PIA",
 			"status": {
@@ -990,7 +1029,9 @@
 			"2": "Limitado",
 			"3": "Importante",
 			"4": "Máximo"
-		}
+		},
+		"placeholder_title": "",
+		"remove": ""
 	},
 	"rejection_page": {
 		"applied_adjustments": "TO BE TRANSLATED - Adjustments proposed",
