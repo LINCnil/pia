@@ -300,8 +300,7 @@
 			"PIA_DEF_CHIF": {
 				"description": "Henkilötietojen koodaaminen sellaiseen muotoon, että vain valtuutetut henkilöt voivat lukea niitä (symmetrinen tai epäsymmetrinen salaus, vahvoiksi tiedettyjen julkisten algoritmien käyttö, todentamissertifikaatti jne.).",
 				"name": "Salaus",
-				"source": "Mesures_US Encryption",
-				"source ": ""
+				"source": "Mesures_US Encryption"
 			},
 			"PIA_DEF_CLO": {
 				"description": "Tietojen järjestämismenetelmiä, jotka pienentävät henkilötietojen yhdistelemisen ja kaikkia henkilötietoja  koskevan tietoturvaloukkauksen mahdollisuutta. Esimerkki hajauttamisesta olisi vain kunkin liiketoimintaprosessin kannalta hyödyllisten henkilötietojen määritteleminen ja looginen erottaminen muista tiedoista.",
@@ -490,8 +489,7 @@
 			},
 			"PIA_EX_DC": {
 				"description": "TO BE TRANSLATED - Data for a score system, result of the application of the score....",
-				"name": "TO BE TRANSLATED - Calculated data",
-				"source": ""
+				"name": "TO BE TRANSLATED - Calculated data"
 			},
 			"PIA_EX_DCPC": {
 				"description": "<strong>Tunnistetiedot</strong>: Kansallisuus, henkilöllisyys, ikä jne. <br><strong>Yksityiselämä</strong>: elintavat, siviilisääty jne. <br><strong>Työelämä</strong>: ansioluettelo, koulutus ja ammatillinen koulutus, palkinnot jne. <br><strong>Yhteyden tiedot</strong>: IP-osoitteet, tapahtumalokit jne.<br><strong>Sijaintitiedot</strong>: matkustelu, GPS-tiedot, GSM-tiedot jne.<br><strong>Muut</strong>: puhelinnumero, sähköpostiosoite jne.",
@@ -500,73 +498,55 @@
 			},
 			"PIA_EX_DCPR": {
 				"description": "Filosofinen, poliittinen ja uskonnollinen vakaumus, ammattiliiton jäsenyys, seksuaalinen käyttäytyminen ja suuntautuminen, terveystiedot, rodullinen tai etninen alkuperä, terveyttä ja seksuaalielämää koskevat tiedot, rikostuomioita ja rikkomuksia tai niihin liittyviin turvaamistoimiin liittyvät henkilötiedot; ks. <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">9 ja  10 artikla, [GDPR]</a>.",
-				"name": "Rikkomuksia ja tuomioita sekä erityisiä henkilötietoryhmiä koskevat tiedot",
-				"source": ""
+				"name": "Rikkomuksia ja tuomioita sekä erityisiä henkilötietoryhmiä koskevat tiedot"
 			},
 			"PIA_EX_DCPS": {
 				"description": "Henkilötunnus, biometriset tiedot, pankkitiedot",
-				"name": "Erityistä suojaamista edellyttävät henkilötiedot",
-				"source": ""
+				"name": "Erityistä suojaamista edellyttävät henkilötiedot"
 			},
 			"PIA_EX_HUME": {
 				"description": "Tähän kategoriaan sisältyvät:<br>- arvaamaton tai naiivi naapuri, joka tunkeutuu laitteen tietoihin fyysisen läheisyyden turvin<br>- hakkeri, jolla on hallussaan tietoa käyttäjästä ja joka hyökkää sen avulla käyttäjää vastaan<br>- hakkeri, joka pyrkii vahingoittamaan yrityksen julkisuuskuvaa hallussaan olevilla tiedoilla<br>- ulkopuolinen yritys, jolla on järjestelmän käyttöoikeus ja joka käyttää oikeuksiensa avulla tietoja luvattomasti",
-				"name": "Ulkoiset inhimilliset riskitekijät",
-				"source": ""
+				"name": "Ulkoiset inhimilliset riskitekijät"
 			},
 			"PIA_EX_HUMI": {
 				"description": "Tähän kategoriaan sisältyvät:<br>- huolimattomat tai arvaamattomat työntekijät, järjestelmän läheisyys, potentiaalisesti runsaat taidot, käyttöoikeudet ja käytettävissä oleva aika, mahdollinen koulutuksen ja ymmärryksen puute<br>- huolimattomat tai arvaamattomat käyttäjät, perheenjäsenet tai ystävät, joilla on pääsy palveluun<br> Toiminnalle on useita mahdollisia syitä, kuten taitamattomuus, virheet, huolimattomuus, pelit, vihamieliset aikomukset, kosto ja vakoilu.",
-				"name": "Sisäiset inhimilliset riskitekijät",
-				"source": ""
+				"name": "Sisäiset inhimilliset riskitekijät"
 			},
 			"PIA_EX_IMPI": {
 				"description": "Rekisteröidyille voi aiheutua vakavia seurauksia, joista he selviytyvät vain todellisten ja vakavien vaikeuksien jälkeen. Esimerkiksi: <br>- Fyysinen: vakava fyysinen sairaus, joka aiheuttaa pitkäaikaista vahinkoa (terveyden heikkeneminen väärän hoidon seurauksena), fyysisistä vammoista toipuminen esim. pahoinpitelyn, onnettomuuden tai työtapaturman jälkeen jne.<br>- Aineellinen: korvaamatta jäävä varojen kavallus, rekisteröidyn ainutlaatuisten ja kertaluonteisten mahdollisuuksien menetykset (asuntolaina, opiskelu-, harjoittelu- tai työpaikan epääminen, kokeesta tai tentistä sulkeminen), asunnon menetys, työpaikan menetys jne.;<br>- Henkinen: vakavat psykiatriset häiriöt (masennus, fobia), tunne yksityisyyden loukkauksesta ja peruuttamatonta vahinkoa, joutuminen kiristyksen, kyberkiusaamisen tai häirinnän uhriksi jne.",
-				"name": "Merkittävä vaikutus",
-				"source": ""
+				"name": "Merkittävä vaikutus"
 			},
 			"PIA_EX_IMPL": {
 				"description": "Rekisteröidyille voi aiheutua merkittävää vaivaa, josta he voivat kuitenkin selvitä kohtuullisin vaikeuksin. Esimerkiksi:<br>- Fyysinen: lievät fyysiset vaivat, herjaus josta seuraa fyysinen tai psykologinen kosto jne.<br>- Aineellinen: odottamattomat maksut (virheellisesti määrätyt sakot), hallinnollisten tai kaupallisten palveluiden käytön epääminen, rekisteröidyn mainetta todennäköisesti vahingoittavien ei-toivottujen ja kohdennettujen sähköpostien saaminen jne.<br>- Henkinen: lievät mutta objektiivisesti todetut psykiatriset häiriöt, yksityisyyden loukkauksen tunne ilman peruuttamatonta vahinkoa, uhkailu sosiaalisissa verkostoissa jne.",
-				"name": "Rajoitettu vaikutus",
-				"source": ""
+				"name": "Rajoitettu vaikutus"
 			},
 			"PIA_EX_IMPM": {
 				"description": "Rekisteröidyille voi aiheutua merkittäviä, jopa peruuttamattomia, seurauksia, joista he eivät välttämättä selviä. Esimerkiksi:<br>- Fyysinen: pitkittyneet tai pysyvät fyysiset sairaudet, pysyvä toimintakyvyn aleneminen, kuolema<br>- Aineellinen: taloudelliset riskit, merkittävät velat, työkyvyttömyys, liikkuvuuden menetys, todistusaineiston menetys oikeuskäsittelyssä, elintärkeän infrastruktuurin (vesi, sähkö) käytön estyminen jne.<br>- Henkinen: pitkittyneet tai pysyvät psykiatriset häiriöt, rikostuomio, kaapatuksi joutuminen, perhesiteiden katkeaminen, oikeustoimikelvottomuus ja/tai laillisen itsemääräämisoikeuden menetys (holhous) jne.",
-				"name": "Suurin vaikutus",
-				"source": ""
+				"name": "Suurin vaikutus"
 			},
 			"PIA_EX_IMPN": {
 				"description": "Tapahtumalla ei ole rekisteröityihin mitään vaikutusta, tai se aiheuttaa heille vain vähäistä vaivaa, josta on helppo selvitä. Esimerkiksi:<br>- Fyysinen: ohimenevä päänsärky<br>- Aineellinen: muodollisuuksien toistamisen tai täyttämisen odottamisen aiheuttama ajanhukka, ei-toivottujen sähköpostien (roskaposti) saaminen, verkkosivuilla julkaistujen tietojen käyttö kohdennettuun mainontaan jne.<br>- Henkinen: lievä mielipaha, tunne yksityisyyden loukkauksesta ilman todellista tai objektiivista haittaa (kaupallinen viestintä) jne.",
-				"name": "Vähäinen vaikutus",
-				"source": ""
-			},
-			"PIA_EX_MIND": {
-				"description": "",
-				"name": "",
-				"source": ""
+				"name": "Vähäinen vaikutus"
 			},
 			"PIA_EX_NHUM": {
 				"description": "Onnettomuus tai välikohtaus organisaation toimitiloissa (sähkökatkos, tulipalo, tulva jne.)",
-				"name": "Ei-inhimilliset riskitekijät",
-				"source": ""
+				"name": "Ei-inhimilliset riskitekijät"
 			},
 			"PIA_EX_VRAI": {
 				"description": "Valittujen riskitekijöiden vaikuttaisi olevan mahdollista toteuttaa uhka hyödyntämällä henkilötietojen käsittelyssä käytettävien resurssien ominaisuuksia (esim. paperisten asiakirjojen varkaus toimistosta, johon pääsy edellyttää ilmoittautumista aulassa).",
-				"name": "Merkittävä todennäköisyys",
-				"source": ""
+				"name": "Merkittävä todennäköisyys"
 			},
 			"PIA_EX_VRAL": {
 				"description": "Valittujen riskitekijöiden vaikuttaisi olevan vaikeaa toteuttaa uhka hyödyntämällä henkilötietojen käsittelyssä käytettävien resurssien ominaisuuksia (esim. paperisten asiakirjojen varkaus kulkukortinlukijalla varustetusta huoneesta).",
-				"name": "Rajallinen todennäköisyys",
-				"source": ""
+				"name": "Rajallinen todennäköisyys"
 			},
 			"PIA_EX_VRAM": {
 				"description": "Valittujen riskitekijöiden vaikuttaisi olevan erittäin helppoa toteuttaa uhka hyödyntämällä henkilötietojen käsittelyssä käytettävien resurssien ominaisuuksia (esim. paperisten asiakirjojen varkaus julkisesta aulasta).",
-				"name": "Suurin todennäköisyys",
-				"source": ""
+				"name": "Suurin todennäköisyys"
 			},
 			"PIA_EX_VRAN": {
 				"description": "Ei vaikuta mahdolliselta, että valitut riskitekijät voisivat toteuttaa uhan hyödyntämällä henkilötietojen käsittelyssä käytettävien resurssien ominaisuuksia (esim. paperisten asiakirjojen varkaus kulkukortinlukijalla ja koodilukolla varustetusta huoneesta).",
-				"name": "Vähäinen todennäköisyys",
-				"source": ""
+				"name": "Vähäinen todennäköisyys"
 			},
 			"PIA_LGL_CONS": {
 				"description": "Suostumuksen tulee olla vapaaehtoinen, yksilöity, tietoinen ja yksiselitteinen tahdonilmaisu, jolla rekisteröity hyväksyy henkilötietojensa käsittelyn. Selvitä, nojautuuko henkilötietojen käsittely muuhun oikeusperusteeseen kuin 6 artiklaan, <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR].</a>",

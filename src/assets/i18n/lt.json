@@ -300,8 +300,7 @@
 			"PIA_DEF_CHIF": {
 				"description": "Kokių šifravimo priemonių imamasi. Šifravimas – tai procesas, kurio metu pradinis tekstas (duomenys) paverčiamas į neskaitomą formą, vadinamą šifruotu tekstu (angl. ciphertext) arba kartais kriptograma (angl. cryptogram). Iššifravimas tai atvirkštinis procesas kai iš šifruoto teksto (duomenų) atstatomas pradinis. Šifras tai algoritmas, skirtas šifravimui ir iššifravimui. Dažniausiai šifras valdomas raktu – slapta informacijos dalele, kuri turi įtakos šifruoto teksto gamybai. Protokolas detaliai apibrėžia kaip šifrai (ir kiti kriptografiniai primityvai) turi būti naudojami siekiant norimų rezultatų. Protokolų, šifrų, raktų valdymo bei vartotojo vykdomų veiksmų visuma sudaro kriptosistemą.",
 				"name": "Duomenų šifravimas",
-				"source": "Mesures_US Encryption",
-				"source ": ""
+				"source": "Mesures_US Encryption"
 			},
 			"PIA_DEF_CLO": {
 				"description": "Duomenų loginis ir fizinis skaidymas (angl. partitioning) į skirtingas laikmenas mažina riziką, kad pažeidimo atveju bus pažeisti ar pavogti visi duomenys.",
@@ -490,8 +489,7 @@
 			},
 			"PIA_EX_DC": {
 				"description": "TO BE TRANSLATED - Data for a score system, result of the application of the score....",
-				"name": "TO BE TRANSLATED - Calculated data",
-				"source": ""
+				"name": "TO BE TRANSLATED - Calculated data"
 			},
 			"PIA_EX_DCPC": {
 				"description": "<strong>Identifikaciniai duomenys</strong> : vardas, pavardė, amžius,  pilietybė, gyv, vietos adresas, t.t. <br><strong>Asmens gyvenimas</strong> : pmoėgiai, įpročiai, šeimyninė padėtis, t.t. <br><strong>Profesinis gyvenimas </strong> : darbovietė, veiklos pobūdis, išsilavinimas, gyvenimo aprašymas (CV), išsilavinimas, mokymai, profesiniai pasiekimai, apdovanojimai, t.t. <br><strong>Ryšio duomenys </strong> : IP adresas, veiksmų žurnalas (angl. event logs), t.t.<br><strong>Geografinės vietos duomenys</strong> : keliavimo maršrutai, GPS duomenys, GPS duomenys, t.t.<br><strong>Kita informacija</strong> : telefono numeris, el. pašto adresas, t.t.",
@@ -500,73 +498,55 @@
 			},
 			"PIA_EX_DCPR": {
 				"description": "Rasinė ir etninė kilmė, politinės pažiūros, religiniai ir filosofiniai įsitikinimai, narystė profesinėse sąjungose, genetiniai duomenys, biometriniai duomenys, siekiant konkrečiai nustatyti fizinio asmens tapatybę, sveikatos duomenys, duomenys apie fizinio asmens lytinį gyvenimą ir lytinę orientaciją, duomenys apie apkaltinamuosius nuosprendžius ir nusikalstamas veikas, žr. <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/LT/TXT/HTML/?uri=CELEX:32016R0679&from=LT\">9-10 str. [BDAR]</a>.",
-				"name": "Specialių kategorijų asmens duomenys",
-				"source": ""
+				"name": "Specialių kategorijų asmens duomenys"
 			},
 			"PIA_EX_DCPS": {
 				"description": "Asmens kodas, finansiniai duomenys",
-				"name": "Jautraus pobūdžio asmens duomenys",
-				"source": ""
+				"name": "Jautraus pobūdžio asmens duomenys"
 			},
 			"PIA_EX_HUME": {
 				"description": "Tai gali būti: <br>- trečiojo asmens įsilaužimas į sistemą<br>- įsilaužėlis, kuris disponuoja tam tikra informacija apie vartotoją<br>- įsilaužėlis, kuris disponuoja tam tikra informacija apie įmonę, kuri yra duomenų valdytoja ar duomenų tvarkytoja<br>- įgaliota trečioji šalis, kuri savo turimą prisijungimą naudoja, siekdama neteisėtai gauti prieigą prie duomenų.",
-				"name": "Išorinės žmogiškos rizikos",
-				"source": ""
+				"name": "Išorinės žmogiškos rizikos"
 			},
 			"PIA_EX_HUMI": {
 				"description": "Tai gali būti: <br>- darbuotojų neatsargumas ar apsileidimas, mokymų ir įgūdžių trūkumas <br>-  nesąžiningumas, galimybė darbuotojo artimiesiems ar jo draugams pasinaudoti darbiniais įrankiais ir gauti prieigą prie duomenų<br>- įvairūs kiti galimi motyvai: suklydimas, aplaidumas, piktybiški ketinimai, kerštas, komercinis šnipinėjimas.",
-				"name": "Vidinės žmogiškosios rizikos",
-				"source": ""
+				"name": "Vidinės žmogiškosios rizikos"
 			},
 			"PIA_EX_IMPI": {
 				"description": "Duomenų subjektai gali patirti reikšmingas neigiamas pasekmes, kurias pašalinti yra įmanoma, bet gana sunku ir tam reikia didelių pastangų. <br> Pasekmių pvz.:<br>- fizinės: rimti fiziniai negalavimai, sukeliantys ilgalaikes neigiamas pasekmes (sveikatos pablogėjimas dėl netinkamos priežiūros arba kontraindikacijų nepaisymas); fizinio neliečiamumo pažeidimas (nelaimingas atsitikimas namuose, darbe ir kt.) <br>- materialinės: neteisėtai pasisavinti pinigai, kurių susigrąžinti nebeįmanoma; prarastos galimybės (būsto kredito, studijų, stažuočių, įdarbinimo, draudimas laikyti egzaminą); būsto praradimas; darbo netekimas; t.t.;<br>- moralinės: rimti psichologiniai negalavimai (depresija, fobijos); privatumo pažeidimas su neatitaisoma žala; šantažavimas; patyčios; priekabiavimas ir t.t.",
-				"name": "Reikšmingas poveikis",
-				"source": ""
+				"name": "Reikšmingas poveikis"
 			},
 			"PIA_EX_IMPL": {
 				"description": "Duomenų subjektai gali patirti reikšmingus nepatogumus, tačiau juos galima pašalinti, nors ir su tam tikrais sunkumais. <br>Pasekmių pvz.:<br>- fizinės: lengvas susirgimas, laiku nenustačius diagnozės; šmeižtas, sukeliantis neigiamus fizinius ir psichologinius išgyvenimus;<br>- materialinės: nenumatyti mokėjimai dėl per klaidą paskirtos baudos; atsisakymas suteikti viešąsias ar kitokias paslaugas; nepageidaujamų el. laiškų gavimas, jei tai kenkia dalykinei reputacijai;<br>- moralinės: nežymūs, bet objektyvūs psichologiniai negalavimai; dvasiniai išgyvenimai; privatumo pažeidimo jausmas; bauginimas (klaidingų žinių sąmoningas skleidimas) socialiniuose tinkluose ir kt.",
-				"name": "Ribotas poveikis",
-				"source": ""
+				"name": "Ribotas poveikis"
 			},
 			"PIA_EX_IMPM": {
 				"description": "Duomenų subjektai gali susidurti su labai reikšmingomis neigiamomis pasekmėmis, kur žala gali būti neatitaisoma. <br>Poveikio pvz.: <br> - fizinės: ilgalaikiai arba nuolatiniai fiziniai negalavimai, fiziniai kūno sutrukimai, neįgalumas, mirtis, kt.<br>- materialiniai: finansinė rizika, didelės skolos, nedarbingumas, negalėjimas persikelti į kitą gyvenamąją vietą, įrodymų praradimas teisminiame ginče, galimybės naudotis svarbia infrastruktūra praradimas (vanduo, elektra, internetu), ir kt. <bt>- moralinis: ilgalaikiai arba nuolatiniai psichologiniai negalavimai, baudžiamosios sankcijos, pagrobimas, šeimyninių ryšių nutrūkimas, negalėjimas atvykti į teismą ir kt.",
-				"name": "Maksimalus poveikis",
-				"source": ""
+				"name": "Maksimalus poveikis"
 			},
 			"PIA_EX_IMPN": {
 				"description": "Tai nepaveiks duomenų subjektų arba sukels jiems nedidelių nepatogumų, kuriuos jie nesunkiai gali įveikti. <br>Pasekmių pvz.:<br>- nedidelis galvos skausmas;<br>- laiko praradimas kartojant formalumus arba laukiant jų įvykdymo, nepageidaujamų el. laiškų gavimas, viešai prieinamų duomenų naudojimas tikslinei tiesioginei rinkodarai ir t.t.<br>- sukeltas pyktis, dvasinis diskomfortas, pažeisto privatumo jausmas, nesukeliantis realių nuostolių ir t.t.",
-				"name": "Nedidelis poveikis",
-				"source": ""
-			},
-			"PIA_EX_MIND": {
-				"description": "",
-				"name": "",
-				"source": ""
+				"name": "Nedidelis poveikis"
 			},
 			"PIA_EX_NHUM": {
 				"description": "Tai gali būti incidentas ar nelaimė pas duomenų valdytoją (elektros dingimas, gaisras, potvynis, techninis sutrikimas ir pan.).",
-				"name": "Ne nuo žmogaus priklausančios rizikos",
-				"source": ""
+				"name": "Ne nuo žmogaus priklausančios rizikos"
 			},
 			"PIA_EX_VRAI": {
 				"description": "Atsižvelgiant į rizikos šaltinius tikėtina, kad tai gali sukelti žalą asmenims (pvz., dokumentų vagystė iš saugomos patalpos, į kurią pateikimą kontroliuoja tik biuro priimamojo sekretorė).",
-				"name": "Reikšminga tikimybė",
-				"source": ""
+				"name": "Reikšminga tikimybė"
 			},
 			"PIA_EX_VRAL": {
 				"description": "Atsižvelgiant į rizikos šaltinius sunkiai tikėtina, kad tai galėtų sukelti kokią nors žalą asmenims (pvz., dokumentų vagystė iš saugomos patalpos, į kurią pateikimas kontroliuojamas kortelių skaitytuvo pagalba).",
-				"name": "Ribota tikimybė",
-				"source": ""
+				"name": "Ribota tikimybė"
 			},
 			"PIA_EX_VRAM": {
 				"description": "Atsižvelgiant į rizikos šaltinius labai tikėtina, kad tai sukels žalą asmenims (pvz., dokumentų, saugomų visiems prieinamoje vietoje, į kurią patekimas nekontroliuojamas, vagystė).",
-				"name": "Maksimali tikimybė",
-				"source": ""
+				"name": "Maksimali tikimybė"
 			},
 			"PIA_EX_VRAN": {
 				"description": "Atsižvelgiant į rizikos šaltinius neįmanoma nuspėti, kad tai galėtų sukelti kokią nors žalą asmenims (pvz., dokumentų vagystė iš saugomos patalpos, į kurią patekti galima tik su asmeniniu įėjimo kodu ir pažymėjimu).",
-				"name": "Nereikšminga tikimybė",
-				"source": ""
+				"name": "Nereikšminga tikimybė"
 			},
 			"PIA_LGL_CONS": {
 				"description": "Sutikimas turi būti suteiktas laisva valia, konkretus, informacija pagrįstas ir vienareikšmis nurodymas. Nustatykite, ar duomenų tvarkymas remiasi kitu nei sutikimas teisiniu pagrindu pagal <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/LT/TXT/HTML/?uri=CELEX:32016R0679&from=LT\">[BDAR]</a> 6 str.",

@@ -300,8 +300,7 @@
 			"PIA_DEF_CHIF": {
 				"description": "Medir dados pessoais ininteligíveis para qualquer pessoa sem autorização de acesso (criptografia simétrica ou assimétrica, uso de algoritmos públicos conhecidos como fortes, certificado de autenticação, etc.).",
 				"name": "Encriptação",
-				"source": "Mesures_US Encryption",
-				"source ": ""
+				"source": "Mesures_US Encryption"
 			},
 			"PIA_DEF_CLO": {
 				"description": "Métodos de organização de dados que reduzem a possibilidade de que os dados pessoais possam ser correlacionados e que uma violação de todos os dados pessoais possa ocorrer. Por exemplo, identificando os dados pessoais úteis apenas para cada processo de negócios e logicamente separando-os.",
@@ -490,8 +489,7 @@
 			},
 			"PIA_EX_DC": {
 				"description": "TO BE TRANSLATED - Data for a score system, result of the application of the score....",
-				"name": "TO BE TRANSLATED - Calculated data",
-				"source": ""
+				"name": "TO BE TRANSLATED - Calculated data"
 			},
 			"PIA_EX_DCPC": {
 				"description": "<strong>Dados de identificação</strong> : Estado civil, identidade, idade, etc. <br><strong>Vida pessoal</strong> : hábitos de vida, estado civil, etc. <br><strong>Vida profissional </strong> : currículo, educação e formação profissional, prémios, etc. <br><strong>Dados de conexão </strong> : Endereços IP, logs de eventos, etc.<br><strong>Dados de localização</strong> : viagens, dados GPS, dados GSM, etc.<br><strong>Outros</strong> : número de telefone, endereço de e-mail, etc.",
@@ -500,73 +498,55 @@
 			},
 			"PIA_EX_DCPR": {
 				"description": "Opiniões filosóficas, políticas, religiosas e sindicais, vida sexual, dados de saúde, origem racial ou étnica, dados relativos à saúde ou à vida sexual, crimes, condenações, medidas de segurança, ver <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 9 e 10 de [RGPD]</a>.",
-				"name": "Convições e dados pessoais sensíveis",
-				"source": ""
+				"name": "Convições e dados pessoais sensíveis"
 			},
 			"PIA_EX_DCPS": {
 				"description": "Número de segurança social (NISS), dados biométricos, dados bancários",
-				"name": "Dados pessoais percebidos como sensíveis",
-				"source": ""
+				"name": "Dados pessoais percebidos como sensíveis"
 			},
 			"PIA_EX_HUME": {
 				"description": "Pode ser qualquer:<br>- vagabundo ou vizinho ingénuo, por ter uma proximidade física, invadindo os dados do dispositivo;<br>- um hacker que tenha como alvo um usuário usando o conhecimento que ele tem do usuário e algumas informações sobre ele/ela;<br>- um hacker visando uma das empresas usando o conhecimento que possui das empresas que podem prejudicar sua imagem;<br>- uma empresa terceirizada autorizada, utilizando seu acesso privilegiado a informações acessadas ilegitimamente.",
-				"name": "Fontes humanas externas",
-				"source": ""
+				"name": "Fontes humanas externas"
 			},
 			"PIA_EX_HUMI": {
 				"description": "Pode ser qualquer:<br>- funcionário negligente ou desonesto, proximidade do sistema, habilidades, privilégios e tempo disponível são potencialmente altos, possível falta de treino e consciencialização<br>- usuário negligente ou desonesto, membro da família ou amigo tendo acesso ao serviço.<br> Vários motivos são possíveis, incluindo: falta de jeito, erro, jogo de negligência, intenção maliciosa, vingança, espionagem",
-				"name": "Fontes humanas internas",
-				"source": ""
+				"name": "Fontes humanas internas"
 			},
 			"PIA_EX_IMPI": {
 				"description": "Os titulares de dados podem encontrar consequências significativas, que devem ser capazes de superar, embora com dificuldades reais e graves. Por exemplo: <br> - físico: doenças físicas graves que causam danos a longo prazo (agravamento da saúde devido a cuidados inadequados, ou desconsideração de contraindicações), lteração da integridade física, por exemplo, após um assalto, um acidente em casa, trabalho, etc. <br>material: apropriação indevida de dinheiro não compensado, direcionado, único e não recorrente, oportunidades perdidas (empréstimo imobiliário, recusa de estudos, estágios ou emprego, proibição de exame), perda de moradia, perda de emprego, etc;<br> - moral: doenças psicológicas graves (depressão, desenvolvimento de fobia), sensação de invasão de privacidade com danos irreversíveis, vítima de chantagem, cyberbullying e assédio, etc.",
-				"name": "Impacto significativo",
-				"source": ""
+				"name": "Impacto significativo"
 			},
 			"PIA_EX_IMPL": {
 				"description": "Os titulares de dados podem encontrar inconvenientes significativos, que poderão superar apesar de algumas dificuldades. Por exemplo:<br>- físico : doenças físicas menores (doença menor devido ao desrespeito às contra-indicações), difamação resultando em retaliação física ou psicológica, etc.;<br>- material : pagamentos imprevistos (multas impostas erradamente), recusa de acesso a serviços administrativos ou comerciais, receção de correspondências diretas não solicitadas susceftíveis de prejudicar a reputação dos titulares de dados, etc.;<br>- moral : doenças psicológicas menores, mas objetivas, sentimento de invasão de privacidade sem danos irreversíveis, intimidação nas redes sociais, etc.",
-				"name": "Impacto limitado",
-				"source": ""
+				"name": "Impacto limitado"
 			},
 			"PIA_EX_IMPM": {
 				"description": "Os titulares dos dados podem encontrar consequências significativas, ou mesmo irreversíveis, que podem não superar. Por exemplo:<br>- física: doenças físicas permanentes ou a longo prazo, comprometimento permanente da integridade física, morte; <br> - material: risco financeiro, dívidas substanciais, incapacidade para o trabalho, incapacidade de realocação, perda de provas no contexto de litígios, perda de acesso a infraestruturas vitais (água, electricidade), etc. <br> - moral: doenças psicológicas a longo prazo ou permanentes, pena criminal, rapto, perda de laços familiares, incapacidade de processar, mudança de estatuto administrativo e/ou perda de autonomia legal (tutela), etc.",
-				"name": "Impacto máximo",
-				"source": ""
+				"name": "Impacto máximo"
 			},
 			"PIA_EX_IMPN": {
 				"description": "Os titulares dos dados não serão afetados ou não poderão encontrar alguns inconvenientes, que serão superados sem qualquer problema. Por exemplo:<br>- físico : dores de cabeça transitórias;<br>- material : perda de tempo na repetição de formalidades ou espera pelo preenchimento, recebimento de correspondências não solicitadas (ex .: spams), reutilização de dados publicados em sites para fins de publicidade direcionada, etc.;<br>- moral : mera irritação, sensação de invasão de privacidade sem dano real ou objetivo (invasão comercial), etc.",
-				"name": "Impacto insignificante",
-				"source": ""
-			},
-			"PIA_EX_MIND": {
-				"description": "",
-				"name": "",
-				"source": ""
+				"name": "Impacto insignificante"
 			},
 			"PIA_EX_NHUM": {
 				"description": "Incidente ou dano em uma das organizações (corte de energia, incêndio, inundação, etc.)",
-				"name": "Fontes não humanas",
-				"source": ""
+				"name": "Fontes não humanas"
 			},
 			"PIA_EX_VRAI": {
 				"description": "Parece possível que as fontes de risco selecionadas materializem a ameaça explorando as propriedades de ativos de suporte (por exemplo, roubo de documentos em papel armazenados em escritórios que não podem ser acessados sem primeiro fazer o check-in na receção).",
-				"name": "Probabilidade significativa",
-				"source": ""
+				"name": "Probabilidade significativa"
 			},
 			"PIA_EX_VRAL": {
 				"description": "Parece difícil para as fontes de risco selecionadas materializar a ameaça explorando as propriedades dos ativos de suporte (por exemplo, roubo de documentos em papel armazenados em uma sala protegida por um leitor de crachá).",
-				"name": "Probabilidade limitada",
-				"source": ""
+				"name": "Probabilidade limitada"
 			},
 			"PIA_EX_VRAM": {
 				"description": "Parece extremamente fácil para as fontes de risco selecionadas materializar a ameaça, explorando as propriedades de ativos de suporte (por exemplo, roubo de documentos em papel armazenados no átrio público).",
-				"name": "Probabilidade máxima",
-				"source": ""
+				"name": "Probabilidade máxima"
 			},
 			"PIA_EX_VRAN": {
 				"description": "Não parece possível que as fontes de risco selecionadas materializem a ameaça explorando as propriedades de ativos de suporte (por exemplo, roubo de documentos em papel armazenados em uma sala protegida por um leitor de crachá e código de acesso).",
-				"name": "Probabilidade insignificante",
-				"source": ""
+				"name": "Probabilidade insignificante"
 			},
 			"PIA_LGL_CONS": {
 				"description": "Permitir que os titulares de dados façam uma escolha livre, específica e informada. Determinar se o tratamento depende de uma base legal que não seja o consentimento para o Art. 6 de <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[RGPD]</a>",

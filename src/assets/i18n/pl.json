@@ -300,8 +300,7 @@
 			"PIA_DEF_CHIF": {
 				"description": "Szyfrowanie wiadomości pozwala zapewnić, że jedynie nadawca i prawowity odbiorca będą znali jej treść. Po zaszyfrowaniu żaden człowiek ani maszyna nie odczyta wiadomości bez znajomości klucza (szyfrowanie symetryczne lub asymetryczne, korzystanie z publicznych algorytmów uznanych za sile, certyfikat uwierzytelniający, itd.).",
 				"name": "Szyfrowanie",
-				"source": "Mesures_US Encryption",
-				"source ": ""
+				"source": "Mesures_US Encryption"
 			},
 			"PIA_DEF_CLO": {
 				"description": "Zestaw metod pozwalających ograniczyć prawdopodobieństwo korelacji danych osobowych i doprowadzenia do naruszenia wszystkich danych osobowych.<br>Można np. zidentyfikować dane osobowe potrzebne dla każdego procesu biznesowego i je logicznie rozdzielić, itd.",
@@ -490,8 +489,7 @@
 			},
 			"PIA_EX_DC": {
 				"description": "TO BE TRANSLATED - Data for a score system, result of the application of the score....",
-				"name": "TO BE TRANSLATED - Calculated data",
-				"source": ""
+				"name": "TO BE TRANSLATED - Calculated data"
 			},
 			"PIA_EX_DCPC": {
 				"description": "<strong>Dane identyfikacyjne</strong>: stan cywilny, wiek, narodowość, adres pocztowy, itd. <br><strong>Życie osobiste</strong>: stan cywilny, liczba dzieci, rodzaj mieszkania, długość zamieszkania w danym miejscu, itd. <br><strong>Życie zawodowe</strong>: zawód, wykształcenie i kompetencje zawodowe, miejsce pracy, długość stażu pracy, bezrobocie, itd. <br><strong>Dane połączeniowe</strong>: adresy IP, logi zdarzeń, itd.<br><strong>Dane lokalizacyjne</strong>: podróże, dane GP, dane GSM, itd.<br><strong>Inne</strong>: numer telefonu, adres email, itd.",
@@ -500,73 +498,55 @@
 			},
 			"PIA_EX_DCPR": {
 				"description": "Poglądy filozoficzne, polityczne, religijne i związkowe, życie seksualne, dane zdrowotne, pochodzenia rasowego lub etnicznego, dotyczące wykroczeń, skazań, środki bezpieczeństwa - <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/PL/TXT/HTML/?uri=CELEX:32016R0679&from=PL\">Art. 9 i 10 [RODO]</a>.",
-				"name": "Skazania i dane wrażliwe",
-				"source": ""
+				"name": "Skazania i dane wrażliwe"
 			},
 			"PIA_EX_DCPS": {
 				"description": "Numer PESEL, dane biometryczne, dane bankowe",
-				"name": "Dane osobowe postrzegane jako wrażliwe",
-				"source": ""
+				"name": "Dane osobowe postrzegane jako wrażliwe"
 			},
 			"PIA_EX_HUME": {
 				"description": "Może rozchodzić się o:<br>- osobę trzecią mającą złe zamiary lub nieobeznanego, wykorzystującego bliskość fizyczną, by podstępnie uzyskać dostęp do usługi;<br>- hakera obierającego za cel użytkownika wykorzystując swoją znajomość użytkownika i pewnych informacji o nim;<br>- hakera obierającego za cel jedną z firm przetwarzających wykorzystując swoją znajomość firmy do ewentualnego naruszenia jej wizerunku;<br>- upoważniony podmiot trzeci wykorzystujący swój dostęp uprzywilejowany do bezprawnego dostępu do informacji.<br>Ich motywacje mogą być różne: zabawa, chęć dokuczenia, zła wola, zemsta, szpiegostwo, chęć zysku, pozyskanie danych w celu ich wykorzystania.",
-				"name": "Źródła osobowe zewnętrzne",
-				"source": ""
+				"name": "Źródła osobowe zewnętrzne"
 			},
 			"PIA_EX_HUMI": {
 				"description": "Może rozchodzić się o:<br>- pracownika niedbałego lub mającego złe zamiary, wykorzystującego bliskość systemu, swoje kompetencje, przywileje i dostępny czas potencjalnie wysokie lub dopuszczającego się zaniedbania wskutek braku przeszkolenia lub świadomości;<br>- użytkownika lub jego otoczenie, niedbałego lub mającego złe zamiary, z dostępem do usługi.<br>Ich motywacje mogą być różne: bezmyślność, błąd, zaniedbanie, zemsta, chęć zaalarmowania, zła wola, chęć zysku, szpiegostwo.",
-				"name": "Źródła osobowe wewnętrzne",
-				"source": ""
+				"name": "Źródła osobowe wewnętrzne"
 			},
 			"PIA_EX_IMPI": {
 				"description": "Osoby, których dane dotyczą, mogą doznać znaczących konsekwencji, z którymi powinny sobie poradzić ale przy realnych i istotnych trudnościach.<br>Przykłady skutków:<br>- fizyczne: poważna dolegliwość fizyczna powodująca długotrwałą szkodę (pogorszenie stanu zdrowia wskutek złej opieki lub zlekceważenia przeciwwskazań), naruszenie integralności cielesnej (np. w wyniku napadu, wypadku w domu lub w pracy), itd.<br>- materialne: kradzież pieniędzy bez odszkodowania, stracone niepowtarzalne i unikalne szanse (odmowa kredytu mieszkaniowego, studiów, stażu lub pracy, zakaz zdawania egzaminu), utrata mieszkania, utrata pracy, itd.<br>- moralne: poważna dolegliwość psychiczna (depresja, fobia), uczucie naruszenia prywatności z poczuciem krzywdy nie do naprawienia, ofiara szantażu, cyberbullying i nękanie moralne, itd.",
-				"name": "Skutki poważne",
-				"source": ""
+				"name": "Skutki poważne"
 			},
 			"PIA_EX_IMPL": {
 				"description": "Osoby, których dane dotyczą, mogą doznać znaczących niedogodności, z którymi sobie poradzą pomimo różnych trudności.<br>Przykłady skutków:<br>- fizyczne: drobna dolegliwość fizyczna (np.: choroba na skutek zlekceważenia przeciwwskazań), zniesławienie doprowadzające do fizycznego odwetu, itd.<br>- materialne: nieplanowane płatności (np.: grzywny błędnie nałożone), odmowa dostępu do usług administracyjnych lub komercyjnych, marketing ukierunkowany dotyczący aspektu życia, który dana osoba chciałaby zachować dla siebie, itd.<br>- moralne: drobna lecz obiektywna dolegliwość psychiczna, uczucie naruszenia prywatności bez poczucia krzywdy nie do naprawienia, zastraszenie w mediach społecznościowych, itd.",
-				"name": "Skutki ograniczone",
-				"source": ""
+				"name": "Skutki ograniczone"
 			},
 			"PIA_EX_IMPM": {
 				"description": "Osoby, których dane dotyczą, mogą doznać znaczących konsekwencji, wręcz nie do naprawienia, z którymi sobie nie poradzą.<br>Przykłady skutków:<br>- fizyczne: długotrwała lub trwała dolegliwość fizyczna, trwałe naruszenie integralności fizycznej, zgon<br>- materialne: ryzyko finansowe, znaczące długi, niemożność podjęcia pracy, niemożność zmiany miejsca zamieszkania, utrata dowodów w sprawie sądowej, utrata dostępu do kluczowej infrastruktury (woda, prąd), itd.<br>- moralne: długotrwała lub trwała dolegliwość psychiczna, sankcje karne, porwanie, utrata więzi rodzinnych, niemożność pozwania przed sądem, zmiana statusu administracyjnego i/lub utrata autonomii prawnej (kuratela), itd.",
-				"name": "Skutki maksymalne",
-				"source": ""
+				"name": "Skutki maksymalne"
 			},
 			"PIA_EX_IMPN": {
 				"description": "Osoby, których dane dotyczą, nie poniosą żadnych skutków lub doznają drobnych niedogodności, z którymi sobie poradzą bez problemu.<br>Przykłady skutków:<br>- fizyczne: przemijający ból głowy<br>- materialne: strata czasu na ponowne dopełnienie formalności lub czekanie na ich dopełnienie, ponowne wykorzystanie danych ze stron internetowych dla marketingu ukierunkowanego, itd.,<br>- moralne: drobna przykrość, uczucie naruszenia prywatności bez poczucia realnej krzywdy (natrętność handlowa), etc.",
-				"name": "Skutki pomijalne",
-				"source": ""
-			},
-			"PIA_EX_MIND": {
-				"description": "",
-				"name": "",
-				"source": ""
+				"name": "Skutki pomijalne"
 			},
 			"PIA_EX_NHUM": {
 				"description": "Może rozchodzić się o incydent lub szkodę u jednego z podmiotów przetwarzających (przerwa w zasilaniu, pożar, zalanie, itd.).",
-				"name": "Źródła nieosobowe",
-				"source": ""
+				"name": "Źródła nieosobowe"
 			},
 			"PIA_EX_VRAI": {
 				"description": "Wydaje się możliwe, że wybrane źródła ryzyka doprowadzą do zmaterializowania się zagrożenia poprzez wykorzystanie zasobów (np.: kradzież wydruków składowanych w pomieszczeniach biurowych podmiotu, do którego dostępu pilnuje osoba w recepcji).",
-				"name": "Prawdopodobieństwo poważne",
-				"source": ""
+				"name": "Prawdopodobieństwo poważne"
 			},
 			"PIA_EX_VRAL": {
 				"description": "Wydaje się trudne, by wybrane źródła ryzyka doprowadziły do zmaterializowania się zagrożenia poprzez wykorzystanie zasobów (np.: kradzież wydruków składowanych w pomieszczeniu, do którego dostęp zabezpieczono czytnikiem kart).",
-				"name": "Prawdopodobieństwo ograniczone",
-				"source": ""
+				"name": "Prawdopodobieństwo ograniczone"
 			},
 			"PIA_EX_VRAM": {
 				"description": "Wydaje się oczywiste, że wybrane źródła ryzyka doprowadzą do zmaterializowania się zagrożenia poprzez wykorzystanie zasobów (np.: kradzież wydruków składowanych w holu ogólnym w siedzibie podmiotu).",
-				"name": "Prawdopodobieństwo maksymalne",
-				"source": ""
+				"name": "Prawdopodobieństwo maksymalne"
 			},
 			"PIA_EX_VRAN": {
 				"description": "Nie wydaje się możliwe, by wybrane źródła ryzyka doprowadzą do zmaterializowania się zagrożenia poprzez wykorzystanie zasobów (np.: kradzież wydruków składowanych w pomieszczeniu, do którego dostęp zabezpieczono czytnikiem kart i kodem dostępu).",
-				"name": "Prawdopodobieństwo pomijalne",
-				"source": ""
+				"name": "Prawdopodobieństwo pomijalne"
 			},
 			"PIA_LGL_CONS": {
 				"description": "Należy umożliwić osobom, których dane dotyczą, dokonanie dobrowolnego, konkretnego i świadomego wyboru. Należy sprawdzić, czy podstawą prawną przetwarzania nie jest zgoda, zgodnie z artykułem 6 RODO (obowiązek prawny, ochrona życia, zadanie służby publicznej, umowa lub działania na żądanie osoby, której dane dotyczą, interes prawny).",

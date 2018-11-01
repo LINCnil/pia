@@ -300,8 +300,7 @@
 			"PIA_DEF_CHIF": {
 				"description": "Foranstaltning der ved brug af kryptering blandt andet tillader fortrolighed i elektroniske kommunikationer f.eks. ved digital signatur. En elektronisk underskrift sikrer, at du (underskriveren) er den, du giver dig ud for at være, når du underskriver i forbindelse med elektronisk kommunikation.",
 				"name": "Kryptering",
-				"source": "Mesures_US Encryption",
-				"source ": "Mesures_US Encryption"
+				"source": "Mesures_US Encryption"
 			},
 			"PIA_DEF_CLO": {
 				"description": "Opdeling af personoplysninger kan forbedre beskyttelsen ved sikkerhedsbrud. Hvis et delsystem er kompromitteret, kan konsekvenserne på datasættet reduceres.",
@@ -490,8 +489,7 @@
 			},
 			"PIA_EX_DC": {
 				"description": "TO BE TRANSLATED - Data for a score system, result of the application of the score....",
-				"name": "TO BE TRANSLATED - Calculated data",
-				"source": ""
+				"name": "TO BE TRANSLATED - Calculated data"
 			},
 			"PIA_EX_DCPC": {
 				"description": "<strong>Identifikations oplynsinger</strong> : Civilstand, alder, nationalitet, dobbelt statsborgerskab, postadresse, osv. <br><strong>Privatliv</strong> : civilstand, antal børn, bopæl, boligtype, boligsituation, osv. <br><strong>Karriere oplysninger </strong> : ansættelse, kontrakttype, arbejdsgiver navn, anciennitet i beskæftigelse, ledighed, osv. <br><strong>Kommunikations oplysninger</strong> : IP addresse, event logs, osv.<br><strong>Geografiske oplysninger</strong> : rejser, GPS data, GSM data, osv.<br><strong>Andet</strong> : Telefon, email addresse, osv.",
@@ -500,73 +498,55 @@
 			},
 			"PIA_EX_DCPR": {
 				"description": "Race eller etnisk oprindelse, politisk, religiøs eller filosofisk overbevisning, fagforeningsmæssigt tilhørsforhold, helbredsoplysninger, seksuelle forhold, seksuelle orientering, se <a target=\"_blank\" href=\"https://eur-lex.europa.eu/legal-content/DA/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 9 og 10 af [GDPR]</a>.",
-				"name": "Følsomme personoplysninger og straffedomme, lovovertrædelser",
-				"source": "PIA2 old version, GDPR Article 9 and 10 - WIKI"
+				"name": "Følsomme personoplysninger og straffedomme, lovovertrædelser"
 			},
 			"PIA_EX_DCPS": {
 				"description": ", biometriske oplysninger, bank data",
-				"name": "Særlige kategorier af personoplysninger",
-				"source": "PIA2 old version - WIKI"
+				"name": "Særlige kategorier af personoplysninger"
 			},
 			"PIA_EX_HUME": {
 				"description": "Det kan være enten:<br>- en ondsindet eller uvidende tredjepart, der bruger sin fysiske nærhed til bedragerisk adgang til tjenesten;<br>- en angriber målrettet mod en bruger ved hjælp af dennes kendskab til brugeren og nogle af oplysningerne om ham/hende;<br>- en angriber målrettet mod en af de virksomheder, der har ansvaret for behandlingen, ved at bruge dennes viden om de virksomheder, der kunne tillade at angribe deres ry;<br>- en autoriseret tredjepartsorganisation, der bruger sin privilegerede adgang til uautoriseret adgang til oplysninger. Motivationer kan være flere: gambling, gener, ondskabsfuldhed, hævn, spionage, grådighed, erhvervelse af data for at udnytte dem.",
-				"name": "Extern menneskelig trussels kilde",
-				"source": "PIAF Connected objects p41 - WIKI"
+				"name": "Extern menneskelig trussels kilde"
 			},
 			"PIA_EX_HUMI": {
 				"description": "Det kan være enten:<br>- en ondsindet eller uvidende tredjepart, der bruger sin fysiske nærhed til uautoriseret adgang til tjenesten;<br>- en angriber målrettet mod en kollega ved hjælp af dennes kendskab til medarbejderen;<br>- en angriber målrettet mod en kunde/bruger af organisationen;<br>- en autoriseret tredjepartsorganisation, der bruger sin privilegerede adgang til ulovlig adgang til oplysninger. Motivationer kan være: gener, ondskabsfuldhed, hævn, spionage, grådighed, erhvervelse af data for at udnytte dem.",
-				"name": "Intern menneskelig trussels kilde",
-				"source": "PIAF Connected objects p41 - WIKI"
+				"name": "Intern menneskelig trussels kilde"
 			},
 			"PIA_EX_IMPI": {
 				"description": "De berørte personer kunne have betydelige konsekvenser, som de burde kunne overvinde, men med reelle og betydelige vanskeligheder, for eksempel: <br>- Fysisk: alvorlig fysisk tilstand, der forårsager langvarig skade (forværring af helbredstilstand på grund af dårlig forvaltning eller manglende overholdelse af kontraindikationer), alvorlig svækkelse af kroppen osv.<br>- materialistisk : ukompenseret økonomisk misbrug, målrettede muligheder - unikke og ikke-tilbagevendende, tab (pant, studier, praktikophold eller beskæftigelse, eksamensforbud), tab af bolig, jobtab osv.;<br>- moralsk : alvorlig psykologisk lidelse (depression, fobi), følelser af invasion af privatlivets fred og uoprettelig skade, offer for afpressning, cyberbulning og mobbing osv.",
-				"name": "Alvorlig konsekvens",
-				"source": "PIAF Connected objects p41 - WIKI"
+				"name": "Alvorlig konsekvens"
 			},
 			"PIA_EX_IMPL": {
 				"description": "De berørte personer kan opleve betydelige ulemper, som de kan overvinde på trods af nogle vanskeligheder, for eksempel:<br>- Fysisk: mangel på fysisk velvære (f.eks. mild sygdom på grund af manglende overholdelse af kontraindikationer), ærekrænkelse, der resulterer i fysisk gengældelse (hævn) osv.;<br>- materialistisk : uplanlagte betalinger (f.eks. fejlagtige bøder), nægtelse af adgang til administrative eller kommercielle tjenester, målrettet onlineannoncering på et privatlivsspørgsmål, som personen ønskede at holde fortrolige osv.;<br>- moralsk : mindre men objektiv psykologisk udfordring, følelse af invasion af privatlivets fred uden uoprettelig skade, intimidering på sociale netværk osv.",
-				"name": "Betydelig konsekvens",
-				"source": "PIAF Connected objects p41 - WIKI"
+				"name": "Betydelig konsekvens"
 			},
 			"PIA_EX_IMPM": {
 				"description": "De berørte personer kan have betydelige eller endog uoprettelige konsekvenser, som de måske ikke overvinder, for eksempel:<br>- Fysisk : langvarig eller permanent kritisk tilstand, permanent kritisk helbred, død;<br>- materialistisk : finansiel risiko, stor gæld, manglende arbejdsevne, manglende bolig, tab af retssager, tab af adgang til vitale ressourcer (vand, elektricitet).<br>- moralsk : Kristisk psykologisk tilstand, strafferetlig sanktion, kidnapning, tab af familierelationer, manglende evne til at vidne i retten, sat under værgemål, osv.",
-				"name": "katastrofal konsekvens",
-				"source": "PIAF Connected objects p41 - WIKI"
+				"name": "katastrofal konsekvens"
 			},
 			"PIA_EX_IMPN": {
 				"description": "De berørte personer vil ikke blive påvirket eller måske opleve nogle få ulemper, som de vil overvinde uden vanskeligheder, for eksemple:<br>- Fysisk: forbigående hovedpine;<br>- materiel : tidsspild pga. gentagne forsøg eller systemventetid, uønsket e-mails, (f.eks.: spams), osv.;<br>- moralsk : følelse af invasion af privatlivets fred uden reel skade (misbrug af personoplysninger til marketing, osv.)",
-				"name": "Ubetydelig konsekvens",
-				"source": "PIAF Connected Objects p41 - WIKI"
-			},
-			"PIA_EX_MIND": {
-				"description": "Reduce the severity of risks by minimising the data themselves, by taking measures aimed at reducing their sensitivity.",
-				"name": "Minimisation of data themselves",
-				"source": "Mesures_US"
+				"name": "Ubetydelig konsekvens"
 			},
 			"PIA_EX_NHUM": {
 				"description": "Det kan være en hændelse eller katastrofe i en af de organisationer, der har ansvaret for behandlingen (strømafbrydelse, brand, oversvømmelse, osv.)",
-				"name": "ikke-menneskelige trussels kilder",
-				"source": "PIAF Connected objects p41 - WIKI"
+				"name": "ikke-menneskelige trussels kilder"
 			},
 			"PIA_EX_VRAI": {
 				"description": "Det forekommer muligt at udvalgte/relevante risiko kilder kan realiseres ved udnyttelse af understøttende aktivers sårbarheder (f.eks: tyveri af papirdokumenter og medier opbevaret i kontorer for en organisation, hvis adgang styres af en person i receptionen).",
-				"name": "Sandsynligt",
-				"source": "PIAF Connected objects p44 - WIKI"
+				"name": "Sandsynligt"
 			},
 			"PIA_EX_VRAL": {
 				"description": "Det er ikke særlig sandsynligt at udvalgte/relvante risiko kilder kan realiseres ved udnyttelse af understøttende aktivers sårbarheder (f.eks: tyveri af papirdokumenter og medier opbevaret i et rum beskyttet af en badge læser).",
-				"name": "Mindre sandsynligt",
-				"source": "PIAF Connected objects p44 - WIKI"
+				"name": "Mindre sandsynligt"
 			},
 			"PIA_EX_VRAM": {
 				"description": "Det forekommer højest sandsynligt at at udvalgte/relevante risiko kilder realiseres ved udnyttelse af understøttende aktivers sårbarheder (f.eks: tyveri af papirdokumenter og medier uden overvågning i en offentlige ventesal).",
-				"name": "Forventet",
-				"source": "PIAF Connected objects p44 - WIKI"
+				"name": "Forventet"
 			},
 			"PIA_EX_VRAN": {
 				"description": "Det forekommer ikke muligt, at udvalgte/relevante risiko kilder kan realiseres ved udnyttelse understøttende aktivers sårbarheder (f.eks: tyveri af papirdokumenter og medier aflåst i organisationens lokale, hvor adgang styres af sikkerhedsbadge og kode adgang).",
-				"name": "Usandsynligt",
-				"source": "PIAF Connected objects p44 - WIKI"
+				"name": "Usandsynligt"
 			},
 			"PIA_LGL_CONS": {
 				"description": "Tillader registrerede at give en frivillig, specifik, informeret og utvetydig viljestilkendegivelse; det skal kontrolers om behandlingen beror på anden juridisk base end samtykke jf. Art. 6 af <a target=\"_blank\" href=\"https://eur-lex.europa.eu/legal-content/DA/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR]</a>",
