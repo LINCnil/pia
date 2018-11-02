@@ -1,0 +1,28 @@
+<div class="pia-sectionsBlock">
+  <div class="pia-sectionBlock-header">
+    <h1 class="truncate" title="{{_structureService.structure.name}}">{{ _structureService.structure.name }}</h1>
+    <a class="pia-icons pia-icon-close-big" routerLink="/structures" title="{{ 'pia.sections.homepage_link' | translate }}"></a>
+  </div>
+
+  <div class="pia-sectionBlock-body">
+    <div *ngFor="let dataSection of data?.sections">
+      <ng-container *ngIf="[1, 2, 3].includes(dataSection.id)">
+        <div class="pia-sectionBlock-title">
+          {{ dataSection.title | translate }}
+          <hr>
+        </div>
+        <ul class="pia-sectionBlock-list" *ngIf="_structureService.structure && section && item">
+          <ng-container *ngFor="let dataItem of dataSection?.items">
+            <li *ngIf="!dataItem.hide && !['3.2', '3.3', '3.4', '3.5'].includes(dataSection.id + '.' + dataItem.id)">
+              <a routerLink="/structures/entry/{{_structureService.structure.id}}/section/{{dataSection.id}}/item/{{dataItem.id}}"
+                [ngClass]="{'active': section.id == dataSection.id && item.id == dataItem.id}"
+                class="truncate">
+                {{ dataItem.title | translate }}</a>
+              <i class="fa fa-sitemap" [ngClass]="{'pia-fa-valid': _sidStatusService.structureStatus[dataSection.id + '.' + dataItem.id] === true}" aria-hidden="true"></i>
+            </li>
+          </ng-container>
+        </ul>
+      </ng-container>
+    </div>
+  </div>
+</div>

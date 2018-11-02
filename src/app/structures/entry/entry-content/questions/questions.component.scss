@@ -1,0 +1,136 @@
+@import '../../../../../assets/stylesheets/variables';
+.pia {
+  &-questionBlock {
+    position: relative;
+    margin-bottom: 10px;
+    background-color: #fff;
+    padding: 12px 40px;
+    box-shadow: 1px 1px 15px 1px rgba(210,210,210,1);
+    .pia-accordeon {
+      position: absolute;
+      right: 15px;
+      top: 22px;
+      cursor: pointer;
+      &:before {
+        position: absolute;
+        content: '';
+        top: -4px;
+        right: -4px;
+        left: -4px;
+        bottom: -4px;
+      }
+    }
+    &-delete {
+      z-index: 999;
+      color: $pia-red;
+      position: absolute;
+      top: 48px;
+      right: 15px;
+      font-size: 1.9rem;
+    }
+    &-title {
+      position: relative;
+      font-size: 1.75rem;
+      padding-left: 12px;
+      padding-right: 12px;
+      margin-bottom: 4px;
+      button {
+        position: absolute;
+        right: -25px;
+        top: 50%;
+        margin-top: -8.5px;
+        cursor: pointer;
+        &:before {
+          position: absolute;
+          content: '';
+          top: -4px;
+          right: -4px;
+          left: -4px;
+          bottom: -4px;
+        }
+      }
+      textarea {
+        overflow: hidden;
+        resize: none;
+        display: block;
+        border: none;
+        width: 100%;
+        background-color: $pia-white;
+        font-size: 1.75rem;
+        padding: 8px 0;
+        padding-left: 12px;
+        line-height: 18px;
+        color: $pia-dark-black;
+        &::placeholder {
+          font-style: italic;
+          color: $pia-gray;
+        }
+        &.pia-required::placeholder {
+          color: $pia-red;
+        }
+        &:disabled {
+          background-color: transparent;
+          color: $pia-dark-black;
+          cursor: pointer;
+        }
+      }
+    }
+    &-edit {
+      color: $pia-gray;
+      position: absolute;
+      top: 16px;
+      right: 14px;
+      font-size: 1.9rem;
+    }
+    &-highlight {
+      color: $pia-red;
+    }
+
+
+
+
+
+
+
+
+
+    &-content {
+      padding: 0;
+      &-tags {
+        width: 100%;
+        border: none;
+        margin: 10px 0;
+        padding: 4px;
+      }
+      textarea {
+        resize: none;
+        display: block;
+        width: 100%;
+        background-color: $pia-white;
+        border: 0;
+        padding: 5px 12px;
+        font-size: 1.35rem;
+        min-height: 130px;
+        &::placeholder {
+          font-style: italic;
+        }
+        &:disabled {
+          background-color: transparent;
+          color: $pia-dark-black;
+          cursor: pointer;
+        }
+      }
+      &Text {
+        min-height: 130px;
+        padding: 5px 12px;
+        cursor: pointer;
+      }
+    }
+    &-date {
+      display: inline-block;
+      width: 50%;
+      color: $pia-gray;
+      font-size: 1rem;
+    }
+  }
+}

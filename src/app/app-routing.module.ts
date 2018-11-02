@@ -10,6 +10,7 @@ import { ErrorsComponent } from 'app/errors/errors.component';
 
 import { CardsRoutingModule } from 'app/cards/cards-routing.module';
 import { EntryRoutingModule } from 'app/entry/entry-routing.module';
+import { StructuresRoutingModule } from 'app/structures/structures-routing.module';
 
 const routes: Routes = [
   { path: '', component: AuthenticationComponent },
@@ -24,6 +25,7 @@ const routes: Routes = [
   imports: [
     CardsRoutingModule,
     EntryRoutingModule,
+    StructuresRoutingModule,
     RouterModule.forRoot(routes, { useHash: true })
   ],
   exports: [RouterModule]

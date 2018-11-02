@@ -5,7 +5,7 @@ import { Subscription } from 'rxjs/Subscription';
 import { Answer } from 'app/entry/entry-content/questions/answer.model';
 import { Evaluation } from 'app/entry/entry-content/evaluations/evaluation.model';
 
-import { PiaService } from 'app/entry/pia.service';
+import { PiaService } from 'app/services/pia.service';
 import { AppDataService } from 'app/services/app-data.service';
 import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 

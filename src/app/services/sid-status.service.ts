@@ -9,6 +9,7 @@ export class SidStatusService {
   specialIcon: any;
   sidStatusIcon: any;
   itemStatus: any;
+  structureStatus: any;
   defaultIcon = 'fa-pencil-square-o';
   enablePiaValidation: boolean;
   piaIsRefused: boolean;
@@ -29,6 +30,7 @@ export class SidStatusService {
       8: 'fa-check-square-o'
     };
     this.itemStatus = {};
+    this.structureStatus = {};
     this.enablePiaValidation = false;
     this.piaIsRefused = false;
     this.enableDpoValidation = false;
@@ -64,6 +66,28 @@ export class SidStatusService {
         this.verifEnableDpo();
       });
     }
+  }
+
+  /**
+   * Set status structure
+   * @param {*} section - The section.
+   * @param {*} item - The item.
+   * @memberof SidStatusService
+   */
+  setStructureStatus(section: any, item: any) {
+    let contentExist = false;
+    if (item.is_measure) {
+      if (item.answers) {
+        contentExist = item.answers.map(x => x.title).filter(String).length > 0;
+      }
+    } else if (item.questions) {
+      item.questions.forEach(question => {
+        if (!contentExist && question.answer) {
+          contentExist = question.answer.length > 0;
+        }
+      });
+    }
+    this.structureStatus[`${section.id}.${item.id}`] = contentExist;
   }
 
   /**

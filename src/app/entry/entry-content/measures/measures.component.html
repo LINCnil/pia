@@ -4,7 +4,10 @@
       <button  class="pia-icons pia-icon-accordeon-up" type="button" (click)="displayMeasure($event)" title="{{ 'misc.display' | translate }}"></button>
 
       <!-- Measure title -->
-      <div (click)="measureTitleFocusIn()">
+      <div (click)="measureTitleFocusIn()"
+            class="pia-measure-title"
+            [ngClass]="{ 'hide': editTitle }"
+            [innerHTML]="measureForm.controls['measureTitle'].value | safeHtml"></div>
         <textarea maxlength="120"
                   rows="2"
                   (keyup)="autoTextareaResize($event)"
@@ -12,8 +15,8 @@
                   id="pia-measure-title-{{measure.id}}"
                   formControlName="measureTitle"
                   (focusout)="measureTitleFocusOut($event)"
+                  [ngClass]="{ 'hide': !editTitle }"
                   placeholder="{{ 'measures.placeholder_title' | translate }}"></textarea>
-      </div>
     </div>
 
     <div class="pia-measureBlock-displayer fadeIn">

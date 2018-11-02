@@ -1,6 +1,7 @@
 export class ApplicationDb {
   protected serverUrl: string;
   public pia_id: number;
+  public structure_id: number;
   public reference_to: string;
   public created_at: Date;
   public updated_at: Date;
@@ -61,19 +62,24 @@ export class ApplicationDb {
           }
           if (event.oldVersion !== this.dbVersion) {
             // Next DB versions
-            if (this.dbVersion === 201708291502) {
+            if (this.dbVersion === 201708291502 || event.oldVersion === 0) {
               if (this.tableName === 'attachment') {
                 objectStore.createIndex('index2', ['pia_id', 'pia_signed'], { unique: false });
               }
             }
-            if (this.dbVersion === 201709122303) {
+            if (this.dbVersion === 201709122303 || event.oldVersion === 0) {
               if (this.tableName === 'comment') {
                 objectStore.createIndex('index2', 'pia_id', { unique: false });
               }
             }
-            if (this.dbVersion === 201802221337) {
+            if (this.dbVersion === 201802221337 || event.oldVersion === 0) {
               if (this.tableName === 'pia') {
                 objectStore.createIndex('index3', 'is_example', { unique: false });
+              }
+            }
+            if (this.dbVersion === 201809012140 || event.oldVersion === 0) {
+              if (this.tableName === 'pia') {
+                objectStore.createIndex('index4', 'structure_id', { unique: false });
               }
             }
           }
@@ -212,10 +218,17 @@ export class ApplicationDb {
    * @memberof ApplicationDb
    */
   protected getServerUrl() {
-    if (this.tableName !== 'pia') {
-      return this.serverUrl + '/pias/' + this.pia_id + '/' + this.tableName + 's' ;
+    let prefix = '/pias';
+    let id = this.pia_id;
+    if (this.tableName === 'structure') {
+      prefix = '/structures';
+      id = this.structure_id;
+    }
+
+    if (this.tableName !== 'pia' && this.tableName !== 'structure') {
+      return this.serverUrl + prefix + '/' + id + '/' + this.tableName + 's' ;
     } else {
-      return this.serverUrl + '/pias';
+      return this.serverUrl + prefix;
     }
   }
 }

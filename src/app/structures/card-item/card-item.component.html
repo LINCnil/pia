@@ -1,0 +1,59 @@
+<div class="pia-cardsBlock pia" [attr.data-id]="structure.id">
+    <div class="pia-cardsBlock-item pia-doingBlock-item">
+      <div class="pia-cardsBlock-toolbar">
+          <div class="pia-cardsBlock-toolbar-export">
+            <a href="javascript:;" (click)="export(structure.id)" class="btn pia-tooltip">
+              <i class="fa fa-download" aria-hidden="true"></i>
+              <span class="pia-tooltip-text">{{ 'homepage.cards.item.tools.export' | translate }}</span>
+            </a>
+          </div>
+          <div class="pia-cardsBlock-toolbar-more">
+            <a href="javascript:;" class="btn pia-tooltip" title="{{ 'homepage.cards.item.tools.more_options' | translate }}">
+              <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+              <ul class="pia-cardsBlock-toolbar-moreList">
+                <li>
+                  <i class="fa fa-files-o" aria-hidden="true"></i>
+                  <a href="javascript:;" (click)="duplicate(structure.id)">{{ 'homepage.cards.item.tools.duplicate' | translate }}</a>
+                </li>
+                <li>
+                  <i class="fa fa-trash-o" aria-hidden="true"></i>
+                  <a href="javascript:;" (click)="remove(structure.id)">{{ 'homepage.cards.item.tools.remove' | translate }}</a>
+                </li>
+              </ul>
+            </a>
+          </div>
+      </div>
+
+      <form class="pia-cardsBlock-item-form"
+            [formGroup]="structureForm">
+          <input type="hidden" formControlName="id">
+          <div (click)="structureNameFocusIn()" style="margin-top:20px;">
+              <label for="structure-edit-name">{{ 'homepage.cards.structure_name' | translate }}</label>
+              <input type="text"
+                     #structureName
+                     formControlName="name"
+                     required
+                     placeholder="{{ 'homepage.cards.placeholder_structure_name' | translate }}"
+                     id="structure-edit-name"
+                     (focusout)="structureNameFocusOut()">
+          </div>
+          <div (click)="structureSectorNameFocusIn()">
+              <label for="structure-edit-sector-name">{{ 'homepage.cards.sector_name' | translate }}</label>
+              <input type="text"
+                     #structureSectorName
+                     formControlName="sector_name"
+                     required
+                     placeholder="{{ 'homepage.cards.placeholder_sector_name' | translate }}"
+                     id="structure-edit-sector-name"
+                     (focusout)="structureSectorNameFocusOut()">
+          </div>
+        <div class="pia-cardsBlock-item-date">
+            <div>{{ 'homepage.cards.date' | translate }}</div>
+            <time>{{ structure.created_at | date: 'dd/MM/yyyy' }}</time>
+        </div>
+        <div class="pia-cardsBlock-item-btn">
+          <a routerLink="/structures/entry/{{structure.id}}/section/1/item/1" class="btn btn-green">{{ 'homepage.cards.item.edit_structure' | translate }}</a>
+        </div>
+      </form>
+  </div>
+</div>

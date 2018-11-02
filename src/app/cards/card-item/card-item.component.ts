@@ -6,7 +6,7 @@ import { Pia } from '../../entry/pia.model';
 import { Attachment } from 'app/entry/attachments/attachment.model';
 
 import { ModalsService } from 'app/modals/modals.service';
-import { PiaService } from 'app/entry/pia.service';
+import { PiaService } from 'app/services/pia.service';
 
 @Component({
   selector: 'app-card-item',

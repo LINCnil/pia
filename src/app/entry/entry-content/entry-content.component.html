@@ -65,9 +65,7 @@
     <app-measures *ngFor="let measure of _measureService.measures" [measure]="measure" [pia]="_piaService.pia" [section]="section" [item]="item"></app-measures>
   </ng-container>
   <ng-template #appQuestions>
-    <div *ngFor="let question of questions">
-      <app-questions [question]="question" [pia]="_piaService.pia" [section]="section" [item]="item"></app-questions>
-    </div>
+    <app-questions *ngFor="let question of questions" [question]="question" [pia]="_piaService.pia" [section]="section" [item]="item"></app-questions>
   </ng-template>
 
   <app-evaluations *ngIf="item.evaluation_mode === 'item'" [pia]="_piaService.pia" [section]="section" [item]="item"></app-evaluations>

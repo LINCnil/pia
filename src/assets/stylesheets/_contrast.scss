@@ -91,6 +91,9 @@ body.pia-contrast {
         }
       }
     }
+    &-structures {
+      background-color: $pia-green-dark;
+    }
   }
 
   /* "Card" display mode */
@@ -178,6 +181,17 @@ body.pia-contrast {
         }
         input::placeholder {
           color: $pia-gray-dark !important;
+        }
+        div {
+          #structure:hover,
+          input:hover {
+            outline-color: $pia-green-dark;
+          }
+        }
+        .pia-structure-wrapper {
+          &:after {
+            border-color: $pia-green-dark transparent transparent transparent;
+          }
         }
       }
       &-date {
@@ -395,6 +409,9 @@ body.pia-contrast {
     }
     &-body {
       > div {
+        i.pia-fa-valid {
+          color: $pia-green-dark !important;
+        }
         &:first-child {
           .pia-sectionBlock-title {
             color: $pia-green-dark !important;

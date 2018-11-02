@@ -100,6 +100,15 @@
                 <label for="validator_name">{{ 'homepage.cards.validation' | translate }}</label>
                 <input formControlName="validator_name" type="text" placeholder="{{ 'homepage.cards.placeholder_validation' | translate }}" id="validator_name" required>
               </div>
+              <div>
+                <label for="structure">{{ 'homepage.cards.structure' | translate }}</label>
+                <div  class="pia-structure-wrapper">
+                  <select formControlName="structure" id="structure">
+                    <option value="" selected>{{ 'homepage.cards.placeholder_structure' | translate }}</option>
+                    <option *ngFor="let item of _structureService.structures" [ngValue]="item.id">{{item.name}}</option>
+                  </select>
+                </div>
+              </div>
               <div class="pia-cardsBlock-item-date" *ngIf="newPia">
                 <div>{{ 'homepage.cards.validation' | translate }}</div>
                 <time>{{ newPia.created_at | date: 'dd/MM/yyyy'}}</time>
@@ -164,6 +173,12 @@
                 <a (click)="sortBy('validator_name')">
                   <span>{{ 'homepage.lists.column_validation' | translate }}</span>
                   <i *ngIf="sortValue === 'validator_name'" class="fa fa-caret-{{sortOrder}}"></i>
+                </a>
+              </th>
+              <th>
+                <a (click)="sortBy('structure_name')">
+                  <span>{{ 'homepage.lists.column_structure_name' | translate }}</span>
+                  <i *ngIf="sortValue === 'structure_name'" class="fa fa-caret-{{sortOrder}}"></i>
                 </a>
               </th>
               <th>

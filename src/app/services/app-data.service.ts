@@ -4,7 +4,7 @@ import { Http } from '@angular/http';
 @Injectable()
 export class AppDataService {
 
-  private dataNav = { sections: null };
+  public dataNav = { sections: null };
 
   constructor(private http: Http) {
     this.loadArchitecture();

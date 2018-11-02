@@ -65,6 +65,7 @@
         }
       }
     }
+    &-removeQuestion,
     &-removeMeasure,
     &-removePIA,
     &-removeAttachment {
@@ -120,7 +121,7 @@
   }
 }
 // Create new pia from list
-#modal-list-new-pia {
+#modal-list-new-pia, #modal-list-new-structure {
   .pia-modalBlock {
     &-close {
       top: 6px;
@@ -145,18 +146,15 @@
       }
     }
   }
+  .pia-modalBlock-content {
+    height: 386px;
+  }
 }
 .pia-remove-attachment-comment {
   textarea {
     width: 94%;
     height: 100px;
     border: 1px solid #A7A7A7;
-  }
-}
-
-#modal-list-new-pia {
-  .pia-modalBlock-content {
-    height: 386px;
   }
 }
 
@@ -240,3 +238,45 @@
   color: $pia-blue;
 }
 
+/* Style for structure select tag in "modal-list-new-pia" */
+.pia-structure-wrapper {
+  position: relative;
+  &:hover {
+    &:after {
+      content: '';
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 5px 5px 0 5px;
+      border-color: $pia-green transparent transparent transparent;
+    }
+  }
+}
+#structure {
+  font-size: 1.4rem;
+  color: #686868;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+  height: 22px;
+  outline: none;
+  &::-ms-expand {
+    display: none;
+  }
+  background: none;
+  border: none;
+  &:hover {
+    outline: 1px dotted $pia-green;
+  }
+}
+.pia-cardsBlock-item-btn {
+  margin-bottom: 0;
+  margin-top: 0;
+  bottom: 11px;
+  padding-top: 12px;
+}

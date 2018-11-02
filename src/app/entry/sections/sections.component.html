@@ -4,6 +4,11 @@
     <a class="pia-icons pia-icon-close-big" routerLink="/home" title="{{ 'pia.sections.homepage_link' | translate }}"></a>
   </div>
 
+  <div class="pia-sectionBlock-structure" *ngIf="_piaService.pia.structure_id">
+    {{ 'pia.sections.based_on_structure_name' | translate }}
+    {{ _piaService.pia.structure_name }}
+  </div>
+
   <div class="pia-sectionBlock-body">
     <div *ngFor="let dataSection of data?.sections">
       <div class="pia-sectionBlock-title">
