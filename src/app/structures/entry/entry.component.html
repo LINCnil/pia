@@ -1,0 +1,25 @@
+<app-header></app-header>
+<main class="container pia-mainContainerBlock">
+    <div class="row">
+        <!-- Left sidebar (sections) -->
+        <div class="small-12 medium-3 columns">
+            <aside class="pia-leftSidebarBlock">
+                <app-sections [section]="section" [item]="item"></app-sections>
+            </aside>
+        </div>
+
+        <!-- Main entry content -->
+        <div class="small-12 medium-6 columns">
+            <app-entry-content [questions]="questions" [section]="section" [item]="item" [data]="data"></app-entry-content>
+        </div>
+
+        <!-- Right sidebar (knowledge base) -->
+        <div class="small-12 medium-3 columns">
+            <div class="pia-rightSidebarBlock">
+                <app-knowledge-base [item]="item"></app-knowledge-base>
+            </div>
+        </div>
+    </div>
+</main>
+
+<app-modals></app-modals>

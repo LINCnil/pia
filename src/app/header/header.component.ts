@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
 import { Pia } from 'app/entry/pia.model';
 
 import { TranslateService } from '@ngx-translate/core';
-import { PiaService } from 'app/entry/pia.service';
+import { PiaService } from 'app/services/pia.service';
 import { ModalsService } from 'app/modals/modals.service';
 import { LanguagesService } from 'app/services/languages.service';
 
@@ -22,8 +22,9 @@ export class HeaderComponent implements OnInit {
   appVersion: string;
   pia_is_example: boolean;
   pia_example: Pia;
+  isStructureHeader: boolean;
 
-  constructor(private _router: Router,
+  constructor(public _router: Router,
               private renderer: Renderer2,
               private _translateService: TranslateService,
               public _piaService: PiaService,
@@ -44,6 +45,9 @@ export class HeaderComponent implements OnInit {
         this.loadPiaExample();
       }
     });
+    if (this._router.url.indexOf('/structures/') > -1) {
+      this.isStructureHeader = true;
+    }
   }
 
   /**

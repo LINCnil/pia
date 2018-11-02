@@ -8,7 +8,7 @@ import { Answer } from 'app/entry/entry-content/questions/answer.model';
 
 import { AppDataService } from 'app/services/app-data.service';
 import { SidStatusService } from 'app/services/sid-status.service';
-import { PiaService } from 'app/entry/pia.service';
+import { PiaService } from 'app/services/pia.service';
 import { GlobalEvaluationService } from 'app/services/global-evaluation.service';
 
 @Component({

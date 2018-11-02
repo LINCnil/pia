@@ -11,8 +11,8 @@
     padding: 40px;
     font-size: 1.9rem;
     color: $pia-green;
-    height: 368px;
-    width: 274px;
+    height: 402px;
+    width: 276px;
     &-new, &-import {
       &-title {
         padding-bottom: 10px;
@@ -65,6 +65,7 @@
         line-height: 1.2;
         margin-top: 58px;
         margin-left: 14px;
+        width: 65%;
       }
     }
   }
@@ -318,4 +319,39 @@
 .pia-cardsBlock-item-btn button {
   display: flex;
   margin: auto;
+}
+.pia-structure-wrapper {
+  position: relative;
+  &:hover {
+    &:after {
+      content: '';
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 5px 5px 0 5px;
+      border-color: $pia-green transparent transparent transparent;
+    }
+  }
+}
+#structure {
+  font-size: 1.4rem;
+  color: #686868;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+  height: 22px;
+  outline: none;
+  &::-ms-expand {
+    display: none;
+  }
+  background: none;
+  border: none;
+  &:hover {
+    outline: 1px dotted $pia-green;
+  }
 }

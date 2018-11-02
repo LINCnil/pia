@@ -1,0 +1,233 @@
+@import '../../../../assets/stylesheets/variables';
+// Main PIA content styles
+.pia {
+  // Central PIA content Block
+  &-entryContentBlock {
+    position: relative;
+    margin-bottom: 80px;
+    &-header {
+      display: flex;
+      align-items: stretch;
+      margin-bottom: 14px;
+      background-color: #fff;
+      position: relative;
+      box-shadow: 1px 1px 15px 1px rgba(210,210,210,1);
+      > div:first-child {
+        width: 74px;
+        background-color: $pia-green;
+        position: relative;
+        i {
+          display: block;
+          top: 50%;
+          left: 50%;
+          margin-top: -17px;
+          margin-left: -15px;
+          position: absolute;
+          font-size: 34px;
+          color: #fff;
+          text-align: center;
+        }
+      }
+      &-title {
+        width: 420px;
+        padding-bottom: 10px;
+      }
+      h1, h2, h3, h4 {
+        margin: 0;
+        padding: 0;
+        line-height: 1.2;
+        padding-left: 19px;
+      }
+      h1 {
+        font-size: 2.4rem;
+        font-weight: 400;
+        color: $pia-green;
+        margin-top: 20px;
+      }
+      h2 {
+        color: $pia-green;
+        font-size: 1.35rem;
+        text-transform: uppercase;
+        font-weight: 500;
+      }
+      h3 {
+        font-size: 1.2rem;
+        font-weight: 400;
+        color: $pia-gray-dark;
+        margin-bottom: 10px;
+      }
+      h4 {
+        font-size: 1.2rem;
+        font-weight: 400;
+        font-style: italic;
+        color: $pia-gray-dark;
+        margin-bottom: 10px;
+      }
+      div, h1 {
+        display: inline-block;
+        vertical-align: top;
+      }
+      &-editing {
+        position: absolute;
+        top: 35%;
+        right: 68px;
+        font-style: italic;
+        color: $pia-gray;
+        text-align: right;
+        font-size: 1.35rem;
+        i {
+          margin-right: 8px;
+          font-size: 1.8rem;
+          vertical-align: -1px;
+        }
+      }
+      &-progress {
+          background-color: transparent;
+          display: block;
+          top: 60%;
+          left: 0;
+          right: 0;
+          position: absolute;
+          font-size: 1rem;
+          color: #fff;
+          text-align: center;
+          min-height: auto !important;
+          div {
+            display: block;
+            background-color: transparent;
+            min-height: inherit;
+          }
+      }
+    }
+    &-section {
+      &2 {
+        .pia-entryContentBlock-header {
+          > div:first-child {
+            background-color: $pia-blue;
+          }
+          h1, h2 {
+            color: $pia-blue;
+          }
+        }
+      }
+      &3 {
+        .pia-entryContentBlock-header {
+          > div:first-child {
+            background-color: $pia-red;
+          }
+          h1, h2 {
+            color: $pia-red;
+          }
+        }
+      }
+      &4 {
+        .pia-entryContentBlock-header {
+          > div:first-child {
+            background-color: $pia-dark-black;
+          }
+          h1, h2 {
+            color: $pia-dark-black;
+          }
+        }
+      }
+    }
+    &-content {
+      background: $pia-white;
+      margin-top: 15px;
+    }
+    &-footer {
+      margin-top: 10px;
+      button {
+        display: block;
+        width: 100%;
+        padding: 12px 15px !important;
+        border-radius: 0;
+        &:disabled {
+          border-radius: 0;
+        }
+      }
+      p {
+        font-size: 0.95rem;
+        text-align: right;
+        font-style: italic;
+        margin: 0;
+        font-weight: 600;
+        color: $pia-gray;
+      }
+      &-nav {
+        position: relative;
+        margin-top: 5px;
+        .pia-previousLink, .pia-nextLink {
+          display: inline-block;
+          vertical-align: middle;
+          width: 49.5%;
+          color: $pia-green;
+          text-decoration: none;
+          font-weight: 500;
+          font-size: 1.3rem;
+        }
+        .pia-nextLink {
+          text-align: right;
+        }
+      }
+      &-measures {
+        button {
+          width: 49%;
+          height: 43px;
+          box-shadow: 1px 1px 15px 1px #d2d2d2;
+          float: right;
+          &:first-child {
+            float: left;
+            span {
+              margin-right: 8px;
+            }
+          }
+        }
+      }
+      &-requiredFields {
+        margin-top: 6px !important;
+      }
+    }
+  }
+
+  &-cancelBtn {
+    color: $pia-red;
+  }
+
+  &-previewBlock {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 12px;
+    padding-right: 20px;
+    text-decoration: none;
+    span {
+      display: block;
+      margin: 0 auto;
+    }
+    div {
+      font-size: 1.1rem;
+      margin: 0 auto;
+      text-align: center;
+      color: $pia-green;
+    }
+  }
+
+  &-status-info {
+    strong {
+      text-transform: uppercase;
+    }
+    a {
+      color: #FD4664;
+    }
+    p {
+      margin-bottom: 0;
+    }
+    color: #686868;
+    position: relative;
+    margin-bottom: 10px;
+    background-color: #fff;
+    padding: 12px 32px;
+    box-shadow: 1px 1px 15px 1px #d2d2d2;
+  }
+}

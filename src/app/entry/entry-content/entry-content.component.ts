@@ -8,7 +8,7 @@ import { Evaluation } from 'app/entry/entry-content/evaluations/evaluation.model
 import { AppDataService } from 'app/services/app-data.service';
 import { MeasureService } from 'app/entry/entry-content/measures/measures.service';
 import { ModalsService } from 'app/modals/modals.service';
-import { PiaService } from 'app/entry/pia.service';
+import { PiaService } from 'app/services/pia.service';
 import { PaginationService } from 'app/entry/entry-content/pagination.service';
 import { TranslateService } from '@ngx-translate/core';
 import { SidStatusService } from 'app/services/sid-status.service';
@@ -52,8 +52,8 @@ export class EntryContentComponent implements OnInit, OnChanges {
   }
 
   async ngOnChanges() {
-    this._paginationService.dataNav = await this._appDataService.getDataNav();
     await this._piaService.getPIA();
+    this._paginationService.dataNav = await this._appDataService.getDataNav();
 
     const sectionId = parseInt(this._activatedRoute.snapshot.params['section_id'], 10);
     const itemId = parseInt(this._activatedRoute.snapshot.params['item_id'], 10);

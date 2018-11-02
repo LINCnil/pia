@@ -14,7 +14,7 @@ import { ActionPlanService } from 'app/entry/entry-content/action-plan//action-p
 import { AppDataService } from 'app/services/app-data.service';
 import { TranslateService } from '@ngx-translate/core';
 import { ModalsService } from '../modals/modals.service';
-import { PiaService } from 'app/entry/pia.service';
+import { PiaService } from 'app/services/pia.service';
 import { AttachmentsService } from 'app/entry/attachments/attachments.service';
 
 @Component({

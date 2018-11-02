@@ -1,0 +1,322 @@
+@import '../../assets/stylesheets/variables';
+
+// New PIA
+.pia-newBlock {
+  > #pia-new-card {
+    border: 1px solid $pia-gray;
+    padding-right: 0;
+  }
+  &-item {
+    background: url("../../assets/images/pia-bg.png") repeat center center;
+    padding: 40px;
+    font-size: 1.9rem;
+    color: $pia-green;
+    height: 400px;
+    width: 274px;
+    &-new, &-import {
+      &-title {
+        padding-bottom: 10px;
+      }
+      &-btn {
+        padding-left: 18px;
+        .fa-folder-open, .fa-upload {
+            font-size: 7rem;
+            margin-right: 30px;
+        }
+        .fa-upload {
+            margin-right: 40px;
+        }
+        .fa-folder-open, .fa-upload, button {
+            display: inline-block;
+            vertical-align: top;
+        }
+      }
+    }
+    > span {
+      display: block;
+      padding: 22px 0;
+      color: $pia-gray;
+      font-size: 2.1rem;
+    }
+  }
+  &-hint {
+    position: absolute;
+    background-color: #fff;
+    width: 300px;
+    height: 200px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 18px 2px rgba(212,212,212,1);
+    top: 110px;
+    right: -323px;
+    .pia-icon-small-arrow {
+      position: absolute;
+      top: 50%;
+      left: -22px;
+      margin-top: -18.5px;
+    }
+    div {
+      margin-top: 8px;
+      margin-left: 38px;
+      p {
+        display: inline-block;
+        vertical-align: top;
+        color: $pia-blue;
+        font-size: 1.6rem;
+        line-height: 1.2;
+        margin-top: 58px;
+        margin-left: 14px;
+        width: 65%;
+      }
+    }
+  }
+}
+.pia {
+  &-filtersBlock {
+    position: relative;
+    margin: 8px 0 15px 0;
+    &-switch, &-filters {
+      display: inline-block;
+      vertical-align: middle;
+    }
+    &-switch {
+      display: inline-block;
+      vertical-align: middle;
+      width: 34px;
+      height: 34px;
+      border: 1px solid $pia-green;
+      border-radius: 20px;
+      color: $pia-green;
+      div {
+        font-size: 1.1rem;
+        margin-top: -2px;
+      }
+      &:hover, &:focus {
+        background: $pia-green;
+        border-color: $pia-green;
+        color: #fff;
+      }
+      &:active {
+        color: $pia-green;
+        background-color: #fff;
+        border-color: $pia-green;
+      }
+    }
+    &-filters {
+      position: relative;
+      margin-left: 12px;
+      &-list {
+        z-index: 998;
+        background-color: #eee;
+        display: none;
+        padding: 30px 10px 10px 10px;
+        position: absolute;
+        top: 15px;
+        left: 0;
+        right: 0;
+        border: 2px solid $pia-green;
+        border-top: none;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+        > span {
+          padding: 6px;
+          font-style: italic;
+          color: $pia-gray;
+        }
+        ul {
+          padding: 0;
+          margin: 0;
+        }
+        li {
+          list-style-type: none;
+          padding: 4px;
+          a {
+            font-size: 1.5rem;
+            font-weight: 500;
+            display: block;
+            text-decoration: none;
+            color: #000;
+          }
+          &:focus, &:hover, &:active, .active {
+            background-color: $pia-blue;
+            a {
+              color: #ffffff !important;
+              font-weight: 600;
+              cursor: pointer;
+            }
+          }
+        }
+      }
+      &-btn {
+        border: 1px solid $pia-green;
+        border-radius: 20px;
+        color: $pia-green;
+        padding: 9px 12px 9px 16px;
+        font-size: 1.3rem;
+        font-weight: 500;
+        position: relative;
+        z-index: 999;
+        .pia-icon-scroll-green {
+          margin-left: 35px;
+        }
+        &:focus, &:hover, &:active {
+          + .pia-filtersBlock-filters-list {
+            display: block;
+          }
+        }
+      }
+      &:hover {
+        .pia-filtersBlock-filters-btn {
+          color: #fff;
+          background-color: $pia-green;
+          .pia-icon-scroll-green {
+            background-position: -367px -39px;
+          }
+        }
+        .pia-filtersBlock-filters-list {
+          display: block;
+        }
+      }
+    }
+    &-hint {
+      position: relative;
+      display:inline-block;
+      vertical-align: middle;
+      background-color: #fff;
+      border-radius: 10px;
+      padding: 3px 24px 5px 26px;
+      margin-left: 10px;
+      div {
+        span, p {
+          display: inline-block;
+          vertical-align: middle;
+        }
+        p {
+          margin-left: 10px;
+          color: $pia-blue;
+          font-size: 2rem;
+          line-height: 1.2;
+        }
+      }
+    }
+    &-buttons {
+      margin-left: 12px;
+      display: inline-block;
+      vertical-align: middle;
+      margin-right: 3px;
+      button {
+        padding: 8px 20px;
+        &:first-child {
+          margin-right: 12px;
+        }
+      }
+      .fa {
+        margin-right: 10px;
+        font-size: 1.5rem;
+      }
+    }
+  }
+}
+
+
+// Edit PIA
+.pia-editBlock {
+  border-color: $pia-green;
+  button {
+    display: block;
+    margin-right: 0;
+    margin-left: auto;
+  }
+}
+
+// Cards flipper (New / Edit)
+#cardsSwitch {
+  background-color: transparent;
+}
+#cardsSwitch > div {
+  margin: 0;
+  position: absolute;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  transition: transform 1s;
+}
+#cardsSwitch .back {
+  transform: rotateY( 180deg );
+}
+#cardsSwitch.flipped .back {
+  transform: rotateY( 0deg );
+}
+#cardsSwitch.flipped .front {
+  transform: rotateY( 180deg );
+}
+
+// List PIA
+.pia-list-table {
+  margin-top: 10px;
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #d0d0d0;
+  thead {
+    background-color: $pia-dark-black;
+    color: $pia-white;
+    text-transform: uppercase;
+    font-size: 1.3rem;
+    text-align: left;
+    display: table-header-group;
+    vertical-align: middle;
+    tr {
+      display: table-row;
+    }
+    th {
+      width: 150px;
+      display: table-cell;
+      a {
+        padding: 5px 0;
+        color: $pia-white;
+        text-decoration: none;
+        display: flex;
+        cursor: pointer;
+        justify-content: space-between;
+        span {
+          align-self: center;
+          padding-left: 13px;
+        }
+        i {
+          padding-right: 13px;
+          color: $pia-white;
+          font-size: 2.5rem;
+          align-self: center;
+        }
+      }
+      span {
+        border-left: solid 1px $pia-white;
+        &:last-child {
+            padding-left: 13px;
+        }
+      }
+      &:first-child span:first-of-type {
+        border: 0;
+      }
+    }
+  }
+}
+.pia-cardsBlock-item-form input{
+  padding-bottom: 0;
+}
+.app-list-item {
+  display: table-row;
+  &:nth-child(even) {
+    background-color: rgba(62, 224, 149, 0.15);
+  }
+  &:hover {
+    background-color: rgba(62, 224, 149, 0.25);
+  }
+}
+.pia-icon-close {
+  z-index: 1;
+}
+.pia-cardsBlock-item-btn button {
+  display: flex;
+  margin: auto;
+}

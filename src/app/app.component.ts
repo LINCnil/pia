@@ -1,25 +1,8 @@
-import { Component, Renderer2, Pipe, PipeTransform } from '@angular/core';
+import { Component, Renderer2 } from '@angular/core';
 import { Http } from '@angular/http';
-import { DomSanitizer } from '@angular/platform-browser';
 
 import { KnowledgeBaseService } from 'app/entry/knowledge-base/knowledge-base.service';
 import { LanguagesService } from 'app/services/languages.service';
-
-@Pipe({ name: 'safeHtml' })
-export class SafeHtmlPipe implements PipeTransform  {
-  constructor(private sanitized: DomSanitizer) {}
-  transform(value) {
-    return this.sanitized.bypassSecurityTrustHtml(value);
-  }
-}
-
-@Pipe({ name: 'nl2br' })
-export class Nl2brPipe implements PipeTransform  {
-  constructor() {}
-  transform(value) {
-    return value.replace(/\n/g, '<br>');
-  }
-}
 
 @Component({
   selector: 'app-root',

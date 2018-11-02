@@ -26,6 +26,7 @@ export class MeasuresComponent implements OnInit, OnDestroy {
   displayDeleteButton = true;
   measureForm: FormGroup;
   measureModel: Measure = new Measure();
+  editTitle = true;
 
   constructor(
     public _globalEvaluationService: GlobalEvaluationService,
@@ -49,6 +50,7 @@ export class MeasuresComponent implements OnInit, OnDestroy {
         this.measureForm.controls['measureContent'].patchValue(this.measureModel.content);
         if (this.measureModel.title) {
           this.measureForm.controls['measureTitle'].disable();
+          this.editTitle = false;
         }
       }
 
@@ -96,9 +98,12 @@ export class MeasuresComponent implements OnInit, OnDestroy {
    */
   measureTitleFocusIn() {
     if (this._globalEvaluationService.answerEditionEnabled) {
+      this.editTitle = true;
       this.measureForm.controls['measureTitle'].enable();
       const measureTitleTextarea = document.getElementById('pia-measure-title-' + this.measure.id);
-      measureTitleTextarea.focus();
+      setTimeout(() => {
+        measureTitleTextarea.focus();
+      }, 200);
     }
   }
 
@@ -113,6 +118,7 @@ export class MeasuresComponent implements OnInit, OnDestroy {
     let userText = this.measureForm.controls['measureTitle'].value;
     if (userText) {
       userText = userText.replace(/^\s+/, '').replace(/\s+$/, '');
+      this.editTitle = false;
     }
     this.measureModel.pia_id = this.pia.id;
     const previousTitle = this.measureModel.title;

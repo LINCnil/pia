@@ -1,0 +1,148 @@
+<app-header></app-header>
+
+<div class="container pia-mainContainerBlock">
+  <div class="row">
+    <div class="small-12 medium-12 columns">
+      <div class="pia-filtersBlock">
+        <button class="pia-filtersBlock-switch btn" type="button" *ngIf="viewStyle.view === 'list'" (click)="viewOnCard()">
+          <i class="fa fa-list" aria-hidden="true"></i>
+          <div>{{ 'homepage.filters.card' | translate }}</div>
+        </button>
+        <button class="pia-filtersBlock-switch btn" type="button" *ngIf="viewStyle.view === 'card'" (click)="viewOnList()">
+          <i class="fa fa-list" aria-hidden="true"></i>
+          <div>{{ 'homepage.filters.list' | translate }}</div>
+        </button>
+        <div class="pia-filtersBlock-filters">
+          <button class="pia-filtersBlock-filters-btn btn" type="button">
+            {{ 'homepage.filters.sort' | translate }}
+            <span class="pia-icons pia-icon-scroll-green"></span>
+          </button>
+          <div class="pia-filtersBlock-filters-list">
+            <span>{{ 'homepage.filters.sort_by' | translate }}</span>
+            <ul>
+              <li [ngClass]="{'active': sortValue === 'name'}">
+                <a (click)="sortBy('name');">{{ 'homepage.filters.name' | translate }}</a>
+              </li>
+              <li [ngClass]="{'active': sortValue === 'sector_name'}">
+                <a (click)="sortBy('sector_name');">{{ 'homepage.filters.sector_name' | translate }}</a>
+              </li>
+              <li [ngClass]="{'active': sortValue === 'created_at'}">
+                <a (click)="sortBy('created_at');">{{ 'homepage.filters.date' | translate }}</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div *ngIf="viewStyle.view === 'list'" class="pia-filtersBlock-buttons">
+          <button type="button" class="btn btn-green" (click)="_modalsService.openModal('modal-list-new-structure')"><i class="fa fa-folder-open" aria-hidden="true"></i>{{ 'homepage.filters.new_structure' | translate }}</button>
+          <button type="button" (click)="importStruct()" class="btn btn-green"><i class="fa fa-upload" aria-hidden="true"></i>{{ 'homepage.filters.import_structure' | translate }}</button>
+        </div>
+        <div class="pia-filtersBlock-hint" *ngIf="viewStyle.view === 'list' && _structureService.structures && _structureService.structures.length === 0">
+          <div>
+            <span class="pia-icons pia-icon-rocket-small"></span>
+            <p [innerHTML]="'homepage.filters.list_rocket_content_structure' | translate"></p>
+          </div>
+        </div>
+        <div class="hide">
+            <form enctype="multipart/form-data" [formGroup]="importStructureForm">
+              <input type="file" formControlName="import_file" id="import_file" (change)="importStruct($event)" class="hide">
+            </form>
+            <a href="" id="pia-exportBlock"></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div *ngIf="viewStyle.view === 'card'; else viewList" class="small-12 medium-12 columns">
+      <div class="pia-cardsBlock pia-newBlock" id="cardsSwitch">
+        <div class="pia-newBlock-item front" id="pia-new-card">
+          <div class="pia-newBlock-item-new">
+            <div class="pia-newBlock-item-new-title">{{ 'homepage.cards.new_structure' | translate }}</div>
+            <div class="pia-newBlock-item-new-btn">
+              <i class="fa fa-folder-open" aria-hidden="true"></i>
+              <button class="btn" (click)="newStruct()" type="button" title="{{ 'homepage.cards.placeholder_new_structure' | translate }}"><span class="pia-icons pia-icon-pia-plus"></span></button>
+            </div>
+          </div>
+          <span>{{ 'homepage.cards.or' | translate }}</span>
+          <div class="pia-newBlock-item-import">
+            <div class="pia-newBlock-item-import-title">{{ 'homepage.cards.import_structure' | translate }}</div>
+            <div class="pia-newBlock-item-import-btn">
+              <i class="fa fa-upload" aria-hidden="true"></i>
+              <button class="btn" (click)="importStruct()" type="button" title="{{ 'homepage.cards.placeholder_import_structure' | translate }}"><span class="pia-icons pia-icon-pia-plus"></span></button>
+            </div>
+          </div>
+        </div>
+        <div class="pia-cardsBlock pia-editBlock back">
+          <div class="pia-cardsBlock-item pia-editBlock-item">
+            <button class="btn" (click)="reverseStruct()" type="button" title="{{ 'homepage.cards.title_close_creation' | translate }}"><span class="pia-icons pia-icon-close"></span></button>
+            <form class="pia-cardsBlock-item-form" (ngSubmit)="onSubmit(structureForm)" [formGroup]="structureForm">
+              <div>
+                <label for="name">{{ 'homepage.cards.structure_name' | translate }}</label>
+                <input formControlName="name" type="text" placeholder="{{ 'homepage.cards.placeholder_structure_name' | translate }}" id="name" required>
+              </div>
+              <div>
+                <label for="sector_name">{{ 'homepage.cards.sector_name' | translate }}</label>
+                <input formControlName="sector_name" type="text" placeholder="{{ 'homepage.cards.placeholder_sector_name' | translate }}" id="sector_name" required>
+              </div>
+              <div class="pia-cardsBlock-item-date" *ngIf="newStructure">
+                <div>{{ 'homepage.cards.date' | translate }}</div>
+                <time>{{ newStructure.created_at | date: 'dd/MM/yyyy'}}</time>
+              </div>
+              <div class="pia-cardsBlock-item-btn">
+                <button type="submit" [disabled]="structureForm.invalid" class="btn btn-green" id="pia-save-card-btn" title="{{ 'homepage.cards.placeholder_start' | translate }}">{{ 'homepage.cards.start' | translate }}</button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="pia-newBlock-hint" *ngIf="_structureService.structures && _structureService.structures.length === 0" id="pia-rocket">
+          <span class="pia-icons pia-icon-small-arrow"></span>
+          <div>
+            <span class="pia-icons pia-icon-rocket"></span>
+            <p [innerHTML]="'homepage.filters.card_rocket_content_structure' | translate"></p>
+          </div>
+        </div>
+      </div>
+      <app-card-item *ngFor="let structure of _structureService.structures;let i=index" (structEvent)="structChange($event)" [structure]="structure" [previousStructure]="i > 0 ? _structureService.structures[i-1] : null"></app-card-item>
+    </div>
+    <ng-template #viewList>
+      <div class="small-12 medium-12 columns">
+        <table class="pia-list-table">
+          <thead>
+            <tr>
+              <th>
+                <a (click)="sortBy('name')">
+                  <span>{{ 'homepage.lists.column_structure' | translate }}</span>
+                  <i *ngIf="sortValue === 'name'" class="fa fa-caret-{{sortOrder}}"></i>
+                </a>
+              </th>
+              <th>
+                <a (click)="sortBy('updated_at')">
+                  <span>{{ 'homepage.lists.column_updated_at' | translate }}</span>
+                  <i *ngIf="sortValue === 'updated_at'" class="fa fa-caret-{{sortOrder}}"></i>
+                </a>
+              </th>
+              <th>
+                <a (click)="sortBy('sector_name')">
+                  <span>{{ 'homepage.lists.column_sector_name' | translate }}</span>
+                  <i *ngIf="sortValue === 'sector_name'" class="fa fa-caret-{{sortOrder}}"></i>
+                </a>
+              </th>
+              <th>
+                <a (click)="sortBy('created_at')">
+                  <span>{{ 'homepage.lists.column_creation' | translate }}</span>
+                  <i *ngIf="sortValue === 'created_at'" class="fa fa-caret-{{sortOrder}}"></i>
+                </a>
+              </th>
+              <th>
+                <span>{{ 'homepage.lists.column_actions' | translate }}</span>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="app-list-item" [attr.data-id]="structure.id" *ngFor="let structure of _structureService.structures;let i=index" (structEvent)="structChange($event)" [structure]="structure"></tr>
+          </tbody>
+        </table>
+      </div>
+    </ng-template>
+  </div>
+</div>
+<app-modals></app-modals>
