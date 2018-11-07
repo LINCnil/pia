@@ -26,7 +26,7 @@ export class LanguagesService {
       this._translateService.use(language);
     } else { // Set default language
       const browserLang = this._translateService.getBrowserLang();
-      language = browserLang.match(/en|cz|it|nl|fr|pl|de|es|fi|pt|ro|el|hu|no/) ? browserLang : 'fr';
+      language = browserLang.match(/en|cz|de|dk|el|es|fi|fr|hr|hu|it|lt|nl|no|pl|pt|ro/) ? browserLang : 'fr';
       this._translateService.use(language);
     }
     this.selectedLanguage = language;
