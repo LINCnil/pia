@@ -57,6 +57,11 @@
                   {{ 'header.languages.cz' | translate }}
                 </a>
               </li>
+              <li [ngClass]="{'is_active': _languagesService.selectedLanguage === 'dk'}">
+                <a href="javascript:;" (click)="_languagesService.updateCurrentLanguage('dk')">
+                  {{ 'header.languages.dk' | translate }}
+                </a>
+              </li>
               <li [ngClass]="{'is_active': _languagesService.selectedLanguage === 'es'}">
                 <a href="javascript:;" (click)="_languagesService.updateCurrentLanguage('es')">
                   {{ 'header.languages.es' | translate }}
@@ -65,6 +70,16 @@
               <li [ngClass]="{'is_active': _languagesService.selectedLanguage === 'el'}">
                 <a href="javascript:;" (click)="_languagesService.updateCurrentLanguage('el')">
                   {{ 'header.languages.el' | translate }}
+                </a>
+              </li>
+              <li [ngClass]="{'is_active': _languagesService.selectedLanguage === 'hr'}">
+                <a href="javascript:;" (click)="_languagesService.updateCurrentLanguage('hr')">
+                  {{ 'header.languages.hr' | translate }}
+                </a>
+              </li>
+              <li [ngClass]="{'is_active': _languagesService.selectedLanguage === 'lt'}">
+                <a href="javascript:;" (click)="_languagesService.updateCurrentLanguage('lt')">
+                  {{ 'header.languages.lt' | translate }}
                 </a>
               </li>
               <li [ngClass]="{'is_active': _languagesService.selectedLanguage === 'nl'}">
