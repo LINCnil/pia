@@ -1,7 +1,7 @@
 {
 	"about": {
-		"contribute": "Hvis du ønsker at bidrage i din tur til oversættelsen af ​​værktøjet eller til forbedring af de allerede foreslåede, inviterer vi dig til <a href=\"https://github.com/LINCnil/pia/tree/master/src/assets/i18n\" target=\"_blank\">læs siden, der beskriver de trin, der skal følges</a>.",
-		"description": "Dette værktøj er oprindeligt designet af <a target=\"_blank\" href=\"https://www.cnil.fr\">Commission Nationale Informatique et Liberté (CNIL)</a>, den franske databeskyttelsesmyndighed med henblik på at støtte dataansvarlige i deres efterlevelse af GDPR kravene.<br>Dette værktøj er gratis og åbent, under GPLv3-licens. Du kan bidrage ved at hente kildekoden, ændre den og omfordele den til fællesskabet.",
+		"contribute": "Hvis du ønsker at bidrage til oversættelsen af værktøjet eller til forbedring af de allerede foreslåede, inviterer vi dig til <a href=\"https://github.com/LINCnil/pia/tree/master/src/assets/i18n\" target=\"_blank\">læs siden, der beskriver de trin, der skal følges</a>.",
+		"description": "Dette værktøj er oprindeligt designet af <a target=\"_blank\" href=\"https://www.cnil.fr\">Commission Nationale Informatique et Liberté (CNIL)</a>, den franske databeskyttelsesmyndighed med henblik på at bistå dataansvarlige i efterlevelse af GDPR kravene.<br>Dette værktøj er gratis og åbent, under GPLv3-licens. Du kan bidrage ved at hente kildekoden, ændre den og omfordele den til fællesskabet.",
 		"licences": "Bibliotekslicenser:",
 		"title": "Om PIA værktøjet",
 		"translators": "Værktøjet er i øjeblikket tilgængeligt på sytten sprog. De franske og engelske versioner leveres af CNIL. De andre versioner er resultatet af bidrag fra følgende personer:",
@@ -14,16 +14,16 @@
 		"improvable_measures": "Foranstaltninger der kan forbedres",
 		"measures": "Planlagte eller eksisterende foranstaltninger",
 		"no_action_plan": "Ingen handlingsplan registreret.",
-		"placeholder_person_in_charge": "Ansvarlige for implementation",
+		"placeholder_person_in_charge": "Ansvarlige for implementering",
 		"principles": "Fundamentale principper",
 		"risk1": "Uautoriseret adgang til personoplysninger",
-		"risk2": "Ændringer der er uønsket",
+		"risk2": "Uønsket ændringer",
 		"risk3": "Tab af personoplysninger",
 		"risks": "Risici",
 		"title": "Oversigt"
 	},
 	"authentication": {
-		"description": "Dette program af det <strong>Franske Datatilsyn (CNIL)</strong>, er stillet tilrådig for at hjælpe og vejlede dataansvarlige til at opbygge og vedligeholde compliance til persondataforordningen (GDPR). Det er en applikation der hjælper med at udføre konsekvensanalyser ved brug af en analyse methode udviklet af CNIL.",
+		"description": "Denne applikation af det <strong>Franske Datatilsyn (CNIL)</strong>, er stillet tilrådig for at bistå og vejlede dataansvarlige til at opbygge og vedligeholde compliance til persondataforordningen (GDPR). Applikationen hjælper med at udføre konsekvensanalyser ved brug af en analyse methode udviklet af CNIL.",
 		"start": "Start",
 		"start_app": "Start Konsekvensanalysen (Beta)",
 		"subtitle1": "En platform til at skabe <br> og styre PIA konsekvensanalyser (Privacy Impact Assessment)",
@@ -33,7 +33,7 @@
 	"cartography": {
 		"important": "Alvorlig",
 		"legend1": "Planlagte eller eksisterende foranstaltninger",
-		"legend2": "Med de korrigerende foranstaltninger implementerede",
+		"legend2": "Med de korrigerende foranstaltninger implementeret",
 		"legend3": "(U)autoriseret adgang til personoplysninger",
 		"legend4": "(Æ)ndringer der er uønsket",
 		"legend5": "(T)ab af personoplysninger",
@@ -53,11 +53,11 @@
 		"send": "Send"
 	},
 	"errors": {
-		"content": "Hvis du støder på andre problemer, eller hvis du har forslag til forbedringer, <br> kan du sende dem tilbage via denne formular,<br>vous pouvez nous les faire remonter via ce formulaire: <a href=\"https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia\" target=\"_blank\">https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia</a>",
+		"content": "Hvis du støder på andre problemer, eller hvis du har forslag til forbedringer, <br> kan du sende dem tilbage via denne formular: <a href=\"https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia\" target=\"_blank\">https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia</a>",
 		"title": "Siden er ikke fundet."
 	},
 	"evaluations": {
-		"acceptable": "Godtaget",
+		"acceptable": "Godkendt",
 		"action_plan_comment": "Handlingsplan / forbedringer",
 		"evaluation_comment": "Evaluerings kommentar",
 		"gauges": {
@@ -78,7 +78,7 @@
 			"0": "Afventning",
 			"1": "Rette",
 			"2": "Forbedre",
-			"3": "Godtaget"
+			"3": "Godkendt"
 		},
 		"title": "Evaluering",
 		"to_correct": "At rette"
@@ -124,7 +124,7 @@
 	"help": {
 		"definition": {
 			"data1": {
-				"content": "Indhold under skrivining",
+				"content": "Indhold under forberedelse",
 				"title": "Bruge PIA værktøjet"
 			},
 			"data2": {
@@ -137,11 +137,11 @@
 					"title": "Jeg kan ikke redigere sandsynligheden og konsekvens af risici"
 				},
 				"qa3": {
-					"content": "Flere bugs blev observeret under importen af en PIA, især målernes forsvinden med vurdering af konsekvens og sandsynligheden for en risiko. I dette tilfælde henvises til det foregående spørgsmål. Hvis du ikke kan se din PIA instrumentbrættet i PIA'erne, skal du opdatere siden.",
+					"content": "Flere fejl blev observeret under importen af en PIA, især forsvinder måling og vurdering af konsekvens og sandsynligheden for en risiko. I dette tilfælde henvises til det foregående spørgsmål. Hvis du ikke kan se din PIA instrumentbrættet i PIA'erne, skal du genopfriske siden.",
 					"title": "Jeg har problemer med at importere en PIA"
 				},
 				"qa4": {
-					"content": "Dette er kun en visningsfejl og kompromitterer ikke de oplysninger, der er indtastet i PIA. Dette problem vil blive rettet hurtigt.",
+					"content": "Dette er kun en visuel fejl og kompromitterer ikke de oplysninger, der er indtastet i PIA. Dette problem vil blive rettet hurtigt.",
 					"title": "Når jeg kopierer og indsætter, vises min tekst fremhævet."
 				},
 				"qa5": {
@@ -153,8 +153,8 @@
 					"title": "Ved sprogskift oversættes teksterne ikke"
 				},
 				"qa7": {
-					"content": "PT. opdateres ikonerne i den venstre navigationsmenu ikke efter et valideringsafslag. Du skal besøge hvert afsnit igen, kontrollere oplysningerne og evalueringen i henhold til årsagerne til afslaget og anmode om en validering igen. Når alle sektioner er blevet gennemgået, vil det være muligt at returnere PIA til validering.",
-					"title": "Jeg afviste at godkende en PIA, men ved ikke hvad jeg skal gøre derefter"
+					"content": "PT. opdateres ikonerne i den venstre navigationsmenu ikke efter et valideringsafslag. Du skal besøge hvert afsnit igen, kontrollere oplysningerne og evalueringen i henhold til årsagerne til afslaget og anmode om en validering igen. Når alle sektioner er blevet gennemgået, vil det være muligt at returnere PIA for validering.",
+					"title": "Jeg afviste godkendelse af en PIA, men ved ikke hvad jeg skal gøre derefter"
 				},
 				"title": "Kendte problemer"
 			},
@@ -173,7 +173,7 @@
 			"item": {
 				"consult_pia": "Konsultere PIA",
 				"edit_pia": "Redigere PIA",
-				"edit_structure": "Edit template (TRANSLATION REQUIRED)",
+				"edit_structure": "Redigere skabelon",
 				"tools": {
 					"action_plan": "Vis<br>handlingsplan",
 					"duplicate": "duplikere",
@@ -214,7 +214,7 @@
 			"card_rocket_content": "Begynd !<br><br>For at starte en PIA,<br> klik på Ny PIA",
 			"card_rocket_content_structure": "Begynd ! For at starte <br>en skabelon, klik på +",
 			"date": "Dato",
-			"import_pia": "Importer PIA",
+			"import_pia": "Importere PIA",
 			"import_structure": "Importere skabelon",
 			"list": "Liste",
 			"list_rocket_content": "Begynd ! For at starte <br>en PIA, klik på +",
@@ -279,12 +279,12 @@
 		"search": "Søge",
 		"slugs": {
 			"PIA_DEF_ACC": {
-				"description": "Den registrerede har ret til at få den dataansvarliges bekræftelse på, om personoplysninger vedrørende den pågældende behandles, og i givet fald adgang til personoplysningerne som beskrevet i <a target=\"_blank\" href=\"https://eur-lex.europa.eu/legal-content/DA/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 15 af [GDPR]</a>",
+				"description": "Den registrerede har ret til at få den dataansvarliges bekræftelse på, om personoplysninger vedrørende den pågældende behandles, og i givet fald få adgang til personoplysningerne som beskrevet i <a target=\"_blank\" href=\"https://eur-lex.europa.eu/legal-content/DA/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 15 af [GDPR]</a>",
 				"name": "Den registreredes indsigtsret",
 				"source": "GDPR Art. 15"
 			},
 			"PIA_DEF_ANO": {
-				"description": "Process der fjerner personhenførbar personoplysninger. Personoplysninger, der er gjort anonyme, sådan at ingen fysiske personer kan identificeres ud fra oplysningerne eller i kombination med andre oplysninger, er ikke længere beskyttet af databeskyttelsesreglerne.",
+				"description": "Proces der fjerner personhenførbar personoplysninger. Personoplysninger, der er gjort anonyme, således at ingen fysiske personer kan identificeres ud fra oplysningerne eller i kombination med andre oplysninger, er ikke længere beskyttet af databeskyttelsesreglerne.",
 				"name": "Anonymisering",
 				"source": "Ingen"
 			},
@@ -294,18 +294,18 @@
 				"source": "Mesures_USE Archiving"
 			},
 			"PIA_DEF_AUTH": {
-				"description": "Alle brugere med adgangsrettigheder til personoplysninger skal have en unik brugeridentitet. Vælg en autentificerings metode tilpasset konteksten, risiko niveau, osv. Anbefalinger: Hvis risikoniveauet er lavt, kan passwords muligvis bruges, hvorimod følsomme personoplysninger der indbær en høj risiko typisk vil have multi-faktor autentificering såsom; engangskodeord, SMS koder, digitale certificater, biometri eller anden form for stærk autentification.",
+				"description": "Alle brugere med adgangsrettigheder til personoplysninger skal have en unik brugeridentitet. Vælg en autentificerings metode tilpasset konteksten, risiko niveau, mm. Anbefalinger: Hvis risikoniveauet er lavt, kan passwords muligvis bruges, hvorimod følsomme personoplysninger der indbær en høj risiko typisk vil have multi-faktor autentificering såsom; engangskodeord, SMS koder, digitale certificater, biometri eller anden form for stærk autentification.",
 				"name": "Autentificering",
 				"source": "Mesures_US Logical Access Control"
 			},
 			"PIA_DEF_CHIF": {
-				"description": "Foranstaltning der ved brug af kryptering blandt andet tillader fortrolighed i elektroniske kommunikationer f.eks. ved digital signatur. En elektronisk underskrift sikrer, at du (underskriveren) er den, du giver dig ud for at være, når du underskriver i forbindelse med elektronisk kommunikation.",
+				"description": "Foranstaltning der ved hjælp af kryptering, blandt andet tillader fortrolighed i elektroniske kommunikationer, f.eks. digital signatur. En elektronisk underskrift sikrer, at du (underskriveren) er den, du giver dig ud for at være, når du underskriver i forbindelse med elektronisk kommunikation.",
 				"name": "Kryptering",
 				"source": "Mesures_US Encryption"
 			},
 			"PIA_DEF_CLO": {
-				"description": "Opdeling af personoplysninger kan forbedre beskyttelsen ved sikkerhedsbrud. Hvis et delsystem er kompromitteret, kan konsekvenserne på datasættet reduceres.",
-				"name": "Opdeling af personoplysninger",
+				"description": "Opdeling og segmentering af personoplysninger kan forbedre beskyttelsen ved sikkerhedsbrud. Hvis et delsystem er kompromitteret, kan konsekvenserne på datasættet mindskes.",
+				"name": "Segmentering af personoplysninger",
 				"source": "PIA3 p19 - WIKI"
 			},
 			"PIA_DEF_CONS": {
@@ -314,7 +314,7 @@
 				"source": "GDPR Art. 4.11"
 			},
 			"PIA_DEF_CTLA": {
-				"description": "Adgang for brugere og hjælpepersonale til brugersystemers funktioner og informationer skal begrænses i overensstemmelse med organisationens politikker og informationernes klassifikation. Logisk adgangskontrol hindre uautoriseret adgang til eller anvendelse af personoplysninger eller af det udstyr, der anvendes til behandlingen, det kræver blandt andet : <br>- <strong>styring af bruger profiler</strong> ved adskillelse af opgaver og ansvar (central styring er foretrukket) for at kun autoriserede brugere med gyldigt belæg (need-to-know) kan tilgå personoplysninger, Brugere skal kun have adgang til de tjenester, de er autoriseret til at benytte (least-privilege principles);<br>- <strong>afslutter adgangsrettigheder ved medarbejders ansættelsesophør, freelance og anden parts kontrakt udløber</strong> samt revurdere adgangs rettigheder når en medarbejder skifter rolle eller omplaceres.",
+				"description": "Adgang for brugere og supportpersonale til brugersystemers funktioner og informationer skal begrænses i overensstemmelse med organisationens politikker og informationernes klassifikation. Logisk adgangskontrol hindre uautoriseret adgang til eller anvendelse af personoplysninger eller af det udstyr, der anvendes til behandlingen, det kræver blandt andet : <br>- <strong>styring af bruger profiler</strong> ved adskillelse af opgaver og ansvar (central styring er foretrukket) for at kun autoriserede brugere med gyldigt belæg (need-to-know) kan tilgå personoplysninger. Brugere skal kun have adgang til de tjenester, de er autoriseret til at benytte (least-privilege principles);<br>- <strong> adgangsrettigheder afsluttes ved medarbejders ansættelsesophør, udløb af freelance og anden parts kontrakt</strong> samt adgangsrettigheder revurderes når en medarbejder skifter rolle eller ved ved organisatoriske ændringer.",
 				"name": "Logisk adgangskontrol",
 				"source": "PIA3 p43 - WIKI"
 			},
@@ -354,12 +354,12 @@
 				"source": "GDPR Art. 18"
 			},
 			"PIA_DEF_LOG": {
-				"description": "Organisationen overvåger kritiske komponeneter af informationssystemet med henblik på at spore cyberangreb og mistænksomme hændelser ved indsamling af log og event. Behandling og adgang til personoplysninger logges således at i tilfælde af sikkerhedshændelser, en undersøgelse kan påvise hvem der har tilgået hvilke informationer på hvilke tidspunkter. Bemærk at log og events med personhenførbare oplysninger kun må opbevares i en rimeliug periode.",
+				"description": "Organisationen overvåger kritiske komponeneter af informationssystemet med henblik på at opdage og spore cyberangreb og mistænksomme hændelser ved indsamling af log og event. Behandling og adgang til personoplysninger skal logges således at i tilfælde af sikkerhedshændelser, en undersøgelse kan påvise hvem der har tilgået hvilke informationer på hvilke tidspunkter. Bemærk at log og events med personhenførbare oplysninger kun må opbevares i en rimelig periode.",
 				"name": "Logning og sporbarhed",
 				"source": "Mesures_US Surveillance"
 			},
 			"PIA_DEF_MEN": {
-				"description": "En situation hvor en eller flere individuelle aktioner påvirker et informationsaktiv. Brugt frivilligt eller ej af en risiko kilde og kan udløse en uønsket begivenhed.",
+				"description": "En situation hvor en eller flere individuelle aktioner påvirker et informationsaktiv. Brugt frivilligt eller ej af en risiko kilde, og kan udløse en uønsket begivenhed.",
 				"name": "Trussel",
 				"source": "PIA1 p12 - WIKI"
 			},
@@ -370,7 +370,7 @@
 			},
 			"PIA_DEF_MENI": {
 				"description": "<strong>Trussler for: </strong><br>- <strong>Hardware</strong> : brugt uhensigtsmæssigt, overbelastet, ændret, beskadiget, tabt (lagringsenhed fuld, overbelastning af computer, tilføjelse af inkompatibel hardware, der resulterer i funktionsfejl, brand, tyveri eller tab af et informationsaktiv osv.)<br>- <strong>Software</strong> : brugt uhensigtsmæssigt, overbelastet, ændret, beskadiget, tabt (sletning af data, overskridelse af databasestørrelse, logisk bombe, ugyldig software licensen, osv.)<br>- <strong>Computer kanaler</strong> : overbelastning, ændring, tab (uautoriseret overførsel, mangel på Internet opkobling, osv.)<br>- <strong>Mennesker</strong> : overbelastning, ændret, tab (mangel på kompetencer, sygdom, pensionering, osv.)<br>- <strong>Papir dokumenter</strong> : brugt uhensigtsmæssigt, beskadiget, tabt (sletning, aldring af arkiverede dokumenter, tyveri eller tab af dokumenter osv.)<br>- <strong>Papir transmissions kanaler</strong> : overbelastet, beskadiget, ændret, tabt (postlevering stoppet af strejke, omplacering af kontorer eller lokaler, omorganisering af papirtransmissionskanaler, osv.)",
-				"name": "Trusler, der kan føre til utilgængelighed af ​​personoplysninger",
+				"name": "Trusler, der kan føre til utilgængelighed af personoplysninger",
 				"source": "PIAF Connected Objects p44 and 45, WIKI"
 			},
 			"PIA_DEF_MENM": {
@@ -389,12 +389,12 @@
 				"source": "PIAF Connected objects p42 - WIKI"
 			},
 			"PIA_DEF_MIN2": {
-				"description": "Når følsomme personoplysninger modtages, enten som et standard datasæt eller for statistisk brug, kan disse eventuelt konverteres til et lavere følsomhedsniveau eller pseudonymiseret. For eksemple : <br>- Hvis systemet indsamler en IP addresse for at kende en geografisk placering med henblik på geo statistik, kan IP addressen slettes når by eller amt er afklaret<br>- Hvis et system modtager videooptagelser for overvågningskamerarer, og personer kan genkendes, så kan disse sløres<br>- Hvis systemet er et smart meter, kan energi informationer aggregeres over tid, uden realtidsoptagelser",
+				"description": "Når følsomme personoplysninger modtages, enten som et standard datasæt eller for statistisk brug, kan disse eventuelt konverteres til et lavere følsomhedsniveau eller pseudonymiseret. For eksemple : <br>- Hvis systemet indsamler en IP addresse for at kende en geografisk placering med henblik på geostatistik, kan IP addressen slettes når by eller region er afklaret<br>- Hvis et system modtager videooptagelser for overvågningskamerarer, og personer kan genkendes, så kan disse sløres<br>- Hvis systemet er et smartmeter, kan energi informationer aggregeres over tid, uden realtidsoptagelser",
 				"name": "Formindske følsomhed ved konversion",
 				"source": "PIAF Connected objects p42 - WIKI"
 			},
 			"PIA_DEF_MIN3": {
-				"description": "Systemet sikre at: <br>- brugeren kan bruge en ressource eller tjeneste uden risiko for at afsløre sin identitet (anonymitet)<br>- brugeren kan bruge en ressource eller tjeneste, men forbliver identificeret og ansvarlig for denne brug (pseudonym data)<br>- brugeren kan bruge en ressource eller tjeneste, forbliver identificeret men uden at personoplysningerne bliver korreleret (pseudonym data)<br>- brugeren kan bruge en ressource eller tjeneste uden risiko for, at andre, især tredjeparter, er i stand til at observere, at ressourcen eller tjenesten bliver brugt (ikke-observerbarhed)<br>Valget af en metode fra listen ovenfor afhænger af de identificerede trusler. For nogle typer af privatlivets trusler vil pseudonymisering være mere passende end anonymisering (for eksempel hvis der er behov for sporbarhed). Derudover vil nogle trusler for beskyttelse af privatlivet blive behandlet af en kombination af flere metoder.",
+				"description": "Systemet sikre at: <br>- brugeren kan bruge en ressource eller tjeneste uden risiko for at afgive sin identitet (anonymitet)<br>- brugeren kan bruge en ressource eller tjeneste, men forbliver identificeret og ansvarlig for denne brug (pseudonym data)<br>- brugeren kan bruge en ressource eller tjeneste, forbliver identificeret men uden at personoplysningerne bliver korreleret (pseudonym data)<br>- brugeren kan bruge en ressource eller tjeneste uden risiko for, at andre, især tredjeparter, er i stand til at observere, at ressourcen eller tjenesten bliver brugt (ikke-observerbarhed)<br>Valget af en metode fra listen ovenfor afhænger af de identificerede trusler. For nogle typer af trusler for privatlivet, vil pseudonymisering være mere passende end anonymisering (for eksempel hvis der er behov for sporbarhed). Derudover vil nogle trusler for beskyttelse af privatlivet blive behandlet af en kombination af flere metoder.",
 				"name": "Reduktion af personoplysningernes henførbarhed",
 				"source": "PIAF Connected objects p42 - WIKI"
 			},
@@ -409,12 +409,12 @@
 				"source": "PIAF Connected objects p42 - WIKI"
 			},
 			"PIA_DEF_MINC": {
-				"description": "Minimering af indsamling mindsker risiko niveauet for registerede ved kun at indsamle de nødvendige personoplysninger til et specifikt behandlingsformål, ellers skal oplysningerne ikke indsamles.",
+				"description": "Minimering af indsamling mindsker risiko niveauet for registerede ved kun at indsamle nødvendige personoplysninger til et specifikt behandlingsformål, ellers skal oplysningerne ikke indsamles.",
 				"name": "Minimering ved indsamling af personoplysninger",
 				"source": "WIKI Minimisation_des_données_:_adéquates,_pertinentes_et_limitées"
 			},
 			"PIA_DEF_MIND": {
-				"description": "Risiko niveauet for registerede formindskes ved minimering af personoplysninger. Personoplynsingernes følsomhed kan formindskes, irellevante personoplysninger slettes, personoplysninger kan pseudonymiseres, osv.",
+				"description": "Risiko niveauet for registerede formindskes ved minimering af personoplysninger. Personoplynsingernes følsomhed kan mindskes, irellevante personoplysninger slettes, personoplysninger kan pseudonymiseres, osv.",
 				"name": "Minimering af personoplysninger",
 				"source": "PIA3 p64"
 			},
@@ -424,17 +424,17 @@
 				"source": "GDPR Art. 21"
 			},
 			"PIA_DEF_PBDS": {
-				"description": "Foranstaltninger, der træffes for at integrere beskyttelsen af personoplysninger i alle nye behandlingsoperationer (retningslinjer, metoder til risikostyring).",
+				"description": "Foranstaltninger, der træffes for at inkorporere beskyttelsen af personoplysninger i alle nye behandlingsoperationer (retningslinjer, metoder til risikostyring).",
 				"name": "Projekt styring",
 				"source": "Mesures_US"
 			},
 			"PIA_DEF_PC": {
-				"description": "Person der ejer personlige oplysningerne indeholdt i behandlingen.",
+				"description": "Person, den registrerede, der ejer personoplysningerne indeholdt i behandlingen.",
 				"name": "Data subject",
 				"source": "PIA1 p9"
 			},
 			"PIA_DEF_PORT": {
-				"description": " Den registrerede har ret til i et struktureret, almindeligt anvendt og maskinlæsbart format at modtage personoplysninger om sig selv, som vedkommende har givet til en dataansvarlig, og har ret til at transmittere disse oplysninger til en anden dataansvarlig uden hindring fra den dataansvarlige, som personoplysningerne er blevet givet til, se <a target=\"_blank\" href=\"https://eur-lex.europa.eu/legal-content/DA/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 20 of [GDPR]</a>",
+				"description": " Den registrerede har ret til i et struktureret, almindeligt forståeligt og maskinlæsbart format at modtage personoplysninger om sig selv, som vedkommende har givet til en dataansvarlig, og har ret til at transmittere disse oplysninger til en anden dataansvarlig uden hindring fra den dataansvarlige, som personoplysningerne er blevet givet til, se <a target=\"_blank\" href=\"https://eur-lex.europa.eu/legal-content/DA/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 20 of [GDPR]</a>",
 				"name": "Ret til dataportabilitet",
 				"source": "GDPR Art. 20"
 			},
@@ -444,7 +444,7 @@
 				"source": "GDPR Art. 4.5"
 			},
 			"PIA_DEF_PWD": {
-				"description": "Det anbefales at definere krav til kodeord (Passwords) afhængig af følsomheden af informationer der skal beskyttes. Således kan en Password politik sætte regeler og krav til organisationens brug af passwords : længde, brug af specialkaraktere, forbud med brug af personoplysninger, levetid, genbrug af samme passwords, maximum login fejl, sikker reset procedure, osv.",
+				"description": "Det anbefales at definere krav til adgangskoder (Passwords) afhængig af følsomheden af informationer der skal beskyttes. Således kan en Password politik sætte regler og krav til organisationens brug af passwords : længde, brug af specialkaraktere, forbud med brug af personoplysninger, levetid, genbrug af samme passwords, maximum login fejl, sikker reset procedure, osv.",
 				"name": "Password",
 				"source": "Mesure_US"
 			},
@@ -489,8 +489,8 @@
 				"source": "PIA1 page 6"
 			},
 			"PIA_EX_DC": {
-				"description": "TO BE TRANSLATED - Data for a score system, result of the application of the score....",
-				"name": "TO BE TRANSLATED - Calculated data"
+				"description": "Data for et scoringssystem, applikationens scorings resultat....",
+				"name": "Udregnet data"
 			},
 			"PIA_EX_DCPC": {
 				"description": "<strong>Identifikations oplynsinger</strong> : Civilstand, alder, nationalitet, dobbelt statsborgerskab, postadresse, osv. <br><strong>Privatliv</strong> : civilstand, antal børn, bopæl, boligtype, boligsituation, osv. <br><strong>Karriere oplysninger </strong> : ansættelse, kontrakttype, arbejdsgiver navn, anciennitet i beskæftigelse, ledighed, osv. <br><strong>Kommunikations oplysninger</strong> : IP addresse, event logs, osv.<br><strong>Geografiske oplysninger</strong> : rejser, GPS data, GSM data, osv.<br><strong>Andet</strong> : Telefon, email addresse, osv.",
@@ -502,19 +502,19 @@
 				"name": "Følsomme personoplysninger og straffedomme, lovovertrædelser"
 			},
 			"PIA_EX_DCPS": {
-				"description": ", biometriske oplysninger, bank data",
+				"description": ", biometriske oplysninger, finansielle (bank) oplysninger",
 				"name": "Særlige kategorier af personoplysninger"
 			},
 			"PIA_EX_HUME": {
-				"description": "Det kan være enten:<br>- en ondsindet eller uvidende tredjepart, der bruger sin fysiske nærhed til bedragerisk adgang til tjenesten;<br>- en angriber målrettet mod en bruger ved hjælp af dennes kendskab til brugeren og nogle af oplysningerne om ham/hende;<br>- en angriber målrettet mod en af de virksomheder, der har ansvaret for behandlingen, ved at bruge dennes viden om de virksomheder, der kunne tillade at angribe deres ry;<br>- en autoriseret tredjepartsorganisation, der bruger sin privilegerede adgang til uautoriseret adgang til oplysninger. Motivationer kan være flere: gambling, gener, ondskabsfuldhed, hævn, spionage, grådighed, erhvervelse af data for at udnytte dem.",
+				"description": "Det kan være enten:<br>- en ondsindet eller uvidende tredjepart, der bruger sin fysiske nærhed til bedragerisk adgang til tjenesten;<br>- en angriber målrettet mod en bruger ved hjælp af dennes kendskab til brugeren og oplysninger om ham/hende;<br>- en angriber målrettet mod en af de virksomheder, der har ansvaret for behandlingen, ved at bruge dennes viden om de virksomheder, der kunne tillade at angribe deres ry;<br>- en autoriseret tredjepartsorganisation, der bruger sin privilegerede adgang til uautoriseret adgang til oplysninger. Der findes adskellige motivationer: gambling, gener, ondskabsfuldhed, hævn, spionage, grådighed, erhvervelse af data for at udnytte dem.",
 				"name": "Extern menneskelig trussels kilde"
 			},
 			"PIA_EX_HUMI": {
-				"description": "Det kan være enten:<br>- en ondsindet eller uvidende tredjepart, der bruger sin fysiske nærhed til uautoriseret adgang til tjenesten;<br>- en angriber målrettet mod en kollega ved hjælp af dennes kendskab til medarbejderen;<br>- en angriber målrettet mod en kunde/bruger af organisationen;<br>- en autoriseret tredjepartsorganisation, der bruger sin privilegerede adgang til ulovlig adgang til oplysninger. Motivationer kan være: gener, ondskabsfuldhed, hævn, spionage, grådighed, erhvervelse af data for at udnytte dem.",
+				"description": "Det kan være enten:<br>- en ondsindet eller uvidende tredjepart, der bruger sin fysiske nærhed til uautoriseret adgang til tjenesten;<br>- en angriber målrettet mod en kollega ved hjælp af dennes kendskab til medarbejderen;<br>- en angriber målrettet mod en kunde/bruger af organisationen;<br>- en autoriseret tredjepartsorganisation, der bruger sin privilegerede adgang til ulovlig adgang til oplysninger. Der findes adskellige motivationer: gener, ondskabsfuldhed, hævn, spionage, grådighed, erhvervelse af data for at udnytte dem.",
 				"name": "Intern menneskelig trussels kilde"
 			},
 			"PIA_EX_IMPI": {
-				"description": "De berørte personer kunne have betydelige konsekvenser, som de burde kunne overvinde, men med reelle og betydelige vanskeligheder, for eksempel: <br>- Fysisk: alvorlig fysisk tilstand, der forårsager langvarig skade (forværring af helbredstilstand på grund af dårlig forvaltning eller manglende overholdelse af kontraindikationer), alvorlig svækkelse af kroppen osv.<br>- materialistisk : ukompenseret økonomisk misbrug, målrettede muligheder - unikke og ikke-tilbagevendende, tab (pant, studier, praktikophold eller beskæftigelse, eksamensforbud), tab af bolig, jobtab osv.;<br>- moralsk : alvorlig psykologisk lidelse (depression, fobi), følelser af invasion af privatlivets fred og uoprettelig skade, offer for afpressning, cyberbulning og mobbing osv.",
+				"description": "Konsekvenserne for de berørte personer er betydelige, som de burde kunne overvinde, men med reelle og betydelige vanskeligheder, for eksempel: <br>- Fysisk: alvorlig fysisk tilstand, der forårsager langvarig skade (forværring af helbredstilstand på grund af dårlig håndtering eller manglende overholdelse af kontraindikationer), alvorlig svækkelse af kroppen osv.<br>- materialistisk : ukompenseret økonomisk misbrug, målrettede muligheder - unikke og ikke-tilbagevendende, tab (pant, studier, praktikophold eller beskæftigelse, eksamensforbud), tab af bolig, jobtab osv.;<br>- moralsk : alvorlig psykologisk lidelse (depression, fobi), følelser af invasion af privatlivets fred og uoprettelig skade, offer for afpressning, cyberbulning og mobbing osv.",
 				"name": "Alvorlig konsekvens"
 			},
 			"PIA_EX_IMPL": {
@@ -534,7 +534,7 @@
 				"name": "ikke-menneskelige trussels kilder"
 			},
 			"PIA_EX_VRAI": {
-				"description": "Det forekommer muligt at udvalgte/relevante risiko kilder kan realiseres ved udnyttelse af understøttende aktivers sårbarheder (f.eks: tyveri af papirdokumenter og medier opbevaret i kontorer for en organisation, hvis adgang styres af en person i receptionen).",
+				"description": "Det forekommer muligt at udvalgte/relevante risiko kilder kan realiseres ved udnyttelse af understøttende aktivers sårbarheder (f.eks: tyveri af papirdokumenter og medier opbevaret i en organisations lokaler, hvis adgang styres af en person i receptionen).",
 				"name": "Sandsynligt"
 			},
 			"PIA_EX_VRAL": {
@@ -542,7 +542,7 @@
 				"name": "Mindre sandsynligt"
 			},
 			"PIA_EX_VRAM": {
-				"description": "Det forekommer højest sandsynligt at at udvalgte/relevante risiko kilder realiseres ved udnyttelse af understøttende aktivers sårbarheder (f.eks: tyveri af papirdokumenter og medier uden overvågning i en offentlige ventesal).",
+				"description": "Det forekommer højest sandsynligt at at udvalgte/relevante risiko kilder realiseres ved udnyttelse af understøttende aktivers sårbarheder (f.eks: tyveri af papirdokumenter og medier uden overvågning i en offentlig tilgængelig ventesal).",
 				"name": "Forventet"
 			},
 			"PIA_EX_VRAN": {
@@ -555,7 +555,7 @@
 				"source": "PIA3 p11 - WIKI"
 			},
 			"PIA_LGL_DATA": {
-				"description": "Beskriv i detaljer omfanget af behandlingen:<br>- Kategorier af personoplysninger, hvem oplysningerne vidergives til og hvor lang tid de gemmes<br>- beskriv behandlingsprocessen og de understøttende informationsaktiver under hele livscyklusen af personoplysningerne (fra indsamling til sletning).",
+				"description": "Beskriv i detaljer omfanget af behandlingen:<br>- Kategorier af personoplysninger, hvem oplysningerne vidergives til og hvor lang tid de opbevares<br>- beskriv behandlingsprocessen og de understøttende informationsaktiver under hele livscyklusen af personoplysningerne (fra indsamling til sletning).",
 				"name": "behandlede personoplysninger",
 				"source": "PIA1 p6"
 			},
@@ -575,7 +575,7 @@
 				"source": "PIAF Connected Objects p12"
 			},
 			"PIA_LGL_FIN": {
-				"description": "Personoplysninger skal indsamles indsamles til udtrykkeligt angivne og legitime formål og <strong>må ikke viderebehandles på en måde, der er uforenelig med disse formål.</strong> <br>See <a target=\"_blank\" href=\"https://eur-lex.europa.eu/legal-content/DA/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 5.1 b) af [GDPR]</a>",
+				"description": "Personoplysninger skal indsamles til udtrykkeligt angivne og legitime formål og <strong>må ikke viderebehandles på en måde, der er uforenelig med disse formål.</strong> <br>See <a target=\"_blank\" href=\"https://eur-lex.europa.eu/legal-content/DA/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 5.1 b) af [GDPR]</a>",
 				"name": "Formålet med indsamling og behandling af personoplysninger",
 				"source": "GDPR art 5.1 b)"
 			},
@@ -590,7 +590,7 @@
 				"source": "PIA3 p8 - WIKI"
 			},
 			"PIA_LGL_MINI": {
-				"description": "Det drejer sig om at reducere risici ved at undgå indsamling og behandling af unødvedige personoplysninger i en behandlingsaktivitet. Ved brug af dataminimering kan den overordnede risiko også reduceres for de registrerede ved at fjerne følsomme oplysninger når de bliver unødvendige i behandlingen.",
+				"description": "Det drejer sig om at reducere risici ved at undgå indsamling og behandling af unødvedige personoplysninger i en behandlingsaktivitet. Ved brug af dataminimering kan den overordnede risiko også reduceres for de registrerede ved at fjerne følsomme oplysninger når de er irrelevante for behandlingen.",
 				"name": "Dataminimering",
 				"source": "PIAF Connected Objects p10 - WIKI"
 			},
@@ -605,44 +605,44 @@
 				"source": "PIA1 p10"
 			},
 			"PIA_LGL_TRAN": {
-				"description": "Dokumentere hvor personoplysninger geografisk befinder sig. Hvis personoplysningerne befinder sig i lande der ikke har et tilstrækeligt beskyttelsesniveau, skal det juridiske grundlag for overførsel dokumenteres således at registrerede har de fornødne garantier, og at deres rettigheder kan håndhæves. Det vil sige :<br>- Lande i den Europæiske Union<br>- Lande med tilstrækkeligt beskyttelsesniveau (anerkendt af EU)<br>- Overførseler til amerikanske organisationer tilsluttet Privacy Shield<br>- Andre lande <br>Se <a target=\"_blank\" href=\"https://eur-lex.europa.eu/legal-content/DA/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">art. 44 til 49 af [GDPR]</a>",
+				"description": "Det dokumenteres hvor personoplysninger geografisk befinder sig. Hvis personoplysningerne befinder sig i lande der ikke har et tilstrækeligt beskyttelsesniveau, skal det juridiske grundlag for overførsel dokumenteres således at registrerede har de fornødne garantier, og at deres rettigheder kan håndhæves. Det vil sige :<br>- Lande i den Europæiske Union<br>- Lande med tilstrækkeligt beskyttelsesniveau (anerkendt af EU)<br>- Overførseler til amerikanske organisationer tilsluttet Privacy Shield<br>- Andre lande <br>Se <a target=\"_blank\" href=\"https://eur-lex.europa.eu/legal-content/DA/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">art. 44 til 49 af [GDPR]</a>",
 				"name": "Overførsel af personoplysninger",
 				"source": "PIAF Connected Objects p18"
 			},
 			"PIA_ORG_AUD": {
-				"description": "Findes der en politik og procedure der sikre organisationens styring af compliance til GDPR, der sikre fuldt overblik over behandlingsaktiviteter og efterlevelse af forordningens krav (f.eks. igennem effektiv tilsyn og revision).",
+				"description": "Findes der en politik og procedure der sikre organisationens styring af compliance til GDPR, der sikre fuldt overblik over behandlingsaktiviteter og efterlevelse af forordningens krav (f.eks. igennem effektivt tilsyn og revision).",
 				"name": "Monitorering af beskyttelse af privatlivet",
 				"placeholder": "Beskriv her procedurer der sikre at behandlingsaktiviteter efterlever forordningens krav om beskyttelse af privatlivet.",
 				"source": "PIA3 p76 - WIKI"
 			},
 			"PIA_ORG_EXT": {
-				"description": "Findes der en politik der mindsker risiko for databehandler's autoriseret adgang til personoplysninger (identitet af medarbejdere, databehandleraftale, tekniske og organisatoriske tiltag, BCR, osv.).",
-				"name": "Adgangskontrol for databehandler",
-				"placeholder": "Beskriv her krav og regler for adgangskontrol ved databehandlers adgang til personoplysninger.",
+				"description": "Findes der en politik der mindsker risiko for databehandlernes autoriseret adgang til personoplysninger (identitet af medarbejdere, databehandleraftale, tekniske og organisatoriske tiltag, BCR, osv.).",
+				"name": "Adgangskontrol for databehandlere",
+				"placeholder": "Beskriv her krav og regler for adgangskontrol ved databehandlernes adgang til personoplysninger.",
 				"source": "PIA3 p48 - WIKI"
 			},
 			"PIA_ORG_ORG": {
-				"description": "Beskriv om en person er udpeget og ansvarlig for opfølgning og compliance til persondata forordningen. Angiv om sikkerhedskomiteen (eller tilsvarende) tager ansvar for rådgivning, følger op på sikkerhed, afhjælpning og beskyttelse af personoplysninger.",
+				"description": "Beskriv om en person er udpeget og ansvarlig for opfølgning af compliance til persondataforordningen. Angiv om sikkerhedskomiteen (eller tilsvarende) tager ansvar for rådgivning, følger op på sikkerhed, sikre afhjælpning og beskyttelse af personoplysninger.",
 				"name": "Organisationen",
 				"placeholder": "Beskriv om roller og ansvar for beskyttelse af personoplysninger er defineret.",
 				"source": "PIAF Connected Objects p24 - WIKI"
 			},
 			"PIA_ORG_PBD": {
-				"description": "Findes der en Privacy-by-Design politik der kræver at princippet om beskyttelse af privatlivet og personoplysninger håndhæves ved alle nye behandlingsaktiviteter.",
+				"description": "Findes der en Privacy-by-Design politik der påkræver at princippet om beskyttelse af privatlivet og personoplysninger håndhæves ved alle nye behandlingsaktiviteter.",
 				"name": "Integration af privatlivsbeskyttelse i projekter",
-				"placeholder": "Beskriv her hvordan beskyttelse af privatlivet er integreret i nye projekter",
+				"placeholder": "Beskriv her hvordan beskyttelse af privatlivet inkorporeres i nye projekter",
 				"source": "PIA3 p79 - WIKI"
 			},
 			"PIA_ORG_PERS": {
-				"description": "Findes der en politik der definere et awarenessprogram for ansatte og nyansatte. Er der en procedure for afvikling af adgang til personoplysninger ved ansættelsesophør eller justering af adgang ved jobskifte i organisationen.",
+				"description": "Findes der en politik der definerer et awarenessprogram for ansatte og nyansatte. Er der en procedure for afvikling af adgang til personoplysninger ved ansættelsesophør eller justering af adgang ved skifte af job eller rolle i organisationen.",
 				"name": "Styring af medarbejdere",
 				"placeholder": "Beskriv her de foranstaltninger i HR politikken relevante for beskyttelse af privatlivet og personoplysninger.",
 				"source": "PIAF Connected Objects p24"
 			},
 			"PIA_ORG_POL": {
-				"description": "Dataansvarlige i organisationene skal have klare politikker og regelsæt til sin rådighed jf. persondataforordningens krav (risici og konsekvensanalyse, politikker, processer, osv.).",
-				"name": "Politik for persondatabeskyttelse",
-				"placeholder": "Beskriv hvordan persondatabeskyttelse processer er implementeret i organisationen",
+				"description": "Dataansvarlige i organisationen skal have klare politikker og regelsæt til sin rådighed jf. persondataforordningens krav (risici og konsekvensanalyse, politikker, processer, osv.).",
+				"name": "Politikker for persondatabeskyttelse",
+				"placeholder": "Beskriv hvordan processer for persondatabeskyttelse er implementeret i organisationen",
 				"source": "PIA3 p78 - WIKI"
 			},
 			"PIA_ORG_RMGT": {
@@ -652,25 +652,25 @@
 				"source": "PIA3 p77 - WIKI"
 			},
 			"PIA_ORG_VIOL": {
-				"description": "Findes der en operationel enhed i organisationen der kan håndtere sikkerhedshændelser og brud på registeredes privatliv (ansvarsfordeling, procedure, handlingsplan, kommunikationsplan, osv.).",
+				"description": "Findes der en operationel enhed i organisationen der håndterer sikkerhedshændelser og brud på registeredes privatliv (ansvarsfordeling, procedure, handlingsplan, kommunikationsplan, osv.).",
 				"name": " Styring af sikkerhedsbrud på personoplysninger",
 				"placeholder": "Angiv her om hvorvidt håndtering af sikkerhedshændelser har en dokumenteret og testet procedure.",
 				"source": "PIAF Connected Objects p24 and PIA3 p36 - WIKI"
 			},
 			"PIA_SEC_BKP": {
-				"description": "Findes der en Politik der sikre tilrådighed og integritet igennem backup, alt imens fortrolighed er varetaget (regelmæssig backup, test af restauration, kryptering af backupmedie.",
+				"description": "Findes der en Politik der sikre til rådighed og integritet igennem backup, alt imens fortrolighed er varetaget (regelmæssig backup, restaurations test, kryptering af backupmedie.",
 				"name": "Backup",
 				"placeholder": "Beskriv hvordan backup er styret og fysisk sikret.",
 				"source": "PIAF Connected Objects p23 & PIA3 p27  - WIKI"
 			},
 			"PIA_SEC_COMP": {
-				"description": "Beskyttende foranstaltninger installeret på PC arbejdsstationer (automatisk skærmlåsning, opdateringer af operativ system og applikationer, konfigurationer, backup, fysisk sikkerhed, osv.) der mindsker muligheden for at udnytte sårbarheder der kan kompromitere fortrolighed, integritet og tilrådighed af personoplysninger.",
+				"description": "Beskyttende foranstaltninger installeret på PC arbejdsstationer (automatisk skærmlåsning, opdateringer af operativ system og applikationer, konfigurationer, backup, fysisk sikkerhed, osv.) der mindsker muligheden for at udnytte sårbarheder der kan kompromitere fortrolighed, integritet og til rådighed af personoplysninger.",
 				"name": "Styring af PC og arbejdsstationer",
-				"placeholder": "Beskriv beskyttende foranstaltninger instaleret på PC arbejdsstationer",
+				"placeholder": "Beskriv beskyttende foranstaltninger installeret på PC arbejdsstationer",
 				"source": "PIAF Connected Objects p22 - WIKI"
 			},
 			"PIA_SEC_CTR": {
-				"description": "Databehandler eller anden part der modtager eller behandler personoplysninger <strong>skal stille de nødvendige garantier</strong> (f.eks. ved specialiseret viden, pålidelighed af ressourcer). Stille krav til databehandler om at udlevere sikkerhedspolitikker for relevante informationssystemer. <br>Modtage og dokumentere at sikkerhedspolitikkerne er effektive (sikkerheds revision, tilsyn af data og behandlingscentre, osv.) for at kunne <strong>påvise effektiviteten af databehandlers garantier<strong> for beskyttelse af personoplysninger. Disse garantier inkludere exempelvis :<br> - kryptering af personoplysninger ifølge sensitiviteten eller dokumenterede procedurer der sikre at databehandler ikke har adgang til personoplysningerne<br>- krypteringle af data i bevægelse (f.eks. kommunikation over HTTPS, VPN, osv.)<br>- garantier for beskyttelse af netværk, logning (journal og event audits), styring af adgangsrettigheder, brugergodkendelse, osv.<br><strong>Etablere en kontrakt med databehandler</strong>, der indeholder omfanget, tidslængde, formålet af behandlingen og parternes obligationer. Sikre at kontrakten indeholder klasuler for :<br>- fortrolighedserklæring for informationer og personoplysninger<br>- minimumskrav til brugergodkendelse<br>- tilbagelevering og/eller sletning ved udløb af kontrakten<br>- regler for rapportering af sikkerhedshændelser. Nødvendige informationer kommunikeres snarest til dataansvarlige i tilfælde af sikkerhedshændelser, og straks ved sikkerhedsbrud af personoplysninger.<br>- Ved brug af cloud leverandører :<br>\t1. identificere alle oplysninger der behandles i cloud ;<br>\t2. definere passende tekniske og juridiske krav ;<br>\t3. udføre en risikoanalyse for at identificere nødvendige sikkerhedsforanstaltninger ;<br>\t4. identificere en passende cloud model (Privat, community, Public - IaaS, PaaS, SaaS, Hybrid) relevant for den planlagte behandling ;<br>\t5. vælge en databehandler der kan stille de nødvendige garantier ;<br>\t6. Gennemse og eventuelt opdatere sin interne sikkerhedspolitik ;<br>\t7. overvåge forandringer og evolution igennem kontraktens serviceperioden.",
+				"description": "Databehandler eller anden part der modtager eller behandler personoplysninger <strong>skal stille de nødvendige garantier</strong> (f.eks. ved specialiseret viden, pålidelighed af ressourcer). Stille krav til databehandler om at udlevere sikkerhedspolitikker for relevante informationssystemer. <br>Modtage og dokumentere at sikkerhedspolitikkerne er effektive (sikkerheds revision, tilsyn af support, data og behandlingscentre, osv.) for at kunne <strong>påvise effektiviteten af databehandlerens garantier<strong> for beskyttelse af personoplysninger. Disse garantier inkludere exempelvis :<br> - kryptering af personoplysninger ifølge sensitiviteten eller dokumenterede procedurer der sikre at databehandler ikke har adgang til personoplysningerne<br>- krypteringle af data i bevægelse (f.eks. kommunikation over HTTPS, VPN, osv.)<br>- garantier for beskyttelse af netværk, logning (journal og event audits), styring af adgangsrettigheder, brugergodkendelse, osv.<br><strong>Etablere en kontrakt med databehandler</strong>, der indeholder omfanget, tidslængde, formålet af behandlingen og parternes obligationer. Sikre at kontrakten indeholder klasuler for :<br>- fortrolighedserklæring for informationer og personoplysninger<br>- minimumskrav til brugergodkendelse<br>- tilbagelevering og/eller sletning ved udløb af kontrakten<br>- regler for rapportering af sikkerhedshændelser. Nødvendige informationer kommunikeres snarest til dataansvarlige i tilfælde af sikkerhedshændelser, og straks ved sikkerhedsbrud af personoplysninger.<br>- Ved brug af cloud leverandører :<br>\t1. identificere alle oplysninger der behandles i cloud ;<br>\t2. definere passende tekniske og juridiske krav ;<br>\t3. udføre en risikoanalyse for at identificere nødvendige sikkerhedsforanstaltninger ;<br>\t4. identificere en passende cloud model (Privat, community, Public - IaaS, PaaS, SaaS, Hybrid) relevant for den planlagte behandling ;<br>\t5. vælge en databehandler der kan stille de nødvendige garantier ;<br>\t6. Gennemse og eventuelt opdatere sin interne sikkerhedspolitik ;<br>\t7. overvåge forandringer og evolution igennem kontraktens levetid.",
 				"name": "Databehandler kontrakt",
 				"placeholder": "Ved brug af databehandler, beskriv de kontraktuelle garantier",
 				"source": "Digitaliseringsstyrelsen; Sådan stiller du krav til leverandører om informationssikkerhed <a target=\"_blank\" href=\"https://digst.dk/styring/standardkontrakter/klausuler-til-informationssikkerhed/kravkatalog-til-leverandoerer\">kravkatalog til leverandoerer</a>"
@@ -678,17 +678,17 @@
 			"PIA_SEC_EXP": {
 				"description": "Politikker der mindsker operationelle risici for informationsaktiver der indeholder personoplysninger (operationelle procedurer, register over aktiver, afhjælpning af sårbarheder, undgå duplikater af data, skærpet adgangskontrol til informationsaktiver, osv.",
 				"name": "Operationel sikkerhed",
-				"placeholder": "Beskriv hvordan software opdateringer (operativ systemer, applikationer, osv.) og implementering af sikkerheds korrektiver og patches effektueres.",
+				"placeholder": "Beskriv hvordan software opdateringer (operativ systemer, applikationer, osv.) og implementation af sikkerheds korrektiver og patches foretages.",
 				"source": "PIAF Connected Objects p22 - WIKI"
 			},
 			"PIA_SEC_LOG": {
-				"description": "Fortages overvågning af infrastruktur og applikationer med hjælp af detektionssystemer (IDS, IPS, NDIS, endpoint, osv.) med henblik på at spore cyberangreb og mistænksomme hændelser ved brug af log og event korrelation i kritiske komponenter (netværks, Wi-Fi, radiobølger, optisk fiber, computere, appliances, printere, applikationer, osv.).",
+				"description": "Fortages der overvågning af infrastruktur og applikationer med hjælp af detektionssystemer (IDS, IPS, NDIS, endpoint, osv.) med henblik på at spore og opdage cyberangreb og mistænksomme hændelser ved brug af log og event korrelation i kritiske komponenter (netværks, Wi-Fi, radiobølger, optisk fiber, computere, appliances, printere, applikationer, osv.).",
 				"name": "Overvågning og sporing",
-				"placeholder": "Beskriv foranstaltninger der kan spore og identificere sikkerhedshændelser hvori der findes personoplysninger",
+				"placeholder": "Beskriv foranstaltninger der kan spore og opdage sikkerhedshændelser",
 				"source": "PIA3 p67 - WIKI"
 			},
 			"PIA_SEC_MAIN": {
-				"description": "Politikker der beskriver hvordan fysiks vedligeholdelse af hardware er styret, om hvorvidt det er udliciteret.<br> Beskriv hvordan udskiftet komponenter der kunne indeholde personoplysninger er beskyttet inden destruktion og hvordan de er detrueret.",
+				"description": "Politikker der beskriver hvordan fysiks vedligeholdelse af hardware er styret, om hvorvidt det er udliciteret.<br> Beskriv hvordan udtjente komponenter der kunne indeholde personoplysninger er beskyttet inden destruktion og hvordan de er detrueret.",
 				"name": "Vedligeholdelse",
 				"placeholder": "Beskriv hvordan fysisk vedligeholdelse af hardware er styret",
 				"source": "PIAF Connected Objects p23"
@@ -700,13 +700,13 @@
 				"source": "PIAF Connected Objects p22 - WIKI"
 			},
 			"PIA_SEC_MAT": {
-				"description": "Hvordan sikres den fysiske sikkerhed af server, arbejdsstationer og bærbare (sikker opbevaring, sikkerhedskabler, skærpet adgangskontrol, sikker destruktion af gammel HW, osv.).",
+				"description": "Hvordan sikres den fysiske sikkerhed af server, arbejdsstationer og bærbare (sikker opbevaring, sikkerhedskabler, skærpet adgangskontrol, sikker destruktion af udtjent HW, osv.).",
 				"name": "Sikkerhed af hardware",
 				"placeholder": "Beskriv fysiske sikkerhedsforanstaltninger af server og PC arbejdsstationer",
 				"source": "PIAF Connected Objects p23 - WIKI"
 			},
 			"PIA_SEC_NET": {
-				"description": "Afhængig af netværket hvor behandlingen fortages (isoleret, privat eller Internet), beskriv hvilken firewall systemer, intrusion detection systemer (IDS/IPS) eller andre aktive eller passive løsninger iværksat for sikkerheden på netværket.",
+				"description": "Afhængig af netværket hvor behandlingen fortages (isoleret, privat eller Internet), beskriv hvilken firewall systemer, intrusion detection systemer (IDS/IPS), eller andre aktive/passive løsninger, der er iværksat for sikkerheden på netværket.",
 				"name": "Netværkssikkerhed",
 				"placeholder": "Beskriv her sikkerhedsforanstaltninger på netværket hvor behandlingen foregår",
 				"source": "PIAF Connected Objects p23"
@@ -718,7 +718,7 @@
 				"source": "PIAF Connected Objects p23"
 			},
 			"PIA_SEC_PROT": {
-				"description": "Politikker der beskriver forebyggelse og bekæmpelse af ild. Hvor relevant, angiv foranstaltninger der forebygger vandskader og andre farer der præsentere risici for personoplysninger.",
+				"description": "Politikker der beskriver forebyggelse og bekæmpelse af f.eks. brand. Angiv foranstaltninger der forebygger vandskader og andre farer der præsentere risici for personoplysninger.",
 				"name": "Beskyttelse mod ikke-menneskelige risici",
 				"placeholder": "Beskriv her foranstaltninger der mindsker ikke-menneskelige risici.",
 				"source": "PIAF Connected Objects p23 - WIKI"
@@ -730,7 +730,7 @@
 				"source": "PIAF Connected Objects p23 - WIKI"
 			},
 			"PIA_SEC_WEB": {
-				"description": "Beskriv sikkerheds foranstaltninger der medvirker til at beskytte personoplysninger på websites (hardening igennem konfiguration, TLS kryptering, styring af cookies, styring af API'er, sikkerheds test, osv).",
+				"description": "Beskriv sikkerhedsforanstaltninger der medvirker til beskyttelse af personoplysninger på websites (hardening igennem konfiguration, TLS kryptering, styring af cookies, styring af API'er, sikkerheds test, osv).",
 				"name": "Website sikkerhed",
 				"placeholder": "Beskriv foranstaltninger til beskyttelse af websites.",
 				"source": "PIAF Connected Objects p22 - WIKI"
@@ -756,7 +756,7 @@
 			"PIA_TEC_CLO": {
 				"description": "Systemet kan struktureres i uafhængige dele med separate adgangskontrolfunktioner. Personoplysninger kan også fordeles mellem disse uafhængige delsystemer hvor hvert delsystem styres ved hjælp af forskellige adgangskontrolmekanismer. Hvis et delsystem er kompromitteret, kan konsekvenserne på datasættet reduceres",
 				"name": "Opdeling af personoplysninger",
-				"placeholder": "Beskriv om hvorvidt opdeling af personoplysninger er planlagt, og hvordan det er implementeret.",
+				"placeholder": "Beskriv om hvorvidt segmentering (opdeling) af personoplysninger er planlagt, og hvordan det er implementeret.",
 				"source": "PIAF Connected Objects p21"
 			},
 			"PIA_TEC_CTLA": {
@@ -772,20 +772,20 @@
 				"source": "PIAF Connected Objects p22"
 			},
 			"PIA_TEC_MINI": {
-				"description": "Sensitiviteten af personoplysninger kan mindskes med følgende metoder:  Filtrage og fjernelse, Mindske sensitiviteten ved konversion, Mindske de personhenførbare oplysninger, Mindske omfanget af oplysninger, Restriktion af adgang til personoplysningerne",
+				"description": "Sensitiviteten af personoplysninger kan mindskes med følgende metoder:  Filtrering og sletning, mindske sensitiviteten ved konversion, mindske omfanget af personhenførbare oplysninger, restriktion af adgang til personoplysningerne",
 				"name": "Minimering af personoplysninger",
 				"placeholder": "Beskriv hvordan risici mindskes ved dataminimering af personoplysninger",
 				"source": "PIAF Connected Objects p40"
 			},
 			"PIA_TEC_PAP": {
-				"description": "Politikker for papir dokumenter med personoplysninger der indgår i behandlingen, beskriv hvordan de bliver printet, lagret, destrueret og eventuelt udvekslet.",
+				"description": "Politikker for papirdokumenter med personoplysninger der indgår i behandlingen, beskriv hvordan de bliver printet, lagret, destrueret og eventuelt udvekslet.",
 				"name": "Sikkehed for papir dokumenter",
-				"placeholder": "For håndtering af personoplysninger på papir dokumenter, beskriv hvilke procedurer der er i brug samt formålet.",
+				"placeholder": "For håndtering af personoplysninger på papirdokumenter, beskriv hvilke procedurer der er i brug samt formålet.",
 				"source": "PIAF Connected Objects p22"
 			},
 			"PIA_VAL_ACT": {
-				"description": "handlingsplanen beskriver strategien, midler og ressourcer for effektiv implementering af de afhjælpende sikkerhedsforanstaltninger. Hver opgave tildeles en ansvarlig for implementering og forventede tidsplan.",
-				"name": "handlingsplan",
+				"description": "Handlingsplanen beskriver strategien, midler og ressourcer for effektiv implementation af de afhjælpende sikkerhedsforanstaltninger. Hver opgave tildeles en ansvarlig og forventede tidsplan for implementation.",
+				"name": "Handlingsplan",
 				"source": "None"
 			},
 			"PIA_VAL_CART": {
@@ -794,7 +794,7 @@
 				"source": "PIAF Connected Objects p34"
 			},
 			"PIA_VAL_CONC": {
-				"description": "Den dataansvarlige indhenter, hvis det er relevant, de registreredes eller deres repræsentanters synspunkter vedrørende den planlagte behandling, uden at det berører beskyttelse af kommercielle eller samfundsmæssige interesser eller behandlingsaktiviteternes sikkerhed. Se Art. 35.9 af <a target=\"_blank\" href=\"https://eur-lex.europa.eu/legal-content/DA/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR]</a><br>Disse synspunkter kan indsamles ved forskellige metoder, afhængig af kontekst (Intern eller extern analyse af behandlingsmetoden og formål, spørgsmaål til tillidsrepræsentanter eller fagorganisationer, meningsmåling blandt fremtidige kunder af databehandler). <strong>Hvis dataansvarlige beslutter at gå imod registreredes synspunkter</strong>, skal denne dokumentere <strong>beslutningsgrundlaget</strong>. Når dataansvarlige beslutter ikke at indsamle registreredes synspunkt <strong>skal begrundelsen dokumenteres</strong>.",
+				"description": "Den dataansvarlige indhenter, hvis det er relevant, de registreredes eller deres repræsentanters synspunkter vedrørende den planlagte behandling, uden at det berører beskyttelse af kommercielle eller samfundsmæssige interesser eller behandlingsaktiviteternes sikkerhed. Se Art. 35.9 af <a target=\"_blank\" href=\"https://eur-lex.europa.eu/legal-content/DA/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR]</a><br>Disse synspunkter kan indsamles ved forskellige metoder, afhængig af konteksten (Intern eller extern analyse af behandlingsmetoden og formål, spørgsmål til tillidsrepræsentanter eller fagorganisationer, meningsmåling blandt fremtidige kunder af databehandlere). <strong>Hvis den dataansvarlige beslutter at gå imod de registreredes synspunkter</strong>, skal denne dokumentere <strong>beslutningsgrundlaget</strong>. Når den dataansvarlige beslutter ikke at indsamle de registreredes synspunkt <strong>skal begrundelsen dokumenteres</strong>.",
 				"name": "Registreredes synspunkt",
 				"source": "GDPR Art. 39.9 and PIAF Connected Objects p38"
 			},
@@ -804,7 +804,7 @@
 				"source": "GDPR Art. 39.2 and PIAF Connected Objects p37"
 			},
 			"PIA_VAL_RT": {
-				"description": "Dataansvarlige afgører om hvorvidt de valgte foranstaltninger,  tilbageværende riscici og afhjælpningsplan er acceptabel, dette dokumenteres udfra en forudgående forståelse/analyse og de involverede partners synspunkter. Således kan PIA konsekvensanalysen blive :<br>- godkendt<br>- godkendelse betinget af forbedring (forklare hvorledes)<br>- Afslået (sammen med den pågældende behandling). Hvis nødvendigt gentages de foregående etaper således at PIA'en kan godkendes. Denne afgørelse foregriber ikke en compliancevurdering der eventuelt fortages af tilsynsmyndigheden (Datatilsynet i Danmark), som del af standard aftaler eller tilsyn/revision.",
+				"description": "Den dataansvarlige afgøre om hvorvidt de valgte foranstaltninger, tilbageværende riscici og afhjælpningsplan er acceptabel, dette dokumenteres udfra en forudgående forståelse/analyse og de involverede partners synspunkter. Således kan PIA konsekvensanalysen blive :<br>- godkendt<br>- godkendelse betinget af forbedringer (forklare hvorledes)<br>- Afslået (sammen med den pågældende behandling), hvis nødvendigt, gentages og forbedres de foregående etaper således at PIA'en kan godkendes. Denne afgørelse foregriber ikke en compliancevurdering der eventuelt fortages af tilsynsmyndigheden (Datatilsynet i Danmark), som del af standard aftaler eller tilsyn/revision.",
 				"name": "Dataansvarliges validation",
 				"source": "PIAF Connected Objects p40"
 			}
@@ -827,21 +827,21 @@
 			"content": "Vil du opgive behandlingen?"
 		},
 		"action_plan_no_evaluation": {
-			"content": "Start venligst evalueringen af analysen for at generere handlingsplanen.",
-			"review_section": "Evaluere sektionen"
+			"content": "Start venligst evalueringen af analysen for at skabe handlingsplanen.",
+			"review_section": "Evaluerings sektionen"
 		},
 		"archive": "Arkiver",
 		"ask_for_evaluation": {
 			"content": "Denne sektion er klar til evaluering."
 		},
 		"back_to_edition": {
-			"content": "Dette afsnit redigeres,<br> oplysninger skal tilføjes for at tillade dets evaluering."
+			"content": "Dette afsnit redigeres,<br> oplysninger skal tilføjes for at tillade evaluering af afsnittet."
 		},
 		"back_to_evaluation": {
-			"content": "Dette afsnit redigere,<br> oplysninger skal vurderes igen for at tillade dens validering."
+			"content": "Dette afsnit redigeres,<br> oplysninger skal vurderes igen for at tillade validering af afsnittet."
 		},
 		"back_to_home": "Tilbage til oversigt",
-		"cancel": "Annuller",
+		"cancel": "Fortryd",
 		"close": "Luk",
 		"completed_edition": {
 			"content": "Alle dele er redigeret.<br>Analysen skal nu evalueres."
@@ -861,10 +861,10 @@
 			"review_section": "Evaluere sektionen"
 		},
 		"import_wrong_pia_file": {
-			"content": "The imported file doesn't correspond to a PIA report file (TRANSLATION REQUIRED)"
+			"content": "Den importerede fil relaterer ikke til en PIA rapport fil"
 		},
 		"import_wrong_structure_file": {
-			"content": "The imported file doesn't correspond to a PIA template file (TRANSLATION REQUIRED)"
+			"content": "Den importerede fil relaterer ikke til en PIA skabelon fil"
 		},
 		"modal_select_text_pia": {
 			"content": "Indholdet af PIA er kopieret til clipboard."
@@ -887,20 +887,20 @@
 			"remove": "Slet denne<br>foranstaltning"
 		},
 		"remove_pia": {
-			"content": "<span class='strong'>Warning,</span><br>Er du sikker på at ville<br>slette denne PIA?",
+			"content": "<span class='strong'>Warning,</span><br>Er du sikker på at vil<br>slette denne PIA?",
 			"remove": "Slet denne PIA"
 		},
 		"remove_question": {
-			"content": "Are you sure you want to deleted the question? (TRANSLATION REQUIRED)",
+			"content": "Er du sikker på at du vil slette spørgsmålet?",
 			"keep": "Behold",
 			"remove": "Slet"
 		},
 		"remove_structure": {
-			"content": "<span class='strong'>Warning,</span><br>Are you sure you want<br>to delete the template?",
-			"remove": "Delete template"
+			"content": "<span class='strong'>Advarsel,</span><br>Er du sikker på at du vil <br>slette skabelonen?",
+			"remove": "Slet skabelon"
 		},
 		"same_comment": {
-			"content": "<span class='strong'>Advarsel,</span><br>Indtast venligst en andenledes kommentar end den sidst gemte."
+			"content": "<span class='strong'>Advarsel,</span><br>Indtast venligst en andenledes kommentar end den forrige (gemte)."
 		},
 		"signed_pia_validation": {
 			"content": "For at godkende PIA'en skal du vedhæfte den underskrevne rapport.",
@@ -911,7 +911,7 @@
 		},
 		"start_evaluation": "Start evaluering",
 		"update_server_url_nok": {
-			"content": "Connection impossible."
+			"content": "Ingen forbindelse."
 		},
 		"update_server_url_ok": {
 			"content": "Serveradressen er blevet opdateret."
@@ -979,14 +979,14 @@
 			"refuse_pia": "Afvise PIA",
 			"status": {
 				"evaluation": {
-					"cancel": "Annulere forspørgslen om evaluering.",
-					"cancel_button": "Annulere forspørgslen om evaluering",
+					"cancel": "Fortryd forspørgslen om evaluering.",
+					"cancel_button": "Fortryd forspørgslen om evaluering",
 					"content": "Denne del har endnu ikke været evalueret. Hvis du ønsker at redigere det foreslået indhold skal du ",
 					"title": "Venter på evaluering."
 				},
 				"validation": {
-					"cancel": "Annulere forspørgslen om evaluering.",
-					"cancel_button": "Annulere forspørgslen om evaluering",
+					"cancel": "Fortryd forspørgslen om evaluering.",
+					"cancel_button": "Fortryd forspørgslen om evaluering",
 					"content": "Denne del er evalueret og venter på overordnet PIA validation. Hvis du ønsker at ændre evalueringen , skal du ",
 					"title": "Venter på godkendelse."
 				}
@@ -1012,7 +1012,7 @@
 			"4": "Katastrofal"
 		},
 		"placeholder_title": "Titel på spørgsmål (obligatorisk)",
-		"remove": "Delete question (TRANSLATION REQUIRED)"
+		"remove": "Slet spørgsmål"
 	},
 	"rejection_page": {
 		"applied_adjustments": "Foreslået forbedringer",
@@ -1033,7 +1033,7 @@
 				"1": {
 					"questions": {
 						"1": {
-							"placeholder": "Presenter behandlingen på en syntetisk måde: dets navn, dets formål, dets indsats (forventede bidrag), dets anvendelsesmåde osv.",
+							"placeholder": "Præsentere behandlingen på en syntetisk måde: dets navn, dets formål, dets indsats (forventede bidrag), dets anvendelsesmåde osv.",
 							"title": "Hvad er den behandling, der er genstand for undersøgelsen?"
 						},
 						"2": {
@@ -1042,7 +1042,7 @@
 						},
 						"3": {
 							"placeholder": "Beskriv relevante standarder for behandlingen, især godkendte adfærdskodekser og databeskyttelse normer eller certifikationer.",
-							"title": "Er der standarder gældende for behandlingen?"
+							"title": "Er der gældende standarder for behandlingen?"
 						}
 					},
 					"short_help": "Dette afsnit giver dig mulighed for at identificere og præsentere formålet med undersøgelsen.",
@@ -1055,7 +1055,7 @@
 							"title": "Hvilke personoplysninger behandles?"
 						},
 						"2": {
-							"placeholder": "Beskriv personoplysningernes livscyklus (fra samling til sletning gennem lagring, forskellige behandlingstrin, arkivering osv.), F.eks. Ved hjælp af et dataflowskema (der kan tilføjes som en vedhæftet fil) og en beskrivelse af hver implementeret proces.",
+							"placeholder": "Beskriv personoplysningernes livscyklus (fra samling til sletning gennem lagring, forskellige behandlingstrin, arkivering osv.), F.eks. ved hjælp af et dataflowskema (der kan tilføjes som en vedhæftet fil) og en beskrivelse af hver implementeret proces.",
 							"title": "Hvordan er personoplysningernes livscyklus (funktionel beskrivelse)?"
 						},
 						"3": {
@@ -1077,30 +1077,30 @@
 						"1": {
 							"placeholder": "Forklar, hvordan behandlingen har udtrykkeligt angivne og legitime formål.",
 							"short_title": "Formålet",
-							"title": "Er formålet med behandlingen bestemt, eksplicit og legitim?"
+							"title": "Er formålet med behandlingen bestemt, eksplicit og legitimt?"
 						},
 						"2": {
 							"placeholder": "Angiv grundlaget for din behandling (f.eks. samtykke, opfyldelse af en kontrakt, retlig forpligtelse, vitale interesser, offentlig myndighedsudøvelse, legitim interesse).",
 							"short_title": "Lovlig behandling",
-							"title": "Hvad er det lovmæssige grundlag for behandlingen?"
+							"title": "Hvad er det lovmæssige hjemmel for behandlingen?"
 						},
 						"3": {
-							"placeholder": "Forklar, hvordan hvert indsamlet personoplysning er nødvendigt for behandlingen.",
+							"placeholder": "Forklar, hvordan hver enkelt indsamlet personoplysning er nødvendigt for behandlingen.",
 							"short_title": "Data minimering",
 							"title": "Er dataindsamlingen tilstrækkelig, relevant og begrænset til det, der er nødvendigt for de formål, som det behandles for (data minimering)?"
 						},
 						"4": {
-							"placeholder": "Beskriv de planlagte foranstaltninger for at sikre kvaliteten af personopllysningerne.",
+							"placeholder": "Beskriv de planlagte foranstaltninger for at sikre kvaliteten og integriteten af personoplysningerne.",
 							"short_title": "Rigtighed",
-							"title": "Er personoplysningerne nøjagtige og holdes ajourførte?"
+							"title": "Er personoplysningerne nøjagtige og ajourførte?"
 						},
 						"5": {
-							"placeholder": "Forklar, hvordan den påtænkte opbevaringsperiode for hvert personoplysning er nødvendig for at opfylde formålene med behandlingen, foruden at dokumentere hvis andre juridiske forpligtelser kræver en specifik opbevaringsperiode.",
+							"placeholder": "Forklar, hvordan den påtænkte opbevaringsperiode for hver enkel personoplysning er nødvendig for at opfylde formålene med behandlingen, foruden at dokumentere hvis andre lovmæssige forpligtelser kræver en specifik opbevaringsperiode.",
 							"short_title": "Opbevaringsbegrænsning",
 							"title": "Hvor længe opbevares personoplysningerne?"
 						}
 					},
-					"short_help": "Dette afsnit giver dig mulighed for at demonstrere legitimiteten af din behandling og behandlede data.",
+					"short_help": "Dette afsnit giver dig mulighed for at demonstrere legitimiteten af din behandling og de behandlede personoplysninger.",
 					"title": "Proportionalitet og nødvendighed"
 				},
 				"2": {
@@ -1126,17 +1126,17 @@
 							"title": "Hvordan kan registrerede udøve deres ret til berigtigelse og retten til at blive slettet (ret til at blive glemt)?"
 						},
 						"5": {
-							"placeholder": "Beskriv hvordan man tillader de registrerede at anmode om begrænsning af behandlingen af deres personoplysninger og hvis relevant, modsætte sig behandlingen.",
+							"placeholder": "Beskriv hvordan man giver de registrerede mulighed for at anmode om begrænsning af behandlingen af deres personoplysninger og hvis relevant, modsætte sig behandlingen.",
 							"short_title": "Ret til begrænsning og indsigelse",
 							"title": "Hvordan kan de registrerede udøve deres ret til begrænsning af behandling og ret til indsigelses?"
 						},
 						"6": {
 							"placeholder": "For hver databehandler beskrives omfanget af dennes ansvar og der angives henvisninger til kontrakter, adfærdskodekser compliancedokumenter og certificeringer, der fastsætter databehandler forpligtelser.",
-							"short_title": "Udlicitering og databehandler",
-							"title": "Er forpligtelser klart defineret og kontraktliggjort for databehandler?"
+							"short_title": "Udlicitering og databehandlere",
+							"title": "Er forpligtelser klart defineret og kontraktliggjort for databehandlere?"
 						},
 						"7": {
-							"placeholder": "For hvert land uden for EU, hvor personoplysninger lagres eller behandles, skal landet identificeres og angive, om landet er anerkendt for at have et tilstrækkeligt beskyttelsesniveau eller beskrive de bestemmelser, der gælder for overførslen.",
+							"placeholder": "For hvert land uden for EU, hvor personoplysninger lagres eller behandles, skal landet identificeres og det angives om landet er anerkendt for at have et tilstrækkeligt beskyttelsesniveau, eller beskrive de bestemmelser der gælder for overførslen.",
 							"short_title": "Overførsler",
 							"title": "Hvis personoplysninger overføres udenfor EU (tredjeland eller en international organisation), er personoplysningerne beskyttet på tilsvarende vis?"
 						}
@@ -1151,7 +1151,7 @@
 		"3": {
 			"items": {
 				"1": {
-					"short_help": "Dette afsnit giver dig mulighed for at identificere de foranstaltninger (eksisterende eller planlagte), der bidrager til sikkerhed for personoplysninger.",
+					"short_help": "Dette afsnit giver dig mulighed for at identificere de foranstaltninger (eksisterende eller planlagte), der bidrager til sikkerhed af personoplysninger.",
 					"title": "Eksisterende eller planlagte foranstaltninger"
 				},
 				"2": {
@@ -1204,21 +1204,21 @@
 						},
 						"5": {
 							"placeholder": "Beskriv her den vurderede alvorlighed af risikoen.",
-							"title": "Hvordan vurdere du <span class='green-highlight'>risiko alvorligheden</span>, især i henhold til potentielle trussler, risiko kilder og planlagte foranstaltninger?"
+							"title": "Hvordan vurderer du <span class='green-highlight'>risiko alvorligheden</span>, især i henhold til potentielle trussler, risiko kilder og planlagte foranstaltninger?"
 						},
 						"6": {
 							"placeholder": "Beskriv her den vurderede sandsynlighed.",
-							"title": "Hvordan vurdere du <span class='green-highlight'>sandsynligheden af riskoen</span>, især i henhold til trusler, risikokilder og planlagte foranstaltninger?"
+							"title": "Hvordan vurderer du <span class='green-highlight'>sandsynligheden af riskoen</span>, især i henhold til trusler, risikokilder og planlagte foranstaltninger?"
 						}
 					},
-					"short_help": "Analyser årsagerne og konsekvenserne af en uønsket ændring i personoplysninger, og vurder dets alvorlighed og sandsynlighed.",
+					"short_help": "Analysere årsagerne og konsekvenserne af en uønsket ændring i personoplysninger, og vurder dets alvorlighed og sandsynlighed.",
 					"title": "Uønsket ændring af personoplysninger"
 				},
 				"4": {
 					"questions": {
 						"1": {
 							"placeholder": "Beskriv den potentielle konsekvens +",
-							"title": "Hvad kan være den vigtigste <span class='green-highlight'>indvirkning på de berørte personer</span> ihvis risikoen opstod?"
+							"title": "Hvad kan være den vigtigste <span class='green-highlight'>indvirkning på de berørte personer</span> hvis risikoen opstod?"
 						},
 						"2": {
 							"placeholder": "Beskriv trusslernes +",
@@ -1234,18 +1234,18 @@
 						},
 						"5": {
 							"placeholder": "Beskriv her den vurderede alvorlighed af risikoen.",
-							"title": "Hvordan vurdere du <span class='green-highlight'>risiko alvorligheden</span>, især i henhold til potentielle trussler, risiko kilder og planlagte foranstaltninger?"
+							"title": "Hvordan vurderer du <span class='green-highlight'>risiko alvorligheden</span>, især i henhold til potentielle trussler, risiko kilder og planlagte foranstaltninger?"
 						},
 						"6": {
 							"placeholder": "Beskriv her den vurderede sandsynlighed.",
-							"title": "Hvordan vurdere du <span class='green-highlight'>sandsynligheden af riskoen</span>, især i henhold til trusler, risikokilder og planlagte foranstaltninger?"
+							"title": "Hvordan vurderer du <span class='green-highlight'>sandsynligheden af riskoen</span>, især i henhold til trusler, risikokilder og planlagte foranstaltninger?"
 						}
 					},
-					"short_help": "Analyze the causes and consequences of data loss, and estimate its seriousness and likelihood.",
+					"short_help": "Analysere kilden og konsekvensen for tab af personoplysninger, vurdere alvorligheden og sandsynligheden.",
 					"title": "Tab af personoplysninger"
 				},
 				"5": {
-					"short_help": "Denne visualisering giver dig mulighed for at få et globalt og syntetisk billede af foranstaltningerne i forhold til de risici, de bidrager til at behandle.",
+					"short_help": "Denne visualisering giver dig mulighed for at få et globalt og syntetisk billede af foranstaltningerne i forhold til de risici, de bidrager til at afhjælpe.",
 					"title": "Risiko oversigt"
 				}
 			},
@@ -1259,11 +1259,11 @@
 					"title": "Risikokortlægning"
 				},
 				"2": {
-					"short_help": "Planlægge i detaljer gennemførelsen af de yderligere foranstaltninger, der blev identificeret under PIA. Dette afsnit opdateres automatisk i henhold til evalueringen af hver enkelt komponent i konsekvensanalysen.",
-					"title": "Handlingsplann"
+					"short_help": "Planlæg her, i detaljer, gennemførelsen af yderligere foranstaltninger, der blev identificeret under PIA. Dette afsnit opdateres automatisk i henhold til evalueringen af hver enkelt element i konsekvensanalysen.",
+					"title": "Handlingsplan"
 				},
 				"3": {
-					"short_help": "Præsentere holdning fra den person, der har ansvaret for compliance til databeskyttelsesforordningen (GDPR) (delegeret til databeskyttelsesrådgiveren, hvis den eksisterer). Fremsætte de berørte personers eller deres repræsentants sysnpunkter.",
+					"short_help": "Præsentere holdningen fra den person, der har ansvaret for compliance til databeskyttelsesforordningen (GDPR) (delegeret til databeskyttelsesrådgiveren, hvis udpeget). Fremsætter de berørte personers eller deres repræsentants sysnpunkter.",
 					"title": "Udtalelse fra DPO og de berørte personer"
 				},
 				"4": {
@@ -1285,7 +1285,7 @@
 	"summary": {
 		"action_plan": {
 			"fundamental_principles": "Fundamentale principper",
-			"implementation_date": "Forventet implementations dato",
+			"implementation_date": "Forventet implementerings dato",
 			"implementation_responsible": "Ansvarlig for gennemførelsen",
 			"measures": "Existerende eller planlagte foranstaltninger",
 			"no_action_plan": "Ingen handlingsplan registreret.",
@@ -1304,10 +1304,10 @@
 		},
 		"copy_to_clipboard": "Kopi til clipboard",
 		"creation_date": "Dato for kreation",
-		"csv_action_plan_comment": "Handlingsplan kommentarer",
+		"csv_action_plan_comment": "Handlingsplans kommentarer",
 		"csv_evaluation_comment": "Evaluations kommentarer",
-		"csv_file_title": "handlingsplan",
-		"csv_implement_date": "Forventet implementations dato",
+		"csv_file_title": "Handlingsplan",
+		"csv_implement_date": "Forventet dato for implementation",
 		"csv_people_in_charge": "Ansvarlig for gennemførelsen",
 		"csv_section": "Sektion",
 		"csv_title_object": "Titel",
@@ -1359,7 +1359,7 @@
 		"confirmation3": "Jeg godkender de angivne korrigerende tiltag indikeret i handlingsplanen.",
 		"confirmation4": "Jeg forpligter mig til at gennemføre de korrigerende foranstaltninger, der er angivet, så hurtigt som muligt.",
 		"latest_signed_attachment": "Sidste underskrevet vedhæftelse",
-		"mandatory_fields": "Alle kasser skal checkes",
+		"mandatory_fields": "Alle felter skal checkes (udfyldes)",
 		"remove_attachment": "Fjern vedhæftet dokument",
 		"responsible": "Ansvarlig for godkendelse af PIA: ",
 		"signed_attachments_history": "Log af Underskrevet vedhæftelser",
