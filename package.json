@@ -9,7 +9,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "prod": "ng build --prod --build-optimizer --sourcemaps",
+    "prod": "ng build --prod --build-optimizer",
     "format:write": "prettier {src,e2e,cypress}/**/*.{ts,json,md,scss} --write",
     "format:test": "prettier {src,e2e,cypress}/**/*.{ts,json,md,scss} --list-different",
     "cy:open": "cypress open",
