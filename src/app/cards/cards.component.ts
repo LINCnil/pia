@@ -1,7 +1,14 @@
-import {Component, OnInit, ElementRef, OnDestroy, Input} from '@angular/core';
+import {
+  Component,
+  OnInit,
+  ElementRef,
+  OnDestroy,
+  Input,
+  Renderer2
+} from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router, ActivatedRoute, Params } from '@angular/router';
-import { Subscription } from 'rxjs/Subscription';
+import { Subscription } from 'rxjs';
 
 import { Pia } from '../entry/pia.model';
 
@@ -12,13 +19,15 @@ import { Structure } from 'app/structures/structure.model';
 import { Measure } from 'app/entry/entry-content/measures/measure.model';
 import { Answer } from 'app/entry/entry-content/questions/answer.model';
 
+import { TranslateService } from '@ngx-translate/core';
+import { LanguagesService } from 'app/services/languages.service';
+
 @Component({
   selector: 'app-cards',
   templateUrl: './cards.component.html',
   styleUrls: ['./cards.component.scss'],
   providers: [PiaService, StructureService]
 })
-
 export class CardsComponent implements OnInit, OnDestroy {
   @Input() pia: any;
   newPia: Pia;
@@ -26,16 +35,18 @@ export class CardsComponent implements OnInit, OnDestroy {
   importPiaForm: FormGroup;
   sortOrder: string;
   sortValue: string;
-  viewStyle: { view: string }
+  viewStyle: { view: string };
   view: 'card';
   paramsSubscribe: Subscription;
 
-  constructor(private router: Router,
-              private el: ElementRef,
-              private route: ActivatedRoute,
-              public _modalsService: ModalsService,
-              public _piaService: PiaService,
-              public _structureService: StructureService) { }
+  constructor(
+    private router: Router,
+    private el: ElementRef,
+    private route: ActivatedRoute,
+    public _modalsService: ModalsService,
+    public _piaService: PiaService,
+    public _structureService: StructureService
+  ) {}
 
   ngOnInit() {
     const structure = new Structure();
@@ -61,12 +72,10 @@ export class CardsComponent implements OnInit, OnDestroy {
     });
     this.viewStyle = {
       view: this.route.snapshot.params['view']
-    }
-    this.paramsSubscribe = this.route.params.subscribe(
-      (params: Params) => {
-        this.viewStyle.view = params['view'];
-      }
-    );
+    };
+    this.paramsSubscribe = this.route.params.subscribe((params: Params) => {
+      this.viewStyle.view = params['view'];
+    });
     if (localStorage.getItem('homepageDisplayMode') === 'list') {
       this.viewOnList();
     } else {
@@ -136,14 +145,20 @@ export class CardsComponent implements OnInit, OnDestroy {
         pia.structure_name = structure.name;
         pia.structure_sector_name = structure.sector_name;
         pia.structure_data = this.removeEmptyElements(structure.data);
-        pia.create().then((id) => {
+        pia.create().then(id => {
           this.structureCreateMeasures(pia, id).then(() => {
-            this.structureCreateAnswers(pia, id).then(() => this.router.navigate(['entry', id, 'section', 1, 'item', 1]));
+            this.structureCreateAnswers(pia, id).then(() =>
+              this.router.navigate(['entry', id, 'section', 1, 'item', 1])
+            );
           });
         });
       });
     } else {
-      pia.create().then((id) => this.router.navigate(['entry', id, 'section', 1, 'item', 1]));
+      pia
+        .create()
+        .then(id =>
+          this.router.navigate(['entry', id, 'section', 1, 'item', 1])
+        );
     }
   }
 
@@ -163,8 +178,15 @@ export class CardsComponent implements OnInit, OnDestroy {
             }
           } else if (item.questions) {
             item.questions.forEach(question => {
-              if (question.answer && question.answer.length > 0 && question.answer.title && question.answer.title.length <= 0) {
-                const index = item.questions.findIndex(q => q.id === question.id);
+              if (
+                question.answer &&
+                question.answer.length > 0 &&
+                question.answer.title &&
+                question.answer.title.length <= 0
+              ) {
+                const index = item.questions.findIndex(
+                  q => q.id === question.id
+                );
                 item.questions.splice(index, 1);
               }
             });
@@ -178,7 +200,9 @@ export class CardsComponent implements OnInit, OnDestroy {
   async structureCreateMeasures(pia: Pia, id: any) {
     return new Promise((resolve, reject) => {
       // Record the structures Measures
-      const structures_measures = pia.structure_data.sections.filter(s => s.id === 3)[0].items.filter(i => i.id === 1)[0].answers;
+      const structures_measures = pia.structure_data.sections
+        .filter(s => s.id === 3)[0]
+        .items.filter(i => i.id === 1)[0].answers;
       let i = 0;
       if (structures_measures.length > 0) {
         for (const m in structures_measures) {
@@ -303,8 +327,12 @@ export class CardsComponent implements OnInit, OnDestroy {
         firstValue = new Date(a[this.sortValue]);
         secondValue = new Date(b[this.sortValue]);
       }
-      if (this.sortValue === 'name' || this.sortValue === 'author_name' ||
-          this.sortValue === 'evaluator_name' || this.sortValue === 'validator_name') {
+      if (
+        this.sortValue === 'name' ||
+        this.sortValue === 'author_name' ||
+        this.sortValue === 'evaluator_name' ||
+        this.sortValue === 'validator_name'
+      ) {
         return firstValue.localeCompare(secondValue);
       } else {
         if (firstValue < secondValue) {

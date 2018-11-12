@@ -8,9 +8,8 @@ describe('KnowledgeBaseComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ KnowledgeBaseComponent ]
-    })
-    .compileComponents();
+      declarations: [KnowledgeBaseComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

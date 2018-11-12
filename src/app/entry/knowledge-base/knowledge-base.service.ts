@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import 'rxjs/add/operator/map';
 
 import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 
@@ -22,7 +21,7 @@ export class KnowledgeBaseService {
    * @memberof KnowledgeBaseService
    */
   loadData(http) {
-    http.get('./assets/files/pia_knowledge-base.json').map(res => res.json()).subscribe(data => {
+    http.get('./assets/files/pia_knowledge-base.json').subscribe(data => {
       this.knowledgeBaseData = data;
       this.allKnowledgeBaseData = data;
     });
@@ -36,18 +35,25 @@ export class KnowledgeBaseService {
    * @memberof KnowledgeBaseService
    */
   search(filter?: string, event?: any, linkKnowledgeBase?: any) {
-    this.filter = (filter && filter.length > 0) ? filter : '';
-    this.linkKnowledgeBase = (linkKnowledgeBase && linkKnowledgeBase.length > 0) ? linkKnowledgeBase : '';
+    this.filter = filter && filter.length > 0 ? filter : '';
+    this.linkKnowledgeBase =
+      linkKnowledgeBase && linkKnowledgeBase.length > 0
+        ? linkKnowledgeBase
+        : '';
     this.knowledgeBaseData = this.previousKnowledgeBaseData;
     this.specificSearch();
     if (this.knowledgeBaseData && this.filter && this.filter.length > 0) {
-      this.knowledgeBaseData = this.knowledgeBaseData.filter((item) => {
-        return (item.filters.startsWith(this.filter));
+      this.knowledgeBaseData = this.knowledgeBaseData.filter(item => {
+        return item.filters.startsWith(this.filter);
       });
     }
-    if (this.knowledgeBaseData && this.linkKnowledgeBase && this.linkKnowledgeBase.length > 0) {
-      this.knowledgeBaseData = this.knowledgeBaseData.filter((item) => {
-        return (this.linkKnowledgeBase.indexOf(item.slug) >= 0);
+    if (
+      this.knowledgeBaseData &&
+      this.linkKnowledgeBase &&
+      this.linkKnowledgeBase.length > 0
+    ) {
+      this.knowledgeBaseData = this.knowledgeBaseData.filter(item => {
+        return this.linkKnowledgeBase.indexOf(item.slug) >= 0;
       });
     }
     this.switchSelectedElement(event);
@@ -66,7 +72,7 @@ export class KnowledgeBaseService {
       if (item.link_knowledge_base && item.link_knowledge_base.length > 0) {
         kbSlugs = item.link_knowledge_base;
       } else if (item.is_measure) {
-        const kbSlugs2 = this.knowledgeBaseData.filter((kbItem) => {
+        const kbSlugs2 = this.knowledgeBaseData.filter(kbItem => {
           return kbItem.filters.startsWith('measure.');
         });
         kbSlugs2.forEach(element => {
@@ -82,7 +88,7 @@ export class KnowledgeBaseService {
         });
       }
       if (kbSlugs.length > 0) {
-        this.knowledgeBaseData = this.knowledgeBaseData.filter((kbItem) => {
+        this.knowledgeBaseData = this.knowledgeBaseData.filter(kbItem => {
           return kbSlugs.indexOf(kbItem.slug) >= 0;
         });
       } else {
@@ -132,10 +138,13 @@ export class KnowledgeBaseService {
   private specificSearch() {
     if (this.q && this.q.length > 0) {
       const re = new RegExp(this.q, 'i');
-      this.knowledgeBaseData = this.knowledgeBaseData.filter((item2) => (
-        this.translateService.instant(item2.name).match(re) || this.translateService.instant(item2.description).match(re))
+      this.knowledgeBaseData = this.knowledgeBaseData.filter(
+        item2 =>
+          this.translateService.instant(item2.name).match(re) ||
+          this.translateService.instant(item2.description).match(re)
       );
     }
-    this.hasKnowledgeBaseData = this.knowledgeBaseData.length > 0 ? true : false;
+    this.hasKnowledgeBaseData =
+      this.knowledgeBaseData.length > 0 ? true : false;
   }
 }

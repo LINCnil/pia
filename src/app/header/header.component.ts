@@ -1,7 +1,7 @@
 import { Component, DoCheck, OnInit } from '@angular/core';
 import { Renderer2 } from '@angular/core';
 import { environment } from '../../environments/environment';
-import { Http } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 
 import { Pia } from 'app/entry/pia.model';
@@ -15,7 +15,7 @@ import { LanguagesService } from 'app/services/languages.service';
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
-  providers: [PiaService],
+  providers: [PiaService]
 })
 export class HeaderComponent implements OnInit {
   public increaseContrast: string;
@@ -24,13 +24,15 @@ export class HeaderComponent implements OnInit {
   pia_example: Pia;
   isStructureHeader: boolean;
 
-  constructor(public _router: Router,
-              private renderer: Renderer2,
-              private _translateService: TranslateService,
-              public _piaService: PiaService,
-              private _modalsService: ModalsService,
-              private _http: Http,
-              public _languagesService: LanguagesService) {
+  constructor(
+    public _router: Router,
+    private renderer: Renderer2,
+    private _translateService: TranslateService,
+    public _piaService: PiaService,
+    private _modalsService: ModalsService,
+    private _http: HttpClient,
+    public _languagesService: LanguagesService
+  ) {
     this.updateContrast();
   }
 
@@ -85,13 +87,17 @@ export class HeaderComponent implements OnInit {
       if (entry) {
         this.pia_example = entry;
       } else {
-        this._http.get('./assets/files/2018-02-21-pia-example.json').map(res => res.json()).subscribe(data => {
-          this._piaService.importData(data, 'EXAMPLE', false, true).then(() => {
-            pia.getPiaExample().then((entry2: any) => {
-              this.pia_example = entry2;
-            });
+        this._http
+          .get('./assets/files/2018-02-21-pia-example.json')
+          .subscribe(data => {
+            this._piaService
+              .importData(data, 'EXAMPLE', false, true)
+              .then(() => {
+                pia.getPiaExample().then((entry2: any) => {
+                  this.pia_example = entry2;
+                });
+              });
           });
-        });
       }
     });
   }

@@ -1,7 +1,7 @@
 import { Component, OnInit, Output, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
-import { Http } from '@angular/http';
-import { Subscription } from 'rxjs/Subscription';
+import { HttpClient } from '@angular/common/http';
+import { Subscription } from 'rxjs';
 
 import { Answer } from 'app/entry/entry-content/questions/answer.model';
 
@@ -22,24 +22,32 @@ import { GlobalEvaluationService } from 'app/services/global-evaluation.service'
   providers: [StructureService]
 })
 export class EntryComponent implements OnInit, OnDestroy {
-  section: { id: number, title: string, short_help: string, items: any };
-  item: { id: number, title: string, evaluation_mode: string, short_help: string, questions: any };
+  section: { id: number; title: string; short_help: string; items: any };
+  item: {
+    id: number;
+    title: string;
+    evaluation_mode: string;
+    short_help: string;
+    questions: any;
+  };
   data: { sections: any };
   questions: any;
   measureToRemoveFromTags: string;
   subscription: Subscription;
 
-  constructor(private route: ActivatedRoute,
-              private http: Http,
-              private _modalsService: ModalsService,
-              private _appDataService: AppDataService,
-              private _sidStatusService: SidStatusService,
-              private _knowledgeBaseService: KnowledgeBaseService,
-              private _structureService: StructureService,
-              private _answerStructureService: AnswerStructureService,
-              private _actionPlanService: ActionPlanService,
-              private _globalEvaluationService: GlobalEvaluationService,
-              private _measureService: MeasureService) { }
+  constructor(
+    private route: ActivatedRoute,
+    private http: HttpClient,
+    private _modalsService: ModalsService,
+    private _appDataService: AppDataService,
+    private _sidStatusService: SidStatusService,
+    private _knowledgeBaseService: KnowledgeBaseService,
+    private _structureService: StructureService,
+    private _answerStructureService: AnswerStructureService,
+    private _actionPlanService: ActionPlanService,
+    private _globalEvaluationService: GlobalEvaluationService,
+    private _measureService: MeasureService
+  ) {}
 
   async ngOnInit() {
     let sectionId = parseInt(this.route.snapshot.params['section_id'], 10);
@@ -55,17 +63,15 @@ export class EntryComponent implements OnInit, OnDestroy {
       });
     });
 
-    this.route.params.subscribe(
-      (params: Params) => {
-        sectionId = parseInt(params['section_id'], 10);
-        itemId = parseInt(params['item_id'], 10);
-        this.getSectionAndItem(sectionId, itemId);
-        window.scroll(0, 0);
-      }
-    );
+    this.route.params.subscribe((params: Params) => {
+      sectionId = parseInt(params['section_id'], 10);
+      itemId = parseInt(params['item_id'], 10);
+      this.getSectionAndItem(sectionId, itemId);
+      window.scroll(0, 0);
+    });
 
     // Suscribe to measure service messages
-    this.subscription = this._measureService.behaviorSubject.subscribe((val) => {
+    this.subscription = this._measureService.behaviorSubject.subscribe(val => {
       this.measureToRemoveFromTags = val;
     });
   }
@@ -86,10 +92,10 @@ export class EntryComponent implements OnInit, OnDestroy {
 
     this._structureService.getStructure().then(() => {
       this.data = this._structureService.structure.data;
-      this.section = this.data['sections'].filter((section) => {
+      this.section = this.data['sections'].filter(section => {
         return section.id === sectionId;
       })[0];
-      this.item = this.section['items'].filter((item) => {
+      this.item = this.section['items'].filter(item => {
         return item.id === itemId;
       })[0];
 
@@ -106,8 +112,12 @@ export class EntryComponent implements OnInit, OnDestroy {
       this._actionPlanService.data = this.data;
 
       // Update on knowledge base (scroll / content / search field)
-      const knowledgeBaseScroll  = document.querySelector('.pia-knowledgeBaseBlock-list');
-      const knowledgeBaseContent  = <HTMLInputElement>document.querySelector('.pia-knowledgeBaseBlock-searchForm input');
+      const knowledgeBaseScroll = document.querySelector(
+        '.pia-knowledgeBaseBlock-list'
+      );
+      const knowledgeBaseContent = <HTMLInputElement>(
+        document.querySelector('.pia-knowledgeBaseBlock-searchForm input')
+      );
       knowledgeBaseScroll.scrollTop = 0;
       knowledgeBaseContent.value = '';
 
@@ -115,6 +125,5 @@ export class EntryComponent implements OnInit, OnDestroy {
       this._knowledgeBaseService.loadByItem(this.item);
       this._knowledgeBaseService.placeholder = null;
     });
-
   }
 }

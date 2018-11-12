@@ -37,9 +37,12 @@ export class ApplicationDb {
       evt.onupgradeneeded = (event: any) => {
         let objectStore = null;
         if (event.oldVersion !== 0) {
-          objectStore =  event.target.transaction.objectStore(this.tableName);
+          objectStore = event.target.transaction.objectStore(this.tableName);
         } else {
-          objectStore = event.target.result.createObjectStore(this.tableName, { keyPath: 'id', autoIncrement: true });
+          objectStore = event.target.result.createObjectStore(this.tableName, {
+            keyPath: 'id',
+            autoIncrement: true
+          });
         }
         if (objectStore) {
           if (event.oldVersion === 0) {
@@ -47,12 +50,18 @@ export class ApplicationDb {
             if (this.tableName === 'pia') {
               objectStore.createIndex('index1', 'status', { unique: false });
             } else if (this.tableName === 'comment') {
-              objectStore.createIndex('index1', ['pia_id', 'reference_to'], { unique: false });
+              objectStore.createIndex('index1', ['pia_id', 'reference_to'], {
+                unique: false
+              });
             } else if (this.tableName === 'evaluation') {
-              objectStore.createIndex('index1', ['pia_id', 'reference_to'], { unique: false });
+              objectStore.createIndex('index1', ['pia_id', 'reference_to'], {
+                unique: false
+              });
               objectStore.createIndex('index2', 'pia_id', { unique: false });
             } else if (this.tableName === 'answer') {
-              objectStore.createIndex('index1', ['pia_id', 'reference_to'], { unique: false });
+              objectStore.createIndex('index1', ['pia_id', 'reference_to'], {
+                unique: false
+              });
               objectStore.createIndex('index2', 'pia_id', { unique: false });
             } else if (this.tableName === 'measure') {
               objectStore.createIndex('index1', 'pia_id', { unique: false });
@@ -62,24 +71,30 @@ export class ApplicationDb {
           }
           if (event.oldVersion !== this.dbVersion) {
             // Next DB versions
-            if (this.dbVersion === 201708291502 || event.oldVersion === 0) {
+            if (this.dbVersion === 201708291502 || event.oldVersion === 0) {
               if (this.tableName === 'attachment') {
-                objectStore.createIndex('index2', ['pia_id', 'pia_signed'], { unique: false });
+                objectStore.createIndex('index2', ['pia_id', 'pia_signed'], {
+                  unique: false
+                });
               }
             }
-            if (this.dbVersion === 201709122303 || event.oldVersion === 0) {
+            if (this.dbVersion === 201709122303 || event.oldVersion === 0) {
               if (this.tableName === 'comment') {
                 objectStore.createIndex('index2', 'pia_id', { unique: false });
               }
             }
-            if (this.dbVersion === 201802221337 || event.oldVersion === 0) {
+            if (this.dbVersion === 201802221337 || event.oldVersion === 0) {
               if (this.tableName === 'pia') {
-                objectStore.createIndex('index3', 'is_example', { unique: false });
+                objectStore.createIndex('index3', 'is_example', {
+                  unique: false
+                });
               }
             }
-            if (this.dbVersion === 201809012140 || event.oldVersion === 0) {
+            if (this.dbVersion === 201809012140 || event.oldVersion === 0) {
               if (this.tableName === 'pia') {
-                objectStore.createIndex('index4', 'structure_id', { unique: false });
+                objectStore.createIndex('index4', 'structure_id', {
+                  unique: false
+                });
               }
             }
           }
@@ -100,7 +115,9 @@ export class ApplicationDb {
       alert('A new version of this page is ready. Please reload!');
     };
     return new Promise((resolve, reject) => {
-      this.objectStore = db.transaction(this.tableName, 'readwrite').objectStore(this.tableName);
+      this.objectStore = db
+        .transaction(this.tableName, 'readwrite')
+        .objectStore(this.tableName);
       resolve();
     });
   }
@@ -114,14 +131,17 @@ export class ApplicationDb {
     const items = [];
     return new Promise((resolve, reject) => {
       if (this.serverUrl) {
-        fetch(this.getServerUrl()).then(function(response) {
-          return response.json();
-        }).then(function(result: any) {
-          resolve(result);
-        }).catch (function (error) {
-          console.error('Request failed', error);
-          reject();
-        });
+        fetch(this.getServerUrl())
+          .then(function(response) {
+            return response.json();
+          })
+          .then(function(result: any) {
+            resolve(result);
+          })
+          .catch(function(error) {
+            console.error('Request failed', error);
+            reject();
+          });
       } else {
         this.getObjectStore().then(() => {
           const evt = this.objectStore.openCursor();
@@ -137,7 +157,7 @@ export class ApplicationDb {
             } else {
               resolve(items);
             }
-          }
+          };
         });
       }
     });
@@ -153,14 +173,17 @@ export class ApplicationDb {
     if (id) {
       return new Promise((resolve, reject) => {
         if (this.serverUrl) {
-          fetch(this.getServerUrl() + '/' + id).then(function(response) {
-            return response.json();
-          }).then(function(result: any) {
-            resolve(result);
-          }).catch (function (error) {
-            console.error('Request failed', error);
-            reject();
-          });
+          fetch(this.getServerUrl() + '/' + id)
+            .then(function(response) {
+              return response.json();
+            })
+            .then(function(result: any) {
+              resolve(result);
+            })
+            .catch(function(error) {
+              console.error('Request failed', error);
+              reject();
+            });
         } else {
           this.getObjectStore().then(() => {
             const evt = this.objectStore.get(id);
@@ -188,14 +211,17 @@ export class ApplicationDb {
       if (this.serverUrl) {
         fetch(this.getServerUrl() + '/' + id, {
           method: 'DELETE'
-        }).then(function(response) {
-          return response;
-        }).then(function(item) {
-          resolve();
-        }).catch (function (error) {
-          console.error('Request failed', error);
-          reject();
-        });
+        })
+          .then(function(response) {
+            return response;
+          })
+          .then(function(item) {
+            resolve();
+          })
+          .catch(function(error) {
+            console.error('Request failed', error);
+            reject();
+          });
       } else {
         this.getObjectStore().then(() => {
           const evt = this.objectStore.delete(id);
@@ -226,7 +252,7 @@ export class ApplicationDb {
     }
 
     if (this.tableName !== 'pia' && this.tableName !== 'structure') {
-      return this.serverUrl + prefix + '/' + id + '/' + this.tableName + 's' ;
+      return this.serverUrl + prefix + '/' + id + '/' + this.tableName + 's';
     } else {
       return this.serverUrl + prefix;
     }

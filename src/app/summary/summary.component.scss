@@ -4,14 +4,14 @@
     margin-bottom: 80px;
     h1 {
       color: $pia-blue;
-      border-bottom: 4px solid #091C6B;
+      border-bottom: 4px solid #091c6b;
     }
     h2 {
       color: #393939;
       margin-bottom: 3px;
     }
     h3 {
-      color: #091C6B;
+      color: #091c6b;
       margin: 2px 0;
       font-weight: 500;
     }
@@ -53,7 +53,8 @@
     a {
       text-decoration: none;
     }
-    a, button {
+    a,
+    button {
       margin: 0 5px;
       i {
         color: $pia-green;
@@ -67,7 +68,7 @@
   }
   &-summaryCopyBlock {
     display: flex;
-   justify-content: flex-end;
+    justify-content: flex-end;
   }
   &-previewBlock {
     text-align: center;
@@ -85,8 +86,8 @@
       padding: 0;
       border: none;
       legend {
-        border-bottom: 4px solid #091C6B;
-        color: #091C6B;
+        border-bottom: 4px solid #091c6b;
+        color: #091c6b;
         font-size: 2.25rem;
         font-weight: 600;
         width: 100%;
@@ -101,7 +102,9 @@
         cursor: pointer;
         color: #121921;
         font-size: 1.4rem;
-        &:focus, &:hover, &:active {
+        &:focus,
+        &:hover,
+        &:active {
           font-weight: 500;
         }
       }
@@ -144,7 +147,9 @@
   user-select: none !important;
 }
 
-.pagebreak { page-break-before: always; }
+.pagebreak {
+  page-break-before: always;
+}
 
 .pia-actionPlanGraphBlock {
   width: 50%;

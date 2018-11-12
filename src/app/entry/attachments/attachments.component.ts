@@ -13,13 +13,14 @@ import { AttachmentsService } from 'app/entry/attachments/attachments.service';
   styleUrls: ['./attachments.component.scss']
 })
 export class AttachmentsComponent implements OnInit {
-
   @Input() pia: Pia;
   attachmentForm: FormGroup;
   dispplayAttachmentButton = false;
 
-  constructor(private activatedRoute: ActivatedRoute,
-              public _attachmentsService: AttachmentsService) { }
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    public _attachmentsService: AttachmentsService
+  ) {}
 
   ngOnInit() {
     this.attachmentForm = new FormGroup({
@@ -27,7 +28,8 @@ export class AttachmentsComponent implements OnInit {
     });
     this._attachmentsService.pia = this.pia;
     this._attachmentsService.listAttachments();
-    this.dispplayAttachmentButton = (this.pia.status !== 2 && this.pia.status !== 3);
+    this.dispplayAttachmentButton =
+      this.pia.status !== 2 && this.pia.status !== 3;
   }
 
   /**
@@ -39,7 +41,9 @@ export class AttachmentsComponent implements OnInit {
       return false;
     } else {
       this._attachmentsService.pia_signed = 0;
-       const attachment = <HTMLInputElement>document.querySelector('[formcontrolname="attachment_file"]');
+      const attachment = <HTMLInputElement>(
+        document.querySelector('[formcontrolname="attachment_file"]')
+      );
       attachment.click();
     }
   }

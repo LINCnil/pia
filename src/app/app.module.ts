@@ -28,9 +28,7 @@ import { SettingsComponent } from 'app/settings/settings.component';
 import { HelpComponent } from 'app/help/help.component';
 import { OverviewRisksComponent } from 'app/entry/entry-content/overview-risks/overview-risks.component';
 import { ErrorsComponent } from 'app/errors/errors.component';
-import {
-    ActionPlanImplementationComponent
-  } from 'app/entry/entry-content/action-plan/action-plan-implementation/action-plan-implementation.component';
+import { ActionPlanImplementationComponent } from 'app/entry/entry-content/action-plan/action-plan-implementation/action-plan-implementation.component';
 import { ListItemComponent } from 'app/cards/list-item/list-item.component';
 import { SummaryComponent } from 'app/summary/summary.component';
 import { AboutComponent } from 'app/about/about.component';
@@ -67,7 +65,7 @@ import { QuestionsComponent } from 'app/entry/entry-content/questions/questions.
     SummaryComponent,
     AboutComponent,
     MeasuresComponent,
-    QuestionsComponent,
+    QuestionsComponent
   ],
   imports: [
     SharedModule,
@@ -77,4 +75,4 @@ import { QuestionsComponent } from 'app/entry/entry-content/questions/questions.
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

@@ -8,9 +8,8 @@ describe('AttachmentItemComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AttachmentItemComponent ]
-    })
-    .compileComponents();
+      declarations: [AttachmentItemComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {
@@ -23,4 +22,3 @@ describe('AttachmentItemComponent', () => {
     expect(component).toBeTruthy();
   });
 });
-

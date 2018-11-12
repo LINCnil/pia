@@ -9,8 +9,9 @@ describe('PIA Home page', () => {
 
   it('should display welcome message', done => {
     page.navigateTo();
-    page.getButtonText()
-      .then(msg => expect(msg).toEqual('J\'accepte'))
+    page
+      .getButtonText()
+      .then(msg => expect(msg).toEqual("J'accepte"))
       .then(done, done.fail);
   });
 });
