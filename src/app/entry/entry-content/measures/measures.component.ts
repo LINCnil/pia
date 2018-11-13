@@ -1,4 +1,12 @@
-import { Component, Input, ElementRef, Renderer2, OnInit, OnDestroy, NgZone } from '@angular/core';
+import {
+  Component,
+  Input,
+  ElementRef,
+  Renderer2,
+  OnInit,
+  OnDestroy,
+  NgZone
+} from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 
 import { Measure } from './measure.model';
@@ -15,7 +23,6 @@ import { GlobalEvaluationService } from 'app/services/global-evaluation.service'
   styleUrls: ['./measures.component.scss']
 })
 export class MeasuresComponent implements OnInit, OnDestroy {
-
   @Input() measure: Measure;
   @Input() item: any;
   @Input() section: any;
@@ -34,7 +41,8 @@ export class MeasuresComponent implements OnInit, OnDestroy {
     private _modalsService: ModalsService,
     private _knowledgeBaseService: KnowledgeBaseService,
     private _ngZone: NgZone,
-    private renderer: Renderer2) { }
+    private renderer: Renderer2
+  ) {}
 
   ngOnInit() {
     this.measureForm = new FormGroup({
@@ -46,15 +54,21 @@ export class MeasuresComponent implements OnInit, OnDestroy {
       this._knowledgeBaseService.toHide.push(this.measure.title);
       this.elementId = 'pia-measure-content-' + this.measure.id;
       if (this.measureModel) {
-        this.measureForm.controls['measureTitle'].patchValue(this.measureModel.title);
-        this.measureForm.controls['measureContent'].patchValue(this.measureModel.content);
+        this.measureForm.controls['measureTitle'].patchValue(
+          this.measureModel.title
+        );
+        this.measureForm.controls['measureContent'].patchValue(
+          this.measureModel.content
+        );
         if (this.measureModel.title) {
           this.measureForm.controls['measureTitle'].disable();
           this.editTitle = false;
         }
       }
 
-      const measureTitleTextarea = document.getElementById('pia-measure-title-' + this.measure.id);
+      const measureTitleTextarea = document.getElementById(
+        'pia-measure-title-' + this.measure.id
+      );
       if (measureTitleTextarea) {
         this.autoTextareaResize(null, measureTitleTextarea);
       }
@@ -78,7 +92,8 @@ export class MeasuresComponent implements OnInit, OnDestroy {
     if (textarea.clientHeight < textarea.scrollHeight) {
       textarea.style.height = textarea.scrollHeight + 'px';
       if (textarea.clientHeight < textarea.scrollHeight) {
-        textarea.style.height = (textarea.scrollHeight * 2 - textarea.clientHeight) + 'px';
+        textarea.style.height =
+          textarea.scrollHeight * 2 - textarea.clientHeight + 'px';
       }
     }
   }
@@ -100,7 +115,9 @@ export class MeasuresComponent implements OnInit, OnDestroy {
     if (this._globalEvaluationService.answerEditionEnabled) {
       this.editTitle = true;
       this.measureForm.controls['measureTitle'].enable();
-      const measureTitleTextarea = document.getElementById('pia-measure-title-' + this.measure.id);
+      const measureTitleTextarea = document.getElementById(
+        'pia-measure-title-' + this.measure.id
+      );
       setTimeout(() => {
         measureTitleTextarea.focus();
       }, 200);
@@ -125,7 +142,10 @@ export class MeasuresComponent implements OnInit, OnDestroy {
     this.measureModel.title = userText;
     this.measureModel.update().then(() => {
       if (previousTitle !== this.measureModel.title) {
-        this._knowledgeBaseService.removeItemIfPresent(this.measureModel.title, previousTitle);
+        this._knowledgeBaseService.removeItemIfPresent(
+          this.measureModel.title,
+          previousTitle
+        );
       }
 
       // Update tags
@@ -162,13 +182,15 @@ export class MeasuresComponent implements OnInit, OnDestroy {
         }
       });
 
-      if (this.measureForm.value.measureTitle && this.measureForm.value.measureTitle.length > 0) {
+      if (
+        this.measureForm.value.measureTitle &&
+        this.measureForm.value.measureTitle.length > 0
+      ) {
         this.measureForm.controls['measureTitle'].disable();
       }
 
       this._globalEvaluationService.validate();
     });
-
   }
 
   /**
@@ -209,14 +231,22 @@ export class MeasuresComponent implements OnInit, OnDestroy {
    * @memberof MeasuresComponent
    */
   displayMeasure(event: any) {
-    const accordeon = this.el.nativeElement.querySelector('.pia-measureBlock-title button');
+    const accordeon = this.el.nativeElement.querySelector(
+      '.pia-measureBlock-title button'
+    );
     accordeon.classList.toggle('pia-icon-accordeon-down');
-    const displayer = this.el.nativeElement.querySelector('.pia-measureBlock-displayer');
+    const displayer = this.el.nativeElement.querySelector(
+      '.pia-measureBlock-displayer'
+    );
     displayer.classList.toggle('close');
 
     // Display comments/evaluations for measures
-    const commentsDisplayer = document.querySelector('.pia-commentsBlock-measure-' + this.measure.id);
-    const evaluationDisplayer = document.querySelector('.pia-evaluationBlock-measure-' + this.measure.id);
+    const commentsDisplayer = document.querySelector(
+      '.pia-commentsBlock-measure-' + this.measure.id
+    );
+    const evaluationDisplayer = document.querySelector(
+      '.pia-evaluationBlock-measure-' + this.measure.id
+    );
     if (event.target.getAttribute('data-status') === 'hide') {
       event.target.removeAttribute('data-status');
       commentsDisplayer.classList.remove('hide');
@@ -258,22 +288,25 @@ export class MeasuresComponent implements OnInit, OnDestroy {
       menubar: false,
       statusbar: false,
       plugins: 'autoresize lists',
-      forced_root_block : false,
+      forced_root_block: false,
       autoresize_bottom_margin: 30,
       auto_focus: this.elementId,
       autoresize_min_height: 40,
-      content_style: 'body {background-color:#eee!important;}' ,
+      content_style: 'body {background-color:#eee!important;}',
       selector: '#' + this.elementId,
-      toolbar: 'undo redo bold italic alignleft aligncenter alignright bullist numlist outdent indent',
+      toolbar:
+        'undo redo bold italic alignleft aligncenter alignright bullist numlist outdent indent',
       skin_url: 'assets/skins/lightgray',
       setup: editor => {
         this.editor = editor;
         editor.on('focusout', () => {
-          this.measureForm.controls['measureContent'].patchValue(editor.getContent());
+          this.measureForm.controls['measureContent'].patchValue(
+            editor.getContent()
+          );
           this.measureContentFocusOut();
           tinymce.remove(this.editor);
         });
-      },
+      }
     });
   }
 }

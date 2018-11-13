@@ -4,13 +4,14 @@
 .pia-ValidationDPO {
   .pia-entryContentBlock {
     &-content {
-      &-DPO, &-people {
+      &-DPO,
+      &-people {
         > div {
           display: flex;
           justify-content: space-between;
         }
         .DPOName {
-          background-color: #F5F5F5;
+          background-color: #f5f5f5;
           border: none;
           &:disabled {
             cursor: pointer;
@@ -25,13 +26,13 @@
             display: block;
           }
         }
-        box-shadow: 2px 1px 18px 1px rgba(194,194,194,1);
+        box-shadow: 2px 1px 18px 1px rgba(194, 194, 194, 1);
         padding: 15px 46px;
         padding-bottom: 40px;
         background-color: #fefefe;
         margin: 10px 0;
         h2 {
-          margin:0;
+          margin: 0;
           font-weight: normal;
         }
         p {
@@ -44,7 +45,7 @@
         }
         &-treatment {
           > div {
-            input[type="radio"] {
+            input[type='radio'] {
               display: none;
             }
             input:checked + label {
@@ -52,7 +53,8 @@
               .fa-circle {
                 display: none;
               }
-              .fa-check, .fa-close {
+              .fa-check,
+              .fa-close {
                 display: block;
               }
               span {
@@ -68,7 +70,8 @@
               color: #fefefe;
               align-self: center;
             }
-            .fa-check, .fa-close {
+            .fa-check,
+            .fa-close {
               display: none;
               font-size: 2rem;
               align-self: center;

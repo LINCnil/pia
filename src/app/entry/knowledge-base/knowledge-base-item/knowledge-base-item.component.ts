@@ -1,4 +1,11 @@
-import { Component, ElementRef, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  OnInit,
+  Input,
+  Output,
+  EventEmitter
+} from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
 import { KnowledgeBaseService } from '../knowledge-base.service';
@@ -11,23 +18,25 @@ import { GlobalEvaluationService } from 'app/services/global-evaluation.service'
   styleUrls: ['./knowledge-base-item.component.scss']
 })
 export class KnowledgeBaseItemComponent implements OnInit {
-
   @Input() item: any;
   @Input() itemKb: any;
   @Output() newMeasureEvent: EventEmitter<any> = new EventEmitter<any>();
   titleKb: string;
 
-  constructor(private el: ElementRef, private router: Router,
-              private _knowledgeBaseService: KnowledgeBaseService,
-              private _translateService: TranslateService,
-              public _globalEvaluationService: GlobalEvaluationService,
-              private activatedRoute: ActivatedRoute) {
+  constructor(
+    private el: ElementRef,
+    private router: Router,
+    private _knowledgeBaseService: KnowledgeBaseService,
+    private _translateService: TranslateService,
+    public _globalEvaluationService: GlobalEvaluationService,
+    private activatedRoute: ActivatedRoute
+  ) {
     this.router = router;
   }
 
   ngOnInit() {
     this._translateService.get(this.itemKb.name).subscribe(value => {
-        this.titleKb = value;
+      this.titleKb = value;
     });
   }
 
@@ -36,8 +45,12 @@ export class KnowledgeBaseItemComponent implements OnInit {
    * @memberof KnowledgeBaseItemComponent
    */
   displayItem() {
-    const accordeon = this.el.nativeElement.querySelector('.pia-knowledgeBaseBlock-item-accordion button span');
-    const displayer = this.el.nativeElement.querySelector('.pia-knowledgeBaseBlock-item-content');
+    const accordeon = this.el.nativeElement.querySelector(
+      '.pia-knowledgeBaseBlock-item-accordion button span'
+    );
+    const displayer = this.el.nativeElement.querySelector(
+      '.pia-knowledgeBaseBlock-item-content'
+    );
     if (displayer.classList.contains('hide')) {
       displayer.classList.remove('hide');
       accordeon.classList.remove('pia-icon-accordeon-down');
@@ -57,5 +70,4 @@ export class KnowledgeBaseItemComponent implements OnInit {
   addNewMeasure() {
     this.newMeasureEvent.emit(this.itemKb);
   }
-
 }

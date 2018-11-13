@@ -8,9 +8,8 @@ describe('RefusePIAComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ RefusePIAComponent ]
-    })
-    .compileComponents();
+      declarations: [RefusePIAComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

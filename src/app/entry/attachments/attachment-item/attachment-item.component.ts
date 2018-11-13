@@ -11,13 +11,15 @@ import { AttachmentsService } from 'app/entry/attachments/attachments.service';
   styleUrls: ['./attachment-item.component.scss']
 })
 export class AttachmentItemComponent implements OnInit {
-
   @Input() attachment: any;
   @Input() pia: any;
 
-  constructor(private _modalsService: ModalsService, private _attachmentsService: AttachmentsService) { }
+  constructor(
+    private _modalsService: ModalsService,
+    private _attachmentsService: AttachmentsService
+  ) {}
 
-  ngOnInit() { }
+  ngOnInit() {}
 
   /**
    * Deletes an attachment with a given id.
@@ -44,7 +46,6 @@ export class AttachmentItemComponent implements OnInit {
    * @memberof AttachmentItemComponent
    */
   showAddAttachmentButton() {
-    return (this.pia.status !== 2 && this.pia.status !== 3);
+    return this.pia.status !== 2 && this.pia.status !== 3;
   }
-
 }

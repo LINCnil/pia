@@ -1,7 +1,5 @@
 import { Component, OnInit, Input, Output } from '@angular/core';
-import { Http } from '@angular/http';
-import 'rxjs/add/operator/map';
-
+import { HttpClient } from '@angular/common/http';
 import { Evaluation } from 'app/entry/entry-content/evaluations/evaluation.model';
 import { Measure } from 'app/entry/entry-content/measures/measure.model';
 import { Answer } from 'app/entry/entry-content/questions/answer.model';
@@ -18,16 +16,27 @@ import { GlobalEvaluationService } from 'app/services/global-evaluation.service'
   providers: [PiaService]
 })
 export class SectionsComponent implements OnInit {
-
-  @Input() section: { id: number, title: string, short_help: string, items: any };
-  @Input() item: { id: number, title: string, evaluation_mode: string, short_help: string, questions: any };
+  @Input() section: {
+    id: number;
+    title: string;
+    short_help: string;
+    items: any;
+  };
+  @Input() item: {
+    id: number;
+    title: string;
+    evaluation_mode: string;
+    short_help: string;
+    questions: any;
+  };
   data: { sections: any };
 
-  constructor(public _piaService: PiaService,
-              private _appDataService: AppDataService,
-              public _sidStatusService: SidStatusService,
-              private _globalEvaluationService: GlobalEvaluationService) {
-  }
+  constructor(
+    public _piaService: PiaService,
+    private _appDataService: AppDataService,
+    public _sidStatusService: SidStatusService,
+    private _globalEvaluationService: GlobalEvaluationService
+  ) {}
 
   async ngOnInit() {
     await this._piaService.getPIA();

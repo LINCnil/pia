@@ -10,13 +10,15 @@ import { LanguagesService } from 'app/services/languages.service';
   styleUrls: ['./authentication.component.scss']
 })
 export class AuthenticationComponent implements OnInit, OnDestroy {
-  constructor(private _renderer: Renderer2,
-              public _translateService: TranslateService,
-              public _languagesService: LanguagesService) {
+  constructor(
+    private _renderer: Renderer2,
+    public _translateService: TranslateService,
+    public _languagesService: LanguagesService
+  ) {
     this._renderer.addClass(document.body, 'pia-authentication');
   }
 
-  ngOnInit() { }
+  ngOnInit() {}
 
   ngOnDestroy() {
     this._renderer.removeClass(document.body, 'pia-authentication');

@@ -1,8 +1,13 @@
-import { Component, Input, ElementRef, OnInit, Renderer2, OnDestroy, NgZone } from '@angular/core';
+import {
+  Component,
+  Input,
+  ElementRef,
+  OnInit,
+  Renderer2,
+  OnDestroy,
+  NgZone
+} from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import 'rxjs/add/operator/debounceTime';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/filter';
 
 import { KnowledgeBaseService } from 'app/entry/knowledge-base/knowledge-base.service';
 import { ModalsService } from 'app/modals/modals.service';
@@ -16,7 +21,6 @@ import { SidStatusService } from 'app/services/sid-status.service';
   styleUrls: ['./questions.component.scss'],
   providers: [StructureService]
 })
-
 export class QuestionsComponent implements OnInit, OnDestroy {
   userMeasures = [];
   @Input() question: any;
@@ -28,14 +32,16 @@ export class QuestionsComponent implements OnInit, OnDestroy {
   editor: any;
   editTitle = true;
 
-  constructor(private el: ElementRef,
-              private _knowledgeBaseService: KnowledgeBaseService,
-              private _modalsService: ModalsService,
-              private _ngZone: NgZone,
-              public _globalEvaluationService: GlobalEvaluationService,
-              private renderer: Renderer2,
-              private _sidStatusService: SidStatusService,
-              private _structureService: StructureService) { }
+  constructor(
+    private el: ElementRef,
+    private _knowledgeBaseService: KnowledgeBaseService,
+    private _modalsService: ModalsService,
+    private _ngZone: NgZone,
+    public _globalEvaluationService: GlobalEvaluationService,
+    private renderer: Renderer2,
+    private _sidStatusService: SidStatusService,
+    private _structureService: StructureService
+  ) {}
 
   ngOnInit() {
     this._globalEvaluationService.answerEditionEnabled = true;
@@ -47,7 +53,11 @@ export class QuestionsComponent implements OnInit, OnDestroy {
       list: new FormControl()
     });
 
-    if (this.question.title && !this.question.title.startsWith('section') && this.question.title.length > 0) {
+    if (
+      this.question.title &&
+      !this.question.title.startsWith('section') &&
+      this.question.title.length > 0
+    ) {
       this.questionForm.controls['title'].patchValue(this.question.title);
       this.questionForm.controls['title'].disable();
       this.editTitle = false;
@@ -61,7 +71,10 @@ export class QuestionsComponent implements OnInit, OnDestroy {
   }
 
   removeQuestion() {
-    localStorage.setItem('question-id', [this.section.id, this.item.id, this.question.id].toString());
+    localStorage.setItem(
+      'question-id',
+      [this.section.id, this.item.id, this.question.id].toString()
+    );
     this._modalsService.openModal('remove-question');
   }
 
@@ -72,7 +85,9 @@ export class QuestionsComponent implements OnInit, OnDestroy {
   questionTitleFocusIn() {
     this.editTitle = true;
     this.questionForm.controls['title'].enable();
-    const questionTitleTextarea = document.getElementById('pia-questionBlock-title-' + this.question.id);
+    const questionTitleTextarea = document.getElementById(
+      'pia-questionBlock-title-' + this.question.id
+    );
     setTimeout(() => {
       questionTitleTextarea.focus();
     }, 200);
@@ -97,7 +112,10 @@ export class QuestionsComponent implements OnInit, OnDestroy {
       this._structureService.updateJson(this.section, this.item, this.question);
     }
 
-    if (this.questionForm.value.title && this.questionForm.value.title.length > 0) {
+    if (
+      this.questionForm.value.title &&
+      this.questionForm.value.title.length > 0
+    ) {
       this.questionForm.controls['title'].disable();
     }
   }
@@ -107,11 +125,13 @@ export class QuestionsComponent implements OnInit, OnDestroy {
    * @memberof QuestionsComponent
    */
   questionContentFocusIn() {
-    const questionTitleTextarea = document.getElementById('pia-questionBlock-title-' + this.question.id);
+    const questionTitleTextarea = document.getElementById(
+      'pia-questionBlock-title-' + this.question.id
+    );
     const questionTitle = this.questionForm.controls['title'].value;
     if (questionTitleTextarea && !questionTitle) {
-        questionTitleTextarea.classList.add('pia-required');
-        questionTitleTextarea.focus();
+      questionTitleTextarea.classList.add('pia-required');
+      questionTitleTextarea.focus();
     } else if (this._globalEvaluationService.answerEditionEnabled) {
       this.loadEditor();
     }
@@ -142,7 +162,9 @@ export class QuestionsComponent implements OnInit, OnDestroy {
   displayQuestion(event: any) {
     const accordeon = this.el.nativeElement.querySelector('.pia-accordeon');
     accordeon.classList.toggle('pia-icon-accordeon-down');
-    const displayer = this.el.nativeElement.querySelector('.pia-questionBlock-displayer');
+    const displayer = this.el.nativeElement.querySelector(
+      '.pia-questionBlock-displayer'
+    );
     displayer.classList.toggle('close');
   }
 
@@ -152,19 +174,24 @@ export class QuestionsComponent implements OnInit, OnDestroy {
    */
   loadEditor() {
     this._knowledgeBaseService.placeholder = this.question.placeholder;
-    this._knowledgeBaseService.search('', '', this.question.link_knowledge_base);
+    this._knowledgeBaseService.search(
+      '',
+      '',
+      this.question.link_knowledge_base
+    );
     tinymce.init({
       branding: false,
       menubar: false,
       statusbar: false,
       plugins: 'autoresize lists',
-      forced_root_block : false,
+      forced_root_block: false,
       autoresize_bottom_margin: 30,
       auto_focus: this.elementId,
       autoresize_min_height: 40,
-      content_style: 'body {background-color:#eee!important;}' ,
+      content_style: 'body {background-color:#eee!important;}',
       selector: '#' + this.elementId,
-      toolbar: 'undo redo bold italic alignleft aligncenter alignright bullist numlist outdent indent',
+      toolbar:
+        'undo redo bold italic alignleft aligncenter alignright bullist numlist outdent indent',
       skin_url: 'assets/skins/lightgray',
       setup: editor => {
         this.editor = editor;
@@ -173,7 +200,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
           this.questionContentFocusOut();
           this.closeEditor();
         });
-      },
+      }
     });
   }
 

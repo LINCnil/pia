@@ -1,12 +1,20 @@
+import {
+  RollbarService,
+  RollbarErrorHandler,
+  rollbarFactory
+} from 'app/rollbar';
 import { NgModule, ErrorHandler } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { environment } from '../environments/environment';
-import { HttpModule } from '@angular/http';
-import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { registerLocaleData } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TagInputModule } from 'ngx-chips';
+import { Angular2CsvModule } from 'angular2-csv';
+import { CsvModule } from './summary/csv.module';
+import { PdfViewerModule } from 'ng2-pdf-viewer';
 
 // Routing
 import { AppRoutingModule } from 'app/app-routing.module';
@@ -31,9 +39,42 @@ import { GlobalEvaluationService } from 'app/services/global-evaluation.service'
 
 import { SafeHtmlPipe, Nl2brPipe } from './tools';
 
-export function createTranslateLoader(http: HttpClient) {
-  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
-}
+// Locales
+import localeCS from '@angular/common/locales/cs';
+import localeDE from '@angular/common/locales/de';
+import localeDA from '@angular/common/locales/da';
+import localeEL from '@angular/common/locales/el';
+import localeEN from '@angular/common/locales/en';
+import localeES from '@angular/common/locales/es';
+import localeFI from '@angular/common/locales/fi';
+import localeFR from '@angular/common/locales/fr';
+import localeHR from '@angular/common/locales/hr';
+import localeHU from '@angular/common/locales/hu';
+import localeIT from '@angular/common/locales/it';
+import localeLT from '@angular/common/locales/lt';
+import localeNL from '@angular/common/locales/nl';
+import localeNN from '@angular/common/locales/nn';
+import localePL from '@angular/common/locales/pl';
+import localePT from '@angular/common/locales/pt';
+import localeRO from '@angular/common/locales/ro';
+
+registerLocaleData(localeCS);
+registerLocaleData(localeDE);
+registerLocaleData(localeDA);
+registerLocaleData(localeEL);
+registerLocaleData(localeEN);
+registerLocaleData(localeES);
+registerLocaleData(localeFI);
+registerLocaleData(localeFR);
+registerLocaleData(localeHR);
+registerLocaleData(localeHU);
+registerLocaleData(localeIT);
+registerLocaleData(localeLT);
+registerLocaleData(localeNL);
+registerLocaleData(localeNN);
+registerLocaleData(localePL);
+registerLocaleData(localePT);
+registerLocaleData(localeRO);
 
 const providersList: any = [
   AppDataService,
@@ -48,18 +89,35 @@ const providersList: any = [
   GlobalEvaluationService
 ];
 
+if (environment.rollbar_key.length > 0) {
+  providersList.push(
+    {
+      provide: ErrorHandler,
+      useClass: RollbarErrorHandler
+    },
+    {
+      provide: RollbarService,
+      useFactory: rollbarFactory
+    }
+  );
+}
+
+export function createTranslateLoader(http: HttpClient) {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
+
 @NgModule({
   imports: [
     CommonModule,
     AppRoutingModule,
-    HttpModule,
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    // TagInputModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
-        useFactory: (createTranslateLoader),
+        useFactory: createTranslateLoader,
         deps: [HttpClient]
       }
     })
@@ -75,7 +133,10 @@ const providersList: any = [
     ReactiveFormsModule,
     SafeHtmlPipe,
     Nl2brPipe,
-    TagInputModule
+    TagInputModule,
+    Angular2CsvModule,
+    CsvModule,
+    PdfViewerModule
   ],
   declarations: [
     HeaderComponent,
@@ -87,4 +148,4 @@ const providersList: any = [
   ],
   providers: providersList
 })
-export class SharedModule { }
+export class SharedModule {}

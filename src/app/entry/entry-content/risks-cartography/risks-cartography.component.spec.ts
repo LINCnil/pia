@@ -8,9 +8,8 @@ describe('RisksCartographyComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ RisksCartographyComponent ]
-    })
-    .compileComponents();
+      declarations: [RisksCartographyComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

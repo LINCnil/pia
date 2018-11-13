@@ -11,6 +11,8 @@ import { PiaService } from 'app/services/pia.service';
 import { StructureService } from 'app/services/structure.service';
 import { AnswerStructureService } from 'app/services/answer-structure.service';
 import { AttachmentsService } from 'app/entry/attachments/attachments.service';
+import { LanguagesService } from '../services/languages.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-modals',
@@ -35,8 +37,10 @@ export class ModalsComponent implements OnInit {
     public _structureService: StructureService,
     public _answerStructureService: AnswerStructureService,
     public _measuresService: MeasureService,
-    public _attachmentsService: AttachmentsService
-  ) { }
+    public _attachmentsService: AttachmentsService,
+    public _translateService: TranslateService,
+    public _languagesService: LanguagesService
+  ) {}
 
   ngOnInit() {
     const structure = new Structure();
@@ -84,7 +88,7 @@ export class ModalsComponent implements OnInit {
     pia.evaluator_name = this.piaForm.value.evaluator_name;
     pia.validator_name = this.piaForm.value.validator_name;
     const p = pia.create();
-    p.then((id) => this.router.navigate(['entry', id, 'section', 1, 'item', 1]));
+    p.then(id => this.router.navigate(['entry', id, 'section', 1, 'item', 1]));
   }
 
   /**
@@ -98,7 +102,7 @@ export class ModalsComponent implements OnInit {
     structure.sector_name = this.structureForm.value.sector_name;
     structure.data = this._piaService.data;
     const p = structure.create();
-    p.then((id) => this.router.navigate(['entry', id, 'section', 1, 'item', 1]));
+    p.then(id => this.router.navigate(['entry', id, 'section', 1, 'item', 1]));
   }
 
   /**
@@ -106,8 +110,10 @@ export class ModalsComponent implements OnInit {
    * @memberof ModalsComponent
    */
   attachmentCommentFocusOut() {
-    if (this.removeAttachmentForm.controls['comment'].value &&
-        this.removeAttachmentForm.controls['comment'].value.length > 0) {
+    if (
+      this.removeAttachmentForm.controls['comment'].value &&
+      this.removeAttachmentForm.controls['comment'].value.length > 0
+    ) {
       this.enableSubmit = false;
     }
   }

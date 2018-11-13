@@ -1,9 +1,13 @@
-import { Component, Input, ElementRef, OnInit, Renderer2, OnDestroy, NgZone } from '@angular/core';
+import {
+  Component,
+  Input,
+  ElementRef,
+  OnInit,
+  Renderer2,
+  OnDestroy,
+  NgZone
+} from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import 'rxjs/add/operator/debounceTime';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/filter';
-
 import { Answer } from './answer.model';
 import { Measure } from '../measures/measure.model';
 import { Evaluation } from 'app/entry/entry-content/evaluations/evaluation.model';
@@ -17,7 +21,6 @@ import { GlobalEvaluationService } from '../../../services/global-evaluation.ser
   templateUrl: './questions.component.html',
   styleUrls: ['./questions.component.scss']
 })
-
 export class QuestionsComponent implements OnInit, OnDestroy {
   userMeasures = [];
   @Input() question: any;
@@ -32,12 +35,14 @@ export class QuestionsComponent implements OnInit, OnDestroy {
   elementId: String;
   editor: any;
 
-  constructor(private el: ElementRef,
-              private _knowledgeBaseService: KnowledgeBaseService,
-              private _modalsService: ModalsService,
-              private _ngZone: NgZone,
-              public _globalEvaluationService: GlobalEvaluationService,
-              private renderer: Renderer2) { }
+  constructor(
+    private el: ElementRef,
+    private _knowledgeBaseService: KnowledgeBaseService,
+    private _modalsService: ModalsService,
+    private _ngZone: NgZone,
+    public _globalEvaluationService: GlobalEvaluationService,
+    private renderer: Renderer2
+  ) {}
 
   ngOnInit() {
     this._globalEvaluationService.answerEditionEnabled = true;
@@ -58,14 +63,17 @@ export class QuestionsComponent implements OnInit, OnDestroy {
         this.questionForm.controls['gauge'].patchValue(this.answer.data.gauge);
         this.questionForm.controls['text'].patchValue(this.answer.data.text);
         if (this.answer.data.list) {
-          const dataList = this.answer.data.list.filter((l) => {
-            return (l && l.length > 0);
-          })
+          const dataList = this.answer.data.list.filter(l => {
+            return l && l.length > 0;
+          });
           this.questionForm.controls['list'].patchValue(dataList);
         }
         if (this.el.nativeElement.querySelector('.pia-gaugeBlock-background')) {
-          this.el.nativeElement.querySelector('.pia-gaugeBlock-background').classList.
-            add('pia-gaugeBlock-background-' + this.answer.data.gauge);
+          this.el.nativeElement
+            .querySelector('.pia-gaugeBlock-background')
+            .classList.add(
+              'pia-gaugeBlock-background-' + this.answer.data.gauge
+            );
         }
       }
     });
@@ -114,7 +122,9 @@ export class QuestionsComponent implements OnInit, OnDestroy {
    */
   checkGaugeChanges(event: any) {
     const value: string = event.target.value;
-    const bgElement = event.target.parentNode.querySelector('.pia-gaugeBlock-background');
+    const bgElement = event.target.parentNode.querySelector(
+      '.pia-gaugeBlock-background'
+    );
     bgElement.classList.remove('pia-gaugeBlock-background-1');
     bgElement.classList.remove('pia-gaugeBlock-background-2');
     bgElement.classList.remove('pia-gaugeBlock-background-3');
@@ -122,7 +132,11 @@ export class QuestionsComponent implements OnInit, OnDestroy {
     bgElement.classList.add('pia-gaugeBlock-background-' + value);
     const gaugeValue = parseInt(this.questionForm.value.gauge, 10);
     if (this.answer.id) {
-      this.answer.data = { text: this.answer.data.text, gauge: gaugeValue, list: this.answer.data.list };
+      this.answer.data = {
+        text: this.answer.data.text,
+        gauge: gaugeValue,
+        list: this.answer.data.list
+      };
       this.answer.update().then(() => {
         this._ngZone.run(() => {
           this._globalEvaluationService.validate();
@@ -160,18 +174,30 @@ export class QuestionsComponent implements OnInit, OnDestroy {
       userText = userText.replace(/^\s+/, '').replace(/\s+$/, '');
     }
     if (this.answer.id) {
-      this.answer.data = { text: userText, gauge: this.answer.data.gauge, list: this.answer.data.list };
+      this.answer.data = {
+        text: userText,
+        gauge: this.answer.data.gauge,
+        list: this.answer.data.list
+      };
       this.answer.update().then(() => {
         this._ngZone.run(() => {
           this._globalEvaluationService.validate();
         });
       });
     } else if (!this.answer.id && userText !== '') {
-      if (this.questionForm.value.text && this.questionForm.value.text.length > 0) {
+      if (
+        this.questionForm.value.text &&
+        this.questionForm.value.text.length > 0
+      ) {
         this.answer.pia_id = this.pia.id;
         this.answer.reference_to = this.question.id;
-        const gaugeValueForCurrentQuestion = this.question.answer_type === 'gauge' ? 0 : null;
-        this.answer.data = { text: this.questionForm.value.text, gauge: gaugeValueForCurrentQuestion, list: [] };
+        const gaugeValueForCurrentQuestion =
+          this.question.answer_type === 'gauge' ? 0 : null;
+        this.answer.data = {
+          text: this.questionForm.value.text,
+          gauge: gaugeValueForCurrentQuestion,
+          list: []
+        };
         this.answer.create().then(() => {
           this._ngZone.run(() => {
             this._globalEvaluationService.validate();
@@ -284,7 +310,11 @@ export class QuestionsComponent implements OnInit, OnDestroy {
    */
   private createOrUpdateList(list: string[]) {
     if (this.answer.id) {
-      this.answer.data = { text: this.answer.data.text, gauge: this.answer.data.gauge, list: list };
+      this.answer.data = {
+        text: this.answer.data.text,
+        gauge: this.answer.data.gauge,
+        list: list
+      };
       this.answer.update().then(() => {
         this._globalEvaluationService.validate();
       });
@@ -306,12 +336,18 @@ export class QuestionsComponent implements OnInit, OnDestroy {
   displayQuestion(event: any) {
     const accordeon = this.el.nativeElement.querySelector('.pia-accordeon');
     accordeon.classList.toggle('pia-icon-accordeon-down');
-    const displayer = this.el.nativeElement.querySelector('.pia-questionBlock-displayer');
+    const displayer = this.el.nativeElement.querySelector(
+      '.pia-questionBlock-displayer'
+    );
     displayer.classList.toggle('close');
 
     // Display comments/evaluations for questions
-    const commentsDisplayer = document.querySelector('.pia-commentsBlock-question-' + this.question.id);
-    const evaluationDisplayer = document.querySelector('.pia-evaluationBlock-question-' + this.question.id);
+    const commentsDisplayer = document.querySelector(
+      '.pia-commentsBlock-question-' + this.question.id
+    );
+    const evaluationDisplayer = document.querySelector(
+      '.pia-evaluationBlock-question-' + this.question.id
+    );
     if (event.target.getAttribute('data-status') === 'hide') {
       event.target.removeAttribute('data-status');
       commentsDisplayer.classList.remove('hide');
@@ -333,19 +369,24 @@ export class QuestionsComponent implements OnInit, OnDestroy {
    */
   loadEditor() {
     this._knowledgeBaseService.placeholder = this.question.placeholder;
-    this._knowledgeBaseService.search('', '', this.question.link_knowledge_base);
+    this._knowledgeBaseService.search(
+      '',
+      '',
+      this.question.link_knowledge_base
+    );
     tinymce.init({
       branding: false,
       menubar: false,
       statusbar: false,
       plugins: 'autoresize lists',
-      forced_root_block : false,
+      forced_root_block: false,
       autoresize_bottom_margin: 30,
       auto_focus: this.elementId,
       autoresize_min_height: 40,
-      content_style: 'body {background-color:#eee!important;}' ,
+      content_style: 'body {background-color:#eee!important;}',
       selector: '#' + this.elementId,
-      toolbar: 'undo redo bold italic alignleft aligncenter alignright bullist numlist outdent indent',
+      toolbar:
+        'undo redo bold italic alignleft aligncenter alignright bullist numlist outdent indent',
       skin_url: 'assets/skins/lightgray',
       setup: editor => {
         this.editor = editor;
@@ -354,7 +395,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
           this.questionContentFocusOut();
           this.closeEditor();
         });
-      },
+      }
     });
   }
 

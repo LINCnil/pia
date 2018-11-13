@@ -1,12 +1,14 @@
 import { Component, OnInit, ElementRef, OnDestroy, Input } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router, ActivatedRoute, Params } from '@angular/router';
-import { Subscription } from 'rxjs/Subscription';
+import { Subscription } from 'rxjs';
 
 import { StructureService } from 'app/services/structure.service';
 import { Structure } from './structure.model';
 import { ModalsService } from 'app/modals/modals.service';
 import { AppDataService } from 'app/services/app-data.service';
+import { TranslateService } from '@ngx-translate/core';
+import { LanguagesService } from 'app/services/languages.service';
 
 @Component({
   selector: 'app-structures',
@@ -14,7 +16,6 @@ import { AppDataService } from 'app/services/app-data.service';
   styleUrls: ['./structures.component.scss'],
   providers: [StructureService]
 })
-
 export class StructuresComponent implements OnInit, OnDestroy {
   @Input() structure: any;
   newStructure: Structure;
@@ -22,16 +23,20 @@ export class StructuresComponent implements OnInit, OnDestroy {
   importStructureForm: FormGroup;
   sortOrder: string;
   sortValue: string;
-  viewStyle: { view: string }
+  viewStyle: { view: string };
   view: 'structure';
   paramsSubscribe: Subscription;
 
-  constructor(private router: Router,
-              private el: ElementRef,
-              private route: ActivatedRoute,
-              public _modalsService: ModalsService,
-              private _appDataService: AppDataService,
-              public _structureService: StructureService) { }
+  constructor(
+    private router: Router,
+    private el: ElementRef,
+    private route: ActivatedRoute,
+    public _modalsService: ModalsService,
+    private _appDataService: AppDataService,
+    public _structureService: StructureService,
+    public _translateService: TranslateService,
+    public _languagesService: LanguagesService
+  ) {}
 
   ngOnInit() {
     this._appDataService.dataNav.sections = null;
@@ -50,12 +55,10 @@ export class StructuresComponent implements OnInit, OnDestroy {
     });
     this.viewStyle = {
       view: this.route.snapshot.params['view']
-    }
-    this.paramsSubscribe = this.route.params.subscribe(
-      (params: Params) => {
-        this.viewStyle.view = params['view'];
-      }
-    );
+    };
+    this.paramsSubscribe = this.route.params.subscribe((params: Params) => {
+      this.viewStyle.view = params['view'];
+    });
     if (localStorage.getItem('homepageDisplayMode') === 'list') {
       this.viewOnList();
     } else {
@@ -121,13 +124,23 @@ export class StructuresComponent implements OnInit, OnDestroy {
    * @memberof StructuresComponent
    */
   onSubmit() {
-    this._appDataService.getDataNav().then((data) => {
+    this._appDataService.getDataNav().then(data => {
       const structure = new Structure();
       structure.name = this.structureForm.value.name;
       structure.sector_name = this.structureForm.value.sector_name;
       structure.data = data;
       const p = structure.create();
-      p.then((id) => this.router.navigate(['structures', 'entry', id, 'section', 1, 'item', 1]));
+      p.then(id =>
+        this.router.navigate([
+          'structures',
+          'entry',
+          id,
+          'section',
+          1,
+          'item',
+          1
+        ])
+      );
     });
   }
 

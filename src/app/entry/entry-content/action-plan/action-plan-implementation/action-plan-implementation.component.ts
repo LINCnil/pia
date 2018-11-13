@@ -12,17 +12,19 @@ import { GlobalEvaluationService } from 'app/services/global-evaluation.service'
   styleUrls: ['./action-plan-implementation.component.scss']
 })
 export class ActionPlanImplementationComponent implements OnInit {
-
   @Input() data: any;
   evaluation: Evaluation;
   actionPlanForm: FormGroup;
   displayEditButton = false;
 
-  @ViewChild('estimatedEvaluationDate') private estimatedEvaluationDate: ElementRef;
+  @ViewChild('estimatedEvaluationDate')
+  private estimatedEvaluationDate: ElementRef;
   @ViewChild('personInCharge') private personInCharge: ElementRef;
 
-  constructor(private _piaService: PiaService,
-              public _globalEvaluationService: GlobalEvaluationService) { }
+  constructor(
+    private _piaService: PiaService,
+    public _globalEvaluationService: GlobalEvaluationService
+  ) {}
 
   ngOnInit() {
     this.actionPlanForm = new FormGroup({
@@ -34,20 +36,31 @@ export class ActionPlanImplementationComponent implements OnInit {
       const date = this.evaluation.estimated_implementation_date;
       if (date.toString() !== 'Invalid Date') {
         const month = (date.getMonth() + 1).toString();
-        const finalMonth = (month.length === 1 ? '0' : '' ) + month;
-        const finalDate =  date.getFullYear() + '-' + finalMonth + '-' + date.getDate();
-        this.actionPlanForm.controls['estimatedEvaluationDate'].patchValue(finalDate);
+        const finalMonth = (month.length === 1 ? '0' : '') + month;
+        const finalDate =
+          date.getFullYear() + '-' + finalMonth + '-' + date.getDate();
+        this.actionPlanForm.controls['estimatedEvaluationDate'].patchValue(
+          finalDate
+        );
         // TODO Unable to FocusIn with Firefox
         // this.actionPlanForm.controls['estimatedEvaluationDate'].disable();
       }
-      if (this.evaluation.person_in_charge && this.evaluation.person_in_charge.length > 0) {
-        this.actionPlanForm.controls['personInCharge'].patchValue(this.evaluation.person_in_charge);
+      if (
+        this.evaluation.person_in_charge &&
+        this.evaluation.person_in_charge.length > 0
+      ) {
+        this.actionPlanForm.controls['personInCharge'].patchValue(
+          this.evaluation.person_in_charge
+        );
         // TODO Unable to FocusIn with Firefox
         // this.actionPlanForm.controls['personInCharge'].disable();
       }
 
       this._piaService.getPIA().then(() => {
-        if (this._piaService.pia.status >= 2 || this._piaService.pia.is_example === 1) {
+        if (
+          this._piaService.pia.status >= 2 ||
+          this._piaService.pia.is_example === 1
+        ) {
           this.actionPlanForm.controls['estimatedEvaluationDate'].disable();
           this.actionPlanForm.controls['personInCharge'].disable();
         }
@@ -71,7 +84,8 @@ export class ActionPlanImplementationComponent implements OnInit {
    * @memberof ActionPlanImplementationComponent
    */
   estimatedEvaluationDateFocusOut() {
-    const userText = this.actionPlanForm.controls['estimatedEvaluationDate'].value;
+    const userText = this.actionPlanForm.controls['estimatedEvaluationDate']
+      .value;
     this.evaluation.estimated_implementation_date = new Date(userText);
     this.evaluation.update().then(() => {
       if (userText && userText.length > 0) {
@@ -110,5 +124,4 @@ export class ActionPlanImplementationComponent implements OnInit {
       }
     });
   }
-
 }

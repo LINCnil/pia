@@ -13,36 +13,39 @@ export class Measure extends ApplicationDb {
   async create() {
     this.created_at = new Date();
     const data = {
-        title: this.title,
-        pia_id: this.pia_id,
-        content: this.content,
-        placeholder: this.placeholder,
-        created_at: this.created_at
-      };
+      title: this.title,
+      pia_id: this.pia_id,
+      content: this.content,
+      placeholder: this.placeholder,
+      created_at: this.created_at
+    };
     return new Promise((resolve, reject) => {
       if (this.serverUrl) {
         const formData = new FormData();
-        for(let d in data) {
+        for (let d in data) {
           formData.append('measure[' + d + ']', data[d]);
         }
         fetch(this.getServerUrl(), {
           method: 'POST',
           body: formData
-        }).then((response) => {
-          return response.json();
-        }).then((result: any) => {
-          resolve(result.id);
-        }).catch((error) => {
-          console.error('Request failed', error);
-          reject();
-        });
+        })
+          .then(response => {
+            return response.json();
+          })
+          .then((result: any) => {
+            resolve(result.id);
+          })
+          .catch(error => {
+            console.error('Request failed', error);
+            reject();
+          });
       } else {
         this.getObjectStore().then(() => {
           const evt = this.objectStore.add(data);
           evt.onerror = (event: any) => {
             console.error(event);
             reject(Error(event));
-          }
+          };
           evt.onsuccess = (event: any) => {
             resolve(event.target.result);
           };
@@ -59,27 +62,30 @@ export class Measure extends ApplicationDb {
         entry.updated_at = new Date();
         if (this.serverUrl) {
           const formData = new FormData();
-          for(let d in entry) {
+          for (let d in entry) {
             formData.append('measure[' + d + ']', entry[d]);
           }
           fetch(this.getServerUrl() + '/' + this.id, {
             method: 'PATCH',
             body: formData
-          }).then((response) => {
-            return response.json();
-          }).then((result: any) => {
-            resolve();
-          }).catch((error) => {
-            console.error('Request failed', error);
-            reject();
-          });
+          })
+            .then(response => {
+              return response.json();
+            })
+            .then((result: any) => {
+              resolve();
+            })
+            .catch(error => {
+              console.error('Request failed', error);
+              reject();
+            });
         } else {
           this.getObjectStore().then(() => {
             const evt = this.objectStore.put(entry);
             evt.onerror = (event: any) => {
               console.error(event);
               reject(Error(event));
-            }
+            };
             evt.onsuccess = (event: any) => {
               resolve();
             };
@@ -109,14 +115,17 @@ export class Measure extends ApplicationDb {
     const items = [];
     return new Promise((resolve, reject) => {
       if (this.serverUrl) {
-        fetch(this.getServerUrl()).then((response) => {
-          return response.json();
-        }).then((result: any) => {
-          resolve(result);
-        }).catch((error) => {
-          console.error('Request failed', error);
-          reject();
-        });
+        fetch(this.getServerUrl())
+          .then(response => {
+            return response.json();
+          })
+          .then((result: any) => {
+            resolve(result);
+          })
+          .catch(error => {
+            console.error('Request failed', error);
+            reject();
+          });
       } else {
         this.getObjectStore().then(() => {
           const index1 = this.objectStore.index('index1');
@@ -124,7 +133,7 @@ export class Measure extends ApplicationDb {
           evt.onerror = (event: any) => {
             console.error(event);
             reject(Error(event));
-          }
+          };
           evt.onsuccess = (event: any) => {
             const cursor = event.target.result;
             if (cursor) {
@@ -133,7 +142,7 @@ export class Measure extends ApplicationDb {
             } else {
               resolve(items);
             }
-          }
+          };
         });
       }
     });

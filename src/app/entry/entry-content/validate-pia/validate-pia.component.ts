@@ -5,6 +5,7 @@ import { PiaService } from 'app/services/pia.service';
 import { ModalsService } from 'app/modals/modals.service';
 import { AttachmentsService } from 'app/entry/attachments/attachments.service';
 import { ActionPlanService } from 'app/entry/entry-content/action-plan//action-plan.service';
+import { LanguagesService } from '../../../services/languages.service';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
@@ -14,17 +15,19 @@ import { TranslateService } from '@ngx-translate/core';
   providers: [PiaService]
 })
 export class ValidatePIAComponent implements OnInit {
-
   data: { sections: any };
   validateForm: FormGroup;
   attachment: any;
 
-  constructor(private el: ElementRef,
-              private _modalsService: ModalsService,
-              public _attachmentsService: AttachmentsService,
-              private _actionPlanService: ActionPlanService,
-              private _translateService: TranslateService,
-              public _piaService: PiaService ) { }
+  constructor(
+    private el: ElementRef,
+    private _modalsService: ModalsService,
+    public _attachmentsService: AttachmentsService,
+    private _actionPlanService: ActionPlanService,
+    private _translateService: TranslateService,
+    public _languagesService: LanguagesService,
+    public _piaService: PiaService
+  ) {}
 
   ngOnInit() {
     this.validateForm = new FormGroup({
@@ -34,10 +37,18 @@ export class ValidatePIAComponent implements OnInit {
       validateStatus4: new FormControl()
     });
     this._piaService.getPIA().then(() => {
-      this.validateForm.controls['validateStatus1'].patchValue(this._piaService.pia.status > 1);
-      this.validateForm.controls['validateStatus2'].patchValue(this._piaService.pia.status > 1);
-      this.validateForm.controls['validateStatus3'].patchValue(this._piaService.pia.status > 1);
-      this.validateForm.controls['validateStatus4'].patchValue(this._piaService.pia.status > 1);
+      this.validateForm.controls['validateStatus1'].patchValue(
+        this._piaService.pia.status > 1
+      );
+      this.validateForm.controls['validateStatus2'].patchValue(
+        this._piaService.pia.status > 1
+      );
+      this.validateForm.controls['validateStatus3'].patchValue(
+        this._piaService.pia.status > 1
+      );
+      this.validateForm.controls['validateStatus4'].patchValue(
+        this._piaService.pia.status > 1
+      );
 
       this._attachmentsService.updateSignedAttachmentsList();
       this._actionPlanService.listActionPlan();
@@ -49,7 +60,9 @@ export class ValidatePIAComponent implements OnInit {
    * @memberof ValidatePIAComponent
    */
   addAttachment() {
-    const attachment: any = document.querySelector('[formcontrolname="attachment_file"]');
+    const attachment: any = document.querySelector(
+      '[formcontrolname="attachment_file"]'
+    );
     this._attachmentsService.pia_signed = 1;
     attachment.click();
   }
@@ -79,10 +92,14 @@ export class ValidatePIAComponent implements OnInit {
    * @memberof ValidatePIAComponent
    */
   lockStatus(event: any) {
-    if (this._piaService.pia.status > 1  || this._piaService.pia.is_example === 1) {
+    if (
+      this._piaService.pia.status > 1 ||
+      this._piaService.pia.is_example === 1
+    ) {
       return false;
     } else {
-      const clickedRadioButton = event.target || event.srcElement || event.currentTarget;
+      const clickedRadioButton =
+        event.target || event.srcElement || event.currentTarget;
       clickedRadioButton.setAttribute('disabled', true);
       this.checkValidationFormStatus();
     }
@@ -117,11 +134,15 @@ export class ValidatePIAComponent implements OnInit {
    */
   private checkValidationFormStatus() {
     let allBtnChecked = true;
-    const radioButtons = document.querySelectorAll('.pia-entryContentBlock-content-list-confirm input');
-    const simpleValidationBtn = document.getElementById('pia-simple-validation');
+    const radioButtons = document.querySelectorAll(
+      '.pia-entryContentBlock-content-list-confirm input'
+    );
+    const simpleValidationBtn = document.getElementById(
+      'pia-simple-validation'
+    );
     const signValidationBtn = document.getElementById('pia-sign-validation');
 
-    [].forEach.call(radioButtons, function (currentRadioBtn) {
+    [].forEach.call(radioButtons, function(currentRadioBtn) {
       if (!currentRadioBtn.checked) {
         allBtnChecked = false;
       }

@@ -8,9 +8,8 @@ describe('ValidatePIAComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ValidatePIAComponent ]
-    })
-    .compileComponents();
+      declarations: [ValidatePIAComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {
