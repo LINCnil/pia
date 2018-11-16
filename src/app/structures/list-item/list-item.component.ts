@@ -1,21 +1,21 @@
-import { Component, Input, OnInit, EventEmitter, Output } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Component, Input, OnInit, EventEmitter, Output } from '@angular/core'
+import { Router, ActivatedRoute } from '@angular/router'
 
-import { Structure } from 'app/structures/structure.model';
-import { ModalsService } from 'app/modals/modals.service';
-import { StructureService } from 'app/services/structure.service';
-import { LanguagesService } from 'app/services/languages.service';
-import { TranslateService } from '@ngx-translate/core';
+import { Structure } from 'app/structures/structure.model'
+import { ModalsService } from 'app/modals/modals.service'
+import { StructureService } from 'app/services/structure.service'
+import { LanguagesService } from 'app/services/languages.service'
+import { TranslateService } from '@ngx-translate/core'
 
 @Component({
   selector: `.app-list-item`,
   templateUrl: './list-item.component.html',
   styleUrls: ['./list-item.component.scss'],
-  providers: [StructureService]
+  providers: [StructureService],
 })
 export class ListItemComponent implements OnInit {
-  @Input() structure: any;
-  @Output() structEvent = new EventEmitter<Structure>();
+  @Input() structure: any
+  @Output() structEvent = new EventEmitter<Structure>()
 
   constructor(
     private router: Router,
@@ -35,9 +35,9 @@ export class ListItemComponent implements OnInit {
    * @memberof ListItemComponent
    */
   onFocusOut(attribute: string, event: any) {
-    const text = event.target.innerText;
-    this.structure[attribute] = text;
-    this.structure.update();
+    const text = event.target.innerText
+    this.structure[attribute] = text
+    this.structure.update()
   }
 
   /**
@@ -46,8 +46,8 @@ export class ListItemComponent implements OnInit {
    * @memberof ListItemComponent
    */
   remove(id: string) {
-    localStorage.setItem('structure-id', id);
-    this._modalsService.openModal('modal-remove-structure');
+    localStorage.setItem('structure-id', id)
+    this._modalsService.openModal('modal-remove-structure')
   }
 
   /**
@@ -56,7 +56,7 @@ export class ListItemComponent implements OnInit {
    * @memberof ListItemComponent
    */
   export(id: number) {
-    this._structureService.exportStructure(id);
+    this._structureService.exportStructure(id)
   }
 
   /**
@@ -67,7 +67,7 @@ export class ListItemComponent implements OnInit {
     this._structureService
       .duplicateStructure(id)
       .then((structure: Structure) => {
-        this.structEvent.emit(structure);
-      });
+        this.structEvent.emit(structure)
+      })
   }
 }

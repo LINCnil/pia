@@ -1,17 +1,17 @@
-import { PiaPage } from './app.po';
+import { PiaPage } from './app.po'
 
 describe('PIA Home page', () => {
-  let page: PiaPage;
+  let page: PiaPage
 
   beforeEach(() => {
-    page = new PiaPage();
-  });
+    page = new PiaPage()
+  })
 
   it('should display welcome message', done => {
-    page.navigateTo();
+    page.navigateTo()
     page
       .getButtonText()
       .then(msg => expect(msg).toEqual("J'accepte"))
-      .then(done, done.fail);
-  });
-});
+      .then(done, done.fail)
+  })
+})

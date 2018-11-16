@@ -7,5 +7,5 @@ export const environment = {
   name: 'development',
   production: false,
   version: '1.6.5',
-  rollbar_key: ''
-};
+  rollbar_key: '',
+}

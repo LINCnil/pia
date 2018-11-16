@@ -1,30 +1,25 @@
-import { Component, Input, OnInit } from '@angular/core';
-import {
-  FormBuilder,
-  FormControl,
-  FormGroup,
-  Validators
-} from '@angular/forms';
+import { Component, Input, OnInit } from '@angular/core'
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 
-import { ModalsService } from 'app/modals/modals.service';
+import { ModalsService } from 'app/modals/modals.service'
 
 @Component({
   selector: 'app-settings',
   templateUrl: './settings.component.html',
-  styleUrls: ['./settings.component.scss']
+  styleUrls: ['./settings.component.scss'],
 })
 export class SettingsComponent implements OnInit {
-  settingsForm: FormGroup;
+  settingsForm: FormGroup
   constructor(private fb: FormBuilder, private _modalsService: ModalsService) {}
 
   ngOnInit() {
     this.settingsForm = this.fb.group({
       id: 1,
-      server_url: ['', Validators.required]
-    });
+      server_url: ['', Validators.required],
+    })
     this.settingsForm.patchValue({
-      server_url: localStorage.getItem('server_url')
-    });
+      server_url: localStorage.getItem('server_url'),
+    })
   }
 
   /**
@@ -37,28 +32,28 @@ export class SettingsComponent implements OnInit {
       this.settingsForm.controls['server_url'].value === null ||
       this.settingsForm.controls['server_url'].value.length <= 0
     ) {
-      localStorage.removeItem('server_url');
-      this._modalsService.openModal('modal-update-server-url-ok');
+      localStorage.removeItem('server_url')
+      this._modalsService.openModal('modal-update-server-url-ok')
     } else {
       fetch(this.settingsForm.value.server_url)
         .then(response => {
-          return response.status;
+          return response.status
         })
         .then((httpCode: number) => {
           if (httpCode === 200) {
             localStorage.setItem(
               'server_url',
               this.settingsForm.value.server_url
-            );
-            this._modalsService.openModal('modal-update-server-url-ok');
+            )
+            this._modalsService.openModal('modal-update-server-url-ok')
           } else {
-            this._modalsService.openModal('modal-update-server-url-nok');
+            this._modalsService.openModal('modal-update-server-url-nok')
           }
         })
         .catch(error => {
-          console.error('Request failed', error);
-          this._modalsService.openModal('modal-update-server-url-nok');
-        });
+          console.error('Request failed', error)
+          this._modalsService.openModal('modal-update-server-url-nok')
+        })
     }
   }
 }

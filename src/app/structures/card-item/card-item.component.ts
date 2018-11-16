@@ -5,17 +5,17 @@ import {
   ElementRef,
   EventEmitter,
   Input,
-  Output
-} from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
-import { Router } from '@angular/router';
+  Output,
+} from '@angular/core'
+import { FormControl, FormGroup } from '@angular/forms'
+import { Router } from '@angular/router'
 
-import { Structure } from '../structure.model';
+import { Structure } from '../structure.model'
 
-import { ModalsService } from 'app/modals/modals.service';
-import { StructureService } from 'app/services/structure.service';
-import { TranslateService } from '@ngx-translate/core';
-import { LanguagesService } from 'app/services/languages.service';
+import { ModalsService } from 'app/modals/modals.service'
+import { StructureService } from 'app/services/structure.service'
+import { TranslateService } from '@ngx-translate/core'
+import { LanguagesService } from 'app/services/languages.service'
 
 @Component({
   selector: 'app-card-item',
@@ -23,18 +23,18 @@ import { LanguagesService } from 'app/services/languages.service';
   styleUrls: [
     './card-item.component.scss',
     './card-item_edit.component.scss',
-    './card-item_doing.component.scss'
+    './card-item_doing.component.scss',
   ],
-  providers: [StructureService]
+  providers: [StructureService],
 })
 export class CardItemComponent implements OnInit {
-  @Input() structure: any;
-  @Input() previousStructure: any;
-  @Output() structEvent = new EventEmitter<Structure>();
-  structureForm: FormGroup;
+  @Input() structure: any
+  @Input() previousStructure: any
+  @Output() structEvent = new EventEmitter<Structure>()
+  structureForm: FormGroup
 
-  @ViewChild('structureName') private structureName: ElementRef;
-  @ViewChild('structureSectorName') private structureSectorName: ElementRef;
+  @ViewChild('structureName') private structureName: ElementRef
+  @ViewChild('structureSectorName') private structureSectorName: ElementRef
 
   constructor(
     private router: Router,
@@ -50,9 +50,9 @@ export class CardItemComponent implements OnInit {
       name: new FormControl({ value: this.structure.name, disabled: false }),
       sector_name: new FormControl({
         value: this.structure.sector_name,
-        disabled: false
-      })
-    });
+        disabled: false,
+      }),
+    })
   }
 
   /**
@@ -60,8 +60,8 @@ export class CardItemComponent implements OnInit {
    * @memberof CardItemComponent
    */
   structureNameFocusIn() {
-    this.structureForm.controls['name'].enable();
-    this.structureName.nativeElement.focus();
+    this.structureForm.controls['name'].enable()
+    this.structureName.nativeElement.focus()
   }
 
   /**
@@ -69,16 +69,16 @@ export class CardItemComponent implements OnInit {
    * @memberof CardItemComponent
    */
   structureNameFocusOut() {
-    let userText = this.structureForm.controls['name'].value;
+    let userText = this.structureForm.controls['name'].value
     if (userText) {
-      userText = userText.replace(/^\s+/, '').replace(/\s+$/, '');
+      userText = userText.replace(/^\s+/, '').replace(/\s+$/, '')
     }
     if (userText !== '') {
-      const structure = new Structure();
+      const structure = new Structure()
       structure.get(this.structureForm.value.id).then(() => {
-        structure.name = this.structureForm.value.name;
-        structure.update();
-      });
+        structure.name = this.structureForm.value.name
+        structure.update()
+      })
     }
   }
 
@@ -87,7 +87,7 @@ export class CardItemComponent implements OnInit {
    * @memberof CardItemComponent
    */
   structureSectorNameFocusIn() {
-    this.structureSectorName.nativeElement.focus();
+    this.structureSectorName.nativeElement.focus()
   }
 
   /**
@@ -95,16 +95,16 @@ export class CardItemComponent implements OnInit {
    * @memberof CardItemComponent
    */
   structureSectorNameFocusOut() {
-    let userText = this.structureForm.controls['sector_name'].value;
+    let userText = this.structureForm.controls['sector_name'].value
     if (userText) {
-      userText = userText.replace(/^\s+/, '').replace(/\s+$/, '');
+      userText = userText.replace(/^\s+/, '').replace(/\s+$/, '')
     }
     if (userText !== '') {
-      const structure = new Structure();
+      const structure = new Structure()
       structure.get(this.structureForm.value.id).then(() => {
-        structure.sector_name = this.structureForm.value.sector_name;
-        structure.update();
-      });
+        structure.sector_name = this.structureForm.value.sector_name
+        structure.update()
+      })
     }
   }
 
@@ -114,8 +114,8 @@ export class CardItemComponent implements OnInit {
    * @memberof CardItemComponent
    */
   remove(id: string) {
-    localStorage.setItem('structure-id', id);
-    this._modalsService.openModal('modal-remove-structure');
+    localStorage.setItem('structure-id', id)
+    this._modalsService.openModal('modal-remove-structure')
   }
 
   /**
@@ -124,7 +124,7 @@ export class CardItemComponent implements OnInit {
    * @memberof CardItemComponent
    */
   export(id: number) {
-    this._structureService.exportStructure(id);
+    this._structureService.exportStructure(id)
   }
 
   /**
@@ -135,7 +135,7 @@ export class CardItemComponent implements OnInit {
     this._structureService
       .duplicateStructure(id)
       .then((structure: Structure) => {
-        this.structEvent.emit(structure);
-      });
+        this.structEvent.emit(structure)
+      })
   }
 }

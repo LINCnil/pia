@@ -1,34 +1,34 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { FormControl, FormGroup } from '@angular/forms';
+import { Component, Input, OnInit } from '@angular/core'
+import { Router } from '@angular/router'
+import { FormControl, FormGroup } from '@angular/forms'
 
-import { Pia } from '../entry/pia.model';
-import { Structure } from '../structures/structure.model';
+import { Pia } from '../entry/pia.model'
+import { Structure } from '../structures/structure.model'
 
-import { ModalsService } from './modals.service';
-import { MeasureService } from 'app/entry/entry-content/measures/measures.service';
-import { PiaService } from 'app/services/pia.service';
-import { StructureService } from 'app/services/structure.service';
-import { AnswerStructureService } from 'app/services/answer-structure.service';
-import { AttachmentsService } from 'app/entry/attachments/attachments.service';
-import { LanguagesService } from '../services/languages.service';
-import { TranslateService } from '@ngx-translate/core';
+import { ModalsService } from './modals.service'
+import { MeasureService } from 'app/entry/entry-content/measures/measures.service'
+import { PiaService } from 'app/services/pia.service'
+import { StructureService } from 'app/services/structure.service'
+import { AnswerStructureService } from 'app/services/answer-structure.service'
+import { AttachmentsService } from 'app/entry/attachments/attachments.service'
+import { LanguagesService } from '../services/languages.service'
+import { TranslateService } from '@ngx-translate/core'
 
 @Component({
   selector: 'app-modals',
   templateUrl: './modals.component.html',
   styleUrls: ['./modals.component.scss'],
-  providers: [PiaService, StructureService]
+  providers: [PiaService, StructureService],
 })
 export class ModalsComponent implements OnInit {
-  @Input() pia: any;
-  @Input() structure: any;
-  newPia: Pia;
-  newStructure: Structure;
-  piaForm: FormGroup;
-  structureForm: FormGroup;
-  removeAttachmentForm: FormGroup;
-  enableSubmit = true;
+  @Input() pia: any
+  @Input() structure: any
+  newPia: Pia
+  newStructure: Structure
+  piaForm: FormGroup
+  structureForm: FormGroup
+  removeAttachmentForm: FormGroup
+  enableSubmit = true
 
   constructor(
     private router: Router,
@@ -43,28 +43,28 @@ export class ModalsComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    const structure = new Structure();
+    const structure = new Structure()
     structure.getAll().then((data: any) => {
-      this._structureService.structures = data;
-    });
+      this._structureService.structures = data
+    })
 
-    this._piaService.getPIA();
+    this._piaService.getPIA()
     this.piaForm = new FormGroup({
       name: new FormControl(),
       author_name: new FormControl(),
       evaluator_name: new FormControl(),
       validator_name: new FormControl(),
-      structure: new FormControl([])
-    });
+      structure: new FormControl([]),
+    })
     this.structureForm = new FormGroup({
       name: new FormControl(),
-      sector_name: new FormControl()
-    });
+      sector_name: new FormControl(),
+    })
     this.removeAttachmentForm = new FormGroup({
-      comment: new FormControl()
-    });
-    this.newPia = new Pia();
-    this.newStructure = new Structure();
+      comment: new FormControl(),
+    })
+    this.newPia = new Pia()
+    this.newStructure = new Structure()
   }
 
   /**
@@ -72,8 +72,8 @@ export class ModalsComponent implements OnInit {
    * @memberof ModalsComponent
    */
   returnToHomepage() {
-    this._modalsService.closeModal();
-    this.router.navigate(['/home']);
+    this._modalsService.closeModal()
+    this.router.navigate(['/home'])
   }
 
   /**
@@ -82,13 +82,13 @@ export class ModalsComponent implements OnInit {
    * @memberof ModalsComponent
    */
   onSubmit() {
-    const pia = new Pia();
-    pia.name = this.piaForm.value.name;
-    pia.author_name = this.piaForm.value.author_name;
-    pia.evaluator_name = this.piaForm.value.evaluator_name;
-    pia.validator_name = this.piaForm.value.validator_name;
-    const p = pia.create();
-    p.then(id => this.router.navigate(['entry', id, 'section', 1, 'item', 1]));
+    const pia = new Pia()
+    pia.name = this.piaForm.value.name
+    pia.author_name = this.piaForm.value.author_name
+    pia.evaluator_name = this.piaForm.value.evaluator_name
+    pia.validator_name = this.piaForm.value.validator_name
+    const p = pia.create()
+    p.then(id => this.router.navigate(['entry', id, 'section', 1, 'item', 1]))
   }
 
   /**
@@ -97,12 +97,12 @@ export class ModalsComponent implements OnInit {
    * @memberof ModalsComponent
    */
   onSubmitStructure() {
-    const structure = new Structure();
-    structure.name = this.structureForm.value.name;
-    structure.sector_name = this.structureForm.value.sector_name;
-    structure.data = this._piaService.data;
-    const p = structure.create();
-    p.then(id => this.router.navigate(['entry', id, 'section', 1, 'item', 1]));
+    const structure = new Structure()
+    structure.name = this.structureForm.value.name
+    structure.sector_name = this.structureForm.value.sector_name
+    structure.data = this._piaService.data
+    const p = structure.create()
+    p.then(id => this.router.navigate(['entry', id, 'section', 1, 'item', 1]))
   }
 
   /**
@@ -114,7 +114,7 @@ export class ModalsComponent implements OnInit {
       this.removeAttachmentForm.controls['comment'].value &&
       this.removeAttachmentForm.controls['comment'].value.length > 0
     ) {
-      this.enableSubmit = false;
+      this.enableSubmit = false
     }
   }
 }
