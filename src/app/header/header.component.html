@@ -83,6 +83,11 @@
                     {{ 'header.languages.da' | translate }}
                   </a>
                 </li>
+                <li [ngClass]="{'is_active': _languagesService.selectedLanguage === 'et'}">
+                  <a href="javascript:;" (click)="_languagesService.updateCurrentLanguage('et')">
+                    {{ 'header.languages.et' | translate }}
+                  </a>
+                </li>
                 <li [ngClass]="{'is_active': _languagesService.selectedLanguage === 'es'}">
                   <a href="javascript:;" (click)="_languagesService.updateCurrentLanguage('es')">
                     {{ 'header.languages.es' | translate }}

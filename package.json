@@ -10,7 +10,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "prod": "ng build --prod --build-optimizer",
-    "clean": "rimraf ./dist/",
+    "clean": "rimraf ./dist/ ./node_modules",
     "format:write": "prettier {src,e2e}/**/*.{ts,json,md,scss} --write",
     "format:test": "prettier {src,e2e}/**/*.{ts,json,md,scss} --list-different",
     "compodoc": "compodoc -p src/tsconfig.app.json"
@@ -28,15 +28,14 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/animations": "7.0.4",
-    "@angular/common": "7.0.4",
-    "@angular/compiler": "7.0.4",
-    "@angular/core": "7.0.4",
-    "@angular/forms": "7.0.4",
-    "@angular/platform-browser": "7.0.4",
-    "@angular/platform-browser-dynamic": "7.0.4",
-    "@angular/router": "7.0.4",
-    "@bahmutov/add-typescript-to-cypress": "^2.0.0",
+    "@angular/animations": "^7.0.4",
+    "@angular/common": "^7.0.4",
+    "@angular/compiler": "^7.0.4",
+    "@angular/core": "^7.0.4",
+    "@angular/forms": "^7.0.4",
+    "@angular/platform-browser": "^7.0.4",
+    "@angular/platform-browser-dynamic": "^7.0.4",
+    "@angular/router": "^7.0.4",
     "@ngx-translate/core": "^11.0.1",
     "@ngx-translate/http-loader": "~4.0.0",
     "@types/pdfjs-dist": "^0.1.2",
@@ -60,9 +59,9 @@
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^0.10.6",
-    "@angular/cli": "7.0.6",
-    "@angular/compiler-cli": "7.0.4",
-    "@angular/language-service": "7.0.4",
+    "@angular/cli": "^7.0.6",
+    "@angular/compiler-cli": "^7.0.4",
+    "@angular/language-service": "^7.0.4",
     "@compodoc/compodoc": "^1.1.6",
     "@types/node": "^10.12.9",
     "codelyzer": "~4.5.0",
@@ -84,6 +83,6 @@
     "source-map-explorer": "~1.6.0",
     "ts-node": "~7.0.1",
     "tslint": "~5.11.0",
-    "typescript": "3.1.6"
+    "typescript": "^3.1.6"
   }
 }
