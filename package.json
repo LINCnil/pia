@@ -21,7 +21,7 @@
     }
   },
   "lint-staged": {
-    "{src,e2e,cypress}/**/*.{ts,json,md,scss}": [
+    "{src,e2e}/**/*.{ts,json,md,scss}": [
       "prettier --write",
       "git add"
     ]
