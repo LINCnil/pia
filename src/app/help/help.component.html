@@ -14,13 +14,30 @@
           </div>
           <ul class="pia-sectionBlock-list">
             <li *ngFor="let subTitle of data[1];" [ngClass]="{ 'active': subTitle === activeElement }">
-              <a href="javascript:;" (click)="getAnchor($event, subTitle);">{{ subTitle }}</a>
+              <a href="javascript:" (click)="getAnchor($event, subTitle);">{{ subTitle }}</a>
             </li>
           </ul>
         </div>
       </aside>
     </div>
     <div class="small-12 medium-9 columns">
+
+      <div>
+        <h2>{{ 'help.infografics.title' | translate }}</h2>
+        <button class="btn btn-blue" (click)="toggleInfograficsContent($event.target)" value="true">
+          {{ 'help.infografics.display' | translate }}
+        </button>
+        <button class="btn btn-blue" (click)="printPdf()">{{ 'help.infografics.download' | translate }}</button>
+        <p hidden id="infografics_file">{{ 'help.infografics.file' | translate }}</p>
+        <p hidden id="infografics_display">{{ 'help.infografics.display' | translate }}</p>
+        <p hidden id="infografics_hide">{{ 'help.infografics.hide' | translate }}</p>
+      </div>
+      <div *ngIf="displayInfografics">
+        <pdf-viewer [src]="pdfSrc"
+                    [zoom]="1.5">
+        </pdf-viewer>
+      </div>
+      <h1></h1>
       <div class="pia-helpBlock-content" [innerHTML]="content"></div>
     </div>
   </div>

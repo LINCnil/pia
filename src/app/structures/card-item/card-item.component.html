@@ -2,22 +2,22 @@
     <div class="pia-cardsBlock-item pia-doingBlock-item">
       <div class="pia-cardsBlock-toolbar">
           <div class="pia-cardsBlock-toolbar-export">
-            <a href="javascript:;" (click)="export(structure.id)" class="btn pia-tooltip">
+            <a href="javascript:" (click)="export(structure.id)" class="btn pia-tooltip">
               <i class="fa fa-download" aria-hidden="true"></i>
               <span class="pia-tooltip-text">{{ 'homepage.cards.item.tools.export' | translate }}</span>
             </a>
           </div>
           <div class="pia-cardsBlock-toolbar-more">
-            <a href="javascript:;" class="btn pia-tooltip" title="{{ 'homepage.cards.item.tools.more_options' | translate }}">
+            <a href="javascript:" class="btn pia-tooltip" title="{{ 'homepage.cards.item.tools.more_options' | translate }}">
               <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
               <ul class="pia-cardsBlock-toolbar-moreList">
                 <li>
                   <i class="fa fa-files-o" aria-hidden="true"></i>
-                  <a href="javascript:;" (click)="duplicate(structure.id)">{{ 'homepage.cards.item.tools.duplicate' | translate }}</a>
+                  <a href="javascript:" (click)="duplicate(structure.id)">{{ 'homepage.cards.item.tools.duplicate' | translate }}</a>
                 </li>
                 <li>
                   <i class="fa fa-trash-o" aria-hidden="true"></i>
-                  <a href="javascript:;" (click)="remove(structure.id)">{{ 'homepage.cards.item.tools.remove' | translate }}</a>
+                  <a href="javascript:" (click)="remove(structure.id)">{{ 'homepage.cards.item.tools.remove' | translate }}</a>
                 </li>
               </ul>
             </a>
@@ -49,7 +49,7 @@
           </div>
         <div class="pia-cardsBlock-item-date">
             <div>{{ 'homepage.cards.date' | translate }}</div>
-            <time>{{ structure.created_at | date: 'dd/MM/yyyy' }}</time>
+            <time>{{ structure.created_at | date:'mediumDate':'': _languagesService.selectedLanguage }}</time>
         </div>
         <div class="pia-cardsBlock-item-btn">
           <a routerLink="/structures/entry/{{structure.id}}/section/1/item/1" class="btn btn-green">{{ 'homepage.cards.item.edit_structure' | translate }}</a>

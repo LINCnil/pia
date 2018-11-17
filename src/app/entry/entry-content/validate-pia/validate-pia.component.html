@@ -1,7 +1,7 @@
 <div class="container pia-validationBlock ">
   <div class="pia-entryContentBlock-content">
     <div class="pia-entryContentBlock-content-list">
-      <p>({{_piaService.pia.updated_at | date: 'dd/MM/yyyy'}})</p>
+      <p>({{_piaService.pia.updated_at | date:'mediumDate':'': _languagesService.selectedLanguage }})</p>
       <p>{{ 'validation_page.responsible' | translate }}<span class="blue">{{_piaService.pia.validator_name}}</span>.</p>
       <p>{{ 'validation_page.after_reading' | translate }}<span class="blue">{{_piaService.pia.name}}</span></p>
       <form [formGroup]="validateForm" novalidate>
@@ -83,7 +83,7 @@
         <h2>{{ 'validation_page.latest_signed_attachment' | translate }}</h2>
         <div>
           <span class="pia-icons pia-icon-file-pdf-blue"></span>
-          <a href="javascript:;" (click)="downloadAttachment(_attachmentsService.attachment_signed.id)">{{_attachmentsService.attachment_signed.name}}</a>
+          <a href="javascript:" (click)="downloadAttachment(_attachmentsService.attachment_signed.id)">{{_attachmentsService.attachment_signed.name}}</a>
           <button *ngIf="_piaService.pia.status !== 4" type="button" class="btn" (click)="removeAttachment(_attachmentsService.attachment_signed.id)" title="{{ 'validation_page.remove_attachment' | translate }}"><span class="pia-icons pia-icon-close"></span></button>
         </div>
       </div>
@@ -93,7 +93,7 @@
         <h2>{{ 'validation_page.signed_attachments_history' | translate }}</h2>
         <div *ngFor="let signed_attachment of _attachmentsService.signedAttachments;let i=index">
           <span class="pia-icons pia-icon-file-pdf-blue"></span>
-          <a href="javascript:;" (click)="downloadAttachment(signed_attachment.id)" *ngIf="signed_attachment.file && signed_attachment.file.length > 0; else signedAttachmentName">{{signed_attachment.name}}</a>
+          <a href="javascript:" (click)="downloadAttachment(signed_attachment.id)" *ngIf="signed_attachment.file && signed_attachment.file.length > 0; else signedAttachmentName">{{signed_attachment.name}}</a>
           <ng-template #signedAttachmentName>
             <span><del>{{signed_attachment.name}}</del></span>
           </ng-template>

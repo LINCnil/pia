@@ -40,10 +40,10 @@ yarn-error.log
 /e2e/*.js
 /e2e/*.map
 
+# cypress
+/cypress/screenshots
+
 # System Files
 .DS_Store
 Thumbs.db
 
-# Docker files
-docker-compose.yml
-Dockerfile

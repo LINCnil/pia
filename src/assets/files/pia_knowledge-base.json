@@ -399,7 +399,7 @@
     "name": "knowledge_base.slugs.PIA_DEF_CONS.name",
     "description": "knowledge_base.slugs.PIA_DEF_CONS.description"
   },
-    {
+  {
     "slug": "PIA_DEF_ACC",
     "filters": "",
     "category": "knowledge_base.category.definition",
@@ -441,7 +441,7 @@
     "name": "knowledge_base.slugs.PIA_DEF_OPP.name",
     "description": "knowledge_base.slugs.PIA_DEF_OPP.description"
   },
-    {
+  {
     "slug": "PIA_DEF_CHIF",
     "filters": "measure.definition",
     "category": "knowledge_base.category.definition",
@@ -525,7 +525,7 @@
     "name": "knowledge_base.slugs.PIA_DEF_SRC.name",
     "description": "knowledge_base.slugs.PIA_DEF_SRC.description"
   },
-    {
+  {
     "slug": "PIA_DEF_MEN",
     "filters": "",
     "category": "knowledge_base.category.definition",
@@ -595,7 +595,7 @@
     "name": "knowledge_base.slugs.PIA_VAL_ACT.name",
     "description": "knowledge_base.slugs.PIA_VAL_ACT.description"
   },
-    {
+  {
     "slug": "PIA_DEF_ENJ",
     "filters": "",
     "category": "knowledge_base.category.definition",
@@ -665,7 +665,7 @@
     "name": "knowledge_base.slugs.PIA_EX_DCPR.name",
     "description": "knowledge_base.slugs.PIA_EX_DCPR.description"
   },
-    {
+  {
     "slug": "PIA_EX_HUMI",
     "filters": "",
     "category": "knowledge_base.category.example",
