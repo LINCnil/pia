@@ -27,12 +27,12 @@ export class MeasuresComponent implements OnInit, OnDestroy {
 
   constructor(
     public _globalEvaluationService: GlobalEvaluationService,
+    public _structureService: StructureService,
     private el: ElementRef,
     private _modalsService: ModalsService,
     private _knowledgeBaseService: KnowledgeBaseService,
     private _ngZone: NgZone,
-    private _sidStatusService: SidStatusService,
-    private _structureService: StructureService) { }
+    private _sidStatusService: SidStatusService) { }
 
   ngOnInit() {
     this.measureForm = new FormGroup({

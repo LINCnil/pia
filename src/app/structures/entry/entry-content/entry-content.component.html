@@ -13,6 +13,7 @@
 
   <ng-container *ngIf="item.is_measure; else appQuestions">
     <button (click)="addMeasure()"
+            *ngIf="!_structureService.structure.is_example"
             class="btn btn-white btn-addMeasure" type="button">
       <span class="pia-icons pia-icon-add"></span>
       {{ 'measures.add' | translate }}
