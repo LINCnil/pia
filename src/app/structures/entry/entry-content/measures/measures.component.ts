@@ -80,6 +80,9 @@ export class MeasuresComponent implements OnInit, OnDestroy {
    * @memberof MeasuresComponent
    */
   measureTitleFocusIn() {
+    if (this._structureService.structure.is_example) {
+      return;
+    }
     this.editTitle = true;
     this.measureForm.controls['measureTitle'].enable();
 
@@ -120,6 +123,9 @@ export class MeasuresComponent implements OnInit, OnDestroy {
    * @memberof MeasuresComponent
    */
   measureContentFocusIn() {
+    if (this._structureService.structure.is_example) {
+      return;
+    }
     this.loadEditor();
   }
 

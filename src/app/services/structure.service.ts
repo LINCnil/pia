@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 
 import { ActivatedRoute } from '@angular/router';
+import { Http } from '@angular/http';
 
 import { Structure } from 'app/structures/structure.model';
 import { ModalsService } from 'app/modals/modals.service';
@@ -13,6 +14,7 @@ export class StructureService {
   structure: Structure = new Structure();
 
   constructor(private route: ActivatedRoute,
+              private _http: Http,
               private _modalsService: ModalsService) {
                 this.getStructure();
               }
@@ -25,8 +27,30 @@ export class StructureService {
   async getStructure() {
     return new Promise((resolve, reject) => {
       const id = parseInt(this.route.snapshot.params['structure_id'], 10);
-      this.structure.get(id).then(() => {
-        resolve();
+      if (id > 0) {
+        this.structure.get(id).then(() => {
+          resolve();
+        });
+      } else {
+        this.loadExample().then((se: Structure) => {
+          this.structure = se;
+          resolve();
+        });
+      }
+    });
+  }
+
+  async loadExample() {
+    return new Promise((resolve, reject) => {
+      this._http.get('./assets/files/2018-10-26-structure-example.json').map(res => res.json()).subscribe(dataStructure => {
+        const structureExample = new Structure();
+        structureExample.id = 0;
+        structureExample.name = dataStructure.structure.name;
+        structureExample.sector_name = dataStructure.structure.sector_name;
+        structureExample.created_at = dataStructure.structure.created_at;
+        structureExample.data = dataStructure.structure.data;
+        structureExample.is_example = true;
+        resolve(structureExample);
       });
     });
   }
@@ -100,12 +124,18 @@ export class StructureService {
   exportStructureData(id: number) {
     return new Promise((resolve, reject) => {
       const structure = new Structure();
-      structure.get(id).then(() => {
-        const data = {
-          structure: structure
-        }
-        resolve(data);
-      });
+      if (id > 0) {
+        structure.get(id).then(() => {
+          const data = {
+            structure: structure
+          }
+          resolve(data);
+        });
+      } else {
+        this._http.get('./assets/files/2018-10-26-structure-example.json').map(res => res.json()).subscribe(dataStructure => {
+          resolve(dataStructure);
+        });
+      }
     });
   }
 

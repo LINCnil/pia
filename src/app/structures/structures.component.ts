@@ -173,6 +173,11 @@ export class StructuresComponent implements OnInit, OnDestroy {
   async refreshContent() {
     const structure = new Structure();
     const data: any = await structure.getAll();
+
+    this._structureService.loadExample().then((structureExample: Structure) => {
+      data.push(structureExample);
+    });
+
     this._structureService.structures = data;
     this.sortOrder = localStorage.getItem('sortOrder');
     this.sortValue = localStorage.getItem('sortValue');
