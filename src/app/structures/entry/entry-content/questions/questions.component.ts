@@ -70,6 +70,9 @@ export class QuestionsComponent implements OnInit, OnDestroy {
    * @memberof QuestionsComponent
    */
   questionTitleFocusIn() {
+    if (this._structureService.structure.is_example) {
+      return;
+    }
     this.editTitle = true;
     this.questionForm.controls['title'].enable();
     const questionTitleTextarea = document.getElementById('pia-questionBlock-title-' + this.question.id);
@@ -107,6 +110,9 @@ export class QuestionsComponent implements OnInit, OnDestroy {
    * @memberof QuestionsComponent
    */
   questionContentFocusIn() {
+    if (this._structureService.structure.is_example) {
+      return;
+    }
     const questionTitleTextarea = document.getElementById('pia-questionBlock-title-' + this.question.id);
     const questionTitle = this.questionForm.controls['title'].value;
     if (questionTitleTextarea && !questionTitle) {

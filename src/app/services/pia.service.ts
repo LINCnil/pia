@@ -9,6 +9,7 @@ import { Answer } from 'app/entry/entry-content/questions/answer.model';
 import { Measure } from 'app/entry/entry-content/measures/measure.model';
 import { Comment } from 'app/entry/entry-content/comments/comment.model';
 import { Attachment } from 'app/entry/attachments/attachment.model';
+import { Structure } from 'app/structures/structure.model';
 
 import { AppDataService } from 'app/services/app-data.service';
 import { ModalsService } from 'app/modals/modals.service';
@@ -79,6 +80,129 @@ export class PiaService {
           pia.progress = Math.round((100 / numberElementsToValidate) * numberElementsValidated);
         // });
       });
+    });
+  }
+
+  /**
+   * Create a new PIA
+   * @memberof PiaService
+   */
+  async saveNewPia(piaForm: any) {
+    return new Promise((resolve, reject) => {
+      const pia = new Pia();
+      pia.name = piaForm.value.name;
+      pia.author_name = piaForm.value.author_name;
+      pia.evaluator_name = piaForm.value.evaluator_name;
+      pia.validator_name = piaForm.value.validator_name;
+      const structure_id = piaForm.value.structure;
+      if (structure_id && structure_id > 0) {
+        const structure = new Structure();
+        structure.get(structure_id).then(() => {
+          pia.structure_id = structure.id;
+          pia.structure_name = structure.name;
+          pia.structure_sector_name = structure.sector_name;
+          pia.structure_data = this.removeEmptyElements(structure.data);
+          pia.create().then((id) => {
+            this.structureCreateMeasures(pia, id).then(() => {
+              this.structureCreateAnswers(pia, id).then(() => resolve(id));
+            });
+          });
+        });
+      } else {
+        pia.create().then((id) => resolve(id));
+      }
+    });
+  }
+
+  removeEmptyElements(structure_data) {
+    structure_data.sections.forEach(section => {
+      if (section.items) {
+        section.items.forEach(item => {
+          if (item.is_measure) {
+            if (item.answers && item.answers.length > 0) {
+              let index = 0;
+              item.answers.forEach(answer => {
+                if (answer && answer.title.length <= 0) {
+                  item.answers.splice(index, 1);
+                }
+                index++;
+              });
+            }
+          } else if (item.questions) {
+            item.questions.forEach(question => {
+              if (question.answer && question.answer.length > 0 && question.answer.title && question.answer.title.length <= 0) {
+                const index = item.questions.findIndex(q => q.id === question.id);
+                item.questions.splice(index, 1);
+              }
+            });
+          }
+        });
+      }
+    });
+    return structure_data;
+  }
+
+  async structureCreateMeasures(pia: Pia, id: any) {
+    return new Promise((resolve, reject) => {
+      // Record the structures Measures
+      const structures_measures = pia.structure_data.sections.filter(s => s.id === 3)[0].items.filter(i => i.id === 1)[0].answers;
+      let i = 0;
+      if (structures_measures.length > 0) {
+        for (const m in structures_measures) {
+          if (structures_measures.hasOwnProperty(m) && structures_measures[m]) {
+            const measure = new Measure();
+            measure.pia_id = id;
+            measure.title = structures_measures[m].title;
+            measure.content = structures_measures[m].content;
+            measure.create().then(() => {
+              i++;
+              if (i === structures_measures.length) {
+                resolve();
+              }
+            });
+          }
+        }
+      } else {
+        resolve();
+      }
+    });
+  }
+
+  async structureCreateAnswers(pia: Pia, id: any) {
+    // Record the structures Answers
+    return new Promise((resolve, reject) => {
+      const questions = [];
+      pia.structure_data.sections.forEach(section => {
+        if (section.items) {
+          section.items.forEach(item => {
+            if (item.questions) {
+              item.questions.forEach(question => {
+                if (question.answer && question.answer.length > 0) {
+                  questions.push(question);
+                }
+              });
+            }
+          });
+        }
+      });
+
+      if (questions.length > 0) {
+        let i = 0;
+        questions.forEach(question => {
+          const answer = new Answer();
+          answer.pia_id = id;
+          answer.reference_to = question.id;
+          answer.data = { text: question.answer, gauge: null, list: null };
+          answer.create().then(() => {
+            i++;
+            if (i === questions.length) {
+              resolve();
+            }
+          });
+        });
+      } else {
+        resolve();
+      }
     });
   }
 

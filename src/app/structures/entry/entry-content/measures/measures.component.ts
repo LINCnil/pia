@@ -27,12 +27,12 @@ export class MeasuresComponent implements OnInit, OnDestroy {
 
   constructor(
     public _globalEvaluationService: GlobalEvaluationService,
+    public _structureService: StructureService,
     private el: ElementRef,
     private _modalsService: ModalsService,
     private _knowledgeBaseService: KnowledgeBaseService,
     private _ngZone: NgZone,
-    private _sidStatusService: SidStatusService,
-    private _structureService: StructureService) { }
+    private _sidStatusService: SidStatusService) { }
 
   ngOnInit() {
     this.measureForm = new FormGroup({
@@ -80,6 +80,9 @@ export class MeasuresComponent implements OnInit, OnDestroy {
    * @memberof MeasuresComponent
    */
   measureTitleFocusIn() {
+    if (this._structureService.structure.is_example) {
+      return;
+    }
     this.editTitle = true;
     this.measureForm.controls['measureTitle'].enable();
 
@@ -120,6 +123,9 @@ export class MeasuresComponent implements OnInit, OnDestroy {
    * @memberof MeasuresComponent
    */
   measureContentFocusIn() {
+    if (this._structureService.structure.is_example) {
+      return;
+    }
     this.loadEditor();
   }
 
