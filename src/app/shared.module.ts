@@ -46,6 +46,7 @@ import localeDA from '@angular/common/locales/da'
 import localeEL from '@angular/common/locales/el'
 import localeEN from '@angular/common/locales/en'
 import localeES from '@angular/common/locales/es'
+import localeES from '@angular/common/locales/et'
 import localeFI from '@angular/common/locales/fi'
 import localeFR from '@angular/common/locales/fr'
 import localeHR from '@angular/common/locales/hr'
@@ -64,6 +65,7 @@ registerLocaleData(localeDA)
 registerLocaleData(localeEL)
 registerLocaleData(localeEN)
 registerLocaleData(localeES)
+registerLocaleData(localeET)
 registerLocaleData(localeFI)
 registerLocaleData(localeFR)
 registerLocaleData(localeHR)
