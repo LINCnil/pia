@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-
 import { ActivatedRoute } from '@angular/router';
 import { Http } from '@angular/http';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 import { Structure } from 'app/structures/structure.model';
 import { Pia } from 'app/entry/pia.model';
@@ -12,7 +12,7 @@ import { LanguagesService } from 'app/services/languages.service';
 
 @Injectable()
 export class StructureService {
-
+  public behaviorSubject = new BehaviorSubject<boolean>(null);
   structures = [];
   structure: Structure = new Structure();
 
@@ -38,6 +38,7 @@ export class StructureService {
       } else {
         this.loadExample().then((se: Structure) => {
           this.structure = se;
+          this.behaviorSubject.next(true);
           resolve();
         });
       }
