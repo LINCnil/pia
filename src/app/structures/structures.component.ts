@@ -3,6 +3,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
 
+import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 import { StructureService } from 'app/services/structure.service';
 import { Structure } from './structure.model';
 import { ModalsService } from 'app/modals/modals.service';
@@ -25,13 +26,15 @@ export class StructuresComponent implements OnInit, OnDestroy {
   viewStyle: { view: string }
   view: 'structure';
   paramsSubscribe: Subscription;
+  structExampleSubscribe: Subscription;
 
   constructor(private router: Router,
               private el: ElementRef,
               private route: ActivatedRoute,
               public _modalsService: ModalsService,
               private _appDataService: AppDataService,
-              public _structureService: StructureService) { }
+              public _structureService: StructureService,
+              private _translateService: TranslateService) { }
 
   ngOnInit() {
     this._appDataService.dataNav.sections = null;
@@ -64,10 +67,15 @@ export class StructuresComponent implements OnInit, OnDestroy {
     this.importStructureForm = new FormGroup({
       import_file: new FormControl('', [])
     });
+
+    this.structExampleSubscribe = this._translateService.onLangChange.subscribe((event: LangChangeEvent) => {
+      this.refreshContent();
+    });
   }
 
   ngOnDestroy() {
     this.paramsSubscribe.unsubscribe();
+    this.structExampleSubscribe.unsubscribe();
   }
 
   /**
