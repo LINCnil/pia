@@ -4,8 +4,11 @@ import { ActivatedRoute } from '@angular/router';
 import { Http } from '@angular/http';
 
 import { Structure } from 'app/structures/structure.model';
-import { ModalsService } from 'app/modals/modals.service';
 import { Pia } from 'app/entry/pia.model';
+
+import { ModalsService } from 'app/modals/modals.service';
+import { LanguagesService } from 'app/services/languages.service';
+
 
 @Injectable()
 export class StructureService {
@@ -15,7 +18,8 @@ export class StructureService {
 
   constructor(private route: ActivatedRoute,
               private _http: Http,
-              private _modalsService: ModalsService) {
+              private _modalsService: ModalsService,
+              private _languagesService: LanguagesService) {
                 this.getStructure();
               }
 
@@ -42,7 +46,8 @@ export class StructureService {
 
   async loadExample() {
     return new Promise((resolve, reject) => {
-      this._http.get('./assets/files/2018-10-26-structure-example.json').map(res => res.json()).subscribe(dataStructure => {
+      const exampleStructLanguage = this._languagesService.selectedLanguage === 'fr' ? 'fr' : 'en';
+      this._http.get('./assets/files/2018-11-21-structure-example-' + exampleStructLanguage + '.json').map(res => res.json()).subscribe(dataStructure => {
         const structureExample = new Structure();
         structureExample.id = 0;
         structureExample.name = dataStructure.structure.name;
@@ -132,7 +137,8 @@ export class StructureService {
           resolve(data);
         });
       } else {
-        this._http.get('./assets/files/2018-10-26-structure-example.json').map(res => res.json()).subscribe(dataStructure => {
+        const exampleStructLanguage = this._languagesService.selectedLanguage === 'fr' ? 'fr' : 'en';
+        this._http.get('./assets/files/2018-11-21-structure-example-' + exampleStructLanguage + '.json').map(res => res.json()).subscribe(dataStructure => {
           resolve(dataStructure);
         });
       }
