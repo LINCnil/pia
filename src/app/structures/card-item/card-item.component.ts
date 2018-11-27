@@ -39,6 +39,9 @@ export class CardItemComponent implements OnInit {
    * @memberof CardItemComponent
    */
   structureNameFocusIn() {
+    if (this._structureService.structure.is_example) {
+      return;
+    }
     this.structureForm.controls['name'].enable();
     this.structureName.nativeElement.focus();
   }
@@ -66,6 +69,9 @@ export class CardItemComponent implements OnInit {
    * @memberof CardItemComponent
    */
   structureSectorNameFocusIn() {
+    if (this._structureService.structure.is_example) {
+      return;
+    }
     this.structureSectorName.nativeElement.focus();
   }
 
