@@ -9,7 +9,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "prod": "ng build --prod --build-optimizer",
+    "prod": "ng build --prod --build-optimizer --sourcemaps",
     "clean": "rimraf ./dist/ ./node_modules",
     "format:write": "prettier {src,e2e}/**/*.{ts,json,md,scss} --write",
     "format:test": "prettier {src,e2e}/**/*.{ts,json,md,scss} --list-different",
