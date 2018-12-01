@@ -11,7 +11,7 @@ describe('PIA Home page', () => {
     page.navigateTo()
     page
       .getButtonText()
-      .then(msg => expect(msg).toEqual("J'accepte"))
+      .then(msg => expect(msg).toEqual('Commencer'))
       .then(done, done.fail)
   })
 })
