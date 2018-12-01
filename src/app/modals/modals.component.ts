@@ -78,13 +78,9 @@ export class ModalsComponent implements OnInit {
    * @memberof ModalsComponent
    */
   onSubmit() {
-    const pia = new Pia();
-    pia.name = this.piaForm.value.name;
-    pia.author_name = this.piaForm.value.author_name;
-    pia.evaluator_name = this.piaForm.value.evaluator_name;
-    pia.validator_name = this.piaForm.value.validator_name;
-    const p = pia.create();
-    p.then((id) => this.router.navigate(['entry', id, 'section', 1, 'item', 1]));
+    this._piaService.saveNewPia(this.piaForm).then((id: number) => {
+      this.router.navigate(['entry', id, 'section', 1, 'item', 1]);
+    });
   }
 
   /**
@@ -98,7 +94,7 @@ export class ModalsComponent implements OnInit {
     structure.sector_name = this.structureForm.value.sector_name;
     structure.data = this._piaService.data;
     const p = structure.create();
-    p.then((id) => this.router.navigate(['entry', id, 'section', 1, 'item', 1]));
+    p.then((id) => this.router.navigate(['structures', 'entry', id, 'section', 1, 'item', 1]));
   }
 
   /**

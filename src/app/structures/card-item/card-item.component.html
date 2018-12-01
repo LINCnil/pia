@@ -15,7 +15,7 @@
                   <i class="fa fa-files-o" aria-hidden="true"></i>
                   <a href="javascript:;" (click)="duplicate(structure.id)">{{ 'homepage.cards.item.tools.duplicate' | translate }}</a>
                 </li>
-                <li>
+                <li *ngIf="!structure.is_example">
                   <i class="fa fa-trash-o" aria-hidden="true"></i>
                   <a href="javascript:;" (click)="remove(structure.id)">{{ 'homepage.cards.item.tools.remove' | translate }}</a>
                 </li>

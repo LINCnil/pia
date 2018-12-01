@@ -1,10 +1,12 @@
 import { ApplicationDb } from '../application.db';
+import { resolve } from 'path';
 
 export class Structure extends ApplicationDb {
   public id: number;
   public name: string;
   public sector_name: string;
   public data: { sections: any };
+  public is_example = false;
 
   constructor() {
     super(201808011000, 'structure');
@@ -99,6 +101,9 @@ export class Structure extends ApplicationDb {
    * @memberof Structure
    */
   async update() {
+    if (this.is_example) {
+      return;
+    }
     return new Promise((resolve, reject) => {
       this.find(this.id).then((entry: any) => {
         entry.name = this.name;

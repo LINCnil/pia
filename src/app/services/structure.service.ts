@@ -1,19 +1,25 @@
 import { Injectable } from '@angular/core';
-
 import { ActivatedRoute } from '@angular/router';
+import { Http } from '@angular/http';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 import { Structure } from 'app/structures/structure.model';
-import { ModalsService } from 'app/modals/modals.service';
 import { Pia } from 'app/entry/pia.model';
+
+import { ModalsService } from 'app/modals/modals.service';
+import { LanguagesService } from 'app/services/languages.service';
+
 
 @Injectable()
 export class StructureService {
-
+  public behaviorSubject = new BehaviorSubject<boolean>(null);
   structures = [];
   structure: Structure = new Structure();
 
   constructor(private route: ActivatedRoute,
-              private _modalsService: ModalsService) {
+              private _http: Http,
+              private _modalsService: ModalsService,
+              private _languagesService: LanguagesService) {
                 this.getStructure();
               }
 
@@ -25,8 +31,32 @@ export class StructureService {
   async getStructure() {
     return new Promise((resolve, reject) => {
       const id = parseInt(this.route.snapshot.params['structure_id'], 10);
-      this.structure.get(id).then(() => {
-        resolve();
+      if (id > 0) {
+        this.structure.get(id).then(() => {
+          resolve();
+        });
+      } else {
+        this.loadExample().then((se: Structure) => {
+          this.structure = se;
+          this.behaviorSubject.next(true);
+          resolve();
+        });
+      }
+    });
+  }
+
+  async loadExample() {
+    return new Promise((resolve, reject) => {
+      const exampleStructLanguage = this._languagesService.selectedLanguage === 'fr' ? 'fr' : 'en';
+      this._http.get('./assets/files/2018-11-21-structure-example-' + exampleStructLanguage + '.json').map(res => res.json()).subscribe(dataStructure => {
+        const structureExample = new Structure();
+        structureExample.id = 0;
+        structureExample.name = dataStructure.structure.name;
+        structureExample.sector_name = dataStructure.structure.sector_name;
+        structureExample.created_at = dataStructure.structure.created_at;
+        structureExample.data = dataStructure.structure.data;
+        structureExample.is_example = true;
+        resolve(structureExample);
       });
     });
   }
@@ -100,12 +130,19 @@ export class StructureService {
   exportStructureData(id: number) {
     return new Promise((resolve, reject) => {
       const structure = new Structure();
-      structure.get(id).then(() => {
-        const data = {
-          structure: structure
-        }
-        resolve(data);
-      });
+      if (id > 0) {
+        structure.get(id).then(() => {
+          const data = {
+            structure: structure
+          }
+          resolve(data);
+        });
+      } else {
+        const exampleStructLanguage = this._languagesService.selectedLanguage === 'fr' ? 'fr' : 'en';
+        this._http.get('./assets/files/2018-11-21-structure-example-' + exampleStructLanguage + '.json').map(res => res.json()).subscribe(dataStructure => {
+          resolve(dataStructure);
+        });
+      }
     });
   }
 

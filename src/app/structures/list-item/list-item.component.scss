@@ -25,11 +25,16 @@
   }
   &-actions {
     display: flex;
-    justify-content: space-around;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    align-content: stretch;
     a {
       color: $pia-green;
       font-size: 2rem;
-      margin: 0 2px;
+      margin: 0 10px 0 0;
+      text-decoration: none;
     }
   }
   &-attachment {
