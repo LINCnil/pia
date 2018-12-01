@@ -27,7 +27,9 @@
           text-transform: uppercase;
           font-weight: 500;
           font-size: 1.38rem;
-          &:focus, &:hover, &:active {
+          &:focus,
+          &:hover,
+          &:active {
             background-color: #fff;
             color: $pia-blue;
           }
@@ -88,12 +90,13 @@
           .cnilTranslations,
           .dpaTranslations,
           .communityTranslations {
-            border-top: 1px solid #A7A7A7;
+            border-top: 1px solid #a7a7a7;
             padding-bottom: 3px;
           }
         }
         &:hover {
-          > a, > ul {
+          > a,
+          > ul {
             background-color: #fff;
           }
           .fa-globe {
@@ -106,7 +109,9 @@
               background-color: #fff;
               a {
                 display: block;
-                &:focus, &:hover, &:active {
+                &:focus,
+                &:hover,
+                &:active {
                   color: #fff;
                   background-color: $pia-blue;
                 }
@@ -117,7 +122,9 @@
         > a {
           cursor: context-menu;
           padding: 4px 14px !important;
-          &:focus, &:hover, &:active {
+          &:focus,
+          &:hover,
+          &:active {
             & + ul {
               display: block;
               background-color: #fff;
@@ -145,7 +152,9 @@
             margin-left: 8px;
             float: right;
           }
-          &:focus, &:hover, &:active {
+          &:focus,
+          &:hover,
+          &:active {
             color: #fff !important;
             background-color: $pia-green;
             & + form {
@@ -187,7 +196,8 @@
             margin: 10px 0;
             border-bottom: 1px solid $pia-gray;
             padding-bottom: 10px;
-            input, label {
+            input,
+            label {
               display: inline-block;
               vertical-align: top;
             }
@@ -225,7 +235,9 @@
             padding-left: 8px !important;
           }
         }
-        &:focus, &:hover, &:active {
+        &:focus,
+        &:hover,
+        &:active {
           > a {
             color: #fff !important;
             background-color: $pia-green;

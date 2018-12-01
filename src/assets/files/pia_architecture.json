@@ -14,10 +14,7 @@
             {
               "id": 111,
               "title": "sections.1.items.1.questions.1.title",
-              "link_knowledge_base": [
-                "PIA_LGL_DESC",
-                "PIA_DEF_FIN"
-              ],
+              "link_knowledge_base": ["PIA_LGL_DESC", "PIA_DEF_FIN"],
               "placeholder": "sections.1.items.1.questions.1.placeholder",
               "answer_type": "text",
               "answer": "",
@@ -39,9 +36,7 @@
             {
               "id": 113,
               "title": "sections.1.items.1.questions.3.title",
-              "link_knowledge_base": [
-                "PIA_LGL_DESC"
-              ],
+              "link_knowledge_base": ["PIA_LGL_DESC"],
               "placeholder": "sections.1.items.1.questions.3.placeholder",
               "answer_type": "text",
               "answer": "",
@@ -69,28 +64,24 @@
               "answer": "",
               "active": true
             },
-      			{
-      			  "id": 122,
-      			  "title": "sections.1.items.2.questions.2.title",
-      			  "link_knowledge_base": [
-                "PIA_LGL_LCYC"
-              ],
-      			  "placeholder": "sections.1.items.2.questions.2.placeholder",
+            {
+              "id": 122,
+              "title": "sections.1.items.2.questions.2.title",
+              "link_knowledge_base": ["PIA_LGL_LCYC"],
+              "placeholder": "sections.1.items.2.questions.2.placeholder",
               "answer_type": "text",
               "answer": "",
-      			  "active": true
-      			},
-      			{
-      			  "id": 123,
-      			  "title": "sections.1.items.2.questions.3.title",
-      			  "link_knowledge_base": [
-                "PIA_LGL_SUPT"
-              ],
-      			  "placeholder": "sections.1.items.2.questions.3.placeholder",
+              "active": true
+            },
+            {
+              "id": 123,
+              "title": "sections.1.items.2.questions.3.title",
+              "link_knowledge_base": ["PIA_LGL_SUPT"],
+              "placeholder": "sections.1.items.2.questions.3.placeholder",
               "answer_type": "text",
               "answer": "",
-      			  "active": true
-      			}
+              "active": true
+            }
           ]
         }
       ]
@@ -110,10 +101,7 @@
               "id": 211,
               "title": "sections.2.items.1.questions.1.title",
               "short_title": "sections.2.items.1.questions.1.short_title",
-              "link_knowledge_base": [
-                "PIA_LGL_FIN",
-                "PIA_DEF_FIN"
-              ],
+              "link_knowledge_base": ["PIA_LGL_FIN", "PIA_DEF_FIN"],
               "placeholder": "sections.2.items.1.questions.1.placeholder",
               "answer_type": "text",
               "answer": "",
@@ -123,9 +111,7 @@
               "id": 212,
               "title": "sections.2.items.1.questions.2.title",
               "short_title": "sections.2.items.1.questions.2.short_title",
-              "link_knowledge_base": [
-                "PIA_LGL_FOND"
-              ],
+              "link_knowledge_base": ["PIA_LGL_FOND"],
               "placeholder": "sections.2.items.1.questions.2.placeholder",
               "answer_type": "text",
               "answer": "",
@@ -149,9 +135,7 @@
               "id": 214,
               "title": "sections.2.items.1.questions.4.title",
               "short_title": "sections.2.items.1.questions.4.short_title",
-              "link_knowledge_base": [
-                "PIA_DEF_EXA"
-              ],
+              "link_knowledge_base": ["PIA_DEF_EXA"],
               "placeholder": "sections.2.items.1.questions.4.placeholder",
               "answer_type": "text",
               "answer": "",
@@ -161,9 +145,7 @@
               "id": 215,
               "title": "sections.2.items.1.questions.5.title",
               "short_title": "sections.2.items.1.questions.5.short_title",
-              "link_knowledge_base": [
-                "PIA_LGL_DUR"
-              ],
+              "link_knowledge_base": ["PIA_LGL_DUR"],
               "placeholder": "sections.2.items.1.questions.5.placeholder",
               "answer_type": "text",
               "answer": "",
@@ -181,9 +163,7 @@
               "id": 221,
               "title": "sections.2.items.2.questions.1.title",
               "short_title": "sections.2.items.2.questions.1.short_title",
-              "link_knowledge_base": [
-                "PIA_LGL_INFO"
-              ],
+              "link_knowledge_base": ["PIA_LGL_INFO"],
               "placeholder": "sections.2.items.2.questions.1.placeholder",
               "answer_type": "text",
               "answer": "",
@@ -193,10 +173,7 @@
               "id": 222,
               "title": "sections.2.items.2.questions.2.title",
               "short_title": "sections.2.items.2.questions.2.short_title",
-              "link_knowledge_base": [
-                "PIA_LGL_CONS",
-                "PIA_DEF_CONS"
-              ],
+              "link_knowledge_base": ["PIA_LGL_CONS", "PIA_DEF_CONS"],
               "placeholder": "sections.2.items.2.questions.2.placeholder",
               "answer_type": "text",
               "answer": "",
@@ -250,10 +227,7 @@
               "id": 226,
               "title": "sections.2.items.2.questions.6.title",
               "short_title": "sections.2.items.2.questions.6.short_title",
-              "link_knowledge_base": [
-                "PIA_LGL_ST",
-                "PIA_DEF_ST"
-              ],
+              "link_knowledge_base": ["PIA_LGL_ST", "PIA_DEF_ST"],
               "placeholder": "sections.2.items.2.questions.6.placeholder",
               "answer_type": "text",
               "answer": "",
@@ -263,9 +237,7 @@
               "id": 227,
               "title": "sections.2.items.2.questions.7.title",
               "short_title": "sections.2.items.2.questions.7.short_title",
-              "link_knowledge_base": [
-                "PIA_LGL_TRAN"
-              ],
+              "link_knowledge_base": ["PIA_LGL_TRAN"],
               "placeholder": "sections.2.items.2.questions.7.placeholder",
               "answer_type": "text",
               "answer": "",
@@ -300,10 +272,7 @@
             {
               "id": 321,
               "title": "sections.3.items.2.questions.1.title",
-              "link_knowledge_base": [
-                "PIA_DEF_ACCI",
-                "PIA_DEF_IMP"
-              ],
+              "link_knowledge_base": ["PIA_DEF_ACCI", "PIA_DEF_IMP"],
               "placeholder": "sections.3.items.2.questions.1.placeholder",
               "answer_type": "list",
               "active": true
@@ -340,10 +309,7 @@
               "id": 324,
               "title": "sections.3.items.2.questions.4.title",
               "is_measure": true,
-              "link_knowledge_base": [
-                "PIA_DEF_ACCI",
-                "PIA_DEF_MES"
-              ],
+              "link_knowledge_base": ["PIA_DEF_ACCI", "PIA_DEF_MES"],
               "placeholder": "sections.3.items.2.questions.4.placeholder",
               "answer_type": "list",
               "active": true
@@ -393,10 +359,7 @@
             {
               "id": 331,
               "title": "sections.3.items.3.questions.1.title",
-              "link_knowledge_base": [
-                "PIA_DEF_MODI",
-                "PIA_DEF_IMP"
-              ],
+              "link_knowledge_base": ["PIA_DEF_MODI", "PIA_DEF_IMP"],
               "placeholder": "sections.3.items.3.questions.1.placeholder",
               "answer_type": "list",
               "active": true
@@ -433,10 +396,7 @@
               "id": 334,
               "title": "sections.3.items.3.questions.4.title",
               "is_measure": true,
-              "link_knowledge_base": [
-                "PIA_DEF_MODI",
-                "PIA_DEF_MES"
-               ],
+              "link_knowledge_base": ["PIA_DEF_MODI", "PIA_DEF_MES"],
               "placeholder": "sections.3.items.3.questions.4.placeholder",
               "answer_type": "list",
               "active": true
@@ -486,10 +446,7 @@
             {
               "id": 341,
               "title": "sections.3.items.4.questions.1.title",
-              "link_knowledge_base": [
-                "PIA_DEF_IND",
-                "PIA_DEF_IMP"
-              ],
+              "link_knowledge_base": ["PIA_DEF_IND", "PIA_DEF_IMP"],
               "placeholder": "sections.3.items.4.questions.1.placeholder",
               "answer_type": "list",
               "active": true
@@ -526,10 +483,7 @@
               "id": 344,
               "title": "sections.3.items.4.questions.4.title",
               "is_measure": true,
-              "link_knowledge_base": [
-                "PIA_DEF_IND",
-                "PIA_DEF_MES"
-              ],
+              "link_knowledge_base": ["PIA_DEF_IND", "PIA_DEF_MES"],
               "placeholder": "sections.3.items.4.questions.4.placeholder",
               "answer_type": "list",
               "active": true
@@ -587,29 +541,21 @@
           "id": 1,
           "title": "sections.4.items.1.title",
           "evaluation_mode": "",
-          "link_knowledge_base": [
-            "PIA_VAL_CART"
-          ],
+          "link_knowledge_base": ["PIA_VAL_CART"],
           "short_help": "sections.4.items.1.short_help"
         },
         {
           "id": 2,
           "title": "sections.4.items.2.title",
           "evaluation_mode": "",
-          "link_knowledge_base": [
-            "PIA_VAL_ACT"
-          ],
+          "link_knowledge_base": ["PIA_VAL_ACT"],
           "short_help": "sections.4.items.2.short_help"
         },
         {
           "id": 3,
           "title": "sections.4.items.3.title",
           "evaluation_mode": "",
-          "link_knowledge_base": [
-            "PIA_VAL_DPO",
-            "PIA_VAL_CONC",
-            "PIA_VAL_RT"
-          ],
+          "link_knowledge_base": ["PIA_VAL_DPO", "PIA_VAL_CONC", "PIA_VAL_RT"],
           "short_help": "sections.4.items.3.short_help"
         },
         {

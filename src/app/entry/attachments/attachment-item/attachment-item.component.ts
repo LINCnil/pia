@@ -1,23 +1,25 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core'
 
-import { Attachment } from '../attachment.model';
+import { Attachment } from '../attachment.model'
 
-import { ModalsService } from 'app/modals/modals.service';
-import { AttachmentsService } from 'app/entry/attachments/attachments.service';
+import { ModalsService } from 'app/modals/modals.service'
+import { AttachmentsService } from 'app/entry/attachments/attachments.service'
 
 @Component({
   selector: 'app-attachment-item',
   templateUrl: './attachment-item.component.html',
-  styleUrls: ['./attachment-item.component.scss']
+  styleUrls: ['./attachment-item.component.scss'],
 })
 export class AttachmentItemComponent implements OnInit {
+  @Input() attachment: any
+  @Input() pia: any
 
-  @Input() attachment: any;
-  @Input() pia: any;
+  constructor(
+    private _modalsService: ModalsService,
+    private _attachmentsService: AttachmentsService
+  ) {}
 
-  constructor(private _modalsService: ModalsService, private _attachmentsService: AttachmentsService) { }
-
-  ngOnInit() { }
+  ngOnInit() {}
 
   /**
    * Deletes an attachment with a given id.
@@ -25,8 +27,8 @@ export class AttachmentItemComponent implements OnInit {
    * @memberof AttachmentItemComponent
    */
   removeAttachment(id: string) {
-    localStorage.setItem('attachment-id', id);
-    this._modalsService.openModal('modal-remove-attachment');
+    localStorage.setItem('attachment-id', id)
+    this._modalsService.openModal('modal-remove-attachment')
   }
 
   /**
@@ -35,7 +37,7 @@ export class AttachmentItemComponent implements OnInit {
    * @memberof AttachmentItemComponent
    */
   downloadAttachment(id: number) {
-    this._attachmentsService.downloadAttachment(id);
+    this._attachmentsService.downloadAttachment(id)
   }
 
   /**
@@ -44,7 +46,6 @@ export class AttachmentItemComponent implements OnInit {
    * @memberof AttachmentItemComponent
    */
   showAddAttachmentButton() {
-    return (this.pia.status !== 2 && this.pia.status !== 3);
+    return this.pia.status !== 2 && this.pia.status !== 3
   }
-
 }

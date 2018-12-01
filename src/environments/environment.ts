@@ -6,5 +6,5 @@
 export const environment = {
   name: 'development',
   production: false,
-  version: 'de DEV'
-};
+  version: 'de DEV',
+}
