@@ -142,11 +142,11 @@
 					"title": "Probleemid mõjuhinnangu importimisel"
 				},
 				"qa4": {
-					"content": "This is only a display bug and it has no effect on the text you enter in a field. See on ainult kuvamise viga ja ei mõjuta teksti sisestamist. Viga on parandamisel.",
+					"content": "See on ainult kuvamise viga ja ei mõjuta teksti sisestamist. Viga on parandamisel.",
 					"title": "Kopeerimisel / kleepimisel tõstetakse tekst esile."
 				},
 				"qa5": {
-					"content": "Sektsiooni hindamisel pevad olema kõik lahtrid täidetud. Palun kontrollige kas on. Riskide toimetamisel peab olema vähemalt tehniline või organistasiooniline mõõde sisestatud, et seda saaks hinnata.",
+					"content": "Sektsiooni hindamisel pevad olema kõik lahtrid täidetud. Palun kontrollige kas on. Riskide toimetamisel peab olema vähemalt üks tehniline või organistasiooniline mõõde sisestatud, et seda saaks hinnata.",
 					"title": "Ma ei saa sektsiooni hinnata "
 				},
 				"qa6": {
@@ -157,11 +157,11 @@
 					"content": " Hetkel navigeerimismenüü ikoone ei värskendata peale mõjuhinnagu tagasilükakmist. Tuleb kontrollida iga sektsiooni ja muuta teavet ja/või hinnangu, mis põhjustasid mõjuhinnangu tagasilükamise. Peale seda on uuesti võimalik uuesti otustada mõjuhinnangu kinniatamine.",
 					"title": "Ei kinnitanud mõjuhinnagut. Kuidas seda muuta?"
 				},
-				"title": "Known Issues"
+				"title": "Teadaolevad probleemid"
 			},
-			"footer": "TO BE TRANSLATED - Ettepanekud ja probleemi kirjeldused palun sisetage siia <a target=\"_blank\" href=\"https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia\">https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia</a>."
+			"footer": "Ettepanekud ja probleemi kirjeldused palun sisetage siia <a target=\"_blank\" href=\"https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia\">https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia</a>."
 		},
-		"title": "Help"
+		"title": "Abi"
 	},
 	"homepage": {
 		"cards": {
