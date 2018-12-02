@@ -2,8 +2,12 @@
 
 @import '~normalize.css/normalize.css';
 
-$fa-font-path: '../node_modules/font-awesome/fonts';
-@import '~font-awesome/scss/font-awesome.scss';
+// Font Awesonme 5.5.0
+$fa-font-path: '../node_modules/@fortawesome/fontawesome-free/webfonts';
+@import '../node_modules/@fortawesome/fontawesome-free/scss/fontawesome.scss';
+@import '../node_modules/@fortawesome/fontawesome-free/scss/solid.scss';
+@import '../node_modules/@fortawesome/fontawesome-free/scss/regular.scss';
+@import '../node_modules/@fortawesome/fontawesome-free/scss/brands.scss';
 
 // Foundation styles
 @import '~foundation-sites/scss/foundation.scss';

@@ -1,9 +1,9 @@
-import { Component, OnInit, Input, Output } from '@angular/core'
-import { HttpClient } from '@angular/common/http'
+import { Component, OnInit, Input, Output } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
-import { AppDataService } from 'app/services/app-data.service'
-import { SidStatusService } from 'app/services/sid-status.service'
-import { StructureService } from 'app/services/structure.service'
+import { AppDataService } from 'app/services/app-data.service';
+import { SidStatusService } from 'app/services/sid-status.service';
+import { StructureService } from 'app/services/structure.service';
 
 @Component({
   selector: 'app-sections',
@@ -12,20 +12,22 @@ import { StructureService } from 'app/services/structure.service'
   providers: [StructureService],
 })
 export class SectionsComponent implements OnInit {
-  @Input() section: {
-    id: number
-    title: string
-    short_help: string
-    items: any
-  }
-  @Input() item: {
-    id: number
-    title: string
-    evaluation_mode: string
-    short_help: string
-    questions: any
-  }
-  data: { sections: any }
+  @Input()
+  section: {
+    id: number;
+    title: string;
+    short_help: string;
+    items: any;
+  };
+  @Input()
+  item: {
+    id: number;
+    title: string;
+    evaluation_mode: string;
+    short_help: string;
+    questions: any;
+  };
+  data: { sections: any };
 
   constructor(
     public _structureService: StructureService,
@@ -34,7 +36,7 @@ export class SectionsComponent implements OnInit {
   ) {}
 
   async ngOnInit() {
-    await this._structureService.getStructure()
-    this.data = this._structureService.structure.data
+    await this._structureService.getStructure();
+    this.data = this._structureService.structure.data;
   }
 }

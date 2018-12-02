@@ -5,12 +5,12 @@ import {
   Input,
   Output,
   EventEmitter,
-} from '@angular/core'
-import { Router, ActivatedRoute } from '@angular/router'
+} from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 
-import { KnowledgeBaseService } from '../knowledge-base.service'
-import { TranslateService } from '@ngx-translate/core'
-import { GlobalEvaluationService } from 'app/services/global-evaluation.service'
+import { KnowledgeBaseService } from '../knowledge-base.service';
+import { TranslateService } from '@ngx-translate/core';
+import { GlobalEvaluationService } from 'app/services/global-evaluation.service';
 
 @Component({
   selector: 'app-knowledge-base-item',
@@ -18,10 +18,13 @@ import { GlobalEvaluationService } from 'app/services/global-evaluation.service'
   styleUrls: ['./knowledge-base-item.component.scss'],
 })
 export class KnowledgeBaseItemComponent implements OnInit {
-  @Input() item: any
-  @Input() itemKb: any
-  @Output() newMeasureEvent: EventEmitter<any> = new EventEmitter<any>()
-  titleKb: string
+  @Input()
+  item: any;
+  @Input()
+  itemKb: any;
+  @Output()
+  newMeasureEvent: EventEmitter<any> = new EventEmitter<any>();
+  titleKb: string;
 
   constructor(
     private el: ElementRef,
@@ -31,13 +34,13 @@ export class KnowledgeBaseItemComponent implements OnInit {
     public _globalEvaluationService: GlobalEvaluationService,
     private activatedRoute: ActivatedRoute
   ) {
-    this.router = router
+    this.router = router;
   }
 
   ngOnInit() {
     this._translateService.get(this.itemKb.name).subscribe(value => {
-      this.titleKb = value
-    })
+      this.titleKb = value;
+    });
   }
 
   /**
@@ -47,18 +50,18 @@ export class KnowledgeBaseItemComponent implements OnInit {
   displayItem() {
     const accordeon = this.el.nativeElement.querySelector(
       '.pia-knowledgeBaseBlock-item-accordion button span'
-    )
+    );
     const displayer = this.el.nativeElement.querySelector(
       '.pia-knowledgeBaseBlock-item-content'
-    )
+    );
     if (displayer.classList.contains('hide')) {
-      displayer.classList.remove('hide')
-      accordeon.classList.remove('pia-icon-accordeon-down')
-      accordeon.classList.add('pia-icon-accordeon-up')
+      displayer.classList.remove('hide');
+      accordeon.classList.remove('pia-icon-accordeon-down');
+      accordeon.classList.add('pia-icon-accordeon-up');
     } else {
-      displayer.classList.add('hide')
-      accordeon.classList.remove('pia-icon-accordeon-up')
-      accordeon.classList.add('pia-icon-accordeon-down')
+      displayer.classList.add('hide');
+      accordeon.classList.remove('pia-icon-accordeon-up');
+      accordeon.classList.add('pia-icon-accordeon-down');
     }
   }
 
@@ -68,6 +71,6 @@ export class KnowledgeBaseItemComponent implements OnInit {
    * @memberof KnowledgeBaseItemComponent
    */
   addNewMeasure() {
-    this.newMeasureEvent.emit(this.itemKb)
+    this.newMeasureEvent.emit(this.itemKb);
   }
 }

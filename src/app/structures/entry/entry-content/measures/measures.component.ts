@@ -6,14 +6,14 @@ import {
   OnInit,
   OnDestroy,
   NgZone,
-} from '@angular/core'
-import { FormControl, FormGroup } from '@angular/forms'
+} from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 
-import { ModalsService } from 'app/modals/modals.service'
-import { KnowledgeBaseService } from 'app/entry/knowledge-base/knowledge-base.service'
-import { GlobalEvaluationService } from 'app/services/global-evaluation.service'
-import { StructureService } from 'app/services/structure.service'
-import { SidStatusService } from 'app/services/sid-status.service'
+import { ModalsService } from 'app/modals/modals.service';
+import { KnowledgeBaseService } from 'app/entry/knowledge-base/knowledge-base.service';
+import { GlobalEvaluationService } from 'app/services/global-evaluation.service';
+import { StructureService } from 'app/services/structure.service';
+import { SidStatusService } from 'app/services/sid-status.service';
 
 @Component({
   selector: 'app-measures',
@@ -22,49 +22,53 @@ import { SidStatusService } from 'app/services/sid-status.service'
   providers: [StructureService],
 })
 export class MeasuresComponent implements OnInit, OnDestroy {
-  @Input() id: number
-  @Input() measure: any
-  @Input() item: any
-  @Input() section: any
-  editor: any
-  elementId: string
-  displayDeleteButton = true
-  measureForm: FormGroup
-  editTitle = true
+  @Input()
+  id: number;
+  @Input()
+  measure: any;
+  @Input()
+  item: any;
+  @Input()
+  section: any;
+  editor: any;
+  elementId: string;
+  displayDeleteButton = true;
+  measureForm: FormGroup;
+  editTitle = true;
 
   constructor(
     public _globalEvaluationService: GlobalEvaluationService,
+    public _structureService: StructureService,
     private el: ElementRef,
     private _modalsService: ModalsService,
     private _knowledgeBaseService: KnowledgeBaseService,
     private _ngZone: NgZone,
-    private _sidStatusService: SidStatusService,
-    private _structureService: StructureService
+    private _sidStatusService: SidStatusService
   ) {}
 
   ngOnInit() {
     this.measureForm = new FormGroup({
       measureTitle: new FormControl(),
       measureContent: new FormControl(),
-    })
+    });
 
     if (this.measure.title && this.measure.title.length > 0) {
-      this.measureForm.controls['measureTitle'].patchValue(this.measure.title)
-      this.measureForm.controls['measureTitle'].disable()
-      this.editTitle = false
+      this.measureForm.controls['measureTitle'].patchValue(this.measure.title);
+      this.measureForm.controls['measureTitle'].disable();
+      this.editTitle = false;
     }
 
     if (this.measure.content && this.measure.content.length > 0) {
       this.measureForm.controls['measureContent'].patchValue(
         this.measure.content
-      )
+      );
     }
 
-    this.elementId = 'pia-measure-content-' + this.id
+    this.elementId = 'pia-measure-content-' + this.id;
   }
 
   ngOnDestroy() {
-    tinymce.remove(this.editor)
+    tinymce.remove(this.editor);
   }
 
   /**
@@ -75,13 +79,13 @@ export class MeasuresComponent implements OnInit, OnDestroy {
    */
   autoTextareaResize(event: any, textarea?: HTMLElement) {
     if (event) {
-      textarea = event.target
+      textarea = event.target;
     }
     if (textarea.clientHeight < textarea.scrollHeight) {
-      textarea.style.height = textarea.scrollHeight + 'px'
+      textarea.style.height = textarea.scrollHeight + 'px';
       if (textarea.clientHeight < textarea.scrollHeight) {
         textarea.style.height =
-          textarea.scrollHeight * 2 - textarea.clientHeight + 'px'
+          textarea.scrollHeight * 2 - textarea.clientHeight + 'px';
       }
     }
   }
@@ -91,15 +95,18 @@ export class MeasuresComponent implements OnInit, OnDestroy {
    * @memberof MeasuresComponent
    */
   measureTitleFocusIn() {
-    this.editTitle = true
-    this.measureForm.controls['measureTitle'].enable()
+    if (this._structureService.structure.is_example) {
+      return;
+    }
+    this.editTitle = true;
+    this.measureForm.controls['measureTitle'].enable();
 
     const measureTitleTextarea = document.getElementById(
       'pia-measure-title-' + this.id
-    )
+    );
     setTimeout(() => {
-      measureTitleTextarea.focus()
-    }, 200)
+      measureTitleTextarea.focus();
+    }, 200);
   }
 
   /**
@@ -110,29 +117,29 @@ export class MeasuresComponent implements OnInit, OnDestroy {
    * @memberof MeasuresComponent
    */
   measureTitleFocusOut(event: Event) {
-    let userText = this.measureForm.controls['measureTitle'].value
+    let userText = this.measureForm.controls['measureTitle'].value;
     if (userText) {
-      userText = userText.replace(/^\s+/, '').replace(/\s+$/, '')
-      this.editTitle = false
+      userText = userText.replace(/^\s+/, '').replace(/\s+$/, '');
+      this.editTitle = false;
     }
 
-    this.measure.title = userText
+    this.measure.title = userText;
     this._structureService.updateMeasureJson(
       this.section,
       this.item,
       this.measure,
       this.id
-    )
+    );
 
     if (
       this.measureForm.value.measureTitle &&
       this.measureForm.value.measureTitle.length > 0
     ) {
-      this.measureForm.controls['measureTitle'].disable()
+      this.measureForm.controls['measureTitle'].disable();
     }
     this._ngZone.run(() => {
-      this._sidStatusService.setStructureStatus(this.section, this.item)
-    })
+      this._sidStatusService.setStructureStatus(this.section, this.item);
+    });
   }
 
   /**
@@ -140,7 +147,10 @@ export class MeasuresComponent implements OnInit, OnDestroy {
    * @memberof MeasuresComponent
    */
   measureContentFocusIn() {
-    this.loadEditor()
+    if (this._structureService.structure.is_example) {
+      return;
+    }
+    this.loadEditor();
   }
 
   /**
@@ -150,23 +160,23 @@ export class MeasuresComponent implements OnInit, OnDestroy {
    * @memberof MeasuresComponent
    */
   measureContentFocusOut() {
-    this._knowledgeBaseService.placeholder = null
-    this.editor = null
-    let userText = this.measureForm.controls['measureContent'].value
+    this._knowledgeBaseService.placeholder = null;
+    this.editor = null;
+    let userText = this.measureForm.controls['measureContent'].value;
     if (userText) {
-      userText = userText.replace(/^\s+/, '').replace(/\s+$/, '')
+      userText = userText.replace(/^\s+/, '').replace(/\s+$/, '');
     }
 
     this._ngZone.run(() => {
-      this.measure.content = userText
+      this.measure.content = userText;
       this._structureService.updateMeasureJson(
         this.section,
         this.item,
         this.measure,
         this.id
-      )
-      this._sidStatusService.setStructureStatus(this.section, this.item)
-    })
+      );
+      this._sidStatusService.setStructureStatus(this.section, this.item);
+    });
   }
 
   /**
@@ -177,12 +187,12 @@ export class MeasuresComponent implements OnInit, OnDestroy {
   displayMeasure(event: any) {
     const accordeon = this.el.nativeElement.querySelector(
       '.pia-measureBlock-title button'
-    )
-    accordeon.classList.toggle('pia-icon-accordeon-down')
+    );
+    accordeon.classList.toggle('pia-icon-accordeon-down');
     const displayer = this.el.nativeElement.querySelector(
       '.pia-measureBlock-displayer'
-    )
-    displayer.classList.toggle('close')
+    );
+    displayer.classList.toggle('close');
   }
 
   /**
@@ -193,8 +203,8 @@ export class MeasuresComponent implements OnInit, OnDestroy {
     localStorage.setItem(
       'measure-id',
       [this.section.id, this.item.id, this.id].toString()
-    )
-    this._modalsService.openModal('remove-structure-measure')
+    );
+    this._modalsService.openModal('remove-structure-measure');
   }
 
   /**
@@ -218,15 +228,15 @@ export class MeasuresComponent implements OnInit, OnDestroy {
         'undo redo bold italic alignleft aligncenter alignright bullist numlist outdent indent',
       skin_url: 'assets/skins/lightgray',
       setup: editor => {
-        this.editor = editor
+        this.editor = editor;
         editor.on('focusout', () => {
           this.measureForm.controls['measureContent'].patchValue(
             editor.getContent()
-          )
-          this.measureContentFocusOut()
-          tinymce.remove(this.editor)
-        })
+          );
+          this.measureContentFocusOut();
+          tinymce.remove(this.editor);
+        });
       },
-    })
+    });
   }
 }

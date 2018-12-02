@@ -128,7 +128,7 @@
   <div class="pia-modalBlock-content bounceIn">
     <button tabindex="2" type="button" class="pia-modalBlock-close btn" title="{{ 'modals.close' | translate }}" (click)="_modalsService.closeModal()"><span class="pia-icons pia-icon-close-big"></span></button>
     <p [innerHTML]="'modals.ask_for_evaluation.content' | translate"></p>
-    <i class="fa fa-pencil-square-o icon-green" aria-hidden="true"></i>
+    <i class="fa fa-pencil-square icon-green" aria-hidden="true"></i>
     <div class="pia-modalBlock-validate">
       <button tabindex="1" (click)="_modalsService.closeModal()" class="btn btn-green get-focus" type="button">{{ 'modals.continue' | translate }}</button>
     </div>
@@ -139,7 +139,7 @@
   <div class="pia-modalBlock-content bounceIn">
     <button tabindex="2" type="button" class="pia-modalBlock-close btn" title="{{ 'modals.close' | translate }}" (click)="_modalsService.closeModal()"><span class="pia-icons pia-icon-close-big"></span></button>
     <p [innerHTML]="'modals.back_to_edition.content' | translate"></p>
-    <i class="fa fa-pencil-square-o icon-gray" aria-hidden="true"></i>
+    <i class="fa fa-pencil-square icon-gray" aria-hidden="true"></i>
     <div class="pia-modalBlock-validate">
       <button tabindex="1" (click)="_modalsService.closeModal()" class="btn btn-green get-focus" type="button">{{ 'modals.continue' | translate }}</button>
     </div>
@@ -172,7 +172,7 @@
   <div class="pia-modalBlock-content pia-modalBlock-declareMeasuresForRisks bounceIn">
     <button tabindex="2" type="button" class="pia-modalBlock-close btn" title="{{ 'modals.close' | translate }}" (click)="_modalsService.closeModal()"><span class="pia-icons pia-icon-close-big"></span></button>
     <p [innerHTML]="'modals.validate_evaluation_to_correct.content' | translate"></p>
-    <i class="fa fa-pencil-square-o icon-gray" aria-hidden="true"></i>
+    <i class="fa fa-pencil-square icon-gray" aria-hidden="true"></i>
     <div class="pia-modalBlock-validate">
       <button tabindex="1" (click)="_modalsService.closeModal()" class="btn btn-green get-focus" type="button">{{ 'modals.continue' | translate }}</button>
     </div>
@@ -360,7 +360,7 @@
     <form class="pia-cardsBlock-item-form" (ngSubmit)="onSubmitStructure()" [formGroup]="structureForm">
       <div>
         <label for="name">{{ 'homepage.cards.structure_name' | translate }}</label>
-        <input formControlName="structure_name" type="text" placeholder="{{ 'homepage.cards.placeholder_structure_name' | translate }}" id="structure_name" required>
+        <input formControlName="name" type="text" placeholder="{{ 'homepage.cards.placeholder_structure_name' | translate }}" id="name" required>
       </div>
       <div>
         <label for="sector_name">{{ 'homepage.cards.sector_name' | translate }}</label>

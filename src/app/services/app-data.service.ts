@@ -1,12 +1,12 @@
-import { Injectable } from '@angular/core'
-import { HttpClient } from '@angular/common/http'
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable()
 export class AppDataService {
-  public dataNav = { sections: null }
+  public dataNav = { sections: null };
 
-  constructor(private http: HttpClient) {
-    this.loadArchitecture()
+  constructor(private _http: HttpClient) {
+    this.loadArchitecture();
   }
 
   /**
@@ -16,9 +16,9 @@ export class AppDataService {
    */
   async getDataNav() {
     if (!this.dataNav.sections) {
-      await this.loadArchitecture()
+      await this.loadArchitecture();
     }
-    return this.dataNav
+    return this.dataNav;
   }
 
   /**
@@ -29,10 +29,10 @@ export class AppDataService {
    */
   private async loadArchitecture() {
     return new Promise((resolve, reject) => {
-      this.http.get('./assets/files/pia_architecture.json').subscribe(data => {
-        this.dataNav = data as any
-        resolve()
-      })
-    })
+      this._http.get('./assets/files/pia_architecture.json').subscribe(data => {
+        this.dataNav = data as any;
+        resolve();
+      });
+    });
   }
 }

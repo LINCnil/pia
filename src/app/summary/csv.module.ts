@@ -1,5 +1,5 @@
-import { NgModule } from '@angular/core'
-import { CsvComponent } from './csv.component'
+import { NgModule } from '@angular/core';
+import { CsvComponent } from './csv.component';
 
 @NgModule({
   exports: [CsvComponent],

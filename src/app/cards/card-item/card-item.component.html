@@ -25,19 +25,19 @@
               <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
               <ul class="pia-cardsBlock-toolbar-moreList">
                 <li>
-                  <i class="fa fa-files-o" aria-hidden="true"></i>
+                  <i class="fa fa-copy" aria-hidden="true"></i>
                   <a href="javascript:" (click)="_piaService.duplicate(pia.id)">{{ 'homepage.cards.item.tools.duplicate' | translate }}</a>
                 </li>
                 <li>
-                  <i class="fa fa-calendar-check-o" aria-hidden="true"></i>
+                  <i class="fa fa-calendar-check" aria-hidden="true"></i>
                   <a routerLink="/summary/{{pia.id}}" [queryParams]="{ displayOnlyActionPlan: true }" [innerHTML]="'homepage.cards.item.tools.action_plan' | translate"></a>
                 </li>
                 <li>
-                  <i class="fa fa-file-text-o" aria-hidden="true"></i>
+                  <i class="fa fa-file-alt" aria-hidden="true"></i>
                   <a routerLink="/summary/{{pia.id}}" [innerHTML]="'homepage.cards.item.tools.pia' | translate"></a>
                 </li>
                 <li>
-                  <i class="fa fa-trash-o" aria-hidden="true"></i>
+                  <i class="fa fa-trash" aria-hidden="true"></i>
                   <a href="javascript:" (click)="removePia(pia.id)">{{ 'homepage.cards.item.tools.remove' | translate }}</a>
                 </li>
               </ul>

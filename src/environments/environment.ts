@@ -8,4 +8,4 @@ export const environment = {
   production: false,
   version: '1.6.5',
   rollbar_key: '',
-}
+};

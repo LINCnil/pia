@@ -1,6 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core'
-import { LanguagesService } from '../../../../services/languages.service'
-import { TranslateService } from '@ngx-translate/core'
+import { Component, OnInit, Input } from '@angular/core';
+import { LanguagesService } from '../../../../services/languages.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-comment-item',
@@ -8,7 +8,8 @@ import { TranslateService } from '@ngx-translate/core'
   styleUrls: ['./comment-item.component.scss'],
 })
 export class CommentItemComponent implements OnInit {
-  @Input() comment: any
+  @Input()
+  comment: any;
 
   constructor(
     public _translateService: TranslateService,

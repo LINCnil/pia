@@ -5,7 +5,7 @@
           <span *ngIf="questionDate && questionDate.toString() !== 'Invalid Date'">{{questionDate | date:'mediumDate':'': _languagesService.selectedLanguage }}</span>
         </time>
         <div class="pia-commentsBlock-btn">
-          <button class="btn" type="button" (click)="toggleNewCommentBox()"><i class="fa fa-comment-o" aria-hidden="true"></i> {{ 'comments.new_comment' | translate }}</button>
+          <button class="btn" type="button" (click)="toggleNewCommentBox()"><i class="fa fa-comment" aria-hidden="true"></i> {{ 'comments.new_comment' | translate }}</button>
           <button class="btn" (click)="displayCommentsList()" type="button" title="{{ 'misc.display' | translate }}">
           <span class="pia-icons pia-icon-accordeon-down"></span>
           </button>
