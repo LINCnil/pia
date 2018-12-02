@@ -1,9 +1,9 @@
-import { Component, ElementRef, OnInit } from '@angular/core'
+import { Component, ElementRef, OnInit } from '@angular/core';
 
-import { Pia } from 'app/entry/pia.model'
+import { Pia } from 'app/entry/pia.model';
 
-import { PiaService } from 'app/services/pia.service'
-import { TranslateService } from '@ngx-translate/core'
+import { PiaService } from 'app/services/pia.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-pia-validate-history',
@@ -19,7 +19,7 @@ export class PiaValidateHistoryComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this._piaService.getPIA()
+    this._piaService.getPIA();
   }
 
   /**
@@ -29,12 +29,12 @@ export class PiaValidateHistoryComponent implements OnInit {
   displayHistoryList() {
     const historyList = this.el.nativeElement.querySelector(
       '.pia-validationHistoryBlock-content'
-    )
+    );
     const btn = this.el.nativeElement.querySelector(
       '.pia-historyBlock-btn span'
-    )
-    btn.classList.toggle('pia-icon-accordeon-down')
-    historyList.classList.toggle('close')
+    );
+    btn.classList.toggle('pia-icon-accordeon-down');
+    historyList.classList.toggle('close');
   }
 
   /**
@@ -44,10 +44,12 @@ export class PiaValidateHistoryComponent implements OnInit {
   displayRefuseList() {
     const refuseList = this.el.nativeElement.querySelector(
       '.pia-validationHistoryBlock-refuse-content'
-    )
-    const btn = this.el.nativeElement.querySelector('.pia-refuseBlock-btn span')
-    btn.classList.toggle('pia-icon-accordeon-down')
-    refuseList.classList.toggle('close')
+    );
+    const btn = this.el.nativeElement.querySelector(
+      '.pia-refuseBlock-btn span'
+    );
+    btn.classList.toggle('pia-icon-accordeon-down');
+    refuseList.classList.toggle('close');
   }
 
   /**
@@ -61,7 +63,7 @@ export class PiaValidateHistoryComponent implements OnInit {
         this._piaService.pia.status === 3) &&
       this._piaService.pia.applied_adjustements &&
       this._piaService.pia.rejected_reason
-    )
+    );
   }
 
   /**
@@ -70,6 +72,6 @@ export class PiaValidateHistoryComponent implements OnInit {
    * @memberof PiaValidateHistoryComponent
    */
   showRejectionHistory() {
-    return this._piaService.pia.status === 1
+    return this._piaService.pia.status === 1;
   }
 }

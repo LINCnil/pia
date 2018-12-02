@@ -1,28 +1,28 @@
-import { Injectable } from '@angular/core'
-import { BehaviorSubject } from 'rxjs/BehaviorSubject'
-import { Observable } from 'rxjs/Observable'
+import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { Observable } from 'rxjs/Observable';
 
-import { Answer } from '../entry/entry-content/questions/answer.model'
-import { Evaluation } from '../entry/entry-content/evaluations/evaluation.model'
-import { Measure } from '../entry/entry-content/measures/measure.model'
-import { Pia } from '../entry/pia.model'
+import { Answer } from '../entry/entry-content/questions/answer.model';
+import { Evaluation } from '../entry/entry-content/evaluations/evaluation.model';
+import { Measure } from '../entry/entry-content/measures/measure.model';
+import { Pia } from '../entry/pia.model';
 
 @Injectable()
 export class GlobalEvaluationService {
-  public pia: Pia
-  public section: any
-  public item: any
-  public status: number
-  public answerEditionEnabled = false
-  public evaluationEditionEnabled = false
-  public reference_to: string
-  public enablePiaValidation: boolean
-  public piaIsRefused: boolean
-  private questionsOrMeasures: Array<any>
-  private answersOrMeasures: Array<Answer | Measure>
-  private evaluations: Array<Evaluation>
+  public pia: Pia;
+  public section: any;
+  public item: any;
+  public status: number;
+  public answerEditionEnabled = false;
+  public evaluationEditionEnabled = false;
+  public reference_to: string;
+  public enablePiaValidation: boolean;
+  public piaIsRefused: boolean;
+  private questionsOrMeasures: Array<any>;
+  private answersOrMeasures: Array<Answer | Measure>;
+  private evaluations: Array<Evaluation>;
 
-  public behaviorSubject = new BehaviorSubject<Object>({})
+  public behaviorSubject = new BehaviorSubject<Object>({});
 
   /**
    * Verifications for answers and evaluations.
@@ -31,34 +31,34 @@ export class GlobalEvaluationService {
    * @memberof GlobalEvaluationService
    */
   async validate(callSubject = true) {
-    this.reference_to = this.section.id + '.' + this.item.id
+    this.reference_to = this.section.id + '.' + this.item.id;
     return new Promise(async (resolve, reject) => {
       if (
         this.item.evaluation_mode === 'item' ||
         this.item.evaluation_mode === 'question'
       ) {
-        await this.answersVerification()
-        await this.evaluationsVerification()
-        this.verification()
+        await this.answersVerification();
+        await this.evaluationsVerification();
+        this.verification();
         if (callSubject) {
-          this.setAnswerEditionEnabled()
-          this.setEvaluationEditionEnabled()
+          this.setAnswerEditionEnabled();
+          this.setEvaluationEditionEnabled();
           this.behaviorSubject.next({
             reference_to: this.reference_to,
             status: this.status,
-          })
+          });
         }
       } else if (this.reference_to === '4.3') {
-        this.dpoValidation()
+        this.dpoValidation();
         this.behaviorSubject.next({
           reference_to: this.reference_to,
           status: this.status,
-        })
+        });
       } else {
-        this.status = 0
+        this.status = 0;
       }
-      resolve({ reference_to: this.reference_to, status: this.status })
-    })
+      resolve({ reference_to: this.reference_to, status: this.status });
+    });
   }
 
   /**
@@ -69,26 +69,26 @@ export class GlobalEvaluationService {
   async prepareForEvaluation() {
     return new Promise(async (resolve, reject) => {
       if (this.item.evaluation_mode === 'item') {
-        await this.createOrUpdateEvaluation()
-        await this.validate()
-        resolve()
+        await this.createOrUpdateEvaluation();
+        await this.validate();
+        resolve();
       } else {
-        await this.answersVerification()
-        let count = 0
+        await this.answersVerification();
+        let count = 0;
         this.answersOrMeasures.forEach(
           async (answerOrMeasure: Answer | Measure) => {
-            count++
+            count++;
             this.createOrUpdateEvaluation(
               this.getAnswerReferenceTo(answerOrMeasure)
-            )
+            );
             if (count === this.answersOrMeasures.length) {
-              await this.validate()
-              resolve()
+              await this.validate();
+              resolve();
             }
           }
-        )
+        );
       }
-    })
+    });
   }
 
   /**
@@ -99,29 +99,29 @@ export class GlobalEvaluationService {
   async validateAllEvaluation() {
     return new Promise((resolve, reject) => {
       if (this.item.evaluation_mode === 'item') {
-        const evaluation = new Evaluation()
+        const evaluation = new Evaluation();
         evaluation
           .getByReference(this.pia.id, this.reference_to)
           .then(async () => {
             if (evaluation.status === 0) {
-              await this.validate()
-              resolve(false)
+              await this.validate();
+              resolve(false);
             }
             if (evaluation.status === 1) {
-              evaluation.global_status = 1
+              evaluation.global_status = 1;
             } else {
-              evaluation.global_status = 2
+              evaluation.global_status = 2;
             }
             evaluation.update().then(async () => {
-              await this.validate()
-              resolve(evaluation.status === 1)
-            })
-          })
+              await this.validate();
+              resolve(evaluation.status === 1);
+            });
+          });
       } else if (this.answersOrMeasures.length > 0) {
-        let count = 0
-        let toFix = false
+        let count = 0;
+        let toFix = false;
         this.answersOrMeasures.forEach(answerOrMeasure => {
-          const evaluation = new Evaluation()
+          const evaluation = new Evaluation();
           evaluation
             .getByReference(
               this.pia.id,
@@ -130,26 +130,26 @@ export class GlobalEvaluationService {
             .then(async () => {
               if (evaluation.status > 0) {
                 if (evaluation.status === 1) {
-                  evaluation.global_status = 1
-                  toFix = true
+                  evaluation.global_status = 1;
+                  toFix = true;
                 } else {
-                  evaluation.global_status = 2
+                  evaluation.global_status = 2;
                 }
                 evaluation.update().then(async () => {
-                  count++
+                  count++;
                   if (count === this.answersOrMeasures.length) {
-                    await this.validate()
-                    resolve(toFix)
+                    await this.validate();
+                    resolve(toFix);
                   }
-                })
+                });
               } else {
-                await this.validate()
-                resolve(false)
+                await this.validate();
+                resolve(false);
               }
-            })
-        })
+            });
+        });
       }
-    })
+    });
   }
 
   /**
@@ -159,20 +159,20 @@ export class GlobalEvaluationService {
   cancelForEvaluation() {
     if (this.item.evaluation_mode === 'item') {
       this.deleteEvaluationInDb(this.reference_to).then(() => {
-        this.validate()
-      })
+        this.validate();
+      });
     } else if (this.answersOrMeasures.length > 0) {
-      let count = 0
+      let count = 0;
       this.answersOrMeasures.forEach(answerOrMeasure => {
         this.deleteEvaluationInDb(
           this.getAnswerReferenceTo(answerOrMeasure)
         ).then(() => {
-          count++
+          count++;
           if (count === this.answersOrMeasures.length) {
-            this.validate()
+            this.validate();
           }
-        })
-      })
+        });
+      });
     }
   }
 
@@ -182,32 +182,32 @@ export class GlobalEvaluationService {
    */
   cancelValidation() {
     if (this.item.evaluation_mode === 'item') {
-      const evaluation = new Evaluation()
+      const evaluation = new Evaluation();
       evaluation.getByReference(this.pia.id, this.reference_to).then(() => {
-        evaluation.global_status = 1
+        evaluation.global_status = 1;
         evaluation.update().then(() => {
-          this.validate()
-        })
-      })
+          this.validate();
+        });
+      });
     } else if (this.answersOrMeasures.length > 0) {
-      let count = 0
+      let count = 0;
       this.answersOrMeasures.forEach(answerOrMeasure => {
-        const evaluation = new Evaluation()
+        const evaluation = new Evaluation();
         evaluation
           .getByReference(
             this.pia.id,
             this.getAnswerReferenceTo(answerOrMeasure)
           )
           .then(() => {
-            evaluation.global_status = 1
+            evaluation.global_status = 1;
             evaluation.update().then(() => {
-              count++
+              count++;
               if (count === this.answersOrMeasures.length) {
-                this.validate()
+                this.validate();
               }
-            })
-          })
-      })
+            });
+          });
+      });
     }
   }
 
@@ -217,9 +217,9 @@ export class GlobalEvaluationService {
    * @memberof GlobalEvaluationService
    */
   private dpoValidation() {
-    let dpoFilled = false
-    let concernedPeopleOpinionSearchedFieldsFilled = false
-    let concernedPeopleOpinionUnsearchedFieldsFilled = false
+    let dpoFilled = false;
+    let concernedPeopleOpinionSearchedFieldsFilled = false;
+    let concernedPeopleOpinionUnsearchedFieldsFilled = false;
     // All DPO fields filled = OK
     if (
       this.pia.dpos_names &&
@@ -228,7 +228,7 @@ export class GlobalEvaluationService {
       this.pia.dpo_opinion &&
       this.pia.dpo_opinion.length > 0
     ) {
-      dpoFilled = true
+      dpoFilled = true;
     }
 
     // Concerned people opinion unsearched + no search reason field filled = OK
@@ -237,7 +237,7 @@ export class GlobalEvaluationService {
         this.pia.concerned_people_searched_content &&
         this.pia.concerned_people_searched_content.length > 0
       ) {
-        concernedPeopleOpinionUnsearchedFieldsFilled = true
+        concernedPeopleOpinionUnsearchedFieldsFilled = true;
       }
     }
 
@@ -251,7 +251,7 @@ export class GlobalEvaluationService {
         this.pia.concerned_people_opinion &&
         this.pia.concerned_people_opinion.length > 0
       ) {
-        concernedPeopleOpinionSearchedFieldsFilled = true
+        concernedPeopleOpinionSearchedFieldsFilled = true;
       }
     }
 
@@ -263,16 +263,16 @@ export class GlobalEvaluationService {
       (dpoFilled === true &&
         concernedPeopleOpinionSearchedFieldsFilled === true)
     ) {
-      this.status = 7
-      this.enablePiaValidation = [0, 2, 3].includes(this.pia.status)
-      this.piaIsRefused = [1, 4].includes(this.pia.status)
+      this.status = 7;
+      this.enablePiaValidation = [0, 2, 3].includes(this.pia.status);
+      this.piaIsRefused = [1, 4].includes(this.pia.status);
       if (this.pia.status > 1) {
-        this.status = 8
+        this.status = 8;
       }
     } else {
-      this.enablePiaValidation = false
-      this.piaIsRefused = false
-      this.status = 0
+      this.enablePiaValidation = false;
+      this.piaIsRefused = false;
+      this.status = 0;
     }
   }
 
@@ -284,15 +284,15 @@ export class GlobalEvaluationService {
    * @memberof GlobalEvaluationService
    */
   private getAnswerReferenceTo(answerOrMeasure) {
-    let reference_to = this.reference_to
+    let reference_to = this.reference_to;
     if (this.item.is_measure) {
       // For measure
-      reference_to += '.' + answerOrMeasure.id
+      reference_to += '.' + answerOrMeasure.id;
     } else {
       // For question
-      reference_to += '.' + answerOrMeasure.reference_to
+      reference_to += '.' + answerOrMeasure.reference_to;
     }
-    return reference_to
+    return reference_to;
   }
 
   /**
@@ -306,27 +306,27 @@ export class GlobalEvaluationService {
     return new Promise((resolve, reject) => {
       const reference_to = new_reference_to
         ? new_reference_to
-        : this.reference_to
-      const evaluation = new Evaluation()
+        : this.reference_to;
+      const evaluation = new Evaluation();
       evaluation
         .getByReference(this.pia.id, reference_to)
         .then((result: any) => {
           if (!result) {
-            evaluation.pia_id = this.pia.id
-            evaluation.reference_to = reference_to
+            evaluation.pia_id = this.pia.id;
+            evaluation.reference_to = reference_to;
             evaluation.create().then(() => {
-              resolve()
-            })
+              resolve();
+            });
           } else if (evaluation.status === 1) {
-            evaluation.global_status = 0
+            evaluation.global_status = 0;
             evaluation.update().then(() => {
-              resolve()
-            })
+              resolve();
+            });
           } else {
-            resolve()
+            resolve();
           }
-        })
-    })
+        });
+    });
   }
 
   /**
@@ -336,63 +336,63 @@ export class GlobalEvaluationService {
    */
   private verification() {
     if (!this.answersOrMeasures) {
-      return
+      return;
     }
     const answersOrMeasuresValid: Array<
       Answer | Measure
     > = this.answersOrMeasures.filter((answerOrMeasure: any) => {
       if (answerOrMeasure.data !== undefined) {
-        return this.answerIsValid(answerOrMeasure)
+        return this.answerIsValid(answerOrMeasure);
       } else {
-        return this.measureIsValid(answerOrMeasure)
+        return this.measureIsValid(answerOrMeasure);
       }
-    })
+    });
     if (
       this.answersOrMeasures.length > 0 &&
       answersOrMeasuresValid.length === this.questionsOrMeasures.length
     ) {
       if (this.evaluations.length === 0) {
-        this.status = 2
+        this.status = 2;
       } else {
         const evaluationsStarted: Array<Evaluation> = this.evaluations.filter(
           (evaluation: Evaluation) => {
-            return this.evaluationStarted(evaluation)
+            return this.evaluationStarted(evaluation);
           }
-        )
+        );
         if (evaluationsStarted.length === this.evaluations.length) {
           const evaluationsCompleted: Array<
             Evaluation
           > = this.evaluations.filter((evaluation: Evaluation) => {
-            return this.evaluationCompleted(evaluation)
-          })
+            return this.evaluationCompleted(evaluation);
+          });
           if (evaluationsCompleted.length === this.evaluations.length) {
             if (this.pia.status >= 2) {
-              this.status = 8
+              this.status = 8;
             } else {
-              this.status = 7
+              this.status = 7;
             }
           } else {
             // If we have one or more evaluation status "toBeFixed"
             const evaluationToBeFixed: Array<
               Evaluation
             > = this.evaluations.filter((evaluation: Evaluation) => {
-              return this.evaluationsToBeFixed(evaluation)
-            })
+              return this.evaluationsToBeFixed(evaluation);
+            });
             if (evaluationToBeFixed.length > 0) {
-              this.status = 3
+              this.status = 3;
             } else {
               const evaluationsIsValid: Array<
                 Evaluation
               > = this.evaluations.filter((evaluation: Evaluation) => {
-                return this.evaluationIsValid(evaluation)
-              })
+                return this.evaluationIsValid(evaluation);
+              });
               if (
                 evaluationsIsValid.length > 0 &&
                 evaluationsIsValid.length === this.evaluations.length
               ) {
-                this.status = 6
+                this.status = 6;
               } else {
-                this.status = 5
+                this.status = 5;
               }
             }
           }
@@ -400,19 +400,19 @@ export class GlobalEvaluationService {
           const evaluationsNotStarted: Array<
             Evaluation
           > = this.evaluations.filter((evaluation: Evaluation) => {
-            return this.evaluationNotStarted(evaluation)
-          })
+            return this.evaluationNotStarted(evaluation);
+          });
           if (evaluationsNotStarted.length === this.evaluations.length) {
-            this.status = 4
+            this.status = 4;
           } else {
-            this.status = 5
+            this.status = 5;
           }
         }
       }
     } else if (this.answersOrMeasures.length > 0) {
-      this.status = 1
+      this.status = 1;
     } else {
-      this.status = 0
+      this.status = 0;
     }
   }
 
@@ -425,9 +425,9 @@ export class GlobalEvaluationService {
    */
   private evaluationsToBeFixed(evaluation: Evaluation) {
     if (evaluation.status === 1 && evaluation.global_status === 1) {
-      return true
+      return true;
     }
-    return false
+    return false;
   }
 
   /**
@@ -439,9 +439,9 @@ export class GlobalEvaluationService {
    */
   private evaluationStarted(evaluation: Evaluation) {
     if (evaluation.status > 0) {
-      return true
+      return true;
     }
-    return false
+    return false;
   }
 
   /**
@@ -453,9 +453,9 @@ export class GlobalEvaluationService {
    */
   private evaluationCompleted(evaluation: Evaluation) {
     if (evaluation.status > 1 && evaluation.global_status === 2) {
-      return true
+      return true;
     }
-    return false
+    return false;
   }
 
   /**
@@ -467,9 +467,9 @@ export class GlobalEvaluationService {
    */
   private evaluationNotStarted(evaluation: Evaluation) {
     if (evaluation.status === 0) {
-      return true
+      return true;
     }
-    return false
+    return false;
   }
 
   /**
@@ -484,9 +484,9 @@ export class GlobalEvaluationService {
       (measure.content && measure.content.length > 0) ||
       (measure.title && measure.title.length > 0)
     ) {
-      return true
+      return true;
     }
-    return false
+    return false;
   }
 
   /**
@@ -497,28 +497,28 @@ export class GlobalEvaluationService {
    * @memberof GlobalEvaluationService
    */
   private answerIsValid(answer: Answer) {
-    let valid = false
-    const gauge = answer.data.gauge
-    const text = answer.data.text
-    const list = answer.data.list
+    let valid = false;
+    const gauge = answer.data.gauge;
+    const text = answer.data.text;
+    const list = answer.data.list;
 
     // First we need to find the answer_type
     const question = this.item.questions.filter(q => {
-      return parseInt(q.id, 10) === parseInt(answer.reference_to, 10)
-    })
+      return parseInt(q.id, 10) === parseInt(answer.reference_to, 10);
+    });
 
     if (question.length === 1) {
-      const answer_type = question[0].answer_type
+      const answer_type = question[0].answer_type;
       if (answer_type === 'gauge') {
-        valid = text && text.length > 0 && gauge > 0
+        valid = text && text.length > 0 && gauge > 0;
       } else if (answer_type === 'list') {
-        valid = list && list.length > 0
+        valid = list && list.length > 0;
       } else if (answer_type === 'text') {
-        valid = text && text.length > 0
+        valid = text && text.length > 0;
       }
     }
 
-    return valid
+    return valid;
   }
 
   /**
@@ -533,13 +533,13 @@ export class GlobalEvaluationService {
       return (
         evaluation.evaluation_comment &&
         evaluation.evaluation_comment.length > 0
-      )
+      );
     } else if (evaluation.status === 2) {
       if (this.item.evaluation_mode === 'question') {
         return (
           evaluation.action_plan_comment &&
           evaluation.action_plan_comment.length > 0
-        )
+        );
       }
       if (
         this.item.evaluation_mode === 'item' &&
@@ -552,13 +552,13 @@ export class GlobalEvaluationService {
           evaluation.action_plan_comment &&
           evaluation.action_plan_comment.length > 0
         ) {
-          return true
+          return true;
         }
       }
     } else if (evaluation.status === 3) {
-      return true
+      return true;
     }
-    return false
+    return false;
   }
 
   /**
@@ -568,55 +568,55 @@ export class GlobalEvaluationService {
    * @memberof GlobalEvaluationService
    */
   private async answersVerification() {
-    let count = 0
-    this.answersOrMeasures = []
+    let count = 0;
+    this.answersOrMeasures = [];
     return new Promise((resolve, reject) => {
       if (this.item.is_measure) {
-        const measureModel = new Measure()
-        measureModel.pia_id = this.pia.id
+        const measureModel = new Measure();
+        measureModel.pia_id = this.pia.id;
         measureModel.findAll().then((measures: any[]) => {
           if (measures && measures.length > 0) {
-            this.questionsOrMeasures = measures
+            this.questionsOrMeasures = measures;
             measures.forEach(measure => {
-              count++
+              count++;
               if (
                 measure.title &&
                 measure.title.length > 0 &&
                 measure.content &&
                 measure.content.length > 0
               ) {
-                this.answersOrMeasures.push(measure)
+                this.answersOrMeasures.push(measure);
               }
               if (count === measures.length) {
-                resolve()
+                resolve();
               }
-            })
+            });
           } else {
-            resolve()
+            resolve();
           }
-        })
+        });
       } else {
-        this.questionsOrMeasures = this.item.questions
+        this.questionsOrMeasures = this.item.questions;
         if (this.item.questions) {
           this.item.questions.forEach((question: any) => {
-            const answerModel = new Answer()
+            const answerModel = new Answer();
             answerModel
               .getByReferenceAndPia(this.pia.id, question.id)
               .then((result: boolean) => {
-                count++
+                count++;
                 if (result) {
-                  this.answersOrMeasures.push(answerModel)
+                  this.answersOrMeasures.push(answerModel);
                 }
                 if (count === this.item.questions.length) {
-                  resolve()
+                  resolve();
                 }
-              })
-          })
+              });
+          });
         } else {
-          resolve()
+          resolve();
         }
       }
-    })
+    });
   }
 
   /**
@@ -626,72 +626,72 @@ export class GlobalEvaluationService {
    * @memberof GlobalEvaluationService
    */
   private async evaluationsVerification() {
-    let count = 0
-    this.evaluations = []
+    let count = 0;
+    this.evaluations = [];
     return new Promise((resolve, reject) => {
       if (this.item.evaluation_mode === 'item') {
-        const evaluationModel = new Evaluation()
+        const evaluationModel = new Evaluation();
         evaluationModel
           .getByReference(this.pia.id, this.reference_to)
           .then((result: any) => {
-            this.evaluations = result ? [evaluationModel] : []
-            resolve()
-          })
+            this.evaluations = result ? [evaluationModel] : [];
+            resolve();
+          });
       } else if (this.item.is_measure) {
-        const measureModel = new Measure()
-        measureModel.pia_id = this.pia.id
+        const measureModel = new Measure();
+        measureModel.pia_id = this.pia.id;
         measureModel.findAll().then((measures: any) => {
           if (measures && measures.length > 0) {
             measures.forEach(measure => {
-              const evaluationModel = new Evaluation()
+              const evaluationModel = new Evaluation();
               evaluationModel
                 .getByReference(
                   this.pia.id,
                   this.reference_to + '.' + measure.id
                 )
                 .then((result: any) => {
-                  count++
+                  count++;
                   if (result) {
-                    this.evaluations.push(evaluationModel)
+                    this.evaluations.push(evaluationModel);
                   }
                   if (count === measures.length) {
-                    resolve()
+                    resolve();
                   }
-                })
-            })
+                });
+            });
           } else {
-            resolve()
+            resolve();
           }
-        })
+        });
       } else if (this.item.evaluation_mode === 'question') {
         this.item.questions.forEach(question => {
-          const answerModel = new Answer()
+          const answerModel = new Answer();
           answerModel
             .getByReferenceAndPia(this.pia.id, question.id)
             .then((result: any) => {
               if (result) {
-                const evaluationModel = new Evaluation()
+                const evaluationModel = new Evaluation();
                 evaluationModel
                   .getByReference(
                     this.pia.id,
                     this.reference_to + '.' + answerModel.reference_to
                   )
                   .then((result2: any) => {
-                    count++
+                    count++;
                     if (result2) {
-                      this.evaluations.push(evaluationModel)
+                      this.evaluations.push(evaluationModel);
                     }
                     if (count === this.item.questions.length) {
-                      resolve()
+                      resolve();
                     }
-                  })
+                  });
               } else {
-                resolve()
+                resolve();
               }
-            })
-        })
+            });
+        });
       }
-    })
+    });
   }
 
   /**
@@ -702,20 +702,20 @@ export class GlobalEvaluationService {
    * @memberof GlobalEvaluationService
    */
   private async deleteEvaluationInDb(reference_to: string) {
-    const evaluation = new Evaluation()
+    const evaluation = new Evaluation();
     return new Promise((resolve, reject) => {
       evaluation
         .getByReference(this.pia.id, reference_to)
         .then((entry: any) => {
           if (entry !== false) {
             evaluation.delete(evaluation.id).then(() => {
-              resolve()
-            })
+              resolve();
+            });
           } else {
-            resolve()
+            resolve();
           }
-        })
-    })
+        });
+    });
   }
 
   /**
@@ -723,7 +723,7 @@ export class GlobalEvaluationService {
    * @memberof GlobalEvaluationService
    */
   setAnswerEditionEnabled() {
-    this.answerEditionEnabled = [0, 1, 2, 3].includes(this.status)
+    this.answerEditionEnabled = [0, 1, 2, 3].includes(this.status);
   }
 
   /**
@@ -731,6 +731,6 @@ export class GlobalEvaluationService {
    * @memberof GlobalEvaluationService
    */
   setEvaluationEditionEnabled() {
-    this.evaluationEditionEnabled = [4, 5, 6].includes(this.status)
+    this.evaluationEditionEnabled = [4, 5, 6].includes(this.status);
   }
 }

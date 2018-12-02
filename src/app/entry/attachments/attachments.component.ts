@@ -1,11 +1,11 @@
-import { Router, ActivatedRoute, Params } from '@angular/router'
-import { Component, OnInit, Input } from '@angular/core'
-import { FormControl, FormGroup } from '@angular/forms'
+import { Router, ActivatedRoute, Params } from '@angular/router';
+import { Component, OnInit, Input } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 
-import { Pia } from '../pia.model'
-import { Attachment } from './attachment.model'
+import { Pia } from '../pia.model';
+import { Attachment } from './attachment.model';
 
-import { AttachmentsService } from 'app/entry/attachments/attachments.service'
+import { AttachmentsService } from 'app/entry/attachments/attachments.service';
 
 @Component({
   selector: 'app-attachments',
@@ -13,9 +13,9 @@ import { AttachmentsService } from 'app/entry/attachments/attachments.service'
   styleUrls: ['./attachments.component.scss'],
 })
 export class AttachmentsComponent implements OnInit {
-  @Input() pia: Pia
-  attachmentForm: FormGroup
-  dispplayAttachmentButton = false
+  @Input() pia: Pia;
+  attachmentForm: FormGroup;
+  dispplayAttachmentButton = false;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -25,11 +25,11 @@ export class AttachmentsComponent implements OnInit {
   ngOnInit() {
     this.attachmentForm = new FormGroup({
       attachment_file: new FormControl('', []),
-    })
-    this._attachmentsService.pia = this.pia
-    this._attachmentsService.listAttachments()
+    });
+    this._attachmentsService.pia = this.pia;
+    this._attachmentsService.listAttachments();
     this.dispplayAttachmentButton =
-      this.pia.status !== 2 && this.pia.status !== 3
+      this.pia.status !== 2 && this.pia.status !== 3;
   }
 
   /**
@@ -38,13 +38,13 @@ export class AttachmentsComponent implements OnInit {
    */
   addAttachment() {
     if (this.pia.is_example === 1) {
-      return false
+      return false;
     } else {
-      this._attachmentsService.pia_signed = 0
+      this._attachmentsService.pia_signed = 0;
       const attachment = <HTMLInputElement>(
         document.querySelector('[formcontrolname="attachment_file"]')
-      )
-      attachment.click()
+      );
+      attachment.click();
     }
   }
 
@@ -54,6 +54,6 @@ export class AttachmentsComponent implements OnInit {
    * @memberof AttachmentsComponent
    */
   uploadAttachement(event: Event) {
-    this._attachmentsService.upload((<HTMLInputElement>event.target).files[0])
+    this._attachmentsService.upload((<HTMLInputElement>event.target).files[0]);
   }
 }

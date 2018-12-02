@@ -1,10 +1,10 @@
-import { Component, Input, OnInit } from '@angular/core'
-import { Router, ActivatedRoute } from '@angular/router'
+import { Component, Input, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 
-import { Attachment } from 'app/entry/attachments/attachment.model'
+import { Attachment } from 'app/entry/attachments/attachment.model';
 
-import { ModalsService } from 'app/modals/modals.service'
-import { PiaService } from 'app/services/pia.service'
+import { ModalsService } from 'app/modals/modals.service';
+import { PiaService } from 'app/services/pia.service';
 
 @Component({
   selector: `.app-list-item`,
@@ -12,8 +12,8 @@ import { PiaService } from 'app/services/pia.service'
   styleUrls: ['./list-item.component.scss'],
 })
 export class ListItemComponent implements OnInit {
-  @Input() pia: any
-  attachments: any
+  @Input() pia: any;
+  attachments: any;
 
   constructor(
     private router: Router,
@@ -23,11 +23,11 @@ export class ListItemComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    const attachmentModel = new Attachment()
-    attachmentModel.pia_id = this.pia.id
+    const attachmentModel = new Attachment();
+    attachmentModel.pia_id = this.pia.id;
     attachmentModel.findAll().then((entries: any) => {
-      this.attachments = entries
-    })
+      this.attachments = entries;
+    });
   }
 
   /**
@@ -37,9 +37,9 @@ export class ListItemComponent implements OnInit {
    * @memberof ListItemComponent
    */
   onFocusOut(attribute: string, event: any) {
-    const text = event.target.innerText
-    this.pia[attribute] = text
-    this.pia.update()
+    const text = event.target.innerText;
+    this.pia[attribute] = text;
+    this.pia.update();
   }
 
   /**
@@ -48,8 +48,8 @@ export class ListItemComponent implements OnInit {
    * @memberof ListItemComponent
    */
   removePia(id: string) {
-    localStorage.setItem('pia-id', id)
-    this._modalsService.openModal('modal-remove-pia')
+    localStorage.setItem('pia-id', id);
+    this._modalsService.openModal('modal-remove-pia');
   }
 
   /**
@@ -58,6 +58,6 @@ export class ListItemComponent implements OnInit {
    * @memberof ListItemComponent
    */
   export(id: number) {
-    this._piaService.export(id)
+    this._piaService.export(id);
   }
 }
