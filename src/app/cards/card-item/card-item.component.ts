@@ -18,15 +18,21 @@ import { PiaService } from 'app/services/pia.service';
   ],
 })
 export class CardItemComponent implements OnInit {
-  @Input() pia: any;
-  @Input() previousPia: any;
+  @Input()
+  pia: any;
+  @Input()
+  previousPia: any;
   piaForm: FormGroup;
   attachments: any;
 
-  @ViewChild('piaName') private piaName: ElementRef;
-  @ViewChild('piaAuthorName') private piaAuthorName: ElementRef;
-  @ViewChild('piaEvaluatorName') private piaEvaluatorName: ElementRef;
-  @ViewChild('piaValidatorName') private piaValidatorName: ElementRef;
+  @ViewChild('piaName')
+  private piaName: ElementRef;
+  @ViewChild('piaAuthorName')
+  private piaAuthorName: ElementRef;
+  @ViewChild('piaEvaluatorName')
+  private piaEvaluatorName: ElementRef;
+  @ViewChild('piaValidatorName')
+  private piaValidatorName: ElementRef;
 
   constructor(
     private router: Router,

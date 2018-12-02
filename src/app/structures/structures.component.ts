@@ -16,7 +16,8 @@ import { AppDataService } from 'app/services/app-data.service';
   providers: [StructureService],
 })
 export class StructuresComponent implements OnInit, OnDestroy {
-  @Input() structure: any;
+  @Input()
+  structure: any;
   newStructure: Structure;
   structureForm: FormGroup;
   importStructureForm: FormGroup;

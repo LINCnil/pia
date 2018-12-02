@@ -18,13 +18,15 @@ import { GlobalEvaluationService } from 'app/services/global-evaluation.service'
   providers: [PiaService],
 })
 export class SectionsComponent implements OnInit {
-  @Input() section: {
+  @Input()
+  section: {
     id: number;
     title: string;
     short_help: string;
     items: any;
   };
-  @Input() item: {
+  @Input()
+  item: {
     id: number;
     title: string;
     evaluation_mode: string;

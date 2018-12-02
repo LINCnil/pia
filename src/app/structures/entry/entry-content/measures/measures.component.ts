@@ -22,10 +22,14 @@ import { SidStatusService } from 'app/services/sid-status.service';
   providers: [StructureService],
 })
 export class MeasuresComponent implements OnInit, OnDestroy {
-  @Input() id: number;
-  @Input() measure: any;
-  @Input() item: any;
-  @Input() section: any;
+  @Input()
+  id: number;
+  @Input()
+  measure: any;
+  @Input()
+  item: any;
+  @Input()
+  section: any;
   editor: any;
   elementId: string;
   displayDeleteButton = true;

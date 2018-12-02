@@ -18,9 +18,12 @@ import { GlobalEvaluationService } from 'app/services/global-evaluation.service'
   styleUrls: ['./knowledge-base-item.component.scss'],
 })
 export class KnowledgeBaseItemComponent implements OnInit {
-  @Input() item: any;
-  @Input() itemKb: any;
-  @Output() newMeasureEvent: EventEmitter<any> = new EventEmitter<any>();
+  @Input()
+  item: any;
+  @Input()
+  itemKb: any;
+  @Output()
+  newMeasureEvent: EventEmitter<any> = new EventEmitter<any>();
   titleKb: string;
 
   constructor(

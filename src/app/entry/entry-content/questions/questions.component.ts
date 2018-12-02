@@ -27,10 +27,14 @@ import { GlobalEvaluationService } from '../../../services/global-evaluation.ser
 })
 export class QuestionsComponent implements OnInit, OnDestroy {
   userMeasures = [];
-  @Input() question: any;
-  @Input() item: any;
-  @Input() section: any;
-  @Input() pia: any;
+  @Input()
+  question: any;
+  @Input()
+  item: any;
+  @Input()
+  section: any;
+  @Input()
+  pia: any;
   evaluation: Evaluation = new Evaluation();
   questionForm: FormGroup;
   answer: Answer = new Answer();

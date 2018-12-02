@@ -14,12 +14,18 @@ import { ModalsService } from 'app/modals/modals.service';
 export class CommentsComponent implements OnInit {
   commentsForm: FormGroup;
   comments: any;
-  @Input() question: any;
-  @Input() measure: any;
-  @Input() questionId: any;
-  @Input() measureId: any;
-  @Input() pia: any;
-  @Input() answer: any;
+  @Input()
+  question: any;
+  @Input()
+  measure: any;
+  @Input()
+  questionId: any;
+  @Input()
+  measureId: any;
+  @Input()
+  pia: any;
+  @Input()
+  answer: any;
   questionDate: Date;
   newCommentDisplayer: boolean;
   displayCommentValidateBtn: boolean;

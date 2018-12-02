@@ -18,8 +18,10 @@ export class DPOPeopleOpinionsComponent implements OnInit {
   peopleForm: FormGroup;
   displayPeopleOpinions = false;
   displayPeopleSearchContent = false;
-  @ViewChild('DpoNames') private elementRef1: ElementRef;
-  @ViewChild('PeopleNames') private elementRef2: ElementRef;
+  @ViewChild('DpoNames')
+  private elementRef1: ElementRef;
+  @ViewChild('PeopleNames')
+  private elementRef2: ElementRef;
 
   constructor(
     private el: ElementRef,

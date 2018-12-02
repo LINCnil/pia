@@ -32,12 +32,18 @@ export class EvaluationsComponent
   private riskSubscription: Subscription;
   private placeholderSubscription: Subscription;
   evaluationForm: FormGroup;
-  @Input() item: any;
-  @Input() pia: any;
-  @Input() section: any;
-  @Input() questionId: any;
-  @Input() measureId: any;
-  @Output() evaluationEvent = new EventEmitter<Evaluation>();
+  @Input()
+  item: any;
+  @Input()
+  pia: any;
+  @Input()
+  section: any;
+  @Input()
+  questionId: any;
+  @Input()
+  measureId: any;
+  @Output()
+  evaluationEvent = new EventEmitter<Evaluation>();
   comment_placeholder: string;
   evaluation: Evaluation;
   reference_to: string;

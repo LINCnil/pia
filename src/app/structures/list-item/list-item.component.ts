@@ -12,8 +12,10 @@ import { StructureService } from 'app/services/structure.service';
   providers: [StructureService],
 })
 export class ListItemComponent implements OnInit {
-  @Input() structure: any;
-  @Output() structEvent = new EventEmitter<Structure>();
+  @Input()
+  structure: any;
+  @Output()
+  structEvent = new EventEmitter<Structure>();
 
   constructor(
     private router: Router,

@@ -26,8 +26,10 @@ import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 })
 export class KnowledgeBaseComponent implements OnInit {
   searchForm: FormGroup;
-  @Input() item: any;
-  @Output() newMeasureEvent: EventEmitter<any> = new EventEmitter<any>();
+  @Input()
+  item: any;
+  @Output()
+  newMeasureEvent: EventEmitter<any> = new EventEmitter<any>();
 
   constructor(
     private _measureService: MeasureService,

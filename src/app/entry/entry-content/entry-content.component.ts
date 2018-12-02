@@ -22,10 +22,14 @@ import { KnowledgeBaseService } from 'app/entry/knowledge-base/knowledge-base.se
   providers: [PiaService],
 })
 export class EntryContentComponent implements OnInit, OnChanges {
-  @Input() section: any;
-  @Input() item: any;
-  @Input() questions: any;
-  @Input() data: any;
+  @Input()
+  section: any;
+  @Input()
+  item: any;
+  @Input()
+  questions: any;
+  @Input()
+  data: any;
 
   constructor(
     private _router: Router,

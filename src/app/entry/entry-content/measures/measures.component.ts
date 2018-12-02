@@ -23,10 +23,14 @@ import { GlobalEvaluationService } from 'app/services/global-evaluation.service'
   styleUrls: ['./measures.component.scss'],
 })
 export class MeasuresComponent implements OnInit, OnDestroy {
-  @Input() measure: Measure;
-  @Input() item: any;
-  @Input() section: any;
-  @Input() pia: any;
+  @Input()
+  measure: Measure;
+  @Input()
+  item: any;
+  @Input()
+  section: any;
+  @Input()
+  pia: any;
   editor: any;
   elementId: string;
   evaluation: Evaluation = new Evaluation();

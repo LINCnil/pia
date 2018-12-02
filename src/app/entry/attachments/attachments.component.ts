@@ -13,7 +13,8 @@ import { AttachmentsService } from 'app/entry/attachments/attachments.service';
   styleUrls: ['./attachments.component.scss'],
 })
 export class AttachmentsComponent implements OnInit {
-  @Input() pia: Pia;
+  @Input()
+  pia: Pia;
   attachmentForm: FormGroup;
   dispplayAttachmentButton = false;
 

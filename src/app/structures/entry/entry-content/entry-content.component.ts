@@ -21,10 +21,14 @@ import { KnowledgeBaseService } from 'app/entry/knowledge-base/knowledge-base.se
   providers: [StructureService],
 })
 export class EntryContentComponent implements OnInit, OnChanges, OnDestroy {
-  @Input() section: any;
-  @Input() item: any;
-  @Input() questions: any;
-  @Input() data: any;
+  @Input()
+  section: any;
+  @Input()
+  item: any;
+  @Input()
+  questions: any;
+  @Input()
+  data: any;
   // subscriptionMeasure: Subscription;
   subscriptionQuestion: Subscription;
 

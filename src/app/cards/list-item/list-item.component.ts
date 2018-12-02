@@ -12,7 +12,8 @@ import { PiaService } from 'app/services/pia.service';
   styleUrls: ['./list-item.component.scss'],
 })
 export class ListItemComponent implements OnInit {
-  @Input() pia: any;
+  @Input()
+  pia: any;
   attachments: any;
 
   constructor(

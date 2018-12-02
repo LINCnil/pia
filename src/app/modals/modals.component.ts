@@ -19,8 +19,10 @@ import { AttachmentsService } from 'app/entry/attachments/attachments.service';
   providers: [PiaService, StructureService],
 })
 export class ModalsComponent implements OnInit {
-  @Input() pia: any;
-  @Input() structure: any;
+  @Input()
+  pia: any;
+  @Input()
+  structure: any;
   newPia: Pia;
   newStructure: Structure;
   piaForm: FormGroup;

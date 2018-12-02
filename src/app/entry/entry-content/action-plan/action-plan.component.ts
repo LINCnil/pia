@@ -8,8 +8,10 @@ import { ActionPlanService } from './action-plan.service';
   styleUrls: ['./action-plan.component.scss'],
 })
 export class ActionPlanComponent implements OnInit {
-  @Input() pia: any;
-  @Input() data: any;
+  @Input()
+  pia: any;
+  @Input()
+  data: any;
 
   constructor(public _actionPlanService: ActionPlanService) {}
 

@@ -19,7 +19,8 @@ import { Answer } from 'app/entry/entry-content/questions/answer.model';
   providers: [PiaService, StructureService],
 })
 export class CardsComponent implements OnInit, OnDestroy {
-  @Input() pia: any;
+  @Input()
+  pia: any;
   newPia: Pia;
   piaForm: FormGroup;
   importPiaForm: FormGroup;

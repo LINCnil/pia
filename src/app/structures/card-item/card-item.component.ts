@@ -26,13 +26,18 @@ import { StructureService } from 'app/services/structure.service';
   providers: [StructureService],
 })
 export class CardItemComponent implements OnInit {
-  @Input() structure: any;
-  @Input() previousStructure: any;
-  @Output() structEvent = new EventEmitter<Structure>();
+  @Input()
+  structure: any;
+  @Input()
+  previousStructure: any;
+  @Output()
+  structEvent = new EventEmitter<Structure>();
   structureForm: FormGroup;
 
-  @ViewChild('structureName') private structureName: ElementRef;
-  @ViewChild('structureSectorName') private structureSectorName: ElementRef;
+  @ViewChild('structureName')
+  private structureName: ElementRef;
+  @ViewChild('structureSectorName')
+  private structureSectorName: ElementRef;
 
   constructor(
     private router: Router,

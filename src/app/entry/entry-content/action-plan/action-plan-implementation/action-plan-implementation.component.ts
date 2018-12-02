@@ -12,14 +12,16 @@ import { GlobalEvaluationService } from 'app/services/global-evaluation.service'
   styleUrls: ['./action-plan-implementation.component.scss'],
 })
 export class ActionPlanImplementationComponent implements OnInit {
-  @Input() data: any;
+  @Input()
+  data: any;
   evaluation: Evaluation;
   actionPlanForm: FormGroup;
   displayEditButton = false;
 
   @ViewChild('estimatedEvaluationDate')
   private estimatedEvaluationDate: ElementRef;
-  @ViewChild('personInCharge') private personInCharge: ElementRef;
+  @ViewChild('personInCharge')
+  private personInCharge: ElementRef;
 
   constructor(
     private _piaService: PiaService,

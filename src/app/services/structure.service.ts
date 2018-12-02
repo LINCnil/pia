@@ -75,7 +75,8 @@ export class StructureService {
       this.structure.data.sections
         .filter(s => s.id === section.id)[0]
         .items.filter(i => i.id === item.id)[0]
-        .questions.filter(q => q.id === question.id)[0].title = question.title;
+        .questions.filter(q => q.id === question.id)[0].title =
+        question.title;
       this.structure.data.sections
         .filter(s => s.id === section.id)[0]
         .items.filter(i => i.id === item.id)[0]

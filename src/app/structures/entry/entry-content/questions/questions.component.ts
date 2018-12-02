@@ -26,9 +26,12 @@ import { SidStatusService } from 'app/services/sid-status.service';
 })
 export class QuestionsComponent implements OnInit, OnDestroy {
   userMeasures = [];
-  @Input() question: any;
-  @Input() item: any;
-  @Input() section: any;
+  @Input()
+  question: any;
+  @Input()
+  item: any;
+  @Input()
+  section: any;
   questionForm: FormGroup;
   lastSelectedTag: string;
   elementId: String;

@@ -11,8 +11,10 @@ import { AttachmentsService } from 'app/entry/attachments/attachments.service';
   styleUrls: ['./attachment-item.component.scss'],
 })
 export class AttachmentItemComponent implements OnInit {
-  @Input() attachment: any;
-  @Input() pia: any;
+  @Input()
+  attachment: any;
+  @Input()
+  pia: any;
 
   constructor(
     private _modalsService: ModalsService,
