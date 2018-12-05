@@ -1,11 +1,11 @@
 {
 	"about": {
-		"contribute": "If you wish to contribute to the translation of the software in another language or improve the existing translations, we recommend you to <a href=\"https://github.com/LINCnil/pia/tree/master/src/assets/i18n\" target=\"_blank\">read the page describing the steps to follow</a>.",
-		"description": "This tool is originally designed by the <a target=\"_blank\" href=\"https://www.cnil.fr\">Commission Nationale Informatique et Liberté (CNIL)</a>, the French Data Protection Authority, to help data processor to be compliant with the GDPR.<br>This software is free and open. If you wish to get involved in this project, you are welcome to download the source code from Github, modify it and share it with the community.",
-		"licences": "Library licences:",
-		"title": "About the Tool PIA",
-		"translators": "The PIA software is currently available in eighteen languages. The French and English versions are provided by the CNIL. The others versions result from the contributions of the following individuals:",
-		"translators_name": "<ul><li>Croatian : <a target=\"_blank\" href=\"https://github.com/B2KapitalBA\">B2KapitalBA</a> ;</li><li>Czech : Jiří Grohmann, Manuel d’Orso ;</li><li>Danish : <a target=\"_blank\" href=\"https://github.com/moolsen\">Michael Drews Olsen</a> ;</li><li>Dutch : Ruud van Driel, Manuel d’Orso ;</li><li>English : <a target=\"_blank\" href=\"https://www.cnil.fr\">CNIL</a> ;</li><li>Estonian : <a target=\"_blank\" href=\"https://github.com/PrivacyAssessment1\">PrivacyAssessment1</a> ;</li><li>Finnish : <a target=\"_blank\" href=\"https://tietosuoja.fi/etusivu\">Tietosuojavaltuutetun toimisto</a> ;</li><li>French : <a target=\"_blank\" href=\"https://www.cnil.fr\">CNIL</a> ;</li><li>German  : <a target=\"_blank\" href=\"https://github.com/https://github.com/kosmas58\">Kosmas Schütz</a> , Corina Scheiter (<a target=\"_blank\" href=\"https://www.datenschutz-bayern.de/\">BayLfD</a>) ;</li><li>Greek : <a target=\"_blank\" href=\"https://tzellis.gr\">Dimitris Tzellis</a> ;</li><li>Hungarian : <a target=\"_blank\" href=\"https://naih.hu/\">Nemzeti Adatvédelmi és Információszabadság Hatóság (NAIH)</a> ;</li><li>Italian : Manuel d’Orso, Gianluca Markos, Antonio Caselli (<a target=\"_blank\" href=\"http://gpdp.it\">Garante per la Protezione dei Dai Personali (GPDP)</a>) ;</li><li>Lithuanian : Paulius Galubickas (<a target=\"_blank\" href=\"http://galubickas.lt\">Law firm Galubickas</a>) ;</li><li>Norwegian : <a target=\"_blank\" href=\"https://www.datatilsynet.no\">Datatilsynet</a> ;</li><li>Polish : <a target=\"_blank\" href=\"https://github.com/https://github.com/JoannaKar\">Joanna Karczewska</a> , Michal Mazur (<a target=\"_blank\" href=\"https://giodo.gov.pl\">Generalny Inspektor Ochrony Danych Osobowych (GIODO)</a>) ;</li><li>Portuguese : <a target=\"_blank\" href=\"https://github.com/bagois\">Barbara Gois</a> ;</li><li>Romanian : <a target=\"_blank\" href=\"https://github.com/webmyday\">webmyday</a> ;</li><li>Spanish : <a target=\"_blank\" href=\"https://github.com/ylachgar\">ylachgar</a> .</li></ul>",
+		"contribute": "Kui soovite panustada tarkvara eestikeelse tõlke paremaks tegemiseks soovitame lugeda<a href=\"https://github.com/LINCnil/pia/tree/master/src/assets/i18n\" target=\"_blank\">, kus selgitatakse mida on vaja selleks teha</a>.",
+		"description": "Käesolev abivahend on loodud<a target=\"_blank\" href=\"https://www.cnil.fr\">Commission Nationale Informatique et Liberté (CNIL)</a>, Prantsusmaa andmekaitse järelevalve asutus, abistamaks isikuandmete töötlemise vastavusse viimiseks Euroopa Liidu isikuandmete kaitse üldmääruse (EL) 2016/679 nõuetele ja nõuetele vastavuse tõendamiseks.<br>See on vabavara. Kui soovite panustada projekti, siis olete teretulnud ja võite lähtekoodi allalaadida Github-ist ning täiendada ja jagada seda.",
+		"licences": "Raamatukogu litsents:",
+		"title": "Andmekaitse mõjuhinnangu tarkvarast",
+		"translators": "Tarkvara on hetkel saadaval 18 keeles. Prantsus- ja ingliskeelne versioon on loodud CNIL-i poolt. Tõlked teistesse keeltesse on tehtud järgnevate panustajate poolt:",
+		"translators_name": "<ul><li>Croatian : <a target=\"_blank\" href=\"https://github.com/B2KapitalBA\">B2KapitalBA</a> ;</li><li>Czech : Jiří Grohmann, Manuel d’Orso ;</li><li>Danish : <a target=\"_blank\" href=\"https://github.com/moolsen\">Michael Drews Olsen</a> ;</li><li>Dutch : Ruud van Driel, Manuel d’Orso ;</li><li>English : <a target=\"_blank\" href=\"https://www.cnil.fr\">CNIL</a> ;</li><li>Estonian : Eva Arumets, Lauri Bender, Rebeka Dronia, Kärol Kibena, Simon Suuban, Urmas Kukk (<a target=\"_blank\" href=\https://kochpartners.ee/en/people/urmas-kukk/") ; https://github.com/PrivacyAssessment1\">PrivacyAssessment1</a> ;</li><li>Finnish : <a target=\"_blank\" href=\"https://tietosuoja.fi/etusivu\">Tietosuojavaltuutetun toimisto</a> ;</li><li>French : <a target=\"_blank\" href=\"https://www.cnil.fr\">CNIL</a> ;</li><li>German  : <a target=\"_blank\" href=\"https://github.com/https://github.com/kosmas58\">Kosmas Schütz</a> , Corina Scheiter (<a target=\"_blank\" href=\"https://www.datenschutz-bayern.de/\">BayLfD</a>) ;</li><li>Greek : <a target=\"_blank\" href=\"https://tzellis.gr\">Dimitris Tzellis</a> ;</li><li>Hungarian : <a target=\"_blank\" href=\"https://naih.hu/\">Nemzeti Adatvédelmi és Információszabadság Hatóság (NAIH)</a> ;</li><li>Italian : Manuel d’Orso, Gianluca Markos, Antonio Caselli (<a target=\"_blank\" href=\"http://gpdp.it\">Garante per la Protezione dei Dai Personali (GPDP)</a>) ;</li><li>Lithuanian : Paulius Galubickas (<a target=\"_blank\" href=\"http://galubickas.lt\">Law firm Galubickas</a>) ;</li><li>Norwegian : <a target=\"_blank\" href=\"https://www.datatilsynet.no\">Datatilsynet</a> ;</li><li>Polish : <a target=\"_blank\" href=\"https://github.com/https://github.com/JoannaKar\">Joanna Karczewska</a> , Michal Mazur (<a target=\"_blank\" href=\"https://giodo.gov.pl\">Generalny Inspektor Ochrony Danych Osobowych (GIODO)</a>) ;</li><li>Portuguese : <a target=\"_blank\" href=\"https://github.com/bagois\">Barbara Gois</a> ;</li><li>Romanian : <a target=\"_blank\" href=\"https://github.com/webmyday\">webmyday</a> ;</li><li>Spanish : <a target=\"_blank\" href=\"https://github.com/ylachgar\">ylachgar</a> .</li></ul>",
 		"version_number": "Version number"
 	},
 	"action_plan": {
@@ -46,42 +46,42 @@
 		"seriousness_axe": "Riski tõsidus"
 	},
 	"comments": {
-		"comment": "Comment",
-		"comments_count": "comment(s)",
-		"new_comment": "Comment",
-		"placeholder_new_comment": "Leave a comment",
-		"send": "Send"
+		"comment": "Kommentaar",
+		"comments_count": "kommentaari",
+		"new_comment": "Kommentaar",
+		"placeholder_new_comment": "Sisesta kommentaar",
+		"send": "Saada"
 	},
 	"errors": {
 		"content": "Kui teil tekib muid probleeme või kui teil on soovitusi, <br>võite need saata järgneva vormi kaudu: <a href=\"https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia\" target=\"_blank\">https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia</a>",
 		"title": "Lehekülge ei leitud."
 	},
 	"evaluations": {
-		"acceptable": "Acceptable",
-		"action_plan_comment": "Action plan / corrective actions",
-		"evaluation_comment": "Evaluation comment",
+		"acceptable": "Vastuvõetav",
+		"action_plan_comment": "Tegevuskava / parandavad meetmed",
+		"evaluation_comment": "Hindaja kommentaar",
 		"gauges": {
-			"0": "(Undefined)",
-			"1": "Negligible",
-			"2": "Limited",
-			"3": "Important",
-			"4": "Maximum",
-			"likelihood": "Taking into account the action plan, how do you re-evaluate the <span class='red-highlight'>likelihood of this risk</span> ({{value}})?",
-			"seriousness": "Taking into account the action plan, how do you re-evaluate the <span class='red-highlight'>seriousness of this risk</span> ({{value}})?"
+			"0": "(Määratlemata)",
+			"1": "Ebaoluline",
+			"2": "Piiratud",
+			"3": "Oluline",
+			"4": "Maksimaalne",
+			"likelihood": "Arvestades tegevuskava, kuidas Te hindaks ümber <span class='red-highlight'>riski tõenäosust</span> ({{value}})?",
+			"seriousness": "Arvestades tegevuskava, kuidas Te hindaks ümber <span class='red-highlight'>riski tõsidust</span> ({{value}})?"
 		},
-		"improvable": "Improvable",
-		"placeholder_acceptable": "According to the available information, the measures implemented are adequate to properly meet the requirements for protecting the data.",
-		"placeholder_improvable1": "According to the available information, additional measures are to be implemented in order to improve the data protection of the processing.",
-		"placeholder_improvable2": "Enter your comments.",
-		"placeholder_to_correct": "The information provided are not sufficient to properly evaluate them. Send back to the editor to improve the original submission.",
+		"improvable": "Parandatav",
+		"placeholder_acceptable": "Arvestades olemasolevat teavet on rakendatud meetmed kohased tagamaks andmeturve.",
+		"placeholder_improvable1": "Arvestades olemasolevat teavet on vaja rakendada täiendavaid meetmeid tagamaks andmeturve.",
+		"placeholder_improvable2": "Sisesta kommentaar.",
+		"placeholder_to_correct": "Esitatud teabest ei piisa hinnangu andmiseks. Saada täiendamiseks koostajale tagasi.",
 		"status": {
-			"0": "Pending",
-			"1": "To correct",
-			"2": "Improvable",
-			"3": "Acceptable"
+			"0": "Ootel",
+			"1": "Saadetud täiendamiseks",
+			"2": "Täiendatava",
+			"3": "Vastuvõetav"
 		},
-		"title": "Evaluation",
-		"to_correct": "To correct"
+		"title": "Hinnang",
+		"to_correct": "Saadetud täiendamiseks"
 	},
 	"header": {
 		"homepage_link": "Töölaud",
@@ -113,7 +113,7 @@
 		"logo_subtitle": "",
 		"logo_title": "Andmekaitsealane mõjuhinnag",
 		"pia_example_link": "Mõjuhinnangu näidis",
-		"structures": "TO BE TRANSLATED - Modèles de PIA",
+		"structures": "Vormid",
 		"tools": {
 			"about": "Tarkvarast",
 			"accessibility": "Vaegnägijale",
@@ -125,17 +125,17 @@
 	"help": {
 		"definition": {
 			"data1": {
-				"content": "Content being written",
-				"title": "Use the PIA tool"
+				"content": "Sisu lisatakse",
+				"title": "Kasuta mõjuhinnangu abivahendit"
 			},
 			"data2": {
 				"qa1": {
-					"content": "When encountering those display issues, close the application and reload it. It usually fixes the issue. You won’t lose the information you have entered ; it is  automatically saved as you type.",
-					"title": "I get display issues such as icons being stuck in one state or missing elements from the interface"
+					"content": "Nende kuvamise probleemide puhul sulgege rakendus ja avage uuesti. See tavaliselt parandab vea. Teave ei lähe kaotsi, sest see salvestatakse sisestamisel automaatselt.",
+					"title": "Kuvamisprobleemid. N: ikoonid ei avane või liideses puuduvad elemendid"
 				},
 				"qa2": {
-					"content": "This known issue is currently being fixed. If you encounter this problem, we recommend that you fill in the justification field of the estimated level of severity and / or likelihood. You will be able to edit the gauge once the bug is fixed.",
-					"title": "I can’t edit the gauges for evaluating the severity and likelihood of a risk"
+					"content": "Praeguseks parandatud. Probleemi tekkimisel, soovitame põhjenduste märkida lahtrisse hinnanguline tõsiduse ja / või tõenäosuse tase. Saate mõõte muuta pärast vea parandamist.",
+					"title": "Ma ei saa muuta mõõte riski tõsiduse ja tõenäosuse hindamiseks"
 				},
 				"qa3": {
 					"content": "Several bugs have been observed when importing a PIA, and in particular the level gauges for evaluating the severity and likelihood of a risk may disappear. In this case, please refer to the above mentioned issue. Besides, a PIA may not appear on the dashboard after importing it. This is a display issue and you just need to refresh the page.",
