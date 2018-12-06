@@ -1,7 +1,7 @@
 {
 	"about": {
 		"contribute": "Wenn Sie zur Übersetzung des Tools oder zur Verbesserung der bereits vorgeschlagenen beitragen möchten, laden wir Sie ein, <a href=\"https://github.com/LINCnil/pia/tree/master/src/assets/i18n\" target=\"_blank\">die Seite mit den folgenden Schritten zu lesen</a>.",
-		"description": "Dieses Tool wurde ursprünglich von der französischen Datenschutzbehörde <a target=\"_blank\" href=\"https://www.cnil.fr\"> Nationale Kommission für Informatik und Freiheit (CNIL) </a> entwickelt, um dem Verantwortlichen zu helfen, mit der DS-GVO konform zu sein.<br>Diese Software ist kostenlos und offen. Wenn Sie sich an diesem Projekt beteiligen möchten, können Sie den Quellcode von Github herunterladen, ändern und mit anderen in der Community teilen.",
+		"description": "Dieses Tool wurde ursprünglich von der französischen Datenschutzbehörde <a target=\"_blank\" href=\"https://www.cnil.fr\"> Nationale Kommission für Informatik und Freiheit (CNIL) </a> entwickelt, um dem Verantwortlichen zu helfen, mit der DS-GVO konform zu sein. It was developed by <a href=\"https://atnos.com\" target=\"_blank\">ATNOS</a>.<br>Diese Software ist kostenlos und offen. Wenn Sie sich an diesem Projekt beteiligen möchten, können Sie den Quellcode von Github herunterladen, ändern und mit anderen in der Community teilen.",
 		"licences": "Bibliothekslizenzen:",
 		"title": "Über das Werkzeug PIA",
 		"translators": "Das Tool ist derzeit in achtzehn Sprachen verfügbar. Die französische und die englische Version werden von der CNIL bereitgestellt. Die anderen Versionen sind das Ergebnis der Beiträge der folgenden Personen:",

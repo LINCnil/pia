@@ -1,7 +1,7 @@
 {
 	"about": {
 		"contribute": "Amennyiben hozzá szeretne járulni a szoftver más nyelvekre történő lefordításához, vagy a meglévő fordításokat szeretné fejleszteni, javasoljuk, <a href=\"https://github.com/LINCnil/pia/tree/master/src/assets/i18n\" target=\"_blank\">kövesse a megadott weboldalon található instrukciókat</a>.",
-		"description": "Ezt az eszközt a francia adatvédelmi hatóság (CNIL) <a target=\"_blank\" href=\"https://www.cnil.fr\">Commission Nationale Informatique et Liberté (CNIL)</a> fejlesztette ki, hogy segítse az adatkezelőket a GDPR alkalmazásában. Ez a software ingyenesen és szabadon használható. Ha részt kíván venni a projektben, töltse le a forráskódot a Githubról, módosítsa, és ossza meg a közösségével.",
+		"description": "Ezt az eszközt a francia adatvédelmi hatóság (CNIL) <a target=\"_blank\" href=\"https://www.cnil.fr\">Commission Nationale Informatique et Liberté (CNIL)</a> fejlesztette ki, hogy segítse az adatkezelőket a GDPR alkalmazásában. It was developed by <a href=\"https://atnos.com\" target=\"_blank\">ATNOS</a>.<br>Ez a software ingyenesen és szabadon használható. Ha részt kíván venni a projektben, töltse le a forráskódot a Githubról, módosítsa, és ossza meg a közösségével.",
 		"licences": "Könyvtári engedélyek:",
 		"title": "Az DPIA-eszközről",
 		"translators": "Az DPIA-software jelenleg tizennyolc nyelven áll rendelkezésre. A francia és az angol változatot a CNIL készítette. A többi változat a következők közreműködésével készült:",
