@@ -1,7 +1,7 @@
 {
 	"about": {
 		"contribute": "Si usted desea contribuir a la traducción del software en otra idioma mejorar las traducciones existentes, le recomendamos al <a href=\"https://github.com/LINCnil/pia/tree/master/src/assets/i18n\" target=\"_blank\">leer la página que describe los pasos</a>.",
-		"description": "Esta herramienta es diseñada originalmente por la CNIL, la autoridad francesa de la protección de los datos, ayudar al informático a ser obediente con el software de GDPR.<br>This está libre y abierto. Si usted desea conseguir implicado en este proyecto, usted es agradable descargar el código de fuente de Github, lo modifica y lo comparte con la comunidad.",
+		"description": "Esta herramienta es diseñada originalmente por la CNIL, la autoridad francesa de la protección de los datos, ayudar al informático a ser obediente con el software de GDPR. It was developed by <a href=\"https://atnos.com\" target=\"_blank\">ATNOS</a>.<br>This está libre y abierto. Si usted desea conseguir implicado en este proyecto, usted es agradable descargar el código de fuente de Github, lo modifica y lo comparte con la comunidad.",
 		"licences": "Library licenses:",
 		"title": "Sobre la herramienta PIA",
 		"translators": "El software del PIA es actualmente disponible en dieciocho idiomas. Las versiones francesas e inglesas son proporcionadas por el CNIL. El otros las versiones resultan de las contribuciones de los individuos siguientes:",

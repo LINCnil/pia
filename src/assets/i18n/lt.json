@@ -1,7 +1,7 @@
 {
 	"about": {
 		"contribute": "Jei norite prisidėti prie programos vertimo į kitas kalbas ar norite pagerinti esamą vertimą, rekomenduojame <a href=\"https://github.com/LINCnil/pia/tree/master/src/assets/i18n\" target=\"_blank\"> perskaityti instrukcijas</a>.",
-		"description": "Ši programa yra sukurta <a target=\"_blank\" href=\"https://www.cnil.fr\">Commission Nationale Informatique et Liberté (CNIL)</a>, Prancūzijos duomenų apsaugos inspekcijos, siekiant padėti jos vartotojams užtikrinti asmens duomenų tvarkymo atitikti BDAR reikalavimams. Jei norite prisidėti prie šio projekto tolimesnio vystymo, jūs galite atsisiūti programos išeities kodą iš Github, jį modifikuoti ir dalintis su bendruomene.",
+		"description": "Ši programa yra sukurta <a target=\"_blank\" href=\"https://www.cnil.fr\">Commission Nationale Informatique et Liberté (CNIL)</a>, Prancūzijos duomenų apsaugos inspekcijos, siekiant padėti jos vartotojams užtikrinti asmens duomenų tvarkymo atitikti BDAR reikalavimams. It was developed by <a href=\"https://atnos.com\" target=\"_blank\">ATNOS</a>.<br>Jei norite prisidėti prie šio projekto tolimesnio vystymo, jūs galite atsisiūti programos išeities kodą iš Github, jį modifikuoti ir dalintis su bendruomene.",
 		"licences": "Bibliotekų licencijos:",
 		"title": "Apie PDAV programą",
 		"translators": "PIA programa yra išversta į daugiau nei aštuoniolika kalbų. Programos prancūziška ir angliška versijas sukūrė CNIL. Programos versijos kitomis kalbomis parengė šie asmenys:",
