@@ -1,5 +1,5 @@
 # GOUVERNANCE / GOVERNANCE
-[Français](http://) / [English](http://)
+[Français](https://github.com/LINCnil/pia/blob/master/GOVERNANCE.md#fr) / [English](https://github.com/LINCnil/pia/blob/master/GOVERNANCE.md#en)
 
 ## FR
 L’application PIA (front & back-end) est un projet maintenu et sous la responsabilité de la CNIL. En l’état, la CNIL s’occupe de coordonner les efforts des contributeurs autour de l’outil et d’appuyer la gestion du projet, notamment en maintenant une roadmap publique. Elle interviendra également en cas de conflit important sur des propositions et contributions afin de trouver les solutions les plus satisfaisantes pour la continuité du projet.
