@@ -1,7 +1,7 @@
 {
   "about": {
     "contribute": "Hvis du ønsker at bidrage til oversættelsen af værktøjet eller til forbedring af de allerede foreslåede, inviterer vi dig til <a href=\"https://github.com/LINCnil/pia/tree/master/src/assets/i18n\" target=\"_blank\">læs siden, der beskriver de trin, der skal følges</a>.",
-    "description": "Dette værktøj er oprindeligt designet af <a target=\"_blank\" href=\"https://www.cnil.fr\">Commission Nationale Informatique et Liberté (CNIL)</a>, den franske databeskyttelsesmyndighed med henblik på at bistå dataansvarlige i efterlevelse af GDPR kravene.<br>Dette værktøj er gratis og åbent, under GPLv3-licens. Du kan bidrage ved at hente kildekoden, ændre den og omfordele den til fællesskabet.",
+    "description": "Dette værktøj er oprindeligt designet af <a target=\"_blank\" href=\"https://www.cnil.fr\">Commission Nationale Informatique et Liberté (CNIL)</a>, den franske databeskyttelsesmyndighed med henblik på at bistå dataansvarlige i efterlevelse af GDPR kravene. It was developed by <a href=\"https://atnos.com\" target=\"_blank\">ATNOS</a>.<br>Dette værktøj er gratis og åbent, under GPLv3-licens. Du kan bidrage ved at hente kildekoden, ændre den og omfordele den til fællesskabet.",
     "licences": "Bibliotekslicenser:",
     "title": "Om PIA værktøjet",
     "translators": "Værktøjet er i øjeblikket tilgængeligt på atten sprog. De franske og engelske versioner leveres af CNIL. De andre versioner er resultatet af bidrag fra følgende personer:",

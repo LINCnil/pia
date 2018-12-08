@@ -1,7 +1,7 @@
 {
   "about": {
     "contribute": "Ako želite pridonijeti prijevodu softvera na drugi jeziku ili poboljšati postojeće prijevode, preporučujemo vam da <a href=\"https://github.com/LINCnil/pia/tree/master/src/assets/i18n\" target=\"_blank\">pročitate stranicu koja opisuje korake koje je potrebno slijediti.</a>.",
-    "description": "Ovaj alat izvorno je osmišljen od strane <a target=\"_blank\" href=\"https://www.cnil.fr\">Commission Nationale Informatique et Liberté (CNIL)</a>, francuskog tijela za zaštitu podataka, kako bi pomogao izvršiteljima obrade da budu sukladni s OUZP-om.<br>Ovaj softver je besplatan i otvoren. Ako se želite uključiti u ovaj projekt, dobrodošli ste preuzeti izvorni kod tvrtke Github, mijenjati ga i dijeliti s zajednicom.",
+    "description": "Ovaj alat izvorno je osmišljen od strane <a target=\"_blank\" href=\"https://www.cnil.fr\">Commission Nationale Informatique et Liberté (CNIL)</a>, francuskog tijela za zaštitu podataka, kako bi pomogao izvršiteljima obrade da budu sukladni s OUZP-om. It was developed by <a href=\"https://atnos.com\" target=\"_blank\">ATNOS</a>.<br>Ovaj softver je besplatan i otvoren. Ako se želite uključiti u ovaj projekt, dobrodošli ste preuzeti izvorni kod tvrtke Github, mijenjati ga i dijeliti s zajednicom.",
     "licences": "Licence biblioteka:",
     "title": "O alatu za PUP pia",
     "translators": "Softver za PUP trenutno je dostupan na osamnaest jezika. Inačice na francuskom i engleskom jeziku omogućio je CNIL. Druge inačice rezultat su doprinosa sljedećih pojedinaca:",

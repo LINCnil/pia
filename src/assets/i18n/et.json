@@ -1,7 +1,7 @@
 {
   "about": {
     "contribute": "Kui soovite panustada tarkvara eestikeelse tõlke paremaks tegemiseks soovitame lugeda<a href=\"https://github.com/LINCnil/pia/tree/master/src/assets/i18n\" target=\"_blank\">, kus selgitatakse mida on vaja selleks teha</a>.",
-    "description": "Käesolev abivahend on loodud<a target=\"_blank\" href=\"https://www.cnil.fr\">Commission Nationale Informatique et Liberté (CNIL)</a>, Prantsusmaa andmekaitse järelevalve asutus, abistamaks isikuandmete töötlemise vastavusse viimiseks Euroopa Liidu isikuandmete kaitse üldmääruse (EL) 2016/679 nõuetele ja nõuetele vastavuse tõendamiseks.<br>See on vabavara. Kui soovite panustada projekti, siis olete teretulnud ja võite lähtekoodi allalaadida Github-ist ning täiendada ja jagada seda.",
+    "description": "Käesolev abivahend on loodud<a target=\"_blank\" href=\"https://www.cnil.fr\">Commission Nationale Informatique et Liberté (CNIL)</a>, Prantsusmaa andmekaitse järelevalve asutus, abistamaks isikuandmete töötlemise vastavusse viimiseks Euroopa Liidu isikuandmete kaitse üldmääruse (EL) 2016/679 nõuetele ja nõuetele vastavuse tõendamiseks. It was developed by <a href=\"https://atnos.com\" target=\"_blank\">ATNOS</a>.<br>See on vabavara. Kui soovite panustada projekti, siis olete teretulnud ja võite lähtekoodi allalaadida Github-ist ning täiendada ja jagada seda.",
     "licences": "Raamatukogu litsents:",
     "title": "Andmekaitse mõjuhinnangu tarkvarast",
     "translators": "Tarkvara on hetkel saadaval 18 keeles. Prantsus- ja ingliskeelne versioon on loodud CNIL-i poolt. Tõlked teistesse keeltesse on tehtud järgnevate panustajate poolt:",
