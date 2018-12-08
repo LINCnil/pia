@@ -74,11 +74,9 @@ export class AttachmentsService {
   upload(attachment_file: any) {
     const file = new Blob([attachment_file]);
     const reader = new FileReader();
-    reader.readAsDataURL(file);
     reader.onloadend = () => {
       const attachment = new Attachment();
-      // attachment.file = reader.result;
-      reader.readAsDataURL(attachment.file);
+      attachment.file = reader.result;
       attachment.name = attachment_file.name;
       attachment.mime_type = attachment_file.type;
       attachment.pia_id = this.pia.id;
@@ -97,8 +95,8 @@ export class AttachmentsService {
         this.updateSignedAttachmentsList();
       });
     };
+    reader.readAsDataURL(file);
   }
-
   /**
    * Download an attachment by id.
    * @param {number} id - Id of the attachment.

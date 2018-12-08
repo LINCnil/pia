@@ -2,7 +2,7 @@ import { ApplicationDb } from '../../application.db';
 
 export class Attachment extends ApplicationDb {
   public id: number;
-  public file: Blob;
+  public file: any;
   public name: string;
   public mime_type: string;
   public pia_signed = 0;
