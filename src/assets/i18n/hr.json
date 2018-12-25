@@ -5,7 +5,7 @@
     "licences": "Licence biblioteka:",
     "title": "O alatu za PUP pia",
     "translators": "Softver za PUP trenutno je dostupan na osamnaest jezika. Inačice na francuskom i engleskom jeziku omogućio je CNIL. Druge inačice rezultat su doprinosa sljedećih pojedinaca:",
-    "translators_name": "<ul><li>Croatian : <a target=\"_blank\" href=\"https://github.com/B2KapitalBA\">B2KapitalBA</a> ;</li><li>Czech : Jiří Grohmann, Manuel d’Orso ;</li><li>Danish : <a target=\"_blank\" href=\"https://github.com/moolsen\">Michael Drews Olsen</a> ;</li><li>Dutch : Ruud van Driel, Manuel d’Orso ;</li><li>English : <a target=\"_blank\" href=\"https://www.cnil.fr\">CNIL</a> ;</li><li>Estonian : Eva Arumets, Lauri Bender, Rebeka Dronia, Kärol Kibena, Simon Suuban, <a target=\"_blank\" href=\"https://kochpartners.ee/en/people/urmas-kukk/\">Urmas Kukk, <a target=\"_blank\" href=\"https://github.com/PrivacyAssessment1\">PrivacyAssessment1</a> ;</li><li>Finnish : <a target=\"_blank\" href=\"https://tietosuoja.fi/etusivu\">Tietosuojavaltuutetun toimisto</a> ;</li><li>French : <a target=\"_blank\" href=\"https://www.cnil.fr\">CNIL</a> ;</li><li>German  : <a target=\"_blank\" href=\"https://github.com/kosmas58\">Kosmas Schütz</a> , Corina Scheiter (<a target=\"_blank\" href=\"https://www.datenschutz-bayern.de/\">BayLfD</a>) ;</li><li>Greek : <a target=\"_blank\" href=\"https://tzellis.gr\">Dimitris Tzellis</a> ;</li><li>Hungarian : <a target=\"_blank\" href=\"https://naih.hu/\">Nemzeti Adatvédelmi és Információszabadság Hatóság (NAIH)</a> ;</li><li>Italian : Manuel d’Orso, Gianluca Markos, Antonio Caselli (<a target=\"_blank\" href=\"http://gpdp.it\">Garante per la Protezione dei Dai Personali (GPDP)</a>) ;</li><li>Lithuanian : Paulius Galubickas (<a target=\"_blank\" href=\"http://galubickas.lt\">Law firm Galubickas</a>) ;</li><li>Norwegian : <a target=\"_blank\" href=\"https://www.datatilsynet.no\">Datatilsynet</a> ;</li><li>Polish : <a target=\"_blank\" href=\"https://github.com/JoannaKar\">Joanna Karczewska</a> , Michal Mazur (<a target=\"_blank\" href=\"https://giodo.gov.pl\">Generalny Inspektor Ochrony Danych Osobowych (GIODO)</a>) ;</li><li>Portuguese : <a target=\"_blank\" href=\"https://github.com/bagois\">Barbara Gois</a> ;</li><li>Romanian : <a target=\"_blank\" href=\"https://github.com/webmyday\">webmyday</a> ;</li><li>Spanish : <a target=\"_blank\" href=\"https://github.com/ylachgar\">ylachgar</a> .</li></ul>",
+    "translators_name": "<ul><li>Croatian : <a target=\"_blank\" href=\"https://github.com/B2KapitalBA\">B2KapitalBA</a> ;</li><li>Czech : Jiří Grohmann, Manuel d’Orso ;</li><li>Danish : <a target=\"_blank\" href=\"https://github.com/moolsen\">Michael Drews Olsen</a> ;</li><li>Dutch : Ruud van Driel, Manuel d’Orso ;</li><li>English : <a target=\"_blank\" href=\"https://www.cnil.fr\">CNIL</a> ;</li><li>Estonian : Eva Arumets, Lauri Bender, Rebeka Dronia, Kärol Kibena, Simon Suuban, <a target=\"_blank\" href=\"https://kochpartners.ee/en/people/urmas-kukk/\">Urmas Kukk, <a target=\"_blank\" href=\"https://github.com/PrivacyAssessment1\">PrivacyAssessment1</a> ;</li><li>Finnish : <a target=\"_blank\" href=\"https://tietosuoja.fi/etusivu\">Tietosuojavaltuutetun toimisto</a> ;</li><li>French : <a target=\"_blank\" href=\"https://www.cnil.fr\">CNIL</a> ;</li><li>German  : <a target=\"_blank\" href=\"https://github.com/kosmas58\">Kosmas Schütz</a> , Corina Scheiter (<a target=\"_blank\" href=\"https://www.datenschutz-bayern.de/\">BayLfD</a>) ;</li><li>Greek : <a target=\"_blank\" href=\"https://tzellis.gr\">Dimitris Tzellis</a> ;</li><li>Hungarian : <a target=\"_blank\" href=\"https://naih.hu/\">Nemzeti Adatvédelmi és Információszabadság Hatóság (NAIH)</a> ;</li><li>Italian : Manuel d’Orso, <a target=\\\"_blank\\\" href=\\\"https://www.identitadigitaledefender.cloud/lo-sapevi-che/382-tool-pia\\\">Gianluca Markos</a>, Antonio Caselli (<a target=\\\"_blank\\\" href=\\\"https://garanteprivacy.it\\\">Garante per la Protezione dei Dai Personali (GPDP)</a>) ;</li><li>Lithuanian : Paulius Galubickas (<a target=\"_blank\" href=\"http://galubickas.lt\">Law firm Galubickas</a>) ;</li><li>Norwegian : <a target=\"_blank\" href=\"https://www.datatilsynet.no\">Datatilsynet</a> ;</li><li>Polish : <a target=\"_blank\" href=\"https://github.com/JoannaKar\">Joanna Karczewska</a> , Michal Mazur (<a target=\"_blank\" href=\"https://giodo.gov.pl\">Generalny Inspektor Ochrony Danych Osobowych (GIODO)</a>) ;</li><li>Portuguese : <a target=\"_blank\" href=\"https://github.com/bagois\">Barbara Gois</a> ;</li><li>Romanian : <a target=\"_blank\" href=\"https://github.com/webmyday\">webmyday</a> ;</li><li>Spanish : <a target=\"_blank\" href=\"https://github.com/ylachgar\">ylachgar</a> .</li></ul>",
     "version_number": "Verzija broj"
   },
   "action_plan": {
@@ -75,12 +75,12 @@
     "placeholder_improvable1": "Prema raspoloživim informacijama, potrebno je provesti dodatne mjere kako bi se poboljšala zaštita podataka obrade.",
     "placeholder_improvable2": "Unesite svoje komentare.",
     "placeholder_to_correct": "Dostavljene informacije nisu dovoljne njihovo ispravno procjenjivanje. Pošaljite natrag uređivaču kako bi poboljšao izvorni podnesak.",
-    "status": {
-      "0": "Rješava se",
-      "1": "Za ispraviti",
-      "2": "Može se poboljšati",
-      "3": "Prihvatljiv"
-    },
+    "status": [
+      "Rješava se",
+      "Za ispraviti",
+      "Može se poboljšati",
+      "Prihvatljiv"
+    ],
     "title": "Procjena",
     "to_correct": "Za ispraviti"
   },
@@ -1002,24 +1002,24 @@
       },
       "validate_pia": "Potvrdi  PUP"
     },
-    "statuses": {
-      "0": "U tijeku",
-      "1": "Odbijen",
-      "2": "Jednostavna potvrda",
-      "3": "Potpisana potvrda",
-      "4": "Arhiviran",
-      "5": "Čeka na potvrdu"
-    }
+    "statuses": [
+      "U tijeku",
+      "Odbijen",
+      "Jednostavna potvrda",
+      "Potpisana potvrda",
+      "Arhiviran",
+      "Čeka na potvrdu"
+    ]
   },
   "questions": {
     "edit": "Uredi pitanje",
-    "gauges": {
-      "0": "(Nedefinirano)",
-      "1": "Zanemariv",
-      "2": "Ograničen",
-      "3": "Bitan",
-      "4": "Maksimalan"
-    },
+    "gauges": [
+      "(Nedefinirano)",
+      "Zanemariv",
+      "Ograničen",
+      "Bitan",
+      "Maksimalan"
+    ],
     "placeholder_title": "Question title (mandatory)",
     "remove": "Delete question"
   },
@@ -1307,10 +1307,10 @@
     "concerned_people_searched_opinion": "Traženje mišljenja dotičnih osoba",
     "concerned_people_status": "Statusi dotičnih osoba",
     "concerned_people_unsearched_opinion_comment": "Razlog zašto nije zatraženo mišljenje dotične osobe",
-    "content_choice": {
-      "0": "Tretman se ne smije koristiti.",
-      "1": "Tretman bi se mogao provesti."
-    },
+    "content_choice": [
+      "Tretman se ne smije koristiti.",
+      "Tretman bi se mogao provesti."
+    ],
     "copy_to_clipboard": "Kopiraj u međuspremnik",
     "creation_date": "Datum stvaranja",
     "csv_action_plan_comment": "Komentar akcijskog plana",

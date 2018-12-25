@@ -5,7 +5,7 @@
     "licences": "Licences des librairies :",
     "title": "A propos de l'Outil PIA",
     "translators": "L’outil est actuellement disponible en dix-huit langues. Les versions française et anglaise sont fournies par la CNIL. Les autres versions sont le résultat des contributions des personnes suivantes :",
-    "translators_name": "<ul><li>Allemand : <a target=\"_blank\" href=\"https://github.com/kosmas58\">Kosmas Schütz</a> , Corina Scheiter (<a target=\"_blank\" href=\"https://www.datenschutz-bayern.de/\">BayLfD</a>) ;</li><li>Anglais : <a target=\"_blank\" href=\"https://www.cnil.fr\">CNIL</a> ;</li><li>Croate : <a target=\"_blank\" href=\"https://github.com/B2KapitalBA\">B2KapitalBA</a> ;</li><li>Danois <a target=\"_blank\" href=\"https://github.com/moolsen\">Michael Drews Olsen</a> ;</li><li>Espagnol : <a target=\"_blank\" href=\"https://github.com/ylachgar\">ylachgar</a> ;</li><li>Estonien : Eva Arumets, Lauri Bender, Rebeka Dronia, Kärol Kibena, Simon Suuban, <a target=\"_blank\" href=\"https://kochpartners.ee/en/people/urmas-kukk/\">Urmas Kukk, <a target=\"_blank\" href=\"https://github.com/PrivacyAssessment1\">PrivacyAssessment1</a> ;</li><li>Finnois : <a target=\"_blank\" href=\"https://tietosuoja.fi/etusivu\">Tietosuojavaltuutetun toimisto</a> ;</li><li>Français : <a target=\"_blank\" href=\"https://www.cnil.fr\">CNIL</a> ;</li><li>Grec :  <a target=\"_blank\" href=\"https://tzellis.gr\">Dimitris Tzellis</a> ;</li><li>Hongrois : <a target=\"_blank\" href=\"https://naih.hu\">Nemzeti Adatvédelmi és Információszabadság Hatóság (NAIH)</a> ;</li><li>Italien : Manuel d’Orso, Gianluca Markos, Antonio Caselli (<a target=\"_blank\" href=\"http://gpdp.it\">Garante per la Protezione dei Dai Personali (GPDP)</a>) ;</li><li>Lituanien : Paulius Galubickas (<a target=\"_blank\" href=\"http://galubickas.lt\">Law firm Galubickas</a>) ;</li><li>Néerlandais : Ruud van Driel, Manuel d’Orso ;</li><li>Norvégien : <a target=\"_blank\" href=\"https://www.datatilsynet.no\">Datatilsynet</a> ;</li><li>Polonais : <a target=\"_blank\" href=\"https://github.com/JoannaKar\">Joanna Karczewska</a> , Michal Mazur (<a target=\"_blank\" href=\"https://giodo.gov.pl\">Generalny Inspektor Ochrony Danych Osobowych (GIODO)</a>) ;</li><li>Portugais : <a target=\"_blank\" href=\"https://github.com/bagois\">Barbara Gois</a> ;</li><li>Roumain : <a target=\"_blank\" href=\"https://github.com/webmyday\">webmyday</a> ;</li><li>Tchèque : Jiří Grohmann, Manuel d’Orso.</li></ul>",
+    "translators_name": "<ul><li>Allemand : <a target=\"_blank\" href=\"https://github.com/kosmas58\">Kosmas Schütz</a> , Corina Scheiter (<a target=\"_blank\" href=\"https://www.datenschutz-bayern.de/\">BayLfD</a>) ;</li><li>Anglais : <a target=\"_blank\" href=\"https://www.cnil.fr\">CNIL</a> ;</li><li>Croate : <a target=\"_blank\" href=\"https://github.com/B2KapitalBA\">B2KapitalBA</a> ;</li><li>Danois <a target=\"_blank\" href=\"https://github.com/moolsen\">Michael Drews Olsen</a> ;</li><li>Espagnol : <a target=\"_blank\" href=\"https://github.com/ylachgar\">ylachgar</a> ;</li><li>Estonien : Eva Arumets, Lauri Bender, Rebeka Dronia, Kärol Kibena, Simon Suuban, <a target=\"_blank\" href=\"https://kochpartners.ee/en/people/urmas-kukk/\">Urmas Kukk, <a target=\"_blank\" href=\"https://github.com/PrivacyAssessment1\">PrivacyAssessment1</a> ;</li><li>Finnois : <a target=\"_blank\" href=\"https://tietosuoja.fi/etusivu\">Tietosuojavaltuutetun toimisto</a> ;</li><li>Français : <a target=\"_blank\" href=\"https://www.cnil.fr\">CNIL</a> ;</li><li>Grec :  <a target=\"_blank\" href=\"https://tzellis.gr\">Dimitris Tzellis</a> ;</li><li>Hongrois : <a target=\"_blank\" href=\"https://naih.hu\">Nemzeti Adatvédelmi és Információszabadság Hatóság (NAIH)</a> ;</li><li>Italien : Manuel d’Orso, <a target=\\\"_blank\\\" href=\\\"https://www.identitadigitaledefender.cloud/lo-sapevi-che/382-tool-pia\\\">Gianluca Markos</a>, Antonio Caselli (<a target=\\\"_blank\\\" href=\\\"https://garanteprivacy.it\\\">Garante per la Protezione dei Dai Personali (GPDP)</a>) ;</li><li>Lituanien : Paulius Galubickas (<a target=\"_blank\" href=\"http://galubickas.lt\">Law firm Galubickas</a>) ;</li><li>Néerlandais : Ruud van Driel, Manuel d’Orso ;</li><li>Norvégien : <a target=\"_blank\" href=\"https://www.datatilsynet.no\">Datatilsynet</a> ;</li><li>Polonais : <a target=\"_blank\" href=\"https://github.com/JoannaKar\">Joanna Karczewska</a> , Michal Mazur (<a target=\"_blank\" href=\"https://giodo.gov.pl\">Generalny Inspektor Ochrony Danych Osobowych (GIODO)</a>) ;</li><li>Portugais : <a target=\"_blank\" href=\"https://github.com/bagois\">Barbara Gois</a> ;</li><li>Roumain : <a target=\"_blank\" href=\"https://github.com/webmyday\">webmyday</a> ;</li><li>Tchèque : Jiří Grohmann, Manuel d’Orso.</li></ul>",
     "version_number": "Numéro de version"
   },
   "action_plan": {
@@ -75,12 +75,7 @@
     "placeholder_improvable1": "Entrez vos commentaires pour expliquer quelles mesures additionnelles sont à ajouter afin d'améliorer la protection des données du traitement.",
     "placeholder_improvable2": "Entrez vos commentaires.",
     "placeholder_to_correct": "Entrez vos commentaires pour expliquer pourquoi les informations fournies ne sont pas suffisantes pour pouvoir les évaluer. Cette partie sera renvoyée en édition pour enrichir la proposition initiale.",
-    "status": {
-      "0": "En attente",
-      "1": "À corriger",
-      "2": "Améliorable",
-      "3": "Acceptable"
-    },
+    "status": ["En attente", "À corriger", "Améliorable", "Acceptable"],
     "title": "Évaluation",
     "to_correct": "À corriger"
   },
@@ -1002,24 +997,24 @@
       },
       "validate_pia": "Valider le PIA"
     },
-    "statuses": {
-      "0": "En cours",
-      "1": "Refusé",
-      "2": "Validation simple",
-      "3": "Validation avec signature",
-      "4": "Archivé",
-      "5": "En attente de validation"
-    }
+    "statuses": [
+      "En cours",
+      "Refusé",
+      "Validation simple",
+      "Validation avec signature",
+      "Archivé",
+      "En attente de validation"
+    ]
   },
   "questions": {
     "edit": "Éditer la question",
-    "gauges": {
-      "0": "(Non définie)",
-      "1": "Négligeable",
-      "2": "Limitée",
-      "3": "Importante",
-      "4": "Maximale"
-    },
+    "gauges": [
+      "(Non définie)",
+      "Négligeable",
+      "Limitée",
+      "Importante",
+      "Maximale"
+    ],
     "placeholder_title": "Titre de la question (obligatoire)",
     "remove": "Supprimer la question"
   },
@@ -1307,10 +1302,10 @@
     "concerned_people_searched_opinion": "Recherche de l'avis des personnes concernées",
     "concerned_people_status": "Statuts des personnes concernées",
     "concerned_people_unsearched_opinion_comment": "Raison pour laquelle l'avis des personnes concernées n'a pas été demandé",
-    "content_choice": {
-      "0": "Le traitement ne devrait pas être mis en oeuvre.",
-      "1": "Le traitement pourrait être mis en oeuvre."
-    },
+    "content_choice": [
+      "Le traitement ne devrait pas être mis en oeuvre.",
+      "Le traitement pourrait être mis en oeuvre."
+    ],
     "copy_to_clipboard": "Copier dans le presse-papier",
     "creation_date": "Date de création",
     "csv_action_plan_comment": "Commentaires du plan d'actions",

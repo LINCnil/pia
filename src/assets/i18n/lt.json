@@ -5,7 +5,7 @@
     "licences": "Bibliotekų licencijos:",
     "title": "Apie PDAV programą",
     "translators": "PIA programa yra išversta į daugiau nei aštuoniolika kalbų. Programos prancūziška ir angliška versijas sukūrė CNIL. Programos versijos kitomis kalbomis parengė šie asmenys:",
-    "translators_name": "<ul><li>Croatian : <a target=\"_blank\" href=\"https://github.com/B2KapitalBA\">B2KapitalBA</a> ;</li><li>Czech : Jiří Grohmann, Manuel d’Orso ;</li><li>Danish : <a target=\"_blank\" href=\"https://github.com/moolsen\">Michael Drews Olsen</a> ;</li><li>Dutch : Ruud van Driel, Manuel d’Orso ;</li><li>English : <a target=\"_blank\" href=\"https://www.cnil.fr\">CNIL</a> ;</li><li>Estonian : Eva Arumets, Lauri Bender, Rebeka Dronia, Kärol Kibena, Simon Suuban, <a target=\"_blank\" href=\"https://kochpartners.ee/en/people/urmas-kukk/\">Urmas Kukk, <a target=\"_blank\" href=\"https://github.com/PrivacyAssessment1\">PrivacyAssessment1</a> ;</li><li>Finnish : <a target=\"_blank\" href=\"https://tietosuoja.fi/etusivu\">Tietosuojavaltuutetun toimisto</a> ;</li><li>French : <a target=\"_blank\" href=\"https://www.cnil.fr\">CNIL</a> ;</li><li>German  : <a target=\"_blank\" href=\"https://github.com/kosmas58\">Kosmas Schütz</a> , Corina Scheiter (<a target=\"_blank\" href=\"https://www.datenschutz-bayern.de/\">BayLfD</a>) ;</li><li>Greek : <a target=\"_blank\" href=\"https://tzellis.gr\">Dimitris Tzellis</a> ;</li><li>Hungarian : <a target=\"_blank\" href=\"https://naih.hu/\">Nemzeti Adatvédelmi és Információszabadság Hatóság (NAIH)</a> ;</li><li>Italian : Manuel d’Orso, Gianluca Markos, Antonio Caselli (<a target=\"_blank\" href=\"http://gpdp.it\">Garante per la Protezione dei Dai Personali (GPDP)</a>) ;</li><li>Lithuanian : Paulius Galubickas (<a target=\"_blank\" href=\"http://galubickas.lt\">Law firm Galubickas</a>) ;</li><li>Norwegian : <a target=\"_blank\" href=\"https://www.datatilsynet.no\">Datatilsynet</a> ;</li><li>Polish : <a target=\"_blank\" href=\"https://github.com/JoannaKar\">Joanna Karczewska</a> , Michal Mazur (<a target=\"_blank\" href=\"https://giodo.gov.pl\">Generalny Inspektor Ochrony Danych Osobowych (GIODO)</a>) ;</li><li>Portuguese : <a target=\"_blank\" href=\"https://github.com/bagois\">Barbara Gois</a> ;</li><li>Romanian : <a target=\"_blank\" href=\"https://github.com/webmyday\">webmyday</a> ;</li><li>Spanish : <a target=\"_blank\" href=\"https://github.com/ylachgar\">ylachgar</a> .</li></ul>",
+    "translators_name": "<ul><li>Croatian : <a target=\"_blank\" href=\"https://github.com/B2KapitalBA\">B2KapitalBA</a> ;</li><li>Czech : Jiří Grohmann, Manuel d’Orso ;</li><li>Danish : <a target=\"_blank\" href=\"https://github.com/moolsen\">Michael Drews Olsen</a> ;</li><li>Dutch : Ruud van Driel, Manuel d’Orso ;</li><li>English : <a target=\"_blank\" href=\"https://www.cnil.fr\">CNIL</a> ;</li><li>Estonian : Eva Arumets, Lauri Bender, Rebeka Dronia, Kärol Kibena, Simon Suuban, <a target=\"_blank\" href=\"https://kochpartners.ee/en/people/urmas-kukk/\">Urmas Kukk, <a target=\"_blank\" href=\"https://github.com/PrivacyAssessment1\">PrivacyAssessment1</a> ;</li><li>Finnish : <a target=\"_blank\" href=\"https://tietosuoja.fi/etusivu\">Tietosuojavaltuutetun toimisto</a> ;</li><li>French : <a target=\"_blank\" href=\"https://www.cnil.fr\">CNIL</a> ;</li><li>German  : <a target=\"_blank\" href=\"https://github.com/kosmas58\">Kosmas Schütz</a> , Corina Scheiter (<a target=\"_blank\" href=\"https://www.datenschutz-bayern.de/\">BayLfD</a>) ;</li><li>Greek : <a target=\"_blank\" href=\"https://tzellis.gr\">Dimitris Tzellis</a> ;</li><li>Hungarian : <a target=\"_blank\" href=\"https://naih.hu/\">Nemzeti Adatvédelmi és Információszabadság Hatóság (NAIH)</a> ;</li><li>Italian : Manuel d’Orso, <a target=\\\"_blank\\\" href=\\\"https://www.identitadigitaledefender.cloud/lo-sapevi-che/382-tool-pia\\\">Gianluca Markos</a>, Antonio Caselli (<a target=\\\"_blank\\\" href=\\\"https://garanteprivacy.it\\\">Garante per la Protezione dei Dai Personali (GPDP)</a>) ;</li><li>Lithuanian : Paulius Galubickas (<a target=\"_blank\" href=\"http://galubickas.lt\">Law firm Galubickas</a>) ;</li><li>Norwegian : <a target=\"_blank\" href=\"https://www.datatilsynet.no\">Datatilsynet</a> ;</li><li>Polish : <a target=\"_blank\" href=\"https://github.com/JoannaKar\">Joanna Karczewska</a> , Michal Mazur (<a target=\"_blank\" href=\"https://giodo.gov.pl\">Generalny Inspektor Ochrony Danych Osobowych (GIODO)</a>) ;</li><li>Portuguese : <a target=\"_blank\" href=\"https://github.com/bagois\">Barbara Gois</a> ;</li><li>Romanian : <a target=\"_blank\" href=\"https://github.com/webmyday\">webmyday</a> ;</li><li>Spanish : <a target=\"_blank\" href=\"https://github.com/ylachgar\">ylachgar</a> .</li></ul>",
     "version_number": "Versijos Nr."
   },
   "action_plan": {
@@ -75,12 +75,7 @@
     "placeholder_improvable1": "Atsižvelgiant į turimą informaciją, reikėtų imtis papildomų priemonių, siekiant pagerinti tvarkomų asmens  duomenų apsaugą.",
     "placeholder_improvable2": "Pateikite savo komentarą.",
     "placeholder_to_correct": "Pateiktos informacijos nepakanka įvertinimui. PDAV grąžinimas jo rengėjui tobulinimui, būtina atsižvelgti į pateiktas pastabas.",
-    "status": {
-      "0": "Nebaigtas",
-      "1": "Taisytinas",
-      "2": "Tobulintinas",
-      "3": "Tinkamas"
-    },
+    "status": ["Nebaigtas", "Taisytinas", "Tobulintinas", "Tinkamas"],
     "title": "Vertinimas",
     "to_correct": "Taisytinas"
   },
@@ -1002,24 +997,24 @@
       },
       "validate_pia": "Tvirtinti PDAV"
     },
-    "statuses": {
-      "0": "Vykdomas",
-      "1": "Atmestas",
-      "2": "Preliminarus patvirtinimas",
-      "3": "Galutinis patvirtinimas",
-      "4": "Suarchyvuota",
-      "5": "Laukiama patvirtinimo"
-    }
+    "statuses": [
+      "Vykdomas",
+      "Atmestas",
+      "Preliminarus patvirtinimas",
+      "Galutinis patvirtinimas",
+      "Suarchyvuota",
+      "Laukiama patvirtinimo"
+    ]
   },
   "questions": {
     "edit": "Redaguoti klausimą",
-    "gauges": {
-      "0": "(Nenustatytas)",
-      "1": "Nedidelis",
-      "2": "Ribotas",
-      "3": "Reikšmingas",
-      "4": "Maksimalus"
-    },
+    "gauges": [
+      "(Nenustatytas)",
+      "Nedidelis",
+      "Ribotas",
+      "Reikšmingas",
+      "Maksimalus"
+    ],
     "placeholder_title": "Klausimo pavadinimas",
     "remove": "Ištrinti klausimą"
   },
@@ -1307,10 +1302,10 @@
     "concerned_people_searched_opinion": "Duomenų subjektų nuomonė",
     "concerned_people_status": "Duomenų subjektų statusas",
     "concerned_people_unsearched_opinion_comment": "Priežastys, dėl kurių duomenų subjektų nuomonės nebuvo prašoma",
-    "content_choice": {
-      "0": "Tvarkymas neturėtų būti vykdomas.",
-      "1": "Tvarkymas gali būti vykdomas."
-    },
+    "content_choice": [
+      "Tvarkymas neturėtų būti vykdomas.",
+      "Tvarkymas gali būti vykdomas."
+    ],
     "copy_to_clipboard": "Kopijuoti į kompiuterio laikiną atmintį",
     "creation_date": "Data",
     "csv_action_plan_comment": "Komentaras veiksmų planui",
