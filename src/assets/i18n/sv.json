@@ -1,0 +1,1375 @@
+{
+	"about": {
+		"contribute": "Om du vill bidra till översättning av programvaran på ett annat språk eller förbättra de befintliga översättningarna rekommenderar vi att du <a href = \"https://github.com/LINCnil/pia/tree/master/src/assets/i18n \"target =\" _ blank \"> läs sidan som beskriver stegen att följa </a>.",
+		"description": "Detta verktyg är ursprungligen utformat av <a target=\"_blank\" href=\"https://www.cnil.fr\"> Commission Nationale Informatique et Liberté (CNIL) </a>, den franska dataskyddsmyndigheten, för att hjälpa data processor för att överensstämma med GDPR. Det utvecklades av <a href=\"https://atnos.com\" target=\"_blank\"> ATNOS </a>. <br> Den här programvaran är gratis och öppen. Om du vill delta i detta projekt, är du välkommen att ladda ner källkoden från Github, ändra den och dela den med samhället.",
+		"licences": "Bibliotekslicenser:",
+		"title": "Om verktyget PIA",
+		"translators": "PIA-programvaran är för närvarande tillgänglig på 19 språk. De franska och engelska versionerna tillhandahålls av CNIL. De andra versionerna beror på bidrag från följande personer:",
+		"translators_name": "<ul><li>Croatian : <a target=\"_blank\" href=\"https://github.com/B2KapitalBA\">B2KapitalBA</a> ;</li><li>Czech : Jiří Grohmann, Manuel d’Orso ;</li><li>Danish : <a target=\"_blank\" href=\"https://github.com/moolsen\">Michael Drews Olsen</a> ;</li><li>Dutch : Ruud van Driel, Manuel d’Orso ;</li><li>English : <a target=\"_blank\" href=\"https://www.cnil.fr\">CNIL</a> ;</li><li>Estonian : Eva Arumets, Lauri Bender, Rebeka Dronia, Kärol Kibena, Simon Suuban, <a target=\"_blank\" href=\"https://kochpartners.ee/en/people/urmas-kukk/\">Urmas Kukk, <a target=\"_blank\" href=\"https://github.com/PrivacyAssessment1\">PrivacyAssessment1</a> ;</li><li>Finnish : <a target=\"_blank\" href=\"https://tietosuoja.fi/etusivu\">Tietosuojavaltuutetun toimisto</a> ;</li><li>French : <a target=\"_blank\" href=\"https://www.cnil.fr\">CNIL</a> ;</li><li>German  : <a target=\"_blank\" href=\"https://github.com/https://github.com/kosmas58\">Kosmas Schütz</a> , Corina Scheiter (<a target=\"_blank\" href=\"https://www.datenschutz-bayern.de/\">BayLfD</a>) ;</li><li>Greek : <a target=\"_blank\" href=\"https://tzellis.gr\">Dimitris Tzellis</a> ;</li><li>Hungarian : <a target=\"_blank\" href=\"https://naih.hu/\">Nemzeti Adatvédelmi és Információszabadság Hatóság (NAIH)</a> ;</li><li>Italian : Manuel d’Orso, Gianluca Markos, Antonio Caselli (<a target=\"_blank\" href=\"http://gpdp.it\">Garante per la Protezione dei Dai Personali (GPDP)</a>) ;</li><li>Lithuanian : Paulius Galubickas (<a target=\"_blank\" href=\"http://galubickas.lt\">Law firm Galubickas</a>) ;</li><li>Norwegian : <a target=\"_blank\" href=\"https://www.datatilsynet.no\">Datatilsynet</a> ;</li><li>Polish : <a target=\"_blank\" href=\"https://github.com/https://github.com/JoannaKar\">Joanna Karczewska</a> , Michal Mazur (<a target=\"_blank\" href=\"https://giodo.gov.pl\">Generalny Inspektor Ochrony Danych Osobowych (GIODO)</a>) ;</li><li>Portuguese : <a target=\"_blank\" href=\"https://github.com/bagois\">Barbara Gois</a> ;</li><li>Romanian : <a target=\"_blank\" href=\"https://github.com/webmyday\">webmyday</a> ;</li><li>Spanish : <a target=\"_blank\" href=\"https://github.com/ylachgar\">ylachgar</a> ;</li><li>Swedish : <a target=\"_blank\" href=\"http://github.com/PierreMesure\">Pierre Mesure</a> .</li></ul>",
+		"version_number": "Versionsnummer"
+	},
+	"action_plan": {
+		"acceptable_measures": "Godtagbara åtgärder",
+		"edit": "Redigera",
+		"improvable_measures": "Oförbätterliga åtgärder",
+		"measures": "Planerade eller befintliga åtgärder",
+		"no_action_plan": "Ingen handlingsplan registrerad.",
+		"placeholder_person_in_charge": "Genomförandeansvarig",
+		"principles": "Grundläggande principer",
+		"risk1": "Otillbörlig tillgång till data",
+		"risk2": "Oönskad modifiering av data",
+		"risk3": "Dataförsvinnande",
+		"risks": "Risker",
+		"title": "Översikt"
+	},
+	"authentication": {
+		"description": "Denna programvara av <strong>den franska dataskyddsmyndigheten (CNIL)</strong> är tänkt att vägleda registeransvariga i byggandet och visa överensstämmelse med GDPR. Det bidrar till att korrekt genomföra en konsekvensbedömning avseende dataskydd genom att underlätta användningen av PIA-metoden som utvecklats av CNIL.",
+		"start": "Start",
+		"start_app": "Öppna PIAs programvara (Beta)",
+		"subtitle1": "En plattform för att skapa <br> och hantera dina PIAer",
+		"subtitle2": "Åtkomstverktyg och ordlistor",
+		"title": "Privacy impact assessment"
+	},
+	"cartography": {
+		"important": "Viktigt",
+		"legend1": "Planerade eller befintliga åtgärder",
+		"legend2": "Med de korrigerande åtgärder genomförs",
+		"legend3": "(I)llegitim tillgång till data",
+		"legend4": "(O)önskad modifiering av data",
+		"legend5": "(D)ata försvinnande",
+		"likelihood_axe": "Risk sannolikhet",
+		"limited": "Begränsad",
+		"maximal": "Maximal",
+		"negligible": "Försumbar",
+		"risk1_access": "(I)",
+		"risk2_modification": "O",
+		"seriousness_axe": "Risk allvarlighetsgrad"
+	},
+	"comments": {
+		"comment": "Kommentar",
+		"comments_count": "kommentar(er)",
+		"new_comment": "Kommentera",
+		"placeholder_new_comment": "Lämna en kommentar",
+		"send": "Skicka"
+	},
+	"errors": {
+		"content": "Om du stöter på andra problem eller om du har förslag till förbättringar, <br> kan du skicka tillbaka dem via det här formuläret: <a href= \"https://www.cnil.fr/fr/webform/vos-retours-sur- loutil-pia \"target=\" _blank \">https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia</a>",
+		"title": "Sidan hittas inte."
+	},
+	"evaluations": {
+		"acceptable": "Acceptabelt",
+		"action_plan_comment": "Handlingsplan / korrigerande åtgärder",
+		"evaluation_comment": "Utvärderings kommentar",
+		"gauges": {
+			"0": "(Odefinierad)",
+			"1": "Försumbart",
+			"2": "Begränsad",
+			"3": "Viktigt",
+			"4": "Maximal",
+			"likelihood": "Med tanke på handlingsplanen, hur utvärderar du <span class = 'red-highlight'>sannolikheten för denna risk</ span> ({{value}})?",
+			"seriousness": "Med hänsyn till handlingsplanen, hur utvärderar du <span class = 'red-highlight'>allvarligheten för denna risk</ span> ({{value}})?"
+		},
+		"improvable": "Kan förbättras",
+		"placeholder_acceptable": "Enligt den tillgängliga informationen är de genomförda åtgärderna tillräckliga för att korrekt uppfylla kraven för att skydda data.",
+		"placeholder_improvable1": "Enligt tillgänglig information ska ytterligare åtgärder genomföras för att förbättra databeskyttningen av behandlingen.",
+		"placeholder_improvable2": "Skriv in dina kommentarer.",
+		"placeholder_to_correct": "Informationen som lämnas är inte tillräcklig för att utvärdera dem korrekt. Skicka tillbaka till redigeraren för att förbättra originalinsändningen.",
+		"status": {
+			"Väntande",
+			"Att korrigera",
+			"Kan förbättras",
+			"Acceptabelt"
+		},
+		"title": "Utvärdering",
+		"to_correct": "Att korrigera"
+	},
+	"header": {
+		"homepage_link": "Instrumentpanelen",
+		"knowledge_base_link": "Kunskapsbas",
+		"languages": {
+			"cnil_translations": "Översättningar från CNIL",
+			"community_translations": "Gemenskapens översatta översättningar",
+			"cz": "Česky",
+			"de": "Deutsch",
+			"dk": "Dansk",
+			"dpa_translations": "Översättning reviderad av Europeiska DPA",
+			"el": "Ελληνικά",
+			"en": "Ελληνικά",
+			"es": "Español",
+			"et": "Eesti keel",
+			"fi": "Suomi",
+			"fr": "Français",
+			"hr": "Hrvatski",
+			"hu": "Magyar",
+			"it": "Italiano",
+			"lt": "Lietuviškai",
+			"nl": "Nederlands",
+			"no": "Norsk",
+			"official_translation": "Ursprungliga versionen",
+			"pl": "Polski",
+			"pt": "Português",
+			"ro": "Română"
+		},
+		"logo_subtitle": "Privacy Impact Assessment",
+		"logo_title": "Privacy Impact Assessment",
+		"pia_example_link": "PIA exempel",
+		"structures": "PIA-modell",
+		"tools": {
+			"about": "Om",
+			"accessibility": "Visuellt nedsatt tillgänglighet (högkontrastfärger, daltonism)",
+			"help": "Hjälp",
+			"settings": "Inställningar",
+			"title": "Verktyg"
+		}
+	},
+	"help": {
+		"definition": {
+			"data1": {
+				"content": "Innehållet skrivs",
+				"title": "Använd PIA-verktyget"
+			},
+			"data2": {
+				"qa1": {
+					"content": "När du stöter på dessa visningsproblem stänger du programmet och laddar om det. Det löser vanligtvis problemet. Du kommer inte att förlora den information du har angett Den sparas automatiskt när du skriver.",
+					"title": "Jag får visningsproblem som ikoner fastnar i ett tillstånd eller saknas element från gränssnittet"
+				},
+				"qa2": {
+					"content": "Detta kända problem är för närvarande fixat. Om du stöter på det här problemet rekommenderar vi att du fyller i motiveringsfältet för den beräknade graden av svårighetsgrad och / eller sannolikhet. Du kommer att kunna redigera mätaren när buggen är fixad.",
+					"title": "Jag kan inte redigera mätarna för att utvärdera svårighetsgraden och sannolikheten för en risk"
+				},
+				"qa3": {
+					"content": "Flera buggar har observerats vid import av en PIA, och speciellt nivåmätare för att utvärdera svårighetsgraden och sannolikheten för en risk kan försvinna. I det här fallet hänvisas till ovanstående problem. Dessutom kan en PIA inte visas på instrumentbrädan efter att ha importerats. Det här är en displayproblem och du behöver bara uppdatera sidan.",
+					"title": "Jag stöter på problem vid import av en PIA"
+				},
+				"qa4": {
+					"content": "Det här är bara ett visningsfel och det har ingen effekt på texten du anger i ett fält. Detta visuella problem kommer att åtgärdas snart.",
+					"title": "När jag kopierar / klistrar in text markeras det."
+				},
+				"qa5": {
+					"content": "För att utvärdera en sektion är det obligatoriskt att fylla i alla fält. Kontrollera om så är fallet. När du redigerar en risk måste du ha minst en teknisk eller organisatorisk åtgärd som mildrar risken för att begära en utvärdering av risken.",
+					"title": "Jag kan inte utvärdera en sektion"
+				},
+				"qa6": {
+					"content": "Vänligen stäng PIA du redigerar och öppnar den igen. Innehållet ska då visas på det språk du valt.",
+					"title": "Vid byte av språk översätts inte texterna"
+				},
+				"qa7": {
+					"content": "För tillfället uppdateras navigationsmenyikonen inte efter att ha nekat en PIA. Du måste kontrollera varje avsnitt och ändra informationen och / eller utvärderingen enligt anledningarna till att vägra PIA. När alla sektioner har granskats bör du kunna begära PIA-validering igen.",
+					"title": "Jag har vägrade att validera en PIA men jag vet inte vad jag ska göra nu"
+				},
+				"title": "kända problem"
+			},
+			"footer": "Om du har några andra problem eller förslag till förbättringar kan du besöka vårt <a target=\"_blank\" href=\"https://github.com/LINCnil/pia\"> Github resository </a> och skicka ett problem eller ett dra förfrågan."
+		},
+		"title": "Hjälp"
+	},
+	"homepage": {
+		"cards": {
+			"author": "Redigerar",
+			"creation_status": "Skapande",
+			"date": "Datum",
+			"evaluation": "Recension",
+			"import_pia": "Importera PIA",
+			"import_structure": "Importera mall",
+			"item": {
+				"consult_pia": "Kontakta PIA",
+				"edit_pia": "Redigera PIA",
+				"edit_structure": "Redigera mall",
+				"tools": {
+					"action_plan": "Visa <br> handlingsplan",
+					"duplicate": "Duplicera",
+					"export": "Exportera",
+					"more_options": "Fler alternativ",
+					"pia": "Display <br> PIA",
+					"remove": "Radera"
+				}
+			},
+			"new_pia": "Ny PIA",
+			"new_structure": "Ny mall",
+			"or": "eller",
+			"pia_name": "PIA",
+			"placeholder_author": "Förnamn Efternamn",
+			"placeholder_evaluation": "Förnamn Efternamn",
+			"placeholder_import_pia": "Importera PIA",
+			"placeholder_import_structure": "Importera mall",
+			"placeholder_new_pia": "Ny PIA",
+			"placeholder_new_structure": "Ny mall",
+			"placeholder_pia_name": "PIAs titel",
+			"placeholder_sector_name": "Tillhörande sektorns namn",
+			"placeholder_start": "Alla fält måste fyllas i",
+			"placeholder_structure": "Standardmall",
+			"placeholder_structure_name": "Mallens titel",
+			"placeholder_validation": "Förnamn Efternamn",
+			"sector_name": "Sektor",
+			"start": "Start",
+			"status": "Status",
+			"structure": "Mall",
+			"structure_name": "Mall",
+			"title_close_creation": "Stänga",
+			"validation": "Godkännande"
+		},
+		"filters": {
+			"assessor": "Recensent",
+			"author": "Författare",
+			"card": "kort",
+			"card_rocket_content": "Kom igång! <br> För att starta en PIA, klickar du på",
+			"card_rocket_content_structure": "Komma igång ! För att initiera en mall, klicka på",
+			"date": "Datum",
+			"import_pia": "Importera PIA",
+			"import_structure": "Importera mall",
+			"list": "lista",
+			"list_rocket_content": "Komma igång ! <br> För att initiera en PIA, klicka på",
+			"list_rocket_content_structure": "Komma igång ! För att initiera en mall, klicka på",
+			"name": "Namn",
+			"new_pia": "Ny PIA",
+			"new_structure": "Ny mall",
+			"sector_name": "Associerad sektor",
+			"sort": "Sortera",
+			"sort_by": "av",
+			"status": "Status",
+			"validator": "validator"
+		},
+		"lists": {
+			"column_actions": "Åtgärder",
+			"column_author": "Redigerar",
+			"column_creation": "Skapad",
+			"column_evaluation": "Recension",
+			"column_pia": "PIA",
+			"column_progression": "Framsteg",
+			"column_sector_name": "Associerad sektor",
+			"column_status": "Status",
+			"column_structure": "Mall",
+			"column_structure_name": "Mall",
+			"column_updated_at": "Senast öppnade",
+			"column_validation": "Godkännande",
+			"item": {
+				"tools": {
+					"action_plan": "Visa handlingsplan",
+					"consult": "Rådfråga",
+					"duplicate": "Duplicera",
+					"edit": "Redigera",
+					"export": "Exportera",
+					"pia": "Visa PIA",
+					"remove": "Radera"
+				}
+			}
+		}
+	},
+	"knowledge_base": {
+		"add_measure": "Lägg till",
+		"add_measure_hint": "Du kan också lägga till en åtgärd från kunskapsbasen.",
+		"category": {
+			"definition": "Definition",
+			"example": "Exempel",
+			"general_measure": "Fysisk säkerhetskontroll",
+			"measure_on_data": "Logisk säkerhetskontroll",
+			"organizational_measure": "Organisationskontroll",
+			"principle": "Princip"
+		},
+		"filters": {
+			"all": "Allt",
+			"definitions": "Definitioner",
+			"general_measures": "Fysisk säkerhetskontroller",
+			"measures_on_data": "",
+			"no_result": "",
+			"organizational_measures": "",
+			"title": ""
+		},
+		"placeholder_add_measure": "",
+		"placeholder_help": "",
+		"search": "",
+		"slugs": {
+			"PIA_DEF_ACC": {
+				"description": "",
+				"name": "",
+				"source": ""
+			},
+			"PIA_DEF_ANO": {
+				"description": "",
+				"name": "",
+				"source": ""
+			},
+			"PIA_DEF_ARCH": {
+				"description": "",
+				"name": "",
+				"source": ""
+			},
+			"PIA_DEF_AUTH": {
+				"description": "",
+				"name": "",
+				"source": ""
+			},
+			"PIA_DEF_CHIF": {
+				"description": "",
+				"name": "",
+				"source": ""
+			},
+			"PIA_DEF_CLO": {
+				"description": "",
+				"name": "",
+				"source": ""
+			},
+			"PIA_DEF_CONS": {
+				"description": "",
+				"name": "",
+				"source": ""
+			},
+			"PIA_DEF_CTLA": {
+				"description": "",
+				"name": "",
+				"source": ""
+			},
+			"PIA_DEF_DCP": {
+				"description": "",
+				"name": "",
+				"source": ""
+			},
+			"PIA_DEF_DEST": {
+				"description": "",
+				"name": "",
+				"source": ""
+			},
+			"PIA_DEF_EFF": {
+				"description": "",
+				"name": "",
+				"source": ""
+			},
+			"PIA_DEF_ENJ": {
+				"description": "",
+				"name": "",
+				"source": ""
+			},
+			"PIA_DEF_EXA": {
+				"description": "",
+				"name": "",
+				"source": ""
+			},
+			"PIA_DEF_GRV": {
+				"description": "",
+				"name": "",
+				"source": ""
+			},
+			"PIA_DEF_LIM": {
+				"description": "",
+				"name": "",
+				"source": ""
+			},
+			"PIA_DEF_LOG": {
+				"description": "",
+				"name": "",
+				"source": ""
+			},
+			"PIA_DEF_MEN": {
+				"description": "",
+				"name": "",
+				"source": ""
+			},
+			"PIA_DEF_MENA": {
+				"description": "",
+				"name": "",
+				"source": ""
+			},
+			"PIA_DEF_MENI": {
+				"description": "",
+				"name": "",
+				"source": ""
+			},
+			"PIA_DEF_MENM": {
+				"description": "",
+				"name": "",
+				"source": ""
+			},
+			"PIA_DEF_MES": {
+				"description": "",
+				"name": "",
+				"source": ""
+			},
+			"PIA_DEF_MIN1": {
+				"description": "",
+				"name": "",
+				"source": ""
+			},
+			"PIA_DEF_MIN2": {
+				"description": "",
+				"name": "",
+				"source": ""
+			},
+			"PIA_DEF_MIN3": {
+				"description": "",
+				"name": "",
+				"source": ""
+			},
+			"PIA_DEF_MIN4": {
+				"description": "",
+				"name": "",
+				"source": ""
+			},
+			"PIA_DEF_MIN5": {
+				"description": "",
+				"name": "",
+				"source": ""
+			},
+			"PIA_DEF_MINC": {
+				"description": "",
+				"name": "",
+				"source": ""
+			},
+			"PIA_DEF_MIND": {
+				"description": "",
+				"name": "",
+				"source": ""
+			},
+			"PIA_DEF_OPP": {
+				"description": "",
+				"name": "",
+				"source": ""
+			},
+			"PIA_DEF_PBDS": {
+				"description": "",
+				"name": "",
+				"source": ""
+			},
+			"PIA_DEF_PC": {
+				"description": "",
+				"name": "",
+				"source": ""
+			},
+			"PIA_DEF_PORT": {
+				"description": "",
+				"name": "",
+				"source": ""
+			},
+			"PIA_DEF_PSEU": {
+				"description": "",
+				"name": "",
+				"source": ""
+			},
+			"PIA_DEF_PWD": {
+				"description": "",
+				"name": "",
+				"source": ""
+			},
+			"PIA_DEF_RECT": {
+				"description": "",
+				"name": "",
+				"source": ""
+			},
+			"PIA_DEF_RGPD": {
+				"description": "",
+				"name": "",
+				"source": ""
+			},
+			"PIA_DEF_RT": {
+				"description": "",
+				"name": "",
+				"source": ""
+			},
+			"PIA_DEF_SRC": {
+				"description": "",
+				"name": "",
+				"source": ""
+			},
+			"PIA_DEF_ST": {
+				"description": "",
+				"name": "",
+				"source": ""
+			},
+			"PIA_DEF_SUPT": {
+				"description": "",
+				"name": "",
+				"source": ""
+			},
+			"PIA_DEF_VIOL": {
+				"description": "",
+				"name": "",
+				"source": ""
+			},
+			"PIA_DEF_VRA": {
+				"description": "",
+				"name": "",
+				"source": ""
+			},
+			"PIA_EX_DC": {
+				"description": "",
+				"name": ""
+			},
+			"PIA_EX_DCPC": {
+				"description": "",
+				"name": "",
+				"source": ""
+			},
+			"PIA_EX_DCPR": {
+				"description": "",
+				"name": ""
+			},
+			"PIA_EX_DCPS": {
+				"description": "",
+				"name": ""
+			},
+			"PIA_EX_HUME": {
+				"description": "",
+				"name": ""
+			},
+			"PIA_EX_HUMI": {
+				"description": "",
+				"name": ""
+			},
+			"PIA_EX_IMPI": {
+				"description": "",
+				"name": ""
+			},
+			"PIA_EX_IMPL": {
+				"description": "",
+				"name": ""
+			},
+			"PIA_EX_IMPM": {
+				"description": "",
+				"name": ""
+			},
+			"PIA_EX_IMPN": {
+				"description": "",
+				"name": ""
+			},
+			"PIA_EX_NHUM": {
+				"description": "",
+				"name": ""
+			},
+			"PIA_EX_VRAI": {
+				"description": "",
+				"name": ""
+			},
+			"PIA_EX_VRAL": {
+				"description": "",
+				"name": ""
+			},
+			"PIA_EX_VRAM": {
+				"description": "",
+				"name": ""
+			},
+			"PIA_EX_VRAN": {
+				"description": "",
+				"name": ""
+			},
+			"PIA_LGL_CONS": {
+				"description": "",
+				"name": "",
+				"source": ""
+			},
+			"PIA_LGL_DATA": {
+				"description": "",
+				"name": "",
+				"source": ""
+			},
+			"PIA_LGL_DESC": {
+				"description": "",
+				"name": "",
+				"source": ""
+			},
+			"PIA_LGL_DEST": {
+				"description": "",
+				"name": "",
+				"source": ""
+			},
+			"PIA_LGL_DUR": {
+				"description": "",
+				"name": "",
+				"source": ""
+			},
+			"PIA_LGL_FIN": {
+				"description": "",
+				"name": "",
+				"source": ""
+			},
+			"PIA_LGL_FOND": {
+				"description": "",
+				"name": "",
+				"source": ""
+			},
+			"PIA_LGL_INFO": {
+				"description": "",
+				"name": "",
+				"source": ""
+			},
+			"PIA_LGL_MINI": {
+				"description": "",
+				"name": "",
+				"source": ""
+			},
+			"PIA_LGL_ST": {
+				"description": "",
+				"name": "",
+				"source": ""
+			},
+			"PIA_LGL_SUPT": {
+				"description": "",
+				"name": "",
+				"source": ""
+			},
+			"PIA_LGL_TRAN": {
+				"description": "",
+				"name": "",
+				"source": ""
+			},
+			"PIA_ORG_AUD": {
+				"description": "",
+				"name": "",
+				"placeholder": "",
+				"source": ""
+			},
+			"PIA_ORG_EXT": {
+				"description": "",
+				"name": "",
+				"placeholder": "",
+				"source": ""
+			},
+			"PIA_ORG_ORG": {
+				"description": "",
+				"name": "",
+				"placeholder": "",
+				"source": ""
+			},
+			"PIA_ORG_PBD": {
+				"description": "",
+				"name": "",
+				"placeholder": "",
+				"source": ""
+			},
+			"PIA_ORG_PERS": {
+				"description": "",
+				"name": "",
+				"placeholder": "",
+				"source": ""
+			},
+			"PIA_ORG_POL": {
+				"description": "",
+				"name": "",
+				"placeholder": "",
+				"source": ""
+			},
+			"PIA_ORG_RMGT": {
+				"description": "",
+				"name": "",
+				"placeholder": "",
+				"source": ""
+			},
+			"PIA_ORG_VIOL": {
+				"description": "",
+				"name": "",
+				"placeholder": "",
+				"source": ""
+			},
+			"PIA_SEC_BKP": {
+				"description": "",
+				"name": "",
+				"placeholder": "",
+				"source": ""
+			},
+			"PIA_SEC_COMP": {
+				"description": "",
+				"name": "",
+				"placeholder": "",
+				"source": ""
+			},
+			"PIA_SEC_CTR": {
+				"description": "",
+				"name": "",
+				"placeholder": "",
+				"source": ""
+			},
+			"PIA_SEC_EXP": {
+				"description": "",
+				"name": "",
+				"placeholder": "",
+				"source": ""
+			},
+			"PIA_SEC_LOG": {
+				"description": "",
+				"name": "",
+				"placeholder": "",
+				"source": ""
+			},
+			"PIA_SEC_MAIN": {
+				"description": "",
+				"name": "",
+				"placeholder": "",
+				"source": ""
+			},
+			"PIA_SEC_MAL": {
+				"description": "",
+				"name": "",
+				"placeholder": "",
+				"source": ""
+			},
+			"PIA_SEC_MAT": {
+				"description": "",
+				"name": "",
+				"placeholder": "",
+				"source": ""
+			},
+			"PIA_SEC_NET": {
+				"description": "",
+				"name": "",
+				"placeholder": "",
+				"source": ""
+			},
+			"PIA_SEC_PHY": {
+				"description": "",
+				"name": "",
+				"placeholder": "",
+				"source": ""
+			},
+			"PIA_SEC_PROT": {
+				"description": "",
+				"name": "",
+				"placeholder": "",
+				"source": ""
+			},
+			"PIA_SEC_SRC": {
+				"description": "",
+				"name": "",
+				"placeholder": "",
+				"source": ""
+			},
+			"PIA_SEC_WEB": {
+				"description": "",
+				"name": "",
+				"placeholder": "",
+				"source": ""
+			},
+			"PIA_TEC_ANO": {
+				"description": "",
+				"name": "",
+				"placeholder": "",
+				"source": ""
+			},
+			"PIA_TEC_ARCH": {
+				"description": "",
+				"name": "",
+				"placeholder": "",
+				"source": ""
+			},
+			"PIA_TEC_CHIF": {
+				"description": "",
+				"name": "",
+				"placeholder": "",
+				"source": ""
+			},
+			"PIA_TEC_CLO": {
+				"description": "",
+				"name": "",
+				"placeholder": "",
+				"source": ""
+			},
+			"PIA_TEC_CTLA": {
+				"description": "",
+				"name": "",
+				"placeholder": "",
+				"source": ""
+			},
+			"PIA_TEC_LOG": {
+				"description": "",
+				"name": "",
+				"placeholder": "",
+				"source": ""
+			},
+			"PIA_TEC_MINI": {
+				"description": "",
+				"name": "",
+				"placeholder": "",
+				"source": ""
+			},
+			"PIA_TEC_PAP": {
+				"description": "",
+				"name": "",
+				"placeholder": "",
+				"source": ""
+			},
+			"PIA_VAL_ACT": {
+				"description": "",
+				"name": "",
+				"source": ""
+			},
+			"PIA_VAL_CART": {
+				"description": "",
+				"name": "",
+				"source": ""
+			},
+			"PIA_VAL_CONC": {
+				"description": "",
+				"name": "",
+				"source": ""
+			},
+			"PIA_VAL_DPO": {
+				"description": "",
+				"name": "",
+				"source": ""
+			},
+			"PIA_VAL_RT": {
+				"description": "",
+				"name": "",
+				"source": ""
+			}
+		},
+		"title": ""
+	},
+	"measures": {
+		"add": "",
+		"default_placeholder": "",
+		"edit": "",
+		"placeholder_title": "",
+		"remove": ""
+	},
+	"misc": {
+		"display": ""
+	},
+	"modals": {
+		"abandon_pia": {
+			"additional_text": "",
+			"content": ""
+		},
+		"action_plan_no_evaluation": {
+			"content": "",
+			"review_section": ""
+		},
+		"archive": "",
+		"ask_for_evaluation": {
+			"content": ""
+		},
+		"back_to_edition": {
+			"content": ""
+		},
+		"back_to_evaluation": {
+			"content": ""
+		},
+		"back_to_home": "",
+		"cancel": "",
+		"close": "",
+		"completed_edition": {
+			"content": ""
+		},
+		"completed_evaluation": {
+			"content": ""
+		},
+		"continue": "",
+		"declare_measures": {
+			"content": "",
+			"declare": ""
+		},
+		"dpo_missing_evaluations": {
+			"comment": "",
+			"content": "",
+			"remove": "",
+			"review_section": ""
+		},
+		"import_wrong_pia_file": {
+			"content": ""
+		},
+		"import_wrong_structure_file": {
+			"content": ""
+		},
+		"modal_select_text_pia": {
+			"content": ""
+		},
+		"not_enough_measures_to_remove": {
+			"content": ""
+		},
+		"refuse_pia": {
+			"content": ""
+		},
+		"remove_attachment": {
+			"comment": "",
+			"content": "",
+			"keep": "",
+			"remove": ""
+		},
+		"remove_measure": {
+			"content": "",
+			"keep": "",
+			"remove": ""
+		},
+		"remove_pia": {
+			"content": "",
+			"remove": ""
+		},
+		"remove_question": {
+			"content": "",
+			"keep": "",
+			"remove": ""
+		},
+		"remove_structure": {
+			"content": "",
+			"remove": ""
+		},
+		"same_comment": {
+			"content": ""
+		},
+		"signed_pia_validation": {
+			"content": "",
+			"download_pia": ""
+		},
+		"simple_pia_validation": {
+			"content": ""
+		},
+		"start_evaluation": "",
+		"update_server_url_nok": {
+			"content": ""
+		},
+		"update_server_url_ok": {
+			"content": ""
+		},
+		"validate_evaluation": {
+			"content": ""
+		},
+		"validate_evaluation_to_correct": {
+			"content": ""
+		}
+	},
+	"opinions": {
+		"content": "",
+		"dpo_lock": "",
+		"dpo_opinion": "",
+		"edit": "",
+		"people_opinion": "",
+		"placeholder_concerned_people_name": "",
+		"placeholder_dpo_name": "",
+		"placeholder_dpo_opinion": "",
+		"placeholder_people_opinion": "",
+		"placeholder_search_content": "",
+		"treatment_lock": "",
+		"treatment_nok": "",
+		"treatment_ok": ""
+	},
+	"overview-risks": {
+		"important": "",
+		"limited": "",
+		"maximal": "",
+		"measures": "",
+		"negligible": "",
+		"potential_impacts": "",
+		"risk-access_x": "",
+		"risk-access_y": "",
+		"risk-change_x": "",
+		"risk-change_y": "",
+		"risk-disappearance_x": "",
+		"risk-disappearance_y": "",
+		"sources": "",
+		"threat": ""
+	},
+	"pia": {
+		"attachments": {
+			"add": "",
+			"remove": "",
+			"title": ""
+		},
+		"footer": {
+			"ask_evaluation": "",
+			"mandatory_fields": "",
+			"structure_add_question": "",
+			"subsection_validated": "",
+			"validate_evaluation": ""
+		},
+		"header": {
+			"display_action_plan": "",
+			"edition": "",
+			"evaluation": "",
+			"preview": ""
+		},
+		"sections": {
+			"based_on_structure_name": "",
+			"homepage_link": "",
+			"refuse_pia": "",
+			"status": {
+				"evaluation": {
+					"cancel": "",
+					"cancel_button": "",
+					"content": "",
+					"title": ""
+				},
+				"validation": {
+					"cancel": "",
+					"cancel_button": "",
+					"content": "",
+					"title": ""
+				}
+			},
+			"validate_pia": ""
+		},
+		"statuses": {
+			"",
+			"",
+			"",
+			"",
+			"",
+			""
+		}
+	},
+	"questions": {
+		"edit": "",
+		"gauges": {
+			"",
+			"",
+			"",
+			"",
+			""
+		},
+		"placeholder_title": "",
+		"remove": ""
+	},
+	"rejection_page": {
+		"applied_adjustments": "",
+		"applied_adjustments_placeholder": "",
+		"button": {
+			"abandon_treatment": "",
+			"reject_pia": "",
+			"send_for_validation": ""
+		},
+		"previous_rejection": "",
+		"rejection_reason": "",
+		"rejection_reason_placeholder": "",
+		"title": ""
+	},
+	"sections": {
+		"1": {
+			"items": {
+				"1": {
+					"questions": {
+						"1": {
+							"placeholder": "",
+							"title": ""
+						},
+						"2": {
+							"placeholder": "",
+							"title": ""
+						},
+						"3": {
+							"placeholder": "",
+							"title": ""
+						}
+					},
+					"short_help": "",
+					"title": ""
+				},
+				"2": {
+					"questions": {
+						"1": {
+							"placeholder": "",
+							"title": ""
+						},
+						"2": {
+							"placeholder": "",
+							"title": ""
+						},
+						"3": {
+							"placeholder": "",
+							"title": ""
+						}
+					},
+					"short_help": "",
+					"title": ""
+				}
+			},
+			"short_help": "",
+			"title": ""
+		},
+		"2": {
+			"items": {
+				"1": {
+					"questions": {
+						"1": {
+							"placeholder": "",
+							"short_title": "",
+							"title": ""
+						},
+						"2": {
+							"placeholder": "",
+							"short_title": "",
+							"title": ""
+						},
+						"3": {
+							"placeholder": "",
+							"short_title": "",
+							"title": ""
+						},
+						"4": {
+							"placeholder": "",
+							"short_title": "",
+							"title": ""
+						},
+						"5": {
+							"placeholder": "",
+							"short_title": "",
+							"title": ""
+						}
+					},
+					"short_help": "",
+					"title": ""
+				},
+				"2": {
+					"questions": {
+						"1": {
+							"placeholder": "",
+							"short_title": "",
+							"title": ""
+						},
+						"2": {
+							"placeholder": "",
+							"short_title": "",
+							"title": ""
+						},
+						"3": {
+							"placeholder": "",
+							"short_title": "",
+							"title": ""
+						},
+						"4": {
+							"placeholder": "",
+							"short_title": "",
+							"title": ""
+						},
+						"5": {
+							"placeholder": "",
+							"short_title": "",
+							"title": ""
+						},
+						"6": {
+							"placeholder": "",
+							"short_title": "",
+							"title": ""
+						},
+						"7": {
+							"placeholder": "",
+							"short_title": "",
+							"title": ""
+						}
+					},
+					"short_help": "",
+					"title": ""
+				}
+			},
+			"short_help": "",
+			"title": ""
+		},
+		"3": {
+			"items": {
+				"1": {
+					"short_help": "",
+					"title": ""
+				},
+				"2": {
+					"questions": {
+						"1": {
+							"placeholder": "",
+							"title": ""
+						},
+						"2": {
+							"placeholder": "",
+							"title": ""
+						},
+						"3": {
+							"placeholder": "",
+							"title": ""
+						},
+						"4": {
+							"placeholder": "",
+							"title": ""
+						},
+						"5": {
+							"placeholder": "",
+							"title": ""
+						},
+						"6": {
+							"placeholder": "",
+							"title": ""
+						}
+					},
+					"short_help": "",
+					"title": ""
+				},
+				"3": {
+					"questions": {
+						"1": {
+							"placeholder": "",
+							"title": ""
+						},
+						"2": {
+							"placeholder": "",
+							"title": ""
+						},
+						"3": {
+							"placeholder": "",
+							"title": ""
+						},
+						"4": {
+							"placeholder": "",
+							"title": ""
+						},
+						"5": {
+							"placeholder": "",
+							"title": ""
+						},
+						"6": {
+							"placeholder": "",
+							"title": ""
+						}
+					},
+					"short_help": "",
+					"title": ""
+				},
+				"4": {
+					"questions": {
+						"1": {
+							"placeholder": "",
+							"title": ""
+						},
+						"2": {
+							"placeholder": "",
+							"title": ""
+						},
+						"3": {
+							"placeholder": "",
+							"title": ""
+						},
+						"4": {
+							"placeholder": "",
+							"title": ""
+						},
+						"5": {
+							"placeholder": "",
+							"title": ""
+						},
+						"6": {
+							"placeholder": "",
+							"title": ""
+						}
+					},
+					"short_help": "",
+					"title": ""
+				},
+				"5": {
+					"short_help": "",
+					"title": ""
+				}
+			},
+			"short_help": "",
+			"title": ""
+		},
+		"4": {
+			"items": {
+				"1": {
+					"short_help": "",
+					"title": ""
+				},
+				"2": {
+					"short_help": "",
+					"title": ""
+				},
+				"3": {
+					"short_help": "",
+					"title": ""
+				},
+				"4": {
+					"title": ""
+				},
+				"5": {
+					"title": ""
+				}
+			},
+			"short_help": "",
+			"title": ""
+		}
+	},
+	"settings": {
+		"content": "",
+		"title": "",
+		"update": ""
+	},
+	"summary": {
+		"action_plan": {
+			"fundamental_principles": "",
+			"implementation_date": "",
+			"implementation_responsible": "",
+			"measures": "",
+			"no_action_plan": "",
+			"risks": "",
+			"title": ""
+		},
+		"attachments": "",
+		"concerned_people_name": "",
+		"concerned_people_opinion": "",
+		"concerned_people_searched_opinion": "",
+		"concerned_people_status": "",
+		"concerned_people_unsearched_opinion_comment": "",
+		"content_choice": {
+			"",
+			""
+		},
+		"copy_to_clipboard": "",
+		"creation_date": "",
+		"csv_action_plan_comment": "",
+		"csv_evaluation_comment": "",
+		"csv_file_title": "",
+		"csv_implement_date": "",
+		"csv_people_in_charge": "",
+		"csv_section": "",
+		"csv_title_object": "",
+		"display_filters": {
+			"action_plan_content": "",
+			"context_content": "",
+			"main_content": "",
+			"principles_content": "",
+			"risks_cartography_content": "",
+			"risks_content": "",
+			"risks_overview_content": "",
+			"title": ""
+		},
+		"download_csv": "",
+		"download_images": "",
+		"dpo_name": "",
+		"dpo_opinion": "",
+		"dpo_status": "",
+		"gauges": {
+			"1": "",
+			"2": "",
+			"3": "",
+			"4": ""
+		},
+		"modification_made": "",
+		"people_search_status_nok": "",
+		"people_search_status_ok": "",
+		"pia_assessor": "",
+		"pia_author": "",
+		"pia_name": "",
+		"pia_validator": "",
+		"previous_page": "",
+		"print": "",
+		"rejection_reason": "",
+		"risks_cartography_title": "",
+		"risks_overview_title": "",
+		"title": ""
+	},
+	"validation_page": {
+		"add_signed_pia": "",
+		"after_reading": "",
+		"button": {
+			"rejection": "",
+			"signed_validation": "",
+			"simple_validation": ""
+		},
+		"confirmation1": "",
+		"confirmation2": "",
+		"confirmation3": "",
+		"confirmation4": "",
+		"latest_signed_attachment": "",
+		"mandatory_fields": "",
+		"remove_attachment": "",
+		"responsible": "",
+		"signed_attachments_history": "",
+		"tools": {
+			"action_plan": "",
+			"dashboard": "",
+			"display_pia": ""
+		},
+		"validated_pia_with_signature": "",
+		"waiting_for_signature": ""
+	}
+}
