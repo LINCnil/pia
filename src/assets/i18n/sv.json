@@ -271,22 +271,22 @@
 			"all": "Allt",
 			"definitions": "Definitioner",
 			"general_measures": "Fysisk säkerhetskontroller",
-			"measures_on_data": "",
-			"no_result": "",
-			"organizational_measures": "",
-			"title": ""
+			"measures_on_data": "Logiska säkerhetskontroller",
+			"no_result": "Inga resultat.",
+			"organizational_measures": "Organisatoriska kontroller",
+			"title": "Filter"
 		},
-		"placeholder_add_measure": "",
-		"placeholder_help": "",
-		"search": "",
+		"placeholder_add_measure": "Lägg till denna åtgärd",
+		"placeholder_help": "Hjälp med inmatning",
+		"search": "Sök",
 		"slugs": {
 			"PIA_DEF_ACC": {
-				"description": "",
-				"name": "",
-				"source": ""
+				"description": "Den registrerade ska ha rätt att få från kontrollanten bekräftelse om huruvida personuppgifter om honom eller henne behandlas och i så fall tillgång till personuppgifter och informationen som beskrivs i <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 15 av [GDPR]</a>",
+				"name": "Rätt till åtkomst",
+				"source": "GDPR Art. 15"
 			},
 			"PIA_DEF_ANO": {
-				"description": "",
+				"description": "Process removing the identifying characteristics from personal data. To assess the robustness of an anonymisation processes, see the <a target=\"_blank\" href=\"http://ec.europa.eu/justice/data-protection/article-29/documentation/opinion-recommendation/files/2014/wp216_en.pdf\">WP29 guidelines</a>.",
 				"name": "",
 				"source": ""
 			},
