@@ -123,6 +123,11 @@
                     {{ 'header.languages.ro' | translate }}
                   </a>
                 </li>
+                <li [ngClass]="{'is_active': _languagesService.selectedLanguage === 'sv'}">
+                  <a href="javascript:;" (click)="_languagesService.updateCurrentLanguage('sv')">
+                    {{ 'header.languages.sv' | translate }}
+                  </a>
+                </li>
               </ul>
             </li><li class="pia-navigationBlock-company">
               <a href="javascript:;">

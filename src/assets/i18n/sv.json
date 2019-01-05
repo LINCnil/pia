@@ -75,10 +75,10 @@
 		"placeholder_improvable2": "Skriv in dina kommentarer.",
 		"placeholder_to_correct": "Informationen som lämnas är inte tillräcklig för att utvärdera dem korrekt. Skicka tillbaka till redigeraren för att förbättra originalinsändningen.",
 		"status": {
-			"Väntande",
-			"Att korrigera",
-			"Kan förbättras",
-			"Acceptabelt"
+			"0": "Väntande",
+			"1": "Att korrigera",
+			"2": "Kan förbättras",
+			"3": "Acceptabelt"
 		},
 		"title": "Utvärdering",
 		"to_correct": "Att korrigera"
@@ -108,7 +108,8 @@
 			"official_translation": "Ursprungliga versionen",
 			"pl": "Polski",
 			"pt": "Português",
-			"ro": "Română"
+			"ro": "Română",
+			"sv": "Svenska"
 		},
 		"logo_subtitle": "Privacy Impact Assessment",
 		"logo_title": "Privacy Impact Assessment",
@@ -995,22 +996,22 @@
 			"validate_pia": ""
 		},
 		"statuses": {
-			"",
-			"",
-			"",
-			"",
-			"",
-			""
+			"0": "",
+			"1": "",
+			"2": "",
+			"3": "",
+			"4": "",
+			"5": ""
 		}
 	},
 	"questions": {
 		"edit": "",
 		"gauges": {
-			"",
-			"",
-			"",
-			"",
-			""
+			"0": "",
+			"1": "",
+			"2": "",
+			"3": "",
+			"4": ""
 		},
 		"placeholder_title": "",
 		"remove": ""
@@ -1300,8 +1301,8 @@
 		"concerned_people_status": "",
 		"concerned_people_unsearched_opinion_comment": "",
 		"content_choice": {
-			"",
-			""
+			"0": "",
+			"2": ""
 		},
 		"copy_to_clipboard": "",
 		"creation_date": "",

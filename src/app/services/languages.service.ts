@@ -12,7 +12,7 @@ export class LanguagesService {
    * Initialize languages on the PIA tool
    */
   initLanguages() {
-    this._translateService.addLangs(['en', 'cz', 'de', 'dk', 'el', 'es', 'et', 'fi', 'fr', 'hr', 'hu', 'it', 'lt', 'nl', 'no', 'pl', 'pt', 'ro']);
+    this._translateService.addLangs(['en', 'cz', 'de', 'dk', 'el', 'es', 'et', 'fi', 'fr', 'hr', 'hu', 'it', 'lt', 'nl', 'no', 'pl', 'pt', 'ro', 'sv']);
     this._translateService.setDefaultLang('fr');
   }
 
