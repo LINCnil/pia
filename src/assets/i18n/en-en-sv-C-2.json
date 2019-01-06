@@ -1,11 +1,11 @@
 {
 	"about": {
-		"contribute": "Om du vill bidra till översättning av programvaran på ett annat språk eller förbättra de befintliga översättningarna rekommenderar vi att du <a href = \"https://github.com/LINCnil/pia/tree/master/src/assets/i18n \"target =\" _ blank \"> läs sidan som beskriver stegen att följa </a>.",
-		"description": "Detta verktyg är ursprungligen utformat av <a target=\"_blank\" href=\"https://www.cnil.fr\"> Commission Nationale Informatique et Liberté (CNIL) </a>, den franska dataskyddsmyndigheten, för att hjälpa data processor för att överensstämma med GDPR. Det utvecklades av <a href=\"https://atnos.com\" target=\"_blank\"> ATNOS </a>. <br> Den här programvaran är gratis och öppen. Om du vill delta i detta projekt, är du välkommen att ladda ner källkoden från Github, ändra den och dela den med samhället.",
-		"licences": "Bibliotekslicenser:",
+		"contribute": "Om du vill bidra till översättningen av programvaran i ett annat språk eller förbättra befintliga översättningar, rekommenderar vi att du läser den sida som beskriver de steg att följa.",
+		"description": "Detta verktyg är ursprungligen utformat av den kommissionen Nationale Informatique et Liberté (CNIL), den franska dataskyddsmyndigheten, att hjälpa registerförare för att efterleva BNPR. Det utvecklades av ATNOS.<br>Denna programvara är fri och öppen. Om du vill engagera dig i detta projekt, är du välkommen att ladda ner källkoden från Github, ändra den och dela den med gemenskapen.",
+		"licences": "Bibliotek licenser:",
 		"title": "Om verktyget PIA",
-		"translators": "PIA-programvaran är för närvarande tillgänglig på 19 språk. De franska och engelska versionerna tillhandahålls av CNIL. De andra versionerna beror på bidrag från följande personer:",
-		"translators_name": "<ul><li>Croatian : <a target=\"_blank\" href=\"https://github.com/B2KapitalBA\">B2KapitalBA</a> ;</li><li>Czech : Jiří Grohmann, Manuel d’Orso ;</li><li>Danish : <a target=\"_blank\" href=\"https://github.com/moolsen\">Michael Drews Olsen</a> ;</li><li>Dutch : Ruud van Driel, Manuel d’Orso ;</li><li>English : <a target=\"_blank\" href=\"https://www.cnil.fr\">CNIL</a> ;</li><li>Estonian : Eva Arumets, Lauri Bender, Rebeka Dronia, Kärol Kibena, Simon Suuban, <a target=\"_blank\" href=\"https://kochpartners.ee/en/people/urmas-kukk/\">Urmas Kukk, <a target=\"_blank\" href=\"https://github.com/PrivacyAssessment1\">PrivacyAssessment1</a> ;</li><li>Finnish : <a target=\"_blank\" href=\"https://tietosuoja.fi/etusivu\">Tietosuojavaltuutetun toimisto</a> ;</li><li>French : <a target=\"_blank\" href=\"https://www.cnil.fr\">CNIL</a> ;</li><li>German  : <a target=\"_blank\" href=\"https://github.com/https://github.com/kosmas58\">Kosmas Schütz</a> , Corina Scheiter (<a target=\"_blank\" href=\"https://www.datenschutz-bayern.de/\">BayLfD</a>) ;</li><li>Greek : <a target=\"_blank\" href=\"https://tzellis.gr\">Dimitris Tzellis</a> ;</li><li>Hungarian : <a target=\"_blank\" href=\"https://naih.hu/\">Nemzeti Adatvédelmi és Információszabadság Hatóság (NAIH)</a> ;</li><li>Italian : Manuel d’Orso, Gianluca Markos, Antonio Caselli (<a target=\"_blank\" href=\"http://gpdp.it\">Garante per la Protezione dei Dai Personali (GPDP)</a>) ;</li><li>Lithuanian : Paulius Galubickas (<a target=\"_blank\" href=\"http://galubickas.lt\">Law firm Galubickas</a>) ;</li><li>Norwegian : <a target=\"_blank\" href=\"https://www.datatilsynet.no\">Datatilsynet</a> ;</li><li>Polish : <a target=\"_blank\" href=\"https://github.com/https://github.com/JoannaKar\">Joanna Karczewska</a> , Michal Mazur (<a target=\"_blank\" href=\"https://giodo.gov.pl\">Generalny Inspektor Ochrony Danych Osobowych (GIODO)</a>) ;</li><li>Portuguese : <a target=\"_blank\" href=\"https://github.com/bagois\">Barbara Gois</a> ;</li><li>Romanian : <a target=\"_blank\" href=\"https://github.com/webmyday\">webmyday</a> ;</li><li>Spanish : <a target=\"_blank\" href=\"https://github.com/ylachgar\">ylachgar</a> ;</li><li>Swedish : <a target=\"_blank\" href=\"http://github.com/PierreMesure\">Pierre Mesure</a> .</li></ul>",
+		"translators": "PIA programvaran är för närvarande tillgänglig på 19 språk. De franska och engelska versionerna tillhandahålls av CNIL. De andra versioner resultera från bidrag från följande personer:",
+		"translators_name": "<ul><li>Kroatiska: <a target=\"_blank\" href=\"https://github.com/B2KapitalBA\">B2KapitalBA</a> ;</li><li>Tjeckiska: Jiří Grohmann, Manuel d’Orso ;</li><li>Danska: <a target=\"_blank\" href=\"https://github.com/moolsen\">Michael Drews Olsen</a> ;</li><li>Nederländska: Ruud van Driel, Manuel d'Orso;</li><li>Engelska: <a target=\"_blank\" href=\"https://www.cnil.fr\">CNIL</a> ;</li><li>Estniska: Eva Arumets, Lauri Bender, Rebeka Dronia, Kärol Kibena, Simon Suuban, <a target=\"_blank\" href=\"https://kochpartners.ee/en/people/urmas-kukk/\">Urmas Kukk, <a target=\"_blank\" href=\"https://github.com/PrivacyAssessment1\">PrivacyAssessment1</a> ;</li><li>Finska: Tietosuojavaltuutetun byrån;</li><li>Franska: <a target=\"_blank\" href=\"https://www.cnil.fr\">CNIL</a> ;</li><li>Tyska: <a target=\"_blank\" href=\"https://github.com/https://github.com/kosmas58\">Kosmas Schütz</a> , Corina Scheiter (<a target=\"_blank\" href=\"https://www.datenschutz-bayern.de/\">BayLfD</a>) ;</li><li>Grekiska: Dimitris Tzellis;</li><li>Ungerska: <a target=\"_blank\" href=\"https://naih.hu/\">Nemzeti Adatvédelmi és Információszabadság Hatóság (NAIH)</a> ;</li><li>Italienska: Manuel d'Orso, Gianluca Markos, Antonio Caselli (Garante per la Protezione dei Dai Personali (GPDP));</li><li>Litauiska: Paulius Galubickas (lag fast Galubickas);</li><li>Norska: Datatilsynet;</li><li>Polska: Joanna Karczewska, Michal Mazur (Generalny Inspektor Ochrony Danych Osobowych (GIODO));</li><li>Portugisiska: Barbara Gois;</li><li>Rumänska: webmyday;</li><li>Spanska: ylachgar;</li><li>Svenska: Pierre Mesure.</li></ul>",
 		"version_number": "Versionsnummer"
 	},
 	"action_plan": {
@@ -23,46 +23,46 @@
 		"title": "Översikt"
 	},
 	"authentication": {
-		"description": "Denna programvara av <strong>den franska dataskyddsmyndigheten (CNIL)</strong> är tänkt att vägleda registeransvariga i byggandet och visa överensstämmelse med GDPR. Det bidrar till att korrekt genomföra en konsekvensbedömning avseende dataskydd genom att underlätta användningen av PIA-metoden som utvecklats av CNIL.",
+		"description": "Denna programvara av franska dataskyddsmyndigheten (CNIL) är avsedd att vägleda registeransvariga i byggnaden och Visa överensstämmelse till BNPR. Det hjälper att korrekt utföra en konsekvensbedömning avseende dataskydd genom att underlätta användningen av den PIA-metod som utvecklats av CNIL.",
 		"start": "Start",
-		"start_app": "Öppna PIAs programvara (Beta)",
-		"subtitle1": "En plattform för att skapa <br> och hantera dina PIAer",
-		"subtitle2": "Åtkomstverktyg och ordlistor",
-		"title": "Privacy impact assessment"
+		"start_app": "Tillgång till Pias programvara (Beta)",
+		"subtitle1": "En plattform för att skapa <br> och hantera din PIAs",
+		"subtitle2": "Tillgång till verktyg och ordlistor",
+		"title": "Sekretess konsekvensbedömning"
 	},
 	"cartography": {
 		"important": "Viktigt",
 		"legend1": "Planerade eller befintliga åtgärder",
-		"legend2": "Med de korrigerande åtgärder genomförs",
-		"legend3": "(I)llegitim tillgång till data",
-		"legend4": "(O)önskad modifiering av data",
-		"legend5": "(D)ata försvinnande",
-		"likelihood_axe": "Risk sannolikhet",
+		"legend2": "Med de korrigerande åtgärder som vidtagits",
+		"legend3": "(I) llegitimate åtkomst till data",
+		"legend4": "(U) nwanted modifiering av data",
+		"legend5": "D ata försvinnande",
+		"likelihood_axe": "Risk sannolikheten",
 		"limited": "Begränsad",
-		"maximal": "Maximal",
+		"maximal": "Maximalt",
 		"negligible": "Försumbar",
 		"risk1_access": "(I)",
-		"risk2_modification": "O",
-		"seriousness_axe": "Risk allvarlighetsgrad"
+		"risk2_modification": "(U)",
+		"seriousness_axe": "Risken allvaret"
 	},
 	"comments": {
 		"comment": "Kommentar",
-		"comments_count": "kommentar(er)",
-		"new_comment": "Kommentera",
+		"comments_count": "Kommentar (er)",
+		"new_comment": "Kommentar",
 		"placeholder_new_comment": "Lämna en kommentar",
 		"send": "Skicka"
 	},
 	"errors": {
-		"content": "Om du stöter på andra problem eller om du har förslag till förbättringar, <br> kan du skicka tillbaka dem via det här formuläret: <a href= \"https://www.cnil.fr/fr/webform/vos-retours-sur- loutil-pia \"target=\" _blank \">https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia</a>",
-		"title": "Sidan hittas inte."
+		"content": "Om du stöter på andra problem eller om du har förslag till förbättringar,<br>Du kan skicka dem tillbaka via detta formulär: https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia",
+		"title": "Sidan kunde inte hittas."
 	},
 	"evaluations": {
 		"acceptable": "Acceptabelt",
 		"action_plan_comment": "Handlingsplan / korrigerande åtgärder",
-		"evaluation_comment": "Utvärderings kommentar",
+		"evaluation_comment": "Utvärdering kommentar",
 		"gauges": {
 			"0": "(Odefinierad)",
-			"1": "Försumbart",
+			"1": "Försumbar",
 			"2": "Begränsad",
 			"3": "Viktigt",
 			"4": "Maximalt",
@@ -85,16 +85,16 @@
 	},
 	"header": {
 		"homepage_link": "Instrumentpanelen",
-		"knowledge_base_link": "Kunskapsbas",
+		"knowledge_base_link": "Knowledge base",
 		"languages": {
-			"cnil_translations": "Översättningar från CNIL",
-			"community_translations": "Gemenskapens översatta översättningar",
+			"cnil_translations": "CNIL förutsatt översättningar",
+			"community_translations": "Gemenskapen som översättningar",
 			"cz": "Česky",
 			"de": "Deutsch",
 			"dk": "Dansk",
-			"dpa_translations": "Översättning reviderad av Europeiska DPA",
+			"dpa_translations": "Översättning revideras av Europeiska DPA",
 			"el": "Ελληνικά",
-			"en": "Ελληνικά",
+			"en": "Engelska",
 			"es": "Español",
 			"et": "Eesti keel",
 			"fi": "Suomi",
@@ -111,10 +111,10 @@
 			"ro": "Română",
 			"sv": "Svenska"
 		},
-		"logo_subtitle": "Privacy Impact Assessment",
-		"logo_title": "Privacy Impact Assessment",
+		"logo_subtitle": "",
+		"logo_title": "Sekretess konsekvensbedömning",
 		"pia_example_link": "PIA exempel",
-		"structures": "PIA-modell",
+		"structures": "PIA mall",
 		"tools": {
 			"about": "Om",
 			"accessibility": "Synskadade tillgänglighet (hög kontrast färger, färgblindhet)",
@@ -160,7 +160,7 @@
 				},
 				"title": "Kända problem"
 			},
-			"footer": "Om du har några andra problem eller förslag till förbättringar kan du besöka vårt <a target=\"_blank\" href=\"https://github.com/LINCnil/pia\"> Github resository </a> och skicka ett problem eller ett dra förfrågan."
+			"footer": "Om du har några andra problem eller förslag till förbättringar, kan du besöka våra Github resository och skicka in en fråga eller en pull-begäran."
 		},
 		"title": "Hjälp"
 	},
@@ -281,12 +281,12 @@
 		"search": "Sök",
 		"slugs": {
 			"PIA_DEF_ACC": {
-				"description": "Den registrerade ska ha rätt att få från kontrollanten bekräftelse om huruvida personuppgifter om honom eller henne behandlas och i så fall tillgång till personuppgifter och informationen som beskrivs i <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 15 av [GDPR]</a>",
-				"name": "Rätt till åtkomst",
-				"source": "GDPR Art. 15"
+				"description": "Registrerade skall ha rätt att erhålla från den registeransvarige bekräftelsen på huruvida personuppgifter som rör honom eller henne behandlas och, om så är fallet, tillgång till personuppgifter och den information som beskrivs i konsten. 15 of [GDPR]</a>",
+				"name": "Rätt till tillgång",
+				"source": "BNPR konst. 15"
 			},
 			"PIA_DEF_ANO": {
-				"description": "Process removing the identifying characteristics from personal data. To assess the robustness of an anonymisation processes, see the <a target=\"_blank\" href=\"http://ec.europa.eu/justice/data-protection/article-29/documentation/opinion-recommendation/files/2014/wp216_en.pdf\">WP29 guidelines</a>.",
+				"description": "Processen att ta bort de identifierande egenskaperna från personuppgifter. För att bedöma robustheten i en anonymisering processer, se artikel 29-gruppen riktlinjer.",
 				"name": "Anonymisering",
 				"source": "Mesures_US och G29 riktlinjer http://ec.europa.eu/justice/data-protection/article-29/documentation/opinion-recommendation/files/2014/wp216_en.pdf"
 			},
