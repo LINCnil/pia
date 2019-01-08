@@ -7,6 +7,9 @@
   <div class="pia-sectionBlock-structure" *ngIf="_piaService.pia.structure_id">
     {{ 'pia.sections.based_on_structure_name' | translate }}
     {{ _piaService.pia.structure_name }}
+    <p *ngIf="displayOutdatedStructureMessage">
+      test
+    </p>
   </div>
 
   <div class="pia-sectionBlock-body">
