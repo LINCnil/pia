@@ -28,23 +28,27 @@
           <legend class="unselectable">{{ 'summary.display_filters.title' | translate }}</legend>
           <div class="databox">
             <div>
-              <input type="checkbox" name="displayer-pia-main-content" id="displayer-pia-main-content" [checked]="displayOnlyActionPlan ? false : true" (change)="toggleMainContent()">
+              <input type="checkbox" name="displayer-pia-all" id="displayer-pia-all" [checked]="displayOnlyActionPlan ? false : true" (change)="toggleAllFilters()">
+              <label for="displayer-pia-all">{{ 'summary.display_filters.check_all' | translate }}</label>
+            </div>
+            <div>
+              <input type="checkbox" name="displayer-pia-main-content" id="displayer-pia-main-content" [checked]="displayMainPiaData ? true : false" (change)="toggleMainContent()">
               <label for="displayer-pia-main-content">{{ 'summary.display_filters.main_content' | translate }}</label>
             </div>
             <div>
-              <input type="checkbox" name="displayer-pia-section-1" id="displayer-pia-main-1" [checked]="displayOnlyActionPlan ? false : true" (change)="toggleContextContent()">
+              <input type="checkbox" name="displayer-pia-section-1" id="displayer-pia-main-1" [checked]="displaySection1 ? true : false" (change)="toggleContextContent()">
               <label for="displayer-pia-main-1">{{ 'summary.display_filters.context_content' | translate }}</label>
             </div>
             <div>
-              <input type="checkbox" name="displayer-pia-section-2" id="displayer-pia-section-2" [checked]="displayOnlyActionPlan ? false : true" (change)="toggleFundamentalPrinciplesContent()">
+              <input type="checkbox" name="displayer-pia-section-2" id="displayer-pia-section-2" [checked]="displaySection2 ? true : false" (change)="toggleFundamentalPrinciplesContent()">
               <label for="displayer-pia-section-2">{{ 'summary.display_filters.principles_content' | translate }}</label>
             </div>
             <div>
-              <input type="checkbox" name="displayer-pia-section-3" id="displayer-pia-section-3" [checked]="displayOnlyActionPlan ? false : true" (change)="toggleRisksContent()">
+              <input type="checkbox" name="displayer-pia-section-3" id="displayer-pia-section-3" [checked]="displaySection3 ? true : false" (change)="toggleRisksContent()">
               <label for="displayer-pia-section-3">{{ 'summary.display_filters.risks_content' | translate }}</label>
             </div>
             <div>
-              <input type="checkbox" name="displayer-pia-action-plan" id="displayer-pia-action-plan" [checked]="true" (change)="toggleActionPlanContent()">
+              <input type="checkbox" name="displayer-pia-action-plan" id="displayer-pia-action-plan" [checked]="displayActionPlan ? true : false" (change)="toggleActionPlanContent()">
               <label for="displayer-pia-action-plan">{{ 'summary.display_filters.action_plan_content' | translate }}</label>
             </div>
             <div>

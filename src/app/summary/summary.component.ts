@@ -32,12 +32,16 @@ export class SummaryComponent implements OnInit {
   pia: any;
   allData: Object;
   dataNav: any;
+  displayAllFilters: boolean;
   displayMainPiaData: boolean;
+  displaySection1: boolean;
+  displaySection2: boolean;
+  displaySection3: boolean;
   displayActionPlan: boolean;
-  summarySubscription: Subscription;
   displayOnlyActionPlan: boolean;
   displayRisksOverview: boolean;
   displayRisksCartography: boolean;
+  summarySubscription: Subscription;
 
   constructor(private el: ElementRef,
               private route: ActivatedRoute,
@@ -58,19 +62,24 @@ export class SummaryComponent implements OnInit {
 
     this._piaService.getPIA().then(() => {
       this.pia = this._piaService.pia;
+      this.displayAllFilters = true;
       this.displayMainPiaData = true;
+      this.displaySection1 = true;
+      this.displaySection2 = true;
+      this.displaySection3 = true;
       this.displayActionPlan = true;
       this.displayRisksOverview = true;
       this.displayRisksCartography = true;
       this.showPia().then(() => {
         // Disable all filters (except action plan) if displaying only action plan
         if (this.displayOnlyActionPlan) {
-          this.toggleMainContent();
+          this.displayAllFilters = false;
+          this.displayMainPiaData = false;
           this.toggleContextContent();
           this.toggleFundamentalPrinciplesContent();
           this.toggleRisksContent();
-          this.toggleRisksOverviewContent();
-          this.toggleRisksCartographyContent();
+          this.displayRisksOverview = false;
+          this.displayRisksCartography = false;
         }
       });
     });
@@ -159,6 +168,37 @@ export class SummaryComponent implements OnInit {
   }
 
   /**
+   * Check or uncheck all filters.
+   * @private
+   * @memberof SummaryComponent
+   */
+  toggleAllFilters() {
+    this.displayAllFilters = !this.displayAllFilters;
+    const status = this.displayAllFilters ? true : false;
+    this.displayMainPiaData = status;
+    this.displaySection1 = status;
+    this.displaySection2 = status;
+    this.displaySection3 = status;
+    this.displayActionPlan = status;
+    this.displayRisksOverview = status;
+    this.displayRisksCartography = status;
+
+    const contextSection = this.el.nativeElement.querySelector('.section-1');
+    const fundamentalPrinciplesSection = this.el.nativeElement.querySelector('.section-2');
+    const risksSection = this.el.nativeElement.querySelector('.section-3');
+    if (status) {
+      contextSection.classList.remove('hide');
+      fundamentalPrinciplesSection.classList.remove('hide');
+      risksSection.classList.remove('hide');
+    } else {
+      contextSection.classList.add('hide');
+      fundamentalPrinciplesSection.classList.add('hide');
+      risksSection.classList.add('hide');
+    }
+  }
+
+
+  /**
    * Display or hide the main Pia data.
    * @private
    * @memberof SummaryComponent
@@ -174,6 +214,7 @@ export class SummaryComponent implements OnInit {
    */
   toggleContextContent() {
     setTimeout(() => {
+      this.displaySection1 = !this.displaySection1;
       const contextSection = this.el.nativeElement.querySelector('.section-1');
       contextSection.classList.toggle('hide');
     }, 100);
@@ -186,6 +227,7 @@ export class SummaryComponent implements OnInit {
    */
   toggleFundamentalPrinciplesContent() {
     setTimeout(() => {
+      this.displaySection2 = !this.displaySection2;
       const fundamentalPrinciplesSection = this.el.nativeElement.querySelector('.section-2');
       fundamentalPrinciplesSection.classList.toggle('hide');
     }, 100);
@@ -198,6 +240,7 @@ export class SummaryComponent implements OnInit {
    */
   toggleRisksContent() {
     setTimeout(() => {
+      this.displaySection3 = !this.displaySection3;
       const risksSection = this.el.nativeElement.querySelector('.section-3');
       risksSection.classList.toggle('hide');
     }, 100);
