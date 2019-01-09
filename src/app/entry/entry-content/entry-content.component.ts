@@ -4,6 +4,7 @@ import { Http } from '@angular/http';
 import 'rxjs/add/operator/map'
 
 import { Evaluation } from 'app/entry/entry-content/evaluations/evaluation.model';
+import { Answer } from 'app/entry/entry-content/questions/answer.model';
 
 import { AppDataService } from 'app/services/app-data.service';
 import { MeasureService } from 'app/entry/entry-content/measures/measures.service';
@@ -27,6 +28,10 @@ export class EntryContentComponent implements OnInit, OnChanges {
   @Input() item: any;
   @Input() questions: any;
   @Input() data: any;
+
+  userAnswersForImpacts = [];
+  userAnswersForThreats = [];
+  userAnswersForSources = [];
 
   constructor(private _router: Router,
               private _appDataService: AppDataService,

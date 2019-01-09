@@ -51,6 +51,7 @@
                     [editable]="true"
                     [disable]="!_globalEvaluationService.answerEditionEnabled"
                     [secondaryPlaceholder]="question.placeholder | translate">
+            <tag-input-dropdown [showDropdownIfEmpty]="true" [autocompleteItems]="userAnswersToDisplay"></tag-input-dropdown>
           </tag-input>
         </ng-template>
 
