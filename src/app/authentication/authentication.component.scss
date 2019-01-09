@@ -1,5 +1,13 @@
 @import '../../assets/stylesheets/variables';
-
+.pia {
+  &-closeFullScreenModeAlertBlock {
+    color: #fff;
+    position: absolute;
+    top: 6px;
+    right: 10px;
+    font-size: 1rem;
+  }
+}
 .pia-authenticationBlock {
     padding-top: 110px;
     &-warning {
