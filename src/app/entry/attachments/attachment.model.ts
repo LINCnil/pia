@@ -34,7 +34,9 @@ export class Attachment extends ApplicationDb {
         }
         fetch(this.getServerUrl(), {
           method: 'POST',
-          body: formData
+          body: formData,
+          mode: 'cors',
+          credentials : 'include'
         }).then(function(response) {
           return response.json();
         }).then(function(result: any) {
@@ -71,7 +73,9 @@ export class Attachment extends ApplicationDb {
           }
           fetch(this.getServerUrl() + '/' + entry.id, {
             method: 'PATCH',
-            body: formData
+            body: formData,
+            mode: 'cors',
+            credentials : 'include'
           }).then((response) => {
             return response.json();
           }).then((result: any) => {
@@ -102,7 +106,10 @@ export class Attachment extends ApplicationDb {
       await this.getObjectStore();
       return new Promise((resolve, reject) => {
         if (this.serverUrl) {
-          fetch(this.getServerUrl()).then(function(response) {
+          fetch(this.getServerUrl(),{
+            mode: 'cors',
+            credentials : 'include'
+          }).then(function(response) {
             return response.json();
           }).then(function(result: any) {
             resolve(result);
