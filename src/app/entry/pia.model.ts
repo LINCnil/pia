@@ -1,5 +1,4 @@
 import { ApplicationDb } from '../application.db';
-import { Answer } from 'app/entry/entry-content/questions/answer.model';
 
 export class Pia extends ApplicationDb {
   public id: number;
@@ -159,12 +158,14 @@ export class Pia extends ApplicationDb {
         }
         fetch(this.getServerUrl(), {
           method: 'POST',
-          body: formData
+          body: formData,
+          mode : 'cors',
+          credentials : 'include'
         }).then((response) => {
           return response.json();
         }).then((result: any) => {
           resolve(result.id);
-        }).catch ((error) => {
+        }).catch((error) => {
           console.error('Request failed', error);
           reject();
         });
@@ -225,12 +226,14 @@ export class Pia extends ApplicationDb {
           }
           fetch(this.getServerUrl() + '/' + entry.id, {
             method: 'PATCH',
-            body: formData
+            body: formData,
+            mode: 'cors',
+            credentials : 'include'
           }).then((response) => {
             return response.json();
           }).then((result: any) => {
             resolve();
-          }).catch ((error) => {
+          }).catch((error) => {
             console.error('Request failed', error);
             reject();
           });
@@ -342,7 +345,10 @@ export class Pia extends ApplicationDb {
   async getPiaExample() {
     return new Promise((resolve, reject) => {
       if (this.serverUrl) {
-        fetch(this.getServerUrl() + '/' + 'example').then((response) => {
+        fetch(this.getServerUrl() + '/' + 'example', {
+          mode: 'cors',
+          credentials : 'include'
+        }).then((response) => {
           return response.json();
         }).then((result: any) => {
           resolve(result);

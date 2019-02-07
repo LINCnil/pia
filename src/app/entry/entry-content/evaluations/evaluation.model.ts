@@ -33,7 +33,9 @@ export class Evaluation extends ApplicationDb {
       if (this.serverUrl) {
         fetch(this.getServerUrl(), {
           method: 'POST',
-          body: this.setFormData(data)
+          body: this.setFormData(data),
+          mode: 'cors',
+          credentials : 'include'
         }).then((response) => {
           return response.json();
         }).then((result: any) => {
@@ -73,7 +75,9 @@ export class Evaluation extends ApplicationDb {
         if (this.serverUrl) {
           fetch(this.getServerUrl() + '/' + this.id, {
             method: 'PATCH',
-            body: this.setFormData(entry)
+            body: this.setFormData(entry),
+            mode: 'cors',
+            credentials : 'include'
           }).then((response) => {
             return response.json();
           }).then((result: any) => {
@@ -123,7 +127,10 @@ export class Evaluation extends ApplicationDb {
       this.reference_to = reference_to;
       return new Promise((resolve, reject) => {
         if (this.serverUrl) {
-          fetch(this.getServerUrl() + '?reference_to=' + this.reference_to).then((response) => {
+          fetch(this.getServerUrl() + '?reference_to=' + this.reference_to, {
+            mode: 'cors',
+            credentials : 'include'
+          }).then((response) => {
             return response.json();
           }).then((result: any) => {
             if (result) {
@@ -209,7 +216,10 @@ export class Evaluation extends ApplicationDb {
     const items = [];
     return new Promise((resolve, reject) => {
       if (this.serverUrl) {
-        fetch(this.getServerUrl()).then((response) => {
+        fetch(this.getServerUrl(), {
+          mode: 'cors',
+          credentials : 'include'
+        }).then((response) => {
           return response.json();
         }).then((result: any) => {
           resolve(result);
@@ -244,7 +254,10 @@ export class Evaluation extends ApplicationDb {
     this.reference_to = reference_to;
     return new Promise((resolve, reject) => {
       if (this.serverUrl) {
-        fetch(this.getServerUrl() + '?reference_to=' + this.reference_to).then((response) => {
+        fetch(this.getServerUrl() + '?reference_to=' + this.reference_to, {
+          mode: 'cors',
+          credentials : 'include'
+        }).then((response) => {
           return response.json();
         }).then((result: any) => {
           if (result && result.length > 0) {
@@ -281,7 +294,10 @@ export class Evaluation extends ApplicationDb {
     this.pia_id = pia_id;
     return new Promise((resolve, reject) => {
       if (this.serverUrl) {
-        fetch(this.getServerUrl() + '?reference_to=' + reference_to).then((response) => {
+        fetch(this.getServerUrl() + '?reference_to=' + reference_to, {
+          mode: 'cors',
+          credentials : 'include'
+        }).then((response) => {
           return response.json();
         }).then((result: any) => {
           if (result) {
