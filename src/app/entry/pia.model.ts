@@ -79,7 +79,10 @@ export class Pia extends ApplicationDb {
     const items = [];
     return new Promise((resolve, reject) => {
       if (this.serverUrl) {
-        fetch(this.getServerUrl()).then((response) => {
+        fetch(this.getServerUrl(), {
+          mode: 'cors',
+          credentials : 'include'
+        }).then((response) => {
           return response.json();
         }).then((result: any) => {
           resolve(result);
@@ -274,7 +277,9 @@ export class Pia extends ApplicationDb {
         }
         fetch(this.getServerUrl() + '/' + entry.id, {
           method: 'PATCH',
-          body: formData
+          body: formData,
+          mode: 'cors',
+          credentials : 'include'
         }).then((response) => {
           return response.json();
         }).then((result: any) => {

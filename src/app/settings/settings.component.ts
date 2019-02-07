@@ -32,7 +32,10 @@ export class SettingsComponent implements OnInit {
         localStorage.removeItem('server_url');
         this._modalsService.openModal('modal-update-server-url-ok');
       } else {
-        fetch(this.settingsForm.value.server_url).then((response) => {
+        fetch(this.settingsForm.value.server_url, {
+          mode: 'cors',
+          credentials : 'include'
+        }).then((response) => {
           return response.status;
         }).then((httpCode: number) => {
           if (httpCode === 200) {
