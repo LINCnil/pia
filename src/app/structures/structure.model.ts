@@ -72,8 +72,7 @@ export class Structure extends ApplicationDb {
         fetch(this.getServerUrl(), {
           method: 'POST',
           body: formData,
-          mode: 'cors',
-          credentials : 'include'
+          mode: 'cors'
         }).then((response) => {
           return response.json();
         }).then((result: any) => {
@@ -126,8 +125,7 @@ export class Structure extends ApplicationDb {
           fetch(this.getServerUrl() + '/' + entry.id, {
             method: 'PATCH',
             body: formData,
-            mode: 'cors',
-            credentials : 'include'
+            mode: 'cors'
           }).then((response) => {
             return response.json();
           }).then((result: any) => {
