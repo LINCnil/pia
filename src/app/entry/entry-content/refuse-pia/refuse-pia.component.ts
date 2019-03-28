@@ -1,13 +1,10 @@
-import { Component, ElementRef, OnInit, Input } from '@angular/core';
-import { FormArray, FormControl, FormGroup } from '@angular/forms';
+import { Component, ElementRef, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 
-import { Evaluation } from 'app/entry/entry-content/evaluations/evaluation.model';
-
-import { ModalsService } from 'app/modals/modals.service';
-import { PiaService } from 'app/services/pia.service';
-import { SidStatusService } from 'app/services/sid-status.service';
-import { TranslateService } from '@ngx-translate/core';
+import { ModalsService } from 'src/app/modals/modals.service';
+import { PiaService } from 'src/app/services/pia.service';
+import { SidStatusService } from 'src/app/services/sid-status.service';
 
 @Component({
   selector: 'app-refuse-pia',
@@ -26,7 +23,6 @@ export class RefusePIAComponent implements OnInit {
               private el: ElementRef,
               private _modalsService: ModalsService,
               private _sidStatusService: SidStatusService,
-              private _translateService: TranslateService,
               public _piaService: PiaService) { }
 
   ngOnInit() {

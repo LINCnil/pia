@@ -1,5 +1,4 @@
 import { ApplicationDb } from '../application.db';
-import { resolve } from 'path';
 
 export class Structure extends ApplicationDb {
   public id: number;

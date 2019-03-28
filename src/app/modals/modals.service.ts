@@ -1,7 +1,7 @@
-import {ElementRef, Injectable, Output} from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { PaginationService } from 'app/entry/entry-content/pagination.service';
+import { PaginationService } from 'src/app/entry/entry-content/pagination.service';
 
 @Injectable()
 export class ModalsService {

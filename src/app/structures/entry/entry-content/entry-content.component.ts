@@ -1,18 +1,18 @@
-import { Router, ActivatedRoute, Params } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Component, OnInit, Input, OnChanges, OnDestroy } from '@angular/core';
-import { Http } from '@angular/http';
-import 'rxjs/add/operator/map'
-import { Subscription } from 'rxjs/Subscription';
 
-import { AppDataService } from 'app/services/app-data.service';
-import { AnswerStructureService } from 'app/services/answer-structure.service';
-import { MeasureService } from 'app/entry/entry-content/measures/measures.service';
-import { ModalsService } from 'app/modals/modals.service';
-import { StructureService } from 'app/services/structure.service';
-import { PaginationService } from 'app/entry/entry-content/pagination.service';
+import 'rxjs/add/operator/map';
+import { Subscription } from 'rxjs';
+
+import { AppDataService } from 'src/app/services/app-data.service';
+import { AnswerStructureService } from 'src/app/services/answer-structure.service';
+import { MeasureService } from 'src/app/entry/entry-content/measures/measures.service';
+import { ModalsService } from 'src/app/modals/modals.service';
+import { StructureService } from 'src/app/services/structure.service';
+import { PaginationService } from 'src/app/entry/entry-content/pagination.service';
 import { TranslateService } from '@ngx-translate/core';
-import { SidStatusService } from 'app/services/sid-status.service';
-import { KnowledgeBaseService } from 'app/entry/knowledge-base/knowledge-base.service';
+import { SidStatusService } from 'src/app/services/sid-status.service';
+import { KnowledgeBaseService } from 'src/app/entry/knowledge-base/knowledge-base.service';
 
 @Component({
   selector: 'app-entry-content',

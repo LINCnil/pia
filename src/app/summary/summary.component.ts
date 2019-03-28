@@ -1,21 +1,20 @@
 import { Component, ElementRef, OnInit } from '@angular/core';
-import { Router, ActivatedRoute, Params } from '@angular/router';
-import { Subscription } from 'rxjs/Subscription';
-import {element} from 'protractor';
+import { ActivatedRoute } from '@angular/router';
+import { Subscription } from 'rxjs';
+
 import * as html2canvas from 'html2canvas';
 import { saveSvgAsPng } from 'save-svg-as-png';
-import { Angular2Csv } from 'angular2-csv';
 
-import { Answer } from 'app/entry/entry-content/questions/answer.model';
-import { Measure } from 'app/entry/entry-content/measures/measure.model';
-import { Evaluation } from 'app/entry/entry-content/evaluations/evaluation.model';
+import { Answer } from 'src/app/entry/entry-content/questions/answer.model';
+import { Measure } from 'src/app/entry/entry-content/measures/measure.model';
+import { Evaluation } from 'src/app/entry/entry-content/evaluations/evaluation.model';
 
-import { ActionPlanService } from 'app/entry/entry-content/action-plan//action-plan.service';
-import { AppDataService } from 'app/services/app-data.service';
+import { ActionPlanService } from 'src/app/entry/entry-content/action-plan//action-plan.service';
+import { AppDataService } from 'src/app/services/app-data.service';
 import { TranslateService } from '@ngx-translate/core';
 import { ModalsService } from '../modals/modals.service';
-import { PiaService } from 'app/services/pia.service';
-import { AttachmentsService } from 'app/entry/attachments/attachments.service';
+import { PiaService } from 'src/app/services/pia.service';
+import { AttachmentsService } from 'src/app/entry/attachments/attachments.service';
 
 @Component({
   selector: 'app-summary',
@@ -28,9 +27,21 @@ import { AttachmentsService } from 'app/entry/attachments/attachments.service';
 })
 export class SummaryComponent implements OnInit {
 
+  options = {
+    fieldSeparator: ',',
+    quoteStrings: '"',
+    decimalseparator: '.',
+    showLabels: false,
+    headers: [],
+    showTitle: true,
+    title: 'PIA',
+    useBom: true,
+    removeNewLines: true,
+  };
+
   content: any[];
   pia: any;
-  allData: Object;
+  allData: object;
   dataNav: any;
   displayMainPiaData: boolean;
   displayActionPlan: boolean;
@@ -270,7 +281,7 @@ export class SummaryComponent implements OnInit {
    * Get a csv document.
    * @protected
    * @returns {Object}
-   * @memberof Angular2Csv
+   * @memberof SummaryComponent
    */
   public async download() {
     const options = {
@@ -292,9 +303,9 @@ export class SummaryComponent implements OnInit {
 
     this._actionPlanService.getCsv();
 
-    return new Angular2Csv(this._actionPlanService.csvRows,
-                           this._translateService.instant('summary.csv_file_title'),
-                           options);
+    // return new Angular2CsvModule(this._actionPlanService.csvRows,
+    //                        this._translateService.instant('summary.csv_file_title'),
+    //                        options);
   }
 
   /**
@@ -514,7 +525,7 @@ export class SummaryComponent implements OnInit {
   /**
    * Select all text from page.
    * @private
-   * @memberof Angular2Csv
+   * @memberof SummaryComponent
    */
   getTextSelection() {
     const actionPlanOverview = document.getElementById('actionPlanOverviewImg');
@@ -528,8 +539,8 @@ export class SummaryComponent implements OnInit {
     const sel = window.getSelection();
     sel.removeAllRanges();
     sel.addRange(range);
-    document.execCommand('Copy', false, range);
-    document.execCommand('SelectText', false , range);
+    document.execCommand('Copy', false, range.toString());
+    document.execCommand('SelectText', false , range.toString());
     this._modalService.openModal('modal-select-text-pia');
     if (actionPlanOverview) {
       actionPlanOverview.classList.toggle('hide');

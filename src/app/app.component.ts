@@ -1,8 +1,8 @@
 import { Component, Renderer2 } from '@angular/core';
-import { Http } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
 
-import { KnowledgeBaseService } from 'app/entry/knowledge-base/knowledge-base.service';
-import { LanguagesService } from 'app/services/languages.service';
+import { KnowledgeBaseService } from './entry/knowledge-base/knowledge-base.service';
+import { LanguagesService } from './services/languages.service';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +11,7 @@ import { LanguagesService } from 'app/services/languages.service';
 })
 export class AppComponent {
   constructor(private _renderer: Renderer2,
-              private _http: Http,
+              private _http: HttpClient,
               private _knowledgeBaseService: KnowledgeBaseService,
               private _languagesService: LanguagesService) {
     this._knowledgeBaseService.loadData(this._http);

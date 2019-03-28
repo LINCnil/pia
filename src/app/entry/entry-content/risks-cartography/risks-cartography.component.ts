@@ -1,12 +1,12 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Http } from '@angular/http';
-import { Subscription } from 'rxjs/Subscription';
+import { HttpClient } from '@angular/common/http';
+import { Subscription } from 'rxjs';
 
-import { Answer } from 'app/entry/entry-content/questions/answer.model';
-import { Evaluation } from 'app/entry/entry-content/evaluations/evaluation.model';
+import { Answer } from 'src/app/entry/entry-content/questions/answer.model';
+import { Evaluation } from 'src/app/entry/entry-content/evaluations/evaluation.model';
 
-import { PiaService } from 'app/services/pia.service';
-import { AppDataService } from 'app/services/app-data.service';
+import { PiaService } from 'src/app/services/pia.service';
+import { AppDataService } from 'src/app/services/app-data.service';
 import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 
 @Component({
@@ -23,7 +23,7 @@ export class RisksCartographyComponent implements OnInit, OnDestroy {
   risk1Letter;
   risk2Letter;
 
-  constructor(private http: Http,
+  constructor(private http: HttpClient,
               private _appDataService: AppDataService,
               private _translateService: TranslateService,
               public _piaService: PiaService) { }

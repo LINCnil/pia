@@ -1,9 +1,9 @@
 import { Component, Input, OnInit, EventEmitter, Output } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
-import { Structure } from 'app/structures/structure.model';
-import { ModalsService } from 'app/modals/modals.service';
-import { StructureService } from 'app/services/structure.service';
+import { Structure } from 'src/app/structures/structure.model';
+import { ModalsService } from 'src/app/modals/modals.service';
+import { StructureService } from 'src/app/services/structure.service';
 
 @Component({
   selector: `.app-list-item`,

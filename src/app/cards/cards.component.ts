@@ -1,16 +1,14 @@
 import {Component, OnInit, ElementRef, OnDestroy, Input} from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router, ActivatedRoute, Params } from '@angular/router';
-import { Subscription } from 'rxjs/Subscription';
+import { Subscription } from 'rxjs';
 
 import { Pia } from '../entry/pia.model';
 
-import { ModalsService } from 'app/modals/modals.service';
-import { PiaService } from 'app/services/pia.service';
-import { StructureService } from 'app/services/structure.service';
-import { Structure } from 'app/structures/structure.model';
-import { Measure } from 'app/entry/entry-content/measures/measure.model';
-import { Answer } from 'app/entry/entry-content/questions/answer.model';
+import { ModalsService } from 'src/app/modals/modals.service';
+import { PiaService } from 'src/app/services/pia.service';
+import { StructureService } from 'src/app/services/structure.service';
+import { Structure } from 'src/app/structures/structure.model';
 
 @Component({
   selector: 'app-cards',
