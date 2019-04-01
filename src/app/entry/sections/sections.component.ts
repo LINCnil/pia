@@ -1,16 +1,11 @@
-import { Component, OnInit, Input, Output } from '@angular/core';
-import { Http } from '@angular/http';
+import { Component, OnInit, Input } from '@angular/core';
 import 'rxjs/add/operator/map';
 
-import { Evaluation } from 'app/entry/entry-content/evaluations/evaluation.model';
-import { Measure } from 'app/entry/entry-content/measures/measure.model';
-import { Answer } from 'app/entry/entry-content/questions/answer.model';
-
-import { Structure } from 'app/structures/structure.model';
-import { AppDataService } from 'app/services/app-data.service';
-import { SidStatusService } from 'app/services/sid-status.service';
-import { PiaService } from 'app/services/pia.service';
-import { GlobalEvaluationService } from 'app/services/global-evaluation.service';
+import { Structure } from 'src/app/structures/structure.model';
+import { AppDataService } from 'src/app/services/app-data.service';
+import { SidStatusService } from 'src/app/services/sid-status.service';
+import { PiaService } from 'src/app/services/pia.service';
+import { GlobalEvaluationService } from 'src/app/services/global-evaluation.service';
 
 @Component({
   selector: 'app-sections',

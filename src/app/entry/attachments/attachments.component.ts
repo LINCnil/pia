@@ -1,11 +1,10 @@
-import { Router, ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit, Input } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 
 import { Pia } from '../pia.model';
-import { Attachment } from './attachment.model';
 
-import { AttachmentsService } from 'app/entry/attachments/attachments.service';
+import { AttachmentsService } from 'src/app/entry/attachments/attachments.service';
 
 @Component({
   selector: 'app-attachments',
@@ -39,7 +38,7 @@ export class AttachmentsComponent implements OnInit {
       return false;
     } else {
       this._attachmentsService.pia_signed = 0;
-       const attachment = <HTMLInputElement>document.querySelector('[formcontrolname="attachment_file"]');
+       const attachment = <HTMLInputElement> document.querySelector('[formcontrolname="attachment_file"]');
       attachment.click();
     }
   }
@@ -50,6 +49,6 @@ export class AttachmentsComponent implements OnInit {
    * @memberof AttachmentsComponent
    */
   uploadAttachement(event: Event) {
-    this._attachmentsService.upload((<HTMLInputElement>event.target).files[0]);
+    this._attachmentsService.upload((<HTMLInputElement> event.target).files[0]);
   }
 }

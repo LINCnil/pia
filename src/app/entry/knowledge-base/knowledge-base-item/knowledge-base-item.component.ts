@@ -1,9 +1,9 @@
 import { Component, ElementRef, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 
 import { KnowledgeBaseService } from '../knowledge-base.service';
 import { TranslateService } from '@ngx-translate/core';
-import { GlobalEvaluationService } from 'app/services/global-evaluation.service';
+import { GlobalEvaluationService } from 'src/app/services/global-evaluation.service';
 
 @Component({
   selector: 'app-knowledge-base-item',
@@ -20,8 +20,7 @@ export class KnowledgeBaseItemComponent implements OnInit {
   constructor(private el: ElementRef, private router: Router,
               private _knowledgeBaseService: KnowledgeBaseService,
               private _translateService: TranslateService,
-              public _globalEvaluationService: GlobalEvaluationService,
-              private activatedRoute: ActivatedRoute) {
+              public _globalEvaluationService: GlobalEvaluationService) {
     this.router = router;
   }
 

@@ -2,11 +2,11 @@ import { Component, OnInit, ViewChild, ElementRef, Input } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 
-import { Pia } from '../../entry/pia.model';
-import { Attachment } from 'app/entry/attachments/attachment.model';
+import { Pia } from 'src/app/entry/pia.model';
+import { Attachment } from 'src/app/entry/attachments/attachment.model';
 
-import { ModalsService } from 'app/modals/modals.service';
-import { PiaService } from 'app/services/pia.service';
+import { ModalsService } from 'src/app/modals/modals.service';
+import { PiaService } from 'src/app/services/pia.service';
 
 @Component({
   selector: 'app-card-item',

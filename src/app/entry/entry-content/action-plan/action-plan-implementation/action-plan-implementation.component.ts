@@ -1,10 +1,10 @@
 import { Component, ViewChild, ElementRef, OnInit, Input } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 
-import { Evaluation } from 'app/entry/entry-content/evaluations/evaluation.model';
+import { Evaluation } from 'src/app/entry/entry-content/evaluations/evaluation.model';
 
-import { PiaService } from 'app/services/pia.service';
-import { GlobalEvaluationService } from 'app/services/global-evaluation.service';
+import { PiaService } from 'src/app/services/pia.service';
+import { GlobalEvaluationService } from 'src/app/services/global-evaluation.service';
 
 @Component({
   selector: 'app-action-plan-implementation',

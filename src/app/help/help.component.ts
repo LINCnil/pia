@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Http } from '@angular/http';
-import { Subscription } from 'rxjs/Subscription';
+import { HttpClient } from '@angular/common/http';
+import { Subscription } from 'rxjs';
 
 import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 
@@ -12,11 +12,10 @@ import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 export class HelpComponent implements OnInit, OnDestroy {
   public tableOfTitles = [];
   public content;
-  private currentAnchorId: string
   public activeElement: string;
   private helpSubscription: Subscription;
 
-  constructor(private http: Http,
+  constructor(private httpClient: HttpClient,
               private _translateService: TranslateService) {}
 
   ngOnInit() {
@@ -25,16 +24,16 @@ export class HelpComponent implements OnInit, OnDestroy {
     let file = `./assets/files/pia_help_${fileTranslation}.html`;
 
 
-    this.http.get(file).map(res => res.text()).subscribe(data => {
-      this.content = data;
+    this.httpClient.get(file, { responseType: 'text' }).subscribe(res => {
+      this.content = res;
       this.getSectionList();
     });
 
     this.helpSubscription = this._translateService.onLangChange.subscribe((event: LangChangeEvent) => {
       fileTranslation = event['lang'] === 'fr' ? 'fr' : 'en';
       file = `./assets/files/pia_help_${fileTranslation}.html`;
-      this.http.get(file).map(res => res.text()).subscribe(data => {
-        this.content = data;
+      this.httpClient.get(file, { responseType: 'text' }).subscribe(res => {
+        this.content = res;
         this.getSectionList();
       });
     });

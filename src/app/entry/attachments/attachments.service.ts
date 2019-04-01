@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 import { Attachment } from './attachment.model';
 
-import { ModalsService } from 'app/modals/modals.service';
+import { ModalsService } from 'src/app/modals/modals.service';
 
 @Injectable()
 export class AttachmentsService {
@@ -104,7 +104,10 @@ export class AttachmentsService {
     const attachment = new Attachment();
     attachment.pia_id = this.pia.id;
     attachment.find(id).then((entry: any) => {
-      fetch(entry.file).then(res => res.blob()).then(blob => {
+      fetch(entry.file,{
+        mode: 'cors',
+        credentials : 'include'
+      }).then(res => res.blob()).then(blob => {
         const a = <any>document.createElement('a');
         a.href = window.URL.createObjectURL(blob);
         a.download = entry.name;

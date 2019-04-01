@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
-import { Observable } from 'rxjs/Observable';
 
 import { Answer } from '../entry/entry-content/questions/answer.model';
 import { Evaluation } from '../entry/entry-content/evaluations/evaluation.model';

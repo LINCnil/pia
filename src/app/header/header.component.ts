@@ -1,15 +1,15 @@
-import { Component, DoCheck, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Renderer2 } from '@angular/core';
 import { environment } from '../../environments/environment';
-import { Http } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 
-import { Pia } from 'app/entry/pia.model';
+import { Pia } from 'src/app/entry/pia.model';
 
 import { TranslateService } from '@ngx-translate/core';
-import { PiaService } from 'app/services/pia.service';
-import { ModalsService } from 'app/modals/modals.service';
-import { LanguagesService } from 'app/services/languages.service';
+import { PiaService } from 'src/app/services/pia.service';
+import { ModalsService } from 'src/app/modals/modals.service';
+import { LanguagesService } from 'src/app/services/languages.service';
 
 @Component({
   selector: 'app-header',
@@ -29,7 +29,7 @@ export class HeaderComponent implements OnInit {
               private _translateService: TranslateService,
               public _piaService: PiaService,
               private _modalsService: ModalsService,
-              private _http: Http,
+              private httpClient: HttpClient,
               public _languagesService: LanguagesService) {
     this.updateContrast();
   }
@@ -39,8 +39,8 @@ export class HeaderComponent implements OnInit {
     this.pia_is_example = false;
     this._piaService.getPIA().then(() => {
       if (this._piaService.pia.is_example === 1) {
-        this.pia_is_example = true;
         this.pia_example = this._piaService.pia;
+        this.pia_is_example = true;
       } else if (!this._piaService.pia.id) {
         this.loadPiaExample();
       }
@@ -85,8 +85,8 @@ export class HeaderComponent implements OnInit {
       if (entry) {
         this.pia_example = entry;
       } else {
-        this._http.get('./assets/files/2018-02-21-pia-example.json').map(res => res.json()).subscribe(data => {
-          this._piaService.importData(data, 'EXAMPLE', false, true).then(() => {
+        this.httpClient.get('./assets/files/2018-02-21-pia-example.json', { responseType: 'json' }).subscribe((res) => {
+          this._piaService.importData(res, 'EXAMPLE', false, true).then(() => {
             pia.getPiaExample().then((entry2: any) => {
               this.pia_example = entry2;
             });

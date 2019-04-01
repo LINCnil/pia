@@ -1,13 +1,13 @@
 import { Component, OnInit, ElementRef, OnDestroy, Input } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router, ActivatedRoute, Params } from '@angular/router';
-import { Subscription } from 'rxjs/Subscription';
+import { Subscription } from 'rxjs';
 
 import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
-import { StructureService } from 'app/services/structure.service';
+import { StructureService } from 'src/app/services/structure.service';
 import { Structure } from './structure.model';
-import { ModalsService } from 'app/modals/modals.service';
-import { AppDataService } from 'app/services/app-data.service';
+import { ModalsService } from 'src/app/modals/modals.service';
+import { AppDataService } from 'src/app/services/app-data.service';
 
 @Component({
   selector: 'app-structures',

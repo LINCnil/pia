@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Renderer2 } from '@angular/core';
 
 import { TranslateService } from '@ngx-translate/core';
-import { LanguagesService } from 'app/services/languages.service';
+import { LanguagesService } from 'src/app/services/languages.service';
 
 @Component({
   selector: 'app-authentication',
