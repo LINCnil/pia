@@ -20,6 +20,11 @@ import { GlobalEvaluationService } from 'src/app/services/global-evaluation.serv
 
 export class QuestionsComponent implements OnInit, OnDestroy {
   userMeasures = [];
+  allUserAnswersForImpacts = [];
+  allUserAnswersForThreats = [];
+  allUserAnswersForSources = [];
+  allUserAnswersToDisplay = [];
+  userAnswersToDisplay = [];
   @Input() question: any;
   @Input() item: any;
   @Input() section: any;
@@ -71,6 +76,8 @@ export class QuestionsComponent implements OnInit, OnDestroy {
     });
 
     this.measure.pia_id = this.pia.id;
+
+    // Fill tags list for Measures
     this.measure.findAll().then((entries: any[]) => {
       if (entries) {
         entries.forEach(entry => {
@@ -78,6 +85,42 @@ export class QuestionsComponent implements OnInit, OnDestroy {
             this.userMeasures.push(entry.title);
           }
         });
+      }
+    });
+
+    // Fill tags list for Impacts, Threats and Sources from all risks (1, 2 & 3)
+    const answer = new Answer();
+    answer.findAllByPia(this.pia.id).then((entries: any[]) => {
+      this.allUserAnswersForImpacts = [];
+      this.allUserAnswersForThreats = [];
+      this.allUserAnswersForSources = [];
+      if (entries) {
+        entries.forEach(entry => {
+          if (entry.data.list && entry.data.list.length > 0) {
+            // All user answers for Impacts
+            if (entry.reference_to === 321 || entry.reference_to === 331 || entry.reference_to === 341) {
+              this.allUserAnswersForImpacts.push(entry.data.list);
+            } else if (entry.reference_to === 322 || entry.reference_to === 332 || entry.reference_to === 342) { // All user answers for Threats
+              this.allUserAnswersForThreats.push(entry.data.list);
+            } else if (entry.reference_to === 323 || entry.reference_to === 333 || entry.reference_to === 343) { // All user answers for Sources
+              this.allUserAnswersForSources.push(entry.data.list);
+            }
+          }
+        });
+        this.allUserAnswersForImpacts = [].concat.apply([], this.allUserAnswersForImpacts);
+        this.allUserAnswersForThreats = [].concat.apply([], this.allUserAnswersForThreats);
+        this.allUserAnswersForSources = [].concat.apply([], this.allUserAnswersForSources);
+
+        // Si la question courante concerne les impacts (321, 331, 341)
+        if (this.question.id === 321 || this.question.id === 331 || this.question.id  === 341) {
+          this.userAnswersToDisplay = this.allUserAnswersForImpacts;
+        } else if (this.question.id === 322 || this.question.id === 332 || this.question.id  === 342) {
+          // Sinon si la question courante concerne les menaces (322, 332, 342)
+          this.userAnswersToDisplay = this.allUserAnswersForThreats;
+        } else if (this.question.id === 323 || this.question.id === 333 || this.question.id  === 343) {
+          // Sinon si la question courante concerne les sources (323, 333, 343)
+          this.userAnswersToDisplay = this.allUserAnswersForSources;
+        }
       }
     });
   }
