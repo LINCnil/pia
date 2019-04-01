@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 
-import { Evaluation } from 'app/entry/entry-content/evaluations/evaluation.model';
-import { Measure } from 'app/entry/entry-content/measures/measure.model';
+import { Evaluation } from 'src/app/entry/entry-content/evaluations/evaluation.model';
+import { Measure } from 'src/app/entry/entry-content/measures/measure.model';
 
 import { TranslateService } from '@ngx-translate/core';
-import { LanguagesService } from 'app/services/languages.service'
+import { LanguagesService } from 'src/app/services/languages.service'
 
 @Injectable()
 export class ActionPlanService {
@@ -214,7 +214,7 @@ export class ActionPlanService {
     if (data && data.length > 0) {
       if (isDate) {
         const date = Date.parse(data);
-        if (date !== NaN) {
+        if (!isNaN(date)) {
           const locale = this._languagesService.selectedLanguage;
           const newDate = new Date(date);
           data = new Intl.DateTimeFormat(locale).format(newDate);

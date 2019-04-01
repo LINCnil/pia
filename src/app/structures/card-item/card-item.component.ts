@@ -2,10 +2,10 @@ import { Component, OnInit, ViewChild, ElementRef, EventEmitter, Input, Output }
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 
-import { Structure } from '../structure.model';
+import { Structure } from 'src/app/structures/structure.model';
 
-import { ModalsService } from 'app/modals/modals.service';
-import { StructureService } from 'app/services/structure.service';
+import { ModalsService } from 'src/app/modals/modals.service';
+import { StructureService } from 'src/app/services/structure.service';
 
 @Component({
   selector: 'app-card-item',

@@ -1313,6 +1313,7 @@
 		"csv_section": "Sekcja",
 		"csv_title_object": "Tytuł",
 		"display_filters": {
+      "check_all": "TO TRANSLATE - Enable / disable all display filters",
 			"action_plan_content": "Wyświetl plan działania",
 			"context_content": "Wyświetl \"Kontekst przetwarzania\"",
 			"main_content": "Wyświetl \"Informacje\"",

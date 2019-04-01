@@ -1313,6 +1313,7 @@
 		"csv_section": "Odjeljak",
 		"csv_title_object": "Naslov",
 		"display_filters": {
+      "check_all": "TO TRANSLATE - Enable / disable all display filters",
 			"action_plan_content": "Prikaži akcijski plan",
 			"context_content": "Prikaži odjeljak \"Context\"",
 			"main_content": "Prikaži odjeljak \"PIA information\"",

@@ -1,8 +1,6 @@
 import {Component, ElementRef, OnInit} from '@angular/core';
 
-import { Pia } from 'app/entry/pia.model';
-
-import { PiaService } from 'app/services/pia.service';
+import { PiaService } from 'src/app/services/pia.service';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({

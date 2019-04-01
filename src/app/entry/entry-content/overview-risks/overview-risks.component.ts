@@ -1,10 +1,10 @@
 import { Component, OnInit, ElementRef, NgZone } from '@angular/core';
 import * as d3 from 'd3';
 
-import { Answer } from 'app/entry/entry-content/questions/answer.model';
+import { Answer } from 'src/app/entry/entry-content/questions/answer.model';
 
-import { PiaService } from 'app/services/pia.service';
-import { AppDataService } from 'app/services/app-data.service';
+import { PiaService } from 'src/app/services/pia.service';
+import { AppDataService } from 'src/app/services/app-data.service';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({

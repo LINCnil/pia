@@ -1,10 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
-import { Attachment } from 'app/entry/attachments/attachment.model';
+import { Attachment } from 'src/app/entry/attachments/attachment.model';
 
-import { ModalsService } from 'app/modals/modals.service';
-import { PiaService } from 'app/services/pia.service';
+import { ModalsService } from 'src/app/modals/modals.service';
+import { PiaService } from 'src/app/services/pia.service';
 
 @Component({
   selector: `.app-list-item`,
