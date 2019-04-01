@@ -160,7 +160,7 @@
         .pia-previousLink, .pia-nextLink {
           display: inline-block;
           vertical-align: middle;
-          width: 49.5%;
+          width: 50%;
           color: $pia-green;
           text-decoration: none;
           font-weight: 500;
@@ -186,6 +186,8 @@
       }
       &-requiredFields {
         margin-top: 6px !important;
+        color: $pia-red !important;
+        font-size: 1.15rem !important;
       }
     }
   }

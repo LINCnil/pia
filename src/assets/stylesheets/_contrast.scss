@@ -324,8 +324,8 @@ body.pia-contrast {
       }
     }
     &-footer {
-      p {
-        color: $pia-gray-dark !important;
+      &-requiredFields {
+        color: $pia-red-dark !important;
       }
       .pia-cancelBtn {
         color: $pia-red-dark !important;
@@ -528,6 +528,9 @@ body.pia-contrast {
             background-position: -223px -2px;
           }
           p {
+            color: $pia-green-dark !important;
+          }
+          span:last-child {
             color: $pia-green-dark !important;
           }
         }

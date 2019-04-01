@@ -2,6 +2,8 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import 'rxjs/add/operator/map';
 
+import { Answer } from 'src/app/entry/entry-content/questions/answer.model';
+
 import { AppDataService } from 'src/app/services/app-data.service';
 import { MeasureService } from 'src/app/entry/entry-content/measures/measures.service';
 import { ModalsService } from 'src/app/modals/modals.service';
@@ -24,6 +26,10 @@ export class EntryContentComponent implements OnInit, OnChanges {
   @Input() item: any;
   @Input() questions: any;
   @Input() data: any;
+
+  userAnswersForImpacts = [];
+  userAnswersForThreats = [];
+  userAnswersForSources = [];
 
   constructor(private _router: Router,
               private _appDataService: AppDataService,

@@ -84,6 +84,7 @@
 		"to_correct": "Para corregir"
 	},
 	"header": {
+    "exit_full_screen_mode": "TO TRANSLATE - Press F11 to exit full screen mode.",
 		"homepage_link": "Panel de control",
 		"knowledge_base_link": "Base de conocimientos",
 		"languages": {
@@ -1313,6 +1314,7 @@
 		"csv_section": "TO BE TRANSLATED - Section",
 		"csv_title_object": "TO BE TRANSLATED - Title",
 		"display_filters": {
+      "check_all": "TO TRANSLATE - Enable / disable all display filters",
 			"action_plan_content": "TO BE TRANSLATED - Display action plan",
 			"context_content": "TO BE TRANSLATED - Display \"Context\"",
 			"main_content": "TO BE TRANSLATED - Display \"PIA information\"",
