@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit } from '@angular/core';
 import { Renderer2 } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { HttpClient } from '@angular/common/http';
@@ -35,6 +35,11 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit() {
+    const displayMessage = document.querySelector('.pia-closeFullScreenModeAlertBlock');
+    window.outerHeight === screen.height  ? displayMessage.classList.remove('hide') : displayMessage.classList.add('hide');
+    window.onresize = function (event) {
+      window.outerHeight === screen.height  ? displayMessage.classList.remove('hide') : displayMessage.classList.add('hide');
+    }
     this.appVersion = environment.version;
     this.pia_is_example = false;
     this._piaService.getPIA().then(() => {

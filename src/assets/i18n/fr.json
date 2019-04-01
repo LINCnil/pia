@@ -84,6 +84,7 @@
 		"to_correct": "À corriger"
 	},
 	"header": {
+    "exit_full_screen_mode": "Appuyer sur F11 pour quitter le mode plein écran.",
 		"homepage_link": "Accueil",
 		"knowledge_base_link": "Base de connaissances",
 		"languages": {

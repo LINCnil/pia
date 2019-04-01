@@ -6,6 +6,13 @@
     top: 10px;
     left: 10px;
   }
+  &-closeFullScreenModeAlertBlock {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-weight: initial !important;
+    font-size: 1rem !important;
+  }
   &-headerBlock {
     background-color: #fff;
     margin-bottom: 24px;
