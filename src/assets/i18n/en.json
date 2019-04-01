@@ -1313,6 +1313,7 @@
 		"csv_section": "Section",
 		"csv_title_object": "Title",
 		"display_filters": {
+      "check_all": "Enable / disable all display filters",
 			"action_plan_content": "Display action plan",
 			"context_content": "Display section \"Context\"",
 			"main_content": "Display section \"PIA information\"",
