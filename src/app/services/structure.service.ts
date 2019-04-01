@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Http } from '@angular/http';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { HttpClient } from '@angular/common/http';
+import { BehaviorSubject } from 'rxjs';
 
-import { Structure } from 'app/structures/structure.model';
-import { Pia } from 'app/entry/pia.model';
+import { Structure } from 'src/app/structures/structure.model';
+import { Pia } from 'src/app/entry/pia.model';
 
-import { ModalsService } from 'app/modals/modals.service';
-import { LanguagesService } from 'app/services/languages.service';
+import { ModalsService } from 'src/app/modals/modals.service';
+import { LanguagesService } from 'src/app/services/languages.service';
 
 
 @Injectable()
@@ -17,7 +17,7 @@ export class StructureService {
   structure: Structure = new Structure();
 
   constructor(private route: ActivatedRoute,
-              private _http: Http,
+              private httpClient: HttpClient,
               private _modalsService: ModalsService,
               private _languagesService: LanguagesService) {
                 this.getStructure();
@@ -48,7 +48,7 @@ export class StructureService {
   async loadExample() {
     return new Promise((resolve, reject) => {
       const exampleStructLanguage = this._languagesService.selectedLanguage === 'fr' ? 'fr' : 'en';
-      this._http.get('./assets/files/2018-11-21-structure-example-' + exampleStructLanguage + '.json').map(res => res.json()).subscribe(dataStructure => {
+      this.httpClient.get('./assets/files/2018-11-21-structure-example-' + exampleStructLanguage + '.json', { responseType: 'json' }).subscribe((dataStructure: any) => {
         const structureExample = new Structure();
         structureExample.id = 0;
         structureExample.name = dataStructure.structure.name;
@@ -139,7 +139,7 @@ export class StructureService {
         });
       } else {
         const exampleStructLanguage = this._languagesService.selectedLanguage === 'fr' ? 'fr' : 'en';
-        this._http.get('./assets/files/2018-11-21-structure-example-' + exampleStructLanguage + '.json').map(res => res.json()).subscribe(dataStructure => {
+        this.httpClient.get('./assets/files/2018-11-21-structure-example-' + exampleStructLanguage + '.json', { responseType: 'json' }).subscribe(dataStructure => {
           resolve(dataStructure);
         });
       }

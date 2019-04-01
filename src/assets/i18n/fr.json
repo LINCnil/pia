@@ -1314,6 +1314,7 @@
 		"csv_section": "Section",
 		"csv_title_object": "Titre de l'objet concerné",
 		"display_filters": {
+      "check_all": "Activer / désactiver l'ensemble des filtres d'affichage",
 			"action_plan_content": " Afficher le plan d'action",
 			"context_content": "Afficher la section \"Contexte\"",
 			"main_content": "Afficher la section \"Informations du PIA\"",

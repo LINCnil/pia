@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { SharedModule } from '../shared.module';
 import { StructuresRoutingModule } from './structures-routing.module';
-import { AnswerStructureService } from 'app/services/answer-structure.service';
+import { AnswerStructureService } from 'src/app/services/answer-structure.service';
 import { StructuresComponent } from './structures.component';
 import { CardItemComponent } from './card-item/card-item.component';
 import { ListItemComponent } from './list-item/list-item.component';

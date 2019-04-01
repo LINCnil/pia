@@ -1314,6 +1314,7 @@
 		"csv_section": "Dalis",
 		"csv_title_object": "Pavadinimas",
 		"display_filters": {
+      "check_all": "TO TRANSLATE - Enable / disable all display filters",
 			"action_plan_content": "Parodyti veiksmų planą",
 			"context_content": "Parodyti dalį \"Kontekstas\"",
 			"main_content": "Parodyti dalį\"PDAV informacija\"",

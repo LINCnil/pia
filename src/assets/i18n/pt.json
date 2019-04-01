@@ -1314,6 +1314,7 @@
 		"csv_section": "Secção",
 		"csv_title_object": "Título",
 		"display_filters": {
+      "check_all": "TO TRANSLATE - Enable / disable all display filters",
 			"action_plan_content": "Exibir plano de ação",
 			"context_content": "Exibir seção \"Contexto\"",
 			"main_content": "Exibir seção \"Informações da análise PIA\"",

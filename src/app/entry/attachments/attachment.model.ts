@@ -2,7 +2,7 @@ import { ApplicationDb } from '../../application.db';
 
 export class Attachment extends ApplicationDb {
   public id: number;
-  public file: Blob;
+  public file: string | ArrayBuffer;
   public name: string;
   public mime_type: string;
   public pia_signed = 0;
@@ -34,7 +34,9 @@ export class Attachment extends ApplicationDb {
         }
         fetch(this.getServerUrl(), {
           method: 'POST',
-          body: formData
+          body: formData,
+          mode: 'cors',
+          credentials : 'include'
         }).then(function(response) {
           return response.json();
         }).then(function(result: any) {
@@ -71,7 +73,9 @@ export class Attachment extends ApplicationDb {
           }
           fetch(this.getServerUrl() + '/' + entry.id, {
             method: 'PATCH',
-            body: formData
+            body: formData,
+            mode: 'cors',
+            credentials : 'include'
           }).then((response) => {
             return response.json();
           }).then((result: any) => {
@@ -102,7 +106,10 @@ export class Attachment extends ApplicationDb {
       await this.getObjectStore();
       return new Promise((resolve, reject) => {
         if (this.serverUrl) {
-          fetch(this.getServerUrl()).then(function(response) {
+          fetch(this.getServerUrl(),{
+            mode: 'cors',
+            credentials : 'include'
+          }).then(function(response) {
             return response.json();
           }).then(function(result: any) {
             resolve(result);

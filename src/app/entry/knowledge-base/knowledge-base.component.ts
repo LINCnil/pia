@@ -1,14 +1,12 @@
-import { Component, OnInit, AfterViewInit, Input, Output, EventEmitter, ElementRef } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ElementRef } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 
-import { Pia } from '../pia.model';
-
-import { MeasureService } from 'app/entry/entry-content/measures/measures.service';
+import { MeasureService } from 'src/app/entry/entry-content/measures/measures.service';
 import { KnowledgeBaseService } from './knowledge-base.service';
-import { PiaService } from 'app/services/pia.service';
-import { StructureService } from 'app/services/structure.service';
-import { AnswerStructureService } from 'app/services/answer-structure.service';
-import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
+import { PiaService } from 'src/app/services/pia.service';
+import { StructureService } from 'src/app/services/structure.service';
+import { AnswerStructureService } from 'src/app/services/answer-structure.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-knowledge-base',

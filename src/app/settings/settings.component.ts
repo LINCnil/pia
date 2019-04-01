@@ -1,7 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
-import { ModalsService } from 'app/modals/modals.service';
+import { ModalsService } from 'src/app/modals/modals.service';
 
 @Component({
   selector: 'app-settings',
@@ -32,7 +32,10 @@ export class SettingsComponent implements OnInit {
         localStorage.removeItem('server_url');
         this._modalsService.openModal('modal-update-server-url-ok');
       } else {
-        fetch(this.settingsForm.value.server_url).then((response) => {
+        fetch(this.settingsForm.value.server_url, {
+          mode: 'cors',
+          credentials : 'include'
+        }).then((response) => {
           return response.status;
         }).then((httpCode: number) => {
           if (httpCode === 200) {

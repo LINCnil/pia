@@ -1314,6 +1314,7 @@
 		"csv_section": "TO BE TRANSLATED - Section",
 		"csv_title_object": "TO BE TRANSLATED - Title",
 		"display_filters": {
+      "check_all": "TO TRANSLATE - Enable / disable all display filters",
 			"action_plan_content": "Afișează planul de acțiune",
 			"context_content": "Afișează secțiunea \"Context\"",
 			"main_content": "Afișează secțiunea \"Informații PIA\"",

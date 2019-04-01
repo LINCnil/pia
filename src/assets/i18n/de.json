@@ -1314,6 +1314,7 @@
 		"csv_section": "Abschnitt",
 		"csv_title_object": "Titel",
 		"display_filters": {
+      "check_all": "TO TRANSLATE - Enable / disable all display filters",
 			"action_plan_content": "\"Aktionsplan\" anzeigen",
 			"context_content": "\"Kontext\" anzeigen",
 			"main_content": "\"Information zur DSFA\" anzeigen",

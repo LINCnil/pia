@@ -1314,6 +1314,7 @@
 		"csv_section": "Szakasz",
 		"csv_title_object": "Cím",
 		"display_filters": {
+      "check_all": "TO TRANSLATE - Enable / disable all display filters",
 			"action_plan_content": "Intézkedési terv megjelenítése",
 			"context_content": "Szakasz megjelenítése (Szövegkörnyezet)",
 			"main_content": "Szakasz megjelenítése (DPIA információk)",

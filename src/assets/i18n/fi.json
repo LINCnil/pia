@@ -1314,6 +1314,7 @@
 		"csv_section": "Osio",
 		"csv_title_object": "Otsikko",
 		"display_filters": {
+      "check_all": "TO TRANSLATE - Enable / disable all display filters",
 			"action_plan_content": "Näytä toimintasuunnitelma",
 			"context_content": "Näytä osio \"Asiayhteys\"",
 			"main_content": "Näytä osio \"Tietoa vaikutustenarvioinnista\"",

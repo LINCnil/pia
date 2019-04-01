@@ -1314,6 +1314,7 @@
 		"csv_section": "Sectie",
 		"csv_title_object": "Titel",
 		"display_filters": {
+      "check_all": "TO TRANSLATE - Enable / disable all display filters",
 			"action_plan_content": "Toon actieplan",
 			"context_content": "Toon \"Context\"",
 			"main_content": "Toon \"PIA informatie\"",

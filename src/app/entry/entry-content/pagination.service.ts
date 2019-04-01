@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import { SidStatusService } from 'app/services/sid-status.service';
+import { SidStatusService } from 'src/app/services/sid-status.service';
 
 @Injectable()
 export class PaginationService {

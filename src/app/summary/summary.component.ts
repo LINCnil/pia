@@ -1,21 +1,20 @@
 import { Component, ElementRef, OnInit } from '@angular/core';
-import { Router, ActivatedRoute, Params } from '@angular/router';
-import { Subscription } from 'rxjs/Subscription';
-import {element} from 'protractor';
+import { ActivatedRoute } from '@angular/router';
+import { Subscription } from 'rxjs';
+
 import * as html2canvas from 'html2canvas';
 import { saveSvgAsPng } from 'save-svg-as-png';
-import { Angular2Csv } from 'angular2-csv';
 
-import { Answer } from 'app/entry/entry-content/questions/answer.model';
-import { Measure } from 'app/entry/entry-content/measures/measure.model';
-import { Evaluation } from 'app/entry/entry-content/evaluations/evaluation.model';
+import { Answer } from 'src/app/entry/entry-content/questions/answer.model';
+import { Measure } from 'src/app/entry/entry-content/measures/measure.model';
+import { Evaluation } from 'src/app/entry/entry-content/evaluations/evaluation.model';
 
-import { ActionPlanService } from 'app/entry/entry-content/action-plan//action-plan.service';
-import { AppDataService } from 'app/services/app-data.service';
+import { ActionPlanService } from 'src/app/entry/entry-content/action-plan//action-plan.service';
+import { AppDataService } from 'src/app/services/app-data.service';
 import { TranslateService } from '@ngx-translate/core';
 import { ModalsService } from '../modals/modals.service';
-import { PiaService } from 'app/services/pia.service';
-import { AttachmentsService } from 'app/entry/attachments/attachments.service';
+import { PiaService } from 'src/app/services/pia.service';
+import { AttachmentsService } from 'src/app/entry/attachments/attachments.service';
 
 @Component({
   selector: 'app-summary',
@@ -28,16 +27,32 @@ import { AttachmentsService } from 'app/entry/attachments/attachments.service';
 })
 export class SummaryComponent implements OnInit {
 
+  options = {
+    fieldSeparator: ',',
+    quoteStrings: '"',
+    decimalseparator: '.',
+    showLabels: false,
+    headers: [],
+    showTitle: true,
+    title: 'PIA',
+    useBom: true,
+    removeNewLines: true,
+  };
+
   content: any[];
   pia: any;
-  allData: Object;
+  allData: object;
   dataNav: any;
+  displayAllFilters: boolean;
   displayMainPiaData: boolean;
+  displaySection1: boolean;
+  displaySection2: boolean;
+  displaySection3: boolean;
   displayActionPlan: boolean;
-  summarySubscription: Subscription;
   displayOnlyActionPlan: boolean;
   displayRisksOverview: boolean;
   displayRisksCartography: boolean;
+  summarySubscription: Subscription;
 
   constructor(private el: ElementRef,
               private route: ActivatedRoute,
@@ -58,19 +73,24 @@ export class SummaryComponent implements OnInit {
 
     this._piaService.getPIA().then(() => {
       this.pia = this._piaService.pia;
+      this.displayAllFilters = true;
       this.displayMainPiaData = true;
+      this.displaySection1 = true;
+      this.displaySection2 = true;
+      this.displaySection3 = true;
       this.displayActionPlan = true;
       this.displayRisksOverview = true;
       this.displayRisksCartography = true;
       this.showPia().then(() => {
         // Disable all filters (except action plan) if displaying only action plan
         if (this.displayOnlyActionPlan) {
-          this.toggleMainContent();
+          this.displayAllFilters = false;
+          this.displayMainPiaData = false;
           this.toggleContextContent();
           this.toggleFundamentalPrinciplesContent();
           this.toggleRisksContent();
-          this.toggleRisksOverviewContent();
-          this.toggleRisksCartographyContent();
+          this.displayRisksOverview = false;
+          this.displayRisksCartography = false;
         }
       });
     });
@@ -159,6 +179,37 @@ export class SummaryComponent implements OnInit {
   }
 
   /**
+   * Check or uncheck all filters.
+   * @private
+   * @memberof SummaryComponent
+   */
+  toggleAllFilters() {
+    this.displayAllFilters = !this.displayAllFilters;
+    const status = this.displayAllFilters ? true : false;
+    this.displayMainPiaData = status;
+    this.displaySection1 = status;
+    this.displaySection2 = status;
+    this.displaySection3 = status;
+    this.displayActionPlan = status;
+    this.displayRisksOverview = status;
+    this.displayRisksCartography = status;
+
+    const contextSection = this.el.nativeElement.querySelector('.section-1');
+    const fundamentalPrinciplesSection = this.el.nativeElement.querySelector('.section-2');
+    const risksSection = this.el.nativeElement.querySelector('.section-3');
+    if (status) {
+      contextSection.classList.remove('hide');
+      fundamentalPrinciplesSection.classList.remove('hide');
+      risksSection.classList.remove('hide');
+    } else {
+      contextSection.classList.add('hide');
+      fundamentalPrinciplesSection.classList.add('hide');
+      risksSection.classList.add('hide');
+    }
+  }
+
+
+  /**
    * Display or hide the main Pia data.
    * @private
    * @memberof SummaryComponent
@@ -174,6 +225,7 @@ export class SummaryComponent implements OnInit {
    */
   toggleContextContent() {
     setTimeout(() => {
+      this.displaySection1 = !this.displaySection1;
       const contextSection = this.el.nativeElement.querySelector('.section-1');
       contextSection.classList.toggle('hide');
     }, 100);
@@ -186,6 +238,7 @@ export class SummaryComponent implements OnInit {
    */
   toggleFundamentalPrinciplesContent() {
     setTimeout(() => {
+      this.displaySection2 = !this.displaySection2;
       const fundamentalPrinciplesSection = this.el.nativeElement.querySelector('.section-2');
       fundamentalPrinciplesSection.classList.toggle('hide');
     }, 100);
@@ -198,6 +251,7 @@ export class SummaryComponent implements OnInit {
    */
   toggleRisksContent() {
     setTimeout(() => {
+      this.displaySection3 = !this.displaySection3;
       const risksSection = this.el.nativeElement.querySelector('.section-3');
       risksSection.classList.toggle('hide');
     }, 100);
@@ -270,7 +324,7 @@ export class SummaryComponent implements OnInit {
    * Get a csv document.
    * @protected
    * @returns {Object}
-   * @memberof Angular2Csv
+   * @memberof SummaryComponent
    */
   public async download() {
     const options = {
@@ -292,9 +346,9 @@ export class SummaryComponent implements OnInit {
 
     this._actionPlanService.getCsv();
 
-    return new Angular2Csv(this._actionPlanService.csvRows,
-                           this._translateService.instant('summary.csv_file_title'),
-                           options);
+    // return new Angular2CsvModule(this._actionPlanService.csvRows,
+    //                        this._translateService.instant('summary.csv_file_title'),
+    //                        options);
   }
 
   /**
@@ -514,7 +568,7 @@ export class SummaryComponent implements OnInit {
   /**
    * Select all text from page.
    * @private
-   * @memberof Angular2Csv
+   * @memberof SummaryComponent
    */
   getTextSelection() {
     const actionPlanOverview = document.getElementById('actionPlanOverviewImg');
@@ -528,8 +582,8 @@ export class SummaryComponent implements OnInit {
     const sel = window.getSelection();
     sel.removeAllRanges();
     sel.addRange(range);
-    document.execCommand('Copy', false, range);
-    document.execCommand('SelectText', false , range);
+    document.execCommand('Copy', false, range.toString());
+    document.execCommand('SelectText', false , range.toString());
     this._modalService.openModal('modal-select-text-pia');
     if (actionPlanOverview) {
       actionPlanOverview.classList.toggle('hide');

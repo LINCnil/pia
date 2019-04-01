@@ -1314,6 +1314,7 @@
 		"csv_section": "Jaotis",
 		"csv_title_object": "Pealkiri",
 		"display_filters": {
+      "check_all": "TO TRANSLATE - Enable / disable all display filters",
 			"action_plan_content": "Kuva tegevuskava",
 			"context_content": "Kuva jaotis \"Sisu\"",
 			"main_content": "Kuva jaotis \"Mõjuhinnangu informatsioon\"",

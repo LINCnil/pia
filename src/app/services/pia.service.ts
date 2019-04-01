@@ -1,19 +1,15 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRoute, Router, Params } from '@angular/router';
-import { Http } from '@angular/http';
+import { ActivatedRoute, Router } from '@angular/router';
 
+import { Pia } from 'src/app/entry/pia.model';
+import { Evaluation } from 'src/app/entry/entry-content/evaluations/evaluation.model';
+import { Answer } from 'src/app/entry/entry-content/questions/answer.model';
+import { Measure } from 'src/app/entry/entry-content/measures/measure.model';
+import { Comment } from 'src/app/entry/entry-content/comments/comment.model';
+import { Structure } from 'src/app/structures/structure.model';
 
-import { Pia } from 'app/entry/pia.model';
-import { Evaluation } from 'app/entry/entry-content/evaluations/evaluation.model';
-import { Answer } from 'app/entry/entry-content/questions/answer.model';
-import { Measure } from 'app/entry/entry-content/measures/measure.model';
-import { Comment } from 'app/entry/entry-content/comments/comment.model';
-import { Attachment } from 'app/entry/attachments/attachment.model';
-import { Structure } from 'app/structures/structure.model';
-
-import { AppDataService } from 'app/services/app-data.service';
-import { ModalsService } from 'app/modals/modals.service';
-import { ActionPlanService } from 'app/entry/entry-content/action-plan//action-plan.service';
+import { AppDataService } from 'src/app/services/app-data.service';
+import { ModalsService } from 'src/app/modals/modals.service';
 
 @Injectable()
 export class PiaService {
@@ -25,7 +21,7 @@ export class PiaService {
 
   constructor(private _router: Router, private route: ActivatedRoute,
               private _appDataService: AppDataService,
-              private _modalsService: ModalsService, private http: Http) {
+              private _modalsService: ModalsService) {
                 this._appDataService.getDataNav().then((dataNav) => {
                   this.data = dataNav;
                 });

@@ -1314,6 +1314,7 @@
 		"csv_section": "Ενότητα",
 		"csv_title_object": "Τίτλος",
 		"display_filters": {
+      "check_all": "TO TRANSLATE - Enable / disable all display filters",
 			"action_plan_content": "Εμφάνιση σχεδίου δράσης",
 			"context_content": "Εμφάνιση τμήματος \"Γενικό πλαίσιο\"",
 			"main_content": "Εμφάνιση τμήματος \"Πληροφορίες ΕΑ\"",

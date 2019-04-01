@@ -1,19 +1,17 @@
-import { Component, OnInit, Output, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
-import { Http } from '@angular/http';
-import { Subscription } from 'rxjs/Subscription';
+import { HttpClient } from '@angular/common/http';
+import { Subscription } from 'rxjs';
 
-import { Answer } from 'app/entry/entry-content/questions/answer.model';
-
-import { KnowledgeBaseService } from 'app/entry/knowledge-base/knowledge-base.service';
-import { MeasureService } from 'app/entry/entry-content/measures/measures.service';
-import { ActionPlanService } from 'app/entry/entry-content/action-plan//action-plan.service';
-import { StructureService } from 'app/services/structure.service';
-import { AnswerStructureService } from 'app/services/answer-structure.service';
-import { ModalsService } from 'app/modals/modals.service';
-import { AppDataService } from 'app/services/app-data.service';
-import { SidStatusService } from 'app/services/sid-status.service';
-import { GlobalEvaluationService } from 'app/services/global-evaluation.service';
+import { KnowledgeBaseService } from 'src/app/entry/knowledge-base/knowledge-base.service';
+import { MeasureService } from 'src/app/entry/entry-content/measures/measures.service';
+import { ActionPlanService } from 'src/app/entry/entry-content/action-plan//action-plan.service';
+import { StructureService } from 'src/app/services/structure.service';
+import { AnswerStructureService } from 'src/app/services/answer-structure.service';
+import { ModalsService } from 'src/app/modals/modals.service';
+import { AppDataService } from 'src/app/services/app-data.service';
+import { SidStatusService } from 'src/app/services/sid-status.service';
+import { GlobalEvaluationService } from 'src/app/services/global-evaluation.service';
 
 @Component({
   selector: 'app-entry',
@@ -30,7 +28,7 @@ export class EntryComponent implements OnInit, OnDestroy {
   subscription: Subscription;
 
   constructor(private route: ActivatedRoute,
-              private http: Http,
+              private http: HttpClient,
               private _modalsService: ModalsService,
               private _appDataService: AppDataService,
               private _sidStatusService: SidStatusService,

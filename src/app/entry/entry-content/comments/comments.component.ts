@@ -3,8 +3,8 @@ import { FormControl, FormGroup } from '@angular/forms';
 
 import { Comment } from './comment.model';
 
-import { MeasureService } from 'app/entry/entry-content/measures/measures.service';
-import { ModalsService } from 'app/modals/modals.service';
+import { MeasureService } from 'src/app/entry/entry-content/measures/measures.service';
+import { ModalsService } from 'src/app/modals/modals.service';
 
 @Component({
   selector: 'app-comments',
