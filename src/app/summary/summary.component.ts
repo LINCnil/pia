@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, AfterViewChecked } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 
@@ -25,20 +25,10 @@ import { AttachmentsService } from 'src/app/entry/attachments/attachments.servic
   ],
   providers: [PiaService]
 })
-export class SummaryComponent implements OnInit {
+export class SummaryComponent implements OnInit, AfterViewChecked {
 
-  options = {
-    fieldSeparator: ',',
-    quoteStrings: '"',
-    decimalseparator: '.',
-    showLabels: false,
-    headers: [],
-    showTitle: true,
-    title: 'PIA',
-    useBom: true,
-    removeNewLines: true,
-  };
-
+  csvOptions = {};
+  csvContent: any;
   content: any[];
   pia: any;
   allData: object;
@@ -94,6 +84,10 @@ export class SummaryComponent implements OnInit {
         }
       });
     });
+  }
+
+  ngAfterViewChecked() {
+    document.querySelector('angular2csv > button').innerHTML = '<i class="fa fa-2x fa-file-excel-o"></i>';
   }
 
   /**
@@ -307,6 +301,7 @@ export class SummaryComponent implements OnInit {
 
     this.getJsonInfo();
     this._actionPlanService.listActionPlan();
+    this.prepareCsv();
   }
 
   /**
@@ -318,37 +313,6 @@ export class SummaryComponent implements OnInit {
     this._actionPlanService.data = this.dataNav;
     this._actionPlanService.pia = this.pia;
     this._actionPlanService.listActionPlan();
-  }
-
-  /**
-   * Get a csv document.
-   * @protected
-   * @returns {Object}
-   * @memberof SummaryComponent
-   */
-  public async download() {
-    const options = {
-      fieldSeparator: ';',
-      quoteStrings: '"',
-      decimalseparator: '.',
-      showLabels: true,
-      showTitle: false,
-      useBom: true,
-      headers: [
-        this._translateService.instant('summary.csv_section'),
-        this._translateService.instant('summary.csv_title_object'),
-        this._translateService.instant('summary.csv_action_plan_comment'),
-        this._translateService.instant('summary.csv_evaluation_comment'),
-        this._translateService.instant('summary.csv_implement_date'),
-        this._translateService.instant('summary.csv_people_in_charge')
-      ]
-    }
-
-    this._actionPlanService.getCsv();
-
-    // return new Angular2CsvModule(this._actionPlanService.csvRows,
-    //                        this._translateService.instant('summary.csv_file_title'),
-    //                        options);
   }
 
   /**
@@ -588,6 +552,31 @@ export class SummaryComponent implements OnInit {
     if (actionPlanOverview) {
       actionPlanOverview.classList.toggle('hide');
     }
+  }
+
+
+  /**
+   * Prepare for CSV export
+   */
+  prepareCsv() {
+    this.csvOptions = {
+      fieldSeparator: ';',
+      quoteStrings: '"',
+      decimalseparator: '.',
+      showLabels: true,
+      showTitle: false,
+      useBom: true,
+      removeNewLines: true,
+      headers: [
+        `"${this._translateService.instant('summary.csv_section')}"`,
+        `"${this._translateService.instant('summary.csv_title_object')}"`,
+        `"${this._translateService.instant('summary.csv_action_plan_comment')}"`,
+        `"${this._translateService.instant('summary.csv_evaluation_comment')}"`,
+        `"${this._translateService.instant('summary.csv_implement_date')}"`,
+        `"${this._translateService.instant('summary.csv_people_in_charge')}"`
+      ]
+    };
+    this.csvContent = this._actionPlanService.csvRows;
   }
 }
 
