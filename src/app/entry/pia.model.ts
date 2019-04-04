@@ -80,8 +80,7 @@ export class Pia extends ApplicationDb {
     return new Promise((resolve, reject) => {
       if (this.serverUrl) {
         fetch(this.getServerUrl(), {
-          mode: 'cors',
-          credentials : 'include'
+          mode: 'cors'
         }).then((response) => {
           return response.json();
         }).then((result: any) => {
@@ -162,8 +161,7 @@ export class Pia extends ApplicationDb {
         fetch(this.getServerUrl(), {
           method: 'POST',
           body: formData,
-          mode : 'cors',
-          credentials : 'include'
+          mode : 'cors'
         }).then((response) => {
           return response.json();
         }).then((result: any) => {
@@ -230,8 +228,7 @@ export class Pia extends ApplicationDb {
           fetch(this.getServerUrl() + '/' + entry.id, {
             method: 'PATCH',
             body: formData,
-            mode: 'cors',
-            credentials : 'include'
+            mode: 'cors'
           }).then((response) => {
             return response.json();
           }).then((result: any) => {
@@ -278,8 +275,7 @@ export class Pia extends ApplicationDb {
         fetch(this.getServerUrl() + '/' + entry.id, {
           method: 'PATCH',
           body: formData,
-          mode: 'cors',
-          credentials : 'include'
+          mode: 'cors'
         }).then((response) => {
           return response.json();
         }).then((result: any) => {
@@ -351,8 +347,7 @@ export class Pia extends ApplicationDb {
     return new Promise((resolve, reject) => {
       if (this.serverUrl) {
         fetch(this.getServerUrl() + '/' + 'example', {
-          mode: 'cors',
-          credentials : 'include'
+          mode: 'cors'
         }).then((response) => {
           return response.json();
         }).then((result: any) => {

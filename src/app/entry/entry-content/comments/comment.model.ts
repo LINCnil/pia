@@ -29,8 +29,7 @@ export class Comment extends ApplicationDb {
         fetch(this.getServerUrl(), {
           method: 'POST',
           body: formData,
-          mode: 'cors',
-          credentials : 'include'
+          mode: 'cors'
         }).then((response) => {
           return response.json();
         }).then((result: any) => {
@@ -59,8 +58,7 @@ export class Comment extends ApplicationDb {
     return new Promise((resolve, reject) => {
       if (this.serverUrl) {
         fetch(this.getServerUrl() + '?reference_to=' + this.reference_to, {
-          mode: 'cors',
-          credentials : 'include'
+          mode: 'cors'
         }).then((response) => {
           return response.json();
         }).then((result: any) => {
@@ -96,8 +94,7 @@ export class Comment extends ApplicationDb {
     return new Promise((resolve, reject) => {
       if (this.serverUrl) {
         fetch(this.getServerUrl(), {
-          mode: 'cors',
-          credentials : 'include'
+          mode: 'cors'
         }).then((response) => {
           return response.json();
         }).then((result: any) => {
