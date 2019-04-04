@@ -105,8 +105,7 @@ export class AttachmentsService {
     attachment.pia_id = this.pia.id;
     attachment.find(id).then((entry: any) => {
       fetch(entry.file,{
-        mode: 'cors',
-        credentials : 'include'
+        mode: 'cors'
       }).then(res => res.blob()).then(blob => {
         const a = <any>document.createElement('a');
         a.href = window.URL.createObjectURL(blob);

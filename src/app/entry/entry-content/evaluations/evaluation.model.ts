@@ -34,8 +34,7 @@ export class Evaluation extends ApplicationDb {
         fetch(this.getServerUrl(), {
           method: 'POST',
           body: this.setFormData(data),
-          mode: 'cors',
-          credentials : 'include'
+          mode: 'cors'
         }).then((response) => {
           return response.json();
         }).then((result: any) => {
@@ -76,8 +75,7 @@ export class Evaluation extends ApplicationDb {
           fetch(this.getServerUrl() + '/' + this.id, {
             method: 'PATCH',
             body: this.setFormData(entry),
-            mode: 'cors',
-            credentials : 'include'
+            mode: 'cors'
           }).then((response) => {
             return response.json();
           }).then((result: any) => {
@@ -128,8 +126,7 @@ export class Evaluation extends ApplicationDb {
       return new Promise((resolve, reject) => {
         if (this.serverUrl) {
           fetch(this.getServerUrl() + '?reference_to=' + this.reference_to, {
-            mode: 'cors',
-            credentials : 'include'
+            mode: 'cors'
           }).then((response) => {
             return response.json();
           }).then((result: any) => {
@@ -217,8 +214,7 @@ export class Evaluation extends ApplicationDb {
     return new Promise((resolve, reject) => {
       if (this.serverUrl) {
         fetch(this.getServerUrl(), {
-          mode: 'cors',
-          credentials : 'include'
+          mode: 'cors'
         }).then((response) => {
           return response.json();
         }).then((result: any) => {
@@ -255,8 +251,7 @@ export class Evaluation extends ApplicationDb {
     return new Promise((resolve, reject) => {
       if (this.serverUrl) {
         fetch(this.getServerUrl() + '?reference_to=' + this.reference_to, {
-          mode: 'cors',
-          credentials : 'include'
+          mode: 'cors'
         }).then((response) => {
           return response.json();
         }).then((result: any) => {
@@ -295,8 +290,7 @@ export class Evaluation extends ApplicationDb {
     return new Promise((resolve, reject) => {
       if (this.serverUrl) {
         fetch(this.getServerUrl() + '?reference_to=' + reference_to, {
-          mode: 'cors',
-          credentials : 'include'
+          mode: 'cors'
         }).then((response) => {
           return response.json();
         }).then((result: any) => {
