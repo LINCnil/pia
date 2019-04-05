@@ -46,21 +46,14 @@ describe("Home", () => {
       cy.get(".pia-tooltip").first().click();
     });
   });
-  context("home_context", () => {
-    it("should complete textearea and submit them", () => {
-      cy.get(".pia-questionBlock-displayer textarea").e( (item) => {
-        item.click();
-      });
-      //cy.get(".pia-questionBlock-displayer textarea").first.type("Question");
-      //cy.get("textarea:nth:child(1)").click();
-      //cy.get("textarea:last-child").click();
-
-      //cy.get("textarea[name='pia-question:first-child']").type("Questions");
-    });
-  });
-  after("Purge Pia", () => {
-    indexedDB.deleteDatabase("pia");
-    indexedDB.deleteDatabase("answer");
-    indexedDB.deleteDatabase("evaluation");
-  });
+});
+before("Purge Pia before run", () => {
+  indexedDB.deleteDatabase("pia");
+});
+after("Purge Pia", () => {
+  indexedDB.deleteDatabase("answer");
+  indexedDB.deleteDatabase("evaluation");
+  indexedDB.deleteDatabase("structure");
+  indexedDB.deleteDatabase("comment");
+  indexedDB.deleteDatabase("measure");
 });
