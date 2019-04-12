@@ -8,12 +8,13 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e",
+    "e2e": "cypress open --config watchForFileChanges=false",
     "prod": "ng build --prod --build-optimizer --sourcemaps",
     "compodoc": "compodoc -p src/tsconfig.app.json"
   },
   "private": true,
   "dependencies": {
+    "cypress": "^3.2.0",
     "@angular/animations": "^4.4.3",
     "@angular/common": "^4.4.3",
     "@angular/compiler": "^4.4.3",
