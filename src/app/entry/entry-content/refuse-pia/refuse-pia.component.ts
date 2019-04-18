@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { ModalsService } from 'src/app/modals/modals.service';
 import { PiaService } from 'src/app/services/pia.service';
 import { SidStatusService } from 'src/app/services/sid-status.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-refuse-pia',
@@ -23,7 +24,8 @@ export class RefusePIAComponent implements OnInit {
               private el: ElementRef,
               private _modalsService: ModalsService,
               private _sidStatusService: SidStatusService,
-              public _piaService: PiaService) { }
+              public _piaService: PiaService,
+              private _translateService: TranslateService) { }
 
   ngOnInit() {
     this.rejectionReasonForm = new FormGroup({

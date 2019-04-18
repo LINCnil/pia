@@ -1304,7 +1304,8 @@
 			"0": "O tratamento não deve ser usado.",
 			"1": "O tratamento deve ser implementado."
 		},
-		"copy_to_clipboard": "Copiar para a área de transferência",
+    "generate_zip": "TO TRANSLATE - Download the full report (.zip)",
+    "generate_docx": "TO TRANSLATE - Download the report (.docx)",
 		"creation_date": "Data de criação",
 		"csv_action_plan_comment": "Comentar o plano de acção",
 		"csv_evaluation_comment": "Comentar a avaliação",

@@ -1,4 +1,3 @@
-import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit, Input } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 
@@ -17,8 +16,7 @@ export class AttachmentsComponent implements OnInit {
   attachmentForm: FormGroup;
   dispplayAttachmentButton = false;
 
-  constructor(private activatedRoute: ActivatedRoute,
-              public _attachmentsService: AttachmentsService) { }
+  constructor(public _attachmentsService: AttachmentsService) { }
 
   ngOnInit() {
     this.attachmentForm = new FormGroup({

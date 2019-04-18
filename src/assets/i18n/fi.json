@@ -1304,7 +1304,8 @@
 			"0": "Henkilötietojen käsittelyä ei pidä toteuttaa.",
 			"1": "Henkilötietojen käsittelyn voi toteuttaa."
 		},
-		"copy_to_clipboard": "Kopioi leikepöydälle",
+    "generate_zip": "TO TRANSLATE - Download the full report (.zip)",
+    "generate_docx": "TO TRANSLATE - Download the report (.docx)",
 		"creation_date": "Laadintapäivä",
 		"csv_action_plan_comment": "Toimintasuunnitelman kommentti",
 		"csv_evaluation_comment": "Arvioinnin kommentti",

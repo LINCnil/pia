@@ -64,10 +64,11 @@ input {
 angular2csv {
   button {
     cursor: pointer !important;
+    margin: 0 6px;
   }
   i {
     color: $pia-green;
-    font-size: 2rem !important;
+    font-size: 2.5rem !important;
   }
 }
 

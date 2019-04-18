@@ -16,7 +16,14 @@
     ],
     "lib": [
       "es2018",
-      "dom"
-    ]
+      "dom",
+      "es6"
+    ],
+    "paths": {
+      "jszip": [
+        "node_modules/jszip/dist/jszip.min.js"
+      ],
+      "stream": ["./node_modules/readable-stream/readable.js"]
+    }
   }
 }

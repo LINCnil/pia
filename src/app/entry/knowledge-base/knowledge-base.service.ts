@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/map';
 import { HttpClient } from '@angular/common/http';
+import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 
 @Injectable()
 export class KnowledgeBaseService {
@@ -11,7 +12,7 @@ export class KnowledgeBaseService {
   filter: string;
   linkKnowledgeBase: string[] = [];
   hasKnowledgeBaseData = true;
-  placeholder: String;
+  placeholder: string;
   translateService: any;
   toHide = [];
 

@@ -1304,7 +1304,8 @@
 			"0": "De behandeling mag niet worden gebruikt.",
 			"1": "De behandeling zou kunnen worden geïmplementeerd."
 		},
-		"copy_to_clipboard": "Kopieer naar klembord",
+    "generate_zip": "TO TRANSLATE - Download the full report (.zip)",
+    "generate_docx": "TO TRANSLATE - Download the report (.docx)",
 		"creation_date": "Aanmaakdatum",
 		"csv_action_plan_comment": "Commentaar actieplan",
 		"csv_evaluation_comment": "Evaluatie commentaar",

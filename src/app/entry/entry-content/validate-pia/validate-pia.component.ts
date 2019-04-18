@@ -5,6 +5,7 @@ import { PiaService } from 'src/app/services/pia.service';
 import { ModalsService } from 'src/app/modals/modals.service';
 import { AttachmentsService } from 'src/app/entry/attachments/attachments.service';
 import { ActionPlanService } from 'src/app/entry/entry-content/action-plan//action-plan.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-validate-pia',
@@ -22,6 +23,7 @@ export class ValidatePIAComponent implements OnInit {
               private _modalsService: ModalsService,
               public _attachmentsService: AttachmentsService,
               private _actionPlanService: ActionPlanService,
+              private _translateService: TranslateService,
               public _piaService: PiaService ) { }
 
   ngOnInit() {

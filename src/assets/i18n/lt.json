@@ -1304,7 +1304,8 @@
 			"0": "Tvarkymas neturėtų būti vykdomas.",
 			"1": "Tvarkymas gali būti vykdomas."
 		},
-		"copy_to_clipboard": "Kopijuoti į kompiuterio laikiną atmintį",
+    "generate_zip": "TO TRANSLATE - Download the full report (.zip)",
+    "generate_docx": "TO TRANSLATE - Download the report (.docx)",
 		"creation_date": "Data",
 		"csv_action_plan_comment": "Komentaras veiksmų planui",
 		"csv_evaluation_comment": "Komentaro įvertinimas",

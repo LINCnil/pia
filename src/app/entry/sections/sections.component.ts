@@ -1,6 +1,10 @@
 import { Component, OnInit, Input } from '@angular/core';
 import 'rxjs/add/operator/map';
 
+import { Evaluation } from 'src/app/entry/entry-content/evaluations/evaluation.model';
+import { Measure } from 'src/app/entry/entry-content/measures/measure.model';
+import { Answer } from 'src/app/entry/entry-content/questions/answer.model';
+
 import { AppDataService } from 'src/app/services/app-data.service';
 import { SidStatusService } from 'src/app/services/sid-status.service';
 import { PiaService } from 'src/app/services/pia.service';

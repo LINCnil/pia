@@ -1305,7 +1305,8 @@
 			"0": "The treatment should not be used.",
 			"1": "The treatment could be implemented."
 		},
-		"copy_to_clipboard": "Copy to clipboard",
+    "generate_zip": "Download the full report (.zip)",
+    "generate_docx": "Download the report (.docx)",
 		"creation_date": "Creation date",
 		"csv_action_plan_comment": "Action plan comment",
 		"csv_evaluation_comment": "Evaluation comment",

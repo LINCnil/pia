@@ -1,4 +1,4 @@
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Component, OnInit, Input, OnChanges, OnDestroy } from '@angular/core';
 
 import 'rxjs/add/operator/map';
