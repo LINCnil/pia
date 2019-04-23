@@ -33,12 +33,11 @@ export class SettingsComponent implements OnInit {
         this._modalsService.openModal('modal-update-server-url-ok');
       } else {
         fetch(this.settingsForm.value.server_url, {
-          mode: 'cors',
-          credentials : 'include'
+          mode: 'cors'
         }).then((response) => {
-          return response.status;
-        }).then((httpCode: number) => {
-          if (httpCode === 200) {
+          return response.ok;
+        }).then((ok: boolean) => {;
+          if (ok) {
             localStorage.setItem('server_url', this.settingsForm.value.server_url);
             this._modalsService.openModal('modal-update-server-url-ok');
           } else {

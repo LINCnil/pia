@@ -115,8 +115,7 @@ export class ApplicationDb {
     return new Promise((resolve, reject) => {
       if (this.serverUrl) {
         fetch(this.getServerUrl(), {
-          mode: 'cors',
-          credentials : 'include'
+          mode: 'cors'
         }).then(function(response) {
           return response.json();
         }).then(function(result: any) {
@@ -157,8 +156,7 @@ export class ApplicationDb {
       if (id) {
         if (this.serverUrl) {
           fetch(this.getServerUrl() + '/' + id, {
-            mode: 'cors',
-            credentials : 'include'
+            mode: 'cors'
           }).then(function(response) {
             return response.json();
           }).then(function(result: any) {
@@ -196,8 +194,7 @@ export class ApplicationDb {
       if (this.serverUrl) {
         fetch(this.getServerUrl() + '/' + id, {
           method: 'DELETE',
-          mode: 'cors',
-          credentials : 'include'
+          mode: 'cors'
         }).then(function(response) {
           return response;
         }).then(function(item) {
