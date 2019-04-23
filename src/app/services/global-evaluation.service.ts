@@ -21,7 +21,7 @@ export class GlobalEvaluationService {
   private answersOrMeasures: Array<Answer|Measure>;
   private evaluations: Array<Evaluation>;
 
-  public behaviorSubject = new BehaviorSubject<Object>({});
+  public behaviorSubject = new BehaviorSubject<object>({});
 
   /**
    * Verifications for answers and evaluations.

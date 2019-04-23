@@ -153,8 +153,8 @@ export class ApplicationDb {
    * @memberof ApplicationDb
    */
   async find(id) {
-    if (id) {
-      return new Promise((resolve, reject) => {
+    return new Promise((resolve, reject) => {
+      if (id) {
         if (this.serverUrl) {
           fetch(this.getServerUrl() + '/' + id, {
             mode: 'cors',
@@ -179,8 +179,10 @@ export class ApplicationDb {
             };
           });
         }
-      });
-    }
+      } else {
+        reject();
+      }
+    });
   }
 
   /**

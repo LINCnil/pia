@@ -53,24 +53,23 @@ export class QuestionsComponent implements OnInit, OnDestroy {
       list: new FormControl()
     });
 
-    this.answer.getByReferenceAndPia(this.pia.id, this.question.id).then(() => {
+    this.answer.getByReferenceAndPia(this.pia.id, this.question.id).then(async () => {
       if (this.answer.data) {
-        let evaluationRefTo: string = this.answer.id.toString();
-        if (this.item.evaluation_mode === 'item') {
-          evaluationRefTo = this.section.id + '.' + this.item.id;
-        }
-        this.evaluation.getByReference(this.pia.id, evaluationRefTo);
+        // let evaluationRefTo: string = this.answer.id.toString();
+        // if (this.item.evaluation_mode === 'item') {
+        //   evaluationRefTo = this.section.id + '.' + this.item.id;
+        //   await this.evaluation.getByReference(this.pia.id, evaluationRefTo);
+        // }
         this.questionForm.controls['gauge'].patchValue(this.answer.data.gauge);
         this.questionForm.controls['text'].patchValue(this.answer.data.text);
         if (this.answer.data.list) {
           const dataList = this.answer.data.list.filter((l) => {
             return (l && l.length > 0);
-          })
+          });
           this.questionForm.controls['list'].patchValue(dataList);
         }
         if (this.el.nativeElement.querySelector('.pia-gaugeBlock-background')) {
-          this.el.nativeElement.querySelector('.pia-gaugeBlock-background').classList.
-            add('pia-gaugeBlock-background-' + this.answer.data.gauge);
+          this.el.nativeElement.querySelector('.pia-gaugeBlock-background').classList.add('pia-gaugeBlock-background-' + this.answer.data.gauge);
         }
       }
     });

@@ -34,8 +34,8 @@ export class EvaluationsComponent implements OnInit, AfterViewChecked, OnDestroy
   previousReferenceTo: string;
   hasResizedContent = false;
   riskName: any;
-  actionPlanCommentElementId: String;
-  evaluationCommentElementId: String;
+  actionPlanCommentElementId: string;
+  evaluationCommentElementId: string;
   editor: any;
   editorEvaluationComment: any;
 
@@ -115,7 +115,6 @@ export class EvaluationsComponent implements OnInit, AfterViewChecked, OnDestroy
         this.reference_to += '.' + this.questionId;
       }
     }
-
     this.actionPlanCommentElementId = 'pia-evaluation-action-plan-' + this.reference_to.replace(/\./g, '-');
     this.evaluationCommentElementId = 'pia-evaluation-comment-' + this.reference_to.replace(/\./g, '-');
 
@@ -184,8 +183,7 @@ export class EvaluationsComponent implements OnInit, AfterViewChecked, OnDestroy
     }
     if (textarea.clientHeight < textarea.scrollHeight) {
       textarea.style.height = textarea.scrollHeight + 'px';
-        textarea.style.height = (textarea.scrollHeight * 2 - textarea.clientHeight) + 'px';
-
+      textarea.style.height = (textarea.scrollHeight * 2 - textarea.clientHeight) + 'px';
     }
   }
 

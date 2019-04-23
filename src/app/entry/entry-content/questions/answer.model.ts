@@ -162,7 +162,7 @@ export class Answer extends ApplicationDb {
           evt.onerror = (event: any) => {
             console.error(event);
             reject(Error(event));
-          }
+          };
           evt.onsuccess = (event: any) => {
             const entry = event.target.result;
             if (entry) {
@@ -175,7 +175,7 @@ export class Answer extends ApplicationDb {
             } else {
               resolve(false);
             }
-          }
+          };
         });
       }
     });
