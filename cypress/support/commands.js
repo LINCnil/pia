@@ -24,11 +24,14 @@
 // -- This is will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
 Cypress.Commands.add('test_writing_on_textarea', () => {
-  cy.get(".pia-questionBlock-content").each( ($el, $index, $list) => {
-    cy.wrap($el).click();
-    $el.find("textarea").val("Nam tincidunt sem vel pretium scelerisque. Aliquam tincidunt commodo magna, vitae rutrum massa. Praesent lobortis porttitor gravida. Fusce nulla libero, feugiat eu sodales at, semper ac diam. Morbi sit amet luctus libero, eu sagittis neque");
-    cy.wrap($el).parent().wait(250).click();
-    expect($el.find('textarea').val().length > 0).to.be.true;
+  cy.get('.pia-questionBlock-content').each(($el) => {
+    const textarea = $el.find("textarea");
+    if (textarea.length > 0) {
+      textarea.val("Nam tincidunt sem vel pretium scelerisque. Aliquam tincidunt commodo magna, vitae rutrum massa. Praesent lobortis porttitor gravida. Fusce nulla libero, feugiat eu sodales at, semper ac diam. Morbi sit amet luctus libero, eu sagittis neque");
+      cy.wrap($el).find("textarea").click();
+      cy.wait(500);
+      cy.wrap($el).closest('.pia-questionBlock').wait(500).click('left');
+    }
   });
 });
 Cypress.Commands.add('test_add_measure', () => {
@@ -40,7 +43,7 @@ Cypress.Commands.add('test_add_measure', () => {
   cy.get(".pia-measureBlock-content").each( ($el, $index, $list) => {
     cy.wrap($el).click();
     $el.find("textarea").val("Nam tincidunt sem vel pretium scelerisque. Aliquam tincidunt commodo magna, vitae rutrum massa. Praesent lobortis porttitor gravida. Fusce nulla libero, feugiat eu sodales at, semper ac diam. Morbi sit amet luctus libero, eu sagittis neque");
-    cy.wrap($el).parent().wait(250).click();
+    cy.wrap($el).parent().wait(500).click();
     expect($el.find('textarea').val().length > 0).to.be.true;
   });
 });
@@ -48,34 +51,34 @@ Cypress.Commands.add('test_add_measure_from_sidebar', () => {
   cy.get('.pia-knowledgeBaseBlock-item-definition > .btn').first().click();
   cy.get(".pia-measureBlock-content").each(($el, $index, $list) => {
     $el.find("textarea").val("Nam tincidunt sem vel pretium scelerisque. Aliquam tincidunt commodo magna, vitae rutrum massa. Praesent lobortis porttitor gravida. Fusce nulla libero, feugiat eu sodales at, semper ac diam. Morbi sit amet luctus libero, eu sagittis neque");
-    cy.wrap($el).parent().wait(250).click();
+    cy.wrap($el).parent().wait(500).click();
   });
 });
 Cypress.Commands.add('test_add_tags', () => {
-  cy.get("tag-input-form").each(($el, $index, $list) => {
-    cy.wrap($el)
-      .find("input")
-      .type("tag-1");
-    cy.get('.pia-questionBlock').last().click();
-    cy.wrap($el)
-      .find("input")
-      .type("tag-2");
-    cy.get('.pia-questionBlock').last().click();
-  }).then(() => {
-    cy.get('.pia-questionBlock').last().find("input").click().then( () => {
-      cy.get('.ng2-menu-item').first().click();
-      cy.get('.ng2-menu-item').first().click();
-    })
-  })
+  cy.get("[aria-label='Enter the potential impacts']").type("Tag 1").type('{enter}');
+  cy.get("[aria-label='Enter the threats']").type("Tag 2").type('{enter}');
+  cy.get("[aria-label='Enter the risk sources']").type("Tag 3").type('{enter}');
+  cy.get("[aria-label='Click here to select controls which address the risk.']").type("Measure").then(() => {
+    cy.get('.ng2-menu-item').first().click();
+  });
+});
+Cypress.Commands.add('test_add_tags_next', () => {
+  cy.get("[aria-label='Enter the potential impacts']").type("Tag").then(() => {
+    cy.get('.ng2-menu-item').first().click();
+  });
+  cy.get("[aria-label='Enter the threats']").type("Tag").then(() => {
+    cy.get('.ng2-menu-item').first().click();
+  });
+  cy.get("[aria-label='Enter the risk sources']").type("Tag").then(() => {
+    cy.get('.ng2-menu-item').first().click();
+  });
+  cy.get("[aria-label='Click here to select controls which address the risk.']").type("Measure").then(() => {
+    cy.get('.ng2-menu-item').first().click();
+  });
 });
 Cypress.Commands.add('test_move_gauges', () => {
   cy.get('.pia-gaugeBlock').each(($el, $index, $list) => {
     cy.wrap($el).find("input").invoke('val', 3).trigger('change');
-  });
-  cy.get(".pia-questionBlock-content").each(($el, $index, $list) => {
-    cy.wrap($el).click();
-    $el.find("textarea").val("Nam tincidunt sem vel pretium scelerisque. Aliquam tincidunt commodo magna, vitae rutrum massa. Praesent lobortis porttitor gravida. Fusce nulla libero, feugiat eu sodales at, semper ac diam. Morbi sit amet luctus libero, eu sagittis neque");
-    cy.wrap($el).parent().wait(250).click();
   });
 });
 Cypress.Commands.add('validateEval', () => {
@@ -138,7 +141,7 @@ Cypress.Commands.add('validateModal', () => {
     .wait(500);
 });
 Cypress.Commands.add('redirectMeasureOnAcceptation', () => {
-  const url = "http://localhost:4200/#/entry/3/section/3/item/3";
+  const url = "http://localhost:4200/#/entry/2/section/3/item/3";
   cy
     .visit(url);
 });
@@ -172,4 +175,16 @@ Cypress.Commands.add('validateModalComplete', () => {
     .first()
     .click()
     .wait(500);
+});
+Cypress.Commands.add('refusePia', () => {
+  cy.get('.pia-validatePIABlock').find(".btn-green").should('have.class', 'btn-active').click();
+  cy.wait(500).get(".pia-entryContentBlock-content-list-confirm").each(($el, $index, $list) => {
+    cy.wrap($el).find("label").click();
+  }).then( () => {
+    cy.get('.btn-red').first().click();
+    cy.get(".pia-entryContentBlock-content-subject-textarea").find("textarea").type("Nam tincidunt sem vel pretium scelerisque. Aliquam tincidunt commodo magna, vitae rutrum massa. Praesent lobortis porttitor gravida. Fusce nulla libero, feugiat eu sodales at, semper ac diam. Morbi sit amet luctus libero, eu sagittis neque");
+    cy.get(".pia-entryContentBlock-content-subject").wait(500).click('bottom');
+    cy.wait(500).get(".pia-entryContentBlock-footer").find("button").last().click();
+    cy.get('#modal-refuse-pia > .pia-modalBlock-content > .pia-modalBlock-validate > .btn').click();
+  });
 });

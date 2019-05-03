@@ -7,21 +7,16 @@ describe("Validation", () => {
       cy.validatePia();
       cy.closeValidationEvaluationModal();
     });
-    it ("should show repport", () => {
-      cy.get('.pia-entryContentBlock-footer-validationTools > [href="#/summary/3"]').click();
+    it ("should show report", () => {
+      cy.get('.pia-entryContentBlock-footer-validationTools > [href="#/summary/2"]').click();
       cy.get(".fa-chevron-left").click();
       cy.validatePia();
     });
-    it ("should show repports and plan action dowload", () => {
-      cy.get('.pia-entryContentBlock-footer-validationTools > [href="#/summary/3?displayOnlyActionPlan=true"]').click();
-      cy.get('[title="Télécharger un export CSV"] > .fa').click();
+    it ("should show report and plan action download", () => {
+      cy.get('.pia-entryContentBlock-footer-validationTools > [href="#/summary/2?displayOnlyActionPlan=true"]').click();
+      cy.get('angular2csv').click();
       cy.get(".fa-chevron-left").click();
       cy.validatePia();
-    });
-    it ("should show", () => {
-      cy.get('.pia-entryContentBlock-footer-validationTools > [href="#/summary/3?displayOnlyActionPlan=true"]').click();
-      cy.get('[title="Télécharger un export CSV"] > .fa').click();
-      cy.get(".fa-chevron-left").click();
     });
   });
 });

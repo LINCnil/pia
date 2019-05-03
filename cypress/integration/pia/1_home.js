@@ -24,16 +24,16 @@ describe("Home", () => {
   });
   context("home_card", () => {
     it("should add new pia", () => {
-      cy.get("button[title='Nouveau PIA']").click();
+      cy.get("button[title='New PIA']").click();
       cy.get("#name").type("PIA Title");
-      cy.get("#author_name").type("author");
-      cy.get("#evaluator_name").type("evaluator");
-      cy.get("#validator_name").type("validator");
+      cy.get("#author_name").type("Author name");
+      cy.get("#evaluator_name").type("Evaluator name");
+      cy.get("#validator_name").type("Validator name");
       cy.get("#pia-save-card-btn").first().click();
       cy.visit(`${endPoint}/#/home/card`);
     });
-
     it("should edit pia", () => {
+      cy.wait(500);
       cy.get("#pia-edit-name").type("pia edited");
       cy.get("#pia-edit-author-name").clear().type("author edited");
       cy.get("#pia-edit-evaluator-name").clear().type("evaluator edited");

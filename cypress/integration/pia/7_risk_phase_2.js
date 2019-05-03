@@ -26,7 +26,7 @@ describe("Risques", () => {
   });
   context("Vue d'ensemble des risques", () => {
     it("should close modal and redirect to context", () => {
-      const url = "http://localhost:4200/#/entry/3/section/4/item/3";
+      const url = "http://localhost:4200/#/entry/2/section/4/item/3";
       cy.visit(url)
     });
   });

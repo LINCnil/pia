@@ -1172,7 +1172,7 @@
 							"title": "What are the risk <span class='green-highlight'>sources</span>?"
 						},
 						"4": {
-							"placeholder": "Click to select controls which address the risk.",
+							"placeholder": "Click here to select controls which address the risk.",
 							"title": "Which of the identified <span class='green-highlight'>controls</span> contribute to addressing the risk?"
 						},
 						"5": {

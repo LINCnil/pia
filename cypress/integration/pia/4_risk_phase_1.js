@@ -15,6 +15,7 @@ describe("Risques", () => {
     it("should add tags and move gauges", () => {
       cy.test_add_tags();
       cy.test_move_gauges();
+      cy.test_writing_on_textarea();
     });
     it("should valid evaluation", () => {
       cy.validateEval()
@@ -25,8 +26,9 @@ describe("Risques", () => {
   });
   context("Modification non désirées de données", () => {
     it("should add tags and move gauges", () => {
-      cy.test_add_tags();
+      cy.test_add_tags_next();
       cy.test_move_gauges();
+      cy.test_writing_on_textarea();
     });
     it("should valid evaluation", () => {
       cy.validateEval()
@@ -37,8 +39,9 @@ describe("Risques", () => {
   });
   context("Disparition de données", () => {
     it("should complete to gether view", () => {
-      cy.test_add_tags();
+      cy.test_add_tags_next();
       cy.test_move_gauges();
+      cy.test_writing_on_textarea();
     });
     it("should valid evaluation", () => {
       cy.validateEval()
