@@ -1038,7 +1038,7 @@
 							"title": "Which is the processing under consideration?"
 						},
 						"2": {
-							"placeholder": "Describe the responsabilities of the stakeholders: the data controller, the possible data processors and joint controllers.",
+							"placeholder": "Describe the responsibilities of the stakeholders: the data controller, the possible data processors and joint controllers.",
 							"title": "What are the responsibilities linked to the processing?"
 						},
 						"3": {
