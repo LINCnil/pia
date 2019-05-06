@@ -84,6 +84,7 @@
 		"to_correct": "zu berichtigen"
 	},
 	"header": {
+    "exit_full_screen_mode": "TO TRANSLATE - Press F11 to exit full screen mode.",
 		"homepage_link": "Übersicht",
 		"knowledge_base_link": "Wissensbasis",
 		"languages": {
@@ -1303,7 +1304,8 @@
 			"0": "Die Verarbeitung sollte nicht durchgeführt werden.",
 			"1": "Die Verarbeitung kann umgesetzt werden."
 		},
-		"copy_to_clipboard": "In die Zwischenablage kopieren",
+    "generate_zip": "TO TRANSLATE - Download the full report (.zip)",
+    "generate_docx": "TO TRANSLATE - Download the report (.docx)",
 		"creation_date": "Bearbeitungsdatum",
 		"csv_action_plan_comment": "Aktionsplankommentar",
 		"csv_evaluation_comment": "Bewertungskommentar",
@@ -1313,6 +1315,7 @@
 		"csv_section": "Abschnitt",
 		"csv_title_object": "Titel",
 		"display_filters": {
+      "check_all": "TO TRANSLATE - Enable / disable all display filters",
 			"action_plan_content": "\"Aktionsplan\" anzeigen",
 			"context_content": "\"Kontext\" anzeigen",
 			"main_content": "\"Information zur DSFA\" anzeigen",

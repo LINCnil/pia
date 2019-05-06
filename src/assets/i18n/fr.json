@@ -84,6 +84,7 @@
 		"to_correct": "À corriger"
 	},
 	"header": {
+    "exit_full_screen_mode": "Appuyer sur F11 pour quitter le mode plein écran.",
 		"homepage_link": "Accueil",
 		"knowledge_base_link": "Base de connaissances",
 		"languages": {
@@ -1303,7 +1304,8 @@
 			"0": "Le traitement ne devrait pas être mis en oeuvre.",
 			"1": "Le traitement pourrait être mis en oeuvre."
 		},
-		"copy_to_clipboard": "Copier dans le presse-papier",
+    "generate_zip": "Télécharger le rapport complet (.zip)",
+    "generate_docx": "Télécharger le rapport (.docx)",
 		"creation_date": "Date de création",
 		"csv_action_plan_comment": "Commentaires du plan d'actions",
 		"csv_evaluation_comment": "Commentaires d'évaluation",
@@ -1313,6 +1315,7 @@
 		"csv_section": "Section",
 		"csv_title_object": "Titre de l'objet concerné",
 		"display_filters": {
+      "check_all": "Activer / désactiver l'ensemble des filtres d'affichage",
 			"action_plan_content": " Afficher le plan d'action",
 			"context_content": "Afficher la section \"Contexte\"",
 			"main_content": "Afficher la section \"Informations du PIA\"",

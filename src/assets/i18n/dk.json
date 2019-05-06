@@ -84,6 +84,7 @@
 		"to_correct": "At rette"
 	},
 	"header": {
+    "exit_full_screen_mode": "TO TRANSLATE - Press F11 to exit full screen mode.",
 		"homepage_link": "Hjem",
 		"knowledge_base_link": "Vidensbase",
 		"languages": {
@@ -1303,7 +1304,8 @@
 			"0": "Behandlingen bør ikke gennemføres.",
 			"1": "Behandlingen kan gennemføres."
 		},
-		"copy_to_clipboard": "Kopi til clipboard",
+    "generate_zip": "TO TRANSLATE - Download the full report (.zip)",
+    "generate_docx": "TO TRANSLATE - Download the report (.docx)",
 		"creation_date": "Dato for kreation",
 		"csv_action_plan_comment": "Handlingsplans kommentarer",
 		"csv_evaluation_comment": "Evaluations kommentarer",
@@ -1313,6 +1315,7 @@
 		"csv_section": "Sektion",
 		"csv_title_object": "Titel",
 		"display_filters": {
+      "check_all": "TO TRANSLATE - Enable / disable all display filters",
 			"action_plan_content": "Vis handlingsplan",
 			"context_content": "Vis sektion \"Kontext\"",
 			"main_content": "Vis sektion \"PIA information\"",

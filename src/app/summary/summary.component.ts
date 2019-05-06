@@ -1,21 +1,23 @@
-import { Component, ElementRef, OnInit } from '@angular/core';
-import { Router, ActivatedRoute, Params } from '@angular/router';
-import { Subscription } from 'rxjs/Subscription';
-import {element} from 'protractor';
+import { Component, ElementRef, OnInit, AfterViewChecked } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Subscription } from 'rxjs';
+
 import * as html2canvas from 'html2canvas';
-import { saveSvgAsPng } from 'save-svg-as-png';
-import { Angular2Csv } from 'angular2-csv';
+import { saveSvgAsPng, svgAsPngUri } from 'save-svg-as-png';
+import * as FileSaver from 'file-saver';
 
-import { Answer } from 'app/entry/entry-content/questions/answer.model';
-import { Measure } from 'app/entry/entry-content/measures/measure.model';
-import { Evaluation } from 'app/entry/entry-content/evaluations/evaluation.model';
+import { Answer } from 'src/app/entry/entry-content/questions/answer.model';
+import { Measure } from 'src/app/entry/entry-content/measures/measure.model';
+import { Evaluation } from 'src/app/entry/entry-content/evaluations/evaluation.model';
 
-import { ActionPlanService } from 'app/entry/entry-content/action-plan//action-plan.service';
-import { AppDataService } from 'app/services/app-data.service';
+import { ActionPlanService } from 'src/app/entry/entry-content/action-plan//action-plan.service';
+import { AppDataService } from 'src/app/services/app-data.service';
 import { TranslateService } from '@ngx-translate/core';
 import { ModalsService } from '../modals/modals.service';
-import { PiaService } from 'app/services/pia.service';
-import { AttachmentsService } from 'app/entry/attachments/attachments.service';
+import { PiaService } from 'src/app/services/pia.service';
+import { AttachmentsService } from 'src/app/entry/attachments/attachments.service';
+
+declare const require: any;
 
 @Component({
   selector: 'app-summary',
@@ -26,18 +28,24 @@ import { AttachmentsService } from 'app/entry/attachments/attachments.service';
   ],
   providers: [PiaService]
 })
-export class SummaryComponent implements OnInit {
+export class SummaryComponent implements OnInit, AfterViewChecked {
 
+  csvOptions = {};
+  csvContent: any;
   content: any[];
   pia: any;
-  allData: Object;
+  allData: object;
   dataNav: any;
+  displayAllFilters: boolean;
   displayMainPiaData: boolean;
+  displaySection1: boolean;
+  displaySection2: boolean;
+  displaySection3: boolean;
   displayActionPlan: boolean;
-  summarySubscription: Subscription;
   displayOnlyActionPlan: boolean;
   displayRisksOverview: boolean;
   displayRisksCartography: boolean;
+  summarySubscription: Subscription;
 
   constructor(private el: ElementRef,
               private route: ActivatedRoute,
@@ -58,22 +66,31 @@ export class SummaryComponent implements OnInit {
 
     this._piaService.getPIA().then(() => {
       this.pia = this._piaService.pia;
+      this.displayAllFilters = true;
       this.displayMainPiaData = true;
+      this.displaySection1 = true;
+      this.displaySection2 = true;
+      this.displaySection3 = true;
       this.displayActionPlan = true;
       this.displayRisksOverview = true;
       this.displayRisksCartography = true;
       this.showPia().then(() => {
         // Disable all filters (except action plan) if displaying only action plan
         if (this.displayOnlyActionPlan) {
-          this.toggleMainContent();
+          this.displayAllFilters = false;
+          this.displayMainPiaData = false;
           this.toggleContextContent();
           this.toggleFundamentalPrinciplesContent();
           this.toggleRisksContent();
-          this.toggleRisksOverviewContent();
-          this.toggleRisksCartographyContent();
+          this.displayRisksOverview = false;
+          this.displayRisksCartography = false;
         }
       });
     });
+  }
+
+  ngAfterViewChecked() {
+    document.querySelector('angular2csv > button').innerHTML = '<i class="fa fa-2x fa-file-excel-o"></i>';
   }
 
   /**
@@ -81,29 +98,130 @@ export class SummaryComponent implements OnInit {
    * @private
    * @memberof SummaryComponent
    */
-  downloadAllGraphsAsImages() {
-    this.getActionPlanOverviewImg();
-    this.getRisksOverviewImg();
-    this.getRisksCartographyImg();
+  async downloadAllGraphsAsImages() {
+    const actionPlanOverviewImg = await this.getActionPlanOverviewImg();
+    this.downloadURI(actionPlanOverviewImg, 'actionPlanOverview.png');
+    const risksOverviewImg = this.getRisksOverviewImg();
+    const risksCartographyImg = await this.getRisksCartographyImg();
+    this.downloadURI(risksCartographyImg, 'risksCartography.png');
+  }
+
+  /**
+   *
+   * @param element block in the HTML view used to generate the docx
+   */
+  async generateDocx(element) {
+    (document.querySelector('#displayer-pia-all') as HTMLInputElement).checked = true;
+    this.displayAllFilters = true;
+    this.displayMainPiaData = true;
+    this.displaySection1 = true;
+    this.displaySection2 = true;
+    this.displaySection3 = true;
+    this.displayActionPlan = true;
+    this.displayRisksOverview = true;
+    this.displayRisksCartography = true;
+    setTimeout(() => {
+      const actionPlanBlock = document.querySelector('.pia-actionPlanGraphBlockContainer');
+      const actionPlanImg = document.querySelector('#actionPlanOverviewImg');
+      if (actionPlanImg) {
+        document.querySelector('#actionPlanOverviewImg').remove();
+      }
+      const preHtml = "<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'><head><meta charset='utf-8'><title>Export HTML To Doc</title></head><body>";
+      const postHtml = '</body></html>';
+      const html = preHtml + document.getElementById(element).innerHTML + postHtml;
+      const blob = new Blob(['\ufeff', html], {
+          type: 'application/msword'
+      });
+      const url = 'data:application/vnd.ms-word;charset=utf-8,' + encodeURIComponent(html);
+      const filename = 'pia.docx';
+
+      const downloadLink = document.createElement('a');
+      document.body.appendChild(downloadLink);
+      if (navigator.msSaveOrOpenBlob ) {
+          navigator.msSaveOrOpenBlob(blob, filename);
+      } else {
+          downloadLink.href = url;
+          downloadLink.download = filename;
+          downloadLink.click();
+      }
+      document.body.removeChild(downloadLink);
+
+      if (actionPlanBlock) {
+        actionPlanBlock.appendChild(actionPlanImg);
+      }
+    }, 500);
+  }
+
+  /**
+   * Generate a ZIP with the docx + all pictures
+   * @param element block in the HTML view used to generate the docx in the zip
+   */
+  async generateZip(element) {
+    (document.querySelector('#displayer-pia-all') as HTMLInputElement).checked = true;
+    this.displayAllFilters = true;
+    this.displayMainPiaData = true;
+    this.displaySection1 = true;
+    this.displaySection2 = true;
+    this.displaySection3 = true;
+    this.displayActionPlan = true;
+    this.displayRisksOverview = true;
+    this.displayRisksCartography = true;
+    const actionPlanOverviewImg = await this.getActionPlanOverviewImg();
+    const risksCartographyImg = await this.getRisksCartographyImg();
+    const risksOverviewImg = await this.getRisksOverviewImgForZip();
+
+    setTimeout(() => {
+      const actionPlanBlock = document.querySelector('.pia-actionPlanGraphBlockContainer');
+      const actionPlanImg = document.querySelector('#actionPlanOverviewImg');
+      if (actionPlanImg) {
+        document.querySelector('#actionPlanOverviewImg').remove();
+      }
+      const preHtml = "<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'><head><meta charset='utf-8'><title>Export HTML To Doc</title></head><body>";
+      const postHtml = '</body></html>';
+      const html = preHtml + document.getElementById(element).innerHTML + postHtml;
+      const blob = new Blob(['\ufeff', html], {
+          type: 'application/msword'
+      });
+      const url = 'data:application/vnd.ms-word;charset=utf-8,' + encodeURIComponent(html);
+
+      const JSZip = require('jszip');
+      const zip = new JSZip();
+      const byteCharacters1 = atob((actionPlanOverviewImg as any).split(',')[1]);
+      const byteCharacters2 = atob((risksCartographyImg as any).split(',')[1]);
+      const byteCharacters3 = atob((risksOverviewImg as any).split(',')[1]);
+      zip.file('actionPlanOverview.png', byteCharacters1, {binary: true});
+      zip.file('risksCartography.png', byteCharacters2, {binary: true});
+      zip.file('risksOverview.png', byteCharacters3, {binary: true});
+      zip.file('pia.docx', blob);
+      zip.generateAsync({type: 'blob'}).then(blobContent => {
+          FileSaver.saveAs(blobContent, 'pia-' + this.pia.name + '.zip');
+      });
+
+      if (actionPlanBlock) {
+        actionPlanBlock.appendChild(actionPlanImg);
+      }
+    }, 500);
   }
 
   /**
    * Download the action plan overview as an image
-   * @private
+   * @async
    * @memberof SummaryComponent
    */
-  private getActionPlanOverviewImg() {
-    setTimeout(() => {
-      const actionPlanOverviewImg = document.querySelector('#actionPlanOverviewImg');
-      if (actionPlanOverviewImg) {
-        html2canvas(actionPlanOverviewImg, {scale: 1.4}).then(canvas => {
-          if (canvas) {
-            const img = canvas.toDataURL();
-            this.downloadURI(img, 'actionPlanOverview.png');
-          }
-        });
-      }
-    }, 500);
+  async getActionPlanOverviewImg() {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        const actionPlanOverviewImg = document.querySelector('#actionPlanOverviewImg');
+        if (actionPlanOverviewImg) {
+          html2canvas(actionPlanOverviewImg, {scale: 1.4}).then(canvas => {
+            if (canvas) {
+              const img = canvas.toDataURL();
+              resolve(img);
+            }
+          });
+        }
+      }, 250);
+    });
   }
 
   /**
@@ -121,26 +239,46 @@ export class SummaryComponent implements OnInit {
             encoderOptions: 1,
             width: 760});
         }
-    }, 500);
+    }, 250);
+  }
+
+  /**
+   * Generate a data format from the risk overview image. It can then be used in the Zip.
+   * @async
+   * @memberof SummaryComponent
+   */
+  async getRisksOverviewImgForZip() {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+          const mysvg = document.getElementById('risksOverviewSvg');
+          if (mysvg) {
+            svgAsPngUri(mysvg, {}, uri => {
+              resolve(uri);
+            });
+          }
+      }, 250);
+    });
   }
 
   /**
    * Download the risks cartography as an image
-   * @private
+   * @async
    * @memberof SummaryComponent
    */
-  private getRisksCartographyImg() {
-    setTimeout(() => {
-      const risksCartographyImg = document.querySelector('#risksCartographyImg');
-      if (risksCartographyImg) {
-        html2canvas(risksCartographyImg, {scale: 1.4}).then(canvas => {
-          if (canvas) {
-            const img = canvas.toDataURL();
-            this.downloadURI(img, 'risksCartography.png');
-          }
-        });
-      }
-    }, 500);
+  async getRisksCartographyImg() {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        const risksCartographyImg = document.querySelector('#risksCartographyImg');
+        if (risksCartographyImg) {
+          html2canvas(risksCartographyImg, {scale: 1.4}).then(canvas => {
+            if (canvas) {
+              const img = canvas.toDataURL();
+              resolve(img);
+            }
+          });
+        }
+      }, 250);
+    });
   }
 
   /**
@@ -159,6 +297,37 @@ export class SummaryComponent implements OnInit {
   }
 
   /**
+   * Check or uncheck all filters.
+   * @private
+   * @memberof SummaryComponent
+   */
+  toggleAllFilters() {
+    this.displayAllFilters = !this.displayAllFilters;
+    const status = this.displayAllFilters ? true : false;
+    this.displayMainPiaData = status;
+    this.displaySection1 = status;
+    this.displaySection2 = status;
+    this.displaySection3 = status;
+    this.displayActionPlan = status;
+    this.displayRisksOverview = status;
+    this.displayRisksCartography = status;
+
+    const contextSection = this.el.nativeElement.querySelector('.section-1');
+    const fundamentalPrinciplesSection = this.el.nativeElement.querySelector('.section-2');
+    const risksSection = this.el.nativeElement.querySelector('.section-3');
+    if (status) {
+      contextSection.classList.remove('hide');
+      fundamentalPrinciplesSection.classList.remove('hide');
+      risksSection.classList.remove('hide');
+    } else {
+      contextSection.classList.add('hide');
+      fundamentalPrinciplesSection.classList.add('hide');
+      risksSection.classList.add('hide');
+    }
+  }
+
+
+  /**
    * Display or hide the main Pia data.
    * @private
    * @memberof SummaryComponent
@@ -174,6 +343,7 @@ export class SummaryComponent implements OnInit {
    */
   toggleContextContent() {
     setTimeout(() => {
+      this.displaySection1 = !this.displaySection1;
       const contextSection = this.el.nativeElement.querySelector('.section-1');
       contextSection.classList.toggle('hide');
     }, 100);
@@ -186,6 +356,7 @@ export class SummaryComponent implements OnInit {
    */
   toggleFundamentalPrinciplesContent() {
     setTimeout(() => {
+      this.displaySection2 = !this.displaySection2;
       const fundamentalPrinciplesSection = this.el.nativeElement.querySelector('.section-2');
       fundamentalPrinciplesSection.classList.toggle('hide');
     }, 100);
@@ -198,6 +369,7 @@ export class SummaryComponent implements OnInit {
    */
   toggleRisksContent() {
     setTimeout(() => {
+      this.displaySection3 = !this.displaySection3;
       const risksSection = this.el.nativeElement.querySelector('.section-3');
       risksSection.classList.toggle('hide');
     }, 100);
@@ -253,6 +425,7 @@ export class SummaryComponent implements OnInit {
 
     this.getJsonInfo();
     this._actionPlanService.listActionPlan();
+    this.prepareCsv();
   }
 
   /**
@@ -264,37 +437,6 @@ export class SummaryComponent implements OnInit {
     this._actionPlanService.data = this.dataNav;
     this._actionPlanService.pia = this.pia;
     this._actionPlanService.listActionPlan();
-  }
-
-  /**
-   * Get a csv document.
-   * @protected
-   * @returns {Object}
-   * @memberof Angular2Csv
-   */
-  public async download() {
-    const options = {
-      fieldSeparator: ';',
-      quoteStrings: '"',
-      decimalseparator: '.',
-      showLabels: true,
-      showTitle: false,
-      useBom: true,
-      headers: [
-        this._translateService.instant('summary.csv_section'),
-        this._translateService.instant('summary.csv_title_object'),
-        this._translateService.instant('summary.csv_action_plan_comment'),
-        this._translateService.instant('summary.csv_evaluation_comment'),
-        this._translateService.instant('summary.csv_implement_date'),
-        this._translateService.instant('summary.csv_people_in_charge')
-      ]
-    }
-
-    this._actionPlanService.getCsv();
-
-    return new Angular2Csv(this._actionPlanService.csvRows,
-                           this._translateService.instant('summary.csv_file_title'),
-                           options);
   }
 
   /**
@@ -512,28 +654,28 @@ export class SummaryComponent implements OnInit {
   }
 
   /**
-   * Select all text from page.
-   * @private
-   * @memberof Angular2Csv
+   * Prepare for CSV export
    */
-  getTextSelection() {
-    const actionPlanOverview = document.getElementById('actionPlanOverviewImg');
-    if (actionPlanOverview) {
-      actionPlanOverview.classList.toggle('hide');
-    }
-    const select = document.getElementById('force-select-all');
-    select.focus();
-    const range = document.createRange();
-    range.selectNodeContents(select);
-    const sel = window.getSelection();
-    sel.removeAllRanges();
-    sel.addRange(range);
-    document.execCommand('Copy', false, range);
-    document.execCommand('SelectText', false , range);
-    this._modalService.openModal('modal-select-text-pia');
-    if (actionPlanOverview) {
-      actionPlanOverview.classList.toggle('hide');
-    }
+  prepareCsv() {
+    this.csvOptions = {
+      fieldSeparator: ';',
+      quoteStrings: '"',
+      decimalseparator: '.',
+      showLabels: true,
+      showTitle: false,
+      useBom: true,
+      removeNewLines: true,
+      headers: [
+        `"${this._translateService.instant('summary.csv_section')}"`,
+        `"${this._translateService.instant('summary.csv_title_object')}"`,
+        `"${this._translateService.instant('summary.csv_action_plan_comment')}"`,
+        `"${this._translateService.instant('summary.csv_evaluation_comment')}"`,
+        `"${this._translateService.instant('summary.csv_implement_date')}"`,
+        `"${this._translateService.instant('summary.csv_people_in_charge')}"`
+      ]
+    };
+    this.csvContent = this._actionPlanService.csvRows;
   }
+
 }
 

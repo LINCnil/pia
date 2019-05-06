@@ -84,6 +84,7 @@
 		"to_correct": "Saadetud täiendamiseks"
 	},
 	"header": {
+    "exit_full_screen_mode": "TO TRANSLATE - Press F11 to exit full screen mode.",
 		"homepage_link": "Töölaud",
 		"knowledge_base_link": "Teadmiste pagas",
 		"languages": {
@@ -1303,7 +1304,8 @@
 			"0": "Ravi ei tohiks kasutada",
 			"1": "Ravi võib rakendada"
 		},
-		"copy_to_clipboard": "Kopeeri lõikelauale",
+    "generate_zip": "TO TRANSLATE - Download the full report (.zip)",
+    "generate_docx": "TO TRANSLATE - Download the report (.docx)",
 		"creation_date": "Loomise kuupäev",
 		"csv_action_plan_comment": "Kommenteeri tegevuskava",
 		"csv_evaluation_comment": "Kommenteeri hindamist",
@@ -1313,6 +1315,7 @@
 		"csv_section": "Jaotis",
 		"csv_title_object": "Pealkiri",
 		"display_filters": {
+      "check_all": "TO TRANSLATE - Enable / disable all display filters",
 			"action_plan_content": "Kuva tegevuskava",
 			"context_content": "Kuva jaotis \"Sisu\"",
 			"main_content": "Kuva jaotis \"Mõjuhinnangu informatsioon\"",

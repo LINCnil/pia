@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
 
-import { Structure } from 'app/structures/structure.model';
-import { ModalsService } from 'app/modals/modals.service';
-import { StructureService } from 'app/services/structure.service';
+import { Structure } from 'src/app/structures/structure.model';
+import { ModalsService } from 'src/app/modals/modals.service';
 
 @Injectable()
 export class AnswerStructureService {

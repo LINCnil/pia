@@ -1,15 +1,15 @@
 import { Component, ElementRef, OnInit, OnDestroy, Input, Output, EventEmitter, AfterViewChecked, DoCheck, NgZone } from '@angular/core';
-import { FormArray, FormControl, FormGroup } from '@angular/forms';
-import { Subscription } from 'rxjs/Subscription';
+import { FormControl, FormGroup } from '@angular/forms';
+import { Subscription } from 'rxjs';
 
 import { Evaluation } from './evaluation.model';
-import { Answer } from 'app/entry/entry-content/questions/answer.model';
+import { Answer } from 'src/app/entry/entry-content/questions/answer.model';
 
 import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
-import { GlobalEvaluationService } from 'app/services/global-evaluation.service';
-import { KnowledgeBaseService } from '../../knowledge-base/knowledge-base.service';
-import { SidStatusService } from 'app/services/sid-status.service';
-import { PiaService } from 'app/services/pia.service';
+import { GlobalEvaluationService } from 'src/app/services/global-evaluation.service';
+import { KnowledgeBaseService } from 'src/app/entry/knowledge-base/knowledge-base.service';
+import { SidStatusService } from 'src/app/services/sid-status.service';
+import { PiaService } from 'src/app/services/pia.service';
 
 @Component({
   selector: 'app-evaluations',
@@ -34,8 +34,8 @@ export class EvaluationsComponent implements OnInit, AfterViewChecked, OnDestroy
   previousReferenceTo: string;
   hasResizedContent = false;
   riskName: any;
-  actionPlanCommentElementId: String;
-  evaluationCommentElementId: String;
+  actionPlanCommentElementId: string;
+  evaluationCommentElementId: string;
   editor: any;
   editorEvaluationComment: any;
 
@@ -115,7 +115,6 @@ export class EvaluationsComponent implements OnInit, AfterViewChecked, OnDestroy
         this.reference_to += '.' + this.questionId;
       }
     }
-
     this.actionPlanCommentElementId = 'pia-evaluation-action-plan-' + this.reference_to.replace(/\./g, '-');
     this.evaluationCommentElementId = 'pia-evaluation-comment-' + this.reference_to.replace(/\./g, '-');
 
@@ -184,8 +183,7 @@ export class EvaluationsComponent implements OnInit, AfterViewChecked, OnDestroy
     }
     if (textarea.clientHeight < textarea.scrollHeight) {
       textarea.style.height = textarea.scrollHeight + 'px';
-        textarea.style.height = (textarea.scrollHeight * 2 - textarea.clientHeight) + 'px';
-
+      textarea.style.height = (textarea.scrollHeight * 2 - textarea.clientHeight) + 'px';
     }
   }
 

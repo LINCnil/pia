@@ -1,7 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
-import { ModalsService } from 'app/modals/modals.service';
+import { ModalsService } from 'src/app/modals/modals.service';
 
 @Component({
   selector: 'app-settings',

@@ -84,6 +84,7 @@
 		"to_correct": "Do poprawienia"
 	},
 	"header": {
+    "exit_full_screen_mode": "TO TRANSLATE - Press F11 to exit full screen mode.",
 		"homepage_link": "Strona główna",
 		"knowledge_base_link": "Baza wiedzy",
 		"languages": {
@@ -1303,7 +1304,8 @@
 			"0": "Tego przetwarzania nie należy wdrażać.",
 			"1": "To przetwarzanie można wdrożyć."
 		},
-		"copy_to_clipboard": "Kopiuj do schowka",
+    "generate_zip": "TO TRANSLATE - Download the full report (.zip)",
+    "generate_docx": "TO TRANSLATE - Download the report (.docx)",
 		"creation_date": "Data utworzenia",
 		"csv_action_plan_comment": "Komentarz do planu działania",
 		"csv_evaluation_comment": "Komentarz do oceny",
@@ -1313,6 +1315,7 @@
 		"csv_section": "Sekcja",
 		"csv_title_object": "Tytuł",
 		"display_filters": {
+      "check_all": "TO TRANSLATE - Enable / disable all display filters",
 			"action_plan_content": "Wyświetl plan działania",
 			"context_content": "Wyświetl \"Kontekst przetwarzania\"",
 			"main_content": "Wyświetl \"Informacje\"",

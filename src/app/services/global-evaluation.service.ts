@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
-import { Observable } from 'rxjs/Observable';
 
 import { Answer } from '../entry/entry-content/questions/answer.model';
 import { Evaluation } from '../entry/entry-content/evaluations/evaluation.model';
@@ -22,7 +21,7 @@ export class GlobalEvaluationService {
   private answersOrMeasures: Array<Answer|Measure>;
   private evaluations: Array<Evaluation>;
 
-  public behaviorSubject = new BehaviorSubject<Object>({});
+  public behaviorSubject = new BehaviorSubject<object>({});
 
   /**
    * Verifications for answers and evaluations.
