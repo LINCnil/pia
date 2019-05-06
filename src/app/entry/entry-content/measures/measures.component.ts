@@ -2,12 +2,12 @@ import { Component, Input, ElementRef, Renderer2, OnInit, OnDestroy, NgZone } fr
 import { FormControl, FormGroup } from '@angular/forms';
 
 import { Measure } from './measure.model';
-import { Answer } from 'app/entry/entry-content/questions/answer.model';
-import { Evaluation } from 'app/entry/entry-content/evaluations/evaluation.model';
+import { Answer } from 'src/app/entry/entry-content/questions/answer.model';
+import { Evaluation } from 'src/app/entry/entry-content/evaluations/evaluation.model';
 
-import { ModalsService } from 'app/modals/modals.service';
-import { KnowledgeBaseService } from 'app/entry/knowledge-base/knowledge-base.service';
-import { GlobalEvaluationService } from 'app/services/global-evaluation.service';
+import { ModalsService } from 'src/app/modals/modals.service';
+import { KnowledgeBaseService } from 'src/app/entry/knowledge-base/knowledge-base.service';
+import { GlobalEvaluationService } from 'src/app/services/global-evaluation.service';
 
 @Component({
   selector: 'app-measures',

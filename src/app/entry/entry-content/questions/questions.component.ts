@@ -5,12 +5,12 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/filter';
 
 import { Answer } from './answer.model';
-import { Measure } from '../measures/measure.model';
-import { Evaluation } from 'app/entry/entry-content/evaluations/evaluation.model';
+import { Measure } from 'src/app/entry/entry-content/measures/measure.model';
+import { Evaluation } from 'src/app/entry/entry-content/evaluations/evaluation.model';
 
-import { KnowledgeBaseService } from '../../knowledge-base/knowledge-base.service';
-import { ModalsService } from 'app/modals/modals.service';
-import { GlobalEvaluationService } from '../../../services/global-evaluation.service';
+import { KnowledgeBaseService } from 'src/app/entry/knowledge-base/knowledge-base.service';
+import { ModalsService } from 'src/app/modals/modals.service';
+import { GlobalEvaluationService } from 'src/app/services/global-evaluation.service';
 
 @Component({
   selector: 'app-questions',
@@ -20,6 +20,11 @@ import { GlobalEvaluationService } from '../../../services/global-evaluation.ser
 
 export class QuestionsComponent implements OnInit, OnDestroy {
   userMeasures = [];
+  allUserAnswersForImpacts = [];
+  allUserAnswersForThreats = [];
+  allUserAnswersForSources = [];
+  allUserAnswersToDisplay = [];
+  userAnswersToDisplay = [];
   @Input() question: any;
   @Input() item: any;
   @Input() section: any;
@@ -48,29 +53,30 @@ export class QuestionsComponent implements OnInit, OnDestroy {
       list: new FormControl()
     });
 
-    this.answer.getByReferenceAndPia(this.pia.id, this.question.id).then(() => {
+    this.answer.getByReferenceAndPia(this.pia.id, this.question.id).then(async () => {
       if (this.answer.data) {
-        let evaluationRefTo: string = this.answer.id.toString();
-        if (this.item.evaluation_mode === 'item') {
-          evaluationRefTo = this.section.id + '.' + this.item.id;
-        }
-        this.evaluation.getByReference(this.pia.id, evaluationRefTo);
+        // let evaluationRefTo: string = this.answer.id.toString();
+        // if (this.item.evaluation_mode === 'item') {
+        //   evaluationRefTo = this.section.id + '.' + this.item.id;
+        //   await this.evaluation.getByReference(this.pia.id, evaluationRefTo);
+        // }
         this.questionForm.controls['gauge'].patchValue(this.answer.data.gauge);
         this.questionForm.controls['text'].patchValue(this.answer.data.text);
         if (this.answer.data.list) {
           const dataList = this.answer.data.list.filter((l) => {
             return (l && l.length > 0);
-          })
+          });
           this.questionForm.controls['list'].patchValue(dataList);
         }
         if (this.el.nativeElement.querySelector('.pia-gaugeBlock-background')) {
-          this.el.nativeElement.querySelector('.pia-gaugeBlock-background').classList.
-            add('pia-gaugeBlock-background-' + this.answer.data.gauge);
+          this.el.nativeElement.querySelector('.pia-gaugeBlock-background').classList.add('pia-gaugeBlock-background-' + this.answer.data.gauge);
         }
       }
     });
 
     this.measure.pia_id = this.pia.id;
+
+    // Fill tags list for Measures
     this.measure.findAll().then((entries: any[]) => {
       if (entries) {
         entries.forEach(entry => {
@@ -78,6 +84,42 @@ export class QuestionsComponent implements OnInit, OnDestroy {
             this.userMeasures.push(entry.title);
           }
         });
+      }
+    });
+
+    // Fill tags list for Impacts, Threats and Sources from all risks (1, 2 & 3)
+    const answer = new Answer();
+    answer.findAllByPia(this.pia.id).then((entries: any[]) => {
+      this.allUserAnswersForImpacts = [];
+      this.allUserAnswersForThreats = [];
+      this.allUserAnswersForSources = [];
+      if (entries) {
+        entries.forEach(entry => {
+          if (entry.data.list && entry.data.list.length > 0) {
+            // All user answers for Impacts
+            if (entry.reference_to === 321 || entry.reference_to === 331 || entry.reference_to === 341) {
+              this.allUserAnswersForImpacts.push(entry.data.list);
+            } else if (entry.reference_to === 322 || entry.reference_to === 332 || entry.reference_to === 342) { // All user answers for Threats
+              this.allUserAnswersForThreats.push(entry.data.list);
+            } else if (entry.reference_to === 323 || entry.reference_to === 333 || entry.reference_to === 343) { // All user answers for Sources
+              this.allUserAnswersForSources.push(entry.data.list);
+            }
+          }
+        });
+        this.allUserAnswersForImpacts = [].concat.apply([], this.allUserAnswersForImpacts);
+        this.allUserAnswersForThreats = [].concat.apply([], this.allUserAnswersForThreats);
+        this.allUserAnswersForSources = [].concat.apply([], this.allUserAnswersForSources);
+
+        // Si la question courante concerne les impacts (321, 331, 341)
+        if (this.question.id === 321 || this.question.id === 331 || this.question.id  === 341) {
+          this.userAnswersToDisplay = this.allUserAnswersForImpacts;
+        } else if (this.question.id === 322 || this.question.id === 332 || this.question.id  === 342) {
+          // Sinon si la question courante concerne les menaces (322, 332, 342)
+          this.userAnswersToDisplay = this.allUserAnswersForThreats;
+        } else if (this.question.id === 323 || this.question.id === 333 || this.question.id  === 343) {
+          // Sinon si la question courante concerne les sources (323, 333, 343)
+          this.userAnswersToDisplay = this.allUserAnswersForSources;
+        }
       }
     });
   }

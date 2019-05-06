@@ -1,10 +1,10 @@
-import { Component, OnInit, ElementRef, Input } from '@angular/core';
+import { Component, OnInit, ElementRef } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 
-import { PiaService } from 'app/services/pia.service';
-import { ModalsService } from 'app/modals/modals.service';
-import { AttachmentsService } from 'app/entry/attachments/attachments.service';
-import { ActionPlanService } from 'app/entry/entry-content/action-plan//action-plan.service';
+import { PiaService } from 'src/app/services/pia.service';
+import { ModalsService } from 'src/app/modals/modals.service';
+import { AttachmentsService } from 'src/app/entry/attachments/attachments.service';
+import { ActionPlanService } from 'src/app/entry/entry-content/action-plan//action-plan.service';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({

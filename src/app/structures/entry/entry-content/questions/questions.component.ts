@@ -4,11 +4,11 @@ import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/filter';
 
-import { KnowledgeBaseService } from 'app/entry/knowledge-base/knowledge-base.service';
-import { ModalsService } from 'app/modals/modals.service';
-import { GlobalEvaluationService } from 'app/services/global-evaluation.service';
-import { StructureService } from 'app/services/structure.service';
-import { SidStatusService } from 'app/services/sid-status.service';
+import { KnowledgeBaseService } from 'src/app/entry/knowledge-base/knowledge-base.service';
+import { ModalsService } from 'src/app/modals/modals.service';
+import { GlobalEvaluationService } from 'src/app/services/global-evaluation.service';
+import { StructureService } from 'src/app/services/structure.service';
+import { SidStatusService } from 'src/app/services/sid-status.service';
 
 @Component({
   selector: 'app-questions',

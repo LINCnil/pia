@@ -1,10 +1,9 @@
 import { Component, OnInit, Input, Output } from '@angular/core';
-import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 
-import { AppDataService } from 'app/services/app-data.service';
-import { SidStatusService } from 'app/services/sid-status.service';
-import { StructureService } from 'app/services/structure.service';
+import { AppDataService } from 'src/app/services/app-data.service';
+import { SidStatusService } from 'src/app/services/sid-status.service';
+import { StructureService } from 'src/app/services/structure.service';
 
 @Component({
   selector: 'app-sections',

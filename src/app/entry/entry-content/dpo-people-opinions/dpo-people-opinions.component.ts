@@ -1,10 +1,8 @@
-import { Component, ViewChild, ElementRef, OnInit, Input } from '@angular/core';
+import { Component, ViewChild, ElementRef, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 
-import { Pia } from 'app/entry/pia.model';
-
-import { SidStatusService } from 'app/services/sid-status.service';
-import { PiaService } from 'app/services/pia.service';
+import { SidStatusService } from 'src/app/services/sid-status.service';
+import { PiaService } from 'src/app/services/pia.service';
 
 @Component({
   selector: 'app-dpo-people-opinions',

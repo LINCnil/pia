@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 import { Attachment } from './attachment.model';
 
-import { ModalsService } from 'app/modals/modals.service';
+import { ModalsService } from 'src/app/modals/modals.service';
 
 @Injectable()
 export class AttachmentsService {

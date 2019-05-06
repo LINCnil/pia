@@ -84,6 +84,7 @@
 		"to_correct": "A corrigir"
 	},
 	"header": {
+    "exit_full_screen_mode": "TO TRANSLATE - Press F11 to exit full screen mode.",
 		"homepage_link": "Painel",
 		"knowledge_base_link": "Base de conhecimento",
 		"languages": {
@@ -1303,7 +1304,8 @@
 			"0": "O tratamento não deve ser usado.",
 			"1": "O tratamento deve ser implementado."
 		},
-		"copy_to_clipboard": "Copiar para a área de transferência",
+    "generate_zip": "TO TRANSLATE - Download the full report (.zip)",
+    "generate_docx": "TO TRANSLATE - Download the report (.docx)",
 		"creation_date": "Data de criação",
 		"csv_action_plan_comment": "Comentar o plano de acção",
 		"csv_evaluation_comment": "Comentar a avaliação",
@@ -1313,6 +1315,7 @@
 		"csv_section": "Secção",
 		"csv_title_object": "Título",
 		"display_filters": {
+      "check_all": "TO TRANSLATE - Enable / disable all display filters",
 			"action_plan_content": "Exibir plano de ação",
 			"context_content": "Exibir seção \"Contexto\"",
 			"main_content": "Exibir seção \"Informações da análise PIA\"",

@@ -1,13 +1,12 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { BehaviorSubject } from 'rxjs';
 
 import { Measure } from './measure.model';
 
-import { ModalsService } from 'app/modals/modals.service';
+import { ModalsService } from 'src/app/modals/modals.service';
 import { TranslateService } from '@ngx-translate/core';
-import { KnowledgeBaseService } from 'app/entry/knowledge-base/knowledge-base.service';
-import { GlobalEvaluationService } from 'app/services/global-evaluation.service';
+import { KnowledgeBaseService } from 'src/app/entry/knowledge-base/knowledge-base.service';
+import { GlobalEvaluationService } from 'src/app/services/global-evaluation.service';
 
 @Injectable()
 export class MeasureService {

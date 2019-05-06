@@ -2,15 +2,15 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormControl, FormGroup } from '@angular/forms';
 
-import { Pia } from '../entry/pia.model';
-import { Structure } from '../structures/structure.model';
+import { Pia } from 'src/app/entry/pia.model';
+import { Structure } from 'src/app/structures/structure.model';
 
 import { ModalsService } from './modals.service';
-import { MeasureService } from 'app/entry/entry-content/measures/measures.service';
-import { PiaService } from 'app/services/pia.service';
-import { StructureService } from 'app/services/structure.service';
-import { AnswerStructureService } from 'app/services/answer-structure.service';
-import { AttachmentsService } from 'app/entry/attachments/attachments.service';
+import { MeasureService } from 'src/app/entry/entry-content/measures/measures.service';
+import { PiaService } from 'src/app/services/pia.service';
+import { StructureService } from 'src/app/services/structure.service';
+import { AnswerStructureService } from 'src/app/services/answer-structure.service';
+import { AttachmentsService } from 'src/app/entry/attachments/attachments.service';
 
 @Component({
   selector: 'app-modals',

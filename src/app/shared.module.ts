@@ -1,35 +1,73 @@
-import { NgModule, ErrorHandler } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { environment } from '../environments/environment';
-import { HttpModule } from '@angular/http';
+import { NgModule, LOCALE_ID } from '@angular/core';
+import { CommonModule, registerLocaleData } from '@angular/common';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TagInputModule } from 'ngx-chips';
 
+// Locales
+import localeEN from '@angular/common/locales/en';
+// import localeCZ from '@angular/common/locales/cz';
+import localeDE from '@angular/common/locales/de';
+// import localeDK from '@angular/common/locales/dk';
+import localeEL from '@angular/common/locales/el';
+import localeES from '@angular/common/locales/es';
+import localeET from '@angular/common/locales/et';
+import localeFI from '@angular/common/locales/fi';
+import localeFR from '@angular/common/locales/fr';
+import localeHR from '@angular/common/locales/hr';
+import localeHU from '@angular/common/locales/hu';
+import localeIT from '@angular/common/locales/it';
+import localeLT from '@angular/common/locales/lt';
+import localeNL from '@angular/common/locales/nl';
+// import localeNO from '@angular/common/locales/no';
+import localePL from '@angular/common/locales/pl';
+import localePT from '@angular/common/locales/pt';
+import localeRO from '@angular/common/locales/ro';
+
+registerLocaleData(localeEN, 'en');
+// registerLocaleData(localeCZ, 'cz');
+registerLocaleData(localeDE, 'de');
+// registerLocaleData(localeDK, 'dk');
+registerLocaleData(localeEL, 'el');
+registerLocaleData(localeES, 'es');
+registerLocaleData(localeET, 'et');
+registerLocaleData(localeFI, 'fi');
+registerLocaleData(localeFR, 'fr');
+registerLocaleData(localeHR, 'hr');
+registerLocaleData(localeHU, 'hu');
+registerLocaleData(localeIT, 'it');
+registerLocaleData(localeLT, 'lt');
+registerLocaleData(localeNL, 'nl');
+// registerLocaleData(localeNO, 'no');
+registerLocaleData(localePL, 'pl');
+registerLocaleData(localePT, 'pt');
+registerLocaleData(localeRO, 'ro');
+
+
 // Routing
-import { AppRoutingModule } from 'app/app-routing.module';
+import { AppRoutingModule } from 'src/app/app-routing.module';
 
 // Components
-import { HeaderComponent } from 'app/header/header.component';
-import { ModalsComponent } from 'app/modals/modals.component';
-import { KnowledgeBaseComponent } from 'app/entry/knowledge-base/knowledge-base.component';
-import { KnowledgeBaseItemComponent } from 'app/entry/knowledge-base/knowledge-base-item/knowledge-base-item.component';
+import { HeaderComponent } from 'src/app/header/header.component';
+import { ModalsComponent } from 'src/app/modals/modals.component';
+import { KnowledgeBaseComponent } from 'src/app/entry/knowledge-base/knowledge-base.component';
+import { KnowledgeBaseItemComponent } from 'src/app/entry/knowledge-base/knowledge-base-item/knowledge-base-item.component';
 
 // Services
-import { AppDataService } from 'app/services/app-data.service';
-import { MeasureService } from 'app/entry/entry-content/measures/measures.service';
-import { ModalsService } from 'app/modals/modals.service';
-import { AttachmentsService } from 'app/entry/attachments/attachments.service';
-import { KnowledgeBaseService } from 'app/entry/knowledge-base/knowledge-base.service';
-import { ActionPlanService } from 'app/entry/entry-content/action-plan/action-plan.service';
-import { PaginationService } from 'app/entry/entry-content/pagination.service';
-import { SidStatusService } from 'app/services/sid-status.service';
-import { LanguagesService } from 'app/services/languages.service';
-import { GlobalEvaluationService } from 'app/services/global-evaluation.service';
+import { AppDataService } from 'src/app/services/app-data.service';
+import { MeasureService } from 'src/app/entry/entry-content/measures/measures.service';
+import { ModalsService } from 'src/app/modals/modals.service';
+import { AttachmentsService } from 'src/app/entry/attachments/attachments.service';
+import { KnowledgeBaseService } from 'src/app/entry/knowledge-base/knowledge-base.service';
+import { ActionPlanService } from 'src/app/entry/entry-content/action-plan/action-plan.service';
+import { PaginationService } from 'src/app/entry/entry-content/pagination.service';
+import { SidStatusService } from 'src/app/services/sid-status.service';
+import { LanguagesService } from 'src/app/services/languages.service';
+import { GlobalEvaluationService } from 'src/app/services/global-evaluation.service';
 
-import { SafeHtmlPipe, Nl2brPipe } from './tools';
+import { SafeHtmlPipe, Nl2brPipe, FormatTheDate } from './tools';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -45,14 +83,14 @@ const providersList: any = [
   PaginationService,
   SidStatusService,
   LanguagesService,
-  GlobalEvaluationService
+  GlobalEvaluationService,
+  FormatTheDate
 ];
 
 @NgModule({
   imports: [
     CommonModule,
     AppRoutingModule,
-    HttpModule,
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
@@ -75,7 +113,8 @@ const providersList: any = [
     ReactiveFormsModule,
     SafeHtmlPipe,
     Nl2brPipe,
-    TagInputModule
+    TagInputModule,
+    FormatTheDate
   ],
   declarations: [
     HeaderComponent,
@@ -83,7 +122,8 @@ const providersList: any = [
     KnowledgeBaseComponent,
     KnowledgeBaseItemComponent,
     SafeHtmlPipe,
-    Nl2brPipe
+    Nl2brPipe,
+    FormatTheDate
   ],
   providers: providersList
 })
