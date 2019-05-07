@@ -36,7 +36,7 @@ export class SettingsComponent implements OnInit {
           mode: 'cors'
         }).then((response) => {
           return response.ok;
-        }).then((ok: boolean) => {;
+        }).then((ok: boolean) => {
           if (ok) {
             localStorage.setItem('server_url', this.settingsForm.value.server_url);
             this._modalsService.openModal('modal-update-server-url-ok');
