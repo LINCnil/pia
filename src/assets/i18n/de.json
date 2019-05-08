@@ -84,7 +84,7 @@
 		"to_correct": "zu berichtigen"
 	},
 	"header": {
-    "exit_full_screen_mode": "TO TRANSLATE - Press F11 to exit full screen mode.",
+		"exit_full_screen_mode": "Drücken Sie F11, um den Vollbildmodus zu verlassen.",
 		"homepage_link": "Übersicht",
 		"knowledge_base_link": "Wissensbasis",
 		"languages": {
@@ -973,6 +973,7 @@
 			"display_action_plan": "Aktionsplan<br>anzeigen",
 			"edition": "Bearbeitung",
 			"evaluation": "Auswertung",
+			"exit_full_screen_mode": "Drücken Sie F11, um den Vollbildmodus zu verlassen.",
 			"preview": "Vorschau"
 		},
 		"sections": {
@@ -1315,8 +1316,8 @@
 		"csv_section": "Abschnitt",
 		"csv_title_object": "Titel",
 		"display_filters": {
-      "check_all": "TO TRANSLATE - Enable / disable all display filters",
 			"action_plan_content": "\"Aktionsplan\" anzeigen",
+			"check_all": "Alle Anzeigefilter aktivieren / deaktivieren",
 			"context_content": "\"Kontext\" anzeigen",
 			"main_content": "\"Information zur DSFA\" anzeigen",
 			"principles_content": "\"Grundlegende Prinzipien\" anzeigen",
@@ -1336,6 +1337,8 @@
 			"3": "Substantiell",
 			"4": "Groß"
 		},
+		"generate_docx": "Den Bericht herunterladen (.docx)",
+		"generate_zip": "Den vollständigen Bericht herunterladen (.zip)",
 		"modification_made": "Vorgenommene Änderungen",
 		"people_search_status_nok": "Meinung der Betroffenen wurde nicht eingeholt.",
 		"people_search_status_ok": "Meinung der Betroffenen wurde eingeholt.",
