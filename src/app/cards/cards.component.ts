@@ -58,11 +58,11 @@ export class CardsComponent implements OnInit, OnDestroy {
       structure: new FormControl([])
     });
     this.viewStyle = {
-      view: this.route.snapshot.params['view']
+      view: this.route.snapshot.params.view
     }
     this.paramsSubscribe = this.route.params.subscribe(
       (params: Params) => {
-        this.viewStyle.view = params['view'];
+        this.viewStyle.view = params.view;
       }
     );
     if (localStorage.getItem('homepageDisplayMode') === 'list') {
