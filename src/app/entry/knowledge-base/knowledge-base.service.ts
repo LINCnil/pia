@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/map';
 import { HttpClient } from '@angular/common/http';
-import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
+import piakb from 'src/assets/files/pia_knowledge-base.json';
 
 @Injectable()
 export class KnowledgeBaseService {
@@ -22,10 +22,8 @@ export class KnowledgeBaseService {
    * @memberof KnowledgeBaseService
    */
   loadData(http: HttpClient) {
-    http.get('./assets/files/pia_knowledge-base.json', { responseType: 'json' }).subscribe((data: any) => {
-      this.knowledgeBaseData = data;
-      this.allKnowledgeBaseData = data;
-    });
+    this.knowledgeBaseData = piakb;
+    this.allKnowledgeBaseData = piakb;
   }
 
   /**

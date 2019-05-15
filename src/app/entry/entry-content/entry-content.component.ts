@@ -56,7 +56,7 @@ export class EntryContentComponent implements OnInit, OnChanges {
 
   async ngOnChanges() {
     await this._piaService.getPIA();
-    this._paginationService.dataNav = await this._appDataService.getDataNav();
+    this._paginationService.dataNav = this._appDataService.dataNav;
 
     const sectionId = parseInt(this._activatedRoute.snapshot.params['section_id'], 10);
     const itemId = parseInt(this._activatedRoute.snapshot.params['item_id'], 10);

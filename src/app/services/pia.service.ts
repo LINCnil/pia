@@ -21,11 +21,7 @@ export class PiaService {
 
   constructor(private _router: Router, private route: ActivatedRoute,
               private _appDataService: AppDataService,
-              private _modalsService: ModalsService) {
-                this._appDataService.getDataNav().then((dataNav) => {
-                  this.data = dataNav;
-                });
-              }
+              private _modalsService: ModalsService) {}
 
   /**
    * Get the PIA.
@@ -34,10 +30,14 @@ export class PiaService {
    */
   async getPIA() {
     return new Promise((resolve, reject) => {
-      const piaId = parseInt(this.route.snapshot.params['id'], 10);
-      this.pia.get(piaId).then(() => {
+      const piaId = parseInt(this.route.snapshot.params.id, 10);
+      if (piaId) {
+        this.pia.get(piaId).then(() => {
+          resolve();
+        });
+      } else {
         resolve();
-      });
+      }
     });
   }
 
@@ -49,7 +49,7 @@ export class PiaService {
 
   calculPiaProgress(pia: Pia) {
     let numberElementsToValidate = 1;
-    this.data.sections.forEach(section => {
+    this._appDataService.dataNav.sections.forEach(section => {
       section.items.forEach(item => {
         if (item.questions) {
           numberElementsToValidate += item.questions.length;

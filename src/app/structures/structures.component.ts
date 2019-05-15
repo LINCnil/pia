@@ -53,7 +53,7 @@ export class StructuresComponent implements OnInit, OnDestroy {
     });
     this.viewStyle = {
       view: this.route.snapshot.params['view']
-    }
+    };
     this.paramsSubscribe = this.route.params.subscribe(
       (params: Params) => {
         this.viewStyle.view = params['view'];
@@ -129,14 +129,12 @@ export class StructuresComponent implements OnInit, OnDestroy {
    * @memberof StructuresComponent
    */
   onSubmit() {
-    this._appDataService.getDataNav().then((data) => {
-      const structure = new Structure();
-      structure.name = this.structureForm.value.name;
-      structure.sector_name = this.structureForm.value.sector_name;
-      structure.data = data;
-      const p = structure.create();
-      p.then((id) => this.router.navigate(['structures', 'entry', id, 'section', 1, 'item', 1]));
-    });
+    const structure = new Structure();
+    structure.name = this.structureForm.value.name;
+    structure.sector_name = this.structureForm.value.sector_name;
+    structure.data = this._appDataService.dataNav;
+    const p = structure.create();
+    p.then((id) => this.router.navigate(['structures', 'entry', id, 'section', 1, 'item', 1]));
   }
 
   /**

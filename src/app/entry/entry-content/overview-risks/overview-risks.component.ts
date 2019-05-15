@@ -91,7 +91,7 @@ export class OverviewRisksComponent implements OnInit {
    * @memberof OverviewRisksComponent
    */
   private async initSvg() {
-    const dataNav = await this._appDataService.getDataNav();
+    const dataNav = this._appDataService.dataNav;
     this.svg = d3.select('svg');
     this.svg.attr('viewBox', '0 0 590 800');
     let y = 20;

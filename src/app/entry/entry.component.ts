@@ -47,12 +47,12 @@ export class EntryComponent implements OnInit, OnDestroy, DoCheck {
     if (this._piaService.pia.structure_data) {
       this._appDataService.dataNav = this._piaService.pia.structure_data;
     }
-    this.data = await this._appDataService.getDataNav();
+    this.data = this._appDataService.dataNav;
 
     this.route.params.subscribe(
       (params: Params) => {
-        sectionId = parseInt(params['section_id'], 10);
-        itemId = parseInt(params['item_id'], 10);
+        sectionId = parseInt(params.section_id, 10);
+        itemId = parseInt(params.item_id, 10);
         this.getSectionAndItem(sectionId, itemId);
         window.scroll(0, 0);
       }
@@ -112,18 +112,14 @@ export class EntryComponent implements OnInit, OnDestroy, DoCheck {
    * @memberof EntryComponent
    */
   private async getSectionAndItem(sectionId: number, itemId: number) {
-    this._appDataService.dataNav = { sections: null };
-
-    // await this._piaService.getPIA();
     if (this._piaService.pia.structure_data) {
       this._appDataService.dataNav = this._piaService.pia.structure_data;
     }
-    this.data = await this._appDataService.getDataNav();
-
-    this.section = this.data['sections'].filter((section) => {
+    this.data = this._appDataService.dataNav;
+    this.section = this.data.sections.filter((section) => {
       return section.id === sectionId;
     })[0];
-    this.item = this.section['items'].filter((item) => {
+    this.item = this.section.items.filter((item) => {
       return item.id === itemId;
     })[0];
 

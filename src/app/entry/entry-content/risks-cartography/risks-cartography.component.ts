@@ -68,7 +68,7 @@ export class RisksCartographyComponent implements OnInit, OnDestroy {
       }
     };
 
-    const dataNav = await this._appDataService.getDataNav();
+    const dataNav = this._appDataService.dataNav;
     dataNav.sections.forEach(section => {
       section.items.forEach(item => {
         if (item.questions) {

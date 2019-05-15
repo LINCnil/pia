@@ -62,7 +62,7 @@ export class SummaryComponent implements OnInit, AfterViewChecked {
     });
 
     this.content = [];
-    this.dataNav = await this._appDataService.getDataNav();
+    this.dataNav = this._appDataService.dataNav;
 
     this._piaService.getPIA().then(() => {
       this.pia = this._piaService.pia;
