@@ -80,7 +80,6 @@ export class StructuresComponent implements OnInit, OnDestroy {
   /**
    * On structure change.
    * @param {any} structure - Any Structure.
-   * @memberof StructuresComponent
    */
   structChange(structure) {
     this._structureService.structures.push(structure);
@@ -88,7 +87,6 @@ export class StructuresComponent implements OnInit, OnDestroy {
 
   /**
    * Creates a new PIA card and adds a flip effect to go switch between new PIA and edit PIA events.
-   * @memberof StructuresComponent
    */
   newStruct() {
     this.newStructure = new Structure();
@@ -102,7 +100,6 @@ export class StructuresComponent implements OnInit, OnDestroy {
 
   /**
    * Inverse the order of the list.
-   * @memberof StructuresComponent
    */
   reverseStruct() {
     const cardsToSwitchReverse = document.getElementById('cardsSwitch');
@@ -112,7 +109,6 @@ export class StructuresComponent implements OnInit, OnDestroy {
   /**
    * Import a new structure.
    * @param {*} [event] - Any Event.
-   * @memberof StructuresComponent
    */
   importStruct(event?: any) {
     if (event) {
@@ -125,7 +121,6 @@ export class StructuresComponent implements OnInit, OnDestroy {
   /**
    * Save the newly created structure.
    * Sends to the path associated to this new structure.
-   * @memberof StructuresComponent
    */
   onSubmit() {
     const structure = new Structure();
@@ -139,7 +134,6 @@ export class StructuresComponent implements OnInit, OnDestroy {
   /**
    * Asort items created on structure.
    * @param {string} fieldToSort - Field to sort.
-   * @memberof StructuresComponent
    */
   sortBy(fieldToSort: string) {
     this.sortValue = fieldToSort;
@@ -151,7 +145,6 @@ export class StructuresComponent implements OnInit, OnDestroy {
 
   /**
    * Display elements in list view.
-   * @memberof StructuresComponent
    */
   viewOnList() {
     this.viewStyle.view = 'list';
@@ -162,7 +155,6 @@ export class StructuresComponent implements OnInit, OnDestroy {
 
   /**
    * Display elements in card view.
-   * @memberof StructuresComponent
    */
   viewOnCard() {
     this.viewStyle.view = 'card';
@@ -173,7 +165,6 @@ export class StructuresComponent implements OnInit, OnDestroy {
 
   /**
    * Refresh the list.
-   * @memberof StructuresComponent
    */
   async refreshContent() {
     const structure = new Structure();
@@ -194,7 +185,6 @@ export class StructuresComponent implements OnInit, OnDestroy {
   /**
    * Define how to sort the list.
    * @private
-   * @memberof StructuresComponent
    */
   private sortStructure() {
     this._structureService.structures.sort((a, b) => {

@@ -74,7 +74,6 @@ export class EntryContentComponent implements OnInit, OnChanges, OnDestroy {
 
   /**
    * Add new question.
-   * @memberof EntryContentComponent
    */
   async addQuestion() {
     this._structureService.getStructure().then(() => {
@@ -86,7 +85,6 @@ export class EntryContentComponent implements OnInit, OnChanges, OnDestroy {
 
   /**
    * Add new measure.
-   * @memberof EntryContentComponent
    */
   async addMeasure() {
     this._structureService.getStructure().then(() => {
@@ -101,7 +99,6 @@ export class EntryContentComponent implements OnInit, OnChanges, OnDestroy {
    * @private
    * @param {number} status_start - From status.
    * @param {number} status_end - To status.
-   * @memberof EntryContentComponent
    */
   private goToNextSectionItem(status_start: number, status_end: number) {
     const goto_section_item = this._paginationService.getNextSectionItem(status_start, status_end);

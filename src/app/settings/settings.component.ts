@@ -24,7 +24,6 @@ export class SettingsComponent implements OnInit {
 
   /**
    * Record the URL of the server.
-   * @memberof SettingsComponent
    */
   onSubmit() {
       /* Set it back to empty if server mode is disabled */

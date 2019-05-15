@@ -29,7 +29,6 @@ export class StructureService {
   /**
    * Get the Structure.
    * @return {Promise}
-   * @memberof StructureService
    */
   async getStructure() {
     return new Promise((resolve, reject) => {
@@ -79,7 +78,6 @@ export class StructureService {
 
   /**
    * Allows an user to remove a Structure.
-   * @memberof StructureService
    */
   removeStructure() {
     const id = parseInt(localStorage.getItem('structure-id'), 10);
@@ -110,7 +108,6 @@ export class StructureService {
   /**
    * Allow an user to duplicate a Structure.
    * @param {number} id - The Structure id.
-   * @memberof StructureService
    */
   async duplicateStructure(id: number) {
     return new Promise((resolve, reject) => {
@@ -126,7 +123,6 @@ export class StructureService {
    * Allow an user to export a Structure.
    * @param {number} id - The Structure id.
    * @returns {Promise}
-   * @memberof StructureService
    */
   exportStructureData(id: number) {
     return new Promise((resolve, reject) => {
@@ -150,7 +146,6 @@ export class StructureService {
    * @param {*} data - Data Structure.
    * @param {string} prefix - A title prefix.
    * @param {boolean} is_duplicate - Is a duplicate Structure?
-   * @memberof StructureService
    */
   async importStructureData(data: any, prefix: string, is_duplicate: boolean) {
     return new Promise((resolve, reject) => {
@@ -183,7 +178,6 @@ export class StructureService {
   /**
    * Download the Structure exported.
    * @param {number} id - The Structure id.
-   * @memberof StructureService
    */
   exportStructure(id: number) {
     const date = new Date().getTime();
@@ -202,7 +196,6 @@ export class StructureService {
   /**
    * Import the Structure from file.
    * @param {*} file - The exported Structure file.
-   * @memberof StructureService
    */
   async importStructure(file: any) {
     return new Promise((resolve, reject) => {

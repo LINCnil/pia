@@ -56,7 +56,6 @@ export class CommentsComponent implements OnInit {
 
   /**
    * Shows or hide the block which allows users to create a new comment.
-   * @memberof CommentsComponent
    */
   toggleNewCommentBox() {
     const newCommentBox = this.el.nativeElement.querySelector('.pia-commentsBlock-new');
@@ -76,7 +75,6 @@ export class CommentsComponent implements OnInit {
 
   /**
    * Display the comment field.
-   * @memberof CommentsComponent
    */
   newCommentOnChange(event) {
     // Checks if the comment value exists.
@@ -89,7 +87,6 @@ export class CommentsComponent implements OnInit {
 
   /**
    * Create a new comment.
-   * @memberof CommentsComponent
    */
   newCommentClickBtn() {
     // Checks if the comment value exists.
@@ -125,7 +122,6 @@ export class CommentsComponent implements OnInit {
 
   /**
    * Display comments list.
-   * @memberof CommentsComponent
    */
   displayCommentsList() {
     const commentsList = this.el.nativeElement.querySelector('.pia-commentsBlock-list');
@@ -138,7 +134,6 @@ export class CommentsComponent implements OnInit {
   /**
    * Returns a status about the comments number.
    * @returns {Boolean} - True if there are comments, False otherwise.
-   * @memberof CommentsComponent
    */
   getCommentsAccordeonStatus() {
     return this.comments.length > 0 ? true : false;

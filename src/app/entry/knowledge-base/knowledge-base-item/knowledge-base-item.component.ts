@@ -32,7 +32,6 @@ export class KnowledgeBaseItemComponent implements OnInit {
 
   /**
    * Shows or hides an help item.
-   * @memberof KnowledgeBaseItemComponent
    */
   displayItem() {
     const accordeon = this.el.nativeElement.querySelector('.pia-knowledgeBaseBlock-item-accordion button span');
@@ -51,7 +50,6 @@ export class KnowledgeBaseItemComponent implements OnInit {
   /**
    * Adds a measure to the PIA.
    * This is used mainly on "Mesures préventives et existantes" subsection.
-   * @memberof KnowledgeBaseItemComponent
    */
   addNewMeasure() {
     this.newMeasureEvent.emit(this.itemKb);

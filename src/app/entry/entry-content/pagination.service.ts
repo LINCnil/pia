@@ -16,7 +16,6 @@ export class PaginationService {
    * Set the pagination.
    * @param {number} sectionId - The section id.
    * @param {number} itemId - The item id.
-   * @memberof PaginationService
    */
   setPagination(sectionId: number, itemId: number) {
     this.previousLink = [];
@@ -64,7 +63,6 @@ export class PaginationService {
    * @private
    * @param {number} status_start - From status.
    * @param {number} status_end - To status.
-   * @memberof EntryContentComponent
    */
   getNextSectionItem(status_start: number, status_end: number) {
     let goto_section = null;

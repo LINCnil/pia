@@ -19,7 +19,6 @@ export class KnowledgeBaseService {
   /**
    * Load the knowledge base
    * @param {any} http
-   * @memberof KnowledgeBaseService
    */
   loadData(http: HttpClient) {
     this.knowledgeBaseData = piakb;
@@ -31,7 +30,6 @@ export class KnowledgeBaseService {
    * @param {string} [filter] - Text to search.
    * @param {*} [event] - Any Event.
    * @param {*} [linkKnowledgeBase] - Link knowledge base.
-   * @memberof KnowledgeBaseService
    */
   search(filter?: string, event?: any, linkKnowledgeBase?: any) {
     this.filter = (filter && filter.length > 0) ? filter : '';
@@ -55,7 +53,6 @@ export class KnowledgeBaseService {
    * Load knowledge base by item.
    * @param {*} item - An item of a section.
    * @param {*} [event] - List of Events.
-   * @memberof KnowledgeBaseService
    */
   loadByItem(item: any, event?: any) {
     if (this.allKnowledgeBaseData && item) {
@@ -95,7 +92,6 @@ export class KnowledgeBaseService {
   /**
    * Switch between element.
    * @param {*} event - Any Event.
-   * @memberof KnowledgeBaseService
    */
   switchSelectedElement(event: any) {
     if (event) {
@@ -110,7 +106,6 @@ export class KnowledgeBaseService {
    * Remove an item if present.
    * @param {string} newItemTitle - New title to compare.
    * @param {string} previousItemTitle  - Previous title to compare.
-   * @memberof KnowledgeBaseService
    */
   removeItemIfPresent(newItemTitle: string, previousItemTitle: string) {
     if (!this.toHide.includes(newItemTitle)) {
@@ -125,7 +120,6 @@ export class KnowledgeBaseService {
   /**
    * New specific search in the knowledge base.
    * @private
-   * @memberof KnowledgeBaseService
    */
   private specificSearch() {
     if (this.q && this.q.length > 0) {

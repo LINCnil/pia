@@ -15,7 +15,6 @@ export class Structure extends ApplicationDb {
   /**
    * Find all entries without conditions.
    * @returns {Promise}
-   * @memberof Structure
    */
   async getAll() {
     const items = [];
@@ -41,7 +40,6 @@ export class Structure extends ApplicationDb {
   /**
    * Create a new Structure.
    * @returns {Promise}
-   * @memberof Structure
    */
   async create() {
     if (this.created_at === undefined) {
@@ -98,7 +96,6 @@ export class Structure extends ApplicationDb {
   /**
    * Update a Structure.
    * @returns {Promise}
-   * @memberof Structure
    */
   async update() {
     if (this.is_example) {
@@ -153,7 +150,6 @@ export class Structure extends ApplicationDb {
    * Get a Structure.
    * @param {number} id - The Structure id.
    * @returns {Promise}
-   * @memberof Structure
    */
   async get(id: number) {
     this.id = id;

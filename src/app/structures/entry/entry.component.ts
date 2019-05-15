@@ -77,7 +77,6 @@ export class EntryComponent implements OnInit, OnDestroy {
    * @private
    * @param {number} sectionId - The section id.
    * @param {number} itemId - The item id.
-   * @memberof EntryComponent
    */
   private getSectionAndItem(sectionId: number, itemId: number) {
     this.questions = [];

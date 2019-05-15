@@ -103,7 +103,6 @@ export class EvaluationsComponent implements OnInit, AfterViewChecked, OnDestroy
   /**
    * Check the evaluation validation.
    * @private
-   * @memberof EvaluationsComponent
    */
   private checkEvaluationValidation() {
     if (this.item.evaluation_mode === 'question') {
@@ -175,7 +174,6 @@ export class EvaluationsComponent implements OnInit, AfterViewChecked, OnDestroy
    * Auto textearea resize
    * @param {*} event - Any Event.
    * @param {*} [textarea] - Any textarea element.
-   * @memberof EvaluationsComponent
    */
   autoTextareaResize(event: any, textarea?: any) {
     if (event) {
@@ -191,7 +189,6 @@ export class EvaluationsComponent implements OnInit, AfterViewChecked, OnDestroy
    * Updates evaluation fields according to the selected button.
    * @param {Event} event - Any event.
    * @param {number} status - The status of the evaluation (to be fixed, improvable, acceptable).
-   * @memberof EvaluationsComponent
    */
   selectedButton(event, status: number) {
     this.evaluation.global_status = 0;
@@ -238,7 +235,6 @@ export class EvaluationsComponent implements OnInit, AfterViewChecked, OnDestroy
 
   /**
    * Loads editor (if not final validation) on action plan comment focus.
-   * @memberof EvaluationsComponent
    */
   actionPlanCommentFocusIn() {
     if (this._globalEvaluationService.evaluationEditionEnabled) {
@@ -249,7 +245,6 @@ export class EvaluationsComponent implements OnInit, AfterViewChecked, OnDestroy
 
   /**
    * Executes actions when losing focus from action plan comment.
-   * @memberof EvaluationsComponent
    */
   actionPlanCommentFocusOut() {
     this._knowledgeBaseService.placeholder = null;
@@ -269,7 +264,6 @@ export class EvaluationsComponent implements OnInit, AfterViewChecked, OnDestroy
 
   /**
    * Activates (or not) evaluation comment when focusing it.
-   * @memberof EvaluationsComponent
    */
   evaluationCommentFocusIn() {
     if (this._globalEvaluationService.evaluationEditionEnabled) {
@@ -281,7 +275,6 @@ export class EvaluationsComponent implements OnInit, AfterViewChecked, OnDestroy
 
   /**
    * Executes actions when losing focus from evaluation comment.
-   * @memberof EvaluationsComponent
    */
   evaluationCommentFocusOut() {
     this._knowledgeBaseService.placeholder = null;
@@ -301,7 +294,6 @@ export class EvaluationsComponent implements OnInit, AfterViewChecked, OnDestroy
 
   /**
    * Enables 'x' gauge.
-   * @memberof EvaluationsComponent
    */
   enableGaugeX() {
     if (this._globalEvaluationService.evaluationEditionEnabled) {
@@ -313,7 +305,6 @@ export class EvaluationsComponent implements OnInit, AfterViewChecked, OnDestroy
 
   /**
    * Enables 'y' gauge.
-   * @memberof EvaluationsComponent
    */
   enableGaugeY() {
     if (this._globalEvaluationService.evaluationEditionEnabled) {
@@ -327,7 +318,6 @@ export class EvaluationsComponent implements OnInit, AfterViewChecked, OnDestroy
    * Check gauge changes.
    * @param {*} event - Any Event.
    * @param {string} xOrY - The current coordinate being processed (x or y).
-   * @memberof EvaluationsComponent
    */
   checkGaugeChanges(event: any, xOrY: string) {
     const value: string = event.target.value;
@@ -358,7 +348,6 @@ export class EvaluationsComponent implements OnInit, AfterViewChecked, OnDestroy
    * Loads WYSIWYG editor for action plan comment.
    * @param {any} field - Field to load the editor.
    * @param {boolean} [autofocus=false] - Boolean to autofocus or not.
-   * @memberof EvaluationsComponent
    */
   loadEditor(field, autofocus = false) {
     let elementId = this.actionPlanCommentElementId;

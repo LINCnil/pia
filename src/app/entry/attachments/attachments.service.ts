@@ -18,7 +18,6 @@ export class AttachmentsService {
   /**
    * List all attachments.
    * @returns {Promise}
-   * @memberof AttachmentsService
    */
   async listAttachments() {
     return new Promise((resolve, reject) => {
@@ -34,7 +33,6 @@ export class AttachmentsService {
   /**
    * Update all signed attachement.
    * @returns {Promise}
-   * @memberof AttachmentsService
    */
   async updateSignedAttachmentsList() {
     return new Promise((resolve, reject) => {
@@ -66,7 +64,6 @@ export class AttachmentsService {
   /**
    * Upload a new attachment.
    * @param {*} attachment_file - The attachment file.
-   * @memberof AttachmentsService
    */
   upload(attachment_file: any) {
     const file = new Blob([attachment_file]);
@@ -98,7 +95,6 @@ export class AttachmentsService {
   /**
    * Download an attachment by id.
    * @param {number} id - Id of the attachment.
-   * @memberof AttachmentsService
    */
   downloadAttachment(id: number) {
     const attachment = new Attachment();
@@ -121,7 +117,6 @@ export class AttachmentsService {
   /**
    * Allows an user to remove a PIA.
    * @param {string} comment - Comment to justify deletion.
-   * @memberof AttachmentsService
    */
   removeAttachment(comment: string) {
     if (comment && comment.length > 0) {

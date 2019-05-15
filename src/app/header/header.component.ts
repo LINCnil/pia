@@ -60,7 +60,6 @@ export class HeaderComponent implements OnInit {
   /**
    * Manually updates the contrast. Can be executed by users through header.
    * @param {any} event - Any kind of event.
-   * @memberof HeaderComponent
    */
   changeContrast(event: any) {
     localStorage.setItem('increaseContrast', event.target.checked);
@@ -70,7 +69,6 @@ export class HeaderComponent implements OnInit {
   /**
    * Updates colors contrast on the whole application for people with visual disabilities.
    * @private
-   * @memberof HeaderComponent
    */
   private updateContrast() {
     this.increaseContrast = localStorage.getItem('increaseContrast');
@@ -84,7 +82,6 @@ export class HeaderComponent implements OnInit {
   /**
    * Get or Load PIA example.
    * @private
-   * @memberof HeaderComponent
    */
   private loadPiaExample() {
     const pia = new Pia();

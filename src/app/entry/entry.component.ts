@@ -109,7 +109,6 @@ export class EntryComponent implements OnInit, OnDestroy, DoCheck {
    * @private
    * @param {number} sectionId - The section id.
    * @param {number} itemId - The item id.
-   * @memberof EntryComponent
    */
   private async getSectionAndItem(sectionId: number, itemId: number) {
     if (this._piaService.pia.structure_data) {

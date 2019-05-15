@@ -22,7 +22,6 @@ export class ApplicationDb {
   /**
    * Initialize database.
    * @returns {Promise}
-   * @memberof ApplicationDb
    */
   async initDb() {
     return new Promise((resolve, reject) => {
@@ -91,7 +90,6 @@ export class ApplicationDb {
   /**
    * Get the database object.
    * @returns {Promise}
-   * @memberof ApplicationDb
    */
   async getObjectStore() {
     const db: any = await this.initDb();
@@ -108,7 +106,6 @@ export class ApplicationDb {
   /**
    * Find all entries without conditions.
    * @returns {Promise}
-   * @memberof ApplicationDb
    */
   async findAll() {
     const items = [];
@@ -149,7 +146,6 @@ export class ApplicationDb {
    * Default find method for an entry in the database.
    * @param {any} id - The record id.
    * @returns {Promise}
-   * @memberof ApplicationDb
    */
   async find(id) {
     return new Promise((resolve, reject) => {
@@ -187,7 +183,6 @@ export class ApplicationDb {
    * Default delete method for an entry in the database.
    * @param {any} id - The record id.
    * @returns {Promise}
-   * @memberof ApplicationDb
    */
   async delete(id) {
     return new Promise((resolve, reject) => {
@@ -222,7 +217,6 @@ export class ApplicationDb {
    * Return the server URL.
    * @protected
    * @returns {string} - An URL.
-   * @memberof ApplicationDb
    */
   protected getServerUrl() {
     let prefix = '/pias';
