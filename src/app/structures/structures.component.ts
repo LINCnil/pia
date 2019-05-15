@@ -37,7 +37,6 @@ export class StructuresComponent implements OnInit, OnDestroy {
               private _translateService: TranslateService) { }
 
   ngOnInit() {
-    this._appDataService.dataNav.sections = null;
     this.sortOrder = localStorage.getItem('sortOrder');
     this.sortValue = localStorage.getItem('sortValue');
     if (!this.sortOrder || !this.sortValue) {
@@ -52,11 +51,11 @@ export class StructuresComponent implements OnInit, OnDestroy {
       sector_name: new FormControl()
     });
     this.viewStyle = {
-      view: this.route.snapshot.params['view']
+      view: this.route.snapshot.params.view
     };
     this.paramsSubscribe = this.route.params.subscribe(
       (params: Params) => {
-        this.viewStyle.view = params['view'];
+        this.viewStyle.view = params.view;
       }
     );
     if (localStorage.getItem('homepageDisplayMode') === 'list') {

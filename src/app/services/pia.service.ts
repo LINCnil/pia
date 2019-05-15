@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRoute, Router, Params } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { Pia } from 'src/app/entry/pia.model';
 import { Evaluation } from 'src/app/entry/entry-content/evaluations/evaluation.model';
@@ -49,8 +49,8 @@ export class PiaService {
 
   calculPiaProgress(pia: Pia) {
     let numberElementsToValidate = 1;
-    this._appDataService.dataNav.sections.forEach(section => {
-      section.items.forEach(item => {
+    this._appDataService.dataNav.sections.forEach((section: any) => {
+      section.items.forEach((item: any) => {
         if (item.questions) {
           numberElementsToValidate += item.questions.length;
         }

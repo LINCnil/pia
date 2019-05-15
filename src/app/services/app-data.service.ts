@@ -4,10 +4,5 @@ import piaArchitecture from 'src/assets/files/pia_architecture.json';
 
 @Injectable()
 export class AppDataService {
-
-  public dataNav = { sections: null };
-
-  constructor() {
-    this.dataNav = piaArchitecture;
-  }
+  public dataNav = piaArchitecture;
 }

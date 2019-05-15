@@ -59,7 +59,7 @@ export class CardsComponent implements OnInit, OnDestroy {
     });
     this.viewStyle = {
       view: this.route.snapshot.params.view
-    }
+    };
     this.paramsSubscribe = this.route.params.subscribe(
       (params: Params) => {
         this.viewStyle.view = params.view;
