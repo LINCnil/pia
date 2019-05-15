@@ -40,8 +40,8 @@ export class EntryComponent implements OnInit, OnDestroy, DoCheck {
               private _measureService: MeasureService) { }
 
   async ngOnInit() {
-    let sectionId = parseInt(this.route.snapshot.params['section_id'], 10);
-    let itemId = parseInt(this.route.snapshot.params['item_id'], 10);
+    let sectionId = parseInt(this.route.snapshot.params.section_id, 10);
+    let itemId = parseInt(this.route.snapshot.params.item_id, 10);
 
     await this._piaService.getPIA();
     if (this._piaService.pia.structure_data) {
@@ -127,8 +127,8 @@ export class EntryComponent implements OnInit, OnDestroy, DoCheck {
     this._globalEvaluationService.item = this.item;
 
     this.questions = [];
-    if (this.item['questions']) {
-      this.item['questions'].forEach(question => {
+    if (this.item.questions) {
+      this.item.questions.forEach(question => {
         this.questions.push(question);
       });
     }
@@ -171,7 +171,7 @@ export class EntryComponent implements OnInit, OnDestroy, DoCheck {
 
     // Update on knowledge base (scroll / content / search field)
     const knowledgeBaseScroll  = document.querySelector('.pia-knowledgeBaseBlock-list');
-    const knowledgeBaseContent  = <HTMLInputElement>document.querySelector('.pia-knowledgeBaseBlock-searchForm input');
+    const knowledgeBaseContent  = document.querySelector('.pia-knowledgeBaseBlock-searchForm input') as HTMLInputElement;
     knowledgeBaseScroll.scrollTop = 0;
     knowledgeBaseContent.value = '';
 

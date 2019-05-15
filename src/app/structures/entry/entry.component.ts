@@ -40,8 +40,8 @@ export class EntryComponent implements OnInit, OnDestroy {
               private _measureService: MeasureService) { }
 
   async ngOnInit() {
-    let sectionId = parseInt(this.route.snapshot.params['section_id'], 10);
-    let itemId = parseInt(this.route.snapshot.params['item_id'], 10);
+    let sectionId = parseInt(this.route.snapshot.params.section_id, 10);
+    let itemId = parseInt(this.route.snapshot.params.item_id, 10);
 
     await this._structureService.getStructure();
     this.data = this._structureService.structure.data;
@@ -55,8 +55,8 @@ export class EntryComponent implements OnInit, OnDestroy {
 
     this.route.params.subscribe(
       (params: Params) => {
-        sectionId = parseInt(params['section_id'], 10);
-        itemId = parseInt(params['item_id'], 10);
+        sectionId = parseInt(params.section_id, 10);
+        itemId = parseInt(params.item_id, 10);
         this.getSectionAndItem(sectionId, itemId);
         window.scroll(0, 0);
       }
@@ -84,18 +84,18 @@ export class EntryComponent implements OnInit, OnDestroy {
 
     this._structureService.getStructure().then(() => {
       this.data = this._structureService.structure.data;
-      this.section = this.data['sections'].filter((section) => {
+      this.section = this.data.sections.filter((section) => {
         return section.id === sectionId;
       })[0];
-      this.item = this.section['items'].filter((item) => {
+      this.item = this.section.items.filter((item) => {
         return item.id === itemId;
       })[0];
 
       this._globalEvaluationService.section = this.section;
       this._globalEvaluationService.item = this.item;
 
-      if (this.item['questions']) {
-        this.item['questions'].forEach(question => {
+      if (this.item.questions) {
+        this.item.questions.forEach(question => {
           this.questions.push(question);
         });
       }
@@ -105,7 +105,7 @@ export class EntryComponent implements OnInit, OnDestroy {
 
       // Update on knowledge base (scroll / content / search field)
       const knowledgeBaseScroll  = document.querySelector('.pia-knowledgeBaseBlock-list');
-      const knowledgeBaseContent  = <HTMLInputElement>document.querySelector('.pia-knowledgeBaseBlock-searchForm input');
+      const knowledgeBaseContent  = document.querySelector('.pia-knowledgeBaseBlock-searchForm input') as HTMLInputElement;
       knowledgeBaseScroll.scrollTop = 0;
       knowledgeBaseContent.value = '';
 

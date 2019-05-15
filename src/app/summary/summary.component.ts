@@ -58,7 +58,7 @@ export class SummaryComponent implements OnInit, AfterViewChecked {
 
   async ngOnInit() {
     this.summarySubscription = this.route.queryParams.subscribe(params => {
-      this.displayOnlyActionPlan = params['displayOnlyActionPlan'];
+      this.displayOnlyActionPlan = params.displayOnlyActionPlan;
     });
 
     this.content = [];
