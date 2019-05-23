@@ -36,7 +36,6 @@ export class CardItemComponent implements OnInit {
 
   /**
    * Focuses Structure name field.
-   * @memberof CardItemComponent
    */
   structureNameFocusIn() {
     if (this._structureService.structure.is_example) {
@@ -48,7 +47,6 @@ export class CardItemComponent implements OnInit {
 
   /**
    * Disables Structure name field and saves data.
-   * @memberof CardItemComponent
    */
   structureNameFocusOut() {
     let userText = this.structureForm.controls['name'].value;
@@ -66,7 +64,6 @@ export class CardItemComponent implements OnInit {
 
   /**
    * Focuses Structure author name field.
-   * @memberof CardItemComponent
    */
   structureSectorNameFocusIn() {
     if (this._structureService.structure.is_example) {
@@ -77,7 +74,6 @@ export class CardItemComponent implements OnInit {
 
   /**
    * Disables Structure author name field and saves data.
-   * @memberof CardItemComponent
    */
   structureSectorNameFocusOut() {
     let userText = this.structureForm.controls['sector_name'].value;
@@ -96,7 +92,6 @@ export class CardItemComponent implements OnInit {
   /**
    * Deletes a Structure with a given id.
    * @param {string} id - The Structure id.
-   * @memberof CardItemComponent
    */
   remove(id: string) {
     localStorage.setItem('structure-id', id);
@@ -106,7 +101,6 @@ export class CardItemComponent implements OnInit {
   /**
    * Export a Structure in JSON format.
    * @param {number} id - The Structure id.
-   * @memberof CardItemComponent
    */
   export(id: number) {
     this._structureService.exportStructure(id);

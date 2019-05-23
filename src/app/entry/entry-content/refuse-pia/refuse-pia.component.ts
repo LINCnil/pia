@@ -66,7 +66,6 @@ export class RefusePIAComponent implements OnInit {
 
   /**
    * Display the modal to abandon the PIA.
-   * @memberof RefusePIAComponent
    */
   abandon() {
     this._modalsService.openModal('modal-abandon-pia');
@@ -74,7 +73,6 @@ export class RefusePIAComponent implements OnInit {
 
   /**
    * Refuse the PIA and navigate to the root page of the PIA.
-   * @memberof RefusePIAComponent
    */
   refuse() {
     this._piaService.pia.status = 1;
@@ -90,7 +88,6 @@ export class RefusePIAComponent implements OnInit {
 
   /**
    * Focuses rejection reason field.
-   * @memberof RefusePIAComponent
    */
   rejectionReasonFocusIn() {
     if (this._piaService.pia.status === 1) {
@@ -103,7 +100,6 @@ export class RefusePIAComponent implements OnInit {
 
   /**
    * Executes functionnalities when losing focus from rejection reason field.
-   * @memberof RefusePIAComponent
    */
   rejectionReasonFocusOut() {
     let userText = this.rejectionReasonForm.controls['rejectionReason'].value;
@@ -123,7 +119,6 @@ export class RefusePIAComponent implements OnInit {
 
   /**
    * Focuses modification made field.
-   * @memberof RefusePIAComponent
    */
   modificationsMadeFocusIn() {
     if (this._piaService.pia.status !== 1) {
@@ -136,7 +131,6 @@ export class RefusePIAComponent implements OnInit {
 
   /**
    * Executes functionnalities when losing focus from modifications made field.
-   * @memberof RefusePIAComponent
    */
   modificationsMadeFocusOut() {
     let userText = this.modificationsMadeForm.controls['modificationsMade'].value;
@@ -166,7 +160,6 @@ export class RefusePIAComponent implements OnInit {
    * Enable auto resizing on tetarea
    * @param {*} event - Any Event.
    * @param {HTMLElement} textarea - Texarea element.
-   * @memberof RefusePIAComponent
    */
   autoTextareaResize(event: any, textarea?: HTMLElement) {
     if (event) {

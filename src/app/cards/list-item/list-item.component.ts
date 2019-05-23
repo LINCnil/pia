@@ -32,7 +32,6 @@ export class ListItemComponent implements OnInit {
    * Focuses out field and update PIA.
    * @param {string} attribute - Attribute of the PIA.
    * @param {*} event - Any Event.
-   * @memberof ListItemComponent
    */
   onFocusOut(attribute: string, event: any) {
     const text = event.target.innerText;
@@ -43,7 +42,6 @@ export class ListItemComponent implements OnInit {
   /**
    * Opens the modal to confirm deletion of a PIA
    * @param {string} id - The PIA id.
-   * @memberof ListItemComponent
    */
   removePia(id: string) {
     localStorage.setItem('pia-id', id);
@@ -53,7 +51,6 @@ export class ListItemComponent implements OnInit {
   /**
    * Export the PIA
    * @param {number} id - The PIA id.
-   * @memberof ListItemComponent
    */
   export(id: number) {
     this._piaService.export(id);

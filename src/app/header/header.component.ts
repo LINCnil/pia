@@ -11,6 +11,8 @@ import { PiaService } from 'src/app/services/pia.service';
 import { ModalsService } from 'src/app/modals/modals.service';
 import { LanguagesService } from 'src/app/services/languages.service';
 
+import piaExample from 'src/assets/files/2018-02-21-pia-example.json';
+
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -37,7 +39,7 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
     const displayMessage = document.querySelector('.pia-closeFullScreenModeAlertBlock');
     window.outerHeight === screen.height  ? displayMessage.classList.remove('hide') : displayMessage.classList.add('hide');
-    window.onresize = function (event) {
+    window.onresize = () => {
       window.outerHeight === screen.height  ? displayMessage.classList.remove('hide') : displayMessage.classList.add('hide');
     }
     this.appVersion = environment.version;
@@ -58,7 +60,6 @@ export class HeaderComponent implements OnInit {
   /**
    * Manually updates the contrast. Can be executed by users through header.
    * @param {any} event - Any kind of event.
-   * @memberof HeaderComponent
    */
   changeContrast(event: any) {
     localStorage.setItem('increaseContrast', event.target.checked);
@@ -68,7 +69,6 @@ export class HeaderComponent implements OnInit {
   /**
    * Updates colors contrast on the whole application for people with visual disabilities.
    * @private
-   * @memberof HeaderComponent
    */
   private updateContrast() {
     this.increaseContrast = localStorage.getItem('increaseContrast');
@@ -82,7 +82,6 @@ export class HeaderComponent implements OnInit {
   /**
    * Get or Load PIA example.
    * @private
-   * @memberof HeaderComponent
    */
   private loadPiaExample() {
     const pia = new Pia();
@@ -90,11 +89,9 @@ export class HeaderComponent implements OnInit {
       if (entry) {
         this.pia_example = entry;
       } else {
-        this.httpClient.get('./assets/files/2018-02-21-pia-example.json', { responseType: 'json' }).subscribe((res) => {
-          this._piaService.importData(res, 'EXAMPLE', false, true).then(() => {
-            pia.getPiaExample().then((entry2: any) => {
-              this.pia_example = entry2;
-            });
+        this._piaService.importData(piaExample, 'EXAMPLE', false, true).then(() => {
+          pia.getPiaExample().then((entry2: any) => {
+            this.pia_example = entry2;
           });
         });
       }

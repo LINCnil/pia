@@ -58,11 +58,11 @@ export class CardsComponent implements OnInit, OnDestroy {
       structure: new FormControl([])
     });
     this.viewStyle = {
-      view: this.route.snapshot.params['view']
-    }
+      view: this.route.snapshot.params.view
+    };
     this.paramsSubscribe = this.route.params.subscribe(
       (params: Params) => {
-        this.viewStyle.view = params['view'];
+        this.viewStyle.view = params.view;
       }
     );
     if (localStorage.getItem('homepageDisplayMode') === 'list') {
@@ -81,7 +81,6 @@ export class CardsComponent implements OnInit, OnDestroy {
 
   /**
    * Creates a new PIA card and adds a flip effect to go switch between new PIA and edit PIA events.
-   * @memberof CardsComponent
    */
   newPIA() {
     this.newPia = new Pia();
@@ -95,7 +94,6 @@ export class CardsComponent implements OnInit, OnDestroy {
 
   /**
    * Inverse the order of the list.
-   * @memberof CardsComponent
    */
   reversePIA() {
     const cardsToSwitchReverse = document.getElementById('cardsSwitch');
@@ -105,7 +103,6 @@ export class CardsComponent implements OnInit, OnDestroy {
   /**
    * Import a new PIA.
    * @param {*} [event] - Any Event.
-   * @memberof CardsComponent
    */
   importPia(event?: any) {
     if (event) {
@@ -118,7 +115,6 @@ export class CardsComponent implements OnInit, OnDestroy {
   /**
    * Save the newly created PIA.
    * Sends to the path associated to this new PIA.
-   * @memberof CardsComponent
    */
   onSubmit() {
     this._piaService.saveNewPia(this.piaForm).then((id: number) => {
@@ -129,7 +125,6 @@ export class CardsComponent implements OnInit, OnDestroy {
   /**
    * Asort items created on PIA.
    * @param {string} fieldToSort - Field to sort.
-   * @memberof CardsComponent
    */
   sortBy(fieldToSort: string) {
     this.sortValue = fieldToSort;
@@ -141,7 +136,6 @@ export class CardsComponent implements OnInit, OnDestroy {
 
   /**
    * Display elements in list view.
-   * @memberof CardsComponent
    */
   viewOnList() {
     this.viewStyle.view = 'list';
@@ -152,7 +146,6 @@ export class CardsComponent implements OnInit, OnDestroy {
 
   /**
    * Display elements in card view.
-   * @memberof CardsComponent
    */
   viewOnCard() {
     this.viewStyle.view = 'card';
@@ -163,7 +156,6 @@ export class CardsComponent implements OnInit, OnDestroy {
 
   /**
    * Refresh the list.
-   * @memberof CardsComponent
    */
   async refreshContent() {
     const pia = new Pia();
@@ -179,8 +171,6 @@ export class CardsComponent implements OnInit, OnDestroy {
 
   /**
    * Define how to sort the list.
-   * @private
-   * @memberof CardsComponent
    */
   private sortPia() {
     this._piaService.pias.sort((a, b) => {

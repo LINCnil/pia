@@ -1306,7 +1306,7 @@
 			"1": "The treatment could be implemented."
 		},
     "generate_zip": "Download the full report (.zip)",
-    "generate_docx": "Download the report (.docx)",
+    "generate_docx": "Download the report (.doc)",
 		"creation_date": "Creation date",
 		"csv_action_plan_comment": "Action plan comment",
 		"csv_evaluation_comment": "Evaluation comment",

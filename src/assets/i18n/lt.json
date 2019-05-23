@@ -1,10 +1,10 @@
 {
 	"about": {
 		"contribute": "Jei norite prisidėti prie programos vertimo į kitas kalbas ar norite pagerinti esamą vertimą, rekomenduojame <a href=\"https://github.com/LINCnil/pia/tree/master/src/assets/i18n\" target=\"_blank\"> perskaityti instrukcijas</a>.",
-		"description": "Ši programa yra sukurta <a target=\"_blank\" href=\"https://www.cnil.fr\">Commission Nationale Informatique et Liberté (CNIL)</a>, Prancūzijos duomenų apsaugos inspekcijos, siekiant padėti jos vartotojams užtikrinti asmens duomenų tvarkymo atitikti BDAR reikalavimams. It was developed by <a href=\"https://atnos.com\" target=\"_blank\">ATNOS</a>.<br>Jei norite prisidėti prie šio projekto tolimesnio vystymo, jūs galite atsisiūti programos išeities kodą iš Github, jį modifikuoti ir dalintis su bendruomene.",
+		"description": "Ši programa yra sukurta <a target=\"_blank\" href=\"https://www.cnil.fr\">Commission Nationale Informatique et Liberté (CNIL)</a>, Prancūzijos duomenų apsaugos inspekcijos, siekiant padėti jos vartotojams užtikrinti asmens duomenų tvarkymo atitiktį BDAR reikalavimams. Ją suprogramavo <a href=\"https://atnos.com\" target=\"_blank\">ATNOS</a>.<br>Jei norite prisidėti prie šio projekto tolimesnio vystymo, jūs galite atsisiųti programos išeities kodą iš Github, jį modifikuoti ir dalintis su bendruomene.",
 		"licences": "Bibliotekų licencijos:",
 		"title": "Apie PDAV programą",
-		"translators": "PIA programa yra išversta į daugiau nei aštuoniolika kalbų. Programos prancūziška ir angliška versijas sukūrė CNIL. Programos versijos kitomis kalbomis parengė šie asmenys:",
+		"translators": "PIA programa yra išversta į daugiau nei aštuonioliką kalbų. Programos prancūzišką ir anglišką versijas sukūrė CNIL. Programos versijas kitomis kalbomis parengė šie asmenys:",
 		"translators_name": "<ul><li>Croatian : <a target=\"_blank\" href=\"https://github.com/B2KapitalBA\">B2KapitalBA</a> ;</li><li>Czech : Jiří Grohmann, Manuel d’Orso ;</li><li>Danish : <a target=\"_blank\" href=\"https://github.com/moolsen\">Michael Drews Olsen</a> ;</li><li>Dutch : Ruud van Driel, Manuel d’Orso ;</li><li>English : <a target=\"_blank\" href=\"https://www.cnil.fr\">CNIL</a> ;</li><li>Estonian : Eva Arumets, Lauri Bender, Rebeka Dronia, Kärol Kibena, Simon Suuban, <a target=\"_blank\" href=\"https://kochpartners.ee/en/people/urmas-kukk/\">Urmas Kukk, <a target=\"_blank\" href=\"https://github.com/PrivacyAssessment1\">PrivacyAssessment1</a> ;</li><li>Finnish : <a target=\"_blank\" href=\"https://tietosuoja.fi/etusivu\">Tietosuojavaltuutetun toimisto</a> ;</li><li>French : <a target=\"_blank\" href=\"https://www.cnil.fr\">CNIL</a> ;</li><li>German  : <a target=\"_blank\" href=\"https://github.com/kosmas58\">Kosmas Schütz</a> , Corina Scheiter (<a target=\"_blank\" href=\"https://www.datenschutz-bayern.de/\">BayLfD</a>) ;</li><li>Greek : <a target=\"_blank\" href=\"https://tzellis.gr\">Dimitris Tzellis</a> ;</li><li>Hungarian : <a target=\"_blank\" href=\"https://naih.hu/\">Nemzeti Adatvédelmi és Információszabadság Hatóság (NAIH)</a> ;</li><li>Italian : Manuel d’Orso, Gianluca Markos, Antonio Caselli (<a target=\"_blank\" href=\"http://gpdp.it\">Garante per la Protezione dei Dai Personali (GPDP)</a>) ;</li><li>Lithuanian : Paulius Galubickas (<a target=\"_blank\" href=\"http://galubickas.lt\">Law firm Galubickas</a>) ;</li><li>Norwegian : <a target=\"_blank\" href=\"https://www.datatilsynet.no\">Datatilsynet</a> ;</li><li>Polish : <a target=\"_blank\" href=\"https://github.com/JoannaKar\">Joanna Karczewska</a> , Michal Mazur (<a target=\"_blank\" href=\"https://giodo.gov.pl\">Generalny Inspektor Ochrony Danych Osobowych (GIODO)</a>) ;</li><li>Portuguese : <a target=\"_blank\" href=\"https://github.com/bagois\">Barbara Gois</a> ;</li><li>Romanian : <a target=\"_blank\" href=\"https://github.com/webmyday\">webmyday</a> ;</li><li>Spanish : <a target=\"_blank\" href=\"https://github.com/ylachgar\">ylachgar</a> .</li></ul>",
 		"version_number": "Versijos Nr."
 	},
@@ -31,12 +31,12 @@
 		"title": "Poveikio duomenų apsaugai vertinimas"
 	},
 	"cartography": {
-		"important": "Reikšmingas",
+		"important": "Reikšmingas", 
 		"legend1": "Planuojamos arba įgyvendintos apsaugos priemonės",
 		"legend2": "Įgyvendinta pakeistų apsaugos priemonių pagalba",
-		"legend3": "(NP)eteisėta prieiga prie duomenų",
-		"legend4": "(NDP)epageidaujamas duomenų pakeitimas",
-		"legend5": "(D)uomenų pradingimas",
+		"legend3": "Neteisėta prieiga prie duomenų (NP)",
+		"legend4": "Nepageidaujamas duomenų pakeitimas (NDP)",
+		"legend5": "Duomenų praradimas (DP)",
 		"likelihood_axe": "Rizikos pasireiškimo tikimybė",
 		"limited": "Ribotas",
 		"maximal": "Maksimalus",
@@ -607,7 +607,7 @@
 				"source": "PIA1 p10"
 			},
 			"PIA_LGL_TRAN": {
-				"description": "Nurodykite šalis, kuriose bus tvarkomi asmens duomenys. Priklausomai nuo pasirinktos šalies, Jums reikės teisiškai pagrįsti asmens duomenų teikimą į jas ir nurodyti, kokių teisinių bei techninių ir organizacinių apsaugos priemonių buvo imtasi, siekiant užtikrinti tinkamą asmens duomenų, kurie yra teikiami į kitas šalis, apsaugą. Tokiomis priemonėmis gali būti: <br>- Europos Sąjungos<br>- šalies pripažinimas, kad ji užtikrina tinkamą asmens duomenų apsaugą <br>- Duomenų teikimas į JAV, ten esančiai bendrovei, kuri yra prisijungusi prie Privacy Shield programos <br>- Dėl kitų šalių <br>žr. <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/LT/TXT/HTML/?uri=CELEX:32016R0679&from=LT\"> [BDAR] 44-49 str. </a>",
+				"description": "Nurodykite šalis, kuriuose bus tvarkomi asmens duomenys. Priklausomai nuo pasirinktos šalies, Jums reikės teisiškai pagrįsti asmens duomenų teikimą į jas ir nurodyti, kokių teisinių bei techninių ir organizacinių apsaugos priemonių buvo imtasi, siekiant užtikrinti tinkamą asmens duomenų, kurie yra teikiami į kitas šalis, apsaugą. Tokiomis priemonėmis gali būti: <br>- Europos Sąjungos<br>- šalies pripažinimas, kad ji užtikrina tinkamą asmens duomenų apsaugą <br>- Duomenų teikimas į JAV, ten esančiai bendrovei, kuri yra prisijungusi prie Privacy Shield programos <br>- Dėl kitų šalių <br>žr. <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/LT/TXT/HTML/?uri=CELEX:32016R0679&from=LT\"> [BDAR] 44-49 str. </a>",
 				"name": "Duomenų teikimas į trečiąsias šalis",
 				"source": "PIAF Connected Objects p18"
 			},
@@ -636,7 +636,7 @@
 				"source": "PIA3 p79 - WIKI"
 			},
 			"PIA_ORG_PERS": {
-				"description": "Tvarka, kur aprašoma darbuotojų mokymai, siekiant juos supažindinti su asmens duomenų tvarkymo ir apsaugos taisyklėmis bei skatinant juos turėti daugiau sąmoningumo duomenų apsaugos ir privatumo apsaugos klausimais.",
+				"description": "Tvarka, kurioje aprašomi darbuotojų mokymai, siekiant juos supažindinti su asmens duomenų tvarkymo ir apsaugos taisyklėmis bei skatinant juos turėti daugiau sąmoningumo duomenų apsaugos ir privatumo apsaugos klausimais.",
 				"name": "Personalo valdymas",
 				"placeholder": "Ar darbuotojams yra daromi mokymai?",
 				"source": "PIAF Connected Objects p24"
@@ -672,7 +672,7 @@
 				"source": "PIAF Connected Objects p22 - WIKI"
 			},
 			"PIA_SEC_CTR": {
-				"description": "Duomenų tvarkytojas, kuriam perduodami asmens duomenys ar kuris juos tvarko, turi suteikti pakankamas garantijas. Tam būtina sudaryti susitarimą. <strong>Naudokitės tik patikimų duomenų tvarkytojų paslaugomis </strong> (ypač atsižvelkite į technines kompetencijas, patikimumą ir jo turimus resursus). Reikalaukite, kad tiekėjas pateiktų informacinių sistemų saugumo gaires. <br>Atlikite patikrą ir ją dokumentuokite (saugumo auditai, patalpų apžiūra) tam, kad įsitikintumėte, jog duomenų tvarkytojo suteiktos duomenų apsaugos garantijos iš tiesų egzistuoja. Garantijos apima: <br>- duomenų šifravimas, priklausomai nuo jų jautrumo lygio arba, jei tai neaktualu, buvimas procedūrų, kurių pagalba užtikrinama, kad paslaugų teikėjas neturėtų fizinės prieigos prie tvarkomų duomenų,<br>- perduodamų duomenų šifravimas (z.B.: HTTPS protokolo pagalba, VPN, t.t.)<br>- tinklo apsaugos garantijos, įvykių atsekamumo galimybė (protokolai, auditai), autorizavimosi valdymas, tapatybės nustatymas ir t.t.<strong>susitarimo su duomenų tvarkytoju sudarymas </strong>, jame turi būtų apibrėžtas susitarimo tikslas, trukmė, duomenų tvarkymo tikslas ir susitarimo šalių įsipareigojimai. Įsitikinkite, kad sutartyje būtų šios sąlygos:<br>- tvarkytojo konfidencialumo įsipareigojimas jo tvarkomų asmens duomenų atžvilgiu<br>- minimalūs reikalavimai vartotojų tapatybės nustatymui<br>- reikalavimai dėl duomenų grąžinimo, sunaikinimo ar ištrynimo, kai susitarimas pasibaigia<br>- pranešimų apie duomenų apsaugos pažeidimus ir incidentus taisyklės. Tokį pranešimą duomenų valdytojas turi gauti nedelsiant, per kiek įmanomai trumpiausią terminą. <br>- Naudojant debesų kompiuterijos paslaugas:<br>\t1. aiškiai nurodykite asmens duomenų kategorijas ir duomenų tvarkymo veiksmus, kurie yra perkelti į debesis;<br>\t2. savo pačių nustatyti techniniai ir teisiniai saugos reikalavimai;<br>\t3. atlikite rizikos vertinimą tam, kad nustatytumėte tinkamas saugumo priemones;<br>\t4. nustatykite, kokio tipo debesų paslaugos naudojamos tvarkant duomenis;<br>\t5. pasirinkite tokį tiekėją, kuris suteikia pakankamas garantijas;<br>\t6. patikrinkite atitiktį vidinėms saugos gairėms;<br>\t7. stebėkite pasikeitimus sutartinių santykių metu.",
+				"description": "Duomenų tvarkytojas, kuriam perduodami asmens duomenys ar kuris juos tvarko, turi suteikti pakankamas garantijas. Tam būtina sudaryti susitarimą. <strong>Naudokitės tik patikimų duomenų tvarkytojų paslaugomis </strong> (ypač atsižvelkite į technines kompetencijas, patikimumą ir jo turimus resursus). Reikalaukite, kad tiekėjas pateiktų informacinių sistemų saugumo gaires. <br>Atlikite patikrą ir ją dokumentuokite (saugumo auditai, patalpų apžiūra) tam, kad įsitikintumėte, jog duomenų tvarkytojo suteiktos duomenų apsaugos garantijos iš tiesų egzistuoja. Garantijos apima: <br>- duomenų šifravimas, priklausomai nuo jų jautrumo lygio arba, jei tai neaktualu, buvimas procedūrų, kurių pagalba užtikrinama, kad paslaugų teikėjas neturėtų fizinės prieigos prie tvarkomų duomenų,<br>- perduodamų duomenų šifravimas (pvz.: HTTPS protokolo pagalba, VPN, t.t.)<br>- tinklo apsaugos garantijos, įvykių atsekamumo galimybė (protokolai, auditai), autorizavimosi valdymas, tapatybės nustatymas ir t.t.<strong>susitarimo su duomenų tvarkytoju sudarymas</strong>, jame turi būtų apibrėžtas susitarimo tikslas, trukmė, duomenų tvarkymo tikslas ir susitarimo šalių įsipareigojimai. Įsitikinkite, kad sutartyje būtų šios sąlygos:<br>- tvarkytojo konfidencialumo įsipareigojimas jo tvarkomų asmens duomenų atžvilgiu<br>- minimalūs reikalavimai vartotojų tapatybės nustatymui<br>- reikalavimai dėl duomenų grąžinimo, sunaikinimo ar ištrynimo, kai susitarimas pasibaigia<br>- pranešimų apie duomenų apsaugos pažeidimus ir incidentus taisyklės. Tokį pranešimą duomenų valdytojas turi gauti nedelsiant, per kiek įmanomai trumpiausią terminą. <br>- Naudojant debesų kompiuterijos paslaugas:<br>\t1. aiškiai nurodykite asmens duomenų kategorijas ir duomenų tvarkymo veiksmus, kurie yra perkelti į debesis;<br>\t2. savo pačių nustatyti techniniai ir teisiniai saugos reikalavimai;<br>\t3. atlikite rizikos vertinimą tam, kad nustatytumėte tinkamas saugumo priemones;<br>\t4. nustatykite, kokio tipo debesų paslaugos naudojamos tvarkant duomenis;<br>\t5. pasirinkite tokį tiekėją, kuris suteikia pakankamas garantijas;<br>\t6. patikrinkite atitiktį vidinėms saugos gairėms;<br>\t7. stebėkite pasikeitimus sutartinių santykių metu.",
 				"name": "Susitarimai dėl duomenų tvarkymo",
 				"placeholder": "Nurodykite, kokie reikalavimai taikomi duomenų tvarkytojui (prieglobos tiekėjui, administratoriui, specifinių paslaugų teikėjui)",
 				"source": "žr. https://ico.org.uk/media/for-organisations/documents/1540/cloud_computing_guidance_for_organisations.pdf"
@@ -684,13 +684,13 @@
 				"source": "PIAF Connected Objects p22 - WIKI"
 			},
 			"PIA_SEC_LOG": {
-				"description": "Ar naudojamos priemonės tinklo stebėsenai realiame laike tam, kad užkirsti kelią įtartinai veiklai tinkle ir fiksuoti reikiamus įrodymus.",
+				"description": "Ar naudojamos priemonės tinklo stebėsenai realiame laike tam, kad būtų užkirstas kelias įtartinai veiklai tinkle ir fiksuoti reikiamus įrodymus.",
 				"name": "Tinklo stebėjimas",
 				"placeholder": "Nurodykite, kokios priemonės ir kontrolė naudojama, siekiant nustatyti su asmens duomenis susijusius incidentus",
 				"source": "PIA3 p67 - WIKI"
 			},
 			"PIA_SEC_MAIN": {
-				"description": "Nurodyti tvarkas, reglamentuojančias techninės įrangos priežiūrą ir saugą, nurodant ar tokios paslaugos perkamos iš išorinių paslaugų teikėjų. <br> Nurodyti, ar leidžia nuotoliniu būdu teikti programinės įrangos priežiūros paslaugas. Nurodyti, kaip elgiamasi su sugedusia įranga.",
+				"description": "Nurodyti tvarkas, reglamentuojančias techninės įrangos priežiūrą ir saugą, nurodant ar tokios paslaugos perkamos iš išorinių paslaugų teikėjų. <br> Nurodyti, ar leidžiama nuotoliniu būdu teikti programinės įrangos priežiūros paslaugas. Nurodyti, kaip elgiamasi su sugedusia įranga.",
 				"name": "Priežiūra",
 				"placeholder": "Nurodykite, kaip prižiūrite techninę įrangą",
 				"source": "PIAF Connected Objects p23"
@@ -750,7 +750,7 @@
 				"source": "PIAF Connected Objects p22 - WIKI"
 			},
 			"PIA_TEC_CHIF": {
-				"description": "Priemonės, skirtos duomenų, saugomų duomenų bazėse, kompiuterių failuose, atsarginėse kopijose, <strong> konfidencialumo užtikrinimui </strong>. Taip pat šifravimo raktų administravimo procedūros (jų sukūrimas, saugojimas, keitimas, kai įtariama, kad duomenys galėjo būti pažeisti ir t.t.).<br> Nurodykite, kokie šifravimo mechanizmai naudojami duomenų srautų konfidencialumo užtikrinimui (VPN, TLS, pan.).",
+				"description": "Priemonės, skirtos duomenų, saugomų duomenų bazėse, kompiuterių failuose, atsarginėse kopijose, <strong> konfidencialumo užtikrinimui</strong>. Taip pat šifravimo raktų administravimo procedūros (jų sukūrimas, saugojimas, keitimas, kai įtariama, kad duomenys galėjo būti pažeisti ir t.t.).<br> Nurodykite, kokie šifravimo mechanizmai naudojami duomenų srautų konfidencialumo užtikrinimui (VPN, TLS, pan.).",
 				"name": "Šifravimas",
 				"placeholder": "Nurodykite priemones, kurios yra įgyvendintos, siekiant užtikrinti duomenų konfidencialumą",
 				"source": "PIAF Connected Objects p21"
@@ -1108,7 +1108,7 @@
 				"2": {
 					"questions": {
 						"1": {
-							"placeholder": "Nurodykite, kokia informacija pateikia duomenų subjektams ir kokiu būdu.",
+							"placeholder": "Nurodykite, kokia informacija pateikiama duomenų subjektams ir kokiu būdu.",
 							"short_title": "Duomenų subjektams pateikiama informacija",
 							"title": "Kaip duomenų subjektai informuojami apie duomenų tvarkymą?"
 						},
@@ -1118,17 +1118,17 @@
 							"title": "Kaip gaunamas duomenų subjektų sutikimas (jei toks yra naudojamas)?"
 						},
 						"3": {
-							"placeholder": "Nurodykite, kaip užtikrinama duomenų subjektų teisės susipažinti su duomenimis, juos gauti ir į duomenų perkeliamumą.",
+							"placeholder": "Nurodykite, kaip užtikrinamos duomenų subjektų teisės susipažinti su duomenimis, juos gauti ir į duomenų perkeliamumą.",
 							"short_title": "Teisė susipažinti ir teisė į duomenų perkeliamumą",
 							"title": "Kaip duomenų subjektai gali susipažinti su duomenimis ir įgyvendinti savo teisę į duomenų perkeliamumą?"
 						},
 						"4": {
-							"placeholder": "Nurodykite, kaip užtikrinama duomenų subjektų teisės į duomenų ištaisymą ir ištrynimą.",
+							"placeholder": "Nurodykite, kaip užtikrinamos duomenų subjektų teisės į duomenų ištaisymą ir ištrynimą.",
 							"short_title": "Teisė ištaisyti ir ištrinti",
 							"title": "Kaip duomenų subjektai gali ištaisyti duomenis ir reikalauti juos ištrinti (teisė būti pamirštam)?"
 						},
 						"5": {
-							"placeholder": "Nurodykite, kaip užtikrinama duomenų subjektų teisės apriboti duomenų tvarkymą ir prieštarauti dėl jų tvarkymo.",
+							"placeholder": "Nurodykite, kaip užtikrinamosš duomenų subjektų teisės apriboti duomenų tvarkymą ir prieštarauti dėl jų tvarkymo.",
 							"short_title": "Teisė apriboti ir prieštarauti",
 							"title": "Kaip duomenų subjektai gali apriboti duomenų tvarkymą ir prieštarauti jų tvarkymui?"
 						},
@@ -1164,7 +1164,7 @@
 						},
 						"2": {
 							"placeholder": "Nurodykite grėsmes",
-							"title": "Kas gali sukelti tokią riziką, nurodykite galimas<span class='green-highlight'>grėsmes</span>"
+							"title": "Kas gali sukelti tokią riziką, nurodykite galimas<span class='green-highlight'> grėsmes</span>"
 						},
 						"3": {
 							"placeholder": "Nurodykite rizikos šaltinius",
@@ -1305,7 +1305,7 @@
 			"1": "Tvarkymas gali būti vykdomas."
 		},
     "generate_zip": "TO TRANSLATE - Download the full report (.zip)",
-    "generate_docx": "TO TRANSLATE - Download the report (.docx)",
+    "generate_docx": "TO TRANSLATE - Download the report (.doc)",
 		"creation_date": "Data",
 		"csv_action_plan_comment": "Komentaras veiksmų planui",
 		"csv_evaluation_comment": "Komentaro įvertinimas",

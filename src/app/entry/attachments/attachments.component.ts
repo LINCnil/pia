@@ -29,7 +29,6 @@ export class AttachmentsComponent implements OnInit {
 
   /**
    * Allows users to add attachments to a PIA.
-   * @memberof AttachmentsComponent
    */
   addAttachment() {
     if (this.pia.is_example === 1) {
@@ -44,7 +43,6 @@ export class AttachmentsComponent implements OnInit {
   /**
    * Allows users to upload an attachment for a specific PIA.
    * @param {event} event - Any kind of event.
-   * @memberof AttachmentsComponent
    */
   uploadAttachement(event: Event) {
     this._attachmentsService.upload((<HTMLInputElement> event.target).files[0]);

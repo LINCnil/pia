@@ -24,7 +24,6 @@ export class MeasureService {
    * List the measures.
    * @param {number} pia_id - The Pia id.
    * @returns {Promise}
-   * @memberof MeasureService
    */
   async listMeasures(pia_id: number) {
     this.pia_id = pia_id;
@@ -40,7 +39,6 @@ export class MeasureService {
 
   /**
    * Allows an user to remove a measure ("RISKS" section).
-   * @memberof MeasureService
    */
   removeMeasure() {
     const measure_id = parseInt(localStorage.getItem('measure-id'), 10);
@@ -74,7 +72,6 @@ export class MeasureService {
    * @param {*} pia - Any Pia.
    * @param {string} [measureTitle] - The title of the measure to be added (used in some cases).
    * @param {string} [measurePlaceholder] - The placeholder of the measure.
-   * @memberof MeasureService
    */
   addNewMeasure(pia: any, measureTitle?: string, measurePlaceholder?: string) {
     const newMeasureRecord = new Measure();

@@ -69,7 +69,6 @@ export class MeasuresComponent implements OnInit, OnDestroy {
    * Enable auto resizing on measure title textarea.
    * @param {*} event - Any Event.
    * @param {HTMLElement} textarea - Any textarea.
-   * @memberof MeasuresComponent
    */
   autoTextareaResize(event: any, textarea?: HTMLElement) {
     if (event) {
@@ -86,7 +85,6 @@ export class MeasuresComponent implements OnInit, OnDestroy {
   /**
    * Change evaluation.
    * @param {*} evaluation - Any Evaluation.
-   * @memberof MeasuresComponent
    */
   evaluationChange(evaluation: any) {
     this.evaluation = evaluation;
@@ -94,7 +92,6 @@ export class MeasuresComponent implements OnInit, OnDestroy {
 
   /**
    * Enables edition for measure title.
-   * @memberof MeasuresComponent
    */
   measureTitleFocusIn() {
     if (this._globalEvaluationService.answerEditionEnabled) {
@@ -112,7 +109,6 @@ export class MeasuresComponent implements OnInit, OnDestroy {
    * Shows measure edit button.
    * Saves data from title field.
    * @param {event} event - Any Event.
-   * @memberof MeasuresComponent
    */
   measureTitleFocusOut(event: Event) {
     let userText = this.measureForm.controls['measureTitle'].value;
@@ -173,7 +169,6 @@ export class MeasuresComponent implements OnInit, OnDestroy {
 
   /**
    * Loads WYSIWYG editor for measure answer.
-   * @memberof MeasuresComponent
    */
   measureContentFocusIn() {
     if (this._globalEvaluationService.answerEditionEnabled) {
@@ -185,7 +180,6 @@ export class MeasuresComponent implements OnInit, OnDestroy {
    * Disables content field when losing focus from it.
    * Shows measure edit button.
    * Saves data from content field.
-   * @memberof MeasuresComponent
    */
   measureContentFocusOut() {
     this._knowledgeBaseService.placeholder = null;
@@ -206,7 +200,6 @@ export class MeasuresComponent implements OnInit, OnDestroy {
   /**
    * Shows or hides a measure.
    * @param {*} event - Any Event.
-   * @memberof MeasuresComponent
    */
   displayMeasure(event: any) {
     const accordeon = this.el.nativeElement.querySelector('.pia-measureBlock-title button');
@@ -235,7 +228,6 @@ export class MeasuresComponent implements OnInit, OnDestroy {
   /**
    * Allows an user to remove a measure.
    * @param {string} measureId - A measure id.
-   * @memberof MeasuresComponent
    */
   removeMeasure(measureId: string) {
     const measuresCount = document.querySelectorAll('.pia-measureBlock');
@@ -249,7 +241,6 @@ export class MeasuresComponent implements OnInit, OnDestroy {
 
   /**
    * Loads wysiwyg editor.
-   * @memberof MeasuresComponent
    */
   loadEditor() {
     this._knowledgeBaseService.placeholder = this.measure.placeholder;
