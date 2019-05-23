@@ -150,7 +150,7 @@ export class CardsComponent implements OnInit, OnDestroy {
   viewOnCard() {
     this.viewStyle.view = 'card';
     localStorage.setItem('homepageDisplayMode', this.viewStyle.view);
-    this.router.navigate(['home', 'card']);
+    // this.router.navigate(['home', 'card']);
     this.refreshContent();
   }
 

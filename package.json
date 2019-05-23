@@ -26,7 +26,7 @@
     "@ngx-translate/http-loader": "^1.0.2",
     "angular2-csv": "0.2.9",
     "core-js": "^2.5.4",
-    "cypress": "^3.2.0",
+    "cypress": "^3.3.1",
     "d3": "^4.10.2",
     "file-saver": "^2.0.1",
     "font-awesome": "^4.7.0",
