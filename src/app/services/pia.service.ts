@@ -20,8 +20,10 @@ export class PiaService {
   data: { sections: any };
 
   constructor(private _router: Router, private route: ActivatedRoute,
-              private _appDataService: AppDataService,
-              private _modalsService: ModalsService) {}
+              public _appDataService: AppDataService,
+              private _modalsService: ModalsService) {
+    this.data = this._appDataService.dataNav;
+  }
 
   /**
    * Get the PIA.
@@ -48,7 +50,7 @@ export class PiaService {
 
   calculPiaProgress(pia: Pia) {
     let numberElementsToValidate = 1;
-    this._appDataService.dataNav.sections.forEach((section: any) => {
+    this.data.sections.forEach((section: any) => {
       section.items.forEach((item: any) => {
         if (item.questions) {
           numberElementsToValidate += item.questions.length;

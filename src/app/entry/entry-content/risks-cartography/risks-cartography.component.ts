@@ -69,8 +69,8 @@ export class RisksCartographyComponent implements OnInit, OnDestroy {
     };
 
     const dataNav = this._appDataService.dataNav;
-    dataNav.sections.forEach(section => {
-      section.items.forEach(item => {
+    dataNav.sections.forEach((section: any) => {
+      section.items.forEach((item: any) => {
         if (item.questions) {
           item.questions.forEach(question => {
             if (question.answer_type === 'gauge') {

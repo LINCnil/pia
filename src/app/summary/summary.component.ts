@@ -98,11 +98,13 @@ export class SummaryComponent implements OnInit, AfterViewChecked {
    * @private
    */
   async downloadAllGraphsAsImages() {
-    const actionPlanOverviewImg = await this.getActionPlanOverviewImg();
-    this.downloadURI(actionPlanOverviewImg, 'actionPlanOverview.png');
-    const risksOverviewImg = this.getRisksOverviewImg();
-    const risksCartographyImg = await this.getRisksCartographyImg();
-    this.downloadURI(risksCartographyImg, 'risksCartography.png');
+    const JSZip = require('jszip');
+    const zip = new JSZip();
+    this.addImagesToZip(zip).then((zip2: any) => {
+      zip2.generateAsync({type: 'blob'}).then(blobContent => {
+        FileSaver.saveAs(blobContent, 'pia-images.zip');
+      });
+    });
   }
 
   /**
@@ -120,34 +122,18 @@ export class SummaryComponent implements OnInit, AfterViewChecked {
     this.displayRisksOverview = true;
     this.displayRisksCartography = true;
     setTimeout(() => {
-      const actionPlanBlock = document.querySelector('.pia-actionPlanGraphBlockContainer');
-      const actionPlanImg = document.querySelector('#actionPlanOverviewImg');
-      if (actionPlanImg) {
-        document.querySelector('#actionPlanOverviewImg').remove();
-      }
-      const preHtml = "<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'><head><meta charset='utf-8'><title>Export HTML To Doc</title></head><body>";
-      const postHtml = '</body></html>';
-      const html = preHtml + document.getElementById(element).innerHTML + postHtml;
-      const blob = new Blob(['\ufeff', html], {
-          type: 'application/msword'
-      });
-      const url = 'data:application/vnd.ms-word;charset=utf-8,' + encodeURIComponent(html);
-      const filename = 'pia.docx';
+      const dataDoc = this.prepareDocFile(element);
 
       const downloadLink = document.createElement('a');
       document.body.appendChild(downloadLink);
       if (navigator.msSaveOrOpenBlob ) {
-          navigator.msSaveOrOpenBlob(blob, filename);
+          navigator.msSaveOrOpenBlob(dataDoc.blob, dataDoc.filename);
       } else {
-          downloadLink.href = url;
-          downloadLink.download = filename;
+          downloadLink.href = dataDoc.url;
+          downloadLink.download = dataDoc.filename;
           downloadLink.click();
       }
       document.body.removeChild(downloadLink);
-
-      if (actionPlanBlock) {
-        actionPlanBlock.appendChild(actionPlanImg);
-      }
     }, 500);
   }
 
@@ -165,41 +151,35 @@ export class SummaryComponent implements OnInit, AfterViewChecked {
     this.displayActionPlan = true;
     this.displayRisksOverview = true;
     this.displayRisksCartography = true;
-    const actionPlanOverviewImg = await this.getActionPlanOverviewImg();
-    const risksCartographyImg = await this.getRisksCartographyImg();
-    const risksOverviewImg = await this.getRisksOverviewImgForZip();
-
     setTimeout(() => {
-      const actionPlanBlock = document.querySelector('.pia-actionPlanGraphBlockContainer');
-      const actionPlanImg = document.querySelector('#actionPlanOverviewImg');
-      if (actionPlanImg) {
-        document.querySelector('#actionPlanOverviewImg').remove();
-      }
-      const preHtml = "<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'><head><meta charset='utf-8'><title>Export HTML To Doc</title></head><body>";
-      const postHtml = '</body></html>';
-      const html = preHtml + document.getElementById(element).innerHTML + postHtml;
-      const blob = new Blob(['\ufeff', html], {
-          type: 'application/msword'
-      });
-      const url = 'data:application/vnd.ms-word;charset=utf-8,' + encodeURIComponent(html);
-
+      const dataDoc = this.prepareDocFile(element);
       const JSZip = require('jszip');
       const zip = new JSZip();
+      this.addImagesToZip(zip).then((zip2: any) => {
+        zip2.file(dataDoc.filename, dataDoc.blob);
+        zip2.generateAsync({type: 'blob'}).then(blobContent => {
+          FileSaver.saveAs(blobContent, 'pia-' + this.pia.name + '.zip');
+        });
+      });
+    }, 500);
+  }
+
+  async addImagesToZip(zip) {
+    return new Promise(async (resolve, reject) => {
+      const actionPlanOverviewImg = await this.getActionPlanOverviewImg();
+      const risksCartographyImg = await this.getRisksCartographyImg();
+      const risksOverviewImg = await this.getRisksOverviewImgForZip();
+
       const byteCharacters1 = atob((actionPlanOverviewImg as any).split(',')[1]);
       const byteCharacters2 = atob((risksCartographyImg as any).split(',')[1]);
       const byteCharacters3 = atob((risksOverviewImg as any).split(',')[1]);
+
       zip.file('actionPlanOverview.png', byteCharacters1, {binary: true});
       zip.file('risksCartography.png', byteCharacters2, {binary: true});
       zip.file('risksOverview.png', byteCharacters3, {binary: true});
-      zip.file('pia.docx', blob);
-      zip.generateAsync({type: 'blob'}).then(blobContent => {
-          FileSaver.saveAs(blobContent, 'pia-' + this.pia.name + '.zip');
-      });
 
-      if (actionPlanBlock) {
-        actionPlanBlock.appendChild(actionPlanImg);
-      }
-    }, 500);
+      resolve(zip);
+    });
   }
 
   /**
@@ -656,6 +636,27 @@ export class SummaryComponent implements OnInit, AfterViewChecked {
       ]
     };
     this.csvContent = this._actionPlanService.csvRows;
+  }
+
+  /**
+   * Prepare .doc file
+   */
+  prepareDocFile(element) {
+    const actionPlanImg = document.querySelector('#actionPlanOverviewImg');
+    if (actionPlanImg) {
+      document.querySelector('#actionPlanOverviewImg').remove();
+    }
+    const preHtml = "<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'><head><meta charset='utf-8'><title>Export HTML To Doc</title></head><body>";
+    const postHtml = '</body></html>';
+    const html = preHtml + document.getElementById(element).innerHTML + postHtml;
+    const blob = new Blob(['\ufeff', html], {
+      type: 'application/msword'
+    });
+    const actionPlanBlock = document.querySelector('.pia-actionPlanGraphBlockContainer');
+    if (actionPlanBlock) {
+      actionPlanBlock.appendChild(actionPlanImg);
+    }
+    return { url: 'data:application/vnd.ms-word;charset=utf-8,' + encodeURIComponent(html), blob, filename: 'pia.doc' };
   }
 
 }
