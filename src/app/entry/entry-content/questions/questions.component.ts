@@ -120,6 +120,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
           // Sinon si la question courante concerne les sources (323, 333, 343)
           this.userAnswersToDisplay = this.allUserAnswersForSources;
         }
+        this.userAnswersToDisplay = this.userAnswersToDisplay.reduce((a, x) => a.includes(x) ? a : [...a, x], []).sort();
       }
     });
   }
