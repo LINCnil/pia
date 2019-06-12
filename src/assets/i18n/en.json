@@ -1267,7 +1267,7 @@
 				},
 				"3": {
 					"short_help": "Present the advice of the person in charge of data protection and privacy issues (data protection delegate if there is one). Present the views of the data subjects or their representatives.",
-					"title": "DPO and concerned persons opinions"
+					"title": "DPO and data subjects' opinions"
 				},
 				"4": {
 					"title": "Validate the PIA"
