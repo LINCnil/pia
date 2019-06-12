@@ -265,7 +265,8 @@
 			"general_measure": "Physical Security control",
 			"measure_on_data": "Logical security control",
 			"organizational_measure": "Organisational control",
-			"principle": "Principle"
+			"principle": "Principle",
+      "method": "Methodology"
 		},
 		"filters": {
 			"all": "All",
@@ -385,6 +386,11 @@
 				"name": "Measures",
 				"source": "None"
 			},
+      "PIA_METHOD_MES": {
+				"description": "Planned controls are those originally put in place, before any analysis by the assessor. Corrective measures advised by the assessor will be stated in the action plan and will enable a second assessment of the severity and likelihood of the risk.",
+				"name": "Planned and corrective controls",
+				"source": ""
+      },
 			"PIA_DEF_MIN1": {
 				"description": "When data are being imported, different types of metadata (such as EXIF data with an image file attached) can unintentionally be collected. <br>Such metadata must be identified and eliminated if they are unnecessary for the purposes specified.",
 				"name": "Filtering and removal",
@@ -1173,7 +1179,7 @@
 						},
 						"4": {
 							"placeholder": "Click here to select controls which address the risk.",
-							"title": "Which of the identified <span class='green-highlight'>controls</span> contribute to addressing the risk?"
+							"title": "Which of the identified <span class='green-highlight'>planned controls</span> contribute to addressing the risk?"
 						},
 						"5": {
 							"placeholder": "Justify here the estimated severity of the risk.",
