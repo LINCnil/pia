@@ -265,7 +265,8 @@
 			"general_measure": "Fyzická bezpečnostní kontrola",
 			"measure_on_data": "Logická bezpečnostní kontrola",
 			"organizational_measure": "Organizační kontrola",
-			"principle": "Zásada"
+			"principle": "Zásada",
+      "method": "(TRANSLATION REQUIRED) Methodology"
 		},
 		"filters": {
 			"all": "Vše",
@@ -380,6 +381,11 @@
 				"name": "Threats that can lead to an unwanted modification of personal data",
 				"source": "PIAF Connected Objects p43 and 44, WIKI"
 			},
+      "PIA_METHOD_MES": {
+				"description": "(TRANSLATION REQUIRED) Planned controls are those originally put in place, before any analysis by the assessor. Corrective measures advised by the assessor will be stated in the action plan and will enable a second assessment of the severity and likelihood of the risk.",
+				"name": "(TRANSLATION REQUIRED) Planned and corrective controls",
+				"source": ""
+      },
 			"PIA_DEF_MES": {
 				"description": "To be chosen among those available in section \"Planned or existing measures\", which you may complete if needed.",
 				"name": "Measures",
