@@ -265,7 +265,8 @@
 			"general_measure": "Μέτρο ασφαλείας του συστήματος",
 			"measure_on_data": "Μέτρο για τα δεδομένα",
 			"organizational_measure": "Οργανωτικό μέτρο",
-			"principle": "Αρχή"
+			"principle": "Αρχή",
+      "method": "(TRANSLATION REQUIRED) Methodology"
 		},
 		"filters": {
 			"all": "Όλα",
@@ -380,6 +381,11 @@
 				"name": "Απειλές που μπορούν να οδηγήσουν σε ανεπιθύμητη τροποποίηση των προσωπικών δεδομένων",
 				"source": "PIAF Connected Objects p43 and 44, WIKI"
 			},
+      "PIA_METHOD_MES": {
+				"description": "(TRANSLATION REQUIRED) Planned controls are those originally put in place, before any analysis by the assessor. Corrective measures advised by the assessor will be stated in the action plan and will enable a second assessment of the severity and likelihood of the risk.",
+				"name": "(TRANSLATION REQUIRED) Planned and corrective controls",
+				"source": ""
+      },
 			"PIA_DEF_MES": {
 				"description": "Διαλογή μεταξύ αυτών που διατίθενται στην ενότητα \"Προγραμματιζόμενα ή υπάρχοντα μέτρα\", τα οποία μπορείτε να συμπληρώσετε εάν χρειάζεται.",
 				"name": "Μέτρα",
