@@ -547,11 +547,11 @@
     "description": "knowledge_base.slugs.PIA_DEF_MENM.description"
   },
   {
-    "slug": "PIA_METHOD_MENM",
+    "slug": "PIA_METHOD_MES",
     "filters": "",
     "category": "knowledge_base.category.method",
-    "name": "knowledge_base.slugs.PIA_METHOD_MENM.name",
-    "description": "knowledge_base.slugs.PIA_METHOD_MENM.description"
+    "name": "knowledge_base.slugs.PIA_METHOD_MES.name",
+    "description": "knowledge_base.slugs.PIA_METHOD_MES.description"
   },
   {
     "slug": "PIA_DEF_MENI",
