@@ -381,16 +381,16 @@
 				"name": "Threats that can lead to an unwanted modification of personal data",
 				"source": "PIAF Connected Objects p43 and 44, WIKI"
 			},
-			"PIA_DEF_MES": {
-				"description": "To be chosen among those available in section \"Planned or existing measures\", which you may complete if needed.",
-				"name": "Measures",
-				"source": "None"
-			},
       "PIA_METHOD_MES": {
 				"description": "Planned controls are those originally put in place, before any analysis by the assessor. Corrective measures advised by the assessor will be stated in the action plan and will enable a second assessment of the severity and likelihood of the risk.",
 				"name": "Planned and corrective controls",
 				"source": ""
       },
+			"PIA_DEF_MES": {
+				"description": "To be chosen among those available in section \"Planned or existing measures\", which you may complete if needed.",
+				"name": "Measures",
+				"source": "None"
+			},
 			"PIA_DEF_MIN1": {
 				"description": "When data are being imported, different types of metadata (such as EXIF data with an image file attached) can unintentionally be collected. <br>Such metadata must be identified and eliminated if they are unnecessary for the purposes specified.",
 				"name": "Filtering and removal",
