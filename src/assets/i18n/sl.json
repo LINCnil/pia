@@ -530,7 +530,9 @@
 
 			"organizational_measure": "Organizacijske kontrole",
 
-			"principle": "Princip"
+			"principle": "Princip",
+      
+      "method": "(TRANSLATION REQUIRED) Methodology"
 
 		},
 
@@ -759,6 +761,15 @@
 				"source": "piaF Connected Objects p43 and 44, WIKI"
 
 			},
+      
+      "PIA_METHOD_MES": {
+        
+				"description": "(TRANSLATION REQUIRED) Planned controls are those originally put in place, before any analysis by the assessor. Corrective measures advised by the assessor will be stated in the action plan and will enable a second assessment of the severity and likelihood of the risk.",
+				
+        "name": "(TRANSLATION REQUIRED) Planned and corrective controls",
+				
+        "source": ""
+      },
 
 			"PIA_DEF_MES": {
 
