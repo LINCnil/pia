@@ -265,7 +265,8 @@
 			"general_measure": "Fyysinen suojaustoimi",
 			"measure_on_data": "Looginen suojaustoimi",
 			"organizational_measure": "Organisatorinen suojaustoimi",
-			"principle": "Periaate"
+			"principle": "Periaate",
+      "method": "(TRANSLATION REQUIRED) Methodology"
 		},
 		"filters": {
 			"all": "Kaikki",
@@ -380,6 +381,11 @@
 				"name": "Uhat, jotka voivat johtaa henkilötietojen ei-toivottuun muokkaamiseen",
 				"source": "PIAF Connected Objects s. 43 ja 44, WIKI"
 			},
+      "PIA_METHOD_MES": {
+				"description": "(TRANSLATION REQUIRED) Planned controls are those originally put in place, before any analysis by the assessor. Corrective measures advised by the assessor will be stated in the action plan and will enable a second assessment of the severity and likelihood of the risk.",
+				"name": "(TRANSLATION REQUIRED) Planned and corrective controls",
+				"source": ""
+      },
 			"PIA_DEF_MES": {
 				"description": "Valitaan kohdassa ”Suunnitellut tai tehdyt toimenpiteet” luetelluista toimenpiteistä. Kohtaa voi täydentää tarvittaessa.",
 				"name": "Toimenpiteet",
