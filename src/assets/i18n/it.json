@@ -265,7 +265,8 @@
 			"general_measure": "Misure generali di sicurezza dei sistemi ",
 			"measure_on_data": "Misure applicate ai dati ",
 			"organizational_measure": "Misure organizzative",
-			"principle": "Principio"
+			"principle": "Principio",
+      "method": "(TRANSLATION REQUIRED) Methodology"
 		},
 		"filters": {
 			"all": "Tutti",
@@ -380,6 +381,11 @@
 				"name": "Minacce che possono dar luogo a modifiche illegittime di dati personali",
 				"source": "PIAF Oggetti Connessi p43 and 44, WIKI"
 			},
+      "PIA_METHOD_MES": {
+				"description": "(TRANSLATION REQUIRED) Planned controls are those originally put in place, before any analysis by the assessor. Corrective measures advised by the assessor will be stated in the action plan and will enable a second assessment of the severity and likelihood of the risk.",
+				"name": "(TRANSLATION REQUIRED) Planned and corrective controls",
+				"source": ""
+      },
 			"PIA_DEF_MES": {
 				"description": "Da scegliere tra quelle disponibili nella sezione \"Misure pianificate o esistenti\", e che possono essere integrate se necessario.",
 				"name": "Misure",
