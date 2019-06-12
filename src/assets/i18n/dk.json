@@ -265,7 +265,8 @@
 			"general_measure": "Fysisk sikkerhedsforanstaltning",
 			"measure_on_data": "Logisk sikkerhedsforanstaltning",
 			"organizational_measure": "Organisatorisk foranstaltning",
-			"principle": "Principper"
+			"principle": "Principper",
+      "method": "(TRANSLATION REQUIRED) Methodology"
 		},
 		"filters": {
 			"all": "Alle",
@@ -380,6 +381,11 @@
 				"name": "Trusseler der kan lede til uønsket ændring af personoplysninger",
 				"source": "PIAF Connected Objects p43 and 44, WIKI"
 			},
+      "PIA_METHOD_MES": {
+				"description": "(TRANSLATION REQUIRED) Planned controls are those originally put in place, before any analysis by the assessor. Corrective measures advised by the assessor will be stated in the action plan and will enable a second assessment of the severity and likelihood of the risk.",
+				"name": "(TRANSLATION REQUIRED) Planned and corrective controls",
+				"source": ""
+      },
 			"PIA_DEF_MES": {
 				"description": "Skal vælges blandt de til rådige foranstaltninger i sektionen \"Planlagte eller eksiterende foranstaltninger\", der kan udbygges hvis nødvendigt.",
 				"name": "Foranstaltninger",
