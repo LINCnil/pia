@@ -36,7 +36,6 @@ export class OverviewRisksComponent implements OnInit {
   /**
    * Initialize the data.
    * @private
-   * @memberof OverviewRisksComponent
    */
   private async initData() {
     await this._piaService.getPIA();
@@ -88,10 +87,9 @@ export class OverviewRisksComponent implements OnInit {
   /**
    * Initialize the SVG.
    * @private
-   * @memberof OverviewRisksComponent
    */
   private async initSvg() {
-    const dataNav = await this._appDataService.getDataNav();
+    const dataNav = this._appDataService.dataNav;
     this.svg = d3.select('svg');
     this.svg.attr('viewBox', '0 0 590 800');
     let y = 20;
@@ -177,8 +175,8 @@ export class OverviewRisksComponent implements OnInit {
     }
 
     y = 140;
-    dataNav.sections.forEach(section => {
-      section.items.forEach(item => {
+    dataNav.sections.forEach((section: any) => {
+      section.items.forEach((item: any) => {
         if (item.evaluation_with_gauge) {
           const id = section.id.toString() + item.id.toString();
           const x = 380;
@@ -261,7 +259,6 @@ export class OverviewRisksComponent implements OnInit {
    * @param {any} x - Position X.
    * @param {any} y - Position Y.
    * @returns {Promise}
-   * @memberof OverviewRisksComponent
    */
   private async parseQuestions(questionGauges, g, x, y) {
     let i = 0;

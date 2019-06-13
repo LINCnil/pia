@@ -35,7 +35,6 @@ export class LanguagesService {
   /**
    * Update the current language after choosing a new one
    * @param {string} selectedLanguage
-   * @memberof HeaderComponent
    */
   updateCurrentLanguage(selectedLanguage: string) {
     localStorage.setItem('userLanguage', selectedLanguage);

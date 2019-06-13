@@ -27,7 +27,6 @@ export class ListItemComponent implements OnInit {
    * Focuses out field and update Structure.
    * @param {string} attribute - Attribute of the Structure.
    * @param {*} event - Any Event.
-   * @memberof ListItemComponent
    */
   onFocusOut(attribute: string, event: any) {
     const text = event.target.innerText;
@@ -38,7 +37,6 @@ export class ListItemComponent implements OnInit {
   /**
    * Opens the modal to confirm deletion of a Structure
    * @param {string} id - The Structure id.
-   * @memberof ListItemComponent
    */
   remove(id: string) {
     localStorage.setItem('structure-id', id);
@@ -48,7 +46,6 @@ export class ListItemComponent implements OnInit {
   /**
    * Export the Structure
    * @param {number} id - The Structure id.
-   * @memberof ListItemComponent
    */
   export(id: number) {
     this._structureService.exportStructure(id);

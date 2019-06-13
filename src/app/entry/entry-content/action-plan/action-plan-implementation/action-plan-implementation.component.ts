@@ -57,7 +57,6 @@ export class ActionPlanImplementationComponent implements OnInit {
 
   /**
    * Focuses estimated evaluation date field.
-   * @memberof ActionPlanImplementationComponent
    */
   estimatedEvaluationDateFocusIn() {
     if (this._globalEvaluationService.evaluationEditionEnabled) {
@@ -68,7 +67,6 @@ export class ActionPlanImplementationComponent implements OnInit {
 
   /**
    * Updates estimated evaluation date field.
-   * @memberof ActionPlanImplementationComponent
    */
   estimatedEvaluationDateFocusOut() {
     const userText = this.actionPlanForm.controls['estimatedEvaluationDate'].value;
@@ -83,7 +81,6 @@ export class ActionPlanImplementationComponent implements OnInit {
 
   /**
    * Focuses estimated evaluation date field.
-   * @memberof ActionPlanImplementationComponent
    */
   personInChargeFocusIn() {
     if (this._globalEvaluationService.evaluationEditionEnabled) {
@@ -94,7 +91,6 @@ export class ActionPlanImplementationComponent implements OnInit {
 
   /**
    * Disables action plan fields and saves data.
-   * @memberof ActionPlanImplementationComponent
    */
   personInChargeFocusOut() {
     let userText = this.actionPlanForm.controls['personInCharge'].value;

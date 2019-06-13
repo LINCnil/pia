@@ -12,7 +12,6 @@ export class ModalsService {
   /**
    * Opens a specific modal through its unique id.
    * @param {string} modal_id - Unique id of the modal which has to be opened.
-   * @memberof ModalsService
    */
   openModal(modal_id: string) {
     if (modal_id === 'pia-declare-measures' ||
@@ -38,7 +37,6 @@ export class ModalsService {
 
   /**
    * Closes the current opened modal.
-   * @memberof ModalsService
    */
   closeModal(pia_id?: number, toAction?: string) {
     const modal = document.querySelector('.pia-modalBlock.open');

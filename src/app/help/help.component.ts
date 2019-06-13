@@ -62,7 +62,6 @@ export class HelpComponent implements OnInit, OnDestroy {
    * Jump to the title/subtitle clicked.
    * @param {any} event - Any Event.
    * @param {any} text - The title or subtitle.
-   * @memberof HelpComponent
    */
   getAnchor(event, text) {
     event.preventDefault();
@@ -77,7 +76,6 @@ export class HelpComponent implements OnInit, OnDestroy {
 
   /**
    * Parse the file to get all title and subtitle.
-   * @memberof HelpComponent
    */
   getSectionList() {
     this.tableOfTitles = [];

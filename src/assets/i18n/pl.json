@@ -1305,7 +1305,7 @@
 			"1": "To przetwarzanie można wdrożyć."
 		},
     "generate_zip": "TO TRANSLATE - Download the full report (.zip)",
-    "generate_docx": "TO TRANSLATE - Download the report (.docx)",
+    "generate_docx": "TO TRANSLATE - Download the report (.doc)",
 		"creation_date": "Data utworzenia",
 		"csv_action_plan_comment": "Komentarz do planu działania",
 		"csv_evaluation_comment": "Komentarz do oceny",

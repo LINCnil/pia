@@ -66,15 +66,14 @@ export class EntryContentComponent implements OnInit, OnChanges, OnDestroy {
     await this._structureService.getStructure();
     this._paginationService.dataNav = this._structureService.structure.data;
 
-    const sectionId = parseInt(this._activatedRoute.snapshot.params['section_id'], 10);
-    const itemId = parseInt(this._activatedRoute.snapshot.params['item_id'], 10);
+    const sectionId = parseInt(this._activatedRoute.snapshot.params.section_id, 10);
+    const itemId = parseInt(this._activatedRoute.snapshot.params.item_id, 10);
 
     this._paginationService.setPagination(sectionId, itemId);
   }
 
   /**
    * Add new question.
-   * @memberof EntryContentComponent
    */
   async addQuestion() {
     this._structureService.getStructure().then(() => {
@@ -86,7 +85,6 @@ export class EntryContentComponent implements OnInit, OnChanges, OnDestroy {
 
   /**
    * Add new measure.
-   * @memberof EntryContentComponent
    */
   async addMeasure() {
     this._structureService.getStructure().then(() => {
@@ -101,10 +99,9 @@ export class EntryContentComponent implements OnInit, OnChanges, OnDestroy {
    * @private
    * @param {number} status_start - From status.
    * @param {number} status_end - To status.
-   * @memberof EntryContentComponent
    */
   private goToNextSectionItem(status_start: number, status_end: number) {
-    const goto_section_item = this._paginationService.getNextSectionItem(status_start, status_end)
+    const goto_section_item = this._paginationService.getNextSectionItem(status_start, status_end);
 
     this._router.navigate([
       'structures',

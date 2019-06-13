@@ -48,7 +48,6 @@ export class CardItemComponent implements OnInit {
 
   /**
    * Focuses pia name field.
-   * @memberof CardItemComponent
    */
   piaNameFocusIn() {
     this.piaForm.controls['name'].enable();
@@ -57,7 +56,6 @@ export class CardItemComponent implements OnInit {
 
   /**
    * Disables pia name field and saves data.
-   * @memberof CardItemComponent
    */
   piaNameFocusOut() {
     let userText = this.piaForm.controls['name'].value;
@@ -75,7 +73,6 @@ export class CardItemComponent implements OnInit {
 
   /**
    * Focuses pia author name field.
-   * @memberof CardItemComponent
    */
   piaAuthorNameFocusIn() {
     this.piaAuthorName.nativeElement.focus();
@@ -83,7 +80,6 @@ export class CardItemComponent implements OnInit {
 
   /**
    * Disables pia author name field and saves data.
-   * @memberof CardItemComponent
    */
   piaAuthorNameFocusOut() {
     let userText = this.piaForm.controls['author_name'].value;
@@ -101,7 +97,6 @@ export class CardItemComponent implements OnInit {
 
   /**
    * Focuses pia evaluator name field.
-   * @memberof CardItemComponent
    */
   piaEvaluatorNameFocusIn() {
     this.piaEvaluatorName.nativeElement.focus();
@@ -109,7 +104,6 @@ export class CardItemComponent implements OnInit {
 
   /**
    * Disables pia evaluator name field and saves data.
-   * @memberof CardItemComponent
    */
   piaEvaluatorNameFocusOut() {
     let userText = this.piaForm.controls['evaluator_name'].value;
@@ -127,7 +121,6 @@ export class CardItemComponent implements OnInit {
 
   /**
    * Focuses pia validator name field.
-   * @memberof CardItemComponent
    */
   piaValidatorNameFocusIn() {
     this.piaValidatorName.nativeElement.focus();
@@ -135,7 +128,6 @@ export class CardItemComponent implements OnInit {
 
   /**
    * Disables pia validator name field and saves data.
-   * @memberof CardItemComponent
    */
   piaValidatorNameFocusOut() {
     let userText = this.piaForm.value.validator_name;
@@ -154,7 +146,6 @@ export class CardItemComponent implements OnInit {
   /**
    * Deletes a PIA with a given id.
    * @param {string} id - The PIA id.
-   * @memberof CardItemComponent
    */
   removePia(id: string) {
     localStorage.setItem('pia-id', id);
@@ -164,7 +155,6 @@ export class CardItemComponent implements OnInit {
   /**
    * Export a PIA in JSON format.
    * @param {number} id - The PIA id.
-   * @memberof CardItemComponent
    */
   export(id: number) {
     this._piaService.export(id);

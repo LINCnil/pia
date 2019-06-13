@@ -67,7 +67,6 @@ export class QuestionsComponent implements OnInit, OnDestroy {
 
   /**
    * Enables edition for question title.
-   * @memberof QuestionsComponent
    */
   questionTitleFocusIn() {
     if (this._structureService.structure.is_example) {
@@ -86,7 +85,6 @@ export class QuestionsComponent implements OnInit, OnDestroy {
    * Shows question edit button.
    * Saves data from title field.
    * @param {event} event - Any Event.
-   * @memberof QuestionsComponent
    */
   questionTitleFocusOut(event: Event) {
     let userText = this.questionForm.controls['title'].value;
@@ -107,7 +105,6 @@ export class QuestionsComponent implements OnInit, OnDestroy {
 
   /**
    * Loads WYSIWYG editor.
-   * @memberof QuestionsComponent
    */
   questionContentFocusIn() {
     if (this._structureService.structure.is_example) {
@@ -125,7 +122,6 @@ export class QuestionsComponent implements OnInit, OnDestroy {
 
   /**
    * Disables question field + shows edit button + save data.
-   * @memberof QuestionsComponent
    */
   questionContentFocusOut() {
     let userText = this.questionForm.controls['text'].value;
@@ -143,7 +139,6 @@ export class QuestionsComponent implements OnInit, OnDestroy {
   /**
    * Shows or hides a question.
    * @param {*} event - Any Event.
-   * @memberof QuestionsComponent
    */
   displayQuestion(event: any) {
     const accordeon = this.el.nativeElement.querySelector('.pia-accordeon');
@@ -154,7 +149,6 @@ export class QuestionsComponent implements OnInit, OnDestroy {
 
   /**
    * Loads wysiwyg editor.
-   * @memberof QuestionsComponent
    */
   loadEditor() {
     this._knowledgeBaseService.placeholder = this.question.placeholder;
@@ -186,7 +180,6 @@ export class QuestionsComponent implements OnInit, OnDestroy {
   /**
    * Close the editor.
    * @private
-   * @memberof QuestionsComponent
    */
   private closeEditor() {
     this._knowledgeBaseService.placeholder = null;
