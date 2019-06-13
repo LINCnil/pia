@@ -84,7 +84,7 @@
 		"to_correct": "Προς διόρθωση"
 	},
 	"header": {
-    "exit_full_screen_mode": "TO TRANSLATE - Press F11 to exit full screen mode.",
+    "exit_full_screen_mode": "Πατήστε F11 για έξοδο από την πλήρη οθόνη.",
 		"homepage_link": "Πίνακας ενδείξεων",
 		"knowledge_base_link": "Βάση γνώσεων",
 		"languages": {
@@ -1304,8 +1304,8 @@
 			"0": "Η επεξεργασία δεν πρέπει να διεξάγεται.",
 			"1": "Η επεξεργασία θα μπορούσε να διεξαχθεί."
 		},
-    "generate_zip": "TO TRANSLATE - Download the full report (.zip)",
-    "generate_docx": "TO TRANSLATE - Download the report (.doc)",
+    "generate_zip": "Κατεβάστε την πλήρη έκθεση (.zip)",
+    "generate_docx": "Κατεβάστε την έκθεση (.doc)",
 		"creation_date": "Ημερομηνία δημιουργίας",
 		"csv_action_plan_comment": "Σχόλιο σχεδίου δράσης",
 		"csv_evaluation_comment": "Σχόλιο αξιολόγησης",
@@ -1315,7 +1315,7 @@
 		"csv_section": "Ενότητα",
 		"csv_title_object": "Τίτλος",
 		"display_filters": {
-      "check_all": "TO TRANSLATE - Enable / disable all display filters",
+      "check_all": "Ενεργοποίηση / απενεργοποίηση όλων των φίλτρων εμφάνισης",
 			"action_plan_content": "Εμφάνιση σχεδίου δράσης",
 			"context_content": "Εμφάνιση τμήματος \"Γενικό πλαίσιο\"",
 			"main_content": "Εμφάνιση τμήματος \"Πληροφορίες ΕΑ\"",
