@@ -58,11 +58,11 @@ export class SummaryComponent implements OnInit, AfterViewChecked {
 
   async ngOnInit() {
     this.summarySubscription = this.route.queryParams.subscribe(params => {
-      this.displayOnlyActionPlan = params['displayOnlyActionPlan'];
+      this.displayOnlyActionPlan = params.displayOnlyActionPlan;
     });
 
     this.content = [];
-    this.dataNav = await this._appDataService.getDataNav();
+    this.dataNav = this._appDataService.dataNav;
 
     this._piaService.getPIA().then(() => {
       this.pia = this._piaService.pia;
@@ -96,14 +96,15 @@ export class SummaryComponent implements OnInit, AfterViewChecked {
   /**
    * Download all graphs as images
    * @private
-   * @memberof SummaryComponent
    */
   async downloadAllGraphsAsImages() {
-    const actionPlanOverviewImg = await this.getActionPlanOverviewImg();
-    this.downloadURI(actionPlanOverviewImg, 'actionPlanOverview.png');
-    const risksOverviewImg = this.getRisksOverviewImg();
-    const risksCartographyImg = await this.getRisksCartographyImg();
-    this.downloadURI(risksCartographyImg, 'risksCartography.png');
+    const JSZip = require('jszip');
+    const zip = new JSZip();
+    this.addImagesToZip(zip).then((zip2: any) => {
+      zip2.generateAsync({type: 'blob'}).then(blobContent => {
+        FileSaver.saveAs(blobContent, 'pia-images.zip');
+      });
+    });
   }
 
   /**
@@ -121,34 +122,18 @@ export class SummaryComponent implements OnInit, AfterViewChecked {
     this.displayRisksOverview = true;
     this.displayRisksCartography = true;
     setTimeout(() => {
-      const actionPlanBlock = document.querySelector('.pia-actionPlanGraphBlockContainer');
-      const actionPlanImg = document.querySelector('#actionPlanOverviewImg');
-      if (actionPlanImg) {
-        document.querySelector('#actionPlanOverviewImg').remove();
-      }
-      const preHtml = "<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'><head><meta charset='utf-8'><title>Export HTML To Doc</title></head><body>";
-      const postHtml = '</body></html>';
-      const html = preHtml + document.getElementById(element).innerHTML + postHtml;
-      const blob = new Blob(['\ufeff', html], {
-          type: 'application/msword'
-      });
-      const url = 'data:application/vnd.ms-word;charset=utf-8,' + encodeURIComponent(html);
-      const filename = 'pia.docx';
+      const dataDoc = this.prepareDocFile(element);
 
       const downloadLink = document.createElement('a');
       document.body.appendChild(downloadLink);
       if (navigator.msSaveOrOpenBlob ) {
-          navigator.msSaveOrOpenBlob(blob, filename);
+          navigator.msSaveOrOpenBlob(dataDoc.blob, dataDoc.filename);
       } else {
-          downloadLink.href = url;
-          downloadLink.download = filename;
+          downloadLink.href = dataDoc.url;
+          downloadLink.download = dataDoc.filename;
           downloadLink.click();
       }
       document.body.removeChild(downloadLink);
-
-      if (actionPlanBlock) {
-        actionPlanBlock.appendChild(actionPlanImg);
-      }
     }, 500);
   }
 
@@ -166,47 +151,40 @@ export class SummaryComponent implements OnInit, AfterViewChecked {
     this.displayActionPlan = true;
     this.displayRisksOverview = true;
     this.displayRisksCartography = true;
-    const actionPlanOverviewImg = await this.getActionPlanOverviewImg();
-    const risksCartographyImg = await this.getRisksCartographyImg();
-    const risksOverviewImg = await this.getRisksOverviewImgForZip();
-
     setTimeout(() => {
-      const actionPlanBlock = document.querySelector('.pia-actionPlanGraphBlockContainer');
-      const actionPlanImg = document.querySelector('#actionPlanOverviewImg');
-      if (actionPlanImg) {
-        document.querySelector('#actionPlanOverviewImg').remove();
-      }
-      const preHtml = "<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'><head><meta charset='utf-8'><title>Export HTML To Doc</title></head><body>";
-      const postHtml = '</body></html>';
-      const html = preHtml + document.getElementById(element).innerHTML + postHtml;
-      const blob = new Blob(['\ufeff', html], {
-          type: 'application/msword'
-      });
-      const url = 'data:application/vnd.ms-word;charset=utf-8,' + encodeURIComponent(html);
-
+      const dataDoc = this.prepareDocFile(element);
       const JSZip = require('jszip');
       const zip = new JSZip();
+      this.addImagesToZip(zip).then((zip2: any) => {
+        zip2.file(dataDoc.filename, dataDoc.blob);
+        zip2.generateAsync({type: 'blob'}).then(blobContent => {
+          FileSaver.saveAs(blobContent, 'pia-' + this.pia.name + '.zip');
+        });
+      });
+    }, 500);
+  }
+
+  async addImagesToZip(zip) {
+    return new Promise(async (resolve, reject) => {
+      const actionPlanOverviewImg = await this.getActionPlanOverviewImg();
+      const risksCartographyImg = await this.getRisksCartographyImg();
+      const risksOverviewImg = await this.getRisksOverviewImgForZip();
+
       const byteCharacters1 = atob((actionPlanOverviewImg as any).split(',')[1]);
       const byteCharacters2 = atob((risksCartographyImg as any).split(',')[1]);
       const byteCharacters3 = atob((risksOverviewImg as any).split(',')[1]);
+
       zip.file('actionPlanOverview.png', byteCharacters1, {binary: true});
       zip.file('risksCartography.png', byteCharacters2, {binary: true});
       zip.file('risksOverview.png', byteCharacters3, {binary: true});
-      zip.file('pia.docx', blob);
-      zip.generateAsync({type: 'blob'}).then(blobContent => {
-          FileSaver.saveAs(blobContent, 'pia-' + this.pia.name + '.zip');
-      });
 
-      if (actionPlanBlock) {
-        actionPlanBlock.appendChild(actionPlanImg);
-      }
-    }, 500);
+      resolve(zip);
+    });
   }
 
   /**
    * Download the action plan overview as an image
    * @async
-   * @memberof SummaryComponent
    */
   async getActionPlanOverviewImg() {
     return new Promise((resolve, reject) => {
@@ -227,7 +205,6 @@ export class SummaryComponent implements OnInit, AfterViewChecked {
   /**
    * Download the risks overview as an image
    * @private
-   * @memberof SummaryComponent
    */
   private getRisksOverviewImg() {
     setTimeout(() => {
@@ -245,7 +222,6 @@ export class SummaryComponent implements OnInit, AfterViewChecked {
   /**
    * Generate a data format from the risk overview image. It can then be used in the Zip.
    * @async
-   * @memberof SummaryComponent
    */
   async getRisksOverviewImgForZip() {
     return new Promise((resolve, reject) => {
@@ -263,7 +239,6 @@ export class SummaryComponent implements OnInit, AfterViewChecked {
   /**
    * Download the risks cartography as an image
    * @async
-   * @memberof SummaryComponent
    */
   async getRisksCartographyImg() {
     return new Promise((resolve, reject) => {
@@ -286,7 +261,6 @@ export class SummaryComponent implements OnInit, AfterViewChecked {
    * @private
    * @param {uri} uri identifiant URI de l'image
    * @param {string} name name of the image
-   * @memberof SummaryComponent
    */
   private downloadURI(uri, name) {
     const link = document.createElement('a');
@@ -299,7 +273,6 @@ export class SummaryComponent implements OnInit, AfterViewChecked {
   /**
    * Check or uncheck all filters.
    * @private
-   * @memberof SummaryComponent
    */
   toggleAllFilters() {
     this.displayAllFilters = !this.displayAllFilters;
@@ -330,7 +303,6 @@ export class SummaryComponent implements OnInit, AfterViewChecked {
   /**
    * Display or hide the main Pia data.
    * @private
-   * @memberof SummaryComponent
    */
   toggleMainContent() {
     this.displayMainPiaData = !this.displayMainPiaData;
@@ -339,7 +311,6 @@ export class SummaryComponent implements OnInit, AfterViewChecked {
   /**
    * Display or hide the main Pia data.
    * @private
-   * @memberof SummaryComponent
    */
   toggleContextContent() {
     setTimeout(() => {
@@ -352,7 +323,6 @@ export class SummaryComponent implements OnInit, AfterViewChecked {
   /**
    * Display or hide the main Pia data.
    * @private
-   * @memberof SummaryComponent
    */
   toggleFundamentalPrinciplesContent() {
     setTimeout(() => {
@@ -365,7 +335,6 @@ export class SummaryComponent implements OnInit, AfterViewChecked {
   /**
    * Display or hide the main Pia data.
    * @private
-   * @memberof SummaryComponent
    */
   toggleRisksContent() {
     setTimeout(() => {
@@ -378,7 +347,6 @@ export class SummaryComponent implements OnInit, AfterViewChecked {
   /**
    * Display or hide the action plan.
    * @private
-   * @memberof SummaryComponent
    */
   toggleActionPlanContent() {
     this.displayActionPlan = !this.displayActionPlan;
@@ -387,7 +355,6 @@ export class SummaryComponent implements OnInit, AfterViewChecked {
   /**
    * Display or hide the risks overview for the current PIA.
    * @private
-   * @memberof SummaryComponent
    */
   toggleRisksOverviewContent() {
     this.displayRisksOverview = !this.displayRisksOverview;
@@ -396,7 +363,6 @@ export class SummaryComponent implements OnInit, AfterViewChecked {
   /**
    * Display or hide the risks cartography for the current PIA.
    * @private
-   * @memberof SummaryComponent
    */
   toggleRisksCartographyContent() {
     this.displayRisksCartography = !this.displayRisksCartography;
@@ -404,7 +370,6 @@ export class SummaryComponent implements OnInit, AfterViewChecked {
 
   /**
    * Prepare and display the PIA information
-   * @memberof SummaryComponent
    */
   async showPia() {
     this.prepareHeader();
@@ -431,7 +396,6 @@ export class SummaryComponent implements OnInit, AfterViewChecked {
   /**
    * Prepare and display the ActionPlan information.
    * @private
-   * @memberof SummaryComponent
    */
   private showActionPlan() {
     this._actionPlanService.data = this.dataNav;
@@ -442,7 +406,6 @@ export class SummaryComponent implements OnInit, AfterViewChecked {
   /**
    * Get PIA information.
    * @private
-   * @memberof SummaryComponent
    */
   private prepareHeader() {
     const el = { title: 'summary.title', data: [] };
@@ -557,7 +520,6 @@ export class SummaryComponent implements OnInit, AfterViewChecked {
    * Get information from the JSON file.
    * @returns {Promise}
    * @private
-   * @memberof SummaryComponent
    */
   private async getJsonInfo() {
     this.allData = {}
@@ -630,7 +592,6 @@ export class SummaryComponent implements OnInit, AfterViewChecked {
    * @param {string} item_id - The item id.
    * @param {string} ref - The reference.
    * @returns {Promise}
-   * @memberof SummaryComponent
    */
   private async getEvaluation(section_id: string, item_id: string, ref: string) {
     return new Promise(async (resolve, reject) => {
@@ -675,6 +636,27 @@ export class SummaryComponent implements OnInit, AfterViewChecked {
       ]
     };
     this.csvContent = this._actionPlanService.csvRows;
+  }
+
+  /**
+   * Prepare .doc file
+   */
+  prepareDocFile(element) {
+    const actionPlanImg = document.querySelector('#actionPlanOverviewImg');
+    if (actionPlanImg) {
+      document.querySelector('#actionPlanOverviewImg').remove();
+    }
+    const preHtml = "<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'><head><meta charset='utf-8'><title>Export HTML To Doc</title></head><body>";
+    const postHtml = '</body></html>';
+    const html = preHtml + document.getElementById(element).innerHTML + postHtml;
+    const blob = new Blob(['\ufeff', html], {
+      type: 'application/msword'
+    });
+    const actionPlanBlock = document.querySelector('.pia-actionPlanGraphBlockContainer');
+    if (actionPlanBlock) {
+      actionPlanBlock.appendChild(actionPlanImg);
+    }
+    return { url: 'data:application/vnd.ms-word;charset=utf-8,' + encodeURIComponent(html), blob, filename: 'pia.doc' };
   }
 
 }

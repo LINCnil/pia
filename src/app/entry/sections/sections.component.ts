@@ -30,7 +30,7 @@ export class SectionsComponent implements OnInit {
 
   async ngOnInit() {
     await this._piaService.getPIA();
-    this.data = await this._appDataService.getDataNav();
+    this.data = this._appDataService.dataNav;
     this.data.sections.forEach((section: any) => {
       section.items.forEach((item: any) => {
         this._sidStatusService.setSidStatus(this._piaService, section, item);

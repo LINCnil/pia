@@ -1305,7 +1305,7 @@
 			"1": "El tratamiento podría ser puesto en ejecución."
 		},
     "generate_zip": "Descargar el informe completo (.zip)",
-    "generate_docx": "Descargar el informe completo (.docx)",
+    "generate_docx": "Descargar el informe completo (.doc)",
 		"creation_date": "Fecha de creación",
 		"csv_action_plan_comment": "TO BE TRANSLATED - Action plan comment",
 		"csv_evaluation_comment": "TO BE TRANSLATED - Evaluation comment",

@@ -1305,7 +1305,7 @@
 			"1": "Léčba by mohla být provedena."
 		},
     "generate_zip": "TO TRANSLATE - Download the full report (.zip)",
-    "generate_docx": "TO TRANSLATE - Download the report (.docx)",
+    "generate_docx": "TO TRANSLATE - Download the report (.doc)",
 		"creation_date": "Datum vytvoření",
 		"csv_action_plan_comment": "TO BE TRANSLATED - Action plan comment",
 		"csv_evaluation_comment": "TO BE TRANSLATED - Evaluation comment",

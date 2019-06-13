@@ -120,6 +120,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
           // Sinon si la question courante concerne les sources (323, 333, 343)
           this.userAnswersToDisplay = this.allUserAnswersForSources;
         }
+        this.userAnswersToDisplay = this.userAnswersToDisplay.reduce((a, x) => a.includes(x) ? a : [...a, x], []).sort();
       }
     });
   }
@@ -131,7 +132,6 @@ export class QuestionsComponent implements OnInit, OnDestroy {
   /**
    * On evaluation change.
    * @param {any} evaluation - Any Evaluation.
-   * @memberof QuestionsComponent
    */
   evaluationChange(evaluation) {
     this.evaluation = evaluation;
@@ -139,7 +139,6 @@ export class QuestionsComponent implements OnInit, OnDestroy {
 
   /**
    * Enable the gauge.
-   * @memberof QuestionsComponent
    */
   enableGauge() {
     if (this._globalEvaluationService.answerEditionEnabled) {
@@ -152,7 +151,6 @@ export class QuestionsComponent implements OnInit, OnDestroy {
   /**
    * Check gauge change.
    * @param {*} event - Any Event.
-   * @memberof QuestionsComponent
    */
   checkGaugeChanges(event: any) {
     const value: string = event.target.value;
@@ -184,7 +182,6 @@ export class QuestionsComponent implements OnInit, OnDestroy {
 
   /**
    * Loads WYSIWYG editor.
-   * @memberof QuestionsComponent
    */
   questionContentFocusIn() {
     if (this._globalEvaluationService.answerEditionEnabled) {
@@ -194,7 +191,6 @@ export class QuestionsComponent implements OnInit, OnDestroy {
 
   /**
    * Disables question field + shows edit button + save data.
-   * @memberof QuestionsComponent
    */
   questionContentFocusOut() {
     let userText = this.questionForm.controls['text'].value;
@@ -226,7 +222,6 @@ export class QuestionsComponent implements OnInit, OnDestroy {
   /**
    * Adds the measure tag in the database.
    * @param {any} event - Any Event.
-   * @memberof QuestionsComponent
    */
   onAdd(event) {
     if (event && event.value.length > 0) {
@@ -244,7 +239,6 @@ export class QuestionsComponent implements OnInit, OnDestroy {
   /**
    * Updates the last selected tag.
    * @param {any} event - Any Event.
-   * @memberof QuestionsComponent
    */
   onSelected(event) {
     // When it returns an object (weird scenario)
@@ -258,7 +252,6 @@ export class QuestionsComponent implements OnInit, OnDestroy {
   /**
    * Removes the measure tag from the database.
    * @param {any} event - Any Event.
-   * @memberof QuestionsComponent
    */
   onRemove(event) {
     let list = [];
@@ -281,7 +274,6 @@ export class QuestionsComponent implements OnInit, OnDestroy {
   /**
    * On tag edited.
    * @param {any} event - Any Event.
-   * @memberof QuestionsComponent
    */
   onTagEdited(event) {
     let list = [];
@@ -303,7 +295,6 @@ export class QuestionsComponent implements OnInit, OnDestroy {
   /**
    * On tag leave.
    * @param {any} event - Any Event.
-   * @memberof QuestionsComponent
    */
   onBlur(event) {
     if (event && event.length > 0) {
@@ -322,7 +313,6 @@ export class QuestionsComponent implements OnInit, OnDestroy {
    * Creates or updates the tags list.
    * @private
    * @param {string[]} list - List of tags.
-   * @memberof QuestionsComponent
    */
   private createOrUpdateList(list: string[]) {
     if (this.answer.id) {
@@ -343,7 +333,6 @@ export class QuestionsComponent implements OnInit, OnDestroy {
   /**
    * Shows or hides a question.
    * @param {*} event - Any Event.
-   * @memberof QuestionsComponent
    */
   displayQuestion(event: any) {
     const accordeon = this.el.nativeElement.querySelector('.pia-accordeon');
@@ -371,7 +360,6 @@ export class QuestionsComponent implements OnInit, OnDestroy {
 
   /**
    * Loads wysiwyg editor.
-   * @memberof QuestionsComponent
    */
   loadEditor() {
     this._knowledgeBaseService.placeholder = this.question.placeholder;
@@ -403,7 +391,6 @@ export class QuestionsComponent implements OnInit, OnDestroy {
   /**
    * Close the editor.
    * @private
-   * @memberof QuestionsComponent
    */
   private closeEditor() {
     this._knowledgeBaseService.placeholder = null;
