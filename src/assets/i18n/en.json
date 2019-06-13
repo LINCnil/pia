@@ -970,7 +970,7 @@
 			"validate_evaluation": "Validate review"
 		},
 		"header": {
-      "exit_full_screen_mode": "TO TRANSLATE - Press F11 to exit full screen mode.",
+      "exit_full_screen_mode": "Press F11 to exit full screen mode.",
 			"display_action_plan": "Display<br>action plan",
 			"edition": "Edition",
 			"evaluation": "Evaluation",
