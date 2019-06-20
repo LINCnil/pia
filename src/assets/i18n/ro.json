@@ -109,7 +109,8 @@
 			"official_translation": "Versiune Originală",
 			"pl": "Polski",
 			"pt": "Português",
-			"ro": "Română"
+			"ro": "Română",
+			"sl": "Slovenščina"
 		},
 		"logo_subtitle": "privacy impact assessment",
 		"logo_title": "Analiza impactului asupra confidențialității datelor",
@@ -265,7 +266,8 @@
 			"general_measure": "Control fizic al securității",
 			"measure_on_data": "Control logic al securității",
 			"organizational_measure": "Control organizațional",
-			"principle": "Principle"
+			"principle": "Principle",
+      "method": "(TRANSLATION REQUIRED) Methodology"
 		},
 		"filters": {
 			"all": "Toate",
@@ -380,6 +382,11 @@
 				"name": "Amenințări care pot duce la modificarea nedorită a datelor cu caracter personal",
 				"source": "PIAF Connected Objects p43 and 44, WIKI"
 			},
+      "PIA_METHOD_MES": {
+				"description": "(TRANSLATION REQUIRED) Planned controls are those originally put in place, before any analysis by the assessor. Corrective measures advised by the assessor will be stated in the action plan and will enable a second assessment of the severity and likelihood of the risk.",
+				"name": "(TRANSLATION REQUIRED) Planned and corrective controls",
+				"source": ""
+      },
 			"PIA_DEF_MES": {
 				"description": "Selectate dintre cele disponibile în secțiunea \"Măsuri planificate sau existente\", ce se pot completa dacă este necesar.",
 				"name": "Măsuri",

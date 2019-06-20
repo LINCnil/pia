@@ -109,7 +109,8 @@
 			"official_translation": "Version originelle",
 			"pl": "Polski",
 			"pt": "Português",
-			"ro": "Română"
+			"ro": "Română",
+			"sl": "Slovenščina"
 		},
 		"logo_subtitle": "privacy impact assessment",
 		"logo_title": "Analyse d'impact sur la protection des données",
@@ -265,7 +266,8 @@
 			"general_measure": "Mesure générale de sécurité du système",
 			"measure_on_data": "Mesure sur les données",
 			"organizational_measure": "Mesure organisationnelle",
-			"principle": "Principe"
+			"principle": "Principe",
+      "method": "Méthodologie"
 		},
 		"filters": {
 			"all": "Tout",
@@ -378,6 +380,11 @@
 			"PIA_DEF_MENM": {
 				"description": "<strong>Menaces concernant : </strong><br>- <strong>Les matériels</strong> qui ont été modifiés (ajout d'un matériel incompatible, retrait d'un indispensable, etc.)<br>- <strong>Les logiciels</strong> utilisés de manière inadaptée ou modifiés (erreur de manipulation, modifications inopportunes, etc.)<br>- <strong>Les canaux informatiques</strong> qui sont utilisés de manière inadaptée (réémission de flux intercepté, etc.)<br>- <strong>Les personnes</strong> surchargées ou détournées (tâche non maîtrisée, perturbation des conditions de travail, influence, etc.)<br>- Les documents papier qui ont été modifiés (modification de document, remplacement par un faux, etc.)<br>- <strong>Les canaux papier</strong> qui ont été modifiés (échange de parapheur, envoi de courriers contradictoires, etc.)",
 				"name": "Menaces pouvant conduire à une modification illégitime aux données",
+				"source": "WIKI Menaces_pouvant_mener_à_une_modification_non_désirées_de_données"
+			},
+      "PIA_METHOD_MES": {
+				"description": "Les mesures initiales sont les mesures prévues à l'origine, avant l'analyse faite par l’évaluateur. Les mesures complémentaires ou correctrices préconisées par l’évaluateur seront énoncées dans le plan d’action et permettront de procéder à une deuxième évaluation de la gravité et de la vraisemblance.",
+				"name": "Mesures initiales et mesures correctrices",
 				"source": "WIKI Menaces_pouvant_mener_à_une_modification_non_désirées_de_données"
 			},
 			"PIA_DEF_MES": {
@@ -1172,7 +1179,7 @@
 						},
 						"4": {
 							"placeholder": "Cliquez ici pour sélectionner les mesures contribuant à traiter ce risque.",
-							"title": "Quelles sont les <span class='green-highlight'>mesures</span>, parmi celles identifiées, qui contribuent à traiter le risque ?"
+							"title": "Quelles sont les <span class='green-highlight'>mesures initiales</span>, parmi celles identifiées, qui contribuent à traiter le risque ?"
 						},
 						"5": {
 							"placeholder": "Justifiez ici la gravité estimée.",

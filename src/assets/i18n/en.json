@@ -109,7 +109,8 @@
 			"official_translation": "Original version",
 			"pl": "Polski",
 			"pt": "Português",
-			"ro": "Română"
+			"ro": "Română",
+			"sl": "Slovenščina"
 		},
 		"logo_subtitle": "",
 		"logo_title": "Privacy impact assessment",
@@ -265,7 +266,8 @@
 			"general_measure": "Physical Security control",
 			"measure_on_data": "Logical security control",
 			"organizational_measure": "Organisational control",
-			"principle": "Principle"
+			"principle": "Principle",
+      "method": "Methodology"
 		},
 		"filters": {
 			"all": "All",
@@ -380,6 +382,11 @@
 				"name": "Threats that can lead to an unwanted modification of personal data",
 				"source": "PIAF Connected Objects p43 and 44, WIKI"
 			},
+      "PIA_METHOD_MES": {
+				"description": "Planned controls are those originally put in place, before any analysis by the assessor. Corrective measures advised by the assessor will be stated in the action plan and will enable a second assessment of the severity and likelihood of the risk.",
+				"name": "Planned and corrective controls",
+				"source": ""
+      },
 			"PIA_DEF_MES": {
 				"description": "To be chosen among those available in section \"Planned or existing measures\", which you may complete if needed.",
 				"name": "Measures",
@@ -1173,7 +1180,7 @@
 						},
 						"4": {
 							"placeholder": "Click here to select controls which address the risk.",
-							"title": "Which of the identified <span class='green-highlight'>controls</span> contribute to addressing the risk?"
+							"title": "Which of the identified <span class='green-highlight'>planned controls</span> contribute to addressing the risk?"
 						},
 						"5": {
 							"placeholder": "Justify here the estimated severity of the risk.",
@@ -1267,7 +1274,7 @@
 				},
 				"3": {
 					"short_help": "Present the advice of the person in charge of data protection and privacy issues (data protection delegate if there is one). Present the views of the data subjects or their representatives.",
-					"title": "DPO and concerned persons opinions"
+					"title": "DPO and data subjects' opinions"
 				},
 				"4": {
 					"title": "Validate the PIA"

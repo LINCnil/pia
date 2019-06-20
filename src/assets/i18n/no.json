@@ -109,7 +109,8 @@
 			"official_translation": "TO BE TRANSLATED - Original version",
 			"pl": "Polski",
 			"pt": "Português",
-			"ro": "Română"
+			"ro": "Română",
+			"sl": "Slovenščina"
 		},
 		"logo_subtitle": "Vurdering av personvernkonsekvenser",
 		"logo_title": "PIA",
@@ -265,7 +266,8 @@
 			"general_measure": "Fysisk informasjonssikkerhet",
 			"measure_on_data": "Teknisk informasjonssikkerhet",
 			"organizational_measure": "Styringssystemer",
-			"principle": "Prinsipp"
+			"principle": "Prinsipp",
+      "method": "(TRANSLATION REQUIRED) Methodology"
 		},
 		"filters": {
 			"all": "Alle",
@@ -380,6 +382,11 @@
 				"name": "Threats that can lead to an unwanted modification of personal data",
 				"source": "PIAF Connected Objects p43 and 44, WIKI"
 			},
+      "PIA_METHOD_MES": {
+				"description": "(TRANSLATION REQUIRED) Planned controls are those originally put in place, before any analysis by the assessor. Corrective measures advised by the assessor will be stated in the action plan and will enable a second assessment of the severity and likelihood of the risk.",
+				"name": "(TRANSLATION REQUIRED) Planned and corrective controls",
+				"source": ""
+      },
 			"PIA_DEF_MES": {
 				"description": "To be chosen among those available in section \"Planned or existing measures\", which you may complete if needed.",
 				"name": "Measures",

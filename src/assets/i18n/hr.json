@@ -109,7 +109,8 @@
 			"official_translation": "Izvorna verzija",
 			"pl": "Polski",
 			"pt": "Português",
-			"ro": "Română"
+			"ro": "Română",
+			"sl": "Slovenščina"
 		},
 		"logo_subtitle": "",
 		"logo_title": "Procjena učinka na privatnost",
@@ -265,7 +266,8 @@
 			"general_measure": "Kontrole fizičke sigurnosti",
 			"measure_on_data": "Kontrole logičke sigurnosti",
 			"organizational_measure": "Organizacijske kontrole",
-			"principle": "Princip"
+			"principle": "Princip",
+      "method": "(TRANSLATION REQUIRED) Methodology"
 		},
 		"filters": {
 			"all": "Sve",
@@ -380,6 +382,11 @@
 				"name": "Prijetnje koje mogu dovesti do neželjenih izmjena osobnih podataka",
 				"source": "piaF Connected Objects p43 and 44, WIKI"
 			},
+      "PIA_METHOD_MES": {
+				"description": "(TRANSLATION REQUIRED) Planned controls are those originally put in place, before any analysis by the assessor. Corrective measures advised by the assessor will be stated in the action plan and will enable a second assessment of the severity and likelihood of the risk.",
+				"name": "(TRANSLATION REQUIRED) Planned and corrective controls",
+				"source": ""
+      },
 			"PIA_DEF_MES": {
 				"description": "Treba ih odabrati između onih dostupnih u odjeljku \"Planirane ili postojeće mjere\", koji možete dopuniti ako je potrebno.",
 				"name": "Mjere",

@@ -109,7 +109,8 @@
 			"official_translation": "Versão original",
 			"pl": "Polski",
 			"pt": "Português",
-			"ro": "Română"
+			"ro": "Română",
+			"sl": "Slovenščina"
 		},
 		"logo_subtitle": "Privacy Impact Assessment",
 		"logo_title": "Avaliação do Impacto da Proteção de Dados",
@@ -265,7 +266,8 @@
 			"general_measure": "Controlo de segurança física",
 			"measure_on_data": "Controlo de segurança lógica",
 			"organizational_measure": "Controlo organizacional",
-			"principle": "Princípio"
+			"principle": "Princípio",
+      "method": "(TRANSLATION REQUIRED) Methodology"
 		},
 		"filters": {
 			"all": "Todos",
@@ -380,6 +382,11 @@
 				"name": "Ameaças que podem levar a uma modificação indesejada de dados pessoais",
 				"source": "PIAF Connected Objects p43 and 44, WIKI"
 			},
+      "PIA_METHOD_MES": {
+				"description": "(TRANSLATION REQUIRED) Planned controls are those originally put in place, before any analysis by the assessor. Corrective measures advised by the assessor will be stated in the action plan and will enable a second assessment of the severity and likelihood of the risk.",
+				"name": "(TRANSLATION REQUIRED) Planned and corrective controls",
+				"source": ""
+      },
 			"PIA_DEF_MES": {
 				"description": "Para ser escolhido entre os disponíveis na seção 'Medidas planeadas ou existentes', que pode preencher se necessário.",
 				"name": "Medidas",

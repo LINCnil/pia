@@ -109,7 +109,8 @@
 			"official_translation": "Hivatalos fordítások",
 			"pl": "Polski",
 			"pt": "Português",
-			"ro": "Română"
+			"ro": "Română",
+			"sl": "Slovenščina"
 		},
 		"logo_subtitle": "",
 		"logo_title": "Adatvédelmi hatásvizsgálat",
@@ -265,7 +266,8 @@
 			"general_measure": "Fizikai biztonságvédelem",
 			"measure_on_data": "Logikai biztonságvédelem",
 			"organizational_measure": "Szervezeti védelmi intézkedések",
-			"principle": "Útmutatás"
+			"principle": "Útmutatás",
+      "method": "(TRANSLATION REQUIRED) Methodology"
 		},
 		"filters": {
 			"all": "Mind",
@@ -380,6 +382,11 @@
 				"name": "Az adatok véletlen vagy jogellenes megváltoztatásának veszélyei",
 				"source": "DPIAF Összekapcsolt tárgyak, 43. és 44. o. WIKI"
 			},
+      "PIA_METHOD_MES": {
+				"description": "(TRANSLATION REQUIRED) Planned controls are those originally put in place, before any analysis by the assessor. Corrective measures advised by the assessor will be stated in the action plan and will enable a second assessment of the severity and likelihood of the risk.",
+				"name": "(TRANSLATION REQUIRED) Planned and corrective controls",
+				"source": ""
+      },
 			"PIA_DEF_MES": {
 				"description": "Válasszon a „Tervezett vagy meglévő intézkedések” c. rész lehetőségei közül, amelyeket, ha szükséges, kitölthet.",
 				"name": "Intézkedések",

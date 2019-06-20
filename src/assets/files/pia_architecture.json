@@ -342,7 +342,8 @@
               "is_measure": true,
               "link_knowledge_base": [
                 "PIA_DEF_ACCI",
-                "PIA_DEF_MES"
+                "PIA_DEF_MES",
+                "PIA_METHOD_MES"
               ],
               "placeholder": "sections.3.items.2.questions.4.placeholder",
               "answer_type": "list",

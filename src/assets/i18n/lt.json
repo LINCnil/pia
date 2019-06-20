@@ -109,7 +109,8 @@
 			"official_translation": "Originali versija",
 			"pl": "Polski",
 			"pt": "Português",
-			"ro": "Română"
+			"ro": "Română",
+			"sl": "Slovenščina"
 		},
 		"logo_subtitle": "",
 		"logo_title": "Poveikio duomenų apsaugai vertinimas",
@@ -265,7 +266,8 @@
 			"general_measure": "Fizinės (techninės) apsaugos priemonės",
 			"measure_on_data": "Loginės apsaugos priemonės",
 			"organizational_measure": "Organizacinės apsaugos priemonės",
-			"principle": "Principas"
+			"principle": "Principas",
+      "method": "(TRANSLATION REQUIRED) Methodology"
 		},
 		"filters": {
 			"all": "Visi",
@@ -380,6 +382,11 @@
 				"name": "Grėsmės, dėl kurių gali būti neteisėtai pakeisti asmens duomenys",
 				"source": "PIAF Connected Objects p43 and 44, WIKI"
 			},
+      "PIA_METHOD_MES": {
+				"description": "(TRANSLATION REQUIRED) Planned controls are those originally put in place, before any analysis by the assessor. Corrective measures advised by the assessor will be stated in the action plan and will enable a second assessment of the severity and likelihood of the risk.",
+				"name": "(TRANSLATION REQUIRED) Planned and corrective controls",
+				"source": ""
+      },
 			"PIA_DEF_MES": {
 				"description": "Pasirinkite priemonę iš skyriaus 'Planuojamos arba egzistuojančios apsaugos priemonės', esant poreikiui, papildykite jas.",
 				"name": "Priemonės",

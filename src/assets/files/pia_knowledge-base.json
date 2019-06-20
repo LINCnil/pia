@@ -542,9 +542,16 @@
   {
     "slug": "PIA_DEF_MENM",
     "filters": "",
-    "category": "Définnition",
+    "category": "knowledge_base.category.definition",
     "name": "knowledge_base.slugs.PIA_DEF_MENM.name",
     "description": "knowledge_base.slugs.PIA_DEF_MENM.description"
+  },
+  {
+    "slug": "PIA_METHOD_MES",
+    "filters": "",
+    "category": "knowledge_base.category.method",
+    "name": "knowledge_base.slugs.PIA_METHOD_MES.name",
+    "description": "knowledge_base.slugs.PIA_METHOD_MES.description"
   },
   {
     "slug": "PIA_DEF_MENI",

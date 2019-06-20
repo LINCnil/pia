@@ -109,7 +109,8 @@
 			"official_translation": "Originaal versioon",
 			"pl": "Polski",
 			"pt": "Português",
-			"ro": "Română"
+			"ro": "Română",
+			"sl": "Slovenščina"
 		},
 		"logo_subtitle": "",
 		"logo_title": "Andmekaitsealane mõjuhinnag",
@@ -265,7 +266,8 @@
 			"general_measure": "Füüsiline turbekontroll",
 			"measure_on_data": "Loogiline turbekontroll",
 			"organizational_measure": "Organisatsiooniline kontroll",
-			"principle": "Põhimõte"
+			"principle": "Põhimõte",
+      "method": "(TRANSLATION REQUIRED) Methodology"
 		},
 		"filters": {
 			"all": "Kõik",
@@ -380,6 +382,11 @@
 				"name": "Ohud, mis võivad viia isikuandmete soovimatu muutmiseni",
 				"source": ""
 			},
+      "PIA_METHOD_MES": {
+				"description": "(TRANSLATION REQUIRED) Planned controls are those originally put in place, before any analysis by the assessor. Corrective measures advised by the assessor will be stated in the action plan and will enable a second assessment of the severity and likelihood of the risk.",
+				"name": "(TRANSLATION REQUIRED) Planned and corrective controls",
+				"source": ""
+      },
 			"PIA_DEF_MES": {
 				"description": "Valige \"Kavandatavad või olemasolevad meetmed\"osast etteantud meetmete hulgast, kuhu saate juurde lisada kui see peaks olema vajalik.",
 				"name": "Meetmed",
