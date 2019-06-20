@@ -1311,7 +1311,7 @@
 			"1": "O tratamento deve ser implementado."
 		},
     "generate_zip": "TO TRANSLATE - Download the full report (.zip)",
-    "generate_docx": "TO TRANSLATE - Download the report (.docx)",
+    "generate_docx": "TO TRANSLATE - Download the report (.doc)",
 		"creation_date": "Data de criação",
 		"csv_action_plan_comment": "Comentar o plano de acção",
 		"csv_evaluation_comment": "Comentar a avaliação",

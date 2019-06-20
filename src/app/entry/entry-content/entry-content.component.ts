@@ -56,17 +56,16 @@ export class EntryContentComponent implements OnInit, OnChanges {
 
   async ngOnChanges() {
     await this._piaService.getPIA();
-    this._paginationService.dataNav = await this._appDataService.getDataNav();
+    this._paginationService.dataNav = this._appDataService.dataNav;
 
-    const sectionId = parseInt(this._activatedRoute.snapshot.params['section_id'], 10);
-    const itemId = parseInt(this._activatedRoute.snapshot.params['item_id'], 10);
+    const sectionId = parseInt(this._activatedRoute.snapshot.params.section_id, 10);
+    const itemId = parseInt(this._activatedRoute.snapshot.params.item_id, 10);
 
     this._paginationService.setPagination(sectionId, itemId);
   }
 
   /**
    * Prepare entry for evaluation.
-   * @memberof EntryContentComponent
    */
   prepareForEvaluation() {
     this._globalEvaluationService.prepareForEvaluation().then(() => {
@@ -88,7 +87,6 @@ export class EntryContentComponent implements OnInit, OnChanges {
 
   /**
    * Allow an user to validate evaluation for a section.
-   * @memberof EntryContentComponent
    */
   validateEvaluation() {
     this._globalEvaluationService.validateAllEvaluation().then((toFix: boolean) => {
@@ -114,10 +112,9 @@ export class EntryContentComponent implements OnInit, OnChanges {
    * @private
    * @param {number} status_start - From status.
    * @param {number} status_end - To status.
-   * @memberof EntryContentComponent
    */
   private goToNextSectionItem(status_start: number, status_end: number) {
-    const goto_section_item = this._paginationService.getNextSectionItem(status_start, status_end)
+    const goto_section_item = this._paginationService.getNextSectionItem(status_start, status_end);
 
     this._router.navigate([
       'entry',
@@ -131,7 +128,6 @@ export class EntryContentComponent implements OnInit, OnChanges {
 
   /**
    * Allow an user to return in edit mode.
-   * @memberof EntryContentComponent
    */
   cancelAskForEvaluation() {
     this._globalEvaluationService.cancelForEvaluation();
@@ -140,7 +136,6 @@ export class EntryContentComponent implements OnInit, OnChanges {
 
   /**
    * Allow an user to cancel the validation.
-   * @memberof EntryContentComponent
    */
   cancelValidateEvaluation() {
     this._globalEvaluationService.cancelValidation();

@@ -1311,7 +1311,7 @@
 			"1": "Le traitement pourrait être mis en oeuvre."
 		},
     "generate_zip": "Télécharger le rapport complet (.zip)",
-    "generate_docx": "Télécharger le rapport (.docx)",
+    "generate_docx": "Télécharger le rapport (.doc)",
 		"creation_date": "Date de création",
 		"csv_action_plan_comment": "Commentaires du plan d'actions",
 		"csv_evaluation_comment": "Commentaires d'évaluation",

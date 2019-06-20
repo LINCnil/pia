@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRoute, Router, Params } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { Pia } from 'src/app/entry/pia.model';
 import { Evaluation } from 'src/app/entry/entry-content/evaluations/evaluation.model';
@@ -20,24 +20,25 @@ export class PiaService {
   data: { sections: any };
 
   constructor(private _router: Router, private route: ActivatedRoute,
-              private _appDataService: AppDataService,
+              public _appDataService: AppDataService,
               private _modalsService: ModalsService) {
-                this._appDataService.getDataNav().then((dataNav) => {
-                  this.data = dataNav;
-                });
-              }
+    this.data = this._appDataService.dataNav;
+  }
 
   /**
    * Get the PIA.
    * @return {Promise}
-   * @memberof PiaService
    */
   async getPIA() {
     return new Promise((resolve, reject) => {
-      const piaId = parseInt(this.route.snapshot.params['id'], 10);
-      this.pia.get(piaId).then(() => {
+      const piaId = parseInt(this.route.snapshot.params.id, 10);
+      if (piaId) {
+        this.pia.get(piaId).then(() => {
+          resolve();
+        });
+      } else {
         resolve();
-      });
+      }
     });
   }
 
@@ -49,8 +50,8 @@ export class PiaService {
 
   calculPiaProgress(pia: Pia) {
     let numberElementsToValidate = 1;
-    this.data.sections.forEach(section => {
-      section.items.forEach(item => {
+    this.data.sections.forEach((section: any) => {
+      section.items.forEach((item: any) => {
         if (item.questions) {
           numberElementsToValidate += item.questions.length;
         }
@@ -81,7 +82,6 @@ export class PiaService {
 
   /**
    * Create a new PIA
-   * @memberof PiaService
    */
   async saveNewPia(piaForm: any) {
     return new Promise((resolve, reject) => {
@@ -204,7 +204,6 @@ export class PiaService {
 
   /**
    * Allows an user to remove a PIA.
-   * @memberof PiaService
    */
   removePIA() {
     const piaID = parseInt(localStorage.getItem('pia-id'), 10);
@@ -227,7 +226,6 @@ export class PiaService {
   /**
    * Cancel all validated evaluations.
    * @returns {Promise}
-   * @memberof PiaService
    */
   async cancelAllValidatedEvaluation() {
     return new Promise((resolve, reject) => {
@@ -257,7 +255,6 @@ export class PiaService {
 
   /**
    * Allows an user to abandon a treatment (archive a PIA).
-   * @memberof PiaService
    */
   abandonTreatment() {
     this.pia.status = 4;
@@ -270,7 +267,6 @@ export class PiaService {
   /**
    * Allow an user to duplicate a PIA.
    * @param {number} id - The PIA id.
-   * @memberof PiaService
    */
   duplicate(id: number) {
     this.exportData(id).then((data) => {
@@ -282,7 +278,6 @@ export class PiaService {
    * Allow an user to export a PIA.
    * @param {number} id - The PIA id.
    * @returns {Promise}
-   * @memberof PiaService
    */
   exportData(id: number) {
     return new Promise((resolve, reject) => {
@@ -330,7 +325,6 @@ export class PiaService {
    * @param {string} prefix - A title prefix.
    * @param {boolean} is_duplicate - Is a duplicate PIA?
    * @param {boolean} [is_example] - Is the PIA example?
-   * @memberof PiaService
    */
   async importData(data: any, prefix: string, is_duplicate: boolean, is_example?: boolean) {
     if (!('pia' in data) || !('dbVersion' in data.pia)) {
@@ -459,7 +453,6 @@ export class PiaService {
    * @param {number} pia_id - The PIA id.
    * @param {boolean} is_duplicate - Is a duplicated PIA?
    * @param {Array<any>} [oldIdToNewId] - Array to generate new id for special item.
-   * @memberof PiaService
    */
   private importEvaluations(data: any, pia_id: number, is_duplicate: boolean, oldIdToNewId?: Array<any>) {
     if (!is_duplicate) {
@@ -499,7 +492,6 @@ export class PiaService {
   /**
    * Download the PIA exported.
    * @param {number} id - The PIA id.
-   * @memberof PiaService
    */
   export(id: number) {
     const date = new Date().getTime();
@@ -518,7 +510,6 @@ export class PiaService {
   /**
    * Import the PIA from file.
    * @param {*} file - The exported PIA file.
-   * @memberof PiaService
    */
   async import(file: any) {
     const reader = new FileReader();

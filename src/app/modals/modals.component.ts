@@ -65,7 +65,6 @@ export class ModalsComponent implements OnInit {
 
   /**
    * Returns to homepage (used on several modals).
-   * @memberof ModalsComponent
    */
   returnToHomepage() {
     this._modalsService.closeModal();
@@ -75,7 +74,6 @@ export class ModalsComponent implements OnInit {
   /**
    * Save the newly created PIA.
    * Sends to the path associated to this new PIA.
-   * @memberof ModalsComponent
    */
   onSubmit() {
     this._piaService.saveNewPia(this.piaForm).then((id: number) => {
@@ -86,7 +84,6 @@ export class ModalsComponent implements OnInit {
   /**
    * Save the newly created Structure.
    * Sends to the path associated to this new Structure.
-   * @memberof ModalsComponent
    */
   onSubmitStructure() {
     const structure = new Structure();
@@ -99,7 +96,6 @@ export class ModalsComponent implements OnInit {
 
   /**
    * Focuses out from the comment attachment field.
-   * @memberof ModalsComponent
    */
   attachmentCommentFocusOut() {
     if (this.removeAttachmentForm.controls['comment'].value &&

@@ -1,8 +1,7 @@
-import { NgModule, LOCALE_ID } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { CommonModule, registerLocaleData } from '@angular/common';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
-import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TagInputModule } from 'ngx-chips';
 
@@ -45,6 +44,7 @@ registerLocaleData(localePL, 'pl');
 registerLocaleData(localePT, 'pt');
 registerLocaleData(localeRO, 'ro');
 
+import { PiaTranslateLoader } from './pia-translate-loader';
 
 // Routing
 import { AppRoutingModule } from 'src/app/app-routing.module';
@@ -68,10 +68,6 @@ import { LanguagesService } from 'src/app/services/languages.service';
 import { GlobalEvaluationService } from 'src/app/services/global-evaluation.service';
 
 import { SafeHtmlPipe, Nl2brPipe, FormatTheDate } from './tools';
-
-export function createTranslateLoader(http: HttpClient) {
-  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
-}
 
 const providersList: any = [
   AppDataService,
@@ -97,8 +93,7 @@ const providersList: any = [
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
-        useFactory: (createTranslateLoader),
-        deps: [HttpClient]
+        useClass: PiaTranslateLoader
       }
     })
   ],

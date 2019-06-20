@@ -1,6 +1,6 @@
 {
   "name": "pia",
-  "version": "2.0.0",
+  "version": "2.1",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
@@ -9,7 +9,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "cypress open --config watchForFileChanges=false",
-    "prod": "ng build --prod --build-optimizer --sourcemaps",
+    "prod": "ng build --prod --build-optimizer",
     "compodoc": "compodoc -p src/tsconfig.app.json"
   },
   "private": true,
@@ -26,7 +26,7 @@
     "@ngx-translate/http-loader": "^1.0.2",
     "angular2-csv": "0.2.9",
     "core-js": "^2.5.4",
-    "cypress": "^3.2.0",
+    "cypress": "^3.3.1",
     "d3": "^4.10.2",
     "file-saver": "^2.0.1",
     "font-awesome": "^4.7.0",

@@ -3,6 +3,9 @@ import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject } from 'rxjs';
 
+import structureExampleFr from 'src/assets/files/2018-11-21-structure-example-fr.json';
+import structureExampleEn from 'src/assets/files/2018-11-21-structure-example-en.json';
+
 import { Structure } from 'src/app/structures/structure.model';
 import { Pia } from 'src/app/entry/pia.model';
 
@@ -26,11 +29,10 @@ export class StructureService {
   /**
    * Get the Structure.
    * @return {Promise}
-   * @memberof StructureService
    */
   async getStructure() {
     return new Promise((resolve, reject) => {
-      const id = parseInt(this.route.snapshot.params['structure_id'], 10);
+      const id = parseInt(this.route.snapshot.params.structure_id, 10);
       if (id > 0) {
         this.structure.get(id).then(() => {
           resolve();
@@ -47,17 +49,15 @@ export class StructureService {
 
   async loadExample() {
     return new Promise((resolve, reject) => {
-      const exampleStructLanguage = this._languagesService.selectedLanguage === 'fr' ? 'fr' : 'en';
-      this.httpClient.get('./assets/files/2018-11-21-structure-example-' + exampleStructLanguage + '.json', { responseType: 'json' }).subscribe((dataStructure: any) => {
-        const structureExample = new Structure();
-        structureExample.id = 0;
-        structureExample.name = dataStructure.structure.name;
-        structureExample.sector_name = dataStructure.structure.sector_name;
-        structureExample.created_at = dataStructure.structure.created_at;
-        structureExample.data = dataStructure.structure.data;
-        structureExample.is_example = true;
-        resolve(structureExample);
-      });
+      const exampleStructLanguage = this._languagesService.selectedLanguage === 'fr' ? structureExampleFr : structureExampleEn;
+      const structureExample = new Structure();
+      structureExample.id = 0;
+      structureExample.name = exampleStructLanguage.structure.name;
+      structureExample.sector_name = exampleStructLanguage.structure.sector_name;
+      structureExample.created_at = new Date(exampleStructLanguage.structure.created_at);
+      structureExample.data = exampleStructLanguage.structure.data;
+      structureExample.is_example = true;
+      resolve(structureExample);
     });
   }
 
@@ -78,7 +78,6 @@ export class StructureService {
 
   /**
    * Allows an user to remove a Structure.
-   * @memberof StructureService
    */
   removeStructure() {
     const id = parseInt(localStorage.getItem('structure-id'), 10);
@@ -109,7 +108,6 @@ export class StructureService {
   /**
    * Allow an user to duplicate a Structure.
    * @param {number} id - The Structure id.
-   * @memberof StructureService
    */
   async duplicateStructure(id: number) {
     return new Promise((resolve, reject) => {
@@ -125,7 +123,6 @@ export class StructureService {
    * Allow an user to export a Structure.
    * @param {number} id - The Structure id.
    * @returns {Promise}
-   * @memberof StructureService
    */
   exportStructureData(id: number) {
     return new Promise((resolve, reject) => {
@@ -134,14 +131,12 @@ export class StructureService {
         structure.get(id).then(() => {
           const data = {
             structure: structure
-          }
+          };
           resolve(data);
         });
       } else {
-        const exampleStructLanguage = this._languagesService.selectedLanguage === 'fr' ? 'fr' : 'en';
-        this.httpClient.get('./assets/files/2018-11-21-structure-example-' + exampleStructLanguage + '.json', { responseType: 'json' }).subscribe(dataStructure => {
-          resolve(dataStructure);
-        });
+        const exampleStructLanguage = this._languagesService.selectedLanguage === 'fr' ? structureExampleFr : structureExampleEn;
+        resolve(exampleStructLanguage);
       }
     });
   }
@@ -151,7 +146,6 @@ export class StructureService {
    * @param {*} data - Data Structure.
    * @param {string} prefix - A title prefix.
    * @param {boolean} is_duplicate - Is a duplicate Structure?
-   * @memberof StructureService
    */
   async importStructureData(data: any, prefix: string, is_duplicate: boolean) {
     return new Promise((resolve, reject) => {
@@ -184,7 +178,6 @@ export class StructureService {
   /**
    * Download the Structure exported.
    * @param {number} id - The Structure id.
-   * @memberof StructureService
    */
   exportStructure(id: number) {
     const date = new Date().getTime();
@@ -203,7 +196,6 @@ export class StructureService {
   /**
    * Import the Structure from file.
    * @param {*} file - The exported Structure file.
-   * @memberof StructureService
    */
   async importStructure(file: any) {
     return new Promise((resolve, reject) => {

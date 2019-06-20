@@ -937,7 +937,7 @@
 		"dpo_opinion": "Opinión de DPO",
 		"edit": "Corrija",
 		"people_opinion": "La opinión de la gente preocupada",
-		"placeholder_concerned_people_name": "Nombre de la gente preocupada",
+		"placeholder_concerned_people_name": "Nombre de la gente afectada",
 		"placeholder_dpo_name": "Nombre del DPO",
 		"placeholder_dpo_opinion": "Especificar las razones de su elección.",
 		"placeholder_people_opinion": "Describa como se recogió y analizó dicha información. Si no se han buscado los avisos, las razones del estado. ",
@@ -977,8 +977,8 @@
 		},
 		"header": {
 			"display_action_plan": "Mostrar<br>Plan de acción",
-			"edition": "TO BE TRANSLATED - Edition",
-			"evaluation": "TO BE TRANSLATED - Evaluation",
+			"edition": "Edición",
+			"evaluation": "Evaluación",
 			"preview": "Vista Previa"
 		},
 		"sections": {
@@ -1032,8 +1032,8 @@
 		},
 		"previous_rejection": "TO BE TRANSLATED - Previous refusal",
 		"rejection_reason": "TO BE TRANSLATED - Refusal reason",
-		"rejection_reason_placeholder": "TO BE TRANSLATED - Describe the reasons for refusing the PIA.",
-		"title": "TO BE TRANSLATED - Validation history"
+		"rejection_reason_placeholder": "Describa las razones para rechazar el PIA.",
+		"title": "Historial de la validación"
 	},
 	"sections": {
 		"1": {
@@ -1084,7 +1084,7 @@
 					"questions": {
 						"1": {
 							"placeholder": "Explica por qué los propósitos de tratamiento son específicos, explícitos y legítimos.",
-							"short_title": "Los finos",
+							"short_title": "Los fines",
 							"title": "Son los fines de tratamiento especificados, explícitos y legítimos?"
 						},
 						"2": {
@@ -1100,7 +1100,7 @@
 						"4": {
 							"placeholder": "Describa que son las medidas tomadas para asegurar la calidad de los datos.",
 							"short_title": "Exactitud de los datos",
-							"title": "¿Los datos exactos y se mantienen actualizados?"
+							"title": "¿Son los datos exactos y se mantienen actualizados?"
 						},
 						"5": {
 							"placeholder": "Explique porqué las duraciones del almacenaje son justificadas por requisitos legales y/o las necesidades del tratamiento.",
@@ -1275,10 +1275,10 @@
 					"title": "DPO y opiniones de personas interesadas"
 				},
 				"4": {
-					"title": "TO BE TRANSLATED - Validate the PIA"
+					"title": "Validar el PIA"
 				},
 				"5": {
-					"title": "TO BE TRANSLATED - Rejected PIA"
+					"title": "PIA Rechazado"
 				}
 			},
 			"short_help": "Esta sección permite que usted prepare y que formalice la validación del PIA.",
@@ -1310,8 +1310,8 @@
 			"0": "El tratamiento no debería utilizarse.",
 			"1": "El tratamiento podría ser puesto en ejecución."
 		},
-    "generate_zip": "TO TRANSLATE - Download the full report (.zip)",
-    "generate_docx": "TO TRANSLATE - Download the report (.docx)",
+    "generate_zip": "Descargar el informe completo (.zip)",
+    "generate_docx": "Descargar el informe completo (.doc)",
 		"creation_date": "Fecha de creación",
 		"csv_action_plan_comment": "TO BE TRANSLATED - Action plan comment",
 		"csv_evaluation_comment": "TO BE TRANSLATED - Evaluation comment",
@@ -1351,7 +1351,7 @@
 		"pia_validator": "Nombre del validador",
 		"previous_page": "Volver a la página anterior",
 		"print": "Imprimir",
-		"rejection_reason": "Razón del rechazamiento",
+		"rejection_reason": "Razón del rechazo",
 		"risks_cartography_title": "TO BE TRANSLATED - Risk mapping",
 		"risks_overview_title": "TO BE TRANSLATED - Risks overview",
 		"title": "Información del PIA"
@@ -1360,7 +1360,7 @@
 		"add_signed_pia": "TO BE TRANSLATED - Add the signed PIA",
 		"after_reading": "TO BE TRANSLATED - After reading full PIA relating to the data processing linked to ",
 		"button": {
-			"rejection": "TO BE TRANSLATED - Reject PIA",
+			"rejection": "Rechazar PIA",
 			"signed_validation": "TO BE TRANSLATED - Approve PIA <br>(signed)",
 			"simple_validation": "TO BE TRANSLATED - Approve PIA <br>(direct)"
 		},

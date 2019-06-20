@@ -68,9 +68,9 @@ export class RisksCartographyComponent implements OnInit, OnDestroy {
       }
     };
 
-    const dataNav = await this._appDataService.getDataNav();
-    dataNav.sections.forEach(section => {
-      section.items.forEach(item => {
+    const dataNav = this._appDataService.dataNav;
+    dataNav.sections.forEach((section: any) => {
+      section.items.forEach((item: any) => {
         if (item.questions) {
           item.questions.forEach(question => {
             if (question.answer_type === 'gauge') {
@@ -134,7 +134,6 @@ export class RisksCartographyComponent implements OnInit, OnDestroy {
 
   /**
    * Loads the risks cartography with author and evalutor choices positioned as dots.
-   * @memberof RisksCartographyComponent
    */
   loadCartography() {
       // Instanciation of canvas context
@@ -390,7 +389,6 @@ export class RisksCartographyComponent implements OnInit, OnDestroy {
    * @param {number} fromy - From the position Y.
    * @param {number} tox - To the position X.
    * @param {number} toy - To the position Y.
-   * @memberof RisksCartographyComponent
    */
   canvasArrow(context: CanvasRenderingContext2D, fromx: number, fromy: number, tox: number, toy: number) {
     const headlength = 16;

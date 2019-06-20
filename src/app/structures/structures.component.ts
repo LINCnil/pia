@@ -37,7 +37,6 @@ export class StructuresComponent implements OnInit, OnDestroy {
               private _translateService: TranslateService) { }
 
   ngOnInit() {
-    this._appDataService.dataNav.sections = null;
     this.sortOrder = localStorage.getItem('sortOrder');
     this.sortValue = localStorage.getItem('sortValue');
     if (!this.sortOrder || !this.sortValue) {
@@ -52,11 +51,11 @@ export class StructuresComponent implements OnInit, OnDestroy {
       sector_name: new FormControl()
     });
     this.viewStyle = {
-      view: this.route.snapshot.params['view']
-    }
+      view: this.route.snapshot.params.view
+    };
     this.paramsSubscribe = this.route.params.subscribe(
       (params: Params) => {
-        this.viewStyle.view = params['view'];
+        this.viewStyle.view = params.view;
       }
     );
     if (localStorage.getItem('homepageDisplayMode') === 'list') {
@@ -81,7 +80,6 @@ export class StructuresComponent implements OnInit, OnDestroy {
   /**
    * On structure change.
    * @param {any} structure - Any Structure.
-   * @memberof StructuresComponent
    */
   structChange(structure) {
     this._structureService.structures.push(structure);
@@ -89,7 +87,6 @@ export class StructuresComponent implements OnInit, OnDestroy {
 
   /**
    * Creates a new PIA card and adds a flip effect to go switch between new PIA and edit PIA events.
-   * @memberof StructuresComponent
    */
   newStruct() {
     this.newStructure = new Structure();
@@ -103,7 +100,6 @@ export class StructuresComponent implements OnInit, OnDestroy {
 
   /**
    * Inverse the order of the list.
-   * @memberof StructuresComponent
    */
   reverseStruct() {
     const cardsToSwitchReverse = document.getElementById('cardsSwitch');
@@ -113,7 +109,6 @@ export class StructuresComponent implements OnInit, OnDestroy {
   /**
    * Import a new structure.
    * @param {*} [event] - Any Event.
-   * @memberof StructuresComponent
    */
   importStruct(event?: any) {
     if (event) {
@@ -126,23 +121,19 @@ export class StructuresComponent implements OnInit, OnDestroy {
   /**
    * Save the newly created structure.
    * Sends to the path associated to this new structure.
-   * @memberof StructuresComponent
    */
   onSubmit() {
-    this._appDataService.getDataNav().then((data) => {
-      const structure = new Structure();
-      structure.name = this.structureForm.value.name;
-      structure.sector_name = this.structureForm.value.sector_name;
-      structure.data = data;
-      const p = structure.create();
-      p.then((id) => this.router.navigate(['structures', 'entry', id, 'section', 1, 'item', 1]));
-    });
+    const structure = new Structure();
+    structure.name = this.structureForm.value.name;
+    structure.sector_name = this.structureForm.value.sector_name;
+    structure.data = this._appDataService.dataNav;
+    const p = structure.create();
+    p.then((id) => this.router.navigate(['structures', 'entry', id, 'section', 1, 'item', 1]));
   }
 
   /**
    * Asort items created on structure.
    * @param {string} fieldToSort - Field to sort.
-   * @memberof StructuresComponent
    */
   sortBy(fieldToSort: string) {
     this.sortValue = fieldToSort;
@@ -154,7 +145,6 @@ export class StructuresComponent implements OnInit, OnDestroy {
 
   /**
    * Display elements in list view.
-   * @memberof StructuresComponent
    */
   viewOnList() {
     this.viewStyle.view = 'list';
@@ -165,7 +155,6 @@ export class StructuresComponent implements OnInit, OnDestroy {
 
   /**
    * Display elements in card view.
-   * @memberof StructuresComponent
    */
   viewOnCard() {
     this.viewStyle.view = 'card';
@@ -176,7 +165,6 @@ export class StructuresComponent implements OnInit, OnDestroy {
 
   /**
    * Refresh the list.
-   * @memberof StructuresComponent
    */
   async refreshContent() {
     const structure = new Structure();
@@ -197,7 +185,6 @@ export class StructuresComponent implements OnInit, OnDestroy {
   /**
    * Define how to sort the list.
    * @private
-   * @memberof StructuresComponent
    */
   private sortStructure() {
     this._structureService.structures.sort((a, b) => {
