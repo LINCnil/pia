@@ -267,7 +267,7 @@
 			"measure_on_data": "Logische Sicherheitsmaßnahme",
 			"organizational_measure": "Organisationsmaßnahme",
 			"principle": "Prinzip",
-      "method": "(TRANSLATION REQUIRED) Methodology"
+      "method": "Methodik"
 		},
 		"filters": {
 			"all": "Alle",
@@ -383,8 +383,8 @@
 				"source": "WIKI Menaces_pouvant_mener_à_une_modification_non_désirées_de_données"
 			},
       "PIA_METHOD_MES": {
-				"description": "(TRANSLATION REQUIRED) Planned controls are those originally put in place, before any analysis by the assessor. Corrective measures advised by the assessor will be stated in the action plan and will enable a second assessment of the severity and likelihood of the risk.",
-				"name": "(TRANSLATION REQUIRED) Planned and corrective controls",
+				"description": "Geplante Maßnahmen sind die ursprünglich eingeführten Maßnahmen vor einer Analyse durch den Prüfer. Die vom Gutachter empfohlenen Korrekturmaßnahmen werden im Aktionsplan aufgeführt und ermöglichen eine zweite Bewertung der Schwere und Wahrscheinlichkeit des Risikos.",
+				"name": "Geplante und korrigierende Maßnahmen",
 				"source": ""
       },
 			"PIA_DEF_MES": {
@@ -1312,8 +1312,8 @@
 			"0": "Die Verarbeitung sollte nicht durchgeführt werden.",
 			"1": "Die Verarbeitung kann umgesetzt werden."
 		},
-    "generate_zip": "TO TRANSLATE - Download the full report (.zip)",
-    "generate_docx": "TO TRANSLATE - Download the report (.doc)",
+    "generate_zip": "Den vollständigen Bericht herunterladen (.zip)",
+    "generate_docx": "Den Bericht herunterladen (.doc)",
 		"creation_date": "Bearbeitungsdatum",
 		"csv_action_plan_comment": "Aktionsplankommentar",
 		"csv_evaluation_comment": "Bewertungskommentar",
