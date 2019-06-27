@@ -65,7 +65,7 @@
         <div class="fadeIn pagebreak actionPlan pia-fullPreviewBlock-actionPlan">
           <div>
 
-            <!-- VALIDATION - Action plan - Overview graph-->
+            <!-- VALIDATION - Action plan - Overview graph -->
             <div class="pia-actionPlanGraphBlockContainer">
               <div class="pia-entryContentBlock-content pia-actionPlanGraphBlock" id="actionPlanOverviewImg">
                 <h3 class="pia-fullPreviewBlock-subheadline">{{ 'action_plan.title' | translate }}</h3>
@@ -116,9 +116,9 @@
 
             <!-- VALIDATION - Action plan - Fundamental principles -->
             <div class="pagebreak">
-              <h3>{{ 'summary.action_plan.fundamental_principles' | translate }}</h3>
               <ng-container *ngIf="_actionPlanService.principlesActionPlanReady; else noFundamentalPrinciples">
                 <div class="actionplanbox">
+                  <h3 class="pia-fullPreviewBlock-subheadline">{{ 'summary.action_plan.fundamental_principles' | translate }}</h3>
                   <div *ngFor="let entry of _actionPlanService.results">
                     <div style="border:0.5px dotted #A7A7A7;padding:6px;margin:10px 0;" *ngIf="entry.action_plan_comment && entry.action_plan_comment.length > 0">
                       <h3 style="margin-bottom:2px;">{{ entry.short_title | translate }}</h3>
@@ -144,6 +144,7 @@
               </ng-container>
               <ng-template #noFundamentalPrinciples>
                 <div class="actionplanbox">
+                  <h3 class="pia-fullPreviewBlock-subheadline">{{ 'summary.action_plan.fundamental_principles' | translate }}</h3>
                   {{ 'summary.action_plan.no_action_plan' |  translate }}
                 </div>
               </ng-template>
@@ -151,9 +152,9 @@
 
             <!-- VALIDATION - Action plan - Measures -->
             <div class="pagebreak">
-              <h3>{{ 'summary.action_plan.measures' | translate }}</h3>
               <ng-container *ngIf="_actionPlanService.measuresActionPlanReady; else noMeasures">
                 <div class="actionplanbox">
+                  <h3 class="pia-fullPreviewBlock-subheadline">{{ 'summary.action_plan.measures' | translate }}</h3>
                   <div *ngFor="let entry of _actionPlanService.measures">
                     <div style="border:0.5px dotted #A7A7A7;padding:6px;margin:10px 0;" *ngIf="entry.action_plan_comment && entry.action_plan_comment.length > 0">
                       <h3 style="margin-bottom:2px;">{{ entry.short_title | translate }}</h3>
@@ -179,6 +180,7 @@
               </ng-container>
               <ng-template #noMeasures>
                 <div class="actionplanbox">
+                  <h3 class="pia-fullPreviewBlock-subheadline">{{ 'summary.action_plan.measures' | translate }}</h3>
                   {{ 'summary.action_plan.no_action_plan' |  translate }}
                 </div>
               </ng-template>
@@ -188,8 +190,8 @@
             <div class="pagebreak">
               <!-- Risk 1 -->
               <div *ngIf="_actionPlanService.risksActionPlan32Ready">
-                <h3 style="margin-bottom:2px;">{{ 'summary.action_plan.risks' | translate }} - {{ _actionPlanService.risks['3.2'].short_title | translate }}</h3>
                 <div class="actionplanbox">
+                  <h3 class="pia-fullPreviewBlock-subheadline">{{ 'summary.action_plan.risks' | translate }} - {{ _actionPlanService.risks['3.2'].short_title | translate }}</h3>
                   <strong>{{ 'evaluations.action_plan_comment' | translate }} : </strong>
                   <div [innerHTML]="_actionPlanService.risks['3.2'].action_plan_comment | translate | safeHtml"></div>
                   <div *ngIf="_actionPlanService.risks['3.2'].evaluation_comment && _actionPlanService.risks['3.2'].evaluation_comment.length > 0">
@@ -220,8 +222,8 @@
 
               <!-- Risk 2 -->
               <div *ngIf="_actionPlanService.risksActionPlan33Ready">
-                <h3 style="margin-bottom:2px;">{{ 'summary.action_plan.risks' | translate }} - {{ _actionPlanService.risks['3.3'].short_title | translate }}</h3>
                 <div class="actionplanbox">
+                  <h3 class="pia-fullPreviewBlock-subheadline">{{ 'summary.action_plan.risks' | translate }} - {{ _actionPlanService.risks['3.3'].short_title | translate }}</h3>
                   <strong>{{ 'evaluations.action_plan_comment' | translate }} : </strong>
                   <div [innerHTML]="_actionPlanService.risks['3.3'].action_plan_comment | translate | safeHtml"></div>
                   <div *ngIf="_actionPlanService.risks['3.3'].evaluation_comment && _actionPlanService.risks['3.3'].evaluation_comment.length > 0">
@@ -252,8 +254,8 @@
 
               <!-- Risk 3 -->
               <div *ngIf="_actionPlanService.risksActionPlan34Ready">
-                <h3 style="margin-bottom:2px;">{{ 'summary.action_plan.risks' | translate }} - {{ _actionPlanService.risks['3.4'].short_title | translate }}</h3>
                 <div class="actionplanbox">
+                  <h3 class="pia-fullPreviewBlock-subheadline">{{ 'summary.action_plan.risks' | translate }} - {{ _actionPlanService.risks['3.4'].short_title | translate }}</h3>
                   <strong>{{ 'evaluations.action_plan_comment' | translate }} : </strong>
                   <div [innerHTML]="_actionPlanService.risks['3.4'].action_plan_comment | translate | safeHtml"></div>
                   <div *ngIf="_actionPlanService.risks['3.4'].evaluation_comment && _actionPlanService.risks['3.4'].evaluation_comment.length > 0">
@@ -284,8 +286,8 @@
 
               <!-- No actions plan for risks -->
               <div *ngIf="!_actionPlanService.risksActionPlan32Ready && !_actionPlanService.risksActionPlan33Ready && !_actionPlanService.risksActionPlan34Ready">
-                <h3 style="margin-bottom:2px;">{{ 'summary.action_plan.risks' | translate }}</h3>
                 <div class="actionplanbox">
+                  <h3 class="pia-fullPreviewBlock-subheadline">{{ 'summary.action_plan.risks' | translate }}</h3>
                   {{ 'summary.action_plan.no_action_plan' |  translate }}
                 </div>
               </div>
@@ -296,16 +298,44 @@
         </div>
 
         <!-- VALIDATION - DPO opinions -->
-        <div>TODO</div>
+        <div class="pia-fullPreviewBlock-headline">
+          <div class="pia-fullPreviewBlock-headline-title">
+            <h1>Validation</h1>
+            <h2>Avis du DPD et des personnes concernées</h2>
+          </div>
+        </div>
+
+        <div class="fadeIn">
+            <div *ngFor="let c of content">
+              <div *ngIf="c.data.length > 0">
+                <div class="databox" *ngFor="let d of c.data">
+                  <h3 id="select">{{ d.title | translate }}</h3>
+                  <div style="font-weight:500;" [ngClass]="{ 'pia-attachment-removed': d.comment && d.comment.length > 0 }" *ngIf="d.type !== 'date'; else dateBlock" [innerHTML]="d.content | translate | safeHtml"></div>
+                  <div *ngIf="d.type !== 'date' && d.comment && d.comment.length > 0" [innerHTML]="d.comment | nl2br | safeHtml"></div>
+                  <ng-template #dateBlock>
+                    <time style="font-weight:500;" *ngIf="d.content.toString() !== 'Invalid Date'">{{ d.content | date: 'dd/MM/yyyy' }}</time>
+                  </ng-template>
+                </div>
+              </div>
+            </div>
+          </div>
 
         <!-- CONTEXT + FUNDAMENTAL PRINCIPLES + RISKS -->
         <div *ngIf="allData" ng-class="{'text-success': model.copied, 'text-danger': !model.copied}" ng-copy="events.onCopy($event)">
           <div *ngFor="let section of _piaService.data.sections">
             <div class="fadeIn section-{{section.id}} pagebreak" *ngIf="section.id !== 4">
-              <h1 >{{ section.title | translate }}</h1>
+
               <div *ngFor="let item of section.items">
                 <div *ngIf="item.evaluation_mode !== ''">
-                  <h2>{{ item.title | translate }}</h2>
+
+                  <!--  TODO : ajouter une classe spécifique à chaque section pour la couleur du BG -->
+                  <div class="pia-fullPreviewBlock-headline">
+                    <div class="pia-fullPreviewBlock-headline-title">
+                      <h1 >{{ section.title | translate }}</h1>
+                      <h2>{{ item.title | translate }}</h2>
+                    </div>
+                  </div>
+
                   <div class="databox">
 
                     <!-- Measures -->

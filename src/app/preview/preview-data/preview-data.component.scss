@@ -24,7 +24,7 @@
     .actionplanbox {
       margin: 0 0 8px 0;
       border: 1px solid #b7b7b7;
-      padding: 6px 16px;
+      padding: 10px 15px;
       background: #fff;
       box-shadow: 1px 1px 3px 0px #c2c2c2;
     }
@@ -106,7 +106,7 @@
         }
         div {
           position: absolute;
-          bottom: 30%;
+          bottom: 29%;
           left: 0;
           right: 0;
           color: #fff;
@@ -273,6 +273,9 @@
         > div {
           margin-top: 15px;
         }
+      }
+      .pia-actionPlanGraphBlock {
+        padding: 10px 15px;
       }
     }
   }
