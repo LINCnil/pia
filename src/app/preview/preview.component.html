@@ -1,0 +1,21 @@
+<app-header></app-header>
+
+<main class="container pia-fullPreviewBlock pia-mainContainerBlock">
+
+  <!-- Preview navigation -->
+  <div class="row">
+    <div class="small-12 medium-3 columns">
+      <aside class="pia-leftSidebarBlock pia-fullPreviewBlock-section">
+          <app-preview-sections [section]="section" [item]="item"></app-preview-sections>
+      </aside>
+    </div>
+
+    <!-- Preview content -->
+    <div class="small-12 medium-9 columns">
+      <div class="pia-fullPreviewBlock-content">
+        <app-preview-data></app-preview-data>
+      </div>
+    </div>
+
+  </div>
+</main>
