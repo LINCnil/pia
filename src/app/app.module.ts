@@ -38,6 +38,9 @@ import { StructuresModule } from './structures/structures.module';
 import { MeasuresComponent } from './entry/entry-content/measures/measures.component';
 import { QuestionsComponent } from './entry/entry-content/questions/questions.component';
 import { Angular2CsvModule } from 'angular2-csv';
+import { PreviewComponent } from './preview/preview.component';
+import { PreviewSectionsComponent } from './preview/preview-sections/preview-sections.component';
+import { PreviewDataComponent } from './preview/preview-data/preview-data.component';
 
 @NgModule({
   declarations: [
@@ -69,6 +72,9 @@ import { Angular2CsvModule } from 'angular2-csv';
     AboutComponent,
     MeasuresComponent,
     QuestionsComponent,
+    PreviewComponent,
+    PreviewSectionsComponent,
+    PreviewDataComponent,
   ],
   imports: [
     SharedModule,
