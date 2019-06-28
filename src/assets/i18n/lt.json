@@ -31,7 +31,7 @@
 		"title": "Poveikio duomenų apsaugai vertinimas"
 	},
 	"cartography": {
-		"important": "Reikšmingas", 
+		"important": "Reikšmingas",
 		"legend1": "Planuojamos arba įgyvendintos apsaugos priemonės",
 		"legend2": "Įgyvendinta pakeistų apsaugos priemonių pagalba",
 		"legend3": "Neteisėta prieiga prie duomenų (NP)",
@@ -1292,6 +1292,7 @@
 		"update": "Atnaujinkite URL nuorodą"
 	},
 	"summary": {
+    "download_csv": "TO TRANSLATE - Action plan (.csv)",
 		"action_plan": {
 			"fundamental_principles": "Pagrindiniai principai",
 			"implementation_date": "Planuojamas įgyvendinimo terminas",
@@ -1311,8 +1312,6 @@
 			"0": "Tvarkymas neturėtų būti vykdomas.",
 			"1": "Tvarkymas gali būti vykdomas."
 		},
-    "generate_zip": "TO TRANSLATE - Download the full report (.zip)",
-    "generate_docx": "TO TRANSLATE - Download the report (.doc)",
 		"creation_date": "Data",
 		"csv_action_plan_comment": "Komentaras veiksmų planui",
 		"csv_evaluation_comment": "Komentaro įvertinimas",
@@ -1332,8 +1331,6 @@
 			"risks_overview_content": "Parodyti rizikų apžvalgą",
 			"title": "Filtrai"
 		},
-		"download_csv": "Atsisiųsti CSV formatu",
-		"download_images": "Atsisiųsti ataskaitos grafikus",
 		"dpo_name": "DPA vardas, pavardė",
 		"dpo_opinion": "DPA nuomonė",
 		"dpo_status": "DPA paskyrimo detalės (išorinis, vidinis)",
@@ -1351,7 +1348,6 @@
 		"pia_name": "PDAV",
 		"pia_validator": "Tvirtintojo vardas, pavardė, el. pašto adresas",
 		"previous_page": "Atgal į ankstesnį puslapį",
-		"print": "Spausdinti",
 		"rejection_reason": "Atmetimo priežastys",
 		"risks_cartography_title": "Rizikų tarpusavio sąsajos",
 		"risks_overview_title": "Rizikų apžvalga",

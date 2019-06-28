@@ -6,11 +6,39 @@
   <div class="row">
     <div class="small-12 medium-3 columns">
       <aside class="pia-leftSidebarBlock pia-fullPreviewBlock-section">
-          <app-preview-sections [section]="section" [item]="item"></app-preview-sections>
+          <div class="pia-sectionsBlock">
+            <div class="pia-sectionBlock-header">
+              <h1 class="truncate" title="{{_piaService.pia.name}}">{{ _piaService.pia.name }}</h1>
+              <a class="pia-icons pia-icon-close-big" routerLink="/home"
+                title="{{ 'pia.sections.homepage_link' | translate }}"></a>
+            </div>
+
+            <div class="pia-sectionBlock-structure" *ngIf="_piaService.pia.structure_id">
+              {{ 'pia.sections.based_on_structure_name' | translate }}
+              {{ _piaService.pia.structure_name }}
+            </div>
+
+            <div class="pia-sectionBlock-body">
+              <div *ngFor="let dataSection of data?.sections">
+                <div class="pia-sectionBlock-title">
+                  {{ dataSection.title | translate }}
+                  <hr>
+                </div>
+                <ul class="pia-sectionBlock-list">
+                  <ng-container *ngFor="let dataItem of dataSection?.items">
+                    <li *ngIf="!dataItem.hide">
+                      <a href="javascript:;" (click)="getAnchor($event, dataItem.title);" class="truncate">
+                        {{ dataItem.title | translate }}</a>
+                    </li>
+                  </ng-container>
+                </ul>
+              </div>
+            </div>
+          </div>
       </aside>
     </div>
 
-    <!-- Preview content -->
+    <!-- Preview content + preview actions -->
     <div class="small-12 medium-9 columns">
       <div class="pia-fullPreviewBlock-content">
         <app-preview-data></app-preview-data>

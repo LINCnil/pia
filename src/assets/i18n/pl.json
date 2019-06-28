@@ -1292,6 +1292,7 @@
 		"update": "Aktualizacja URL"
 	},
 	"summary": {
+    "download_csv": "TO TRANSLATE - Action plan (.csv)",
 		"action_plan": {
 			"fundamental_principles": "Podstawowe zasady",
 			"implementation_date": "Planowana data wdrożenia",
@@ -1311,8 +1312,6 @@
 			"0": "Tego przetwarzania nie należy wdrażać.",
 			"1": "To przetwarzanie można wdrożyć."
 		},
-    "generate_zip": "TO TRANSLATE - Download the full report (.zip)",
-    "generate_docx": "TO TRANSLATE - Download the report (.doc)",
 		"creation_date": "Data utworzenia",
 		"csv_action_plan_comment": "Komentarz do planu działania",
 		"csv_evaluation_comment": "Komentarz do oceny",
@@ -1332,8 +1331,6 @@
 			"risks_overview_content": "Wyświetl przegląd ryzyka",
 			"title": "Filtry"
 		},
-		"download_csv": "Pobierz w formacie csv",
-		"download_images": "Pobierz obrazy",
 		"dpo_name": "Nazwisko IOD",
 		"dpo_opinion": "Opinia IOD",
 		"dpo_status": "Status IOD",
@@ -1351,7 +1348,6 @@
 		"pia_name": "Nazwa PIA",
 		"pia_validator": "Nazwisko zatwierdzającego",
 		"previous_page": "Powrót do poprzedniej strony",
-		"print": "Drukowanie",
 		"rejection_reason": "Powód odmowy",
 		"risks_cartography_title": "Mapowanie ryzyka",
 		"risks_overview_title": "Przegląd ryzyka",

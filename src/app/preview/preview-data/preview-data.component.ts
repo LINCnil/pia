@@ -50,7 +50,7 @@ export class PreviewDataComponent implements OnInit, AfterViewChecked {
   }
 
   ngAfterViewChecked() {
-    document.querySelector('angular2csv > button').innerHTML = '<i class="fa fa-2x fa-file-excel-o"></i>';
+    document.querySelector('angular2csv > button').innerHTML = this._translateService.instant('summary.download_csv');
   }
 
   /**
@@ -432,6 +432,19 @@ export class PreviewDataComponent implements OnInit, AfterViewChecked {
       }
       resolve(evaluation);
     });
+  }
+
+  /**
+   * Toggle the menu with the individual exports
+   * @private
+   */
+  private toggleIndividualExports() {
+    const exportLinksList = document.querySelector('.pia-fullPreviewBlock-exports-individual-links');
+    const individualExports = document.querySelector('.pia-fullPreviewBlock-exports-individual');
+    if (exportLinksList && individualExports) {
+      exportLinksList.classList.toggle('hide');
+      individualExports.classList.toggle('activeMenu');
+    }
   }
 
 }

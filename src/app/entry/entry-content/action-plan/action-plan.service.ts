@@ -26,7 +26,8 @@ export class ActionPlanService {
   risksActionPlan34Ready = false;
   csvRows = [];
 
-  constructor(private _translateService: TranslateService, private _languagesService: LanguagesService,
+  constructor(private _translateService: TranslateService,
+              private _languagesService: LanguagesService,
               private formatTheDate: FormatTheDate) { }
 
   /**

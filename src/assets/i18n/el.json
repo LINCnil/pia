@@ -1292,6 +1292,7 @@
 		"update": "Ανανέωση του URL"
 	},
 	"summary": {
+    "download_csv": "TO TRANSLATE - Action plan (.csv)",
 		"action_plan": {
 			"fundamental_principles": "Θεμελιώδεις αρχές",
 			"implementation_date": "Αναμενόμενη ημερομηνία εφαρμογής",
@@ -1311,8 +1312,6 @@
 			"0": "Η επεξεργασία δεν πρέπει να διεξάγεται.",
 			"1": "Η επεξεργασία θα μπορούσε να διεξαχθεί."
 		},
-    "generate_zip": "Κατεβάστε την πλήρη έκθεση (.zip)",
-    "generate_docx": "Κατεβάστε την έκθεση (.doc)",
 		"creation_date": "Ημερομηνία δημιουργίας",
 		"csv_action_plan_comment": "Σχόλιο σχεδίου δράσης",
 		"csv_evaluation_comment": "Σχόλιο αξιολόγησης",
@@ -1332,8 +1331,6 @@
 			"risks_overview_content": "Εμφάνιση επισκόπησης κινδύνων",
 			"title": "Εμφάνιση φίλτρων"
 		},
-		"download_csv": "Λήψη εξαγωγής CSV",
-		"download_images": "Λήψη εικόνων",
 		"dpo_name": "Όνομα του ΥΠΔ",
 		"dpo_opinion": "Γνώμη του ΥΠΔ",
 		"dpo_status": "Καθεστώς του ΥΠΔ",
@@ -1351,7 +1348,6 @@
 		"pia_name": "ΕΑ",
 		"pia_validator": "Όνομα επικυρωτή",
 		"previous_page": "Επιστροφή στην προηγούμενη σελίδα",
-		"print": "Εκτύπωση",
 		"rejection_reason": "Λόγος απόρριψης",
 		"risks_cartography_title": "Χαρτογράφηση κινδύνων",
 		"risks_overview_title": "Επισκόπηση κινδύνων",

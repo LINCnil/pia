@@ -1292,6 +1292,7 @@
 		"update": "URL frissítése"
 	},
 	"summary": {
+    "download_csv": "TO TRANSLATE - Action plan (.csv)",
 		"action_plan": {
 			"fundamental_principles": "Alapelvek",
 			"implementation_date": "Végrehajtás várható dátuma",
@@ -1311,8 +1312,6 @@
 			"0": "Az intézkedések megfelelőek, ennek következtében alkalmazhatóak.",
 			"1": "Az intézkedések nem megfelelőek, ezért alkalmazásukra nem kerülhet sor."
 		},
-    "generate_zip": "TO TRANSLATE - Download the full report (.zip)",
-    "generate_docx": "TO TRANSLATE - Download the report (.doc)",
 		"creation_date": "Létrehozás dátuma.",
 		"csv_action_plan_comment": "Intézkedési terv vélemények",
 		"csv_evaluation_comment": "Értékelés vélemények",
@@ -1332,8 +1331,6 @@
 			"risks_overview_content": "Kockázatok áttekintésének megjelenítése",
 			"title": "Szűrők megjelenítése"
 		},
-		"download_csv": "Exportált CSV fájl letöltése",
-		"download_images": "Képek letöltése",
 		"dpo_name": "Adatvédelmi tisztviselő neve",
 		"dpo_opinion": "Adatvédelmi tisztviselő véleménye",
 		"dpo_status": "Adatvédelmi tisztviselő státusza",
@@ -1351,7 +1348,6 @@
 		"pia_name": "DPIA",
 		"pia_validator": "Jóváhagyó neve",
 		"previous_page": "Vissza az előző oldalra",
-		"print": "Nyomtatás",
 		"rejection_reason": "Elutasítás oka.",
 		"risks_cartography_title": "A kockázatok feltérképezése",
 		"risks_overview_title": "A kockázatok áttekintése",

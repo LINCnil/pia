@@ -1292,6 +1292,7 @@
 		"update": "Päivitä URL"
 	},
 	"summary": {
+    "download_csv": "TO TRANSLATE - Action plan (.csv)",
 		"action_plan": {
 			"fundamental_principles": "Perusperiaatteet",
 			"implementation_date": "Suunniteltu toteuttamispäivä",
@@ -1311,8 +1312,6 @@
 			"0": "Henkilötietojen käsittelyä ei pidä toteuttaa.",
 			"1": "Henkilötietojen käsittelyn voi toteuttaa."
 		},
-    "generate_zip": "TO TRANSLATE - Download the full report (.zip)",
-    "generate_docx": "TO TRANSLATE - Download the report (.doc)",
 		"creation_date": "Laadintapäivä",
 		"csv_action_plan_comment": "Toimintasuunnitelman kommentti",
 		"csv_evaluation_comment": "Arvioinnin kommentti",
@@ -1332,8 +1331,6 @@
 			"risks_overview_content": "Näytä riskien yleiskatsaus",
 			"title": "Näytä suodattimet"
 		},
-		"download_csv": "Lataa CSV-muodossa",
-		"download_images": "Lataa kuvina",
 		"dpo_name": "Tietosuojavastaavan nimi",
 		"dpo_opinion": "Tietosuojavastaavan mielipide",
 		"dpo_status": "Tietosuojavastaavan tila",
@@ -1351,7 +1348,6 @@
 		"pia_name": "Tietosuojaa koskeva vaikutustenarviointi",
 		"pia_validator": "Hyväksyjän nimi",
 		"previous_page": "Takaisin edelliselle sivulle",
-		"print": "Tulosta",
 		"rejection_reason": "Hylkäyksen syy",
 		"risks_cartography_title": "Riskien kartoitus",
 		"risks_overview_title": "Riskien yleiskatsaus",
