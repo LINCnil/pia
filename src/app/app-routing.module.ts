@@ -15,7 +15,6 @@ import { StructuresRoutingModule } from './structures/structures-routing.module'
 
 const routes: Routes = [
   { path: '', component: AuthenticationComponent },
-  { path: 'summary/:id', component: SummaryComponent },
   { path: 'preview/:id', component: PreviewComponent },
   { path: 'settings', component: SettingsComponent },
   { path: 'help', component: HelpComponent },

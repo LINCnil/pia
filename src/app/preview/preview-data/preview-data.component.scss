@@ -51,22 +51,6 @@
       color: $pia-dark-black;
     }
   }
-
-  &-previewButtonsBlock {
-    display: inline-block;
-    vertical-align: middle;
-    margin-top: 8px;
-    a {
-      text-decoration: none;
-    }
-    a, button {
-      margin: 0 6px;
-      i {
-        color: $pia-green;
-        font-size: 2.5rem;
-      }
-    }
-  }
   &-previewRisksOverviewBlock,
   &-previewRisksCartographyBlock {
     box-shadow: 1px 1px 15px 1px #d2d2d2;
@@ -78,11 +62,12 @@
       box-shadow: none;
     }
   }
-
+  &-previewRisksOverviewBlock {
+    margin-bottom: 100px;
+  }
   &-actionPlanGraphBlockContainer {
     margin-top: 15px;
   }
-
   &-fullPreviewBlock {
     &-header {
       display: flex;
@@ -106,7 +91,7 @@
         }
         div {
           position: absolute;
-          bottom: 29%;
+          bottom: 28%;
           left: 0;
           right: 0;
           color: #fff;
@@ -222,7 +207,7 @@
       }
     }
     &-data,
-    &-actions {
+    &-exports {
       display: inline-block;
       vertical-align: top;
       padding-left: 15px;
@@ -230,14 +215,13 @@
     &-data {
       width: 610px;
     }
-    &-actions {
-      width: 256px;
-    }
     &-headline {
       display: flex;
       margin: 15px 0;
       background-color: #fff;
-      position: relative;
+      position: sticky;
+      z-index: 999999;
+      top: 0;
       box-shadow: 1px 1px 15px 1px rgba(210,210,210,1);
       &-title {
         width: 100%;
@@ -259,6 +243,24 @@
           padding: 0 20px;
         }
       }
+      &.headline1 {
+        .pia-fullPreviewBlock-headline-title {
+          border-left-color: $pia-green;
+          border-bottom-color: $pia-green;
+        }
+      }
+      &.headline2 {
+        .pia-fullPreviewBlock-headline-title {
+          border-left-color: $pia-blue;
+          border-bottom-color: $pia-blue;
+        }
+      }
+      &.headline3 {
+        .pia-fullPreviewBlock-headline-title {
+          border-left-color: $pia-red;
+          border-bottom-color: $pia-red;
+        }
+      }
     }
     &-subheadline {
       color: #393939 !important;
@@ -276,6 +278,113 @@
       }
       .pia-actionPlanGraphBlock {
         padding: 10px 15px;
+      }
+    }
+    &-exports {
+      width: 260px;
+      position: sticky;
+      top: 0;
+      font-size: 1.7rem;
+      &-title {
+        color: $pia-gray;
+      }
+      > div {
+        &:first-child {
+          padding: 15px 0;
+          border-top: none;
+        }
+      }
+      &-print,
+      &-full {
+        &:active {
+          padding: 0 10px;
+          background-color: $pia-green;
+          button,
+          div {
+            color: #fff;
+          }
+        }
+      }
+      &-print,
+      &-full,
+      &-individual {
+        border-top: 1px solid #c8c7c9;
+        &:focus,
+        &:hover {
+          padding: 0 10px;
+          background-color: $pia-green;
+          border-top-color: $pia-green;
+          button,
+          div {
+            color: #fff;
+          }
+        }
+
+      }
+      &-print,
+      &-full {
+        button {
+          padding: 15px 0;
+          width:100%;
+          cursor: pointer;
+          text-align: left;
+        }
+      }
+      &-full {
+        button {
+          div {
+            &:last-child {
+              padding-top: 15px;
+              font-size: 1.4rem;
+              padding-right: 10px;
+            }
+          }
+        }
+      }
+      &-individual {
+        padding-top: 15px;
+        &:focus,
+        &:hover {
+          padding-top: 15px;
+        }
+        &-description {
+          div {
+            &:last-child {
+              padding: 15px 0;
+              font-size: 1.4rem;
+              cursor: pointer;
+            }
+          }
+        }
+        &-links {
+          font-size: 1.4rem;
+          text-align: left;
+          button {
+            cursor: pointer;
+            text-align: left;
+            width: 100%;
+            padding: 15px 0;
+          }
+        }
+        &.activeMenu {
+          background-color: transparent;
+          padding: 15px 10px 0 10px;
+          &:focus,
+          &:hover {
+            padding: 15px 10px 0 10px;
+            button,
+            div {
+              color: #000;
+            }
+          }
+          > div {
+            &:first-child {
+              div {
+                color: $pia-green;
+              }
+            }
+          }
+        }
       }
     }
   }

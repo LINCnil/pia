@@ -1292,6 +1292,7 @@
 		"update": "URL bijwerken"
 	},
 	"summary": {
+    "download_csv": "TO TRANSLATE - Action plan (.csv)",
 		"action_plan": {
 			"fundamental_principles": "Fundamentele principes",
 			"implementation_date": "Verwachte datum van implementatie",
@@ -1311,8 +1312,6 @@
 			"0": "De behandeling mag niet worden gebruikt.",
 			"1": "De behandeling zou kunnen worden geïmplementeerd."
 		},
-    "generate_zip": "TO TRANSLATE - Download the full report (.zip)",
-    "generate_docx": "TO TRANSLATE - Download the report (.doc)",
 		"creation_date": "Aanmaakdatum",
 		"csv_action_plan_comment": "Commentaar actieplan",
 		"csv_evaluation_comment": "Evaluatie commentaar",
@@ -1332,8 +1331,6 @@
 			"risks_overview_content": "Toon overzicht van de risico's",
 			"title": "Filters"
 		},
-		"download_csv": "Download een CSV-export",
-		"download_images": "Download afbeeldingen",
 		"dpo_name": "DPO's / FG naam",
 		"dpo_opinion": "DPO's / FG mening",
 		"dpo_status": "DPO's / FG status",
@@ -1351,7 +1348,6 @@
 		"pia_name": "PIA",
 		"pia_validator": "Validator's naam",
 		"previous_page": "Terug naar de vorige pagina",
-		"print": "Print",
 		"rejection_reason": "Afwijzingsreden",
 		"risks_cartography_title": "Risicokartering",
 		"risks_overview_title": "Risico's overzicht",

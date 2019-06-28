@@ -1292,6 +1292,7 @@
 		"update": "Uuenda URL"
 	},
 	"summary": {
+    "download_csv": "TO TRANSLATE - Action plan (.csv)",
 		"action_plan": {
 			"fundamental_principles": "Põhiprintsiibid",
 			"implementation_date": "Oodatav rakendamise kuupäev",
@@ -1311,8 +1312,6 @@
 			"0": "Ravi ei tohiks kasutada",
 			"1": "Ravi võib rakendada"
 		},
-    "generate_zip": "TO TRANSLATE - Download the full report (.zip)",
-    "generate_docx": "TO TRANSLATE - Download the report (.doc)",
 		"creation_date": "Loomise kuupäev",
 		"csv_action_plan_comment": "Kommenteeri tegevuskava",
 		"csv_evaluation_comment": "Kommenteeri hindamist",
@@ -1332,8 +1331,6 @@
 			"risks_overview_content": "Kuva riskide ülevaade",
 			"title": "Kuva filtrid"
 		},
-		"download_csv": "Laadi alla CSV-eksport",
-		"download_images": "Laadi alla pildid",
 		"dpo_name": "Mõjuhinnangu nimi",
 		"dpo_opinion": "Andmekaitsespetsialisti arvamus",
 		"dpo_status": "Mõjuhinnangu staatus",
@@ -1351,7 +1348,6 @@
 		"pia_name": "Mõjuhinnang",
 		"pia_validator": "Valideerija nimi",
 		"previous_page": "Tagasi eelmisele lehele",
-		"print": "Prindi",
 		"rejection_reason": "Tagasilükkamise põhjus",
 		"risks_cartography_title": "Riskide kaarditamine",
 		"risks_overview_title": "Riskide ülevaade",

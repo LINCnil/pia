@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { PiaService } from 'src/app/services/pia.service';
 import { AppDataService } from 'src/app/services/app-data.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-preview',
@@ -13,7 +14,8 @@ export class PreviewComponent implements OnInit {
   public activeElement: string;
   data: { sections: any };
 
-  constructor(private _piaService: PiaService,
+  constructor(private _translateService: TranslateService,
+              private _piaService: PiaService,
               private _appDataService: AppDataService) {}
 
   async ngOnInit() {
@@ -24,7 +26,6 @@ export class PreviewComponent implements OnInit {
     this.data = this._appDataService.dataNav;
   }
 
-
   /**
    * Jump to the title/subtitle clicked.
    * @param {any} event - Any Event.
@@ -32,11 +33,10 @@ export class PreviewComponent implements OnInit {
    */
   getAnchor(event, text) {
     event.preventDefault();
-    this.activeElement = text;
-    const allSubtitles = document.querySelectorAll('h3');
-    [].forEach.call(allSubtitles, (el, i) => {
-      if (el.innerText === this.activeElement) {
-        el.scrollIntoView();
+    const allSubtitles = document.querySelectorAll('h2');
+    allSubtitles.forEach.call(allSubtitles, (el, i) => {
+      if (el.innerText === this._translateService.instant(text)) {
+        el.scrollIntoView({ behavior: "instant" });
       }
     });
   }

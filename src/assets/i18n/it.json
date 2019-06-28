@@ -1292,6 +1292,7 @@
 		"update": "Aggiorna URL"
 	},
 	"summary": {
+    "download_csv": "TO TRANSLATE - Action plan (.csv)",
 		"action_plan": {
 			"fundamental_principles": "Principi fondamentali",
 			"implementation_date": "Data prevista di implementazione",
@@ -1311,8 +1312,6 @@
 			"0": "Il trattamento non dovrebbe essere implementato.",
 			"1": "Il trattamento può essere implementato."
 		},
-    "generate_zip": "TO TRANSLATE - Download the full report (.zip)",
-    "generate_docx": "TO TRANSLATE - Download the report (.doc)",
 		"creation_date": "Data di creazione",
 		"csv_action_plan_comment": "Commento sul piano di azione",
 		"csv_evaluation_comment": "Commento sulla valutazione",
@@ -1332,8 +1331,6 @@
 			"risks_overview_content": "Visualizza panoramica rischi",
 			"title": "Filtri visualizzazione"
 		},
-		"download_csv": "Scaricare un'esportazione CSV",
-		"download_images": "Scarica le immagini",
 		"dpo_name": "Nome del DPO/RPD",
 		"dpo_opinion": "Parere del DPO/RPD",
 		"dpo_status": "Posizione del DPO/RPD",
@@ -1351,7 +1348,6 @@
 		"pia_name": "Nome della PIA",
 		"pia_validator": "Nome validatore",
 		"previous_page": "Torna alla pagina precedente",
-		"print": "Stampa",
 		"rejection_reason": "Motivazione del rigetto",
 		"risks_cartography_title": "Mappaggio dei rischi",
 		"risks_overview_title": "Panoramica dei rischi",

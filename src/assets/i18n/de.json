@@ -1293,6 +1293,7 @@
 		"update": "URL aktualisieren"
 	},
 	"summary": {
+    "download_csv": "TO TRANSLATE - Action plan (.csv)",
 		"action_plan": {
 			"fundamental_principles": "Grundlegende Prinzipien",
 			"implementation_date": "Voraussichtliches Datum der Umsetzung",
@@ -1312,8 +1313,6 @@
 			"0": "Die Verarbeitung sollte nicht durchgeführt werden.",
 			"1": "Die Verarbeitung kann umgesetzt werden."
 		},
-    "generate_zip": "Den vollständigen Bericht herunterladen (.zip)",
-    "generate_docx": "Den Bericht herunterladen (.doc)",
 		"creation_date": "Bearbeitungsdatum",
 		"csv_action_plan_comment": "Aktionsplankommentar",
 		"csv_evaluation_comment": "Bewertungskommentar",
@@ -1333,8 +1332,6 @@
 			"risks_overview_content": "Risikoübersicht anzeigen",
 			"title": "Filter"
 		},
-		"download_csv": "CSV-Export herunterladen",
-		"download_images": "Bilder herunterladen",
 		"dpo_name": "Name des DSB",
 		"dpo_opinion": "Gutachten des DSB",
 		"dpo_status": "Feststellung des DSB",
@@ -1344,8 +1341,6 @@
 			"3": "Substantiell",
 			"4": "Groß"
 		},
-		"generate_docx": "Den Bericht herunterladen (.docx)",
-		"generate_zip": "Den vollständigen Bericht herunterladen (.zip)",
 		"modification_made": "Vorgenommene Änderungen",
 		"people_search_status_nok": "Meinung der Betroffenen wurde nicht eingeholt.",
 		"people_search_status_ok": "Meinung der Betroffenen wurde eingeholt.",
@@ -1354,7 +1349,6 @@
 		"pia_name": "DSFA",
 		"pia_validator": "Name des Bestätigers",
 		"previous_page": "Zurück zur vorherigen Seite",
-		"print": "Drucken",
 		"rejection_reason": "Ablehnungsgrund",
 		"risks_cartography_title": "Risikokartierung",
 		"risks_overview_title": "Risikokübersicht",

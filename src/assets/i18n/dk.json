@@ -1292,6 +1292,7 @@
 		"update": "Updatere URL"
 	},
 	"summary": {
+    "download_csv": "TO TRANSLATE - Action plan (.csv)",
 		"action_plan": {
 			"fundamental_principles": "Fundamentale principper",
 			"implementation_date": "Forventet implementerings dato",
@@ -1311,8 +1312,6 @@
 			"0": "Behandlingen bør ikke gennemføres.",
 			"1": "Behandlingen kan gennemføres."
 		},
-    "generate_zip": "TO TRANSLATE - Download the full report (.zip)",
-    "generate_docx": "TO TRANSLATE - Download the report (.doc)",
 		"creation_date": "Dato for kreation",
 		"csv_action_plan_comment": "Handlingsplans kommentarer",
 		"csv_evaluation_comment": "Evaluations kommentarer",
@@ -1332,8 +1331,6 @@
 			"risks_overview_content": "Vis risici oversigt",
 			"title": "Vis filtre"
 		},
-		"download_csv": "Hent CSV export",
-		"download_images": "Hent billeder",
 		"dpo_name": "DPO's navn",
 		"dpo_opinion": "DPO's holdning",
 		"dpo_status": "DPO's status",
@@ -1351,7 +1348,6 @@
 		"pia_name": "PIA",
 		"pia_validator": "Godkenders navn",
 		"previous_page": "tilbage til forgående side",
-		"print": "Print",
 		"rejection_reason": "Begrundelse for afvisning",
 		"risks_cartography_title": "Risikokortlægning",
 		"risks_overview_title": "Risiko oversigt",

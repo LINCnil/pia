@@ -105,8 +105,8 @@
     <!-- Links and tools block -->
     <div class="pia-entryContentBlock-footer-validationTools">
       <a routerLink="/home"><i class="fa fa-home" aria-hidden="true"></i><p>{{ 'validation_page.tools.dashboard' | translate }}</p></a>
-      <a routerLink="/summary/{{_piaService.pia.id}}"><i class="fa fa-file-text-o" aria-hidden="true"></i><p>{{ 'validation_page.tools.display_pia' | translate }}</p></a>
-      <a routerLink="/summary/{{_piaService.pia.id}}" [queryParams]="{ displayOnlyActionPlan: true }"><i class="fa fa-file-excel-o" aria-hidden="true"></i><p>{{ 'validation_page.tools.action_plan' | translate }}</p></a>
+      <a routerLink="/preview/{{_piaService.pia.id}}"><i class="fa fa-file-text-o" aria-hidden="true"></i><p>{{ 'validation_page.tools.display_pia' | translate }}</p></a>
+      <a routerLink="/preview/{{_piaService.pia.id}}" [queryParams]="{ displayOnlyActionPlan: true }"><i class="fa fa-file-excel-o" aria-hidden="true"></i><p>{{ 'validation_page.tools.action_plan' | translate }}</p></a>
     </div>
 
   </div>

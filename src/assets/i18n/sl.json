@@ -532,7 +532,7 @@
 			"organizational_measure": "Organizacijske kontrole",
 
 			"principle": "Princip",
-      
+
       "method": "(TRANSLATION REQUIRED) Methodology"
 
 		},
@@ -762,13 +762,13 @@
 				"source": "piaF Connected Objects p43 and 44, WIKI"
 
 			},
-      
+
       "PIA_METHOD_MES": {
-        
+
 				"description": "(TRANSLATION REQUIRED) Planned controls are those originally put in place, before any analysis by the assessor. Corrective measures advised by the assessor will be stated in the action plan and will enable a second assessment of the severity and likelihood of the risk.",
-				
+
         "name": "(TRANSLATION REQUIRED) Planned and corrective controls",
-				
+
         "source": ""
       },
 
@@ -2581,7 +2581,7 @@
 	},
 
 	"summary": {
-
+    "download_csv": "TO TRANSLATE - Action plan (.csv)",
 		"action_plan": {
 
 			"fundamental_principles": "Temeljna načela",
@@ -2657,11 +2657,6 @@
 			"title": "Prikaži filtere"
 
 		},
-
-		"download_csv": "Preuzmite izvezenu .CSV datoteku",
-
-		"download_images": "Preuzmi slike",
-
 		"dpo_name": "Ime SZP-a",
 
 		"dpo_opinion": "Mišljenje SZP-a",
@@ -2695,8 +2690,6 @@
 		"pia_validator": "Ime potvrditelja",
 
 		"previous_page": "Natrag na prethodnu stranicu",
-
-		"print": "Ispiši",
 
 		"rejection_reason": "Razlog odbijanja",
 
