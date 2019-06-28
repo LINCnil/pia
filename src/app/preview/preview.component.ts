@@ -36,7 +36,7 @@ export class PreviewComponent implements OnInit {
     const allSubtitles = document.querySelectorAll('h2');
     allSubtitles.forEach.call(allSubtitles, (el, i) => {
       if (el.innerText === this._translateService.instant(text)) {
-        el.scrollIntoView({ behavior: "instant" });
+        el.parentNode.scrollIntoView({ behavior: "instant" });
       }
     });
   }
