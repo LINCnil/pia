@@ -8,6 +8,7 @@ import { StructureService } from 'src/app/services/structure.service';
 import { Structure } from './structure.model';
 import { ModalsService } from 'src/app/modals/modals.service';
 import { AppDataService } from 'src/app/services/app-data.service';
+import { LanguagesService } from 'src/app/services/languages.service';
 
 @Component({
   selector: 'app-structures',
@@ -34,6 +35,7 @@ export class StructuresComponent implements OnInit, OnDestroy {
               public _modalsService: ModalsService,
               private _appDataService: AppDataService,
               public _structureService: StructureService,
+              private _languagesService: LanguagesService,
               private _translateService: TranslateService) { }
 
   ngOnInit() {

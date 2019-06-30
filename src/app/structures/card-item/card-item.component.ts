@@ -6,6 +6,8 @@ import { Structure } from 'src/app/structures/structure.model';
 
 import { ModalsService } from 'src/app/modals/modals.service';
 import { StructureService } from 'src/app/services/structure.service';
+import { LanguagesService } from 'src/app/services/languages.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-card-item',
@@ -24,7 +26,9 @@ export class CardItemComponent implements OnInit {
 
   constructor(private router: Router,
               private _modalsService: ModalsService,
-              public _structureService: StructureService) { }
+              public _structureService: StructureService,
+              private _languagesService: LanguagesService,
+              private _translateService: TranslateService) { }
 
   ngOnInit() {
     this.structureForm = new FormGroup({

@@ -74,17 +74,17 @@
 		"placeholder_improvable1": "Ifølge de foreliggende oplysninger skal yderligere foranstaltninger gennemføres for at databeskyttelsen i behandlingen er fyldestgørende.",
 		"placeholder_improvable2": "Skriv dine kommentarer.",
 		"placeholder_to_correct": "Oplysningerne er ikke fyldstgørende for en evalution. Send tilbage til redaktøren/forfatter af denne PIA, for at forbedre de oprindelige indsendte oplysninger.",
-		"status": {
-			"0": "Afventning",
-			"1": "Rette",
-			"2": "Forbedre",
-			"3": "Godkendt"
-		},
+		"status": [
+			"Afventning",
+			"Rette",
+			"Forbedre",
+			"Godkendt"
+		],
 		"title": "Evaluering",
 		"to_correct": "At rette"
 	},
 	"header": {
-    "exit_full_screen_mode": "TO TRANSLATE - Press F11 to exit full screen mode.",
+		"exit_full_screen_mode": "TO TRANSLATE - Press F11 to exit full screen mode.",
 		"homepage_link": "Hjem",
 		"knowledge_base_link": "Vidensbase",
 		"languages": {
@@ -265,9 +265,9 @@
 			"example": "Eksempel",
 			"general_measure": "Fysisk sikkerhedsforanstaltning",
 			"measure_on_data": "Logisk sikkerhedsforanstaltning",
+			"method": "(TRANSLATION REQUIRED) Methodology",
 			"organizational_measure": "Organisatorisk foranstaltning",
-			"principle": "Principper",
-      "method": "(TRANSLATION REQUIRED) Methodology"
+			"principle": "Principper"
 		},
 		"filters": {
 			"all": "Alle",
@@ -382,11 +382,6 @@
 				"name": "Trusseler der kan lede til uønsket ændring af personoplysninger",
 				"source": "PIAF Connected Objects p43 and 44, WIKI"
 			},
-      "PIA_METHOD_MES": {
-				"description": "(TRANSLATION REQUIRED) Planned controls are those originally put in place, before any analysis by the assessor. Corrective measures advised by the assessor will be stated in the action plan and will enable a second assessment of the severity and likelihood of the risk.",
-				"name": "(TRANSLATION REQUIRED) Planned and corrective controls",
-				"source": ""
-      },
 			"PIA_DEF_MES": {
 				"description": "Skal vælges blandt de til rådige foranstaltninger i sektionen \"Planlagte eller eksiterende foranstaltninger\", der kan udbygges hvis nødvendigt.",
 				"name": "Foranstaltninger",
@@ -617,6 +612,11 @@
 				"description": "Det dokumenteres hvor personoplysninger geografisk befinder sig. Hvis personoplysningerne befinder sig i lande der ikke har et tilstrækeligt beskyttelsesniveau, skal det juridiske grundlag for overførsel dokumenteres således at registrerede har de fornødne garantier, og at deres rettigheder kan håndhæves. Det vil sige :<br>- Lande i den Europæiske Union<br>- Lande med tilstrækkeligt beskyttelsesniveau (anerkendt af EU)<br>- Overførseler til amerikanske organisationer tilsluttet Privacy Shield<br>- Andre lande <br>Se <a target=\"_blank\" href=\"https://eur-lex.europa.eu/legal-content/DA/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">art. 44 til 49 af [GDPR]</a>",
 				"name": "Overførsel af personoplysninger",
 				"source": "PIAF Connected Objects p18"
+			},
+			"PIA_METHOD_MES": {
+				"description": "(TRANSLATION REQUIRED) Planned controls are those originally put in place, before any analysis by the assessor. Corrective measures advised by the assessor will be stated in the action plan and will enable a second assessment of the severity and likelihood of the risk.",
+				"name": "(TRANSLATION REQUIRED) Planned and corrective controls",
+				"source": "WIKI Menaces_pouvant_mener_à_une_modification_non_désirées_de_données"
 			},
 			"PIA_ORG_AUD": {
 				"description": "Findes der en politik og procedure der sikre organisationens styring af compliance til GDPR, der sikre fuldt overblik over behandlingsaktiviteter og efterlevelse af forordningens krav (f.eks. igennem effektivt tilsyn og revision).",
@@ -1002,24 +1002,24 @@
 			},
 			"validate_pia": "Godkend PIA"
 		},
-		"statuses": {
-			"0": "Under behandling",
-			"1": "Afvist",
-			"2": "Simpel godkendelse",
-			"3": "Signered godkendelse",
-			"4": "Arkiveret",
-			"5": "Venter på godkendelse"
-		}
+		"statuses": [
+			"Under behandling",
+			"Afvist",
+			"Simpel godkendelse",
+			"Signered godkendelse",
+			"Arkiveret",
+			"Venter på godkendelse"
+		]
 	},
 	"questions": {
 		"edit": "Redigere spørgsmål",
-		"gauges": {
-			"0": "(Udefinet)",
-			"1": "Ubetydelig",
-			"2": "Betydelig",
-			"3": "Alvorlig",
-			"4": "Katastrofal"
-		},
+		"gauges": [
+			"(Udefinet)",
+			"Ubetydelig",
+			"Betydelig",
+			"Alvorlig",
+			"Katastrofal"
+		],
 		"placeholder_title": "Titel på spørgsmål (obligatorisk)",
 		"remove": "Slet spørgsmål"
 	},
@@ -1307,12 +1307,10 @@
 		"concerned_people_searched_opinion": "Søger de berørte personers synspunkter",
 		"concerned_people_status": "Berørte personers status",
 		"concerned_people_unsearched_opinion_comment": "Hvorfor de pågældende personers synspunkt ikke blev efterspurgt",
-		"content_choice": {
-			"0": "Behandlingen bør ikke gennemføres.",
-			"1": "Behandlingen kan gennemføres."
-		},
-    "generate_zip": "TO TRANSLATE - Download the full report (.zip)",
-    "generate_docx": "TO TRANSLATE - Download the report (.doc)",
+		"content_choice": [
+			"Behandlingen bør ikke gennemføres.",
+			"Behandlingen kan gennemføres."
+		],
 		"creation_date": "Dato for kreation",
 		"csv_action_plan_comment": "Handlingsplans kommentarer",
 		"csv_evaluation_comment": "Evaluations kommentarer",
@@ -1322,8 +1320,8 @@
 		"csv_section": "Sektion",
 		"csv_title_object": "Titel",
 		"display_filters": {
-      "check_all": "TO TRANSLATE - Enable / disable all display filters",
 			"action_plan_content": "Vis handlingsplan",
+			"check_all": "TO TRANSLATE - Enable / disable all display filters",
 			"context_content": "Vis sektion \"Kontext\"",
 			"main_content": "Vis sektion \"PIA information\"",
 			"principles_content": "Vis sektion \"Fundamentale principper\"",
@@ -1343,6 +1341,8 @@
 			"3": "Alvorligt",
 			"4": "Katastrofalt"
 		},
+		"generate_docx": "TO TRANSLATE - Download the report (.doc)",
+		"generate_zip": "TO TRANSLATE - Download the full report (.zip)",
 		"modification_made": "Ændringer",
 		"people_search_status_nok": "Den pågældende persons synspunkt blev ikke efterspurgt.",
 		"people_search_status_ok": "De pågældende personers synspunkt blev anmodet om.",

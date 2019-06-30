@@ -74,17 +74,17 @@
 		"placeholder_improvable1": "Conform informațiilor disponibile, trebuie puse în aplicare măsuri suplimentare pentru a îmbunătății protecția datelor în cadrul procesului de prelucrare.",
 		"placeholder_improvable2": "Introduceți comentariile dvs.",
 		"placeholder_to_correct": "Informațiile furnizate nu sunt suficiente pentru a fi evaluate în mod corespunzător. Retransmiteți-le către editor pentru îmbunătății informațiile prezentate inițial.",
-		"status": {
-			"0": "În așteptare",
-			"1": "De corectat",
-			"2": "De îmbunătățit",
-			"3": "Acceptabil"
-		},
+		"status": [
+			"În așteptare",
+			"De corectat",
+			"De îmbunătățit",
+			"Acceptabil"
+		],
 		"title": "Evaluare",
 		"to_correct": "De corectat"
 	},
 	"header": {
-    "exit_full_screen_mode": "TO TRANSLATE - Press F11 to exit full screen mode.",
+		"exit_full_screen_mode": "TO TRANSLATE - Press F11 to exit full screen mode.",
 		"homepage_link": "Panou de comandă",
 		"knowledge_base_link": "Baza de cunoaștere",
 		"languages": {
@@ -265,9 +265,9 @@
 			"example": "Exemplu",
 			"general_measure": "Control fizic al securității",
 			"measure_on_data": "Control logic al securității",
+			"method": "(TRANSLATION REQUIRED) Methodology",
 			"organizational_measure": "Control organizațional",
-			"principle": "Principle",
-      "method": "(TRANSLATION REQUIRED) Methodology"
+			"principle": "Principle"
 		},
 		"filters": {
 			"all": "Toate",
@@ -382,11 +382,6 @@
 				"name": "Amenințări care pot duce la modificarea nedorită a datelor cu caracter personal",
 				"source": "PIAF Connected Objects p43 and 44, WIKI"
 			},
-      "PIA_METHOD_MES": {
-				"description": "(TRANSLATION REQUIRED) Planned controls are those originally put in place, before any analysis by the assessor. Corrective measures advised by the assessor will be stated in the action plan and will enable a second assessment of the severity and likelihood of the risk.",
-				"name": "(TRANSLATION REQUIRED) Planned and corrective controls",
-				"source": ""
-      },
 			"PIA_DEF_MES": {
 				"description": "Selectate dintre cele disponibile în secțiunea \"Măsuri planificate sau existente\", ce se pot completa dacă este necesar.",
 				"name": "Măsuri",
@@ -617,6 +612,11 @@
 				"description": "În funcție de țara în cauza, va trebui să justificați alegerea stocării datelor la distanță și să indicați măsurile legale de supraveghere implementate pentru asigurarea unei protecții adecvate a datelor în cazul unui transfer transfrontalier. Care este:<br>- Uniunea Europeana<br>- Țară recunoscută de UE ca asigurând o protecție a datelor adecvată<br>- Transfer către Statele Unite, către o companie care s-a alăturat Scutului de confidențialitate UE-SUA<br>- Altă țară <br>A se vedea <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">art. 44 to 49 of [GDPR]</a>",
 				"name": "Transferuri",
 				"source": "PIAF Connected Objects p18"
+			},
+			"PIA_METHOD_MES": {
+				"description": "(TRANSLATION REQUIRED) Planned controls are those originally put in place, before any analysis by the assessor. Corrective measures advised by the assessor will be stated in the action plan and will enable a second assessment of the severity and likelihood of the risk.",
+				"name": "(TRANSLATION REQUIRED) Planned and corrective controls",
+				"source": "WIKI Menaces_pouvant_mener_à_une_modification_non_désirées_de_données"
 			},
 			"PIA_ORG_AUD": {
 				"description": "Existența unor politici și a unor procese cu scopul de a obține o organizație capabilă să gestioneze și să controleze protecția datelor cu caracter personal pe care le deține.",
@@ -1002,24 +1002,24 @@
 			},
 			"validate_pia": "PIA Validate"
 		},
-		"statuses": {
-			"0": "In curs de desfășurare",
-			"1": "Respins",
-			"2": "Simple validation",
-			"3": "Signed validation",
-			"4": "Arhivat",
-			"5": "In așteptarea validării"
-		}
+		"statuses": [
+			"In curs de desfășurare",
+			"Respins",
+			"Simple validation",
+			"Signed validation",
+			"Arhivat",
+			"In așteptarea validării"
+		]
 	},
 	"questions": {
 		"edit": "Editați întrebarea",
-		"gauges": {
-			"0": "(Nedefinit)",
-			"1": "Neglijabil",
-			"2": "Limitat",
-			"3": "Important",
-			"4": "Maxim"
-		},
+		"gauges": [
+			"(Nedefinit)",
+			"Neglijabil",
+			"Limitat",
+			"Important",
+			"Maxim"
+		],
 		"placeholder_title": "TO BE TRANSLATED - Titre de la question (obligatoire)",
 		"remove": "TO BE TRANSLATED - Supprimer la question"
 	},
@@ -1307,12 +1307,10 @@
 		"concerned_people_searched_opinion": "Căutați opinia persoanelor implicate",
 		"concerned_people_status": "Starea persoanelor implicate",
 		"concerned_people_unsearched_opinion_comment": "Motivul pentru care opinia persoanelor implicate nu a fost solicitată",
-		"content_choice": {
-			"0": "Soluțiile nu ar trebui utilizate.",
-			"1": "Soluțiile ar putea fi implementate."
-		},
-    "generate_zip": "TO TRANSLATE - Download the full PIA (.zip)",
-    "generate_docx": "TO TRANSLATE - Download the report (.doc)",
+		"content_choice": [
+			"Soluțiile nu ar trebui utilizate.",
+			"Soluțiile ar putea fi implementate."
+		],
 		"creation_date": "Data creării",
 		"csv_action_plan_comment": "TO BE TRANSLATED - Action plan comment",
 		"csv_evaluation_comment": "TO BE TRANSLATED - Evaluation comment",
@@ -1322,8 +1320,8 @@
 		"csv_section": "TO BE TRANSLATED - Section",
 		"csv_title_object": "TO BE TRANSLATED - Title",
 		"display_filters": {
-      "check_all": "TO TRANSLATE - Enable / disable all display filters",
 			"action_plan_content": "Afișează planul de acțiune",
+			"check_all": "TO TRANSLATE - Enable / disable all display filters",
 			"context_content": "Afișează secțiunea \"Context\"",
 			"main_content": "Afișează secțiunea \"Informații PIA\"",
 			"principles_content": "Afișează secțiunea \"Principii fundamentale\"",
@@ -1343,6 +1341,8 @@
 			"3": "Important",
 			"4": "Maxim"
 		},
+		"generate_docx": "TO TRANSLATE - Download the report (.doc)",
+		"generate_zip": "TO TRANSLATE - Download the full PIA (.zip)",
 		"modification_made": "Modificările efectuate",
 		"people_search_status_nok": "Opinia persoanelor implicate nu a fost solicitată.",
 		"people_search_status_ok": "Opinia persoanelor implicate a fost solicitată.",

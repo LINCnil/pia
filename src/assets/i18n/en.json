@@ -74,17 +74,17 @@
 		"placeholder_improvable1": "According to the available information, additional measures are to be implemented in order to improve the data protection of the processing.",
 		"placeholder_improvable2": "Enter your comments.",
 		"placeholder_to_correct": "The information provided are not sufficient to properly evaluate them. Send back to the editor to improve the original submission.",
-		"status": {
-			"0": "Pending",
-			"1": "To correct",
-			"2": "Improvable",
-			"3": "Acceptable"
-		},
+		"status": [
+			"Pending",
+			"To correct",
+			"Improvable",
+			"Acceptable"
+		],
 		"title": "Evaluation",
 		"to_correct": "To correct"
 	},
 	"header": {
-    "exit_full_screen_mode": "Press F11 to exit full screen mode.",
+		"exit_full_screen_mode": "Press F11 to exit full screen mode.",
 		"homepage_link": "Dashboard",
 		"knowledge_base_link": "Knowledge base",
 		"languages": {
@@ -265,9 +265,9 @@
 			"example": "Example",
 			"general_measure": "Physical Security control",
 			"measure_on_data": "Logical security control",
+			"method": "Methodology",
 			"organizational_measure": "Organisational control",
-			"principle": "Principle",
-      "method": "Methodology"
+			"principle": "Principle"
 		},
 		"filters": {
 			"all": "All",
@@ -382,11 +382,6 @@
 				"name": "Threats that can lead to an unwanted modification of personal data",
 				"source": "PIAF Connected Objects p43 and 44, WIKI"
 			},
-      "PIA_METHOD_MES": {
-				"description": "Planned controls are those originally put in place, before any analysis by the assessor. Corrective measures advised by the assessor will be stated in the action plan and will enable a second assessment of the severity and likelihood of the risk.",
-				"name": "Planned and corrective controls",
-				"source": ""
-      },
 			"PIA_DEF_MES": {
 				"description": "To be chosen among those available in section \"Planned or existing measures\", which you may complete if needed.",
 				"name": "Measures",
@@ -617,6 +612,11 @@
 				"description": "Depending on the country in question, you will have to justify the choice of remote hosting and indicate the legal supervision arrangements implemented in order to ensure adequate protection of the data subject to a cross-border transfer. That is :<br>- European Union<br>- Country recognised as providing adequate protection by the EU<br>- Transfer to the United States to a company which has joined the Privacy Shield<br>- Other country <br>See <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">art. 44 to 49 of [GDPR]</a>",
 				"name": "Transfers",
 				"source": "PIAF Connected Objects p18"
+			},
+			"PIA_METHOD_MES": {
+				"description": "Planned controls are those originally put in place, before any analysis by the assessor. Corrective measures advised by the assessor will be stated in the action plan and will enable a second assessment of the severity and likelihood of the risk.",
+				"name": "Planned and corrective controls",
+				"source": "WIKI Menaces_pouvant_mener_à_une_modification_non_désirées_de_données"
 			},
 			"PIA_ORG_AUD": {
 				"description": "Existence of a policy and processes to obtain an organisation able to manage and control the protection of personal data held within it.",
@@ -977,7 +977,6 @@
 			"validate_evaluation": "Validate review"
 		},
 		"header": {
-      "exit_full_screen_mode": "Press F11 to exit full screen mode.",
 			"display_action_plan": "Display<br>action plan",
 			"edition": "Edition",
 			"evaluation": "Evaluation",
@@ -1003,24 +1002,24 @@
 			},
 			"validate_pia": "Validate PIA"
 		},
-		"statuses": {
-			"0": "In progress",
-			"1": "Rejected",
-			"2": "Simple validation",
-			"3": "Signed validation",
-			"4": "Archived",
-			"5": "Waiting for validation"
-		}
+		"statuses": [
+			"In progress",
+			"Rejected",
+			"Simple validation",
+			"Signed validation",
+			"Archived",
+			"Waiting for validation"
+		]
 	},
 	"questions": {
 		"edit": "Edit question",
-		"gauges": {
-			"0": "(Undefined)",
-			"1": "Negligible",
-			"2": "Limited",
-			"3": "Important",
-			"4": "Maximum"
-		},
+		"gauges": [
+			"(Undefined)",
+			"Negligible",
+			"Limited",
+			"Important",
+			"Maximum"
+		],
 		"placeholder_title": "Question title (mandatory)",
 		"remove": "Delete question"
 	},
@@ -1308,12 +1307,10 @@
 		"concerned_people_searched_opinion": "Search of concerned people opinion",
 		"concerned_people_status": "Concerned people statuses",
 		"concerned_people_unsearched_opinion_comment": "Reason why concerned people opinion wasn't requested",
-		"content_choice": {
-			"0": "The treatment should not be used.",
-			"1": "The treatment could be implemented."
-		},
-    "generate_zip": "Download the full report (.zip)",
-    "generate_docx": "Download the report (.doc)",
+		"content_choice": [
+			"The treatment should not be used.",
+			"The treatment could be implemented."
+		],
 		"creation_date": "Creation date",
 		"csv_action_plan_comment": "Action plan comment",
 		"csv_evaluation_comment": "Evaluation comment",
@@ -1323,8 +1320,8 @@
 		"csv_section": "Section",
 		"csv_title_object": "Title",
 		"display_filters": {
-      "check_all": "Enable / disable all display filters",
 			"action_plan_content": "Display action plan",
+			"check_all": "Enable / disable all display filters",
 			"context_content": "Display section \"Context\"",
 			"main_content": "Display section \"PIA information\"",
 			"principles_content": "Display section \"Fundamental principles\"",
@@ -1344,6 +1341,8 @@
 			"3": "Important",
 			"4": "Maximum"
 		},
+		"generate_docx": "Download the report (.doc)",
+		"generate_zip": "Download the full report (.zip)",
 		"modification_made": "Modifications made",
 		"people_search_status_nok": "Concerned people opinion wasn't requested.",
 		"people_search_status_ok": "Concerned people opinion was requested.",

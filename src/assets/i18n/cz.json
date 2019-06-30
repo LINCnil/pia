@@ -74,17 +74,17 @@
 		"placeholder_improvable1": "TO BE TRANSLATED - According to the available information, additional measures are to be implemented in order to improve the data protection of the processing.",
 		"placeholder_improvable2": "TO BE TRANSLATED - Enter your comments.",
 		"placeholder_to_correct": "TO BE TRANSLATED - The information provided are not sufficient to properly evaluate them. Send back to the editor to improve the original submission.",
-		"status": {
-			"0": "Čeká",
-			"1": "Opravit",
-			"2": "Vylepšit",
-			"3": "Přijato"
-		},
+		"status": [
+			"Čeká",
+			"Opravit",
+			"Vylepšit",
+			"Přijato"
+		],
 		"title": "Hodnocení",
 		"to_correct": "Opravit"
 	},
 	"header": {
-    "exit_full_screen_mode": "TO TRANSLATE - Press F11 to exit full screen mode.",
+		"exit_full_screen_mode": "TO TRANSLATE - Press F11 to exit full screen mode.",
 		"homepage_link": "Hlavní panel",
 		"knowledge_base_link": "Znalostní báze",
 		"languages": {
@@ -265,9 +265,9 @@
 			"example": "Příklad",
 			"general_measure": "Fyzická bezpečnostní kontrola",
 			"measure_on_data": "Logická bezpečnostní kontrola",
+			"method": "(TRANSLATION REQUIRED) Methodology",
 			"organizational_measure": "Organizační kontrola",
-			"principle": "Zásada",
-      "method": "(TRANSLATION REQUIRED) Methodology"
+			"principle": "Zásada"
 		},
 		"filters": {
 			"all": "Vše",
@@ -382,11 +382,6 @@
 				"name": "Threats that can lead to an unwanted modification of personal data",
 				"source": "PIAF Connected Objects p43 and 44, WIKI"
 			},
-      "PIA_METHOD_MES": {
-				"description": "(TRANSLATION REQUIRED) Planned controls are those originally put in place, before any analysis by the assessor. Corrective measures advised by the assessor will be stated in the action plan and will enable a second assessment of the severity and likelihood of the risk.",
-				"name": "(TRANSLATION REQUIRED) Planned and corrective controls",
-				"source": ""
-      },
 			"PIA_DEF_MES": {
 				"description": "To be chosen among those available in section \"Planned or existing measures\", which you may complete if needed.",
 				"name": "Measures",
@@ -617,6 +612,11 @@
 				"description": "Depending on the country in question, you will have to justify the choice of remote hosting and indicate the legal supervision arrangements implemented in order to ensure adequate protection of the data subject to a cross-border transfer. That is :<br>- European Union<br>- Country recognised as providing adequate protection by the EU<br>- Transfer to the United States to a company which has joined the Privacy Shield<br>- Other country <br>See <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/CS/TXT/HTML/?uri=CELEX:32016R0679&from=CS\">art. 44 to 49 of [GDPR]</a>",
 				"name": "Transfers",
 				"source": "PIAF Connected Objects p18"
+			},
+			"PIA_METHOD_MES": {
+				"description": "(TRANSLATION REQUIRED) Planned controls are those originally put in place, before any analysis by the assessor. Corrective measures advised by the assessor will be stated in the action plan and will enable a second assessment of the severity and likelihood of the risk.",
+				"name": "(TRANSLATION REQUIRED) Planned and corrective controls",
+				"source": "WIKI Menaces_pouvant_mener_à_une_modification_non_désirées_de_données"
 			},
 			"PIA_ORG_AUD": {
 				"description": "Existence of a policy and processes to obtain an organisation able to manage and control the protection of personal data held within it.",
@@ -1002,24 +1002,24 @@
 			},
 			"validate_pia": "Ověřit PIA"
 		},
-		"statuses": {
-			"0": "Probíhá",
-			"1": "Odmítnuto",
-			"2": "Jednoduché ověření",
-			"3": "Podepsané ověření",
-			"4": "Archivováno",
-			"5": "Čekání na ověření"
-		}
+		"statuses": [
+			"Probíhá",
+			"Odmítnuto",
+			"Jednoduché ověření",
+			"Podepsané ověření",
+			"Archivováno",
+			"Čekání na ověření"
+		]
 	},
 	"questions": {
 		"edit": "Upravit otázku",
-		"gauges": {
-			"0": "(Nedefinováno)",
-			"1": "Zanedbatelné",
-			"2": "Omezeno",
-			"3": "Důležité",
-			"4": "Maximální"
-		},
+		"gauges": [
+			"(Nedefinováno)",
+			"Zanedbatelné",
+			"Omezeno",
+			"Důležité",
+			"Maximální"
+		],
 		"placeholder_title": "TO BE TRANSLATED - Titre de la question (obligatoire)",
 		"remove": "TO BE TRANSLATED - Supprimer la question"
 	},
@@ -1307,12 +1307,10 @@
 		"concerned_people_searched_opinion": "Hledání názoru dotčených osob",
 		"concerned_people_status": "Stavy dotčených osob",
 		"concerned_people_unsearched_opinion_comment": "Důvod, proč nebyl požadován zájem osob",
-		"content_choice": {
-			"0": "Léčba by neměla být prováděna.",
-			"1": "Léčba by mohla být provedena."
-		},
-    "generate_zip": "TO TRANSLATE - Download the full report (.zip)",
-    "generate_docx": "TO TRANSLATE - Download the report (.doc)",
+		"content_choice": [
+			"Léčba by neměla být prováděna.",
+			"Léčba by mohla být provedena."
+		],
 		"creation_date": "Datum vytvoření",
 		"csv_action_plan_comment": "TO BE TRANSLATED - Action plan comment",
 		"csv_evaluation_comment": "TO BE TRANSLATED - Evaluation comment",
@@ -1322,8 +1320,8 @@
 		"csv_section": "TO BE TRANSLATED - Section",
 		"csv_title_object": "TO BE TRANSLATED - Title",
 		"display_filters": {
-      "check_all": "TO TRANSLATE - Enable / disable all display filters",
 			"action_plan_content": "TO BE TRANSLATED - Display action plan",
+			"check_all": "TO TRANSLATE - Enable / disable all display filters",
 			"context_content": "TO BE TRANSLATED - Display \"Context\"",
 			"main_content": "TO BE TRANSLATED - Display \"PIA information\"",
 			"principles_content": "TO BE TRANSLATED - Display \"Fundamental principles\"",
@@ -1343,6 +1341,8 @@
 			"3": "Důležité",
 			"4": "Maximální"
 		},
+		"generate_docx": "TO TRANSLATE - Download the report (.doc)",
+		"generate_zip": "TO TRANSLATE - Download the full report (.zip)",
 		"modification_made": "Provedené úpravy",
 		"people_search_status_nok": "Nebyli požadovány názory zainteresovaných osob.",
 		"people_search_status_ok": "Požaduje se názor zainteresovaných osob.",

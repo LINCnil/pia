@@ -10,6 +10,7 @@ import { GlobalEvaluationService } from 'src/app/services/global-evaluation.serv
 import { KnowledgeBaseService } from 'src/app/entry/knowledge-base/knowledge-base.service';
 import { SidStatusService } from 'src/app/services/sid-status.service';
 import { PiaService } from 'src/app/services/pia.service';
+import { LanguagesService } from 'src/app/services/languages.service';
 
 @Component({
   selector: 'app-evaluations',
@@ -45,6 +46,7 @@ export class EvaluationsComponent implements OnInit, AfterViewChecked, OnDestroy
               private _knowledgeBaseService: KnowledgeBaseService,
               private _sidStatusService: SidStatusService,
               private _piaService: PiaService,
+              private _languagesService: LanguagesService,
               private _translateService: TranslateService) { }
 
   ngOnInit() {

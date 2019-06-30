@@ -4,6 +4,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { Structure } from 'src/app/structures/structure.model';
 import { ModalsService } from 'src/app/modals/modals.service';
 import { StructureService } from 'src/app/services/structure.service';
+import { LanguagesService } from 'src/app/services/languages.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: `.app-list-item`,
@@ -18,7 +20,9 @@ export class ListItemComponent implements OnInit {
   constructor(private router: Router,
               private route: ActivatedRoute,
               public _structureService: StructureService,
-              private _modalsService: ModalsService) { }
+              private _modalsService: ModalsService,
+              private _languagesService: LanguagesService,
+              private _translateService: TranslateService) { }
 
   ngOnInit() {
   }

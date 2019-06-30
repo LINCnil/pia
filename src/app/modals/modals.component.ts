@@ -11,6 +11,8 @@ import { PiaService } from 'src/app/services/pia.service';
 import { StructureService } from 'src/app/services/structure.service';
 import { AnswerStructureService } from 'src/app/services/answer-structure.service';
 import { AttachmentsService } from 'src/app/entry/attachments/attachments.service';
+import { LanguagesService } from 'src/app/services/languages.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-modals',
@@ -35,7 +37,9 @@ export class ModalsComponent implements OnInit {
     public _structureService: StructureService,
     public _answerStructureService: AnswerStructureService,
     public _measuresService: MeasureService,
-    public _attachmentsService: AttachmentsService
+    public _attachmentsService: AttachmentsService,
+    private _languagesService: LanguagesService,
+    private _translateService: TranslateService
   ) { }
 
   ngOnInit() {

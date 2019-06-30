@@ -74,17 +74,17 @@
 		"placeholder_improvable1": "Entrez vos commentaires pour expliquer quelles mesures additionnelles sont à ajouter afin d'améliorer la protection des données du traitement.",
 		"placeholder_improvable2": "Entrez vos commentaires.",
 		"placeholder_to_correct": "Entrez vos commentaires pour expliquer pourquoi les informations fournies ne sont pas suffisantes pour pouvoir les évaluer. Cette partie sera renvoyée en édition pour enrichir la proposition initiale.",
-		"status": {
-			"0": "En attente",
-			"1": "À corriger",
-			"2": "Améliorable",
-			"3": "Acceptable"
-		},
+		"status": [
+			"En attente",
+			"À corriger",
+			"Améliorable",
+			"Acceptable"
+		],
 		"title": "Évaluation",
 		"to_correct": "À corriger"
 	},
 	"header": {
-    "exit_full_screen_mode": "Appuyer sur F11 pour quitter le mode plein écran.",
+		"exit_full_screen_mode": "Appuyer sur F11 pour quitter le mode plein écran.",
 		"homepage_link": "Accueil",
 		"knowledge_base_link": "Base de connaissances",
 		"languages": {
@@ -265,9 +265,9 @@
 			"example": "Exemple",
 			"general_measure": "Mesure générale de sécurité du système",
 			"measure_on_data": "Mesure sur les données",
+			"method": "Méthodologie",
 			"organizational_measure": "Mesure organisationnelle",
-			"principle": "Principe",
-      "method": "Méthodologie"
+			"principle": "Principe"
 		},
 		"filters": {
 			"all": "Tout",
@@ -380,11 +380,6 @@
 			"PIA_DEF_MENM": {
 				"description": "<strong>Menaces concernant : </strong><br>- <strong>Les matériels</strong> qui ont été modifiés (ajout d'un matériel incompatible, retrait d'un indispensable, etc.)<br>- <strong>Les logiciels</strong> utilisés de manière inadaptée ou modifiés (erreur de manipulation, modifications inopportunes, etc.)<br>- <strong>Les canaux informatiques</strong> qui sont utilisés de manière inadaptée (réémission de flux intercepté, etc.)<br>- <strong>Les personnes</strong> surchargées ou détournées (tâche non maîtrisée, perturbation des conditions de travail, influence, etc.)<br>- Les documents papier qui ont été modifiés (modification de document, remplacement par un faux, etc.)<br>- <strong>Les canaux papier</strong> qui ont été modifiés (échange de parapheur, envoi de courriers contradictoires, etc.)",
 				"name": "Menaces pouvant conduire à une modification illégitime aux données",
-				"source": "WIKI Menaces_pouvant_mener_à_une_modification_non_désirées_de_données"
-			},
-      "PIA_METHOD_MES": {
-				"description": "Les mesures initiales sont les mesures prévues à l'origine, avant l'analyse faite par l’évaluateur. Les mesures complémentaires ou correctrices préconisées par l’évaluateur seront énoncées dans le plan d’action et permettront de procéder à une deuxième évaluation de la gravité et de la vraisemblance.",
-				"name": "Mesures initiales et mesures correctrices",
 				"source": "WIKI Menaces_pouvant_mener_à_une_modification_non_désirées_de_données"
 			},
 			"PIA_DEF_MES": {
@@ -617,6 +612,11 @@
 				"description": "Détailler le lieu géographique de stockage des différentes données du traitement. En fonction du pays concerné, vous devrez justifier le choix d’un hébergement hors de l'Union Européenne et indiquer les modalités d’encadrement juridique mises en œuvre afin d’assurer une protection adéquate aux données faisant l’objet d’un transfert transfrontalier. <br> C'est à dire : <br> - Dans un pays de l'Union Européenne <br> - Dans un pays reconnu adéquat par l'Union Européenne <br> - Transfert aux Etats-Unis à une société adhérant Privacy Shield <br>- Autres pays <br> Conformément aux <a target=\"_blank\" href=\"https://www.cnil.fr/fr/reglement-europeen-protection-donnees/chapitre5#Article44\">articles 44 à 49 du [RGPD]</a>",
 				"name": "Transferts",
 				"source": "WIKI Transferts_:_respect_des_obligations_en_mati%C3%A8re_de_transfert_de_donn%C3%A9es_en_dehors_de_l%E2%80%99Union_europ%C3%A9enne et PIAF Objets connectés p17"
+			},
+			"PIA_METHOD_MES": {
+				"description": "Les mesures initiales sont les mesures prévues à l'origine, avant l'analyse faite par l’évaluateur. Les mesures complémentaires ou correctrices préconisées par l’évaluateur seront énoncées dans le plan d’action et permettront de procéder à une deuxième évaluation de la gravité et de la vraisemblance.",
+				"name": "Mesures initiales et mesures correctrices",
+				"source": "WIKI Menaces_pouvant_mener_à_une_modification_non_désirées_de_données"
 			},
 			"PIA_ORG_AUD": {
 				"description": "Existence de mesures permettant de disposer d’une vision globale et à jour de l’état de protection des données et de la conformité au RGPD (contrôler la conformité des traitements, objectifs et indicateurs, responsabilités, etc.).",
@@ -1002,24 +1002,24 @@
 			},
 			"validate_pia": "Valider le PIA"
 		},
-		"statuses": {
-			"0": "En cours",
-			"1": "Refusé",
-			"2": "Validation simple",
-			"3": "Validation avec signature",
-			"4": "Archivé",
-			"5": "En attente de validation"
-		}
+		"statuses": [
+			"En cours",
+			"Refusé",
+			"Validation simple",
+			"Validation avec signature",
+			"Archivé",
+			"En attente de validation"
+		]
 	},
 	"questions": {
 		"edit": "Éditer la question",
-		"gauges": {
-			"0": "(Non définie)",
-			"1": "Négligeable",
-			"2": "Limitée",
-			"3": "Importante",
-			"4": "Maximale"
-		},
+		"gauges": [
+			"(Non définie)",
+			"Négligeable",
+			"Limitée",
+			"Importante",
+			"Maximale"
+		],
 		"placeholder_title": "Titre de la question (obligatoire)",
 		"remove": "Supprimer la question"
 	},
@@ -1307,12 +1307,10 @@
 		"concerned_people_searched_opinion": "Recherche de l'avis des personnes concernées",
 		"concerned_people_status": "Statuts des personnes concernées",
 		"concerned_people_unsearched_opinion_comment": "Raison pour laquelle l'avis des personnes concernées n'a pas été demandé",
-		"content_choice": {
-			"0": "Le traitement ne devrait pas être mis en oeuvre.",
-			"1": "Le traitement pourrait être mis en oeuvre."
-		},
-    "generate_zip": "Télécharger le rapport complet (.zip)",
-    "generate_docx": "Télécharger le rapport (.doc)",
+		"content_choice": [
+			"Le traitement ne devrait pas être mis en oeuvre.",
+			"Le traitement pourrait être mis en oeuvre."
+		],
 		"creation_date": "Date de création",
 		"csv_action_plan_comment": "Commentaires du plan d'actions",
 		"csv_evaluation_comment": "Commentaires d'évaluation",
@@ -1322,8 +1320,8 @@
 		"csv_section": "Section",
 		"csv_title_object": "Titre de l'objet concerné",
 		"display_filters": {
-      "check_all": "Activer / désactiver l'ensemble des filtres d'affichage",
 			"action_plan_content": " Afficher le plan d'action",
+			"check_all": "Activer / désactiver l'ensemble des filtres d'affichage",
 			"context_content": "Afficher la section \"Contexte\"",
 			"main_content": "Afficher la section \"Informations du PIA\"",
 			"principles_content": "Afficher la section \"Principes fondamentaux\"",
@@ -1343,6 +1341,8 @@
 			"3": "Importante",
 			"4": "Maximale"
 		},
+		"generate_docx": "Télécharger le rapport (.doc)",
+		"generate_zip": "Télécharger le rapport complet (.zip)",
 		"modification_made": "Modifications apportées",
 		"people_search_status_nok": "L'avis des personnes concernées n'a pas été demandé.",
 		"people_search_status_ok": "L'avis des personnes concernées a été demandé.",

@@ -7,6 +7,8 @@ import { Attachment } from 'src/app/entry/attachments/attachment.model';
 
 import { ModalsService } from 'src/app/modals/modals.service';
 import { PiaService } from 'src/app/services/pia.service';
+import { LanguagesService } from 'src/app/services/languages.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-card-item',
@@ -25,9 +27,13 @@ export class CardItemComponent implements OnInit {
   @ViewChild('piaEvaluatorName') private piaEvaluatorName: ElementRef;
   @ViewChild('piaValidatorName') private piaValidatorName: ElementRef;
 
-  constructor(private router: Router,
-              private _modalsService: ModalsService,
-              public _piaService: PiaService) { }
+  constructor(
+    private router: Router,
+    private _modalsService: ModalsService,
+    public _piaService: PiaService,
+    private _languagesService: LanguagesService,
+    private _translateService: TranslateService
+  ) {}
 
   ngOnInit() {
     this.piaForm = new FormGroup({

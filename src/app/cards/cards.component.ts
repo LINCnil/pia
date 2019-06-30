@@ -9,6 +9,8 @@ import { ModalsService } from 'src/app/modals/modals.service';
 import { PiaService } from 'src/app/services/pia.service';
 import { StructureService } from 'src/app/services/structure.service';
 import { Structure } from 'src/app/structures/structure.model';
+import { LanguagesService } from 'src/app/services/languages.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-cards',
@@ -33,7 +35,9 @@ export class CardsComponent implements OnInit, OnDestroy {
               private route: ActivatedRoute,
               public _modalsService: ModalsService,
               public _piaService: PiaService,
-              public _structureService: StructureService) { }
+              public _structureService: StructureService,
+              private _languagesService: LanguagesService,
+              private _translateService: TranslateService) { }
 
   ngOnInit() {
     const structure = new Structure();

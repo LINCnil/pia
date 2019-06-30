@@ -74,17 +74,17 @@
 		"placeholder_improvable1": "Volgens de beschikbare informatie moeten aanvullende maatregelen worden geïmplementeerd om de gegevensbescherming van de verwerking te verbeteren.",
 		"placeholder_improvable2": "Voer uw opmerkingen in.",
 		"placeholder_to_correct": "De verstrekte informatie is niet voldoende om ze goed te evalueren. Stuur terug naar de editor om de originele inzending te verbeteren.",
-		"status": {
-			"0": "In afwachting",
-			"1": "Te corrigeren",
-			"2": "Verbeterbaar",
-			"3": "Aanvaardbaar"
-		},
+		"status": [
+			"In afwachting",
+			"Te corrigeren",
+			"Verbeterbaar",
+			"Aanvaardbaar"
+		],
 		"title": "Evaluatie",
 		"to_correct": "Te corrigeren"
 	},
 	"header": {
-    "exit_full_screen_mode": "TO TRANSLATE - Press F11 to exit full screen mode.",
+		"exit_full_screen_mode": "TO TRANSLATE - Press F11 to exit full screen mode.",
 		"homepage_link": "Dashboard",
 		"knowledge_base_link": "Knowledge base",
 		"languages": {
@@ -265,9 +265,9 @@
 			"example": "Voorbeeld",
 			"general_measure": "Fysieke beveiligingsmaatregelen",
 			"measure_on_data": "Logische beveiligingsmaatregelen",
+			"method": "(TRANSLATION REQUIRED) Methodology",
 			"organizational_measure": "Organisatorische maatregelen",
-			"principle": "Principe",
-      "method": "(TRANSLATION REQUIRED) Methodology"
+			"principle": "Principe"
 		},
 		"filters": {
 			"all": "Allemaal",
@@ -382,11 +382,6 @@
 				"name": "Bedreigingen die kunnen leiden tot een ongewenste wijziging van persoonlijke gegevens",
 				"source": "PIAF Connected Objects p43 and 44, WIKI"
 			},
-      "PIA_METHOD_MES": {
-				"description": "(TRANSLATION REQUIRED) Planned controls are those originally put in place, before any analysis by the assessor. Corrective measures advised by the assessor will be stated in the action plan and will enable a second assessment of the severity and likelihood of the risk.",
-				"name": "(TRANSLATION REQUIRED) Planned and corrective controls",
-				"source": ""
-      },
 			"PIA_DEF_MES": {
 				"description": "Te kiezen uit diegenen die beschikbaar zijn in sectie \\'Geplande of bestaande maatregelen \\', die u eventueel kunt invullen.",
 				"name": "Maatregelen",
@@ -617,6 +612,11 @@
 				"description": "Afhankelijk van het land in kwestie, moet u de keuze voor externe hosting rechtvaardigen en aangeven welke juridische toezichtregelingen zijn geïmplementeerd om te zorgen voor een adequate bescherming van de betrokkene bij een grensoverschrijdende doorgifte. Dat wil zeggen: <br> - Europese Unie <br> - Land erkend als voldoende bescherming door de EU <br> - Overdracht naar de Verenigde Staten aan een bedrijf dat zich bij het privacyschild heeft aangesloten - Ander land <br> Zie <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/NL/TXT/HTML/?uri=CELEX:32016R0679&from=NL\">art. 44 tot 49 van de [AVG]</a>",
 				"name": "Transfers",
 				"source": "PIAF Connected Objects p18"
+			},
+			"PIA_METHOD_MES": {
+				"description": "(TRANSLATION REQUIRED) Planned controls are those originally put in place, before any analysis by the assessor. Corrective measures advised by the assessor will be stated in the action plan and will enable a second assessment of the severity and likelihood of the risk.",
+				"name": "(TRANSLATION REQUIRED) Planned and corrective controls",
+				"source": "WIKI Menaces_pouvant_mener_à_une_modification_non_désirées_de_données"
 			},
 			"PIA_ORG_AUD": {
 				"description": "Bestaan van een beleid en processen om een organisatie te realiseren, die in staat is om de bescherming van persoonlijke gegevens die zich daarin bevinden, te beheren en controleren.",
@@ -1002,24 +1002,24 @@
 			},
 			"validate_pia": "Valideren PIA"
 		},
-		"statuses": {
-			"0": "In progressie",
-			"1": "Afgekeurd",
-			"2": "Eenvoudige validatie",
-			"3": "Ondertekende validatie",
-			"4": "Gearchiveerd",
-			"5": "Wachten op validatie"
-		}
+		"statuses": [
+			"In progressie",
+			"Afgekeurd",
+			"Eenvoudige validatie",
+			"Ondertekende validatie",
+			"Gearchiveerd",
+			"Wachten op validatie"
+		]
 	},
 	"questions": {
 		"edit": "Vraag bewerken",
-		"gauges": {
-			"0": "(Onbepaald)",
-			"1": "Verwaarloosbaar",
-			"2": "Beperkt",
-			"3": "Belangrijk",
-			"4": "Maximaal"
-		},
+		"gauges": [
+			"(Onbepaald)",
+			"Verwaarloosbaar",
+			"Beperkt",
+			"Belangrijk",
+			"Maximaal"
+		],
 		"placeholder_title": "TO BE TRANSLATED - Titre de la question (obligatoire)",
 		"remove": "TO BE TRANSLATED - Supprimer la question"
 	},
@@ -1307,12 +1307,10 @@
 		"concerned_people_searched_opinion": "Zoeken naar de mening van betrokken mensen",
 		"concerned_people_status": "Statussen van betrokken mensen",
 		"concerned_people_unsearched_opinion_comment": "Reden waarom de mening van betrokken mensen niet werd gevraagd",
-		"content_choice": {
-			"0": "De behandeling mag niet worden gebruikt.",
-			"1": "De behandeling zou kunnen worden geïmplementeerd."
-		},
-    "generate_zip": "TO TRANSLATE - Download the full report (.zip)",
-    "generate_docx": "TO TRANSLATE - Download the report (.doc)",
+		"content_choice": [
+			"De behandeling mag niet worden gebruikt.",
+			"De behandeling zou kunnen worden geïmplementeerd."
+		],
 		"creation_date": "Aanmaakdatum",
 		"csv_action_plan_comment": "Commentaar actieplan",
 		"csv_evaluation_comment": "Evaluatie commentaar",
@@ -1322,8 +1320,8 @@
 		"csv_section": "Sectie",
 		"csv_title_object": "Titel",
 		"display_filters": {
-      "check_all": "TO TRANSLATE - Enable / disable all display filters",
 			"action_plan_content": "Toon actieplan",
+			"check_all": "TO TRANSLATE - Enable / disable all display filters",
 			"context_content": "Toon \"Context\"",
 			"main_content": "Toon \"PIA informatie\"",
 			"principles_content": "Toon \"Fundamentele principes\"",
@@ -1343,6 +1341,8 @@
 			"3": "Belangrijk",
 			"4": "Maximaal"
 		},
+		"generate_docx": "TO TRANSLATE - Download the report (.doc)",
+		"generate_zip": "TO TRANSLATE - Download the full report (.zip)",
 		"modification_made": "Aanpassingen aangebracht",
 		"people_search_status_nok": "Mening van betrokken mensen werd niet gevraagd.",
 		"people_search_status_ok": "Mening van betrokken mensen werd gevraagd.",

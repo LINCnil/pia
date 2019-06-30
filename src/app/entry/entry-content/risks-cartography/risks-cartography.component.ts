@@ -7,6 +7,7 @@ import { Evaluation } from 'src/app/entry/entry-content/evaluations/evaluation.m
 
 import { PiaService } from 'src/app/services/pia.service';
 import { AppDataService } from 'src/app/services/app-data.service';
+import { LanguagesService } from 'src/app/services/languages.service';
 import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 
 @Component({
@@ -25,8 +26,9 @@ export class RisksCartographyComponent implements OnInit, OnDestroy {
 
   constructor(private http: HttpClient,
               private _appDataService: AppDataService,
+              public _languagesService: LanguagesService,
               private _translateService: TranslateService,
-              public _piaService: PiaService) { }
+              private _piaService: PiaService) { }
 
   async ngOnInit() {
     this.risk1Letter = this._translateService.instant('cartography.risk1_access');

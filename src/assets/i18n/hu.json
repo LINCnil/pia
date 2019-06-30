@@ -74,17 +74,17 @@
 		"placeholder_improvable1": "A rendelkezésre álló információ alapján további intézkedések szükségesek az adatvédelem javítása érdekében az adatkezelés során.",
 		"placeholder_improvable2": "Megjegyzés bevitele.",
 		"placeholder_to_correct": "A megadott információk nem alkalmasak az értékelés elvégzéséhez. Vissza kell küldeni a szerkesztőnek, hogy javítsa ki az eredeti kitöltést .",
-		"status": {
-			"0": "Elintézés alatt",
-			"1": "Javítandó",
-			"2": "Javítható",
-			"3": "Elfogadható"
-		},
+		"status": [
+			"Elintézés alatt",
+			"Javítandó",
+			"Javítható",
+			"Elfogadható"
+		],
 		"title": "Véleményezés",
 		"to_correct": "Visszaküldés javításra"
 	},
 	"header": {
-    "exit_full_screen_mode": "TO TRANSLATE - Press F11 to exit full screen mode.",
+		"exit_full_screen_mode": "TO TRANSLATE - Press F11 to exit full screen mode.",
 		"homepage_link": "Vezérlőpult",
 		"knowledge_base_link": "Tudásbázis",
 		"languages": {
@@ -265,9 +265,9 @@
 			"example": "Példa",
 			"general_measure": "Fizikai biztonságvédelem",
 			"measure_on_data": "Logikai biztonságvédelem",
+			"method": "(TRANSLATION REQUIRED) Methodology",
 			"organizational_measure": "Szervezeti védelmi intézkedések",
-			"principle": "Útmutatás",
-      "method": "(TRANSLATION REQUIRED) Methodology"
+			"principle": "Útmutatás"
 		},
 		"filters": {
 			"all": "Mind",
@@ -382,11 +382,6 @@
 				"name": "Az adatok véletlen vagy jogellenes megváltoztatásának veszélyei",
 				"source": "DPIAF Összekapcsolt tárgyak, 43. és 44. o. WIKI"
 			},
-      "PIA_METHOD_MES": {
-				"description": "(TRANSLATION REQUIRED) Planned controls are those originally put in place, before any analysis by the assessor. Corrective measures advised by the assessor will be stated in the action plan and will enable a second assessment of the severity and likelihood of the risk.",
-				"name": "(TRANSLATION REQUIRED) Planned and corrective controls",
-				"source": ""
-      },
 			"PIA_DEF_MES": {
 				"description": "Válasszon a „Tervezett vagy meglévő intézkedések” c. rész lehetőségei közül, amelyeket, ha szükséges, kitölthet.",
 				"name": "Intézkedések",
@@ -617,6 +612,11 @@
 				"description": "Azt figyelembe véve, hogy földrajzilag hova kerülnek továbbításra a személyes adatok - az Európai Unióba; az Unió által elismerten megfelelő védelmet nyújtó országba; az Egyesült Államokba, az EU-USA adatvédelmi pajzshoz (Privacy Shield) csatlakozott szervezet részére; vagy egyéb országba -, olyan jogi kereteket kell biztosítani, amelyek megfelelő szintű védelmet biztosítanak a személyes adatok határokon átnyúló továbbítása esetén.  Lásd <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/HU/TXT/HTML/?uri=CELEX:32016R0679&qid=1520586769024&from=HU\"> a GDPR 44-49. cikkeit </a>.",
 				"name": "Adattovábbítás",
 				"source": "DPIAF által összekapcsolt tárgyak 18. o."
+			},
+			"PIA_METHOD_MES": {
+				"description": "(TRANSLATION REQUIRED) Planned controls are those originally put in place, before any analysis by the assessor. Corrective measures advised by the assessor will be stated in the action plan and will enable a second assessment of the severity and likelihood of the risk.",
+				"name": "(TRANSLATION REQUIRED) Planned and corrective controls",
+				"source": "WIKI Menaces_pouvant_mener_à_une_modification_non_désirées_de_données"
 			},
 			"PIA_ORG_AUD": {
 				"description": "Van-e arra nézve elv és eljárás, hogy olyan szervezetet kell bevonni, amely képes az általa kezelt személyes adatok védelmét ellátni?",
@@ -1002,24 +1002,24 @@
 			},
 			"validate_pia": "Hatásvizsgálat jóváhagyása"
 		},
-		"statuses": {
-			"0": "Folyamatban lévő",
-			"1": "Elutasítva",
-			"2": "Előzetes jóváhagyás",
-			"3": "Végleges (aláírt) jóváhagyás",
-			"4": "Archiválva",
-			"5": "Jóváhagyásra vár"
-		}
+		"statuses": [
+			"Folyamatban lévő",
+			"Elutasítva",
+			"Előzetes jóváhagyás",
+			"Végleges (aláírt) jóváhagyás",
+			"Archiválva",
+			"Jóváhagyásra vár"
+		]
 	},
 	"questions": {
 		"edit": "Kérdés szerkesztése",
-		"gauges": {
-			"0": "(n/a)",
-			"1": "Elhanyagolható",
-			"2": "Korlátozott",
-			"3": "Jelentős",
-			"4": "Maximális"
-		},
+		"gauges": [
+			"(n/a)",
+			"Elhanyagolható",
+			"Korlátozott",
+			"Jelentős",
+			"Maximális"
+		],
 		"placeholder_title": "TO BE TRANSLATED - Titre de la question (obligatoire)",
 		"remove": "TO BE TRANSLATED - Supprimer la question"
 	},
@@ -1307,12 +1307,10 @@
 		"concerned_people_searched_opinion": "Érintettek véleményének kikérése.",
 		"concerned_people_status": "Az érintettek státusza.",
 		"concerned_people_unsearched_opinion_comment": "Azon ok megjelölése, ami alapján az érintettek véleményének kikérésére nem került sor.",
-		"content_choice": {
-			"0": "Az intézkedések megfelelőek, ennek következtében alkalmazhatóak.",
-			"1": "Az intézkedések nem megfelelőek, ezért alkalmazásukra nem kerülhet sor."
-		},
-    "generate_zip": "TO TRANSLATE - Download the full report (.zip)",
-    "generate_docx": "TO TRANSLATE - Download the report (.doc)",
+		"content_choice": [
+			"Az intézkedések megfelelőek, ennek következtében alkalmazhatóak.",
+			"Az intézkedések nem megfelelőek, ezért alkalmazásukra nem kerülhet sor."
+		],
 		"creation_date": "Létrehozás dátuma.",
 		"csv_action_plan_comment": "Intézkedési terv vélemények",
 		"csv_evaluation_comment": "Értékelés vélemények",
@@ -1322,8 +1320,8 @@
 		"csv_section": "Szakasz",
 		"csv_title_object": "Cím",
 		"display_filters": {
-      "check_all": "TO TRANSLATE - Enable / disable all display filters",
 			"action_plan_content": "Intézkedési terv megjelenítése",
+			"check_all": "TO TRANSLATE - Enable / disable all display filters",
 			"context_content": "Szakasz megjelenítése (Szövegkörnyezet)",
 			"main_content": "Szakasz megjelenítése (DPIA információk)",
 			"principles_content": "Szakasz megjelenítése (Alapelvek)",
@@ -1343,6 +1341,8 @@
 			"3": "Jelentős",
 			"4": "Maximális"
 		},
+		"generate_docx": "TO TRANSLATE - Download the report (.doc)",
+		"generate_zip": "TO TRANSLATE - Download the full report (.zip)",
 		"modification_made": "Elvégzett módosítások.",
 		"people_search_status_nok": "Az érintettek véleményének kikérésére nem került sor.",
 		"people_search_status_ok": "Az érintettek véleményének kikérésére sor került.",

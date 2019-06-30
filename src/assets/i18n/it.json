@@ -74,17 +74,17 @@
 		"placeholder_improvable1": "Inserite i vostri commenti per spiegare quali misure ulteriori devono essere aggiunte per migliorare la protezione dei dati oggetto di trattamento.",
 		"placeholder_improvable2": "Inserire i commenti",
 		"placeholder_to_correct": "Inserite i vostri commenti per spiegare perchè le informazioni fornite non sono sufficienti ai fini della loro valutazione. Questa parte sarà riproposta per modifica al fine di integrare la presentazione iniziale",
-		"status": {
-			"0": "In sospeso",
-			"1": "Da correggere",
-			"2": "Migliorabile",
-			"3": "Accettabile"
-		},
+		"status": [
+			"In sospeso",
+			"Da correggere",
+			"Migliorabile",
+			"Accettabile"
+		],
 		"title": "Valutazione",
 		"to_correct": "Da correggere"
 	},
 	"header": {
-    "exit_full_screen_mode": "TO TRANSLATE - Press F11 to exit full screen mode.",
+		"exit_full_screen_mode": "TO TRANSLATE - Press F11 to exit full screen mode.",
 		"homepage_link": "Pannello di controllo",
 		"knowledge_base_link": "Archivio",
 		"languages": {
@@ -265,9 +265,9 @@
 			"example": "Esempio",
 			"general_measure": "Misure generali di sicurezza dei sistemi ",
 			"measure_on_data": "Misure applicate ai dati ",
+			"method": "(TRANSLATION REQUIRED) Methodology",
 			"organizational_measure": "Misure organizzative",
-			"principle": "Principio",
-      "method": "(TRANSLATION REQUIRED) Methodology"
+			"principle": "Principio"
 		},
 		"filters": {
 			"all": "Tutti",
@@ -382,11 +382,6 @@
 				"name": "Minacce che possono dar luogo a modifiche illegittime di dati personali",
 				"source": "PIAF Oggetti Connessi p43 and 44, WIKI"
 			},
-      "PIA_METHOD_MES": {
-				"description": "(TRANSLATION REQUIRED) Planned controls are those originally put in place, before any analysis by the assessor. Corrective measures advised by the assessor will be stated in the action plan and will enable a second assessment of the severity and likelihood of the risk.",
-				"name": "(TRANSLATION REQUIRED) Planned and corrective controls",
-				"source": ""
-      },
 			"PIA_DEF_MES": {
 				"description": "Da scegliere tra quelle disponibili nella sezione \"Misure pianificate o esistenti\", e che possono essere integrate se necessario.",
 				"name": "Misure",
@@ -617,6 +612,11 @@
 				"description": "Specificare il luogo di conservazione delle varie tipologie di dati oggetto di trattamento. A seconda del Paese in questione, si dovrà giustificare la scelta di conservare i dati al di fuori dell'UE e indicare le salvaguardie legali  implementate al fine di garantire un'adeguata protezione dei dati oggetto di trasferimento oltre frontiera. Cioè: <br>- Verso uno Stato membro dell'Unione Europea. <br>- Verso un Paese con protezione adeguata riconosciuta dall'UE <br>- Verso gli Stati Uniti a una società che ha aderito al Privacy Shield <br>- Verso un altro Paese <br>Vedi gli <a target=\"_blank\" href=\"http://www.garanteprivacy.it/documents/10160/0/Regolamento+UE+2016+679.+Con+riferimenti+ai+considerando\">artt. 44-49 del [GDPR]</a>",
 				"name": "Trasferimenti di dati",
 				"source": "PIAF Connected Objects p18"
+			},
+			"PIA_METHOD_MES": {
+				"description": "(TRANSLATION REQUIRED) Planned controls are those originally put in place, before any analysis by the assessor. Corrective measures advised by the assessor will be stated in the action plan and will enable a second assessment of the severity and likelihood of the risk.",
+				"name": "(TRANSLATION REQUIRED) Planned and corrective controls",
+				"source": "WIKI Menaces_pouvant_mener_à_une_modification_non_désirées_de_données"
 			},
 			"PIA_ORG_AUD": {
 				"description": "Esistenza di misure che consentano  una visione globale e aggiornata dello stato di protezione dei dati e della conformità con il GDPR (verifica della conformità dei trattamenti, obiettivi e indicatori, responsabilità, ecc.).",
@@ -1002,24 +1002,24 @@
 			},
 			"validate_pia": "Validazione PIA"
 		},
-		"statuses": {
-			"0": "In corso",
-			"1": "Rifiutata",
-			"2": "Validata",
-			"3": "Validata e firmata",
-			"4": "Archiviata",
-			"5": "In attesa di convalida"
-		}
+		"statuses": [
+			"In corso",
+			"Rifiutata",
+			"Validata",
+			"Validata e firmata",
+			"Archiviata",
+			"In attesa di convalida"
+		]
 	},
 	"questions": {
 		"edit": "Modifica domanda",
-		"gauges": {
-			"0": "(Indefinito)",
-			"1": "Trascurabile",
-			"2": "Limitato",
-			"3": "Importante",
-			"4": "Massimo"
-		},
+		"gauges": [
+			"(Indefinito)",
+			"Trascurabile",
+			"Limitato",
+			"Importante",
+			"Massimo"
+		],
 		"placeholder_title": "TO BE TRANSLATED - Titre de la question (obligatoire)",
 		"remove": "TO BE TRANSLATED - Supprimer la question"
 	},
@@ -1307,12 +1307,10 @@
 		"concerned_people_searched_opinion": "Richiesta del parere degli interessati",
 		"concerned_people_status": "Posizione degli interessati",
 		"concerned_people_unsearched_opinion_comment": "Motivazione della mancata richiesta del parere degli interessati",
-		"content_choice": {
-			"0": "Il trattamento non dovrebbe essere implementato.",
-			"1": "Il trattamento può essere implementato."
-		},
-    "generate_zip": "TO TRANSLATE - Download the full report (.zip)",
-    "generate_docx": "TO TRANSLATE - Download the report (.doc)",
+		"content_choice": [
+			"Il trattamento non dovrebbe essere implementato.",
+			"Il trattamento può essere implementato."
+		],
 		"creation_date": "Data di creazione",
 		"csv_action_plan_comment": "Commento sul piano di azione",
 		"csv_evaluation_comment": "Commento sulla valutazione",
@@ -1322,8 +1320,8 @@
 		"csv_section": "Sezione",
 		"csv_title_object": "Titolo",
 		"display_filters": {
-      "check_all": "TO TRANSLATE - Enable / disable all display filters",
 			"action_plan_content": "Visualizza piano d'azione",
+			"check_all": "TO TRANSLATE - Enable / disable all display filters",
 			"context_content": "Visualizza \"Contesto\"",
 			"main_content": "Visualizza \"Informazioni sulla PIA\"",
 			"principles_content": "Visualizza \"Principi fondamentali\"",
@@ -1343,6 +1341,8 @@
 			"3": "Importante",
 			"4": "Massima"
 		},
+		"generate_docx": "TO TRANSLATE - Download the report (.doc)",
+		"generate_zip": "TO TRANSLATE - Download the full report (.zip)",
 		"modification_made": "Modifiche apportate",
 		"people_search_status_nok": "Non è stato chiesto il parere degli interessati.",
 		"people_search_status_ok": "È stato chiesto il parere degli interessati.",

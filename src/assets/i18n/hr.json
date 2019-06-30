@@ -74,17 +74,17 @@
 		"placeholder_improvable1": "Prema raspoloživim informacijama, potrebno je provesti dodatne mjere kako bi se poboljšala zaštita podataka obrade.",
 		"placeholder_improvable2": "Unesite svoje komentare.",
 		"placeholder_to_correct": "Dostavljene informacije nisu dovoljne njihovo ispravno procjenjivanje. Pošaljite natrag uređivaču kako bi poboljšao izvorni podnesak.",
-		"status": {
-			"0": "Rješava se",
-			"1": "Za ispraviti",
-			"2": "Može se poboljšati",
-			"3": "Prihvatljiv"
-		},
+		"status": [
+			"Rješava se",
+			"Za ispraviti",
+			"Može se poboljšati",
+			"Prihvatljiv"
+		],
 		"title": "Procjena",
 		"to_correct": "Za ispraviti"
 	},
 	"header": {
-    "exit_full_screen_mode": "TO TRANSLATE - Press F11 to exit full screen mode.",
+		"exit_full_screen_mode": "TO TRANSLATE - Press F11 to exit full screen mode.",
 		"homepage_link": "Kontrolna ploča",
 		"knowledge_base_link": "Baza znanja",
 		"languages": {
@@ -265,9 +265,9 @@
 			"example": "Example",
 			"general_measure": "Kontrole fizičke sigurnosti",
 			"measure_on_data": "Kontrole logičke sigurnosti",
+			"method": "(TRANSLATION REQUIRED) Methodology",
 			"organizational_measure": "Organizacijske kontrole",
-			"principle": "Princip",
-      "method": "(TRANSLATION REQUIRED) Methodology"
+			"principle": "Princip"
 		},
 		"filters": {
 			"all": "Sve",
@@ -382,11 +382,6 @@
 				"name": "Prijetnje koje mogu dovesti do neželjenih izmjena osobnih podataka",
 				"source": "piaF Connected Objects p43 and 44, WIKI"
 			},
-      "PIA_METHOD_MES": {
-				"description": "(TRANSLATION REQUIRED) Planned controls are those originally put in place, before any analysis by the assessor. Corrective measures advised by the assessor will be stated in the action plan and will enable a second assessment of the severity and likelihood of the risk.",
-				"name": "(TRANSLATION REQUIRED) Planned and corrective controls",
-				"source": ""
-      },
 			"PIA_DEF_MES": {
 				"description": "Treba ih odabrati između onih dostupnih u odjeljku \"Planirane ili postojeće mjere\", koji možete dopuniti ako je potrebno.",
 				"name": "Mjere",
@@ -617,6 +612,11 @@
 				"description": "Ovisno o državi u pitanju, morat ćete opravdati izbor udaljenog hostinga i naznačiti aranžmane nadzora zakonitosti koji su provedeni kako bi se osigurala odgovarajuća zaštita podataka podložnih prekograničnom prijenosu. To jest: <br> - Europska unija <br> - Država priznata od strane EU-a kao ona koja pruža odgovarajuće zaštitu <br> - Prijenos u Sjedinjene Države društvu koje se pridružilo Privacy Shield okviru <br> - Druga država <br>Pogledajte <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">art. 44 to 49 of [GDPR]</a>",
 				"name": "Prijenosi",
 				"source": "piaF Connected Objects p18"
+			},
+			"PIA_METHOD_MES": {
+				"description": "(TRANSLATION REQUIRED) Planned controls are those originally put in place, before any analysis by the assessor. Corrective measures advised by the assessor will be stated in the action plan and will enable a second assessment of the severity and likelihood of the risk.",
+				"name": "(TRANSLATION REQUIRED) Planned and corrective controls",
+				"source": "WIKI Menaces_pouvant_mener_à_une_modification_non_désirées_de_données"
 			},
 			"PIA_ORG_AUD": {
 				"description": "Postojanje pravila i postupaka za dobivanje organizacije koja može upravljati i kontrolirati zaštitu osobnih podataka koji se kod nje nalaze.",
@@ -1002,24 +1002,24 @@
 			},
 			"validate_pia": "Potvrdi  PUP"
 		},
-		"statuses": {
-			"0": "U tijeku",
-			"1": "Odbijen",
-			"2": "Jednostavna potvrda",
-			"3": "Potpisana potvrda",
-			"4": "Arhiviran",
-			"5": "Čeka na potvrdu"
-		}
+		"statuses": [
+			"U tijeku",
+			"Odbijen",
+			"Jednostavna potvrda",
+			"Potpisana potvrda",
+			"Arhiviran",
+			"Čeka na potvrdu"
+		]
 	},
 	"questions": {
 		"edit": "Uredi pitanje",
-		"gauges": {
-			"0": "(Nedefinirano)",
-			"1": "Zanemariv",
-			"2": "Ograničen",
-			"3": "Bitan",
-			"4": "Maksimalan"
-		},
+		"gauges": [
+			"(Nedefinirano)",
+			"Zanemariv",
+			"Ograničen",
+			"Bitan",
+			"Maksimalan"
+		],
 		"placeholder_title": "Question title (mandatory)",
 		"remove": "Delete question"
 	},
@@ -1307,12 +1307,10 @@
 		"concerned_people_searched_opinion": "Traženje mišljenja dotičnih osoba",
 		"concerned_people_status": "Statusi dotičnih osoba",
 		"concerned_people_unsearched_opinion_comment": "Razlog zašto nije zatraženo mišljenje dotične osobe",
-		"content_choice": {
-			"0": "Tretman se ne smije koristiti.",
-			"1": "Tretman bi se mogao provesti."
-		},
-    "generate_zip": "TO TRANSLATE - Download the full report (.zip)",
-    "generate_docx": "TO TRANSLATE - Download the report (.doc)",
+		"content_choice": [
+			"Tretman se ne smije koristiti.",
+			"Tretman bi se mogao provesti."
+		],
 		"creation_date": "Datum stvaranja",
 		"csv_action_plan_comment": "Komentar akcijskog plana",
 		"csv_evaluation_comment": "Komentar procjene",
@@ -1322,8 +1320,8 @@
 		"csv_section": "Odjeljak",
 		"csv_title_object": "Naslov",
 		"display_filters": {
-      "check_all": "TO TRANSLATE - Enable / disable all display filters",
 			"action_plan_content": "Prikaži akcijski plan",
+			"check_all": "TO TRANSLATE - Enable / disable all display filters",
 			"context_content": "Prikaži odjeljak \"Context\"",
 			"main_content": "Prikaži odjeljak \"PIA information\"",
 			"principles_content": "Prikaži odjeljak \"Fundamental principles\"",
@@ -1343,6 +1341,8 @@
 			"3": "Važan",
 			"4": "Maksimalan"
 		},
+		"generate_docx": "TO TRANSLATE - Download the report (.doc)",
+		"generate_zip": "TO TRANSLATE - Download the full report (.zip)",
 		"modification_made": "Izmjene napravljene",
 		"people_search_status_nok": "Nije zatraženo mišljenje dotične osobe.",
 		"people_search_status_ok": "Zatraženo je mišljenje dotične osobe.",

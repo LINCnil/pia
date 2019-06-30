@@ -74,12 +74,12 @@
 		"placeholder_improvable1": " Soweit aus den zur Verfügung gestellten Informationen ersichtlich, müssen zusätzliche Maßnahmen hinzugefügt werden, um den Schutz der verarbeiteten Daten zu verbessern.",
 		"placeholder_improvable2": "Geben Sie Ihre Kommentare ein.",
 		"placeholder_to_correct": "Die bereitgestellten Informationen sind nicht ausreichend für eine vollständige Bewertung. Die DSFA wird zurück an den Bearbeiter verwiesen, um den ursprünglichen Vorschlag zu ergänzen.",
-		"status": {
-			"0": "unerledigt",
-			"1": "zu korrigieren",
-			"2": "verbesserungsfähig",
-			"3": "akzeptabel"
-		},
+		"status": [
+			"unerledigt",
+			"zu korrigieren",
+			"verbesserungsfähig",
+			"akzeptabel"
+		],
 		"title": "Bewertung",
 		"to_correct": "zu berichtigen"
 	},
@@ -265,9 +265,9 @@
 			"example": "Beispiel",
 			"general_measure": "Physische Sicherheitsmaßnahme",
 			"measure_on_data": "Logische Sicherheitsmaßnahme",
+			"method": "Methodik",
 			"organizational_measure": "Organisationsmaßnahme",
-			"principle": "Prinzip",
-      "method": "Methodik"
+			"principle": "Prinzip"
 		},
 		"filters": {
 			"all": "Alle",
@@ -382,11 +382,6 @@
 				"name": "Bedrohungen, die zu einer unerwünschten Veränderung personenbezogener Daten führen können",
 				"source": "WIKI Menaces_pouvant_mener_à_une_modification_non_désirées_de_données"
 			},
-      "PIA_METHOD_MES": {
-				"description": "Geplante Maßnahmen sind die ursprünglich eingeführten Maßnahmen vor einer Analyse durch den Prüfer. Die vom Gutachter empfohlenen Korrekturmaßnahmen werden im Aktionsplan aufgeführt und ermöglichen eine zweite Bewertung der Schwere und Wahrscheinlichkeit des Risikos.",
-				"name": "Geplante und korrigierende Maßnahmen",
-				"source": ""
-      },
 			"PIA_DEF_MES": {
 				"description": "Wählen Sie Maßnahmen aus den im Abschnitt \"Vorhandene oder geplante Maßnahmen\" verfügbaren aus, ergänzen Sie diese bei Bedarf.",
 				"name": "Maßnahmen",
@@ -617,6 +612,11 @@
 				"description": "Geben Sie die Länder an, in denen Daten verarbeitet werden. Je nach Land müssen Sie die Datenübermittlung rechtfertigen und die rechtlichen Rahmenbedingungen und Überwachungsmaßnahmen angeben, die für einen angemessenen Schutz der Daten, die Gegenstand einer grenzüberschreitenden Übertragung sind. zu erreichen. Zu unterscheiden sind:<br>- Europäische Union<br>- Staat, der ein durch EU anerkanntes angemessene Schutzniveau hat<br>- Transfer in die Vereinigten Staaten zu einem Unternehmen, das dem Privacy Shield beigetreten ist<br>- Andere Länder<br>Siehe <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/DE/TXT/HTML/?uri=CELEX:32016R0679&from=DE\">Art. 44 bis 49 der [DS-GVO]</a>",
 				"name": "Datenübermittlung in Drittländer",
 				"source": "WIKI Transferts_:_respect_des_obligations_en_mati%C3%A8re_de_transfert_de_donn%C3%A9es_en_dehors_de_l%E2%80%99Union_europ%C3%A9enne et PIAF Objets connectés p17"
+			},
+			"PIA_METHOD_MES": {
+				"description": "Geplante Maßnahmen sind die ursprünglich eingeführten Maßnahmen vor einer Analyse durch den Prüfer. Die vom Gutachter empfohlenen Korrekturmaßnahmen werden im Aktionsplan aufgeführt und ermöglichen eine zweite Bewertung der Schwere und Wahrscheinlichkeit des Risikos.",
+				"name": "Geplante und korrigierende Maßnahmen",
+				"source": "WIKI Menaces_pouvant_mener_à_une_modification_non_désirées_de_données"
 			},
 			"PIA_ORG_AUD": {
 				"description": "Vorhandensein von Maßnahmen, um einen globalen und aktuellen Überblick über den Stand des Datenschutzes und die Einhaltung der DS-GVO zu erhalten (Überprüfung der Einhaltung von Verarbeitungen, Zielen und Indikatoren, Verantwortlichkeiten usw.).",
@@ -980,7 +980,6 @@
 			"display_action_plan": "Aktionsplan<br>anzeigen",
 			"edition": "Bearbeitung",
 			"evaluation": "Auswertung",
-			"exit_full_screen_mode": "Drücken Sie F11, um den Vollbildmodus zu verlassen.",
 			"preview": "Vorschau"
 		},
 		"sections": {
@@ -1003,24 +1002,24 @@
 			},
 			"validate_pia": "DSFA bestätigen"
 		},
-		"statuses": {
-			"0": "In Bearbeitung",
-			"1": "Abgelehnt",
-			"2": "Einfache Bestätigung",
-			"3": "Bestätigung per Unterschrift",
-			"4": "Archiviert",
-			"5": "Warten auf Bestätigung"
-		}
+		"statuses": [
+			"In Bearbeitung",
+			"Abgelehnt",
+			"Einfache Bestätigung",
+			"Bestätigung per Unterschrift",
+			"Archiviert",
+			"Warten auf Bestätigung"
+		]
 	},
 	"questions": {
 		"edit": "Frage bearbeiten",
-		"gauges": {
-			"0": "(Nicht definiert)",
-			"1": "Geringfügig",
-			"2": "Überschaubar",
-			"3": "Substantiell",
-			"4": "Groß"
-		},
+		"gauges": [
+			"(Nicht definiert)",
+			"Geringfügig",
+			"Überschaubar",
+			"Substantiell",
+			"Groß"
+		],
 		"placeholder_title": "Titel der Frage (erforderlich)",
 		"remove": "Löschen Sie die Frage"
 	},
@@ -1308,12 +1307,10 @@
 		"concerned_people_searched_opinion": "Einholung der Meinung der Betroffenen",
 		"concerned_people_status": "Feststellungen der Betroffenen",
 		"concerned_people_unsearched_opinion_comment": "Grund, warum die Meinung der Betroffenen nicht erfragt wurde",
-		"content_choice": {
-			"0": "Die Verarbeitung sollte nicht durchgeführt werden.",
-			"1": "Die Verarbeitung kann umgesetzt werden."
-		},
-    "generate_zip": "Den vollständigen Bericht herunterladen (.zip)",
-    "generate_docx": "Den Bericht herunterladen (.doc)",
+		"content_choice": [
+			"Die Verarbeitung sollte nicht durchgeführt werden.",
+			"Die Verarbeitung kann umgesetzt werden."
+		],
 		"creation_date": "Bearbeitungsdatum",
 		"csv_action_plan_comment": "Aktionsplankommentar",
 		"csv_evaluation_comment": "Bewertungskommentar",

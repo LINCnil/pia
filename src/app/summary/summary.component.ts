@@ -12,10 +12,11 @@ import { Evaluation } from 'src/app/entry/entry-content/evaluations/evaluation.m
 
 import { ActionPlanService } from 'src/app/entry/entry-content/action-plan//action-plan.service';
 import { AppDataService } from 'src/app/services/app-data.service';
-import { TranslateService } from '@ngx-translate/core';
-import { ModalsService } from '../modals/modals.service';
+import { ModalsService } from 'src/app/modals/modals.service';
 import { PiaService } from 'src/app/services/pia.service';
 import { AttachmentsService } from 'src/app/entry/attachments/attachments.service';
+import { LanguagesService } from 'src/app/services/languages.service';
+import { TranslateService } from '@ngx-translate/core';
 
 declare const require: any;
 
@@ -54,7 +55,8 @@ export class SummaryComponent implements OnInit, AfterViewChecked {
               private _translateService: TranslateService,
               private _appDataService: AppDataService,
               public _piaService: PiaService,
-              private _modalService: ModalsService) { }
+              private _modalService: ModalsService,
+              private _languagesService: LanguagesService) { }
 
   async ngOnInit() {
     this.summarySubscription = this.route.queryParams.subscribe(params => {
