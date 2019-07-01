@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { AuthenticationComponent } from './authentication/authentication.component';
-import { SummaryComponent } from './summary/summary.component';
 import { PreviewComponent } from './preview/preview.component';
 import { SettingsComponent } from './settings/settings.component';
 import { HelpComponent } from './help/help.component';

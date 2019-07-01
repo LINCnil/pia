@@ -1292,6 +1292,26 @@
 		"update": "Ažuriraj URL"
 	},
 	"summary": {
+    "preview_title": "TO TRANSLATE - Preview",
+    "preview_subtitle": "TO TRANSLATE - General information",
+    "preview_edition": "TO TRANSLATE - Editing",
+    "preview_evaluation": "TO TRANSLATE - Evaluation",
+    "preview_validation": "TO TRANSLATE - Validation",
+    "preview_status": "TO TRANSLATE - Status",
+    "preview_validation_section": "TO TRANSLATE - Validation",
+    "preview_dpo_opinion": "TO TRANSLATE - Avis du DPD et des personnes concernées",
+    "preview_no_data": "TO TRANSLATE - No data to display.",
+    "actions": {
+      "print_and_download": "TO TRANSLATE - Print and download",
+      "print": "TO TRANSLATE - Print the report",
+      "complete_download": "TO TRANSLATE - Download the full report",
+      "complete_download_desc": "TO TRANSLATE - Export in a .zip archive all the report content (.doc and pictures), attachments and the action plan in a .csv format.",
+      "individual_download": "TO TRANSLATE - Download elements of the report",
+      "individual_download_desc": "TO TRANSLATE - Export specific elements of the report.",
+      "individual_download_select": "TO TRANSLATE - Select elements to export:",
+      "individual_download_doc": "TO TRANSLATE - Texts (.doc)",
+      "individual_download_images": "TO TRANSLATE - Visual elements (.png) including the risk overview, the risk mapping and the action plan."
+    },
     "download_csv": "TO TRANSLATE - Action plan (.csv)",
 		"action_plan": {
 			"fundamental_principles": "Temeljna načela",
@@ -1371,7 +1391,6 @@
 		"responsible": "Osoba odgovorna za potvrđivanje PUP-a: ",
 		"signed_attachments_history": "Povijest potpisanih privitaka",
 		"tools": {
-			"action_plan": "Akcijski plan",
 			"dashboard": "Kontrolna ploča",
 			"display_pia": "Prikaži izvještaj"
 		},
