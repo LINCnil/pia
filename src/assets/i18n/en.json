@@ -1293,6 +1293,26 @@
 		"update": "Update URL"
 	},
 	"summary": {
+    "preview_title": "Preview",
+    "preview_subtitle": "General information",
+    "preview_edition": "Editing",
+    "preview_evaluation": "Evaluation",
+    "preview_validation": "Validation",
+    "preview_status": "Status",
+    "preview_validation_section": "Validation",
+    "preview_dpo_opinion": "TO TRANSLATE - Avis du DPD et des personnes concernées",
+    "preview_no_data": "No data to display.",
+    "actions": {
+      "print_and_download": "Print and download",
+      "print": "Print the report",
+      "complete_download": "Download the full report",
+      "complete_download_desc": "Export in a .zip archive all the report content (.doc and pictures), attachments and the action plan in a .csv format.",
+      "individual_download": "Download elements of the report",
+      "individual_download_desc": "Export specific elements of the report.",
+      "individual_download_select": "Select elements to export:",
+      "individual_download_doc": "Texts (.doc)",
+      "individual_download_images": "Visual elements (.png) including the risk overview, the risk mapping and the action plan."
+    },
     "download_csv": "Action plan (.csv)",
 		"action_plan": {
 			"fundamental_principles": "Fundamental principles",
@@ -1372,7 +1392,6 @@
 		"responsible": "Person accountable for validating the PIA: ",
 		"signed_attachments_history": "Signed attachments history",
 		"tools": {
-			"action_plan": "Action plan",
 			"dashboard": "Dashboard",
 			"display_pia": "Display report"
 		},

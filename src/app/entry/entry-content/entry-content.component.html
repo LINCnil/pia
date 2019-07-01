@@ -25,7 +25,7 @@
       <h2 *ngIf="item.title">{{ item.title | translate }}</h2>
       <h4 *ngIf="item.short_help">{{ item.short_help | translate }}</h4>
     </div>
-    <a *ngIf="section.id === 4 && item.id === 2;else defaultBlock" routerLink="/preview/{{_piaService.pia.id}}" [queryParams]="{ displayOnlyActionPlan: true }" class="btn pia-previewBlock">
+    <a *ngIf="section.id === 4 && item.id === 2;else defaultBlock" routerLink="/preview/{{_piaService.pia.id}}" class="btn pia-previewBlock">
       <span class="pia-icons pia-icon-preview"></span>
       <div [innerHTML]="'pia.header.display_action_plan' | translate"></div>
     </a>

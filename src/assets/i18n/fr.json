@@ -1292,6 +1292,26 @@
 		"update": "Mettre à jour l'URL"
 	},
 	"summary": {
+    "preview_title": "Aperçu de l'analyse",
+    "preview_subtitle": "Informations générales",
+    "preview_edition": "Saisie",
+    "preview_evaluation": "Évaluation",
+    "preview_validation": "Validation",
+    "preview_status": "Statut",
+    "preview_validation_section": "Validation",
+    "preview_dpo_opinion": "Avis du DPD et des personnes concernées",
+    "preview_no_data": "Aucune information à afficher.",
+    "actions": {
+      "print_and_download": "Impression et téléchargement",
+      "print": "Imprimer l'analyse",
+      "complete_download": "Télécharger l'ensemble de l'analyse",
+      "complete_download_desc": "Exporte dans une archive .zip les contenus de l'analyse (.doc et images), les pièces-jointes associées et le plan d'action au format .csv.",
+      "individual_download": "Télécharger des éléments de l'analyse",
+      "individual_download_desc": "Exporte des éléments spécifiques de l'analyse.",
+      "individual_download_select": "Sélectionnez les éléments à exporter :",
+      "individual_download_doc": "Contenus textuels (fichier .doc)",
+      "individual_download_images": "Éléments visuels (fichiers .png) : vue d'ensemble des risques, cartographie des risques, plan d'action."
+    },
     "download_csv": "Plan d'action (fichier .csv)",
 		"action_plan": {
 			"fundamental_principles": "Principes fondamentaux",
@@ -1371,7 +1391,6 @@
 		"responsible": "Responsable de la validation du PIA : ",
 		"signed_attachments_history": "Historique des pièces jointes signées",
 		"tools": {
-			"action_plan": "Plan d'action",
 			"dashboard": "Accueil",
 			"display_pia": "Afficher le rapport"
 		},
