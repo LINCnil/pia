@@ -967,7 +967,8 @@
 		"attachments": {
 			"add": "Add",
 			"remove": "Remove",
-			"title": "Attachments"
+			"title": "Attachments",
+			"download": "Download the attachment"
 		},
 		"footer": {
 			"ask_evaluation": "Ask for review",
