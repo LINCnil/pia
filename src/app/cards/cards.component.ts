@@ -36,7 +36,7 @@ export class CardsComponent implements OnInit, OnDestroy {
               public _modalsService: ModalsService,
               public _piaService: PiaService,
               public _structureService: StructureService,
-              private _languagesService: LanguagesService,
+              public _languagesService: LanguagesService,
               private _translateService: TranslateService) { }
 
   ngOnInit() {

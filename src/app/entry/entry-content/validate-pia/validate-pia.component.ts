@@ -24,7 +24,7 @@ export class ValidatePIAComponent implements OnInit {
               private _modalsService: ModalsService,
               public _attachmentsService: AttachmentsService,
               private _actionPlanService: ActionPlanService,
-              private _languagesService: LanguagesService,
+              public _languagesService: LanguagesService,
               private _translateService: TranslateService,
               public _piaService: PiaService ) { }
 

@@ -22,7 +22,7 @@ export class StructureService {
   constructor(private route: ActivatedRoute,
               private httpClient: HttpClient,
               private _modalsService: ModalsService,
-              private _languagesService: LanguagesService) {
+              public _languagesService: LanguagesService) {
                 this.getStructure();
               }
 

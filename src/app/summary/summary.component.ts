@@ -56,7 +56,7 @@ export class SummaryComponent implements OnInit, AfterViewChecked {
               private _appDataService: AppDataService,
               public _piaService: PiaService,
               private _modalService: ModalsService,
-              private _languagesService: LanguagesService) { }
+              public _languagesService: LanguagesService) { }
 
   async ngOnInit() {
     this.summarySubscription = this.route.queryParams.subscribe(params => {

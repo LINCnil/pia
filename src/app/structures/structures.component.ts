@@ -35,7 +35,7 @@ export class StructuresComponent implements OnInit, OnDestroy {
               public _modalsService: ModalsService,
               private _appDataService: AppDataService,
               public _structureService: StructureService,
-              private _languagesService: LanguagesService,
+              public _languagesService: LanguagesService,
               private _translateService: TranslateService) { }
 
   ngOnInit() {

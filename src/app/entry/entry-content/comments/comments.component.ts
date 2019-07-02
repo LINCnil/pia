@@ -30,7 +30,7 @@ export class CommentsComponent implements OnInit {
   constructor(private el: ElementRef,
               private _measureService: MeasureService,
               private _modalsService: ModalsService,
-              private _languagesService: LanguagesService,
+              public _languagesService: LanguagesService,
               private _translateService: TranslateService) { }
 
   ngOnInit() {

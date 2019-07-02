@@ -11,7 +11,7 @@ export class CommentItemComponent implements OnInit {
 
   @Input() comment: any;
 
-  constructor(private _languagesService: LanguagesService,
+  constructor(public _languagesService: LanguagesService,
               private _translateService: TranslateService) { }
 
   ngOnInit() { }

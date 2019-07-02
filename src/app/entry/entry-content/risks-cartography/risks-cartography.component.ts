@@ -28,7 +28,7 @@ export class RisksCartographyComponent implements OnInit, OnDestroy {
               private _appDataService: AppDataService,
               public _languagesService: LanguagesService,
               private _translateService: TranslateService,
-              private _piaService: PiaService) { }
+              public _piaService: PiaService) { }
 
   async ngOnInit() {
     this.risk1Letter = this._translateService.instant('cartography.risk1_access');

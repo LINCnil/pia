@@ -46,7 +46,7 @@ export class EvaluationsComponent implements OnInit, AfterViewChecked, OnDestroy
               private _knowledgeBaseService: KnowledgeBaseService,
               private _sidStatusService: SidStatusService,
               private _piaService: PiaService,
-              private _languagesService: LanguagesService,
+              public _languagesService: LanguagesService,
               private _translateService: TranslateService) { }
 
   ngOnInit() {

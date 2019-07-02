@@ -14,7 +14,7 @@ export class PiaValidateHistoryComponent implements OnInit {
 
   constructor(private el: ElementRef,
               public _piaService: PiaService,
-              private _languagesService: LanguagesService,
+              public _languagesService: LanguagesService,
               private _translateService: TranslateService) { }
 
   ngOnInit() {

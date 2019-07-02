@@ -38,7 +38,7 @@ export class ModalsComponent implements OnInit {
     public _answerStructureService: AnswerStructureService,
     public _measuresService: MeasureService,
     public _attachmentsService: AttachmentsService,
-    private _languagesService: LanguagesService,
+    public _languagesService: LanguagesService,
     private _translateService: TranslateService
   ) { }
 

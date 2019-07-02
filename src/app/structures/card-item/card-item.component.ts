@@ -27,7 +27,7 @@ export class CardItemComponent implements OnInit {
   constructor(private router: Router,
               private _modalsService: ModalsService,
               public _structureService: StructureService,
-              private _languagesService: LanguagesService,
+              public _languagesService: LanguagesService,
               private _translateService: TranslateService) { }
 
   ngOnInit() {

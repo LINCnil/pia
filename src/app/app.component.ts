@@ -13,7 +13,7 @@ export class AppComponent {
   constructor(private _renderer: Renderer2,
               private _http: HttpClient,
               private _knowledgeBaseService: KnowledgeBaseService,
-              private _languagesService: LanguagesService) {
+              public _languagesService: LanguagesService) {
     this._knowledgeBaseService.loadData(this._http);
     const increaseContrast = localStorage.getItem('increaseContrast');
     if (increaseContrast === 'true') {

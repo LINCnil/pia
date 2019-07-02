@@ -31,7 +31,7 @@ export class CardItemComponent implements OnInit {
     private router: Router,
     private _modalsService: ModalsService,
     public _piaService: PiaService,
-    private _languagesService: LanguagesService,
+    public _languagesService: LanguagesService,
     private _translateService: TranslateService
   ) {}
 

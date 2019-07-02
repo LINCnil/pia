@@ -21,7 +21,7 @@ export class ListItemComponent implements OnInit {
     private route: ActivatedRoute,
     public _piaService: PiaService,
     private _modalsService: ModalsService,
-    private _languagesService: LanguagesService,
+    public _languagesService: LanguagesService,
     private _translateService: TranslateService) { }
 
   ngOnInit() {
