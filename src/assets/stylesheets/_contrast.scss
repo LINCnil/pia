@@ -204,17 +204,6 @@ body.pia-contrast {
       a {
         color: $pia-green-dark;
       }
-      &-more {
-        ul li {
-          color: $pia-green-dark;
-          &:focus, &:hover, &:active {
-            background-color: $pia-green-dark;
-            a, i {
-              color: $pia-white;
-            }
-          }
-        }
-      }
     }
   }
 

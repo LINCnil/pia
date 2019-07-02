@@ -15,6 +15,8 @@ import { TranslateService } from '@ngx-translate/core';
 import { AttachmentsService } from 'src/app/entry/attachments/attachments.service';
 import { ValueConverter } from '@angular/compiler/src/render3/view/template';
 
+declare const require: any;
+
 @Component({
   selector: 'app-preview',
   templateUrl: './preview.component.html',

@@ -22,9 +22,14 @@ export class ListItemComponent implements OnInit {
 
   ngOnInit() {
     const attachmentModel = new Attachment();
+    this.attachments = [];
     attachmentModel.pia_id = this.pia.id;
     attachmentModel.findAll().then((entries: any) => {
-      this.attachments = entries;
+      entries.forEach(element => {
+        if (element["file"] && element["file"].length) {
+          this.attachments.push(element);
+        }
+      });
     });
   }
 
