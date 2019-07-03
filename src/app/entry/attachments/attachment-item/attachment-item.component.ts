@@ -40,15 +40,25 @@ export class AttachmentItemComponent implements OnInit {
    * @param {boolean} show - Hide or show the preview block
    */
   previewAttachment(show: boolean) {
-    if(this.attachment.mime_type === 'application/pdf') {
+    const elPreview = this.el.nativeElement.querySelector('.pia-attachmentsBlock-item-preview');
+    const embed = elPreview.querySelector('embed');
+    const img = elPreview.querySelector('img');
 
-    } else if(this.attachment.mime_type.startsWith('image')) {
-      const elPreview = this.el.nativeElement.querySelector('.pia-attachmentsBlock-item-preview');
-      elPreview.querySelector('img').setAttribute('src', this.attachment.file);
-      if (show) {
+    elPreview.classList.add('hide');
+    embed.classList.add('hide');
+    img.classList.add('hide');
+
+    if (show) {
+      if (this.attachment.mime_type.endsWith('pdf')) {
+        embed.setAttribute('src', this.attachment.file.replace('octet-stream', 'pdf'));
+        embed.classList.remove('hide');
+        elPreview.classList.remove('hide');
+      } else if(this.attachment.mime_type.startsWith('image')) {
+        img.setAttribute('src', this.attachment.file);
+        img.classList.remove('hide');
         elPreview.classList.remove('hide');
       } else {
-        elPreview.classList.add('hide');
+        this.downloadAttachment();
       }
     }
   }
