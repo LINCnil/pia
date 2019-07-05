@@ -49,7 +49,10 @@ export class GlobalEvaluationService {
           reference_to: this.reference_to,
           status: this.status
         });
-      } else {
+      } else if (this.reference_to === '1.3') { 
+        // Exception for Threshold Analysis
+        this.status = 2;
+      }else {
         this.status = 0;
       }
       resolve({ reference_to: this.reference_to, status: this.status });

@@ -92,6 +92,81 @@
       			  "active": true
       			}
           ]
+        },
+        {
+          "id": 3,
+          "title": "sections.1.items.3.title",
+          "evaluation_mode": "checkboxes",
+          "short_help": "sections.1.items.3.short_help",
+          "questions": [
+            {
+              "id": 131,
+              "title": "sections.1.items.3.questions.1.title",
+              "link_knowledge_base": [
+                "PIA_LGL_DATA",
+                "PIA_LGL_DEST",
+                "PIA_DEF_DCP",
+                "PIA_DEF_DEST"
+              ],
+              "placeholder": "sections.1.items.3.questions.1.placeholder",
+              "question_type": "checkboxes",
+              "answer_type": "list",
+              "answer": "",
+              "active": true,
+              "checked_sum": 0,
+              "results": {
+                "no": "sections.1.items.3.questions.1.results.1",
+                "yes": "sections.1.items.3.questions.1.results.2"
+              },
+              "labels": [
+                {
+                  "id": 1,
+                  "text": "sections.1.items.3.questions.1.labels.1",
+                  "checked": false
+                },
+                {
+                  "id": 2,
+                  "text": "sections.1.items.3.questions.1.labels.2",
+                  "checked": false
+                },
+                {
+                  "id": 3,
+                  "text": "sections.1.items.3.questions.1.labels.3",
+                  "checked": false
+                },
+                {
+                  "id": 4,
+                  "text": "sections.1.items.3.questions.1.labels.4",
+                  "checked": false
+                },
+                {
+                  "id": 5,
+                  "text": "sections.1.items.3.questions.1.labels.5",
+                  "checked": false
+                },
+                {
+                  "id": 6,
+                  "text": "sections.1.items.3.questions.1.labels.6",
+                  "checked": false
+                },
+                {
+                  "id": 7,
+                  "text": "sections.1.items.3.questions.1.labels.7",
+                  "checked": false
+                },
+                {
+                  "id": 8,
+                  "text": "sections.1.items.3.questions.1.labels.8",
+                  "checked": false
+                },
+                {
+                  "id": 9,
+                  "text": "sections.1.items.3.questions.1.labels.9",
+                  "checked": false
+                }
+              ]
+            }
+          ]
         }
       ]
     },

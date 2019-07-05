@@ -1075,7 +1075,32 @@
 					},
 					"short_help": "This part allows you to define and describe the scope of the processing in detail.",
 					"title": "Data, processes and supporting assets"
-				}
+				},
+        "3": {
+          "questions": {
+            "1": {
+              "results": {
+                "1": "A PIA might not be necessary here.",
+                "2": "A PIA is definitely needed here!"
+              },
+              "labels": {
+                "1": "Evaluation or scoring, including profiling and predicting.",
+                "2": "Automated-decision making with legal or similar significant effect.",
+                "3": "Systematic monitoring or control over data subjects.",
+                "4": "Sensitive data or data of a highly personal nature.",
+                "5": "Personal data processed on a large scale.",
+                "6": "Matching or combining datasets.",
+                "7": "Data concerning vulnerable data subjects (e.g., children, employees, vulnerable segments of the population).",
+                "8": "Innovative use or applying new technological or organisational solutions.",
+                "9": "When the processing in itself \"prevents data subjects from exercising a right or using a service or a contract\" (Article 22 and recital 91)."
+              },
+              "placeholder": "This is a placeholder",
+              "title": "As a rule of thumb, any system that matches two or more of the following criteria are likely to result in a \"high risk\" and a PIA should be considered according to the Article 29 Working Party:"
+            }
+          },
+          "short_help": "Briefly assess if a PIA should be conducted.",
+          "title": "Threshold Analysis"
+        }
 			},
 			"short_help": "This section gives you a clear view of the treatment(s) of personal data in question.",
 			"title": "Context"

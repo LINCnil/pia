@@ -134,6 +134,9 @@ export class QuestionsComponent implements OnInit, OnDestroy {
    * @param {any} evaluation - Any Evaluation.
    */
   evaluationChange(evaluation) {
+    // Debug prints
+    console.log(this.evaluation);
+    console.log(evaluation);
     this.evaluation = evaluation;
   }
 
@@ -224,6 +227,8 @@ export class QuestionsComponent implements OnInit, OnDestroy {
    * @param {any} event - Any Event.
    */
   onAdd(event) {
+    console.log("onAdd()");
+    console.log(event);
     if (event && event.value.length > 0) {
       let list = [];
       if (this.answer.id) {
@@ -254,6 +259,8 @@ export class QuestionsComponent implements OnInit, OnDestroy {
    * @param {any} event - Any Event.
    */
   onRemove(event) {
+    console.log("onRemove()");
+    console.log(event);
     let list = [];
     if (this.answer.id) {
       list = this.answer.data.list;
@@ -354,6 +361,45 @@ export class QuestionsComponent implements OnInit, OnDestroy {
       commentsDisplayer.classList.add('hide');
       if (evaluationDisplayer) {
         evaluationDisplayer.classList.add('hide');
+      }
+    }
+  }
+
+  /**
+   * Monitors checkboxes in Threshold Analysis
+   */
+  checkBox(event) {
+    var target = event.target;              // The checkbox activating the event
+
+    for(let label of this.question.labels){   // Update checkbox status in backend
+      if(label.id == target.id){
+        label.checked = target.checked; 
+      } 
+    } 
+    /**
+    *  The following code is custom 
+    *  edited from onAdd() and onRemove()
+    */
+    if(target.checked == true){             // Add answer
+      this.question.checked_sum += 1;       // Increase checkbox counter
+      let list = [];
+      if (this.answer.id) {
+        list = this.answer.data.list;
+      }
+      if (list.indexOf(target.name) <= 0) {
+        list.push(target.name);
+        this.createOrUpdateList(list);
+      }
+    }else{                                  // Remove answer
+      this.question.checked_sum -= 1;       // Decrease checkbox counter
+      let list = [];
+      if (this.answer.id) {
+        list = this.answer.data.list;
+      }
+      const index = list.indexOf(target.name);
+      if (index >= 0) {
+        list.splice(list.indexOf(target.name), 1);
+        this.createOrUpdateList(list);
       }
     }
   }
