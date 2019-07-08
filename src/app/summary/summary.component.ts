@@ -12,10 +12,11 @@ import { Evaluation } from 'src/app/entry/entry-content/evaluations/evaluation.m
 
 import { ActionPlanService } from 'src/app/entry/entry-content/action-plan//action-plan.service';
 import { AppDataService } from 'src/app/services/app-data.service';
-import { TranslateService } from '@ngx-translate/core';
-import { ModalsService } from '../modals/modals.service';
+import { ModalsService } from 'src/app/modals/modals.service';
 import { PiaService } from 'src/app/services/pia.service';
 import { AttachmentsService } from 'src/app/entry/attachments/attachments.service';
+import { LanguagesService } from 'src/app/services/languages.service';
+import { TranslateService } from '@ngx-translate/core';
 
 declare const require: any;
 
@@ -29,7 +30,6 @@ declare const require: any;
   providers: [PiaService]
 })
 export class SummaryComponent implements OnInit, AfterViewChecked {
-
   csvOptions = {};
   csvContent: any;
   content: any[];
@@ -47,14 +47,17 @@ export class SummaryComponent implements OnInit, AfterViewChecked {
   displayRisksCartography: boolean;
   summarySubscription: Subscription;
 
-  constructor(private el: ElementRef,
-              private route: ActivatedRoute,
-              private _attachmentsService: AttachmentsService,
-              public _actionPlanService: ActionPlanService,
-              private _translateService: TranslateService,
-              private _appDataService: AppDataService,
-              public _piaService: PiaService,
-              private _modalService: ModalsService) { }
+  constructor(
+    private el: ElementRef,
+    private route: ActivatedRoute,
+    private _attachmentsService: AttachmentsService,
+    public _actionPlanService: ActionPlanService,
+    private _translateService: TranslateService,
+    private _appDataService: AppDataService,
+    public _piaService: PiaService,
+    private _modalService: ModalsService,
+    public _languagesService: LanguagesService
+  ) {}
 
   async ngOnInit() {
     this.summarySubscription = this.route.queryParams.subscribe(params => {
@@ -90,7 +93,8 @@ export class SummaryComponent implements OnInit, AfterViewChecked {
   }
 
   ngAfterViewChecked() {
-    document.querySelector('angular2csv > button').innerHTML = '<i class="fa fa-2x fa-file-excel-o"></i>';
+    document.querySelector('angular2csv > button').innerHTML =
+      '<i class="fa fa-2x fa-file-excel-o"></i>';
   }
 
   /**
@@ -101,7 +105,7 @@ export class SummaryComponent implements OnInit, AfterViewChecked {
     const JSZip = require('jszip');
     const zip = new JSZip();
     this.addImagesToZip(zip).then((zip2: any) => {
-      zip2.generateAsync({type: 'blob'}).then(blobContent => {
+      zip2.generateAsync({ type: 'blob' }).then(blobContent => {
         FileSaver.saveAs(blobContent, 'pia-images.zip');
       });
     });
@@ -112,7 +116,9 @@ export class SummaryComponent implements OnInit, AfterViewChecked {
    * @param element block in the HTML view used to generate the docx
    */
   async generateDocx(element) {
-    (document.querySelector('#displayer-pia-all') as HTMLInputElement).checked = true;
+    (document.querySelector(
+      '#displayer-pia-all'
+    ) as HTMLInputElement).checked = true;
     this.displayAllFilters = true;
     this.displayMainPiaData = true;
     this.displaySection1 = true;
@@ -126,12 +132,12 @@ export class SummaryComponent implements OnInit, AfterViewChecked {
 
       const downloadLink = document.createElement('a');
       document.body.appendChild(downloadLink);
-      if (navigator.msSaveOrOpenBlob ) {
-          navigator.msSaveOrOpenBlob(dataDoc.blob, dataDoc.filename);
+      if (navigator.msSaveOrOpenBlob) {
+        navigator.msSaveOrOpenBlob(dataDoc.blob, dataDoc.filename);
       } else {
-          downloadLink.href = dataDoc.url;
-          downloadLink.download = dataDoc.filename;
-          downloadLink.click();
+        downloadLink.href = dataDoc.url;
+        downloadLink.download = dataDoc.filename;
+        downloadLink.click();
       }
       document.body.removeChild(downloadLink);
     }, 500);
@@ -142,7 +148,9 @@ export class SummaryComponent implements OnInit, AfterViewChecked {
    * @param element block in the HTML view used to generate the docx in the zip
    */
   async generateZip(element) {
-    (document.querySelector('#displayer-pia-all') as HTMLInputElement).checked = true;
+    (document.querySelector(
+      '#displayer-pia-all'
+    ) as HTMLInputElement).checked = true;
     this.displayAllFilters = true;
     this.displayMainPiaData = true;
     this.displaySection1 = true;
@@ -157,7 +165,7 @@ export class SummaryComponent implements OnInit, AfterViewChecked {
       const zip = new JSZip();
       this.addImagesToZip(zip).then((zip2: any) => {
         zip2.file(dataDoc.filename, dataDoc.blob);
-        zip2.generateAsync({type: 'blob'}).then(blobContent => {
+        zip2.generateAsync({ type: 'blob' }).then(blobContent => {
           FileSaver.saveAs(blobContent, 'pia-' + this.pia.name + '.zip');
         });
       });
@@ -170,13 +178,15 @@ export class SummaryComponent implements OnInit, AfterViewChecked {
       const risksCartographyImg = await this.getRisksCartographyImg();
       const risksOverviewImg = await this.getRisksOverviewImgForZip();
 
-      const byteCharacters1 = atob((actionPlanOverviewImg as any).split(',')[1]);
+      const byteCharacters1 = atob(
+        (actionPlanOverviewImg as any).split(',')[1]
+      );
       const byteCharacters2 = atob((risksCartographyImg as any).split(',')[1]);
       const byteCharacters3 = atob((risksOverviewImg as any).split(',')[1]);
 
-      zip.file('actionPlanOverview.png', byteCharacters1, {binary: true});
-      zip.file('risksCartography.png', byteCharacters2, {binary: true});
-      zip.file('risksOverview.png', byteCharacters3, {binary: true});
+      zip.file('actionPlanOverview.png', byteCharacters1, { binary: true });
+      zip.file('risksCartography.png', byteCharacters2, { binary: true });
+      zip.file('risksOverview.png', byteCharacters3, { binary: true });
 
       resolve(zip);
     });
@@ -189,9 +199,11 @@ export class SummaryComponent implements OnInit, AfterViewChecked {
   async getActionPlanOverviewImg() {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
-        const actionPlanOverviewImg = document.querySelector('#actionPlanOverviewImg');
+        const actionPlanOverviewImg = document.querySelector(
+          '#actionPlanOverviewImg'
+        );
         if (actionPlanOverviewImg) {
-          html2canvas(actionPlanOverviewImg, {scale: 1.4}).then(canvas => {
+          html2canvas(actionPlanOverviewImg, { scale: 1.4 }).then(canvas => {
             if (canvas) {
               const img = canvas.toDataURL();
               resolve(img);
@@ -208,14 +220,15 @@ export class SummaryComponent implements OnInit, AfterViewChecked {
    */
   private getRisksOverviewImg() {
     setTimeout(() => {
-        const mysvg = document.getElementById('risksOverviewSvg');
-        if (mysvg) {
-          saveSvgAsPng(mysvg, 'risksOverview.png', {
-            backgroundColor: 'white',
-            scale: 1.4,
-            encoderOptions: 1,
-            width: 760});
-        }
+      const mysvg = document.getElementById('risksOverviewSvg');
+      if (mysvg) {
+        saveSvgAsPng(mysvg, 'risksOverview.png', {
+          backgroundColor: 'white',
+          scale: 1.4,
+          encoderOptions: 1,
+          width: 760
+        });
+      }
     }, 250);
   }
 
@@ -226,12 +239,12 @@ export class SummaryComponent implements OnInit, AfterViewChecked {
   async getRisksOverviewImgForZip() {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
-          const mysvg = document.getElementById('risksOverviewSvg');
-          if (mysvg) {
-            svgAsPngUri(mysvg, {}, uri => {
-              resolve(uri);
-            });
-          }
+        const mysvg = document.getElementById('risksOverviewSvg');
+        if (mysvg) {
+          svgAsPngUri(mysvg, {}, uri => {
+            resolve(uri);
+          });
+        }
       }, 250);
     });
   }
@@ -243,9 +256,11 @@ export class SummaryComponent implements OnInit, AfterViewChecked {
   async getRisksCartographyImg() {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
-        const risksCartographyImg = document.querySelector('#risksCartographyImg');
+        const risksCartographyImg = document.querySelector(
+          '#risksCartographyImg'
+        );
         if (risksCartographyImg) {
-          html2canvas(risksCartographyImg, {scale: 1.4}).then(canvas => {
+          html2canvas(risksCartographyImg, { scale: 1.4 }).then(canvas => {
             if (canvas) {
               const img = canvas.toDataURL();
               resolve(img);
@@ -286,7 +301,9 @@ export class SummaryComponent implements OnInit, AfterViewChecked {
     this.displayRisksCartography = status;
 
     const contextSection = this.el.nativeElement.querySelector('.section-1');
-    const fundamentalPrinciplesSection = this.el.nativeElement.querySelector('.section-2');
+    const fundamentalPrinciplesSection = this.el.nativeElement.querySelector(
+      '.section-2'
+    );
     const risksSection = this.el.nativeElement.querySelector('.section-3');
     if (status) {
       contextSection.classList.remove('hide');
@@ -298,7 +315,6 @@ export class SummaryComponent implements OnInit, AfterViewChecked {
       risksSection.classList.add('hide');
     }
   }
-
 
   /**
    * Display or hide the main Pia data.
@@ -327,7 +343,9 @@ export class SummaryComponent implements OnInit, AfterViewChecked {
   toggleFundamentalPrinciplesContent() {
     setTimeout(() => {
       this.displaySection2 = !this.displaySection2;
-      const fundamentalPrinciplesSection = this.el.nativeElement.querySelector('.section-2');
+      const fundamentalPrinciplesSection = this.el.nativeElement.querySelector(
+        '.section-2'
+      );
       fundamentalPrinciplesSection.classList.toggle('hide');
     }, 100);
   }
@@ -378,8 +396,12 @@ export class SummaryComponent implements OnInit, AfterViewChecked {
 
     this._attachmentsService.pia = this.pia;
     this._attachmentsService.listAttachments().then(() => {
-      const attachmentElement = { title: 'summary.attachments', subtitle: null, data: [] };
-      this._attachmentsService.attachments.forEach((attachment) => {
+      const attachmentElement = {
+        title: 'summary.attachments',
+        subtitle: null,
+        data: []
+      };
+      this._attachmentsService.attachments.forEach(attachment => {
         attachmentElement.data.push({
           content: attachment.name,
           comment: attachment.comment
@@ -464,7 +486,9 @@ export class SummaryComponent implements OnInit, AfterViewChecked {
     if (this.pia.concerned_people_searched_opinion === true) {
       el.data.push({
         title: 'summary.concerned_people_searched_opinion',
-        content: this.pia.getPeopleSearchStatus(this.pia.concerned_people_searched_opinion)
+        content: this.pia.getPeopleSearchStatus(
+          this.pia.concerned_people_searched_opinion
+        )
       });
       if (this.pia.people_names && this.pia.people_names.length > 0) {
         el.data.push({
@@ -475,10 +499,15 @@ export class SummaryComponent implements OnInit, AfterViewChecked {
       if (this.pia.concerned_people_status >= 0) {
         el.data.push({
           title: 'summary.concerned_people_status',
-          content: this.pia.getOpinionsStatus(this.pia.concerned_people_status.toString())
+          content: this.pia.getOpinionsStatus(
+            this.pia.concerned_people_status.toString()
+          )
         });
       }
-      if (this.pia.concerned_people_opinion && this.pia.concerned_people_opinion.length > 0) {
+      if (
+        this.pia.concerned_people_opinion &&
+        this.pia.concerned_people_opinion.length > 0
+      ) {
         el.data.push({
           title: 'summary.concerned_people_opinion',
           content: this.pia.concerned_people_opinion
@@ -490,9 +519,14 @@ export class SummaryComponent implements OnInit, AfterViewChecked {
     if (this.pia.concerned_people_searched_opinion === false) {
       el.data.push({
         title: 'summary.concerned_people_searched_opinion',
-        content: this.pia.getPeopleSearchStatus(this.pia.concerned_people_searched_opinion)
+        content: this.pia.getPeopleSearchStatus(
+          this.pia.concerned_people_searched_opinion
+        )
       });
-      if (this.pia.concerned_people_searched_content && this.pia.concerned_people_searched_content.length > 0) {
+      if (
+        this.pia.concerned_people_searched_content &&
+        this.pia.concerned_people_searched_content.length > 0
+      ) {
         el.data.push({
           title: 'summary.concerned_people_unsearched_opinion_comment',
           content: this.pia.concerned_people_searched_content
@@ -500,7 +534,10 @@ export class SummaryComponent implements OnInit, AfterViewChecked {
       }
     }
 
-    if (this.pia.applied_adjustements && this.pia.applied_adjustements.length > 0) {
+    if (
+      this.pia.applied_adjustements &&
+      this.pia.applied_adjustements.length > 0
+    ) {
       el.data.push({
         title: 'summary.modification_made',
         content: this.pia.applied_adjustements
@@ -522,36 +559,41 @@ export class SummaryComponent implements OnInit, AfterViewChecked {
    * @private
    */
   private async getJsonInfo() {
-    this.allData = {}
-    this._piaService.data.sections.forEach(async (section) => {
+    this.allData = {};
+    this._piaService.data.sections.forEach(async section => {
       this.allData[section.id] = {};
-      section.items.forEach(async (item) => {
-        this.allData[section.id][item.id] = {}
+      section.items.forEach(async item => {
+        this.allData[section.id][item.id] = {};
         const ref = section.id.toString() + '.' + item.id.toString();
 
         // Measure
         if (item.is_measure) {
-          this.allData[section.id][item.id] = []
+          this.allData[section.id][item.id] = [];
           const measuresModel = new Measure();
           measuresModel.pia_id = this.pia.id;
           const entries: any = await measuresModel.findAll();
-          entries.forEach(async (measure) => {
+          entries.forEach(async measure => {
             /* Completed measures */
             if (measure.title !== undefined && measure.content !== undefined) {
               let evaluation = null;
               if (item.evaluation_mode === 'question') {
-                evaluation = await this.getEvaluation(section.id, item.id, ref + '.' + measure.id);
+                evaluation = await this.getEvaluation(
+                  section.id,
+                  item.id,
+                  ref + '.' + measure.id
+                );
               }
               this.allData[section.id][item.id].push({
                 title: measure.title,
                 content: measure.content,
                 evaluation: evaluation
-              })
+              });
             }
           });
-        } else if (item.questions) { // Question
-          item.questions.forEach(async (question) => {
-            this.allData[section.id][item.id][question.id] = {}
+        } else if (item.questions) {
+          // Question
+          item.questions.forEach(async question => {
+            this.allData[section.id][item.id][question.id] = {};
             const answerModel = new Answer();
             await answerModel.getByReferenceAndPia(this.pia.id, question.id);
 
@@ -559,7 +601,11 @@ export class SummaryComponent implements OnInit, AfterViewChecked {
             if (answerModel.data) {
               const content = [];
               if (answerModel.data.gauge && answerModel.data.gauge > 0) {
-                content.push(this._translateService.instant(this.pia.getGaugeName(answerModel.data.gauge)));
+                content.push(
+                  this._translateService.instant(
+                    this.pia.getGaugeName(answerModel.data.gauge)
+                  )
+                );
               }
               if (answerModel.data.text && answerModel.data.text.length > 0) {
                 content.push(answerModel.data.text);
@@ -569,10 +615,18 @@ export class SummaryComponent implements OnInit, AfterViewChecked {
               }
               if (content.length > 0) {
                 if (item.evaluation_mode === 'question') {
-                  const evaluation = await this.getEvaluation(section.id, item.id, ref + '.' + question.id);
-                  this.allData[section.id][item.id][question.id].evaluation = evaluation;
+                  const evaluation = await this.getEvaluation(
+                    section.id,
+                    item.id,
+                    ref + '.' + question.id
+                  );
+                  this.allData[section.id][item.id][
+                    question.id
+                  ].evaluation = evaluation;
                 }
-                this.allData[section.id][item.id][question.id].content = content.join(', ')
+                this.allData[section.id][item.id][
+                  question.id
+                ].content = content.join(', ');
               }
             }
           });
@@ -593,20 +647,30 @@ export class SummaryComponent implements OnInit, AfterViewChecked {
    * @param {string} ref - The reference.
    * @returns {Promise}
    */
-  private async getEvaluation(section_id: string, item_id: string, ref: string) {
+  private async getEvaluation(
+    section_id: string,
+    item_id: string,
+    ref: string
+  ) {
     return new Promise(async (resolve, reject) => {
       let evaluation = null;
       const evaluationModel = new Evaluation();
       const exist = await evaluationModel.getByReference(this.pia.id, ref);
       if (exist) {
         evaluation = {
-          'title': evaluationModel.getStatusName(),
-          'action_plan_comment': evaluationModel.action_plan_comment,
-          'evaluation_comment': evaluationModel.evaluation_comment,
-          'gauges': {
-            'riskName': { value: this._translateService.instant('sections.' + section_id + '.items.' + item_id + '.title') },
-            'seriousness': evaluationModel.gauges ? evaluationModel.gauges.x : null,
-            'likelihood': evaluationModel.gauges ? evaluationModel.gauges.y : null
+          title: evaluationModel.getStatusName(),
+          action_plan_comment: evaluationModel.action_plan_comment,
+          evaluation_comment: evaluationModel.evaluation_comment,
+          gauges: {
+            riskName: {
+              value: this._translateService.instant(
+                'sections.' + section_id + '.items.' + item_id + '.title'
+              )
+            },
+            seriousness: evaluationModel.gauges
+              ? evaluationModel.gauges.x
+              : null,
+            likelihood: evaluationModel.gauges ? evaluationModel.gauges.y : null
           }
         };
       }
@@ -629,7 +693,9 @@ export class SummaryComponent implements OnInit, AfterViewChecked {
       headers: [
         `"${this._translateService.instant('summary.csv_section')}"`,
         `"${this._translateService.instant('summary.csv_title_object')}"`,
-        `"${this._translateService.instant('summary.csv_action_plan_comment')}"`,
+        `"${this._translateService.instant(
+          'summary.csv_action_plan_comment'
+        )}"`,
         `"${this._translateService.instant('summary.csv_evaluation_comment')}"`,
         `"${this._translateService.instant('summary.csv_implement_date')}"`,
         `"${this._translateService.instant('summary.csv_people_in_charge')}"`
@@ -646,18 +712,26 @@ export class SummaryComponent implements OnInit, AfterViewChecked {
     if (actionPlanImg) {
       document.querySelector('#actionPlanOverviewImg').remove();
     }
-    const preHtml = "<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'><head><meta charset='utf-8'><title>Export HTML To Doc</title></head><body>";
+    const preHtml =
+      "<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'><head><meta charset='utf-8'><title>Export HTML To Doc</title></head><body>";
     const postHtml = '</body></html>';
-    const html = preHtml + document.getElementById(element).innerHTML + postHtml;
+    const html =
+      preHtml + document.getElementById(element).innerHTML + postHtml;
     const blob = new Blob(['\ufeff', html], {
       type: 'application/msword'
     });
-    const actionPlanBlock = document.querySelector('.pia-actionPlanGraphBlockContainer');
+    const actionPlanBlock = document.querySelector(
+      '.pia-actionPlanGraphBlockContainer'
+    );
     if (actionPlanBlock) {
       actionPlanBlock.appendChild(actionPlanImg);
     }
-    return { url: 'data:application/vnd.ms-word;charset=utf-8,' + encodeURIComponent(html), blob, filename: 'pia.doc' };
+    return {
+      url:
+        'data:application/vnd.ms-word;charset=utf-8,' +
+        encodeURIComponent(html),
+      blob,
+      filename: 'pia.doc'
+    };
   }
-
 }
-

@@ -5,6 +5,8 @@ import { Attachment } from 'src/app/entry/attachments/attachment.model';
 
 import { ModalsService } from 'src/app/modals/modals.service';
 import { PiaService } from 'src/app/services/pia.service';
+import { LanguagesService } from 'src/app/services/languages.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: `.app-list-item`,
@@ -15,10 +17,14 @@ export class ListItemComponent implements OnInit {
   @Input() pia: any;
   attachments: any;
 
-  constructor(private router: Router,
-              private route: ActivatedRoute,
-              public _piaService: PiaService,
-              private _modalsService: ModalsService) { }
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute,
+    public _piaService: PiaService,
+    private _modalsService: ModalsService,
+    public _languagesService: LanguagesService,
+    private _translateService: TranslateService
+  ) {}
 
   ngOnInit() {
     const attachmentModel = new Attachment();

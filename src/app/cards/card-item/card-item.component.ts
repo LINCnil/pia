@@ -7,12 +7,17 @@ import { Attachment } from 'src/app/entry/attachments/attachment.model';
 
 import { ModalsService } from 'src/app/modals/modals.service';
 import { PiaService } from 'src/app/services/pia.service';
+import { LanguagesService } from 'src/app/services/languages.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-card-item',
   templateUrl: './card-item.component.html',
-  styleUrls: ['./card-item.component.scss', './card-item_edit.component.scss',
-    './card-item_doing.component.scss'],
+  styleUrls: [
+    './card-item.component.scss',
+    './card-item_edit.component.scss',
+    './card-item_doing.component.scss'
+  ]
 })
 export class CardItemComponent implements OnInit {
   @Input() pia: any;
@@ -25,17 +30,30 @@ export class CardItemComponent implements OnInit {
   @ViewChild('piaEvaluatorName') private piaEvaluatorName: ElementRef;
   @ViewChild('piaValidatorName') private piaValidatorName: ElementRef;
 
-  constructor(private router: Router,
-              private _modalsService: ModalsService,
-              public _piaService: PiaService) { }
+  constructor(
+    private router: Router,
+    private _modalsService: ModalsService,
+    public _piaService: PiaService,
+    public _languagesService: LanguagesService,
+    private _translateService: TranslateService
+  ) {}
 
   ngOnInit() {
     this.piaForm = new FormGroup({
       id: new FormControl(this.pia.id),
       name: new FormControl({ value: this.pia.name, disabled: false }),
-      author_name: new FormControl({ value: this.pia.author_name, disabled: false }),
-      evaluator_name: new FormControl({ value: this.pia.evaluator_name, disabled: false }),
-      validator_name: new FormControl({ value: this.pia.validator_name, disabled: false })
+      author_name: new FormControl({
+        value: this.pia.author_name,
+        disabled: false
+      }),
+      evaluator_name: new FormControl({
+        value: this.pia.evaluator_name,
+        disabled: false
+      }),
+      validator_name: new FormControl({
+        value: this.pia.validator_name,
+        disabled: false
+      })
     });
 
     const attachmentModel = new Attachment();
@@ -43,7 +61,6 @@ export class CardItemComponent implements OnInit {
     attachmentModel.findAll().then((entries: any) => {
       this.attachments = entries;
     });
-
   }
 
   /**

@@ -1,4 +1,4 @@
-import {Component, OnInit, ElementRef, OnDestroy, Input} from '@angular/core';
+import { Component, OnInit, ElementRef, OnDestroy, Input } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Subscription } from 'rxjs';
@@ -9,6 +9,8 @@ import { ModalsService } from 'src/app/modals/modals.service';
 import { PiaService } from 'src/app/services/pia.service';
 import { StructureService } from 'src/app/services/structure.service';
 import { Structure } from 'src/app/structures/structure.model';
+import { LanguagesService } from 'src/app/services/languages.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-cards',
@@ -16,7 +18,6 @@ import { Structure } from 'src/app/structures/structure.model';
   styleUrls: ['./cards.component.scss'],
   providers: [PiaService, StructureService]
 })
-
 export class CardsComponent implements OnInit, OnDestroy {
   @Input() pia: any;
   newPia: Pia;
@@ -24,16 +25,20 @@ export class CardsComponent implements OnInit, OnDestroy {
   importPiaForm: FormGroup;
   sortOrder: string;
   sortValue: string;
-  viewStyle: { view: string }
+  viewStyle: { view: string };
   view: 'card';
   paramsSubscribe: Subscription;
 
-  constructor(private router: Router,
-              private el: ElementRef,
-              private route: ActivatedRoute,
-              public _modalsService: ModalsService,
-              public _piaService: PiaService,
-              public _structureService: StructureService) { }
+  constructor(
+    private router: Router,
+    private el: ElementRef,
+    private route: ActivatedRoute,
+    public _modalsService: ModalsService,
+    public _piaService: PiaService,
+    public _structureService: StructureService,
+    public _languagesService: LanguagesService,
+    private _translateService: TranslateService
+  ) {}
 
   ngOnInit() {
     const structure = new Structure();
@@ -60,11 +65,9 @@ export class CardsComponent implements OnInit, OnDestroy {
     this.viewStyle = {
       view: this.route.snapshot.params.view
     };
-    this.paramsSubscribe = this.route.params.subscribe(
-      (params: Params) => {
-        this.viewStyle.view = params.view;
-      }
-    );
+    this.paramsSubscribe = this.route.params.subscribe((params: Params) => {
+      this.viewStyle.view = params.view;
+    });
     if (localStorage.getItem('homepageDisplayMode') === 'list') {
       this.viewOnList();
     } else {
@@ -180,8 +183,12 @@ export class CardsComponent implements OnInit, OnDestroy {
         firstValue = new Date(a[this.sortValue]);
         secondValue = new Date(b[this.sortValue]);
       }
-      if (this.sortValue === 'name' || this.sortValue === 'author_name' ||
-          this.sortValue === 'evaluator_name' || this.sortValue === 'validator_name') {
+      if (
+        this.sortValue === 'name' ||
+        this.sortValue === 'author_name' ||
+        this.sortValue === 'evaluator_name' ||
+        this.sortValue === 'validator_name'
+      ) {
         return firstValue.localeCompare(secondValue);
       } else {
         if (firstValue < secondValue) {

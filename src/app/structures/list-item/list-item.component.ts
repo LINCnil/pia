@@ -4,6 +4,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { Structure } from 'src/app/structures/structure.model';
 import { ModalsService } from 'src/app/modals/modals.service';
 import { StructureService } from 'src/app/services/structure.service';
+import { LanguagesService } from 'src/app/services/languages.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: `.app-list-item`,
@@ -15,13 +17,16 @@ export class ListItemComponent implements OnInit {
   @Input() structure: any;
   @Output() structEvent = new EventEmitter<Structure>();
 
-  constructor(private router: Router,
-              private route: ActivatedRoute,
-              public _structureService: StructureService,
-              private _modalsService: ModalsService) { }
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute,
+    public _structureService: StructureService,
+    private _modalsService: ModalsService,
+    public _languagesService: LanguagesService,
+    private _translateService: TranslateService
+  ) {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   /**
    * Focuses out field and update Structure.
@@ -56,8 +61,10 @@ export class ListItemComponent implements OnInit {
    * @param id structure ID
    */
   async duplicate(id: number) {
-    this._structureService.duplicateStructure(id).then((structure: Structure) => {
-      this.structEvent.emit(structure);
-    });
+    this._structureService
+      .duplicateStructure(id)
+      .then((structure: Structure) => {
+        this.structEvent.emit(structure);
+      });
   }
 }

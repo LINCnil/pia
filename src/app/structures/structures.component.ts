@@ -8,6 +8,7 @@ import { StructureService } from 'src/app/services/structure.service';
 import { Structure } from './structure.model';
 import { ModalsService } from 'src/app/modals/modals.service';
 import { AppDataService } from 'src/app/services/app-data.service';
+import { LanguagesService } from 'src/app/services/languages.service';
 
 @Component({
   selector: 'app-structures',
@@ -15,7 +16,6 @@ import { AppDataService } from 'src/app/services/app-data.service';
   styleUrls: ['./structures.component.scss'],
   providers: [StructureService]
 })
-
 export class StructuresComponent implements OnInit, OnDestroy {
   @Input() structure: any;
   newStructure: Structure;
@@ -23,18 +23,21 @@ export class StructuresComponent implements OnInit, OnDestroy {
   importStructureForm: FormGroup;
   sortOrder: string;
   sortValue: string;
-  viewStyle: { view: string }
+  viewStyle: { view: string };
   view: 'structure';
   paramsSubscribe: Subscription;
   structExampleSubscribe: Subscription;
 
-  constructor(private router: Router,
-              private el: ElementRef,
-              private route: ActivatedRoute,
-              public _modalsService: ModalsService,
-              private _appDataService: AppDataService,
-              public _structureService: StructureService,
-              private _translateService: TranslateService) { }
+  constructor(
+    private router: Router,
+    private el: ElementRef,
+    private route: ActivatedRoute,
+    public _modalsService: ModalsService,
+    private _appDataService: AppDataService,
+    public _structureService: StructureService,
+    public _languagesService: LanguagesService,
+    private _translateService: TranslateService
+  ) {}
 
   ngOnInit() {
     this.sortOrder = localStorage.getItem('sortOrder');
@@ -53,11 +56,9 @@ export class StructuresComponent implements OnInit, OnDestroy {
     this.viewStyle = {
       view: this.route.snapshot.params.view
     };
-    this.paramsSubscribe = this.route.params.subscribe(
-      (params: Params) => {
-        this.viewStyle.view = params.view;
-      }
-    );
+    this.paramsSubscribe = this.route.params.subscribe((params: Params) => {
+      this.viewStyle.view = params.view;
+    });
     if (localStorage.getItem('homepageDisplayMode') === 'list') {
       this.viewOnList();
     } else {
@@ -67,9 +68,11 @@ export class StructuresComponent implements OnInit, OnDestroy {
       import_file: new FormControl('', [])
     });
 
-    this.structExampleSubscribe = this._translateService.onLangChange.subscribe((event: LangChangeEvent) => {
-      this.refreshContent();
-    });
+    this.structExampleSubscribe = this._translateService.onLangChange.subscribe(
+      (event: LangChangeEvent) => {
+        this.refreshContent();
+      }
+    );
   }
 
   ngOnDestroy() {
@@ -128,7 +131,9 @@ export class StructuresComponent implements OnInit, OnDestroy {
     structure.sector_name = this.structureForm.value.sector_name;
     structure.data = this._appDataService.dataNav;
     const p = structure.create();
-    p.then((id) => this.router.navigate(['structures', 'entry', id, 'section', 1, 'item', 1]));
+    p.then(id =>
+      this.router.navigate(['structures', 'entry', id, 'section', 1, 'item', 1])
+    );
   }
 
   /**

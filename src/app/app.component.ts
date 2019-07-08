@@ -10,10 +10,12 @@ import { LanguagesService } from './services/languages.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  constructor(private _renderer: Renderer2,
-              private _http: HttpClient,
-              private _knowledgeBaseService: KnowledgeBaseService,
-              private _languagesService: LanguagesService) {
+  constructor(
+    private _renderer: Renderer2,
+    private _http: HttpClient,
+    private _knowledgeBaseService: KnowledgeBaseService,
+    public _languagesService: LanguagesService
+  ) {
     this._knowledgeBaseService.loadData(this._http);
     const increaseContrast = localStorage.getItem('increaseContrast');
     if (increaseContrast === 'true') {
@@ -25,6 +27,5 @@ export class AppComponent {
     // Languages initialization
     this._languagesService.initLanguages();
     this._languagesService.getOrSetCurrentLanguage();
-
   }
 }
