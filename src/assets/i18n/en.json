@@ -37,12 +37,14 @@
 		"legend3": "(I)llegitimate access to data",
 		"legend4": "(U)nwanted modification of data",
 		"legend5": "(D)ata disappearance",
+    "legend6": "Without measures implemented",
 		"likelihood_axe": "Risk likelihood",
 		"limited": "Limited",
 		"maximal": "Maximum",
 		"negligible": "Negligible",
 		"risk1_access": "(I)",
 		"risk2_modification": "(U)",
+    "risk3_disappearance": "(D)",
 		"seriousness_axe": "Risk seriousness"
 	},
 	"comments": {
@@ -1189,6 +1191,14 @@
 						"6": {
 							"placeholder": "Justify here the estimated likelihood.",
 							"title": "How do you estimate the <span class='green-highlight'>likelihood of the risk</span>, especially in respect of threats, sources of risk and planned controls?"
+						},
+						"7": {
+							"placeholder": "Justify here the estimated severity of the risk.",
+							"title": "How do you estimate the <span class='green-highlight'>risk severity</span>, especially according to potential impacts and <span class='green-highlight'>no planned controls</span>?"
+						},
+						"8": {
+							"placeholder": "Justify here the estimated likelihood.",
+							"title": "How do you estimate the <span class='green-highlight'>likelihood of the risk</span>, especially in respect of threats, sources of risk and <span class='green-highlight'>no planned controls</span>?"
 						}
 					},
 					"short_help": "Analyze the causes and consequences of illegitimate access to data, and estimate its severity and likelihood.",
@@ -1219,6 +1229,14 @@
 						"6": {
 							"placeholder": "Justify here the estimated likelihood.",
 							"title": "How do you estimate the <span class='green-highlight'>likelihood of the risk</span>, especially in respect of threats, sources of risk and planned controls?"
+						},
+						"7": {
+							"placeholder": "Justify here the estimated severity of the risk.",
+							"title": "How do you estimate the <span class='green-highlight'>risk severity</span>, especially according to potential impacts and <span class='green-highlight'>no planned controls</span>?"
+						},
+						"8": {
+							"placeholder": "Justify here the estimated likelihood.",
+							"title": "How do you estimate the <span class='green-highlight'>likelihood of the risk</span>, especially in respect of threats, sources of risk and <span class='green-highlight'>no planned controls</span>?"
 						}
 					},
 					"short_help": "Analyze the causes and consequences of an undesired change in data, and estimate its seriousness and likelihood.",
@@ -1249,6 +1267,14 @@
 						"6": {
 							"placeholder": "Justify here the estimated likelihood.",
 							"title": "How do you estimate the <span class='green-highlight'>likelihood of the risk</span>, especially in respect of threats, sources of risk and planned controls?"
+						},
+						"7": {
+							"placeholder": "Justify here the estimated severity of the risk.",
+							"title": "How do you estimate the <span class='green-highlight'>risk severity</span>, especially according to potential impacts and <span class='green-highlight'>no planned controls</span>?"
+						},
+						"8": {
+							"placeholder": "Justify here the estimated likelihood.",
+							"title": "How do you estimate the <span class='green-highlight'>likelihood of the risk</span>, especially in respect of threats, sources of risk and <span class='green-highlight'>no planned controls</span>?"
 						}
 					},
 					"short_help": "Analyze the causes and consequences of data loss, and estimate its seriousness and likelihood.",

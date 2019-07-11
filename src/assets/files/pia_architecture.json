@@ -337,6 +337,34 @@
               "active": true
             },
             {
+              "id": 327,
+              "title": "sections.3.items.2.questions.7.title",
+              "is_measure": true,
+              "link_knowledge_base": [
+                "PIA_DEF_ACCI",
+                "PIA_DEF_MES",
+                "PIA_METHOD_MES"
+              ],
+              "placeholder": "sections.3.items.2.questions.7.placeholder",
+              "answer_type": "gauge",
+              "cartography": "pre-access_x",
+              "active": true
+            },
+            {
+              "id": 328,
+              "title": "sections.3.items.2.questions.8.title",
+              "is_measure": true,
+              "link_knowledge_base": [
+                "PIA_DEF_ACCI",
+                "PIA_DEF_MES",
+                "PIA_METHOD_MES"
+              ],
+              "placeholder": "sections.3.items.2.questions.8.placeholder",
+              "answer_type": "gauge",
+              "cartography": "pre-access_y",
+              "active": true
+            },
+            {
               "id": 324,
               "title": "sections.3.items.2.questions.4.title",
               "is_measure": true,
@@ -431,6 +459,34 @@
               "active": true
             },
             {
+              "id": 337,
+              "title": "sections.3.items.3.questions.7.title",
+              "is_measure": true,
+              "link_knowledge_base": [
+                "PIA_DEF_ACCI",
+                "PIA_DEF_MES",
+                "PIA_METHOD_MES"
+              ],
+              "placeholder": "sections.3.items.3.questions.7.placeholder",
+              "answer_type": "gauge",
+              "cartography": "pre-change_x",
+              "active": true
+            },
+            {
+              "id": 338,
+              "title": "sections.3.items.3.questions.8.title",
+              "is_measure": true,
+              "link_knowledge_base": [
+                "PIA_DEF_ACCI",
+                "PIA_DEF_MES",
+                "PIA_METHOD_MES"
+              ],
+              "placeholder": "sections.3.items.3.questions.8.placeholder",
+              "answer_type": "gauge",
+              "cartography": "pre-change_y",
+              "active": true
+            },
+            {
               "id": 334,
               "title": "sections.3.items.3.questions.4.title",
               "is_measure": true,
@@ -521,6 +577,34 @@
               ],
               "placeholder": "sections.3.items.4.questions.3.placeholder",
               "answer_type": "list",
+              "active": true
+            },
+            {
+              "id": 347,
+              "title": "sections.3.items.4.questions.7.title",
+              "is_measure": true,
+              "link_knowledge_base": [
+                "PIA_DEF_ACCI",
+                "PIA_DEF_MES",
+                "PIA_METHOD_MES"
+              ],
+              "placeholder": "sections.3.items.4.questions.7.placeholder",
+              "answer_type": "gauge",
+              "cartography": "pre-disappearance_x",
+              "active": true
+            },
+            {
+              "id": 348,
+              "title": "sections.3.items.4.questions.8.title",
+              "is_measure": true,
+              "link_knowledge_base": [
+                "PIA_DEF_ACCI",
+                "PIA_DEF_MES",
+                "PIA_METHOD_MES"
+              ],
+              "placeholder": "sections.3.items.4.questions.8.placeholder",
+              "answer_type": "gauge",
+              "cartography": "pre-disappearance_y",
               "active": true
             },
             {
