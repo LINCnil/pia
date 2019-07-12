@@ -1,6 +1,6 @@
 {
   "name": "pia",
-  "version": "2.1",
+  "version": "2.1.0",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
