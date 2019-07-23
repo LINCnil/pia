@@ -29,7 +29,7 @@
 <td class="pia-listsBlock-item">
   <div class="pia-listsBlock-item-actions">
     <a routerLink="/entry/{{pia.id}}/section/1/item/1" class="btn pia-tooltip">
-      <i class="fa" [ngClass]="{'fa-eye': pia.status > 0, 'fa-pencil': pia.status === 0}" aria-hidden="true"></i>
+      <i class="fa fa-pencil" aria-hidden="true"></i>
       <span *ngIf="pia.status === 0" class="pia-tooltip-text">{{ 'homepage.lists.item.tools.edit' | translate }}</span>
       <span *ngIf="pia.status > 0" class="pia-tooltip-text">{{ 'homepage.lists.item.tools.consult' | translate }}</span>
     </a>
@@ -37,13 +37,13 @@
       <i class="fa fa-eye" aria-hidden="true"></i>
       <span class="pia-tooltip-text">{{ 'pia.header.preview' | translate }}</span>
     </a>
-    <a href="javascript:;" (click)="generateZip()" class="btn pia-tooltip">
-      <i class="fa fa-download" aria-hidden="true"></i>
-      <span class="pia-tooltip-text">{{ 'homepage.lists.item.tools.export' | translate }}</span>
-    </a>
     <a href="javascript:;" (click)="_piaService.duplicate(pia.id)" class="btn pia-tooltip">
       <i class="fa fa-files-o" aria-hidden="true"></i>
       <span class="pia-tooltip-text">{{ 'homepage.lists.item.tools.duplicate' | translate }}</span>
+    </a>
+    <a href="javascript:;" (click)="generateZip()" class="btn pia-tooltip">
+      <i class="fa fa-download" aria-hidden="true"></i>
+      <span class="pia-tooltip-text">{{ 'homepage.lists.item.tools.export' | translate }}</span>
     </a>
     <a href="javascript:;" (click)="removePia(pia.id)" class="btn pia-tooltip">
       <i class="fa fa-trash-o" aria-hidden="true"></i>

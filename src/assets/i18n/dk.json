@@ -174,8 +174,8 @@
 			"import_pia": "Importere PIA",
 			"import_structure": "Importere skabelon",
 			"item": {
-				"consult_pia": "Konsultere PIA",
-				"edit_pia": "Redigere PIA",
+				"consult_pia": "Konsultere",
+				"edit_pia": "Redigere",
 				"edit_structure": "Redigere skabelon",
 				"tools": {
 					"action_plan": "Vis<br>handlingsplan",
@@ -1299,7 +1299,7 @@
     "preview_validation": "TO TRANSLATE - Validation",
     "preview_status": "TO TRANSLATE - Status",
     "preview_validation_section": "TO TRANSLATE - Validation",
-    "preview_dpo_opinion": "TO TRANSLATE - Avis du DPD et des personnes concernées",
+    "preview_dpo_opinion": "TO TRANSLATE - DPO and data subjects opinion",
     "preview_no_data": "TO TRANSLATE - No data to display.",
     "actions": {
       "print_and_download": "TO TRANSLATE - Print and download",

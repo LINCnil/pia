@@ -378,7 +378,6 @@
                       <div *ngFor="let item of section.items">
                         <div *ngIf="item.evaluation_mode !== ''">
 
-                          <!--  TODO : ajouter une classe spécifique à chaque section pour la couleur du BG -->
                           <div [className]="'pia-fullPreviewBlock-headline headline' + section.id">
                             <div class="pia-fullPreviewBlock-headline-title">
                               <h1 >{{ section.title | translate }}</h1>
@@ -390,26 +389,31 @@
 
                             <!-- Measures -->
                             <div *ngIf="item.is_measure">
-                              <div *ngFor="let measure of allData[section.id][item.id]">
-                                <h3 [innerHTML]="measure.title"></h3>
-                                <div [innerHTML]="measure.content | translate | safeHtml"></div>
-                                <br>
-                                <!-- Measures' evaluations -->
-                                <div class="evaluationbox" *ngIf="measure.evaluation">
-                                  <p>
-                                    <strong class="evaluationValue">{{ 'evaluations.title' | translate }} : {{ measure.evaluation.title | translate }}</strong>
-                                    <br>
-                                    <span *ngIf="measure.evaluation.action_plan_comment">
-                                      <strong>{{ 'evaluations.action_plan_comment' | translate }} :<br></strong><span style="font-weight:400;" [innerHTML]="measure.evaluation.action_plan_comment | safeHtml"></span>
+                              <ng-container *ngIf="allData[section.id][item.id].length > 0; else noMeasuresData">
+                                <div *ngFor="let measure of allData[section.id][item.id]">
+                                  <h3 [innerHTML]="measure.title"></h3>
+                                  <div [innerHTML]="measure.content | translate | safeHtml"></div>
+                                  <br>
+                                  <!-- Measures' evaluations -->
+                                  <div class="evaluationbox" *ngIf="measure.evaluation">
+                                    <p>
+                                      <strong class="evaluationValue">{{ 'evaluations.title' | translate }} : {{ measure.evaluation.title | translate }}</strong>
                                       <br>
-                                    </span>
-                                    <span *ngIf="measure.evaluation.evaluation_comment">
-                                      <strong>{{ 'evaluations.evaluation_comment' | translate }} :<br></strong><span style="font-weight:400;" [innerHTML]="measure.evaluation.evaluation_comment | safeHtml"></span>
-                                      <br>
-                                    </span>
-                                  </p>
+                                      <span *ngIf="measure.evaluation.action_plan_comment">
+                                        <strong>{{ 'evaluations.action_plan_comment' | translate }} :<br></strong><span style="font-weight:400;" [innerHTML]="measure.evaluation.action_plan_comment | safeHtml"></span>
+                                        <br>
+                                      </span>
+                                      <span *ngIf="measure.evaluation.evaluation_comment">
+                                        <strong>{{ 'evaluations.evaluation_comment' | translate }} :<br></strong><span style="font-weight:400;" [innerHTML]="measure.evaluation.evaluation_comment | safeHtml"></span>
+                                        <br>
+                                      </span>
+                                    </p>
+                                  </div>
                                 </div>
-                              </div>
+                              </ng-container>
+                              <ng-template #noMeasuresData>
+                                    {{ 'summary.preview_no_data' | translate }}
+                              </ng-template>
                             </div>
 
                             <!-- Questions -->

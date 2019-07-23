@@ -13,6 +13,14 @@
       </div>
       <div class="pia-cardsBlock-toolbar">
         <div class="pia-cardsBlock-toolbar-export">
+          <a *ngIf="pia.status > 0" routerLink="/entry/{{pia.id}}/section/1/item/1" class="btn pia-tooltip">
+            <i class="fa fa-pencil" aria-hidden="true"></i>
+            <span class="pia-tooltip-text">{{ 'homepage.cards.item.edit_pia' | translate }}</span>
+          </a>
+          <a href="javascript:;" (click)="_piaService.duplicate(pia.id)" class="btn pia-tooltip">
+            <i class="fa fa-files-o" aria-hidden="true"></i>
+            <span class="pia-tooltip-text">{{ 'homepage.cards.item.tools.duplicate' | translate }}</span>
+          </a>
           <a href="javascript:;" (click)="generateZip()" class="btn pia-tooltip">
             <i class="fa fa-download" aria-hidden="true"></i>
             <span class="pia-tooltip-text">{{ 'homepage.cards.item.tools.export' | translate }}</span>
@@ -21,10 +29,7 @@
             <i class="fa fa-trash-o" aria-hidden="true"></i>
             <span class="pia-tooltip-text">{{ 'homepage.cards.item.tools.remove' | translate }}</span>
           </a>
-          <a href="javascript:;" (click)="_piaService.duplicate(pia.id)" class="btn pia-tooltip">
-            <i class="fa fa-files-o" aria-hidden="true"></i>
-            <span class="pia-tooltip-text">{{ 'homepage.cards.item.tools.duplicate' | translate }}</span>
-          </a>
+
         </div>
       </div>
 
@@ -95,8 +100,13 @@
           </div>
         </div>
         <div class="pia-cardsBlock-item-btn">
-          <a *ngIf="pia.status === 0" routerLink="/entry/{{pia.id}}/section/1/item/1" class="btn btn-green">{{ 'homepage.cards.item.edit_pia' | translate }}</a>
-          <a *ngIf="pia.status > 0" routerLink="/entry/{{pia.id}}/section/1/item/1" class="btn btn-green">{{ 'homepage.cards.item.consult_pia' | translate }}</a>
+          <div *ngIf="pia.status === 0" class="pia-cardsBlock-item-btn-dual">
+            <a routerLink="/entry/{{pia.id}}/section/1/item/1" title="{{ 'homepage.cards.item.edit_pia' | translate }}" class="btn btn-green">{{ 'homepage.cards.item.edit_pia' | translate }}</a>
+            <a routerLink="/preview/{{pia.id}}" title="{{ 'homepage.cards.item.consult_pia' | translate }}" class="btn btn-green">{{ 'homepage.cards.item.consult_pia' | translate }}</a>
+          </div>
+          <div *ngIf="pia.status > 0" class="pia-cardsBlock-item-btn-single">
+            <a routerLink="/preview/{{pia.id}}" title="{{ 'homepage.cards.item.consult_pia' | translate }}" class="btn btn-green">{{ 'homepage.cards.item.consult_pia' | translate }}</a>
+          </div>
         </div>
       </form>
   </div>

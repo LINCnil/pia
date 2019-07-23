@@ -174,8 +174,8 @@
 			"import_pia": "Importer PIA",
 			"import_structure": "Importer modèle",
 			"item": {
-				"consult_pia": "Consulter le PIA",
-				"edit_pia": "Éditer le PIA",
+				"consult_pia": "Consulter",
+				"edit_pia": "Éditer",
 				"edit_structure": "Éditer le modèle",
 				"tools": {
 					"action_plan": "Afficher le<br>plan d'action",
