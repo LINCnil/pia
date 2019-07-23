@@ -245,6 +245,29 @@
             text-decoration: none;
             padding: 5.5px 21px;
           }
+          &-single,
+          &-dual {
+            a {
+              overflow: hidden;
+              text-overflow: ellipsis;
+              white-space: nowrap;
+            }
+          }
+          &-single {
+            width: 50%;
+            margin: 0 auto;
+            a {
+              width: 100%;
+            }
+          }
+          &-dual {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            a {
+              width: 48%;
+            }
+          }
       }
     }
     &-toolbar {

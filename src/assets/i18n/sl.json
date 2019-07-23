@@ -347,9 +347,9 @@
 
 			"item": {
 
-				"consult_pia": "Pogledaj PUP",
+				"consult_pia": "Pogledaj",
 
-				"edit_pia": "Uredi PUP",
+				"edit_pia": "Uredi",
 
 				"edit_structure": "Uredi obrazac",
 
@@ -2588,7 +2588,7 @@
     "preview_validation": "TO TRANSLATE - Validation",
     "preview_status": "TO TRANSLATE - Status",
     "preview_validation_section": "TO TRANSLATE - Validation",
-    "preview_dpo_opinion": "TO TRANSLATE - Avis du DPD et des personnes concernées",
+    "preview_dpo_opinion": "TO TRANSLATE - DPO and data subjects opinion",
     "preview_no_data": "TO TRANSLATE - No data to display.",
     "actions": {
       "print_and_download": "TO TRANSLATE - Print and download",

@@ -380,7 +380,6 @@
       &-title {
         width: 100%;
         border-left: 74px solid #3c3b3d;
-        border-bottom: 4px solid #3c3b3d;
         h1 {
           margin: 0;
           margin-top: 4px;
@@ -400,19 +399,16 @@
       &.headline1 {
         .pia-fullPreviewBlock-headline-title {
           border-left-color: $pia-green;
-          border-bottom-color: $pia-green;
         }
       }
       &.headline2 {
         .pia-fullPreviewBlock-headline-title {
           border-left-color: $pia-blue;
-          border-bottom-color: $pia-blue;
         }
       }
       &.headline3 {
         .pia-fullPreviewBlock-headline-title {
           border-left-color: $pia-red;
-          border-bottom-color: $pia-red;
         }
       }
     }
@@ -463,9 +459,9 @@
       &-full,
       &-individual {
         border-top: 1px solid #c8c7c9;
+        padding: 0 10px;
         &:focus,
         &:hover {
-          padding: 0 10px;
           background-color: $pia-green;
           border-top-color: $pia-green;
           button,
@@ -518,6 +514,10 @@
             text-align: left;
             width: 100%;
             padding: 15px 0;
+            &:focus,
+            &:hover {
+              text-decoration: underline;
+            }
           }
         }
         &.activeMenu {
