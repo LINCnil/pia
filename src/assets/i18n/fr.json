@@ -609,7 +609,7 @@
 				"source": "PIA2 p10/WIKI Sous-traitance_:_identifiée_et_contractualisée"
 			},
 			"PIA_LGL_SUPT": {
-				"description": "Bien sur lequel reposent des données. Note : il peut s’agir de matériels, de logiciels, de canaux informatiques, de personnes, de supports papier ou de canaux de transmission papier.",
+				"description": "Bien sur lequel reposent des données. Note: il peut s’agir de matériels, de logiciels, de canaux informatiques, de personnes, de supports papier ou de canaux de transmission papier.",
 				"name": "Support des données",
 				"source": "PIA1 p12"
 			},
