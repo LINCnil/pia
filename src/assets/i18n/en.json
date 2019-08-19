@@ -1386,6 +1386,7 @@
 		},
 		"download_csv": "Download a CSV export",
 		"download_images": "Download images",
+    "download_json": "Download a JSON export",
 		"dpo_name": "DPO's name",
 		"dpo_opinion": "DPO's opinion",
 		"dpo_status": "DPO's status",

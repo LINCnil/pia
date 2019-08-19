@@ -35,6 +35,7 @@ export class SummaryComponent implements OnInit, AfterViewChecked {
   content: any[];
   pia: any;
   allData: object;
+  tempData: object;
   dataNav: any;
   displayAllFilters: boolean;
   displayMainPiaData: boolean;
@@ -105,6 +106,49 @@ export class SummaryComponent implements OnInit, AfterViewChecked {
         FileSaver.saveAs(blobContent, 'pia-images.zip');
       });
     });
+  }
+
+  /**
+   * Label the JSON export (make it human readable)
+   */
+  private async labelJSON() {
+    for(let section in this.tempData){
+      for(let item in this.tempData[section]){
+        for(let question in this.tempData[section][item]){
+          if(question.length <= 3){
+            this.tempData[section][item]["questions." + question[question.length - 1]] = this.tempData[section][item][question];
+            delete this.tempData[section][item][question];
+          }
+        }
+        this.tempData[section]["items." + item] = this.tempData[section][item];
+        delete this.tempData[section][item];
+      }
+      this.tempData["sections." + section] = this.tempData[section];
+      delete this.tempData[section];
+    }
+  }
+
+  /**
+   * Download a JSON export
+   */
+  async downloadJSON() {
+    // Copy from the original JSON file (this.allData)
+    this.tempData = JSON.parse(JSON.stringify(this.allData));
+    this.labelJSON();   // Add labels
+
+    var fileContents = JSON.stringify(this.tempData);
+    var fileName = "pia-content.json";
+    var fileType = "text/json";
+
+    var a = document.createElement("a");
+    var dataURI = "data:" + fileType + ";base64," + btoa(fileContents);
+    a.href = dataURI;
+    a['download'] = fileName;
+    var e = document.createEvent("MouseEvents");
+    e.initMouseEvent("click", true, true, 
+      document.defaultView, 0, 0, 0, 0, 0,
+      false, false, false, false, 0, null);
+    a.dispatchEvent(e);
   }
 
   /**
