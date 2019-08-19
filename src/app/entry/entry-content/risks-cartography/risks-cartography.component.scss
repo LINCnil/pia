@@ -66,10 +66,10 @@
       width: 43%;
       li {
         font-weight: 500;
-        &:first-child {
+        &:nth-child(2) {
           color: $pia-red;
         }
-        &:nth-child(2) {
+        &:nth-child(3) {
           color: $pia-blue;
         }
       }
