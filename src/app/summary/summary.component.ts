@@ -99,7 +99,6 @@ export class SummaryComponent implements OnInit, AfterViewChecked {
    * @private
    */
   async downloadAllGraphsAsImages() {
-    console.log("in downloadAllGraphsAsImages()"); 
     const JSZip = require('jszip');
     const zip = new JSZip();
     this.addImagesToZip(zip).then((zip2: any) => {
@@ -116,9 +115,6 @@ export class SummaryComponent implements OnInit, AfterViewChecked {
     for(let section in this.tempData){
       for(let item in this.tempData[section]){
         for(let question in this.tempData[section][item]){
-          // Questions are labeled with three digits:
-          // Section, Item and Question id
-          // Ex: 124
           if(question.length <= 3){
             this.tempData[section][item]["questions." + question[question.length - 1]] = this.tempData[section][item][question];
             delete this.tempData[section][item][question];
@@ -138,7 +134,6 @@ export class SummaryComponent implements OnInit, AfterViewChecked {
   async downloadJSON() {
     // Copy from the original JSON file (this.allData)
     this.tempData = JSON.parse(JSON.stringify(this.allData));
-
     this.labelJSON();   // Add labels
 
     var fileContents = JSON.stringify(this.tempData);
