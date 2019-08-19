@@ -15,6 +15,8 @@
     </button>
     <angular2csv [data]="csvContent" filename="plan_d-action" title="{{ 'summary.download_csv' | translate }}" class="btn hide-for-print" [options]="csvOptions"><i class="fa fa-2x fa-file-excel-o"></i></angular2csv>
     <button title="{{ 'summary.download_images' | translate }}" class="btn hide-for-print" (click)="downloadAllGraphsAsImages()"><i class="fa fa-2x fa-file-image-o"></i></button>
+
+    <button title="{{ 'summary.download_json' | translate }}" class="btn hide-for-print" (click)="downloadJSON()"><i class="fa fa-2x fa-file-code-o"></i></button>
   </div>
 
   <!-- Customize content filters -->
