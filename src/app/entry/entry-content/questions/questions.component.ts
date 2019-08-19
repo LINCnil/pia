@@ -134,9 +134,6 @@ export class QuestionsComponent implements OnInit, OnDestroy {
    * @param {any} evaluation - Any Evaluation.
    */
   evaluationChange(evaluation) {
-    // Debug prints
-    console.log(this.evaluation);
-    console.log(evaluation);
     this.evaluation = evaluation;
   }
 
@@ -227,8 +224,6 @@ export class QuestionsComponent implements OnInit, OnDestroy {
    * @param {any} event - Any Event.
    */
   onAdd(event) {
-    console.log("onAdd()");
-    console.log(event);
     if (event && event.value.length > 0) {
       let list = [];
       if (this.answer.id) {
@@ -259,8 +254,6 @@ export class QuestionsComponent implements OnInit, OnDestroy {
    * @param {any} event - Any Event.
    */
   onRemove(event) {
-    console.log("onRemove()");
-    console.log(event);
     let list = [];
     if (this.answer.id) {
       list = this.answer.data.list;
@@ -371,14 +364,14 @@ export class QuestionsComponent implements OnInit, OnDestroy {
   checkBox(event) {
     var target = event.target;              // The checkbox activating the event
 
-    for(let label of this.question.labels){   // Update checkbox status in backend
+    for(let label of this.question.labels){   // Update checkbox status
       if(label.id == target.id){
         label.checked = target.checked; 
       } 
     } 
     /**
-    *  The following code is custom 
-    *  edited from onAdd() and onRemove()
+    *  The following code is checkbox 
+    *  versions of onAdd() and onRemove()
     */
     if(target.checked == true){             // Add answer
       this.question.checked_sum += 1;       // Increase checkbox counter
