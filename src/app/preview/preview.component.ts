@@ -39,7 +39,7 @@ export class PreviewComponent implements OnInit {
   constructor(public _actionPlanService: ActionPlanService,
     private el: ElementRef,
     private _translateService: TranslateService,
-    private _piaService: PiaService,
+    public _piaService: PiaService,
     private _appDataService: AppDataService,
     public _attachmentsService: AttachmentsService) { }
 
@@ -582,9 +582,8 @@ export class PreviewComponent implements OnInit {
 
   /**
    * Toggle the menu with the individual exports
-   * @private
    */
-  private toggleIndividualExports() {
+  toggleIndividualExports() {
     const exportLinksList = document.querySelector('.pia-fullPreviewBlock-exports-individual-links');
     const individualExports = document.querySelector('.pia-fullPreviewBlock-exports-individual');
     if (exportLinksList && individualExports) {
