@@ -967,7 +967,8 @@
 		"attachments": {
 			"add": "Ajouter",
 			"remove": "Supprimer",
-			"title": "Pièces jointes"
+			"title": "Pièces jointes",
+			"download": "Télécharger la pièce jointe"
 		},
 		"footer": {
 			"ask_evaluation": "Demander l'évaluation",

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ElementRef } from '@angular/core';
 
 import { ModalsService } from 'src/app/modals/modals.service';
 import { AttachmentsService } from 'src/app/entry/attachments/attachments.service';
@@ -13,7 +13,9 @@ export class AttachmentItemComponent implements OnInit {
   @Input() attachment: any;
   @Input() pia: any;
 
-  constructor(private _modalsService: ModalsService, private _attachmentsService: AttachmentsService) { }
+  constructor(private _modalsService: ModalsService,
+              private _attachmentsService: AttachmentsService,
+              private el: ElementRef) { }
 
   ngOnInit() { }
 
@@ -28,10 +30,37 @@ export class AttachmentItemComponent implements OnInit {
 
   /**
    * Allows an user to download a specific attachment.
-   * @param {number} id - The unique id of the attachment.
    */
-  downloadAttachment(id: number) {
-    this._attachmentsService.downloadAttachment(id);
+  downloadAttachment() {
+    this._attachmentsService.downloadAttachment(this.attachment.id);
+  }
+
+  /**
+   * Allows an user to view a specific attachment.
+   * @param {boolean} show - Hide or show the preview block
+   */
+  previewAttachment(show: boolean) {
+    const elPreview = this.el.nativeElement.querySelector('.pia-attachmentsBlock-item-preview');
+    const embed = elPreview.querySelector('embed');
+    const img = elPreview.querySelector('img');
+
+    elPreview.classList.add('hide');
+    embed.classList.add('hide');
+    img.classList.add('hide');
+
+    if (show) {
+      if (this.attachment.mime_type.endsWith('pdf')) {
+        embed.setAttribute('src', this.attachment.file.replace('octet-stream', 'pdf'));
+        embed.classList.remove('hide');
+        elPreview.classList.remove('hide');
+      } else if(this.attachment.mime_type.startsWith('image')) {
+        img.setAttribute('src', this.attachment.file);
+        img.classList.remove('hide');
+        elPreview.classList.remove('hide');
+      } else {
+        this.downloadAttachment();
+      }
+    }
   }
 
   /**
