@@ -361,6 +361,31 @@
           background-color: $pia-green;
         }
       }
+      .pia-previewBlock {
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: 12px;
+        padding-right: 20px;
+        text-decoration: none;
+        i {
+          font-size: 2.1rem;
+          border-radius: 50%;
+          height: 35px;
+          width: 35px;
+          padding-top: 5px;
+          border: 1px solid $pia-green;
+        }
+        i, div {
+          color: $pia-green;
+        }
+        div {
+          text-transform: lowercase;
+          font-size: 1.1rem;
+          margin: 0 auto;
+          text-align: center;
+        }
+      }
     }
     &-data,
     &-exports {
