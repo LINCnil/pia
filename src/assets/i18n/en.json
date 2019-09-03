@@ -967,7 +967,8 @@
 		"attachments": {
 			"add": "Add",
 			"remove": "Remove",
-			"title": "Attachments"
+			"title": "Attachments",
+			"download": "Download the attachment"
 		},
 		"footer": {
 			"ask_evaluation": "Ask for review",
@@ -1044,7 +1045,7 @@
 					"questions": {
 						"1": {
 							"placeholder": "Present a brief outline of the processing: its name, purposes, stakes, context of use, etc.",
-							"title": "Which is the processing under consideration?"
+							"title": "What is the processing under consideration?"
 						},
 						"2": {
 							"placeholder": "Describe the responsibilities of the stakeholders: the data controller, the possible data processors and joint controllers.",

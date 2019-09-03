@@ -267,7 +267,7 @@
 			"measure_on_data": "Μέτρο για τα δεδομένα",
 			"organizational_measure": "Οργανωτικό μέτρο",
 			"principle": "Αρχή",
-      "method": "(TRANSLATION REQUIRED) Methodology"
+      "method": "Μεθοδολογία"
 		},
 		"filters": {
 			"all": "Όλα",
@@ -383,8 +383,8 @@
 				"source": "PIAF Connected Objects p43 and 44, WIKI"
 			},
       "PIA_METHOD_MES": {
-				"description": "(TRANSLATION REQUIRED) Planned controls are those originally put in place, before any analysis by the assessor. Corrective measures advised by the assessor will be stated in the action plan and will enable a second assessment of the severity and likelihood of the risk.",
-				"name": "(TRANSLATION REQUIRED) Planned and corrective controls",
+				"description": "Τα προγραμματισμένα μέτρα είναι εκείνα που είχαν αρχικά τεθεί σε εφαρμογή, πριν από οποιαδήποτε ανάλυση από τον αξιολογητή. Τα συμπληρωματικά ή διορθωτικά μέτρα που συμβουλεύει ο αξιολογητής θα αναφέρονται στο σχέδιο δράσης και θα επιτρέπουν μια δεύτερη αξιολόγηση της σοβαρότητας και της πιθανότητας του κινδύνου.",
+				"name": "Προγραμματισμένα και διορθωτικά μέτρα",
 				"source": ""
       },
 			"PIA_DEF_MES": {

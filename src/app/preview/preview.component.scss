@@ -180,10 +180,9 @@
     .databox,
     .actionplanbox {
       margin: 0 0 8px 0;
-      border: 1px solid #b7b7b7;
       padding: 10px 15px;
       background: #fff;
-      box-shadow: 1px 1px 3px 0px #c2c2c2;
+      box-shadow: 2px 1px 18px 1px #c2c2c2;
     }
     .evaluationbox {
       p {
@@ -210,7 +209,7 @@
   }
   &-previewRisksOverviewBlock,
   &-previewRisksCartographyBlock {
-    box-shadow: 1px 1px 15px 1px #d2d2d2;
+    box-shadow: 2px 1px 18px 1px #c2c2c2;
     background-color: #fff;
     > div {
       vertical-align: top;
@@ -230,7 +229,7 @@
       display: flex;
       background-color: #fff;
       position: relative;
-      box-shadow: 1px 1px 15px 1px rgba(210,210,210,1);
+      box-shadow:  2px 1px 18px 1px rgba(210,210,210,1);
       > div:first-child {
         width: 74px;
         background-color: #3c3b3d;
@@ -376,7 +375,7 @@
       display: flex;
       margin: 15px 0;
       background-color: #fff;
-      box-shadow: 1px 1px 15px 1px rgba(210,210,210,1);
+      box-shadow: 2px 1px 18px 1px rgba(210,210,210,1);
       &-title {
         width: 100%;
         border-left: 74px solid #3c3b3d;
