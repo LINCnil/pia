@@ -50,10 +50,11 @@ export class AttachmentItemComponent implements OnInit {
 
     if (show) {
       if (this.attachment.mime_type.endsWith('pdf')) {
-        embed.setAttribute('src', this.attachment.file.replace('octet-stream', 'pdf'));
-        embed.classList.remove('hide');
-        elPreview.classList.remove('hide');
-      } else if(this.attachment.mime_type.startsWith('image')) {
+        // embed.setAttribute('src', this.attachment.file.replace('octet-stream', 'pdf'));
+        // embed.classList.remove('hide');
+        // elPreview.classList.remove('hide');
+        this.downloadAttachment();
+      } else if (this.attachment.mime_type.startsWith('image')) {
         img.setAttribute('src', this.attachment.file);
         img.classList.remove('hide');
         elPreview.classList.remove('hide');
