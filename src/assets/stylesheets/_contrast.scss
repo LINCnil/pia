@@ -831,6 +831,15 @@ body.pia-contrast {
   }
   .pia-fullPreviewBlock {
     &-header {
+      .pia-previewBlock {
+        i {
+          border: 1px solid $pia-green-dark !important;
+        }
+        i,
+        div {
+          color: $pia-green-dark !important;
+        }
+      }
       &-progressBar {
         > div {
           color: $pia-green-dark !important;
