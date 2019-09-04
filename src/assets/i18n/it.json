@@ -84,7 +84,7 @@
 		"to_correct": "Da correggere"
 	},
 	"header": {
-    "exit_full_screen_mode": "TO TRANSLATE - Press F11 to exit full screen mode.",
+    "exit_full_screen_mode": "Premi F11 per uscire dalla modalità schermo intero.",
 		"homepage_link": "Pannello di controllo",
 		"knowledge_base_link": "Archivio",
 		"languages": {
@@ -115,7 +115,7 @@
 		"logo_subtitle": "",
 		"logo_title": "Valutazione d'impatto sulla protezione dei dati",
 		"pia_example_link": "Esempio PIA",
-		"structures": "TO BE TRANSLATED - Modèles de PIA",
+		"structures": "Modelli PIA",
 		"tools": {
 			"about": "Informazioni",
 			"accessibility": "Accessibilità per ipovedenti (colori ad alto contrasto, daltonismo)",
@@ -172,11 +172,11 @@
 			"date": "Data",
 			"evaluation": "Revisore",
 			"import_pia": "Importa PIA",
-			"import_structure": "TO BE TRANSLATED - Import template",
+			"import_structure": "Importa modello",
 			"item": {
 				"consult_pia": "Visualizza PIA",
 				"edit_pia": "Modifica PIA",
-				"edit_structure": "TO BE TRANSLATED - Éditer le modèle",
+				"edit_structure": "Edita modello",
 				"tools": {
 					"action_plan": "Mostra<br>il piano d'azione",
 					"duplicate": "Crea una copia",
@@ -187,26 +187,26 @@
 				}
 			},
 			"new_pia": "Nuova PIA",
-			"new_structure": "TO BE TRANSLATED - Nouveau modèle",
+			"new_structure": "Nuovo modello",
 			"or": "oppure",
 			"pia_name": "PIA",
 			"placeholder_author": "Cognome, nome",
 			"placeholder_evaluation": "Cognome, nome",
 			"placeholder_import_pia": "Importa PIA",
-			"placeholder_import_structure": "TO BE TRANSLATED - Importer modèle",
+			"placeholder_import_structure": "Importa modello",
 			"placeholder_new_pia": "Nuova PIA",
-			"placeholder_new_structure": "TO BE TRANSLATED - Nouveau modèle",
+			"placeholder_new_structure": "Nuovo modello",
 			"placeholder_pia_name": "Nome della PIA",
 			"placeholder_sector_name": "TO BE TRANSLATED - Intitulé du Secteur associé",
 			"placeholder_start": "Tutti i campi sono obbligatori",
-			"placeholder_structure": "TO BE TRANSLATED - Modèle par défaut",
+			"placeholder_structure": "Modello di base",
 			"placeholder_structure_name": "TO BE TRANSLATED - Intitulé du modèle",
 			"placeholder_validation": "Cognome, nome",
-			"sector_name": "TO BE TRANSLATED - Secteur associé",
+			"sector_name": "Settore collegato",
 			"start": "Avvio",
 			"status": "Stato",
-			"structure": "TO BE TRANSLATED - Modèle",
-			"structure_name": "TO BE TRANSLATED - Nom du modèle",
+			"structure": "Modello",
+			"structure_name": "Nome del modello",
 			"title_close_creation": "Chiudi",
 			"validation": "Validatore"
 		},
@@ -1020,8 +1020,8 @@
 			"3": "Importante",
 			"4": "Massimo"
 		},
-		"placeholder_title": "TO BE TRANSLATED - Titre de la question (obligatoire)",
-		"remove": "TO BE TRANSLATED - Supprimer la question"
+		"placeholder_title": "Titolo della domanda (obbligatorio)",
+		"remove": "Eliminare la domanda"
 	},
 	"rejection_page": {
 		"applied_adjustments": "Modifiche apportate",
@@ -1311,8 +1311,8 @@
 			"0": "Il trattamento non dovrebbe essere implementato.",
 			"1": "Il trattamento può essere implementato."
 		},
-    "generate_zip": "TO TRANSLATE - Download the full report (.zip)",
-    "generate_docx": "TO TRANSLATE - Download the report (.doc)",
+    "generate_zip": "Scarica il rapporto completo (.zip)",
+    "generate_docx": "Scarica il rapporto (.doc)",
 		"creation_date": "Data di creazione",
 		"csv_action_plan_comment": "Commento sul piano di azione",
 		"csv_evaluation_comment": "Commento sulla valutazione",
