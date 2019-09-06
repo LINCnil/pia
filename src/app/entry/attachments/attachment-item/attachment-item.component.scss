@@ -9,6 +9,7 @@
       border: solid 1px $pia-gray;
       display: flex;
       justify-content: space-between;
+      width: 99.5%;
       span:first-child {
         align-self: center;
         padding: 10px;
@@ -31,6 +32,9 @@
         font-weight: 500;
         font-size: 1.15rem;
         color: $pia-blue;
+        .fa {
+          font-size: 1.45rem;
+        }
       }
       &-preview {
         position: fixed;
