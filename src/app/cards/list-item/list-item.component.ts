@@ -1,10 +1,14 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import * as FileSaver from 'file-saver';
 
 import { Attachment } from 'src/app/entry/attachments/attachment.model';
 
 import { ModalsService } from 'src/app/modals/modals.service';
 import { PiaService } from 'src/app/services/pia.service';
+import { TranslateService } from '@ngx-translate/core';
+
+declare const require: any;
 
 @Component({
   selector: `.app-list-item`,
@@ -18,13 +22,55 @@ export class ListItemComponent implements OnInit {
   constructor(private router: Router,
               private route: ActivatedRoute,
               public _piaService: PiaService,
-              private _modalsService: ModalsService) { }
+              private _modalsService: ModalsService,
+              private _translateService: TranslateService) { }
 
   ngOnInit() {
     const attachmentModel = new Attachment();
+    this.attachments = [];
     attachmentModel.pia_id = this.pia.id;
     attachmentModel.findAll().then((entries: any) => {
-      this.attachments = entries;
+      entries.forEach(element => {
+        if (element["file"] && element["file"].length) {
+          this.attachments.push(element);
+        }
+      });
+    });
+  }
+
+  /**
+   * Generate a ZIP with the attachments and the .json
+   */
+  async generateZip() {
+    setTimeout(() => {
+      const JSZip = require('jszip');
+      const zip = new JSZip();
+      /* Attachments */
+      this.addAttachmentsToZip(zip).then((zip2: any) => {
+        /* JSON */
+        this._piaService.export(this.pia.id).then((data: any) => {
+          zip2.file("pia.json", data, { binary: true });
+          /* Save as .zip */
+          zip2.generateAsync({ type: 'blob' }).then(blobContent => {
+            FileSaver.saveAs(blobContent, 'pia-' + this.pia.name + '.zip');
+          });
+        });
+      })
+    }, 500);
+  }
+
+  /**
+   * Add all active attachments (not the removed ones) to the zip after converting them as blob files
+   * @param zip
+   */
+  async addAttachmentsToZip(zip) {
+    return new Promise(async (resolve, reject) => {
+      this.attachments.forEach(attachment => {
+        const byteCharacters1 = atob((attachment.file as any).split(',')[1]);
+        const folderName = this._translateService.instant('summary.attachments');
+        zip.file(folderName + '/' + attachment.name, byteCharacters1, { binary: true });
+      });
+      resolve(zip);
     });
   }
 
@@ -46,13 +92,5 @@ export class ListItemComponent implements OnInit {
   removePia(id: string) {
     localStorage.setItem('pia-id', id);
     this._modalsService.openModal('modal-remove-pia');
-  }
-
-  /**
-   * Export the PIA
-   * @param {number} id - The PIA id.
-   */
-  export(id: number) {
-    this._piaService.export(id);
   }
 }

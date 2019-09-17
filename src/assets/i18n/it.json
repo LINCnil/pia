@@ -1292,6 +1292,27 @@
 		"update": "Aggiorna URL"
 	},
 	"summary": {
+    "preview_title": "TO TRANSLATE - Preview",
+    "preview_subtitle": "TO TRANSLATE - General information",
+    "preview_edition": "TO TRANSLATE - Editing",
+    "preview_evaluation": "TO TRANSLATE - Evaluation",
+    "preview_validation": "TO TRANSLATE - Validation",
+    "preview_status": "TO TRANSLATE - Status",
+    "preview_validation_section": "TO TRANSLATE - Validation",
+    "preview_dpo_opinion": "TO TRANSLATE - DPO and data subjects opinion",
+    "preview_no_data": "TO TRANSLATE - No data to display.",
+    "actions": {
+      "print_and_download": "TO TRANSLATE - Print and download",
+      "print": "TO TRANSLATE - Print the report",
+      "complete_download": "TO TRANSLATE - Download the full report",
+      "complete_download_desc": "TO TRANSLATE - Export in a .zip archive all the report content (.doc and pictures), attachments and the action plan in a .csv format.",
+      "individual_download": "TO TRANSLATE - Download elements of the report",
+      "individual_download_desc": "TO TRANSLATE - Export specific elements of the report.",
+      "individual_download_select": "TO TRANSLATE - Select elements to export:",
+      "individual_download_doc": "TO TRANSLATE - Texts (.doc)",
+      "individual_download_images": "TO TRANSLATE - Visual elements (.png) including the risk overview, the risk mapping and the action plan."
+    },
+    "download_csv": "TO TRANSLATE - Action plan (.csv)",
 		"action_plan": {
 			"fundamental_principles": "Principi fondamentali",
 			"implementation_date": "Data prevista di implementazione",
@@ -1311,8 +1332,6 @@
 			"0": "Il trattamento non dovrebbe essere implementato.",
 			"1": "Il trattamento può essere implementato."
 		},
-    "generate_zip": "Scarica il rapporto completo (.zip)",
-    "generate_docx": "Scarica il rapporto (.doc)",
 		"creation_date": "Data di creazione",
 		"csv_action_plan_comment": "Commento sul piano di azione",
 		"csv_evaluation_comment": "Commento sulla valutazione",
@@ -1332,8 +1351,6 @@
 			"risks_overview_content": "Visualizza panoramica rischi",
 			"title": "Filtri visualizzazione"
 		},
-		"download_csv": "Scaricare un'esportazione CSV",
-		"download_images": "Scarica le immagini",
 		"dpo_name": "Nome del DPO/RPD",
 		"dpo_opinion": "Parere del DPO/RPD",
 		"dpo_status": "Posizione del DPO/RPD",
@@ -1351,7 +1368,6 @@
 		"pia_name": "Nome della PIA",
 		"pia_validator": "Nome validatore",
 		"previous_page": "Torna alla pagina precedente",
-		"print": "Stampa",
 		"rejection_reason": "Motivazione del rigetto",
 		"risks_cartography_title": "Mappaggio dei rischi",
 		"risks_overview_title": "Panoramica dei rischi",
@@ -1375,7 +1391,6 @@
 		"responsible": "Responsabile della validazione della PIA: ",
 		"signed_attachments_history": "Cronologia allegati firmati",
 		"tools": {
-			"action_plan": "Piano d'azione",
 			"dashboard": "Bacheca",
 			"display_pia": "Visualizza PIA"
 		},

@@ -7,6 +7,7 @@ import es from 'src/assets/i18n/es.json';
 import et from 'src/assets/i18n/et.json';
 import fi from 'src/assets/i18n/fi.json';
 import fr from 'src/assets/i18n/fr.json';
+import hr from 'src/assets/i18n/hr.json';
 import hu from 'src/assets/i18n/hu.json';
 import it from 'src/assets/i18n/it.json';
 import lt from 'src/assets/i18n/lt.json';
@@ -50,6 +51,9 @@ export class PiaTranslateLoader implements TranslateLoader {
           break;
         case 'fr':
           observer.next(fr);
+          break;
+        case 'hr':
+          observer.next(hr);
           break;
         case 'hu':
           observer.next(hu);

@@ -174,8 +174,8 @@
 			"import_pia": "Importeren PIA",
 			"import_structure": "TO BE TRANSLATED - Import template",
 			"item": {
-				"consult_pia": "PIA Raadplegen",
-				"edit_pia": "Aanpassen PIA",
+				"consult_pia": "Raadplegen",
+				"edit_pia": "Aanpassen",
 				"edit_structure": "TO BE TRANSLATED - Éditer le modèle",
 				"tools": {
 					"action_plan": "Toon<br>actie plan",
@@ -1292,6 +1292,27 @@
 		"update": "URL bijwerken"
 	},
 	"summary": {
+    "preview_title": "TO TRANSLATE - Preview",
+    "preview_subtitle": "TO TRANSLATE - General information",
+    "preview_edition": "TO TRANSLATE - Editing",
+    "preview_evaluation": "TO TRANSLATE - Evaluation",
+    "preview_validation": "TO TRANSLATE - Validation",
+    "preview_status": "TO TRANSLATE - Status",
+    "preview_validation_section": "TO TRANSLATE - Validation",
+    "preview_dpo_opinion": "TO TRANSLATE - DPO and data subjects opinion",
+    "preview_no_data": "TO TRANSLATE - No data to display.",
+    "actions": {
+      "print_and_download": "TO TRANSLATE - Print and download",
+      "print": "TO TRANSLATE - Print the report",
+      "complete_download": "TO TRANSLATE - Download the full report",
+      "complete_download_desc": "TO TRANSLATE - Export in a .zip archive all the report content (.doc and pictures), attachments and the action plan in a .csv format.",
+      "individual_download": "TO TRANSLATE - Download elements of the report",
+      "individual_download_desc": "TO TRANSLATE - Export specific elements of the report.",
+      "individual_download_select": "TO TRANSLATE - Select elements to export:",
+      "individual_download_doc": "TO TRANSLATE - Texts (.doc)",
+      "individual_download_images": "TO TRANSLATE - Visual elements (.png) including the risk overview, the risk mapping and the action plan."
+    },
+    "download_csv": "TO TRANSLATE - Action plan (.csv)",
 		"action_plan": {
 			"fundamental_principles": "Fundamentele principes",
 			"implementation_date": "Verwachte datum van implementatie",
@@ -1311,8 +1332,6 @@
 			"0": "De behandeling mag niet worden gebruikt.",
 			"1": "De behandeling zou kunnen worden geïmplementeerd."
 		},
-    "generate_zip": "TO TRANSLATE - Download the full report (.zip)",
-    "generate_docx": "TO TRANSLATE - Download the report (.doc)",
 		"creation_date": "Aanmaakdatum",
 		"csv_action_plan_comment": "Commentaar actieplan",
 		"csv_evaluation_comment": "Evaluatie commentaar",
@@ -1332,8 +1351,6 @@
 			"risks_overview_content": "Toon overzicht van de risico's",
 			"title": "Filters"
 		},
-		"download_csv": "Download een CSV-export",
-		"download_images": "Download afbeeldingen",
 		"dpo_name": "DPO's / FG naam",
 		"dpo_opinion": "DPO's / FG mening",
 		"dpo_status": "DPO's / FG status",
@@ -1351,7 +1368,6 @@
 		"pia_name": "PIA",
 		"pia_validator": "Validator's naam",
 		"previous_page": "Terug naar de vorige pagina",
-		"print": "Print",
 		"rejection_reason": "Afwijzingsreden",
 		"risks_cartography_title": "Risicokartering",
 		"risks_overview_title": "Risico's overzicht",
@@ -1375,7 +1391,6 @@
 		"responsible": "Persoon verantwoordelijke voor validatie van de PIA: ",
 		"signed_attachments_history": "Ondertekende bijlage's historie",
 		"tools": {
-			"action_plan": "Actieplan",
 			"dashboard": "Dashboard",
 			"display_pia": "Toon PIA"
 		},

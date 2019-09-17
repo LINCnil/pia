@@ -174,8 +174,8 @@
 			"import_pia": "Εισαγωγή ΕΑ",
 			"import_structure": "Εισαγωγή υποδείγματος",
 			"item": {
-				"consult_pia": "Συμβουλευθείτε την ΕΑ",
-				"edit_pia": "Επεξεργασία ΕΑ",
+				"consult_pia": "Συμβουλευθείτε την",
+				"edit_pia": "Επεξεργασία",
 				"edit_structure": "Επεξεργασία υποδείγματος",
 				"tools": {
 					"action_plan": "Εμφάνιση<br>σχεδίου δράσης",
@@ -1292,6 +1292,27 @@
 		"update": "Ανανέωση του URL"
 	},
 	"summary": {
+    "preview_title": "TO TRANSLATE - Preview",
+    "preview_subtitle": "TO TRANSLATE - General information",
+    "preview_edition": "TO TRANSLATE - Editing",
+    "preview_evaluation": "TO TRANSLATE - Evaluation",
+    "preview_validation": "TO TRANSLATE - Validation",
+    "preview_status": "TO TRANSLATE - Status",
+    "preview_validation_section": "TO TRANSLATE - Validation",
+    "preview_dpo_opinion": "TO TRANSLATE - DPO and data subjects opinion",
+    "preview_no_data": "TO TRANSLATE - No data to display.",
+    "actions": {
+      "print_and_download": "TO TRANSLATE - Print and download",
+      "print": "TO TRANSLATE - Print the report",
+      "complete_download": "TO TRANSLATE - Download the full report",
+      "complete_download_desc": "TO TRANSLATE - Export in a .zip archive all the report content (.doc and pictures), attachments and the action plan in a .csv format.",
+      "individual_download": "TO TRANSLATE - Download elements of the report",
+      "individual_download_desc": "TO TRANSLATE - Export specific elements of the report.",
+      "individual_download_select": "TO TRANSLATE - Select elements to export:",
+      "individual_download_doc": "TO TRANSLATE - Texts (.doc)",
+      "individual_download_images": "TO TRANSLATE - Visual elements (.png) including the risk overview, the risk mapping and the action plan."
+    },
+    "download_csv": "TO TRANSLATE - Action plan (.csv)",
 		"action_plan": {
 			"fundamental_principles": "Θεμελιώδεις αρχές",
 			"implementation_date": "Αναμενόμενη ημερομηνία εφαρμογής",
@@ -1311,8 +1332,6 @@
 			"0": "Η επεξεργασία δεν πρέπει να διεξάγεται.",
 			"1": "Η επεξεργασία θα μπορούσε να διεξαχθεί."
 		},
-    "generate_zip": "Κατεβάστε την πλήρη έκθεση (.zip)",
-    "generate_docx": "Κατεβάστε την έκθεση (.doc)",
 		"creation_date": "Ημερομηνία δημιουργίας",
 		"csv_action_plan_comment": "Σχόλιο σχεδίου δράσης",
 		"csv_evaluation_comment": "Σχόλιο αξιολόγησης",
@@ -1332,8 +1351,6 @@
 			"risks_overview_content": "Εμφάνιση επισκόπησης κινδύνων",
 			"title": "Εμφάνιση φίλτρων"
 		},
-		"download_csv": "Λήψη εξαγωγής CSV",
-		"download_images": "Λήψη εικόνων",
 		"dpo_name": "Όνομα του ΥΠΔ",
 		"dpo_opinion": "Γνώμη του ΥΠΔ",
 		"dpo_status": "Καθεστώς του ΥΠΔ",
@@ -1351,7 +1368,6 @@
 		"pia_name": "ΕΑ",
 		"pia_validator": "Όνομα επικυρωτή",
 		"previous_page": "Επιστροφή στην προηγούμενη σελίδα",
-		"print": "Εκτύπωση",
 		"rejection_reason": "Λόγος απόρριψης",
 		"risks_cartography_title": "Χαρτογράφηση κινδύνων",
 		"risks_overview_title": "Επισκόπηση κινδύνων",
@@ -1375,7 +1391,6 @@
 		"responsible": "Άτομο υπεύθυνο για την επικύρωση της ΕΑ: ",
 		"signed_attachments_history": "Ιστορικό υπογεγραμμένων συνημμένων",
 		"tools": {
-			"action_plan": "Σχέδιο δράσης",
 			"dashboard": "Πίνακας Ελέγχου",
 			"display_pia": "Εμφάνιση ΕΑ"
 		},

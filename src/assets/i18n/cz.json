@@ -174,8 +174,8 @@
 			"import_pia": "Importovat PIA",
 			"import_structure": "TO BE TRANSLATED - Import template",
 			"item": {
-				"consult_pia": "TO BE TRANSLATED - Consult PIA",
-				"edit_pia": "Upravit PIA",
+				"consult_pia": "TO BE TRANSLATED - Consult",
+				"edit_pia": "Upravit",
 				"edit_structure": "TO BE TRANSLATED - Éditer le modèle",
 				"tools": {
 					"action_plan": "Zobrazit<br>akční plán",
@@ -1292,6 +1292,27 @@
 		"update": "Aktualizovat URL"
 	},
 	"summary": {
+    "preview_title": "TO TRANSLATE - Preview",
+    "preview_subtitle": "TO TRANSLATE - General information",
+    "preview_edition": "TO TRANSLATE - Editing",
+    "preview_evaluation": "TO TRANSLATE - Evaluation",
+    "preview_validation": "TO TRANSLATE - Validation",
+    "preview_status": "TO TRANSLATE - Status",
+    "preview_validation_section": "TO TRANSLATE - Validation",
+    "preview_dpo_opinion": "TO TRANSLATE - DPO and data subjects opinion",
+    "preview_no_data": "TO TRANSLATE - No data to display.",
+    "actions": {
+      "print_and_download": "TO TRANSLATE - Print and download",
+      "print": "TO TRANSLATE - Print the report",
+      "complete_download": "TO TRANSLATE - Download the full report",
+      "complete_download_desc": "TO TRANSLATE - Export in a .zip archive all the report content (.doc and pictures), attachments and the action plan in a .csv format.",
+      "individual_download": "TO TRANSLATE - Download elements of the report",
+      "individual_download_desc": "TO TRANSLATE - Export specific elements of the report.",
+      "individual_download_select": "TO TRANSLATE - Select elements to export:",
+      "individual_download_doc": "TO TRANSLATE - Texts (.doc)",
+      "individual_download_images": "TO TRANSLATE - Visual elements (.png) including the risk overview, the risk mapping and the action plan."
+    },
+    "download_csv": "TO TRANSLATE - Action plan (.csv)",
 		"action_plan": {
 			"fundamental_principles": "Základní principy",
 			"implementation_date": "Předpokládaný datum implementace",
@@ -1311,8 +1332,6 @@
 			"0": "Léčba by neměla být prováděna.",
 			"1": "Léčba by mohla být provedena."
 		},
-    "generate_zip": "TO TRANSLATE - Download the full report (.zip)",
-    "generate_docx": "TO TRANSLATE - Download the report (.doc)",
 		"creation_date": "Datum vytvoření",
 		"csv_action_plan_comment": "TO BE TRANSLATED - Action plan comment",
 		"csv_evaluation_comment": "TO BE TRANSLATED - Evaluation comment",
@@ -1332,8 +1351,6 @@
 			"risks_overview_content": "TO BE TRANSLATED - Display risks overview",
 			"title": "TO BE TRANSLATED - Filters"
 		},
-		"download_csv": "TO BE TRANSLATED - Download a CSV export",
-		"download_images": "TO BE TRANSLATED - Download images",
 		"dpo_name": "Jméno DPO Poběřence osobních údajů",
 		"dpo_opinion": "Stanovisko DPO Poběřence osobních údajů",
 		"dpo_status": "Stav DPO Poběřence osobních údajů",
@@ -1351,7 +1368,6 @@
 		"pia_name": "PIA",
 		"pia_validator": "Jméno Validátora",
 		"previous_page": "Zpět na předchozí stránku",
-		"print": "Tisk",
 		"rejection_reason": "Důvod odmítnutí",
 		"risks_cartography_title": "TO BE TRANSLATED - Risk mapping",
 		"risks_overview_title": "TO BE TRANSLATED - Risks overview",
@@ -1375,7 +1391,6 @@
 		"responsible": "TO BE TRANSLATED - Person accountable for validating the PIA: ",
 		"signed_attachments_history": "TO BE TRANSLATED - Signed attachments history",
 		"tools": {
-			"action_plan": "TO BE TRANSLATED - Action plan",
 			"dashboard": "TO BE TRANSLATED - Dashboard",
 			"display_pia": "TO BE TRANSLATED - Display report"
 		},
