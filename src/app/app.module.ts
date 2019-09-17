@@ -32,12 +32,12 @@ import {
     ActionPlanImplementationComponent
   } from './entry/entry-content/action-plan/action-plan-implementation/action-plan-implementation.component';
 import { ListItemComponent } from './cards/list-item/list-item.component';
-import { SummaryComponent } from './summary/summary.component';
 import { AboutComponent } from './about/about.component';
 import { StructuresModule } from './structures/structures.module';
 import { MeasuresComponent } from './entry/entry-content/measures/measures.component';
 import { QuestionsComponent } from './entry/entry-content/questions/questions.component';
 import { Angular2CsvModule } from 'angular2-csv';
+import { PreviewComponent } from './preview/preview.component';
 
 @NgModule({
   declarations: [
@@ -65,10 +65,10 @@ import { Angular2CsvModule } from 'angular2-csv';
     ErrorsComponent,
     ActionPlanImplementationComponent,
     ListItemComponent,
-    SummaryComponent,
     AboutComponent,
     MeasuresComponent,
     QuestionsComponent,
+    PreviewComponent,
   ],
   imports: [
     SharedModule,

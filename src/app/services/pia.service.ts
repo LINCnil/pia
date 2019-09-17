@@ -490,20 +490,15 @@ export class PiaService {
   }
 
   /**
-   * Download the PIA exported.
+   * Make a JSON from the PIA data
    * @param {number} id - The PIA id.
    */
-  export(id: number) {
-    const date = new Date().getTime();
-    this.exportData(id).then((data) => {
-      const a = document.getElementById('pia-exportBlock');
-      const url = 'data:text/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(data));
-      a.setAttribute('href', url);
-      a.setAttribute('download', date + '_export_pia_' + id + '.json');
-      const event = new MouseEvent('click', {
-        view: window
+  async export(id: number) {
+    return new Promise(async (resolve, reject) => {
+      this.exportData(id).then((data) => {
+        const finalData = JSON.stringify(data);
+        resolve(finalData);
       });
-      a.dispatchEvent(event);
     });
   }
 
