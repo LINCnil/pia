@@ -4,7 +4,7 @@
 		"description": "Αυτό το εργαλείο σχεδιάστηκε αρχικά από την <a target=\"_blank\" href=\"https://www.cnil.fr\">Commission Nationale Informatique et Liberté (CNIL)</a>, τη γαλλική Αρχή Προστασίας Δεδομένων, για να βοηθήσει τον υπεύθυνο επεξεργασίας προσωπικών δεδομένων να συμμορφωθεί με τον ΓΚΠΔ. It was developed by <a href=\"https://atnos.com\" target=\"_blank\">ATNOS</a>.<br>Αυτό το λογισμικό είναι ελεύθερο και ανοιχτό. Αν θέλετε να συμμετάσχετε σε αυτό το έργο, μπορείτε να κατεβάσετε τον πηγαίο κώδικα από το Github, να τον τροποποιήσετε και να τον μοιραστείτε με την κοινότητα.",
 		"licences": "Άδειες βιβλιοθήκης:",
 		"title": "Σχετικά με το εργαλείο ΕΑ",
-		"translators": "Το λογισμικό PIA διατίθεται επί του παρόντος σε δεκαοχτώ γλώσσες. Η γαλλική και η αγγλική εκδοχή παρέχονται από το CNIL. Οι άλλες εκδοχές προκύπτουν από τις συνεισφορές των ακόλουθων ατόμων:",
+		"translators": "Το λογισμικό PIA διατίθεται επί του παρόντος σε δεκαοχτώ γλώσσες. Η γαλλική και η αγγλική εκδοχή παρέχονται από την CNIL. Οι άλλες εκδοχές προκύπτουν από τις συνεισφορές των ακόλουθων ατόμων:",
 		"translators_name": "<ul><li>Croatian : <a target=\"_blank\" href=\"https://github.com/B2KapitalBA\">B2KapitalBA</a> ;</li><li>Czech : Jiří Grohmann, Manuel d’Orso ;</li><li>Danish : <a target=\"_blank\" href=\"https://github.com/moolsen\">Michael Drews Olsen</a> ;</li><li>Dutch : Ruud van Driel, Manuel d’Orso ;</li><li>English : <a target=\"_blank\" href=\"https://www.cnil.fr\">CNIL</a> ;</li><li>Estonian : Eva Arumets, Lauri Bender, Rebeka Dronia, Kärol Kibena, Simon Suuban, <a target=\"_blank\" href=\"https://kochpartners.ee/en/people/urmas-kukk/\">Urmas Kukk, <a target=\"_blank\" href=\"https://github.com/PrivacyAssessment1\">PrivacyAssessment1</a> ;</li><li>Finnish : <a target=\"_blank\" href=\"https://tietosuoja.fi/etusivu\">Tietosuojavaltuutetun toimisto</a> ;</li><li>French : <a target=\"_blank\" href=\"https://www.cnil.fr\">CNIL</a> ;</li><li>German  : <a target=\"_blank\" href=\"https://github.com/kosmas58\">Kosmas Schütz</a> , Corina Scheiter (<a target=\"_blank\" href=\"https://www.datenschutz-bayern.de/\">BayLfD</a>) ;</li><li>Greek : <a target=\"_blank\" href=\"https://tzellis.gr\">Dimitris Tzellis</a> ;</li><li>Hungarian : <a target=\"_blank\" href=\"https://naih.hu/\">Nemzeti Adatvédelmi és Információszabadság Hatóság (NAIH)</a> ;</li><li>Italian : Manuel d’Orso, Gianluca Markos, Antonio Caselli (<a target=\"_blank\" href=\"http://gpdp.it\">Garante per la Protezione dei Dai Personali (GPDP)</a>) ;</li><li>Lithuanian : Paulius Galubickas (<a target=\"_blank\" href=\"http://galubickas.lt\">Law firm Galubickas</a>) ;</li><li>Norwegian : <a target=\"_blank\" href=\"https://www.datatilsynet.no\">Datatilsynet</a> ;</li><li>Polish : <a target=\"_blank\" href=\"https://github.com/JoannaKar\">Joanna Karczewska</a> , Michal Mazur (<a target=\"_blank\" href=\"https://giodo.gov.pl\">Generalny Inspektor Ochrony Danych Osobowych (GIODO)</a>) ;</li><li>Portuguese : <a target=\"_blank\" href=\"https://github.com/bagois\">Barbara Gois</a> ;</li><li>Romanian : <a target=\"_blank\" href=\"https://github.com/webmyday\">webmyday</a> ;</li><li>Spanish : <a target=\"_blank\" href=\"https://github.com/ylachgar\">ylachgar</a> .</li></ul>",
 		"version_number": "Αριθμός έκδοσης"
 	},
@@ -363,7 +363,7 @@
 				"source": "Mesures_US Surveillance"
 			},
 			"PIA_DEF_MEN": {
-				"description": "Διαδικασία που συνίσταται σε μία ή περισσότερες μεμονωμένες ενέργειες επί των υποστηρικτικών στοιχείων των περιουσιακών δεδομένων. Χρησιμοποιείται εκ προθέσεως ή ακούσια από πηγές κινδύνου και μπορεί να προκαλέσει ένα επαπειλούμενο γεγονός .",
+				"description": "Διαδικασία που συνίσταται σε μία ή περισσότερες μεμονωμένες ενέργειες επί των υποστηρικτικών στοιχείων των περιουσιακών δεδομένων. Χρησιμοποιείται εκ προθέσεως ή ακούσια από πηγές κινδύνου και μπορεί να προκαλέσει ένα απευκταίο γεγονός.",
 				"name": "Απειλή",
 				"source": "PIA1 p12 - WIKI"
 			},
@@ -543,19 +543,19 @@
 				"name": "Μη ανθρώπινες πηγές"
 			},
 			"PIA_EX_VRAI": {
-				"description": "Φαίνεται ότι οι επιλεγμένες πηγές κινδύνου μπορούν να υλοποιήσουν την απειλή με την εκμετάλλευση των ιδιοτήτων των υποστηρικτικών περιουσιακών στοιχείων (π.χ. κλοπή έντυπων εγγράφων που είναι αποθηκευμένα σε γραφεία που δεν είναι προσβάσιμα αν δεν γίνει πρώτα έλεγχος στην υποδοχή).",
+				"description": "Φαίνεται ότι οι επιλεγμένες πηγές κινδύνου μπορούν να υλοποιήσουν την απειλή με την εκμετάλλευση των ιδιοτήτων των υποστηρικτικών στοιχείων (π.χ. κλοπή έντυπων εγγράφων που είναι αποθηκευμένα σε γραφεία που δεν είναι προσβάσιμα αν δεν γίνει πρώτα έλεγχος στην υποδοχή).",
 				"name": "Σημαντική πιθανότητα"
 			},
 			"PIA_EX_VRAL": {
-				"description": "Φαίνεται δύσκολο για τις επιλεγμένες πηγές κινδύνου να υλοποιήσουν την απειλή με την εκμετάλλευση των ιδιοτήτων των υποστηρικτικών περιουσιακών στοιχείων (π.χ.: κλοπή έντυπων εγγράφων αποθηκευμένων σε δωμάτιο που προστατεύεται από συσκευή ανάγνωσης αναγνωριστικής κονκάρδας).",
+				"description": "Φαίνεται δύσκολο για τις επιλεγμένες πηγές κινδύνου να υλοποιήσουν την απειλή με την εκμετάλλευση των ιδιοτήτων των υποστηρικτικών στοιχείων (π.χ.: κλοπή έντυπων εγγράφων αποθηκευμένων σε δωμάτιο που προστατεύεται από συσκευή ανάγνωσης αναγνωριστικής κονκάρδας).",
 				"name": "Περιορισμένη πιθανότητα"
 			},
 			"PIA_EX_VRAM": {
-				"description": "Φαίνεται εξαιρετικά εύκολο για τις επιλεγμένες πηγές κινδύνου να υλοποιήσουν την απειλή με την εκμετάλλευση των ιδιοτήτων των υποστηρικτικών περιουσιακών στοιχείων (π.χ. κλοπή έντυπων εγγράφων αποθηκευμένων στον χώρο αναμονής).",
+				"description": "Φαίνεται εξαιρετικά εύκολο για τις επιλεγμένες πηγές κινδύνου να υλοποιήσουν την απειλή με την εκμετάλλευση των ιδιοτήτων των υποστηρικτικών στοιχείων (π.χ. κλοπή έντυπων εγγράφων αποθηκευμένων στον χώρο αναμονής).",
 				"name": "Μέγιστη πιθανότητα"
 			},
 			"PIA_EX_VRAN": {
-				"description": "Δεν φαίνεται δυνατόν οι επιλεγμένες πηγές κινδύνου να υλοποιήσουν την απειλή με την εκμετάλλευση των ιδιοτήτων των υποστηρικτικών περιουσιακών στοιχείων (π.χ.: κλοπή έντυπων εγγράφων αποθηκευμένων σε δωμάτιο που προστατεύεται από συσκευή ανάγνωσης αναγνωριστικής κονκάρδας και κωδικό πρόσβασης).",
+				"description": "Δεν φαίνεται δυνατόν οι επιλεγμένες πηγές κινδύνου να υλοποιήσουν την απειλή με την εκμετάλλευση των ιδιοτήτων των υποστηρικτικών στοιχείων (π.χ.: κλοπή έντυπων εγγράφων αποθηκευμένων σε δωμάτιο που προστατεύεται από συσκευή ανάγνωσης αναγνωριστικής κονκάρδας και κωδικό πρόσβασης).",
 				"name": "Αμελητέα πιθανότητα"
 			},
 			"PIA_LGL_CONS": {
@@ -1073,7 +1073,7 @@
 						}
 					},
 					"short_help": "Αυτό το τμήμα σας επιτρέπει να ορίσετε και να περιγράψετε λεπτομερώς το αντικείμενο της επεξεργασίας.",
-					"title": "Δεδομένα, διαδικασίες και υποστηρικτικά περιουσιακά στοιχεία"
+					"title": "Δεδομένα, διαδικασίες και υποστηρικτικά στοιχεία"
 				}
 			},
 			"short_help": "Αυτή η ενότητα σας παρέχει μια σαφή εικόνα της επεξεργασίας των εν λόγω προσωπικών δεδομένων.",
