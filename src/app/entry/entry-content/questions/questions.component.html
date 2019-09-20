@@ -89,9 +89,11 @@
               </div>
             </div>
           </div>
-          <hr>
-          <div *ngIf="question.checked_sum < 2">{{ question.results.no | translate }}</div>
-          <div *ngIf="question.checked_sum >= 2">{{ question.results.yes | translate }}</div>
+          <div class="result"> 
+            <hr>
+            <label *ngIf="question.checked_sum < 2">{{ question.results.no | translate }}</label>
+            <label *ngIf="question.checked_sum >= 2">{{ question.results.yes | translate }}</label>
+          </div>
         </div>
       </div>
     </form>
