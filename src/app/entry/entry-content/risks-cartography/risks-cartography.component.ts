@@ -23,10 +23,10 @@ export class RisksCartographyComponent implements OnInit, OnDestroy {
   risk1Letter;
   risk2Letter;
   risk3Letter;
-  dotColor1 = '#000000'
-  dotColor2 = '#FD4664'
-  altColor2 = '#C40288'
-  dotColor3 = '#091C6B'
+  dotColor1 = '#FD4644'
+  altColor1 = '#C40288'
+  dotColor2 = '#000000'
+  dotColor3 = '#4366ef'
 
   constructor(private http: HttpClient,
               private _appDataService: AppDataService,
@@ -165,7 +165,11 @@ export class RisksCartographyComponent implements OnInit, OnDestroy {
       }
       // Draw Dot1
       context.beginPath();
-      context.fillStyle = this.dotColor1;
+      if (localStorage.getItem('increaseContrast') === 'true') {
+        context.fillStyle = this.altColor1;
+      } else {
+        context.fillStyle = this.dotColor1;
+      }
       context.arc(this.dataJSON[risk]['pre'].x, 
                   this.dataJSON[risk]['pre'].y, diameter, 0, Math.PI * 2, true);
       context.fill(); 
@@ -189,11 +193,7 @@ export class RisksCartographyComponent implements OnInit, OnDestroy {
     // Dot2
     if (this.dataJSON[risk]['author'].x && this.dataJSON[risk]['author'].y) {
       context.beginPath();
-      if (localStorage.getItem('increaseContrast') === 'true') {
-        context.fillStyle = this.altColor2;
-      } else {
-        context.fillStyle = this.dotColor2;
-      }
+      context.fillStyle = this.dotColor2;
       context.arc(this.dataJSON[risk]['author'].x,
                   this.dataJSON[risk]['author'].y, 8, 0, Math.PI * 2, true);
       context.fill();

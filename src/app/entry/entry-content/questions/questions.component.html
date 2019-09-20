@@ -75,13 +75,19 @@
         <!-- Question checkboxes -->
         <div *ngIf="question.question_type == 'checkboxes'">
           <div *ngFor="let label of question.labels">
-            <input 
-              type="checkbox" 
-              name="{{ label.text | translate }}" 
-              id={{label.id}}
-              [checked]=label.checked 
-              (change)="checkBox($event)">
-            <label for={{label.id}}>{{ label.text | translate }}</label>
+            <div class="box-div">
+              <div class="checkbox">
+                <input
+                type="checkbox" 
+                name="{{ label.text | translate }}" 
+                id={{label.id}}
+                [checked]=label.checked 
+                (change)="checkBox($event)">
+              </div>
+              <div class="boxlabel">
+                <label>{{ label.text | translate }}</label>
+              </div>
+            </div>
           </div>
           <hr>
           <div *ngIf="question.checked_sum < 2">{{ question.results.no | translate }}</div>

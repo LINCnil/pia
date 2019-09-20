@@ -135,7 +135,6 @@ export class SummaryComponent implements OnInit, AfterViewChecked {
     // Copy from the original JSON file (this.allData)
     this.tempData = JSON.parse(JSON.stringify(this.allData));
     this.labelJSON();   // Add labels
-
     var fileContents = JSON.stringify(this.tempData);
     var fileName = "pia-content.json";
     var fileType = "text/json";

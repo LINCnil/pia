@@ -1082,8 +1082,8 @@
           "questions": {
             "1": {
               "results": {
-                "1": "A PIA might not be necessary here.",
-                "2": "A PIA is definitely needed here!"
+                "1": "Recommendation: a PIA might be unnecessary.",
+                "2": "Recommendation: a PIA should be considered."
               },
               "labels": {
                 "1": "Evaluation or scoring, including profiling and predicting.",
@@ -1097,7 +1097,7 @@
                 "9": "When the processing in itself \"prevents data subjects from exercising a right or using a service or a contract\" (Article 22 and recital 91)."
               },
               "placeholder": "This is a placeholder",
-              "title": "As a rule of thumb, any system that matches two or more of the following criteria are likely to result in a \"high risk\" and a PIA should be considered according to the Article 29 Working Party:"
+              "title": "According to Article 29 Working Party a PIA should be considered for a system in a \"high risk\". As a rule of thumb this means any system that matches two or more of the following criteria:"
             }
           },
           "short_help": "Briefly assess if a PIA should be conducted.",

@@ -77,3 +77,26 @@
     }
   }
 }
+
+input[type=checkbox] {
+  vertical-align: middle;
+  position: relative;
+  bottom: 1px;
+}
+
+div.box-div {
+  height: 40px;
+  margin-top: 11px;
+}
+
+div.boxlabel {
+  float: left;
+  width: 450px;
+}
+
+div.checkbox {
+  float: left;
+  width: 20px;
+  margin-right: 7px;
+}
+
