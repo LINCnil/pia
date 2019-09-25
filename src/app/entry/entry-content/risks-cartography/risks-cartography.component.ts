@@ -150,6 +150,24 @@ export class RisksCartographyComponent implements OnInit, OnDestroy {
     this.subscription.unsubscribe();
   }
 
+  checkMeasureExist(measure: string){
+    for(let risk in this.dataJSON){
+      if(this.dataJSON[risk][measure]['x'] && 
+         this.dataJSON[risk][measure]['y']){
+        return true;
+      }
+    }
+    return false;
+  }
+  checkRiskExist(risk: string){
+    if(this.dataJSON[risk]['author']['x'] &&
+       this.dataJSON[risk]['author']['y']){
+      return true;
+    }else{
+      return false;
+    }
+  }
+
   drawPreDot(context: any, risk: string) {
     // Dot1
     if (this.dataJSON[risk]['pre'].x && 
@@ -180,7 +198,7 @@ export class RisksCartographyComponent implements OnInit, OnDestroy {
           !this.dataJSON[risk]['pre'].y) {
         context.globalCompositeOperation = 'destination-over';
         context.beginPath();
-        context.fillStyle = this.dotColor1;
+        context.fillStyle = this.dotColor2;
         // Draw Dot1 where Dot2 is, but smaller
         context.arc(this.dataJSON[risk]['author'].x,
                     this.dataJSON[risk]['author'].y, 6, 0, Math.PI * 2, true);
@@ -236,7 +254,7 @@ export class RisksCartographyComponent implements OnInit, OnDestroy {
         context.fillStyle = this.dotColor3;
         // Draw Dot3 where Dot2 is, but bigger
         context.arc(this.dataJSON[risk]['author'].x,
-                    this.dataJSON[risk]['author'].y, 10, 0, Math.PI * 2, true);
+                    this.dataJSON[risk]['author'].y, 8, 0, Math.PI * 2, true);
         context.fill();
       }
     }
