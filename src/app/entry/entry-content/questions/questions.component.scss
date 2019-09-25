@@ -86,6 +86,7 @@ input[type=checkbox] {
 div.box-div {
   height: 20px;
   margin-top: 15px;
+  display: table;
 }
 div.boxlabel {
   float: left;
@@ -97,6 +98,6 @@ div.checkbox {
   margin-right: 7px;
 }
 div.result {
-  margin-top: 40px;
+  margin-top: 20px;
 }
 
