@@ -1,9 +1,9 @@
 {
 	"about": {
 		"contribute": "If you wish to contribute to the translation of the software in another language or improve the existing translations, we recommend you to <a href=\"https://github.com/LINCnil/pia/tree/master/src/assets/i18n\" target=\"_blank\">read the page describing the steps to follow</a>.",
-		"description": "Deze tool is oorspronkelijk ontworpen door de <a target=\"_blank\" href=\"https://www.cnil.fr\"> Commission Nationale Informatique et Liberté (CNIL) </a>, de Franse autoriteit voor gegevensbescherming , om de dataprocessor te helpen voldoen aan de GDPR. It was developed by <a href=\"https://atnos.com\" target=\"_blank\">ATNOS</a>.<br>Deze software is gratis en open. Als u mee wilt doen aan dit project, kunt u de broncode downloaden van Github, wijzigen en delen met de community.",
+		"description": "Deze tool is oorspronkelijk ontworpen door de <a target=\"_blank\" href=\"https://www.cnil.fr\"> Commission Nationale Informatique et Liberté (CNIL) </a>, de Franse autoriteit voor gegevensbescherming, om de verwerker te helpen voldoen aan de GDPR. De tool werd ontwikkeld door <a href=\"https://atnos.com\" target=\"_blank\">ATNOS</a>.<br>Deze software is gratis en open. Als u mee wilt doen aan dit project, kunt u de broncode downloaden van Github, wijzigen en delen met de community.",
 		"licences": "Bibliotheeklicenties:",
-		"title": "Over de Tool PIA",
+		"title": "Over de PIA-software",
 		"translators": "The PIA software is currently available in eighteen languages. The French and English versions are provided by the CNIL. The others versions result from the contributions of the following individuals:",
 		"translators_name": "<ul><li>Croatian : <a target=\"_blank\" href=\"https://github.com/B2KapitalBA\">B2KapitalBA</a> ;</li><li>Czech : Jiří Grohmann, Manuel d’Orso ;</li><li>Danish : <a target=\"_blank\" href=\"https://github.com/moolsen\">Michael Drews Olsen</a> ;</li><li>Dutch : Ruud van Driel, Manuel d’Orso ;</li><li>English : <a target=\"_blank\" href=\"https://www.cnil.fr\">CNIL</a> ;</li><li>Estonian : Eva Arumets, Lauri Bender, Rebeka Dronia, Kärol Kibena, Simon Suuban, <a target=\"_blank\" href=\"https://kochpartners.ee/en/people/urmas-kukk/\">Urmas Kukk, <a target=\"_blank\" href=\"https://github.com/PrivacyAssessment1\">PrivacyAssessment1</a> ;</li><li>Finnish : <a target=\"_blank\" href=\"https://tietosuoja.fi/etusivu\">Tietosuojavaltuutetun toimisto</a> ;</li><li>French : <a target=\"_blank\" href=\"https://www.cnil.fr\">CNIL</a> ;</li><li>German  : <a target=\"_blank\" href=\"https://github.com/kosmas58\">Kosmas Schütz</a> , Corina Scheiter (<a target=\"_blank\" href=\"https://www.datenschutz-bayern.de/\">BayLfD</a>) ;</li><li>Greek : <a target=\"_blank\" href=\"https://tzellis.gr\">Dimitris Tzellis</a> ;</li><li>Hungarian : <a target=\"_blank\" href=\"https://naih.hu/\">Nemzeti Adatvédelmi és Információszabadság Hatóság (NAIH)</a> ;</li><li>Italian : Manuel d’Orso, Gianluca Markos, Antonio Caselli (<a target=\"_blank\" href=\"http://gpdp.it\">Garante per la Protezione dei Dai Personali (GPDP)</a>) ;</li><li>Lithuanian : Paulius Galubickas (<a target=\"_blank\" href=\"http://galubickas.lt\">Law firm Galubickas</a>) ;</li><li>Norwegian : <a target=\"_blank\" href=\"https://www.datatilsynet.no\">Datatilsynet</a> ;</li><li>Polish : <a target=\"_blank\" href=\"https://github.com/JoannaKar\">Joanna Karczewska</a> , Michal Mazur (<a target=\"_blank\" href=\"https://giodo.gov.pl\">Generalny Inspektor Ochrony Danych Osobowych (GIODO)</a>) ;</li><li>Portuguese : <a target=\"_blank\" href=\"https://github.com/bagois\">Barbara Gois</a> ;</li><li>Romanian : <a target=\"_blank\" href=\"https://github.com/webmyday\">webmyday</a> ;</li><li>Spanish : <a target=\"_blank\" href=\"https://github.com/ylachgar\">ylachgar</a> .</li></ul>",
 		"version_number": "Versienummer"
@@ -14,11 +14,11 @@
 		"improvable_measures": "Verbeterbare maatregelen",
 		"measures": "Geplande of bestaande maatregelen",
 		"no_action_plan": "Geen actieplan vastgelegd.",
-		"placeholder_person_in_charge": "Implementatie verantwoordelijke",
+		"placeholder_person_in_charge": "Implementatieverantwoordelijke",
 		"principles": "Fundamentele principes",
 		"risk1": "Onrechtmatige toegang tot gegevens",
 		"risk2": "Ongewenste wijziging van gegevens",
-		"risk3": "Gegevens verdwijnen",
+		"risk3": "Verdwijnen van gegevens",
 		"risks": "Risico's",
 		"title": "Overzicht"
 	},
@@ -35,22 +35,22 @@
 		"legend1": "Geplande of bestaande maatregelen",
 		"legend2": "Met de geïmplementeerde corrigerende maatregelen",
 		"legend3": "(I)Onwettige toegang tot gegevens",
-		"legend4": "(U)Ongewenste wijziging van data",
+		"legend4": "(U)Ongewenste wijziging van gegevens",
 		"legend5": "(D)Gegevens verdwijnen",
-		"likelihood_axe": "Risico waarschijnlijkheid",
+		"likelihood_axe": "Waarschijnlijkheid van het risico",
 		"limited": "Beperkt",
 		"maximal": "Maximaal",
 		"negligible": "Verwaarloosbaar",
 		"risk1_access": "(I)",
 		"risk2_modification": "(U)",
-		"seriousness_axe": "Risico ernstig"
+		"seriousness_axe": "Ernst van het risico"
 	},
 	"comments": {
 		"comment": "Commentaar",
-		"comments_count": "reactie (s)",
+		"comments_count": "reactie(s)",
 		"new_comment": "Commentaar",
 		"placeholder_new_comment": "Laat een reactie achter",
-		"send": "Send"
+		"send": "Verzenden"
 	},
 	"errors": {
 		"content": "Als u andere problemen tegenkomt of suggesties heeft voor verbetering, <br> kunt u deze via dit formulier terugsturen: <a href=\"https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia\" target=\"_blank\">https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia</a>",
@@ -59,7 +59,7 @@
 	"evaluations": {
 		"acceptable": "Aanvaardbaar",
 		"action_plan_comment": "Actieplan / corrigerende maatregelen",
-		"evaluation_comment": "Evaluatie commentaar",
+		"evaluation_comment": "Evaluatiecommentaar",
 		"gauges": {
 			"0": "(Onbepaald)",
 			"1": "Verwaarloosbaar",
@@ -67,15 +67,15 @@
 			"3": "Belangrijk",
 			"4": "Maximaal",
 			"likelihood": "Rekening houdend met het actieplan, hoe herevalueer je de <span class='red-highlight'>waarschijnlijkheid van dit risico</span> ({{value}})?",
-			"seriousness": "Rekening houdend met het actieplan, hoe herevalueer je het <span class='red-highlight'>ernst van dit risico</span> ({{value}})?"
+			"seriousness": "Rekening houdend met het actieplan, hoe herevalueer je de <span class='red-highlight'>ernst van dit risico</span> ({{value}})?"
 		},
 		"improvable": "Verbeterbaar",
-		"placeholder_acceptable": "Volgens de beschikbare informatie zijn de geïmplementeerde maatregelen toereikend om goed te voldoen aan de vereisten voor de bescherming van de gegevens.",
-		"placeholder_improvable1": "Volgens de beschikbare informatie moeten aanvullende maatregelen worden geïmplementeerd om de gegevensbescherming van de verwerking te verbeteren.",
+		"placeholder_acceptable": "Volgens de beschikbare informatie zijn de geïmplementeerde maatregelen toereikend om goed te voldoen aan de gegevensbeschermingsvereisten.",
+		"placeholder_improvable1": "Volgens de beschikbare informatie moeten aanvullende maatregelen worden genomen om de gegevensbescherming van de verwerking te verbeteren.",
 		"placeholder_improvable2": "Voer uw opmerkingen in.",
 		"placeholder_to_correct": "De verstrekte informatie is niet voldoende om ze goed te evalueren. Stuur terug naar de editor om de originele inzending te verbeteren.",
 		"status": {
-			"0": "In afwachting",
+			"0": "Hangende",
 			"1": "Te corrigeren",
 			"2": "Verbeterbaar",
 			"3": "Aanvaardbaar"
@@ -84,12 +84,12 @@
 		"to_correct": "Te corrigeren"
 	},
 	"header": {
-    "exit_full_screen_mode": "TO TRANSLATE - Press F11 to exit full screen mode.",
+    "exit_full_screen_mode": "Druk F11 om het volledige scherm te sluiten.",
 		"homepage_link": "Dashboard",
-		"knowledge_base_link": "Knowledge base",
+		"knowledge_base_link": "Kennisbank",
 		"languages": {
-			"cnil_translations": "Vertalingen door CNIL",
-			"community_translations": "Vertalingen door community",
+			"cnil_translations": "Vertalingen door de CNIL",
+			"community_translations": "Vertalingen door de community",
 			"cz": "Česky",
 			"de": "Deutsch",
 			"dk": "Dansk",
@@ -114,8 +114,8 @@
 		},
 		"logo_subtitle": "",
 		"logo_title": "Privacy Impact Assessment",
-		"pia_example_link": "PIA voorbeeld",
-		"structures": "TO BE TRANSLATED - Modèles de PIA",
+		"pia_example_link": "PIA-voorbeeld",
+		"structures": "PIA-modellen",
 		"tools": {
 			"about": "Over",
 			"accessibility": "Toegang voor slechtzienden (kleuren met hoog contrast, daltonisme)",
@@ -127,16 +127,16 @@
 	"help": {
 		"definition": {
 			"data1": {
-				"content": "Inhoud wordt geschreven",
+				"content": "Inhoud in opmaak",
 				"title": "Gebruik de PIA-tool"
 			},
 			"data2": {
 				"qa1": {
-					"content": "Wanneer u deze weergaveproblemen ondervindt, sluit u de toepassing en laadt u deze opnieuw. Het lost meestal het probleem op. Je verliest de informatie die je hebt ingevoerd niet; het wordt automatisch opgeslagen terwijl u typt.",
-					"title": "Ik krijg weergaveproblemen zoals pictogrammen die in één staat vastzitten of elementen uit de interface missen"
+					"content": "Wanneer u deze weergaveproblemen ondervindt, sluit u de toepassing en laadt u deze opnieuw. Dit lost meestal het probleem op. Je verliest de informatie die je hebt ingevoerd niet; ze wordt automatisch opgeslagen terwijl u typt.",
+					"title": "Ik krijg weergaveproblemen zoals pictogrammen die in één toestand vastzitten of elementen uit de interface missen"
 				},
 				"qa2": {
-					"content": "Dit zijn bekende probleem wordt momenteel opgelost. Als u dit probleem ondervindt, raden we u aan het veld voor de rechtvaardiging van het geschatte niveau van ernst en / of waarschijnlijkheid in te vullen. U kunt de meter bewerken zodra de fout is hersteld.",
+					"content": "Dit gekende probleem wordt momenteel opgelost. Als u dit probleem ondervindt, raden we u aan het veld voor de rechtvaardiging van het geschatte niveau van ernst en / of waarschijnlijkheid in te vullen. U kunt de meter bewerken zodra de fout is hersteld.",
 					"title": "Ik kan de meters niet bewerken voor het evalueren van de ernst en de waarschijnlijkheid van een risico"
 				},
 				"qa3": {
@@ -161,7 +161,7 @@
 				},
 				"title": "Bekende Problemen"
 			},
-			"footer": "TO BE TRANSLATED - If you have any other problems or suggestions for improvement, you can send them to us via this form <a target=\"_blank\" href=\"https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia\">https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia</a>."
+			"footer": "Als u andere problemen tegenkomt of suggesties heeft voor verbetering, kunt u deze via dit formulier terugsturen: <a target=\"_blank\" href=\"https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia\">https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia</a>."
 		},
 		"title": "Help"
 	},
@@ -171,42 +171,42 @@
 			"creation_status": "Creatie",
 			"date": "Datum",
 			"evaluation": "Reviewen",
-			"import_pia": "Importeren PIA",
-			"import_structure": "TO BE TRANSLATED - Import template",
+			"import_pia": "PIA importeren",
+			"import_structure": "Sjabloon importeren",
 			"item": {
 				"consult_pia": "PIA Raadplegen",
-				"edit_pia": "Aanpassen PIA",
-				"edit_structure": "TO BE TRANSLATED - Éditer le modèle",
+				"edit_pia": "PIA aanpassen",
+				"edit_structure": "Sjabloon aanpassen",
 				"tools": {
-					"action_plan": "Toon<br>actie plan",
+					"action_plan": "Toon<br>actieplan",
 					"duplicate": "Dupliceren",
 					"export": "Exporteren",
 					"more_options": "Meer opties",
-					"pia": "Toon<br>PIA",
+					"pia": "PIA<br>tonen",
 					"remove": "Verwijderen"
 				}
 			},
 			"new_pia": "Nieuwe PIA",
-			"new_structure": "TO BE TRANSLATED - Nouveau modèle",
+			"new_structure": "Nieuw sjabloon",
 			"or": "or",
 			"pia_name": "PIA",
-			"placeholder_author": "Voornaam, achternaam",
-			"placeholder_evaluation": "Voornaam, achternaam",
-			"placeholder_import_pia": "Importeren PIA",
-			"placeholder_import_structure": "TO BE TRANSLATED - Importer modèle",
+			"placeholder_author": "Voornaam Achternaam",
+			"placeholder_evaluation": "Voornaam Achternaam",
+			"placeholder_import_pia": "PIA importeren",
+			"placeholder_import_structure": "Sjabloon importeren",
 			"placeholder_new_pia": "Nieuwe PIA",
-			"placeholder_new_structure": "TO BE TRANSLATED - Nouveau modèle",
-			"placeholder_pia_name": "Namen PIA's",
+			"placeholder_new_structure": "Nieuw sjabloon",
+			"placeholder_pia_name": "Titel PIA",
 			"placeholder_sector_name": "TO BE TRANSLATED - Intitulé du Secteur associé",
 			"placeholder_start": "Alle velden moeten worden ingevuld",
-			"placeholder_structure": "TO BE TRANSLATED - Modèle par défaut",
+			"placeholder_structure": "Standaardsjabloon",
 			"placeholder_structure_name": "TO BE TRANSLATED - Intitulé du modèle",
 			"placeholder_validation": "Voornaam, achternaam",
 			"sector_name": "TO BE TRANSLATED - Secteur associé",
 			"start": "Beginnen",
 			"status": "Status",
-			"structure": "TO BE TRANSLATED - Modèle",
-			"structure_name": "TO BE TRANSLATED - Nom du modèle",
+			"structure": "Sjabloon",
+			"structure_name": "Naam van het sjabloon",
 			"title_close_creation": "Sluiten",
 			"validation": "Valideren"
 		},
@@ -215,16 +215,16 @@
 			"author": "Auteur",
 			"card": "Kaart",
 			"card_rocket_content": "Aan de slag! <br> <br> Om een PIA te starten, <br> klikt u op Nieuwe PIA",
-			"card_rocket_content_structure": "TO BE TRANSLATED - Lancez-vous !<br><br>Pour commencer<br>un modèle, cliquez<br> sur le +",
+			"card_rocket_content_structure": "Aan de slag!<br><br>Om een sjabloon <br>te starten, klikt u <br> op de +",
 			"date": "Datum",
-			"import_pia": "Importeren PIA",
-			"import_structure": "TO BE TRANSLATED - Importer modèle",
+			"import_pia": "PIA importeren",
+			"import_structure": "Sjabloon importeren",
 			"list": "lijst",
-			"list_rocket_content": "Begin! Om een PIA te initiëren, klik op de +",
-			"list_rocket_content_structure": "TO BE TRANSLATED - Lancez-vous ! Pour commencer<br>un modèle, cliquez sur le +",
+			"list_rocket_content": "Aan de slag! Om een PIA te starten, klik op de +",
+			"list_rocket_content_structure": "Aan de slag! Om een sjabloon<br>te starten, klikt u op de +",
 			"name": "Naam",
 			"new_pia": "Nieuwe PIA",
-			"new_structure": "TO BE TRANSLATED - Nouveau modèle",
+			"new_structure": "Nieuw sjabloon",
 			"sector_name": "TO BE TRANSLATED - Secteur associé",
 			"sort": "Sorteren",
 			"sort_by": "met",
@@ -240,8 +240,8 @@
 			"column_progression": "Voortgang",
 			"column_sector_name": "TO BE TRANSLATED - Secteur associé",
 			"column_status": "Status",
-			"column_structure": "TO BE TRANSLATED - Modèle",
-			"column_structure_name": "TO BE TRANSLATED - Modèle",
+			"column_structure": "Sjabloon",
+			"column_structure_name": "Sjabloon",
 			"column_updated_at": "Laatst geopend",
 			"column_validation": "Valideren",
 			"item": {
@@ -251,7 +251,7 @@
 					"duplicate": "Dupliceren",
 					"edit": "Aanpassen",
 					"export": "Exporteren",
-					"pia": "Toon PIA",
+					"pia": "PIA tonen",
 					"remove": "Verwijder"
 				}
 			}
@@ -259,7 +259,7 @@
 	},
 	"knowledge_base": {
 		"add_measure": "Toevoegen",
-		"add_measure_hint": "U kunt ook een meetregel uit de kennisbank toevoegen.",
+		"add_measure_hint": "U kunt ook een maatregel uit de kennisbank toevoegen.",
 		"category": {
 			"definition": "Definitie",
 			"example": "Voorbeeld",
@@ -267,7 +267,7 @@
 			"measure_on_data": "Logische beveiligingsmaatregelen",
 			"organizational_measure": "Organisatorische maatregelen",
 			"principle": "Principe",
-      "method": "(TRANSLATION REQUIRED) Methodology"
+      "method": "Methodologie"
 		},
 		"filters": {
 			"all": "Allemaal",
@@ -818,7 +818,7 @@
 				"source": "PIAF Connected Objects p40"
 			}
 		},
-		"title": "Kennis bank"
+		"title": "Kennisbank"
 	},
 	"measures": {
 		"add": "Voeg een lege maatregel toe (gebruik anders de kennisbank)",
@@ -933,7 +933,7 @@
 		}
 	},
 	"opinions": {
-		"content": ", overweeg dat:",
+		"content": ", overweegt dat:",
 		"dpo_lock": "Vul de andere secties in voordat u het oordeel van de DPO / FG kunt invullen.",
 		"dpo_opinion": "DPO / FG mening",
 		"edit": "Bewerk",
@@ -1273,7 +1273,7 @@
 				},
 				"3": {
 					"short_help": "Presenteer het advies van de persoon die verantwoordelijk is voor gegevensbescherming en privacykwesties (afgevaardigde gegevensbescherming indien aanwezig). Presenteer de standpunten van de betrokkenen of hun vertegenwoordigers.",
-					"title": "Menningen van DPO / FG en betrokken personen"
+					"title": "Meningen van FG/DPO en betrokken personen"
 				},
 				"4": {
 					"title": "Valideer de PIA"
@@ -1303,7 +1303,7 @@
 		},
 		"attachments": "Bijlagen",
 		"concerned_people_name": "Namen van betrokken mensen",
-		"concerned_people_opinion": "Concerned people opinions",
+		"concerned_people_opinion": "Meningen van betrokken mensen",
 		"concerned_people_searched_opinion": "Zoeken naar de mening van betrokken mensen",
 		"concerned_people_status": "Statussen van betrokken mensen",
 		"concerned_people_unsearched_opinion_comment": "Reden waarom de mening van betrokken mensen niet werd gevraagd",
@@ -1311,8 +1311,8 @@
 			"0": "De behandeling mag niet worden gebruikt.",
 			"1": "De behandeling zou kunnen worden geïmplementeerd."
 		},
-    "generate_zip": "TO TRANSLATE - Download the full report (.zip)",
-    "generate_docx": "TO TRANSLATE - Download the report (.doc)",
+    "generate_zip": "Download het volledige verslag (.zip)",
+    "generate_docx": "Download het verslag (.doc)",
 		"creation_date": "Aanmaakdatum",
 		"csv_action_plan_comment": "Commentaar actieplan",
 		"csv_evaluation_comment": "Evaluatie commentaar",
@@ -1322,10 +1322,10 @@
 		"csv_section": "Sectie",
 		"csv_title_object": "Titel",
 		"display_filters": {
-      "check_all": "TO TRANSLATE - Enable / disable all display filters",
+      "check_all": "Alle weergavefilters inschakelen / uitschakelen",
 			"action_plan_content": "Toon actieplan",
 			"context_content": "Toon \"Context\"",
-			"main_content": "Toon \"PIA informatie\"",
+			"main_content": "Toon \"PIA-informatie\"",
 			"principles_content": "Toon \"Fundamentele principes\"",
 			"risks_cartography_content": "Toon risicokaart",
 			"risks_content": "Toon \"Risico's\"",
@@ -1334,9 +1334,9 @@
 		},
 		"download_csv": "Download een CSV-export",
 		"download_images": "Download afbeeldingen",
-		"dpo_name": "DPO's / FG naam",
-		"dpo_opinion": "DPO's / FG mening",
-		"dpo_status": "DPO's / FG status",
+		"dpo_name": "naam FG/DPO",
+		"dpo_opinion": "mening FG/DPO",
+		"dpo_status": "status FG/DPO",
 		"gauges": {
 			"1": "Verwaarloosbaar",
 			"2": "Beperkt",
@@ -1349,23 +1349,23 @@
 		"pia_assessor": "Naam van de beoordelaar",
 		"pia_author": "Auteursnaam",
 		"pia_name": "PIA",
-		"pia_validator": "Validator's naam",
+		"pia_validator": "Naam validator",
 		"previous_page": "Terug naar de vorige pagina",
 		"print": "Print",
-		"rejection_reason": "Afwijzingsreden",
+		"rejection_reason": "Reden van afwijzing",
 		"risks_cartography_title": "Risicokartering",
-		"risks_overview_title": "Risico's overzicht",
+		"risks_overview_title": "Overzicht risico's",
 		"title": "PIA informatie"
 	},
 	"validation_page": {
 		"add_signed_pia": "Voeg de ondertekende PIA toe",
-		"after_reading": "Na het lezen van de volledige betreffende de data verwerking gelinkt aan ",
+		"after_reading": "Na het lezen van de volledige PIA betreffende de gegevensverwerking gelinkt aan ",
 		"button": {
-			"rejection": "Weiger PIA",
-			"signed_validation": "PIA Goedkeuren <br>(ondertekenen)",
-			"simple_validation": "PIA Goedkeuren <br>(direct)"
+			"rejection": "PIA weigeren",
+			"signed_validation": "PIA goedkeuren <br>(ondertekenen)",
+			"simple_validation": "PIA goedkeuren <br>(direct)"
 		},
-		"confirmation1": "Erken ik dat de context van de verwerking beschreven in de PIA consistent is met de werkelijkheid.",
+		"confirmation1": "Erken ik dat de context van de verwerking beschreven in de PIA overeenstemt met de werkelijkheid.",
 		"confirmation2": "Erken ik dat ik bewust ben van de risico's gebaseerd op de bestaande en de te implementeren maatregelen.",
 		"confirmation3": "Ik bekrachtig de corrigerende acties die in het actieplan zijn aangegeven.",
 		"confirmation4": "Ik verbind mij ertoe om de aangegeven corrigerende maatregelen zo snel mogelijk te implementeren.",
@@ -1373,7 +1373,7 @@
 		"mandatory_fields": "Alle checkboxen moeten aangevinkt zijn",
 		"remove_attachment": "Verwijder de bijlage",
 		"responsible": "Persoon verantwoordelijke voor validatie van de PIA: ",
-		"signed_attachments_history": "Ondertekende bijlage's historie",
+		"signed_attachments_history": "Historiek ondertekende bijlages",
 		"tools": {
 			"action_plan": "Actieplan",
 			"dashboard": "Dashboard",
