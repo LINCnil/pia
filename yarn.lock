@@ -5871,6 +5871,11 @@ ng2-material-dropdown@0.10.1:
   dependencies:
     tslib "^1.9.0"
 
+ng2-pdfjs-viewer@^5.0.1:
+  version "5.0.1"
+  resolved "https://registry.yarnpkg.com/ng2-pdfjs-viewer/-/ng2-pdfjs-viewer-5.0.1.tgz#5eaf0ae7b2589db9eeac5db3c8520caf775a9ed9"
+  integrity sha512-Yt2uX4Gl9RDWuEsK4/YIJF/umJNevDNWeeXwYRfgicQQzU+sL15tFhaQiU49shN6H4ByFikRSR0+YWcniPC2Ww==
+
 ngx-chips@2.0.0-beta.0:
   version "2.0.0-beta.0"
   resolved "https://registry.yarnpkg.com/ngx-chips/-/ngx-chips-2.0.0-beta.0.tgz#34ee6552ff2f3fc23d54ecba572a70022ac2e34a"
