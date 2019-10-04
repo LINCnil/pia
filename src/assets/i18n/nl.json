@@ -53,7 +53,7 @@
 		"send": "Verzenden"
 	},
 	"errors": {
-		"content": "Als u andere problemen tegenkomt of suggesties heeft voor verbetering, <br> kunt u deze via dit formulier terugsturen: <a href=\"https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia\" target=\"_blank\">https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia</a>",
+		"content": "Als u andere problemen ondervindt of suggesties heeft voor verbetering, <br> kunt u deze via dit formulier terugsturen: <a href=\"https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia\" target=\"_blank\">https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia</a>",
 		"title": "Pagina niet gevonden."
 	},
 	"evaluations": {
