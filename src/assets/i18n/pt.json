@@ -174,8 +174,8 @@
 			"import_pia": "Importar análise PIA",
 			"import_structure": "Importar modelo",
 			"item": {
-				"consult_pia": "Consultar análise PIA",
-				"edit_pia": "Editar análise PIA",
+				"consult_pia": "Consultar",
+				"edit_pia": "Editar",
 				"edit_structure": "Editar modelo",
 				"tools": {
 					"action_plan": "Exibir<br>plano de ação",
@@ -1292,6 +1292,27 @@
 		"update": "Atualizar URL"
 	},
 	"summary": {
+    "preview_title": "TO TRANSLATE - Preview",
+    "preview_subtitle": "TO TRANSLATE - General information",
+    "preview_edition": "TO TRANSLATE - Editing",
+    "preview_evaluation": "TO TRANSLATE - Evaluation",
+    "preview_validation": "TO TRANSLATE - Validation",
+    "preview_status": "TO TRANSLATE - Status",
+    "preview_validation_section": "TO TRANSLATE - Validation",
+    "preview_dpo_opinion": "TO TRANSLATE - DPO and data subjects opinion",
+    "preview_no_data": "TO TRANSLATE - No data to display.",
+    "actions": {
+      "print_and_download": "TO TRANSLATE - Print and download",
+      "print": "TO TRANSLATE - Print the report",
+      "complete_download": "TO TRANSLATE - Download the full report",
+      "complete_download_desc": "TO TRANSLATE - Export in a .zip archive all the report content (.doc and pictures), attachments and the action plan in a .csv format.",
+      "individual_download": "TO TRANSLATE - Download elements of the report",
+      "individual_download_desc": "TO TRANSLATE - Export specific elements of the report.",
+      "individual_download_select": "TO TRANSLATE - Select elements to export:",
+      "individual_download_doc": "TO TRANSLATE - Texts (.doc)",
+      "individual_download_images": "TO TRANSLATE - Visual elements (.png) including the risk overview, the risk mapping and the action plan."
+    },
+    "download_csv": "TO TRANSLATE - Action plan (.csv)",
 		"action_plan": {
 			"fundamental_principles": "Princípios fundamentais",
 			"implementation_date": "Data esperada de implementação",
@@ -1311,8 +1332,6 @@
 			"0": "O tratamento não deve ser usado.",
 			"1": "O tratamento deve ser implementado."
 		},
-    "generate_zip": "TO TRANSLATE - Download the full report (.zip)",
-    "generate_docx": "TO TRANSLATE - Download the report (.doc)",
 		"creation_date": "Data de criação",
 		"csv_action_plan_comment": "Comentar o plano de acção",
 		"csv_evaluation_comment": "Comentar a avaliação",
@@ -1332,8 +1351,6 @@
 			"risks_overview_content": "Exibir visão geral dos riscos",
 			"title": "Exibir filtros"
 		},
-		"download_csv": "Faça o download da exportação em CSV",
-		"download_images": "Descarregar imagens",
 		"dpo_name": "Nome do DPO",
 		"dpo_opinion": "Opinião do DPO",
 		"dpo_status": "Estado do DPO",
@@ -1351,7 +1368,6 @@
 		"pia_name": "PIA",
 		"pia_validator": "Nome do validador",
 		"previous_page": "Voltar para a página anterior",
-		"print": "Imprimir",
 		"rejection_reason": "Motivo da rejeição",
 		"risks_cartography_title": "Mapeamento de riscos",
 		"risks_overview_title": "Visão geral dos riscos",
@@ -1375,7 +1391,6 @@
 		"responsible": "Responsável pela validação da análise PIA:",
 		"signed_attachments_history": "Histórico de anexos subscritos",
 		"tools": {
-			"action_plan": "Plano de ação",
 			"dashboard": "Painel",
 			"display_pia": "Exibir análise PIA"
 		},

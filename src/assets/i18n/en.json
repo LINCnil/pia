@@ -174,8 +174,8 @@
 			"import_pia": "Import PIA",
 			"import_structure": "Import template",
 			"item": {
-				"consult_pia": "Consult PIA",
-				"edit_pia": "Edit PIA",
+				"consult_pia": "Consult",
+				"edit_pia": "Edit",
 				"edit_structure": "Edit template",
 				"tools": {
 					"action_plan": "Display<br>action plan",
@@ -967,7 +967,8 @@
 		"attachments": {
 			"add": "Add",
 			"remove": "Remove",
-			"title": "Attachments"
+			"title": "Attachments",
+			"download": "Download the attachment"
 		},
 		"footer": {
 			"ask_evaluation": "Ask for review",
@@ -1293,6 +1294,27 @@
 		"update": "Update URL"
 	},
 	"summary": {
+    "preview_title": "Preview",
+    "preview_subtitle": "General information",
+    "preview_edition": "Editing",
+    "preview_evaluation": "Evaluation",
+    "preview_validation": "Validation",
+    "preview_status": "Status",
+    "preview_validation_section": "Validation",
+    "preview_dpo_opinion": "TO TRANSLATE - DPO and data subjects opinion",
+    "preview_no_data": "No data to display.",
+    "actions": {
+      "print_and_download": "Print and download",
+      "print": "Print the report",
+      "complete_download": "Download the full report",
+      "complete_download_desc": "Export in a .zip archive all the report content (.doc and pictures), attachments and the action plan in a .csv format.",
+      "individual_download": "Download elements of the report",
+      "individual_download_desc": "Export specific elements of the report.",
+      "individual_download_select": "Select elements to export:",
+      "individual_download_doc": "Texts (.doc)",
+      "individual_download_images": "Visual elements (.png) including the risk overview, the risk mapping and the action plan."
+    },
+    "download_csv": "Action plan (.csv)",
 		"action_plan": {
 			"fundamental_principles": "Fundamental principles",
 			"implementation_date": "Expected date of implementation",
@@ -1312,8 +1334,6 @@
 			"0": "The treatment should not be used.",
 			"1": "The treatment could be implemented."
 		},
-    "generate_zip": "Download the full report (.zip)",
-    "generate_docx": "Download the report (.doc)",
 		"creation_date": "Creation date",
 		"csv_action_plan_comment": "Action plan comment",
 		"csv_evaluation_comment": "Evaluation comment",
@@ -1333,8 +1353,6 @@
 			"risks_overview_content": "Display risks overview",
 			"title": "Display filters"
 		},
-		"download_csv": "Download a CSV export",
-		"download_images": "Download images",
 		"dpo_name": "DPO's name",
 		"dpo_opinion": "DPO's opinion",
 		"dpo_status": "DPO's status",
@@ -1352,7 +1370,6 @@
 		"pia_name": "PIA",
 		"pia_validator": "Validator's name",
 		"previous_page": "Back to previous page",
-		"print": "Print",
 		"rejection_reason": "Rejection reason",
 		"risks_cartography_title": "Risk mapping",
 		"risks_overview_title": "Risks overview",
@@ -1376,7 +1393,6 @@
 		"responsible": "Person accountable for validating the PIA: ",
 		"signed_attachments_history": "Signed attachments history",
 		"tools": {
-			"action_plan": "Action plan",
 			"dashboard": "Dashboard",
 			"display_pia": "Display report"
 		},

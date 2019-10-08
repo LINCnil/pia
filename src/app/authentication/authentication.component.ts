@@ -18,9 +18,9 @@ export class AuthenticationComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     const displayMessage = document.querySelector('.pia-closeFullScreenModeAlertBlock');
-    window.outerHeight === screen.height  ? displayMessage.classList.remove('hide') : displayMessage.classList.add('hide');
+    window.screenTop === 0 && window.screenY === 0 ? displayMessage.classList.remove('hide') : displayMessage.classList.add('hide');
     window.onresize = function (event) {
-      window.outerHeight === screen.height  ? displayMessage.classList.remove('hide') : displayMessage.classList.add('hide');
+      window.screenTop === 0 && window.screenY === 0 ? displayMessage.classList.remove('hide') : displayMessage.classList.add('hide');
     }
   }
 

@@ -174,8 +174,8 @@
 			"import_pia": "DPIA importálása",
 			"import_structure": "TO BE TRANSLATED - Importer modèle",
 			"item": {
-				"consult_pia": "DPIA áttekintése",
-				"edit_pia": "DPIA szerkesztése",
+				"consult_pia": "Áttekintése",
+				"edit_pia": "Szerkesztése",
 				"edit_structure": "TO BE TRANSLATED - Éditer le modèle",
 				"tools": {
 					"action_plan": "Intézkedési terv megmutatása",
@@ -1292,6 +1292,27 @@
 		"update": "URL frissítése"
 	},
 	"summary": {
+    "preview_title": "TO TRANSLATE - Preview",
+    "preview_subtitle": "TO TRANSLATE - General information",
+    "preview_edition": "TO TRANSLATE - Editing",
+    "preview_evaluation": "TO TRANSLATE - Evaluation",
+    "preview_validation": "TO TRANSLATE - Validation",
+    "preview_status": "TO TRANSLATE - Status",
+    "preview_validation_section": "TO TRANSLATE - Validation",
+    "preview_dpo_opinion": "TO TRANSLATE - DPO and data subjects opinion",
+    "preview_no_data": "TO TRANSLATE - No data to display.",
+    "actions": {
+      "print_and_download": "TO TRANSLATE - Print and download",
+      "print": "TO TRANSLATE - Print the report",
+      "complete_download": "TO TRANSLATE - Download the full report",
+      "complete_download_desc": "TO TRANSLATE - Export in a .zip archive all the report content (.doc and pictures), attachments and the action plan in a .csv format.",
+      "individual_download": "TO TRANSLATE - Download elements of the report",
+      "individual_download_desc": "TO TRANSLATE - Export specific elements of the report.",
+      "individual_download_select": "TO TRANSLATE - Select elements to export:",
+      "individual_download_doc": "TO TRANSLATE - Texts (.doc)",
+      "individual_download_images": "TO TRANSLATE - Visual elements (.png) including the risk overview, the risk mapping and the action plan."
+    },
+    "download_csv": "TO TRANSLATE - Action plan (.csv)",
 		"action_plan": {
 			"fundamental_principles": "Alapelvek",
 			"implementation_date": "Végrehajtás várható dátuma",
@@ -1311,8 +1332,6 @@
 			"0": "Az intézkedések megfelelőek, ennek következtében alkalmazhatóak.",
 			"1": "Az intézkedések nem megfelelőek, ezért alkalmazásukra nem kerülhet sor."
 		},
-    "generate_zip": "TO TRANSLATE - Download the full report (.zip)",
-    "generate_docx": "TO TRANSLATE - Download the report (.doc)",
 		"creation_date": "Létrehozás dátuma.",
 		"csv_action_plan_comment": "Intézkedési terv vélemények",
 		"csv_evaluation_comment": "Értékelés vélemények",
@@ -1332,8 +1351,6 @@
 			"risks_overview_content": "Kockázatok áttekintésének megjelenítése",
 			"title": "Szűrők megjelenítése"
 		},
-		"download_csv": "Exportált CSV fájl letöltése",
-		"download_images": "Képek letöltése",
 		"dpo_name": "Adatvédelmi tisztviselő neve",
 		"dpo_opinion": "Adatvédelmi tisztviselő véleménye",
 		"dpo_status": "Adatvédelmi tisztviselő státusza",
@@ -1351,7 +1368,6 @@
 		"pia_name": "DPIA",
 		"pia_validator": "Jóváhagyó neve",
 		"previous_page": "Vissza az előző oldalra",
-		"print": "Nyomtatás",
 		"rejection_reason": "Elutasítás oka.",
 		"risks_cartography_title": "A kockázatok feltérképezése",
 		"risks_overview_title": "A kockázatok áttekintése",
@@ -1375,7 +1391,6 @@
 		"responsible": "A hatásvizsgálat jóváhagyásáért felelős személy: ",
 		"signed_attachments_history": "Aláírt csatolmány előzmények",
 		"tools": {
-			"action_plan": "Intézkedési terv",
 			"dashboard": "Vezérlőpult ",
 			"display_pia": "DPIA megjelenítése"
 		},

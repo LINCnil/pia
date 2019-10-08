@@ -11,7 +11,7 @@ import { AttachmentsService } from 'src/app/entry/attachments/attachments.servic
   styleUrls: ['./attachments.component.scss']
 })
 export class AttachmentsComponent implements OnInit {
-
+  @Input() isPreview: boolean;
   @Input() pia: Pia;
   attachmentForm: FormGroup;
   dispplayAttachmentButton = false;
