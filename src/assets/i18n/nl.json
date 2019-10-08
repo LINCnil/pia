@@ -1,10 +1,10 @@
 {
 	"about": {
-		"contribute": "If you wish to contribute to the translation of the software in another language or improve the existing translations, we recommend you to <a href=\"https://github.com/LINCnil/pia/tree/master/src/assets/i18n\" target=\"_blank\">read the page describing the steps to follow</a>.",
-		"description": "Deze tool is oorspronkelijk ontworpen door de <a target=\"_blank\" href=\"https://www.cnil.fr\"> Commission Nationale Informatique et Liberté (CNIL) </a>, de Franse autoriteit voor gegevensbescherming , om de dataprocessor te helpen voldoen aan de GDPR. It was developed by <a href=\"https://atnos.com\" target=\"_blank\">ATNOS</a>.<br>Deze software is gratis en open. Als u mee wilt doen aan dit project, kunt u de broncode downloaden van Github, wijzigen en delen met de community.",
+		"contribute": "Als u wilt helpen om de software te vertalen in een andere taal of om de bestaande vertalingen te verbeteren, raden we u aan om <a href=\"https://github.com/LINCnil/pia/tree/master/src/assets/i18n\" target=\"_blank\">de pagina met de te volgen stappen leest</a>.",
+		"description": "Deze tool is oorspronkelijk ontworpen door de <a target=\"_blank\" href=\"https://www.cnil.fr\">Commission Nationale Informatique et Liberté (CNIL)</a>, de Franse autoriteit voor gegevensbescherming, om de verwerker te helpen voldoen aan de GDPR. De tool werd ontwikkeld door <a href=\"https://atnos.com\" target=\"_blank\">ATNOS</a>.<br>De software is gratis en open. Als u mee wilt doen aan dit project, kunt u de broncode downloaden van Github, wijzigen en delen met de community.",
 		"licences": "Bibliotheeklicenties:",
-		"title": "Over de Tool PIA",
-		"translators": "The PIA software is currently available in eighteen languages. The French and English versions are provided by the CNIL. The others versions result from the contributions of the following individuals:",
+		"title": "Over de PIA-software",
+		"translators": "De PIA-software is momenteel beschikbaar in 18 talen. De Franse en Engelse versies werden gemaakt door de CNIL. De andere versie zijn het resultaat van de bijdrages van de volgende personen:",
 		"translators_name": "<ul><li>Croatian : <a target=\"_blank\" href=\"https://github.com/B2KapitalBA\">B2KapitalBA</a> ;</li><li>Czech : Jiří Grohmann, Manuel d’Orso ;</li><li>Danish : <a target=\"_blank\" href=\"https://github.com/moolsen\">Michael Drews Olsen</a> ;</li><li>Dutch : Ruud van Driel, Manuel d’Orso ;</li><li>English : <a target=\"_blank\" href=\"https://www.cnil.fr\">CNIL</a> ;</li><li>Estonian : Eva Arumets, Lauri Bender, Rebeka Dronia, Kärol Kibena, Simon Suuban, <a target=\"_blank\" href=\"https://kochpartners.ee/en/people/urmas-kukk/\">Urmas Kukk, <a target=\"_blank\" href=\"https://github.com/PrivacyAssessment1\">PrivacyAssessment1</a> ;</li><li>Finnish : <a target=\"_blank\" href=\"https://tietosuoja.fi/etusivu\">Tietosuojavaltuutetun toimisto</a> ;</li><li>French : <a target=\"_blank\" href=\"https://www.cnil.fr\">CNIL</a> ;</li><li>German  : <a target=\"_blank\" href=\"https://github.com/kosmas58\">Kosmas Schütz</a> , Corina Scheiter (<a target=\"_blank\" href=\"https://www.datenschutz-bayern.de/\">BayLfD</a>) ;</li><li>Greek : <a target=\"_blank\" href=\"https://tzellis.gr\">Dimitris Tzellis</a> ;</li><li>Hungarian : <a target=\"_blank\" href=\"https://naih.hu/\">Nemzeti Adatvédelmi és Információszabadság Hatóság (NAIH)</a> ;</li><li>Italian : Manuel d’Orso, Gianluca Markos, Antonio Caselli (<a target=\"_blank\" href=\"http://gpdp.it\">Garante per la Protezione dei Dai Personali (GPDP)</a>) ;</li><li>Lithuanian : Paulius Galubickas (<a target=\"_blank\" href=\"http://galubickas.lt\">Law firm Galubickas</a>) ;</li><li>Norwegian : <a target=\"_blank\" href=\"https://www.datatilsynet.no\">Datatilsynet</a> ;</li><li>Polish : <a target=\"_blank\" href=\"https://github.com/JoannaKar\">Joanna Karczewska</a> , Michal Mazur (<a target=\"_blank\" href=\"https://giodo.gov.pl\">Generalny Inspektor Ochrony Danych Osobowych (GIODO)</a>) ;</li><li>Portuguese : <a target=\"_blank\" href=\"https://github.com/bagois\">Barbara Gois</a> ;</li><li>Romanian : <a target=\"_blank\" href=\"https://github.com/webmyday\">webmyday</a> ;</li><li>Spanish : <a target=\"_blank\" href=\"https://github.com/ylachgar\">ylachgar</a> .</li></ul>",
 		"version_number": "Versienummer"
 	},
@@ -14,16 +14,16 @@
 		"improvable_measures": "Verbeterbare maatregelen",
 		"measures": "Geplande of bestaande maatregelen",
 		"no_action_plan": "Geen actieplan vastgelegd.",
-		"placeholder_person_in_charge": "Implementatie verantwoordelijke",
+		"placeholder_person_in_charge": "Implementatieverantwoordelijke",
 		"principles": "Fundamentele principes",
 		"risk1": "Onrechtmatige toegang tot gegevens",
 		"risk2": "Ongewenste wijziging van gegevens",
-		"risk3": "Gegevens verdwijnen",
+		"risk3": "Verdwijnen van gegevens",
 		"risks": "Risico's",
 		"title": "Overzicht"
 	},
 	"authentication": {
-		"description": "Deze software van de <strong> Franse autoriteit voor gegevensbescherming (CNIL) </strong> is bedoeld als richtlijn voor de gegevenscontrollers bij het samenstellen en aantonen van naleving van de GDPR. Het helpt om een gegevensbeschermingseffectbeoordeling goed uit te voeren door het gebruik van de door de CNIL ontwikkelde PIA-methode te vergemakkelijken.",
+		"description": "Deze software van de <strong> Franse autoriteit voor gegevensbescherming (CNIL) </strong> is bedoeld als richtlijn voor de verwerkingsverantwoordelijken bij het samenstellen en aantonen van naleving van de GDPR. Het helpt om een gegevensbeschermingseffectbeoordeling goed uit te voeren door het gebruik van de door de CNIL ontwikkelde PIA-methode te vergemakkelijken.",
 		"start": "Beginnen",
 		"start_app": "Toegang krijgen tot de PIA-software (Beta)",
 		"subtitle1": "Een platform voor het maken en beheren van uw PIA's",
@@ -35,47 +35,47 @@
 		"legend1": "Geplande of bestaande maatregelen",
 		"legend2": "Met de geïmplementeerde corrigerende maatregelen",
 		"legend3": "(I)Onwettige toegang tot gegevens",
-		"legend4": "(U)Ongewenste wijziging van data",
+		"legend4": "(U)Ongewenste wijziging van gegevens",
 		"legend5": "(D)Gegevens verdwijnen",
-		"likelihood_axe": "Risico waarschijnlijkheid",
+		"likelihood_axe": "Waarschijnlijkheid van het risico",
 		"limited": "Beperkt",
 		"maximal": "Maximaal",
 		"negligible": "Verwaarloosbaar",
 		"risk1_access": "(I)",
 		"risk2_modification": "(U)",
-		"seriousness_axe": "Risico ernstig"
+		"seriousness_axe": "Ernst van het risico"
 	},
 	"comments": {
 		"comment": "Commentaar",
-		"comments_count": "reactie (s)",
+		"comments_count": "reactie(s)",
 		"new_comment": "Commentaar",
 		"placeholder_new_comment": "Laat een reactie achter",
-		"send": "Send"
+		"send": "Verzenden"
 	},
 	"errors": {
-		"content": "Als u andere problemen tegenkomt of suggesties heeft voor verbetering, <br> kunt u deze via dit formulier terugsturen: <a href=\"https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia\" target=\"_blank\">https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia</a>",
+		"content": "Als u andere problemen ondervindt of suggesties heeft voor verbetering, <br> kunt u deze via dit formulier terugsturen: <a href=\"https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia\" target=\"_blank\">https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia</a>",
 		"title": "Pagina niet gevonden."
 	},
 	"evaluations": {
 		"acceptable": "Aanvaardbaar",
 		"action_plan_comment": "Actieplan / corrigerende maatregelen",
-		"evaluation_comment": "Evaluatie commentaar",
+		"evaluation_comment": "Evaluatiecommentaar",
 		"gauges": {
 			"0": "(Onbepaald)",
 			"1": "Verwaarloosbaar",
 			"2": "Beperkt",
 			"3": "Belangrijk",
 			"4": "Maximaal",
-			"likelihood": "Rekening houdend met het actieplan, hoe herevalueer je de <span class='red-highlight'>waarschijnlijkheid van dit risico</span> ({{value}})?",
-			"seriousness": "Rekening houdend met het actieplan, hoe herevalueer je het <span class='red-highlight'>ernst van dit risico</span> ({{value}})?"
+			"likelihood": "Rekening houdend met het actieplan, hoe herevalueert u de <span class='red-highlight'>waarschijnlijkheid van dit risico</span> ({{value}})?",
+			"seriousness": "Rekening houdend met het actieplan, hoe herevalueert u de <span class='red-highlight'>ernst van dit risico</span> ({{value}})?"
 		},
 		"improvable": "Verbeterbaar",
-		"placeholder_acceptable": "Volgens de beschikbare informatie zijn de geïmplementeerde maatregelen toereikend om goed te voldoen aan de vereisten voor de bescherming van de gegevens.",
-		"placeholder_improvable1": "Volgens de beschikbare informatie moeten aanvullende maatregelen worden geïmplementeerd om de gegevensbescherming van de verwerking te verbeteren.",
+		"placeholder_acceptable": "Volgens de beschikbare informatie zijn de geïmplementeerde maatregelen toereikend om goed te voldoen aan de gegevensbeschermingsvereisten.",
+		"placeholder_improvable1": "Volgens de beschikbare informatie moeten aanvullende maatregelen worden genomen om de gegevensbescherming van de verwerking te verbeteren.",
 		"placeholder_improvable2": "Voer uw opmerkingen in.",
 		"placeholder_to_correct": "De verstrekte informatie is niet voldoende om ze goed te evalueren. Stuur terug naar de editor om de originele inzending te verbeteren.",
 		"status": {
-			"0": "In afwachting",
+			"0": "Hangende",
 			"1": "Te corrigeren",
 			"2": "Verbeterbaar",
 			"3": "Aanvaardbaar"
@@ -84,16 +84,16 @@
 		"to_correct": "Te corrigeren"
 	},
 	"header": {
-    "exit_full_screen_mode": "TO TRANSLATE - Press F11 to exit full screen mode.",
+    "exit_full_screen_mode": "Druk F11 om het volledige scherm te sluiten.",
 		"homepage_link": "Dashboard",
-		"knowledge_base_link": "Knowledge base",
+		"knowledge_base_link": "Kennisbank",
 		"languages": {
-			"cnil_translations": "Vertalingen door CNIL",
-			"community_translations": "Vertalingen door community",
+			"cnil_translations": "Vertalingen door de CNIL",
+			"community_translations": "Vertalingen door de community",
 			"cz": "Česky",
 			"de": "Deutsch",
 			"dk": "Dansk",
-			"dpa_translations": "Vertaling herzien door Europese gegevensbeschermingsautoriteit",
+			"dpa_translations": "Vertaling herzien door de Europese gegevensbeschermingsautoriteit",
 			"el": "Ελληνικά",
 			"en": "English",
 			"es": "Español",
@@ -114,8 +114,8 @@
 		},
 		"logo_subtitle": "",
 		"logo_title": "Privacy Impact Assessment",
-		"pia_example_link": "PIA voorbeeld",
-		"structures": "TO BE TRANSLATED - Modèles de PIA",
+		"pia_example_link": "PIA-voorbeeld",
+		"structures": "PIA-modellen",
 		"tools": {
 			"about": "Over",
 			"accessibility": "Toegang voor slechtzienden (kleuren met hoog contrast, daltonisme)",
@@ -127,16 +127,16 @@
 	"help": {
 		"definition": {
 			"data1": {
-				"content": "Inhoud wordt geschreven",
+				"content": "Inhoud in opmaak",
 				"title": "Gebruik de PIA-tool"
 			},
 			"data2": {
 				"qa1": {
-					"content": "Wanneer u deze weergaveproblemen ondervindt, sluit u de toepassing en laadt u deze opnieuw. Het lost meestal het probleem op. Je verliest de informatie die je hebt ingevoerd niet; het wordt automatisch opgeslagen terwijl u typt.",
-					"title": "Ik krijg weergaveproblemen zoals pictogrammen die in één staat vastzitten of elementen uit de interface missen"
+					"content": "Wanneer u deze weergaveproblemen ondervindt, sluit u de toepassing en laadt u deze opnieuw. Dit lost meestal het probleem op. U verliest de informatie die u hebt ingevoerd niet; ze wordt automatisch opgeslagen terwijl u typt.",
+					"title": "Ik krijg weergaveproblemen zoals pictogrammen die in één toestand vastzitten of elementen uit de interface missen"
 				},
 				"qa2": {
-					"content": "Dit zijn bekende probleem wordt momenteel opgelost. Als u dit probleem ondervindt, raden we u aan het veld voor de rechtvaardiging van het geschatte niveau van ernst en / of waarschijnlijkheid in te vullen. U kunt de meter bewerken zodra de fout is hersteld.",
+					"content": "Dit gekende probleem wordt momenteel opgelost. Als u dit probleem ondervindt, raden we u aan het veld voor de rechtvaardiging van het geschatte niveau van ernst en/of waarschijnlijkheid in te vullen. U kunt de meter bewerken zodra de fout is hersteld.",
 					"title": "Ik kan de meters niet bewerken voor het evalueren van de ernst en de waarschijnlijkheid van een risico"
 				},
 				"qa3": {
@@ -156,12 +156,12 @@
 					"title": "Bij het wisselen van taal worden de teksten niet vertaald"
 				},
 				"qa7": {
-					"content": "Voorlopig worden de iconen van het navigatiemenu niet vernieuwd na het weigeren van een PIA. U moet elke sectie controleren en de informatie en / of evaluatie aanpassen aan de redenen voor het weigeren van de PIA. Nadat alle secties zijn beoordeeld, kunt u PIA-validatie opnieuw aanvragen.",
+					"content": "Voorlopig worden de iconen van het navigatiemenu niet vernieuwd na het weigeren van een PIA. U moet elke sectie controleren en de informatie en/of evaluatie aanpassen aan de redenen voor het weigeren van de PIA. Nadat alle secties zijn beoordeeld, kunt u PIA-validatie opnieuw aanvragen.",
 					"title": "Ik heb geweigerd om een PIA te valideren, maar ik weet niet wat ik nu moet doen"
 				},
 				"title": "Bekende Problemen"
 			},
-			"footer": "TO BE TRANSLATED - If you have any other problems or suggestions for improvement, you can send them to us via this form <a target=\"_blank\" href=\"https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia\">https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia</a>."
+			"footer": "Als u andere problemen tegenkomt of suggesties heeft voor verbetering, kunt u deze via dit formulier terugsturen: <a target=\"_blank\" href=\"https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia\">https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia</a>."
 		},
 		"title": "Help"
 	},
@@ -171,42 +171,42 @@
 			"creation_status": "Creatie",
 			"date": "Datum",
 			"evaluation": "Reviewen",
-			"import_pia": "Importeren PIA",
-			"import_structure": "TO BE TRANSLATED - Import template",
+			"import_pia": "PIA importeren",
+			"import_structure": "Sjabloon importeren",
 			"item": {
 				"consult_pia": "PIA Raadplegen",
-				"edit_pia": "Aanpassen PIA",
-				"edit_structure": "TO BE TRANSLATED - Éditer le modèle",
+				"edit_pia": "PIA Aanpassen",
+				"edit_structure": "Sjabloon aanpassen",
 				"tools": {
-					"action_plan": "Toon<br>actie plan",
+					"action_plan": "Toon<br>actieplan",
 					"duplicate": "Dupliceren",
 					"export": "Exporteren",
 					"more_options": "Meer opties",
-					"pia": "Toon<br>PIA",
+					"pia": "PIA<br>tonen",
 					"remove": "Verwijderen"
 				}
 			},
 			"new_pia": "Nieuwe PIA",
-			"new_structure": "TO BE TRANSLATED - Nouveau modèle",
-			"or": "or",
+			"new_structure": "Nieuw sjabloon",
+			"or": "of",
 			"pia_name": "PIA",
-			"placeholder_author": "Voornaam, achternaam",
-			"placeholder_evaluation": "Voornaam, achternaam",
-			"placeholder_import_pia": "Importeren PIA",
-			"placeholder_import_structure": "TO BE TRANSLATED - Importer modèle",
+			"placeholder_author": "Voornaam Achternaam",
+			"placeholder_evaluation": "Voornaam Achternaam",
+			"placeholder_import_pia": "PIA importeren",
+			"placeholder_import_structure": "Sjabloon importeren",
 			"placeholder_new_pia": "Nieuwe PIA",
-			"placeholder_new_structure": "TO BE TRANSLATED - Nouveau modèle",
-			"placeholder_pia_name": "Namen PIA's",
-			"placeholder_sector_name": "TO BE TRANSLATED - Intitulé du Secteur associé",
+			"placeholder_new_structure": "Nieuw sjabloon",
+			"placeholder_pia_name": "Titel PIA",
+			"placeholder_sector_name": "Naam verwante sector",
 			"placeholder_start": "Alle velden moeten worden ingevuld",
-			"placeholder_structure": "TO BE TRANSLATED - Modèle par défaut",
-			"placeholder_structure_name": "TO BE TRANSLATED - Intitulé du modèle",
-			"placeholder_validation": "Voornaam, achternaam",
-			"sector_name": "TO BE TRANSLATED - Secteur associé",
+			"placeholder_structure": "Standaardsjabloon",
+			"placeholder_structure_name": "Naam sjabloon",
+			"placeholder_validation": "Voornaam achternaam",
+			"sector_name": "Verwante sector",
 			"start": "Beginnen",
 			"status": "Status",
-			"structure": "TO BE TRANSLATED - Modèle",
-			"structure_name": "TO BE TRANSLATED - Nom du modèle",
+			"structure": "Sjabloon",
+			"structure_name": "Naam van het sjabloon",
 			"title_close_creation": "Sluiten",
 			"validation": "Valideren"
 		},
@@ -215,19 +215,19 @@
 			"author": "Auteur",
 			"card": "Kaart",
 			"card_rocket_content": "Aan de slag! <br> <br> Om een PIA te starten, <br> klikt u op Nieuwe PIA",
-			"card_rocket_content_structure": "TO BE TRANSLATED - Lancez-vous !<br><br>Pour commencer<br>un modèle, cliquez<br> sur le +",
+			"card_rocket_content_structure": "Aan de slag!<br><br>Om een sjabloon <br>te starten, klikt u <br> op de +",
 			"date": "Datum",
-			"import_pia": "Importeren PIA",
-			"import_structure": "TO BE TRANSLATED - Importer modèle",
+			"import_pia": "PIA importeren",
+			"import_structure": "Sjabloon importeren",
 			"list": "lijst",
-			"list_rocket_content": "Begin! Om een PIA te initiëren, klik op de +",
-			"list_rocket_content_structure": "TO BE TRANSLATED - Lancez-vous ! Pour commencer<br>un modèle, cliquez sur le +",
+			"list_rocket_content": "Aan de slag! Om een PIA te starten, klik op de +",
+			"list_rocket_content_structure": "Aan de slag! Om een sjabloon<br>te starten, klikt u op de +",
 			"name": "Naam",
 			"new_pia": "Nieuwe PIA",
-			"new_structure": "TO BE TRANSLATED - Nouveau modèle",
-			"sector_name": "TO BE TRANSLATED - Secteur associé",
+			"new_structure": "Nieuw sjabloon",
+			"sector_name": "Verwante sector",
 			"sort": "Sorteren",
-			"sort_by": "met",
+			"sort_by": "op",
 			"status": "Status",
 			"validator": "Validator"
 		},
@@ -235,31 +235,31 @@
 			"column_actions": "Acties",
 			"column_author": "Aanpassen",
 			"column_creation": "Gemaakt",
-			"column_evaluation": "Review",
+			"column_evaluation": "Reviewen",
 			"column_pia": "PIA",
 			"column_progression": "Voortgang",
-			"column_sector_name": "TO BE TRANSLATED - Secteur associé",
+			"column_sector_name": "Verwante sector",
 			"column_status": "Status",
-			"column_structure": "TO BE TRANSLATED - Modèle",
-			"column_structure_name": "TO BE TRANSLATED - Modèle",
+			"column_structure": "Sjabloon",
+			"column_structure_name": "Sjabloon",
 			"column_updated_at": "Laatst geopend",
 			"column_validation": "Valideren",
 			"item": {
 				"tools": {
-					"action_plan": "Toon actieplan",
+					"action_plan": "Actieplan tonen",
 					"consult": "Raadplegen",
 					"duplicate": "Dupliceren",
 					"edit": "Aanpassen",
 					"export": "Exporteren",
-					"pia": "Toon PIA",
-					"remove": "Verwijder"
+					"pia": "PIA tonen",
+					"remove": "Verwijderen"
 				}
 			}
 		}
 	},
 	"knowledge_base": {
 		"add_measure": "Toevoegen",
-		"add_measure_hint": "U kunt ook een meetregel uit de kennisbank toevoegen.",
+		"add_measure_hint": "U kunt ook een maatregel uit de kennisbank toevoegen.",
 		"category": {
 			"definition": "Definitie",
 			"example": "Voorbeeld",
@@ -267,7 +267,7 @@
 			"measure_on_data": "Logische beveiligingsmaatregelen",
 			"organizational_measure": "Organisatorische maatregelen",
 			"principle": "Principe",
-      "method": "(TRANSLATION REQUIRED) Methodology"
+      "method": "Methodologie"
 		},
 		"filters": {
 			"all": "Allemaal",
@@ -283,7 +283,7 @@
 		"search": "Zoeken",
 		"slugs": {
 			"PIA_DEF_ACC": {
-				"description": "De betrokkene heeft het recht van de verantwoordelijke voor de verwerking te verlangen dat persoonsgegevens worden verwerkt en, indien dat het geval is, toegang tot de persoonsgegevens en de informatie als <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/NL/TXT/HTML/?uri=CELEX:32016R0679&from=NL\">Art. 15 van de [AVG]</a>",
+				"description": "De betrokkene heeft het recht van de verwerkingsverantwoordelijke te verlangen dat persoonsgegevens worden verwerkt en, indien dat het geval is, toegang tot de persoonsgegevens en de informatie als <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/NL/TXT/HTML/?uri=CELEX:32016R0679&from=NL\">Art. 15 van de [AVG]</a>",
 				"name": "Recht van inzage",
 				"source": "AVG Art. 15"
 			},
@@ -303,12 +303,12 @@
 				"source": "Mesures_US Logical Access Control"
 			},
 			"PIA_DEF_CHIF": {
-				"description": "Encryptie maatregelen die persoonlijke gegevens voor iedereen zonder toegangsbevoegdheid onbegrijpelijk maken met (symmetrische of asymmetrische codering, gebruik van openbare algoritmes waarvan bekend is dat ze sterk zijn, authenticatiecertificaat, enz.).",
+				"description": "Encryptiemaatregelen die persoonlijke gegevens voor iedereen zonder toegangsbevoegdheid onbegrijpelijk maken met (symmetrische of asymmetrische codering, gebruik van openbare algoritmes waarvan bekend is dat ze sterk zijn, authenticatiecertificaat, enz.).",
 				"name": "Encryptie",
 				"source": "Mesures_US Encryption"
 			},
 			"PIA_DEF_CLO": {
-				"description": "Gegevensorganisatie-methoden die de mogelijkheid verkleinen dat persoonlijke gegevens kunnen worden gecorreleerd en dat een schending van alle persoonlijke gegevens kan optreden. Bijvoorbeeld door de persoonlijke gegevens te identificeren die alleen voor elk bedrijfsproces nuttig zijn en logisch van elkaar te scheiden.",
+				"description": "Gegevensorganisatiemethoden die de mogelijkheid verkleinen dat persoonlijke gegevens kunnen worden gecorreleerd en dat een schending van alle persoonlijke gegevens kan optreden. Bijvoorbeeld door de persoonlijke gegevens te identificeren die alleen voor elk bedrijfsproces nuttig zijn en logisch van elkaar te scheiden.",
 				"name": "Gegevens partitioneren",
 				"source": "PIA3 p19 - WIKI"
 			},
@@ -333,7 +333,7 @@
 				"source": "AVG Art. 4.9"
 			},
 			"PIA_DEF_EFF": {
-				"description": "De betrokkene heeft het recht van de verwerkingsverantwoordelijke onverwijld persoonsgegevens te wissen en de voor de verwerking verantwoordelijke is verplicht om persoonsgegevens zonder onnodige vertraging te wissen, zie <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/NL/TXT/HTML/?uri=CELEX:32016R0679&from=NL\">Art. 17 van de [AVG]</a>",
+				"description": "De betrokkene heeft het recht van de verwerkingsverantwoordelijke onverwijld persoonsgegevens te wissen en de verwerkingsverantwoordelijke is verplicht om persoonsgegevens zonder onnodige vertraging te wissen, zie <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/NL/TXT/HTML/?uri=CELEX:32016R0679&from=NL\">Art. 17 van de [AVG]</a>",
 				"name": "Recht op gegevenswissing",
 				"source": "AVG Art. 17"
 			},
@@ -373,7 +373,7 @@
 				"source": "PIAF Connected objects p44 and 45"
 			},
 			"PIA_DEF_MENI": {
-				"description": "<strong> Bedreigingen met betrekking tot: </strong> <br> - <strong> Hardware </strong>: ongepast gebruikt, overbelast, gewijzigd, beschadigd, verloren (volledige opslagruimte, overbelasting van verwerkingscapaciteit, toevoeging van incompatibele hardware met storingen als gevolg, brand, diefstal of verlies van een actief, enz.) <br> - <strong> Software </strong>: ongepast gebruikt, overbelast, gewijzigd, beschadigd, verloren (wissen van gegevens, overschrijding van databasegrootte, logische bom, niet- verlenging van de licentie voor software die wordt gebruikt voor toegang tot gegevens, enz.) <br> - <strong> Computerkanalen </strong>: overbelast, gewijzigd, verloren (ongeautoriseerd downloaden, verlies van internetverbinding, etc.) <br> - < sterk> Mensen </strong>: overbelast, beschadigd, verloren (slecht gebruik van vaardigheden, ziekte, pensionering, etc.) <br> - <strong> Papendocumenten </strong>: ongepast gebruikt, beschadigd, zoekraken (wissen, verouderen van gearchiveerde documenten, diefstal of verlies van documenten, enz.) <br> - <strong> Papieren verzendkanalen </strong>: overbelast, beschadigd, gewijzigd, verloren (e-mailbezorging onderbroken door een waarschuwing, verplaatsing van kantoren of gebouwen, verlies van een documentleverancier, reorganisatie van papiertransmissiekanalen, enz.)",
+				"description": "<strong> Bedreigingen met betrekking tot: </strong> <br> - <strong> Hardware </strong>: ongepast gebruikt, overbelast, gewijzigd, beschadigd, verloren (volledige opslagruimte, overbelasting van verwerkingscapaciteit, toevoeging van incompatibele hardware met storingen als gevolg, brand, diefstal of verlies van een actief, enz.) <br> - <strong> Software </strong>: ongepast gebruikt, overbelast, gewijzigd, beschadigd, verloren (wissen van gegevens, overschrijding van databasegrootte, logische bom, niet-verlenging van de licentie voor software die wordt gebruikt voor toegang tot gegevens, enz.) <br> - <strong> Computerkanalen </strong>: overbelast, gewijzigd, verloren (ongeautoriseerd downloaden, verlies van internetverbinding, etc.) <br> - < sterk> Mensen </strong>: overbelast, beschadigd, verloren (slecht gebruik van vaardigheden, ziekte, pensionering, etc.) <br> - <strong> Papendocumenten </strong>: ongepast gebruikt, beschadigd, zoekraken (wissen, verouderen van gearchiveerde documenten, diefstal of verlies van documenten, enz.) <br> - <strong> Papieren verzendkanalen </strong>: overbelast, beschadigd, gewijzigd, verloren (e-mailbezorging onderbroken door een waarschuwing, verplaatsing van kantoren of gebouwen, verlies van een documentleverancier, reorganisatie van papiertransmissiekanalen, enz.)",
 				"name": "Bedreigingen die kunnen leiden tot het verdwijnen van persoonlijke gegevens",
 				"source": "PIAF Connected Objects p44 and 45, WIKI"
 			},
@@ -443,7 +443,7 @@
 				"source": "PIA1 p9"
 			},
 			"PIA_DEF_PORT": {
-				"description": " De betrokkene heeft het recht om de persoonsgegevens die hem of haar betreffen en die hij aan een verantwoordelijke heeft verstrekt, in een gestructureerd, veelgebruikt en machinaal leesbaar formaat te ontvangen en heeft het recht deze gegevens aan een andere controller door te geven zonder belemmering van de controller waaraan de persoonlijke gegevens zijn verstrekt, zie <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/NL/TXT/HTML/?uri=CELEX:32016R0679&from=NL\">Art. 20 van de [AVG]</a>",
+				"description": " De betrokkene heeft het recht om de persoonsgegevens die hem of haar betreffen en die hij aan een verantwoordelijke heeft verstrekt, in een gestructureerd, veelgebruikt en machinaal leesbaar formaat te ontvangen en heeft het recht deze gegevens aan een andere verwerker door te geven zonder belemmering van de verwerker waaraan de persoonlijke gegevens zijn verstrekt, zie <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/NL/TXT/HTML/?uri=CELEX:32016R0679&from=NL\">Art. 20 van de [AVG]</a>",
 				"name": "Recht op overdraagbaarheid van gegevens",
 				"source": "AVG Art. 20"
 			},
@@ -458,7 +458,7 @@
 				"source": "Mesure_US"
 			},
 			"PIA_DEF_RECT": {
-				"description": "De betrokkene heeft het recht van de voor de verwerking verwerkingsverantwoordelijke onverwijld de rectificatie van onjuiste persoonsgegevens die op hem of haar betrekking hebben, te verkrijgen. Rekening houdend met de doeleinden van de verwerking heeft de betrokkene het recht onvolledige persoonsgegevens te vervolledigen, onder meer door een aanvullende verklaring te verstrekken.",
+				"description": "De betrokkene heeft het recht van de verwerkingsverantwoordelijke onverwijld de rectificatie van onjuiste persoonsgegevens die op hem of haar betrekking hebben, te verkrijgen. Rekening houdend met de doeleinden van de verwerking heeft de betrokkene het recht onvolledige persoonsgegevens te vervolledigen, onder meer door een aanvullende verklaring te verstrekken.",
 				"name": "Recht op rectificatie",
 				"source": "AVG Art. 16"
 			},
@@ -468,7 +468,7 @@
 				"source": "Europese privacywetgeving AVG"
 			},
 			"PIA_DEF_RT": {
-				"description": "Natuurlijke of rechtspersoon, overheidsinstantie, agentschap of andere instantie die, alleen of samen met anderen, de doeleinden en middelen voor de verwerking van persoonsgegevens bepaalt; wanneer het doel en de middelen van een dergelijke verwerking worden bepaald door de wetgeving van de Unie of de lidstaat, kan de voor de verwerking Verwerkingsverantwoordelijke of de specifieke criteria voor de aanwijzing ervan door de wetgeving van de Unie of de lidstaten worden geregeld <br>zie <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/NL/TXT/HTML/?uri=CELEX:32016R0679&from=NL\">Art. 4.7 van de [AVG]</a>",
+				"description": "Natuurlijke of rechtspersoon, overheidsinstantie, agentschap of andere instantie die, alleen of samen met anderen, de doeleinden en middelen voor de verwerking van persoonsgegevens bepaalt; wanneer het doel en de middelen van een dergelijke verwerking worden bepaald door de wetgeving van de Unie of de lidstaat, kan de verwerkingsverantwoordelijke of de specifieke criteria voor de aanwijzing ervan door de wetgeving van de Unie of de lidstaten worden geregeld <br>zie <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/NL/TXT/HTML/?uri=CELEX:32016R0679&from=NL\">Art. 4.7 van de [AVG]</a>",
 				"name": "Verwerkingsverantwoordelijke",
 				"source": "AVG Art. 4.7"
 			},
@@ -489,7 +489,7 @@
 			},
 			"PIA_DEF_VIOL": {
 				"description": "Overtreding van de beveiliging die leidt tot de accidentele of onwettige vernietiging, verlies, wijziging, ongeautoriseerde openbaarmaking van of toegang tot doorgegeven, opgeslagen of anderszins verwerkte persoonsgegevens.",
-				"name": "Inbreuk op persoonlijksgegevens",
+				"name": "Inbreuk op persoonsgegevens",
 				"source": "AVG Art. 4.12"
 			},
 			"PIA_DEF_VRA": {
@@ -531,7 +531,7 @@
 				"name": "Beperkte ernst"
 			},
 			"PIA_EX_IMPM": {
-				"description": "Betrokkenen kunnen aanzienlijke, of zelfs onomkeerbare, gevolgen ondervinden, die ze mogelijk niet overwinnen. Voorbeelden: <br> - fysiek: langdurige of permanente fysieke kwalen, blijvende beschadiging van fysieke integriteit, overlijden <br> - materiaal: financieel risico, aanzienlijke schulden, onvermogen om te werken, onvermogen om te verhuizen, verlies van bewijs in de context van geschillen, verlies van toegang tot vitale infrastructuur (water, elektriciteit), enz. <br> - moraal: langdurige of permanente psychische aandoeningen, strafrechtelijke sanctie, ontvoering, verlies van familiebanden, onvermogen om te vervolgen, verandering van administratieve status en / of verlies van juridische autonomie (voogdij), enz.",
+				"description": "Betrokkenen kunnen aanzienlijke, of zelfs onomkeerbare, gevolgen ondervinden, die ze mogelijk niet overwinnen. Voorbeelden: <br> - fysiek: langdurige of permanente fysieke kwalen, blijvende beschadiging van fysieke integriteit, overlijden <br> - materiaal: financieel risico, aanzienlijke schulden, onvermogen om te werken, onvermogen om te verhuizen, verlies van bewijs in de context van geschillen, verlies van toegang tot vitale infrastructuur (water, elektriciteit), enz. <br> - moraal: langdurige of permanente psychische aandoeningen, strafrechtelijke sanctie, ontvoering, verlies van familiebanden, onvermogen om te vervolgen, verandering van administratieve status en/of verlies van juridische autonomie (voogdij), enz.",
 				"name": "Maximale ernst"
 			},
 			"PIA_EX_IMPN": {
@@ -569,7 +569,7 @@
 				"source": "PIA1 p6"
 			},
 			"PIA_LGL_DESC": {
-				"description": "Presenteer een korte schets van de verwerking in kwestie, de aard, reikwijdte, context, doelen en inzetten. Identificeer de datacontroller en eventuele processors. Maak een lijst van de standaardreferenties die van toepassing zijn op de verwerking en die noodzakelijk zijn of moeten worden nageleefd, met name de goedgekeurde gedragscodes (zie artikel 40 van het Reglement). <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/NL/TXT/HTML/?uri=CELEX:32016R0679&from=NL\">[AVG]</a>) en certificeringen met betrekking tot gegevensbescherming (zie Art. 42 van de <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/NL/TXT/HTML/?uri=CELEX:32016R0679&from=NL\">[AVG]</a>)",
+				"description": "Presenteer een korte schets van de verwerking in kwestie, de aard, reikwijdte, context, doelen en inzetten. Identificeer de verwerkingsverantwoordelijke en eventuele verwerkers. Maak een lijst van de standaardreferenties die van toepassing zijn op de verwerking en die noodzakelijk zijn of moeten worden nageleefd, met name de goedgekeurde gedragscodes (zie artikel 40 van het Reglement). <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/NL/TXT/HTML/?uri=CELEX:32016R0679&from=NL\">[AVG]</a>) en certificeringen met betrekking tot gegevensbescherming (zie Art. 42 van de <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/NL/TXT/HTML/?uri=CELEX:32016R0679&from=NL\">[AVG]</a>)",
 				"name": "De beschrijving van de verwerking",
 				"source": "PIA1 p4"
 			},
@@ -579,7 +579,7 @@
 				"source": "AVG art 4.9"
 			},
 			"PIA_LGL_DUR": {
-				"description": "Er moet een opslagduur worden gedefinieerd voor elk type gegevens en worden gerechtvaardigd door de wettelijke vereisten en / of verwerkingsbehoeften. Er wordt dus een onderscheid gemaakt tussen gemeenschappelijke gegevens en gearchiveerde gegevens, waartoe de toegang beperkt blijft tot alleen de betrokken belanghebbenden. Een wismechanisme moet worden geïmplementeerd om gemeenschappelijke gegevens te archiveren of gearchiveerde gegevens te wissen aan het einde van de opslagduur. Functionele sporen moeten ook worden verwijderd, evenals technische logboeken die mogelijk niet voor onbepaalde tijd worden opgeslagen",
+				"description": "Er moet een opslagduur worden gedefinieerd voor elk type gegevens en worden gerechtvaardigd door de wettelijke vereisten en/of verwerkingsbehoeften. Er wordt dus een onderscheid gemaakt tussen gemeenschappelijke gegevens en gearchiveerde gegevens, waartoe de toegang beperkt blijft tot alleen de betrokken belanghebbenden. Een wismechanisme moet worden geïmplementeerd om gemeenschappelijke gegevens te archiveren of gearchiveerde gegevens te wissen aan het einde van de opslagduur. Functionele sporen moeten ook worden verwijderd, evenals technische logboeken die mogelijk niet voor onbepaalde tijd worden opgeslagen",
 				"name": "Opslagduur",
 				"source": "PIAF Connected Objects p12"
 			},
@@ -589,12 +589,12 @@
 				"source": "AVG art 5.1 b)"
 			},
 			"PIA_LGL_FOND": {
-				"description": "- De betrokkene heeft toestemming gegeven voor de verwerking van zijn of haar persoonsgegevens voor een of meer specifieke doeleinden. - Verwerking is noodzakelijk voor de uitvoering van een contract waarbij de betrokkene partij is of om stappen te ondernemen op verzoek van de betrokkene voorafgaand aan het aangaan van een contract <br> -verwerking is noodzakelijk voor de naleving van een wettelijke verplichting waaraan de voor de verwerking verantwoordelijke onderworpen is - Verwerking is nodig om de vitale belangen van de betrokkene of van een andere persoon te beschermen natuurlijke persoon <br> - Verwerking is noodzakelijk voor de uitvoering van een taak die wordt uitgevoerd in het openbaar belang of bij de uitoefening van het openbaar gezag door de voor de verwerking verantwoordelijke <br> - Verwerking is noodzakelijk met het oog op de legitieme belangen die door de voor de verwerking verantwoordelijke worden nagestreefd of door een derde partij, behalve wanneer dergelijke belangen worden opgeheven door de belangen of fundamentele rechten en vrijheden van de betrokkene die bescherming van persoonsgegevens vereisen, met name wanneer de dat een onderwerp is een kind - Zie<a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/NL/TXT/HTML/?uri=CELEX:32016R0679&from=NL\">art. 6 of [AVG]</a> ",
+				"description": "- De betrokkene heeft toestemming gegeven voor de verwerking van zijn of haar persoonsgegevens voor een of meer specifieke doeleinden. - Verwerking is noodzakelijk voor de uitvoering van een contract waarbij de betrokkene partij is of om stappen te ondernemen op verzoek van de betrokkene voorafgaand aan het aangaan van een contract <br> -verwerking is noodzakelijk voor de naleving van een wettelijke verplichting waaraan de verwerkingsverantwoordelijke onderworpen is - Verwerking is nodig om de vitale belangen van de betrokkene of van een andere persoon te beschermen natuurlijke persoon <br> - Verwerking is noodzakelijk voor de uitvoering van een taak die wordt uitgevoerd in het openbaar belang of bij de uitoefening van het openbaar gezag door de verwerkingsverantwoordelijke <br> - Verwerking is noodzakelijk met het oog op de legitieme belangen die door de verwerkingsverantwoordelijke worden nagestreefd of door een derde partij, behalve wanneer dergelijke belangen worden opgeheven door de belangen of fundamentele rechten en vrijheden van de betrokkene die bescherming van persoonsgegevens vereisen, met name wanneer de dat een onderwerp is een kind - Zie<a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/NL/TXT/HTML/?uri=CELEX:32016R0679&from=NL\">art. 6 of [AVG]</a> ",
 				"name": "Verantwoording van de rechtmatigheid",
 				"source": "PIA2 p4"
 			},
 			"PIA_LGL_INFO": {
-				"description": "Zorg ervoor dat de onderwerpen op de hoogte zijn. Controleer of de verwerking niet onder een uitzondering valt en niet onderhevig is aan specifieke voorwaarden.",
+				"description": "Zorg ervoor dat betrokkenen op de hoogte zijn. Controleer of de verwerking niet onder een uitzondering valt en niet onderhevig is aan specifieke voorwaarden.",
 				"name": "Informeren van betrokkenen",
 				"source": "PIA3 p8 - WIKI"
 			},
@@ -662,12 +662,12 @@
 			},
 			"PIA_ORG_VIOL": {
 				"description": "Bestaan van een operationele organisatie die incidenten kan detecteren en behandelen die van invloed kunnen zijn op de burgerlijke vrijheden en privacy van de betrokkenen.",
-				"name": " Het beheren van schendingen van persoonlijke gegevens",
+				"name": " Beleid incidenten en datelekken",
 				"placeholder": "Geef hier aan of IT-incidenten onderworpen zijn aan een gedocumenteerde en geteste beheersprocedure.",
 				"source": "PIAF Connected Objects p24 and PIA3 p36 - WIKI"
 			},
 			"PIA_SEC_BKP": {
-				"description": "Beleid en middelen geïmplementeerd om de beschikbaarheid en / of integriteit van de persoonlijke gegevens te waarborgen, met behoud van hun vertrouwelijkheid.",
+				"description": "Beleid en middelen geïmplementeerd om de beschikbaarheid en/of integriteit van de persoonlijke gegevens te waarborgen, met behoud van hun vertrouwelijkheid.",
 				"name": "Backups",
 				"placeholder": "Geef hier aan hoe back-ups worden beheerd. Maak duidelijk of ze op een veilige plaats zijn opgeslagen.",
 				"source": "PIAF Connected Objects p23 & PIA3 p27  - WIKI"
@@ -675,11 +675,11 @@
 			"PIA_SEC_COMP": {
 				"description": "Controle maatregelen geïmplementeerd op werkstations (automatische vergrendeling, regelmatige updates, configuratie, fysieke beveiliging, enz.) Om de mogelijkheid om softwareleigenschappen (besturingssystemen, bedrijfsapplicaties enz.) te misbruiken om persoonlijke gegevens nadelig te beïnvloeden.",
 				"name": "Werkstations beheren",
-				"placeholder": "Beschrijf hier de bedieningselementen die op de werkstations zijn geïmplementeerd",
+				"placeholder": "Beschrijf hier de maatregelen die op de werkstations zijn geïmplementeerd",
 				"source": "PIAF Connected Objects p22 - WIKI"
 			},
 			"PIA_SEC_CTR": {
-				"description": "Regel de inkooprelaties via een contract ondertekend intuitu personæ. <br> - Verplicht de processor om zijn informatiesysteembeveiligingsbeleid (PSSI) samen met alle ondersteunende documenten van zijn informatiebeveiligingscertificaten door te sturen en de documenten bij het contract te voegen. Zorg ervoor dat de maatregelen op grond van de PSSI voldoen aan de aanbevelingen van de CNIL in dit verband. <br> - Bepaal en stel op contractuele basis nauwkeurig vast welke bewerkingen de verwerker op zijn persoonlijke gegevens moet uitvoeren: <br> 1 ) De gegevens waartoe deze toegang heeft of die er naartoe worden verzonden. <br> 2) De bewerkingen die moeten worden uitgevoerd op de gegevens. <br> 3) De duur waarvoor het de gegevens mag opslaan. <br> 4) Alle ontvangers waarvoor de gegevensbeheerder de gegevens moet verzenden. <br> 5) De bewerkingen die moeten worden uitgevoerd aan het einde van de service (permanente verwijdering van gegevens of retournering van de gegevens in het kader van omkeerbaarheid en vernietiging) van gegevens bij de processor). <br> 6) De beveiligingsdoelstellingen die zijn ingesteld door de gegevensbeheerder. <br> - Bepaal op contractuele basis de verantwoordelijkheidsdeling met betrekking tot de juridische processen gericht op het toestaan ​​van de betrokkenen om hun rechten uit te oefenen. <br> - Expliciet verbieden of reguleren van het gebruik van tier-2-processoren. <br> - Verduidelijken in het contract dat de naleving van de verplichtingen inzake gegevensbescherming een bindende vereiste van het contract is.",
+				"description": "Regel de inkooprelaties via een contract ondertekend intuitu personæ. <br> - Verplicht de verwerker om zijn informatiesysteembeveiligingsbeleid (PSSI) samen met alle ondersteunende documenten van zijn informatiebeveiligingscertificaten door te sturen en de documenten bij het contract te voegen. Zorg ervoor dat de maatregelen op grond van de PSSI voldoen aan de aanbevelingen van de CNIL in dit verband. <br> - Bepaal en stel op contractuele basis nauwkeurig vast welke bewerkingen de verwerker op zijn persoonlijke gegevens moet uitvoeren: <br> 1 ) De gegevens waartoe deze toegang heeft of die er naartoe worden verzonden. <br> 2) De bewerkingen die moeten worden uitgevoerd op de gegevens. <br> 3) De duur waarvoor het de gegevens mag opslaan. <br> 4) Alle ontvangers waarvoor de gegevensbeheerder de gegevens moet verzenden. <br> 5) De bewerkingen die moeten worden uitgevoerd aan het einde van de service (permanente verwijdering van gegevens of retournering van de gegevens in het kader van omkeerbaarheid en vernietiging) van gegevens bij de verwerker). <br> 6) De beveiligingsdoelstellingen die zijn ingesteld door de gegevensbeheerder. <br> - Bepaal op contractuele basis de verantwoordelijkheidsdeling met betrekking tot de juridische processen gericht op het toestaan ​​van de betrokkenen om hun rechten uit te oefenen. <br> - Expliciet verbieden of reguleren van het gebruik van tier-2-verwerkers. <br> - Verduidelijken in het contract dat de naleving van de verplichtingen inzake gegevensbescherming een bindende vereiste van het contract is.",
 				"name": "Verwerkingscontracten",
 				"placeholder": "Beschrijf hier specifieke maatregelen voor verwerkers (host, onderhoudsbedrijf, beheerder, gespecialiseerde serviceproviders, enz.)",
 				"source": "Mesures_US Procurement: identified and governed by a contract"
@@ -693,7 +693,7 @@
 			"PIA_SEC_LOG": {
 				"description": "Monitor inbraakdetectiesystemen en inbraakpreventiesystemen om netwerkverkeer (bedrade netwerken, wifi, radiogolven, glasvezel, enz.) in realtime te analyseren en eventuele verdachte activiteiten te detecteren die wijzen op een cyberaanvalscenario.",
 				"name": "Netwerkactiviteit controleren",
-				"placeholder": "Hier worden middelen en bedieningselementen aangegeven die zijn geïmplementeerd om incidenten met persoonsgegevens te detecteren",
+				"placeholder": "Hier worden middelen en maatregelen aangegeven die zijn geïmplementeerd om incidenten met persoonsgegevens te detecteren",
 				"source": "PIA3 p67 - WIKI"
 			},
 			"PIA_SEC_MAIN": {
@@ -709,14 +709,14 @@
 				"source": "PIAF Connected Objects p22 - WIKI"
 			},
 			"PIA_SEC_MAT": {
-				"description": "Geef hier de bedieningselementen aan die betrekking hebben op de fysieke beveiliging van servers en werkstations (beveiligde opslag, beveiligingskabels, vertrouwelijkheidsfilters, veilig wissen vóór het afdanken, enz.).",
-				"name": "Hardware beveiliging",
-				"placeholder": "Geef hier de bedieningselementen aan die betrekking hebben op de fysieke beveiliging van servers en werkstations",
+				"description": "Geef hier de maatregelen aan die betrekking hebben op de fysieke beveiliging van servers en werkstations (beveiligde opslag, beveiligingskabels, vertrouwelijkheidsfilters, veilig wissen vóór het afdanken, enz.).",
+				"name": "Hardwarebeveiliging",
+				"placeholder": "Geef hier de maatregelen aan die betrekking hebben op de fysieke beveiliging van servers en werkstations",
 				"source": "PIAF Connected Objects p23 - WIKI"
 			},
 			"PIA_SEC_NET": {
 				"description": "Afhankelijk van het type netwerk waarop de verwerking wordt uitgevoerd (geïsoleerd, privé of internet). Geef op welk firewallsysteem, inbraakdetectiesystemen of andere actieve of passieve apparaten de netwerkbeveiliging moeten waarborgen.",
-				"name": "Netwerk veiligheid",
+				"name": "Netwerkbeveiliging",
 				"placeholder": "Geef hier de beveiligingscontroles van het netwerk aan waarop de verwerking wordt uitgevoerd",
 				"source": "PIAF Connected Objects p23"
 			},
@@ -728,7 +728,7 @@
 			},
 			"PIA_SEC_PROT": {
 				"description": "Beleid dat de middelen voor brandpreventie, detectie en bestrijding beschrijft. Vermeld waar van toepassing de middelen om waterschade te voorkomen. Specificeer ook de middelen voor het bewaken en ontlasten van de voedingsspanning.",
-				"name": "Bescherming tegen niet-menselijke bronnen van risico's",
+				"name": "Bescherming tegen niet-menselijke risicobronnen",
 				"placeholder": "Hier aangeven betekent middelen vermijden om niet-menselijke bronnen van risico's te beperken.",
 				"source": "PIAF Connected Objects p23 - WIKI"
 			},
@@ -740,7 +740,7 @@
 			},
 			"PIA_SEC_WEB": {
 				"description": "Implementatie van ANSSI-aanbevelingen voor het beveiligen van websites.",
-				"name": "Website beveiliging",
+				"name": "Websitebeveiliging",
 				"placeholder": "Geef hier de controle maatregelen aan die zijn geïmplementeerd om websites te beveiligen.",
 				"source": "PIAF Connected Objects p22 - WIKI"
 			},
@@ -757,13 +757,13 @@
 				"source": "PIAF Connected Objects p22 - WIKI"
 			},
 			"PIA_TEC_CHIF": {
-				"description": "Middelen geïmplementeerd voor <strong> zorgen voor de vertrouwelijkheid </strong> van opgeslagen gegevens (in de database, in platte bestanden, back-ups, enz.), Evenals de procedure voor het beheren van coderingssleutels (creatie, opslag, wijziging in het geval van vermoede gevallen van compromittering van gegevens, enz.). Beschrijf de coderingsmiddelen die worden gebruikt voor gegevensstromen (VPN, TLS, enz.) die bij de verwerking zijn geïmplementeerd.",
+				"description": "Middelen geïmplementeerd die <strong> zorgen voor de vertrouwelijkheid </strong> van opgeslagen gegevens (in de database, in platte bestanden, back-ups, enz.), evenals de procedure voor het beheren van coderingssleutels (creatie, opslag, wijziging in het geval van vermoede gevallen van compromittering van gegevens, enz.). Beschrijf de coderingsmiddelen die worden gebruikt voor gegevensstromen (VPN, TLS, enz.) die bij de verwerking zijn geïmplementeerd.",
 				"name": "Encryptie",
 				"placeholder": "Beschrijf hier de middelen die zijn geïmplementeerd om de vertrouwelijkheid van gegevens te waarborgen",
 				"source": "PIAF Connected Objects p21"
 			},
 			"PIA_TEC_CLO": {
-				"description": "Implementatie van gegevenspartitionering helpt om de mogelijkheid te verkleinen, dat persoonlijke gegevens kunnen worden gecorreleerd en dat een schending van alle persoonlijke gegevens kan optreden.",
+				"description": "Implementatie van gegevenspartitionering helpt om de mogelijkheid te verkleinen dat persoonlijke gegevens kunnen worden gecorreleerd en dat een schending van alle persoonlijke gegevens kan optreden.",
 				"name": "Partitiegegevens",
 				"placeholder": "Geef hier aan of partitionering van de verwerking is gepland en hoe dit wordt uitgevoerd.",
 				"source": "PIAF Connected Objects p21"
@@ -787,7 +787,7 @@
 				"source": "PIAF Connected Objects p40"
 			},
 			"PIA_TEC_PAP": {
-				"description": "Waar papieren documenten met gegevens worden gebruikt tijdens de verwerking, geeft hier aan hoe u ze afdrukt, opslaat, vernietigd en uitwisselt.",
+				"description": "Als er papieren documenten met gegevens worden gebruikt tijdens de verwerking, kunt u hier aangeven hoe u ze afdrukt, opslaat, vernietigd en uitwisselt.",
 				"name": "Papieren documentbeveiliging",
 				"placeholder": "Geef hier aan of er mechanismen zijn geïmplementeerd voor integriteitscontrole van papieren documenten, welke en voor welk doel.",
 				"source": "PIAF Connected Objects p22"
@@ -803,12 +803,12 @@
 				"source": "PIAF Connected Objects p34"
 			},
 			"PIA_VAL_CONC": {
-				"description": "In voorkomend geval wint de voor de verwerking verantwoordelijke het standpunt van de betrokkenen of hun vertegenwoordigers in over de voorgenomen verwerking, onverminderd de bescherming van commerciële of openbare belangen of de beveiliging van verwerkingshandelingen. Zie Art. 39.2 van de <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/NL/TXT/HTML/?uri=CELEX:32016R0679&from=NL\">[AVG]</a><br>Deze standpunten kunnen op verschillende manieren worden verzameld, afhankelijk van de context (intern of extern onderzoek naar de verwerkingsmethoden en het doel, vraag onder aandacht van personeelsvertegenwoordigers of vakbonden brengen, enquête onder toekomstige klanten van de gegevensverwerker). <strong> Als de gegevensbeheerder besluit de meningen van de betrokkenen te negeren </strong>, moet hij <strong> de motivering voor dit besluit noteren </strong>. Wanneer de voor de verwerking verantwoordelijke meent dat <strong> het verzamelen van de standpunten van de betrokkenen niet relevant is, moet hij ook de motivering daarvan noteren</strong>.",
+				"description": "In voorkomend geval wint de verwerkingsverantwoordelijke het standpunt van de betrokkenen of hun vertegenwoordigers in over de voorgenomen verwerking, onverminderd de bescherming van commerciële of openbare belangen of de beveiliging van verwerkingshandelingen. Zie Art. 39.2 van de <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/NL/TXT/HTML/?uri=CELEX:32016R0679&from=NL\">[AVG]</a><br>Deze standpunten kunnen op verschillende manieren worden verzameld, afhankelijk van de context (intern of extern onderzoek naar de verwerkingsmethoden en het doel, vraag onder aandacht van personeelsvertegenwoordigers of vakbonden brengen, enquête onder toekomstige klanten van de gegevensverwerker). <strong> Als de gegevensbeheerder besluit de meningen van de betrokkenen te negeren </strong>, moet hij <strong> de motivering voor dit besluit noteren </strong>. Wanneer de verwerkingsverantwoordelijke meent dat <strong> het verzamelen van de standpunten van de betrokkenen niet relevant is, moet hij ook de motivering daarvan noteren</strong>.",
 				"name": "Het oordeel van de betrokkene",
 				"source": "AVG Art. 39.9 en PIAF Connected Objects p38"
 			},
 			"PIA_VAL_DPO": {
-				"description": "De voor de verwerking verantwoordelijke zoekt de functionaris voor gegevensbescherming (FG), indien aangewezen, bij het uitvoeren van een gegevensbeschermingseffectbeoordeling. Zie Art. 39.2 van de <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/NL/TXT/HTML/?uri=CELEX:32016R0679&from=NL\">[AVG]</a><br> <strong>Deze opvatting kan tegen de verwerking zijn die wordt geïmplementeerd, zonder de beslissing van de verantwoordelijke voor dat alles te beperken</strong>.",
+				"description": "De verwerkingsverantwoordelijke zoekt de functionaris voor gegevensbescherming (FG), indien aangewezen, bij het uitvoeren van een gegevensbeschermingseffectbeoordeling. Zie Art. 39.2 van de <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/NL/TXT/HTML/?uri=CELEX:32016R0679&from=NL\">[AVG]</a><br> <strong>Deze opvatting kan tegen de verwerking zijn die wordt geïmplementeerd, zonder de beslissing van de verantwoordelijke voor dat alles te beperken</strong>.",
 				"name": "DPO's (FG) mening ",
 				"source": "AVG Art. 39.2 en PIAF Connected Objects p37"
 			},
@@ -818,13 +818,13 @@
 				"source": "PIAF Connected Objects p40"
 			}
 		},
-		"title": "Kennis bank"
+		"title": "Kennisbank"
 	},
 	"measures": {
 		"add": "Voeg een lege maatregel toe (gebruik anders de kennisbank)",
 		"default_placeholder": "Beschrijf de bestaande of beoogde maatregelen om de gegevensbeveiliging te waarborgen.",
 		"edit": "Bewerk maatregel",
-		"placeholder_title": "Maatregel titel",
+		"placeholder_title": "Titel maatregel",
 		"remove": "Verwijder maatregel"
 	},
 	"misc": {
@@ -856,7 +856,7 @@
 			"content": "De PIA is volledig bewerkt, en moet opnieuw gevalideerd worden."
 		},
 		"completed_evaluation": {
-			"content": "De PIA is volledig gereviewed, en moet nog goedgekeurd worden."
+			"content": "De PIA is volledig gereviewed, en moet nog gevalideerd worden."
 		},
 		"continue": "Vervolgen",
 		"declare_measures": {
@@ -870,10 +870,10 @@
 			"review_section": "Controleer een sectie"
 		},
 		"import_wrong_pia_file": {
-			"content": "TO BE TRANSLATED - Le fichier importé ne correspond pas à un fichier de type PIA"
+			"content": "Het geïmporteerde bestand stemt niet overeen met een bestand van het type PIA"
 		},
 		"import_wrong_structure_file": {
-			"content": "TO BE TRANSLATED - Le fichier importé ne correspond pas à un fichier de type Modèle"
+			"content": "Het geïmporteerde bestand stemt niet overeen met een bestand van het type sjabloon"
 		},
 		"modal_select_text_pia": {
 			"content": "De inhoud van de PIA is gekopieerd naar het klembord."
@@ -900,30 +900,30 @@
 			"remove": "Remove this PIA"
 		},
 		"remove_question": {
-			"content": "TO BE TRANSLATED - Souhaitez-vous supprimer la question ?",
-			"keep": "TO BE TRANSLATED - Annuler",
-			"remove": "TO BE TRANSLATED - Supprimer"
+			"content": "Wilt u de vraag verwijderen?",
+			"keep": "Annuleren",
+			"remove": "Verwijderen"
 		},
 		"remove_structure": {
-			"content": "TO BE TRANSLATED - <span class='strong'>Attention,</span><br>Êtes-vous sûr de vouloir<br>supprimer ce modèle ?",
-			"remove": "TO BE TRANSLATED - Supprimer ce modèle"
+			"content": "<span class='strong'>Opgelet,</span><br>Ben u zeker dat u <br>dit sjabloon wilt verwijderen?",
+			"remove": "Dit sjabloon verwijderen"
 		},
 		"same_comment": {
 			"content": "<span class='strong'>Waarschuwing, </span> <br> Voer een andere opmerking in dan de laatst opgenomen."
 		},
 		"signed_pia_validation": {
-			"content": "Bevestig het ondertekende rapport om de PIA goed te keuren.",
+			"content": "Bevestig het ondertekende rapport om de PIA te valideren.",
 			"download_pia": "Download rapport"
 		},
 		"simple_pia_validation": {
-			"content": "U hebt de PIA goedgekeurd."
+			"content": "U hebt de PIA gevalideerd."
 		},
 		"start_evaluation": "Start review",
 		"update_server_url_nok": {
-			"content": "TO BE TRANSLATED - Connection impossible."
+			"content": "Verbinden mislukt."
 		},
 		"update_server_url_ok": {
-			"content": "TO BE TRANSLATED - The server address has been updated."
+			"content": "Het serveradres werd geüpdatet."
 		},
 		"validate_evaluation": {
 			"content": "Dit gedeelte is klaar voor het valideren van de PIA."
@@ -933,19 +933,19 @@
 		}
 	},
 	"opinions": {
-		"content": ", overweeg dat:",
+		"content": ", overweegt dat:",
 		"dpo_lock": "Vul de andere secties in voordat u het oordeel van de DPO / FG kunt invullen.",
-		"dpo_opinion": "DPO / FG mening",
+		"dpo_opinion": "Mening FG/DPO",
 		"edit": "Bewerk",
-		"people_opinion": "Betrokken mensen advies",
-		"placeholder_concerned_people_name": "Betrokken mensen naam / namen",
-		"placeholder_dpo_name": "DPO / FG naam / namen",
+		"people_opinion": "Advies betrokken mensen",
+		"placeholder_concerned_people_name": "Naam/namen betrokken mensen",
+		"placeholder_dpo_name": "Naam/namen FG/DPO",
 		"placeholder_dpo_opinion": "Geef de redenen voor uw keuze.",
 		"placeholder_people_opinion": "Beschrijf hoe de meningen zijn verzameld en wat de analyse is. Als de meningen niet zijn opgevraagd, vermeld dan de redenen.",
 		"placeholder_search_content": "Geef de reden waarom de mening van de betrokken personen niet is gevraagd.",
 		"treatment_lock": "Vul de andere secties in voordat u de mening van de betrokken personen kunt invullen.",
-		"treatment_nok": "De behandeling mag niet worden gebruikt.",
-		"treatment_ok": "De behandeling zou kunnen worden geïmplementeerd."
+		"treatment_nok": "De verwerking mag niet worden gebruikt.",
+		"treatment_ok": "De verwerking zou kunnen worden geïmplementeerd."
 	},
 	"overview-risks": {
 		"important": "Belangrijk",
@@ -954,12 +954,12 @@
 		"measures": "Measures",
 		"negligible": "Verwaarloosbaar",
 		"potential_impacts": "Potential impacts",
-		"risk-access_x": "Severity",
-		"risk-access_y": "Likelihood",
-		"risk-change_x": "Severity",
-		"risk-change_y": "Likelihood",
-		"risk-disappearance_x": "Severity",
-		"risk-disappearance_y": "Likelihood",
+		"risk-access_x": "Ernst",
+		"risk-access_y": "Waarschijnlijkheid",
+		"risk-change_x": "Ernst",
+		"risk-change_y": "Waarschijnlijkheid",
+		"risk-disappearance_x": "Ernst",
+		"risk-disappearance_y": "Waarschijnlijkheid",
 		"sources": "Sources",
 		"threat": "Threat"
 	},
@@ -972,43 +972,43 @@
 		"footer": {
 			"ask_evaluation": "Vraag een beoordeling",
 			"mandatory_fields": "Alle velden moeten worden ingevuld",
-			"structure_add_question": "TO BE TRANSLATED - Ajouter une question",
+			"structure_add_question": "Een vraag toevoegen",
 			"subsection_validated": "Subsectie beoordeeld, in afwachting van definitieve validatie",
 			"validate_evaluation": "Beoordeling valideren"
 		},
 		"header": {
-			"display_action_plan": "Toon<br>actie plan",
-			"edition": "Editie",
+			"display_action_plan": "Toon<br>actieplan",
+			"edition": "Opmaak",
 			"evaluation": "Evaluatie",
 			"preview": "Voorbeeld"
 		},
 		"sections": {
-			"based_on_structure_name": "TO BE TRANSLATED - Basé sur le modèle :",
+			"based_on_structure_name": "Gebaseerd op het sjabloon:",
 			"homepage_link": "Terug naar dashboard",
 			"refuse_pia": "Geweigerde PIA",
 			"status": {
 				"evaluation": {
-					"cancel": "De review verzoek annuleren.",
-					"cancel_button": "Annuleer review verzoek",
-					"content": "Dit onderdeel is nog niet gereviewed. Indien je dit inhoud, die ingediend is voor rewiew, wenst aan te passen moet je ",
+					"cancel": "Het reviewverzoek annuleren.",
+					"cancel_button": "Annuleer reviewverzoek",
+					"content": "Dit onderdeel is nog niet gereviewed. Indien u deze inhoud, die ingediend is voor review, wenst aan te passen moet u ",
 					"title": "Wachten op review."
 				},
 				"validation": {
 					"cancel": "Het validatieverzoek annuleren.",
 					"cancel_button": "Annuleer het validatieverzoek",
-					"content": "Dit onderdeel is gereviewed en wacht op de algmene PIA validatie. Indien je de review wenst aan te passen moet je ",
+					"content": "Dit onderdeel is gereviewed en wacht op de algemene PIA validatie. Indien u de review wenst aan te passen moet u ",
 					"title": "Wachten op validatie."
 				}
 			},
-			"validate_pia": "Valideren PIA"
+			"validate_pia": "PIA Valideren"
 		},
 		"statuses": {
-			"0": "In progressie",
+			"0": "In opmaak",
 			"1": "Afgekeurd",
-			"2": "Eenvoudige validatie",
-			"3": "Ondertekende validatie",
+			"2": "Gevalideerd (eenvoudig)",
+			"3": "Gevalideerd (ondertekend)",
 			"4": "Gearchiveerd",
-			"5": "Wachten op validatie"
+			"5": "Wacht op validatie"
 		}
 	},
 	"questions": {
@@ -1020,8 +1020,8 @@
 			"3": "Belangrijk",
 			"4": "Maximaal"
 		},
-		"placeholder_title": "TO BE TRANSLATED - Titre de la question (obligatoire)",
-		"remove": "TO BE TRANSLATED - Supprimer la question"
+		"placeholder_title": "Title van de vraag (verplicht)",
+		"remove": "De vraag verwijderen"
 	},
 	"rejection_page": {
 		"applied_adjustments": "Voorgestelde aanpassingen",
@@ -1029,12 +1029,12 @@
 		"button": {
 			"abandon_treatment": "Verlaat verwerking",
 			"reject_pia": "Weiger PIA",
-			"send_for_validation": "Opnieuw versturen voor goedkeuring"
+			"send_for_validation": "Opnieuw versturen voor validatie"
 		},
 		"previous_rejection": "Vorige weigering",
 		"rejection_reason": "Reden voor weigering",
 		"rejection_reason_placeholder": "Beschrijf de reden voor weigering van de PIA.",
-		"title": "TValidatie geschiedenis"
+		"title": "Historiek validatie"
 	},
 	"sections": {
 		"1": {
@@ -1054,7 +1054,7 @@
 							"title": "Zijn er normen van toepassing op de verwerking?"
 						}
 					},
-					"short_help": "In dit deel kunt u het object van het onderzoek identificeren en presenteren.",
+					"short_help": "In dit deel kunt u het voorwerp van het onderzoek identificeren en voorstellen.",
 					"title": "Overzicht"
 				},
 				"2": {
@@ -1076,7 +1076,7 @@
 					"title": "Gegevens, processen en ondersteunende activa"
 				}
 			},
-			"short_help": "Dit gedeelte geeft u een duidelijk beeld van de behandeling(en) van de betreffende persoonsgegevens.",
+			"short_help": "Dit gedeelte geeft u een duidelijk beeld van de verwerking(en) van de betreffende persoonsgegevens.",
 			"title": "Context"
 		},
 		"2": {
@@ -1104,43 +1104,43 @@
 							"title": "Zijn de gegevens juist en worden ze up-to-date gehouden?"
 						},
 						"5": {
-							"placeholder": "Leg uit waarom de opslagduur wordt gerechtvaardigd door wettelijke vereisten en / of verwerkingsbehoeften.",
+							"placeholder": "Leg uit waarom de opslagduur wordt gerechtvaardigd door wettelijke vereisten en/of verwerkingsbehoeften.",
 							"short_title": "Opslagduur",
 							"title": "Wat is de opslagduur van de gegevens?"
 						}
 					},
-					"short_help": "In dit deel kunt u de legitimiteit van uw behandeling en van de verwerkte gegevens aantonen.",
+					"short_help": "In dit deel kunt u de legitimiteit van uw verwerking en van de verwerkte gegevens aantonen.",
 					"title": "Evenredigheid en noodzaak"
 				},
 				"2": {
 					"questions": {
 						"1": {
-							"placeholder": "Beschrijf wat de informatie is die aan de betrokkenen wordt gegeven en wat de middelen zijn om dit te doen.",
+							"placeholder": "Beschrijf welke informatie aan de betrokkenen wordt gegeven en met welke middelen dit gebeurt.",
 							"short_title": "Informatie voor de betrokkenen",
 							"title": "Hoe worden de betrokkenen geïnformeerd over de verwerking?"
 						},
 						"2": {
-							"placeholder": "Beschrijf de bedieningselementen die bedoeld zijn om ervoor te zorgen dat gebruikers toestemming hebben verkregen.",
+							"placeholder": "Beschrijf de maatregelen die zijn getroffen om toestemming te verkrijgen van de gebruikers.",
 							"short_title": "Verkrijgen van toestemming",
 							"title": "Hoe wordt de toestemming van betrokkenen verkregen?"
 						},
 						"3": {
-							"placeholder": "Beschrijf de bedieningselementen die bedoeld zijn om betrokkenen toegang te verlenen tot hun gegevens en deze te ontvangen en te verzenden.",
+							"placeholder": "Beschrijf de maatregelen die bedoeld zijn om betrokkenen toegang te verlenen tot hun gegevens en deze te ontvangen en te verzenden.",
 							"short_title": "Recht op toegang en gegevensportabiliteit",
 							"title": "Hoe kunnen betrokkenen hun recht op toegang en gegevensportabiliteit uitoefenen?"
 						},
 						"4": {
-							"placeholder": "Beschrijf de bedieningselementen die bedoeld zijn om betrokkenen in staat te stellen hun gegevens te corrigeren en te wissen.",
+							"placeholder": "Beschrijf de maatregelen die bedoeld zijn om betrokkenen in staat te stellen hun gegevens te corrigeren en te wissen.",
 							"short_title": "Recht op rectificatie en verwijdering",
 							"title": "Hoe kunnen betrokkenen hun recht op rectificatie en verwijdering uitoefenen?"
 						},
 						"5": {
-							"placeholder": "Beschrijf de bedieningselementen die bedoeld zijn om betrokkenen te kunnen beperken en om bezwaar te maken tegen de verwerking van hun gegevens.",
+							"placeholder": "Beschrijf de maatregelen die bedoeld zijn om betrokkenen te kunnen beperken en om bezwaar te maken tegen de verwerking van hun gegevens.",
 							"short_title": "Recht op beperking en bezwaar",
 							"title": "Hoe kunnen betrokkenen hun recht op beperking uitoefenen en bezwaar maken?"
 						},
 						"6": {
-							"placeholder": "Beschrijf voor elke processor zijn verantwoordelijkheden (duur, reikwijdte, doel, gedocumenteerde verwerkingsinstructies, voorafgaande toestemming) en verstrek de contracten, gedragscodes en certificeringen die zijn taken en verplichtingen bepalen.",
+							"placeholder": "Beschrijf voor elke verwerker zijn verantwoordelijkheden (duur, reikwijdte, doel, gedocumenteerde verwerkingsinstructies, voorafgaande toestemming) en verstrek de contracten, gedragscodes en certificeringen die zijn taken en verplichtingen bepalen.",
 							"short_title": "Subcontracting",
 							"title": "Zijn de verplichtingen van de verwerkers duidelijk geïdentificeerd en geregeld door een contract?"
 						},
@@ -1150,8 +1150,8 @@
 							"title": "Zijn de gegevens in het geval van gegevensoverdracht buiten de Europese Unie voldoende beschermd?"
 						}
 					},
-					"short_help": "Met dit deel kunt u aantonen dat u de nodige middelen inzet om de betrokken personen in staat te stellen hun rechten uit te oefenen.",
-					"title": "Besturing om de persoonlijke rechten van betrokkenen te beschermen"
+					"short_help": "Met dit deel kunt u aantonen dat u de nodige middelen inzet om de betrokken personen in staat te stellen om hun rechten uit te oefenen.",
+					"title": "Maatregelen om de persoonlijke rechten van de betrokkenen te beschermen"
 				}
 			},
 			"short_help": "In dit gedeelte kunt u het nalevingskader voor privacyprincipes opstellen.",
@@ -1160,7 +1160,7 @@
 		"3": {
 			"items": {
 				"1": {
-					"short_help": "In deze sectie kunt u controle maatregelen (bestaande of geplande) identificeren die bijdragen aan gegevensbeveiliging.",
+					"short_help": "In deze sectie kunt u controlemaatregelen (bestaande of geplande) identificeren die bijdragen aan gegevensbeveiliging.",
 					"title": "Geplande of bestaande maatregelen"
 				},
 				"2": {
@@ -1179,15 +1179,15 @@
 						},
 						"4": {
 							"placeholder": "Klik hier om controle maatregelen te selecteren die het risico aanpakken.",
-							"title": "Welke van de geïdentificeerde controles dragen bij aan het aanpakken van het risico?"
+							"title": "Welke van de geïdentificeerde maatregelen dragen bij aan het aanpakken van het risico?"
 						},
 						"5": {
 							"placeholder": "Rechtvaardig hier de geschatte ernst van het risico.",
-							"title": "Hoe schat u de ernst van het risico, met name op basis van de potentiële effecten en geplande controles?"
+							"title": "Hoe schat u de ernst van het risico, met name op basis van de potentiële effecten en geplande maatregelen?"
 						},
 						"6": {
 							"placeholder": "Rechtvaardig hier de geschatte waarschijnlijkheid.",
-							"title": "Hoe schat u de waarschijnlijkheid van het risico, vooral met betrekking tot bedreigingen, risicobronnen en geplande controles?"
+							"title": "Hoe schat u de waarschijnlijkheid van het risico, vooral met betrekking tot bedreigingen, risicobronnen en geplande maatregelen?"
 						}
 					},
 					"short_help": "Analyseer de oorzaken en gevolgen van onwettige toegang tot gegevens en schat de ernst en waarschijnlijkheid ervan in.",
@@ -1208,7 +1208,7 @@
 							"title": "Wat zijn de risicobronnen?"
 						},
 						"4": {
-							"placeholder": "Klik hier om controle maatregelen te selecteren die het risico aanpakken.",
+							"placeholder": "Klik hier om controlemaatregelen te selecteren die het risico aanpakken.",
 							"title": "Welke van de geïdentificeerde controles dragen bij aan het aanpakken van het risico?"
 						},
 						"5": {
@@ -1220,7 +1220,7 @@
 							"title": "Hoe schat u de waarschijnlijkheid van het risico, vooral met betrekking tot bedreigingen, risicobronnen en geplande controles?"
 						}
 					},
-					"short_help": "Analyseer de oorzaken en gevolgen van een ongewenste wijziging in gegevens en schat de ernst en waarschijnlijkheid ervan in.",
+					"short_help": "Analyseer de oorzaken en gevolgen van een ongewenste wijziging van de gegevens en schat de ernst en waarschijnlijkheid ervan in.",
 					"title": "Ongewenste wijziging van gegevens"
 				},
 				"4": {
@@ -1238,7 +1238,7 @@
 							"title": "Wat zijn de risicobronnen?"
 						},
 						"4": {
-							"placeholder": "Klik hier om controle maatregelen te selecteren die het risico aanpakken.",
+							"placeholder": "Klik hier om controlemaatregelen te selecteren die het risico aanpakken.",
 							"title": "Welke van de geïdentificeerde controles dragen bij aan het aanpakken van het risico?"
 						},
 						"5": {
@@ -1255,7 +1255,7 @@
 				},
 				"5": {
 					"short_help": "Met deze visualisatie kunt u een globaal en synthetisch beeld hebben van de effecten van de besturing op de risico's die zij aanpakken.",
-					"title": "Risico's overzicht"
+					"title": "Overzicht risico's"
 				}
 			},
 			"short_help": "In dit gedeelte kunt u de privacyrisico's beoordelen, rekening houdend met bestaande of geplande controles.",
@@ -1264,16 +1264,16 @@
 		"4": {
 			"items": {
 				"1": {
-					"short_help": "Met deze visualisatie kunt u de positionering van de risico's onderling vergelijken, voor en na toepassing van de aanvullende bedieningselementen.",
+					"short_help": "Met deze visualisatie kunt u de positionering van de risico's onderling vergelijken, voor en na toepassing van de aanvullende maatregelen.",
 					"title": "Risicokaart"
 				},
 				"2": {
-					"short_help": "Plan in detail de implementatie van de extra controles die geïdentificeerd tijdens de PIA.",
+					"short_help": "Plan in detail de implementatie van de extra maatregelen die werden geïdentificeerd tijdens de PIA.",
 					"title": "Actieplan"
 				},
 				"3": {
 					"short_help": "Presenteer het advies van de persoon die verantwoordelijk is voor gegevensbescherming en privacykwesties (afgevaardigde gegevensbescherming indien aanwezig). Presenteer de standpunten van de betrokkenen of hun vertegenwoordigers.",
-					"title": "Menningen van DPO / FG en betrokken personen"
+					"title": "Meningen van FG/DPO en betrokken personen"
 				},
 				"4": {
 					"title": "Valideer de PIA"
@@ -1292,6 +1292,27 @@
 		"update": "URL bijwerken"
 	},
 	"summary": {
+    "preview_title": "TO TRANSLATE - Preview",
+    "preview_subtitle": "TO TRANSLATE - General information",
+    "preview_edition": "TO TRANSLATE - Editing",
+    "preview_evaluation": "TO TRANSLATE - Evaluation",
+    "preview_validation": "TO TRANSLATE - Validation",
+    "preview_status": "TO TRANSLATE - Status",
+    "preview_validation_section": "TO TRANSLATE - Validation",
+    "preview_dpo_opinion": "TO TRANSLATE - DPO and data subjects opinion",
+    "preview_no_data": "TO TRANSLATE - No data to display.",
+    "actions": {
+      "print_and_download": "TO TRANSLATE - Print and download",
+      "print": "TO TRANSLATE - Print the report",
+      "complete_download": "TO TRANSLATE - Download the full report",
+      "complete_download_desc": "TO TRANSLATE - Export in a .zip archive all the report content (.doc and pictures), attachments and the action plan in a .csv format.",
+      "individual_download": "TO TRANSLATE - Download elements of the report",
+      "individual_download_desc": "TO TRANSLATE - Export specific elements of the report.",
+      "individual_download_select": "TO TRANSLATE - Select elements to export:",
+      "individual_download_doc": "TO TRANSLATE - Texts (.doc)",
+      "individual_download_images": "TO TRANSLATE - Visual elements (.png) including the risk overview, the risk mapping and the action plan."
+    },
+    "download_csv": "TO TRANSLATE - Action plan (.csv)",
 		"action_plan": {
 			"fundamental_principles": "Fundamentele principes",
 			"implementation_date": "Verwachte datum van implementatie",
@@ -1303,16 +1324,14 @@
 		},
 		"attachments": "Bijlagen",
 		"concerned_people_name": "Namen van betrokken mensen",
-		"concerned_people_opinion": "Concerned people opinions",
+		"concerned_people_opinion": "Meningen van betrokken mensen",
 		"concerned_people_searched_opinion": "Zoeken naar de mening van betrokken mensen",
 		"concerned_people_status": "Statussen van betrokken mensen",
 		"concerned_people_unsearched_opinion_comment": "Reden waarom de mening van betrokken mensen niet werd gevraagd",
 		"content_choice": {
-			"0": "De behandeling mag niet worden gebruikt.",
-			"1": "De behandeling zou kunnen worden geïmplementeerd."
+			"0": "De verwerking mag niet gebeuren.",
+			"1": "De verwerking zou kunnen worden geïmplementeerd."
 		},
-    "generate_zip": "TO TRANSLATE - Download the full report (.zip)",
-    "generate_docx": "TO TRANSLATE - Download the report (.doc)",
 		"creation_date": "Aanmaakdatum",
 		"csv_action_plan_comment": "Commentaar actieplan",
 		"csv_evaluation_comment": "Evaluatie commentaar",
@@ -1322,21 +1341,19 @@
 		"csv_section": "Sectie",
 		"csv_title_object": "Titel",
 		"display_filters": {
-      "check_all": "TO TRANSLATE - Enable / disable all display filters",
+      "check_all": "Alle weergavefilters inschakelen / uitschakelen",
 			"action_plan_content": "Toon actieplan",
 			"context_content": "Toon \"Context\"",
-			"main_content": "Toon \"PIA informatie\"",
+			"main_content": "Toon \"PIA-informatie\"",
 			"principles_content": "Toon \"Fundamentele principes\"",
 			"risks_cartography_content": "Toon risicokaart",
 			"risks_content": "Toon \"Risico's\"",
 			"risks_overview_content": "Toon overzicht van de risico's",
 			"title": "Filters"
 		},
-		"download_csv": "Download een CSV-export",
-		"download_images": "Download afbeeldingen",
-		"dpo_name": "DPO's / FG naam",
-		"dpo_opinion": "DPO's / FG mening",
-		"dpo_status": "DPO's / FG status",
+		"dpo_name": "naam FG/DPO",
+		"dpo_opinion": "mening FG/DPO",
+		"dpo_status": "status FG/DPO",
 		"gauges": {
 			"1": "Verwaarloosbaar",
 			"2": "Beperkt",
@@ -1349,37 +1366,35 @@
 		"pia_assessor": "Naam van de beoordelaar",
 		"pia_author": "Auteursnaam",
 		"pia_name": "PIA",
-		"pia_validator": "Validator's naam",
+		"pia_validator": "Naam validator",
 		"previous_page": "Terug naar de vorige pagina",
-		"print": "Print",
-		"rejection_reason": "Afwijzingsreden",
+		"rejection_reason": "Reden van afwijzing",
 		"risks_cartography_title": "Risicokartering",
-		"risks_overview_title": "Risico's overzicht",
+		"risks_overview_title": "Overzicht risico's",
 		"title": "PIA informatie"
 	},
 	"validation_page": {
 		"add_signed_pia": "Voeg de ondertekende PIA toe",
-		"after_reading": "Na het lezen van de volledige betreffende de data verwerking gelinkt aan ",
+		"after_reading": "Na het lezen van de volledige PIA betreffende de gegevensverwerking gelinkt aan ",
 		"button": {
-			"rejection": "Weiger PIA",
-			"signed_validation": "PIA Goedkeuren <br>(ondertekenen)",
-			"simple_validation": "PIA Goedkeuren <br>(direct)"
+			"rejection": "PIA weigeren",
+			"signed_validation": "PIA valideren <br>(ondertekenen)",
+			"simple_validation": "PIA valideren <br>(eenvoudig)"
 		},
-		"confirmation1": "Erken ik dat de context van de verwerking beschreven in de PIA consistent is met de werkelijkheid.",
-		"confirmation2": "Erken ik dat ik bewust ben van de risico's gebaseerd op de bestaande en de te implementeren maatregelen.",
+		"confirmation1": "Ik erken ik dat de context van de verwerking beschreven in de PIA overeenstemt met de werkelijkheid.",
+		"confirmation2": "Ik erken ik dat ik bewust ben van de risico's gebaseerd op de bestaande en de te implementeren maatregelen.",
 		"confirmation3": "Ik bekrachtig de corrigerende acties die in het actieplan zijn aangegeven.",
 		"confirmation4": "Ik verbind mij ertoe om de aangegeven corrigerende maatregelen zo snel mogelijk te implementeren.",
 		"latest_signed_attachment": "Laatst ondertekende bijlage",
 		"mandatory_fields": "Alle checkboxen moeten aangevinkt zijn",
 		"remove_attachment": "Verwijder de bijlage",
-		"responsible": "Persoon verantwoordelijke voor validatie van de PIA: ",
-		"signed_attachments_history": "Ondertekende bijlage's historie",
+		"responsible": "Verantwoordelijke voor de validatie van de PIA: ",
+		"signed_attachments_history": "Historiek ondertekende bijlages",
 		"tools": {
-			"action_plan": "Actieplan",
 			"dashboard": "Dashboard",
 			"display_pia": "Toon PIA"
 		},
-		"validated_pia_with_signature": "Goedgekeurd",
+		"validated_pia_with_signature": "Gevalideerd (ondertekend)",
 		"waiting_for_signature": "Wachten op ondertekende PIA"
 	}
 }

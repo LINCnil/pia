@@ -84,7 +84,7 @@
 		"to_correct": "Da correggere"
 	},
 	"header": {
-    "exit_full_screen_mode": "TO TRANSLATE - Press F11 to exit full screen mode.",
+    "exit_full_screen_mode": "Premi F11 per uscire dalla modalità schermo intero.",
 		"homepage_link": "Pannello di controllo",
 		"knowledge_base_link": "Archivio",
 		"languages": {
@@ -115,7 +115,7 @@
 		"logo_subtitle": "",
 		"logo_title": "Valutazione d'impatto sulla protezione dei dati",
 		"pia_example_link": "Esempio PIA",
-		"structures": "TO BE TRANSLATED - Modèles de PIA",
+		"structures": "Modelli PIA",
 		"tools": {
 			"about": "Informazioni",
 			"accessibility": "Accessibilità per ipovedenti (colori ad alto contrasto, daltonismo)",
@@ -172,11 +172,11 @@
 			"date": "Data",
 			"evaluation": "Revisore",
 			"import_pia": "Importa PIA",
-			"import_structure": "TO BE TRANSLATED - Import template",
+			"import_structure": "Importa modello",
 			"item": {
 				"consult_pia": "Visualizza PIA",
 				"edit_pia": "Modifica PIA",
-				"edit_structure": "TO BE TRANSLATED - Éditer le modèle",
+				"edit_structure": "Edita modello",
 				"tools": {
 					"action_plan": "Mostra<br>il piano d'azione",
 					"duplicate": "Crea una copia",
@@ -187,26 +187,26 @@
 				}
 			},
 			"new_pia": "Nuova PIA",
-			"new_structure": "TO BE TRANSLATED - Nouveau modèle",
+			"new_structure": "Nuovo modello",
 			"or": "oppure",
 			"pia_name": "PIA",
 			"placeholder_author": "Cognome, nome",
 			"placeholder_evaluation": "Cognome, nome",
 			"placeholder_import_pia": "Importa PIA",
-			"placeholder_import_structure": "TO BE TRANSLATED - Importer modèle",
+			"placeholder_import_structure": "Importa modello",
 			"placeholder_new_pia": "Nuova PIA",
-			"placeholder_new_structure": "TO BE TRANSLATED - Nouveau modèle",
+			"placeholder_new_structure": "Nuovo modello",
 			"placeholder_pia_name": "Nome della PIA",
 			"placeholder_sector_name": "TO BE TRANSLATED - Intitulé du Secteur associé",
 			"placeholder_start": "Tutti i campi sono obbligatori",
-			"placeholder_structure": "TO BE TRANSLATED - Modèle par défaut",
+			"placeholder_structure": "Modello di base",
 			"placeholder_structure_name": "TO BE TRANSLATED - Intitulé du modèle",
 			"placeholder_validation": "Cognome, nome",
-			"sector_name": "TO BE TRANSLATED - Secteur associé",
+			"sector_name": "Settore collegato",
 			"start": "Avvio",
 			"status": "Stato",
-			"structure": "TO BE TRANSLATED - Modèle",
-			"structure_name": "TO BE TRANSLATED - Nom du modèle",
+			"structure": "Modello",
+			"structure_name": "Nome del modello",
 			"title_close_creation": "Chiudi",
 			"validation": "Validatore"
 		},
@@ -1020,8 +1020,8 @@
 			"3": "Importante",
 			"4": "Massimo"
 		},
-		"placeholder_title": "TO BE TRANSLATED - Titre de la question (obligatoire)",
-		"remove": "TO BE TRANSLATED - Supprimer la question"
+		"placeholder_title": "Titolo della domanda (obbligatorio)",
+		"remove": "Eliminare la domanda"
 	},
 	"rejection_page": {
 		"applied_adjustments": "Modifiche apportate",
@@ -1292,6 +1292,27 @@
 		"update": "Aggiorna URL"
 	},
 	"summary": {
+    "preview_title": "TO TRANSLATE - Preview",
+    "preview_subtitle": "TO TRANSLATE - General information",
+    "preview_edition": "TO TRANSLATE - Editing",
+    "preview_evaluation": "TO TRANSLATE - Evaluation",
+    "preview_validation": "TO TRANSLATE - Validation",
+    "preview_status": "TO TRANSLATE - Status",
+    "preview_validation_section": "TO TRANSLATE - Validation",
+    "preview_dpo_opinion": "TO TRANSLATE - DPO and data subjects opinion",
+    "preview_no_data": "TO TRANSLATE - No data to display.",
+    "actions": {
+      "print_and_download": "TO TRANSLATE - Print and download",
+      "print": "TO TRANSLATE - Print the report",
+      "complete_download": "TO TRANSLATE - Download the full report",
+      "complete_download_desc": "TO TRANSLATE - Export in a .zip archive all the report content (.doc and pictures), attachments and the action plan in a .csv format.",
+      "individual_download": "TO TRANSLATE - Download elements of the report",
+      "individual_download_desc": "TO TRANSLATE - Export specific elements of the report.",
+      "individual_download_select": "TO TRANSLATE - Select elements to export:",
+      "individual_download_doc": "TO TRANSLATE - Texts (.doc)",
+      "individual_download_images": "TO TRANSLATE - Visual elements (.png) including the risk overview, the risk mapping and the action plan."
+    },
+    "download_csv": "TO TRANSLATE - Action plan (.csv)",
 		"action_plan": {
 			"fundamental_principles": "Principi fondamentali",
 			"implementation_date": "Data prevista di implementazione",
@@ -1311,8 +1332,6 @@
 			"0": "Il trattamento non dovrebbe essere implementato.",
 			"1": "Il trattamento può essere implementato."
 		},
-    "generate_zip": "TO TRANSLATE - Download the full report (.zip)",
-    "generate_docx": "TO TRANSLATE - Download the report (.doc)",
 		"creation_date": "Data di creazione",
 		"csv_action_plan_comment": "Commento sul piano di azione",
 		"csv_evaluation_comment": "Commento sulla valutazione",
@@ -1332,8 +1351,6 @@
 			"risks_overview_content": "Visualizza panoramica rischi",
 			"title": "Filtri visualizzazione"
 		},
-		"download_csv": "Scaricare un'esportazione CSV",
-		"download_images": "Scarica le immagini",
 		"dpo_name": "Nome del DPO/RPD",
 		"dpo_opinion": "Parere del DPO/RPD",
 		"dpo_status": "Posizione del DPO/RPD",
@@ -1351,7 +1368,6 @@
 		"pia_name": "Nome della PIA",
 		"pia_validator": "Nome validatore",
 		"previous_page": "Torna alla pagina precedente",
-		"print": "Stampa",
 		"rejection_reason": "Motivazione del rigetto",
 		"risks_cartography_title": "Mappaggio dei rischi",
 		"risks_overview_title": "Panoramica dei rischi",
@@ -1375,7 +1391,6 @@
 		"responsible": "Responsabile della validazione della PIA: ",
 		"signed_attachments_history": "Cronologia allegati firmati",
 		"tools": {
-			"action_plan": "Piano d'azione",
 			"dashboard": "Bacheca",
 			"display_pia": "Visualizza PIA"
 		},

@@ -174,8 +174,8 @@
 			"import_pia": "Uvezi PUP",
 			"import_structure": "Uvezi obrazac",
 			"item": {
-				"consult_pia": "Pogledaj PUP",
-				"edit_pia": "Uredi PUP",
+				"consult_pia": "Pogledaj",
+				"edit_pia": "Uredi",
 				"edit_structure": "Uredi obrazac",
 				"tools": {
 					"action_plan": "Prikaži<br>akcijski plan",
@@ -1292,6 +1292,27 @@
 		"update": "Ažuriraj URL"
 	},
 	"summary": {
+    "preview_title": "TO TRANSLATE - Preview",
+    "preview_subtitle": "TO TRANSLATE - General information",
+    "preview_edition": "TO TRANSLATE - Editing",
+    "preview_evaluation": "TO TRANSLATE - Evaluation",
+    "preview_validation": "TO TRANSLATE - Validation",
+    "preview_status": "TO TRANSLATE - Status",
+    "preview_validation_section": "TO TRANSLATE - Validation",
+    "preview_dpo_opinion": "TO TRANSLATE - DPO and data subjects opinion",
+    "preview_no_data": "TO TRANSLATE - No data to display.",
+    "actions": {
+      "print_and_download": "TO TRANSLATE - Print and download",
+      "print": "TO TRANSLATE - Print the report",
+      "complete_download": "TO TRANSLATE - Download the full report",
+      "complete_download_desc": "TO TRANSLATE - Export in a .zip archive all the report content (.doc and pictures), attachments and the action plan in a .csv format.",
+      "individual_download": "TO TRANSLATE - Download elements of the report",
+      "individual_download_desc": "TO TRANSLATE - Export specific elements of the report.",
+      "individual_download_select": "TO TRANSLATE - Select elements to export:",
+      "individual_download_doc": "TO TRANSLATE - Texts (.doc)",
+      "individual_download_images": "TO TRANSLATE - Visual elements (.png) including the risk overview, the risk mapping and the action plan."
+    },
+    "download_csv": "TO TRANSLATE - Action plan (.csv)",
 		"action_plan": {
 			"fundamental_principles": "Temeljna načela",
 			"implementation_date": "Očekivani datum provedbe",
@@ -1311,8 +1332,6 @@
 			"0": "Tretman se ne smije koristiti.",
 			"1": "Tretman bi se mogao provesti."
 		},
-    "generate_zip": "TO TRANSLATE - Download the full report (.zip)",
-    "generate_docx": "TO TRANSLATE - Download the report (.doc)",
 		"creation_date": "Datum stvaranja",
 		"csv_action_plan_comment": "Komentar akcijskog plana",
 		"csv_evaluation_comment": "Komentar procjene",
@@ -1332,8 +1351,6 @@
 			"risks_overview_content": "Prikaži pregled rizika",
 			"title": "Prikaži filtere"
 		},
-		"download_csv": "Preuzmite izvezenu .CSV datoteku",
-		"download_images": "Preuzmi slike",
 		"dpo_name": "Ime SZP-a",
 		"dpo_opinion": "Mišljenje SZP-a",
 		"dpo_status": "Status SZP-a",
@@ -1351,7 +1368,6 @@
 		"pia_name": "PUP",
 		"pia_validator": "Ime potvrditelja",
 		"previous_page": "Natrag na prethodnu stranicu",
-		"print": "Ispiši",
 		"rejection_reason": "Razlog odbijanja",
 		"risks_cartography_title": "Mapiranje rizika",
 		"risks_overview_title": "Pregled rizika",
@@ -1375,7 +1391,6 @@
 		"responsible": "Osoba odgovorna za potvrđivanje PUP-a: ",
 		"signed_attachments_history": "Povijest potpisanih privitaka",
 		"tools": {
-			"action_plan": "Akcijski plan",
 			"dashboard": "Kontrolna ploča",
 			"display_pia": "Prikaži izvještaj"
 		},

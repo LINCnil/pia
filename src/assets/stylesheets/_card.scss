@@ -245,6 +245,29 @@
             text-decoration: none;
             padding: 5.5px 21px;
           }
+          &-single,
+          &-dual {
+            a {
+              overflow: hidden;
+              text-overflow: ellipsis;
+              white-space: nowrap;
+            }
+          }
+          &-single {
+            width: 50%;
+            margin: 0 auto;
+            a {
+              width: 100%;
+            }
+          }
+          &-dual {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            a {
+              width: 48%;
+            }
+          }
       }
     }
     &-toolbar {
@@ -260,61 +283,6 @@
           display: inline-block;
           vertical-align: top;
           position: relative;
-        }
-        &-more {
-          position: relative;
-           > a {
-            &:focus, &:hover, &:active {
-              cursor: context-menu;
-              .pia-cardsBlock-toolbar-moreList {
-                display: block;
-              }
-            }
-          }
-        }
-        &-moreList {
-            z-index: 999;
-            margin: 0;
-            padding: 0;
-            display: none;
-            position: absolute;
-            left: 15px;
-            top: -6px;
-            padding-left: 15px;
-            background-color: #fff;
-            width: 125px;
-            li {
-                width: 100%;
-                padding-left: 15px;
-                list-style-type: none;
-                color: $pia-green;
-                padding: 0;
-                background-color: #fff;
-                padding-left: 10px;
-                text-align: left;
-                .fa, a {
-                    display: inline-block;
-                    vertical-align: middle;
-                    font-size: 1.2rem;
-                }
-                .fa {
-                    margin-right: 3px;
-                }
-                a {
-                    text-align: left;
-                    padding: 2px;
-                    text-decoration: none;
-                    line-height: 1;
-                    font-size: 1.2rem;
-                }
-                &:focus, &:hover, &:active {
-                    color: #fff;
-                    background-color: $pia-green;
-                    a {
-                        color: #fff;
-                    }
-                }
-            }
         }
     }
 }
