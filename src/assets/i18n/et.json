@@ -174,8 +174,8 @@
 			"import_pia": "Impordi mõjuhinnang",
 			"import_structure": "Impordi mõjuhinnang",
 			"item": {
-				"consult_pia": "Konsulteeri mõjuhinnangu koostamist",
-				"edit_pia": "Toimeta mõjuhinnagut",
+				"consult_pia": "TO TRANSLATE - Consult",
+				"edit_pia": "TO TRANSLATE - Edit",
 				"edit_structure": "Toimeta mõjuhinnagut",
 				"tools": {
 					"action_plan": "Näita<br>tegevuskava",
@@ -1292,6 +1292,27 @@
 		"update": "Uuenda URL"
 	},
 	"summary": {
+    "preview_title": "TO TRANSLATE - Preview",
+    "preview_subtitle": "TO TRANSLATE - General information",
+    "preview_edition": "TO TRANSLATE - Editing",
+    "preview_evaluation": "TO TRANSLATE - Evaluation",
+    "preview_validation": "TO TRANSLATE - Validation",
+    "preview_status": "TO TRANSLATE - Status",
+    "preview_validation_section": "TO TRANSLATE - Validation",
+    "preview_dpo_opinion": "TO TRANSLATE - DPO and data subjects opinion",
+    "preview_no_data": "TO TRANSLATE - No data to display.",
+    "actions": {
+      "print_and_download": "TO TRANSLATE - Print and download",
+      "print": "TO TRANSLATE - Print the report",
+      "complete_download": "TO TRANSLATE - Download the full report",
+      "complete_download_desc": "TO TRANSLATE - Export in a .zip archive all the report content (.doc and pictures), attachments and the action plan in a .csv format.",
+      "individual_download": "TO TRANSLATE - Download elements of the report",
+      "individual_download_desc": "TO TRANSLATE - Export specific elements of the report.",
+      "individual_download_select": "TO TRANSLATE - Select elements to export:",
+      "individual_download_doc": "TO TRANSLATE - Texts (.doc)",
+      "individual_download_images": "TO TRANSLATE - Visual elements (.png) including the risk overview, the risk mapping and the action plan."
+    },
+    "download_csv": "TO TRANSLATE - Action plan (.csv)",
 		"action_plan": {
 			"fundamental_principles": "Põhiprintsiibid",
 			"implementation_date": "Oodatav rakendamise kuupäev",
@@ -1311,8 +1332,6 @@
 			"0": "Ravi ei tohiks kasutada",
 			"1": "Ravi võib rakendada"
 		},
-    "generate_zip": "TO TRANSLATE - Download the full report (.zip)",
-    "generate_docx": "TO TRANSLATE - Download the report (.doc)",
 		"creation_date": "Loomise kuupäev",
 		"csv_action_plan_comment": "Kommenteeri tegevuskava",
 		"csv_evaluation_comment": "Kommenteeri hindamist",
@@ -1332,8 +1351,6 @@
 			"risks_overview_content": "Kuva riskide ülevaade",
 			"title": "Kuva filtrid"
 		},
-		"download_csv": "Laadi alla CSV-eksport",
-		"download_images": "Laadi alla pildid",
 		"dpo_name": "Mõjuhinnangu nimi",
 		"dpo_opinion": "Andmekaitsespetsialisti arvamus",
 		"dpo_status": "Mõjuhinnangu staatus",
@@ -1351,7 +1368,6 @@
 		"pia_name": "Mõjuhinnang",
 		"pia_validator": "Valideerija nimi",
 		"previous_page": "Tagasi eelmisele lehele",
-		"print": "Prindi",
 		"rejection_reason": "Tagasilükkamise põhjus",
 		"risks_cartography_title": "Riskide kaarditamine",
 		"risks_overview_title": "Riskide ülevaade",
@@ -1375,7 +1391,6 @@
 		"responsible": "Mõjuhinnagu kinnitamise eest vastutav isik: ",
 		"signed_attachments_history": "Allkirjastatud manuste ajalugu",
 		"tools": {
-			"action_plan": "Tegevuskava",
 			"dashboard": "Töölaud",
 			"display_pia": "Näita raportit"
 		},

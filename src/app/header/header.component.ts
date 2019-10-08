@@ -38,9 +38,9 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
     const displayMessage = document.querySelector('.pia-closeFullScreenModeAlertBlock');
-    window.outerHeight === screen.height  ? displayMessage.classList.remove('hide') : displayMessage.classList.add('hide');
+    window.screenTop === 0 && window.screenY === 0 ? displayMessage.classList.remove('hide') : displayMessage.classList.add('hide');
     window.onresize = () => {
-      window.outerHeight === screen.height  ? displayMessage.classList.remove('hide') : displayMessage.classList.add('hide');
+      window.screenTop === 0 && window.screenY === 0 ? displayMessage.classList.remove('hide') : displayMessage.classList.add('hide');
     }
     this.appVersion = environment.version;
     this.pia_is_example = false;
