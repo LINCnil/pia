@@ -31,13 +31,14 @@ export class SettingsComponent implements OnInit {
         localStorage.removeItem('server_url');
         this._modalsService.openModal('modal-update-server-url-ok');
       } else {
-        fetch(this.settingsForm.value.server_url, {
+        const serverUrl = this.settingsForm.value.server_url.trim();
+        fetch(serverUrl + '/pias', {
           mode: 'cors'
         }).then((response) => {
           return response.ok;
         }).then((ok: boolean) => {
           if (ok) {
-            localStorage.setItem('server_url', this.settingsForm.value.server_url);
+            localStorage.setItem('server_url', serverUrl);
             this._modalsService.openModal('modal-update-server-url-ok');
           } else {
             this._modalsService.openModal('modal-update-server-url-nok');
