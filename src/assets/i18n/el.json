@@ -74,17 +74,17 @@
 		"placeholder_improvable1": "Σύμφωνα με τις διαθέσιμες πληροφορίες, πρέπει να εφαρμοστούν πρόσθετα μέτρα προκειμένου να βελτιωθεί η προστασία των δεδομένων της επεξεργασίας.",
 		"placeholder_improvable2": "Εισάγετε τα σχόλιά σας.",
 		"placeholder_to_correct": "Οι παρεχόμενες πληροφορίες δεν επαρκούν για την ορθή αξιολόγηση τους. Επιστρέψτε στο πρόγραμμα επεξεργασίας για να βελτιώσετε την αρχική υποβολή.",
-		"status": {
-			"0": "Εκκρεμής",
-			"1": "Προς διόρθωση",
-			"2": "Δεκτικό βελτίωσης",
-			"3": "Αποδεκτό"
-		},
+		"status": [
+			"Εκκρεμής",
+			"Προς διόρθωση",
+			"Δεκτικό βελτίωσης",
+			"Αποδεκτό"
+		],
 		"title": "Αξιολόγηση",
 		"to_correct": "Προς διόρθωση"
 	},
 	"header": {
-    "exit_full_screen_mode": "Πατήστε F11 για έξοδο από την πλήρη οθόνη.",
+		"exit_full_screen_mode": "Πατήστε F11 για έξοδο από την πλήρη οθόνη.",
 		"homepage_link": "Πίνακας ενδείξεων",
 		"knowledge_base_link": "Βάση γνώσεων",
 		"languages": {
@@ -265,9 +265,9 @@
 			"example": "Παράδειγμα",
 			"general_measure": "Μέτρο ασφαλείας του συστήματος",
 			"measure_on_data": "Μέτρο για τα δεδομένα",
+			"method": "Μεθοδολογία",
 			"organizational_measure": "Οργανωτικό μέτρο",
-			"principle": "Αρχή",
-      "method": "Μεθοδολογία"
+			"principle": "Αρχή"
 		},
 		"filters": {
 			"all": "Όλα",
@@ -382,11 +382,6 @@
 				"name": "Απειλές που μπορούν να οδηγήσουν σε ανεπιθύμητη τροποποίηση των προσωπικών δεδομένων",
 				"source": "PIAF Connected Objects p43 and 44, WIKI"
 			},
-      "PIA_METHOD_MES": {
-				"description": "Τα προγραμματισμένα μέτρα είναι εκείνα που είχαν αρχικά τεθεί σε εφαρμογή, πριν από οποιαδήποτε ανάλυση από τον αξιολογητή. Τα συμπληρωματικά ή διορθωτικά μέτρα που συμβουλεύει ο αξιολογητής θα αναφέρονται στο σχέδιο δράσης και θα επιτρέπουν μια δεύτερη αξιολόγηση της σοβαρότητας και της πιθανότητας του κινδύνου.",
-				"name": "Προγραμματισμένα και διορθωτικά μέτρα",
-				"source": ""
-      },
 			"PIA_DEF_MES": {
 				"description": "Διαλογή μεταξύ αυτών που διατίθενται στην ενότητα \"Προγραμματιζόμενα ή υπάρχοντα μέτρα\", τα οποία μπορείτε να συμπληρώσετε εάν χρειάζεται.",
 				"name": "Μέτρα",
@@ -617,6 +612,11 @@
 				"description": "Ανάλογα με την εν λόγω χώρα, θα πρέπει να δικαιολογήσετε την επιλογή της απομακρυσμένης φιλοξενίας και να υποδείξετε τα εφαρμοζόμενα μέτρα νομικής εποπτείας προκειμένου να διασφαλίσετε την επαρκή προστασία του υποκειμένου των δεδομένων σε διασυνοριακή μεταφορά. Αυτό είναι: <br>- Ευρωπαϊκή Ένωση<br>- Χώρα που αναγνωρίζεται ότι παρέχει επαρκή προστασία από την ΕΕ<br>- Μεταφορά στις Ηνωμένες Πολιτείες σε εταιρεία που έχει προσχωρήσει στην Ασπίδα Προστασίας Προσωπικών Δεδομένων<br>- Άλλη χώρα <br>Βλέπετε <a target=\"_blank\" href=\"https://eur-lex.europa.eu/legal-content/EL/TXT/HTML/?uri=CELEX:32016R0679&from=EL\">Άρθ. 44 έως 49 του [ΓΚΔΠ]</a>",
 				"name": "Μεταφορές",
 				"source": "PIAF Connected Objects p18"
+			},
+			"PIA_METHOD_MES": {
+				"description": "Τα προγραμματισμένα μέτρα είναι εκείνα που είχαν αρχικά τεθεί σε εφαρμογή, πριν από οποιαδήποτε ανάλυση από τον αξιολογητή. Τα συμπληρωματικά ή διορθωτικά μέτρα που συμβουλεύει ο αξιολογητής θα αναφέρονται στο σχέδιο δράσης και θα επιτρέπουν μια δεύτερη αξιολόγηση της σοβαρότητας και της πιθανότητας του κινδύνου.",
+				"name": "Προγραμματισμένα και διορθωτικά μέτρα",
+				"source": "WIKI Threats_to_make_a_modification_not_directed_data"
 			},
 			"PIA_ORG_AUD": {
 				"description": "Ύπαρξη μιας πολιτικής και διαδικασιών για την απόκτηση μιας οργάνωσης ικανής να διαχειρίζεται και να ελέγχει την προστασία των προσωπικών δεδομένων που τηρούνται σε αυτήν.",
@@ -966,6 +966,7 @@
 	"pia": {
 		"attachments": {
 			"add": "Προσθήκη",
+			"download": "Κάντε λήψη του συνημμένου",
 			"remove": "Αφαίρεση",
 			"title": "Συνημμένα"
 		},
@@ -1002,24 +1003,24 @@
 			},
 			"validate_pia": "Επικύρωση ΕΑ"
 		},
-		"statuses": {
-			"0": "Σε εξέλιξη",
-			"1": "Απορρίφθηκε",
-			"2": "Απλή επικύρωση",
-			"3": "Υπογεγραμμένη επικύρωση",
-			"4": "Αρχειοθετημένη",
-			"5": "Σε αναμονή επικύρωσης"
-		}
+		"statuses": [
+			"Σε εξέλιξη",
+			"Απορρίφθηκε",
+			"Απλή επικύρωση",
+			"Υπογεγραμμένη επικύρωση",
+			"Αρχειοθετημένη",
+			"Σε αναμονή επικύρωσης"
+		]
 	},
 	"questions": {
 		"edit": "Επεξεργασία ερωτήματος",
-		"gauges": {
-			"0": "(Απροσδιόριστο)",
-			"1": "Αμελητέο",
-			"2": "Περιορισμένο",
-			"3": "Σημαντικό",
-			"4": "Μέγιστο"
-		},
+		"gauges": [
+			"(Απροσδιόριστο)",
+			"Αμελητέο",
+			"Περιορισμένο",
+			"Σημαντικό",
+			"Μέγιστο"
+		],
 		"placeholder_title": "Τίτλος ερωτήματος (υποχρεωτικό)",
 		"remove": "Διαγραφή ερωτήματος"
 	},
@@ -1292,27 +1293,6 @@
 		"update": "Ανανέωση του URL"
 	},
 	"summary": {
-    "preview_title": "TO TRANSLATE - Preview",
-    "preview_subtitle": "TO TRANSLATE - General information",
-    "preview_edition": "TO TRANSLATE - Editing",
-    "preview_evaluation": "TO TRANSLATE - Evaluation",
-    "preview_validation": "TO TRANSLATE - Validation",
-    "preview_status": "TO TRANSLATE - Status",
-    "preview_validation_section": "TO TRANSLATE - Validation",
-    "preview_dpo_opinion": "TO TRANSLATE - DPO and data subjects opinion",
-    "preview_no_data": "TO TRANSLATE - No data to display.",
-    "actions": {
-      "print_and_download": "TO TRANSLATE - Print and download",
-      "print": "TO TRANSLATE - Print the report",
-      "complete_download": "TO TRANSLATE - Download the full report",
-      "complete_download_desc": "TO TRANSLATE - Export in a .zip archive all the report content (.doc and pictures), attachments and the action plan in a .csv format.",
-      "individual_download": "TO TRANSLATE - Download elements of the report",
-      "individual_download_desc": "TO TRANSLATE - Export specific elements of the report.",
-      "individual_download_select": "TO TRANSLATE - Select elements to export:",
-      "individual_download_doc": "TO TRANSLATE - Texts (.doc)",
-      "individual_download_images": "TO TRANSLATE - Visual elements (.png) including the risk overview, the risk mapping and the action plan."
-    },
-    "download_csv": "TO TRANSLATE - Action plan (.csv)",
 		"action_plan": {
 			"fundamental_principles": "Θεμελιώδεις αρχές",
 			"implementation_date": "Αναμενόμενη ημερομηνία εφαρμογής",
@@ -1322,16 +1302,27 @@
 			"risks": "Κίνδυνοι",
 			"title": "Σχέδιο δράσης"
 		},
+		"actions": {
+			"complete_download": "TO TRANSLATE - Download the full report",
+			"complete_download_desc": "TO TRANSLATE - Export in a .zip archive all the report content (.doc and pictures), attachments and the action plan in a .csv format.",
+			"individual_download": "TO TRANSLATE - Download elements of the report",
+			"individual_download_desc": "TO TRANSLATE - Export specific elements of the report.",
+			"individual_download_doc": "TO TRANSLATE - Texts (.doc)",
+			"individual_download_images": "TO TRANSLATE - Visual elements (.png) including the risk overview, the risk mapping and the action plan.",
+			"individual_download_select": "TO TRANSLATE - Select elements to export:",
+			"print": "TO TRANSLATE - Print the report",
+			"print_and_download": "TO TRANSLATE - Print and download"
+		},
 		"attachments": "Συνημμένα",
 		"concerned_people_name": "Ονόματα των ενδιαφερομένων",
 		"concerned_people_opinion": "Γνώμες των ενδιαφερομένων",
 		"concerned_people_searched_opinion": "Αναζήτηση της γνώμης των ενδιαφερόμενων ανθρώπων",
 		"concerned_people_status": "Καθεστώς των ενδιαφερομένων",
 		"concerned_people_unsearched_opinion_comment": "Ο λόγος για τον οποίο δεν ζητήθηκε η γνώμη των πολιτών",
-		"content_choice": {
-			"0": "Η επεξεργασία δεν πρέπει να διεξάγεται.",
-			"1": "Η επεξεργασία θα μπορούσε να διεξαχθεί."
-		},
+		"content_choice": [
+			"Η επεξεργασία δεν πρέπει να διεξάγεται.",
+			"Η επεξεργασία θα μπορούσε να διεξαχθεί."
+		],
 		"creation_date": "Ημερομηνία δημιουργίας",
 		"csv_action_plan_comment": "Σχόλιο σχεδίου δράσης",
 		"csv_evaluation_comment": "Σχόλιο αξιολόγησης",
@@ -1341,8 +1332,8 @@
 		"csv_section": "Ενότητα",
 		"csv_title_object": "Τίτλος",
 		"display_filters": {
-      "check_all": "Ενεργοποίηση / απενεργοποίηση όλων των φίλτρων εμφάνισης",
 			"action_plan_content": "Εμφάνιση σχεδίου δράσης",
+			"check_all": "Ενεργοποίηση / απενεργοποίηση όλων των φίλτρων εμφάνισης",
 			"context_content": "Εμφάνιση τμήματος \"Γενικό πλαίσιο\"",
 			"main_content": "Εμφάνιση τμήματος \"Πληροφορίες ΕΑ\"",
 			"principles_content": "Εμφάνιση τμήματος \"Θεμελιώσεις αρχές\"",
@@ -1351,6 +1342,7 @@
 			"risks_overview_content": "Εμφάνιση επισκόπησης κινδύνων",
 			"title": "Εμφάνιση φίλτρων"
 		},
+		"download_csv": "TO TRANSLATE - Action plan (.csv)",
 		"dpo_name": "Όνομα του ΥΠΔ",
 		"dpo_opinion": "Γνώμη του ΥΠΔ",
 		"dpo_status": "Καθεστώς του ΥΠΔ",
@@ -1367,6 +1359,15 @@
 		"pia_author": "Όνομα συντάκτη",
 		"pia_name": "ΕΑ",
 		"pia_validator": "Όνομα επικυρωτή",
+		"preview_dpo_opinion": "TO TRANSLATE - DPO and data subjects opinion",
+		"preview_edition": "TO TRANSLATE - Editing",
+		"preview_evaluation": "TO TRANSLATE - Evaluation",
+		"preview_no_data": "TO TRANSLATE - No data to display.",
+		"preview_status": "TO TRANSLATE - Status",
+		"preview_subtitle": "TO TRANSLATE - General information",
+		"preview_title": "TO TRANSLATE - Preview",
+		"preview_validation": "TO TRANSLATE - Validation",
+		"preview_validation_section": "TO TRANSLATE - Validation",
 		"previous_page": "Επιστροφή στην προηγούμενη σελίδα",
 		"rejection_reason": "Λόγος απόρριψης",
 		"risks_cartography_title": "Χαρτογράφηση κινδύνων",

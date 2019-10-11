@@ -74,17 +74,17 @@
 		"placeholder_improvable1": "De acordo com as informações disponíveis, devem ser implementadas medidas adicionais para melhorar a protecção dos dados do tratamento.",
 		"placeholder_improvable2": "Digite seus comentários.",
 		"placeholder_to_correct": "As informações fornecidas não são suficientes para avaliá-las corretamente. Envie de volta ao editor para melhorar a submissão original.",
-		"status": {
-			"0": "Pendente",
-			"1": "A corrigir",
-			"2": "Improvável",
-			"3": "Aceitável"
-		},
+		"status": [
+			"Pendente",
+			"A corrigir",
+			"Improvável",
+			"Aceitável"
+		],
 		"title": "Avaliação",
 		"to_correct": "A corrigir"
 	},
 	"header": {
-    "exit_full_screen_mode": "TO TRANSLATE - Press F11 to exit full screen mode.",
+		"exit_full_screen_mode": "TO TRANSLATE - Press F11 to exit full screen mode.",
 		"homepage_link": "Painel",
 		"knowledge_base_link": "Base de conhecimento",
 		"languages": {
@@ -265,9 +265,9 @@
 			"example": "Exemplo",
 			"general_measure": "Controlo de segurança física",
 			"measure_on_data": "Controlo de segurança lógica",
+			"method": "(TRANSLATION REQUIRED) Methodology",
 			"organizational_measure": "Controlo organizacional",
-			"principle": "Princípio",
-      "method": "(TRANSLATION REQUIRED) Methodology"
+			"principle": "Princípio"
 		},
 		"filters": {
 			"all": "Todos",
@@ -382,11 +382,6 @@
 				"name": "Ameaças que podem levar a uma modificação indesejada de dados pessoais",
 				"source": "PIAF Connected Objects p43 and 44, WIKI"
 			},
-      "PIA_METHOD_MES": {
-				"description": "(TRANSLATION REQUIRED) Planned controls are those originally put in place, before any analysis by the assessor. Corrective measures advised by the assessor will be stated in the action plan and will enable a second assessment of the severity and likelihood of the risk.",
-				"name": "(TRANSLATION REQUIRED) Planned and corrective controls",
-				"source": ""
-      },
 			"PIA_DEF_MES": {
 				"description": "Para ser escolhido entre os disponíveis na secção 'Medidas planeadas ou existentes', que pode preencher se necessário.",
 				"name": "Medidas",
@@ -617,6 +612,11 @@
 				"description": "Dependendo do país, terá que justificar a escolha da hospedagem remota e indicar as disposições legais de supervisão implementadas, a fim de garantir a proteção adequada dos dados sujeitos a uma transferência transfronteiriça. Isto é :<br>- União Europeia<br>- País reconhecido pela UE por fornecer proteção adequada<br>- Transferência para os Estados Unidos para uma empresa que aderiu ao Privacy Shield<br>- Outro país <br>Ver <a target=\"_blank\" href=\"https://eur-lex.europa.eu/legal-content/PT/TXT/HTML/?uri=CELEX:32016R0679\">art. 44 ao 49 do [RGPD]</a>",
 				"name": "Transferências",
 				"source": "PIAF Connected Objects p18"
+			},
+			"PIA_METHOD_MES": {
+				"description": "(TRANSLATION REQUIRED) Planned controls are those originally put in place, before any analysis by the assessor. Corrective measures advised by the assessor will be stated in the action plan and will enable a second assessment of the severity and likelihood of the risk.",
+				"name": "(TRANSLATION REQUIRED) Planned and corrective controls",
+				"source": "Ameaças WIKI_para_make_a_modification_not_directed_data"
 			},
 			"PIA_ORG_AUD": {
 				"description": "Existência de uma política e processos para obter uma organização capaz de gerenciar e controlar a proteção de dados pessoais contidos nela.",
@@ -966,6 +966,7 @@
 	"pia": {
 		"attachments": {
 			"add": "Adicionar",
+			"download": "Faça o download do anexo",
 			"remove": "Remover",
 			"title": "Anexos"
 		},
@@ -1002,24 +1003,24 @@
 			},
 			"validate_pia": "Validar análise PIA"
 		},
-		"statuses": {
-			"0": "Em progresso",
-			"1": "Rejeitado",
-			"2": "Validação simples",
-			"3": "Validação assinada",
-			"4": "Arquivado",
-			"5": "Aguarda validação"
-		}
+		"statuses": [
+			"Em progresso",
+			"Rejeitado",
+			"Validação simples",
+			"Validação assinada",
+			"Arquivado",
+			"Aguarda validação"
+		]
 	},
 	"questions": {
 		"edit": "Editar pergunta",
-		"gauges": {
-			"0": "(Indefinido)",
-			"1": "Insignificante",
-			"2": "Limitado",
-			"3": "Significativo",
-			"4": "Máximo"
-		},
+		"gauges": [
+			"(Indefinido)",
+			"Insignificante",
+			"Limitado",
+			"Significativo",
+			"Máximo"
+		],
 		"placeholder_title": "Título da pergunta (obrigatório)",
 		"remove": "Apagar a pergunta"
 	},
@@ -1292,27 +1293,6 @@
 		"update": "Atualizar URL"
 	},
 	"summary": {
-    "preview_title": "TO TRANSLATE - Preview",
-    "preview_subtitle": "TO TRANSLATE - General information",
-    "preview_edition": "TO TRANSLATE - Editing",
-    "preview_evaluation": "TO TRANSLATE - Evaluation",
-    "preview_validation": "TO TRANSLATE - Validation",
-    "preview_status": "TO TRANSLATE - Status",
-    "preview_validation_section": "TO TRANSLATE - Validation",
-    "preview_dpo_opinion": "TO TRANSLATE - DPO and data subjects opinion",
-    "preview_no_data": "TO TRANSLATE - No data to display.",
-    "actions": {
-      "print_and_download": "TO TRANSLATE - Print and download",
-      "print": "TO TRANSLATE - Print the report",
-      "complete_download": "TO TRANSLATE - Download the full report",
-      "complete_download_desc": "TO TRANSLATE - Export in a .zip archive all the report content (.doc and pictures), attachments and the action plan in a .csv format.",
-      "individual_download": "TO TRANSLATE - Download elements of the report",
-      "individual_download_desc": "TO TRANSLATE - Export specific elements of the report.",
-      "individual_download_select": "TO TRANSLATE - Select elements to export:",
-      "individual_download_doc": "TO TRANSLATE - Texts (.doc)",
-      "individual_download_images": "TO TRANSLATE - Visual elements (.png) including the risk overview, the risk mapping and the action plan."
-    },
-    "download_csv": "TO TRANSLATE - Action plan (.csv)",
 		"action_plan": {
 			"fundamental_principles": "Princípios fundamentais",
 			"implementation_date": "Data esperada de implementação",
@@ -1322,16 +1302,27 @@
 			"risks": "Riscos",
 			"title": "Plano de ação"
 		},
+		"actions": {
+			"complete_download": "TO TRANSLATE - Download the full report",
+			"complete_download_desc": "TO TRANSLATE - Export in a .zip archive all the report content (.doc and pictures), attachments and the action plan in a .csv format.",
+			"individual_download": "TO TRANSLATE - Download elements of the report",
+			"individual_download_desc": "TO TRANSLATE - Export specific elements of the report.",
+			"individual_download_doc": "TO TRANSLATE - Texts (.doc)",
+			"individual_download_images": "TO TRANSLATE - Visual elements (.png) including the risk overview, the risk mapping and the action plan.",
+			"individual_download_select": "TO TRANSLATE - Select elements to export:",
+			"print": "TO TRANSLATE - Print the report",
+			"print_and_download": "TO TRANSLATE - Print and download"
+		},
 		"attachments": "Anexos",
 		"concerned_people_name": "Opiniões de partes interessadas",
 		"concerned_people_opinion": "Opiniões de partes interessadas",
 		"concerned_people_searched_opinion": "Procura da opinião de partes interessadas",
 		"concerned_people_status": "Status de pessoas em questão",
 		"concerned_people_unsearched_opinion_comment": "Razão pela qual a opinião de partes interessadas não foi pedida",
-		"content_choice": {
-			"0": "O tratamento não deve ser usado.",
-			"1": "O tratamento deve ser implementado."
-		},
+		"content_choice": [
+			"O tratamento não deve ser usado.",
+			"O tratamento deve ser implementado."
+		],
 		"creation_date": "Data de criação",
 		"csv_action_plan_comment": "Comentar o plano de acção",
 		"csv_evaluation_comment": "Comentar a avaliação",
@@ -1341,8 +1332,8 @@
 		"csv_section": "Secção",
 		"csv_title_object": "Título",
 		"display_filters": {
-      "check_all": "TO TRANSLATE - Enable / disable all display filters",
 			"action_plan_content": "Exibir plano de ação",
+			"check_all": "Ativar / desativar todos os filtros de exibição",
 			"context_content": "Exibir secção \"Contexto\"",
 			"main_content": "Exibir secção \"Informações da análise PIA\"",
 			"principles_content": "Exibir secção \"Princípios fundamentais\"",
@@ -1351,6 +1342,7 @@
 			"risks_overview_content": "Exibir visão geral dos riscos",
 			"title": "Exibir filtros"
 		},
+		"download_csv": "TO TRANSLATE - Action plan (.csv)",
 		"dpo_name": "Nome do DPO",
 		"dpo_opinion": "Opinião do DPO",
 		"dpo_status": "Estado do DPO",
@@ -1367,6 +1359,15 @@
 		"pia_author": "Nome do autor",
 		"pia_name": "PIA",
 		"pia_validator": "Nome do validador",
+		"preview_dpo_opinion": "TO TRANSLATE - DPO and data subjects opinion",
+		"preview_edition": "TO TRANSLATE - Editing",
+		"preview_evaluation": "TO TRANSLATE - Evaluation",
+		"preview_no_data": "TO TRANSLATE - No data to display.",
+		"preview_status": "TO TRANSLATE - Status",
+		"preview_subtitle": "TO TRANSLATE - General information",
+		"preview_title": "TO TRANSLATE - Preview",
+		"preview_validation": "TO TRANSLATE - Validation",
+		"preview_validation_section": "TO TRANSLATE - Validation",
 		"previous_page": "Voltar para a página anterior",
 		"rejection_reason": "Motivo da rejeição",
 		"risks_cartography_title": "Mapeamento de riscos",

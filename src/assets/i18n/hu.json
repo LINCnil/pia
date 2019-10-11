@@ -74,17 +74,17 @@
 		"placeholder_improvable1": "A rendelkezésre álló információ alapján további intézkedések szükségesek az adatvédelem javítása érdekében az adatkezelés során.",
 		"placeholder_improvable2": "Megjegyzés bevitele.",
 		"placeholder_to_correct": "A megadott információk nem alkalmasak az értékelés elvégzéséhez. Vissza kell küldeni a szerkesztőnek, hogy javítsa ki az eredeti kitöltést .",
-		"status": {
-			"0": "Elintézés alatt",
-			"1": "Javítandó",
-			"2": "Javítható",
-			"3": "Elfogadható"
-		},
+		"status": [
+			"Elintézés alatt",
+			"Javítandó",
+			"Javítható",
+			"Elfogadható"
+		],
 		"title": "Véleményezés",
 		"to_correct": "Visszaküldés javításra"
 	},
 	"header": {
-    "exit_full_screen_mode": "TO TRANSLATE - Press F11 to exit full screen mode.",
+		"exit_full_screen_mode": "TO TRANSLATE - Press F11 to exit full screen mode.",
 		"homepage_link": "Vezérlőpult",
 		"knowledge_base_link": "Tudásbázis",
 		"languages": {
@@ -265,9 +265,9 @@
 			"example": "Példa",
 			"general_measure": "Fizikai biztonságvédelem",
 			"measure_on_data": "Logikai biztonságvédelem",
+			"method": "(TRANSLATION REQUIRED) Methodology",
 			"organizational_measure": "Szervezeti védelmi intézkedések",
-			"principle": "Útmutatás",
-      "method": "(TRANSLATION REQUIRED) Methodology"
+			"principle": "Útmutatás"
 		},
 		"filters": {
 			"all": "Mind",
@@ -382,11 +382,6 @@
 				"name": "Az adatok véletlen vagy jogellenes megváltoztatásának veszélyei",
 				"source": "DPIAF Összekapcsolt tárgyak, 43. és 44. o. WIKI"
 			},
-      "PIA_METHOD_MES": {
-				"description": "(TRANSLATION REQUIRED) Planned controls are those originally put in place, before any analysis by the assessor. Corrective measures advised by the assessor will be stated in the action plan and will enable a second assessment of the severity and likelihood of the risk.",
-				"name": "(TRANSLATION REQUIRED) Planned and corrective controls",
-				"source": ""
-      },
 			"PIA_DEF_MES": {
 				"description": "Válasszon a „Tervezett vagy meglévő intézkedések” c. rész lehetőségei közül, amelyeket, ha szükséges, kitölthet.",
 				"name": "Intézkedések",
@@ -617,6 +612,11 @@
 				"description": "Azt figyelembe véve, hogy földrajzilag hova kerülnek továbbításra a személyes adatok - az Európai Unióba; az Unió által elismerten megfelelő védelmet nyújtó országba; az Egyesült Államokba, az EU-USA adatvédelmi pajzshoz (Privacy Shield) csatlakozott szervezet részére; vagy egyéb országba -, olyan jogi kereteket kell biztosítani, amelyek megfelelő szintű védelmet biztosítanak a személyes adatok határokon átnyúló továbbítása esetén.  Lásd <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/HU/TXT/HTML/?uri=CELEX:32016R0679&qid=1520586769024&from=HU\"> a GDPR 44-49. cikkeit </a>.",
 				"name": "Adattovábbítás",
 				"source": "DPIAF által összekapcsolt tárgyak 18. o."
+			},
+			"PIA_METHOD_MES": {
+				"description": "(TRANSLATION REQUIRED) Planned controls are those originally put in place, before any analysis by the assessor. Corrective measures advised by the assessor will be stated in the action plan and will enable a second assessment of the severity and likelihood of the risk.",
+				"name": "(TRANSLATION REQUIRED) Planned and corrective controls",
+				"source": "WIKI Threats_to_make_a_modification_not_directed_data"
 			},
 			"PIA_ORG_AUD": {
 				"description": "Van-e arra nézve elv és eljárás, hogy olyan szervezetet kell bevonni, amely képes az általa kezelt személyes adatok védelmét ellátni?",
@@ -966,6 +966,7 @@
 	"pia": {
 		"attachments": {
 			"add": "Csatolás",
+			"download": "Töltse le a mellékletet",
 			"remove": "Eltávolítás",
 			"title": "Mellékletek"
 		},
@@ -1002,24 +1003,24 @@
 			},
 			"validate_pia": "Hatásvizsgálat jóváhagyása"
 		},
-		"statuses": {
-			"0": "Folyamatban lévő",
-			"1": "Elutasítva",
-			"2": "Előzetes jóváhagyás",
-			"3": "Végleges (aláírt) jóváhagyás",
-			"4": "Archiválva",
-			"5": "Jóváhagyásra vár"
-		}
+		"statuses": [
+			"Folyamatban lévő",
+			"Elutasítva",
+			"Előzetes jóváhagyás",
+			"Végleges (aláírt) jóváhagyás",
+			"Archiválva",
+			"Jóváhagyásra vár"
+		]
 	},
 	"questions": {
 		"edit": "Kérdés szerkesztése",
-		"gauges": {
-			"0": "(n/a)",
-			"1": "Elhanyagolható",
-			"2": "Korlátozott",
-			"3": "Jelentős",
-			"4": "Maximális"
-		},
+		"gauges": [
+			"(n/a)",
+			"Elhanyagolható",
+			"Korlátozott",
+			"Jelentős",
+			"Maximális"
+		],
 		"placeholder_title": "TO BE TRANSLATED - Titre de la question (obligatoire)",
 		"remove": "TO BE TRANSLATED - Supprimer la question"
 	},
@@ -1292,27 +1293,6 @@
 		"update": "URL frissítése"
 	},
 	"summary": {
-    "preview_title": "TO TRANSLATE - Preview",
-    "preview_subtitle": "TO TRANSLATE - General information",
-    "preview_edition": "TO TRANSLATE - Editing",
-    "preview_evaluation": "TO TRANSLATE - Evaluation",
-    "preview_validation": "TO TRANSLATE - Validation",
-    "preview_status": "TO TRANSLATE - Status",
-    "preview_validation_section": "TO TRANSLATE - Validation",
-    "preview_dpo_opinion": "TO TRANSLATE - DPO and data subjects opinion",
-    "preview_no_data": "TO TRANSLATE - No data to display.",
-    "actions": {
-      "print_and_download": "TO TRANSLATE - Print and download",
-      "print": "TO TRANSLATE - Print the report",
-      "complete_download": "TO TRANSLATE - Download the full report",
-      "complete_download_desc": "TO TRANSLATE - Export in a .zip archive all the report content (.doc and pictures), attachments and the action plan in a .csv format.",
-      "individual_download": "TO TRANSLATE - Download elements of the report",
-      "individual_download_desc": "TO TRANSLATE - Export specific elements of the report.",
-      "individual_download_select": "TO TRANSLATE - Select elements to export:",
-      "individual_download_doc": "TO TRANSLATE - Texts (.doc)",
-      "individual_download_images": "TO TRANSLATE - Visual elements (.png) including the risk overview, the risk mapping and the action plan."
-    },
-    "download_csv": "TO TRANSLATE - Action plan (.csv)",
 		"action_plan": {
 			"fundamental_principles": "Alapelvek",
 			"implementation_date": "Végrehajtás várható dátuma",
@@ -1322,16 +1302,27 @@
 			"risks": "Kockázatok",
 			"title": "Intézkedési terv"
 		},
+		"actions": {
+			"complete_download": "TO TRANSLATE - Download the full report",
+			"complete_download_desc": "TO TRANSLATE - Export in a .zip archive all the report content (.doc and pictures), attachments and the action plan in a .csv format.",
+			"individual_download": "TO TRANSLATE - Download elements of the report",
+			"individual_download_desc": "TO TRANSLATE - Export specific elements of the report.",
+			"individual_download_doc": "TO TRANSLATE - Texts (.doc)",
+			"individual_download_images": "TO TRANSLATE - Visual elements (.png) including the risk overview, the risk mapping and the action plan.",
+			"individual_download_select": "TO TRANSLATE - Select elements to export:",
+			"print": "TO TRANSLATE - Print the report",
+			"print_and_download": "TO TRANSLATE - Print and download"
+		},
 		"attachments": "Mellékletek.",
 		"concerned_people_name": "Az érintettek véleménye.",
 		"concerned_people_opinion": "Az érintettek véleménye.",
 		"concerned_people_searched_opinion": "Érintettek véleményének kikérése.",
 		"concerned_people_status": "Az érintettek státusza.",
 		"concerned_people_unsearched_opinion_comment": "Azon ok megjelölése, ami alapján az érintettek véleményének kikérésére nem került sor.",
-		"content_choice": {
-			"0": "Az intézkedések megfelelőek, ennek következtében alkalmazhatóak.",
-			"1": "Az intézkedések nem megfelelőek, ezért alkalmazásukra nem kerülhet sor."
-		},
+		"content_choice": [
+			"Az intézkedések megfelelőek, ennek következtében alkalmazhatóak.",
+			"Az intézkedések nem megfelelőek, ezért alkalmazásukra nem kerülhet sor."
+		],
 		"creation_date": "Létrehozás dátuma.",
 		"csv_action_plan_comment": "Intézkedési terv vélemények",
 		"csv_evaluation_comment": "Értékelés vélemények",
@@ -1341,8 +1332,8 @@
 		"csv_section": "Szakasz",
 		"csv_title_object": "Cím",
 		"display_filters": {
-      "check_all": "TO TRANSLATE - Enable / disable all display filters",
 			"action_plan_content": "Intézkedési terv megjelenítése",
+			"check_all": "Az összes képernyőszűrő engedélyezése / letiltása",
 			"context_content": "Szakasz megjelenítése (Szövegkörnyezet)",
 			"main_content": "Szakasz megjelenítése (DPIA információk)",
 			"principles_content": "Szakasz megjelenítése (Alapelvek)",
@@ -1351,6 +1342,7 @@
 			"risks_overview_content": "Kockázatok áttekintésének megjelenítése",
 			"title": "Szűrők megjelenítése"
 		},
+		"download_csv": "TO TRANSLATE - Action plan (.csv)",
 		"dpo_name": "Adatvédelmi tisztviselő neve",
 		"dpo_opinion": "Adatvédelmi tisztviselő véleménye",
 		"dpo_status": "Adatvédelmi tisztviselő státusza",
@@ -1367,6 +1359,15 @@
 		"pia_author": "Szerző neve",
 		"pia_name": "DPIA",
 		"pia_validator": "Jóváhagyó neve",
+		"preview_dpo_opinion": "TO TRANSLATE - DPO and data subjects opinion",
+		"preview_edition": "TO TRANSLATE - Editing",
+		"preview_evaluation": "TO TRANSLATE - Evaluation",
+		"preview_no_data": "TO TRANSLATE - No data to display.",
+		"preview_status": "TO TRANSLATE - Status",
+		"preview_subtitle": "TO TRANSLATE - General information",
+		"preview_title": "TO TRANSLATE - Preview",
+		"preview_validation": "TO TRANSLATE - Validation",
+		"preview_validation_section": "TO TRANSLATE - Validation",
 		"previous_page": "Vissza az előző oldalra",
 		"rejection_reason": "Elutasítás oka.",
 		"risks_cartography_title": "A kockázatok feltérképezése",

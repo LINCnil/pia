@@ -74,17 +74,17 @@
 		"placeholder_improvable1": "Conform informațiilor disponibile, trebuie puse în aplicare măsuri suplimentare pentru a îmbunătății protecția datelor în cadrul procesului de prelucrare.",
 		"placeholder_improvable2": "Introduceți comentariile dvs.",
 		"placeholder_to_correct": "Informațiile furnizate nu sunt suficiente pentru a fi evaluate în mod corespunzător. Retransmiteți-le către editor pentru îmbunătății informațiile prezentate inițial.",
-		"status": {
-			"0": "În așteptare",
-			"1": "De corectat",
-			"2": "De îmbunătățit",
-			"3": "Acceptabil"
-		},
+		"status": [
+			"În așteptare",
+			"De corectat",
+			"De îmbunătățit",
+			"Acceptabil"
+		],
 		"title": "Evaluare",
 		"to_correct": "De corectat"
 	},
 	"header": {
-    "exit_full_screen_mode": "TO TRANSLATE - Press F11 to exit full screen mode.",
+		"exit_full_screen_mode": "TO TRANSLATE - Press F11 to exit full screen mode.",
 		"homepage_link": "Panou de comandă",
 		"knowledge_base_link": "Baza de cunoaștere",
 		"languages": {
@@ -265,9 +265,9 @@
 			"example": "Exemplu",
 			"general_measure": "Control fizic al securității",
 			"measure_on_data": "Control logic al securității",
+			"method": "(TRANSLATION REQUIRED) Methodology",
 			"organizational_measure": "Control organizațional",
-			"principle": "Principle",
-      "method": "(TRANSLATION REQUIRED) Methodology"
+			"principle": "Principle"
 		},
 		"filters": {
 			"all": "Toate",
@@ -382,11 +382,6 @@
 				"name": "Amenințări care pot duce la modificarea nedorită a datelor cu caracter personal",
 				"source": "PIAF Connected Objects p43 and 44, WIKI"
 			},
-      "PIA_METHOD_MES": {
-				"description": "(TRANSLATION REQUIRED) Planned controls are those originally put in place, before any analysis by the assessor. Corrective measures advised by the assessor will be stated in the action plan and will enable a second assessment of the severity and likelihood of the risk.",
-				"name": "(TRANSLATION REQUIRED) Planned and corrective controls",
-				"source": ""
-      },
 			"PIA_DEF_MES": {
 				"description": "Selectate dintre cele disponibile în secțiunea \"Măsuri planificate sau existente\", ce se pot completa dacă este necesar.",
 				"name": "Măsuri",
@@ -617,6 +612,11 @@
 				"description": "În funcție de țara în cauza, va trebui să justificați alegerea stocării datelor la distanță și să indicați măsurile legale de supraveghere implementate pentru asigurarea unei protecții adecvate a datelor în cazul unui transfer transfrontalier. Care este:<br>- Uniunea Europeana<br>- Țară recunoscută de UE ca asigurând o protecție a datelor adecvată<br>- Transfer către Statele Unite, către o companie care s-a alăturat Scutului de confidențialitate UE-SUA<br>- Altă țară <br>A se vedea <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">art. 44 to 49 of [GDPR]</a>",
 				"name": "Transferuri",
 				"source": "PIAF Connected Objects p18"
+			},
+			"PIA_METHOD_MES": {
+				"description": "(TRANSLATION REQUIRED) Planned controls are those originally put in place, before any analysis by the assessor. Corrective measures advised by the assessor will be stated in the action plan and will enable a second assessment of the severity and likelihood of the risk.",
+				"name": "(TRANSLATION REQUIRED) Planned and corrective controls",
+				"source": "Amenințări WIKI_to_make_a_modification_not_directed_data"
 			},
 			"PIA_ORG_AUD": {
 				"description": "Existența unor politici și a unor procese cu scopul de a obține o organizație capabilă să gestioneze și să controleze protecția datelor cu caracter personal pe care le deține.",
@@ -966,6 +966,7 @@
 	"pia": {
 		"attachments": {
 			"add": "Adăugare",
+			"download": "Descărcați atașamentul",
 			"remove": "Ștergere",
 			"title": "Fișiere atașate"
 		},
@@ -1002,24 +1003,24 @@
 			},
 			"validate_pia": "PIA Validate"
 		},
-		"statuses": {
-			"0": "In curs de desfășurare",
-			"1": "Respins",
-			"2": "Simple validation",
-			"3": "Signed validation",
-			"4": "Arhivat",
-			"5": "In așteptarea validării"
-		}
+		"statuses": [
+			"In curs de desfășurare",
+			"Respins",
+			"Simple validation",
+			"Signed validation",
+			"Arhivat",
+			"In așteptarea validării"
+		]
 	},
 	"questions": {
 		"edit": "Editați întrebarea",
-		"gauges": {
-			"0": "(Nedefinit)",
-			"1": "Neglijabil",
-			"2": "Limitat",
-			"3": "Important",
-			"4": "Maxim"
-		},
+		"gauges": [
+			"(Nedefinit)",
+			"Neglijabil",
+			"Limitat",
+			"Important",
+			"Maxim"
+		],
 		"placeholder_title": "TO BE TRANSLATED - Titre de la question (obligatoire)",
 		"remove": "TO BE TRANSLATED - Supprimer la question"
 	},
@@ -1292,27 +1293,6 @@
 		"update": "Actualizare URL"
 	},
 	"summary": {
-    "preview_title": "TO TRANSLATE - Preview",
-    "preview_subtitle": "TO TRANSLATE - General information",
-    "preview_edition": "TO TRANSLATE - Editing",
-    "preview_evaluation": "TO TRANSLATE - Evaluation",
-    "preview_validation": "TO TRANSLATE - Validation",
-    "preview_status": "TO TRANSLATE - Status",
-    "preview_validation_section": "TO TRANSLATE - Validation",
-    "preview_dpo_opinion": "TO TRANSLATE - DPO and data subjects opinion",
-    "preview_no_data": "TO TRANSLATE - No data to display.",
-    "actions": {
-      "print_and_download": "TO TRANSLATE - Print and download",
-      "print": "TO TRANSLATE - Print the report",
-      "complete_download": "TO TRANSLATE - Download the full report",
-      "complete_download_desc": "TO TRANSLATE - Export in a .zip archive all the report content (.doc and pictures), attachments and the action plan in a .csv format.",
-      "individual_download": "TO TRANSLATE - Download elements of the report",
-      "individual_download_desc": "TO TRANSLATE - Export specific elements of the report.",
-      "individual_download_select": "TO TRANSLATE - Select elements to export:",
-      "individual_download_doc": "TO TRANSLATE - Texts (.doc)",
-      "individual_download_images": "TO TRANSLATE - Visual elements (.png) including the risk overview, the risk mapping and the action plan."
-    },
-    "download_csv": "TO TRANSLATE - Action plan (.csv)",
 		"action_plan": {
 			"fundamental_principles": "Principii fundamentale",
 			"implementation_date": "Data prevăzută pentru implementare",
@@ -1322,16 +1302,27 @@
 			"risks": "Riscuri",
 			"title": "Plan de acțiune"
 		},
+		"actions": {
+			"complete_download": "TO TRANSLATE - Download the full report",
+			"complete_download_desc": "TO TRANSLATE - Export in a .zip archive all the report content (.doc and pictures), attachments and the action plan in a .csv format.",
+			"individual_download": "TO TRANSLATE - Download elements of the report",
+			"individual_download_desc": "TO TRANSLATE - Export specific elements of the report.",
+			"individual_download_doc": "TO TRANSLATE - Texts (.doc)",
+			"individual_download_images": "TO TRANSLATE - Visual elements (.png) including the risk overview, the risk mapping and the action plan.",
+			"individual_download_select": "TO TRANSLATE - Select elements to export:",
+			"print": "TO TRANSLATE - Print the report",
+			"print_and_download": "TO TRANSLATE - Print and download"
+		},
 		"attachments": "Fișiere atașate",
 		"concerned_people_name": "Numele persoanelor implicate",
 		"concerned_people_opinion": "Opiniile persoanelor implicate",
 		"concerned_people_searched_opinion": "Căutați opinia persoanelor implicate",
 		"concerned_people_status": "Starea persoanelor implicate",
 		"concerned_people_unsearched_opinion_comment": "Motivul pentru care opinia persoanelor implicate nu a fost solicitată",
-		"content_choice": {
-			"0": "Soluțiile nu ar trebui utilizate.",
-			"1": "Soluțiile ar putea fi implementate."
-		},
+		"content_choice": [
+			"Soluțiile nu ar trebui utilizate.",
+			"Soluțiile ar putea fi implementate."
+		],
 		"creation_date": "Data creării",
 		"csv_action_plan_comment": "TO BE TRANSLATED - Action plan comment",
 		"csv_evaluation_comment": "TO BE TRANSLATED - Evaluation comment",
@@ -1341,8 +1332,8 @@
 		"csv_section": "TO BE TRANSLATED - Section",
 		"csv_title_object": "TO BE TRANSLATED - Title",
 		"display_filters": {
-      "check_all": "TO TRANSLATE - Enable / disable all display filters",
 			"action_plan_content": "Afișează planul de acțiune",
+			"check_all": "Activați / dezactivați toate filtrele de afișare",
 			"context_content": "Afișează secțiunea \"Context\"",
 			"main_content": "Afișează secțiunea \"Informații PIA\"",
 			"principles_content": "Afișează secțiunea \"Principii fundamentale\"",
@@ -1351,6 +1342,7 @@
 			"risks_overview_content": "TO BE TRANSLATED - Display risks overview",
 			"title": "Afișează filtrele"
 		},
+		"download_csv": "TO TRANSLATE - Action plan (.csv)",
 		"dpo_name": "Nume DPO",
 		"dpo_opinion": "Opinie DPO",
 		"dpo_status": "Stare DPO",
@@ -1367,6 +1359,15 @@
 		"pia_author": "Numele autorului",
 		"pia_name": "PIA",
 		"pia_validator": "Numele aprobatorului",
+		"preview_dpo_opinion": "TO TRANSLATE - DPO and data subjects opinion",
+		"preview_edition": "TO TRANSLATE - Editing",
+		"preview_evaluation": "TO TRANSLATE - Evaluation",
+		"preview_no_data": "TO TRANSLATE - No data to display.",
+		"preview_status": "TO TRANSLATE - Status",
+		"preview_subtitle": "TO TRANSLATE - General information",
+		"preview_title": "TO TRANSLATE - Preview",
+		"preview_validation": "TO TRANSLATE - Validation",
+		"preview_validation_section": "TO TRANSLATE - Validation",
 		"previous_page": "Înapoi la pagina anterioară",
 		"rejection_reason": "Motivul respingerii",
 		"risks_cartography_title": "TO BE TRANSLATED - Risk mapping",

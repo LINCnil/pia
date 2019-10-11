@@ -74,17 +74,17 @@
 		"placeholder_improvable1": "Ifølge de foreliggende oplysninger skal yderligere foranstaltninger gennemføres for at databeskyttelsen i behandlingen er fyldestgørende.",
 		"placeholder_improvable2": "Skriv dine kommentarer.",
 		"placeholder_to_correct": "Oplysningerne er ikke fyldstgørende for en evalution. Send tilbage til redaktøren/forfatter af denne PIA, for at forbedre de oprindelige indsendte oplysninger.",
-		"status": {
-			"0": "Afventning",
-			"1": "Rette",
-			"2": "Forbedre",
-			"3": "Godkendt"
-		},
+		"status": [
+			"Afventning",
+			"Rette",
+			"Forbedre",
+			"Godkendt"
+		],
 		"title": "Evaluering",
 		"to_correct": "At rette"
 	},
 	"header": {
-    "exit_full_screen_mode": "TO TRANSLATE - Press F11 to exit full screen mode.",
+		"exit_full_screen_mode": "TO TRANSLATE - Press F11 to exit full screen mode.",
 		"homepage_link": "Hjem",
 		"knowledge_base_link": "Vidensbase",
 		"languages": {
@@ -265,9 +265,9 @@
 			"example": "Eksempel",
 			"general_measure": "Fysisk sikkerhedsforanstaltning",
 			"measure_on_data": "Logisk sikkerhedsforanstaltning",
+			"method": "(TRANSLATION REQUIRED) Methodology",
 			"organizational_measure": "Organisatorisk foranstaltning",
-			"principle": "Principper",
-      "method": "(TRANSLATION REQUIRED) Methodology"
+			"principle": "Principper"
 		},
 		"filters": {
 			"all": "Alle",
@@ -382,11 +382,6 @@
 				"name": "Trusseler der kan lede til uønsket ændring af personoplysninger",
 				"source": "PIAF Connected Objects p43 and 44, WIKI"
 			},
-      "PIA_METHOD_MES": {
-				"description": "(TRANSLATION REQUIRED) Planned controls are those originally put in place, before any analysis by the assessor. Corrective measures advised by the assessor will be stated in the action plan and will enable a second assessment of the severity and likelihood of the risk.",
-				"name": "(TRANSLATION REQUIRED) Planned and corrective controls",
-				"source": ""
-      },
 			"PIA_DEF_MES": {
 				"description": "Skal vælges blandt de til rådige foranstaltninger i sektionen \"Planlagte eller eksiterende foranstaltninger\", der kan udbygges hvis nødvendigt.",
 				"name": "Foranstaltninger",
@@ -617,6 +612,11 @@
 				"description": "Det dokumenteres hvor personoplysninger geografisk befinder sig. Hvis personoplysningerne befinder sig i lande der ikke har et tilstrækeligt beskyttelsesniveau, skal det juridiske grundlag for overførsel dokumenteres således at registrerede har de fornødne garantier, og at deres rettigheder kan håndhæves. Det vil sige :<br>- Lande i den Europæiske Union<br>- Lande med tilstrækkeligt beskyttelsesniveau (anerkendt af EU)<br>- Overførseler til amerikanske organisationer tilsluttet Privacy Shield<br>- Andre lande <br>Se <a target=\"_blank\" href=\"https://eur-lex.europa.eu/legal-content/DA/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">art. 44 til 49 af [GDPR]</a>",
 				"name": "Overførsel af personoplysninger",
 				"source": "PIAF Connected Objects p18"
+			},
+			"PIA_METHOD_MES": {
+				"description": "(TRANSLATION REQUIRED) Planned controls are those originally put in place, before any analysis by the assessor. Corrective measures advised by the assessor will be stated in the action plan and will enable a second assessment of the severity and likelihood of the risk.",
+				"name": "(TRANSLATION REQUIRED) Planned and corrective controls",
+				"source": "WIKI Threats_to_make_a_modification_not_directed_data"
 			},
 			"PIA_ORG_AUD": {
 				"description": "Findes der en politik og procedure der sikre organisationens styring af compliance til GDPR, der sikre fuldt overblik over behandlingsaktiviteter og efterlevelse af forordningens krav (f.eks. igennem effektivt tilsyn og revision).",
@@ -966,6 +966,7 @@
 	"pia": {
 		"attachments": {
 			"add": "Tilføj",
+			"download": "Download vedhæftningen",
 			"remove": "Slet",
 			"title": "Vedhæftelser"
 		},
@@ -1002,24 +1003,24 @@
 			},
 			"validate_pia": "Godkend PIA"
 		},
-		"statuses": {
-			"0": "Under behandling",
-			"1": "Afvist",
-			"2": "Simpel godkendelse",
-			"3": "Signered godkendelse",
-			"4": "Arkiveret",
-			"5": "Venter på godkendelse"
-		}
+		"statuses": [
+			"Under behandling",
+			"Afvist",
+			"Simpel godkendelse",
+			"Signered godkendelse",
+			"Arkiveret",
+			"Venter på godkendelse"
+		]
 	},
 	"questions": {
 		"edit": "Redigere spørgsmål",
-		"gauges": {
-			"0": "(Udefinet)",
-			"1": "Ubetydelig",
-			"2": "Betydelig",
-			"3": "Alvorlig",
-			"4": "Katastrofal"
-		},
+		"gauges": [
+			"(Udefinet)",
+			"Ubetydelig",
+			"Betydelig",
+			"Alvorlig",
+			"Katastrofal"
+		],
 		"placeholder_title": "Titel på spørgsmål (obligatorisk)",
 		"remove": "Slet spørgsmål"
 	},
@@ -1292,27 +1293,6 @@
 		"update": "Updatere URL"
 	},
 	"summary": {
-    "preview_title": "TO TRANSLATE - Preview",
-    "preview_subtitle": "TO TRANSLATE - General information",
-    "preview_edition": "TO TRANSLATE - Editing",
-    "preview_evaluation": "TO TRANSLATE - Evaluation",
-    "preview_validation": "TO TRANSLATE - Validation",
-    "preview_status": "TO TRANSLATE - Status",
-    "preview_validation_section": "TO TRANSLATE - Validation",
-    "preview_dpo_opinion": "TO TRANSLATE - DPO and data subjects opinion",
-    "preview_no_data": "TO TRANSLATE - No data to display.",
-    "actions": {
-      "print_and_download": "TO TRANSLATE - Print and download",
-      "print": "TO TRANSLATE - Print the report",
-      "complete_download": "TO TRANSLATE - Download the full report",
-      "complete_download_desc": "TO TRANSLATE - Export in a .zip archive all the report content (.doc and pictures), attachments and the action plan in a .csv format.",
-      "individual_download": "TO TRANSLATE - Download elements of the report",
-      "individual_download_desc": "TO TRANSLATE - Export specific elements of the report.",
-      "individual_download_select": "TO TRANSLATE - Select elements to export:",
-      "individual_download_doc": "TO TRANSLATE - Texts (.doc)",
-      "individual_download_images": "TO TRANSLATE - Visual elements (.png) including the risk overview, the risk mapping and the action plan."
-    },
-    "download_csv": "TO TRANSLATE - Action plan (.csv)",
 		"action_plan": {
 			"fundamental_principles": "Fundamentale principper",
 			"implementation_date": "Forventet implementerings dato",
@@ -1322,16 +1302,27 @@
 			"risks": "Risici",
 			"title": "Handlingsplan"
 		},
+		"actions": {
+			"complete_download": "TO TRANSLATE - Download the full report",
+			"complete_download_desc": "TO TRANSLATE - Export in a .zip archive all the report content (.doc and pictures), attachments and the action plan in a .csv format.",
+			"individual_download": "TO TRANSLATE - Download elements of the report",
+			"individual_download_desc": "TO TRANSLATE - Export specific elements of the report.",
+			"individual_download_doc": "TO TRANSLATE - Texts (.doc)",
+			"individual_download_images": "TO TRANSLATE - Visual elements (.png) including the risk overview, the risk mapping and the action plan.",
+			"individual_download_select": "TO TRANSLATE - Select elements to export:",
+			"print": "TO TRANSLATE - Print the report",
+			"print_and_download": "TO TRANSLATE - Print and download"
+		},
 		"attachments": "Vedhæftelser",
 		"concerned_people_name": "Navn på de berørte personer",
 		"concerned_people_opinion": "Berørte personers synspunkter",
 		"concerned_people_searched_opinion": "Søger de berørte personers synspunkter",
 		"concerned_people_status": "Berørte personers status",
 		"concerned_people_unsearched_opinion_comment": "Hvorfor de pågældende personers synspunkt ikke blev efterspurgt",
-		"content_choice": {
-			"0": "Behandlingen bør ikke gennemføres.",
-			"1": "Behandlingen kan gennemføres."
-		},
+		"content_choice": [
+			"Behandlingen bør ikke gennemføres.",
+			"Behandlingen kan gennemføres."
+		],
 		"creation_date": "Dato for kreation",
 		"csv_action_plan_comment": "Handlingsplans kommentarer",
 		"csv_evaluation_comment": "Evaluations kommentarer",
@@ -1341,8 +1332,8 @@
 		"csv_section": "Sektion",
 		"csv_title_object": "Titel",
 		"display_filters": {
-      "check_all": "TO TRANSLATE - Enable / disable all display filters",
 			"action_plan_content": "Vis handlingsplan",
+			"check_all": "Aktivér / deaktiver alle skærmfiltre",
 			"context_content": "Vis sektion \"Kontext\"",
 			"main_content": "Vis sektion \"PIA information\"",
 			"principles_content": "Vis sektion \"Fundamentale principper\"",
@@ -1351,6 +1342,7 @@
 			"risks_overview_content": "Vis risici oversigt",
 			"title": "Vis filtre"
 		},
+		"download_csv": "TO TRANSLATE - Action plan (.csv)",
 		"dpo_name": "DPO's navn",
 		"dpo_opinion": "DPO's holdning",
 		"dpo_status": "DPO's status",
@@ -1367,6 +1359,15 @@
 		"pia_author": "Forfatterens navn",
 		"pia_name": "PIA",
 		"pia_validator": "Godkenders navn",
+		"preview_dpo_opinion": "TO TRANSLATE - DPO and data subjects opinion",
+		"preview_edition": "TO TRANSLATE - Editing",
+		"preview_evaluation": "TO TRANSLATE - Evaluation",
+		"preview_no_data": "TO TRANSLATE - No data to display.",
+		"preview_status": "TO TRANSLATE - Status",
+		"preview_subtitle": "TO TRANSLATE - General information",
+		"preview_title": "TO TRANSLATE - Preview",
+		"preview_validation": "TO TRANSLATE - Validation",
+		"preview_validation_section": "TO TRANSLATE - Validation",
 		"previous_page": "tilbage til forgående side",
 		"rejection_reason": "Begrundelse for afvisning",
 		"risks_cartography_title": "Risikokortlægning",

@@ -74,17 +74,17 @@
 		"placeholder_improvable1": "TO BE TRANSLATED - According to the available information, additional measures are to be implemented in order to improve the data protection of the processing.",
 		"placeholder_improvable2": "TO BE TRANSLATED - Enter your comments.",
 		"placeholder_to_correct": "TO BE TRANSLATED - The information provided are not sufficient to properly evaluate them. Send back to the editor to improve the original submission.",
-		"status": {
-			"0": "Čeká",
-			"1": "Opravit",
-			"2": "Vylepšit",
-			"3": "Přijato"
-		},
+		"status": [
+			"Čeká",
+			"Opravit",
+			"Vylepšit",
+			"Přijato"
+		],
 		"title": "Hodnocení",
 		"to_correct": "Opravit"
 	},
 	"header": {
-    "exit_full_screen_mode": "TO TRANSLATE - Press F11 to exit full screen mode.",
+		"exit_full_screen_mode": "TO TRANSLATE - Press F11 to exit full screen mode.",
 		"homepage_link": "Hlavní panel",
 		"knowledge_base_link": "Znalostní báze",
 		"languages": {
@@ -265,9 +265,9 @@
 			"example": "Příklad",
 			"general_measure": "Fyzická bezpečnostní kontrola",
 			"measure_on_data": "Logická bezpečnostní kontrola",
+			"method": "(TRANSLATION REQUIRED) Methodology",
 			"organizational_measure": "Organizační kontrola",
-			"principle": "Zásada",
-      "method": "(TRANSLATION REQUIRED) Methodology"
+			"principle": "Zásada"
 		},
 		"filters": {
 			"all": "Vše",
@@ -382,11 +382,6 @@
 				"name": "Threats that can lead to an unwanted modification of personal data",
 				"source": "PIAF Connected Objects p43 and 44, WIKI"
 			},
-      "PIA_METHOD_MES": {
-				"description": "(TRANSLATION REQUIRED) Planned controls are those originally put in place, before any analysis by the assessor. Corrective measures advised by the assessor will be stated in the action plan and will enable a second assessment of the severity and likelihood of the risk.",
-				"name": "(TRANSLATION REQUIRED) Planned and corrective controls",
-				"source": ""
-      },
 			"PIA_DEF_MES": {
 				"description": "To be chosen among those available in section \"Planned or existing measures\", which you may complete if needed.",
 				"name": "Measures",
@@ -617,6 +612,11 @@
 				"description": "Depending on the country in question, you will have to justify the choice of remote hosting and indicate the legal supervision arrangements implemented in order to ensure adequate protection of the data subject to a cross-border transfer. That is :<br>- European Union<br>- Country recognised as providing adequate protection by the EU<br>- Transfer to the United States to a company which has joined the Privacy Shield<br>- Other country <br>See <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/CS/TXT/HTML/?uri=CELEX:32016R0679&from=CS\">art. 44 to 49 of [GDPR]</a>",
 				"name": "Transfers",
 				"source": "PIAF Connected Objects p18"
+			},
+			"PIA_METHOD_MES": {
+				"description": "(TRANSLATION REQUIRED) Planned controls are those originally put in place, before any analysis by the assessor. Corrective measures advised by the assessor will be stated in the action plan and will enable a second assessment of the severity and likelihood of the risk.",
+				"name": "(TRANSLATION REQUIRED) Planned and corrective controls",
+				"source": "WIKI Threats_to_make_a_modification_not_directed_data"
 			},
 			"PIA_ORG_AUD": {
 				"description": "Existence of a policy and processes to obtain an organisation able to manage and control the protection of personal data held within it.",
@@ -966,6 +966,7 @@
 	"pia": {
 		"attachments": {
 			"add": "Přidat",
+			"download": "Stáhněte si přílohu",
 			"remove": "Odebrat",
 			"title": "Přílohy"
 		},
@@ -1002,24 +1003,24 @@
 			},
 			"validate_pia": "Ověřit PIA"
 		},
-		"statuses": {
-			"0": "Probíhá",
-			"1": "Odmítnuto",
-			"2": "Jednoduché ověření",
-			"3": "Podepsané ověření",
-			"4": "Archivováno",
-			"5": "Čekání na ověření"
-		}
+		"statuses": [
+			"Probíhá",
+			"Odmítnuto",
+			"Jednoduché ověření",
+			"Podepsané ověření",
+			"Archivováno",
+			"Čekání na ověření"
+		]
 	},
 	"questions": {
 		"edit": "Upravit otázku",
-		"gauges": {
-			"0": "(Nedefinováno)",
-			"1": "Zanedbatelné",
-			"2": "Omezeno",
-			"3": "Důležité",
-			"4": "Maximální"
-		},
+		"gauges": [
+			"(Nedefinováno)",
+			"Zanedbatelné",
+			"Omezeno",
+			"Důležité",
+			"Maximální"
+		],
 		"placeholder_title": "TO BE TRANSLATED - Titre de la question (obligatoire)",
 		"remove": "TO BE TRANSLATED - Supprimer la question"
 	},
@@ -1292,27 +1293,6 @@
 		"update": "Aktualizovat URL"
 	},
 	"summary": {
-    "preview_title": "TO TRANSLATE - Preview",
-    "preview_subtitle": "TO TRANSLATE - General information",
-    "preview_edition": "TO TRANSLATE - Editing",
-    "preview_evaluation": "TO TRANSLATE - Evaluation",
-    "preview_validation": "TO TRANSLATE - Validation",
-    "preview_status": "TO TRANSLATE - Status",
-    "preview_validation_section": "TO TRANSLATE - Validation",
-    "preview_dpo_opinion": "TO TRANSLATE - DPO and data subjects opinion",
-    "preview_no_data": "TO TRANSLATE - No data to display.",
-    "actions": {
-      "print_and_download": "TO TRANSLATE - Print and download",
-      "print": "TO TRANSLATE - Print the report",
-      "complete_download": "TO TRANSLATE - Download the full report",
-      "complete_download_desc": "TO TRANSLATE - Export in a .zip archive all the report content (.doc and pictures), attachments and the action plan in a .csv format.",
-      "individual_download": "TO TRANSLATE - Download elements of the report",
-      "individual_download_desc": "TO TRANSLATE - Export specific elements of the report.",
-      "individual_download_select": "TO TRANSLATE - Select elements to export:",
-      "individual_download_doc": "TO TRANSLATE - Texts (.doc)",
-      "individual_download_images": "TO TRANSLATE - Visual elements (.png) including the risk overview, the risk mapping and the action plan."
-    },
-    "download_csv": "TO TRANSLATE - Action plan (.csv)",
 		"action_plan": {
 			"fundamental_principles": "Základní principy",
 			"implementation_date": "Předpokládaný datum implementace",
@@ -1322,16 +1302,27 @@
 			"risks": "Rizika",
 			"title": "Akční plán"
 		},
+		"actions": {
+			"complete_download": "TO TRANSLATE - Download the full report",
+			"complete_download_desc": "TO TRANSLATE - Export in a .zip archive all the report content (.doc and pictures), attachments and the action plan in a .csv format.",
+			"individual_download": "TO TRANSLATE - Download elements of the report",
+			"individual_download_desc": "TO TRANSLATE - Export specific elements of the report.",
+			"individual_download_doc": "TO TRANSLATE - Texts (.doc)",
+			"individual_download_images": "TO TRANSLATE - Visual elements (.png) including the risk overview, the risk mapping and the action plan.",
+			"individual_download_select": "TO TRANSLATE - Select elements to export:",
+			"print": "TO TRANSLATE - Print the report",
+			"print_and_download": "TO TRANSLATE - Print and download"
+		},
 		"attachments": "Přílohy",
 		"concerned_people_name": "Jména dotčených osob",
 		"concerned_people_opinion": "Názory dotčených osob",
 		"concerned_people_searched_opinion": "Hledání názoru dotčených osob",
 		"concerned_people_status": "Stavy dotčených osob",
 		"concerned_people_unsearched_opinion_comment": "Důvod, proč nebyl požadován zájem osob",
-		"content_choice": {
-			"0": "Léčba by neměla být prováděna.",
-			"1": "Léčba by mohla být provedena."
-		},
+		"content_choice": [
+			"Léčba by neměla být prováděna.",
+			"Léčba by mohla být provedena."
+		],
 		"creation_date": "Datum vytvoření",
 		"csv_action_plan_comment": "TO BE TRANSLATED - Action plan comment",
 		"csv_evaluation_comment": "TO BE TRANSLATED - Evaluation comment",
@@ -1341,8 +1332,8 @@
 		"csv_section": "TO BE TRANSLATED - Section",
 		"csv_title_object": "TO BE TRANSLATED - Title",
 		"display_filters": {
-      "check_all": "TO TRANSLATE - Enable / disable all display filters",
 			"action_plan_content": "TO BE TRANSLATED - Display action plan",
+			"check_all": "Povolit / zakázat všechny filtry zobrazení",
 			"context_content": "TO BE TRANSLATED - Display \"Context\"",
 			"main_content": "TO BE TRANSLATED - Display \"PIA information\"",
 			"principles_content": "TO BE TRANSLATED - Display \"Fundamental principles\"",
@@ -1351,6 +1342,7 @@
 			"risks_overview_content": "TO BE TRANSLATED - Display risks overview",
 			"title": "TO BE TRANSLATED - Filters"
 		},
+		"download_csv": "TO TRANSLATE - Action plan (.csv)",
 		"dpo_name": "Jméno DPO Poběřence osobních údajů",
 		"dpo_opinion": "Stanovisko DPO Poběřence osobních údajů",
 		"dpo_status": "Stav DPO Poběřence osobních údajů",
@@ -1367,6 +1359,15 @@
 		"pia_author": "Jméno Autora",
 		"pia_name": "PIA",
 		"pia_validator": "Jméno Validátora",
+		"preview_dpo_opinion": "TO TRANSLATE - DPO and data subjects opinion",
+		"preview_edition": "TO TRANSLATE - Editing",
+		"preview_evaluation": "TO TRANSLATE - Evaluation",
+		"preview_no_data": "TO TRANSLATE - No data to display.",
+		"preview_status": "TO TRANSLATE - Status",
+		"preview_subtitle": "TO TRANSLATE - General information",
+		"preview_title": "TO TRANSLATE - Preview",
+		"preview_validation": "TO TRANSLATE - Validation",
+		"preview_validation_section": "TO TRANSLATE - Validation",
 		"previous_page": "Zpět na předchozí stránku",
 		"rejection_reason": "Důvod odmítnutí",
 		"risks_cartography_title": "TO BE TRANSLATED - Risk mapping",
