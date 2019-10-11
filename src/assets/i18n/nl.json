@@ -74,17 +74,17 @@
 		"placeholder_improvable1": "Volgens de beschikbare informatie moeten aanvullende maatregelen worden genomen om de gegevensbescherming van de verwerking te verbeteren.",
 		"placeholder_improvable2": "Voer uw opmerkingen in.",
 		"placeholder_to_correct": "De verstrekte informatie is niet voldoende om ze goed te evalueren. Stuur terug naar de editor om de originele inzending te verbeteren.",
-		"status": {
-			"0": "Hangende",
-			"1": "Te corrigeren",
-			"2": "Verbeterbaar",
-			"3": "Aanvaardbaar"
-		},
+		"status": [
+			"Hangende",
+			"Te corrigeren",
+			"Verbeterbaar",
+			"Aanvaardbaar"
+		],
 		"title": "Evaluatie",
 		"to_correct": "Te corrigeren"
 	},
 	"header": {
-    "exit_full_screen_mode": "Druk F11 om het volledige scherm te sluiten.",
+		"exit_full_screen_mode": "Druk F11 om het volledige scherm te sluiten.",
 		"homepage_link": "Dashboard",
 		"knowledge_base_link": "Kennisbank",
 		"languages": {
@@ -265,9 +265,9 @@
 			"example": "Voorbeeld",
 			"general_measure": "Fysieke beveiligingsmaatregelen",
 			"measure_on_data": "Logische beveiligingsmaatregelen",
+			"method": "Methodologie",
 			"organizational_measure": "Organisatorische maatregelen",
-			"principle": "Principe",
-      "method": "Methodologie"
+			"principle": "Principe"
 		},
 		"filters": {
 			"all": "Allemaal",
@@ -382,11 +382,6 @@
 				"name": "Bedreigingen die kunnen leiden tot een ongewenste wijziging van persoonlijke gegevens",
 				"source": "PIAF Connected Objects p43 and 44, WIKI"
 			},
-      "PIA_METHOD_MES": {
-				"description": "(TRANSLATION REQUIRED) Planned controls are those originally put in place, before any analysis by the assessor. Corrective measures advised by the assessor will be stated in the action plan and will enable a second assessment of the severity and likelihood of the risk.",
-				"name": "(TRANSLATION REQUIRED) Planned and corrective controls",
-				"source": ""
-      },
 			"PIA_DEF_MES": {
 				"description": "Te kiezen uit diegenen die beschikbaar zijn in sectie \\'Geplande of bestaande maatregelen \\', die u eventueel kunt invullen.",
 				"name": "Maatregelen",
@@ -617,6 +612,11 @@
 				"description": "Afhankelijk van het land in kwestie, moet u de keuze voor externe hosting rechtvaardigen en aangeven welke juridische toezichtregelingen zijn geïmplementeerd om te zorgen voor een adequate bescherming van de betrokkene bij een grensoverschrijdende doorgifte. Dat wil zeggen: <br> - Europese Unie <br> - Land erkend als voldoende bescherming door de EU <br> - Overdracht naar de Verenigde Staten aan een bedrijf dat zich bij het privacyschild heeft aangesloten - Ander land <br> Zie <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/NL/TXT/HTML/?uri=CELEX:32016R0679&from=NL\">art. 44 tot 49 van de [AVG]</a>",
 				"name": "Transfers",
 				"source": "PIAF Connected Objects p18"
+			},
+			"PIA_METHOD_MES": {
+				"description": "(TRANSLATION REQUIRED) Planned controls are those originally put in place, before any analysis by the assessor. Corrective measures advised by the assessor will be stated in the action plan and will enable a second assessment of the severity and likelihood of the risk.",
+				"name": "(TRANSLATION REQUIRED) Planned and corrective controls",
+				"source": "WIKI Threats_to_make_a_modification_not_directed_data"
 			},
 			"PIA_ORG_AUD": {
 				"description": "Bestaan van een beleid en processen om een organisatie te realiseren, die in staat is om de bescherming van persoonlijke gegevens die zich daarin bevinden, te beheren en controleren.",
@@ -966,6 +966,7 @@
 	"pia": {
 		"attachments": {
 			"add": "Toevoegen",
+			"download": "Download de bijlage",
 			"remove": "Verwijderen",
 			"title": "Bijlagen"
 		},
@@ -1002,24 +1003,24 @@
 			},
 			"validate_pia": "PIA Valideren"
 		},
-		"statuses": {
-			"0": "In opmaak",
-			"1": "Afgekeurd",
-			"2": "Gevalideerd (eenvoudig)",
-			"3": "Gevalideerd (ondertekend)",
-			"4": "Gearchiveerd",
-			"5": "Wacht op validatie"
-		}
+		"statuses": [
+			"In opmaak",
+			"Afgekeurd",
+			"Gevalideerd (eenvoudig)",
+			"Gevalideerd (ondertekend)",
+			"Gearchiveerd",
+			"Wacht op validatie"
+		]
 	},
 	"questions": {
 		"edit": "Vraag bewerken",
-		"gauges": {
-			"0": "(Onbepaald)",
-			"1": "Verwaarloosbaar",
-			"2": "Beperkt",
-			"3": "Belangrijk",
-			"4": "Maximaal"
-		},
+		"gauges": [
+			"(Onbepaald)",
+			"Verwaarloosbaar",
+			"Beperkt",
+			"Belangrijk",
+			"Maximaal"
+		],
 		"placeholder_title": "Title van de vraag (verplicht)",
 		"remove": "De vraag verwijderen"
 	},
@@ -1292,27 +1293,6 @@
 		"update": "URL bijwerken"
 	},
 	"summary": {
-    "preview_title": "TO TRANSLATE - Preview",
-    "preview_subtitle": "TO TRANSLATE - General information",
-    "preview_edition": "TO TRANSLATE - Editing",
-    "preview_evaluation": "TO TRANSLATE - Evaluation",
-    "preview_validation": "TO TRANSLATE - Validation",
-    "preview_status": "TO TRANSLATE - Status",
-    "preview_validation_section": "TO TRANSLATE - Validation",
-    "preview_dpo_opinion": "TO TRANSLATE - DPO and data subjects opinion",
-    "preview_no_data": "TO TRANSLATE - No data to display.",
-    "actions": {
-      "print_and_download": "TO TRANSLATE - Print and download",
-      "print": "TO TRANSLATE - Print the report",
-      "complete_download": "TO TRANSLATE - Download the full report",
-      "complete_download_desc": "TO TRANSLATE - Export in a .zip archive all the report content (.doc and pictures), attachments and the action plan in a .csv format.",
-      "individual_download": "TO TRANSLATE - Download elements of the report",
-      "individual_download_desc": "TO TRANSLATE - Export specific elements of the report.",
-      "individual_download_select": "TO TRANSLATE - Select elements to export:",
-      "individual_download_doc": "TO TRANSLATE - Texts (.doc)",
-      "individual_download_images": "TO TRANSLATE - Visual elements (.png) including the risk overview, the risk mapping and the action plan."
-    },
-    "download_csv": "TO TRANSLATE - Action plan (.csv)",
 		"action_plan": {
 			"fundamental_principles": "Fundamentele principes",
 			"implementation_date": "Verwachte datum van implementatie",
@@ -1322,16 +1302,27 @@
 			"risks": "Risico's",
 			"title": "Actieplan"
 		},
+		"actions": {
+			"complete_download": "TO TRANSLATE - Download the full report",
+			"complete_download_desc": "TO TRANSLATE - Export in a .zip archive all the report content (.doc and pictures), attachments and the action plan in a .csv format.",
+			"individual_download": "TO TRANSLATE - Download elements of the report",
+			"individual_download_desc": "TO TRANSLATE - Export specific elements of the report.",
+			"individual_download_doc": "TO TRANSLATE - Texts (.doc)",
+			"individual_download_images": "TO TRANSLATE - Visual elements (.png) including the risk overview, the risk mapping and the action plan.",
+			"individual_download_select": "TO TRANSLATE - Select elements to export:",
+			"print": "TO TRANSLATE - Print the report",
+			"print_and_download": "TO TRANSLATE - Print and download"
+		},
 		"attachments": "Bijlagen",
 		"concerned_people_name": "Namen van betrokken mensen",
 		"concerned_people_opinion": "Meningen van betrokken mensen",
 		"concerned_people_searched_opinion": "Zoeken naar de mening van betrokken mensen",
 		"concerned_people_status": "Statussen van betrokken mensen",
 		"concerned_people_unsearched_opinion_comment": "Reden waarom de mening van betrokken mensen niet werd gevraagd",
-		"content_choice": {
-			"0": "De verwerking mag niet gebeuren.",
-			"1": "De verwerking zou kunnen worden geïmplementeerd."
-		},
+		"content_choice": [
+			"De verwerking mag niet gebeuren.",
+			"De verwerking zou kunnen worden geïmplementeerd."
+		],
 		"creation_date": "Aanmaakdatum",
 		"csv_action_plan_comment": "Commentaar actieplan",
 		"csv_evaluation_comment": "Evaluatie commentaar",
@@ -1341,8 +1332,8 @@
 		"csv_section": "Sectie",
 		"csv_title_object": "Titel",
 		"display_filters": {
-      "check_all": "Alle weergavefilters inschakelen / uitschakelen",
 			"action_plan_content": "Toon actieplan",
+			"check_all": "Alle weergavefilters inschakelen / uitschakelen",
 			"context_content": "Toon \"Context\"",
 			"main_content": "Toon \"PIA-informatie\"",
 			"principles_content": "Toon \"Fundamentele principes\"",
@@ -1351,6 +1342,7 @@
 			"risks_overview_content": "Toon overzicht van de risico's",
 			"title": "Filters"
 		},
+		"download_csv": "TO TRANSLATE - Action plan (.csv)",
 		"dpo_name": "naam FG/DPO",
 		"dpo_opinion": "mening FG/DPO",
 		"dpo_status": "status FG/DPO",
@@ -1367,6 +1359,15 @@
 		"pia_author": "Auteursnaam",
 		"pia_name": "PIA",
 		"pia_validator": "Naam validator",
+		"preview_dpo_opinion": "TO TRANSLATE - DPO and data subjects opinion",
+		"preview_edition": "TO TRANSLATE - Editing",
+		"preview_evaluation": "TO TRANSLATE - Evaluation",
+		"preview_no_data": "TO TRANSLATE - No data to display.",
+		"preview_status": "TO TRANSLATE - Status",
+		"preview_subtitle": "TO TRANSLATE - General information",
+		"preview_title": "TO TRANSLATE - Preview",
+		"preview_validation": "TO TRANSLATE - Validation",
+		"preview_validation_section": "TO TRANSLATE - Validation",
 		"previous_page": "Terug naar de vorige pagina",
 		"rejection_reason": "Reden van afwijzing",
 		"risks_cartography_title": "Risicokartering",

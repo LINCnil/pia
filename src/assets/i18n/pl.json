@@ -74,17 +74,17 @@
 		"placeholder_improvable1": "Można wpisać komentarz wyjaśniający, które dodatkowe środki należy uwzględnić w celu ulepszenia ochrony danych osobowych w ramach przetwarzania.",
 		"placeholder_improvable2": "Można wpisać komentarz.",
 		"placeholder_to_correct": "Można wpisać komentarz wyjaśniający, dlaczego dostarczone informacje nie są wystarczające dla przeprowadzenia oceny. Tę sekcję nalezy odesłać do edycji w celu uzupełnienia pierwotnej propozycji.",
-		"status": {
-			"0": "Oczekujące",
-			"1": "Do poprawienia",
-			"2": "Do ulepszenia",
-			"3": "Do zaakceptowania"
-		},
+		"status": [
+			"Oczekujące",
+			"Do poprawienia",
+			"Do ulepszenia",
+			"Do zaakceptowania"
+		],
 		"title": "Ocena",
 		"to_correct": "Do poprawienia"
 	},
 	"header": {
-    "exit_full_screen_mode": "TO TRANSLATE - Press F11 to exit full screen mode.",
+		"exit_full_screen_mode": "TO TRANSLATE - Press F11 to exit full screen mode.",
 		"homepage_link": "Strona główna",
 		"knowledge_base_link": "Baza wiedzy",
 		"languages": {
@@ -265,9 +265,9 @@
 			"example": "Przykład",
 			"general_measure": "Środek ochrony fizycznej",
 			"measure_on_data": "Środek ochrony logicznej",
+			"method": "(TRANSLATION REQUIRED) Methodology",
 			"organizational_measure": "Środek organizacyjny",
-			"principle": "Zasada",
-      "method": "(TRANSLATION REQUIRED) Methodology"
+			"principle": "Zasada"
 		},
 		"filters": {
 			"all": "Wszystkie",
@@ -382,11 +382,6 @@
 				"name": "Zagrożenia, które mogą doprowadzić do niepożądanej modyfikacji danych osobowych",
 				"source": "PIAF Connected Objects p43 and 44, WIKI"
 			},
-      "PIA_METHOD_MES": {
-				"description": "(TRANSLATION REQUIRED) Planned controls are those originally put in place, before any analysis by the assessor. Corrective measures advised by the assessor will be stated in the action plan and will enable a second assessment of the severity and likelihood of the risk.",
-				"name": "(TRANSLATION REQUIRED) Planned and corrective controls",
-				"source": ""
-      },
 			"PIA_DEF_MES": {
 				"description": "Należy wybrać spośród tych wymienionych w sekcji \"Środki planowane lub istniejące\", które można uzupełnić w razie potrzeby.",
 				"name": "Środki",
@@ -617,6 +612,11 @@
 				"description": "Należy szczegółowo określić położenie geograficzne miejsca składowania poszczególnych danych podlegających przetwarzaniu. W zależności od danego państwa, należy uzasadnić wybór umieszczenia poza Unią Europejską oraz wskazać procedury ram prawnych wprowadzone w celu zapewnienia odpowiedniej ochrony danych będących przedmiotem transferu transgranicznego.<br> To znaczy:<br>- W państwie Unii Europejskiej<br>- W państwie uznanym jako adekwatny przez Unię Europejską<br>- Przekazywanie do Stanów Zjednoczonych do spółki handlowej, która przystąpiła do Privacy Shield<br>- Inne państwa <br>Zgodnie z artykułami 44-49 RODO.",
 				"name": "Przekazywanie danych",
 				"source": "PIAF Connected Objects p18"
+			},
+			"PIA_METHOD_MES": {
+				"description": "(TRANSLATION REQUIRED) Planned controls are those originally put in place, before any analysis by the assessor. Corrective measures advised by the assessor will be stated in the action plan and will enable a second assessment of the severity and likelihood of the risk.",
+				"name": "(TRANSLATION REQUIRED) Planned and corrective controls",
+				"source": "WIKI Threats_to_make_a_modification_not_directed_data"
 			},
 			"PIA_ORG_AUD": {
 				"description": "Wprowadzenie środków pozwalających uzyskiwać całościową i aktualną wizję stanu ochrony danych i zgodności z RODO (kontrola zgodności czynności przetwarzania, celów i wskaźników, zakresy odpowiedzialności, itd.).",
@@ -966,6 +966,7 @@
 	"pia": {
 		"attachments": {
 			"add": "Dodaj załącznik",
+			"download": "Pobierz załącznik",
 			"remove": "Usuń",
 			"title": "Załączniki"
 		},
@@ -1002,24 +1003,24 @@
 			},
 			"validate_pia": "Zatwierdzenie PIA"
 		},
-		"statuses": {
-			"0": "W toku",
-			"1": "Odrzucona",
-			"2": "Zatwierdzenie proste",
-			"3": "Zatwierdzenie podpisane",
-			"4": "Zarchiwizowana",
-			"5": "Czeka na potwierdzenie"
-		}
+		"statuses": [
+			"W toku",
+			"Odrzucona",
+			"Zatwierdzenie proste",
+			"Zatwierdzenie podpisane",
+			"Zarchiwizowana",
+			"Czeka na potwierdzenie"
+		]
 	},
 	"questions": {
 		"edit": "Edycja pytania",
-		"gauges": {
-			"0": "(Niezdefiniowane)",
-			"1": "Pomijalne",
-			"2": "Ograniczone",
-			"3": "Poważne",
-			"4": "Maksymalne"
-		},
+		"gauges": [
+			"(Niezdefiniowane)",
+			"Pomijalne",
+			"Ograniczone",
+			"Poważne",
+			"Maksymalne"
+		],
 		"placeholder_title": "Tytuł pytania (obowiązkowy)",
 		"remove": "Usuń pytanie"
 	},
@@ -1292,27 +1293,6 @@
 		"update": "Aktualizacja URL"
 	},
 	"summary": {
-    "preview_title": "TO TRANSLATE - Preview",
-    "preview_subtitle": "TO TRANSLATE - General information",
-    "preview_edition": "TO TRANSLATE - Editing",
-    "preview_evaluation": "TO TRANSLATE - Evaluation",
-    "preview_validation": "TO TRANSLATE - Validation",
-    "preview_status": "TO TRANSLATE - Status",
-    "preview_validation_section": "TO TRANSLATE - Validation",
-    "preview_dpo_opinion": "TO TRANSLATE - DPO and data subjects opinion",
-    "preview_no_data": "TO TRANSLATE - No data to display.",
-    "actions": {
-      "print_and_download": "TO TRANSLATE - Print and download",
-      "print": "TO TRANSLATE - Print the report",
-      "complete_download": "TO TRANSLATE - Download the full report",
-      "complete_download_desc": "TO TRANSLATE - Export in a .zip archive all the report content (.doc and pictures), attachments and the action plan in a .csv format.",
-      "individual_download": "TO TRANSLATE - Download elements of the report",
-      "individual_download_desc": "TO TRANSLATE - Export specific elements of the report.",
-      "individual_download_select": "TO TRANSLATE - Select elements to export:",
-      "individual_download_doc": "TO TRANSLATE - Texts (.doc)",
-      "individual_download_images": "TO TRANSLATE - Visual elements (.png) including the risk overview, the risk mapping and the action plan."
-    },
-    "download_csv": "TO TRANSLATE - Action plan (.csv)",
 		"action_plan": {
 			"fundamental_principles": "Podstawowe zasady",
 			"implementation_date": "Planowana data wdrożenia",
@@ -1322,16 +1302,27 @@
 			"risks": "Ryzyka",
 			"title": "Plan działania"
 		},
+		"actions": {
+			"complete_download": "TO TRANSLATE - Download the full report",
+			"complete_download_desc": "TO TRANSLATE - Export in a .zip archive all the report content (.doc and pictures), attachments and the action plan in a .csv format.",
+			"individual_download": "TO TRANSLATE - Download elements of the report",
+			"individual_download_desc": "TO TRANSLATE - Export specific elements of the report.",
+			"individual_download_doc": "TO TRANSLATE - Texts (.doc)",
+			"individual_download_images": "TO TRANSLATE - Visual elements (.png) including the risk overview, the risk mapping and the action plan.",
+			"individual_download_select": "TO TRANSLATE - Select elements to export:",
+			"print": "TO TRANSLATE - Print the report",
+			"print_and_download": "TO TRANSLATE - Print and download"
+		},
 		"attachments": "Załączniki",
 		"concerned_people_name": "Nazwiska osób, których dane dotyczą",
 		"concerned_people_opinion": "Opinie osób, których dane dotyczą",
 		"concerned_people_searched_opinion": "Potrzebne opinie osób, których dane dotyczą",
 		"concerned_people_status": "Status osób, których dane dotyczą",
 		"concerned_people_unsearched_opinion_comment": "Powód, dla którego nie zwrócono się o opinię do osób, których dane dotyczą.",
-		"content_choice": {
-			"0": "Tego przetwarzania nie należy wdrażać.",
-			"1": "To przetwarzanie można wdrożyć."
-		},
+		"content_choice": [
+			"Tego przetwarzania nie należy wdrażać.",
+			"To przetwarzanie można wdrożyć."
+		],
 		"creation_date": "Data utworzenia",
 		"csv_action_plan_comment": "Komentarz do planu działania",
 		"csv_evaluation_comment": "Komentarz do oceny",
@@ -1341,8 +1332,8 @@
 		"csv_section": "Sekcja",
 		"csv_title_object": "Tytuł",
 		"display_filters": {
-      "check_all": "TO TRANSLATE - Enable / disable all display filters",
 			"action_plan_content": "Wyświetl plan działania",
+			"check_all": "Włącz / wyłącz wszystkie filtry wyświetlania",
 			"context_content": "Wyświetl \"Kontekst przetwarzania\"",
 			"main_content": "Wyświetl \"Informacje\"",
 			"principles_content": "Wyświetl \"Podstawowe zasady\"",
@@ -1351,6 +1342,7 @@
 			"risks_overview_content": "Wyświetl przegląd ryzyka",
 			"title": "Filtry"
 		},
+		"download_csv": "TO TRANSLATE - Action plan (.csv)",
 		"dpo_name": "Nazwisko IOD",
 		"dpo_opinion": "Opinia IOD",
 		"dpo_status": "Status IOD",
@@ -1367,6 +1359,15 @@
 		"pia_author": "Nazwisko autora",
 		"pia_name": "Nazwa PIA",
 		"pia_validator": "Nazwisko zatwierdzającego",
+		"preview_dpo_opinion": "TO TRANSLATE - DPO and data subjects opinion",
+		"preview_edition": "TO TRANSLATE - Editing",
+		"preview_evaluation": "TO TRANSLATE - Evaluation",
+		"preview_no_data": "TO TRANSLATE - No data to display.",
+		"preview_status": "TO TRANSLATE - Status",
+		"preview_subtitle": "TO TRANSLATE - General information",
+		"preview_title": "TO TRANSLATE - Preview",
+		"preview_validation": "TO TRANSLATE - Validation",
+		"preview_validation_section": "TO TRANSLATE - Validation",
 		"previous_page": "Powrót do poprzedniej strony",
 		"rejection_reason": "Powód odmowy",
 		"risks_cartography_title": "Mapowanie ryzyka",

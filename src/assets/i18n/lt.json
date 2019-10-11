@@ -74,17 +74,17 @@
 		"placeholder_improvable1": "Atsižvelgiant į turimą informaciją, reikėtų imtis papildomų priemonių, siekiant pagerinti tvarkomų asmens  duomenų apsaugą.",
 		"placeholder_improvable2": "Pateikite savo komentarą.",
 		"placeholder_to_correct": "Pateiktos informacijos nepakanka įvertinimui. PDAV grąžinimas jo rengėjui tobulinimui, būtina atsižvelgti į pateiktas pastabas.",
-		"status": {
-			"0": "Nebaigtas",
-			"1": "Taisytinas",
-			"2": "Tobulintinas",
-			"3": "Tinkamas"
-		},
+		"status": [
+			"Nebaigtas",
+			"Taisytinas",
+			"Tobulintinas",
+			"Tinkamas"
+		],
 		"title": "Vertinimas",
 		"to_correct": "Taisytinas"
 	},
 	"header": {
-    "exit_full_screen_mode": "TO TRANSLATE - Press F11 to exit full screen mode.",
+		"exit_full_screen_mode": "TO TRANSLATE - Press F11 to exit full screen mode.",
 		"homepage_link": "Apžvalga",
 		"knowledge_base_link": "Pagalba",
 		"languages": {
@@ -265,9 +265,9 @@
 			"example": "Pavyzdys",
 			"general_measure": "Fizinės (techninės) apsaugos priemonės",
 			"measure_on_data": "Loginės apsaugos priemonės",
+			"method": "(TRANSLATION REQUIRED) Methodology",
 			"organizational_measure": "Organizacinės apsaugos priemonės",
-			"principle": "Principas",
-      "method": "(TRANSLATION REQUIRED) Methodology"
+			"principle": "Principas"
 		},
 		"filters": {
 			"all": "Visi",
@@ -382,11 +382,6 @@
 				"name": "Grėsmės, dėl kurių gali būti neteisėtai pakeisti asmens duomenys",
 				"source": "PIAF Connected Objects p43 and 44, WIKI"
 			},
-      "PIA_METHOD_MES": {
-				"description": "(TRANSLATION REQUIRED) Planned controls are those originally put in place, before any analysis by the assessor. Corrective measures advised by the assessor will be stated in the action plan and will enable a second assessment of the severity and likelihood of the risk.",
-				"name": "(TRANSLATION REQUIRED) Planned and corrective controls",
-				"source": ""
-      },
 			"PIA_DEF_MES": {
 				"description": "Pasirinkite priemonę iš skyriaus 'Planuojamos arba egzistuojančios apsaugos priemonės', esant poreikiui, papildykite jas.",
 				"name": "Priemonės",
@@ -617,6 +612,11 @@
 				"description": "Nurodykite šalis, kuriuose bus tvarkomi asmens duomenys. Priklausomai nuo pasirinktos šalies, Jums reikės teisiškai pagrįsti asmens duomenų teikimą į jas ir nurodyti, kokių teisinių bei techninių ir organizacinių apsaugos priemonių buvo imtasi, siekiant užtikrinti tinkamą asmens duomenų, kurie yra teikiami į kitas šalis, apsaugą. Tokiomis priemonėmis gali būti: <br>- Europos Sąjungos<br>- šalies pripažinimas, kad ji užtikrina tinkamą asmens duomenų apsaugą <br>- Duomenų teikimas į JAV, ten esančiai bendrovei, kuri yra prisijungusi prie Privacy Shield programos <br>- Dėl kitų šalių <br>žr. <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/LT/TXT/HTML/?uri=CELEX:32016R0679&from=LT\"> [BDAR] 44-49 str. </a>",
 				"name": "Duomenų teikimas į trečiąsias šalis",
 				"source": "PIAF Connected Objects p18"
+			},
+			"PIA_METHOD_MES": {
+				"description": "(TRANSLATION REQUIRED) Planned controls are those originally put in place, before any analysis by the assessor. Corrective measures advised by the assessor will be stated in the action plan and will enable a second assessment of the severity and likelihood of the risk.",
+				"name": "(TRANSLATION REQUIRED) Planned and corrective controls",
+				"source": "WIKI Threats_to_make_a_modification_not_directed_data"
 			},
 			"PIA_ORG_AUD": {
 				"description": "Kokių veiksmų imamais, kad duomenų apsaugos priemonės atitiktų gerąją praktiką ir duomenų apsaugos teisės aktų reikalavimus (asmens duomenų apsaugos auditai, duomenų tvarkymo tikslų peržiūra, atsakomybių kontrolė).",
@@ -966,6 +966,7 @@
 	"pia": {
 		"attachments": {
 			"add": "Pridėti",
+			"download": "Atsisiųskite priedą",
 			"remove": "Pašalinti",
 			"title": "Priedai"
 		},
@@ -1002,24 +1003,24 @@
 			},
 			"validate_pia": "Tvirtinti PDAV"
 		},
-		"statuses": {
-			"0": "Vykdomas",
-			"1": "Atmestas",
-			"2": "Preliminarus patvirtinimas",
-			"3": "Galutinis patvirtinimas",
-			"4": "Suarchyvuota",
-			"5": "Laukiama patvirtinimo"
-		}
+		"statuses": [
+			"Vykdomas",
+			"Atmestas",
+			"Preliminarus patvirtinimas",
+			"Galutinis patvirtinimas",
+			"Suarchyvuota",
+			"Laukiama patvirtinimo"
+		]
 	},
 	"questions": {
 		"edit": "Redaguoti klausimą",
-		"gauges": {
-			"0": "(Nenustatytas)",
-			"1": "Nedidelis",
-			"2": "Ribotas",
-			"3": "Reikšmingas",
-			"4": "Maksimalus"
-		},
+		"gauges": [
+			"(Nenustatytas)",
+			"Nedidelis",
+			"Ribotas",
+			"Reikšmingas",
+			"Maksimalus"
+		],
 		"placeholder_title": "Klausimo pavadinimas",
 		"remove": "Ištrinti klausimą"
 	},
@@ -1292,27 +1293,6 @@
 		"update": "Atnaujinkite URL nuorodą"
 	},
 	"summary": {
-    "preview_title": "TO TRANSLATE - Preview",
-    "preview_subtitle": "TO TRANSLATE - General information",
-    "preview_edition": "TO TRANSLATE - Editing",
-    "preview_evaluation": "TO TRANSLATE - Evaluation",
-    "preview_validation": "TO TRANSLATE - Validation",
-    "preview_status": "TO TRANSLATE - Status",
-    "preview_validation_section": "TO TRANSLATE - Validation",
-    "preview_dpo_opinion": "TO TRANSLATE - DPO and data subjects opinion",
-    "preview_no_data": "TO TRANSLATE - No data to display.",
-    "actions": {
-      "print_and_download": "TO TRANSLATE - Print and download",
-      "print": "TO TRANSLATE - Print the report",
-      "complete_download": "TO TRANSLATE - Download the full report",
-      "complete_download_desc": "TO TRANSLATE - Export in a .zip archive all the report content (.doc and pictures), attachments and the action plan in a .csv format.",
-      "individual_download": "TO TRANSLATE - Download elements of the report",
-      "individual_download_desc": "TO TRANSLATE - Export specific elements of the report.",
-      "individual_download_select": "TO TRANSLATE - Select elements to export:",
-      "individual_download_doc": "TO TRANSLATE - Texts (.doc)",
-      "individual_download_images": "TO TRANSLATE - Visual elements (.png) including the risk overview, the risk mapping and the action plan."
-    },
-    "download_csv": "TO TRANSLATE - Action plan (.csv)",
 		"action_plan": {
 			"fundamental_principles": "Pagrindiniai principai",
 			"implementation_date": "Planuojamas įgyvendinimo terminas",
@@ -1322,16 +1302,27 @@
 			"risks": "Rizikos",
 			"title": "Veiksmų planas"
 		},
+		"actions": {
+			"complete_download": "TO TRANSLATE - Download the full report",
+			"complete_download_desc": "TO TRANSLATE - Export in a .zip archive all the report content (.doc and pictures), attachments and the action plan in a .csv format.",
+			"individual_download": "TO TRANSLATE - Download elements of the report",
+			"individual_download_desc": "TO TRANSLATE - Export specific elements of the report.",
+			"individual_download_doc": "TO TRANSLATE - Texts (.doc)",
+			"individual_download_images": "TO TRANSLATE - Visual elements (.png) including the risk overview, the risk mapping and the action plan.",
+			"individual_download_select": "TO TRANSLATE - Select elements to export:",
+			"print": "TO TRANSLATE - Print the report",
+			"print_and_download": "TO TRANSLATE - Print and download"
+		},
 		"attachments": "Priedeliai",
 		"concerned_people_name": "Duomenų subjektų vardai, pavardės",
 		"concerned_people_opinion": "Duomenų subjektų nuomonės",
 		"concerned_people_searched_opinion": "Duomenų subjektų nuomonė",
 		"concerned_people_status": "Duomenų subjektų statusas",
 		"concerned_people_unsearched_opinion_comment": "Priežastys, dėl kurių duomenų subjektų nuomonės nebuvo prašoma",
-		"content_choice": {
-			"0": "Tvarkymas neturėtų būti vykdomas.",
-			"1": "Tvarkymas gali būti vykdomas."
-		},
+		"content_choice": [
+			"Tvarkymas neturėtų būti vykdomas.",
+			"Tvarkymas gali būti vykdomas."
+		],
 		"creation_date": "Data",
 		"csv_action_plan_comment": "Komentaras veiksmų planui",
 		"csv_evaluation_comment": "Komentaro įvertinimas",
@@ -1341,8 +1332,8 @@
 		"csv_section": "Dalis",
 		"csv_title_object": "Pavadinimas",
 		"display_filters": {
-      "check_all": "TO TRANSLATE - Enable / disable all display filters",
 			"action_plan_content": "Parodyti veiksmų planą",
+			"check_all": "Įgalinti / išjungti visus ekrano filtrus",
 			"context_content": "Parodyti dalį \"Kontekstas\"",
 			"main_content": "Parodyti dalį\"PDAV informacija\"",
 			"principles_content": "Parodyti dalį \"Pagrindiniai principai\"",
@@ -1351,6 +1342,7 @@
 			"risks_overview_content": "Parodyti rizikų apžvalgą",
 			"title": "Filtrai"
 		},
+		"download_csv": "TO TRANSLATE - Action plan (.csv)",
 		"dpo_name": "DPA vardas, pavardė",
 		"dpo_opinion": "DPA nuomonė",
 		"dpo_status": "DPA paskyrimo detalės (išorinis, vidinis)",
@@ -1367,6 +1359,15 @@
 		"pia_author": "Rengėjo vardas, pavardė, el. pašto adresas",
 		"pia_name": "PDAV",
 		"pia_validator": "Tvirtintojo vardas, pavardė, el. pašto adresas",
+		"preview_dpo_opinion": "TO TRANSLATE - DPO and data subjects opinion",
+		"preview_edition": "TO TRANSLATE - Editing",
+		"preview_evaluation": "TO TRANSLATE - Evaluation",
+		"preview_no_data": "TO TRANSLATE - No data to display.",
+		"preview_status": "TO TRANSLATE - Status",
+		"preview_subtitle": "TO TRANSLATE - General information",
+		"preview_title": "TO TRANSLATE - Preview",
+		"preview_validation": "TO TRANSLATE - Validation",
+		"preview_validation_section": "TO TRANSLATE - Validation",
 		"previous_page": "Atgal į ankstesnį puslapį",
 		"rejection_reason": "Atmetimo priežastys",
 		"risks_cartography_title": "Rizikų tarpusavio sąsajos",
