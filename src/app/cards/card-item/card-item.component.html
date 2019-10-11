@@ -7,42 +7,30 @@
         <span class="pia-icons pia-icon-attachment"></span>
         <ul>
           <ng-container *ngFor="let attachment of attachments">
-            <li>
-              {{ attachment.name }}
-            </li>
+            <li>{{ attachment.name }}</li>
           </ng-container>
         </ul>
       </div>
       <div class="pia-cardsBlock-toolbar">
-          <div class="pia-cardsBlock-toolbar-export">
-            <a href="javascript:;" (click)="export(pia.id)" class="btn pia-tooltip">
-              <i class="fa fa-download" aria-hidden="true"></i>
-              <span class="pia-tooltip-text">{{ 'homepage.cards.item.tools.export' | translate }}</span>
-            </a>
-          </div>
-          <div class="pia-cardsBlock-toolbar-more">
-            <a href="javascript:;" class="btn pia-tooltip" title="{{ 'homepage.cards.item.tools.more_options' | translate }}">
-              <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
-              <ul class="pia-cardsBlock-toolbar-moreList">
-                <li>
-                  <i class="fa fa-files-o" aria-hidden="true"></i>
-                  <a href="javascript:;" (click)="_piaService.duplicate(pia.id)">{{ 'homepage.cards.item.tools.duplicate' | translate }}</a>
-                </li>
-                <li>
-                  <i class="fa fa-calendar-check-o" aria-hidden="true"></i>
-                  <a routerLink="/summary/{{pia.id}}" [queryParams]="{ displayOnlyActionPlan: true }" [innerHTML]="'homepage.cards.item.tools.action_plan' | translate"></a>
-                </li>
-                <li>
-                  <i class="fa fa-file-text-o" aria-hidden="true"></i>
-                  <a routerLink="/summary/{{pia.id}}" [innerHTML]="'homepage.cards.item.tools.pia' | translate"></a>
-                </li>
-                <li>
-                  <i class="fa fa-trash-o" aria-hidden="true"></i>
-                  <a href="javascript:;" (click)="removePia(pia.id)">{{ 'homepage.cards.item.tools.remove' | translate }}</a>
-                </li>
-              </ul>
-            </a>
-          </div>
+        <div class="pia-cardsBlock-toolbar-export">
+          <a *ngIf="pia.status > 0" routerLink="/entry/{{pia.id}}/section/1/item/1" class="btn pia-tooltip">
+            <i class="fa fa-pencil" aria-hidden="true"></i>
+            <span class="pia-tooltip-text">{{ 'homepage.cards.item.edit_pia' | translate }}</span>
+          </a>
+          <a href="javascript:;" (click)="_piaService.duplicate(pia.id)" class="btn pia-tooltip">
+            <i class="fa fa-files-o" aria-hidden="true"></i>
+            <span class="pia-tooltip-text">{{ 'homepage.cards.item.tools.duplicate' | translate }}</span>
+          </a>
+          <a href="javascript:;" (click)="generateZip()" class="btn pia-tooltip">
+            <i class="fa fa-download" aria-hidden="true"></i>
+            <span class="pia-tooltip-text">{{ 'homepage.cards.item.tools.export' | translate }}</span>
+          </a>
+          <a href="javascript:;" (click)="removePia(pia.id)" class="btn pia-tooltip">
+            <i class="fa fa-trash-o" aria-hidden="true"></i>
+            <span class="pia-tooltip-text">{{ 'homepage.cards.item.tools.remove' | translate }}</span>
+          </a>
+
+        </div>
       </div>
 
       <form class="pia-cardsBlock-item-form"
@@ -97,23 +85,28 @@
             <time>{{ pia.created_at | date:'shortDate':'': _languagesService.selectedLanguage }}</time>
         </div>
         <div class="pia-cardsBlock-item-status">
-            <div class="pia-cardsBlock-item-status-infos">
-                <div>{{ 'homepage.cards.status' | translate }}</div>
-                <div class="pendingValidation" *ngIf="pia.status === 0 && pia.progress === 100;else defaultStatuses">
-                  {{ 'pia.statuses.5' | translate }}
-                </div>
-                <ng-template #defaultStatuses>
-                  <div>{{ pia.getStatusName() | translate }}</div>
-                </ng-template>
+          <div class="pia-cardsBlock-item-status-infos">
+            <div>{{ 'homepage.cards.status' | translate }}</div>
+            <div class="pendingValidation" *ngIf="pia.status === 0 && pia.progress === 100;else defaultStatuses">
+              {{ 'pia.statuses.5' | translate }}
             </div>
-            <div class="pia-cardsBlock-item-status-progressBar">
-                <div>{{ pia.progress }}%</div>
-                <progress max="100" value="{{ pia.progress }}"></progress>
-            </div>
+            <ng-template #defaultStatuses>
+              <div>{{ pia.getStatusName() | translate }}</div>
+            </ng-template>
+          </div>
+          <div class="pia-cardsBlock-item-status-progressBar">
+            <div>{{ pia.progress }}%</div>
+            <progress max="100" value="{{ pia.progress }}"></progress>
+          </div>
         </div>
         <div class="pia-cardsBlock-item-btn">
-          <a *ngIf="pia.status === 0" routerLink="/entry/{{pia.id}}/section/1/item/1" class="btn btn-green">{{ 'homepage.cards.item.edit_pia' | translate }}</a>
-          <a *ngIf="pia.status > 0" routerLink="/entry/{{pia.id}}/section/1/item/1" class="btn btn-green">{{ 'homepage.cards.item.consult_pia' | translate }}</a>
+          <div *ngIf="pia.status === 0" class="pia-cardsBlock-item-btn-dual">
+            <a routerLink="/entry/{{pia.id}}/section/1/item/1" title="{{ 'homepage.cards.item.edit_pia' | translate }}" class="btn btn-green">{{ 'homepage.cards.item.edit_pia' | translate }}</a>
+            <a routerLink="/preview/{{pia.id}}" title="{{ 'homepage.cards.item.consult_pia' | translate }}" class="btn btn-green">{{ 'homepage.cards.item.consult_pia' | translate }}</a>
+          </div>
+          <div *ngIf="pia.status > 0" class="pia-cardsBlock-item-btn-single">
+            <a routerLink="/preview/{{pia.id}}" title="{{ 'homepage.cards.item.consult_pia' | translate }}" class="btn btn-green">{{ 'homepage.cards.item.consult_pia' | translate }}</a>
+          </div>
         </div>
       </form>
   </div>

@@ -11,12 +11,12 @@ import { AttachmentsService } from 'src/app/entry/attachments/attachments.servic
   styleUrls: ['./attachments.component.scss']
 })
 export class AttachmentsComponent implements OnInit {
-
+  @Input() isPreview: boolean;
   @Input() pia: Pia;
   attachmentForm: FormGroup;
   dispplayAttachmentButton = false;
 
-  constructor(public _attachmentsService: AttachmentsService) { }
+  constructor(public _attachmentsService: AttachmentsService) {}
 
   ngOnInit() {
     this.attachmentForm = new FormGroup({
@@ -24,7 +24,8 @@ export class AttachmentsComponent implements OnInit {
     });
     this._attachmentsService.pia = this.pia;
     this._attachmentsService.listAttachments();
-    this.dispplayAttachmentButton = (this.pia.status !== 2 && this.pia.status !== 3);
+    this.dispplayAttachmentButton =
+      this.pia.status !== 2 && this.pia.status !== 3;
   }
 
   /**
@@ -35,7 +36,9 @@ export class AttachmentsComponent implements OnInit {
       return false;
     } else {
       this._attachmentsService.pia_signed = 0;
-       const attachment = <HTMLInputElement> document.querySelector('[formcontrolname="attachment_file"]');
+      const attachment = <HTMLInputElement>(
+        document.querySelector('[formcontrolname="attachment_file"]')
+      );
       attachment.click();
     }
   }
@@ -45,6 +48,6 @@ export class AttachmentsComponent implements OnInit {
    * @param {event} event - Any kind of event.
    */
   uploadAttachement(event: Event) {
-    this._attachmentsService.upload((<HTMLInputElement> event.target).files[0]);
+    this._attachmentsService.upload((<HTMLInputElement>event.target).files[0]);
   }
 }

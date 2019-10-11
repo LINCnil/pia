@@ -37,7 +37,7 @@
     <p [innerHTML]="'modals.signed_pia_validation.content' | translate"></p>
     <i class="fa fa-check icon-green" aria-hidden="true"></i>
     <div class="pia-modalBlock-buttons-choice">
-      <a routerLink="/summary/{{_piaService.pia.id}}" class="btn btn-green get-focus" [innerHTML]="'modals.signed_pia_validation.download_pia' | translate"></a>
+      <a routerLink="/preview/{{_piaService.pia.id}}" class="btn btn-green get-focus" [innerHTML]="'modals.signed_pia_validation.download_pia' | translate"></a>
     </div>
   </div>
 </div>
@@ -49,7 +49,7 @@
     <i class="fa fa-times icon-red" aria-hidden="true"></i>
     <div class="pia-modalBlock-buttons-choice">
       <button tabindex="1" class="btn btn-red get-focus" type="button" (click)="_modalsService.closeModal()">{{ 'modals.cancel' | translate }}</button>
-      <button tabindex="2" class="btn btn-red" type="button" (click)="_piaService.abandonTreatment()">{{ 'modals.archive' | translate }}</button>
+      <button tabindex="2"class="btn btn-red" type="button" (click)="_piaService.abandonTreatment()">{{ 'modals.archive' | translate }}</button>
     </div>
     <div class="abandonText" [innerHTML]="'modals.abandon_pia.additional_text' | translate"></div>
   </div>
@@ -321,7 +321,7 @@
           </select>
         </div>
       </div>
-      <div class="pia-cardsBlock-item-date" *ngIf="newPia">
+      <!-- <div class="pia-cardsBlock-item-date" *ngIf="newPia">
         <div>{{ 'homepage.cards.date' | translate }}</div>
         <time>{{ newPia.created_at | date:'shortDate':'': _languagesService.selectedLanguage }}</time>
       </div>
@@ -335,7 +335,7 @@
           <progress max="100" value="0">
           </progress>
         </div>
-      </div>
+      </div> -->
       <div class="pia-cardsBlock-item-btn">
         <button type="submit" [disabled]="piaForm.invalid" class="btn btn-green get-focus" id="pia-save-card-btn">{{ 'homepage.cards.start' | translate }}</button>
       </div>
@@ -355,10 +355,10 @@
         <label for="sector_name">{{ 'homepage.cards.sector_name' | translate }}</label>
         <input formControlName="sector_name" type="text" placeholder="{{ 'homepage.cards.placeholder_sector_name' | translate }}" id="sector_name" required>
       </div>
-      <div class="pia-cardsBlock-item-date" *ngIf="newPia">
+      <!-- <div class="pia-cardsBlock-item-date" *ngIf="newPia">
         <div>{{ 'homepage.cards.date' | translate }}</div>
         <time>{{ newStructure.created_at | date:'shortDate':'': _languagesService.selectedLanguage }}</time>
-      </div>
+      </div> -->
       <div class="pia-cardsBlock-item-status"></div>
       <div class="pia-cardsBlock-item-btn">
         <button type="submit" [disabled]="structureForm.invalid" class="btn btn-green get-focus" id="pia-save-card-btn">{{ 'homepage.cards.start' | translate }}</button>

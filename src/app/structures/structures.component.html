@@ -52,7 +52,10 @@
     </div>
   </div>
   <div class="row">
+
+    <!-- "Card" mode -->
     <div *ngIf="viewStyle.view === 'card'; else viewList" class="small-12 medium-12 columns">
+      <!-- New structure -->
       <div class="pia-cardsBlock pia-newBlock" id="cardsSwitch">
         <div class="pia-newBlock-item front" id="pia-new-card">
           <div class="pia-newBlock-item-new">
@@ -83,10 +86,10 @@
                 <label for="sector_name">{{ 'homepage.cards.sector_name' | translate }}</label>
                 <input formControlName="sector_name" type="text" placeholder="{{ 'homepage.cards.placeholder_sector_name' | translate }}" id="sector_name" required>
               </div>
-              <div class="pia-cardsBlock-item-date" *ngIf="newStructure">
+              <!-- <div class="pia-cardsBlock-item-date" *ngIf="newStructure">
                 <div>{{ 'homepage.cards.date' | translate }}</div>
                 <time>{{ newStructure.created_at | date:'shortDate':'': _languagesService.selectedLanguage }}</time>
-              </div>
+              < </div> -->
               <div class="pia-cardsBlock-item-btn">
                 <button type="submit" [disabled]="structureForm.invalid" class="btn btn-green" id="pia-save-card-btn" title="{{ 'homepage.cards.placeholder_start' | translate }}">{{ 'homepage.cards.start' | translate }}</button>
               </div>
@@ -101,8 +104,12 @@
           </div>
         </div>
       </div>
+
+      <!-- Structures list -->
       <app-card-item *ngFor="let structure of _structureService.structures;let i=index" (structEvent)="structChange($event)" [structure]="structure" [previousStructure]="i > 0 ? _structureService.structures[i-1] : null"></app-card-item>
     </div>
+
+    <!-- "List" mode -->
     <ng-template #viewList>
       <div class="small-12 medium-12 columns">
         <table class="pia-list-table">

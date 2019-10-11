@@ -13,15 +13,17 @@ import { ModalsService } from 'src/app/modals/modals.service';
 
 @Injectable()
 export class PiaService {
-
   pias = [];
   pia: Pia = new Pia();
   answer: Answer = new Answer();
   data: { sections: any };
 
-  constructor(private _router: Router, private route: ActivatedRoute,
-              public _appDataService: AppDataService,
-              private _modalsService: ModalsService) {
+  constructor(
+    private _router: Router,
+    private route: ActivatedRoute,
+    public _appDataService: AppDataService,
+    private _modalsService: ModalsService
+  ) {
     this.data = this._appDataService.dataNav;
   }
 
@@ -74,7 +76,9 @@ export class PiaService {
         // evaluation.findAll().then((evaluations: any) => {
         //   numberElementsValidated += evaluations.length;
         //   numberElementsToValidate *= 2;
-          pia.progress = Math.round((100 / numberElementsToValidate) * numberElementsValidated);
+        pia.progress = Math.round(
+          (100 / numberElementsToValidate) * numberElementsValidated
+        );
         // });
       });
     });
@@ -98,14 +102,14 @@ export class PiaService {
           pia.structure_name = structure.name;
           pia.structure_sector_name = structure.sector_name;
           pia.structure_data = this.removeEmptyElements(structure.data);
-          pia.create().then((id) => {
+          pia.create().then(id => {
             this.structureCreateMeasures(pia, id).then(() => {
               this.structureCreateAnswers(pia, id).then(() => resolve(id));
             });
           });
         });
       } else {
-        pia.create().then((id) => resolve(id));
+        pia.create().then(id => resolve(id));
       }
     });
   }
@@ -126,8 +130,15 @@ export class PiaService {
             }
           } else if (item.questions) {
             item.questions.forEach(question => {
-              if (question.answer && question.answer.length > 0 && question.answer.title && question.answer.title.length <= 0) {
-                const index = item.questions.findIndex(q => q.id === question.id);
+              if (
+                question.answer &&
+                question.answer.length > 0 &&
+                question.answer.title &&
+                question.answer.title.length <= 0
+              ) {
+                const index = item.questions.findIndex(
+                  q => q.id === question.id
+                );
                 item.questions.splice(index, 1);
               }
             });
@@ -141,7 +152,9 @@ export class PiaService {
   async structureCreateMeasures(pia: Pia, id: any) {
     return new Promise((resolve, reject) => {
       // Record the structures Measures
-      const structures_measures = pia.structure_data.sections.filter(s => s.id === 3)[0].items.filter(i => i.id === 1)[0].answers;
+      const structures_measures = pia.structure_data.sections
+        .filter(s => s.id === 3)[0]
+        .items.filter(i => i.id === 1)[0].answers;
       let i = 0;
       if (structures_measures.length > 0) {
         for (const m in structures_measures) {
@@ -213,10 +226,17 @@ export class PiaService {
     pia.delete(piaID);
 
     // Deletes the PIA from the view.
-    if (localStorage.getItem('homepageDisplayMode') && localStorage.getItem('homepageDisplayMode') === 'list') {
-      document.querySelector('.app-list-item[data-id="' + piaID + '"]').remove();
+    if (
+      localStorage.getItem('homepageDisplayMode') &&
+      localStorage.getItem('homepageDisplayMode') === 'list'
+    ) {
+      document
+        .querySelector('.app-list-item[data-id="' + piaID + '"]')
+        .remove();
     } else {
-      document.querySelector('.pia-cardsBlock.pia[data-id="' + piaID + '"]').remove();
+      document
+        .querySelector('.pia-cardsBlock.pia[data-id="' + piaID + '"]')
+        .remove();
     }
 
     localStorage.removeItem('pia-id');
@@ -269,7 +289,7 @@ export class PiaService {
    * @param {number} id - The PIA id.
    */
   duplicate(id: number) {
-    this.exportData(id).then((data) => {
+    this.exportData(id).then(data => {
       this.importData(data, 'COPY', true);
     });
   }
@@ -298,18 +318,18 @@ export class PiaService {
           measures: null,
           evaluations: null,
           comments: null
-        }
-        answer.findAllByPia(id).then((answers) => {
+        };
+        answer.findAllByPia(id).then(answers => {
           data['answers'] = answers;
-          measure.findAll().then((measures) => {
+          measure.findAll().then(measures => {
             data['measures'] = measures;
-            evaluation.findAll().then((evaluations) => {
+            evaluation.findAll().then(evaluations => {
               data['evaluations'] = evaluations;
-              comment.findAll().then((comments) => {
+              comment.findAll().then(comments => {
                 data['comments'] = comments;
                 // attachment.findAll().then((attachments) => {
-                  // data['attachments'] = attachments;
-                  resolve(data);
+                // data['attachments'] = attachments;
+                resolve(data);
                 // });
               });
             });
@@ -326,8 +346,13 @@ export class PiaService {
    * @param {boolean} is_duplicate - Is a duplicate PIA?
    * @param {boolean} [is_example] - Is the PIA example?
    */
-  async importData(data: any, prefix: string, is_duplicate: boolean, is_example?: boolean) {
-    if (!('pia' in data) || !('dbVersion' in data.pia)) {
+  async importData(
+    data: any,
+    prefix: string,
+    is_duplicate: boolean,
+    is_example?: boolean
+  ) {
+    if (!('pia' in data) || !('dbVersion' in data.pia)) {
       this._modalsService.openModal('import-wrong-pia-file');
       return;
     }
@@ -340,8 +365,10 @@ export class PiaService {
     pia.dpo_opinion = data.pia.dpo_opinion;
     pia.concerned_people_opinion = data.pia.concerned_people_opinion;
     pia.concerned_people_status = data.pia.concerned_people_status;
-    pia.concerned_people_searched_opinion = data.pia.concerned_people_searched_opinion;
-    pia.concerned_people_searched_content = data.pia.concerned_people_searched_content;
+    pia.concerned_people_searched_opinion =
+      data.pia.concerned_people_searched_opinion;
+    pia.concerned_people_searched_content =
+      data.pia.concerned_people_searched_content;
     pia.rejected_reason = data.pia.rejected_reason;
     pia.applied_adjustements = data.pia.applied_adjustements;
     pia.created_at = data.pia.created_at;
@@ -353,7 +380,6 @@ export class PiaService {
       pia.structure_data = data.pia.structure_data;
       pia.structure_name = data.pia.structure_name;
       pia.structure_sector_name = data.pia.structure_sector_name;
-
     }
 
     /* Set this PIA as the example PIA if needed, else default value affected on creation */
@@ -454,7 +480,12 @@ export class PiaService {
    * @param {boolean} is_duplicate - Is a duplicated PIA?
    * @param {Array<any>} [oldIdToNewId] - Array to generate new id for special item.
    */
-  private importEvaluations(data: any, pia_id: number, is_duplicate: boolean, oldIdToNewId?: Array<any>) {
+  private importEvaluations(
+    data: any,
+    pia_id: number,
+    is_duplicate: boolean,
+    oldIdToNewId?: Array<any>
+  ) {
     if (!is_duplicate) {
       // Create evaluations
       data.evaluations.forEach(evaluation => {
@@ -463,7 +494,7 @@ export class PiaService {
         evaluationModel.status = evaluation.status;
         let reference_to = evaluation.reference_to;
         if (reference_to.startsWith('3.1') && oldIdToNewId) {
-          const ref = reference_to.split('.')
+          const ref = reference_to.split('.');
           if (oldIdToNewId[ref[2]]) {
             reference_to = '3.1.' + oldIdToNewId[ref[2]];
           }
@@ -472,11 +503,15 @@ export class PiaService {
         evaluationModel.action_plan_comment = evaluation.action_plan_comment;
         evaluationModel.evaluation_comment = evaluation.evaluation_comment;
         if (evaluation.evaluation_date) {
-          evaluationModel.evaluation_date = new Date(evaluation.evaluation_date);
+          evaluationModel.evaluation_date = new Date(
+            evaluation.evaluation_date
+          );
         }
         evaluationModel.gauges = evaluation.gauges;
         if (evaluation.estimated_implementation_date) {
-          evaluationModel.estimated_implementation_date = new Date(evaluation.estimated_implementation_date);
+          evaluationModel.estimated_implementation_date = new Date(
+            evaluation.estimated_implementation_date
+          );
         }
         evaluationModel.person_in_charge = evaluation.person_in_charge;
         evaluationModel.global_status = evaluation.global_status;
@@ -490,20 +525,15 @@ export class PiaService {
   }
 
   /**
-   * Download the PIA exported.
+   * Make a JSON from the PIA data
    * @param {number} id - The PIA id.
    */
-  export(id: number) {
-    const date = new Date().getTime();
-    this.exportData(id).then((data) => {
-      const a = document.getElementById('pia-exportBlock');
-      const url = 'data:text/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(data));
-      a.setAttribute('href', url);
-      a.setAttribute('download', date + '_export_pia_' + id + '.json');
-      const event = new MouseEvent('click', {
-        view: window
+  async export(id: number) {
+    return new Promise(async (resolve, reject) => {
+      this.exportData(id).then(data => {
+        const finalData = JSON.stringify(data);
+        resolve(finalData);
       });
-      a.dispatchEvent(event);
     });
   }
 
@@ -517,6 +547,6 @@ export class PiaService {
     reader.onload = (event: any) => {
       const jsonFile = JSON.parse(event.target.result);
       this.importData(jsonFile, 'IMPORT', false);
-    }
+    };
   }
 }

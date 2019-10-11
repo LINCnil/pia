@@ -61,7 +61,10 @@
     </div>
   </div>
   <div class="row">
+    <!-- "Card" mode -->
     <div *ngIf="viewStyle.view === 'card'; else viewList" class="small-12 medium-12 columns">
+
+      <!-- New PIA -->
       <div class="pia-cardsBlock pia-newBlock" id="cardsSwitch">
         <div class="pia-newBlock-item front" id="pia-new-card">
           <div class="pia-newBlock-item-new">
@@ -109,7 +112,7 @@
                   </select>
                 </div>
               </div>
-              <div class="pia-cardsBlock-item-date" *ngIf="newPia">
+              <!-- <div class="pia-cardsBlock-item-date" *ngIf="newPia">
                 <div>{{ 'homepage.cards.validation' | translate }}</div>
                 <time>{{ newPia.created_at | date:'shortDate':'': _languagesService.selectedLanguage }}</time>
               </div>
@@ -123,7 +126,7 @@
                   <progress max="100" value="0">
                   </progress>
                 </div>
-              </div>
+              </div> -->
               <div class="pia-cardsBlock-item-btn">
                 <button type="submit" [disabled]="piaForm.invalid" class="btn btn-green" id="pia-save-card-btn" title="{{ 'homepage.cards.placeholder_start' | translate }}">{{ 'homepage.cards.start' | translate }}</button>
               </div>
@@ -138,8 +141,12 @@
           </div>
         </div>
       </div>
+
+      <!-- PIA list -->
       <app-card-item *ngFor="let pia of _piaService.pias;let i=index" [pia]="pia" [previousPia]="i > 0 ? _piaService.pias[i-1] : null"></app-card-item>
     </div>
+
+    <!-- "List" mode -->
     <ng-template #viewList>
       <div class="small-12 medium-12 columns">
         <table class="pia-list-table">

@@ -174,8 +174,8 @@
 			"import_pia": "Importere PIA",
 			"import_structure": "Importere skabelon",
 			"item": {
-				"consult_pia": "Konsultere PIA",
-				"edit_pia": "Redigere PIA",
+				"consult_pia": "Konsultere",
+				"edit_pia": "Redigere",
 				"edit_structure": "Redigere skabelon",
 				"tools": {
 					"action_plan": "Vis<br>handlingsplan",
@@ -1292,6 +1292,27 @@
 		"update": "Updatere URL"
 	},
 	"summary": {
+    "preview_title": "TO TRANSLATE - Preview",
+    "preview_subtitle": "TO TRANSLATE - General information",
+    "preview_edition": "TO TRANSLATE - Editing",
+    "preview_evaluation": "TO TRANSLATE - Evaluation",
+    "preview_validation": "TO TRANSLATE - Validation",
+    "preview_status": "TO TRANSLATE - Status",
+    "preview_validation_section": "TO TRANSLATE - Validation",
+    "preview_dpo_opinion": "TO TRANSLATE - DPO and data subjects opinion",
+    "preview_no_data": "TO TRANSLATE - No data to display.",
+    "actions": {
+      "print_and_download": "TO TRANSLATE - Print and download",
+      "print": "TO TRANSLATE - Print the report",
+      "complete_download": "TO TRANSLATE - Download the full report",
+      "complete_download_desc": "TO TRANSLATE - Export in a .zip archive all the report content (.doc and pictures), attachments and the action plan in a .csv format.",
+      "individual_download": "TO TRANSLATE - Download elements of the report",
+      "individual_download_desc": "TO TRANSLATE - Export specific elements of the report.",
+      "individual_download_select": "TO TRANSLATE - Select elements to export:",
+      "individual_download_doc": "TO TRANSLATE - Texts (.doc)",
+      "individual_download_images": "TO TRANSLATE - Visual elements (.png) including the risk overview, the risk mapping and the action plan."
+    },
+    "download_csv": "TO TRANSLATE - Action plan (.csv)",
 		"action_plan": {
 			"fundamental_principles": "Fundamentale principper",
 			"implementation_date": "Forventet implementerings dato",
@@ -1311,8 +1332,6 @@
 			"0": "Behandlingen bør ikke gennemføres.",
 			"1": "Behandlingen kan gennemføres."
 		},
-    "generate_zip": "TO TRANSLATE - Download the full report (.zip)",
-    "generate_docx": "TO TRANSLATE - Download the report (.doc)",
 		"creation_date": "Dato for kreation",
 		"csv_action_plan_comment": "Handlingsplans kommentarer",
 		"csv_evaluation_comment": "Evaluations kommentarer",
@@ -1332,8 +1351,6 @@
 			"risks_overview_content": "Vis risici oversigt",
 			"title": "Vis filtre"
 		},
-		"download_csv": "Hent CSV export",
-		"download_images": "Hent billeder",
 		"dpo_name": "DPO's navn",
 		"dpo_opinion": "DPO's holdning",
 		"dpo_status": "DPO's status",
@@ -1351,7 +1368,6 @@
 		"pia_name": "PIA",
 		"pia_validator": "Godkenders navn",
 		"previous_page": "tilbage til forgående side",
-		"print": "Print",
 		"rejection_reason": "Begrundelse for afvisning",
 		"risks_cartography_title": "Risikokortlægning",
 		"risks_overview_title": "Risiko oversigt",
@@ -1375,7 +1391,6 @@
 		"responsible": "Ansvarlig for godkendelse af PIA: ",
 		"signed_attachments_history": "Log af Underskrevet vedhæftelser",
 		"tools": {
-			"action_plan": "Handlingsplan",
 			"dashboard": "Oversigt",
 			"display_pia": "Vis rapporter"
 		},

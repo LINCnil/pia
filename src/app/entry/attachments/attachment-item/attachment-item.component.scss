@@ -9,6 +9,7 @@
       border: solid 1px $pia-gray;
       display: flex;
       justify-content: space-between;
+      width: 99.5%;
       span:first-child {
         align-self: center;
         padding: 10px;
@@ -31,6 +32,34 @@
         font-weight: 500;
         font-size: 1.15rem;
         color: $pia-blue;
+        .fa {
+          font-size: 1.45rem;
+        }
+      }
+      &-preview {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        padding: 2%;
+        text-align: center;
+        background-color: rgba(0, 0, 0, 0.8);
+        z-index: 9999;
+        vertical-align: middle;
+        img {
+          max-height: 100%;
+        }
+        embed {
+          width: 80%;
+          height: 100%;
+        }
+        .pia-icon-close-big {
+          position: absolute;
+          z-index: 999999;
+          right: 2%;
+          cursor: pointer;
+        }
       }
     }
   }

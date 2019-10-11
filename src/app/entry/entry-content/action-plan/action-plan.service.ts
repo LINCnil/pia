@@ -28,7 +28,7 @@ export class ActionPlanService {
 
   constructor(
     private _translateService: TranslateService,
-    public _languagesService: LanguagesService,
+    private _languagesService: LanguagesService,
     private formatTheDate: FormatTheDate
   ) {}
 
@@ -48,7 +48,7 @@ export class ActionPlanService {
       return s.id === 2;
     });
 
-    let firstRow = true;
+    let title1 = true;
     section[0].items.forEach(item => {
       item.questions.forEach(q => {
         const evaluation = new Evaluation();
@@ -68,8 +68,8 @@ export class ActionPlanService {
               evaluation_comment: evaluation.evaluation_comment,
               evaluation
             });
-            if (firstRow) {
-              firstRow = false;
+            if (title1) {
+              title1 = false;
               this.csvRows.push({
                 title: this._translateService.instant('action_plan.principles')
               });
@@ -108,7 +108,7 @@ export class ActionPlanService {
       });
     });
 
-    firstRow = true;
+    let title2 = true;
     const measure = new Measure();
     measure.pia_id = this.pia.id;
     measure.findAll().then((entries: any) => {
@@ -132,8 +132,8 @@ export class ActionPlanService {
               evaluation_comment: evaluation2.evaluation_comment,
               evaluation: evaluation2
             });
-            if (firstRow) {
-              firstRow = false;
+            if (title2) {
+              title2 = false;
               this.csvRows.push({
                 title: this._translateService.instant('action_plan.measures')
               });
@@ -173,7 +173,7 @@ export class ActionPlanService {
       });
     });
 
-    firstRow = true;
+    let title3 = true;
     let shortTitle = '';
     const evaluation3 = new Evaluation();
     evaluation3.getByReference(this.pia.id, '3.2').then(() => {
@@ -192,10 +192,10 @@ export class ActionPlanService {
           evaluation_comment: evaluation3.evaluation_comment,
           evaluation: evaluation3
         };
-        if (firstRow) {
-          firstRow = false;
+        if (title3) {
+          title3 = false;
           this.csvRows.push({
-            title: this._translateService.instant('action_plan.risks')
+            title: this._translateService.instant('action_plan.risk1')
           });
         }
         this.csvRows.push({
@@ -216,7 +216,7 @@ export class ActionPlanService {
       }
     });
 
-    firstRow = true;
+    let title4 = true;
     const evaluation4 = new Evaluation();
     evaluation4.getByReference(this.pia.id, '3.3').then(() => {
       if (evaluation4.status > 0) {
@@ -234,8 +234,8 @@ export class ActionPlanService {
           evaluation_comment: evaluation4.evaluation_comment,
           evaluation: evaluation4
         };
-        if (firstRow) {
-          firstRow = false;
+        if (title4) {
+          title4 = false;
           this.csvRows.push({
             title: this._translateService.instant('action_plan.risk2')
           });
@@ -258,7 +258,7 @@ export class ActionPlanService {
       }
     });
 
-    firstRow = true;
+    let title5 = true;
     const evaluation5 = new Evaluation();
     evaluation5.getByReference(this.pia.id, '3.4').then(() => {
       if (evaluation5.status > 0) {
@@ -276,8 +276,8 @@ export class ActionPlanService {
           evaluation_comment: evaluation5.evaluation_comment,
           evaluation: evaluation5
         };
-        if (firstRow) {
-          firstRow = false;
+        if (title5) {
+          title5 = false;
           this.csvRows.push({
             title: this._translateService.instant('action_plan.risk3')
           });
