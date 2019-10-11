@@ -847,7 +847,7 @@
 			"content": "Dieser Abschnitt wurde zur Bearbeitung zurückgeschickt.<br>Einige Felder müssen korrigiert werden,<br>damit sie ordnungsgemäß überprüft werden können."
 		},
 		"back_to_evaluation": {
-			"content": "Dieser Abschnitt wurde zur Überprüfung zurückgeschickt.<br>Einige Felder müssen überprüft werden,<br>um ihre ordnungsgemäße Validierung zu ermöglichen."
+			"content": "Dieser Abschnitt wurde zur Überprüfung zurückgeschickt.<br>Einige Felder müssen überprüft werden,<br>um ihre ordnungsgemäße Bestätigung zu ermöglichen."
 		},
 		"back_to_home": "Zurück zur Startseite",
 		"cancel": "Abbrechen",
@@ -1366,8 +1366,8 @@
 		"preview_status": "Status",
 		"preview_subtitle": "Allgemeine Information",
 		"preview_title": "Vorschau",
-		"preview_validation": "Validierung",
-		"preview_validation_section": "Validierung",
+		"preview_validation": "Bestätigung",
+		"preview_validation_section": "Bestätigung",
 		"previous_page": "Zurück zur vorherigen Seite",
 		"rejection_reason": "Ablehnungsgrund",
 		"risks_cartography_title": "Risikokartierung",
