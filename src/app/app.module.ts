@@ -5,6 +5,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // Modules
 import { SharedModule } from './shared.module';
+import { PdfJsViewerModule } from 'ng2-pdfjs-viewer';
 
 // Components
 import { AuthenticationComponent } from './authentication/authentication.component';
@@ -75,7 +76,8 @@ import { PreviewComponent } from './preview/preview.component';
     BrowserModule,
     BrowserAnimationsModule,
     StructuresModule,
-    Angular2CsvModule
+    Angular2CsvModule,
+    PdfJsViewerModule
   ],
   bootstrap: [AppComponent]
 })
