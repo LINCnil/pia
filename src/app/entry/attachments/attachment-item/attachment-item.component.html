@@ -9,6 +9,10 @@
 </div>
 <div class="pia-attachmentsBlock-item-preview hide">
   <img src="" class="hide">
-  <embed src="" type="application/pdf" class="hide">
   <button (click)="previewAttachment(false)" class="pia-icons pia-icon-close-big" title="{{ 'modals.close' | translate }}"></button>
+  <div style="width:80%; height:100%; margin:auto;"
+  *ngIf="fileUrl" >
+    <ng2-pdfjs-viewer [pdfSrc]="fileUrl"></ng2-pdfjs-viewer> 
+  </div> 
+
 </div>
