@@ -36,7 +36,6 @@ export class PreviewComponent implements OnInit {
   pia: any;
   allData: object;
   tempData: object;
-  dataNav: any;
   displayAllFilters: boolean;
   displayMainPiaData: boolean;
   displaySection1: boolean;
@@ -46,17 +45,7 @@ export class PreviewComponent implements OnInit {
   displayOnlyActionPlan: boolean;
   displayRisksOverview: boolean;
   displayRisksCartography: boolean;
-  summarySubscription: Subscription;
-
-  constructor(private el: ElementRef,
-              private route: ActivatedRoute,
-              private _attachmentsService: AttachmentsService,
-              public _actionPlanService: ActionPlanService,
-              private _translateService: TranslateService,
-              private _appDataService: AppDataService,
-              public _piaService: PiaService,
-              private _modalService: ModalsService) { }
-
+  
   constructor(public _actionPlanService: ActionPlanService,
     private el: ElementRef,
     private _translateService: TranslateService,
