@@ -174,8 +174,8 @@
 			"import_pia": "Tuo vaikutustenarviointi",
 			"import_structure": "TO BE TRANSLATED - Import template",
 			"item": {
-				"consult_pia": "Tallenna",
-				"edit_pia": "Muokkaa vaikutustenarviointia",
+				"consult_pia": "TO TRANSLATE - Consult",
+				"edit_pia": "TO TRANSLATE - Edit",
 				"edit_structure": "TO BE TRANSLATED - Éditer le modèle",
 				"tools": {
 					"action_plan": "Näytä<br>toimintasuunnitelma",
@@ -1292,6 +1292,27 @@
 		"update": "Päivitä URL"
 	},
 	"summary": {
+    "preview_title": "TO TRANSLATE - Preview",
+    "preview_subtitle": "TO TRANSLATE - General information",
+    "preview_edition": "TO TRANSLATE - Editing",
+    "preview_evaluation": "TO TRANSLATE - Evaluation",
+    "preview_validation": "TO TRANSLATE - Validation",
+    "preview_status": "TO TRANSLATE - Status",
+    "preview_validation_section": "TO TRANSLATE - Validation",
+    "preview_dpo_opinion": "TO TRANSLATE - DPO and data subjects opinion",
+    "preview_no_data": "TO TRANSLATE - No data to display.",
+    "actions": {
+      "print_and_download": "TO TRANSLATE - Print and download",
+      "print": "TO TRANSLATE - Print the report",
+      "complete_download": "TO TRANSLATE - Download the full report",
+      "complete_download_desc": "TO TRANSLATE - Export in a .zip archive all the report content (.doc and pictures), attachments and the action plan in a .csv format.",
+      "individual_download": "TO TRANSLATE - Download elements of the report",
+      "individual_download_desc": "TO TRANSLATE - Export specific elements of the report.",
+      "individual_download_select": "TO TRANSLATE - Select elements to export:",
+      "individual_download_doc": "TO TRANSLATE - Texts (.doc)",
+      "individual_download_images": "TO TRANSLATE - Visual elements (.png) including the risk overview, the risk mapping and the action plan."
+    },
+    "download_csv": "TO TRANSLATE - Action plan (.csv)",
 		"action_plan": {
 			"fundamental_principles": "Perusperiaatteet",
 			"implementation_date": "Suunniteltu toteuttamispäivä",
@@ -1311,8 +1332,6 @@
 			"0": "Henkilötietojen käsittelyä ei pidä toteuttaa.",
 			"1": "Henkilötietojen käsittelyn voi toteuttaa."
 		},
-    "generate_zip": "TO TRANSLATE - Download the full report (.zip)",
-    "generate_docx": "TO TRANSLATE - Download the report (.doc)",
 		"creation_date": "Laadintapäivä",
 		"csv_action_plan_comment": "Toimintasuunnitelman kommentti",
 		"csv_evaluation_comment": "Arvioinnin kommentti",
@@ -1332,8 +1351,6 @@
 			"risks_overview_content": "Näytä riskien yleiskatsaus",
 			"title": "Näytä suodattimet"
 		},
-		"download_csv": "Lataa CSV-muodossa",
-		"download_images": "Lataa kuvina",
 		"dpo_name": "Tietosuojavastaavan nimi",
 		"dpo_opinion": "Tietosuojavastaavan mielipide",
 		"dpo_status": "Tietosuojavastaavan tila",
@@ -1351,7 +1368,6 @@
 		"pia_name": "Tietosuojaa koskeva vaikutustenarviointi",
 		"pia_validator": "Hyväksyjän nimi",
 		"previous_page": "Takaisin edelliselle sivulle",
-		"print": "Tulosta",
 		"rejection_reason": "Hylkäyksen syy",
 		"risks_cartography_title": "Riskien kartoitus",
 		"risks_overview_title": "Riskien yleiskatsaus",
@@ -1375,7 +1391,6 @@
 		"responsible": "Tietosuojaa koskevan vaikutustenarvioinnin hyväksyjä: ",
 		"signed_attachments_history": "Kaikki allekirjoitetut liitteet",
 		"tools": {
-			"action_plan": "Toimintasuunnitelma",
 			"dashboard": "Ohjauspaneeli",
 			"display_pia": "Näytä vaikutustenarviointi"
 		},

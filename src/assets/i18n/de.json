@@ -174,8 +174,8 @@
 			"import_pia": "DSFA importieren",
 			"import_structure": "Vorlage importieren",
 			"item": {
-				"consult_pia": "DSFA ansehen",
-				"edit_pia": "DSFA bearbeiten",
+				"consult_pia": "Ansehen",
+				"edit_pia": "Bearbeiten",
 				"edit_structure": "Bearbeiten der Vorlage",
 				"tools": {
 					"action_plan": "Aktionsplan<br>anzeigen",
@@ -1293,6 +1293,27 @@
 		"update": "URL aktualisieren"
 	},
 	"summary": {
+    "preview_title": "TO TRANSLATE - Preview",
+    "preview_subtitle": "TO TRANSLATE - General information",
+    "preview_edition": "TO TRANSLATE - Editing",
+    "preview_evaluation": "TO TRANSLATE - Evaluation",
+    "preview_validation": "TO TRANSLATE - Validation",
+    "preview_status": "TO TRANSLATE - Status",
+    "preview_validation_section": "TO TRANSLATE - Validation",
+    "preview_dpo_opinion": "TO TRANSLATE - DPO and data subjects opinion",
+    "preview_no_data": "TO TRANSLATE - No data to display.",
+    "actions": {
+      "print_and_download": "TO TRANSLATE - Print and download",
+      "print": "TO TRANSLATE - Print the report",
+      "complete_download": "TO TRANSLATE - Download the full report",
+      "complete_download_desc": "TO TRANSLATE - Export in a .zip archive all the report content (.doc and pictures), attachments and the action plan in a .csv format.",
+      "individual_download": "TO TRANSLATE - Download elements of the report",
+      "individual_download_desc": "TO TRANSLATE - Export specific elements of the report.",
+      "individual_download_select": "TO TRANSLATE - Select elements to export:",
+      "individual_download_doc": "TO TRANSLATE - Texts (.doc)",
+      "individual_download_images": "TO TRANSLATE - Visual elements (.png) including the risk overview, the risk mapping and the action plan."
+    },
+    "download_csv": "TO TRANSLATE - Action plan (.csv)",
 		"action_plan": {
 			"fundamental_principles": "Grundlegende Prinzipien",
 			"implementation_date": "Voraussichtliches Datum der Umsetzung",
@@ -1312,8 +1333,6 @@
 			"0": "Die Verarbeitung sollte nicht durchgeführt werden.",
 			"1": "Die Verarbeitung kann umgesetzt werden."
 		},
-    "generate_zip": "Den vollständigen Bericht herunterladen (.zip)",
-    "generate_docx": "Den Bericht herunterladen (.doc)",
 		"creation_date": "Bearbeitungsdatum",
 		"csv_action_plan_comment": "Aktionsplankommentar",
 		"csv_evaluation_comment": "Bewertungskommentar",
@@ -1333,8 +1352,6 @@
 			"risks_overview_content": "Risikoübersicht anzeigen",
 			"title": "Filter"
 		},
-		"download_csv": "CSV-Export herunterladen",
-		"download_images": "Bilder herunterladen",
 		"dpo_name": "Name des DSB",
 		"dpo_opinion": "Gutachten des DSB",
 		"dpo_status": "Feststellung des DSB",
@@ -1344,8 +1361,6 @@
 			"3": "Substantiell",
 			"4": "Groß"
 		},
-		"generate_docx": "Den Bericht herunterladen (.docx)",
-		"generate_zip": "Den vollständigen Bericht herunterladen (.zip)",
 		"modification_made": "Vorgenommene Änderungen",
 		"people_search_status_nok": "Meinung der Betroffenen wurde nicht eingeholt.",
 		"people_search_status_ok": "Meinung der Betroffenen wurde eingeholt.",
@@ -1354,7 +1369,6 @@
 		"pia_name": "DSFA",
 		"pia_validator": "Name des Bestätigers",
 		"previous_page": "Zurück zur vorherigen Seite",
-		"print": "Drucken",
 		"rejection_reason": "Ablehnungsgrund",
 		"risks_cartography_title": "Risikokartierung",
 		"risks_overview_title": "Risikokübersicht",
@@ -1378,7 +1392,6 @@
 		"responsible": "Verantwortlich für die Bestätigung der DSFA: ",
 		"signed_attachments_history": "Historie der hinzugefügten Anhänge",
 		"tools": {
-			"action_plan": "Aktionsplan",
 			"dashboard": "Übersicht",
 			"display_pia": "DSFA anzeigen"
 		},

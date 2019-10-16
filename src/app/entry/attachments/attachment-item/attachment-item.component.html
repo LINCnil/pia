@@ -1,7 +1,14 @@
 <div class="pia-attachmentsBlock-item bounceIn" *ngIf="attachment.file && attachment.file.length > 0">
-  <span class="pia-icons pia-icon-file-pdf-blue"></span>
-  <a href="javascript:;" (click)="downloadAttachment(attachment.id)" title="{{attachment.name}}" class="truncate">{{attachment.name}}</a>
-  <button *ngIf="showAddAttachmentButton()" type="button" class="btn" (click)="removeAttachment(attachment.id)" title="{{ 'pia.attachments.remove' | translate }}">
+  <a href="javascript:;" (click)="downloadAttachment()" title="{{ 'pia.attachments.download' | translate }}">
+    <i class="fa fa-download" aria-hidden="true"></i>
+  </a>
+  <a href="javascript:;" (click)="previewAttachment(true)" title="{{attachment.name}}" class="truncate">{{attachment.name}}</a>
+  <button *ngIf="!isPreview && showAddAttachmentButton()" type="button" class="btn" (click)="removeAttachment(attachment.id)" title="{{ 'pia.attachments.remove' | translate }}">
     <span class="pia-icons pia-icon-close"></span>
   </button>
+</div>
+<div class="pia-attachmentsBlock-item-preview hide">
+  <img src="" class="hide">
+  <embed src="" type="application/pdf" class="hide">
+  <button (click)="previewAttachment(false)" class="pia-icons pia-icon-close-big" title="{{ 'modals.close' | translate }}"></button>
 </div>
