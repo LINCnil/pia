@@ -274,7 +274,8 @@ export class OverviewRisksComponent implements OnInit {
         i++;
         const answerModel = new Answer();
         await answerModel.getByReferenceAndPia(this._piaService.pia.id, question.id);
-        if (answerModel.data && answerModel.data.gauge > 0) {
+        if (answerModel.data && answerModel.data.gauge > 0 &&
+          question.cartography.split('-')[0] !== 'pre') { // Added to skip pre-*
           const value = answerModel.data.gauge;
           const name = this._translateService.instant('overview-risks.' + question.cartography);
           y += 25;

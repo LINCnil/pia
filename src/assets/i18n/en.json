@@ -32,17 +32,21 @@
 	},
 	"cartography": {
 		"important": "Important",
-		"legend1": "Planned or existing measures",
-		"legend2": "With the corrective measures implemented",
-		"legend3": "(I)llegitimate access to data",
-		"legend4": "(U)nwanted modification of data",
-		"legend5": "(D)ata disappearance",
+    "title1": "Risks",
+    "title2": "Measures",
+		"legend1": "(I)llegitimate access to data",
+		"legend2": "(U)nwanted modification of data",
+		"legend3": "(D)ata disappearance",
+    "legend4": "Without measures implemented",
+		"legend5": "Planned or existing measures",
+		"legend6": "With the corrective measures implemented",
 		"likelihood_axe": "Risk likelihood",
 		"limited": "Limited",
 		"maximal": "Maximum",
 		"negligible": "Negligible",
 		"risk1_access": "(I)",
 		"risk2_modification": "(U)",
+    "risk3_disappearance": "(D)",
 		"seriousness_axe": "Risk seriousness"
 	},
 	"comments": {
@@ -1076,7 +1080,32 @@
 					},
 					"short_help": "This part allows you to define and describe the scope of the processing in detail.",
 					"title": "Data, processes and supporting assets"
-				}
+				},
+        "3": {
+          "questions": {
+            "1": {
+              "results": {
+                "1": "Recommendation: a PIA might be unnecessary.",
+                "2": "Recommendation: a PIA should be considered."
+              },
+              "labels": {
+                "1": "Evaluation or scoring, including profiling and predicting.",
+                "2": "Automated-decision making with legal or similar significant effect.",
+                "3": "Systematic monitoring or control over data subjects.",
+                "4": "Sensitive data or data of a highly personal nature.",
+                "5": "Personal data processed on a large scale.",
+                "6": "Matching or combining datasets.",
+                "7": "Data concerning vulnerable data subjects (e.g., children, employees, vulnerable segments of the population).",
+                "8": "Innovative use or applying new technological or organisational solutions.",
+                "9": "When the processing in itself \"prevents data subjects from exercising a right or using a service or a contract\" (Article 22 and recital 91)."
+              },
+              "placeholder": "This is a placeholder",
+              "title": "According to Article 29 Working Party a PIA should be considered for a system in a \"high risk\". As a rule of thumb this means any system that matches two or more of the following criteria:"
+            }
+          },
+          "short_help": "Briefly assess if a PIA should be conducted.",
+          "title": "Threshold Analysis"
+        }
 			},
 			"short_help": "This section gives you a clear view of the treatment(s) of personal data in question.",
 			"title": "Context"
@@ -1190,6 +1219,14 @@
 						"6": {
 							"placeholder": "Justify here the estimated likelihood.",
 							"title": "How do you estimate the <span class='green-highlight'>likelihood of the risk</span>, especially in respect of threats, sources of risk and planned controls?"
+						},
+						"7": {
+							"placeholder": "Justify here the estimated severity of the risk.",
+							"title": "How do you estimate the <span class='green-highlight'>risk severity</span>, especially according to potential impacts and <span class='green-highlight'>no planned controls</span>?"
+						},
+						"8": {
+							"placeholder": "Justify here the estimated likelihood.",
+							"title": "How do you estimate the <span class='green-highlight'>likelihood of the risk</span>, especially in respect of threats, sources of risk and <span class='green-highlight'>no planned controls</span>?"
 						}
 					},
 					"short_help": "Analyze the causes and consequences of illegitimate access to data, and estimate its severity and likelihood.",
@@ -1220,6 +1257,14 @@
 						"6": {
 							"placeholder": "Justify here the estimated likelihood.",
 							"title": "How do you estimate the <span class='green-highlight'>likelihood of the risk</span>, especially in respect of threats, sources of risk and planned controls?"
+						},
+						"7": {
+							"placeholder": "Justify here the estimated severity of the risk.",
+							"title": "How do you estimate the <span class='green-highlight'>risk severity</span>, especially according to potential impacts and <span class='green-highlight'>no planned controls</span>?"
+						},
+						"8": {
+							"placeholder": "Justify here the estimated likelihood.",
+							"title": "How do you estimate the <span class='green-highlight'>likelihood of the risk</span>, especially in respect of threats, sources of risk and <span class='green-highlight'>no planned controls</span>?"
 						}
 					},
 					"short_help": "Analyze the causes and consequences of an undesired change in data, and estimate its seriousness and likelihood.",
@@ -1250,6 +1295,14 @@
 						"6": {
 							"placeholder": "Justify here the estimated likelihood.",
 							"title": "How do you estimate the <span class='green-highlight'>likelihood of the risk</span>, especially in respect of threats, sources of risk and planned controls?"
+						},
+						"7": {
+							"placeholder": "Justify here the estimated severity of the risk.",
+							"title": "How do you estimate the <span class='green-highlight'>risk severity</span>, especially according to potential impacts and <span class='green-highlight'>no planned controls</span>?"
+						},
+						"8": {
+							"placeholder": "Justify here the estimated likelihood.",
+							"title": "How do you estimate the <span class='green-highlight'>likelihood of the risk</span>, especially in respect of threats, sources of risk and <span class='green-highlight'>no planned controls</span>?"
 						}
 					},
 					"short_help": "Analyze the causes and consequences of data loss, and estimate its seriousness and likelihood.",
@@ -1353,6 +1406,9 @@
 			"risks_overview_content": "Display risks overview",
 			"title": "Display filters"
 		},
+		"download_csv": "Download a CSV export",
+		"download_images": "Download images",
+    "download_json": "Download a JSON export",
 		"dpo_name": "DPO's name",
 		"dpo_opinion": "DPO's opinion",
 		"dpo_status": "DPO's status",

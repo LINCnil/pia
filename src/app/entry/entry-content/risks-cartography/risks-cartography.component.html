@@ -18,13 +18,30 @@
           <div>{{ 'cartography.important' | translate }}</div>
           <div>{{ 'cartography.maximal' | translate }}</div>
         </div>
-        <ul class="pia-cartographyBlock-legend">
-          <li>{{ 'cartography.legend1' | translate }}</li>
-          <li>{{ 'cartography.legend2' | translate }}</li>
-          <li>{{ 'cartography.legend3' | translate }}</li>
-          <li>{{ 'cartography.legend4' | translate }}</li>
-          <li>{{ 'cartography.legend5' | translate }}</li>
-        </ul><!--
+        <!-- Legend for Risks -->
+        <div class="pia-cartographyBlock-legend">
+          <p class="title">{{ 'cartography.title1' | translate }}</p>
+          <ul class="risks">  
+            <li *ngIf="checkRiskExist('risk-access')">
+              {{ 'cartography.legend1' | translate }}</li>
+            <li *ngIf="checkRiskExist('risk-change')">
+              {{ 'cartography.legend2' | translate }}</li>
+            <li *ngIf="checkRiskExist('risk-disappearance')">
+              {{ 'cartography.legend3' | translate }}</li>
+          </ul>
+        </div>
+        <!-- Legend for Risks Categories -->
+        <div class="pia-cartographyBlock-legend">
+          <p class="title">{{ 'cartography.title2' | translate }}</p>
+          <ul class="measures">
+            <li *ngIf="checkMeasureExist('pre')" class="pre">
+              {{ 'cartography.legend4' | translate }}</li>
+            <li>
+              {{ 'cartography.legend5' | translate }}</li>
+            <li *ngIf="checkMeasureExist('evaluator')" class="eval">
+              {{ 'cartography.legend6' | translate }}</li>
+          </ul>
+        </div><!--
         --><div class="pia-cartographyBlock-probability">{{ 'cartography.likelihood_axe' | translate }}</div>
         <div class="pia-cartographyBlock-date">
           <time>{{_piaService.pia.created_at | date: 'dd/MM/yyyy'}}</time>

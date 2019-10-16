@@ -359,6 +359,45 @@ export class QuestionsComponent implements OnInit, OnDestroy {
   }
 
   /**
+   * Monitors checkboxes in Threshold Analysis
+   */
+  checkBox(event) {
+    var target = event.target;              // The checkbox activating the event
+
+    for(let label of this.question.labels){   // Update checkbox status
+      if(label.id == target.id){
+        label.checked = target.checked; 
+      } 
+    } 
+    /**
+    *  The following code is checkbox 
+    *  versions of onAdd() and onRemove()
+    */
+    if(target.checked == true){             // Add answer
+      this.question.checked_sum += 1;       // Increase checkbox counter
+      let list = [];
+      if (this.answer.id) {
+        list = this.answer.data.list;
+      }
+      if (list.indexOf(target.name) <= 0) {
+        list.push(target.name);
+        this.createOrUpdateList(list);
+      }
+    }else{                                  // Remove answer
+      this.question.checked_sum -= 1;       // Decrease checkbox counter
+      let list = [];
+      if (this.answer.id) {
+        list = this.answer.data.list;
+      }
+      const index = list.indexOf(target.name);
+      if (index >= 0) {
+        list.splice(list.indexOf(target.name), 1);
+        this.createOrUpdateList(list);
+      }
+    }
+  }
+
+  /**
    * Loads wysiwyg editor.
    */
   loadEditor() {

@@ -56,21 +56,30 @@
       margin: 0;
     }
     &-probability {
-      width: 57%;
-      padding-left: 20px;
+      width: 20%;
       text-align: right;
     }
     &-legend {
-      font-size: 1rem;
-      width: 43%;
+      width: 40%;
+      p.title {
+        font-weight: 600;
+        text-decoration: underline;
+      }
+      ul {
+        padding-left: 0;
+      }
+      ul.risks {
+        list-style-type: none;
+      }
       li {
+        font-size: 1rem;
         font-weight: 500;
-        &:first-child {
-          color: $pia-red;
-        }
-        &:nth-child(2) {
-          color: $pia-blue;
-        }
+      }
+      li.pre {
+        color: $pia-red;
+      }
+      li.eval {
+        color: #4366ef;
       }
     }
     &-date {

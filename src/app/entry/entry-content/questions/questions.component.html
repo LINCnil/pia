@@ -37,7 +37,7 @@
           </tag-input>
         </ng-container>
         <ng-template #tagInput2>
-          <tag-input *ngIf="question.answer_type == 'list'"
+          <tag-input *ngIf="question.answer_type == 'list' && question.question_type != 'checkboxes'"
                     (onAdd)="onAdd($event)"
                     (onSelect)="onSelected($event)"
                     (onTagEdited)="onTagEdited($event)"
@@ -71,6 +71,30 @@
                   (focusin)="questionContentFocusIn()"
                   placeholder="{{ question.placeholder | translate }}">
         </textarea>
+
+        <!-- Question checkboxes -->
+        <div *ngIf="question.question_type == 'checkboxes'">
+          <div *ngFor="let label of question.labels">
+            <div class="box-div">
+              <div class="checkbox">
+                <input
+                type="checkbox" 
+                name="{{ label.text | translate }}" 
+                id={{label.id}}
+                [checked]=label.checked 
+                (change)="checkBox($event)">
+              </div>
+              <div class="boxlabel">
+                <label>{{ label.text | translate }}</label>
+              </div>
+            </div>
+          </div>
+          <div class="result"> 
+            <hr>
+            <label *ngIf="question.checked_sum < 2">{{ question.results.no | translate }}</label>
+            <label *ngIf="question.checked_sum >= 2">{{ question.results.yes | translate }}</label>
+          </div>
+        </div>
       </div>
     </form>
   </div>
