@@ -1304,7 +1304,7 @@
 		},
 		"actions": {
 			"complete_download": "Laden Sie den vollständigen Bericht herunter",
-			"complete_download_desc": "Exportieren Sie den gesamten Berichtsinhalt (.doc und Bilder), Anhänge und den Aktionsplan in ein .csv-Archiv.",
+			"complete_download_desc": "Exportieren Sie den gesamten Berichtsinhalt (.doc und Bilder), Anhänge und den Aktionsplan im .csv Format in ein .zip Archiv.",
 			"individual_download": "Laden Sie Elemente des Berichts herunter",
 			"individual_download_desc": "Exportieren Sie bestimmte Elemente des Berichts.",
 			"individual_download_doc": "Texte (.doc)",
