@@ -124,6 +124,7 @@ export class AttachmentsService {
 
       // Remove from DB by erasing only the "file" field
       const attachment = new Attachment();
+      attachment.pia_id = this.pia.id;
       attachment.id = attachmentId;
       attachment.remove(comment);
 
