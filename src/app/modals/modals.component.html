@@ -209,20 +209,31 @@
   </div>
 </div>
 
-<div class="pia-modalBlock" id="modal-remove-pia">
+<div class="pia-modalBlock" id="modal-archive-pia">
+  <div class="pia-modalBlock-content pia-modalBlock-archivePIA bounceIn">
+    <button tabindex="3" type="button" class="pia-modalBlock-close btn" title="{{ 'modals.close' | translate }}" (click)="_modalsService.closeModal()"><span class="pia-icons pia-icon-close-big"></span></button>
+    <p [innerHTML]="'modals.archive_pia.content' | translate"></p>
+    <div class="pia-modalBlock-buttons-choice">
+      <button tabindex="1" class="btn btn-red" type="button" (click)="_modalsService.closeModal()">{{ 'modals.cancel' | translate }}</button>
+      <button tabindex="2" class="btn btn-red get-focus" (click)="_piaService.archivePIA()" type="button">{{ 'modals.archive_pia.archive' | translate }}</button>
+    </div>
+  </div>
+</div>
+
+<div class="pia-modalBlock" id="modal-remove-archived-pia">
   <div class="pia-modalBlock-content pia-modalBlock-removePIA bounceIn">
     <button tabindex="3" type="button" class="pia-modalBlock-close btn" title="{{ 'modals.close' | translate }}" (click)="_modalsService.closeModal()"><span class="pia-icons pia-icon-close-big"></span></button>
     <p [innerHTML]="'modals.remove_pia.content' | translate"></p>
     <span class="pia-icons pia-icon-sad"></span>
     <div class="pia-modalBlock-buttons-choice">
       <button tabindex="1" class="btn btn-red" type="button" (click)="_modalsService.closeModal()">{{ 'modals.cancel' | translate }}</button>
-      <button tabindex="2" class="btn btn-red get-focus" (click)="_piaService.removePIA()" type="button">{{ 'modals.remove_pia.remove' | translate }}</button>
+      <button tabindex="2" class="btn btn-red get-focus" (click)="_archiveService.removeArchivedPia()" type="button">{{ 'modals.remove_pia.remove' | translate }}</button>
     </div>
   </div>
 </div>
 
 <div class="pia-modalBlock" id="modal-remove-structure">
-  <div class="pia-modalBlock-content pia-modalBlock-removePIA bounceIn">
+  <div class="pia-modalBlock-content pia-modalBlock-removeStructure bounceIn">
     <button tabindex="3" type="button" class="pia-modalBlock-close btn" title="{{ 'modals.close' | translate }}" (click)="_modalsService.closeModal()"><span class="pia-icons pia-icon-close-big"></span></button>
     <p [innerHTML]="'modals.remove_structure.content' | translate"></p>
     <span class="pia-icons pia-icon-sad"></span>

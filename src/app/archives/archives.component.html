@@ -1,0 +1,126 @@
+<app-header></app-header>
+
+<div class="container pia-mainContainerBlock">
+  <div class="row">
+    <div class="small-12 medium-12 columns">
+      <div class="pia-filtersBlock">
+        <button class="pia-filtersBlock-switch btn" type="button" *ngIf="viewStyle.view === 'list'" (click)="viewOnCard()">
+          <i class="fa fa-list" aria-hidden="true"></i>
+          <div>{{ 'homepage.filters.card' | translate }}</div>
+        </button>
+        <button class="pia-filtersBlock-switch btn" type="button" *ngIf="viewStyle.view === 'card'" (click)="viewOnList()">
+          <i class="fa fa-list" aria-hidden="true"></i>
+          <div>{{ 'homepage.filters.list' | translate }}</div>
+        </button>
+        <div class="pia-filtersBlock-filters">
+          <button class="pia-filtersBlock-filters-btn btn" type="button">
+            {{ 'homepage.filters.sort' | translate }}
+            <span class="pia-icons pia-icon-scroll-green"></span>
+          </button>
+          <div class="pia-filtersBlock-filters-list">
+            <span>{{ 'homepage.filters.sort_by' | translate }}</span>
+            <ul>
+              <li [ngClass]="{'active': sortValue === 'name'}">
+                <a (click)="sortBy('name');">{{ 'homepage.filters.name' | translate }}</a>
+              </li>
+              <li [ngClass]="{'active': sortValue === 'created_at'}">
+                <a (click)="sortBy('created_at');">{{ 'homepage.filters.date' | translate }}</a>
+              </li>
+              <li [ngClass]="{'active': sortValue === 'status'}">
+                <a (click)="sortBy('status');">{{ 'homepage.filters.status' | translate }}</a>
+              </li>
+              <li [ngClass]="{'active': sortValue === 'author_name'}">
+                <a (click)="sortBy('author_name');">{{ 'homepage.filters.author' | translate }}</a>
+              </li>
+              <li [ngClass]="{'active': sortValue === 'evaluator_name'}">
+                <a (click)="sortBy('evaluator_name');">{{ 'homepage.filters.assessor' | translate }}</a>
+              </li>
+              <li [ngClass]="{'active': sortValue === 'validator_name'}">
+                <a (click)="sortBy('validator_name');">{{ 'homepage.filters.validator' | translate }}</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+
+    <!-- "Card" mode -->
+    <div *ngIf="viewStyle.view === 'card'; else viewList" class="small-12 medium-12 columns">
+      <app-card-item *ngFor="let archivedPia of _archiveService.archivedPias;let i=index" [archivedPia]="archivedPia" [previousArchivedPia]="i > 0 ? _archiveService.archivedPias[i-1] : null"></app-card-item>
+    </div>
+
+    <!-- "List" mode -->
+    <ng-template #viewList>
+      <div class="small-12 medium-12 columns">
+        <table class="pia-list-table">
+          <thead>
+            <tr>
+              <th>
+                <a (click)="sortBy('name')">
+                  <span>{{ 'homepage.lists.column_pia' | translate }}</span>
+                  <i *ngIf="sortValue === 'name'" class="fa fa-caret-{{sortOrder}}"></i>
+                </a>
+              </th>
+              <th>
+                <a (click)="sortBy('updated_at')">
+                  <span>{{ 'homepage.lists.column_updated_at' | translate }}</span>
+                  <i *ngIf="sortValue === 'updated_at'" class="fa fa-caret-{{sortOrder}}"></i>
+                </a>
+              </th>
+              <th>
+                <a (click)="sortBy('author_name')">
+                  <span>{{ 'homepage.lists.column_author' | translate }}</span>
+                  <i *ngIf="sortValue === 'author_name'" class="fa fa-caret-{{sortOrder}}"></i>
+                </a>
+              </th>
+              <th>
+                <a (click)="sortBy('evaluator_name')">
+                  <span>{{ 'homepage.lists.column_evaluation' | translate }}</span>
+                  <i *ngIf="sortValue === 'evaluator_name'" class="fa fa-caret-{{sortOrder}}"></i>
+                </a>
+              </th>
+              <th>
+                <a (click)="sortBy('validator_name')">
+                  <span>{{ 'homepage.lists.column_validation' | translate }}</span>
+                  <i *ngIf="sortValue === 'validator_name'" class="fa fa-caret-{{sortOrder}}"></i>
+                </a>
+              </th>
+              <th>
+                <a (click)="sortBy('structure_name')">
+                  <span>{{ 'homepage.lists.column_structure_name' | translate }}</span>
+                  <i *ngIf="sortValue === 'structure_name'" class="fa fa-caret-{{sortOrder}}"></i>
+                </a>
+              </th>
+              <th>
+                <a (click)="sortBy('created_at')">
+                  <span>{{ 'homepage.lists.column_creation' | translate }}</span>
+                  <i *ngIf="sortValue === 'created_at'" class="fa fa-caret-{{sortOrder}}"></i>
+                </a>
+              </th>
+              <th>
+                <span>{{ 'homepage.lists.column_status' | translate }}</span>
+              </th>
+              <th>
+                <a (click)="sortBy('progress')">
+                  <span>{{ 'homepage.lists.column_progression' | translate }}</span>
+                  <i *ngIf="sortValue === 'progress'" class="fa fa-caret-{{sortOrder}}"></i>
+                </a>
+              </th>
+              <th>
+                <span>{{ 'homepage.lists.column_actions' | translate }}</span>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="app-list-item" [attr.data-id]="archivedPia.id" *ngFor="let archivedPia of _archiveService.archivedPias;let i=index" [archivedPia]="archivedPia"></tr>
+          </tbody>
+        </table>
+      </div>
+    </ng-template>
+
+  </div>
+</div>
+
+<app-modals></app-modals>

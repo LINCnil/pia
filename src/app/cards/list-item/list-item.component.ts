@@ -89,8 +89,8 @@ export class ListItemComponent implements OnInit {
    * Opens the modal to confirm deletion of a PIA
    * @param {string} id - The PIA id.
    */
-  removePia(id: string) {
-    localStorage.setItem('pia-id', id);
-    this._modalsService.openModal('modal-remove-pia');
+  archivePia(id: string) {
+    /* localStorage.setItem('pia-id', id);
+    this._modalsService.openModal('modal-archive-pia'); */
   }
 }

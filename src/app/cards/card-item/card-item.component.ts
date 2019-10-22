@@ -190,12 +190,12 @@ export class CardItemComponent implements OnInit {
   }
 
   /**
-   * Deletes a PIA with a given id.
+   * Archives a PIA with a given id.
    * @param {string} id - The PIA id.
    */
-  removePia(id: string) {
+  archivePia(id: string) {
     localStorage.setItem('pia-id', id);
-    this._modalsService.openModal('modal-remove-pia');
+    this._modalsService.openModal('modal-archive-pia');
   }
 
 }

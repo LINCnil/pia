@@ -1,0 +1,48 @@
+<div class="pia-measureBlock" [attr.data-id]="id">
+  <form [formGroup]="measureForm">
+    <div class="pia-measureBlock-title">
+      <button  class="pia-icons pia-icon-accordeon-up" type="button" (click)="displayMeasure($event)" title="{{ 'misc.display' | translate }}"></button>
+
+      <!-- Measure title -->
+      <div (click)="measureTitleFocusIn()"
+            class="pia-measure-title"
+            [ngClass]="{ 'hide': editTitle }"
+            [innerHTML]="measureForm.controls['measureTitle'].value | safeHtml"></div>
+        <textarea maxlength="120"
+                  rows="2"
+                  (keyup)="autoTextareaResize($event)"
+                  [attr.data-id]="id"
+                  id="pia-measure-title-{{id}}"
+                  formControlName="measureTitle"
+                  (focusout)="measureTitleFocusOut($event)"
+                  [ngClass]="{ 'hide': !editTitle }"
+                  placeholder="{{ 'measures.placeholder_title' | translate }}"></textarea>
+    </div>
+
+    <div class="pia-measureBlock-displayer fadeIn">
+      <button type="button"
+              class="btn pia-measureBlock-delete"
+              *ngIf="!_structureService.structure.is_example"
+              (click)="removeMeasure()"
+              title="{{ 'measures.remove' | translate }}">
+        <i class="fa fa-trash-o" aria-hidden="true"></i>
+      </button>
+
+      <!-- Measure answer -->
+      <div class="pia-measureBlock-content">
+        <div (click)="measureContentFocusIn()"
+              class="pia-measureBlock-contentText"
+              [innerHTML]="measureForm.controls['measureContent'].value | safeHtml"
+              [ngClass]="{ 'hide': editor || !measureForm.controls['measureContent'].value }"></div>
+        <textarea [attr.data-id]="id"
+                  id="pia-measure-content-{{id}}"
+                  formControlName="measureContent"
+                  (focusin)="measureContentFocusIn()"
+                  [ngClass]="{ 'hide': (!editor && measureForm.controls['measureContent'].value && measureForm.controls['measureContent'].value.length > 0) }"
+                  rows="8"
+                  cols="50"
+                  placeholder="{{ measure.placeholder | translate }}"></textarea>
+      </div>
+    </div>
+  </form>
+</div>

@@ -8,6 +8,7 @@ import { Structure } from 'src/app/structures/structure.model';
 import { ModalsService } from './modals.service';
 import { MeasureService } from 'src/app/entry/entry-content/measures/measures.service';
 import { PiaService } from 'src/app/services/pia.service';
+import { ArchiveService } from 'src/app/services/archive.service';
 import { StructureService } from 'src/app/services/structure.service';
 import { AnswerStructureService } from 'src/app/services/answer-structure.service';
 import { AttachmentsService } from 'src/app/entry/attachments/attachments.service';
@@ -16,7 +17,7 @@ import { AttachmentsService } from 'src/app/entry/attachments/attachments.servic
   selector: 'app-modals',
   templateUrl: './modals.component.html',
   styleUrls: ['./modals.component.scss'],
-  providers: [PiaService, StructureService]
+  providers: [PiaService, ArchiveService, StructureService]
 })
 export class ModalsComponent implements OnInit {
   @Input() pia: any;
@@ -32,6 +33,7 @@ export class ModalsComponent implements OnInit {
     private router: Router,
     public _modalsService: ModalsService,
     public _piaService: PiaService,
+    public _archiveService: ArchiveService,
     public _structureService: StructureService,
     public _answerStructureService: AnswerStructureService,
     public _measuresService: MeasureService,
