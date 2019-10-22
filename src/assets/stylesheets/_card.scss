@@ -145,22 +145,25 @@
                   font-size: 0.95rem;
                   font-style: italic;
               }
+              .archive,
               input {
-                  padding-bottom: 6px;
-                  display: block;
-                  border: 0;
-                  font-size: 1.4rem;
-                  color: $pia-dark-black;
-                  width: 100%;
-                  margin-top: -2px;
-                  height: 22px;
-                  &::placeholder {
-                      color: $pia-gray;
-                  }
-                  &:hover {
-                    outline: 1px dotted #3EE095;
-                    cursor: text;
-                  }
+                padding-bottom: 6px;
+                display: block;
+                border: 0;
+                font-size: 1.4rem;
+                color: $pia-dark-black;
+                width: 100%;
+                margin-top: -2px;
+                height: 22px;
+              }
+              input {
+                &::placeholder {
+                  color: $pia-gray;
+                }
+                &:hover {
+                  outline: 1px dotted #3EE095;
+                  cursor: text;
+                }
               }
               &:first-child {
                   input {

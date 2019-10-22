@@ -205,7 +205,7 @@ export class PiaService {
   /**
    * Allows an user to remove a PIA.
    */
-  archivePIA() {
+  archivePia() {
 
     /* TODO */
 

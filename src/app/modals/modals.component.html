@@ -214,11 +214,22 @@
     <button tabindex="3" type="button" class="pia-modalBlock-close btn" title="{{ 'modals.close' | translate }}" (click)="_modalsService.closeModal()"><span class="pia-icons pia-icon-close-big"></span></button>
     <p [innerHTML]="'modals.archive_pia.content' | translate"></p>
     <div class="pia-modalBlock-buttons-choice">
-      <button tabindex="1" class="btn btn-red" type="button" (click)="_modalsService.closeModal()">{{ 'modals.cancel' | translate }}</button>
-      <button tabindex="2" class="btn btn-red get-focus" (click)="_piaService.archivePIA()" type="button">{{ 'modals.archive_pia.archive' | translate }}</button>
+      <button tabindex="1" class="btn btn-blue" type="button" (click)="_modalsService.closeModal()">{{ 'modals.cancel' | translate }}</button>
+      <button tabindex="2" class="btn btn-blue get-focus" (click)="_piaService.archivePia()" type="button">{{ 'modals.archive_pia.archive' | translate }}</button>
     </div>
   </div>
 </div>
+
+<div class="pia-modalBlock" id="modal-unarchive-pia">
+    <div class="pia-modalBlock-content pia-modalBlock-unarchivePIA bounceIn">
+      <button tabindex="3" type="button" class="pia-modalBlock-close btn" title="{{ 'modals.close' | translate }}" (click)="_modalsService.closeModal()"><span class="pia-icons pia-icon-close-big"></span></button>
+      <p [innerHTML]="'modals.unarchive_pia.content' | translate"></p>
+      <div class="pia-modalBlock-buttons-choice">
+        <button tabindex="1" class="btn btn-blue" type="button" (click)="_modalsService.closeModal()">{{ 'modals.cancel' | translate }}</button>
+        <button tabindex="2" class="btn btn-blue get-focus" (click)="_archiveService.unarchivePia()" type="button">{{ 'modals.unarchive_pia.unarchive' | translate }}</button>
+      </div>
+    </div>
+  </div>
 
 <div class="pia-modalBlock" id="modal-remove-archived-pia">
   <div class="pia-modalBlock-content pia-modalBlock-removePIA bounceIn">

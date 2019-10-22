@@ -184,7 +184,8 @@
 					"more_options": "Plus d'options",
 					"pia": "Afficher le<br>PIA",
           "remove": "Supprimer définitivement",
-          "archive": "Archiver"
+          "archive": "Archiver",
+          "unarchive": "Désarchiver"
 				}
 			},
 			"new_pia": "Nouveau PIA",
@@ -254,7 +255,8 @@
 					"export": "Exporter",
 					"pia": "Afficher le PIA",
 					"remove": "Supprimer définitivement",
-          "archive": "Archiver"
+          "archive": "Archiver",
+          "unarchive": "Désarchiver"
 				}
 			}
 		}
@@ -904,6 +906,10 @@
     "archive_pia": {
 			"content": "<span class='strong'>Attention,</span><br>Êtes-vous sûr de vouloir<br>archiver ce PIA ?",
 			"archive": "Archiver ce PIA"
+    },
+    "unarchive_pia": {
+			"content": "<span class='strong'>Attention,</span><br>Êtes-vous sûr de vouloir<br>désarchiver ce PIA ?",
+			"unarchive": "Désarchiver ce PIA"
 		},
 		"remove_question": {
 			"content": "Souhaitez-vous supprimer la question ?",

@@ -194,7 +194,11 @@ export class CardItemComponent implements OnInit {
    * @param {string} id - The PIA id.
    */
   archivePia(id: string) {
-    localStorage.setItem('pia-id', id);
+
+    /* TODO */
+
+    /* localStorage.setItem('pia-id', id); */
+
     this._modalsService.openModal('modal-archive-pia');
   }
 

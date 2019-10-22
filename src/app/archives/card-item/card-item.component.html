@@ -1,14 +1,78 @@
 <div class="pia-cardsBlock pia" [attr.data-id]="archivedPia.id">
     <div class="pia-cardsBlock-item pia-doingBlock-item">
+      <div *ngIf="attachments && attachments.length > 0" class="pia-cardsBlock-item-attachment" aria-hidden="true">
+        <span class="pia-icons pia-icon-attachment"></span>
+        <ul>
+          <ng-container *ngFor="let attachment of attachments">
+            <li>{{ attachment.name }}</li>
+          </ng-container>
+        </ul>
+      </div>
 
       <div class="pia-cardsBlock-toolbar">
         <div class="pia-cardsBlock-toolbar-export">
+          <a href="javascript:;" (click)="unarchive(archivedPia.id)" class="btn pia-tooltip">
+            <i class="fa fa-refresh" aria-hidden="true"></i>
+            <span class="pia-tooltip-text">{{ 'homepage.cards.item.tools.unarchive' | translate }}</span>
+          </a>
           <a href="javascript:;" (click)="remove(archivedPia.id)" class="btn pia-tooltip">
             <i class="fa fa-trash-o" aria-hidden="true"></i>
             <span class="pia-tooltip-text">{{ 'homepage.cards.item.tools.remove' | translate }}</span>
           </a>
         </div>
       </div>
+
+      <form class="pia-cardsBlock-item-form">
+        <input type="hidden">
+        <div style="margin-top:20px;">
+          <label for="pia-edit-name">{{ 'homepage.cards.pia_name' | translate }}</label>
+          <div class="archive">{{ archivedPia.name }}</div>
+        </div>
+        <div>
+          <label for="pia-edit-author-name">{{ 'homepage.cards.author' | translate }}</label>
+          <div class="archive">{{ archivedPia.author_name }}</div>
+        </div>
+        <div>
+          <label for="pia-edit-evaluator-name">{{ 'homepage.cards.evaluation' | translate }}</label>
+          <div class="archive">{{ archivedPia.evaluator_name }}</div>
+        </div>
+        <div>
+          <label for="pia-edit-validator-name">{{ 'homepage.cards.validation' | translate }}</label>
+          <div class="archive">{{ archivedPia.validator_name }}</div>
+        </div>
+        <div class="pia-cardsBlock-item-structure" *ngIf="archivedPia.structure_id">
+          <div>{{ 'homepage.cards.structure' | translate }}</div>
+          <span>{{ archivedPia.structure_name }}</span>
+        </div>
+        <div class="pia-cardsBlock-item-date">
+          <div>{{ 'homepage.cards.date' | translate }}</div>
+          <time>{{ archivedPia.created_at | date: 'dd/MM/yyyy' }}</time>
+        </div>
+        <div class="pia-cardsBlock-item-status">
+          <div class="pia-cardsBlock-item-status-infos">
+            <div>{{ 'homepage.cards.status' | translate }}</div>
+            <div class="pendingValidation" *ngIf="archivedPia.status === 0 && archivedPia.progress === 100;else defaultStatuses">
+              {{ 'pia.statuses.5' | translate }}
+            </div>
+            <ng-template #defaultStatuses>
+              <div>{{ archivedPia.getStatusName() | translate }}</div>
+            </ng-template>
+          </div>
+          <div class="pia-cardsBlock-item-status-progressBar">
+            <div>{{ archivedPia.progress }}%</div>
+            <progress max="100" value="{{ archivedPia.progress }}"></progress>
+          </div>
+        </div>
+        <!-- <div class="pia-cardsBlock-item-btn">
+          <div *ngIf="pia.status === 0" class="pia-cardsBlock-item-btn-dual">
+            <a routerLink="/entry/{{pia.id}}/section/1/item/1" title="{{ 'homepage.cards.item.edit_pia' | translate }}" class="btn btn-green">{{ 'homepage.cards.item.edit_pia' | translate }}</a>
+            <a routerLink="/preview/{{pia.id}}" title="{{ 'homepage.cards.item.consult_pia' | translate }}" class="btn btn-green">{{ 'homepage.cards.item.consult_pia' | translate }}</a>
+          </div>
+          <div *ngIf="pia.status > 0" class="pia-cardsBlock-item-btn-single">
+            <a routerLink="/preview/{{pia.id}}" title="{{ 'homepage.cards.item.consult_pia' | translate }}" class="btn btn-green">{{ 'homepage.cards.item.consult_pia' | translate }}</a>
+          </div>
+        </div> -->
+      </form>
 
   </div>
 </div>
