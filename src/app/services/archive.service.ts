@@ -18,7 +18,26 @@ export class ArchiveService {
               private _languagesService: LanguagesService) { }
 
   /**
-   * Allows an user to remove an archived PIA
+   * Sends back an archived PIA to an editable PIA
+   */
+  unarchivePia() {
+    const id = parseInt(localStorage.getItem('unarchive-id'), 10);
+
+    /* TODO */
+
+    // Deletes the PIA from the view
+    if (localStorage.getItem('homepageDisplayMode') && localStorage.getItem('homepageDisplayMode') === 'list') {
+      document.querySelector('.app-list-item[data-id="' + id + '"]').remove();
+    } else {
+      document.querySelector('.pia-cardsBlock.pia[data-id="' + id + '"]').remove();
+    }
+
+    localStorage.removeItem('unarchive-id');
+    this._modalsService.closeModal();
+  }
+
+  /**
+   * Allows an user to definitely remove an archived PIA
    */
   removeArchivedPia() {
     const id = parseInt(localStorage.getItem('archive-id'), 10);
