@@ -43,11 +43,6 @@ describe("Home", () => {
       cy.get(".pia-cardsBlock-toolbar-moreList").invoke("show");
       cy.get(".pia-cardsBlock-toolbar-moreList li a").first().click();
     });
-    it("should remove pia", () => {
-      cy.get(".pia-cardsBlock-toolbar-moreList").invoke("show");
-      cy.get(".pia-cardsBlock-toolbar-moreList a").last().click();
-      cy.get("#modal-remove-pia button").last().click();
-    });
     it("should export pia", () => {
       cy.get(".pia-cardsBlock-toolbar-export a").first().click();
     });

@@ -11,7 +11,7 @@
       </div>
     </div>
   </div>
-  <nav class="pia-navigationBlock" [ngClass]="{'pia-navigationBlock-structures' : isStructureHeader}">
+  <nav class="pia-navigationBlock" [ngClass]="{'pia-navigationBlock-structures' : isStructureHeader, 'pia-navigationBlock-archives' : isArchiveHeader }">
     <div class="container">
       <div class="row">
         <div class="small-12 medium-12 columns">
@@ -22,6 +22,8 @@
           </ul>
           <ul class="pia-navigationBlock-list">
             <li routerLinkActive="active">
+              <a routerLink="/archives">Archives de PIA</a>
+            </li><li routerLinkActive="active">
               <a routerLink="/structures">{{ 'header.structures' | translate }}</a>
             </li><li [ngClass]="{'active': pia_is_example}">
               <a *ngIf="_languagesService.selectedLanguage === 'fr' && pia_example" href="javascript:;" routerLink="/entry/{{pia_example.id}}/section/1/item/1">

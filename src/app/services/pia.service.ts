@@ -205,21 +205,25 @@ export class PiaService {
   /**
    * Allows an user to remove a PIA.
    */
-  removePIA() {
-    const piaID = parseInt(localStorage.getItem('pia-id'), 10);
+  archivePIA() {
+
+    /* TODO */
+
+    /* const piaID = parseInt(localStorage.getItem('pia-id'), 10); */
 
     // Removes from DB.
-    const pia = new Pia();
-    pia.delete(piaID);
+    /* const pia = new Pia();
+    pia.delete(piaID); */
 
     // Deletes the PIA from the view.
-    if (localStorage.getItem('homepageDisplayMode') && localStorage.getItem('homepageDisplayMode') === 'list') {
+    /* if (localStorage.getItem('homepageDisplayMode') && localStorage.getItem('homepageDisplayMode') === 'list') {
       document.querySelector('.app-list-item[data-id="' + piaID + '"]').remove();
     } else {
       document.querySelector('.pia-cardsBlock.pia[data-id="' + piaID + '"]').remove();
-    }
+    } */
 
-    localStorage.removeItem('pia-id');
+    /* localStorage.removeItem('pia-id'); */
+
     this._modalsService.closeModal();
   }
 

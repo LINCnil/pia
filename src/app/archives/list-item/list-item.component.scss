@@ -1,0 +1,78 @@
+@import '../../../assets/stylesheets/variables';
+
+.pia-listsBlock-item {
+  position: relative;
+  padding: 0 10px;
+  cursor: pointer;
+  &:first-child {
+    div[contenteditable] {
+      vertical-align: middle;
+      display: inline-block;
+      width: 80%;
+    }
+  }
+  div[contenteditable] {
+    cursor: text;
+    &:focus, &:hover, &:active {
+      outline: 1px dotted $pia-green;
+    }
+    &:focus, &:active {
+      background-color: #fff;
+    }
+  }
+  &:last-child {
+    cursor: default;
+  }
+  &-actions {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    align-content: stretch;
+    a {
+      color: $pia-green;
+      font-size: 2rem;
+      margin: 0 10px 0 0;
+      text-decoration: none;
+    }
+  }
+  &-attachment {
+    vertical-align: middle;
+    display: inline-block;
+    width: 10%;
+    position: relative;
+    cursor: pointer;
+    margin: auto 0 auto auto;
+    ul {
+      display: none;
+      position: absolute;
+      z-index: 999;
+      top: 18px;
+      left: 2px;
+      font-size: 1rem;
+      color: $pia-gray-dark;
+      background-color: #fff;
+      text-align: center;
+      min-width: 100px;
+      margin: 10px 0;
+      padding: 2px 4px;
+      box-shadow: 1px 1px 2px 1px rgba(214, 212, 214, 1);
+      li {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        border-bottom: 1px dotted $pia-gray-dark;
+        padding: 2px 0;
+        &:last-child {
+          border-bottom: none;
+        }
+      }
+    }
+    &:focus, &:hover, &:active {
+      ul {
+        display: block;
+      }
+    }
+  }
+}
