@@ -4,11 +4,11 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Subscription } from 'rxjs';
 
 import { Pia } from '../entry/pia.model';
+import { Structure } from 'src/app/structures/structure.model';
 
 import { ModalsService } from 'src/app/modals/modals.service';
 import { PiaService } from 'src/app/services/pia.service';
 import { StructureService } from 'src/app/services/structure.service';
-import { Structure } from 'src/app/structures/structure.model';
 
 @Component({
   selector: 'app-cards',

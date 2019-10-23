@@ -167,6 +167,7 @@
 		"title": "Aide"
 	},
 	"homepage": {
+    "search_filter": "Rechercher...",
 		"cards": {
 			"author": "Saisie",
 			"creation_status": "Création",

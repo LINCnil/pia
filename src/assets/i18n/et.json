@@ -167,6 +167,7 @@
 		"title": "Abi"
 	},
 	"homepage": {
+    "search_filter": "TO TRANSLATE - Search...",
 		"cards": {
 			"author": "Toimeta",
 			"creation_status": "Loomine",

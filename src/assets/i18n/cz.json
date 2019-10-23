@@ -167,6 +167,7 @@
 		"title": "Nápověda"
 	},
 	"homepage": {
+    "search_filter": "TO TRANSLATE - Search...",
 		"cards": {
 			"author": "Upravil",
 			"creation_status": "Vytvořeno",

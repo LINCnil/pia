@@ -167,6 +167,7 @@
 		"title": "Segítség"
 	},
 	"homepage": {
+    "search_filter": "TO TRANSLATE - Search...",
 		"cards": {
 			"author": "Szerkesztés",
 			"creation_status": "Létrehozás",

@@ -167,6 +167,7 @@
 		"title": "Pagalba"
 	},
 	"homepage": {
+    "search_filter": "TO TRANSLATE - Search...",
 		"cards": {
 			"author": "Redagavimas",
 			"creation_status": "Sukūrimas",

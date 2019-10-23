@@ -71,9 +71,28 @@
   }
 }
 .pia {
+  &-searchInput {
+    margin-left: 12px;
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    min-width: 220px;
+    &:after {
+      position: absolute;
+      font-size: 2rem;
+      content: '⚲';
+      color: #aaa9a9;
+      right: 10px;
+      top: 2px;
+      -webkit-transform: rotate(45deg);
+      -moz-transform: rotate(45deg);
+      -o-transform: rotate(45deg);
+      transform: rotate(45deg);
+    }
+  }
   &-filtersBlock {
     position: relative;
-    margin: 8px 0 15px 0;
+    margin: 8px 0 40px 0;
     &-switch, &-filters {
       display: inline-block;
       vertical-align: middle;
@@ -251,7 +270,6 @@
 
 // List PIA
 .pia-list-table {
-  margin-top: 10px;
   border-collapse: collapse;
   width: 100%;
   max-width: 100%;

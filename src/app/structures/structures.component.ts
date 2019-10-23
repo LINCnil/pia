@@ -3,9 +3,10 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Subscription } from 'rxjs';
 
+import { Structure } from './structure.model';
+
 import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 import { StructureService } from 'src/app/services/structure.service';
-import { Structure } from './structure.model';
 import { ModalsService } from 'src/app/modals/modals.service';
 import { AppDataService } from 'src/app/services/app-data.service';
 

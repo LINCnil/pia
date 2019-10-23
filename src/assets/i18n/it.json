@@ -167,6 +167,7 @@
 		"title": "Aiuto"
 	},
 	"homepage": {
+    "search_filter": "TO TRANSLATE - Search...",
 		"cards": {
 			"author": "Autore",
 			"creation_status": "Inizializzazione",

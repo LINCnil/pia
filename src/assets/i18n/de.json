@@ -167,6 +167,7 @@
 		"title": "Hilfe"
 	},
 	"homepage": {
+    "search_filter": "TO TRANSLATE - Search...",
 		"cards": {
 			"author": "Bearbeiter",
 			"creation_status": "Anlegen",
