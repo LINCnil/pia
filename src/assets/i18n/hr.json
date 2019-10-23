@@ -167,6 +167,7 @@
 		"title": "Pomoć"
 	},
 	"homepage": {
+    "search_filter": "TO TRANSLATE - Search...",
 		"cards": {
 			"author": "Uređivanje",
 			"creation_status": "Stvaranje",

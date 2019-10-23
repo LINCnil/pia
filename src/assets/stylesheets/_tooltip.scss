@@ -3,7 +3,7 @@
         position: relative;
         .pia-tooltip-text {
             z-index: 999;
-            width: 70px;
+            min-width: 70px;
             display: none;
             position: absolute;
             top: 110%;

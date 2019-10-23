@@ -41,6 +41,19 @@
     }
   }
 
+  &-search {
+    @extend .btn-default;
+    border-radius: 0;
+    width: 100%;
+    text-align: left;
+    background-color: #fff;
+    color: #000 !important;
+    border-color: #aaa9a9;
+    &::placeholder {
+      color: #aaa9a9;
+    }
+  }
+
   &-green {
     @extend .btn-default;
     color: $pia-green;

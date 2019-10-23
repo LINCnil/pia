@@ -167,6 +167,7 @@
 		"title": "Βοήθεια"
 	},
 	"homepage": {
+    "search_filter": "TO TRANSLATE - Search...",
 		"cards": {
 			"author": "Επεξεργασία",
 			"creation_status": "Δημιουργία",

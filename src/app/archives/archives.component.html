@@ -4,6 +4,7 @@
   <div class="row">
     <div class="small-12 medium-12 columns">
       <div class="pia-filtersBlock">
+
         <button class="pia-filtersBlock-switch btn" type="button" *ngIf="viewStyle.view === 'list'" (click)="viewOnCard()">
           <i class="fa fa-list" aria-hidden="true"></i>
           <div>{{ 'homepage.filters.card' | translate }}</div>
@@ -12,6 +13,7 @@
           <i class="fa fa-list" aria-hidden="true"></i>
           <div>{{ 'homepage.filters.list' | translate }}</div>
         </button>
+
         <div class="pia-filtersBlock-filters">
           <button class="pia-filtersBlock-filters-btn btn" type="button">
             {{ 'homepage.filters.sort' | translate }}
@@ -41,6 +43,11 @@
             </ul>
           </div>
         </div>
+
+        <div class="pia-searchInput">
+          <input type="text" class="btn btn-search" [(ngModel)]="searchText" placeholder="{{ 'homepage.search_filter' | translate }}" name="search" autocomplete="off">
+        </div>
+
       </div>
     </div>
   </div>
@@ -48,7 +55,7 @@
 
     <!-- "Card" mode -->
     <div *ngIf="viewStyle.view === 'card'; else viewList" class="small-12 medium-12 columns">
-      <app-card-item *ngFor="let archivedPia of _archiveService.archivedPias;let i=index" [archivedPia]="archivedPia" [previousArchivedPia]="i > 0 ? _archiveService.archivedPias[i-1] : null"></app-card-item>
+      <app-card-item *ngFor="let archivedPia of _archiveService.archivedPias | filterForUser : searchText; let i=index" [archivedPia]="archivedPia" [previousArchivedPia]="i > 0 ? _archiveService.archivedPias[i-1] : null"></app-card-item>
     </div>
 
     <!-- "List" mode -->
@@ -100,7 +107,10 @@
                 </a>
               </th>
               <th>
-                <span>{{ 'homepage.lists.column_status' | translate }}</span>
+                <a (click)="sortBy('status')">
+                  <span>{{ 'homepage.lists.column_status' | translate }}</span>
+                  <i *ngIf="sortValue === 'status'" class="fa fa-caret-{{sortOrder}}"></i>
+                </a>
               </th>
               <th>
                 <a (click)="sortBy('progress')">
@@ -114,7 +124,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr class="app-list-item" [attr.data-id]="archivedPia.id" *ngFor="let archivedPia of _archiveService.archivedPias;let i=index" [archivedPia]="archivedPia"></tr>
+            <tr class="app-list-item" [attr.data-id]="archivedPia.id" *ngFor="let archivedPia of _archiveService.archivedPias | filterForUser : searchText; let i=index" [archivedPia]="archivedPia"></tr>
           </tbody>
         </table>
       </div>

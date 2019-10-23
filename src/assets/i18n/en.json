@@ -167,6 +167,7 @@
 		"title": "Help"
 	},
 	"homepage": {
+    "search_filter": "Search...",
 		"cards": {
 			"author": "Editing",
 			"creation_status": "Creation",

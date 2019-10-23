@@ -5,19 +5,10 @@
   padding: 0 10px;
   cursor: pointer;
   &:first-child {
-    div[contenteditable] {
+    div:first-child {
       vertical-align: middle;
       display: inline-block;
       width: 80%;
-    }
-  }
-  div[contenteditable] {
-    cursor: text;
-    &:focus, &:hover, &:active {
-      outline: 1px dotted $pia-green;
-    }
-    &:focus, &:active {
-      background-color: #fff;
     }
   }
   &:last-child {
@@ -25,16 +16,11 @@
   }
   &-actions {
     display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: flex-start;
-    align-items: flex-start;
-    align-content: stretch;
+    justify-content: space-around;
     a {
       color: $pia-green;
-      font-size: 2rem;
-      margin: 0 10px 0 0;
-      text-decoration: none;
+      font-size: 1.8rem;
+      margin: 0 4px;
     }
   }
   &-attachment {
