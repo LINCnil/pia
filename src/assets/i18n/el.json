@@ -85,7 +85,8 @@
 	},
 	"header": {
     "exit_full_screen_mode": "Πατήστε F11 για έξοδο από την πλήρη οθόνη.",
-		"homepage_link": "Πίνακας ενδείξεων",
+    "homepage_link": "Πίνακας ενδείξεων",
+    "archives": "TO TRANSLATE - PIA archives",
 		"knowledge_base_link": "Βάση γνώσεων",
 		"languages": {
 			"cnil_translations": "Μεταφράσεις που παρείχε η CNIL",
@@ -183,7 +184,9 @@
 					"export": "Εξαγωγή",
 					"more_options": "Περισσότερες επιλογές",
 					"pia": "Εμφάνιση<br>ΕΑ",
-					"remove": "Διαγραφή"
+					"remove": "TO TRANSLATE - Permanently delete",
+          "archive": "TO TRANSLATE - Archive",
+          "unarchive": "TO TRANSLATE - Unarchive"
 				}
 			},
 			"new_pia": "Νέα ΕΑ",
@@ -252,7 +255,9 @@
 					"edit": "Επεξεργασία",
 					"export": "Εξαγωγή",
 					"pia": "Εμφάνιση ΕΑ",
-					"remove": "Διαγραφή"
+					"remove": "TO TRANSLATE - Permanently delete",
+          "archive": "TO TRANSLATE - Archive",
+          "unarchive": "TO TRANSLATE - Unarchive"
 				}
 			}
 		}
@@ -895,9 +900,17 @@
 			"keep": "Διατήρηση αυτού του <br>μέτρου",
 			"remove": "Κατάργηση αυτού του <br>μέτρου"
 		},
-		"remove_pia": {
-			"content": "<span class='strong'>Προσοχή,</span><br>Είστε βέβαιοι ότι θέλετε να <br>αφαιρέσετε αυτή την ΕΑ;",
+    "remove_pia": {
+			"content": "TO TRANSLATE - <span class='strong'>Warning,</span><br>Are you sure you want to<br>remove permanently this PIA?",
 			"remove": "Αφαίρεση αυτής της ΕΑ"
+    },
+    "archive_pia": {
+			"content": "TO TRANSLATE - <span class='strong'>Warning,</span><br>Are you sure you want to<br>archive this PIA ?",
+			"archive": "TO TRANSLATE - Archive PIA"
+    },
+    "unarchive_pia": {
+			"content": "TO TRANSLATE - <span class='strong'>Warning,</span><br>Are you sure you want to<br>unarchive this PIA ?",
+			"unarchive": "TO TRANSLATE - Unarchive PIA"
 		},
 		"remove_question": {
 			"content": "Είστε βέβαιοι ότι θέλετε να διαγράψετε το ερώτημα;",

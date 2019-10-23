@@ -85,7 +85,8 @@
 	},
 	"header": {
     "exit_full_screen_mode": "TO TRANSLATE - Press F11 to exit full screen mode.",
-		"homepage_link": "Hlavní panel",
+    "homepage_link": "Hlavní panel",
+    "archives": "TO TRANSLATE - PIA archives",
 		"knowledge_base_link": "Znalostní báze",
 		"languages": {
 			"cnil_translations": "TO BE TRANSLATED - CNIL provided translations",
@@ -183,7 +184,9 @@
 					"export": "Exportovat",
 					"more_options": "Více voleb",
 					"pia": "Zobrazit<br>PIA",
-					"remove": "Odstranit"
+          "remove": "TO TRANSLATE - Permanently delete",
+          "archive": "TO TRANSLATE - Archive",
+          "unarchive": "TO TRANSLATE - Unarchive"
 				}
 			},
 			"new_pia": "Nová PIA",
@@ -252,7 +255,9 @@
 					"edit": "Upravit",
 					"export": "Exportovat",
 					"pia": "Zobrazit PIA",
-					"remove": "Odstranit"
+					"remove": "TO TRANSLATE - Permanently delete",
+          "archive": "TO TRANSLATE - Archive",
+          "unarchive": "TO TRANSLATE - Unarchive"
 				}
 			}
 		}
@@ -895,9 +900,17 @@
 			"keep": "Ponechat toto <br>opatření",
 			"remove": "Odebrat toto <br>opatření"
 		},
-		"remove_pia": {
-			"content": "<span class='strong'>Upozornění,</span><br>Opravdu chcete<br>odstranit toto PIA?",
+    "remove_pia": {
+			"content": "TO TRANSLATE - <span class='strong'>Warning,</span><br>Are you sure you want to<br>remove permanently this PIA?",
 			"remove": "Odstranit tuto PIA"
+    },
+    "archive_pia": {
+			"content": "TO TRANSLATE - <span class='strong'>Warning,</span><br>Are you sure you want to<br>archive this PIA ?",
+			"archive": "TO TRANSLATE - Archive PIA"
+    },
+    "unarchive_pia": {
+			"content": "TO TRANSLATE - <span class='strong'>Warning,</span><br>Are you sure you want to<br>unarchive this PIA ?",
+			"unarchive": "TO TRANSLATE - Unarchive PIA"
 		},
 		"remove_question": {
 			"content": "TO BE TRANSLATED - Souhaitez-vous supprimer la question ?",

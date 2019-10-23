@@ -1,4 +1,4 @@
-import {Component, OnInit, ElementRef, OnDestroy, Input} from '@angular/core';
+import { Component, OnInit, ElementRef, OnDestroy, Input } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Subscription } from 'rxjs';
@@ -159,7 +159,7 @@ export class CardsComponent implements OnInit, OnDestroy {
    */
   async refreshContent() {
     const pia = new Pia();
-    const data: any = await pia.getAll();
+    const data: any = await pia.getAllActives();
     this._piaService.pias = data;
     this._piaService.calculProgress();
     this.sortOrder = localStorage.getItem('sortOrder');

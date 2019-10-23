@@ -81,6 +81,11 @@ export class ApplicationDb {
                 objectStore.createIndex('index4', 'structure_id', { unique: false });
               }
             }
+            if (this.dbVersion === 201910230914 || event.oldVersion === 0) {
+              if (this.tableName === 'pia') {
+                objectStore.createIndex('index5', 'is_archive', { unique: false });
+              }
+            }
           }
         }
       };

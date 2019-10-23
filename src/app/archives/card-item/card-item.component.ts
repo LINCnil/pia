@@ -1,8 +1,10 @@
 import { Component, OnInit, Input } from '@angular/core';
 
+import { Pia } from 'src/app/entry/pia.model';
 import { Attachment } from 'src/app/entry/attachments/attachment.model';
 
 import { ModalsService } from 'src/app/modals/modals.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-card-item',
@@ -15,7 +17,8 @@ export class CardItemComponent implements OnInit {
   @Input() previousArchivedPia: any;
   attachments: any;
 
-  constructor(private _modalsService: ModalsService) { }
+  constructor(private _modalsService: ModalsService,
+              private _translateService: TranslateService) { }
 
   ngOnInit() {
     const attachmentModel = new Attachment();
@@ -31,21 +34,20 @@ export class CardItemComponent implements OnInit {
   }
 
   /**
-   * Unarchives an archived PIA with a given id.
+   * Unarchive an archived PIA with a given id.
    * @param {string} id - The archived PIA id.
    */
   unarchive(id: string) {
-    /* TODO */
-    localStorage.setItem('unarchive-id', id);
+    localStorage.setItem('pia-to-unarchive-id', id);
     this._modalsService.openModal('modal-unarchive-pia');
   }
 
   /**
-   * Deletes an archived PIA with a given id.
+   * Delete an archived PIA with a given id.
    * @param {string} id - The archived PIA id.
    */
   remove(id: string) {
-    localStorage.setItem('archive-id', id);
+    localStorage.setItem('pia-to-remove-id', id);
     this._modalsService.openModal('modal-remove-archived-pia');
   }
 

@@ -85,7 +85,8 @@
 	},
 	"header": {
     "exit_full_screen_mode": "Appuyer sur F11 pour quitter le mode plein écran.",
-		"homepage_link": "Accueil",
+    "homepage_link": "Accueil",
+    "archives": "Archives de PIA",
 		"knowledge_base_link": "Base de connaissances",
 		"languages": {
 			"cnil_translations": "Traductions fournies par la CNIL",

@@ -1,21 +1,18 @@
 import { Component, OnInit, ElementRef, OnDestroy, Input } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Subscription } from 'rxjs';
 
-import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
-
-import { ArchiveService } from 'src/app/services/archive.service';
-import { ModalsService } from 'src/app/modals/modals.service';
-import { AppDataService } from 'src/app/services/app-data.service';
-
 import { Pia } from '../entry/pia.model';
+
+import { ModalsService } from 'src/app/modals/modals.service';
+import { PiaService } from 'src/app/services/pia.service';
+import { ArchiveService } from 'src/app/services/archive.service';
 
 @Component({
   selector: 'app-archives',
   templateUrl: './archives.component.html',
   styleUrls: ['./archives.component.scss'],
-  providers: [ArchiveService]
+  providers: [PiaService, ArchiveService]
 })
 
 export class ArchivesComponent implements OnInit, OnDestroy {
@@ -30,9 +27,8 @@ export class ArchivesComponent implements OnInit, OnDestroy {
               private el: ElementRef,
               private route: ActivatedRoute,
               public _modalsService: ModalsService,
-              private _appDataService: AppDataService,
-              public _archiveService: ArchiveService,
-              private _translateService: TranslateService) { }
+              public _piaService: PiaService,
+              public _archiveService: ArchiveService) { }
 
   ngOnInit() {
     this.sortOrder = localStorage.getItem('sortOrder');
@@ -110,10 +106,9 @@ export class ArchivesComponent implements OnInit, OnDestroy {
    */
   async refreshContent() {
     const pia = new Pia();
-    const data: any = await pia.getAll();
-
+    const data: any = await pia.getAllArchives();
     this._archiveService.archivedPias = data;
-
+    this._archiveService.calculProgress();
     this.sortOrder = localStorage.getItem('sortOrder');
     this.sortValue = localStorage.getItem('sortValue');
     setTimeout(() => {

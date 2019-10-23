@@ -85,7 +85,8 @@
 	},
 	"header": {
     "exit_full_screen_mode": "Premi F11 per uscire dalla modalità schermo intero.",
-		"homepage_link": "Pannello di controllo",
+    "homepage_link": "Pannello di controllo",
+    "archives": "TO TRANSLATE - PIA archives",
 		"knowledge_base_link": "Archivio",
 		"languages": {
 			"cnil_translations": "Traduzioni fornite da CNIL",
@@ -183,7 +184,9 @@
 					"export": "Esporta",
 					"more_options": "Altre opzioni",
 					"pia": "Mostra<br>PIA",
-					"remove": "Cancella"
+					"remove": "TO TRANSLATE - Permanently delete",
+          "archive": "TO TRANSLATE - Archive",
+          "unarchive": "TO TRANSLATE - Unarchive"
 				}
 			},
 			"new_pia": "Nuova PIA",
@@ -252,7 +255,9 @@
 					"edit": "Modifica",
 					"export": "Esporta",
 					"pia": "Mostra PIA",
-					"remove": "Cancella"
+					"remove": "TO TRANSLATE - Permanently delete",
+          "archive": "TO TRANSLATE - Archive",
+          "unarchive": "TO TRANSLATE - Unarchive"
 				}
 			}
 		}
@@ -895,9 +900,17 @@
 			"keep": "Mantieni questa <br>misura",
 			"remove": "Cancella questa <br>misura"
 		},
-		"remove_pia": {
-			"content": "<span class='strong'>Attenzione,</span><br>È sicuro di voler<br>cancellare questa PIA?",
+    "remove_pia": {
+			"content": "TO TRANSLATE - <span class='strong'>Warning,</span><br>Are you sure you want to<br>remove permanently this PIA?",
 			"remove": "Cancella questa PIA"
+    },
+    "archive_pia": {
+			"content": "TO TRANSLATE - <span class='strong'>Warning,</span><br>Are you sure you want to<br>archive this PIA ?",
+			"archive": "TO TRANSLATE - Archive PIA"
+    },
+    "unarchive_pia": {
+			"content": "TO TRANSLATE - <span class='strong'>Warning,</span><br>Are you sure you want to<br>unarchive this PIA ?",
+			"unarchive": "TO TRANSLATE - Unarchive PIA"
 		},
 		"remove_question": {
 			"content": "TO BE TRANSLATED - Souhaitez-vous supprimer la question ?",

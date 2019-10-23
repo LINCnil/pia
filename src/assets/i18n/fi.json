@@ -85,7 +85,8 @@
 	},
 	"header": {
     "exit_full_screen_mode": "TO TRANSLATE - Press F11 to exit full screen mode.",
-		"homepage_link": "Ohjauspaneeli",
+    "homepage_link": "Ohjauspaneeli",
+    "archives": "TO TRANSLATE - PIA archives",
 		"knowledge_base_link": "Tietopankki",
 		"languages": {
 			"cnil_translations": "CNIL:n tarjoamat käännökset",
@@ -183,7 +184,9 @@
 					"export": "Vie",
 					"more_options": "Lisää valintoja",
 					"pia": "Näytä<br>Tietosuojaa koskeva vaikutustenarviointi",
-					"remove": "Poista"
+					"remove": "TO TRANSLATE - Permanently delete",
+          "archive": "TO TRANSLATE - Archive",
+          "unarchive": "TO TRANSLATE - Unarchive"
 				}
 			},
 			"new_pia": "Uusi vaikutustenarviointi",
@@ -252,7 +255,9 @@
 					"edit": "Muokkaa",
 					"export": "Vie",
 					"pia": "Näytä vaikutustenarviointi",
-					"remove": "Poista"
+					"remove": "TO TRANSLATE - Permanently delete",
+          "archive": "TO TRANSLATE - Archive",
+          "unarchive": "TO TRANSLATE - Unarchive"
 				}
 			}
 		}
@@ -895,9 +900,17 @@
 			"keep": "Säilytä tämä <br>toimenpide",
 			"remove": "Poista tämä <br>toimenpide"
 		},
-		"remove_pia": {
-			"content": "<span class='strong'>Varoitus,</span><br>Haluatko varmasti<br>poistaa tämän tietosuojaa koskevan vaikutustenarvioinnin?",
+    "remove_pia": {
+			"content": "TO TRANSLATE - <span class='strong'>Warning,</span><br>Are you sure you want to<br>remove permanently this PIA?",
 			"remove": "Poista tämä tietosuojaa koskeva vaikutustenarviointi"
+    },
+    "archive_pia": {
+			"content": "TO TRANSLATE - <span class='strong'>Warning,</span><br>Are you sure you want to<br>archive this PIA ?",
+			"archive": "TO TRANSLATE - Archive PIA"
+    },
+    "unarchive_pia": {
+			"content": "TO TRANSLATE - <span class='strong'>Warning,</span><br>Are you sure you want to<br>unarchive this PIA ?",
+			"unarchive": "TO TRANSLATE - Unarchive PIA"
 		},
 		"remove_question": {
 			"content": "TO BE TRANSLATED - Souhaitez-vous supprimer la question ?",

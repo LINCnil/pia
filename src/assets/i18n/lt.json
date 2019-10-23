@@ -85,7 +85,8 @@
 	},
 	"header": {
     "exit_full_screen_mode": "TO TRANSLATE - Press F11 to exit full screen mode.",
-		"homepage_link": "Apžvalga",
+    "homepage_link": "Apžvalga",
+    "archives": "TO TRANSLATE - PIA archives",
 		"knowledge_base_link": "Pagalba",
 		"languages": {
 			"cnil_translations": "CNIL vertimas",
@@ -183,7 +184,9 @@
 					"export": "Eksportas",
 					"more_options": "Daugiau funkcijų",
 					"pia": "Atidaryti<br>PDAV",
-					"remove": "Ištrinti"
+					"remove": "TO TRANSLATE - Permanently delete",
+          "archive": "TO TRANSLATE - Archive",
+          "unarchive": "TO TRANSLATE - Unarchive"
 				}
 			},
 			"new_pia": "Naujas PDAV",
@@ -252,7 +255,9 @@
 					"edit": "Redaguoti",
 					"export": "Eksportuoti",
 					"pia": "Atidaryti PDAV",
-					"remove": "Ištrinti"
+					"remove": "TO TRANSLATE - Permanently delete",
+          "archive": "TO TRANSLATE - Archive",
+          "unarchive": "TO TRANSLATE - Unarchive"
 				}
 			}
 		}
@@ -895,9 +900,17 @@
 			"keep": "Palikti <br>šią priemonę",
 			"remove": "Ištrinti <br>šią priemonę"
 		},
-		"remove_pia": {
-			"content": "<span class='strong'>Įspėjimas,</span><br>Ar tikrai norite<br>ištrinti šį PDAV?",
+    "remove_pia": {
+			"content": "TO TRANSLATE - <span class='strong'>Warning,</span><br>Are you sure you want to<br>remove permanently this PIA?",
 			"remove": "Ištrinti šį PDAV"
+    },
+    "archive_pia": {
+			"content": "TO TRANSLATE - <span class='strong'>Warning,</span><br>Are you sure you want to<br>archive this PIA ?",
+			"archive": "TO TRANSLATE - Archive PIA"
+    },
+    "unarchive_pia": {
+			"content": "TO TRANSLATE - <span class='strong'>Warning,</span><br>Are you sure you want to<br>unarchive this PIA ?",
+			"unarchive": "TO TRANSLATE - Unarchive PIA"
 		},
 		"remove_question": {
 			"content": "Ar tikrai norite ištrinti klausimą?",
