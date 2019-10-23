@@ -85,7 +85,8 @@
 	},
 	"header": {
     "exit_full_screen_mode": "Press F11 to exit full screen mode.",
-		"homepage_link": "Dashboard",
+    "homepage_link": "Dashboard",
+    "archives": "PIA archives",
 		"knowledge_base_link": "Knowledge base",
 		"languages": {
 			"cnil_translations": "CNIL provided translations",
@@ -183,7 +184,9 @@
 					"export": "Export",
 					"more_options": "More options",
 					"pia": "Display<br>PIA",
-					"remove": "Delete"
+					"remove": "Permanently delete",
+          "archive": "Archive",
+          "unarchive": "Unarchive"
 				}
 			},
 			"new_pia": "New PIA",
@@ -252,7 +255,9 @@
 					"edit": "Edit",
 					"export": "Export",
 					"pia": "Display PIA",
-					"remove": "Delete"
+					"remove": "Permanently delete",
+          "archive": "Archive",
+          "unarchive": "Unarchive"
 				}
 			}
 		}
@@ -896,8 +901,16 @@
 			"remove": "Remove this <br>measure"
 		},
 		"remove_pia": {
-			"content": "<span class='strong'>Warning,</span><br>Are you sure you want to<br>remove this PIA?",
+			"content": "<span class='strong'>Warning,</span><br>Are you sure you want to<br>remove permanently this PIA?",
 			"remove": "Remove this PIA"
+    },
+    "archive_pia": {
+			"content": "<span class='strong'>Warning,</span><br>Are you sure you want to<br>archive this PIA ?",
+			"archive": "Archive PIA"
+    },
+    "unarchive_pia": {
+			"content": "<span class='strong'>Warning,</span><br>Are you sure you want to<br>unarchive this PIA ?",
+			"unarchive": "Unarchive PIA"
 		},
 		"remove_question": {
 			"content": "Are you sure you want to delete the question?",

@@ -85,7 +85,8 @@
 	},
 	"header": {
     "exit_full_screen_mode": "TO TRANSLATE - Press F11 to exit full screen mode.",
-		"homepage_link": "Kontrolna ploča",
+    "homepage_link": "Kontrolna ploča",
+    "archives": "TO TRANSLATE - PIA archives",
 		"knowledge_base_link": "Baza znanja",
 		"languages": {
 			"cnil_translations": "Prijevodi od strane CNIL-a",
@@ -183,7 +184,9 @@
 					"export": "Izvezi",
 					"more_options": "Više opcija",
 					"pia": "Prikaži<br>PUP",
-					"remove": "Izbriši"
+					"remove": "TO TRANSLATE - Permanently delete",
+          "archive": "TO TRANSLATE - Archive",
+          "unarchive": "TO TRANSLATE - Unarchive"
 				}
 			},
 			"new_pia": "Novi PUP",
@@ -252,7 +255,9 @@
 					"edit": "Uredi",
 					"export": "Izvezi",
 					"pia": "Prikaži PUP",
-					"remove": "Izbriši"
+					"remove": "TO TRANSLATE - Permanently delete",
+          "archive": "TO TRANSLATE - Archive",
+          "unarchive": "TO TRANSLATE - Unarchive"
 				}
 			}
 		}
@@ -895,9 +900,17 @@
 			"keep": "Zadrži ovu <br>mjeru",
 			"remove": "Ukloni ovu <br>mjeru"
 		},
-		"remove_pia": {
-			"content": "<span class='strong'>Upozorenje, </span><br> Jeste li sigurni da želite ukloniti ovaj PUP?",
+    "remove_pia": {
+			"content": "TO TRANSLATE - <span class='strong'>Warning,</span><br>Are you sure you want to<br>remove permanently this PIA?",
 			"remove": "Ukloni ovaj PUP"
+    },
+    "archive_pia": {
+			"content": "TO TRANSLATE - <span class='strong'>Warning,</span><br>Are you sure you want to<br>archive this PIA ?",
+			"archive": "TO TRANSLATE - Archive PIA"
+    },
+    "unarchive_pia": {
+			"content": "TO TRANSLATE - <span class='strong'>Warning,</span><br>Are you sure you want to<br>unarchive this PIA ?",
+			"unarchive": "TO TRANSLATE - Unarchive PIA"
 		},
 		"remove_question": {
 			"content": "Jeste li sigurni da želite obrisati pitanje?",

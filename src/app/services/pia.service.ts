@@ -19,7 +19,8 @@ export class PiaService {
   answer: Answer = new Answer();
   data: { sections: any };
 
-  constructor(private _router: Router, private route: ActivatedRoute,
+  constructor(private _router: Router,
+              private route: ActivatedRoute,
               public _appDataService: AppDataService,
               private _modalsService: ModalsService) {
     this.data = this._appDataService.dataNav;
@@ -203,26 +204,26 @@ export class PiaService {
   }
 
   /**
-   * Allows an user to remove a PIA.
+   * Allows an user to archive a PIA.
    */
   archivePia() {
+    const piaID = parseInt(localStorage.getItem('pia-to-archive-id'), 10);
 
-    /* TODO */
+    // Update the PIA in DB.
+    const pia = new Pia();
+    pia.get(piaID).then(() => {
+      pia.is_archive = 1;
+      pia.update();
+    });
 
-    /* const piaID = parseInt(localStorage.getItem('pia-id'), 10); */
-
-    // Removes from DB.
-    /* const pia = new Pia();
-    pia.delete(piaID); */
-
-    // Deletes the PIA from the view.
-    /* if (localStorage.getItem('homepageDisplayMode') && localStorage.getItem('homepageDisplayMode') === 'list') {
+    // Removes the PIA from the view.
+    if (localStorage.getItem('homepageDisplayMode') && localStorage.getItem('homepageDisplayMode') === 'list') {
       document.querySelector('.app-list-item[data-id="' + piaID + '"]').remove();
     } else {
       document.querySelector('.pia-cardsBlock.pia[data-id="' + piaID + '"]').remove();
-    } */
+    }
 
-    /* localStorage.removeItem('pia-id'); */
+    localStorage.removeItem('pia-to-archive-id');
 
     this._modalsService.closeModal();
   }

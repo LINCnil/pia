@@ -93,7 +93,7 @@ export class CardItemComponent implements OnInit {
   }
 
   /**
-   * Focuses pia name field.
+   * Focuse PIA name field.
    */
   piaNameFocusIn() {
     this.piaForm.controls['name'].enable();
@@ -101,7 +101,7 @@ export class CardItemComponent implements OnInit {
   }
 
   /**
-   * Disables pia name field and saves data.
+   * Disabls PIA name field and saves data.
    */
   piaNameFocusOut() {
     let userText = this.piaForm.controls['name'].value;
@@ -118,14 +118,14 @@ export class CardItemComponent implements OnInit {
   }
 
   /**
-   * Focuses pia author name field.
+   * Focuse PIA author name field.
    */
   piaAuthorNameFocusIn() {
     this.piaAuthorName.nativeElement.focus();
   }
 
   /**
-   * Disables pia author name field and saves data.
+   * Disable PIA author name field and saves data.
    */
   piaAuthorNameFocusOut() {
     let userText = this.piaForm.controls['author_name'].value;
@@ -142,14 +142,14 @@ export class CardItemComponent implements OnInit {
   }
 
   /**
-   * Focuses pia evaluator name field.
+   * Focus PIA evaluator name field.
    */
   piaEvaluatorNameFocusIn() {
     this.piaEvaluatorName.nativeElement.focus();
   }
 
   /**
-   * Disables pia evaluator name field and saves data.
+   * Disable PIA evaluator name field and saves data.
    */
   piaEvaluatorNameFocusOut() {
     let userText = this.piaForm.controls['evaluator_name'].value;
@@ -166,14 +166,14 @@ export class CardItemComponent implements OnInit {
   }
 
   /**
-   * Focuses pia validator name field.
+   * Focus PIA validator name field.
    */
   piaValidatorNameFocusIn() {
     this.piaValidatorName.nativeElement.focus();
   }
 
   /**
-   * Disables pia validator name field and saves data.
+   * Disable PIA validator name field and saves data.
    */
   piaValidatorNameFocusOut() {
     let userText = this.piaForm.value.validator_name;
@@ -190,15 +190,11 @@ export class CardItemComponent implements OnInit {
   }
 
   /**
-   * Archives a PIA with a given id.
+   * Archive a PIA with a given id.
    * @param {string} id - The PIA id.
    */
   archivePia(id: string) {
-
-    /* TODO */
-
-    /* localStorage.setItem('pia-id', id); */
-
+    localStorage.setItem('pia-to-archive-id', id);
     this._modalsService.openModal('modal-archive-pia');
   }
 

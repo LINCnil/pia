@@ -85,7 +85,8 @@
 	},
 	"header": {
     "exit_full_screen_mode": "TO TRANSLATE - Press F11 to exit full screen mode.",
-		"homepage_link": "Vezérlőpult",
+    "homepage_link": "Vezérlőpult",
+    "archives": "TO TRANSLATE - PIA archives",
 		"knowledge_base_link": "Tudásbázis",
 		"languages": {
 			"cnil_translations": "A CNIL által biztosított fordítások",
@@ -183,7 +184,9 @@
 					"export": "Exportálás",
 					"more_options": "További lehetőségek",
 					"pia": "DPIA megmutatása",
-					"remove": "Törlés"
+					"remove": "TO TRANSLATE - Permanently delete",
+          "archive": "TO TRANSLATE - Archive",
+          "unarchive": "TO TRANSLATE - Unarchive"
 				}
 			},
 			"new_pia": "Új DPIA",
@@ -252,7 +255,9 @@
 					"edit": "Szerkesztés",
 					"export": "Exportálás",
 					"pia": "DPIA megmutatása",
-					"remove": "Törlés"
+					"remove": "TO TRANSLATE - Permanently delete",
+          "archive": "TO TRANSLATE - Archive",
+          "unarchive": "TO TRANSLATE - Unarchive"
 				}
 			}
 		}
@@ -895,9 +900,17 @@
 			"keep": "Intézkedés megtartása",
 			"remove": "Az intézkedés eltávolítása"
 		},
-		"remove_pia": {
-			"content": "<span class='strong'>Figyelmeztetés:</span><br>Biztosan el akarja távolítani ezt a DPIA-t?",
+    "remove_pia": {
+			"content": "TO TRANSLATE - <span class='strong'>Warning,</span><br>Are you sure you want to<br>remove permanently this PIA?",
 			"remove": "A DPIA eltávolítása"
+    },
+    "archive_pia": {
+			"content": "TO TRANSLATE - <span class='strong'>Warning,</span><br>Are you sure you want to<br>archive this PIA ?",
+			"archive": "TO TRANSLATE - Archive PIA"
+    },
+    "unarchive_pia": {
+			"content": "TO TRANSLATE - <span class='strong'>Warning,</span><br>Are you sure you want to<br>unarchive this PIA ?",
+			"unarchive": "TO TRANSLATE - Unarchive PIA"
 		},
 		"remove_question": {
 			"content": "TO BE TRANSLATED - Souhaitez-vous supprimer la question ?",

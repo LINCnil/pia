@@ -85,7 +85,8 @@
 	},
 	"header": {
 		"exit_full_screen_mode": "Drücken Sie F11, um den Vollbildmodus zu verlassen.",
-		"homepage_link": "Übersicht",
+    "homepage_link": "Übersicht",
+    "archives": "TO TRANSLATE - PIA archives",
 		"knowledge_base_link": "Wissensbasis",
 		"languages": {
 			"cnil_translations": "Von der CNIL bereitgestellte Übersetzungen",
@@ -183,7 +184,9 @@
 					"export": "Exportieren",
 					"more_options": "Weitere Optionen",
 					"pia": "DSFA<br>anzeigen",
-					"remove": "Löschen"
+					"remove": "TO TRANSLATE - Permanently delete",
+          "archive": "TO TRANSLATE - Archive",
+          "unarchive": "TO TRANSLATE - Unarchive"
 				}
 			},
 			"new_pia": "Neue DSFA",
@@ -252,7 +255,9 @@
 					"edit": "Bearbeiten",
 					"export": "Exportieren",
 					"pia": "DSFA anzeigen",
-					"remove": "Löschen"
+					"remove": "TO TRANSLATE - Permanently delete",
+          "archive": "TO TRANSLATE - Archive",
+          "unarchive": "TO TRANSLATE - Unarchive"
 				}
 			}
 		}
@@ -895,9 +900,17 @@
 			"keep": "Behalten Sie<br>diese Maßnahme",
 			"remove": "Entfernen Sie<br>diese Maßnahme"
 		},
-		"remove_pia": {
-			"content": "<span class = 'strong'> Warnung, </span><br>Möchten Sie diese DSFA wirklich entfernen?",
+    "remove_pia": {
+			"content": "TO TRANSLATE - <span class='strong'>Warning,</span><br>Are you sure you want to<br>remove permanently this PIA?",
 			"remove": "Diese DSFA entfernen"
+    },
+    "archive_pia": {
+			"content": "TO TRANSLATE - <span class='strong'>Warning,</span><br>Are you sure you want to<br>archive this PIA ?",
+			"archive": "TO TRANSLATE - Archive PIA"
+    },
+    "unarchive_pia": {
+			"content": "TO TRANSLATE - <span class='strong'>Warning,</span><br>Are you sure you want to<br>unarchive this PIA ?",
+			"unarchive": "TO TRANSLATE - Unarchive PIA"
 		},
 		"remove_question": {
 			"content": "Möchten Sie die Frage löschen?",

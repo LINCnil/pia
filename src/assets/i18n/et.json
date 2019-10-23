@@ -85,7 +85,8 @@
 	},
 	"header": {
     "exit_full_screen_mode": "TO TRANSLATE - Press F11 to exit full screen mode.",
-		"homepage_link": "Töölaud",
+    "homepage_link": "Töölaud",
+    "archives": "TO TRANSLATE - PIA archives",
 		"knowledge_base_link": "Teadmiste pagas",
 		"languages": {
 			"cnil_translations": "CNIL’i  esitatud tõlge",
@@ -183,7 +184,9 @@
 					"export": "Ekspordi",
 					"more_options": "Rohkem valikuid",
 					"pia": "Näita<br>mõjuhinnagut",
-					"remove": "Kustuta"
+					"remove": "TO TRANSLATE - Permanently delete",
+          "archive": "TO TRANSLATE - Archive",
+          "unarchive": "TO TRANSLATE - Unarchive"
 				}
 			},
 			"new_pia": "Uus mõjuhinnag",
@@ -252,7 +255,9 @@
 					"edit": "Toimeta",
 					"export": "Ekspordi",
 					"pia": "Näita mõjuhinnagut",
-					"remove": "Kustuta"
+					"remove": "TO TRANSLATE - Permanently delete",
+          "archive": "TO TRANSLATE - Archive",
+          "unarchive": "TO TRANSLATE - Unarchive"
 				}
 			}
 		}
@@ -895,9 +900,17 @@
 			"keep": "Hoia alles <br>see meede",
 			"remove": "Eemalda <br>see meede"
 		},
-		"remove_pia": {
-			"content": "<span class='strong'>Hoiatus,</span><br>Kas oled kindel, et sa tahad seda <br>mõjuhinnangut eemaldada?",
+    "remove_pia": {
+			"content": "TO TRANSLATE - <span class='strong'>Warning,</span><br>Are you sure you want to<br>remove permanently this PIA?",
 			"remove": "Eemalda see mõjuhinnang"
+    },
+    "archive_pia": {
+			"content": "TO TRANSLATE - <span class='strong'>Warning,</span><br>Are you sure you want to<br>archive this PIA ?",
+			"archive": "TO TRANSLATE - Archive PIA"
+    },
+    "unarchive_pia": {
+			"content": "TO TRANSLATE - <span class='strong'>Warning,</span><br>Are you sure you want to<br>unarchive this PIA ?",
+			"unarchive": "TO TRANSLATE - Unarchive PIA"
 		},
 		"remove_question": {
 			"content": "Kas soovite küsimuse kustutada?",

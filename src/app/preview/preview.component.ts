@@ -35,6 +35,7 @@ export class PreviewComponent implements OnInit {
   dataNav: any;
   pia: any;
   allData: object;
+  fromArchives = false;
 
   constructor(public _actionPlanService: ActionPlanService,
     private el: ElementRef,
@@ -56,6 +57,10 @@ export class PreviewComponent implements OnInit {
       });
       this._attachmentsService.pia = this.pia;
       this._attachmentsService.listAttachments();
+
+      if (this.pia.is_archive === 1) {
+        this.fromArchives = true;
+      }
     });
     if (this._piaService.pia.structure_data) {
       this._appDataService.dataNav = this._piaService.pia.structure_data;

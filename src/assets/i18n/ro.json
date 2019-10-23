@@ -85,7 +85,8 @@
 	},
 	"header": {
     "exit_full_screen_mode": "TO TRANSLATE - Press F11 to exit full screen mode.",
-		"homepage_link": "Panou de comandă",
+    "homepage_link": "Panou de comandă",
+    "archives": "TO TRANSLATE - PIA archives",
 		"knowledge_base_link": "Baza de cunoaștere",
 		"languages": {
 			"cnil_translations": "Traduceri oferite de către CNIL",
@@ -183,7 +184,9 @@
 					"export": "Export fișier",
 					"more_options": "Mai multe opțiuni",
 					"pia": "Afișare<br>PIA",
-					"remove": "Ștergere"
+					"remove": "TO TRANSLATE - Permanently delete",
+          "archive": "TO TRANSLATE - Archive",
+          "unarchive": "TO TRANSLATE - Unarchive"
 				}
 			},
 			"new_pia": "Creare PIA",
@@ -252,7 +255,9 @@
 					"edit": "Editare",
 					"export": "Export fișier",
 					"pia": "Afișare PIA",
-					"remove": "Ștergere"
+					"remove": "TO TRANSLATE - Permanently delete",
+          "archive": "TO TRANSLATE - Archive",
+          "unarchive": "TO TRANSLATE - Unarchive"
 				}
 			}
 		}
@@ -895,9 +900,17 @@
 			"keep": "Păstrează această <br>măsură",
 			"remove": "Elimină această <br>măsură"
 		},
-		"remove_pia": {
-			"content": "<span class='strong'>Atenție,</span><br>Sunteți sigur că vreți să<br>eliminați această PIA?",
+    "remove_pia": {
+			"content": "TO TRANSLATE - <span class='strong'>Warning,</span><br>Are you sure you want to<br>remove permanently this PIA?",
 			"remove": "Eliminați PIA"
+    },
+    "archive_pia": {
+			"content": "TO TRANSLATE - <span class='strong'>Warning,</span><br>Are you sure you want to<br>archive this PIA ?",
+			"archive": "TO TRANSLATE - Archive PIA"
+    },
+    "unarchive_pia": {
+			"content": "TO TRANSLATE - <span class='strong'>Warning,</span><br>Are you sure you want to<br>unarchive this PIA ?",
+			"unarchive": "TO TRANSLATE - Unarchive PIA"
 		},
 		"remove_question": {
 			"content": "TO BE TRANSLATED - Souhaitez-vous supprimer la question ?",

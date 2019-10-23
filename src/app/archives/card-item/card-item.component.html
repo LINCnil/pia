@@ -63,15 +63,11 @@
             <progress max="100" value="{{ archivedPia.progress }}"></progress>
           </div>
         </div>
-        <!-- <div class="pia-cardsBlock-item-btn">
-          <div *ngIf="pia.status === 0" class="pia-cardsBlock-item-btn-dual">
-            <a routerLink="/entry/{{pia.id}}/section/1/item/1" title="{{ 'homepage.cards.item.edit_pia' | translate }}" class="btn btn-green">{{ 'homepage.cards.item.edit_pia' | translate }}</a>
-            <a routerLink="/preview/{{pia.id}}" title="{{ 'homepage.cards.item.consult_pia' | translate }}" class="btn btn-green">{{ 'homepage.cards.item.consult_pia' | translate }}</a>
+        <div class="pia-cardsBlock-item-btn">
+          <div class="pia-cardsBlock-item-btn-single">
+            <a routerLink="/preview/{{archivedPia.id}}" title="{{ 'homepage.cards.item.consult_pia' | translate }}" class="btn btn-green">{{ 'homepage.cards.item.consult_pia' | translate }}</a>
           </div>
-          <div *ngIf="pia.status > 0" class="pia-cardsBlock-item-btn-single">
-            <a routerLink="/preview/{{pia.id}}" title="{{ 'homepage.cards.item.consult_pia' | translate }}" class="btn btn-green">{{ 'homepage.cards.item.consult_pia' | translate }}</a>
-          </div>
-        </div> -->
+        </div>
       </form>
 
   </div>

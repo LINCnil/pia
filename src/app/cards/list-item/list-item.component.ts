@@ -75,7 +75,7 @@ export class ListItemComponent implements OnInit {
   }
 
   /**
-   * Focuses out field and update PIA.
+   * Focus out field and update PIA.
    * @param {string} attribute - Attribute of the PIA.
    * @param {*} event - Any Event.
    */
@@ -86,15 +86,11 @@ export class ListItemComponent implements OnInit {
   }
 
   /**
-   * Opens the modal to confirm deletion of a PIA
-   * @param {string} id - The PIA id.
+   * Archive a PIA with a given id
+   * @param {string} id - The PIA id
    */
   archivePia(id: string) {
-
-    /* TODO */
-
-    /* localStorage.setItem('pia-id', id); */
-
+    localStorage.setItem('pia-to-archive-id', id);
     this._modalsService.openModal('modal-archive-pia');
   }
 }

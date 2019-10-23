@@ -85,7 +85,8 @@
 	},
 	"header": {
     "exit_full_screen_mode": "Druk F11 om het volledige scherm te sluiten.",
-		"homepage_link": "Dashboard",
+    "homepage_link": "Dashboard",
+    "archives": "TO TRANSLATE - PIA archives",
 		"knowledge_base_link": "Kennisbank",
 		"languages": {
 			"cnil_translations": "Vertalingen door de CNIL",
@@ -183,7 +184,9 @@
 					"export": "Exporteren",
 					"more_options": "Meer opties",
 					"pia": "PIA<br>tonen",
-					"remove": "Verwijderen"
+					"remove": "TO TRANSLATE - Permanently delete",
+          "archive": "TO TRANSLATE - Archive",
+          "unarchive": "TO TRANSLATE - Unarchive"
 				}
 			},
 			"new_pia": "Nieuwe PIA",
@@ -252,7 +255,9 @@
 					"edit": "Aanpassen",
 					"export": "Exporteren",
 					"pia": "PIA tonen",
-					"remove": "Verwijderen"
+					"remove": "TO TRANSLATE - Permanently delete",
+          "archive": "TO TRANSLATE - Archive",
+          "unarchive": "TO TRANSLATE - Unarchive"
 				}
 			}
 		}
@@ -895,9 +900,17 @@
 			"keep": "Bewaar deze <br> maatregel",
 			"remove": "Verwijder deze maatregel"
 		},
-		"remove_pia": {
-			"content": "<span class='strong'>Opgelet! </span> <br> Weet u zeker dat u deze PIA wilt verwijderen?",
-			"remove": "Remove this PIA"
+    "remove_pia": {
+			"content": "<span class='strong'>Opgelet,</span><br>Weet u zeker dat u deze PIA wilt verwijderen?",
+			"remove": "TO TRANSLATE - Remove this PIA"
+    },
+    "archive_pia": {
+			"content": "TO TRANSLATE - <span class='strong'>Warning,</span><br>Are you sure you want to<br>archive this PIA ?",
+			"archive": "TO TRANSLATE - Archive PIA"
+    },
+    "unarchive_pia": {
+			"content": "TO TRANSLATE - <span class='strong'>Warning,</span><br>Are you sure you want to<br>unarchive this PIA ?",
+			"unarchive": "TO TRANSLATE - Unarchive PIA"
 		},
 		"remove_question": {
 			"content": "Wilt u de vraag verwijderen?",

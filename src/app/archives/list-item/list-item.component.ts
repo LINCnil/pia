@@ -30,21 +30,20 @@ export class ListItemComponent implements OnInit {
   }
 
   /**
-   * Unarchives an archived PIA with a given id.
+   * Unarchive an archived PIA with a given id.
    * @param {string} id - The archived PIA id.
    */
   unarchive(id: string) {
-    /* TODO */
-    localStorage.setItem('unarchive-id', id);
+    localStorage.setItem('pia-to-unarchive-id', id);
     this._modalsService.openModal('modal-unarchive-pia');
   }
 
   /**
-   * Opens the modal to confirm deletion of an archived PIA
+   * Open the modal to confirm deletion of an archived PIA
    * @param {string} id - The archived PIA id.
    */
   remove(id: string) {
-    localStorage.setItem('archive-id', id);
+    localStorage.setItem('pia-to-remove-id', id);
     this._modalsService.openModal('modal-remove-archived-pia');
   }
 
