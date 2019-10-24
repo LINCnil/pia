@@ -205,14 +205,16 @@
 			"placeholder_start": "Όλα τα πεδία πρέπει να συμπληρωθούν",
 			"placeholder_structure": "Προεπιλεγμένο υπόδειγμα",
 			"placeholder_structure_name": "Τίτλος υποδείγματος",
-			"placeholder_validation": "Όνομα, επίθετο",
+      "placeholder_validation": "Όνομα, επίθετο",
+      "placeholder_category": "TO TRANSLATE - Category",
 			"sector_name": "Σχετικός τομέας",
 			"start": "Έναρξη",
 			"status": "Κατάσταση",
 			"structure": "Υπόδειγμα",
 			"structure_name": "Όνομα υποδείγματος",
 			"title_close_creation": "Κλείσιμο",
-			"validation": "Επικύρωση"
+      "validation": "Επικύρωση",
+      "category": "TO TRANSLATE - Category"
 		},
 		"filters": {
 			"assessor": "Αξιολογητής",
@@ -233,14 +235,16 @@
 			"sort": "Ταξινόμηση",
 			"sort_by": "κατά",
 			"status": "Κατάσταση",
-			"validator": "Επικυρών"
+      "validator": "Επικυρών",
+      "category": "TO TRANSLATE - Category"
 		},
 		"lists": {
 			"column_actions": "Ενέργειες",
 			"column_author": "Σύνταξη",
 			"column_creation": "Δημιουργία",
 			"column_evaluation": "Αξιολόγηση",
-			"column_pia": "ΕΑ",
+      "column_pia": "ΕΑ",
+      "column_category": "TO TRANSLATE - Category",
 			"column_progression": "Πρόοδος",
 			"column_sector_name": "Σχετικός τομέας",
 			"column_status": "Κατάσταση",

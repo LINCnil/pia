@@ -38,10 +38,13 @@ export class FilterForUser implements PipeTransform {
   }
   matchValue(data, value) {
     return Object.keys(data).map((key) => {
-      if (key === "created_at") {
+      const allowedFields = ['name', 'category', 'author_name', 'evaluator_name', 'validator_name', 'structure_name', 'structure_sector_name', 'sector_name']
+      if (allowedFields.includes(key)) {
+        value = value.replace(/[{()}]/g, '');
+        return new RegExp(value, 'gi').test(data[key]);
+      } else {
         return false;
       }
-      return new RegExp(value, 'gi').test(data[key]);
     }).some(result => result);
   }
 }

@@ -205,14 +205,16 @@
 			"placeholder_start": "All fields must be filled",
 			"placeholder_structure": "Default template",
 			"placeholder_structure_name": "Template's title",
-			"placeholder_validation": "Firstname, lastname",
+      "placeholder_validation": "Firstname, lastname",
+      "placeholder_category": "Category",
 			"sector_name": "Sector",
 			"start": "Start",
 			"status": "Status",
 			"structure": "Template",
 			"structure_name": "Template",
 			"title_close_creation": "Close",
-			"validation": "Validation"
+      "validation": "Validation",
+      "category": "Category"
 		},
 		"filters": {
 			"assessor": "Reviewer",
@@ -233,14 +235,16 @@
 			"sort": "Sort",
 			"sort_by": "by",
 			"status": "Status",
-			"validator": "Validator"
+      "validator": "Validator",
+      "category": "Category"
 		},
 		"lists": {
 			"column_actions": "Actions",
 			"column_author": "Editing",
 			"column_creation": "Created",
 			"column_evaluation": "Review",
-			"column_pia": "PIA",
+      "column_pia": "PIA",
+      "column_category": "Category",
 			"column_progression": "Progress",
 			"column_sector_name": "Associated sector",
 			"column_status": "Status",

@@ -205,14 +205,16 @@
 			"placeholder_start": "Minden mezőt ki kell tölteni",
 			"placeholder_structure": "TO BE TRANSLATED - Modèle par défaut",
 			"placeholder_structure_name": "TO BE TRANSLATED - Intitulé du modèle",
-			"placeholder_validation": "Vezetéknév, utónév",
+      "placeholder_validation": "Vezetéknév, utónév",
+      "placeholder_category": "TO TRANSLATE - Category",
 			"sector_name": "TO BE TRANSLATED - Secteur associé",
 			"start": "Start",
 			"status": "Állapot",
 			"structure": "TO BE TRANSLATED - Modèle",
 			"structure_name": "TO BE TRANSLATED - Nom du modèle",
 			"title_close_creation": "Bezárás",
-			"validation": "Jóváhagyás"
+      "validation": "Jóváhagyás",
+      "category": "TO TRANSLATE - Category"
 		},
 		"filters": {
 			"assessor": "Véleményező",
@@ -233,14 +235,16 @@
 			"sort": "Válogatás",
 			"sort_by": "Válogatás valami szerint",
 			"status": "Státusz",
-			"validator": "Jóváhagyó"
+      "validator": "Jóváhagyó",
+      "category": "TO TRANSLATE - Category"
 		},
 		"lists": {
 			"column_actions": "Műveletek",
 			"column_author": "Szerkesztő neve",
 			"column_creation": "Létrehozás",
 			"column_evaluation": "Véleményező neve",
-			"column_pia": "DPIA",
+      "column_pia": "DPIA",
+      "column_category": "TO TRANSLATE - Category",
 			"column_progression": "Előrehaladás",
 			"column_sector_name": "TO BE TRANSLATED - Secteur associé",
 			"column_status": "Állapot",

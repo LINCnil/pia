@@ -25,6 +25,9 @@
               <li [ngClass]="{'active': sortValue === 'name'}">
                 <a (click)="sortBy('name');">{{ 'homepage.filters.name' | translate }}</a>
               </li>
+              <li [ngClass]="{'active': sortValue === 'category'}">
+                <a (click)="sortBy('category');">{{ 'homepage.filters.category' | translate }}</a>
+              </li>
               <li [ngClass]="{'active': sortValue === 'created_at'}">
                 <a (click)="sortBy('created_at');">{{ 'homepage.filters.date' | translate }}</a>
               </li>
@@ -68,6 +71,12 @@
                 <a (click)="sortBy('name')">
                   <span>{{ 'homepage.lists.column_pia' | translate }}</span>
                   <i *ngIf="sortValue === 'name'" class="fa fa-caret-{{sortOrder}}"></i>
+                </a>
+              </th>
+              <th>
+                <a (click)="sortBy('category')">
+                  <span>{{ 'homepage.lists.column_category' | translate }}</span>
+                  <i *ngIf="sortValue === 'category'" class="fa fa-caret-{{sortOrder}}"></i>
                 </a>
               </th>
               <th>

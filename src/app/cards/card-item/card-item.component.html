@@ -35,46 +35,56 @@
 
       <form class="pia-cardsBlock-item-form"
             [formGroup]="piaForm">
-          <input type="hidden" formControlName="id">
-          <div (click)="piaNameFocusIn()" style="margin-top:20px;">
-              <label for="pia-edit-name">{{ 'homepage.cards.pia_name' | translate }}</label>
-              <input type="text"
-                     #piaName
-                     formControlName="name"
-                     required
-                     placeholder="{{ 'homepage.cards.placeholder_pia_name' | translate }}"
-                     id="pia-edit-name"
-                     (focusout)="piaNameFocusOut()">
-          </div>
-          <div (click)="piaAuthorNameFocusIn()">
-              <label for="pia-edit-author-name">{{ 'homepage.cards.author' | translate }}</label>
-              <input type="text"
-                     #piaAuthorName
-                     formControlName="author_name"
-                     required
-                     placeholder="{{ 'homepage.cards.placeholder_author' | translate }}"
-                     id="pia-edit-author-name"
-                     (focusout)="piaAuthorNameFocusOut()">
-          </div>
-          <div (click)="piaEvaluatorNameFocusIn()">
-              <label for="pia-edit-evaluator-name">{{ 'homepage.cards.evaluation' | translate }}</label>
-              <input type="text"
-                     #piaEvaluatorName
-                     formControlName="evaluator_name"
-                     required
-                     placeholder="{{ 'homepage.cards.placeholder_evaluation' | translate }}"
-                     id="pia-edit-evaluator-name"
-                     (focusout)="piaEvaluatorNameFocusOut()">
-          </div>
-          <div (click)="piaValidatorNameFocusIn()">
-              <label for="pia-edit-validator-name">{{ 'homepage.cards.validation' | translate }}</label>
-              <input type="text"
-                     #piaValidatorName
-                     formControlName="validator_name"
-                     required
-                     placeholder="{{ 'homepage.cards.placeholder_validation' | translate }}"
-                     id="pia-edit-validator-name"
-                     (focusout)="piaValidatorNameFocusOut()">
+        <input type="hidden" formControlName="id">
+        <div (click)="piaNameFocusIn()" style="margin-top:20px;">
+            <label for="pia-edit-name">{{ 'homepage.cards.pia_name' | translate }}</label>
+            <input type="text"
+                    #piaName
+                    formControlName="name"
+                    required
+                    placeholder="{{ 'homepage.cards.placeholder_pia_name' | translate }}"
+                    id="pia-edit-name"
+                    (focusout)="piaNameFocusOut()">
+        </div>
+        <div (click)="piaAuthorNameFocusIn()">
+            <label for="pia-edit-author-name">{{ 'homepage.cards.author' | translate }}</label>
+            <input type="text"
+                    #piaAuthorName
+                    formControlName="author_name"
+                    required
+                    placeholder="{{ 'homepage.cards.placeholder_author' | translate }}"
+                    id="pia-edit-author-name"
+                    (focusout)="piaAuthorNameFocusOut()">
+        </div>
+        <div (click)="piaEvaluatorNameFocusIn()">
+            <label for="pia-edit-evaluator-name">{{ 'homepage.cards.evaluation' | translate }}</label>
+            <input type="text"
+                    #piaEvaluatorName
+                    formControlName="evaluator_name"
+                    required
+                    placeholder="{{ 'homepage.cards.placeholder_evaluation' | translate }}"
+                    id="pia-edit-evaluator-name"
+                    (focusout)="piaEvaluatorNameFocusOut()">
+        </div>
+        <div (click)="piaValidatorNameFocusIn()">
+            <label for="pia-edit-validator-name">{{ 'homepage.cards.validation' | translate }}</label>
+            <input type="text"
+                    #piaValidatorName
+                    formControlName="validator_name"
+                    required
+                    placeholder="{{ 'homepage.cards.placeholder_validation' | translate }}"
+                    id="pia-edit-validator-name"
+                    (focusout)="piaValidatorNameFocusOut()">
+        </div>
+        <div (click)="piaCategoryFocusIn()">
+            <label for="pia-edit-category">{{ 'homepage.cards.category' | translate }}</label>
+            <input type="text"
+                    #piaCategory
+                    formControlName="category"
+                    required
+                    placeholder="{{ 'homepage.cards.placeholder_category' | translate }}"
+                    id="pia-edit-category"
+                    (focusout)="piaCategoryFocusOut()">
         </div>
         <div class="pia-cardsBlock-item-structure" *ngIf="pia.structure_id">
           <div>{{ 'homepage.cards.structure' | translate }}</div>

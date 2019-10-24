@@ -205,14 +205,16 @@
 			"placeholder_start": "Todos los campos son obligatorios",
 			"placeholder_structure": "Plantilla por defecto",
 			"placeholder_structure_name": "Título de la plantilla",
-			"placeholder_validation": "Nombre y apellidos",
+      "placeholder_validation": "Nombre y apellidos",
+      "placeholder_category": "TO TRANSLATE - Category",
 			"sector_name": "TO BE TRANSLATED - Secteur associé",
 			"start": "Comenzar",
 			"status": "Estado",
 			"structure": "Plantilla",
 			"structure_name": "Nombre de la plantilla",
 			"title_close_creation": "Cerrar",
-			"validation": "Validado por"
+      "validation": "Validado por",
+      "category": "TO TRANSLATE - Category"
 		},
 		"filters": {
 			"assessor": "Revisado por",
@@ -233,14 +235,16 @@
 			"sort": "Ordenar",
 			"sort_by": "por",
 			"status": "Estado",
-			"validator": "Validado por"
+      "validator": "Validado por",
+      "category": "TO TRANSLATE - Category"
 		},
 		"lists": {
 			"column_actions": "Acciones",
 			"column_author": "Autor",
 			"column_creation": "Creado",
 			"column_evaluation": "Revisado por",
-			"column_pia": "PIA",
+      "column_pia": "PIA",
+      "column_category": "TO TRANSLATE - Category",
 			"column_progression": "Progreso",
 			"column_sector_name": "TO BE TRANSLATED - Secteur associé",
 			"column_status": "Estado",

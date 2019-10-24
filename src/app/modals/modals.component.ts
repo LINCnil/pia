@@ -52,6 +52,7 @@ export class ModalsComponent implements OnInit {
       author_name: new FormControl(),
       evaluator_name: new FormControl(),
       validator_name: new FormControl(),
+      category: new FormControl(),
       structure: new FormControl([])
     });
     this.structureForm = new FormGroup({

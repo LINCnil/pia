@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef, Input } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, Input, EventEmitter, Output } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import * as FileSaver from 'file-saver';
@@ -21,10 +21,12 @@ declare const require: any;
 export class CardItemComponent implements OnInit {
   @Input() pia: any;
   @Input() previousPia: any;
+  @Output() piaEvent = new EventEmitter<Pia>();
   piaForm: FormGroup;
   attachments: any;
 
   @ViewChild('piaName') private piaName: ElementRef;
+  @ViewChild('piaCategory') private piaCategory: ElementRef;
   @ViewChild('piaAuthorName') private piaAuthorName: ElementRef;
   @ViewChild('piaEvaluatorName') private piaEvaluatorName: ElementRef;
   @ViewChild('piaValidatorName') private piaValidatorName: ElementRef;
@@ -38,6 +40,7 @@ export class CardItemComponent implements OnInit {
     this.piaForm = new FormGroup({
       id: new FormControl(this.pia.id),
       name: new FormControl({ value: this.pia.name, disabled: false }),
+      category: new FormControl({ value: this.pia.category, disabled: false }),
       author_name: new FormControl({ value: this.pia.author_name, disabled: false }),
       evaluator_name: new FormControl({ value: this.pia.evaluator_name, disabled: false }),
       validator_name: new FormControl({ value: this.pia.validator_name, disabled: false })
@@ -109,11 +112,9 @@ export class CardItemComponent implements OnInit {
       userText = userText.replace(/^\s+/, '').replace(/\s+$/, '');
     }
     if (userText !== '') {
-      const pia = new Pia();
-      pia.get(this.piaForm.value.id).then(() => {
-        pia.name = this.piaForm.value.name;
-        pia.update();
-      });
+      this.pia.name = this.piaForm.value.name;
+      this.pia.update();
+      this.piaEvent.emit(this.pia);
     }
   }
 
@@ -133,11 +134,9 @@ export class CardItemComponent implements OnInit {
       userText = userText.replace(/^\s+/, '').replace(/\s+$/, '');
     }
     if (userText !== '') {
-      const pia = new Pia();
-      pia.get(this.piaForm.value.id).then(() => {
-        pia.author_name = this.piaForm.value.author_name;
-        pia.update();
-      });
+      this.pia.author_name = this.piaForm.value.author_name;
+      this.pia.update();
+      this.piaEvent.emit(this.pia);
     }
   }
 
@@ -157,11 +156,9 @@ export class CardItemComponent implements OnInit {
       userText = userText.replace(/^\s+/, '').replace(/\s+$/, '');
     }
     if (userText !== '') {
-      const pia = new Pia();
-      pia.get(this.piaForm.value.id).then(() => {
-        pia.evaluator_name = this.piaForm.value.evaluator_name;
-        pia.update();
-      });
+      this.pia.evaluator_name = this.piaForm.value.evaluator_name;
+      this.pia.update();
+      this.piaEvent.emit(this.pia);
     }
   }
 
@@ -181,11 +178,31 @@ export class CardItemComponent implements OnInit {
       userText = userText.replace(/^\s+/, '').replace(/\s+$/, '');
     }
     if (userText !== '') {
-      const pia = new Pia();
-      pia.get(this.piaForm.value.id).then(() => {
-        pia.validator_name = this.piaForm.value.validator_name;
-        pia.update();
-      });
+      this.pia.validator_name = this.piaForm.value.validator_name;
+      this.pia.update();
+      this.piaEvent.emit(this.pia);
+    }
+  }
+
+  /**
+   * Focus PIA category field.
+   */
+  piaCategoryFocusIn() {
+    this.piaCategory.nativeElement.focus();
+  }
+
+  /**
+   * Disable PIA category field and saves data.
+   */
+  piaCategoryFocusOut() {
+    let userText = this.piaForm.value.category;
+    if (userText) {
+      userText = userText.replace(/^\s+/, '').replace(/\s+$/, '');
+    }
+    if (userText !== '') {
+      this.pia.category = this.piaForm.value.category;
+      this.pia.update();
+      this.piaEvent.emit(this.pia);
     }
   }
 

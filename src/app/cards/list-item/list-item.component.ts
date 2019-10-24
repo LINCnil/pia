@@ -1,7 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, EventEmitter, Output } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import * as FileSaver from 'file-saver';
 
+import { Pia } from 'src/app/entry/pia.model';
 import { Attachment } from 'src/app/entry/attachments/attachment.model';
 
 import { ModalsService } from 'src/app/modals/modals.service';
@@ -17,6 +18,7 @@ declare const require: any;
 })
 export class ListItemComponent implements OnInit {
   @Input() pia: any;
+  @Output() piaEvent = new EventEmitter<Pia>();
   attachments: any;
 
   constructor(private router: Router,
@@ -83,6 +85,7 @@ export class ListItemComponent implements OnInit {
     const text = event.target.innerText;
     this.pia[attribute] = text;
     this.pia.update();
+    this.piaEvent.emit(this.pia);
   }
 
   /**

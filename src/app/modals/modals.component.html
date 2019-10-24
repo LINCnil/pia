@@ -335,6 +335,10 @@
         <input formControlName="validator_name" type="text" placeholder="{{ 'homepage.cards.placeholder_validation' | translate }}" id="validator_name" required>
       </div>
       <div>
+        <label for="category">{{ 'homepage.cards.category' | translate }}</label>
+        <input formControlName="category" type="text" placeholder="{{ 'homepage.cards.placeholder_category' | translate }}" id="category">
+      </div>
+      <div>
         <label for="structure">{{ 'homepage.cards.structure' | translate }}</label>
         <div class="pia-structure-wrapper">
           <select formControlName="structure" id="structure">
@@ -343,21 +347,6 @@
           </select>
         </div>
       </div>
-      <!-- <div class="pia-cardsBlock-item-date" *ngIf="newPia">
-        <div>{{ 'homepage.cards.date' | translate }}</div>
-        <time>{{ newPia.created_at | date: 'dd/MM/yyyy'}}</time>
-      </div>
-      <div class="pia-cardsBlock-item-status">
-        <div class="pia-cardsBlock-item-status-infos">
-          <div>{{ 'homepage.cards.status' | translate }}</div>
-          <div>{{ 'homepage.cards.creation_status' | translate }}</div>
-        </div>
-        <div class="pia-cardsBlock-item-status-progressBar">
-          <div>0%</div>
-          <progress max="100" value="0">
-          </progress>
-        </div>
-      </div> -->
       <div class="pia-cardsBlock-item-btn">
         <button type="submit" [disabled]="piaForm.invalid" class="btn btn-green get-focus" id="pia-save-card-btn">{{ 'homepage.cards.start' | translate }}</button>
       </div>
@@ -377,10 +366,6 @@
         <label for="sector_name">{{ 'homepage.cards.sector_name' | translate }}</label>
         <input formControlName="sector_name" type="text" placeholder="{{ 'homepage.cards.placeholder_sector_name' | translate }}" id="sector_name" required>
       </div>
-      <!-- <div class="pia-cardsBlock-item-date" *ngIf="newPia">
-        <div>{{ 'homepage.cards.date' | translate }}</div>
-        <time>{{ newStructure.created_at | date: 'dd/MM/yyyy'}}</time>
-      </div> -->
       <div class="pia-cardsBlock-item-status"></div>
       <div class="pia-cardsBlock-item-btn">
         <button type="submit" [disabled]="structureForm.invalid" class="btn btn-green get-focus" id="pia-save-card-btn">{{ 'homepage.cards.start' | translate }}</button>

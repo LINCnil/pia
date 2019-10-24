@@ -5,7 +5,7 @@
     position: relative;
     margin-right: 12px;
     margin-bottom: 40px;
-    height: 402px;
+    height: 440px;
     border: 1px solid #fff;
     background-color: #fff;
     &-title {
@@ -163,6 +163,9 @@
                 &:hover {
                   outline: 1px dotted #3EE095;
                   cursor: text;
+                }
+                &:disabled {
+                  outline: none;
                 }
               }
               &:first-child {

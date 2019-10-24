@@ -205,14 +205,16 @@
 			"placeholder_start": "Alle velden moeten worden ingevuld",
 			"placeholder_structure": "Standaardsjabloon",
 			"placeholder_structure_name": "Naam sjabloon",
-			"placeholder_validation": "Voornaam achternaam",
+      "placeholder_validation": "Voornaam achternaam",
+      "placeholder_category": "TO TRANSLATE - Category",
 			"sector_name": "Verwante sector",
 			"start": "Beginnen",
 			"status": "Status",
 			"structure": "Sjabloon",
 			"structure_name": "Naam van het sjabloon",
 			"title_close_creation": "Sluiten",
-			"validation": "Valideren"
+      "validation": "Valideren",
+      "category": "TO TRANSLATE - Category"
 		},
 		"filters": {
 			"assessor": "Reviewer",
@@ -233,14 +235,16 @@
 			"sort": "Sorteren",
 			"sort_by": "op",
 			"status": "Status",
-			"validator": "Validator"
+      "validator": "Validator",
+      "category": "TO TRANSLATE - Category"
 		},
 		"lists": {
 			"column_actions": "Acties",
 			"column_author": "Aanpassen",
 			"column_creation": "Gemaakt",
 			"column_evaluation": "Reviewen",
-			"column_pia": "PIA",
+      "column_pia": "PIA",
+      "column_category": "TO TRANSLATE - Category",
 			"column_progression": "Voortgang",
 			"column_sector_name": "Verwante sector",
 			"column_status": "Status",

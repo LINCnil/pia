@@ -205,14 +205,16 @@
 			"placeholder_start": "Alle felt må fylles ut",
 			"placeholder_structure": "TO BE TRANSLATED - Modèle par défaut",
 			"placeholder_structure_name": "TO BE TRANSLATED - Intitulé du modèle",
-			"placeholder_validation": "Fornavn, etternavn",
+      "placeholder_validation": "Fornavn, etternavn",
+      "placeholder_category": "TO TRANSLATE - Category",
 			"sector_name": "TO BE TRANSLATED - Secteur associé",
 			"start": "Start",
 			"status": "Status",
 			"structure": "TO BE TRANSLATED - Modèle",
 			"structure_name": "TO BE TRANSLATED - Nom du modèle",
 			"title_close_creation": "Lukk",
-			"validation": "Forankring"
+      "validation": "Forankring",
+      "category": "TO TRANSLATE - Category"
 		},
 		"filters": {
 			"assessor": "Saksbehandler",
@@ -233,14 +235,16 @@
 			"sort": "Sorter",
 			"sort_by": "etter",
 			"status": "Status",
-			"validator": "Ansvarlig"
+      "validator": "Ansvarlig",
+      "category": "TO TRANSLATE - Category"
 		},
 		"lists": {
 			"column_actions": "Handlinger",
 			"column_author": "Rediger",
 			"column_creation": "Opprettet",
 			"column_evaluation": "Evaluer",
-			"column_pia": "PIA",
+      "column_pia": "PIA",
+      "column_category": "TO TRANSLATE - Category",
 			"column_progression": "Fremgang",
 			"column_sector_name": "TO BE TRANSLATED - Secteur associé",
 			"column_status": "Status",

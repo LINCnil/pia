@@ -205,14 +205,16 @@
 			"placeholder_start": "Sva polja moraju biti popunjena",
 			"placeholder_structure": "Zadani obrazac",
 			"placeholder_structure_name": "Naziv obrasca",
-			"placeholder_validation": "Ime, prezime",
+      "placeholder_validation": "Ime, prezime",
+      "placeholder_category": "TO TRANSLATE - Category",
 			"sector_name": "Pridruženi sektor",
 			"start": "Početak",
 			"status": "Status",
 			"structure": "Obrazac",
 			"structure_name": "Naziv obrasca",
 			"title_close_creation": "Zatvori",
-			"validation": "Potvrda"
+      "validation": "Potvrda",
+      "category": "TO TRANSLATE - Category"
 		},
 		"filters": {
 			"assessor": "Recenzentu",
@@ -233,14 +235,16 @@
 			"sort": "Sortiraj",
 			"sort_by": "po",
 			"status": "Statusu",
-			"validator": "Potvrditelju"
+      "validator": "Potvrditelju",
+      "category": "TO TRANSLATE - Category"
 		},
 		"lists": {
 			"column_actions": "Radnje",
 			"column_author": "Uređivanje",
 			"column_creation": "Stvoren",
 			"column_evaluation": "Pregled",
-			"column_pia": "PUP",
+      "column_pia": "PUP",
+      "column_category": "TO TRANSLATE - Category",
 			"column_progression": "Napredak",
 			"column_sector_name": "Pridruženi sektor",
 			"column_status": "Status",

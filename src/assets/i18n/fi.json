@@ -205,14 +205,16 @@
 			"placeholder_start": "Kaikki kentät tulee täyttää",
 			"placeholder_structure": "TO BE TRANSLATED - Modèle par défaut",
 			"placeholder_structure_name": "TO BE TRANSLATED - Intitulé du modèle",
-			"placeholder_validation": "Etunimi, sukunimi",
+      "placeholder_validation": "Etunimi, sukunimi",
+      "placeholder_category": "TO TRANSLATE - Category",
 			"sector_name": "TO BE TRANSLATED - Secteur associé",
 			"start": "Aloita",
 			"status": "Tila",
 			"structure": "TO BE TRANSLATED - Modèle",
 			"structure_name": "TO BE TRANSLATED - Nom du modèle",
 			"title_close_creation": "Sulje",
-			"validation": "Validointi"
+      "validation": "Validointi",
+      "category": "TO TRANSLATE - Category"
 		},
 		"filters": {
 			"assessor": "Tarkastaja",
@@ -233,14 +235,16 @@
 			"sort": "Lajittele",
 			"sort_by": "kriteeri",
 			"status": "Tila",
-			"validator": "Hyväksyjä"
+      "validator": "Hyväksyjä",
+      "category": "TO TRANSLATE - Category"
 		},
 		"lists": {
 			"column_actions": "Toiminnat",
 			"column_author": "Muokkaus",
 			"column_creation": "Luotu",
 			"column_evaluation": "Tarkasta",
-			"column_pia": "Tietosuojaa koskeva vaikutustenarviointi",
+      "column_pia": "Tietosuojaa koskeva vaikutustenarviointi",
+      "column_category": "TO TRANSLATE - Category",
 			"column_progression": "Edistyminen",
 			"column_sector_name": "TO BE TRANSLATED - Secteur associé",
 			"column_status": "Tila",

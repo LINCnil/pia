@@ -205,14 +205,16 @@
 			"placeholder_start": "Kõik väljad peavad olema täidetud",
 			"placeholder_structure": "Mõjuhinangu põhi",
 			"placeholder_structure_name": "Põhja nimi",
-			"placeholder_validation": "Eesnimi, perenimi",
+      "placeholder_validation": "Eesnimi, perenimi",
+      "placeholder_category": "TO TRANSLATE - Category",
 			"sector_name": "Kaasatud sektor",
 			"start": "Alusta",
 			"status": "Seisund",
 			"structure": "Põhi",
 			"structure_name": "Põhja nimi",
 			"title_close_creation": "Sulge",
-			"validation": "Kinnitamine"
+      "validation": "Kinnitamine",
+      "category": "TO TRANSLATE - Category"
 		},
 		"filters": {
 			"assessor": "Hindaja",
@@ -233,14 +235,16 @@
 			"sort": "Sorteeri",
 			"sort_by": "Sorteerimis valikud",
 			"status": "Seisund",
-			"validator": "Kinnitaja"
+      "validator": "Kinnitaja",
+      "category": "TO TRANSLATE - Category"
 		},
 		"lists": {
 			"column_actions": "Tegevused",
 			"column_author": "Toimetamine",
 			"column_creation": "Loodud",
 			"column_evaluation": "Ülevaade",
-			"column_pia": "Mõjuhinnang",
+      "column_pia": "Mõjuhinnang",
+      "column_category": "TO TRANSLATE - Category",
 			"column_progression": "Kulg",
 			"column_sector_name": "Kaasatud sektor",
 			"column_status": "Seisund",

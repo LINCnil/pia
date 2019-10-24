@@ -205,14 +205,16 @@
 			"placeholder_start": "Es müssen alle Felder ausgefüllt sein",
 			"placeholder_structure": "Standardvorlage",
 			"placeholder_structure_name": "Titel der Vorlage",
-			"placeholder_validation": "Vorname Nachname",
+      "placeholder_validation": "Vorname Nachname",
+      "placeholder_category": "TO TRANSLATE - Category",
 			"sector_name": "Zugehöriger Abschnitt",
 			"start": "Start",
 			"status": "Status",
 			"structure": "Vorlage",
 			"structure_name": "Name der Vorlage",
 			"title_close_creation": "Schließen",
-			"validation": "Bestätigender"
+      "validation": "Bestätigender",
+      "category": "TO TRANSLATE - Category"
 		},
 		"filters": {
 			"assessor": "Überprüft von",
@@ -233,14 +235,16 @@
 			"sort": "Sortieren",
 			"sort_by": "nach",
 			"status": "Status",
-			"validator": "Bestätigt von"
+      "validator": "Bestätigt von",
+      "category": "TO TRANSLATE - Category"
 		},
 		"lists": {
 			"column_actions": "Aktionen",
 			"column_author": "Bearbeitet von",
 			"column_creation": "Bearbeitet",
 			"column_evaluation": "Überprüft von",
-			"column_pia": "DSFA",
+      "column_pia": "DSFA",
+      "column_category": "TO TRANSLATE - Category",
 			"column_progression": "Fortschritt",
 			"column_sector_name": "Zugehöriger Abschnitt",
 			"column_status": "Status",

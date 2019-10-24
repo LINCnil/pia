@@ -204,14 +204,16 @@
 			"placeholder_start": "Toate câmpurile trebuie completate",
 			"placeholder_structure": "TO BE TRANSLATED - Modèle par défaut",
 			"placeholder_structure_name": "TO BE TRANSLATED - Intitulé du modèle",
-			"placeholder_validation": "Prenume, Nume",
+      "placeholder_validation": "Prenume, Nume",
+      "placeholder_category": "TO TRANSLATE - Category",
 			"sector_name": "TO BE TRANSLATED - Secteur associé",
 			"start": "Inițiere",
 			"status": "Stare",
 			"structure": "TO BE TRANSLATED - Modèle",
 			"structure_name": "TO BE TRANSLATED - Nom du modèle",
 			"title_close_creation": "Închide",
-			"validation": "Aprobare"
+      "validation": "Aprobare",
+      "category": "TO TRANSLATE - Category"
 		},
 		"filters": {
 			"assessor": "Evaluator",
@@ -232,14 +234,16 @@
 			"sort": "Sortare",
 			"sort_by": "după",
 			"status": "Stare",
-			"validator": "Aprobator"
+      "validator": "Aprobator",
+      "category": "TO TRANSLATE - Category"
 		},
 		"lists": {
 			"column_actions": "Acțiuni",
 			"column_author": "Editare",
 			"column_creation": "Creare",
 			"column_evaluation": "Evaluare",
-			"column_pia": "PIA",
+      "column_pia": "PIA",
+      "column_category": "TO TRANSLATE - Category",
 			"column_progression": "Progres",
 			"column_sector_name": "TO BE TRANSLATED - Secteur associé",
 			"column_status": "Stare",

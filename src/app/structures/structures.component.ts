@@ -83,7 +83,14 @@ export class StructuresComponent implements OnInit, OnDestroy {
    * @param {any} structure - Any Structure.
    */
   structChange(structure) {
-    this._structureService.structures.push(structure);
+    if (this._structureService.structures.includes(structure)) {
+      this._structureService.structures.forEach(struct => {
+        if (struct.id === structure.id)
+        struct = structure;
+      });
+    } else {
+      this._structureService.structures.push(structure);
+    }
   }
 
   /**

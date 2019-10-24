@@ -409,7 +409,9 @@
 
 			"placeholder_structure_name": "Naziv obrasca",
 
-			"placeholder_validation": "Ime, prezime",
+      "placeholder_validation": "Ime, prezime",
+
+      "placeholder_category": "TO TRANSLATE - Category",
 
 			"sector_name": "Pridruženi sektor",
 
@@ -423,7 +425,9 @@
 
 			"title_close_creation": "Zatvori",
 
-			"validation": "Potvrda"
+      "validation": "Potvrda",
+
+      "category": "TO TRANSLATE - Category"
 
 		},
 
@@ -465,7 +469,9 @@
 
 			"status": "Statusu",
 
-			"validator": "Potvrditelju"
+      "validator": "Potvrditelju",
+
+      "category": "TO TRANSLATE - Category"
 
 		},
 
@@ -479,7 +485,9 @@
 
 			"column_evaluation": "Pregled",
 
-			"column_pia": "PUP",
+      "column_pia": "PUP",
+
+      "column_category": "TO TRANSLATE - Category",
 
 			"column_progression": "Napredak",
 
