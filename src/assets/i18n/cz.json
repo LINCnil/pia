@@ -205,14 +205,17 @@
 			"placeholder_start": "Všechna pole musí být vyplněna",
 			"placeholder_structure": "TO BE TRANSLATED - Modèle par défaut",
 			"placeholder_structure_name": "TO BE TRANSLATED - Intitulé du modèle",
-			"placeholder_validation": "Křestní jméno, Příjmení",
+      "placeholder_validation": "Křestní jméno, Příjmení",
+      "placeholder_category": "TO TRANSLATE - Category",
 			"sector_name": "TO BE TRANSLATED - Secteur associé",
 			"start": "Start",
 			"status": "Stav",
 			"structure": "TO BE TRANSLATED - Modèle",
 			"structure_name": "TO BE TRANSLATED - Nom du modèle",
 			"title_close_creation": "Zavřít",
-			"validation": "Validation"
+      "validation": "Validation",
+      "category": "TO TRANSLATE - Category"
+
 		},
 		"filters": {
 			"assessor": "Posuzovatel",
@@ -233,14 +236,16 @@
 			"sort": "Seřadit",
 			"sort_by": "podle",
 			"status": "Stavu",
-			"validator": "Validátora"
+      "validator": "Validátora",
+      "category": "TO TRANSLATE - Category"
 		},
 		"lists": {
 			"column_actions": "Akce",
 			"column_author": "Úpravy",
 			"column_creation": "Vytvořeno",
 			"column_evaluation": "Posouzení",
-			"column_pia": "PIA",
+      "column_pia": "PIA",
+      "column_category": "TO TRANSLATE - Category",
 			"column_progression": "Postup",
 			"column_sector_name": "TO BE TRANSLATED - Secteur associé",
 			"column_status": "Stav",

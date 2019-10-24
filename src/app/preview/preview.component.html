@@ -17,6 +17,10 @@
               {{ _piaService.pia.structure_name }}
             </div>
 
+            <div class="pia-sectionBlock-category" *ngIf="_piaService.pia.category">
+              {{ 'homepage.cards.category' | translate }} "{{ _piaService.pia.category }}"
+            </div>
+
             <div class="pia-sectionBlock-body">
               <div *ngFor="let dataSection of data?.sections">
                 <div class="pia-sectionBlock-title">

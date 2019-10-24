@@ -55,6 +55,7 @@ export class CardsComponent implements OnInit, OnDestroy {
       author_name: new FormControl(),
       evaluator_name: new FormControl(),
       validator_name: new FormControl(),
+      category: new FormControl(),
       structure: new FormControl([])
     });
     this.viewStyle = {
@@ -77,6 +78,21 @@ export class CardsComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.paramsSubscribe.unsubscribe();
+  }
+
+  /**
+   * On PIA change.
+   * @param {any} pia - Any PIA.
+   */
+  piaChange(pia) {
+    if (this._piaService.pias.includes(pia)) {
+      this._piaService.pias.forEach(item => {
+        if (item.id === pia.id)
+        item = pia;
+      });
+    } else {
+      this._piaService.pias.push(pia);
+    }
   }
 
   /**

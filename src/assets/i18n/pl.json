@@ -204,14 +204,16 @@
 			"placeholder_start": "Należy wypełnić wszystkie pola",
 			"placeholder_structure": "Domyślny szablon",
 			"placeholder_structure_name": "Tytuł szablonu",
-			"placeholder_validation": "Imię, nazwisko",
+      "placeholder_validation": "Imię, nazwisko",
+      "placeholder_category": "TO TRANSLATE - Category",
 			"sector_name": "Sektor",
 			"start": "Start",
 			"status": "Status",
 			"structure": "Szablon",
 			"structure_name": "Nazwa szablonu",
 			"title_close_creation": "Zamknięcie",
-			"validation": "Zatwierdzenie"
+      "validation": "Zatwierdzenie",
+      "category": "TO TRANSLATE - Category"
 		},
 		"filters": {
 			"assessor": "Oceniającego",
@@ -232,14 +234,16 @@
 			"sort": "Sortowanie",
 			"sort_by": "według",
 			"status": "Statusu",
-			"validator": "Zatwierdzającego"
+      "validator": "Zatwierdzającego",
+      "category": "TO TRANSLATE - Category"
 		},
 		"lists": {
 			"column_actions": "Działania",
 			"column_author": "Edytowanie",
 			"column_creation": "Utworzenie",
 			"column_evaluation": "Ocena",
-			"column_pia": "PIA",
+      "column_pia": "PIA",
+      "column_category": "TO TRANSLATE - Category",
 			"column_progression": "Postęp",
 			"column_sector_name": "TO BE TRANSLATED - Secteur associé",
 			"column_status": "Status",

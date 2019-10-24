@@ -205,14 +205,16 @@
 			"placeholder_start": "Tutti i campi sono obbligatori",
 			"placeholder_structure": "Modello di base",
 			"placeholder_structure_name": "TO BE TRANSLATED - Intitulé du modèle",
-			"placeholder_validation": "Cognome, nome",
+      "placeholder_validation": "Cognome, nome",
+      "placeholder_category": "TO TRANSLATE - Category",
 			"sector_name": "Settore collegato",
 			"start": "Avvio",
 			"status": "Stato",
 			"structure": "Modello",
 			"structure_name": "Nome del modello",
 			"title_close_creation": "Chiudi",
-			"validation": "Validatore"
+      "validation": "Validatore",
+      "category": "TO TRANSLATE - Category"
 		},
 		"filters": {
 			"assessor": "Revisore",
@@ -233,14 +235,16 @@
 			"sort": "Ordina",
 			"sort_by": "per",
 			"status": "Stato",
-			"validator": "Validatore"
+      "validator": "Validatore",
+      "category": "TO TRANSLATE - Category"
 		},
 		"lists": {
 			"column_actions": "Azioni",
 			"column_author": "Autore",
 			"column_creation": "Creato",
 			"column_evaluation": "Revisore",
-			"column_pia": "PIA",
+      "column_pia": "PIA",
+      "column_category": "TO TRANSLATE - Category",
 			"column_progression": "Avanzamento",
 			"column_sector_name": "TO BE TRANSLATED - Secteur associé",
 			"column_status": "Stato",

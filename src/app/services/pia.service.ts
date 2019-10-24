@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter, Output } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { Pia } from 'src/app/entry/pia.model';
@@ -18,6 +18,7 @@ export class PiaService {
   pia: Pia = new Pia();
   answer: Answer = new Answer();
   data: { sections: any };
+  @Output() piaEvent = new EventEmitter<Pia>();
 
   constructor(private _router: Router,
               private route: ActivatedRoute,
@@ -88,6 +89,7 @@ export class PiaService {
     return new Promise((resolve, reject) => {
       const pia = new Pia();
       pia.name = piaForm.value.name;
+      pia.category = piaForm.value.category;
       pia.author_name = piaForm.value.author_name;
       pia.evaluator_name = piaForm.value.evaluator_name;
       pia.validator_name = piaForm.value.validator_name;
@@ -338,6 +340,7 @@ export class PiaService {
     }
     const pia = new Pia();
     pia.name = '(' + prefix + ') ' + data.pia.name;
+    pia.category = data.pia.category;
     pia.author_name = data.pia.author_name;
     pia.evaluator_name = data.pia.evaluator_name;
     pia.validator_name = data.pia.validator_name;

@@ -205,14 +205,16 @@
 			"placeholder_start": "Tous les champs doivent être remplis",
 			"placeholder_structure": "Modèle par défaut",
 			"placeholder_structure_name": "Intitulé du modèle",
-			"placeholder_validation": "Prénom, nom",
+      "placeholder_validation": "Prénom, nom",
+      "placeholder_category": "Catégorie",
 			"sector_name": "Secteur associé",
 			"start": "Commencer",
 			"status": "Statut",
 			"structure": "Modèle",
 			"structure_name": "Nom du modèle",
 			"title_close_creation": "Fermer",
-			"validation": "Validation"
+      "validation": "Validation",
+      "category": "Catégorie"
 		},
 		"filters": {
 			"assessor": "Évaluateur",
@@ -233,14 +235,16 @@
 			"sort": "Trier",
 			"sort_by": "par",
 			"status": "Statut",
-			"validator": "Validateur"
+      "validator": "Validateur",
+      "category": "Catégorie"
 		},
 		"lists": {
 			"column_actions": "Actions",
 			"column_author": "Saisie",
 			"column_creation": "Création",
 			"column_evaluation": "Évaluation",
-			"column_pia": "PIA",
+      "column_pia": "PIA",
+      "column_category": "Catégorie",
 			"column_progression": "Progression",
 			"column_sector_name": "Secteur associé",
 			"column_status": "Statut",

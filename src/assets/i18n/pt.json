@@ -204,14 +204,16 @@
 			"placeholder_start": "Todos os campos devem estar prenchidos",
 			"placeholder_structure": "Modelo predefinido",
 			"placeholder_structure_name": "Título do modelo",
-			"placeholder_validation": "Primeiro Nome, último nome",
+      "placeholder_validation": "Primeiro Nome, último nome",
+      "placeholder_category": "TO TRANSLATE - Category",
 			"sector_name": "Sector associado",
 			"start": "Início",
 			"status": "Estado",
 			"structure": "Modelo",
 			"structure_name": "Nome do modelo",
 			"title_close_creation": "Fechar",
-			"validation": "Validação"
+      "validation": "Validação",
+      "category": "TO TRANSLATE - Category"
 		},
 		"filters": {
 			"assessor": "Revisor",
@@ -232,14 +234,16 @@
 			"sort": "Ordem",
 			"sort_by": "Por",
 			"status": "Estado",
-			"validator": "Validador"
+      "validator": "Validador",
+      "category": "TO TRANSLATE - Category"
 		},
 		"lists": {
 			"column_actions": "Ações",
 			"column_author": "Editar",
 			"column_creation": "Criado",
 			"column_evaluation": "Revisão",
-			"column_pia": "PIA",
+      "column_pia": "PIA",
+      "column_category": "TO TRANSLATE - Category",
 			"column_progression": "Progresso",
 			"column_sector_name": "Sector associado",
 			"column_status": "Estado",

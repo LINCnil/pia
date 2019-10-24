@@ -25,6 +25,9 @@
               <li [ngClass]="{'active': sortValue === 'name'}">
                 <a (click)="sortBy('name');">{{ 'homepage.filters.name' | translate }}</a>
               </li>
+              <li [ngClass]="{'active': sortValue === 'category'}">
+                <a (click)="sortBy('category');">{{ 'homepage.filters.category' | translate }}</a>
+              </li>
               <li [ngClass]="{'active': sortValue === 'created_at'}">
                 <a (click)="sortBy('created_at');">{{ 'homepage.filters.date' | translate }}</a>
               </li>
@@ -112,6 +115,10 @@
                 <input formControlName="validator_name" type="text" placeholder="{{ 'homepage.cards.placeholder_validation' | translate }}" id="validator_name" required>
               </div>
               <div>
+                <label for="category">{{ 'homepage.cards.category' | translate }}</label>
+                <input formControlName="category" type="text" placeholder="{{ 'homepage.cards.placeholder_category' | translate }}" id="category">
+              </div>
+              <div>
                 <label for="structure">{{ 'homepage.cards.structure' | translate }}</label>
                 <div  class="pia-structure-wrapper">
                   <select formControlName="structure" id="structure">
@@ -120,21 +127,6 @@
                   </select>
                 </div>
               </div>
-              <!-- <div class="pia-cardsBlock-item-date" *ngIf="newPia">
-                <div>{{ 'homepage.cards.validation' | translate }}</div>
-                <time>{{ newPia.created_at | date: 'dd/MM/yyyy'}}</time>
-              </div>
-              <div class="pia-cardsBlock-item-status">
-                <div class="pia-cardsBlock-item-status-infos">
-                  <div>{{ 'homepage.cards.status' | translate }}</div>
-                  <div>{{ 'homepage.cards.creation_status' | translate }}</div>
-                </div>
-                <div class="pia-cardsBlock-item-status-progressBar">
-                  <div>0%</div>
-                  <progress max="100" value="0">
-                  </progress>
-                </div>
-              </div> -->
               <div class="pia-cardsBlock-item-btn">
                 <button type="submit" [disabled]="piaForm.invalid" class="btn btn-green" id="pia-save-card-btn" title="{{ 'homepage.cards.placeholder_start' | translate }}">{{ 'homepage.cards.start' | translate }}</button>
               </div>
@@ -164,6 +156,12 @@
                 <a (click)="sortBy('name')">
                   <span>{{ 'homepage.lists.column_pia' | translate }}</span>
                   <i *ngIf="sortValue === 'name'" class="fa fa-caret-{{sortOrder}}"></i>
+                </a>
+              </th>
+              <th>
+                <a (click)="sortBy('category')">
+                  <span>{{ 'homepage.lists.column_category' | translate }}</span>
+                  <i *ngIf="sortValue === 'category'" class="fa fa-caret-{{sortOrder}}"></i>
                 </a>
               </th>
               <th>
@@ -220,7 +218,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr class="app-list-item" [ngClass]="{'pia-exampleBlock': pia.is_example === 1}" [attr.data-id]="pia.id" *ngFor="let pia of _piaService.pias | filterForUser : searchText; let i=index" [pia]="pia"></tr>
+            <tr class="app-list-item" [ngClass]="{'pia-exampleBlock': pia.is_example === 1}" [attr.data-id]="pia.id" *ngFor="let pia of _piaService.pias | filterForUser : searchText; let i=index" (piaEvent)="piaChange($event)" [pia]="pia"></tr>
           </tbody>
         </table>
       </div>

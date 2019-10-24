@@ -62,14 +62,6 @@ export class ArchivesComponent implements OnInit, OnDestroy {
   }
 
   /**
-   * On archive change.
-   * @param {any} archive - Any Archive.
-   */
-  /* archiveChange(archive) {
-    this._archiveService.archivedPias.push(archive);
-  } */
-
-  /**
    * Sort items from Archives.
    * @param {string} fieldToSort - Field to sort.
    */
@@ -128,7 +120,7 @@ export class ArchivesComponent implements OnInit, OnDestroy {
         firstValue = new Date(a[this.sortValue]);
         secondValue = new Date(b[this.sortValue]);
       }
-      if (this.sortValue === 'name' || this.sortValue === 'sector_name') {
+      if (this.sortValue === 'name') {
         return firstValue.localeCompare(secondValue);
       } else {
         if (firstValue < secondValue) {

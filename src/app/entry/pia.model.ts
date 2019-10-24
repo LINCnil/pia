@@ -4,6 +4,7 @@ export class Pia extends ApplicationDb {
   public id: number;
   public status = 0; // 0: doing, 1: refused, 2: simple_validation, 3: signed_validation, 4: archived
   public name: string;
+  public category: string;
   public author_name: string;
   public evaluator_name: string;
   public validator_name: string;
@@ -49,6 +50,7 @@ export class Pia extends ApplicationDb {
             const newPia = new Pia();
             newPia.id = element.id;
             newPia.name = element.name;
+            newPia.category = element.category;
             newPia.author_name = element.author_name;
             newPia.evaluator_name = element.evaluator_name;
             newPia.validator_name = element.validator_name;
@@ -131,6 +133,7 @@ export class Pia extends ApplicationDb {
             const newPia = new Pia();
             newPia.id = element.id;
             newPia.name = element.name;
+            newPia.category = element.category;
             newPia.author_name = element.author_name;
             newPia.evaluator_name = element.evaluator_name;
             newPia.validator_name = element.validator_name;
@@ -212,6 +215,7 @@ export class Pia extends ApplicationDb {
 
     const data = {
       name: this.name,
+      category: this.category,
       author_name: this.author_name,
       evaluator_name: this.evaluator_name,
       validator_name: this.validator_name,
@@ -283,6 +287,7 @@ export class Pia extends ApplicationDb {
     return new Promise((resolve, reject) => {
       this.find(this.id).then((entry: any) => {
         entry.name = this.name;
+        entry.category = this.category;
         entry.author_name = this.author_name;
         entry.evaluator_name = this.evaluator_name;
         entry.validator_name = this.validator_name;
@@ -406,6 +411,7 @@ export class Pia extends ApplicationDb {
           this.is_example = entry.is_example;
           this.is_archive = entry.is_archive;
           this.name = entry.name;
+          this.category = entry.category;
           this.author_name = entry.author_name;
           this.evaluator_name = entry.evaluator_name;
           this.validator_name = entry.validator_name;
@@ -464,6 +470,7 @@ export class Pia extends ApplicationDb {
                 this.is_example = entry.is_example;
                 this.is_archive = entry.is_archive;
                 this.name = entry.name;
+                this.category = entry.category;
                 this.author_name = entry.author_name;
                 this.evaluator_name = entry.evaluator_name;
                 this.validator_name = entry.validator_name;
