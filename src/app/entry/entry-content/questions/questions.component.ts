@@ -379,8 +379,8 @@ export class QuestionsComponent implements OnInit, OnDestroy {
       if (this.answer.id) {
         list = this.answer.data.list;
       }
-      if (list.indexOf(target.name) <= 0) {
-        list.push(target.name);
+      if (list.indexOf(target.id) <= 0) {
+        list.push(target.id);
         this.createOrUpdateList(list);
       }
     }else{                                  // Remove answer
@@ -389,9 +389,9 @@ export class QuestionsComponent implements OnInit, OnDestroy {
       if (this.answer.id) {
         list = this.answer.data.list;
       }
-      const index = list.indexOf(target.name);
+      const index = list.indexOf(target.id);
       if (index >= 0) {
-        list.splice(list.indexOf(target.name), 1);
+        list.splice(list.indexOf(target.id), 1);
         this.createOrUpdateList(list);
       }
     }

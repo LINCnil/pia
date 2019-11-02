@@ -428,7 +428,14 @@
                             <div *ngIf="item.questions">
                               <div *ngFor="let question of item.questions">
                                 <h3 [innerHTML]="question.title | translate"></h3>
-                                <div *ngIf="allData[section.id][item.id][question.id].content && allData[section.id][item.id][question.id].content.length > 0" [innerHTML]="allData[section.id][item.id][question.id].content | translate | safeHtml"></div>
+                        
+                                <!-- If the Question is 131 (checkboxes) -->
+                                <div *ngIf="section.id === 1 && item.id === 3 && question.id === 131
+                                      && allData[section.id][item.id][question.id].content">
+                                  <p *ngFor="let label of checkBoxLoad()" [innerHTML]="label | translate"></p>
+                                </div>
+
+                                <div *ngIf="allData[section.id][item.id][question.id].content && allData[section.id][item.id][question.id].content.length > 0 && !(section.id === 1 && item.id === 3 && question.id === 131)" [innerHTML]="allData[section.id][item.id][question.id].content | translate | safeHtml"></div>
                                 <div class="evaluationbox" *ngIf="allData[section.id][item.id][question.id].evaluation">
                                   <br>
                                   <p>

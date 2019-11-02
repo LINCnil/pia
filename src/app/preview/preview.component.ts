@@ -36,6 +36,7 @@ export class PreviewComponent implements OnInit {
   pia: any;
   allData: object;
   tempData: object;
+  checkBoxPaths: any[];
   displayAllFilters: boolean;
   displayMainPiaData: boolean;
   displaySection1: boolean;
@@ -57,6 +58,7 @@ export class PreviewComponent implements OnInit {
 
     this.content = [];
     this.dataNav = this._appDataService.dataNav;
+    this.checkBoxPaths = [];
 
     this._piaService.getPIA().then(() => {
       this.pia = this._piaService.pia;
@@ -105,6 +107,18 @@ export class PreviewComponent implements OnInit {
       });
     });
   }
+
+
+  private checkBoxLoad():string[] {
+    var checkBoxPaths : string[] = [];
+    var splitted = this.allData[1][3][131].content.split(", ");
+    splitted.forEach(function (value) {
+      var path = 'sections.1.items.3.questions.1.labels.' + value;
+      checkBoxPaths.push(path);
+    });
+    return checkBoxPaths;
+  }
+
 
   /**
    * Label the JSON export (make it human readable)
