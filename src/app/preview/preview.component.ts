@@ -36,7 +36,6 @@ export class PreviewComponent implements OnInit {
   pia: any;
   allData: object;
   tempData: object;
-  checkBoxPaths: any[];
   displayAllFilters: boolean;
   displayMainPiaData: boolean;
   displaySection1: boolean;
@@ -58,7 +57,6 @@ export class PreviewComponent implements OnInit {
 
     this.content = [];
     this.dataNav = this._appDataService.dataNav;
-    this.checkBoxPaths = [];
 
     this._piaService.getPIA().then(() => {
       this.pia = this._piaService.pia;
