@@ -732,8 +732,371 @@
         {
           "id": 5,
           "title": "sections.3.items.5.title",
-          "evaluation_mode": "",
+          "evaluation_mode": "item",
+          "evaluation_with_gauge": true,
           "short_help": "sections.3.items.5.short_help",
+          "questions": [
+            {
+              "id": 351,
+              "title": "sections.3.items.5.questions.1.title",
+              "link_knowledge_base": [
+                "PIA_DEF_IND",
+                "PIA_DEF_IMP"
+              ],
+              "placeholder": "sections.3.items.5.questions.1.placeholder",
+              "answer_type": "list",
+              "active": true
+            },
+            {
+              "id": 352,
+              "title": "sections.3.items.5.questions.2.title",
+              "link_knowledge_base": [
+                "PIA_DEF_IND",
+                "PIA_DEF_MEN",
+                "PIA_EX_MENA",
+                "PIA_EX_MENM",
+                "PIA_EX_MENI"
+              ],
+              "placeholder": "sections.3.items.5.questions.2.placeholder",
+              "answer_type": "list",
+              "active": true
+            },
+            {
+              "id": 353,
+              "title": "sections.3.items.5.questions.3.title",
+              "link_knowledge_base": [
+                "PIA_DEF_IND",
+                "PIA_DEF_SRC",
+                "PIA_EX_HUMI",
+                "PIA_EX_HUME",
+                "PIA_EX_NHUM"
+              ],
+              "placeholder": "sections.3.items.5.questions.3.placeholder",
+              "answer_type": "list",
+              "active": true
+            },
+            {
+              "id": 357,
+              "title": "sections.3.items.5.questions.7.title",
+              "is_measure": true,
+              "link_knowledge_base": [
+                "PIA_DEF_ACCI",
+                "PIA_DEF_MES",
+                "PIA_METHOD_MES"
+              ],
+              "placeholder": "sections.3.items.5.questions.7.placeholder",
+              "answer_type": "gauge",
+              "cartography": "pre-transparency_x",
+              "active": true
+            },
+            {
+              "id": 358,
+              "title": "sections.3.items.5.questions.8.title",
+              "is_measure": true,
+              "link_knowledge_base": [
+                "PIA_DEF_ACCI",
+                "PIA_DEF_MES",
+                "PIA_METHOD_MES"
+              ],
+              "placeholder": "sections.3.items.5.questions.8.placeholder",
+              "answer_type": "gauge",
+              "cartography": "pre-transparency_y",
+              "active": true
+            },
+            {
+              "id": 354,
+              "title": "sections.3.items.5.questions.4.title",
+              "is_measure": true,
+              "link_knowledge_base": [
+                "PIA_DEF_IND",
+                "PIA_DEF_MES"
+              ],
+              "placeholder": "sections.3.items.5.questions.4.placeholder",
+              "answer_type": "list",
+              "active": true
+            },
+            {
+              "id": 355,
+              "title": "sections.3.items.5.questions.5.title",
+              "link_knowledge_base": [
+                "PIA_DEF_IND",
+                "PIA_DEF_GRV",
+                "PIA_DEF_IMP",
+                "PIA_EX_IMPN",
+                "PIA_EX_IMPL",
+                "PIA_EX_IMPI",
+                "PIA_EX_IMPM"
+              ],
+              "placeholder": "sections.3.items.5.questions.5.placeholder",
+              "answer_type": "gauge",
+              "cartography": "risk-transparency_x",
+              "active": true
+            },
+            {
+              "id": 356,
+              "title": "sections.3.items.5.questions.6.title",
+              "link_knowledge_base": [
+                "PIA_DEF_IND",
+                "PIA_DEF_VRA",
+                "PIA_EX_VRAN",
+                "PIA_EX_VRAL",
+                "PIA_EX_VRAI",
+                "PIA_EX_VRAM"
+              ],
+              "placeholder": "sections.3.items.5.questions.6.placeholder",
+              "answer_type": "gauge",
+              "cartography": "risk-transparency_y",
+              "active": true
+            }
+          ]
+        },
+        {
+          "id": 6,
+          "title": "sections.3.items.6.title",
+          "evaluation_mode": "item",
+          "evaluation_with_gauge": true,
+          "short_help": "sections.3.items.6.short_help",
+          "questions": [
+            {
+              "id": 361,
+              "title": "sections.3.items.6.questions.1.title",
+              "link_knowledge_base": [
+                "PIA_DEF_IND",
+                "PIA_DEF_IMP"
+              ],
+              "placeholder": "sections.3.items.6.questions.1.placeholder",
+              "answer_type": "list",
+              "active": true
+            },
+            {
+              "id": 362,
+              "title": "sections.3.items.6.questions.2.title",
+              "link_knowledge_base": [
+                "PIA_DEF_IND",
+                "PIA_DEF_MEN",
+                "PIA_EX_MENA",
+                "PIA_EX_MENM",
+                "PIA_EX_MENI"
+              ],
+              "placeholder": "sections.3.items.6.questions.2.placeholder",
+              "answer_type": "list",
+              "active": true
+            },
+            {
+              "id": 363,
+              "title": "sections.3.items.6.questions.3.title",
+              "link_knowledge_base": [
+                "PIA_DEF_IND",
+                "PIA_DEF_SRC",
+                "PIA_EX_HUMI",
+                "PIA_EX_HUME",
+                "PIA_EX_NHUM"
+              ],
+              "placeholder": "sections.3.items.6.questions.3.placeholder",
+              "answer_type": "list",
+              "active": true
+            },
+            {
+              "id": 367,
+              "title": "sections.3.items.6.questions.7.title",
+              "is_measure": true,
+              "link_knowledge_base": [
+                "PIA_DEF_ACCI",
+                "PIA_DEF_MES",
+                "PIA_METHOD_MES"
+              ],
+              "placeholder": "sections.3.items.6.questions.7.placeholder",
+              "answer_type": "gauge",
+              "cartography": "pre-unlinkability_x",
+              "active": true
+            },
+            {
+              "id": 368,
+              "title": "sections.3.items.6.questions.8.title",
+              "is_measure": true,
+              "link_knowledge_base": [
+                "PIA_DEF_ACCI",
+                "PIA_DEF_MES",
+                "PIA_METHOD_MES"
+              ],
+              "placeholder": "sections.3.items.6.questions.8.placeholder",
+              "answer_type": "gauge",
+              "cartography": "pre-unlinkability_y",
+              "active": true
+            },
+            {
+              "id": 364,
+              "title": "sections.3.items.6.questions.4.title",
+              "is_measure": true,
+              "link_knowledge_base": [
+                "PIA_DEF_IND",
+                "PIA_DEF_MES"
+              ],
+              "placeholder": "sections.3.items.6.questions.4.placeholder",
+              "answer_type": "list",
+              "active": true
+            },
+            {
+              "id": 365,
+              "title": "sections.3.items.6.questions.5.title",
+              "link_knowledge_base": [
+                "PIA_DEF_IND",
+                "PIA_DEF_GRV",
+                "PIA_DEF_IMP",
+                "PIA_EX_IMPN",
+                "PIA_EX_IMPL",
+                "PIA_EX_IMPI",
+                "PIA_EX_IMPM"
+              ],
+              "placeholder": "sections.3.items.6.questions.5.placeholder",
+              "answer_type": "gauge",
+              "cartography": "risk-unlinkability_x",
+              "active": true
+            },
+            {
+              "id": 366,
+              "title": "sections.3.items.6.questions.6.title",
+              "link_knowledge_base": [
+                "PIA_DEF_IND",
+                "PIA_DEF_VRA",
+                "PIA_EX_VRAN",
+                "PIA_EX_VRAL",
+                "PIA_EX_VRAI",
+                "PIA_EX_VRAM"
+              ],
+              "placeholder": "sections.3.items.6.questions.6.placeholder",
+              "answer_type": "gauge",
+              "cartography": "risk-unlinkability_y",
+              "active": true
+            }
+          ]
+        },
+        {
+          "id": 7,
+          "title": "sections.3.items.7.title",
+          "evaluation_mode": "item",
+          "evaluation_with_gauge": true,
+          "short_help": "sections.3.items.7.short_help",
+          "questions": [
+            {
+              "id": 371,
+              "title": "sections.3.items.7.questions.1.title",
+              "link_knowledge_base": [
+                "PIA_DEF_IND",
+                "PIA_DEF_IMP"
+              ],
+              "placeholder": "sections.3.items.7.questions.1.placeholder",
+              "answer_type": "list",
+              "active": true
+            },
+            {
+              "id": 372,
+              "title": "sections.3.items.7.questions.2.title",
+              "link_knowledge_base": [
+                "PIA_DEF_IND",
+                "PIA_DEF_MEN",
+                "PIA_EX_MENA",
+                "PIA_EX_MENM",
+                "PIA_EX_MENI"
+              ],
+              "placeholder": "sections.3.items.7.questions.2.placeholder",
+              "answer_type": "list",
+              "active": true
+            },
+            {
+              "id": 373,
+              "title": "sections.3.items.7.questions.3.title",
+              "link_knowledge_base": [
+                "PIA_DEF_IND",
+                "PIA_DEF_SRC",
+                "PIA_EX_HUMI",
+                "PIA_EX_HUME",
+                "PIA_EX_NHUM"
+              ],
+              "placeholder": "sections.3.items.7.questions.3.placeholder",
+              "answer_type": "list",
+              "active": true
+            },
+            {
+              "id": 377,
+              "title": "sections.3.items.7.questions.7.title",
+              "is_measure": true,
+              "link_knowledge_base": [
+                "PIA_DEF_ACCI",
+                "PIA_DEF_MES",
+                "PIA_METHOD_MES"
+              ],
+              "placeholder": "sections.3.items.7.questions.7.placeholder",
+              "answer_type": "gauge",
+              "cartography": "pre-intervenability_x",
+              "active": true
+            },
+            {
+              "id": 378,
+              "title": "sections.3.items.7.questions.8.title",
+              "is_measure": true,
+              "link_knowledge_base": [
+                "PIA_DEF_ACCI",
+                "PIA_DEF_MES",
+                "PIA_METHOD_MES"
+              ],
+              "placeholder": "sections.3.items.7.questions.8.placeholder",
+              "answer_type": "gauge",
+              "cartography": "pre-intervenability_y",
+              "active": true
+            },
+            {
+              "id": 374,
+              "title": "sections.3.items.7.questions.4.title",
+              "is_measure": true,
+              "link_knowledge_base": [
+                "PIA_DEF_IND",
+                "PIA_DEF_MES"
+              ],
+              "placeholder": "sections.3.items.7.questions.4.placeholder",
+              "answer_type": "list",
+              "active": true
+            },
+            {
+              "id": 375,
+              "title": "sections.3.items.7.questions.5.title",
+              "link_knowledge_base": [
+                "PIA_DEF_IND",
+                "PIA_DEF_GRV",
+                "PIA_DEF_IMP",
+                "PIA_EX_IMPN",
+                "PIA_EX_IMPL",
+                "PIA_EX_IMPI",
+                "PIA_EX_IMPM"
+              ],
+              "placeholder": "sections.3.items.7.questions.5.placeholder",
+              "answer_type": "gauge",
+              "cartography": "risk-intervenability_x",
+              "active": true
+            },
+            {
+              "id": 376,
+              "title": "sections.3.items.7.questions.6.title",
+              "link_knowledge_base": [
+                "PIA_DEF_IND",
+                "PIA_DEF_VRA",
+                "PIA_EX_VRAN",
+                "PIA_EX_VRAL",
+                "PIA_EX_VRAI",
+                "PIA_EX_VRAM"
+              ],
+              "placeholder": "sections.3.items.7.questions.6.placeholder",
+              "answer_type": "gauge",
+              "cartography": "risk-intervenability_y",
+              "active": true
+            }
+          ]
+        },
+        {
+          "id": 8,
+          "title": "sections.3.items.8.title",
+          "evaluation_mode": "",
+          "short_help": "sections.3.items.8.short_help",
           "type": ""
         }
       ]

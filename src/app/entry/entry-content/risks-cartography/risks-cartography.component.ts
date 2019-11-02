@@ -23,6 +23,9 @@ export class RisksCartographyComponent implements OnInit, OnDestroy {
   risk1Letter;
   risk2Letter;
   risk3Letter;
+  risk4Letter;
+  risk5Letter;
+  risk6Letter;
   dotColor1 = '#FD4644'
   altColor1 = '#C40288'
   dotColor2 = '#000000'
@@ -37,10 +40,16 @@ export class RisksCartographyComponent implements OnInit, OnDestroy {
     this.risk1Letter = this._translateService.instant('cartography.risk1_access');
     this.risk2Letter = this._translateService.instant('cartography.risk2_modification');
     this.risk3Letter = this._translateService.instant('cartography.risk3_disappearance');
+    this.risk4Letter = this._translateService.instant('cartography.risk4_transparency');
+    this.risk5Letter = this._translateService.instant('cartography.risk5_unlinkability');
+    this.risk6Letter = this._translateService.instant('cartography.risk6_intervenability');
     this.subscription = this._translateService.onLangChange.subscribe((event: LangChangeEvent) => {
       this.risk1Letter = this._translateService.instant('cartography.risk1_access');
       this.risk2Letter = this._translateService.instant('cartography.risk2_modification');
       this.risk3Letter = this._translateService.instant('cartography.risk3_disappearance');
+      this.risk4Letter = this._translateService.instant('cartography.risk4_transparency');
+      this.risk5Letter = this._translateService.instant('cartography.risk5_unlinkability');
+      this.risk6Letter = this._translateService.instant('cartography.risk6_intervenability');
       this.loadCartography();
     });
 
@@ -75,6 +84,21 @@ export class RisksCartographyComponent implements OnInit, OnDestroy {
         'pre': { x: null, y: null },
         'author': { x: null, y: null },
         'evaluator': { x: null, y: null }
+      },
+      'risk-transparency': {
+        'pre': { x: null, y: null },
+        'author': { x: null, y: null },
+        'evaluator': { x: null, y: null }
+      },
+      'risk-unlinkability': {
+        'pre': { x: null, y: null },
+        'author': { x: null, y: null },
+        'evaluator': { x: null, y: null }
+      },
+      'risk-intervenability': {
+        'pre': { x: null, y: null },
+        'author': { x: null, y: null },
+        'evaluator': { x: null, y: null }
       }
     };
 
@@ -104,23 +128,39 @@ export class RisksCartographyComponent implements OnInit, OnDestroy {
             let axeValue;
             axeValue = cartographyKey[1] === 'x' ? 'y' : 'x';
             let pointPosition = positions[axeValue][answer.data.gauge];
-            if (cartographyKey[0] === 'risk-change') {
-              pointPosition -= 10;
+            if (cartographyKey[0] === 'risk-access') {
+              pointPosition -= 7;
+            } else if (cartographyKey[0] === 'risk-change') {
+              pointPosition -= 21;
             } else if (cartographyKey[0] === 'risk-disappearance') {
-              pointPosition -= 20;
-            }
+              pointPosition -= 35;  
+            } else if (cartographyKey[0] === 'risk-transparency') {
+              pointPosition += 7; 
+            } else if (cartographyKey[0] === 'risk-unlinkability') {
+              pointPosition += 21;
+            } else if (cartographyKey[0] === 'risk-intervenability') {
+              pointPosition += 35; 
+            } 
+
             if (cartographyKey[0] === 'pre-access') {
-              this.dataJSON['risk-access']['pre'][axeValue] = pointPosition;
+              this.dataJSON['risk-access']['pre'][axeValue] = pointPosition - 7;
             } else if (cartographyKey[0] === 'pre-change') {
-              this.dataJSON['risk-change']['pre'][axeValue] = pointPosition - 10;
+              this.dataJSON['risk-change']['pre'][axeValue] = pointPosition - 21;
             } else if (cartographyKey[0] === 'pre-disappearance') {
-              this.dataJSON['risk-disappearance']['pre'][axeValue] = pointPosition - 20;
+              this.dataJSON['risk-disappearance']['pre'][axeValue] = pointPosition - 35;
+            } else if (cartographyKey[0] === 'pre-transparency') {
+              this.dataJSON['risk-transparency']['pre'][axeValue] = pointPosition + 7;
+            } else if (cartographyKey[0] === 'pre-unlinkability') {
+              this.dataJSON['risk-unlinkability']['pre'][axeValue] = pointPosition + 21;
+            } else if (cartographyKey[0] === 'pre-intervenability') {
+              this.dataJSON['risk-intervenability']['pre'][axeValue] = pointPosition + 35;
             } else {
               this.dataJSON[cartographyKey[0]]['author'][axeValue] = pointPosition;
             }
           }
         }
       });
+
       const evaluation = new Evaluation();
       evaluation.getByReference(this._piaService.pia.id, '3.2').then(() => {
         if (evaluation.gauges) {
@@ -139,7 +179,28 @@ export class RisksCartographyComponent implements OnInit, OnDestroy {
               this.dataJSON['risk-disappearance']['evaluator']['y'] = positions['y'][evaluation3.gauges['x']];
               this.dataJSON['risk-disappearance']['evaluator']['x'] = positions['x'][evaluation3.gauges['y']];
             }
-            this.loadCartography();
+            const evaluation4 = new Evaluation();
+            evaluation4.getByReference(this._piaService.pia.id, '3.5').then(() => {
+              if (evaluation4.gauges) {
+                this.dataJSON['risk-transparency']['evaluator']['y'] = positions['y'][evaluation4.gauges['x']];
+                this.dataJSON['risk-transparency']['evaluator']['x'] = positions['x'][evaluation4.gauges['y']];
+              }
+              const evaluation5 = new Evaluation();
+              evaluation5.getByReference(this._piaService.pia.id, '3.6').then(() => {
+                if (evaluation5.gauges) {
+                  this.dataJSON['risk-unlinkability']['evaluator']['y'] = positions['y'][evaluation5.gauges['x']];
+                  this.dataJSON['risk-unlinkability']['evaluator']['x'] = positions['x'][evaluation5.gauges['y']];
+                }
+                const evaluation6 = new Evaluation();
+                evaluation3.getByReference(this._piaService.pia.id, '3.7').then(() => {
+                  if (evaluation6.gauges) {
+                    this.dataJSON['risk-intervenability']['evaluator']['y'] = positions['y'][evaluation6.gauges['x']];
+                    this.dataJSON['risk-intervenability']['evaluator']['x'] = positions['x'][evaluation6.gauges['y']];
+                  }
+                  this.loadCartography();
+                });
+              });
+            });
           });
         });
       });
@@ -335,17 +396,32 @@ export class RisksCartographyComponent implements OnInit, OnDestroy {
       // Illegitimate access to data: Dot 1, 2 & 3
       this.drawPreDot(context, 'risk-access');
       this.drawRiskDot(context, 'risk-access', this.risk1Letter);
-      this.drawEvalDot(context, 'risk-access', 0);
+      this.drawEvalDot(context, 'risk-access', 7);
       
       // Unwanted modification of data: Dot 1, 2 & 3
       this.drawPreDot(context, 'risk-change');
       this.drawRiskDot(context, 'risk-change', this.risk2Letter);
-      this.drawEvalDot(context, 'risk-change', 10);
+      this.drawEvalDot(context, 'risk-change', 21);
 
       // Data disappearance: Dot 1, 2 & 3
       this.drawPreDot(context, 'risk-disappearance');
       this.drawRiskDot(context, 'risk-disappearance', this.risk3Letter);
-      this.drawEvalDot(context, 'risk-disappearance', 20);
+      this.drawEvalDot(context, 'risk-disappearance', 35);
+      
+      // Transparency
+      this.drawPreDot(context, 'risk-transparency');
+      this.drawRiskDot(context, 'risk-transparency', this.risk4Letter);
+      this.drawEvalDot(context, 'risk-transparency', -7);
+
+      // Unlinkability
+      this.drawPreDot(context, 'risk-unlinkability');
+      this.drawRiskDot(context, 'risk-unlinkability', this.risk5Letter);
+      this.drawEvalDot(context, 'risk-unlinkability', -21);
+      
+      // Intevenability
+      this.drawPreDot(context, 'risk-intervenability');
+      this.drawRiskDot(context, 'risk-intervenability', this.risk6Letter);
+      this.drawEvalDot(context, 'risk-intervenability', -35);
 
       // Gradient color definition for dotted lines
       const grad = context.createLinearGradient(50, 50, 150, 150);
@@ -354,9 +430,12 @@ export class RisksCartographyComponent implements OnInit, OnDestroy {
       context.setLineDash([3, 2]);
       context.lineWidth = 1;
 
-      this.drawDotLine(context, 'risk-access', 0);
-      this.drawDotLine(context, 'risk-change', 10);
-      this.drawDotLine(context, 'risk-disappearance', 20);
+      this.drawDotLine(context, 'risk-access', 7);
+      this.drawDotLine(context, 'risk-change', 21);
+      this.drawDotLine(context, 'risk-disappearance', 35);
+      this.drawDotLine(context, 'risk-transparency', -7);
+      this.drawDotLine(context, 'risk-unlinkability', -21);
+      this.drawDotLine(context, 'risk-intervenability', -35);
   }
 
 

@@ -97,11 +97,19 @@ export class QuestionsComponent implements OnInit, OnDestroy {
         entries.forEach(entry => {
           if (entry.data.list && entry.data.list.length > 0) {
             // All user answers for Impacts
-            if (entry.reference_to === 321 || entry.reference_to === 331 || entry.reference_to === 341) {
+            if (entry.reference_to === 321 || entry.reference_to === 331 || 
+              entry.reference_to === 341 || entry.reference_to === 351 ||
+              entry.reference_to === 361 || entry.reference_to === 371) {
               this.allUserAnswersForImpacts.push(entry.data.list);
-            } else if (entry.reference_to === 322 || entry.reference_to === 332 || entry.reference_to === 342) { // All user answers for Threats
+            } else if (entry.reference_to === 322 || entry.reference_to === 332 ||
+              entry.reference_to === 342 || entry.reference_to === 352 ||
+              entry.reference_to === 362 || entry.reference_to === 372) { 
+              // All user answers for Threats
               this.allUserAnswersForThreats.push(entry.data.list);
-            } else if (entry.reference_to === 323 || entry.reference_to === 333 || entry.reference_to === 343) { // All user answers for Sources
+            } else if (entry.reference_to === 323 || entry.reference_to === 333 ||
+              entry.reference_to === 343 || entry.reference_to === 353 ||
+              entry.reference_to === 363 || entry.reference_to === 373) { 
+              // All user answers for Sources
               this.allUserAnswersForSources.push(entry.data.list);
             }
           }
@@ -111,13 +119,22 @@ export class QuestionsComponent implements OnInit, OnDestroy {
         this.allUserAnswersForSources = [].concat.apply([], this.allUserAnswersForSources);
 
         // Si la question courante concerne les impacts (321, 331, 341)
-        if (this.question.id === 321 || this.question.id === 331 || this.question.id  === 341) {
+        // and (351, 361, 371)
+        if (this.question.id === 321 || this.question.id === 331 || 
+            this.question.id === 341 || this.question.id === 351 ||
+            this.question.id === 361 || this.question.id === 371) {
           this.userAnswersToDisplay = this.allUserAnswersForImpacts;
-        } else if (this.question.id === 322 || this.question.id === 332 || this.question.id  === 342) {
+        } else if (this.question.id === 322 || this.question.id === 332 ||
+                   this.question.id === 342 || this.question.id === 352 ||
+                   this.question.id === 362 || this.question.id === 372) {
           // Sinon si la question courante concerne les menaces (322, 332, 342)
+          // and (352, 362, 372)
           this.userAnswersToDisplay = this.allUserAnswersForThreats;
-        } else if (this.question.id === 323 || this.question.id === 333 || this.question.id  === 343) {
+        } else if (this.question.id === 323 || this.question.id === 333 ||
+                   this.question.id === 343 || this.question.id === 353 ||
+                   this.question.id === 363 || this.question.id === 373) {
           // Sinon si la question courante concerne les sources (323, 333, 343)
+          // and (353, 363, 373)
           this.userAnswersToDisplay = this.allUserAnswersForSources;
         }
         this.userAnswersToDisplay = this.userAnswersToDisplay.reduce((a, x) => a.includes(x) ? a : [...a, x], []).sort();

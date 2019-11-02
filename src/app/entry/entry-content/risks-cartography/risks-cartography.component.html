@@ -28,6 +28,12 @@
               {{ 'cartography.legend2' | translate }}</li>
             <li *ngIf="checkRiskExist('risk-disappearance')">
               {{ 'cartography.legend3' | translate }}</li>
+            <li *ngIf="checkRiskExist('risk-transparency')">
+              {{ 'cartography.legend4' | translate }}</li>
+            <li *ngIf="checkRiskExist('risk-unlinkability')">
+              {{ 'cartography.legend5' | translate }}</li>
+            <li *ngIf="checkRiskExist('risk-intervenability')">
+              {{ 'cartography.legend6' | translate }}</li>
           </ul>
         </div>
         <!-- Legend for Risks Categories -->
@@ -35,11 +41,11 @@
           <p class="title">{{ 'cartography.title2' | translate }}</p>
           <ul class="measures">
             <li *ngIf="checkMeasureExist('pre')" class="pre">
-              {{ 'cartography.legend4' | translate }}</li>
+              {{ 'cartography.legend7' | translate }}</li>
             <li>
-              {{ 'cartography.legend5' | translate }}</li>
+              {{ 'cartography.legend8' | translate }}</li>
             <li *ngIf="checkMeasureExist('evaluator')" class="eval">
-              {{ 'cartography.legend6' | translate }}</li>
+              {{ 'cartography.legend9' | translate }}</li>
           </ul>
         </div><!--
         --><div class="pia-cartographyBlock-probability">{{ 'cartography.likelihood_axe' | translate }}</div>

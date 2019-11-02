@@ -177,7 +177,11 @@ export class OverviewRisksComponent implements OnInit {
     y = 140;
     dataNav.sections.forEach((section: any) => {
       section.items.forEach((item: any) => {
-        if (item.evaluation_with_gauge) {
+        if(section.id === 3 && (item.id === 5 || item.id === 6 || item.id === 7)) {   
+          // Skip Risk Overview for TUI (item 5,6,7)
+          console.log('Skipping item.id');
+          console.log(item.id);
+        } else if (item.evaluation_with_gauge) {
           const id = section.id.toString() + item.id.toString();
           const x = 380;
           const g = this.svg.append('g').attr('data-right', id);
@@ -242,7 +246,7 @@ export class OverviewRisksComponent implements OnInit {
           y += 12;
           g.append('text').attr('x', x).attr('y', y).text(name_2).attr('class', 'c' + id);
           const questionGauges = item.questions.filter((question) => {
-            return question.answer_type === 'gauge';
+              return question.answer_type === 'gauge';
           });
           this.parseQuestions(questionGauges, g, x, y);
           y += 140;

@@ -138,8 +138,9 @@ export class EntryComponent implements OnInit, OnDestroy, DoCheck {
       this._measureService.listMeasures(this._piaService.pia.id).then(() => {
 
         /* Modal for risks if no measures yet */
-        let displayModal = true;
-        if ((this.section.id === 3) && (this.item.id === 2 || this.item.id === 3 || this.item.id === 4)) {
+        let displayModal = true;  
+        if ((this.section.id === 3) && !(this.item.id === 1 || this.item.id === 8)) {
+          // if CIA (2,3,4) or TUI (5,6,7)
           if (this._measureService.measures.length > 0) {
             this._measureService.measures.forEach(element => {
               if (element.title && element.title.length > 0) {
