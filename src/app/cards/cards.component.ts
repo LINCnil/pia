@@ -194,16 +194,15 @@ export class CardsComponent implements OnInit, OnDestroy {
   private sortPia() {
     console.log('all pias: ', this._piaService.pias);
 
-    const loggedUser = localStorage.getItem('loggedUser');
+    const loggedUser = JSON.parse(localStorage.getItem('loggedUser'));
     console.log('user: ', loggedUser);
 
     let userPias = this._piaService.pias.filter(pia => {
-      console.log('pia in filter: ', pia);
-      console.log('pia author_name: ', pia.author_name);
-      console.log('user in filter: ', loggedUser);
-      console.log(typeof loggedUser);
-      console.log(typeof pia.author_name);
-      return pia.author_name !== loggedUser;
+      return (
+        pia.author_name === loggedUser ||
+        pia.validator_name === loggedUser ||
+        pia.evaluator_name === loggedUser
+      );
     });
 
     console.log('sorted pias: ', userPias);

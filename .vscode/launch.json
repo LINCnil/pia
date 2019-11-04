@@ -12,10 +12,11 @@
       "webRoot": "${workspaceFolder}/src"
     },
     {
+      "name": "Launch Chrome with gulp serve",
       "type": "chrome",
       "request": "launch",
-      "name": "Launch Chrome against localhost",
-      "url": "http://localhost:8080",
+      "runtimeArgs": ["--remote-debugging-port=9222"],
+      "url": "http://localhost:4200/#/home",
       "webRoot": "${workspaceFolder}/src"
     }
   ]
