@@ -40,7 +40,8 @@
               "src/manifest.json",
               "src/mstitle-150x150.png",
               "src/safari-pinned-tab.svg",
-              "src/assets/mocks/getAvailableUsers.json"
+              "src/assets/mocks/getAvailableUsers.json",
+              "src/assets/mocks/retreiveProfile.json"
             ],
             "styles": ["src/styles.scss"],
             "scripts": [

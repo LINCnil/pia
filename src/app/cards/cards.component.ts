@@ -42,7 +42,26 @@ export class CardsComponent implements OnInit, OnDestroy {
       this._structureService.structures = data;
     });
 
-    console.log('asd asd asd: ', structure);
+    fetch('http://localhost:4200/assets/mocks/retrieveProfile.json', {
+      method: 'GET',
+      mode: 'cors'
+    })
+      .then(response => {
+        return response.json();
+      })
+
+      .then(data => {
+        console.log('cards.component.ts data: ', data);
+        localStorage.setItem(
+          'Logged user',
+          JSON.stringify(data.ProfileDetail.userDetailsField.idField)
+        );
+      })
+      .catch(error => {
+        console.error('Request failed', error);
+      });
+
+    console.log('OnInit(): ', structure);
 
     this.sortOrder = localStorage.getItem('sortOrder');
     this.sortValue = localStorage.getItem('sortValue');
@@ -74,8 +93,6 @@ export class CardsComponent implements OnInit, OnDestroy {
     this.importPiaForm = new FormGroup({
       import_file: new FormControl('', [])
     });
-
-    
   }
 
   ngOnDestroy() {
@@ -87,7 +104,7 @@ export class CardsComponent implements OnInit, OnDestroy {
    */
   newPIA() {
     this.newPia = new Pia();
-    console.log('asd asd asd: ', this.newPia);
+    console.log('new PIA: ', this.newPia);
     const cardsToSwitch = document.getElementById('cardsSwitch');
     cardsToSwitch.classList.toggle('flipped');
     const rocketToHide = document.getElementById('pia-rocket');

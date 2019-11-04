@@ -1,0 +1,184 @@
+{
+  "ResponseResult": {
+    "resultField": 0,
+    "errorField": null,
+    "PropertyChanged": null
+  },
+  "ProfileDetail": {
+    "userDetailsField": {
+      "idField": "digioni",
+      "firstNameField": "Nicola",
+      "lastNameField": "Di Giorgio",
+      "isActiveField": false,
+      "mobileField": "0123456",
+      "emailField": "Nicola.DiGiorgio@generali.be",
+      "languageField": 0,
+      "PropertyChanged": null
+    },
+    "userKeyField": {
+      "userNumberField": "83449",
+      "userTypeField": 0,
+      "PropertyChanged": null
+    },
+    "applicationsRightField": [
+      "NonLife",
+      "Quittance",
+      "Incentive",
+      "Commandes",
+      "Phonebook",
+      "Portal",
+      "Gbs",
+      "Pivi",
+      "Genicar",
+      "Genihome",
+      "Claims",
+      "QuittanceClient",
+      "SME",
+      "SubLoginAdmin",
+      "SecuredExchangeZone",
+      "SecuredExchangeZoneAdmin"
+    ],
+    "currentAgencyField": {
+      "agencyField": {
+        "idField": "BRO83449",
+        "groupField": null,
+        "numberField": "83449",
+        "nameField": "CUYPERS ZAKENKANTOOR",
+        "addressField": {
+          "addressField": "KERKPLEIN",
+          "streetNumberField": "5",
+          "postBoxField": "",
+          "localityField": {
+            "zipCodeField": "2491",
+            "nameField": "OLMEN",
+            "PropertyChanged": null
+          },
+          "countryField": "BELGIE",
+          "PropertyChanged": null
+        },
+        "addressXYField": {
+          "xField": 5.160699,
+          "yField": 51.1338157,
+          "PropertyChanged": null
+        },
+        "cBFAField": "010597",
+        "fSMAField": "010597 A             ",
+        "phoneNumber1Field": "014/30.05.18",
+        "phoneNumber2Field": "",
+        "gsmField": "",
+        "faxField": "014/30.05.69",
+        "emailField": "INFO@ZKTCUYPERS.BE",
+        "emailBranchLeadField": "INFO@ZKTCUYPERS.BE",
+        "websiteURLField": "www.zktcuypers.be",
+        "languageField": 1,
+        "languageCodeField": "1",
+        "brocomYNField": false,
+        "gForceYNField": false,
+        "logoURLField": null,
+        "inspectorField": [
+          {
+            "userNumberField": "23",
+            "userTypeField": 3,
+            "PropertyChanged": null
+          }
+        ],
+        "starsField": 3,
+        "entrepriseNumberField": "(BE)0429.374.656",
+        "additionalInformationField": [
+          {
+            "keyField": "isEPartner",
+            "valueField": "False",
+            "PropertyChanged": null
+          }
+        ],
+        "PropertyChanged": null
+      },
+      "roleField": {
+        "idField": "Administrator",
+        "displayNameFrField": "",
+        "displayNameNlField": "",
+        "PropertyChanged": null
+      },
+      "agencyTypeField": "",
+      "PropertyChanged": null
+    },
+    "allUserAgenciesField": [
+      {
+        "roleNameFrField": "",
+        "roleNameNlField": "",
+        "roleIdField": "Administrator",
+        "numberField": "83449",
+        "groupField": null,
+        "idField": "BRO83449",
+        "nameField": "CUYPERS ZAKENKANTOOR",
+        "agencyTypeField": "",
+        "PropertyChanged": null
+      },
+      {
+        "roleNameFrField": "",
+        "roleNameNlField": "",
+        "roleIdField": "Administrator",
+        "numberField": "05000",
+        "groupField": null,
+        "idField": "BRO05000",
+        "nameField": "GENERALI BELGIUM",
+        "agencyTypeField": "",
+        "PropertyChanged": null
+      },
+      {
+        "roleNameFrField": "",
+        "roleNameNlField": "",
+        "roleIdField": "Employee",
+        "numberField": "05000",
+        "groupField": null,
+        "idField": "PROF_SuppIT",
+        "nameField": "IT support",
+        "agencyTypeField": "",
+        "PropertyChanged": null
+      },
+      {
+        "roleNameFrField": "",
+        "roleNameNlField": "",
+        "roleIdField": "Manager",
+        "numberField": "00245",
+        "groupField": null,
+        "idField": "BRO00245",
+        "nameField": "NOUVELLES ASSURANCES",
+        "agencyTypeField": "",
+        "PropertyChanged": null
+      },
+      {
+        "roleNameFrField": "",
+        "roleNameNlField": "",
+        "roleIdField": "Employee",
+        "numberField": "0693",
+        "groupField": null,
+        "idField": "EMP0693",
+        "nameField": "PIONEER EUROPE",
+        "agencyTypeField": "",
+        "PropertyChanged": null
+      }
+    ],
+    "inspectorDetailsField": null,
+    "employerDetailsField": null,
+    "customerDetailsField": null,
+    "onBehalfsField": {
+      "currentOnBehalfUserField": "",
+      "userListField": [
+        {
+          "mandatorIdField": "*",
+          "mandatorDisplayNameField": "*",
+          "PropertyChanged": null
+        }
+      ],
+      "PropertyChanged": null
+    },
+    "authenticationField": {
+      "methodField": "Gensite",
+      "realmsField": "athora",
+      "PropertyChanged": null
+    },
+    "permissionField": null,
+    "PropertyChanged": null
+  }
+}
