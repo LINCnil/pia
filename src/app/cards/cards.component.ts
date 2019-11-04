@@ -53,7 +53,7 @@ export class CardsComponent implements OnInit, OnDestroy {
       .then(data => {
         console.log('cards.component.ts data: ', data);
         localStorage.setItem(
-          'Logged user',
+          'loggedUser',
           JSON.stringify(data.ProfileDetail.userDetailsField.idField)
         );
       })
@@ -62,6 +62,9 @@ export class CardsComponent implements OnInit, OnDestroy {
       });
 
     console.log('OnInit(): ', structure);
+
+    const loggedUser = localStorage.getItem('loggedUser');
+    console.log(loggedUser);
 
     this.sortOrder = localStorage.getItem('sortOrder');
     this.sortValue = localStorage.getItem('sortValue');
