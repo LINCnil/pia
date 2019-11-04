@@ -61,9 +61,6 @@ export class CardsComponent implements OnInit, OnDestroy {
         console.error('Request failed', error);
       });
 
-    const loggedUser = localStorage.getItem('loggedUser');
-    console.log(loggedUser);
-
     this.sortOrder = localStorage.getItem('sortOrder');
     this.sortValue = localStorage.getItem('sortValue');
     if (!this.sortOrder || !this.sortValue) {
@@ -195,7 +192,22 @@ export class CardsComponent implements OnInit, OnDestroy {
    * Define how to sort the list.
    */
   private sortPia() {
-    this._piaService.pias.sort((a, b) => {
+    console.log('all pias: ', this._piaService.pias);
+
+    const loggedUser = localStorage.getItem('loggedUser');
+    console.log('user: ', loggedUser);
+
+    const userPias = this._piaService.pias.filter(pia => {
+      console.log('pia in filter: ', pia);
+      console.log('pia author_name: ', pia.author_name);
+      console.log('user in filter: ', loggedUser);
+      return pia.author_name == loggedUser;
+    });
+
+    console.log('sorted pias: ', userPias);
+
+    // this._piaService.pias.sort((a, b) => {
+    userPias.sort((a, b) => {
       let firstValue = a[this.sortValue];
       let secondValue = b[this.sortValue];
       if (this.sortValue === 'updated_at' || this.sortValue === 'created_at') {
