@@ -44,12 +44,12 @@ export class PiaService {
           mode: 'cors'
         })
           .then(response => {
-            console.log('pia.service.ts result: ', response);
             return response.json();
           })
 
           .then(data => {
             console.log('pia.service.ts data: ', data);
+            localStorage.setItem('availableUsers', JSON.stringify(data));
             resolve(data);
           })
           .catch(error => {
