@@ -61,8 +61,6 @@ export class CardsComponent implements OnInit, OnDestroy {
         console.error('Request failed', error);
       });
 
-    console.log('OnInit(): ', structure);
-
     const loggedUser = localStorage.getItem('loggedUser');
     console.log(loggedUser);
 
