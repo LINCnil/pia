@@ -1,4 +1,4 @@
-import {Component, OnInit, ElementRef, OnDestroy, Input} from '@angular/core';
+import { Component, OnInit, ElementRef, OnDestroy, Input } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Subscription } from 'rxjs';
@@ -16,7 +16,6 @@ import { Structure } from 'src/app/structures/structure.model';
   styleUrls: ['./cards.component.scss'],
   providers: [PiaService, StructureService]
 })
-
 export class CardsComponent implements OnInit, OnDestroy {
   @Input() pia: any;
   newPia: Pia;
@@ -24,22 +23,26 @@ export class CardsComponent implements OnInit, OnDestroy {
   importPiaForm: FormGroup;
   sortOrder: string;
   sortValue: string;
-  viewStyle: { view: string }
+  viewStyle: { view: string };
   view: 'card';
   paramsSubscribe: Subscription;
 
-  constructor(private router: Router,
-              private el: ElementRef,
-              private route: ActivatedRoute,
-              public _modalsService: ModalsService,
-              public _piaService: PiaService,
-              public _structureService: StructureService) { }
+  constructor(
+    private router: Router,
+    private el: ElementRef,
+    private route: ActivatedRoute,
+    public _modalsService: ModalsService,
+    public _piaService: PiaService,
+    public _structureService: StructureService
+  ) {}
 
   ngOnInit() {
     const structure = new Structure();
     structure.getAll().then((data: any) => {
       this._structureService.structures = data;
     });
+
+    console.log('asd asd asd: ', structure);
 
     this.sortOrder = localStorage.getItem('sortOrder');
     this.sortValue = localStorage.getItem('sortValue');
@@ -60,11 +63,9 @@ export class CardsComponent implements OnInit, OnDestroy {
     this.viewStyle = {
       view: this.route.snapshot.params.view
     };
-    this.paramsSubscribe = this.route.params.subscribe(
-      (params: Params) => {
-        this.viewStyle.view = params.view;
-      }
-    );
+    this.paramsSubscribe = this.route.params.subscribe((params: Params) => {
+      this.viewStyle.view = params.view;
+    });
     if (localStorage.getItem('homepageDisplayMode') === 'list') {
       this.viewOnList();
     } else {
@@ -73,6 +74,8 @@ export class CardsComponent implements OnInit, OnDestroy {
     this.importPiaForm = new FormGroup({
       import_file: new FormControl('', [])
     });
+
+    
   }
 
   ngOnDestroy() {
@@ -84,6 +87,7 @@ export class CardsComponent implements OnInit, OnDestroy {
    */
   newPIA() {
     this.newPia = new Pia();
+    console.log('asd asd asd: ', this.newPia);
     const cardsToSwitch = document.getElementById('cardsSwitch');
     cardsToSwitch.classList.toggle('flipped');
     const rocketToHide = document.getElementById('pia-rocket');
@@ -180,8 +184,12 @@ export class CardsComponent implements OnInit, OnDestroy {
         firstValue = new Date(a[this.sortValue]);
         secondValue = new Date(b[this.sortValue]);
       }
-      if (this.sortValue === 'name' || this.sortValue === 'author_name' ||
-          this.sortValue === 'evaluator_name' || this.sortValue === 'validator_name') {
+      if (
+        this.sortValue === 'name' ||
+        this.sortValue === 'author_name' ||
+        this.sortValue === 'evaluator_name' ||
+        this.sortValue === 'validator_name'
+      ) {
         return firstValue.localeCompare(secondValue);
       } else {
         if (firstValue < secondValue) {
