@@ -193,6 +193,7 @@ export class CardsComponent implements OnInit, OnDestroy {
   private sortPia() {
     const loggedUser = JSON.parse(localStorage.getItem('loggedUser'));
 
+    // Filter to show only pias that are associated with the logged in user
     let userPias = this._piaService.pias.filter(pia => {
       return (
         pia.author_name === loggedUser ||
@@ -201,10 +202,10 @@ export class CardsComponent implements OnInit, OnDestroy {
       );
     });
 
+    this._piaService.pias = userPias;
     console.log('sorted pias: ', userPias);
 
-    // this._piaService.pias.sort((a, b) => {
-    userPias.sort((a, b) => {
+    this._piaService.pias.sort((a, b) => {
       let firstValue = a[this.sortValue];
       let secondValue = b[this.sortValue];
       if (this.sortValue === 'updated_at' || this.sortValue === 'created_at') {
