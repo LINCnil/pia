@@ -60,6 +60,13 @@ export class CardsComponent implements OnInit, OnDestroy {
         console.error('Request failed', error);
       });
 
+    // Populate available users to use in the card
+    const availableUsers = JSON.parse(localStorage.getItem('availableUsers'));
+
+    availableUsers.users.forEach(user => {
+      this._piaService.availableUsers.push(user);
+    });
+
     this.sortOrder = localStorage.getItem('sortOrder');
     this.sortValue = localStorage.getItem('sortValue');
     if (!this.sortOrder || !this.sortValue) {
@@ -101,13 +108,6 @@ export class CardsComponent implements OnInit, OnDestroy {
    */
   newPIA() {
     this.newPia = new Pia();
-
-    // Populate available users to use in the card
-    const availableUsers = JSON.parse(localStorage.getItem('availableUsers'));
-
-    availableUsers.users.forEach(user => {
-      this._piaService.availableUsers.push(user);
-    });
 
     const cardsToSwitch = document.getElementById('cardsSwitch');
     cardsToSwitch.classList.toggle('flipped');
