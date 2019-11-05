@@ -99,9 +99,17 @@
                 <label for="evaluator_name">{{ 'homepage.cards.evaluation' | translate }}</label>
                 <input formControlName="evaluator_name" type="text" placeholder="{{ 'homepage.cards.placeholder_evaluation' | translate }}" id="evaluator_name" required>
               </div>
-              <div>
+              <!-- <div>
                 <label for="validator_name">{{ 'homepage.cards.validation' | translate }}</label>
                 <input formControlName="validator_name" type="text" placeholder="{{ 'homepage.cards.placeholder_validation' | translate }}" id="validator_name" required>
+              </div> -->
+              <div>
+                <label for="validator_name">{{ 'homepage.cards.validation' | translate }}</label>
+                <div  class="pia-structure-wrapper">
+                  <select formControlName="validator_name" id="structure" required>
+                    <option *ngFor="let user of _piaService.availableUsers" [selected]="_piaService.placeholder" [ngValue]="user.username">{{user.username}}</option>
+                  </select>
+                </div>
               </div>
               <div>
                 <label for="structure">{{ 'homepage.cards.structure' | translate }}</label>

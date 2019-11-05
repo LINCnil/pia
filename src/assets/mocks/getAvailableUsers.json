@@ -1,8 +1,8 @@
 {
   "users": [
-    { "username": "test1", "name": "Test One" },
-    { "username": "test2", "name": "Test Two" },
-    { "username": "test3", "name": "Test Three" },
-    { "username": "test4", "name": "Test Four" }
+    { "username": "user1", "name": "User One" },
+    { "username": "user2", "name": "User Two" },
+    { "username": "user3", "name": "User Three" },
+    { "username": "user4", "name": "User Four" }
   ]
 }

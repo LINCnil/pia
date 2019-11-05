@@ -14,6 +14,7 @@ import { ModalsService } from 'src/app/modals/modals.service';
 @Injectable()
 export class PiaService {
   pias = [];
+  availableUsers = [];
   pia: Pia = new Pia();
   answer: Answer = new Answer();
   data: { sections: any };
@@ -39,6 +40,7 @@ export class PiaService {
           resolve();
         });
       } else {
+        // Get available users
         fetch('http://localhost:4200/assets/mocks/getAvailableUsers.json', {
           method: 'GET',
           mode: 'cors'
