@@ -101,6 +101,7 @@ export class CardsComponent implements OnInit, OnDestroy {
    * Creates a new PIA card and adds a flip effect to go switch between new PIA and edit PIA events.
    */
   newPIA() {
+    console.log('newPIA() called');
     this.newPia = new Pia();
     const cardsToSwitch = document.getElementById('cardsSwitch');
     cardsToSwitch.classList.toggle('flipped');
