@@ -48,7 +48,6 @@ export class PiaService {
           })
 
           .then(data => {
-            console.log('pia.service.ts data: ', data);
             localStorage.setItem('availableUsers', JSON.stringify(data));
             resolve(data);
           })
