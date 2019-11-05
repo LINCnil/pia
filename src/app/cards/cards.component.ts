@@ -51,7 +51,6 @@ export class CardsComponent implements OnInit, OnDestroy {
       })
 
       .then(data => {
-        console.log('cards.component.ts data: ', data);
         localStorage.setItem(
           'loggedUser',
           JSON.stringify(data.ProfileDetail.userDetailsField.idField)
@@ -204,7 +203,6 @@ export class CardsComponent implements OnInit, OnDestroy {
     });
 
     this._piaService.pias = userPias;
-    console.log('sorted pias: ', userPias);
 
     this._piaService.pias.sort((a, b) => {
       let firstValue = a[this.sortValue];
