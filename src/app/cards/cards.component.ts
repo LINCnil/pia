@@ -102,7 +102,6 @@ export class CardsComponent implements OnInit, OnDestroy {
    */
   newPIA() {
     this.newPia = new Pia();
-    console.log('new PIA: ', this.newPia);
     const cardsToSwitch = document.getElementById('cardsSwitch');
     cardsToSwitch.classList.toggle('flipped');
     const rocketToHide = document.getElementById('pia-rocket');
@@ -192,10 +191,7 @@ export class CardsComponent implements OnInit, OnDestroy {
    * Define how to sort the list.
    */
   private sortPia() {
-    console.log('all pias: ', this._piaService.pias);
-
     const loggedUser = JSON.parse(localStorage.getItem('loggedUser'));
-    console.log('user: ', loggedUser);
 
     let userPias = this._piaService.pias.filter(pia => {
       return (
