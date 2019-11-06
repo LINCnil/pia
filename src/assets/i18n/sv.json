@@ -1,0 +1,1402 @@
+{
+	"about": {
+		"contribute": "Om du vill bidra med översättning av denna mjukvara till ett annat språk eller förbättra redan gjorda översättningar så välkomnar vi dig till <a href=\"https://github.com/LINCnil/pia/tree/master/src/assets/i18n\" target=\"_blank\">läs där hur det går till </a>.",
+		"description": "Detta verktyg är ursprungligen utvecklat av <a target=\\\"_blank\\\" href=\\\"https://www.cnil.fr\\\">Commission Nationale Informatique et Liberté (CNIL)</a>, den franska datainspektionen, för att hjälpa personuppgiftsansvariga att säkerställa att behandlingar överensstämmer med den allmänna dataskyddsförordningen (DSF, även refererad till som \"GDPR\"). Verktyget är utvecklat av <a href=\\\"https://atnos.com\\\" target=\\\"_blank\\\">ATNOS</a>.<br>Detta verktyg är utvecklat med öppen källkod enligt licenstypen GPLv3. Om du vill bidra till detta projekt så är du välkommen att ladda ner källkoden från Github, modifiera den och dela den i forumet.",
+		"licences": "Bibliotekslicenser:",
+		"title": "Om PIA-verktyget",
+		"translators": "PIA-verktyget är för närvarande tillgängligt på 19 språk. De franska och engelska versionerna är producerade av CNIL. Övriga versioner är resultat av följande individers översättningsarbete:",
+		"translators_name": "<ul><li>Croatian : <a target=\"_blank\" href=\"https://github.com/B2KapitalBA\">B2KapitalBA</a> ;</li><li>Czech : Jiří Grohmann, Manuel d’Orso ;</li><li>Danish : <a target=\"_blank\" href=\"https://github.com/moolsen\">Michael Drews Olsen</a> ;</li><li>Dutch : Ruud van Driel, Manuel d’Orso ;</li><li>English : <a target=\"_blank\" href=\"https://www.cnil.fr\">CNIL</a> ;</li><li>Estonian : Eva Arumets, Lauri Bender, Rebeka Dronia, Kärol Kibena, Simon Suuban, <a target=\"_blank\" href=\"https://kochpartners.ee/en/people/urmas-kukk/\">Urmas Kukk, <a target=\"_blank\" href=\"https://github.com/PrivacyAssessment1\">PrivacyAssessment1</a> ;</li><li>Finnish : <a target=\"_blank\" href=\"https://tietosuoja.fi/etusivu\">Tietosuojavaltuutetun toimisto</a> ;</li><li>French : <a target=\"_blank\" href=\"https://www.cnil.fr\">CNIL</a> ;</li><li>German : <a target=\"_blank\" href=\"https://github.com/kosmas58\">Kosmas Schütz</a> , Corina Scheiter (<a target=\"_blank\" href=\"https://www.datenschutz-bayern.de/\">BayLfD</a>) ;</li><li>Greek : <a target=\"_blank\" href=\"https://tzellis.gr\">Dimitris Tzellis</a> ;</li><li>Hungarian : <a target=\"_blank\" href=\"https://naih.hu/\">Nemzeti Adatvédelmi és Információszabadság Hatóság (NAIH)</a> ;</li><li>Italian : Manuel d’Orso, Gianluca Markos, Antonio Caselli (<a target=\"_blank\" href=\"http://gpdp.it\">Garante per la Protezione dei Dai Personali (GPDP)</a>) ;</li><li>Lithuanian : Paulius Galubickas (<a target=\"_blank\" href=\"http://galubickas.lt\">Law firm Galubickas</a>) ;</li><li>Norwegian : <a target=\"_blank\" href=\"https://www.datatilsynet.no\">Datatilsynet</a> ;</li><li>Polish : <a target=\"_blank\" href=\"https://github.com/JoannaKar\">Joanna Karczewska</a> , Michal Mazur (<a target=\"_blank\" href=\"https://giodo.gov.pl\">Generalny Inspektor Ochrony Danych Osobowych (GIODO)</a>) ;</li><li>Portuguese : <a target=\"_blank\" href=\"https://github.com/bagois\">Barbara Gois</a> ;</li><li>Romanian : <a target=\"_blank\" href=\"https://github.com/webmyday\">webmyday</a> ;</li><li>Spanish : <a target=\"_blank\" href=\"https://github.com/ylachgar\">ylachgar</a> .</li></ul>",
+		"version_number": "Versionsnummer"
+	},
+	"action_plan": {
+		"acceptable_measures": "Acceptabla åtgärder",
+		"edit": "Redigera",
+		"improvable_measures": "Förbättringsbara åtgärder",
+		"measures": "Planerade eller befintliga åtgärder",
+		"no_action_plan": "Ingen registrerad åtgärdsplan",
+		"placeholder_person_in_charge": "Ansvarig för utförandet",
+		"principles": "Fundamentala principer",
+		"risk1": "Obehörig åtkomst till personuppgifter",
+		"risk2": "Oönskade förändringar av personuppgifter",
+		"risk3": "Förlust av personuppgifter",
+		"risks": "Risker",
+		"title": "Översikt"
+	},
+	"authentication": {
+		"description": "Denna mjukvara som är producerad av <strong>Commission Nationale de l'Informatique et des Libertés (CNIL)</strong> är utvecklad för att hjälpa personuppgiftsansvariga att uppfylla och vidmakthålla överensstämmelse med DSF (GDPR) i sin behandling av personuppgifter. Den ger stöd för att utföra en standardiserad konsekvensanalys (PIA/DPIA) med hjälp av en metodik utvecklad av CNIL",
+		"start": "Start",
+		"start_app": "Starta konsekvensanalysen (Beta)",
+		"subtitle1": "En plattform för att utföra <br> samt att hantera utförda konsekvensanalyser (PIA - Privacy Impact Assessment)",
+		"subtitle2": "Verktyg och ordlistor",
+		"title": "Konsekvensanalys avseende hanterande av personuppgifter"
+	},
+	"cartography": {
+		"important": "Viktigt",
+		"legend1": "Planerade eller befintliga åtgärder",
+		"legend2": "Med utförda åtgärder",
+		"legend3": "(O)behörig åtkomst till personuppgifter",
+		"legend4": "(I)cke önskade förändringar av personuppgifter",
+		"legend5": "(F)örlust av personuppgifter",
+		"likelihood_axe": "Sannolikhet för risk",
+		"limited": "Begränsad",
+		"maximal": "Maximal",
+		"negligible": "Obetydlig",
+		"risk1_access": "(O)",
+		"risk2_modification": "(I)",
+		"seriousness_axe": "Riskens allvarlighetsgrad"
+	},
+	"comments": {
+		"comment": "Kommentar",
+		"comments_count": "Kommentarer (antal)",
+		"new_comment": "Kommentera",
+		"placeholder_new_comment": "Skriv en kommentar",
+		"send": "Skicka"
+	},
+	"errors": {
+		"content": "Om du stöter på andra problem eller om du har förslag på förbättringar, <br> så kan du beskriva och sända dem via detta formulär: <a href=\"https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia\" target=\"_blank\">https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia</a>",
+		"title": "Finner inte sidan."
+	},
+	"evaluations": {
+		"acceptable": "Godkänd",
+		"action_plan_comment": "Åtgärdsplan / Korrigeringsåtgärder",
+		"evaluation_comment": "Granskningskommentarer",
+		"gauges": {
+			"0": "(Odefinierad)",
+			"1": "Obetydlig",
+			"2": "Begränsad",
+			"3": "Allvarlig",
+			"4": "Maximal",
+			"likelihood": "Med hänsyn tagen till att åtgärdsplanen följts, hur bedömer du <span class = 'red-highlight'>sannolikheten för att den resterande risken inträffar</span> ({{value}}) ?",
+			"seriousness": "Med hänsyn tagen till att åtgärdsplanen följts, hur bedömer du <span class = 'red-highlight'> allvarlighetsgraden för den resterande risken  </span> ({{value}}) ?"
+		},
+		"improvable": "Kan förbättras",
+		"placeholder_acceptable": "Ge en förklarande kommentar kring varför de åtgärder som utförts är tillräckliga för att ge ett tillräckligt skydd av personuppgifterna",
+		"placeholder_improvable1": "Ge en förklarande kommentar kring vilka ytterligare åtgärder som bör utföras för att ge ett tillräckligt skydd av personuppgifterna",
+		"placeholder_improvable2": "Skriv dina kommentarer.",
+		"placeholder_to_correct": "Ge en förklarande kommentar kring varför dessa åtgärder inte ger ett tillräckligt skydd av personuppgifterna. Återsändes till PIA-utföraren för att kompletteras med ytterligare åtgärder.",
+		"status": [
+			"Ofärdigt",
+			"Att korrigera",
+			"Förbättringsbart",
+			"Godkänt"
+		],
+		"title": "Utvärdering",
+		"to_correct": "Att korrigera"
+	},
+	"header": {
+		"exit_full_screen_mode": "Tryck på F11 för att lämna fullskärmsläge",
+		"homepage_link": "Hem",
+		"knowledge_base_link": "Kunskapsbas",
+		"languages": {
+			"cnil_translations": "",
+			"community_translations": "Översättning genomförd av frivilligt forum",
+			"cz": "Tjeckiska",
+			"de": "Tyska",
+			"dk": "Danska",
+			"dpa_translations": "Översättning som är kontrollerad av europeisk auktoriserad myndighet",
+			"el": "",
+			"en": "Engelska",
+			"es": "Spanska",
+			"et": "Estniska",
+			"fi": "Finska",
+			"fr": "Franska",
+			"hr": "Kroatiska",
+			"hu": "Ungerska",
+			"it": "Italienska",
+			"lt": "Lituanska",
+			"nl": "Holländska",
+			"no": "Norska",
+			"official_translation": "Ursprungsversion",
+			"pl": "Polska",
+			"pt": "Portugisiska",
+			"ro": "Romanska",
+			"sl": "Slovenska"
+		},
+		"logo_subtitle": "PIA - Konsekvensanalys",
+		"logo_title": "PIA - Konsekvensanalys",
+		"pia_example_link": "Konsekvensanalysexempel",
+		"structures": "PIA - mallar",
+		"tools": {
+			"about": "Om",
+			"accessibility": "Tillgänglighet för funktionsvariationer (skarpa kontrastfärger, anpassning till färgblindhet)",
+			"help": "Hjälp",
+			"settings": "Inställningar",
+			"title": "Verktyg"
+		}
+	},
+	"help": {
+		"definition": {
+			"data1": {
+				"content": "Innehåll under pågående bearbetning",
+				"title": "Använd PIA verktyget"
+			},
+			"data2": {
+				"qa1": {
+					"content": "Om du får problem med skärmbilden så starta om programmet. Detta åtgärdar normalt problemet. Allt som skrivits in sparas kontinuerligt så vid denna åtgärd riskerar du inte att förlora det som redan skrivits in i verktyget.",
+					"title": "Jag har problem med att t.ex. symboler eller ikoner inte uppdateras eller att det fattas knappar eller annat i menyer eller andra gränssnitt."
+				},
+				"qa2": {
+					"content": "Detta problem är känt och håller på att åtgärdas. Om du stöter på detta problem rekommenderar vi att du fyller i fältet \"Justification\" med hur allvarligt det varit samt hur ofta det uppstår. Du kommer att kunna justera dina värden när felet är avklarat.",
+					"title": "Jag kan inte editera skalorna för sannolikhet och graden av risk"
+				},
+				"qa3": {
+					"content": "Flera fel har noterats i samband med import av en PIA. Speciellt kopplat till presentationen av sannolikhet och risk där information försvinner. För att avhjälpa detta kan du återgå till det föregående steget i PIAn och sedan stega tillbaka till graferna. Om problemet inte avhjälpts så ladda om bilden.",
+					"title": "Jag har problem kopplat till importen av en PIA"
+				},
+				"qa4": {
+					"content": "Detta är ett fel kopplat till visualiseringen av informationen som lagts i PIAn, men påverkar inte alls den data som matats in. Detta problem kommer snart att vara avhjälpt.",
+					"title": "När jag kopierar in text visas den som understruken eller fet text"
+				},
+				"qa5": {
+					"content": "För att begära en utvärdering krävs att alla fält fyllts i. Var vänlig att kontrollera att detta gjorts. Vad gäller riskbedömningen så måste en teknisk eller organisatorisk åtgärd för att minimera risken angivas.",
+					"title": "Jag kan inte sända en begäran om att utvärdera en sektion"
+				},
+				"qa6": {
+					"content": "Stäng den PIA du arbetar med och öppna den igen. Innehållet kommer då att presenteras på det valda språket.",
+					"title": "När jag byter språk ändras texterna inte till den valda språket"
+				},
+				"qa7": {
+					"content": "För tillfället uppdateras inte ikonerna i navigationsmenyn till vänster efter en nekad PIA. Du måste gå igenom varje avsnitt för att läsa grunder för avslag och anpassa åtgärderna för att kunna begära en förnyad utvärdering. När alla avsnitt kontrollerats och, vid behov, justerats kan du på nytt begära att få PIAn utvärderad.",
+					"title": "PIAn har inte blivit godkänd, men jag vet inte vad nästa steg är"
+				},
+				"title": "Kända problem"
+			},
+			"footer": "Om du stöter på andra problem eller om du har förslag på förbättringar, så kan du beskriva och sända dem via detta formulär: <a target=\"_blank\" href=\"https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia\">https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia</a>."
+		},
+		"title": "Hjälp"
+	},
+	"homepage": {
+		"cards": {
+			"author": "Datainsamlare",
+			"creation_status": "Skapa",
+			"date": "Datum",
+			"evaluation": "Utvärdera",
+			"import_pia": "Importera PIA",
+			"import_structure": "Importera mall",
+			"item": {
+				"consult_pia": "Konsultera",
+				"edit_pia": "Redigera",
+				"edit_structure": "Redigera mall",
+				"tools": {
+					"action_plan": "Visa <br> åtgärdsplan",
+					"duplicate": "Duplicera",
+					"export": "Exportera",
+					"more_options": "Fler val",
+					"pia": "Visa <br>PIAn",
+					"remove": "Radera"
+				}
+			},
+			"new_pia": "Ny PIA",
+			"new_structure": "Ny mall",
+			"or": "eller",
+			"pia_name": "PIA",
+			"placeholder_author": "Förnamn, efternamn",
+			"placeholder_evaluation": "Förnamn, efternamn",
+			"placeholder_import_pia": "Importera PIA",
+			"placeholder_import_structure": "Importera mall",
+			"placeholder_new_pia": "Ny PIA",
+			"placeholder_new_structure": "Ny mall",
+			"placeholder_pia_name": "PIA´s namn",
+			"placeholder_sector_name": "Namn på sektionen",
+			"placeholder_start": "Alla fält måste fyllas i",
+			"placeholder_structure": "Standardmall",
+			"placeholder_structure_name": "Mallnamn",
+			"placeholder_validation": "Förnamn, efternamn",
+			"sector_name": "Tillhörande sektion",
+			"start": "Start",
+			"status": "Status",
+			"structure": "Mall",
+			"structure_name": "Mallnamn",
+			"title_close_creation": "Stäng",
+			"validation": "Validering"
+		},
+		"filters": {
+			"assessor": "Utvärderare",
+			"author": "Datainsamlare",
+			"card": "Kort",
+			"card_rocket_content": "Starta! <br><br>För att börja<br>en PIA, klicka<br> på +",
+			"card_rocket_content_structure": "Starta! <br><br>För att börja<br>en mall, klicka<br> på +",
+			"date": "Datum",
+			"import_pia": "Importera PIA",
+			"import_structure": "Importera en mall",
+			"list": "lista",
+			"list_rocket_content": "Starta! För att börja<br>en PIA, klicka på +",
+			"list_rocket_content_structure": "Starta! För att börja<br>en mall, klicka på +",
+			"name": "Namn",
+			"new_pia": "Ny PIA",
+			"new_structure": "Ny mall",
+			"sector_name": "Tillhörande sektion",
+			"sort": "Sortera",
+			"sort_by": "efter",
+			"status": "Status",
+			"validator": "Godkännare"
+		},
+		"lists": {
+			"column_actions": "Alternativ",
+			"column_author": "Datainsamlare",
+			"column_creation": "Skapad",
+			"column_evaluation": "Utvärdering",
+			"column_pia": "PIA",
+			"column_progression": "Framåtskridande",
+			"column_sector_name": "Tillhörande sektion",
+			"column_status": "Status",
+			"column_structure": "Mall",
+			"column_structure_name": "Mall",
+			"column_updated_at": "Senast öppnad",
+			"column_validation": "Godkännande",
+			"item": {
+				"tools": {
+					"action_plan": "Visa åtgärdsplan",
+					"consult": "Konsultera",
+					"duplicate": "Duplicera",
+					"edit": "Redigera",
+					"export": "Exportera",
+					"pia": "Via PIA",
+					"remove": "Radera"
+				}
+			}
+		}
+	},
+	"knowledge_base": {
+		"add_measure": "Lägg till",
+		"add_measure_hint": "Du kan också lägga till en åtgärd från kunskapsdatabasen",
+		"category": {
+			"definition": "Definition",
+			"example": "Exempel",
+			"general_measure": "Allmän säkerhetsåtgärd för systemet (fysisk)",
+			"measure_on_data": "Logisk säkerhetsåtgärd för personuppgifterna",
+			"method": "Metodik",
+			"organizational_measure": "Organisatorisk åtgärd",
+			"principle": "Princip"
+		},
+		"filters": {
+			"all": "Alla",
+			"definitions": "Definitioner",
+			"general_measures": "Allmäna säkerhetsåtgärder för systemet (fysisk)",
+			"measures_on_data": "Logiska säkerhetsåtgärder för personuppgifterna",
+			"no_result": "Inga resultat hittades.",
+			"organizational_measures": "Organisatoriska åtgärder",
+			"title": "Filter"
+		},
+		"placeholder_add_measure": "Lägg till denna åtgärd",
+		"placeholder_help": "Inmatningshjälp",
+		"search": "Sök",
+		"slugs": {
+			"PIA_DEF_ACC": {
+				"description": "",
+				"name": "",
+				"source": ""
+			},
+			"PIA_DEF_ANO": {
+				"description": "",
+				"name": "",
+				"source": ""
+			},
+			"PIA_DEF_ARCH": {
+				"description": "",
+				"name": "",
+				"source": ""
+			},
+			"PIA_DEF_AUTH": {
+				"description": "",
+				"name": "",
+				"source": ""
+			},
+			"PIA_DEF_CHIF": {
+				"description": "",
+				"name": "",
+				"source": ""
+			},
+			"PIA_DEF_CLO": {
+				"description": "",
+				"name": "",
+				"source": ""
+			},
+			"PIA_DEF_CONS": {
+				"description": "",
+				"name": "",
+				"source": ""
+			},
+			"PIA_DEF_CTLA": {
+				"description": "",
+				"name": "",
+				"source": ""
+			},
+			"PIA_DEF_DCP": {
+				"description": "",
+				"name": "",
+				"source": ""
+			},
+			"PIA_DEF_DEST": {
+				"description": "",
+				"name": "",
+				"source": ""
+			},
+			"PIA_DEF_EFF": {
+				"description": "",
+				"name": "",
+				"source": ""
+			},
+			"PIA_DEF_ENJ": {
+				"description": "",
+				"name": "",
+				"source": ""
+			},
+			"PIA_DEF_EXA": {
+				"description": "",
+				"name": "",
+				"source": ""
+			},
+			"PIA_DEF_GRV": {
+				"description": "",
+				"name": "",
+				"source": ""
+			},
+			"PIA_DEF_LIM": {
+				"description": "",
+				"name": "",
+				"source": ""
+			},
+			"PIA_DEF_LOG": {
+				"description": "",
+				"name": "",
+				"source": ""
+			},
+			"PIA_DEF_MEN": {
+				"description": "",
+				"name": "",
+				"source": ""
+			},
+			"PIA_DEF_MENA": {
+				"description": "",
+				"name": "",
+				"source": ""
+			},
+			"PIA_DEF_MENI": {
+				"description": "",
+				"name": "",
+				"source": ""
+			},
+			"PIA_DEF_MENM": {
+				"description": "",
+				"name": "",
+				"source": ""
+			},
+			"PIA_DEF_MES": {
+				"description": "",
+				"name": "",
+				"source": ""
+			},
+			"PIA_DEF_MIN1": {
+				"description": "",
+				"name": "",
+				"source": ""
+			},
+			"PIA_DEF_MIN2": {
+				"description": "",
+				"name": "",
+				"source": ""
+			},
+			"PIA_DEF_MIN3": {
+				"description": "",
+				"name": "",
+				"source": ""
+			},
+			"PIA_DEF_MIN4": {
+				"description": "",
+				"name": "",
+				"source": ""
+			},
+			"PIA_DEF_MIN5": {
+				"description": "",
+				"name": "",
+				"source": ""
+			},
+			"PIA_DEF_MINC": {
+				"description": "",
+				"name": "",
+				"source": ""
+			},
+			"PIA_DEF_MIND": {
+				"description": "",
+				"name": "",
+				"source": ""
+			},
+			"PIA_DEF_OPP": {
+				"description": "",
+				"name": "",
+				"source": ""
+			},
+			"PIA_DEF_PBDS": {
+				"description": "",
+				"name": "",
+				"source": ""
+			},
+			"PIA_DEF_PC": {
+				"description": "",
+				"name": "",
+				"source": ""
+			},
+			"PIA_DEF_PORT": {
+				"description": "",
+				"name": "",
+				"source": ""
+			},
+			"PIA_DEF_PSEU": {
+				"description": "",
+				"name": "",
+				"source": ""
+			},
+			"PIA_DEF_PWD": {
+				"description": "",
+				"name": "",
+				"source": ""
+			},
+			"PIA_DEF_RECT": {
+				"description": "",
+				"name": "",
+				"source": ""
+			},
+			"PIA_DEF_RGPD": {
+				"description": "",
+				"name": "",
+				"source": ""
+			},
+			"PIA_DEF_RT": {
+				"description": "",
+				"name": "",
+				"source": ""
+			},
+			"PIA_DEF_SRC": {
+				"description": "",
+				"name": "",
+				"source": ""
+			},
+			"PIA_DEF_ST": {
+				"description": "",
+				"name": "",
+				"source": ""
+			},
+			"PIA_DEF_SUPT": {
+				"description": "",
+				"name": "",
+				"source": ""
+			},
+			"PIA_DEF_VIOL": {
+				"description": "",
+				"name": "",
+				"source": ""
+			},
+			"PIA_DEF_VRA": {
+				"description": "",
+				"name": "",
+				"source": ""
+			},
+			"PIA_EX_DC": {
+				"description": "",
+				"name": ""
+			},
+			"PIA_EX_DCPC": {
+				"description": "",
+				"name": "",
+				"source": ""
+			},
+			"PIA_EX_DCPR": {
+				"description": "",
+				"name": ""
+			},
+			"PIA_EX_DCPS": {
+				"description": "",
+				"name": ""
+			},
+			"PIA_EX_HUME": {
+				"description": "",
+				"name": ""
+			},
+			"PIA_EX_HUMI": {
+				"description": "",
+				"name": ""
+			},
+			"PIA_EX_IMPI": {
+				"description": "",
+				"name": ""
+			},
+			"PIA_EX_IMPL": {
+				"description": "",
+				"name": ""
+			},
+			"PIA_EX_IMPM": {
+				"description": "",
+				"name": ""
+			},
+			"PIA_EX_IMPN": {
+				"description": "",
+				"name": ""
+			},
+			"PIA_EX_NHUM": {
+				"description": "",
+				"name": ""
+			},
+			"PIA_EX_VRAI": {
+				"description": "",
+				"name": ""
+			},
+			"PIA_EX_VRAL": {
+				"description": "",
+				"name": ""
+			},
+			"PIA_EX_VRAM": {
+				"description": "",
+				"name": ""
+			},
+			"PIA_EX_VRAN": {
+				"description": "",
+				"name": ""
+			},
+			"PIA_LGL_CONS": {
+				"description": "",
+				"name": "",
+				"source": ""
+			},
+			"PIA_LGL_DATA": {
+				"description": "",
+				"name": "",
+				"source": ""
+			},
+			"PIA_LGL_DESC": {
+				"description": "",
+				"name": "",
+				"source": ""
+			},
+			"PIA_LGL_DEST": {
+				"description": "",
+				"name": "",
+				"source": ""
+			},
+			"PIA_LGL_DUR": {
+				"description": "",
+				"name": "",
+				"source": ""
+			},
+			"PIA_LGL_FIN": {
+				"description": "",
+				"name": "",
+				"source": ""
+			},
+			"PIA_LGL_FOND": {
+				"description": "",
+				"name": "",
+				"source": ""
+			},
+			"PIA_LGL_INFO": {
+				"description": "",
+				"name": "",
+				"source": ""
+			},
+			"PIA_LGL_MINI": {
+				"description": "",
+				"name": "",
+				"source": ""
+			},
+			"PIA_LGL_ST": {
+				"description": "",
+				"name": "",
+				"source": ""
+			},
+			"PIA_LGL_SUPT": {
+				"description": "",
+				"name": "",
+				"source": ""
+			},
+			"PIA_LGL_TRAN": {
+				"description": "",
+				"name": "",
+				"source": ""
+			},
+			"PIA_METHOD_MES": {
+				"description": "",
+				"name": "",
+				"source": ""
+			},
+			"PIA_ORG_AUD": {
+				"description": "",
+				"name": "",
+				"placeholder": "",
+				"source": ""
+			},
+			"PIA_ORG_EXT": {
+				"description": "",
+				"name": "",
+				"placeholder": "",
+				"source": ""
+			},
+			"PIA_ORG_ORG": {
+				"description": "",
+				"name": "",
+				"placeholder": "",
+				"source": ""
+			},
+			"PIA_ORG_PBD": {
+				"description": "",
+				"name": "",
+				"placeholder": "",
+				"source": ""
+			},
+			"PIA_ORG_PERS": {
+				"description": "",
+				"name": "",
+				"placeholder": "",
+				"source": ""
+			},
+			"PIA_ORG_POL": {
+				"description": "",
+				"name": "",
+				"placeholder": "",
+				"source": ""
+			},
+			"PIA_ORG_RMGT": {
+				"description": "",
+				"name": "",
+				"placeholder": "",
+				"source": ""
+			},
+			"PIA_ORG_VIOL": {
+				"description": "",
+				"name": "",
+				"placeholder": "",
+				"source": ""
+			},
+			"PIA_SEC_BKP": {
+				"description": "",
+				"name": "",
+				"placeholder": "",
+				"source": ""
+			},
+			"PIA_SEC_COMP": {
+				"description": "",
+				"name": "",
+				"placeholder": "",
+				"source": ""
+			},
+			"PIA_SEC_CTR": {
+				"description": "",
+				"name": "",
+				"placeholder": "",
+				"source": ""
+			},
+			"PIA_SEC_EXP": {
+				"description": "",
+				"name": "",
+				"placeholder": "",
+				"source": ""
+			},
+			"PIA_SEC_LOG": {
+				"description": "",
+				"name": "",
+				"placeholder": "",
+				"source": ""
+			},
+			"PIA_SEC_MAIN": {
+				"description": "",
+				"name": "",
+				"placeholder": "",
+				"source": ""
+			},
+			"PIA_SEC_MAL": {
+				"description": "",
+				"name": "",
+				"placeholder": "",
+				"source": ""
+			},
+			"PIA_SEC_MAT": {
+				"description": "",
+				"name": "",
+				"placeholder": "",
+				"source": ""
+			},
+			"PIA_SEC_NET": {
+				"description": "",
+				"name": "",
+				"placeholder": "",
+				"source": ""
+			},
+			"PIA_SEC_PHY": {
+				"description": "",
+				"name": "",
+				"placeholder": "",
+				"source": ""
+			},
+			"PIA_SEC_PROT": {
+				"description": "",
+				"name": "",
+				"placeholder": "",
+				"source": ""
+			},
+			"PIA_SEC_SRC": {
+				"description": "",
+				"name": "",
+				"placeholder": "",
+				"source": ""
+			},
+			"PIA_SEC_WEB": {
+				"description": "",
+				"name": "",
+				"placeholder": "",
+				"source": ""
+			},
+			"PIA_TEC_ANO": {
+				"description": "",
+				"name": "",
+				"placeholder": "",
+				"source": ""
+			},
+			"PIA_TEC_ARCH": {
+				"description": "",
+				"name": "",
+				"placeholder": "",
+				"source": ""
+			},
+			"PIA_TEC_CHIF": {
+				"description": "",
+				"name": "",
+				"placeholder": "",
+				"source": ""
+			},
+			"PIA_TEC_CLO": {
+				"description": "",
+				"name": "",
+				"placeholder": "",
+				"source": ""
+			},
+			"PIA_TEC_CTLA": {
+				"description": "",
+				"name": "",
+				"placeholder": "",
+				"source": ""
+			},
+			"PIA_TEC_LOG": {
+				"description": "",
+				"name": "",
+				"placeholder": "",
+				"source": ""
+			},
+			"PIA_TEC_MINI": {
+				"description": "",
+				"name": "",
+				"placeholder": "",
+				"source": ""
+			},
+			"PIA_TEC_PAP": {
+				"description": "",
+				"name": "",
+				"placeholder": "",
+				"source": ""
+			},
+			"PIA_VAL_ACT": {
+				"description": "",
+				"name": "",
+				"source": ""
+			},
+			"PIA_VAL_CART": {
+				"description": "",
+				"name": "",
+				"source": ""
+			},
+			"PIA_VAL_CONC": {
+				"description": "",
+				"name": "",
+				"source": ""
+			},
+			"PIA_VAL_DPO": {
+				"description": "",
+				"name": "",
+				"source": ""
+			},
+			"PIA_VAL_RT": {
+				"description": "",
+				"name": "",
+				"source": ""
+			}
+		},
+		"title": "Kunskapsdatabas"
+	},
+	"measures": {
+		"add": "Skapa en åtgärd (eller hämta en föreslagen åtgärd från kunskapsdatabasen)",
+		"default_placeholder": "Beskriv existerande eller planerade åtgärder för att säkerställa skyddet för personuppgifter.",
+		"edit": "Editera åtgärd",
+		"placeholder_title": "Åtgärdens namn",
+		"remove": "Radera åtgärd"
+	},
+	"misc": {
+		"display": "Visa / Dölj"
+	},
+	"modals": {
+		"abandon_pia": {
+			"additional_text": "Arkiveringen hindrar inte möjligheten att <br>återuppta bearbetningen och göra förändringar i PIAn.",
+			"content": "Vill du avsluta bearbetningen?"
+		},
+		"action_plan_no_evaluation": {
+			"content": "Var vänlig starta utvärderingen av analysen för att skapa en åtgärdsplan.",
+			"review_section": "Utvärdera en sektion"
+		},
+		"archive": "Arkivera",
+		"ask_for_evaluation": {
+			"content": "Denna sektion är klar för att utvärderas"
+		},
+		"back_to_edition": {
+			"content": "Denna sektion är återsänd för bearbetning<br>kompletterande information erfordras <br>för att den skall kunna utvärderas"
+		},
+		"back_to_evaluation": {
+			"content": "Avsnittet är sänt för utvärdering,<br>informationen behöver utvärderas igen<br>för att kunna godkännas. "
+		},
+		"back_to_home": "Tillbaka till startsida",
+		"cancel": "Avbryt",
+		"close": "Stäng",
+		"completed_edition": {
+			"content": "Alla delar har behandlats. <br> PIAn skall nu utvärderas."
+		},
+		"completed_evaluation": {
+			"content": "Alla sektioner är nu utvärderade.<br>PIAn är färdig för godkännande."
+		},
+		"continue": "Fortsätt",
+		"declare_measures": {
+			"content": "Innan du kan bedöma riskerna<br>måste du beskriva existerande eller<br>planerade åtgärder.",
+			"declare": "Beskriv existerande eller planerade åtgärder"
+		},
+		"dpo_missing_evaluations": {
+			"comment": "Kommentarer",
+			"content": "Du måste färdigställa utvärderingen för att få tillgång till DSO sidan.",
+			"remove": "Radera",
+			"review_section": "Utvärdera en sektion"
+		},
+		"import_wrong_pia_file": {
+			"content": "Den importerade filen är inte en korrekt PIA-fil"
+		},
+		"import_wrong_structure_file": {
+			"content": "Den importerade filen är inte en korrekt mall-fil"
+		},
+		"modal_select_text_pia": {
+			"content": "Innehållet i PIAn är kopierat till urklipp"
+		},
+		"not_enough_measures_to_remove": {
+			"content": "<span class='strong'>Varning,</span><br>Åtminstone en åtgärd måste läggas till: Radering kan inte göras."
+		},
+		"refuse_pia": {
+			"content": "Efter ditt underkännande sänds PIAn<br>tillbaka för utvärdering och för att utföra<br> nödvändiga kompletterande åtgärder."
+		},
+		"remove_attachment": {
+			"comment": "Kommentarer",
+			"content": "<span class='strong'>Varning,</span><br>Är du säker på att du vill<br> radera bilagan?",
+			"keep": "Behåll",
+			"remove": "Radera"
+		},
+		"remove_measure": {
+			"content": "<span class='strong'>Varning,</span><br>Är du säker på att du vill<br>radera denna åtgärd?",
+			"keep": "Behåll denna <br>åtgärd",
+			"remove": "Radera denna <br>åtgärd"
+		},
+		"remove_pia": {
+			"content": "<span class='strong'>Varning,</span><br>Är du säker på att du vill<br>radera denna PIA?",
+			"remove": "Radera denna PIA"
+		},
+		"remove_question": {
+			"content": "Vill du radera frågan?",
+			"keep": "Behåll",
+			"remove": "Radera"
+		},
+		"remove_structure": {
+			"content": "<span class='strong'>Varning,</span><br>Är du säker på att du vill<br>radera denna mall?",
+			"remove": "Radera mallen"
+		},
+		"same_comment": {
+			"content": "<span class='strong'>Varning,</span><br>Skriv en kommentar som skiljer sig från den senast sparade."
+		},
+		"signed_pia_validation": {
+			"content": "För att färdigställa detta godkännande <br>skall en signerad rapport läggas som bilaga.",
+			"download_pia": "Visa rapporten"
+		},
+		"simple_pia_validation": {
+			"content": "Du godkänner PIAn."
+		},
+		"start_evaluation": "Starta utvärderingen",
+		"update_server_url_nok": {
+			"content": "Ingen uppkoppling."
+		},
+		"update_server_url_ok": {
+			"content": "Serveradressen har uppdaterats"
+		},
+		"validate_evaluation": {
+			"content": "Denna sektion är färdig<br>för godkännandeprocessen."
+		},
+		"validate_evaluation_to_correct": {
+			"content": "Tyvärr<br> Flera fält behöver korrigeras.<br>Återgå till bearbetningsläge<br>för att korrigera."
+		}
+	},
+	"opinions": {
+		"content": ", överväger att:",
+		"dpo_lock": "Var vänlig och fyll i övriga sektioner innan DSO´s överväganden fylls i.",
+		"dpo_opinion": "DSO´s ståndpunkt",
+		"edit": "Redigera",
+		"people_opinion": "Berörda personers synpunkter",
+		"placeholder_concerned_people_name": "Berörd(a) person(er)s namn",
+		"placeholder_dpo_name": "DSO´s namn",
+		"placeholder_dpo_opinion": "Beskriv grunden för ditt val",
+		"placeholder_people_opinion": "Beskriv hur synpunkterna samlats in och vad analysen gett. Om synpunkter inte inhämtats, beskriv varför så inte skett.",
+		"placeholder_search_content": "Beskriv varför följande person(er)s synpunkt(er) inte har efterfrågats.",
+		"treatment_lock": "Var vänlig fyll i de övriga sektionerna före dess att berörd(a) person(er)s synpunkt(er) inhämtas.",
+		"treatment_nok": "Denna behandling bör inte utföras.",
+		"treatment_ok": "Denna behandling kan genomföras."
+	},
+	"overview-risks": {
+		"important": "Viktig",
+		"limited": "Begränsad",
+		"maximal": "Maximal",
+		"measures": "Åtgärder",
+		"negligible": "Obetydlig",
+		"potential_impacts": "Möjliga konsekvenser",
+		"risk-access_x": "Allvarlighetsgrad",
+		"risk-access_y": "Sannolikhetsgrad",
+		"risk-change_x": "Allvarlighet",
+		"risk-change_y": "Sannolikhet",
+		"risk-disappearance_x": "Allvarlighet",
+		"risk-disappearance_y": "Sannolikhet",
+		"sources": "Källor",
+		"threat": "Hot"
+	},
+	"pia": {
+		"attachments": {
+			"add": "Lägg till",
+			"download": "Ladda ner bilaga",
+			"remove": "Radera",
+			"title": "Bilagor"
+		},
+		"footer": {
+			"ask_evaluation": "Begär en utvärdering",
+			"mandatory_fields": "Alla fält måste fyllas i",
+			"structure_add_question": "Lägg till en fråga",
+			"subsection_validated": "Delsektion utvärderad, väntar på slutligt godkännande",
+			"validate_evaluation": "Godkänn utvärderingen"
+		},
+		"header": {
+			"display_action_plan": "Visa<br>handlingsplan",
+			"edition": "Redigering",
+			"evaluation": "Utvärdering",
+			"exit_full_screen_mode": "Tryck på F11 för att lämna fullskärmsläge.",
+			"preview": "Förhandsvisning"
+		},
+		"sections": {
+			"based_on_structure_name": "Baserad på mallen:",
+			"homepage_link": "Tillbaka till startsidan",
+			"refuse_pia": "Underkänd PIA",
+			"status": {
+				"evaluation": {
+					"cancel": "avbryta begäran om utvärdering.",
+					"cancel_button": "Avbryt begäran om utvärdering",
+					"content": "Utvärderingen av denna sektion har inte påbörjats. Om du vill ändra i innehållet så måste du",
+					"title": "Väntar på utvärdering"
+				},
+				"validation": {
+					"cancel": "avbryta begäran om godkännande.",
+					"cancel_button": "Avbryt begäran om godkännande",
+					"content": "Denna sektion är avslutad och väntar på slutligt godkännande av utvärderingen. Om du vill ändra innehållet i utvärderingen så måste du",
+					"title": "Väntar på godkännande"
+				}
+			},
+			"validate_pia": ""
+		},
+		"statuses": [
+			"Under behandling",
+			"Underkänd",
+			"Enkelt godkännande (utan signatur)",
+			"Signerat godkännande",
+			"Arkiverad",
+			"Väntar på godkännande"
+		]
+	},
+	"questions": {
+		"edit": "Redigera frågan",
+		"gauges": [
+			"(Odefinierat)",
+			"Obetydlig",
+			"Begränsad",
+			"Allvarlig",
+			"Maximal"
+		],
+		"placeholder_title": "Frågetitel (obligatorisk)",
+		"remove": "Radera frågan"
+	},
+	"rejection_page": {
+		"applied_adjustments": "Genomförda ändringar",
+		"applied_adjustments_placeholder": "Beskriv ändringar i PIAn",
+		"button": {
+			"abandon_treatment": "Avbryt behandlingen",
+			"reject_pia": "Underkänn PIAn",
+			"send_for_validation": "Sänd igen för godkännande"
+		},
+		"previous_rejection": "Tidigare underkännande",
+		"rejection_reason": "Grund för underkännande",
+		"rejection_reason_placeholder": "Beskriv skälen för underkännandet av PIAn.",
+		"title": "Godkännandehistorik"
+	},
+	"sections": {
+		"1": {
+			"items": {
+				"1": {
+					"questions": {
+						"1": {
+							"placeholder": "Beskriv behandlingen på ett systematiskt sätt: Dess namn, dess syfte, dess förväntade resultat, i vilken kontext behandlingen utförs, mm.",
+							"title": "Vilken behandling skall utvärderas?"
+						},
+						"2": {
+							"placeholder": "Beskriv de ansvarsförhållanden som kommer att uppstå mellan involverade parter: Personuppgiftsansvarig, biträde, underbiträde och eventuella gemensamt personuppgiftsansvariga.",
+							"title": "Hur är ansvaret för behandlingen fördelat mellan parter?"
+						},
+						"3": {
+							"placeholder": "Lista relevanta standarder som är tillämpliga på behandlingen, särskilt godkända riktlinjer, uppförandekoder och certifieringar.",
+							"title": "Tillämpas någon norm, standard eller certifiering på behandlingen?"
+						}
+					},
+					"short_help": "Denna del låter dig identifiera och presentera utredningens objekt.",
+					"title": "Översikt"
+				},
+				"2": {
+					"questions": {
+						"1": {
+							"placeholder": "Beskriv de uppgifter som samlas in och behandlas genom att ange lagringsperioder, mottagare och vilka personer som har tillgång till dem.",
+							"title": "Vilka personuppgifter behandlas?"
+						},
+						"2": {
+							"placeholder": "Beskriv den personliga informationens livscykel (från insamling till radering genom lagring, bearbetningssteg, arkivering etc.), till exempel med hjälp av ett dataflödesschema (kan läggas till som bilaga) och en beskrivning av varje genomförd process.",
+							"title": "Hur ser livscykeln ut för personuppgifterna (funktionell beskrivning)?"
+						},
+						"3": {
+							"placeholder": "Lista databärarna för din behandling (datorsystem, servrar, programvara, nätverk, personer, papper etc.).",
+							"title": "Vilka är databärarna?"
+						}
+					},
+					"short_help": "Denna sektion låter dig beskriva  behandlingen och dess avgränsningar i detalj.",
+					"title": "Personuppgifter, processer och lagring"
+				}
+			},
+			"short_help": "Det här avsnittet ger dig en bild av den (de) behandling (behandlingar) av personuppgifter som beaktas.",
+			"title": "Kontext"
+		},
+		"2": {
+			"items": {
+				"1": {
+					"questions": {
+						"1": {
+							"placeholder": "Förklara hur syftena med behandlingen är bestämda, uttryckliga och legitima.",
+							"short_title": "Grunder",
+							"title": "Är syftet med behandlingen bestämda, uttryckliga och legitima?"
+						},
+						"2": {
+							"placeholder": "Presentera grunden (erna) för din behandling (t.ex. samtycke, uppfyllande av avtal, legala krav, intresseavvägning etc.).",
+							"short_title": "Legal grund",
+							"title": "På vilken(a) laglig(a) grund(er) baserar du din behandling?"
+						},
+						"3": {
+							"placeholder": "Förklara varför varje insamlad personuppgift är nödvändig för din behandling.",
+							"short_title": "Dataminimering",
+							"title": "Är de insamlade personuppgifterna tillräckliga, relevanta och begränsade till vad som är nödvändigt för de syften som de behandlas för (dataminimering)?"
+						},
+						"4": {
+							"placeholder": "Beskriv planerade åtgärder för att säkerställa kvaliteten på uppgifterna.",
+							"short_title": "Riktighet",
+							"title": "Är den personliga informationen korrekt och hålls uppdaterad?"
+						},
+						"5": {
+							"placeholder": "Förklara hur den avsedda lagringsperioden för varje personuppgift är nödvändig för att uppfylla syftet med din behandling i de fall det inte finns något specificerat lagligt krav för lagringsperioden.",
+							"short_title": "Lagringsperiod",
+							"title": "Vilken är lagringstiden för personuppgifterna?"
+						}
+					},
+					"short_help": "Denna del låter dig visa på vilken laglig grund behandlingen utförs och personuppgifterna behandlas.",
+					"title": "Proportionalitet och nödvändighet"
+				},
+				"2": {
+					"questions": {
+						"1": {
+							"placeholder": "Beskriv vilken information som förväntas tillhandahållas till registrerade personer hur de får tillgång till den.",
+							"short_title": "Information till registrerade",
+							"title": "Hur informeras de registrerade personerna om att behandling av personuppgifter utförs?"
+						},
+						"2": {
+							"placeholder": "Beskriv hur det säkerställs att samtycke inhämtas.",
+							"short_title": "Inhämtning av samtycke",
+							"title": "I förekommande fall, hur erhålls de berörda personernas samtycke?"
+						},
+						"3": {
+							"placeholder": "Beskriv hur den registrerade får tillgång till sina personuppgifter, får registerutdrag och kan utöva sin rättighet till dataportabilitet.",
+							"short_title": "Rätt till tillgång och dataportabilitet",
+							"title": "Hur kan den registrerade utöva sin rätt till tillgång och rätt till portabilitet?"
+						},
+						"4": {
+							"placeholder": "Beskriv hur den registrerade kan rätta eller, om det är relevant, minimera eller radera sina personuppgifter.",
+							"short_title": "Rätt till rättelse och radering",
+							"title": "Hur kan de registrerade utöva sin rätt till rättelse och rätten att raderas (rätten att glömmas)?"
+						},
+						"5": {
+							"placeholder": "Beskriv hur den registrerade kan begära begränsning av behandlingen av sina personuppgifter samt invända mot behandlingen av sina personuppgifter.",
+							"short_title": "Begränsnings- och invändningsrätt",
+							"title": "Hur kan den registrerade utöva sin begränsningsrätt och invändningsrätt?"
+						},
+						"6": {
+							"placeholder": "För varje underleverantör, beskriv omfattningen av dess ansvar och ange referenser till kontrakt, uppförandekoder och certifieringar som anger dess skyldigheter.",
+							"short_title": "Underbiträde",
+							"title": "Är underbiträdenas skyldigheter tydligt definierade och avtalade?"
+						},
+						"7": {
+							"placeholder": "För varje land utanför Europeiska unionen där data lagras eller behandlas, identifiera dem och ange om de av EU erkänns ha en tillräckligt hög skyddsnivå för personuppgifter eller beskriv de klausuler som styr överföringen.",
+							"short_title": "Tredjelandsöverföring",
+							"title": "Om personuppgifter överförs till land utanför EU (\"Tredjeland\"), skyddas uppgifterna då på ett adekvat sätt?"
+						}
+					},
+					"short_help": "Denna sektion låter dig beskriva att du genomför nödvändiga åtgärder för att göra det möjligt för de registrerade personerna att utöva sina rättigheter.",
+					"title": "Åtgärder för att garantera de registrerades rättigheter"
+				}
+			},
+			"short_help": "Denna sektion ger dig möjlighet att bygga ramverk för att uppfylla de krav som DSF (GDPR) stipulerar. ",
+			"title": "Grundläggande principer"
+		},
+		"3": {
+			"items": {
+				"1": {
+					"short_help": "Denna sektion låter dig identifiera och beskriva de åtgärder (befintliga eller planerade) som bidrar till personuppgiftssäkerhet.",
+					"title": "Befintliga eller planerade åtgärder"
+				},
+				"2": {
+					"questions": {
+						"1": {
+							"placeholder": "Ange de potentiella konsekvenserna",
+							"title": "Vilka kan vara de viktigaste <span class='green-highlight'>konsekvenserna för de registrerade personerna</span> om risken inträffar?"
+						},
+						"2": {
+							"placeholder": "Beskriv hoten",
+							"title": "Vilka är de viktigaste <span class='green-highlight'>hoten</span> som kan leda till risken?"
+						},
+						"3": {
+							"placeholder": "Ange riskkällorna",
+							"title": "Vilka är<span class='green-highlight'>källorna</span> för risken?"
+						},
+						"4": {
+							"placeholder": "Klicka här för att välja de åtgärder som hjälper till att undanröja denna risk.",
+							"title": "Vilka är de <span class='green-highlight'>initiala åtgärderna</span>bland de beskrivna som hjälper till att undanröja risken?"
+						},
+						"5": {
+							"placeholder": "Beskriv den bedömda allvarlighetsgraden för risken.",
+							"title": "Hur uppskattar du <span class='green-highlight'>riskens allvarlighetsgrad</span>, särskilt när det gäller potentiella konsekvenser och i förhållande till planerade åtgärder?"
+						},
+						"6": {
+							"placeholder": "Beskriv här den uppskattade sannolikheten.",
+							"title": "Hur uppskattar du <span class='green-highlight'>sannolikheten för risken</span>, särskilt när det gäller hot, riskkällor och i förhållande planerade åtgärder?"
+						}
+					},
+					"short_help": "Analysera orsakerna till och konsekvenserna av olaglig tillgång till data och uppskatta deras allvarlighetsgrad och sannolikhet.",
+					"title": "Otillåten tillgång till data"
+				},
+				"3": {
+					"questions": {
+						"1": {
+							"placeholder": "Beskriv de potentiella konsekvenserna",
+							"title": "Vilka kan vara de viktigaste <span class='green-highlight'>konsekvenserna för de registrerade personerna</span> om risken skulle inträffa?"
+						},
+						"2": {
+							"placeholder": "Beskriv hoten",
+							"title": "Vilka är de viktigaste <span class='green-highlight'>hoten</span> som kan leda till att risken uppstår?"
+						},
+						"3": {
+							"placeholder": "Beskriv riskkällorna",
+							"title": "Vilka är<span class='green-highlight'>källorna</span> till riskerna?"
+						},
+						"4": {
+							"placeholder": "Klicka här för att välja de åtgärder som hjälper till att hantera denna risk.",
+							"title": "Vilka av de beskrivna<span class='green-highlight'>åtgärderna</span>, hjälper till att hantera risken?"
+						},
+						"5": {
+							"placeholder": "Motivera här den uppskattade allvarlighetsgraden.",
+							"title": "Hur uppskattar du <span class='green-highlight'>riskens allvarlighetsgrad</span>, särskilt när det gäller potentiella konsekvenser i förhållande till planerade åtgärder?"
+						},
+						"6": {
+							"placeholder": "Beskriv här den uppskattade sannolikheten.",
+							"title": "Hur uppskattar du <span class='green-highlight'>sannolikheten för risk</span>, särskilt när det gäller hot, riskkällor och i förhållande till planerade åtgärder?"
+						}
+					},
+					"short_help": "Analysera orsakerna till och konsekvenserna av en oönskad ändring av personuppgifter och uppskatta hur allvarliga och sannolika dessa är.",
+					"title": "Oönskad ändring av personuppgifter"
+				},
+				"4": {
+					"questions": {
+						"1": {
+							"placeholder": "Ange de potentiella konsekvenserna",
+							"title": "Vilka kan vara de viktigaste <span class='green-highlight'>konsekvenserna för de registrerade personerna</span> om risken inträffar?"
+						},
+						"2": {
+							"placeholder": "Beskriv hoten",
+							"title": "Vilka är de viktigaste <span class='green-highlight'>hoten</span> som kan leda till att risken inträffar?"
+						},
+						"3": {
+							"placeholder": "Beskriv riskkällorna",
+							"title": "Vilka är <span class='green-highlight'>källorna</span> till risken?"
+						},
+						"4": {
+							"placeholder": "Klicka här för att välja de åtgärder som hjälper till att hantera denna risk.",
+							"title": "Vilka bland de beskrivna<span class='green-highlight'>åtgärderna</span>, hjälper till att hantera risken?"
+						},
+						"5": {
+							"placeholder": "Beskriv här den uppskattade allvarlighetsgraden för risken.",
+							"title": "Hur uppskattar du <span class='green-highlight'>riskens allvarlighetsgrad</span>, särskilt när det gäller potentiella konsekvenser med hänsyn taget till planerade åtgärder?"
+						},
+						"6": {
+							"placeholder": "Beskriv här den uppskattade sannolikheten.",
+							"title": "Hur uppskattar du <span class='green-highlight'>sannolikheten för risk</span>, särskilt när det gäller hot, riskkällor och planerade åtgärder?"
+						}
+					},
+					"short_help": "Analysera orsakerna till och konsekvenserna av förlorade personuppgifter och uppskatta deras allvarlighetsgrad och sannolikhet.",
+					"title": "Förlust av personuppgifter"
+				},
+				"5": {
+					"short_help": "Denna visualisering gör att du kan skapa dig en övergripande bild av vilken verkan åtgärderna har på komponenterna i riskerna som de skall hantera.",
+					"title": ""
+				}
+			},
+			"short_help": "",
+			"title": ""
+		},
+		"4": {
+			"items": {
+				"1": {
+					"short_help": "",
+					"title": ""
+				},
+				"2": {
+					"short_help": "",
+					"title": ""
+				},
+				"3": {
+					"short_help": "",
+					"title": ""
+				},
+				"4": {
+					"title": ""
+				},
+				"5": {
+					"title": ""
+				}
+			},
+			"short_help": "",
+			"title": ""
+		}
+	},
+	"settings": {
+		"content": "",
+		"title": "",
+		"update": ""
+	},
+	"summary": {
+		"action_plan": {
+			"fundamental_principles": "",
+			"implementation_date": "",
+			"implementation_responsible": "",
+			"measures": "",
+			"no_action_plan": "",
+			"risks": "",
+			"title": ""
+		},
+		"actions": {
+			"complete_download": "",
+			"complete_download_desc": "",
+			"individual_download": "",
+			"individual_download_desc": "",
+			"individual_download_doc": "",
+			"individual_download_images": "",
+			"individual_download_select": "",
+			"print": "",
+			"print_and_download": ""
+		},
+		"attachments": "",
+		"concerned_people_name": "",
+		"concerned_people_opinion": "",
+		"concerned_people_searched_opinion": "",
+		"concerned_people_status": "",
+		"concerned_people_unsearched_opinion_comment": "",
+		"content_choice": [
+			"",
+			""
+		],
+		"creation_date": "",
+		"csv_action_plan_comment": "",
+		"csv_evaluation_comment": "",
+		"csv_file_title": "",
+		"csv_implement_date": "",
+		"csv_people_in_charge": "",
+		"csv_section": "",
+		"csv_title_object": "",
+		"display_filters": {
+			"action_plan_content": "",
+			"check_all": "",
+			"context_content": "",
+			"main_content": "",
+			"principles_content": "",
+			"risks_cartography_content": "",
+			"risks_content": "",
+			"risks_overview_content": "",
+			"title": ""
+		},
+		"download_csv": "",
+		"dpo_name": "",
+		"dpo_opinion": "",
+		"dpo_status": "",
+		"gauges": {
+			"1": "",
+			"2": "",
+			"3": "",
+			"4": ""
+		},
+		"modification_made": "",
+		"people_search_status_nok": "",
+		"people_search_status_ok": "",
+		"pia_assessor": "",
+		"pia_author": "",
+		"pia_name": "",
+		"pia_validator": "",
+		"preview_dpo_opinion": "",
+		"preview_edition": "",
+		"preview_evaluation": "",
+		"preview_no_data": "",
+		"preview_status": "",
+		"preview_subtitle": "",
+		"preview_title": "",
+		"preview_validation": "",
+		"preview_validation_section": "",
+		"previous_page": "",
+		"rejection_reason": "",
+		"risks_cartography_title": "",
+		"risks_overview_title": "",
+		"title": ""
+	},
+	"validation_page": {
+		"add_signed_pia": "",
+		"after_reading": "",
+		"button": {
+			"rejection": "",
+			"signed_validation": "",
+			"simple_validation": ""
+		},
+		"confirmation1": "",
+		"confirmation2": "",
+		"confirmation3": "",
+		"confirmation4": "",
+		"latest_signed_attachment": "",
+		"mandatory_fields": "",
+		"remove_attachment": "",
+		"responsible": "",
+		"signed_attachments_history": "",
+		"tools": {
+			"dashboard": "",
+			"display_pia": ""
+		},
+		"validated_pia_with_signature": "",
+		"waiting_for_signature": ""
+	}
+}
