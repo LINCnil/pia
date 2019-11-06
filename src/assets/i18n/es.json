@@ -93,7 +93,7 @@
 			"cz": "Česky",
 			"de": "Deutsch",
 			"dk": "Dansk",
-			"dpa_translations": "TO BE TRANSLATED - Translation revised by European DPA",
+			"dpa_translations": "Traducción revisada por la Autoridad de protección de datos de la UE",
 			"el": "Ελληνικά",
 			"en": "English",
 			"es": "Español",
@@ -115,7 +115,7 @@
 		"logo_subtitle": "",
 		"logo_title": "Evaluación de impacto de la privacidad",
 		"pia_example_link": "Ejemplo de PIA",
-		"structures": "TO BE TRANSLATED - Modèles de PIA",
+		"structures": "Modelos PIA",
 		"tools": {
 			"about": "Acerca de",
 			"accessibility": "Accesibilidad para personas con discapacidad visual (colores de alto contraste, daltonismo)",
@@ -161,7 +161,7 @@
 				},
 				"title": "Problemas conocidos"
 			},
-			"footer": "TO BE TRANSLATED - If you have any other problems or suggestions for improvement, you can send them to us via this form <a target=\"_blank\" href=\"https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia\">https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia</a>."
+			"footer": "En caso de tener cualquier otro problema o seguerencias de mejora, puede enviarnoslas a traves de este formulario <a target=\"_blank\" href=\"https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia\">https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia</a>."
 		},
 		"title": "Ayuda"
 	},
@@ -197,12 +197,12 @@
 			"placeholder_new_pia": "Nuevo PIA",
 			"placeholder_new_structure": "Nueva plantilla",
 			"placeholder_pia_name": "Nombre del PIA",
-			"placeholder_sector_name": "TO BE TRANSLATED - Intitulé du Secteur associé",
+			"placeholder_sector_name": "Nombre del sector asociado",
 			"placeholder_start": "Todos los campos son obligatorios",
 			"placeholder_structure": "Plantilla por defecto",
 			"placeholder_structure_name": "Título de la plantilla",
 			"placeholder_validation": "Nombre y apellidos",
-			"sector_name": "TO BE TRANSLATED - Secteur associé",
+			"sector_name": "Sector asociado",
 			"start": "Comenzar",
 			"status": "Estado",
 			"structure": "Plantilla",
@@ -224,8 +224,8 @@
 			"list_rocket_content_structure": "TO BE TRANSLATED - Lancez-vous ! Pour commencer<br>un modèle, cliquez sur le +",
 			"name": "Nombre",
 			"new_pia": "Nuevo PIA",
-			"new_structure": "TO BE TRANSLATED - Nouveau modèle",
-			"sector_name": "TO BE TRANSLATED - Secteur associé",
+			"new_structure": "Nueva plantilla",
+			"sector_name": "Sector asociado",
 			"sort": "Ordenar",
 			"sort_by": "por",
 			"status": "Estado",
@@ -238,10 +238,10 @@
 			"column_evaluation": "Revisado por",
 			"column_pia": "PIA",
 			"column_progression": "Progreso",
-			"column_sector_name": "TO BE TRANSLATED - Secteur associé",
+			"column_sector_name": "Sector asociado",
 			"column_status": "Estado",
-			"column_structure": "TO BE TRANSLATED - Modèle",
-			"column_structure_name": "TO BE TRANSLATED - Modèle",
+			"column_structure": "Plantilla",
+			"column_structure_name": "Plantilla",
 			"column_updated_at": "Último acceso",
 			"column_validation": "Validado por",
 			"item": {
@@ -498,8 +498,8 @@
 				"source": "PIA1 page 6"
 			},
 			"PIA_EX_DC": {
-				"description": "TO BE TRANSLATED - Data for a score system, result of the application of the score....",
-				"name": "TO BE TRANSLATED - Calculated data"
+				"description": "Datos utilizados para un sistema de scoring, resultado de la aplicación del scoring....",
+				"name": "Datos calculados"
 			},
 			"PIA_EX_DCPC": {
 				"description": "Datos de Identificación Estado civil, identidad, edad, etcetera. <br><strong>Vida personal</strong> : hábitos de vida, estado civil, etcetera. <br><strong>Vida profesional</strong> : currículum, educación y formación profesional, premios, etcetera. Datos de conexión Direcciones IP, registros de eventos, etcetera.<br><strong>Datos de localización</strong> : viajes, datos GPS, datos GSM, etcetera.<br><strong>Otros</strong> : teléfono número, dirección de correo electrónico, etcetera. ",
@@ -832,12 +832,12 @@
 	},
 	"modals": {
 		"abandon_pia": {
-			"additional_text": "TO BE TRANSLATED - Archiving is not definitive and the PIA can go back to it if needed.",
-			"content": "TO BE TRANSLATED - Do you wish to give up the processing?"
+			"additional_text": "El archivado no es definitivo, puede reanudar el PIA de ser necesario.",
+			"content": "¿Desea finalizar el tratamiento?"
 		},
 		"action_plan_no_evaluation": {
-			"content": "TO BE TRANSLATED - You need to begin the review of the analysis to create the action plan.",
-			"review_section": "TO BE TRANSLATED - Review a section"
+			"content": "Debe comenzar la evaluación del análisis para crear el plan de acción.",
+			"review_section": "Evaluar una sección"
 		},
 		"archive": "Archivar",
 		"ask_for_evaluation": {
