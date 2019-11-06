@@ -42,6 +42,7 @@ export class CardsComponent implements OnInit, OnDestroy {
       this._structureService.structures = data;
     });
 
+    // Get the logged user
     fetch('http://localhost:4200/assets/mocks/retrieveProfile.json', {
       method: 'GET',
       mode: 'cors'
@@ -51,21 +52,30 @@ export class CardsComponent implements OnInit, OnDestroy {
       })
 
       .then(data => {
-        localStorage.setItem(
-          'loggedUser',
-          JSON.stringify(data.ProfileDetail.userDetailsField.idField)
-        );
+        this._piaService.loggedUser =
+          data.ProfileDetail.userDetailsField.idField;
       })
       .catch(error => {
         console.error('Request failed', error);
       });
 
-    // Populate available users to use in the card
-    const availableUsers = JSON.parse(localStorage.getItem('availableUsers'));
+    // Get available users
+    fetch('http://localhost:4200/assets/mocks/getAvailableUsers.json', {
+      method: 'GET',
+      mode: 'cors'
+    })
+      .then(response => {
+        return response.json();
+      })
 
-    availableUsers.users.forEach(user => {
-      this._piaService.availableUsers.push(user);
-    });
+      .then(data => {
+        data.users.forEach(user => {
+          this._piaService.availableUsers.push(user);
+        });
+      })
+      .catch(error => {
+        console.error('Request failed', error);
+      });
 
     this.sortOrder = localStorage.getItem('sortOrder');
     this.sortValue = localStorage.getItem('sortValue');
@@ -198,14 +208,12 @@ export class CardsComponent implements OnInit, OnDestroy {
    * Define how to sort the list.
    */
   private sortPia() {
-    const loggedUser = JSON.parse(localStorage.getItem('loggedUser'));
-
     // Filter to show only pias that are associated with the logged in user
     let userPias = this._piaService.pias.filter(pia => {
       return (
-        pia.author_name === loggedUser ||
-        pia.validator_name === loggedUser ||
-        pia.evaluator_name === loggedUser
+        pia.author_name === this._piaService.loggedUser ||
+        pia.validator_name === this._piaService.loggedUser ||
+        pia.evaluator_name === this._piaService.loggedUser
       );
     });
 

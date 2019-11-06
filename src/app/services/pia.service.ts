@@ -15,6 +15,7 @@ import { ModalsService } from 'src/app/modals/modals.service';
 export class PiaService {
   pias = [];
   availableUsers = [];
+  loggedUser = '';
   pia: Pia = new Pia();
   answer: Answer = new Answer();
   data: { sections: any };
@@ -40,24 +41,6 @@ export class PiaService {
           resolve();
         });
       } else {
-        // Get available users
-        fetch('http://localhost:4200/assets/mocks/getAvailableUsers.json', {
-          method: 'GET',
-          mode: 'cors'
-        })
-          .then(response => {
-            return response.json();
-          })
-
-          .then(data => {
-            localStorage.setItem('availableUsers', JSON.stringify(data));
-            resolve(data);
-          })
-          .catch(error => {
-            console.error('Request failed', error);
-            reject();
-          });
-
         resolve();
       }
     });

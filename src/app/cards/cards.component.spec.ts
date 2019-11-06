@@ -43,14 +43,4 @@ describe('CardsComponent', () => {
   it('should be created', () => {
     expect(component).toBeTruthy();
   });
-
-  // it('should store the user in localStorage', () => {
-  //   component.setLoggedUser('loggedUser');
-  //   expect(localStorage.getItem('id_token')).toEqual('sometoken');
-  // });
-
-  // it('should return stored user from localStorage', () => {
-  //   localStorage.setItem('id_token', 'anothertoken');
-  //   expect(component.getLoggedUser()).toEqual('anothertoken');
-  // });
 });
