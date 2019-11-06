@@ -9,6 +9,7 @@ import { ModalsService } from 'src/app/modals/modals.service';
 import { PiaService } from 'src/app/services/pia.service';
 import { StructureService } from 'src/app/services/structure.service';
 import { Structure } from 'src/app/structures/structure.model';
+import { settings } from 'src/assets/settings/settings';
 
 @Component({
   selector: 'app-cards',
@@ -43,7 +44,7 @@ export class CardsComponent implements OnInit, OnDestroy {
     });
 
     // Get the logged user
-    fetch('http://localhost:4200/assets/mocks/retrieveProfile.json', {
+    fetch(settings.retrieveProfile, {
       method: 'GET',
       mode: 'cors'
     })
@@ -60,7 +61,7 @@ export class CardsComponent implements OnInit, OnDestroy {
       });
 
     // Get available users
-    fetch('http://localhost:4200/assets/mocks/getAvailableUsers.json', {
+    fetch(settings.getAvailableUsers, {
       method: 'GET',
       mode: 'cors'
     })
