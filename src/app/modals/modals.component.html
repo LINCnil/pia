@@ -304,7 +304,7 @@
         <label for="author_name">{{ 'homepage.cards.author' | translate }}</label>
         <div  class="pia-structure-wrapper">
           <select formControlName="author_name" id="structure" required>
-            <option *ngFor="let user of _piaService.availableUsers" [ngValue]="user.username">{{user.username}}</option>
+            <option *ngFor="let user of _piaService.availableUsers" [ngValue]="user.username">{{user.name}}</option>
           </select>
         </div>
       </div>
@@ -312,7 +312,7 @@
         <label for="evaluator_name">{{ 'homepage.cards.evaluation' | translate }}</label>
         <div  class="pia-structure-wrapper">
           <select formControlName="evaluator_name" id="structure" required>
-            <option *ngFor="let user of _piaService.availableUsers" [ngValue]="user.username">{{user.username}}</option>
+            <option *ngFor="let user of _piaService.availableUsers" [ngValue]="user.username">{{user.name}}</option>
           </select>
         </div>
       </div>
@@ -321,7 +321,7 @@
         <div  class="pia-structure-wrapper">
           <select formControlName="validator_name" id="structure" required>
               <option value="" selected>Test</option>
-            <option *ngFor="let user of _piaService.availableUsers" [ngValue]="user.username">{{user.username}}</option>
+            <option *ngFor="let user of _piaService.availableUsers" [ngValue]="user.username">{{user.name}}</option>
           </select>
         </div>
       </div>
