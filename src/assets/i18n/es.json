@@ -841,22 +841,22 @@
 		},
 		"archive": "Archivar",
 		"ask_for_evaluation": {
-			"content": "TO BE TRANSLATED - This section is ready to be reviewed."
+			"content": "Esta sección está lista para ser revisada."
 		},
 		"back_to_edition": {
-			"content": "TO BE TRANSLATED - This section has been sent back for editing.<br> Several fields must be corrected<br> to enable its proper review."
+			"content": "Esta sección se ha devuelto para su edición.<br> Se deben corregir diversos campos<br> para permitir su adecuada revisión."
 		},
 		"back_to_evaluation": {
-			"content": "TO BE TRANSLATED - This section has been sent back for review.<br> Several fields must be reviewed<br> to enable its proper validation."
+			"content": "Esta sección se ha devuelto para su revisión.<br> Se deben revisar diversos campos<br> para permitir su adecuada validación."
 		},
 		"back_to_home": "Volver a inicio",
 		"cancel": "Cancelar",
 		"close": "Cerrar",
 		"completed_edition": {
-			"content": "TO BE TRANSLATED - The PIA has been fully edited and has to be reviewed."
+			"content": "El PIA ha sido completamente editado y debe ser evaluado."
 		},
 		"completed_evaluation": {
-			"content": "TO BE TRANSLATED - The PIA has been fully reviewed and can be validated."
+			"content": "El PIA ha sido completamente evaluado y puede ser validado ."
 		},
 		"continue": "Continuar",
 		"declare_measures": {
@@ -864,28 +864,28 @@
 			"declare": "Declare las medidas existentes o previstas"
 		},
 		"dpo_missing_evaluations": {
-			"comment": "TO BE TRANSLATED - Comment",
-			"content": "TO BE TRANSLATED - You need to complete the review of the analysis to access the DPO page.",
+			"comment": "Inserte un comentario",
+			"content": "Debe.",
 			"remove": "Eliminar",
-			"review_section": "TO BE TRANSLATED - Review a section"
+			"review_section": "Evaluar una sección"
 		},
 		"import_wrong_pia_file": {
-			"content": "TO BE TRANSLATED - Le fichier importé ne correspond pas à un fichier de type PIA"
+			"content": "El archivo importado no corresponde con un archivo de tipo PIA"
 		},
 		"import_wrong_structure_file": {
 			"content": "TO BE TRANSLATED - Le fichier importé ne correspond pas à un fichier de type Modèle"
 		},
 		"modal_select_text_pia": {
-			"content": "TO BE TRANSLATED - The content of the PIA has been copied to clipboard."
+			"content": "El contenido del PIA se ha copiado al portapapeles."
 		},
 		"not_enough_measures_to_remove": {
 			"content": "<span class = 'strong'> Advertencia, </ span> <br> Se debe completar al menos una medida: no es posible la eliminación."
 		},
 		"refuse_pia": {
-			"content": "TO BE TRANSLATED - As you have rejected the PIA, it is sent back for review to make the required changes."
+			"content": "Como ha rechazado el PIA, se devuelve para su validación con el fin de realizar los cambios necesarios."
 		},
 		"remove_attachment": {
-			"comment": "TO BE TRANSLATED - Comment",
+			"comment": "Inserte un comentario",
 			"content": "Advertencia,<br>¿Está seguro de que quiere<br>eliminar este archivo adjunto?",
 			"keep": "Mantener",
 			"remove": "Eliminar"
@@ -900,9 +900,9 @@
 			"remove": "Eliminar este PIA"
 		},
 		"remove_question": {
-			"content": "TO BE TRANSLATED - Souhaitez-vous supprimer la question ?",
-			"keep": "TO BE TRANSLATED - Annuler",
-			"remove": "TO BE TRANSLATED - Supprimer"
+			"content": "¿Quiere eliminar la pregunta?",
+			"keep": "Mantener",
+			"remove": "Eliminar"
 		},
 		"remove_structure": {
 			"content": "TO BE TRANSLATED - <span class='strong'>Attention,</span><br>Êtes-vous sûr de vouloir<br>supprimer ce modèle ?",
