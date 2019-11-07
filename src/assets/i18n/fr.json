@@ -85,8 +85,9 @@
 	},
 	"header": {
     "exit_full_screen_mode": "Appuyer sur F11 pour quitter le mode plein écran.",
-    "homepage_link": "Accueil",
-    "archives": "Archives de PIA",
+		"homepage_link": "Mes PIAs",
+		"current_pias": "PIAs Actifs",
+    "archives": "PIAs Archivés",
 		"knowledge_base_link": "Base de connaissances",
 		"languages": {
 			"cnil_translations": "Traductions fournies par la CNIL",
@@ -115,12 +116,16 @@
 		},
 		"logo_subtitle": "privacy impact assessment",
 		"logo_title": "Analyse d'impact sur la protection des données",
-		"pia_example_link": "Exemple de PIA",
 		"structures": "Modèles de PIA",
+		"help": {
+			"title": "Aide",
+			"pia_example_link": "Exemple de PIA",
+			"issue_reporting": "Signaler un bug",
+			"manual": "Manuel d'utilisation"
+		},
 		"tools": {
 			"about": "À propos",
 			"accessibility": "Accessibilité malvoyants (couleurs à contraste fort, adapté daltonisme)",
-			"help": "Aide",
 			"settings": "Paramètres",
 			"title": "Outils"
 		}
