@@ -1020,19 +1020,19 @@
 			"3": "Importante",
 			"4": "Máximo"
 		},
-		"placeholder_title": "TO BE TRANSLATED - Titre de la question (obligatoire)",
-		"remove": "TO BE TRANSLATED - Supprimer la question"
+		"placeholder_title": "Título de la pregunta (obligatorio)",
+		"remove": "Eliminar la pregunta"
 	},
 	"rejection_page": {
-		"applied_adjustments": "TO BE TRANSLATED - Adjustments proposed",
-		"applied_adjustments_placeholder": "TO BE TRANSLATED - Describe the changes brought to the PIA.",
+		"applied_adjustments": "Cambios realizados",
+		"applied_adjustments_placeholder": "Describir los cambios realizados en el PIA.",
 		"button": {
-			"abandon_treatment": "TO BE TRANSLATED - Abandon processing",
-			"reject_pia": "TO BE TRANSLATED - Reject PIA",
-			"send_for_validation": "TO BE TRANSLATED - Resend for approval"
+			"abandon_treatment": "Detener el tratamiento",
+			"reject_pia": "Rechazar el PIA",
+			"send_for_validation": "Reenviar para aprobación"
 		},
-		"previous_rejection": "TO BE TRANSLATED - Previous refusal",
-		"rejection_reason": "TO BE TRANSLATED - Refusal reason",
+		"previous_rejection": "PIA ya rechazada",
+		"rejection_reason": "Motivos de rechazo del PIA",
 		"rejection_reason_placeholder": "Describa las razones para rechazar el PIA.",
 		"title": "Historial de la validación"
 	},
