@@ -179,8 +179,6 @@ export class OverviewRisksComponent implements OnInit {
       section.items.forEach((item: any) => {
         if(section.id === 3 && (item.id === 5 || item.id === 6 || item.id === 7)) {   
           // Skip Risk Overview for TUI (item 5,6,7)
-          console.log('Skipping item.id');
-          console.log(item.id);
         } else if (item.evaluation_with_gauge) {
           const id = section.id.toString() + item.id.toString();
           const x = 380;

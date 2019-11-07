@@ -106,7 +106,10 @@ export class PreviewComponent implements OnInit {
     });
   }
 
-
+  /**
+   * Create a list of paths to the checkbox labels (for the preview).
+   * The JSON export will only export the index of the checkboxes.
+   */
   private checkBoxLoad():string[] {
     var checkBoxPaths : string[] = [];
     var splitted = this.allData[1][3][131].content.split(", ");
@@ -117,7 +120,6 @@ export class PreviewComponent implements OnInit {
     return checkBoxPaths;
   }
 
-
   /**
    * Label the JSON export (make it human readable)
    */
@@ -126,8 +128,21 @@ export class PreviewComponent implements OnInit {
       for(let item in this.tempData[section]){
         for(let question in this.tempData[section][item]){
           if(question.length <= 3){
-            this.tempData[section][item]["questions." + question[question.length - 1]] = this.tempData[section][item][question];
+            this.tempData[section][item]["questions." + 
+              question[question.length - 1]] = 
+                this.tempData[section][item][question];
             delete this.tempData[section][item][question];
+          } else {
+            if(!(this.tempData[section][item][question] == null || 
+                 this.tempData[section][item][question]['gauges'] == null)) {
+              // eval.gauge.1 = "Negligible", eval.gauge.2 = "Limited", etc.
+              this.tempData[section][item][question]['gauges']['seriousness'] = 
+                this._translateService.instant('evaluations.gauges.' + 
+                  this.tempData[section][item][question]['gauges']['seriousness']); 
+              this.tempData[section][item][question]['gauges']['likelihood'] = 
+                this._translateService.instant('evaluations.gauges.' + 
+                  this.tempData[section][item][question]['gauges']['likelihood']); 
+            }
           }
         }
         this.tempData[section]["items." + item] = this.tempData[section][item];
