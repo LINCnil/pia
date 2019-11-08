@@ -125,6 +125,7 @@
 			"manual": "TO TRANSLATE - User manual"
 		},
 		"tools": {
+      "url_setting": "TO TRANSLATE - Server URL configuration",
 			"about": "Rólunk",
 			"accessibility": "Hozzáférés látássérülteknek (erős színkontraszt, daltonizmus)",
 			"settings": "Beállítások",

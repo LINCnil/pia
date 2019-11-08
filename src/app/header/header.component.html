@@ -16,8 +16,11 @@
       <div class="row">
         <div class="small-12 medium-12 columns">
           <ul class="pia-navigationBlock-list ">
-            <li class="pia-navigationBlock-withsub pia-navigationBlock-pias">
-              <a routerLink="/home">{{ 'header.homepage_link' | translate }}</a>
+            <li class="pia-navigationBlock-withsub pia-navigationBlock-dropdown pia-navigationBlock-pias">
+              <a href="javascript:;">
+                {{ 'header.homepage_link' | translate }}
+                <span class="pia-icons pia-icon-scroll" aria-hidden="true"></span>
+              </a>
               <ul>
                 <li><a routerLink="/home">{{ 'header.current_pias' | translate }}</a></li>
                 <li><a routerLink="/archives">{{ 'header.archives' | translate }}</a></li>
@@ -28,7 +31,7 @@
             </li>
           </ul>
           <ul class="pia-navigationBlock-list">
-            <li class="pia-navigationBlock-company">
+            <li class="pia-navigationBlock-withsub pia-navigationBlock-dropdown pia-navigationBlock-company">
               <a href="javascript:;">
                 <i class="fa fa-user" style="display:none;" aria-hidden="true"></i>
                 {{ 'header.tools.settings' | translate }}
@@ -36,6 +39,7 @@
               </a>
               <form>
                 <fieldset>
+                  <a routerLink="/settings">{{ 'header.tools.url_setting' | translate }}</a>
                   <div>
                     <input type="checkbox" name="pia-accessibility" id="pia-accessibility" [checked]="increaseContrast === 'true'" (change)="changeContrast($event)">
                     <label for="pia-accessibility">{{ 'header.tools.accessibility' | translate }}</label>
@@ -46,27 +50,28 @@
                 </fieldset>
               </form>
             </li>
-            <li class="pia-navigationBlock-withsub pia-navigationBlock-help">
+            <li class="pia-navigationBlock-withsub pia-navigationBlock-dropdown pia-navigationBlock-help">
               <a href="javascript:;">
                 {{ 'header.help.title' | translate }}
+                <span class="pia-icons pia-icon-scroll" aria-hidden="true"></span>
               </a>
               <ul>
-                <li>
-                  <a *ngIf="_languagesService.selectedLanguage === 'fr' && pia_example" href="javascript:;" routerLink="/entry/{{pia_example.id}}/section/1/item/1">
+                <li *ngIf="_languagesService.selectedLanguage === 'fr' && pia_example">
+                  <a href="javascript:;" routerLink="/entry/{{pia_example.id}}/section/1/item/1">
                     {{ 'header.help.pia_example_link' | translate }}
                   </a>
+                </li>
+                <li>
+                  <a routerLink="/help">{{ 'header.help.manual' | translate }}</a>
                 </li>
                 <li>
                   <a target="_blank" href="https://github.com/LINCnil/pia/blob/master/CONTRIBUTING.md#exprimer-un-besoin-ou-probl%C3%A8me">
                     {{ 'header.help.issue_reporting' | translate }}
                   </a>
                 </li>
-                <li>
-                  <a routerLink="/help">{{ 'header.help.manual' | translate }}</a>
-                </li>
               </ul>
             </li>
-            <li class="pia-navigationBlock-languages">
+            <li class="pia-navigationBlock-withsub pia-navigationBlock-dropdown pia-navigationBlock-languages">
               <a href="javascript:;">
                 <i class="fa fa-globe" aria-hidden="true"></i>
               </a>

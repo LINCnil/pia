@@ -70,17 +70,22 @@ body.pia-contrast {
 
   /* header */
   .pia-navigationBlock {
+    &-list {
+      > li > a {
+        &:focus, &:hover, &:active {
+          background-color: $pia-green-dark !important;
+        }
+      }
+    }
+    &-dropdown,
     &-company {
       &:focus, &:hover, &:active {
         > a {
           background-color: $pia-green-dark !important;
         }
       }
-      > a {
-        &:focus, &:hover, &:active {
-          background-color: $pia-green-dark !important;
-        }
-      }
+    }
+    &-company {
       form {
         border-color: $pia-gray-dark !important;
         fieldset {
@@ -90,12 +95,6 @@ body.pia-contrast {
           }
         }
       }
-    }
-    &-structures {
-      background-color: $pia-green-dark;
-    }
-    &-archives {
-      background-color: $pia-red-dark;
     }
   }
 
@@ -922,5 +921,10 @@ body.pia-contrast {
   }
   .red-highlight {
     color: $pia-red-dark !important;
+  }
+
+  /* Breadcrumb */
+  .pia-breadcrumb {
+    color: $pia-gray-dark;
   }
 }
