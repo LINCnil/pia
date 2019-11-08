@@ -100,13 +100,20 @@
     &-switch {
       display: inline-block;
       vertical-align: middle;
-      width: 34px;
+      min-width: 140px;
       height: 34px;
       border: 1px solid $pia-green;
       border-radius: 20px;
       color: $pia-green;
+      padding: 0 10px;
+      .fa-list {
+        font-size: 1.5rem;
+      }
       div {
-        font-size: 1.1rem;
+        vertical-align: 1px;
+        display: inline-block;
+        font-size: 1.3rem;
+        margin-left: 4px;
         margin-top: -2px;
       }
       &:hover, &:focus {
