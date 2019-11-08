@@ -174,6 +174,7 @@
 		"title": "Ajutor"
 	},
 	"homepage": {
+    "search_filter": "TO TRANSLATE - Search",
 		"cards": {
 			"author": "Editare",
 			"creation_status": "Creare",

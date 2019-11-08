@@ -173,7 +173,7 @@
 		"title": "Aide"
 	},
 	"homepage": {
-    "search_filter": "Rechercher...",
+    "search_filter": "Chercher",
 		"cards": {
 			"author": "Saisie",
 			"creation_status": "Création",

@@ -927,4 +927,19 @@ body.pia-contrast {
   .pia-breadcrumb {
     color: $pia-gray-dark;
   }
+
+  /* Search bar */
+  .pia-searchInput {
+    .search-icon,
+    .search-close {
+      color: $pia-green-dark !important;
+    }
+    input.btn.btn-search {
+      border: 1px solid $pia-green-dark !important;
+      color: $pia-green-dark !important;
+      &::placeholder {
+        color: $pia-green-dark !important;
+      }
+    }
+  }
 }

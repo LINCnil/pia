@@ -72,24 +72,25 @@
 }
 .pia {
   &-searchInput {
-    width: 180px;
+    width: 150px;
     margin-left: 12px;
     display: inline-block;
     vertical-align: middle;
     position: relative;
     float: right;
     .search-icon {
+      font-style: initial;
       transition: all ease 0.5s;
       display: block;
       position: absolute;
       left: 10px;
-      top: 2px;
-      font-size: 2rem;
+      top: 1px;
+      font-size: 2.35rem;
       color: $pia-green;
-      -webkit-transform: rotate(45deg);
-      -moz-transform: rotate(45deg);
-      -o-transform: rotate(45deg);
-      transform: rotate(45deg);
+      -webkit-transform: rotate(-45deg);
+      -moz-transform: rotate(-45deg);
+      -o-transform: rotate(-45deg);
+      transform: rotate(-45deg);
     }
     .search-close {
       display: block;
@@ -115,10 +116,9 @@
       box-shadow:none;
       position: relative;
       padding-left: 30px;
-      &::placeholder { 
-        color: $pia-green !important; 
-      } 
-
+      &::placeholder {
+        color: $pia-green;
+      }
       &:focus, &.typed {
         width: 350px;
         border: 0px;
@@ -126,7 +126,7 @@
         border-radius: 20px;
         color: $pia-green;
         + .search-icon {
-          left: -160px;
+          left: -190px;
         }
       }
     }
@@ -228,7 +228,6 @@
         color: $pia-green;
         padding: 9px 12px 9px 16px;
         font-size: 1.3rem;
-        font-weight: 500;
         position: relative;
         z-index: 999;
         .pia-icon-scroll-green {
