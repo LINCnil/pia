@@ -87,6 +87,16 @@
         &-progressBar {
           width: 100px;
           text-align: right;
+          span {
+            font-size: 0.9em;
+            position: absolute;
+            z-index: 5;
+            position: absolute;
+            top: 50%; left: 15px;
+            -webkit-transform: translateY(-50%);
+                -ms-transform: translateY(-50%);
+                    transform: translateY(-50%);
+          }
           div {
             color: $pia-green;
             font-style: italic;
@@ -94,18 +104,20 @@
             font-size: 1rem;
           }
           progress {
+            z-index: 0;
             width: 100%;
             position: relative;
             margin-top: 5px;
+            border: 1px solid #6666;
             &:after {
               position: absolute;
               left: 0;
               top: 50%;
               content: '';
-              height: 12px;
+              height: 20px;
               width: 1px;
               margin-top: -6px;
-              background-color: $pia-green;
+              // background-color: $pia-green;
             }
             &:before {
               position: absolute;
@@ -114,15 +126,15 @@
               right: 0;
               top: 50%;
               height: 1px;
-              background-color: $pia-green;
+              // background-color: $pia-green;
             }
           }
           progress[value] {
             -webkit-appearance: none;
             -moz-appearance: none;
             appearance: none;
-            background-color: transparent;
-            height: 12px;
+            background-color: white;
+            height: 20px;
             &::-webkit-progress-bar {
               background-color: transparent;
             }
