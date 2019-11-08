@@ -14,7 +14,7 @@
           <div>{{ 'homepage.filters.list' | translate }}</div>
         </button>
 
-        <div class="pia-filtersBlock-filters">
+        <div class="pia-filtersBlock-filters" *ngIf="viewStyle.view === 'card'">
           <button class="pia-filtersBlock-filters-btn btn" type="button">
             {{ 'homepage.filters.sort' | translate }}
             <span class="pia-icons pia-icon-scroll-green"></span>

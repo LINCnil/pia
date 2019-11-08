@@ -24,7 +24,7 @@ export class StructuresComponent implements OnInit, OnDestroy {
   importStructureForm: FormGroup;
   sortOrder: string;
   sortValue: string;
-  viewStyle: { view: string }
+  viewStyle: { view: string };
   view: 'structure';
   paramsSubscribe: Subscription;
   structExampleSubscribe: Subscription;
