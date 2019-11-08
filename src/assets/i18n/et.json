@@ -85,8 +85,9 @@
 	},
 	"header": {
     "exit_full_screen_mode": "TO TRANSLATE - Press F11 to exit full screen mode.",
-    "homepage_link": "Töölaud",
-    "archives": "TO TRANSLATE - PIA archives",
+		"homepage_link": "TO TRANSLATE - My PIAs",
+		"current_pias": "TO TRANSLATE - Current PIAs",
+    "archives": "TO TRANSLATE - PIA Archives",
 		"knowledge_base_link": "Teadmiste pagas",
 		"languages": {
 			"cnil_translations": "CNIL’i  esitatud tõlge",
@@ -117,10 +118,16 @@
 		"logo_title": "Andmekaitsealane mõjuhinnag",
 		"pia_example_link": "Mõjuhinnangu näidis",
 		"structures": "Vormid",
+		"help": {
+			"title": "Abi",
+			"pia_example_link": "TO TRANSLATE - PIA example",
+			"issue_reporting": "TO TRANSLATE - Report an issue",
+			"manual": "TO TRANSLATE - User manual"
+		},
 		"tools": {
+      "url_setting": "TO TRANSLATE - Server URL configuration",
 			"about": "Tarkvarast",
 			"accessibility": "Vaegnägijale",
-			"help": "Abi",
 			"settings": "Seaded",
 			"title": "Tööriistad"
 		}
@@ -219,13 +226,13 @@
 		"filters": {
 			"assessor": "Hindaja",
 			"author": "Läbiviija",
-			"card": "Kaart",
+			"card": "TO TRANSLATE - Card view",
 			"card_rocket_content": "<br><br>uue alustamiseks vajuta Uus mõjuhinnag",
 			"card_rocket_content_structure": "<br><br>Alustamiseks<br>vajutage<br> nuppu +",
 			"date": "Kuupäev",
 			"import_pia": "Impordi mõjuhinnang",
 			"import_structure": "Impordi mõjuhinnang",
-			"list": "Nimistu",
+			"list": "TO TRANSLATE - List view",
 			"list_rocket_content": "Uue <br>alustamiseks vajuta +",
 			"list_rocket_content_structure": "Alustamiseks<br>vajutage nuppu +",
 			"name": "Nimi",

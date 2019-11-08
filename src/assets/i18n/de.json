@@ -85,8 +85,9 @@
 	},
 	"header": {
 		"exit_full_screen_mode": "Drücken Sie F11, um den Vollbildmodus zu verlassen.",
-    "homepage_link": "Übersicht",
-    "archives": "TO TRANSLATE - PIA archives",
+		"homepage_link": "TO TRANSLATE - My PIAs",
+		"current_pias": "TO TRANSLATE - Current PIAs",
+    "archives": "TO TRANSLATE - PIA Archives",
 		"knowledge_base_link": "Wissensbasis",
 		"languages": {
 			"cnil_translations": "Von der CNIL bereitgestellte Übersetzungen",
@@ -117,10 +118,16 @@
 		"logo_title": "DSFA - Datenschutz-Folgenabschätzung",
 		"pia_example_link": "Beispiel DSFA",
 		"structures": "DSFA-Vorlagen",
+		"help": {
+			"title": "Hilfe",
+			"pia_example_link": "TO TRANSLATE - PIA example",
+			"issue_reporting": "TO TRANSLATE - Report an issue",
+			"manual": "TO TRANSLATE - User manual"
+		},
 		"tools": {
+      "url_setting": "TO TRANSLATE - Server URL configuration",
 			"about": "Über",
 			"accessibility": "Unterstützung für Sehbehinderte (kontrastreiche Farben, bei Rot-Grün-Sehschwäche)",
-			"help": "Hilfe",
 			"settings": "Einstellungen",
 			"title": "Tools"
 		}
@@ -219,13 +226,13 @@
 		"filters": {
 			"assessor": "Überprüft von",
 			"author": "Bearbeitet von",
-			"card": "Karte",
+			"card": "TO TRANSLATE - Card view",
 			"card_rocket_content": "Für eine neue DSFA,<br> klicken Sie auf \"+\"",
 			"card_rocket_content_structure": "Fangen Sia an!<br><br>Um eine Vorlage<br>zu beginnen, klicken Sie auf<br> auf das +.",
 			"date": "Datum",
 			"import_pia": "DSFA importieren",
 			"import_structure": "Vorlage importieren",
-			"list": "Liste",
+			"list": "TO TRANSLATE - List view",
 			"list_rocket_content": "Fangen Sie an! Um eine DSFA anzulegen, klicken Sie auf \"Neue DSFA\"",
 			"list_rocket_content_structure": "Fangen Sie an! Um eine Vorlage<br>zu beginnen, klicken Sie auf die Schaltfläche +.",
 			"name": "Name",

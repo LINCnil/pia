@@ -85,8 +85,9 @@
 	},
 	"header": {
     "exit_full_screen_mode": "Πατήστε F11 για έξοδο από την πλήρη οθόνη.",
-    "homepage_link": "Πίνακας ενδείξεων",
-    "archives": "TO TRANSLATE - PIA archives",
+		"homepage_link": "TO TRANSLATE - My PIAs",
+		"current_pias": "TO TRANSLATE - Current PIAs",
+    "archives": "TO TRANSLATE - PIA Archives",
 		"knowledge_base_link": "Βάση γνώσεων",
 		"languages": {
 			"cnil_translations": "Μεταφράσεις που παρείχε η CNIL",
@@ -117,10 +118,16 @@
 		"logo_title": "Εκτίμηση αντικτύπου",
 		"pia_example_link": "Παράδειγμα ΕΑ",
 		"structures": "Υπoδείγματα ΕΑ",
+		"help": {
+			"title": "Βοήθεια",
+			"pia_example_link": "TO TRANSLATE - PIA example",
+			"issue_reporting": "TO TRANSLATE - Report an issue",
+			"manual": "TO TRANSLATE - User manual"
+		},
 		"tools": {
+      "url_setting": "TO TRANSLATE - Server URL configuration",
 			"about": "Σχετικά",
 			"accessibility": "Προσβασιμότητα με προβλήματα όρασης (χρώματα υψηλής αντίθεσης, δαλτονισμός)",
-			"help": "Βοήθεια",
 			"settings": "Ρυθμίσεις",
 			"title": "Εργαλεία"
 		}
@@ -219,13 +226,13 @@
 		"filters": {
 			"assessor": "Αξιολογητής",
 			"author": "Συντάκτης",
-			"card": "κάρτα",
+			"card": "TO TRANSLATE - Card view",
 			"card_rocket_content": "Αρχίστε !<br><br>Για να ξεκινήσετε μια ΕΑ,<br> κάντε κλικ στο Νέα ΕΑ",
 			"card_rocket_content_structure": "Αρχίστε ! Για να ξεκινήσετε <br>ένα υπόδειγμα, κάντε κλικ στο +",
 			"date": "Ημερομηνία",
 			"import_pia": "Εισαγωγή ΕΑ",
 			"import_structure": "Εισαγωγή υποδείγματος",
-			"list": "λίστα",
+			"list": "TO TRANSLATE - List view",
 			"list_rocket_content": "Αρχίστε ! Για να ξεκινήσετε <br>μια ΕΑ, κάντε κλικ στο +",
 			"list_rocket_content_structure": "Αρχίστε ! Για να ξεκινήσετε <br>ένα υπόδειγμα, κάντε κλικ στο +",
 			"name": "Όνομα",

@@ -392,10 +392,9 @@
     &-exports {
       display: inline-block;
       vertical-align: top;
-      padding-left: 15px;
     }
     &-data {
-      width: 610px;
+      width: 578px;
     }
     &-headline {
       display: flex;
@@ -456,6 +455,7 @@
       }
     }
     &-exports {
+      padding-left: 15px;
       width: 260px;
       position: sticky;
       top: 0;

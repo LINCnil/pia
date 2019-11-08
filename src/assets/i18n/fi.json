@@ -85,8 +85,9 @@
 	},
 	"header": {
     "exit_full_screen_mode": "TO TRANSLATE - Press F11 to exit full screen mode.",
-    "homepage_link": "Ohjauspaneeli",
-    "archives": "TO TRANSLATE - PIA archives",
+		"homepage_link": "TO TRANSLATE - My PIAs",
+		"current_pias": "TO TRANSLATE - Current PIAs",
+    "archives": "TO TRANSLATE - PIA Archives",
 		"knowledge_base_link": "Tietopankki",
 		"languages": {
 			"cnil_translations": "CNIL:n tarjoamat käännökset",
@@ -117,10 +118,16 @@
 		"logo_title": "Tietosuojaa koskeva vaikutustenarviointi",
 		"pia_example_link": "Esimerkki vaikutustenarvioinnista",
 		"structures": "TO BE TRANSLATED - Modèles de PIA",
+		"help": {
+			"title": "Ohje",
+			"pia_example_link": "TO TRANSLATE - PIA example",
+			"issue_reporting": "TO TRANSLATE - Report an issue",
+			"manual": "TO TRANSLATE - User manual"
+		},
 		"tools": {
+      "url_setting": "TO TRANSLATE - Server URL configuration",
 			"about": "Tietoa ohjelmasta",
 			"accessibility": "Visuaaliset helppokäyttöisyysasetukset (suuri kontrasti, värisokeus)",
-			"help": "Ohje",
 			"settings": "Asetukset",
 			"title": "Työkalut"
 		}
@@ -219,13 +226,13 @@
 		"filters": {
 			"assessor": "Tarkastaja",
 			"author": "Laatija",
-			"card": "kortti",
+			"card": "TO TRANSLATE - Card view",
 			"card_rocket_content": "Aloitetaan!<br><br>Luo vaikutustenarviointi<br>  napsauttamalla Uusi vaikutustenarviointi -painiketta",
 			"card_rocket_content_structure": "TO BE TRANSLATED - Lancez-vous !<br><br>Pour commencer<br>un modèle, cliquez<br> sur le +",
 			"date": "Päiväys",
 			"import_pia": "Tuo vaikutustenarviointi",
 			"import_structure": "TO BE TRANSLATED - Importer modèle",
-			"list": "luettelo",
+			"list": "TO TRANSLATE - List view",
 			"list_rocket_content": "Aloitetaan! Luo vaikutustenarviointi <br> napsauttamalla +-painiketta",
 			"list_rocket_content_structure": "TO BE TRANSLATED - Lancez-vous ! Pour commencer<br>un modèle, cliquez sur le +",
 			"name": "Nimi",

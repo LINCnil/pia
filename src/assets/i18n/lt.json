@@ -85,8 +85,9 @@
 	},
 	"header": {
     "exit_full_screen_mode": "TO TRANSLATE - Press F11 to exit full screen mode.",
-    "homepage_link": "Apžvalga",
-    "archives": "TO TRANSLATE - PIA archives",
+		"homepage_link": "TO TRANSLATE - My PIAs",
+		"current_pias": "TO TRANSLATE - Current PIAs",
+    "archives": "TO TRANSLATE - PIA Archives",
 		"knowledge_base_link": "Pagalba",
 		"languages": {
 			"cnil_translations": "CNIL vertimas",
@@ -117,10 +118,16 @@
 		"logo_title": "Poveikio duomenų apsaugai vertinimas",
 		"pia_example_link": "PDAV pavyzdys",
 		"structures": "PDAV šablonas",
+		"help": {
+			"title": "Pagalba",
+			"pia_example_link": "TO TRANSLATE - PIA example",
+			"issue_reporting": "TO TRANSLATE - Report an issue",
+			"manual": "TO TRANSLATE - User manual"
+		},
 		"tools": {
+      "url_setting": "TO TRANSLATE - Server URL configuration",
 			"about": "Apie",
 			"accessibility": "Regėjimo sutrikimą turintiems (padidinto ryškumo spalvos, daltonismas)",
-			"help": "Pagalba",
 			"settings": "Nustatymai",
 			"title": "Įrankiai"
 		}
@@ -219,13 +226,13 @@
 		"filters": {
 			"assessor": "Tikrintoją",
 			"author": "Autorių",
-			"card": "Kortelė",
+			"card": "TO TRANSLATE - Card view",
 			"card_rocket_content": "Pradėti !<br><br> Tam, kad pradėti<br> spausk Naujas PDAV",
 			"card_rocket_content_structure": "Pradėk ! Tam, kad pradėti rengti <br>šabloną, spausk +",
 			"date": "Datą",
 			"import_pia": "Importuoti PDAV",
 			"import_structure": "Importuoti šabloną",
-			"list": "Sąrašas",
+			"list": "TO TRANSLATE - List view",
 			"list_rocket_content": "Pradėti ! Tam, kad pradėti <br>PDAV, spausk +",
 			"list_rocket_content_structure": "Pradėk ! Tam, kad pradėti rengti <br>šabloną, spausk +",
 			"name": "Pavadinimą",

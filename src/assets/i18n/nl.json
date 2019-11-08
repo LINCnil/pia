@@ -85,8 +85,9 @@
 	},
 	"header": {
     "exit_full_screen_mode": "Druk F11 om het volledige scherm te sluiten.",
-    "homepage_link": "Dashboard",
-    "archives": "TO TRANSLATE - PIA archives",
+		"homepage_link": "TO TRANSLATE - My PIAs",
+		"current_pias": "TO TRANSLATE - Current PIAs",
+    "archives": "TO TRANSLATE - PIA Archives",
 		"knowledge_base_link": "Kennisbank",
 		"languages": {
 			"cnil_translations": "Vertalingen door de CNIL",
@@ -117,10 +118,16 @@
 		"logo_title": "Privacy Impact Assessment",
 		"pia_example_link": "PIA-voorbeeld",
 		"structures": "PIA-modellen",
+		"help": {
+			"title": "Help",
+			"pia_example_link": "TO TRANSLATE - PIA example",
+			"issue_reporting": "TO TRANSLATE - Report an issue",
+			"manual": "TO TRANSLATE - User manual"
+		},
 		"tools": {
+      "url_setting": "TO TRANSLATE - Server URL configuration",
 			"about": "Over",
 			"accessibility": "Toegang voor slechtzienden (kleuren met hoog contrast, daltonisme)",
-			"help": "Help",
 			"settings": "Instellingen",
 			"title": "Tools"
 		}
@@ -219,13 +226,13 @@
 		"filters": {
 			"assessor": "Reviewer",
 			"author": "Auteur",
-			"card": "Kaart",
+			"card": "TO TRANSLATE - Card view",
 			"card_rocket_content": "Aan de slag! <br> <br> Om een PIA te starten, <br> klikt u op Nieuwe PIA",
 			"card_rocket_content_structure": "Aan de slag!<br><br>Om een sjabloon <br>te starten, klikt u <br> op de +",
 			"date": "Datum",
 			"import_pia": "PIA importeren",
 			"import_structure": "Sjabloon importeren",
-			"list": "lijst",
+			"list": "TO TRANSLATE - List view",
 			"list_rocket_content": "Aan de slag! Om een PIA te starten, klik op de +",
 			"list_rocket_content_structure": "Aan de slag! Om een sjabloon<br>te starten, klikt u op de +",
 			"name": "Naam",

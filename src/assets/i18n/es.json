@@ -85,8 +85,9 @@
 	},
 	"header": {
     "exit_full_screen_mode": "Pulse F11 para salir del modo de pantalla completa.",
-    "homepage_link": "Panel de control",
-    "archives": "TO TRANSLATE - PIA archives",
+		"homepage_link": "TO TRANSLATE - My PIAs",
+		"current_pias": "TO TRANSLATE - Current PIAs",
+    "archives": "TO TRANSLATE - PIA Archives",
 		"knowledge_base_link": "Base de conocimientos",
 		"languages": {
 			"cnil_translations": "Traducciones del CNIL",
@@ -117,10 +118,16 @@
 		"logo_title": "Evaluación de impacto de la privacidad",
 		"pia_example_link": "Ejemplo de PIA",
 		"structures": "TO BE TRANSLATED - Modèles de PIA",
+		"help": {
+			"title": "Ayuda",
+			"pia_example_link": "TO TRANSLATE - PIA example",
+			"issue_reporting": "TO TRANSLATE - Report an issue",
+			"manual": "TO TRANSLATE - User manual"
+		},
 		"tools": {
+      "url_setting": "TO TRANSLATE - Server URL configuration",
 			"about": "Acerca de",
 			"accessibility": "Accesibilidad para personas con discapacidad visual (colores de alto contraste, daltonismo)",
-			"help": "Ayuda",
 			"settings": "Ajustes",
 			"title": "Herramientas"
 		}
@@ -219,13 +226,13 @@
 		"filters": {
 			"assessor": "Revisado por",
 			"author": "Autor",
-			"card": "Ficha",
+			"card": "TO TRANSLATE - Card view",
 			"card_rocket_content": "¡Comencemos! <br><br>Para iniciar un PIA, <br> clic en Nuevo PIA",
 			"card_rocket_content_structure": "TO BE TRANSLATED - Lancez-vous !<br><br>Pour commencer<br>un modèle, cliquez<br> sur le +",
 			"date": "Fecha",
 			"import_pia": "Importar PIA",
 			"import_structure": "Importar plantilla",
-			"list": "Lista",
+			"list": "TO TRANSLATE - List view",
 			"list_rocket_content": "¡Comencemos! Para iniciar <br>un PIA, haga clic en el +",
 			"list_rocket_content_structure": "TO BE TRANSLATED - Lancez-vous ! Pour commencer<br>un modèle, cliquez sur le +",
 			"name": "Nombre",

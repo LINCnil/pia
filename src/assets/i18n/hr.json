@@ -84,9 +84,11 @@
 		"to_correct": "Za ispraviti"
 	},
 	"header": {
+    "url_setting": "TO TRANSLATE - Server URL configuration",
     "exit_full_screen_mode": "TO TRANSLATE - Press F11 to exit full screen mode.",
-    "homepage_link": "Kontrolna ploča",
-    "archives": "TO TRANSLATE - PIA archives",
+		"homepage_link": "TO TRANSLATE - My PIAs",
+		"current_pias": "TO TRANSLATE - Current PIAs",
+    "archives": "TO TRANSLATE - PIA Archives",
 		"knowledge_base_link": "Baza znanja",
 		"languages": {
 			"cnil_translations": "Prijevodi od strane CNIL-a",
@@ -117,10 +119,15 @@
 		"logo_title": "Procjena učinka na privatnost",
 		"pia_example_link": "Primjer PUP-a",
 		"structures": "PIA template",
+		"help": {
+			"title": "Pomoć",
+			"pia_example_link": "TO TRANSLATE - PIA example",
+			"issue_reporting": "TO TRANSLATE - Report an issue",
+			"manual": "TO TRANSLATE - User manual"
+		},
 		"tools": {
 			"about": "O programu",
 			"accessibility": "Pristupačnost za slabovidne osobe (boje visokog kontrasta, daltonizam)",
-			"help": "Pomoć",
 			"settings": "Postavke",
 			"title": "Alati"
 		}
@@ -219,13 +226,13 @@
 		"filters": {
 			"assessor": "Recenzentu",
 			"author": "Autoru",
-			"card": "kartica",
+			"card": "TO TRANSLATE - Card view",
 			"card_rocket_content": "Započnite!<br><br>Kako bi započeli s PUP-om,<br> kliknite na Novi PUP",
 			"card_rocket_content_structure": "Započnite! Kako bi započeli s <br>obrascem, kliknite na +",
 			"date": "Datumu",
 			"import_pia": "Uvezi PUP",
 			"import_structure": "Uvezi obrazac",
-			"list": "lista",
+			"list": "TO TRANSLATE - List view",
 			"list_rocket_content": "Započnite! Kako bi započeli s <br>PUP-om, kliknite na +",
 			"list_rocket_content_structure": "Započnite! Kako bi započeli s <br>obrascem, kliknite na +",
 			"name": "Imenu",

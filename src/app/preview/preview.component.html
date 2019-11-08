@@ -4,6 +4,10 @@
 
   <!-- Preview navigation -->
   <div class="row">
+
+    <div *ngIf="this._piaService.pia.is_example === 1" class="pia-breadcrumb small-12 medium-12 columns">{{ 'header.help.title' | translate }} > {{ 'header.current_pias' | translate }} >{{ 'header.help.pia_example_link' | translate }}</div>
+    <div *ngIf="this._piaService.pia.is_example === 0" class="pia-breadcrumb small-12 medium-12 columns">{{ 'header.homepage_link' | translate }} > {{ 'header.current_pias' | translate }} > {{ this._piaService.pia.name }}</div>
+
     <div class="small-12 medium-3 columns hide-for-print">
       <aside class="pia-leftSidebarBlock pia-fullPreviewBlock-section">
           <div class="pia-sectionsBlock">

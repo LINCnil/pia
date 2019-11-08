@@ -85,8 +85,9 @@
 	},
 	"header": {
     "exit_full_screen_mode": "TO TRANSLATE - Press F11 to exit full screen mode.",
-    "homepage_link": "Hjem",
-    "archives": "TO TRANSLATE - PIA archives",
+		"homepage_link": "TO TRANSLATE - My PIAs",
+		"current_pias": "TO TRANSLATE - Current PIAs",
+    "archives": "TO TRANSLATE - PIA Archives",
 		"knowledge_base_link": "Vidensbase",
 		"languages": {
 			"cnil_translations": "Oversættelser af CNILs",
@@ -117,10 +118,16 @@
 		"logo_title": "PIA Konsekvensanalyse",
 		"pia_example_link": "PIA exempel",
 		"structures": "PIA skabelon",
+		"help": {
+			"title": "Hjælp",
+			"pia_example_link": "TO TRANSLATE - PIA example",
+			"issue_reporting": "TO TRANSLATE - Report an issue",
+			"manual": "TO TRANSLATE - User manual"
+		},
 		"tools": {
+      "url_setting": "TO TRANSLATE - Server URL configuration",
 			"about": "Om applikationen",
 			"accessibility": "Øget tilgængelighed (høje kontrast farver, daltonism)",
-			"help": "Hjælp",
 			"settings": "Konfiguration",
 			"title": "Værktøjer"
 		}
@@ -219,13 +226,13 @@
 		"filters": {
 			"assessor": "Analytiker",
 			"author": "Forfatter",
-			"card": "Kort",
+      "card": "TO TRANSLATE - Card view",
 			"card_rocket_content": "Begynd !<br><br>For at starte en PIA,<br> klik på Ny PIA",
 			"card_rocket_content_structure": "Begynd ! For at starte <br>en skabelon, klik på +",
 			"date": "Dato",
 			"import_pia": "Importere PIA",
 			"import_structure": "Importere skabelon",
-			"list": "Liste",
+			"list": "TO TRANSLATE - List view",
 			"list_rocket_content": "Begynd ! For at starte <br>en PIA, klik på +",
 			"list_rocket_content_structure": "Begynd ! For at starte <br>en skabelon, klik på +",
 			"name": "Navn",

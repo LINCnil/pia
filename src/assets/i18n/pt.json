@@ -85,8 +85,9 @@
 	},
 	"header": {
     "exit_full_screen_mode": "TO TRANSLATE - Press F11 to exit full screen mode.",
-    "homepage_link": "Painel",
-    "archives": "TO TRANSLATE - PIA archives",
+		"homepage_link": "TO TRANSLATE - My PIAs",
+		"current_pias": "TO TRANSLATE - Current PIAs",
+    "archives": "TO TRANSLATE - PIA Archives",
 		"knowledge_base_link": "Base de conhecimento",
 		"languages": {
 			"cnil_translations": "Traduções fornecidas pela CNIL",
@@ -117,10 +118,16 @@
 		"logo_title": "Avaliação de Impacto da Proteção de Dados",
 		"pia_example_link": "Exemplo PIA",
 		"structures": "Modelos de PIA",
+		"help": {
+			"title": "Ajuda",
+			"pia_example_link": "TO TRANSLATE - PIA example",
+			"issue_reporting": "TO TRANSLATE - Report an issue",
+			"manual": "TO TRANSLATE - User manual"
+		},
 		"tools": {
+      "url_setting": "TO TRANSLATE - Server URL configuration",
 			"about": "Sobre",
 			"accessibility": "Acessibilidade para pessoas com deficiência visual (cores de alto contraste, daltonismo)",
-			"help": "Ajuda",
 			"settings": "Definições",
 			"title": "Ferramentas"
 		}
@@ -218,13 +225,13 @@
 		"filters": {
 			"assessor": "Revisor",
 			"author": "Autor",
-			"card": "cartão",
+			"card": "TO TRANSLATE - Card view",
 			"card_rocket_content": "Iniciar !<br><br>Para iniciar uma análise PIA,<br> clicar na Nova análise PIA",
 			"card_rocket_content_structure": "Comece !<br><br>Para começar<br>um modelo, clique<br> no +",
 			"date": "Data",
 			"import_pia": "Importar PIA",
 			"import_structure": "Importar modelo",
-			"list": "lista",
+			"list": "TO TRANSLATE - List view",
 			"list_rocket_content": "Iniciar ! Para iniciar <br>uma análise PIA, clicar no +",
 			"list_rocket_content_structure": "Comece ! Para começar<br>um modelo, clique no +",
 			"name": "Nome",

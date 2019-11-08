@@ -85,8 +85,9 @@
 	},
 	"header": {
     "exit_full_screen_mode": "TO TRANSLATE - Press F11 to exit full screen mode.",
-    "homepage_link": "Hovedside",
-    "archives": "TO TRANSLATE - PIA archives",
+		"homepage_link": "TO TRANSLATE - My PIAs",
+		"current_pias": "TO TRANSLATE - Current PIAs",
+    "archives": "TO TRANSLATE - PIA Archives",
 		"knowledge_base_link": "Kunnskapsdatabase",
 		"languages": {
 			"cnil_translations": "TO BE TRANSLATED - CNIL provided translations",
@@ -117,10 +118,16 @@
 		"logo_title": "PIA",
 		"pia_example_link": "Eksempel på vurdering av personvernkonsekvenser",
 		"structures": "TO BE TRANSLATED - Modèles de PIA",
+		"help": {
+			"title": "Hjelp",
+			"pia_example_link": "TO TRANSLATE - PIA example",
+			"issue_reporting": "TO TRANSLATE - Report an issue",
+			"manual": "TO TRANSLATE - User manual"
+		},
 		"tools": {
+      "url_setting": "TO TRANSLATE - Server URL configuration",
 			"about": "Om",
 			"accessibility": "Tilgjengelighet for synshemmede (høykontrastfarger, daltonisme)",
-			"help": "Hjelp",
 			"settings": "Innstillinger",
 			"title": "Verktøy"
 		}
@@ -219,13 +226,13 @@
 		"filters": {
 			"assessor": "Saksbehandler",
 			"author": "Forfatter",
-			"card": "kort",
+			"card": "TO TRANSLATE - Card view",
 			"card_rocket_content": "Kom i gang !<br><br>For å starte en PIA,<br> klikk på Ny PIA",
 			"card_rocket_content_structure": "TO BE TRANSLATED - Lancez-vous !<br><br>Pour commencer<br>un modèle, cliquez<br> sur le +",
 			"date": "Dato",
 			"import_pia": "Importer PIA",
 			"import_structure": "TO BE TRANSLATED - Importer modèle",
-			"list": "liste",
+			"list": "TO TRANSLATE - List view",
 			"list_rocket_content": "Kom i gang ! For å starte <br>en PIA, klikk på +",
 			"list_rocket_content_structure": "TO BE TRANSLATED - Lancez-vous ! Pour commencer<br>un modèle, cliquez sur le +",
 			"name": "Navn",
