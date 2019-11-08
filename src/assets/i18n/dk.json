@@ -85,8 +85,9 @@
 	},
 	"header": {
     "exit_full_screen_mode": "TO TRANSLATE - Press F11 to exit full screen mode.",
-    "homepage_link": "Hjem",
-    "archives": "TO TRANSLATE - PIA archives",
+		"homepage_link": "TO TRANSLATE - My PIAs",
+		"current_pias": "TO TRANSLATE - Current PIAs",
+    "archives": "TO TRANSLATE - PIA Archives",
 		"knowledge_base_link": "Vidensbase",
 		"languages": {
 			"cnil_translations": "Oversættelser af CNILs",
@@ -117,10 +118,15 @@
 		"logo_title": "PIA Konsekvensanalyse",
 		"pia_example_link": "PIA exempel",
 		"structures": "PIA skabelon",
+		"help": {
+			"title": "Hjælp",
+			"pia_example_link": "TO TRANSLATE - PIA example",
+			"issue_reporting": "TO TRANSLATE - Report an issue",
+			"manual": "TO TRANSLATE - User manual"
+		},
 		"tools": {
 			"about": "Om applikationen",
 			"accessibility": "Øget tilgængelighed (høje kontrast farver, daltonism)",
-			"help": "Hjælp",
 			"settings": "Konfiguration",
 			"title": "Værktøjer"
 		}

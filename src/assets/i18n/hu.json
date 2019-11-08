@@ -85,8 +85,9 @@
 	},
 	"header": {
     "exit_full_screen_mode": "TO TRANSLATE - Press F11 to exit full screen mode.",
-    "homepage_link": "Vezérlőpult",
-    "archives": "TO TRANSLATE - PIA archives",
+		"homepage_link": "TO TRANSLATE - My PIAs",
+		"current_pias": "TO TRANSLATE - Current PIAs",
+    "archives": "TO TRANSLATE - PIA Archives",
 		"knowledge_base_link": "Tudásbázis",
 		"languages": {
 			"cnil_translations": "A CNIL által biztosított fordítások",
@@ -117,10 +118,15 @@
 		"logo_title": "Adatvédelmi hatásvizsgálat",
 		"pia_example_link": "DPIA-példa",
 		"structures": "TO BE TRANSLATED - Modèles de PIA",
+		"help": {
+			"title": "Segítség",
+			"pia_example_link": "TO TRANSLATE - PIA example",
+			"issue_reporting": "TO TRANSLATE - Report an issue",
+			"manual": "TO TRANSLATE - User manual"
+		},
 		"tools": {
 			"about": "Rólunk",
 			"accessibility": "Hozzáférés látássérülteknek (erős színkontraszt, daltonizmus)",
-			"help": "Segítség",
 			"settings": "Beállítások",
 			"title": "Eszköztár"
 		}

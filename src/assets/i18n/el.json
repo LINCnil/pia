@@ -85,8 +85,9 @@
 	},
 	"header": {
     "exit_full_screen_mode": "Πατήστε F11 για έξοδο από την πλήρη οθόνη.",
-    "homepage_link": "Πίνακας ενδείξεων",
-    "archives": "TO TRANSLATE - PIA archives",
+		"homepage_link": "TO TRANSLATE - My PIAs",
+		"current_pias": "TO TRANSLATE - Current PIAs",
+    "archives": "TO TRANSLATE - PIA Archives",
 		"knowledge_base_link": "Βάση γνώσεων",
 		"languages": {
 			"cnil_translations": "Μεταφράσεις που παρείχε η CNIL",
@@ -117,10 +118,15 @@
 		"logo_title": "Εκτίμηση αντικτύπου",
 		"pia_example_link": "Παράδειγμα ΕΑ",
 		"structures": "Υπoδείγματα ΕΑ",
+		"help": {
+			"title": "Βοήθεια",
+			"pia_example_link": "TO TRANSLATE - PIA example",
+			"issue_reporting": "TO TRANSLATE - Report an issue",
+			"manual": "TO TRANSLATE - User manual"
+		},
 		"tools": {
 			"about": "Σχετικά",
 			"accessibility": "Προσβασιμότητα με προβλήματα όρασης (χρώματα υψηλής αντίθεσης, δαλτονισμός)",
-			"help": "Βοήθεια",
 			"settings": "Ρυθμίσεις",
 			"title": "Εργαλεία"
 		}

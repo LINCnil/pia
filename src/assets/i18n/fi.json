@@ -85,8 +85,9 @@
 	},
 	"header": {
     "exit_full_screen_mode": "TO TRANSLATE - Press F11 to exit full screen mode.",
-    "homepage_link": "Ohjauspaneeli",
-    "archives": "TO TRANSLATE - PIA archives",
+		"homepage_link": "TO TRANSLATE - My PIAs",
+		"current_pias": "TO TRANSLATE - Current PIAs",
+    "archives": "TO TRANSLATE - PIA Archives",
 		"knowledge_base_link": "Tietopankki",
 		"languages": {
 			"cnil_translations": "CNIL:n tarjoamat käännökset",
@@ -117,10 +118,15 @@
 		"logo_title": "Tietosuojaa koskeva vaikutustenarviointi",
 		"pia_example_link": "Esimerkki vaikutustenarvioinnista",
 		"structures": "TO BE TRANSLATED - Modèles de PIA",
+		"help": {
+			"title": "Ohje",
+			"pia_example_link": "TO TRANSLATE - PIA example",
+			"issue_reporting": "TO TRANSLATE - Report an issue",
+			"manual": "TO TRANSLATE - User manual"
+		},
 		"tools": {
 			"about": "Tietoa ohjelmasta",
 			"accessibility": "Visuaaliset helppokäyttöisyysasetukset (suuri kontrasti, värisokeus)",
-			"help": "Ohje",
 			"settings": "Asetukset",
 			"title": "Työkalut"
 		}

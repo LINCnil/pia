@@ -85,8 +85,9 @@
 	},
 	"header": {
     "exit_full_screen_mode": "TO TRANSLATE - Press F11 to exit full screen mode.",
-    "homepage_link": "Hovedside",
-    "archives": "TO TRANSLATE - PIA archives",
+		"homepage_link": "TO TRANSLATE - My PIAs",
+		"current_pias": "TO TRANSLATE - Current PIAs",
+    "archives": "TO TRANSLATE - PIA Archives",
 		"knowledge_base_link": "Kunnskapsdatabase",
 		"languages": {
 			"cnil_translations": "TO BE TRANSLATED - CNIL provided translations",
@@ -117,10 +118,15 @@
 		"logo_title": "PIA",
 		"pia_example_link": "Eksempel på vurdering av personvernkonsekvenser",
 		"structures": "TO BE TRANSLATED - Modèles de PIA",
+		"help": {
+			"title": "Hjelp",
+			"pia_example_link": "TO TRANSLATE - PIA example",
+			"issue_reporting": "TO TRANSLATE - Report an issue",
+			"manual": "TO TRANSLATE - User manual"
+		},
 		"tools": {
 			"about": "Om",
 			"accessibility": "Tilgjengelighet for synshemmede (høykontrastfarger, daltonisme)",
-			"help": "Hjelp",
 			"settings": "Innstillinger",
 			"title": "Verktøy"
 		}

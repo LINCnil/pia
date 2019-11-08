@@ -85,8 +85,9 @@
 	},
 	"header": {
     "exit_full_screen_mode": "TO TRANSLATE - Press F11 to exit full screen mode.",
-    "homepage_link": "Apžvalga",
-    "archives": "TO TRANSLATE - PIA archives",
+		"homepage_link": "TO TRANSLATE - My PIAs",
+		"current_pias": "TO TRANSLATE - Current PIAs",
+    "archives": "TO TRANSLATE - PIA Archives",
 		"knowledge_base_link": "Pagalba",
 		"languages": {
 			"cnil_translations": "CNIL vertimas",
@@ -117,10 +118,15 @@
 		"logo_title": "Poveikio duomenų apsaugai vertinimas",
 		"pia_example_link": "PDAV pavyzdys",
 		"structures": "PDAV šablonas",
+		"help": {
+			"title": "Pagalba",
+			"pia_example_link": "TO TRANSLATE - PIA example",
+			"issue_reporting": "TO TRANSLATE - Report an issue",
+			"manual": "TO TRANSLATE - User manual"
+		},
 		"tools": {
 			"about": "Apie",
 			"accessibility": "Regėjimo sutrikimą turintiems (padidinto ryškumo spalvos, daltonismas)",
-			"help": "Pagalba",
 			"settings": "Nustatymai",
 			"title": "Įrankiai"
 		}

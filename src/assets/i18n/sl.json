@@ -172,9 +172,9 @@
 
     "exit_full_screen_mode": "TO TRANSLATE - Press F11 to exit full screen mode.",
 
-    "homepage_link": "Kontrolna ploča",
-
-    "archives": "TO TRANSLATE - PIA archives",
+		"homepage_link": "TO TRANSLATE - My PIAs",
+		"current_pias": "TO TRANSLATE - Current PIAs",
+    "archives": "TO TRANSLATE - PIA Archives",
 
 		"knowledge_base_link": "Baza znanja",
 
@@ -234,14 +234,18 @@
 		"pia_example_link": "Primjer PUP-a",
 
 		"structures": "PIA template",
-
+		"help": {
+			"title": "Pomoć",
+			"pia_example_link": "TO TRANSLATE - PIA example",
+			"issue_reporting": "TO TRANSLATE - Report an issue",
+			"manual": "TO TRANSLATE - User manual"
+		},
 		"tools": {
 
 			"about": "O programu",
 
 			"accessibility": "Pristupačnost za slabovidne osobe (boje visokog kontrasta, daltonizam)",
 
-			"help": "Pomoć",
 
 			"settings": "Postavke",
 

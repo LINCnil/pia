@@ -85,8 +85,9 @@
 	},
 	"header": {
     "exit_full_screen_mode": "Pulse F11 para salir del modo de pantalla completa.",
-    "homepage_link": "Panel de control",
-    "archives": "TO TRANSLATE - PIA archives",
+		"homepage_link": "TO TRANSLATE - My PIAs",
+		"current_pias": "TO TRANSLATE - Current PIAs",
+    "archives": "TO TRANSLATE - PIA Archives",
 		"knowledge_base_link": "Base de conocimientos",
 		"languages": {
 			"cnil_translations": "Traducciones del CNIL",
@@ -116,11 +117,16 @@
 		"logo_subtitle": "",
 		"logo_title": "Evaluación de impacto de la privacidad",
 		"pia_example_link": "Ejemplo de PIA",
-		"structures": "Modelos PIA",
+    "structures": "Modelos PIA",
+    "help": {
+			"title": "Ayuda",
+			"pia_example_link": "TO TRANSLATE - PIA example",
+			"issue_reporting": "TO TRANSLATE - Report an issue",
+			"manual": "TO TRANSLATE - User manual"
+		},
 		"tools": {
 			"about": "Acerca de",
 			"accessibility": "Accesibilidad para personas con discapacidad visual (colores de alto contraste, daltonismo)",
-			"help": "Ayuda",
 			"settings": "Ajustes",
 			"title": "Herramientas"
 		}

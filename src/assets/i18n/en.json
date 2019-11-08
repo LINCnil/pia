@@ -85,8 +85,9 @@
 	},
 	"header": {
     "exit_full_screen_mode": "Press F11 to exit full screen mode.",
-    "homepage_link": "Dashboard",
-    "archives": "PIA archives",
+		"homepage_link": "My PIAs",
+		"current_pias": "Current PIAs",
+    "archives": "PIA Archives",
 		"knowledge_base_link": "Knowledge base",
 		"languages": {
 			"cnil_translations": "CNIL provided translations",
@@ -117,10 +118,15 @@
 		"logo_title": "Privacy impact assessment",
 		"pia_example_link": "PIA example",
 		"structures": "PIA template",
+		"help": {
+			"title": "Help",
+			"pia_example_link": "PIA example",
+			"issue_reporting": "Report an issue",
+			"manual": "User manual"
+		},
 		"tools": {
 			"about": "About",
 			"accessibility": "Visually impaired accessibility (high contrast colors, daltonism)",
-			"help": "Help",
 			"settings": "Settings",
 			"title": "Tools"
 		}
