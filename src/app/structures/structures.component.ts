@@ -24,10 +24,11 @@ export class StructuresComponent implements OnInit, OnDestroy {
   importStructureForm: FormGroup;
   sortOrder: string;
   sortValue: string;
-  viewStyle: { view: string }
+  viewStyle: { view: string };
   view: 'structure';
   paramsSubscribe: Subscription;
   structExampleSubscribe: Subscription;
+  searchText: string;
 
   constructor(private router: Router,
               private el: ElementRef,
@@ -76,6 +77,11 @@ export class StructuresComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.paramsSubscribe.unsubscribe();
     this.structExampleSubscribe.unsubscribe();
+  }
+
+  onCleanSearch() {
+    console.log("hello !");
+    this.searchText = "";
   }
 
   /**

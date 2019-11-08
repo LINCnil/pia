@@ -19,9 +19,10 @@ export class ArchivesComponent implements OnInit, OnDestroy {
   @Input() archive: any;
   sortOrder: string;
   sortValue: string;
-  viewStyle: { view: string }
+  viewStyle: { view: string };
   view: 'archive';
   paramsSubscribe: Subscription;
+  searchText: string;
 
   constructor(private router: Router,
               private el: ElementRef,
@@ -55,6 +56,11 @@ export class ArchivesComponent implements OnInit, OnDestroy {
       this.viewOnCard();
     }
 
+  }
+
+  onCleanSearch() {
+    console.log("hello !");
+    this.searchText = "";
   }
 
   ngOnDestroy() {

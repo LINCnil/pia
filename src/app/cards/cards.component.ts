@@ -24,9 +24,10 @@ export class CardsComponent implements OnInit, OnDestroy {
   importPiaForm: FormGroup;
   sortOrder: string;
   sortValue: string;
-  viewStyle: { view: string }
+  viewStyle: { view: string };
   view: 'card';
   paramsSubscribe: Subscription;
+  searchText: string;
 
   constructor(private router: Router,
               private el: ElementRef,
@@ -74,6 +75,10 @@ export class CardsComponent implements OnInit, OnDestroy {
     this.importPiaForm = new FormGroup({
       import_file: new FormControl('', [])
     });
+  }
+
+  onCleanSearch() {
+    this.searchText = "";
   }
 
   ngOnDestroy() {

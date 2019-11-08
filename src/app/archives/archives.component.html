@@ -6,53 +6,61 @@
 
     <div class="small-12 medium-12 columns">
       <div class="pia-filtersBlock">
-
-        <button class="pia-filtersBlock-switch btn" type="button" *ngIf="viewStyle.view === 'list'" (click)="viewOnCard()">
-          <i class="fa fa-list" aria-hidden="true"></i>
-          <div>{{ 'homepage.filters.card' | translate }}</div>
-        </button>
-        <button class="pia-filtersBlock-switch btn" type="button" *ngIf="viewStyle.view === 'card'" (click)="viewOnList()">
-          <i class="fa fa-list" aria-hidden="true"></i>
-          <div>{{ 'homepage.filters.list' | translate }}</div>
-        </button>
-
-        <div class="pia-filtersBlock-filters">
-          <button class="pia-filtersBlock-filters-btn btn" type="button">
-            {{ 'homepage.filters.sort' | translate }}
-            <span class="pia-icons pia-icon-scroll-green"></span>
+        
+        <div class="pia-filtersBlock-left">
+          <button class="pia-filtersBlock-switch btn" type="button" *ngIf="viewStyle.view === 'list'" (click)="viewOnCard()">
+            <i class="fa fa-list" aria-hidden="true"></i>
+            <div>{{ 'homepage.filters.card' | translate }}</div>
           </button>
-          <div class="pia-filtersBlock-filters-list">
-            <span>{{ 'homepage.filters.sort_by' | translate }}</span>
-            <ul>
-              <li [ngClass]="{'active': sortValue === 'name'}">
-                <a (click)="sortBy('name');">{{ 'homepage.filters.name' | translate }}</a>
-              </li>
-              <li [ngClass]="{'active': sortValue === 'category'}">
-                <a (click)="sortBy('category');">{{ 'homepage.filters.category' | translate }}</a>
-              </li>
-              <li [ngClass]="{'active': sortValue === 'created_at'}">
-                <a (click)="sortBy('created_at');">{{ 'homepage.filters.date' | translate }}</a>
-              </li>
-              <li [ngClass]="{'active': sortValue === 'status'}">
-                <a (click)="sortBy('status');">{{ 'homepage.filters.status' | translate }}</a>
-              </li>
-              <li [ngClass]="{'active': sortValue === 'author_name'}">
-                <a (click)="sortBy('author_name');">{{ 'homepage.filters.author' | translate }}</a>
-              </li>
-              <li [ngClass]="{'active': sortValue === 'evaluator_name'}">
-                <a (click)="sortBy('evaluator_name');">{{ 'homepage.filters.assessor' | translate }}</a>
-              </li>
-              <li [ngClass]="{'active': sortValue === 'validator_name'}">
-                <a (click)="sortBy('validator_name');">{{ 'homepage.filters.validator' | translate }}</a>
-              </li>
-            </ul>
+          <button class="pia-filtersBlock-switch btn" type="button" *ngIf="viewStyle.view === 'card'" (click)="viewOnList()">
+            <i class="fa fa-list" aria-hidden="true"></i>
+            <div>{{ 'homepage.filters.list' | translate }}</div>
+          </button>
+        </div>
+        
+        <div class="pia-filtersBlock-right">
+          <div class="pia-filtersBlock-filters" *ngIf="viewStyle.view === 'card'">
+            <button class="pia-filtersBlock-filters-btn btn" type="button">
+              <i class="fa fa-filter"></i>
+              {{ 'homepage.filters.sort' | translate }}
+              <span class="pia-icons pia-icon-scroll-green"></span>
+            </button>
+            <div class="pia-filtersBlock-filters-list">
+              <span>{{ 'homepage.filters.sort_by' | translate }}</span>
+              <ul>
+                <li [ngClass]="{'active': sortValue === 'name'}">
+                  <a (click)="sortBy('name');">{{ 'homepage.filters.name' | translate }}</a>
+                </li>
+                <li [ngClass]="{'active': sortValue === 'category'}">
+                  <a (click)="sortBy('category');">{{ 'homepage.filters.category' | translate }}</a>
+                </li>
+                <li [ngClass]="{'active': sortValue === 'created_at'}">
+                  <a (click)="sortBy('created_at');">{{ 'homepage.filters.date' | translate }}</a>
+                </li>
+                <li [ngClass]="{'active': sortValue === 'status'}">
+                  <a (click)="sortBy('status');">{{ 'homepage.filters.status' | translate }}</a>
+                </li>
+                <li [ngClass]="{'active': sortValue === 'author_name'}">
+                  <a (click)="sortBy('author_name');">{{ 'homepage.filters.author' | translate }}</a>
+                </li>
+                <li [ngClass]="{'active': sortValue === 'evaluator_name'}">
+                  <a (click)="sortBy('evaluator_name');">{{ 'homepage.filters.assessor' | translate }}</a>
+                </li>
+                <li [ngClass]="{'active': sortValue === 'validator_name'}">
+                  <a (click)="sortBy('validator_name');">{{ 'homepage.filters.validator' | translate }}</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="pia-searchInput">
+            <input type="text" class="btn btn-search" [ngClass]="{'typed': searchText && searchText.length > 0}" 
+              [(ngModel)]="searchText" placeholder="{{ 'homepage.search_filter' | translate }}" name="search" autocomplete="off">
+              <i class="search-icon">⚲</i>
+              <i class="search-close" (click)="onCleanSearch()" *ngIf="searchText && searchText.length > 0">×</i>
           </div>
         </div>
-
-        <div class="pia-searchInput">
-          <input type="text" class="btn btn-search" [(ngModel)]="searchText" placeholder="{{ 'homepage.search_filter' | translate }}" name="search" autocomplete="off">
-        </div>
-
+        
       </div>
     </div>
   </div>
