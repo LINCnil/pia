@@ -124,6 +124,7 @@
 			"manual": "Manuel d'utilisation"
 		},
 		"tools": {
+      "url_setting": "Configuration URL serveur",
 			"about": "À propos",
 			"accessibility": "Accessibilité malvoyants (couleurs à contraste fort, adapté daltonisme)",
 			"settings": "Paramètres",

@@ -125,6 +125,7 @@
 			"manual": "TO TRANSLATE - User manual"
 		},
 		"tools": {
+      "url_setting": "TO TRANSLATE - Server URL configuration",
 			"about": "O aplikacji",
 			"accessibility": "Dostępność dla osób słabowidzących (kolory o mocnym kontraście, dopasowane do daltonizmu)",
 			"settings": "Ustawienia",

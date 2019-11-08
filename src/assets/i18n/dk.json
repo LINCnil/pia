@@ -125,6 +125,7 @@
 			"manual": "TO TRANSLATE - User manual"
 		},
 		"tools": {
+      "url_setting": "TO TRANSLATE - Server URL configuration",
 			"about": "Om applikationen",
 			"accessibility": "Øget tilgængelighed (høje kontrast farver, daltonism)",
 			"settings": "Konfiguration",
