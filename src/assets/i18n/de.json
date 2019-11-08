@@ -85,8 +85,9 @@
 	},
 	"header": {
 		"exit_full_screen_mode": "Drücken Sie F11, um den Vollbildmodus zu verlassen.",
-    "homepage_link": "Übersicht",
-    "archives": "TO TRANSLATE - PIA archives",
+		"homepage_link": "TO TRANSLATE - My PIAs",
+		"current_pias": "TO TRANSLATE - Current PIAs",
+    "archives": "TO TRANSLATE - PIA Archives",
 		"knowledge_base_link": "Wissensbasis",
 		"languages": {
 			"cnil_translations": "Von der CNIL bereitgestellte Übersetzungen",
@@ -117,10 +118,15 @@
 		"logo_title": "DSFA - Datenschutz-Folgenabschätzung",
 		"pia_example_link": "Beispiel DSFA",
 		"structures": "DSFA-Vorlagen",
+		"help": {
+			"title": "Hilfe",
+			"pia_example_link": "TO TRANSLATE - PIA example",
+			"issue_reporting": "TO TRANSLATE - Report an issue",
+			"manual": "TO TRANSLATE - User manual"
+		},
 		"tools": {
 			"about": "Über",
 			"accessibility": "Unterstützung für Sehbehinderte (kontrastreiche Farben, bei Rot-Grün-Sehschwäche)",
-			"help": "Hilfe",
 			"settings": "Einstellungen",
 			"title": "Tools"
 		}

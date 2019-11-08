@@ -85,8 +85,9 @@
 	},
 	"header": {
     "exit_full_screen_mode": "Premi F11 per uscire dalla modalità schermo intero.",
-    "homepage_link": "Pannello di controllo",
-    "archives": "TO TRANSLATE - PIA archives",
+		"homepage_link": "TO TRANSLATE - My PIAs",
+		"current_pias": "TO TRANSLATE - Current PIAs",
+    "archives": "TO TRANSLATE - PIA Archives",
 		"knowledge_base_link": "Archivio",
 		"languages": {
 			"cnil_translations": "Traduzioni fornite da CNIL",
@@ -117,10 +118,15 @@
 		"logo_title": "Valutazione d'impatto sulla protezione dei dati",
 		"pia_example_link": "Esempio PIA",
 		"structures": "Modelli PIA",
+		"help": {
+			"title": "Aiuto",
+			"pia_example_link": "TO TRANSLATE - PIA example",
+			"issue_reporting": "TO TRANSLATE - Report an issue",
+			"manual": "TO TRANSLATE - User manual"
+		},
 		"tools": {
 			"about": "Informazioni",
 			"accessibility": "Accessibilità per ipovedenti (colori ad alto contrasto, daltonismo)",
-			"help": "Aiuto",
 			"settings": "Impostazioni",
 			"title": "Strumenti"
 		}
