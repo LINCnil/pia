@@ -78,7 +78,6 @@ export class CardsComponent implements OnInit, OnDestroy {
   }
 
   onCleanSearch() {
-    console.log("hello !");
     this.searchText = "";
   }
 
