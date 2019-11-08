@@ -28,6 +28,7 @@ export class StructuresComponent implements OnInit, OnDestroy {
   view: 'structure';
   paramsSubscribe: Subscription;
   structExampleSubscribe: Subscription;
+  searchText: string;
 
   constructor(private router: Router,
               private el: ElementRef,
@@ -76,6 +77,11 @@ export class StructuresComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.paramsSubscribe.unsubscribe();
     this.structExampleSubscribe.unsubscribe();
+  }
+
+  onCleanSearch() {
+    console.log("hello !");
+    this.searchText = "";
   }
 
   /**
