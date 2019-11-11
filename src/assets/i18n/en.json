@@ -37,9 +37,9 @@
 		"legend1": "(A) Illegitimate access to data",
 		"legend2": "(M) Unwanted modification of data",
 		"legend3": "(D) Data disappearance",
-    "legend4": "(T) Transparency",
-		"legend5": "(U) Unlinkability",
-		"legend6": "(I) Intervenability",
+    "legend4": "(O) Opaque data processing",
+		"legend5": "(L) Linkable data processing",
+		"legend6": "(C) Lack of control",
     "legend7": "Without measures implemented",
 		"legend8": "Planned or existing measures",
 		"legend9": "With the corrective measures implemented",
@@ -50,9 +50,9 @@
 		"risk1_access": "(A)",
 		"risk2_modification": "(M)",
     "risk3_disappearance": "(D)",
-		"risk4_transparency": "(T)",
-		"risk5_unlinkability": "(U)",
-    "risk6_intervenability": "(I)",
+		"risk4_transparency": "(O)",
+		"risk5_unlinkability": "(L)",
+    "risk6_intervenability": "(C)",
 		"seriousness_axe": "Risk seriousness"
 	},
 	"comments": {
@@ -1349,8 +1349,8 @@
 							"title": "How do you estimate the <span class='green-highlight'>likelihood of the risk</span>, especially in respect of threats, sources of risk and <span class='green-highlight'>no planned controls</span>?"
 						}
 					},
-					"short_help": "SHORT_HELP_TODO",
-					"title": "Transparency"
+					"short_help": "Analyze the causes and consequences of a lack of comprehensible transparency concerning data processing towards data subjects.",
+					"title": "Opaque data processing"
 				},
 				"6": {
 					"questions": {
@@ -1387,8 +1387,8 @@
 							"title": "How do you estimate the <span class='green-highlight'>likelihood of the risk</span>, especially in respect of threats, sources of risk and <span class='green-highlight'>no planned controls</span>?"
 						}
 					},
-					"short_help": "SHORT_HELP_TODO",
-					"title": "Unlinkability"
+					"short_help": "Analyze the causes and consequences of personal data concerning data subjects being linkable to natural persons and/or across different data processing domains.",
+					"title": "Linkable data processing"
 				},
 				"7": {
 					"questions": {
@@ -1425,8 +1425,8 @@
 							"title": "How do you estimate the <span class='green-highlight'>likelihood of the risk</span>, especially in respect of threats, sources of risk and <span class='green-highlight'>no planned controls</span>?"
 						}
 					},
-					"short_help": "SHORT_HELP_TODO",
-					"title": "Intervenability"
+					"short_help": "Analyze the causes and consequences of a lack of data subject access rights and control over data processing.",
+					"title": "Lack of control"
 				},
 				"8": {
 					"short_help": "This visualisation allows you to have a global and synthetic view on the controls effects on the risks they address.",

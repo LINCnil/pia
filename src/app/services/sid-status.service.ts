@@ -17,7 +17,7 @@ export class SidStatusService {
   public subject = new Subject();
 
   constructor(private _globalEvaluationService: GlobalEvaluationService) {
-    this.specialIcon = { '3.5': 'fa-line-chart', '4.1': 'fa-line-chart', '4.2': 'fa-calendar-check-o' }
+    this.specialIcon = { '3.8': 'fa-line-chart', '4.1': 'fa-line-chart', '4.2': 'fa-calendar-check-o' }
     this.sidStatusIcon = {
       0: 'fa-pencil-square-o',
       1: 'fa-pencil-square-o',
