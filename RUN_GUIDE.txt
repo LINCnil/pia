@@ -1,0 +1,44 @@
+---------------------------------------------------
+Guide for installing and running PIA-frontend
+---------------------------------------------------
+$ git clone <github>
+$ cd pia
+$ vim package.json
+  "version":"2.1" -> "version":"2.1.0"
+$ vim angular.json
+  In "budgets":
+    increase "maximumWarning" to 5mb
+    increase "maximumError" to 7mb
+$ cp src/environments/environment.prod.ts.example src/environments/environment.prod.ts
+
+# npm i npm@latest
+# npm i -g @angular/cli
+# npm i @angular-devkit/build-angular@0.13.0
+# npm i --save-dev --unsafe-perm node-sass
+# npm i html2canvas@1.0.0-alpha.12
+# npm i
+
+# ng build --prod --build-optimizer --sourceMap
+
+# ng serve --prod --host <IP address> --port <port>
+
+Open browser and visit http://<IP address>:<port>/
+
+---------------------------------------------------
+Common Errors and Solutions
+--------------------------------------------------- 
+Problem : Could not find module "@angular-devkit/build-angular" 
+Solution: sudo npm i @angular-devkit/build-angular@0.13.0
+
+Problem : Error: Cannot find module 'node-sass'
+Solution: sudo npm i --save-dev --unsafe-perm node-sass
+
+Problem : ERROR in src/app/summary/summary.component.ts(194,11): error TS2349: Cannot invoke an expression whose type lacks a call signature. Type 'typeof import("<path>/pia/node_modules/html2canvas/dist/types/index")' has no compatible call signatures.
+Solution: sudo npm i html2canvas@1.0.0-alpha.12
+
+Problem : WARNING in budgets, maximum exceeded for initial. Budget 2 MB was exceeded by X.XX MB.
+Solution: vim angular.json
+  In "budgets":
+    increase "maximumWarning" to 5mb
+    increase "maximumError" to 7mb
+
