@@ -344,7 +344,7 @@
       display: table-row;
     }
     th {
-      width: auto;
+      min-width: 128px;
       display: table-cell;
       a {
         padding: 5px 0;

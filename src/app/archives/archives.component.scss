@@ -344,7 +344,7 @@
       display: table-row;
     }
     th {
-      width: 150px;
+      min-width: 128px;
       display: table-cell;
       a {
         padding: 5px 0;
@@ -353,6 +353,7 @@
         display: flex;
         cursor: pointer;
         justify-content: space-between;
+        position: relative;
         span {
           align-self: center;
           padding-left: 13px;
@@ -362,6 +363,11 @@
           color: $pia-white;
           font-size: 2.5rem;
           align-self: center;
+          position: absolute;
+          right: 0px;
+          &.desactivate {
+            color: gray;
+          }
         }
       }
       span {

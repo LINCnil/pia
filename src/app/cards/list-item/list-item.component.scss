@@ -4,10 +4,10 @@
   position: relative;
   padding: 0 10px;
   cursor: pointer;
+  white-space: nowrap;
+  overflow: hidden;
   &-title {
-    div {
-      width: 250px !important;
-    }
+    width: 250px !important;
   }
   &:first-child {
     div[contenteditable] {
@@ -17,8 +17,8 @@
     }
   }
   div[contenteditable] {
+    max-width: 128px;
     cursor: text;
-    width: 128px;
     white-space: nowrap;
     overflow: hidden;
     &:focus, &:hover, &:active {
