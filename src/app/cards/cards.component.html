@@ -168,37 +168,48 @@
               <th>
                 <a (click)="sortBy('name')">
                   <span>{{ 'homepage.lists.column_pia' | translate }}</span>
-                  <i *ngIf="sortValue === 'name'" class="fa fa-caret-{{sortOrder}}"></i>
+                  <i class="fa" 
+                    [ngClass]="[sortValue === 'name' ? 'fa-caret-' + sortOrder : 'fa-caret-down desactivate']"></i>
                 </a>
               </th>
               <th>
                 <a (click)="sortBy('updated_at')">
                   <span>{{ 'homepage.lists.column_updated_at' | translate }}</span>
-                  <i *ngIf="sortValue === 'updated_at'" class="fa fa-caret-{{sortOrder}}"></i>
+                  <i class="fa"
+                    [ngClass]="[sortValue === 'updated_at' ? 'fa-caret-' + sortOrder : 'fa-caret-down desactivate']"
+                  ></i>
                 </a>
               </th>
               <th>
                 <a (click)="sortBy('author_name')">
                   <span>{{ 'homepage.lists.column_author' | translate }}</span>
-                  <i *ngIf="sortValue === 'author_name'" class="fa fa-caret-{{sortOrder}}"></i>
+                  <i class="fa"
+                    [ngClass]="[sortValue === 'author_name' ? 'fa-caret-' + sortOrder : 'fa-caret-down desactivate']"
+                  ></i>
                 </a>
               </th>
               <th>
                 <a (click)="sortBy('evaluator_name')">
                   <span>{{ 'homepage.lists.column_evaluation' | translate }}</span>
-                  <i *ngIf="sortValue === 'evaluator_name'" class="fa fa-caret-{{sortOrder}}"></i>
+                  <i class="fa"
+                    [ngClass]="[sortValue === 'evaluator_name' ? 'fa-caret-' + sortOrder : 'fa-caret-down desactivate']"
+                  ></i>
                 </a>
               </th>
               <th>
                 <a (click)="sortBy('validator_name')">
                   <span>{{ 'homepage.lists.column_validation' | translate }}</span>
-                  <i *ngIf="sortValue === 'validator_name'" class="fa fa-caret-{{sortOrder}}"></i>
+                  <i class="fa"
+                    [ngClass]="[sortValue === 'validator_name' ? 'fa-caret-' + sortOrder : 'fa-caret-down desactivate']"
+                  ></i>
                 </a>
               </th>
               <th>
                 <a (click)="sortBy('structure_name')">
                   <span>{{ 'homepage.lists.column_structure_name' | translate }}</span>
-                  <i *ngIf="sortValue === 'structure_name'" class="fa fa-caret-{{sortOrder}}"></i>
+                  <i class="fa"
+                    [ngClass]="[sortValue === 'structure_name' ? 'fa-caret-' + sortOrder : 'fa-caret-down desactivate']"
+                  ></i>
                 </a>
               </th>
               <!-- <th>
@@ -216,7 +227,9 @@
               <th>
                 <a (click)="sortBy('progress')">
                   <span>{{ 'homepage.lists.column_progression' | translate }}</span>
-                  <i *ngIf="sortValue === 'progress'" class="fa fa-caret-{{sortOrder}}"></i>
+                  <i class="fa"
+                    [ngClass]="[sortValue === 'progress' ? 'fa-caret-' + sortOrder : 'fa-caret-down desactivate']"
+                  ></i>
                 </a>
               </th>
             </tr>
