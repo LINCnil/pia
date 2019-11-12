@@ -4,6 +4,8 @@
   position: relative;
   padding: 0 10px;
   cursor: pointer;
+  white-space: nowrap;
+  overflow: hidden;
   &-title {
     div {
       width: 250px !important;
@@ -67,7 +69,7 @@
     }
   }
   div {
-    width: 128px;
+    max-width: 128px;
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;

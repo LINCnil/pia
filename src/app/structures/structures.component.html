@@ -138,25 +138,32 @@
               <th>
                 <a (click)="sortBy('name')">
                   <span>{{ 'homepage.lists.column_structure' | translate }}</span>
-                  <i *ngIf="sortValue === 'name'" class="fa fa-caret-{{sortOrder}}"></i>
-                </a>
+                  <i class="fa" 
+                  [ngClass]="[sortValue === 'name' ? 'fa-caret-' + sortOrder : 'fa-caret-down desactivate']"></i>
+              </a>
               </th>
               <th>
                 <a (click)="sortBy('updated_at')">
                   <span>{{ 'homepage.lists.column_updated_at' | translate }}</span>
-                  <i *ngIf="sortValue === 'updated_at'" class="fa fa-caret-{{sortOrder}}"></i>
+                  <i class="fa"
+                    [ngClass]="[sortValue === 'updated_at' ? 'fa-caret-' + sortOrder : 'fa-caret-down desactivate']"
+                  ></i>
                 </a>
               </th>
               <th>
                 <a (click)="sortBy('sector_name')">
                   <span>{{ 'homepage.lists.column_sector_name' | translate }}</span>
-                  <i *ngIf="sortValue === 'sector_name'" class="fa fa-caret-{{sortOrder}}"></i>
+                  <i class="fa"
+                    [ngClass]="[sortValue === 'sector_name' ? 'fa-caret-' + sortOrder : 'fa-caret-down desactivate']"
+                  ></i>
                 </a>
               </th>
               <th>
                 <a (click)="sortBy('created_at')">
                   <span>{{ 'homepage.lists.column_creation' | translate }}</span>
-                  <i *ngIf="sortValue === 'created_at'" class="fa fa-caret-{{sortOrder}}"></i>
+                  <i class="fa"
+                    [ngClass]="[sortValue === 'created_at' ? 'fa-caret-' + sortOrder : 'fa-caret-down desactivate']"
+                  ></i>
                 </a>
               </th>
             </tr>
