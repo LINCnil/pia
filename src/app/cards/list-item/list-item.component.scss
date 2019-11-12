@@ -4,6 +4,11 @@
   position: relative;
   padding: 0 10px;
   cursor: pointer;
+  white-space: nowrap;
+  overflow: hidden;
+  &-title {
+    width: 250px !important;
+  }
   &:first-child {
     div[contenteditable] {
       vertical-align: middle;
@@ -12,7 +17,10 @@
     }
   }
   div[contenteditable] {
+    max-width: 128px;
     cursor: text;
+    white-space: nowrap;
+    overflow: hidden;
     &:focus, &:hover, &:active {
       outline: 1px dotted $pia-green;
     }
