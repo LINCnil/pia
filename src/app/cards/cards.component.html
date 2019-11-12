@@ -172,12 +172,6 @@
                 </a>
               </th>
               <th>
-                <a (click)="sortBy('category')">
-                  <span>{{ 'homepage.lists.column_category' | translate }}</span>
-                  <i *ngIf="sortValue === 'category'" class="fa fa-caret-{{sortOrder}}"></i>
-                </a>
-              </th>
-              <th>
                 <a (click)="sortBy('updated_at')">
                   <span>{{ 'homepage.lists.column_updated_at' | translate }}</span>
                   <i *ngIf="sortValue === 'updated_at'" class="fa fa-caret-{{sortOrder}}"></i>

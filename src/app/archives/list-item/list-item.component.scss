@@ -4,11 +4,16 @@
   position: relative;
   padding: 0 10px;
   cursor: pointer;
+  &-title {
+    div {
+      width: 250px !important;
+    }
+  }
   &:first-child {
     div:first-child {
       vertical-align: middle;
       display: inline-block;
-      width: 80%;
+      width: 100% !important;
     }
   }
   &:last-child {
@@ -60,5 +65,11 @@
         display: block;
       }
     }
+  }
+  div {
+    width: 128px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
   }
 }

@@ -14,7 +14,7 @@
       </a>
     </div>
   </td>
-<td class="pia-listsBlock-item">
+<td class="pia-listsBlock-item pia-listsBlock-item-title">
   <div>{{ archivedPia.name }}</div>
   <div *ngIf="attachments && attachments.length > 0" class="pia-listsBlock-item-attachment" aria-hidden="true">
     <span class="pia-icons pia-icon-attachment"></span>
@@ -25,7 +25,6 @@
     </ul>
   </div>
 </td>
-<td class="pia-listsBlock-item"><div>{{ archivedPia.category }}</div></td>
 <td class="pia-listsBlock-item"><time *ngIf="archivedPia.updated_at && archivedPia.updated_at.toString() !== 'Invalid Date'">{{ archivedPia.updated_at | date: 'dd/MM/yyyy' }}</time></td>
 <td class="pia-listsBlock-item"><div>{{ archivedPia.author_name }}</div></td>
 <td class="pia-listsBlock-item"><div>{{ archivedPia.evaluator_name }}</div></td>

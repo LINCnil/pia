@@ -256,7 +256,7 @@
 			"column_status": "Statut",
 			"column_structure": "Modèle",
 			"column_structure_name": "Modèle",
-			"column_updated_at": "Ouvert le",
+			"column_updated_at": "Modifié le",
 			"column_validation": "Validation",
 			"item": {
 				"tools": {
