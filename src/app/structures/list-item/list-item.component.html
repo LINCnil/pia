@@ -1,18 +1,4 @@
 <td class="pia-listsBlock-item">
-  <div *ngIf="!structure.is_example;else readOnlyName" contenteditable (focusout)="onFocusOut('name', $event)">{{ structure.name }}</div>
-  <ng-template #readOnlyName>
-    <div>{{ structure.name }}</div>
-  </ng-template>
-</td>
-<td class="pia-listsBlock-item"><time *ngIf="structure.updated_at && structure.updated_at.toString() !== 'Invalid Date'">{{ structure.updated_at | date: 'dd/MM/yyyy' }}</time></td>
-<td class="pia-listsBlock-item">
-  <div *ngIf="!structure.is_example;else readOnlySectorName" contenteditable (focusout)="onFocusOut('sector_name', $event)">{{ structure.sector_name }}</div>
-  <ng-template #readOnlySectorName>
-    <div>{{ structure.sector_name }}</div>
-  </ng-template>
-</td>
-<td class="pia-listsBlock-item"><time>{{ structure.created_at | date: 'dd/MM/yyyy' }}</time></td>
-<td class="pia-listsBlock-item">
   <div class="pia-listsBlock-item-actions">
     <a routerLink="/structures/entry/{{structure.id}}/section/1/item/1" class="btn pia-tooltip">
       <i class="fa fa-pencil" aria-hidden="true"></i>
@@ -32,3 +18,17 @@
     </a>
   </div>
 </td>
+<td class="pia-listsBlock-item">
+  <div *ngIf="!structure.is_example;else readOnlyName" contenteditable (focusout)="onFocusOut('name', $event)">{{ structure.name }}</div>
+  <ng-template #readOnlyName>
+    <div>{{ structure.name }}</div>
+  </ng-template>
+</td>
+<td class="pia-listsBlock-item"><time *ngIf="structure.updated_at && structure.updated_at.toString() !== 'Invalid Date'">{{ structure.updated_at | date: 'dd/MM/yyyy' }}</time></td>
+<td class="pia-listsBlock-item">
+  <div *ngIf="!structure.is_example;else readOnlySectorName" contenteditable (focusout)="onFocusOut('sector_name', $event)">{{ structure.sector_name }}</div>
+  <ng-template #readOnlySectorName>
+    <div>{{ structure.sector_name }}</div>
+  </ng-template>
+</td>
+<td class="pia-listsBlock-item"><time>{{ structure.created_at | date: 'dd/MM/yyyy' }}</time></td>

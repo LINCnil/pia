@@ -134,6 +134,9 @@
           <thead>
             <tr>
               <th>
+                <span>{{ 'homepage.lists.column_actions' | translate }}</span>
+              </th>
+              <th>
                 <a (click)="sortBy('name')">
                   <span>{{ 'homepage.lists.column_structure' | translate }}</span>
                   <i *ngIf="sortValue === 'name'" class="fa fa-caret-{{sortOrder}}"></i>
@@ -156,9 +159,6 @@
                   <span>{{ 'homepage.lists.column_creation' | translate }}</span>
                   <i *ngIf="sortValue === 'created_at'" class="fa fa-caret-{{sortOrder}}"></i>
                 </a>
-              </th>
-              <th>
-                <span>{{ 'homepage.lists.column_actions' | translate }}</span>
               </th>
             </tr>
           </thead>
