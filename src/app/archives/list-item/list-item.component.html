@@ -1,4 +1,20 @@
 <td class="pia-listsBlock-item">
+    <div class="pia-listsBlock-item-actions">
+      <a routerLink="/preview/{{archivedPia.id}}" class="btn pia-tooltip">
+        <i class="fa fa-eye" aria-hidden="true"></i>
+        <span class="pia-tooltip-text">{{ 'pia.header.preview' | translate }}</span>
+      </a>
+      <a href="javascript:;" (click)="unarchive(archivedPia.id)" class="btn pia-tooltip">
+        <i class="fa fa-refresh" aria-hidden="true"></i>
+        <span class="pia-tooltip-text">{{ 'homepage.lists.item.tools.unarchive' | translate }}</span>
+      </a>
+      <a href="javascript:;" (click)="remove(archivedPia.id)" class="btn pia-tooltip">
+        <i class="fa fa-trash-o" aria-hidden="true"></i>
+        <span class="pia-tooltip-text">{{ 'homepage.lists.item.tools.remove' | translate }}</span>
+      </a>
+    </div>
+  </td>
+<td class="pia-listsBlock-item">
   <div>{{ archivedPia.name }}</div>
   <div *ngIf="attachments && attachments.length > 0" class="pia-listsBlock-item-attachment" aria-hidden="true">
     <span class="pia-icons pia-icon-attachment"></span>
@@ -15,31 +31,17 @@
 <td class="pia-listsBlock-item"><div>{{ archivedPia.evaluator_name }}</div></td>
 <td class="pia-listsBlock-item"><div>{{ archivedPia.validator_name }}</div></td>
 <td class="pia-listsBlock-item"><div *ngIf="archivedPia.structure_id">{{ archivedPia.structure_name }}</div></td>
-<td class="pia-listsBlock-item"><time>{{ archivedPia.created_at | date: 'dd/MM/yyyy' }}</time></td>
+<!-- <td class="pia-listsBlock-item"><time>{{ archivedPia.created_at | date: 'dd/MM/yyyy' }}</time></td>
 <td class="pia-listsBlock-item" *ngIf="archivedPia.status === 0 && archivedPia.progress === 100;else defaultStatuses">
   {{ 'pia.statuses.5' | translate }}
 </td>
 <ng-template #defaultStatuses>
   <td class="pia-listsBlock-item">{{ archivedPia.getStatusName() | translate }}</td>
-</ng-template>
+</ng-template> -->
 <td class="pia-listsBlock-item progress">
   <div class="pia-cardsBlock-item-status-progressBar">
+    <span>{{ archivedPia.getStatusName() | translate }}</span>
     <progress max="100" value="{{ archivedPia.progress }}"></progress>
   </div>
 </td>
-<td class="pia-listsBlock-item">
-  <div class="pia-listsBlock-item-actions">
-    <a routerLink="/preview/{{archivedPia.id}}" class="btn pia-tooltip">
-      <i class="fa fa-eye" aria-hidden="true"></i>
-      <span class="pia-tooltip-text">{{ 'pia.header.preview' | translate }}</span>
-    </a>
-    <a href="javascript:;" (click)="unarchive(archivedPia.id)" class="btn pia-tooltip">
-      <i class="fa fa-refresh" aria-hidden="true"></i>
-      <span class="pia-tooltip-text">{{ 'homepage.lists.item.tools.unarchive' | translate }}</span>
-    </a>
-    <a href="javascript:;" (click)="remove(archivedPia.id)" class="btn pia-tooltip">
-      <i class="fa fa-trash-o" aria-hidden="true"></i>
-      <span class="pia-tooltip-text">{{ 'homepage.lists.item.tools.remove' | translate }}</span>
-    </a>
-  </div>
-</td>
+

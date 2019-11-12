@@ -78,6 +78,9 @@
           <thead>
             <tr>
               <th>
+                <span>{{ 'homepage.lists.column_actions' | translate }}</span>
+              </th>
+              <th>
                 <a (click)="sortBy('name')">
                   <span>{{ 'homepage.lists.column_pia' | translate }}</span>
                   <i *ngIf="sortValue === 'name'" class="fa fa-caret-{{sortOrder}}"></i>
@@ -119,7 +122,7 @@
                   <i *ngIf="sortValue === 'structure_name'" class="fa fa-caret-{{sortOrder}}"></i>
                 </a>
               </th>
-              <th>
+              <!-- <th>
                 <a (click)="sortBy('created_at')">
                   <span>{{ 'homepage.lists.column_creation' | translate }}</span>
                   <i *ngIf="sortValue === 'created_at'" class="fa fa-caret-{{sortOrder}}"></i>
@@ -130,15 +133,12 @@
                   <span>{{ 'homepage.lists.column_status' | translate }}</span>
                   <i *ngIf="sortValue === 'status'" class="fa fa-caret-{{sortOrder}}"></i>
                 </a>
-              </th>
+              </th>-->
               <th>
                 <a (click)="sortBy('progress')">
                   <span>{{ 'homepage.lists.column_progression' | translate }}</span>
                   <i *ngIf="sortValue === 'progress'" class="fa fa-caret-{{sortOrder}}"></i>
                 </a>
-              </th>
-              <th>
-                <span>{{ 'homepage.lists.column_actions' | translate }}</span>
               </th>
             </tr>
           </thead>
