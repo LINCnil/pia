@@ -23,7 +23,7 @@
     </a>
   </div>
 </td>
-<td class="pia-listsBlock-item">
+<td class="pia-listsBlock-item pia-listsBlock-item-title">
   <div contenteditable (focusout)="onFocusOut('name', $event)">{{ pia.name }}</div>
   <div *ngIf="attachments && attachments.length > 0" class="pia-listsBlock-item-attachment" aria-hidden="true">
     <span class="pia-icons pia-icon-attachment"></span>
@@ -34,7 +34,6 @@
     </ul>
   </div>
 </td>
-<td class="pia-listsBlock-item"><div contenteditable (focusout)="onFocusOut('category', $event)">{{ pia.category }}</div></td>
 <td class="pia-listsBlock-item"><time *ngIf="pia.updated_at && pia.updated_at.toString() !== 'Invalid Date'">{{ pia.updated_at | date: 'dd/MM/yyyy' }}</time></td>
 <td class="pia-listsBlock-item"><div contenteditable (focusout)="onFocusOut('author_name', $event)">{{ pia.author_name }}</div></td>
 <td class="pia-listsBlock-item"><div contenteditable (focusout)="onFocusOut('evaluator_name', $event)">{{ pia.evaluator_name }}</div></td>

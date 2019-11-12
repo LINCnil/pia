@@ -78,18 +78,12 @@
           <thead>
             <tr>
               <th>
-                <span>{{ 'homepage.lists.column_actions' | translate }}</span>
+                <span></span>
               </th>
               <th>
                 <a (click)="sortBy('name')">
                   <span>{{ 'homepage.lists.column_pia' | translate }}</span>
                   <i *ngIf="sortValue === 'name'" class="fa fa-caret-{{sortOrder}}"></i>
-                </a>
-              </th>
-              <th>
-                <a (click)="sortBy('category')">
-                  <span>{{ 'homepage.lists.column_category' | translate }}</span>
-                  <i *ngIf="sortValue === 'category'" class="fa fa-caret-{{sortOrder}}"></i>
                 </a>
               </th>
               <th>
