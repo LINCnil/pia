@@ -70,6 +70,24 @@ export class PreviewComponent implements OnInit {
 
   ngAfterViewChecked() {
     document.querySelector('angular2csv > button').innerHTML = this._translateService.instant('summary.download_csv');
+
+    // scroll spy
+    const sections = document.querySelectorAll('.pia-fullPreviewBlock-headline-title h2');
+    const menus = document.querySelectorAll('.pia-sectionBlock-body li a');
+    window.onscroll = () => {
+      let scrollPosition = document.documentElement.scrollTop || document.body.scrollTop;
+      sections.forEach(s => {
+        if (s.offsetTop < scrollPosition + 100) {
+          console.log('section courante ' + new Date(), s)
+          menus.forEach(l => {
+            l.classList.remove('active');
+            if (l.innerText === s.innerText) {
+              l.setAttribute('class', 'active');
+            }
+          });
+        }
+      });
+    };
   }
 
   /**
@@ -82,7 +100,7 @@ export class PreviewComponent implements OnInit {
     const allSubtitles = document.querySelectorAll('h2');
     allSubtitles.forEach.call(allSubtitles, (el, i) => {
       if (el.innerText === this._translateService.instant(text)) {
-        el.parentNode.scrollIntoView({ behavior: "instant" });
+        el.parentNode.scrollIntoView({ behavior: 'instant' });
       }
     });
   }
