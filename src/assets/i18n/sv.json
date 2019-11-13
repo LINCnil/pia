@@ -283,251 +283,251 @@
 		"search": "Sök",
 		"slugs": {
 			"PIA_DEF_ACC": {
-				"description": "",
-				"name": "",
-				"source": ""
+				"description": "Den registrerade ska ha rätt att erhålla bekräftelse från den personuppgiftsansvarige att personuppgifter om honom / henne behandlas och få tillgång till sådana personuppgifter samt andra uppgifter som anges i<a target=\"_blank\" href=\"https://eur-lex.europa.eu/legal-content/SV/TXT/PDF/?uri=CELEX:32016R0679&rid=1\">artikel 15 i Dataskyddsförordningen (GDPR)</a>.",
+				"name": "Rätt till tillgång",
+				"source": "ADSF/GDPR Art. 15, Den registrerades rätt till tillgång "
 			},
 			"PIA_DEF_ANO": {
-				"description": "",
-				"name": "",
-				"source": ""
+				"description": "Syftet med en anonymiseringslösning är att ta bort den identifierande karaktären av personuppgifter. En anonymiseringslösning måste byggas från fall till fall och anpassas till avsedd användning. För att hjälpa till att utvärdera en bra anonymiseringslösning föreslår EDPB i <a target=\"_blank\" href=\"https://ec.europa.eu/justice/article-29/documentation/opinion-recommendation/files/2014/wp216_sv.pdf\">G29</a> tre kriterier:<br>- <strong>Särskiljbarhet: </strong>Är det  möjligt att särskilja en person?<br>- <strong>Länkbarhet: </strong>Är det möjligt att kombinera olika uppsättningar data om samma person?<br>- <strong>Inferens (Härledning):</strong> Kan information om en person härledas? <br>Således: <strong>Data för vilken det är omöjligt att särskilja, länka till eller Inferera/härleda till en fysisk person är att ses som anonym</strong> ;<br>Data för vilken <strong>åtminstone ett av de tre kriterierna inte uppfylls </strong>kan endast betraktas som anonym efter en detaljerad riskanalys gällande identifiering är utförd.",
+				"name": "Anonymisering",
+				"source": "https://ec.europa.eu/justice/article-29/documentation/opinion-recommendation/files/2014/wp216_sv.pdf"
 			},
 			"PIA_DEF_ARCH": {
-				"description": "",
-				"name": "",
-				"source": ""
+				"description": "Uppgifter som inte längre används dagligen men som ännu inte har nått sin maximala lagringsperiod, till exempel för att de bevaras i händelse av tvister, bör arkiveras.<br><br><strong>Arkiv måste vara säkra </strong>, särskilt om de arkiverade uppgifterna är känslig personlig information eller personlig information som kan ha allvarliga effekter på de registrerade.",
+				"name": "Arkivering",
+				"source": "Datainspektionen"
 			},
 			"PIA_DEF_AUTH": {
-				"description": "",
-				"name": "",
-				"source": ""
+				"description": "Autentisering är en <strong>metod genom vilken användaren styrker sin identitet</strong>, för det finns det flera mekanismer som kategoriseras enligt vilka tekniker de involverar:<br>- Vad man vet, till exempel ett lösenord;<br>- Vad man har, till exempel ett digitalt certifikat;<br>- En egenskap, till exempel ett fingeravtryck eller hur man skriver en handskriven signatur.<br>Dataskyddsförordningen förskriver ett förhandsgodkännande av Datainspektionen vid användning av biometri <br><strong>Autentiseringen av en användare beskrivs som stark när den använder en kombination av minst två av dessa kategorier.</strong>",
+				"name": "Autentisering",
+				"source": "Datainspektionen"
 			},
 			"PIA_DEF_CHIF": {
 				"description": "",
-				"name": "",
-				"source": ""
+				"name": "Kryptering",
+				"source": "https://www.cnil.fr/fr/comprendre-les-grands-principes-de-la-cryptologie-et-du-chiffrement"
 			},
 			"PIA_DEF_CLO": {
-				"description": "",
-				"name": "",
-				"source": ""
+				"description": "En uppsättning metoder för att minska möjligheten att korrelera eller härleda personuppgifter och orsaka brott dataskyddsförordningen.<br>Vi kan till exempel begränsa de specifika personuppgifterna till varje sektion/enhet, separera dem logiskt, etc.",
+				"name": "Segmentering av personuppgifter",
+				"source": "Källa saknas"
 			},
 			"PIA_DEF_CONS": {
-				"description": "",
-				"name": "",
-				"source": ""
+				"description": "varje slag av frivillig, specifik, informerad och otvetydig viljeyttring, genom vilken den registrerade, antingen genom ett uttalande eller genom en entydig bekräftande handling, godtar behandling av personuppgifter som rör honom eller henne",
+				"name": "Samtycke",
+				"source": "ADSF/GDPR Art. 4.11"
 			},
 			"PIA_DEF_CTLA": {
-				"description": "",
-				"name": "",
-				"source": ""
+				"description": "Det består i att begränsa riskerna för att obehöriga får tillgång till personuppgifter i digital form.<br>För att göra detta måste du:<br>- <strong>definiera behörighetsprofiler</strong> i system genom att separera uppgifter och ansvarsområden för att begränsa användarnas åtkomst till att vara endast data strikt nödvändigt för att fullgöra sina uppdrag. <br>- <strong>ta bort behörighet för användaråtkomst så snart de inte längre är berättigade till åtkomst till en lokal eller IT-resurs</strong>och<strong>i slutet av deras kontrakt.</strong> <br>- <strong> Genomföra en årlig granskning av rättigheterna</strong> för att identifiera och ta bort oanvända konton och omvärdera rättigheter som beviljas för varje användares funktioner.",
+				"name": "Logisk åtkomstkontroll",
+				"source": "Källa saknas, men ISO 27001 kan användas"
 			},
 			"PIA_DEF_DCP": {
-				"description": "",
-				"name": "",
-				"source": ""
+				"description": "varje upplysning som avser en identifierad eller identifierbar fysisk person (nedan kallad en registrerad), varvid en identifierbar fysisk person är en person som direkt eller indirekt kan identifieras särskilt med hänvisning till en identifierare som ett namn, ett identifikationsnummer, en lokaliseringsuppgift eller online-identi­fikatorer eller en eller flera faktorer som är specifika för den fysiska personens fysiska, fysiologiska, genetiska, psykiska, ekonomiska, kulturella eller sociala identitet",
+				"name": "Personuppgifter ",
+				"source": "ADSF/GDPR Art. 4.1"
 			},
 			"PIA_DEF_DEST": {
-				"description": "",
-				"name": "",
-				"source": ""
+				"description": "en fysisk eller juridisk person, offentlig myndighet, institution eller annat organ till vilket personupp­gifterna utlämnas, vare sig det är en tredje part eller inte; offentliga myndigheter som kan komma att motta personuppgifter inom ramen för ett särskilt uppdrag i enlighet med unionsrätten eller medlemsstaternas nationella rätt ska dock inte betraktas som mottagare; offentliga myndigheters behandling av dessa uppgifter ska vara förenlig med tillämpliga bestämmelser för dataskydd beroende på behandlingens syfte",
+				"name": "Mottagare",
+				"source": "ADSF/GDPR Art. 4.9"
 			},
 			"PIA_DEF_EFF": {
-				"description": "",
-				"name": "",
-				"source": ""
+				"description": "Den registrerade ska ha rätt att av den personuppgiftsansvarige utan onödigt dröjsmål få sina personuppgifter raderade och den personuppgiftsansvarige ska vara skyldig att utan onödigt dröjsmål radera personuppgifter om något av följande gäller: <a target=\"_blank\" href=\"https://eur-lex.europa.eu/legal-content/SV/TXT/PDF/?uri=CELEX:32016R0679&rid=1\">Art. 17 av [ADSF/GDPR]</a>",
+				"name": "Rätt till radering (”rätten att bli bortglömd”)",
+				"source": "ADSF/GDPR Art. 17"
 			},
 			"PIA_DEF_ENJ": {
-				"description": "",
-				"name": "",
-				"source": ""
+				"description": "Dessa är de motiv som leder till genomförandet av behandlingen, de förväntade fördelarna (för organisationen, för de berörda människorna, för samhället i allmänhet ...).",
+				"name": "Skäl för behandling",
+				"source": "<a target=\"_blank\" href=\"https://www.cnil.fr/en/PIA-privacy-impact-assessment-en\"/a>"
 			},
 			"PIA_DEF_EXA": {
-				"description": "",
-				"name": "",
-				"source": ""
+				"description": "Personuppgifter ska vara korrekta och om nödvändigt uppdaterade. Alla rimliga åtgärder måste vidtas för att säkerställa att personuppgifter som är felaktiga i förhållande till de ändamål för vilka de behandlas raderas eller rättas utan dröjsmål (korrekthet)",
+				"name": "Datakvalitet",
+				"source": "ADSF/GDPR Art. 5.1 d)"
 			},
 			"PIA_DEF_GRV": {
-				"description": "",
-				"name": "",
-				"source": ""
+				"description": "Allvarlighetsgraden är storleken på en risk. Det beror i huvudsak på den skadliga karaktären av de potentiella effekterna",
+				"name": "Allvarlighetsgrad",
+				"source": "<a target=\"_blank\" href=\"https://www.cnil.fr/en/PIA-privacy-impact-assessment-en\"/a>"
 			},
 			"PIA_DEF_LIM": {
-				"description": "",
-				"name": "",
-				"source": ""
+				"description": "Den registrerade ska ha rätt att av den personuppgiftsansvarige kräva att behandlingen begränsas om något av följande alternativ är tillämpligt: se <a target=\"_blank\" href=\"https://eur-lex.europa.eu/legal-content/SV/TXT/PDF/?uri=CELEX:32016R0679&rid=1\">Art. 18 av [ADSF/GDPR]</a>",
+				"name": "Rätt till begränsning av behandling",
+				"source": "ADSF/GDPR Art. 18"
 			},
 			"PIA_DEF_LOG": {
-				"description": "",
-				"name": "",
-				"source": ""
+				"description": "Enhet för loggning av behandlingar som utförs på datorsystemet för att <strong>identifiera bedräglig åtkomst</strong> eller <strong>missbruk</strong> av personuppgifter eller för att avgöra ursprunget till en incident. Några av de behandlingar som utförs på datorsystem bör registreras. För att göra detta måste ett logg- och incidenthanteringssystem införas. Den måste <strong>registrera relevanta händelser</strong> och <strong>se till att dessa poster inte kan ändras.</strong> I alla fall bör du inte <strong>förvara dessa loggar under en alltför lång tid.</strong>",
+				"name": "Loggning och spårbarhet",
+				"source": "Källa saknas / CNIL"
 			},
 			"PIA_DEF_MEN": {
-				"description": "",
-				"name": "",
-				"source": ""
+				"description": "En situation där en eller flera skeenden negativt kan påverka data i systemen eller dess stödsystem. Hotet kan genomföras med eller utan avsikt av riskkällor och kan orsaka en oönskad händelse.",
+				"name": "Hot",
+				"source": "Källa saknas"
 			},
 			"PIA_DEF_MENA": {
-				"description": "",
-				"name": "",
-				"source": ""
+				"description": "Hot mot: </strong><br>- <strong>Komponenter</strong>, felaktigt använda, observerade, modifierade eller förlorade (användning av ett lagringsmedia som innehåller känsliga uppgifter för personligt bruk eller för överföring på ett olämpligt sätt, visa en skärm, lägga till övervakningskomponenter osv.)<br>- <strong>Programvara</strong>, används olämpligt, observeras eller ändras (höjning av privilegier, insamling av konfigurationsdata, installation av fjärrskrivbord, etc.)<br>- <strong>Nätverk</strong> Övervakning av nät (avlyssning av nättrafik, etc.)<br>- <strong>Människor</strong>, avlyssnade, manipulerade eller illojala (ofrivilligt avslöjande, som ett resultat av påtryckningar eller genom nätfiske, byte av arbetsgivare, etc.)<br>- <strong>Pappersdokumentation</strong>, illegalt inhämtad eller förlorad (fotokopiering, glömd utskrift, dokument till återvinning, e-poststöld osv.)<br>- <strong>Postgång</strong> illegalt inhämtad information under postgången",
+				"name": "Hot som kan leda till olaglig tillgång till data",
+				"source": "Källa saknas"
 			},
 			"PIA_DEF_MENI": {
-				"description": "",
-				"name": "",
-				"source": ""
+				"description": "<strong>Hot: </strong><br>- <strong></strong> Utrustning: felaktigt använd, överbelastad, modifierad, försämrad, förlorad (fulla lagringsmedia, DOS-attack, förändring som leder till avbrott, brand, stöld eller förlust, etc.)<br>- <strong></strong> Programvara: felaktigt använd, överbelastad, förändrad, försämrad, förlorad (radering av data, datainmatning, logikfel, ej förnyad licens, etc.)<br>- <strong>Datornätverk</strong> : överbelastat, försämrat, förlorat (obehörig nedladdning, avbruten internetåtkomst, etc.)<br>- <strong>Människor</strong> : överbelastad, försämrad, förlorad (missbruk av kompetens, sjukfrånvaro, avslutad anställning, etc.)<br>- <strong>Pappersdokument</strong> : felaktigt använda, skadade, förlorade (radering, förstörelse, stöld eller förlust, etc.)<br>- <strong>Postgång</strong> : försämrad, ändrad, förlorad (poststrejk, byte av lokaler, förlust av dokument, omorganisation, etc.)",
+				"name": "Hot som kan leda till att data inte är tillgängliga",
+				"source": "Källa saknas"
 			},
 			"PIA_DEF_MENM": {
-				"description": "",
-				"name": "",
-				"source": ""
+				"description": "<strong>Hot mot: </strong><br>- <strong>Hårdvara</strong> hårdvara som har modifierats (nya icke kompatibla komponenter, avlägsnande av en väsentlig komponent, etc.)<br>- <strong>Programvara</strong> Felaktigt använd eller modifierad (hantering av störningar, olämpliga förändingar, etc.)<br>- <strong>Nätverk</strong> som används felaktigt (avlyssnat , etc.)<br>- <strong>Människor</strong> överarbetade eller manipulerade (okontrollerad arbetsuppgift, störning av arbetsförhållanden, inflytande, etc.)<br>-Pappersdokument som har ändrats (manipulering av dokument, utbyte till förfalskning osv.)<br>- <strong>Postgång</strong> som har manipulerats (utbyte av dokument, skicka motstridiga dokument, etc.)",
+				"name": "Hot som kan leda till en oönskad ändring av personuppgifterna",
+				"source": "Källa saknas"
 			},
 			"PIA_DEF_MES": {
-				"description": "",
-				"name": "",
-				"source": ""
+				"description": "Välj mellan de tillgängliga i avsnittet \"Befintliga eller planerade åtgärder\", som du kan utföra vid behov.",
+				"name": "Åtgärder",
+				"source": "Källa saknas"
 			},
 			"PIA_DEF_MIN1": {
-				"description": "",
-				"name": "",
-				"source": ""
+				"description": "När du importerar data kan olika typer av metadata (till exempel EXIF-data som är kopplade till en bildfil) oavsiktligt samlas in.<br>Dessa metadata måste identifieras och tas bort om det inte är nödvändigt för de angivna syftena.",
+				"name": "Filtrering och radering",
+				"source": "Källa saknas"
 			},
 			"PIA_DEF_MIN2": {
-				"description": "",
-				"name": "",
-				"source": ""
+				"description": "Efter inhämtning av känslig information, som bi-information till allmän information eller som överförts endast för statistiska ändamål, kan dessa konverteras till mindre känslig information eller pseudonymiseras. Till exempel:<br>- om systemet samlar in IP-adressen för att bestämma användarens plats för statistiska ändamål kan IP-adressen trunkeras efter informationen om stad eller stadsdel;<br>- Om systemet tar emot videodata från övervakningskameror där individer kan utskiljas så kan dessa göras suddiga;<br>- Om systemet är del av ett intelligent styrsystem i ett hem kan man välja att aggregera data i stället för att registrera den i realtid.",
+				"name": "Minimering genom förändring",
+				"source": "Källa saknas"
 			},
 			"PIA_DEF_MIN3": {
-				"description": "",
-				"name": "",
-				"source": ""
+				"description": "Systemet kan säkerställa att:<br>- Användaren kan använda en resurs eller tjänst utan risk för att avslöja sin identitet (anonymiserad data);<br>- Användaren kan använda en resurs eller tjänst utan att avslöja sin identitet, men förblir spårbar och ansvarig för denna användning (pseudonymiserad data);<br>- Användaren kan använda resurser eller tjänster upprepade gånger utan risk att dessa tillfällen kan kopplas samman (ingen ackumulerad data);<br>- Användaren kan använda en resurs eller tjänst utan risk för att andra, särskilt tredje parter, kan se att resursen eller tjänsten används (icke-observerbarhet).<br>Valet av en metod från listan ovan måste bero på de identifierade hoten. För vissa typer av integritetshot är pseudonymisering lämpligare än anonymisering (till exempel om det finns ett behov av spårbarhet). Dessutom kommer vissa integritetshot att hanteras genom en kombination av flera metoder.",
+				"name": "Minskning personuppgifternas särkaraktär",
+				"source": "Källa saknas"
 			},
 			"PIA_DEF_MIN4": {
-				"description": "",
-				"name": "",
-				"source": ""
+				"description": "Systemet kan struktureras i oberoende delar med separata åtkomstkontrollfunktioner. Uppgifterna kan också distribueras mellan dessa oberoende delsystem och kontrolleras av varje delsystem med hjälp av olika åtkomstkontrollmekanismer. Om ett delsystem äventyras kan därmed negativ påverkan på övergripande data reduceras.",
+				"name": "Minskning av dataackumulering",
+				"source": "Källa saknas"
 			},
 			"PIA_DEF_MIN5": {
-				"description": "",
-				"name": "",
-				"source": ""
+				"description": "Systemet kan begränsa tillgången till data enligt principen \"behov att veta\". Systemet kan separera känslig information och tillämpa specifika åtkomstkontrollpolicyer.<br>Systemet kan också kryptera känslig information för att skydda konfidentialiteten under överföring och lagring. Tillgång till temporära dolda filer som uppstår under databehandling bör också skyddas.",
+				"name": "Begränsning av åtkomst till data",
+				"source": "Källa saknas"
 			},
 			"PIA_DEF_MINC": {
-				"description": "",
-				"name": "",
-				"source": ""
+				"description": "Minska allvarligheten av riskerna genom att begränsa insamlingen av personuppgifter till det som är absolut nödvändigt för ett definierat syfte; undvika insamling av onödiga uppgifter, användning av data som inte är relaterade till syftet och som riskerar onödiga konsekvenser för individer.",
+				"name": "Minimera mängden av personuppgifter",
+				"source": "Källa saknas"
 			},
 			"PIA_DEF_MIND": {
-				"description": "",
-				"name": "",
-				"source": ""
+				"description": "Minska riskernas allvarlighetsgrad genom att minimera själva personuppgifterna, genom åtgärder för att minska deras känslighet, till exempel filtrering och borttagning av onödiga data, pseudonymisering av data etc.",
+				"name": "Minimering av personuppgifterna",
+				"source": "Källa saknas"
 			},
 			"PIA_DEF_OPP": {
-				"description": "",
-				"name": "",
-				"source": ""
+				"description": "Den registrerade ska, av skäl som hänför sig till hans eller hennes specifika situation, ha rätt att när som helst göra invändningar mot behandling av personuppgifter avseende honom eller henne i enlighet med<a target=\"_blank\" href=\"https://eur-lex.europa.eu/legal-content/SV/TXT/PDF/?uri=CELEX:32016R0679&rid=1\">artikel 21 i [ADSF/GDPR]</a>.",
+				"name": "Rätt att göra invändningar",
+				"source": "ADSF/GDPR Art. 21"
 			},
 			"PIA_DEF_PBDS": {
-				"description": "",
-				"name": "",
-				"source": ""
+				"description": "Åtgärder för att ta hänsyn till skyddet av personuppgifter redan i utformningen av ny behandling (certifiering, erkända uppförandekoder, PIA, Privacu by design eller en intern metod, etc.), inklusive: <br> - Använd riskhanteringsmetoden PIA/DPIA så snart en tjänst eller applikation har utvecklats. <br> - Etablera IT-certifieringar (för processer, produkter, ledningssystem, organisationer, personer, etc.). <br> - Använd beprövade och accepterade uppförandekoder och standarder.",
+				"name": "Projektledning",
+				"source": "Källa saknas"
 			},
 			"PIA_DEF_PC": {
-				"description": "",
-				"name": "",
-				"source": ""
+				"description": "Person vars personuppgifter behandlas.",
+				"name": "Den registrerade",
+				"source": "Källa saknas"
 			},
 			"PIA_DEF_PORT": {
-				"description": "",
-				"name": "",
-				"source": ""
+				"description": "Den registrerade ska ha rätt att få ut de personuppgifter som rör honom eller henne och som han eller hon har tillhandahållit den personuppgiftsansvarige i ett strukturerat, allmänt använt och maskinläsbart format och ha rätt att överföra dessa uppgifter till en annan personuppgiftsansvarig utan att den personuppgiftsansvarige som tillhandahållits personuppgifterna hindrar detta under de villkor som beskrivs i<a target=\"_blank\" href=\"https://eur-lex.europa.eu/legal-content/SV/TXT/PDF/?uri=CELEX:32016R0679&rid=1\">Artikel 20 i [ADSF/GDPR]</a>.",
+				"name": "Rätt till dataportabilitet",
+				"source": "ADSF/GDPR Art. 20"
 			},
 			"PIA_DEF_PSEU": {
-				"description": "",
-				"name": "",
-				"source": ""
+				"description": "Behandling av personuppgifter på ett sätt som innebär att personuppgifterna inte längre kan tillskrivas en specifik registrerad utan att kompletterande uppgifter används, under förutsättning att dessa kompletterande uppgifter förvaras separat och är föremål för tekniska och organisatoriska åtgärder som säkerställer att personuppgifterna inte tillskrivs en identifierad eller identifierbar fysisk person.<br>Pseudonymisering reducerar risken för att koppla en uppsättning data till den registrerades ursprungliga identitet; som sådan är <strong>en användbar säkerhetsåtgärd, men inte en metod för anonymisering.</strong>",
+				"name": "Pseudonymisering",
+				"source": "ADSF/GDPR Art. 4.5"
 			},
 			"PIA_DEF_PWD": {
-				"description": "",
-				"name": "",
-				"source": ""
+				"description": "Autentisering med hjälp av hemliga användarnamn och lösenord ett enkelt och billigt sätt att kontrollera åtkomst. Men denna autentiseringsmetod har en låg säkerhetsnivå. <br> Minimikrav vad gäller lösenordets längd och komplexitet beror på de ytterligare åtgärder som genomförs för att göra autentiseringsprocessen mer pålitlig: <br> Om autentisering enbart är baserat på ett lösenord, betyder detta åtminstone användning av ett komplext lösenord med minst 12 tecken som består av stora bokstäver, siffror och specialtecken. Ytterligare åtgärder för att ange ett lösenord (begränsningar av åtkomst, inkludering av annan information, kontakt med helpdesk för inloggning etc.) kan minska kravet på lösenordets längd och komplexitet då de säkerställer en säkerhetsnivå som motsvarar ett lösenord.",
+				"name": "Lösenord",
+				"source": "Källa saknas"
 			},
 			"PIA_DEF_RECT": {
-				"description": "",
-				"name": "",
-				"source": ""
+				"description": "Den registrerade ska ha rätt att av den personuppgiftsansvarige utan onödigt dröjsmål få felaktiga personuppgifter som rör honom eller henne rättade. <br>Med beaktande av ändamålet med behandlingen, ska den registrerade ha rätt att komplettera ofullständiga personuppgifter, bland annat genom att tillhandahålla ett kompletterande utlåtande.",
+				"name": "Rätt till rättelse",
+				"source": "ADSF/GDPR Art. 16"
 			},
 			"PIA_DEF_RGPD": {
-				"description": "",
-				"name": "",
-				"source": ""
+				"description": "Förordning om skydd för fysiska personer med avseende på behandling av personuppgifter och om det fria flödet av sådana uppgifter. (<a target=\"_blank\" href=\"https://eur-lex.europa.eu/legal-content/SV/TXT/PDF/?uri=CELEX:32016R0679&rid=1\">EU 2016-679</a>), antagen den 27 april 2016 av Europeiska unionen. Den träder i kraft den 25/05/2018 och upphäver direktiv 95/46 / EG.",
+				"name": "ADSF (allmän Dataskyddsförordning, GDPR)",
+				"source": "ADSF/GDPR titel"
 			},
 			"PIA_DEF_RT": {
-				"description": "",
-				"name": "",
-				"source": ""
+				"description": "En fysisk eller juridisk person, offentlig myndighet, institution eller annat organ som ensamt eller tillsammans med andra bestämmer ändamålen och medlen för behandlingen av personuppgifter; om ändamålen och medlen för behandlingen bestäms av  unionsrätten eller medlemsstaternas nationella rätt kan  den personuppgiftsansvarige  eller de särskilda kriterierna  för hur denne ska  utses  föreskrivas i unionsrätten eller i medlemsstaternas nationella rätt.<br>För mer information om personuppgiftsansvarigs skyldigheter, se <a target=\"_blank\" href=\"https://eur-lex.europa.eu/legal-content/SV/TXT/PDF/?uri=CELEX:32016R0679&rid=1\">kap. 4 av [ADSF/GDPR]</a>",
+				"name": "Personuppgiftsansvarig",
+				"source": "ADSF/GDPR Art. 4.7"
 			},
 			"PIA_DEF_SRC": {
-				"description": "",
-				"name": "",
-				"source": ""
+				"description": "Person, intern eller extern för organisationen, som agerar oavsiktligt eller avsiktligt (ex: IT-administratör, användare, extern angripare, konkurrent) eller icke-mänsklig källa (t.ex. vatten, farliga material, datavirus), kan vara en riskkälla.",
+				"name": "Riskkälla",
+				"source": "Källa saknas"
 			},
 			"PIA_DEF_ST": {
-				"description": "",
-				"name": "",
-				"source": ""
+				"description": "Personuppgiftsbiträde är en fysisk eller juridisk person, offentlig myndighet, institution eller annat organ som behandlar personuppgifter för den personuppgiftsansvariges räkning <a target=\"_blank\" href=\"https://eur-lex.europa.eu/legal-content/SV/TXT/?qid=1573479695804&uri=CELEX:32016R0679\">Artikel 4.8 i ADSF/GDPR</a>. <br>Personuppgiftsbiträdet och personer som utför arbete under den personuppgiftsansvariges eller personuppgiftsbiträdets överinseende, och som får tillgång till personuppgifter, får endast behandla dessa på instruktion från den personuppgift­ sansvarige, såvida han eller hon inte är skyldig att göra det enligt unionsrätten eller medlemsstaternas nationella rätt.\n <a target=\"_blank\" href=\"https://eur-lex.europa.eu/legal-content/SV/TXT/?qid=1573479695804&uri=CELEX:32016R0679\">Artikel 29 i ADSF/GDPR</a>.",
+				"name": "Personuppgiftsbiträde",
+				"source": "ADSF/GDPR Art. 4.8 och Art. 29"
 			},
 			"PIA_DEF_SUPT": {
-				"description": "",
-				"name": "",
-				"source": ""
+				"description": "<strong>Hårdvara och lagringsmedia</strong> : datorer, routrar, USB-minnen, hårddiskar...<br><strong></strong> Programvara: operativsystem, meddelandesystem, databaser, affärsprogram...<br><strong></strong> Nätverk: kablar, WiFi, fiberoptik<br><br><strong>Personer</strong> : användare, IT-administratörer, beslutsfattare...<br><strong></strong> Tryckt media: utskrifter, fotokopior, handskrivna dokument...<br><strong>Postgång</strong> : utskick, attesteringsdokument...",
+				"name": "Bearbetningsaktiviteter",
+				"source": "Källa saknas"
 			},
 			"PIA_DEF_VIOL": {
-				"description": "",
-				"name": "",
-				"source": ""
+				"description": "En säkerhetsincident som leder till oavsiktlig eller olaglig förstöring, förlust eller ändring eller till obehörigt röjande av eller obehörig åtkomst till de personuppgifter som överförts, lagrats eller på annat sätt behandlats",
+				"name": "Personuppgiftsincident",
+				"source": "ADSF/GDPR Art. 4.12"
 			},
 			"PIA_DEF_VRA": {
-				"description": "",
-				"name": "",
-				"source": ""
+				"description": "Sannolikheten återspeglar möjligheten att en risk uppstår. Det beror främst på sårbarheten för de dataresurser som används i termer av hot och riskkällor.",
+				"name": "Sannolikhet",
+				"source": "Källa saknas"
 			},
 			"PIA_EX_DC": {
-				"description": "",
-				"name": ""
+				"description": "Data från ett Scoringsystem, resultat från tillämpning av scoringpoäng ...",
+				"name": "Scoring"
 			},
 			"PIA_EX_DCPC": {
-				"description": "",
-				"name": "",
-				"source": ""
+				"description": "<strong>Personuppgifter</strong> : civilstånd, ålder, nationalitet, dubbelt medborgarskap, postadress, rättslig förmåga ... <br><strong>Privatliv</strong> : partner, antal barn, bostadsort, typ av bostad, boendetid ... <br><strong>Yrkesliv</strong> : arbetsgivare, typ av anställning, anställningstid, arbetslöshet ... <br><strong>Anslutningsdata</strong> : IP-adress, händelseloggar ...<br><strong>Positionsdata</strong> : förflyttningar, GPS-data, GSM positionering. ..<br><strong>Annat</strong> : telefonnummer, e-postadress ...",
+				"name": "Normala personuppgifter",
+				"source": "Källa saknas"
 			},
 			"PIA_EX_DCPR": {
-				"description": "",
-				"name": ""
+				"description": "Ras eller etniskt ursprung, politiska åsikter, religiös eller filosofisk övertygelse eller medlemskap i fackförening och behandling av genetiska uppgifter, biometriska uppgifter för att entydigt identifiera en fysisk person, uppgifter om hälsa eller uppgifter om en fysisk persons sexualliv eller sexuella läggning samt behandling av personuppgifter som rör fällande domar i brottmål och överträdelser eller därmed sammanhängande säkerhetsåtgärder<br>Se <a target=\"_blank\" href=\"https://eur-lex.europa.eu/legal-content/SV/TXT/?qid=1573479695804&uri=CELEX:32016R0679\">Art. 9</a> <br> och <a target=\"_blank\" href=\"https://eur-lex.europa.eu/legal-content/SV/TXT/?qid=1573479695804&uri=CELEX:32016R0679\">Art.10</a> av [ADSF/GDPR]",
+				"name": "Brottshistorik och särskilda kategorier av personuppgifter"
 			},
 			"PIA_EX_DCPS": {
-				"description": "",
-				"name": ""
+				"description": "Personnummer, biometriska uppgifter, bankuppgifter ...",
+				"name": "Särskilda kategorier av personuppgifter"
 			},
 			"PIA_EX_HUME": {
-				"description": "",
-				"name": ""
+				"description": "Detta kan vara: <br> - en skadlig eller okunnig tredje part som använder sin fysiska närhet för att illegalt få åtkomst till tjänsten.<br> - en angripare, som med specifik kunskap om personen, riktar sig mot en enskild användare för att ta sig in i systemet <br > - en angripare som attackerar ett personuppgiftsbiträde för att få tag på personuppgifter eller skada den personuppgiftsansvariges rykte. <br> - en tredje part som har behörig tillgång, men använder den för andra syften t.ex. utnyttjar information de inte har behörighet till. <br> Motiven kan vara olika: <br> spänning, irritation, ondska, hämnd, spionage, girighet eller att utnyttja personuppgifter för annat syfte.",
+				"name": "Extern mänsklig riskkälla"
 			},
 			"PIA_EX_HUMI": {
-				"description": "",
-				"name": ""
+				"description": "Det kan vara: <br> - en illvillig eller försumlig anställd som använder sin åtkomst till systemet, använder sina kunskaper, systemrättigheter och tid eller helt enkelt är försumlig på grund av bristande utbildning och förståelse <br>- en illvillig eller försumlig användare eller någon i dennes omgivning som får tillgång till personuppgifterna. <br> Skälen kan variera: oskicklighet, misstag, försumlighet, hämnd, illvilja, girighet, spionage.",
+				"name": "Intern mänsklig riskkälla"
 			},
 			"PIA_EX_IMPI": {
-				"description": "",
-				"name": ""
+				"description": "De registrerade kan få betydande konsekvenser som de bör kunna övervinna, om än med verkliga och allvarliga svårigheter. Till exempel: <br> - fysisk: allvarliga fysiska sjukdomar som orsakar långvarig skada (försämring av hälsan på grund av felaktig vård, eller att man bortsett från kontraindikationer), förlust av fysisk integritet till exempel efter ett övergrepp, en olycka hemma, arbete, etc. . <br> - materiella: felanvändning av pengar som inte kompenseras, missade riktade eller unika erbjudanden eller engångserbjudanden, förlorade möjligheter (bostadslån, förlorad studieplats, missad praktik eller anställning, missat examenstillfälle), bostadsförlust, förlust av anställning osv .; <br> - psykiska: allvarliga psykologiska problem (depression, fobiutveckling), känsla av kränkt privatliv med oåterkallelig skada, utsatt för utpressning, cybermobbning och trakasserier, etc.",
+				"name": "Allvarlig konsekvens"
 			},
 			"PIA_EX_IMPL": {
-				"description": "",
-				"name": ""
+				"description": "De registrerade kan uppleva betydande besvär, som de kommer att kunna övervinna trots vissa svårigheter<br>Exempel på effekter:<br>- fysiskt: mindre fysiska besvär (t.ex.: mild sjukdom efter att inte kontraindikationer respekterats), förtal som orsakar fysiska repressalier etc.<br>- materiella: felaktiga betalningar (t.ex. felaktiga böter), nekande av tillgång till administrativa eller kommersiella tjänster, riktad online-annonsering som kränker personens privatliv , etc.<br>- psykiska: mindre men uppenbara psykologiska obehag, känsla av kränkt integritet utan irreparabel skada, hot mot sociala nätverk, etc.",
+				"name": "Begränsad konsekvens"
 			},
 			"PIA_EX_IMPM": {
-				"description": "",
-				"name": ""
+				"description": "Den registrerade kan uppleva betydande, till och med oåterkalleliga, konsekvenser som de inte kan hantera<br>Exempel på påverkan:<br>- fysiska: långvarigt eller permanent fysisk skada, permanent försämring av fysisk integritet, död<br>- materiella: ekonomisk risk, oöverkomliga skulder, oförmåga att flytta, förlust av bevis i tvister, förlust av tillgång till vital infrastruktur (vatten, el), etc.<br>- psykiska: långvarigt eller permanent psykiskt lidande, straffrättslig påföljd, kidnappning, förlust av familjeband, hinder att gå till domstol, ändring av civilstatus och / eller förlust av laglig autonomi (vårdnad, omyndigförklarad) etc.",
+				"name": "Maximal påverkan"
 			},
 			"PIA_EX_IMPN": {
 				"description": "",
@@ -1394,9 +1394,9 @@
 		"signed_attachments_history": "",
 		"tools": {
 			"dashboard": "",
-			"display_pia": ""
+			"display_pia": "Visa rapport"
 		},
-		"validated_pia_with_signature": "",
-		"waiting_for_signature": ""
+		"validated_pia_with_signature": "Godkänd",
+		"waiting_for_signature": "Väntar på att PIA-rapporten har undertecknats"
 	}
 }
