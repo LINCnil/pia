@@ -83,7 +83,7 @@
             a {
               width: 81%;
               border-radius: 4px;
-              &:focus, &:hover, &:active, &.active {
+              &:hover, &.active {
                 color: #fff !important;
               }
             }
@@ -99,7 +99,7 @@
                   max-width: 164px;
                 }
                 a {
-                  &:focus, &:hover, &:active, &.active {
+                  &:hover,, &.active {
                     background-color: $pia-green;
                   }
                 }
@@ -114,7 +114,7 @@
                   max-width: 62px;
                 }
                 a {
-                  &:focus, &:hover, &:active, &.active {
+                  &:hover, &.active {
                     background-color: $pia-blue;
                   }
                 }
@@ -129,7 +129,7 @@
                   max-width: 182px;
                 }
                 a {
-                  &:focus, &:hover, &:active, &.active {
+                  &:hover, &.active {
                     background-color: $pia-red;
                   }
                 }
@@ -145,7 +145,7 @@
                   display: none;
                 }
                 a {
-                  &:focus, &:hover, &:active, &.active {
+                  &:hover, &.active {
                     background-color: $pia-dark-black;
                   }
                 }
